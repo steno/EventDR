@@ -90,16 +90,6 @@ export function Home({ locale, dict }: HomeProps) {
             <>
               <InstallBanner dict={dict} />
               <Hero dict={dict} />
-              <VenueStrip locale={locale} dict={dict} />
-              <div className="mb-6">
-                <PushNotifyButton
-                  dict={dict}
-                  supported={push.supported}
-                  subscribed={push.subscribed}
-                  loading={push.loading}
-                  onSubscribe={handlePushSubscribe}
-                />
-              </div>
               <div className="mb-8">
                 <CategoryGrid locale={locale} dict={dict} />
               </div>
@@ -113,6 +103,18 @@ export function Home({ locale, dict }: HomeProps) {
                 userLat={sortLat}
                 userLng={sortLng}
               />
+              <div className="mt-10">
+                <VenueStrip locale={locale} dict={dict} />
+              </div>
+              <div className="mt-6 mb-2">
+                <PushNotifyButton
+                  dict={dict}
+                  supported={push.supported}
+                  subscribed={push.subscribed}
+                  loading={push.loading}
+                  onSubscribe={handlePushSubscribe}
+                />
+              </div>
             </>
           )}
 
