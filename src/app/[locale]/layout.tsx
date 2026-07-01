@@ -26,6 +26,7 @@ export async function generateMetadata({
 }) {
   const { locale } = await params;
   return {
+    metadataBase: new URL("https://popevent.netlify.app"),
     manifest: "/manifest.webmanifest",
     appleWebApp: {
       capable: true,
