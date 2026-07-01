@@ -11,6 +11,7 @@ import { TimeFilter } from "@/components/TimeFilter";
 import { EventCard } from "@/components/EventCard";
 import { VenueStrip } from "@/components/VenueStrip";
 import { AddEventButton } from "@/components/AddEventButton";
+import { SiteFooter } from "@/components/SiteFooter";
 import { useGeolocation } from "@/hooks/useGeolocation";
 import { NORTH_COAST_CENTER, sortByDistance } from "@/lib/geo";
 
@@ -92,7 +93,10 @@ export function FilteredEventList({
       </div>
 
       {onAddEvent && (
-        <AddEventButton dict={dict} onClick={onAddEvent} label={addEventLabel} />
+        <>
+          <AddEventButton dict={dict} onClick={onAddEvent} label={addEventLabel} />
+          <SiteFooter dict={dict} className="mt-4" />
+        </>
       )}
     </>
   );

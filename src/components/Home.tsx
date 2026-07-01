@@ -14,6 +14,7 @@ import { PwaRegister } from "@/components/PwaRegister";
 import { EventCard } from "@/components/EventCard";
 import { VenueStrip } from "@/components/VenueStrip";
 import { PushNotifyButton } from "@/components/PushNotifyButton";
+import { SiteFooter } from "@/components/SiteFooter";
 import { useSavedEvents } from "@/hooks/useSavedEvents";
 import { useGeolocation } from "@/hooks/useGeolocation";
 import { usePushNotifications } from "@/hooks/usePushNotifications";
@@ -172,22 +173,7 @@ export function Home({ locale, dict }: HomeProps) {
           )}
         </div>
 
-        <footer className="border-t border-neutral-100 bg-white py-6 text-center mb-16">
-          <p className="text-xs text-neutral-400 font-medium">
-            {dict.footer.tagline}
-          </p>
-          <p className="text-xs text-neutral-300 mt-1">
-            {dict.footer.builtWith}{" "}
-            <a
-              href="https://www.asemota.de"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-neutral-400 hover:text-neutral-600 transition-colors font-medium"
-            >
-              asemota
-            </a>
-          </p>
-        </footer>
+        <SiteFooter dict={dict} className="mb-16" />
       </main>
 
       <BottomNav
