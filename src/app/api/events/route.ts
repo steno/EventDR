@@ -10,7 +10,7 @@ import {
 } from "@/lib/cache";
 import { getFallbackEvents, getFallbackForCategory } from "@/lib/fallback-events";
 import { getCommunityEvents } from "@/lib/community-store";
-import { fetchApprovedEvents } from "@/lib/supabase/events";
+import { fetchApprovedEvents } from "@/lib/firebase/events";
 import { attachCoords, sortByDistance } from "@/lib/geo";
 import { isValidLocale } from "@/i18n/config";
 import type { Locale } from "@/i18n/config";

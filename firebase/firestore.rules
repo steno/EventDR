@@ -1,0 +1,20 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Public read for approved events and venues.
+    // All writes go through Firebase Admin SDK in API routes (bypasses rules).
+    match /venues/{slug} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    match /events/{id} {
+      allow read: if resource.data.status == 'approved';
+      allow write: if false;
+    }
+
+    match /pushSubscriptions/{id} {
+      allow read, write: if false;
+    }
+  }
+}

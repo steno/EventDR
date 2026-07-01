@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { ingestSocialEvents } from "@/lib/ingest-social";
-import { insertIngestedEvents, isSupabaseConfigured } from "@/lib/supabase/events";
+import { insertIngestedEvents, isFirebaseConfigured } from "@/lib/firebase/events";
 import { isValidLocale } from "@/i18n/config";
 import type { Locale } from "@/i18n/config";
 
@@ -20,8 +20,8 @@ export async function POST(request: NextRequest) {
   if (!checkCronSecret(request)) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
-  if (!isSupabaseConfigured()) {
-    return NextResponse.json({ error: "Supabase not configured" }, { status: 503 });
+  if (!isFirebaseConfigured()) {
+    return NextResponse.json({ error: "Firebase not configured" }, { status: 503 });
   }
 
   const localeParam = request.nextUrl.searchParams.get("locale") ?? "en";

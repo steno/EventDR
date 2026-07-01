@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { countWeekendEvents } from "@/lib/supabase/events";
+import { countWeekendEvents } from "@/lib/firebase/events";
 import { sendWeekendDigest, isPushConfigured } from "@/lib/push";
 
 export const dynamic = "force-dynamic";

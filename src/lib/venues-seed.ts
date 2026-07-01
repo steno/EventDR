@@ -1,6 +1,6 @@
 import type { Venue } from "@/lib/types";
 
-/** Fallback venues when Supabase is not configured. */
+/** Fallback venues when Firebase is not configured. */
 export const SEED_VENUES: Venue[] = [
   {
     slug: "lax-cabarete",

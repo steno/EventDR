@@ -1,6 +1,6 @@
 import { createCommunityEvent, isValidSubmitPayload } from "@/lib/community-store";
-import { insertPendingEvent } from "@/lib/supabase/events";
-import { isSupabaseConfigured } from "@/lib/supabase/client";
+import { insertPendingEvent } from "@/lib/firebase/events";
+import { isFirebaseConfigured } from "@/lib/firebase/admin";
 import { addToPool } from "@/lib/cache";
 import { matchVenueSlug } from "@/lib/venues-seed";
 import { SEED_VENUES } from "@/lib/venues-seed";
@@ -45,7 +45,7 @@ export async function POST(request: NextRequest) {
       };
     }
 
-    if (isSupabaseConfigured()) {
+    if (isFirebaseConfigured()) {
       const saved = await insertPendingEvent(event, "community");
       if (!saved) {
         return NextResponse.json({ error: dict.submit.error }, { status: 500 });

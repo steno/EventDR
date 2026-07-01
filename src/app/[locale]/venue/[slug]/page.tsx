@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { VenuePage } from "@/components/VenuePage";
-import { fetchVenueBySlug } from "@/lib/supabase/events";
+import { fetchVenueBySlug } from "@/lib/firebase/events";
 import { getSeedVenue } from "@/lib/venues-seed";
 import { isValidLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";

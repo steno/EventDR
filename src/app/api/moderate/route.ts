@@ -2,8 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import {
   fetchPendingEvents,
   moderateEvent,
-  isSupabaseConfigured,
-} from "@/lib/supabase/events";
+  isFirebaseConfigured,
+} from "@/lib/firebase/events";
 
 export const dynamic = "force-dynamic";
 
@@ -20,8 +20,8 @@ export async function GET(request: NextRequest) {
   if (!checkSecret(request)) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
-  if (!isSupabaseConfigured()) {
-    return NextResponse.json({ error: "Supabase not configured" }, { status: 503 });
+  if (!isFirebaseConfigured()) {
+    return NextResponse.json({ error: "Firebase not configured" }, { status: 503 });
   }
   const events = await fetchPendingEvents();
   return NextResponse.json({ events, count: events.length });
@@ -31,8 +31,8 @@ export async function POST(request: NextRequest) {
   if (!checkSecret(request)) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
-  if (!isSupabaseConfigured()) {
-    return NextResponse.json({ error: "Supabase not configured" }, { status: 503 });
+  if (!isFirebaseConfigured()) {
+    return NextResponse.json({ error: "Firebase not configured" }, { status: 503 });
   }
 
   const body = (await request.json()) as { id?: string; action?: "approve" | "reject" };

@@ -1,5 +1,5 @@
 import webpush from "web-push";
-import { getSupabaseAdmin } from "./supabase/client";
+import { getFirestoreDb, isFirebaseConfigured, subscriptionDocId } from "./firebase/admin";
 
 export function isPushConfigured(): boolean {
   return Boolean(
@@ -31,33 +31,42 @@ export async function saveSubscription(sub: {
   lat?: number;
   lng?: number;
 }): Promise<boolean> {
-  const db = getSupabaseAdmin();
+  if (!isFirebaseConfigured()) return false;
+  const db = getFirestoreDb();
   if (!db) return false;
 
-  const { error } = await db.from("push_subscriptions").upsert({
-    endpoint: sub.endpoint,
-    p256dh: sub.p256dh,
-    auth: sub.auth,
-    locale: sub.locale ?? "en",
-    lat: sub.lat ?? null,
-    lng: sub.lng ?? null,
-  });
-
-  return !error;
+  try {
+    await db
+      .collection("pushSubscriptions")
+      .doc(subscriptionDocId(sub.endpoint))
+      .set({
+        endpoint: sub.endpoint,
+        p256dh: sub.p256dh,
+        auth: sub.auth,
+        locale: sub.locale ?? "en",
+        lat: sub.lat ?? null,
+        lng: sub.lng ?? null,
+      });
+    return true;
+  } catch (err) {
+    console.error("saveSubscription:", err);
+    return false;
+  }
 }
 
 export async function sendWeekendDigest(count: number): Promise<number> {
   if (!configureWebPush()) return 0;
 
-  const db = getSupabaseAdmin();
+  const db = getFirestoreDb();
   if (!db) return 0;
 
-  const { data, error } = await db.from("push_subscriptions").select("*");
-  if (error || !data?.length) return 0;
+  const snap = await db.collection("pushSubscriptions").get();
+  if (snap.empty) return 0;
 
   let sent = 0;
-  for (const sub of data) {
-    const locale = sub.locale ?? "en";
+  for (const doc of snap.docs) {
+    const sub = doc.data();
+    const locale = (sub.locale as string | undefined) ?? "en";
     const title =
       locale === "es"
         ? `${count} eventos nuevos este fin de semana`
@@ -74,8 +83,11 @@ export async function sendWeekendDigest(count: number): Promise<number> {
     try {
       await webpush.sendNotification(
         {
-          endpoint: sub.endpoint,
-          keys: { p256dh: sub.p256dh, auth: sub.auth },
+          endpoint: sub.endpoint as string,
+          keys: {
+            p256dh: sub.p256dh as string,
+            auth: sub.auth as string,
+          },
         },
         JSON.stringify({
           title,
