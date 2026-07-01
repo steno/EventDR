@@ -9,6 +9,7 @@ import { filterByTimeRange } from "@/lib/filters";
 import { materializeEventDates } from "@/lib/event-dates";
 import { TimeFilter } from "@/components/TimeFilter";
 import { EventCard } from "@/components/EventCard";
+import { VenueStrip } from "@/components/VenueStrip";
 import { useGeolocation } from "@/hooks/useGeolocation";
 import { NORTH_COAST_CENTER, sortByDistance } from "@/lib/geo";
 
@@ -80,6 +81,10 @@ export function FilteredEventList({
           ))}
         </div>
       )}
+
+      <div className="mt-10">
+        <VenueStrip locale={locale} dict={dict} />
+      </div>
     </>
   );
 }

@@ -1,21 +1,57 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Share, X } from "lucide-react";
+import { Plus, Share, X } from "lucide-react";
 import type { Dictionary } from "@/i18n/dictionaries";
-import { detectInAppBrowser, usePwaInstall } from "@/hooks/usePwaInstall";
+import {
+  detectInAppBrowser,
+  detectIOSSafari,
+  usePwaInstall,
+} from "@/hooks/usePwaInstall";
 
 interface IosInstallHintProps {
   dict: Dictionary;
 }
 
+function SafariToolbarHint({ dict }: { dict: Dictionary }) {
+  return (
+    <div className="my-4 rounded-xl border border-neutral-200 bg-neutral-50 p-3">
+      <p className="text-[10px] font-bold uppercase tracking-wider text-neutral-400 mb-3 text-center">
+        {dict.install.iosToolbarLabel}
+      </p>
+      <div className="flex items-end justify-around px-2 pb-1 text-neutral-300">
+        <span className="text-lg" aria-hidden>
+          ‹
+        </span>
+        <span className="text-lg" aria-hidden>
+          ›
+        </span>
+        <div className="flex flex-col items-center gap-1 rounded-lg ring-2 ring-orange-400 ring-offset-2 bg-white px-3 py-2 text-blue-500 shadow-sm">
+          <Share className="h-5 w-5" strokeWidth={2.5} />
+          <span className="text-[9px] font-bold text-neutral-700">
+            {dict.install.iosShareLabel}
+          </span>
+        </div>
+        <span className="text-lg" aria-hidden>
+          📖
+        </span>
+        <span className="text-lg" aria-hidden>
+          ⊞
+        </span>
+      </div>
+    </div>
+  );
+}
+
 function InstallGuideSheet({
   dict,
   inAppBrowser,
+  needsSafari,
   onClose,
 }: {
   dict: Dictionary;
   inAppBrowser: boolean;
+  needsSafari: boolean;
   onClose: () => void;
 }) {
   useEffect(() => {
@@ -38,12 +74,12 @@ function InstallGuideSheet({
       role="presentation"
     >
       <div
-        className="w-full max-w-sm rounded-2xl bg-white p-5 shadow-xl"
+        className="w-full max-w-sm rounded-2xl bg-white p-5 shadow-xl max-h-[90vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
         role="dialog"
         aria-labelledby="install-guide-title"
       >
-        <div className="flex items-start justify-between gap-3 mb-4">
+        <div className="flex items-start justify-between gap-3 mb-2">
           <h2 id="install-guide-title" className="text-lg font-black text-neutral-900">
             {dict.install.iosGuideTitle}
           </h2>
@@ -57,11 +93,23 @@ function InstallGuideSheet({
           </button>
         </div>
 
+        <p className="text-sm text-neutral-500 mb-3 leading-relaxed">
+          {dict.install.iosGuideIntro}
+        </p>
+
         {inAppBrowser && (
           <p className="mb-4 rounded-xl bg-amber-50 border border-amber-200 px-3 py-2.5 text-xs font-medium text-amber-950 leading-snug">
             {dict.install.iosOpenSafari}
           </p>
         )}
+
+        {!inAppBrowser && needsSafari && (
+          <p className="mb-4 rounded-xl bg-amber-50 border border-amber-200 px-3 py-2.5 text-xs font-medium text-amber-950 leading-snug">
+            {dict.install.iosNotSafari}
+          </p>
+        )}
+
+        {!needsSafari && !inAppBrowser && <SafariToolbarHint dict={dict} />}
 
         <ol className="space-y-3">
           {steps.map((step, i) => (
@@ -69,7 +117,16 @@ function InstallGuideSheet({
               <span className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-orange-100 text-xs font-bold text-orange-700">
                 {i + 1}
               </span>
-              <span>{step}</span>
+              <span className="flex-1">
+                {i === 1 ? (
+                  <span className="inline-flex items-center gap-1.5 flex-wrap">
+                    {step}
+                    <Plus className="inline h-3.5 w-3.5 text-orange-500" aria-hidden />
+                  </span>
+                ) : (
+                  step
+                )}
+              </span>
             </li>
           ))}
         </ol>
@@ -90,31 +147,13 @@ export function IosInstallHint({ dict }: IosInstallHintProps) {
   const { canShowInstall, isIOS } = usePwaInstall();
   const [guideOpen, setGuideOpen] = useState(false);
   const [inAppBrowser, setInAppBrowser] = useState(false);
+  const [needsSafari, setNeedsSafari] = useState(false);
 
   if (!canShowInstall || !isIOS) return null;
 
-  async function handleTap() {
-    const inApp = detectInAppBrowser();
-    setInAppBrowser(inApp);
-
-    if (inApp) {
-      setGuideOpen(true);
-      return;
-    }
-
-    if (typeof navigator.share === "function") {
-      try {
-        await navigator.share({
-          title: dict.install.title,
-          text: dict.install.subtitle,
-          url: window.location.href,
-        });
-        return;
-      } catch (err) {
-        if (err instanceof Error && err.name === "AbortError") return;
-      }
-    }
-
+  function handleTap() {
+    setInAppBrowser(detectInAppBrowser());
+    setNeedsSafari(!detectIOSSafari());
     setGuideOpen(true);
   }
 
@@ -141,6 +180,7 @@ export function IosInstallHint({ dict }: IosInstallHintProps) {
         <InstallGuideSheet
           dict={dict}
           inAppBrowser={inAppBrowser}
+          needsSafari={needsSafari}
           onClose={() => setGuideOpen(false)}
         />
       )}
