@@ -94,6 +94,10 @@ export type Dictionary = {
     pendingSuccess: string;
     error: string;
     optional: string;
+    validationTitle: string;
+    validationDescription: string;
+    validationDate: string;
+    validationLocation: string;
   };
   saved: {
     title: string;
@@ -252,6 +256,10 @@ export const en: Dictionary = {
     pendingSuccess: "Submitted for review — we'll publish it once approved.",
     error: "Something went wrong. Try again.",
     optional: "optional",
+    validationTitle: "Event name needs at least 3 characters.",
+    validationDescription: "Description needs at least 10 characters — say what's happening.",
+    validationDate: "Please pick a valid date.",
+    validationLocation: "Location needs at least 2 characters (city or area).",
   },
   saved: {
     title: "Saved events",

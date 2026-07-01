@@ -6,6 +6,7 @@ import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import type { Event, EventCategory, EventFormat } from "@/lib/types";
 import { CATEGORY_IDS } from "@/lib/categories";
+import { getSubmitValidationError } from "@/lib/community-store";
 
 interface SubmitEventSheetProps {
   open: boolean;
@@ -34,6 +35,7 @@ export function SubmitEventSheet({
   const [success, setSuccess] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
   const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   if (!open) return null;
 
@@ -41,21 +43,41 @@ export function SubmitEventSheet({
     e.preventDefault();
     setLoading(true);
     setError(false);
+    setErrorMessage("");
+
+    const payload = {
+      title,
+      description,
+      date,
+      time: time || undefined,
+      location,
+      venue: venue || undefined,
+      category,
+      format,
+    };
+
+    const validationError = getSubmitValidationError(payload);
+    if (validationError) {
+      const messages: Record<string, string> = {
+        title: dict.submit.validationTitle,
+        description: dict.submit.validationDescription,
+        date: dict.submit.validationDate,
+        location: dict.submit.validationLocation,
+        category: dict.submit.error,
+        format: dict.submit.error,
+        invalid: dict.submit.error,
+      };
+      setErrorMessage(messages[validationError] ?? dict.submit.error);
+      setError(true);
+      setLoading(false);
+      return;
+    }
 
     try {
       const res = await fetch(`/api/submit?locale=${locale}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          title,
-          description,
-          date,
-          time: time || undefined,
-          location,
-          venue: venue || undefined,
-          category,
-          format,
-        }),
+        body: JSON.stringify(payload),
       });
 
       const data = (await res.json()) as {
@@ -63,8 +85,10 @@ export function SubmitEventSheet({
         event?: Event;
         pending?: boolean;
         message?: string;
+        error?: string;
       };
       if (!res.ok || !data.success || !data.event) {
+        setErrorMessage(data.error ?? dict.submit.error);
         setError(true);
         return;
       }
@@ -144,6 +168,7 @@ export function SubmitEventSheet({
               <textarea
                 required
                 rows={3}
+                minLength={10}
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 className={`${inputClass} mt-1.5 resize-none`}
@@ -234,7 +259,9 @@ export function SubmitEventSheet({
             </div>
 
             {error && (
-              <p className="text-sm text-red-500 font-medium">{dict.submit.error}</p>
+              <p className="text-sm text-red-500 font-medium">
+                {errorMessage || dict.submit.error}
+              </p>
             )}
 
             <button

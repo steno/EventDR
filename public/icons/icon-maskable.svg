@@ -6,6 +6,14 @@
       <stop offset="100%" style="stop-color:#ec4899"/>
     </linearGradient>
   </defs>
-  <rect width="512" height="512" rx="112" fill="url(#g)"/>
-  <text x="256" y="290" font-size="180" text-anchor="middle" fill="white">=Å</text>
+  <rect width="512" height="512" fill="url(#g)"/>
+  <text
+    x="256"
+    y="290"
+    font-family="system-ui, -apple-system, sans-serif"
+    font-size="88"
+    font-weight="800"
+    text-anchor="middle"
+    fill="white"
+  >POP</text>
 </svg>

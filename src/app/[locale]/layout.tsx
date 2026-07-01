@@ -34,7 +34,11 @@ export async function generateMetadata({
       title: "POP Events",
     },
     icons: {
-      apple: "/icons/icon.svg",
+      icon: [
+        { url: "/icons/icon-192.png", sizes: "192x192", type: "image/png" },
+        { url: "/icons/icon-512.png", sizes: "512x512", type: "image/png" },
+      ],
+      apple: "/icons/icon-192.png",
     },
     other: {
       "mobile-web-app-capable": "yes",
@@ -62,7 +66,7 @@ export default async function LocaleLayout({
         <meta name="theme-color" content="#171717" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <link rel="apple-touch-icon" href="/icons/icon.svg" />
+        <link rel="apple-touch-icon" href="/icons/icon-192.png" />
       </head>
       <body className="min-h-full flex flex-col font-sans antialiased bg-neutral-50 text-neutral-900">
         {children}

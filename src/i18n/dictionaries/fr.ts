@@ -108,6 +108,10 @@ export const fr: Dictionary = {
     pendingSuccess: "Soumis pour validation — publication après approbation.",
     error: "Une erreur s'est produite. Réessayez.",
     optional: "facultatif",
+    validationTitle: "Le nom doit contenir au moins 3 caractères.",
+    validationDescription: "La description doit contenir au moins 10 caractères.",
+    validationDate: "Veuillez choisir une date valide.",
+    validationLocation: "Le lieu doit contenir au moins 2 caractères.",
   },
   saved: {
     title: "Événements enregistrés",

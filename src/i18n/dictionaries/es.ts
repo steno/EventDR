@@ -108,6 +108,10 @@ export const es: Dictionary = {
     pendingSuccess: "Enviado para revisión — lo publicaremos cuando sea aprobado.",
     error: "Algo salió mal. Intenta de nuevo.",
     optional: "opcional",
+    validationTitle: "El nombre debe tener al menos 3 caracteres.",
+    validationDescription: "La descripción debe tener al menos 10 caracteres.",
+    validationDate: "Elige una fecha válida.",
+    validationLocation: "La ubicación debe tener al menos 2 caracteres.",
   },
   saved: {
     title: "Eventos guardados",

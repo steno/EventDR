@@ -1,4 +1,4 @@
-import { createCommunityEvent, isValidSubmitPayload } from "@/lib/community-store";
+import { createCommunityEvent, getSubmitValidationError } from "@/lib/community-store";
 import { insertPendingEvent } from "@/lib/firebase/events";
 import { isFirebaseConfigured } from "@/lib/firebase/admin";
 import { addToPool } from "@/lib/cache";
@@ -19,8 +19,21 @@ export async function POST(request: NextRequest) {
     const locale: Locale = isValidLocale(localeParam) ? localeParam : defaultLocale;
     const dict = getDictionary(locale);
 
-    if (!isValidSubmitPayload(body)) {
-      return NextResponse.json({ error: dict.submit.error }, { status: 400 });
+    const validationError = getSubmitValidationError(body);
+    if (validationError) {
+      const messages: Record<string, string> = {
+        title: dict.submit.validationTitle,
+        description: dict.submit.validationDescription,
+        date: dict.submit.validationDate,
+        location: dict.submit.validationLocation,
+        category: dict.submit.error,
+        format: dict.submit.error,
+        invalid: dict.submit.error,
+      };
+      return NextResponse.json(
+        { error: messages[validationError] ?? dict.submit.error, field: validationError },
+        { status: 400 },
+      );
     }
 
     let event = createCommunityEvent({

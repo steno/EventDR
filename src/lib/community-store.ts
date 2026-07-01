@@ -55,21 +55,43 @@ export function isValidSubmitPayload(body: unknown): body is {
   category: string;
   format: string;
 } {
-  if (!body || typeof body !== "object") return false;
+  return getSubmitValidationError(body) === null;
+}
+
+export type SubmitValidationError =
+  | "title"
+  | "description"
+  | "date"
+  | "location"
+  | "category"
+  | "format"
+  | "invalid";
+
+export function getSubmitValidationError(body: unknown): SubmitValidationError | null {
+  if (!body || typeof body !== "object") return "invalid";
   const b = body as Record<string, unknown>;
-  return (
-    typeof b.title === "string" &&
-    b.title.trim().length >= 3 &&
-    typeof b.description === "string" &&
-    b.description.trim().length >= 10 &&
-    typeof b.date === "string" &&
-    typeof b.location === "string" &&
-    b.location.trim().length >= 2 &&
-    typeof b.category === "string" &&
-    CATEGORY_IDS.includes(b.category as EventCategory) &&
-    typeof b.format === "string" &&
-    ["physical", "digital", "hybrid"].includes(b.format)
-  );
+
+  if (typeof b.title !== "string" || b.title.trim().length < 3) return "title";
+  if (typeof b.description !== "string" || b.description.trim().length < 10) {
+    return "description";
+  }
+  if (typeof b.date !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(b.date.trim())) {
+    return "date";
+  }
+  if (typeof b.location !== "string" || b.location.trim().length < 2) return "location";
+  if (
+    typeof b.category !== "string" ||
+    !CATEGORY_IDS.includes(b.category as EventCategory)
+  ) {
+    return "category";
+  }
+  if (
+    typeof b.format !== "string" ||
+    !["physical", "digital", "hybrid"].includes(b.format)
+  ) {
+    return "format";
+  }
+  return null;
 }
 
 export function createCommunityEvent(payload: {
