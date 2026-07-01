@@ -19,9 +19,10 @@ Live at **[popevent.netlify.app](https://popevent.netlify.app)** · GitHub [sten
 
 ## Localization
 
-- **Spanish (default)** — `/es` — auto-detected from browser `Accept-Language`
-- **English** — `/en`
-- Language toggle in the top-right corner; preference saved in a cookie
+- **English (default)** — `/en`
+- **Spanish** — `/es` — auto-detected from browser `Accept-Language`
+- **French** — `/fr` — auto-detected from browser `Accept-Language`
+- Language toggle (EN · ES · FR) in the top-right; preference saved in a cookie
 
 ## Deploy (Netlify)
 

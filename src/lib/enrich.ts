@@ -70,16 +70,22 @@ function parseEventsHeuristic(
   return events.slice(0, 12);
 }
 
+const OUTPUT_LANGUAGE: Record<Locale, string> = {
+  en: "English",
+  es: "Spanish",
+  fr: "French",
+};
+
 async function enrichWithOpenAI(
   rawContent: string,
   category?: string,
-  locale: Locale = "es",
+  locale: Locale = "en",
 ): Promise<Event[]> {
   const apiKey = process.env.OPENAI_API_KEY;
   if (!apiKey) return [];
 
   const categoryList = CATEGORY_IDS.join(", ");
-  const language = locale === "es" ? "Spanish" : "English";
+  const language = OUTPUT_LANGUAGE[locale];
 
   const systemPrompt = `You extract and enrich local events for the North Coast of the Dominican Republic (Puerto Plata, Sosúa, Cabarete region).
 Write all titles and descriptions in ${language}.
@@ -153,7 +159,7 @@ ${rawContent.slice(0, 18000)}`;
 export async function enrichCrawlResults(
   results: CrawlResult[],
   category?: string,
-  locale: Locale = "es",
+  locale: Locale = "en",
 ): Promise<Event[]> {
   const combined = results.map((r) => r.content).join("\n\n---\n\n");
   if (!combined.trim()) return [];

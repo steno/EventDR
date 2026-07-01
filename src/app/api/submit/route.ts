@@ -5,21 +5,23 @@ import {
   isValidSubmitPayload,
 } from "@/lib/community-store";
 import { addToPool } from "@/lib/cache";
-import { isValidLocale } from "@/i18n/config";
+import { isValidLocale, defaultLocale } from "@/i18n/config";
 import type { Locale } from "@/i18n/config";
 import type { EventCategory } from "@/lib/types";
+import { getDictionary } from "@/i18n/dictionaries";
 
 export const dynamic = "force-dynamic";
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const localeParam = request.nextUrl.searchParams.get("locale") ?? "es";
-    const locale: Locale = isValidLocale(localeParam) ? localeParam : "es";
+    const localeParam = request.nextUrl.searchParams.get("locale") ?? defaultLocale;
+    const locale: Locale = isValidLocale(localeParam) ? localeParam : defaultLocale;
+    const dict = getDictionary(locale);
 
     if (!isValidSubmitPayload(body)) {
       return NextResponse.json(
-        { error: locale === "es" ? "Datos inválidos" : "Invalid submission" },
+        { error: dict.submit.error },
         { status: 400 },
       );
     }
@@ -41,10 +43,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({
       success: true,
       event,
-      message:
-        locale === "es"
-          ? "¡Gracias! Tu evento ya está visible para la comunidad."
-          : "Thanks! Your event is now visible to the community.",
+      message: dict.submit.success,
     });
   } catch {
     return NextResponse.json({ error: "Submission failed" }, { status: 500 });

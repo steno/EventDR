@@ -102,6 +102,7 @@ export type Dictionary = {
   lang: {
     en: string;
     es: string;
+    fr: string;
     switchTo: string;
   };
 };
@@ -222,6 +223,7 @@ export const en: Dictionary = {
   lang: {
     en: "EN",
     es: "ES",
+    fr: "FR",
     switchTo: "Switch language",
   },
 };

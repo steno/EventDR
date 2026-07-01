@@ -12,6 +12,7 @@ import { getFallbackEvents, getFallbackForCategory } from "@/lib/fallback-events
 import { getCommunityEvents } from "@/lib/community-store";
 import { isValidLocale } from "@/i18n/config";
 import type { Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/dictionaries";
 import type { Event, EventCategory } from "@/lib/types";
 import { CATEGORY_IDS } from "@/lib/categories";
 
@@ -21,6 +22,7 @@ export const maxDuration = 60;
 const REGION_LABELS: Record<Locale, string> = {
   en: "North Coast, DR",
   es: "Costa Norte, RD",
+  fr: "Côte Nord, RD",
 };
 
 function isValidCategory(value: string): value is EventCategory {
@@ -56,8 +58,8 @@ export async function GET(request: NextRequest) {
     ? categoryParam
     : undefined;
   const refresh = searchParams.get("refresh") === "true";
-  const localeParam = searchParams.get("locale") ?? "es";
-  const locale: Locale = isValidLocale(localeParam) ? localeParam : "es";
+  const localeParam = searchParams.get("locale") ?? "en";
+  const locale: Locale = isValidLocale(localeParam) ? localeParam : "en";
   const cacheKey = getCacheKey(locale, category);
 
   try {
@@ -119,10 +121,7 @@ export async function GET(request: NextRequest) {
       events,
       source: "fallback",
       region: REGION_LABELS[locale],
-      error:
-        locale === "es"
-          ? "Usando eventos locales curados"
-          : "Using curated local events",
+      error: getDictionary(locale).events.sourceFallback,
     });
   }
 }

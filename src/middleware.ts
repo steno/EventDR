@@ -1,15 +1,17 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { defaultLocale, isValidLocale, locales } from "./i18n/config";
+import { defaultLocale, isValidLocale, locales, type Locale } from "./i18n/config";
 
 const LOCALE_COOKIE = "eventdr-locale";
 
-function getPreferredLocale(request: NextRequest): string {
+function getPreferredLocale(request: NextRequest): Locale {
   const cookie = request.cookies.get(LOCALE_COOKIE)?.value;
   if (cookie && isValidLocale(cookie)) return cookie;
 
   const accept = request.headers.get("accept-language") ?? "";
-  if (accept.toLowerCase().includes("es")) return "es";
+  const lower = accept.toLowerCase();
+  if (lower.includes("fr")) return "fr";
+  if (lower.includes("es")) return "es";
   return defaultLocale;
 }
 

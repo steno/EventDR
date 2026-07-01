@@ -1,8 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import type { Locale } from "@/i18n/config";
+import { locales, type Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 
 interface LanguageSwitcherProps {
@@ -23,17 +22,17 @@ export function LanguageSwitcher({ locale, dict }: LanguageSwitcherProps) {
 
   return (
     <div
-      className="flex items-center gap-1 rounded-full bg-neutral-100 p-1"
+      className="flex items-center gap-0.5 rounded-full bg-neutral-100 p-1"
       role="group"
       aria-label={dict.lang.switchTo}
     >
-      {(["en", "es"] as const).map((lang) => (
+      {locales.map((lang) => (
         <button
           key={lang}
           type="button"
           onClick={() => switchLocale(lang)}
           className={`
-            px-3 py-1 rounded-full text-xs font-bold tracking-wide transition-all
+            px-2.5 py-1 rounded-full text-[11px] font-bold tracking-wide transition-all
             ${
               locale === lang
                 ? "bg-neutral-900 text-white shadow-sm"

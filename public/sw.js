@@ -1,5 +1,5 @@
 const CACHE_NAME = "eventdr-v1";
-const PRECACHE = ["/es", "/en", "/manifest.webmanifest", "/icons/icon.svg"];
+const PRECACHE = ["/en", "/es", "/fr", "/manifest.webmanifest", "/icons/icon.svg"];
 
 self.addEventListener("install", (event: ExtendableEvent) => {
   event.waitUntil(

@@ -116,6 +116,7 @@ export const es: Dictionary = {
   lang: {
     en: "EN",
     es: "ES",
+    fr: "FR",
     switchTo: "Cambiar idioma",
   },
 };

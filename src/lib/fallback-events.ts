@@ -1,5 +1,6 @@
 import type { Event, EventCategory } from "./types";
 import type { Locale } from "@/i18n/config";
+import { FALLBACK_EVENTS_FR } from "./fallback-events-fr";
 
 const FALLBACK_EVENTS_EN: Event[] = [
   // Music
@@ -607,13 +608,15 @@ const FALLBACK_EVENTS_ES: Event[] = [
   },
 ];
 
-export function getFallbackEvents(locale: Locale = "es"): Event[] {
-  return locale === "en" ? FALLBACK_EVENTS_EN : FALLBACK_EVENTS_ES;
+export function getFallbackEvents(locale: Locale = "en"): Event[] {
+  if (locale === "es") return FALLBACK_EVENTS_ES;
+  if (locale === "fr") return FALLBACK_EVENTS_FR;
+  return FALLBACK_EVENTS_EN;
 }
 
 export function getFallbackForCategory(
   category: EventCategory,
-  locale: Locale = "es",
+  locale: Locale = "en",
 ): Event[] {
   return getFallbackEvents(locale).filter((e) => e.category === category);
 }
