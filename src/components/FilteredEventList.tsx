@@ -23,6 +23,7 @@ interface FilteredEventListProps {
   emptyMessage: string;
   sectionTitle?: string;
   onAddEvent?: () => void;
+  addEventLabel?: string;
 }
 
 export function FilteredEventList({
@@ -34,6 +35,7 @@ export function FilteredEventList({
   emptyMessage,
   sectionTitle,
   onAddEvent,
+  addEventLabel,
 }: FilteredEventListProps) {
   const [timeRange, setTimeRange] = useState<TimeRange>("all");
   const geo = useGeolocation();
@@ -89,7 +91,9 @@ export function FilteredEventList({
         <VenueStrip locale={locale} dict={dict} />
       </div>
 
-      {onAddEvent && <AddEventButton dict={dict} onClick={onAddEvent} />}
+      {onAddEvent && (
+        <AddEventButton dict={dict} onClick={onAddEvent} label={addEventLabel} />
+      )}
     </>
   );
 }

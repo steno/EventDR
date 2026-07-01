@@ -44,11 +44,11 @@ export function SubmitEventSheet({
   const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
-    if (!open || !defaults) return;
-    if (defaults.location) setLocation(defaults.location);
-    if (defaults.venue) setVenue(defaults.venue);
-    if (defaults.category) setCategory(defaults.category);
-  }, [open, defaults]);
+    if (!open) return;
+    if (defaults?.location) setLocation(defaults.location);
+    if (defaults?.venue) setVenue(defaults.venue);
+    if (defaults?.category) setCategory(defaults.category);
+  }, [open, defaults?.location, defaults?.venue, defaults?.category]);
 
   if (!open) return null;
 

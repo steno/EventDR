@@ -107,6 +107,8 @@ export const fr: Dictionary = {
     category: "Catégorie",
     format: "Type",
     button: "Publier l'événement",
+    addCategoryEvent: "Ajouter un événement {category}",
+    addVenueEvent: "Ajouter un événement à {venue}",
     success: "Publié ! C'est en ligne pour tout le monde.",
     pendingSuccess: "Soumis pour validation — publication après approbation.",
     error: "Une erreur s'est produite. Réessayez.",

@@ -6,9 +6,10 @@ import type { Dictionary } from "@/i18n/dictionaries";
 interface AddEventButtonProps {
   dict: Dictionary;
   onClick: () => void;
+  label?: string;
 }
 
-export function AddEventButton({ dict, onClick }: AddEventButtonProps) {
+export function AddEventButton({ dict, onClick, label }: AddEventButtonProps) {
   return (
     <button
       type="button"
@@ -21,7 +22,7 @@ export function AddEventButton({ dict, onClick }: AddEventButtonProps) {
       "
     >
       <PlusCircle className="h-5 w-5" />
-      {dict.nav.submit}
+      {label ?? dict.nav.submit}
     </button>
   );
 }

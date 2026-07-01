@@ -83,6 +83,7 @@ export function VenuePage({ venue, locale, dict }: VenuePageProps) {
             emptyMessage={dict.venues.noEvents}
             sectionTitle={dict.venues.eventsAt}
             onAddEvent={() => setSubmitOpen(true)}
+            addEventLabel={dict.submit.addVenueEvent.replace("{venue}", venue.name)}
           />
         </div>
       </main>

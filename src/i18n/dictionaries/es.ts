@@ -107,6 +107,8 @@ export const es: Dictionary = {
     category: "Categoría",
     format: "Tipo",
     button: "Publicar evento",
+    addCategoryEvent: "Añadir evento de {category}",
+    addVenueEvent: "Añadir evento en {venue}",
     success: "¡Publicado! Ya está visible para todos.",
     pendingSuccess: "Enviado para revisión — lo publicaremos cuando sea aprobado.",
     error: "Algo salió mal. Intenta de nuevo.",

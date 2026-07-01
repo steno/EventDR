@@ -93,6 +93,8 @@ export type Dictionary = {
     category: string;
     format: string;
     button: string;
+    addCategoryEvent: string;
+    addVenueEvent: string;
     success: string;
     pendingSuccess: string;
     error: string;
@@ -259,6 +261,8 @@ export const en: Dictionary = {
     category: "Category",
     format: "Type",
     button: "Publish event",
+    addCategoryEvent: "Add {category} event",
+    addVenueEvent: "Add event at {venue}",
     success: "Published! It's live for everyone.",
     pendingSuccess: "Submitted for review — we'll publish it once approved.",
     error: "Something went wrong. Try again.",

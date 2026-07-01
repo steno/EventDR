@@ -82,6 +82,10 @@ export function CategoryPage({ categoryId, locale, dict }: CategoryPageProps) {
             emptyMessage={dict.browse.noEvents}
             sectionTitle={dict.browse.eventsIn}
             onAddEvent={() => setSubmitOpen(true)}
+            addEventLabel={dict.submit.addCategoryEvent.replace(
+              "{category}",
+              category?.label ?? categoryId,
+            )}
           />
         </div>
       </main>
