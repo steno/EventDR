@@ -1,7 +1,10 @@
 export type TimeRange = "all" | "today" | "weekend" | "week";
 
+import type { EventRecurrence } from "./types";
+import { eventMatchesRecurrence } from "./event-dates";
+
 function parseEventDate(dateStr: string): Date | null {
-  const d = new Date(dateStr);
+  const d = new Date(dateStr + "T12:00:00");
   return isNaN(d.getTime()) ? null : d;
 }
 
@@ -28,7 +31,7 @@ function getWeekendRange(now: Date): { start: Date; end: Date } {
   return { start: saturday, end: sunday };
 }
 
-export function filterByTimeRange<T extends { date: string }>(
+export function filterByTimeRange<T extends { date: string; recurrence?: string; recurrenceDay?: number }>(
   items: T[],
   range: TimeRange,
 ): T[] {
@@ -38,6 +41,17 @@ export function filterByTimeRange<T extends { date: string }>(
   const today = startOfDay(now);
 
   return items.filter((item) => {
+    if (
+      item.recurrence &&
+      eventMatchesRecurrence(
+        item as { recurrence?: EventRecurrence; recurrenceDay?: number },
+        range,
+        now,
+      )
+    ) {
+      return true;
+    }
+
     const eventDate = parseEventDate(item.date);
     if (!eventDate) return false;
 

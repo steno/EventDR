@@ -33,6 +33,8 @@ export interface Venue {
   website?: string;
 }
 
+export type EventRecurrence = "daily" | "weekly" | "weekdays" | "weekends";
+
 export interface Event {
   id: string;
   title: string;
@@ -54,6 +56,10 @@ export interface Event {
   lat?: number;
   lng?: number;
   distanceKm?: number;
+  /** Repeating local happenings — always match the right day filters */
+  recurrence?: EventRecurrence;
+  /** 0=Sun … 6=Sat; used when recurrence is "weekly" */
+  recurrenceDay?: number;
 }
 
 export interface CategoryMeta {

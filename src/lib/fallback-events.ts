@@ -1,6 +1,8 @@
 import type { Event, EventCategory } from "./types";
 import type { Locale } from "@/i18n/config";
 import { FALLBACK_EVENTS_FR } from "./fallback-events-fr";
+import { getRecurringEvents } from "./recurring-events";
+import { materializeEventDates } from "./event-dates";
 
 const FALLBACK_EVENTS_EN: Event[] = [
   // Music
@@ -609,9 +611,14 @@ const FALLBACK_EVENTS_ES: Event[] = [
 ];
 
 export function getFallbackEvents(locale: Locale = "en"): Event[] {
-  if (locale === "es") return FALLBACK_EVENTS_ES;
-  if (locale === "fr") return FALLBACK_EVENTS_FR;
-  return FALLBACK_EVENTS_EN;
+  const base =
+    locale === "es"
+      ? FALLBACK_EVENTS_ES
+      : locale === "fr"
+        ? FALLBACK_EVENTS_FR
+        : FALLBACK_EVENTS_EN;
+  const merged = [...getRecurringEvents(locale), ...base];
+  return materializeEventDates(merged);
 }
 
 export function getFallbackForCategory(

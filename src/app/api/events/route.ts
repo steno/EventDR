@@ -12,6 +12,7 @@ import { getFallbackEvents, getFallbackForCategory } from "@/lib/fallback-events
 import { getCommunityEvents } from "@/lib/community-store";
 import { fetchApprovedEvents } from "@/lib/firebase/events";
 import { attachCoords, sortByDistance } from "@/lib/geo";
+import { materializeEventDates } from "@/lib/event-dates";
 import { isValidLocale } from "@/i18n/config";
 import type { Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
@@ -137,6 +138,8 @@ export async function GET(request: NextRequest) {
     } else {
       events = sortEvents(events);
     }
+
+    events = materializeEventDates(events);
 
     if (!nearMe) {
       setCachedEvents(cacheKey, events);
