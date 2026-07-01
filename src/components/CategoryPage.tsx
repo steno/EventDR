@@ -68,10 +68,6 @@ export function CategoryPage({ categoryId, locale, dict }: CategoryPageProps) {
             {dict.events.hiddenGems}
           </p>
 
-          <h2 className="text-xs font-bold uppercase tracking-widest text-neutral-400 mb-3">
-            {dict.browse.eventsIn}
-          </h2>
-
           <FilteredEventList
             events={events}
             loading={loading}
@@ -79,6 +75,7 @@ export function CategoryPage({ categoryId, locale, dict }: CategoryPageProps) {
             locale={locale}
             onSelectEvent={setSelected}
             emptyMessage={dict.browse.noEvents}
+            sectionTitle={dict.browse.eventsIn}
           />
         </div>
       </main>

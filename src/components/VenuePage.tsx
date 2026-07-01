@@ -56,10 +56,6 @@ export function VenuePage({ venue, locale, dict }: VenuePageProps) {
 
           <p className="text-neutral-600 leading-relaxed mb-6">{venue.description}</p>
 
-          <h2 className="text-xs font-bold uppercase tracking-widest text-neutral-400 mb-3">
-            {dict.venues.eventsAt}
-          </h2>
-
           <FilteredEventList
             events={events}
             loading={loading}
@@ -67,6 +63,7 @@ export function VenuePage({ venue, locale, dict }: VenuePageProps) {
             locale={locale}
             onSelectEvent={setSelected}
             emptyMessage={dict.venues.noEvents}
+            sectionTitle={dict.venues.eventsAt}
           />
         </div>
       </main>

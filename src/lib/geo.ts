@@ -58,6 +58,18 @@ export function attachCoords(events: Event[]): Event[] {
   });
 }
 
+export function attachVenueSlugs(events: Event[]): Event[] {
+  return events.map((e) => {
+    if (e.venueSlug) return e;
+    const slug = matchVenueSlug(e.venue) ?? matchVenueSlug(e.location);
+    return slug ? { ...e, venueSlug: slug } : e;
+  });
+}
+
+export function filterByVenueSlug(events: Event[], venueSlug: string): Event[] {
+  return attachVenueSlugs(events).filter((e) => e.venueSlug === venueSlug);
+}
+
 export function sortByDistance(
   events: Event[],
   userLat: number,

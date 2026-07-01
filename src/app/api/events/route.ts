@@ -11,7 +11,7 @@ import {
 import { getFallbackEvents, getFallbackForCategory } from "@/lib/fallback-events";
 import { getCommunityEvents } from "@/lib/community-store";
 import { fetchApprovedEvents } from "@/lib/firebase/events";
-import { attachCoords, sortByDistance } from "@/lib/geo";
+import { attachCoords, sortByDistance, attachVenueSlugs } from "@/lib/geo";
 import { materializeEventDates } from "@/lib/event-dates";
 import { isValidLocale } from "@/i18n/config";
 import type { Locale } from "@/i18n/config";
@@ -80,7 +80,24 @@ export async function GET(request: NextRequest) {
   const userLat = latParam ? parseFloat(latParam) : null;
   const userLng = lngParam ? parseFloat(lngParam) : null;
   const nearMe = searchParams.get("nearMe") === "true" && userLat != null && userLng != null;
-  const cacheKey = getCacheKey(locale, category, nearMe ? `${userLat},${userLng}` : undefined);
+  const cacheExtra = [
+    venueSlug ? `venue:${venueSlug}` : "",
+    nearMe && userLat != null && userLng != null ? `geo:${userLat},${userLng}` : "",
+  ]
+    .filter(Boolean)
+    .join("|");
+  const cacheKey = getCacheKey(locale, category, cacheExtra || undefined);
+
+  function applyScopeFilters(list: Event[]): Event[] {
+    let result = attachVenueSlugs(list);
+    if (venueSlug) {
+      result = result.filter((e) => e.venueSlug === venueSlug);
+    }
+    if (category) {
+      result = result.filter((e) => e.category === category);
+    }
+    return result;
+  }
 
   try {
     if (!refresh && !nearMe) {
@@ -116,19 +133,13 @@ export async function GET(request: NextRequest) {
     let events = mergeWithFallback(crawled, category, locale);
     events = mergeDbEvents(events, dbEvents);
     events = mergeCommunityEvents(events, locale);
-
-    if (venueSlug) {
-      events = events.filter((e) => e.venueSlug === venueSlug);
-    }
-
-    if (category) {
-      events = events.filter((e) => e.category === category);
-    }
+    events = applyScopeFilters(events);
 
     if (events.length === 0) {
-      events = category
+      const fallbacks = category
         ? getFallbackForCategory(category, locale)
         : getFallbackEvents(locale);
+      events = applyScopeFilters(fallbacks);
     }
 
     events = attachCoords(events);
@@ -164,11 +175,12 @@ export async function GET(request: NextRequest) {
     });
   } catch (error) {
     console.error("Events API error:", error);
-    let events = sortEvents(
+    let events = applyScopeFilters(
       category
         ? getFallbackForCategory(category, locale)
         : getFallbackEvents(locale),
     );
+    events = sortEvents(materializeEventDates(events));
     if (nearMe && userLat != null && userLng != null) {
       events = sortByDistance(attachCoords(events), userLat, userLng);
     }

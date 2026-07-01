@@ -16,6 +16,7 @@ interface FilteredEventListProps {
   locale: Locale;
   onSelectEvent: (event: Event) => void;
   emptyMessage: string;
+  sectionTitle?: string;
 }
 
 export function FilteredEventList({
@@ -25,6 +26,7 @@ export function FilteredEventList({
   locale,
   onSelectEvent,
   emptyMessage,
+  sectionTitle,
 }: FilteredEventListProps) {
   const [timeRange, setTimeRange] = useState<TimeRange>("all");
 
@@ -33,20 +35,19 @@ export function FilteredEventList({
     [events, timeRange],
   );
 
-  if (loading) {
-    return (
-      <>
-        <TimeFilter value={timeRange} onChange={setTimeRange} dict={dict} />
-        <p className="text-sm text-neutral-400">{dict.events.loading}</p>
-      </>
-    );
-  }
-
   return (
     <>
       <TimeFilter value={timeRange} onChange={setTimeRange} dict={dict} />
 
-      {events.length === 0 ? (
+      {sectionTitle && (
+        <h2 className="text-xs font-bold uppercase tracking-widest text-neutral-400 mb-3">
+          {sectionTitle}
+        </h2>
+      )}
+
+      {loading ? (
+        <p className="text-sm text-neutral-400">{dict.events.loading}</p>
+      ) : events.length === 0 ? (
         <p className="text-neutral-500">{emptyMessage}</p>
       ) : filtered.length === 0 ? (
         <p className="text-neutral-500">{dict.search.noResults}</p>
