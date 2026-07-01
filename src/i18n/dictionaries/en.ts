@@ -34,6 +34,7 @@ export type Dictionary = {
     sourceLive: string;
     sourceCache: string;
     sourceFallback: string;
+    sourceDatabase: string;
     refresh: string;
     empty: string;
     emptyHint: string;
@@ -41,6 +42,10 @@ export type Dictionary = {
     mostPopular: string;
     moreEvents: string;
     hot: string;
+    nearMe: string;
+    nearMeOn: string;
+    nearMeDenied: string;
+    distanceAway: string;
     format: {
       physical: string;
       digital: string;
@@ -65,6 +70,7 @@ export type Dictionary = {
     saved: string;
     source: string;
     community: string;
+    viewVenue: string;
     close: string;
     shared: string;
     copied: string;
@@ -82,6 +88,7 @@ export type Dictionary = {
     format: string;
     button: string;
     success: string;
+    pendingSuccess: string;
     error: string;
     optional: string;
   };
@@ -104,6 +111,26 @@ export type Dictionary = {
     es: string;
     fr: string;
     switchTo: string;
+  };
+  venues: {
+    title: string;
+    eventsAt: string;
+    noEvents: string;
+    back: string;
+  };
+  push: {
+    title: string;
+    subtitle: string;
+    enabled: string;
+    enabledHint: string;
+  };
+  moderate: {
+    title: string;
+    empty: string;
+    approve: string;
+    reject: string;
+    source: string;
+    unauthorized: string;
   };
 };
 
@@ -150,6 +177,7 @@ export const en: Dictionary = {
     sourceLive: "Live from the web",
     sourceCache: "Recently updated",
     sourceFallback: "Curated picks",
+    sourceDatabase: "Community & venues",
     refresh: "Refresh events",
     empty: "No events found.",
     emptyHint: "Try another category or refresh.",
@@ -157,6 +185,10 @@ export const en: Dictionary = {
     mostPopular: "Most popular",
     moreEvents: "More events",
     hot: "Hot",
+    nearMe: "Near me",
+    nearMeOn: "Sorted by distance",
+    nearMeDenied: "location off",
+    distanceAway: "away",
     format: {
       physical: "In person",
       digital: "Online",
@@ -186,6 +218,7 @@ export const en: Dictionary = {
     saved: "Saved",
     source: "View source",
     community: "Shared by the community",
+    viewVenue: "View venue",
     close: "Close",
     shared: "Shared!",
     copied: "Copied to clipboard",
@@ -203,6 +236,7 @@ export const en: Dictionary = {
     format: "Type",
     button: "Publish event",
     success: "Published! It's live for everyone.",
+    pendingSuccess: "Submitted for review — we'll publish it once approved.",
     error: "Something went wrong. Try again.",
     optional: "optional",
   },
@@ -225,5 +259,25 @@ export const en: Dictionary = {
     es: "ES",
     fr: "FR",
     switchTo: "Switch language",
+  },
+  venues: {
+    title: "Popular venues",
+    eventsAt: "Upcoming events",
+    noEvents: "No upcoming events at this venue yet.",
+    back: "Back to discover",
+  },
+  push: {
+    title: "Weekend alerts",
+    subtitle: "Get notified when new events pop up near you",
+    enabled: "Alerts on",
+    enabledHint: "You'll hear about new weekend events",
+  },
+  moderate: {
+    title: "Moderation queue",
+    empty: "No pending events.",
+    approve: "Approve",
+    reject: "Reject",
+    source: "Source",
+    unauthorized: "Invalid moderator key.",
   },
 };

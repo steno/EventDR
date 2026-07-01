@@ -13,7 +13,12 @@ import { SubmitEventSheet } from "@/components/SubmitEventSheet";
 import { InstallBanner } from "@/components/InstallBanner";
 import { PwaRegister } from "@/components/PwaRegister";
 import { EventCard } from "@/components/EventCard";
+import { VenueStrip } from "@/components/VenueStrip";
+import { NearMeToggle } from "@/components/NearMeToggle";
+import { PushNotifyButton } from "@/components/PushNotifyButton";
 import { useSavedEvents } from "@/hooks/useSavedEvents";
+import { useGeolocation } from "@/hooks/useGeolocation";
+import { usePushNotifications } from "@/hooks/usePushNotifications";
 import type { Event, EventCategory } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
 import type { AppTab, Dictionary } from "@/i18n/dictionaries";
@@ -33,8 +38,17 @@ export function Home({ locale, dict }: HomeProps) {
   const [submitOpen, setSubmitOpen] = useState(false);
   const [allEvents, setAllEvents] = useState<Event[]>([]);
   const [refreshKey, setRefreshKey] = useState(0);
+  const [nearMe, setNearMe] = useState(false);
 
   const { toggleSave, isSaved, filterSaved, savedIds } = useSavedEvents();
+  const geo = useGeolocation();
+  const push = usePushNotifications(locale);
+
+  useEffect(() => {
+    if (localStorage.getItem("popevents-nearme") === "1") {
+      setNearMe(true);
+    }
+  }, []);
 
   useEffect(() => {
     fetch(`/api/events?locale=${locale}`)
@@ -47,11 +61,30 @@ export function Home({ locale, dict }: HomeProps) {
     setAllEvents(events);
   }, []);
 
-  const handleSubmitted = useCallback((event: Event) => {
-    setAllEvents((prev) => [event, ...prev]);
+  const handleSubmitted = useCallback((event: Event, pending?: boolean) => {
+    if (!pending) {
+      setAllEvents((prev) => [event, ...prev]);
+    }
     setRefreshKey((k) => k + 1);
     setTab("discover");
   }, []);
+
+  function handleNearMeToggle() {
+    if (!nearMe) {
+      geo.requestLocation();
+      localStorage.setItem("popevents-nearme", "1");
+      setNearMe(true);
+      setRefreshKey((k) => k + 1);
+    } else {
+      localStorage.removeItem("popevents-nearme");
+      setNearMe(false);
+      setRefreshKey((k) => k + 1);
+    }
+  }
+
+  async function handlePushSubscribe() {
+    await push.subscribe(geo.lat ?? undefined, geo.lng ?? undefined);
+  }
 
   const savedEvents = filterSaved(allEvents);
 
@@ -85,6 +118,25 @@ export function Home({ locale, dict }: HomeProps) {
                 onChange={setTimeRange}
                 dict={dict}
               />
+              <div className="flex flex-wrap gap-2 mb-4">
+                <NearMeToggle
+                  active={nearMe && geo.lat != null}
+                  loading={geo.loading}
+                  error={geo.error}
+                  onToggle={handleNearMeToggle}
+                  dict={dict}
+                />
+              </div>
+              <VenueStrip locale={locale} dict={dict} />
+              <div className="mb-6">
+                <PushNotifyButton
+                  dict={dict}
+                  supported={push.supported}
+                  subscribed={push.subscribed}
+                  loading={push.loading}
+                  onSubscribe={handlePushSubscribe}
+                />
+              </div>
               <div className="mb-8">
                 <CategoryGrid
                   selected={category}
@@ -101,6 +153,9 @@ export function Home({ locale, dict }: HomeProps) {
                 onSelectEvent={setSelectedEvent}
                 onEventsLoaded={handleEventsLoaded}
                 refreshKey={refreshKey}
+                nearMe={nearMe}
+                userLat={geo.lat}
+                userLng={geo.lng}
               />
             </>
           )}

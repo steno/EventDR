@@ -12,7 +12,7 @@ interface SubmitEventSheetProps {
   onClose: () => void;
   dict: Dictionary;
   locale: Locale;
-  onSubmitted: (event: Event) => void;
+  onSubmitted: (event: Event, pending?: boolean) => void;
 }
 
 export function SubmitEventSheet({
@@ -32,6 +32,7 @@ export function SubmitEventSheet({
   const [format, setFormat] = useState<EventFormat>("physical");
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
   const [error, setError] = useState(false);
 
   if (!open) return null;
@@ -57,16 +58,23 @@ export function SubmitEventSheet({
         }),
       });
 
-      const data = (await res.json()) as { success?: boolean; event?: Event };
+      const data = (await res.json()) as {
+        success?: boolean;
+        event?: Event;
+        pending?: boolean;
+        message?: string;
+      };
       if (!res.ok || !data.success || !data.event) {
         setError(true);
         return;
       }
 
+      setSuccessMessage(data.message ?? dict.submit.success);
       setSuccess(true);
-      onSubmitted(data.event);
+      onSubmitted(data.event, data.pending);
       setTimeout(() => {
         setSuccess(false);
+        setSuccessMessage("");
         setTitle("");
         setDescription("");
         setDate("");
@@ -111,7 +119,9 @@ export function SubmitEventSheet({
         {success ? (
           <div className="flex flex-col items-center justify-center py-16 px-4 text-center">
             <CheckCircle className="h-12 w-12 text-green-500 mb-3" />
-            <p className="font-bold text-neutral-900">{dict.submit.success}</p>
+            <p className="font-bold text-neutral-900">
+              {successMessage || dict.submit.success}
+            </p>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="p-4 space-y-4">

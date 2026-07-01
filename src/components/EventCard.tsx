@@ -1,9 +1,10 @@
-import { MapPin, Calendar, Clock, Globe, Flame } from "lucide-react";
+import { MapPin, Calendar, Clock, Globe, Flame, Navigation2 } from "lucide-react";
 import type { Event } from "@/lib/types";
 import { getCategoryMeta } from "@/lib/categories";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import { formatEventDateShort } from "@/lib/format-date";
+import { formatDistance } from "@/lib/geo";
 
 interface EventCardProps {
   event: Event;
@@ -75,6 +76,12 @@ export function EventCard({ event, dict, locale, onSelect }: EventCardProps) {
               {event.venue ? `${event.venue}, ` : ""}
               {event.location}
             </span>
+            {event.distanceKm != null && isFinite(event.distanceKm) && (
+              <span className="inline-flex items-center gap-1.5 font-medium text-orange-600">
+                <Navigation2 className="h-3.5 w-3.5" />
+                {formatDistance(event.distanceKm, locale)} {dict.events.distanceAway}
+              </span>
+            )}
             <span className="inline-flex items-center gap-1.5 font-medium text-neutral-400">
               <Globe className="h-3.5 w-3.5" />
               {dict.events.format[event.format]}

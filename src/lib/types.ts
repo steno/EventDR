@@ -12,6 +12,27 @@ export type EventCategory =
 
 export type EventFormat = "physical" | "digital" | "hybrid";
 
+export type EventSourceType =
+  | "seed"
+  | "community"
+  | "instagram"
+  | "whatsapp"
+  | "crawl";
+
+export type EventStatus = "pending" | "approved" | "rejected";
+
+export interface Venue {
+  slug: string;
+  name: string;
+  city: string;
+  description: string;
+  lat: number;
+  lng: number;
+  emoji?: string;
+  instagram?: string;
+  website?: string;
+}
+
 export interface Event {
   id: string;
   title: string;
@@ -21,12 +42,18 @@ export interface Event {
   time?: string;
   location: string;
   venue?: string;
+  venueSlug?: string;
   category: EventCategory;
   format: EventFormat;
   trending?: boolean;
   sourceUrl?: string;
   imageEmoji?: string;
   communitySubmitted?: boolean;
+  sourceType?: EventSourceType;
+  status?: EventStatus;
+  lat?: number;
+  lng?: number;
+  distanceKm?: number;
 }
 
 export interface CategoryMeta {
@@ -34,4 +61,12 @@ export interface CategoryMeta {
   label: string;
   emoji: string;
   gradient: string;
+}
+
+export interface PushSubscriptionPayload {
+  endpoint: string;
+  keys: { p256dh: string; auth: string };
+  locale?: string;
+  lat?: number;
+  lng?: number;
 }

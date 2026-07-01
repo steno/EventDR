@@ -13,8 +13,9 @@ const cache = new Map<string, CacheEntry>();
 const CACHE_TTL_MS = 60 * 60 * 1000;
 const POOL_KEY_SUFFIX = ":pool";
 
-export function getCacheKey(locale: Locale, category?: string): string {
-  return category ? `${locale}:${category}` : `${locale}:all`;
+export function getCacheKey(locale: Locale, category?: string, geoKey?: string): string {
+  const base = category ? `${locale}:${category}` : `${locale}:all`;
+  return geoKey ? `${base}:${geoKey}` : base;
 }
 
 export function getPoolCacheKey(locale: Locale): string {

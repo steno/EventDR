@@ -10,6 +10,8 @@ import {
 } from "@/lib/cache";
 import { getFallbackEvents, getFallbackForCategory } from "@/lib/fallback-events";
 import { getCommunityEvents } from "@/lib/community-store";
+import { fetchApprovedEvents } from "@/lib/supabase/events";
+import { attachCoords, sortByDistance } from "@/lib/geo";
 import { isValidLocale } from "@/i18n/config";
 import type { Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
@@ -29,24 +31,35 @@ function isValidCategory(value: string): value is EventCategory {
   return CATEGORY_IDS.includes(value as EventCategory);
 }
 
-function mergeCommunityEvents(events: Event[], locale: Locale): Event[] {
-  const community = getCommunityEvents();
-  const seen = new Set(events.map((e) => e.id));
-  const merged = [...events];
-  for (const e of community) {
+function mergeUniqueEvents(base: Event[], extra: Event[]): Event[] {
+  const seen = new Set(base.map((e) => e.id));
+  const merged = [...base];
+  for (const e of extra) {
     if (!seen.has(e.id)) {
       merged.push(e);
       seen.add(e.id);
     }
   }
-  addToPool(locale, community);
   return merged;
+}
+
+function mergeCommunityEvents(events: Event[], locale: Locale): Event[] {
+  const community = getCommunityEvents();
+  addToPool(locale, community);
+  return mergeUniqueEvents(events, community);
+}
+
+function mergeDbEvents(events: Event[], dbEvents: Event[]): Event[] {
+  return mergeUniqueEvents(dbEvents, events);
 }
 
 function sortEvents(events: Event[]): Event[] {
   return [...events].sort((a, b) => {
     if (a.trending && !b.trending) return -1;
     if (!a.trending && b.trending) return 1;
+    if (a.distanceKm != null && b.distanceKm != null) {
+      return a.distanceKm - b.distanceKm;
+    }
     return a.date.localeCompare(b.date);
   });
 }
@@ -57,13 +70,19 @@ export async function GET(request: NextRequest) {
   const category = categoryParam && isValidCategory(categoryParam)
     ? categoryParam
     : undefined;
+  const venueSlug = searchParams.get("venue") ?? undefined;
   const refresh = searchParams.get("refresh") === "true";
   const localeParam = searchParams.get("locale") ?? "en";
   const locale: Locale = isValidLocale(localeParam) ? localeParam : "en";
-  const cacheKey = getCacheKey(locale, category);
+  const latParam = searchParams.get("lat");
+  const lngParam = searchParams.get("lng");
+  const userLat = latParam ? parseFloat(latParam) : null;
+  const userLng = lngParam ? parseFloat(lngParam) : null;
+  const nearMe = searchParams.get("nearMe") === "true" && userLat != null && userLng != null;
+  const cacheKey = getCacheKey(locale, category, nearMe ? `${userLat},${userLng}` : undefined);
 
   try {
-    if (!refresh) {
+    if (!refresh && !nearMe) {
       const cached = getCachedEvents(cacheKey);
       if (cached?.length) {
         return NextResponse.json({
@@ -74,8 +93,10 @@ export async function GET(request: NextRequest) {
       }
     }
 
-    // Skip slow live crawl on serverless unless API keys are configured.
-    // Users can tap refresh to force a crawl attempt.
+    const dbEvents = attachCoords(
+      await fetchApprovedEvents({ category, venueSlug, locale }),
+    );
+
     const shouldCrawl =
       refresh ||
       Boolean(process.env.JINA_API_KEY || process.env.OPENAI_API_KEY);
@@ -92,7 +113,12 @@ export async function GET(request: NextRequest) {
     }
 
     let events = mergeWithFallback(crawled, category, locale);
+    events = mergeDbEvents(events, dbEvents);
     events = mergeCommunityEvents(events, locale);
+
+    if (venueSlug) {
+      events = events.filter((e) => e.venueSlug === venueSlug);
+    }
 
     if (events.length === 0) {
       events = category
@@ -100,23 +126,45 @@ export async function GET(request: NextRequest) {
         : getFallbackEvents(locale);
     }
 
-    events = sortEvents(events);
-    setCachedEvents(cacheKey, events);
+    events = attachCoords(events);
+
+    if (nearMe && userLat != null && userLng != null) {
+      events = sortByDistance(events, userLat, userLng);
+    } else {
+      events = sortEvents(events);
+    }
+
+    if (!nearMe) {
+      setCachedEvents(cacheKey, events);
+    }
+
+    const source =
+      dbEvents.length > 0 && crawlResults.length > 0
+        ? "live"
+        : dbEvents.length > 0
+          ? "database"
+          : crawlResults.length > 0
+            ? "live"
+            : "fallback";
 
     return NextResponse.json({
       events,
-      source: crawlResults.length > 0 ? "live" : "fallback",
+      source,
       region: REGION_LABELS[locale],
       crawledAt: new Date().toISOString(),
       crawledSources: crawlResults.length,
+      dbCount: dbEvents.length,
     });
   } catch (error) {
     console.error("Events API error:", error);
-    const events = sortEvents(
+    let events = sortEvents(
       category
         ? getFallbackForCategory(category, locale)
         : getFallbackEvents(locale),
     );
+    if (nearMe && userLat != null && userLng != null) {
+      events = sortByDistance(attachCoords(events), userLat, userLng);
+    }
     return NextResponse.json({
       events,
       source: "fallback",

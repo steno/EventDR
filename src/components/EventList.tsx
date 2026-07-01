@@ -18,6 +18,9 @@ interface EventListProps {
   onSelectEvent: (event: Event) => void;
   onEventsLoaded?: (events: Event[]) => void;
   refreshKey?: number;
+  nearMe?: boolean;
+  userLat?: number | null;
+  userLng?: number | null;
 }
 
 export function EventList({
@@ -29,6 +32,9 @@ export function EventList({
   onSelectEvent,
   onEventsLoaded,
   refreshKey = 0,
+  nearMe = false,
+  userLat = null,
+  userLng = null,
 }: EventListProps) {
   const [events, setEvents] = useState<Event[]>([]);
   const [loading, setLoading] = useState(true);
@@ -45,6 +51,11 @@ export function EventList({
         params.set("locale", locale);
         if (category) params.set("category", category);
         if (refresh) params.set("refresh", "true");
+        if (nearMe && userLat != null && userLng != null) {
+          params.set("nearMe", "true");
+          params.set("lat", String(userLat));
+          params.set("lng", String(userLng));
+        }
 
         const res = await fetch(`/api/events?${params}`);
         const data = (await res.json()) as {
@@ -63,12 +74,12 @@ export function EventList({
         setRefreshing(false);
       }
     },
-    [category, locale, onEventsLoaded],
+    [category, locale, onEventsLoaded, nearMe, userLat, userLng],
   );
 
   useEffect(() => {
     fetchEvents(refreshKey > 0);
-  }, [fetchEvents, refreshKey]);
+  }, [fetchEvents, refreshKey, nearMe, userLat, userLng]);
 
   const filtered = useMemo(() => {
     let result = events;
@@ -80,9 +91,11 @@ export function EventList({
   const sourceLabel =
     source === "live"
       ? dict.events.sourceLive
-      : source === "cache"
-        ? dict.events.sourceCache
-        : dict.events.sourceFallback;
+      : source === "database"
+        ? dict.events.sourceDatabase
+        : source === "cache"
+          ? dict.events.sourceCache
+          : dict.events.sourceFallback;
 
   if (loading) {
     return (
@@ -103,7 +116,7 @@ export function EventList({
       <div className="flex items-center justify-between">
         <div>
           <h2 className="text-xl font-black text-neutral-900 tracking-tight">
-            {category ? dict.events.filtered : dict.events.trending}
+            {nearMe && userLat != null ? dict.events.nearMeOn : category ? dict.events.filtered : dict.events.trending}
           </h2>
           {category && filtered.length > 0 && (
             <p className="text-xs text-neutral-400 mt-0.5">

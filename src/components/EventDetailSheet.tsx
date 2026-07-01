@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import {
   X,
   MapPin,
@@ -131,6 +132,14 @@ export function EventDetailSheet({
                 {event.location}
               </span>
             </div>
+            {event.venueSlug && (
+              <Link
+                href={`/${locale}/venue/${event.venueSlug}`}
+                className="inline-flex items-center gap-2 text-sm font-bold text-orange-600 hover:text-orange-700"
+              >
+                {dict.detail.viewVenue} →
+              </Link>
+            )}
           </div>
 
           <div className="mt-6 grid grid-cols-2 gap-2">
