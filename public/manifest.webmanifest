@@ -1,7 +1,7 @@
 {
-  "name": "EventDR",
-  "short_name": "EventDR",
-  "description": "Events near you — North Coast Dominican Republic",
+  "name": "POP Events near you",
+  "short_name": "POP Events",
+  "description": "POP Events near you — North Coast Dominican Republic",
   "start_url": "https://popevent.netlify.app/en",
   "display": "standalone",
   "background_color": "#fafafa",

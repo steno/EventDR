@@ -2,7 +2,7 @@ import type { Dictionary } from "./en";
 
 export const es: Dictionary = {
   meta: {
-    title: "EventDR — Eventos cerca de ti | Costa Norte RD",
+    title: "POP Events cerca de ti | Costa Norte RD",
     description:
       "Descubre eventos populares en Puerto Plata, Sosúa y Cabarete. Actividades presenciales y digitales en la Costa Norte de República Dominicana.",
   },
@@ -13,7 +13,7 @@ export const es: Dictionary = {
     northCoast: "Costa Norte de RD",
   },
   hero: {
-    events: "Eventos",
+    events: "POP Events",
     nearYou: "cerca de ti",
     subtitle: "Qué está pasando en la",
     subtitleHighlight: "Costa Norte de RD",
@@ -105,13 +105,13 @@ export const es: Dictionary = {
     emptyHint: "Toca el corazón en cualquier evento para guardarlo aquí.",
   },
   install: {
-    title: "Instala EventDR",
+    title: "Instala POP Events",
     subtitle: "Añádelo a tu pantalla de inicio — funciona como una app.",
     button: "Instalar",
     dismiss: "Ahora no",
   },
   footer: {
-    tagline: "EventDR · Costa Norte República Dominicana",
+    tagline: "POP Events · Costa Norte República Dominicana",
   },
   lang: {
     en: "EN",

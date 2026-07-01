@@ -31,7 +31,7 @@ export async function generateMetadata({
     appleWebApp: {
       capable: true,
       statusBarStyle: "default",
-      title: "EventDR",
+      title: "POP Events",
     },
     icons: {
       apple: "/icons/icon.svg",

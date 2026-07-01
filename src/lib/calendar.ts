@@ -47,7 +47,7 @@ export function downloadCalendarEvent(event: Event): void {
   const ics = [
     "BEGIN:VCALENDAR",
     "VERSION:2.0",
-    "PRODID:-//EventDR//North Coast DR//EN",
+    "PRODID:-//POP Events//North Coast DR//EN",
     "BEGIN:VEVENT",
     `UID:${uid}`,
     `DTSTAMP:${toIcsDate(new Date())}`,

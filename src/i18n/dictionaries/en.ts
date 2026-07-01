@@ -109,7 +109,7 @@ export type Dictionary = {
 
 export const en: Dictionary = {
   meta: {
-    title: "EventDR — Events near you | North Coast DR",
+    title: "POP Events near you | North Coast DR",
     description:
       "Discover trending events in Puerto Plata, Sosúa, and Cabarete. Physical and digital happenings on the North Coast of the Dominican Republic.",
   },
@@ -120,7 +120,7 @@ export const en: Dictionary = {
     northCoast: "North Coast of the DR",
   },
   hero: {
-    events: "Events",
+    events: "POP Events",
     nearYou: "near you",
     subtitle: "What's happening in the",
     subtitleHighlight: "North Coast of the DR",
@@ -212,13 +212,13 @@ export const en: Dictionary = {
     emptyHint: "Tap the heart on any event to save it here.",
   },
   install: {
-    title: "Install EventDR",
+    title: "Install POP Events",
     subtitle: "Add to your home screen for quick access — works like an app.",
     button: "Install",
     dismiss: "Not now",
   },
   footer: {
-    tagline: "EventDR · North Coast Dominican Republic",
+    tagline: "POP Events · North Coast Dominican Republic",
   },
   lang: {
     en: "EN",
