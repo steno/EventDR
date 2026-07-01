@@ -2,7 +2,7 @@ import type { Dictionary } from "./en";
 
 export const es: Dictionary = {
   meta: {
-    title: "POP Events cerca de ti | Costa Norte RD",
+    title: "POP Eventos cerca de ti | Costa Norte RD",
     description:
       "Descubre eventos populares en Puerto Plata, Sosúa y Cabarete. Actividades presenciales y digitales en la Costa Norte de República Dominicana.",
   },
@@ -13,7 +13,7 @@ export const es: Dictionary = {
     northCoast: "Costa Norte de RD",
   },
   hero: {
-    events: "POP Events",
+    events: "POP Eventos",
     nearYou: "cerca de ti",
     subtitle: "Qué está pasando en la",
     subtitleHighlight: "Costa Norte de RD",
@@ -122,13 +122,13 @@ export const es: Dictionary = {
     emptyHint: "Toca el corazón en cualquier evento para guardarlo aquí.",
   },
   install: {
-    title: "Instala POP Events",
+    title: "Instala POP Eventos",
     subtitle: "Añádelo a tu pantalla de inicio — funciona como una app.",
     button: "Instalar",
     dismiss: "Ahora no",
   },
   footer: {
-    tagline: "POP Events · Costa Norte República Dominicana",
+    tagline: "POP Eventos · Costa Norte República Dominicana",
     builtWith: "Hecho con ❤️ por",
   },
   lang: {
@@ -154,7 +154,7 @@ export const es: Dictionary = {
     empty: "No hay eventos pendientes.",
     approve: "Aprobar",
     reject: "Rechazar",
-    approved: "Aprobado — ya está en POP Events",
+    approved: "Aprobado — ya está en POP Eventos",
     rejected: "Rechazado",
     source: "Fuente",
     unauthorized: "Clave de moderador inválida.",
