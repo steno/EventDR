@@ -1,17 +1,15 @@
-"use client";
-
+import Link from "next/link";
 import { getCategoryDefs } from "@/lib/categories";
-import type { EventCategory } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
+import type { Locale } from "@/i18n/config";
 import { CategoryIcon } from "./CategoryIcon";
 
 interface CategoryGridProps {
-  selected?: EventCategory | null;
-  onSelect: (category: EventCategory | null) => void;
+  locale: Locale;
   dict: Dictionary;
 }
 
-export function CategoryGrid({ selected, onSelect, dict }: CategoryGridProps) {
+export function CategoryGrid({ locale, dict }: CategoryGridProps) {
   const categories = getCategoryDefs().map((def) => ({
     ...def,
     label: dict.categories[def.id],
@@ -23,15 +21,6 @@ export function CategoryGrid({ selected, onSelect, dict }: CategoryGridProps) {
         <h2 className="text-sm font-bold uppercase tracking-widest text-neutral-400">
           {dict.browse.title}
         </h2>
-        {selected && (
-          <button
-            type="button"
-            onClick={() => onSelect(null)}
-            className="text-xs font-semibold text-neutral-500 hover:text-neutral-900 transition-colors"
-          >
-            {dict.browse.clear}
-          </button>
-        )}
       </div>
       <div
         className="
@@ -41,12 +30,13 @@ export function CategoryGrid({ selected, onSelect, dict }: CategoryGridProps) {
         "
       >
         {categories.map((cat) => (
-          <CategoryIcon
+          <Link
             key={cat.id}
-            category={cat}
-            selected={selected === cat.id}
-            onClick={() => onSelect(selected === cat.id ? null : cat.id)}
-          />
+            href={`/${locale}/category/${cat.id}`}
+            className="snap-start"
+          >
+            <CategoryIcon category={cat} />
+          </Link>
         ))}
       </div>
     </section>

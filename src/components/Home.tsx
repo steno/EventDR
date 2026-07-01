@@ -19,7 +19,7 @@ import { PushNotifyButton } from "@/components/PushNotifyButton";
 import { useSavedEvents } from "@/hooks/useSavedEvents";
 import { useGeolocation } from "@/hooks/useGeolocation";
 import { usePushNotifications } from "@/hooks/usePushNotifications";
-import type { Event, EventCategory } from "@/lib/types";
+import type { Event } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
 import type { AppTab, Dictionary } from "@/i18n/dictionaries";
 import type { TimeRange } from "@/lib/filters";
@@ -31,7 +31,6 @@ interface HomeProps {
 
 export function Home({ locale, dict }: HomeProps) {
   const [tab, setTab] = useState<AppTab>("discover");
-  const [category, setCategory] = useState<EventCategory | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [timeRange, setTimeRange] = useState<TimeRange>("all");
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
@@ -138,14 +137,9 @@ export function Home({ locale, dict }: HomeProps) {
                 />
               </div>
               <div className="mb-8">
-                <CategoryGrid
-                  selected={category}
-                  onSelect={setCategory}
-                  dict={dict}
-                />
+                <CategoryGrid locale={locale} dict={dict} />
               </div>
               <EventList
-                category={category}
                 locale={locale}
                 dict={dict}
                 searchQuery={searchQuery}

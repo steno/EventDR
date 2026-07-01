@@ -120,6 +120,10 @@ export async function GET(request: NextRequest) {
       events = events.filter((e) => e.venueSlug === venueSlug);
     }
 
+    if (category) {
+      events = events.filter((e) => e.category === category);
+    }
+
     if (events.length === 0) {
       events = category
         ? getFallbackForCategory(category, locale)

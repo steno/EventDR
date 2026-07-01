@@ -35,6 +35,9 @@ export const es: Dictionary = {
     title: "Explorar",
     clear: "Limpiar",
     ariaLabel: "Categorías de eventos",
+    back: "Volver a explorar",
+    eventsIn: "Próximos eventos",
+    noEvents: "Aún no hay eventos en esta categoría.",
   },
   events: {
     loading: "Buscando eventos cerca de ti…",

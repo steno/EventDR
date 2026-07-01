@@ -26,6 +26,9 @@ export type Dictionary = {
     title: string;
     clear: string;
     ariaLabel: string;
+    back: string;
+    eventsIn: string;
+    noEvents: string;
   };
   events: {
     loading: string;
@@ -169,6 +172,9 @@ export const en: Dictionary = {
     title: "Browse",
     clear: "Clear",
     ariaLabel: "Event categories",
+    back: "Back to discover",
+    eventsIn: "Upcoming events",
+    noEvents: "No events in this category yet.",
   },
   events: {
     loading: "Finding events near you…",
