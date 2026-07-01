@@ -67,6 +67,7 @@ export const es: Dictionary = {
   search: {
     placeholder: "Buscar eventos, lugares…",
     noResults: "Sin resultados para tu búsqueda.",
+    activeTitle: "Resultados de búsqueda",
   },
   time: {
     all: "Todos",

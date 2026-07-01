@@ -78,14 +78,20 @@ export function filterByTimeRange<T extends { date: string; recurrence?: string;
   });
 }
 
-export function searchEvents<T extends { title: string; description: string; location: string; venue?: string }>(
-  items: T[],
-  query: string,
-): T[] {
+export function searchEvents<
+  T extends {
+    title: string;
+    description: string;
+    location: string;
+    venue?: string;
+    category?: string;
+  },
+>(items: T[], query: string): T[] {
   const q = query.trim().toLowerCase();
   if (!q) return items;
   return items.filter((e) => {
-    const haystack = `${e.title} ${e.description} ${e.location} ${e.venue ?? ""}`.toLowerCase();
+    const haystack =
+      `${e.title} ${e.description} ${e.location} ${e.venue ?? ""} ${e.category ?? ""}`.toLowerCase();
     return haystack.includes(q);
   });
 }

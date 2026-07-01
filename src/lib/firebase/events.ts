@@ -107,10 +107,10 @@ export async function fetchApprovedEvents(options?: {
   const snap = await db
     .collection("events")
     .where("status", "==", "approved")
-    .orderBy("date")
     .get();
 
   let events = snap.docs.map((doc) => docToEvent(doc.id, doc.data()));
+  events.sort((a, b) => a.date.localeCompare(b.date));
 
   if (options?.category) {
     events = events.filter((e) => e.category === options.category);

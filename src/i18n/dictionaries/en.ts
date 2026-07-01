@@ -58,6 +58,7 @@ export type Dictionary = {
   search: {
     placeholder: string;
     noResults: string;
+    activeTitle: string;
   };
   time: Record<TimeRange, string>;
   nav: {
@@ -216,6 +217,7 @@ export const en: Dictionary = {
   search: {
     placeholder: "Search events, places…",
     noResults: "No matches for your search.",
+    activeTitle: "Search results",
   },
   time: {
     all: "All",

@@ -5,6 +5,7 @@ import { Hero } from "@/components/Hero";
 import { CategoryGrid } from "@/components/CategoryGrid";
 import { EventList } from "@/components/EventList";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { RegionBadge } from "@/components/RegionBadge";
 import { SearchBar } from "@/components/SearchBar";
 import { TimeFilter } from "@/components/TimeFilter";
 import { BottomNav } from "@/components/BottomNav";
@@ -15,11 +16,11 @@ import { IosInstallHint } from "@/components/IosInstallHint";
 import { PwaRegister } from "@/components/PwaRegister";
 import { EventCard } from "@/components/EventCard";
 import { VenueStrip } from "@/components/VenueStrip";
-import { NearMeToggle } from "@/components/NearMeToggle";
 import { PushNotifyButton } from "@/components/PushNotifyButton";
 import { useSavedEvents } from "@/hooks/useSavedEvents";
 import { useGeolocation } from "@/hooks/useGeolocation";
 import { usePushNotifications } from "@/hooks/usePushNotifications";
+import { NORTH_COAST_CENTER } from "@/lib/geo";
 import type { Event } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
 import type { AppTab, Dictionary } from "@/i18n/dictionaries";
@@ -38,17 +39,13 @@ export function Home({ locale, dict }: HomeProps) {
   const [submitOpen, setSubmitOpen] = useState(false);
   const [allEvents, setAllEvents] = useState<Event[]>([]);
   const [refreshKey, setRefreshKey] = useState(0);
-  const [nearMe, setNearMe] = useState(false);
 
   const { toggleSave, isSaved, filterSaved, savedIds } = useSavedEvents();
   const geo = useGeolocation();
   const push = usePushNotifications(locale);
 
-  useEffect(() => {
-    if (localStorage.getItem("popevents-nearme") === "1") {
-      setNearMe(true);
-    }
-  }, []);
+  const sortLat = geo.lat ?? NORTH_COAST_CENTER.lat;
+  const sortLng = geo.lng ?? NORTH_COAST_CENTER.lng;
 
   useEffect(() => {
     fetch(`/api/events?locale=${locale}`)
@@ -69,19 +66,6 @@ export function Home({ locale, dict }: HomeProps) {
     setTab("discover");
   }, []);
 
-  function handleNearMeToggle() {
-    if (!nearMe) {
-      geo.requestLocation();
-      localStorage.setItem("popevents-nearme", "1");
-      setNearMe(true);
-      setRefreshKey((k) => k + 1);
-    } else {
-      localStorage.removeItem("popevents-nearme");
-      setNearMe(false);
-      setRefreshKey((k) => k + 1);
-    }
-  }
-
   async function handlePushSubscribe() {
     await push.subscribe(geo.lat ?? undefined, geo.lng ?? undefined);
   }
@@ -100,7 +84,8 @@ export function Home({ locale, dict }: HomeProps) {
       <PwaRegister />
       <main className="flex-1 bg-neutral-50 pb-24">
         <div className="mx-auto max-w-lg sm:max-w-2xl px-4 pb-6">
-          <div className="flex justify-end pt-3">
+          <div className="flex items-center justify-between gap-2 pt-3">
+            <RegionBadge dict={dict} />
             <LanguageSwitcher locale={locale} dict={dict} />
           </div>
 
@@ -120,15 +105,6 @@ export function Home({ locale, dict }: HomeProps) {
                 onChange={setTimeRange}
                 dict={dict}
               />
-              <div className="flex flex-wrap gap-2 mb-4">
-                <NearMeToggle
-                  active={nearMe && geo.lat != null}
-                  loading={geo.loading}
-                  error={geo.error}
-                  onToggle={handleNearMeToggle}
-                  dict={dict}
-                />
-              </div>
               <VenueStrip locale={locale} dict={dict} />
               <div className="mb-6">
                 <PushNotifyButton
@@ -150,9 +126,9 @@ export function Home({ locale, dict }: HomeProps) {
                 onSelectEvent={setSelectedEvent}
                 onEventsLoaded={handleEventsLoaded}
                 refreshKey={refreshKey}
-                nearMe={nearMe}
-                userLat={geo.lat}
-                userLng={geo.lng}
+                sortByDistance
+                userLat={sortLat}
+                userLng={sortLng}
               />
             </>
           )}

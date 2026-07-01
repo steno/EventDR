@@ -19,9 +19,9 @@ interface EventListProps {
   onSelectEvent: (event: Event) => void;
   onEventsLoaded?: (events: Event[]) => void;
   refreshKey?: number;
-  nearMe?: boolean;
   userLat?: number | null;
   userLng?: number | null;
+  sortByDistance?: boolean;
 }
 
 export function EventList({
@@ -33,9 +33,9 @@ export function EventList({
   onSelectEvent,
   onEventsLoaded,
   refreshKey = 0,
-  nearMe = false,
   userLat = null,
   userLng = null,
+  sortByDistance = false,
 }: EventListProps) {
   const [events, setEvents] = useState<Event[]>([]);
   const [loading, setLoading] = useState(true);
@@ -52,7 +52,7 @@ export function EventList({
         params.set("locale", locale);
         if (category) params.set("category", category);
         if (refresh) params.set("refresh", "true");
-        if (nearMe && userLat != null && userLng != null) {
+        if (sortByDistance && userLat != null && userLng != null) {
           params.set("nearMe", "true");
           params.set("lat", String(userLat));
           params.set("lng", String(userLng));
@@ -75,12 +75,12 @@ export function EventList({
         setRefreshing(false);
       }
     },
-    [category, locale, onEventsLoaded, nearMe, userLat, userLng],
+    [category, locale, onEventsLoaded, sortByDistance, userLat, userLng],
   );
 
   useEffect(() => {
     fetchEvents(refreshKey > 0);
-  }, [fetchEvents, refreshKey, nearMe, userLat, userLng]);
+  }, [fetchEvents, refreshKey, sortByDistance, userLat, userLng]);
 
   const filtered = useMemo(() => {
     let result = events;
@@ -111,13 +111,20 @@ export function EventList({
 
   const trending = filtered.filter((e) => e.trending);
   const rest = filtered.filter((e) => !e.trending);
+  const isSearching = searchQuery.trim().length > 0;
 
   return (
     <div className="space-y-8">
       <div className="flex items-center justify-between">
         <div>
           <h2 className="text-xl font-black text-neutral-900 tracking-tight">
-            {nearMe && userLat != null ? dict.events.nearMeOn : category ? dict.events.filtered : dict.events.trending}
+            {isSearching
+              ? dict.search.activeTitle
+              : sortByDistance
+                ? dict.events.nearMeOn
+                : category
+                  ? dict.events.filtered
+                  : dict.events.trending}
           </h2>
           {category && filtered.length > 0 && (
             <p className="text-xs text-neutral-400 mt-0.5">
@@ -149,6 +156,18 @@ export function EventList({
             {searchQuery ? dict.search.noResults : dict.events.empty}
           </p>
           <p className="text-sm text-neutral-400 mt-1">{dict.events.emptyHint}</p>
+        </div>
+      ) : isSearching ? (
+        <div className="space-y-3">
+          {filtered.map((event) => (
+            <EventCard
+              key={event.id}
+              event={event}
+              dict={dict}
+              locale={locale}
+              onSelect={onSelectEvent}
+            />
+          ))}
         </div>
       ) : (
         <>

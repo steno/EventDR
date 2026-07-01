@@ -67,6 +67,7 @@ export const fr: Dictionary = {
   search: {
     placeholder: "Rechercher événements, lieux…",
     noResults: "Aucun résultat pour votre recherche.",
+    activeTitle: "Résultats de recherche",
   },
   time: {
     all: "Tous",

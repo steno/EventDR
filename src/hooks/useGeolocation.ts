@@ -40,10 +40,7 @@ export function useGeolocation() {
   }, []);
 
   useEffect(() => {
-    const saved = localStorage.getItem("popevents-nearme");
-    if (saved === "1") {
-      requestLocation();
-    }
+    requestLocation();
   }, [requestLocation]);
 
   return { ...state, requestLocation };

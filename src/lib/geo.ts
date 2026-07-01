@@ -10,6 +10,8 @@ const CITY_COORDS: Record<string, { lat: number; lng: number }> = {
   "playa dorada": { lat: 19.78, lng: -70.65 },
 };
 
+export const NORTH_COAST_CENTER = { lat: 19.7934, lng: -70.6884 };
+
 export function haversineKm(
   lat1: number,
   lng1: number,
