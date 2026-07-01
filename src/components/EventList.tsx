@@ -120,19 +120,23 @@ export function EventList({
           <h2 className="text-xl font-black text-neutral-900 tracking-tight">
             {isSearching
               ? dict.search.activeTitle
-              : sortByDistance
-                ? dict.events.nearMeOn
-                : category
-                  ? dict.events.filtered
-                  : dict.events.trending}
+              : sortByDistance && !category
+                ? dict.events.ourPicks
+                : sortByDistance
+                  ? dict.events.nearMeOn
+                  : category
+                    ? dict.events.filtered
+                    : dict.events.trending}
           </h2>
           {category && filtered.length > 0 && (
             <p className="text-xs text-neutral-400 mt-0.5">
               {filtered.length} · {dict.events.hiddenGems}
             </p>
           )}
-          {!category && source && (
-            <p className="text-xs text-neutral-400 mt-0.5">{sourceLabel}</p>
+          {!category && (sortByDistance && !isSearching ? true : source) && (
+            <p className="text-xs text-neutral-400 mt-0.5">
+              {sortByDistance && !isSearching ? dict.events.nearMeOn : sourceLabel}
+            </p>
           )}
         </div>
         <button

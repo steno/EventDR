@@ -47,6 +47,7 @@ export type Dictionary = {
     hot: string;
     nearMe: string;
     nearMeOn: string;
+    ourPicks: string;
     nearMeDenied: string;
     distanceAway: string;
     format: {
@@ -207,6 +208,7 @@ export const en: Dictionary = {
     hot: "Hot",
     nearMe: "Near me",
     nearMeOn: "Sorted by distance",
+    ourPicks: "Our picks",
     nearMeDenied: "location off",
     distanceAway: "away",
     format: {

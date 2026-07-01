@@ -56,6 +56,7 @@ export const es: Dictionary = {
     hot: "Top",
     nearMe: "Cerca de mí",
     nearMeOn: "Ordenado por distancia",
+    ourPicks: "Nuestras selecciones",
     nearMeDenied: "sin ubicación",
     distanceAway: "de distancia",
     format: {

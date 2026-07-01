@@ -56,6 +56,7 @@ export const fr: Dictionary = {
     hot: "Top",
     nearMe: "Près de moi",
     nearMeOn: "Trié par distance",
+    ourPicks: "Nos sélections",
     nearMeDenied: "localisation refusée",
     distanceAway: "de distance",
     format: {
