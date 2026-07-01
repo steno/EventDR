@@ -114,6 +114,7 @@ export type Dictionary = {
   };
   footer: {
     tagline: string;
+    builtWith: string;
   };
   lang: {
     en: string;
@@ -278,6 +279,7 @@ export const en: Dictionary = {
   },
   footer: {
     tagline: "POP Events · North Coast Dominican Republic",
+    builtWith: "Built with ❤️ by",
   },
   lang: {
     en: "EN",

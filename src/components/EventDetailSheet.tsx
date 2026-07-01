@@ -20,7 +20,7 @@ import type { Locale } from "@/i18n/config";
 import { getCategoryMeta } from "@/lib/categories";
 import { formatEventDate } from "@/lib/format-date";
 import { getDirectionsUrl } from "@/lib/maps";
-import { downloadCalendarEvent } from "@/lib/calendar";
+import { addToCalendar } from "@/lib/calendar";
 import { shareEvent } from "@/lib/share";
 
 interface EventDetailSheetProps {
@@ -156,7 +156,7 @@ export function EventDetailSheet({
             )}
             <button
               type="button"
-              onClick={() => downloadCalendarEvent(event)}
+              onClick={() => addToCalendar(event)}
               className="flex items-center justify-center gap-2 rounded-2xl bg-neutral-100 text-neutral-900 py-3.5 text-sm font-bold"
             >
               <CalendarPlus className="h-4 w-4" />

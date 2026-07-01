@@ -176,14 +176,17 @@ export function Home({ locale, dict }: HomeProps) {
           <p className="text-xs text-neutral-400 font-medium">
             {dict.footer.tagline}
           </p>
-          <a
-            href="https://github.com/steno/EventDR"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xs text-neutral-300 hover:text-neutral-500 transition-colors mt-1 inline-block"
-          >
-            github.com/steno/EventDR
-          </a>
+          <p className="text-xs text-neutral-300 mt-1">
+            {dict.footer.builtWith}{" "}
+            <a
+              href="https://www.asemota.de"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-neutral-400 hover:text-neutral-600 transition-colors font-medium"
+            >
+              asemota
+            </a>
+          </p>
         </footer>
       </main>
 

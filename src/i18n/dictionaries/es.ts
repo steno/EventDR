@@ -128,6 +128,7 @@ export const es: Dictionary = {
   },
   footer: {
     tagline: "POP Events · Costa Norte República Dominicana",
+    builtWith: "Hecho con ❤️ por",
   },
   lang: {
     en: "EN",

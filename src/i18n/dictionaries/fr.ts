@@ -128,6 +128,7 @@ export const fr: Dictionary = {
   },
   footer: {
     tagline: "POP Events · Côte Nord République dominicaine",
+    builtWith: "Fait avec ❤️ par",
   },
   lang: {
     en: "EN",
