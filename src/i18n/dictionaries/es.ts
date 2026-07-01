@@ -123,9 +123,7 @@ export const es: Dictionary = {
     subtitle: "Añádelo a tu pantalla de inicio — funciona como una app.",
     button: "Instalar",
     dismiss: "Ahora no",
-    header: "Instalar",
     iosHint: "Instalar: toca Compartir (↑) y luego \"Añadir a inicio\"",
-    desktopHint: "Usa el icono de instalar en la barra del navegador, o prueba Chrome/Edge.",
   },
   footer: {
     tagline: "POP Events · Costa Norte República Dominicana",

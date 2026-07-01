@@ -11,7 +11,6 @@ import { BottomNav } from "@/components/BottomNav";
 import { EventDetailSheet } from "@/components/EventDetailSheet";
 import { SubmitEventSheet } from "@/components/SubmitEventSheet";
 import { InstallBanner } from "@/components/InstallBanner";
-import { InstallHeaderButton } from "@/components/InstallHeaderButton";
 import { IosInstallHint } from "@/components/IosInstallHint";
 import { PwaRegister } from "@/components/PwaRegister";
 import { EventCard } from "@/components/EventCard";
@@ -101,10 +100,7 @@ export function Home({ locale, dict }: HomeProps) {
       <PwaRegister />
       <main className="flex-1 bg-neutral-50 pb-24">
         <div className="mx-auto max-w-lg sm:max-w-2xl px-4 pb-6">
-          <div className="flex items-center pt-3">
-            <div className="mr-auto">
-              <InstallHeaderButton dict={dict} />
-            </div>
+          <div className="flex justify-end pt-3">
             <LanguageSwitcher locale={locale} dict={dict} />
           </div>
 

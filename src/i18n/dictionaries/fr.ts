@@ -123,9 +123,7 @@ export const fr: Dictionary = {
     subtitle: "Ajoutez à votre écran d'accueil — fonctionne comme une application.",
     button: "Installer",
     dismiss: "Plus tard",
-    header: "Installer",
     iosHint: "Installer : touchez Partager (↑) puis « Sur l'écran d'accueil »",
-    desktopHint: "Utilisez l'icône d'installation dans la barre d'adresse, ou Chrome/Edge.",
   },
   footer: {
     tagline: "POP Events · Côte Nord République dominicaine",
