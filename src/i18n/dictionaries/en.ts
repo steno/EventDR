@@ -1,7 +1,7 @@
 import type { EventCategory } from "@/lib/types";
 import type { TimeRange } from "@/lib/filters";
 
-export type AppTab = "discover" | "saved" | "submit";
+export type AppTab = "discover" | "search" | "saved" | "submit";
 
 export type Dictionary = {
   meta: {
@@ -63,6 +63,7 @@ export type Dictionary = {
   time: Record<TimeRange, string>;
   nav: {
     discover: string;
+    search: string;
     saved: string;
     submit: string;
   };
@@ -227,6 +228,7 @@ export const en: Dictionary = {
   },
   nav: {
     discover: "Discover",
+    search: "Search",
     saved: "Saved",
     submit: "Add event",
   },

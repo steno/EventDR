@@ -5,9 +5,7 @@ import { Hero } from "@/components/Hero";
 import { CategoryGrid } from "@/components/CategoryGrid";
 import { EventList } from "@/components/EventList";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
-import { RegionBadge } from "@/components/RegionBadge";
 import { SearchBar } from "@/components/SearchBar";
-import { TimeFilter } from "@/components/TimeFilter";
 import { BottomNav } from "@/components/BottomNav";
 import { EventDetailSheet } from "@/components/EventDetailSheet";
 import { SubmitEventSheet } from "@/components/SubmitEventSheet";
@@ -24,7 +22,6 @@ import { NORTH_COAST_CENTER } from "@/lib/geo";
 import type { Event } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
 import type { AppTab, Dictionary } from "@/i18n/dictionaries";
-import type { TimeRange } from "@/lib/filters";
 
 interface HomeProps {
   locale: Locale;
@@ -34,7 +31,6 @@ interface HomeProps {
 export function Home({ locale, dict }: HomeProps) {
   const [tab, setTab] = useState<AppTab>("discover");
   const [searchQuery, setSearchQuery] = useState("");
-  const [timeRange, setTimeRange] = useState<TimeRange>("all");
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
   const [submitOpen, setSubmitOpen] = useState(false);
   const [allEvents, setAllEvents] = useState<Event[]>([]);
@@ -84,8 +80,7 @@ export function Home({ locale, dict }: HomeProps) {
       <PwaRegister />
       <main className="flex-1 bg-neutral-50 pb-24">
         <div className="mx-auto max-w-lg sm:max-w-2xl px-4 pb-6">
-          <div className="flex items-center justify-between gap-2 pt-3">
-            <RegionBadge dict={dict} />
+          <div className="flex justify-end pt-3">
             <LanguageSwitcher locale={locale} dict={dict} />
           </div>
 
@@ -95,16 +90,6 @@ export function Home({ locale, dict }: HomeProps) {
             <>
               <InstallBanner dict={dict} />
               <Hero dict={dict} />
-              <SearchBar
-                value={searchQuery}
-                onChange={setSearchQuery}
-                dict={dict}
-              />
-              <TimeFilter
-                value={timeRange}
-                onChange={setTimeRange}
-                dict={dict}
-              />
               <VenueStrip locale={locale} dict={dict} />
               <div className="mb-6">
                 <PushNotifyButton
@@ -121,8 +106,6 @@ export function Home({ locale, dict }: HomeProps) {
               <EventList
                 locale={locale}
                 dict={dict}
-                searchQuery={searchQuery}
-                timeRange={timeRange}
                 onSelectEvent={setSelectedEvent}
                 onEventsLoaded={handleEventsLoaded}
                 refreshKey={refreshKey}
@@ -131,6 +114,34 @@ export function Home({ locale, dict }: HomeProps) {
                 userLng={sortLng}
               />
             </>
+          )}
+
+          {tab === "search" && (
+            <div className="pt-4">
+              <SearchBar
+                value={searchQuery}
+                onChange={setSearchQuery}
+                dict={dict}
+                autoFocus
+              />
+              {searchQuery.trim() ? (
+                <EventList
+                  locale={locale}
+                  dict={dict}
+                  searchQuery={searchQuery}
+                  timeRange="all"
+                  onSelectEvent={setSelectedEvent}
+                  refreshKey={refreshKey}
+                  sortByDistance
+                  userLat={sortLat}
+                  userLng={sortLng}
+                />
+              ) : (
+                <p className="text-center text-sm text-neutral-400 font-medium py-16 px-6">
+                  {dict.search.placeholder}
+                </p>
+              )}
+            </div>
           )}
 
           {tab === "saved" && (

@@ -77,6 +77,7 @@ export const fr: Dictionary = {
   },
   nav: {
     discover: "Explorer",
+    search: "Rechercher",
     saved: "Enregistrés",
     submit: "Publier",
   },

@@ -7,9 +7,10 @@ interface SearchBarProps {
   value: string;
   onChange: (value: string) => void;
   dict: Dictionary;
+  autoFocus?: boolean;
 }
 
-export function SearchBar({ value, onChange, dict }: SearchBarProps) {
+export function SearchBar({ value, onChange, dict, autoFocus }: SearchBarProps) {
   return (
     <div className="relative mb-4">
       <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-neutral-400" />
@@ -18,6 +19,7 @@ export function SearchBar({ value, onChange, dict }: SearchBarProps) {
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={dict.search.placeholder}
+        autoFocus={autoFocus}
         className="
           w-full rounded-2xl bg-white border border-neutral-100
           py-3 pl-10 pr-4 text-sm font-medium text-neutral-900
