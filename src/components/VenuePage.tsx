@@ -8,6 +8,8 @@ import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import { EventDetailSheet } from "@/components/EventDetailSheet";
 import { FilteredEventList } from "@/components/FilteredEventList";
+import { matchVenueSlug } from "@/lib/venues-seed";
+import { materializeEventDates } from "@/lib/event-dates";
 import { useSavedEvents } from "@/hooks/useSavedEvents";
 
 interface VenuePageProps {
@@ -25,7 +27,13 @@ export function VenuePage({ venue, locale, dict }: VenuePageProps) {
   useEffect(() => {
     fetch(`/api/events?locale=${locale}&venue=${venue.slug}`)
       .then((r) => r.json())
-      .then((d: { events?: Event[] }) => setEvents(d.events ?? []))
+      .then((d: { events?: Event[] }) => {
+        const list = (d.events ?? []).filter((e) => {
+          const slug = e.venueSlug ?? matchVenueSlug(e.venue) ?? matchVenueSlug(e.location);
+          return slug === venue.slug;
+        });
+        setEvents(materializeEventDates(list));
+      })
       .catch(() => setEvents([]))
       .finally(() => setLoading(false));
   }, [locale, venue.slug]);

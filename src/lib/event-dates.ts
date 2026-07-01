@@ -1,7 +1,17 @@
 import type { Event, EventRecurrence } from "./types";
 
-function formatISO(d: Date): string {
-  return d.toISOString().slice(0, 10);
+/** YYYY-MM-DD in the user's local timezone (never use toISOString for calendar dates). */
+export function localDateISO(d: Date = new Date()): string {
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return `${y}-${m}-${day}`;
+}
+
+export function parseLocalDate(dateStr: string): Date {
+  const [y, m, d] = dateStr.split("-").map(Number);
+  if (!y || !m || !d) return new Date(NaN);
+  return new Date(y, m - 1, d);
 }
 
 function startOfDay(d: Date): Date {
@@ -9,7 +19,7 @@ function startOfDay(d: Date): Date {
 }
 
 function parseEventDate(dateStr: string): Date | null {
-  const d = new Date(dateStr + "T12:00:00");
+  const d = parseLocalDate(dateStr);
   return isNaN(d.getTime()) ? null : d;
 }
 
@@ -21,13 +31,12 @@ function rollForwardDate(dateStr: string, now: Date): string {
   const today = startOfDay(now);
   let cursor = startOfDay(eventDay);
 
-  if (cursor >= today) return formatISO(cursor);
+  if (cursor >= today) return localDateISO(cursor);
 
-  // Advance by 7 days until upcoming (keeps "every Sunday" style fallbacks alive)
   while (cursor < today) {
     cursor.setDate(cursor.getDate() + 7);
   }
-  return formatISO(cursor);
+  return localDateISO(cursor);
 }
 
 function nextWeekday(from: Date, targetDay: number): Date {
@@ -39,12 +48,13 @@ function nextWeekday(from: Date, targetDay: number): Date {
 
 /**
  * Sets display dates for recurring events and rolls stale fixed dates forward.
+ * Always uses local calendar dates (safe on client and server).
  */
 export function materializeEventDates(
   events: Event[],
   now: Date = new Date(),
 ): Event[] {
-  const today = formatISO(now);
+  const today = localDateISO(now);
 
   return events.map((event) => {
     if (event.recurrence === "daily") {
@@ -58,7 +68,7 @@ export function materializeEventDates(
     }
     if (event.recurrence === "weekly" && event.recurrenceDay != null) {
       const next = nextWeekday(now, event.recurrenceDay);
-      return { ...event, date: formatISO(next) };
+      return { ...event, date: localDateISO(next) };
     }
     if (!event.recurrence) {
       return { ...event, date: rollForwardDate(event.date, now) };

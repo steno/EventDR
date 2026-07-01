@@ -9,6 +9,7 @@ import type { Locale } from "@/i18n/config";
 import { getCategoryMeta } from "@/lib/categories";
 import { EventDetailSheet } from "@/components/EventDetailSheet";
 import { FilteredEventList } from "@/components/FilteredEventList";
+import { materializeEventDates } from "@/lib/event-dates";
 import { useSavedEvents } from "@/hooks/useSavedEvents";
 
 interface CategoryPageProps {
@@ -28,7 +29,9 @@ export function CategoryPage({ categoryId, locale, dict }: CategoryPageProps) {
   useEffect(() => {
     fetch(`/api/events?locale=${locale}&category=${categoryId}`)
       .then((r) => r.json())
-      .then((d: { events?: Event[] }) => setEvents(d.events ?? []))
+      .then((d: { events?: Event[] }) =>
+        setEvents(materializeEventDates(d.events ?? [])),
+      )
       .catch(() => setEvents([]))
       .finally(() => setLoading(false));
   }, [locale, categoryId]);

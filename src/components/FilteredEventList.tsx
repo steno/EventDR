@@ -6,6 +6,7 @@ import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import type { TimeRange } from "@/lib/filters";
 import { filterByTimeRange } from "@/lib/filters";
+import { materializeEventDates } from "@/lib/event-dates";
 import { TimeFilter } from "@/components/TimeFilter";
 import { EventCard } from "@/components/EventCard";
 
@@ -30,9 +31,14 @@ export function FilteredEventList({
 }: FilteredEventListProps) {
   const [timeRange, setTimeRange] = useState<TimeRange>("all");
 
+  const materialized = useMemo(
+    () => materializeEventDates(events),
+    [events],
+  );
+
   const filtered = useMemo(
-    () => filterByTimeRange(events, timeRange),
-    [events, timeRange],
+    () => filterByTimeRange(materialized, timeRange),
+    [materialized, timeRange],
   );
 
   return (

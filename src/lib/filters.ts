@@ -1,10 +1,10 @@
 export type TimeRange = "all" | "today" | "weekend" | "week";
 
 import type { EventRecurrence } from "./types";
-import { eventMatchesRecurrence } from "./event-dates";
+import { eventMatchesRecurrence, parseLocalDate } from "./event-dates";
 
 function parseEventDate(dateStr: string): Date | null {
-  const d = new Date(dateStr + "T12:00:00");
+  const d = parseLocalDate(dateStr);
   return isNaN(d.getTime()) ? null : d;
 }
 

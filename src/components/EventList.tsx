@@ -7,6 +7,7 @@ import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import type { TimeRange } from "@/lib/filters";
 import { filterByTimeRange, searchEvents } from "@/lib/filters";
+import { materializeEventDates } from "@/lib/event-dates";
 import { EventCard } from "./EventCard";
 
 interface EventListProps {
@@ -62,7 +63,7 @@ export function EventList({
           events: Event[];
           source: string;
         };
-        const loaded = data.events ?? [];
+        const loaded = materializeEventDates(data.events ?? []);
         setEvents(loaded);
         onEventsLoaded?.(loaded);
         setSource(data.source ?? "");
