@@ -6,8 +6,9 @@ import { ArrowLeft } from "lucide-react";
 import type { Event, Venue } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
-import { EventCard } from "@/components/EventCard";
 import { EventDetailSheet } from "@/components/EventDetailSheet";
+import { FilteredEventList } from "@/components/FilteredEventList";
+import { useSavedEvents } from "@/hooks/useSavedEvents";
 
 interface VenuePageProps {
   venue: Venue;
@@ -19,6 +20,7 @@ export function VenuePage({ venue, locale, dict }: VenuePageProps) {
   const [events, setEvents] = useState<Event[]>([]);
   const [loading, setLoading] = useState(true);
   const [selected, setSelected] = useState<Event | null>(null);
+  const { toggleSave, isSaved } = useSavedEvents();
 
   useEffect(() => {
     fetch(`/api/events?locale=${locale}&venue=${venue.slug}`)
@@ -52,29 +54,20 @@ export function VenuePage({ venue, locale, dict }: VenuePageProps) {
             </div>
           </div>
 
-          <p className="text-neutral-600 leading-relaxed mb-8">{venue.description}</p>
+          <p className="text-neutral-600 leading-relaxed mb-6">{venue.description}</p>
 
           <h2 className="text-xs font-bold uppercase tracking-widest text-neutral-400 mb-3">
             {dict.venues.eventsAt}
           </h2>
 
-          {loading ? (
-            <p className="text-sm text-neutral-400">{dict.events.loading}</p>
-          ) : events.length === 0 ? (
-            <p className="text-neutral-500">{dict.venues.noEvents}</p>
-          ) : (
-            <div className="space-y-3">
-              {events.map((event) => (
-                <EventCard
-                  key={event.id}
-                  event={event}
-                  dict={dict}
-                  locale={locale}
-                  onSelect={setSelected}
-                />
-              ))}
-            </div>
-          )}
+          <FilteredEventList
+            events={events}
+            loading={loading}
+            dict={dict}
+            locale={locale}
+            onSelectEvent={setSelected}
+            emptyMessage={dict.venues.noEvents}
+          />
         </div>
       </main>
 
@@ -83,8 +76,8 @@ export function VenuePage({ venue, locale, dict }: VenuePageProps) {
         onClose={() => setSelected(null)}
         dict={dict}
         locale={locale}
-        isSaved={false}
-        onToggleSave={() => {}}
+        isSaved={selected ? isSaved(selected.id) : false}
+        onToggleSave={toggleSave}
       />
     </>
   );

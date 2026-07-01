@@ -7,8 +7,8 @@ import type { Event, EventCategory } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import { getCategoryMeta } from "@/lib/categories";
-import { EventCard } from "@/components/EventCard";
 import { EventDetailSheet } from "@/components/EventDetailSheet";
+import { FilteredEventList } from "@/components/FilteredEventList";
 import { useSavedEvents } from "@/hooks/useSavedEvents";
 
 interface CategoryPageProps {
@@ -64,7 +64,7 @@ export function CategoryPage({ categoryId, locale, dict }: CategoryPageProps) {
             </div>
           </div>
 
-          <p className="text-neutral-600 leading-relaxed mb-8">
+          <p className="text-neutral-600 leading-relaxed mb-6">
             {dict.events.hiddenGems}
           </p>
 
@@ -72,23 +72,14 @@ export function CategoryPage({ categoryId, locale, dict }: CategoryPageProps) {
             {dict.browse.eventsIn}
           </h2>
 
-          {loading ? (
-            <p className="text-sm text-neutral-400">{dict.events.loading}</p>
-          ) : events.length === 0 ? (
-            <p className="text-neutral-500">{dict.browse.noEvents}</p>
-          ) : (
-            <div className="space-y-3">
-              {events.map((event) => (
-                <EventCard
-                  key={event.id}
-                  event={event}
-                  dict={dict}
-                  locale={locale}
-                  onSelect={setSelected}
-                />
-              ))}
-            </div>
-          )}
+          <FilteredEventList
+            events={events}
+            loading={loading}
+            dict={dict}
+            locale={locale}
+            onSelectEvent={setSelected}
+            emptyMessage={dict.browse.noEvents}
+          />
         </div>
       </main>
 
