@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import {
   X,
   MapPin,
@@ -22,6 +22,7 @@ import { formatEventDate } from "@/lib/format-date";
 import { getDirectionsUrl } from "@/lib/maps";
 import { addToCalendar } from "@/lib/calendar";
 import { shareEvent } from "@/lib/share";
+import { matchVenueSlug } from "@/lib/venues-seed";
 
 interface EventDetailSheetProps {
   event: Event | null;
@@ -41,6 +42,7 @@ export function EventDetailSheet({
   onToggleSave,
 }: EventDetailSheetProps) {
   const [shareMsg, setShareMsg] = useState<string | null>(null);
+  const router = useRouter();
 
   useEffect(() => {
     if (!event) return;
@@ -54,11 +56,19 @@ export function EventDetailSheet({
 
   const category = getCategoryMeta(event.category, dict.categories);
   const emoji = event.imageEmoji ?? category?.emoji ?? "📅";
+  const venueSlug =
+    event.venueSlug ?? matchVenueSlug(event.venue) ?? matchVenueSlug(event.location);
 
   async function handleShare() {
     const ok = await shareEvent(event!);
     setShareMsg(ok ? dict.detail.shared : dict.detail.copied);
     setTimeout(() => setShareMsg(null), 2000);
+  }
+
+  function handleViewVenue() {
+    if (!venueSlug) return;
+    onClose();
+    router.push(`/${locale}/venue/${venueSlug}`);
   }
 
   return (
@@ -71,7 +81,7 @@ export function EventDetailSheet({
       />
       <div
         className="
-          relative w-full max-w-lg sm:max-w-2xl
+          relative z-10 w-full max-w-lg sm:max-w-2xl
           bg-white rounded-t-3xl shadow-2xl
           max-h-[90vh] overflow-y-auto
           pb-[env(safe-area-inset-bottom)]
@@ -132,13 +142,14 @@ export function EventDetailSheet({
                 {event.location}
               </span>
             </div>
-            {event.venueSlug && (
-              <Link
-                href={`/${locale}/venue/${event.venueSlug}`}
-                className="inline-flex items-center gap-2 text-sm font-bold text-orange-600 hover:text-orange-700"
+            {venueSlug && (
+              <button
+                type="button"
+                onClick={handleViewVenue}
+                className="inline-flex items-center gap-2 text-sm font-bold text-orange-600 hover:text-orange-700 active:text-orange-800 min-h-[44px] touch-manipulation"
               >
                 {dict.detail.viewVenue} →
-              </Link>
+              </button>
             )}
           </div>
 
