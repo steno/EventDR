@@ -10,7 +10,6 @@ import { BottomNav } from "@/components/BottomNav";
 import { EventDetailSheet } from "@/components/EventDetailSheet";
 import { SubmitEventSheet } from "@/components/SubmitEventSheet";
 import { InstallBanner } from "@/components/InstallBanner";
-import { IosInstallHint } from "@/components/IosInstallHint";
 import { PwaRegister } from "@/components/PwaRegister";
 import { EventCard } from "@/components/EventCard";
 import { VenueStrip } from "@/components/VenueStrip";
@@ -83,8 +82,6 @@ export function Home({ locale, dict }: HomeProps) {
           <div className="flex justify-end pt-3">
             <LanguageSwitcher locale={locale} dict={dict} />
           </div>
-
-          <IosInstallHint dict={dict} />
 
           {tab === "discover" && (
             <>

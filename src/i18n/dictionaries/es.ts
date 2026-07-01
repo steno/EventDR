@@ -125,19 +125,6 @@ export const es: Dictionary = {
     subtitle: "Añádelo a tu pantalla de inicio — funciona como una app.",
     button: "Instalar",
     dismiss: "Ahora no",
-    iosHint: "Toca para ver cómo instalar — usa Compartir en la barra de Safari",
-    iosGuideTitle: "Añadir a la pantalla de inicio",
-    iosGuideIntro:
-      "Apple no permite abrir esto desde la web. Usa el botón Compartir de la barra inferior de Safari.",
-    iosGuideStep1: "Toca Compartir en la barra inferior de Safari (cuadrado con flecha hacia arriba).",
-    iosGuideStep2: "Desplázate y toca \"Añadir a inicio\"",
-    iosGuideStep3: "Toca \"Añadir\" arriba a la derecha.",
-    iosOpenSafari:
-      "La instalación solo funciona en Safari. Abre esta página en Safari primero (no en Instagram ni Facebook).",
-    iosNotSafari:
-      "No estás en Safari. Copia la URL, ábrela en Safari y sigue estos pasos.",
-    iosToolbarLabel: "Barra inferior de Safari",
-    iosShareLabel: "Compartir",
   },
   footer: {
     tagline: "POP Events · Costa Norte República Dominicana",

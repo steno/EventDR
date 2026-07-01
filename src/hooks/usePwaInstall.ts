@@ -16,18 +16,6 @@ export function detectIOS(): boolean {
   );
 }
 
-export function detectInAppBrowser(): boolean {
-  if (typeof navigator === "undefined") return false;
-  return /FBAN|FBAV|Instagram|Line\/|Twitter|LinkedInApp/i.test(navigator.userAgent);
-}
-
-/** True on iPhone/iPad Safari — the only browser that supports Add to Home Screen. */
-export function detectIOSSafari(): boolean {
-  if (!detectIOS()) return false;
-  const ua = navigator.userAgent;
-  return /Safari/.test(ua) && !/CriOS|FxiOS|OPiOS|EdgiOS/.test(ua);
-}
-
 export function usePwaInstall() {
   const [deferred, setDeferred] = useState<BeforeInstallPromptEvent | null>(null);
   const [isStandalone, setIsStandalone] = useState(false);

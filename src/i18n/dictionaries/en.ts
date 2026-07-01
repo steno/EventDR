@@ -111,16 +111,6 @@ export type Dictionary = {
     subtitle: string;
     button: string;
     dismiss: string;
-    iosHint: string;
-    iosGuideTitle: string;
-    iosGuideIntro: string;
-    iosGuideStep1: string;
-    iosGuideStep2: string;
-    iosGuideStep3: string;
-    iosOpenSafari: string;
-    iosNotSafari: string;
-    iosToolbarLabel: string;
-    iosShareLabel: string;
   };
   footer: {
     tagline: string;
@@ -285,19 +275,6 @@ export const en: Dictionary = {
     subtitle: "Add to your home screen for quick access — works like an app.",
     button: "Install",
     dismiss: "Not now",
-    iosHint: "Tap for install steps — use Safari's Share button at the bottom",
-    iosGuideTitle: "Add to Home Screen",
-    iosGuideIntro:
-      "Apple doesn't let websites open this for you. Use Safari's toolbar Share button — not the share sheet from this page.",
-    iosGuideStep1: "Tap Share in Safari's bottom toolbar (square with arrow pointing up).",
-    iosGuideStep2: "Scroll down in the menu and tap \"Add to Home Screen\"",
-    iosGuideStep3: "Tap \"Add\" in the top-right corner.",
-    iosOpenSafari:
-      "Install only works in Safari. Tap ⋯ or the browser menu and choose \"Open in Safari\" first.",
-    iosNotSafari:
-      "You're not in Safari. Copy the URL, open Safari, paste it, then follow these steps.",
-    iosToolbarLabel: "Safari bottom toolbar",
-    iosShareLabel: "Share",
   },
   footer: {
     tagline: "POP Events · North Coast Dominican Republic",

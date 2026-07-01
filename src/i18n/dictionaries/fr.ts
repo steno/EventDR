@@ -125,19 +125,6 @@ export const fr: Dictionary = {
     subtitle: "Ajoutez à votre écran d'accueil — fonctionne comme une application.",
     button: "Installer",
     dismiss: "Plus tard",
-    iosHint: "Appuyez pour les étapes — utilisez Partager dans la barre Safari en bas",
-    iosGuideTitle: "Sur l'écran d'accueil",
-    iosGuideIntro:
-      "Apple n'autorise pas les sites à ouvrir ceci. Utilisez le bouton Partager de la barre Safari en bas.",
-    iosGuideStep1: "Appuyez sur Partager dans la barre Safari en bas (carré avec flèche vers le haut).",
-    iosGuideStep2: "Faites défiler et appuyez sur « Sur l'écran d'accueil »",
-    iosGuideStep3: "Appuyez sur « Ajouter » en haut à droite.",
-    iosOpenSafari:
-      "L'installation ne fonctionne que dans Safari. Ouvrez cette page dans Safari d'abord (pas Instagram ou Facebook).",
-    iosNotSafari:
-      "Vous n'êtes pas dans Safari. Copiez l'URL, ouvrez Safari, puis suivez ces étapes.",
-    iosToolbarLabel: "Barre Safari en bas",
-    iosShareLabel: "Partager",
   },
   footer: {
     tagline: "POP Events · Côte Nord République dominicaine",

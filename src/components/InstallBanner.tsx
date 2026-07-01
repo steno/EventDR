@@ -19,7 +19,7 @@ export function InstallBanner({ dict }: InstallBannerProps) {
     }
   }, []);
 
-  // Mobile Chrome/Android only (iOS uses IosInstallHint)
+  // Android/mobile Chrome: native beforeinstallprompt only (iOS uses Safari Share menu)
   if (dismissed || !canShowInstall || !canNativePrompt || isIOS) return null;
 
   async function install() {
