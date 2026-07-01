@@ -109,6 +109,9 @@ export type Dictionary = {
     subtitle: string;
     button: string;
     dismiss: string;
+    header: string;
+    iosHint: string;
+    desktopHint: string;
   };
   footer: {
     tagline: string;
@@ -271,6 +274,9 @@ export const en: Dictionary = {
     subtitle: "Add to your home screen for quick access — works like an app.",
     button: "Install",
     dismiss: "Not now",
+    header: "Install",
+    iosHint: "Install: tap Share (↑) then \"Add to Home Screen\"",
+    desktopHint: "Use the install icon in your browser address bar, or try Chrome/Edge.",
   },
   footer: {
     tagline: "POP Events · North Coast Dominican Republic",
