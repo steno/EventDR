@@ -26,6 +26,7 @@ export interface Event {
   trending?: boolean;
   sourceUrl?: string;
   imageEmoji?: string;
+  communitySubmitted?: boolean;
 }
 
 export interface CategoryMeta {

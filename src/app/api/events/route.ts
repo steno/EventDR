@@ -1,11 +1,19 @@
 import { NextRequest, NextResponse } from "next/server";
 import { crawlEventListings } from "@/lib/crawl";
 import { enrichCrawlResults } from "@/lib/enrich";
-import { getCachedEvents, setCachedEvents, mergeWithFallback } from "@/lib/cache";
-import { getFallbackEvents } from "@/lib/fallback-events";
+import {
+  addToPool,
+  getCacheKey,
+  getCachedEvents,
+  mergeWithFallback,
+  setCachedEvents,
+} from "@/lib/cache";
+import { getFallbackEvents, getFallbackForCategory } from "@/lib/fallback-events";
+import { getCommunityEvents } from "@/lib/community-store";
 import { isValidLocale } from "@/i18n/config";
 import type { Locale } from "@/i18n/config";
-import type { Event } from "@/lib/types";
+import type { Event, EventCategory } from "@/lib/types";
+import { CATEGORY_IDS } from "@/lib/categories";
 
 export const dynamic = "force-dynamic";
 export const maxDuration = 60;
@@ -14,6 +22,24 @@ const REGION_LABELS: Record<Locale, string> = {
   en: "North Coast, DR",
   es: "Costa Norte, RD",
 };
+
+function isValidCategory(value: string): value is EventCategory {
+  return CATEGORY_IDS.includes(value as EventCategory);
+}
+
+function mergeCommunityEvents(events: Event[], locale: Locale): Event[] {
+  const community = getCommunityEvents();
+  const seen = new Set(events.map((e) => e.id));
+  const merged = [...events];
+  for (const e of community) {
+    if (!seen.has(e.id)) {
+      merged.push(e);
+      seen.add(e.id);
+    }
+  }
+  addToPool(locale, community);
+  return merged;
+}
 
 function sortEvents(events: Event[]): Event[] {
   return [...events].sort((a, b) => {
@@ -25,21 +51,21 @@ function sortEvents(events: Event[]): Event[] {
 
 export async function GET(request: NextRequest) {
   const { searchParams } = request.nextUrl;
-  const category = searchParams.get("category") ?? undefined;
+  const categoryParam = searchParams.get("category");
+  const category = categoryParam && isValidCategory(categoryParam)
+    ? categoryParam
+    : undefined;
   const refresh = searchParams.get("refresh") === "true";
   const localeParam = searchParams.get("locale") ?? "es";
   const locale: Locale = isValidLocale(localeParam) ? localeParam : "es";
-  const cacheKey = `${locale}:${category ?? "all"}`;
+  const cacheKey = getCacheKey(locale, category);
 
   try {
     if (!refresh) {
       const cached = getCachedEvents(cacheKey);
       if (cached?.length) {
-        const filtered = category
-          ? cached.filter((e) => e.category === category)
-          : cached;
         return NextResponse.json({
-          events: sortEvents(filtered),
+          events: sortEvents(cached),
           source: "cache",
           region: REGION_LABELS[locale],
         });
@@ -47,19 +73,20 @@ export async function GET(request: NextRequest) {
     }
 
     const crawlResults = await crawlEventListings(category);
-    let events: Event[] = [];
+    let crawled: Event[] = [];
 
     if (crawlResults.length > 0) {
-      events = await enrichCrawlResults(crawlResults, category, locale);
+      crawled = await enrichCrawlResults(crawlResults, category, locale);
+      addToPool(locale, crawled);
     }
 
-    events = mergeWithFallback(events, category, locale);
+    let events = mergeWithFallback(crawled, category, locale);
+    events = mergeCommunityEvents(events, locale);
 
     if (events.length === 0) {
-      const fallback = getFallbackEvents(locale);
       events = category
-        ? fallback.filter((e) => e.category === category)
-        : fallback;
+        ? getFallbackForCategory(category, locale)
+        : getFallbackEvents(locale);
     }
 
     events = sortEvents(events);
@@ -70,18 +97,23 @@ export async function GET(request: NextRequest) {
       source: crawlResults.length > 0 ? "live" : "fallback",
       region: REGION_LABELS[locale],
       crawledAt: new Date().toISOString(),
+      crawledSources: crawlResults.length,
     });
   } catch (error) {
     console.error("Events API error:", error);
-    const fallback = getFallbackEvents(locale);
     const events = sortEvents(
-      category ? fallback.filter((e) => e.category === category) : fallback,
+      category
+        ? getFallbackForCategory(category, locale)
+        : getFallbackEvents(locale),
     );
     return NextResponse.json({
       events,
       source: "fallback",
       region: REGION_LABELS[locale],
-      error: locale === "es" ? "Usando eventos locales curados" : "Using curated local events",
+      error:
+        locale === "es"
+          ? "Usando eventos locales curados"
+          : "Using curated local events",
     });
   }
 }

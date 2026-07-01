@@ -1,13 +1,23 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Hero } from "@/components/Hero";
 import { CategoryGrid } from "@/components/CategoryGrid";
 import { EventList } from "@/components/EventList";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
-import type { EventCategory } from "@/lib/types";
+import { SearchBar } from "@/components/SearchBar";
+import { TimeFilter } from "@/components/TimeFilter";
+import { BottomNav } from "@/components/BottomNav";
+import { EventDetailSheet } from "@/components/EventDetailSheet";
+import { SubmitEventSheet } from "@/components/SubmitEventSheet";
+import { InstallBanner } from "@/components/InstallBanner";
+import { PwaRegister } from "@/components/PwaRegister";
+import { EventCard } from "@/components/EventCard";
+import { useSavedEvents } from "@/hooks/useSavedEvents";
+import type { Event, EventCategory } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
-import type { Dictionary } from "@/i18n/dictionaries";
+import type { AppTab, Dictionary } from "@/i18n/dictionaries";
+import type { TimeRange } from "@/lib/filters";
 
 interface HomeProps {
   locale: Locale;
@@ -15,41 +25,156 @@ interface HomeProps {
 }
 
 export function Home({ locale, dict }: HomeProps) {
+  const [tab, setTab] = useState<AppTab>("discover");
   const [category, setCategory] = useState<EventCategory | null>(null);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [timeRange, setTimeRange] = useState<TimeRange>("all");
+  const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
+  const [submitOpen, setSubmitOpen] = useState(false);
+  const [allEvents, setAllEvents] = useState<Event[]>([]);
+  const [refreshKey, setRefreshKey] = useState(0);
+
+  const { toggleSave, isSaved, filterSaved, savedIds } = useSavedEvents();
+
+  useEffect(() => {
+    fetch(`/api/events?locale=${locale}`)
+      .then((r) => r.json())
+      .then((d: { events?: Event[] }) => setAllEvents(d.events ?? []))
+      .catch(() => {});
+  }, [locale, refreshKey]);
+
+  const handleEventsLoaded = useCallback((events: Event[]) => {
+    setAllEvents(events);
+  }, []);
+
+  const handleSubmitted = useCallback((event: Event) => {
+    setAllEvents((prev) => [event, ...prev]);
+    setRefreshKey((k) => k + 1);
+    setTab("discover");
+  }, []);
+
+  const savedEvents = filterSaved(allEvents);
+
+  function handleTabChange(newTab: AppTab) {
+    setTab(newTab);
+    if (newTab === "submit") {
+      setSubmitOpen(true);
+    }
+  }
 
   return (
-    <main className="flex-1 bg-neutral-50">
-      <div className="mx-auto max-w-lg sm:max-w-2xl px-4 pb-12">
-        <div className="flex justify-end pt-3">
-          <LanguageSwitcher locale={locale} dict={dict} />
+    <>
+      <PwaRegister />
+      <main className="flex-1 bg-neutral-50 pb-24">
+        <div className="mx-auto max-w-lg sm:max-w-2xl px-4 pb-6">
+          <div className="flex justify-end pt-3">
+            <LanguageSwitcher locale={locale} dict={dict} />
+          </div>
+
+          {tab === "discover" && (
+            <>
+              <InstallBanner dict={dict} />
+              <Hero dict={dict} />
+              <SearchBar
+                value={searchQuery}
+                onChange={setSearchQuery}
+                dict={dict}
+              />
+              <TimeFilter
+                value={timeRange}
+                onChange={setTimeRange}
+                dict={dict}
+              />
+              <div className="mb-8">
+                <CategoryGrid
+                  selected={category}
+                  onSelect={setCategory}
+                  dict={dict}
+                />
+              </div>
+              <EventList
+                category={category}
+                locale={locale}
+                dict={dict}
+                searchQuery={searchQuery}
+                timeRange={timeRange}
+                onSelectEvent={setSelectedEvent}
+                onEventsLoaded={handleEventsLoaded}
+                refreshKey={refreshKey}
+              />
+            </>
+          )}
+
+          {tab === "saved" && (
+            <div className="pt-4">
+              <h2 className="text-2xl font-black text-neutral-900 tracking-tight mb-6">
+                {dict.saved.title}
+              </h2>
+              {savedEvents.length === 0 ? (
+                <div className="text-center py-16">
+                  <p className="text-neutral-500 font-medium">{dict.saved.empty}</p>
+                  <p className="text-sm text-neutral-400 mt-1">
+                    {dict.saved.emptyHint}
+                  </p>
+                </div>
+              ) : (
+                <div className="space-y-3">
+                  {savedEvents.map((event) => (
+                    <EventCard
+                      key={event.id}
+                      event={event}
+                      dict={dict}
+                      locale={locale}
+                      onSelect={setSelectedEvent}
+                    />
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
         </div>
 
-        <Hero dict={dict} />
+        <footer className="border-t border-neutral-100 bg-white py-6 text-center mb-16">
+          <p className="text-xs text-neutral-400 font-medium">
+            {dict.footer.tagline}
+          </p>
+          <a
+            href="https://github.com/steno/EventDR"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs text-neutral-300 hover:text-neutral-500 transition-colors mt-1 inline-block"
+          >
+            github.com/steno/EventDR
+          </a>
+        </footer>
+      </main>
 
-        <div className="mb-8">
-          <CategoryGrid
-            selected={category}
-            onSelect={setCategory}
-            dict={dict}
-          />
-        </div>
+      <BottomNav
+        active={tab === "submit" && submitOpen ? "submit" : tab}
+        onChange={handleTabChange}
+        dict={dict}
+        savedCount={savedIds.size}
+      />
 
-        <EventList category={category} locale={locale} dict={dict} />
-      </div>
+      <EventDetailSheet
+        event={selectedEvent}
+        onClose={() => setSelectedEvent(null)}
+        dict={dict}
+        locale={locale}
+        isSaved={selectedEvent ? isSaved(selectedEvent.id) : false}
+        onToggleSave={toggleSave}
+      />
 
-      <footer className="border-t border-neutral-100 bg-white py-6 text-center">
-        <p className="text-xs text-neutral-400 font-medium">
-          {dict.footer.tagline}
-        </p>
-        <a
-          href="https://github.com/steno/EventDR"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-xs text-neutral-300 hover:text-neutral-500 transition-colors mt-1 inline-block"
-        >
-          github.com/steno/EventDR
-        </a>
-      </footer>
-    </main>
+      <SubmitEventSheet
+        open={submitOpen}
+        onClose={() => {
+          setSubmitOpen(false);
+          if (tab === "submit") setTab("discover");
+        }}
+        dict={dict}
+        locale={locale}
+        onSubmitted={handleSubmitted}
+      />
+    </>
   );
 }

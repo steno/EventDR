@@ -2,6 +2,7 @@ import type { Event, EventCategory } from "./types";
 import { CATEGORY_IDS } from "./categories";
 import type { CrawlResult } from "./crawl";
 import type { Locale } from "@/i18n/config";
+import { inferCategory } from "./categorize";
 
 const VALID_CATEGORIES = new Set(CATEGORY_IDS);
 
@@ -13,7 +14,10 @@ function slugify(text: string): string {
     .slice(0, 48);
 }
 
-function parseEventsHeuristic(raw: string): Event[] {
+function parseEventsHeuristic(
+  raw: string,
+  categoryHint?: EventCategory,
+): Event[] {
   const events: Event[] = [];
   const lines = raw.split("\n").filter((l) => l.trim().length > 0);
 
@@ -44,13 +48,14 @@ function parseEventsHeuristic(raw: string): Event[] {
         const title = buffer[0].replace(datePattern, "").trim().slice(0, 80);
 
         if (title.length > 5) {
+          const category = inferCategory(block, categoryHint);
           events.push({
             id: slugify(title) || `event-${events.length}`,
             title,
             description: block.slice(0, 200),
             date: dateMatch?.[0] ?? "TBA",
             location: locMatch?.[0] ?? "North Coast, DR",
-            category: "music",
+            category,
             format: /online|virtual|zoom|stream/i.test(block)
               ? "digital"
               : "physical",
@@ -78,6 +83,8 @@ async function enrichWithOpenAI(
 
   const systemPrompt = `You extract and enrich local events for the North Coast of the Dominican Republic (Puerto Plata, Sosúa, Cabarete region).
 Write all titles and descriptions in ${language}.
+Prioritize hidden gems: community gatherings, beach sports, local leagues, small venue shows, expat meetups, and events NOT on major ticket platforms.
+Include grassroots sports (volleyball, kite, surf, pickup soccer, softball), neighborhood parties, and word-of-mouth style happenings.
 Return ONLY valid JSON: an array of event objects. Each object must have:
 - id (slug string)
 - title (string)
@@ -92,11 +99,11 @@ Return ONLY valid JSON: an array of event objects. Each object must have:
 - sourceUrl (optional URL from source)
 - imageEmoji (single emoji matching category)
 
-Focus on real upcoming events. Skip irrelevant content. Max 10 events.`;
+Focus on real upcoming events. Assign the most specific category. Skip irrelevant content. Max 15 events.`;
 
-  const userPrompt = `Raw crawled web content about events${category ? ` in category "${category}"` : ""}:
+  const userPrompt = `Raw crawled web content about events${category ? ` — prioritize category "${category}" but include related events` : ""}:
 
-${rawContent.slice(0, 14000)}`;
+${rawContent.slice(0, 18000)}`;
 
   const res = await fetch("https://api.openai.com/v1/chat/completions", {
     method: "POST",
@@ -136,7 +143,7 @@ ${rawContent.slice(0, 14000)}`;
       id: e.id || `ai-${i}-${slugify(e.title)}`,
       category: VALID_CATEGORIES.has(e.category as EventCategory)
         ? e.category
-        : "music",
+        : inferCategory(`${e.title} ${e.description}`, category as EventCategory | undefined),
     }));
   } catch {
     return [];
@@ -154,5 +161,5 @@ export async function enrichCrawlResults(
   const aiEvents = await enrichWithOpenAI(combined, category, locale);
   if (aiEvents.length > 0) return aiEvents;
 
-  return parseEventsHeuristic(combined);
+  return parseEventsHeuristic(combined, category as EventCategory | undefined);
 }

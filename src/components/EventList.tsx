@@ -1,19 +1,35 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { RefreshCw, Loader2 } from "lucide-react";
 import type { Event, EventCategory } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
+import type { TimeRange } from "@/lib/filters";
+import { filterByTimeRange, searchEvents } from "@/lib/filters";
 import { EventCard } from "./EventCard";
 
 interface EventListProps {
   category?: EventCategory | null;
   locale: Locale;
   dict: Dictionary;
+  searchQuery?: string;
+  timeRange?: TimeRange;
+  onSelectEvent: (event: Event) => void;
+  onEventsLoaded?: (events: Event[]) => void;
+  refreshKey?: number;
 }
 
-export function EventList({ category, locale, dict }: EventListProps) {
+export function EventList({
+  category,
+  locale,
+  dict,
+  searchQuery = "",
+  timeRange = "all",
+  onSelectEvent,
+  onEventsLoaded,
+  refreshKey = 0,
+}: EventListProps) {
   const [events, setEvents] = useState<Event[]>([]);
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
@@ -35,21 +51,31 @@ export function EventList({ category, locale, dict }: EventListProps) {
           events: Event[];
           source: string;
         };
-        setEvents(data.events ?? []);
+        const loaded = data.events ?? [];
+        setEvents(loaded);
+        onEventsLoaded?.(loaded);
         setSource(data.source ?? "");
       } catch {
         setEvents([]);
+        onEventsLoaded?.([]);
       } finally {
         setLoading(false);
         setRefreshing(false);
       }
     },
-    [category, locale],
+    [category, locale, onEventsLoaded],
   );
 
   useEffect(() => {
-    fetchEvents();
-  }, [fetchEvents]);
+    fetchEvents(refreshKey > 0);
+  }, [fetchEvents, refreshKey]);
+
+  const filtered = useMemo(() => {
+    let result = events;
+    result = filterByTimeRange(result, timeRange);
+    result = searchEvents(result, searchQuery);
+    return result;
+  }, [events, timeRange, searchQuery]);
 
   const sourceLabel =
     source === "live"
@@ -69,8 +95,8 @@ export function EventList({ category, locale, dict }: EventListProps) {
     );
   }
 
-  const trending = events.filter((e) => e.trending);
-  const rest = events.filter((e) => !e.trending);
+  const trending = filtered.filter((e) => e.trending);
+  const rest = filtered.filter((e) => !e.trending);
 
   return (
     <div className="space-y-8">
@@ -79,7 +105,12 @@ export function EventList({ category, locale, dict }: EventListProps) {
           <h2 className="text-xl font-black text-neutral-900 tracking-tight">
             {category ? dict.events.filtered : dict.events.trending}
           </h2>
-          {source && (
+          {category && filtered.length > 0 && (
+            <p className="text-xs text-neutral-400 mt-0.5">
+              {filtered.length} · {dict.events.hiddenGems}
+            </p>
+          )}
+          {!category && source && (
             <p className="text-xs text-neutral-400 mt-0.5">{sourceLabel}</p>
           )}
         </div>
@@ -98,14 +129,16 @@ export function EventList({ category, locale, dict }: EventListProps) {
         </button>
       </div>
 
-      {events.length === 0 ? (
+      {filtered.length === 0 ? (
         <div className="text-center py-12">
-          <p className="text-neutral-500 font-medium">{dict.events.empty}</p>
+          <p className="text-neutral-500 font-medium">
+            {searchQuery ? dict.search.noResults : dict.events.empty}
+          </p>
           <p className="text-sm text-neutral-400 mt-1">{dict.events.emptyHint}</p>
         </div>
       ) : (
         <>
-          {trending.length > 0 && !category && (
+          {trending.length > 0 && !category && !searchQuery && (
             <section>
               <h3 className="text-xs font-bold uppercase tracking-widest text-orange-500 mb-3">
                 {dict.events.mostPopular}
@@ -117,6 +150,7 @@ export function EventList({ category, locale, dict }: EventListProps) {
                     event={event}
                     dict={dict}
                     locale={locale}
+                    onSelect={onSelectEvent}
                   />
                 ))}
               </div>
@@ -125,22 +159,24 @@ export function EventList({ category, locale, dict }: EventListProps) {
 
           {rest.length > 0 && (
             <section>
-              {!category && trending.length > 0 && (
+              {!category && trending.length > 0 && !searchQuery && (
                 <h3 className="text-xs font-bold uppercase tracking-widest text-neutral-400 mb-3">
                   {dict.events.moreEvents}
                 </h3>
               )}
               <div className="space-y-3">
-                {(category || trending.length === 0 ? events : rest).map(
-                  (event) => (
-                    <EventCard
-                      key={event.id}
-                      event={event}
-                      dict={dict}
-                      locale={locale}
-                    />
-                  ),
-                )}
+                {(category || trending.length === 0 || searchQuery
+                  ? filtered
+                  : rest
+                ).map((event) => (
+                  <EventCard
+                    key={event.id}
+                    event={event}
+                    dict={dict}
+                    locale={locale}
+                    onSelect={onSelectEvent}
+                  />
+                ))}
               </div>
             </section>
           )}

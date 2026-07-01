@@ -1,0 +1,9 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# API routes (events crawl, submit) may run up to 60s locally — Netlify functions cap lower
+# Set JINA_API_KEY and OPENAI_API_KEY in Site settings → Environment variables

@@ -1,18 +1,20 @@
 const JINA_SEARCH = "https://s.jina.ai";
 const JINA_READER = "https://r.jina.ai";
 
-const EVENT_SOURCES = [
-  "site:eventbrite.com Puerto Plata events",
-  "site:allevents.in Puerto Plata Dominican Republic",
-  "site:facebook.com events Puerto Plata",
-  "Puerto Plata Sosúa Cabarete events 2026",
-  "eventos Puerto Plata República Dominicana",
-];
+import type { EventCategory } from "./types";
+import {
+  BROAD_QUERIES,
+  CATEGORY_QUERIES,
+  PRIORITY_CATEGORIES,
+  getDirectUrlsForCategory,
+  getQueriesForCategory,
+} from "./category-queries";
 
 export interface CrawlResult {
   query: string;
   content: string;
   fetchedAt: string;
+  source: "search" | "url";
 }
 
 function jinaHeaders(): HeadersInit {
@@ -27,6 +29,15 @@ function jinaHeaders(): HeadersInit {
   return headers;
 }
 
+async function parseJinaResponse(res: Response): Promise<string> {
+  const contentType = res.headers.get("content-type") ?? "";
+  if (contentType.includes("application/json")) {
+    const json = (await res.json()) as { data?: string; content?: string };
+    return json.data ?? json.content ?? JSON.stringify(json);
+  }
+  return res.text();
+}
+
 async function jinaSearch(query: string): Promise<string> {
   const url = `${JINA_SEARCH}/${encodeURIComponent(query)}`;
   const res = await fetch(url, {
@@ -38,13 +49,7 @@ async function jinaSearch(query: string): Promise<string> {
     throw new Error(`Jina search failed (${res.status}): ${query}`);
   }
 
-  const contentType = res.headers.get("content-type") ?? "";
-  if (contentType.includes("application/json")) {
-    const json = (await res.json()) as { data?: string; content?: string };
-    return json.data ?? json.content ?? JSON.stringify(json);
-  }
-
-  return res.text();
+  return parseJinaResponse(res);
 }
 
 async function jinaRead(targetUrl: string): Promise<string> {
@@ -58,45 +63,85 @@ async function jinaRead(targetUrl: string): Promise<string> {
     throw new Error(`Jina read failed (${res.status}): ${targetUrl}`);
   }
 
-  const contentType = res.headers.get("content-type") ?? "";
-  if (contentType.includes("application/json")) {
-    const json = (await res.json()) as { data?: string; content?: string };
-    return json.data ?? json.content ?? JSON.stringify(json);
-  }
-
-  return res.text();
+  return parseJinaResponse(res);
 }
 
-export async function crawlEventListings(
-  category?: string,
+async function crawlOne(
+  query: string,
+  source: "search" | "url",
+): Promise<CrawlResult | null> {
+  try {
+    const content =
+      source === "search" ? await jinaSearch(query) : await jinaRead(query);
+    if (content.trim().length < 80) return null;
+    return {
+      query,
+      content: content.slice(0, 14000),
+      fetchedAt: new Date().toISOString(),
+      source,
+    };
+  } catch (err) {
+    console.warn(`Crawl skipped for "${query}":`, err);
+    return null;
+  }
+}
+
+async function crawlMany(
+  searches: string[],
+  urls: string[],
+  searchLimit: number,
 ): Promise<CrawlResult[]> {
-  const queries = category
-    ? [
-        `${category} events Puerto Plata North Coast Dominican Republic`,
-        `site:allevents.in ${category} Puerto Plata`,
-        `site:eventbrite.com ${category} Puerto Plata`,
-      ]
-    : EVENT_SOURCES;
+  const tasks: Promise<CrawlResult | null>[] = [
+    ...searches.slice(0, searchLimit).map((q) => crawlOne(q, "search")),
+    ...urls.map((u) => crawlOne(u, "url")),
+  ];
 
+  const settled = await Promise.allSettled(tasks);
   const results: CrawlResult[] = [];
-  const limit = category ? 2 : 3;
 
-  for (const query of queries.slice(0, limit)) {
-    try {
-      const content = await jinaSearch(query);
-      if (content.trim().length > 100) {
-        results.push({
-          query,
-          content: content.slice(0, 12000),
-          fetchedAt: new Date().toISOString(),
-        });
-      }
-    } catch (err) {
-      console.warn(`Crawl skipped for "${query}":`, err);
+  for (const result of settled) {
+    if (result.status === "fulfilled" && result.value) {
+      results.push(result.value);
     }
   }
 
   return results;
+}
+
+export async function crawlEventListings(
+  category?: EventCategory,
+): Promise<CrawlResult[]> {
+  if (category) {
+    const queries = getQueriesForCategory(category);
+    const urls = getDirectUrlsForCategory(category);
+    return crawlMany(queries, urls, 5);
+  }
+
+  // Home feed: broad discovery + deep crawl for under-represented categories
+  const broad = await crawlMany(BROAD_QUERIES, [], 4);
+
+  const priorityCrawls = await Promise.all(
+    PRIORITY_CATEGORIES.map(async (cat) => {
+      const queries = getQueriesForCategory(cat);
+      const urls = getDirectUrlsForCategory(cat);
+      return crawlMany(queries, urls, 2);
+    }),
+  );
+
+  const seen = new Set<string>();
+  const combined: CrawlResult[] = [];
+
+  for (const batch of [broad, ...priorityCrawls]) {
+    for (const result of batch) {
+      const key = result.query.slice(0, 80);
+      if (!seen.has(key)) {
+        seen.add(key);
+        combined.push(result);
+      }
+    }
+  }
+
+  return combined;
 }
 
 export async function crawlUrl(url: string): Promise<string> {

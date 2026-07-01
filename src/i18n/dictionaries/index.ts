@@ -9,4 +9,4 @@ export function getDictionary(locale: Locale): Dictionary {
   return dictionaries[locale] ?? dictionaries.es;
 }
 
-export type { Dictionary };
+export type { Dictionary, AppTab } from "./en";

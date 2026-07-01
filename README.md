@@ -7,7 +7,11 @@ A clean, mobile-first event discovery app. No clutter — just what's happening 
 ## Features
 
 - **Mobile-first UI** — minimalist design with bold typography and 3D-style category icons
+- **PWA installable** — add to home screen on iOS/Android (works like a native app)
 - **10 categories** — Music, Business, Concert, Parties, Food & Drinks, Festivals, Dance, Health & Wellness, Performances, Sports
+- **Search & time filters** — Today, This weekend, This week
+- **Event actions** — Directions (Google Maps), Add to calendar (.ics), Share, Save
+- **Community submissions** — anyone can publish a hidden-gem event
 - **Physical & digital events** — in-person and online happenings
 - **Live web crawl** — uses [Jina Reader](https://jina.ai/reader) (free) to search Eventbrite, Allevents, and local listings
 - **AI enrichment** — OpenAI structures raw scraped content into clean event cards with dates, locations, and categories
@@ -18,6 +22,33 @@ A clean, mobile-first event discovery app. No clutter — just what's happening 
 - **Spanish (default)** — `/es` — auto-detected from browser `Accept-Language`
 - **English** — `/en`
 - Language toggle in the top-right corner; preference saved in a cookie
+
+## Deploy (Netlify)
+
+This repo is set up for [Netlify](https://www.netlify.com/) with Next.js App Router support.
+
+1. Connect **steno/EventDR** in Netlify → Add new site → Import from Git
+2. Build settings are in `netlify.toml` (auto-detected)
+3. Add environment variables in **Site settings → Environment variables**:
+   - `JINA_API_KEY` (optional, higher crawl limits)
+   - `OPENAI_API_KEY` (optional, AI event enrichment)
+
+After deploy, your site will be at `https://<your-site-name>.netlify.app`.  
+Update the GitHub repo homepage to that URL (currently points to a dead Vercel link).
+
+## Web app vs App Store?
+
+**Start with the PWA (progressive web app)** — what you have now.
+
+| | PWA (now) | App Store later |
+|---|-----------|-----------------|
+| Install | Add to home screen, no review | Apple/Google approval |
+| Updates | Instant deploy | Review cycle |
+| Cost | Free | $99/yr Apple + $25 Google |
+| Discovery | SEO, links, word of mouth | Store search |
+| Push notifications | Limited on iOS | Full native push |
+
+**Recommendation:** Ship the PWA on Vercel first. Validate with real users in Puerto Plata / Cabarete. Move to the App Store only when you need native push, offline-first, or store discovery — wrap the same app with [Capacitor](https://capacitorjs.com/) when ready.
 
 ## Quick start
 
