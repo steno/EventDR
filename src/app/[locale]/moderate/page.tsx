@@ -1,8 +1,13 @@
 import { Suspense } from "react";
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import { ModeratePanel } from "@/components/ModeratePanel";
 import { isValidLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
+
+export const metadata: Metadata = {
+  robots: { index: false, follow: false },
+};
 
 export default async function Page({
   params,
@@ -21,7 +26,7 @@ export default async function Page({
           {dict.moderate.title}
         </h1>
         <Suspense fallback={<p className="text-neutral-400">{dict.events.loading}</p>}>
-          <ModeratePanel dict={dict} />
+          <ModeratePanel dict={dict} locale={locale} />
         </Suspense>
       </div>
     </main>

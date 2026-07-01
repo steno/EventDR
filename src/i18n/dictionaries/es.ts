@@ -146,8 +146,15 @@ export const es: Dictionary = {
     empty: "No hay eventos pendientes.",
     approve: "Aprobar",
     reject: "Rechazar",
+    approved: "Aprobado — ya está en POP Events",
+    rejected: "Rechazado",
     source: "Fuente",
     unauthorized: "Clave de moderador inválida.",
+    unauthorizedHint: "Añade ?key=TU_MODERATOR_SECRET a la URL.",
+    firebaseRequired: "Firebase no conectado.",
+    firebaseHint: "Configura FIREBASE_SERVICE_ACCOUNT_JSON en Netlify y vuelve a desplegar.",
+    refresh: "Actualizar",
+    viewLive: "Ver sitio en vivo",
   },
 };
 

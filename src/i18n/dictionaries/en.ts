@@ -132,8 +132,15 @@ export type Dictionary = {
     empty: string;
     approve: string;
     reject: string;
+    approved: string;
+    rejected: string;
     source: string;
     unauthorized: string;
+    unauthorizedHint: string;
+    firebaseRequired: string;
+    firebaseHint: string;
+    refresh: string;
+    viewLive: string;
   };
 };
 
@@ -283,7 +290,14 @@ export const en: Dictionary = {
     empty: "No pending events.",
     approve: "Approve",
     reject: "Reject",
+    approved: "Approved — now live on POP Events",
+    rejected: "Rejected",
     source: "Source",
     unauthorized: "Invalid moderator key.",
+    unauthorizedHint: "Add ?key=YOUR_MODERATOR_SECRET to the URL.",
+    firebaseRequired: "Firebase not connected.",
+    firebaseHint: "Set FIREBASE_SERVICE_ACCOUNT_JSON in Netlify and redeploy.",
+    refresh: "Refresh",
+    viewLive: "View live site",
   },
 };

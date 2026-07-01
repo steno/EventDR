@@ -1,36 +1,84 @@
-# Firebase setup for POP Events
+# Firebase + moderation — POP Events
 
-1. Create a project at https://console.firebase.google.com (Spark/free tier is fine).
-2. Enable **Firestore** (production mode).
-3. Deploy rules from `firebase/firestore.rules` (Firebase console → Firestore → Rules).
-4. Create a **service account** key:
-   - Project settings → Service accounts → Generate new private key
-5. Add env vars to Netlify (either style works):
+Project: **popevents-3264b**  
+Console: https://console.firebase.google.com/project/popevents-3264b
 
-**Option A — single JSON blob (easiest on Netlify):**
-```
-FIREBASE_SERVICE_ACCOUNT_JSON={"type":"service_account","project_id":"...",...}
-```
+## 1. Firestore (one-time)
 
-**Option B — separate fields:**
-```
-FIREBASE_PROJECT_ID=your-project-id
-FIREBASE_CLIENT_EMAIL=firebase-adminsdk-...@your-project.iam.gserviceaccount.com
-FIREBASE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n"
+1. Enable **Firestore** → production mode  
+2. **Rules** tab → paste contents of `firebase/firestore.rules` → Publish  
+3. Service account key → Netlify env `FIREBASE_SERVICE_ACCOUNT_JSON`
+
+Verify live:
+
+```bash
+curl https://popevent.netlify.app/api/venues
+# → "source": "firebase", 6 venues
 ```
 
-## Collections (auto-created on first write)
+```bash
+curl https://popevent.netlify.app/api/status
+# → {"ok":true,"firebase":true,"venueCount":6,...}
+```
+
+## 2. Moderation secret (Netlify)
+
+1. Generate a long random string (password manager or `openssl rand -hex 32`)
+2. Netlify → **Site configuration → Environment variables**
+3. Add:
+
+| Key | Value |
+|-----|--------|
+| `MODERATOR_SECRET` | your random string (mark as secret) |
+
+4. **Trigger deploy** (clear cache)
+
+## 3. Your moderation URL
+
+Bookmark this (replace `YOUR_SECRET`):
+
+```
+https://popevent.netlify.app/en/moderate?key=YOUR_SECRET
+```
+
+Spanish: `/es/moderate?key=YOUR_SECRET`
+
+**Do not share publicly** — anyone with the key can approve/reject events.
+
+## 4. Daily workflow
+
+```
+User taps "Add event" → POST /api/submit → Firestore status: pending
+You open moderate URL → Approve or Reject
+Approved → appears in /api/events for everyone
+```
+
+Test the queue depth (with your secret):
+
+```bash
+curl "https://popevent.netlify.app/api/status?secret=YOUR_SECRET"
+# → pendingCount, pendingIds
+```
+
+## 5. Firestore collections
 
 | Collection | Doc ID | Purpose |
 |------------|--------|---------|
-| `events` | event id | Community + ingested events (`pending` / `approved` / `rejected`) |
-| `venues` | venue slug | LAX, Malecón, Kite Beach, etc. (auto-seeded on first fetch) |
-| `pushSubscriptions` | SHA-256 of endpoint | Web push subscribers |
+| `events` | event id | `pending` → `approved` / `rejected` |
+| `venues` | venue slug | Auto-seeded (LAX, Malecón, …) |
+| `pushSubscriptions` | hash | Web push (optional) |
 
-Venues seed automatically from `src/lib/venues-seed.ts` when the collection is empty.
+## 6. Firestore indexes
 
-## Firestore indexes
+If the events API errors, Firebase console will show a link to create:
 
-If queries fail, Firebase will log a link to create composite indexes for:
-- `events`: `status` + `date`
-- `events`: `status` + `date` (range queries for weekend count)
+- `events`: `status` + `date` (composite)
+
+## 7. Troubleshooting
+
+| Symptom | Fix |
+|---------|-----|
+| Submit says "Published" instantly | Firebase env missing — submissions stay in-memory only |
+| Moderate page: "Invalid moderator key" | Wrong `?key=` or `MODERATOR_SECRET` not set / redeploy |
+| Moderate page: "Firebase not connected" | `FIREBASE_SERVICE_ACCOUNT_JSON` missing or invalid JSON |
+| Approved event not visible | Hard refresh discover; check Firestore `events` doc has `status: approved` |
