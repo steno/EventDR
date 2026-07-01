@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# EventDR
 
-## Getting Started
+**Events near you** on the North Coast of the Dominican Republic — Puerto Plata, Sosúa, Cabarete, and beyond.
 
-First, run the development server:
+A clean, mobile-first event discovery app. No clutter — just what's happening near you.
+
+## Features
+
+- **Mobile-first UI** — minimalist design with bold typography and 3D-style category icons
+- **10 categories** — Music, Business, Concert, Parties, Food & Drinks, Festivals, Dance, Health & Wellness, Performances, Sports
+- **Physical & digital events** — in-person and online happenings
+- **Live web crawl** — uses [Jina Reader](https://jina.ai/reader) (free) to search Eventbrite, Allevents, and local listings
+- **AI enrichment** — OpenAI structures raw scraped content into clean event cards with dates, locations, and categories
+- **Trending highlights** — most popular local events surfaced first
+
+## Localization
+
+- **Spanish (default)** — `/es` — auto-detected from browser `Accept-Language`
+- **English** — `/en`
+- Language toggle in the top-right corner; preference saved in a cookie
+
+## Quick start
 
 ```bash
+npm install
+cp .env.example .env.local
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Variable | Required | Description |
+|----------|----------|-------------|
+| `JINA_API_KEY` | No | Free at [jina.ai](https://jina.ai/?sui=apikey) — higher crawl rate limits |
+| `OPENAI_API_KEY` | No | Powers AI event card enrichment |
+| `OPENAI_MODEL` | No | Default: `gpt-4o-mini` |
 
-## Learn More
+Without API keys, the app serves curated North Coast fallback events and uses heuristic parsing on crawled content.
 
-To learn more about Next.js, take a look at the following resources:
+## How it works
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **Crawl** — Jina Search (`s.jina.ai`) queries live event listings for the Puerto Plata region
+2. **Enrich** — OpenAI (or heuristics) extracts structured events from raw markdown
+3. **Display** — Clean cards with date, location, format, and category icons
+4. **Cache** — Results cached for 1 hour; tap refresh for live data
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Stack
 
-## Deploy on Vercel
+- Next.js 16 · React 19 · TypeScript · Tailwind CSS 4
+- Jina Reader (free crawl/search)
+- OpenAI (optional enrichment)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Author
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Built by [@steno](https://github.com/steno)
