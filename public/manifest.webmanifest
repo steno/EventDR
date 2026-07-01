@@ -2,7 +2,7 @@
   "name": "EventDR",
   "short_name": "EventDR",
   "description": "Events near you — North Coast Dominican Republic",
-  "start_url": "/es",
+  "start_url": "https://popevent.netlify.app/es",
   "display": "standalone",
   "background_color": "#fafafa",
   "theme_color": "#171717",

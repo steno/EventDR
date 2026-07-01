@@ -72,12 +72,21 @@ export async function GET(request: NextRequest) {
       }
     }
 
-    const crawlResults = await crawlEventListings(category);
+    // Skip slow live crawl on serverless unless API keys are configured.
+    // Users can tap refresh to force a crawl attempt.
+    const shouldCrawl =
+      refresh ||
+      Boolean(process.env.JINA_API_KEY || process.env.OPENAI_API_KEY);
+
+    let crawlResults: Awaited<ReturnType<typeof crawlEventListings>> = [];
     let crawled: Event[] = [];
 
-    if (crawlResults.length > 0) {
-      crawled = await enrichCrawlResults(crawlResults, category, locale);
-      addToPool(locale, crawled);
+    if (shouldCrawl) {
+      crawlResults = await crawlEventListings(category);
+      if (crawlResults.length > 0) {
+        crawled = await enrichCrawlResults(crawlResults, category, locale);
+        addToPool(locale, crawled);
+      }
     }
 
     let events = mergeWithFallback(crawled, category, locale);

@@ -2,7 +2,7 @@
 
 **Events near you** on the North Coast of the Dominican Republic — Puerto Plata, Sosúa, Cabarete, and beyond.
 
-A clean, mobile-first event discovery app. No clutter — just what's happening near you.
+Live at **[popevent.netlify.app](https://popevent.netlify.app)** · GitHub [steno/EventDR](https://github.com/steno/EventDR)
 
 ## Features
 
@@ -33,8 +33,8 @@ This repo is set up for [Netlify](https://www.netlify.com/) with Next.js App Rou
    - `JINA_API_KEY` (optional, higher crawl limits)
    - `OPENAI_API_KEY` (optional, AI event enrichment)
 
-After deploy, your site will be at `https://<your-site-name>.netlify.app`.  
-Update the GitHub repo homepage to that URL (currently points to a dead Vercel link).
+After deploy, your site will be at `https://popevent.netlify.app` (or your custom domain).  
+Update the GitHub repo homepage to match (was previously a dead Vercel link).
 
 ## Web app vs App Store?
 
