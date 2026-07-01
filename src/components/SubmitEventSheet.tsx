@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { X, CheckCircle } from "lucide-react";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
@@ -14,6 +14,11 @@ interface SubmitEventSheetProps {
   dict: Dictionary;
   locale: Locale;
   onSubmitted: (event: Event, pending?: boolean) => void;
+  defaults?: {
+    location?: string;
+    venue?: string;
+    category?: EventCategory;
+  };
 }
 
 export function SubmitEventSheet({
@@ -22,6 +27,7 @@ export function SubmitEventSheet({
   dict,
   locale,
   onSubmitted,
+  defaults,
 }: SubmitEventSheetProps) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -36,6 +42,13 @@ export function SubmitEventSheet({
   const [successMessage, setSuccessMessage] = useState("");
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+
+  useEffect(() => {
+    if (!open || !defaults) return;
+    if (defaults.location) setLocation(defaults.location);
+    if (defaults.venue) setVenue(defaults.venue);
+    if (defaults.category) setCategory(defaults.category);
+  }, [open, defaults]);
 
   if (!open) return null;
 

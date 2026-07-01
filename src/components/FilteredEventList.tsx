@@ -10,6 +10,7 @@ import { materializeEventDates } from "@/lib/event-dates";
 import { TimeFilter } from "@/components/TimeFilter";
 import { EventCard } from "@/components/EventCard";
 import { VenueStrip } from "@/components/VenueStrip";
+import { AddEventButton } from "@/components/AddEventButton";
 import { useGeolocation } from "@/hooks/useGeolocation";
 import { NORTH_COAST_CENTER, sortByDistance } from "@/lib/geo";
 
@@ -21,6 +22,7 @@ interface FilteredEventListProps {
   onSelectEvent: (event: Event) => void;
   emptyMessage: string;
   sectionTitle?: string;
+  onAddEvent?: () => void;
 }
 
 export function FilteredEventList({
@@ -31,6 +33,7 @@ export function FilteredEventList({
   onSelectEvent,
   emptyMessage,
   sectionTitle,
+  onAddEvent,
 }: FilteredEventListProps) {
   const [timeRange, setTimeRange] = useState<TimeRange>("all");
   const geo = useGeolocation();
@@ -85,6 +88,8 @@ export function FilteredEventList({
       <div className="mt-10">
         <VenueStrip locale={locale} dict={dict} />
       </div>
+
+      {onAddEvent && <AddEventButton dict={dict} onClick={onAddEvent} />}
     </>
   );
 }

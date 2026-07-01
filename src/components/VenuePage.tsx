@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import type { Event, Venue } from "@/lib/types";
@@ -8,6 +8,7 @@ import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import { EventDetailSheet } from "@/components/EventDetailSheet";
 import { FilteredEventList } from "@/components/FilteredEventList";
+import { SubmitEventSheet } from "@/components/SubmitEventSheet";
 import { matchVenueSlug } from "@/lib/venues-seed";
 import { materializeEventDates } from "@/lib/event-dates";
 import { useSavedEvents } from "@/hooks/useSavedEvents";
@@ -22,10 +23,11 @@ export function VenuePage({ venue, locale, dict }: VenuePageProps) {
   const [events, setEvents] = useState<Event[]>([]);
   const [loading, setLoading] = useState(true);
   const [selected, setSelected] = useState<Event | null>(null);
+  const [submitOpen, setSubmitOpen] = useState(false);
   const { toggleSave, isSaved } = useSavedEvents();
 
-  useEffect(() => {
-    fetch(`/api/events?locale=${locale}&venue=${venue.slug}`)
+  function loadEvents() {
+    return fetch(`/api/events?locale=${locale}&venue=${venue.slug}`)
       .then((r) => r.json())
       .then((d: { events?: Event[] }) => {
         const list = (d.events ?? []).filter((e) => {
@@ -34,9 +36,17 @@ export function VenuePage({ venue, locale, dict }: VenuePageProps) {
         });
         setEvents(materializeEventDates(list));
       })
-      .catch(() => setEvents([]))
-      .finally(() => setLoading(false));
+      .catch(() => setEvents([]));
+  }
+
+  const refreshEvents = useCallback(() => {
+    setLoading(true);
+    loadEvents().finally(() => setLoading(false));
   }, [locale, venue.slug]);
+
+  useEffect(() => {
+    refreshEvents();
+  }, [refreshEvents]);
 
   return (
     <>
@@ -72,9 +82,22 @@ export function VenuePage({ venue, locale, dict }: VenuePageProps) {
             onSelectEvent={setSelected}
             emptyMessage={dict.venues.noEvents}
             sectionTitle={dict.venues.eventsAt}
+            onAddEvent={() => setSubmitOpen(true)}
           />
         </div>
       </main>
+
+      <SubmitEventSheet
+        open={submitOpen}
+        onClose={() => setSubmitOpen(false)}
+        dict={dict}
+        locale={locale}
+        defaults={{ location: venue.city, venue: venue.name }}
+        onSubmitted={() => {
+          setSubmitOpen(false);
+          refreshEvents();
+        }}
+      />
 
       <EventDetailSheet
         event={selected}
