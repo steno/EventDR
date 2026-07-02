@@ -1,4 +1,5 @@
 import { MapPin, Calendar, Clock, Globe, Flame, Navigation2 } from "lucide-react";
+import { EventImage } from "@/components/EventImage";
 import type { Event } from "@/lib/types";
 import { getCategoryMeta } from "@/lib/categories";
 import type { Dictionary } from "@/i18n/dictionaries";
@@ -34,13 +35,23 @@ export function EventCard({ event, dict, locale, onSelect }: EventCardProps) {
       >
         <div
           className={`
-            flex-shrink-0 flex h-14 w-14 items-center justify-center rounded-xl
-            bg-gradient-to-br ${category?.gradient ?? "from-neutral-200 to-neutral-300"}
-            text-2xl shadow-sm
+            relative flex-shrink-0 h-14 w-14 overflow-hidden rounded-xl shadow-sm
+            ${event.imageUrl ? "bg-neutral-100" : `bg-gradient-to-br ${category?.gradient ?? "from-neutral-200 to-neutral-300"}`}
           `}
-          aria-hidden
+          aria-hidden={!event.imageUrl}
         >
-          {emoji}
+          {event.imageUrl ? (
+            <EventImage
+              src={event.imageUrl}
+              alt=""
+              sizes="56px"
+              className="object-cover"
+            />
+          ) : (
+            <div className="flex h-full w-full items-center justify-center text-2xl">
+              {emoji}
+            </div>
+          )}
         </div>
 
         <div className="flex-1 min-w-0">

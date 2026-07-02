@@ -19,6 +19,7 @@ function docToEvent(id: string, data: DocumentData): Event {
     trending: Boolean(data.trending),
     sourceUrl: (data.sourceUrl as string | null) ?? undefined,
     imageEmoji: (data.imageEmoji as string | null) ?? undefined,
+    imageUrl: (data.imageUrl as string | null) ?? undefined,
     lat: (data.lat as number | null) ?? undefined,
     lng: (data.lng as number | null) ?? undefined,
     communitySubmitted:
@@ -64,6 +65,7 @@ function eventToFirestore(
     sourceUrl: event.sourceUrl ?? null,
     sourceType,
     imageEmoji: event.imageEmoji ?? "📌",
+    imageUrl: event.imageUrl ?? null,
     lat: event.lat ?? null,
     lng: event.lng ?? null,
     status,

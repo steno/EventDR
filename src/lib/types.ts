@@ -50,6 +50,7 @@ export interface Event {
   trending?: boolean;
   sourceUrl?: string;
   imageEmoji?: string;
+  imageUrl?: string;
   communitySubmitted?: boolean;
   sourceType?: EventSourceType;
   status?: EventStatus;

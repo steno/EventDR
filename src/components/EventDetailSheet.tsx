@@ -23,6 +23,7 @@ import { getDirectionsUrl } from "@/lib/maps";
 import { addToCalendar } from "@/lib/calendar";
 import { shareEvent } from "@/lib/share";
 import { matchVenueSlug } from "@/lib/venues-seed";
+import { EventImage } from "@/components/EventImage";
 
 interface EventDetailSheetProps {
   event: Event | null;
@@ -88,27 +89,49 @@ export function EventDetailSheet({
           animate-in slide-in-from-bottom duration-300
         "
       >
-        <div className="sticky top-0 bg-white/95 backdrop-blur-sm px-4 pt-4 pb-2 flex justify-between items-start z-10">
-          <div
-            className={`
-              flex h-14 w-14 items-center justify-center rounded-2xl
-              bg-gradient-to-br ${category?.gradient ?? "from-neutral-200 to-neutral-300"}
-              text-2xl shadow-sm
-            `}
-          >
-            {emoji}
-          </div>
-          <button
-            type="button"
-            onClick={onClose}
-            className="flex h-9 w-9 items-center justify-center rounded-full bg-neutral-100"
-            aria-label={dict.detail.close}
-          >
-            <X className="h-4 w-4" />
-          </button>
+        <div className="sticky top-0 bg-white/95 backdrop-blur-sm z-10">
+          {event.imageUrl ? (
+            <div className="relative h-44 w-full bg-neutral-100">
+              <EventImage
+                src={event.imageUrl}
+                alt={event.title}
+                sizes="(max-width: 512px) 100vw, 512px"
+                className="object-cover"
+                priority
+              />
+              <button
+                type="button"
+                onClick={onClose}
+                className="absolute top-4 right-4 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 shadow-sm"
+                aria-label={dict.detail.close}
+              >
+                <X className="h-4 w-4" />
+              </button>
+            </div>
+          ) : (
+            <div className="px-4 pt-4 pb-2 flex justify-between items-start">
+              <div
+                className={`
+                  flex h-14 w-14 items-center justify-center rounded-2xl
+                  bg-gradient-to-br ${category?.gradient ?? "from-neutral-200 to-neutral-300"}
+                  text-2xl shadow-sm
+                `}
+              >
+                {emoji}
+              </div>
+              <button
+                type="button"
+                onClick={onClose}
+                className="flex h-9 w-9 items-center justify-center rounded-full bg-neutral-100"
+                aria-label={dict.detail.close}
+              >
+                <X className="h-4 w-4" />
+              </button>
+            </div>
+          )}
         </div>
 
-        <div className="px-4 pb-6">
+        <div className={`px-4 pb-6 ${event.imageUrl ? "pt-4" : ""}`}>
           {event.communitySubmitted && (
             <span className="inline-flex items-center gap-1 rounded-full bg-violet-50 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-violet-600 mb-2">
               <Users className="h-3 w-3" />
