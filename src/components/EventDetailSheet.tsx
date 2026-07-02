@@ -89,14 +89,16 @@ export function EventDetailSheet({
           animate-in slide-in-from-bottom duration-300
         "
       >
-        <div className="sticky top-0 bg-white/95 backdrop-blur-sm z-10">
+        <div
+          className={`sticky top-0 z-10 ${event.imageUrl ? "" : "bg-white/95 backdrop-blur-sm"}`}
+        >
           {event.imageUrl ? (
-            <div className="relative w-full h-[min(50vh,320px)] min-h-52 bg-neutral-100 overflow-hidden rounded-t-3xl">
+            <div className="relative w-full overflow-hidden rounded-t-3xl bg-neutral-100">
               <EventImage
                 src={event.imageUrl}
                 alt={event.title}
-                sizes="(max-width: 512px) 100vw, 512px"
-                className="object-contain"
+                sizes="(max-width: 672px) 100vw, 672px"
+                variant="hero"
                 priority
               />
               <button

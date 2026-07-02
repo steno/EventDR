@@ -6,6 +6,7 @@ interface EventImageProps {
   className?: string;
   sizes?: string;
   priority?: boolean;
+  variant?: "thumb" | "hero";
 }
 
 export function EventImage({
@@ -14,7 +15,22 @@ export function EventImage({
   className = "object-cover",
   sizes = "96px",
   priority = false,
+  variant = "thumb",
 }: EventImageProps) {
+  if (variant === "hero") {
+    return (
+      <Image
+        src={src}
+        alt={alt}
+        width={1200}
+        height={800}
+        sizes={sizes}
+        priority={priority}
+        className={`block w-full h-auto ${className}`}
+      />
+    );
+  }
+
   return (
     <Image
       src={src}
