@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { isFirebaseConfigured } from "@/lib/firebase/admin";
+import { isJinaConfigured } from "@/lib/jina";
 import { fetchPendingEvents, fetchVenues } from "@/lib/firebase/events";
 
 export const dynamic = "force-dynamic";
@@ -27,6 +28,8 @@ export async function GET(request: NextRequest) {
   const base = {
     ok: firebase,
     firebase,
+    jinaConfigured: isJinaConfigured(),
+    openaiConfigured: Boolean(process.env.OPENAI_API_KEY?.trim()),
     moderatorConfigured,
     venueCount,
     project: process.env.FIREBASE_PROJECT_ID ?? "popevents-3264b",

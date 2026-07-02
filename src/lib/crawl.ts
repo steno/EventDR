@@ -1,69 +1,17 @@
-const JINA_SEARCH = "https://s.jina.ai";
-const JINA_READER = "https://r.jina.ai";
-
 import type { EventCategory } from "./types";
 import {
   BROAD_QUERIES,
-  CATEGORY_QUERIES,
   PRIORITY_CATEGORIES,
   getDirectUrlsForCategory,
   getQueriesForCategory,
 } from "./category-queries";
+import { jinaRead, jinaSearch } from "./jina";
 
 export interface CrawlResult {
   query: string;
   content: string;
   fetchedAt: string;
   source: "search" | "url";
-}
-
-function jinaHeaders(): HeadersInit {
-  const headers: HeadersInit = {
-    Accept: "application/json",
-    "X-Return-Format": "markdown",
-  };
-  const key = process.env.JINA_API_KEY;
-  if (key) {
-    headers.Authorization = `Bearer ${key}`;
-  }
-  return headers;
-}
-
-async function parseJinaResponse(res: Response): Promise<string> {
-  const contentType = res.headers.get("content-type") ?? "";
-  if (contentType.includes("application/json")) {
-    const json = (await res.json()) as { data?: string; content?: string };
-    return json.data ?? json.content ?? JSON.stringify(json);
-  }
-  return res.text();
-}
-
-async function jinaSearch(query: string): Promise<string> {
-  const url = `${JINA_SEARCH}/${encodeURIComponent(query)}`;
-  const res = await fetch(url, {
-    headers: jinaHeaders(),
-    next: { revalidate: 0 },
-  });
-
-  if (!res.ok) {
-    throw new Error(`Jina search failed (${res.status}): ${query}`);
-  }
-
-  return parseJinaResponse(res);
-}
-
-async function jinaRead(targetUrl: string): Promise<string> {
-  const url = `${JINA_READER}/${targetUrl}`;
-  const res = await fetch(url, {
-    headers: jinaHeaders(),
-    next: { revalidate: 0 },
-  });
-
-  if (!res.ok) {
-    throw new Error(`Jina read failed (${res.status}): ${targetUrl}`);
-  }
-
-  return parseJinaResponse(res);
 }
 
 async function crawlOne(
@@ -117,7 +65,6 @@ export async function crawlEventListings(
     return crawlMany(queries, urls, 5);
   }
 
-  // Home feed: broad discovery + deep crawl for under-represented categories
   const broad = await crawlMany(BROAD_QUERIES, [], 4);
 
   const priorityCrawls = await Promise.all(
