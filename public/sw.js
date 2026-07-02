@@ -1,4 +1,4 @@
-const CACHE_NAME = "eventdr-v2";
+const CACHE_NAME = "eventdr-v3";
 const PRECACHE = [
   "/en",
   "/es",
