@@ -91,12 +91,12 @@ export function EventDetailSheet({
       >
         <div className="sticky top-0 bg-white/95 backdrop-blur-sm z-10">
           {event.imageUrl ? (
-            <div className="relative h-44 w-full bg-neutral-100">
+            <div className="relative w-full h-[min(50vh,320px)] min-h-52 bg-neutral-100 overflow-hidden rounded-t-3xl">
               <EventImage
                 src={event.imageUrl}
                 alt={event.title}
                 sizes="(max-width: 512px) 100vw, 512px"
-                className="object-cover"
+                className="object-contain"
                 priority
               />
               <button
