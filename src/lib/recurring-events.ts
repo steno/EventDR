@@ -158,6 +158,23 @@ const RECURRING_EN: Event[] = [
     recurrenceDay: 2, // Tuesday
     imageEmoji: "🎤",
   },
+  {
+    id: "sea-horse-saturday-market",
+    title: "Sea Horse Ranch Saturday Market",
+    description:
+      "Shop local every Saturday with local artisans, fresh food, organic produce, and boutique fashions on the Sea Horse Ranch Tennis Club lawn.",
+    date: "2026-01-01",
+    time: "10:00 AM - 1:00 PM",
+    location: "Cabarete-Sosúa",
+    venue: "Sea Horse Ranch Tennis Club Lawn",
+    venueSlug: "sea-horse-ranch",
+    category: "food-drinks",
+    format: "physical",
+    recurrence: "weekly",
+    recurrenceDay: 6, // Saturday
+    sourceUrl: "https://www.sea-horse-ranch.com",
+    imageEmoji: "🧺",
+  },
 ];
 
 const RECURRING_ES: Event[] = [
@@ -316,6 +333,23 @@ const RECURRING_ES: Event[] = [
     recurrenceDay: 2,
     imageEmoji: "🎤",
   },
+  {
+    id: "sea-horse-saturday-market",
+    title: "Mercado de sábado en Sea Horse Ranch",
+    description:
+      "Compra local cada sábado con artesanos locales, comida fresca, productos orgánicos y moda boutique en el césped del Tennis Club de Sea Horse Ranch.",
+    date: "2026-01-01",
+    time: "10:00 AM - 1:00 PM",
+    location: "Cabarete-Sosúa",
+    venue: "Sea Horse Ranch Tennis Club Lawn",
+    venueSlug: "sea-horse-ranch",
+    category: "food-drinks",
+    format: "physical",
+    recurrence: "weekly",
+    recurrenceDay: 6,
+    sourceUrl: "https://www.sea-horse-ranch.com",
+    imageEmoji: "🧺",
+  },
 ];
 
 const RECURRING_FR: Event[] = [
@@ -473,6 +507,23 @@ const RECURRING_FR: Event[] = [
     recurrence: "weekly",
     recurrenceDay: 2,
     imageEmoji: "🎤",
+  },
+  {
+    id: "sea-horse-saturday-market",
+    title: "Marché du samedi à Sea Horse Ranch",
+    description:
+      "Achetez local chaque samedi avec artisans locaux, nourriture fraîche, produits bio et mode boutique sur la pelouse du Tennis Club de Sea Horse Ranch.",
+    date: "2026-01-01",
+    time: "10:00 AM - 1:00 PM",
+    location: "Cabarete-Sosúa",
+    venue: "Sea Horse Ranch Tennis Club Lawn",
+    venueSlug: "sea-horse-ranch",
+    category: "food-drinks",
+    format: "physical",
+    recurrence: "weekly",
+    recurrenceDay: 6,
+    sourceUrl: "https://www.sea-horse-ranch.com",
+    imageEmoji: "🧺",
   },
 ];
 

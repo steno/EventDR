@@ -9,8 +9,8 @@ import type { Locale } from "@/i18n/config";
 import { EventDetailSheet } from "@/components/EventDetailSheet";
 import { FilteredEventList } from "@/components/FilteredEventList";
 import { SubmitEventSheet } from "@/components/SubmitEventSheet";
+import { AppHeader } from "@/components/AppHeader";
 import { matchVenueSlug } from "@/lib/venues-seed";
-import { materializeEventDates } from "@/lib/event-dates";
 import { useSavedEvents } from "@/hooks/useSavedEvents";
 
 interface VenuePageProps {
@@ -34,7 +34,7 @@ export function VenuePage({ venue, locale, dict }: VenuePageProps) {
           const slug = e.venueSlug ?? matchVenueSlug(e.venue) ?? matchVenueSlug(e.location);
           return slug === venue.slug;
         });
-        setEvents(materializeEventDates(list));
+        setEvents(list);
       })
       .catch(() => setEvents([]));
   }
@@ -51,7 +51,8 @@ export function VenuePage({ venue, locale, dict }: VenuePageProps) {
   return (
     <>
       <main className="flex-1 bg-neutral-50 min-h-screen pb-12">
-        <div className="mx-auto max-w-lg sm:max-w-2xl px-4 pt-6">
+        <div className="mx-auto max-w-lg sm:max-w-2xl px-4">
+          <AppHeader locale={locale} dict={dict} />
           <Link
             href={`/${locale}`}
             className="inline-flex items-center gap-2 text-sm font-semibold text-neutral-500 hover:text-neutral-800 mb-6"

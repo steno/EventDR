@@ -1,11 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
+import { AppHeader } from "@/components/AppHeader";
 import { Hero } from "@/components/Hero";
 import { CategoryGrid } from "@/components/CategoryGrid";
 import { EventList } from "@/components/EventList";
-import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { SearchBar } from "@/components/SearchBar";
 import { BottomNav } from "@/components/BottomNav";
 import { EventDetailSheet } from "@/components/EventDetailSheet";
@@ -16,6 +15,7 @@ import { EventCard } from "@/components/EventCard";
 import { VenueStrip } from "@/components/VenueStrip";
 import { PushNotifyButton } from "@/components/PushNotifyButton";
 import { SiteFooter } from "@/components/SiteFooter";
+import { TodayHighlights } from "@/components/TodayHighlights";
 import { useSavedEvents } from "@/hooks/useSavedEvents";
 import { useGeolocation } from "@/hooks/useGeolocation";
 import { usePushNotifications } from "@/hooks/usePushNotifications";
@@ -83,25 +83,23 @@ export function Home({ locale, dict }: HomeProps) {
         <div className="pointer-events-none absolute -top-20 -left-24 h-56 w-56 rounded-full bg-orange-200/30 blur-3xl" />
         <div className="pointer-events-none absolute top-20 -right-24 h-64 w-64 rounded-full bg-fuchsia-200/35 blur-3xl" />
         <div className="relative mx-auto max-w-lg sm:max-w-2xl px-4 pb-6">
-          <div className="flex items-center justify-between pt-3 pb-5">
-            <Image
-              src="/poplogo-safe.png?v=1"
-              alt="POP Events logo"
-              width={184}
-              height={166}
-              priority
-              unoptimized
-              className="h-[68px] w-auto rounded-2xl object-contain sm:h-20"
-            />
-            <LanguageSwitcher locale={locale} dict={dict} />
-          </div>
+          <AppHeader locale={locale} dict={dict} />
 
           {tab === "discover" && (
             <>
               <InstallBanner dict={dict} />
               <Hero dict={dict} onAddEvent={() => setSubmitOpen(true)} />
+              <TodayHighlights
+                events={allEvents}
+                locale={locale}
+                dict={dict}
+                onSelectEvent={setSelectedEvent}
+              />
               <div className="mb-6">
                 <CategoryGrid locale={locale} dict={dict} />
+              </div>
+              <div className="mb-8">
+                <VenueStrip locale={locale} dict={dict} />
               </div>
               <EventList
                 locale={locale}
@@ -113,9 +111,6 @@ export function Home({ locale, dict }: HomeProps) {
                 userLat={sortLat}
                 userLng={sortLng}
               />
-              <div className="mt-10">
-                <VenueStrip locale={locale} dict={dict} />
-              </div>
               <div className="mt-6 mb-2">
                 <PushNotifyButton
                   dict={dict}

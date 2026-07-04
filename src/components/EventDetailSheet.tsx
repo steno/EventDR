@@ -23,6 +23,7 @@ import { getDirectionsUrl } from "@/lib/maps";
 import { addToCalendar } from "@/lib/calendar";
 import { shareEvent } from "@/lib/share";
 import { matchVenueSlug } from "@/lib/venues-seed";
+import { formatRecurrenceLabel } from "@/lib/recurrence-label";
 import { EventImage } from "@/components/EventImage";
 
 interface EventDetailSheetProps {
@@ -57,6 +58,7 @@ export function EventDetailSheet({
 
   const category = getCategoryMeta(event.category, dict.categories);
   const emoji = event.imageEmoji ?? category?.emoji ?? "📅";
+  const recurrenceLabel = formatRecurrenceLabel(event, locale, dict);
   const venueSlug =
     event.venueSlug ?? matchVenueSlug(event.venue) ?? matchVenueSlug(event.location);
 
@@ -149,6 +151,11 @@ export function EventDetailSheet({
             <div className="flex items-center gap-2.5 text-neutral-700">
               <Calendar className="h-4 w-4 text-neutral-400 flex-shrink-0" />
               <span className="font-medium truncate">{formatEventDate(event.date, locale)}</span>
+              {recurrenceLabel && (
+                <span className="inline-flex shrink-0 rounded-full bg-orange-50 px-2 py-0.5 text-xs font-bold text-orange-600">
+                  {recurrenceLabel}
+                </span>
+              )}
             </div>
             {event.time && (
               <div className="flex items-center gap-2.5 text-neutral-700">

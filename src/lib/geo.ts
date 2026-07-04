@@ -72,19 +72,26 @@ export function filterByVenueSlug(events: Event[], venueSlug: string): Event[] {
   return attachVenueSlugs(events).filter((e) => e.venueSlug === venueSlug);
 }
 
+export function attachDistances(
+  events: Event[],
+  userLat: number,
+  userLng: number,
+): Event[] {
+  return events.map((e) => {
+    const coords = resolveEventCoords(e);
+    const distanceKm = coords
+      ? haversineKm(userLat, userLng, coords.lat, coords.lng)
+      : Infinity;
+    return { ...e, distanceKm };
+  });
+}
+
 export function sortByDistance(
   events: Event[],
   userLat: number,
   userLng: number,
 ): Event[] {
-  return [...events]
-    .map((e) => {
-      const coords = resolveEventCoords(e);
-      const distanceKm = coords
-        ? haversineKm(userLat, userLng, coords.lat, coords.lng)
-        : Infinity;
-      return { ...e, distanceKm };
-    })
+  return attachDistances(events, userLat, userLng)
     .sort((a, b) => (a.distanceKm ?? Infinity) - (b.distanceKm ?? Infinity));
 }
 

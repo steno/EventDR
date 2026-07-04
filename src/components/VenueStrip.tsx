@@ -24,8 +24,8 @@ export function VenueStrip({ locale, dict }: VenueStripProps) {
   if (venues.length === 0) return null;
 
   return (
-    <section className="mb-6">
-      <h2 className="text-xs font-bold uppercase tracking-widest text-neutral-400 mb-3">
+    <section>
+      <h2 className="mb-4 px-1 text-xl font-black tracking-tight text-neutral-950">
         {dict.venues.title}
       </h2>
       <div className="flex gap-3 overflow-x-auto pb-1 -mx-1 px-1 scrollbar-hide">

@@ -49,9 +49,20 @@ export type Dictionary = {
     hot: string;
     nearMe: string;
     nearMeOn: string;
+    sortedUpcoming: string;
     ourPicks: string;
+    happeningToday: string;
+    viewDetails: string;
+    moreToday: string;
     nearMeDenied: string;
     distanceAway: string;
+    recurrence: {
+      daily: string;
+      weekdays: string;
+      weekends: string;
+      every: string;
+      separator: string;
+    };
     format: {
       physical: string;
       digital: string;
@@ -94,6 +105,12 @@ export type Dictionary = {
     venue: string;
     category: string;
     format: string;
+    recurrence: string;
+    recurrenceNone: string;
+    recurrenceWeekly: string;
+    recurrenceDays: string;
+    image: string;
+    imageHint: string;
     button: string;
     addCategoryEvent: string;
     addVenueEvent: string;
@@ -105,6 +122,7 @@ export type Dictionary = {
     validationDescription: string;
     validationDate: string;
     validationLocation: string;
+    validationImage: string;
   };
   saved: {
     title: string;
@@ -214,9 +232,20 @@ export const en: Dictionary = {
     hot: "Hot",
     nearMe: "Near me",
     nearMeOn: "Sorted by distance",
+    sortedUpcoming: "Soonest first",
     ourPicks: "Our picks",
+    happeningToday: "Happening today",
+    viewDetails: "View details",
+    moreToday: "{count} more today",
     nearMeDenied: "location off",
     distanceAway: "away",
+    recurrence: {
+      daily: "Daily",
+      weekdays: "Weekdays",
+      weekends: "Weekends",
+      every: "Every",
+      separator: " & ",
+    },
     format: {
       physical: "In person",
       digital: "Online",
@@ -264,6 +293,12 @@ export const en: Dictionary = {
     venue: "Venue",
     category: "Category",
     format: "Type",
+    recurrence: "Repeats",
+    recurrenceNone: "Does not repeat",
+    recurrenceWeekly: "Weekly",
+    recurrenceDays: "Repeat days",
+    image: "Event image",
+    imageHint: "Optional JPG, PNG, or WebP. Max 1 MB.",
     button: "Publish event",
     addCategoryEvent: "Add {category} event",
     addVenueEvent: "Add event at {venue}",
@@ -275,6 +310,7 @@ export const en: Dictionary = {
     validationDescription: "Description needs at least 10 characters — say what's happening.",
     validationDate: "Please pick a valid date.",
     validationLocation: "Location needs at least 2 characters (city or area).",
+    validationImage: "Image must be a JPG, PNG, or WebP under 1 MB.",
   },
   saved: {
     title: "Saved events",

@@ -61,6 +61,8 @@ export interface Event {
   recurrence?: EventRecurrence;
   /** 0=Sun … 6=Sat; used when recurrence is "weekly" */
   recurrenceDay?: number;
+  /** 0=Sun … 6=Sat; used when recurrence is "weekly" on multiple days */
+  recurrenceDays?: number[];
 }
 
 export interface CategoryMeta {

@@ -12,7 +12,7 @@ import { getFallbackEvents, getFallbackForCategory } from "@/lib/fallback-events
 import { getCommunityEvents } from "@/lib/community-store";
 import { fetchApprovedEvents } from "@/lib/firebase/events";
 import { attachCoords, sortByDistance, attachVenueSlugs } from "@/lib/geo";
-import { materializeEventDates } from "@/lib/event-dates";
+import { materializeEventDates, sortUpcomingEvents } from "@/lib/event-dates";
 import { isValidLocale } from "@/i18n/config";
 import type { Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
@@ -56,14 +56,7 @@ function mergeDbEvents(events: Event[], dbEvents: Event[]): Event[] {
 }
 
 function sortEvents(events: Event[]): Event[] {
-  return [...events].sort((a, b) => {
-    if (a.trending && !b.trending) return -1;
-    if (!a.trending && b.trending) return 1;
-    if (a.distanceKm != null && b.distanceKm != null) {
-      return a.distanceKm - b.distanceKm;
-    }
-    return a.date.localeCompare(b.date);
-  });
+  return sortUpcomingEvents(events);
 }
 
 export async function GET(request: NextRequest) {
@@ -143,6 +136,7 @@ export async function GET(request: NextRequest) {
       events = applyScopeFilters(fallbacks);
     }
 
+    events = materializeEventDates(events);
     events = attachCoords(events);
 
     if (nearMe && userLat != null && userLng != null) {
@@ -151,7 +145,6 @@ export async function GET(request: NextRequest) {
       events = sortEvents(events);
     }
 
-    events = materializeEventDates(events);
     events = attachEventImages(events);
 
     if (!nearMe) {

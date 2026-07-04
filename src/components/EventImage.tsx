@@ -17,6 +17,23 @@ export function EventImage({
   priority = false,
   variant = "thumb",
 }: EventImageProps) {
+  const rawImage = src.startsWith("data:") || src.startsWith("http");
+
+  if (rawImage) {
+    return (
+      // eslint-disable-next-line @next/next/no-img-element
+      <img
+        src={src}
+        alt={alt}
+        className={
+          variant === "hero"
+            ? `block w-full h-auto ${className}`
+            : `h-full w-full ${className}`
+        }
+      />
+    );
+  }
+
   if (variant === "hero") {
     return (
       <Image

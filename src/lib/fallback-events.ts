@@ -18,6 +18,8 @@ const FALLBACK_EVENTS_EN: Event[] = [
     category: "music",
     format: "physical",
     trending: true,
+    recurrence: "weekly",
+    recurrenceDay: 0,
     imageEmoji: "🎸",
   },
   {
@@ -52,6 +54,21 @@ const FALLBACK_EVENTS_EN: Event[] = [
   },
   // Sports
   {
+    id: "rumble-in-paradise-12",
+    title: "Rumble in Paradise 12",
+    description:
+      "Professional boxing on Sosúa Beach at Bar 39, with special guest appearances and autograph signings.",
+    date: "2026-07-04",
+    time: "5:00 PM",
+    location: "Sosúa",
+    venue: "Bar 39, Sosúa Beach",
+    category: "sports",
+    format: "physical",
+    trending: true,
+    sourceUrl: "https://www.facebook.com/events/1614506996278636",
+    imageEmoji: "🥊",
+  },
+  {
     id: "cabarete-kite-fest",
     title: "Cabarete Kite Festival",
     description:
@@ -77,6 +94,8 @@ const FALLBACK_EVENTS_EN: Event[] = [
     category: "sports",
     format: "physical",
     trending: true,
+    recurrence: "weekly",
+    recurrenceDay: 0,
     imageEmoji: "🏐",
   },
   {
@@ -127,12 +146,14 @@ const FALLBACK_EVENTS_EN: Event[] = [
     title: "Cabarete Farmers & Brunch Market",
     description:
       "Fresh produce, artisan bread, and beachside brunch stalls. A Saturday ritual for the community.",
-    date: "2026-07-05",
+    date: "2026-07-04",
     time: "9:00 AM",
     location: "Cabarete",
     venue: "Cabarete Town Center",
     category: "food-drinks",
     format: "physical",
+    recurrence: "weekly",
+    recurrenceDay: 6,
     imageEmoji: "🍔",
   },
   // Festivals
@@ -180,19 +201,6 @@ const FALLBACK_EVENTS_EN: Event[] = [
     imageEmoji: "💃",
   },
   // Health & Wellness
-  {
-    id: "wellness-sunrise",
-    title: "Sunrise Yoga on the Coast",
-    description:
-      "Guided beach yoga and meditation session. Mats provided. All levels welcome.",
-    date: "2026-07-06",
-    time: "6:30 AM",
-    location: "Costambar",
-    venue: "Costambar Beach",
-    category: "health-wellness",
-    format: "physical",
-    imageEmoji: "🧘",
-  },
   {
     id: "cabarete-breathwork",
     title: "Cabarete Breathwork Circle",
@@ -290,6 +298,8 @@ const FALLBACK_EVENTS_ES: Event[] = [
     category: "music",
     format: "physical",
     trending: true,
+    recurrence: "weekly",
+    recurrenceDay: 0,
     imageEmoji: "🎸",
   },
   {
@@ -336,6 +346,21 @@ const FALLBACK_EVENTS_ES: Event[] = [
     imageEmoji: "🏄",
   },
   {
+    id: "rumble-in-paradise-12",
+    title: "Rumble in Paradise 12",
+    description:
+      "Boxeo profesional en Playa Sosúa en Bar 39, con invitados especiales y firmas de autógrafos.",
+    date: "2026-07-04",
+    time: "5:00 PM",
+    location: "Sosúa",
+    venue: "Bar 39, Playa Sosúa",
+    category: "sports",
+    format: "physical",
+    trending: true,
+    sourceUrl: "https://www.facebook.com/events/1614506996278636",
+    imageEmoji: "🥊",
+  },
+  {
     id: "sosua-beach-volleyball",
     title: "Liga de Voleibol de Playa en Sosúa",
     description:
@@ -347,6 +372,8 @@ const FALLBACK_EVENTS_ES: Event[] = [
     category: "sports",
     format: "physical",
     trending: true,
+    recurrence: "weekly",
+    recurrenceDay: 0,
     imageEmoji: "🏐",
   },
   {
@@ -396,12 +423,14 @@ const FALLBACK_EVENTS_ES: Event[] = [
     title: "Mercado de Brunch en Cabarete",
     description:
       "Productos frescos, pan artesanal y puestos de brunch junto al mar. Ritual de los sábados.",
-    date: "2026-07-05",
+    date: "2026-07-04",
     time: "9:00 AM",
     location: "Cabarete",
     venue: "Centro de Cabarete",
     category: "food-drinks",
     format: "physical",
+    recurrence: "weekly",
+    recurrenceDay: 6,
     imageEmoji: "🍔",
   },
   {
@@ -445,19 +474,6 @@ const FALLBACK_EVENTS_ES: Event[] = [
     format: "physical",
     trending: true,
     imageEmoji: "💃",
-  },
-  {
-    id: "wellness-sunrise",
-    title: "Yoga al Amanecer en la Costa",
-    description:
-      "Sesión guiada de yoga y meditación en la playa. Tapetes incluidos. Todos los niveles.",
-    date: "2026-07-06",
-    time: "6:30 AM",
-    location: "Costambar",
-    venue: "Playa Costambar",
-    category: "health-wellness",
-    format: "physical",
-    imageEmoji: "🧘",
   },
   {
     id: "cabarete-breathwork",

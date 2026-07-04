@@ -4,6 +4,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "costambar-acoustic": "costambar-acoustic.jpg",
   "malecon-live-concert": "malecon-live-concert.jpg",
   "cabarete-kite-fest": "cabarete-kite-fest.jpg",
+  "rumble-in-paradise-12": "rumble-in-paradise-12.png",
   "sosua-beach-volleyball": "sosua-beach-volleyball.jpg",
   "pp-sunday-futbol": "pp-sunday-futbol.jpg",
   "cabarete-surf-comp": "cabarete-surf-comp.jpg",
@@ -12,7 +13,6 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "circus-fest": "circus-fest.jpg",
   "pp-cultural-fair": "pp-cultural-fair.jpg",
   "merengue-night": "merengue-night.jpg",
-  "wellness-sunrise": "wellness-sunrise.jpg",
   "cabarete-breathwork": "cabarete-breathwork.jpg",
   "pp-comedy-night": "pp-comedy-night.jpg",
   "startup-meetup": "startup-meetup.jpg",
@@ -29,6 +29,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "malecon-live-weekends": "malecon-live-weekends.jpg",
   "lax-reggae-friday": "lax-reggae-friday.jpg",
   "batey-open-mic-weekly": "batey-open-mic-weekly.jpg",
+  "sea-horse-saturday-market": "sea-horse-saturday-market.png",
   "community-domino-sosua": "community-domino-sosua.jpg",
   "community-pickleball-cabarete": "community-pickleball-cabarete.jpg",
 };

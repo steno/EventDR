@@ -6,9 +6,10 @@ import { matchVenueSlug } from "@/lib/venues-seed";
 import { SEED_VENUES } from "@/lib/venues-seed";
 import { isValidLocale, defaultLocale } from "@/i18n/config";
 import type { Locale } from "@/i18n/config";
-import type { EventCategory } from "@/lib/types";
+import type { EventCategory, EventRecurrence } from "@/lib/types";
 import { getDictionary } from "@/i18n/dictionaries";
 import { NextRequest, NextResponse } from "next/server";
+import { uploadEventImage } from "@/lib/firebase/images";
 
 export const dynamic = "force-dynamic";
 
@@ -28,6 +29,8 @@ export async function POST(request: NextRequest) {
         location: dict.submit.validationLocation,
         category: dict.submit.error,
         format: dict.submit.error,
+        recurrence: dict.submit.error,
+        image: dict.submit.validationImage,
         invalid: dict.submit.error,
       };
       return NextResponse.json(
@@ -45,6 +48,10 @@ export async function POST(request: NextRequest) {
       venue: body.venue,
       category: body.category as EventCategory,
       format: body.format as "physical" | "digital" | "hybrid",
+      recurrence: body.recurrence as EventRecurrence | undefined,
+      recurrenceDay: body.recurrenceDay,
+      recurrenceDays: body.recurrenceDays,
+      imageUrl: !isFirebaseConfigured() ? body.imageDataUrl : undefined,
     });
 
     const venueSlug = matchVenueSlug(body.venue) ?? matchVenueSlug(body.location);
@@ -59,6 +66,17 @@ export async function POST(request: NextRequest) {
     }
 
     if (isFirebaseConfigured()) {
+      if (body.imageDataUrl) {
+        const imageUrl = await uploadEventImage(event.id, body.imageDataUrl);
+        if (!imageUrl) {
+          return NextResponse.json(
+            { error: dict.submit.validationImage, field: "image" },
+            { status: 400 },
+          );
+        }
+        event = { ...event, imageUrl };
+      }
+
       const saved = await insertPendingEvent(event, "community");
       if (!saved) {
         return NextResponse.json({ error: dict.submit.error }, { status: 500 });

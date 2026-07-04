@@ -6,14 +6,14 @@ import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import type { TimeRange } from "@/lib/filters";
 import { filterByTimeRange } from "@/lib/filters";
-import { materializeEventDates } from "@/lib/event-dates";
+import { materializeEventDates, sortUpcomingEvents } from "@/lib/event-dates";
 import { TimeFilter } from "@/components/TimeFilter";
 import { EventCard } from "@/components/EventCard";
 import { VenueStrip } from "@/components/VenueStrip";
 import { AddEventButton } from "@/components/AddEventButton";
 import { SiteFooter } from "@/components/SiteFooter";
 import { useGeolocation } from "@/hooks/useGeolocation";
-import { NORTH_COAST_CENTER, sortByDistance } from "@/lib/geo";
+import { attachDistances, NORTH_COAST_CENTER } from "@/lib/geo";
 
 interface FilteredEventListProps {
   events: Event[];
@@ -50,7 +50,8 @@ export function FilteredEventList({
 
   const filtered = useMemo(() => {
     const timeFiltered = filterByTimeRange(materialized, timeRange);
-    return sortByDistance(timeFiltered, sortLat, sortLng);
+    const withDistances = attachDistances(timeFiltered, sortLat, sortLng);
+    return sortUpcomingEvents(withDistances, { recurringLast: true });
   }, [materialized, timeRange, sortLat, sortLng]);
 
   return (
@@ -63,7 +64,7 @@ export function FilteredEventList({
             {sectionTitle}
           </h2>
           <span className="text-[10px] font-semibold text-neutral-400 shrink-0">
-            {dict.events.nearMeOn}
+            {dict.events.sortedUpcoming}
           </span>
         </div>
       )}

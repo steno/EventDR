@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { ModeratePanel } from "@/components/ModeratePanel";
+import { AppHeader } from "@/components/AppHeader";
 import { isValidLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 
@@ -20,8 +21,9 @@ export default async function Page({
   const dict = getDictionary(locale);
 
   return (
-    <main className="min-h-screen bg-neutral-50 px-4 py-8">
+    <main className="min-h-screen bg-neutral-50 px-4 pb-8">
       <div className="mx-auto max-w-lg">
+        <AppHeader locale={locale} dict={dict} />
         <h1 className="text-2xl font-black text-neutral-900 mb-6">
           {dict.moderate.title}
         </h1>

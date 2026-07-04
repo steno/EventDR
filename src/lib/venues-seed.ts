@@ -61,6 +61,17 @@ export const SEED_VENUES: Venue[] = [
     emoji: "🐬",
     instagram: "oceanworldadventurepark",
   },
+  {
+    slug: "sea-horse-ranch",
+    name: "Sea Horse Ranch",
+    city: "Cabarete-Sosúa",
+    description:
+      "Residential resort and tennis club on Route 5 between Cabarete and Sosúa, hosting local markets and community gatherings.",
+    lat: 19.767,
+    lng: -70.481,
+    emoji: "🧺",
+    website: "https://www.sea-horse-ranch.com",
+  },
 ];
 
 export function getSeedVenue(slug: string): Venue | undefined {

@@ -14,6 +14,8 @@ export const FALLBACK_EVENTS_FR: Event[] = [
     category: "music",
     format: "physical",
     trending: true,
+    recurrence: "weekly",
+    recurrenceDay: 0,
     imageEmoji: "🎸",
   },
   {
@@ -46,6 +48,21 @@ export const FALLBACK_EVENTS_FR: Event[] = [
     imageEmoji: "🎵",
   },
   {
+    id: "rumble-in-paradise-12",
+    title: "Rumble in Paradise 12",
+    description:
+      "Boxe professionnelle sur la plage de Sosúa au Bar 39, avec invités spéciaux et séances d'autographes.",
+    date: "2026-07-04",
+    time: "5:00 PM",
+    location: "Sosúa",
+    venue: "Bar 39, Playa Sosúa",
+    category: "sports",
+    format: "physical",
+    trending: true,
+    sourceUrl: "https://www.facebook.com/events/1614506996278636",
+    imageEmoji: "🥊",
+  },
+  {
     id: "cabarete-kite-fest",
     title: "Festival de kite surf à Cabarete",
     description:
@@ -71,6 +88,8 @@ export const FALLBACK_EVENTS_FR: Event[] = [
     category: "sports",
     format: "physical",
     trending: true,
+    recurrence: "weekly",
+    recurrenceDay: 0,
     imageEmoji: "🏐",
   },
   {
@@ -120,12 +139,14 @@ export const FALLBACK_EVENTS_FR: Event[] = [
     title: "Marché brunch de Cabarete",
     description:
       "Produits frais, pain artisanal et stands brunch en bord de mer. Rituel du samedi pour la communauté.",
-    date: "2026-07-05",
+    date: "2026-07-04",
     time: "9:00 AM",
     location: "Cabarete",
     venue: "Cabarete Town Center",
     category: "food-drinks",
     format: "physical",
+    recurrence: "weekly",
+    recurrenceDay: 6,
     imageEmoji: "🍔",
   },
   {
@@ -169,19 +190,6 @@ export const FALLBACK_EVENTS_FR: Event[] = [
     format: "physical",
     trending: true,
     imageEmoji: "💃",
-  },
-  {
-    id: "wellness-sunrise",
-    title: "Yoga au lever du soleil",
-    description:
-      "Séance guidée de yoga et méditation sur la plage. Tapis fournis. Tous niveaux.",
-    date: "2026-07-06",
-    time: "6:30 AM",
-    location: "Costambar",
-    venue: "Costambar Beach",
-    category: "health-wellness",
-    format: "physical",
-    imageEmoji: "🧘",
   },
   {
     id: "cabarete-breathwork",

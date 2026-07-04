@@ -10,7 +10,7 @@ import { getCategoryMeta } from "@/lib/categories";
 import { EventDetailSheet } from "@/components/EventDetailSheet";
 import { FilteredEventList } from "@/components/FilteredEventList";
 import { SubmitEventSheet } from "@/components/SubmitEventSheet";
-import { materializeEventDates } from "@/lib/event-dates";
+import { AppHeader } from "@/components/AppHeader";
 import { useSavedEvents } from "@/hooks/useSavedEvents";
 
 interface CategoryPageProps {
@@ -31,9 +31,7 @@ export function CategoryPage({ categoryId, locale, dict }: CategoryPageProps) {
   useEffect(() => {
     fetch(`/api/events?locale=${locale}&category=${categoryId}`)
       .then((r) => r.json())
-      .then((d: { events?: Event[] }) =>
-        setEvents(materializeEventDates(d.events ?? [])),
-      )
+      .then((d: { events?: Event[] }) => setEvents(d.events ?? []))
       .catch(() => setEvents([]))
       .finally(() => setLoading(false));
   }, [locale, categoryId]);
@@ -41,7 +39,8 @@ export function CategoryPage({ categoryId, locale, dict }: CategoryPageProps) {
   return (
     <>
       <main className="flex-1 bg-neutral-50 min-h-screen pb-12">
-        <div className="mx-auto max-w-lg sm:max-w-2xl px-4 pt-6">
+        <div className="mx-auto max-w-lg sm:max-w-2xl px-4">
+          <AppHeader locale={locale} dict={dict} />
           <Link
             href={`/${locale}`}
             className="inline-flex items-center gap-2 text-sm font-semibold text-neutral-500 hover:text-neutral-800 mb-6"
@@ -100,9 +99,7 @@ export function CategoryPage({ categoryId, locale, dict }: CategoryPageProps) {
           setSubmitOpen(false);
           fetch(`/api/events?locale=${locale}&category=${categoryId}`)
             .then((r) => r.json())
-            .then((d: { events?: Event[] }) =>
-              setEvents(materializeEventDates(d.events ?? [])),
-            )
+            .then((d: { events?: Event[] }) => setEvents(d.events ?? []))
             .catch(() => {});
         }}
       />

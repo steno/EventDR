@@ -1,6 +1,7 @@
 import type { Event } from "./types";
 import { CATEGORY_IDS } from "./categories";
-import type { EventCategory } from "./types";
+import type { EventCategory, EventRecurrence } from "./types";
+import { parseImageDataUrl } from "./image-data-url";
 
 const SEED_COMMUNITY: Event[] = [
   {
@@ -8,13 +9,15 @@ const SEED_COMMUNITY: Event[] = [
     title: "Domino Night at the Colmado",
     description:
       "Friday night domino tournament behind the main colmado. Small entry fee, cold Presidente, serious bragging rights.",
-    date: "2026-07-04",
+    date: "2026-07-10",
     time: "8:00 PM",
     location: "Sosúa",
     venue: "Los Charamicos",
     category: "parties",
     format: "physical",
     communitySubmitted: true,
+    recurrence: "weekly",
+    recurrenceDay: 5,
     imageEmoji: "🎲",
   },
   {
@@ -22,7 +25,7 @@ const SEED_COMMUNITY: Event[] = [
     title: "Cabarete Pickleball Meetup",
     description:
       "Expat-run pickleball every Tuesday and Thursday. Paddles available to borrow. WhatsApp group for rain updates.",
-    date: "2026-07-08",
+    date: "2026-07-07",
     time: "4:00 PM",
     location: "Cabarete",
     venue: "Cabarete Sports Club",
@@ -30,6 +33,8 @@ const SEED_COMMUNITY: Event[] = [
     format: "physical",
     communitySubmitted: true,
     trending: true,
+    recurrence: "weekly",
+    recurrenceDays: [2, 4],
     imageEmoji: "🏓",
   },
 ];
@@ -54,6 +59,10 @@ export function isValidSubmitPayload(body: unknown): body is {
   venue?: string;
   category: string;
   format: string;
+  recurrence?: string;
+  recurrenceDay?: number;
+  recurrenceDays?: number[];
+  imageDataUrl?: string;
 } {
   return getSubmitValidationError(body) === null;
 }
@@ -65,7 +74,20 @@ export type SubmitValidationError =
   | "location"
   | "category"
   | "format"
+  | "recurrence"
+  | "image"
   | "invalid";
+
+const SUBMIT_RECURRENCE_VALUES = new Set([
+  "daily",
+  "weekly",
+  "weekdays",
+  "weekends",
+]);
+
+function validWeekday(day: unknown): day is number {
+  return typeof day === "number" && Number.isInteger(day) && day >= 0 && day <= 6;
+}
 
 export function getSubmitValidationError(body: unknown): SubmitValidationError | null {
   if (!body || typeof body !== "object") return "invalid";
@@ -91,6 +113,32 @@ export function getSubmitValidationError(body: unknown): SubmitValidationError |
   ) {
     return "format";
   }
+  if (b.recurrence !== undefined) {
+    if (
+      typeof b.recurrence !== "string" ||
+      !SUBMIT_RECURRENCE_VALUES.has(b.recurrence)
+    ) {
+      return "recurrence";
+    }
+    if (b.recurrence === "weekly") {
+      if (b.recurrenceDays !== undefined) {
+        if (
+          !Array.isArray(b.recurrenceDays) ||
+          b.recurrenceDays.length === 0 ||
+          !b.recurrenceDays.every(validWeekday)
+        ) {
+          return "recurrence";
+        }
+      } else if (b.recurrenceDay !== undefined && !validWeekday(b.recurrenceDay)) {
+        return "recurrence";
+      } else if (b.recurrenceDay === undefined) {
+        return "recurrence";
+      }
+    }
+  }
+  if (b.imageDataUrl !== undefined && !parseImageDataUrl(b.imageDataUrl)) {
+    return "image";
+  }
   return null;
 }
 
@@ -103,6 +151,10 @@ export function createCommunityEvent(payload: {
   venue?: string;
   category: EventCategory;
   format: Event["format"];
+  recurrence?: EventRecurrence;
+  recurrenceDay?: number;
+  recurrenceDays?: number[];
+  imageUrl?: string;
 }): Event {
   const slug = payload.title
     .toLowerCase()
@@ -119,6 +171,10 @@ export function createCommunityEvent(payload: {
     venue: payload.venue?.trim(),
     category: payload.category,
     format: payload.format,
+    recurrence: payload.recurrence,
+    recurrenceDay: payload.recurrenceDay,
+    recurrenceDays: payload.recurrenceDays,
+    imageUrl: payload.imageUrl,
     communitySubmitted: true,
     imageEmoji: "📌",
   };

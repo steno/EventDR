@@ -31,7 +31,15 @@ function getWeekendRange(now: Date): { start: Date; end: Date } {
   return { start: saturday, end: sunday };
 }
 
-export function filterByTimeRange<T extends { date: string; recurrence?: string; recurrenceDay?: number }>(
+export function filterByTimeRange<
+  T extends {
+    date: string;
+    endDate?: string;
+    recurrence?: string;
+    recurrenceDay?: number;
+    recurrenceDays?: number[];
+  },
+>(
   items: T[],
   range: TimeRange,
 ): T[] {
@@ -44,7 +52,11 @@ export function filterByTimeRange<T extends { date: string; recurrence?: string;
     if (
       item.recurrence &&
       eventMatchesRecurrence(
-        item as { recurrence?: EventRecurrence; recurrenceDay?: number },
+        item as {
+          recurrence?: EventRecurrence;
+          recurrenceDay?: number;
+          recurrenceDays?: number[];
+        },
         range,
         now,
       )
@@ -53,25 +65,27 @@ export function filterByTimeRange<T extends { date: string; recurrence?: string;
     }
 
     const eventDate = parseEventDate(item.date);
-    if (!eventDate) return false;
+    const eventEndDate = parseEventDate(item.endDate ?? item.date);
+    if (!eventDate || !eventEndDate) return false;
 
     const eventDay = startOfDay(eventDate);
+    const eventEndDay = startOfDay(eventEndDate);
 
     if (range === "today") {
-      return isSameDay(eventDay, today);
+      return eventDay <= today && eventEndDay >= today;
     }
 
     if (range === "week") {
       const weekEnd = new Date(today);
       weekEnd.setDate(today.getDate() + 7);
-      return eventDay >= today && eventDay <= weekEnd;
+      return eventDay <= weekEnd && eventEndDay >= today;
     }
 
     if (range === "weekend") {
       const { start, end } = getWeekendRange(now);
       const friday = new Date(start);
       friday.setDate(start.getDate() - 1);
-      return eventDay >= friday && eventDay <= end;
+      return eventDay <= end && eventEndDay >= friday;
     }
 
     return true;

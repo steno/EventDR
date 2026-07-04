@@ -1,6 +1,24 @@
 import { createHash } from "crypto";
 import { initializeApp, getApps, cert } from "firebase-admin/app";
 import { getFirestore, type Firestore } from "firebase-admin/firestore";
+import { getStorage, type Storage } from "firebase-admin/storage";
+
+function firebaseProjectId(): string | undefined {
+  if (process.env.FIREBASE_SERVICE_ACCOUNT_JSON) {
+    const serviceAccount = JSON.parse(
+      process.env.FIREBASE_SERVICE_ACCOUNT_JSON,
+    ) as { project_id?: string };
+    return serviceAccount.project_id;
+  }
+  return process.env.FIREBASE_PROJECT_ID;
+}
+
+function firebaseStorageBucket(): string | undefined {
+  return (
+    process.env.FIREBASE_STORAGE_BUCKET ??
+    (firebaseProjectId() ? `${firebaseProjectId()}.appspot.com` : undefined)
+  );
+}
 
 export function isFirebaseConfigured(): boolean {
   if (process.env.FIREBASE_SERVICE_ACCOUNT_JSON) return true;
@@ -29,6 +47,7 @@ export function getFirestoreDb(): Firestore | null {
           clientEmail: serviceAccount.client_email,
           privateKey: serviceAccount.private_key,
         }),
+        storageBucket: firebaseStorageBucket(),
       });
     } else {
       initializeApp({
@@ -37,11 +56,18 @@ export function getFirestoreDb(): Firestore | null {
           clientEmail: process.env.FIREBASE_CLIENT_EMAIL!,
           privateKey: process.env.FIREBASE_PRIVATE_KEY!.replace(/\\n/g, "\n"),
         }),
+        storageBucket: firebaseStorageBucket(),
       });
     }
   }
 
   return getFirestore(getApps()[0]!);
+}
+
+export function getFirebaseStorage(): Storage | null {
+  if (!isFirebaseConfigured()) return null;
+  getFirestoreDb();
+  return getStorage(getApps()[0]!);
 }
 
 export function subscriptionDocId(endpoint: string): string {

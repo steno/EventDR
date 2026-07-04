@@ -6,6 +6,7 @@ import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import { formatEventDateShort } from "@/lib/format-date";
 import { formatDistance } from "@/lib/geo";
+import { formatRecurrenceLabel } from "@/lib/recurrence-label";
 
 interface EventCardProps {
   event: Event;
@@ -17,6 +18,7 @@ interface EventCardProps {
 export function EventCard({ event, dict, locale, onSelect }: EventCardProps) {
   const category = getCategoryMeta(event.category, dict.categories);
   const emoji = event.imageEmoji ?? category?.emoji ?? "📅";
+  const recurrenceLabel = formatRecurrenceLabel(event, locale, dict);
 
   return (
     <button
@@ -76,6 +78,11 @@ export function EventCard({ event, dict, locale, onSelect }: EventCardProps) {
               <Calendar className="h-3.5 w-3.5 text-neutral-400" />
               {formatEventDateShort(event.date, locale)}
             </span>
+            {recurrenceLabel && (
+              <span className="inline-flex items-center rounded-full bg-orange-50 px-2 py-0.5 font-bold text-orange-600">
+                {recurrenceLabel}
+              </span>
+            )}
             {event.time && (
               <span className="inline-flex items-center gap-1.5 font-medium">
                 <Clock className="h-3.5 w-3.5 text-neutral-400" />
