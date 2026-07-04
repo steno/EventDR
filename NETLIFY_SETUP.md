@@ -1,0 +1,164 @@
+# Netlify Setup Guide
+
+This guide will help you configure environment variables and scheduled functions for your EventDR deployment on Netlify.
+
+## 🔐 Environment Variables Setup
+
+Go to your Netlify site: **Site settings → Environment variables → Add a variable**
+
+### Required for Database & Events
+
+```bash
+FIREBASE_SERVICE_ACCOUNT_JSON={"type":"service_account","project_id":"your-project",...}
+```
+
+Or alternatively, set these separately:
+
+```bash
+FIREBASE_PROJECT_ID=your-project-id
+FIREBASE_CLIENT_EMAIL=firebase-adminsdk-xxxxx@your-project.iam.gserviceaccount.com
+FIREBASE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\nYour-Key-Here\n-----END PRIVATE KEY-----\n"
+```
+
+### Optional: Web Crawling & AI Enrichment
+
+```bash
+JINA_API_KEY=your-jina-key
+OPENAI_API_KEY=sk-your-openai-key
+OPENAI_MODEL=gpt-4o-mini
+```
+
+### Optional: Push Notifications
+
+```bash
+NEXT_PUBLIC_VAPID_PUBLIC_KEY=your-public-key
+VAPID_PUBLIC_KEY=your-public-key
+VAPID_PRIVATE_KEY=your-private-key
+VAPID_SUBJECT=mailto:you@example.com
+```
+
+### Optional: Manual Cron Triggers
+
+```bash
+CRON_SECRET=5d5e309d65e8788001f176a545533d69f83efe0d564665c6856febbb722bafae
+```
+
+**Note:** A secure CRON_SECRET has been generated for you above. This is only needed if you want to manually trigger cleanup/notify endpoints via HTTP requests. The automatic scheduled functions don't require this.
+
+### Optional: Moderation
+
+```bash
+MODERATOR_SECRET=your-moderator-secret
+```
+
+## ⏰ Scheduled Functions
+
+Your site includes two **Netlify Scheduled Functions** that run automatically:
+
+### 1. Daily Cleanup (`scheduled-cleanup.mts`)
+- **Schedule:** Every day at midnight UTC (`@daily`)
+- **Purpose:** Removes expired one-time events from the database
+- **Requirements:** Firebase configured
+- **Location:** `netlify/functions/scheduled-cleanup.mts`
+
+### 2. Weekend Digest (`scheduled-notify.mts`)
+- **Schedule:** Every Friday at 9:00 AM UTC (`0 9 * * 5`)
+- **Purpose:** Sends push notifications for weekend events
+- **Requirements:** Firebase + Web Push (VAPID) configured
+- **Location:** `netlify/functions/scheduled-notify.mts`
+
+### How They Work
+
+1. **Automatic Deployment:** These functions deploy automatically when you push to your main branch
+2. **Production Only:** Scheduled functions only run on published production deploys (not branch previews)
+3. **No Configuration Needed:** The schedules are defined in the function code itself
+4. **Monitoring:** Check function logs in Netlify dashboard → Functions tab
+5. **Manual Testing:** Use the "Run now" button in Netlify UI for testing
+
+### Viewing Scheduled Functions
+
+After deployment:
+1. Go to your Netlify site dashboard
+2. Click **Functions** in the left sidebar
+3. You'll see `scheduled-cleanup` and `scheduled-notify` listed
+4. Click on each to view logs and execution history
+5. Use **Run now** button to test immediately
+
+## 🚀 Quick Setup Steps
+
+1. **Set Firebase credentials** (required for database access)
+   ```bash
+   # Copy your Firebase service account JSON
+   # Go to Netlify: Site settings → Environment variables
+   # Add FIREBASE_SERVICE_ACCOUNT_JSON with the full JSON
+   ```
+
+2. **Deploy to production**
+   ```bash
+   git push origin main
+   ```
+
+3. **Verify scheduled functions**
+   - Go to Netlify dashboard → Functions
+   - Confirm `scheduled-cleanup` and `scheduled-notify` appear
+   - Click "Run now" on `scheduled-cleanup` to test
+
+4. **Check logs**
+   - After running, check the function logs
+   - Should see: "Cleanup complete: X deleted, 0 errors"
+
+## 📋 Environment Variables Checklist
+
+- [ ] `FIREBASE_SERVICE_ACCOUNT_JSON` (or individual Firebase keys)
+- [ ] `JINA_API_KEY` (optional, for better crawling)
+- [ ] `OPENAI_API_KEY` (optional, for AI event enrichment)
+- [ ] Web Push VAPID keys (optional, for notifications)
+- [ ] `CRON_SECRET` (optional, for manual API triggers)
+- [ ] `MODERATOR_SECRET` (optional, for moderation panel)
+
+## 🧪 Testing
+
+### Test Scheduled Cleanup Manually
+
+1. In Netlify dashboard: Functions → scheduled-cleanup → Run now
+2. Check logs for output
+3. Verify expired events were deleted from Firebase
+
+### Test Weekend Notifications Manually
+
+1. In Netlify dashboard: Functions → scheduled-notify → Run now
+2. Check logs for notification count
+3. Verify push notifications were sent to subscribers
+
+### Test via API Endpoints (requires CRON_SECRET)
+
+```bash
+# Manual cleanup trigger
+curl -X POST "https://your-site.netlify.app/api/cron/cleanup?secret=YOUR_CRON_SECRET"
+
+# Manual notification trigger
+curl -X POST "https://your-site.netlify.app/api/cron/notify?secret=YOUR_CRON_SECRET"
+```
+
+## 🔍 Troubleshooting
+
+### Scheduled functions not appearing?
+- Make sure you deployed to the main/production branch
+- Check that `netlify/functions/*.mts` files exist in your repo
+- Verify `@netlify/functions` is installed (check `package.json`)
+
+### Functions failing?
+- Check Firebase credentials are set correctly
+- View function logs in Netlify dashboard
+- Verify your Firebase service account has proper permissions
+
+### No events being cleaned up?
+- Check if you have any expired events in your database
+- Run the function manually to see detailed logs
+- Verify the function is using correct date logic (UTC timezone)
+
+## 📚 Resources
+
+- [Netlify Scheduled Functions Docs](https://docs.netlify.com/build/functions/scheduled-functions/)
+- [Firebase Admin SDK Setup](https://firebase.google.com/docs/admin/setup)
+- [Web Push VAPID Keys](https://developers.google.com/web/fundamentals/push-notifications/web-push-protocol)

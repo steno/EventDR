@@ -5,5 +5,16 @@
 [build.environment]
   NODE_VERSION = "20"
 
-# API routes (events crawl, submit) may run up to 60s locally — Netlify functions cap lower
-# Set JINA_API_KEY and OPENAI_API_KEY in Site settings → Environment variables
+# Scheduled functions run automatically on production deploys
+# - scheduled-cleanup.mts: Daily at midnight UTC (@daily)
+# - scheduled-notify.mts: Fridays at 9:00 AM UTC (0 9 * * 5)
+
+# Environment variables to set in Site settings → Environment variables:
+# Required for Firebase:
+#   FIREBASE_SERVICE_ACCOUNT_JSON (or FIREBASE_PROJECT_ID, FIREBASE_CLIENT_EMAIL, FIREBASE_PRIVATE_KEY)
+# Optional for enhanced features:
+#   JINA_API_KEY, OPENAI_API_KEY, OPENAI_MODEL
+# Optional for push notifications:
+#   NEXT_PUBLIC_VAPID_PUBLIC_KEY, VAPID_PUBLIC_KEY, VAPID_PRIVATE_KEY, VAPID_SUBJECT
+# Optional for manual cron endpoints:
+#   CRON_SECRET (for /api/cron/cleanup and /api/cron/notify)

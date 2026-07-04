@@ -30,12 +30,13 @@ This repo is set up for [Netlify](https://www.netlify.com/) with Next.js App Rou
 
 1. Connect **steno/EventDR** in Netlify → Add new site → Import from Git
 2. Build settings are in `netlify.toml` (auto-detected)
-3. Add environment variables in **Site settings → Environment variables**:
-   - `JINA_API_KEY` (optional, higher crawl limits)
-   - `OPENAI_API_KEY` (optional, AI event enrichment)
+3. Add environment variables in **Site settings → Environment variables** (see `NETLIFY_SETUP.md`)
 
-After deploy, your site will be at `https://popevent.netlify.app` (or your custom domain).  
-Update the GitHub repo homepage to match (was previously a dead Vercel link).
+After deploy, scheduled functions will run automatically:
+- Daily cleanup of expired events at midnight UTC
+- Weekly weekend digest notifications on Fridays at 9 AM UTC
+
+Your site will be at `https://popevent.netlify.app` (or your custom domain).
 
 ## Web app vs App Store?
 
@@ -74,12 +75,21 @@ Without API keys, the app serves curated North Coast fallback events and uses he
 
 ## Scheduled tasks
 
-The app includes cron endpoints that can be triggered by external services like [cron-job.org](https://cron-job.org) or Vercel Cron:
+The app includes **Netlify Scheduled Functions** that run automatically on production:
 
-- **`POST /api/cron/cleanup?secret=CRON_SECRET`** — Runs daily at midnight (00:00 UTC) to remove expired one-time events
-- **`POST /api/cron/notify?secret=CRON_SECRET`** — Runs weekly on Fridays at 9:00 AM UTC to send weekend event digests
+- **`scheduled-cleanup.mts`** — Runs daily at midnight UTC (`@daily`) to remove expired one-time events
+- **`scheduled-notify.mts`** — Runs Fridays at 9:00 AM UTC (`0 9 * * 5`) to send weekend event digests
 
-Set `CRON_SECRET` in your environment variables and configure the schedule in `vercel.json` or your external cron service.
+These functions are in `netlify/functions/` and deploy automatically with your site. No external cron service needed.
+
+### Manual API endpoints
+
+You can also trigger cleanup and notifications manually via secured API endpoints:
+
+- **`POST /api/cron/cleanup?secret=CRON_SECRET`** — Manual cleanup trigger
+- **`POST /api/cron/notify?secret=CRON_SECRET`** — Manual notification trigger
+
+Set `CRON_SECRET` in your environment variables to enable manual triggers (optional).
 
 ## How it works
 
