@@ -12,7 +12,6 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "circus-fest": "circus-fest.jpg",
   "pp-cultural-fair": "pp-cultural-fair.jpg",
   "merengue-night": "merengue-night.jpg",
-  "sosua-salsa-social": "sosua-salsa-social.jpg",
   "wellness-sunrise": "wellness-sunrise.jpg",
   "cabarete-breathwork": "cabarete-breathwork.jpg",
   "pp-comedy-night": "pp-comedy-night.jpg",

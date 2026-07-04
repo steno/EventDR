@@ -20,7 +20,6 @@ const FILE_TO_EVENT_ID = {
   "PlayaDoradaSummerFest.JPG": "circus-fest",
   "POPCulturalFair.JPG": "pp-cultural-fair",
   "MerengueBachataNight.JPG": "merengue-night",
-  "SosuaSalsaSocial.JPG": "sosua-salsa-social",
   "SuriseYogaCoast.JPG": "wellness-sunrise",
   "CabareteBrethworkCircle.JPG": "cabarete-breathwork",
   "POPComedyStorytelling.JPG": "pp-comedy-night",
