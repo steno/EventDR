@@ -242,4 +242,41 @@ export async function countWeekendEvents(): Promise<number> {
   return snap.size;
 }
 
+export async function deleteExpiredEvents(): Promise<{
+  deleted: number;
+  errors: number;
+}> {
+  const db = getFirestoreDb();
+  if (!db) return { deleted: 0, errors: 0 };
+
+  const now = new Date();
+  const todayStr = now.toISOString().slice(0, 10);
+
+  const snap = await db
+    .collection("events")
+    .where("status", "==", "approved")
+    .where("date", "<", todayStr)
+    .get();
+
+  let deleted = 0;
+  let errors = 0;
+
+  for (const doc of snap.docs) {
+    const data = doc.data();
+    const hasRecurrence = data.recurrence != null;
+
+    if (!hasRecurrence) {
+      try {
+        await doc.ref.delete();
+        deleted++;
+      } catch (err) {
+        console.error(`Failed to delete event ${doc.id}:`, err);
+        errors++;
+      }
+    }
+  }
+
+  return { deleted, errors };
+}
+
 export { isFirebaseConfigured };
