@@ -68,8 +68,18 @@ Open [http://localhost:3000](http://localhost:3000).
 | `JINA_API_KEY` | No | Free at [jina.ai](https://jina.ai/?sui=apikey) — higher crawl rate limits |
 | `OPENAI_API_KEY` | No | Powers AI event card enrichment |
 | `OPENAI_MODEL` | No | Default: `gpt-4o-mini` |
+| `CRON_SECRET` | No | Secret token for authenticated cron endpoints |
 
 Without API keys, the app serves curated North Coast fallback events and uses heuristic parsing on crawled content.
+
+## Scheduled tasks
+
+The app includes cron endpoints that can be triggered by external services like [cron-job.org](https://cron-job.org) or Vercel Cron:
+
+- **`POST /api/cron/cleanup?secret=CRON_SECRET`** — Runs daily at midnight (00:00 UTC) to remove expired one-time events
+- **`POST /api/cron/notify?secret=CRON_SECRET`** — Runs weekly on Fridays at 9:00 AM UTC to send weekend event digests
+
+Set `CRON_SECRET` in your environment variables and configure the schedule in `vercel.json` or your external cron service.
 
 ## How it works
 
