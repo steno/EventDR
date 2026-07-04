@@ -20,6 +20,12 @@ Value: [Paste your entire Firebase service account JSON here]
 4. Click "Generate new private key"
 5. Copy the entire JSON content and paste it as the value
 
+**Enable Firebase Storage (for image uploads):**
+1. In Firebase Console, click **Storage** in the left sidebar
+2. Click **Get Started**
+3. Choose **Start in production mode**
+4. Your storage bucket will be `{project-id}.appspot.com`
+
 ---
 
 ### Optional: Generated CRON_SECRET (for manual API triggers)

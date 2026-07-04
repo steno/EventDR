@@ -20,6 +20,14 @@ FIREBASE_CLIENT_EMAIL=firebase-adminsdk-xxxxx@your-project.iam.gserviceaccount.c
 FIREBASE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\nYour-Key-Here\n-----END PRIVATE KEY-----\n"
 ```
 
+**Optional: Custom Storage Bucket**
+
+By default, the app uses `{project-id}.appspot.com`. If you need a custom bucket:
+
+```bash
+FIREBASE_STORAGE_BUCKET=your-custom-bucket.appspot.com
+```
+
 ### Optional: Web Crawling & AI Enrichment
 
 ```bash
@@ -110,11 +118,39 @@ After deployment:
 ## 📋 Environment Variables Checklist
 
 - [ ] `FIREBASE_SERVICE_ACCOUNT_JSON` (or individual Firebase keys)
+- [ ] Firebase Storage enabled in Firebase Console
 - [ ] `JINA_API_KEY` (optional, for better crawling)
 - [ ] `OPENAI_API_KEY` (optional, for AI event enrichment)
 - [ ] Web Push VAPID keys (optional, for notifications)
 - [ ] `CRON_SECRET` (optional, for manual API triggers)
 - [ ] `MODERATOR_SECRET` (optional, for moderation panel)
+
+## 🗄️ Firebase Storage Setup
+
+For image uploads to work, you need to enable Firebase Storage:
+
+1. Go to [Firebase Console](https://console.firebase.google.com/)
+2. Select your project
+3. Click **Storage** in the left sidebar
+4. Click **Get Started**
+5. Choose **Start in production mode** or **Start in test mode**
+6. Your default bucket will be `{project-id}.appspot.com`
+
+**Storage Rules (optional):**
+
+By default, images are made public after upload. If you want to customize permissions:
+
+```
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    match /event-images/{imageId} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+  }
+}
+```
 
 ## 🧪 Testing
 
@@ -151,6 +187,13 @@ curl -X POST "https://your-site.netlify.app/api/cron/notify?secret=YOUR_CRON_SEC
 - Check Firebase credentials are set correctly
 - View function logs in Netlify dashboard
 - Verify your Firebase service account has proper permissions
+
+### Image upload failing?
+- Check that Firebase Storage is enabled in your Firebase project
+- Go to Firebase Console → Storage → Get Started
+- The default storage bucket (`{project-id}.appspot.com`) should work automatically
+- Images are stored as public URLs in the `event-images/` folder
+- If you see "Failed to upload event image" in logs, check Firebase Storage rules
 
 ### No events being cleaned up?
 - Check if you have any expired events in your database

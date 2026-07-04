@@ -11,21 +11,28 @@ export async function uploadEventImage(
   const storage = getFirebaseStorage();
   if (!storage) return null;
 
-  const bucket = storage.bucket();
-  const file = bucket.file(`event-images/${eventId}.${parsed.extension}`);
+  try {
+    const bucket = storage.bucket();
+    const fileName = `event-images/${eventId}.${parsed.extension}`;
+    const file = bucket.file(fileName);
 
-  await file.save(Buffer.from(parsed.base64, "base64"), {
-    contentType: parsed.contentType,
-    metadata: {
-      cacheControl: "public, max-age=31536000",
-    },
-  });
+    await file.save(Buffer.from(parsed.base64, "base64"), {
+      contentType: parsed.contentType,
+      metadata: {
+        cacheControl: "public, max-age=31536000",
+      },
+      public: true,
+    });
 
-  const [url] = await file.getSignedUrl({
-    action: "read",
-    expires: "2100-01-01",
-  });
+    await file.makePublic();
 
-  return url;
+    const projectId = bucket.name.replace(".appspot.com", "");
+    const publicUrl = `https://storage.googleapis.com/${bucket.name}/${fileName}`;
+
+    return publicUrl;
+  } catch (error) {
+    console.error("Failed to upload event image:", error);
+    return null;
+  }
 }
 
