@@ -21,12 +21,14 @@ export const FALLBACK_EVENTS_FR: Event[] = [
     title: "Acoustiques du dimanche à Costambar",
     description:
       "Les habitants et visiteurs apportent leurs guitares pour des sets informels au beach bar. Entrée libre.",
-    date: "2026-07-06",
+    date: "2026-07-05",
     time: "5:00 PM",
     location: "Costambar",
     venue: "Costambar Beach Club",
     category: "music",
     format: "physical",
+    recurrence: "weekly",
+    recurrenceDay: 0,
     imageEmoji: "🎸",
   },
   {
@@ -41,19 +43,6 @@ export const FALLBACK_EVENTS_FR: Event[] = [
     category: "concert",
     format: "physical",
     trending: true,
-    imageEmoji: "🎵",
-  },
-  {
-    id: "cabarete-reggae-night",
-    title: "Nuit reggae à Cabarete",
-    description:
-      "Groupes reggae et roots en live dans un lieu en bord de mer. Un classique de la vie nocturne de Cabarete.",
-    date: "2026-07-09",
-    time: "9:00 PM",
-    location: "Cabarete",
-    venue: "LAX Cabarete",
-    category: "concert",
-    format: "physical",
     imageEmoji: "🎵",
   },
   {
@@ -89,12 +78,14 @@ export const FALLBACK_EVENTS_FR: Event[] = [
     title: "Football du dimanche à Puerto Plata",
     description:
       "Match informel le dimanche au terrain municipal. Tous niveaux — demandez à n'importe quel colmado près du parc.",
-    date: "2026-07-06",
+    date: "2026-07-05",
     time: "8:00 AM",
     location: "Puerto Plata",
     venue: "Parque Central",
     category: "sports",
     format: "physical",
+    recurrence: "weekly",
+    recurrenceDay: 0,
     imageEmoji: "⚽",
   },
   {
@@ -180,19 +171,6 @@ export const FALLBACK_EVENTS_FR: Event[] = [
     imageEmoji: "💃",
   },
   {
-    id: "sosua-salsa-social",
-    title: "Social salsa à Sosúa",
-    description:
-      "Social salsa hebdomadaire — cours débutants à 19h, danse libre jusqu'à minuit. Pas besoin de partenaire.",
-    date: "2026-07-08",
-    time: "7:00 PM",
-    location: "Sosúa",
-    venue: "El Batey",
-    category: "dance",
-    format: "physical",
-    imageEmoji: "💃",
-  },
-  {
     id: "wellness-sunrise",
     title: "Yoga au lever du soleil",
     description:
@@ -217,19 +195,6 @@ export const FALLBACK_EVENTS_FR: Event[] = [
     category: "health-wellness",
     format: "physical",
     imageEmoji: "🧘",
-  },
-  {
-    id: "open-mic",
-    title: "Open mic côtier",
-    description:
-      "Chanteurs, poètes et humoristes sur scène. Inscription à l'entrée.",
-    date: "2026-07-07",
-    time: "8:00 PM",
-    location: "Sosúa",
-    venue: "El Batey",
-    category: "performances",
-    format: "physical",
-    imageEmoji: "🎤",
   },
   {
     id: "pp-comedy-night",

@@ -3,7 +3,6 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "sosua-beach-jam": "sosua-beach-jam.jpg",
   "costambar-acoustic": "costambar-acoustic.jpg",
   "malecon-live-concert": "malecon-live-concert.jpg",
-  "cabarete-reggae-night": "cabarete-reggae-night.jpg",
   "cabarete-kite-fest": "cabarete-kite-fest.jpg",
   "sosua-beach-volleyball": "sosua-beach-volleyball.jpg",
   "pp-sunday-futbol": "pp-sunday-futbol.jpg",

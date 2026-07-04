@@ -11,7 +11,6 @@ const FILE_TO_EVENT_ID = {
   "SosuaBeachLiveMusic.JPG": "sosua-beach-jam",
   "CostambarAcousticSundays.JPG": "costambar-acoustic",
   "MaleconOPenAir.JPG": "malecon-live-concert",
-  "CabareteReggaeRootsNight.JPG": "cabarete-reggae-night",
   "CabareteKiteFest.JPG": "cabarete-kite-fest",
   "SosuaBeachVolleyballLeague.JPG": "sosua-beach-volleyball",
   "POPSundayPickupFutbol.JPG": "pp-sunday-futbol",

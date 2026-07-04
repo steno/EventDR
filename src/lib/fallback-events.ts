@@ -25,12 +25,14 @@ const FALLBACK_EVENTS_EN: Event[] = [
     title: "Costambar Acoustic Sundays",
     description:
       "Locals and visitors bring guitars for informal acoustic sets at the beach bar. No cover, just vibes.",
-    date: "2026-07-06",
+    date: "2026-07-05",
     time: "5:00 PM",
     location: "Costambar",
     venue: "Costambar Beach Club",
     category: "music",
     format: "physical",
+    recurrence: "weekly",
+    recurrenceDay: 0,
     imageEmoji: "🎸",
   },
   // Concert
@@ -46,19 +48,6 @@ const FALLBACK_EVENTS_EN: Event[] = [
     category: "concert",
     format: "physical",
     trending: true,
-    imageEmoji: "🎵",
-  },
-  {
-    id: "cabarete-reggae-night",
-    title: "Cabarete Reggae & Roots Night",
-    description:
-      "Live reggae and roots bands at a beachfront venue. A staple of the Cabarete nightlife scene.",
-    date: "2026-07-09",
-    time: "9:00 PM",
-    location: "Cabarete",
-    venue: "LAX Cabarete",
-    category: "concert",
-    format: "physical",
     imageEmoji: "🎵",
   },
   // Sports
@@ -95,12 +84,14 @@ const FALLBACK_EVENTS_EN: Event[] = [
     title: "Puerto Plata Sunday Pickup Fútbol",
     description:
       "Informal Sunday football at the municipal field. All skill levels welcome — ask at any colmado near the park.",
-    date: "2026-07-06",
+    date: "2026-07-05",
     time: "8:00 AM",
     location: "Puerto Plata",
     venue: "Parque Central",
     category: "sports",
     format: "physical",
+    recurrence: "weekly",
+    recurrenceDay: 0,
     imageEmoji: "⚽",
   },
   {
@@ -188,19 +179,6 @@ const FALLBACK_EVENTS_EN: Event[] = [
     trending: true,
     imageEmoji: "💃",
   },
-  {
-    id: "sosua-salsa-social",
-    title: "Sosúa Salsa Social",
-    description:
-      "Weekly salsa social — beginner lesson at 7 PM, open dancing until midnight. No partner needed.",
-    date: "2026-07-08",
-    time: "7:00 PM",
-    location: "Sosúa",
-    venue: "El Batey",
-    category: "dance",
-    format: "physical",
-    imageEmoji: "💃",
-  },
   // Health & Wellness
   {
     id: "wellness-sunrise",
@@ -229,19 +207,6 @@ const FALLBACK_EVENTS_EN: Event[] = [
     imageEmoji: "🧘",
   },
   // Performances
-  {
-    id: "open-mic",
-    title: "Coastal Open Mic Night",
-    description:
-      "Singers, poets, and comedians take the stage. Sign up at the door.",
-    date: "2026-07-07",
-    time: "8:00 PM",
-    location: "Sosúa",
-    venue: "El Batey",
-    category: "performances",
-    format: "physical",
-    imageEmoji: "🎤",
-  },
   {
     id: "pp-comedy-night",
     title: "Puerto Plata Comedy & Storytelling",
@@ -332,12 +297,14 @@ const FALLBACK_EVENTS_ES: Event[] = [
     title: "Acústicos Dominicales en Costambar",
     description:
       "Locales y visitantes traen guitarras para sesiones informales en el beach bar. Sin cover.",
-    date: "2026-07-06",
+    date: "2026-07-05",
     time: "5:00 PM",
     location: "Costambar",
     venue: "Costambar Beach Club",
     category: "music",
     format: "physical",
+    recurrence: "weekly",
+    recurrenceDay: 0,
     imageEmoji: "🎸",
   },
   {
@@ -352,19 +319,6 @@ const FALLBACK_EVENTS_ES: Event[] = [
     category: "concert",
     format: "physical",
     trending: true,
-    imageEmoji: "🎵",
-  },
-  {
-    id: "cabarete-reggae-night",
-    title: "Noche de Reggae en Cabarete",
-    description:
-      "Bandas de reggae y roots en vivo en un local frente al mar. Clásico de la escena nocturna de Cabarete.",
-    date: "2026-07-09",
-    time: "9:00 PM",
-    location: "Cabarete",
-    venue: "LAX Cabarete",
-    category: "concert",
-    format: "physical",
     imageEmoji: "🎵",
   },
   {
@@ -406,6 +360,8 @@ const FALLBACK_EVENTS_ES: Event[] = [
     venue: "Parque Central",
     category: "sports",
     format: "physical",
+    recurrence: "weekly",
+    recurrenceDay: 0,
     imageEmoji: "⚽",
   },
   {
@@ -491,19 +447,6 @@ const FALLBACK_EVENTS_ES: Event[] = [
     imageEmoji: "💃",
   },
   {
-    id: "sosua-salsa-social",
-    title: "Social de Salsa en Sosúa",
-    description:
-      "Social de salsa semanal — clase para principiantes a las 7 PM, baile libre hasta medianoche.",
-    date: "2026-07-08",
-    time: "7:00 PM",
-    location: "Sosúa",
-    venue: "El Batey",
-    category: "dance",
-    format: "physical",
-    imageEmoji: "💃",
-  },
-  {
     id: "wellness-sunrise",
     title: "Yoga al Amanecer en la Costa",
     description:
@@ -528,19 +471,6 @@ const FALLBACK_EVENTS_ES: Event[] = [
     category: "health-wellness",
     format: "physical",
     imageEmoji: "🧘",
-  },
-  {
-    id: "open-mic",
-    title: "Noche de Micrófono Abierto",
-    description:
-      "Cantantes, poetas y comediantes en el escenario. Inscríbete en la puerta.",
-    date: "2026-07-07",
-    time: "8:00 PM",
-    location: "Sosúa",
-    venue: "El Batey",
-    category: "performances",
-    format: "physical",
-    imageEmoji: "🎤",
   },
   {
     id: "pp-comedy-night",
