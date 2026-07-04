@@ -140,12 +140,8 @@ function oneOffIsActive(event: Event, now: Date): boolean {
 
   const currentDay = startOfDay(now);
   if (end < currentDay) return false;
-  if (end > currentDay || event.endDate) return true;
 
-  const endMinutes = parseTimeMinutes(event.time);
-  if (endMinutes == null) return true;
-  const nowMinutes = now.getHours() * 60 + now.getMinutes();
-  return endMinutes >= nowMinutes;
+  return true;
 }
 
 /**
