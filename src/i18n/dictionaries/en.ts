@@ -20,10 +20,12 @@ export type Dictionary = {
     subtitle: string;
     subtitleHighlight: string;
     subtitleEnd: string;
+    cta: string;
   };
   categories: Record<EventCategory, string>;
   browse: {
     title: string;
+    subtitle: string;
     clear: string;
     ariaLabel: string;
     back: string;
@@ -172,6 +174,7 @@ export const en: Dictionary = {
     subtitle: "What's happening in the",
     subtitleHighlight: "North Coast of the DR",
     subtitleEnd: "Physical & digital events in the Puerto Plata region.",
+    cta: "Add My Events",
   },
   categories: {
     music: "Music",
@@ -187,6 +190,7 @@ export const en: Dictionary = {
   },
   browse: {
     title: "Browse",
+    subtitle: "Browse",
     clear: "Clear",
     ariaLabel: "Event categories",
     back: "Back to discover",

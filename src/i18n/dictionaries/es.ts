@@ -18,6 +18,7 @@ export const es: Dictionary = {
     subtitle: "Qué está pasando en la",
     subtitleHighlight: "Costa Norte de RD",
     subtitleEnd: "Eventos presenciales y digitales en la región de Puerto Plata.",
+    cta: "Añadir mis eventos",
   },
   categories: {
     music: "Música",
@@ -33,6 +34,7 @@ export const es: Dictionary = {
   },
   browse: {
     title: "Explorar",
+    subtitle: "Elige tu plan",
     clear: "Limpiar",
     ariaLabel: "Categorías de eventos",
     back: "Volver a explorar",

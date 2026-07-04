@@ -22,7 +22,7 @@ export function LanguageSwitcher({ locale, dict }: LanguageSwitcherProps) {
 
   return (
     <div
-      className="flex items-center gap-0.5 rounded-full bg-neutral-100 p-1"
+      className="flex items-center gap-0.5 rounded-full bg-white/85 p-1 shadow-sm ring-1 ring-neutral-200/70 backdrop-blur"
       role="group"
       aria-label={dict.lang.switchTo}
     >
@@ -35,7 +35,7 @@ export function LanguageSwitcher({ locale, dict }: LanguageSwitcherProps) {
             px-2.5 py-1 rounded-full text-[11px] font-bold tracking-wide transition-all
             ${
               locale === lang
-                ? "bg-neutral-900 text-white shadow-sm"
+                ? "bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 text-white shadow-sm"
                 : "text-neutral-500 hover:text-neutral-800"
             }
           `}

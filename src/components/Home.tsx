@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 import { Hero } from "@/components/Hero";
 import { CategoryGrid } from "@/components/CategoryGrid";
@@ -78,17 +79,28 @@ export function Home({ locale, dict }: HomeProps) {
   return (
     <>
       <PwaRegister />
-      <main className="flex-1 bg-neutral-50 pb-24">
-        <div className="mx-auto max-w-lg sm:max-w-2xl px-4 pb-6">
-          <div className="flex justify-end pt-3">
+      <main className="relative flex-1 overflow-hidden bg-neutral-50 pb-24">
+        <div className="pointer-events-none absolute -top-20 -left-24 h-56 w-56 rounded-full bg-orange-200/30 blur-3xl" />
+        <div className="pointer-events-none absolute top-20 -right-24 h-64 w-64 rounded-full bg-fuchsia-200/35 blur-3xl" />
+        <div className="relative mx-auto max-w-lg sm:max-w-2xl px-4 pb-6">
+          <div className="flex items-center justify-between pt-3 pb-5">
+            <Image
+              src="/poplogo-safe.png?v=1"
+              alt="POP Events logo"
+              width={184}
+              height={166}
+              priority
+              unoptimized
+              className="h-[68px] w-auto rounded-2xl object-contain sm:h-20"
+            />
             <LanguageSwitcher locale={locale} dict={dict} />
           </div>
 
           {tab === "discover" && (
             <>
               <InstallBanner dict={dict} />
-              <Hero dict={dict} />
-              <div className="mb-8">
+              <Hero dict={dict} onAddEvent={() => setSubmitOpen(true)} />
+              <div className="mb-6">
                 <CategoryGrid locale={locale} dict={dict} />
               </div>
               <EventList

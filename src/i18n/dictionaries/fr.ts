@@ -18,6 +18,7 @@ export const fr: Dictionary = {
     subtitle: "Ce qui se passe sur la",
     subtitleHighlight: "Côte Nord de RD",
     subtitleEnd: "Événements sur place et en ligne dans la région de Puerto Plata.",
+    cta: "Ajouter mes événements",
   },
   categories: {
     music: "Musique",
@@ -33,6 +34,7 @@ export const fr: Dictionary = {
   },
   browse: {
     title: "Explorer",
+    subtitle: "Choisissez votre ambiance",
     clear: "Effacer",
     ariaLabel: "Catégories d'événements",
     back: "Retour à l'exploration",
