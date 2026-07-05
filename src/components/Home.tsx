@@ -83,7 +83,14 @@ export function Home({ locale, dict }: HomeProps) {
         <div className="pointer-events-none absolute -top-20 -left-24 h-56 w-56 rounded-full bg-orange-200/30 blur-3xl" />
         <div className="pointer-events-none absolute top-20 -right-24 h-64 w-64 rounded-full bg-fuchsia-200/35 blur-3xl" />
         <div className="relative mx-auto max-w-lg sm:max-w-2xl px-4 pb-6">
-          <AppHeader locale={locale} dict={dict} />
+          <AppHeader
+            locale={locale}
+            dict={dict}
+            onLogoClick={() => {
+              setTab("discover");
+              setSearchQuery("");
+            }}
+          />
 
           {tab === "discover" && (
             <>

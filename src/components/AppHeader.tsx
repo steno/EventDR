@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
@@ -9,12 +10,29 @@ import type { Dictionary } from "@/i18n/dictionaries";
 interface AppHeaderProps {
   locale: Locale;
   dict: Dictionary;
+  /** Reset in-page home state (e.g. discover tab) when already on `/[locale]`. */
+  onLogoClick?: () => void;
 }
 
-export function AppHeader({ locale, dict }: AppHeaderProps) {
+export function AppHeader({ locale, dict, onLogoClick }: AppHeaderProps) {
+  const pathname = usePathname();
+  const homeHref = `/${locale}`;
+  const onHome = pathname === homeHref;
+
   return (
     <div className="flex items-center justify-between pt-3 pb-5">
-      <Link href={`/${locale}`} aria-label="POP Events home">
+      <Link
+        href={homeHref}
+        aria-label="POP Events home"
+        className="rounded-2xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
+        onClick={(e) => {
+          if (onHome) {
+            e.preventDefault();
+            onLogoClick?.();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }
+        }}
+      >
         <Image
           src="/poplogo-safe.png?v=1"
           alt="POP Events logo"
