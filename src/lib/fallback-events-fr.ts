@@ -19,6 +19,36 @@ export const FALLBACK_EVENTS_FR: Event[] = [
     imageEmoji: "🎸",
   },
   {
+    id: "voyvoy-sunday-open-mic",
+    title: "Open mic & jam du dimanche à VOYVOY",
+    description:
+      "Musique live, open mic et jam à VOYVOY, Cabarete. Lester Grant lance la soirée — apportez un instrument ou empruntez-en un. Ambiance détendue pour boire et dîner.",
+    date: "2026-07-05",
+    time: "5:00 PM",
+    location: "Cabarete",
+    venue: "VOYVOY Cabarete",
+    category: "music",
+    format: "physical",
+    recurrence: "weekly",
+    recurrenceDay: 0,
+    imageEmoji: "🎸",
+  },
+  {
+    id: "voyvoy-saturday-session",
+    title: "Saturday Session à VOYVOY",
+    description:
+      "Soirée danse le samedi à VOYVOY avec DJs invités — reggaeton, club, sans cover. Un incontournable de Cabarete pour locaux et visiteurs.",
+    date: "2026-07-11",
+    time: "9:00 PM",
+    location: "Cabarete",
+    venue: "VOYVOY Cabarete",
+    category: "parties",
+    format: "physical",
+    recurrence: "weekly",
+    recurrenceDay: 6,
+    imageEmoji: "🪩",
+  },
+  {
     id: "costambar-acoustic",
     title: "Acoustiques du dimanche à Costambar",
     description:
@@ -121,6 +151,22 @@ export const FALLBACK_EVENTS_FR: Event[] = [
     imageEmoji: "🏄",
   },
   {
+    id: "womens-reconnection-kite-camp-2026",
+    title: "Women's Reconnection Kite Camp",
+    description:
+      "Camp de kite de 7 nuits pour femmes en bord de mer à Cabarete — flow, reconnexion et sessions kite avec l'instructrice IKO Ariadna Rabasa. Places early bird disponibles.",
+    date: "2026-08-01",
+    endDate: "2026-08-08",
+    time: "12:00 AM",
+    location: "Cabarete",
+    venue: "Playa Cabarete",
+    category: "sports",
+    format: "physical",
+    trending: true,
+    sourceUrl: "https://www.facebook.com/events/1683911749456298/",
+    imageEmoji: "🏄",
+  },
+  {
     id: "pp-food-truck",
     title: "Rally food trucks à Puerto Plata",
     description:
@@ -202,6 +248,22 @@ export const FALLBACK_EVENTS_FR: Event[] = [
     venue: "Cabarete Wellness Studio",
     category: "health-wellness",
     format: "physical",
+    imageEmoji: "🧘",
+  },
+  {
+    id: "cabarete-pilates-reformer",
+    title: "Cours collectif Pilates Reformer",
+    description:
+      "Sessions collectives de Pilates Reformer à Cabarete avec Rafaella Cirillo. Places limitées — DM ou WhatsApp +1 809 460 5777. Code RC-pilates pour le premier cours.",
+    date: "2026-07-08",
+    time: "9:00 AM",
+    location: "Cabarete",
+    venue: "Cabarete",
+    category: "health-wellness",
+    format: "physical",
+    recurrence: "weekly",
+    recurrenceDays: [2, 4],
+    sourceUrl: "https://www.facebook.com/events/981611704653706/",
     imageEmoji: "🧘",
   },
   {

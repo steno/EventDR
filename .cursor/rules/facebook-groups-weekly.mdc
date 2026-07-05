@@ -1,0 +1,23 @@
+---
+description: Weekly Facebook group event discovery for POP Events (North Coast DR)
+globs:
+alwaysApply: false
+---
+
+# Weekly Facebook group event agent
+
+Run when the user asks to refresh events from Facebook groups, or on the weekly schedule.
+
+## Groups (see `src/lib/facebook-groups.ts`)
+
+- Everything Sosúa, Costambar, Everything Puerto Plata, Expats Sosúa/Cabarete, Everything Cabarete
+
+## Workflow
+
+1. **Events tab** — open `{group.url}/events` for each group; collect upcoming events not already on the site.
+2. **Discussion** — search each group for: `evento`, `concierto`, `live music`, `saturday`, `fiesta`, `open mic`, `this weekend`.
+3. **Filter** — North Coast only; upcoming or recurring; skip real-estate/marketplace posts and duplicates.
+4. **Add** — only **new** events to `src/lib/fallback-events.ts` (+ ES/FR translations in `fallback-events-fr.ts`); include `sourceUrl` when from Facebook.
+5. **Server ingest** — `POST /api/ingest?secret=CRON_SECRET` queues Jina/OpenAI crawls to Firestore pending (GitHub Action runs this Sundays).
+
+Requires Facebook login in the browser for group feeds (Jina alone hits login walls).
