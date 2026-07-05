@@ -1,4 +1,4 @@
-const CACHE_NAME = "eventdr-v3";
+const CACHE_NAME = "eventdr-v4";
 const PRECACHE = [
   "/en",
   "/es",
@@ -12,7 +12,12 @@ self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => cache.addAll(PRECACHE)),
   );
-  self.skipWaiting();
+});
+
+self.addEventListener("message", (event) => {
+  if (event.data?.type === "SKIP_WAITING") {
+    self.skipWaiting();
+  }
 });
 
 self.addEventListener("activate", (event) => {
