@@ -116,6 +116,7 @@ export type Dictionary = {
     addVenueEvent: string;
     success: string;
     pendingSuccess: string;
+    imageUploadSkipped: string;
     error: string;
     optional: string;
     validationTitle: string;
@@ -304,6 +305,8 @@ export const en: Dictionary = {
     addVenueEvent: "Add event at {venue}",
     success: "Published! It's live for everyone.",
     pendingSuccess: "Submitted for review — we'll publish it once approved.",
+    imageUploadSkipped:
+      "Submitted for review without the photo — image hosting isn't set up yet. We'll still review your event.",
     error: "Something went wrong. Try again.",
     optional: "optional",
     validationTitle: "Event name needs at least 3 characters.",

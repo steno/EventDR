@@ -3,7 +3,7 @@ import { initializeApp, getApps, cert } from "firebase-admin/app";
 import { getFirestore, type Firestore } from "firebase-admin/firestore";
 import { getStorage, type Storage } from "firebase-admin/storage";
 
-function firebaseProjectId(): string | undefined {
+export function firebaseProjectId(): string | undefined {
   if (process.env.FIREBASE_SERVICE_ACCOUNT_JSON) {
     const serviceAccount = JSON.parse(
       process.env.FIREBASE_SERVICE_ACCOUNT_JSON,
@@ -14,10 +14,16 @@ function firebaseProjectId(): string | undefined {
 }
 
 function firebaseStorageBucket(): string | undefined {
-  return (
-    process.env.FIREBASE_STORAGE_BUCKET ??
-    (firebaseProjectId() ? `${firebaseProjectId()}.appspot.com` : undefined)
-  );
+  return storageBucketCandidates()[0];
+}
+
+export function storageBucketCandidates(): string[] {
+  const projectId = firebaseProjectId();
+  const fromEnv = process.env.FIREBASE_STORAGE_BUCKET?.trim();
+  const defaults = projectId
+    ? [`${projectId}.firebasestorage.app`, `${projectId}.appspot.com`]
+    : [];
+  return [...new Set([fromEnv, ...defaults].filter(Boolean))] as string[];
 }
 
 export function isFirebaseConfigured(): boolean {

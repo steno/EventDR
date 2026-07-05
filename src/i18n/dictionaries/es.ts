@@ -130,6 +130,8 @@ export const es: Dictionary = {
     addVenueEvent: "Añadir evento en {venue}",
     success: "¡Publicado! Ya está visible para todos.",
     pendingSuccess: "Enviado para revisión — lo publicaremos cuando sea aprobado.",
+    imageUploadSkipped:
+      "Enviado para revisión sin la foto — el alojamiento de imágenes aún no está configurado. Revisaremos tu evento igualmente.",
     error: "Algo salió mal. Intenta de nuevo.",
     optional: "opcional",
     validationTitle: "El nombre debe tener al menos 3 caracteres.",

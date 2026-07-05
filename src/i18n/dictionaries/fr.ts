@@ -130,6 +130,8 @@ export const fr: Dictionary = {
     addVenueEvent: "Ajouter un événement à {venue}",
     success: "Publié ! C'est en ligne pour tout le monde.",
     pendingSuccess: "Soumis pour validation — publication après approbation.",
+    imageUploadSkipped:
+      "Soumis pour validation sans la photo — l'hébergement d'images n'est pas encore configuré. Nous examinerons quand même votre événement.",
     error: "Une erreur s'est produite. Réessayez.",
     optional: "facultatif",
     validationTitle: "Le nom doit contenir au moins 3 caractères.",

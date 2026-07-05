@@ -67,25 +67,33 @@ export async function POST(request: NextRequest) {
 
     if (isFirebaseConfigured()) {
       if (body.imageDataUrl) {
-        const imageUrl = await uploadEventImage(event.id, body.imageDataUrl);
-        if (!imageUrl) {
-          return NextResponse.json(
-            { error: dict.submit.validationImage, field: "image" },
-            { status: 400 },
-          );
+        const upload = await uploadEventImage(event.id, body.imageDataUrl);
+        if (!upload.ok) {
+          if (upload.reason === "invalid") {
+            return NextResponse.json(
+              { error: dict.submit.validationImage, field: "image" },
+              { status: 400 },
+            );
+          }
+          console.error("submit: image upload skipped:", upload.reason);
+        } else {
+          event = { ...event, imageUrl: upload.url };
         }
-        event = { ...event, imageUrl };
       }
 
       const saved = await insertPendingEvent(event, "community");
       if (!saved) {
         return NextResponse.json({ error: dict.submit.error }, { status: 500 });
       }
+      const imageSkipped = Boolean(body.imageDataUrl && !event.imageUrl);
       return NextResponse.json({
         success: true,
         pending: true,
         event: saved,
-        message: dict.submit.pendingSuccess,
+        imageSkipped,
+        message: imageSkipped
+          ? dict.submit.imageUploadSkipped
+          : dict.submit.pendingSuccess,
       });
     }
 

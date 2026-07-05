@@ -79,6 +79,7 @@ If the events API errors, Firebase console will show a link to create:
 | Symptom | Fix |
 |---------|-----|
 | Submit says "Published" instantly | Firebase env missing — submissions stay in-memory only |
+| Submit fails with image error / photo missing | Enable **Firebase Storage** in console (Storage → Get started). Optional env: `FIREBASE_STORAGE_BUCKET` if not `{project-id}.firebasestorage.app` |
 | Moderate page: "Invalid moderator key" | Wrong `?key=` or `MODERATOR_SECRET` not set / redeploy |
 | Moderate page: "Firebase not connected" | `FIREBASE_SERVICE_ACCOUNT_JSON` missing or invalid JSON |
 | Approved event not visible | Hard refresh discover; check Firestore `events` doc has `status: approved` |
