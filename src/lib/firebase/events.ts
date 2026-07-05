@@ -194,6 +194,31 @@ export async function insertIngestedEvents(events: Event[]): Promise<number> {
   return inserted;
 }
 
+/** Upsert events as approved (idempotent). Used for curated Facebook discoveries. */
+export async function upsertApprovedEvents(
+  events: Event[],
+  sourceType: string = "crawl",
+): Promise<number> {
+  const db = getFirestoreDb();
+  if (!db || events.length === 0) return 0;
+
+  let upserted = 0;
+  for (const event of events) {
+    const ref = db.collection("events").doc(event.id);
+    const existing = await ref.get();
+    const data = eventToFirestore(event, sourceType, "approved");
+
+    if (existing.exists) {
+      const { createdAt: _, ...withoutCreated } = data;
+      await ref.set(withoutCreated, { merge: true });
+    } else {
+      await ref.set(data);
+    }
+    upserted++;
+  }
+  return upserted;
+}
+
 export async function fetchVenues(): Promise<Venue[]> {
   const db = getFirestoreDb();
   if (!db) return [];

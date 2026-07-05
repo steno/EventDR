@@ -40,6 +40,14 @@ export function facebookGroupSearchQueries(): string[] {
   ]);
 }
 
+/** Curated event ids discovered from monitored Facebook groups (see fallback-events). */
+export const FACEBOOK_SEED_EVENT_IDS = [
+  "voyvoy-sunday-open-mic",
+  "voyvoy-saturday-session",
+  "womens-reconnection-kite-camp-2026",
+  "cabarete-pilates-reformer",
+] as const;
+
 export function facebookGroupEventUrls(): string[] {
   return FACEBOOK_GROUPS.map((group) => `${group.url}/events`);
 }
