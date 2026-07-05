@@ -7,7 +7,7 @@ import type { Locale } from "@/i18n/config";
 import type { Event, EventCategory, EventFormat, EventRecurrence } from "@/lib/types";
 import { CATEGORY_IDS } from "@/lib/categories";
 import { getSubmitValidationError } from "@/lib/community-store";
-import { MAX_IMAGE_BYTES } from "@/lib/image-data-url";
+import { isAcceptedImageFile, parseImageDataUrl } from "@/lib/image-data-url";
 
 interface SubmitEventSheetProps {
   open: boolean;
@@ -175,10 +175,7 @@ export function SubmitEventSheet({
       setImageName("");
       return;
     }
-    if (
-      file.size > MAX_IMAGE_BYTES ||
-      !["image/jpeg", "image/png", "image/webp"].includes(file.type)
-    ) {
+    if (!isAcceptedImageFile(file)) {
       setImageDataUrl(undefined);
       setImageName("");
       setErrorMessage(dict.submit.validationImage);
@@ -188,7 +185,9 @@ export function SubmitEventSheet({
 
     const reader = new FileReader();
     reader.onload = () => {
-      if (typeof reader.result !== "string") {
+      if (typeof reader.result !== "string" || !parseImageDataUrl(reader.result)) {
+        setImageDataUrl(undefined);
+        setImageName("");
         setErrorMessage(dict.submit.validationImage);
         setError(true);
         return;
@@ -403,7 +402,7 @@ export function SubmitEventSheet({
               </span>
               <input
                 type="file"
-                accept="image/jpeg,image/png,image/webp"
+                accept="image/jpeg,image/jpg,image/png,image/webp,image/x-png,.jpg,.jpeg,.png,.webp"
                 onChange={(e) => handleImageChange(e.target.files?.[0])}
                 className="mt-1.5 block w-full text-sm font-medium text-neutral-600 file:mr-3 file:rounded-full file:border-0 file:bg-orange-50 file:px-3 file:py-2 file:text-sm file:font-bold file:text-orange-600"
               />
