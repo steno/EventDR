@@ -28,7 +28,7 @@ export async function ingestSocialEvents(locale: Locale = "en"): Promise<Event[]
             query: group?.label ?? url,
             content: content.slice(0, 12000),
             fetchedAt: new Date().toISOString(),
-            source: "direct" as const,
+            source: "url" as const,
           };
         } catch {
           return null;
