@@ -27,11 +27,11 @@ export const FALLBACK_EVENTS_FR: Event[] = [
     time: "5:00 PM",
     location: "Cabarete",
     venue: "VOYVOY Cabarete",
-    category: "music",
+    category: "performances",
     format: "physical",
     recurrence: "weekly",
     recurrenceDay: 0,
-    imageEmoji: "🎸",
+    imageEmoji: "🎤",
   },
   {
     id: "voyvoy-saturday-session",
