@@ -21,6 +21,7 @@ import { getDictionary } from "@/i18n/dictionaries";
 import type { Event, EventCategory } from "@/lib/types";
 import { CATEGORY_IDS } from "@/lib/categories";
 import { attachEventImages } from "@/lib/event-images";
+import { localizeEventsForDisplay } from "@/lib/localized-text";
 
 export const dynamic = "force-dynamic";
 export const maxDuration = 60;
@@ -117,6 +118,7 @@ export async function GET(request: NextRequest) {
       dbEvents = attachCoords(
         await fetchApprovedEvents({ category, venueSlug, locale }),
       );
+      dbEvents = localizeEventsForDisplay(dbEvents, locale);
       setCachedDbEvents(dbCacheKey, dbEvents);
     }
 

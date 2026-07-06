@@ -1,8 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { ingestSocialEvents } from "@/lib/ingest-social";
 import { insertIngestedEvents, isFirebaseConfigured } from "@/lib/firebase/events";
-import { isValidLocale } from "@/i18n/config";
-import type { Locale } from "@/i18n/config";
 
 export const dynamic = "force-dynamic";
 export const maxDuration = 60;
@@ -24,10 +22,8 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Firebase not configured" }, { status: 503 });
   }
 
-  const localeParam = request.nextUrl.searchParams.get("locale") ?? "en";
-  const locale: Locale = isValidLocale(localeParam) ? localeParam : "en";
-
-  const events = await ingestSocialEvents(locale);
+  // Always ingest in English; translations are added on moderation approve.
+  const events = await ingestSocialEvents("en");
   const inserted = await insertIngestedEvents(events);
 
   return NextResponse.json({

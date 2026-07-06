@@ -6,6 +6,7 @@ import {
 } from "@/lib/firebase/events";
 
 export const dynamic = "force-dynamic";
+export const maxDuration = 60;
 
 function checkSecret(request: NextRequest): boolean {
   const secret = process.env.MODERATOR_SECRET;

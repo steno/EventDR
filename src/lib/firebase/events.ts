@@ -1,13 +1,33 @@
 import { FieldValue, type DocumentData } from "firebase-admin/firestore";
 import type { Event, EventCategory, EventFormat, Venue } from "@/lib/types";
+import type { LocalizedText } from "@/lib/localized-text";
+import { translateEventCopy } from "@/lib/translate-event";
 import { SEED_VENUES } from "@/lib/venues-seed";
 import { getFirestoreDb, isFirebaseConfigured } from "./admin";
 
+function readLocalizedText(data: DocumentData, field: string): LocalizedText | undefined {
+  const raw = data[field];
+  if (!raw || typeof raw !== "object") return undefined;
+
+  const record = raw as Record<string, unknown>;
+  const result: LocalizedText = {};
+  for (const locale of ["en", "es", "fr"] as const) {
+    if (typeof record[locale] === "string") {
+      result[locale] = record[locale] as string;
+    }
+  }
+  return Object.keys(result).length > 0 ? result : undefined;
+}
+
 function docToEvent(id: string, data: DocumentData): Event {
+  const titles = readLocalizedText(data, "titles");
+  const descriptions = readLocalizedText(data, "descriptions");
+
   return {
     id,
-    title: data.title as string,
-    description: data.description as string,
+    title: (titles?.en as string | undefined) ?? (data.title as string),
+    description:
+      (descriptions?.en as string | undefined) ?? (data.description as string),
     date: data.date as string,
     endDate: (data.endDate as string | null) ?? undefined,
     time: (data.time as string | null) ?? undefined,
@@ -31,6 +51,13 @@ function docToEvent(id: string, data: DocumentData): Event {
       data.sourceType === "whatsapp",
     sourceType: data.sourceType as Event["sourceType"],
     status: data.status as Event["status"],
+    localized:
+      titles || descriptions
+        ? {
+            title: titles ?? { en: data.title as string },
+            description: descriptions ?? { en: data.description as string },
+          }
+        : undefined,
   };
 }
 
@@ -53,9 +80,14 @@ function eventToFirestore(
   sourceType: string,
   status: string,
 ): Record<string, unknown> {
+  const titles = event.localized?.title ?? { en: event.title };
+  const descriptions = event.localized?.description ?? { en: event.description };
+
   return {
-    title: event.title,
-    description: event.description,
+    title: titles.en ?? event.title,
+    description: descriptions.en ?? event.description,
+    titles,
+    descriptions,
     date: event.date,
     endDate: event.endDate ?? null,
     time: event.time ?? null,
@@ -75,7 +107,6 @@ function eventToFirestore(
     lat: event.lat ?? null,
     lng: event.lng ?? null,
     status,
-    locale: "en",
     createdAt: FieldValue.serverTimestamp(),
   };
 }
@@ -166,6 +197,16 @@ export async function moderateEvent(
   id: string,
   status: "approved" | "rejected",
 ): Promise<boolean> {
+  if (status === "rejected") {
+    return updateEventStatus(id, "rejected");
+  }
+  return approveEvent(id);
+}
+
+async function updateEventStatus(
+  id: string,
+  status: "approved" | "rejected",
+): Promise<boolean> {
   const db = getFirestoreDb();
   if (!db) return false;
 
@@ -173,7 +214,35 @@ export async function moderateEvent(
     await db.collection("events").doc(id).update({ status });
     return true;
   } catch (err) {
-    console.error("moderateEvent:", err);
+    console.error("updateEventStatus:", err);
+    return false;
+  }
+}
+
+export async function approveEvent(id: string): Promise<boolean> {
+  const db = getFirestoreDb();
+  if (!db) return false;
+
+  try {
+    const ref = db.collection("events").doc(id);
+    const doc = await ref.get();
+    if (!doc.exists) return false;
+
+    const event = docToEvent(doc.id, doc.data()!);
+    const translated = await translateEventCopy(event.title, event.description);
+
+    const update: Record<string, unknown> = { status: "approved" };
+    if (translated) {
+      update.titles = translated.title;
+      update.descriptions = translated.description;
+      update.title = translated.title.en ?? event.title;
+      update.description = translated.description.en ?? event.description;
+    }
+
+    await ref.update(update);
+    return true;
+  } catch (err) {
+    console.error("approveEvent:", err);
     return false;
   }
 }

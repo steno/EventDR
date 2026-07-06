@@ -63,6 +63,11 @@ export interface Event {
   recurrenceDay?: number;
   /** 0=Sun … 6=Sat; used when recurrence is "weekly" on multiple days */
   recurrenceDays?: number[];
+  /** Full translations when approved (en/es/fr). */
+  localized?: {
+    title: Partial<Record<"en" | "es" | "fr", string>>;
+    description: Partial<Record<"en" | "es" | "fr", string>>;
+  };
 }
 
 export interface CategoryMeta {

@@ -20,13 +20,12 @@ jobs:
             exit 1
           fi
           ingest() {
-            local locale="$1"
             local res http
             res=$(curl -sS -w "\n%{http_code}" -X POST \
-              "${SITE_URL}/api/ingest?secret=${CRON_SECRET}&locale=${locale}")
+              "${SITE_URL}/api/ingest?secret=${CRON_SECRET}&locale=en")
             http=$(echo "$res" | tail -n1)
             body=$(echo "$res" | sed '$d')
-            echo "ingest ${locale}: HTTP ${http}"
+            echo "ingest: HTTP ${http}"
             echo "$body"
             if [ "$http" -lt 200 ] || [ "$http" -ge 300 ]; then
               if [ "$http" = "401" ]; then
@@ -35,5 +34,4 @@ jobs:
               exit 22
             fi
           }
-          ingest en
-          ingest es
+          ingest
