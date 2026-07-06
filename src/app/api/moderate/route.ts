@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import {
   fetchPendingEvents,
   moderateEvent,
+  deleteEvent,
   isFirebaseConfigured,
 } from "@/lib/firebase/events";
 
@@ -36,9 +37,20 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Firebase not configured" }, { status: 503 });
   }
 
-  const body = (await request.json()) as { id?: string; action?: "approve" | "reject" };
+  const body = (await request.json()) as {
+    id?: string;
+    action?: "approve" | "reject" | "delete";
+  };
   if (!body.id || !body.action) {
     return NextResponse.json({ error: "Missing id or action" }, { status: 400 });
+  }
+
+  if (body.action === "delete") {
+    const ok = await deleteEvent(body.id);
+    if (!ok) {
+      return NextResponse.json({ error: "Delete failed" }, { status: 500 });
+    }
+    return NextResponse.json({ success: true, id: body.id, deleted: true });
   }
 
   const status = body.action === "approve" ? "approved" : "rejected";

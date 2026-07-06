@@ -195,6 +195,19 @@ export async function insertPendingEvent(
   }
 }
 
+export async function deleteEvent(id: string): Promise<boolean> {
+  const db = getFirestoreDb();
+  if (!db) return false;
+
+  try {
+    await db.collection("events").doc(id).delete();
+    return true;
+  } catch (err) {
+    console.error("deleteEvent:", err);
+    return false;
+  }
+}
+
 export async function moderateEvent(
   id: string,
   status: "approved" | "rejected",

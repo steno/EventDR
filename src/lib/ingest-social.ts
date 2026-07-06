@@ -5,6 +5,21 @@ import { scrapeUrl, webSearch } from "@/lib/scrape";
 import type { Event } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
 
+function slugify(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "")
+    .slice(0, 48);
+}
+
+function ingestEventId(event: Event): string {
+  const base = event.id
+    .replace(/^ingest-\d+-\d+-/, "")
+    .replace(/^ai-\d+-/, "");
+  return `ingest-${slugify(base || event.title)}`;
+}
+
 const SOCIAL_QUERIES = [
   "site:instagram.com events Puerto Plata Sosúa Cabarete",
   "site:instagram.com fiesta evento Cabarete República Dominicana",
@@ -65,9 +80,9 @@ export async function ingestSocialEvents(locale: Locale = "en"): Promise<Event[]
     locale,
   );
 
-  return enriched.map((e, i) => ({
+  return enriched.map((e) => ({
     ...e,
-    id: `ingest-${Date.now()}-${i}-${e.id}`,
+    id: ingestEventId(e),
     sourceType: e.sourceUrl?.includes("instagram")
       ? ("instagram" as const)
       : e.sourceUrl?.includes("whatsapp") || e.description.toLowerCase().includes("whatsapp")
