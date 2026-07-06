@@ -8,6 +8,7 @@ import type { Locale } from "@/i18n/config";
 import { formatEventDateShort } from "@/lib/format-date";
 import { formatDistance } from "@/lib/geo";
 import { formatRecurrenceLabel } from "@/lib/recurrence-label";
+import { formatEventPlace } from "@/lib/event-location";
 
 interface EventCardProps {
   event: Event;
@@ -92,8 +93,7 @@ const EventCardComponent = ({ event, dict, locale, onSelect }: EventCardProps) =
             )}
             <span className="inline-flex items-center gap-1.5 font-semibold">
               <MapPin className="h-4 w-4 text-neutral-500" />
-              {event.venue ? `${event.venue}, ` : ""}
-              {event.location}
+              {formatEventPlace(event)}
             </span>
             {event.distanceKm != null && isFinite(event.distanceKm) && (
               <span className="inline-flex items-center gap-1.5 font-bold text-orange-600">

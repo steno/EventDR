@@ -1,7 +1,8 @@
 import type { Event } from "./types";
+import { formatEventPlace } from "./event-location";
 
 export async function shareEvent(event: Event): Promise<boolean> {
-  const text = `${event.title}\n${event.date}${event.time ? ` · ${event.time}` : ""}\n${event.venue ? `${event.venue}, ` : ""}${event.location}\n\n${event.description}`;
+  const text = `${event.title}\n${event.date}${event.time ? ` · ${event.time}` : ""}\n${formatEventPlace(event)}\n\n${event.description}`;
 
   if (typeof navigator !== "undefined" && navigator.share) {
     try {

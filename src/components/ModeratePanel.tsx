@@ -8,6 +8,7 @@ import type { Event } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import { formatEventDateShort } from "@/lib/format-date";
+import { formatEventPlace } from "@/lib/event-location";
 
 interface ModeratePanelProps {
   dict: Dictionary;
@@ -125,8 +126,7 @@ export function ModeratePanel({ dict, locale }: ModeratePanelProps) {
             <p className="text-sm text-neutral-600 mt-1">{event.description}</p>
             <p className="text-xs text-neutral-400 mt-2">
               {formatEventDateShort(event.date, locale)}
-              {event.time ? ` · ${event.time}` : ""} · {event.location}
-              {event.venue ? ` · ${event.venue}` : ""}
+              {event.time ? ` · ${event.time}` : ""} · {formatEventPlace(event)}
             </p>
             {event.sourceType && (
               <p className="text-xs text-violet-600 font-medium mt-1">

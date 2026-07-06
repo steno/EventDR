@@ -25,6 +25,7 @@ import { shareEvent } from "@/lib/share";
 import { matchVenueSlug } from "@/lib/venues-seed";
 import { formatRecurrenceLabel } from "@/lib/recurrence-label";
 import { EventImage } from "@/components/EventImage";
+import { formatEventPlace } from "@/lib/event-location";
 
 interface EventDetailSheetProps {
   event: Event | null;
@@ -166,8 +167,7 @@ export function EventDetailSheet({
             <div className="flex items-center gap-3 text-neutral-700">
               <MapPin className="h-5 w-5 text-neutral-500 flex-shrink-0" />
               <span className="font-semibold truncate">
-                {event.venue ? `${event.venue}, ` : ""}
-                {event.location}
+                {formatEventPlace(event)}
               </span>
             </div>
             {venueSlug && (

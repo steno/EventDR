@@ -39,7 +39,7 @@ export function filterNorthCoastUpcomingEvents(
   max.setDate(max.getDate() + maxDays);
 
   return events.filter((event) => {
-    const haystack = `${event.title} ${event.description} ${event.location} ${event.venue ?? ""}`;
+    const haystack = `${event.title} ${event.description} ${event.location} ${event.address ?? ""} ${event.venue ?? ""}`;
     if (OFF_REGION_RE.test(haystack)) return false;
     if (!NORTH_COAST_RE.test(haystack)) return false;
 

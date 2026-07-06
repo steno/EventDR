@@ -1,8 +1,7 @@
 import type { Event } from "./types";
+import { eventDirectionsQuery } from "./event-location";
 
 export function getDirectionsUrl(event: Event): string {
-  const destination = [event.venue, event.location, "Dominican Republic"]
-    .filter(Boolean)
-    .join(", ");
+  const destination = eventDirectionsQuery(event);
   return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(destination)}`;
 }

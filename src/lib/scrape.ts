@@ -40,6 +40,41 @@ function isEventSchema(value: unknown): boolean {
   return false;
 }
 
+function summarizeAddress(address: unknown, lines: string[]): void {
+  if (typeof address === "string") {
+    lines.push(`Address: ${address}`);
+    return;
+  }
+  if (!address || typeof address !== "object") return;
+
+  const addr = address as Record<string, unknown>;
+  if (typeof addr.streetAddress === "string") {
+    lines.push(`Address: ${addr.streetAddress}`);
+  }
+  if (typeof addr.addressLocality === "string") {
+    lines.push(`City: ${addr.addressLocality}`);
+  }
+}
+
+function summarizeJsonLdEvent(record: Record<string, unknown>): string {
+  const lines: string[] = [];
+  if (typeof record.name === "string") lines.push(`Event: ${record.name}`);
+  if (typeof record.startDate === "string") lines.push(`Date: ${record.startDate}`);
+  if (typeof record.description === "string") {
+    lines.push(`Description: ${record.description.slice(0, 300)}`);
+  }
+  if (typeof record.url === "string") lines.push(`URL: ${record.url}`);
+
+  const loc = record.location;
+  if (loc && typeof loc === "object") {
+    const place = loc as Record<string, unknown>;
+    if (typeof place.name === "string") lines.push(`Venue: ${place.name}`);
+    summarizeAddress(place.address, lines);
+  }
+
+  return lines.join("\n");
+}
+
 function collectJsonLdEvents(data: unknown, blocks: string[]): void {
   if (!data) return;
 
@@ -52,7 +87,7 @@ function collectJsonLdEvents(data: unknown, blocks: string[]): void {
 
   const record = data as Record<string, unknown>;
   if (isEventSchema(record)) {
-    blocks.push(JSON.stringify(record, null, 2));
+    blocks.push(summarizeJsonLdEvent(record));
   }
 
   if (Array.isArray(record["@graph"])) {

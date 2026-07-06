@@ -1,4 +1,5 @@
 import type { Event } from "./types";
+import { formatEventPlace } from "./event-location";
 
 function pad(n: number): string {
   return String(n).padStart(2, "0");
@@ -61,7 +62,7 @@ export function getEventDateRange(event: Event): { start: Date; end: Date } {
 }
 
 function buildIcs(event: Event, start: Date, end: Date): string {
-  const location = [event.venue, event.location].filter(Boolean).join(", ");
+  const location = formatEventPlace(event);
   const uid = `${event.id}@popevent.app`;
 
   return [
@@ -166,7 +167,7 @@ function downloadIcs(ics: string, filename: string): void {
 /** Add event to the user's calendar — native share on mobile, Google Calendar or .ics on desktop. */
 export async function addToCalendar(event: Event): Promise<void> {
   const { start, end } = getEventDateRange(event);
-  const location = [event.venue, event.location].filter(Boolean).join(", ");
+  const location = formatEventPlace(event);
   const ics = buildIcs(event, start, end);
   const filename = icsFilename(event);
 

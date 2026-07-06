@@ -4,6 +4,7 @@ import type { CrawlResult } from "./crawl";
 import type { Locale } from "@/i18n/config";
 import { inferCategory } from "./categorize";
 import { filterNorthCoastUpcomingEvents, localDateISO } from "./event-dates";
+import { normalizeExtractedEvents } from "./event-location";
 
 const VALID_CATEGORIES = new Set(CATEGORY_IDS);
 
@@ -26,6 +27,8 @@ function parseEventsHeuristic(
     /\b(\d{1,2}[\/\-]\d{1,2}[\/\-]\d{2,4}|\w+ \d{1,2},? \d{4}|(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]* \d{1,2})/i;
   const locationPattern =
     /(Puerto Plata|Sosúa|Sosua|Cabarete|Costambar|Playa Dorada|North Coast)/i;
+  const addressPattern =
+    /\b(?:Calle|Av\.?|Avenida|Carretera|C\/|#)\s*[A-Za-zÁ-ú0-9][^,\n]{2,60}/i;
 
   let buffer: string[] = [];
   for (const line of lines) {
@@ -46,6 +49,7 @@ function parseEventsHeuristic(
         const block = buffer.join(" ");
         const dateMatch = block.match(datePattern);
         const locMatch = block.match(locationPattern);
+        const addressMatch = block.match(addressPattern);
         const title = buffer[0].replace(datePattern, "").trim().slice(0, 80);
 
         if (title.length > 5) {
@@ -56,6 +60,7 @@ function parseEventsHeuristic(
             description: block.slice(0, 200),
             date: dateMatch?.[0] ?? "TBA",
             location: locMatch?.[0] ?? "North Coast, DR",
+            address: addressMatch?.[0]?.trim(),
             category,
             format: /online|virtual|zoom|stream/i.test(block)
               ? "digital"
@@ -101,8 +106,9 @@ Return ONLY valid JSON: an array of event objects. Each object must have:
 - description (1-2 sentences, clean and engaging)
 - date (ISO date YYYY-MM-DD — must match the source, never guess)
 - time (optional, e.g. "7:00 PM")
-- location (city/area in North Coast DR only)
-- venue (optional)
+- venue (place or business name when stated)
+- address (street address when stated — e.g. "Calle Duarte 37"; include whenever the source mentions a street, number, or intersection; omit only if truly unknown)
+- location (city/area only: Puerto Plata, Sosúa, Cabarete, Costambar, or Playa Dorada)
 - category (one of: ${categoryList})
 - format ("physical", "digital", or "hybrid")
 - trending (boolean, true for popular events)
@@ -176,7 +182,7 @@ export async function enrichCrawlResults(
       ? aiEvents
       : parseEventsHeuristic(combined, category as EventCategory | undefined);
 
-  return filterNorthCoastUpcomingEvents(events);
+  return filterNorthCoastUpcomingEvents(normalizeExtractedEvents(events));
 }
 
 function stripOffRegionScrapeContent(raw: string): string {

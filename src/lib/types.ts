@@ -43,6 +43,8 @@ export interface Event {
   endDate?: string;
   time?: string;
   location: string;
+  /** Street address when known (e.g. Calle Duarte 37). */
+  address?: string;
   venue?: string;
   venueSlug?: string;
   category: EventCategory;
