@@ -39,6 +39,7 @@ const FILE_TO_EVENT_ID = {
   "ElBateyOpenMic.JPG": "batey-open-mic-weekly",
   "DominoNoightColmado.JPG": "community-domino-sosua",
   "CabaretePickleBallMeet.JPG": "community-pickleball-cabarete",
+  "espadrillas.jpeg": "ingest-make-authentic-espadrilles-in-puerto-plata",
 };
 
 if (!existsSync(sourceDir)) {

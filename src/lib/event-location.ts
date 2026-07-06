@@ -6,16 +6,30 @@ const NORTH_COAST_CITY =
 const STREET_IN_TEXT =
   /\b(?:Calle|Av\.?|Avenida|Carretera|C\/| Blvd\.?|#)\s*[A-Za-zÁ-ú0-9][^,\n]{2,80}/i;
 
-/** Display: venue, street address, city — omitting empty parts. */
+function samePlace(a?: string | null, b?: string | null): boolean {
+  if (!a?.trim() || !b?.trim()) return false;
+  return a.trim().toLowerCase() === b.trim().toLowerCase();
+}
+
+function pushUniquePlacePart(parts: string[], value?: string | null): void {
+  const trimmed = value?.trim();
+  if (!trimmed) return;
+  const lower = trimmed.toLowerCase();
+  if (parts.some((part) => part.toLowerCase() === lower)) return;
+  parts.push(trimmed);
+}
+
+/** Display: venue, street address, city — omitting empty or duplicate parts. */
 export function formatEventPlace(
   event: Pick<Event, "venue" | "address" | "location">,
 ): string {
   const parts: string[] = [];
-  if (event.venue?.trim()) parts.push(event.venue.trim());
-  if (event.address?.trim()) parts.push(event.address.trim());
-  const city = event.location?.trim();
-  if (city && !parts.some((p) => p.toLowerCase() === city.toLowerCase())) {
-    parts.push(city);
+  pushUniquePlacePart(parts, event.venue);
+  pushUniquePlacePart(parts, event.address);
+  if (event.location?.trim()) {
+    for (const segment of event.location.split(/,\s*/)) {
+      pushUniquePlacePart(parts, segment);
+    }
   }
   return parts.join(", ");
 }
@@ -66,6 +80,15 @@ export function normalizeEventLocation(event: Event): Event {
     }
   }
 
+  if (venue && address && samePlace(venue, address)) {
+    venue = undefined;
+  }
+
+  if (venue && !address && STREET_IN_TEXT.test(venue)) {
+    address = venue.trim();
+    venue = undefined;
+  }
+
   return { ...event, venue, address, location };
 }
 
@@ -79,6 +102,21 @@ function inferCity(event: Event): string | null {
   return null;
 }
 
+export function sanitizeEventPlaceFields(event: Event): Event {
+  let { venue, address, location } = event;
+
+  if (venue && address && samePlace(venue, address)) {
+    venue = undefined;
+  }
+
+  if (venue && !address && STREET_IN_TEXT.test(venue)) {
+    address = venue.trim();
+    venue = undefined;
+  }
+
+  return { ...event, venue, address, location };
+}
+
 export function normalizeExtractedEvents(events: Event[]): Event[] {
-  return events.map(normalizeEventLocation);
+  return events.map((event) => sanitizeEventPlaceFields(normalizeEventLocation(event)));
 }

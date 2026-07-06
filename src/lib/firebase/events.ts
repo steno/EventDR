@@ -1,6 +1,7 @@
 import { FieldValue, type DocumentData } from "firebase-admin/firestore";
 import type { Event, EventCategory, EventFormat, Venue } from "@/lib/types";
 import type { LocalizedText } from "@/lib/localized-text";
+import { sanitizeEventPlaceFields } from "@/lib/event-location";
 import { translateEventCopy } from "@/lib/translate-event";
 import { SEED_VENUES } from "@/lib/venues-seed";
 import { getFirestoreDb, isFirebaseConfigured } from "./admin";
@@ -23,7 +24,7 @@ function docToEvent(id: string, data: DocumentData): Event {
   const titles = readLocalizedText(data, "titles");
   const descriptions = readLocalizedText(data, "descriptions");
 
-  return {
+  const event: Event = {
     id,
     title: (titles?.en as string | undefined) ?? (data.title as string),
     description:
@@ -60,6 +61,7 @@ function docToEvent(id: string, data: DocumentData): Event {
           }
         : undefined,
   };
+  return sanitizeEventPlaceFields(event);
 }
 
 function docToVenue(slug: string, data: DocumentData): Venue {

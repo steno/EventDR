@@ -32,6 +32,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "sea-horse-saturday-market": "sea-horse-saturday-market.png",
   "community-domino-sosua": "community-domino-sosua.jpg",
   "community-pickleball-cabarete": "community-pickleball-cabarete.jpg",
+  "ingest-make-authentic-espadrilles-in-puerto-plata":
+    "ingest-make-authentic-espadrilles-in-puerto-plata.jpg",
 };
 
 export function getEventImageUrl(eventId: string): string | undefined {
