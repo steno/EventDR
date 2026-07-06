@@ -10,7 +10,9 @@ interface CacheEntry {
 }
 
 const cache = new Map<string, CacheEntry>();
+const dbCache = new Map<string, CacheEntry>();
 const CACHE_TTL_MS = 60 * 60 * 1000;
+const DB_CACHE_TTL_MS = 5 * 60 * 1000; // 5 minutes for DB cache
 const POOL_KEY_SUFFIX = ":pool";
 
 export function getCacheKey(locale: Locale, category?: string, geoKey?: string): string {
@@ -34,6 +36,20 @@ export function getCachedEvents(key: string): Event[] | null {
 
 export function setCachedEvents(key: string, events: Event[]): void {
   cache.set(key, { events, fetchedAt: Date.now() });
+}
+
+export function getCachedDbEvents(key: string): Event[] | null {
+  const entry = dbCache.get(key);
+  if (!entry) return null;
+  if (Date.now() - entry.fetchedAt > DB_CACHE_TTL_MS) {
+    dbCache.delete(key);
+    return null;
+  }
+  return entry.events;
+}
+
+export function setCachedDbEvents(key: string, events: Event[]): void {
+  dbCache.set(key, { events, fetchedAt: Date.now() });
 }
 
 export function addToPool(locale: Locale, events: Event[]): Event[] {

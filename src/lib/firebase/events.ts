@@ -112,20 +112,22 @@ export async function fetchApprovedEvents(options?: {
   const db = getFirestoreDb();
   if (!db) return [];
 
-  const snap = await db
+  let query = db
     .collection("events")
-    .where("status", "==", "approved")
-    .get();
+    .where("status", "==", "approved");
 
-  let events = snap.docs.map((doc) => docToEvent(doc.id, doc.data()));
-  events.sort((a, b) => a.date.localeCompare(b.date));
-
+  // Apply filters at database level when possible
   if (options?.category) {
-    events = events.filter((e) => e.category === options.category);
+    query = query.where("category", "==", options.category);
   }
   if (options?.venueSlug) {
-    events = events.filter((e) => e.venueSlug === options.venueSlug);
+    query = query.where("venueSlug", "==", options.venueSlug);
   }
+
+  const snap = await query.get();
+
+  const events = snap.docs.map((doc) => docToEvent(doc.id, doc.data()));
+  events.sort((a, b) => a.date.localeCompare(b.date));
 
   return events;
 }

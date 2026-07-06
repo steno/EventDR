@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { MapPin, Calendar, Clock, Globe, Flame, Navigation2 } from "lucide-react";
 import { EventImage } from "@/components/EventImage";
 import type { Event } from "@/lib/types";
@@ -15,7 +16,7 @@ interface EventCardProps {
   onSelect: (event: Event) => void;
 }
 
-export function EventCard({ event, dict, locale, onSelect }: EventCardProps) {
+const EventCardComponent = ({ event, dict, locale, onSelect }: EventCardProps) => {
   const category = getCategoryMeta(event.category, dict.categories);
   const emoji = event.imageEmoji ?? category?.emoji ?? "📅";
   const recurrenceLabel = formatRecurrenceLabel(event, locale, dict);
@@ -109,4 +110,6 @@ export function EventCard({ event, dict, locale, onSelect }: EventCardProps) {
       </article>
     </button>
   );
-}
+};
+
+export const EventCard = memo(EventCardComponent);

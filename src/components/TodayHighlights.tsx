@@ -1,5 +1,6 @@
 "use client";
 
+import { memo } from "react";
 import { Calendar, Clock, MapPin, Navigation } from "lucide-react";
 import { EventImage } from "@/components/EventImage";
 import type { Event } from "@/lib/types";
@@ -40,12 +41,12 @@ function happensToday(event: Event): boolean {
   return start <= current && end >= current;
 }
 
-export function TodayHighlights({
+const TodayHighlightsComponent = ({
   events,
   locale,
   dict,
   onSelectEvent,
-}: TodayHighlightsProps) {
+}: TodayHighlightsProps) => {
   const todayEvents = events
     .filter(happensToday)
     .sort((a, b) => {
@@ -155,4 +156,6 @@ export function TodayHighlights({
       </div>
     </section>
   );
-}
+};
+
+export const TodayHighlights = memo(TodayHighlightsComponent);

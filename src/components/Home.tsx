@@ -44,13 +44,6 @@ export function Home({ locale, dict }: HomeProps) {
   const sortLat = geo.lat ?? NORTH_COAST_CENTER.lat;
   const sortLng = geo.lng ?? NORTH_COAST_CENTER.lng;
 
-  useEffect(() => {
-    fetch(`/api/events?locale=${locale}`)
-      .then((r) => r.json())
-      .then((d: { events?: Event[] }) => setAllEvents(d.events ?? []))
-      .catch(() => {});
-  }, [locale, refreshKey]);
-
   const handleEventsLoaded = useCallback((events: Event[]) => {
     setAllEvents(events);
   }, []);

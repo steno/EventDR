@@ -1,3 +1,4 @@
+import { memo } from "react";
 import Image from "next/image";
 
 interface EventImageProps {
@@ -9,14 +10,14 @@ interface EventImageProps {
   variant?: "thumb" | "hero";
 }
 
-export function EventImage({
+const EventImageComponent = ({
   src,
   alt,
   className = "object-cover",
   sizes = "96px",
   priority = false,
   variant = "thumb",
-}: EventImageProps) {
+}: EventImageProps) => {
   const rawImage = src.startsWith("data:") || src.startsWith("http");
 
   if (rawImage) {
@@ -58,4 +59,6 @@ export function EventImage({
       className={className}
     />
   );
-}
+};
+
+export const EventImage = memo(EventImageComponent);
