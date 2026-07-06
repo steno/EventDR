@@ -1,5 +1,11 @@
 import type { Event, EventRecurrence } from "./types";
 
+const NORTH_COAST_RE =
+  /puerto plata|sosúa|sosua|cabarete|costambar|playa dorada|costa norte|north coast/i;
+
+const OFF_REGION_RE =
+  /cotui|cotuí|\bmao\b|santiago|cibao|santo domingo|la vega|san francisco de macor[ií]s|santo domingo/i;
+
 /** YYYY-MM-DD in the user's local timezone (never use toISOString for calendar dates). */
 export function localDateISO(d: Date = new Date()): string {
   const y = d.getFullYear();
@@ -12,6 +18,37 @@ export function parseLocalDate(dateStr: string): Date {
   const [y, m, d] = dateStr.split("-").map(Number);
   if (!y || !m || !d) return new Date(NaN);
   return new Date(y, m - 1, d);
+}
+
+export function parseFlexibleEventDate(dateStr: string): Date | null {
+  const iso = parseLocalDate(dateStr);
+  if (!isNaN(iso.getTime())) return iso;
+
+  const parsed = new Date(dateStr);
+  return isNaN(parsed.getTime()) ? null : parsed;
+}
+
+/** Keep ingest/crawl events that are local and within the next N days. */
+export function filterNorthCoastUpcomingEvents(
+  events: Event[],
+  now: Date = new Date(),
+  maxDays = 90,
+): Event[] {
+  const today = startOfDay(now);
+  const max = new Date(today);
+  max.setDate(max.getDate() + maxDays);
+
+  return events.filter((event) => {
+    const haystack = `${event.title} ${event.description} ${event.location} ${event.venue ?? ""}`;
+    if (OFF_REGION_RE.test(haystack)) return false;
+    if (!NORTH_COAST_RE.test(haystack)) return false;
+
+    const eventDay = parseFlexibleEventDate(event.date);
+    if (!eventDay) return false;
+
+    const day = startOfDay(eventDay);
+    return day >= today && day <= max;
+  });
 }
 
 function startOfDay(d: Date): Date {

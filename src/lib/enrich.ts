@@ -3,6 +3,7 @@ import { CATEGORY_IDS } from "./categories";
 import type { CrawlResult } from "./crawl";
 import type { Locale } from "@/i18n/config";
 import { inferCategory } from "./categorize";
+import { filterNorthCoastUpcomingEvents, localDateISO } from "./event-dates";
 
 const VALID_CATEGORIES = new Set(CATEGORY_IDS);
 
@@ -86,18 +87,21 @@ async function enrichWithOpenAI(
 
   const categoryList = CATEGORY_IDS.join(", ");
   const language = OUTPUT_LANGUAGE[locale];
+  const today = localDateISO();
 
-  const systemPrompt = `You extract and enrich local events for the North Coast of the Dominican Republic (Puerto Plata, Sosúa, Cabarete region).
+  const systemPrompt = `You extract local events for the North Coast of the Dominican Republic (Puerto Plata, Sosúa, Cabarete, Costambar, Playa Dorada only).
+Today is ${today}. Only include events dated between today and the next 90 days.
 Write all titles and descriptions in ${language}.
-Prioritize hidden gems: community gatherings, beach sports, local leagues, small venue shows, expat meetups, and events NOT on major ticket platforms.
-Include grassroots sports (volleyball, kite, surf, pickup soccer, softball), neighborhood parties, and word-of-mouth style happenings.
+Prioritize hidden gems: community gatherings, beach sports, local leagues, small venue shows, expat meetups.
+Skip events in other cities (Santo Domingo, Santiago, Cotuí, Mao, Cibao, etc.) even if they appear in the source.
+Do not invent events or dates — extract only what is explicitly stated in the source text.
 Return ONLY valid JSON: an array of event objects. Each object must have:
 - id (slug string)
 - title (string)
 - description (1-2 sentences, clean and engaging)
-- date (ISO date YYYY-MM-DD or readable date string)
+- date (ISO date YYYY-MM-DD — must match the source, never guess)
 - time (optional, e.g. "7:00 PM")
-- location (city/area in North Coast DR)
+- location (city/area in North Coast DR only)
 - venue (optional)
 - category (one of: ${categoryList})
 - format ("physical", "digital", or "hybrid")
@@ -105,7 +109,7 @@ Return ONLY valid JSON: an array of event objects. Each object must have:
 - sourceUrl (optional URL from source)
 - imageEmoji (single emoji matching category)
 
-Focus on real upcoming events. Assign the most specific category. Skip irrelevant content. Max 15 events.`;
+Focus on real upcoming North Coast events. Assign the most specific category. Skip irrelevant or undated content. Max 15 events.`;
 
   const userPrompt = `Raw crawled web content about events${category ? ` — prioritize category "${category}" but include related events` : ""}:
 
@@ -161,11 +165,23 @@ export async function enrichCrawlResults(
   category?: string,
   locale: Locale = "en",
 ): Promise<Event[]> {
-  const combined = results.map((r) => r.content).join("\n\n---\n\n");
+  const combined = results
+    .map((r) => stripOffRegionScrapeContent(r.content))
+    .join("\n\n---\n\n");
   if (!combined.trim()) return [];
 
   const aiEvents = await enrichWithOpenAI(combined, category, locale);
-  if (aiEvents.length > 0) return aiEvents;
+  const events =
+    aiEvents.length > 0
+      ? aiEvents
+      : parseEventsHeuristic(combined, category as EventCategory | undefined);
 
-  return parseEventsHeuristic(combined, category as EventCategory | undefined);
+  return filterNorthCoastUpcomingEvents(events);
+}
+
+function stripOffRegionScrapeContent(raw: string): string {
+  return raw
+    .replace(/events from nearby cities[\s\S]*$/i, "")
+    .replace(/eventos de ciudades cercanas[\s\S]*$/i, "")
+    .trim();
 }
