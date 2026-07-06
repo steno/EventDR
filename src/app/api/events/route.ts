@@ -21,6 +21,7 @@ import { getDictionary } from "@/i18n/dictionaries";
 import type { Event, EventCategory } from "@/lib/types";
 import { CATEGORY_IDS } from "@/lib/categories";
 import { attachEventImages } from "@/lib/event-images";
+import { applyCuratedEventPatches } from "@/lib/curated-events";
 import { localizeEventsForDisplay } from "@/lib/localized-text";
 
 export const dynamic = "force-dynamic";
@@ -109,7 +110,7 @@ export async function GET(request: NextRequest) {
     if (!refresh) {
       const cached = getCachedEvents(cacheKey);
       if (cached?.length) {
-        let events = attachEventImages(sortEvents(cached));
+        let events = applyCuratedEventPatches(attachEventImages(sortEvents(cached)));
         if (nearMe && userLat != null && userLng != null) {
           events = sortByDistance(events, userLat, userLng);
         }
@@ -161,6 +162,7 @@ export async function GET(request: NextRequest) {
     events = materializeEventDates(events);
     events = attachCoords(events);
     events = sortEvents(events);
+    events = applyCuratedEventPatches(events);
     events = attachEventImages(events);
 
     setCachedEvents(cacheKey, events);
@@ -194,6 +196,7 @@ export async function GET(request: NextRequest) {
         : getFallbackEvents(locale),
     );
     events = sortEvents(materializeEventDates(events));
+    events = applyCuratedEventPatches(events);
     events = attachEventImages(events);
     if (nearMe && userLat != null && userLng != null) {
       events = sortByDistance(attachCoords(events), userLat, userLng);

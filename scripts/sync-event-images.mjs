@@ -40,6 +40,7 @@ const FILE_TO_EVENT_ID = {
   "DominoNoightColmado.JPG": "community-domino-sosua",
   "CabaretePickleBallMeet.JPG": "community-pickleball-cabarete",
   "espadrillas.jpeg": "ingest-make-authentic-espadrilles-in-puerto-plata",
+  "butterflyeffect.png": "ingest-18th-annual-cabarete-butterfly-effect",
 };
 
 if (!existsSync(sourceDir)) {
@@ -52,6 +53,11 @@ mkdirSync(destDir, { recursive: true });
 const files = readdirSync(sourceDir);
 let copied = 0;
 
+function destExtension(filename) {
+  const dot = filename.lastIndexOf(".");
+  return dot >= 0 ? filename.slice(dot).toLowerCase() : ".jpg";
+}
+
 for (const [filename, eventId] of Object.entries(FILE_TO_EVENT_ID)) {
   const src = join(sourceDir, filename);
   if (!existsSync(src)) {
@@ -60,14 +66,16 @@ for (const [filename, eventId] of Object.entries(FILE_TO_EVENT_ID)) {
       console.warn(`missing source: ${filename}`);
       continue;
     }
-    copyFileSync(join(sourceDir, match), join(destDir, `${eventId}.jpg`));
+    const ext = destExtension(match);
+    copyFileSync(join(sourceDir, match), join(destDir, `${eventId}${ext}`));
     copied++;
-    console.log(`${match} → events/${eventId}.jpg`);
+    console.log(`${match} → events/${eventId}${ext}`);
     continue;
   }
-  copyFileSync(src, join(destDir, `${eventId}.jpg`));
+  const ext = destExtension(filename);
+  copyFileSync(src, join(destDir, `${eventId}${ext}`));
   copied++;
-  console.log(`${filename} → events/${eventId}.jpg`);
+  console.log(`${filename} → events/${eventId}${ext}`);
 }
 
 console.log(`Synced ${copied} event images to public/events/`);

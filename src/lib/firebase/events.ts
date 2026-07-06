@@ -2,6 +2,7 @@ import { FieldValue, type DocumentData } from "firebase-admin/firestore";
 import type { Event, EventCategory, EventFormat, Venue } from "@/lib/types";
 import type { LocalizedText } from "@/lib/localized-text";
 import { sanitizeEventPlaceFields } from "@/lib/event-location";
+import { applyCuratedEventPatch } from "@/lib/curated-events";
 import { translateEventCopy } from "@/lib/translate-event";
 import { SEED_VENUES } from "@/lib/venues-seed";
 import { getFirestoreDb, isFirebaseConfigured } from "./admin";
@@ -61,7 +62,7 @@ function docToEvent(id: string, data: DocumentData): Event {
           }
         : undefined,
   };
-  return sanitizeEventPlaceFields(event);
+  return applyCuratedEventPatch(sanitizeEventPlaceFields(event));
 }
 
 function docToVenue(slug: string, data: DocumentData): Venue {
@@ -194,6 +195,37 @@ export async function insertPendingEvent(
   } catch (err) {
     console.error("insertPendingEvent:", err);
     return null;
+  }
+}
+
+export async function patchEventFields(
+  id: string,
+  fields: Record<string, unknown>,
+): Promise<boolean> {
+  const db = getFirestoreDb();
+  if (!db) return false;
+
+  const update: Record<string, unknown> = {};
+  if ("sourceUrl" in fields) update.sourceUrl = fields.sourceUrl ?? null;
+  if ("address" in fields) update.address = fields.address ?? null;
+  if ("location" in fields) update.location = fields.location ?? null;
+  if ("endDate" in fields) update.endDate = fields.endDate ?? null;
+  if ("description" in fields) update.description = fields.description ?? null;
+  if ("venueSlug" in fields) update.venueSlug = fields.venueSlug ?? null;
+  if ("time" in fields) update.time = fields.time ?? null;
+  if ("title" in fields) update.title = fields.title ?? null;
+  if ("venue" in fields || "venueName" in fields) {
+    update.venueName = fields.venue ?? fields.venueName ?? null;
+  }
+
+  if (Object.keys(update).length === 0) return false;
+
+  try {
+    await db.collection("events").doc(id).update(update);
+    return true;
+  } catch (err) {
+    console.error("patchEventFields:", err);
+    return false;
   }
 }
 

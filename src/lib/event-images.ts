@@ -34,10 +34,19 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "community-pickleball-cabarete": "community-pickleball-cabarete.jpg",
   "ingest-make-authentic-espadrilles-in-puerto-plata":
     "ingest-make-authentic-espadrilles-in-puerto-plata.jpg",
+  "ingest-18th-annual-cabarete-butterfly-effect":
+    "ingest-18th-annual-cabarete-butterfly-effect.png",
+};
+
+/** Legacy ingest ids that share a curated event image. */
+const EVENT_IMAGE_ALIASES: Record<string, string> = {
+  "ingest-1783371784615-0-18th-annual-cabarete-butterfly-effect":
+    "ingest-18th-annual-cabarete-butterfly-effect",
 };
 
 export function getEventImageUrl(eventId: string): string | undefined {
-  const file = EVENT_IMAGE_FILES[eventId];
+  const resolvedId = EVENT_IMAGE_ALIASES[eventId] ?? eventId;
+  const file = EVENT_IMAGE_FILES[resolvedId];
   return file ? `/events/${file}` : undefined;
 }
 

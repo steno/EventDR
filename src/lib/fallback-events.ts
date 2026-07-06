@@ -172,6 +172,24 @@ const FALLBACK_EVENTS_EN: Event[] = [
     sourceUrl: "https://www.facebook.com/events/1683911749456298/",
     imageEmoji: "🏄",
   },
+  {
+    id: "ingest-18th-annual-cabarete-butterfly-effect",
+    title: "18th Annual Cabarete Butterfly Effect",
+    description:
+      "Five-day women's watersports festival across Cabarete (Jul 7–11): SUP clinics, yoga, beach cleanup, catamaran cruise, and the signature river paddle. See the official site for schedule and registration.",
+    date: "2026-07-07",
+    endDate: "2026-07-11",
+    time: "6:00 PM",
+    location: "Cabarete",
+    venue: "Kite Beach & Cabarete town",
+    address: "Carretera 5",
+    venueSlug: "kite-beach",
+    category: "sports",
+    format: "physical",
+    trending: true,
+    sourceUrl: "https://www.cabaretebutterflyeffect.com/",
+    imageEmoji: "🏄",
+  },
   // Food & Drinks
   {
     id: "pp-food-truck",
