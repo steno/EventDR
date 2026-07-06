@@ -30,7 +30,7 @@ const EventCardComponent = ({ event, dict, locale, onSelect }: EventCardProps) =
       <article
         className="
           group relative flex gap-4 rounded-2xl bg-white p-4
-          border border-neutral-100
+          border border-neutral-200
           shadow-[0_2px_12px_-4px_rgba(0,0,0,0.08)]
           hover:shadow-[0_8px_24px_-8px_rgba(0,0,0,0.12)]
           active:scale-[0.99] transition-all duration-200
@@ -38,7 +38,7 @@ const EventCardComponent = ({ event, dict, locale, onSelect }: EventCardProps) =
       >
         <div
           className={`
-            relative flex-shrink-0 h-14 w-14 overflow-hidden rounded-xl shadow-sm
+            relative flex-shrink-0 h-16 w-16 overflow-hidden rounded-xl shadow-sm
             ${event.imageUrl ? "bg-neutral-100" : `bg-gradient-to-br ${category?.gradient ?? "from-neutral-200 to-neutral-300"}`}
           `}
           aria-hidden={!event.imageUrl}
@@ -47,64 +47,60 @@ const EventCardComponent = ({ event, dict, locale, onSelect }: EventCardProps) =
             <EventImage
               src={event.imageUrl}
               alt=""
-              sizes="56px"
+              sizes="64px"
               className="object-cover"
             />
           ) : (
-            <div className="flex h-full w-full items-center justify-center text-2xl">
+            <div className="flex h-full w-full items-center justify-center text-[28px]">
               {emoji}
             </div>
           )}
         </div>
 
         <div className="flex-1 min-w-0">
-          <div className="flex items-start gap-2 mb-1">
-            <h3 className="font-bold text-neutral-900 text-[15px] leading-snug line-clamp-2 flex-1">
+          <div className="flex items-start gap-2 mb-1.5">
+            <h3 className="font-bold text-neutral-900 text-base leading-snug line-clamp-2 flex-1">
               {event.title}
             </h3>
             {event.trending && (
-              <span className="flex-shrink-0 inline-flex items-center gap-0.5 rounded-full bg-orange-50 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-orange-600">
-                <Flame className="h-3 w-3" />
+              <span className="flex-shrink-0 inline-flex items-center gap-0.5 rounded-full bg-orange-50 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-orange-600">
+                <Flame className="h-3.5 w-3.5" />
                 {dict.events.hot}
               </span>
             )}
           </div>
 
-          <p className="text-sm text-neutral-500 line-clamp-2 mb-3 leading-relaxed">
+          <p className="text-[13px] text-neutral-600 line-clamp-2 mb-3 leading-relaxed">
             {event.description}
           </p>
 
-          <div className="flex flex-wrap gap-x-4 gap-y-1.5 text-xs text-neutral-600">
-            <span className="inline-flex items-center gap-1.5 font-medium">
-              <Calendar className="h-3.5 w-3.5 text-neutral-400" />
+          <div className="flex flex-wrap gap-x-4 gap-y-2 text-[13px] text-neutral-700">
+            <span className="inline-flex items-center gap-1.5 font-semibold">
+              <Calendar className="h-4 w-4 text-neutral-500" />
               {formatEventDateShort(event.date, locale)}
             </span>
             {recurrenceLabel && (
-              <span className="inline-flex items-center rounded-full bg-orange-50 px-2 py-0.5 font-bold text-orange-600">
+              <span className="inline-flex items-center rounded-full bg-orange-50 px-2.5 py-0.5 text-[11px] font-bold text-orange-600">
                 {recurrenceLabel}
               </span>
             )}
             {event.time && (
-              <span className="inline-flex items-center gap-1.5 font-medium">
-                <Clock className="h-3.5 w-3.5 text-neutral-400" />
+              <span className="inline-flex items-center gap-1.5 font-semibold">
+                <Clock className="h-4 w-4 text-neutral-500" />
                 {event.time}
               </span>
             )}
-            <span className="inline-flex items-center gap-1.5 font-medium">
-              <MapPin className="h-3.5 w-3.5 text-neutral-400" />
+            <span className="inline-flex items-center gap-1.5 font-semibold">
+              <MapPin className="h-4 w-4 text-neutral-500" />
               {event.venue ? `${event.venue}, ` : ""}
               {event.location}
             </span>
             {event.distanceKm != null && isFinite(event.distanceKm) && (
-              <span className="inline-flex items-center gap-1.5 font-medium text-orange-600">
-                <Navigation2 className="h-3.5 w-3.5" />
+              <span className="inline-flex items-center gap-1.5 font-bold text-orange-600">
+                <Navigation2 className="h-4 w-4" />
                 {formatDistance(event.distanceKm, locale)} {dict.events.distanceAway}
               </span>
             )}
-            <span className="inline-flex items-center gap-1.5 font-medium text-neutral-400">
-              <Globe className="h-3.5 w-3.5" />
-              {dict.events.format[event.format]}
-            </span>
           </div>
         </div>
       </article>

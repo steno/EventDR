@@ -131,41 +131,41 @@ export function EventDetailSheet({
           </div>
         )}
 
-        <div className="min-h-0 flex-1 px-4 pt-3 pb-2 overflow-hidden">
+        <div className="min-h-0 flex-1 px-5 pt-4 pb-3 overflow-hidden">
           {event.communitySubmitted && (
-            <span className="inline-flex items-center gap-1 rounded-full bg-violet-50 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wide text-violet-600 mb-2">
-              <Users className="h-3 w-3" />
+            <span className="inline-flex items-center gap-1 rounded-full bg-violet-50 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wide text-violet-600 mb-3">
+              <Users className="h-3.5 w-3.5" />
               {dict.detail.community}
             </span>
           )}
 
-          <h2 className="text-xl font-black text-neutral-900 leading-tight tracking-tight line-clamp-2">
+          <h2 className="text-2xl font-black text-neutral-900 leading-tight tracking-tight line-clamp-2">
             {event.title}
           </h2>
 
-          <p className="mt-2 text-sm text-neutral-600 leading-snug line-clamp-2">
+          <p className="mt-3 text-[15px] text-neutral-600 leading-relaxed line-clamp-2">
             {event.description}
           </p>
 
-          <div className="mt-3 space-y-2 text-sm">
-            <div className="flex items-center gap-2.5 text-neutral-700">
-              <Calendar className="h-4 w-4 text-neutral-400 flex-shrink-0" />
-              <span className="font-medium truncate">{formatEventDate(event.date, locale)}</span>
+          <div className="mt-4 space-y-3 text-[15px]">
+            <div className="flex items-center gap-3 text-neutral-700">
+              <Calendar className="h-5 w-5 text-neutral-500 flex-shrink-0" />
+              <span className="font-semibold truncate">{formatEventDate(event.date, locale)}</span>
               {recurrenceLabel && (
-                <span className="inline-flex shrink-0 rounded-full bg-orange-50 px-2 py-0.5 text-xs font-bold text-orange-600">
+                <span className="inline-flex shrink-0 rounded-full bg-orange-50 px-2.5 py-1 text-[11px] font-bold text-orange-600">
                   {recurrenceLabel}
                 </span>
               )}
             </div>
             {event.time && (
-              <div className="flex items-center gap-2.5 text-neutral-700">
-                <Clock className="h-4 w-4 text-neutral-400 flex-shrink-0" />
-                <span className="font-medium">{event.time}</span>
+              <div className="flex items-center gap-3 text-neutral-700">
+                <Clock className="h-5 w-5 text-neutral-500 flex-shrink-0" />
+                <span className="font-semibold">{event.time}</span>
               </div>
             )}
-            <div className="flex items-center gap-2.5 text-neutral-700">
-              <MapPin className="h-4 w-4 text-neutral-400 flex-shrink-0" />
-              <span className="font-medium truncate">
+            <div className="flex items-center gap-3 text-neutral-700">
+              <MapPin className="h-5 w-5 text-neutral-500 flex-shrink-0" />
+              <span className="font-semibold truncate">
                 {event.venue ? `${event.venue}, ` : ""}
                 {event.location}
               </span>
@@ -174,7 +174,7 @@ export function EventDetailSheet({
               <button
                 type="button"
                 onClick={handleViewVenue}
-                className="inline-flex items-center gap-2 text-sm font-bold text-orange-600 hover:text-orange-700 active:text-orange-800 touch-manipulation"
+                className="inline-flex items-center gap-2 text-[15px] font-bold text-orange-600 hover:text-orange-700 active:text-orange-800 touch-manipulation py-1"
               >
                 {dict.detail.viewVenue} →
               </button>
@@ -186,52 +186,52 @@ export function EventDetailSheet({
               href={event.sourceUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-2 inline-flex items-center gap-1.5 text-xs font-semibold text-neutral-500 hover:text-neutral-800"
+              className="mt-3 inline-flex items-center gap-2 text-[13px] font-semibold text-neutral-600 hover:text-neutral-800 py-1"
             >
-              <ExternalLink className="h-3.5 w-3.5" />
+              <ExternalLink className="h-4 w-4" />
               {dict.detail.source}
             </a>
           )}
         </div>
 
-        <div className="shrink-0 border-t border-neutral-100 bg-white px-4 pt-3 pb-3">
-          <div className="grid grid-cols-2 gap-2">
+        <div className="shrink-0 border-t border-neutral-100 bg-white px-5 pt-4 pb-4">
+          <div className="grid grid-cols-2 gap-3">
             {event.format !== "digital" && (
               <a
                 href={getDirectionsUrl(event)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 rounded-2xl bg-neutral-900 text-white py-3 text-sm font-bold"
+                className="flex items-center justify-center gap-2 rounded-2xl bg-neutral-900 text-white py-3.5 text-[15px] font-bold touch-manipulation active:scale-[0.98] transition-transform"
               >
-                <Navigation className="h-4 w-4" />
+                <Navigation className="h-5 w-5" />
                 {dict.detail.directions}
               </a>
             )}
             <button
               type="button"
               onClick={() => addToCalendar(event)}
-              className="flex items-center justify-center gap-2 rounded-2xl bg-neutral-100 text-neutral-900 py-3 text-sm font-bold"
+              className="flex items-center justify-center gap-2 rounded-2xl bg-neutral-100 text-neutral-900 py-3.5 text-[15px] font-bold touch-manipulation active:scale-[0.98] transition-transform"
             >
-              <CalendarPlus className="h-4 w-4" />
+              <CalendarPlus className="h-5 w-5" />
               {dict.detail.calendar}
             </button>
             <button
               type="button"
               onClick={handleShare}
-              className="flex items-center justify-center gap-2 rounded-2xl bg-neutral-100 text-neutral-900 py-3 text-sm font-bold"
+              className="flex items-center justify-center gap-2 rounded-2xl bg-neutral-100 text-neutral-900 py-3.5 text-[15px] font-bold touch-manipulation active:scale-[0.98] transition-transform"
             >
-              <Share2 className="h-4 w-4" />
+              <Share2 className="h-5 w-5" />
               {shareMsg ?? dict.detail.share}
             </button>
             <button
               type="button"
               onClick={() => onToggleSave(event.id)}
               className={`
-                flex items-center justify-center gap-2 rounded-2xl py-3 text-sm font-bold
+                flex items-center justify-center gap-2 rounded-2xl py-3.5 text-[15px] font-bold touch-manipulation active:scale-[0.98] transition-transform
                 ${isSaved ? "bg-orange-50 text-orange-600" : "bg-neutral-100 text-neutral-900"}
               `}
             >
-              <Heart className={`h-4 w-4 ${isSaved ? "fill-current" : ""}`} />
+              <Heart className={`h-5 w-5 ${isSaved ? "fill-current" : ""}`} />
               {isSaved ? dict.detail.saved : dict.detail.save}
             </button>
           </div>
