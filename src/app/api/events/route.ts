@@ -7,6 +7,8 @@ import {
   getCachedEvents,
   mergeWithFallback,
   setCachedEvents,
+  getCachedDbEvents,
+  setCachedDbEvents,
 } from "@/lib/cache";
 import { getFallbackEvents, getFallbackForCategory } from "@/lib/fallback-events";
 import { getCommunityEvents } from "@/lib/community-store";
@@ -105,9 +107,16 @@ export async function GET(request: NextRequest) {
       }
     }
 
-    const dbEvents = attachCoords(
-      await fetchApprovedEvents({ category, venueSlug, locale }),
-    );
+    // Check DB cache first (5-minute cache)
+    const dbCacheKey = `db:${locale}:${category || 'all'}:${venueSlug || ''}`;
+    let dbEvents = refresh ? [] : getCachedDbEvents(dbCacheKey) ?? [];
+    
+    if (dbEvents.length === 0) {
+      dbEvents = attachCoords(
+        await fetchApprovedEvents({ category, venueSlug, locale }),
+      );
+      setCachedDbEvents(dbCacheKey, dbEvents);
+    }
 
     const shouldCrawl =
       refresh ||
