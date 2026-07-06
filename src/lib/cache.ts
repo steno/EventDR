@@ -78,11 +78,23 @@ export function getPoolEvents(
   return pool.filter((e) => matchesCategory(e, category));
 }
 
+function eventTitleKey(event: Event): string {
+  return event.title
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "")
+    .slice(0, 48);
+}
+
 function dedupeEvents(events: Event[]): Event[] {
-  const seen = new Set<string>();
+  const seenIds = new Set<string>();
+  const seenTitles = new Set<string>();
   return events.filter((e) => {
-    if (seen.has(e.id)) return false;
-    seen.add(e.id);
+    if (seenIds.has(e.id)) return false;
+    const titleKey = eventTitleKey(e);
+    if (seenTitles.has(titleKey)) return false;
+    seenIds.add(e.id);
+    seenTitles.add(titleKey);
     return true;
   });
 }

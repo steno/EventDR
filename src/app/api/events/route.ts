@@ -36,13 +36,24 @@ function isValidCategory(value: string): value is EventCategory {
   return CATEGORY_IDS.includes(value as EventCategory);
 }
 
+function eventDedupeKey(event: Event): string {
+  return event.title
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "")
+    .slice(0, 48);
+}
+
 function mergeUniqueEvents(base: Event[], extra: Event[]): Event[] {
   const seen = new Set(base.map((e) => e.id));
+  const seenTitles = new Set(base.map(eventDedupeKey));
   const merged = [...base];
   for (const e of extra) {
-    if (!seen.has(e.id)) {
+    const titleKey = eventDedupeKey(e);
+    if (!seen.has(e.id) && !seenTitles.has(titleKey)) {
       merged.push(e);
       seen.add(e.id);
+      seenTitles.add(titleKey);
     }
   }
   return merged;
