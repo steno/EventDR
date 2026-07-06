@@ -31,7 +31,7 @@ FIREBASE_STORAGE_BUCKET=your-custom-bucket.appspot.com
 ### Optional: Web Crawling & AI Enrichment
 
 ```bash
-JINA_API_KEY=your-jina-key
+BRAVE_SEARCH_API_KEY=your-brave-key
 OPENAI_API_KEY=sk-your-openai-key
 OPENAI_MODEL=gpt-4o-mini
 ```
@@ -119,7 +119,7 @@ After deployment:
 
 - [ ] `FIREBASE_SERVICE_ACCOUNT_JSON` (or individual Firebase keys)
 - [ ] Firebase Storage enabled in Firebase Console
-- [ ] `JINA_API_KEY` (optional, for better crawling)
+- [ ] `BRAVE_SEARCH_API_KEY` (optional, for web search during ingest)
 - [ ] `OPENAI_API_KEY` (optional, for AI event enrichment)
 - [ ] Web Push VAPID keys (optional, for notifications)
 - [ ] `CRON_SECRET` (optional, for manual API triggers)

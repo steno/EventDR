@@ -13,7 +13,7 @@ Live at **[popevent.netlify.app](https://popevent.netlify.app)** · GitHub [sten
 - **Event actions** — Directions (Google Maps), Add to calendar (.ics), Share, Save
 - **Community submissions** — anyone can publish a hidden-gem event
 - **Physical & digital events** — in-person and online happenings
-- **Live web crawl** — uses [Jina Reader](https://jina.ai/reader) (free) to search Eventbrite, Allevents, and local listings
+- **Live web crawl** — scrapes AllEvents, Eventbrite, and local listing pages (free)
 - **AI enrichment** — OpenAI structures raw scraped content into clean event cards with dates, locations, and categories
 - **Trending highlights** — most popular local events surfaced first
 
@@ -66,7 +66,7 @@ Open [http://localhost:3000](http://localhost:3000).
 
 | Variable | Required | Description |
 |----------|----------|-------------|
-| `JINA_API_KEY` | No | Free at [jina.ai](https://jina.ai/?sui=apikey) — higher crawl rate limits |
+| `BRAVE_SEARCH_API_KEY` | No | Optional web search for ingest (~2k free queries/month at [brave.com/search/api](https://brave.com/search/api)) |
 | `OPENAI_API_KEY` | No | Powers AI event card enrichment |
 | `OPENAI_MODEL` | No | Default: `gpt-4o-mini` |
 | `CRON_SECRET` | No | Secret token for authenticated cron endpoints |
@@ -93,7 +93,7 @@ Set `CRON_SECRET` in your environment variables to enable manual triggers (optio
 
 ## How it works
 
-1. **Crawl** — Jina Search (`s.jina.ai`) queries live event listings for the Puerto Plata region
+1. **Crawl** — fetches known event listing URLs (AllEvents, Eventbrite) plus optional Brave Search queries
 2. **Enrich** — OpenAI (or heuristics) extracts structured events from raw markdown
 3. **Display** — Clean cards with date, location, format, and category icons
 4. **Cache** — Results cached for 1 hour; tap refresh for live data

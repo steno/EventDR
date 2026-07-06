@@ -2,10 +2,11 @@ import type { EventCategory } from "./types";
 import {
   BROAD_QUERIES,
   PRIORITY_CATEGORIES,
+  REGION_DIRECT_URLS,
   getDirectUrlsForCategory,
   getQueriesForCategory,
 } from "./category-queries";
-import { jinaRead, jinaSearch } from "./jina";
+import { scrapeUrl, webSearch } from "./scrape";
 
 export interface CrawlResult {
   query: string;
@@ -20,7 +21,7 @@ async function crawlOne(
 ): Promise<CrawlResult | null> {
   try {
     const content =
-      source === "search" ? await jinaSearch(query) : await jinaRead(query);
+      source === "search" ? await webSearch(query) : await scrapeUrl(query);
     if (content.trim().length < 80) return null;
     return {
       query,
@@ -65,7 +66,7 @@ export async function crawlEventListings(
     return crawlMany(queries, urls, 5);
   }
 
-  const broad = await crawlMany(BROAD_QUERIES, [], 4);
+  const broad = await crawlMany(BROAD_QUERIES, REGION_DIRECT_URLS, 4);
 
   const priorityCrawls = await Promise.all(
     PRIORITY_CATEGORIES.map(async (cat) => {
@@ -92,5 +93,5 @@ export async function crawlEventListings(
 }
 
 export async function crawlUrl(url: string): Promise<string> {
-  return jinaRead(url);
+  return scrapeUrl(url);
 }

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { isFirebaseConfigured } from "@/lib/firebase/admin";
-import { isJinaConfigured } from "@/lib/jina";
+import { isBraveSearchConfigured } from "@/lib/scrape";
 import { fetchPendingEvents, fetchVenues } from "@/lib/firebase/events";
 
 export const dynamic = "force-dynamic";
@@ -28,7 +28,8 @@ export async function GET(request: NextRequest) {
   const base = {
     ok: firebase,
     firebase,
-    jinaConfigured: isJinaConfigured(),
+    braveSearchConfigured: isBraveSearchConfigured(),
+    cronConfigured: Boolean(process.env.CRON_SECRET?.trim()),
     openaiConfigured: Boolean(process.env.OPENAI_API_KEY?.trim()),
     moderatorConfigured,
     venueCount,

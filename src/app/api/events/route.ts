@@ -76,13 +76,11 @@ export async function GET(request: NextRequest) {
   const userLat = latParam ? parseFloat(latParam) : null;
   const userLng = lngParam ? parseFloat(lngParam) : null;
   const nearMe = searchParams.get("nearMe") === "true" && userLat != null && userLng != null;
-  const cacheExtra = [
-    venueSlug ? `venue:${venueSlug}` : "",
-    nearMe && userLat != null && userLng != null ? `geo:${userLat},${userLng}` : "",
-  ]
-    .filter(Boolean)
-    .join("|");
-  const cacheKey = getCacheKey(locale, category, cacheExtra || undefined);
+  const cacheKey = getCacheKey(
+    locale,
+    category,
+    venueSlug ? `venue:${venueSlug}` : undefined,
+  );
 
   function applyScopeFilters(list: Event[]): Event[] {
     let result = attachVenueSlugs(list);
@@ -96,11 +94,15 @@ export async function GET(request: NextRequest) {
   }
 
   try {
-    if (!refresh && !nearMe) {
+    if (!refresh) {
       const cached = getCachedEvents(cacheKey);
       if (cached?.length) {
+        let events = attachEventImages(sortEvents(cached));
+        if (nearMe && userLat != null && userLng != null) {
+          events = sortByDistance(events, userLat, userLng);
+        }
         return NextResponse.json({
-          events: attachEventImages(sortEvents(cached)),
+          events,
           source: "cache",
           region: REGION_LABELS[locale],
         });
@@ -118,9 +120,7 @@ export async function GET(request: NextRequest) {
       setCachedDbEvents(dbCacheKey, dbEvents);
     }
 
-    const shouldCrawl =
-      refresh ||
-      Boolean(process.env.JINA_API_KEY || process.env.OPENAI_API_KEY);
+    const shouldCrawl = refresh;
 
     let crawlResults: Awaited<ReturnType<typeof crawlEventListings>> = [];
     let crawled: Event[] = [];
@@ -147,17 +147,13 @@ export async function GET(request: NextRequest) {
 
     events = materializeEventDates(events);
     events = attachCoords(events);
+    events = sortEvents(events);
+    events = attachEventImages(events);
+
+    setCachedEvents(cacheKey, events);
 
     if (nearMe && userLat != null && userLng != null) {
       events = sortByDistance(events, userLat, userLng);
-    } else {
-      events = sortEvents(events);
-    }
-
-    events = attachEventImages(events);
-
-    if (!nearMe) {
-      setCachedEvents(cacheKey, events);
     }
 
     const source =

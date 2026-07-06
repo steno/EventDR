@@ -41,17 +41,17 @@ Value: 5d5e309d65e8788001f176a545533d69f83efe0d564665c6856febbb722bafae
 
 ### Optional: Web Crawling & AI
 
-If you want enhanced event discovery:
+If you want enhanced event discovery (scraping is free; OpenAI improves parsing):
 
 ```
-Variable name: JINA_API_KEY
-Value: [Get free key at https://jina.ai/?sui=apikey]
-
 Variable name: OPENAI_API_KEY
 Value: sk-[your-openai-key]
 
 Variable name: OPENAI_MODEL
 Value: gpt-4o-mini
+
+Variable name: BRAVE_SEARCH_API_KEY
+Value: [Optional — https://brave.com/search/api/ for web search during ingest]
 ```
 
 ---

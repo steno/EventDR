@@ -8,6 +8,7 @@ import type { Locale } from "@/i18n/config";
 import type { TimeRange } from "@/lib/filters";
 import { filterByTimeRange, searchEvents } from "@/lib/filters";
 import { materializeEventDates } from "@/lib/event-dates";
+import { sortByDistance as sortEventsByDistance } from "@/lib/geo";
 import { EventCard } from "./EventCard";
 
 interface EventListProps {
@@ -52,11 +53,6 @@ export function EventList({
         params.set("locale", locale);
         if (category) params.set("category", category);
         if (refresh) params.set("refresh", "true");
-        if (sortByDistance && userLat != null && userLng != null) {
-          params.set("nearMe", "true");
-          params.set("lat", String(userLat));
-          params.set("lng", String(userLng));
-        }
 
         const res = await fetch(`/api/events?${params}`);
         const data = (await res.json()) as {
@@ -75,19 +71,22 @@ export function EventList({
         setRefreshing(false);
       }
     },
-    [category, locale, onEventsLoaded, sortByDistance, userLat, userLng],
+    [category, locale, onEventsLoaded],
   );
 
   useEffect(() => {
     fetchEvents(refreshKey > 0);
-  }, [fetchEvents, refreshKey, sortByDistance, userLat, userLng]);
+  }, [fetchEvents, refreshKey]);
 
   const filtered = useMemo(() => {
     let result = events;
     result = filterByTimeRange(result, timeRange);
     result = searchEvents(result, searchQuery);
+    if (sortByDistance && userLat != null && userLng != null) {
+      result = sortEventsByDistance(result, userLat, userLng);
+    }
     return result;
-  }, [events, timeRange, searchQuery]);
+  }, [events, timeRange, searchQuery, sortByDistance, userLat, userLng]);
 
   const sourceLabel =
     source === "live"

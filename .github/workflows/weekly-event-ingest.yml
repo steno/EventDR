@@ -19,5 +19,21 @@ jobs:
             echo "CRON_SECRET secret not set — add it in repo Settings → Secrets."
             exit 1
           fi
-          curl -sf -X POST "${SITE_URL}/api/ingest?secret=${CRON_SECRET}&locale=en"
-          curl -sf -X POST "${SITE_URL}/api/ingest?secret=${CRON_SECRET}&locale=es"
+          ingest() {
+            local locale="$1"
+            local res http
+            res=$(curl -sS -w "\n%{http_code}" -X POST \
+              "${SITE_URL}/api/ingest?secret=${CRON_SECRET}&locale=${locale}")
+            http=$(echo "$res" | tail -n1)
+            body=$(echo "$res" | sed '$d')
+            echo "ingest ${locale}: HTTP ${http}"
+            echo "$body"
+            if [ "$http" -lt 200 ] || [ "$http" -ge 300 ]; then
+              if [ "$http" = "401" ]; then
+                echo "::error::Unauthorized — set CRON_SECRET on Netlify to match GitHub repo secret, then redeploy."
+              fi
+              exit 22
+            fi
+          }
+          ingest en
+          ingest es

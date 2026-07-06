@@ -1,7 +1,7 @@
 import { crawlEventListings } from "@/lib/crawl";
 import { enrichCrawlResults } from "@/lib/enrich";
 import { FACEBOOK_GROUPS, facebookGroupEventUrls, facebookGroupSearchQueries } from "@/lib/facebook-groups";
-import { jinaRead, jinaSearch } from "@/lib/jina";
+import { scrapeUrl, webSearch } from "@/lib/scrape";
 import type { Event } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
 
@@ -22,7 +22,7 @@ export async function ingestSocialEvents(locale: Locale = "en"): Promise<Event[]
       async (url) => {
         const group = FACEBOOK_GROUPS.find((g) => url.startsWith(g.url));
         try {
-          const content = await jinaRead(url);
+          const content = await scrapeUrl(url);
           if (content.length < 80 || /log into facebook/i.test(content)) return null;
           return {
             query: group?.label ?? url,
@@ -39,7 +39,7 @@ export async function ingestSocialEvents(locale: Locale = "en"): Promise<Event[]
   const socialResults = await Promise.all(
     SOCIAL_QUERIES.slice(0, 8).map(async (query) => {
       try {
-        const content = await jinaSearch(query);
+        const content = await webSearch(query);
         if (content.length < 80) return null;
         return {
           query,

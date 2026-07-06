@@ -2,6 +2,29 @@ import type { EventCategory } from "./types";
 
 const REGION = "Puerto Plata Sosúa Cabarete Costa Norte";
 
+const ALLEVENTS_PP = "https://allevents.in/puerto-plata";
+const ALLEVENTS_SOSUA = "https://allevents.in/sosua";
+const ALLEVENTS_CABARETE = "https://allevents.in/cabarete";
+const EVENTBRITE_PP =
+  "https://www.eventbrite.com/d/dominican-republic--puerto-plata/events/";
+const EVENTBRITE_SOSUA =
+  "https://www.eventbrite.com/d/dominican-republic--sosua/events/";
+const EVENTBRITE_CABARETE =
+  "https://www.eventbrite.com/d/dominican-republic--cabarete/events/";
+
+/** Known listing pages crawled on every broad ingest (no search API needed). */
+export const REGION_DIRECT_URLS = [
+  ALLEVENTS_PP,
+  `${ALLEVENTS_PP}/music`,
+  `${ALLEVENTS_PP}/concerts`,
+  `${ALLEVENTS_PP}/festivals`,
+  ALLEVENTS_SOSUA,
+  ALLEVENTS_CABARETE,
+  EVENTBRITE_PP,
+  EVENTBRITE_SOSUA,
+  EVENTBRITE_CABARETE,
+];
+
 export interface CategoryQuerySet {
   searches: string[];
   directUrls: string[];
@@ -19,7 +42,8 @@ export const CATEGORY_QUERIES: Record<EventCategory, CategoryQuerySet> = {
       `running race triathlon paddleboard ${REGION} Dominican Republic`,
     ],
     directUrls: [
-      "https://www.facebook.com/events/search?q=cabarete%20sports",
+      `${ALLEVENTS_PP}/sports`,
+      EVENTBRITE_CABARETE,
     ],
   },
   music: {
@@ -30,7 +54,7 @@ export const CATEGORY_QUERIES: Record<EventCategory, CategoryQuerySet> = {
       `site:allevents.in music Puerto Plata`,
       `sunset session beach music Cabarete`,
     ],
-    directUrls: ["https://allevents.in/puerto%20plata/music"],
+    directUrls: [`${ALLEVENTS_PP}/music`, ALLEVENTS_CABARETE],
   },
   concert: {
     searches: [
@@ -40,7 +64,7 @@ export const CATEGORY_QUERIES: Record<EventCategory, CategoryQuerySet> = {
       `site:facebook.com concierto Puerto Plata`,
       `acoustic night open air concert Malecón Puerto Plata`,
     ],
-    directUrls: ["https://allevents.in/puerto%20plata/concerts"],
+    directUrls: [`${ALLEVENTS_PP}/concerts`, EVENTBRITE_PP],
   },
   parties: {
     searches: [
@@ -50,7 +74,7 @@ export const CATEGORY_QUERIES: Record<EventCategory, CategoryQuerySet> = {
       `site:eventbrite.com party Puerto Plata`,
       `ladies night rooftop party Costa Norte DR`,
     ],
-    directUrls: [],
+    directUrls: [`${ALLEVENTS_PP}/parties`, EVENTBRITE_CABARETE],
   },
   "food-drinks": {
     searches: [
@@ -60,7 +84,7 @@ export const CATEGORY_QUERIES: Record<EventCategory, CategoryQuerySet> = {
       `brunch market food truck ${REGION}`,
       `site:allevents.in food Puerto Plata`,
     ],
-    directUrls: [],
+    directUrls: [`${ALLEVENTS_PP}/food`, EVENTBRITE_PP],
   },
   festivals: {
     searches: [
@@ -70,7 +94,7 @@ export const CATEGORY_QUERIES: Record<EventCategory, CategoryQuerySet> = {
       `site:allevents.in festivals Puerto Plata`,
       `feria artesanal festival Costa Norte`,
     ],
-    directUrls: ["https://allevents.in/puerto%20plata/festivals"],
+    directUrls: [`${ALLEVENTS_PP}/festivals`, ALLEVENTS_PP],
   },
   dance: {
     searches: [
@@ -80,7 +104,7 @@ export const CATEGORY_QUERIES: Record<EventCategory, CategoryQuerySet> = {
       `dance workshop Latin ${REGION}`,
       `site:eventbrite.com dance Puerto Plata`,
     ],
-    directUrls: [],
+    directUrls: [`${ALLEVENTS_PP}/dance`, EVENTBRITE_PP],
   },
   "health-wellness": {
     searches: [
@@ -90,7 +114,7 @@ export const CATEGORY_QUERIES: Record<EventCategory, CategoryQuerySet> = {
       `breathwork sound healing ${REGION}`,
       `site:allevents.in wellness Puerto Plata`,
     ],
-    directUrls: [],
+    directUrls: [`${ALLEVENTS_PP}/wellness`, ALLEVENTS_CABARETE],
   },
   performances: {
     searches: [
@@ -100,7 +124,7 @@ export const CATEGORY_QUERIES: Record<EventCategory, CategoryQuerySet> = {
       `live performance theater ${REGION}`,
       `poetry slam talent show Sosúa`,
     ],
-    directUrls: [],
+    directUrls: [`${ALLEVENTS_PP}/performances`, `${ALLEVENTS_PP}/concerts`],
   },
   business: {
     searches: [
@@ -110,7 +134,7 @@ export const CATEGORY_QUERIES: Record<EventCategory, CategoryQuerySet> = {
       `coworking remote work meetup ${REGION}`,
       `site:facebook.com networking Puerto Plata`,
     ],
-    directUrls: [],
+    directUrls: [EVENTBRITE_PP, ALLEVENTS_PP],
   },
 };
 
