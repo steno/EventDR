@@ -32,6 +32,16 @@ export const FACEBOOK_GROUPS = [
   },
 ] as const;
 
+/** Facebook event *pages* (not groups) — host /events feeds for regattas, venues, etc. */
+export const FACEBOOK_EVENT_PAGES = [
+  {
+    slug: "cabareteclassiceventpage",
+    url: "https://www.facebook.com/cabareteclassiceventpage",
+    label: "Cabarete Classic",
+    areas: ["Cabarete"],
+  },
+] as const;
+
 export function facebookGroupSearchQueries(): string[] {
   const region = "Puerto Plata Sosúa Cabarete Costa Norte";
   return FACEBOOK_GROUPS.flatMap((group) => [
@@ -46,8 +56,16 @@ export const FACEBOOK_SEED_EVENT_IDS = [
   "voyvoy-saturday-session",
   "womens-reconnection-kite-camp-2026",
   "cabarete-pilates-reformer",
+  "cabarete-classic-2026",
 ] as const;
 
 export function facebookGroupEventUrls(): string[] {
   return FACEBOOK_GROUPS.map((group) => `${group.url}/events`);
+}
+
+export function facebookEventPageUrls(): string[] {
+  return FACEBOOK_EVENT_PAGES.flatMap((page) => [
+    page.url,
+    `${page.url}/events`,
+  ]);
 }

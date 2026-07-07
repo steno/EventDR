@@ -1,6 +1,12 @@
 import { crawlEventListings } from "@/lib/crawl";
 import { enrichCrawlResults } from "@/lib/enrich";
-import { FACEBOOK_GROUPS, facebookGroupEventUrls, facebookGroupSearchQueries } from "@/lib/facebook-groups";
+import {
+  FACEBOOK_EVENT_PAGES,
+  FACEBOOK_GROUPS,
+  facebookEventPageUrls,
+  facebookGroupEventUrls,
+  facebookGroupSearchQueries,
+} from "@/lib/facebook-groups";
 import { scrapeUrl, webSearch } from "@/lib/scrape";
 import type { Event } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
@@ -32,15 +38,20 @@ const SOCIAL_QUERIES = [
 
 export async function ingestSocialEvents(locale: Locale = "en"): Promise<Event[]> {
   const results = await crawlEventListings();
+  const facebookUrls = [
+    ...FACEBOOK_GROUPS.map((group) => group.url),
+    ...facebookGroupEventUrls(),
+    ...facebookEventPageUrls(),
+  ];
   const groupReads = await Promise.all(
-    [...FACEBOOK_GROUPS.map((group) => group.url), ...facebookGroupEventUrls()].map(
-      async (url) => {
+    facebookUrls.map(async (url) => {
         const group = FACEBOOK_GROUPS.find((g) => url.startsWith(g.url));
+        const page = FACEBOOK_EVENT_PAGES.find((p) => url.startsWith(p.url));
         try {
           const content = await scrapeUrl(url);
           if (content.length < 80 || /log into facebook/i.test(content)) return null;
           return {
-            query: group?.label ?? url,
+            query: group?.label ?? page?.label ?? url,
             content: content.slice(0, 12000),
             fetchedAt: new Date().toISOString(),
             source: "url" as const,

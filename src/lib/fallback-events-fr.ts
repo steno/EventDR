@@ -65,6 +65,24 @@ export const FALLBACK_EVENTS_FR: Event[] = [
     imageEmoji: "🥊",
   },
   {
+    id: "cabarete-classic-2026",
+    title: "Cabarete Classic 2026",
+    description:
+      "Quatre jours de windsurf, kitesurf, wingfoil et foil sur la plage de Cabarete (16–19 juil.). La grande régate des sports de vent des Caraïbes — compétiteurs internationaux, cliniques et musique le soir sur la plage.",
+    date: "2026-07-16",
+    endDate: "2026-07-19",
+    time: "12:00 AM",
+    location: "Cabarete",
+    venue: "Playa Cabarete",
+    venueSlug: "kite-beach",
+    address: "Residencial Mañanero, 57600 Sosúa, República Dominicana",
+    category: "sports",
+    format: "physical",
+    trending: true,
+    sourceUrl: "https://www.facebook.com/events/4550504901861035/",
+    imageEmoji: "🏄",
+  },
+  {
     id: "womens-reconnection-kite-camp-2026",
     title: "Women's Reconnection Kite Camp",
     description:
