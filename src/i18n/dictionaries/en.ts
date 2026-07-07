@@ -94,6 +94,15 @@ export type Dictionary = {
     shared: string;
     copied: string;
     lineup: string;
+    shareVia: string;
+    shareMore: string;
+    shareWhatsapp: string;
+    shareFacebook: string;
+    shareX: string;
+    shareTelegram: string;
+    shareEmail: string;
+    shareCopyLink: string;
+    linkCopied: string;
   };
   submit: {
     title: string;
@@ -284,6 +293,15 @@ export const en: Dictionary = {
     shared: "Shared!",
     copied: "Copied to clipboard",
     lineup: "Performers",
+    shareVia: "Share via",
+    shareMore: "More",
+    shareWhatsapp: "WhatsApp",
+    shareFacebook: "Facebook",
+    shareX: "X",
+    shareTelegram: "Telegram",
+    shareEmail: "Email",
+    shareCopyLink: "Copy link",
+    linkCopied: "Link copied!",
   },
   submit: {
     title: "Share an event",

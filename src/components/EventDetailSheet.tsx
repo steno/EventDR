@@ -22,7 +22,7 @@ import { getCategoryMeta } from "@/lib/categories";
 import { formatEventDate } from "@/lib/format-date";
 import { getDirectionsUrl } from "@/lib/maps";
 import { addToCalendar } from "@/lib/calendar";
-import { shareEvent } from "@/lib/share";
+import { ShareMenu } from "@/components/ShareMenu";
 import { matchVenueSlug } from "@/lib/venues-seed";
 import { formatRecurrenceLabel } from "@/lib/recurrence-label";
 import { EventImage } from "@/components/EventImage";
@@ -46,6 +46,7 @@ export function EventDetailSheet({
   onToggleSave,
 }: EventDetailSheetProps) {
   const [shareMsg, setShareMsg] = useState<string | null>(null);
+  const [shareOpen, setShareOpen] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -64,9 +65,8 @@ export function EventDetailSheet({
   const venueSlug =
     event.venueSlug ?? matchVenueSlug(event.venue) ?? matchVenueSlug(event.location);
 
-  async function handleShare() {
-    const ok = await shareEvent(event!);
-    setShareMsg(ok ? dict.detail.shared : dict.detail.copied);
+  function handleShareFeedback(message: string) {
+    setShareMsg(message);
     setTimeout(() => setShareMsg(null), 2000);
   }
 
@@ -217,6 +217,15 @@ export function EventDetailSheet({
         </div>
 
         <div className="shrink-0 border-t border-neutral-100 bg-white px-5 pt-4 pb-4">
+          {shareOpen && (
+            <ShareMenu
+              event={event}
+              locale={locale}
+              dict={dict}
+              onClose={() => setShareOpen(false)}
+              onFeedback={handleShareFeedback}
+            />
+          )}
           <div className="grid grid-cols-2 gap-3">
             {event.format !== "digital" && (
               <a
@@ -239,8 +248,12 @@ export function EventDetailSheet({
             </button>
             <button
               type="button"
-              onClick={handleShare}
-              className="flex items-center justify-center gap-2 rounded-2xl bg-neutral-100 text-neutral-900 py-3.5 text-[15px] font-bold touch-manipulation active:scale-[0.98] transition-transform"
+              onClick={() => setShareOpen((open) => !open)}
+              className={`flex items-center justify-center gap-2 rounded-2xl py-3.5 text-[15px] font-bold touch-manipulation active:scale-[0.98] transition-transform ${
+                shareOpen
+                  ? "bg-orange-50 text-orange-600"
+                  : "bg-neutral-100 text-neutral-900"
+              }`}
             >
               <Share2 className="h-5 w-5" />
               {shareMsg ?? dict.detail.share}

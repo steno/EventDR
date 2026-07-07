@@ -143,6 +143,18 @@ async function seedVenuesIfEmpty(): Promise<void> {
   await batch.commit();
 }
 
+export async function fetchEventById(id: string): Promise<Event | null> {
+  const db = getFirestoreDb();
+  if (!db) return null;
+
+  const doc = await db.collection("events").doc(id).get();
+  if (!doc.exists) return null;
+
+  const event = docToEvent(doc.id, doc.data()!);
+  if (event.status === "rejected" || event.status === "pending") return null;
+  return event;
+}
+
 export async function fetchApprovedEvents(options?: {
   category?: EventCategory;
   venueSlug?: string;
