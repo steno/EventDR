@@ -78,7 +78,7 @@ const TodayHighlightsComponent = ({
         {todayEvents.map((event) => (
           <article
             key={event.id}
-            className="flex min-w-[86%] snap-start flex-col overflow-hidden rounded-3xl border border-neutral-200 bg-white shadow-[0_8px_24px_-12px_rgba(0,0,0,0.16)] sm:min-w-[20rem]"
+            className="group flex min-w-[86%] snap-start flex-col overflow-hidden rounded-3xl border border-neutral-200 bg-white shadow-[0_8px_24px_-12px_rgba(0,0,0,0.16)] sm:min-w-[20rem]"
           >
             {event.imageUrl && (
               <button
@@ -93,7 +93,7 @@ const TodayHighlightsComponent = ({
                   className="object-cover"
                 />
                 <div
-                  className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-white via-white/70 to-transparent"
+                  className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/75 via-black/35 to-transparent opacity-100 transition-opacity duration-300 group-hover:opacity-0"
                   aria-hidden
                 />
               </button>
