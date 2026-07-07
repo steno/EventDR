@@ -136,7 +136,7 @@ export async function scrapeUrl(targetUrl: string): Promise<string> {
   return combined.slice(0, MAX_CONTENT_CHARS);
 }
 
-/** Optional web search via Brave Search API (free tier: ~2k queries/month). */
+/** Optional web search via Brave Search API (~$5/mo free credits ≈ 1k queries). */
 export async function webSearch(query: string): Promise<string> {
   const key = process.env.BRAVE_SEARCH_API_KEY?.trim();
   if (!key) return "";

@@ -21,6 +21,15 @@ export function SiteFooter({ dict, className = "" }: SiteFooterProps) {
         >
           asemota
         </a>
+        {" · "}
+        <a
+          href="https://brave.com/search/api/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-neutral-400 hover:text-neutral-600 transition-colors"
+        >
+          {dict.footer.searchByBrave}
+        </a>
       </p>
     </footer>
   );

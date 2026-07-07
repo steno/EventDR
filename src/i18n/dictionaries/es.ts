@@ -164,6 +164,7 @@ export const es: Dictionary = {
   footer: {
     tagline: "POP Eventos · Costa Norte República Dominicana",
     builtWith: "Hecho con ❤️ por",
+    searchByBrave: "Búsqueda por Brave",
   },
   lang: {
     en: "EN",
