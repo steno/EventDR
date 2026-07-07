@@ -5,7 +5,7 @@ import type { Event } from "@/lib/types";
 import { getCategoryMeta } from "@/lib/categories";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
-import { formatEventDateShort } from "@/lib/format-date";
+import { formatEventDateRange } from "@/lib/format-date";
 import { formatDistance } from "@/lib/geo";
 import { formatRecurrenceLabel } from "@/lib/recurrence-label";
 import { formatEventPlace } from "@/lib/event-location";
@@ -78,7 +78,10 @@ const EventCardComponent = ({ event, dict, locale, onSelect }: EventCardProps) =
           <div className="flex flex-wrap gap-x-4 gap-y-2 text-[13px] text-neutral-700">
             <span className="inline-flex items-center gap-1.5 font-semibold">
               <Calendar className="h-4 w-4 text-neutral-500" />
-              {formatEventDateShort(event.date, locale)}
+              {formatEventDateRange(event.date, locale, {
+                endDate: event.endDate,
+                short: true,
+              })}
             </span>
             {recurrenceLabel && (
               <span className="inline-flex items-center rounded-full bg-orange-50 px-2.5 py-0.5 text-[11px] font-bold text-orange-600">

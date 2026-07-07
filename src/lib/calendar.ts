@@ -1,6 +1,8 @@
 import type { Event } from "./types";
 import { formatEventPlace } from "./event-location";
 
+import { parseLocalDate } from "./event-dates";
+
 function pad(n: number): string {
   return String(n).padStart(2, "0");
 }
@@ -48,6 +50,14 @@ function escapeIcs(text: string): string {
 }
 
 export function getEventDateRange(event: Event): { start: Date; end: Date } {
+  if (event.endDate && event.endDate !== event.date) {
+    const start = parseLocalDate(event.date);
+    start.setHours(0, 0, 0, 0);
+    const end = parseLocalDate(event.endDate);
+    end.setHours(23, 59, 59, 999);
+    return { start, end };
+  }
+
   const start = new Date(event.date + "T00:00:00");
   const parsed = parseTime(event.time);
   if (parsed) {

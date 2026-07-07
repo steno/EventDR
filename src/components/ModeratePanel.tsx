@@ -7,7 +7,7 @@ import { RefreshCw, CheckCircle, ExternalLink } from "lucide-react";
 import type { Event } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
-import { formatEventDateShort } from "@/lib/format-date";
+import { formatEventDateRange } from "@/lib/format-date";
 import { formatEventPlace } from "@/lib/event-location";
 
 interface ModeratePanelProps {
@@ -125,7 +125,10 @@ export function ModeratePanel({ dict, locale }: ModeratePanelProps) {
             <h3 className="font-bold text-neutral-900">{event.title}</h3>
             <p className="text-sm text-neutral-600 mt-1">{event.description}</p>
             <p className="text-xs text-neutral-400 mt-2">
-              {formatEventDateShort(event.date, locale)}
+              {formatEventDateRange(event.date, locale, {
+                endDate: event.endDate,
+                short: true,
+              })}
               {event.time ? ` · ${event.time}` : ""} · {formatEventPlace(event)}
             </p>
             {event.sourceType && (

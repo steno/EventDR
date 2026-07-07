@@ -19,7 +19,7 @@ import type { Event } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import { getCategoryMeta } from "@/lib/categories";
-import { formatEventDate } from "@/lib/format-date";
+import { formatEventDateRange } from "@/lib/format-date";
 import { getDirectionsUrl } from "@/lib/maps";
 import { addToCalendar } from "@/lib/calendar";
 import { ShareMenu } from "@/components/ShareMenu";
@@ -173,7 +173,9 @@ export function EventDetailSheet({
           <div className="mt-4 space-y-3 text-[15px]">
             <div className="flex items-center gap-3 text-neutral-700">
               <Calendar className="h-5 w-5 text-neutral-500 flex-shrink-0" />
-              <span className="font-semibold truncate">{formatEventDate(event.date, locale)}</span>
+              <span className="font-semibold truncate">
+                {formatEventDateRange(event.date, locale, { endDate: event.endDate })}
+              </span>
               {recurrenceLabel && (
                 <span className="inline-flex shrink-0 rounded-full bg-orange-50 px-2.5 py-1 text-[11px] font-bold text-orange-600">
                   {recurrenceLabel}

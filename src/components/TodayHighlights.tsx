@@ -6,7 +6,7 @@ import { EventImage } from "@/components/EventImage";
 import type { Event } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
-import { formatEventDateShort } from "@/lib/format-date";
+import { formatEventDateRange } from "@/lib/format-date";
 import { localDateISO, parseLocalDate } from "@/lib/event-dates";
 import { getDirectionsUrl } from "@/lib/maps";
 
@@ -115,7 +115,10 @@ const TodayHighlightsComponent = ({
               <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-[13px] font-semibold text-neutral-700">
                 <span className="inline-flex items-center gap-1.5">
                   <Calendar className="h-4 w-4 text-neutral-500" />
-                  {formatEventDateShort(event.date, locale)}
+                  {formatEventDateRange(event.date, locale, {
+                    endDate: event.endDate,
+                    short: true,
+                  })}
                 </span>
                 {event.time && (
                   <span className="inline-flex items-center gap-1.5">

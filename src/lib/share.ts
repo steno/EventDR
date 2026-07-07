@@ -1,6 +1,7 @@
 import type { Locale } from "@/i18n/config";
 import type { Event } from "./types";
 import { formatEventPlace } from "./event-location";
+import { formatEventDateRange } from "./format-date";
 import { SITE_URL } from "./site-url";
 
 export type SharePlatform =
@@ -16,12 +17,16 @@ export function getEventShareUrl(event: Event, locale: Locale): string {
   return `${SITE_URL}/${locale}/event/${event.id}`;
 }
 
-export function buildEventShareText(event: Event): string {
+export function buildEventShareText(event: Event, locale: Locale = "en"): string {
   const lineup =
     event.lineup && event.lineup.length > 0
       ? `\n\n${event.lineup.join(" · ")}`
       : "";
-  return `${event.title}\n${event.date}${event.time ? ` · ${event.time}` : ""}\n${formatEventPlace(event)}${lineup}\n\n${event.description}`;
+  const when = formatEventDateRange(event.date, locale, {
+    endDate: event.endDate,
+    short: true,
+  });
+  return `${event.title}\n${when}${event.time ? ` · ${event.time}` : ""}\n${formatEventPlace(event)}${lineup}\n\n${event.description}`;
 }
 
 export function canUseNativeShare(): boolean {
@@ -34,7 +39,7 @@ export function getShareUrl(
   locale: Locale,
 ): string | null {
   const url = getEventShareUrl(event, locale);
-  const text = buildEventShareText(event);
+  const text = buildEventShareText(event, locale);
 
   switch (platform) {
     case "whatsapp":
@@ -59,7 +64,7 @@ export async function shareEventNative(
 ): Promise<"shared" | "cancelled" | "failed"> {
   if (!canUseNativeShare()) return "failed";
 
-  const text = buildEventShareText(event);
+  const text = buildEventShareText(event, locale);
   const url = getEventShareUrl(event, locale);
 
   try {
@@ -112,7 +117,7 @@ export async function shareViaPlatform(
 
 /** @deprecated Use shareViaPlatform or shareEventNative */
 export async function shareEvent(event: Event): Promise<boolean> {
-  const text = buildEventShareText(event);
+  const text = buildEventShareText(event, locale);
   if (canUseNativeShare()) {
     try {
       await navigator.share({
