@@ -238,6 +238,21 @@ export function getFallbackEvents(locale: Locale = "en"): Event[] {
   return materializeEventDates(filterRemovedSeedEvents(merged));
 }
 
+/** Lookup before date materialization — keeps expired one-offs resolvable for share links. */
+export function getFallbackEventById(
+  id: string,
+  locale: Locale = "en",
+): Event | undefined {
+  const base =
+    locale === "es"
+      ? FALLBACK_EVENTS_ES
+      : locale === "fr"
+        ? FALLBACK_EVENTS_FR
+        : FALLBACK_EVENTS_EN;
+  const merged = filterRemovedSeedEvents([...getRecurringEvents(locale), ...base]);
+  return merged.find((e) => e.id === id);
+}
+
 export function getFallbackForCategory(
   category: EventCategory,
   locale: Locale = "en",

@@ -1,6 +1,6 @@
 import type { Locale } from "@/i18n/config";
 import type { Event } from "./types";
-import { getFallbackEvents } from "./fallback-events";
+import { getFallbackEventById } from "./fallback-events";
 import { getCommunityEvents } from "./community-store";
 import { fetchEventById } from "./firebase/events";
 import { attachCoords, attachVenueSlugs } from "./geo";
@@ -10,13 +10,23 @@ import { filterRemovedSeedEvents } from "./removed-seeds";
 import { localizeEventsForDisplay } from "./localized-text";
 import { materializeEventDates } from "./event-dates";
 
-function finalizeEvent(event: Event, locale: Locale): Event {
+function finalizeEvent(event: Event, locale: Locale): Event | null {
   let [result] = attachCoords([event]);
   [result] = localizeEventsForDisplay([result], locale);
   [result] = applyCuratedEventPatches([result]);
   [result] = attachEventImages([result]);
-  [result] = attachVenueSlugs(filterRemovedSeedEvents([result]));
-  [result] = materializeEventDates([result]);
+
+  const kept = filterRemovedSeedEvents([result]);
+  if (kept.length === 0) return null;
+  [result] = attachVenueSlugs(kept);
+
+  // Recurring events get the next occurrence; one-offs keep their date even if past.
+  if (result.recurrence) {
+    const materialized = materializeEventDates([result]);
+    if (materialized.length === 0) return null;
+    result = materialized[0];
+  }
+
   return result;
 }
 
@@ -27,7 +37,7 @@ export async function getEventById(
   const dbEvent = await fetchEventById(id);
   if (dbEvent) return finalizeEvent(dbEvent, locale);
 
-  const fallback = getFallbackEvents(locale).find((e) => e.id === id);
+  const fallback = getFallbackEventById(id, locale);
   if (fallback) return finalizeEvent(fallback, locale);
 
   const community = getCommunityEvents().find((e) => e.id === id);
