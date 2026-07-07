@@ -109,7 +109,7 @@ export function CategoryPage({ categoryId, locale, dict }: CategoryPageProps) {
         onClose={() => setSelected(null)}
         dict={dict}
         locale={locale}
-        isSaved={selected ? isSaved(selected.id) : false}
+        isSaved={selected ? isSaved(selected) : false}
         onToggleSave={toggleSave}
       />
     </>

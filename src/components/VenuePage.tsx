@@ -106,7 +106,7 @@ export function VenuePage({ venue, locale, dict }: VenuePageProps) {
         onClose={() => setSelected(null)}
         dict={dict}
         locale={locale}
-        isSaved={selected ? isSaved(selected.id) : false}
+        isSaved={selected ? isSaved(selected) : false}
         onToggleSave={toggleSave}
       />
     </>

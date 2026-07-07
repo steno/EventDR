@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { AppHeader } from "@/components/AppHeader";
 import { Hero } from "@/components/Hero";
 import { CategoryGrid } from "@/components/CategoryGrid";
@@ -37,7 +37,7 @@ export function Home({ locale, dict }: HomeProps) {
   const [allEvents, setAllEvents] = useState<Event[]>([]);
   const [refreshKey, setRefreshKey] = useState(0);
 
-  const { toggleSave, isSaved, filterSaved, savedIds } = useSavedEvents();
+  const { toggleSave, isSaved, filterSaved, reconcileWithEvents } = useSavedEvents();
   const geo = useGeolocation();
   const push = usePushNotifications(locale);
 
@@ -46,7 +46,12 @@ export function Home({ locale, dict }: HomeProps) {
 
   const handleEventsLoaded = useCallback((events: Event[]) => {
     setAllEvents(events);
-  }, []);
+    reconcileWithEvents(events);
+  }, [reconcileWithEvents]);
+
+  useEffect(() => {
+    if (allEvents.length > 0) reconcileWithEvents(allEvents);
+  }, [allEvents, reconcileWithEvents]);
 
   const handleSubmitted = useCallback((event: Event, pending?: boolean) => {
     if (!pending) {
@@ -187,7 +192,7 @@ export function Home({ locale, dict }: HomeProps) {
         active={tab === "submit" && submitOpen ? "submit" : tab}
         onChange={handleTabChange}
         dict={dict}
-        savedCount={savedIds.size}
+        savedCount={savedEvents.length}
       />
 
       <EventDetailSheet
@@ -195,7 +200,7 @@ export function Home({ locale, dict }: HomeProps) {
         onClose={() => setSelectedEvent(null)}
         dict={dict}
         locale={locale}
-        isSaved={selectedEvent ? isSaved(selectedEvent.id) : false}
+        isSaved={selectedEvent ? isSaved(selectedEvent) : false}
         onToggleSave={toggleSave}
       />
 

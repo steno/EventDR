@@ -37,6 +37,9 @@ export function eventCuratedKey(title: string): string {
     .slice(0, 48);
 }
 
+/** Stable key for saved events — survives ingest id changes. */
+export const eventSaveKey = eventCuratedKey;
+
 export function applyCuratedEventPatch(event: Event): Event {
   const patch = CURATED_EVENT_PATCHES[eventCuratedKey(event.title)];
   if (!patch) return event;

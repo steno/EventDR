@@ -33,7 +33,7 @@ interface EventDetailSheetProps {
   dict: Dictionary;
   locale: Locale;
   isSaved: boolean;
-  onToggleSave: (id: string) => void;
+  onToggleSave: (event: Pick<Event, "id" | "title">) => void;
 }
 
 export function EventDetailSheet({
@@ -225,7 +225,7 @@ export function EventDetailSheet({
             </button>
             <button
               type="button"
-              onClick={() => onToggleSave(event.id)}
+              onClick={() => onToggleSave(event)}
               className={`
                 flex items-center justify-center gap-2 rounded-2xl py-3.5 text-[15px] font-bold touch-manipulation active:scale-[0.98] transition-transform
                 ${isSaved ? "bg-orange-50 text-orange-600" : "bg-neutral-100 text-neutral-900"}
