@@ -92,6 +92,10 @@ const TodayHighlightsComponent = ({
                   sizes="(max-width: 672px) 86vw, 320px"
                   className="object-cover"
                 />
+                <div
+                  className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-white via-white/70 to-transparent"
+                  aria-hidden
+                />
               </button>
             )}
 
