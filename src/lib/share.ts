@@ -117,7 +117,7 @@ export async function shareViaPlatform(
 
 /** @deprecated Use shareViaPlatform or shareEventNative */
 export async function shareEvent(event: Event): Promise<boolean> {
-  const text = buildEventShareText(event, locale);
+  const text = buildEventShareText(event);
   if (canUseNativeShare()) {
     try {
       await navigator.share({
