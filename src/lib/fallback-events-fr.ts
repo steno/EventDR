@@ -102,11 +102,11 @@ export const FALLBACK_EVENTS_FR: Event[] = [
     id: "cabarete-pilates-reformer",
     title: "Cours collectif Pilates Reformer",
     description:
-      "Sessions collectives de Pilates Reformer à Cabarete avec Rafaella Cirillo. Places limitées — DM ou WhatsApp +1 809 460 5777. Code RC-pilates pour le premier cours.",
+      "Cours collectifs de Pilates Reformer à Cabarete avec Rafaella Cirillo (mar. et jeu. 9 h). L'adresse du studio est communiquée à la réservation — DM ou WhatsApp +1 809 460 5777. Code RC-pilates pour le premier cours.",
     date: "2026-07-08",
     time: "9:00 AM",
     location: "Cabarete",
-    venue: "Cabarete",
+    venue: "Rafaella's Studio",
     category: "health-wellness",
     format: "physical",
     recurrence: "weekly",
