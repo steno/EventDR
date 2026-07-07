@@ -3,25 +3,10 @@ import type { Locale } from "@/i18n/config";
 import { FALLBACK_EVENTS_FR } from "./fallback-events-fr";
 import { getRecurringEvents } from "./recurring-events";
 import { materializeEventDates } from "./event-dates";
+import { filterRemovedSeedEvents } from "./removed-seeds";
 
 const FALLBACK_EVENTS_EN: Event[] = [
   // Music
-  {
-    id: "sosua-beach-jam",
-    title: "Sosúa Beach Live Music",
-    description:
-      "Weekly sunset sessions with local bands and DJs. The kind of pop-up you hear about from a friend, not a ticket site.",
-    date: "2026-07-05",
-    time: "6:00 PM",
-    location: "Sosúa",
-    venue: "Playa Sosúa",
-    category: "music",
-    format: "physical",
-    trending: true,
-    recurrence: "weekly",
-    recurrenceDay: 0,
-    imageEmoji: "🎸",
-  },
   {
     id: "voyvoy-sunday-open-mic",
     title: "VOYVOY Sunday Open Mic & Jam",
@@ -51,21 +36,6 @@ const FALLBACK_EVENTS_EN: Event[] = [
     recurrence: "weekly",
     recurrenceDay: 6,
     imageEmoji: "🪩",
-  },
-  {
-    id: "costambar-acoustic",
-    title: "Costambar Acoustic Sundays",
-    description:
-      "Locals and visitors bring guitars for informal acoustic sets at the beach bar. No cover, just vibes.",
-    date: "2026-07-05",
-    time: "5:00 PM",
-    location: "Costambar",
-    venue: "Costambar Beach Club",
-    category: "music",
-    format: "physical",
-    recurrence: "weekly",
-    recurrenceDay: 0,
-    imageEmoji: "🎸",
   },
   // Concert — weekend music on the Malecón; billed shows announced per date
   {
@@ -102,64 +72,6 @@ const FALLBACK_EVENTS_EN: Event[] = [
     imageEmoji: "🥊",
   },
   {
-    id: "cabarete-kite-fest",
-    title: "Cabarete Kite Festival",
-    description:
-      "International kite surfing competition and beach party on the world-famous Cabarete winds.",
-    date: "2026-07-12",
-    time: "10:00 AM",
-    location: "Cabarete",
-    venue: "Kite Beach",
-    category: "sports",
-    format: "physical",
-    trending: true,
-    imageEmoji: "🏄",
-  },
-  {
-    id: "sosua-beach-volleyball",
-    title: "Sosúa Beach Volleyball League",
-    description:
-      "Weekly pickup beach volleyball — locals, expats, and tourists mix teams on the sand. Just show up.",
-    date: "2026-07-05",
-    time: "4:00 PM",
-    location: "Sosúa",
-    venue: "Playa Sosúa",
-    category: "sports",
-    format: "physical",
-    trending: true,
-    recurrence: "weekly",
-    recurrenceDay: 0,
-    imageEmoji: "🏐",
-  },
-  {
-    id: "pp-sunday-futbol",
-    title: "Puerto Plata Sunday Pickup Fútbol",
-    description:
-      "Informal Sunday football at the municipal field. All skill levels welcome — ask at any colmado near the park.",
-    date: "2026-07-05",
-    time: "8:00 AM",
-    location: "Puerto Plata",
-    venue: "Parque Central",
-    category: "sports",
-    format: "physical",
-    recurrence: "weekly",
-    recurrenceDay: 0,
-    imageEmoji: "⚽",
-  },
-  {
-    id: "cabarete-surf-comp",
-    title: "Cabarete Surf & SUP Race",
-    description:
-      "Community surf and stand-up paddleboard race along Cabarete Bay. Registration at the beach morning-of.",
-    date: "2026-07-13",
-    time: "7:00 AM",
-    location: "Cabarete",
-    venue: "Cabarete Bay",
-    category: "sports",
-    format: "physical",
-    imageEmoji: "🏄",
-  },
-  {
     id: "womens-reconnection-kite-camp-2026",
     title: "Women's Reconnection Kite Camp",
     description:
@@ -194,93 +106,9 @@ const FALLBACK_EVENTS_EN: Event[] = [
     imageEmoji: "🏄",
   },
   // Food & Drinks
-  {
-    id: "pp-food-truck",
-    title: "Puerto Plata Food Truck Rally",
-    description:
-      "Local chefs, craft cocktails, and live merengue by the Malecón. Family-friendly evening.",
-    date: "2026-07-08",
-    time: "5:00 PM",
-    location: "Puerto Plata",
-    venue: "Malecón de Puerto Plata",
-    category: "food-drinks",
-    format: "physical",
-    trending: true,
-    imageEmoji: "🍔",
-  },
-  {
-    id: "cabarete-brunch-market",
-    title: "Cabarete Farmers & Brunch Market",
-    description:
-      "Fresh produce, artisan bread, and beachside brunch stalls. A Saturday ritual for the community.",
-    date: "2026-07-04",
-    time: "9:00 AM",
-    location: "Cabarete",
-    venue: "Cabarete Town Center",
-    category: "food-drinks",
-    format: "physical",
-    recurrence: "weekly",
-    recurrenceDay: 6,
-    imageEmoji: "🍔",
-  },
   // Festivals
-  {
-    id: "circus-fest",
-    title: "Playa Dorada Summer Fest",
-    description:
-      "Three-day festival with live acts, food stalls, and family activities by the resort zone.",
-    date: "2026-07-18",
-    endDate: "2026-07-20",
-    time: "12:00 PM",
-    location: "Playa Dorada",
-    venue: "Playa Dorada Complex",
-    category: "festivals",
-    format: "physical",
-    trending: true,
-    imageEmoji: "🎪",
-  },
-  {
-    id: "pp-cultural-fair",
-    title: "Puerto Plata Cultural Fair",
-    description:
-      "Artisan crafts, típico music, and street food celebrating North Coast heritage in the historic center.",
-    date: "2026-07-15",
-    time: "11:00 AM",
-    location: "Puerto Plata",
-    venue: "Centro Histórico",
-    category: "festivals",
-    format: "physical",
-    imageEmoji: "🎪",
-  },
   // Dance
-  {
-    id: "merengue-night",
-    title: "Merengue & Bachata Night",
-    description:
-      "Dance the night away with live típico bands and open-floor bachata lessons.",
-    date: "2026-07-11",
-    time: "9:00 PM",
-    location: "Puerto Plata",
-    venue: "Centro Histórico",
-    category: "dance",
-    format: "physical",
-    trending: true,
-    imageEmoji: "💃",
-  },
   // Health & Wellness
-  {
-    id: "cabarete-breathwork",
-    title: "Cabarete Breathwork Circle",
-    description:
-      "Small-group breathwork and sound healing session. Limited spots — message the organizer on Instagram.",
-    date: "2026-07-07",
-    time: "6:00 PM",
-    location: "Cabarete",
-    venue: "Cabarete Wellness Studio",
-    category: "health-wellness",
-    format: "physical",
-    imageEmoji: "🧘",
-  },
   {
     id: "cabarete-pilates-reformer",
     title: "Pilates Reformer Group Class",
@@ -298,93 +126,11 @@ const FALLBACK_EVENTS_EN: Event[] = [
     imageEmoji: "🧘",
   },
   // Performances
-  {
-    id: "pp-comedy-night",
-    title: "Puerto Plata Comedy & Storytelling",
-    description:
-      "Bilingual stand-up and storytelling night at a local bar. Underground scene, big laughs.",
-    date: "2026-07-12",
-    time: "8:30 PM",
-    location: "Puerto Plata",
-    venue: "Calle de las Sombrillas",
-    category: "performances",
-    format: "physical",
-    imageEmoji: "🎤",
-  },
   // Business
-  {
-    id: "startup-meetup",
-    title: "North Coast Startup Meetup",
-    description:
-      "Monthly networking for entrepreneurs and remote workers in the DR. Coffee and pitches.",
-    date: "2026-07-10",
-    time: "7:00 PM",
-    location: "Cabarete",
-    venue: "Cowork Cabarete",
-    category: "business",
-    format: "hybrid",
-    imageEmoji: "💼",
-  },
-  {
-    id: "virtual-tech-talk",
-    title: "Caribbean Tech Talks (Online)",
-    description:
-      "Free virtual panel on building products from the Dominican Republic. Q&A included.",
-    date: "2026-07-09",
-    time: "8:00 PM",
-    location: "Online",
-    venue: "Zoom",
-    category: "business",
-    format: "digital",
-    imageEmoji: "💻",
-  },
   // Parties
-  {
-    id: "reggaeton-party",
-    title: "North Coast Pool Party",
-    description:
-      "DJ sets, pool vibes, and tropical cocktails. 21+ after 10 PM.",
-    date: "2026-07-13",
-    time: "4:00 PM",
-    location: "Puerto Plata",
-    venue: "Ocean World",
-    category: "parties",
-    format: "physical",
-    imageEmoji: "🪩",
-  },
-  {
-    id: "cabarete-full-moon",
-    title: "Cabarete Full Moon Beach Party",
-    description:
-      "Monthly full-moon gathering on the beach with fire dancers and DJs. Spread by word of mouth.",
-    date: "2026-07-14",
-    time: "10:00 PM",
-    location: "Cabarete",
-    venue: "Cabarete Beach",
-    category: "parties",
-    format: "physical",
-    trending: true,
-    imageEmoji: "🪩",
-  },
 ];
 
 const FALLBACK_EVENTS_ES: Event[] = [
-  {
-    id: "sosua-beach-jam",
-    title: "Música en Vivo en la Playa de Sosúa",
-    description:
-      "Sesiones semanales al atardecer con bandas locales y DJs. El tipo de plan que te cuenta un amigo, no una web de entradas.",
-    date: "2026-07-05",
-    time: "6:00 PM",
-    location: "Sosúa",
-    venue: "Playa Sosúa",
-    category: "music",
-    format: "physical",
-    trending: true,
-    recurrence: "weekly",
-    recurrenceDay: 0,
-    imageEmoji: "🎸",
-  },
   {
     id: "voyvoy-sunday-open-mic",
     title: "Open Mic y Jam Dominical en VOYVOY",
@@ -416,21 +162,6 @@ const FALLBACK_EVENTS_ES: Event[] = [
     imageEmoji: "🪩",
   },
   {
-    id: "costambar-acoustic",
-    title: "Acústicos Dominicales en Costambar",
-    description:
-      "Locales y visitantes traen guitarras para sesiones informales en el beach bar. Sin cover.",
-    date: "2026-07-05",
-    time: "5:00 PM",
-    location: "Costambar",
-    venue: "Costambar Beach Club",
-    category: "music",
-    format: "physical",
-    recurrence: "weekly",
-    recurrenceDay: 0,
-    imageEmoji: "🎸",
-  },
-  {
     id: "malecon-live-concert",
     title: "Conciertos al Aire Libre en el Malecón",
     description:
@@ -448,20 +179,6 @@ const FALLBACK_EVENTS_ES: Event[] = [
     imageEmoji: "🎵",
   },
   {
-    id: "cabarete-kite-fest",
-    title: "Festival de Kite Surf en Cabarete",
-    description:
-      "Competencia internacional de kite surf y fiesta en la playa con los famosos vientos de Cabarete.",
-    date: "2026-07-12",
-    time: "10:00 AM",
-    location: "Cabarete",
-    venue: "Kite Beach",
-    category: "sports",
-    format: "physical",
-    trending: true,
-    imageEmoji: "🏄",
-  },
-  {
     id: "rumble-in-paradise-12",
     title: "Rumble in Paradise 12",
     description:
@@ -475,50 +192,6 @@ const FALLBACK_EVENTS_ES: Event[] = [
     trending: true,
     sourceUrl: "https://www.facebook.com/events/1614506996278636",
     imageEmoji: "🥊",
-  },
-  {
-    id: "sosua-beach-volleyball",
-    title: "Liga de Voleibol de Playa en Sosúa",
-    description:
-      "Voleibol de playa semanal — locales, expats y turistas mezclan equipos. Solo llega y juega.",
-    date: "2026-07-05",
-    time: "4:00 PM",
-    location: "Sosúa",
-    venue: "Playa Sosúa",
-    category: "sports",
-    format: "physical",
-    trending: true,
-    recurrence: "weekly",
-    recurrenceDay: 0,
-    imageEmoji: "🏐",
-  },
-  {
-    id: "pp-sunday-futbol",
-    title: "Fútbol Dominical en Puerto Plata",
-    description:
-      "Partido informal los domingos en el campo municipal. Todos los niveles — pregunta en cualquier colmado cerca del parque.",
-    date: "2026-07-06",
-    time: "8:00 AM",
-    location: "Puerto Plata",
-    venue: "Parque Central",
-    category: "sports",
-    format: "physical",
-    recurrence: "weekly",
-    recurrenceDay: 0,
-    imageEmoji: "⚽",
-  },
-  {
-    id: "cabarete-surf-comp",
-    title: "Carrera de Surf y SUP en Cabarete",
-    description:
-      "Carrera comunitaria de surf y paddleboard en la bahía. Inscripción en la playa el mismo día.",
-    date: "2026-07-13",
-    time: "7:00 AM",
-    location: "Cabarete",
-    venue: "Bahía de Cabarete",
-    category: "sports",
-    format: "physical",
-    imageEmoji: "🏄",
   },
   {
     id: "womens-reconnection-kite-camp-2026",
@@ -537,90 +210,6 @@ const FALLBACK_EVENTS_ES: Event[] = [
     imageEmoji: "🏄",
   },
   {
-    id: "pp-food-truck",
-    title: "Rally de Food Trucks en Puerto Plata",
-    description:
-      "Chefs locales, cócteles artesanales y merengue en vivo en el Malecón. Ambiente familiar.",
-    date: "2026-07-08",
-    time: "5:00 PM",
-    location: "Puerto Plata",
-    venue: "Malecón de Puerto Plata",
-    category: "food-drinks",
-    format: "physical",
-    trending: true,
-    imageEmoji: "🍔",
-  },
-  {
-    id: "cabarete-brunch-market",
-    title: "Mercado de Brunch en Cabarete",
-    description:
-      "Productos frescos, pan artesanal y puestos de brunch junto al mar. Ritual de los sábados.",
-    date: "2026-07-04",
-    time: "9:00 AM",
-    location: "Cabarete",
-    venue: "Centro de Cabarete",
-    category: "food-drinks",
-    format: "physical",
-    recurrence: "weekly",
-    recurrenceDay: 6,
-    imageEmoji: "🍔",
-  },
-  {
-    id: "circus-fest",
-    title: "Festival de Verano Playa Dorada",
-    description:
-      "Festival de tres días con actos en vivo, puestos de comida y actividades familiares.",
-    date: "2026-07-18",
-    endDate: "2026-07-20",
-    time: "12:00 PM",
-    location: "Playa Dorada",
-    venue: "Complejo Playa Dorada",
-    category: "festivals",
-    format: "physical",
-    trending: true,
-    imageEmoji: "🎪",
-  },
-  {
-    id: "pp-cultural-fair",
-    title: "Feria Cultural de Puerto Plata",
-    description:
-      "Artesanías, música típica y comida callejera celebrando la herencia de la Costa Norte.",
-    date: "2026-07-15",
-    time: "11:00 AM",
-    location: "Puerto Plata",
-    venue: "Centro Histórico",
-    category: "festivals",
-    format: "physical",
-    imageEmoji: "🎪",
-  },
-  {
-    id: "merengue-night",
-    title: "Noche de Merengue y Bachata",
-    description:
-      "Baila toda la noche con bandas de típico en vivo y clases de bachata en la pista.",
-    date: "2026-07-11",
-    time: "9:00 PM",
-    location: "Puerto Plata",
-    venue: "Centro Histórico",
-    category: "dance",
-    format: "physical",
-    trending: true,
-    imageEmoji: "💃",
-  },
-  {
-    id: "cabarete-breathwork",
-    title: "Círculo de Breathwork en Cabarete",
-    description:
-      "Sesión de breathwork y sanación sonora en grupo pequeño. Cupos limitados — escribe al organizador.",
-    date: "2026-07-07",
-    time: "6:00 PM",
-    location: "Cabarete",
-    venue: "Cabarete Wellness Studio",
-    category: "health-wellness",
-    format: "physical",
-    imageEmoji: "🧘",
-  },
-  {
     id: "cabarete-pilates-reformer",
     title: "Clase Grupal de Pilates Reformer",
     description:
@@ -636,72 +225,6 @@ const FALLBACK_EVENTS_ES: Event[] = [
     sourceUrl: "https://www.facebook.com/events/981611704653706/",
     imageEmoji: "🧘",
   },
-  {
-    id: "pp-comedy-night",
-    title: "Comedia y Storytelling en Puerto Plata",
-    description:
-      "Noche bilingüe de stand-up y cuentos en un bar local. Escena underground, muchas risas.",
-    date: "2026-07-12",
-    time: "8:30 PM",
-    location: "Puerto Plata",
-    venue: "Calle de las Sombrillas",
-    category: "performances",
-    format: "physical",
-    imageEmoji: "🎤",
-  },
-  {
-    id: "startup-meetup",
-    title: "Meetup de Startups Costa Norte",
-    description:
-      "Networking mensual para emprendedores y nómadas digitales en RD. Café y pitches.",
-    date: "2026-07-10",
-    time: "7:00 PM",
-    location: "Cabarete",
-    venue: "Cowork Cabarete",
-    category: "business",
-    format: "hybrid",
-    imageEmoji: "💼",
-  },
-  {
-    id: "virtual-tech-talk",
-    title: "Charlas Tech del Caribe (En línea)",
-    description:
-      "Panel virtual gratuito sobre crear productos desde República Dominicana. Incluye Q&A.",
-    date: "2026-07-09",
-    time: "8:00 PM",
-    location: "En línea",
-    venue: "Zoom",
-    category: "business",
-    format: "digital",
-    imageEmoji: "💻",
-  },
-  {
-    id: "reggaeton-party",
-    title: "Fiesta en la Piscina Costa Norte",
-    description:
-      "DJs, ambiente de piscina y cócteles tropicales. +21 después de las 10 PM.",
-    date: "2026-07-13",
-    time: "4:00 PM",
-    location: "Puerto Plata",
-    venue: "Ocean World",
-    category: "parties",
-    format: "physical",
-    imageEmoji: "🪩",
-  },
-  {
-    id: "cabarete-full-moon",
-    title: "Fiesta de Luna Llena en Cabarete",
-    description:
-      "Reunión mensual en la playa con bailarines de fuego y DJs. Se difunde de boca en boca.",
-    date: "2026-07-14",
-    time: "10:00 PM",
-    location: "Cabarete",
-    venue: "Playa Cabarete",
-    category: "parties",
-    format: "physical",
-    trending: true,
-    imageEmoji: "🪩",
-  },
 ];
 
 export function getFallbackEvents(locale: Locale = "en"): Event[] {
@@ -712,7 +235,7 @@ export function getFallbackEvents(locale: Locale = "en"): Event[] {
         ? FALLBACK_EVENTS_FR
         : FALLBACK_EVENTS_EN;
   const merged = [...getRecurringEvents(locale), ...base];
-  return materializeEventDates(merged);
+  return materializeEventDates(filterRemovedSeedEvents(merged));
 }
 
 export function getFallbackForCategory(

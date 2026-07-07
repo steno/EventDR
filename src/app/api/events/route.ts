@@ -22,6 +22,7 @@ import type { Event, EventCategory } from "@/lib/types";
 import { CATEGORY_IDS } from "@/lib/categories";
 import { attachEventImages } from "@/lib/event-images";
 import { applyCuratedEventPatches } from "@/lib/curated-events";
+import { filterRemovedSeedEvents } from "@/lib/removed-seeds";
 import { localizeEventsForDisplay } from "@/lib/localized-text";
 
 export const dynamic = "force-dynamic";
@@ -96,7 +97,7 @@ export async function GET(request: NextRequest) {
   );
 
   function applyScopeFilters(list: Event[]): Event[] {
-    let result = attachVenueSlugs(list);
+    let result = attachVenueSlugs(filterRemovedSeedEvents(list));
     if (venueSlug) {
       result = result.filter((e) => e.venueSlug === venueSlug);
     }
