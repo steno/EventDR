@@ -53,6 +53,8 @@ export interface Event {
   sourceUrl?: string;
   imageEmoji?: string;
   imageUrl?: string;
+  /** Named performers when announced in the source. */
+  lineup?: string[];
   communitySubmitted?: boolean;
   sourceType?: EventSourceType;
   status?: EventStatus;

@@ -111,21 +111,6 @@ const RECURRING_EN: Event[] = [
     imageEmoji: "🏐",
   },
   {
-    id: "malecon-live-weekends",
-    title: "Malecón Weekend Live Music",
-    description:
-      "Free outdoor sets and buskers along the promenade — grab a chair and a cold drink.",
-    date: "2026-01-01",
-    time: "7:00 PM",
-    location: "Puerto Plata",
-    venue: "Malecón de Puerto Plata",
-    venueSlug: "malecon-puerto-plata",
-    category: "concert",
-    format: "physical",
-    recurrence: "weekends",
-    imageEmoji: "🎵",
-  },
-  {
     id: "lax-reggae-friday",
     title: "LAX Friday Reggae Night",
     description:
@@ -286,21 +271,6 @@ const RECURRING_ES: Event[] = [
     imageEmoji: "🏐",
   },
   {
-    id: "malecon-live-weekends",
-    title: "Música en vivo en el Malecón (fin de semana)",
-    description:
-      "Conciertos al aire libre y músicos callejeros en el paseo — silla y cerveza fría.",
-    date: "2026-01-01",
-    time: "7:00 PM",
-    location: "Puerto Plata",
-    venue: "Malecón de Puerto Plata",
-    venueSlug: "malecon-puerto-plata",
-    category: "concert",
-    format: "physical",
-    recurrence: "weekends",
-    imageEmoji: "🎵",
-  },
-  {
     id: "lax-reggae-friday",
     title: "Noche de reggae en LAX (viernes)",
     description:
@@ -459,21 +429,6 @@ const RECURRING_FR: Event[] = [
     recurrence: "weekly",
     recurrenceDay: 4,
     imageEmoji: "🏐",
-  },
-  {
-    id: "malecon-live-weekends",
-    title: "Musique live au Malecón (week-end)",
-    description:
-      "Sets gratuits en plein air le long de la promenade — chaise et boisson fraîche.",
-    date: "2026-01-01",
-    time: "7:00 PM",
-    location: "Puerto Plata",
-    venue: "Malecón de Puerto Plata",
-    venueSlug: "malecon-puerto-plata",
-    category: "concert",
-    format: "physical",
-    recurrence: "weekends",
-    imageEmoji: "🎵",
   },
   {
     id: "lax-reggae-friday",

@@ -26,7 +26,6 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "cowork-weekdays": "cowork-weekdays.jpg",
   "batey-salsa-weekly": "batey-salsa-weekly.jpg",
   "sosua-volleyball-weekly": "sosua-volleyball-weekly.jpg",
-  "malecon-live-weekends": "malecon-live-weekends.jpg",
   "lax-reggae-friday": "lax-reggae-friday.jpg",
   "batey-open-mic-weekly": "batey-open-mic-weekly.jpg",
   "sea-horse-saturday-market": "sea-horse-saturday-market.png",

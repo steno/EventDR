@@ -1,4 +1,5 @@
 import type { Event } from "./types";
+import { normalizeEventLineup } from "./event-lineup";
 
 const NORTH_COAST_CITY =
   /^(Puerto Plata|Sosúa|Sosua|Cabarete|Costambar|Playa Dorada|North Coast, DR)$/i;
@@ -118,5 +119,7 @@ export function sanitizeEventPlaceFields(event: Event): Event {
 }
 
 export function normalizeExtractedEvents(events: Event[]): Event[] {
-  return events.map((event) => sanitizeEventPlaceFields(normalizeEventLocation(event)));
+  return events.map((event) =>
+    normalizeEventLineup(sanitizeEventPlaceFields(normalizeEventLocation(event))),
+  );
 }

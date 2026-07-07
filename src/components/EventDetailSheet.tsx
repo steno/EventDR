@@ -12,6 +12,7 @@ import {
   Share2,
   Heart,
   ExternalLink,
+  Mic2,
   Users,
 } from "lucide-react";
 import type { Event } from "@/lib/types";
@@ -144,9 +145,30 @@ export function EventDetailSheet({
             {event.title}
           </h2>
 
-          <p className="mt-3 text-[15px] text-neutral-600 leading-relaxed line-clamp-2">
+          <p className="mt-3 text-[15px] text-neutral-600 leading-relaxed line-clamp-3">
             {event.description}
           </p>
+
+          {event.lineup && event.lineup.length > 0 && (
+            <div className="mt-4">
+              <div className="flex items-center gap-2 text-neutral-500 mb-2">
+                <Mic2 className="h-4 w-4 flex-shrink-0" />
+                <span className="text-[11px] font-bold uppercase tracking-wide">
+                  {dict.detail.lineup}
+                </span>
+              </div>
+              <ul className="flex flex-wrap gap-2">
+                {event.lineup.map((name) => (
+                  <li
+                    key={name}
+                    className="rounded-full bg-neutral-100 px-3 py-1 text-[13px] font-semibold text-neutral-800"
+                  >
+                    {name}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
 
           <div className="mt-4 space-y-3 text-[15px]">
             <div className="flex items-center gap-3 text-neutral-700">

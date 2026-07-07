@@ -2,6 +2,7 @@ import { FieldValue, type DocumentData } from "firebase-admin/firestore";
 import type { Event, EventCategory, EventFormat, Venue } from "@/lib/types";
 import type { LocalizedText } from "@/lib/localized-text";
 import { sanitizeEventPlaceFields } from "@/lib/event-location";
+import { normalizeLineup } from "@/lib/event-lineup";
 import { applyCuratedEventPatch } from "@/lib/curated-events";
 import { translateEventCopy } from "@/lib/translate-event";
 import { SEED_VENUES } from "@/lib/venues-seed";
@@ -43,6 +44,7 @@ function docToEvent(id: string, data: DocumentData): Event {
     sourceUrl: (data.sourceUrl as string | null) ?? undefined,
     imageEmoji: (data.imageEmoji as string | null) ?? undefined,
     imageUrl: (data.imageUrl as string | null) ?? undefined,
+    lineup: normalizeLineup(data.lineup),
     recurrence: data.recurrence as Event["recurrence"],
     recurrenceDay: (data.recurrenceDay as number | null) ?? undefined,
     recurrenceDays: (data.recurrenceDays as number[] | null) ?? undefined,
@@ -106,6 +108,7 @@ function eventToFirestore(
     sourceType,
     imageEmoji: event.imageEmoji ?? "📌",
     imageUrl: event.imageUrl ?? null,
+    lineup: event.lineup?.length ? event.lineup : null,
     recurrence: event.recurrence ?? null,
     recurrenceDay: event.recurrenceDay ?? null,
     recurrenceDays: event.recurrenceDays ?? null,
@@ -214,6 +217,9 @@ export async function patchEventFields(
   if ("venueSlug" in fields) update.venueSlug = fields.venueSlug ?? null;
   if ("time" in fields) update.time = fields.time ?? null;
   if ("title" in fields) update.title = fields.title ?? null;
+  if ("lineup" in fields) {
+    update.lineup = Array.isArray(fields.lineup) ? fields.lineup : null;
+  }
   if ("venue" in fields || "venueName" in fields) {
     update.venueName = fields.venue ?? fields.venueName ?? null;
   }

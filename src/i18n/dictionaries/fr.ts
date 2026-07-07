@@ -107,6 +107,7 @@ export const fr: Dictionary = {
     close: "Fermer",
     shared: "Partagé !",
     copied: "Copié dans le presse-papiers",
+    lineup: "Artistes",
   },
   submit: {
     title: "Partager un événement",

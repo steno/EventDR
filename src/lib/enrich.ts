@@ -4,6 +4,7 @@ import type { CrawlResult } from "./crawl";
 import type { Locale } from "@/i18n/config";
 import { inferCategory } from "./categorize";
 import { filterNorthCoastUpcomingEvents, localDateISO } from "./event-dates";
+import { normalizeEventLineup, normalizeLineup } from "./event-lineup";
 import { normalizeExtractedEvents } from "./event-location";
 
 const VALID_CATEGORIES = new Set(CATEGORY_IDS);
@@ -113,6 +114,7 @@ Return ONLY valid JSON: an array of event objects. Each object must have:
 - format ("physical", "digital", or "hybrid")
 - trending (boolean, true for popular events)
 - sourceUrl (optional URL from source)
+- lineup (optional array of performer/artist names — only when explicitly named in the source; omit if unknown or TBA)
 - imageEmoji (single emoji matching category)
 
 Focus on real upcoming North Coast events. Assign the most specific category. Skip irrelevant or undated content. Max 15 events.`;
@@ -154,13 +156,19 @@ ${rawContent.slice(0, 18000)}`;
 
   try {
     const parsed = JSON.parse(content) as { events?: Event[] };
-    return (parsed.events ?? []).map((e, i) => ({
-      ...e,
-      id: e.id || `ai-${i}-${slugify(e.title)}`,
-      category: VALID_CATEGORIES.has(e.category as EventCategory)
-        ? e.category
-        : inferCategory(`${e.title} ${e.description}`, category as EventCategory | undefined),
-    }));
+    return (parsed.events ?? []).map((e, i) =>
+      normalizeEventLineup({
+        ...e,
+        id: e.id || `ai-${i}-${slugify(e.title)}`,
+        category: VALID_CATEGORIES.has(e.category as EventCategory)
+          ? e.category
+          : inferCategory(
+              `${e.title} ${e.description}`,
+              category as EventCategory | undefined,
+            ),
+        lineup: normalizeLineup(e.lineup),
+      }),
+    );
   } catch {
     return [];
   }

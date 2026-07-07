@@ -93,6 +93,7 @@ export type Dictionary = {
     close: string;
     shared: string;
     copied: string;
+    lineup: string;
   };
   submit: {
     title: string;
@@ -282,6 +283,7 @@ export const en: Dictionary = {
     close: "Close",
     shared: "Shared!",
     copied: "Copied to clipboard",
+    lineup: "Performers",
   },
   submit: {
     title: "Share an event",
