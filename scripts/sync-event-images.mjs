@@ -25,6 +25,7 @@ const FILE_TO_EVENT_ID = {
   "espadrillas.jpeg": "ingest-make-authentic-espadrilles-in-puerto-plata",
   "butterflyeffect.png": "ingest-18th-annual-cabarete-butterfly-effect",
   "cabclassic.jpg": "cabarete-classic-2026",
+  "rafaella.png": "cabarete-pilates-reformer",
 };
 
 if (!existsSync(sourceDir)) {
