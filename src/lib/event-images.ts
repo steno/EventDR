@@ -20,6 +20,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "ingest-18th-annual-cabarete-butterfly-effect.png",
   "cabarete-classic-2026": "cabarete-classic-2026.jpg",
   "cabarete-pilates-reformer": "cabarete-pilates-reformer.png",
+  "sancocho-sabados-pingui": "sancocho-sabados-pingui.jpg",
 };
 
 /** Legacy ingest ids that share a curated event image. */

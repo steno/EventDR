@@ -114,4 +114,24 @@ export const FALLBACK_EVENTS_FR: Event[] = [
     sourceUrl: "https://www.facebook.com/events/981611704653706/",
     imageEmoji: "🧘",
   },
+  {
+    id: "sancocho-sabados-pingui",
+    title: "Sancocho du samedi chez Pingüi",
+    description:
+      "Le samedi goûte la tradition chez Pingüi Bar — dégustez un sancocho face à la mer à Playa El Pueblito. Réunissez amis et famille pour un après-midi de cuisine dominicaine avec vue sur l'océan (12 h–16 h).",
+    date: "2026-07-11",
+    time: "12:00 PM",
+    location: "Puerto Plata",
+    venue: "Pingüi Bar Restaurant & Piña Colada House",
+    address: "C. B, Puerto Plata 57000",
+    lat: 19.78082,
+    lng: -70.69404,
+    category: "food-drinks",
+    format: "physical",
+    recurrence: "weekly",
+    recurrenceDay: 6,
+    sourceUrl:
+      "https://www.facebook.com/events/1547520700301499/1547522116968024/",
+    imageEmoji: "🍲",
+  },
 ];

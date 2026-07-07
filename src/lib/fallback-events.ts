@@ -124,6 +124,26 @@ const FALLBACK_EVENTS_EN: Event[] = [
     imageEmoji: "🏄",
   },
   // Food & Drinks
+  {
+    id: "sancocho-sabados-pingui",
+    title: "Sancocho Saturdays at Pingüi",
+    description:
+      "Saturdays taste like tradition at Pingüi Bar — share a bowl of sancocho facing the sea at Playa El Pueblito. Gather friends and family for an afternoon of Dominican comfort food and ocean views (12–4 PM).",
+    date: "2026-07-11",
+    time: "12:00 PM",
+    location: "Puerto Plata",
+    venue: "Pingüi Bar Restaurant & Piña Colada House",
+    address: "C. B, Puerto Plata 57000",
+    lat: 19.78082,
+    lng: -70.69404,
+    category: "food-drinks",
+    format: "physical",
+    recurrence: "weekly",
+    recurrenceDay: 6,
+    sourceUrl:
+      "https://www.facebook.com/events/1547520700301499/1547522116968024/",
+    imageEmoji: "🍲",
+  },
   // Festivals
   // Dance
   // Health & Wellness
@@ -260,6 +280,26 @@ const FALLBACK_EVENTS_ES: Event[] = [
     recurrenceDays: [2, 4],
     sourceUrl: "https://www.facebook.com/events/981611704653706/",
     imageEmoji: "🧘",
+  },
+  {
+    id: "sancocho-sabados-pingui",
+    title: "Sancocho Sábados en Pingüi",
+    description:
+      "¡Los sábados tienen sabor a tradición! Disfruta de nuestro sancocho frente al mar en Playa El Pueblito en Pingüi Bar. Reúne a tus amigos y familiares para compartir una tarde de comida dominicana con vista al océano (12–4 PM).",
+    date: "2026-07-11",
+    time: "12:00 PM",
+    location: "Puerto Plata",
+    venue: "Pingüi Bar Restaurant & Piña Colada House",
+    address: "C. B, Puerto Plata 57000",
+    lat: 19.78082,
+    lng: -70.69404,
+    category: "food-drinks",
+    format: "physical",
+    recurrence: "weekly",
+    recurrenceDay: 6,
+    sourceUrl:
+      "https://www.facebook.com/events/1547520700301499/1547522116968024/",
+    imageEmoji: "🍲",
   },
 ];
 
