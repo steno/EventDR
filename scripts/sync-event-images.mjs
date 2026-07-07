@@ -24,6 +24,7 @@ const FILE_TO_EVENT_ID = {
   "CabaretePickleBallMeet.JPG": "community-pickleball-cabarete",
   "espadrillas.jpeg": "ingest-make-authentic-espadrilles-in-puerto-plata",
   "butterflyeffect.png": "ingest-18th-annual-cabarete-butterfly-effect",
+  "cabclassic.jpg": "cabarete-classic-2026",
 };
 
 if (!existsSync(sourceDir)) {

@@ -18,6 +18,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "ingest-make-authentic-espadrilles-in-puerto-plata.jpg",
   "ingest-18th-annual-cabarete-butterfly-effect":
     "ingest-18th-annual-cabarete-butterfly-effect.png",
+  "cabarete-classic-2026": "cabarete-classic-2026.jpg",
 };
 
 /** Legacy ingest ids that share a curated event image. */
