@@ -4,6 +4,7 @@ import { isValidLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { SITE_URL } from "@/lib/site-url";
 import { SITE_NAME, defaultOpenGraph, defaultTwitter } from "@/lib/seo";
+import { Analytics } from "@/components/Analytics";
 import "../globals.css";
 
 const syne = Syne({
@@ -86,6 +87,7 @@ export default async function LocaleLayout({
         <link rel="apple-touch-icon" href="/icons/icon-192.png" />
       </head>
       <body className="min-h-full flex flex-col font-sans antialiased bg-neutral-50 text-neutral-900">
+        <Analytics />
         {children}
       </body>
     </html>

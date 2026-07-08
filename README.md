@@ -66,6 +66,7 @@ Open [http://localhost:3000](http://localhost:3000).
 
 | Variable | Required | Description |
 |----------|----------|-------------|
+| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | No | Google Analytics 4 tracking (see [ANALYTICS_SETUP.md](ANALYTICS_SETUP.md)) |
 | `BRAVE_SEARCH_API_KEY` | No | Optional web search for ingest (~2k free queries/month at [brave.com/search/api](https://brave.com/search/api)) |
 | `OPENAI_API_KEY` | No | Powers AI event card enrichment |
 | `OPENAI_MODEL` | No | Default: `gpt-4o-mini` |
