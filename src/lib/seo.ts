@@ -7,7 +7,7 @@ import { formatEventPlace } from "@/lib/event-location";
 import { SITE_URL } from "@/lib/site-url";
 
 export const SITE_NAME = "POP Events";
-export const DEFAULT_OG_IMAGE = "/icons/icon-512.png";
+export const DEFAULT_OG_IMAGE = "/og-image.png";
 
 const OG_LOCALE: Record<Locale, string> = {
   en: "en_US",
@@ -61,7 +61,7 @@ export function defaultOpenGraph(
     siteName: SITE_NAME,
     locale: OG_LOCALE[locale],
     type: "website",
-    images: [{ url: DEFAULT_OG_IMAGE, width: 512, height: 512, alt: SITE_NAME }],
+    images: [{ url: DEFAULT_OG_IMAGE, width: 1200, height: 630, alt: SITE_NAME }],
     ...overrides,
   };
 }
@@ -277,5 +277,32 @@ export function buildBreadcrumbJsonLd(
       name: item.name,
       item: absoluteUrl(item.path),
     })),
+  };
+}
+
+export function buildLocalBusinessJsonLd(
+  venue: Venue,
+  locale: Locale,
+): Record<string, unknown> {
+  const url = absoluteUrl(localePath(locale, `/venue/${venue.slug}`));
+  
+  return {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: venue.name,
+    description: venue.description,
+    url,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: venue.city,
+      addressCountry: "DO",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: venue.lat,
+      longitude: venue.lng,
+    },
+    inLanguage: locale,
+    ...(venue.website ? { sameAs: [venue.website] } : {}),
   };
 }
