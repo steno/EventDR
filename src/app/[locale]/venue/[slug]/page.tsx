@@ -8,6 +8,7 @@ import { isValidLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import {
   buildBreadcrumbJsonLd,
+  buildLocalBusinessJsonLd,
   buildVenueMetadata,
   localePath,
 } from "@/lib/seo";
@@ -49,10 +50,13 @@ export default async function Page({
   return (
     <>
       <JsonLd
-        data={buildBreadcrumbJsonLd([
-          { name: dict.seo.siteName, path: localePath(locale) },
-          { name: venue.name, path: localePath(locale, `/venue/${venue.slug}`) },
-        ])}
+        data={[
+          buildLocalBusinessJsonLd(venue, locale),
+          buildBreadcrumbJsonLd([
+            { name: dict.seo.siteName, path: localePath(locale) },
+            { name: venue.name, path: localePath(locale, `/venue/${venue.slug}`) },
+          ]),
+        ]}
       />
       <VenuePage venue={venue} locale={locale} dict={dict} />
     </>

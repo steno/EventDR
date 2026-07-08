@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { Syne, DM_Sans } from "next/font/google";
 import { isValidLocale, locales } from "@/i18n/config";
+import { getDictionary } from "@/i18n/dictionaries";
 import { SITE_URL } from "@/lib/site-url";
 import { SITE_NAME, defaultOpenGraph, defaultTwitter } from "@/lib/seo";
 import "../globals.css";
@@ -27,14 +28,16 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const validLocale = isValidLocale(locale) ? locale : "en";
+  const dict = getDictionary(validLocale);
+  
   return {
     metadataBase: new URL(SITE_URL),
     title: {
       default: SITE_NAME,
     },
-    description:
-      "Discover events in Puerto Plata, Sosúa, and Cabarete on the North Coast of the Dominican Republic.",
-    openGraph: defaultOpenGraph(isValidLocale(locale) ? locale : "en"),
+    description: dict.meta.description,
+    openGraph: defaultOpenGraph(validLocale),
     twitter: defaultTwitter(),
     robots: {
       index: true,
