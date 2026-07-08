@@ -35,6 +35,9 @@ self.addEventListener("fetch", (event) => {
   const url = new URL(event.request.url);
   if (url.pathname.startsWith("/api/")) return;
 
+  const isHtmlPage = event.request.destination === "document" || 
+                     event.request.headers.get("accept")?.includes("text/html");
+
   event.respondWith(
     caches.match(event.request).then((cached) => {
       const fetchPromise = fetch(event.request)
@@ -46,6 +49,12 @@ self.addEventListener("fetch", (event) => {
           return response;
         })
         .catch(() => cached);
+      
+      // Network-first for HTML pages to get latest updates
+      // Cache-first for assets to load faster
+      if (isHtmlPage) {
+        return fetchPromise.catch(() => cached);
+      }
       return cached ?? fetchPromise;
     }),
   );
