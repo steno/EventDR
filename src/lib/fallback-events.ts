@@ -180,20 +180,6 @@ const FALLBACK_EVENTS_EN: Event[] = [
     sourceUrl: "https://www.facebook.com/events/1017381540870816/",
     imageEmoji: "⚽",
   },
-  {
-    id: "party-puerto-plata-2026",
-    title: "Party in Puerto Plata",
-    description:
-      "Nightlife party in San Felipe, Puerto Plata — public event listed on Facebook with growing interest. Check the event page for venue and lineup updates.",
-    date: "2026-07-24",
-    time: "9:00 PM",
-    location: "Puerto Plata",
-    venue: "San Felipe de Puerto Plata",
-    category: "parties",
-    format: "physical",
-    sourceUrl: "https://www.facebook.com/events/749996274498100/",
-    imageEmoji: "🎉",
-  },
 ];
 
 const FALLBACK_EVENTS_ES: Event[] = [
@@ -342,20 +328,6 @@ const FALLBACK_EVENTS_ES: Event[] = [
     format: "physical",
     sourceUrl: "https://www.facebook.com/events/1017381540870816/",
     imageEmoji: "⚽",
-  },
-  {
-    id: "party-puerto-plata-2026",
-    title: "Party in Puerto Plata",
-    description:
-      "Fiesta nocturna en San Felipe, Puerto Plata — evento público en Facebook. Revisa la página del evento para lugar y detalles.",
-    date: "2026-07-24",
-    time: "9:00 PM",
-    location: "Puerto Plata",
-    venue: "San Felipe de Puerto Plata",
-    category: "parties",
-    format: "physical",
-    sourceUrl: "https://www.facebook.com/events/749996274498100/",
-    imageEmoji: "🎉",
   },
 ];
 

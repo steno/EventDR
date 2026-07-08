@@ -22,6 +22,7 @@ export const REMOVED_SEED_EVENT_IDS = new Set([
   "sosua-beach-jam",
   "costambar-acoustic",
   "pp-sunday-futbol",
+  "party-puerto-plata-2026",
 ]);
 
 export function filterRemovedSeedEvents(events: Event[]): Event[] {
