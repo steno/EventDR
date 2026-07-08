@@ -1,6 +1,6 @@
 "use client";
 
-import { memo } from "react";
+import { memo, useMemo } from "react";
 import { Calendar, Clock, MapPin, Navigation } from "lucide-react";
 import { EventImage } from "@/components/EventImage";
 import type { Event } from "@/lib/types";
@@ -17,17 +17,13 @@ interface TodayHighlightsProps {
   onSelectEvent: (event: Event) => void;
 }
 
-function parseTimeMinutes(time?: string): number {
-  if (!time) return Number.MAX_SAFE_INTEGER;
-  const match = [...time.matchAll(/(\d{1,2})(?::(\d{2}))?\s*(AM|PM)/gi)].at(-1);
-  if (!match) return Number.MAX_SAFE_INTEGER;
-
-  let hours = Number(match[1]);
-  const minutes = Number(match[2] ?? "0");
-  const meridiem = match[3].toUpperCase();
-  if (meridiem === "PM" && hours !== 12) hours += 12;
-  if (meridiem === "AM" && hours === 12) hours = 0;
-  return hours * 60 + minutes;
+function shuffle<T>(items: T[]): T[] {
+  const result = [...items];
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [result[i], result[j]] = [result[j], result[i]];
+  }
+  return result;
 }
 
 function happensToday(event: Event): boolean {
@@ -47,17 +43,15 @@ const TodayHighlightsComponent = ({
   dict,
   onSelectEvent,
 }: TodayHighlightsProps) => {
-  const todayEvents = events
-    .filter(happensToday)
-    .sort((a, b) => {
-      if (!a.recurrence && b.recurrence) return -1;
-      if (a.recurrence && !b.recurrence) return 1;
-      if (a.trending && !b.trending) return -1;
-      if (!a.trending && b.trending) return 1;
-      if (a.imageUrl && !b.imageUrl) return -1;
-      if (!a.imageUrl && b.imageUrl) return 1;
-      return parseTimeMinutes(a.time) - parseTimeMinutes(b.time);
-    });
+  const todayEventKey = useMemo(
+    () => events.filter(happensToday).map((event) => event.id).join("\0"),
+    [events],
+  );
+
+  const todayEvents = useMemo(() => {
+    if (!todayEventKey) return [];
+    return shuffle(events.filter(happensToday));
+  }, [events, todayEventKey]);
 
   if (todayEvents.length === 0) return null;
 
