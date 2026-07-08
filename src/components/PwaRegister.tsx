@@ -39,6 +39,13 @@ export function PwaRegister() {
 
     const registerSw = async () => {
       try {
+        if ("caches" in window) {
+          const keys = await caches.keys();
+          await Promise.all(
+            keys.filter((key) => key.startsWith("eventdr-")).map((key) => caches.delete(key)),
+          );
+        }
+
         const reg = await navigator.serviceWorker.register("/sw.js");
         setRegistration(reg);
 
