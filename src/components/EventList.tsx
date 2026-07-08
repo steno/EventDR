@@ -179,13 +179,10 @@ export function EventList({
         </div>
       ) : (
         <>
-          {trending.length > 0 && !category && !searchQuery && (
+          {sortByDistance && !category && !searchQuery ? (
             <section>
-              <h3 className="text-xs font-bold uppercase tracking-widest text-orange-500 mb-3">
-                {dict.events.mostPopular}
-              </h3>
               <div className="space-y-3">
-                {trending.map((event) => (
+                {filtered.map((event) => (
                   <EventCard
                     key={event.id}
                     event={event}
@@ -196,30 +193,51 @@ export function EventList({
                 ))}
               </div>
             </section>
-          )}
-
-          {rest.length > 0 && (
-            <section>
-              {!category && trending.length > 0 && !searchQuery && (
-                <h3 className="text-xs font-bold uppercase tracking-widest text-neutral-400 mb-3">
-                  {dict.events.moreEvents}
-                </h3>
+          ) : (
+            <>
+              {trending.length > 0 && !category && !searchQuery && (
+                <section>
+                  <h3 className="text-xs font-bold uppercase tracking-widest text-orange-500 mb-3">
+                    {dict.events.mostPopular}
+                  </h3>
+                  <div className="space-y-3">
+                    {trending.map((event) => (
+                      <EventCard
+                        key={event.id}
+                        event={event}
+                        dict={dict}
+                        locale={locale}
+                        onSelect={onSelectEvent}
+                      />
+                    ))}
+                  </div>
+                </section>
               )}
-              <div className="space-y-3">
-                {(category || trending.length === 0 || searchQuery
-                  ? filtered
-                  : rest
-                ).map((event) => (
-                  <EventCard
-                    key={event.id}
-                    event={event}
-                    dict={dict}
-                    locale={locale}
-                    onSelect={onSelectEvent}
-                  />
-                ))}
-              </div>
-            </section>
+
+              {rest.length > 0 && (
+                <section>
+                  {!category && trending.length > 0 && !searchQuery && (
+                    <h3 className="text-xs font-bold uppercase tracking-widest text-neutral-400 mb-3">
+                      {dict.events.moreEvents}
+                    </h3>
+                  )}
+                  <div className="space-y-3">
+                    {(category || trending.length === 0 || searchQuery
+                      ? filtered
+                      : rest
+                    ).map((event) => (
+                      <EventCard
+                        key={event.id}
+                        event={event}
+                        dict={dict}
+                        locale={locale}
+                        onSelect={onSelectEvent}
+                      />
+                    ))}
+                  </div>
+                </section>
+              )}
+            </>
           )}
         </>
       )}
