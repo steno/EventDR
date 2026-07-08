@@ -87,7 +87,13 @@ export function EventList({
     let result = events;
     result = filterByTimeRange(result, timeRange);
     result = searchEvents(result, searchQuery);
-    if (sortByDistance && userLat != null && userLng != null) {
+    if (
+      sortByDistance &&
+      userLat != null &&
+      userLng != null &&
+      isFinite(userLat) &&
+      isFinite(userLng)
+    ) {
       result = sortEventsByDistance(result, userLat, userLng);
     }
     return result;

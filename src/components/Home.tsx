@@ -19,6 +19,7 @@ import { TodayHighlights } from "@/components/TodayHighlights";
 import { useSavedEvents } from "@/hooks/useSavedEvents";
 import { useGeolocation } from "@/hooks/useGeolocation";
 import { usePushNotifications } from "@/hooks/usePushNotifications";
+import { MapPin } from "lucide-react";
 import type { Event } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
 import type { AppTab, Dictionary } from "@/i18n/dictionaries";
@@ -40,7 +41,11 @@ export function Home({ locale, dict }: HomeProps) {
   const geo = useGeolocation();
   const push = usePushNotifications(locale);
 
-  const hasUserLocation = geo.lat != null && geo.lng != null;
+  const hasUserLocation =
+    geo.lat != null &&
+    geo.lng != null &&
+    isFinite(geo.lat) &&
+    isFinite(geo.lng);
 
   const handleEventsLoaded = useCallback((events: Event[]) => {
     setAllEvents(events);
@@ -104,6 +109,27 @@ export function Home({ locale, dict }: HomeProps) {
               <div className="mb-8">
                 <VenueStrip locale={locale} dict={dict} />
               </div>
+              {!hasUserLocation && !geo.loading && geo.error && (
+                <div className="mb-6 rounded-xl bg-orange-50 border border-orange-200 p-4">
+                  <div className="flex items-start gap-3">
+                    <MapPin className="h-5 w-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                    <div className="flex-1 min-w-0">
+                      <p className="text-sm font-semibold text-orange-900 mb-1">
+                        {dict.events.nearMe} {dict.events.nearMeDenied}
+                      </p>
+                      <p className="text-xs text-orange-700 mb-3">
+                        Enable location to see "{dict.events.ourPicks}" sorted by distance with travel times.
+                      </p>
+                      <button
+                        onClick={() => geo.requestLocation()}
+                        className="text-xs font-bold text-orange-600 hover:text-orange-700 underline"
+                      >
+                        Try again
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              )}
               <EventList
                 locale={locale}
                 dict={dict}
