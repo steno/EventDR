@@ -21,6 +21,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "cabarete-classic-2026": "cabarete-classic-2026.jpg",
   "cabarete-pilates-reformer": "cabarete-pilates-reformer.png",
   "sancocho-sabados-pingui": "sancocho-sabados-pingui.jpg",
+  "inicio-del-campamento-pp-2026": "inicio-del-campamento-pp-2026.jpg",
 };
 
 /** Legacy ingest ids that share a curated event image. */

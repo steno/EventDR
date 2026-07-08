@@ -26,6 +26,7 @@ const FILE_TO_EVENT_ID = {
   "butterflyeffect.png": "ingest-18th-annual-cabarete-butterfly-effect",
   "cabclassic.jpg": "cabarete-classic-2026",
   "rafaella.png": "cabarete-pilates-reformer",
+  "campamento.jpg": "inicio-del-campamento-pp-2026",
 };
 
 if (!existsSync(sourceDir)) {
