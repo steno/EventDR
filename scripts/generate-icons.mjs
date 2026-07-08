@@ -5,8 +5,19 @@ import { dirname, join } from "path";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const iconsDir = join(root, "public", "icons");
-const logoPath = join(root, "popevent-images", "pop-home-logo.jpeg");
+const jpegLogoPath = join(root, "popevent-images", "pop-home-logo.jpeg");
+const transparentLogoPath = join(root, "popevent-images", "poplogo.png");
 const headerLogoOut = join(root, "public", "poplogo-safe.png");
+
+// Prefer a transparent source image when available. Your `pop-home-logo.jpeg`
+// has no alpha channel, so it would bake in a black background.
+let logoPath = transparentLogoPath;
+try {
+  const meta = await sharp(jpegLogoPath).metadata();
+  if (meta.hasAlpha) logoPath = jpegLogoPath;
+} catch {
+  // Ignore and keep transparentLogoPath
+}
 
 async function pngFromLogo(size, out, inset = 0) {
   const resizeTo = size - inset * 2;
