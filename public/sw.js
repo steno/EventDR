@@ -1,4 +1,4 @@
-const CACHE_NAME = "eventdr-v9";
+const CACHE_NAME = "eventdr-v10";
 const STATIC_ASSETS = [
   "/manifest.webmanifest",
   "/icons/icon-192.png",
@@ -17,6 +17,7 @@ self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => cache.addAll(STATIC_ASSETS)),
   );
+  self.skipWaiting();
 });
 
 self.addEventListener("message", (event) => {
@@ -28,11 +29,7 @@ self.addEventListener("message", (event) => {
 self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches.keys().then((keys) =>
-      Promise.all(
-        keys
-          .filter((key) => key !== CACHE_NAME)
-          .map((key) => caches.delete(key)),
-      ),
+      Promise.all(keys.map((key) => caches.delete(key))),
     ).then(() => caches.open(CACHE_NAME).then((cache) => cache.addAll(STATIC_ASSETS))),
   );
   self.clients.claim();
@@ -62,12 +59,8 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  // Pages and app bundles: network-first so reinstalls and deploys always get fresh data.
-  event.respondWith(
-    fetch(event.request)
-      .then((response) => response)
-      .catch(() => caches.match(event.request)),
-  );
+  // Never serve cached HTML or JS — always hit the network.
+  event.respondWith(fetch(event.request));
 });
 
 self.addEventListener("push", (event) => {

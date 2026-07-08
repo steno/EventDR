@@ -2,8 +2,8 @@
 
 import { useCallback, useEffect, useState } from "react";
 
-// Keep in sync with CACHE_NAME in public/sw.js (eventdr-v9 → "9").
-const PWA_VERSION = "9";
+// Keep in sync with CACHE_NAME in public/sw.js (eventdr-v10 → "10").
+const PWA_VERSION = "10";
 
 export function PwaRegister() {
   const [updateAvailable, setUpdateAvailable] = useState(false);
@@ -60,13 +60,6 @@ export function PwaRegister() {
 
     const registerSw = async () => {
       try {
-        if ("caches" in window) {
-          const keys = await caches.keys();
-          await Promise.all(
-            keys.filter((key) => key.startsWith("eventdr-")).map((key) => caches.delete(key)),
-          );
-        }
-
         const reg = await navigator.serviceWorker.register(
           `/sw.js?v=${PWA_VERSION}`,
         );

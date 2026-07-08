@@ -75,6 +75,10 @@ function sortEvents(events: Event[]): Event[] {
   return sortUpcomingEvents(events);
 }
 
+const NO_STORE_HEADERS = {
+  "Cache-Control": "no-store, max-age=0, must-revalidate",
+};
+
 export async function GET(request: NextRequest) {
   const { searchParams } = request.nextUrl;
   const categoryParam = searchParams.get("category");
@@ -115,11 +119,14 @@ export async function GET(request: NextRequest) {
         if (nearMe && userLat != null && userLng != null) {
           events = sortByDistance(events, userLat, userLng);
         }
-        return NextResponse.json({
-          events,
-          source: "cache",
-          region: REGION_LABELS[locale],
-        });
+        return NextResponse.json(
+          {
+            events,
+            source: "cache",
+            region: REGION_LABELS[locale],
+          },
+          { headers: NO_STORE_HEADERS },
+        );
       }
     }
 
@@ -181,14 +188,17 @@ export async function GET(request: NextRequest) {
             ? "live"
             : "fallback";
 
-    return NextResponse.json({
-      events,
-      source,
-      region: REGION_LABELS[locale],
-      crawledAt: new Date().toISOString(),
-      crawledSources: crawlResults.length,
-      dbCount: dbEvents.length,
-    });
+    return NextResponse.json(
+      {
+        events,
+        source,
+        region: REGION_LABELS[locale],
+        crawledAt: new Date().toISOString(),
+        crawledSources: crawlResults.length,
+        dbCount: dbEvents.length,
+      },
+      { headers: NO_STORE_HEADERS },
+    );
   } catch (error) {
     console.error("Events API error:", error);
     let events = applyScopeFilters(
@@ -202,11 +212,14 @@ export async function GET(request: NextRequest) {
     if (nearMe && userLat != null && userLng != null) {
       events = sortByDistance(attachCoords(events), userLat, userLng);
     }
-    return NextResponse.json({
-      events,
-      source: "fallback",
-      region: REGION_LABELS[locale],
-      error: getDictionary(locale).events.sourceFallback,
-    });
+    return NextResponse.json(
+      {
+        events,
+        source: "fallback",
+        region: REGION_LABELS[locale],
+        error: getDictionary(locale).events.sourceFallback,
+      },
+      { headers: NO_STORE_HEADERS },
+    );
   }
 }

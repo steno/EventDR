@@ -59,7 +59,7 @@ export function EventList({
         if (category) params.set("category", category);
         if (refresh) params.set("refresh", "true");
 
-        const res = await fetch(`/api/events?${params}`);
+        const res = await fetch(`/api/events?${params}`, { cache: "no-store" });
         const data = (await res.json()) as {
           events: Event[];
           source: string;
