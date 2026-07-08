@@ -5,6 +5,7 @@ import { getDictionary } from "@/i18n/dictionaries";
 import { SITE_URL } from "@/lib/site-url";
 import { SITE_NAME, defaultOpenGraph, defaultTwitter } from "@/lib/seo";
 import { Analytics } from "@/components/Analytics";
+import { AppVersionBanner } from "@/components/AppVersionBanner";
 import "../globals.css";
 
 const syne = Syne({
@@ -74,6 +75,8 @@ export default async function LocaleLayout({
   const { locale } = await params;
   if (!isValidLocale(locale)) notFound();
 
+  const dict = getDictionary(locale);
+
   return (
     <html
       lang={locale}
@@ -85,14 +88,10 @@ export default async function LocaleLayout({
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <link rel="apple-touch-icon" href="/icons/icon-192.png" />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){try{var k="popevents-app-version";fetch("/app-version.json",{cache:"no-store"}).then(function(r){return r.json()}).then(function(d){var s=localStorage.getItem(k);if(s&&s!==d.version){var tasks=[];if("serviceWorker" in navigator){tasks.push(navigator.serviceWorker.getRegistrations().then(function(regs){return Promise.all(regs.map(function(reg){return reg.unregister()}))}))}if("caches" in window){tasks.push(caches.keys().then(function(keys){return Promise.all(keys.map(function(key){return caches.delete(key)}))}))}Promise.all(tasks).then(function(){localStorage.setItem(k,d.version);location.reload()})}else if(!s){localStorage.setItem(k,d.version)}}).catch(function(){})}catch(e){}})();`,
-          }}
-        />
       </head>
       <body className="min-h-full flex flex-col font-sans antialiased bg-neutral-50 text-neutral-900">
         <Analytics />
+        <AppVersionBanner dict={dict} />
         {children}
       </body>
     </html>

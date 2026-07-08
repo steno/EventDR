@@ -11,7 +11,7 @@ const nextConfig: NextConfig = {
     // Keep it scoped so we don't kill caching for all assets.
     return [
       {
-        source: "/app-version.json",
+        source: "/api/app-version",
         headers: [
           { key: "Cache-Control", value: "no-store, max-age=0, must-revalidate" },
         ],

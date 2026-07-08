@@ -172,6 +172,13 @@ export const es: Dictionary = {
     subtitle: "Añádelo a tu pantalla de inicio — funciona como una app.",
     button: "Instalar",
     dismiss: "Ahora no",
+    iosTitle: "Añade POP Eventos a la pantalla de inicio",
+    iosSubtitle: "Toca Compartir y luego \"Añadir a pantalla de inicio\".",
+  },
+  update: {
+    title: "Actualización disponible",
+    subtitle: "Actualiza para ver los últimos eventos y mejoras.",
+    button: "Actualizar app",
   },
   footer: {
     tagline: "POP Eventos · Costa Norte República Dominicana",
