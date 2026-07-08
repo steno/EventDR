@@ -17,13 +17,63 @@ interface TodayHighlightsProps {
   onSelectEvent: (event: Event) => void;
 }
 
-function shuffle<T>(items: T[]): T[] {
-  const result = [...items];
-  for (let i = result.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [result[i], result[j]] = [result[j], result[i]];
+function parseEventTimeWindow(time?: string): { start: number; end: number } | null {
+  if (!time) return null;
+  const matches = [...time.matchAll(/(\d{1,2})(?::(\d{2}))?\s*(AM|PM)/gi)];
+  if (matches.length === 0) return null;
+
+  const times = matches
+    .map((match) => {
+      let hours = Number(match[1]);
+      const minutes = Number(match[2] ?? "0");
+      const meridiem = match[3].toUpperCase();
+      if (meridiem === "PM" && hours !== 12) hours += 12;
+      if (meridiem === "AM" && hours === 12) hours = 0;
+      return hours * 60 + minutes;
+    })
+    .filter((value) => Number.isFinite(value));
+
+  if (times.length === 0) return null;
+
+  const start = times[0];
+  const end = times.length > 1 ? times[times.length - 1] : start + 120;
+  return { start, end: Math.max(end, start) };
+}
+
+function currentMinutes(): number {
+  const now = new Date();
+  return now.getHours() * 60 + now.getMinutes();
+}
+
+function isHappeningNow(event: Event): boolean {
+  const window = parseEventTimeWindow(event.time);
+  if (!window) return true;
+
+  const now = currentMinutes();
+  if (window.end < window.start) {
+    return now >= window.start || now <= window.end;
   }
-  return result;
+  return now >= window.start && now <= window.end;
+}
+
+function todayHighlightSortRank(event: Event): number {
+  if (isHappeningNow(event)) return 0;
+
+  const window = parseEventTimeWindow(event.time);
+  if (!window) return 0;
+
+  return currentMinutes() < window.start ? 1 : 2;
+}
+
+function compareTodayHighlights(a: Event, b: Event): number {
+  const rankA = todayHighlightSortRank(a);
+  const rankB = todayHighlightSortRank(b);
+  if (rankA !== rankB) return rankA - rankB;
+
+  const startA = parseEventTimeWindow(a.time)?.start ?? 0;
+  const startB = parseEventTimeWindow(b.time)?.start ?? 0;
+  if (rankA === 2) return startB - startA;
+  return startA - startB;
 }
 
 function happensToday(event: Event): boolean {
@@ -43,15 +93,10 @@ const TodayHighlightsComponent = ({
   dict,
   onSelectEvent,
 }: TodayHighlightsProps) => {
-  const todayEventKey = useMemo(
-    () => events.filter(happensToday).map((event) => event.id).join("\0"),
+  const todayEvents = useMemo(
+    () => events.filter(happensToday).sort(compareTodayHighlights),
     [events],
   );
-
-  const todayEvents = useMemo(() => {
-    if (!todayEventKey) return [];
-    return shuffle(events.filter(happensToday));
-  }, [events, todayEventKey]);
 
   if (todayEvents.length === 0) return null;
 
