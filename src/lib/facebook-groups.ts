@@ -57,6 +57,8 @@ export const FACEBOOK_SEED_EVENT_IDS = [
   "womens-reconnection-kite-camp-2026",
   "cabarete-pilates-reformer",
   "cabarete-classic-2026",
+  "inicio-del-campamento-pp-2026",
+  "party-puerto-plata-2026",
 ] as const;
 
 export function facebookGroupEventUrls(): string[] {

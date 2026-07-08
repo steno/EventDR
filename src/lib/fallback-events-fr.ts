@@ -134,4 +134,32 @@ export const FALLBACK_EVENTS_FR: Event[] = [
       "https://www.facebook.com/events/1547520700301499/1547522116968024/",
     imageEmoji: "🍲",
   },
+  {
+    id: "inicio-del-campamento-pp-2026",
+    title: "Ouverture du camp sportif",
+    description:
+      "Lancement d'un camp sportif dans le quartier historique de San Felipe, Puerto Plata — organisé par Sin pelos en la lengua. Consultez l'événement Facebook pour l'inscription.",
+    date: "2026-07-10",
+    time: "5:00 PM",
+    location: "Puerto Plata",
+    venue: "San Felipe de Puerto Plata",
+    category: "sports",
+    format: "physical",
+    sourceUrl: "https://www.facebook.com/events/1017381540870816/",
+    imageEmoji: "⚽",
+  },
+  {
+    id: "party-puerto-plata-2026",
+    title: "Party in Puerto Plata",
+    description:
+      "Soirée festive à San Felipe, Puerto Plata — événement public sur Facebook. Consultez la page pour le lieu et les détails.",
+    date: "2026-07-24",
+    time: "9:00 PM",
+    location: "Puerto Plata",
+    venue: "San Felipe de Puerto Plata",
+    category: "parties",
+    format: "physical",
+    sourceUrl: "https://www.facebook.com/events/749996274498100/",
+    imageEmoji: "🎉",
+  },
 ];
