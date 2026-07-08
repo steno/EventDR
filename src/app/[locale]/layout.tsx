@@ -1,6 +1,8 @@
 import { notFound } from "next/navigation";
 import { Syne, DM_Sans } from "next/font/google";
 import { isValidLocale, locales } from "@/i18n/config";
+import { SITE_URL } from "@/lib/site-url";
+import { SITE_NAME, defaultOpenGraph, defaultTwitter } from "@/lib/seo";
 import "../globals.css";
 
 const syne = Syne({
@@ -26,7 +28,19 @@ export async function generateMetadata({
 }) {
   const { locale } = await params;
   return {
-    metadataBase: new URL("https://popevent.netlify.app"),
+    metadataBase: new URL(SITE_URL),
+    title: {
+      default: SITE_NAME,
+    },
+    description:
+      "Discover events in Puerto Plata, Sosúa, and Cabarete on the North Coast of the Dominican Republic.",
+    openGraph: defaultOpenGraph(isValidLocale(locale) ? locale : "en"),
+    twitter: defaultTwitter(),
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: { index: true, follow: true },
+    },
     manifest: "/manifest.webmanifest",
     appleWebApp: {
       capable: true,

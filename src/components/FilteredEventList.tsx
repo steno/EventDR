@@ -96,7 +96,7 @@ export function FilteredEventList({
       {onAddEvent && (
         <>
           <AddEventButton dict={dict} onClick={onAddEvent} label={addEventLabel} />
-          <SiteFooter dict={dict} className="mt-4" />
+          <SiteFooter dict={dict} locale={locale} className="mt-4" />
         </>
       )}
     </>

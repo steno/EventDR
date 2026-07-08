@@ -1,7 +1,9 @@
 import * as cheerio from "cheerio";
 
+import { SITE_URL } from "./site-url";
+
 const USER_AGENT =
-  "Mozilla/5.0 (compatible; EventDR/1.0; +https://popevent.netlify.app)";
+  `Mozilla/5.0 (compatible; EventDR/1.0; +${SITE_URL})`;
 const FETCH_TIMEOUT_MS = 12_000;
 const MAX_CONTENT_CHARS = 14_000;
 

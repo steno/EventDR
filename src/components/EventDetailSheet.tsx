@@ -35,6 +35,8 @@ interface EventDetailSheetProps {
   locale: Locale;
   isSaved: boolean;
   onToggleSave: (event: Pick<Event, "id" | "title">) => void;
+  /** Use h1 when this sheet is the primary page content (dedicated event route). */
+  standalone?: boolean;
 }
 
 export function EventDetailSheet({
@@ -44,6 +46,7 @@ export function EventDetailSheet({
   locale,
   isSaved,
   onToggleSave,
+  standalone = false,
 }: EventDetailSheetProps) {
   const [shareMsg, setShareMsg] = useState<string | null>(null);
   const [shareOpen, setShareOpen] = useState(false);
@@ -64,6 +67,7 @@ export function EventDetailSheet({
   const recurrenceLabel = formatRecurrenceLabel(event, locale, dict);
   const venueSlug =
     event.venueSlug ?? matchVenueSlug(event.venue) ?? matchVenueSlug(event.location);
+  const TitleTag = standalone ? "h1" : "h2";
 
   function handleShareFeedback(message: string) {
     setShareMsg(message);
@@ -141,9 +145,9 @@ export function EventDetailSheet({
             </span>
           )}
 
-          <h2 className="text-2xl font-black text-neutral-900 leading-tight tracking-tight line-clamp-2">
+          <TitleTag className="text-2xl font-black text-neutral-900 leading-tight tracking-tight line-clamp-2">
             {event.title}
-          </h2>
+          </TitleTag>
 
           <p className="mt-3 text-[15px] text-neutral-600 leading-relaxed line-clamp-3">
             {event.description}

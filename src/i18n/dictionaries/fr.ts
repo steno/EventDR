@@ -6,6 +6,18 @@ export const fr: Dictionary = {
     description:
       "Découvrez les événements tendance à Puerto Plata, Sosúa et Cabarete. Activités sur place et en ligne sur la Côte Nord de la République dominicaine.",
   },
+  seo: {
+    siteName: "POP Events",
+    categoryTitle: "Événements {category} | POP Events",
+    categoryDescription:
+      "Trouvez des événements {category} à Puerto Plata, Sosúa et Cabarete sur la Côte Nord de la République dominicaine.",
+    venueTitle: "Événements à {venue} | POP Events",
+    venueDescription:
+      "{venue} à {city}. {description}",
+    notFoundTitle: "Page introuvable | POP Events",
+    notFoundDescription:
+      "Cette page est introuvable. Parcourez les événements à Puerto Plata, Sosúa et Cabarete sur la Côte Nord.",
+  },
   region: {
     name: "Côte Nord",
     country: "République dominicaine",

@@ -1,4 +1,5 @@
 import { memo } from "react";
+import Link from "next/link";
 import { MapPin, Calendar, Clock, Globe, Flame, Navigation2 } from "lucide-react";
 import { EventImage } from "@/components/EventImage";
 import type { Event } from "@/lib/types";
@@ -21,11 +22,19 @@ const EventCardComponent = ({ event, dict, locale, onSelect }: EventCardProps) =
   const category = getCategoryMeta(event.category, dict.categories);
   const emoji = event.imageEmoji ?? category?.emoji ?? "📅";
   const recurrenceLabel = formatRecurrenceLabel(event, locale, dict);
+  const href = `/${locale}/event/${event.id}`;
 
   return (
-    <button
-      type="button"
-      onClick={() => onSelect(event)}
+    <Link
+      href={href}
+      onClick={
+        onSelect
+          ? (e) => {
+              e.preventDefault();
+              onSelect(event);
+            }
+          : undefined
+      }
       className="w-full text-left block"
     >
       <article
@@ -47,7 +56,7 @@ const EventCardComponent = ({ event, dict, locale, onSelect }: EventCardProps) =
           {event.imageUrl ? (
             <EventImage
               src={event.imageUrl}
-              alt=""
+              alt={event.title}
               sizes="64px"
               className="object-cover"
             />
@@ -107,7 +116,7 @@ const EventCardComponent = ({ event, dict, locale, onSelect }: EventCardProps) =
           </div>
         </div>
       </article>
-    </button>
+    </Link>
   );
 };
 

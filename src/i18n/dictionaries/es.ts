@@ -6,6 +6,18 @@ export const es: Dictionary = {
     description:
       "Descubre eventos populares en Puerto Plata, Sosúa y Cabarete. Actividades presenciales y digitales en la Costa Norte de República Dominicana.",
   },
+  seo: {
+    siteName: "POP Eventos",
+    categoryTitle: "Eventos de {category} | POP Eventos",
+    categoryDescription:
+      "Encuentra eventos de {category} en Puerto Plata, Sosúa y Cabarete en la Costa Norte de República Dominicana.",
+    venueTitle: "Eventos en {venue} | POP Eventos",
+    venueDescription:
+      "{venue} en {city}. {description}",
+    notFoundTitle: "Página no encontrada | POP Eventos",
+    notFoundDescription:
+      "No encontramos esta página. Explora eventos en Puerto Plata, Sosúa y Cabarete en la Costa Norte.",
+  },
   region: {
     name: "Costa Norte",
     country: "República Dominicana",

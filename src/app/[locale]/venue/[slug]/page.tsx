@@ -1,21 +1,36 @@
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import { VenuePage } from "@/components/VenuePage";
+import { JsonLd } from "@/components/JsonLd";
 import { fetchVenueBySlug } from "@/lib/firebase/events";
-import { getSeedVenue } from "@/lib/venues-seed";
-import { isValidLocale } from "@/i18n/config";
+import { getSeedVenue, SEED_VENUES } from "@/lib/venues-seed";
+import { isValidLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
+import {
+  buildBreadcrumbJsonLd,
+  buildVenueMetadata,
+  localePath,
+} from "@/lib/seo";
 
 export async function generateStaticParams() {
-  const slugs = [
-    "lax-cabarete",
-    "malecon-puerto-plata",
-    "kite-beach",
-    "el-batey-sosua",
-    "cowork-cabarete",
-    "ocean-world",
-  ];
-  const locales = ["en", "es", "fr"] as const;
-  return locales.flatMap((locale) => slugs.map((slug) => ({ locale, slug })));
+  return locales.flatMap((locale) =>
+    SEED_VENUES.map((venue) => ({ locale, slug: venue.slug })),
+  );
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string; slug: string }>;
+}): Promise<Metadata> {
+  const { locale, slug } = await params;
+  if (!isValidLocale(locale)) return {};
+
+  const venue = (await fetchVenueBySlug(slug)) ?? getSeedVenue(slug);
+  if (!venue) return {};
+
+  const dict = getDictionary(locale);
+  return buildVenueMetadata(locale, dict, venue);
 }
 
 export default async function Page({
@@ -30,5 +45,16 @@ export default async function Page({
   if (!venue) notFound();
 
   const dict = getDictionary(locale);
-  return <VenuePage venue={venue} locale={locale} dict={dict} />;
+
+  return (
+    <>
+      <JsonLd
+        data={buildBreadcrumbJsonLd([
+          { name: dict.seo.siteName, path: localePath(locale) },
+          { name: venue.name, path: localePath(locale, `/venue/${venue.slug}`) },
+        ])}
+      />
+      <VenuePage venue={venue} locale={locale} dict={dict} />
+    </>
+  );
 }

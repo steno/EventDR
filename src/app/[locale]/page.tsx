@@ -1,8 +1,10 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { Home } from "@/components/Home";
+import { JsonLd } from "@/components/JsonLd";
 import { isValidLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
+import { buildHomeMetadata, buildWebSiteJsonLd } from "@/lib/seo";
 
 export async function generateMetadata({
   params,
@@ -12,10 +14,7 @@ export async function generateMetadata({
   const { locale } = await params;
   if (!isValidLocale(locale)) return {};
   const dict = getDictionary(locale);
-  return {
-    title: dict.meta.title,
-    description: dict.meta.description,
-  };
+  return buildHomeMetadata(locale, dict);
 }
 
 export default async function Page({
@@ -27,5 +26,10 @@ export default async function Page({
   if (!isValidLocale(locale)) notFound();
 
   const dict = getDictionary(locale);
-  return <Home locale={locale} dict={dict} />;
+  return (
+    <>
+      <JsonLd data={buildWebSiteJsonLd(locale, dict)} />
+      <Home locale={locale} dict={dict} />
+    </>
+  );
 }

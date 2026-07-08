@@ -46,6 +46,7 @@ export function EventPage({ event, locale, dict }: EventPageProps) {
         locale={locale}
         isSaved={isSaved(event)}
         onToggleSave={toggleSave}
+        standalone
       />
     </>
   );

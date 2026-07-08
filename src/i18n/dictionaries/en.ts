@@ -8,6 +8,15 @@ export type Dictionary = {
     title: string;
     description: string;
   };
+  seo: {
+    siteName: string;
+    categoryTitle: string;
+    categoryDescription: string;
+    venueTitle: string;
+    venueDescription: string;
+    notFoundTitle: string;
+    notFoundDescription: string;
+  };
   region: {
     name: string;
     country: string;
@@ -191,6 +200,18 @@ export const en: Dictionary = {
     title: "POP Events near you | North Coast DR",
     description:
       "Discover trending events in Puerto Plata, Sosúa, and Cabarete. Physical and digital happenings on the North Coast of the Dominican Republic.",
+  },
+  seo: {
+    siteName: "POP Events",
+    categoryTitle: "{category} events | POP Events",
+    categoryDescription:
+      "Find {category} events in Puerto Plata, Sosúa, and Cabarete on the North Coast of the Dominican Republic.",
+    venueTitle: "Events at {venue} | POP Events",
+    venueDescription:
+      "{venue} in {city}. {description}",
+    notFoundTitle: "Page not found | POP Events",
+    notFoundDescription:
+      "This page could not be found. Browse events in Puerto Plata, Sosúa, and Cabarete on the North Coast.",
   },
   region: {
     name: "North Coast",

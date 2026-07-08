@@ -1,11 +1,17 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { EventPage } from "@/components/EventPage";
+import { JsonLd } from "@/components/JsonLd";
 import { isValidLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getEventById } from "@/lib/get-event";
 import { getEventShareUrl } from "@/lib/share";
-import { SITE_URL } from "@/lib/site-url";
+import {
+  buildBreadcrumbJsonLd,
+  buildEventJsonLd,
+  buildEventMetadata,
+  localePath,
+} from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
 
@@ -20,30 +26,7 @@ export async function generateMetadata({
   const event = await getEventById(id, locale);
   if (!event) return {};
 
-  const url = getEventShareUrl(event, locale);
-  const image = event.imageUrl
-    ? event.imageUrl.startsWith("http")
-      ? event.imageUrl
-      : `${SITE_URL}${event.imageUrl}`
-    : undefined;
-
-  return {
-    title: event.title,
-    description: event.description,
-    openGraph: {
-      title: event.title,
-      description: event.description,
-      url,
-      type: "website",
-      images: image ? [{ url: image, alt: event.title }] : undefined,
-    },
-    twitter: {
-      card: image ? "summary_large_image" : "summary",
-      title: event.title,
-      description: event.description,
-      images: image ? [image] : undefined,
-    },
-  };
+  return buildEventMetadata(locale, event, getEventShareUrl(event, locale));
 }
 
 export default async function Page({
@@ -58,5 +41,20 @@ export default async function Page({
   if (!event) notFound();
 
   const dict = getDictionary(locale);
-  return <EventPage event={event} locale={locale} dict={dict} />;
+  const shareUrl = getEventShareUrl(event, locale);
+
+  return (
+    <>
+      <JsonLd
+        data={[
+          buildEventJsonLd(event, locale, shareUrl),
+          buildBreadcrumbJsonLd([
+            { name: dict.seo.siteName, path: localePath(locale) },
+            { name: event.title, path: localePath(locale, `/event/${event.id}`) },
+          ]),
+        ]}
+      />
+      <EventPage event={event} locale={locale} dict={dict} />
+    </>
+  );
 }

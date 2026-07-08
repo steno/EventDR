@@ -185,7 +185,7 @@ export function Home({ locale, dict }: HomeProps) {
           )}
         </div>
 
-        <SiteFooter dict={dict} className="mb-16" />
+        <SiteFooter dict={dict} locale={locale} className="mb-16" />
       </main>
 
       <BottomNav
