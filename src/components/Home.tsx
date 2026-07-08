@@ -19,6 +19,7 @@ import { TodayHighlights } from "@/components/TodayHighlights";
 import { useSavedEvents } from "@/hooks/useSavedEvents";
 import { useGeolocation } from "@/hooks/useGeolocation";
 import { usePushNotifications } from "@/hooks/usePushNotifications";
+import { NORTH_COAST_CENTER } from "@/lib/geo";
 import type { Event } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
 import type { AppTab, Dictionary } from "@/i18n/dictionaries";
@@ -40,7 +41,8 @@ export function Home({ locale, dict }: HomeProps) {
   const geo = useGeolocation();
   const push = usePushNotifications(locale);
 
-  const hasUserLocation = geo.lat != null && geo.lng != null;
+  const sortLat = geo.lat ?? NORTH_COAST_CENTER.lat;
+  const sortLng = geo.lng ?? NORTH_COAST_CENTER.lng;
 
   const handleEventsLoaded = useCallback((events: Event[]) => {
     setAllEvents(events);
@@ -110,9 +112,9 @@ export function Home({ locale, dict }: HomeProps) {
                 onSelectEvent={setSelectedEvent}
                 onEventsLoaded={handleEventsLoaded}
                 refreshKey={refreshKey}
-                sortByDistance={hasUserLocation}
-                userLat={geo.lat}
-                userLng={geo.lng}
+                sortByDistance
+                userLat={sortLat}
+                userLng={sortLng}
               />
               <div className="mt-6 mb-2">
                 <PushNotifyButton
@@ -142,9 +144,9 @@ export function Home({ locale, dict }: HomeProps) {
                   timeRange="all"
                   onSelectEvent={setSelectedEvent}
                   refreshKey={refreshKey}
-                  sortByDistance={hasUserLocation}
-                  userLat={geo.lat}
-                  userLng={geo.lng}
+                  sortByDistance
+                  userLat={sortLat}
+                  userLng={sortLng}
                 />
               ) : (
                 <p className="text-center text-sm text-neutral-400 font-medium py-16 px-6">
