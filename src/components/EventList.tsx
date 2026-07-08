@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { RefreshCw, Loader2 } from "lucide-react";
 import type { Event, EventCategory } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
@@ -42,6 +42,11 @@ export function EventList({
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
   const [source, setSource] = useState<string>("");
+  const onEventsLoadedRef = useRef(onEventsLoaded);
+
+  useEffect(() => {
+    onEventsLoadedRef.current = onEventsLoaded;
+  }, [onEventsLoaded]);
 
   const fetchEvents = useCallback(
     async (refresh = false) => {
@@ -61,17 +66,17 @@ export function EventList({
         };
         const loaded = materializeEventDates(data.events ?? []);
         setEvents(loaded);
-        onEventsLoaded?.(loaded);
+        onEventsLoadedRef.current?.(loaded);
         setSource(data.source ?? "");
       } catch {
         setEvents([]);
-        onEventsLoaded?.([]);
+        onEventsLoadedRef.current?.([]);
       } finally {
         setLoading(false);
         setRefreshing(false);
       }
     },
-    [category, locale, onEventsLoaded],
+    [category, locale],
   );
 
   useEffect(() => {

@@ -112,7 +112,7 @@ export function Home({ locale, dict }: HomeProps) {
                 onSelectEvent={setSelectedEvent}
                 onEventsLoaded={handleEventsLoaded}
                 refreshKey={refreshKey}
-                sortByDistance
+                sortByDistance={!geo.loading}
                 userLat={sortLat}
                 userLng={sortLng}
               />
@@ -144,7 +144,7 @@ export function Home({ locale, dict }: HomeProps) {
                   timeRange="all"
                   onSelectEvent={setSelectedEvent}
                   refreshKey={refreshKey}
-                  sortByDistance
+                  sortByDistance={!geo.loading}
                   userLat={sortLat}
                   userLng={sortLng}
                 />

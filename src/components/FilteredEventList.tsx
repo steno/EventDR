@@ -50,9 +50,12 @@ export function FilteredEventList({
 
   const filtered = useMemo(() => {
     const timeFiltered = filterByTimeRange(materialized, timeRange);
+    if (geo.loading) {
+      return sortUpcomingEvents(timeFiltered, { recurringLast: true });
+    }
     const withDistances = attachDistances(timeFiltered, sortLat, sortLng);
     return sortUpcomingEvents(withDistances, { recurringLast: true });
-  }, [materialized, timeRange, sortLat, sortLng]);
+  }, [materialized, timeRange, sortLat, sortLng, geo.loading]);
 
   return (
     <>
