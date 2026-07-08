@@ -24,7 +24,7 @@ export function AppHeader({ locale, dict, onLogoClick }: AppHeaderProps) {
       <Link
         href={homeHref}
         aria-label="POP Events home"
-        className="rounded-2xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
+        className="focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
         onClick={(e) => {
           if (onHome) {
             e.preventDefault();
@@ -40,7 +40,7 @@ export function AppHeader({ locale, dict, onLogoClick }: AppHeaderProps) {
           height={166}
           priority
           unoptimized
-          className="h-[68px] w-auto rounded-2xl object-contain sm:h-20"
+          className="h-[68px] w-auto object-contain sm:h-20"
         />
       </Link>
       <LanguageSwitcher locale={locale} dict={dict} />
