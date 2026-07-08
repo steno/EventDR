@@ -47,7 +47,9 @@ export function PwaRegister() {
           if (!newWorker) return;
 
           newWorker.addEventListener("statechange", () => {
-            if (newWorker.state === "installed" && navigator.serviceWorker.controller) {
+            // iOS/Android can report `navigator.serviceWorker.controller` as null sometimes,
+            // so base the prompt on the SW registration state instead.
+            if (newWorker.state === "installed" && reg.active) {
               setUpdateAvailable(true);
             }
           });
@@ -84,6 +86,8 @@ export function PwaRegister() {
   const handleUpdate = () => {
     if (!registration?.waiting) return;
     registration.waiting.postMessage({ type: "SKIP_WAITING" });
+    // iOS can be slow to trigger `controllerchange`; reload immediately after skipping waiting.
+    window.location.reload();
   };
 
   if (!updateAvailable) return null;

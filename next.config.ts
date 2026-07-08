@@ -6,18 +6,26 @@ const projectRoot = path.dirname(fileURLToPath(import.meta.url));
 
 const nextConfig: NextConfig = {
   async headers() {
-    if (process.env.NODE_ENV === "production") {
-      return [];
-    }
-
+    // For PWA assets we want the browser to re-check on each update,
+    // especially on iOS where service worker updates can be delayed.
+    // Keep it scoped so we don't kill caching for all assets.
     return [
       {
-        source: "/:path*",
+        source: "/sw.js",
         headers: [
-          {
-            key: "Cache-Control",
-            value: "no-store, max-age=0, must-revalidate",
-          },
+          { key: "Cache-Control", value: "no-store, max-age=0, must-revalidate" },
+        ],
+      },
+      {
+        source: "/manifest.webmanifest",
+        headers: [
+          { key: "Cache-Control", value: "no-store, max-age=0, must-revalidate" },
+        ],
+      },
+      {
+        source: "/icons/:path*",
+        headers: [
+          { key: "Cache-Control", value: "no-store, max-age=0, must-revalidate" },
         ],
       },
     ];

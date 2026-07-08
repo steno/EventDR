@@ -1,4 +1,4 @@
-const CACHE_NAME = "eventdr-v6";
+const CACHE_NAME = "eventdr-v7";
 const PRECACHE = [
   "/en",
   "/es",
@@ -6,6 +6,7 @@ const PRECACHE = [
   "/manifest.webmanifest",
   "/icons/icon-192.png",
   "/icons/icon-512.png",
+  "/icons/icon-512-maskable.png",
 ];
 
 self.addEventListener("install", (event) => {
