@@ -115,6 +115,7 @@ export function Home({ locale, dict }: HomeProps) {
                 dict={dict}
                 onEventsLoaded={handleEventsLoaded}
                 refreshKey={refreshKey}
+                ourPicks
                 sortByDistance={hasUserLocation}
                 userLat={geo.lat}
                 userLng={geo.lng}

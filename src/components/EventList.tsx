@@ -22,6 +22,7 @@ interface EventListProps {
   userLat?: number | null;
   userLng?: number | null;
   sortByDistance?: boolean;
+  ourPicks?: boolean;
 }
 
 export function EventList({
@@ -35,6 +36,7 @@ export function EventList({
   userLat = null,
   userLng = null,
   sortByDistance = false,
+  ourPicks = false,
 }: EventListProps) {
   const [events, setEvents] = useState<Event[]>([]);
   const [loading, setLoading] = useState(true);
@@ -124,7 +126,7 @@ export function EventList({
           <h2 className="text-xl font-black text-neutral-900 tracking-tight">
             {isSearching
               ? dict.search.activeTitle
-              : sortByDistance && !category
+              : ourPicks && !category
                 ? dict.events.ourPicks
                 : sortByDistance
                   ? dict.events.nearMeOn
@@ -137,9 +139,9 @@ export function EventList({
               {filtered.length} · {dict.events.hiddenGems}
             </p>
           )}
-          {!category && (sortByDistance && !isSearching ? true : source) && (
+          {!category && ((ourPicks || sortByDistance) && !isSearching ? true : source) && (
             <p className="text-xs text-neutral-400 mt-0.5">
-              {sortByDistance && !isSearching
+              {(ourPicks || sortByDistance) && !isSearching
                 ? hasUserLocation
                   ? dict.events.nearMeOn
                   : dict.events.nearMeDenied
@@ -182,7 +184,7 @@ export function EventList({
         </div>
       ) : (
         <>
-          {sortByDistance && !category && !searchQuery ? (
+          {(ourPicks || sortByDistance) && !category && !searchQuery ? (
             <section>
               <div className="space-y-3">
                 {filtered.map((event) => (
