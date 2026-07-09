@@ -77,6 +77,10 @@ export const es: Dictionary = {
     viewDetails: "Ver detalles",
     moreToday: "{count} más hoy",
     nearMeDenied: "sin ubicación",
+    nearMePrompt: "Toca Cerca de mí para ordenar por distancia.",
+    nearMeLoading: "Buscando tu ubicación…",
+    nearMeBlocked:
+      "Ubicación bloqueada para este sitio. En Chrome, abre el candado en la barra de dirección y permite la ubicación.",
     distanceAway: "de distancia",
     recurrence: {
       daily: "Diario",

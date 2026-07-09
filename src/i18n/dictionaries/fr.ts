@@ -77,6 +77,10 @@ export const fr: Dictionary = {
     viewDetails: "Voir détails",
     moreToday: "{count} de plus aujourd'hui",
     nearMeDenied: "localisation refusée",
+    nearMePrompt: "Appuyez sur Près de moi pour trier par distance.",
+    nearMeLoading: "Localisation en cours…",
+    nearMeBlocked:
+      "Localisation bloquée pour ce site. Dans Chrome, ouvrez le cadenas dans la barre d'adresse et autorisez la localisation.",
     distanceAway: "de distance",
     recurrence: {
       daily: "Tous les jours",

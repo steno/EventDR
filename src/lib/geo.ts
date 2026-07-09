@@ -30,19 +30,19 @@ export function haversineKm(
 }
 
 export function resolveEventCoords(event: Event): { lat: number; lng: number } | null {
-  if (event.lat != null && event.lng != null) {
-    return { lat: event.lat, lng: event.lng };
-  }
-
   if (event.venueSlug) {
     const venue = SEED_VENUES.find((v) => v.slug === event.venueSlug);
     if (venue) return { lat: venue.lat, lng: venue.lng };
   }
 
-  const slug = event.venueSlug ?? matchVenueSlug(event.venue);
+  const slug = matchVenueSlug(event.venue);
   if (slug) {
     const venue = SEED_VENUES.find((v) => v.slug === slug);
     if (venue) return { lat: venue.lat, lng: venue.lng };
+  }
+
+  if (event.lat != null && event.lng != null) {
+    return { lat: event.lat, lng: event.lng };
   }
 
   const loc = event.location.toLowerCase();

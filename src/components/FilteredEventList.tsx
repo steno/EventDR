@@ -13,7 +13,7 @@ import { VenueStrip } from "@/components/VenueStrip";
 import { AddEventButton } from "@/components/AddEventButton";
 import { SiteFooter } from "@/components/SiteFooter";
 import { useGeolocation } from "@/hooks/useGeolocation";
-import { attachDistances, NORTH_COAST_CENTER } from "@/lib/geo";
+import { attachDistances } from "@/lib/geo";
 
 interface FilteredEventListProps {
   events: Event[];
@@ -38,8 +38,7 @@ export function FilteredEventList({
 }: FilteredEventListProps) {
   const [timeRange, setTimeRange] = useState<TimeRange>("all");
   const geo = useGeolocation();
-  const sortLat = geo.lat ?? NORTH_COAST_CENTER.lat;
-  const sortLng = geo.lng ?? NORTH_COAST_CENTER.lng;
+  const hasUserLocation = geo.lat != null && geo.lng != null;
 
   const materialized = useMemo(
     () => materializeEventDates(events),
@@ -48,12 +47,12 @@ export function FilteredEventList({
 
   const filtered = useMemo(() => {
     const timeFiltered = filterByTimeRange(materialized, timeRange);
-    if (geo.loading) {
+    if (!hasUserLocation) {
       return sortUpcomingEvents(timeFiltered, { recurringLast: true });
     }
-    const withDistances = attachDistances(timeFiltered, sortLat, sortLng);
+    const withDistances = attachDistances(timeFiltered, geo.lat!, geo.lng!);
     return sortUpcomingEvents(withDistances, { recurringLast: true });
-  }, [materialized, timeRange, sortLat, sortLng, geo.loading]);
+  }, [materialized, timeRange, hasUserLocation, geo.lat, geo.lng]);
 
   return (
     <>

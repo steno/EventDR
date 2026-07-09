@@ -100,6 +100,8 @@ export function EventList({
           ? dict.events.sourceCache
           : dict.events.sourceFallback;
 
+  const hasUserLocation = userLat != null && userLng != null;
+
   if (loading) {
     return (
       <div className="flex flex-col items-center justify-center py-16 gap-3">
@@ -137,7 +139,11 @@ export function EventList({
           )}
           {!category && (sortByDistance && !isSearching ? true : source) && (
             <p className="text-xs text-neutral-400 mt-0.5">
-              {sortByDistance && !isSearching ? dict.events.nearMeOn : sourceLabel}
+              {sortByDistance && !isSearching
+                ? hasUserLocation
+                  ? dict.events.nearMeOn
+                  : dict.events.nearMeDenied
+                : sourceLabel}
             </p>
           )}
         </div>

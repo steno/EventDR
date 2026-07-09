@@ -65,6 +65,9 @@ export type Dictionary = {
     viewDetails: string;
     moreToday: string;
     nearMeDenied: string;
+    nearMePrompt: string;
+    nearMeLoading: string;
+    nearMeBlocked: string;
     distanceAway: string;
     recurrence: {
       daily: string;
@@ -280,6 +283,10 @@ export const en: Dictionary = {
     viewDetails: "View details",
     moreToday: "{count} more today",
     nearMeDenied: "location off",
+    nearMePrompt: "Tap Near me to sort picks by distance from you.",
+    nearMeLoading: "Finding your location…",
+    nearMeBlocked:
+      "Location is blocked for this site. In Chrome, open the lock icon in the address bar and set Location to Allow.",
     distanceAway: "away",
     recurrence: {
       daily: "Daily",

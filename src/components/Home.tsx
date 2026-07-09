@@ -16,9 +16,9 @@ import { PushNotifyButton } from "@/components/PushNotifyButton";
 import { SiteFooter } from "@/components/SiteFooter";
 import { TodayHighlights } from "@/components/TodayHighlights";
 import { useSavedEvents } from "@/hooks/useSavedEvents";
+import { LocationPrompt } from "@/components/LocationPrompt";
 import { useGeolocation } from "@/hooks/useGeolocation";
 import { usePushNotifications } from "@/hooks/usePushNotifications";
-import { NORTH_COAST_CENTER } from "@/lib/geo";
 import type { Event } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
 import type { AppTab, Dictionary } from "@/i18n/dictionaries";
@@ -38,9 +38,7 @@ export function Home({ locale, dict }: HomeProps) {
   const { toggleSave, isSaved, filterSaved, reconcileWithEvents } = useSavedEvents();
   const geo = useGeolocation();
   const push = usePushNotifications(locale);
-
-  const sortLat = geo.lat ?? NORTH_COAST_CENTER.lat;
-  const sortLng = geo.lng ?? NORTH_COAST_CENTER.lng;
+  const hasUserLocation = geo.lat != null && geo.lng != null;
 
   const handleEventsLoaded = useCallback((events: Event[]) => {
     setAllEvents(events);
@@ -103,14 +101,21 @@ export function Home({ locale, dict }: HomeProps) {
               <div className="mb-8">
                 <VenueStrip locale={locale} dict={dict} />
               </div>
+              <LocationPrompt
+                dict={dict}
+                loading={geo.loading}
+                denied={geo.denied}
+                hasLocation={hasUserLocation}
+                onRequest={geo.requestLocation}
+              />
               <EventList
                 locale={locale}
                 dict={dict}
                 onEventsLoaded={handleEventsLoaded}
                 refreshKey={refreshKey}
-                sortByDistance
-                userLat={sortLat}
-                userLng={sortLng}
+                sortByDistance={hasUserLocation}
+                userLat={geo.lat}
+                userLng={geo.lng}
               />
               <div className="mt-6 mb-2">
                 <PushNotifyButton
@@ -139,9 +144,9 @@ export function Home({ locale, dict }: HomeProps) {
                   searchQuery={searchQuery}
                   timeRange="all"
                   refreshKey={refreshKey}
-                  sortByDistance
-                  userLat={sortLat}
-                  userLng={sortLng}
+                  sortByDistance={hasUserLocation}
+                  userLat={geo.lat}
+                  userLng={geo.lng}
                 />
               ) : (
                 <p className="text-center text-sm text-neutral-400 font-medium py-16 px-6">
