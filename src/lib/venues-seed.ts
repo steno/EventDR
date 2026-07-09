@@ -77,11 +77,11 @@ export const SEED_VENUES: Venue[] = [
   {
     slug: "el-carey-puerto-plata",
     name: "El Carey Día y Noche",
-    city: "Puerto Plata",
+    city: "Costambar",
     description:
-      "Day-and-night spot in Puerto Plata with live sports on a giant screen, drinks, and local nightlife.",
-    lat: 19.7934,
-    lng: -70.6884,
+      "Day-and-night spot on Costambar beach (Calle Reina Isabel) with live sports on a giant screen, drinks, and local nightlife.",
+    lat: 19.7798,
+    lng: -70.7148,
     emoji: "⚽",
     website: "https://www.facebook.com/profile.php?id=100089059716413",
   },

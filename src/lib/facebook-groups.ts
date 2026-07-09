@@ -44,7 +44,7 @@ export const FACEBOOK_EVENT_PAGES = [
     slug: "el-carey-dia-y-noche",
     url: "https://www.facebook.com/profile.php?id=100089059716413",
     label: "El Carey Día y Noche",
-    areas: ["Puerto Plata"],
+    areas: ["Costambar", "Puerto Plata"],
   },
 ] as const;
 
