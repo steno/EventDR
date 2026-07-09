@@ -6,7 +6,7 @@ const CITY_COORDS: Record<string, { lat: number; lng: number }> = {
   sosúa: { lat: 19.7528, lng: -70.5261 },
   sosua: { lat: 19.7528, lng: -70.5261 },
   cabarete: { lat: 19.7495, lng: -70.4084 },
-  costambar: { lat: 19.78, lng: -70.72 },
+  costambar: { lat: 19.8145, lng: -70.7151 },
   "playa dorada": { lat: 19.78, lng: -70.65 },
 };
 

@@ -80,8 +80,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Costambar",
     description:
       "Day-and-night spot on Costambar beach (Calle Reina Isabel) with live sports on a giant screen, drinks, and local nightlife.",
-    lat: 19.7798,
-    lng: -70.7148,
+    lat: 19.8145247,
+    lng: -70.7150884,
     emoji: "⚽",
     website: "https://www.facebook.com/profile.php?id=100089059716413",
   },
