@@ -53,13 +53,15 @@ export const SEED_VENUES: Venue[] = [
   },
   {
     slug: "ocean-world",
-    name: "Ocean World",
+    name: "Ocean World Adventure Park",
     city: "Puerto Plata",
-    description: "Marine adventure park with pool parties and family events.",
+    description:
+      "Marine adventure park in Cofresí — dolphin swims, sea lion and shark encounters, snorkeling, and a water slide lagoon.",
     lat: 19.8267,
     lng: -70.71,
     emoji: "🐬",
     instagram: "oceanworldadventurepark",
+    website: "https://www.oceanworld.net",
   },
   {
     slug: "sea-horse-ranch",
@@ -93,6 +95,62 @@ export const SEED_VENUES: Venue[] = [
     lng: -70.519,
     emoji: "🎤",
     website: "https://www.elcolibriresort.com/",
+  },
+  {
+    slug: "fortaleza-san-felipe",
+    name: "Fortaleza San Felipe",
+    city: "Puerto Plata",
+    description:
+      "16th-century Spanish fortress and museum overlooking the Atlantic — cannons, colonial history, and sunset views from La Puntilla.",
+    lat: 19.808,
+    lng: -70.695,
+    emoji: "🏰",
+    website: "https://museosrd.gob.do/museos/museo-fortaleza-san-felipe/",
+  },
+  {
+    slug: "museo-ambar",
+    name: "Museo del Ámbar",
+    city: "Puerto Plata",
+    description:
+      "Victorian mansion in the historic center showcasing Dominican amber fossils — lizards, insects, and Jurassic-era specimens.",
+    lat: 19.7937,
+    lng: -70.6946,
+    emoji: "🟠",
+    website: "https://museosrd.gob.do/museos/amber-museum-experience/",
+  },
+  {
+    slug: "charcos-damajagua",
+    name: "27 Charcos de Damajagua",
+    city: "Puerto Plata",
+    description:
+      "Waterfall adventure park in the Northern Corridor hills — guided hikes, natural slides, and turquoise pools about an hour from Puerto Plata.",
+    lat: 19.7489,
+    lng: -70.8289,
+    emoji: "💧",
+    website: "https://www.27charcos.com",
+  },
+  {
+    slug: "teleferico-puerto-plata",
+    name: "Teleférico Puerto Plata",
+    city: "Puerto Plata",
+    description:
+      "Caribbean cable car to the summit of Pico Isabel de Torres — Christ statue, botanical gardens, and panoramic views.",
+    lat: 19.7534,
+    lng: -70.7089,
+    emoji: "🚡",
+    website: "https://telefericopuertoplata.com",
+  },
+  {
+    slug: "cayo-arena",
+    name: "Cayo Arena",
+    city: "Puerto Plata",
+    description:
+      "Sandbar island (Cayo Paraíso) reached by boat from Punta Rucia — shallow turquoise water, white sand, and snorkeling.",
+    lat: 19.8883,
+    lng: -71.2256,
+    emoji: "🏝️",
+    website:
+      "https://es.godominicanrepublic.com/que-hacer/cayo-arena",
   },
 ];
 
