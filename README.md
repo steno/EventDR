@@ -8,7 +8,7 @@ Live at **[pop-events.com](https://pop-events.com)** · GitHub [steno/EventDR](h
 
 - **Mobile-first UI** — minimalist design with bold typography and 3D-style category icons
 - **PWA installable** — add to home screen on iOS/Android (works like a native app)
-- **10 categories** — Music, Business, Concert, Parties, Food & Drinks, Festivals, Dance, Health & Wellness, Performances, Sports
+- **12 categories** — Music, Business, Concert, Parties, Food & Drinks, Festivals, Dance, Health & Wellness, Performances, Sports, Culture, Adventure
 - **Search & time filters** — Today, This weekend, This week
 - **Event actions** — Directions (Google Maps), Add to calendar (.ics), Share, Save
 - **Community submissions** — anyone can publish a hidden-gem event

@@ -43,6 +43,8 @@ export const fr: Dictionary = {
     "health-wellness": "Santé & Bien-être",
     performances: "Spectacles",
     sports: "Sports",
+    culture: "Culture",
+    adventure: "Aventure",
   },
   browse: {
     title: "Explorer",

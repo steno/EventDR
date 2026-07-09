@@ -8,7 +8,9 @@ export type EventCategory =
   | "dance"
   | "health-wellness"
   | "performances"
-  | "sports";
+  | "sports"
+  | "culture"
+  | "adventure";
 
 export type EventFormat = "physical" | "digital" | "hybrid";
 

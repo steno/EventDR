@@ -152,6 +152,29 @@ export const SEED_VENUES: Venue[] = [
     website:
       "https://es.godominicanrepublic.com/que-hacer/cayo-arena",
   },
+  {
+    slug: "paseo-dona-blanca",
+    name: "Paseo de Doña Blanca",
+    city: "Puerto Plata",
+    description:
+      "Pink-paved pedestrian alley honoring tourism pioneer Bianca Franceschini — Victorian touches, photo spots, and cafés between Calle Beller and John F. Kennedy.",
+    lat: 19.7988,
+    lng: -70.6962,
+    emoji: "🌸",
+    website: "https://puertoplatadr.com/boulevard/paseo-dona-blanca/",
+  },
+  {
+    slug: "calle-sombrillas",
+    name: "Calle de las Sombrillas",
+    city: "Puerto Plata",
+    description:
+      "178 multicolored umbrellas over Calle San Felipe in the historic center — free photo walk between artisan shops, cafés, and local vendors.",
+    lat: 19.7943,
+    lng: -70.6938,
+    emoji: "☂️",
+    website:
+      "https://gobernacionpuertoplata.gob.do/turismo/whatsapp-image-2024-09-06-at-10-15-43-am/",
+  },
 ];
 
 export function getSeedVenue(slug: string): Venue | undefined {

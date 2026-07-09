@@ -30,6 +30,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "museo-ambar-weekdays": "museo-ambar-weekdays.jpeg",
   "teleferico-puerto-plata-daily": "teleferico-puerto-plata-daily.jpeg",
   "cayo-arena-tours-daily": "cayo-arena-tours-daily.jpeg",
+  "paseo-dona-blanca-daily": "paseo-dona-blanca-daily.jpeg",
+  "calle-sombrillas-daily": "calle-sombrillas-daily.jpeg",
 };
 
 /** Legacy ingest ids that share a curated event image. */

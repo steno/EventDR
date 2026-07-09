@@ -35,6 +35,8 @@ const FILE_TO_EVENT_ID = {
   "museoambar.jpeg": "museo-ambar-weekdays",
   "teleferico.jpeg": "teleferico-puerto-plata-daily",
   "cayoarena.jpeg": "cayo-arena-tours-daily",
+  "paseodonablanca.jpeg": "paseo-dona-blanca-daily",
+  "callesombrillas.jpeg": "calle-sombrillas-daily",
 };
 
 if (!existsSync(sourceDir)) {

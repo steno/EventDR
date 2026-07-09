@@ -51,6 +51,16 @@ const CATEGORY_DEFS: Omit<CategoryMeta, "label">[] = [
     emoji: "⚽",
     gradient: "from-lime-400 via-green-500 to-emerald-600",
   },
+  {
+    id: "culture",
+    emoji: "🏛️",
+    gradient: "from-amber-500 via-yellow-600 to-orange-700",
+  },
+  {
+    id: "adventure",
+    emoji: "🧭",
+    gradient: "from-sky-400 via-blue-500 to-indigo-600",
+  },
 ];
 
 export const CATEGORY_IDS = CATEGORY_DEFS.map((c) => c.id);

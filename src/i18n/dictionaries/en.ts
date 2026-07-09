@@ -250,6 +250,8 @@ export const en: Dictionary = {
     "health-wellness": "Health & Wellness",
     performances: "Performances",
     sports: "Sports",
+    culture: "Culture",
+    adventure: "Adventure",
   },
   browse: {
     title: "Browse",

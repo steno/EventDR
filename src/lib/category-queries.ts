@@ -136,6 +136,26 @@ export const CATEGORY_QUERIES: Record<EventCategory, CategoryQuerySet> = {
     ],
     directUrls: [EVENTBRITE_PP, ALLEVENTS_PP],
   },
+  culture: {
+    searches: [
+      `museo cultura patrimonio ${REGION} 2026`,
+      `museum heritage history Puerto Plata colonial`,
+      `site:facebook.com cultural event Puerto Plata`,
+      `feria artesanal exposición ${REGION}`,
+      `Fortaleza San Felipe Museo del Ámbar eventos`,
+    ],
+    directUrls: [ALLEVENTS_PP],
+  },
+  adventure: {
+    searches: [
+      `excursión aventura tour ${REGION} 2026`,
+      `boat tour snorkeling waterfall ${REGION} Puerto Plata`,
+      `site:facebook.com excursion Cabarete Puerto Plata`,
+      `Cayo Arena Damajagua Teleférico tour Costa Norte`,
+      `Ocean World adventure park ${REGION}`,
+    ],
+    directUrls: [ALLEVENTS_PP],
+  },
 };
 
 export const BROAD_QUERIES = [
@@ -155,6 +175,8 @@ export const PRIORITY_CATEGORIES: EventCategory[] = [
   "performances",
   "business",
   "festivals",
+  "culture",
+  "adventure",
 ];
 
 export function getQueriesForCategory(category: EventCategory): string[] {

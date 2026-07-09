@@ -9,7 +9,14 @@ interface SiteFooterProps {
   className?: string;
 }
 
-const FOOTER_CATEGORIES = ["music", "parties", "food-drinks", "sports"] as const;
+const FOOTER_CATEGORIES = [
+  "music",
+  "parties",
+  "food-drinks",
+  "sports",
+  "culture",
+  "adventure",
+] as const;
 
 export function SiteFooter({ dict, locale, className = "" }: SiteFooterProps) {
   const footerVenues = SEED_VENUES.slice(0, 4);
