@@ -73,6 +73,7 @@ export const fr: Dictionary = {
     sortedUpcoming: "Les plus proches dates d'abord",
     ourPicks: "Nos sélections",
     happeningToday: "Aujourd'hui",
+    eventStarted: "Événement commencé",
     viewDetails: "Voir détails",
     moreToday: "{count} de plus aujourd'hui",
     nearMeDenied: "localisation refusée",

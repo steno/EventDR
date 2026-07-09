@@ -73,6 +73,7 @@ export const es: Dictionary = {
     sortedUpcoming: "Más próximos primero",
     ourPicks: "Nuestras selecciones",
     happeningToday: "Hoy",
+    eventStarted: "Evento iniciado",
     viewDetails: "Ver detalles",
     moreToday: "{count} más hoy",
     nearMeDenied: "sin ubicación",

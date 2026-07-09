@@ -61,6 +61,7 @@ export type Dictionary = {
     sortedUpcoming: string;
     ourPicks: string;
     happeningToday: string;
+    eventStarted: string;
     viewDetails: string;
     moreToday: string;
     nearMeDenied: string;
@@ -275,6 +276,7 @@ export const en: Dictionary = {
     sortedUpcoming: "Soonest first",
     ourPicks: "Our picks",
     happeningToday: "Happening today",
+    eventStarted: "Event started",
     viewDetails: "View details",
     moreToday: "{count} more today",
     nearMeDenied: "location off",

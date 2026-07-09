@@ -56,6 +56,12 @@ function isHappeningNow(event: Event): boolean {
   return now >= window.start && now <= window.end;
 }
 
+function hasEventStarted(event: Event): boolean {
+  const window = parseEventTimeWindow(event.time);
+  if (!window) return false;
+  return currentMinutes() >= window.start;
+}
+
 function todayHighlightSortRank(event: Event): number {
   if (isHappeningNow(event)) return 0;
 
@@ -145,7 +151,9 @@ const TodayHighlightsComponent = ({
                 className="block w-full text-left touch-manipulation"
               >
                 <p className="mb-1.5 text-[11px] font-black uppercase tracking-[0.24em] text-orange-500">
-                  {dict.events.happeningToday}
+                  {hasEventStarted(event)
+                    ? dict.events.eventStarted
+                    : dict.events.happeningToday}
                 </p>
                 <h3 className="line-clamp-2 text-[19px] font-black leading-tight tracking-tight text-neutral-950">
                   {event.title}
