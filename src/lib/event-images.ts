@@ -22,6 +22,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "cabarete-pilates-reformer": "cabarete-pilates-reformer.png",
   "sancocho-sabados-pingui": "sancocho-sabados-pingui.jpg",
   "inicio-del-campamento-pp-2026": "inicio-del-campamento-pp-2026.jpg",
+  "el-carey-wc2026": "el-carey-wc2026.png",
 };
 
 /** Legacy ingest ids that share a curated event image. */
@@ -30,9 +31,15 @@ const EVENT_IMAGE_ALIASES: Record<string, string> = {
     "ingest-18th-annual-cabarete-butterfly-effect",
 };
 
+const EVENT_IMAGE_PREFIXES: { prefix: string; file: string }[] = [
+  { prefix: "el-carey-wc2026-", file: "el-carey-wc2026.png" },
+];
+
 export function getEventImageUrl(eventId: string): string | undefined {
   const resolvedId = EVENT_IMAGE_ALIASES[eventId] ?? eventId;
-  const file = EVENT_IMAGE_FILES[resolvedId];
+  const file =
+    EVENT_IMAGE_FILES[resolvedId] ??
+    EVENT_IMAGE_PREFIXES.find((p) => resolvedId.startsWith(p.prefix))?.file;
   return file ? `/events/${file}` : undefined;
 }
 

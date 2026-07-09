@@ -27,6 +27,7 @@ const FILE_TO_EVENT_ID = {
   "cabclassic.jpg": "cabarete-classic-2026",
   "rafaella.png": "cabarete-pilates-reformer",
   "campamento.jpg": "inicio-del-campamento-pp-2026",
+  "el-carey-wc2026.png": "el-carey-wc2026",
 };
 
 if (!existsSync(sourceDir)) {

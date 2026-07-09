@@ -72,6 +72,17 @@ export const SEED_VENUES: Venue[] = [
     emoji: "🧺",
     website: "https://www.sea-horse-ranch.com",
   },
+  {
+    slug: "el-carey-puerto-plata",
+    name: "El Carey Día y Noche",
+    city: "Puerto Plata",
+    description:
+      "Day-and-night spot in Puerto Plata with live sports on a giant screen, drinks, and local nightlife.",
+    lat: 19.7934,
+    lng: -70.6884,
+    emoji: "⚽",
+    website: "https://www.facebook.com/profile.php?id=100089059716413",
+  },
 ];
 
 export function getSeedVenue(slug: string): Venue | undefined {

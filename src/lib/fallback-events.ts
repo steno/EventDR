@@ -4,6 +4,11 @@ import { FALLBACK_EVENTS_FR } from "./fallback-events-fr";
 import { getRecurringEvents } from "./recurring-events";
 import { materializeEventDates } from "./event-dates";
 import { filterRemovedSeedEvents } from "./removed-seeds";
+import {
+  EL_CAREY_WC2026_EVENTS_EN,
+  EL_CAREY_WC2026_EVENTS_ES,
+  EL_CAREY_WC2026_EVENTS_FR,
+} from "./world-cup-2026-events";
 
 const FALLBACK_EVENTS_EN: Event[] = [
   // Music
@@ -331,6 +336,12 @@ const FALLBACK_EVENTS_ES: Event[] = [
   },
 ];
 
+function getWorldCupEvents(locale: Locale): Event[] {
+  if (locale === "es") return EL_CAREY_WC2026_EVENTS_ES;
+  if (locale === "fr") return EL_CAREY_WC2026_EVENTS_FR;
+  return EL_CAREY_WC2026_EVENTS_EN;
+}
+
 export function getFallbackEvents(locale: Locale = "en"): Event[] {
   const base =
     locale === "es"
@@ -338,7 +349,11 @@ export function getFallbackEvents(locale: Locale = "en"): Event[] {
       : locale === "fr"
         ? FALLBACK_EVENTS_FR
         : FALLBACK_EVENTS_EN;
-  const merged = [...getRecurringEvents(locale), ...base];
+  const merged = [
+    ...getRecurringEvents(locale),
+    ...base,
+    ...getWorldCupEvents(locale),
+  ];
   return materializeEventDates(filterRemovedSeedEvents(merged));
 }
 
@@ -353,7 +368,11 @@ export function getFallbackEventById(
       : locale === "fr"
         ? FALLBACK_EVENTS_FR
         : FALLBACK_EVENTS_EN;
-  const merged = filterRemovedSeedEvents([...getRecurringEvents(locale), ...base]);
+  const merged = filterRemovedSeedEvents([
+    ...getRecurringEvents(locale),
+    ...base,
+    ...getWorldCupEvents(locale),
+  ]);
   return merged.find((e) => e.id === id);
 }
 

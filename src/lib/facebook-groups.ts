@@ -40,6 +40,12 @@ export const FACEBOOK_EVENT_PAGES = [
     label: "Cabarete Classic",
     areas: ["Cabarete"],
   },
+  {
+    slug: "el-carey-dia-y-noche",
+    url: "https://www.facebook.com/profile.php?id=100089059716413",
+    label: "El Carey Día y Noche",
+    areas: ["Puerto Plata"],
+  },
 ] as const;
 
 export function facebookGroupSearchQueries(): string[] {
@@ -50,8 +56,9 @@ export function facebookGroupSearchQueries(): string[] {
   ]);
 }
 
-/** Curated event ids discovered from monitored Facebook groups (see fallback-events). */
-export const FACEBOOK_SEED_EVENT_IDS = [
+import { EL_CAREY_WC2026_EVENT_IDS } from "./world-cup-2026-events";
+
+const FACEBOOK_SEED_EVENT_IDS_BASE = [
   "voyvoy-sunday-open-mic",
   "voyvoy-saturday-session",
   "womens-reconnection-kite-camp-2026",
@@ -59,6 +66,12 @@ export const FACEBOOK_SEED_EVENT_IDS = [
   "cabarete-classic-2026",
   "inicio-del-campamento-pp-2026",
 ] as const;
+
+/** Curated event ids discovered from monitored Facebook groups (see fallback-events). */
+export const FACEBOOK_SEED_EVENT_IDS: readonly string[] = [
+  ...FACEBOOK_SEED_EVENT_IDS_BASE,
+  ...EL_CAREY_WC2026_EVENT_IDS,
+];
 
 export function facebookGroupEventUrls(): string[] {
   return FACEBOOK_GROUPS.map((group) => `${group.url}/events`);
