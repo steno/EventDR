@@ -7,6 +7,7 @@ interface LocationPromptProps {
   dict: Dictionary;
   loading: boolean;
   denied: boolean;
+  lowAccuracy: boolean;
   hasLocation: boolean;
   onRequest: () => void;
 }
@@ -15,16 +16,19 @@ export function LocationPrompt({
   dict,
   loading,
   denied,
+  lowAccuracy,
   hasLocation,
   onRequest,
 }: LocationPromptProps) {
-  if (hasLocation) return null;
+  if (hasLocation && !lowAccuracy) return null;
 
   const message = loading
     ? dict.events.nearMeLoading
     : denied
       ? dict.events.nearMeBlocked
-      : dict.events.nearMePrompt;
+      : lowAccuracy
+        ? dict.events.nearMeLowAccuracy
+        : dict.events.nearMePrompt;
 
   return (
     <div className="mb-4 flex items-start justify-between gap-3 rounded-2xl border border-orange-200 bg-orange-50 px-4 py-3">

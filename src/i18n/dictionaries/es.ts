@@ -81,6 +81,8 @@ export const es: Dictionary = {
     nearMeLoading: "Buscando tu ubicación…",
     nearMeBlocked:
       "Ubicación bloqueada para este sitio. En Chrome, abre el candado en la barra de dirección y permite la ubicación.",
+    nearMeLowAccuracy:
+      "La ubicación parece aproximada (VPN o red). Desactiva la VPN y activa los Servicios de ubicación de Mac para Chrome.",
     distanceAway: "de distancia",
     recurrence: {
       daily: "Diario",

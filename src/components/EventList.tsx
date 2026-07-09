@@ -8,7 +8,7 @@ import type { Locale } from "@/i18n/config";
 import type { TimeRange } from "@/lib/filters";
 import { filterByTimeRange, searchEvents } from "@/lib/filters";
 import { materializeEventDates } from "@/lib/event-dates";
-import { sortByDistance as sortEventsByDistance } from "@/lib/geo";
+import { sortByDistance as sortEventsByDistance, attachVenueSlugs } from "@/lib/geo";
 import { EventCard } from "./EventCard";
 
 interface EventListProps {
@@ -86,7 +86,7 @@ export function EventList({
     result = filterByTimeRange(result, timeRange);
     result = searchEvents(result, searchQuery);
     if (sortByDistance && userLat != null && userLng != null) {
-      result = sortEventsByDistance(result, userLat, userLng);
+      result = sortEventsByDistance(attachVenueSlugs(result), userLat, userLng);
     }
     return result;
   }, [events, timeRange, searchQuery, sortByDistance, userLat, userLng]);

@@ -81,6 +81,8 @@ export const fr: Dictionary = {
     nearMeLoading: "Localisation en cours…",
     nearMeBlocked:
       "Localisation bloquée pour ce site. Dans Chrome, ouvrez le cadenas dans la barre d'adresse et autorisez la localisation.",
+    nearMeLowAccuracy:
+      "La localisation semble approximative (VPN ou réseau). Désactivez le VPN et activez les services de localisation Mac pour Chrome.",
     distanceAway: "de distance",
     recurrence: {
       daily: "Tous les jours",

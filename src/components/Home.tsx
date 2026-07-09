@@ -38,7 +38,8 @@ export function Home({ locale, dict }: HomeProps) {
   const { toggleSave, isSaved, filterSaved, reconcileWithEvents } = useSavedEvents();
   const geo = useGeolocation();
   const push = usePushNotifications(locale);
-  const hasUserLocation = geo.lat != null && geo.lng != null;
+  const hasUserLocation =
+    geo.lat != null && geo.lng != null && !geo.lowAccuracy;
 
   const handleEventsLoaded = useCallback((events: Event[]) => {
     setAllEvents(events);
@@ -105,6 +106,7 @@ export function Home({ locale, dict }: HomeProps) {
                 dict={dict}
                 loading={geo.loading}
                 denied={geo.denied}
+                lowAccuracy={geo.lowAccuracy}
                 hasLocation={hasUserLocation}
                 onRequest={geo.requestLocation}
               />

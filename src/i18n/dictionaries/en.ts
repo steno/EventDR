@@ -68,6 +68,7 @@ export type Dictionary = {
     nearMePrompt: string;
     nearMeLoading: string;
     nearMeBlocked: string;
+    nearMeLowAccuracy: string;
     distanceAway: string;
     recurrence: {
       daily: string;
@@ -287,6 +288,8 @@ export const en: Dictionary = {
     nearMeLoading: "Finding your location…",
     nearMeBlocked:
       "Location is blocked for this site. In Chrome, open the lock icon in the address bar and set Location to Allow.",
+    nearMeLowAccuracy:
+      "Location looks approximate (often VPN or network positioning). Turn off VPN and enable Mac Location Services for Chrome — distances may be off until GPS locks in.",
     distanceAway: "away",
     recurrence: {
       daily: "Daily",
