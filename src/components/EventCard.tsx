@@ -15,28 +15,16 @@ interface EventCardProps {
   event: Event;
   dict: Dictionary;
   locale: Locale;
-  onSelect: (event: Event) => void;
 }
 
-const EventCardComponent = ({ event, dict, locale, onSelect }: EventCardProps) => {
+const EventCardComponent = ({ event, dict, locale }: EventCardProps) => {
   const category = getCategoryMeta(event.category, dict.categories);
   const emoji = event.imageEmoji ?? category?.emoji ?? "📅";
   const recurrenceLabel = formatRecurrenceLabel(event, locale, dict);
   const href = `/${locale}/event/${event.id}`;
 
   return (
-    <Link
-      href={href}
-      onClick={
-        onSelect
-          ? (e) => {
-              e.preventDefault();
-              onSelect(event);
-            }
-          : undefined
-      }
-      className="w-full text-left block"
-    >
+    <Link href={href} className="w-full text-left block">
       <article
         className="
           group relative flex gap-4 rounded-2xl bg-white p-4

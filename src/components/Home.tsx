@@ -7,7 +7,6 @@ import { CategoryGrid } from "@/components/CategoryGrid";
 import { EventList } from "@/components/EventList";
 import { SearchBar } from "@/components/SearchBar";
 import { BottomNav } from "@/components/BottomNav";
-import { EventDetailSheet } from "@/components/EventDetailSheet";
 import { SubmitEventSheet } from "@/components/SubmitEventSheet";
 import { InstallBanner } from "@/components/InstallBanner";
 import { PwaRegister } from "@/components/PwaRegister";
@@ -32,7 +31,6 @@ interface HomeProps {
 export function Home({ locale, dict }: HomeProps) {
   const [tab, setTab] = useState<AppTab>("discover");
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
   const [submitOpen, setSubmitOpen] = useState(false);
   const [allEvents, setAllEvents] = useState<Event[]>([]);
   const [refreshKey, setRefreshKey] = useState(0);
@@ -98,7 +96,6 @@ export function Home({ locale, dict }: HomeProps) {
                 events={allEvents}
                 locale={locale}
                 dict={dict}
-                onSelectEvent={setSelectedEvent}
               />
               <div className="mb-6">
                 <CategoryGrid locale={locale} dict={dict} />
@@ -109,7 +106,6 @@ export function Home({ locale, dict }: HomeProps) {
               <EventList
                 locale={locale}
                 dict={dict}
-                onSelectEvent={setSelectedEvent}
                 onEventsLoaded={handleEventsLoaded}
                 refreshKey={refreshKey}
                 sortByDistance
@@ -142,7 +138,6 @@ export function Home({ locale, dict }: HomeProps) {
                   dict={dict}
                   searchQuery={searchQuery}
                   timeRange="all"
-                  onSelectEvent={setSelectedEvent}
                   refreshKey={refreshKey}
                   sortByDistance
                   userLat={sortLat}
@@ -176,7 +171,6 @@ export function Home({ locale, dict }: HomeProps) {
                       event={event}
                       dict={dict}
                       locale={locale}
-                      onSelect={setSelectedEvent}
                     />
                   ))}
                 </div>
@@ -193,15 +187,6 @@ export function Home({ locale, dict }: HomeProps) {
         onChange={handleTabChange}
         dict={dict}
         savedCount={savedEvents.length}
-      />
-
-      <EventDetailSheet
-        event={selectedEvent}
-        onClose={() => setSelectedEvent(null)}
-        dict={dict}
-        locale={locale}
-        isSaved={selectedEvent ? isSaved(selectedEvent) : false}
-        onToggleSave={toggleSave}
       />
 
       <SubmitEventSheet

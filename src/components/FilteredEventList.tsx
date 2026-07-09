@@ -20,7 +20,6 @@ interface FilteredEventListProps {
   loading: boolean;
   dict: Dictionary;
   locale: Locale;
-  onSelectEvent: (event: Event) => void;
   emptyMessage: string;
   sectionTitle?: string;
   onAddEvent?: () => void;
@@ -32,7 +31,6 @@ export function FilteredEventList({
   loading,
   dict,
   locale,
-  onSelectEvent,
   emptyMessage,
   sectionTitle,
   onAddEvent,
@@ -86,7 +84,6 @@ export function FilteredEventList({
               event={event}
               dict={dict}
               locale={locale}
-              onSelect={onSelectEvent}
             />
           ))}
         </div>

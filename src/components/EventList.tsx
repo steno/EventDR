@@ -17,7 +17,6 @@ interface EventListProps {
   dict: Dictionary;
   searchQuery?: string;
   timeRange?: TimeRange;
-  onSelectEvent: (event: Event) => void;
   onEventsLoaded?: (events: Event[]) => void;
   refreshKey?: number;
   userLat?: number | null;
@@ -31,7 +30,6 @@ export function EventList({
   dict,
   searchQuery = "",
   timeRange = "all",
-  onSelectEvent,
   onEventsLoaded,
   refreshKey = 0,
   userLat = null,
@@ -173,7 +171,6 @@ export function EventList({
               event={event}
               dict={dict}
               locale={locale}
-              onSelect={onSelectEvent}
             />
           ))}
         </div>
@@ -188,7 +185,6 @@ export function EventList({
                     event={event}
                     dict={dict}
                     locale={locale}
-                    onSelect={onSelectEvent}
                   />
                 ))}
               </div>
@@ -207,7 +203,6 @@ export function EventList({
                         event={event}
                         dict={dict}
                         locale={locale}
-                        onSelect={onSelectEvent}
                       />
                     ))}
                   </div>
@@ -231,7 +226,6 @@ export function EventList({
                         event={event}
                         dict={dict}
                         locale={locale}
-                        onSelect={onSelectEvent}
                       />
                     ))}
                   </div>

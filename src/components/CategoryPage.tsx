@@ -7,11 +7,9 @@ import type { Event, EventCategory } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import { getCategoryMeta } from "@/lib/categories";
-import { EventDetailSheet } from "@/components/EventDetailSheet";
 import { FilteredEventList } from "@/components/FilteredEventList";
 import { SubmitEventSheet } from "@/components/SubmitEventSheet";
 import { AppHeader } from "@/components/AppHeader";
-import { useSavedEvents } from "@/hooks/useSavedEvents";
 
 interface CategoryPageProps {
   categoryId: EventCategory;
@@ -22,9 +20,7 @@ interface CategoryPageProps {
 export function CategoryPage({ categoryId, locale, dict }: CategoryPageProps) {
   const [events, setEvents] = useState<Event[]>([]);
   const [loading, setLoading] = useState(true);
-  const [selected, setSelected] = useState<Event | null>(null);
   const [submitOpen, setSubmitOpen] = useState(false);
-  const { toggleSave, isSaved } = useSavedEvents();
 
   const category = getCategoryMeta(categoryId, dict.categories);
 
@@ -77,7 +73,6 @@ export function CategoryPage({ categoryId, locale, dict }: CategoryPageProps) {
             loading={loading}
             dict={dict}
             locale={locale}
-            onSelectEvent={setSelected}
             emptyMessage={dict.browse.noEvents}
             sectionTitle={dict.browse.eventsIn}
             onAddEvent={() => setSubmitOpen(true)}
@@ -102,15 +97,6 @@ export function CategoryPage({ categoryId, locale, dict }: CategoryPageProps) {
             .then((d: { events?: Event[] }) => setEvents(d.events ?? []))
             .catch(() => {});
         }}
-      />
-
-      <EventDetailSheet
-        event={selected}
-        onClose={() => setSelected(null)}
-        dict={dict}
-        locale={locale}
-        isSaved={selected ? isSaved(selected) : false}
-        onToggleSave={toggleSave}
       />
     </>
   );

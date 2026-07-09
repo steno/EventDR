@@ -6,12 +6,10 @@ import { ArrowLeft } from "lucide-react";
 import type { Event, Venue } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
-import { EventDetailSheet } from "@/components/EventDetailSheet";
 import { FilteredEventList } from "@/components/FilteredEventList";
 import { SubmitEventSheet } from "@/components/SubmitEventSheet";
 import { AppHeader } from "@/components/AppHeader";
 import { matchVenueSlug } from "@/lib/venues-seed";
-import { useSavedEvents } from "@/hooks/useSavedEvents";
 
 interface VenuePageProps {
   venue: Venue;
@@ -22,9 +20,7 @@ interface VenuePageProps {
 export function VenuePage({ venue, locale, dict }: VenuePageProps) {
   const [events, setEvents] = useState<Event[]>([]);
   const [loading, setLoading] = useState(true);
-  const [selected, setSelected] = useState<Event | null>(null);
   const [submitOpen, setSubmitOpen] = useState(false);
-  const { toggleSave, isSaved } = useSavedEvents();
 
   function loadEvents() {
     return fetch(`/api/events?locale=${locale}&venue=${venue.slug}`)
@@ -80,7 +76,6 @@ export function VenuePage({ venue, locale, dict }: VenuePageProps) {
             loading={loading}
             dict={dict}
             locale={locale}
-            onSelectEvent={setSelected}
             emptyMessage={dict.venues.noEvents}
             sectionTitle={dict.venues.eventsAt}
             onAddEvent={() => setSubmitOpen(true)}
@@ -99,15 +94,6 @@ export function VenuePage({ venue, locale, dict }: VenuePageProps) {
           setSubmitOpen(false);
           refreshEvents();
         }}
-      />
-
-      <EventDetailSheet
-        event={selected}
-        onClose={() => setSelected(null)}
-        dict={dict}
-        locale={locale}
-        isSaved={selected ? isSaved(selected) : false}
-        onToggleSave={toggleSave}
       />
     </>
   );
