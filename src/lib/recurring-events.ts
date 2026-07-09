@@ -316,6 +316,42 @@ const RECURRING_EN: Event[] = [
       "https://gobernacionpuertoplata.gob.do/turismo/whatsapp-image-2024-09-06-at-10-15-43-am/",
     imageEmoji: "☂️",
   },
+  {
+    id: "fun-city-daily",
+    title: "Fun City Action Park — Go-Karts",
+    description:
+      "The Dominican Republic's largest go-kart park on Highway 5 near Playa Dorada — race Cyclone, Sprint 500, Grand Prix, and bumper cars, or let kids as young as 5 drive with an adult. Playground, pitcher radar challenge, and covered cafeteria on site. Pay per ride or grab an unlimited pass; ~5 minutes from Puerto Plata, ~20 from Sosúa and Cabarete. Tel. (809) 697-0794.",
+    date: "2026-01-01",
+    time: "10:00 AM - 6:00 PM",
+    location: "Puerto Plata",
+    address: "Carretera Puerto Plata–Sosúa km 8½, Highway 5",
+    venue: "Fun City Action Park",
+    venueSlug: "fun-city",
+    category: "adventure",
+    format: "physical",
+    recurrence: "daily",
+    trending: true,
+    sourceUrl: "https://www.instagram.com/funcitypuertoplata/",
+    imageEmoji: "🏎️",
+  },
+  {
+    id: "monkeyland-puerto-plata-daily",
+    title: "Monkeyland Puerto Plata — Safari & Monkeys",
+    description:
+      "Half-day jungle excursion in the Imbert hills — open-air safari truck, feed playful squirrel monkeys from a fruit plate, stroll botanical trails with medicinal plants, sample organic coffee and cacao, and visit a traditional countryside home. Hotel pickup from Puerto Plata, Sosúa, Cabarete, and Playa Dorada; book through Runners Adventures or cruise excursions (~4.5 hours).",
+    date: "2026-01-01",
+    time: "8:30 AM - 3:30 PM",
+    location: "Imbert",
+    venue: "Monkeyland Puerto Plata",
+    venueSlug: "monkeyland-puerto-plata",
+    category: "adventure",
+    format: "physical",
+    recurrence: "daily",
+    trending: true,
+    sourceUrl:
+      "https://www.runnersadventures.com/monkeyland/monkeyland-puerto-plata/",
+    imageEmoji: "🐒",
+  },
 ];
 
 const RECURRING_ES: Event[] = [
@@ -632,6 +668,42 @@ const RECURRING_ES: Event[] = [
       "https://gobernacionpuertoplata.gob.do/turismo/whatsapp-image-2024-09-06-at-10-15-43-am/",
     imageEmoji: "☂️",
   },
+  {
+    id: "fun-city-daily",
+    title: "Fun City Action Park — Go-Karts",
+    description:
+      "El parque de go-karts más grande de República Dominicana en la carretera 5 cerca de Playa Dorada — compite en Cyclone, Sprint 500, Grand Prix y autos chocones, o deja que niños desde 5 años conduzcan con un adulto. Parque infantil, reto de lanzamiento con radar y cafetería techada. Pago por vuelta o pase ilimitado; ~5 min de Puerto Plata, ~20 de Sosúa y Cabarete. Tel. (809) 697-0794.",
+    date: "2026-01-01",
+    time: "10:00 AM - 6:00 PM",
+    location: "Puerto Plata",
+    address: "Carretera Puerto Plata–Sosúa km 8½, Highway 5",
+    venue: "Fun City Action Park",
+    venueSlug: "fun-city",
+    category: "adventure",
+    format: "physical",
+    recurrence: "daily",
+    trending: true,
+    sourceUrl: "https://www.instagram.com/funcitypuertoplata/",
+    imageEmoji: "🏎️",
+  },
+  {
+    id: "monkeyland-puerto-plata-daily",
+    title: "Monkeyland Puerto Plata — Safari y Monos",
+    description:
+      "Excursión de medio día en las colinas de Imbert — camión safari al aire libre, alimenta monos ardilla desde un plato de fruta, pasea por senderos botánicos con plantas medicinales, prueba café y cacao orgánico y visita una casa de campo tradicional. Recogida en hoteles de Puerto Plata, Sosúa, Cabarete y Playa Dorada; reserva con Runners Adventures o excursiones de crucero (~4.5 horas).",
+    date: "2026-01-01",
+    time: "8:30 AM - 3:30 PM",
+    location: "Imbert",
+    venue: "Monkeyland Puerto Plata",
+    venueSlug: "monkeyland-puerto-plata",
+    category: "adventure",
+    format: "physical",
+    recurrence: "daily",
+    trending: true,
+    sourceUrl:
+      "https://www.runnersadventures.com/monkeyland/monkeyland-puerto-plata/",
+    imageEmoji: "🐒",
+  },
 ];
 
 const RECURRING_FR: Event[] = [
@@ -947,6 +1019,42 @@ const RECURRING_FR: Event[] = [
     sourceUrl:
       "https://gobernacionpuertoplata.gob.do/turismo/whatsapp-image-2024-09-06-at-10-15-43-am/",
     imageEmoji: "☂️",
+  },
+  {
+    id: "fun-city-daily",
+    title: "Fun City Action Park — Go-Karts",
+    description:
+      "Le plus grand parc de go-karts de République dominicaine sur la route 5 près de Playa Dorada — Cyclone, Sprint 500, Grand Prix et autos tamponneuses, ou laissez les enfants dès 5 ans conduire avec un adulte. Aire de jeux, lancer avec radar et cafétéria couverte sur place. Paiement à la course ou pass illimité ; ~5 min de Puerto Plata, ~20 de Sosúa et Cabarete. Tél. (809) 697-0794.",
+    date: "2026-01-01",
+    time: "10:00 AM - 6:00 PM",
+    location: "Puerto Plata",
+    address: "Carretera Puerto Plata–Sosúa km 8½, Highway 5",
+    venue: "Fun City Action Park",
+    venueSlug: "fun-city",
+    category: "adventure",
+    format: "physical",
+    recurrence: "daily",
+    trending: true,
+    sourceUrl: "https://www.instagram.com/funcitypuertoplata/",
+    imageEmoji: "🏎️",
+  },
+  {
+    id: "monkeyland-puerto-plata-daily",
+    title: "Monkeyland Puerto Plata — Safari et Singes",
+    description:
+      "Excursion d'une demi-journée dans les collines d'Imbert — camion safari découvert, nourrissez des singes écureuils avec un plateau de fruits, promenade botanique avec plantes médicinales, dégustation de café et cacao bio, puis visite d'une maison de campagne traditionnelle. Prise en charge à l'hôtel depuis Puerto Plata, Sosúa, Cabarete et Playa Dorada ; réservez via Runners Adventures ou excursions croisière (~4,5 h).",
+    date: "2026-01-01",
+    time: "8:30 AM - 3:30 PM",
+    location: "Imbert",
+    venue: "Monkeyland Puerto Plata",
+    venueSlug: "monkeyland-puerto-plata",
+    category: "adventure",
+    format: "physical",
+    recurrence: "daily",
+    trending: true,
+    sourceUrl:
+      "https://www.runnersadventures.com/monkeyland/monkeyland-puerto-plata/",
+    imageEmoji: "🐒",
   },
 ];
 

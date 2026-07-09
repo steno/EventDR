@@ -175,6 +175,29 @@ export const SEED_VENUES: Venue[] = [
     website:
       "https://gobernacionpuertoplata.gob.do/turismo/whatsapp-image-2024-09-06-at-10-15-43-am/",
   },
+  {
+    slug: "fun-city",
+    name: "Fun City Action Park",
+    city: "Puerto Plata",
+    description:
+      "Dominican Republic's largest go-kart park on Highway 5 — Cyclone, Sprint 500, Grand Prix, and bumper cars, plus a kids' playground near Playa Dorada.",
+    lat: 19.7651,
+    lng: -70.5154,
+    emoji: "🏎️",
+    instagram: "funcitypuertoplata",
+    website: "https://puertoplatadr.com/tours/fun-city-gokarts/",
+  },
+  {
+    slug: "monkeyland-puerto-plata",
+    name: "Monkeyland Puerto Plata",
+    city: "Imbert",
+    description:
+      "Jungle sanctuary in the Imbert hills — feed squirrel monkeys, stroll botanical trails, and visit a traditional countryside home on safari-truck tours with hotel pickup.",
+    lat: 19.7541,
+    lng: -70.8438,
+    emoji: "🐒",
+    website: "https://www.runnersadventures.com/monkeyland/monkeyland-puerto-plata/",
+  },
 ];
 
 export function getSeedVenue(slug: string): Venue | undefined {

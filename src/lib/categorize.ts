@@ -225,6 +225,13 @@ const KEYWORDS: KeywordMap = {
     "dolphin",
     "delfín",
     "ocean world",
+    "go-kart",
+    "gokart",
+    "go kart",
+    "monkeyland",
+    "monkey",
+    "mono",
+    "safari truck",
   ],
 };
 

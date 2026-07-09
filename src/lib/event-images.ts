@@ -32,6 +32,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "cayo-arena-tours-daily": "cayo-arena-tours-daily.jpeg",
   "paseo-dona-blanca-daily": "paseo-dona-blanca-daily.jpeg",
   "calle-sombrillas-daily": "calle-sombrillas-daily.jpeg",
+  "fun-city-daily": "fun-city-daily.jpeg",
+  "monkeyland-puerto-plata-daily": "monkeyland-puerto-plata-daily.jpeg",
 };
 
 /** Legacy ingest ids that share a curated event image. */

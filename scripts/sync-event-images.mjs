@@ -37,6 +37,8 @@ const FILE_TO_EVENT_ID = {
   "cayoarena.jpeg": "cayo-arena-tours-daily",
   "paseodonablanca.jpeg": "paseo-dona-blanca-daily",
   "callesombrillas.jpeg": "calle-sombrillas-daily",
+  "funcity.jpeg": "fun-city-daily",
+  "monkeyland.jpeg": "monkeyland-puerto-plata-daily",
 };
 
 if (!existsSync(sourceDir)) {
