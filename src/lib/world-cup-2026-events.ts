@@ -1,6 +1,6 @@
 import type { Event } from "./types";
 
-/** FIFA World Cup 2026™ fixtures — times are US Eastern (same as AST in Puerto Plata). */
+/** FIFA World Cup 2026™ fixtures — times per FIFA scores-fixtures (local time). */
 const WC_MATCHES = [
   { date: "2026-06-11", time: "19:00", home: "Mexico", away: "South Africa", stage: "Group A" },
   { date: "2026-06-12", time: "02:00", home: "Korea Republic", away: "Czechia", stage: "Group A" },
@@ -74,38 +74,38 @@ const WC_MATCHES = [
   { date: "2026-06-27", time: "23:30", home: "Congo DR", away: "Uzbekistan", stage: "Group K" },
   { date: "2026-06-28", time: "02:00", home: "Algeria", away: "Austria", stage: "Group J" },
   { date: "2026-06-28", time: "02:00", home: "Jordan", away: "Argentina", stage: "Group J" },
-  { date: "2026-06-28", time: "19:00", home: "2nd Group A", away: "2nd Group B", stage: "Round of 32" },
-  { date: "2026-06-29", time: "17:00", home: "1st Group C", away: "2nd Group F", stage: "Round of 32" },
-  { date: "2026-06-29", time: "20:30", home: "1st Group E", away: "3rd (A/B/C/D/F)", stage: "Round of 32" },
-  { date: "2026-06-30", time: "01:00", home: "1st Group F", away: "2nd Group C", stage: "Round of 32" },
-  { date: "2026-06-30", time: "17:00", home: "2nd Group E", away: "2nd Group I", stage: "Round of 32" },
-  { date: "2026-06-30", time: "21:00", home: "1st Group I", away: "3rd (C/D/F/G/H)", stage: "Round of 32" },
-  { date: "2026-07-01", time: "01:00", home: "1st Group A", away: "3rd (C/E/F/H/I)", stage: "Round of 32" },
-  { date: "2026-07-01", time: "16:00", home: "1st Group L", away: "3rd (E/H/I/J/K)", stage: "Round of 32" },
-  { date: "2026-07-01", time: "20:00", home: "1st Group G", away: "3rd (A/E/H/I/J)", stage: "Round of 32" },
-  { date: "2026-07-02", time: "00:00", home: "1st Group D", away: "3rd (B/E/F/I/J)", stage: "Round of 32" },
-  { date: "2026-07-02", time: "19:00", home: "1st Group H", away: "2nd Group J", stage: "Round of 32" },
-  { date: "2026-07-02", time: "23:00", home: "2nd Group K", away: "2nd Group L", stage: "Round of 32" },
-  { date: "2026-07-03", time: "03:00", home: "1st Group B", away: "3rd (E/F/G/I/J)", stage: "Round of 32" },
-  { date: "2026-07-03", time: "18:00", home: "2nd Group D", away: "2nd Group G", stage: "Round of 32" },
-  { date: "2026-07-03", time: "22:00", home: "1st Group J", away: "2nd Group H", stage: "Round of 32" },
-  { date: "2026-07-04", time: "01:30", home: "1st Group K", away: "3rd (D/E/I/J/L)", stage: "Round of 32" },
-  { date: "2026-07-04", time: "17:00", home: "Winner M73", away: "Winner M75", stage: "Round of 16" },
-  { date: "2026-07-04", time: "21:00", home: "Winner M74", away: "Winner M77", stage: "Round of 16" },
-  { date: "2026-07-05", time: "20:00", home: "Winner M76", away: "Winner M78", stage: "Round of 16" },
-  { date: "2026-07-06", time: "00:00", home: "Winner M79", away: "Winner M80", stage: "Round of 16" },
-  { date: "2026-07-06", time: "19:00", home: "Winner M83", away: "Winner M84", stage: "Round of 16" },
-  { date: "2026-07-07", time: "00:00", home: "Winner M81", away: "Winner M82", stage: "Round of 16" },
-  { date: "2026-07-07", time: "16:00", home: "Winner M86", away: "Winner M88", stage: "Round of 16" },
-  { date: "2026-07-07", time: "20:00", home: "Winner M85", away: "Winner M87", stage: "Round of 16" },
-  { date: "2026-07-09", time: "20:00", home: "Winner M89", away: "Winner M90", stage: "Quarter-final" },
-  { date: "2026-07-10", time: "19:00", home: "Winner M93", away: "Winner M94", stage: "Quarter-final" },
-  { date: "2026-07-11", time: "21:00", home: "Winner M91", away: "Winner M92", stage: "Quarter-final" },
-  { date: "2026-07-12", time: "01:00", home: "Winner M95", away: "Winner M96", stage: "Quarter-final" },
-  { date: "2026-07-14", time: "19:00", home: "Winner M97", away: "Winner M98", stage: "Semi-final" },
-  { date: "2026-07-15", time: "19:00", home: "Winner M99", away: "Winner M100", stage: "Semi-final" },
-  { date: "2026-07-18", time: "21:00", home: "Loser SF1", away: "Loser SF2", stage: "Third place" },
-  { date: "2026-07-19", time: "19:00", home: "Winner SF1", away: "Winner SF2", stage: "Final" },
+  { date: "2026-06-28", time: "19:00", home: "South Africa", away: "Canada", stage: "Round of 32" },
+  { date: "2026-06-29", time: "17:00", home: "Brazil", away: "Japan", stage: "Round of 32" },
+  { date: "2026-06-29", time: "20:30", home: "Germany", away: "Paraguay", stage: "Round of 32" },
+  { date: "2026-06-30", time: "01:00", home: "Netherlands", away: "Morocco", stage: "Round of 32" },
+  { date: "2026-06-30", time: "17:00", home: "Côte d'Ivoire", away: "Norway", stage: "Round of 32" },
+  { date: "2026-06-30", time: "21:00", home: "France", away: "Sweden", stage: "Round of 32" },
+  { date: "2026-07-01", time: "01:00", home: "Mexico", away: "Ecuador", stage: "Round of 32" },
+  { date: "2026-07-01", time: "16:00", home: "England", away: "Congo DR", stage: "Round of 32" },
+  { date: "2026-07-01", time: "20:00", home: "Belgium", away: "Senegal", stage: "Round of 32" },
+  { date: "2026-07-02", time: "00:00", home: "United States", away: "Bosnia and Herzegovina", stage: "Round of 32" },
+  { date: "2026-07-02", time: "19:00", home: "Spain", away: "Austria", stage: "Round of 32" },
+  { date: "2026-07-02", time: "23:00", home: "Portugal", away: "Croatia", stage: "Round of 32" },
+  { date: "2026-07-03", time: "03:00", home: "Switzerland", away: "Algeria", stage: "Round of 32" },
+  { date: "2026-07-03", time: "18:00", home: "Australia", away: "Egypt", stage: "Round of 32" },
+  { date: "2026-07-03", time: "22:00", home: "Argentina", away: "Cabo Verde", stage: "Round of 32" },
+  { date: "2026-07-04", time: "01:30", home: "Colombia", away: "Ghana", stage: "Round of 32" },
+  { date: "2026-07-04", time: "17:00", home: "Canada", away: "Morocco", stage: "Round of 16" },
+  { date: "2026-07-04", time: "21:00", home: "Paraguay", away: "France", stage: "Round of 16" },
+  { date: "2026-07-05", time: "20:00", home: "Brazil", away: "Norway", stage: "Round of 16" },
+  { date: "2026-07-06", time: "00:00", home: "Mexico", away: "England", stage: "Round of 16" },
+  { date: "2026-07-06", time: "19:00", home: "Portugal", away: "Spain", stage: "Round of 16" },
+  { date: "2026-07-07", time: "00:00", home: "United States", away: "Belgium", stage: "Round of 16" },
+  { date: "2026-07-07", time: "16:00", home: "Argentina", away: "Egypt", stage: "Round of 16" },
+  { date: "2026-07-07", time: "20:00", home: "Switzerland", away: "Colombia", stage: "Round of 16" },
+  { date: "2026-07-09", time: "16:00", home: "France", away: "Morocco", stage: "Quarter-final" },
+  { date: "2026-07-10", time: "15:00", home: "Spain", away: "Belgium", stage: "Quarter-final" },
+  { date: "2026-07-11", time: "17:00", home: "Norway", away: "England", stage: "Quarter-final" },
+  { date: "2026-07-11", time: "21:00", home: "Argentina", away: "Switzerland", stage: "Quarter-final" },
+  { date: "2026-07-14", time: "15:00", home: "Winner M97", away: "Winner M98", stage: "Semi-final" },
+  { date: "2026-07-15", time: "15:00", home: "Winner M99", away: "Winner M100", stage: "Semi-final" },
+  { date: "2026-07-18", time: "17:00", home: "Loser SF1", away: "Loser SF2", stage: "Third place" },
+  { date: "2026-07-19", time: "15:00", home: "Winner SF1", away: "Winner SF2", stage: "Final" },
 ] as const;
 
 const EL_CAREY_FB =
@@ -297,7 +297,10 @@ function buildEvent(
 ): Event {
   const { date, time, home, away, stage } = match;
   const id = matchId(date, home, away, time);
-  const trending = stage === "Final" || stage === "Semi-final";
+  const trending =
+    stage === "Final" ||
+    stage === "Semi-final" ||
+    stage === "Quarter-final";
 
   return {
     id,
