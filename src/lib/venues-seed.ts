@@ -83,6 +83,17 @@ export const SEED_VENUES: Venue[] = [
     emoji: "⚽",
     website: "https://www.facebook.com/profile.php?id=100089059716413",
   },
+  {
+    slug: "el-colibri-hotel",
+    name: "El Colibri Hotel",
+    city: "Sosúa",
+    description:
+      "Boutique tropical hotel in downtown Sosúa — poolside bar, Thursday karaoke, and local nightlife.",
+    lat: 19.7545,
+    lng: -70.519,
+    emoji: "🎤",
+    website: "https://www.elcolibriresort.com/",
+  },
 ];
 
 export function getSeedVenue(slug: string): Venue | undefined {

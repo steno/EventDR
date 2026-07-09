@@ -169,6 +169,28 @@ const FALLBACK_EVENTS_EN: Event[] = [
     imageEmoji: "🧘",
   },
   // Performances
+  {
+    id: "el-colibri-karaoke-battle-2026",
+    title: "El Colibri Karaoke Battle — Thursdays",
+    description:
+      "Thursday karaoke nights at El Colibri Hotel, Sosúa (7 PM–midnight). Join the 8-week Karaoke Battle — $20,000 in prizes (Jul 2–Sep 3, 2026). Contestants must attend every Thursday to stay eligible. Register on WhatsApp: +1 917-523-7259.",
+    date: "2026-07-02",
+    endDate: "2026-09-03",
+    time: "7:00 PM",
+    location: "Sosúa",
+    venue: "El Colibri Hotel",
+    venueSlug: "el-colibri-hotel",
+    address: "141 Pedro Clisante, Sosúa 57600",
+    lat: 19.7545,
+    lng: -70.519,
+    category: "performances",
+    format: "physical",
+    recurrence: "weekly",
+    recurrenceDay: 4,
+    trending: true,
+    sourceUrl: "https://www.elcolibriresort.com/",
+    imageEmoji: "🎤",
+  },
   // Business
   // Parties
   {
@@ -319,6 +341,28 @@ const FALLBACK_EVENTS_ES: Event[] = [
     sourceUrl:
       "https://www.facebook.com/events/1547520700301499/1547522116968024/",
     imageEmoji: "🍲",
+  },
+  {
+    id: "el-colibri-karaoke-battle-2026",
+    title: "Karaoke Battle El Colibri — Jueves",
+    description:
+      "Karaoke los jueves en El Colibri Hotel, Sosúa (7 PM–medianoche). Únete al Karaoke Battle de 8 semanas — $20,000 en premios (2 jul–3 sep 2026). Los concursantes deben asistir todos los jueves para seguir elegibles. Inscripción por WhatsApp: +1 917-523-7259.",
+    date: "2026-07-02",
+    endDate: "2026-09-03",
+    time: "7:00 PM",
+    location: "Sosúa",
+    venue: "El Colibri Hotel",
+    venueSlug: "el-colibri-hotel",
+    address: "141 Pedro Clisante, Sosúa 57600",
+    lat: 19.7545,
+    lng: -70.519,
+    category: "performances",
+    format: "physical",
+    recurrence: "weekly",
+    recurrenceDay: 4,
+    trending: true,
+    sourceUrl: "https://www.elcolibriresort.com/",
+    imageEmoji: "🎤",
   },
   {
     id: "inicio-del-campamento-pp-2026",

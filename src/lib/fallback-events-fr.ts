@@ -135,6 +135,28 @@ export const FALLBACK_EVENTS_FR: Event[] = [
     imageEmoji: "🍲",
   },
   {
+    id: "el-colibri-karaoke-battle-2026",
+    title: "Karaoke Battle El Colibri — Jeudis",
+    description:
+      "Soirées karaoké le jeudi à l'El Colibri Hotel, Sosúa (19 h–minuit). Participez au Karaoke Battle sur 8 semaines — 20 000 $ de prix (2 juil.–3 sept. 2026). Les candidats doivent être présents chaque jeudi pour rester éligibles. Inscription par WhatsApp : +1 917-523-7259.",
+    date: "2026-07-02",
+    endDate: "2026-09-03",
+    time: "7:00 PM",
+    location: "Sosúa",
+    venue: "El Colibri Hotel",
+    venueSlug: "el-colibri-hotel",
+    address: "141 Pedro Clisante, Sosúa 57600",
+    lat: 19.7545,
+    lng: -70.519,
+    category: "performances",
+    format: "physical",
+    recurrence: "weekly",
+    recurrenceDay: 4,
+    trending: true,
+    sourceUrl: "https://www.elcolibriresort.com/",
+    imageEmoji: "🎤",
+  },
+  {
     id: "inicio-del-campamento-pp-2026",
     title: "Ouverture du camp sportif",
     description:

@@ -28,6 +28,7 @@ const FILE_TO_EVENT_ID = {
   "rafaella.png": "cabarete-pilates-reformer",
   "campamento.jpg": "inicio-del-campamento-pp-2026",
   "el-carey-wc2026.png": "el-carey-wc2026",
+  "el-colibri-karaoke-battle-2026.png": "el-colibri-karaoke-battle-2026",
 };
 
 if (!existsSync(sourceDir)) {
