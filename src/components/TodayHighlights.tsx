@@ -62,6 +62,12 @@ function hasEventStarted(event: Event): boolean {
   return currentMinutes() >= window.start;
 }
 
+function hasFixedStartTime(time?: string): boolean {
+  if (!time) return false;
+  const matches = [...time.matchAll(/(\d{1,2})(?::(\d{2}))?\s*(AM|PM)/gi)];
+  return matches.length === 1;
+}
+
 function todayHighlightSortRank(event: Event): number {
   if (isHappeningNow(event)) return 0;
 
@@ -75,6 +81,10 @@ function compareTodayHighlights(a: Event, b: Event): number {
   const rankA = todayHighlightSortRank(a);
   const rankB = todayHighlightSortRank(b);
   if (rankA !== rankB) return rankA - rankB;
+
+  const fixedA = hasFixedStartTime(a.time);
+  const fixedB = hasFixedStartTime(b.time);
+  if (fixedA !== fixedB) return fixedA ? -1 : 1;
 
   const startA = parseEventTimeWindow(a.time)?.start ?? 0;
   const startB = parseEventTimeWindow(b.time)?.start ?? 0;

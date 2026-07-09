@@ -29,6 +29,12 @@ const FILE_TO_EVENT_ID = {
   "campamento.jpg": "inicio-del-campamento-pp-2026",
   "el-carey-wc2026.png": "el-carey-wc2026",
   "el-colibri-karaoke-battle-2026.png": "el-colibri-karaoke-battle-2026",
+  "oceanworld.jpeg": "ocean-world-daily",
+  "Damajagua.jpeg": "charcos-damajagua-daily",
+  "fortaleza.jpeg": "fortaleza-san-felipe-daily",
+  "museoambar.jpeg": "museo-ambar-weekdays",
+  "teleferico.jpeg": "teleferico-puerto-plata-daily",
+  "cayoarena.jpeg": "cayo-arena-tours-daily",
 };
 
 if (!existsSync(sourceDir)) {

@@ -24,12 +24,19 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "inicio-del-campamento-pp-2026": "inicio-del-campamento-pp-2026.jpg",
   "el-carey-wc2026": "el-carey-wc2026.png",
   "el-colibri-karaoke-battle-2026": "el-colibri-karaoke-battle-2026.png",
+  "ocean-world-daily": "ocean-world-daily.jpeg",
+  "charcos-damajagua-daily": "charcos-damajagua-daily.jpeg",
+  "fortaleza-san-felipe-daily": "fortaleza-san-felipe-daily.jpeg",
+  "museo-ambar-weekdays": "museo-ambar-weekdays.jpeg",
+  "teleferico-puerto-plata-daily": "teleferico-puerto-plata-daily.jpeg",
+  "cayo-arena-tours-daily": "cayo-arena-tours-daily.jpeg",
 };
 
 /** Legacy ingest ids that share a curated event image. */
 const EVENT_IMAGE_ALIASES: Record<string, string> = {
   "ingest-1783371784615-0-18th-annual-cabarete-butterfly-effect":
     "ingest-18th-annual-cabarete-butterfly-effect",
+  "museo-ambar-saturday": "museo-ambar-weekdays",
 };
 
 const EVENT_IMAGE_PREFIXES: { prefix: string; file: string }[] = [
