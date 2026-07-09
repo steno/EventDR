@@ -78,13 +78,13 @@ function todayHighlightSortRank(event: Event): number {
 }
 
 function compareTodayHighlights(a: Event, b: Event): number {
-  const rankA = todayHighlightSortRank(a);
-  const rankB = todayHighlightSortRank(b);
-  if (rankA !== rankB) return rankA - rankB;
-
   const fixedA = hasFixedStartTime(a.time);
   const fixedB = hasFixedStartTime(b.time);
   if (fixedA !== fixedB) return fixedA ? -1 : 1;
+
+  const rankA = todayHighlightSortRank(a);
+  const rankB = todayHighlightSortRank(b);
+  if (rankA !== rankB) return rankA - rankB;
 
   const startA = parseEventTimeWindow(a.time)?.start ?? 0;
   const startB = parseEventTimeWindow(b.time)?.start ?? 0;
