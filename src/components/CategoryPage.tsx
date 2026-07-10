@@ -75,6 +75,7 @@ export function CategoryPage({ categoryId, locale, dict }: CategoryPageProps) {
             locale={locale}
             emptyMessage={dict.browse.noEvents}
             sectionTitle={dict.browse.eventsIn}
+            returnTo={`/${locale}/category/${categoryId}`}
             onAddEvent={() => setSubmitOpen(true)}
             addEventLabel={dict.submit.addCategoryEvent.replace(
               "{category}",

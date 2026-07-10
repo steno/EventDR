@@ -31,10 +31,13 @@ export async function generateMetadata({
 
 export default async function Page({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: string; id: string }>;
+  searchParams: Promise<{ from?: string }>;
 }) {
   const { locale, id } = await params;
+  const { from } = await searchParams;
   if (!isValidLocale(locale)) notFound();
 
   const event = await getEventById(id, locale);
@@ -54,7 +57,7 @@ export default async function Page({
           ]),
         ]}
       />
-      <EventPage event={event} locale={locale} dict={dict} />
+      <EventPage event={event} locale={locale} dict={dict} returnTo={from} />
     </>
   );
 }

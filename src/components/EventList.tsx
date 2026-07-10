@@ -7,8 +7,8 @@ import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import type { TimeRange } from "@/lib/filters";
 import { filterByTimeRange, searchEvents } from "@/lib/filters";
-import { materializeEventDates } from "@/lib/event-dates";
-import { sortByDistance as sortEventsByDistance, attachVenueSlugs } from "@/lib/geo";
+import { materializeEventDates, sortUpcomingEvents } from "@/lib/event-dates";
+import { categoryPath } from "@/lib/event-navigation";
 import { EventCard } from "./EventCard";
 
 interface EventListProps {
@@ -19,10 +19,8 @@ interface EventListProps {
   timeRange?: TimeRange;
   onEventsLoaded?: (events: Event[]) => void;
   refreshKey?: number;
-  userLat?: number | null;
-  userLng?: number | null;
-  sortByDistance?: boolean;
   ourPicks?: boolean;
+  returnTo?: string;
 }
 
 export function EventList({
@@ -33,11 +31,11 @@ export function EventList({
   timeRange = "all",
   onEventsLoaded,
   refreshKey = 0,
-  userLat = null,
-  userLng = null,
-  sortByDistance = false,
   ourPicks = false,
+  returnTo,
 }: EventListProps) {
+  const listReturnTo =
+    returnTo ?? (category ? categoryPath(locale, category) : `/${locale}`);
   const [events, setEvents] = useState<Event[]>([]);
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
@@ -84,14 +82,10 @@ export function EventList({
   }, [fetchEvents, refreshKey]);
 
   const filtered = useMemo(() => {
-    let result = events;
-    result = filterByTimeRange(result, timeRange);
+    let result = filterByTimeRange(events, timeRange);
     result = searchEvents(result, searchQuery);
-    if (sortByDistance && userLat != null && userLng != null) {
-      result = sortEventsByDistance(attachVenueSlugs(result), userLat, userLng);
-    }
-    return result;
-  }, [events, timeRange, searchQuery, sortByDistance, userLat, userLng]);
+    return sortUpcomingEvents(result, { recurringLast: true });
+  }, [events, timeRange, searchQuery]);
 
   const sourceLabel =
     source === "live"
@@ -101,8 +95,6 @@ export function EventList({
         : source === "cache"
           ? dict.events.sourceCache
           : dict.events.sourceFallback;
-
-  const hasUserLocation = userLat != null && userLng != null;
 
   if (loading) {
     return (
@@ -115,8 +107,6 @@ export function EventList({
     );
   }
 
-  const trending = filtered.filter((e) => e.trending);
-  const rest = filtered.filter((e) => !e.trending);
   const isSearching = searchQuery.trim().length > 0;
 
   return (
@@ -128,25 +118,22 @@ export function EventList({
               ? dict.search.activeTitle
               : ourPicks && !category
                 ? dict.events.ourPicks
-                : sortByDistance
-                  ? dict.events.nearMeOn
-                  : category
-                    ? dict.events.filtered
-                    : dict.events.trending}
+                : category
+                  ? dict.events.filtered
+                  : dict.events.trending}
           </h2>
           {category && filtered.length > 0 && (
             <p className="text-xs text-neutral-400 mt-0.5">
               {filtered.length} · {dict.events.hiddenGems}
             </p>
           )}
-          {!category && ((ourPicks || sortByDistance) && !isSearching ? true : source) && (
+          {!category && ourPicks && !isSearching && (
             <p className="text-xs text-neutral-400 mt-0.5">
-              {(ourPicks || sortByDistance) && !isSearching
-                ? hasUserLocation
-                  ? dict.events.nearMeOn
-                  : dict.events.nearMeDenied
-                : sourceLabel}
+              {dict.events.sortedUpcoming}
             </p>
+          )}
+          {!category && !ourPicks && !isSearching && source && (
+            <p className="text-xs text-neutral-400 mt-0.5">{sourceLabel}</p>
           )}
         </div>
         <button
@@ -171,7 +158,7 @@ export function EventList({
           </p>
           <p className="text-sm text-neutral-400 mt-1">{dict.events.emptyHint}</p>
         </div>
-      ) : isSearching ? (
+      ) : (
         <div className="space-y-3">
           {filtered.map((event) => (
             <EventCard
@@ -179,69 +166,10 @@ export function EventList({
               event={event}
               dict={dict}
               locale={locale}
+              returnTo={listReturnTo}
             />
           ))}
         </div>
-      ) : (
-        <>
-          {(ourPicks || sortByDistance) && !category && !searchQuery ? (
-            <section>
-              <div className="space-y-3">
-                {filtered.map((event) => (
-                  <EventCard
-                    key={event.id}
-                    event={event}
-                    dict={dict}
-                    locale={locale}
-                  />
-                ))}
-              </div>
-            </section>
-          ) : (
-            <>
-              {trending.length > 0 && !category && !searchQuery && (
-                <section>
-                  <h3 className="text-xs font-bold uppercase tracking-widest text-orange-500 mb-3">
-                    {dict.events.mostPopular}
-                  </h3>
-                  <div className="space-y-3">
-                    {trending.map((event) => (
-                      <EventCard
-                        key={event.id}
-                        event={event}
-                        dict={dict}
-                        locale={locale}
-                      />
-                    ))}
-                  </div>
-                </section>
-              )}
-
-              {rest.length > 0 && (
-                <section>
-                  {!category && trending.length > 0 && !searchQuery && (
-                    <h3 className="text-xs font-bold uppercase tracking-widest text-neutral-400 mb-3">
-                      {dict.events.moreEvents}
-                    </h3>
-                  )}
-                  <div className="space-y-3">
-                    {(category || trending.length === 0 || searchQuery
-                      ? filtered
-                      : rest
-                    ).map((event) => (
-                      <EventCard
-                        key={event.id}
-                        event={event}
-                        dict={dict}
-                        locale={locale}
-                      />
-                    ))}
-                  </div>
-                </section>
-              )}
-            </>
-          )}
-        </>
       )}
     </div>
   );

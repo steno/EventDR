@@ -10,6 +10,7 @@ import type { Dictionary } from "@/i18n/dictionaries";
 import { formatEventDateRange } from "@/lib/format-date";
 import { localDateISO, parseLocalDate } from "@/lib/event-dates";
 import { getDirectionsUrl } from "@/lib/maps";
+import { eventDetailPath } from "@/lib/event-navigation";
 
 interface TodayHighlightsProps {
   events: Event[];
@@ -130,7 +131,7 @@ const TodayHighlightsComponent = ({
 
       <div className="-mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 scrollbar-hide">
         {todayEvents.map((event) => {
-          const href = `/${locale}/event/${event.id}`;
+          const href = eventDetailPath(locale, event.id, `/${locale}`);
 
           return (
             <article

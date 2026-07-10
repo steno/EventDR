@@ -15,10 +15,11 @@ import { VenueStrip } from "@/components/VenueStrip";
 import { PushNotifyButton } from "@/components/PushNotifyButton";
 import { SiteFooter } from "@/components/SiteFooter";
 import { TodayHighlights } from "@/components/TodayHighlights";
+import { TimeFilter } from "@/components/TimeFilter";
 import { useSavedEvents } from "@/hooks/useSavedEvents";
-import { LocationPrompt } from "@/components/LocationPrompt";
 import { useGeolocation } from "@/hooks/useGeolocation";
 import { usePushNotifications } from "@/hooks/usePushNotifications";
+import type { TimeRange } from "@/lib/filters";
 import type { Event } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
 import type { AppTab, Dictionary } from "@/i18n/dictionaries";
@@ -31,6 +32,7 @@ interface HomeProps {
 export function Home({ locale, dict }: HomeProps) {
   const [tab, setTab] = useState<AppTab>("discover");
   const [searchQuery, setSearchQuery] = useState("");
+  const [timeRange, setTimeRange] = useState<TimeRange>("all");
   const [submitOpen, setSubmitOpen] = useState(false);
   const [allEvents, setAllEvents] = useState<Event[]>([]);
   const [refreshKey, setRefreshKey] = useState(0);
@@ -38,8 +40,6 @@ export function Home({ locale, dict }: HomeProps) {
   const { toggleSave, isSaved, filterSaved, reconcileWithEvents } = useSavedEvents();
   const geo = useGeolocation();
   const push = usePushNotifications(locale);
-  const hasUserLocation =
-    geo.lat != null && geo.lng != null && !geo.lowAccuracy;
 
   const handleEventsLoaded = useCallback((events: Event[]) => {
     setAllEvents(events);
@@ -102,23 +102,15 @@ export function Home({ locale, dict }: HomeProps) {
               <div className="mb-8">
                 <VenueStrip locale={locale} dict={dict} />
               </div>
-              <LocationPrompt
-                dict={dict}
-                loading={geo.loading}
-                denied={geo.denied}
-                lowAccuracy={geo.lowAccuracy}
-                hasLocation={hasUserLocation}
-                onRequest={geo.requestLocation}
-              />
+              <TimeFilter value={timeRange} onChange={setTimeRange} dict={dict} />
               <EventList
                 locale={locale}
                 dict={dict}
                 onEventsLoaded={handleEventsLoaded}
                 refreshKey={refreshKey}
                 ourPicks
-                sortByDistance={hasUserLocation}
-                userLat={geo.lat}
-                userLng={geo.lng}
+                timeRange={timeRange}
+                returnTo={`/${locale}`}
               />
               <div className="mt-6 mb-2">
                 <PushNotifyButton
@@ -147,9 +139,7 @@ export function Home({ locale, dict }: HomeProps) {
                   searchQuery={searchQuery}
                   timeRange="all"
                   refreshKey={refreshKey}
-                  sortByDistance={hasUserLocation}
-                  userLat={geo.lat}
-                  userLng={geo.lng}
+                  returnTo={`/${locale}`}
                 />
               ) : (
                 <p className="text-center text-sm text-neutral-400 font-medium py-16 px-6">
@@ -179,6 +169,7 @@ export function Home({ locale, dict }: HomeProps) {
                       event={event}
                       dict={dict}
                       locale={locale}
+                      returnTo={`/${locale}`}
                     />
                   ))}
                 </div>

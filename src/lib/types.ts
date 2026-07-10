@@ -62,7 +62,6 @@ export interface Event {
   status?: EventStatus;
   lat?: number;
   lng?: number;
-  distanceKm?: number;
   /** Repeating local happenings — always match the right day filters */
   recurrence?: EventRecurrence;
   /** 0=Sun … 6=Sat; used when recurrence is "weekly" */

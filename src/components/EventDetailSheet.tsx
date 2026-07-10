@@ -82,9 +82,24 @@ export function EventDetailSheet({
 
   return (
     <div className="fixed inset-0 z-[60] flex items-end justify-center">
+      {event.imageUrl && (
+        <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
+          <EventImage
+            src={event.imageUrl}
+            alt=""
+            sizes="100vw"
+            priority
+            className="object-cover object-center scale-110 blur-xl opacity-70"
+          />
+        </div>
+      )}
       <button
         type="button"
-        className="absolute inset-0 bg-black/40 backdrop-blur-sm"
+        className={
+          event.imageUrl
+            ? "absolute inset-0 bg-black/25"
+            : "absolute inset-0 bg-black/40 backdrop-blur-sm"
+        }
         onClick={onClose}
         aria-label={dict.detail.close}
       />

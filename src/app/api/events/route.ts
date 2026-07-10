@@ -13,7 +13,7 @@ import {
 import { getFallbackEvents, getFallbackForCategory } from "@/lib/fallback-events";
 import { getCommunityEvents } from "@/lib/community-store";
 import { fetchApprovedEvents } from "@/lib/firebase/events";
-import { attachCoords, sortByDistance, attachVenueSlugs } from "@/lib/geo";
+import { attachCoords, attachVenueSlugs } from "@/lib/geo";
 import { materializeEventDates, sortUpcomingEvents } from "@/lib/event-dates";
 import { isValidLocale } from "@/i18n/config";
 import type { Locale } from "@/i18n/config";
@@ -89,11 +89,6 @@ export async function GET(request: NextRequest) {
   const refresh = searchParams.get("refresh") === "true";
   const localeParam = searchParams.get("locale") ?? "en";
   const locale: Locale = isValidLocale(localeParam) ? localeParam : "en";
-  const latParam = searchParams.get("lat");
-  const lngParam = searchParams.get("lng");
-  const userLat = latParam ? parseFloat(latParam) : null;
-  const userLng = lngParam ? parseFloat(lngParam) : null;
-  const nearMe = searchParams.get("nearMe") === "true" && userLat != null && userLng != null;
   const cacheKey = getCacheKey(
     locale,
     category,
@@ -116,9 +111,6 @@ export async function GET(request: NextRequest) {
       const cached = getCachedEvents(cacheKey);
       if (cached?.length) {
         let events = applyCuratedEventPatches(attachEventImages(sortEvents(cached)));
-        if (nearMe && userLat != null && userLng != null) {
-          events = sortByDistance(events, userLat, userLng);
-        }
         return NextResponse.json(
           {
             events,
@@ -175,10 +167,6 @@ export async function GET(request: NextRequest) {
 
     setCachedEvents(cacheKey, events);
 
-    if (nearMe && userLat != null && userLng != null) {
-      events = sortByDistance(events, userLat, userLng);
-    }
-
     const source =
       dbEvents.length > 0 && crawlResults.length > 0
         ? "live"
@@ -209,9 +197,6 @@ export async function GET(request: NextRequest) {
     events = sortEvents(materializeEventDates(events));
     events = applyCuratedEventPatches(events);
     events = attachEventImages(events);
-    if (nearMe && userLat != null && userLng != null) {
-      events = sortByDistance(attachCoords(events), userLat, userLng);
-    }
     return NextResponse.json(
       {
         events,

@@ -12,8 +12,6 @@ import { EventCard } from "@/components/EventCard";
 import { VenueStrip } from "@/components/VenueStrip";
 import { AddEventButton } from "@/components/AddEventButton";
 import { SiteFooter } from "@/components/SiteFooter";
-import { useGeolocation } from "@/hooks/useGeolocation";
-import { attachDistances } from "@/lib/geo";
 
 interface FilteredEventListProps {
   events: Event[];
@@ -24,6 +22,7 @@ interface FilteredEventListProps {
   sectionTitle?: string;
   onAddEvent?: () => void;
   addEventLabel?: string;
+  returnTo?: string;
 }
 
 export function FilteredEventList({
@@ -35,10 +34,9 @@ export function FilteredEventList({
   sectionTitle,
   onAddEvent,
   addEventLabel,
+  returnTo,
 }: FilteredEventListProps) {
   const [timeRange, setTimeRange] = useState<TimeRange>("all");
-  const geo = useGeolocation();
-  const hasUserLocation = geo.lat != null && geo.lng != null;
 
   const materialized = useMemo(
     () => materializeEventDates(events),
@@ -47,12 +45,8 @@ export function FilteredEventList({
 
   const filtered = useMemo(() => {
     const timeFiltered = filterByTimeRange(materialized, timeRange);
-    if (!hasUserLocation) {
-      return sortUpcomingEvents(timeFiltered, { recurringLast: true });
-    }
-    const withDistances = attachDistances(timeFiltered, geo.lat!, geo.lng!);
-    return sortUpcomingEvents(withDistances, { recurringLast: true });
-  }, [materialized, timeRange, hasUserLocation, geo.lat, geo.lng]);
+    return sortUpcomingEvents(timeFiltered, { recurringLast: true });
+  }, [materialized, timeRange]);
 
   return (
     <>
@@ -83,6 +77,7 @@ export function FilteredEventList({
               event={event}
               dict={dict}
               locale={locale}
+              returnTo={returnTo}
             />
           ))}
         </div>

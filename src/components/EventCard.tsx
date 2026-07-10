@@ -1,27 +1,28 @@
 import { memo } from "react";
 import Link from "next/link";
-import { MapPin, Calendar, Clock, Globe, Flame, Navigation2 } from "lucide-react";
+import { MapPin, Calendar, Clock, Flame } from "lucide-react";
 import { EventImage } from "@/components/EventImage";
 import type { Event } from "@/lib/types";
 import { getCategoryMeta } from "@/lib/categories";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import { formatEventDateRange } from "@/lib/format-date";
-import { formatDistance } from "@/lib/geo";
 import { formatRecurrenceLabel } from "@/lib/recurrence-label";
 import { formatEventPlace } from "@/lib/event-location";
+import { eventDetailPath } from "@/lib/event-navigation";
 
 interface EventCardProps {
   event: Event;
   dict: Dictionary;
   locale: Locale;
+  returnTo?: string;
 }
 
-const EventCardComponent = ({ event, dict, locale }: EventCardProps) => {
+const EventCardComponent = ({ event, dict, locale, returnTo }: EventCardProps) => {
   const category = getCategoryMeta(event.category, dict.categories);
   const emoji = event.imageEmoji ?? category?.emoji ?? "📅";
   const recurrenceLabel = formatRecurrenceLabel(event, locale, dict);
-  const href = `/${locale}/event/${event.id}`;
+  const href = eventDetailPath(locale, event.id, returnTo);
 
   return (
     <Link href={href} className="w-full text-left block">
@@ -95,12 +96,6 @@ const EventCardComponent = ({ event, dict, locale }: EventCardProps) => {
               <MapPin className="h-4 w-4 text-neutral-500" />
               {formatEventPlace(event)}
             </span>
-            {event.distanceKm != null && isFinite(event.distanceKm) && (
-              <span className="inline-flex items-center gap-1.5 font-bold text-orange-600">
-                <Navigation2 className="h-4 w-4" />
-                {formatDistance(event.distanceKm, locale)} {dict.events.distanceAway}
-              </span>
-            )}
           </div>
         </div>
       </article>

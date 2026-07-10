@@ -162,11 +162,6 @@ export function sortUpcomingEvents(
     if (a.trending && !b.trending) return -1;
     if (!a.trending && b.trending) return 1;
 
-    const aDistance = a.distanceKm ?? Infinity;
-    const bDistance = b.distanceKm ?? Infinity;
-    const distanceDiff = compareSortValues(aDistance, bDistance);
-    if (distanceDiff !== 0) return distanceDiff;
-
     return a.title.localeCompare(b.title);
   });
 }
