@@ -253,7 +253,7 @@ export function EventDetailSheet({
                 href={getDirectionsUrl(event)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 rounded-2xl bg-neutral-900 text-white py-3.5 text-[15px] font-bold touch-manipulation active:scale-[0.98] transition-transform"
+                className="flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 py-3.5 text-[15px] font-bold text-white shadow-[0_14px_30px_-14px_rgba(244,63,94,0.8)] touch-manipulation transition-transform active:scale-[0.98]"
               >
                 <Navigation className="h-5 w-5" />
                 {dict.detail.directions}
@@ -262,7 +262,7 @@ export function EventDetailSheet({
             <button
               type="button"
               onClick={() => addToCalendar(event)}
-              className="flex items-center justify-center gap-2 rounded-2xl bg-neutral-100 text-neutral-900 py-3.5 text-[15px] font-bold touch-manipulation active:scale-[0.98] transition-transform"
+              className="flex items-center justify-center gap-2 rounded-full bg-white py-3.5 text-[15px] font-bold text-neutral-500 shadow-sm ring-1 ring-neutral-200/70 touch-manipulation transition-all hover:text-neutral-800 active:scale-[0.98]"
             >
               <CalendarPlus className="h-5 w-5" />
               {dict.detail.calendar}
@@ -270,10 +270,10 @@ export function EventDetailSheet({
             <button
               type="button"
               onClick={() => setShareOpen((open) => !open)}
-              className={`flex items-center justify-center gap-2 rounded-2xl py-3.5 text-[15px] font-bold touch-manipulation active:scale-[0.98] transition-transform ${
-                shareOpen
-                  ? "bg-orange-50 text-orange-600"
-                  : "bg-neutral-100 text-neutral-900"
+              className={`flex items-center justify-center gap-2 rounded-full py-3.5 text-[15px] font-bold touch-manipulation transition-all active:scale-[0.98] ${
+                shareOpen || shareMsg
+                  ? "bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 text-white shadow-sm"
+                  : "bg-white text-neutral-500 shadow-sm ring-1 ring-neutral-200/70 hover:text-neutral-800"
               }`}
             >
               <Share2 className="h-5 w-5" />
@@ -282,10 +282,11 @@ export function EventDetailSheet({
             <button
               type="button"
               onClick={() => onToggleSave(event)}
-              className={`
-                flex items-center justify-center gap-2 rounded-2xl py-3.5 text-[15px] font-bold touch-manipulation active:scale-[0.98] transition-transform
-                ${isSaved ? "bg-orange-50 text-orange-600" : "bg-neutral-100 text-neutral-900"}
-              `}
+              className={`flex items-center justify-center gap-2 rounded-full py-3.5 text-[15px] font-bold touch-manipulation transition-all active:scale-[0.98] ${
+                isSaved
+                  ? "bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 text-white shadow-sm"
+                  : "bg-white text-neutral-500 shadow-sm ring-1 ring-neutral-200/70 hover:text-neutral-800"
+              }`}
             >
               <Heart className={`h-5 w-5 ${isSaved ? "fill-current" : ""}`} />
               {isSaved ? dict.detail.saved : dict.detail.save}

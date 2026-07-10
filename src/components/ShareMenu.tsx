@@ -48,13 +48,15 @@ const PLATFORMS: {
   {
     id: "email",
     labelKey: "shareEmail",
-    className: "bg-neutral-100 text-neutral-900",
+    className:
+      "bg-white text-neutral-500 ring-1 ring-neutral-200/70 shadow-sm hover:text-neutral-800",
     icon: <Mail className="h-4 w-4" />,
   },
   {
     id: "copy",
     labelKey: "shareCopyLink",
-    className: "bg-neutral-100 text-neutral-900",
+    className:
+      "bg-white text-neutral-500 ring-1 ring-neutral-200/70 shadow-sm hover:text-neutral-800",
     icon: <Link2 className="h-4 w-4" />,
   },
 ];
@@ -94,7 +96,7 @@ export function ShareMenu({
   return (
     <div
       ref={menuRef}
-      className="mb-3 rounded-2xl border border-neutral-100 bg-neutral-50 p-3 animate-in fade-in slide-in-from-bottom-2 duration-200"
+      className="mb-3 rounded-3xl bg-white/85 p-3 shadow-sm ring-1 ring-neutral-200/70 backdrop-blur animate-in fade-in slide-in-from-bottom-2 duration-200"
     >
       <p className="mb-2 px-1 text-[11px] font-bold uppercase tracking-wide text-neutral-500">
         {dict.detail.shareVia}
@@ -104,7 +106,7 @@ export function ShareMenu({
           <button
             type="button"
             onClick={() => handlePlatform("native")}
-            className="flex shrink-0 items-center gap-2 rounded-xl bg-white px-3 py-2.5 text-[13px] font-bold text-neutral-900 shadow-sm touch-manipulation active:scale-[0.98] transition-transform"
+            className="flex shrink-0 items-center gap-2 rounded-full bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-3 py-2.5 text-[13px] font-bold text-white shadow-sm touch-manipulation transition-transform active:scale-[0.98]"
           >
             <Share2 className="h-4 w-4" />
             {dict.detail.shareMore}
@@ -115,7 +117,7 @@ export function ShareMenu({
             key={platform.id}
             type="button"
             onClick={() => handlePlatform(platform.id)}
-            className={`flex shrink-0 items-center gap-2 rounded-xl px-3 py-2.5 text-[13px] font-bold touch-manipulation active:scale-[0.98] transition-transform ${platform.className}`}
+            className={`flex shrink-0 items-center gap-2 rounded-full px-3 py-2.5 text-[13px] font-bold touch-manipulation transition-all active:scale-[0.98] ${platform.className}`}
           >
             {platform.icon}
             {dict.detail[platform.labelKey]}
