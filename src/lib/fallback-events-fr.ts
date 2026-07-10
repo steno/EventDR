@@ -8,7 +8,7 @@ export const FALLBACK_EVENTS_FR: Event[] = [
     description:
       "Musique live, open mic et jam à VOYVOY, Cabarete. Lester Grant lance la soirée — apportez un instrument ou empruntez-en un. Ambiance détendue pour boire et dîner.",
     date: "2026-07-05",
-    time: "5:00 PM",
+    time: "5:00 PM – 11:00 PM",
     location: "Cabarete",
     venue: "VOYVOY Cabarete",
     category: "performances",
@@ -23,7 +23,7 @@ export const FALLBACK_EVENTS_FR: Event[] = [
     description:
       "Soirée danse le samedi à VOYVOY avec DJs invités — reggaeton, club, sans cover. Un incontournable de Cabarete pour locaux et visiteurs.",
     date: "2026-07-11",
-    time: "9:00 PM",
+    time: "9:00 PM – 2:00 AM",
     location: "Cabarete",
     venue: "VOYVOY Cabarete",
     category: "parties",
@@ -38,7 +38,7 @@ export const FALLBACK_EVENTS_FR: Event[] = [
     description:
       "Soirées de week-end sur le Malecón de Puerto Plata : sets informels sur la promenade et concerts occasionnels à l'Anfiteatro La Puntilla. Les programmations sont annoncées par date — consultez la page officielle du lieu lorsqu'un événement est prévu.",
     date: "2026-01-01",
-    time: "7:00 PM",
+    time: "7:00 PM – 10:00 PM",
     location: "Puerto Plata",
     venue: "Anfiteatro La Puntilla",
     venueSlug: "malecon-puerto-plata",
@@ -55,7 +55,7 @@ export const FALLBACK_EVENTS_FR: Event[] = [
     description:
       "Boxe professionnelle sur la plage de Sosúa au Bar 39, avec invités spéciaux et séances d'autographes.",
     date: "2026-07-04",
-    time: "5:00 PM",
+    time: "5:00 PM – 9:00 PM",
     location: "Sosúa",
     venue: "Bar 39, Playa Sosúa",
     category: "sports",
@@ -104,7 +104,7 @@ export const FALLBACK_EVENTS_FR: Event[] = [
     description:
       "Cours collectifs de Pilates Reformer à Cabarete avec Rafaella Cirillo (mar. et jeu. 9 h). L'adresse du studio est communiquée à la réservation — DM ou WhatsApp +1 809 460 5777. Code RC-pilates pour le premier cours.",
     date: "2026-07-08",
-    time: "9:00 AM",
+    time: "9:00 AM – 10:00 AM",
     location: "Cabarete",
     venue: "Rafaella's Studio",
     category: "health-wellness",
@@ -121,7 +121,7 @@ export const FALLBACK_EVENTS_FR: Event[] = [
       "La foire artisanale d'été 2026 se tient du 10 au 26 juillet sur la Plaza Independencia (le parc central de Puerto Plata). Plus de 120 artisans locaux y exposent tous les jours de 8 h à 21 h : pièces faites main, expositions culturelles, art, souvenirs et masques de cabezudos. L'initiative vise à mettre en valeur les artistes locaux et rapprocher l'artisanat dominicain des visiteurs et des résidents.",
     date: "2026-07-10",
     endDate: "2026-07-26",
-    time: "8:00 AM",
+    time: "8:00 AM – 9:00 PM",
     location: "Puerto Plata",
     venue: "Plaza Independencia (Parque Central)",
     category: "culture",
@@ -136,7 +136,7 @@ export const FALLBACK_EVENTS_FR: Event[] = [
     description:
       "Le samedi goûte la tradition chez Pingüi Bar — dégustez un sancocho face à la mer à Playa El Pueblito. Réunissez amis et famille pour un après-midi de cuisine dominicaine avec vue sur l'océan (12 h–16 h).",
     date: "2026-07-11",
-    time: "12:00 PM",
+    time: "12:00 PM – 4:00 PM",
     location: "Puerto Plata",
     venue: "Pingüi Bar Restaurant & Piña Colada House",
     address: "C. B, Puerto Plata 57000",
@@ -157,7 +157,7 @@ export const FALLBACK_EVENTS_FR: Event[] = [
       "Soirées karaoké le jeudi à l'El Colibri Hotel, Sosúa (19 h–minuit). Participez au Karaoke Battle sur 8 semaines — 20 000 $ de prix (2 juil.–3 sept. 2026). Les candidats doivent être présents chaque jeudi pour rester éligibles. Inscription par WhatsApp : +1 917-523-7259.",
     date: "2026-07-02",
     endDate: "2026-09-03",
-    time: "7:00 PM",
+    time: "7:00 PM – 12:00 AM",
     location: "Sosúa",
     venue: "El Colibri Hotel",
     venueSlug: "el-colibri-hotel",
@@ -178,7 +178,7 @@ export const FALLBACK_EVENTS_FR: Event[] = [
     description:
       "Lancement d'un camp sportif dans le quartier historique de San Felipe, Puerto Plata — organisé par Sin pelos en la lengua. Consultez l'événement Facebook pour l'inscription.",
     date: "2026-07-10",
-    time: "5:00 PM",
+    time: "5:00 PM – 8:00 PM",
     location: "Puerto Plata",
     venue: "San Felipe de Puerto Plata",
     category: "sports",

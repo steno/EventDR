@@ -9,7 +9,7 @@ const RECURRING_EN: Event[] = [
     description:
       "Nightly DJs and live bands on the beach deck. The default Cabarete evening — no cover most nights.",
     date: "2026-01-01",
-    time: "6:00 PM",
+    time: "6:00 PM – 11:00 PM",
     location: "Cabarete",
     venue: "LAX Cabarete",
     venueSlug: "lax-cabarete",
@@ -25,7 +25,7 @@ const RECURRING_EN: Event[] = [
     description:
       "Street food, cold Presidentes, and típico drifting from the waterfront stalls every evening.",
     date: "2026-01-01",
-    time: "5:00 PM",
+    time: "5:00 PM – 10:00 PM",
     location: "Puerto Plata",
     venue: "Malecón de Puerto Plata",
     venueSlug: "malecon-puerto-plata",
@@ -40,7 +40,7 @@ const RECURRING_EN: Event[] = [
     description:
       "Morning kite and wing lessons, races, and beach hangouts when the trade winds kick in — most days here.",
     date: "2026-01-01",
-    time: "10:00 AM",
+    time: "10:00 AM – 4:00 PM",
     location: "Cabarete",
     venue: "Kite Beach",
     venueSlug: "kite-beach",
@@ -72,7 +72,7 @@ const RECURRING_EN: Event[] = [
     description:
       "Remote workers and founders coworking weekdays — informal networking at the bar after 4 PM.",
     date: "2026-01-01",
-    time: "9:00 AM",
+    time: "9:00 AM – 6:00 PM",
     location: "Cabarete",
     venue: "Cowork Cabarete",
     venueSlug: "cowork-cabarete",
@@ -87,7 +87,7 @@ const RECURRING_EN: Event[] = [
     description:
       "Weekly salsa night — beginner class then social dancing until late. No partner needed.",
     date: "2026-01-01",
-    time: "8:00 PM",
+    time: "8:00 PM – 2:00 AM",
     location: "Sosúa",
     venue: "El Batey",
     venueSlug: "el-batey-sosua",
@@ -103,7 +103,7 @@ const RECURRING_EN: Event[] = [
     description:
       "Locals and visitors mix teams on the sand every week. Just show up and jump in.",
     date: "2026-01-01",
-    time: "4:00 PM",
+    time: "4:00 PM – 7:00 PM",
     location: "Sosúa",
     venue: "Playa Sosúa",
     category: "sports",
@@ -118,7 +118,7 @@ const RECURRING_EN: Event[] = [
     description:
       "Reggae and roots every Friday on the bay — one of Cabarete's longest-running weekly parties.",
     date: "2026-01-01",
-    time: "9:00 PM",
+    time: "9:00 PM – 2:00 AM",
     location: "Cabarete",
     venue: "LAX Cabarete",
     venueSlug: "lax-cabarete",
@@ -135,7 +135,7 @@ const RECURRING_EN: Event[] = [
     description:
       "Singers, poets, and comedians sign up at the door. Underground scene, bilingual crowd.",
     date: "2026-01-01",
-    time: "8:00 PM",
+    time: "8:00 PM – 12:00 AM",
     location: "Sosúa",
     venue: "El Batey",
     venueSlug: "el-batey-sosua",
@@ -363,7 +363,7 @@ const RECURRING_ES: Event[] = [
     description:
       "DJs y bandas en vivo cada noche en la terraza de la playa. La noche clásica de Cabarete.",
     date: "2026-01-01",
-    time: "6:00 PM",
+    time: "6:00 PM – 11:00 PM",
     location: "Cabarete",
     venue: "LAX Cabarete",
     venueSlug: "lax-cabarete",
@@ -379,7 +379,7 @@ const RECURRING_ES: Event[] = [
     description:
       "Comida callejera, frío y música típica en el paseo marítimo cada tarde-noche.",
     date: "2026-01-01",
-    time: "5:00 PM",
+    time: "5:00 PM – 10:00 PM",
     location: "Puerto Plata",
     venue: "Malecón de Puerto Plata",
     venueSlug: "malecon-puerto-plata",
@@ -394,7 +394,7 @@ const RECURRING_ES: Event[] = [
     description:
       "Clases de kite, carreras y hangout en la playa cuando soplan los alisios — casi todos los días.",
     date: "2026-01-01",
-    time: "10:00 AM",
+    time: "10:00 AM – 4:00 PM",
     location: "Cabarete",
     venue: "Kite Beach",
     venueSlug: "kite-beach",
@@ -426,7 +426,7 @@ const RECURRING_ES: Event[] = [
     description:
       "Nómadas digitales y emprendedores entre semana — networking informal en la barra después de las 4 PM.",
     date: "2026-01-01",
-    time: "9:00 AM",
+    time: "9:00 AM – 6:00 PM",
     location: "Cabarete",
     venue: "Cowork Cabarete",
     venueSlug: "cowork-cabarete",
@@ -441,7 +441,7 @@ const RECURRING_ES: Event[] = [
     description:
       "Noche de salsa semanal — clase para principiantes y baile social hasta tarde.",
     date: "2026-01-01",
-    time: "8:00 PM",
+    time: "8:00 PM – 2:00 AM",
     location: "Sosúa",
     venue: "El Batey",
     venueSlug: "el-batey-sosua",
@@ -457,7 +457,7 @@ const RECURRING_ES: Event[] = [
     description:
       "Partidos informales cada semana en la arena. Solo llega y juega.",
     date: "2026-01-01",
-    time: "4:00 PM",
+    time: "4:00 PM – 7:00 PM",
     location: "Sosúa",
     venue: "Playa Sosúa",
     category: "sports",
@@ -472,7 +472,7 @@ const RECURRING_ES: Event[] = [
     description:
       "Reggae y roots cada viernes en la bahía — una de las fiestas semanales más clásicas.",
     date: "2026-01-01",
-    time: "9:00 PM",
+    time: "9:00 PM – 2:00 AM",
     location: "Cabarete",
     venue: "LAX Cabarete",
     venueSlug: "lax-cabarete",
@@ -489,7 +489,7 @@ const RECURRING_ES: Event[] = [
     description:
       "Cantantes, poetas y comediantes. Escena underground, público bilingüe.",
     date: "2026-01-01",
-    time: "8:00 PM",
+    time: "8:00 PM – 12:00 AM",
     location: "Sosúa",
     venue: "El Batey",
     venueSlug: "el-batey-sosua",
@@ -717,7 +717,7 @@ const RECURRING_FR: Event[] = [
     description:
       "DJs et groupes live chaque soir sur la terrasse. La soirée classique de Cabarete.",
     date: "2026-01-01",
-    time: "6:00 PM",
+    time: "6:00 PM – 11:00 PM",
     location: "Cabarete",
     venue: "LAX Cabarete",
     venueSlug: "lax-cabarete",
@@ -733,7 +733,7 @@ const RECURRING_FR: Event[] = [
     description:
       "Street food, bière fraîche et musique typique sur la promenade chaque soir.",
     date: "2026-01-01",
-    time: "5:00 PM",
+    time: "5:00 PM – 10:00 PM",
     location: "Puerto Plata",
     venue: "Malecón de Puerto Plata",
     venueSlug: "malecon-puerto-plata",
@@ -748,7 +748,7 @@ const RECURRING_FR: Event[] = [
     description:
       "Cours, courses et hangout quand les alizés soufflent — presque tous les jours.",
     date: "2026-01-01",
-    time: "10:00 AM",
+    time: "10:00 AM – 4:00 PM",
     location: "Cabarete",
     venue: "Kite Beach",
     venueSlug: "kite-beach",
@@ -780,7 +780,7 @@ const RECURRING_FR: Event[] = [
     description:
       "Nomades et entrepreneurs en semaine — networking informel au bar après 16 h.",
     date: "2026-01-01",
-    time: "9:00 AM",
+    time: "9:00 AM – 6:00 PM",
     location: "Cabarete",
     venue: "Cowork Cabarete",
     venueSlug: "cowork-cabarete",
@@ -795,7 +795,7 @@ const RECURRING_FR: Event[] = [
     description:
       "Cours débutant puis danse sociale jusqu'à tard. Pas besoin de partenaire.",
     date: "2026-01-01",
-    time: "8:00 PM",
+    time: "8:00 PM – 2:00 AM",
     location: "Sosúa",
     venue: "El Batey",
     venueSlug: "el-batey-sosua",
@@ -811,7 +811,7 @@ const RECURRING_FR: Event[] = [
     description:
       "Matchs informels chaque semaine sur le sable. Il suffit de se présenter.",
     date: "2026-01-01",
-    time: "4:00 PM",
+    time: "4:00 PM – 7:00 PM",
     location: "Sosúa",
     venue: "Playa Sosúa",
     category: "sports",
@@ -826,7 +826,7 @@ const RECURRING_FR: Event[] = [
     description:
       "Reggae et roots chaque vendredi sur la baie — une fête hebdomadaire iconique.",
     date: "2026-01-01",
-    time: "9:00 PM",
+    time: "9:00 PM – 2:00 AM",
     location: "Cabarete",
     venue: "LAX Cabarete",
     venueSlug: "lax-cabarete",
@@ -843,7 +843,7 @@ const RECURRING_FR: Event[] = [
     description:
       "Chanteurs, poètes et humoristes. Scène underground, public bilingue.",
     date: "2026-01-01",
-    time: "8:00 PM",
+    time: "8:00 PM – 12:00 AM",
     location: "Sosúa",
     venue: "El Batey",
     venueSlug: "el-batey-sosua",

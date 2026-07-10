@@ -77,6 +77,14 @@ function hasWindowStarted(nowMin: number, window: EventTimeWindow): boolean {
   return nowMin >= window.start;
 }
 
+/** Multi-day festivals often use midnight as an all-day placeholder. */
+function isMultiDayAllDay(
+  event: Pick<Event, "date" | "endDate" | "time">,
+): boolean {
+  if (!event.endDate || event.endDate === event.date) return false;
+  return /^12:00\s*AM$/i.test(event.time?.trim() ?? "");
+}
+
 function hasWindowEnded(nowMin: number, window: EventTimeWindow): boolean {
   if (window.end < window.start) {
     return nowMin > window.end && nowMin < window.start;
@@ -99,6 +107,10 @@ export function getEventLiveStatus(
   const today = startOfDay(now);
   if (end < today) return "ended";
   if (start > today) return "upcoming";
+
+  if (isMultiDayAllDay(event)) {
+    return "live";
+  }
 
   const window = parseEventTimeWindow(event.time);
   if (!window) {
