@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 
@@ -43,7 +44,10 @@ export function AppHeader({ locale, dict, onLogoClick }: AppHeaderProps) {
           className="h-[68px] w-auto object-contain sm:h-20"
         />
       </Link>
-      <LanguageSwitcher locale={locale} dict={dict} />
+      <div className="flex items-center gap-2">
+        <ThemeToggle dict={dict} />
+        <LanguageSwitcher locale={locale} dict={dict} />
+      </div>
     </div>
   );
 }

@@ -18,7 +18,7 @@ export function CategoryGrid({ locale, dict }: CategoryGridProps) {
   return (
     <section aria-label={dict.browse.ariaLabel}>
       <div className="mb-4 px-1">
-        <h2 className="text-xl font-black tracking-tight text-neutral-950">
+        <h2 className="text-xl font-black tracking-tight text-neutral-950 dark:text-neutral-100">
           {dict.browse.subtitle}
         </h2>
       </div>

@@ -99,8 +99,8 @@ export function EventList({
   if (loading) {
     return (
       <div className="flex flex-col items-center justify-center py-16 gap-3">
-        <Loader2 className="h-8 w-8 animate-spin text-neutral-300" />
-        <p className="text-sm text-neutral-400 font-medium">
+        <Loader2 className="h-8 w-8 animate-spin text-neutral-300 dark:text-neutral-600" />
+        <p className="text-sm text-neutral-400 dark:text-neutral-500 font-medium">
           {dict.events.loading}
         </p>
       </div>
@@ -113,7 +113,7 @@ export function EventList({
     <div className="space-y-8">
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-xl font-black text-neutral-900 tracking-tight">
+          <h2 className="text-xl font-black text-neutral-900 dark:text-neutral-100 tracking-tight">
             {isSearching
               ? dict.search.activeTitle
               : ourPicks && !category
@@ -123,17 +123,17 @@ export function EventList({
                   : dict.events.trending}
           </h2>
           {category && filtered.length > 0 && (
-            <p className="text-xs text-neutral-400 mt-0.5">
+            <p className="text-xs text-neutral-400 dark:text-neutral-500 mt-0.5">
               {filtered.length} · {dict.events.hiddenGems}
             </p>
           )}
           {!category && ourPicks && !isSearching && (
-            <p className="text-xs text-neutral-400 mt-0.5">
+            <p className="text-xs text-neutral-400 dark:text-neutral-500 mt-0.5">
               {dict.events.sortedUpcoming}
             </p>
           )}
           {!category && !ourPicks && !isSearching && source && (
-            <p className="text-xs text-neutral-400 mt-0.5">{sourceLabel}</p>
+            <p className="text-xs text-neutral-400 dark:text-neutral-500 mt-0.5">{sourceLabel}</p>
           )}
         </div>
         <button
@@ -142,7 +142,7 @@ export function EventList({
           disabled={refreshing}
           className="
             flex h-9 w-9 items-center justify-center rounded-full
-            bg-neutral-100 text-neutral-500 hover:bg-neutral-200 hover:text-neutral-800
+            bg-neutral-100 dark:bg-neutral-800 text-neutral-500 dark:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-neutral-700 hover:text-neutral-800 dark:hover:text-neutral-200
             transition-colors disabled:opacity-50
           "
           aria-label={dict.events.refresh}
@@ -153,10 +153,10 @@ export function EventList({
 
       {filtered.length === 0 ? (
         <div className="text-center py-12">
-          <p className="text-neutral-500 font-medium">
+          <p className="text-neutral-500 dark:text-neutral-400 font-medium">
             {searchQuery ? dict.search.noResults : dict.events.empty}
           </p>
-          <p className="text-sm text-neutral-400 mt-1">{dict.events.emptyHint}</p>
+          <p className="text-sm text-neutral-400 dark:text-neutral-500 mt-1">{dict.events.emptyHint}</p>
         </div>
       ) : (
         <div className="space-y-3">

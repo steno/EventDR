@@ -49,14 +49,14 @@ const PLATFORMS: {
     id: "email",
     labelKey: "shareEmail",
     className:
-      "bg-white text-neutral-500 ring-1 ring-neutral-200/70 shadow-sm hover:text-neutral-800",
+      "bg-white dark:bg-neutral-800 text-neutral-500 dark:text-neutral-400 ring-1 ring-neutral-200/70 dark:ring-neutral-700/70 shadow-sm hover:text-neutral-800 dark:hover:text-neutral-200",
     icon: <Mail className="h-4 w-4" />,
   },
   {
     id: "copy",
     labelKey: "shareCopyLink",
     className:
-      "bg-white text-neutral-500 ring-1 ring-neutral-200/70 shadow-sm hover:text-neutral-800",
+      "bg-white dark:bg-neutral-800 text-neutral-500 dark:text-neutral-400 ring-1 ring-neutral-200/70 dark:ring-neutral-700/70 shadow-sm hover:text-neutral-800 dark:hover:text-neutral-200",
     icon: <Link2 className="h-4 w-4" />,
   },
 ];
@@ -96,9 +96,9 @@ export function ShareMenu({
   return (
     <div
       ref={menuRef}
-      className="mb-3 rounded-3xl bg-white/85 p-3 shadow-sm ring-1 ring-neutral-200/70 backdrop-blur animate-in fade-in slide-in-from-bottom-2 duration-200"
+      className="mb-3 rounded-3xl bg-white/85 dark:bg-neutral-800/85 p-3 shadow-sm ring-1 ring-neutral-200/70 dark:ring-neutral-700/70 backdrop-blur animate-in fade-in slide-in-from-bottom-2 duration-200"
     >
-      <p className="mb-2 px-1 text-[11px] font-bold uppercase tracking-wide text-neutral-500">
+      <p className="mb-2 px-1 text-[11px] font-bold uppercase tracking-wide text-neutral-500 dark:text-neutral-400">
         {dict.detail.shareVia}
       </p>
       <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-none">

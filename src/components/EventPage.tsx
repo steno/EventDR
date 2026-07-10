@@ -29,12 +29,12 @@ export function EventPage({ event, locale, dict, returnTo }: EventPageProps) {
 
   return (
     <>
-      <main className="flex-1 bg-neutral-50 min-h-screen pb-12">
+      <main className="flex-1 bg-neutral-50 dark:bg-transparent min-h-screen pb-12">
         <div className="mx-auto max-w-lg sm:max-w-2xl px-4">
           <AppHeader locale={locale} dict={dict} />
           <Link
             href={backHref}
-            className="inline-flex items-center gap-2 text-sm font-semibold text-neutral-500 hover:text-neutral-800 mb-6"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-neutral-500 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200 mb-6"
           >
             <ArrowLeft className="h-4 w-4" />
             {dict.browse.back}

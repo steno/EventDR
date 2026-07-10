@@ -46,30 +46,30 @@ export function VenuePage({ venue, locale, dict }: VenuePageProps) {
 
   return (
     <>
-      <main className="flex-1 bg-neutral-50 min-h-screen pb-12">
+      <main className="flex-1 bg-neutral-50 dark:bg-transparent min-h-screen pb-12">
         <div className="mx-auto max-w-lg sm:max-w-2xl px-4">
           <AppHeader locale={locale} dict={dict} />
           <Link
             href={`/${locale}`}
-            className="inline-flex items-center gap-2 text-sm font-semibold text-neutral-500 hover:text-neutral-800 mb-6"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-neutral-500 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200 mb-6"
           >
             <ArrowLeft className="h-4 w-4" />
             {dict.venues.back}
           </Link>
 
           <div className="flex items-start gap-4 mb-6">
-            <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white border border-neutral-100 text-3xl shadow-sm">
+            <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-800 text-3xl shadow-sm">
               {venue.emoji ?? "📍"}
             </div>
             <div>
-              <h1 className="text-2xl font-black text-neutral-900 tracking-tight">
+              <h1 className="text-2xl font-black text-neutral-900 dark:text-neutral-100 tracking-tight">
                 {venue.name}
               </h1>
-              <p className="text-sm text-neutral-500 font-medium">{venue.city}</p>
+              <p className="text-sm text-neutral-500 dark:text-neutral-400 font-medium">{venue.city}</p>
             </div>
           </div>
 
-          <p className="text-neutral-600 leading-relaxed mb-6">{venue.description}</p>
+          <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed mb-6">{venue.description}</p>
 
           <FilteredEventList
             events={events}

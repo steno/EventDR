@@ -74,9 +74,7 @@ export function Home({ locale, dict }: HomeProps) {
   return (
     <>
       <PwaRegister />
-      <main className="relative flex-1 overflow-hidden bg-neutral-50 pb-24">
-        <div className="pointer-events-none absolute -top-20 -left-24 h-56 w-56 rounded-full bg-orange-200/30 blur-3xl" />
-        <div className="pointer-events-none absolute top-20 -right-24 h-64 w-64 rounded-full bg-fuchsia-200/35 blur-3xl" />
+      <main className="relative flex-1 bg-neutral-50 dark:bg-transparent pb-24">
         <div className="relative mx-auto max-w-lg sm:max-w-2xl px-4 pb-6">
           <AppHeader
             locale={locale}
@@ -142,7 +140,7 @@ export function Home({ locale, dict }: HomeProps) {
                   returnTo={`/${locale}`}
                 />
               ) : (
-                <p className="text-center text-sm text-neutral-400 font-medium py-16 px-6">
+                <p className="text-center text-sm text-neutral-400 dark:text-neutral-500 font-medium py-16 px-6">
                   {dict.search.placeholder}
                 </p>
               )}
@@ -151,13 +149,13 @@ export function Home({ locale, dict }: HomeProps) {
 
           {tab === "saved" && (
             <div className="pt-4">
-              <h2 className="text-2xl font-black text-neutral-900 tracking-tight mb-6">
+              <h2 className="text-2xl font-black text-neutral-900 dark:text-neutral-100 tracking-tight mb-6">
                 {dict.saved.title}
               </h2>
               {savedEvents.length === 0 ? (
                 <div className="text-center py-16">
-                  <p className="text-neutral-500 font-medium">{dict.saved.empty}</p>
-                  <p className="text-sm text-neutral-400 mt-1">
+                  <p className="text-neutral-500 dark:text-neutral-400 font-medium">{dict.saved.empty}</p>
+                  <p className="text-sm text-neutral-400 dark:text-neutral-500 mt-1">
                     {dict.saved.emptyHint}
                   </p>
                 </div>

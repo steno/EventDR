@@ -200,6 +200,10 @@ export const es: Dictionary = {
     fr: "FR",
     switchTo: "Cambiar idioma",
   },
+  theme: {
+    light: "Modo claro",
+    dark: "Modo oscuro",
+  },
   venues: {
     title: "Lugares populares",
     eventsAt: "Próximos eventos",

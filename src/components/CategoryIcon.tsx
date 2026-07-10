@@ -21,7 +21,7 @@ export function CategoryIcon({ category }: CategoryIconProps) {
           bg-gradient-to-br ${category.gradient}
           shadow-[0_10px_24px_-10px_rgba(0,0,0,0.35)]
           transition-all duration-200 group-hover:scale-105
-          ring-1 ring-white group-hover:ring-rose-200
+          ring-1 ring-white/50 group-hover:ring-rose-200/50
         `}
       >
         <span
@@ -33,7 +33,7 @@ export function CategoryIcon({ category }: CategoryIconProps) {
         </span>
         <div className="pointer-events-none absolute inset-0 rounded-2xl bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity" />
       </div>
-      <span className="text-[12px] font-extrabold tracking-tight text-center leading-tight max-w-[82px] text-neutral-700 group-hover:text-neutral-950">
+      <span className="text-[12px] font-extrabold tracking-tight text-center leading-tight max-w-[82px] text-neutral-700 dark:text-neutral-300 group-hover:text-neutral-950 dark:group-hover:text-neutral-100">
         {category.label}
       </span>
     </div>

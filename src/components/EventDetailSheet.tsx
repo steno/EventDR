@@ -107,13 +107,13 @@ export function EventDetailSheet({
         className="
           relative z-10 flex w-full max-w-lg sm:max-w-2xl flex-col
           max-h-[92dvh] overflow-hidden
-          bg-white rounded-t-3xl shadow-2xl
+          bg-white dark:bg-neutral-900 rounded-t-3xl shadow-2xl
           pb-[env(safe-area-inset-bottom)]
           animate-in slide-in-from-bottom duration-300
         "
       >
         {event.imageUrl ? (
-          <div className="relative h-[min(32dvh,13rem)] w-full shrink-0 overflow-hidden rounded-t-3xl bg-neutral-100">
+          <div className="relative h-[min(32dvh,13rem)] w-full shrink-0 overflow-hidden rounded-t-3xl bg-neutral-100 dark:bg-neutral-800">
             <EventImage
               src={event.imageUrl}
               alt={event.title}
@@ -124,7 +124,7 @@ export function EventDetailSheet({
             <button
               type="button"
               onClick={onClose}
-              className="absolute top-3 right-3 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 shadow-sm"
+              className="absolute top-3 right-3 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 dark:bg-neutral-800/90 shadow-sm"
               aria-label={dict.detail.close}
             >
               <X className="h-4 w-4" />
@@ -144,7 +144,7 @@ export function EventDetailSheet({
             <button
               type="button"
               onClick={onClose}
-              className="flex h-9 w-9 items-center justify-center rounded-full bg-neutral-100"
+              className="flex h-9 w-9 items-center justify-center rounded-full bg-neutral-100 dark:bg-neutral-800"
               aria-label={dict.detail.close}
             >
               <X className="h-4 w-4" />
@@ -154,17 +154,17 @@ export function EventDetailSheet({
 
         <div className="min-h-0 flex-1 px-5 pt-4 pb-3 overflow-hidden">
           {event.communitySubmitted && (
-            <span className="inline-flex items-center gap-1 rounded-full bg-violet-50 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wide text-violet-600 mb-3">
+            <span className="inline-flex items-center gap-1 rounded-full bg-violet-50 dark:bg-violet-950/50 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wide text-violet-600 dark:text-violet-400 mb-3">
               <Users className="h-3.5 w-3.5" />
               {dict.detail.community}
             </span>
           )}
 
-          <TitleTag className="text-2xl font-black text-neutral-900 leading-tight tracking-tight line-clamp-2">
+          <TitleTag className="text-2xl font-black text-neutral-900 dark:text-neutral-100 leading-tight tracking-tight line-clamp-2">
             {event.title}
           </TitleTag>
 
-          <p className="mt-3 text-[15px] text-neutral-600 leading-relaxed line-clamp-3">
+          <p className="mt-3 text-[15px] text-neutral-600 dark:text-neutral-400 leading-relaxed line-clamp-3">
             {event.description}
           </p>
 
@@ -180,7 +180,7 @@ export function EventDetailSheet({
                 {event.lineup.map((name) => (
                   <li
                     key={name}
-                    className="rounded-full bg-neutral-100 px-3 py-1 text-[13px] font-semibold text-neutral-800"
+                    className="rounded-full bg-neutral-100 dark:bg-neutral-800 px-3 py-1 text-[13px] font-semibold text-neutral-800 dark:text-neutral-200"
                   >
                     {name}
                   </li>
@@ -190,24 +190,24 @@ export function EventDetailSheet({
           )}
 
           <div className="mt-4 space-y-3 text-[15px]">
-            <div className="flex items-center gap-3 text-neutral-700">
+            <div className="flex items-center gap-3 text-neutral-700 dark:text-neutral-300">
               <Calendar className="h-5 w-5 text-neutral-500 flex-shrink-0" />
               <span className="font-semibold truncate">
                 {formatEventDateRange(event.date, locale, { endDate: event.endDate })}
               </span>
               {recurrenceLabel && (
-                <span className="inline-flex shrink-0 rounded-full bg-orange-50 px-2.5 py-1 text-[11px] font-bold text-orange-600">
+                <span className="inline-flex shrink-0 rounded-full bg-orange-50 dark:bg-orange-950/50 px-2.5 py-1 text-[11px] font-bold text-orange-600">
                   {recurrenceLabel}
                 </span>
               )}
             </div>
             {event.time && (
-              <div className="flex items-center gap-3 text-neutral-700">
+              <div className="flex items-center gap-3 text-neutral-700 dark:text-neutral-300">
                 <Clock className="h-5 w-5 text-neutral-500 flex-shrink-0" />
                 <span className="font-semibold">{event.time}</span>
               </div>
             )}
-            <div className="flex items-center gap-3 text-neutral-700">
+            <div className="flex items-center gap-3 text-neutral-700 dark:text-neutral-300">
               <MapPin className="h-5 w-5 text-neutral-500 flex-shrink-0" />
               <span className="font-semibold truncate">
                 {formatEventPlace(event)}
@@ -229,7 +229,7 @@ export function EventDetailSheet({
               href={event.sourceUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-3 inline-flex items-center gap-2 text-[13px] font-semibold text-neutral-600 hover:text-neutral-800 py-1"
+              className="mt-3 inline-flex items-center gap-2 text-[13px] font-semibold text-neutral-600 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200 py-1"
             >
               <ExternalLink className="h-4 w-4" />
               {dict.detail.source}
@@ -237,7 +237,7 @@ export function EventDetailSheet({
           )}
         </div>
 
-        <div className="shrink-0 border-t border-neutral-100 bg-white px-5 pt-4 pb-4">
+        <div className="shrink-0 border-t border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900 px-5 pt-4 pb-4">
           {shareOpen && (
             <ShareMenu
               event={event}
@@ -262,7 +262,7 @@ export function EventDetailSheet({
             <button
               type="button"
               onClick={() => addToCalendar(event)}
-              className="flex items-center justify-center gap-2 rounded-full bg-white py-3.5 text-[15px] font-bold text-neutral-500 shadow-sm ring-1 ring-neutral-200/70 touch-manipulation transition-all hover:text-neutral-800 active:scale-[0.98]"
+              className="flex items-center justify-center gap-2 rounded-full bg-white dark:bg-neutral-800 py-3.5 text-[15px] font-bold text-neutral-500 dark:text-neutral-400 shadow-sm ring-1 ring-neutral-200/70 dark:ring-neutral-700/70 touch-manipulation transition-all hover:text-neutral-800 dark:hover:text-neutral-200 active:scale-[0.98]"
             >
               <CalendarPlus className="h-5 w-5" />
               {dict.detail.calendar}
@@ -273,7 +273,7 @@ export function EventDetailSheet({
               className={`flex items-center justify-center gap-2 rounded-full py-3.5 text-[15px] font-bold touch-manipulation transition-all active:scale-[0.98] ${
                 shareOpen || shareMsg
                   ? "bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 text-white shadow-sm"
-                  : "bg-white text-neutral-500 shadow-sm ring-1 ring-neutral-200/70 hover:text-neutral-800"
+                  : "bg-white dark:bg-neutral-800 text-neutral-500 dark:text-neutral-400 shadow-sm ring-1 ring-neutral-200/70 dark:ring-neutral-700/70 hover:text-neutral-800 dark:hover:text-neutral-200"
               }`}
             >
               <Share2 className="h-5 w-5" />
@@ -285,7 +285,7 @@ export function EventDetailSheet({
               className={`flex items-center justify-center gap-2 rounded-full py-3.5 text-[15px] font-bold touch-manipulation transition-all active:scale-[0.98] ${
                 isSaved
                   ? "bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 text-white shadow-sm"
-                  : "bg-white text-neutral-500 shadow-sm ring-1 ring-neutral-200/70 hover:text-neutral-800"
+                  : "bg-white dark:bg-neutral-800 text-neutral-500 dark:text-neutral-400 shadow-sm ring-1 ring-neutral-200/70 dark:ring-neutral-700/70 hover:text-neutral-800 dark:hover:text-neutral-200"
               }`}
             >
               <Heart className={`h-5 w-5 ${isSaved ? "fill-current" : ""}`} />

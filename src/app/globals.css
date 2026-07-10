@@ -1,8 +1,16 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --background: #fafafa;
   --foreground: #171717;
+}
+
+.dark {
+  --background: #0a0a0a;
+  --foreground: #f5f5f5;
+  color-scheme: dark;
 }
 
 @theme inline {
@@ -70,4 +78,33 @@ button, a {
 
 .animate-slide-up {
   animation: slide-up 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes glow-drift-a {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.85; }
+  50% { transform: translate(14px, 10px) scale(1.1); opacity: 1; }
+}
+
+@keyframes glow-drift-b {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.8; }
+  50% { transform: translate(-12px, 16px) scale(1.08); opacity: 1; }
+}
+
+.page-glow {
+  will-change: transform, opacity;
+}
+
+.page-glow-orange {
+  animation: glow-drift-a 14s ease-in-out infinite;
+}
+
+.page-glow-fuchsia {
+  animation: glow-drift-b 18s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-glow-orange,
+  .page-glow-fuchsia {
+    animation: none;
+  }
 }

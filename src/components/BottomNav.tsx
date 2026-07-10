@@ -32,7 +32,7 @@ export function BottomNav({
     <nav
       className="
         fixed bottom-0 inset-x-0 z-40
-        bg-white/90 backdrop-blur-lg border-t border-neutral-100
+        bg-white/90 backdrop-blur-lg border-t border-neutral-100 dark:bg-neutral-900/90 dark:border-neutral-800
         pb-[env(safe-area-inset-bottom)]
       "
       aria-label="Main navigation"
@@ -53,8 +53,8 @@ export function BottomNav({
                   isSubmit
                     ? "text-orange-600"
                     : isActive
-                      ? "text-neutral-900"
-                      : "text-neutral-500"
+                      ? "text-neutral-900 dark:text-neutral-100"
+                      : "text-neutral-500 dark:text-neutral-400"
                 }
               `}
               aria-current={isActive ? "page" : undefined}

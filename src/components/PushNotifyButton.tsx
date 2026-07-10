@@ -30,8 +30,8 @@ export function PushNotifyButton({
         border transition-colors
         ${
           subscribed
-            ? "bg-green-50 border-green-100 text-green-800"
-            : "bg-white border-neutral-100 hover:border-orange-200"
+            ? "bg-green-50 dark:bg-green-950/40 border-green-100 dark:border-green-900 text-green-800 dark:text-green-300"
+            : "bg-white dark:bg-neutral-900 border-neutral-100 dark:border-neutral-800 hover:border-orange-200 dark:hover:border-orange-800"
         }
         disabled:opacity-80
       `}
@@ -39,7 +39,7 @@ export function PushNotifyButton({
       <div
         className={`
           flex h-10 w-10 items-center justify-center rounded-xl
-          ${subscribed ? "bg-green-100" : "bg-orange-50"}
+          ${subscribed ? "bg-green-100 dark:bg-green-900/50" : "bg-orange-50 dark:bg-orange-950/50"}
         `}
       >
         {loading ? (
@@ -51,10 +51,10 @@ export function PushNotifyButton({
         )}
       </div>
       <div>
-        <p className="text-sm font-bold text-neutral-900">
+        <p className="text-sm font-bold text-neutral-900 dark:text-neutral-100">
           {subscribed ? dict.push.enabled : dict.push.title}
         </p>
-        <p className="text-xs text-neutral-500">
+        <p className="text-xs text-neutral-500 dark:text-neutral-400">
           {subscribed ? dict.push.enabledHint : dict.push.subtitle}
         </p>
       </div>

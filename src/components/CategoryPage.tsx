@@ -34,12 +34,12 @@ export function CategoryPage({ categoryId, locale, dict }: CategoryPageProps) {
 
   return (
     <>
-      <main className="flex-1 bg-neutral-50 min-h-screen pb-12">
-        <div className="mx-auto max-w-lg sm:max-w-2xl px-4">
+      <main className="relative flex-1 bg-neutral-50 dark:bg-transparent min-h-screen pb-12">
+        <div className="relative mx-auto max-w-lg sm:max-w-2xl px-4">
           <AppHeader locale={locale} dict={dict} />
           <Link
             href={`/${locale}`}
-            className="inline-flex items-center gap-2 text-sm font-semibold text-neutral-500 hover:text-neutral-800 mb-6"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-neutral-500 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200 mb-6"
           >
             <ArrowLeft className="h-4 w-4" />
             {dict.browse.back}
@@ -55,16 +55,16 @@ export function CategoryPage({ categoryId, locale, dict }: CategoryPageProps) {
               {category?.emoji ?? "📅"}
             </div>
             <div>
-              <h1 className="text-2xl font-black text-neutral-900 tracking-tight">
+              <h1 className="text-2xl font-black text-neutral-900 dark:text-neutral-100 tracking-tight">
                 {category?.label ?? categoryId}
               </h1>
-              <p className="text-sm text-neutral-500 font-medium">
+              <p className="text-sm text-neutral-500 dark:text-neutral-400 font-medium">
                 {dict.region.northCoast}
               </p>
             </div>
           </div>
 
-          <p className="text-neutral-600 leading-relaxed mb-6">
+          <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed mb-6">
             {dict.events.hiddenGems}
           </p>
 

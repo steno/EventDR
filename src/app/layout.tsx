@@ -1,4 +1,6 @@
 import { Syne, DM_Sans } from "next/font/google";
+import { ThemeScript } from "@/components/ThemeScript";
+import { PageGlow } from "@/components/PageGlow";
 import "./globals.css";
 
 const syne = Syne({
@@ -24,8 +26,19 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${syne.variable} ${dmSans.variable} h-full`}
     >
-      <body className="min-h-full flex flex-col font-sans antialiased bg-neutral-50 text-neutral-900">
-        {children}
+      <head>
+        <ThemeScript />
+      </head>
+      <body className="relative min-h-full flex flex-col font-sans antialiased bg-neutral-50 text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100">
+        <div
+          className="pointer-events-none fixed inset-0 z-0 hidden overflow-hidden dark:block"
+          aria-hidden
+        >
+          <PageGlow />
+        </div>
+        <div className="relative z-10 flex min-h-full flex-1 flex-col">
+          {children}
+        </div>
       </body>
     </html>
   );

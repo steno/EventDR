@@ -25,7 +25,7 @@ export function VenueStrip({ locale, dict }: VenueStripProps) {
 
   return (
     <section>
-      <h2 className="mb-4 px-1 text-xl font-black tracking-tight text-neutral-950">
+      <h2 className="mb-4 px-1 text-xl font-black tracking-tight text-neutral-950 dark:text-neutral-100">
         {dict.venues.title}
       </h2>
       <div className="flex gap-3 overflow-x-auto pb-1 -mx-1 px-1 scrollbar-hide">
@@ -35,7 +35,7 @@ export function VenueStrip({ locale, dict }: VenueStripProps) {
             href={`/${locale}/venue/${v.slug}`}
             className="
               flex-shrink-0 flex items-center gap-2 rounded-2xl
-              bg-white border border-neutral-100 px-4 py-3
+              bg-white dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-800 px-4 py-3
               shadow-sm hover:shadow-md transition-shadow
             "
           >
@@ -43,8 +43,8 @@ export function VenueStrip({ locale, dict }: VenueStripProps) {
               {v.emoji ?? "📍"}
             </span>
             <div className="min-w-0">
-              <p className="text-sm font-bold text-neutral-900 truncate">{v.name}</p>
-              <p className="text-xs text-neutral-400">{v.city}</p>
+              <p className="text-sm font-bold text-neutral-900 dark:text-neutral-100 truncate">{v.name}</p>
+              <p className="text-xs text-neutral-400 dark:text-neutral-500">{v.city}</p>
             </div>
           </Link>
         ))}

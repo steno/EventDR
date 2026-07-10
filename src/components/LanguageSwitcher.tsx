@@ -22,7 +22,7 @@ export function LanguageSwitcher({ locale, dict }: LanguageSwitcherProps) {
 
   return (
     <div
-      className="flex items-center gap-0.5 rounded-full bg-white/85 p-1 shadow-sm ring-1 ring-neutral-200/70 backdrop-blur"
+      className="flex items-center gap-0.5 rounded-full bg-white/85 p-1 shadow-sm ring-1 ring-neutral-200/70 backdrop-blur dark:bg-neutral-800/85 dark:ring-neutral-700/70"
       role="group"
       aria-label={dict.lang.switchTo}
     >
@@ -36,7 +36,7 @@ export function LanguageSwitcher({ locale, dict }: LanguageSwitcherProps) {
             ${
               locale === lang
                 ? "bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 text-white shadow-sm"
-                : "text-neutral-500 hover:text-neutral-800"
+                : "text-neutral-500 hover:text-neutral-800 dark:text-neutral-400 dark:hover:text-neutral-200"
             }
           `}
           aria-current={locale === lang ? "true" : undefined}

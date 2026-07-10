@@ -23,8 +23,8 @@ export function TimeFilter({ value, onChange, dict }: TimeFilterProps) {
             flex-shrink-0 rounded-full px-4 py-2 text-xs font-bold tracking-wide transition-all
             ${
               value === range
-                ? "bg-neutral-900 text-white shadow-sm"
-                : "bg-white text-neutral-600 border border-neutral-100 hover:border-neutral-200"
+                ? "bg-neutral-900 dark:bg-neutral-100 text-white dark:text-neutral-900 shadow-sm"
+                : "bg-white dark:bg-neutral-900 text-neutral-600 dark:text-neutral-300 border border-neutral-100 dark:border-neutral-800 hover:border-neutral-200 dark:hover:border-neutral-700"
             }
           `}
         >

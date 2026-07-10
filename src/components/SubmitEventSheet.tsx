@@ -151,7 +151,7 @@ export function SubmitEventSheet({
   }
 
   const inputClass =
-    "w-full rounded-xl border border-neutral-200 bg-neutral-50 px-3.5 py-3 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-orange-500/30 focus:border-orange-200";
+    "w-full rounded-xl border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 px-3.5 py-3 text-sm font-medium text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-orange-500/30 focus:border-orange-200 dark:focus:border-orange-800";
 
   const dayFormatter = new Intl.DateTimeFormat(locale === "en" ? "en-US" : locale === "es" ? "es-DO" : "fr-FR", {
     weekday: "short",
@@ -210,16 +210,16 @@ export function SubmitEventSheet({
         onClick={onClose}
         aria-label={dict.detail.close}
       />
-      <div className="relative w-full max-w-lg sm:max-w-2xl bg-white rounded-t-3xl shadow-2xl max-h-[92vh] overflow-y-auto pb-[env(safe-area-inset-bottom)]">
-        <div className="sticky top-0 bg-white px-4 pt-5 pb-3 flex justify-between items-start border-b border-neutral-50">
+      <div className="relative w-full max-w-lg sm:max-w-2xl bg-white dark:bg-neutral-900 rounded-t-3xl shadow-2xl max-h-[92vh] overflow-y-auto pb-[env(safe-area-inset-bottom)]">
+        <div className="sticky top-0 bg-white dark:bg-neutral-900 px-4 pt-5 pb-3 flex justify-between items-start border-b border-neutral-50 dark:border-neutral-800">
           <div>
-            <h2 className="text-xl font-black text-neutral-900">{dict.submit.title}</h2>
-            <p className="text-sm text-neutral-500 mt-0.5">{dict.submit.subtitle}</p>
+            <h2 className="text-xl font-black text-neutral-900 dark:text-neutral-100">{dict.submit.title}</h2>
+            <p className="text-sm text-neutral-500 dark:text-neutral-400 mt-0.5">{dict.submit.subtitle}</p>
           </div>
           <button
             type="button"
             onClick={onClose}
-            className="flex h-9 w-9 items-center justify-center rounded-full bg-neutral-100"
+            className="flex h-9 w-9 items-center justify-center rounded-full bg-neutral-100 dark:bg-neutral-800"
           >
             <X className="h-4 w-4" />
           </button>
@@ -228,14 +228,14 @@ export function SubmitEventSheet({
         {success ? (
           <div className="flex flex-col items-center justify-center py-16 px-4 text-center">
             <CheckCircle className="h-12 w-12 text-green-500 mb-3" />
-            <p className="font-bold text-neutral-900">
+            <p className="font-bold text-neutral-900 dark:text-neutral-100">
               {successMessage || dict.submit.success}
             </p>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="p-4 space-y-4">
             <label className="block">
-              <span className="text-xs font-bold text-neutral-500 uppercase tracking-wide">
+              <span className="text-xs font-bold text-neutral-500 dark:text-neutral-400 uppercase tracking-wide">
                 {dict.submit.eventTitle}
               </span>
               <input
@@ -247,7 +247,7 @@ export function SubmitEventSheet({
             </label>
 
             <label className="block">
-              <span className="text-xs font-bold text-neutral-500 uppercase tracking-wide">
+              <span className="text-xs font-bold text-neutral-500 dark:text-neutral-400 uppercase tracking-wide">
                 {dict.submit.description}
               </span>
               <textarea
@@ -262,7 +262,7 @@ export function SubmitEventSheet({
 
             <div className="grid grid-cols-2 gap-3">
               <label className="block">
-                <span className="text-xs font-bold text-neutral-500 uppercase tracking-wide">
+                <span className="text-xs font-bold text-neutral-500 dark:text-neutral-400 uppercase tracking-wide">
                   {dict.submit.date}
                 </span>
                 <input
@@ -274,7 +274,7 @@ export function SubmitEventSheet({
                 />
               </label>
               <label className="block">
-                <span className="text-xs font-bold text-neutral-500 uppercase tracking-wide">
+                <span className="text-xs font-bold text-neutral-500 dark:text-neutral-400 uppercase tracking-wide">
                   {dict.submit.time} ({dict.submit.optional})
                 </span>
                 <input
@@ -287,7 +287,7 @@ export function SubmitEventSheet({
             </div>
 
             <label className="block">
-              <span className="text-xs font-bold text-neutral-500 uppercase tracking-wide">
+              <span className="text-xs font-bold text-neutral-500 dark:text-neutral-400 uppercase tracking-wide">
                 {dict.submit.location}
               </span>
               <input
@@ -300,7 +300,7 @@ export function SubmitEventSheet({
             </label>
 
             <label className="block">
-              <span className="text-xs font-bold text-neutral-500 uppercase tracking-wide">
+              <span className="text-xs font-bold text-neutral-500 dark:text-neutral-400 uppercase tracking-wide">
                 {dict.submit.venue} ({dict.submit.optional})
               </span>
               <input
@@ -312,7 +312,7 @@ export function SubmitEventSheet({
 
             <div className="grid grid-cols-2 gap-3">
               <label className="block">
-                <span className="text-xs font-bold text-neutral-500 uppercase tracking-wide">
+                <span className="text-xs font-bold text-neutral-500 dark:text-neutral-400 uppercase tracking-wide">
                   {dict.submit.category}
                 </span>
                 <select
@@ -328,7 +328,7 @@ export function SubmitEventSheet({
                 </select>
               </label>
               <label className="block">
-                <span className="text-xs font-bold text-neutral-500 uppercase tracking-wide">
+                <span className="text-xs font-bold text-neutral-500 dark:text-neutral-400 uppercase tracking-wide">
                   {dict.submit.format}
                 </span>
                 <select
@@ -343,9 +343,9 @@ export function SubmitEventSheet({
               </label>
             </div>
 
-            <div className="rounded-2xl border border-neutral-100 bg-neutral-50/70 p-3">
+            <div className="rounded-2xl border border-neutral-100 dark:border-neutral-800 bg-neutral-50/70 dark:bg-neutral-800/50 p-3">
               <label className="block">
-                <span className="text-xs font-bold text-neutral-500 uppercase tracking-wide">
+                <span className="text-xs font-bold text-neutral-500 dark:text-neutral-400 uppercase tracking-wide">
                   {dict.submit.recurrence}
                 </span>
                 <select
@@ -355,7 +355,7 @@ export function SubmitEventSheet({
                     setRecurrence(value);
                     if (value !== "weekly") setRecurrenceDays([]);
                   }}
-                  className={`${inputClass} mt-1.5 bg-white`}
+                  className={`${inputClass} mt-1.5 bg-white dark:bg-neutral-900`}
                 >
                   <option value="none">{dict.submit.recurrenceNone}</option>
                   <option value="daily">{dict.events.recurrence.daily}</option>
@@ -383,7 +383,7 @@ export function SubmitEventSheet({
                             ${
                               active
                                 ? "bg-orange-500 text-white"
-                                : "bg-white text-neutral-500 ring-1 ring-neutral-200"
+                                : "bg-white dark:bg-neutral-800 text-neutral-500 dark:text-neutral-400 ring-1 ring-neutral-200 dark:ring-neutral-700"
                             }
                           `}
                         >
@@ -397,16 +397,16 @@ export function SubmitEventSheet({
             </div>
 
             <label className="block">
-              <span className="text-xs font-bold text-neutral-500 uppercase tracking-wide">
+              <span className="text-xs font-bold text-neutral-500 dark:text-neutral-400 uppercase tracking-wide">
                 {dict.submit.image} ({dict.submit.optional})
               </span>
               <input
                 type="file"
                 accept="image/jpeg,image/jpg,image/png,image/webp,image/x-png,.jpg,.jpeg,.png,.webp"
                 onChange={(e) => handleImageChange(e.target.files?.[0])}
-                className="mt-1.5 block w-full text-sm font-medium text-neutral-600 file:mr-3 file:rounded-full file:border-0 file:bg-orange-50 file:px-3 file:py-2 file:text-sm file:font-bold file:text-orange-600"
+                className="mt-1.5 block w-full text-sm font-medium text-neutral-600 dark:text-neutral-400 file:mr-3 file:rounded-full file:border-0 file:bg-orange-50 dark:file:bg-orange-950/50 file:px-3 file:py-2 file:text-sm file:font-bold file:text-orange-600"
               />
-              <p className="mt-1 text-xs text-neutral-400">
+              <p className="mt-1 text-xs text-neutral-400 dark:text-neutral-500">
                 {imageName || dict.submit.imageHint}
               </p>
               {imageDataUrl && (

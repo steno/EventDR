@@ -119,11 +119,11 @@ const TodayHighlightsComponent = ({
   return (
     <section className="mb-6">
       <div className="mb-3 flex items-end justify-between gap-3 px-1">
-        <h2 className="text-xl font-black tracking-tight text-neutral-950">
+        <h2 className="text-xl font-black tracking-tight text-neutral-950 dark:text-neutral-100">
           {dict.events.happeningToday}
         </h2>
         {todayEvents.length > 1 && (
-          <span className="rounded-full bg-orange-50 px-2.5 py-1 text-xs font-bold text-orange-600">
+          <span className="rounded-full bg-orange-50 dark:bg-orange-950/50 px-2.5 py-1 text-xs font-bold text-orange-600">
             {dict.events.moreToday.replace("{count}", String(todayEvents.length - 1))}
           </span>
         )}
@@ -136,12 +136,12 @@ const TodayHighlightsComponent = ({
           return (
             <article
               key={event.id}
-              className="group flex min-w-[86%] snap-start flex-col overflow-hidden rounded-3xl border border-neutral-200 bg-white shadow-[0_8px_24px_-12px_rgba(0,0,0,0.16)] sm:min-w-[20rem]"
+              className="group flex min-w-[86%] snap-start flex-col overflow-hidden rounded-3xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-[0_8px_24px_-12px_rgba(0,0,0,0.16)] dark:shadow-[0_8px_24px_-12px_rgba(0,0,0,0.4)] sm:min-w-[20rem]"
             >
               {event.imageUrl && (
                 <Link
                   href={href}
-                  className="relative block h-40 w-full overflow-hidden bg-neutral-100 text-left touch-manipulation"
+                  className="relative block h-40 w-full overflow-hidden bg-neutral-100 dark:bg-neutral-800 text-left touch-manipulation"
                 >
                   <EventImage
                     src={event.imageUrl}
@@ -163,15 +163,15 @@ const TodayHighlightsComponent = ({
                       ? dict.events.eventStarted
                       : dict.events.happeningToday}
                   </p>
-                  <h3 className="line-clamp-2 text-[19px] font-black leading-tight tracking-tight text-neutral-950">
+                  <h3 className="line-clamp-2 text-[19px] font-black leading-tight tracking-tight text-neutral-950 dark:text-neutral-100">
                     {event.title}
                   </h3>
-                  <p className="mt-2.5 line-clamp-2 text-[14px] font-medium leading-relaxed text-neutral-600">
+                  <p className="mt-2.5 line-clamp-2 text-[14px] font-medium leading-relaxed text-neutral-600 dark:text-neutral-400">
                     {event.description}
                   </p>
                 </Link>
 
-                <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-[13px] font-semibold text-neutral-700">
+                <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-[13px] font-semibold text-neutral-700 dark:text-neutral-300">
                   <span className="inline-flex items-center gap-1.5">
                     <Calendar className="h-4 w-4 text-neutral-500" />
                     {formatEventDateRange(event.date, locale, {
@@ -195,7 +195,7 @@ const TodayHighlightsComponent = ({
                 <div className="mt-auto flex gap-2 pt-5">
                   <Link
                     href={href}
-                    className="flex-1 rounded-full bg-neutral-950 px-5 py-3 text-center text-sm font-black text-white touch-manipulation active:scale-[0.98] transition-transform"
+                    className="flex-1 rounded-full bg-neutral-950 dark:bg-neutral-100 px-5 py-3 text-center text-sm font-black text-white dark:text-neutral-900 touch-manipulation active:scale-[0.98] transition-transform"
                   >
                     {dict.events.viewDetails}
                   </Link>
@@ -204,7 +204,7 @@ const TodayHighlightsComponent = ({
                       href={getDirectionsUrl(event)}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-orange-50 text-orange-600 touch-manipulation active:scale-95 transition-transform"
+                      className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-orange-50 dark:bg-orange-950/50 text-orange-600 touch-manipulation active:scale-95 transition-transform"
                       aria-label={dict.detail.directions}
                     >
                       <Navigation className="h-5 w-5" />

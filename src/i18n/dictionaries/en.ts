@@ -178,6 +178,10 @@ export type Dictionary = {
     fr: string;
     switchTo: string;
   };
+  theme: {
+    light: string;
+    dark: string;
+  };
   venues: {
     title: string;
     eventsAt: string;
@@ -406,6 +410,10 @@ export const en: Dictionary = {
     es: "ES",
     fr: "FR",
     switchTo: "Switch language",
+  },
+  theme: {
+    light: "Light mode",
+    dark: "Dark mode",
   },
   venues: {
     title: "Popular venues",
