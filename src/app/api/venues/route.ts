@@ -1,15 +1,13 @@
 import { NextResponse } from "next/server";
-import { fetchVenues, isFirebaseConfigured } from "@/lib/firebase/events";
-import { SEED_VENUES } from "@/lib/venues-seed";
+import { isFirebaseConfigured } from "@/lib/firebase/events";
+import { getVenues } from "@/lib/venues";
 
 export const dynamic = "force-dynamic";
 
 export async function GET() {
-  if (isFirebaseConfigured()) {
-    const venues = await fetchVenues();
-    if (venues.length > 0) {
-      return NextResponse.json({ venues, source: "firebase" });
-    }
-  }
-  return NextResponse.json({ venues: SEED_VENUES, source: "seed" });
+  const venues = await getVenues();
+  return NextResponse.json({
+    venues,
+    source: isFirebaseConfigured() && venues.length > 0 ? "firebase" : "seed",
+  });
 }

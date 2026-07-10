@@ -5,6 +5,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { isValidLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { buildHomeMetadata, buildWebSiteJsonLd } from "@/lib/seo";
+import { getVenues } from "@/lib/venues";
 
 export async function generateMetadata({
   params,
@@ -26,10 +27,11 @@ export default async function Page({
   if (!isValidLocale(locale)) notFound();
 
   const dict = getDictionary(locale);
+  const venues = await getVenues();
   return (
     <>
       <JsonLd data={buildWebSiteJsonLd(locale, dict)} />
-      <Home locale={locale} dict={dict} />
+      <Home locale={locale} dict={dict} initialVenues={venues} />
     </>
   );
 }

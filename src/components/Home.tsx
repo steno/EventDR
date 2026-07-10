@@ -20,16 +20,17 @@ import { useSavedEvents } from "@/hooks/useSavedEvents";
 import { useGeolocation } from "@/hooks/useGeolocation";
 import { usePushNotifications } from "@/hooks/usePushNotifications";
 import type { TimeRange } from "@/lib/filters";
-import type { Event } from "@/lib/types";
+import type { Event, Venue } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
 import type { AppTab, Dictionary } from "@/i18n/dictionaries";
 
 interface HomeProps {
   locale: Locale;
   dict: Dictionary;
+  initialVenues?: Venue[];
 }
 
-export function Home({ locale, dict }: HomeProps) {
+export function Home({ locale, dict, initialVenues }: HomeProps) {
   const [tab, setTab] = useState<AppTab>("discover");
   const [searchQuery, setSearchQuery] = useState("");
   const [timeRange, setTimeRange] = useState<TimeRange>("all");
@@ -98,7 +99,7 @@ export function Home({ locale, dict }: HomeProps) {
                 <CategoryGrid locale={locale} dict={dict} />
               </div>
               <div className="mb-8">
-                <VenueStrip locale={locale} dict={dict} />
+                <VenueStrip locale={locale} dict={dict} initialVenues={initialVenues} />
               </div>
               <TimeFilter value={timeRange} onChange={setTimeRange} dict={dict} />
               <EventList

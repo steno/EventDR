@@ -9,17 +9,20 @@ import type { Locale } from "@/i18n/config";
 interface VenueStripProps {
   locale: Locale;
   dict: Dictionary;
+  /** SSR-provided venues so the strip is visible on first paint. */
+  initialVenues?: Venue[];
 }
 
-export function VenueStrip({ locale, dict }: VenueStripProps) {
-  const [venues, setVenues] = useState<Venue[]>([]);
+export function VenueStrip({ locale, dict, initialVenues }: VenueStripProps) {
+  const [venues, setVenues] = useState<Venue[]>(initialVenues ?? []);
 
   useEffect(() => {
+    if (initialVenues?.length) return;
     fetch("/api/venues")
       .then((r) => r.json())
       .then((d: { venues?: Venue[] }) => setVenues(d.venues ?? []))
       .catch(() => {});
-  }, []);
+  }, [initialVenues]);
 
   if (venues.length === 0) return null;
 
