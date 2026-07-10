@@ -24,12 +24,12 @@ export async function POST(request: NextRequest) {
 
   // Always ingest in English; translations are added on moderation approve.
   const events = await ingestSocialEvents("en");
-  const inserted = await insertIngestedEvents(events);
+  const upserted = await insertIngestedEvents(events);
 
   return NextResponse.json({
     success: true,
     discovered: events.length,
-    queued: inserted,
-    message: `${inserted} events queued for moderation`,
+    upserted,
+    message: `${upserted} ingested events synced for moderation`,
   });
 }

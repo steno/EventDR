@@ -10,7 +10,7 @@ jobs:
   ingest:
     runs-on: ubuntu-latest
     steps:
-      - name: Queue crawled and social events for moderation
+      - name: Sync curated seeds, Facebook seeds, and queue crawled events
         env:
           SITE_URL: https://pop-event.com
           CRON_SECRET: ${{ secrets.CRON_SECRET }}
@@ -19,13 +19,15 @@ jobs:
             echo "CRON_SECRET secret not set — add it in repo Settings → Secrets."
             exit 1
           fi
-          ingest() {
-            local res http
+          post_api() {
+            local path="$1"
+            local label="$2"
+            local res http body
             res=$(curl -sS -w "\n%{http_code}" -X POST \
-              "${SITE_URL}/api/ingest?secret=${CRON_SECRET}&locale=en")
+              "${SITE_URL}${path}?secret=${CRON_SECRET}")
             http=$(echo "$res" | tail -n1)
             body=$(echo "$res" | sed '$d')
-            echo "ingest: HTTP ${http}"
+            echo "${label}: HTTP ${http}"
             echo "$body"
             if [ "$http" -lt 200 ] || [ "$http" -ge 300 ]; then
               if [ "$http" = "401" ]; then
@@ -34,4 +36,6 @@ jobs:
               exit 22
             fi
           }
-          ingest
+          post_api "/api/seed/curated-events" "curated seed"
+          post_api "/api/seed/facebook-events" "facebook seed"
+          post_api "/api/ingest" "ingest"

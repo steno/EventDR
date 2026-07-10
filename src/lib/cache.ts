@@ -3,6 +3,7 @@ import type { Locale } from "@/i18n/config";
 import { CATEGORY_IDS } from "./categories";
 import { getFallbackEvents, getFallbackForCategory } from "./fallback-events";
 import { matchesCategory } from "./categorize";
+import { getAppVersion } from "./app-version";
 
 interface CacheEntry {
   events: Event[];
@@ -11,8 +12,13 @@ interface CacheEntry {
 
 const cache = new Map<string, CacheEntry>();
 const dbCache = new Map<string, CacheEntry>();
-const CACHE_TTL_MS = 60 * 60 * 1000;
-const DB_CACHE_TTL_MS = 5 * 60 * 1000; // 5 minutes for DB cache
+/** In-memory merged feed cache — busted automatically on each deploy via versioned keys. */
+const CACHE_TTL_MS = 15 * 60 * 1000;
+const DB_CACHE_TTL_MS = 5 * 60 * 1000;
+
+function versionedCacheKey(key: string): string {
+  return `${getAppVersion()}:${key}`;
+}
 const POOL_KEY_SUFFIX = ":pool";
 
 export function getCacheKey(locale: Locale, category?: string, geoKey?: string): string {
@@ -25,31 +31,31 @@ export function getPoolCacheKey(locale: Locale): string {
 }
 
 export function getCachedEvents(key: string): Event[] | null {
-  const entry = cache.get(key);
+  const entry = cache.get(versionedCacheKey(key));
   if (!entry) return null;
   if (Date.now() - entry.fetchedAt > CACHE_TTL_MS) {
-    cache.delete(key);
+    cache.delete(versionedCacheKey(key));
     return null;
   }
   return entry.events;
 }
 
 export function setCachedEvents(key: string, events: Event[]): void {
-  cache.set(key, { events, fetchedAt: Date.now() });
+  cache.set(versionedCacheKey(key), { events, fetchedAt: Date.now() });
 }
 
 export function getCachedDbEvents(key: string): Event[] | null {
-  const entry = dbCache.get(key);
+  const entry = dbCache.get(versionedCacheKey(key));
   if (!entry) return null;
   if (Date.now() - entry.fetchedAt > DB_CACHE_TTL_MS) {
-    dbCache.delete(key);
+    dbCache.delete(versionedCacheKey(key));
     return null;
   }
   return entry.events;
 }
 
 export function setCachedDbEvents(key: string, events: Event[]): void {
-  dbCache.set(key, { events, fetchedAt: Date.now() });
+  dbCache.set(versionedCacheKey(key), { events, fetchedAt: Date.now() });
 }
 
 export function addToPool(locale: Locale, events: Event[]): Event[] {

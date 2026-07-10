@@ -321,18 +321,30 @@ export async function insertIngestedEvents(events: Event[]): Promise<number> {
   const db = getFirestoreDb();
   if (!db || events.length === 0) return 0;
 
-  let inserted = 0;
+  let upserted = 0;
   for (const event of events) {
     const ref = db.collection("events").doc(event.id);
     const existing = await ref.get();
-    if (existing.exists) continue;
 
-    await ref.set(
-      eventToFirestore(event, event.sourceType ?? "crawl", "pending"),
-    );
-    inserted++;
+    if (existing.exists) {
+      const existingStatus = (existing.data()?.status as string) ?? "pending";
+      if (existingStatus === "rejected") continue;
+
+      const data = eventToFirestore(
+        event,
+        event.sourceType ?? "crawl",
+        existingStatus,
+      );
+      const { createdAt: _, ...withoutCreated } = data;
+      await ref.set(withoutCreated, { merge: true });
+    } else {
+      await ref.set(
+        eventToFirestore(event, event.sourceType ?? "crawl", "pending"),
+      );
+    }
+    upserted++;
   }
-  return inserted;
+  return upserted;
 }
 
 /** Upsert events as approved (idempotent). Used for curated Facebook discoveries. */
