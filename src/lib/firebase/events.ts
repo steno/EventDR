@@ -78,6 +78,7 @@ function docToVenue(slug: string, data: DocumentData): Venue {
     emoji: (data.emoji as string | null) ?? "📍",
     instagram: (data.instagram as string | null) ?? undefined,
     website: (data.website as string | null) ?? undefined,
+    phone: (data.phone as string | null) ?? undefined,
   };
 }
 
@@ -119,26 +120,28 @@ function eventToFirestore(
   };
 }
 
-async function seedVenuesIfEmpty(): Promise<void> {
+async function syncSeedVenues(): Promise<void> {
   const db = getFirestoreDb();
   if (!db) return;
-
-  const snap = await db.collection("venues").limit(1).get();
-  if (!snap.empty) return;
 
   const batch = db.batch();
   for (const venue of SEED_VENUES) {
     const ref = db.collection("venues").doc(venue.slug);
-    batch.set(ref, {
-      name: venue.name,
-      city: venue.city,
-      description: venue.description,
-      lat: venue.lat,
-      lng: venue.lng,
-      emoji: venue.emoji ?? "📍",
-      instagram: venue.instagram ?? null,
-      website: venue.website ?? null,
-    });
+    batch.set(
+      ref,
+      {
+        name: venue.name,
+        city: venue.city,
+        description: venue.description,
+        lat: venue.lat,
+        lng: venue.lng,
+        emoji: venue.emoji ?? "📍",
+        instagram: venue.instagram ?? null,
+        website: venue.website ?? null,
+        phone: venue.phone ?? null,
+      },
+      { merge: true },
+    );
   }
   await batch.commit();
 }
@@ -361,7 +364,7 @@ export async function fetchVenues(): Promise<Venue[]> {
   const db = getFirestoreDb();
   if (!db) return [];
 
-  await seedVenuesIfEmpty();
+  await syncSeedVenues();
 
   const snap = await db.collection("venues").orderBy("name").get();
   return snap.docs.map((doc) => docToVenue(doc.id, doc.data()));
@@ -371,7 +374,7 @@ export async function fetchVenueBySlug(slug: string): Promise<Venue | null> {
   const db = getFirestoreDb();
   if (!db) return null;
 
-  await seedVenuesIfEmpty();
+  await syncSeedVenues();
 
   const doc = await db.collection("venues").doc(slug).get();
   if (!doc.exists) return null;
