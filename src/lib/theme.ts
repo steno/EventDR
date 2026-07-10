@@ -2,11 +2,6 @@ export const THEME_STORAGE_KEY = "eventdr-theme";
 
 export type Theme = "light" | "dark";
 
-export function getSystemTheme(): Theme {
-  if (typeof window === "undefined") return "light";
-  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-}
-
 export function getStoredTheme(): Theme | null {
   if (typeof window === "undefined") return null;
   const stored = localStorage.getItem(THEME_STORAGE_KEY);
@@ -14,7 +9,7 @@ export function getStoredTheme(): Theme | null {
 }
 
 export function resolveTheme(): Theme {
-  return getStoredTheme() ?? getSystemTheme();
+  return getStoredTheme() ?? "light";
 }
 
 export function applyTheme(theme: Theme) {

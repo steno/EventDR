@@ -3,8 +3,6 @@
 import { useCallback, useEffect, useState } from "react";
 import {
   applyTheme,
-  getStoredTheme,
-  getSystemTheme,
   resolveTheme,
   THEME_STORAGE_KEY,
   type Theme,
@@ -15,18 +13,6 @@ export function useTheme() {
 
   useEffect(() => {
     setThemeState(resolveTheme());
-
-    const media = window.matchMedia("(prefers-color-scheme: dark)");
-    function onSystemChange() {
-      if (!getStoredTheme()) {
-        const next = getSystemTheme();
-        setThemeState(next);
-        applyTheme(next);
-      }
-    }
-
-    media.addEventListener("change", onSystemChange);
-    return () => media.removeEventListener("change", onSystemChange);
   }, []);
 
   const setTheme = useCallback((next: Theme) => {
