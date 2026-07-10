@@ -65,6 +65,7 @@ const FACEBOOK_SEED_EVENT_IDS_BASE = [
   "cabarete-pilates-reformer",
   "cabarete-classic-2026",
   "inicio-del-campamento-pp-2026",
+  "feria-artesanal-verano-2026",
 ] as const;
 
 /** Curated event ids discovered from monitored Facebook groups (see fallback-events). */

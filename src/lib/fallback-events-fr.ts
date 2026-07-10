@@ -115,6 +115,22 @@ export const FALLBACK_EVENTS_FR: Event[] = [
     imageEmoji: "🧘",
   },
   {
+    id: "feria-artesanal-verano-2026",
+    title: "Feria Artesanal Verano 2026",
+    description:
+      "La foire artisanale d'été 2026 se tient du 10 au 26 juillet sur la Plaza Independencia (le parc central de Puerto Plata). Plus de 120 artisans locaux y exposent tous les jours de 8 h à 21 h : pièces faites main, expositions culturelles, art, souvenirs et masques de cabezudos. L'initiative vise à mettre en valeur les artistes locaux et rapprocher l'artisanat dominicain des visiteurs et des résidents.",
+    date: "2026-07-10",
+    endDate: "2026-07-26",
+    time: "8:00 AM",
+    location: "Puerto Plata",
+    venue: "Plaza Independencia (Parque Central)",
+    category: "culture",
+    format: "physical",
+    trending: true,
+    sourceUrl: "https://www.facebook.com/share/18vHNaoe69/",
+    imageEmoji: "🎨",
+  },
+  {
     id: "sancocho-sabados-pingui",
     title: "Sancocho du samedi chez Pingüi",
     description:

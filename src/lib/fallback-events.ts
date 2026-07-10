@@ -150,6 +150,22 @@ const FALLBACK_EVENTS_EN: Event[] = [
     imageEmoji: "🍲",
   },
   // Festivals
+  {
+    id: "feria-artesanal-verano-2026",
+    title: "Feria Artesanal Verano 2026",
+    description:
+      "The Summer Artisan Fair 2026 runs July 10–26 at Plaza Independencia (Puerto Plata's Central Park). More than 120 local artisans exhibit daily from 8:00 AM to 9:00 PM — handmade pieces, cultural displays, art, souvenirs, and cabezudos masks. A showcase of Dominican crafts for visitors and residents alike.",
+    date: "2026-07-10",
+    endDate: "2026-07-26",
+    time: "8:00 AM",
+    location: "Puerto Plata",
+    venue: "Plaza Independencia (Parque Central)",
+    category: "culture",
+    format: "physical",
+    trending: true,
+    sourceUrl: "https://www.facebook.com/share/18vHNaoe69/",
+    imageEmoji: "🎨",
+  },
   // Dance
   // Health & Wellness
   {
@@ -321,6 +337,22 @@ const FALLBACK_EVENTS_ES: Event[] = [
     recurrenceDays: [2, 4],
     sourceUrl: "https://www.facebook.com/events/981611704653706/",
     imageEmoji: "🧘",
+  },
+  {
+    id: "feria-artesanal-verano-2026",
+    title: "Feria Artesanal Verano 2026",
+    description:
+      "La Feria Artesanal de Verano 2026 se lleva a cabo del 10 al 26 de julio en la Plaza Independencia (el Parque Central de Puerto Plata). El evento reúne a más de 120 artesanos locales y se encuentra abierto todos los días en un horario de 8:00 a.m. a 9:00 p.m. Allí podrás disfrutar de piezas hechas a mano, exhibiciones culturales, arte, souvenirs y caretas de cabezudos. Esta iniciativa tiene como objetivo impulsar el talento de los artistas locales y acercar la artesanía dominicana a visitantes y residentes.",
+    date: "2026-07-10",
+    endDate: "2026-07-26",
+    time: "8:00 AM",
+    location: "Puerto Plata",
+    venue: "Plaza Independencia (Parque Central)",
+    category: "culture",
+    format: "physical",
+    trending: true,
+    sourceUrl: "https://www.facebook.com/share/18vHNaoe69/",
+    imageEmoji: "🎨",
   },
   {
     id: "sancocho-sabados-pingui",

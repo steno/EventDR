@@ -22,6 +22,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "cabarete-pilates-reformer": "cabarete-pilates-reformer.png",
   "sancocho-sabados-pingui": "sancocho-sabados-pingui.jpg",
   "inicio-del-campamento-pp-2026": "inicio-del-campamento-pp-2026.jpg",
+  "feria-artesanal-verano-2026": "feria-artesanal-verano-2026.jpg",
   "el-carey-wc2026": "el-carey-wc2026.png",
   "el-colibri-karaoke-battle-2026": "el-colibri-karaoke-battle-2026.png",
   "ocean-world-daily": "ocean-world-daily.jpeg",
