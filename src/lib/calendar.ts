@@ -73,7 +73,7 @@ export function getEventDateRange(event: Event): { start: Date; end: Date } {
 
 function buildIcs(event: Event, start: Date, end: Date): string {
   const location = formatEventPlace(event);
-  const uid = `${event.id}@pop-events.com`;
+  const uid = `${event.id}@pop-event.com`;
 
   return [
     "BEGIN:VCALENDAR",

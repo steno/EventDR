@@ -2,7 +2,7 @@
 
 **Events near you** on the North Coast of the Dominican Republic — Puerto Plata, Sosúa, Cabarete, and beyond.
 
-Live at **[pop-events.com](https://pop-events.com)** · GitHub [steno/EventDR](https://github.com/steno/EventDR)
+Live at **[pop-event.com](https://pop-event.com)** · GitHub [steno/EventDR](https://github.com/steno/EventDR)
 
 ## Features
 
@@ -36,7 +36,7 @@ After deploy, scheduled functions will run automatically:
 - Daily cleanup of expired events at midnight UTC
 - Weekly weekend digest notifications on Fridays at 9 AM UTC
 
-Your site will be at `https://pop-events.com` (Netlify default: `https://popevent.netlify.app`).
+Your site will be at `https://pop-event.com` (Netlify default: `https://popevent.netlify.app`).
 
 ## Web app vs App Store?
 

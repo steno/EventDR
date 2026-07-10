@@ -31,7 +31,7 @@ This guide will help you set up Google Analytics (GA4) for POP Events to track p
 1. You'll automatically be prompted to set up a data stream
 2. Click **Web**
 3. Enter your website details:
-   - **Website URL**: https://pop-events.com
+   - **Website URL**: https://pop-event.com
    - **Stream name**: POP Events Website
 4. Click **Create stream**
 5. **Copy the Measurement ID** (format: `G-XXXXXXXXXX`)
@@ -69,7 +69,7 @@ This guide will help you set up Google Analytics (GA4) for POP Events to track p
 
 After deploying:
 
-1. Visit your live site: https://pop-events.com
+1. Visit your live site: https://pop-event.com
 2. Go back to Google Analytics
 3. Click **Reports** → **Realtime**
 4. You should see your visit showing up in real-time!

@@ -1,6 +1,6 @@
 # Google Search Console Setup
 
-Get [pop-events.com](https://pop-events.com) indexed in Google Search. The app already ships `robots.txt`, a dynamic `sitemap.xml`, and SEO metadata — this guide covers verification and submitting URLs to Google.
+Get [pop-event.com](https://pop-event.com) indexed in Google Search. The app already ships `robots.txt`, a dynamic `sitemap.xml`, and SEO metadata — this guide covers verification and submitting URLs to Google.
 
 ## 1. Add your property
 
@@ -8,11 +8,11 @@ Get [pop-events.com](https://pop-events.com) indexed in Google Search. The app a
 2. Click **Add property**
 3. Choose **URL prefix** (not Domain) and enter:
    ```
-   https://pop-events.com
+   https://pop-event.com
    ```
 4. Click **Continue**
 
-Use the exact production URL (`https://pop-events.com`). The Netlify alias `popevent.netlify.app` is a separate property if you want to index it too.
+Use the exact production URL (`https://pop-event.com`). The Netlify alias `popevent.netlify.app` is a separate property if you want to index it too.
 
 ## 2. Verify ownership (HTML meta tag — recommended)
 
@@ -36,7 +36,7 @@ Redeploy on Netlify after adding the variable (**Deploys → Trigger deploy → 
 ### Confirm the tag is live
 
 ```bash
-curl -s https://pop-events.com/en | grep google-site-verification
+curl -s https://pop-event.com/en | grep google-site-verification
 ```
 
 You should see the meta tag in the HTML.
@@ -47,7 +47,7 @@ You should see the meta tag in the HTML.
 
 | Method | When to use |
 |--------|-------------|
-| **DNS TXT record** | You manage DNS for `pop-events.com` and prefer no deploy. Add the TXT record at your registrar or Netlify DNS, then verify. |
+| **DNS TXT record** | You manage DNS for `pop-event.com` and prefer no deploy. Add the TXT record at your registrar or Netlify DNS, then verify. |
 | **HTML file** | Drop Google's file in `public/` (e.g. `public/google123.html`) and deploy. |
 | **Google Analytics** | Only if `NEXT_PUBLIC_GA_MEASUREMENT_ID` is already live on production and you use the same Google account. |
 
@@ -69,7 +69,7 @@ The sitemap is generated from your events, venues, categories, and locale homepa
 For a new property, manually request indexing for a few important URLs:
 
 1. Go to **URL inspection** (top search bar)
-2. Paste a URL, e.g. `https://pop-events.com/en`
+2. Paste a URL, e.g. `https://pop-event.com/en`
 3. Click **Request indexing**
 4. Repeat for `/es`, `/fr`, and a couple of high-value event or venue pages
 
@@ -95,14 +95,14 @@ This surfaces search queries, impressions, and CTR inside Analytics.
 
 | Issue | What to check |
 |-------|----------------|
-| Verification fails | Env var set? Redeployed? Tag visible in page source at `https://pop-events.com/en`? |
-| Sitemap "Couldn't fetch" | Open `https://pop-events.com/sitemap.xml` in a browser; fix any 5xx errors |
+| Verification fails | Env var set? Redeployed? Tag visible in page source at `https://pop-event.com/en`? |
+| Sitemap "Couldn't fetch" | Open `https://pop-event.com/sitemap.xml` in a browser; fix any 5xx errors |
 | Pages not indexed yet | Normal for new sites — allow 3–14 days; use URL Inspection for status |
 | Wrong locale indexed | Home `/` redirects by `Accept-Language`; canonical URLs use `/en`, `/es`, `/fr` |
 
 ## Checklist
 
-- [ ] Property added: `https://pop-events.com`
+- [ ] Property added: `https://pop-event.com`
 - [ ] `GOOGLE_SITE_VERIFICATION` set in Netlify and site redeployed
 - [ ] Ownership verified in Search Console
 - [ ] `sitemap.xml` submitted
