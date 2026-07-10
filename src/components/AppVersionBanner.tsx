@@ -2,11 +2,27 @@
 
 import { useCallback, useEffect, useState } from "react";
 import type { Dictionary } from "@/i18n/dictionaries";
+import { appVersionNeedsRefresh } from "@/lib/app-version-shared";
 
 const VERSION_KEY = "popevents-app-version";
 
 interface AppVersionBannerProps {
   dict: Dictionary;
+}
+
+async function fetchRemoteVersion(): Promise<string | null> {
+  const sources = ["/app-version.json", "/api/app-version"];
+  for (const url of sources) {
+    try {
+      const response = await fetch(url, { cache: "no-store" });
+      if (!response.ok) continue;
+      const data = (await response.json()) as { version?: string };
+      if (data.version) return data.version;
+    } catch {
+      /* try next source */
+    }
+  }
+  return null;
 }
 
 async function purgeCachesAndReload(version: string) {
@@ -27,29 +43,40 @@ export function AppVersionBanner({ dict }: AppVersionBannerProps) {
   const [needsRefresh, setNeedsRefresh] = useState(false);
 
   const checkVersion = useCallback(async () => {
-    try {
-      const response = await fetch("/api/app-version", { cache: "no-store" });
-      if (!response.ok) return;
-      const data = (await response.json()) as { version: string };
-      const stored = localStorage.getItem(VERSION_KEY);
-      setRemoteVersion(data.version);
-      if (stored && stored !== data.version) {
-        setNeedsRefresh(true);
-      } else if (!stored) {
-        localStorage.setItem(VERSION_KEY, data.version);
-      }
-    } catch {
-      /* ignore */
+    const remote = await fetchRemoteVersion();
+    if (!remote) return;
+
+    const stored = localStorage.getItem(VERSION_KEY);
+    setRemoteVersion(remote);
+
+    if (appVersionNeedsRefresh(stored, remote)) {
+      setNeedsRefresh(true);
+    } else if (!stored) {
+      localStorage.setItem(VERSION_KEY, remote);
     }
   }, []);
 
   useEffect(() => {
     checkVersion();
-    document.addEventListener("visibilitychange", () => {
+
+    const onVisible = () => {
       if (document.visibilityState === "visible") {
         checkVersion();
       }
-    });
+    };
+
+    const onPageShow = (event: PageTransitionEvent) => {
+      if (event.persisted) {
+        checkVersion();
+      }
+    };
+
+    document.addEventListener("visibilitychange", onVisible);
+    window.addEventListener("pageshow", onPageShow);
+    return () => {
+      document.removeEventListener("visibilitychange", onVisible);
+      window.removeEventListener("pageshow", onPageShow);
+    };
   }, [checkVersion]);
 
   if (!needsRefresh || !remoteVersion) return null;
