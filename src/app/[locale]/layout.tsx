@@ -6,6 +6,7 @@ import { SITE_URL } from "@/lib/site-url";
 import { SITE_NAME, defaultOpenGraph, defaultTwitter } from "@/lib/seo";
 import { Analytics } from "@/components/Analytics";
 import { AppVersionBanner } from "@/components/AppVersionBanner";
+import { DocumentLang } from "@/components/DocumentLang";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -66,11 +67,7 @@ export default async function LocaleLayout({
 
   return (
     <>
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `document.documentElement.lang=${JSON.stringify(locale)}`,
-        }}
-      />
+      <DocumentLang locale={locale} />
       <Suspense fallback={null}>
         <Analytics />
       </Suspense>
