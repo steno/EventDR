@@ -21,8 +21,13 @@ export async function generateMetadata({
   const validLocale = isValidLocale(locale) ? locale : "en";
   const dict = getDictionary(validLocale);
   
+  const googleVerification = process.env.GOOGLE_SITE_VERIFICATION;
+
   return {
     metadataBase: new URL(SITE_URL),
+    ...(googleVerification
+      ? { verification: { google: googleVerification } }
+      : {}),
     title: {
       default: SITE_NAME,
     },
