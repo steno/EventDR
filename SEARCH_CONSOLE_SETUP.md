@@ -97,6 +97,7 @@ This surfaces search queries, impressions, and CTR inside Analytics.
 |-------|----------------|
 | Verification fails | Env var set? Redeployed? Tag visible in page source at `https://pop-event.com/en`? |
 | Sitemap "Couldn't fetch" | Open `https://pop-event.com/sitemap.xml` in a browser; fix any 5xx errors |
+| Live test: API blocked by robots.txt | Public pages fetch `/api/events`, `/api/venues`, and `/api/app-version` — these are allowed in `robots.txt`; redeploy and re-run URL inspection |
 | Pages not indexed yet | Normal for new sites — allow 3–14 days; use URL Inspection for status |
 | Wrong locale indexed | Home `/` redirects by `Accept-Language`; canonical URLs use `/en`, `/es`, `/fr` |
 

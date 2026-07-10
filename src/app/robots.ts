@@ -5,8 +5,18 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
       userAgent: "*",
-      allow: "/",
-      disallow: ["/api/", "/en/moderate", "/es/moderate", "/fr/moderate"],
+      allow: [
+        "/",
+        "/api/events",
+        "/api/venues",
+        "/api/app-version",
+      ],
+      disallow: [
+        "/api/",
+        "/en/moderate",
+        "/es/moderate",
+        "/fr/moderate",
+      ],
     },
     sitemap: `${SITE_URL}/sitemap.xml`,
     host: SITE_URL,
