@@ -21,6 +21,7 @@ import { getDictionary } from "@/i18n/dictionaries";
 import type { Event, EventCategory } from "@/lib/types";
 import { CATEGORY_IDS } from "@/lib/categories";
 import { attachEventImages } from "@/lib/event-images";
+import { attachEventPhones } from "@/lib/event-phone";
 import { applyCuratedEventPatches } from "@/lib/curated-events";
 import { filterRemovedSeedEvents } from "@/lib/removed-seeds";
 import { localizeEventsForDisplay } from "@/lib/localized-text";
@@ -110,7 +111,9 @@ export async function GET(request: NextRequest) {
     if (!refresh) {
       const cached = getCachedEvents(cacheKey);
       if (cached?.length) {
-        let events = applyCuratedEventPatches(attachEventImages(sortEvents(cached)));
+        let events = applyCuratedEventPatches(
+          attachEventPhones(attachEventImages(sortEvents(cached))),
+        );
         return NextResponse.json(
           {
             events,
@@ -163,6 +166,7 @@ export async function GET(request: NextRequest) {
     events = attachCoords(events);
     events = sortEvents(events);
     events = applyCuratedEventPatches(events);
+    events = attachEventPhones(events);
     events = attachEventImages(events);
 
     setCachedEvents(cacheKey, events);
@@ -196,6 +200,7 @@ export async function GET(request: NextRequest) {
     );
     events = sortEvents(materializeEventDates(events));
     events = applyCuratedEventPatches(events);
+    events = attachEventPhones(events);
     events = attachEventImages(events);
     return NextResponse.json(
       {

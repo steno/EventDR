@@ -12,6 +12,7 @@ export const SEED_VENUES: Venue[] = [
     lng: -70.4082,
     emoji: "🎵",
     instagram: "laxcabarete",
+    phone: "+18297458811",
   },
   {
     slug: "malecon-puerto-plata",
@@ -34,6 +35,19 @@ export const SEED_VENUES: Venue[] = [
     emoji: "🏄",
   },
   {
+    slug: "liquid-blue-cabarete",
+    name: "Liquid Blue Cabarete",
+    city: "Cabarete",
+    description:
+      "Watersports school on Kite Beach since 2014 — kite, wing, eFoil, surf, and sunrise yoga on the sand. Shop at Calle Principal #87.",
+    lat: 19.7512,
+    lng: -70.415,
+    emoji: "🧘",
+    instagram: "lbcabarete",
+    website: "https://www.lbcabarete.com/fitness-classes/",
+    phone: "+18492719573",
+  },
+  {
     slug: "el-batey-sosua",
     name: "El Batey",
     city: "Sosúa",
@@ -50,6 +64,7 @@ export const SEED_VENUES: Venue[] = [
     lat: 19.7485,
     lng: -70.41,
     emoji: "💼",
+    phone: "+18095710808",
   },
   {
     slug: "ocean-world",
@@ -62,6 +77,7 @@ export const SEED_VENUES: Venue[] = [
     emoji: "🐬",
     instagram: "oceanworldadventurepark",
     website: "https://www.oceanworld.net",
+    phone: "+18092911000",
   },
   {
     slug: "sea-horse-ranch",
@@ -73,6 +89,7 @@ export const SEED_VENUES: Venue[] = [
     lng: -70.481,
     emoji: "🧺",
     website: "https://www.sea-horse-ranch.com",
+    phone: "+18095712902",
   },
   {
     slug: "el-carey-puerto-plata",
@@ -84,6 +101,7 @@ export const SEED_VENUES: Venue[] = [
     lng: -70.7150884,
     emoji: "⚽",
     website: "https://www.facebook.com/profile.php?id=100089059716413",
+    phone: "+18494404199",
   },
   {
     slug: "el-colibri-hotel",
@@ -95,6 +113,7 @@ export const SEED_VENUES: Venue[] = [
     lng: -70.519,
     emoji: "🎤",
     website: "https://www.elcolibriresort.com/",
+    phone: "+18099709433",
   },
   {
     slug: "fortaleza-san-felipe",
@@ -106,6 +125,7 @@ export const SEED_VENUES: Venue[] = [
     lng: -70.695,
     emoji: "🏰",
     website: "https://museosrd.gob.do/museos/museo-fortaleza-san-felipe/",
+    phone: "+18092611911",
   },
   {
     slug: "museo-ambar",
@@ -117,6 +137,7 @@ export const SEED_VENUES: Venue[] = [
     lng: -70.6946,
     emoji: "🟠",
     website: "https://museosrd.gob.do/museos/amber-museum-experience/",
+    phone: "+18095862848",
   },
   {
     slug: "charcos-damajagua",
@@ -128,6 +149,7 @@ export const SEED_VENUES: Venue[] = [
     lng: -70.8289,
     emoji: "💧",
     website: "https://www.27charcos.com",
+    phone: "+18092721438",
   },
   {
     slug: "teleferico-puerto-plata",
@@ -139,6 +161,7 @@ export const SEED_VENUES: Venue[] = [
     lng: -70.7089,
     emoji: "🚡",
     website: "https://telefericopuertoplata.com",
+    phone: "+18099700501",
   },
   {
     slug: "cayo-arena",
@@ -151,6 +174,7 @@ export const SEED_VENUES: Venue[] = [
     emoji: "🏝️",
     website:
       "https://es.godominicanrepublic.com/que-hacer/cayo-arena",
+    phone: "+18295997444",
   },
   {
     slug: "paseo-dona-blanca",
@@ -186,6 +210,7 @@ export const SEED_VENUES: Venue[] = [
     emoji: "🏎️",
     instagram: "funcitypuertoplata",
     website: "https://puertoplatadr.com/tours/fun-city-gokarts/",
+    phone: "+18096970794",
   },
   {
     slug: "monkeyland-puerto-plata",
@@ -197,6 +222,7 @@ export const SEED_VENUES: Venue[] = [
     lng: -70.8438,
     emoji: "🐒",
     website: "https://www.runnersadventures.com/monkeyland/monkeyland-puerto-plata/",
+    phone: "+18295997444",
   },
 ];
 

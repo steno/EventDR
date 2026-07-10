@@ -12,7 +12,9 @@ import {
   Share2,
   Heart,
   ExternalLink,
+  Building2,
   Mic2,
+  Phone,
   Users,
 } from "lucide-react";
 import type { Event } from "@/lib/types";
@@ -25,8 +27,12 @@ import { addToCalendar } from "@/lib/calendar";
 import { ShareMenu } from "@/components/ShareMenu";
 import { matchVenueSlug } from "@/lib/venues-seed";
 import { formatRecurrenceLabel } from "@/lib/recurrence-label";
+import { getEventLiveStatus, happensOnLocalDate } from "@/lib/event-status";
+import { getEventLiveStatusLabel } from "@/lib/event-status-label";
+import { EventStatusBadge } from "@/components/EventStatusBadge";
 import { EventImage } from "@/components/EventImage";
 import { formatEventPlace } from "@/lib/event-location";
+import { EventCallLink } from "@/components/EventCallLink";
 
 interface EventDetailSheetProps {
   event: Event | null;
@@ -67,6 +73,11 @@ export function EventDetailSheet({
   const recurrenceLabel = formatRecurrenceLabel(event, locale, dict);
   const venueSlug =
     event.venueSlug ?? matchVenueSlug(event.venue) ?? matchVenueSlug(event.location);
+  const liveStatus = happensOnLocalDate(event) ? getEventLiveStatus(event) : null;
+  const liveStatusLabel =
+    liveStatus && liveStatus !== "unknown"
+      ? getEventLiveStatusLabel(event, dict)
+      : null;
   const TitleTag = standalone ? "h1" : "h2";
 
   function handleShareFeedback(message: string) {
@@ -195,6 +206,9 @@ export function EventDetailSheet({
               <span className="font-semibold truncate">
                 {formatEventDateRange(event.date, locale, { endDate: event.endDate })}
               </span>
+              {liveStatusLabel && liveStatus && (
+                <EventStatusBadge label={liveStatusLabel} status={liveStatus} />
+              )}
               {recurrenceLabel && (
                 <span className="inline-flex shrink-0 rounded-full bg-orange-50 dark:bg-orange-950/50 px-2.5 py-1 text-[11px] font-bold text-orange-600">
                   {recurrenceLabel}
@@ -207,34 +221,48 @@ export function EventDetailSheet({
                 <span className="font-semibold">{event.time}</span>
               </div>
             )}
-            <div className="flex items-center gap-3 text-neutral-700 dark:text-neutral-300">
-              <MapPin className="h-5 w-5 text-neutral-500 flex-shrink-0" />
-              <span className="font-semibold truncate">
+            <div className="flex items-start gap-3 text-neutral-700 dark:text-neutral-300">
+              <MapPin className="h-5 w-5 text-neutral-500 flex-shrink-0 mt-0.5" />
+              <span className="font-semibold leading-snug">
                 {formatEventPlace(event)}
               </span>
             </div>
+            {event.phone && (
+              <div className="group/phone flex items-center gap-3 text-neutral-700 dark:text-neutral-300">
+                <Phone className="h-5 w-5 flex-shrink-0 text-emerald-600 dark:text-emerald-400 group-hover/phone:text-neutral-500 transition-colors" />
+                <EventCallLink
+                  phone={event.phone}
+                  label={dict.detail.call}
+                  variant="row"
+                />
+              </div>
+            )}
             {venueSlug && (
               <button
                 type="button"
                 onClick={handleViewVenue}
-                className="inline-flex items-center gap-2 text-[15px] font-bold text-orange-600 hover:text-orange-700 active:text-orange-800 touch-manipulation py-1"
+                className="flex w-full items-center gap-3 text-left touch-manipulation group py-0.5"
               >
-                {dict.detail.viewVenue} →
+                <Building2 className="h-5 w-5 text-neutral-500 flex-shrink-0" />
+                <span className="font-semibold text-orange-600 group-hover:text-orange-700 group-active:text-orange-800 transition-colors">
+                  {dict.detail.viewVenue}
+                </span>
               </button>
             )}
+            {event.sourceUrl && (
+              <a
+                href={event.sourceUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 touch-manipulation group py-0.5"
+              >
+                <ExternalLink className="h-5 w-5 text-neutral-500 flex-shrink-0" />
+                <span className="font-semibold text-neutral-700 dark:text-neutral-300 group-hover:text-neutral-900 dark:group-hover:text-neutral-100 transition-colors">
+                  {dict.detail.source}
+                </span>
+              </a>
+            )}
           </div>
-
-          {event.sourceUrl && (
-            <a
-              href={event.sourceUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-3 inline-flex items-center gap-2 text-[13px] font-semibold text-neutral-600 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200 py-1"
-            >
-              <ExternalLink className="h-4 w-4" />
-              {dict.detail.source}
-            </a>
-          )}
         </div>
 
         <div className="shrink-0 border-t border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900 px-5 pt-4 pb-4">

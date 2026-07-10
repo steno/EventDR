@@ -33,6 +33,8 @@ export interface Venue {
   emoji?: string;
   instagram?: string;
   website?: string;
+  /** E.164 or local DR number for click-to-call. */
+  phone?: string;
 }
 
 export type EventRecurrence = "daily" | "weekly" | "weekdays" | "weekends";
@@ -49,6 +51,8 @@ export interface Event {
   address?: string;
   venue?: string;
   venueSlug?: string;
+  /** Contact phone when known (venue default or event-specific). */
+  phone?: string;
   category: EventCategory;
   format: EventFormat;
   trending?: boolean;

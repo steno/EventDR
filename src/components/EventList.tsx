@@ -8,6 +8,7 @@ import type { Locale } from "@/i18n/config";
 import type { TimeRange } from "@/lib/filters";
 import { filterByTimeRange, searchEvents } from "@/lib/filters";
 import { materializeEventDates, sortUpcomingEvents } from "@/lib/event-dates";
+import { hasEventEndedForToday, happensOnLocalDate } from "@/lib/event-status";
 import { categoryPath } from "@/lib/event-navigation";
 import { EventCard } from "./EventCard";
 
@@ -84,7 +85,19 @@ export function EventList({
   const filtered = useMemo(() => {
     let result = filterByTimeRange(events, timeRange);
     result = searchEvents(result, searchQuery);
-    return sortUpcomingEvents(result, { recurringLast: true });
+    result = sortUpcomingEvents(result, { recurringLast: true });
+
+    if (timeRange === "all") {
+      const active = result.filter(
+        (e) => !happensOnLocalDate(e) || !hasEventEndedForToday(e),
+      );
+      const endedToday = result.filter(
+        (e) => happensOnLocalDate(e) && hasEventEndedForToday(e),
+      );
+      return [...active, ...endedToday];
+    }
+
+    return result;
   }, [events, timeRange, searchQuery]);
 
   const sourceLabel =

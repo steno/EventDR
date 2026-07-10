@@ -5,7 +5,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "lax-sunset-daily": "lax-sunset-daily.jpg",
   "malecon-kiosks-daily": "malecon-kiosks-daily.jpg",
   "kite-beach-daily": "kite-beach-daily.jpg",
-  "cabarete-yoga-daily": "cabarete-yoga-daily.jpg",
+  "liquid-blue-sunrise-yoga": "liquid-blue-sunrise-yoga.jpg",
   "cowork-weekdays": "cowork-weekdays.jpg",
   "batey-salsa-weekly": "batey-salsa-weekly.jpg",
   "sosua-volleyball-weekly": "sosua-volleyball-weekly.jpg",

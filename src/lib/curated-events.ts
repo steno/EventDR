@@ -13,6 +13,7 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
   "cabarete-pilates-reformer": {
     venue: "Rafaella's Studio",
     location: "Cabarete",
+    phone: "+18094605777",
     description:
       "Group Pilates Reformer sessions in Cabarete with Rafaella Cirillo (Tue & Thu 9 AM). Studio address shared when you book — DM or WhatsApp +1 809 460 5777. Discount code RC-pilates for first class.",
     localized: {

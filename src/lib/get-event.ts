@@ -6,6 +6,7 @@ import { fetchEventById } from "./firebase/events";
 import { attachCoords, attachVenueSlugs } from "./geo";
 import { applyCuratedEventPatches } from "./curated-events";
 import { attachEventImages } from "./event-images";
+import { attachEventPhones } from "./event-phone";
 import { filterRemovedSeedEvents } from "./removed-seeds";
 import { localizeEventsForDisplay } from "./localized-text";
 import { materializeEventDates } from "./event-dates";
@@ -14,6 +15,7 @@ function finalizeEvent(event: Event, locale: Locale): Event | null {
   let [result] = attachCoords([event]);
   [result] = localizeEventsForDisplay([result], locale);
   [result] = applyCuratedEventPatches([result]);
+  [result] = attachEventPhones([result]);
   [result] = attachEventImages([result]);
 
   const kept = filterRemovedSeedEvents([result]);

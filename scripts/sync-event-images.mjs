@@ -13,7 +13,7 @@ const FILE_TO_EVENT_ID = {
   "LAXSunsetSessions.JPG": "lax-sunset-daily",
   "MaleconFodKiosks.JPG": "malecon-kiosks-daily",
   "KiteBeachWindSession.JPG": "kite-beach-daily",
-  "CabareteSunriseBeachYoga.JPG": "cabarete-yoga-daily",
+  "CabareteSunriseBeachYoga.JPG": "liquid-blue-sunrise-yoga",
   "CoworkCabarete.JPG": "cowork-weekdays",
   "ElBateySalsaSocial.JPG": "batey-salsa-weekly",
   "SosuaBeachVolleyballPickup.JPG": "sosua-volleyball-weekly",

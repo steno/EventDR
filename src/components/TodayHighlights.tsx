@@ -4,13 +4,20 @@ import { memo, useMemo } from "react";
 import Link from "next/link";
 import { Calendar, Clock, MapPin, Navigation } from "lucide-react";
 import { EventImage } from "@/components/EventImage";
+import { EventStatusBadge } from "@/components/EventStatusBadge";
 import type { Event } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { formatEventDateRange } from "@/lib/format-date";
-import { localDateISO, parseLocalDate } from "@/lib/event-dates";
 import { getDirectionsUrl } from "@/lib/maps";
 import { eventDetailPath } from "@/lib/event-navigation";
+import {
+  getEventLiveStatus,
+  isEventActiveToday,
+  happensOnLocalDate,
+  parseEventTimeWindow,
+} from "@/lib/event-status";
+import { getEventLiveStatusLabel } from "@/lib/event-status-label";
 
 interface TodayHighlightsProps {
   events: Event[];
@@ -18,90 +25,21 @@ interface TodayHighlightsProps {
   dict: Dictionary;
 }
 
-function parseEventTimeWindow(time?: string): { start: number; end: number } | null {
-  if (!time) return null;
-  const matches = [...time.matchAll(/(\d{1,2})(?::(\d{2}))?\s*(AM|PM)/gi)];
-  if (matches.length === 0) return null;
-
-  const times = matches
-    .map((match) => {
-      let hours = Number(match[1]);
-      const minutes = Number(match[2] ?? "0");
-      const meridiem = match[3].toUpperCase();
-      if (meridiem === "PM" && hours !== 12) hours += 12;
-      if (meridiem === "AM" && hours === 12) hours = 0;
-      return hours * 60 + minutes;
-    })
-    .filter((value) => Number.isFinite(value));
-
-  if (times.length === 0) return null;
-
-  const start = times[0];
-  const end = times.length > 1 ? times[times.length - 1] : start + 120;
-  return { start, end: Math.max(end, start) };
-}
-
-function currentMinutes(): number {
-  const now = new Date();
-  return now.getHours() * 60 + now.getMinutes();
-}
-
-function isHappeningNow(event: Event): boolean {
-  const window = parseEventTimeWindow(event.time);
-  if (!window) return true;
-
-  const now = currentMinutes();
-  if (window.end < window.start) {
-    return now >= window.start || now <= window.end;
-  }
-  return now >= window.start && now <= window.end;
-}
-
-function hasEventStarted(event: Event): boolean {
-  const window = parseEventTimeWindow(event.time);
-  if (!window) return false;
-  return currentMinutes() >= window.start;
-}
-
-function hasFixedStartTime(time?: string): boolean {
-  if (!time) return false;
-  const matches = [...time.matchAll(/(\d{1,2})(?::(\d{2}))?\s*(AM|PM)/gi)];
-  return matches.length === 1;
-}
-
 function todayHighlightSortRank(event: Event): number {
-  if (isHappeningNow(event)) return 0;
-
-  const window = parseEventTimeWindow(event.time);
-  if (!window) return 0;
-
-  return currentMinutes() < window.start ? 1 : 2;
+  const status = getEventLiveStatus(event);
+  if (status === "live") return 0;
+  if (status === "upcoming") return 1;
+  return 2;
 }
 
 function compareTodayHighlights(a: Event, b: Event): number {
-  const fixedA = hasFixedStartTime(a.time);
-  const fixedB = hasFixedStartTime(b.time);
-  if (fixedA !== fixedB) return fixedA ? -1 : 1;
-
   const rankA = todayHighlightSortRank(a);
   const rankB = todayHighlightSortRank(b);
   if (rankA !== rankB) return rankA - rankB;
 
   const startA = parseEventTimeWindow(a.time)?.start ?? 0;
   const startB = parseEventTimeWindow(b.time)?.start ?? 0;
-  if (rankA === 2) return startB - startA;
   return startA - startB;
-}
-
-function happensToday(event: Event): boolean {
-  const today = localDateISO();
-  const start = parseLocalDate(event.date);
-  const end = parseLocalDate(event.endDate ?? event.date);
-  const current = parseLocalDate(today);
-  if (isNaN(start.getTime()) || isNaN(end.getTime()) || isNaN(current.getTime())) {
-    return false;
-  }
-  return start <= current && end >= current;
 }
 
 const TodayHighlightsComponent = ({
@@ -110,7 +48,10 @@ const TodayHighlightsComponent = ({
   dict,
 }: TodayHighlightsProps) => {
   const todayEvents = useMemo(
-    () => events.filter(happensToday).sort(compareTodayHighlights),
+    () =>
+      events
+        .filter((e) => happensOnLocalDate(e) && isEventActiveToday(e))
+        .sort(compareTodayHighlights),
     [events],
   );
 
@@ -132,86 +73,85 @@ const TodayHighlightsComponent = ({
       <div className="-mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 scrollbar-hide">
         {todayEvents.map((event) => {
           const href = eventDetailPath(locale, event.id, `/${locale}`);
+          const status = getEventLiveStatus(event);
+          const statusLabel = getEventLiveStatusLabel(event, dict);
 
           return (
             <article
               key={event.id}
-              className="group flex min-w-[86%] snap-start flex-col overflow-hidden rounded-3xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-[0_8px_24px_-12px_rgba(0,0,0,0.16)] dark:shadow-[0_8px_24px_-12px_rgba(0,0,0,0.4)] sm:min-w-[20rem]"
+              className="group flex min-w-[86%] snap-start flex-col overflow-hidden rounded-3xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-[0_8px_24px_-12px_rgba(0,0,0,0.16)] dark:shadow-[0_8px_24px_-12px_rgba(0,0,0,0.4)] transition-colors hover:border-neutral-300 dark:hover:border-neutral-700 sm:min-w-[20rem]"
             >
-              {event.imageUrl && (
-                <Link
-                  href={href}
-                  className="relative block h-40 w-full overflow-hidden bg-neutral-100 dark:bg-neutral-800 text-left touch-manipulation"
-                >
-                  <EventImage
-                    src={event.imageUrl}
-                    alt=""
-                    sizes="(max-width: 672px) 86vw, 320px"
-                    className="object-cover"
-                  />
-                  <div
-                    className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/75 via-black/35 to-transparent opacity-100 transition-opacity duration-300 group-hover:opacity-0"
-                    aria-hidden
-                  />
-                </Link>
-              )}
+              <Link
+                href={href}
+                className="flex flex-1 flex-col touch-manipulation active:scale-[0.995] transition-transform"
+              >
+                {event.imageUrl && (
+                  <div className="relative h-40 w-full overflow-hidden bg-neutral-100 dark:bg-neutral-800">
+                    <EventImage
+                      src={event.imageUrl}
+                      alt=""
+                      sizes="(max-width: 672px) 86vw, 320px"
+                      className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                    />
+                    <div
+                      className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/75 via-black/35 to-transparent opacity-100 transition-opacity duration-300 group-hover:opacity-0"
+                      aria-hidden
+                    />
+                  </div>
+                )}
 
-              <div className="flex flex-1 flex-col p-5">
-                <Link href={href} className="block w-full text-left touch-manipulation">
-                  <p className="mb-1.5 text-[11px] font-black uppercase tracking-[0.24em] text-orange-500">
-                    {hasEventStarted(event)
-                      ? dict.events.eventStarted
-                      : dict.events.happeningToday}
-                  </p>
+                <div className="flex flex-1 flex-col p-5">
+                  {statusLabel && (
+                    <EventStatusBadge
+                      label={statusLabel}
+                      status={status}
+                      className="mb-2 w-fit"
+                    />
+                  )}
                   <h3 className="line-clamp-2 text-[19px] font-black leading-tight tracking-tight text-neutral-950 dark:text-neutral-100">
                     {event.title}
                   </h3>
                   <p className="mt-2.5 line-clamp-2 text-[14px] font-medium leading-relaxed text-neutral-600 dark:text-neutral-400">
                     {event.description}
                   </p>
-                </Link>
 
-                <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-[13px] font-semibold text-neutral-700 dark:text-neutral-300">
-                  <span className="inline-flex items-center gap-1.5">
-                    <Calendar className="h-4 w-4 text-neutral-500" />
-                    {formatEventDateRange(event.date, locale, {
-                      endDate: event.endDate,
-                      short: true,
-                    })}
-                  </span>
-                  {event.time && (
+                  <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-[13px] font-semibold text-neutral-700 dark:text-neutral-300">
                     <span className="inline-flex items-center gap-1.5">
-                      <Clock className="h-4 w-4 text-neutral-500" />
-                      {event.time}
+                      <Calendar className="h-4 w-4 text-neutral-500" />
+                      {formatEventDateRange(event.date, locale, {
+                        endDate: event.endDate,
+                        short: true,
+                      })}
                     </span>
-                  )}
-                  <span className="inline-flex items-center gap-1.5">
-                    <MapPin className="h-4 w-4 text-neutral-500" />
-                    {event.venue ? `${event.venue}, ` : ""}
-                    {event.location}
-                  </span>
+                    {event.time && (
+                      <span className="inline-flex items-center gap-1.5">
+                        <Clock className="h-4 w-4 text-neutral-500" />
+                        {event.time}
+                      </span>
+                    )}
+                    <span className="inline-flex items-center gap-1.5">
+                      <MapPin className="h-4 w-4 text-neutral-500" />
+                      {event.venue ? `${event.venue}, ` : ""}
+                      {event.location}
+                    </span>
+                  </div>
                 </div>
+              </Link>
 
-                <div className="mt-auto flex gap-2 pt-5">
-                  <Link
-                    href={href}
-                    className="flex-1 rounded-full bg-neutral-950 dark:bg-neutral-100 px-5 py-3 text-center text-sm font-black text-white dark:text-neutral-900 touch-manipulation active:scale-[0.98] transition-transform"
+              {event.format !== "digital" && (
+                <div className="flex justify-end px-5 pb-5 pt-0">
+                  <a
+                    href={getDirectionsUrl(event)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[12px] font-semibold text-neutral-500 dark:text-neutral-400 ring-1 ring-neutral-200/80 dark:ring-neutral-700/80 hover:text-orange-600 hover:ring-orange-200/80 dark:hover:ring-orange-900/50 touch-manipulation transition-colors"
+                    aria-label={dict.detail.directions}
                   >
-                    {dict.events.viewDetails}
-                  </Link>
-                  {event.format !== "digital" && (
-                    <a
-                      href={getDirectionsUrl(event)}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-orange-50 dark:bg-orange-950/50 text-orange-600 touch-manipulation active:scale-95 transition-transform"
-                      aria-label={dict.detail.directions}
-                    >
-                      <Navigation className="h-5 w-5" />
-                    </a>
-                  )}
+                    <Navigation className="h-3.5 w-3.5" />
+                    {dict.detail.directions}
+                  </a>
                 </div>
-              </div>
+              )}
             </article>
           );
         })}

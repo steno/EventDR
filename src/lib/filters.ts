@@ -1,7 +1,11 @@
 export type TimeRange = "all" | "today" | "weekend" | "week";
 
 import type { EventRecurrence } from "./types";
-import { eventMatchesRecurrence, parseLocalDate } from "./event-dates";
+import {
+  eventMatchesRecurrence,
+  parseLocalDate,
+} from "./event-dates";
+import { isEventActiveToday } from "./event-status";
 
 function parseEventDate(dateStr: string): Date | null {
   const d = parseLocalDate(dateStr);
@@ -35,6 +39,7 @@ export function filterByTimeRange<
   T extends {
     date: string;
     endDate?: string;
+    time?: string;
     recurrence?: string;
     recurrenceDay?: number;
     recurrenceDays?: number[];
@@ -72,7 +77,7 @@ export function filterByTimeRange<
     const eventEndDay = startOfDay(eventEndDate);
 
     if (range === "today") {
-      return eventDay <= today && eventEndDay >= today;
+      return eventDay <= today && eventEndDay >= today && isEventActiveToday(item, now);
     }
 
     if (range === "week") {
