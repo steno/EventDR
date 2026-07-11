@@ -59,9 +59,14 @@ export function consumeListScroll(path: string): ListScrollSnapshot | null {
 }
 
 export function restoreScrollPosition(scrollY: number): void {
-  requestAnimationFrame(() => {
-    requestAnimationFrame(() => {
-      window.scrollTo({ top: scrollY, left: 0, behavior: "instant" });
-    });
-  });
+  const apply = () => {
+    window.scrollTo({ top: scrollY, left: 0, behavior: "instant" });
+  };
+
+  apply();
+  requestAnimationFrame(apply);
+  requestAnimationFrame(() => requestAnimationFrame(apply));
+  window.setTimeout(apply, 0);
+  window.setTimeout(apply, 50);
+  window.setTimeout(apply, 150);
 }

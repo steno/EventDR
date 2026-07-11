@@ -53,8 +53,8 @@ const EventCardComponent = ({
         onClick={() => {
           if (onBeforeNavigate) {
             onBeforeNavigate();
-          } else if (returnTo) {
-            saveScrollForReturn(returnTo);
+          } else {
+            saveScrollForReturn(returnTo ?? window.location.pathname);
           }
         }}
         className="flex gap-3.5 text-left"

@@ -63,6 +63,7 @@ export function EventScopePage({
 }: EventScopePageProps) {
   const [events, setEvents] = useState<Event[]>(() => attachEventImages(initialEvents));
   const [loading, setLoading] = useState(false);
+  const [fetchSettled, setFetchSettled] = useState(false);
   const [submitOpen, setSubmitOpen] = useState(false);
 
   useEffect(() => {
@@ -73,10 +74,13 @@ export function EventScopePage({
         setEvents(attachEventImages(data.events ?? [])),
       )
       .catch(() => setEvents(attachEventImages(initialEvents)))
-      .finally(() => setLoading(false));
+      .finally(() => {
+        setLoading(false);
+        setFetchSettled(true);
+      });
   }, [fetchUrl, initialEvents]);
 
-  useListScrollRestoration(returnTo, !loading);
+  useListScrollRestoration(returnTo, fetchSettled);
 
   const headerEmojiClassName =
     emojiClassName ??

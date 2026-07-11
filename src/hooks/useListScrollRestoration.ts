@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef } from "react";
 import {
   consumeListScroll,
   restoreScrollPosition,
@@ -13,17 +13,19 @@ export function useListScrollRestoration(
   onRestore?: (snapshot: ListScrollSnapshot) => void,
 ): void {
   const onRestoreRef = useRef(onRestore);
+  const restoredRef = useRef(false);
 
   useEffect(() => {
     onRestoreRef.current = onRestore;
   }, [onRestore]);
 
-  useEffect(() => {
-    if (!ready) return;
+  useLayoutEffect(() => {
+    if (!ready || restoredRef.current) return;
 
     const snapshot = consumeListScroll(path);
     if (!snapshot) return;
 
+    restoredRef.current = true;
     onRestoreRef.current?.(snapshot);
     restoreScrollPosition(snapshot.scrollY);
   }, [path, ready]);
