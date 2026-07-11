@@ -7,6 +7,7 @@ import { getCategorySeo } from "@/lib/category-seo";
 import { isValidLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getPublicEvents } from "@/lib/public-events";
+import { isScopeInitiallyExpanded } from "@/lib/home-layout";
 import {
   buildCategoryMetadata,
   buildListingPageJsonLd,
@@ -34,10 +35,13 @@ export async function generateMetadata({
 
 export default async function Page({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: string; id: string }>;
+  searchParams: Promise<{ all?: string }>;
 }) {
   const { locale, id } = await params;
+  const { all } = await searchParams;
   if (!isValidLocale(locale)) notFound();
   if (!CATEGORY_IDS.includes(id as EventCategory)) notFound();
 
@@ -76,6 +80,7 @@ export default async function Page({
         emoji={category?.emoji}
         emojiClassName={`bg-gradient-to-br ${category?.gradient ?? "from-neutral-200 to-neutral-300"}`}
         submitDefaults={{ category: id as EventCategory }}
+        initialExpanded={isScopeInitiallyExpanded(all)}
       />
     </>
   );

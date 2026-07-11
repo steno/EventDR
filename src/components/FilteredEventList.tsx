@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import { ChevronRight } from "lucide-react";
 import type { Event } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
@@ -25,8 +26,8 @@ interface FilteredEventListProps {
   addEventLabel?: string;
   returnTo?: string;
   fixedTimeRange?: TimeRange;
-  /** When true, show every event (used for /when/* listing pages). */
-  unlimited?: boolean;
+  /** One-shot expand when landing with ?all=1 (stripped from URL on mount). */
+  initialExpanded?: boolean;
   /** Preview cap before "View all" expands in place (defaults to SCOPE_LIST_LIMIT). */
   limit?: number;
 }
@@ -42,15 +43,29 @@ export function FilteredEventList({
   addEventLabel,
   returnTo,
   fixedTimeRange,
-  unlimited = false,
+  initialExpanded = false,
   limit = SCOPE_LIST_LIMIT,
 }: FilteredEventListProps) {
+  const pathname = usePathname();
   const [timeRange, setTimeRange] = useState<TimeRange>(fixedTimeRange ?? "all");
-  const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = useState(initialExpanded);
+  const skipExpandReset = useRef(true);
 
   useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (!params.has("all")) return;
+    params.delete("all");
+    const qs = params.toString();
+    window.history.replaceState(null, "", qs ? `${pathname}?${qs}` : pathname);
+  }, [pathname]);
+
+  useEffect(() => {
+    if (skipExpandReset.current) {
+      skipExpandReset.current = false;
+      return;
+    }
     setExpanded(false);
-  }, [timeRange, fixedTimeRange]);
+  }, [timeRange]);
 
   const materialized = useMemo(
     () => materializeEventDates(events),
@@ -63,7 +78,7 @@ export function FilteredEventList({
     return sortUpcomingEvents(timeFiltered, { recurringLast: true });
   }, [materialized, timeRange, fixedTimeRange]);
 
-  const cap = unlimited || expanded ? undefined : limit;
+  const cap = expanded ? undefined : limit;
   const visibleEvents = cap != null ? filtered.slice(0, cap) : filtered;
   const hasMore = cap != null && filtered.length > cap;
 
@@ -103,7 +118,7 @@ export function FilteredEventList({
               />
             ))}
           </div>
-          {hasMore && !unlimited && (
+          {hasMore && (
             <div className="pt-4 text-center">
               <button
                 type="button"

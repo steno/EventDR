@@ -54,9 +54,16 @@ export function getFeaturedVenues(
     .filter((v): v is Venue => v != null);
 }
 
-/** Full listing page for the active home time filter. */
+/** Full listing page for the active home time filter (one-shot expand via ?all=1). */
 export function homeViewAllPath(locale: string, timeRange: TimeRange): string {
-  if (timeRange === "today") return `/${locale}/when/today`;
-  if (timeRange === "weekend") return `/${locale}/when/weekend`;
-  return `/${locale}/when/week`;
+  if (timeRange === "today") return `/${locale}/when/today?all=1`;
+  if (timeRange === "weekend") return `/${locale}/when/weekend?all=1`;
+  return `/${locale}/when/week?all=1`;
+}
+
+export function isScopeInitiallyExpanded(
+  all: string | string[] | undefined,
+): boolean {
+  if (Array.isArray(all)) return all[0] === "1";
+  return all === "1";
 }

@@ -12,6 +12,7 @@ import {
   buildVenueMetadata,
   localePath,
 } from "@/lib/seo";
+import { isScopeInitiallyExpanded } from "@/lib/home-layout";
 
 export async function generateStaticParams() {
   return locales.flatMap((locale) =>
@@ -36,10 +37,13 @@ export async function generateMetadata({
 
 export default async function Page({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: string; slug: string }>;
+  searchParams: Promise<{ all?: string }>;
 }) {
   const { locale, slug } = await params;
+  const { all } = await searchParams;
   if (!isValidLocale(locale)) notFound();
 
   const venue = (await fetchVenueBySlug(slug)) ?? getSeedVenue(slug);
@@ -58,7 +62,12 @@ export default async function Page({
           ]),
         ]}
       />
-      <VenuePage venue={venue} locale={locale} dict={dict} />
+      <VenuePage
+        venue={venue}
+        locale={locale}
+        dict={dict}
+        initialExpanded={isScopeInitiallyExpanded(all)}
+      />
     </>
   );
 }

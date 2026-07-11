@@ -13,6 +13,7 @@ import {
 import { isValidLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getPublicEvents } from "@/lib/public-events";
+import { isScopeInitiallyExpanded } from "@/lib/home-layout";
 import {
   buildCityMetadata,
   buildListingPageJsonLd,
@@ -43,10 +44,13 @@ export async function generateMetadata({
 
 export default async function Page({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: string; slug: string }>;
+  searchParams: Promise<{ all?: string }>;
 }) {
   const { locale, slug } = await params;
+  const { all } = await searchParams;
   if (!isValidLocale(locale)) notFound();
   if (!isCitySlug(slug)) notFound();
 
@@ -95,6 +99,7 @@ export default async function Page({
         submitDefaults={{ location: cityName }}
         relatedCategoryLinks={relatedCategoryLinks}
         relatedCategoryLinksLabel={relatedCategoryLinksLabel}
+        initialExpanded={isScopeInitiallyExpanded(all)}
       />
     </>
   );

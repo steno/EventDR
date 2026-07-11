@@ -1,8 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
 import type { Event } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
@@ -14,7 +12,7 @@ import {
 } from "@/components/CityCategoryLinks";
 import { SubmitEventSheet } from "@/components/SubmitEventSheet";
 import { attachEventImages } from "@/lib/event-images";
-import { AppHeader } from "@/components/AppHeader";
+import { StickyListHeader } from "@/components/StickyListHeader";
 import { resolveBackLabel } from "@/lib/event-navigation";
 import { useListScrollRestoration } from "@/hooks/useListScrollRestoration";
 
@@ -40,6 +38,7 @@ interface EventScopePageProps {
   };
   relatedCategoryLinks?: RelatedCategoryLink[];
   relatedCategoryLinksLabel?: string;
+  initialExpanded?: boolean;
 }
 
 export function EventScopePage({
@@ -61,6 +60,7 @@ export function EventScopePage({
   submitDefaults,
   relatedCategoryLinks,
   relatedCategoryLinksLabel,
+  initialExpanded = false,
 }: EventScopePageProps) {
   const [events, setEvents] = useState<Event[]>(() => attachEventImages(initialEvents));
   const [loading, setLoading] = useState(false);
@@ -92,14 +92,12 @@ export function EventScopePage({
     <>
       <main className="relative bg-neutral-50 dark:bg-transparent pb-6">
         <div className="relative mx-auto max-w-lg sm:max-w-2xl px-4">
-          <AppHeader locale={locale} dict={dict} />
-          <Link
-            href={backHref}
-            className="inline-flex items-center gap-2 text-sm font-semibold text-neutral-500 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200 mb-6"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            {backLabel}
-          </Link>
+          <StickyListHeader
+            locale={locale}
+            dict={dict}
+            backHref={backHref}
+            backLabel={backLabel}
+          />
 
           <div className="flex items-start gap-4 mb-6">
             <div
@@ -137,7 +135,7 @@ export function EventScopePage({
             sectionTitle={sectionTitle}
             returnTo={returnTo}
             fixedTimeRange={fixedTimeRange}
-            unlimited={fixedTimeRange != null}
+            initialExpanded={initialExpanded}
             onAddEvent={() => setSubmitOpen(true)}
             addEventLabel={addEventLabel}
           />
