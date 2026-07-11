@@ -167,13 +167,13 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
                 </p>
               ) : (
                 <>
-                  <TimeFilter value={timeRange} onChange={setTimeRange} dict={dict} />
                   <TodayHighlights
                     events={allEvents}
                     locale={locale}
                     dict={dict}
                     onBeforeNavigate={saveHomeScroll}
                   />
+                  <TimeFilter value={timeRange} onChange={setTimeRange} dict={dict} />
                   <EventList
                     locale={locale}
                     dict={dict}
