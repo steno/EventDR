@@ -69,11 +69,11 @@ export function FilteredEventList({
       )}
 
       {loading ? (
-        <p className="text-sm text-neutral-400">{dict.events.loading}</p>
+        <p className="text-copy text-neutral-500 dark:text-neutral-400">{dict.events.loading}</p>
       ) : events.length === 0 ? (
-        <p className="text-neutral-500">{emptyMessage}</p>
+        <p className="text-copy text-neutral-600 dark:text-neutral-400">{emptyMessage}</p>
       ) : filtered.length === 0 ? (
-        <p className="text-neutral-500">{dict.search.noResults}</p>
+        <p className="text-copy text-neutral-600 dark:text-neutral-400">{dict.search.noResults}</p>
       ) : (
         <div className="space-y-3">
           {filtered.map((event) => (

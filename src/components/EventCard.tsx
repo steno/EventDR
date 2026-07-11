@@ -87,11 +87,11 @@ const EventCardComponent = ({ event, dict, locale, returnTo }: EventCardProps) =
             )}
           </div>
 
-          <p className="text-[13px] text-neutral-600 dark:text-neutral-400 line-clamp-2 mb-3 leading-relaxed">
+          <p className="text-copy line-clamp-2 mb-3">
             {event.description}
           </p>
 
-          <div className="flex flex-wrap gap-x-4 gap-y-2 text-[13px] text-neutral-700 dark:text-neutral-300">
+          <div className="flex flex-wrap gap-x-4 gap-y-2 text-copy text-neutral-800 dark:text-neutral-200">
             <span className="inline-flex items-center gap-1.5 font-semibold">
               <Calendar className="h-4 w-4 text-neutral-500" />
               {formatEventDateRange(event.date, locale, {

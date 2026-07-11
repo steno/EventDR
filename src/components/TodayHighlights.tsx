@@ -111,11 +111,11 @@ const TodayHighlightsComponent = ({
                   <h3 className="line-clamp-2 text-[19px] font-black leading-tight tracking-tight text-neutral-950 dark:text-neutral-100">
                     {event.title}
                   </h3>
-                  <p className="mt-2.5 line-clamp-2 text-[14px] font-medium leading-relaxed text-neutral-600 dark:text-neutral-400">
+                  <p className="mt-2.5 line-clamp-2 text-copy">
                     {event.description}
                   </p>
 
-                  <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-[13px] font-semibold text-neutral-700 dark:text-neutral-300">
+                  <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-copy font-medium text-neutral-800 dark:text-neutral-200">
                     <span className="inline-flex items-center gap-1.5">
                       <Calendar className="h-4 w-4 text-neutral-500" />
                       {formatEventDateRange(event.date, locale, {

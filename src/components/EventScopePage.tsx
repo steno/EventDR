@@ -105,7 +105,7 @@ export function EventScopePage({
             </div>
           </div>
 
-          <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed mb-6">
+          <p className="text-copy-lead mb-6">
             {intro}
           </p>
 

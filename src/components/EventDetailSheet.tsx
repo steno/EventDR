@@ -214,7 +214,7 @@ export function EventDetailSheet({
             {event.title}
           </TitleTag>
 
-          <p className="mt-3 text-[15px] text-neutral-600 dark:text-neutral-400 leading-relaxed line-clamp-3">
+          <p className="mt-3 text-copy line-clamp-3">
             {event.description}
           </p>
 
@@ -230,7 +230,7 @@ export function EventDetailSheet({
                 {event.lineup.map((name) => (
                   <li
                     key={name}
-                    className="rounded-full bg-neutral-100 dark:bg-neutral-800 px-3 py-1 text-[13px] font-semibold text-neutral-800 dark:text-neutral-200"
+                    className="rounded-full bg-neutral-100 dark:bg-neutral-800 px-3 py-1 text-copy font-medium text-neutral-800 dark:text-neutral-200"
                   >
                     {name}
                   </li>
@@ -239,8 +239,8 @@ export function EventDetailSheet({
             </div>
           )}
 
-          <div className="mt-4 space-y-3 text-[15px]">
-            <div className="flex items-center gap-3 text-neutral-700 dark:text-neutral-300">
+          <div className="mt-4 space-y-3 text-copy">
+            <div className="flex items-center gap-3 text-neutral-800 dark:text-neutral-200">
               <Calendar className="h-5 w-5 text-neutral-500 flex-shrink-0" />
               <span className="font-semibold truncate">
                 {formatEventDateRange(event.date, locale, { endDate: event.endDate })}
@@ -255,19 +255,19 @@ export function EventDetailSheet({
               )}
             </div>
             {event.time && (
-              <div className="flex items-center gap-3 text-neutral-700 dark:text-neutral-300">
+              <div className="flex items-center gap-3 text-neutral-800 dark:text-neutral-200">
                 <Clock className="h-5 w-5 text-neutral-500 flex-shrink-0" />
                 <span className="font-semibold">{event.time}</span>
               </div>
             )}
-            <div className="flex items-start gap-3 text-neutral-700 dark:text-neutral-300">
+            <div className="flex items-start gap-3 text-neutral-800 dark:text-neutral-200">
               <MapPin className="h-5 w-5 text-neutral-500 flex-shrink-0 mt-0.5" />
               <span className="font-semibold leading-snug">
                 {formatEventPlace(event)}
               </span>
             </div>
             {event.phone && (
-              <div className="group/phone flex items-center gap-3 text-neutral-700 dark:text-neutral-300">
+              <div className="group/phone flex items-center gap-3 text-neutral-800 dark:text-neutral-200">
                 <Phone className="h-5 w-5 flex-shrink-0 text-emerald-600 dark:text-emerald-400 group-hover/phone:text-neutral-500 transition-colors" />
                 <EventCallLink
                   phone={event.phone}
@@ -296,7 +296,7 @@ export function EventDetailSheet({
                 className="flex items-center gap-3 touch-manipulation group py-0.5"
               >
                 <ExternalLink className="h-5 w-5 text-neutral-500 flex-shrink-0" />
-                <span className="font-semibold text-neutral-700 dark:text-neutral-300 group-hover:text-neutral-900 dark:group-hover:text-neutral-100 transition-colors">
+                <span className="font-semibold text-neutral-800 dark:text-neutral-200 group-hover:text-neutral-950 dark:group-hover:text-neutral-100 transition-colors">
                   {dict.detail.source}
                 </span>
               </a>

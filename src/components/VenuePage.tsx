@@ -69,7 +69,7 @@ export function VenuePage({ venue, locale, dict }: VenuePageProps) {
             </div>
           </div>
 
-          <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed mb-6">{venue.description}</p>
+          <p className="text-copy-lead mb-6">{venue.description}</p>
 
           <FilteredEventList
             events={events}

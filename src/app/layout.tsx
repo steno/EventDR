@@ -1,4 +1,4 @@
-import { Syne, DM_Sans } from "next/font/google";
+import { Syne, Inter } from "next/font/google";
 import { ThemeScript } from "@/components/ThemeScript";
 import { PageGlow } from "@/components/PageGlow";
 import "./globals.css";
@@ -9,8 +9,8 @@ const syne = Syne({
   weight: ["700", "800"],
 });
 
-const dmSans = DM_Sans({
-  variable: "--font-dm-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
@@ -24,7 +24,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${syne.variable} ${dmSans.variable} h-full`}
+      className={`${syne.variable} ${inter.variable} h-full`}
     >
       <head>
         <ThemeScript />
