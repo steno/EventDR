@@ -1,9 +1,7 @@
 import Link from "next/link";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
-import { CATEGORY_IDS } from "@/lib/categories";
 import { CITIES, getCityName } from "@/lib/cities";
-import { SEED_VENUES } from "@/lib/venues-seed";
 
 interface SiteFooterProps {
   dict: Dictionary;
@@ -11,11 +9,7 @@ interface SiteFooterProps {
   className?: string;
 }
 
-const FOOTER_VENUE_COUNT = 6;
-
 export function SiteFooter({ dict, locale, className = "" }: SiteFooterProps) {
-  const footerVenues = SEED_VENUES.slice(0, FOOTER_VENUE_COUNT);
-
   return (
     <footer
       className={`border-t border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900 py-6 text-center ${className}`}
@@ -45,29 +39,6 @@ export function SiteFooter({ dict, locale, className = "" }: SiteFooterProps) {
         >
           {dict.time.weekend}
         </Link>
-        <span className="hidden sm:contents">
-          <Link href={`/${locale}`} className="hover:text-neutral-800 dark:hover:text-neutral-200 transition-colors">
-            {dict.hero.events}
-          </Link>
-          {CATEGORY_IDS.map((id) => (
-            <Link
-              key={id}
-              href={`/${locale}/category/${id}`}
-              className="hover:text-neutral-800 dark:hover:text-neutral-200 transition-colors"
-            >
-              {dict.categories[id]}
-            </Link>
-          ))}
-          {footerVenues.map((venue) => (
-            <Link
-              key={venue.slug}
-              href={`/${locale}/venue/${venue.slug}`}
-              className="hover:text-neutral-800 dark:hover:text-neutral-200 transition-colors"
-            >
-              {venue.name}
-            </Link>
-          ))}
-        </span>
       </nav>
       <p className="text-xs text-neutral-400 dark:text-neutral-500 font-medium">{dict.footer.tagline}</p>
       <p className="text-xs text-neutral-300 dark:text-neutral-600 mt-1">
