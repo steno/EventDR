@@ -120,7 +120,11 @@ export function getEventLiveStatus(
   }
 
   const nowMin = currentMinutes(now);
-  if (hasWindowEnded(nowMin, window)) return "ended";
+  if (hasWindowEnded(nowMin, window)) {
+    // Multi-day span still running — today's session closed, not the whole event.
+    if (end > today) return "unknown";
+    return "ended";
+  }
   if (isWithinWindow(nowMin, window)) return "live";
   if (!hasWindowStarted(nowMin, window)) return "upcoming";
   return "unknown";
