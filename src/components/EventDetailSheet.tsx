@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import {
   X,
@@ -33,6 +33,7 @@ import { EventStatusBadge } from "@/components/EventStatusBadge";
 import { EventImage } from "@/components/EventImage";
 import { formatEventPlace } from "@/lib/event-location";
 import { EventCallLink } from "@/components/EventCallLink";
+import { useSwipeToDismiss } from "@/hooks/useSwipeToDismiss";
 
 interface EventDetailSheetProps {
   event: Event | null;
@@ -66,6 +67,23 @@ export function EventDetailSheet({
     };
   }, [event]);
 
+  const {
+    sheetRef,
+    sheetStyle,
+    dragZoneProps,
+    dismiss: dismissSheet,
+    backdropOpacity,
+    swipeEnabled,
+  } = useSwipeToDismiss(onClose, Boolean(event) && !shareOpen);
+
+  const requestClose = useCallback(() => {
+    if (swipeEnabled) {
+      dismissSheet();
+      return;
+    }
+    onClose();
+  }, [dismissSheet, onClose, swipeEnabled]);
+
   if (!event) return null;
 
   const category = getCategoryMeta(event.category, dict.categories);
@@ -87,7 +105,7 @@ export function EventDetailSheet({
 
   function handleViewVenue() {
     if (!venueSlug) return;
-    onClose();
+    requestClose();
     router.push(`/${locale}/venue/${venueSlug}`);
   }
 
@@ -111,10 +129,17 @@ export function EventDetailSheet({
             ? "absolute inset-0 bg-black/25"
             : "absolute inset-0 bg-black/40 backdrop-blur-sm"
         }
-        onClick={onClose}
+        style={
+          swipeEnabled
+            ? { opacity: event.imageUrl ? 0.25 * backdropOpacity : 0.4 * backdropOpacity }
+            : undefined
+        }
+        onClick={requestClose}
         aria-label={dict.detail.close}
       />
       <div
+        ref={sheetRef}
+        style={sheetStyle}
         className="
           relative z-10 flex w-full max-w-lg sm:max-w-2xl flex-col
           max-h-[92dvh] overflow-hidden
@@ -123,8 +148,21 @@ export function EventDetailSheet({
           animate-in slide-in-from-bottom duration-300
         "
       >
+        <div
+          {...(swipeEnabled ? dragZoneProps : {})}
+          className={
+            swipeEnabled
+              ? "shrink-0 touch-none cursor-grab active:cursor-grabbing"
+              : "shrink-0"
+          }
+        >
+          {swipeEnabled && (
+            <div className="flex justify-center pt-2.5 pb-1" aria-hidden>
+              <div className="h-1 w-10 rounded-full bg-neutral-300/90 dark:bg-neutral-600/90" />
+            </div>
+          )}
         {event.imageUrl ? (
-          <div className="relative h-[min(32dvh,13rem)] w-full shrink-0 overflow-hidden rounded-t-3xl bg-neutral-100 dark:bg-neutral-800">
+          <div className="relative h-[min(32dvh,13rem)] w-full shrink-0 overflow-hidden bg-neutral-100 dark:bg-neutral-800">
             <EventImage
               src={event.imageUrl}
               alt={event.title}
@@ -134,7 +172,7 @@ export function EventDetailSheet({
             />
             <button
               type="button"
-              onClick={onClose}
+              onClick={requestClose}
               className="absolute top-3 right-3 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 dark:bg-neutral-800/90 shadow-sm"
               aria-label={dict.detail.close}
             >
@@ -154,7 +192,7 @@ export function EventDetailSheet({
             </div>
             <button
               type="button"
-              onClick={onClose}
+              onClick={requestClose}
               className="flex h-9 w-9 items-center justify-center rounded-full bg-neutral-100 dark:bg-neutral-800"
               aria-label={dict.detail.close}
             >
@@ -162,6 +200,7 @@ export function EventDetailSheet({
             </button>
           </div>
         )}
+        </div>
 
         <div className="min-h-0 flex-1 px-5 pt-4 pb-3 overflow-hidden">
           {event.communitySubmitted && (
