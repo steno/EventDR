@@ -29,7 +29,7 @@ export const es: Dictionary = {
     nearYou: "cerca de ti",
     subtitle: "Qué está pasando en la",
     subtitleHighlight: "Costa Norte de RD",
-    subtitleEnd: "Eventos presenciales y digitales en la región de Puerto Plata.",
+    subtitleEnd: "Eventos en la región de Puerto Plata.",
     cta: "Añadir mis eventos",
   },
   categories: {

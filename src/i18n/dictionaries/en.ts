@@ -250,7 +250,7 @@ export const en: Dictionary = {
     nearYou: "near you",
     subtitle: "What's happening in the",
     subtitleHighlight: "North Coast of the DR",
-    subtitleEnd: "Physical & digital events in the Puerto Plata region.",
+    subtitleEnd: "Events in the Puerto Plata region.",
     cta: "Add My Events",
   },
   categories: {
