@@ -72,7 +72,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "voyvoy-monday-live-music": "voyvoy-monday-live-music.jpg",
   "kite-beach-wind-culture": "kite-beach-wind-culture.jpg",
   "north-coast-tech-meetup": "north-coast-tech-meetup.jpg",
-  "sea-horse-saturday-artisan-fair": "sea-horse-saturday-artisan-fair.png",
+  "sea-horse-saturday-artisan-fair": "sea-horse-saturday-artisan-fair.jpg",
   "puerto-plata-carnaval-2026": "puerto-plata-carnaval-2026.jpg",
   "malecon-morning-wellness-walk": "malecon-morning-wellness-walk.jpg",
 };

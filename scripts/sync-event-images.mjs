@@ -6,8 +6,32 @@ const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const sourceDir = join(root, "popevent-images");
 const destDir = join(root, "public", "events");
 
-/** popevent-images filename → event id */
+/**
+ * popevent-images filename → event id.
+ * Prefer `{eventId}.jpg` files produced by fetch-venue-images.mjs when present.
+ */
 const FILE_TO_EVENT_ID = {
+  // --- Fetched / venue-accurate ({eventId}.jpg) ---
+  "malecon-morning-wellness-walk.jpg": "malecon-morning-wellness-walk",
+  "anfiteatro-la-puntilla-concerts.jpg": "anfiteatro-la-puntilla-concerts",
+  "anfiteatro-cultural-performances.jpg": "anfiteatro-cultural-performances",
+  "hard-rock-billed-concerts.jpg": "hard-rock-billed-concerts",
+  "sosua-jewish-museum-hours.jpg": "sosua-jewish-museum-hours",
+  "sosua-diving-adventures-daily.jpg": "sosua-diving-adventures-daily",
+  "sosua-pedro-clisante-food-nights.jpg": "sosua-pedro-clisante-food-nights",
+  "sosua-beach-live-weekends.jpg": "sosua-beach-live-weekends",
+  "smileys-saturday-live.jpg": "smileys-saturday-live",
+  "finish-line-live-wednesday.jpg": "finish-line-live-wednesday",
+  "natura-cabana-yoga-daily.jpg": "natura-cabana-yoga-daily",
+  "liquid-blue-watersports-daily.jpg": "liquid-blue-watersports-daily",
+  "sea-horse-saturday-artisan-fair.jpg": "sea-horse-saturday-artisan-fair",
+  "la-casita-papi-beach-dining.jpg": "la-casita-papi-beach-dining",
+  "kite-beach-wind-culture.jpg": "kite-beach-wind-culture",
+  "voyvoy-monday-live-music.jpg": "voyvoy-monday-live-music",
+  "d-classico-merengue-nights.jpg": "d-classico-merengue-nights",
+  "el-carey-weekend-nightlife.jpg": "el-carey-weekend-nightlife",
+
+  // --- Original curated venue / attraction photos ---
   "MaleconOPenAir.JPG": "malecon-live-concert",
   "RumbleInParadise12.png": "rumble-in-paradise-12",
   "LAXSunsetSessions.JPG": "lax-sunset-daily",
@@ -18,14 +42,9 @@ const FILE_TO_EVENT_ID = {
   "ElBateySalsaSocial.JPG": "batey-salsa-weekly",
   "SosuaBeachVolleyballPickup.JPG": "sosua-volleyball-weekly",
   "LAXFridayReggaeNight.JPG": "lax-reggae-friday",
-  "ElBateyOpenMic.JPG": "batey-open-mic-weekly",
   "HardRockWeekends.jpg": "hard-rock-weekends",
-  "HardRockBilledConcerts.jpg": "hard-rock-billed-concerts",
   "CastawaysClassicRock.jpg": "castaways-classic-rock-wednesday",
   "VoramarFridayLive.jpg": "voramar-friday-live",
-  "SmileysSaturdayLive.jpg": "smileys-saturday-live",
-  "FinishLineLiveWednesday.jpg": "finish-line-live-wednesday",
-  "SosuaBeachLiveWeekends.jpg": "sosua-beach-live-weekends",
   "CheersWeeklyLive.jpg": "cheers-weekly-live",
   "SenorRockLiveNight.jpg": "senor-rock-live-nightly",
   "CremoSalsaFriday.jpg": "cremo-salsa-friday",
@@ -58,29 +77,20 @@ const FILE_TO_EVENT_ID = {
   "brugal-rum-center.jpeg": "brugal-rum-center-weekdays",
   "freestyle-catamaran.jpeg": "freestyle-catamaran-daily",
   "outback-safari.jpeg": "outback-safari-daily",
-  "cremo-friday-salsa-dance.jpg": "cremo-friday-salsa-dance",
-  "anfiteatro-la-puntilla-concerts.jpg": "anfiteatro-la-puntilla-concerts",
-  "el-carey-weekend-nightlife.jpg": "el-carey-weekend-nightlife",
-  "anfiteatro-cultural-performances.jpg": "anfiteatro-cultural-performances",
-  "sosua-jewish-museum-hours.jpg": "sosua-jewish-museum-hours",
-  "sosua-diving-adventures-daily.jpg": "sosua-diving-adventures-daily",
-  "el-batey-weekend-nightlife.jpg": "el-batey-weekend-nightlife",
-  "d-classico-merengue-nights.jpg": "d-classico-merengue-nights",
-  "sosua-pedro-clisante-food-nights.jpg": "sosua-pedro-clisante-food-nights",
-  "natura-cabana-yoga-daily.jpg": "natura-cabana-yoga-daily",
-  "north-coast-networking-saturday.jpg": "north-coast-networking-saturday",
-  "ojo-latin-night-thursday.jpg": "ojo-latin-night-thursday",
-  "ojo-weekend-dj-parties.jpg": "ojo-weekend-dj-parties",
-  "la-casita-papi-beach-dining.jpg": "la-casita-papi-beach-dining",
-  "liquid-blue-watersports-daily.jpg": "liquid-blue-watersports-daily",
-  "lax-headline-concerts.jpg": "lax-headline-concerts",
-  "voyvoy-monday-live-music.jpg": "voyvoy-monday-live-music",
-  "kite-beach-wind-culture.jpg": "kite-beach-wind-culture",
-  "north-coast-tech-meetup.jpg": "north-coast-tech-meetup",
-  "sea-horse-saturday-artisan-fair.png": "sea-horse-saturday-artisan-fair",
-  "puerto-plata-carnaval-2026.jpg": "puerto-plata-carnaval-2026",
-  "malecon-morning-wellness-walk.jpg": "malecon-morning-wellness-walk",
+  "NorthCoastStartupMeet.JPG": "north-coast-networking-saturday",
+  "CarribeanTechTalks.JPG": "north-coast-tech-meetup",
+  "PlayaDoradaSummerFest.JPG": "puerto-plata-carnaval-2026",
+  "CabareteReggaeRootsNight.JPG": "ojo-latin-night-thursday",
+  "CabareteFullMoonBeachParty.JPG": "ojo-weekend-dj-parties",
 };
+
+/** Same venue, same photo — copy after primary sync. */
+const SAME_VENUE_COPIES = [
+  ["ElBateySalsaSocial.JPG", "batey-open-mic-weekly"],
+  ["ElBateySalsaSocial.JPG", "el-batey-weekend-nightlife"],
+  ["CremoSalsaFriday.jpg", "cremo-friday-salsa-dance"],
+  ["LAXSunsetSessions.JPG", "lax-headline-concerts"],
+];
 
 if (!existsSync(sourceDir)) {
   console.log("popevent-images/ not found — skipping sync");
@@ -97,24 +107,27 @@ function destExtension(filename) {
   return dot >= 0 ? filename.slice(dot).toLowerCase() : ".jpg";
 }
 
-for (const [filename, eventId] of Object.entries(FILE_TO_EVENT_ID)) {
+function syncOne(filename, eventId) {
   const src = join(sourceDir, filename);
-  if (!existsSync(src)) {
-    const match = files.find((f) => f.toLowerCase() === filename.toLowerCase());
-    if (!match) {
-      console.warn(`missing source: ${filename}`);
-      continue;
-    }
-    const ext = destExtension(match);
-    copyFileSync(join(sourceDir, match), join(destDir, `${eventId}${ext}`));
-    copied++;
-    console.log(`${match} → events/${eventId}${ext}`);
-    continue;
+  const resolvedSrc = existsSync(src)
+    ? src
+    : join(sourceDir, files.find((f) => f.toLowerCase() === filename.toLowerCase()) ?? "");
+  if (!existsSync(resolvedSrc)) {
+    console.warn(`missing source: ${filename}`);
+    return;
   }
-  const ext = destExtension(filename);
-  copyFileSync(src, join(destDir, `${eventId}${ext}`));
+  const ext = destExtension(resolvedSrc);
+  copyFileSync(resolvedSrc, join(destDir, `${eventId}${ext}`));
   copied++;
   console.log(`${filename} → events/${eventId}${ext}`);
+}
+
+for (const [filename, eventId] of Object.entries(FILE_TO_EVENT_ID)) {
+  syncOne(filename, eventId);
+}
+
+for (const [filename, eventId] of SAME_VENUE_COPIES) {
+  syncOne(filename, eventId);
 }
 
 console.log(`Synced ${copied} event images to public/events/`);
