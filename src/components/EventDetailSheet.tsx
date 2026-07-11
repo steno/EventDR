@@ -214,7 +214,7 @@ export function EventDetailSheet({
             {event.title}
           </TitleTag>
 
-          <p className="mt-3 text-copy line-clamp-3">
+          <p className="mt-4 text-copy line-clamp-3">
             {event.description}
           </p>
 
@@ -239,36 +239,38 @@ export function EventDetailSheet({
             </div>
           )}
 
-          <div className="mt-4 space-y-3 text-copy">
-            <div className="flex items-center gap-3 text-neutral-800 dark:text-neutral-200">
-              <Calendar className="h-5 w-5 text-neutral-500 flex-shrink-0" />
-              <span className="font-semibold truncate">
-                {formatEventDateRange(event.date, locale, { endDate: event.endDate })}
-              </span>
+          <div className="mt-5 space-y-3.5">
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+              <div className="inline-flex items-center gap-2.5 text-copy-meta text-neutral-800 dark:text-neutral-200">
+                <Calendar className="h-[1.125rem] w-[1.125rem] shrink-0 text-neutral-500 dark:text-neutral-400" />
+                <span className="font-medium">
+                  {formatEventDateRange(event.date, locale, { endDate: event.endDate })}
+                </span>
+              </div>
               {liveStatusLabel && liveStatus && (
                 <EventStatusBadge label={liveStatusLabel} status={liveStatus} />
               )}
               {recurrenceLabel && (
-                <span className="inline-flex shrink-0 rounded-full bg-orange-50 dark:bg-orange-950/50 px-2.5 py-1 text-[11px] font-bold text-orange-600">
+                <span className="inline-flex shrink-0 rounded-full bg-orange-50 dark:bg-orange-950/50 px-2.5 py-0.5 text-[11px] font-bold leading-none text-orange-600">
                   {recurrenceLabel}
                 </span>
               )}
             </div>
             {event.time && (
-              <div className="flex items-center gap-3 text-neutral-800 dark:text-neutral-200">
-                <Clock className="h-5 w-5 text-neutral-500 flex-shrink-0" />
-                <span className="font-semibold">{event.time}</span>
+              <div className="flex items-center gap-2.5 text-copy-meta text-neutral-800 dark:text-neutral-200">
+                <Clock className="h-[1.125rem] w-[1.125rem] shrink-0 text-neutral-500 dark:text-neutral-400" />
+                <span className="font-medium">{event.time}</span>
               </div>
             )}
-            <div className="flex items-start gap-3 text-neutral-800 dark:text-neutral-200">
-              <MapPin className="h-5 w-5 text-neutral-500 flex-shrink-0 mt-0.5" />
-              <span className="font-semibold leading-snug">
+            <div className="flex items-start gap-2.5 text-copy-meta text-neutral-800 dark:text-neutral-200">
+              <MapPin className="mt-0.5 h-[1.125rem] w-[1.125rem] shrink-0 text-neutral-500 dark:text-neutral-400" />
+              <span className="min-w-0 font-medium leading-snug">
                 {formatEventPlace(event)}
               </span>
             </div>
             {event.phone && (
-              <div className="group/phone flex items-center gap-3 text-neutral-800 dark:text-neutral-200">
-                <Phone className="h-5 w-5 flex-shrink-0 text-emerald-600 dark:text-emerald-400 group-hover/phone:text-neutral-500 transition-colors" />
+              <div className="group/phone flex items-center gap-2.5 text-copy-meta text-neutral-800 dark:text-neutral-200">
+                <Phone className="h-[1.125rem] w-[1.125rem] shrink-0 text-emerald-600 dark:text-emerald-400 group-hover/phone:text-neutral-500 transition-colors" />
                 <EventCallLink
                   phone={event.phone}
                   label={dict.detail.call}
@@ -280,10 +282,10 @@ export function EventDetailSheet({
               <button
                 type="button"
                 onClick={handleViewVenue}
-                className="flex w-full items-center gap-3 text-left touch-manipulation group py-0.5"
+                className="flex w-full items-center gap-2.5 text-left touch-manipulation group py-0.5"
               >
-                <Building2 className="h-5 w-5 text-neutral-500 flex-shrink-0" />
-                <span className="font-semibold text-orange-600 group-hover:text-orange-700 group-active:text-orange-800 transition-colors">
+                <Building2 className="h-[1.125rem] w-[1.125rem] shrink-0 text-neutral-500 dark:text-neutral-400" />
+                <span className="text-copy-meta font-medium text-orange-600 group-hover:text-orange-700 group-active:text-orange-800 transition-colors">
                   {dict.detail.viewVenue}
                 </span>
               </button>
@@ -293,10 +295,10 @@ export function EventDetailSheet({
                 href={event.sourceUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 touch-manipulation group py-0.5"
+                className="flex items-center gap-2.5 touch-manipulation group py-0.5"
               >
-                <ExternalLink className="h-5 w-5 text-neutral-500 flex-shrink-0" />
-                <span className="font-semibold text-neutral-800 dark:text-neutral-200 group-hover:text-neutral-950 dark:group-hover:text-neutral-100 transition-colors">
+                <ExternalLink className="h-[1.125rem] w-[1.125rem] shrink-0 text-neutral-500 dark:text-neutral-400" />
+                <span className="text-copy-meta font-medium text-neutral-800 dark:text-neutral-200 group-hover:text-neutral-950 dark:group-hover:text-neutral-100 transition-colors">
                   {dict.detail.source}
                 </span>
               </a>

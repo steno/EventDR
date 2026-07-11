@@ -46,9 +46,9 @@ export function EventCallLink({
       href={`tel:${tel}`}
       onClick={stopPropagation ? (e) => e.stopPropagation() : undefined}
       className={`
-        inline-flex items-center gap-1.5 rounded-full
+        inline-flex items-center gap-2 rounded-full
         bg-emerald-50 dark:bg-emerald-950/40
-        px-3 py-1.5 text-[12px] font-bold tabular-nums
+        px-3.5 py-2 text-copy-meta font-semibold tabular-nums
         text-emerald-700 dark:text-emerald-400
         ring-1 ring-emerald-200/70 dark:ring-emerald-800/70
         hover:bg-emerald-100 dark:hover:bg-emerald-950/60

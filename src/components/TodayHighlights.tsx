@@ -2,13 +2,13 @@
 
 import { memo, useMemo } from "react";
 import Link from "next/link";
-import { Calendar, Clock, MapPin, Navigation } from "lucide-react";
+import { Navigation } from "lucide-react";
 import { EventImage } from "@/components/EventImage";
 import { EventStatusBadge } from "@/components/EventStatusBadge";
 import type { Event } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
-import { formatEventDateRange } from "@/lib/format-date";
+import { EventCardMeta } from "@/components/EventCardMeta";
 import { getDirectionsUrl } from "@/lib/maps";
 import { eventDetailPath } from "@/lib/event-navigation";
 import {
@@ -108,33 +108,21 @@ const TodayHighlightsComponent = ({
                       className="mb-2 w-fit"
                     />
                   )}
-                  <h3 className="line-clamp-2 text-[19px] font-black leading-tight tracking-tight text-neutral-950 dark:text-neutral-100">
+                  <h3 className="line-clamp-2 text-[19px] font-black leading-[1.25] tracking-tight text-neutral-950 dark:text-neutral-100">
                     {event.title}
                   </h3>
-                  <p className="mt-2.5 line-clamp-2 text-copy">
-                    {event.description}
-                  </p>
+                  {event.description ? (
+                    <p className="mt-3 line-clamp-2 text-copy">
+                      {event.description}
+                    </p>
+                  ) : null}
 
-                  <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-copy font-medium text-neutral-800 dark:text-neutral-200">
-                    <span className="inline-flex items-center gap-1.5">
-                      <Calendar className="h-4 w-4 text-neutral-500" />
-                      {formatEventDateRange(event.date, locale, {
-                        endDate: event.endDate,
-                        short: true,
-                      })}
-                    </span>
-                    {event.time && (
-                      <span className="inline-flex items-center gap-1.5">
-                        <Clock className="h-4 w-4 text-neutral-500" />
-                        {event.time}
-                      </span>
-                    )}
-                    <span className="inline-flex items-center gap-1.5">
-                      <MapPin className="h-4 w-4 text-neutral-500" />
-                      {event.venue ? `${event.venue}, ` : ""}
-                      {event.location}
-                    </span>
-                  </div>
+                  <EventCardMeta
+                    event={event}
+                    locale={locale}
+                    dict={dict}
+                    className="mt-4"
+                  />
                 </div>
               </Link>
 

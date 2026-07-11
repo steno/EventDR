@@ -75,7 +75,7 @@ export function FilteredEventList({
       ) : filtered.length === 0 ? (
         <p className="text-copy text-neutral-600 dark:text-neutral-400">{dict.search.noResults}</p>
       ) : (
-        <div className="space-y-3">
+        <div className="space-y-3.5">
           {filtered.map((event) => (
             <EventCard
               key={event.id}
