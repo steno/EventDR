@@ -75,7 +75,6 @@ export default async function Page({
         sectionTitle={dict.browse.eventsIn}
         emoji={category?.emoji}
         emojiClassName={`bg-gradient-to-br ${category?.gradient ?? "from-neutral-200 to-neutral-300"}`}
-        addEventLabel={dict.submit.addCategoryEvent}
         submitDefaults={{ category: id as EventCategory }}
       />
     </>

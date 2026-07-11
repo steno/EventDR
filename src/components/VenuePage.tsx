@@ -80,7 +80,6 @@ export function VenuePage({ venue, locale, dict }: VenuePageProps) {
             sectionTitle={dict.venues.eventsAt}
             returnTo={`/${locale}/venue/${venue.slug}`}
             onAddEvent={() => setSubmitOpen(true)}
-            addEventLabel={dict.submit.addVenueEvent.replace("{venue}", venue.name)}
           />
         </div>
       </main>

@@ -22,7 +22,7 @@ export function AddEventButton({ dict, onClick, label }: AddEventButtonProps) {
       "
     >
       <PlusCircle className="h-5 w-5" />
-      {label ?? dict.nav.submit}
+      {label ?? dict.submit.createEvent}
     </button>
   );
 }

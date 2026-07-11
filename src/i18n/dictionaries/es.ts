@@ -162,8 +162,7 @@ export const es: Dictionary = {
     image: "Imagen del evento",
     imageHint: "Opcional JPG, PNG o WebP. Máx. 1 MB.",
     button: "Publicar evento",
-    addCategoryEvent: "Crear un evento",
-    addVenueEvent: "Añadir evento en {venue}",
+    createEvent: "Crear un evento",
     success: "¡Publicado! Ya está visible para todos.",
     pendingSuccess: "Enviado para revisión — lo publicaremos cuando sea aprobado.",
     imageUploadSkipped:

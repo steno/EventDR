@@ -141,8 +141,7 @@ export type Dictionary = {
     image: string;
     imageHint: string;
     button: string;
-    addCategoryEvent: string;
-    addVenueEvent: string;
+    createEvent: string;
     success: string;
     pendingSuccess: string;
     imageUploadSkipped: string;
@@ -381,8 +380,7 @@ export const en: Dictionary = {
     image: "Event image",
     imageHint: "Optional JPG, PNG, or WebP. Max 1 MB.",
     button: "Publish event",
-    addCategoryEvent: "Create an event",
-    addVenueEvent: "Add event at {venue}",
+    createEvent: "Create an event",
     success: "Published! It's live for everyone.",
     pendingSuccess: "Submitted for review — we'll publish it once approved.",
     imageUploadSkipped:

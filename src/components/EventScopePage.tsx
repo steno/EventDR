@@ -54,7 +54,7 @@ export function EventScopePage({
   backHref = `/${locale}`,
   emptyMessage = dict.browse.noEvents,
   fixedTimeRange,
-  addEventLabel = dict.nav.submit,
+  addEventLabel = dict.submit.createEvent,
   submitDefaults,
   relatedCategoryLinks,
   relatedCategoryLinksLabel,
