@@ -11,7 +11,6 @@ import {
   CalendarPlus,
   Share2,
   Heart,
-  ExternalLink,
   Building2,
   Mic2,
   Phone,
@@ -217,19 +216,6 @@ export function EventDetailSheet({
               {dict.detail.viewVenue}
             </span>
           </button>
-        )}
-        {event.sourceUrl && (
-          <a
-            href={event.sourceUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2.5 touch-manipulation group py-0.5"
-          >
-            <ExternalLink className="h-[1.125rem] w-[1.125rem] shrink-0 text-neutral-500 dark:text-neutral-400" />
-            <span className="text-copy-meta font-medium text-neutral-800 dark:text-neutral-200 group-hover:text-neutral-950 dark:group-hover:text-neutral-100 transition-colors">
-              {dict.detail.source}
-            </span>
-          </a>
         )}
       </div>
     </>

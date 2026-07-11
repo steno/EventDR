@@ -128,7 +128,6 @@ export const es: Dictionary = {
     share: "Compartir",
     save: "Guardar",
     saved: "Guardado",
-    source: "Ver fuente",
     community: "Compartido por la comunidad",
     viewVenue: "Ver lugar",
     call: "Llamar",

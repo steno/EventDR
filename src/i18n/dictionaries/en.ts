@@ -107,7 +107,6 @@ export type Dictionary = {
     share: string;
     save: string;
     saved: string;
-    source: string;
     community: string;
     viewVenue: string;
     call: string;
@@ -349,7 +348,6 @@ export const en: Dictionary = {
     share: "Share",
     save: "Save",
     saved: "Saved",
-    source: "View source",
     community: "Shared by the community",
     viewVenue: "View venue",
     call: "Call",

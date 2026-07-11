@@ -128,7 +128,6 @@ export const fr: Dictionary = {
     share: "Partager",
     save: "Enregistrer",
     saved: "Enregistré",
-    source: "Voir la source",
     community: "Partagé par la communauté",
     viewVenue: "Voir le lieu",
     call: "Appeler",
