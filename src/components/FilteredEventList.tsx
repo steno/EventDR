@@ -11,7 +11,6 @@ import { TimeFilter } from "@/components/TimeFilter";
 import { EventCard } from "@/components/EventCard";
 import { VenueStrip } from "@/components/VenueStrip";
 import { AddEventButton } from "@/components/AddEventButton";
-import { SiteFooter } from "@/components/SiteFooter";
 
 interface FilteredEventListProps {
   events: Event[];
@@ -93,10 +92,7 @@ export function FilteredEventList({
       </div>
 
       {onAddEvent && (
-        <>
-          <AddEventButton dict={dict} onClick={onAddEvent} label={addEventLabel} />
-          <SiteFooter dict={dict} locale={locale} className="mt-4" />
-        </>
+        <AddEventButton dict={dict} onClick={onAddEvent} label={addEventLabel} />
       )}
     </>
   );

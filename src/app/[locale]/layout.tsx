@@ -5,6 +5,7 @@ import { getDictionary } from "@/i18n/dictionaries";
 import { SITE_URL } from "@/lib/site-url";
 import { SITE_NAME, defaultOpenGraph, defaultTwitter } from "@/lib/seo";
 import { Analytics } from "@/components/Analytics";
+import { AppFooter } from "@/components/AppFooter";
 import { AppVersionBanner } from "@/components/AppVersionBanner";
 import { DocumentLang } from "@/components/DocumentLang";
 
@@ -78,6 +79,7 @@ export default async function LocaleLayout({
       </Suspense>
       <AppVersionBanner dict={dict} />
       {children}
+      <AppFooter locale={locale} dict={dict} />
     </>
   );
 }

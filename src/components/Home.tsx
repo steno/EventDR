@@ -13,7 +13,6 @@ import { PwaRegister } from "@/components/PwaRegister";
 import { EventCard } from "@/components/EventCard";
 import { VenueStrip } from "@/components/VenueStrip";
 import { PushNotifyButton } from "@/components/PushNotifyButton";
-import { SiteFooter } from "@/components/SiteFooter";
 import { TodayHighlights } from "@/components/TodayHighlights";
 import { TimeFilter } from "@/components/TimeFilter";
 import { useSavedEvents } from "@/hooks/useSavedEvents";
@@ -234,8 +233,6 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
             </div>
           )}
         </div>
-
-        <SiteFooter dict={dict} locale={locale} className="mb-16" />
       </main>
 
       <BottomNav
