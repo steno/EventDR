@@ -149,44 +149,44 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
                 <CategoryGrid locale={locale} dict={dict} />
               </div>
 
-              {isSearching ? (
-                <EventList
+              {!isSearching && tab === "discover" && (
+                <TodayHighlights
+                  events={allEvents}
                   locale={locale}
                   dict={dict}
-                  searchQuery={searchQuery}
-                  timeRange="all"
-                  refreshKey={refreshKey}
-                  returnTo={homePath}
                   onBeforeNavigate={saveHomeScroll}
-                  onEventsLoaded={() => setListContentReady(true)}
                 />
-              ) : tab === "search" ? (
+              )}
+
+              {tab === "search" && !isSearching && (
                 <p className="text-center text-sm text-neutral-400 dark:text-neutral-500 font-medium py-8 px-6">
                   {dict.search.placeholder}
                 </p>
-              ) : (
+              )}
+
+              <div className={tab === "search" && !isSearching ? "hidden" : undefined}>
+                <EventList
+                  locale={locale}
+                  dict={dict}
+                  searchQuery={isSearching ? searchQuery : ""}
+                  timeRange={isSearching ? "all" : timeRange}
+                  onEventsLoaded={handleEventsLoaded}
+                  refreshKey={refreshKey}
+                  ourPicks={!isSearching}
+                  onTimeRangeChange={setTimeRange}
+                  showTimeFilter={!isSearching}
+                  returnTo={homePath}
+                  onBeforeNavigate={saveHomeScroll}
+                  limit={isSearching ? undefined : HOME_PICKS_LIMIT}
+                  excludeEventIds={
+                    !isSearching && timeRange === "all" ? todayHighlightIds : []
+                  }
+                  viewAllHref={!isSearching ? viewAllHref : undefined}
+                />
+              </div>
+
+              {!isSearching && tab === "discover" && (
                 <>
-                  <TodayHighlights
-                    events={allEvents}
-                    locale={locale}
-                    dict={dict}
-                    onBeforeNavigate={saveHomeScroll}
-                  />
-                  <EventList
-                    locale={locale}
-                    dict={dict}
-                    onEventsLoaded={handleEventsLoaded}
-                    refreshKey={refreshKey}
-                    ourPicks
-                    timeRange={timeRange}
-                    onTimeRangeChange={setTimeRange}
-                    showTimeFilter
-                    returnTo={homePath}
-                    onBeforeNavigate={saveHomeScroll}
-                    limit={HOME_PICKS_LIMIT}
-                    excludeEventIds={timeRange === "all" ? todayHighlightIds : []}
-                    viewAllHref={viewAllHref}
-                  />
                   <div className="mt-8 mb-8">
                     <VenueStrip locale={locale} dict={dict} initialVenues={initialVenues} />
                   </div>
