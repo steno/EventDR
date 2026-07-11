@@ -10,6 +10,7 @@ import { attachEventPhones } from "./event-phone";
 import { filterRemovedSeedEvents } from "./removed-seeds";
 import { localizeEventsForDisplay } from "./localized-text";
 import { materializeEventDates } from "./event-dates";
+import { withResolvedCategories } from "./categorize";
 
 function finalizeEvent(event: Event, locale: Locale): Event | null {
   let [result] = attachCoords([event]);
@@ -29,7 +30,7 @@ function finalizeEvent(event: Event, locale: Locale): Event | null {
     result = materialized[0];
   }
 
-  return result;
+  return withResolvedCategories(result);
 }
 
 export async function getEventById(
