@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useLayoutEffect, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { AppHeader } from "@/components/AppHeader";
 import { Hero } from "@/components/Hero";
 import { CategoryGrid } from "@/components/CategoryGrid";
@@ -21,6 +21,12 @@ import { useGeolocation } from "@/hooks/useGeolocation";
 import { usePushNotifications } from "@/hooks/usePushNotifications";
 import { useListScrollRestoration } from "@/hooks/useListScrollRestoration";
 import { peekListScroll, saveListScroll } from "@/lib/list-scroll-restoration";
+import {
+  getTodayHighlightEvents,
+  HOME_PICKS_LIMIT,
+  HOME_TODAY_LIMIT,
+  homeViewAllPath,
+} from "@/lib/home-layout";
 import type { TimeRange } from "@/lib/filters";
 import type { Event, Venue } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
@@ -40,6 +46,7 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
   const [allEvents, setAllEvents] = useState<Event[]>([]);
   const [refreshKey, setRefreshKey] = useState(0);
   const [listContentReady, setListContentReady] = useState(false);
+  const searchInputRef = useRef<HTMLInputElement>(null);
 
   const { toggleSave, isSaved, filterSaved, reconcileWithEvents } = useSavedEvents();
   const geo = useGeolocation();
@@ -70,6 +77,14 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
   const savedEvents = filterSaved(allEvents);
   const homePath = `/${locale}`;
 
+  const todayHighlightIds = useMemo(() => {
+    return getTodayHighlightEvents(allEvents)
+      .slice(0, HOME_TODAY_LIMIT)
+      .map((e) => e.id);
+  }, [allEvents]);
+
+  const viewAllHref = homeViewAllPath(locale, timeRange);
+
   const saveHomeScroll = useCallback(() => {
     saveListScroll(homePath, {
       scrollY: window.scrollY,
@@ -93,11 +108,20 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
   useListScrollRestoration(homePath, listReady);
 
   function handleTabChange(newTab: AppTab) {
-    setTab(newTab);
     if (newTab === "submit") {
       setSubmitOpen(true);
+      return;
+    }
+    setTab(newTab);
+    if (newTab === "search") {
+      requestAnimationFrame(() => searchInputRef.current?.focus());
+    }
+    if (newTab === "discover") {
+      setSearchQuery("");
     }
   }
+
+  const isSearching = searchQuery.trim().length > 0;
 
   return (
     <>
@@ -113,54 +137,21 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
             }}
           />
 
-          {tab === "discover" && (
+          {(tab === "discover" || tab === "search") && (
             <>
               <InstallBanner dict={dict} />
               <Hero dict={dict} onAddEvent={() => setSubmitOpen(true)} />
-              <TodayHighlights
-                events={allEvents}
-                locale={locale}
+              <SearchBar
+                ref={searchInputRef}
+                value={searchQuery}
+                onChange={setSearchQuery}
                 dict={dict}
-                onBeforeNavigate={saveHomeScroll}
               />
               <div className="mb-6">
                 <CategoryGrid locale={locale} dict={dict} />
               </div>
-              <div className="mb-8">
-                <VenueStrip locale={locale} dict={dict} initialVenues={initialVenues} />
-              </div>
-              <TimeFilter value={timeRange} onChange={setTimeRange} dict={dict} />
-              <EventList
-                locale={locale}
-                dict={dict}
-                onEventsLoaded={handleEventsLoaded}
-                refreshKey={refreshKey}
-                ourPicks
-                timeRange={timeRange}
-                returnTo={homePath}
-                onBeforeNavigate={saveHomeScroll}
-              />
-              <div className="mt-6 mb-2">
-                <PushNotifyButton
-                  dict={dict}
-                  supported={push.supported}
-                  subscribed={push.subscribed}
-                  loading={push.loading}
-                  onSubscribe={handlePushSubscribe}
-                />
-              </div>
-            </>
-          )}
 
-          {tab === "search" && (
-            <div className="pt-4">
-              <SearchBar
-                value={searchQuery}
-                onChange={setSearchQuery}
-                dict={dict}
-                autoFocus
-              />
-              {searchQuery.trim() ? (
+              {isSearching ? (
                 <EventList
                   locale={locale}
                   dict={dict}
@@ -171,12 +162,47 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
                   onBeforeNavigate={saveHomeScroll}
                   onEventsLoaded={() => setListContentReady(true)}
                 />
-              ) : (
-                <p className="text-center text-sm text-neutral-400 dark:text-neutral-500 font-medium py-16 px-6">
+              ) : tab === "search" ? (
+                <p className="text-center text-sm text-neutral-400 dark:text-neutral-500 font-medium py-8 px-6">
                   {dict.search.placeholder}
                 </p>
+              ) : (
+                <>
+                  <TimeFilter value={timeRange} onChange={setTimeRange} dict={dict} />
+                  <TodayHighlights
+                    events={allEvents}
+                    locale={locale}
+                    dict={dict}
+                    onBeforeNavigate={saveHomeScroll}
+                  />
+                  <EventList
+                    locale={locale}
+                    dict={dict}
+                    onEventsLoaded={handleEventsLoaded}
+                    refreshKey={refreshKey}
+                    ourPicks
+                    timeRange={timeRange}
+                    returnTo={homePath}
+                    onBeforeNavigate={saveHomeScroll}
+                    limit={HOME_PICKS_LIMIT}
+                    excludeEventIds={todayHighlightIds}
+                    viewAllHref={viewAllHref}
+                  />
+                  <div className="mt-8 mb-8">
+                    <VenueStrip locale={locale} dict={dict} initialVenues={initialVenues} />
+                  </div>
+                  <div className="mt-6 mb-2">
+                    <PushNotifyButton
+                      dict={dict}
+                      supported={push.supported}
+                      subscribed={push.subscribed}
+                      loading={push.loading}
+                      onSubscribe={handlePushSubscribe}
+                    />
+                  </div>
+                </>
               )}
-            </div>
+            </>
           )}
 
           {tab === "saved" && (

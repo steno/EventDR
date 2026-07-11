@@ -21,7 +21,7 @@ export function AppHeader({ locale, dict, onLogoClick }: AppHeaderProps) {
   const onHome = pathname === homeHref;
 
   return (
-    <div className="flex items-center justify-between pt-3 pb-5">
+    <div className="flex items-center justify-between pt-3 pb-4">
       <Link
         href={homeHref}
         aria-label="POP Events home"
@@ -41,7 +41,7 @@ export function AppHeader({ locale, dict, onLogoClick }: AppHeaderProps) {
           height={166}
           priority
           unoptimized
-          className="h-[68px] w-auto object-contain sm:h-20"
+          className="h-14 w-auto object-contain sm:h-20"
         />
       </Link>
       <div className="flex items-center gap-2">

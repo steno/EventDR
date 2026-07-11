@@ -5,15 +5,23 @@ import Link from "next/link";
 import type { Venue } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
+import { getFeaturedVenues, HOME_VENUE_LIMIT } from "@/lib/home-layout";
 
 interface VenueStripProps {
   locale: Locale;
   dict: Dictionary;
   /** SSR-provided venues so the strip is visible on first paint. */
   initialVenues?: Venue[];
+  /** Max venues to show (defaults to curated popular set). */
+  limit?: number;
 }
 
-export function VenueStrip({ locale, dict, initialVenues }: VenueStripProps) {
+export function VenueStrip({
+  locale,
+  dict,
+  initialVenues,
+  limit = HOME_VENUE_LIMIT,
+}: VenueStripProps) {
   const [venues, setVenues] = useState<Venue[]>(initialVenues ?? []);
 
   useEffect(() => {
@@ -24,7 +32,9 @@ export function VenueStrip({ locale, dict, initialVenues }: VenueStripProps) {
       .catch(() => {});
   }, [initialVenues]);
 
-  if (venues.length === 0) return null;
+  const featured = getFeaturedVenues(venues, limit);
+
+  if (featured.length === 0) return null;
 
   return (
     <section>
@@ -32,7 +42,7 @@ export function VenueStrip({ locale, dict, initialVenues }: VenueStripProps) {
         {dict.venues.title}
       </h2>
       <div className="flex gap-3 overflow-x-auto pb-1 -mx-1 px-1 scrollbar-hide">
-        {venues.map((v) => (
+        {featured.map((v) => (
           <Link
             key={v.slug}
             href={`/${locale}/venue/${v.slug}`}

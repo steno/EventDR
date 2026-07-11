@@ -7,9 +7,9 @@ interface HeroProps {
 
 export function Hero({ dict, onAddEvent }: HeroProps) {
   return (
-    <header className="pb-5">
+    <header className="pb-4">
       <div className="sm:flex sm:items-start sm:justify-between sm:gap-6">
-        <h1 className="text-[2.5rem] sm:text-5xl font-black text-neutral-950 dark:text-neutral-50 leading-[1.08] tracking-tight">
+        <h1 className="text-[2rem] sm:text-5xl font-black text-neutral-950 dark:text-neutral-50 leading-[1.08] tracking-tight">
           {dict.hero.events}
           <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500">

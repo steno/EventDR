@@ -1,7 +1,8 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { RefreshCw, Loader2 } from "lucide-react";
+import Link from "next/link";
+import { RefreshCw, Loader2, ChevronRight } from "lucide-react";
 import type { Event, EventCategory } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
@@ -24,6 +25,12 @@ interface EventListProps {
   ourPicks?: boolean;
   returnTo?: string;
   onBeforeNavigate?: () => void;
+  /** Cap rendered events (home feed). */
+  limit?: number;
+  /** Skip events already shown elsewhere on the page. */
+  excludeEventIds?: string[];
+  /** Link when the list is truncated by `limit`. */
+  viewAllHref?: string;
 }
 
 export function EventList({
@@ -37,6 +44,9 @@ export function EventList({
   ourPicks = false,
   returnTo,
   onBeforeNavigate,
+  limit,
+  excludeEventIds = [],
+  viewAllHref,
 }: EventListProps) {
   const listReturnTo =
     returnTo ?? (category ? categoryPath(locale, category) : `/${locale}`);
@@ -88,6 +98,10 @@ export function EventList({
   const filtered = useMemo(() => {
     let result = filterByTimeRange(events, timeRange);
     result = searchEvents(result, searchQuery);
+    if (excludeEventIds.length > 0) {
+      const excluded = new Set(excludeEventIds);
+      result = result.filter((e) => !excluded.has(e.id));
+    }
     result = sortUpcomingEvents(result, { recurringLast: true });
 
     if (timeRange === "all") {
@@ -101,7 +115,10 @@ export function EventList({
     }
 
     return result;
-  }, [events, timeRange, searchQuery]);
+  }, [events, timeRange, searchQuery, excludeEventIds]);
+
+  const visibleEvents = limit != null ? filtered.slice(0, limit) : filtered;
+  const hasMore = limit != null && filtered.length > limit;
 
   const sourceLabel =
     source === "live"
@@ -175,18 +192,32 @@ export function EventList({
           <p className="text-sm text-neutral-400 dark:text-neutral-500 mt-1">{dict.events.emptyHint}</p>
         </div>
       ) : (
-        <div className="space-y-3">
-          {filtered.map((event) => (
-            <EventCard
-              key={event.id}
-              event={event}
-              dict={dict}
-              locale={locale}
-              returnTo={listReturnTo}
-              onBeforeNavigate={onBeforeNavigate}
-            />
-          ))}
-        </div>
+        <>
+          <div className="space-y-3">
+            {visibleEvents.map((event) => (
+              <EventCard
+                key={event.id}
+                event={event}
+                dict={dict}
+                locale={locale}
+                returnTo={listReturnTo}
+                onBeforeNavigate={onBeforeNavigate}
+              />
+            ))}
+          </div>
+          {hasMore && viewAllHref && (
+            <div className="pt-2 text-center">
+              <Link
+                href={viewAllHref}
+                onClick={onBeforeNavigate}
+                className="inline-flex items-center gap-1 rounded-full border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 px-5 py-2.5 text-sm font-bold text-neutral-800 dark:text-neutral-200 hover:border-orange-300 dark:hover:border-orange-800 hover:text-orange-600 dark:hover:text-orange-400 transition-colors touch-manipulation"
+              >
+                {dict.events.viewAllEvents}
+                <ChevronRight className="h-4 w-4" aria-hidden />
+              </Link>
+            </div>
+          )}
+        </>
       )}
     </div>
   );

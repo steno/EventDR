@@ -22,11 +22,8 @@ export function SiteFooter({ dict, locale, className = "" }: SiteFooterProps) {
     >
       <nav
         aria-label={dict.browse.ariaLabel}
-        className="mx-auto mb-4 flex max-w-lg flex-wrap justify-center gap-x-4 gap-y-2 px-4 text-xs font-semibold text-neutral-500 dark:text-neutral-400"
+        className="mx-auto mb-4 flex max-w-lg flex-wrap justify-center gap-x-3 gap-y-2 px-4 text-xs font-semibold text-neutral-500 dark:text-neutral-400 sm:gap-x-4"
       >
-        <Link href={`/${locale}`} className="hover:text-neutral-800 dark:hover:text-neutral-200 transition-colors">
-          {dict.hero.events}
-        </Link>
         {CITIES.map((city) => (
           <Link
             key={city.slug}
@@ -48,24 +45,29 @@ export function SiteFooter({ dict, locale, className = "" }: SiteFooterProps) {
         >
           {dict.time.weekend}
         </Link>
-        {CATEGORY_IDS.map((id) => (
-          <Link
-            key={id}
-            href={`/${locale}/category/${id}`}
-            className="hover:text-neutral-800 dark:hover:text-neutral-200 transition-colors"
-          >
-            {dict.categories[id]}
+        <span className="hidden sm:contents">
+          <Link href={`/${locale}`} className="hover:text-neutral-800 dark:hover:text-neutral-200 transition-colors">
+            {dict.hero.events}
           </Link>
-        ))}
-        {footerVenues.map((venue) => (
-          <Link
-            key={venue.slug}
-            href={`/${locale}/venue/${venue.slug}`}
-            className="hover:text-neutral-800 dark:hover:text-neutral-200 transition-colors"
-          >
-            {venue.name}
-          </Link>
-        ))}
+          {CATEGORY_IDS.map((id) => (
+            <Link
+              key={id}
+              href={`/${locale}/category/${id}`}
+              className="hover:text-neutral-800 dark:hover:text-neutral-200 transition-colors"
+            >
+              {dict.categories[id]}
+            </Link>
+          ))}
+          {footerVenues.map((venue) => (
+            <Link
+              key={venue.slug}
+              href={`/${locale}/venue/${venue.slug}`}
+              className="hover:text-neutral-800 dark:hover:text-neutral-200 transition-colors"
+            >
+              {venue.name}
+            </Link>
+          ))}
+        </span>
       </nav>
       <p className="text-xs text-neutral-400 dark:text-neutral-500 font-medium">{dict.footer.tagline}</p>
       <p className="text-xs text-neutral-300 dark:text-neutral-600 mt-1">

@@ -2,7 +2,7 @@
 
 import { memo, useMemo } from "react";
 import Link from "next/link";
-import { Navigation } from "lucide-react";
+import { ChevronRight, Navigation } from "lucide-react";
 import { EventImage } from "@/components/EventImage";
 import { EventStatusBadge } from "@/components/EventStatusBadge";
 import type { Event } from "@/lib/types";
@@ -13,11 +13,9 @@ import { getDirectionsUrl } from "@/lib/maps";
 import { eventDetailPath } from "@/lib/event-navigation";
 import { saveScrollForReturn } from "@/lib/list-scroll-restoration";
 import {
-  getEventLiveStatus,
-  isEventActiveToday,
-  happensOnLocalDate,
-  parseEventTimeWindow,
-} from "@/lib/event-status";
+  getTodayHighlightEvents,
+  HOME_TODAY_LIMIT,
+} from "@/lib/home-layout";
 import { resolveLiveStatusDisplay } from "@/lib/event-status-label";
 
 interface TodayHighlightsProps {
@@ -25,23 +23,7 @@ interface TodayHighlightsProps {
   locale: Locale;
   dict: Dictionary;
   onBeforeNavigate?: () => void;
-}
-
-function todayHighlightSortRank(event: Event): number {
-  const status = getEventLiveStatus(event);
-  if (status === "live") return 0;
-  if (status === "upcoming") return 1;
-  return 2;
-}
-
-function compareTodayHighlights(a: Event, b: Event): number {
-  const rankA = todayHighlightSortRank(a);
-  const rankB = todayHighlightSortRank(b);
-  if (rankA !== rankB) return rankA - rankB;
-
-  const startA = parseEventTimeWindow(a.time)?.start ?? 0;
-  const startB = parseEventTimeWindow(b.time)?.start ?? 0;
-  return startA - startB;
+  limit?: number;
 }
 
 const TodayHighlightsComponent = ({
@@ -49,16 +31,13 @@ const TodayHighlightsComponent = ({
   locale,
   dict,
   onBeforeNavigate,
+  limit = HOME_TODAY_LIMIT,
 }: TodayHighlightsProps) => {
-  const todayEvents = useMemo(
-    () =>
-      events
-        .filter((e) => happensOnLocalDate(e) && isEventActiveToday(e))
-        .sort(compareTodayHighlights),
-    [events],
-  );
+  const todayEvents = useMemo(() => getTodayHighlightEvents(events), [events]);
+  const visibleEvents = todayEvents.slice(0, limit);
+  const hasMore = todayEvents.length > limit;
 
-  if (todayEvents.length === 0) return null;
+  if (visibleEvents.length === 0) return null;
 
   return (
     <section className="mb-6">
@@ -66,15 +45,20 @@ const TodayHighlightsComponent = ({
         <h2 className="text-xl font-black tracking-tight text-neutral-950 dark:text-neutral-100">
           {dict.events.happeningToday}
         </h2>
-        {todayEvents.length > 1 && (
-          <span className="rounded-full bg-orange-50 dark:bg-orange-950/50 px-2.5 py-1 text-xs font-bold text-orange-600">
-            {dict.events.moreToday.replace("{count}", String(todayEvents.length - 1))}
-          </span>
+        {hasMore && (
+          <Link
+            href={`/${locale}/when/today`}
+            onClick={onBeforeNavigate}
+            className="inline-flex items-center gap-0.5 rounded-full bg-orange-50 dark:bg-orange-950/50 px-2.5 py-1 text-xs font-bold text-orange-600 hover:bg-orange-100 dark:hover:bg-orange-950/70 transition-colors touch-manipulation"
+          >
+            {dict.events.seeAllToday}
+            <ChevronRight className="h-3.5 w-3.5" aria-hidden />
+          </Link>
         )}
       </div>
 
       <div className="-mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 scrollbar-hide">
-        {todayEvents.map((event) => {
+        {visibleEvents.map((event) => {
           const href = eventDetailPath(locale, event.id, `/${locale}`);
           const display = resolveLiveStatusDisplay(event, dict);
           const status = display?.status ?? "unknown";

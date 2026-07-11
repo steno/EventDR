@@ -76,6 +76,8 @@ export const es: Dictionary = {
     sortedUpcoming: "Más próximos primero",
     ourPicks: "Nuestras selecciones",
     happeningToday: "Hoy",
+    seeAllToday: "Ver todo hoy",
+    viewAllEvents: "Ver todos los eventos",
     happeningNow: "En curso",
     eventStarted: "Evento iniciado",
     startsSoon: "Empieza pronto",
