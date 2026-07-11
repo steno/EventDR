@@ -41,6 +41,10 @@ const FILE_TO_EVENT_ID = {
   "callesombrillas.jpeg": "calle-sombrillas-daily",
   "funcity.jpeg": "fun-city-daily",
   "monkeyland.jpeg": "monkeyland-puerto-plata-daily",
+  "coconut-cove-zipline.jpeg": "coconut-cove-ocean-zipline-daily",
+  "brugal-rum-center.jpeg": "brugal-rum-center-weekdays",
+  "freestyle-catamaran.jpeg": "freestyle-catamaran-daily",
+  "outback-safari.jpeg": "outback-safari-daily",
 };
 
 if (!existsSync(sourceDir)) {

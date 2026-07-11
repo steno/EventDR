@@ -1,7 +1,6 @@
 import type { Event } from "./types";
 import type { Locale } from "@/i18n/config";
 
-/** Evergreen North Coast happenings — show up on Today / Weekend filters every week */
 const RECURRING_EN: Event[] = [
   {
     id: "lax-sunset-daily",
@@ -353,6 +352,76 @@ const RECURRING_EN: Event[] = [
     sourceUrl:
       "https://www.runnersadventures.com/monkeyland/monkeyland-puerto-plata/",
     imageEmoji: "🐒",
+  },
+  {
+    id: "coconut-cove-ocean-zipline-daily",
+    title: "Ocean Zipline at Coconut Cove",
+    description:
+      "Soar 1,200 feet over the Atlantic at Chukka Ocean Outpost — Puerto Plata's only seaside zipline with cliff-to-ocean views, private beach time, and round-trip hotel transfers. ATV, dune buggy, and full-day Damajagua combo packages also book here.",
+    date: "2026-01-01",
+    time: "9:00 AM - 5:00 PM",
+    location: "Puerto Plata",
+    address: "Bajo Hondo, Coconut Cove",
+    venue: "Chukka Ocean Outpost — Coconut Cove",
+    venueSlug: "coconut-cove",
+    category: "adventure",
+    format: "physical",
+    recurrence: "daily",
+    trending: true,
+    sourceUrl: "https://chukka.com/dominican-republic/ocean-outpost-coconut-cove",
+    imageEmoji: "🪂",
+  },
+  {
+    id: "brugal-rum-center-weekdays",
+    title: "Brugal Rum Center — Distillery Tour",
+    description:
+      "Tour Puerto Plata's iconic rum distillery — five generations of Brugal family history, copper stills and aging warehouses, then guided tastings of Extra Viejo and other award-winning rums. Weekday visits; check hours before you go.",
+    date: "2026-01-01",
+    time: "9:00 AM - 4:00 PM",
+    location: "Puerto Plata",
+    address: "Carretera Maimón",
+    venue: "Brugal Rum Center",
+    venueSlug: "brugal-rum-center",
+    category: "food-drinks",
+    format: "physical",
+    recurrence: "weekdays",
+    sourceUrl:
+      "https://www.tripadvisor.com/Attraction_Review-g147290-d588583-Reviews-Brugal_Rum_Center-Puerto_Plata_Puerto_Plata_Province_Dominican_Republic.html",
+    imageEmoji: "🥃",
+  },
+  {
+    id: "freestyle-catamaran-daily",
+    title: "Freestyle Catamaran — Snorkel & Sailing",
+    description:
+      "Full-day sail from Puerto Plata to Sosúa Bay — two snorkeling stops on the north coast reef, lunch and drinks onboard, and a fun crew keeping the music going. Hotel pickup included on most departures.",
+    date: "2026-01-01",
+    time: "8:00 AM - 4:00 PM",
+    location: "Puerto Plata",
+    venue: "Freestyle Catamaran",
+    venueSlug: "freestyle-catamaran",
+    category: "adventure",
+    format: "physical",
+    recurrence: "daily",
+    sourceUrl:
+      "https://www.tripadvisor.com/Attraction_Review-g147290-d2162077-Reviews-Freestyle_Catamaran_Tour-Puerto_Plata_Puerto_Plata_Province_Dominican_Republic.html",
+    imageEmoji: "⛵",
+  },
+  {
+    id: "outback-safari-daily",
+    title: "Outback Safari — Countryside & Culture",
+    description:
+      "All-inclusive day in open-air safari trucks — rural villages, coffee and cacao plantation tastings, a local school visit, and boogie boarding at a hidden beach. One of Puerto Plata's classic full-day cultural adventures (~8 hours).",
+    date: "2026-01-01",
+    time: "8:00 AM - 4:00 PM",
+    location: "Puerto Plata",
+    venue: "Outback Adventures",
+    venueSlug: "outback-adventures",
+    category: "adventure",
+    format: "physical",
+    recurrence: "daily",
+    sourceUrl:
+      "https://outback-adventures.com/st_location/dominican-republic/puerto-plata/",
+    imageEmoji: "🛻",
   },
 ];
 
@@ -708,6 +777,76 @@ const RECURRING_ES: Event[] = [
       "https://www.runnersadventures.com/monkeyland/monkeyland-puerto-plata/",
     imageEmoji: "🐒",
   },
+  {
+    id: "coconut-cove-ocean-zipline-daily",
+    title: "Tirolesa sobre el océano en Coconut Cove",
+    description:
+      "Vuela 1,200 pies sobre el Atlántico en Chukka Ocean Outpost — la única tirolesa frente al mar en Puerto Plata, con playa privada y traslados desde hoteles. También hay paquetes de ATV, dune buggy y combo con Damajagua.",
+    date: "2026-01-01",
+    time: "9:00 AM - 5:00 PM",
+    location: "Puerto Plata",
+    address: "Bajo Hondo, Coconut Cove",
+    venue: "Chukka Ocean Outpost — Coconut Cove",
+    venueSlug: "coconut-cove",
+    category: "adventure",
+    format: "physical",
+    recurrence: "daily",
+    trending: true,
+    sourceUrl: "https://chukka.com/dominican-republic/ocean-outpost-coconut-cove",
+    imageEmoji: "🪂",
+  },
+  {
+    id: "brugal-rum-center-weekdays",
+    title: "Centro del Ron Brugal — Tour de destilería",
+    description:
+      "Visita la destilería icónica de Puerto Plata — cinco generaciones de historia Brugal, alambiques de cobre y bodegas de añejamiento, con degustación guiada de Extra Viejo y otros rones premiados. Entre semana; confirma horarios.",
+    date: "2026-01-01",
+    time: "9:00 AM - 4:00 PM",
+    location: "Puerto Plata",
+    address: "Carretera Maimón",
+    venue: "Brugal Rum Center",
+    venueSlug: "brugal-rum-center",
+    category: "food-drinks",
+    format: "physical",
+    recurrence: "weekdays",
+    sourceUrl:
+      "https://www.tripadvisor.com/Attraction_Review-g147290-d588583-Reviews-Brugal_Rum_Center-Puerto_Plata_Puerto_Plata_Province_Dominican_Republic.html",
+    imageEmoji: "🥃",
+  },
+  {
+    id: "freestyle-catamaran-daily",
+    title: "Freestyle Catamaran — Snorkel y navegación",
+    description:
+      "Día completo navegando de Puerto Plata a la bahía de Sosúa — dos paradas de snorkel en el arrecife de la costa norte, almuerzo y bebidas a bordo, y tripulación animada. Recogida en hotel incluida en la mayoría de salidas.",
+    date: "2026-01-01",
+    time: "8:00 AM - 4:00 PM",
+    location: "Puerto Plata",
+    venue: "Freestyle Catamaran",
+    venueSlug: "freestyle-catamaran",
+    category: "adventure",
+    format: "physical",
+    recurrence: "daily",
+    sourceUrl:
+      "https://www.tripadvisor.com/Attraction_Review-g147290-d2162077-Reviews-Freestyle_Catamaran_Tour-Puerto_Plata_Puerto_Plata_Province_Dominican_Republic.html",
+    imageEmoji: "⛵",
+  },
+  {
+    id: "outback-safari-daily",
+    title: "Outback Safari — Campo y cultura",
+    description:
+      "Día todo incluido en camiones safari descubiertos — pueblos rurales, degustación de café y cacao, visita a una escuela local y bodyboard en una playa escondida. Una aventura cultural clásica de Puerto Plata (~8 horas).",
+    date: "2026-01-01",
+    time: "8:00 AM - 4:00 PM",
+    location: "Puerto Plata",
+    venue: "Outback Adventures",
+    venueSlug: "outback-adventures",
+    category: "adventure",
+    format: "physical",
+    recurrence: "daily",
+    sourceUrl:
+      "https://outback-adventures.com/st_location/dominican-republic/puerto-plata/",
+    imageEmoji: "🛻",
+  },
 ];
 
 const RECURRING_FR: Event[] = [
@@ -1061,6 +1200,76 @@ const RECURRING_FR: Event[] = [
     sourceUrl:
       "https://www.runnersadventures.com/monkeyland/monkeyland-puerto-plata/",
     imageEmoji: "🐒",
+  },
+  {
+    id: "coconut-cove-ocean-zipline-daily",
+    title: "Tyrolienne océanique à Coconut Cove",
+    description:
+      "Survolez l'Atlantique sur 1 200 pieds au Chukka Ocean Outpost — la seule tyrolienne en bord de mer à Puerto Plata, avec plage privée et transferts hôtel. Forfaits quad, dune buggy et combo Damajagua aussi disponibles.",
+    date: "2026-01-01",
+    time: "9:00 AM - 5:00 PM",
+    location: "Puerto Plata",
+    address: "Bajo Hondo, Coconut Cove",
+    venue: "Chukka Ocean Outpost — Coconut Cove",
+    venueSlug: "coconut-cove",
+    category: "adventure",
+    format: "physical",
+    recurrence: "daily",
+    trending: true,
+    sourceUrl: "https://chukka.com/dominican-republic/ocean-outpost-coconut-cove",
+    imageEmoji: "🪂",
+  },
+  {
+    id: "brugal-rum-center-weekdays",
+    title: "Brugal Rum Center — Visite de distillerie",
+    description:
+      "Visitez la distillerie emblématique de Puerto Plata — cinq générations Brugal, alambics en cuivre et chai de vieillissement, puis dégustation guidée d'Extra Viejo et d'autres rhums primés. En semaine ; vérifiez les horaires.",
+    date: "2026-01-01",
+    time: "9:00 AM - 4:00 PM",
+    location: "Puerto Plata",
+    address: "Carretera Maimón",
+    venue: "Brugal Rum Center",
+    venueSlug: "brugal-rum-center",
+    category: "food-drinks",
+    format: "physical",
+    recurrence: "weekdays",
+    sourceUrl:
+      "https://www.tripadvisor.com/Attraction_Review-g147290-d588583-Reviews-Brugal_Rum_Center-Puerto_Plata_Puerto_Plata_Province_Dominican_Republic.html",
+    imageEmoji: "🥃",
+  },
+  {
+    id: "freestyle-catamaran-daily",
+    title: "Freestyle Catamaran — Snorkel et voile",
+    description:
+      "Journée en catamaran de Puerto Plata à la baie de Sosúa — deux arrêts snorkeling sur le récif de la côte nord, déjeuner et boissons à bord, équipage festif. Prise en charge à l'hôtel incluse sur la plupart des départs.",
+    date: "2026-01-01",
+    time: "8:00 AM - 4:00 PM",
+    location: "Puerto Plata",
+    venue: "Freestyle Catamaran",
+    venueSlug: "freestyle-catamaran",
+    category: "adventure",
+    format: "physical",
+    recurrence: "daily",
+    sourceUrl:
+      "https://www.tripadvisor.com/Attraction_Review-g147290-d2162077-Reviews-Freestyle_Catamaran_Tour-Puerto_Plata_Puerto_Plata_Province_Dominican_Republic.html",
+    imageEmoji: "⛵",
+  },
+  {
+    id: "outback-safari-daily",
+    title: "Outback Safari — Campagne et culture",
+    description:
+      "Journée tout compris en camions safari découverts — villages ruraux, dégustation café et cacao, visite d'une école locale et bodyboard sur une plage cachée. Une aventure culturelle classique de Puerto Plata (~8 h).",
+    date: "2026-01-01",
+    time: "8:00 AM - 4:00 PM",
+    location: "Puerto Plata",
+    venue: "Outback Adventures",
+    venueSlug: "outback-adventures",
+    category: "adventure",
+    format: "physical",
+    recurrence: "daily",
+    sourceUrl:
+      "https://outback-adventures.com/st_location/dominican-republic/puerto-plata/",
+    imageEmoji: "🛻",
   },
 ];
 

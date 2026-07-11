@@ -224,6 +224,52 @@ export const SEED_VENUES: Venue[] = [
     website: "https://www.runnersadventures.com/monkeyland/monkeyland-puerto-plata/",
     phone: "+18295997444",
   },
+  {
+    slug: "coconut-cove",
+    name: "Chukka Ocean Outpost — Coconut Cove",
+    city: "Bajo Hondo",
+    description:
+      "Cliffside seaside adventure park — 1,200-ft ocean zipline, ATV and dune buggy trails, private beach, and watersports west of Puerto Plata.",
+    lat: 19.8348,
+    lng: -70.7542,
+    emoji: "🪂",
+    website: "https://chukka.com/dominican-republic/ocean-outpost-coconut-cove",
+    phone: "+18097967176",
+  },
+  {
+    slug: "brugal-rum-center",
+    name: "Brugal Rum Center",
+    city: "Puerto Plata",
+    description:
+      "Working rum distillery and visitor center on the Maimón highway — guided tours, aging warehouses, and tastings of award-winning Dominican rums.",
+    lat: 19.7825,
+    lng: -70.6938,
+    emoji: "🥃",
+    website: "https://www.brugal.do/",
+  },
+  {
+    slug: "freestyle-catamaran",
+    name: "Freestyle Catamaran",
+    city: "Puerto Plata",
+    description:
+      "Catamaran cruises from Puerto Plata to Sosúa Bay — two snorkeling stops, lunch, drinks, and live music on deck.",
+    lat: 19.798,
+    lng: -70.688,
+    emoji: "⛵",
+    website:
+      "https://www.tripadvisor.com/Attraction_Review-g147290-d2162077-Reviews-Freestyle_Catamaran_Tour-Puerto_Plata_Puerto_Plata_Province_Dominican_Republic.html",
+  },
+  {
+    slug: "outback-adventures",
+    name: "Outback Adventures",
+    city: "Puerto Plata",
+    description:
+      "Open-air safari trucks through countryside villages, coffee plantations, local schools, and a hidden beach — a Puerto Plata classic since 2004.",
+    lat: 19.787,
+    lng: -70.675,
+    emoji: "🛻",
+    website: "https://outback-adventures.com/st_location/dominican-republic/puerto-plata/",
+  },
 ];
 
 export function getSeedVenue(slug: string): Venue | undefined {
