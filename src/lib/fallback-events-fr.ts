@@ -164,7 +164,7 @@ export const FALLBACK_EVENTS_FR: Event[] = [
     address: "141 Pedro Clisante, Sosúa 57600",
     lat: 19.7545,
     lng: -70.519,
-    category: "performances",
+    category: "music",
     format: "physical",
     recurrence: "weekly",
     recurrenceDay: 4,

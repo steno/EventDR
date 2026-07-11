@@ -57,6 +57,82 @@ export const SEED_VENUES: Venue[] = [
     emoji: "🎤",
   },
   {
+    slug: "hard-rock-sosua",
+    name: "Hard Rock Cafe Puerto Plata",
+    city: "Sosúa",
+    description:
+      "Two-story downtown stage on Calle Duarte — touring acts, local rock bands, and tribute shows on the North Coast's biggest live-music floor.",
+    lat: 19.753,
+    lng: -70.518,
+    emoji: "🎸",
+    instagram: "hardrockcafepuertoplata",
+    website: "https://cafe.hardrock.com/puerto-plata/",
+    phone: "+18495057778",
+  },
+  {
+    slug: "castaways-sosua",
+    name: "Castaway's Clubhouse & Eatery",
+    city: "Sosúa",
+    description:
+      "Expat clubhouse in Casa Linda with classic-rock cover bands, wing specials, and a North American pub atmosphere.",
+    lat: 19.7415,
+    lng: -70.5385,
+    emoji: "🎸",
+  },
+  {
+    slug: "hotel-voramar-sosua",
+    name: "Hotel Voramar",
+    city: "Sosúa",
+    description:
+      "Poolside boutique hotel with Friday BBQ nights and live rock and pop cover bands — German-run, steps from Playa Chiquita.",
+    lat: 19.7578,
+    lng: -70.5145,
+    emoji: "🎵",
+    website: "https://www.hotelvoramar-sosua.com/en",
+    phone: "+18095713910",
+  },
+  {
+    slug: "smileys-bar-sosua",
+    name: "Smiley's Bar & Restaurant",
+    city: "Sosúa",
+    description:
+      "Open-air courtyard bar on Calle Pedro Clisante — live music, karaoke, and a steady expat crowd on weekend nights.",
+    lat: 19.7542,
+    lng: -70.5195,
+    emoji: "🎤",
+  },
+  {
+    slug: "finish-line-sosua",
+    name: "The Finish Line",
+    city: "Sosúa",
+    description:
+      "Expat pub on the Sosúa strip — acoustic sets, cover bands, and a familiar sports-bar vibe midweek and on weekends.",
+    lat: 19.7535,
+    lng: -70.519,
+    emoji: "🍺",
+  },
+  {
+    slug: "bar-39-sosua",
+    name: "Bar 39",
+    city: "Sosúa",
+    description:
+      "Beachfront bar on Playa Sosúa — ocean views, cold Presidentes, and live music on weekend evenings.",
+    lat: 19.7485,
+    lng: -70.5145,
+    emoji: "🌴",
+  },
+  {
+    slug: "cheers-bar-sosua",
+    name: "Cheers Bar & Grill",
+    city: "Sosúa",
+    description:
+      "Expat-owned sports pub on Calle Pedro Clisante — rock and blues cover bands, big-screen sports, pub food, and a steady weekly live-music crowd.",
+    lat: 19.7545,
+    lng: -70.5198,
+    emoji: "🍻",
+    phone: "+1809404822463",
+  },
+  {
     slug: "cowork-cabarete",
     name: "Cowork Cabarete",
     city: "Cabarete",
