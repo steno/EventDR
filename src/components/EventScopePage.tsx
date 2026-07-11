@@ -92,7 +92,7 @@ export function EventScopePage({
 
   return (
     <>
-      <main className="relative flex-1 bg-neutral-50 dark:bg-transparent min-h-screen pb-12">
+      <main className="relative bg-neutral-50 dark:bg-transparent pb-6">
         <div className="relative mx-auto max-w-lg sm:max-w-2xl px-4">
           <AppHeader locale={locale} dict={dict} />
           <Link

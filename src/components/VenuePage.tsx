@@ -55,7 +55,7 @@ export function VenuePage({ venue, locale, dict, showAll = false }: VenuePagePro
 
   return (
     <>
-      <main className="flex-1 bg-neutral-50 dark:bg-transparent min-h-screen pb-12">
+      <main className="bg-neutral-50 dark:bg-transparent pb-6">
         <div className="mx-auto max-w-lg sm:max-w-2xl px-4">
           <AppHeader locale={locale} dict={dict} />
           <Link
