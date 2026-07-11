@@ -84,10 +84,10 @@ const TodayHighlightsComponent = ({
             >
               <Link
                 href={href}
-                className="flex flex-1 flex-col touch-manipulation active:scale-[0.995] transition-transform"
+                className="flex min-h-0 flex-1 flex-col touch-manipulation active:scale-[0.995] transition-transform"
               >
-                {event.imageUrl && (
-                  <div className="relative h-40 w-full overflow-hidden bg-neutral-100 dark:bg-neutral-800">
+                {event.imageUrl ? (
+                  <div className="relative h-40 w-full shrink-0 overflow-hidden bg-neutral-100 dark:bg-neutral-800">
                     <EventImage
                       src={event.imageUrl}
                       alt=""
@@ -99,36 +99,40 @@ const TodayHighlightsComponent = ({
                       aria-hidden
                     />
                   </div>
+                ) : (
+                  <div className="h-40 w-full shrink-0 bg-neutral-100 dark:bg-neutral-800" aria-hidden />
                 )}
 
-                <div className="flex flex-1 flex-col p-5">
+                <div className="flex min-h-0 flex-1 flex-col p-5 pb-3">
                   {statusLabel && (
                     <EventStatusBadge
                       label={statusLabel}
                       status={status}
-                      className="mb-2 w-fit"
+                      className="mb-2 w-fit shrink-0"
                     />
                   )}
-                  <h3 className="line-clamp-2 text-[19px] font-black leading-[1.25] tracking-tight text-neutral-950 dark:text-neutral-100">
+                  <h3 className="line-clamp-2 shrink-0 text-[19px] font-black leading-[1.25] tracking-tight text-neutral-950 dark:text-neutral-100">
                     {event.title}
                   </h3>
                   {event.description ? (
-                    <p className="mt-3 line-clamp-2 text-copy">
+                    <p className="mt-3 line-clamp-2 flex-1 text-copy">
                       {event.description}
                     </p>
-                  ) : null}
+                  ) : (
+                    <div className="mt-3 flex-1" aria-hidden />
+                  )}
 
                   <EventCardMeta
                     event={event}
                     locale={locale}
                     dict={dict}
-                    className="mt-4"
+                    className="mt-auto shrink-0 pt-4"
                   />
                 </div>
               </Link>
 
-              {event.format !== "digital" && (
-                <div className="flex justify-end px-5 pb-5 pt-0">
+              <div className="flex shrink-0 justify-end px-5 pb-5 pt-1 min-h-[2.25rem]">
+                {event.format !== "digital" && (
                   <a
                     href={getDirectionsUrl(event)}
                     target="_blank"
@@ -139,8 +143,8 @@ const TodayHighlightsComponent = ({
                     <Navigation className="h-3.5 w-3.5" />
                     {dict.detail.directions}
                   </a>
-                </div>
-              )}
+                )}
+              </div>
             </article>
           );
         })}

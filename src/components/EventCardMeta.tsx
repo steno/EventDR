@@ -24,7 +24,7 @@ function MetaRow({
   return (
     <div className="flex items-start gap-2.5 text-copy-meta text-neutral-800 dark:text-neutral-200">
       <span className="mt-px shrink-0 text-neutral-500 dark:text-neutral-400">{icon}</span>
-      <span className="min-w-0 leading-snug">{children}</span>
+      <span className="min-w-0 truncate leading-snug">{children}</span>
     </div>
   );
 }
