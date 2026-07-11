@@ -14,7 +14,6 @@ import { EventCard } from "@/components/EventCard";
 import { VenueStrip } from "@/components/VenueStrip";
 import { PushNotifyButton } from "@/components/PushNotifyButton";
 import { TodayHighlights } from "@/components/TodayHighlights";
-import { TimeFilter } from "@/components/TimeFilter";
 import { useSavedEvents } from "@/hooks/useSavedEvents";
 import { useGeolocation } from "@/hooks/useGeolocation";
 import { usePushNotifications } from "@/hooks/usePushNotifications";
@@ -173,7 +172,6 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
                     dict={dict}
                     onBeforeNavigate={saveHomeScroll}
                   />
-                  <TimeFilter value={timeRange} onChange={setTimeRange} dict={dict} />
                   <EventList
                     locale={locale}
                     dict={dict}
@@ -181,10 +179,12 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
                     refreshKey={refreshKey}
                     ourPicks
                     timeRange={timeRange}
+                    onTimeRangeChange={setTimeRange}
+                    showTimeFilter
                     returnTo={homePath}
                     onBeforeNavigate={saveHomeScroll}
                     limit={HOME_PICKS_LIMIT}
-                    excludeEventIds={todayHighlightIds}
+                    excludeEventIds={timeRange === "all" ? todayHighlightIds : []}
                     viewAllHref={viewAllHref}
                   />
                   <div className="mt-8 mb-8">

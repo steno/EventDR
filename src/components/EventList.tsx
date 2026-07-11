@@ -13,6 +13,7 @@ import { hasEventEndedForToday, happensOnLocalDate } from "@/lib/event-status";
 import { categoryPath } from "@/lib/event-navigation";
 import { attachEventImages } from "@/lib/event-images";
 import { EventCard } from "./EventCard";
+import { TimeFilter } from "./TimeFilter";
 
 interface EventListProps {
   category?: EventCategory | null;
@@ -31,6 +32,8 @@ interface EventListProps {
   excludeEventIds?: string[];
   /** Link when the list is truncated by `limit`. */
   viewAllHref?: string;
+  showTimeFilter?: boolean;
+  onTimeRangeChange?: (range: TimeRange) => void;
 }
 
 export function EventList({
@@ -47,6 +50,8 @@ export function EventList({
   limit,
   excludeEventIds = [],
   viewAllHref,
+  showTimeFilter = false,
+  onTimeRangeChange,
 }: EventListProps) {
   const listReturnTo =
     returnTo ?? (category ? categoryPath(locale, category) : `/${locale}`);
@@ -143,7 +148,7 @@ export function EventList({
   const isSearching = searchQuery.trim().length > 0;
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-4">
       <div className="flex items-center justify-between">
         <div>
           <h2 className="text-xl font-black text-neutral-900 dark:text-neutral-100 tracking-tight">
@@ -162,7 +167,7 @@ export function EventList({
           )}
           {!category && ourPicks && !isSearching && (
             <p className="text-xs text-neutral-400 dark:text-neutral-500 mt-0.5">
-              {dict.events.sortedUpcoming}
+              {dict.time[timeRange]} · {filtered.length} · {dict.events.sortedUpcoming}
             </p>
           )}
           {!category && !ourPicks && !isSearching && source && (
@@ -183,6 +188,15 @@ export function EventList({
           <RefreshCw className={`h-4 w-4 ${refreshing ? "animate-spin" : ""}`} />
         </button>
       </div>
+
+      {showTimeFilter && onTimeRangeChange && (
+        <TimeFilter
+          value={timeRange}
+          onChange={onTimeRangeChange}
+          dict={dict}
+          className="mb-0"
+        />
+      )}
 
       {filtered.length === 0 ? (
         <div className="text-center py-12">
