@@ -99,7 +99,8 @@ export function getEventImageUrl(eventId: string): string | undefined {
 export function attachEventImage<T extends { id: string; imageUrl?: string }>(
   event: T,
 ): T & { imageUrl?: string } {
-  const imageUrl = event.imageUrl ?? getEventImageUrl(event.id);
+  const curated = getEventImageUrl(event.id);
+  const imageUrl = curated ?? event.imageUrl;
   return imageUrl ? { ...event, imageUrl } : event;
 }
 

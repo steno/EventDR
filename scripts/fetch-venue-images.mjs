@@ -49,6 +49,10 @@ const VENUE_SOURCES = [
     url: "https://images.prismic.io/prismic-rd-2/ajQJ4I1P9HI4Usf9_Night.jpg?auto=format,compress&rect=1600,5,2400,2150&w=1600&h=1260",
   },
   {
+    eventId: "liquid-blue-sunrise-yoga",
+    url: "https://www.lbcabarete.com/wp-content/uploads/2019/03/leandro_castillo_cabarete_dominican_republic_1-1024x683.jpg",
+  },
+  {
     eventId: "natura-cabana-yoga-daily",
     url: "https://naturacabana.com/wp-content/uploads/2024/06/yoga-package-1.webp",
   },
