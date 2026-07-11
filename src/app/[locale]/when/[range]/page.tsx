@@ -11,6 +11,7 @@ import {
   localePath,
 } from "@/lib/seo";
 import { getWhenSeo, isWhenSlug, WHEN_SLUGS } from "@/lib/time-seo";
+import { isScopeShowAll } from "@/lib/home-layout";
 
 export async function generateStaticParams() {
   return locales.flatMap((locale) =>
@@ -32,10 +33,13 @@ export async function generateMetadata({
 
 export default async function Page({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: string; range: string }>;
+  searchParams: Promise<{ all?: string }>;
 }) {
   const { locale, range } = await params;
+  const { all } = await searchParams;
   if (!isValidLocale(locale)) notFound();
   if (!isWhenSlug(range)) notFound();
 
@@ -70,6 +74,7 @@ export default async function Page({
         sectionTitle={dict.time[range]}
         emoji="📆"
         fixedTimeRange={range}
+        showAll={isScopeShowAll(all)}
       />
     </>
   );

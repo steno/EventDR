@@ -18,9 +18,10 @@ interface VenuePageProps {
   venue: Venue;
   locale: Locale;
   dict: Dictionary;
+  showAll?: boolean;
 }
 
-export function VenuePage({ venue, locale, dict }: VenuePageProps) {
+export function VenuePage({ venue, locale, dict, showAll = false }: VenuePageProps) {
   const [events, setEvents] = useState<Event[]>([]);
   const [loading, setLoading] = useState(true);
   const [submitOpen, setSubmitOpen] = useState(false);
@@ -88,6 +89,7 @@ export function VenuePage({ venue, locale, dict }: VenuePageProps) {
             sectionTitle={dict.venues.eventsAt}
             returnTo={returnTo}
             onAddEvent={() => setSubmitOpen(true)}
+            showAll={showAll}
           />
         </div>
       </main>

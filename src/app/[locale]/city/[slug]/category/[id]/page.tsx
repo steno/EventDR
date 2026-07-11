@@ -13,6 +13,7 @@ import {
 import { isValidLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getPublicEvents } from "@/lib/public-events";
+import { isScopeShowAll } from "@/lib/home-layout";
 import {
   buildCityCategoryMetadata,
   buildListingPageJsonLd,
@@ -48,10 +49,13 @@ export async function generateMetadata({
 
 export default async function Page({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: string; slug: string; id: string }>;
+  searchParams: Promise<{ all?: string }>;
 }) {
   const { locale, slug, id } = await params;
+  const { all } = await searchParams;
   if (!isValidLocale(locale)) notFound();
   if (!isCitySlug(slug)) notFound();
   if (!CATEGORY_IDS.includes(id as EventCategory)) notFound();
@@ -103,6 +107,7 @@ export default async function Page({
         emoji={category.emoji}
         emojiClassName={`bg-gradient-to-br ${category.gradient}`}
         submitDefaults={{ category: id as EventCategory, location: cityName }}
+        showAll={isScopeShowAll(all)}
       />
     </>
   );

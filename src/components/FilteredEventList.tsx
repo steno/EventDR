@@ -1,12 +1,15 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Link from "next/link";
+import { ChevronRight } from "lucide-react";
 import type { Event } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import type { TimeRange } from "@/lib/filters";
 import { filterByTimeRange } from "@/lib/filters";
 import { materializeEventDates, sortUpcomingEvents } from "@/lib/event-dates";
+import { SCOPE_LIST_LIMIT, scopeViewAllHref } from "@/lib/home-layout";
 import { TimeFilter } from "@/components/TimeFilter";
 import { EventCard } from "@/components/EventCard";
 import { VenueStrip } from "@/components/VenueStrip";
@@ -23,6 +26,10 @@ interface FilteredEventListProps {
   addEventLabel?: string;
   returnTo?: string;
   fixedTimeRange?: TimeRange;
+  /** When true, render the full filtered list (`?all=1` pages). */
+  showAll?: boolean;
+  /** Preview cap when `showAll` is false (defaults to SCOPE_LIST_LIMIT). */
+  limit?: number;
 }
 
 export function FilteredEventList({
@@ -36,6 +43,8 @@ export function FilteredEventList({
   addEventLabel,
   returnTo,
   fixedTimeRange,
+  showAll = false,
+  limit = SCOPE_LIST_LIMIT,
 }: FilteredEventListProps) {
   const [timeRange, setTimeRange] = useState<TimeRange>(fixedTimeRange ?? "all");
 
@@ -49,6 +58,11 @@ export function FilteredEventList({
     const timeFiltered = filterByTimeRange(materialized, activeRange);
     return sortUpcomingEvents(timeFiltered, { recurringLast: true });
   }, [materialized, timeRange, fixedTimeRange]);
+
+  const cap = showAll ? undefined : limit;
+  const visibleEvents = cap != null ? filtered.slice(0, cap) : filtered;
+  const hasMore = cap != null && filtered.length > cap;
+  const viewAllTarget = !showAll && returnTo ? scopeViewAllHref(returnTo) : undefined;
 
   return (
     <>
@@ -74,17 +88,30 @@ export function FilteredEventList({
       ) : filtered.length === 0 ? (
         <p className="text-copy text-neutral-600 dark:text-neutral-400">{dict.search.noResults}</p>
       ) : (
-        <div className="space-y-3.5">
-          {filtered.map((event) => (
-            <EventCard
-              key={event.id}
-              event={event}
-              dict={dict}
-              locale={locale}
-              returnTo={returnTo}
-            />
-          ))}
-        </div>
+        <>
+          <div className="space-y-3.5">
+            {visibleEvents.map((event) => (
+              <EventCard
+                key={event.id}
+                event={event}
+                dict={dict}
+                locale={locale}
+                returnTo={returnTo}
+              />
+            ))}
+          </div>
+          {hasMore && viewAllTarget && (
+            <div className="pt-4 text-center">
+              <Link
+                href={viewAllTarget}
+                className="inline-flex items-center gap-1 rounded-full border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 px-5 py-2.5 text-sm font-bold text-neutral-800 dark:text-neutral-200 hover:border-orange-300 dark:hover:border-orange-800 hover:text-orange-600 dark:hover:text-orange-400 transition-colors touch-manipulation"
+              >
+                {dict.events.viewAllEvents}
+                <ChevronRight className="h-4 w-4" aria-hidden />
+              </Link>
+            </div>
+          )}
+        </>
       )}
 
       <div className="mt-10">

@@ -14,6 +14,9 @@ export const HOME_TODAY_LIMIT = 5;
 /** Max events in the home "Our picks" section. */
 export const HOME_PICKS_LIMIT = 10;
 
+/** Default preview cap for city, category, venue, and when listing pages. */
+export const SCOPE_LIST_LIMIT = HOME_PICKS_LIMIT;
+
 /** Max venues in the home "Popular venues" strip. */
 export const HOME_VENUE_LIMIT = 6;
 
@@ -56,4 +59,16 @@ export function homeViewAllPath(locale: string, timeRange: TimeRange): string {
   if (timeRange === "today") return `/${locale}/when/today`;
   if (timeRange === "weekend") return `/${locale}/when/weekend`;
   return `/${locale}/when/week`;
+}
+
+/** Full listing URL for a scoped page (city, category, venue, etc.). */
+export function scopeViewAllHref(path: string): string {
+  return path.includes("?") ? `${path}&all=1` : `${path}?all=1`;
+}
+
+export function isScopeShowAll(
+  all: string | string[] | undefined,
+): boolean {
+  if (Array.isArray(all)) return all[0] === "1";
+  return all === "1";
 }
