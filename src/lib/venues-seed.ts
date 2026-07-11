@@ -133,6 +133,84 @@ export const SEED_VENUES: Venue[] = [
     phone: "+1809404822463",
   },
   {
+    slug: "sosua-jewish-museum",
+    name: "Museo Judío de Sosúa",
+    city: "Sosúa",
+    description:
+      "Museum and synagogue honoring the 1940 Jewish refugee settlement — photographs, artifacts, and documentary films on Sosúa's unique heritage next to Casa Marina.",
+    lat: 19.7512,
+    lng: -70.5118,
+    emoji: "🏛️",
+    website: "https://www.sosuajewishmuseum.com/",
+  },
+  {
+    slug: "sosua-diving-center",
+    name: "Sosua Diving Center",
+    city: "Sosúa",
+    description:
+      "PADI dive center on La Puntilla — reef dives, snorkeling, and boat trips across 12+ Sosúa Bay sites with experienced local guides.",
+    lat: 19.7495,
+    lng: -70.5135,
+    emoji: "🤿",
+    website: "https://sosuadivingcenter.com/",
+    phone: "+18094749220",
+  },
+  {
+    slug: "natura-cabana",
+    name: "Natura Cabana Yoga Temple",
+    city: "Sosúa",
+    description:
+      "Open-air oceanfront yoga temple in Perla Marina — morning flows and sunset sessions open to guests and visitors, steps from the Caribbean.",
+    lat: 19.7465,
+    lng: -70.5055,
+    emoji: "🧘",
+    website: "https://naturacabana.com/yoga-temple-your-daily-practice-facing-the-caribbean-blue/",
+  },
+  {
+    slug: "d-classico-sosua",
+    name: "D-Classico Merengue Bar",
+    city: "Sosúa",
+    description:
+      "Merengue and bachata bar in the heart of El Batey — local rhythms, dancing crowds, and a classic Sosúa nightlife spot on Pedro Clisante.",
+    lat: 19.7538,
+    lng: -70.5192,
+    emoji: "💃",
+  },
+  {
+    slug: "voyvoy-cabarete",
+    name: "VOYVOY Cabarete",
+    city: "Cabarete",
+    description:
+      "Beachfront restaurant and nightlife spot on Cabarete Bay — open mic jams, DJ sessions, and weekend dance parties with bay views.",
+    lat: 19.7488,
+    lng: -70.4095,
+    emoji: "🎤",
+  },
+  {
+    slug: "la-casita-de-papi",
+    name: "La Casita de Papi",
+    city: "Cabarete",
+    description:
+      "Iconic beachfront seafood restaurant on Cabarete Central Beach — paella, grilled catch, and sunset dinners under palm trees since the 1990s.",
+    lat: 19.7649,
+    lng: -70.4249,
+    emoji: "🦐",
+    website: "https://www.facebook.com/lacasitadepapi/",
+    phone: "+18099863750",
+  },
+  {
+    slug: "anfiteatro-la-puntilla",
+    name: "Anfiteatro La Puntilla",
+    city: "Puerto Plata",
+    description:
+      "Oceanfront amphitheater at La Puntilla — outdoor concerts, carnival parades, and cultural performances overlooking the Atlantic.",
+    lat: 19.8085,
+    lng: -70.6945,
+    emoji: "🎭",
+    website:
+      "https://es.godominicanrepublic.com/que-hacer/anfiteatro-la-puntilla",
+  },
+  {
     slug: "cowork-cabarete",
     name: "Cowork Cabarete",
     city: "Cabarete",
