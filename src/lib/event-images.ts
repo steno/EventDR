@@ -48,7 +48,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "calle-sombrillas-daily": "calle-sombrillas-daily.jpeg",
   "fun-city-daily": "fun-city-daily.jpeg",
   "monkeyland-puerto-plata-daily": "monkeyland-puerto-plata-daily.jpeg",
-  "coconut-cove-ocean-zipline-daily": "coconut-cove-ocean-zipline-daily.jpeg",
+  "coconut-cove-ocean-zipline-daily": "coconut-cove-ocean-zipline-daily.jpg",
   "brugal-rum-center-weekdays": "brugal-rum-center-weekdays.jpeg",
   "freestyle-catamaran-daily": "freestyle-catamaran-daily.jpeg",
   "outback-safari-daily": "outback-safari-daily.jpeg",

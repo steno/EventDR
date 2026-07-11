@@ -9,6 +9,10 @@ const outDir = join(root, "popevent-images");
 /** Curated venue-accurate image sources (official sites, tourism board, venue media). */
 const VENUE_SOURCES = [
   {
+    eventId: "coconut-cove-ocean-zipline-daily",
+    url: "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/12/e5/6b/d1.jpg",
+  },
+  {
     eventId: "malecon-morning-wellness-walk",
     url: "https://images.prismic.io/prismic-rd-2/Z464MJbqstJ99p8j_puerto-plata-rconti-131_7870549d-e07a-da28-37eba65318d2c384.jpg?auto=format,compress",
   },

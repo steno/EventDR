@@ -31,6 +31,7 @@ const FILE_TO_EVENT_ID = {
   "voyvoy-monday-live-music.jpg": "voyvoy-monday-live-music",
   "d-classico-merengue-nights.jpg": "d-classico-merengue-nights",
   "el-carey-weekend-nightlife.jpg": "el-carey-weekend-nightlife",
+  "coconut-cove-ocean-zipline-daily.jpg": "coconut-cove-ocean-zipline-daily",
 
   // --- Original curated venue / attraction photos ---
   "MaleconOPenAir.JPG": "malecon-live-concert",
@@ -73,7 +74,6 @@ const FILE_TO_EVENT_ID = {
   "callesombrillas.jpeg": "calle-sombrillas-daily",
   "funcity.jpeg": "fun-city-daily",
   "monkeyland.jpeg": "monkeyland-puerto-plata-daily",
-  "coconut-cove-zipline.jpeg": "coconut-cove-ocean-zipline-daily",
   "brugal-rum-center.jpeg": "brugal-rum-center-weekdays",
   "freestyle-catamaran.jpeg": "freestyle-catamaran-daily",
   "outback-safari.jpeg": "outback-safari-daily",
