@@ -102,10 +102,7 @@ export default async function Page({
         sectionTitle={title}
         emoji={category.emoji}
         emojiClassName={`bg-gradient-to-br ${category.gradient}`}
-        addEventLabel={dict.submit.addCategoryEvent.replace(
-          "{category}",
-          category.label,
-        )}
+        addEventLabel={dict.submit.addCategoryEvent}
         submitDefaults={{ category: id as EventCategory, location: cityName }}
       />
     </>

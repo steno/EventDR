@@ -21,7 +21,7 @@ export function Hero({ dict, onAddEvent }: HeroProps) {
           type="button"
           onClick={onAddEvent}
           className="
-            mt-5 inline-flex shrink-0 items-center justify-center rounded-full
+            hidden sm:inline-flex shrink-0 items-center justify-center rounded-full
             bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500
             px-6 py-3.5 text-[15px] font-black text-white shadow-[0_14px_30px_-14px_rgba(244,63,94,0.8)]
             transition-transform active:scale-95 sm:mt-1 touch-manipulation

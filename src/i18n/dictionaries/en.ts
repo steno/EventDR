@@ -381,7 +381,7 @@ export const en: Dictionary = {
     image: "Event image",
     imageHint: "Optional JPG, PNG, or WebP. Max 1 MB.",
     button: "Publish event",
-    addCategoryEvent: "Add {category} event",
+    addCategoryEvent: "Create an event",
     addVenueEvent: "Add event at {venue}",
     success: "Published! It's live for everyone.",
     pendingSuccess: "Submitted for review — we'll publish it once approved.",
