@@ -1,5 +1,5 @@
 import type { Event } from "./types";
-import { localDateISO, parseLocalDate } from "./event-dates";
+import { APP_TIMEZONE, localDateISO } from "./event-dates";
 
 /** Minutes from midnight (0–1439). */
 export type EventTimeWindow = { start: number; end: number };
@@ -8,12 +8,25 @@ export type EventLiveStatus = "upcoming" | "live" | "ended" | "unknown";
 
 const DEFAULT_DURATION_MINUTES = 120;
 
-function startOfDay(d: Date): Date {
-  return new Date(d.getFullYear(), d.getMonth(), d.getDate());
+function currentMinutes(now: Date): number {
+  const formatted = new Intl.DateTimeFormat("en-GB", {
+    timeZone: APP_TIMEZONE,
+    hour: "2-digit",
+    minute: "2-digit",
+    hourCycle: "h23",
+  }).format(now);
+  const [hours, minutes] = formatted.split(":").map(Number);
+  return hours * 60 + minutes;
 }
 
-function currentMinutes(now: Date): number {
-  return now.getHours() * 60 + now.getMinutes();
+function eventStartISO(event: Pick<Event, "date">): string | null {
+  const start = event.date?.trim();
+  return start || null;
+}
+
+function eventEndISO(event: Pick<Event, "date" | "endDate">): string | null {
+  const end = (event.endDate ?? event.date)?.trim();
+  return end || null;
 }
 
 /** Parse one or two clock times from free-text event.time fields. */
@@ -42,16 +55,6 @@ export function parseEventTimeWindow(time?: string): EventTimeWindow | null {
   return { start, end: Math.max(end, start) };
 }
 
-function eventCalendarEnd(event: Pick<Event, "date" | "endDate">): Date | null {
-  const end = parseLocalDate(event.endDate ?? event.date);
-  return isNaN(end.getTime()) ? null : startOfDay(end);
-}
-
-function eventCalendarStart(event: Pick<Event, "date">): Date | null {
-  const start = parseLocalDate(event.date);
-  return isNaN(start.getTime()) ? null : startOfDay(start);
-}
-
 export function isMultiDayEvent(
   event: Pick<Event, "date" | "endDate">,
 ): boolean {
@@ -78,10 +81,10 @@ export function eventSpansToday(
   event: Pick<Event, "date" | "endDate">,
   now: Date = new Date(),
 ): boolean {
-  const start = eventCalendarStart(event);
-  const end = eventCalendarEnd(event);
+  const start = eventStartISO(event);
+  const end = eventEndISO(event);
   if (!start || !end) return false;
-  const today = startOfDay(now);
+  const today = localDateISO(now);
   return start <= today && end >= today;
 }
 
@@ -115,18 +118,18 @@ function hasWindowEnded(nowMin: number, window: EventTimeWindow): boolean {
 }
 
 /**
- * Live status for the current calendar day (local time).
+ * Live status for the current calendar day in APP_TIMEZONE.
  * Recurring events materialized to today use the same rules.
  */
 export function getEventLiveStatus(
   event: Pick<Event, "date" | "endDate" | "time">,
   now: Date = new Date(),
 ): EventLiveStatus {
-  const start = eventCalendarStart(event);
-  const end = eventCalendarEnd(event);
+  const start = eventStartISO(event);
+  const end = eventEndISO(event);
   if (!start || !end) return "unknown";
 
-  const today = startOfDay(now);
+  const today = localDateISO(now);
   if (end < today) return "ended";
   if (start > today) return "upcoming";
 
@@ -171,10 +174,8 @@ export function happensOnLocalDate(
   event: Pick<Event, "date" | "endDate">,
   dateISO: string = localDateISO(),
 ): boolean {
-  const start = eventCalendarStart(event);
-  const end = eventCalendarEnd(event);
-  const day = parseLocalDate(dateISO);
-  if (!start || !end || isNaN(day.getTime())) return false;
-  const target = startOfDay(day);
-  return start <= target && end >= target;
+  const start = eventStartISO(event);
+  const end = eventEndISO(event);
+  if (!start || !end) return false;
+  return start <= dateISO && end >= dateISO;
 }

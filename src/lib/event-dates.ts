@@ -9,6 +9,39 @@ const OFF_REGION_RE =
 /** North Coast events use Atlantic Standard Time (no DST). */
 export const APP_TIMEZONE = "America/Santo_Domingo";
 
+/** UTC noon anchor for zone-less YYYY-MM-DD strings (matches format-date.ts). */
+function calendarUTC(dateStr: string): Date | null {
+  const [y, m, d] = dateStr.split("-").map(Number);
+  if (!y || !m || !d) return null;
+  return new Date(Date.UTC(y, m - 1, d, 12));
+}
+
+/** Weekday 0=Sun … 6=Sat for a calendar date string. */
+export function weekdayFromISO(dateStr: string): number {
+  const utc = calendarUTC(dateStr);
+  return utc ? utc.getUTCDay() : NaN;
+}
+
+export function addDaysISO(dateStr: string, days: number): string {
+  const utc = calendarUTC(dateStr);
+  if (!utc) return dateStr;
+  utc.setUTCDate(utc.getUTCDate() + days);
+  return utc.toISOString().slice(0, 10);
+}
+
+function nextWeekdayISO(fromISO: string, targetDay: number): string {
+  const fromDay = weekdayFromISO(fromISO);
+  if (!Number.isFinite(fromDay)) return fromISO;
+  const diff = (targetDay - fromDay + 7) % 7;
+  return addDaysISO(fromISO, diff);
+}
+
+function nextFromWeekdaysISO(fromISO: string, days: number[]): string {
+  return days
+    .map((day) => nextWeekdayISO(fromISO, day))
+    .sort()[0]!;
+}
+
 /** YYYY-MM-DD in the app region (never use toISOString for calendar dates). */
 export function localDateISO(d: Date = new Date()): string {
   return new Intl.DateTimeFormat("en-CA", {
@@ -39,97 +72,19 @@ export function filterNorthCoastUpcomingEvents(
   now: Date = new Date(),
   maxDays = 90,
 ): Event[] {
-  const today = startOfDay(now);
-  const max = new Date(today);
-  max.setDate(max.getDate() + maxDays);
+  const today = localDateISO(now);
+  const max = addDaysISO(today, maxDays);
 
   return events.filter((event) => {
     const haystack = `${event.title} ${event.description} ${event.location} ${event.address ?? ""} ${event.venue ?? ""}`;
     if (OFF_REGION_RE.test(haystack)) return false;
     if (!NORTH_COAST_RE.test(haystack)) return false;
 
-    const eventDay = parseFlexibleEventDate(event.date);
-    if (!eventDay) return false;
+    const eventDay = event.date.trim();
+    if (!calendarUTC(eventDay)) return false;
 
-    const day = startOfDay(eventDay);
-    return day >= today && day <= max;
+    return eventDay >= today && eventDay <= max;
   });
-}
-
-function startOfDay(d: Date): Date {
-  return new Date(d.getFullYear(), d.getMonth(), d.getDate());
-}
-
-function parseEventDate(dateStr: string): Date | null {
-  const d = parseLocalDate(dateStr);
-  return isNaN(d.getTime()) ? null : d;
-}
-
-function eventEndDay(event: Pick<Event, "date" | "endDate">): Date | null {
-  return parseEventDate(event.endDate ?? event.date);
-}
-
-/** Recurring series end only when endDate is set — seed `date` is not a cutoff. */
-function recurringSeriesEndDay(
-  event: Pick<Event, "endDate">,
-): Date | null {
-  if (!event.endDate) return null;
-  return parseEventDate(event.endDate);
-}
-
-function recurringSeriesEnded(
-  event: Pick<Event, "endDate">,
-  now: Date,
-): boolean {
-  const end = recurringSeriesEndDay(event);
-  if (!end) return false;
-  return startOfDay(now) > end;
-}
-
-function recurringOccurrenceIsValid(
-  event: Pick<Event, "endDate">,
-  occurrence: Date,
-): boolean {
-  const end = recurringSeriesEndDay(event);
-  if (!end) return true;
-  return startOfDay(occurrence) <= end;
-}
-
-function nextWeekday(from: Date, targetDay: number): Date {
-  const d = startOfDay(from);
-  const diff = (targetDay - d.getDay() + 7) % 7;
-  d.setDate(d.getDate() + diff);
-  return d;
-}
-
-function weeklyDays(event: {
-  recurrenceDay?: number;
-  recurrenceDays?: number[];
-}): number[] {
-  const days = event.recurrenceDays?.length
-    ? event.recurrenceDays
-    : event.recurrenceDay != null
-      ? [event.recurrenceDay]
-      : [];
-  return [...new Set(days)].filter((day) => day >= 0 && day <= 6);
-}
-
-function nextWeeklyOccurrence(
-  from: Date,
-  event: { recurrenceDay?: number; recurrenceDays?: number[] },
-): Date | null {
-  const days = weeklyDays(event);
-  if (days.length === 0) return null;
-
-  return days
-    .map((day) => nextWeekday(from, day))
-    .sort((a, b) => a.getTime() - b.getTime())[0];
-}
-
-function nextFromWeekdays(from: Date, days: number[]): Date {
-  return days
-    .map((day) => nextWeekday(from, day))
-    .sort((a, b) => a.getTime() - b.getTime())[0]!;
 }
 
 function parseTimeMinutes(time: string | undefined): number | null {
@@ -149,11 +104,6 @@ function parseTimeMinutes(time: string | undefined): number | null {
 
 function eventStartTimeMinutes(time: string | undefined): number {
   return parseTimeMinutes(time) ?? Number.MAX_SAFE_INTEGER;
-}
-
-function eventDateMs(dateStr: string): number {
-  const d = parseEventDate(dateStr);
-  return d ? d.getTime() : Number.MAX_SAFE_INTEGER;
 }
 
 function compareSortValues(a: number, b: number): number {
@@ -181,7 +131,7 @@ export function sortUpcomingEvents(
       if (recurrenceDiff !== 0) return recurrenceDiff;
     }
 
-    const dateDiff = compareSortValues(eventDateMs(a.date), eventDateMs(b.date));
+    const dateDiff = a.date.localeCompare(b.date);
     if (dateDiff !== 0) return dateDiff;
 
     const timeDiff = compareSortValues(
@@ -197,19 +147,54 @@ export function sortUpcomingEvents(
   });
 }
 
+function recurringSeriesEnded(
+  event: Pick<Event, "endDate">,
+  now: Date,
+): boolean {
+  if (!event.endDate) return false;
+  return localDateISO(now) > event.endDate;
+}
+
+function recurringOccurrenceIsValid(
+  event: Pick<Event, "endDate">,
+  occurrenceISO: string,
+): boolean {
+  if (!event.endDate) return true;
+  return occurrenceISO <= event.endDate;
+}
+
+function weeklyDays(event: {
+  recurrenceDay?: number;
+  recurrenceDays?: number[];
+}): number[] {
+  const days = event.recurrenceDays?.length
+    ? event.recurrenceDays
+    : event.recurrenceDay != null
+      ? [event.recurrenceDay]
+      : [];
+  return [...new Set(days)].filter((day) => day >= 0 && day <= 6);
+}
+
+function nextWeeklyOccurrenceISO(
+  fromISO: string,
+  event: { recurrenceDay?: number; recurrenceDays?: number[] },
+): string | null {
+  const days = weeklyDays(event);
+  if (days.length === 0) return null;
+
+  return days
+    .map((day) => nextWeekdayISO(fromISO, day))
+    .sort()[0]!;
+}
+
 function oneOffIsActive(event: Event, now: Date): boolean {
-  const end = eventEndDay(event);
-  if (!end) return true;
-
-  const currentDay = startOfDay(now);
-  if (end < currentDay) return false;
-
-  return true;
+  const end = event.endDate ?? event.date;
+  return localDateISO(now) <= end;
 }
 
 /**
  * Sets display dates for recurring events and removes expired one-off events.
- * Always uses local calendar dates (safe on client and server).
+ * Calendar math uses ISO strings in APP_TIMEZONE — never the host system clock day.
  */
 export function materializeEventDates(
   events: Event[],
@@ -224,21 +209,21 @@ export function materializeEventDates(
     }
     if (event.recurrence === "weekdays") {
       if (recurringSeriesEnded(event, now)) return [];
-      const next = nextFromWeekdays(now, [1, 2, 3, 4, 5]);
+      const next = nextFromWeekdaysISO(today, [1, 2, 3, 4, 5]);
       if (!recurringOccurrenceIsValid(event, next)) return [];
-      return [{ ...event, date: localDateISO(next) }];
+      return [{ ...event, date: next }];
     }
     if (event.recurrence === "weekends") {
       if (recurringSeriesEnded(event, now)) return [];
-      const next = nextFromWeekdays(now, [6, 0]);
+      const next = nextFromWeekdaysISO(today, [6, 0]);
       if (!recurringOccurrenceIsValid(event, next)) return [];
-      return [{ ...event, date: localDateISO(next) }];
+      return [{ ...event, date: next }];
     }
     if (event.recurrence === "weekly") {
       if (recurringSeriesEnded(event, now)) return [];
-      const next = nextWeeklyOccurrence(now, event);
+      const next = nextWeeklyOccurrenceISO(today, event);
       if (!next || !recurringOccurrenceIsValid(event, next)) return [];
-      return [{ ...event, date: localDateISO(next) }];
+      return [{ ...event, date: next }];
     }
     if (!event.recurrence) {
       return oneOffIsActive(event, now) ? [event] : [];
@@ -258,7 +243,8 @@ export function eventMatchesRecurrence(
 ): boolean {
   if (!event.recurrence) return false;
 
-  const day = now.getDay();
+  const today = localDateISO(now);
+  const day = weekdayFromISO(today);
   const isWeekend = day === 0 || day === 6;
   const isWeekday = day >= 1 && day <= 5;
 
@@ -286,10 +272,8 @@ export function eventMatchesRecurrence(
     if (range === "today") return targets.includes(day);
     if (range === "weekend") return targets.some((target) => target === 0 || target === 6);
     if (range === "week") {
-      const today = startOfDay(now);
-      const weekEnd = new Date(today);
-      weekEnd.setDate(today.getDate() + 7);
-      const occurrence = nextWeeklyOccurrence(now, event);
+      const weekEnd = addDaysISO(today, 7);
+      const occurrence = nextWeeklyOccurrenceISO(today, event);
       if (!occurrence) return false;
       return occurrence >= today && occurrence <= weekEnd;
     }

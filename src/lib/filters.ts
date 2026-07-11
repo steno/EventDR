@@ -2,29 +2,19 @@ export type TimeRange = "all" | "today" | "weekend" | "week";
 
 import type { EventRecurrence } from "./types";
 import {
+  addDaysISO,
   eventMatchesRecurrence,
   localDateISO,
-  parseLocalDate,
+  weekdayFromISO,
 } from "./event-dates";
 import { happensOnLocalDate, isEventActiveToday } from "./event-status";
 
-function parseEventDate(dateStr: string): Date | null {
-  const d = parseLocalDate(dateStr);
-  return isNaN(d.getTime()) ? null : d;
-}
-
-function startOfDay(d: Date): Date {
-  return new Date(d.getFullYear(), d.getMonth(), d.getDate());
-}
-
-function getWeekendRange(now: Date): { start: Date; end: Date } {
-  const day = now.getDay();
+function getWeekendRangeISO(now: Date): { start: string; end: string } {
+  const today = localDateISO(now);
+  const day = weekdayFromISO(today);
   const daysUntilSaturday = (6 - day + 7) % 7;
-  const saturday = startOfDay(new Date(now));
-  saturday.setDate(now.getDate() + daysUntilSaturday);
-  const sunday = new Date(saturday);
-  sunday.setDate(saturday.getDate() + 1);
-  sunday.setHours(23, 59, 59, 999);
+  const saturday = addDaysISO(today, daysUntilSaturday);
+  const sunday = addDaysISO(saturday, 1);
   return { start: saturday, end: sunday };
 }
 
@@ -44,7 +34,7 @@ export function filterByTimeRange<
   if (range === "all") return items;
 
   const now = new Date();
-  const today = startOfDay(now);
+  const todayIso = localDateISO(now);
 
   return items.filter((item) => {
     if (
@@ -62,29 +52,23 @@ export function filterByTimeRange<
       return true;
     }
 
-    const eventDate = parseEventDate(item.date);
-    const eventEndDate = parseEventDate(item.endDate ?? item.date);
-    if (!eventDate || !eventEndDate) return false;
-
-    const eventDay = startOfDay(eventDate);
-    const eventEndDay = startOfDay(eventEndDate);
+    const eventStart = item.date.trim();
+    const eventEnd = (item.endDate ?? item.date).trim();
+    if (!eventStart || !eventEnd) return false;
 
     if (range === "today") {
-      const todayIso = localDateISO(now);
       return happensOnLocalDate(item, todayIso) && isEventActiveToday(item, now);
     }
 
     if (range === "week") {
-      const weekEnd = new Date(today);
-      weekEnd.setDate(today.getDate() + 7);
-      return eventDay <= weekEnd && eventEndDay >= today;
+      const weekEndIso = addDaysISO(todayIso, 7);
+      return eventStart <= weekEndIso && eventEnd >= todayIso;
     }
 
     if (range === "weekend") {
-      const { start, end } = getWeekendRange(now);
-      const friday = new Date(start);
-      friday.setDate(start.getDate() - 1);
-      return eventDay <= end && eventEndDay >= friday;
+      const { start, end } = getWeekendRangeISO(now);
+      const friday = addDaysISO(start, -1);
+      return eventStart <= end && eventEnd >= friday;
     }
 
     return true;
