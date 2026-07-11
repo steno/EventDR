@@ -11,6 +11,7 @@ import { SubmitEventSheet } from "@/components/SubmitEventSheet";
 import { AppHeader } from "@/components/AppHeader";
 import { attachEventImages } from "@/lib/event-images";
 import { matchVenueSlug } from "@/lib/venues-seed";
+import { useListScrollRestoration } from "@/hooks/useListScrollRestoration";
 
 interface VenuePageProps {
   venue: Venue;
@@ -44,6 +45,9 @@ export function VenuePage({ venue, locale, dict }: VenuePageProps) {
   useEffect(() => {
     refreshEvents();
   }, [refreshEvents]);
+
+  const returnTo = `/${locale}/venue/${venue.slug}`;
+  useListScrollRestoration(returnTo, !loading);
 
   return (
     <>
@@ -79,7 +83,7 @@ export function VenuePage({ venue, locale, dict }: VenuePageProps) {
             locale={locale}
             emptyMessage={dict.venues.noEvents}
             sectionTitle={dict.venues.eventsAt}
-            returnTo={`/${locale}/venue/${venue.slug}`}
+            returnTo={returnTo}
             onAddEvent={() => setSubmitOpen(true)}
           />
         </div>

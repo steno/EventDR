@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useState } from "react";
 import { AppHeader } from "@/components/AppHeader";
 import { Hero } from "@/components/Hero";
 import { CategoryGrid } from "@/components/CategoryGrid";
@@ -19,6 +19,8 @@ import { TimeFilter } from "@/components/TimeFilter";
 import { useSavedEvents } from "@/hooks/useSavedEvents";
 import { useGeolocation } from "@/hooks/useGeolocation";
 import { usePushNotifications } from "@/hooks/usePushNotifications";
+import { useListScrollRestoration } from "@/hooks/useListScrollRestoration";
+import { peekListScroll, saveListScroll } from "@/lib/list-scroll-restoration";
 import type { TimeRange } from "@/lib/filters";
 import type { Event, Venue } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
@@ -37,6 +39,7 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
   const [submitOpen, setSubmitOpen] = useState(false);
   const [allEvents, setAllEvents] = useState<Event[]>([]);
   const [refreshKey, setRefreshKey] = useState(0);
+  const [listContentReady, setListContentReady] = useState(false);
 
   const { toggleSave, isSaved, filterSaved, reconcileWithEvents } = useSavedEvents();
   const geo = useGeolocation();
@@ -45,6 +48,7 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
   const handleEventsLoaded = useCallback((events: Event[]) => {
     setAllEvents(events);
     reconcileWithEvents(events);
+    setListContentReady(true);
   }, [reconcileWithEvents]);
 
   useEffect(() => {
@@ -64,6 +68,29 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
   }
 
   const savedEvents = filterSaved(allEvents);
+  const homePath = `/${locale}`;
+
+  const saveHomeScroll = useCallback(() => {
+    saveListScroll(homePath, {
+      scrollY: window.scrollY,
+      home: { tab, searchQuery, timeRange },
+    });
+  }, [homePath, tab, searchQuery, timeRange]);
+
+  useLayoutEffect(() => {
+    const snapshot = peekListScroll(homePath);
+    if (!snapshot?.home) return;
+    setTab(snapshot.home.tab);
+    setSearchQuery(snapshot.home.searchQuery);
+    setTimeRange(snapshot.home.timeRange);
+  }, [homePath]);
+
+  const listReady =
+    tab === "saved" ||
+    (tab === "search" && !searchQuery.trim()) ||
+    listContentReady;
+
+  useListScrollRestoration(homePath, listReady);
 
   function handleTabChange(newTab: AppTab) {
     setTab(newTab);
@@ -94,6 +121,7 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
                 events={allEvents}
                 locale={locale}
                 dict={dict}
+                onBeforeNavigate={saveHomeScroll}
               />
               <div className="mb-6">
                 <CategoryGrid locale={locale} dict={dict} />
@@ -109,7 +137,8 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
                 refreshKey={refreshKey}
                 ourPicks
                 timeRange={timeRange}
-                returnTo={`/${locale}`}
+                returnTo={homePath}
+                onBeforeNavigate={saveHomeScroll}
               />
               <div className="mt-6 mb-2">
                 <PushNotifyButton
@@ -138,7 +167,9 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
                   searchQuery={searchQuery}
                   timeRange="all"
                   refreshKey={refreshKey}
-                  returnTo={`/${locale}`}
+                  returnTo={homePath}
+                  onBeforeNavigate={saveHomeScroll}
+                  onEventsLoaded={() => setListContentReady(true)}
                 />
               ) : (
                 <p className="text-center text-sm text-neutral-400 dark:text-neutral-500 font-medium py-16 px-6">
@@ -168,7 +199,8 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
                       event={event}
                       dict={dict}
                       locale={locale}
-                      returnTo={`/${locale}`}
+                      returnTo={homePath}
+                      onBeforeNavigate={saveHomeScroll}
                     />
                   ))}
                 </div>

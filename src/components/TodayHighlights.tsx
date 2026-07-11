@@ -11,6 +11,7 @@ import type { Dictionary } from "@/i18n/dictionaries";
 import { EventCardMeta } from "@/components/EventCardMeta";
 import { getDirectionsUrl } from "@/lib/maps";
 import { eventDetailPath } from "@/lib/event-navigation";
+import { saveScrollForReturn } from "@/lib/list-scroll-restoration";
 import {
   getEventLiveStatus,
   isEventActiveToday,
@@ -23,6 +24,7 @@ interface TodayHighlightsProps {
   events: Event[];
   locale: Locale;
   dict: Dictionary;
+  onBeforeNavigate?: () => void;
 }
 
 function todayHighlightSortRank(event: Event): number {
@@ -46,6 +48,7 @@ const TodayHighlightsComponent = ({
   events,
   locale,
   dict,
+  onBeforeNavigate,
 }: TodayHighlightsProps) => {
   const todayEvents = useMemo(
     () =>
@@ -84,6 +87,14 @@ const TodayHighlightsComponent = ({
             >
               <Link
                 href={href}
+                scroll={false}
+                onClick={() => {
+                  if (onBeforeNavigate) {
+                    onBeforeNavigate();
+                  } else {
+                    saveScrollForReturn(`/${locale}`);
+                  }
+                }}
                 className="flex min-h-0 flex-1 flex-col touch-manipulation active:scale-[0.995] transition-transform"
               >
                 {event.imageUrl ? (

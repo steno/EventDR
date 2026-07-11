@@ -1,7 +1,6 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import type { Event } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
@@ -24,6 +23,10 @@ export function EventPage({ event, locale, dict, returnTo }: EventPageProps) {
   const backHref = resolveEventReturnPath(locale, event, returnTo);
 
   function handleClose() {
+    if (returnTo && typeof window !== "undefined" && window.history.length > 1) {
+      router.back();
+      return;
+    }
     router.push(backHref);
   }
 
@@ -32,13 +35,14 @@ export function EventPage({ event, locale, dict, returnTo }: EventPageProps) {
       <main className="flex-1 bg-neutral-50 dark:bg-transparent min-h-screen pb-12">
         <div className="mx-auto max-w-lg sm:max-w-2xl px-4">
           <AppHeader locale={locale} dict={dict} />
-          <Link
-            href={backHref}
+          <button
+            type="button"
+            onClick={handleClose}
             className="inline-flex items-center gap-2 text-sm font-semibold text-neutral-500 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200 mb-6"
           >
             <ArrowLeft className="h-4 w-4" />
             {dict.browse.back}
-          </Link>
+          </button>
         </div>
       </main>
 

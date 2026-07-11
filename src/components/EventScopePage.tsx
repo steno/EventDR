@@ -15,6 +15,7 @@ import {
 import { SubmitEventSheet } from "@/components/SubmitEventSheet";
 import { attachEventImages } from "@/lib/event-images";
 import { AppHeader } from "@/components/AppHeader";
+import { useListScrollRestoration } from "@/hooks/useListScrollRestoration";
 
 interface EventScopePageProps {
   locale: Locale;
@@ -74,6 +75,8 @@ export function EventScopePage({
       .catch(() => setEvents(attachEventImages(initialEvents)))
       .finally(() => setLoading(false));
   }, [fetchUrl, initialEvents]);
+
+  useListScrollRestoration(returnTo, !loading);
 
   const headerEmojiClassName =
     emojiClassName ??

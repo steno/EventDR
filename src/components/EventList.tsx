@@ -23,6 +23,7 @@ interface EventListProps {
   refreshKey?: number;
   ourPicks?: boolean;
   returnTo?: string;
+  onBeforeNavigate?: () => void;
 }
 
 export function EventList({
@@ -35,6 +36,7 @@ export function EventList({
   refreshKey = 0,
   ourPicks = false,
   returnTo,
+  onBeforeNavigate,
 }: EventListProps) {
   const listReturnTo =
     returnTo ?? (category ? categoryPath(locale, category) : `/${locale}`);
@@ -181,6 +183,7 @@ export function EventList({
               dict={dict}
               locale={locale}
               returnTo={listReturnTo}
+              onBeforeNavigate={onBeforeNavigate}
             />
           ))}
         </div>

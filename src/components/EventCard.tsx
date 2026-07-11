@@ -8,6 +8,7 @@ import { getCategoryMeta } from "@/lib/categories";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import { eventDetailPath } from "@/lib/event-navigation";
+import { saveScrollForReturn } from "@/lib/list-scroll-restoration";
 import { EventCallLink } from "@/components/EventCallLink";
 import { EventStatusBadge } from "@/components/EventStatusBadge";
 import { resolveLiveStatusDisplay } from "@/lib/event-status-label";
@@ -17,9 +18,16 @@ interface EventCardProps {
   dict: Dictionary;
   locale: Locale;
   returnTo?: string;
+  onBeforeNavigate?: () => void;
 }
 
-const EventCardComponent = ({ event, dict, locale, returnTo }: EventCardProps) => {
+const EventCardComponent = ({
+  event,
+  dict,
+  locale,
+  returnTo,
+  onBeforeNavigate,
+}: EventCardProps) => {
   const category = getCategoryMeta(event.category, dict.categories);
   const emoji = event.imageEmoji ?? category?.emoji ?? "📅";
   const href = eventDetailPath(locale, event.id, returnTo);
@@ -39,7 +47,18 @@ const EventCardComponent = ({ event, dict, locale, returnTo }: EventCardProps) =
         ${isEndedToday ? "opacity-60" : ""}
       `}
     >
-      <Link href={href} className="flex gap-3.5 text-left">
+      <Link
+        href={href}
+        scroll={false}
+        onClick={() => {
+          if (onBeforeNavigate) {
+            onBeforeNavigate();
+          } else if (returnTo) {
+            saveScrollForReturn(returnTo);
+          }
+        }}
+        className="flex gap-3.5 text-left"
+      >
         <div
           className={`
             relative flex-shrink-0 self-start h-[4.25rem] w-[4.25rem] overflow-hidden rounded-xl shadow-sm
