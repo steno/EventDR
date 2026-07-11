@@ -28,10 +28,11 @@ const FILE_TO_EVENT_ID = {
   "sea-horse-saturday-artisan-fair.jpg": "sea-horse-saturday-artisan-fair",
   "la-casita-papi-beach-dining.jpg": "la-casita-papi-beach-dining",
   "kite-beach-wind-culture.jpg": "kite-beach-wind-culture",
-  "voyvoy-monday-live-music.jpg": "voyvoy-monday-live-music",
   "d-classico-merengue-nights.jpg": "d-classico-merengue-nights",
   "el-carey-weekend-nightlife.jpg": "el-carey-weekend-nightlife",
   "coconut-cove-ocean-zipline-daily.jpg": "coconut-cove-ocean-zipline-daily",
+  "freestyle-catamaran-daily.jpg": "freestyle-catamaran-daily",
+  "womens-reconnection-kite-camp-2026.jpg": "womens-reconnection-kite-camp-2026",
 
   // --- Original curated venue / attraction photos ---
   "MaleconOPenAir.JPG": "malecon-live-concert",
@@ -75,7 +76,6 @@ const FILE_TO_EVENT_ID = {
   "funcity.jpeg": "fun-city-daily",
   "monkeyland.jpeg": "monkeyland-puerto-plata-daily",
   "brugal-rum-center.jpeg": "brugal-rum-center-weekdays",
-  "freestyle-catamaran.jpeg": "freestyle-catamaran-daily",
   "outback-safari.jpeg": "outback-safari-daily",
   "NorthCoastStartupMeet.JPG": "north-coast-networking-saturday",
   "CarribeanTechTalks.JPG": "north-coast-tech-meetup",
@@ -90,6 +90,9 @@ const SAME_VENUE_COPIES = [
   ["ElBateySalsaSocial.JPG", "el-batey-weekend-nightlife"],
   ["CremoSalsaFriday.jpg", "cremo-friday-salsa-dance"],
   ["LAXSunsetSessions.JPG", "lax-headline-concerts"],
+  ["voyvoy-cabarete.jpg", "voyvoy-monday-live-music"],
+  ["voyvoy-cabarete.jpg", "voyvoy-saturday-session"],
+  ["voyvoy-cabarete.jpg", "voyvoy-sunday-open-mic"],
 ];
 
 if (!existsSync(sourceDir)) {

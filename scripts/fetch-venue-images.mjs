@@ -13,6 +13,14 @@ const VENUE_SOURCES = [
     url: "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/12/e5/6b/d1.jpg",
   },
   {
+    eventId: "freestyle-catamaran-daily",
+    url: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/02/31/4e/48/freestyle-catamaran-tour.jpg?w=1200&h=-1&s=1",
+  },
+  {
+    eventId: "womens-reconnection-kite-camp-2026",
+    url: "https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=1683911749456298",
+  },
+  {
     eventId: "malecon-morning-wellness-walk",
     url: "https://images.prismic.io/prismic-rd-2/Z464MJbqstJ99p8j_puerto-plata-rconti-131_7870549d-e07a-da28-37eba65318d2c384.jpg?auto=format,compress",
   },
@@ -77,10 +85,6 @@ const VENUE_SOURCES = [
     url: "https://images.prismic.io/prismic-rd-2/Z-pgqndAxsiBwHB3_22_12_MITUR_1974.jpg?auto=format,compress&rect=0,162,2281,1198&w=2400&h=1260",
   },
   {
-    eventId: "voyvoy-monday-live-music",
-    url: "https://images.prismic.io/prismic-rd-2/Z-pgqndAxsiBwHB3_22_12_MITUR_1974.jpg?auto=format,compress&rect=400,162,1881,1198&w=2000&h=1260",
-  },
-  {
     eventId: "d-classico-merengue-nights",
     url: "https://images.prismic.io/prismic-rd-2/ajQJ4I1P9HI4Usf9_Night.jpg?auto=format,compress&rect=0,400,4096,1800&w=2400&h=1200",
   },
@@ -95,7 +99,11 @@ for (const { eventId, url } of VENUE_SOURCES) {
   const outPath = join(outDir, `${eventId}.jpg`);
   try {
     const res = await fetch(url, {
-      headers: { "User-Agent": "EventDR/1.0 (venue image curation)" },
+      headers: {
+        "User-Agent": url.includes("lookaside.fbsbx.com")
+          ? "facebookexternalhit/1.1"
+          : "EventDR/1.0 (venue image curation)",
+      },
       redirect: "follow",
     });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
