@@ -80,8 +80,6 @@ const FILE_TO_EVENT_ID = {
   "NorthCoastStartupMeet.JPG": "north-coast-networking-saturday",
   "CarribeanTechTalks.JPG": "north-coast-tech-meetup",
   "PlayaDoradaSummerFest.JPG": "puerto-plata-carnaval-2026",
-  "CabareteReggaeRootsNight.JPG": "ojo-latin-night-thursday",
-  "CabareteFullMoonBeachParty.JPG": "ojo-weekend-dj-parties",
 };
 
 /** Same venue, same photo — copy after primary sync. */
@@ -90,6 +88,8 @@ const SAME_VENUE_COPIES = [
   ["ElBateySalsaSocial.JPG", "el-batey-weekend-nightlife"],
   ["CremoSalsaFriday.jpg", "cremo-friday-salsa-dance"],
   ["LAXSunsetSessions.JPG", "lax-headline-concerts"],
+  ["LAXSunsetSessions.JPG", "ojo-latin-night-thursday"],
+  ["LAXSunsetSessions.JPG", "ojo-weekend-dj-parties"],
   ["voyvoy-cabarete.jpg", "voyvoy-monday-live-music"],
   ["voyvoy-cabarete.jpg", "voyvoy-saturday-session"],
   ["voyvoy-cabarete.jpg", "voyvoy-sunday-open-mic"],
