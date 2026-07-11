@@ -13,6 +13,10 @@ const VENUE_SOURCES = [
     url: "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/12/e5/6b/d1.jpg",
   },
   {
+    eventId: "brugal-rum-center-weekdays",
+    url: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0c/c6/9f/08/brugal-experience-entrance.jpg?w=1200&h=1200&s=1",
+  },
+  {
     eventId: "freestyle-catamaran-daily",
     url: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/02/31/4e/48/freestyle-catamaran-tour.jpg?w=1200&h=-1&s=1",
   },

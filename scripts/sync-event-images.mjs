@@ -33,6 +33,7 @@ const FILE_TO_EVENT_ID = {
   "coconut-cove-ocean-zipline-daily.jpg": "coconut-cove-ocean-zipline-daily",
   "freestyle-catamaran-daily.jpg": "freestyle-catamaran-daily",
   "womens-reconnection-kite-camp-2026.jpg": "womens-reconnection-kite-camp-2026",
+  "brugal-rum-center-weekdays.jpg": "brugal-rum-center-weekdays",
 
   // --- Original curated venue / attraction photos ---
   "MaleconOPenAir.JPG": "malecon-live-concert",
@@ -75,7 +76,6 @@ const FILE_TO_EVENT_ID = {
   "callesombrillas.jpeg": "calle-sombrillas-daily",
   "funcity.jpeg": "fun-city-daily",
   "monkeyland.jpeg": "monkeyland-puerto-plata-daily",
-  "brugal-rum-center.jpeg": "brugal-rum-center-weekdays",
   "outback-safari.jpeg": "outback-safari-daily",
   "NorthCoastStartupMeet.JPG": "north-coast-networking-saturday",
   "CarribeanTechTalks.JPG": "north-coast-tech-meetup",
