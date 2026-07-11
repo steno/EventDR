@@ -2,6 +2,12 @@
 
 import { useEffect, useRef, type ReactNode } from "react";
 import { Link2, Mail, Share2 } from "lucide-react";
+import {
+  FacebookIcon,
+  TelegramIcon,
+  WhatsAppIcon,
+  XIcon,
+} from "@/components/ShareBrandIcons";
 import type { Event } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
@@ -23,27 +29,36 @@ const PLATFORMS: {
   id: SharePlatform;
   labelKey: keyof Dictionary["detail"];
   className: string;
-  icon?: ReactNode;
+  icon: ReactNode;
+  iconOnly?: boolean;
 }[] = [
   {
     id: "whatsapp",
     labelKey: "shareWhatsapp",
     className: "bg-[#25D366] text-white",
+    icon: <WhatsAppIcon className="h-5 w-5" />,
+    iconOnly: true,
   },
   {
     id: "facebook",
     labelKey: "shareFacebook",
     className: "bg-[#1877F2] text-white",
+    icon: <FacebookIcon className="h-5 w-5" />,
+    iconOnly: true,
   },
   {
     id: "x",
     labelKey: "shareX",
     className: "bg-neutral-900 text-white",
+    icon: <XIcon className="h-4 w-4" />,
+    iconOnly: true,
   },
   {
     id: "telegram",
     labelKey: "shareTelegram",
     className: "bg-[#26A5E4] text-white",
+    icon: <TelegramIcon className="h-5 w-5" />,
+    iconOnly: true,
   },
   {
     id: "email",
@@ -51,6 +66,7 @@ const PLATFORMS: {
     className:
       "bg-white dark:bg-neutral-800 text-neutral-500 dark:text-neutral-400 ring-1 ring-neutral-200/70 dark:ring-neutral-700/70 shadow-sm hover:text-neutral-800 dark:hover:text-neutral-200",
     icon: <Mail className="h-4 w-4" />,
+    iconOnly: false,
   },
   {
     id: "copy",
@@ -58,6 +74,7 @@ const PLATFORMS: {
     className:
       "bg-white dark:bg-neutral-800 text-neutral-500 dark:text-neutral-400 ring-1 ring-neutral-200/70 dark:ring-neutral-700/70 shadow-sm hover:text-neutral-800 dark:hover:text-neutral-200",
     icon: <Link2 className="h-4 w-4" />,
+    iconOnly: false,
   },
 ];
 
@@ -116,11 +133,16 @@ export function ShareMenu({
           <button
             key={platform.id}
             type="button"
+            aria-label={dict.detail[platform.labelKey]}
             onClick={() => handlePlatform(platform.id)}
-            className={`flex shrink-0 items-center gap-2 rounded-full px-3 py-2.5 text-[13px] font-bold touch-manipulation transition-all active:scale-[0.98] ${platform.className}`}
+            className={`flex shrink-0 items-center touch-manipulation transition-all active:scale-[0.98] ${
+              platform.iconOnly
+                ? `justify-center rounded-full p-3 shadow-sm ${platform.className}`
+                : `gap-2 rounded-full px-3 py-2.5 text-[13px] font-bold ${platform.className}`
+            }`}
           >
             {platform.icon}
-            {dict.detail[platform.labelKey]}
+            {!platform.iconOnly && dict.detail[platform.labelKey]}
           </button>
         ))}
       </div>
