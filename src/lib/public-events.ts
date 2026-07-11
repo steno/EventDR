@@ -13,6 +13,7 @@ import type { CitySlug } from "@/lib/cities";
 import { eventMatchesCity } from "@/lib/cities";
 import type { TimeRange } from "@/lib/filters";
 import { filterByTimeRange } from "@/lib/filters";
+import { eventInCategory, withResolvedCategories } from "@/lib/categorize";
 import type { Event, EventCategory } from "@/lib/types";
 
 export type PublicEventsFilter = {
@@ -58,7 +59,7 @@ function applyScopeFilters(events: Event[], filter: PublicEventsFilter): Event[]
     result = result.filter((event) => eventMatchesCity(event, filter.city!));
   }
   if (filter.category) {
-    result = result.filter((event) => event.category === filter.category);
+    result = result.filter((event) => eventInCategory(event, filter.category!));
   }
 
   result = materializeEventDates(result);
@@ -100,6 +101,7 @@ export async function getPublicEvents(
   events = applyCuratedEventPatches(events);
   events = attachEventPhones(events);
   events = attachEventImages(events);
+  events = events.map(withResolvedCategories);
 
   return events;
 }

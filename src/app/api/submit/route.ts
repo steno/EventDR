@@ -7,6 +7,7 @@ import { SEED_VENUES } from "@/lib/venues-seed";
 import { isValidLocale, defaultLocale } from "@/i18n/config";
 import type { Locale } from "@/i18n/config";
 import type { EventCategory, EventRecurrence } from "@/lib/types";
+import { CATEGORY_IDS } from "@/lib/categories";
 import { getDictionary } from "@/i18n/dictionaries";
 import { NextRequest, NextResponse } from "next/server";
 import { uploadEventImage } from "@/lib/firebase/images";
@@ -47,6 +48,14 @@ export async function POST(request: NextRequest) {
       location: body.location,
       venue: body.venue,
       category: body.category as EventCategory,
+      categories: Array.isArray(body.categories)
+        ? body.categories.filter(
+            (value: unknown): value is EventCategory =>
+              typeof value === "string" &&
+              CATEGORY_IDS.includes(value as EventCategory) &&
+              value !== body.category,
+          )
+        : undefined,
       format: body.format as "physical" | "digital" | "hybrid",
       recurrence: body.recurrence as EventRecurrence | undefined,
       recurrenceDay: body.recurrenceDay,

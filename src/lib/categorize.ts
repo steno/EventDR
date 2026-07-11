@@ -1,4 +1,4 @@
-import type { EventCategory } from "./types";
+import type { Event, EventCategory } from "./types";
 import { CATEGORY_IDS } from "./categories";
 
 type KeywordMap = Record<EventCategory, string[]>;
@@ -243,6 +243,14 @@ function scoreCategory(text: string, keywords: string[]): number {
   );
 }
 
+function categoryScores(text: string): Map<EventCategory, number> {
+  const scores = new Map<EventCategory, number>();
+  for (const id of CATEGORY_IDS) {
+    scores.set(id as EventCategory, scoreCategory(text, KEYWORDS[id as EventCategory]));
+  }
+  return scores;
+}
+
 export function inferCategory(
   text: string,
   hint?: EventCategory,
@@ -266,11 +274,79 @@ export function inferCategory(
   return best;
 }
 
-export function matchesCategory(
-  event: { title: string; description: string; category: EventCategory },
+/** Primary plus any explicit or inferred secondary categories. */
+export function getEventCategoryList(event: {
+  category: EventCategory;
+  categories?: EventCategory[];
+}): EventCategory[] {
+  const secondary =
+    event.categories?.filter((category) => category !== event.category) ?? [];
+  return [event.category, ...secondary];
+}
+
+/** Keyword-based secondaries — min score 2 avoids weak matches like lone "tour". */
+export function inferSecondaryCategories(
+  text: string,
+  primary: EventCategory,
+  minScore = 2,
+): EventCategory[] {
+  const scores = categoryScores(text);
+  return CATEGORY_IDS.filter((id) => {
+    const category = id as EventCategory;
+    if (category === primary) return false;
+    return (scores.get(category) ?? 0) >= minScore;
+  }) as EventCategory[];
+}
+
+export function resolveSecondaryCategories(event: {
+  title: string;
+  description: string;
+  category: EventCategory;
+  categories?: EventCategory[];
+}): EventCategory[] {
+  const explicit =
+    event.categories?.filter((category) => category !== event.category) ?? [];
+  if (explicit.length > 0) {
+    return [...new Set(explicit)];
+  }
+  return inferSecondaryCategories(
+    `${event.title} ${event.description}`,
+    event.category,
+  );
+}
+
+/** Fill secondary categories when omitted; preserves explicit tags on seed events. */
+export function withResolvedCategories<T extends Event>(event: T): T {
+  const secondary = resolveSecondaryCategories(event);
+  if (secondary.length === 0) {
+    if (!event.categories?.length) return event;
+    const { categories: _removed, ...rest } = event;
+    return rest as T;
+  }
+  return { ...event, categories: secondary };
+}
+
+export function eventInCategory(
+  event: {
+    category: EventCategory;
+    categories?: EventCategory[];
+  },
   category: EventCategory,
 ): boolean {
   if (event.category === category) return true;
+  return event.categories?.includes(category) ?? false;
+}
+
+export function matchesCategory(
+  event: {
+    title: string;
+    description: string;
+    category: EventCategory;
+    categories?: EventCategory[];
+  },
+  category: EventCategory,
+): boolean {
+  if (eventInCategory(event, category)) return true;
   const text = `${event.title} ${event.description}`;
   return scoreCategory(text, KEYWORDS[category]) >= 1;
 }

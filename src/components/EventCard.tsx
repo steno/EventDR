@@ -56,8 +56,10 @@ const EventCardComponent = ({
             saveScrollForReturn(returnTo ?? window.location.pathname);
           }
         }}
-        className="flex gap-3.5 text-left"
-      >
+        className="absolute inset-0 z-0 rounded-2xl touch-manipulation"
+        aria-label={event.title}
+      />
+      <div className="relative z-[1] flex gap-3.5 text-left pointer-events-none">
         <div
           className={`
             relative flex-shrink-0 self-start h-[4.25rem] w-[4.25rem] overflow-hidden rounded-xl shadow-sm
@@ -107,9 +109,9 @@ const EventCardComponent = ({
 
           <EventCardMeta event={event} locale={locale} dict={dict} />
         </div>
-      </Link>
+      </div>
       {event.phone && (
-        <div className="mt-4 pl-[4.875rem]">
+        <div className="relative z-[2] mt-4 pl-[4.875rem] pointer-events-auto">
           <EventCallLink phone={event.phone} label={dict.detail.call} />
         </div>
       )}

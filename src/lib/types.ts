@@ -54,6 +54,8 @@ export interface Event {
   /** Contact phone when known (venue default or event-specific). */
   phone?: string;
   category: EventCategory;
+  /** Extra category tabs/listings where this event should also appear. */
+  categories?: EventCategory[];
   format: EventFormat;
   trending?: boolean;
   sourceUrl?: string;

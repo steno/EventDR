@@ -1,6 +1,7 @@
 import type { Event } from "./types";
 import { CATEGORY_IDS } from "./categories";
 import type { EventCategory, EventRecurrence } from "./types";
+import { withResolvedCategories } from "./categorize";
 import { parseImageDataUrl } from "./image-data-url";
 
 const SEED_COMMUNITY: Event[] = [
@@ -42,7 +43,7 @@ const SEED_COMMUNITY: Event[] = [
 const store: Event[] = [...SEED_COMMUNITY];
 
 export function getCommunityEvents(): Event[] {
-  return [...store];
+  return store.map(withResolvedCategories);
 }
 
 export function addCommunityEvent(event: Event): Event {
@@ -150,6 +151,7 @@ export function createCommunityEvent(payload: {
   location: string;
   venue?: string;
   category: EventCategory;
+  categories?: EventCategory[];
   format: Event["format"];
   recurrence?: EventRecurrence;
   recurrenceDay?: number;
@@ -161,7 +163,7 @@ export function createCommunityEvent(payload: {
     .replace(/[^a-z0-9]+/g, "-")
     .slice(0, 32);
 
-  return {
+  return withResolvedCategories({
     id: `community-${Date.now()}-${slug}`,
     title: payload.title.trim(),
     description: payload.description.trim(),
@@ -170,6 +172,7 @@ export function createCommunityEvent(payload: {
     location: payload.location.trim(),
     venue: payload.venue?.trim(),
     category: payload.category,
+    categories: payload.categories,
     format: payload.format,
     recurrence: payload.recurrence,
     recurrenceDay: payload.recurrenceDay,
@@ -177,5 +180,5 @@ export function createCommunityEvent(payload: {
     imageUrl: payload.imageUrl,
     communitySubmitted: true,
     imageEmoji: "📌",
-  };
+  });
 }

@@ -2,7 +2,7 @@ import type { Event, EventCategory } from "./types";
 import { CATEGORY_IDS } from "./categories";
 import type { CrawlResult } from "./crawl";
 import type { Locale } from "@/i18n/config";
-import { inferCategory } from "./categorize";
+import { inferCategory, withResolvedCategories } from "./categorize";
 import { filterNorthCoastUpcomingEvents, localDateISO } from "./event-dates";
 import { normalizeEventLineup, normalizeLineup } from "./event-lineup";
 import { normalizeExtractedEvents } from "./event-location";
@@ -55,19 +55,21 @@ function parseEventsHeuristic(
 
         if (title.length > 5) {
           const category = inferCategory(block, categoryHint);
-          events.push({
-            id: slugify(title) || `event-${events.length}`,
-            title,
-            description: block.slice(0, 200),
-            date: dateMatch?.[0] ?? "TBA",
-            location: locMatch?.[0] ?? "North Coast, DR",
-            address: addressMatch?.[0]?.trim(),
-            category,
-            format: /online|virtual|zoom|stream/i.test(block)
-              ? "digital"
-              : "physical",
-            sourceUrl: block.match(/https?:\/\/[^\s)]+/)?.[0],
-          });
+          events.push(
+            withResolvedCategories({
+              id: slugify(title) || `event-${events.length}`,
+              title,
+              description: block.slice(0, 200),
+              date: dateMatch?.[0] ?? "TBA",
+              location: locMatch?.[0] ?? "North Coast, DR",
+              address: addressMatch?.[0]?.trim(),
+              category,
+              format: /online|virtual|zoom|stream/i.test(block)
+                ? "digital"
+                : "physical",
+              sourceUrl: block.match(/https?:\/\/[^\s)]+/)?.[0],
+            }),
+          );
         }
         buffer = [];
       }
@@ -111,6 +113,7 @@ Return ONLY valid JSON: an array of event objects. Each object must have:
 - address (street address when stated — e.g. "Calle Duarte 37"; include whenever the source mentions a street, number, or intersection; omit only if truly unknown)
 - location (city/area only: Puerto Plata, Sosúa, Cabarete, Costambar, or Playa Dorada — never repeat the street address here)
 - category (one of: ${categoryList})
+- categories (optional array of additional categories from the same list when the event clearly fits more than one — e.g. a distillery tour with tastings: business + food-drinks)
 - format ("physical", "digital", or "hybrid")
 - trending (boolean, true for popular events)
 - sourceUrl (optional URL from source)
@@ -157,17 +160,24 @@ ${rawContent.slice(0, 18000)}`;
   try {
     const parsed = JSON.parse(content) as { events?: Event[] };
     return (parsed.events ?? []).map((e, i) =>
-      normalizeEventLineup({
-        ...e,
-        id: e.id || `ai-${i}-${slugify(e.title)}`,
-        category: VALID_CATEGORIES.has(e.category as EventCategory)
-          ? e.category
-          : inferCategory(
-              `${e.title} ${e.description}`,
-              category as EventCategory | undefined,
-            ),
-        lineup: normalizeLineup(e.lineup),
-      }),
+      withResolvedCategories(
+        normalizeEventLineup({
+          ...e,
+          id: e.id || `ai-${i}-${slugify(e.title)}`,
+          category: VALID_CATEGORIES.has(e.category as EventCategory)
+            ? e.category
+            : inferCategory(
+                `${e.title} ${e.description}`,
+                category as EventCategory | undefined,
+              ),
+          categories: Array.isArray(e.categories)
+            ? e.categories.filter((c): c is EventCategory =>
+                VALID_CATEGORIES.has(c as EventCategory),
+              )
+            : undefined,
+          lineup: normalizeLineup(e.lineup),
+        }),
+      ),
     );
   } catch {
     return [];

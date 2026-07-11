@@ -6,6 +6,7 @@ import type { Locale } from "@/i18n/config";
 import { formatEventDateRange } from "@/lib/format-date";
 import { formatRecurrenceLabel } from "@/lib/recurrence-label";
 import { formatEventPlace } from "@/lib/event-location";
+import { EventCategoryLinks } from "@/components/EventCategoryLinks";
 
 interface EventCardMetaProps {
   event: Event;
@@ -55,6 +56,13 @@ export function EventCardMeta({ event, locale, dict, className = "" }: EventCard
           </span>
         )}
       </div>
+      <EventCategoryLinks
+        event={event}
+        locale={locale}
+        dict={dict}
+        className="relative z-[2] pt-0.5 pointer-events-auto"
+        linkable
+      />
       <MetaRow icon={<MapPin className="h-4 w-4" />}>{formatEventPlace(event)}</MetaRow>
     </div>
   );

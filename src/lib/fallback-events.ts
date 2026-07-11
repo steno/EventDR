@@ -4,6 +4,7 @@ import { FALLBACK_EVENTS_FR } from "./fallback-events-fr";
 import { getRecurringEvents } from "./recurring-events";
 import { materializeEventDates } from "./event-dates";
 import { filterRemovedSeedEvents } from "./removed-seeds";
+import { eventInCategory, withResolvedCategories } from "./categorize";
 import {
   EL_CAREY_WC2026_EVENTS_EN,
   EL_CAREY_WC2026_EVENTS_ES,
@@ -498,7 +499,9 @@ export function getFallbackEvents(locale: Locale = "en"): Event[] {
     ...base,
     ...getWorldCupEvents(locale),
   ];
-  return materializeEventDates(filterRemovedSeedEvents(merged));
+  return materializeEventDates(filterRemovedSeedEvents(merged)).map(
+    withResolvedCategories,
+  );
 }
 
 /** Lookup before date materialization — keeps expired one-offs resolvable for share links. */
@@ -524,5 +527,5 @@ export function getFallbackForCategory(
   category: EventCategory,
   locale: Locale = "en",
 ): Event[] {
-  return getFallbackEvents(locale).filter((e) => e.category === category);
+  return getFallbackEvents(locale).filter((e) => eventInCategory(e, category));
 }

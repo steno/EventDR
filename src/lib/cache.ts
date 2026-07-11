@@ -2,7 +2,7 @@ import type { Event, EventCategory } from "./types";
 import type { Locale } from "@/i18n/config";
 import { CATEGORY_IDS } from "./categories";
 import { getFallbackEvents, getFallbackForCategory } from "./fallback-events";
-import { matchesCategory } from "./categorize";
+import { eventInCategory } from "./categorize";
 import { getAppVersion } from "./app-version";
 
 interface CacheEntry {
@@ -81,7 +81,7 @@ export function getPoolEvents(
 ): Event[] {
   const pool = getCachedEvents(getPoolCacheKey(locale)) ?? [];
   if (!category) return pool;
-  return pool.filter((e) => matchesCategory(e, category));
+  return pool.filter((e) => eventInCategory(e, category));
 }
 
 function eventTitleKey(event: Event): string {
@@ -112,7 +112,7 @@ export function ensureCategoryCoverage(
   locale: Locale,
 ): Event[] {
   const filtered = dedupeEvents(
-    events.filter((e) => matchesCategory(e, category)),
+    events.filter((e) => eventInCategory(e, category)),
   );
 
   const seen = new Set(filtered.map((e) => e.id));
@@ -154,7 +154,7 @@ export function buildAllResponse(crawled: Event[], locale: Locale): Event[] {
 
   // Guarantee every category has at least one event on the home feed
   for (const cat of CATEGORY_IDS) {
-    if (!merged.some((e) => e.category === cat)) {
+    if (!merged.some((e) => eventInCategory(e, cat as EventCategory))) {
       const [first] = getFallbackForCategory(cat as EventCategory, locale);
       if (first && !seen.has(first.id)) {
         merged.push(first);

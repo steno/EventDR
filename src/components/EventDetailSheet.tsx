@@ -27,6 +27,7 @@ import { addToCalendar } from "@/lib/calendar";
 import { ShareMenu } from "@/components/ShareMenu";
 import { matchVenueSlug } from "@/lib/venues-seed";
 import { formatRecurrenceLabel } from "@/lib/recurrence-label";
+import { EventCategoryLinks } from "@/components/EventCategoryLinks";
 import { useLiveStatusDisplay } from "@/hooks/useLiveStatusDisplay";
 import { EventStatusBadge } from "@/components/EventStatusBadge";
 import { EventImage } from "@/components/EventImage";
@@ -137,6 +138,13 @@ export function EventDetailSheet({
       </TitleTag>
 
       <p className="mt-4 text-copy">{event.description}</p>
+
+      <EventCategoryLinks
+        event={event}
+        locale={locale}
+        dict={dict}
+        className="mt-4"
+      />
 
       {event.lineup && event.lineup.length > 0 && (
         <div className="mt-4">

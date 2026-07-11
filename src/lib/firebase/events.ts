@@ -1,6 +1,7 @@
 import { FieldValue, type DocumentData } from "firebase-admin/firestore";
 import type { Event, EventCategory, EventFormat, Venue } from "@/lib/types";
 import type { LocalizedText } from "@/lib/localized-text";
+import { getEventCategoryList, withResolvedCategories } from "@/lib/categorize";
 import { sanitizeEventPlaceFields } from "@/lib/event-location";
 import { normalizeLineup } from "@/lib/event-lineup";
 import { applyCuratedEventPatch } from "@/lib/curated-events";
@@ -39,6 +40,9 @@ function docToEvent(id: string, data: DocumentData): Event {
     venue: (data.venueName as string | null) ?? undefined,
     venueSlug: (data.venueSlug as string | null) ?? undefined,
     category: data.category as EventCategory,
+    categories: Array.isArray(data.categories)
+      ? (data.categories as EventCategory[])
+      : undefined,
     format: data.format as EventFormat,
     trending: Boolean(data.trending),
     sourceUrl: (data.sourceUrl as string | null) ?? undefined,
@@ -64,7 +68,9 @@ function docToEvent(id: string, data: DocumentData): Event {
           }
         : undefined,
   };
-  return applyCuratedEventPatch(sanitizeEventPlaceFields(event));
+  return applyCuratedEventPatch(
+    withResolvedCategories(sanitizeEventPlaceFields(event)),
+  );
 }
 
 function docToVenue(slug: string, data: DocumentData): Venue {
@@ -103,6 +109,8 @@ function eventToFirestore(
     venueSlug: event.venueSlug ?? null,
     venueName: event.venue ?? null,
     category: event.category,
+    categories: event.categories?.length ? event.categories : null,
+    searchCategories: getEventCategoryList(event),
     format: event.format,
     trending: event.trending ?? false,
     sourceUrl: event.sourceUrl ?? null,
@@ -185,7 +193,7 @@ export async function fetchApprovedEvents(options?: {
 
   // Apply filters at database level when possible
   if (options?.category) {
-    query = query.where("category", "==", options.category);
+    query = query.where("searchCategories", "array-contains", options.category);
   }
   if (options?.venueSlug) {
     query = query.where("venueSlug", "==", options.venueSlug);

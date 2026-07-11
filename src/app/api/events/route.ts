@@ -22,6 +22,7 @@ import type { Event, EventCategory } from "@/lib/types";
 import { CATEGORY_IDS } from "@/lib/categories";
 import { eventMatchesCity, isCitySlug } from "@/lib/cities";
 import { filterByTimeRange, type TimeRange } from "@/lib/filters";
+import { eventInCategory } from "@/lib/categorize";
 import { attachEventImages } from "@/lib/event-images";
 import { attachEventPhones } from "@/lib/event-phone";
 import { applyCuratedEventPatches } from "@/lib/curated-events";
@@ -118,7 +119,7 @@ export async function GET(request: NextRequest) {
       result = result.filter((e) => eventMatchesCity(e, city));
     }
     if (category) {
-      result = result.filter((e) => e.category === category);
+      result = result.filter((e) => eventInCategory(e, category));
     }
     return result;
   }
