@@ -19,8 +19,9 @@ const EventImageComponent = ({
   variant = "thumb",
 }: EventImageProps) => {
   const rawImage = src.startsWith("data:") || src.startsWith("http");
+  const localWithQuery = src.startsWith("/") && src.includes("?");
 
-  if (rawImage) {
+  if (rawImage || localWithQuery) {
     return (
       // eslint-disable-next-line @next/next/no-img-element
       <img

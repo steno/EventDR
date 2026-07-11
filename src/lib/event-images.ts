@@ -1,4 +1,6 @@
 /** Maps seed event ids to image files under /public/events (synced from popevent-images). */
+import { getAppVersion } from "./app-version";
+
 const EVENT_IMAGE_FILES: Record<string, string> = {
   "malecon-live-concert": "malecon-live-concert.jpg",
   "rumble-in-paradise-12": "rumble-in-paradise-12.png",
@@ -96,7 +98,7 @@ export function getEventImageUrl(eventId: string): string | undefined {
   const file =
     EVENT_IMAGE_FILES[resolvedId] ??
     EVENT_IMAGE_PREFIXES.find((p) => resolvedId.startsWith(p.prefix))?.file;
-  return file ? `/events/${file}` : undefined;
+  return file ? `/events/${file}?v=${getAppVersion()}` : undefined;
 }
 
 export function attachEventImage<T extends { id: string; imageUrl?: string }>(

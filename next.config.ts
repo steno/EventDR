@@ -47,6 +47,12 @@ const nextConfig: NextConfig = {
         ],
       },
       {
+        source: "/events/:path*",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=0, must-revalidate" },
+        ],
+      },
+      {
         source: "/icons/:path*",
         headers: [
           { key: "Cache-Control", value: "no-store, max-age=0, must-revalidate" },
