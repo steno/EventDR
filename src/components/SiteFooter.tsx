@@ -1,6 +1,8 @@
 import Link from "next/link";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
+import { CATEGORY_IDS } from "@/lib/categories";
+import { CITIES, getCityName } from "@/lib/cities";
 import { SEED_VENUES } from "@/lib/venues-seed";
 
 interface SiteFooterProps {
@@ -9,17 +11,10 @@ interface SiteFooterProps {
   className?: string;
 }
 
-const FOOTER_CATEGORIES = [
-  "music",
-  "parties",
-  "food-drinks",
-  "sports",
-  "culture",
-  "adventure",
-] as const;
+const FOOTER_VENUE_COUNT = 6;
 
 export function SiteFooter({ dict, locale, className = "" }: SiteFooterProps) {
-  const footerVenues = SEED_VENUES.slice(0, 4);
+  const footerVenues = SEED_VENUES.slice(0, FOOTER_VENUE_COUNT);
 
   return (
     <footer
@@ -32,7 +27,28 @@ export function SiteFooter({ dict, locale, className = "" }: SiteFooterProps) {
         <Link href={`/${locale}`} className="hover:text-neutral-800 dark:hover:text-neutral-200 transition-colors">
           {dict.hero.events}
         </Link>
-        {FOOTER_CATEGORIES.map((id) => (
+        {CITIES.map((city) => (
+          <Link
+            key={city.slug}
+            href={`/${locale}/city/${city.slug}`}
+            className="hover:text-neutral-800 dark:hover:text-neutral-200 transition-colors"
+          >
+            {getCityName(city, locale)}
+          </Link>
+        ))}
+        <Link
+          href={`/${locale}/when/today`}
+          className="hover:text-neutral-800 dark:hover:text-neutral-200 transition-colors"
+        >
+          {dict.time.today}
+        </Link>
+        <Link
+          href={`/${locale}/when/weekend`}
+          className="hover:text-neutral-800 dark:hover:text-neutral-200 transition-colors"
+        >
+          {dict.time.weekend}
+        </Link>
+        {CATEGORY_IDS.map((id) => (
           <Link
             key={id}
             href={`/${locale}/category/${id}`}

@@ -39,6 +39,7 @@ export type Dictionary = {
     ariaLabel: string;
     back: string;
     eventsIn: string;
+    eventsInPlace: string;
     noEvents: string;
   };
   events: {
@@ -176,6 +177,9 @@ export type Dictionary = {
     builtWith: string;
     searchByBrave: string;
   };
+  cities: {
+    browseTopCategories: string;
+  };
   lang: {
     en: string;
     es: string;
@@ -219,7 +223,7 @@ export const en: Dictionary = {
   meta: {
     title: "POP Events near you | North Coast DR",
     description:
-      "Discover trending events in Puerto Plata, Sosúa, and Cabarete. Physical and digital happenings on the North Coast of the Dominican Republic.",
+      "Discover events in Puerto Plata, Sosúa, and Cabarete — concerts, parties, kite surf, yoga, food festivals, and local happenings on the North Coast of the Dominican Republic.",
   },
   seo: {
     siteName: "POP Events",
@@ -268,6 +272,7 @@ export const en: Dictionary = {
     ariaLabel: "Event categories",
     back: "Back to discover",
     eventsIn: "Upcoming events",
+    eventsInPlace: "Events in {place}",
     noEvents: "No events in this category yet.",
   },
   events: {
@@ -412,6 +417,9 @@ export const en: Dictionary = {
     tagline: "POP Events · North Coast Dominican Republic",
     builtWith: "Built with ❤️ by",
     searchByBrave: "Search by Brave",
+  },
+  cities: {
+    browseTopCategories: "Popular in {city}",
   },
   lang: {
     en: "EN",

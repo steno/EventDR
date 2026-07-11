@@ -2,7 +2,12 @@ import type { Metadata } from "next";
 import type { Locale } from "@/i18n/config";
 import { defaultLocale, locales } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
-import type { Event, Venue } from "@/lib/types";
+import type { CityMeta } from "@/lib/cities";
+import { getCitySeo } from "@/lib/cities";
+import { getCategorySeo } from "@/lib/category-seo";
+import { getCityCategorySeo } from "@/lib/city-category-seo";
+import { getWhenSeo, type WhenSlug } from "@/lib/time-seo";
+import type { Event, EventCategory, Venue } from "@/lib/types";
 import { formatEventPlace } from "@/lib/event-location";
 import { SITE_URL } from "@/lib/site-url";
 
@@ -99,15 +104,74 @@ export function buildHomeMetadata(
 
 export function buildCategoryMetadata(
   locale: Locale,
-  dict: Dictionary,
-  categoryLabel: string,
-  categoryId: string,
+  categoryId: EventCategory,
 ): Metadata {
   const path = `/category/${categoryId}`;
-  const title = fillTemplate(dict.seo.categoryTitle, { category: categoryLabel });
-  const description = fillTemplate(dict.seo.categoryDescription, {
-    category: categoryLabel,
-  });
+  const { title, description } = getCategorySeo(locale, categoryId);
+  const alternates = buildAlternates(locale, path);
+
+  return {
+    title,
+    description,
+    alternates,
+    openGraph: defaultOpenGraph(locale, {
+      title,
+      description,
+      url: alternates.canonical,
+    }),
+    twitter: defaultTwitter({ title, description }),
+  };
+}
+
+export function buildCityMetadata(locale: Locale, city: CityMeta): Metadata {
+  const path = `/city/${city.slug}`;
+  const { title, description } = getCitySeo(city, locale);
+  const alternates = buildAlternates(locale, path);
+
+  return {
+    title,
+    description,
+    alternates,
+    openGraph: defaultOpenGraph(locale, {
+      title,
+      description,
+      url: alternates.canonical,
+    }),
+    twitter: defaultTwitter({ title, description }),
+  };
+}
+
+export function buildWhenMetadata(locale: Locale, slug: WhenSlug): Metadata {
+  const path = `/when/${slug}`;
+  const { title, description } = getWhenSeo(locale, slug);
+  const alternates = buildAlternates(locale, path);
+
+  return {
+    title,
+    description,
+    alternates,
+    openGraph: defaultOpenGraph(locale, {
+      title,
+      description,
+      url: alternates.canonical,
+    }),
+    twitter: defaultTwitter({ title, description }),
+  };
+}
+
+export function buildCityCategoryMetadata(
+  locale: Locale,
+  city: CityMeta,
+  categoryId: EventCategory,
+  categoryLabel: string,
+): Metadata {
+  const path = `/city/${city.slug}/category/${categoryId}`;
+  const { title, description } = getCityCategorySeo(
+    locale,
+    city,
+    categoryId,
+    categoryLabel,
+  );
   const alternates = buildAlternates(locale, path);
 
   return {
@@ -278,6 +342,63 @@ export function buildBreadcrumbJsonLd(
       item: absoluteUrl(item.path),
     })),
   };
+}
+
+export function buildItemListJsonLd(
+  events: Event[],
+  listName: string,
+  locale: Locale,
+  listPath: string,
+): Record<string, unknown> {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: listName,
+    url: absoluteUrl(listPath),
+    numberOfItems: events.length,
+    itemListElement: events.slice(0, 10).map((event, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      url: absoluteUrl(localePath(locale, `/event/${event.id}`)),
+      name: event.title,
+    })),
+  };
+}
+
+export function buildCollectionPageJsonLd(
+  name: string,
+  description: string,
+  locale: Locale,
+  path: string,
+): Record<string, unknown> {
+  return {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name,
+    description,
+    url: absoluteUrl(path),
+    inLanguage: locale,
+    isPartOf: {
+      "@type": "WebSite",
+      name: SITE_NAME,
+      url: absoluteUrl(localePath(locale)),
+    },
+  };
+}
+
+export function buildListingPageJsonLd(
+  locale: Locale,
+  path: string,
+  seo: { title: string; description: string },
+  listName: string,
+  events: Event[],
+  breadcrumbs: Array<{ name: string; path: string }>,
+): Record<string, unknown>[] {
+  return [
+    buildCollectionPageJsonLd(seo.title, seo.description, locale, path),
+    buildItemListJsonLd(events, listName, locale, path),
+    buildBreadcrumbJsonLd(breadcrumbs),
+  ];
 }
 
 export function buildLocalBusinessJsonLd(

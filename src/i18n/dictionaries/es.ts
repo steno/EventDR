@@ -4,7 +4,7 @@ export const es: Dictionary = {
   meta: {
     title: "POP Eventos cerca de ti | Costa Norte RD",
     description:
-      "Descubre eventos populares en Puerto Plata, Sosúa y Cabarete. Actividades presenciales y digitales en la Costa Norte de República Dominicana.",
+      "Descubre eventos en Puerto Plata, Sosúa y Cabarete — conciertos, fiestas, kite surf, yoga, festivales gastronómicos y planes locales en la Costa Norte de República Dominicana.",
   },
   seo: {
     siteName: "POP Eventos",
@@ -53,6 +53,7 @@ export const es: Dictionary = {
     ariaLabel: "Categorías de eventos",
     back: "Volver a explorar",
     eventsIn: "Próximos eventos",
+    eventsInPlace: "Eventos en {place}",
     noEvents: "Aún no hay eventos en esta categoría.",
   },
   events: {
@@ -197,6 +198,9 @@ export const es: Dictionary = {
     tagline: "POP Eventos · Costa Norte República Dominicana",
     builtWith: "Hecho con ❤️ por",
     searchByBrave: "Búsqueda por Brave",
+  },
+  cities: {
+    browseTopCategories: "Popular en {city}",
   },
   lang: {
     en: "EN",

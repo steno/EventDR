@@ -1,13 +1,15 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { CategoryPage } from "@/components/CategoryPage";
+import { EventScopePage } from "@/components/EventScopePage";
 import { JsonLd } from "@/components/JsonLd";
 import { CATEGORY_IDS, getCategoryMeta } from "@/lib/categories";
+import { getCategorySeo } from "@/lib/category-seo";
 import { isValidLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
+import { getPublicEvents } from "@/lib/public-events";
 import {
-  buildBreadcrumbJsonLd,
   buildCategoryMetadata,
+  buildListingPageJsonLd,
   localePath,
 } from "@/lib/seo";
 import type { EventCategory } from "@/lib/types";
@@ -27,11 +29,7 @@ export async function generateMetadata({
   if (!isValidLocale(locale)) return {};
   if (!CATEGORY_IDS.includes(id as EventCategory)) return {};
 
-  const dict = getDictionary(locale);
-  const category = getCategoryMeta(id, dict.categories);
-  if (!category) return {};
-
-  return buildCategoryMetadata(locale, dict, category.label, id);
+  return buildCategoryMetadata(locale, id as EventCategory);
 }
 
 export default async function Page({
@@ -45,24 +43,43 @@ export default async function Page({
 
   const dict = getDictionary(locale);
   const category = getCategoryMeta(id, dict.categories);
+  const categorySeo = getCategorySeo(locale, id as EventCategory);
+  const categoryPath = localePath(locale, `/category/${id}`);
+  const events = await getPublicEvents({ locale, category: id as EventCategory });
 
   return (
     <>
       {category ? (
         <JsonLd
-          data={buildBreadcrumbJsonLd([
-            { name: dict.seo.siteName, path: localePath(locale) },
-            {
-              name: category.label,
-              path: localePath(locale, `/category/${id}`),
-            },
-          ])}
+          data={buildListingPageJsonLd(
+            locale,
+            categoryPath,
+            categorySeo,
+            category.label,
+            events,
+            [
+              { name: dict.seo.siteName, path: localePath(locale) },
+              { name: category.label, path: categoryPath },
+            ],
+          )}
         />
       ) : null}
-      <CategoryPage
-        categoryId={id as EventCategory}
+      <EventScopePage
         locale={locale}
         dict={dict}
+        initialEvents={events}
+        fetchUrl={`/api/events?locale=${locale}&category=${id}`}
+        returnTo={categoryPath}
+        title={category?.label ?? id}
+        intro={categorySeo.intro}
+        sectionTitle={dict.browse.eventsIn}
+        emoji={category?.emoji}
+        emojiClassName={`bg-gradient-to-br ${category?.gradient ?? "from-neutral-200 to-neutral-300"}`}
+        addEventLabel={dict.submit.addCategoryEvent.replace(
+          "{category}",
+          category?.label ?? id,
+        )}
+        submitDefaults={{ category: id as EventCategory }}
       />
     </>
   );

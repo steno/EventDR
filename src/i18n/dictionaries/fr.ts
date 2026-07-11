@@ -4,7 +4,7 @@ export const fr: Dictionary = {
   meta: {
     title: "POP Events près de vous | Côte Nord RD",
     description:
-      "Découvrez les événements tendance à Puerto Plata, Sosúa et Cabarete. Activités sur place et en ligne sur la Côte Nord de la République dominicaine.",
+      "Découvrez les événements à Puerto Plata, Sosúa et Cabarete — concerts, fêtes, kite surf, yoga, festivals gastronomiques et activités locales sur la Côte Nord de RD.",
   },
   seo: {
     siteName: "POP Events",
@@ -53,6 +53,7 @@ export const fr: Dictionary = {
     ariaLabel: "Catégories d'événements",
     back: "Retour à l'exploration",
     eventsIn: "Événements à venir",
+    eventsInPlace: "Événements à {place}",
     noEvents: "Pas encore d'événements dans cette catégorie.",
   },
   events: {
@@ -197,6 +198,9 @@ export const fr: Dictionary = {
     tagline: "POP Events · Côte Nord République dominicaine",
     builtWith: "Fait avec ❤️ par",
     searchByBrave: "Recherche par Brave",
+  },
+  cities: {
+    browseTopCategories: "Populaire à {city}",
   },
   lang: {
     en: "EN",

@@ -23,6 +23,7 @@ interface FilteredEventListProps {
   onAddEvent?: () => void;
   addEventLabel?: string;
   returnTo?: string;
+  fixedTimeRange?: TimeRange;
 }
 
 export function FilteredEventList({
@@ -35,8 +36,9 @@ export function FilteredEventList({
   onAddEvent,
   addEventLabel,
   returnTo,
+  fixedTimeRange,
 }: FilteredEventListProps) {
-  const [timeRange, setTimeRange] = useState<TimeRange>("all");
+  const [timeRange, setTimeRange] = useState<TimeRange>(fixedTimeRange ?? "all");
 
   const materialized = useMemo(
     () => materializeEventDates(events),
@@ -44,13 +46,16 @@ export function FilteredEventList({
   );
 
   const filtered = useMemo(() => {
-    const timeFiltered = filterByTimeRange(materialized, timeRange);
+    const activeRange = fixedTimeRange ?? timeRange;
+    const timeFiltered = filterByTimeRange(materialized, activeRange);
     return sortUpcomingEvents(timeFiltered, { recurringLast: true });
-  }, [materialized, timeRange]);
+  }, [materialized, timeRange, fixedTimeRange]);
 
   return (
     <>
-      <TimeFilter value={timeRange} onChange={setTimeRange} dict={dict} />
+      {!fixedTimeRange ? (
+        <TimeFilter value={timeRange} onChange={setTimeRange} dict={dict} />
+      ) : null}
 
       {sectionTitle && (
         <div className="flex items-baseline justify-between gap-2 mb-3">

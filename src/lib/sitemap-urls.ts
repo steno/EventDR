@@ -1,5 +1,7 @@
 import { locales } from "@/i18n/config";
 import { CATEGORY_IDS } from "@/lib/categories";
+import { CITY_SLUGS } from "@/lib/cities";
+import { WHEN_SLUGS } from "@/lib/time-seo";
 import { getCommunityEvents } from "@/lib/community-store";
 import { getFallbackEvents } from "@/lib/fallback-events";
 import { fetchApprovedEvents, fetchVenues } from "@/lib/firebase/events";
@@ -71,6 +73,32 @@ export async function getSitemapEntries(): Promise<SitemapEntry[]> {
         url: absoluteUrl(localePath(locale, `/category/${categoryId}`)),
         changeFrequency: "daily",
         priority: 0.8,
+      });
+    }
+
+    for (const citySlug of CITY_SLUGS) {
+      entries.push({
+        url: absoluteUrl(localePath(locale, `/city/${citySlug}`)),
+        changeFrequency: "daily",
+        priority: 0.85,
+      });
+
+      for (const categoryId of CATEGORY_IDS) {
+        entries.push({
+          url: absoluteUrl(
+            localePath(locale, `/city/${citySlug}/category/${categoryId}`),
+          ),
+          changeFrequency: "daily",
+          priority: 0.75,
+        });
+      }
+    }
+
+    for (const whenSlug of WHEN_SLUGS) {
+      entries.push({
+        url: absoluteUrl(localePath(locale, `/when/${whenSlug}`)),
+        changeFrequency: "hourly",
+        priority: 0.9,
       });
     }
 

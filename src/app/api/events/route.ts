@@ -20,6 +20,8 @@ import type { Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import type { Event, EventCategory } from "@/lib/types";
 import { CATEGORY_IDS } from "@/lib/categories";
+import { eventMatchesCity, isCitySlug } from "@/lib/cities";
+import { filterByTimeRange, type TimeRange } from "@/lib/filters";
 import { attachEventImages } from "@/lib/event-images";
 import { attachEventPhones } from "@/lib/event-phone";
 import { applyCuratedEventPatches } from "@/lib/curated-events";
@@ -37,6 +39,10 @@ const REGION_LABELS: Record<Locale, string> = {
 
 function isValidCategory(value: string): value is EventCategory {
   return CATEGORY_IDS.includes(value as EventCategory);
+}
+
+function isValidWhen(value: string): value is Exclude<TimeRange, "all"> {
+  return value === "today" || value === "weekend" || value === "week";
 }
 
 function eventDedupeKey(event: Event): string {
@@ -87,19 +93,29 @@ export async function GET(request: NextRequest) {
     ? categoryParam
     : undefined;
   const venueSlug = searchParams.get("venue") ?? undefined;
+  const cityParam = searchParams.get("city") ?? undefined;
+  const city = cityParam && isCitySlug(cityParam) ? cityParam : undefined;
+  const whenParam = searchParams.get("when") ?? undefined;
+  const when = whenParam && isValidWhen(whenParam) ? whenParam : undefined;
   const refresh = searchParams.get("refresh") === "true";
   const localeParam = searchParams.get("locale") ?? "en";
   const locale: Locale = isValidLocale(localeParam) ? localeParam : "en";
-  const cacheKey = getCacheKey(
-    locale,
-    category,
-    venueSlug ? `venue:${venueSlug}` : undefined,
-  );
+  const scopeKey = [
+    when ? `when:${when}` : null,
+    city ? `city:${city}` : null,
+    venueSlug ? `venue:${venueSlug}` : null,
+  ]
+    .filter(Boolean)
+    .join("|");
+  const cacheKey = getCacheKey(locale, category, scopeKey || undefined);
 
   function applyScopeFilters(list: Event[]): Event[] {
     let result = attachVenueSlugs(filterRemovedSeedEvents(list));
     if (venueSlug) {
       result = result.filter((e) => e.venueSlug === venueSlug);
+    }
+    if (city) {
+      result = result.filter((e) => eventMatchesCity(e, city));
     }
     if (category) {
       result = result.filter((e) => e.category === category);
@@ -107,16 +123,26 @@ export async function GET(request: NextRequest) {
     return result;
   }
 
+  function finalizeEvents(list: Event[]): Event[] {
+    let events = materializeEventDates(applyScopeFilters(list));
+    events = attachCoords(events);
+    if (when) {
+      events = filterByTimeRange(events, when);
+    }
+    events = sortEvents(events);
+    events = applyCuratedEventPatches(events);
+    events = attachEventPhones(events);
+    events = attachEventImages(events);
+    return events;
+  }
+
   try {
     if (!refresh) {
       const cached = getCachedEvents(cacheKey);
       if (cached?.length) {
-        let events = applyCuratedEventPatches(
-          attachEventPhones(attachEventImages(sortEvents(cached))),
-        );
         return NextResponse.json(
           {
-            events,
+            events: cached,
             source: "cache",
             region: REGION_LABELS[locale],
           },
@@ -126,7 +152,7 @@ export async function GET(request: NextRequest) {
     }
 
     // Check DB cache first (5-minute cache)
-    const dbCacheKey = `db:${locale}:${category || 'all'}:${venueSlug || ''}`;
+    const dbCacheKey = `db:${locale}:${category || "all"}:${city || ""}:${venueSlug || ""}`;
     let dbEvents = refresh ? [] : getCachedDbEvents(dbCacheKey) ?? [];
     
     if (dbEvents.length === 0) {
@@ -153,22 +179,14 @@ export async function GET(request: NextRequest) {
     let events = mergeWithFallback(crawled, category, locale);
     events = mergeDbEvents(events, dbEvents);
     events = mergeCommunityEvents(events, locale);
-    events = applyScopeFilters(events);
 
     if (events.length === 0) {
-      const fallbacks = category
+      events = category
         ? getFallbackForCategory(category, locale)
         : getFallbackEvents(locale);
-      events = applyScopeFilters(fallbacks);
     }
 
-    events = materializeEventDates(events);
-    events = attachCoords(events);
-    events = sortEvents(events);
-    events = applyCuratedEventPatches(events);
-    events = attachEventPhones(events);
-    events = attachEventImages(events);
-
+    events = finalizeEvents(events);
     setCachedEvents(cacheKey, events);
 
     const source =
@@ -193,15 +211,11 @@ export async function GET(request: NextRequest) {
     );
   } catch (error) {
     console.error("Events API error:", error);
-    let events = applyScopeFilters(
+    const events = finalizeEvents(
       category
         ? getFallbackForCategory(category, locale)
         : getFallbackEvents(locale),
     );
-    events = sortEvents(materializeEventDates(events));
-    events = applyCuratedEventPatches(events);
-    events = attachEventPhones(events);
-    events = attachEventImages(events);
     return NextResponse.json(
       {
         events,
