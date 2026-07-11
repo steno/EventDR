@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { AppHeader } from "@/components/AppHeader";
 import { Hero } from "@/components/Hero";
 import { CategoryGrid } from "@/components/CategoryGrid";
@@ -18,7 +18,7 @@ import { useSavedEvents } from "@/hooks/useSavedEvents";
 import { useGeolocation } from "@/hooks/useGeolocation";
 import { usePushNotifications } from "@/hooks/usePushNotifications";
 import { useListScrollRestoration } from "@/hooks/useListScrollRestoration";
-import { peekListScroll, saveListScroll } from "@/lib/list-scroll-restoration";
+import { saveListScroll, type ListScrollSnapshot } from "@/lib/list-scroll-restoration";
 import {
   getTodayHighlightEvents,
   HOME_PICKS_LIMIT,
@@ -83,27 +83,39 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
 
   const viewAllHref = homeViewAllPath(locale, timeRange);
 
+  const normalizeHomeTab = useCallback(
+    (nextTab: AppTab, query: string): AppTab =>
+      nextTab === "search" && !query.trim() ? "discover" : nextTab,
+    [],
+  );
+
   const saveHomeScroll = useCallback(() => {
     saveListScroll(homePath, {
       scrollY: window.scrollY,
-      home: { tab, searchQuery, timeRange },
+      home: {
+        tab: normalizeHomeTab(tab, searchQuery),
+        searchQuery,
+        timeRange,
+      },
     });
-  }, [homePath, tab, searchQuery, timeRange]);
+  }, [homePath, normalizeHomeTab, tab, searchQuery, timeRange]);
 
-  useLayoutEffect(() => {
-    const snapshot = peekListScroll(homePath);
-    if (!snapshot?.home) return;
-    setTab(snapshot.home.tab);
-    setSearchQuery(snapshot.home.searchQuery);
-    setTimeRange(snapshot.home.timeRange);
-  }, [homePath]);
+  const restoreHomeState = useCallback(
+    (snapshot: ListScrollSnapshot) => {
+      if (!snapshot.home) return;
+      setTab(normalizeHomeTab(snapshot.home.tab, snapshot.home.searchQuery));
+      setSearchQuery(snapshot.home.searchQuery);
+      setTimeRange(snapshot.home.timeRange);
+    },
+    [normalizeHomeTab],
+  );
 
   const listReady =
     tab === "saved" ||
     (tab === "search" && !searchQuery.trim()) ||
     listContentReady;
 
-  useListScrollRestoration(homePath, listReady);
+  useListScrollRestoration(homePath, listReady, restoreHomeState);
 
   function handleTabChange(newTab: AppTab) {
     if (newTab === "submit") {

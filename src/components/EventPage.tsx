@@ -58,6 +58,7 @@ export function EventPage({ event, locale, dict, returnTo }: EventPageProps) {
         locale={locale}
         isSaved={isSaved(event)}
         onToggleSave={toggleSave}
+        returnTo={returnTo ?? backHref}
         standalone
       />
     </>

@@ -27,7 +27,7 @@ import { addToCalendar } from "@/lib/calendar";
 import { ShareMenu } from "@/components/ShareMenu";
 import { matchVenueSlug } from "@/lib/venues-seed";
 import { formatRecurrenceLabel } from "@/lib/recurrence-label";
-import { resolveLiveStatusDisplay } from "@/lib/event-status-label";
+import { useLiveStatusDisplay } from "@/hooks/useLiveStatusDisplay";
 import { EventStatusBadge } from "@/components/EventStatusBadge";
 import { EventImage } from "@/components/EventImage";
 import { formatEventPlace } from "@/lib/event-location";
@@ -41,6 +41,8 @@ interface EventDetailSheetProps {
   locale: Locale;
   isSaved: boolean;
   onToggleSave: (event: Pick<Event, "id" | "title">) => void;
+  /** Clears stale home scroll/tab state when sharing externally. */
+  returnTo?: string | null;
   /** Use h1 when this sheet is the primary page content (dedicated event route). */
   standalone?: boolean;
 }
@@ -52,6 +54,7 @@ export function EventDetailSheet({
   locale,
   isSaved,
   onToggleSave,
+  returnTo,
   standalone = false,
 }: EventDetailSheetProps) {
   const [shareMsg, setShareMsg] = useState<string | null>(null);
@@ -90,14 +93,14 @@ export function EventDetailSheet({
   const recurrenceLabel = formatRecurrenceLabel(event, locale, dict);
   const venueSlug =
     event.venueSlug ?? matchVenueSlug(event.venue) ?? matchVenueSlug(event.location);
-  const liveDisplay = resolveLiveStatusDisplay(event, dict);
+  const liveDisplay = useLiveStatusDisplay(event, dict);
   const liveStatus = liveDisplay?.status ?? null;
   const liveStatusLabel = liveDisplay?.label ?? null;
   const TitleTag = standalone ? "h1" : "h2";
 
-  function handleShareFeedback(message: string) {
+  function handleShareFeedback(message: string, durationMs = 5000) {
     setShareMsg(message);
-    setTimeout(() => setShareMsg(null), 2000);
+    setTimeout(() => setShareMsg(null), durationMs);
   }
 
   function handleViewVenue() {
@@ -311,6 +314,7 @@ export function EventDetailSheet({
               dict={dict}
               onClose={() => setShareOpen(false)}
               onFeedback={handleShareFeedback}
+              returnTo={returnTo}
             />
           )}
           <div className="grid grid-cols-2 gap-3">

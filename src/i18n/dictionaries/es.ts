@@ -145,6 +145,10 @@ export const es: Dictionary = {
     shareEmail: "Correo",
     shareCopyLink: "Copiar enlace",
     linkCopied: "¡Enlace copiado!",
+    facebookCopied:
+      "¡Evento copiado! Pulsa OK y pégalo en tu publicación de Facebook.",
+    facebookCopyFailed:
+      "No se pudo copiar automáticamente. Mantén pulsado para pegar cuando se abra Facebook.",
   },
   submit: {
     title: "Comparte un evento",

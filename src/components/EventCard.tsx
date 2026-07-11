@@ -10,8 +10,8 @@ import type { Locale } from "@/i18n/config";
 import { eventDetailPath } from "@/lib/event-navigation";
 import { saveScrollForReturn } from "@/lib/list-scroll-restoration";
 import { EventCallLink } from "@/components/EventCallLink";
+import { useLiveStatusDisplay } from "@/hooks/useLiveStatusDisplay";
 import { EventStatusBadge } from "@/components/EventStatusBadge";
-import { resolveLiveStatusDisplay } from "@/lib/event-status-label";
 
 interface EventCardProps {
   event: Event;
@@ -31,7 +31,7 @@ const EventCardComponent = ({
   const category = getCategoryMeta(event.category, dict.categories);
   const emoji = event.imageEmoji ?? category?.emoji ?? "📅";
   const href = eventDetailPath(locale, event.id, returnTo);
-  const liveDisplay = resolveLiveStatusDisplay(event, dict);
+  const liveDisplay = useLiveStatusDisplay(event, dict);
   const liveStatus = liveDisplay?.status ?? null;
   const liveStatusLabel = liveDisplay?.label ?? null;
   const isEndedToday = liveStatus === "ended";

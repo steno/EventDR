@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { Link2, Mail, Share2 } from "lucide-react";
 import {
   FacebookIcon,
@@ -13,9 +13,15 @@ import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import {
   canUseNativeShare,
+  getShareUrl,
+  isExternalSharePlatform,
+  openExternalShare,
+  openFacebookApp,
+  shareToFacebook,
   shareViaPlatform,
   type SharePlatform,
 } from "@/lib/share";
+import { clearListScroll } from "@/lib/list-scroll-restoration";
 
 interface ShareMenuProps {
   event: Event;
@@ -23,6 +29,8 @@ interface ShareMenuProps {
   dict: Dictionary;
   onClose: () => void;
   onFeedback: (message: string) => void;
+  /** Clears saved home/list state so returning from share does not restore Search tab. */
+  returnTo?: string | null;
 }
 
 const PLATFORMS: {
@@ -84,8 +92,14 @@ export function ShareMenu({
   dict,
   onClose,
   onFeedback,
+  returnTo,
 }: ShareMenuProps) {
   const menuRef = useRef<HTMLDivElement>(null);
+  const [nativeShareAvailable, setNativeShareAvailable] = useState(false);
+
+  useEffect(() => {
+    setNativeShareAvailable(canUseNativeShare());
+  }, []);
 
   useEffect(() => {
     function handlePointerDown(e: PointerEvent) {
@@ -98,6 +112,32 @@ export function ShareMenu({
   }, [onClose]);
 
   async function handlePlatform(platform: SharePlatform) {
+    if (isExternalSharePlatform(platform)) {
+      if (returnTo) clearListScroll(returnTo);
+      if (platform === "facebook") {
+        const result = await shareToFacebook(event, locale);
+        onClose();
+        if (result === "copied") {
+          const msg = dict.detail.facebookCopied;
+          onFeedback(msg);
+          window.alert(msg);
+          openFacebookApp();
+        } else if (result === "failed") {
+          const msg = dict.detail.facebookCopyFailed;
+          onFeedback(msg);
+          window.alert(msg);
+          openFacebookApp();
+        }
+        return;
+      }
+      const href = getShareUrl(platform, event, locale);
+      if (href) {
+        openExternalShare(href);
+        onClose();
+      }
+      return;
+    }
+
     const result = await shareViaPlatform(platform, event, locale);
     if (result === "shared") {
       onFeedback(dict.detail.shared);
@@ -119,7 +159,7 @@ export function ShareMenu({
         {dict.detail.shareVia}
       </p>
       <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-none">
-        {canUseNativeShare() && (
+        {nativeShareAvailable && (
           <button
             type="button"
             onClick={() => handlePlatform("native")}

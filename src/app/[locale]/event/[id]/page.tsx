@@ -5,7 +5,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { isValidLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getEventById } from "@/lib/get-event";
-import { getEventShareUrl } from "@/lib/share";
+import { getCanonicalEventShareUrl } from "@/lib/share";
 import {
   buildBreadcrumbJsonLd,
   buildEventJsonLd,
@@ -26,7 +26,7 @@ export async function generateMetadata({
   const event = await getEventById(id, locale);
   if (!event) return {};
 
-  return buildEventMetadata(locale, event, getEventShareUrl(event, locale));
+  return buildEventMetadata(locale, event, getCanonicalEventShareUrl(event, locale));
 }
 
 export default async function Page({
@@ -44,7 +44,7 @@ export default async function Page({
   if (!event) notFound();
 
   const dict = getDictionary(locale);
-  const shareUrl = getEventShareUrl(event, locale);
+  const shareUrl = getCanonicalEventShareUrl(event, locale);
 
   return (
     <>

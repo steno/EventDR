@@ -1,10 +1,29 @@
 import type { NextConfig } from "next";
+import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const projectRoot = path.dirname(fileURLToPath(import.meta.url));
 
+function getLocalIPv4Addresses(): string[] {
+  const addresses = new Set<string>();
+  for (const interfaces of Object.values(os.networkInterfaces())) {
+    for (const net of interfaces ?? []) {
+      if (net.family === "IPv4" && !net.internal) {
+        addresses.add(net.address);
+      }
+    }
+  }
+  return [...addresses];
+}
+
+const extraDevOrigins = (process.env.DEV_ALLOWED_ORIGINS ?? "")
+  .split(",")
+  .map((origin) => origin.trim())
+  .filter(Boolean);
+
 const nextConfig: NextConfig = {
+  allowedDevOrigins: [...getLocalIPv4Addresses(), ...extraDevOrigins],
   async headers() {
     // For PWA assets we want the browser to re-check on each update,
     // especially on iOS where service worker updates can be delayed.

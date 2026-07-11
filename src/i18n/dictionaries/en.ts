@@ -124,6 +124,8 @@ export type Dictionary = {
     shareEmail: string;
     shareCopyLink: string;
     linkCopied: string;
+    facebookCopied: string;
+    facebookCopyFailed: string;
   };
   submit: {
     title: string;
@@ -364,6 +366,10 @@ export const en: Dictionary = {
     shareEmail: "Email",
     shareCopyLink: "Copy link",
     linkCopied: "Link copied!",
+    facebookCopied:
+      "Event copied! Tap OK, then paste into your Facebook post.",
+    facebookCopyFailed:
+      "Could not copy automatically. Long-press to paste after Facebook opens.",
   },
   submit: {
     title: "Share an event",
