@@ -64,20 +64,28 @@ function eventEndDay(event: Pick<Event, "date" | "endDate">): Date | null {
   return parseEventDate(event.endDate ?? event.date);
 }
 
+/** Recurring series end only when endDate is set — seed `date` is not a cutoff. */
+function recurringSeriesEndDay(
+  event: Pick<Event, "endDate">,
+): Date | null {
+  if (!event.endDate) return null;
+  return parseEventDate(event.endDate);
+}
+
 function recurringSeriesEnded(
-  event: Pick<Event, "date" | "endDate">,
+  event: Pick<Event, "endDate">,
   now: Date,
 ): boolean {
-  const end = eventEndDay(event);
+  const end = recurringSeriesEndDay(event);
   if (!end) return false;
   return startOfDay(now) > end;
 }
 
 function recurringOccurrenceIsValid(
-  event: Pick<Event, "date" | "endDate">,
+  event: Pick<Event, "endDate">,
   occurrence: Date,
 ): boolean {
-  const end = eventEndDay(event);
+  const end = recurringSeriesEndDay(event);
   if (!end) return true;
   return startOfDay(occurrence) <= end;
 }
