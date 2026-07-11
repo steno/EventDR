@@ -51,7 +51,7 @@ export const es: Dictionary = {
     subtitle: "Elige tu plan",
     clear: "Limpiar",
     ariaLabel: "Categorías de eventos",
-    back: "Volver a explorar",
+    backTo: "Volver a {title}",
     eventsIn: "Próximos eventos",
     eventsInPlace: "Eventos en {place}",
     noEvents: "Aún no hay eventos en esta categoría.",
@@ -215,7 +215,6 @@ export const es: Dictionary = {
     title: "Lugares populares",
     eventsAt: "Próximos eventos",
     noEvents: "Aún no hay eventos en este lugar.",
-    back: "Volver a explorar",
   },
   push: {
     title: "Alertas de fin de semana",

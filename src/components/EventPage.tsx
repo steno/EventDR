@@ -8,7 +8,7 @@ import type { Locale } from "@/i18n/config";
 import { EventDetailSheet } from "@/components/EventDetailSheet";
 import { AppHeader } from "@/components/AppHeader";
 import { useSavedEvents } from "@/hooks/useSavedEvents";
-import { resolveEventReturnPath } from "@/lib/event-navigation";
+import { resolveBackLabel, resolveEventReturnPath } from "@/lib/event-navigation";
 
 interface EventPageProps {
   event: Event;
@@ -21,6 +21,11 @@ export function EventPage({ event, locale, dict, returnTo }: EventPageProps) {
   const router = useRouter();
   const { toggleSave, isSaved } = useSavedEvents();
   const backHref = resolveEventReturnPath(locale, event, returnTo);
+  const backLabel = resolveBackLabel(
+    locale,
+    returnTo ?? backHref,
+    dict,
+  );
 
   function handleClose() {
     if (returnTo && typeof window !== "undefined" && window.history.length > 1) {
@@ -41,7 +46,7 @@ export function EventPage({ event, locale, dict, returnTo }: EventPageProps) {
             className="inline-flex items-center gap-2 text-sm font-semibold text-neutral-500 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200 mb-6"
           >
             <ArrowLeft className="h-4 w-4" />
-            {dict.browse.back}
+            {backLabel}
           </button>
         </div>
       </main>

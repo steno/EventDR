@@ -1,15 +1,27 @@
 import type { Event } from "./types";
 import type { LocalizedText } from "./localized-text";
 
-type CuratedPatch = Partial<Omit<Event, "localized">> & {
+type CuratedPatch = Partial<
+  Omit<Event, "localized" | "recurrence" | "recurrenceDay" | "recurrenceDays">
+> & {
   localized?: Partial<{
     title: LocalizedText;
     description: LocalizedText;
   }>;
+  /** Set to null to remove the field from the merged event (e.g. clear recurrence). */
+  recurrence?: Event["recurrence"] | null;
+  recurrenceDay?: Event["recurrenceDay"] | null;
+  recurrenceDays?: Event["recurrenceDays"] | null;
 };
 
 /** Stable id patches (preferred over title key). */
 const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
+  "puerto-plata-carnaval-2026": {
+    date: "2026-02-01",
+    endDate: "2026-03-01",
+    recurrence: null,
+    recurrenceDay: null,
+  },
   "cabarete-pilates-reformer": {
     venue: "Rafaella's Studio",
     location: "Cabarete",
@@ -70,7 +82,16 @@ export function applyCuratedEventPatch(event: Event): Event {
 
 function mergeCuratedPatch(event: Event, patch: CuratedPatch): Event {
   const { localized: localizedPatch, ...fields } = patch;
-  const merged: Event = { ...event, ...fields };
+  const applied = Object.fromEntries(
+    Object.entries(fields).filter(([, value]) => value !== null),
+  ) as Partial<Event>;
+  const merged: Event = { ...event, ...applied };
+
+  for (const [key, value] of Object.entries(fields)) {
+    if (value === null) {
+      delete merged[key as keyof Event];
+    }
+  }
 
   if (localizedPatch) {
     merged.localized = {

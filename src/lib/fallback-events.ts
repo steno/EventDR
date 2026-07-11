@@ -181,8 +181,6 @@ const FALLBACK_EVENTS_EN: Event[] = [
     category: "festivals",
     format: "physical",
     trending: true,
-    recurrence: "weekly",
-    recurrenceDay: 0,
     sourceUrl:
       "https://sea-horse-ranch.com/carnival-celebrations-in-the-dominican-republic/",
     imageEmoji: "🎭",
@@ -404,8 +402,6 @@ const FALLBACK_EVENTS_ES: Event[] = [
     category: "festivals",
     format: "physical",
     trending: true,
-    recurrence: "weekly",
-    recurrenceDay: 0,
     sourceUrl:
       "https://sea-horse-ranch.com/carnival-celebrations-in-the-dominican-republic/",
     imageEmoji: "🎭",

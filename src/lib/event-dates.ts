@@ -64,6 +64,24 @@ function eventEndDay(event: Pick<Event, "date" | "endDate">): Date | null {
   return parseEventDate(event.endDate ?? event.date);
 }
 
+function recurringSeriesEnded(
+  event: Pick<Event, "date" | "endDate">,
+  now: Date,
+): boolean {
+  const end = eventEndDay(event);
+  if (!end) return false;
+  return startOfDay(now) > end;
+}
+
+function recurringOccurrenceIsValid(
+  event: Pick<Event, "date" | "endDate">,
+  occurrence: Date,
+): boolean {
+  const end = eventEndDay(event);
+  if (!end) return true;
+  return startOfDay(occurrence) <= end;
+}
+
 function nextWeekday(from: Date, targetDay: number): Date {
   const d = startOfDay(from);
   const diff = (targetDay - d.getDay() + 7) % 7;
@@ -188,19 +206,26 @@ export function materializeEventDates(
 
   return events.flatMap((event) => {
     if (event.recurrence === "daily") {
+      if (recurringSeriesEnded(event, now)) return [];
       return [{ ...event, date: today }];
     }
     if (event.recurrence === "weekdays") {
+      if (recurringSeriesEnded(event, now)) return [];
       const next = nextFromWeekdays(now, [1, 2, 3, 4, 5]);
+      if (!recurringOccurrenceIsValid(event, next)) return [];
       return [{ ...event, date: localDateISO(next) }];
     }
     if (event.recurrence === "weekends") {
+      if (recurringSeriesEnded(event, now)) return [];
       const next = nextFromWeekdays(now, [6, 0]);
+      if (!recurringOccurrenceIsValid(event, next)) return [];
       return [{ ...event, date: localDateISO(next) }];
     }
     if (event.recurrence === "weekly") {
+      if (recurringSeriesEnded(event, now)) return [];
       const next = nextWeeklyOccurrence(now, event);
-      return next ? [{ ...event, date: localDateISO(next) }] : [];
+      if (!next || !recurringOccurrenceIsValid(event, next)) return [];
+      return [{ ...event, date: localDateISO(next) }];
     }
     if (!event.recurrence) {
       return oneOffIsActive(event, now) ? [event] : [];

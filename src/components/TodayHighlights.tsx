@@ -106,7 +106,7 @@ const TodayHighlightsComponent = ({
                       className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
                     />
                     <div
-                      className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/75 via-black/35 to-transparent opacity-100 transition-opacity duration-300 group-hover:opacity-0"
+                      className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-orange-600/55 via-rose-500/35 to-transparent transition-opacity duration-300 group-hover:opacity-0"
                       aria-hidden
                     />
                   </div>

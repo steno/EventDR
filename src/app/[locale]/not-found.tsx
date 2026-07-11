@@ -2,6 +2,7 @@ import Link from "next/link";
 import { cookies } from "next/headers";
 import type { Metadata } from "next";
 import { defaultLocale, isValidLocale } from "@/i18n/config";
+import { resolveBackLabel } from "@/lib/event-navigation";
 import { getDictionary } from "@/i18n/dictionaries";
 
 async function resolveLocale() {
@@ -32,7 +33,7 @@ export default async function NotFound() {
         href={`/${locale}`}
         className="mt-8 inline-flex rounded-full bg-neutral-900 dark:bg-neutral-100 px-5 py-2.5 text-sm font-semibold text-white dark:text-neutral-900"
       >
-        {dict.browse.back}
+        {resolveBackLabel(locale, `/${locale}`, dict)}
       </Link>
     </main>
   );

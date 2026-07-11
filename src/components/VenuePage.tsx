@@ -10,6 +10,7 @@ import { FilteredEventList } from "@/components/FilteredEventList";
 import { SubmitEventSheet } from "@/components/SubmitEventSheet";
 import { AppHeader } from "@/components/AppHeader";
 import { attachEventImages } from "@/lib/event-images";
+import { resolveBackLabel } from "@/lib/event-navigation";
 import { matchVenueSlug } from "@/lib/venues-seed";
 import { useListScrollRestoration } from "@/hooks/useListScrollRestoration";
 
@@ -47,6 +48,8 @@ export function VenuePage({ venue, locale, dict }: VenuePageProps) {
   }, [refreshEvents]);
 
   const returnTo = `/${locale}/venue/${venue.slug}`;
+  const backHref = `/${locale}`;
+  const backLabel = resolveBackLabel(locale, backHref, dict);
   useListScrollRestoration(returnTo, !loading);
 
   return (
@@ -55,11 +58,11 @@ export function VenuePage({ venue, locale, dict }: VenuePageProps) {
         <div className="mx-auto max-w-lg sm:max-w-2xl px-4">
           <AppHeader locale={locale} dict={dict} />
           <Link
-            href={`/${locale}`}
+            href={backHref}
             className="inline-flex items-center gap-2 text-sm font-semibold text-neutral-500 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200 mb-6"
           >
             <ArrowLeft className="h-4 w-4" />
-            {dict.venues.back}
+            {backLabel}
           </Link>
 
           <div className="flex items-start gap-4 mb-6">

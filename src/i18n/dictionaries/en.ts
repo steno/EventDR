@@ -37,7 +37,7 @@ export type Dictionary = {
     subtitle: string;
     clear: string;
     ariaLabel: string;
-    back: string;
+    backTo: string;
     eventsIn: string;
     eventsInPlace: string;
     noEvents: string;
@@ -193,7 +193,6 @@ export type Dictionary = {
     title: string;
     eventsAt: string;
     noEvents: string;
-    back: string;
   };
   push: {
     title: string;
@@ -269,7 +268,7 @@ export const en: Dictionary = {
     subtitle: "Browse",
     clear: "Clear",
     ariaLabel: "Event categories",
-    back: "Back to discover",
+    backTo: "Back to {title}",
     eventsIn: "Upcoming events",
     eventsInPlace: "Events in {place}",
     noEvents: "No events in this category yet.",
@@ -433,7 +432,6 @@ export const en: Dictionary = {
     title: "Popular venues",
     eventsAt: "Upcoming events",
     noEvents: "No upcoming events at this venue yet.",
-    back: "Back to discover",
   },
   push: {
     title: "Weekend alerts",

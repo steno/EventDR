@@ -15,6 +15,7 @@ import {
 import { SubmitEventSheet } from "@/components/SubmitEventSheet";
 import { attachEventImages } from "@/lib/event-images";
 import { AppHeader } from "@/components/AppHeader";
+import { resolveBackLabel } from "@/lib/event-navigation";
 import { useListScrollRestoration } from "@/hooks/useListScrollRestoration";
 
 interface EventScopePageProps {
@@ -85,6 +86,7 @@ export function EventScopePage({
   const headerEmojiClassName =
     emojiClassName ??
     "bg-white dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-800";
+  const backLabel = resolveBackLabel(locale, backHref, dict);
 
   return (
     <>
@@ -96,7 +98,7 @@ export function EventScopePage({
             className="inline-flex items-center gap-2 text-sm font-semibold text-neutral-500 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200 mb-6"
           >
             <ArrowLeft className="h-4 w-4" />
-            {dict.browse.back}
+            {backLabel}
           </Link>
 
           <div className="flex items-start gap-4 mb-6">
