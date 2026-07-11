@@ -125,7 +125,7 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
   return (
     <>
       <PwaRegister />
-      <main className="relative flex-1 bg-neutral-50 dark:bg-transparent pb-24">
+      <main className="relative bg-neutral-50 dark:bg-transparent">
         <div className="relative mx-auto max-w-lg sm:max-w-2xl px-4 pb-6">
           <AppHeader
             locale={locale}

@@ -12,7 +12,7 @@ interface SiteFooterProps {
 export function SiteFooter({ dict, locale, className = "" }: SiteFooterProps) {
   return (
     <footer
-      className={`border-t border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900 py-6 text-center ${className}`}
+      className={`border-t border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900 pt-6 pb-6 text-center ${className}`}
     >
       <nav
         aria-label={dict.browse.ariaLabel}

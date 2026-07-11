@@ -18,7 +18,7 @@ export function AppFooter({ locale, dict }: AppFooterProps) {
     <SiteFooter
       dict={dict}
       locale={locale}
-      className={padForBottomNav ? "mb-16" : undefined}
+      className={padForBottomNav ? "pb-20 mb-0" : undefined}
     />
   );
 }
