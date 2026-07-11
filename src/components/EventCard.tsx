@@ -49,7 +49,6 @@ const EventCardComponent = ({
     >
       <Link
         href={href}
-        scroll={false}
         onClick={() => {
           if (onBeforeNavigate) {
             onBeforeNavigate();

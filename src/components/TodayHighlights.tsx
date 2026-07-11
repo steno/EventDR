@@ -48,7 +48,6 @@ function TodayHighlightCard({
     >
       <Link
         href={href}
-        scroll={false}
         onClick={() => {
           if (onBeforeNavigate) {
             onBeforeNavigate();

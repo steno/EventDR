@@ -1,14 +1,15 @@
 "use client";
 
+import { useLayoutEffect } from "react";
 import { useRouter } from "next/navigation";
-import { ArrowLeft } from "lucide-react";
 import type { Event } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import { EventDetailSheet } from "@/components/EventDetailSheet";
-import { AppHeader } from "@/components/AppHeader";
+import { StickyListHeader } from "@/components/StickyListHeader";
 import { useSavedEvents } from "@/hooks/useSavedEvents";
 import { resolveBackLabel, resolveEventReturnPath } from "@/lib/event-navigation";
+import { restoreScrollPosition } from "@/lib/list-scroll-restoration";
 
 interface EventPageProps {
   event: Event;
@@ -36,6 +37,10 @@ export function EventPage({
     dict,
   );
 
+  useLayoutEffect(() => {
+    restoreScrollPosition(0);
+  }, [event.id]);
+
   function handleClose() {
     if (returnTo && typeof window !== "undefined" && window.history.length > 1) {
       router.back();
@@ -47,29 +52,26 @@ export function EventPage({
   return (
     <div className="min-h-dvh bg-neutral-50 dark:bg-transparent pb-8">
       <div className="mx-auto max-w-lg sm:max-w-2xl px-4">
-        <AppHeader locale={locale} dict={dict} />
-        <button
-          type="button"
-          onClick={handleClose}
-          className="inline-flex items-center gap-2 text-sm font-semibold text-neutral-500 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200 mb-4"
-        >
-          <ArrowLeft className="h-4 w-4" />
-          {backLabel}
-        </button>
-      </div>
+        <StickyListHeader
+          locale={locale}
+          dict={dict}
+          backLabel={backLabel}
+          onBack={handleClose}
+        />
 
-      <EventDetailSheet
-        event={event}
-        onClose={handleClose}
-        dict={dict}
-        locale={locale}
-        isSaved={isSaved(event)}
-        onToggleSave={toggleSave}
-        returnTo={returnTo ?? backHref}
-        formattedDateRange={formattedDateRange}
-        recurrenceLabel={recurrenceLabel}
-        standalone
-      />
+        <EventDetailSheet
+          event={event}
+          onClose={handleClose}
+          dict={dict}
+          locale={locale}
+          isSaved={isSaved(event)}
+          onToggleSave={toggleSave}
+          returnTo={returnTo ?? backHref}
+          formattedDateRange={formattedDateRange}
+          recurrenceLabel={recurrenceLabel}
+          standalone
+        />
+      </div>
     </div>
   );
 }
