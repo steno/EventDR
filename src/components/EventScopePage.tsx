@@ -40,7 +40,6 @@ interface EventScopePageProps {
   };
   relatedCategoryLinks?: RelatedCategoryLink[];
   relatedCategoryLinksLabel?: string;
-  showAll?: boolean;
 }
 
 export function EventScopePage({
@@ -62,7 +61,6 @@ export function EventScopePage({
   submitDefaults,
   relatedCategoryLinks,
   relatedCategoryLinksLabel,
-  showAll = false,
 }: EventScopePageProps) {
   const [events, setEvents] = useState<Event[]>(() => attachEventImages(initialEvents));
   const [loading, setLoading] = useState(false);
@@ -139,9 +137,9 @@ export function EventScopePage({
             sectionTitle={sectionTitle}
             returnTo={returnTo}
             fixedTimeRange={fixedTimeRange}
+            unlimited={fixedTimeRange != null}
             onAddEvent={() => setSubmitOpen(true)}
             addEventLabel={addEventLabel}
-            showAll={showAll}
           />
         </div>
       </main>

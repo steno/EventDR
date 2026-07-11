@@ -60,15 +60,3 @@ export function homeViewAllPath(locale: string, timeRange: TimeRange): string {
   if (timeRange === "weekend") return `/${locale}/when/weekend`;
   return `/${locale}/when/week`;
 }
-
-/** Full listing URL for a scoped page (city, category, venue, etc.). */
-export function scopeViewAllHref(path: string): string {
-  return path.includes("?") ? `${path}&all=1` : `${path}?all=1`;
-}
-
-export function isScopeShowAll(
-  all: string | string[] | undefined,
-): boolean {
-  if (Array.isArray(all)) return all[0] === "1";
-  return all === "1";
-}

@@ -1,7 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
-import Link from "next/link";
+import { useEffect, useMemo, useState } from "react";
 import { ChevronRight } from "lucide-react";
 import type { Event } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
@@ -9,7 +8,7 @@ import type { Locale } from "@/i18n/config";
 import type { TimeRange } from "@/lib/filters";
 import { filterByTimeRange } from "@/lib/filters";
 import { materializeEventDates, sortUpcomingEvents } from "@/lib/event-dates";
-import { SCOPE_LIST_LIMIT, scopeViewAllHref } from "@/lib/home-layout";
+import { SCOPE_LIST_LIMIT } from "@/lib/home-layout";
 import { TimeFilter } from "@/components/TimeFilter";
 import { EventCard } from "@/components/EventCard";
 import { VenueStrip } from "@/components/VenueStrip";
@@ -26,9 +25,9 @@ interface FilteredEventListProps {
   addEventLabel?: string;
   returnTo?: string;
   fixedTimeRange?: TimeRange;
-  /** When true, render the full filtered list (`?all=1` pages). */
-  showAll?: boolean;
-  /** Preview cap when `showAll` is false (defaults to SCOPE_LIST_LIMIT). */
+  /** When true, show every event (used for /when/* listing pages). */
+  unlimited?: boolean;
+  /** Preview cap before "View all" expands in place (defaults to SCOPE_LIST_LIMIT). */
   limit?: number;
 }
 
@@ -43,10 +42,15 @@ export function FilteredEventList({
   addEventLabel,
   returnTo,
   fixedTimeRange,
-  showAll = false,
+  unlimited = false,
   limit = SCOPE_LIST_LIMIT,
 }: FilteredEventListProps) {
   const [timeRange, setTimeRange] = useState<TimeRange>(fixedTimeRange ?? "all");
+  const [expanded, setExpanded] = useState(false);
+
+  useEffect(() => {
+    setExpanded(false);
+  }, [timeRange, fixedTimeRange]);
 
   const materialized = useMemo(
     () => materializeEventDates(events),
@@ -59,10 +63,9 @@ export function FilteredEventList({
     return sortUpcomingEvents(timeFiltered, { recurringLast: true });
   }, [materialized, timeRange, fixedTimeRange]);
 
-  const cap = showAll ? undefined : limit;
+  const cap = unlimited || expanded ? undefined : limit;
   const visibleEvents = cap != null ? filtered.slice(0, cap) : filtered;
   const hasMore = cap != null && filtered.length > cap;
-  const viewAllTarget = !showAll && returnTo ? scopeViewAllHref(returnTo) : undefined;
 
   return (
     <>
@@ -100,15 +103,16 @@ export function FilteredEventList({
               />
             ))}
           </div>
-          {hasMore && viewAllTarget && (
+          {hasMore && !unlimited && (
             <div className="pt-4 text-center">
-              <Link
-                href={viewAllTarget}
+              <button
+                type="button"
+                onClick={() => setExpanded(true)}
                 className="inline-flex items-center gap-1 rounded-full border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 px-5 py-2.5 text-sm font-bold text-neutral-800 dark:text-neutral-200 hover:border-orange-300 dark:hover:border-orange-800 hover:text-orange-600 dark:hover:text-orange-400 transition-colors touch-manipulation"
               >
                 {dict.events.viewAllEvents}
                 <ChevronRight className="h-4 w-4" aria-hidden />
-              </Link>
+              </button>
             </div>
           )}
         </>
