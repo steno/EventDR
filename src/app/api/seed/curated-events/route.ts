@@ -1,7 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { CURATED_SEED_EVENT_IDS } from "@/lib/curated-events";
 import { getFallbackEvents } from "@/lib/fallback-events";
-import { upsertApprovedEvents, deleteEvent, isFirebaseConfigured } from "@/lib/firebase/events";
+import {
+  upsertApprovedEvents,
+  deleteEvent,
+  isFirebaseConfigured,
+  syncSeedVenues,
+} from "@/lib/firebase/events";
 import { matchVenueSlug } from "@/lib/venues-seed";
 import { SEED_VENUES } from "@/lib/venues-seed";
 import type { Event } from "@/lib/types";
@@ -55,6 +60,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Missing fallback seed events" }, { status: 500 });
   }
 
+  const venuesSynced = await syncSeedVenues({ missingOnly: false });
   const upserted = await upsertApprovedEvents(events, "crawl");
 
   const deleted: string[] = [];
@@ -64,6 +70,7 @@ export async function POST(request: NextRequest) {
 
   return NextResponse.json({
     success: true,
+    venuesSynced,
     upserted,
     deleted,
     ids: events.map((e) => e.id),

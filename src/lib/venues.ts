@@ -15,6 +15,10 @@ export function mergeVenueLists(seed: Venue[], remote: Venue[]): Venue[] {
 /** Venues for SSR and API — full seed list plus any Firebase-only venues. */
 export async function getVenues(): Promise<Venue[]> {
   if (!isFirebaseConfigured()) return SEED_VENUES;
-  const remote = await fetchVenues();
-  return mergeVenueLists(SEED_VENUES, remote);
+  try {
+    const remote = await fetchVenues();
+    return mergeVenueLists(SEED_VENUES, remote);
+  } catch {
+    return SEED_VENUES;
+  }
 }

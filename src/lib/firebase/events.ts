@@ -120,12 +120,24 @@ function eventToFirestore(
   };
 }
 
-async function syncSeedVenues(): Promise<void> {
+/** Upsert seed venues into Firestore. Use from cron/seed routes only — not on read paths. */
+export async function syncSeedVenues(options?: {
+  /** When true (default), only write venues missing from Firestore. */
+  missingOnly?: boolean;
+}): Promise<number> {
   const db = getFirestoreDb();
-  if (!db) return;
+  if (!db) return 0;
+
+  let venues = SEED_VENUES;
+  if (options?.missingOnly !== false) {
+    const snap = await db.collection("venues").get();
+    const existing = new Set(snap.docs.map((doc) => doc.id));
+    venues = SEED_VENUES.filter((venue) => !existing.has(venue.slug));
+    if (venues.length === 0) return 0;
+  }
 
   const batch = db.batch();
-  for (const venue of SEED_VENUES) {
+  for (const venue of venues) {
     const ref = db.collection("venues").doc(venue.slug);
     batch.set(
       ref,
@@ -144,6 +156,7 @@ async function syncSeedVenues(): Promise<void> {
     );
   }
   await batch.commit();
+  return venues.length;
 }
 
 export async function fetchEventById(id: string): Promise<Event | null> {
@@ -376,8 +389,6 @@ export async function fetchVenues(): Promise<Venue[]> {
   const db = getFirestoreDb();
   if (!db) return [];
 
-  await syncSeedVenues();
-
   const snap = await db.collection("venues").orderBy("name").get();
   return snap.docs.map((doc) => docToVenue(doc.id, doc.data()));
 }
@@ -385,8 +396,6 @@ export async function fetchVenues(): Promise<Venue[]> {
 export async function fetchVenueBySlug(slug: string): Promise<Venue | null> {
   const db = getFirestoreDb();
   if (!db) return null;
-
-  await syncSeedVenues();
 
   const doc = await db.collection("venues").doc(slug).get();
   if (!doc.exists) return null;
