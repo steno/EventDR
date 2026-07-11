@@ -52,6 +52,28 @@ function eventCalendarStart(event: Pick<Event, "date">): Date | null {
   return isNaN(start.getTime()) ? null : startOfDay(start);
 }
 
+export function isMultiDayEvent(
+  event: Pick<Event, "date" | "endDate">,
+): boolean {
+  return Boolean(event.endDate && event.endDate !== event.date);
+}
+
+export function isRecurringEvent(
+  event: Pick<Event, "recurrence">,
+): boolean {
+  return Boolean(event.recurrence);
+}
+
+/** Parsed clock span in minutes; unparsed times sort as longest. */
+export function getEventDurationMinutes(time?: string): number {
+  const window = parseEventTimeWindow(time);
+  if (!window) return Number.MAX_SAFE_INTEGER;
+  if (window.end < window.start) {
+    return 1440 - window.start + window.end;
+  }
+  return window.end - window.start;
+}
+
 export function eventSpansToday(
   event: Pick<Event, "date" | "endDate">,
   now: Date = new Date(),
