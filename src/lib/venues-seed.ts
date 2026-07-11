@@ -92,6 +92,49 @@ export const SEED_VENUES: Venue[] = [
     phone: "+18095712902",
   },
   {
+    slug: "senor-rock-playa-dorada",
+    name: "Señor Rock Bar & Grill",
+    city: "Playa Dorada",
+    description:
+      "Bar & grill in Playa Dorada Plaza with nightly live bands — rock, pop covers, and Caribbean classics with dinner and drinks.",
+    lat: 19.7795,
+    lng: -70.652,
+    emoji: "🎸",
+  },
+  {
+    slug: "cremo-cigar-bar",
+    name: "Cremo Cigar Bar & Lounge",
+    city: "Puerto Plata",
+    description:
+      "Downtown cigar lounge with weekly salsa, bohemian live music, and karaoke — cocktails, tapas, and Dominican rums.",
+    lat: 19.7948,
+    lng: -70.6955,
+    emoji: "🎺",
+    website: "https://cremocigars.com/cremo-cigar-bar-lounge-en/",
+    phone: "+13059429440",
+  },
+  {
+    slug: "big-lees-beach-bar",
+    name: "Big Lee's Beach Bar & Grill",
+    city: "Puerto Plata",
+    description:
+      "Beachfront bar at Cosita Rica since 2011 — classic rock, karaoke nights, and Atlantic views steps from the sand.",
+    lat: 19.8012,
+    lng: -70.682,
+    emoji: "🎤",
+  },
+  {
+    slug: "pingui-bar",
+    name: "Pingüi Bar Restaurant",
+    city: "Puerto Plata",
+    description:
+      "Beach bar at Playa El Pueblito — piña coladas, Dominican comfort food, and weekend oceanfront vibes.",
+    lat: 19.78082,
+    lng: -70.69404,
+    emoji: "🍹",
+    phone: "+18096682051",
+  },
+  {
     slug: "el-carey-puerto-plata",
     name: "El Carey Día y Noche",
     city: "Costambar",

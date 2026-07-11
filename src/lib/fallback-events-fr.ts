@@ -43,7 +43,7 @@ export const FALLBACK_EVENTS_FR: Event[] = [
     venue: "Anfiteatro La Puntilla",
     venueSlug: "malecon-puerto-plata",
     address: "Desvío a La Puntilla",
-    category: "concert",
+    category: "music",
     format: "physical",
     recurrence: "weekends",
     sourceUrl: "https://es.godominicanrepublic.com/que-hacer/anfiteatro-la-puntilla",

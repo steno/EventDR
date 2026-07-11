@@ -10,6 +10,7 @@ import { filterByTimeRange, searchEvents } from "@/lib/filters";
 import { materializeEventDates, sortUpcomingEvents } from "@/lib/event-dates";
 import { hasEventEndedForToday, happensOnLocalDate } from "@/lib/event-status";
 import { categoryPath } from "@/lib/event-navigation";
+import { attachEventImages } from "@/lib/event-images";
 import { EventCard } from "./EventCard";
 
 interface EventListProps {
@@ -63,7 +64,7 @@ export function EventList({
           events: Event[];
           source: string;
         };
-        const loaded = materializeEventDates(data.events ?? []);
+        const loaded = attachEventImages(materializeEventDates(data.events ?? []));
         setEvents(loaded);
         onEventsLoadedRef.current?.(loaded);
         setSource(data.source ?? "");

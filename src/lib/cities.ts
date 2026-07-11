@@ -37,7 +37,7 @@ export const CITIES: CityMeta[] = [
       "teleférico",
       "teleferico",
     ],
-    topCategories: ["culture", "adventure", "concert", "festivals", "food-drinks"],
+    topCategories: ["music", "culture", "adventure", "concert", "festivals", "food-drinks"],
     seo: {
       en: {
         title: "Events in Puerto Plata | Things to Do This Weekend | POP Events",

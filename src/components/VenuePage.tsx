@@ -9,6 +9,7 @@ import type { Locale } from "@/i18n/config";
 import { FilteredEventList } from "@/components/FilteredEventList";
 import { SubmitEventSheet } from "@/components/SubmitEventSheet";
 import { AppHeader } from "@/components/AppHeader";
+import { attachEventImages } from "@/lib/event-images";
 import { matchVenueSlug } from "@/lib/venues-seed";
 
 interface VenuePageProps {
@@ -30,7 +31,7 @@ export function VenuePage({ venue, locale, dict }: VenuePageProps) {
           const slug = e.venueSlug ?? matchVenueSlug(e.venue) ?? matchVenueSlug(e.location);
           return slug === venue.slug;
         });
-        setEvents(list);
+        setEvents(attachEventImages(list));
       })
       .catch(() => setEvents([]));
   }

@@ -13,6 +13,7 @@ import {
   type RelatedCategoryLink,
 } from "@/components/CityCategoryLinks";
 import { SubmitEventSheet } from "@/components/SubmitEventSheet";
+import { attachEventImages } from "@/lib/event-images";
 import { AppHeader } from "@/components/AppHeader";
 
 interface EventScopePageProps {
@@ -59,7 +60,7 @@ export function EventScopePage({
   relatedCategoryLinks,
   relatedCategoryLinksLabel,
 }: EventScopePageProps) {
-  const [events, setEvents] = useState<Event[]>(initialEvents);
+  const [events, setEvents] = useState<Event[]>(() => attachEventImages(initialEvents));
   const [loading, setLoading] = useState(false);
   const [submitOpen, setSubmitOpen] = useState(false);
 
@@ -67,8 +68,10 @@ export function EventScopePage({
     setLoading(true);
     fetch(fetchUrl)
       .then((response) => response.json())
-      .then((data: { events?: Event[] }) => setEvents(data.events ?? []))
-      .catch(() => setEvents(initialEvents))
+      .then((data: { events?: Event[] }) =>
+        setEvents(attachEventImages(data.events ?? [])),
+      )
+      .catch(() => setEvents(attachEventImages(initialEvents)))
       .finally(() => setLoading(false));
   }, [fetchUrl, initialEvents]);
 
@@ -141,7 +144,9 @@ export function EventScopePage({
           setSubmitOpen(false);
           fetch(fetchUrl)
             .then((response) => response.json())
-            .then((data: { events?: Event[] }) => setEvents(data.events ?? []))
+            .then((data: { events?: Event[] }) =>
+              setEvents(attachEventImages(data.events ?? [])),
+            )
             .catch(() => {});
         }}
       />
