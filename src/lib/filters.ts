@@ -3,9 +3,10 @@ export type TimeRange = "all" | "today" | "weekend" | "week";
 import type { EventRecurrence } from "./types";
 import {
   eventMatchesRecurrence,
+  localDateISO,
   parseLocalDate,
 } from "./event-dates";
-import { isEventActiveToday } from "./event-status";
+import { happensOnLocalDate, isEventActiveToday } from "./event-status";
 
 function parseEventDate(dateStr: string): Date | null {
   const d = parseLocalDate(dateStr);
@@ -14,14 +15,6 @@ function parseEventDate(dateStr: string): Date | null {
 
 function startOfDay(d: Date): Date {
   return new Date(d.getFullYear(), d.getMonth(), d.getDate());
-}
-
-function isSameDay(a: Date, b: Date): boolean {
-  return (
-    a.getFullYear() === b.getFullYear() &&
-    a.getMonth() === b.getMonth() &&
-    a.getDate() === b.getDate()
-  );
 }
 
 function getWeekendRange(now: Date): { start: Date; end: Date } {
@@ -77,7 +70,8 @@ export function filterByTimeRange<
     const eventEndDay = startOfDay(eventEndDate);
 
     if (range === "today") {
-      return eventDay <= today && eventEndDay >= today && isEventActiveToday(item, now);
+      const todayIso = localDateISO(now);
+      return happensOnLocalDate(item, todayIso) && isEventActiveToday(item, now);
     }
 
     if (range === "week") {

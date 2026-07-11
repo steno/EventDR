@@ -90,9 +90,30 @@ export function isExternalSharePlatform(platform: SharePlatform): boolean {
   return EXTERNAL_SHARE_PLATFORMS.has(platform);
 }
 
-/** Open a social share URL in a popup (or new tab) while the user gesture is still active. */
+/** Open a social share URL without navigating away from the current page. */
 export function openExternalShare(url: string): boolean {
   if (typeof window === "undefined") return false;
+
+  const link = document.createElement("a");
+  link.href = url;
+  link.rel = "noopener noreferrer";
+  link.style.display = "none";
+
+  // mailto/tel open the handler without replacing the current history entry.
+  if (/^(mailto:|tel:|sms:)/i.test(url)) {
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    return true;
+  }
+
+  if (prefersMobileFacebookShare()) {
+    link.target = "_blank";
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    return true;
+  }
 
   const popup = window.open(
     url,
@@ -104,11 +125,7 @@ export function openExternalShare(url: string): boolean {
     return true;
   }
 
-  const link = document.createElement("a");
-  link.href = url;
   link.target = "_blank";
-  link.rel = "noopener noreferrer";
-  link.style.display = "none";
   document.body.appendChild(link);
   link.click();
   link.remove();

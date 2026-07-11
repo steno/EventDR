@@ -24,19 +24,19 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${syne.variable} ${inter.variable} h-full`}
+      className={`${syne.variable} ${inter.variable}`}
     >
       <head>
         <ThemeScript />
       </head>
-      <body className="relative min-h-full flex flex-col font-sans antialiased bg-neutral-50 text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100">
+      <body className="relative min-h-dvh font-sans antialiased bg-neutral-50 text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100">
         <div
           className="pointer-events-none fixed inset-0 z-0 hidden overflow-hidden dark:block"
           aria-hidden
         >
           <PageGlow />
         </div>
-        <div className="relative z-10 flex min-h-full flex-1 flex-col">
+        <div className="relative z-10">
           {children}
         </div>
       </body>

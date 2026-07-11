@@ -6,6 +6,8 @@ import { isValidLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getEventById } from "@/lib/get-event";
 import { getCanonicalEventShareUrl } from "@/lib/share";
+import { formatEventDateRange } from "@/lib/format-date";
+import { formatRecurrenceLabel } from "@/lib/recurrence-label";
 import {
   buildBreadcrumbJsonLd,
   buildEventJsonLd,
@@ -45,6 +47,10 @@ export default async function Page({
 
   const dict = getDictionary(locale);
   const shareUrl = getCanonicalEventShareUrl(event, locale);
+  const formattedDateRange = formatEventDateRange(event.date, locale, {
+    endDate: event.endDate,
+  });
+  const recurrenceLabel = formatRecurrenceLabel(event, locale, dict);
 
   return (
     <>
@@ -57,7 +63,14 @@ export default async function Page({
           ]),
         ]}
       />
-      <EventPage event={event} locale={locale} dict={dict} returnTo={from} />
+      <EventPage
+        event={event}
+        locale={locale}
+        dict={dict}
+        returnTo={from}
+        formattedDateRange={formattedDateRange}
+        recurrenceLabel={recurrenceLabel}
+      />
     </>
   );
 }

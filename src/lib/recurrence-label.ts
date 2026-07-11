@@ -18,8 +18,11 @@ function recurrenceDays(event: Event): number[] {
 }
 
 function formatWeekday(day: number, locale: Locale): string {
-  const baseSunday = new Date(2026, 0, 4 + day);
-  return baseSunday.toLocaleDateString(DATE_LOCALES[locale], { weekday: "short" });
+  const utc = new Date(Date.UTC(2026, 0, 4 + day, 12));
+  return utc.toLocaleDateString(DATE_LOCALES[locale], {
+    weekday: "short",
+    timeZone: "UTC",
+  });
 }
 
 export function formatRecurrenceLabel(

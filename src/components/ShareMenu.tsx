@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useRef, useSyncExternalStore, type ReactNode } from "react";
 import { Link2, Mail, Share2 } from "lucide-react";
 import {
   FacebookIcon,
@@ -21,7 +21,7 @@ import {
   shareViaPlatform,
   type SharePlatform,
 } from "@/lib/share";
-import { clearListScroll } from "@/lib/list-scroll-restoration";
+import { clearReturnScrollState } from "@/lib/list-scroll-restoration";
 
 interface ShareMenuProps {
   event: Event;
@@ -95,11 +95,11 @@ export function ShareMenu({
   returnTo,
 }: ShareMenuProps) {
   const menuRef = useRef<HTMLDivElement>(null);
-  const [nativeShareAvailable, setNativeShareAvailable] = useState(false);
-
-  useEffect(() => {
-    setNativeShareAvailable(canUseNativeShare());
-  }, []);
+  const nativeShareAvailable = useSyncExternalStore(
+    () => () => {},
+    () => canUseNativeShare(),
+    () => false,
+  );
 
   useEffect(() => {
     function handlePointerDown(e: PointerEvent) {
@@ -112,8 +112,14 @@ export function ShareMenu({
   }, [onClose]);
 
   async function handlePlatform(platform: SharePlatform) {
+    const clearsReturnScroll =
+      isExternalSharePlatform(platform) || platform === "native";
+
+    if (clearsReturnScroll) {
+      clearReturnScrollState(returnTo, locale);
+    }
+
     if (isExternalSharePlatform(platform)) {
-      if (returnTo) clearListScroll(returnTo);
       if (platform === "facebook") {
         const result = await shareToFacebook(event, locale);
         onClose();

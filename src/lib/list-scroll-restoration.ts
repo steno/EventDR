@@ -45,6 +45,19 @@ export function clearListScroll(path: string): void {
   }
 }
 
+/** Clear saved list/home state for a return path and the locale home route. */
+export function clearReturnScrollState(
+  returnTo: string | null | undefined,
+  locale: string,
+): void {
+  clearListScroll(`/${locale}`);
+  if (!returnTo) return;
+  const pathname = returnTo.split(/[?#]/)[0].replace(/\/$/, "") || `/${locale}`;
+  if (pathname !== `/${locale}`) {
+    clearListScroll(pathname);
+  }
+}
+
 export function saveScrollForReturn(
   path: string,
   extras?: Omit<ListScrollSnapshot, "scrollY">,

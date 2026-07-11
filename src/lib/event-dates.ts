@@ -6,12 +6,17 @@ const NORTH_COAST_RE =
 const OFF_REGION_RE =
   /cotui|cotuí|\bmao\b|santiago|cibao|santo domingo|la vega|san francisco de macor[ií]s|santo domingo/i;
 
-/** YYYY-MM-DD in the user's local timezone (never use toISOString for calendar dates). */
+/** North Coast events use Atlantic Standard Time (no DST). */
+export const APP_TIMEZONE = "America/Santo_Domingo";
+
+/** YYYY-MM-DD in the app region (never use toISOString for calendar dates). */
 export function localDateISO(d: Date = new Date()): string {
-  const y = d.getFullYear();
-  const m = String(d.getMonth() + 1).padStart(2, "0");
-  const day = String(d.getDate()).padStart(2, "0");
-  return `${y}-${m}-${day}`;
+  return new Intl.DateTimeFormat("en-CA", {
+    timeZone: APP_TIMEZONE,
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(d);
 }
 
 export function parseLocalDate(dateStr: string): Date {

@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useSyncExternalStore } from "react";
 import {
   applyTheme,
   resolveTheme,
@@ -8,17 +8,30 @@ import {
   type Theme,
 } from "@/lib/theme";
 
-export function useTheme() {
-  const [theme, setThemeState] = useState<Theme>("light");
+function getThemeSnapshot(): Theme {
+  if (typeof document === "undefined") return "light";
+  return document.documentElement.classList.contains("dark") ? "dark" : "light";
+}
 
-  useEffect(() => {
-    setThemeState(resolveTheme());
-  }, []);
+function subscribeTheme(onStoreChange: () => void): () => void {
+  const observer = new MutationObserver(onStoreChange);
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ["class"],
+  });
+  return () => observer.disconnect();
+}
+
+export function useTheme() {
+  const theme = useSyncExternalStore(
+    subscribeTheme,
+    getThemeSnapshot,
+    () => "light" as Theme,
+  );
 
   const setTheme = useCallback((next: Theme) => {
     localStorage.setItem(THEME_STORAGE_KEY, next);
     applyTheme(next);
-    setThemeState(next);
   }, []);
 
   const toggleTheme = useCallback(() => {

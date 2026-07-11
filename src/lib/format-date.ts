@@ -1,5 +1,4 @@
 import type { Locale } from "@/i18n/config";
-import { parseLocalDate } from "./event-dates";
 
 const DATE_LOCALES: Record<Locale, string> = {
   en: "en-US",
@@ -7,18 +6,33 @@ const DATE_LOCALES: Record<Locale, string> = {
   fr: "fr-FR",
 };
 
-function formatLocalDate(d: Date, locale: Locale, short: boolean): string {
-  return d.toLocaleDateString(DATE_LOCALES[locale], short
-    ? { weekday: "short", month: "short", day: "numeric" }
-    : { weekday: "long", month: "long", day: "numeric" });
+/** Calendar dates are zone-less; format in UTC so SSR (Node) matches the browser. */
+function calendarDateFromISO(dateStr: string): Date | null {
+  const [y, m, d] = dateStr.split("-").map(Number);
+  if (!y || !m || !d) return null;
+  return new Date(Date.UTC(y, m - 1, d, 12));
 }
 
-function isValidDate(d: Date): boolean {
-  return !isNaN(d.getTime());
+function formatCalendarDate(dateStr: string, locale: Locale, short: boolean): string {
+  const utc = calendarDateFromISO(dateStr);
+  if (!utc) return dateStr;
+
+  return utc.toLocaleDateString(
+    DATE_LOCALES[locale],
+    short
+      ? { weekday: "short", month: "short", day: "numeric", timeZone: "UTC" }
+      : { weekday: "long", month: "long", day: "numeric", timeZone: "UTC" },
+  );
 }
 
-function sameMonthYear(a: Date, b: Date): boolean {
-  return a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth();
+function sameMonthYearISO(startStr: string, endStr: string): boolean {
+  const start = calendarDateFromISO(startStr);
+  const end = calendarDateFromISO(endStr);
+  if (!start || !end) return false;
+  return (
+    start.getUTCFullYear() === end.getUTCFullYear() &&
+    start.getUTCMonth() === end.getUTCMonth()
+  );
 }
 
 /** Jul 7–11 when endDate is set; otherwise a single formatted date. */
@@ -34,15 +48,18 @@ export function formatEventDateRange(
     return short ? formatEventDateShort(dateStr, locale) : formatEventDate(dateStr, locale);
   }
 
-  const start = parseLocalDate(dateStr);
-  const end = parseLocalDate(endStr);
-  if (!isValidDate(start) || !isValidDate(end) || end < start) {
+  const start = calendarDateFromISO(dateStr);
+  const end = calendarDateFromISO(endStr);
+  if (!start || !end || end < start) {
     return short ? formatEventDateShort(dateStr, locale) : formatEventDate(dateStr, locale);
   }
 
-  if (short && sameMonthYear(start, end)) {
-    const month = start.toLocaleDateString(DATE_LOCALES[locale], { month: "short" });
-    return `${month} ${start.getDate()}–${end.getDate()}`;
+  if (short && sameMonthYearISO(dateStr, endStr)) {
+    const month = start.toLocaleDateString(DATE_LOCALES[locale], {
+      month: "short",
+      timeZone: "UTC",
+    });
+    return `${month} ${start.getUTCDate()}–${end.getUTCDate()}`;
   }
 
   const startLabel = short
@@ -55,25 +72,9 @@ export function formatEventDateRange(
 }
 
 export function formatEventDate(dateStr: string, locale: Locale): string {
-  try {
-    const d = parseLocalDate(dateStr);
-    if (!isNaN(d.getTime())) {
-      return formatLocalDate(d, locale, false);
-    }
-  } catch {
-    /* keep original */
-  }
-  return dateStr;
+  return formatCalendarDate(dateStr, locale, false);
 }
 
 export function formatEventDateShort(dateStr: string, locale: Locale): string {
-  try {
-    const d = parseLocalDate(dateStr);
-    if (!isNaN(d.getTime())) {
-      return formatLocalDate(d, locale, true);
-    }
-  } catch {
-    /* keep original */
-  }
-  return dateStr;
+  return formatCalendarDate(dateStr, locale, true);
 }

@@ -33,6 +33,7 @@ export const SearchBar = forwardRef<HTMLInputElement, SearchBarProps>(
           autoFocus={autoFocus}
           aria-label={dict.search.placeholder}
           className={fieldClassName}
+          suppressHydrationWarning
         />
       </div>
     );

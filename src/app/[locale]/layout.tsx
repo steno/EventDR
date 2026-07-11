@@ -7,6 +7,7 @@ import { SITE_NAME, defaultOpenGraph, defaultTwitter } from "@/lib/seo";
 import { Analytics } from "@/components/Analytics";
 import { AppFooter } from "@/components/AppFooter";
 import { AppVersionBanner } from "@/components/AppVersionBanner";
+import { BodyScrollGuard } from "@/components/BodyScrollGuard";
 import { DocumentLang } from "@/components/DocumentLang";
 
 export function generateStaticParams() {
@@ -74,6 +75,7 @@ export default async function LocaleLayout({
   return (
     <>
       <DocumentLang locale={locale} />
+      <BodyScrollGuard />
       <Suspense fallback={null}>
         <Analytics />
       </Suspense>
