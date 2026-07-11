@@ -10,8 +10,7 @@ import type { Locale } from "@/i18n/config";
 import { eventDetailPath } from "@/lib/event-navigation";
 import { EventCallLink } from "@/components/EventCallLink";
 import { EventStatusBadge } from "@/components/EventStatusBadge";
-import { getEventLiveStatus, happensOnLocalDate } from "@/lib/event-status";
-import { getEventLiveStatusLabel } from "@/lib/event-status-label";
+import { resolveLiveStatusDisplay } from "@/lib/event-status-label";
 
 interface EventCardProps {
   event: Event;
@@ -24,11 +23,9 @@ const EventCardComponent = ({ event, dict, locale, returnTo }: EventCardProps) =
   const category = getCategoryMeta(event.category, dict.categories);
   const emoji = event.imageEmoji ?? category?.emoji ?? "📅";
   const href = eventDetailPath(locale, event.id, returnTo);
-  const liveStatus = happensOnLocalDate(event) ? getEventLiveStatus(event) : null;
-  const liveStatusLabel =
-    liveStatus && liveStatus !== "unknown"
-      ? getEventLiveStatusLabel(event, dict)
-      : null;
+  const liveDisplay = resolveLiveStatusDisplay(event, dict);
+  const liveStatus = liveDisplay?.status ?? null;
+  const liveStatusLabel = liveDisplay?.label ?? null;
   const isEndedToday = liveStatus === "ended";
 
   return (

@@ -17,7 +17,7 @@ import {
   happensOnLocalDate,
   parseEventTimeWindow,
 } from "@/lib/event-status";
-import { getEventLiveStatusLabel } from "@/lib/event-status-label";
+import { resolveLiveStatusDisplay } from "@/lib/event-status-label";
 
 interface TodayHighlightsProps {
   events: Event[];
@@ -73,8 +73,9 @@ const TodayHighlightsComponent = ({
       <div className="-mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 scrollbar-hide">
         {todayEvents.map((event) => {
           const href = eventDetailPath(locale, event.id, `/${locale}`);
-          const status = getEventLiveStatus(event);
-          const statusLabel = getEventLiveStatusLabel(event, dict);
+          const display = resolveLiveStatusDisplay(event, dict);
+          const status = display?.status ?? "unknown";
+          const statusLabel = display?.label ?? null;
 
           return (
             <article

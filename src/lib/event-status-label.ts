@@ -1,6 +1,18 @@
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Event } from "@/lib/types";
-import { getEventLiveStatus, type EventLiveStatus } from "@/lib/event-status";
+import { localDateISO } from "@/lib/event-dates";
+import {
+  getEventLiveStatus,
+  happensOnLocalDate,
+  isEventActiveToday,
+  parseEventTimeWindow,
+  type EventLiveStatus,
+} from "@/lib/event-status";
+
+export interface LiveStatusDisplay {
+  status: EventLiveStatus;
+  label: string;
+}
 
 export function formatEventLiveStatusLabel(
   status: EventLiveStatus,
@@ -18,12 +30,64 @@ export function formatEventLiveStatusLabel(
   }
 }
 
+function currentMinutes(now: Date): number {
+  return now.getHours() * 60 + now.getMinutes();
+}
+
+function hasWindowStarted(
+  nowMin: number,
+  window: { start: number; end: number },
+): boolean {
+  if (window.end < window.start) {
+    return nowMin >= window.start || nowMin <= window.end;
+  }
+  return nowMin >= window.start;
+}
+
+/** Label when status is unknown but the event is still active today. */
+function fallbackLiveStatusDisplay(
+  event: Pick<Event, "date" | "endDate" | "time">,
+  dict: Dictionary,
+  now: Date,
+): LiveStatusDisplay | null {
+  if (!isEventActiveToday(event, now)) return null;
+
+  const window = parseEventTimeWindow(event.time);
+  if (!window) {
+    return { status: "live", label: dict.events.happeningNow };
+  }
+  if (!hasWindowStarted(currentMinutes(now), window)) {
+    return { status: "upcoming", label: dict.events.startsSoon };
+  }
+  return { status: "live", label: dict.events.eventStarted };
+}
+
+export function resolveLiveStatusDisplay(
+  event: Pick<Event, "date" | "endDate" | "time">,
+  dict: Dictionary,
+  now: Date = new Date(),
+): LiveStatusDisplay | null {
+  if (!happensOnLocalDate(event, localDateISO(now))) return null;
+
+  const status = getEventLiveStatus(event, now);
+  const directLabel = formatEventLiveStatusLabel(status, dict);
+  if (directLabel) {
+    return { status, label: directLabel };
+  }
+
+  if (status === "unknown") {
+    return fallbackLiveStatusDisplay(event, dict, now);
+  }
+
+  return null;
+}
+
 export function getEventLiveStatusLabel(
   event: Pick<Event, "date" | "endDate" | "time">,
   dict: Dictionary,
   now?: Date,
 ): string | null {
-  return formatEventLiveStatusLabel(getEventLiveStatus(event, now), dict);
+  return resolveLiveStatusDisplay(event, dict, now)?.label ?? null;
 }
 
 export function eventStatusBadgeClass(status: EventLiveStatus): string {

@@ -27,8 +27,7 @@ import { addToCalendar } from "@/lib/calendar";
 import { ShareMenu } from "@/components/ShareMenu";
 import { matchVenueSlug } from "@/lib/venues-seed";
 import { formatRecurrenceLabel } from "@/lib/recurrence-label";
-import { getEventLiveStatus, happensOnLocalDate } from "@/lib/event-status";
-import { getEventLiveStatusLabel } from "@/lib/event-status-label";
+import { resolveLiveStatusDisplay } from "@/lib/event-status-label";
 import { EventStatusBadge } from "@/components/EventStatusBadge";
 import { EventImage } from "@/components/EventImage";
 import { formatEventPlace } from "@/lib/event-location";
@@ -91,11 +90,9 @@ export function EventDetailSheet({
   const recurrenceLabel = formatRecurrenceLabel(event, locale, dict);
   const venueSlug =
     event.venueSlug ?? matchVenueSlug(event.venue) ?? matchVenueSlug(event.location);
-  const liveStatus = happensOnLocalDate(event) ? getEventLiveStatus(event) : null;
-  const liveStatusLabel =
-    liveStatus && liveStatus !== "unknown"
-      ? getEventLiveStatusLabel(event, dict)
-      : null;
+  const liveDisplay = resolveLiveStatusDisplay(event, dict);
+  const liveStatus = liveDisplay?.status ?? null;
+  const liveStatusLabel = liveDisplay?.label ?? null;
   const TitleTag = standalone ? "h1" : "h2";
 
   function handleShareFeedback(message: string) {
