@@ -1,6 +1,6 @@
 "use client";
 
-import { forwardRef } from "react";
+import { forwardRef, useEffect, useRef } from "react";
 import { Search } from "lucide-react";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { resetInputZoom } from "@/lib/reset-input-zoom";
@@ -20,20 +20,33 @@ const fieldClassName =
 
 export const SearchBar = forwardRef<HTMLInputElement, SearchBarProps>(
   function SearchBar({ value, onChange, dict, autoFocus }, ref) {
+    const inputRef = useRef<HTMLInputElement>(null);
+
+    useEffect(() => {
+      const input = inputRef.current;
+      if (!input) return;
+      const onSearch = () => resetInputZoom();
+      input.addEventListener("search", onSearch);
+      return () => input.removeEventListener("search", onSearch);
+    }, []);
+
     return (
       <div className={`${shellClassName} mb-4`}>
         <span className="ml-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-neutral-500 dark:text-neutral-400">
           <Search className="h-3.5 w-3.5" aria-hidden />
         </span>
         <input
-          ref={ref}
+          ref={(node) => {
+            inputRef.current = node;
+            if (typeof ref === "function") ref(node);
+            else if (ref) ref.current = node;
+          }}
           type="search"
           value={value}
           onChange={(e) => onChange(e.target.value)}
           onKeyDown={(e) => {
             if (e.key === "Enter") resetInputZoom();
           }}
-          onSearch={resetInputZoom}
           onBlur={() => resetInputZoom({ blur: false })}
           placeholder={dict.search.placeholder}
           autoFocus={autoFocus}
