@@ -291,3 +291,28 @@ export function eventMatchesRecurrence(
 
   return false;
 }
+
+/** First calendar day in [rangeStart, rangeEnd] where a recurring event occurs. */
+export function findRecurringOccurrenceInRange(
+  event: {
+    recurrence?: EventRecurrence;
+    recurrenceDay?: number;
+    recurrenceDays?: number[];
+  },
+  rangeStart: string,
+  rangeEnd: string,
+): string | null {
+  if (!event.recurrence) return null;
+
+  for (let cursor = rangeStart; cursor <= rangeEnd; cursor = addDaysISO(cursor, 1)) {
+    const day = weekdayFromISO(cursor);
+
+    if (event.recurrence === "daily") return cursor;
+    if (event.recurrence === "weekends" && (day === 0 || day === 6)) return cursor;
+    if (event.recurrence === "weekly") {
+      if (weeklyDays(event).includes(day)) return cursor;
+    }
+  }
+
+  return null;
+}

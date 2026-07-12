@@ -2,6 +2,7 @@ import type { EventRecurrence } from "./types";
 import {
   addDaysISO,
   eventMatchesRecurrence,
+  findRecurringOccurrenceInRange,
   localDateISO,
   weekdayFromISO,
 } from "./event-dates";
@@ -27,15 +28,12 @@ function getWeekendRangeISO(now: Date): { start: string; end: string } {
   const today = localDateISO(now);
   const day = weekdayFromISO(today);
 
-  // Fri–Sun: current weekend. Mon–Thu: upcoming Sat–Sun.
+  // Fri–Sat: current weekend. Sun and Mon–Thu: upcoming Sat–Sun.
   if (day === 5) {
     return { start: addDaysISO(today, 1), end: addDaysISO(today, 2) };
   }
   if (day === 6) {
     return { start: today, end: addDaysISO(today, 1) };
-  }
-  if (day === 0) {
-    return { start: addDaysISO(today, -1), end: today };
   }
 
   const daysUntilSaturday = (6 - day + 7) % 7;
@@ -93,7 +91,13 @@ function matchesTimeRange<
     if (!eventStart || !eventEnd) return null;
 
     if (recurrence && eventMatchesRecurrence(recurringItem, "weekend", now)) {
-      return eventStart <= end && eventEnd >= friday ? item : null;
+      const occurrence = findRecurringOccurrenceInRange(
+        recurringItem,
+        friday,
+        end,
+      );
+      if (occurrence) return withDisplayDate(item, occurrence);
+      return null;
     }
     return eventStart <= end && eventEnd >= friday ? item : null;
   }
