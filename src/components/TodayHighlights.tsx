@@ -2,21 +2,18 @@
 
 import { memo, useMemo } from "react";
 import Link from "next/link";
-import { ChevronRight, Navigation } from "lucide-react";
+import { Calendar, ChevronRight, Clock } from "lucide-react";
 import { EventImage } from "@/components/EventImage";
-import { EventStatusBadge } from "@/components/EventStatusBadge";
 import type { Event } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
-import { EventCardMeta } from "@/components/EventCardMeta";
-import { getDirectionsUrl } from "@/lib/maps";
+import { formatEventDateRange } from "@/lib/format-date";
 import { eventDetailPath } from "@/lib/event-navigation";
 import { saveScrollForReturn } from "@/lib/list-scroll-restoration";
 import {
   getTodayHighlightEvents,
   HOME_TODAY_LIMIT,
 } from "@/lib/home-layout";
-import { useLiveStatusDisplay } from "@/hooks/useLiveStatusDisplay";
 
 interface TodayHighlightsProps {
   events: Event[];
@@ -29,97 +26,63 @@ interface TodayHighlightsProps {
 function TodayHighlightCard({
   event,
   locale,
-  dict,
   onBeforeNavigate,
 }: {
   event: Event;
   locale: Locale;
-  dict: Dictionary;
   onBeforeNavigate?: () => void;
 }) {
   const href = eventDetailPath(locale, event.id, `/${locale}`);
-  const display = useLiveStatusDisplay(event, dict);
-  const status = display?.status ?? "unknown";
-  const statusLabel = display?.label ?? null;
+  const dateLabel = formatEventDateRange(event.date, locale, {
+    endDate: event.endDate,
+    short: true,
+  });
 
   return (
-    <article
-      className="group relative flex min-w-[86%] snap-start flex-col overflow-hidden rounded-3xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-[0_8px_24px_-12px_rgba(0,0,0,0.16)] dark:shadow-[0_8px_24px_-12px_rgba(0,0,0,0.4)] transition-colors hover:border-neutral-300 dark:hover:border-neutral-700 sm:min-w-[20rem]"
-    >
-      <div className="relative flex min-h-0 flex-1 flex-col">
-        <Link
-          href={href}
-          onClick={() => {
-            if (onBeforeNavigate) {
-              onBeforeNavigate();
-            } else {
-              saveScrollForReturn(`/${locale}`);
-            }
-          }}
-          className="absolute inset-0 z-0 rounded-3xl touch-manipulation active:scale-[0.995] transition-transform"
-          aria-label={event.title}
-        />
-        <div className="relative z-[1] flex min-h-0 flex-1 flex-col pointer-events-none">
-          {event.imageUrl ? (
-            <div className="relative h-40 w-full shrink-0 overflow-hidden bg-neutral-100 dark:bg-neutral-800">
-              <EventImage
-                src={event.imageUrl}
-                alt=""
-                sizes="(max-width: 672px) 86vw, 320px"
-                className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
-              />
-              <div
-                className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-orange-600/55 via-rose-500/35 to-transparent transition-opacity duration-300 group-hover:opacity-0"
-                aria-hidden
-              />
-            </div>
-          ) : (
-            <div className="h-40 w-full shrink-0 bg-neutral-100 dark:bg-neutral-800" aria-hidden />
-          )}
-
-          <div className="flex min-h-0 flex-1 flex-col p-5 pb-3">
-            {statusLabel && (
-              <EventStatusBadge
-                label={statusLabel}
-                status={status}
-                className="mb-2 w-fit shrink-0"
-              />
-            )}
-            <h3 className="line-clamp-2 shrink-0 text-[19px] font-black leading-[1.25] tracking-tight text-neutral-950 dark:text-neutral-100">
-              {event.title}
-            </h3>
-            {event.description ? (
-              <p className="mt-3 line-clamp-2 flex-1 text-copy">
-                {event.description}
-              </p>
-            ) : (
-              <div className="mt-3 flex-1" aria-hidden />
-            )}
-
-            <EventCardMeta
-              event={event}
-              locale={locale}
-              dict={dict}
-              className="mt-auto shrink-0 pt-4"
+    <article className="group relative flex min-w-[72%] snap-start flex-col overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-[0_4px_16px_-8px_rgba(0,0,0,0.12)] dark:shadow-[0_4px_16px_-8px_rgba(0,0,0,0.35)] transition-colors hover:border-neutral-300 dark:hover:border-neutral-700 sm:min-w-[16rem]">
+      <Link
+        href={href}
+        onClick={() => {
+          if (onBeforeNavigate) {
+            onBeforeNavigate();
+          } else {
+            saveScrollForReturn(`/${locale}`);
+          }
+        }}
+        className="flex min-h-0 flex-1 flex-col touch-manipulation active:scale-[0.995] transition-transform"
+        aria-label={event.title}
+      >
+        {event.imageUrl ? (
+          <div className="relative h-32 w-full shrink-0 overflow-hidden bg-neutral-100 dark:bg-neutral-800">
+            <EventImage
+              src={event.imageUrl}
+              alt=""
+              sizes="(max-width: 672px) 72vw, 256px"
+              className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
             />
           </div>
-        </div>
-      </div>
-
-      <div className="relative z-[2] flex shrink-0 justify-end px-5 pb-5 pt-1 min-h-[2.25rem] pointer-events-auto">
-        {event.format !== "digital" && (
-          <a
-            href={getDirectionsUrl(event)}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[12px] font-semibold text-neutral-500 dark:text-neutral-400 ring-1 ring-neutral-200/80 dark:ring-neutral-700/80 hover:text-orange-600 hover:ring-orange-200/80 dark:hover:ring-orange-900/50 touch-manipulation transition-colors"
-            aria-label={dict.detail.directions}
-          >
-            <Navigation className="h-3.5 w-3.5" />
-            {dict.detail.directions}
-          </a>
+        ) : (
+          <div className="h-32 w-full shrink-0 bg-neutral-100 dark:bg-neutral-800" aria-hidden />
         )}
-      </div>
+
+        <div className="flex flex-col gap-2 p-3.5">
+          <h3 className="line-clamp-2 text-[17px] font-black leading-[1.25] tracking-tight text-neutral-950 dark:text-neutral-100">
+            {event.title}
+          </h3>
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-copy-meta font-medium text-neutral-600 dark:text-neutral-400">
+            <span className="inline-flex items-center gap-1.5">
+              <Calendar className="h-3.5 w-3.5 shrink-0" aria-hidden />
+              {dateLabel}
+            </span>
+            {event.time && (
+              <span className="inline-flex items-center gap-1.5">
+                <Clock className="h-3.5 w-3.5 shrink-0" aria-hidden />
+                {event.time}
+              </span>
+            )}
+          </div>
+        </div>
+      </Link>
     </article>
   );
 }
@@ -161,7 +124,6 @@ const TodayHighlightsComponent = ({
             key={event.id}
             event={event}
             locale={locale}
-            dict={dict}
             onBeforeNavigate={onBeforeNavigate}
           />
         ))}
