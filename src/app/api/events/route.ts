@@ -143,7 +143,9 @@ export async function GET(request: NextRequest) {
       if (cached?.length) {
         return NextResponse.json(
           {
-            events: attachEventImages(attachEventPhones(cached)),
+            events: attachEventImages(
+              attachEventPhones(attachCoords(cached)),
+            ),
             source: "cache",
             region: REGION_LABELS[locale],
           },

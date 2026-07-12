@@ -390,8 +390,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Puerto Plata",
     description:
       "178 multicolored umbrellas over Calle San Felipe in the historic center — free photo walk between artisan shops, cafés, and local vendors.",
-    lat: 19.7943,
-    lng: -70.6938,
+    lat: 19.7985582,
+    lng: -70.6942833,
     emoji: "☂️",
     website:
       "https://gobernacionpuertoplata.gob.do/turismo/whatsapp-image-2024-09-06-at-10-15-43-am/",
@@ -402,8 +402,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Puerto Plata",
     description:
       "Dominican Republic's largest go-kart park on Highway 5 — Cyclone, Sprint 500, Grand Prix, and bumper cars, plus a kids' playground near Playa Dorada.",
-    lat: 19.7651,
-    lng: -70.5154,
+    lat: 19.75519,
+    lng: -70.642975,
     emoji: "🏎️",
     instagram: "funcitypuertoplata",
     website: "https://puertoplatadr.com/tours/fun-city-gokarts/",
@@ -462,8 +462,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Puerto Plata",
     description:
       "Open-air safari trucks through countryside villages, coffee plantations, local schools, and a hidden beach — a Puerto Plata classic since 2004.",
-    lat: 19.787,
-    lng: -70.675,
+    lat: 19.7974584,
+    lng: -70.7010331,
     emoji: "🛻",
     website: "https://outback-adventures.com/st_location/dominican-republic/puerto-plata/",
   },
