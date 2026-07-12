@@ -148,6 +148,11 @@ export const fr: Dictionary = {
       "Événement copié ! Appuyez sur OK, puis collez dans votre publication Facebook.",
     facebookCopyFailed:
       "Copie impossible. Appui long pour coller une fois Facebook ouvert.",
+    mediaPhoto: "Photo de l'événement",
+    mediaMap: "Carte du lieu",
+    mediaTapDirections: "Appuyer pour l'itinéraire",
+    mediaSwipeMap: "Glisser pour la carte",
+    mediaSwipePhoto: "Glisser pour la photo",
   },
   submit: {
     title: "Partager un événement",
@@ -215,6 +220,26 @@ export const fr: Dictionary = {
   theme: {
     light: "Mode clair",
     dark: "Mode sombre",
+  },
+  weather: {
+    ariaLabel: "Météo de la Côte Nord",
+    location: "Puerto Plata, République dominicaine",
+    wind: "Vent",
+    precip: "Précip.",
+    pressure: "Pression",
+    loading: "Chargement…",
+    unavailable: "Météo indisponible",
+    unitToggle: "Unité de température",
+    conditions: {
+      clear: "Dégagé",
+      partlyCloudy: "Partiellement nuageux",
+      overcast: "Couvert",
+      fog: "Brouillard",
+      drizzle: "Bruine",
+      rain: "Pluie",
+      snow: "Neige",
+      thunderstorm: "Orage",
+    },
   },
   venues: {
     title: "Lieux populaires",

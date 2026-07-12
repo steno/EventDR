@@ -148,6 +148,11 @@ export const es: Dictionary = {
       "¡Evento copiado! Pulsa OK y pégalo en tu publicación de Facebook.",
     facebookCopyFailed:
       "No se pudo copiar automáticamente. Mantén pulsado para pegar cuando se abra Facebook.",
+    mediaPhoto: "Foto del evento",
+    mediaMap: "Mapa de ubicación",
+    mediaTapDirections: "Toca para indicaciones",
+    mediaSwipeMap: "Desliza para el mapa",
+    mediaSwipePhoto: "Desliza para la foto",
   },
   submit: {
     title: "Comparte un evento",
@@ -215,6 +220,26 @@ export const es: Dictionary = {
   theme: {
     light: "Modo claro",
     dark: "Modo oscuro",
+  },
+  weather: {
+    ariaLabel: "Clima de la Costa Norte",
+    location: "Puerto Plata, República Dominicana",
+    wind: "Viento",
+    precip: "Precip",
+    pressure: "Presión",
+    loading: "Cargando…",
+    unavailable: "Clima no disponible",
+    unitToggle: "Unidad de temperatura",
+    conditions: {
+      clear: "Despejado",
+      partlyCloudy: "Parcialmente nublado",
+      overcast: "Nublado",
+      fog: "Niebla",
+      drizzle: "Llovizna",
+      rain: "Lluvia",
+      snow: "Nieve",
+      thunderstorm: "Tormenta",
+    },
   },
   venues: {
     title: "Lugares populares",

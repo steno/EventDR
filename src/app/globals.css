@@ -87,6 +87,65 @@ button, a {
   display: none;
 }
 
+/* Inline event map — zoom +/- pinned top-right */
+.event-inline-map .leaflet-top.leaflet-right {
+  top: 10px;
+  right: 10px;
+}
+
+.event-inline-map.event-inline-map--close-offset .leaflet-top.leaflet-right {
+  right: 52px;
+}
+
+.event-inline-map .leaflet-control-zoom {
+  margin: 0 !important;
+  border: none !important;
+  border-radius: 12px !important;
+  overflow: hidden;
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.14),
+    0 0 0 1px rgba(0, 0, 0, 0.06) !important;
+}
+
+.event-inline-map .leaflet-control-zoom a {
+  width: 32px !important;
+  height: 32px !important;
+  line-height: 32px !important;
+  border: none !important;
+  background: rgba(255, 255, 255, 0.94) !important;
+  color: #262626 !important;
+  font-size: 18px !important;
+  font-weight: 600 !important;
+}
+
+.event-inline-map .leaflet-control-zoom a:hover {
+  background: #fff !important;
+  color: #171717 !important;
+}
+
+.event-inline-map .leaflet-control-zoom-in {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+  border-radius: 0 !important;
+}
+
+.event-inline-map .leaflet-control-zoom-out {
+  border-radius: 0 !important;
+}
+
+.dark .event-inline-map .leaflet-control-zoom a {
+  background: rgba(23, 23, 23, 0.92) !important;
+  color: #f5f5f5 !important;
+}
+
+.dark .event-inline-map .leaflet-control-zoom a:hover {
+  background: rgba(38, 38, 38, 0.98) !important;
+  color: #fff !important;
+}
+
+.dark .event-inline-map .leaflet-control-zoom-in {
+  border-bottom-color: rgba(255, 255, 255, 0.1) !important;
+}
+
 .line-clamp-2 {
   display: -webkit-box;
   -webkit-line-clamp: 2;

@@ -125,6 +125,11 @@ export type Dictionary = {
     linkCopied: string;
     facebookCopied: string;
     facebookCopyFailed: string;
+    mediaPhoto: string;
+    mediaMap: string;
+    mediaTapDirections: string;
+    mediaSwipeMap: string;
+    mediaSwipePhoto: string;
   };
   submit: {
     title: string;
@@ -191,6 +196,26 @@ export type Dictionary = {
   theme: {
     light: string;
     dark: string;
+  };
+  weather: {
+    ariaLabel: string;
+    location: string;
+    wind: string;
+    precip: string;
+    pressure: string;
+    loading: string;
+    unavailable: string;
+    unitToggle: string;
+    conditions: {
+      clear: string;
+      partlyCloudy: string;
+      overcast: string;
+      fog: string;
+      drizzle: string;
+      rain: string;
+      snow: string;
+      thunderstorm: string;
+    };
   };
   venues: {
     title: string;
@@ -368,6 +393,11 @@ export const en: Dictionary = {
       "Event copied! Tap OK, then paste into your Facebook post.",
     facebookCopyFailed:
       "Could not copy automatically. Long-press to paste after Facebook opens.",
+    mediaPhoto: "Event photo",
+    mediaMap: "Location map",
+    mediaTapDirections: "Tap for directions",
+    mediaSwipeMap: "Swipe for map",
+    mediaSwipePhoto: "Swipe for photo",
   },
   submit: {
     title: "Share an event",
@@ -435,6 +465,26 @@ export const en: Dictionary = {
   theme: {
     light: "Light mode",
     dark: "Dark mode",
+  },
+  weather: {
+    ariaLabel: "North Coast weather",
+    location: "Puerto Plata, Dominican Republic",
+    wind: "Wind",
+    precip: "Precip",
+    pressure: "Pressure",
+    loading: "Loading…",
+    unavailable: "Weather unavailable",
+    unitToggle: "Temperature unit",
+    conditions: {
+      clear: "Clear",
+      partlyCloudy: "Partly cloudy",
+      overcast: "Overcast",
+      fog: "Fog",
+      drizzle: "Drizzle",
+      rain: "Rain",
+      snow: "Snow",
+      thunderstorm: "Thunderstorm",
+    },
   },
   venues: {
     title: "Popular venues",

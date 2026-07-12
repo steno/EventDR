@@ -40,10 +40,10 @@ export default async function Page({
   searchParams,
 }: {
   params: Promise<{ locale: string; slug: string }>;
-  searchParams: Promise<{ all?: string }>;
+  searchParams: Promise<{ all?: string; from?: string }>;
 }) {
   const { locale, slug } = await params;
-  const { all } = await searchParams;
+  const { all, from } = await searchParams;
   if (!isValidLocale(locale)) notFound();
 
   const venue = (await fetchVenueBySlug(slug)) ?? getSeedVenue(slug);
@@ -67,6 +67,7 @@ export default async function Page({
         locale={locale}
         dict={dict}
         initialExpanded={isScopeInitiallyExpanded(all)}
+        resetScroll={from === "event"}
       />
     </>
   );

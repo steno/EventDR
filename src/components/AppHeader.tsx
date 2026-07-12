@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { WeatherWidget } from "@/components/WeatherWidget";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 
@@ -44,7 +45,8 @@ export function AppHeader({ locale, dict, onLogoClick }: AppHeaderProps) {
           className="h-14 w-auto object-contain sm:h-20"
         />
       </Link>
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-1.5">
+        <WeatherWidget locale={locale} dict={dict} />
         <ThemeToggle dict={dict} />
         <LanguageSwitcher locale={locale} dict={dict} />
       </div>

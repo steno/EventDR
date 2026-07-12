@@ -30,9 +30,12 @@ import { EventCategoryLinks } from "@/components/EventCategoryLinks";
 import { useLiveStatusDisplay } from "@/hooks/useLiveStatusDisplay";
 import { EventStatusBadge } from "@/components/EventStatusBadge";
 import { EventImage } from "@/components/EventImage";
+import { EventDetailMedia, hasEventDetailHero } from "@/components/EventDetailMedia";
+import { resolveEventCoords } from "@/lib/event-coords";
 import { formatEventPlace } from "@/lib/event-location";
 import { EventCallLink } from "@/components/EventCallLink";
 import { useSwipeToDismiss } from "@/hooks/useSwipeToDismiss";
+import { clearListScroll } from "@/lib/list-scroll-restoration";
 
 interface EventDetailSheetProps {
   event: Event | null;
@@ -111,6 +114,13 @@ export function EventDetailSheet({
   const liveStatus = liveDisplay?.status ?? null;
   const liveStatusLabel = liveDisplay?.label ?? null;
   const TitleTag = standalone ? "h1" : "h2";
+  const showHero = hasEventDetailHero(event);
+  const hasMapCoords = resolveEventCoords(event) != null;
+  const isPhysical = event.format !== "digital";
+  const showBottomDirections = isPhysical && !hasMapCoords;
+
+  const secondaryActionClass =
+    "flex items-center justify-center gap-2 rounded-full bg-white dark:bg-neutral-800 py-3.5 text-[15px] font-bold text-neutral-500 dark:text-neutral-400 shadow-sm ring-1 ring-neutral-200/70 dark:ring-neutral-700/70 touch-manipulation transition-all hover:text-neutral-800 dark:hover:text-neutral-200 active:scale-[0.98]";
 
   function handleShareFeedback(message: string, durationMs = 5000) {
     setShareMsg(message);
@@ -119,8 +129,9 @@ export function EventDetailSheet({
 
   function handleViewVenue() {
     if (!venueSlug) return;
-    requestClose();
-    router.push(`/${locale}/venue/${venueSlug}`);
+    const venuePath = `/${locale}/venue/${venueSlug}`;
+    clearListScroll(venuePath);
+    router.push(`${venuePath}?from=event`);
   }
 
   const contentSection = (
@@ -189,12 +200,26 @@ export function EventDetailSheet({
             <span className="font-medium">{event.time}</span>
           </div>
         )}
-        <div className="flex items-start gap-2.5 text-copy-meta text-neutral-800 dark:text-neutral-200">
-          <MapPin className="mt-0.5 h-[1.125rem] w-[1.125rem] shrink-0 text-neutral-500 dark:text-neutral-400" />
-          <span className="min-w-0 font-medium leading-snug">
-            {formatEventPlace(event)}
-          </span>
-        </div>
+        {isPhysical ? (
+          <a
+            href={getDirectionsUrl(event)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group/place flex items-start gap-2.5 text-copy-meta text-neutral-800 dark:text-neutral-200 touch-manipulation"
+          >
+            <MapPin className="mt-0.5 h-[1.125rem] w-[1.125rem] shrink-0 text-neutral-500 transition-colors group-hover/place:text-orange-600 dark:text-neutral-400" />
+            <span className="min-w-0 font-medium leading-snug transition-colors group-hover/place:text-orange-600">
+              {formatEventPlace(event)}
+            </span>
+          </a>
+        ) : (
+          <div className="flex items-start gap-2.5 text-copy-meta text-neutral-800 dark:text-neutral-200">
+            <MapPin className="mt-0.5 h-[1.125rem] w-[1.125rem] shrink-0 text-neutral-500 dark:text-neutral-400" />
+            <span className="min-w-0 font-medium leading-snug">
+              {formatEventPlace(event)}
+            </span>
+          </div>
+        )}
         {event.phone && (
           <div className="group/phone flex items-center gap-2.5 text-copy-meta text-neutral-800 dark:text-neutral-200">
             <Phone className="h-[1.125rem] w-[1.125rem] shrink-0 text-emerald-600 dark:text-emerald-400 group-hover/phone:text-neutral-500 transition-colors" />
@@ -233,13 +258,13 @@ export function EventDetailSheet({
           returnTo={returnTo}
         />
       )}
-      <div className="grid grid-cols-2 gap-3">
-        {event.format !== "digital" && (
+      <div className={`grid gap-3 ${showBottomDirections ? "grid-cols-2" : "grid-cols-3"}`}>
+        {showBottomDirections && (
           <a
             href={getDirectionsUrl(event)}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 py-3.5 text-[15px] font-bold text-white shadow-[0_14px_30px_-14px_rgba(244,63,94,0.8)] touch-manipulation transition-transform active:scale-[0.98]"
+            className={secondaryActionClass}
           >
             <Navigation className="h-5 w-5" />
             {dict.detail.directions}
@@ -248,7 +273,7 @@ export function EventDetailSheet({
         <button
           type="button"
           onClick={() => addToCalendar(event)}
-          className="flex items-center justify-center gap-2 rounded-full bg-white dark:bg-neutral-800 py-3.5 text-[15px] font-bold text-neutral-500 dark:text-neutral-400 shadow-sm ring-1 ring-neutral-200/70 dark:ring-neutral-700/70 touch-manipulation transition-all hover:text-neutral-800 dark:hover:text-neutral-200 active:scale-[0.98]"
+          className={secondaryActionClass}
         >
           <CalendarPlus className="h-5 w-5" />
           {dict.detail.calendar}
@@ -281,31 +306,34 @@ export function EventDetailSheet({
     </div>
   );
 
+  const emojiFallback = (
+    <div className="flex items-start px-5 pt-5">
+      <div
+        className={`
+          flex h-14 w-14 items-center justify-center rounded-2xl
+          bg-gradient-to-br ${category?.gradient ?? "from-neutral-200 to-neutral-300"}
+          text-2xl shadow-sm
+        `}
+      >
+        {emoji}
+      </div>
+    </div>
+  );
+
   if (standalone) {
     return (
       <article className="mx-auto w-full max-w-lg sm:max-w-2xl rounded-t-3xl bg-white dark:bg-neutral-900 shadow-2xl ring-1 ring-neutral-200/70 dark:ring-neutral-800">
-        {event.imageUrl ? (
-          <div className="relative h-[min(36dvh,14rem)] w-full overflow-hidden rounded-t-3xl bg-neutral-100 dark:bg-neutral-800">
-            <EventImage
-              src={event.imageUrl}
-              alt={event.title}
-              sizes="(max-width: 672px) 100vw, 672px"
-              className="object-cover object-center"
-              priority
-            />
-          </div>
+        {showHero ? (
+          <EventDetailMedia
+            event={event}
+            dict={dict}
+            emoji={emoji}
+            gradient={category?.gradient}
+            variant="standalone"
+            priority
+          />
         ) : (
-          <div className="flex items-start px-5 pt-5">
-            <div
-              className={`
-                flex h-14 w-14 items-center justify-center rounded-2xl
-                bg-gradient-to-br ${category?.gradient ?? "from-neutral-200 to-neutral-300"}
-                text-2xl shadow-sm
-              `}
-            >
-              {emoji}
-            </div>
-          </div>
+          emojiFallback
         )}
         <div className="px-5 pt-4 pb-3">{contentSection}</div>
         {actionsSection}
@@ -352,58 +380,47 @@ export function EventDetailSheet({
           animate-in slide-in-from-bottom duration-300
         "
       >
-        <div
-          {...(swipeEnabled ? dragZoneProps : {})}
-          className={
-            swipeEnabled
-              ? "shrink-0 touch-none cursor-grab active:cursor-grabbing"
-              : "shrink-0"
-          }
-        >
+        <div className="shrink-0">
           {swipeEnabled && (
-            <div className="flex justify-center pt-2.5 pb-1" aria-hidden>
+            <div
+              {...dragZoneProps}
+              className="flex justify-center touch-none cursor-grab active:cursor-grabbing pt-2.5 pb-1"
+              aria-hidden
+            >
               <div className="h-1 w-10 rounded-full bg-neutral-300/90 dark:bg-neutral-600/90" />
             </div>
           )}
-        {event.imageUrl ? (
-          <div className="relative h-[min(32dvh,13rem)] w-full shrink-0 overflow-hidden bg-neutral-100 dark:bg-neutral-800">
-            <EventImage
-              src={event.imageUrl}
-              alt={event.title}
-              sizes="(max-width: 672px) 100vw, 672px"
-              className="object-cover object-center"
+          {showHero ? (
+            <EventDetailMedia
+              event={event}
+              dict={dict}
+              emoji={emoji}
+              gradient={category?.gradient}
+              variant="sheet"
+              onClose={requestClose}
               priority
             />
-            <button
-              type="button"
-              onClick={requestClose}
-              className="absolute top-3 right-3 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 dark:bg-neutral-800/90 shadow-sm"
-              aria-label={dict.detail.close}
-            >
-              <X className="h-4 w-4" />
-            </button>
-          </div>
-        ) : (
-          <div className="flex shrink-0 items-start justify-between px-4 pt-4 pb-2">
-            <div
-              className={`
-                flex h-14 w-14 items-center justify-center rounded-2xl
-                bg-gradient-to-br ${category?.gradient ?? "from-neutral-200 to-neutral-300"}
-                text-2xl shadow-sm
-              `}
-            >
-              {emoji}
+          ) : (
+            <div className="flex shrink-0 items-start justify-between px-4 pt-4 pb-2">
+              <div
+                className={`
+                  flex h-14 w-14 items-center justify-center rounded-2xl
+                  bg-gradient-to-br ${category?.gradient ?? "from-neutral-200 to-neutral-300"}
+                  text-2xl shadow-sm
+                `}
+              >
+                {emoji}
+              </div>
+              <button
+                type="button"
+                onClick={requestClose}
+                className="flex h-9 w-9 items-center justify-center rounded-full bg-neutral-100 dark:bg-neutral-800"
+                aria-label={dict.detail.close}
+              >
+                <X className="h-4 w-4" />
+              </button>
             </div>
-            <button
-              type="button"
-              onClick={requestClose}
-              className="flex h-9 w-9 items-center justify-center rounded-full bg-neutral-100 dark:bg-neutral-800"
-              aria-label={dict.detail.close}
-            >
-              <X className="h-4 w-4" />
-            </button>
-          </div>
-        )}
+          )}
         </div>
 
         <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain touch-pan-y px-5 pt-4 pb-3">

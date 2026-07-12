@@ -157,9 +157,11 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
                 onChange={setSearchQuery}
                 dict={dict}
               />
-              <div className="mb-6">
-                <CategoryGrid locale={locale} dict={dict} />
-              </div>
+              {!isSearching && (
+                <div className="mb-6">
+                  <CategoryGrid locale={locale} dict={dict} />
+                </div>
+              )}
 
               {!isSearching && tab === "discover" && (
                 <TodayHighlights
