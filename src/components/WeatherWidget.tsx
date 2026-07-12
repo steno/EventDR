@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState, useSyncExternalStore } from "react";
 import {
   Cloud,
   CloudDrizzle,
@@ -32,6 +32,7 @@ interface WeatherWidgetProps {
 }
 
 const DESKTOP_HOVER_QUERY = "(hover: hover) and (pointer: fine)";
+const MOBILE_LAYOUT_QUERY = "(max-width: 639px)";
 
 function prefersDesktopHover(): boolean {
   if (typeof window === "undefined") return false;
@@ -86,6 +87,8 @@ export function WeatherWidget({ locale, dict }: WeatherWidgetProps) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const [mobileTop, setMobileTop] = useState<number | null>(null);
   const { unit, setUnit } = useWeatherUnit();
   const canHover = useSyncExternalStore(
     subscribeDesktopHover,
@@ -133,6 +136,34 @@ export function WeatherWidget({ locale, dict }: WeatherWidgetProps) {
     };
   }, [open]);
 
+  useLayoutEffect(() => {
+    if (!open) {
+      setMobileTop(null);
+      return;
+    }
+
+    function updatePosition() {
+      const isMobile = window.matchMedia(MOBILE_LAYOUT_QUERY).matches;
+      if (!isMobile || !buttonRef.current) {
+        setMobileTop(null);
+        return;
+      }
+      const rect = buttonRef.current.getBoundingClientRect();
+      setMobileTop(rect.bottom + 6);
+    }
+
+    updatePosition();
+    window.addEventListener("resize", updatePosition);
+    window.addEventListener("scroll", updatePosition, true);
+    const media = window.matchMedia(MOBILE_LAYOUT_QUERY);
+    media.addEventListener("change", updatePosition);
+    return () => {
+      window.removeEventListener("resize", updatePosition);
+      window.removeEventListener("scroll", updatePosition, true);
+      media.removeEventListener("change", updatePosition);
+    };
+  }, [open]);
+
   const currentCondition = weather
     ? weatherCodeToCondition(weather.current.weatherCode)
     : "partlyCloudy";
@@ -157,9 +188,13 @@ export function WeatherWidget({ locale, dict }: WeatherWidgetProps) {
       }}
     >
       <button
+        ref={buttonRef}
         type="button"
         onClick={() => {
-          if (!canHover) setOpen((value) => !value);
+          const isMobile =
+            typeof window !== "undefined" &&
+            window.matchMedia(MOBILE_LAYOUT_QUERY).matches;
+          if (!canHover || isMobile) setOpen((value) => !value);
         }}
         className="
           flex h-9 items-center gap-1.5 rounded-full
@@ -181,7 +216,13 @@ export function WeatherWidget({ locale, dict }: WeatherWidgetProps) {
       </button>
 
       {open && (
-        <div className="absolute right-0 top-full z-50 pt-1.5">
+        <div
+          className="
+            z-50 max-sm:fixed max-sm:left-1/2 max-sm:-translate-x-1/2
+            sm:absolute sm:right-0 sm:top-full sm:translate-x-0 sm:pt-1.5
+          "
+          style={mobileTop != null ? { top: mobileTop } : undefined}
+        >
           <div
             role="dialog"
             aria-label={dict.weather.ariaLabel}
