@@ -22,8 +22,8 @@ import type { Locale } from "@/i18n/config";
 import { getCategoryMeta } from "@/lib/categories";
 import { formatEventDateRange } from "@/lib/format-date";
 import { getDirectionsUrl } from "@/lib/maps";
-import { addToCalendar } from "@/lib/calendar";
 import { ShareMenu } from "@/components/ShareMenu";
+import { CalendarMenu } from "@/components/CalendarMenu";
 import { matchVenueSlug } from "@/lib/venues-seed";
 import { formatRecurrenceLabel } from "@/lib/recurrence-label";
 import { EventCategoryLinks } from "@/components/EventCategoryLinks";
@@ -67,6 +67,7 @@ export function EventDetailSheet({
 }: EventDetailSheetProps) {
   const [shareMsg, setShareMsg] = useState<string | null>(null);
   const [shareOpen, setShareOpen] = useState(false);
+  const [calendarOpen, setCalendarOpen] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -87,7 +88,10 @@ export function EventDetailSheet({
     dismiss: dismissSheet,
     backdropOpacity,
     swipeEnabled,
-  } = useSwipeToDismiss(onClose, !standalone && Boolean(event) && !shareOpen);
+  } = useSwipeToDismiss(
+    onClose,
+    !standalone && Boolean(event) && !shareOpen && !calendarOpen,
+  );
 
   const requestClose = useCallback(() => {
     if (swipeEnabled) {
@@ -248,6 +252,13 @@ export function EventDetailSheet({
 
   const actionsSection = (
     <div className="border-t border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900 px-5 pt-4 pb-[max(1rem,env(safe-area-inset-bottom))]">
+      {calendarOpen && (
+        <CalendarMenu
+          event={event}
+          dict={dict}
+          onClose={() => setCalendarOpen(false)}
+        />
+      )}
       {shareOpen && (
         <ShareMenu
           event={event}
@@ -272,15 +283,25 @@ export function EventDetailSheet({
         )}
         <button
           type="button"
-          onClick={() => addToCalendar(event)}
-          className={secondaryActionClass}
+          onClick={() => {
+            setShareOpen(false);
+            setCalendarOpen((open) => !open);
+          }}
+          className={`flex items-center justify-center gap-2 rounded-full py-3.5 text-[15px] font-bold touch-manipulation transition-all active:scale-[0.98] ${
+            calendarOpen
+              ? "bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 text-white shadow-sm"
+              : "bg-white dark:bg-neutral-800 text-neutral-500 dark:text-neutral-400 shadow-sm ring-1 ring-neutral-200/70 dark:ring-neutral-700/70 hover:text-neutral-800 dark:hover:text-neutral-200"
+          }`}
         >
           <CalendarPlus className="h-5 w-5" />
           {dict.detail.calendar}
         </button>
         <button
           type="button"
-          onClick={() => setShareOpen((open) => !open)}
+          onClick={() => {
+            setCalendarOpen(false);
+            setShareOpen((open) => !open);
+          }}
           className={`flex items-center justify-center gap-2 rounded-full py-3.5 text-[15px] font-bold touch-manipulation transition-all active:scale-[0.98] ${
             shareOpen || shareMsg
               ? "bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 text-white shadow-sm"

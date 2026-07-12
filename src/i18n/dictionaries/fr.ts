@@ -125,6 +125,11 @@ export const fr: Dictionary = {
   detail: {
     directions: "Itinéraire",
     calendar: "Ajouter au calendrier",
+    calendarVia: "Ajouter à",
+    calendarGoogle: "Google",
+    calendarApple: "Apple",
+    calendarOutlook: "Outlook",
+    calendarDownload: "Télécharger",
     share: "Partager",
     save: "Enregistrer",
     saved: "Enregistré",

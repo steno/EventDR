@@ -1,0 +1,98 @@
+"use client";
+
+import { useEffect, useRef, useSyncExternalStore } from "react";
+import { Download } from "lucide-react";
+import type { Event } from "@/lib/types";
+import type { Dictionary } from "@/i18n/dictionaries";
+import {
+  addToCalendarProvider,
+  isAppleCalendarAvailable,
+  type CalendarProvider,
+} from "@/lib/calendar";
+
+interface CalendarMenuProps {
+  event: Event;
+  dict: Dictionary;
+  onClose: () => void;
+}
+
+const PROVIDERS: {
+  id: CalendarProvider;
+  labelKey: keyof Dictionary["detail"];
+  className: string;
+}[] = [
+  {
+    id: "google",
+    labelKey: "calendarGoogle",
+    className:
+      "bg-white dark:bg-neutral-800 text-neutral-700 dark:text-neutral-200 ring-1 ring-neutral-200/70 dark:ring-neutral-700/70 shadow-sm hover:text-neutral-900 dark:hover:text-neutral-100",
+  },
+  {
+    id: "apple",
+    labelKey: "calendarApple",
+    className: "bg-neutral-900 text-white shadow-sm",
+  },
+  {
+    id: "outlook",
+    labelKey: "calendarOutlook",
+    className: "bg-[#0078D4] text-white shadow-sm",
+  },
+  {
+    id: "download",
+    labelKey: "calendarDownload",
+    className:
+      "bg-white dark:bg-neutral-800 text-neutral-500 dark:text-neutral-400 ring-1 ring-neutral-200/70 dark:ring-neutral-700/70 shadow-sm hover:text-neutral-800 dark:hover:text-neutral-200",
+  },
+];
+
+export function CalendarMenu({ event, dict, onClose }: CalendarMenuProps) {
+  const menuRef = useRef<HTMLDivElement>(null);
+  const appleAvailable = useSyncExternalStore(
+    () => () => {},
+    () => isAppleCalendarAvailable(),
+    () => false,
+  );
+
+  useEffect(() => {
+    function handlePointerDown(e: PointerEvent) {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        onClose();
+      }
+    }
+    document.addEventListener("pointerdown", handlePointerDown);
+    return () => document.removeEventListener("pointerdown", handlePointerDown);
+  }, [onClose]);
+
+  async function handleProvider(provider: CalendarProvider) {
+    await addToCalendarProvider(event, provider);
+    onClose();
+  }
+
+  const visibleProviders = PROVIDERS.filter(
+    (provider) => provider.id !== "apple" || appleAvailable,
+  );
+
+  return (
+    <div
+      ref={menuRef}
+      className="mb-3 rounded-3xl bg-white/85 dark:bg-neutral-800/85 p-3 shadow-sm ring-1 ring-neutral-200/70 dark:ring-neutral-700/70 backdrop-blur animate-in fade-in slide-in-from-bottom-2 duration-200"
+    >
+      <p className="mb-2 px-1 text-[11px] font-bold uppercase tracking-wide text-neutral-500 dark:text-neutral-400">
+        {dict.detail.calendarVia}
+      </p>
+      <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-none">
+        {visibleProviders.map((provider) => (
+          <button
+            key={provider.id}
+            type="button"
+            onClick={() => handleProvider(provider.id)}
+            className={`flex shrink-0 items-center gap-2 rounded-full px-3 py-2.5 text-[13px] font-bold touch-manipulation transition-all active:scale-[0.98] ${provider.className}`}
+          >
+            {provider.id === "download" && <Download className="h-4 w-4" />}
+            {dict.detail[provider.labelKey]}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}

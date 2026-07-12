@@ -125,6 +125,11 @@ export const es: Dictionary = {
   detail: {
     directions: "Cómo llegar",
     calendar: "Añadir al calendario",
+    calendarVia: "Añadir a",
+    calendarGoogle: "Google",
+    calendarApple: "Apple",
+    calendarOutlook: "Outlook",
+    calendarDownload: "Descargar",
     share: "Compartir",
     save: "Guardar",
     saved: "Guardado",

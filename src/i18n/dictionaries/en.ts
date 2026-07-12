@@ -104,6 +104,11 @@ export type Dictionary = {
   detail: {
     directions: string;
     calendar: string;
+    calendarVia: string;
+    calendarGoogle: string;
+    calendarApple: string;
+    calendarOutlook: string;
+    calendarDownload: string;
     share: string;
     save: string;
     saved: string;
@@ -370,6 +375,11 @@ export const en: Dictionary = {
   detail: {
     directions: "Directions",
     calendar: "Add to calendar",
+    calendarVia: "Add to",
+    calendarGoogle: "Google",
+    calendarApple: "Apple",
+    calendarOutlook: "Outlook",
+    calendarDownload: "Download",
     share: "Share",
     save: "Save",
     saved: "Saved",

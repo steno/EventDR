@@ -3,6 +3,8 @@ import { formatEventPlace } from "./event-location";
 
 import { parseLocalDate } from "./event-dates";
 
+export type CalendarProvider = "google" | "apple" | "outlook" | "download";
+
 function pad(n: number): string {
   return String(n).padStart(2, "0");
 }
@@ -18,6 +20,11 @@ function toIcsLocalDate(date: Date): string {
     pad(date.getMinutes()) +
     pad(date.getSeconds())
   );
+}
+
+function toIsoLocalDate(date: Date): string {
+  const raw = toIcsLocalDate(date);
+  return `${raw.slice(0, 4)}-${raw.slice(4, 6)}-${raw.slice(6, 8)}T${raw.slice(9, 11)}:${raw.slice(11, 13)}:${raw.slice(13, 15)}`;
 }
 
 function parseTime(timeStr?: string): { hours: number; minutes: number } | null {
@@ -103,7 +110,7 @@ function icsFilename(event: Event): string {
   return `${slug || event.id}.ics`;
 }
 
-function googleCalendarUrl(
+export function googleCalendarUrl(
   event: Event,
   start: Date,
   end: Date,
@@ -119,18 +126,39 @@ function googleCalendarUrl(
   return `https://calendar.google.com/calendar/render?${params.toString()}`;
 }
 
-function isMobileDevice(): boolean {
-  if (typeof navigator === "undefined") return false;
-  return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+export function outlookCalendarUrl(
+  event: Event,
+  start: Date,
+  end: Date,
+  location: string,
+): string {
+  const params = new URLSearchParams({
+    path: "/calendar/action/compose",
+    rru: "addevent",
+    subject: event.title,
+    body: event.description,
+    location,
+    startdt: toIsoLocalDate(start),
+    enddt: toIsoLocalDate(end),
+  });
+  return `https://outlook.live.com/calendar/0/deeplink/compose?${params.toString()}`;
 }
 
-function isIOS(): boolean {
+export function isAppleCalendarAvailable(): boolean {
   if (typeof navigator === "undefined") return false;
   const ua = navigator.userAgent;
   return (
-    /iPad|iPhone|iPod/.test(ua) ||
+    /iPad|iPhone|iPod|Macintosh|Mac OS X/.test(ua) ||
     (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1)
   );
+}
+
+/** Open a calendar web URL — same-tab navigation when pop-ups are blocked. */
+export function openExternalCalendar(url: string): void {
+  const tab = window.open(url, "_blank", "noopener,noreferrer");
+  if (!tab) {
+    window.location.assign(url);
+  }
 }
 
 async function shareIcsFile(ics: string, filename: string): Promise<boolean> {
@@ -174,36 +202,44 @@ function downloadIcs(ics: string, filename: string): void {
   URL.revokeObjectURL(url);
 }
 
-/** Add event to the user's calendar — native share on mobile, Google Calendar or .ics on desktop. */
-export async function addToCalendar(event: Event): Promise<void> {
+async function addToAppleCalendar(ics: string, filename: string): Promise<void> {
+  if (await shareIcsFile(ics, filename)) return;
+  if (openIcsBlob(ics)) return;
+  downloadIcs(ics, filename);
+}
+
+/** Add event via the chosen calendar provider. */
+export async function addToCalendarProvider(
+  event: Event,
+  provider: CalendarProvider,
+): Promise<void> {
   const { start, end } = getEventDateRange(event);
   const location = formatEventPlace(event);
   const ics = buildIcs(event, start, end);
   const filename = icsFilename(event);
 
-  // iOS / Android: share sheet → "Add to Calendar" / Google Calendar / etc.
-  if (await shareIcsFile(ics, filename)) return;
-
-  if (isMobileDevice()) {
-    // iOS Safari: opening the blob often prompts to import into Calendar
-    if (isIOS() && openIcsBlob(ics)) return;
-
-    // Android & fallback: Google Calendar opens the native app when installed
-    window.open(
-      googleCalendarUrl(event, start, end, location),
-      "_blank",
-      "noopener,noreferrer",
-    );
-    return;
+  switch (provider) {
+    case "google":
+      openExternalCalendar(googleCalendarUrl(event, start, end, location));
+      return;
+    case "outlook":
+      openExternalCalendar(outlookCalendarUrl(event, start, end, location));
+      return;
+    case "apple":
+      await addToAppleCalendar(ics, filename);
+      return;
+    case "download":
+      downloadIcs(ics, filename);
+      return;
   }
-
-  // Desktop: Google Calendar (or download if pop-up blocked)
-  const url = googleCalendarUrl(event, start, end, location);
-  const tab = window.open(url, "_blank", "noopener,noreferrer");
-  if (!tab) downloadIcs(ics, filename);
 }
 
-/** @deprecated Use addToCalendar */
+/** @deprecated Use addToCalendarProvider */
+export async function addToCalendar(event: Event): Promise<void> {
+  await addToCalendarProvider(event, "google");
+}
+
+/** @deprecated Use addToCalendarProvider */
 export function downloadCalendarEvent(event: Event): void {
   const { start, end } = getEventDateRange(event);
   downloadIcs(buildIcs(event, start, end), icsFilename(event));
