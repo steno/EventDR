@@ -20,8 +20,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Puerto Plata",
     description:
       "Waterfront promenade with free concerts, food festivals, and local gatherings.",
-    lat: 19.7904,
-    lng: -70.6702,
+    lat: 19.7905058,
+    lng: -70.6718446,
     emoji: "🌊",
   },
   {
@@ -30,8 +30,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Cabarete",
     description:
       "World-famous kite surfing beach. Competitions, beach sports, and weekend meetups.",
-    lat: 19.7512,
-    lng: -70.415,
+    lat: 19.7637836,
+    lng: -70.4226424,
     emoji: "🏄",
   },
   {
@@ -52,8 +52,8 @@ export const SEED_VENUES: Venue[] = [
     name: "El Batey",
     city: "Sosúa",
     description: "Nightlife, salsa socials, and open mic nights in downtown Sosúa.",
-    lat: 19.7538,
-    lng: -70.5192,
+    lat: 19.7675,
+    lng: -70.5115,
     emoji: "🎤",
   },
   {
@@ -75,8 +75,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Sosúa",
     description:
       "Expat clubhouse in Casa Linda with classic-rock cover bands, wing specials, and a North American pub atmosphere.",
-    lat: 19.7415,
-    lng: -70.5385,
+    lat: 19.7643646,
+    lng: -70.4890209,
     emoji: "🎸",
   },
   {
@@ -85,8 +85,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Sosúa",
     description:
       "Poolside boutique hotel with Friday BBQ nights and live rock and pop cover bands — German-run, steps from Playa Chiquita.",
-    lat: 19.7578,
-    lng: -70.5145,
+    lat: 19.7767518,
+    lng: -70.509873,
     emoji: "🎵",
     website: "https://www.hotelvoramar-sosua.com/en",
     phone: "+18095713910",
@@ -97,8 +97,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Sosúa",
     description:
       "Open-air courtyard bar on Calle Pedro Clisante — live music, karaoke, and a steady expat crowd on weekend nights.",
-    lat: 19.7542,
-    lng: -70.5195,
+    lat: 19.7679864,
+    lng: -70.5100086,
     emoji: "🎤",
   },
   {
@@ -107,8 +107,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Sosúa",
     description:
       "Expat pub on the Sosúa strip — acoustic sets, cover bands, and a familiar sports-bar vibe midweek and on weekends.",
-    lat: 19.7535,
-    lng: -70.519,
+    lat: 19.7661412,
+    lng: -70.5130522,
     emoji: "🍺",
   },
   {
@@ -117,8 +117,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Sosúa",
     description:
       "Beachfront bar on Playa Sosúa — ocean views, cold Presidentes, and live music on weekend evenings.",
-    lat: 19.7485,
-    lng: -70.5145,
+    lat: 19.7572211,
+    lng: -70.5171504,
     emoji: "🌴",
   },
   {
@@ -127,8 +127,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Sosúa",
     description:
       "Expat-owned sports pub on Calle Pedro Clisante — rock and blues cover bands, big-screen sports, pub food, and a steady weekly live-music crowd.",
-    lat: 19.7545,
-    lng: -70.5198,
+    lat: 19.7678473,
+    lng: -70.5103493,
     emoji: "🍻",
     phone: "+1809404822463",
   },
@@ -138,8 +138,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Sosúa",
     description:
       "Museum and synagogue honoring the 1940 Jewish refugee settlement — photographs, artifacts, and documentary films on Sosúa's unique heritage next to Casa Marina.",
-    lat: 19.7512,
-    lng: -70.5118,
+    lat: 19.7654983,
+    lng: -70.5163301,
     emoji: "🏛️",
     website: "https://www.sosuajewishmuseum.com/",
   },
@@ -149,8 +149,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Sosúa",
     description:
       "PADI dive center on La Puntilla — reef dives, snorkeling, and boat trips across 12+ Sosúa Bay sites with experienced local guides.",
-    lat: 19.7495,
-    lng: -70.5135,
+    lat: 19.7619578,
+    lng: -70.5165768,
     emoji: "🤿",
     website: "https://sosuadivingcenter.com/",
     phone: "+18094749220",
@@ -161,8 +161,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Sosúa",
     description:
       "Open-air oceanfront yoga temple in Perla Marina — morning flows and sunset sessions open to guests and visitors, steps from the Caribbean.",
-    lat: 19.7465,
-    lng: -70.5055,
+    lat: 19.7833499,
+    lng: -70.4621124,
     emoji: "🧘",
     website: "https://naturacabana.com/yoga-temple-your-daily-practice-facing-the-caribbean-blue/",
   },
@@ -172,8 +172,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Sosúa",
     description:
       "Merengue and bachata bar in the heart of El Batey — local rhythms, dancing crowds, and a classic Sosúa nightlife spot on Pedro Clisante.",
-    lat: 19.7538,
-    lng: -70.5192,
+    lat: 19.7640775,
+    lng: -70.515048,
     emoji: "💃",
   },
   {
@@ -182,8 +182,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Cabarete",
     description:
       "Beachfront restaurant and nightlife spot on Cabarete Bay — open mic jams, DJ sessions, and weekend dance parties with bay views.",
-    lat: 19.7488,
-    lng: -70.4095,
+    lat: 19.7502161,
+    lng: -70.4066784,
     emoji: "🎤",
   },
   {
@@ -192,8 +192,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Cabarete",
     description:
       "Iconic beachfront seafood restaurant on Cabarete Central Beach — paella, grilled catch, and sunset dinners under palm trees since the 1990s.",
-    lat: 19.7649,
-    lng: -70.4249,
+    lat: 19.7502745,
+    lng: -70.4073077,
     emoji: "🦐",
     website: "https://www.facebook.com/lacasitadepapi/",
     phone: "+18099863750",
@@ -239,8 +239,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Cabarete-Sosúa",
     description:
       "Residential resort and tennis club on Route 5 between Cabarete and Sosúa, hosting local markets and community gatherings.",
-    lat: 19.767,
-    lng: -70.481,
+    lat: 19.7799532,
+    lng: -70.4893065,
     emoji: "🧺",
     website: "https://www.sea-horse-ranch.com",
     phone: "+18095712902",
@@ -273,8 +273,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Puerto Plata",
     description:
       "Beachfront bar at Cosita Rica since 2011 — classic rock, karaoke nights, and Atlantic views steps from the sand.",
-    lat: 19.7904,
-    lng: -70.6702,
+    lat: 19.7911508,
+    lng: -70.6728342,
     emoji: "🎤",
   },
   {
@@ -306,8 +306,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Sosúa",
     description:
       "Boutique tropical hotel in downtown Sosúa — poolside bar, Thursday karaoke, and local nightlife.",
-    lat: 19.7545,
-    lng: -70.519,
+    lat: 19.7709496,
+    lng: -70.5081792,
     emoji: "🎤",
     website: "https://www.elcolibriresort.com/",
     phone: "+18099709433",
@@ -342,8 +342,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Puerto Plata",
     description:
       "Waterfall adventure park in the Northern Corridor hills — guided hikes, natural slides, and turquoise pools about an hour from Puerto Plata.",
-    lat: 19.7489,
-    lng: -70.8289,
+    lat: 19.7342692,
+    lng: -70.8191197,
     emoji: "💧",
     website: "https://www.27charcos.com",
     phone: "+18092721438",
@@ -354,8 +354,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Puerto Plata",
     description:
       "Caribbean cable car to the summit of Pico Isabel de Torres — Christ statue, botanical gardens, and panoramic views.",
-    lat: 19.7653111,
-    lng: -70.7107194,
+    lat: 19.7881298,
+    lng: -70.7099725,
     emoji: "🚡",
     website: "https://telefericopuertoplata.com",
     phone: "+18099700501",
@@ -366,8 +366,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Puerto Plata",
     description:
       "Sandbar island (Cayo Paraíso) reached by boat from Punta Rucia — shallow turquoise water, white sand, and snorkeling.",
-    lat: 19.8883,
-    lng: -71.2256,
+    lat: 19.870215,
+    lng: -71.3056676,
     emoji: "🏝️",
     website:
       "https://es.godominicanrepublic.com/que-hacer/cayo-arena",
@@ -439,8 +439,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Puerto Plata",
     description:
       "Working rum distillery and visitor center on the Maimón highway — guided tours, aging warehouses, and tastings of award-winning Dominican rums.",
-    lat: 19.7825,
-    lng: -70.6938,
+    lat: 19.780278,
+    lng: -70.668889,
     emoji: "🥃",
     website: "https://www.brugal.do/",
   },
@@ -450,8 +450,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Puerto Plata",
     description:
       "Catamaran cruises from Puerto Plata to Sosúa Bay — two snorkeling stops, lunch, drinks, and live music on deck.",
-    lat: 19.798,
-    lng: -70.688,
+    lat: 19.7786014,
+    lng: -70.6703871,
     emoji: "⛵",
     website:
       "https://www.tripadvisor.com/Attraction_Review-g147290-d2162077-Reviews-Freestyle_Catamaran_Tour-Puerto_Plata_Puerto_Plata_Province_Dominican_Republic.html",
