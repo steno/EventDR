@@ -455,7 +455,12 @@ export async function deleteExpiredEvents(): Promise<{
   if (!db) return { deleted: 0, errors: 0 };
 
   const now = new Date();
-  const todayStr = now.toISOString().slice(0, 10);
+  const todayStr = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "America/Santo_Domingo",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(now);
 
   const snap = await db
     .collection("events")
