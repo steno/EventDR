@@ -103,7 +103,7 @@ const WC_MATCHES = [
   { date: "2026-07-11", time: "17:00", home: "Norway", away: "England", stage: "Quarter-final" },
   { date: "2026-07-11", time: "21:00", home: "Argentina", away: "Switzerland", stage: "Quarter-final" },
   { date: "2026-07-14", time: "15:00", home: "France", away: "Spain", stage: "Semi-final" },
-  { date: "2026-07-15", time: "15:00", home: "Winner M99", away: "Winner M100", stage: "Semi-final" },
+  { date: "2026-07-15", time: "15:00", home: "England", away: "Argentina", stage: "Semi-final" },
   { date: "2026-07-18", time: "17:00", home: "Loser SF1", away: "Loser SF2", stage: "Third place" },
   { date: "2026-07-19", time: "15:00", home: "Winner SF1", away: "Winner SF2", stage: "Final" },
 ] as const;
