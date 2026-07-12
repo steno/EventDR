@@ -55,6 +55,8 @@ export const fr: Dictionary = {
     eventsIn: "Événements à venir",
     eventsInPlace: "Événements à {place}",
     noEvents: "Pas encore d'événements dans cette catégorie.",
+    allCategories: "Toutes les catégories",
+    allCategoriesIntro: "Trouvez des événements par ambiance — musique, fêtes, sport et plus sur la Côte Nord.",
   },
   events: {
     loading: "Recherche d'événements près de vous…",

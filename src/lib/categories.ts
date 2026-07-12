@@ -63,10 +63,28 @@ const CATEGORY_DEFS: Omit<CategoryMeta, "label">[] = [
   },
 ];
 
+/** Home browse row — full directory lives on /browse. */
+export const HOME_FEATURED_CATEGORY_IDS: EventCategory[] = [
+  "music",
+  "parties",
+  "food-drinks",
+  "sports",
+  "festivals",
+  "dance",
+  "performances",
+  "concert",
+];
+
 export const CATEGORY_IDS = CATEGORY_DEFS.map((c) => c.id);
 
 export function getCategoryDefs(): Omit<CategoryMeta, "label">[] {
   return CATEGORY_DEFS;
+}
+
+export function getFeaturedCategoryDefs(): Omit<CategoryMeta, "label">[] {
+  return HOME_FEATURED_CATEGORY_IDS.map((id) =>
+    CATEGORY_DEFS.find((c) => c.id === id),
+  ).filter((def): def is Omit<CategoryMeta, "label"> => Boolean(def));
 }
 
 export function getCategoryMeta(

@@ -41,6 +41,8 @@ export type Dictionary = {
     eventsIn: string;
     eventsInPlace: string;
     noEvents: string;
+    allCategories: string;
+    allCategoriesIntro: string;
   };
   events: {
     loading: string;
@@ -305,6 +307,8 @@ export const en: Dictionary = {
     eventsIn: "Upcoming events",
     eventsInPlace: "Events in {place}",
     noEvents: "No events in this category yet.",
+    allCategories: "All categories",
+    allCategoriesIntro: "Find events by vibe — music, parties, sports, and more across the North Coast.",
   },
   events: {
     loading: "Finding events near you…",

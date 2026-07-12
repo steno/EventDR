@@ -35,6 +35,26 @@ export function formatEventPlace(
   return parts.join(", ");
 }
 
+/** Short place for list cards: venue name, else city — no street address. */
+export function formatEventPlaceShort(
+  event: Pick<Event, "venue" | "address" | "location">,
+): string | null {
+  if (event.venue?.trim()) return event.venue.trim();
+
+  const location = event.location?.trim();
+  if (!location) return null;
+
+  if (NORTH_COAST_CITY.test(location)) return location;
+
+  for (const segment of location.split(/,\s*/)) {
+    const trimmed = segment.trim();
+    if (trimmed && !STREET_IN_TEXT.test(trimmed)) return trimmed;
+  }
+
+  const first = location.split(/,\s*/)[0]?.trim();
+  return first || null;
+}
+
 /** Maps / directions query — prefer street address when available. */
 export function eventDirectionsQuery(
   event: Pick<Event, "venue" | "address" | "location">,

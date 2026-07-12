@@ -19,6 +19,7 @@ interface EventCardProps {
   locale: Locale;
   returnTo?: string;
   onBeforeNavigate?: () => void;
+  compact?: boolean;
 }
 
 const EventCardComponent = ({
@@ -27,6 +28,7 @@ const EventCardComponent = ({
   locale,
   returnTo,
   onBeforeNavigate,
+  compact = true,
 }: EventCardProps) => {
   const category = getCategoryMeta(event.category, dict.categories);
   const emoji = event.imageEmoji ?? category?.emoji ?? "📅";
@@ -82,7 +84,7 @@ const EventCardComponent = ({
         </div>
 
         <div className="flex-1 min-w-0 pt-0.5">
-          <div className="flex items-start gap-2.5 mb-2">
+          <div className={`flex items-start gap-2.5 ${compact ? "mb-1.5" : "mb-2"}`}>
             <h3 className="font-bold text-neutral-900 dark:text-neutral-100 text-[1.0625rem] leading-[1.3] line-clamp-2 flex-1">
               {event.title}
             </h3>
@@ -101,16 +103,21 @@ const EventCardComponent = ({
             )}
           </div>
 
-          {event.description ? (
+          {!compact && event.description ? (
             <p className="text-copy line-clamp-2 mb-3.5">
               {event.description}
             </p>
           ) : null}
 
-          <EventCardMeta event={event} locale={locale} dict={dict} />
+          <EventCardMeta
+            event={event}
+            locale={locale}
+            dict={dict}
+            compact={compact}
+          />
         </div>
       </div>
-      {event.phone && (
+      {!compact && event.phone && (
         <div className="relative z-[2] mt-4 pl-[4.875rem] pointer-events-auto">
           <EventCallLink phone={event.phone} label={dict.detail.call} />
         </div>

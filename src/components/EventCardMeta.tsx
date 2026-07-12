@@ -5,7 +5,7 @@ import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import { formatEventDateRange } from "@/lib/format-date";
 import { formatRecurrenceLabel } from "@/lib/recurrence-label";
-import { formatEventPlace } from "@/lib/event-location";
+import { formatEventPlace, formatEventPlaceShort } from "@/lib/event-location";
 import { EventCategoryLinks } from "@/components/EventCategoryLinks";
 
 interface EventCardMetaProps {
@@ -13,6 +13,7 @@ interface EventCardMetaProps {
   locale: Locale;
   dict: Dictionary;
   className?: string;
+  compact?: boolean;
 }
 
 function MetaRow({
@@ -30,12 +31,48 @@ function MetaRow({
   );
 }
 
-export function EventCardMeta({ event, locale, dict, className = "" }: EventCardMetaProps) {
+export function EventCardMeta({ event, locale, dict, className = "", compact = false }: EventCardMetaProps) {
   const recurrenceLabel = formatRecurrenceLabel(event, locale, dict);
   const dateLabel = formatEventDateRange(event.date, locale, {
     endDate: event.endDate,
     short: true,
   });
+  const placeShort = formatEventPlaceShort(event);
+
+  if (compact) {
+    return (
+      <div className={`flex flex-wrap items-center gap-x-2 gap-y-1 text-copy-meta font-medium text-neutral-600 dark:text-neutral-400 ${className}`}>
+        <span className="inline-flex items-center gap-1.5">
+          <Calendar className="h-3.5 w-3.5 shrink-0" aria-hidden />
+          {dateLabel}
+        </span>
+        {event.time && (
+          <>
+            <span className="text-neutral-300 dark:text-neutral-600" aria-hidden>
+              ·
+            </span>
+            <span className="inline-flex items-center gap-1.5">
+              <Clock className="h-3.5 w-3.5 shrink-0" aria-hidden />
+              {event.time}
+            </span>
+          </>
+        )}
+        {placeShort && (
+          <>
+            <span className="text-neutral-300 dark:text-neutral-600" aria-hidden>
+              ·
+            </span>
+            <span className="min-w-0 truncate">{placeShort}</span>
+          </>
+        )}
+        {recurrenceLabel && (
+          <span className="inline-flex items-center rounded-full bg-orange-50 dark:bg-orange-950/50 px-2 py-0.5 text-[10px] font-bold leading-none text-orange-600">
+            {recurrenceLabel}
+          </span>
+        )}
+      </div>
+    );
+  }
 
   return (
     <div className={`space-y-2 ${className}`}>
