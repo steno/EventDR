@@ -52,7 +52,7 @@ export function parseEventTimeWindow(time?: string): EventTimeWindow | null {
   const start = times[0];
   const end =
     times.length > 1 ? times[times.length - 1] : start + DEFAULT_DURATION_MINUTES;
-  return { start, end: Math.max(end, start) };
+  return { start, end };
 }
 
 export function isMultiDayEvent(
