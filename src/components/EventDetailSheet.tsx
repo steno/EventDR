@@ -123,8 +123,12 @@ export function EventDetailSheet({
   const isPhysical = event.format !== "digital";
   const showBottomDirections = isPhysical && !hasMapCoords;
 
-  const secondaryActionClass =
-    "flex items-center justify-center gap-2 rounded-full bg-white dark:bg-neutral-800 py-3.5 text-[15px] font-bold text-neutral-500 dark:text-neutral-400 shadow-sm ring-1 ring-neutral-200/70 dark:ring-neutral-700/70 touch-manipulation transition-all hover:text-neutral-800 dark:hover:text-neutral-200 active:scale-[0.98]";
+  const iconActionClass =
+    "flex h-12 w-full items-center justify-center rounded-full touch-manipulation transition-all active:scale-[0.98]";
+  const iconActionIdleClass =
+    "bg-white dark:bg-neutral-800 text-neutral-500 dark:text-neutral-400 shadow-sm ring-1 ring-neutral-200/70 dark:ring-neutral-700/70 hover:text-neutral-800 dark:hover:text-neutral-200";
+  const iconActionActiveClass =
+    "bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 text-white shadow-sm";
 
   function handleShareFeedback(message: string, durationMs = 5000) {
     setShareMsg(message);
@@ -269,16 +273,28 @@ export function EventDetailSheet({
           returnTo={returnTo}
         />
       )}
-      <div className={`grid gap-3 ${showBottomDirections ? "grid-cols-2" : "grid-cols-3"}`}>
+      {shareMsg && (
+        <p
+          className="mb-2 text-center text-xs font-semibold text-orange-600 dark:text-orange-400"
+          role="status"
+          aria-live="polite"
+        >
+          {shareMsg}
+        </p>
+      )}
+      <div
+        className={`grid gap-2.5 ${showBottomDirections ? "grid-cols-4" : "grid-cols-3"}`}
+      >
         {showBottomDirections && (
           <a
             href={getDirectionsUrl(event)}
             target="_blank"
             rel="noopener noreferrer"
-            className={secondaryActionClass}
+            className={`${iconActionClass} ${iconActionIdleClass}`}
+            aria-label={dict.detail.directions}
+            title={dict.detail.directions}
           >
-            <Navigation className="h-5 w-5" />
-            {dict.detail.directions}
+            <Navigation className="h-5 w-5" aria-hidden />
           </a>
         )}
         <button
@@ -287,14 +303,14 @@ export function EventDetailSheet({
             setShareOpen(false);
             setCalendarOpen((open) => !open);
           }}
-          className={`flex items-center justify-center gap-2 rounded-full py-3.5 text-[15px] font-bold touch-manipulation transition-all active:scale-[0.98] ${
-            calendarOpen
-              ? "bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 text-white shadow-sm"
-              : "bg-white dark:bg-neutral-800 text-neutral-500 dark:text-neutral-400 shadow-sm ring-1 ring-neutral-200/70 dark:ring-neutral-700/70 hover:text-neutral-800 dark:hover:text-neutral-200"
+          className={`${iconActionClass} ${
+            calendarOpen ? iconActionActiveClass : iconActionIdleClass
           }`}
+          aria-label={dict.detail.calendar}
+          title={dict.detail.calendar}
+          aria-pressed={calendarOpen}
         >
-          <CalendarPlus className="h-5 w-5" />
-          {dict.detail.calendar}
+          <CalendarPlus className="h-5 w-5" aria-hidden />
         </button>
         <button
           type="button"
@@ -302,26 +318,29 @@ export function EventDetailSheet({
             setCalendarOpen(false);
             setShareOpen((open) => !open);
           }}
-          className={`flex items-center justify-center gap-2 rounded-full py-3.5 text-[15px] font-bold touch-manipulation transition-all active:scale-[0.98] ${
-            shareOpen || shareMsg
-              ? "bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 text-white shadow-sm"
-              : "bg-white dark:bg-neutral-800 text-neutral-500 dark:text-neutral-400 shadow-sm ring-1 ring-neutral-200/70 dark:ring-neutral-700/70 hover:text-neutral-800 dark:hover:text-neutral-200"
+          className={`${iconActionClass} ${
+            shareOpen || shareMsg ? iconActionActiveClass : iconActionIdleClass
           }`}
+          aria-label={shareMsg ?? dict.detail.share}
+          title={shareMsg ?? dict.detail.share}
+          aria-pressed={shareOpen}
         >
-          <Share2 className="h-5 w-5" />
-          {shareMsg ?? dict.detail.share}
+          <Share2 className="h-5 w-5" aria-hidden />
         </button>
         <button
           type="button"
           onClick={() => onToggleSave(event)}
-          className={`flex items-center justify-center gap-2 rounded-full py-3.5 text-[15px] font-bold touch-manipulation transition-all active:scale-[0.98] ${
-            isSaved
-              ? "bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 text-white shadow-sm"
-              : "bg-white dark:bg-neutral-800 text-neutral-500 dark:text-neutral-400 shadow-sm ring-1 ring-neutral-200/70 dark:ring-neutral-700/70 hover:text-neutral-800 dark:hover:text-neutral-200"
+          className={`${iconActionClass} ${
+            isSaved ? iconActionActiveClass : iconActionIdleClass
           }`}
+          aria-label={isSaved ? dict.detail.saved : dict.detail.save}
+          title={isSaved ? dict.detail.saved : dict.detail.save}
+          aria-pressed={isSaved}
         >
-          <Heart className={`h-5 w-5 ${isSaved ? "fill-current" : ""}`} />
-          {isSaved ? dict.detail.saved : dict.detail.save}
+          <Heart
+            className={`h-5 w-5 ${isSaved ? "fill-current" : ""}`}
+            aria-hidden
+          />
         </button>
       </div>
     </div>
