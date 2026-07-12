@@ -20,10 +20,19 @@ export function attachVenueSlugs(events: Event[]): Event[] {
   });
 }
 
-/** Normalize seed/ingest events with canonical venue slugs and coordinates. */
-export function prepareSeedEvent(event: Event): Event {
+/** Apply venue slugs, then canonical coordinates (seed venue wins over stale stored lat/lng). */
+export function normalizeEventCoords(event: Event): Event {
   const [prepared] = attachCoords(attachVenueSlugs([event]));
   return prepared;
+}
+
+export function normalizeEventCoordsList(events: Event[]): Event[] {
+  return attachCoords(attachVenueSlugs(events));
+}
+
+/** Normalize seed/ingest events with canonical venue slugs and coordinates. */
+export function prepareSeedEvent(event: Event): Event {
+  return normalizeEventCoords(event);
 }
 
 export function filterByVenueSlug(events: Event[], venueSlug: string): Event[] {

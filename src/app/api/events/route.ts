@@ -13,7 +13,7 @@ import {
 import { getFallbackEvents, getFallbackForCategory } from "@/lib/fallback-events";
 import { getCommunityEvents } from "@/lib/community-store";
 import { fetchApprovedEvents } from "@/lib/firebase/events";
-import { attachCoords, attachVenueSlugs } from "@/lib/geo";
+import { attachCoords, attachVenueSlugs, normalizeEventCoordsList } from "@/lib/geo";
 import { materializeEventDates } from "@/lib/event-dates";
 import { sortEventsForDisplay } from "@/lib/event-sort";
 import { isValidLocale } from "@/i18n/config";
@@ -160,7 +160,7 @@ export async function GET(request: NextRequest) {
     let dbEvents = refresh ? [] : getCachedDbEvents(dbCacheKey) ?? [];
     
     if (dbEvents.length === 0) {
-      dbEvents = attachCoords(
+      dbEvents = normalizeEventCoordsList(
         await fetchApprovedEvents({ category, venueSlug, locale }),
       );
       dbEvents = localizeEventsForDisplay(dbEvents, locale);

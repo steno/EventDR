@@ -3,7 +3,7 @@ import { attachEventImages } from "@/lib/event-images";
 import { attachEventPhones } from "@/lib/event-phone";
 import { materializeEventDates } from "@/lib/event-dates";
 import { sortEventsForDisplay } from "@/lib/event-sort";
-import { attachCoords, attachVenueSlugs } from "@/lib/geo";
+import { attachCoords, attachVenueSlugs, normalizeEventCoordsList } from "@/lib/geo";
 import { applyCuratedEventPatches } from "@/lib/curated-events";
 import { filterRemovedSeedEvents } from "@/lib/removed-seeds";
 import { localizeEventsForDisplay } from "@/lib/localized-text";
@@ -85,7 +85,7 @@ export async function getPublicEvents(
   events = mergeUniqueEvents(events, getCommunityEvents());
 
   try {
-    const dbEvents = attachCoords(
+    const dbEvents = normalizeEventCoordsList(
       await fetchApprovedEvents({ category, venueSlug, locale }),
     );
     events = mergeUniqueEvents(

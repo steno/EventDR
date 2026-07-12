@@ -22,6 +22,12 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     recurrence: null,
     recurrenceDay: null,
   },
+  "feria-artesanal-verano-2026": {
+    venue: "Plaza Independencia (Parque Central)",
+    venueSlug: "plaza-independencia",
+    address: "Calle San Felipe, Puerto Plata",
+    location: "Puerto Plata",
+  },
   "cabarete-pilates-reformer": {
     venue: "Rafaella's Studio",
     location: "Cabarete",

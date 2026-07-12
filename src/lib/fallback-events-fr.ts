@@ -129,6 +129,7 @@ export const FALLBACK_EVENTS_FR: Event[] = [
     location: "Puerto Plata",
     venue: "Plaza Independencia (Parque Central)",
     venueSlug: "plaza-independencia",
+    address: "Calle San Felipe, Puerto Plata",
     category: "festivals",
     categories: ["culture"],
     format: "physical",

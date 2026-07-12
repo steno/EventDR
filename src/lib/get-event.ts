@@ -3,7 +3,7 @@ import type { Event } from "./types";
 import { getFallbackEventById } from "./fallback-events";
 import { getCommunityEvents } from "./community-store";
 import { fetchEventById } from "./firebase/events";
-import { attachCoords, attachVenueSlugs } from "./geo";
+import { attachVenueSlugs, normalizeEventCoords } from "./geo";
 import { applyCuratedEventPatches } from "./curated-events";
 import { attachEventImages } from "./event-images";
 import { attachEventPhones } from "./event-phone";
@@ -13,15 +13,16 @@ import { materializeEventDates } from "./event-dates";
 import { withResolvedCategories } from "./categorize";
 
 function finalizeEvent(event: Event, locale: Locale): Event | null {
-  let [result] = attachCoords([event]);
+  let [result] = attachVenueSlugs([event]);
   [result] = localizeEventsForDisplay([result], locale);
   [result] = applyCuratedEventPatches([result]);
+  result = normalizeEventCoords(result);
   [result] = attachEventPhones([result]);
   [result] = attachEventImages([result]);
 
   const kept = filterRemovedSeedEvents([result]);
   if (kept.length === 0) return null;
-  [result] = attachVenueSlugs(kept);
+  result = kept[0];
 
   // Recurring events get the next occurrence; one-offs keep their date even if past.
   if (result.recurrence) {

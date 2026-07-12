@@ -42,7 +42,9 @@ export function resolveEventCoords(
   }
 
   if (event.lat != null && event.lng != null) {
-    return { lat: event.lat, lng: event.lng };
+    if (!event.venueSlug?.trim() && !event.venue?.trim()) {
+      return { lat: event.lat, lng: event.lng };
+    }
   }
 
   const loc = event.location.toLowerCase();
