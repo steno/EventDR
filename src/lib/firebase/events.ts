@@ -5,6 +5,7 @@ import { getEventCategoryList, withResolvedCategories } from "@/lib/categorize";
 import { sanitizeEventPlaceFields } from "@/lib/event-location";
 import { normalizeLineup } from "@/lib/event-lineup";
 import { applyCuratedEventPatch } from "@/lib/curated-events";
+import { resolveEventCoords } from "@/lib/event-coords";
 import { translateEventCopy } from "@/lib/translate-event";
 import { SEED_VENUES } from "@/lib/venues-seed";
 import { getFirestoreDb, isFirebaseConfigured } from "./admin";
@@ -132,12 +133,15 @@ function eventToFirestore(
 export async function syncSeedVenues(options?: {
   /** When true (default), only write venues missing from Firestore. */
   missingOnly?: boolean;
+  /** When true (default with missingOnly: false), refresh stored event coordinates. */
+  refreshEventCoords?: boolean;
 }): Promise<number> {
   const db = getFirestoreDb();
   if (!db) return 0;
 
+  const missingOnly = options?.missingOnly !== false;
   let venues = SEED_VENUES;
-  if (options?.missingOnly !== false) {
+  if (missingOnly) {
     const snap = await db.collection("venues").get();
     const existing = new Set(snap.docs.map((doc) => doc.id));
     venues = SEED_VENUES.filter((venue) => !existing.has(venue.slug));
@@ -164,7 +168,46 @@ export async function syncSeedVenues(options?: {
     );
   }
   await batch.commit();
+
+  const shouldRefreshCoords = options?.refreshEventCoords ?? !missingOnly;
+  if (shouldRefreshCoords) {
+    await refreshEventCoordsFromVenues();
+  }
+
   return venues.length;
+}
+
+/** Rewrite Firestore event lat/lng from canonical seed venue coordinates. */
+export async function refreshEventCoordsFromVenues(): Promise<number> {
+  const db = getFirestoreDb();
+  if (!db) return 0;
+
+  const snap = await db.collection("events").get();
+  let updated = 0;
+  let batch = db.batch();
+  let ops = 0;
+
+  for (const doc of snap.docs) {
+    const event = docToEvent(doc.id, doc.data());
+    const coords = resolveEventCoords(event);
+    if (!coords) continue;
+
+    const data = doc.data();
+    if (data.lat === coords.lat && data.lng === coords.lng) continue;
+
+    batch.update(doc.ref, { lat: coords.lat, lng: coords.lng });
+    updated++;
+    ops++;
+
+    if (ops >= 400) {
+      await batch.commit();
+      batch = db.batch();
+      ops = 0;
+    }
+  }
+
+  if (ops > 0) await batch.commit();
+  return updated;
 }
 
 export async function fetchEventById(id: string): Promise<Event | null> {

@@ -2,8 +2,8 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { VenuePage } from "@/components/VenuePage";
 import { JsonLd } from "@/components/JsonLd";
-import { fetchVenueBySlug } from "@/lib/firebase/events";
-import { getSeedVenue, SEED_VENUES } from "@/lib/venues-seed";
+import { getVenueBySlug } from "@/lib/venues";
+import { SEED_VENUES } from "@/lib/venues-seed";
 import { isValidLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import {
@@ -28,7 +28,7 @@ export async function generateMetadata({
   const { locale, slug } = await params;
   if (!isValidLocale(locale)) return {};
 
-  const venue = (await fetchVenueBySlug(slug)) ?? getSeedVenue(slug);
+  const venue = await getVenueBySlug(slug);
   if (!venue) return {};
 
   const dict = getDictionary(locale);
@@ -46,7 +46,7 @@ export default async function Page({
   const { all, from } = await searchParams;
   if (!isValidLocale(locale)) notFound();
 
-  const venue = (await fetchVenueBySlug(slug)) ?? getSeedVenue(slug);
+  const venue = await getVenueBySlug(slug);
   if (!venue) notFound();
 
   const dict = getDictionary(locale);

@@ -8,8 +8,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Cabarete",
     description:
       "Beachfront bar and live music hub on Cabarete Bay. Reggae nights, concerts, and sunset sessions.",
-    lat: 19.7498,
-    lng: -70.4082,
+    lat: 19.7503643,
+    lng: -70.406125,
     emoji: "🎵",
     instagram: "laxcabarete",
     phone: "+18297458811",
@@ -20,8 +20,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Puerto Plata",
     description:
       "Waterfront promenade with free concerts, food festivals, and local gatherings.",
-    lat: 19.7934,
-    lng: -70.6884,
+    lat: 19.7904,
+    lng: -70.6702,
     emoji: "🌊",
   },
   {
@@ -40,8 +40,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Cabarete",
     description:
       "Watersports school on Kite Beach since 2014 — kite, wing, eFoil, surf, and sunrise yoga on the sand. Shop at Calle Principal #87.",
-    lat: 19.7512,
-    lng: -70.415,
+    lat: 19.7497315,
+    lng: -70.4076978,
     emoji: "🧘",
     instagram: "lbcabarete",
     website: "https://www.lbcabarete.com/fitness-classes/",
@@ -52,8 +52,8 @@ export const SEED_VENUES: Venue[] = [
     name: "El Batey",
     city: "Sosúa",
     description: "Nightlife, salsa socials, and open mic nights in downtown Sosúa.",
-    lat: 19.7528,
-    lng: -70.5261,
+    lat: 19.7538,
+    lng: -70.5192,
     emoji: "🎤",
   },
   {
@@ -62,8 +62,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Sosúa",
     description:
       "Two-story downtown stage on Calle Duarte — touring acts, local rock bands, and tribute shows on the North Coast's biggest live-music floor.",
-    lat: 19.753,
-    lng: -70.518,
+    lat: 19.7634107,
+    lng: -70.5162309,
     emoji: "🎸",
     instagram: "hardrockcafepuertoplata",
     website: "https://cafe.hardrock.com/puerto-plata/",
@@ -204,8 +204,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Puerto Plata",
     description:
       "Oceanfront amphitheater at La Puntilla — outdoor concerts, carnival parades, and cultural performances overlooking the Atlantic.",
-    lat: 19.8085,
-    lng: -70.6945,
+    lat: 19.803611,
+    lng: -70.694722,
     emoji: "🎭",
     website:
       "https://es.godominicanrepublic.com/que-hacer/anfiteatro-la-puntilla",
@@ -226,8 +226,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Puerto Plata",
     description:
       "Marine adventure park in Cofresí — dolphin swims, sea lion and shark encounters, snorkeling, and a water slide lagoon.",
-    lat: 19.8267,
-    lng: -70.71,
+    lat: 19.8263178,
+    lng: -70.7314779,
     emoji: "🐬",
     instagram: "oceanworldadventurepark",
     website: "https://www.oceanworld.net",
@@ -251,8 +251,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Playa Dorada",
     description:
       "Bar & grill in Playa Dorada Plaza with nightly live bands — rock, pop covers, and Caribbean classics with dinner and drinks.",
-    lat: 19.7795,
-    lng: -70.652,
+    lat: 19.7694757,
+    lng: -70.6430326,
     emoji: "🎸",
   },
   {
@@ -261,8 +261,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Puerto Plata",
     description:
       "Downtown cigar lounge with weekly salsa, bohemian live music, and karaoke — cocktails, tapas, and Dominican rums.",
-    lat: 19.7948,
-    lng: -70.6955,
+    lat: 19.7984235,
+    lng: -70.6931832,
     emoji: "🎺",
     website: "https://cremocigars.com/cremo-cigar-bar-lounge-en/",
     phone: "+13059429440",
@@ -273,8 +273,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Puerto Plata",
     description:
       "Beachfront bar at Cosita Rica since 2011 — classic rock, karaoke nights, and Atlantic views steps from the sand.",
-    lat: 19.8012,
-    lng: -70.682,
+    lat: 19.7904,
+    lng: -70.6702,
     emoji: "🎤",
   },
   {
@@ -283,8 +283,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Puerto Plata",
     description:
       "Beach bar at Playa El Pueblito — piña coladas, Dominican comfort food, and weekend oceanfront vibes.",
-    lat: 19.78082,
-    lng: -70.69404,
+    lat: 19.773903,
+    lng: -70.652704,
     emoji: "🍹",
     phone: "+18096682051",
   },
@@ -318,8 +318,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Puerto Plata",
     description:
       "16th-century Spanish fortress and museum overlooking the Atlantic — cannons, colonial history, and sunset views from La Puntilla.",
-    lat: 19.808,
-    lng: -70.695,
+    lat: 19.8041466,
+    lng: -70.6958831,
     emoji: "🏰",
     website: "https://museosrd.gob.do/museos/museo-fortaleza-san-felipe/",
     phone: "+18092611911",
@@ -330,8 +330,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Puerto Plata",
     description:
       "Victorian mansion in the historic center showcasing Dominican amber fossils — lizards, insects, and Jurassic-era specimens.",
-    lat: 19.7937,
-    lng: -70.6946,
+    lat: 19.7963741,
+    lng: -70.6921771,
     emoji: "🟠",
     website: "https://museosrd.gob.do/museos/amber-museum-experience/",
     phone: "+18095862848",
@@ -354,8 +354,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Puerto Plata",
     description:
       "Caribbean cable car to the summit of Pico Isabel de Torres — Christ statue, botanical gardens, and panoramic views.",
-    lat: 19.7534,
-    lng: -70.7089,
+    lat: 19.7653111,
+    lng: -70.7107194,
     emoji: "🚡",
     website: "https://telefericopuertoplata.com",
     phone: "+18099700501",
@@ -379,8 +379,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Puerto Plata",
     description:
       "Pink-paved pedestrian alley honoring tourism pioneer Bianca Franceschini — Victorian touches, photo spots, and cafés between Calle Beller and John F. Kennedy.",
-    lat: 19.7988,
-    lng: -70.6962,
+    lat: 19.79859,
+    lng: -70.6936521,
     emoji: "🌸",
     website: "https://puertoplatadr.com/boulevard/paseo-dona-blanca/",
   },
