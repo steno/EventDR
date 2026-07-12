@@ -416,13 +416,23 @@ export async function countWeekendEvents(): Promise<number> {
   const db = getFirestoreDb();
   if (!db) return 0;
 
+  // Use APP_TIMEZONE for consistent weekend calculation
   const now = new Date();
-  const day = now.getDay();
+  const todayISO = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "America/Santo_Domingo",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(now);
+  
+  const todayDate = new Date(todayISO + "T12:00:00Z");
+  const day = todayDate.getUTCDay();
   const daysUntilSat = (6 - day + 7) % 7;
-  const saturday = new Date(now);
-  saturday.setDate(now.getDate() + daysUntilSat);
+  
+  const saturday = new Date(todayDate);
+  saturday.setUTCDate(todayDate.getUTCDate() + daysUntilSat);
   const sunday = new Date(saturday);
-  sunday.setDate(saturday.getDate() + 1);
+  sunday.setUTCDate(saturday.getUTCDate() + 1);
 
   const satStr = saturday.toISOString().slice(0, 10);
   const sunStr = sunday.toISOString().slice(0, 10);
@@ -445,7 +455,12 @@ export async function deleteExpiredEvents(): Promise<{
   if (!db) return { deleted: 0, errors: 0 };
 
   const now = new Date();
-  const todayStr = now.toISOString().slice(0, 10);
+  const todayStr = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "America/Santo_Domingo",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(now);
 
   const snap = await db
     .collection("events")

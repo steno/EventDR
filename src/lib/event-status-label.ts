@@ -1,6 +1,6 @@
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Event } from "@/lib/types";
-import { localDateISO } from "@/lib/event-dates";
+import { localDateISO, APP_TIMEZONE } from "@/lib/event-dates";
 import {
   getEventLiveStatus,
   happensOnLocalDate,
@@ -31,7 +31,14 @@ export function formatEventLiveStatusLabel(
 }
 
 function currentMinutes(now: Date): number {
-  return now.getHours() * 60 + now.getMinutes();
+  const formatted = new Intl.DateTimeFormat("en-GB", {
+    timeZone: APP_TIMEZONE,
+    hour: "2-digit",
+    minute: "2-digit",
+    hourCycle: "h23",
+  }).format(now);
+  const [hours, minutes] = formatted.split(":").map(Number);
+  return hours * 60 + minutes;
 }
 
 function hasWindowStarted(
