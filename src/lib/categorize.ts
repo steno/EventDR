@@ -44,6 +44,12 @@ const KEYWORDS: KeywordMap = {
     "cycling",
     "ciclismo",
     "race",
+    "karting",
+    "go-kart",
+    "gokart",
+    "go kart",
+    "grand prix",
+    "motorsport",
   ],
   music: [
     "music",
