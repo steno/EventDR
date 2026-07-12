@@ -2,12 +2,11 @@
 
 import { memo, useMemo } from "react";
 import Link from "next/link";
-import { Calendar, ChevronRight, Clock } from "lucide-react";
+import { ChevronRight, Clock } from "lucide-react";
 import { EventImage } from "@/components/EventImage";
 import type { Event } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
-import { formatEventDateRange } from "@/lib/format-date";
 import { eventDetailPath } from "@/lib/event-navigation";
 import { saveScrollForReturn } from "@/lib/list-scroll-restoration";
 import {
@@ -33,10 +32,6 @@ function TodayHighlightCard({
   onBeforeNavigate?: () => void;
 }) {
   const href = eventDetailPath(locale, event.id, `/${locale}`);
-  const dateLabel = formatEventDateRange(event.date, locale, {
-    endDate: event.endDate,
-    short: true,
-  });
 
   return (
     <article className="group relative flex min-w-[72%] snap-start flex-col overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-[0_4px_16px_-8px_rgba(0,0,0,0.12)] dark:shadow-[0_4px_16px_-8px_rgba(0,0,0,0.35)] transition-colors hover:border-neutral-300 dark:hover:border-neutral-700 sm:min-w-[16rem]">
@@ -60,6 +55,10 @@ function TodayHighlightCard({
               sizes="(max-width: 672px) 72vw, 256px"
               className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
             />
+            <div
+              className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-orange-600/55 via-rose-500/35 to-transparent transition-opacity duration-300 group-hover:opacity-0"
+              aria-hidden
+            />
           </div>
         ) : (
           <div className="h-32 w-full shrink-0 bg-neutral-100 dark:bg-neutral-800" aria-hidden />
@@ -69,18 +68,12 @@ function TodayHighlightCard({
           <h3 className="line-clamp-2 text-[17px] font-black leading-[1.25] tracking-tight text-neutral-950 dark:text-neutral-100">
             {event.title}
           </h3>
-          <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-copy-meta font-medium text-neutral-600 dark:text-neutral-400">
-            <span className="inline-flex items-center gap-1.5">
-              <Calendar className="h-3.5 w-3.5 shrink-0" aria-hidden />
-              {dateLabel}
-            </span>
-            {event.time && (
-              <span className="inline-flex items-center gap-1.5">
-                <Clock className="h-3.5 w-3.5 shrink-0" aria-hidden />
-                {event.time}
-              </span>
-            )}
-          </div>
+          {event.time && (
+            <p className="inline-flex items-center gap-1.5 text-copy-meta font-medium text-neutral-600 dark:text-neutral-400">
+              <Clock className="h-3.5 w-3.5 shrink-0" aria-hidden />
+              {event.time}
+            </p>
+          )}
         </div>
       </Link>
     </article>
