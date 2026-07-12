@@ -122,7 +122,7 @@ const VENUE_SOURCES = [
   },
   {
     eventId: "paella-pop-green-one",
-    url: "https://murciagrouprd.com/wp-content/uploads/2026/04/Captura-de-pantalla-2026-04-12-a-las-7.58.17-a.-m-1170x785.png",
+    url: "https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=27612171988392813",
   },
   {
     eventId: "casa-de-la-cultura-exhibitions",
