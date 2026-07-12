@@ -14,7 +14,8 @@ import { getFallbackEvents, getFallbackForCategory } from "@/lib/fallback-events
 import { getCommunityEvents } from "@/lib/community-store";
 import { fetchApprovedEvents } from "@/lib/firebase/events";
 import { attachCoords, attachVenueSlugs } from "@/lib/geo";
-import { materializeEventDates, sortUpcomingEvents } from "@/lib/event-dates";
+import { materializeEventDates } from "@/lib/event-dates";
+import { sortEventsForDisplay } from "@/lib/event-sort";
 import { isValidLocale } from "@/i18n/config";
 import type { Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
@@ -80,7 +81,7 @@ function mergeDbEvents(events: Event[], dbEvents: Event[]): Event[] {
 }
 
 function sortEvents(events: Event[]): Event[] {
-  return sortUpcomingEvents(events);
+  return sortEventsForDisplay(events, { recurringLast: true });
 }
 
 const NO_STORE_HEADERS = {

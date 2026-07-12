@@ -102,7 +102,7 @@ function parseTimeMinutes(time: string | undefined): number | null {
   return hours * 60 + minutes;
 }
 
-function eventStartTimeMinutes(time: string | undefined): number {
+export function eventStartTimeMinutes(time: string | undefined): number {
   return parseTimeMinutes(time) ?? Number.MAX_SAFE_INTEGER;
 }
 
@@ -111,6 +111,23 @@ function compareSortValues(a: number, b: number): number {
   const normalizedB = Number.isFinite(b) ? b : Number.MAX_SAFE_INTEGER;
   if (normalizedA === normalizedB) return 0;
   return normalizedA < normalizedB ? -1 : 1;
+}
+
+/** Chronological order: date, start time, trending, title. */
+export function compareEventsBySchedule(a: Event, b: Event): number {
+  const dateDiff = a.date.localeCompare(b.date);
+  if (dateDiff !== 0) return dateDiff;
+
+  const timeDiff = compareSortValues(
+    eventStartTimeMinutes(a.time),
+    eventStartTimeMinutes(b.time),
+  );
+  if (timeDiff !== 0) return timeDiff;
+
+  if (a.trending && !b.trending) return -1;
+  if (!a.trending && b.trending) return 1;
+
+  return a.title.localeCompare(b.title);
 }
 
 interface SortUpcomingEventsOptions {
@@ -131,19 +148,7 @@ export function sortUpcomingEvents(
       if (recurrenceDiff !== 0) return recurrenceDiff;
     }
 
-    const dateDiff = a.date.localeCompare(b.date);
-    if (dateDiff !== 0) return dateDiff;
-
-    const timeDiff = compareSortValues(
-      eventStartTimeMinutes(a.time),
-      eventStartTimeMinutes(b.time),
-    );
-    if (timeDiff !== 0) return timeDiff;
-
-    if (a.trending && !b.trending) return -1;
-    if (!a.trending && b.trending) return 1;
-
-    return a.title.localeCompare(b.title);
+    return compareEventsBySchedule(a, b);
   });
 }
 

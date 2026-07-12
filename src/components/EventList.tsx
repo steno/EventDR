@@ -8,8 +8,8 @@ import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import type { TimeRange } from "@/lib/filters";
 import { filterByTimeRange, searchEvents } from "@/lib/filters";
-import { materializeEventDates, sortUpcomingEvents } from "@/lib/event-dates";
-import { hasEventEndedForToday, happensOnLocalDate } from "@/lib/event-status";
+import { materializeEventDates } from "@/lib/event-dates";
+import { sortEventsForDisplay } from "@/lib/event-sort";
 import { categoryPath } from "@/lib/event-navigation";
 import { attachEventImages } from "@/lib/event-images";
 import { EventCard } from "./EventCard";
@@ -107,18 +107,7 @@ export function EventList({
       const excluded = new Set(excludeEventIds);
       result = result.filter((e) => !excluded.has(e.id));
     }
-    result = sortUpcomingEvents(result, { recurringLast: true });
-
-    if (timeRange === "all") {
-      const active = result.filter(
-        (e) => !happensOnLocalDate(e) || !hasEventEndedForToday(e),
-      );
-      const endedToday = result.filter(
-        (e) => happensOnLocalDate(e) && hasEventEndedForToday(e),
-      );
-      return [...active, ...endedToday];
-    }
-
+    result = sortEventsForDisplay(result, { recurringLast: true });
     return result;
   }, [events, timeRange, searchQuery, excludeEventIds]);
 

@@ -1,7 +1,8 @@
 import type { Locale } from "@/i18n/config";
 import { attachEventImages } from "@/lib/event-images";
 import { attachEventPhones } from "@/lib/event-phone";
-import { materializeEventDates, sortUpcomingEvents } from "@/lib/event-dates";
+import { materializeEventDates } from "@/lib/event-dates";
+import { sortEventsForDisplay } from "@/lib/event-sort";
 import { attachCoords, attachVenueSlugs } from "@/lib/geo";
 import { applyCuratedEventPatches } from "@/lib/curated-events";
 import { filterRemovedSeedEvents } from "@/lib/removed-seeds";
@@ -97,7 +98,7 @@ export async function getPublicEvents(
 
   events = applyScopeFilters(events, filter);
   events = attachCoords(events);
-  events = sortUpcomingEvents(events, { recurringLast: true });
+  events = sortEventsForDisplay(events, { recurringLast: true });
   events = applyCuratedEventPatches(events);
   events = attachEventPhones(events);
   events = attachEventImages(events);

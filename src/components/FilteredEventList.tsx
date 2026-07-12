@@ -8,7 +8,8 @@ import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import type { TimeRange } from "@/lib/filters";
 import { filterByTimeRange } from "@/lib/filters";
-import { materializeEventDates, sortUpcomingEvents } from "@/lib/event-dates";
+import { materializeEventDates } from "@/lib/event-dates";
+import { sortEventsForDisplay } from "@/lib/event-sort";
 import { SCOPE_LIST_LIMIT } from "@/lib/home-layout";
 import { TimeFilter } from "@/components/TimeFilter";
 import { EventCard } from "@/components/EventCard";
@@ -75,7 +76,7 @@ export function FilteredEventList({
   const filtered = useMemo(() => {
     const activeRange = fixedTimeRange ?? timeRange;
     const timeFiltered = filterByTimeRange(materialized, activeRange);
-    return sortUpcomingEvents(timeFiltered, { recurringLast: true });
+    return sortEventsForDisplay(timeFiltered, { recurringLast: true });
   }, [materialized, timeRange, fixedTimeRange]);
 
   const cap = expanded ? undefined : limit;
