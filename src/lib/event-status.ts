@@ -145,13 +145,16 @@ export function getEventLiveStatus(
   }
 
   const nowMin = currentMinutes(now);
+  // Check if event is currently live
+  if (isWithinWindow(nowMin, window)) return "live";
+  // Check if event hasn't started yet - must come before hasWindowEnded for overnight events
+  if (!hasWindowStarted(nowMin, window)) return "upcoming";
+  // Now check if event has ended
   if (hasWindowEnded(nowMin, window)) {
     // Multi-day span still running — today's session closed, not the whole event.
     if (end > today) return "unknown";
     return "ended";
   }
-  if (isWithinWindow(nowMin, window)) return "live";
-  if (!hasWindowStarted(nowMin, window)) return "upcoming";
   return "unknown";
 }
 
