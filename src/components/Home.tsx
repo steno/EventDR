@@ -127,8 +127,8 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
   return (
     <>
       <PwaRegister />
-      <main className="relative bg-neutral-50 dark:bg-transparent pb-24">
-        <div className="relative mx-auto max-w-lg sm:max-w-2xl px-4 pb-6">
+      <main className="relative bg-neutral-50 dark:bg-transparent pb-6">
+        <div className="relative mx-auto max-w-lg sm:max-w-2xl px-4">
           <AppHeader
             locale={locale}
             dict={dict}
@@ -192,7 +192,7 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
 
               {!isSearching && tab === "discover" && (
                 <>
-                  <div className="mt-8 mb-8">
+                  <div className="mt-8">
                     <VenueStrip locale={locale} dict={dict} initialVenues={initialVenues} />
                   </div>
                 </>
