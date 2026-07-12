@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 import {
   Cloud,
   CloudDrizzle,
@@ -29,6 +29,19 @@ import {
 interface WeatherWidgetProps {
   locale: Locale;
   dict: Dictionary;
+}
+
+const DESKTOP_HOVER_QUERY = "(hover: hover) and (pointer: fine)";
+
+function prefersDesktopHover(): boolean {
+  if (typeof window === "undefined") return false;
+  return window.matchMedia(DESKTOP_HOVER_QUERY).matches;
+}
+
+function subscribeDesktopHover(onStoreChange: () => void): () => void {
+  const media = window.matchMedia(DESKTOP_HOVER_QUERY);
+  media.addEventListener("change", onStoreChange);
+  return () => media.removeEventListener("change", onStoreChange);
 }
 
 function WeatherIcon({
@@ -74,6 +87,11 @@ export function WeatherWidget({ locale, dict }: WeatherWidgetProps) {
   const [error, setError] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
   const { unit, setUnit } = useWeatherUnit();
+  const canHover = useSyncExternalStore(
+    subscribeDesktopHover,
+    prefersDesktopHover,
+    () => false,
+  );
 
   const loadWeather = useCallback(async () => {
     setLoading(true);
@@ -126,10 +144,23 @@ export function WeatherWidget({ locale, dict }: WeatherWidgetProps) {
       : formatTemperatureCompact(weather.current.temperature, unit);
 
   return (
-    <div ref={rootRef} className="relative">
+    <div
+      ref={rootRef}
+      className="relative"
+      onMouseEnter={() => canHover && setOpen(true)}
+      onMouseLeave={() => canHover && setOpen(false)}
+      onFocus={() => canHover && setOpen(true)}
+      onBlur={(event) => {
+        if (!canHover) return;
+        const next = event.relatedTarget as Node | null;
+        if (!rootRef.current?.contains(next)) setOpen(false);
+      }}
+    >
       <button
         type="button"
-        onClick={() => setOpen((value) => !value)}
+        onClick={() => {
+          if (!canHover) setOpen((value) => !value);
+        }}
         className="
           flex h-9 items-center gap-1.5 rounded-full
           bg-white/85 px-2.5 shadow-sm ring-1 ring-neutral-200/70 backdrop-blur
@@ -150,15 +181,16 @@ export function WeatherWidget({ locale, dict }: WeatherWidgetProps) {
       </button>
 
       {open && (
-        <div
-          role="dialog"
-          aria-label={dict.weather.ariaLabel}
-          className="
-            absolute right-0 top-[calc(100%+0.375rem)] z-50 w-[min(16.5rem,calc(100vw-1.5rem))]
-            rounded-2xl bg-white/95 p-3 shadow-lg ring-1 ring-neutral-200/80 backdrop-blur
-            dark:bg-neutral-900/95 dark:ring-neutral-700/80
-          "
-        >
+        <div className="absolute right-0 top-full z-50 pt-1.5">
+          <div
+            role="dialog"
+            aria-label={dict.weather.ariaLabel}
+            className="
+              w-[min(16.5rem,calc(100vw-1.5rem))]
+              rounded-2xl bg-white/95 p-3 shadow-lg ring-1 ring-neutral-200/80 backdrop-blur
+              dark:bg-neutral-900/95 dark:ring-neutral-700/80
+            "
+          >
           <p className="mb-2.5 text-center text-xs font-semibold text-neutral-800 dark:text-neutral-100">
             {dict.weather.location}
           </p>
@@ -253,6 +285,7 @@ export function WeatherWidget({ locale, dict }: WeatherWidgetProps) {
                 °{value}
               </button>
             ))}
+          </div>
           </div>
         </div>
       )}
