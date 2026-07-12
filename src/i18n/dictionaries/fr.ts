@@ -210,6 +210,7 @@ export const fr: Dictionary = {
     title: "Mise à jour disponible",
     subtitle: "Actualisez pour les derniers événements et correctifs.",
     button: "Actualiser l'app",
+    refreshing: "Actualisation...",
   },
   footer: {
     tagline: "POP Events · Côte Nord République dominicaine",

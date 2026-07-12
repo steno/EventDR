@@ -186,6 +186,7 @@ export type Dictionary = {
     title: string;
     subtitle: string;
     button: string;
+    refreshing: string;
   };
   footer: {
     tagline: string;
@@ -463,6 +464,7 @@ export const en: Dictionary = {
     title: "Update available",
     subtitle: "Refresh to get the latest events and fixes.",
     button: "Refresh app",
+    refreshing: "Refreshing...",
   },
   footer: {
     tagline: "POP Events · North Coast Dominican Republic",
