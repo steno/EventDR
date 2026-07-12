@@ -3,6 +3,7 @@
 import { forwardRef } from "react";
 import { Search } from "lucide-react";
 import type { Dictionary } from "@/i18n/dictionaries";
+import { resetInputZoom } from "@/lib/reset-input-zoom";
 
 interface SearchBarProps {
   value: string;
@@ -17,21 +18,6 @@ const shellClassName =
 const fieldClassName =
   "min-w-0 flex-1 border-0 bg-transparent py-1 pl-1 pr-2.5 text-[11px] font-bold tracking-wide text-neutral-800 placeholder:text-neutral-500 focus:outline-none dark:text-neutral-200 dark:placeholder:text-neutral-400";
 
-/** iOS Safari zooms focused inputs under 16px; reset scale after committing search. */
-function resetIOSInputZoom() {
-  const active = document.activeElement;
-  if (active instanceof HTMLElement) active.blur();
-
-  const viewport = document.querySelector<HTMLMetaElement>('meta[name="viewport"]');
-  if (!viewport) return;
-
-  const original = viewport.content;
-  viewport.content = "width=device-width, initial-scale=1, maximum-scale=1";
-  window.setTimeout(() => {
-    viewport.content = original;
-  }, 100);
-}
-
 export const SearchBar = forwardRef<HTMLInputElement, SearchBarProps>(
   function SearchBar({ value, onChange, dict, autoFocus }, ref) {
     return (
@@ -45,9 +31,10 @@ export const SearchBar = forwardRef<HTMLInputElement, SearchBarProps>(
           value={value}
           onChange={(e) => onChange(e.target.value)}
           onKeyDown={(e) => {
-            if (e.key === "Enter") resetIOSInputZoom();
+            if (e.key === "Enter") resetInputZoom();
           }}
-          onSearch={resetIOSInputZoom}
+          onSearch={resetInputZoom}
+          onBlur={() => resetInputZoom({ blur: false })}
           placeholder={dict.search.placeholder}
           autoFocus={autoFocus}
           aria-label={dict.search.placeholder}
