@@ -12,11 +12,8 @@ import { InstallBanner } from "@/components/InstallBanner";
 import { PwaRegister } from "@/components/PwaRegister";
 import { EventCard } from "@/components/EventCard";
 import { VenueStrip } from "@/components/VenueStrip";
-import { PushNotifyButton } from "@/components/PushNotifyButton";
 import { TodayHighlights } from "@/components/TodayHighlights";
 import { useSavedEvents } from "@/hooks/useSavedEvents";
-import { useGeolocation } from "@/hooks/useGeolocation";
-import { usePushNotifications } from "@/hooks/usePushNotifications";
 import { useListScrollRestoration } from "@/hooks/useListScrollRestoration";
 import { saveListScroll, type ListScrollSnapshot } from "@/lib/list-scroll-restoration";
 import {
@@ -47,8 +44,6 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
   const searchInputRef = useRef<HTMLInputElement>(null);
 
   const { toggleSave, isSaved, filterSaved, reconcileWithEvents } = useSavedEvents();
-  const geo = useGeolocation();
-  const push = usePushNotifications(locale);
 
   const handleEventsLoaded = useCallback((events: Event[]) => {
     setAllEvents(events);
@@ -67,10 +62,6 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
     setRefreshKey((k) => k + 1);
     setTab("discover");
   }, []);
-
-  async function handlePushSubscribe() {
-    await push.subscribe(geo.lat ?? undefined, geo.lng ?? undefined);
-  }
 
   const savedEvents = filterSaved(allEvents);
   const homePath = `/${locale}`;
@@ -203,15 +194,6 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
                 <>
                   <div className="mt-8 mb-8">
                     <VenueStrip locale={locale} dict={dict} initialVenues={initialVenues} />
-                  </div>
-                  <div className="mt-6 mb-2">
-                    <PushNotifyButton
-                      dict={dict}
-                      supported={push.supported}
-                      subscribed={push.subscribed}
-                      loading={push.loading}
-                      onSubscribe={handlePushSubscribe}
-                    />
                   </div>
                 </>
               )}
