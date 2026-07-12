@@ -92,6 +92,42 @@ const VENUE_SOURCES = [
     eventId: "d-classico-merengue-nights",
     url: "https://images.prismic.io/prismic-rd-2/ajQJ4I1P9HI4Usf9_Night.jpg?auto=format,compress&rect=0,400,4096,1800&w=2400&h=1200",
   },
+  {
+    eventId: "hms-valeria-spanish-saturday",
+    url: "https://static.wixstatic.com/media/02154c_67e5d348034b45fd8fbb695c6549c8ac~mv2.jpg/v1/fit/w_2000,h_2000,al_c/02154c_67e5d348034b45fd8fbb695c6549c8ac~mv2.jpg",
+  },
+  {
+    eventId: "hms-valeria-domingo-dominicano",
+    url: "https://static.wixstatic.com/media/02154c_145420d3ce2b4196ac8234b55cabf921~mv2.jpg/v1/fit/w_2000,h_2000,al_c/02154c_145420d3ce2b4196ac8234b55cabf921~mv2.jpg",
+  },
+  {
+    eventId: "rum-legacy-museum-daily",
+    url: "https://panorama.com.do/wp-content/uploads/2026/02/IMG_7794-1024x683.jpeg",
+  },
+  {
+    eventId: "la-confluencia-museum-daily",
+    url: "https://static.wixstatic.com/media/3c0f0a_f296af01cff24d0398b22309a38e05e7~mv2.jpg/v1/fill/w_1600,h_900,al_c/3c0f0a_f296af01cff24d0398b22309a38e05e7~mv2.jpg",
+  },
+  {
+    eventId: "gregorio-luperon-museum",
+    url: "https://puertoplatadr.com/wp-content/uploads/2018/01/luperonmuseum2.jpg",
+  },
+  {
+    eventId: "macorix-house-of-rum",
+    url: "https://puertoplatadr.com/wp-content/uploads/2025/04/macorix-rum-factory.jpg",
+  },
+  {
+    eventId: "paella-pop-el-pueblito",
+    url: "https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=27612171988392813",
+  },
+  {
+    eventId: "paella-pop-green-one",
+    url: "https://murciagrouprd.com/wp-content/uploads/2026/04/Captura-de-pantalla-2026-04-12-a-las-7.58.17-a.-m-1170x785.png",
+  },
+  {
+    eventId: "casa-de-la-cultura-exhibitions",
+    url: "https://i0.wp.com/depuertoplata.com/wp-content/uploads/2019/06/cropped-casa-cultura-pp-nytybbf7w8mauyhgzol9b097kuvnl4akq67unt4srw.jpg?fit=1200%2C675&ssl=1",
+  },
 ];
 
 mkdirSync(outDir, { recursive: true });

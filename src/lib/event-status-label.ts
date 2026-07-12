@@ -4,6 +4,7 @@ import { localDateISO, APP_TIMEZONE } from "@/lib/event-dates";
 import {
   getEventLiveStatus,
   happensOnLocalDate,
+  isEndingSoon,
   isEventActiveToday,
   parseEventTimeWindow,
   type EventLiveStatus,
@@ -21,6 +22,8 @@ export function formatEventLiveStatusLabel(
   switch (status) {
     case "live":
       return dict.events.happeningNow;
+    case "ending":
+      return dict.events.endsSoon;
     case "upcoming":
       return dict.events.startsSoon;
     case "ended":
@@ -66,6 +69,9 @@ function fallbackLiveStatusDisplay(
   if (!hasWindowStarted(currentMinutes(now), window)) {
     return { status: "upcoming", label: dict.events.startsSoon };
   }
+  if (isEndingSoon(event, now)) {
+    return { status: "ending", label: dict.events.endsSoon };
+  }
   return { status: "live", label: dict.events.eventStarted };
 }
 
@@ -77,6 +83,10 @@ export function resolveLiveStatusDisplay(
   if (!happensOnLocalDate(event, localDateISO(now))) return null;
 
   const status = getEventLiveStatus(event, now);
+  if (status === "live" && isEndingSoon(event, now)) {
+    return { status: "ending", label: dict.events.endsSoon };
+  }
+
   const directLabel = formatEventLiveStatusLabel(status, dict);
   if (directLabel) {
     return { status, label: directLabel };
@@ -101,6 +111,8 @@ export function eventStatusBadgeClass(status: EventLiveStatus): string {
   switch (status) {
     case "live":
       return "bg-orange-50 text-orange-600 dark:bg-orange-950/50 dark:text-orange-400";
+    case "ending":
+      return "bg-amber-50 text-amber-700 dark:bg-amber-950/40 dark:text-amber-400";
     case "upcoming":
       return "bg-sky-50 text-sky-700 dark:bg-sky-950/40 dark:text-sky-400";
     case "ended":

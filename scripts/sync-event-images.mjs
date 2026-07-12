@@ -35,6 +35,17 @@ const FILE_TO_EVENT_ID = {
   "womens-reconnection-kite-camp-2026.jpg": "womens-reconnection-kite-camp-2026",
   "brugal-rum-center-weekdays.jpg": "brugal-rum-center-weekdays",
 
+  // --- 2026 crawl: food & culture ---
+  "paella-pop-el-pueblito.jpg": "paella-pop-el-pueblito",
+  "paella-pop-green-one.jpg": "paella-pop-green-one",
+  "hms-valeria-spanish-saturday.jpg": "hms-valeria-spanish-saturday",
+  "hms-valeria-domingo-dominicano.jpg": "hms-valeria-domingo-dominicano",
+  "rum-legacy-museum-daily.jpg": "rum-legacy-museum-daily",
+  "la-confluencia-museum-daily.jpg": "la-confluencia-museum-daily",
+  "gregorio-luperon-museum.jpg": "gregorio-luperon-museum",
+  "macorix-house-of-rum.jpg": "macorix-house-of-rum",
+  "casa-de-la-cultura-exhibitions.jpg": "casa-de-la-cultura-exhibitions",
+
   // --- Original curated venue / attraction photos ---
   "MaleconOPenAir.JPG": "malecon-live-concert",
   "RumbleInParadise12.png": "rumble-in-paradise-12",

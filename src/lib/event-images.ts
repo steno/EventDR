@@ -80,6 +80,15 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "sea-horse-saturday-artisan-fair": "sea-horse-saturday-artisan-fair.jpg",
   "puerto-plata-carnaval-2026": "puerto-plata-carnaval-2026.jpg",
   "malecon-morning-wellness-walk": "malecon-morning-wellness-walk.jpg",
+  "hms-valeria-spanish-saturday": "hms-valeria-spanish-saturday.jpg",
+  "hms-valeria-domingo-dominicano": "hms-valeria-domingo-dominicano.jpg",
+  "rum-legacy-museum-daily": "rum-legacy-museum-daily.jpg",
+  "la-confluencia-museum-daily": "la-confluencia-museum-daily.jpg",
+  "gregorio-luperon-museum": "gregorio-luperon-museum.jpg",
+  "macorix-house-of-rum": "macorix-house-of-rum.jpg",
+  "casa-de-la-cultura-exhibitions": "casa-de-la-cultura-exhibitions.jpg",
+  "paella-pop-el-pueblito": "paella-pop-el-pueblito.jpg",
+  "paella-pop-green-one": "paella-pop-green-one.jpg",
 };
 
 /** Legacy ingest ids that share a curated event image. */

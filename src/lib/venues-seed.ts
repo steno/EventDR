@@ -487,6 +487,109 @@ export const SEED_VENUES: Venue[] = [
     emoji: "🛻",
     website: "https://outback-adventures.com/st_location/dominican-republic/puerto-plata/",
   },
+  {
+    slug: "hms-valeria",
+    name: "HMS Valeria Seafood Restaurant",
+    city: "Sosúa",
+    description:
+      "Ship-themed seafood restaurant at Casa Valeria Hotel — Spanish Saturday paella nights and Sunday Dominican specials steps from Sosúa Beach.",
+    lat: 19.7548,
+    lng: -70.5185,
+    emoji: "🥘",
+    website: "https://www.casavaleria.com/restaurant",
+    phone: "+18095711693",
+  },
+  {
+    slug: "rum-legacy-museum",
+    name: "Rum Legacy Museum & Shop Experience",
+    city: "Puerto Plata",
+    description:
+      "Immersive rum heritage museum in the historic center — audio-guided tour from sugarcane to guided tastings on Calle Beller.",
+    lat: 19.7979,
+    lng: -70.6938,
+    emoji: "🥃",
+    phone: "+18092618661",
+  },
+  {
+    slug: "la-confluencia-museum",
+    name: "La Confluencia Galería Etnográfica",
+    city: "Puerto Plata",
+    description:
+      "Ethnographic gallery tracing Taíno, African, and colonial heritage — bilingual exhibits and QR-guided tours in the historic center.",
+    lat: 19.7968,
+    lng: -70.6915,
+    emoji: "🏛️",
+    website: "https://www.laconfluencia.com.do/",
+    phone: "+18093815745",
+  },
+  {
+    slug: "gregorio-luperon-museum",
+    name: "Casa Museo General Gregorio Luperón",
+    city: "Puerto Plata",
+    description:
+      "Victorian house-museum honoring the Restoration hero — period rooms, photographs, and courtyard mural on Calle 12 de Julio.",
+    lat: 19.7965,
+    lng: -70.6912,
+    emoji: "🏛️",
+    phone: "+18092618661",
+  },
+  {
+    slug: "macorix-house-of-rum",
+    name: "Macorix House of Rum",
+    city: "Puerto Plata",
+    description:
+      "Rum cellar tours and tastings — history video, aging barrels, and Macorix rum samples on Av. Francisco Alberto Caamaño.",
+    lat: 19.785,
+    lng: -70.687,
+    emoji: "🥃",
+    website: "https://macorixhouseofrum.com/en/",
+  },
+  {
+    slug: "casa-de-la-cultura",
+    name: "Casa de la Cultura Eduardo Brito",
+    city: "Puerto Plata",
+    description:
+      "Victorian cultural center facing Parque Central — rotating art exhibitions, poetry readings, theater, and folkloric dance.",
+    lat: 19.7975,
+    lng: -70.693,
+    emoji: "🎨",
+    website: "https://depuertoplata.com/historia-de-puerto-plata/casa-de-la-cultura-puerto-plata/",
+  },
+  {
+    slug: "handmade-the-brand",
+    name: "Handmade the Brand",
+    city: "Puerto Plata",
+    description:
+      "Espadrille workshop in the historic center — stitch your own pair with master artisans on Calle Duarte.",
+    lat: 19.7963,
+    lng: -70.6921,
+    emoji: "👟",
+    website:
+      "https://www.eventbrite.es/e/make-authentic-espadrilles-in-puerto-plata-tickets-1981840949630",
+  },
+  {
+    slug: "paella-pop-el-pueblito",
+    name: "Paella POP Playa El Pueblito",
+    city: "Puerto Plata",
+    description:
+      "Beachfront Spanish paella by Laia & Nico — Mediterranean-Caribbean dining on Playa El Pueblito.",
+    lat: 19.7742,
+    lng: -70.6529,
+    emoji: "🥘",
+    website:
+      "https://sosuadigitaltv.com/paella-pop-celebra-su-soft-opening-en-playa-el-pueblito-y-consolida-una-historia-de-emprendimiento-nacida-con-apenas-50-euros/",
+  },
+  {
+    slug: "paella-pop-green-one",
+    name: "Paella POP at Green One",
+    city: "Puerto Plata",
+    description:
+      "Original Paella POP kitchen at One Club, Green One Playa Dorada — paella and Spanish plates in the golf resort clubhouse.",
+    lat: 19.786,
+    lng: -70.668,
+    emoji: "🥘",
+    website: "https://www.greenoneplayadorada.com/",
+  },
 ];
 
 export function getSeedVenue(slug: string): Venue | undefined {

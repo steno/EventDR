@@ -4,6 +4,8 @@ import { memo, useMemo } from "react";
 import Link from "next/link";
 import { ChevronRight, Clock } from "lucide-react";
 import { EventImage } from "@/components/EventImage";
+import { EventStatusBadge } from "@/components/EventStatusBadge";
+import { useLiveStatusDisplay } from "@/hooks/useLiveStatusDisplay";
 import type { Event } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
@@ -25,13 +27,18 @@ interface TodayHighlightsProps {
 function TodayHighlightCard({
   event,
   locale,
+  dict,
   onBeforeNavigate,
 }: {
   event: Event;
   locale: Locale;
+  dict: Dictionary;
   onBeforeNavigate?: () => void;
 }) {
   const href = eventDetailPath(locale, event.id, `/${locale}`);
+  const liveDisplay = useLiveStatusDisplay(event, dict);
+  const liveStatus = liveDisplay?.status ?? null;
+  const liveStatusLabel = liveDisplay?.label ?? null;
 
   return (
     <article className="group relative flex min-w-[72%] snap-start flex-col overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-[0_4px_16px_-8px_rgba(0,0,0,0.12)] dark:shadow-[0_4px_16px_-8px_rgba(0,0,0,0.35)] transition-colors hover:border-neutral-300 dark:hover:border-neutral-700 sm:min-w-[16rem]">
@@ -65,6 +72,13 @@ function TodayHighlightCard({
         )}
 
         <div className="flex flex-col gap-2 p-3.5">
+          {liveStatusLabel && liveStatus && (
+            <EventStatusBadge
+              label={liveStatusLabel}
+              status={liveStatus}
+              className="w-fit"
+            />
+          )}
           <h3 className="line-clamp-2 text-[17px] font-black leading-[1.25] tracking-tight text-neutral-950 dark:text-neutral-100">
             {event.title}
           </h3>
@@ -117,6 +131,7 @@ const TodayHighlightsComponent = ({
             key={event.id}
             event={event}
             locale={locale}
+            dict={dict}
             onBeforeNavigate={onBeforeNavigate}
           />
         ))}

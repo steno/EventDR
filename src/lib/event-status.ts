@@ -4,9 +4,16 @@ import { APP_TIMEZONE, localDateISO } from "./event-dates";
 /** Minutes from midnight (0–1439). */
 export type EventTimeWindow = { start: number; end: number };
 
-export type EventLiveStatus = "upcoming" | "live" | "ended" | "unknown";
+export type EventLiveStatus =
+  | "upcoming"
+  | "live"
+  | "ending"
+  | "ended"
+  | "unknown";
 
 const DEFAULT_DURATION_MINUTES = 120;
+/** Show "ends soon" when a multi-hour event is within this many minutes of closing. */
+export const ENDS_SOON_MINUTES = 60;
 
 function currentMinutes(now: Date): number {
   const formatted = new Intl.DateTimeFormat("en-GB", {
@@ -71,10 +78,46 @@ export function isRecurringEvent(
 export function getEventDurationMinutes(time?: string): number {
   const window = parseEventTimeWindow(time);
   if (!window) return Number.MAX_SAFE_INTEGER;
+  return getWindowDurationMinutes(window);
+}
+
+function getWindowDurationMinutes(window: EventTimeWindow): number {
   if (window.end < window.start) {
     return 1440 - window.start + window.end;
   }
   return window.end - window.start;
+}
+
+export function isMultiHourEvent(time?: string): boolean {
+  return getEventDurationMinutes(time) > ENDS_SOON_MINUTES;
+}
+
+function minutesUntilWindowEnd(
+  nowMin: number,
+  window: EventTimeWindow,
+): number {
+  if (window.end < window.start) {
+    if (nowMin >= window.start) {
+      return 1440 - nowMin + window.end;
+    }
+    return window.end - nowMin;
+  }
+  return window.end - nowMin;
+}
+
+/** Live multi-hour event in its final hour before the parsed end time. */
+export function isEndingSoon(
+  event: Pick<Event, "time">,
+  now: Date = new Date(),
+): boolean {
+  const window = parseEventTimeWindow(event.time);
+  if (!window || !isMultiHourEvent(event.time)) return false;
+
+  const nowMin = currentMinutes(now);
+  if (!isWithinWindow(nowMin, window)) return false;
+
+  const minutesLeft = minutesUntilWindowEnd(nowMin, window);
+  return minutesLeft > 0 && minutesLeft <= ENDS_SOON_MINUTES;
 }
 
 export function eventSpansToday(

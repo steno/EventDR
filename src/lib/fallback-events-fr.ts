@@ -130,6 +130,7 @@ export const FALLBACK_EVENTS_FR: Event[] = [
     venue: "Plaza Independencia (Parque Central)",
     venueSlug: "plaza-independencia",
     category: "festivals",
+    categories: ["culture"],
     format: "physical",
     trending: true,
     sourceUrl: "https://www.facebook.com/share/18vHNaoe69/",
