@@ -112,6 +112,16 @@ export const SEED_VENUES: Venue[] = [
     emoji: "🍺",
   },
   {
+    slug: "playa-sosua",
+    name: "Playa Sosúa",
+    city: "Sosúa",
+    description:
+      "Main public beach in Sosúa Bay — calm water, reef snorkeling, beach bars, and weekly pickup sports on the sand.",
+    lat: 19.7572211,
+    lng: -70.5171504,
+    emoji: "🏖️",
+  },
+  {
     slug: "bar-39-sosua",
     name: "Bar 39",
     city: "Sosúa",
@@ -372,6 +382,16 @@ export const SEED_VENUES: Venue[] = [
     website:
       "https://es.godominicanrepublic.com/que-hacer/cayo-arena",
     phone: "+18295997444",
+  },
+  {
+    slug: "plaza-independencia",
+    name: "Plaza Independencia",
+    city: "Puerto Plata",
+    description:
+      "Puerto Plata's central park in the historic downtown — shaded plaza, cathedral views, and a gathering point for festivals and community events.",
+    lat: 19.7976623,
+    lng: -70.6932862,
+    emoji: "🌳",
   },
   {
     slug: "paseo-dona-blanca",

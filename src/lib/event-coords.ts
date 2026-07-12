@@ -7,10 +7,10 @@ export interface EventCoords {
 }
 
 const CITY_COORDS: Record<string, EventCoords> = {
-  "puerto plata": { lat: 19.7904, lng: -70.6702 },
-  sosúa: { lat: 19.7538, lng: -70.5192 },
-  sosua: { lat: 19.7538, lng: -70.5192 },
-  cabarete: { lat: 19.7495, lng: -70.4084 },
+  "puerto plata": { lat: 19.7976623, lng: -70.6932862 },
+  sosúa: { lat: 19.7572211, lng: -70.5171504 },
+  sosua: { lat: 19.7572211, lng: -70.5171504 },
+  cabarete: { lat: 19.7502745, lng: -70.4073077 },
   costambar: { lat: 19.8145, lng: -70.7151 },
   "playa dorada": { lat: 19.7695, lng: -70.643 },
 };
@@ -47,7 +47,16 @@ export function resolveEventCoords(
 
   const loc = event.location.toLowerCase();
   for (const [city, coords] of Object.entries(CITY_COORDS)) {
-    if (loc.includes(city)) return coords;
+    if (!loc.includes(city)) continue;
+    if (event.venue?.trim()) {
+      if (process.env.NODE_ENV === "development") {
+        console.warn(
+          `[event-coords] Named venue "${event.venue}" (${event.location}) has no pin — add venueSlug or lat/lng`,
+        );
+      }
+      return null;
+    }
+    return coords;
   }
   return null;
 }
