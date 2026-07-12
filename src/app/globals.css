@@ -88,6 +88,44 @@ button, a {
 }
 
 /* Inline event map — zoom +/- pinned top-right */
+.event-inline-map {
+  isolation: isolate;
+  z-index: 0;
+}
+
+.event-inline-map .leaflet-pane {
+  z-index: 1 !important;
+}
+
+.event-inline-map .leaflet-tile-pane {
+  z-index: 1 !important;
+}
+
+.event-inline-map .leaflet-overlay-pane {
+  z-index: 2 !important;
+}
+
+.event-inline-map .leaflet-shadow-pane {
+  z-index: 3 !important;
+}
+
+.event-inline-map .leaflet-marker-pane {
+  z-index: 4 !important;
+}
+
+.event-inline-map .leaflet-tooltip-pane {
+  z-index: 5 !important;
+}
+
+.event-inline-map .leaflet-popup-pane {
+  z-index: 6 !important;
+}
+
+.event-inline-map .leaflet-top,
+.event-inline-map .leaflet-bottom {
+  z-index: 8 !important;
+}
+
 .event-inline-map .leaflet-top.leaflet-right {
   top: 10px;
   right: 10px;

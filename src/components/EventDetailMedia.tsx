@@ -86,7 +86,7 @@ export function EventDetailMedia({
   const mapIsActive = activeSlide === 1;
 
   const navButtonClass =
-    "z-[400] flex items-center justify-center rounded-full bg-white/92 p-2 text-neutral-800 shadow-md ring-1 ring-black/10 backdrop-blur-sm touch-manipulation transition-opacity dark:bg-neutral-900/92 dark:text-neutral-100 dark:ring-white/15";
+    "z-10 flex items-center justify-center rounded-full bg-white/92 p-2 text-neutral-800 shadow-md ring-1 ring-black/10 backdrop-blur-sm touch-manipulation transition-opacity dark:bg-neutral-900/92 dark:text-neutral-100 dark:ring-white/15";
 
   function renderPhotoSlide() {
     if (hasImage) {
@@ -129,7 +129,7 @@ export function EventDetailMedia({
           href={getDirectionsUrl(event)}
           target="_blank"
           rel="noopener noreferrer"
-          className="absolute bottom-10 left-1/2 z-[500] flex -translate-x-1/2 items-center gap-1.5 rounded-full bg-black/55 px-3 py-1.5 text-[11px] font-semibold text-white backdrop-blur-sm touch-manipulation"
+          className="absolute bottom-10 left-1/2 z-20 flex -translate-x-1/2 items-center gap-1.5 rounded-full bg-black/55 px-3 py-1.5 text-[11px] font-semibold text-white backdrop-blur-sm touch-manipulation"
         >
           <Navigation className="h-3.5 w-3.5" aria-hidden />
           {dict.detail.mediaTapDirections}
@@ -141,7 +141,7 @@ export function EventDetailMedia({
   const carouselChrome = totalSlides > 1 && (
     <>
       {activeSlide === 0 && (
-        <span className="pointer-events-none absolute bottom-10 left-1/2 z-[400] flex -translate-x-1/2 items-center gap-1.5 rounded-full bg-black/55 px-3 py-1.5 text-[11px] font-semibold text-white backdrop-blur-sm">
+        <span className="pointer-events-none absolute bottom-10 left-1/2 z-10 flex -translate-x-1/2 items-center gap-1.5 rounded-full bg-black/55 px-3 py-1.5 text-[11px] font-semibold text-white backdrop-blur-sm">
           <ChevronRight className="h-3.5 w-3.5" aria-hidden />
           {dict.detail.mediaSwipeMap}
         </span>
@@ -149,7 +149,7 @@ export function EventDetailMedia({
 
       {activeSlide === 0 && (
         <div
-          className="pointer-events-none absolute inset-y-0 right-0 z-[400] w-14 bg-gradient-to-l from-black/35 to-transparent transition-opacity group-hover/media:from-black/45"
+          className="pointer-events-none absolute inset-y-0 right-0 z-10 w-14 bg-gradient-to-l from-black/35 to-transparent transition-opacity group-hover/media:from-black/45"
           aria-hidden
         />
       )}
@@ -176,7 +176,7 @@ export function EventDetailMedia({
         </button>
       )}
 
-      <div className="absolute inset-x-0 bottom-2.5 z-[400] flex justify-center gap-1.5">
+      <div className="absolute inset-x-0 bottom-2.5 z-10 flex justify-center gap-1.5">
         {Array.from({ length: totalSlides }, (_, i) => (
           <button
             key={i}
@@ -197,14 +197,14 @@ export function EventDetailMedia({
   if (totalSlides === 1) {
     return (
       <div
-        className={`relative w-full shrink-0 overflow-hidden bg-neutral-100 dark:bg-neutral-800 ${heightClass} ${roundedClass}`}
+        className={`relative isolate z-0 w-full shrink-0 overflow-hidden bg-neutral-100 dark:bg-neutral-800 ${heightClass} ${roundedClass}`}
       >
         {hasImage ? renderPhotoSlide() : renderMapSlide(true)}
         {onClose && (
           <button
             type="button"
             onClick={onClose}
-            className="absolute top-3 right-3 z-[500] flex h-9 w-9 items-center justify-center rounded-full bg-white/90 dark:bg-neutral-800/90 shadow-sm touch-manipulation"
+            className="absolute top-3 right-3 z-20 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 dark:bg-neutral-800/90 shadow-sm touch-manipulation"
             aria-label={dict.detail.close}
           >
             <X className="h-4 w-4" />
@@ -216,7 +216,7 @@ export function EventDetailMedia({
 
   return (
     <div
-      className={`group/media relative w-full shrink-0 overflow-hidden bg-neutral-100 dark:bg-neutral-800 ${heightClass} ${roundedClass}`}
+      className={`group/media relative isolate z-0 w-full shrink-0 overflow-hidden bg-neutral-100 dark:bg-neutral-800 ${heightClass} ${roundedClass}`}
     >
       <div
         ref={scrollRef}
@@ -244,7 +244,7 @@ export function EventDetailMedia({
         <button
           type="button"
           onClick={onClose}
-          className="absolute top-3 right-3 z-[500] flex h-9 w-9 items-center justify-center rounded-full bg-white/90 dark:bg-neutral-800/90 shadow-sm touch-manipulation"
+          className="absolute top-3 right-3 z-20 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 dark:bg-neutral-800/90 shadow-sm touch-manipulation"
           aria-label={dict.detail.close}
         >
           <X className="h-4 w-4" />
