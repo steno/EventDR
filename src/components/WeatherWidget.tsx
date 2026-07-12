@@ -131,9 +131,9 @@ export function WeatherWidget({ locale, dict }: WeatherWidgetProps) {
         type="button"
         onClick={() => setOpen((value) => !value)}
         className="
-          flex h-7 items-center gap-1 rounded-full
-          bg-white/85 px-2 shadow-sm ring-1 ring-neutral-200/70 backdrop-blur
-          text-[10px] font-semibold leading-none text-neutral-700
+          flex h-9 items-center gap-1.5 rounded-full
+          bg-white/85 px-2.5 shadow-sm ring-1 ring-neutral-200/70 backdrop-blur
+          text-[11px] font-bold tracking-wide leading-none text-neutral-700
           transition-colors hover:text-neutral-900 active:scale-95
           dark:bg-neutral-800/85 dark:ring-neutral-700/70 dark:text-neutral-200 dark:hover:text-neutral-50
         "
@@ -142,9 +142,9 @@ export function WeatherWidget({ locale, dict }: WeatherWidgetProps) {
         aria-haspopup="dialog"
       >
         {loading ? (
-          <Loader2 className="h-3 w-3 animate-spin text-neutral-400" aria-hidden />
+          <Loader2 className="h-4 w-4 animate-spin text-neutral-400" aria-hidden />
         ) : (
-          <WeatherIcon condition={currentCondition} className="h-3 w-3 text-neutral-500 dark:text-neutral-400" />
+          <WeatherIcon condition={currentCondition} className="h-4 w-4 text-neutral-500 dark:text-neutral-400" />
         )}
         {triggerLabel && <span className="tabular-nums">{triggerLabel}</span>}
       </button>
