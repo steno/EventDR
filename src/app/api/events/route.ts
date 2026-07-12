@@ -44,7 +44,7 @@ function isValidCategory(value: string): value is EventCategory {
 }
 
 function isValidWhen(value: string): value is Exclude<TimeRange, "all"> {
-  return value === "today" || value === "weekend" || value === "week";
+  return value === "today" || value === "tomorrow" || value === "weekend";
 }
 
 function eventDedupeKey(event: Event): string {

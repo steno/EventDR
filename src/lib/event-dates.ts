@@ -243,31 +243,40 @@ export function eventMatchesRecurrence(
     recurrenceDay?: number;
     recurrenceDays?: number[];
   },
-  range: "all" | "today" | "weekend" | "week",
+  range: "all" | "today" | "tomorrow" | "weekend",
   now: Date = new Date(),
 ): boolean {
   if (!event.recurrence) return false;
 
   const today = localDateISO(now);
+  const tomorrow = addDaysISO(today, 1);
   const day = weekdayFromISO(today);
+  const tomorrowDay = weekdayFromISO(tomorrow);
   const isWeekend = day === 0 || day === 6;
   const isWeekday = day >= 1 && day <= 5;
+  const isTomorrowWeekend = tomorrowDay === 0 || tomorrowDay === 6;
+  const isTomorrowWeekday = tomorrowDay >= 1 && tomorrowDay <= 5;
 
   if (event.recurrence === "daily") {
-    return range === "all" || range === "today" || range === "week" || range === "weekend";
+    return (
+      range === "all" ||
+      range === "today" ||
+      range === "tomorrow" ||
+      range === "weekend"
+    );
   }
 
   if (event.recurrence === "weekdays") {
     if (range === "today") return isWeekday;
+    if (range === "tomorrow") return isTomorrowWeekday;
     if (range === "weekend") return false;
-    if (range === "week") return true;
     return false;
   }
 
   if (event.recurrence === "weekends") {
     if (range === "today") return isWeekend;
+    if (range === "tomorrow") return isTomorrowWeekend;
     if (range === "weekend") return true;
-    if (range === "week") return true;
     return false;
   }
 
@@ -275,13 +284,8 @@ export function eventMatchesRecurrence(
     const targets = weeklyDays(event);
     if (targets.length === 0) return false;
     if (range === "today") return targets.includes(day);
+    if (range === "tomorrow") return targets.includes(tomorrowDay);
     if (range === "weekend") return targets.some((target) => target === 0 || target === 6);
-    if (range === "week") {
-      const weekEnd = addDaysISO(today, 7);
-      const occurrence = nextWeeklyOccurrenceISO(today, event);
-      if (!occurrence) return false;
-      return occurrence >= today && occurrence <= weekEnd;
-    }
     return false;
   }
 

@@ -1,7 +1,7 @@
 import type { Locale } from "@/i18n/config";
 import type { TimeRange } from "@/lib/filters";
 
-export const WHEN_SLUGS = ["today", "weekend", "week"] as const;
+export const WHEN_SLUGS = ["today", "tomorrow", "weekend"] as const;
 
 export type WhenSlug = (typeof WHEN_SLUGS)[number];
 
@@ -49,6 +49,32 @@ const WHEN_SEO: Record<WhenSlug, Record<Locale, WhenSeoCopy>> = {
         "L'agenda du jour sur la Côte Nord — concerts, meetups, événements plage récurrents et sorties ponctuelles.",
     },
   },
+  tomorrow: {
+    en: {
+      h1: "Events tomorrow",
+      title: "Events Tomorrow in Puerto Plata, Sosúa & Cabarete | POP Events",
+      description:
+        "What's happening tomorrow on the North Coast of the Dominican Republic — live music, parties, sports, food events, and local plans in Puerto Plata, Sosúa, and Cabarete.",
+      intro:
+        "Tomorrow's calendar for the North Coast — concerts, meetups, recurring beach events, and one-off happenings.",
+    },
+    es: {
+      h1: "Eventos de mañana",
+      title: "Eventos mañana en Puerto Plata, Sosúa y Cabarete | POP Eventos",
+      description:
+        "Qué pasa mañana en la Costa Norte de RD — música en vivo, fiestas, deportes, gastronomía y planes locales en Puerto Plata, Sosúa y Cabarete.",
+      intro:
+        "El calendario de mañana en la Costa Norte — conciertos, meetups, eventos de playa recurrentes y planes puntuales.",
+    },
+    fr: {
+      h1: "Événements demain",
+      title: "Événements demain à Puerto Plata, Sosúa et Cabarete | POP Events",
+      description:
+        "Ce qui se passe demain sur la Côte Nord de RD — musique live, fêtes, sports, food et activités locales à Puerto Plata, Sosúa et Cabarete.",
+      intro:
+        "L'agenda de demain sur la Côte Nord — concerts, meetups, événements plage récurrents et sorties ponctuelles.",
+    },
+  },
   weekend: {
     en: {
       h1: "Events this weekend",
@@ -73,32 +99,6 @@ const WHEN_SEO: Record<WhenSlug, Record<Locale, WhenSeoCopy>> = {
         "Que faire ce week-end sur la Côte Nord RD — fêtes, musique live, kite surf, festivals et activités à Puerto Plata, Sosúa et Cabarete.",
       intro:
         "Votre guide week-end sur la Côte Nord — sorties du vendredi au dimanche à Puerto Plata, Sosúa et Cabarete.",
-    },
-  },
-  week: {
-    en: {
-      h1: "Events this week",
-      title: "Events This Week on the North Coast DR | POP Events",
-      description:
-        "Plans for the next seven days in Puerto Plata, Sosúa, and Cabarete — concerts, parties, wellness, sports, and cultural events on the North Coast.",
-      intro:
-        "Everything coming up in the next seven days across the Puerto Plata region — your weekly North Coast event roundup.",
-    },
-    es: {
-      h1: "Eventos esta semana",
-      title: "Eventos esta semana en la Costa Norte RD | POP Eventos",
-      description:
-        "Planes para los próximos siete días en Puerto Plata, Sosúa y Cabarete — conciertos, fiestas, wellness, deportes y cultura en la Costa Norte.",
-      intro:
-        "Todo lo que viene en los próximos siete días en la región de Puerto Plata — tu resumen semanal de la Costa Norte.",
-    },
-    fr: {
-      h1: "Événements cette semaine",
-      title: "Événements cette semaine sur la Côte Nord RD | POP Events",
-      description:
-        "Les sept prochains jours à Puerto Plata, Sosúa et Cabarete — concerts, fêtes, wellness, sports et culture sur la Côte Nord.",
-      intro:
-        "Tout ce qui arrive dans les sept prochains jours dans la région de Puerto Plata — votre sélection hebdomadaire Côte Nord.",
     },
   },
 };

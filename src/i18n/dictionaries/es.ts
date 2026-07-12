@@ -116,8 +116,8 @@ export const es: Dictionary = {
   time: {
     all: "Todos",
     today: "Hoy",
-    weekend: "Este finde",
-    week: "Esta semana",
+    tomorrow: "Mañana",
+    weekend: "Finde",
   },
   nav: {
     discover: "Explorar",

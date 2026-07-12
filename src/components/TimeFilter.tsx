@@ -3,7 +3,7 @@
 import type { TimeRange } from "@/lib/filters";
 import type { Dictionary } from "@/i18n/dictionaries";
 
-const RANGES: TimeRange[] = ["all", "today", "weekend", "week"];
+const RANGES: TimeRange[] = ["all", "today", "tomorrow", "weekend"];
 
 interface TimeFilterProps {
   value: TimeRange;

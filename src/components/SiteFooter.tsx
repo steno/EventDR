@@ -34,6 +34,12 @@ export function SiteFooter({ dict, locale, className = "" }: SiteFooterProps) {
           {dict.time.today}
         </Link>
         <Link
+          href={`/${locale}/when/tomorrow`}
+          className="hover:text-neutral-800 dark:hover:text-neutral-200 transition-colors"
+        >
+          {dict.time.tomorrow}
+        </Link>
+        <Link
           href={`/${locale}/when/weekend`}
           className="hover:text-neutral-800 dark:hover:text-neutral-200 transition-colors"
         >

@@ -116,8 +116,8 @@ export const fr: Dictionary = {
   time: {
     all: "Tous",
     today: "Aujourd'hui",
-    weekend: "Ce week-end",
-    week: "Cette semaine",
+    tomorrow: "Demain",
+    weekend: "Week-end",
   },
   nav: {
     discover: "Explorer",

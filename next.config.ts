@@ -24,6 +24,15 @@ const extraDevOrigins = (process.env.DEV_ALLOWED_ORIGINS ?? "")
 
 const nextConfig: NextConfig = {
   allowedDevOrigins: [...getLocalIPv4Addresses(), ...extraDevOrigins],
+  async redirects() {
+    return [
+      {
+        source: "/:locale(en|es|fr)/when/week",
+        destination: "/:locale/when/tomorrow",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     // For PWA assets we want the browser to re-check on each update,
     // especially on iOS where service worker updates can be delayed.

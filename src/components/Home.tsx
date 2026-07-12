@@ -22,7 +22,7 @@ import {
   HOME_TODAY_LIMIT,
   homeViewAllPath,
 } from "@/lib/home-layout";
-import type { TimeRange } from "@/lib/filters";
+import { normalizeTimeRange, type TimeRange } from "@/lib/filters";
 import type { Event, Venue } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
 import type { AppTab, Dictionary } from "@/i18n/dictionaries";
@@ -96,7 +96,7 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
       if (!snapshot.home) return;
       setTab(normalizeHomeTab(snapshot.home.tab, snapshot.home.searchQuery));
       setSearchQuery(snapshot.home.searchQuery);
-      setTimeRange(snapshot.home.timeRange);
+      setTimeRange(normalizeTimeRange(snapshot.home.timeRange));
     },
     [normalizeHomeTab],
   );
