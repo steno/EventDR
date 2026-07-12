@@ -572,7 +572,7 @@ export const SEED_VENUES: Venue[] = [
     name: "Paella POP Playa El Pueblito",
     city: "Puerto Plata",
     description:
-      "Beachfront Spanish paella by Laia & Nico — Mediterranean-Caribbean dining on Playa El Pueblito.",
+      "Beachfront Spanish paella by Laia & Nico on Playa El Pueblito — soft-opened July 2026 but listed as temporarily closed on Google Maps; official hours TBA. Paella POP still serves daily at Green One Playa Dorada.",
     lat: 19.7742,
     lng: -70.6529,
     emoji: "🥘",

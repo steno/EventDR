@@ -23,6 +23,8 @@ export const REMOVED_SEED_EVENT_IDS = new Set([
   "costambar-acoustic",
   "pp-sunday-futbol",
   "party-puerto-plata-2026",
+  // Google Maps: temporarily closed after Jul 2026 soft opening — no verified hours yet.
+  "paella-pop-el-pueblito",
 ]);
 
 export function filterRemovedSeedEvents(events: Event[]): Event[] {
