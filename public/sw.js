@@ -1,4 +1,4 @@
-const CACHE_NAME = "eventdr-v11";
+const CACHE_NAME = "eventdr-v12";
 const STATIC_ASSETS = [
   "/manifest.webmanifest",
   "/icons/icon-192.png",
