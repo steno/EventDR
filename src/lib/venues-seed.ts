@@ -385,13 +385,15 @@ export const SEED_VENUES: Venue[] = [
   },
   {
     slug: "plaza-independencia",
-    name: "Plaza Independencia",
+    name: "Independence Park",
     city: "Puerto Plata",
     description:
-      "Puerto Plata's central park in the historic downtown — shaded plaza, cathedral views, and a gathering point for festivals and community events.",
+      "Puerto Plata's central park (Plaza Independencia) in the historic downtown — shaded plaza, cathedral views, and a gathering point for festivals and community events.",
     lat: 19.7976623,
     lng: -70.6932862,
     emoji: "🌳",
+    website:
+      "https://www.google.com/maps/place/Independence+Park/@19.7976623,-70.6932862,17z",
   },
   {
     slug: "paseo-dona-blanca",
