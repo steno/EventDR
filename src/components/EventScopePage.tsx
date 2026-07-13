@@ -14,7 +14,6 @@ import { SubmitEventSheet } from "@/components/SubmitEventSheet";
 import { attachEventImages } from "@/lib/event-images";
 import { StickyListHeader } from "@/components/StickyListHeader";
 import { resolveBackLabel } from "@/lib/event-navigation";
-import { useListScrollRestoration } from "@/hooks/useListScrollRestoration";
 
 interface EventScopePageProps {
   locale: Locale;
@@ -64,7 +63,6 @@ export function EventScopePage({
 }: EventScopePageProps) {
   const [events, setEvents] = useState<Event[]>(() => attachEventImages(initialEvents));
   const [loading, setLoading] = useState(false);
-  const [fetchSettled, setFetchSettled] = useState(false);
   const [submitOpen, setSubmitOpen] = useState(false);
 
   useEffect(() => {
@@ -75,13 +73,8 @@ export function EventScopePage({
         setEvents(attachEventImages(data.events ?? [])),
       )
       .catch(() => setEvents(attachEventImages(initialEvents)))
-      .finally(() => {
-        setLoading(false);
-        setFetchSettled(true);
-      });
+      .finally(() => setLoading(false));
   }, [fetchUrl, initialEvents]);
-
-  useListScrollRestoration(returnTo, fetchSettled);
 
   const headerEmojiClassName =
     emojiClassName ??

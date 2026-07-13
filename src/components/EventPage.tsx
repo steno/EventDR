@@ -1,6 +1,5 @@
 "use client";
 
-import { useLayoutEffect } from "react";
 import { useRouter } from "next/navigation";
 import type { Event } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
@@ -9,7 +8,6 @@ import { EventDetailSheet } from "@/components/EventDetailSheet";
 import { StickyListHeader } from "@/components/StickyListHeader";
 import { useSavedEvents } from "@/hooks/useSavedEvents";
 import { resolveBackLabel, resolveEventReturnPath } from "@/lib/event-navigation";
-import { restoreScrollPosition } from "@/lib/list-scroll-restoration";
 
 interface EventPageProps {
   event: Event;
@@ -36,10 +34,6 @@ export function EventPage({
     returnTo ?? backHref,
     dict,
   );
-
-  useLayoutEffect(() => {
-    restoreScrollPosition(0);
-  }, [event.id]);
 
   function handleClose() {
     if (returnTo && typeof window !== "undefined" && window.history.length > 1) {

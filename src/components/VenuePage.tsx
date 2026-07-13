@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useLayoutEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import type { Event, Venue } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
@@ -10,15 +10,12 @@ import { StickyListHeader } from "@/components/StickyListHeader";
 import { attachEventImages } from "@/lib/event-images";
 import { resolveBackLabel } from "@/lib/event-navigation";
 import { matchVenueSlug } from "@/lib/venues-seed";
-import { useListScrollRestoration } from "@/hooks/useListScrollRestoration";
-import { restoreScrollPosition } from "@/lib/list-scroll-restoration";
 
 interface VenuePageProps {
   venue: Venue;
   locale: Locale;
   dict: Dictionary;
   initialExpanded?: boolean;
-  resetScroll?: boolean;
 }
 
 export function VenuePage({
@@ -26,7 +23,6 @@ export function VenuePage({
   locale,
   dict,
   initialExpanded = false,
-  resetScroll = false,
 }: VenuePageProps) {
   const [events, setEvents] = useState<Event[]>([]);
   const [loading, setLoading] = useState(true);
@@ -57,12 +53,6 @@ export function VenuePage({
   const returnTo = `/${locale}/venue/${venue.slug}`;
   const backHref = `/${locale}`;
   const backLabel = resolveBackLabel(locale, backHref, dict);
-  useListScrollRestoration(returnTo, !loading && !resetScroll);
-
-  useLayoutEffect(() => {
-    if (!resetScroll) return;
-    restoreScrollPosition(0);
-  }, [resetScroll, venue.slug, loading]);
 
   return (
     <>

@@ -10,7 +10,6 @@ import type { Event } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { eventDetailPath } from "@/lib/event-navigation";
-import { saveScrollForReturn } from "@/lib/list-scroll-restoration";
 import {
   getTodayHighlightEvents,
   HOME_TODAY_LIMIT,
@@ -20,7 +19,6 @@ interface TodayHighlightsProps {
   events: Event[];
   locale: Locale;
   dict: Dictionary;
-  onBeforeNavigate?: () => void;
   limit?: number;
 }
 
@@ -28,12 +26,10 @@ function TodayHighlightCard({
   event,
   locale,
   dict,
-  onBeforeNavigate,
 }: {
   event: Event;
   locale: Locale;
   dict: Dictionary;
-  onBeforeNavigate?: () => void;
 }) {
   const href = eventDetailPath(locale, event.id, `/${locale}`);
   const liveDisplay = useLiveStatusDisplay(event, dict);
@@ -44,13 +40,6 @@ function TodayHighlightCard({
     <article className="group relative flex min-w-[72%] snap-start flex-col overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-[0_4px_16px_-8px_rgba(0,0,0,0.12)] dark:shadow-[0_4px_16px_-8px_rgba(0,0,0,0.35)] transition-colors hover:border-neutral-300 dark:hover:border-neutral-700 sm:min-w-[16rem]">
       <Link
         href={href}
-        onClick={() => {
-          if (onBeforeNavigate) {
-            onBeforeNavigate();
-          } else {
-            saveScrollForReturn(`/${locale}`);
-          }
-        }}
         className="flex min-h-0 flex-1 flex-col touch-manipulation active:scale-[0.995] transition-transform"
         aria-label={event.title}
       >
@@ -98,7 +87,6 @@ const TodayHighlightsComponent = ({
   events,
   locale,
   dict,
-  onBeforeNavigate,
   limit = HOME_TODAY_LIMIT,
 }: TodayHighlightsProps) => {
   const todayEvents = useMemo(() => getTodayHighlightEvents(events), [events]);
@@ -116,7 +104,6 @@ const TodayHighlightsComponent = ({
         {hasMore && (
           <Link
             href={`/${locale}/when/today`}
-            onClick={onBeforeNavigate}
             className="inline-flex items-center gap-0.5 rounded-full bg-orange-50 dark:bg-orange-950/50 px-2.5 py-1 text-xs font-bold text-orange-600 hover:bg-orange-100 dark:hover:bg-orange-950/70 transition-colors touch-manipulation"
           >
             {dict.events.seeAllToday}
@@ -132,7 +119,6 @@ const TodayHighlightsComponent = ({
             event={event}
             locale={locale}
             dict={dict}
-            onBeforeNavigate={onBeforeNavigate}
           />
         ))}
       </div>

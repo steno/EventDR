@@ -21,7 +21,6 @@ import {
   shareViaPlatform,
   type SharePlatform,
 } from "@/lib/share";
-import { clearReturnScrollState } from "@/lib/list-scroll-restoration";
 
 interface ShareMenuProps {
   event: Event;
@@ -29,8 +28,6 @@ interface ShareMenuProps {
   dict: Dictionary;
   onClose: () => void;
   onFeedback: (message: string) => void;
-  /** Clears saved home/list state so returning from share does not restore Search tab. */
-  returnTo?: string | null;
 }
 
 const PLATFORMS: {
@@ -92,7 +89,6 @@ export function ShareMenu({
   dict,
   onClose,
   onFeedback,
-  returnTo,
 }: ShareMenuProps) {
   const menuRef = useRef<HTMLDivElement>(null);
   const nativeShareAvailable = useSyncExternalStore(
@@ -112,13 +108,6 @@ export function ShareMenu({
   }, [onClose]);
 
   async function handlePlatform(platform: SharePlatform) {
-    const clearsReturnScroll =
-      isExternalSharePlatform(platform) || platform === "native";
-
-    if (clearsReturnScroll) {
-      clearReturnScrollState(returnTo, locale);
-    }
-
     if (isExternalSharePlatform(platform)) {
       if (platform === "facebook") {
         const result = await shareToFacebook(event, locale);

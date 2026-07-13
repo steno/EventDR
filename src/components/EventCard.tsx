@@ -8,7 +8,6 @@ import { getCategoryMeta } from "@/lib/categories";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import { eventDetailPath } from "@/lib/event-navigation";
-import { saveScrollForReturn } from "@/lib/list-scroll-restoration";
 import { EventCallLink } from "@/components/EventCallLink";
 import { useLiveStatusDisplay } from "@/hooks/useLiveStatusDisplay";
 import { EventStatusBadge } from "@/components/EventStatusBadge";
@@ -18,7 +17,6 @@ interface EventCardProps {
   dict: Dictionary;
   locale: Locale;
   returnTo?: string;
-  onBeforeNavigate?: () => void;
   compact?: boolean;
 }
 
@@ -27,7 +25,6 @@ const EventCardComponent = ({
   dict,
   locale,
   returnTo,
-  onBeforeNavigate,
   compact = true,
 }: EventCardProps) => {
   const category = getCategoryMeta(event.category, dict.categories);
@@ -51,13 +48,6 @@ const EventCardComponent = ({
     >
       <Link
         href={href}
-        onClick={() => {
-          if (onBeforeNavigate) {
-            onBeforeNavigate();
-          } else {
-            saveScrollForReturn(returnTo ?? window.location.pathname);
-          }
-        }}
         className="absolute inset-0 z-0 rounded-2xl touch-manipulation"
         aria-label={event.title}
       />

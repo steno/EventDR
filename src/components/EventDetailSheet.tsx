@@ -35,7 +35,6 @@ import { resolveEventCoords } from "@/lib/event-coords";
 import { formatEventPlace } from "@/lib/event-location";
 import { EventCallLink } from "@/components/EventCallLink";
 import { useSwipeToDismiss } from "@/hooks/useSwipeToDismiss";
-import { clearListScroll } from "@/lib/list-scroll-restoration";
 
 interface EventDetailSheetProps {
   event: Event | null;
@@ -137,9 +136,7 @@ export function EventDetailSheet({
 
   function handleViewVenue() {
     if (!venueSlug) return;
-    const venuePath = `/${locale}/venue/${venueSlug}`;
-    clearListScroll(venuePath);
-    router.push(`${venuePath}?from=event`);
+    router.push(`/${locale}/venue/${venueSlug}`);
   }
 
   const contentSection = (
@@ -270,7 +267,6 @@ export function EventDetailSheet({
           dict={dict}
           onClose={() => setShareOpen(false)}
           onFeedback={handleShareFeedback}
-          returnTo={returnTo}
         />
       )}
       {shareMsg && (

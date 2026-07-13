@@ -25,7 +25,6 @@ interface EventListProps {
   refreshKey?: number;
   ourPicks?: boolean;
   returnTo?: string;
-  onBeforeNavigate?: () => void;
   /** Cap rendered events (home feed). */
   limit?: number;
   /** Skip events already shown elsewhere on the page. */
@@ -46,7 +45,6 @@ export function EventList({
   refreshKey = 0,
   ourPicks = false,
   returnTo,
-  onBeforeNavigate,
   limit,
   excludeEventIds = [],
   viewAllHref,
@@ -204,7 +202,6 @@ export function EventList({
                 dict={dict}
                 locale={locale}
                 returnTo={listReturnTo}
-                onBeforeNavigate={onBeforeNavigate}
               />
             ))}
           </div>
@@ -212,7 +209,6 @@ export function EventList({
             <div className="pt-2 text-center">
               <Link
                 href={viewAllHref}
-                onClick={onBeforeNavigate}
                 className="inline-flex items-center gap-1 rounded-full border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 px-5 py-2.5 text-sm font-bold text-neutral-800 dark:text-neutral-200 hover:border-orange-300 dark:hover:border-orange-800 hover:text-orange-600 dark:hover:text-orange-400 transition-colors touch-manipulation"
               >
                 {dict.events.viewAllEvents}

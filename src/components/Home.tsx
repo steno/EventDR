@@ -14,15 +14,13 @@ import { EventCard } from "@/components/EventCard";
 import { VenueStrip } from "@/components/VenueStrip";
 import { TodayHighlights } from "@/components/TodayHighlights";
 import { useSavedEvents } from "@/hooks/useSavedEvents";
-import { useListScrollRestoration } from "@/hooks/useListScrollRestoration";
-import { saveListScroll, type ListScrollSnapshot } from "@/lib/list-scroll-restoration";
 import {
   getTodayHighlightEvents,
   HOME_PICKS_LIMIT,
   HOME_TODAY_LIMIT,
   homeViewAllPath,
 } from "@/lib/home-layout";
-import { normalizeTimeRange, type TimeRange } from "@/lib/filters";
+import { type TimeRange } from "@/lib/filters";
 import type { Event, Venue } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
 import type { AppTab, Dictionary } from "@/i18n/dictionaries";
@@ -40,7 +38,6 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
   const [submitOpen, setSubmitOpen] = useState(false);
   const [allEvents, setAllEvents] = useState<Event[]>([]);
   const [refreshKey, setRefreshKey] = useState(0);
-  const [listContentReady, setListContentReady] = useState(false);
   const searchInputRef = useRef<HTMLInputElement>(null);
 
   const { toggleSave, isSaved, filterSaved, reconcileWithEvents } = useSavedEvents();
@@ -48,7 +45,6 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
   const handleEventsLoaded = useCallback((events: Event[]) => {
     setAllEvents(events);
     reconcileWithEvents(events);
-    setListContentReady(true);
   }, [reconcileWithEvents]);
 
   useEffect(() => {
@@ -73,40 +69,6 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
   }, [allEvents]);
 
   const viewAllHref = homeViewAllPath(locale, timeRange);
-
-  const normalizeHomeTab = useCallback(
-    (nextTab: AppTab, query: string): AppTab =>
-      nextTab === "search" && !query.trim() ? "discover" : nextTab,
-    [],
-  );
-
-  const saveHomeScroll = useCallback(() => {
-    saveListScroll(homePath, {
-      scrollY: window.scrollY,
-      home: {
-        tab: normalizeHomeTab(tab, searchQuery),
-        searchQuery,
-        timeRange,
-      },
-    });
-  }, [homePath, normalizeHomeTab, tab, searchQuery, timeRange]);
-
-  const restoreHomeState = useCallback(
-    (snapshot: ListScrollSnapshot) => {
-      if (!snapshot.home) return;
-      setTab(normalizeHomeTab(snapshot.home.tab, snapshot.home.searchQuery));
-      setSearchQuery(snapshot.home.searchQuery);
-      setTimeRange(normalizeTimeRange(snapshot.home.timeRange));
-    },
-    [normalizeHomeTab],
-  );
-
-  const listReady =
-    tab === "saved" ||
-    (tab === "search" && !searchQuery.trim()) ||
-    listContentReady;
-
-  useListScrollRestoration(homePath, listReady, restoreHomeState);
 
   function handleTabChange(newTab: AppTab) {
     if (newTab === "submit") {
@@ -159,7 +121,6 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
                   events={allEvents}
                   locale={locale}
                   dict={dict}
-                  onBeforeNavigate={saveHomeScroll}
                 />
               )}
 
@@ -181,7 +142,6 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
                   onTimeRangeChange={setTimeRange}
                   showTimeFilter={!isSearching}
                   returnTo={homePath}
-                  onBeforeNavigate={saveHomeScroll}
                   limit={isSearching ? undefined : HOME_PICKS_LIMIT}
                   excludeEventIds={
                     !isSearching && timeRange === "all" ? todayHighlightIds : []
@@ -221,7 +181,6 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
                       dict={dict}
                       locale={locale}
                       returnTo={homePath}
-                      onBeforeNavigate={saveHomeScroll}
                     />
                   ))}
                 </div>
