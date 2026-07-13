@@ -116,6 +116,7 @@ export function FilteredEventList({
                 dict={dict}
                 locale={locale}
                 returnTo={returnTo}
+                listTimeRange={fixedTimeRange ?? timeRange}
               />
             ))}
           </div>

@@ -11,6 +11,7 @@ import { eventDetailPath } from "@/lib/event-navigation";
 import { EventCallLink } from "@/components/EventCallLink";
 import { useLiveStatusDisplay } from "@/hooks/useLiveStatusDisplay";
 import { EventStatusBadge } from "@/components/EventStatusBadge";
+import type { TimeRange } from "@/lib/filters";
 
 interface EventCardProps {
   event: Event;
@@ -18,6 +19,7 @@ interface EventCardProps {
   locale: Locale;
   returnTo?: string;
   compact?: boolean;
+  listTimeRange?: TimeRange;
 }
 
 const EventCardComponent = ({
@@ -26,11 +28,12 @@ const EventCardComponent = ({
   locale,
   returnTo,
   compact = true,
+  listTimeRange,
 }: EventCardProps) => {
   const category = getCategoryMeta(event.category, dict.categories);
   const emoji = event.imageEmoji ?? category?.emoji ?? "📅";
   const href = eventDetailPath(locale, event.id, returnTo);
-  const liveDisplay = useLiveStatusDisplay(event, dict);
+  const liveDisplay = useLiveStatusDisplay(event, dict, { listTimeRange });
   const liveStatus = liveDisplay?.status ?? null;
   const liveStatusLabel = liveDisplay?.label ?? null;
   const isEndedToday = liveStatus === "ended";

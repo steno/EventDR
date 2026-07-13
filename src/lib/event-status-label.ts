@@ -1,5 +1,6 @@
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Event } from "@/lib/types";
+import type { TimeRange } from "@/lib/filters";
 import { addDaysISO, localDateISO, APP_TIMEZONE } from "@/lib/event-dates";
 import {
   getEventLiveStatus,
@@ -14,6 +15,11 @@ import {
 export interface LiveStatusDisplay {
   status: EventLiveStatus;
   label: string;
+}
+
+export interface LiveStatusDisplayOptions {
+  /** Skip date badges when the parent list is already filtered to that range. */
+  listTimeRange?: TimeRange;
 }
 
 export function formatEventLiveStatusLabel(
@@ -85,6 +91,7 @@ export function resolveLiveStatusDisplay(
   event: Pick<Event, "date" | "endDate" | "time" | "recurrence">,
   dict: Dictionary,
   now: Date = new Date(),
+  options?: LiveStatusDisplayOptions,
 ): LiveStatusDisplay | null {
   const today = localDateISO(now);
   const start = event.date?.trim();
@@ -100,6 +107,7 @@ export function resolveLiveStatusDisplay(
   // Near-future list cards (Our picks "All") — intraday labels are misleading here.
   if (start > today) {
     if (start === addDaysISO(today, 1)) {
+      if (options?.listTimeRange === "tomorrow") return null;
       return { status: "upcoming", label: dict.time.tomorrow };
     }
     return null;
@@ -123,8 +131,9 @@ export function getEventLiveStatusLabel(
   event: Pick<Event, "date" | "endDate" | "time" | "recurrence">,
   dict: Dictionary,
   now?: Date,
+  options?: LiveStatusDisplayOptions,
 ): string | null {
-  return resolveLiveStatusDisplay(event, dict, now)?.label ?? null;
+  return resolveLiveStatusDisplay(event, dict, now, options)?.label ?? null;
 }
 
 export function eventStatusBadgeClass(status: EventLiveStatus): string {

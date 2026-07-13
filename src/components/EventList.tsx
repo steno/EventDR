@@ -202,6 +202,7 @@ export function EventList({
                 dict={dict}
                 locale={locale}
                 returnTo={listReturnTo}
+                listTimeRange={timeRange}
               />
             ))}
           </div>
