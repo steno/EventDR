@@ -164,6 +164,57 @@ const TEAM_ES: Record<string, string> = {
   Colombia: "Colombia",
 };
 
+const TEAM_FR: Record<string, string> = {
+  Mexico: "Mexique",
+  "South Africa": "Afrique du Sud",
+  "Korea Republic": "Corée du Sud",
+  Czechia: "Tchéquie",
+  Canada: "Canada",
+  "Bosnia and Herzegovina": "Bosnie-Herzégovine",
+  "United States": "États-Unis",
+  Paraguay: "Paraguay",
+  Qatar: "Qatar",
+  Switzerland: "Suisse",
+  Brazil: "Brésil",
+  Morocco: "Maroc",
+  Haiti: "Haïti",
+  Scotland: "Écosse",
+  Australia: "Australie",
+  Türkiye: "Turquie",
+  Germany: "Allemagne",
+  Curaçao: "Curaçao",
+  Netherlands: "Pays-Bas",
+  Japan: "Japon",
+  "Côte d'Ivoire": "Côte d'Ivoire",
+  Ecuador: "Équateur",
+  Sweden: "Suède",
+  Tunisia: "Tunisie",
+  Spain: "Espagne",
+  "Cabo Verde": "Cap-Vert",
+  Belgium: "Belgique",
+  Egypt: "Égypte",
+  "Saudi Arabia": "Arabie saoudite",
+  Uruguay: "Uruguay",
+  "IR Iran": "Iran",
+  "New Zealand": "Nouvelle-Zélande",
+  France: "France",
+  Senegal: "Sénégal",
+  Iraq: "Irak",
+  Norway: "Norvège",
+  Argentina: "Argentine",
+  Algeria: "Algérie",
+  Austria: "Autriche",
+  Jordan: "Jordanie",
+  Portugal: "Portugal",
+  "Congo DR": "RD Congo",
+  England: "Angleterre",
+  Croatia: "Croatie",
+  Ghana: "Ghana",
+  Panama: "Panama",
+  Uzbekistan: "Ouzbékistan",
+  Colombia: "Colombie",
+};
+
 const STAGE_ES: Record<string, string> = {
   "Group A": "Fase de grupos · Grupo A",
   "Group B": "Fase de grupos · Grupo B",
@@ -234,6 +285,7 @@ function matchId(
 
 function teamName(name: string, locale: "en" | "es" | "fr"): string {
   if (locale === "es") return TEAM_ES[name] ?? name;
+  if (locale === "fr") return TEAM_FR[name] ?? name;
   return name;
 }
 

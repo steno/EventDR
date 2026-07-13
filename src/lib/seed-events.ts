@@ -1,4 +1,5 @@
 import { getFallbackEventById, getFallbackEvents } from "@/lib/fallback-events";
+import { enrichEventLocalizedFromFallback } from "@/lib/fallback-localized";
 import { prepareSeedEvent } from "@/lib/geo";
 import type { Event } from "@/lib/types";
 
@@ -28,7 +29,7 @@ export function resolveSeedEvents(ids: readonly string[]): SeedEventResolution {
       skippedExpired.push(id);
       continue;
     }
-    events.push(prepareSeedEvent(raw));
+    events.push(prepareSeedEvent(enrichEventLocalizedFromFallback(raw)));
   }
 
   return { events, missing, skippedExpired };

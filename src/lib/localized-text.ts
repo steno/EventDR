@@ -1,4 +1,5 @@
 import type { Locale } from "@/i18n/config";
+import { enrichEventLocalizedFromFallback } from "@/lib/fallback-localized";
 import type { Event } from "@/lib/types";
 
 export type LocalizedText = Partial<Record<Locale, string>>;
@@ -18,13 +19,18 @@ export function resolveLocalizedText(
 }
 
 export function localizeEventForDisplay(event: Event, locale: Locale): Event {
-  const copy = event.localized;
-  if (!copy) return event;
+  const enriched = enrichEventLocalizedFromFallback(event);
+  const copy = enriched.localized;
+  if (!copy) return enriched;
 
   return {
-    ...event,
-    title: resolveLocalizedText(copy.title, event.title, locale),
-    description: resolveLocalizedText(copy.description, event.description, locale),
+    ...enriched,
+    title: resolveLocalizedText(copy.title, enriched.title, locale),
+    description: resolveLocalizedText(
+      copy.description,
+      enriched.description,
+      locale,
+    ),
   };
 }
 
