@@ -259,6 +259,30 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Distillerie de rhum en activité et centre d'accueil sur la route de Maimón — visites guidées, chais de vieillissement et dégustations de rhums dominicains primés.",
     },
   },
+  "del-oro-chocolate-factory": {
+    description: {
+      es: "Fábrica de chocolate orgánico en funcionamiento en Barrio Las Yaguitas — tour guiado gratuito con degustaciones, video sobre el cacao y tienda de regalos en la Calle Principal.",
+      fr: "Chocolaterie bio en activité à Barrio Las Yaguitas — visite guidée gratuite avec dégustations, court film sur le cacao et boutique cadeaux sur la Calle Principal.",
+    },
+  },
+  "hacienda-cufa": {
+    description: {
+      es: "Finca de cacao orgánico en La Mariposa, Guananico — sendero sensorial de siete paradas, chocolate caliente tradicional, choco terapia, almuerzo dominicano y baño en el río.",
+      fr: "Ferme de cacao bio à La Mariposa, Guananico — parcours sensoriel en sept étapes, chocolat chaud traditionnel, choco-thérapie, déjeuner dominicain et baignade dans la rivière.",
+    },
+  },
+  "tabacalera-cremo": {
+    description: {
+      es: "Fábrica de puros en el centro, en la Calle San Felipe — recorre el piso de producción, conoce a los maestros torcedores cubanos, bebida de bienvenida y un puro Cremo de regalo en el tour gratuito.",
+      fr: "Fabrique de cigares en centre-ville sur la Calle San Felipe — visitez l'atelier, rencontrez les maîtres rouleurs cubains, boisson de bienvenue et cigare Cremo offert sur la visite gratuite.",
+    },
+  },
+  "vivonte-cigar-factory": {
+    description: {
+      es: "Fábrica de puros educativa a una cuadra del Parque Central — recorrido de semilla a cigarro, salas de fermentación y añejamiento, y demostración de enrollado en la Calle Separación.",
+      fr: "Fabrique de cigares pédagogique à un pâté de maisons du Parque Central — parcours de la graine au cigare, salles de fermentation et de vieillissement, et démonstration de roulage sur la Calle Separación.",
+    },
+  },
   "freestyle-catamaran": {
     description: {
       es: "Cruceros en catamarán desde Puerto Plata hasta la bahía de Sosúa — dos paradas de snorkel, almuerzo, bebidas y música en vivo a bordo.",
@@ -311,6 +335,12 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
     description: {
       es: "Taller de alpargatas en el centro histórico — cose tu propio par con artesanos maestros en la Calle Duarte.",
       fr: "Atelier d'espadrilles dans le centre historique — cousez votre paire avec des artisans maîtres sur la Calle Duarte.",
+    },
+  },
+  "parque-jose-briceño": {
+    description: {
+      es: "Estadio de béisbol renovado con 6.000 asientos en la Av. Hermanas Mirabal — local de los Atléticos de Puerto Plata en la Liga Nacional de Béisbol de Verano.",
+      fr: "Stade de baseball rénové de 6 000 places sur l'Av. Hermanas Mirabal — domicile des Atléticos de Puerto Plata en Liga Nacional de Béisbol de Verano.",
     },
   },
   "paella-pop-el-pueblito": {

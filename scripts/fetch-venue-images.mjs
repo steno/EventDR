@@ -17,6 +17,26 @@ const VENUE_SOURCES = [
     url: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0c/c6/9f/08/brugal-experience-entrance.jpg?w=1200&h=1200&s=1",
   },
   {
+    eventId: "del-oro-chocolate-factory-weekdays",
+    url: "https://mamalikestocook.com/wp-content/uploads/2016/05/delorotour.jpg",
+  },
+  {
+    eventId: "hacienda-cufa-cacao-tour",
+    url: "https://puertoplatadr.com/wp-content/uploads/2022/12/cocoa-tour-cufa.jpg",
+  },
+  {
+    eventId: "tabacalera-cremo-factory-tour",
+    url: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2b/d4/05/0f/caption.jpg?w=1200&h=1200&s=1",
+  },
+  {
+    eventId: "tabacalera-cremo-rolling-experience",
+    url: "https://cremocigars.com/wp-content/uploads/2025/11/cigar-experiences-image-2-650x1000.jpg.webp",
+  },
+  {
+    eventId: "atleticos-pp-vs-mangueros-2026-07-17",
+    url: "https://resources.diariolibre.com/images/2024/03/12/el-estadio-jose-briceno-de-puerto-plata-esta-practicamente-listo.jpeg",
+  },
+  {
     eventId: "freestyle-catamaran-daily",
     url: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/02/31/4e/48/freestyle-catamaran-tour.jpg?w=1200&h=-1&s=1",
   },

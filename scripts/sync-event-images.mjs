@@ -34,6 +34,12 @@ const FILE_TO_EVENT_ID = {
   "freestyle-catamaran-daily.jpg": "freestyle-catamaran-daily",
   "womens-reconnection-kite-camp-2026.jpg": "womens-reconnection-kite-camp-2026",
   "brugal-rum-center-weekdays.jpg": "brugal-rum-center-weekdays",
+  "del-oro-chocolate-factory-weekdays.jpg": "del-oro-chocolate-factory-weekdays",
+  "hacienda-cufa-cacao-tour.jpg": "hacienda-cufa-cacao-tour",
+  "tabacalera-cremo-factory-tour.jpg": "tabacalera-cremo-factory-tour",
+  "tabacalera-cremo-rolling-experience.jpg": "tabacalera-cremo-rolling-experience",
+  "vivonte-cigar-factory-weekdays.jpg": "vivonte-cigar-factory-weekdays",
+  "atleticos-pp-vs-mangueros-2026-07-17.jpg": "atleticos-pp-vs-mangueros-2026-07-17",
 
   // --- 2026 crawl: food & culture ---
   "paella-pop-el-pueblito.jpg": "paella-pop-el-pueblito",
@@ -104,6 +110,8 @@ const SAME_VENUE_COPIES = [
   ["voyvoy-cabarete.jpg", "voyvoy-monday-live-music"],
   ["voyvoy-cabarete.jpg", "voyvoy-saturday-session"],
   ["voyvoy-cabarete.jpg", "voyvoy-sunday-open-mic"],
+  ["del-oro-chocolate-factory-weekdays.jpg", "del-oro-chocolate-factory-saturday"],
+  ["vivonte-cigar-factory-weekdays.jpg", "vivonte-cigar-factory-saturday"],
 ];
 
 if (!existsSync(sourceDir)) {

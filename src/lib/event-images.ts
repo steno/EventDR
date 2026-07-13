@@ -52,6 +52,13 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "monkeyland-puerto-plata-daily": "monkeyland-puerto-plata-daily.jpeg",
   "coconut-cove-ocean-zipline-daily": "coconut-cove-ocean-zipline-daily.jpg",
   "brugal-rum-center-weekdays": "brugal-rum-center-weekdays.jpg",
+  "del-oro-chocolate-factory-weekdays": "del-oro-chocolate-factory-weekdays.jpg",
+  "del-oro-chocolate-factory-saturday": "del-oro-chocolate-factory-weekdays.jpg",
+  "hacienda-cufa-cacao-tour": "hacienda-cufa-cacao-tour.jpg",
+  "tabacalera-cremo-factory-tour": "tabacalera-cremo-factory-tour.jpg",
+  "tabacalera-cremo-rolling-experience": "tabacalera-cremo-rolling-experience.jpg",
+  "vivonte-cigar-factory-weekdays": "vivonte-cigar-factory-weekdays.jpg",
+  "vivonte-cigar-factory-saturday": "vivonte-cigar-factory-weekdays.jpg",
   "freestyle-catamaran-daily": "freestyle-catamaran-daily.jpg",
   "outback-safari-daily": "outback-safari-daily.jpeg",
   "cremo-friday-salsa-dance": "cremo-friday-salsa-dance.jpg",
@@ -100,6 +107,7 @@ const EVENT_IMAGE_ALIASES: Record<string, string> = {
 
 const EVENT_IMAGE_PREFIXES: { prefix: string; file: string }[] = [
   { prefix: "el-carey-wc2026-", file: "el-carey-wc2026.png" },
+  { prefix: "atleticos-pp-vs-", file: "atleticos-pp-vs-mangueros-2026-07-17.jpg" },
 ];
 
 export function getEventImageUrl(eventId: string): string | undefined {

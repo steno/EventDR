@@ -6,6 +6,10 @@ import { materializeEventDates } from "./event-dates";
 import { filterRemovedSeedEvents } from "./removed-seeds";
 import { eventInCategory, withResolvedCategories } from "./categorize";
 import {
+  ATLETICOS_HOME_GAMES_EN,
+  ATLETICOS_HOME_GAMES_ES,
+} from "./atleticos-summer-league-2026";
+import {
   EL_CAREY_WC2026_EVENTS_EN,
   EL_CAREY_WC2026_EVENTS_ES,
   EL_CAREY_WC2026_EVENTS_FR,
@@ -80,6 +84,7 @@ const FALLBACK_EVENTS_EN: Event[] = [
     sourceUrl: "https://www.facebook.com/events/1614506996278636",
     imageEmoji: "🥊",
   },
+  ...ATLETICOS_HOME_GAMES_EN,
   {
     id: "cabarete-classic-2026",
     title: "Cabarete Classic 2026",
@@ -334,6 +339,7 @@ const FALLBACK_EVENTS_ES: Event[] = [
     sourceUrl: "https://www.facebook.com/events/1614506996278636",
     imageEmoji: "🥊",
   },
+  ...ATLETICOS_HOME_GAMES_ES,
   {
     id: "cabarete-classic-2026",
     title: "Cabarete Classic 2026",

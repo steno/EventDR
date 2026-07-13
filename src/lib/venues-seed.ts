@@ -467,6 +467,54 @@ export const SEED_VENUES: Venue[] = [
     website: "https://www.brugal.do/",
   },
   {
+    slug: "del-oro-chocolate-factory",
+    name: "Del Oro Chocolate Factory",
+    city: "Puerto Plata",
+    description:
+      "Working organic chocolate factory in Barrio Las Yaguitas — free guided tour with tastings, short film on cacao production, and a gift shop on Calle Principal.",
+    lat: 19.7767245,
+    lng: -70.6662354,
+    emoji: "🍫",
+    website: "https://www.chocolate.do/delorochocolate",
+    phone: "+18093207715",
+  },
+  {
+    slug: "hacienda-cufa",
+    name: "Hacienda Cufa",
+    city: "Guananico",
+    description:
+      "Organic cacao farm in La Mariposa, Guananico — seven-stop sensory trail, traditional hot chocolate, choco therapy, Dominican lunch, and a river swim on the cacao tour.",
+    lat: 19.8578,
+    lng: -70.7349,
+    emoji: "🌿",
+    website: "https://puertoplatadr.com/tours/cacao-tour-hacienda-cufa/",
+    phone: "+18097564806",
+  },
+  {
+    slug: "tabacalera-cremo",
+    name: "Tabacalera Cremo",
+    city: "Puerto Plata",
+    description:
+      "Downtown cigar factory on Calle San Felipe — walk the production floor, meet Cuban master rollers, welcome drink, and take-home cigar on the free factory tour.",
+    lat: 19.8043,
+    lng: -70.6961,
+    emoji: "🚬",
+    website: "https://cremocigars.com/dr/tabacalera-cremo/",
+    phone: "+13059429440",
+  },
+  {
+    slug: "vivonte-cigar-factory",
+    name: "Vivonté Cigar Factory",
+    city: "Puerto Plata",
+    description:
+      "Educational cigar factory one block from Central Park — seed-to-cigar walkthrough, fermentation and aging rooms, and rolling demo on Calle Separación.",
+    lat: 19.797,
+    lng: -70.6928,
+    emoji: "🍂",
+    website: "https://vivontecigars.com/",
+    phone: "+18095865257",
+  },
+  {
     slug: "freestyle-catamaran",
     name: "Freestyle Catamaran",
     city: "Puerto Plata",
@@ -568,6 +616,17 @@ export const SEED_VENUES: Venue[] = [
     emoji: "👟",
     website:
       "https://www.eventbrite.es/e/make-authentic-espadrilles-in-puerto-plata-tickets-1981840949630",
+  },
+  {
+    slug: "parque-jose-briceño",
+    name: "Parque José Briceño",
+    city: "Puerto Plata",
+    description:
+      "Renovated 6,000-seat baseball stadium on Av. Hermanas Mirabal — home of the Atléticos de Puerto Plata in the Liga Nacional de Béisbol de Verano.",
+    lat: 19.7827778,
+    lng: -70.6713889,
+    emoji: "⚾",
+    website: "https://todotickets.do",
   },
   {
     slug: "paella-pop-el-pueblito",
