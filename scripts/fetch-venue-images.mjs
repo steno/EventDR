@@ -33,8 +33,8 @@ const VENUE_SOURCES = [
     url: "https://cremocigars.com/wp-content/uploads/2025/11/cigar-experiences-image-2-650x1000.jpg.webp",
   },
   {
-    eventId: "atleticos-pp-vs-mangueros-2026-07-17",
-    url: "https://resources.diariolibre.com/images/2024/03/12/el-estadio-jose-briceno-de-puerto-plata-esta-practicamente-listo.jpeg",
+    eventId: "lil-naay-2026-07-17",
+    url: "https://ticketing-uploads-1.ticketplus.global/images/thumbs/581ec07847c35f0eba3e89a5212268ae4acf0316.jpg?1782337171",
   },
   {
     eventId: "freestyle-catamaran-daily",

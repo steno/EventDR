@@ -1,3 +1,4 @@
+import { localDateISO } from "@/lib/event-dates";
 import type { Event, Venue } from "@/lib/types";
 import { SEED_VENUES } from "@/lib/venues-seed";
 import {
@@ -59,11 +60,114 @@ function compareTodayHighlights(a: Event, b: Event): number {
   return startA - startB;
 }
 
-/** Events happening today: one-time first, then live/upcoming within each tier, trending & shorter next. */
-export function getTodayHighlightEvents(events: Event[]): Event[] {
-  return events
-    .filter((e) => happensOnLocalDate(e) && isEventActiveToday(e))
-    .sort(compareTodayHighlights);
+function todayHighlightTierKey(event: Event): string {
+  return `${todayHighlightKindRank(event)}:${todayHighlightSortRank(event)}`;
+}
+
+function hashString(seed: string): number {
+  let h = 2166136261;
+  for (let i = 0; i < seed.length; i++) {
+    h ^= seed.charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  return h >>> 0;
+}
+
+function seededShuffle<T>(items: T[], seed: string): T[] {
+  if (items.length <= 1) return [...items];
+  const arr = [...items];
+  let state = hashString(seed);
+  for (let i = arr.length - 1; i > 0; i--) {
+    state = (Math.imul(state, 1664525) + 1013904223) >>> 0;
+    const j = state % (i + 1);
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+/** Preserve priority tiers, shuffle peers so the carousel changes daily. */
+function shuffleTodayHighlightsWithinTiers(
+  events: Event[],
+  daySeed: string,
+): Event[] {
+  const sorted = [...events].sort(compareTodayHighlights);
+  const tierOrder: string[] = [];
+  const byTier = new Map<string, Event[]>();
+
+  for (const event of sorted) {
+    const tier = todayHighlightTierKey(event);
+    if (!byTier.has(tier)) {
+      tierOrder.push(tier);
+      byTier.set(tier, []);
+    }
+    byTier.get(tier)!.push(event);
+  }
+
+  return tierOrder.flatMap((tier) =>
+    seededShuffle(byTier.get(tier)!, `${daySeed}:${tier}`),
+  );
+}
+
+function venueDedupeKey(event: Event): string {
+  return (event.venueSlug ?? event.venue ?? event.location).trim().toLowerCase();
+}
+
+/** Prefer one card per venue in the carousel head; fill remaining slots from the pool. */
+function pickDiverseCarouselHead(
+  events: Event[],
+  limit: number,
+  daySeed: string,
+): Event[] {
+  if (events.length <= limit) return events;
+
+  const picked: Event[] = [];
+  const usedVenues = new Set<string>();
+  const deferred: Event[] = [];
+
+  for (const event of events) {
+    if (picked.length >= limit) {
+      deferred.push(event);
+      continue;
+    }
+    const venueKey = venueDedupeKey(event);
+    if (!usedVenues.has(venueKey)) {
+      picked.push(event);
+      usedVenues.add(venueKey);
+    } else {
+      deferred.push(event);
+    }
+  }
+
+  const filler = seededShuffle(deferred, `${daySeed}:carousel-fill`);
+  for (const event of filler) {
+    if (picked.length >= limit) break;
+    picked.push(event);
+  }
+
+  return picked;
+}
+
+/**
+ * Events happening today: priority tiers first, daily shuffle within each tier,
+ * diverse venue mix in the carousel head.
+ */
+export function getTodayHighlightEvents(
+  events: Event[],
+  now: Date = new Date(),
+): Event[] {
+  const daySeed = localDateISO(now);
+  const filtered = events.filter(
+    (e) => happensOnLocalDate(e, daySeed) && isEventActiveToday(e, now),
+  );
+  const shuffled = shuffleTodayHighlightsWithinTiers(filtered, daySeed);
+  const carouselHead = pickDiverseCarouselHead(
+    shuffled,
+    HOME_TODAY_LIMIT,
+    daySeed,
+  );
+  const headIds = new Set(carouselHead.map((e) => e.id));
+  const tail = shuffled.filter((e) => !headIds.has(e.id));
+  return [...carouselHead, ...tail];
 }
 
 /**

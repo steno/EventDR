@@ -14,6 +14,7 @@ import {
   Building2,
   Mic2,
   Phone,
+  Ticket,
   Users,
 } from "lucide-react";
 import type { Event } from "@/lib/types";
@@ -33,6 +34,7 @@ import { EventImage } from "@/components/EventImage";
 import { EventDetailMedia, hasEventDetailHero } from "@/components/EventDetailMedia";
 import { resolveEventCoords } from "@/lib/event-coords";
 import { formatEventPlace } from "@/lib/event-location";
+import { resolveTicketUrl } from "@/lib/event-tickets";
 import { EventCallLink } from "@/components/EventCallLink";
 import { useSwipeToDismiss } from "@/hooks/useSwipeToDismiss";
 
@@ -121,6 +123,7 @@ export function EventDetailSheet({
   const hasMapCoords = resolveEventCoords(event) != null;
   const isPhysical = event.format !== "digital";
   const showBottomDirections = isPhysical && !hasMapCoords;
+  const ticketUrl = resolveTicketUrl(event);
 
   const iconActionClass =
     "flex h-12 w-full items-center justify-center rounded-full touch-manipulation transition-all active:scale-[0.98]";
@@ -246,6 +249,17 @@ export function EventDetailSheet({
               {dict.detail.viewVenue}
             </span>
           </button>
+        )}
+        {ticketUrl && (
+          <a
+            href={ticketUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-1 flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-4 py-3 text-sm font-bold text-white shadow-sm touch-manipulation transition-transform active:scale-[0.98]"
+          >
+            <Ticket className="h-4 w-4" aria-hidden />
+            {dict.detail.buyTickets}
+          </a>
         )}
       </div>
     </>

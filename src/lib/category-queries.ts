@@ -11,9 +11,11 @@ const EVENTBRITE_SOSUA =
   "https://www.eventbrite.com/d/dominican-republic--sosua/events/";
 const EVENTBRITE_CABARETE =
   "https://www.eventbrite.com/d/dominican-republic--cabarete/events/";
+const TODOTICKETS_HOME = "https://todotickets.do/";
 
 /** Known listing pages crawled on every broad ingest (no search API needed). */
 export const REGION_DIRECT_URLS = [
+  TODOTICKETS_HOME,
   ALLEVENTS_PP,
   `${ALLEVENTS_PP}/music`,
   `${ALLEVENTS_PP}/concerts`,
@@ -64,7 +66,7 @@ export const CATEGORY_QUERIES: Record<EventCategory, CategoryQuerySet> = {
       `site:facebook.com concierto Puerto Plata`,
       `acoustic night open air concert Malecón Puerto Plata`,
     ],
-    directUrls: [`${ALLEVENTS_PP}/concerts`, EVENTBRITE_PP],
+    directUrls: [`${ALLEVENTS_PP}/concerts`, EVENTBRITE_PP, TODOTICKETS_HOME],
   },
   parties: {
     searches: [
@@ -162,6 +164,7 @@ export const BROAD_QUERIES = [
   `eventos Costa Norte Puerto Plata Sosúa Cabarete 2026`,
   `site:allevents.in Puerto Plata Dominican Republic`,
   `site:eventbrite.com Puerto Plata Sosúa Cabarete`,
+  `site:todotickets.do eventos Puerto Plata Santiago Costa Norte`,
   `site:facebook.com events Puerto Plata Costa Norte`,
   `qué hacer Puerto Plata eventos esta semana`,
   `pasalo.do eventos Puerto Plata`,

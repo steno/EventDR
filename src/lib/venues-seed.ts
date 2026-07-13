@@ -523,8 +523,7 @@ export const SEED_VENUES: Venue[] = [
     lat: 19.7786014,
     lng: -70.6703871,
     emoji: "⛵",
-    website:
-      "https://www.tripadvisor.com/Attraction_Review-g147290-d2162077-Reviews-Freestyle_Catamaran_Tour-Puerto_Plata_Puerto_Plata_Province_Dominican_Republic.html",
+    website: "https://freestylecatamarans.com/",
   },
   {
     slug: "outback-adventures",
@@ -535,7 +534,8 @@ export const SEED_VENUES: Venue[] = [
     lat: 19.7974584,
     lng: -70.7010331,
     emoji: "🛻",
-    website: "https://outback-adventures.com/st_location/dominican-republic/puerto-plata/",
+    website:
+      "https://www.sightseeing.com/packages/outback-safari-adventure-tour-from-puerto-plata/",
   },
   {
     slug: "hms-valeria",
@@ -618,7 +618,7 @@ export const SEED_VENUES: Venue[] = [
       "https://www.eventbrite.es/e/make-authentic-espadrilles-in-puerto-plata-tickets-1981840949630",
   },
   {
-    slug: "parque-jose-briceño",
+    slug: "parque-jose-briceno",
     name: "Parque José Briceño",
     city: "Puerto Plata",
     description:
@@ -626,6 +626,17 @@ export const SEED_VENUES: Venue[] = [
     lat: 19.7827778,
     lng: -70.6713889,
     emoji: "⚾",
+    website: "https://todotickets.do",
+  },
+  {
+    slug: "disco-club-brugal",
+    name: "Disco Club",
+    city: "Puerto Plata",
+    description:
+      "Nightlife and concert hall at the Brugal rum depots on Calle Duarte — ticketed shows for touring Dominican artists.",
+    lat: 19.7966,
+    lng: -70.6923,
+    emoji: "🎤",
     website: "https://todotickets.do",
   },
   {

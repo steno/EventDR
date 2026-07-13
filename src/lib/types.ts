@@ -31,6 +31,7 @@ export interface Venue {
   lat: number;
   lng: number;
   emoji?: string;
+  imageUrl?: string;
   instagram?: string;
   website?: string;
   /** E.164 or local DR number for click-to-call. */
@@ -59,6 +60,8 @@ export interface Event {
   format: EventFormat;
   trending?: boolean;
   sourceUrl?: string;
+  /** Online ticket purchase page when different from sourceUrl. */
+  ticketUrl?: string;
   imageEmoji?: string;
   imageUrl?: string;
   /** Named performers when announced in the source. */

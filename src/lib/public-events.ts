@@ -1,5 +1,6 @@
 import type { Locale } from "@/i18n/config";
 import { attachEventImages } from "@/lib/event-images";
+import { attachTicketUrls } from "@/lib/event-tickets";
 import { attachEventPhones } from "@/lib/event-phone";
 import { materializeEventDates } from "@/lib/event-dates";
 import { sortEventsForDisplay } from "@/lib/event-sort";
@@ -101,6 +102,7 @@ export async function getPublicEvents(
   events = sortEventsForDisplay(events, { recurringLast: true });
   events = applyCuratedEventPatches(events);
   events = attachEventPhones(events);
+  events = attachTicketUrls(events);
   events = attachEventImages(events);
   events = events.map(withResolvedCategories);
 

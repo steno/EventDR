@@ -11,7 +11,7 @@ type HomeGame = {
 };
 
 const VENUE = "Parque José Briceño";
-const VENUE_SLUG = "parque-jose-briceño";
+const VENUE_SLUG = "parque-jose-briceno";
 const ADDRESS = "Av. Hermanas Mirabal, Puerto Plata";
 const LAT = 19.7827778;
 const LNG = -70.6713889;
@@ -120,6 +120,7 @@ function buildEvent(
     category: "sports",
     format: "physical",
     sourceUrl: game.sourceUrl,
+    ticketUrl: game.sourceUrl,
     imageEmoji: "⚾",
   };
 }

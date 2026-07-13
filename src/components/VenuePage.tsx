@@ -8,7 +8,9 @@ import { FilteredEventList } from "@/components/FilteredEventList";
 import { SubmitEventSheet } from "@/components/SubmitEventSheet";
 import { StickyListHeader } from "@/components/StickyListHeader";
 import { attachEventImages } from "@/lib/event-images";
+import { attachTicketUrls } from "@/lib/event-tickets";
 import { resolveBackLabel } from "@/lib/event-navigation";
+import { EventImage } from "@/components/EventImage";
 import { matchVenueSlug } from "@/lib/venues-seed";
 
 interface VenuePageProps {
@@ -36,7 +38,7 @@ export function VenuePage({
           const slug = e.venueSlug ?? matchVenueSlug(e.venue) ?? matchVenueSlug(e.location);
           return slug === venue.slug;
         });
-        setEvents(attachEventImages(list));
+        setEvents(attachTicketUrls(attachEventImages(list)));
       })
       .catch(() => setEvents([]));
   }
@@ -66,9 +68,20 @@ export function VenuePage({
           />
 
           <div className="flex items-start gap-4 mb-6">
-            <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-800 text-3xl shadow-sm">
-              {venue.emoji ?? "📍"}
-            </div>
+            {venue.imageUrl ? (
+              <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-2xl border border-neutral-100 dark:border-neutral-800 shadow-sm">
+                <EventImage
+                  src={venue.imageUrl}
+                  alt={venue.name}
+                  sizes="64px"
+                  className="h-full w-full object-cover"
+                />
+              </div>
+            ) : (
+              <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-800 text-3xl shadow-sm">
+                {venue.emoji ?? "📍"}
+              </div>
+            )}
             <div>
               <h1 className="text-2xl font-black text-neutral-900 dark:text-neutral-100 tracking-tight">
                 {venue.name}

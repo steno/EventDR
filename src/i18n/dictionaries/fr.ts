@@ -139,6 +139,7 @@ export const fr: Dictionary = {
     saved: "Enregistré",
     community: "Partagé par la communauté",
     viewVenue: "Voir le lieu",
+    buyTickets: "Acheter des billets",
     call: "Appeler",
     close: "Fermer",
     shared: "Partagé !",

@@ -6,6 +6,7 @@ import { inferCategory, withResolvedCategories } from "./categorize";
 import { filterNorthCoastUpcomingEvents, localDateISO } from "./event-dates";
 import { normalizeEventLineup, normalizeLineup } from "./event-lineup";
 import { normalizeExtractedEvents } from "./event-location";
+import { withTicketUrl } from "./event-tickets";
 
 const VALID_CATEGORIES = new Set(CATEGORY_IDS);
 
@@ -70,6 +71,8 @@ function parseEventsHeuristic(
               sourceUrl: block.match(/https?:\/\/[^\s)]+/)?.[0],
             }),
           );
+          const last = events[events.length - 1];
+          if (last) events[events.length - 1] = withTicketUrl(last);
         }
         buffer = [];
       }
@@ -117,6 +120,7 @@ Return ONLY valid JSON: an array of event objects. Each object must have:
 - format ("physical", "digital", or "hybrid")
 - trending (boolean, true for popular events)
 - sourceUrl (optional URL from source)
+- ticketUrl (optional ticket purchase URL — use the todotickets.do /events/... or eventbrite checkout link when present; omit for free/community events)
 - lineup (optional array of performer/artist names — only when explicitly named in the source; omit if unknown or TBA)
 - imageEmoji (single emoji matching category)
 
@@ -160,23 +164,25 @@ ${rawContent.slice(0, 18000)}`;
   try {
     const parsed = JSON.parse(content) as { events?: Event[] };
     return (parsed.events ?? []).map((e, i) =>
-      withResolvedCategories(
-        normalizeEventLineup({
-          ...e,
-          id: e.id || `ai-${i}-${slugify(e.title)}`,
-          category: VALID_CATEGORIES.has(e.category as EventCategory)
-            ? e.category
-            : inferCategory(
-                `${e.title} ${e.description}`,
-                category as EventCategory | undefined,
-              ),
-          categories: Array.isArray(e.categories)
-            ? e.categories.filter((c): c is EventCategory =>
-                VALID_CATEGORIES.has(c as EventCategory),
-              )
-            : undefined,
-          lineup: normalizeLineup(e.lineup),
-        }),
+      withTicketUrl(
+        withResolvedCategories(
+          normalizeEventLineup({
+            ...e,
+            id: e.id || `ai-${i}-${slugify(e.title)}`,
+            category: VALID_CATEGORIES.has(e.category as EventCategory)
+              ? e.category
+              : inferCategory(
+                  `${e.title} ${e.description}`,
+                  category as EventCategory | undefined,
+                ),
+            categories: Array.isArray(e.categories)
+              ? e.categories.filter((c): c is EventCategory =>
+                  VALID_CATEGORIES.has(c as EventCategory),
+                )
+              : undefined,
+            lineup: normalizeLineup(e.lineup),
+          }),
+        ),
       ),
     );
   } catch {

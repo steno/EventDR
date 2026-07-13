@@ -96,6 +96,15 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "casa-de-la-cultura-exhibitions": "casa-de-la-cultura-exhibitions.jpg",
   "paella-pop-el-pueblito": "paella-pop-el-pueblito.jpg",
   "paella-pop-green-one": "paella-pop-green-one.jpg",
+  "lil-naay-2026-07-17": "lil-naay-2026-07-17.jpg",
+  "atleticos-pp-vs-capitanes-2026-07-11": "atleticos-pp-vs-capitanes-2026-07-11.jpeg",
+  "atleticos-pp-vs-mangueros-2026-07-17": "atleticos-pp-vs-mangueros-2026-07-17.jpg",
+  "atleticos-pp-vs-mineros-2026-07-31": "atleticos-pp-vs-mineros-2026-07-31.jpeg",
+  "atleticos-pp-vs-granjeros-2026-08-02": "atleticos-pp-vs-granjeros-2026-08-02.jpg",
+  "atleticos-pp-vs-bravos-2026-08-07": "atleticos-pp-vs-bravos-2026-08-07.jpeg",
+  "atleticos-pp-vs-reales-2026-08-09": "atleticos-pp-vs-reales-2026-08-09.jpg",
+  "atleticos-pp-vs-arroceros-2026-08-22": "atleticos-pp-vs-arroceros-2026-08-22.jpeg",
+  "atleticos-pp-vs-capitanes-2026-08-28": "atleticos-pp-vs-capitanes-2026-08-28.jpeg",
 };
 
 /** Legacy ingest ids that share a curated event image. */
@@ -107,7 +116,6 @@ const EVENT_IMAGE_ALIASES: Record<string, string> = {
 
 const EVENT_IMAGE_PREFIXES: { prefix: string; file: string }[] = [
   { prefix: "el-carey-wc2026-", file: "el-carey-wc2026.png" },
-  { prefix: "atleticos-pp-vs-", file: "atleticos-pp-vs-mangueros-2026-07-17.jpg" },
 ];
 
 export function getEventImageUrl(eventId: string): string | undefined {

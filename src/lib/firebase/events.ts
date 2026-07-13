@@ -47,6 +47,7 @@ function docToEvent(id: string, data: DocumentData): Event {
     format: data.format as EventFormat,
     trending: Boolean(data.trending),
     sourceUrl: (data.sourceUrl as string | null) ?? undefined,
+    ticketUrl: (data.ticketUrl as string | null) ?? undefined,
     imageEmoji: (data.imageEmoji as string | null) ?? undefined,
     imageUrl: (data.imageUrl as string | null) ?? undefined,
     lineup: normalizeLineup(data.lineup),
@@ -115,6 +116,7 @@ function eventToFirestore(
     format: event.format,
     trending: event.trending ?? false,
     sourceUrl: event.sourceUrl ?? null,
+    ticketUrl: event.ticketUrl ?? null,
     sourceType,
     imageEmoji: event.imageEmoji ?? "📌",
     imageUrl: event.imageUrl ?? null,
@@ -289,6 +291,7 @@ export async function patchEventFields(
 
   const update: Record<string, unknown> = {};
   if ("sourceUrl" in fields) update.sourceUrl = fields.sourceUrl ?? null;
+  if ("ticketUrl" in fields) update.ticketUrl = fields.ticketUrl ?? null;
   if ("address" in fields) update.address = fields.address ?? null;
   if ("location" in fields) update.location = fields.location ?? null;
   if ("endDate" in fields) update.endDate = fields.endDate ?? null;

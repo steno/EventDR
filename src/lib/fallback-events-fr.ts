@@ -53,6 +53,27 @@ export const FALLBACK_EVENTS_FR: Event[] = [
     imageEmoji: "🎵",
   },
   {
+    id: "lil-naay-2026-07-17",
+    title: "Lil Naay en live au Disco Club",
+    description:
+      "La star urbaine dominicaine Lil Naay au Disco Club, Depósitos de Brugal sur la Calle Duarte. Concert vendredi soir — billets sur todotickets.do avec entrée par code QR.",
+    date: "2026-07-17",
+    time: "8:00 PM – 11:00 PM",
+    location: "Puerto Plata",
+    address: "Depósitos de Brugal, Calle Duarte",
+    venue: "Disco Club",
+    venueSlug: "disco-club-brugal",
+    lat: 19.7966,
+    lng: -70.6923,
+    category: "concert",
+    format: "physical",
+    trending: true,
+    sourceUrl: "https://todotickets.do/events/lil-naay",
+    ticketUrl: "https://todotickets.do/events/lil-naay",
+    lineup: ["Lil Naay"],
+    imageEmoji: "🎤",
+  },
+  {
     id: "rumble-in-paradise-12",
     title: "Rumble in Paradise 12",
     description:

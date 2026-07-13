@@ -1,6 +1,7 @@
 import type { Locale } from "@/i18n/config";
 import { fetchVenueBySlug, fetchVenues, isFirebaseConfigured } from "@/lib/firebase/events";
 import { localizeVenue, localizeVenues } from "@/lib/venues-i18n";
+import { attachVenueImage, attachVenueImages } from "@/lib/venue-images";
 import { getSeedVenue, SEED_VENUES } from "@/lib/venues-seed";
 import type { Venue } from "@/lib/types";
 
@@ -28,7 +29,9 @@ export async function getVenueBySlug(
       venue = undefined;
     }
   }
-  return venue && locale ? localizeVenue(venue, locale) : venue;
+  if (!venue) return undefined;
+  const localized = locale ? localizeVenue(venue, locale) : venue;
+  return attachVenueImage(localized);
 }
 
 /** Venues for SSR and API — full seed list plus any Firebase-only venues. */
@@ -44,5 +47,5 @@ export async function getVenues(locale?: Locale): Promise<Venue[]> {
       venues = SEED_VENUES;
     }
   }
-  return locale ? localizeVenues(venues, locale) : venues;
+  return locale ? attachVenueImages(localizeVenues(venues, locale)) : attachVenueImages(venues);
 }

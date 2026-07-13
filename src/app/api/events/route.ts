@@ -25,6 +25,7 @@ import { eventMatchesCity, isCitySlug } from "@/lib/cities";
 import { filterByTimeRange, type TimeRange } from "@/lib/filters";
 import { eventInCategory } from "@/lib/categorize";
 import { attachEventImages } from "@/lib/event-images";
+import { attachTicketUrls } from "@/lib/event-tickets";
 import { attachEventPhones } from "@/lib/event-phone";
 import { applyCuratedEventPatches } from "@/lib/curated-events";
 import { filterRemovedSeedEvents } from "@/lib/removed-seeds";
@@ -134,6 +135,7 @@ export async function GET(request: NextRequest) {
     events = sortEvents(events);
     events = applyCuratedEventPatches(events);
     events = attachEventPhones(events);
+    events = attachTicketUrls(events);
     events = attachEventImages(events);
     return events;
   }
@@ -145,7 +147,7 @@ export async function GET(request: NextRequest) {
         return NextResponse.json(
           {
             events: attachEventImages(
-              attachEventPhones(attachCoords(cached)),
+              attachTicketUrls(attachEventPhones(attachCoords(cached))),
             ),
             source: "cache",
             region: REGION_LABELS[locale],

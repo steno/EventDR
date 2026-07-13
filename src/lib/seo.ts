@@ -9,6 +9,7 @@ import { getCityCategorySeo } from "@/lib/city-category-seo";
 import { getWhenSeo, type WhenSlug } from "@/lib/time-seo";
 import type { Event, EventCategory, Venue } from "@/lib/types";
 import { formatEventPlace } from "@/lib/event-location";
+import { getVenueImageUrl } from "@/lib/venue-images";
 import { SITE_URL } from "@/lib/site-url";
 
 export const SITE_NAME = "POP Events";
@@ -200,6 +201,7 @@ export function buildVenueMetadata(
     description: venue.description,
   });
   const alternates = buildAlternates(locale, path);
+  const image = resolveImageUrl(venue.imageUrl ?? getVenueImageUrl(venue.slug));
 
   return {
     title,
@@ -209,8 +211,13 @@ export function buildVenueMetadata(
       title,
       description,
       url: alternates.canonical,
+      ...(image ? { images: [{ url: image }] } : {}),
     }),
-    twitter: defaultTwitter({ title, description }),
+    twitter: defaultTwitter({
+      title,
+      description,
+      ...(image ? { images: [image] } : {}),
+    }),
   };
 }
 

@@ -337,10 +337,16 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Atelier d'espadrilles dans le centre historique — cousez votre paire avec des artisans maîtres sur la Calle Duarte.",
     },
   },
-  "parque-jose-briceño": {
+  "parque-jose-briceno": {
     description: {
       es: "Estadio de béisbol renovado con 6.000 asientos en la Av. Hermanas Mirabal — local de los Atléticos de Puerto Plata en la Liga Nacional de Béisbol de Verano.",
       fr: "Stade de baseball rénové de 6 000 places sur l'Av. Hermanas Mirabal — domicile des Atléticos de Puerto Plata en Liga Nacional de Béisbol de Verano.",
+    },
+  },
+  "disco-club-brugal": {
+    description: {
+      es: "Discoteca y sala de conciertos en los Depósitos de Brugal, Calle Duarte — shows con entradas para artistas dominicanos en gira.",
+      fr: "Discothèque et salle de concert aux Depósitos de Brugal, Calle Duarte — spectacles avec billets pour artistes dominicains en tournée.",
     },
   },
   "paella-pop-el-pueblito": {

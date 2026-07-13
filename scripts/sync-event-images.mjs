@@ -5,6 +5,7 @@ import { fileURLToPath } from "url";
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const sourceDir = join(root, "popevent-images");
 const destDir = join(root, "public", "events");
+const venuesDir = join(root, "public", "venues");
 
 /**
  * popevent-images filename → event id.
@@ -39,7 +40,13 @@ const FILE_TO_EVENT_ID = {
   "tabacalera-cremo-factory-tour.jpg": "tabacalera-cremo-factory-tour",
   "tabacalera-cremo-rolling-experience.jpg": "tabacalera-cremo-rolling-experience",
   "vivonte-cigar-factory-weekdays.jpg": "vivonte-cigar-factory-weekdays",
-  "atleticos-pp-vs-mangueros-2026-07-17.jpg": "atleticos-pp-vs-mangueros-2026-07-17",
+  "capitanes.jpeg": "atleticos-pp-vs-capitanes-2026-07-11",
+  "lil-naay-2026-07-17.jpg": "lil-naay-2026-07-17",
+  "mineros.jpeg": "atleticos-pp-vs-mineros-2026-07-31",
+  "granjeros-de-Moca.jpg": "atleticos-pp-vs-granjeros-2026-08-02",
+  "bravos.jpeg": "atleticos-pp-vs-bravos-2026-08-07",
+  "reales-de-santiago.jpg": "atleticos-pp-vs-reales-2026-08-09",
+  "Arroceros.jpeg": "atleticos-pp-vs-arroceros-2026-08-22",
 
   // --- 2026 crawl: food & culture ---
   "paella-pop-el-pueblito.jpg": "paella-pop-el-pueblito",
@@ -111,8 +118,15 @@ const SAME_VENUE_COPIES = [
   ["voyvoy-cabarete.jpg", "voyvoy-saturday-session"],
   ["voyvoy-cabarete.jpg", "voyvoy-sunday-open-mic"],
   ["del-oro-chocolate-factory-weekdays.jpg", "del-oro-chocolate-factory-saturday"],
+  ["atleticos-pp-pitcher-2026.jpg", "atleticos-pp-vs-mangueros-2026-07-17"],
+  ["capitanes.jpeg", "atleticos-pp-vs-capitanes-2026-08-28"],
   ["vivonte-cigar-factory-weekdays.jpg", "vivonte-cigar-factory-saturday"],
 ];
+
+/** popevent-images filename → venue slug (copied to public/venues/). */
+const FILE_TO_VENUE_SLUG = {
+  "atleticos-pp-vs-mangueros-2026-07-17.jpg": "parque-jose-briceno",
+};
 
 if (!existsSync(sourceDir)) {
   console.log("popevent-images/ not found — skipping sync");
@@ -129,7 +143,7 @@ function destExtension(filename) {
   return dot >= 0 ? filename.slice(dot).toLowerCase() : ".jpg";
 }
 
-function syncOne(filename, eventId) {
+function syncOne(filename, eventId, targetDir = destDir) {
   const src = join(sourceDir, filename);
   const resolvedSrc = existsSync(src)
     ? src
@@ -139,9 +153,10 @@ function syncOne(filename, eventId) {
     return;
   }
   const ext = destExtension(resolvedSrc);
-  copyFileSync(resolvedSrc, join(destDir, `${eventId}${ext}`));
+  copyFileSync(resolvedSrc, join(targetDir, `${eventId}${ext}`));
   copied++;
-  console.log(`${filename} → events/${eventId}${ext}`);
+  const rel = targetDir === destDir ? "events" : "venues";
+  console.log(`${filename} → ${rel}/${eventId}${ext}`);
 }
 
 for (const [filename, eventId] of Object.entries(FILE_TO_EVENT_ID)) {
@@ -150,6 +165,11 @@ for (const [filename, eventId] of Object.entries(FILE_TO_EVENT_ID)) {
 
 for (const [filename, eventId] of SAME_VENUE_COPIES) {
   syncOne(filename, eventId);
+}
+
+mkdirSync(venuesDir, { recursive: true });
+for (const [filename, venueSlug] of Object.entries(FILE_TO_VENUE_SLUG)) {
+  syncOne(filename, venueSlug, venuesDir);
 }
 
 console.log(`Synced ${copied} event images to public/events/`);

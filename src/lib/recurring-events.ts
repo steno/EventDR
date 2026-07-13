@@ -758,8 +758,7 @@ const RECURRING_EN: Event[] = [
     category: "adventure",
     format: "physical",
     recurrence: "daily",
-    sourceUrl:
-      "https://www.tripadvisor.com/Attraction_Review-g147290-d2162077-Reviews-Freestyle_Catamaran_Tour-Puerto_Plata_Puerto_Plata_Province_Dominican_Republic.html",
+    sourceUrl: "https://freestylecatamarans.com/reservation/",
     imageEmoji: "⛵",
   },
   {
@@ -776,7 +775,7 @@ const RECURRING_EN: Event[] = [
     format: "physical",
     recurrence: "daily",
     sourceUrl:
-      "https://outback-adventures.com/st_location/dominican-republic/puerto-plata/",
+      "https://www.sightseeing.com/packages/outback-safari-adventure-tour-from-puerto-plata/",
     imageEmoji: "🛻",
   },
   // --- Category fill: Puerto Plata ---
@@ -2087,8 +2086,7 @@ const RECURRING_ES: Event[] = [
     category: "adventure",
     format: "physical",
     recurrence: "daily",
-    sourceUrl:
-      "https://www.tripadvisor.com/Attraction_Review-g147290-d2162077-Reviews-Freestyle_Catamaran_Tour-Puerto_Plata_Puerto_Plata_Province_Dominican_Republic.html",
+    sourceUrl: "https://freestylecatamarans.com/reservation/",
     imageEmoji: "⛵",
   },
   {
@@ -2105,7 +2103,7 @@ const RECURRING_ES: Event[] = [
     format: "physical",
     recurrence: "daily",
     sourceUrl:
-      "https://outback-adventures.com/st_location/dominican-republic/puerto-plata/",
+      "https://www.sightseeing.com/packages/outback-safari-adventure-tour-from-puerto-plata/",
     imageEmoji: "🛻",
   },
   {
@@ -3413,8 +3411,7 @@ const RECURRING_FR: Event[] = [
     category: "adventure",
     format: "physical",
     recurrence: "daily",
-    sourceUrl:
-      "https://www.tripadvisor.com/Attraction_Review-g147290-d2162077-Reviews-Freestyle_Catamaran_Tour-Puerto_Plata_Puerto_Plata_Province_Dominican_Republic.html",
+    sourceUrl: "https://freestylecatamarans.com/reservation/",
     imageEmoji: "⛵",
   },
   {
@@ -3431,7 +3428,7 @@ const RECURRING_FR: Event[] = [
     format: "physical",
     recurrence: "daily",
     sourceUrl:
-      "https://outback-adventures.com/st_location/dominican-republic/puerto-plata/",
+      "https://www.sightseeing.com/packages/outback-safari-adventure-tour-from-puerto-plata/",
     imageEmoji: "🛻",
   },
   {

@@ -48,6 +48,8 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
 const CURATED_EVENT_PATCHES: Record<string, CuratedPatch> = {
   "18th-annual-cabarete-butterfly-effect": {
     sourceUrl: "https://www.cabaretebutterflyeffect.com/",
+    ticketUrl:
+      "https://www.eventbrite.ca/e/18th-annual-cabarete-butterfly-effect-tickets-1568174655609",
     venue: "Kite Beach & Cabarete town",
     address: "Carretera 5",
     location: "Cabarete",
