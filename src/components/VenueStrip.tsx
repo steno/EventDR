@@ -26,11 +26,11 @@ export function VenueStrip({
 
   useEffect(() => {
     if (initialVenues?.length) return;
-    fetch("/api/venues")
+    fetch(`/api/venues?locale=${locale}`)
       .then((r) => r.json())
       .then((d: { venues?: Venue[] }) => setVenues(d.venues ?? []))
       .catch(() => {});
-  }, [initialVenues]);
+  }, [initialVenues, locale]);
 
   const featured = getFeaturedVenues(venues, limit);
 

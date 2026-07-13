@@ -27,7 +27,7 @@ export default async function Page({
   if (!isValidLocale(locale)) notFound();
 
   const dict = getDictionary(locale);
-  const venues = await getVenues();
+  const venues = await getVenues(locale);
   return (
     <>
       <JsonLd data={buildWebSiteJsonLd(locale, dict)} />

@@ -28,7 +28,7 @@ export async function generateMetadata({
   const { locale, slug } = await params;
   if (!isValidLocale(locale)) return {};
 
-  const venue = await getVenueBySlug(slug);
+  const venue = await getVenueBySlug(slug, locale);
   if (!venue) return {};
 
   const dict = getDictionary(locale);
@@ -46,7 +46,7 @@ export default async function Page({
   const { all } = await searchParams;
   if (!isValidLocale(locale)) notFound();
 
-  const venue = await getVenueBySlug(slug);
+  const venue = await getVenueBySlug(slug, locale);
   if (!venue) notFound();
 
   const dict = getDictionary(locale);

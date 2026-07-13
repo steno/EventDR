@@ -1,4 +1,6 @@
+import type { Locale } from "@/i18n/config";
 import { fetchVenueBySlug, fetchVenues, isFirebaseConfigured } from "@/lib/firebase/events";
+import { localizeVenue, localizeVenues } from "@/lib/venues-i18n";
 import { getSeedVenue, SEED_VENUES } from "@/lib/venues-seed";
 import type { Venue } from "@/lib/types";
 
@@ -13,24 +15,34 @@ export function mergeVenueLists(seed: Venue[], remote: Venue[]): Venue[] {
 }
 
 /** Single venue lookup — seed coords win over stale Firestore copies. */
-export async function getVenueBySlug(slug: string): Promise<Venue | undefined> {
+export async function getVenueBySlug(
+  slug: string,
+  locale?: Locale,
+): Promise<Venue | undefined> {
   const seed = getSeedVenue(slug);
-  if (seed) return seed;
-  if (!isFirebaseConfigured()) return undefined;
-  try {
-    return (await fetchVenueBySlug(slug)) ?? undefined;
-  } catch {
-    return undefined;
+  let venue: Venue | undefined = seed;
+  if (!venue && isFirebaseConfigured()) {
+    try {
+      venue = (await fetchVenueBySlug(slug)) ?? undefined;
+    } catch {
+      venue = undefined;
+    }
   }
+  return venue && locale ? localizeVenue(venue, locale) : venue;
 }
 
 /** Venues for SSR and API — full seed list plus any Firebase-only venues. */
-export async function getVenues(): Promise<Venue[]> {
-  if (!isFirebaseConfigured()) return SEED_VENUES;
-  try {
-    const remote = await fetchVenues();
-    return mergeVenueLists(SEED_VENUES, remote);
-  } catch {
-    return SEED_VENUES;
+export async function getVenues(locale?: Locale): Promise<Venue[]> {
+  let venues: Venue[];
+  if (!isFirebaseConfigured()) {
+    venues = SEED_VENUES;
+  } else {
+    try {
+      const remote = await fetchVenues();
+      venues = mergeVenueLists(SEED_VENUES, remote);
+    } catch {
+      venues = SEED_VENUES;
+    }
   }
+  return locale ? localizeVenues(venues, locale) : venues;
 }
