@@ -16,11 +16,14 @@ Runs **30 minutes after** the weekly ingest (Sunday 12:30 AST / 16:30 UTC).
 
 ## What it does
 
-1. Confirms `weekly-event-ingest` GitHub Action succeeded
-2. Follows skill `pop-content-pipeline`
-3. Fetches partner digest from production API
-4. Writes `marketing/drafts/YYYY-MM-DD-social.md`
-5. Summarizes: event count, top highlights, moderation reminder
+1. Confirms `weekly-event-ingest` GitHub Action succeeded — **retries ingest APIs** if it failed
+2. Runs **Facebook group discovery** (`facebook-groups-weekly` rule) — adds new events to `fallback-events.ts`, commits, re-seeds
+3. Reminds you to moderate at `/en/moderate`
+4. Fetches partner digest from production API
+5. Writes `marketing/drafts/YYYY-MM-DD-social.md`
+6. Summarizes: ingest status, new events, weekend counts, top highlights
+
+**Note:** Facebook discovery needs browser + Facebook login. On cloud runs without login, the agent skips discovery and continues with digest/social steps.
 
 ## Manual trigger
 
