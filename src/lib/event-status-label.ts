@@ -1,6 +1,6 @@
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Event } from "@/lib/types";
-import { localDateISO, APP_TIMEZONE } from "@/lib/event-dates";
+import { addDaysISO, localDateISO, APP_TIMEZONE } from "@/lib/event-dates";
 import {
   getEventLiveStatus,
   happensOnLocalDate,
@@ -59,7 +59,7 @@ function hasWindowStarted(
 
 /** Label when status is unknown but the event is still active today. */
 function fallbackLiveStatusDisplay(
-  event: Pick<Event, "date" | "endDate" | "time">,
+  event: Pick<Event, "date" | "endDate" | "time" | "recurrence">,
   dict: Dictionary,
   now: Date,
 ): LiveStatusDisplay | null {
@@ -82,16 +82,30 @@ function fallbackLiveStatusDisplay(
 }
 
 export function resolveLiveStatusDisplay(
-  event: Pick<Event, "date" | "endDate" | "time">,
+  event: Pick<Event, "date" | "endDate" | "time" | "recurrence">,
   dict: Dictionary,
   now: Date = new Date(),
 ): LiveStatusDisplay | null {
-  if (!happensOnLocalDate(event, localDateISO(now))) return null;
+  const today = localDateISO(now);
+  const start = event.date?.trim();
+  const end = (event.endDate ?? event.date)?.trim();
+  if (!start || !end || end < today) return null;
 
   const status = getEventLiveStatus(event, now);
+
   if (status === "live" && isEndingSoon(event, now)) {
     return { status: "ending", label: dict.events.endsSoon };
   }
+
+  // Near-future list cards (Our picks "All") — intraday labels are misleading here.
+  if (start > today) {
+    if (start === addDaysISO(today, 1)) {
+      return { status: "upcoming", label: dict.time.tomorrow };
+    }
+    return null;
+  }
+
+  if (!happensOnLocalDate(event, today)) return null;
 
   const directLabel = formatEventLiveStatusLabel(status, dict);
   if (directLabel) {
@@ -106,7 +120,7 @@ export function resolveLiveStatusDisplay(
 }
 
 export function getEventLiveStatusLabel(
-  event: Pick<Event, "date" | "endDate" | "time">,
+  event: Pick<Event, "date" | "endDate" | "time" | "recurrence">,
   dict: Dictionary,
   now?: Date,
 ): string | null {

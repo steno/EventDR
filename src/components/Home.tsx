@@ -15,9 +15,8 @@ import { VenueStrip } from "@/components/VenueStrip";
 import { TodayHighlights } from "@/components/TodayHighlights";
 import { useSavedEvents } from "@/hooks/useSavedEvents";
 import {
-  getTodayHighlightEvents,
+  getTodayHighlightExcludeIds,
   HOME_PICKS_LIMIT,
-  HOME_TODAY_LIMIT,
   homeViewAllPath,
 } from "@/lib/home-layout";
 import { type TimeRange } from "@/lib/filters";
@@ -62,11 +61,10 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
   const savedEvents = filterSaved(allEvents);
   const homePath = `/${locale}`;
 
-  const todayHighlightIds = useMemo(() => {
-    return getTodayHighlightEvents(allEvents)
-      .slice(0, HOME_TODAY_LIMIT)
-      .map((e) => e.id);
-  }, [allEvents]);
+  const todayHighlightExcludeIds = useMemo(
+    () => getTodayHighlightExcludeIds(allEvents),
+    [allEvents],
+  );
 
   const viewAllHref = homeViewAllPath(locale, timeRange);
 
@@ -144,7 +142,9 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
                   returnTo={homePath}
                   limit={isSearching ? undefined : HOME_PICKS_LIMIT}
                   excludeEventIds={
-                    !isSearching && timeRange === "all" ? todayHighlightIds : []
+                    !isSearching && timeRange === "all"
+                      ? todayHighlightExcludeIds
+                      : []
                   }
                   viewAllHref={!isSearching ? viewAllHref : undefined}
                 />

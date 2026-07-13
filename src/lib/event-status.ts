@@ -1,6 +1,11 @@
 import type { Event } from "./types";
 import { APP_TIMEZONE, localDateISO } from "./event-dates";
 
+/** Fields used for live/ended status (recurrence may arrive as string from filters). */
+export type EventLiveFields = Pick<Event, "date" | "endDate" | "time"> & {
+  recurrence?: Event["recurrence"] | string;
+};
+
 /** Minutes from midnight (0–1439). */
 export type EventTimeWindow = { start: number; end: number };
 
@@ -73,6 +78,25 @@ export function isRecurringEvent(
   event: Pick<Event, "recurrence">,
 ): boolean {
   return Boolean(event.recurrence);
+}
+
+/** Multi-day span or recurring series still has future occurrences after today. */
+export function eventContinuesBeyondToday(
+  event: EventLiveFields,
+  now: Date = new Date(),
+): boolean {
+  const today = localDateISO(now);
+  const end = eventEndISO(event);
+  if (!end) return false;
+
+  if (end > today) return true;
+
+  if (!event.recurrence) return false;
+  if (event.endDate && today > event.endDate) return false;
+  // Last calendar day of the series — tonight is the final session.
+  if (event.endDate && event.endDate === today) return false;
+
+  return true;
 }
 
 /** Parsed clock span in minutes; unparsed times sort as longest. */
@@ -166,7 +190,7 @@ function hasWindowEnded(nowMin: number, window: EventTimeWindow): boolean {
  * Recurring events materialized to today use the same rules.
  */
 export function getEventLiveStatus(
-  event: Pick<Event, "date" | "endDate" | "time">,
+  event: EventLiveFields,
   now: Date = new Date(),
 ): EventLiveStatus {
   const start = eventStartISO(event);
@@ -195,36 +219,35 @@ export function getEventLiveStatus(
   if (!hasWindowStarted(nowMin, window)) return "upcoming";
   // Now check if event has ended
   if (hasWindowEnded(nowMin, window)) {
-    // Multi-day span still running — today's session closed, not the whole event.
-    if (end > today) return "closedToday";
+    if (eventContinuesBeyondToday(event, now)) return "closedToday";
     return "ended";
   }
   return "unknown";
 }
 
 export function hasWindowEndedForToday(
-  event: Pick<Event, "date" | "endDate" | "time">,
+  event: EventLiveFields,
   now: Date = new Date(),
 ): boolean {
   const window = parseEventTimeWindow(event.time);
   if (!window) return false;
 
-  const end = eventEndISO(event);
   const today = localDateISO(now);
-  if (!end || end < today) return false;
+  if (!eventSpansToday(event, now)) return false;
+  if (!hasWindowEnded(currentMinutes(now), window)) return false;
 
-  return hasWindowEnded(currentMinutes(now), window);
+  return eventContinuesBeyondToday(event, now);
 }
 
 export function hasEventEndedForToday(
-  event: Pick<Event, "date" | "endDate" | "time">,
+  event: EventLiveFields,
   now: Date = new Date(),
 ): boolean {
   return getEventLiveStatus(event, now) === "ended";
 }
 
 export function isEventActiveToday(
-  event: Pick<Event, "date" | "endDate" | "time">,
+  event: EventLiveFields,
   now: Date = new Date(),
 ): boolean {
   if (!eventSpansToday(event, now)) return false;

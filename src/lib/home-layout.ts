@@ -66,6 +66,23 @@ export function getTodayHighlightEvents(events: Event[]): Event[] {
     .sort(compareTodayHighlights);
 }
 
+/**
+ * Dedupe only active carousel highlights from Our picks "All".
+ * Closed-for-today and other inactive-today cards stay in the list with their status badge.
+ */
+export function getTodayHighlightExcludeIds(
+  events: Event[],
+  limit = HOME_TODAY_LIMIT,
+): string[] {
+  return getTodayHighlightEvents(events)
+    .slice(0, limit)
+    .filter((e) => {
+      const status = getEventLiveStatus(e);
+      return status === "live" || status === "upcoming";
+    })
+    .map((e) => e.id);
+}
+
 export function getFeaturedVenues(
   venues: Venue[],
   limit = HOME_VENUE_LIMIT,
