@@ -27,7 +27,8 @@ function todayHighlightSortRank(event: Event): number {
   const status = getEventLiveStatus(event);
   if (status === "live") return 0;
   if (status === "upcoming") return 1;
-  return 2;
+  if (status === "closedToday") return 2;
+  return 3;
 }
 
 function todayHighlightKindRank(event: Event): number {

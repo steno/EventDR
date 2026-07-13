@@ -84,6 +84,7 @@ export const es: Dictionary = {
     eventStarted: "Evento iniciado",
     startsSoon: "Empieza pronto",
     endsSoon: "Termina pronto",
+    closedForToday: "Cerrado por hoy",
     eventEnded: "Finalizado",
     viewDetails: "Ver detalles",
     moreToday: "{count} más hoy",

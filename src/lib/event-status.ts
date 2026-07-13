@@ -8,6 +8,7 @@ export type EventLiveStatus =
   | "upcoming"
   | "live"
   | "ending"
+  | "closedToday"
   | "ended"
   | "unknown";
 
@@ -195,10 +196,24 @@ export function getEventLiveStatus(
   // Now check if event has ended
   if (hasWindowEnded(nowMin, window)) {
     // Multi-day span still running — today's session closed, not the whole event.
-    if (end > today) return "unknown";
+    if (end > today) return "closedToday";
     return "ended";
   }
   return "unknown";
+}
+
+export function hasWindowEndedForToday(
+  event: Pick<Event, "date" | "endDate" | "time">,
+  now: Date = new Date(),
+): boolean {
+  const window = parseEventTimeWindow(event.time);
+  if (!window) return false;
+
+  const end = eventEndISO(event);
+  const today = localDateISO(now);
+  if (!end || end < today) return false;
+
+  return hasWindowEnded(currentMinutes(now), window);
 }
 
 export function hasEventEndedForToday(

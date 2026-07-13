@@ -70,6 +70,7 @@ export type Dictionary = {
     eventStarted: string;
     startsSoon: string;
     endsSoon: string;
+    closedForToday: string;
     eventEnded: string;
     viewDetails: string;
     moreToday: string;
@@ -338,6 +339,7 @@ export const en: Dictionary = {
     eventStarted: "Event started",
     startsSoon: "Starts soon",
     endsSoon: "Ends soon",
+    closedForToday: "Closed for today",
     eventEnded: "Ended",
     viewDetails: "View details",
     moreToday: "{count} more today",

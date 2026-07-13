@@ -18,10 +18,11 @@ const LIST_TIER = {
   endingSoon: 0,
   live: 1,
   upcomingToday: 2,
-  activeTodayUnknown: 3,
-  future: 4,
-  endedToday: 5,
-  past: 6,
+  closedToday: 3,
+  activeTodayUnknown: 4,
+  future: 5,
+  endedToday: 6,
+  past: 7,
 } as const;
 
 export interface SortEventsForDisplayOptions {
@@ -49,6 +50,7 @@ function listTier(event: Event, now: Date): number {
     const status = getEventLiveStatus(event, now);
     if (status === "live") return LIST_TIER.live;
     if (status === "upcoming") return LIST_TIER.upcomingToday;
+    if (status === "closedToday") return LIST_TIER.closedToday;
     return LIST_TIER.activeTodayUnknown;
   }
 
@@ -74,6 +76,7 @@ function compareWithinTier(a: Event, b: Event, tier: number, now: Date): number 
     tier === LIST_TIER.endingSoon ||
     tier === LIST_TIER.live ||
     tier === LIST_TIER.upcomingToday ||
+    tier === LIST_TIER.closedToday ||
     tier === LIST_TIER.activeTodayUnknown
   ) {
     const startDiff =

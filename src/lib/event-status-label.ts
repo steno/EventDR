@@ -4,6 +4,7 @@ import { localDateISO, APP_TIMEZONE } from "@/lib/event-dates";
 import {
   getEventLiveStatus,
   happensOnLocalDate,
+  hasWindowEndedForToday,
   isEndingSoon,
   isEventActiveToday,
   parseEventTimeWindow,
@@ -26,6 +27,8 @@ export function formatEventLiveStatusLabel(
       return dict.events.endsSoon;
     case "upcoming":
       return dict.events.startsSoon;
+    case "closedToday":
+      return dict.events.closedForToday;
     case "ended":
       return dict.events.eventEnded;
     default:
@@ -68,6 +71,9 @@ function fallbackLiveStatusDisplay(
   }
   if (!hasWindowStarted(currentMinutes(now), window)) {
     return { status: "upcoming", label: dict.events.startsSoon };
+  }
+  if (hasWindowEndedForToday(event, now)) {
+    return { status: "closedToday", label: dict.events.closedForToday };
   }
   if (isEndingSoon(event, now)) {
     return { status: "ending", label: dict.events.endsSoon };
@@ -115,6 +121,8 @@ export function eventStatusBadgeClass(status: EventLiveStatus): string {
       return "bg-amber-50 text-amber-700 dark:bg-amber-950/40 dark:text-amber-400";
     case "upcoming":
       return "bg-sky-50 text-sky-700 dark:bg-sky-950/40 dark:text-sky-400";
+    case "closedToday":
+      return "bg-violet-50 text-violet-700 dark:bg-violet-950/40 dark:text-violet-400";
     case "ended":
       return "bg-neutral-100 text-neutral-500 dark:bg-neutral-800 dark:text-neutral-400";
     default:
