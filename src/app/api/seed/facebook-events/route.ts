@@ -1,13 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
 import { FACEBOOK_SEED_EVENT_IDS } from "@/lib/facebook-groups";
-import { getFallbackEvents } from "@/lib/fallback-events";
 import {
   upsertApprovedEvents,
   isFirebaseConfigured,
   syncSeedVenues,
 } from "@/lib/firebase/events";
-import { prepareSeedEvent } from "@/lib/geo";
-import type { Event } from "@/lib/types";
+import { resolveSeedEvents } from "@/lib/seed-events";
 
 export const dynamic = "force-dynamic";
 
@@ -29,13 +27,15 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Firebase not configured" }, { status: 503 });
   }
 
-  const byId = new Map(getFallbackEvents("en").map((e) => [e.id, e]));
-  const events = FACEBOOK_SEED_EVENT_IDS.map((id) => byId.get(id))
-    .filter((e): e is Event => Boolean(e))
-    .map(prepareSeedEvent);
+  const { events, missing, skippedExpired } = resolveSeedEvents(
+    FACEBOOK_SEED_EVENT_IDS,
+  );
 
-  if (events.length !== FACEBOOK_SEED_EVENT_IDS.length) {
-    return NextResponse.json({ error: "Missing fallback seed events" }, { status: 500 });
+  if (missing.length > 0) {
+    return NextResponse.json(
+      { error: "Missing fallback seed events", missing, skippedExpired },
+      { status: 500 },
+    );
   }
 
   const venuesSynced = await syncSeedVenues({ missingOnly: false });
@@ -45,6 +45,7 @@ export async function POST(request: NextRequest) {
     success: true,
     venuesSynced,
     upserted,
+    skippedExpired,
     ids: events.map((e) => e.id),
   });
 }
