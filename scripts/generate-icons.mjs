@@ -34,14 +34,87 @@ async function pngFromLogoFixedSize(width, height, outPath) {
   console.log(`wrote ${outPath.replace(root + "/", "")}`);
 }
 
-/** Cropped colorful "P" mark (no wordmark). */
-async function pMark(size, background = whiteBackground) {
-  const { width, height } = await sharp(logoPath).metadata();
-  const cropHeight = Math.round(height * 0.72);
+const transparentBackground = { r: 0, g: 0, b: 0, alpha: 0 };
+const wordmarkTopY = 320;
+
+/** Tight square crop around the colorful P (excludes the POPEVENT wordmark). */
+async function extractPMarkSquare() {
+  const { data, info } = await sharp(logoPath)
+    .ensureAlpha()
+    .raw()
+    .toBuffer({ resolveWithObject: true });
+  const { width, height } = info;
+
+  let minX = width;
+  let minY = height;
+  let maxX = 0;
+  let maxY = 0;
+
+  for (let y = 0; y < height; y++) {
+    for (let x = 0; x < width; x++) {
+      const i = (y * width + x) * 4;
+      const r = data[i];
+      const g = data[i + 1];
+      const b = data[i + 2];
+      const a = data[i + 3];
+      const max = Math.max(r, g, b);
+      const min = Math.min(r, g, b);
+      const sat = max === 0 ? 0 : (max - min) / max;
+      if (a > 20 && sat > 0.25 && max > 60 && y <= wordmarkTopY) {
+        minX = Math.min(minX, x);
+        maxX = Math.max(maxX, x);
+        minY = Math.min(minY, y);
+        maxY = Math.max(maxY, y);
+      }
+    }
+  }
+
+  const pad = 6;
+  minX = Math.max(0, minX - pad);
+  minY = Math.max(0, minY - pad);
+  maxX = Math.min(width - 1, maxX + pad);
+  maxY = Math.min(wordmarkTopY, maxY + pad);
+
+  const cropWidth = maxX - minX + 1;
+  const cropHeight = maxY - minY + 1;
+  const side = Math.max(cropWidth, cropHeight);
+  const padTop = Math.round((side - cropHeight) / 2);
+  const padLeft = Math.round((side - cropWidth) / 2);
+
   return sharp(logoPath)
-    .extract({ left: 0, top: 0, width, height: cropHeight })
-    .resize(size, size, {
+    .extract({ left: minX, top: minY, width: cropWidth, height: cropHeight })
+    .extend({
+      top: padTop,
+      bottom: side - cropHeight - padTop,
+      left: padLeft,
+      right: side - cropWidth - padLeft,
+      background: transparentBackground,
+    })
+    .png()
+    .toBuffer();
+}
+
+/** Cropped colorful "P" mark (no wordmark), scaled to a square icon. */
+async function pMark(size, background = whiteBackground) {
+  const square = await extractPMarkSquare();
+  const inset = Math.round(size * 0.06);
+  const inner = size - inset * 2;
+  let pipeline = sharp(square);
+
+  if (background.alpha === 1) {
+    pipeline = pipeline.flatten({ background });
+  }
+
+  return pipeline
+    .resize(inner, inner, {
       fit: "contain",
+      background,
+    })
+    .extend({
+      top: inset,
+      bottom: inset,
+      left: inset,
+      right: inset,
       background,
     })
     .png()
@@ -76,12 +149,13 @@ await pwaIconFile(512, "icon-512-maskable.png", { inset: 52 });
 await pngFromLogoFixedSize(184, 166, headerLogoOut);
 
 // Google SERP + browser favicon: square P mark, 48px minimum recommended size.
-const favicon48 = await pMark(48);
+// Keep the logo's dark backdrop (no white letterboxing) for small tab icons.
+const favicon48 = await pMark(48, transparentBackground);
 writeFileSync(join(iconsDir, "icon-48.png"), favicon48);
 console.log("wrote icon-48.png");
 
-const favicon32 = await pMark(32);
-const favicon16 = await pMark(16);
+const favicon32 = await pMark(32, transparentBackground);
+const favicon16 = await pMark(16, transparentBackground);
 writeFileSync(join(appDir, "icon.png"), favicon48);
 console.log("wrote src/app/icon.png");
 
