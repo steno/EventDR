@@ -1,0 +1,39 @@
+name: Weekly marketing digest
+
+on:
+  schedule:
+    # Fridays 13:00 UTC (~9:00 AST) — after weekend events are live
+    - cron: "0 13 * * 5"
+  workflow_dispatch:
+
+jobs:
+  partner-digest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate partner digest (EN / ES / FR)
+        env:
+          SITE_URL: https://pop-event.com
+          CRON_SECRET: ${{ secrets.CRON_SECRET }}
+        run: |
+          if [ -z "$CRON_SECRET" ]; then
+            echo "CRON_SECRET secret not set — add it in repo Settings → Secrets."
+            exit 1
+          fi
+          mkdir -p digests
+          for locale in en es fr; do
+            curl -sS -f \
+              "${SITE_URL}/api/cron/partner-digest?secret=${CRON_SECRET}&locale=${locale}&format=markdown" \
+              -o "digests/weekend-${locale}.md"
+            echo "Wrote digests/weekend-${locale}.md"
+          done
+          curl -sS -f \
+            "${SITE_URL}/api/cron/partner-digest?secret=${CRON_SECRET}" \
+            -o digests/weekend-all.json
+          echo "Wrote digests/weekend-all.json"
+
+      - name: Upload digest artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: weekend-marketing-digests
+          path: digests/
+          retention-days: 30

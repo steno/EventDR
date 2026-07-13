@@ -191,6 +191,7 @@ export type Dictionary = {
     tagline: string;
     builtWith: string;
     searchByBrave: string;
+    partners: string;
   };
   cities: {
     browseTopCategories: string;
@@ -468,6 +469,7 @@ export const en: Dictionary = {
     tagline: "POP Events · North Coast Dominican Republic",
     builtWith: "Built with ❤️ by",
     searchByBrave: "Search by Brave",
+    partners: "For hotels & partners",
   },
   cities: {
     browseTopCategories: "Popular in {city}",

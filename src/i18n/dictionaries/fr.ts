@@ -215,6 +215,7 @@ export const fr: Dictionary = {
     tagline: "POP Events · Côte Nord République dominicaine",
     builtWith: "Fait avec ❤️ par",
     searchByBrave: "Recherche par Brave",
+    partners: "Pour hôtels et partenaires",
   },
   cities: {
     browseTopCategories: "Populaire à {city}",

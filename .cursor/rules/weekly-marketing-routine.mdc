@@ -1,0 +1,47 @@
+---
+description: Weekly POP Events marketing pipeline — ingest, moderate, social, partner digest
+globs:
+alwaysApply: false
+---
+
+# Weekly marketing routine
+
+Run when the user says **weekly marketing**, **content pipeline**, **Sunday routine**, or **Friday digest**.
+
+## Schedule
+
+| When | Action | Automation |
+|------|--------|------------|
+| Sun ~12:00 AST | Event ingest | GitHub: `weekly-event-ingest.yml` |
+| Sun after ingest | Pipeline review | Skill: `pop-content-pipeline` |
+| Fri ~9:00 AST | Digest artifacts | GitHub: `weekly-marketing-digest.yml` |
+| Fri morning | Social + B2B | Skills: `pop-social-weekly`, `pop-weekend-b2b-digest` |
+
+## Sunday checklist
+
+1. Verify ingest Action green (or `POST /api/ingest?secret=CRON_SECRET`)
+2. Moderate at `/en/moderate`
+3. Optional: `facebook-groups-weekly` rule for new Facebook events
+4. Run `pop-content-pipeline` skill — save social drafts
+
+## Friday checklist
+
+1. Download artifact `weekend-marketing-digests` or curl partner-digest API
+2. Post social drafts (`pop-social-weekly`)
+3. Email/WhatsApp B2B copy to partner list (`pop-weekend-b2b-digest`)
+
+## API reference
+
+```
+GET /api/cron/partner-digest?secret=CRON_SECRET
+GET /api/cron/partner-digest?secret=CRON_SECRET&locale=en&format=markdown
+GET /api/cron/partner-digest?secret=CRON_SECRET&locale=es&format=whatsapp
+```
+
+Requires `CRON_SECRET` on Netlify (same as ingest).
+
+## Skills
+
+- `pop-content-pipeline` — full orchestration
+- `pop-social-weekly` — Facebook / Instagram / WhatsApp posts
+- `pop-weekend-b2b-digest` — hotels, agents, tour groups

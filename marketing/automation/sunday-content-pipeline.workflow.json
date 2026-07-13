@@ -1,0 +1,26 @@
+{
+  "name": "Sunday content pipeline",
+  "description": "After weekly ingest: moderate check, partner digest, and social drafts for POP Events (pop-event.com).",
+  "workflow": {
+    "triggers": [
+      {
+        "cron": {
+          "cron": "30 16 * * 0"
+        }
+      }
+    ],
+    "actions": [],
+    "prompts": [
+      "You are the POP Events Sunday content pipeline agent for the EventDR repo (pop-event.com).\n\nFollow skill `pop-content-pipeline` end to end.\n\nSteps:\n1. Check whether GitHub Action \"Weekly event ingest\" succeeded today (use gh cli if available).\n2. Remind to review pending events at https://pop-event.com/en/moderate\n3. Fetch partner digest JSON from production (use CRON_SECRET env if set):\n   curl -sS \"https://pop-event.com/api/cron/partner-digest?secret=$CRON_SECRET\"\n4. Using skill `pop-social-weekly`, write social drafts to marketing/drafts/YYYY-MM-DD-social.md (today's date, EN + ES + FR sections).\n5. Reply with a short summary: weekend event count per locale, top 3 event titles, file path saved, and link to /for-partners for hotel QR codes.\n\nRules: North Coast only. Never invent events — only use digest API data. Do not commit unless explicitly configured; saving the draft file is enough."
+    ],
+    "model": "",
+    "agentOptions": {
+      "skipInstall": false
+    },
+    "memoryEnabled": true,
+    "gitConfig": {
+      "repo": "steno/EventDR",
+      "branch": "main"
+    }
+  }
+}

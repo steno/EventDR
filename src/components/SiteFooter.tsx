@@ -45,6 +45,12 @@ export function SiteFooter({ dict, locale, className = "" }: SiteFooterProps) {
         >
           {dict.time.weekend}
         </Link>
+        <Link
+          href={`/${locale}/for-partners`}
+          className="hover:text-neutral-800 dark:hover:text-neutral-200 transition-colors"
+        >
+          {dict.footer.partners}
+        </Link>
       </nav>
       <p className="text-xs text-neutral-400 dark:text-neutral-500 font-medium">{dict.footer.tagline}</p>
       <p className="text-xs text-neutral-300 dark:text-neutral-600 mt-1">
