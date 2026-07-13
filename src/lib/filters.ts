@@ -45,7 +45,8 @@ function getWeekendRangeISO(now: Date): { start: string; end: string } {
 function withDisplayDate<
   T extends { date: string; endDate?: string },
 >(item: T, dateIso: string): T {
-  return { ...item, date: dateIso, endDate: item.endDate ?? dateIso };
+  // Only shift the occurrence date — keep series endDate for live-status logic.
+  return { ...item, date: dateIso };
 }
 
 function matchesTimeRange<
