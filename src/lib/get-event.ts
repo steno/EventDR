@@ -6,7 +6,7 @@ import { fetchEventById } from "./firebase/events";
 import { attachVenueSlugs, normalizeEventCoords } from "./geo";
 import { applyCuratedEventPatches } from "./curated-events";
 import { attachEventImages } from "./event-images";
-import { withTicketUrl } from "./event-tickets";
+import { withAdmissionMetadata } from "./event-tickets";
 import { attachEventPhones } from "./event-phone";
 import { filterRemovedSeedEvents } from "./removed-seeds";
 import { localizeEventsForDisplay } from "./localized-text";
@@ -19,7 +19,7 @@ function finalizeEvent(event: Event, locale: Locale): Event | null {
   [result] = applyCuratedEventPatches([result]);
   result = normalizeEventCoords(result);
   [result] = attachEventPhones([result]);
-  result = withTicketUrl(result);
+  result = withAdmissionMetadata(result);
   [result] = attachEventImages([result]);
 
   const kept = filterRemovedSeedEvents([result]);

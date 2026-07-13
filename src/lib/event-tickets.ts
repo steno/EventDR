@@ -1,4 +1,4 @@
-import type { Event } from "./types";
+import type { Event, EventCategory } from "./types";
 
 const TICKET_HOSTS = [
   "todotickets.do",
@@ -58,6 +58,200 @@ export const CURATED_TICKET_URLS: Record<string, string> = {
     "https://www.sightseeing.com/packages/outback-safari-adventure-tour-from-puerto-plata/",
 };
 
+/**
+ * Door/admission prices for attractions without online checkout.
+ * Verify on official sites — DR museum fees change occasionally.
+ */
+export const CURATED_ADMISSION_PRICES: Record<string, string> = {
+  // Museums & historic sites (door price)
+  "museo-ambar-weekdays": "RD$250",
+  "museo-ambar-saturday": "RD$250",
+  "sosua-jewish-museum-hours": "RD$100",
+  "fortaleza-san-felipe-daily": "RD$100",
+  "gregorio-luperon-museum": "RD$50",
+  "la-confluencia-museum-daily": "RD$200",
+  "macorix-house-of-rum": "US$8",
+
+  // Adventure & tours (typical walk-up / operator rate)
+  "teleferico-puerto-plata-daily": "RD$350",
+  "hacienda-cufa-cacao-tour": "from RD$400",
+  "fun-city-daily": "from RD$200",
+  "cayo-arena-tours-daily": "from US$55",
+  "sosua-diving-adventures-daily": "from US$35",
+  "liquid-blue-watersports-daily": "from US$25",
+
+  // Factory tours & classes
+  "vivonte-cigar-factory-weekdays": "US$20",
+  "vivonte-cigar-factory-saturday": "US$20",
+  "natura-cabana-yoga-daily": "US$15",
+  "liquid-blue-sunrise-yoga": "from US$15",
+};
+
+const ADMISSION_PRICE_MAX_LEN = 32;
+
+/** Normalize door-price strings from ingest, submit, or curated data. */
+export function normalizeAdmissionPrice(raw: unknown): string | undefined {
+  if (typeof raw !== "string") return undefined;
+  const trimmed = raw.trim().replace(/\s+/g, " ");
+  if (!trimmed || /^free$/i.test(trimmed)) return undefined;
+  if (trimmed.length > ADMISSION_PRICE_MAX_LEN) return undefined;
+
+  const rdRange = trimmed.match(
+    /^(from\s+)?RD\$?\s*([\d.,]+)(?:\s*[-–]\s*(?:RD\$?\s*)?([\d.,]+))?$/i,
+  );
+  if (rdRange) {
+    const [, fromPrefix, low, high] = rdRange;
+    const base = high ? `RD$${low}–${high}` : `RD$${low}`;
+    return fromPrefix ? `from ${base}` : base;
+  }
+
+  const usMatch = trimmed.match(/^(from\s+)?US\$?\s*([\d.,]+)$/i);
+  if (usMatch) {
+    const price = `US$${usMatch[2]}`;
+    return usMatch[1] ? `from ${price}` : price;
+  }
+
+  if (/^\$\s*[\d.,]+/.test(trimmed)) {
+    return `US$${trimmed.replace(/^\$\s*/, "")}`;
+  }
+
+  const dopSuffix = trimmed.match(/^([\d.,]+)\s*(?:RD|DOP)$/i);
+  if (dopSuffix) return `RD$${dopSuffix[1]}`;
+
+  return undefined;
+}
+
+function normalizeIsFree(raw: unknown): boolean | undefined {
+  if (raw === true || raw === "true") return true;
+  if (raw === false || raw === "false") return false;
+  return undefined;
+}
+
+type AdmissionAwareEvent = Pick<
+  Event,
+  "id" | "ticketUrl" | "sourceUrl" | "isFree" | "admissionPrice"
+>;
+
+/** Reconcile ticket links, free flags, and door prices on one event. */
+export function normalizeEventAdmission<T extends AdmissionAwareEvent>(
+  event: T,
+): T {
+  const ticketUrl = resolveTicketUrl(event);
+  const explicitFree = normalizeIsFree(event.isFree);
+  const explicitPrice = normalizeAdmissionPrice(event.admissionPrice);
+  const curatedPrice = CURATED_ADMISSION_PRICES[event.id];
+
+  if (ticketUrl) {
+    return { ...event, ticketUrl, isFree: false, admissionPrice: undefined };
+  }
+  if (explicitFree === true) {
+    return { ...event, isFree: true, admissionPrice: undefined };
+  }
+
+  const admissionPrice = explicitPrice ?? curatedPrice;
+  if (admissionPrice) {
+    return { ...event, isFree: false, admissionPrice };
+  }
+  if (explicitFree === false) {
+    return { ...event, isFree: false };
+  }
+  return event;
+}
+
+export function withAdmissionMetadata<T extends AdmissionAwareEvent>(event: T): T {
+  return normalizeEventAdmission(withTicketUrl(event));
+}
+
+export function attachAdmissionMetadata<T extends AdmissionAwareEvent>(
+  events: T[],
+): T[] {
+  return events.map(withAdmissionMetadata);
+}
+
+const FREE_TEXT_RE =
+  /\b(free admission|free entry|entrada libre|entrada gratuita|entrée gratuite|admission gratuite|free guided|visita gratuita|visite gratuite)\b/i;
+
+const FREE_RECURRING_CATEGORIES = new Set<EventCategory>([
+  "music",
+  "parties",
+  "food-drinks",
+  "sports",
+  "festivals",
+  "dance",
+  "performances",
+  "business",
+  "health-wellness",
+]);
+
+/** Door price when paid at the venue (not online tickets). */
+export function resolveAdmissionPrice(
+  event: Pick<Event, "id" | "admissionPrice" | "isFree">,
+): string | undefined {
+  if (event.isFree) return undefined;
+  const explicit = event.admissionPrice?.trim();
+  if (explicit) return explicit;
+  return CURATED_ADMISSION_PRICES[event.id];
+}
+
+/** Whether to show the free-admission label (no online ticket link). */
+export function isEventFree(
+  event: Pick<
+    Event,
+    | "id"
+    | "title"
+    | "description"
+    | "category"
+    | "ticketUrl"
+    | "sourceUrl"
+    | "recurrence"
+    | "communitySubmitted"
+    | "isFree"
+    | "admissionPrice"
+  >,
+): boolean {
+  if (resolveTicketUrl(event)) return false;
+  if (resolveAdmissionPrice(event)) return false;
+  if (event.isFree === false) return false;
+  if (event.isFree === true) return true;
+  if (event.communitySubmitted) return true;
+
+  const copy = `${event.title} ${event.description}`;
+  if (FREE_TEXT_RE.test(copy)) return true;
+
+  if (event.recurrence && FREE_RECURRING_CATEGORIES.has(event.category)) {
+    return true;
+  }
+
+  return false;
+}
+
+export function showsPaidAdmission(
+  event: Pick<
+    Event,
+    | "id"
+    | "ticketUrl"
+    | "sourceUrl"
+    | "isFree"
+    | "admissionPrice"
+    | "title"
+    | "description"
+    | "category"
+    | "recurrence"
+    | "communitySubmitted"
+  >,
+): boolean {
+  if (resolveTicketUrl(event)) return false;
+  if (isEventFree(event)) return false;
+  return resolveAdmissionPrice(event) != null || event.isFree === false;
+}
+
+export function formatPaidAdmissionLabel(
+  price: string,
+  dict: { detail: { paidAdmission: string } },
+): string {
+  return dict.detail.paidAdmission.replace("{price}", price);
+}
+
 /** Whether a URL points at an online ticket checkout page. */
 export function isTicketSalesUrl(url: string): boolean {
   try {
@@ -95,8 +289,6 @@ export function withTicketUrl<T extends Pick<Event, "id" | "ticketUrl" | "source
   return ticketUrl ? { ...event, ticketUrl } : event;
 }
 
-export function attachTicketUrls<T extends Pick<Event, "id" | "ticketUrl" | "sourceUrl">>(
-  events: T[],
-): (T & { ticketUrl?: string })[] {
-  return events.map(withTicketUrl);
+export function attachTicketUrls<T extends AdmissionAwareEvent>(events: T[]): T[] {
+  return attachAdmissionMetadata(events);
 }

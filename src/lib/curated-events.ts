@@ -12,6 +12,9 @@ type CuratedPatch = Partial<
   recurrence?: Event["recurrence"] | null;
   recurrenceDay?: Event["recurrenceDay"] | null;
   recurrenceDays?: Event["recurrenceDays"] | null;
+  isFree?: Event["isFree"] | null;
+  admissionPrice?: Event["admissionPrice"] | null;
+  ticketUrl?: Event["ticketUrl"] | null;
 };
 
 /** Stable id patches (preferred over title key). */
@@ -27,6 +30,7 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     venueSlug: "plaza-independencia",
     address: "Calle San Felipe, Puerto Plata",
     location: "Puerto Plata",
+    isFree: true,
   },
   "cabarete-pilates-reformer": {
     venue: "Rafaella's Studio",
@@ -42,9 +46,117 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
       },
     },
   },
+  "museo-ambar-weekdays": {
+    isFree: false,
+    admissionPrice: "RD$250",
+  },
+  "museo-ambar-saturday": {
+    isFree: false,
+    admissionPrice: "RD$250",
+  },
+  "sosua-jewish-museum-hours": {
+    isFree: false,
+    admissionPrice: "RD$100",
+  },
+  "fortaleza-san-felipe-daily": {
+    isFree: false,
+    admissionPrice: "RD$100",
+  },
+  "gregorio-luperon-museum": {
+    isFree: false,
+    admissionPrice: "RD$50",
+  },
+  "la-confluencia-museum-daily": {
+    isFree: false,
+    admissionPrice: "RD$200",
+  },
+  "rum-legacy-museum-daily": {
+    isFree: true,
+  },
+  "macorix-house-of-rum": {
+    isFree: false,
+    admissionPrice: "US$8",
+  },
+  "teleferico-puerto-plata-daily": {
+    isFree: false,
+    admissionPrice: "RD$350",
+  },
+  "hacienda-cufa-cacao-tour": {
+    isFree: false,
+    admissionPrice: "from RD$400",
+  },
+  "fun-city-daily": {
+    isFree: false,
+    admissionPrice: "from RD$200",
+  },
+  "cayo-arena-tours-daily": {
+    isFree: false,
+    admissionPrice: "from US$55",
+  },
+  "sosua-diving-adventures-daily": {
+    isFree: false,
+    admissionPrice: "from US$35",
+  },
+  "liquid-blue-watersports-daily": {
+    isFree: false,
+    admissionPrice: "from US$25",
+  },
+  "vivonte-cigar-factory-weekdays": {
+    isFree: false,
+    admissionPrice: "US$20",
+  },
+  "vivonte-cigar-factory-saturday": {
+    isFree: false,
+    admissionPrice: "US$20",
+  },
+  "natura-cabana-yoga-daily": {
+    isFree: false,
+    admissionPrice: "US$15",
+  },
+  "liquid-blue-sunrise-yoga": {
+    isFree: false,
+    admissionPrice: "from US$15",
+  },
+  "brugal-rum-center-weekdays": {
+    isFree: true,
+  },
+  "brugal-corporate-tours": {
+    isFree: true,
+  },
+  "del-oro-chocolate-factory-weekdays": {
+    isFree: true,
+  },
+  "del-oro-chocolate-factory-saturday": {
+    isFree: true,
+  },
+  "tabacalera-cremo-factory-tour": {
+    isFree: true,
+  },
+  "paseo-dona-blanca-daily": {
+    isFree: true,
+  },
+  "calle-sombrillas-daily": {
+    isFree: true,
+  },
+  "sea-horse-saturday-market": {
+    isFree: true,
+  },
+  "sea-horse-saturday-artisan-fair": {
+    isFree: true,
+  },
+  "casa-de-la-cultura-exhibitions": {
+    isFree: true,
+  },
+  "handmade-the-brand": {
+    isFree: true,
+  },
+  "kite-beach-daily": {
+    isFree: true,
+  },
+  "malecon-kiosks-daily": {
+    isFree: true,
+  },
 };
-
-/** Title-based patches for known North Coast events (any ingest id). */
 const CURATED_EVENT_PATCHES: Record<string, CuratedPatch> = {
   "18th-annual-cabarete-butterfly-effect": {
     sourceUrl: "https://www.cabaretebutterflyeffect.com/",

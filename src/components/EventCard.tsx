@@ -10,7 +10,6 @@ import type { Locale } from "@/i18n/config";
 import { eventDetailPath } from "@/lib/event-navigation";
 import { EventCallLink } from "@/components/EventCallLink";
 import { useLiveStatusDisplay } from "@/hooks/useLiveStatusDisplay";
-import { EventStatusBadge } from "@/components/EventStatusBadge";
 import type { TimeRange } from "@/lib/filters";
 
 interface EventCardProps {
@@ -81,13 +80,6 @@ const EventCardComponent = ({
             <h3 className="font-bold text-neutral-900 dark:text-neutral-100 text-[1.0625rem] leading-[1.3] line-clamp-2 flex-1">
               {event.title}
             </h3>
-            {liveStatusLabel && liveStatus && (
-              <EventStatusBadge
-                label={liveStatusLabel}
-                status={liveStatus}
-                className="flex-shrink-0"
-              />
-            )}
             {event.trending && !liveStatusLabel && (
               <span className="flex-shrink-0 inline-flex items-center gap-0.5 rounded-full bg-orange-50 dark:bg-orange-950/50 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-orange-600">
                 <Flame className="h-3.5 w-3.5" />
@@ -107,6 +99,8 @@ const EventCardComponent = ({
             locale={locale}
             dict={dict}
             compact={compact}
+            liveStatus={liveStatus}
+            liveStatusLabel={liveStatusLabel}
           />
         </div>
       </div>

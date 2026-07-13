@@ -1,4 +1,4 @@
-import { createCommunityEvent, getSubmitValidationError } from "@/lib/community-store";
+import { createCommunityEvent, getSubmitValidationError, type SubmitAdmissionKind } from "@/lib/community-store";
 import { insertPendingEvent } from "@/lib/firebase/events";
 import { isFirebaseConfigured } from "@/lib/firebase/admin";
 import { addToPool } from "@/lib/cache";
@@ -11,6 +11,7 @@ import { CATEGORY_IDS } from "@/lib/categories";
 import { getDictionary } from "@/i18n/dictionaries";
 import { NextRequest, NextResponse } from "next/server";
 import { uploadEventImage } from "@/lib/firebase/images";
+import { normalizeAdmissionPrice } from "@/lib/event-tickets";
 
 export const dynamic = "force-dynamic";
 
@@ -32,6 +33,7 @@ export async function POST(request: NextRequest) {
         format: dict.submit.error,
         recurrence: dict.submit.error,
         image: dict.submit.validationImage,
+        admission: dict.submit.validationAdmission,
         invalid: dict.submit.error,
       };
       return NextResponse.json(
@@ -39,6 +41,16 @@ export async function POST(request: NextRequest) {
         { status: 400 },
       );
     }
+
+    const admissionKind = (body.admissionKind ?? "") as SubmitAdmissionKind;
+    const admissionPrice =
+      admissionKind === "paid"
+        ? normalizeAdmissionPrice(body.admissionPrice)
+        : undefined;
+    const ticketUrl =
+      admissionKind === "tickets" && typeof body.ticketUrl === "string"
+        ? body.ticketUrl.trim()
+        : undefined;
 
     let event = createCommunityEvent({
       title: body.title,
@@ -61,6 +73,9 @@ export async function POST(request: NextRequest) {
       recurrenceDay: body.recurrenceDay,
       recurrenceDays: body.recurrenceDays,
       imageUrl: !isFirebaseConfigured() ? body.imageDataUrl : undefined,
+      isFree: admissionKind === "free" ? true : admissionKind ? false : undefined,
+      admissionPrice,
+      ticketUrl,
     });
 
     const venueSlug = matchVenueSlug(body.venue) ?? matchVenueSlug(body.location);

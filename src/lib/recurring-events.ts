@@ -1205,7 +1205,7 @@ const RECURRING_EN: Event[] = [
     id: "rum-legacy-museum-daily",
     title: "Rum Legacy Museum & Shop Experience",
     description:
-      "Immersive audio-guided museum in Puerto Plata's historic center (opened Feb 2026) — Dominican rum from sugarcane and fermentation to a guided tasting. Calle Beller #11A; open daily 9:30 AM–4:30 PM.",
+      "Immersive audio-guided museum in Puerto Plata's historic center (opened Feb 2026) — Dominican rum from sugarcane and fermentation to a guided tasting. Free admission; tips welcome. Calle Beller #11A; open daily 9:30 AM–4:30 PM.",
     date: "2026-01-01",
     time: "9:30 AM – 4:30 PM",
     location: "Puerto Plata",
@@ -2530,7 +2530,7 @@ const RECURRING_ES: Event[] = [
     id: "rum-legacy-museum-daily",
     title: "Rum Legacy Museum & Shop Experience",
     description:
-      "Museo inmersivo con audioguía en el centro histórico de Puerto Plata (inaugurado feb. 2026) — del ron dominicano desde la caña hasta la degustación guiada. Calle Beller #11A; abierto diario 9:30 AM–4:30 PM.",
+      "Museo inmersivo con audioguía en el centro histórico de Puerto Plata (inaugurado feb. 2026) — del ron dominicano desde la caña hasta la degustación guiada. Entrada gratuita; propinas bienvenidas. Calle Beller #11A; abierto diario 9:30 AM–4:30 PM.",
     date: "2026-01-01",
     time: "9:30 AM – 4:30 PM",
     location: "Puerto Plata",
@@ -3855,7 +3855,7 @@ const RECURRING_FR: Event[] = [
     id: "rum-legacy-museum-daily",
     title: "Rum Legacy Museum & Shop Experience",
     description:
-      "Musée immersif avec audioguide dans le centre historique de Puerto Plata (ouverture fév. 2026) — du rhum dominicain de la canne à la dégustation guidée. Calle Beller #11A ; ouvert tous les jours 9 h 30–16 h 30.",
+      "Musée immersif avec audioguide dans le centre historique de Puerto Plata (ouverture fév. 2026) — du rhum dominicain de la canne à la dégustation guidée. Entrée gratuite ; pourboires appréciés. Calle Beller #11A ; ouvert tous les jours 9 h 30–16 h 30.",
     date: "2026-01-01",
     time: "9:30 AM – 4:30 PM",
     location: "Puerto Plata",

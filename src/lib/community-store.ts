@@ -3,6 +3,7 @@ import { CATEGORY_IDS } from "./categories";
 import type { EventCategory, EventRecurrence } from "./types";
 import { withResolvedCategories } from "./categorize";
 import { parseImageDataUrl } from "./image-data-url";
+import { normalizeAdmissionPrice } from "./event-tickets";
 
 const SEED_COMMUNITY: Event[] = [
   {
@@ -51,6 +52,8 @@ export function addCommunityEvent(event: Event): Event {
   return event;
 }
 
+export type SubmitAdmissionKind = "" | "free" | "paid" | "tickets";
+
 export function isValidSubmitPayload(body: unknown): body is {
   title: string;
   description: string;
@@ -64,6 +67,9 @@ export function isValidSubmitPayload(body: unknown): body is {
   recurrenceDay?: number;
   recurrenceDays?: number[];
   imageDataUrl?: string;
+  admissionKind?: SubmitAdmissionKind;
+  admissionPrice?: string;
+  ticketUrl?: string;
 } {
   return getSubmitValidationError(body) === null;
 }
@@ -77,6 +83,7 @@ export type SubmitValidationError =
   | "format"
   | "recurrence"
   | "image"
+  | "admission"
   | "invalid";
 
 const SUBMIT_RECURRENCE_VALUES = new Set([
@@ -140,6 +147,25 @@ export function getSubmitValidationError(body: unknown): SubmitValidationError |
   if (b.imageDataUrl !== undefined && !parseImageDataUrl(b.imageDataUrl)) {
     return "image";
   }
+
+  const admissionKind = typeof b.admissionKind === "string" ? b.admissionKind : "";
+  if (!["", "free", "paid", "tickets"].includes(admissionKind)) {
+    return "admission";
+  }
+  if (admissionKind === "paid") {
+    if (
+      typeof b.admissionPrice !== "string" ||
+      !normalizeAdmissionPrice(b.admissionPrice)
+    ) {
+      return "admission";
+    }
+  }
+  if (admissionKind === "tickets") {
+    if (typeof b.ticketUrl !== "string" || !/^https?:\/\//i.test(b.ticketUrl.trim())) {
+      return "admission";
+    }
+  }
+
   return null;
 }
 
@@ -157,6 +183,9 @@ export function createCommunityEvent(payload: {
   recurrenceDay?: number;
   recurrenceDays?: number[];
   imageUrl?: string;
+  isFree?: boolean;
+  admissionPrice?: string;
+  ticketUrl?: string;
 }): Event {
   const slug = payload.title
     .toLowerCase()
@@ -178,6 +207,9 @@ export function createCommunityEvent(payload: {
     recurrenceDay: payload.recurrenceDay,
     recurrenceDays: payload.recurrenceDays,
     imageUrl: payload.imageUrl,
+    isFree: payload.isFree,
+    admissionPrice: payload.admissionPrice,
+    ticketUrl: payload.ticketUrl,
     communitySubmitted: true,
     imageEmoji: "📌",
   });

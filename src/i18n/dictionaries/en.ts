@@ -119,6 +119,9 @@ export type Dictionary = {
     community: string;
     viewVenue: string;
     buyTickets: string;
+    freeAdmission: string;
+    paidAdmission: string;
+    paidAdmissionUnknown: string;
     call: string;
     close: string;
     shared: string;
@@ -158,6 +161,14 @@ export type Dictionary = {
     recurrenceDays: string;
     image: string;
     imageHint: string;
+    admission: string;
+    admissionUnspecified: string;
+    admissionFree: string;
+    admissionPaid: string;
+    admissionTickets: string;
+    admissionPrice: string;
+    admissionPriceHint: string;
+    admissionTicketUrl: string;
     button: string;
     createEvent: string;
     success: string;
@@ -170,6 +181,7 @@ export type Dictionary = {
     validationDate: string;
     validationLocation: string;
     validationImage: string;
+    validationAdmission: string;
   };
   saved: {
     title: string;
@@ -396,6 +408,9 @@ export const en: Dictionary = {
     community: "Shared by the community",
     viewVenue: "View venue",
     buyTickets: "Buy tickets",
+    freeAdmission: "Free admission",
+    paidAdmission: "Admission: {price}",
+    paidAdmissionUnknown: "Paid admission",
     call: "Call",
     close: "Close",
     shared: "Shared!",
@@ -437,6 +452,14 @@ export const en: Dictionary = {
     recurrenceDays: "Repeat days",
     image: "Event image",
     imageHint: "Optional JPG, PNG, or WebP. Max 1 MB.",
+    admission: "Admission",
+    admissionUnspecified: "Not specified",
+    admissionFree: "Free",
+    admissionPaid: "Paid at the door",
+    admissionTickets: "Tickets online",
+    admissionPrice: "Door price",
+    admissionPriceHint: "e.g. RD$250",
+    admissionTicketUrl: "Ticket link",
     button: "Publish event",
     createEvent: "Create an event",
     success: "Published! It's live for everyone.",
@@ -450,6 +473,8 @@ export const en: Dictionary = {
     validationDate: "Please pick a valid date.",
     validationLocation: "Location needs at least 2 characters (city or area).",
     validationImage: "Image must be a JPG, PNG, or WebP under 1 MB.",
+    validationAdmission:
+      "Add a door price (e.g. RD$250) or a valid ticket URL when admission is set.",
   },
   saved: {
     title: "Saved events",

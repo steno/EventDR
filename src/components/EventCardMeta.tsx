@@ -7,6 +7,8 @@ import { formatEventDateRange } from "@/lib/format-date";
 import { formatRecurrenceLabel } from "@/lib/recurrence-label";
 import { formatEventPlace } from "@/lib/event-location";
 import { EventCategoryLinks } from "@/components/EventCategoryLinks";
+import { EventStatusBadge } from "@/components/EventStatusBadge";
+import type { EventLiveStatus } from "@/lib/event-status";
 
 interface EventCardMetaProps {
   event: Event;
@@ -14,6 +16,8 @@ interface EventCardMetaProps {
   dict: Dictionary;
   className?: string;
   compact?: boolean;
+  liveStatus?: EventLiveStatus | null;
+  liveStatusLabel?: string | null;
 }
 
 function MetaRow({
@@ -31,7 +35,27 @@ function MetaRow({
   );
 }
 
-export function EventCardMeta({ event, locale, dict, className = "", compact = false }: EventCardMetaProps) {
+function RecurrencePill({ label, compact }: { label: string; compact?: boolean }) {
+  return (
+    <span
+      className={`inline-flex items-center rounded-full bg-orange-50 dark:bg-orange-950/50 font-bold leading-none text-orange-600 ${
+        compact ? "px-2 py-0.5 text-[10px]" : "px-2.5 py-0.5 text-[11px]"
+      }`}
+    >
+      {label}
+    </span>
+  );
+}
+
+export function EventCardMeta({
+  event,
+  locale,
+  dict,
+  className = "",
+  compact = false,
+  liveStatus = null,
+  liveStatusLabel = null,
+}: EventCardMetaProps) {
   const recurrenceLabel = formatRecurrenceLabel(event, locale, dict);
   const dateLabel = formatEventDateRange(event.date, locale, {
     endDate: event.endDate,
@@ -40,9 +64,18 @@ export function EventCardMeta({ event, locale, dict, className = "", compact = f
   if (compact) {
     return (
       <div className={`space-y-1.5 text-copy-meta font-medium text-neutral-600 dark:text-neutral-400 ${className}`}>
-        <span className="inline-flex items-center gap-1.5">
-          <Calendar className="h-3.5 w-3.5 shrink-0" aria-hidden />
-          {dateLabel}
+        <span className="inline-flex flex-wrap items-center gap-x-2 gap-y-1">
+          <span className="inline-flex items-center gap-1.5">
+            <Calendar className="h-3.5 w-3.5 shrink-0" aria-hidden />
+            {dateLabel}
+          </span>
+          {liveStatusLabel && liveStatus && (
+            <EventStatusBadge
+              label={liveStatusLabel}
+              status={liveStatus}
+              className="py-0.5"
+            />
+          )}
         </span>
         {(event.time || recurrenceLabel) && (
           <span className="inline-flex flex-wrap items-center gap-x-2 gap-y-1">
@@ -53,9 +86,7 @@ export function EventCardMeta({ event, locale, dict, className = "", compact = f
               </span>
             )}
             {recurrenceLabel && (
-              <span className="inline-flex items-center rounded-full bg-orange-50 dark:bg-orange-950/50 px-2 py-0.5 text-[10px] font-bold leading-none text-orange-600">
-                {recurrenceLabel}
-              </span>
+              <RecurrencePill label={recurrenceLabel} compact />
             )}
           </span>
         )}
@@ -70,18 +101,21 @@ export function EventCardMeta({ event, locale, dict, className = "", compact = f
           <Calendar className="h-4 w-4 shrink-0 text-neutral-500 dark:text-neutral-400" />
           {dateLabel}
         </span>
-        {event.time && (
-          <span className="inline-flex items-center gap-2 text-copy-meta font-medium text-neutral-800 dark:text-neutral-200">
-            <Clock className="h-4 w-4 shrink-0 text-neutral-500 dark:text-neutral-400" />
-            {event.time}
-          </span>
-        )}
-        {recurrenceLabel && (
-          <span className="inline-flex items-center rounded-full bg-orange-50 dark:bg-orange-950/50 px-2.5 py-0.5 text-[11px] font-bold leading-none text-orange-600">
-            {recurrenceLabel}
-          </span>
+        {liveStatusLabel && liveStatus && (
+          <EventStatusBadge label={liveStatusLabel} status={liveStatus} />
         )}
       </div>
+      {(event.time || recurrenceLabel) && (
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5">
+          {event.time && (
+            <span className="inline-flex items-center gap-2 text-copy-meta font-medium text-neutral-800 dark:text-neutral-200">
+              <Clock className="h-4 w-4 shrink-0 text-neutral-500 dark:text-neutral-400" />
+              {event.time}
+            </span>
+          )}
+          {recurrenceLabel && <RecurrencePill label={recurrenceLabel} />}
+        </div>
+      )}
       <EventCategoryLinks
         event={event}
         locale={locale}

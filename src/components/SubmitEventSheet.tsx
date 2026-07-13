@@ -6,7 +6,7 @@ import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import type { Event, EventCategory, EventFormat, EventRecurrence } from "@/lib/types";
 import { CATEGORY_IDS } from "@/lib/categories";
-import { getSubmitValidationError } from "@/lib/community-store";
+import { getSubmitValidationError, type SubmitAdmissionKind } from "@/lib/community-store";
 import { isAcceptedImageFile, parseImageDataUrl } from "@/lib/image-data-url";
 
 interface SubmitEventSheetProps {
@@ -40,6 +40,9 @@ export function SubmitEventSheet({
   const [format, setFormat] = useState<EventFormat>("physical");
   const [recurrence, setRecurrence] = useState<"none" | EventRecurrence>("none");
   const [recurrenceDays, setRecurrenceDays] = useState<number[]>([]);
+  const [admissionKind, setAdmissionKind] = useState<SubmitAdmissionKind>("");
+  const [admissionPrice, setAdmissionPrice] = useState("");
+  const [ticketUrl, setTicketUrl] = useState("");
   const [imageDataUrl, setImageDataUrl] = useState<string | undefined>();
   const [imageName, setImageName] = useState("");
   const [loading, setLoading] = useState(false);
@@ -84,6 +87,9 @@ export function SubmitEventSheet({
       recurrence: recurrence === "none" ? undefined : recurrence,
       recurrenceDays: selectedRecurrenceDays,
       imageDataUrl,
+      admissionKind,
+      admissionPrice: admissionKind === "paid" ? admissionPrice : undefined,
+      ticketUrl: admissionKind === "tickets" ? ticketUrl : undefined,
     };
 
     const validationError = getSubmitValidationError(payload);
@@ -97,6 +103,7 @@ export function SubmitEventSheet({
         format: dict.submit.error,
         recurrence: dict.submit.error,
         image: dict.submit.validationImage,
+        admission: dict.submit.validationAdmission,
         invalid: dict.submit.error,
       };
       setErrorMessage(messages[validationError] ?? dict.submit.error);
@@ -139,6 +146,9 @@ export function SubmitEventSheet({
         setVenue("");
         setRecurrence("none");
         setRecurrenceDays([]);
+        setAdmissionKind("");
+        setAdmissionPrice("");
+        setTicketUrl("");
         setImageDataUrl(undefined);
         setImageName("");
         onClose();
@@ -393,6 +403,60 @@ export function SubmitEventSheet({
                     })}
                   </div>
                 </div>
+              )}
+            </div>
+
+            <div className="rounded-2xl border border-neutral-100 dark:border-neutral-800 bg-neutral-50/70 dark:bg-neutral-800/50 p-3">
+              <label className="block">
+                <span className="text-xs font-bold text-neutral-500 dark:text-neutral-400 uppercase tracking-wide">
+                  {dict.submit.admission} ({dict.submit.optional})
+                </span>
+                <select
+                  value={admissionKind}
+                  onChange={(e) => {
+                    const value = e.target.value as SubmitAdmissionKind;
+                    setAdmissionKind(value);
+                    if (value !== "paid") setAdmissionPrice("");
+                    if (value !== "tickets") setTicketUrl("");
+                  }}
+                  className={`${inputClass} mt-1.5 bg-white dark:bg-neutral-900`}
+                >
+                  <option value="">{dict.submit.admissionUnspecified}</option>
+                  <option value="free">{dict.submit.admissionFree}</option>
+                  <option value="paid">{dict.submit.admissionPaid}</option>
+                  <option value="tickets">{dict.submit.admissionTickets}</option>
+                </select>
+              </label>
+
+              {admissionKind === "paid" && (
+                <label className="mt-3 block">
+                  <span className="text-xs font-bold text-neutral-500 dark:text-neutral-400 uppercase tracking-wide">
+                    {dict.submit.admissionPrice}
+                  </span>
+                  <input
+                    required
+                    value={admissionPrice}
+                    onChange={(e) => setAdmissionPrice(e.target.value)}
+                    placeholder={dict.submit.admissionPriceHint}
+                    className={`${inputClass} mt-1.5 bg-white dark:bg-neutral-900`}
+                  />
+                </label>
+              )}
+
+              {admissionKind === "tickets" && (
+                <label className="mt-3 block">
+                  <span className="text-xs font-bold text-neutral-500 dark:text-neutral-400 uppercase tracking-wide">
+                    {dict.submit.admissionTicketUrl}
+                  </span>
+                  <input
+                    required
+                    type="url"
+                    value={ticketUrl}
+                    onChange={(e) => setTicketUrl(e.target.value)}
+                    placeholder="https://todotickets.do/events/..."
+                    className={`${inputClass} mt-1.5 bg-white dark:bg-neutral-900`}
+                  />
+                </label>
               )}
             </div>
 

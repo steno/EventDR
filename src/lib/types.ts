@@ -62,6 +62,10 @@ export interface Event {
   sourceUrl?: string;
   /** Online ticket purchase page when different from sourceUrl. */
   ticketUrl?: string;
+  /** No admission charge — show free label when there is no ticket link. */
+  isFree?: boolean;
+  /** Display-ready admission price when paid at the door (e.g. "RD$250"). */
+  admissionPrice?: string;
   imageEmoji?: string;
   imageUrl?: string;
   /** Named performers when announced in the source. */

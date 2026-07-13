@@ -6,7 +6,7 @@ import { inferCategory, withResolvedCategories } from "./categorize";
 import { filterNorthCoastUpcomingEvents, localDateISO } from "./event-dates";
 import { normalizeEventLineup, normalizeLineup } from "./event-lineup";
 import { normalizeExtractedEvents } from "./event-location";
-import { withTicketUrl } from "./event-tickets";
+import { withAdmissionMetadata } from "./event-tickets";
 
 const VALID_CATEGORIES = new Set(CATEGORY_IDS);
 
@@ -72,7 +72,7 @@ function parseEventsHeuristic(
             }),
           );
           const last = events[events.length - 1];
-          if (last) events[events.length - 1] = withTicketUrl(last);
+          if (last) events[events.length - 1] = withAdmissionMetadata(last);
         }
         buffer = [];
       }
@@ -121,6 +121,8 @@ Return ONLY valid JSON: an array of event objects. Each object must have:
 - trending (boolean, true for popular events)
 - sourceUrl (optional URL from source)
 - ticketUrl (optional ticket purchase URL — use the todotickets.do /events/... or eventbrite checkout link when present; omit for free/community events)
+- isFree (optional boolean — true only when the source explicitly says admission is free; false when paid at the door without online tickets; omit when unknown)
+- admissionPrice (optional door price when stated in the source — use formats like "RD$250", "US$5", or "RD$50–100"; omit when free, online tickets only, or unknown)
 - lineup (optional array of performer/artist names — only when explicitly named in the source; omit if unknown or TBA)
 - imageEmoji (single emoji matching category)
 
@@ -164,7 +166,7 @@ ${rawContent.slice(0, 18000)}`;
   try {
     const parsed = JSON.parse(content) as { events?: Event[] };
     return (parsed.events ?? []).map((e, i) =>
-      withTicketUrl(
+      withAdmissionMetadata(
         withResolvedCategories(
           normalizeEventLineup({
             ...e,

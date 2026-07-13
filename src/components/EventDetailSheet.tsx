@@ -16,6 +16,8 @@ import {
   Phone,
   Ticket,
   Users,
+  BadgeCheck,
+  CircleDollarSign,
 } from "lucide-react";
 import type { Event } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
@@ -34,7 +36,13 @@ import { EventImage } from "@/components/EventImage";
 import { EventDetailMedia, hasEventDetailHero } from "@/components/EventDetailMedia";
 import { resolveEventCoords } from "@/lib/event-coords";
 import { formatEventPlace } from "@/lib/event-location";
-import { resolveTicketUrl } from "@/lib/event-tickets";
+import {
+  resolveTicketUrl,
+  isEventFree,
+  resolveAdmissionPrice,
+  showsPaidAdmission,
+  formatPaidAdmissionLabel,
+} from "@/lib/event-tickets";
 import { EventCallLink } from "@/components/EventCallLink";
 import { useSwipeToDismiss } from "@/hooks/useSwipeToDismiss";
 
@@ -124,6 +132,12 @@ export function EventDetailSheet({
   const isPhysical = event.format !== "digital";
   const showBottomDirections = isPhysical && !hasMapCoords;
   const ticketUrl = resolveTicketUrl(event);
+  const showFreeAdmission = !ticketUrl && isEventFree(event);
+  const admissionPrice = resolveAdmissionPrice(event);
+  const showPaidAdmission = showsPaidAdmission(event);
+  const paidAdmissionLabel = admissionPrice
+    ? formatPaidAdmissionLabel(admissionPrice, dict)
+    : dict.detail.paidAdmissionUnknown;
 
   const iconActionClass =
     "flex h-12 w-full items-center justify-center rounded-full touch-manipulation transition-all active:scale-[0.98]";
@@ -196,16 +210,20 @@ export function EventDetailSheet({
           {liveStatusLabel && liveStatus && (
             <EventStatusBadge label={liveStatusLabel} status={liveStatus} />
           )}
-          {recurrenceLabel && (
-            <span className="inline-flex shrink-0 rounded-full bg-orange-50 dark:bg-orange-950/50 px-2.5 py-0.5 text-[11px] font-bold leading-none text-orange-600">
-              {recurrenceLabel}
-            </span>
-          )}
         </div>
-        {event.time && (
-          <div className="flex items-center gap-2.5 text-copy-meta text-neutral-800 dark:text-neutral-200">
-            <Clock className="h-[1.125rem] w-[1.125rem] shrink-0 text-neutral-500 dark:text-neutral-400" />
-            <span className="font-medium">{event.time}</span>
+        {(event.time || recurrenceLabel) && (
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-copy-meta text-neutral-800 dark:text-neutral-200">
+            {event.time && (
+              <span className="inline-flex items-center gap-2.5">
+                <Clock className="h-[1.125rem] w-[1.125rem] shrink-0 text-neutral-500 dark:text-neutral-400" />
+                <span className="font-medium">{event.time}</span>
+              </span>
+            )}
+            {recurrenceLabel && (
+              <span className="inline-flex shrink-0 rounded-full bg-orange-50 dark:bg-orange-950/50 px-2.5 py-0.5 text-[11px] font-bold leading-none text-orange-600">
+                {recurrenceLabel}
+              </span>
+            )}
           </div>
         )}
         {isPhysical ? (
@@ -260,6 +278,24 @@ export function EventDetailSheet({
             <Ticket className="h-4 w-4" aria-hidden />
             {dict.detail.buyTickets}
           </a>
+        )}
+        {showFreeAdmission && (
+          <div
+            className="mt-1 flex w-full items-center justify-center gap-2 rounded-2xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-bold text-emerald-700 dark:border-emerald-900/60 dark:bg-emerald-950/40 dark:text-emerald-300"
+            role="status"
+          >
+            <BadgeCheck className="h-4 w-4 shrink-0" aria-hidden />
+            {dict.detail.freeAdmission}
+          </div>
+        )}
+        {showPaidAdmission && (
+          <div
+            className="mt-1 flex w-full items-center justify-center gap-2 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm font-bold text-amber-900 dark:border-amber-900/60 dark:bg-amber-950/40 dark:text-amber-200"
+            role="status"
+          >
+            <CircleDollarSign className="h-4 w-4 shrink-0" aria-hidden />
+            {paidAdmissionLabel}
+          </div>
         )}
       </div>
     </>
