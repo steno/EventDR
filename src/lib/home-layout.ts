@@ -2,13 +2,9 @@ import { localDateISO } from "@/lib/event-dates";
 import type { Event, Venue } from "@/lib/types";
 import { SEED_VENUES } from "@/lib/venues-seed";
 import {
-  getEventDurationMinutes,
   getEventLiveStatus,
   happensOnLocalDate,
   isEventActiveToday,
-  isMultiDayEvent,
-  isRecurringEvent,
-  parseEventTimeWindow,
 } from "@/lib/event-status";
 import type { TimeRange } from "@/lib/filters";
 
@@ -24,44 +20,14 @@ export const SCOPE_LIST_LIMIT = HOME_PICKS_LIMIT;
 /** Max venues in the home "Popular venues" strip. */
 export const HOME_VENUE_LIMIT = 6;
 
-function todayHighlightSortRank(event: Event): number {
+const STATUS_TIER_ORDER = [0, 1, 2, 3] as const;
+
+function todayHighlightStatusRank(event: Event): number {
   const status = getEventLiveStatus(event);
   if (status === "live") return 0;
   if (status === "upcoming") return 1;
   if (status === "closedToday") return 2;
   return 3;
-}
-
-function todayHighlightKindRank(event: Event): number {
-  if (isRecurringEvent(event)) return 2;
-  if (isMultiDayEvent(event)) return 1;
-  return 0;
-}
-
-function compareTodayHighlights(a: Event, b: Event): number {
-  const kindA = todayHighlightKindRank(a);
-  const kindB = todayHighlightKindRank(b);
-  if (kindA !== kindB) return kindA - kindB;
-
-  const rankA = todayHighlightSortRank(a);
-  const rankB = todayHighlightSortRank(b);
-  if (rankA !== rankB) return rankA - rankB;
-
-  const trendingA = a.trending ? 0 : 1;
-  const trendingB = b.trending ? 0 : 1;
-  if (trendingA !== trendingB) return trendingA - trendingB;
-
-  const durationA = getEventDurationMinutes(a.time);
-  const durationB = getEventDurationMinutes(b.time);
-  if (durationA !== durationB) return durationA - durationB;
-
-  const startA = parseEventTimeWindow(a.time)?.start ?? 0;
-  const startB = parseEventTimeWindow(b.time)?.start ?? 0;
-  return startA - startB;
-}
-
-function todayHighlightTierKey(event: Event): string {
-  return `${todayHighlightKindRank(event)}:${todayHighlightSortRank(event)}`;
 }
 
 function hashString(seed: string): number {
@@ -85,26 +51,23 @@ function seededShuffle<T>(items: T[], seed: string): T[] {
   return arr;
 }
 
-/** Preserve priority tiers, shuffle peers so the carousel changes daily. */
+/** Live/upcoming first; shuffle the full pool within each status tier. */
 function shuffleTodayHighlightsWithinTiers(
   events: Event[],
-  daySeed: string,
+  shuffleSeed: string,
 ): Event[] {
-  const sorted = [...events].sort(compareTodayHighlights);
-  const tierOrder: string[] = [];
-  const byTier = new Map<string, Event[]>();
+  const byStatus = new Map<number, Event[]>();
 
-  for (const event of sorted) {
-    const tier = todayHighlightTierKey(event);
-    if (!byTier.has(tier)) {
-      tierOrder.push(tier);
-      byTier.set(tier, []);
-    }
-    byTier.get(tier)!.push(event);
+  for (const event of events) {
+    const rank = todayHighlightStatusRank(event);
+    const group = byStatus.get(rank) ?? [];
+    group.push(event);
+    byStatus.set(rank, group);
   }
 
-  return tierOrder.flatMap((tier) =>
-    seededShuffle(byTier.get(tier)!, `${daySeed}:${tier}`),
+  return STATUS_TIER_ORDER.filter((rank) => byStatus.has(rank)).flatMap(
+    (rank) =>
+      seededShuffle(byStatus.get(rank)!, `${shuffleSeed}:status-${rank}`),
   );
 }
 
@@ -116,7 +79,7 @@ function venueDedupeKey(event: Event): string {
 function pickDiverseCarouselHead(
   events: Event[],
   limit: number,
-  daySeed: string,
+  shuffleSeed: string,
 ): Event[] {
   if (events.length <= limit) return events;
 
@@ -138,7 +101,7 @@ function pickDiverseCarouselHead(
     }
   }
 
-  const filler = seededShuffle(deferred, `${daySeed}:carousel-fill`);
+  const filler = seededShuffle(deferred, `${shuffleSeed}:carousel-fill`);
   for (const event of filler) {
     if (picked.length >= limit) break;
     picked.push(event);
@@ -147,23 +110,33 @@ function pickDiverseCarouselHead(
   return picked;
 }
 
+export interface TodayHighlightOptions {
+  now?: Date;
+  /** Per-session seed from useTodayHighlightShuffleSeed — new order each visit. */
+  sessionSeed?: string;
+}
+
 /**
- * Events happening today: priority tiers first, daily shuffle within each tier,
+ * Events happening today: live before upcoming, shuffle within each status band,
  * diverse venue mix in the carousel head.
  */
 export function getTodayHighlightEvents(
   events: Event[],
-  now: Date = new Date(),
+  options: TodayHighlightOptions = {},
 ): Event[] {
+  const now = options.now ?? new Date();
   const daySeed = localDateISO(now);
+  const shuffleSeed = options.sessionSeed
+    ? `${daySeed}:${options.sessionSeed}`
+    : daySeed;
   const filtered = events.filter(
     (e) => happensOnLocalDate(e, daySeed) && isEventActiveToday(e, now),
   );
-  const shuffled = shuffleTodayHighlightsWithinTiers(filtered, daySeed);
+  const shuffled = shuffleTodayHighlightsWithinTiers(filtered, shuffleSeed);
   const carouselHead = pickDiverseCarouselHead(
     shuffled,
     HOME_TODAY_LIMIT,
-    daySeed,
+    shuffleSeed,
   );
   const headIds = new Set(carouselHead.map((e) => e.id));
   const tail = shuffled.filter((e) => !headIds.has(e.id));
@@ -177,8 +150,9 @@ export function getTodayHighlightEvents(
 export function getTodayHighlightExcludeIds(
   events: Event[],
   limit = HOME_TODAY_LIMIT,
+  options: TodayHighlightOptions = {},
 ): string[] {
-  return getTodayHighlightEvents(events)
+  return getTodayHighlightEvents(events, options)
     .slice(0, limit)
     .filter((e) => {
       const status = getEventLiveStatus(e);

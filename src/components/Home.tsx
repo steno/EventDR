@@ -13,10 +13,12 @@ import { PwaRegister } from "@/components/PwaRegister";
 import { EventCard } from "@/components/EventCard";
 import { VenueStrip } from "@/components/VenueStrip";
 import { TodayHighlights } from "@/components/TodayHighlights";
+import { useTodayHighlightShuffleSeed } from "@/hooks/useTodayHighlightShuffleSeed";
 import { useSavedEvents } from "@/hooks/useSavedEvents";
 import {
   getTodayHighlightExcludeIds,
   HOME_PICKS_LIMIT,
+  HOME_TODAY_LIMIT,
   homeViewAllPath,
 } from "@/lib/home-layout";
 import { type TimeRange } from "@/lib/filters";
@@ -40,6 +42,7 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
   const searchInputRef = useRef<HTMLInputElement>(null);
 
   const { toggleSave, isSaved, filterSaved, reconcileWithEvents } = useSavedEvents();
+  const todayShuffleSeed = useTodayHighlightShuffleSeed();
 
   const handleEventsLoaded = useCallback((events: Event[]) => {
     setAllEvents(events);
@@ -62,8 +65,8 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
   const homePath = `/${locale}`;
 
   const todayHighlightExcludeIds = useMemo(
-    () => getTodayHighlightExcludeIds(allEvents),
-    [allEvents],
+    () => getTodayHighlightExcludeIds(allEvents, HOME_TODAY_LIMIT, { sessionSeed: todayShuffleSeed }),
+    [allEvents, todayShuffleSeed],
   );
 
   const viewAllHref = homeViewAllPath(locale, timeRange);
