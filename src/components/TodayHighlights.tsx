@@ -22,6 +22,8 @@ interface TodayHighlightsProps {
   limit?: number;
   /** Skip events already featured elsewhere on the home page (e.g. photo hero). */
   excludeEventIds?: string[];
+  /** Override “See all today” destination (e.g. city page when a zone is picked). */
+  seeAllHref?: string;
 }
 
 function TodayHighlightCard({
@@ -101,6 +103,7 @@ const TodayHighlightsComponent = ({
   dict,
   limit = HOME_TODAY_LIMIT,
   excludeEventIds = [],
+  seeAllHref,
 }: TodayHighlightsProps) => {
   const excludeSet = useMemo(() => new Set(excludeEventIds), [excludeEventIds]);
   const todayEvents = useMemo(
@@ -112,6 +115,7 @@ const TodayHighlightsComponent = ({
   );
   const visibleEvents = todayEvents.slice(0, limit);
   const hasMore = todayEvents.length > limit;
+  const allTodayHref = seeAllHref ?? `/${locale}/when/today`;
 
   if (visibleEvents.length === 0) return null;
 
@@ -123,7 +127,7 @@ const TodayHighlightsComponent = ({
         </h2>
         {hasMore && (
           <Link
-            href={`/${locale}/when/today`}
+            href={allTodayHref}
             className="inline-flex items-center gap-0.5 rounded-full bg-orange-50 dark:bg-orange-950/50 px-2.5 py-1 text-xs font-bold text-orange-600 hover:bg-orange-100 dark:hover:bg-orange-950/70 transition-colors touch-manipulation"
           >
             {dict.events.seeAllToday}

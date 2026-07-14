@@ -24,7 +24,7 @@ import {
 } from "@/lib/home-layout";
 import { PAGE_SHELL_CLASS } from "@/lib/page-shell";
 import { type TimeRange } from "@/lib/filters";
-import type { CitySlug } from "@/lib/cities";
+import { eventMatchesCity, type CitySlug } from "@/lib/cities";
 import type { Event, Venue } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
 import type { AppTab, Dictionary } from "@/i18n/dictionaries";
@@ -69,18 +69,24 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
   const savedEvents = filterSaved(allEvents);
   const homePath = `/${locale}`;
 
+  /** Zone pick scopes home highlights and picks; null = whole North Coast. */
+  const scopedEvents = useMemo(() => {
+    if (!selectedCity) return allEvents;
+    return allEvents.filter((event) => eventMatchesCity(event, selectedCity));
+  }, [allEvents, selectedCity]);
+
   const heroEvent = useMemo(
-    () => getHomeHeroEvent(allEvents),
-    [allEvents],
+    () => getHomeHeroEvent(scopedEvents),
+    [scopedEvents],
   );
 
   const todayHighlightExcludeIds = useMemo(() => {
-    const ids = getTodayHighlightExcludeIds(allEvents, HOME_TODAY_LIMIT);
+    const ids = getTodayHighlightExcludeIds(scopedEvents, HOME_TODAY_LIMIT);
     if (heroEvent && !ids.includes(heroEvent.id)) {
       return [...ids, heroEvent.id];
     }
     return ids;
-  }, [allEvents, heroEvent]);
+  }, [scopedEvents, heroEvent]);
 
   const heroExcludeIds = useMemo(
     () => (heroEvent ? [heroEvent.id] : []),
@@ -88,6 +94,9 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
   );
 
   const viewAllHref = homeViewAllPath(locale, timeRange);
+  const seeAllTodayHref = selectedCity
+    ? `/${locale}/city/${selectedCity}`
+    : `/${locale}/when/today`;
 
   function handleTabChange(newTab: AppTab) {
     if (newTab === "submit") {
@@ -188,10 +197,11 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
 
               {!isSearching && tab === "discover" && (
                 <TodayHighlights
-                  events={allEvents}
+                  events={scopedEvents}
                   locale={locale}
                   dict={dict}
                   excludeEventIds={heroExcludeIds}
+                  seeAllHref={seeAllTodayHref}
                 />
               )}
 
@@ -207,6 +217,7 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
                   dict={dict}
                   searchQuery={isSearching ? searchQuery : ""}
                   timeRange={isSearching ? "all" : timeRange}
+                  citySlug={isSearching ? null : selectedCity}
                   onEventsLoaded={handleEventsLoaded}
                   refreshKey={refreshKey}
                   ourPicks={!isSearching}

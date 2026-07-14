@@ -12,6 +12,7 @@ import { materializeEventDates } from "@/lib/event-dates";
 import { sortEventsForDisplay } from "@/lib/event-sort";
 import { categoryPath } from "@/lib/event-navigation";
 import { attachEventImages } from "@/lib/event-images";
+import { eventMatchesCity, type CitySlug } from "@/lib/cities";
 import { EventCard } from "./EventCard";
 import { TimeFilter } from "./TimeFilter";
 
@@ -21,6 +22,8 @@ interface EventListProps {
   dict: Dictionary;
   searchQuery?: string;
   timeRange?: TimeRange;
+  /** When set, only events matching this city appear. */
+  citySlug?: CitySlug | null;
   onEventsLoaded?: (events: Event[]) => void;
   refreshKey?: number;
   ourPicks?: boolean;
@@ -41,6 +44,7 @@ export function EventList({
   dict,
   searchQuery = "",
   timeRange = "all",
+  citySlug = null,
   onEventsLoaded,
   refreshKey = 0,
   ourPicks = false,
@@ -100,6 +104,9 @@ export function EventList({
 
   const filtered = useMemo(() => {
     let result = filterByTimeRange(events, timeRange);
+    if (citySlug) {
+      result = result.filter((e) => eventMatchesCity(e, citySlug));
+    }
     result = searchEvents(result, searchQuery);
     if (excludeEventIds.length > 0) {
       const excluded = new Set(excludeEventIds);
@@ -107,7 +114,7 @@ export function EventList({
     }
     result = sortEventsForDisplay(result, { recurringLast: true });
     return result;
-  }, [events, timeRange, searchQuery, excludeEventIds]);
+  }, [events, timeRange, citySlug, searchQuery, excludeEventIds]);
 
   const visibleEvents = limit != null ? filtered.slice(0, limit) : filtered;
   const hasMore = limit != null && filtered.length > limit;

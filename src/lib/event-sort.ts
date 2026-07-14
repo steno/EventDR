@@ -38,6 +38,13 @@ function eventEndTimeMinutes(time: string | undefined): number {
   return window.end;
 }
 
+/** Explicit start–end ranges (dining hours, shows) vs a single kickoff time. */
+function hasExplicitTimeRange(time: string | undefined): boolean {
+  if (!time) return false;
+  const clockTimes = [...time.matchAll(/(\d{1,2})(?::(\d{2}))?\s*(AM|PM)/gi)];
+  return clockTimes.length >= 2;
+}
+
 function listTier(event: Event, now: Date): number {
   const today = localDateISO(now);
   const onToday = happensOnLocalDate(event, today);
@@ -67,7 +74,7 @@ function isActiveToday(event: Event, now: Date): boolean {
   );
 }
 
-function compareWithinTier(a: Event, b: Event, tier: number, now: Date): number {
+function compareWithinTier(a: Event, b: Event, tier: number, _now: Date): number {
   if (tier === LIST_TIER.endingSoon) {
     const endDiff = eventEndTimeMinutes(a.time) - eventEndTimeMinutes(b.time);
     if (endDiff !== 0) return endDiff;
@@ -80,6 +87,14 @@ function compareWithinTier(a: Event, b: Event, tier: number, now: Date): number 
     tier === LIST_TIER.closedToday ||
     tier === LIST_TIER.activeTodayUnknown
   ) {
+    // Single kickoffs before start–end windows; windows still sort soonest-start first.
+    if (tier === LIST_TIER.upcomingToday || tier === LIST_TIER.live) {
+      const rangeDiff =
+        Number(hasExplicitTimeRange(a.time)) -
+        Number(hasExplicitTimeRange(b.time));
+      if (rangeDiff !== 0) return rangeDiff;
+    }
+
     const startDiff =
       eventStartTimeMinutes(a.time) - eventStartTimeMinutes(b.time);
     if (startDiff !== 0) return startDiff;
