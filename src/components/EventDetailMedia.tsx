@@ -51,7 +51,7 @@ export function EventDetailMedia({
 
   const heightClass =
     variant === "standalone"
-      ? "h-[min(36dvh,14rem)]"
+      ? "h-[min(28dvh,11rem)] sm:h-[min(30dvh,13rem)] lg:h-[min(28dvh,14rem)]"
       : "h-[min(32dvh,13rem)]";
 
   const scrollToSlide = useCallback((index: number) => {
@@ -84,6 +84,10 @@ export function EventDetailMedia({
 
   const roundedClass = variant === "standalone" ? "rounded-t-3xl" : "";
   const mapIsActive = activeSlide === 1;
+  const imageSizes =
+    variant === "standalone"
+      ? "(max-width: 640px) 100vw, (max-width: 1024px) 48rem, 64rem"
+      : "(max-width: 672px) 100vw, 672px";
 
   const navButtonClass =
     "z-10 flex items-center justify-center rounded-full bg-white/92 p-2 text-neutral-800 shadow-md ring-1 ring-black/10 backdrop-blur-sm touch-manipulation transition-opacity dark:bg-neutral-900/92 dark:text-neutral-100 dark:ring-white/15";
@@ -94,7 +98,7 @@ export function EventDetailMedia({
         <EventImage
           src={event.imageUrl!}
           alt={event.title}
-          sizes="(max-width: 672px) 100vw, 672px"
+          sizes={imageSizes}
           className="h-full w-full object-cover object-center"
           priority={priority}
         />

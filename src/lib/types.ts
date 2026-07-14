@@ -66,6 +66,8 @@ export interface Event {
   isFree?: boolean;
   /** Display-ready admission price when paid at the door (e.g. "RD$250"). */
   admissionPrice?: string;
+  /** Pricing varies — show call-for-pricing CTA when a phone is available. */
+  callForPricing?: boolean;
   imageEmoji?: string;
   imageUrl?: string;
   /** Named performers when announced in the source. */

@@ -8,9 +8,15 @@ export type RelatedCategoryLink = {
 interface CityCategoryLinksProps {
   label: string;
   links: RelatedCategoryLink[];
+  /** Highlights the selected category pill. */
+  activeHref?: string;
 }
 
-export function CityCategoryLinks({ label, links }: CityCategoryLinksProps) {
+export function CityCategoryLinks({
+  label,
+  links,
+  activeHref,
+}: CityCategoryLinksProps) {
   if (links.length === 0) return null;
 
   return (
@@ -19,15 +25,26 @@ export function CityCategoryLinks({ label, links }: CityCategoryLinksProps) {
         {label}
       </p>
       <div className="flex flex-wrap gap-2">
-        {links.map((link) => (
-          <Link
-            key={link.href}
-            href={link.href}
-            className="rounded-full border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 px-3.5 py-1.5 text-xs font-semibold text-neutral-700 dark:text-neutral-200 transition-colors hover:border-neutral-300 dark:hover:border-neutral-600 hover:text-neutral-900 dark:hover:text-neutral-100"
-          >
-            {link.label}
-          </Link>
-        ))}
+        {links.map((link) => {
+          const active = activeHref === link.href;
+          return (
+            <Link
+              key={link.href}
+              href={link.href}
+              aria-current={active ? "page" : undefined}
+              className={`
+                rounded-full border px-3.5 py-1.5 text-xs font-semibold transition-colors
+                ${
+                  active
+                    ? "border-orange-500 bg-orange-50 text-orange-700 dark:border-orange-400 dark:bg-orange-950/40 dark:text-orange-300"
+                    : "border-neutral-200 bg-white text-neutral-700 hover:border-neutral-300 hover:text-neutral-900 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-200 dark:hover:border-neutral-600 dark:hover:text-neutral-100"
+                }
+              `}
+            >
+              {link.label}
+            </Link>
+          );
+        })}
       </div>
     </nav>
   );

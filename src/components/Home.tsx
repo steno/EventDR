@@ -25,6 +25,7 @@ import {
 } from "@/lib/home-layout";
 import { PAGE_SHELL_CLASS } from "@/lib/page-shell";
 import { type TimeRange } from "@/lib/filters";
+import type { CitySlug } from "@/lib/cities";
 import type { Event, Venue } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
 import type { AppTab, Dictionary } from "@/i18n/dictionaries";
@@ -39,6 +40,7 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
   const [tab, setTab] = useState<AppTab>("discover");
   const [searchQuery, setSearchQuery] = useState("");
   const [timeRange, setTimeRange] = useState<TimeRange>("all");
+  const [selectedCity, setSelectedCity] = useState<CitySlug | null>(null);
   const [submitOpen, setSubmitOpen] = useState(false);
   const [allEvents, setAllEvents] = useState<Event[]>([]);
   const [refreshKey, setRefreshKey] = useState(0);
@@ -165,9 +167,18 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
               </div>
               {!isSearching && (
                 <div className="mb-6 rounded-2xl border border-neutral-200/80 bg-white/60 p-4 dark:border-neutral-800/80 dark:bg-neutral-900/40 sm:mb-8 sm:p-5 lg:mb-8">
-                  <CityLocationPicker locale={locale} dict={dict} />
+                  <CityLocationPicker
+                    locale={locale}
+                    dict={dict}
+                    currentSlug={selectedCity}
+                    onSelect={setSelectedCity}
+                  />
                   <div className="mt-1">
-                    <CategoryGrid locale={locale} dict={dict} />
+                    <CategoryGrid
+                      locale={locale}
+                      dict={dict}
+                      citySlug={selectedCity}
+                    />
                   </div>
                 </div>
               )}

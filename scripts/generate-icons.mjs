@@ -8,32 +8,37 @@ const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const iconsDir = join(root, "public", "icons");
 const appDir = join(root, "src", "app");
 const jpegLogoPath = join(root, "popevent-images", "pop-home-logo.jpeg");
-const transparentLogoPath = join(root, "popevent-images", "poplogo.png");
 const faviconPath = join(root, "popevent-images", "favicon.png");
-const headerLogoOut = join(root, "public", "poplogo-safe.png");
+const headerLogoOut = join(root, "public", "pop-home-logo.png");
 
 const whiteBackground = { r: 255, g: 255, b: 255, alpha: 1 };
 const transparentBackground = { r: 0, g: 0, b: 0, alpha: 0 };
 
-// Prefer a transparent source image when available. Your `pop-home-logo.jpeg`
-// has no alpha channel, so it would bake in a black background.
-let logoPath = transparentLogoPath;
-try {
-  const meta = await sharp(jpegLogoPath).metadata();
-  if (meta.hasAlpha) logoPath = jpegLogoPath;
-} catch {
-  // Ignore and keep transparentLogoPath
-}
+/** Header mark from pop-home-logo.jpeg with black keyed to transparency. */
+async function writeHeaderLogo() {
+  const raw = await sharp(jpegLogoPath)
+    .resize(368, 368, { fit: "contain", background: { r: 0, g: 0, b: 0, alpha: 1 } })
+    .ensureAlpha()
+    .raw()
+    .toBuffer({ resolveWithObject: true });
 
-async function pngFromLogoFixedSize(width, height, outPath) {
-  await sharp(logoPath)
-    .resize(width, height, {
-      fit: "contain",
-      background: { r: 0, g: 0, b: 0, alpha: 0 },
-    })
+  const { data, info } = raw;
+  for (let i = 0; i < data.length; i += 4) {
+    const r = data[i];
+    const g = data[i + 1];
+    const b = data[i + 2];
+    // Near-black pixels from the JPEG backdrop → transparent.
+    if (r < 28 && g < 28 && b < 28) {
+      data[i + 3] = 0;
+    }
+  }
+
+  await sharp(data, {
+    raw: { width: info.width, height: info.height, channels: 4 },
+  })
     .png()
-    .toFile(outPath);
-  console.log(`wrote ${outPath.replace(root + "/", "")}`);
+    .toFile(headerLogoOut);
+  console.log(`wrote ${headerLogoOut.replace(root + "/", "")}`);
 }
 
 /** Scale popevent-images/favicon.png to a square icon. */
@@ -77,8 +82,8 @@ await pwaIconFile(192, "icon-192.png");
 await pwaIconFile(512, "icon-512.png");
 await pwaIconFile(512, "icon-512-maskable.png", { inset: 52 });
 
-// Site header logo (used by AppHeader) — full wordmark.
-await pngFromLogoFixedSize(184, 166, headerLogoOut);
+// Site header logo (used by AppHeader) — pop-home mark.
+await writeHeaderLogo();
 
 // Google SERP + browser favicon: square P mark, 48px minimum recommended size.
 const favicon48 = await iconFromFavicon(48);

@@ -62,8 +62,14 @@ function TodayHighlightCard({
           />
         )}
 
+        {/* Contrast scrim — stays so white type clears bright photos */}
         <div
-          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-[75%] bg-gradient-to-t from-black/80 via-black/45 to-transparent"
+          aria-hidden
+        />
+        {/* Brand tint — softens on hover; photo opens up without losing type */}
+        <div
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-[70%] bg-gradient-to-t from-orange-600/50 via-rose-500/30 to-transparent transition-opacity duration-300 group-hover:opacity-40"
           aria-hidden
         />
 
@@ -75,11 +81,11 @@ function TodayHighlightCard({
               className="w-fit"
             />
           )}
-          <h3 className="line-clamp-2 text-[15px] font-black leading-snug tracking-tight text-white sm:text-base">
+          <h3 className="line-clamp-2 text-[15px] font-black leading-snug tracking-tight text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.65)] sm:text-base">
             {event.title}
           </h3>
           {event.time && (
-            <p className="inline-flex items-center gap-1.5 text-xs font-medium text-white/80">
+            <p className="inline-flex items-center gap-1.5 text-xs font-medium text-white/90 [text-shadow:0_1px_2px_rgba(0,0,0,0.55)]">
               <Clock className="h-3.5 w-3.5 shrink-0" aria-hidden />
               {event.time}
             </p>

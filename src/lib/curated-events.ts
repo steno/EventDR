@@ -14,6 +14,7 @@ type CuratedPatch = Partial<
   recurrenceDays?: Event["recurrenceDays"] | null;
   isFree?: Event["isFree"] | null;
   admissionPrice?: Event["admissionPrice"] | null;
+  callForPricing?: Event["callForPricing"] | null;
   ticketUrl?: Event["ticketUrl"] | null;
 };
 
@@ -155,6 +156,16 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
   },
   "malecon-kiosks-daily": {
     isFree: true,
+  },
+  "hard-rock-weekends": {
+    isFree: false,
+    callForPricing: true,
+    phone: "+18495057778",
+  },
+  "hard-rock-billed-concerts": {
+    isFree: false,
+    callForPricing: true,
+    phone: "+18495057778",
   },
 };
 const CURATED_EVENT_PATCHES: Record<string, CuratedPatch> = {

@@ -1,7 +1,7 @@
 {
-  "name": "POP Events near you",
+  "name": "POP Events",
   "short_name": "POP Events",
-  "description": "POP Events near you — North Coast Dominican Republic",
+  "description": "Events in the Puerto Plata region — North Coast Dominican Republic",
   "start_url": "/en",
   "scope": "/",
   "display": "standalone",

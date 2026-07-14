@@ -2,7 +2,7 @@ import type { Dictionary } from "./en";
 
 export const fr: Dictionary = {
   meta: {
-    title: "POP Events près de vous | Côte Nord RD",
+    title: "POP Events | Région de Puerto Plata · Côte Nord RD",
     description:
       "Découvrez les événements à Puerto Plata, Sosúa et Cabarete — concerts, fêtes, kite surf, yoga, festivals gastronomiques et activités locales sur la Côte Nord de RD.",
   },
@@ -25,11 +25,11 @@ export const fr: Dictionary = {
     northCoast: "Côte Nord de RD",
   },
   hero: {
-    events: "POP Events",
-    nearYou: "près de vous",
+    events: "Événements dans la région de",
+    nearYou: "Puerto Plata",
     subtitle: "Ce qui se passe sur la",
     subtitleHighlight: "Côte Nord de RD",
-    subtitleEnd: "Événements dans la région de Puerto Plata.",
+    subtitleEnd: "Y compris Sosúa et Cabarete.",
     cta: "Ajouter mes événements",
   },
   categories: {
@@ -143,6 +143,7 @@ export const fr: Dictionary = {
     freeAdmission: "Entrée gratuite",
     paidAdmission: "Entrée : {price}",
     paidAdmissionUnknown: "Entrée payante",
+    callForPricing: "Appeler pour le tarif",
     call: "Appeler",
     close: "Fermer",
     shared: "Partagé !",

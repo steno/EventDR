@@ -41,8 +41,11 @@ interface EventScopePageProps {
   };
   relatedCategoryLinks?: RelatedCategoryLink[];
   relatedCategoryLinksLabel?: string;
+  relatedCategoryActiveHref?: string;
   initialExpanded?: boolean;
   citySlug?: CitySlug;
+  /** When set, the location picker switches cities while staying on this category. */
+  categoryId?: Event["category"];
 }
 
 export function EventScopePage({
@@ -64,8 +67,10 @@ export function EventScopePage({
   submitDefaults,
   relatedCategoryLinks,
   relatedCategoryLinksLabel,
+  relatedCategoryActiveHref,
   initialExpanded = false,
   citySlug,
+  categoryId,
 }: EventScopePageProps) {
   const [events, setEvents] = useState<Event[]>(() => attachEventImages(initialEvents));
   const [loading, setLoading] = useState(false);
@@ -98,6 +103,7 @@ export function EventScopePage({
             dict={dict}
             backHref={backHref}
             backLabel={backLabel}
+            flushBottom={Boolean(cityHeroImage)}
           />
 
           {cityHeroImage ? (
@@ -131,11 +137,12 @@ export function EventScopePage({
             </>
           )}
 
-          {citySlug ? (
+          {citySlug || categoryId ? (
             <CityLocationPicker
               locale={locale}
               dict={dict}
-              currentSlug={citySlug}
+              currentSlug={citySlug ?? null}
+              categoryId={categoryId}
             />
           ) : null}
 
@@ -143,6 +150,7 @@ export function EventScopePage({
             <CityCategoryLinks
               label={relatedCategoryLinksLabel}
               links={relatedCategoryLinks}
+              activeHref={relatedCategoryActiveHref}
             />
           ) : null}
 

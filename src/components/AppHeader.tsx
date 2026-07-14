@@ -33,7 +33,7 @@ export function AppHeader({
     <div className="flex items-center justify-between gap-3 pt-3 pb-4 lg:border-b lg:border-neutral-200/70 lg:pb-5 dark:lg:border-neutral-800/80">
       <Link
         href={homeHref}
-        aria-label="POP Events home"
+        aria-label={dict.seo.siteName}
         className="focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
         onClick={(e) => {
           if (onHome) {
@@ -44,10 +44,10 @@ export function AppHeader({
         }}
       >
         <Image
-          src="/poplogo-safe.png?v=1"
-          alt="POP Events logo"
+          src="/pop-home-logo.png"
+          alt={dict.seo.siteName}
           width={184}
-          height={166}
+          height={184}
           priority
           unoptimized
           className="h-14 w-auto object-contain sm:h-20"

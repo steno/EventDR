@@ -4,20 +4,34 @@ import { useEffect, useId, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { ChevronDown } from "lucide-react";
 import { CITIES, getCityName, type CitySlug } from "@/lib/cities";
+import { categoryPath } from "@/lib/event-navigation";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
+import type { EventCategory } from "@/lib/types";
 
 interface CityLocationPickerProps {
   locale: Locale;
   dict: Dictionary;
   /** Current city when on a city page; null on the all-region home. */
   currentSlug?: CitySlug | null;
+  /**
+   * When set, switching cities stays on this category
+   * (`/category/...` or `/city/.../category/...`).
+   */
+  categoryId?: EventCategory;
+  /**
+   * Home mode: update selection without navigating.
+   * Category links then use the chosen area.
+   */
+  onSelect?: (slug: CitySlug | null) => void;
 }
 
 export function CityLocationPicker({
   locale,
   dict,
   currentSlug = null,
+  categoryId,
+  onSelect,
 }: CityLocationPickerProps) {
   const router = useRouter();
   const [open, setOpen] = useState(false);
@@ -56,6 +70,14 @@ export function CityLocationPicker({
 
   function goTo(slug: CitySlug | null) {
     setOpen(false);
+    if (onSelect) {
+      onSelect(slug);
+      return;
+    }
+    if (categoryId) {
+      router.push(categoryPath(locale, categoryId, slug));
+      return;
+    }
     if (slug == null) {
       router.push(`/${locale}`);
       return;

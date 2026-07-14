@@ -148,6 +148,11 @@ const VENUE_SOURCES = [
     eventId: "casa-de-la-cultura-exhibitions",
     url: "https://i0.wp.com/depuertoplata.com/wp-content/uploads/2019/06/cropped-casa-cultura-pp-nytybbf7w8mauyhgzol9b097kuvnl4akq67unt4srw.jpg?fit=1200%2C675&ssl=1",
   },
+  {
+    // Bar/venue shot — prefer over logo graphics for Voyvoy event cards.
+    eventId: "voyvoy-monday-live-music",
+    url: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1d/f0/6d/73/caption.jpg?w=1600&h=-1&s=1",
+  },
 ];
 
 mkdirSync(outDir, { recursive: true });

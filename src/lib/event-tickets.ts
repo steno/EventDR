@@ -87,6 +87,12 @@ export const CURATED_ADMISSION_PRICES: Record<string, string> = {
   "liquid-blue-sunrise-yoga": "from US$15",
 };
 
+/** Ticketed shows with variable pricing — contact the venue (no fixed door rate). */
+export const CURATED_CALL_FOR_PRICING = new Set<string>([
+  "hard-rock-weekends",
+  "hard-rock-billed-concerts",
+]);
+
 const ADMISSION_PRICE_MAX_LEN = 32;
 
 /** Normalize door-price strings from ingest, submit, or curated data. */
@@ -129,8 +135,19 @@ function normalizeIsFree(raw: unknown): boolean | undefined {
 
 type AdmissionAwareEvent = Pick<
   Event,
-  "id" | "ticketUrl" | "sourceUrl" | "isFree" | "admissionPrice"
+  | "id"
+  | "ticketUrl"
+  | "sourceUrl"
+  | "isFree"
+  | "admissionPrice"
+  | "callForPricing"
 >;
+
+function normalizeCallForPricing(raw: unknown): boolean | undefined {
+  if (raw === true || raw === "true") return true;
+  if (raw === false || raw === "false") return false;
+  return undefined;
+}
 
 /** Reconcile ticket links, free flags, and door prices on one event. */
 export function normalizeEventAdmission<T extends AdmissionAwareEvent>(
@@ -140,17 +157,44 @@ export function normalizeEventAdmission<T extends AdmissionAwareEvent>(
   const explicitFree = normalizeIsFree(event.isFree);
   const explicitPrice = normalizeAdmissionPrice(event.admissionPrice);
   const curatedPrice = CURATED_ADMISSION_PRICES[event.id];
+  const explicitCall = normalizeCallForPricing(event.callForPricing);
+  const callForPricing =
+    explicitCall === true || CURATED_CALL_FOR_PRICING.has(event.id);
 
   if (ticketUrl) {
-    return { ...event, ticketUrl, isFree: false, admissionPrice: undefined };
+    return {
+      ...event,
+      ticketUrl,
+      isFree: false,
+      admissionPrice: undefined,
+      callForPricing: false,
+    };
   }
   if (explicitFree === true) {
-    return { ...event, isFree: true, admissionPrice: undefined };
+    return {
+      ...event,
+      isFree: true,
+      admissionPrice: undefined,
+      callForPricing: false,
+    };
   }
 
   const admissionPrice = explicitPrice ?? curatedPrice;
   if (admissionPrice) {
-    return { ...event, isFree: false, admissionPrice };
+    return {
+      ...event,
+      isFree: false,
+      admissionPrice,
+      callForPricing: false,
+    };
+  }
+  if (callForPricing && explicitCall !== false) {
+    return {
+      ...event,
+      isFree: false,
+      admissionPrice: undefined,
+      callForPricing: true,
+    };
   }
   if (explicitFree === false) {
     return { ...event, isFree: false };
@@ -193,6 +237,13 @@ export function resolveAdmissionPrice(
   return CURATED_ADMISSION_PRICES[event.id];
 }
 
+function isCallForPricingFlag(
+  event: Pick<Event, "id" | "callForPricing">,
+): boolean {
+  if (event.callForPricing === false) return false;
+  return event.callForPricing === true || CURATED_CALL_FOR_PRICING.has(event.id);
+}
+
 /** Whether to show the free-admission label (no online ticket link). */
 export function isEventFree(
   event: Pick<
@@ -207,10 +258,12 @@ export function isEventFree(
     | "communitySubmitted"
     | "isFree"
     | "admissionPrice"
+    | "callForPricing"
   >,
 ): boolean {
   if (resolveTicketUrl(event)) return false;
   if (resolveAdmissionPrice(event)) return false;
+  if (isCallForPricingFlag(event)) return false;
   if (event.isFree === false) return false;
   if (event.isFree === true) return true;
   if (event.communitySubmitted) return true;
@@ -225,6 +278,25 @@ export function isEventFree(
   return false;
 }
 
+/** Variable pricing — call the venue (shown when a phone number is available). */
+export function showsCallForPricing(
+  event: Pick<
+    Event,
+    | "id"
+    | "ticketUrl"
+    | "sourceUrl"
+    | "isFree"
+    | "admissionPrice"
+    | "callForPricing"
+    | "phone"
+  >,
+): boolean {
+  if (resolveTicketUrl(event)) return false;
+  if (resolveAdmissionPrice(event)) return false;
+  if (!event.phone?.trim()) return false;
+  return isCallForPricingFlag(event);
+}
+
 export function showsPaidAdmission(
   event: Pick<
     Event,
@@ -233,6 +305,7 @@ export function showsPaidAdmission(
     | "sourceUrl"
     | "isFree"
     | "admissionPrice"
+    | "callForPricing"
     | "title"
     | "description"
     | "category"
@@ -242,6 +315,7 @@ export function showsPaidAdmission(
 ): boolean {
   if (resolveTicketUrl(event)) return false;
   if (isEventFree(event)) return false;
+  if (isCallForPricingFlag(event)) return false;
   return resolveAdmissionPrice(event) != null || event.isFree === false;
 }
 

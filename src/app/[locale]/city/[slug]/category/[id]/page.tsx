@@ -8,6 +8,7 @@ import {
   CITY_SLUGS,
   getCityMeta,
   getCityName,
+  getCityTopCategories,
   isCitySlug,
 } from "@/lib/cities";
 import { isValidLocale, locales } from "@/i18n/config";
@@ -17,6 +18,7 @@ import { isScopeInitiallyExpanded } from "@/lib/home-layout";
 import {
   buildCityCategoryMetadata,
   buildListingPageJsonLd,
+  fillTemplate,
   localePath,
 } from "@/lib/seo";
 import type { EventCategory } from "@/lib/types";
@@ -77,6 +79,18 @@ export default async function Page({
     category: id as EventCategory,
   });
   const title = `${category.label} — ${cityName}`;
+  const categoryId = id as EventCategory;
+  const topCategories = getCityTopCategories(slug);
+  const pillCategories = topCategories.includes(categoryId)
+    ? topCategories
+    : [categoryId, ...topCategories];
+  const relatedCategoryLinks = pillCategories.map((relatedId) => ({
+    href: `/${locale}/city/${slug}/category/${relatedId}`,
+    label: dict.categories[relatedId],
+  }));
+  const relatedCategoryLinksLabel = fillTemplate(dict.cities.browseTopCategories, {
+    city: cityName,
+  });
 
   return (
     <>
@@ -107,8 +121,12 @@ export default async function Page({
         emoji={category.emoji}
         emojiClassName={`bg-gradient-to-br ${category.gradient}`}
         submitDefaults={{ category: id as EventCategory, location: cityName }}
+        relatedCategoryLinks={relatedCategoryLinks}
+        relatedCategoryLinksLabel={relatedCategoryLinksLabel}
+        relatedCategoryActiveHref={pagePath}
         initialExpanded={isScopeInitiallyExpanded(all)}
         citySlug={slug}
+        categoryId={categoryId}
       />
     </>
   );

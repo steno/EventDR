@@ -122,6 +122,7 @@ export type Dictionary = {
     freeAdmission: string;
     paidAdmission: string;
     paidAdmissionUnknown: string;
+    callForPricing: string;
     call: string;
     close: string;
     shared: string;
@@ -272,7 +273,7 @@ export type Dictionary = {
 
 export const en: Dictionary = {
   meta: {
-    title: "POP Events near you | North Coast DR",
+    title: "POP Events | Puerto Plata region · North Coast DR",
     description:
       "Discover events in Puerto Plata, Sosúa, and Cabarete — concerts, parties, kite surf, yoga, food festivals, and local happenings on the North Coast of the Dominican Republic.",
   },
@@ -295,11 +296,11 @@ export const en: Dictionary = {
     northCoast: "North Coast of the DR",
   },
   hero: {
-    events: "POP Events",
-    nearYou: "near you",
-    subtitle: "What's happening in the",
+    events: "Events in the",
+    nearYou: "Puerto Plata region",
+    subtitle: "What's happening on the",
     subtitleHighlight: "North Coast of the DR",
-    subtitleEnd: "Events in the Puerto Plata region.",
+    subtitleEnd: "Including Sosúa and Cabarete.",
     cta: "Add My Events",
   },
   categories: {
@@ -413,6 +414,7 @@ export const en: Dictionary = {
     freeAdmission: "Free admission",
     paidAdmission: "Admission: {price}",
     paidAdmissionUnknown: "Paid admission",
+    callForPricing: "Call for pricing",
     call: "Call",
     close: "Close",
     shared: "Shared!",

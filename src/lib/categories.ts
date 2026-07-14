@@ -48,7 +48,7 @@ const CATEGORY_DEFS: Omit<CategoryMeta, "label">[] = [
   },
   {
     id: "sports",
-    emoji: "⚽",
+    emoji: "🏄",
     gradient: "from-lime-400 via-green-500 to-emerald-600",
   },
   {

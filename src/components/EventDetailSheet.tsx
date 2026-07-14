@@ -41,9 +41,11 @@ import {
   isEventFree,
   resolveAdmissionPrice,
   showsPaidAdmission,
+  showsCallForPricing,
   formatPaidAdmissionLabel,
 } from "@/lib/event-tickets";
 import { EventCallLink } from "@/components/EventCallLink";
+import { formatPhoneTel } from "@/lib/event-phone";
 import { useSwipeToDismiss } from "@/hooks/useSwipeToDismiss";
 
 interface EventDetailSheetProps {
@@ -135,6 +137,7 @@ export function EventDetailSheet({
   const showFreeAdmission = !ticketUrl && isEventFree(event);
   const admissionPrice = resolveAdmissionPrice(event);
   const showPaidAdmission = showsPaidAdmission(event);
+  const showCallForPricing = showsCallForPricing(event);
   const paidAdmissionLabel = admissionPrice
     ? formatPaidAdmissionLabel(admissionPrice, dict)
     : dict.detail.paidAdmissionUnknown;
@@ -279,6 +282,15 @@ export function EventDetailSheet({
             {dict.detail.buyTickets}
           </a>
         )}
+        {showCallForPricing && event.phone && (
+          <a
+            href={`tel:${formatPhoneTel(event.phone)}`}
+            className="mt-1 flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-4 py-3 text-sm font-bold text-white shadow-sm touch-manipulation transition-transform active:scale-[0.98]"
+          >
+            <Phone className="h-4 w-4" aria-hidden />
+            {dict.detail.callForPricing}
+          </a>
+        )}
         {showFreeAdmission && (
           <div
             className="mt-1 flex w-full items-center justify-center gap-2 rounded-2xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-bold text-emerald-700 dark:border-emerald-900/60 dark:bg-emerald-950/40 dark:text-emerald-300"
@@ -302,7 +314,7 @@ export function EventDetailSheet({
   );
 
   const actionsSection = (
-    <div className="border-t border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900 px-5 pt-4 pb-[max(1rem,env(safe-area-inset-bottom))]">
+    <div className="border-t border-neutral-100 bg-white px-5 pt-4 pb-[max(1rem,env(safe-area-inset-bottom))] dark:border-neutral-800 dark:bg-neutral-900 sm:px-6 lg:px-8">
       {calendarOpen && (
         <CalendarMenu
           event={event}
@@ -408,7 +420,7 @@ export function EventDetailSheet({
 
   if (standalone) {
     return (
-      <article className="mx-auto w-full max-w-lg sm:max-w-2xl rounded-t-3xl bg-white dark:bg-neutral-900 shadow-2xl ring-1 ring-neutral-200/70 dark:ring-neutral-800">
+      <article className="w-full overflow-hidden rounded-3xl bg-white shadow-2xl ring-1 ring-neutral-200/70 dark:bg-neutral-900 dark:ring-neutral-800">
         {showHero ? (
           <EventDetailMedia
             event={event}
@@ -421,7 +433,7 @@ export function EventDetailSheet({
         ) : (
           emojiFallback
         )}
-        <div className="px-5 pt-4 pb-3">{contentSection}</div>
+        <div className="px-5 pt-4 pb-3 sm:px-6 lg:px-8">{contentSection}</div>
         {actionsSection}
       </article>
     );

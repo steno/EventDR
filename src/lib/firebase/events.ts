@@ -50,6 +50,12 @@ function docToEvent(id: string, data: DocumentData): Event {
     ticketUrl: (data.ticketUrl as string | null) ?? undefined,
     isFree: data.isFree === true ? true : data.isFree === false ? false : undefined,
     admissionPrice: (data.admissionPrice as string | null) ?? undefined,
+    callForPricing:
+      data.callForPricing === true
+        ? true
+        : data.callForPricing === false
+          ? false
+          : undefined,
     imageEmoji: (data.imageEmoji as string | null) ?? undefined,
     imageUrl: (data.imageUrl as string | null) ?? undefined,
     lineup: normalizeLineup(data.lineup),
@@ -121,6 +127,7 @@ function eventToFirestore(
     ticketUrl: event.ticketUrl ?? null,
     isFree: event.isFree ?? null,
     admissionPrice: event.admissionPrice ?? null,
+    callForPricing: event.callForPricing ?? null,
     sourceType,
     imageEmoji: event.imageEmoji ?? "📌",
     imageUrl: event.imageUrl ?? null,
@@ -298,6 +305,7 @@ export async function patchEventFields(
   if ("ticketUrl" in fields) update.ticketUrl = fields.ticketUrl ?? null;
   if ("isFree" in fields) update.isFree = fields.isFree ?? null;
   if ("admissionPrice" in fields) update.admissionPrice = fields.admissionPrice ?? null;
+  if ("callForPricing" in fields) update.callForPricing = fields.callForPricing ?? null;
   if ("address" in fields) update.address = fields.address ?? null;
   if ("location" in fields) update.location = fields.location ?? null;
   if ("endDate" in fields) update.endDate = fields.endDate ?? null;

@@ -1,13 +1,25 @@
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import { CATEGORY_IDS, getCategoryMeta } from "./categories";
-import { getCityMeta, getCityName, isCitySlug } from "./cities";
+import {
+  getCityMeta,
+  getCityName,
+  isCitySlug,
+  type CitySlug,
+} from "./cities";
 import { fillTemplate } from "./seo";
 import { getWhenSeo, isWhenSlug } from "./time-seo";
 import type { Event, EventCategory } from "./types";
 import { getSeedVenue } from "./venues-seed";
 
-export function categoryPath(locale: Locale, category: EventCategory): string {
+export function categoryPath(
+  locale: Locale,
+  category: EventCategory,
+  citySlug?: CitySlug | null,
+): string {
+  if (citySlug) {
+    return `/${locale}/city/${citySlug}/category/${category}`;
+  }
   return `/${locale}/category/${category}`;
 }
 

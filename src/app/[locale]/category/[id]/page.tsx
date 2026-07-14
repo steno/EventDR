@@ -81,6 +81,7 @@ export default async function Page({
         emojiClassName={`bg-gradient-to-br ${category?.gradient ?? "from-neutral-200 to-neutral-300"}`}
         submitDefaults={{ category: id as EventCategory }}
         initialExpanded={isScopeInitiallyExpanded(all)}
+        categoryId={id as EventCategory}
       />
     </>
   );
