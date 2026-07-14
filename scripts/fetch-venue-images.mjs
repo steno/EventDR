@@ -137,10 +137,12 @@ const VENUE_SOURCES = [
     url: "https://puertoplatadr.com/wp-content/uploads/2025/04/macorix-rum-factory.jpg",
   },
   {
+    // Soft-open / food focus — dedicated paella pan (not shared façade with Green One).
     eventId: "paella-pop-el-pueblito",
-    url: "https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=27612171988392813",
+    url: "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=1800&q=85",
   },
   {
+    // Brand façade at Green One / One Club — kept distinct from Pueblito pan shot.
     eventId: "paella-pop-green-one",
     url: "https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=27612171988392813",
   },
@@ -240,6 +242,10 @@ const localSources = [
   {
     src: "LAXFridayReggaeNight.JPG",
     eventId: "ojo-weekend-dj-parties",
+  },
+  {
+    src: "CabareteReggaeRootsNight.JPG",
+    eventId: "lax-headline-concerts",
   },
 ];
 for (const { src, eventId } of localSources) {
