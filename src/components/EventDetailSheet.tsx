@@ -305,7 +305,7 @@ export function EventDetailSheet({
             href={ticketUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-1 flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-4 py-3 text-sm font-bold text-white shadow-sm touch-manipulation transition-transform active:scale-[0.98]"
+            className="mt-1 inline-flex w-fit max-w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-5 py-3 text-sm font-bold text-white shadow-sm touch-manipulation transition-transform active:scale-[0.98]"
           >
             <Ticket className="h-4 w-4" aria-hidden />
             {dict.detail.buyTickets}
@@ -314,7 +314,7 @@ export function EventDetailSheet({
         {showCallForPricing && event.phone && (
           <a
             href={`tel:${formatPhoneTel(event.phone)}`}
-            className="mt-1 flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-4 py-3 text-sm font-bold text-white shadow-sm touch-manipulation transition-transform active:scale-[0.98]"
+            className="mt-1 inline-flex w-fit max-w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-5 py-3 text-sm font-bold text-white shadow-sm touch-manipulation transition-transform active:scale-[0.98]"
           >
             <Phone className="h-4 w-4" aria-hidden />
             {dict.detail.callForPricing}
@@ -322,7 +322,7 @@ export function EventDetailSheet({
         )}
         {showFreeAdmission && (
           <div
-            className="mt-1 flex w-full items-center justify-center gap-2 rounded-2xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-bold text-emerald-700 dark:border-emerald-900/60 dark:bg-emerald-950/40 dark:text-emerald-300"
+            className="mt-1 inline-flex w-fit max-w-full items-center justify-center gap-2 rounded-2xl border border-emerald-200 bg-emerald-50 px-5 py-3 text-sm font-bold text-emerald-700 dark:border-emerald-900/60 dark:bg-emerald-950/40 dark:text-emerald-300"
             role="status"
           >
             <BadgeCheck className="h-4 w-4 shrink-0" aria-hidden />
@@ -331,7 +331,7 @@ export function EventDetailSheet({
         )}
         {showPaidAdmission && (
           <div
-            className="mt-1 flex w-full items-center justify-center gap-2 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm font-bold text-amber-900 dark:border-amber-900/60 dark:bg-amber-950/40 dark:text-amber-200"
+            className="mt-1 inline-flex w-fit max-w-full items-center justify-center gap-2 rounded-2xl border border-amber-200 bg-amber-50 px-5 py-3 text-sm font-bold text-amber-900 dark:border-amber-900/60 dark:bg-amber-950/40 dark:text-amber-200"
             role="status"
           >
             <CircleDollarSign className="h-4 w-4 shrink-0" aria-hidden />
