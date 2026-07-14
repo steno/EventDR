@@ -22,6 +22,7 @@ import {
   NORTH_COAST_HERO_IMAGE,
   type CitySlug,
 } from "@/lib/cities";
+import { getCategoryHeroImage } from "@/lib/category-heroes";
 import { PAGE_SHELL_CLASS } from "@/lib/page-shell";
 
 interface EventScopePageProps {
@@ -117,8 +118,9 @@ export function EventScopePage({
   }, [fetchUrl]);
 
   const city = citySlug ? getCityMeta(citySlug) : undefined;
-  // Place photos for cities; regional hero for category / when scopes.
+  // Topic photo when set; else place photo; else regional hero for when-scopes.
   const scopeHeroImage =
+    getCategoryHeroImage(categoryId) ??
     city?.heroImage ??
     (categoryId || fixedTimeRange ? NORTH_COAST_HERO_IMAGE : undefined);
   const showLocationPicker = Boolean(citySlug || categoryId || fixedTimeRange);
