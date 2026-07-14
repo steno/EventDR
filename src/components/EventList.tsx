@@ -8,11 +8,11 @@ import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import type { TimeRange } from "@/lib/filters";
 import { filterByTimeRange, searchEvents } from "@/lib/filters";
-import { materializeEventDates } from "@/lib/event-dates";
 import { sortEventsForDisplay } from "@/lib/event-sort";
 import { categoryPath } from "@/lib/event-navigation";
 import { attachEventImages } from "@/lib/event-images";
 import { eventMatchesCity, type CitySlug } from "@/lib/cities";
+import { EMPTY_EVENT_IDS } from "@/lib/home-layout";
 import { EventCard } from "./EventCard";
 import { TimeFilter } from "./TimeFilter";
 
@@ -50,7 +50,7 @@ export function EventList({
   ourPicks = false,
   returnTo,
   limit,
-  excludeEventIds = [],
+  excludeEventIds = EMPTY_EVENT_IDS,
   viewAllHref,
   showTimeFilter = false,
   onTimeRangeChange,
@@ -76,6 +76,9 @@ export function EventList({
         const params = new URLSearchParams();
         params.set("locale", locale);
         if (category) params.set("category", category);
+        // Home keeps an unscoped catalog for saved + client city switching.
+        // Scope pages should use FilteredEventList + SSR; when this list is used
+        // with a city, still prefer client filter so allEvents stays complete.
         if (refresh) params.set("refresh", "true");
 
         const res = await fetch(`/api/events?${params}`, { cache: "no-store" });
@@ -83,7 +86,8 @@ export function EventList({
           events: Event[];
           source: string;
         };
-        const loaded = attachEventImages(materializeEventDates(data.events ?? []));
+        // API already materializes dates; only re-attach images for client display.
+        const loaded = attachEventImages(data.events ?? []);
         setEvents(loaded);
         onEventsLoadedRef.current?.(loaded);
         setSource(data.source ?? "");
@@ -112,8 +116,7 @@ export function EventList({
       const excluded = new Set(excludeEventIds);
       result = result.filter((e) => !excluded.has(e.id));
     }
-    result = sortEventsForDisplay(result, { recurringLast: true });
-    return result;
+    return sortEventsForDisplay(result, { recurringLast: true });
   }, [events, timeRange, citySlug, searchQuery, excludeEventIds]);
 
   const visibleEvents = limit != null ? filtered.slice(0, limit) : filtered;

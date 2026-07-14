@@ -8,7 +8,6 @@ import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import type { TimeRange } from "@/lib/filters";
 import { filterByTimeRange } from "@/lib/filters";
-import { materializeEventDates } from "@/lib/event-dates";
 import { sortEventsForDisplay } from "@/lib/event-sort";
 import { SCOPE_LIST_LIMIT } from "@/lib/home-layout";
 import { TimeFilter } from "@/components/TimeFilter";
@@ -68,16 +67,12 @@ export function FilteredEventList({
     setExpanded(false);
   }, [timeRange]);
 
-  const materialized = useMemo(
-    () => materializeEventDates(events),
-    [events],
-  );
-
+  // SSR/API payloads are already materialized — filter/sort only.
   const filtered = useMemo(() => {
     const activeRange = fixedTimeRange ?? timeRange;
-    const timeFiltered = filterByTimeRange(materialized, activeRange);
+    const timeFiltered = filterByTimeRange(events, activeRange);
     return sortEventsForDisplay(timeFiltered, { recurringLast: true });
-  }, [materialized, timeRange, fixedTimeRange]);
+  }, [events, timeRange, fixedTimeRange]);
 
   const cap = expanded ? undefined : limit;
   const visibleEvents = cap != null ? filtered.slice(0, cap) : filtered;

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useMemo } from "react";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Event } from "@/lib/types";
 import {
@@ -8,6 +8,7 @@ import {
   type LiveStatusDisplay,
   type LiveStatusDisplayOptions,
 } from "@/lib/event-status-label";
+import { useLiveClockMs } from "@/hooks/useLiveClock";
 
 /** Client-only live labels — avoids SSR/client clock drift hydration mismatches. */
 export function useLiveStatusDisplay(
@@ -15,16 +16,22 @@ export function useLiveStatusDisplay(
   dict: Dictionary,
   options?: LiveStatusDisplayOptions,
 ): LiveStatusDisplay | null {
-  const [display, setDisplay] = useState<LiveStatusDisplay | null>(null);
+  const nowMs = useLiveClockMs();
   const listTimeRange = options?.listTimeRange;
 
-  useEffect(() => {
-    const update = () =>
-      setDisplay(resolveLiveStatusDisplay(event, dict, new Date(), options));
-    update();
-    const interval = window.setInterval(update, 60_000);
-    return () => window.clearInterval(interval);
-  }, [dict, event.date, event.endDate, event.time, event.recurrence, listTimeRange]);
-
-  return display;
+  return useMemo(() => {
+    // getServerSnapshot is 0 — keep null through SSR and the hydration match pass.
+    if (nowMs === 0) return null;
+    return resolveLiveStatusDisplay(event, dict, new Date(nowMs), {
+      listTimeRange,
+    });
+  }, [
+    dict,
+    event.date,
+    event.endDate,
+    event.time,
+    event.recurrence,
+    listTimeRange,
+    nowMs,
+  ]);
 }

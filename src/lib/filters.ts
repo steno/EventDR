@@ -144,8 +144,11 @@ export function searchEvents<
   const q = query.trim().toLowerCase();
   if (!q) return items;
   return items.filter((e) => {
-    const haystack =
-      `${e.title} ${e.description} ${e.location} ${e.venue ?? ""} ${e.category ?? ""}`.toLowerCase();
-    return haystack.includes(q);
+    // Cheap fields first — most matches never scan the full description.
+    if (e.title.toLowerCase().includes(q)) return true;
+    if ((e.venue ?? "").toLowerCase().includes(q)) return true;
+    if (e.location.toLowerCase().includes(q)) return true;
+    if ((e.category ?? "").toLowerCase().includes(q)) return true;
+    return e.description.toLowerCase().includes(q);
   });
 }

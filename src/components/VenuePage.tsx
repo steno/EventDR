@@ -11,7 +11,6 @@ import { attachEventImages } from "@/lib/event-images";
 import { attachTicketUrls } from "@/lib/event-tickets";
 import { resolveBackLabel } from "@/lib/event-navigation";
 import { EventImage } from "@/components/EventImage";
-import { matchVenueSlug } from "@/lib/venues-seed";
 import { PAGE_SHELL_CLASS } from "@/lib/page-shell";
 
 interface VenuePageProps {
@@ -35,11 +34,8 @@ export function VenuePage({
     return fetch(`/api/events?locale=${locale}&venue=${venue.slug}`)
       .then((r) => r.json())
       .then((d: { events?: Event[] }) => {
-        const list = (d.events ?? []).filter((e) => {
-          const slug = e.venueSlug ?? matchVenueSlug(e.venue) ?? matchVenueSlug(e.location);
-          return slug === venue.slug;
-        });
-        setEvents(attachTicketUrls(attachEventImages(list)));
+        // API already scopes by venue=; trust the payload.
+        setEvents(attachTicketUrls(attachEventImages(d.events ?? [])));
       })
       .catch(() => setEvents([]));
   }

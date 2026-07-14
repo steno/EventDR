@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { Event } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
@@ -79,17 +79,40 @@ export function EventScopePage({
   const [events, setEvents] = useState<Event[]>(() => attachEventImages(initialEvents));
   const [loading, setLoading] = useState(false);
   const [submitOpen, setSubmitOpen] = useState(false);
+  const fetchUrlRef = useRef(fetchUrl);
+  const initialEventsRef = useRef(initialEvents);
+  const skipMountFetch = useRef(initialEvents.length > 0);
+  initialEventsRef.current = initialEvents;
 
+  // Trust SSR when present; refetch only when the scope URL changes (or SSR was empty).
   useEffect(() => {
+    const urlChanged = fetchUrlRef.current !== fetchUrl;
+    fetchUrlRef.current = fetchUrl;
+
+    if (skipMountFetch.current && !urlChanged) {
+      skipMountFetch.current = false;
+      return;
+    }
+    skipMountFetch.current = false;
+
+    let cancelled = false;
     setLoading(true);
     fetch(fetchUrl)
       .then((response) => response.json())
-      .then((data: { events?: Event[] }) =>
-        setEvents(attachEventImages(data.events ?? [])),
-      )
-      .catch(() => setEvents(attachEventImages(initialEvents)))
-      .finally(() => setLoading(false));
-  }, [fetchUrl, initialEvents]);
+      .then((data: { events?: Event[] }) => {
+        if (!cancelled) setEvents(attachEventImages(data.events ?? []));
+      })
+      .catch(() => {
+        if (!cancelled) setEvents(attachEventImages(initialEventsRef.current));
+      })
+      .finally(() => {
+        if (!cancelled) setLoading(false);
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [fetchUrl]);
 
   const city = citySlug ? getCityMeta(citySlug) : undefined;
   // City pages use place photos; region category pages use the North Coast hero.

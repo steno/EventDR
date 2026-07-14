@@ -74,71 +74,72 @@ function isActiveToday(event: Event, now: Date): boolean {
   );
 }
 
-function compareWithinTier(a: Event, b: Event, tier: number, _now: Date): number {
-  if (tier === LIST_TIER.endingSoon) {
-    const endDiff = eventEndTimeMinutes(a.time) - eventEndTimeMinutes(b.time);
-    if (endDiff !== 0) return endDiff;
-  }
-
-  if (
-    tier === LIST_TIER.endingSoon ||
-    tier === LIST_TIER.live ||
-    tier === LIST_TIER.upcomingToday ||
-    tier === LIST_TIER.closedToday ||
-    tier === LIST_TIER.activeTodayUnknown
-  ) {
-    // Single kickoffs before start–end windows; windows still sort soonest-start first.
-    if (tier === LIST_TIER.upcomingToday || tier === LIST_TIER.live) {
-      const rangeDiff =
-        Number(hasExplicitTimeRange(a.time)) -
-        Number(hasExplicitTimeRange(b.time));
-      if (rangeDiff !== 0) return rangeDiff;
-    }
-
-    const startDiff =
-      eventStartTimeMinutes(a.time) - eventStartTimeMinutes(b.time);
-    if (startDiff !== 0) return startDiff;
-  }
-
-  if (tier === LIST_TIER.future || tier === LIST_TIER.past) {
-    const scheduleDiff = compareEventsBySchedule(a, b);
-    if (scheduleDiff !== 0) return scheduleDiff;
-  }
-
-  if (a.trending && !b.trending) return -1;
-  if (!a.trending && b.trending) return 1;
-
-  return a.title.localeCompare(b.title);
-}
-
-function compareEventsForDisplay(
-  a: Event,
-  b: Event,
-  options: SortEventsForDisplayOptions,
-): number {
-  const now = options.now ?? new Date();
-  const tierA = listTier(a, now);
-  const tierB = listTier(b, now);
-  if (tierA !== tierB) return tierA - tierB;
-
-  if (
-    options.recurringLast &&
-    tierA === LIST_TIER.future &&
-    a.date === b.date &&
-    !isActiveToday(a, now) &&
-    !isActiveToday(b, now)
-  ) {
-    const recurrenceDiff = Number(isRecurringEvent(a)) - Number(isRecurringEvent(b));
-    if (recurrenceDiff !== 0) return recurrenceDiff;
-  }
-
-  return compareWithinTier(a, b, tierA, now);
-}
-
 /** Status-aware list order: ending soon, then starts soon, then live; ended today last. */
 export function sortEventsForDisplay(
   events: Event[],
   options: SortEventsForDisplayOptions = {},
 ): Event[] {
-  return [...events].sort((a, b) => compareEventsForDisplay(a, b, options));
+  if (events.length < 2) return events.length === 1 ? [...events] : [];
+
+  const now = options.now ?? new Date();
+  const recurringLast = options.recurringLast === true;
+
+  // Precompute sort keys once — listTier/time parsing is expensive in comparators.
+  const keyed = events.map((event) => ({
+    event,
+    tier: listTier(event, now),
+    start: eventStartTimeMinutes(event.time),
+    end: eventEndTimeMinutes(event.time),
+    hasRange: hasExplicitTimeRange(event.time),
+    recurring: isRecurringEvent(event),
+    activeToday: isActiveToday(event, now),
+  }));
+
+  keyed.sort((a, b) => {
+    if (a.tier !== b.tier) return a.tier - b.tier;
+
+    if (
+      recurringLast &&
+      a.tier === LIST_TIER.future &&
+      a.event.date === b.event.date &&
+      !a.activeToday &&
+      !b.activeToday
+    ) {
+      const recurrenceDiff = Number(a.recurring) - Number(b.recurring);
+      if (recurrenceDiff !== 0) return recurrenceDiff;
+    }
+
+    const tier = a.tier;
+    if (tier === LIST_TIER.endingSoon) {
+      const endDiff = a.end - b.end;
+      if (endDiff !== 0) return endDiff;
+    }
+
+    if (
+      tier === LIST_TIER.endingSoon ||
+      tier === LIST_TIER.live ||
+      tier === LIST_TIER.upcomingToday ||
+      tier === LIST_TIER.closedToday ||
+      tier === LIST_TIER.activeTodayUnknown
+    ) {
+      if (tier === LIST_TIER.upcomingToday || tier === LIST_TIER.live) {
+        const rangeDiff = Number(a.hasRange) - Number(b.hasRange);
+        if (rangeDiff !== 0) return rangeDiff;
+      }
+      const startDiff = a.start - b.start;
+      if (startDiff !== 0) return startDiff;
+    }
+
+    if (tier === LIST_TIER.future || tier === LIST_TIER.past) {
+      const scheduleDiff = compareEventsBySchedule(a.event, b.event);
+      if (scheduleDiff !== 0) return scheduleDiff;
+    }
+
+    if (a.event.trending && !b.event.trending) return -1;
+    if (!a.event.trending && b.event.trending) return 1;
+
+    return a.event.title.localeCompare(b.event.title);
+  });
+
+  return keyed.map((row) => row.event);
 }

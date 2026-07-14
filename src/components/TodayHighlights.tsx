@@ -24,6 +24,8 @@ interface TodayHighlightsProps {
   excludeEventIds?: string[];
   /** Override “See all today” destination (e.g. city page when a zone is picked). */
   seeAllHref?: string;
+  /** When true, `events` is already today’s sorted highlight list. */
+  prefiltered?: boolean;
 }
 
 function TodayHighlightCard({
@@ -104,15 +106,13 @@ const TodayHighlightsComponent = ({
   limit = HOME_TODAY_LIMIT,
   excludeEventIds = [],
   seeAllHref,
+  prefiltered = false,
 }: TodayHighlightsProps) => {
   const excludeSet = useMemo(() => new Set(excludeEventIds), [excludeEventIds]);
-  const todayEvents = useMemo(
-    () =>
-      getTodayHighlightEvents(events).filter(
-        (event) => !excludeSet.has(event.id),
-      ),
-    [events, excludeSet],
-  );
+  const todayEvents = useMemo(() => {
+    const base = prefiltered ? events : getTodayHighlightEvents(events);
+    return base.filter((event) => !excludeSet.has(event.id));
+  }, [events, excludeSet, prefiltered]);
   const visibleEvents = todayEvents.slice(0, limit);
   const hasMore = todayEvents.length > limit;
   const allTodayHref = seeAllHref ?? `/${locale}/when/today`;

@@ -15,6 +15,12 @@ export const HOME_TODAY_LIMIT = 6;
 /** Max events in the home "Our picks" section. */
 export const HOME_PICKS_LIMIT = 10;
 
+/** Cap mounted search-result cards (search has no "view all" paginator). */
+export const HOME_SEARCH_LIMIT = 30;
+
+/** Stable empty exclude list — avoids busting EventList memo deps each render. */
+export const EMPTY_EVENT_IDS: string[] = [];
+
 /** Default preview cap for city, category, venue, and when listing pages. */
 export const SCOPE_LIST_LIMIT = HOME_PICKS_LIMIT;
 
@@ -111,13 +117,59 @@ export function getHomeHeroEvent(
   events: Event[],
   options: TodayHighlightOptions = {},
 ): Event | null {
-  if (events.length === 0) return null;
-  const today = getTodayHighlightEvents(events, options);
-  const todayWithImage = today.find((e) => Boolean(e.imageUrl?.trim()));
-  if (todayWithImage) return todayWithImage;
+  return getHomeDiscoverLayout(events, options).heroEvent;
+}
+
+export interface HomeDiscoverLayout {
+  heroEvent: Event | null;
+  /** Today highlights already sorted (full list, not sliced). */
+  todayEvents: Event[];
+  /** IDs to hide from Our picks (active today carousel + hero). */
+  picksExcludeIds: string[];
+  /** Hero only — for the today grid. */
+  heroExcludeIds: string[];
+}
+
+/**
+ * One filter+sort pass for home hero, today grid, and picks dedupe.
+ */
+export function getHomeDiscoverLayout(
+  events: Event[],
+  options: TodayHighlightOptions = {},
+): HomeDiscoverLayout {
+  if (events.length === 0) {
+    return {
+      heroEvent: null,
+      todayEvents: [],
+      picksExcludeIds: EMPTY_EVENT_IDS,
+      heroExcludeIds: EMPTY_EVENT_IDS,
+    };
+  }
+
+  const todayEvents = getTodayHighlightEvents(events, options);
+  const todayWithImage = todayEvents.find((e) => Boolean(e.imageUrl?.trim()));
   const anyWithImage = events.find((e) => Boolean(e.imageUrl?.trim()));
-  if (anyWithImage) return anyWithImage;
-  return today[0] ?? events[0] ?? null;
+  const heroEvent =
+    todayWithImage ?? anyWithImage ?? todayEvents[0] ?? events[0] ?? null;
+
+  const picksExcludeIds = todayEvents
+    .slice(0, HOME_TODAY_LIMIT)
+    .filter((e) => {
+      const status = getEventLiveStatus(e, options.now);
+      return status === "live" || status === "upcoming";
+    })
+    .map((e) => e.id);
+
+  if (heroEvent && !picksExcludeIds.includes(heroEvent.id)) {
+    picksExcludeIds.push(heroEvent.id);
+  }
+
+  return {
+    heroEvent,
+    todayEvents,
+    picksExcludeIds,
+    heroExcludeIds: heroEvent ? [heroEvent.id] : EMPTY_EVENT_IDS,
+  };
 }
 
 export function getFeaturedVenues(
