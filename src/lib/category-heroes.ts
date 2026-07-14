@@ -16,6 +16,8 @@ const CATEGORY_HERO_IMAGES: Partial<Record<EventCategory, string>> = {
   music: "/categories/music.jpg",
   concert: "/categories/concert.jpg",
   "health-wellness": "/categories/health-wellness.jpg",
+  "food-drinks": "/categories/food-drinks.jpg",
+  business: "/categories/business.jpg",
 };
 
 export function getCategoryHeroImage(

@@ -13,5 +13,7 @@ Local copies under `/public/categories/` load with the app (no runtime API cost)
 | `parties.jpg` | [Crowd HM1 Nightclub Dresden.jpg](https://commons.wikimedia.org/wiki/File:Crowd_HM1_Nightclub_Dresden.jpg) — nightlife action; no open DR club shot found | CC BY 2.0 |
 | `music.jpg` / `concert.jpg` | [Amargue Bachata Quintet with Andre Veloz](https://commons.wikimedia.org/wiki/File:Amargue_Bachata_Quintet_with_Andre_Veloz_(22092585435).jpg) — live bachata | CC BY-SA 2.0 |
 | `health-wellness.jpg` | [Yoga in the beach (Unsplash).jpg](https://commons.wikimedia.org/wiki/File:Yoga_in_the_beach_(Unsplash).jpg) | CC0 |
+| `food-drinks.jpg` | POP Events local — Cabarete brunch / market action (`public/events/cabarete-brunch-market.jpg`) | POP Events own photo |
+| `business.jpg` | POP Events local — North Coast networking (`public/events/north-coast-networking-saturday.jpg`) | POP Events own photo |
 
 When replacing a file, update this table (ShareAlike requires attribution kept available).
