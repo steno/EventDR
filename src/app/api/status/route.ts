@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { isFirebaseConfigured } from "@/lib/firebase/admin";
+import { getFirestoreDb, isFirebaseConfigured } from "@/lib/firebase/admin";
 import { isBraveSearchConfigured } from "@/lib/scrape";
 import { fetchPendingEvents, fetchVenues } from "@/lib/firebase/events";
 
@@ -16,18 +16,29 @@ function checkModeratorSecret(request: NextRequest): boolean {
 
 /** Quick health check — Firebase connection and optional moderation queue depth. */
 export async function GET(request: NextRequest) {
-  const firebase = isFirebaseConfigured();
+  const firebaseConfigured = isFirebaseConfigured();
   const moderatorConfigured = Boolean(process.env.MODERATOR_SECRET);
 
   let venueCount = 0;
-  if (firebase) {
-    const venues = await fetchVenues();
-    venueCount = venues.length;
+  let firebaseOk = false;
+  if (firebaseConfigured) {
+    try {
+      // Triggers credential parse/init; returns null when credentials are unusable.
+      const db = getFirestoreDb();
+      if (db) {
+        const venues = await fetchVenues();
+        venueCount = venues.length;
+        firebaseOk = true;
+      }
+    } catch (error) {
+      console.error("Status: Firebase venue check failed:", error);
+    }
   }
 
   const base = {
-    ok: firebase,
-    firebase,
+    ok: firebaseOk,
+    firebase: firebaseOk,
+    firebaseConfigured,
     braveSearchConfigured: isBraveSearchConfigured(),
     cronConfigured: Boolean(process.env.CRON_SECRET?.trim()),
     openaiConfigured: Boolean(process.env.OPENAI_API_KEY?.trim()),
@@ -40,7 +51,15 @@ export async function GET(request: NextRequest) {
     return NextResponse.json(base);
   }
 
-  const pending = firebase ? await fetchPendingEvents() : [];
+  let pending: Awaited<ReturnType<typeof fetchPendingEvents>> = [];
+  if (firebaseOk) {
+    try {
+      pending = await fetchPendingEvents();
+    } catch (error) {
+      console.error("Status: pending events check failed:", error);
+    }
+  }
+
   return NextResponse.json({
     ...base,
     pendingCount: pending.length,

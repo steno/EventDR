@@ -40,8 +40,12 @@ export async function getEventById(
   id: string,
   locale: Locale,
 ): Promise<Event | null> {
-  const dbEvent = await fetchEventById(id);
-  if (dbEvent) return finalizeEvent(dbEvent, locale);
+  try {
+    const dbEvent = await fetchEventById(id);
+    if (dbEvent) return finalizeEvent(dbEvent, locale);
+  } catch (error) {
+    console.error("getEventById: database lookup failed, using fallback:", id, error);
+  }
 
   const fallback = getFallbackEventById(id, locale);
   if (fallback) return finalizeEvent(fallback, locale);

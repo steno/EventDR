@@ -224,15 +224,20 @@ export async function refreshEventCoordsFromVenues(): Promise<number> {
 }
 
 export async function fetchEventById(id: string): Promise<Event | null> {
-  const db = getFirestoreDb();
-  if (!db) return null;
+  try {
+    const db = getFirestoreDb();
+    if (!db) return null;
 
-  const doc = await db.collection("events").doc(id).get();
-  if (!doc.exists) return null;
+    const doc = await db.collection("events").doc(id).get();
+    if (!doc.exists) return null;
 
-  const event = docToEvent(doc.id, doc.data()!);
-  if (event.status === "rejected" || event.status === "pending") return null;
-  return event;
+    const event = docToEvent(doc.id, doc.data()!);
+    if (event.status === "rejected" || event.status === "pending") return null;
+    return event;
+  } catch (error) {
+    console.error("fetchEventById failed:", id, error);
+    return null;
+  }
 }
 
 export async function fetchApprovedEvents(options?: {
@@ -240,27 +245,32 @@ export async function fetchApprovedEvents(options?: {
   venueSlug?: string;
   locale?: string;
 }): Promise<Event[]> {
-  const db = getFirestoreDb();
-  if (!db) return [];
+  try {
+    const db = getFirestoreDb();
+    if (!db) return [];
 
-  let query = db
-    .collection("events")
-    .where("status", "==", "approved");
+    let query = db
+      .collection("events")
+      .where("status", "==", "approved");
 
-  // Apply filters at database level when possible
-  if (options?.category) {
-    query = query.where("searchCategories", "array-contains", options.category);
+    // Apply filters at database level when possible
+    if (options?.category) {
+      query = query.where("searchCategories", "array-contains", options.category);
+    }
+    if (options?.venueSlug) {
+      query = query.where("venueSlug", "==", options.venueSlug);
+    }
+
+    const snap = await query.get();
+
+    const events = snap.docs.map((doc) => docToEvent(doc.id, doc.data()));
+    events.sort((a, b) => a.date.localeCompare(b.date));
+
+    return events;
+  } catch (error) {
+    console.error("fetchApprovedEvents failed:", error);
+    return [];
   }
-  if (options?.venueSlug) {
-    query = query.where("venueSlug", "==", options.venueSlug);
-  }
-
-  const snap = await query.get();
-
-  const events = snap.docs.map((doc) => docToEvent(doc.id, doc.data()));
-  events.sort((a, b) => a.date.localeCompare(b.date));
-
-  return events;
 }
 
 export async function fetchPendingEvents(): Promise<Event[]> {
@@ -454,11 +464,16 @@ export async function upsertApprovedEvents(
 }
 
 export async function fetchVenues(): Promise<Venue[]> {
-  const db = getFirestoreDb();
-  if (!db) return [];
+  try {
+    const db = getFirestoreDb();
+    if (!db) return [];
 
-  const snap = await db.collection("venues").orderBy("name").get();
-  return snap.docs.map((doc) => docToVenue(doc.id, doc.data()));
+    const snap = await db.collection("venues").orderBy("name").get();
+    return snap.docs.map((doc) => docToVenue(doc.id, doc.data()));
+  } catch (error) {
+    console.error("fetchVenues failed:", error);
+    return [];
+  }
 }
 
 export async function fetchVenueBySlug(slug: string): Promise<Venue | null> {
