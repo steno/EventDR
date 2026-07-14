@@ -4,6 +4,8 @@ import { EventScopePage } from "@/components/EventScopePage";
 import { JsonLd } from "@/components/JsonLd";
 import { CATEGORY_IDS, getCategoryMeta } from "@/lib/categories";
 import { getCategorySeo } from "@/lib/category-seo";
+import { NORTH_COAST_TOP_CATEGORIES } from "@/lib/cities";
+import { categoryPath as buildCategoryPath } from "@/lib/event-navigation";
 import { isValidLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getPublicEvents } from "@/lib/public-events";
@@ -11,6 +13,7 @@ import { isScopeInitiallyExpanded } from "@/lib/home-layout";
 import {
   buildCategoryMetadata,
   buildListingPageJsonLd,
+  fillTemplate,
   localePath,
 } from "@/lib/seo";
 import type { EventCategory } from "@/lib/types";
@@ -48,8 +51,19 @@ export default async function Page({
   const dict = getDictionary(locale);
   const category = getCategoryMeta(id, dict.categories);
   const categorySeo = getCategorySeo(locale, id as EventCategory);
-  const categoryPath = localePath(locale, `/category/${id}`);
-  const events = await getPublicEvents({ locale, category: id as EventCategory });
+  const categoryId = id as EventCategory;
+  const pagePath = localePath(locale, `/category/${id}`);
+  const events = await getPublicEvents({ locale, category: categoryId });
+  const pillCategories = NORTH_COAST_TOP_CATEGORIES.includes(categoryId)
+    ? NORTH_COAST_TOP_CATEGORIES
+    : [categoryId, ...NORTH_COAST_TOP_CATEGORIES];
+  const relatedCategoryLinks = pillCategories.map((relatedId) => ({
+    href: buildCategoryPath(locale, relatedId),
+    label: dict.categories[relatedId],
+  }));
+  const relatedCategoryLinksLabel = fillTemplate(dict.cities.browseTopCategories, {
+    city: dict.cities.regionName,
+  });
 
   return (
     <>
@@ -57,13 +71,13 @@ export default async function Page({
         <JsonLd
           data={buildListingPageJsonLd(
             locale,
-            categoryPath,
+            pagePath,
             categorySeo,
             category.label,
             events,
             [
               { name: dict.seo.siteName, path: localePath(locale) },
-              { name: category.label, path: categoryPath },
+              { name: category.label, path: pagePath },
             ],
           )}
         />
@@ -73,15 +87,18 @@ export default async function Page({
         dict={dict}
         initialEvents={events}
         fetchUrl={`/api/events?locale=${locale}&category=${id}`}
-        returnTo={categoryPath}
+        returnTo={pagePath}
         title={category?.label ?? id}
         intro={categorySeo.intro}
         sectionTitle={dict.browse.eventsIn}
         emoji={category?.emoji}
         emojiClassName={`bg-gradient-to-br ${category?.gradient ?? "from-neutral-200 to-neutral-300"}`}
-        submitDefaults={{ category: id as EventCategory }}
+        submitDefaults={{ category: categoryId }}
+        relatedCategoryLinks={relatedCategoryLinks}
+        relatedCategoryLinksLabel={relatedCategoryLinksLabel}
+        relatedCategoryActiveHref={pagePath}
         initialExpanded={isScopeInitiallyExpanded(all)}
-        categoryId={id as EventCategory}
+        categoryId={categoryId}
       />
     </>
   );

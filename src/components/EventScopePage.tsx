@@ -16,7 +16,11 @@ import { SubmitEventSheet } from "@/components/SubmitEventSheet";
 import { attachEventImages } from "@/lib/event-images";
 import { StickyListHeader } from "@/components/StickyListHeader";
 import { resolveBackLabel } from "@/lib/event-navigation";
-import { getCityMeta, type CitySlug } from "@/lib/cities";
+import {
+  getCityMeta,
+  NORTH_COAST_HERO_IMAGE,
+  type CitySlug,
+} from "@/lib/cities";
 import { PAGE_SHELL_CLASS } from "@/lib/page-shell";
 
 interface EventScopePageProps {
@@ -88,7 +92,9 @@ export function EventScopePage({
   }, [fetchUrl, initialEvents]);
 
   const city = citySlug ? getCityMeta(citySlug) : undefined;
-  const cityHeroImage = city?.heroImage;
+  // City pages use place photos; region category pages use the North Coast hero.
+  const scopeHeroImage =
+    city?.heroImage ?? (categoryId ? NORTH_COAST_HERO_IMAGE : undefined);
   const headerEmojiClassName =
     emojiClassName ??
     "bg-white dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-800";
@@ -103,15 +109,15 @@ export function EventScopePage({
             dict={dict}
             backHref={backHref}
             backLabel={backLabel}
-            flushBottom={Boolean(cityHeroImage)}
+            flushBottom={Boolean(scopeHeroImage)}
           />
 
-          {cityHeroImage ? (
+          {scopeHeroImage ? (
             <CityPhotoHero
               title={title}
               eyebrow={subtitle}
               subtitle={intro}
-              imageUrl={cityHeroImage}
+              imageUrl={scopeHeroImage}
             />
           ) : (
             <>

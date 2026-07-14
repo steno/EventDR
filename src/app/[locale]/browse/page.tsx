@@ -51,11 +51,11 @@ export default async function Page({
           backLabel={backLabel}
         />
 
-        <div className="mb-6">
+        <div className="mb-4">
           <h1 className="text-2xl font-black tracking-tight text-neutral-900 dark:text-neutral-100">
             {dict.browse.title}
           </h1>
-          <p className="mt-1 text-sm font-medium text-neutral-500 dark:text-neutral-400">
+          <p className="mt-0.5 text-sm font-medium text-neutral-500 dark:text-neutral-400">
             {dict.browse.allCategoriesIntro}
           </p>
         </div>

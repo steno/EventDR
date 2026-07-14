@@ -3,6 +3,19 @@ import type { Event, EventCategory } from "@/lib/types";
 
 export type CitySlug = "puerto-plata" | "sosua" | "cabarete";
 
+/** Regional hero for North Coast scope pages (no city selected). */
+export const NORTH_COAST_HERO_IMAGE = "/cities/north-coast.jpg";
+
+/** Curated pills for regional “Popular in North Coast” links. */
+export const NORTH_COAST_TOP_CATEGORIES: EventCategory[] = [
+  "music",
+  "parties",
+  "sports",
+  "adventure",
+  "food-drinks",
+  "festivals",
+];
+
 export type CitySeoCopy = {
   title: string;
   description: string;
