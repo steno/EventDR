@@ -1,13 +1,14 @@
 "use client";
 
-import type { TimeRange } from "@/lib/filters";
+import {
+  FILTER_TIME_RANGES,
+  type FilterTimeRange,
+} from "@/lib/filters";
 import type { Dictionary } from "@/i18n/dictionaries";
 
-const RANGES: TimeRange[] = ["all", "today", "tomorrow", "weekend"];
-
 interface TimeFilterProps {
-  value: TimeRange;
-  onChange: (range: TimeRange) => void;
+  value: FilterTimeRange;
+  onChange: (range: FilterTimeRange) => void;
   dict: Dictionary;
   className?: string;
 }
@@ -20,7 +21,7 @@ export function TimeFilter({ value, onChange, dict, className = "mb-4" }: TimeFi
       aria-label={dict.submit.time}
     >
       <div className="flex min-w-max gap-0 border-b border-neutral-200 dark:border-neutral-800">
-        {RANGES.map((range) => {
+        {FILTER_TIME_RANGES.map((range) => {
           const selected = value === range;
           return (
             <button

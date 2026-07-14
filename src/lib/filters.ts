@@ -10,18 +10,29 @@ import { happensOnLocalDate, isEventActiveToday } from "./event-status";
 
 export type TimeRange = "all" | "today" | "tomorrow" | "weekend";
 
+/** Visible time-filter chips — "all" stays internal (search / unfiltered). */
+export type FilterTimeRange = Exclude<TimeRange, "all">;
+
+export const FILTER_TIME_RANGES: FilterTimeRange[] = [
+  "today",
+  "tomorrow",
+  "weekend",
+];
+
+/** Default chip when a list shows the time filter. */
+export const DEFAULT_FILTER_TIME_RANGE: FilterTimeRange = "today";
+
 /** Map legacy scroll-state values after filter chip changes. */
 export function normalizeTimeRange(value: string): TimeRange {
-  if (value === "week") return "all";
+  if (value === "week" || value === "all") return DEFAULT_FILTER_TIME_RANGE;
   if (
-    value === "all" ||
     value === "today" ||
     value === "tomorrow" ||
     value === "weekend"
   ) {
     return value;
   }
-  return "all";
+  return DEFAULT_FILTER_TIME_RANGE;
 }
 
 function getWeekendRangeISO(now: Date): { start: string; end: string } {

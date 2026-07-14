@@ -92,7 +92,7 @@ export function getTodayHighlightEvents(
 }
 
 /**
- * Dedupe only active carousel highlights from Our picks "All".
+ * Dedupe only active carousel highlights from Our picks when scoped to today.
  * Closed-for-today and other inactive-today cards stay in the list with their status badge.
  */
 export function getTodayHighlightExcludeIds(
@@ -187,7 +187,6 @@ export function homeViewAllPath(
   locale: string,
   timeRange: TimeRange,
 ): string | undefined {
-  if (timeRange === "all") return undefined;
   if (timeRange === "today") return `/${locale}/when/today?all=1`;
   if (timeRange === "tomorrow") return `/${locale}/when/tomorrow?all=1`;
   if (timeRange === "weekend") return `/${locale}/when/weekend?all=1`;

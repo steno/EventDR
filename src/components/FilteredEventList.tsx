@@ -6,8 +6,12 @@ import { ChevronRight } from "lucide-react";
 import type { Event } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
-import type { TimeRange } from "@/lib/filters";
-import { filterByTimeRange } from "@/lib/filters";
+import {
+  DEFAULT_FILTER_TIME_RANGE,
+  filterByTimeRange,
+  type FilterTimeRange,
+  type TimeRange,
+} from "@/lib/filters";
 import { sortEventsForDisplay } from "@/lib/event-sort";
 import { SCOPE_LIST_LIMIT } from "@/lib/home-layout";
 import { TimeFilter } from "@/components/TimeFilter";
@@ -47,7 +51,11 @@ export function FilteredEventList({
   limit = SCOPE_LIST_LIMIT,
 }: FilteredEventListProps) {
   const pathname = usePathname();
-  const [timeRange, setTimeRange] = useState<TimeRange>(fixedTimeRange ?? "all");
+  const [timeRange, setTimeRange] = useState<FilterTimeRange>(
+    fixedTimeRange && fixedTimeRange !== "all"
+      ? fixedTimeRange
+      : DEFAULT_FILTER_TIME_RANGE,
+  );
   const [expanded, setExpanded] = useState(initialExpanded);
   const skipExpandReset = useRef(true);
 

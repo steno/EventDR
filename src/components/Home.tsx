@@ -8,6 +8,7 @@ import {
   useRef,
   useState,
 } from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { AppHeader } from "@/components/AppHeader";
 import { PhotoHero } from "@/components/PhotoHero";
 import { CategoryGrid } from "@/components/CategoryGrid";
@@ -30,8 +31,17 @@ import {
   homeViewAllPath,
 } from "@/lib/home-layout";
 import { PAGE_SHELL_CLASS } from "@/lib/page-shell";
-import { type TimeRange } from "@/lib/filters";
-import { eventMatchesCity, type CitySlug } from "@/lib/cities";
+import {
+  DEFAULT_FILTER_TIME_RANGE,
+  type FilterTimeRange,
+} from "@/lib/filters";
+import {
+  eventMatchesCity,
+  HOME_CITY_ALL,
+  homePathWithArea,
+  parseHomeCityParam,
+  type CitySlug,
+} from "@/lib/cities";
 import type { Event, Venue } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
 import type { AppTab, Dictionary } from "@/i18n/dictionaries";
@@ -43,17 +53,34 @@ interface HomeProps {
 }
 
 export function Home({ locale, dict, initialVenues }: HomeProps) {
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
   const [tab, setTab] = useState<AppTab>("discover");
   const [searchQuery, setSearchQuery] = useState("");
   const deferredSearchQuery = useDeferredValue(searchQuery);
-  const [timeRange, setTimeRange] = useState<TimeRange>("all");
-  const [selectedCity, setSelectedCity] = useState<CitySlug | null>(null);
-  /** False until the user picks a city or the whole North Coast. */
-  const [areaChosen, setAreaChosen] = useState(false);
+  const [timeRange, setTimeRange] = useState<FilterTimeRange>(
+    DEFAULT_FILTER_TIME_RANGE,
+  );
   const [submitOpen, setSubmitOpen] = useState(false);
   const [allEvents, setAllEvents] = useState<Event[]>([]);
   const [refreshKey, setRefreshKey] = useState(0);
   const searchInputRef = useRef<HTMLInputElement>(null);
+
+  const { city: selectedCity, areaChosen } = useMemo(
+    () => parseHomeCityParam(searchParams.get("city")),
+    [searchParams],
+  );
+
+  const setArea = useCallback(
+    (slug: CitySlug | null) => {
+      const params = new URLSearchParams(searchParams.toString());
+      params.set("city", slug ?? HOME_CITY_ALL);
+      const qs = params.toString();
+      router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
+    },
+    [pathname, router, searchParams],
+  );
 
   const { filterSaved, reconcileWithEvents } = useSavedEvents();
 
@@ -75,7 +102,7 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
   }, []);
 
   const savedEvents = filterSaved(allEvents);
-  const homePath = `/${locale}`;
+  const homePath = homePathWithArea(locale, selectedCity, areaChosen);
 
   /** Zone pick scopes home highlights and picks; null = whole North Coast. */
   const scopedEvents = useMemo(() => {
@@ -109,8 +136,9 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
 
   const isSearching = searchQuery.trim().length > 0;
   const listSearchQuery = isSearching ? deferredSearchQuery : "";
+  // Avoid duplicating TodayHighlights when the list is also scoped to today.
   const picksExcludeIds =
-    !isSearching && timeRange === "all"
+    !isSearching && timeRange === "today"
       ? discoverLayout.picksExcludeIds
       : EMPTY_EVENT_IDS;
 
@@ -178,10 +206,7 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
                     dict={dict}
                     currentSlug={selectedCity}
                     emptyLabel={areaChosen ? undefined : dict.cities.chooseArea}
-                    onSelect={(slug) => {
-                      setSelectedCity(slug);
-                      setAreaChosen(true);
-                    }}
+                    onSelect={setArea}
                   />
                   {areaChosen && (
                     <div className="mt-1 animate-in">

@@ -2,12 +2,16 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
-import { RefreshCw, Loader2, ChevronRight } from "lucide-react";
+import { Loader2, ChevronRight } from "lucide-react";
 import type { Event, EventCategory } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
-import type { TimeRange } from "@/lib/filters";
-import { filterByTimeRange, searchEvents } from "@/lib/filters";
+import type { TimeRange, FilterTimeRange } from "@/lib/filters";
+import {
+  DEFAULT_FILTER_TIME_RANGE,
+  filterByTimeRange,
+  searchEvents,
+} from "@/lib/filters";
 import { sortEventsForDisplay } from "@/lib/event-sort";
 import { categoryPath } from "@/lib/event-navigation";
 import { attachEventImages } from "@/lib/event-images";
@@ -35,7 +39,7 @@ interface EventListProps {
   /** Link when the list is truncated by `limit`. */
   viewAllHref?: string;
   showTimeFilter?: boolean;
-  onTimeRangeChange?: (range: TimeRange) => void;
+  onTimeRangeChange?: (range: FilterTimeRange) => void;
 }
 
 export function EventList({
@@ -59,7 +63,6 @@ export function EventList({
     returnTo ?? (category ? categoryPath(locale, category) : `/${locale}`);
   const [events, setEvents] = useState<Event[]>([]);
   const [loading, setLoading] = useState(true);
-  const [refreshing, setRefreshing] = useState(false);
   const [source, setSource] = useState<string>("");
   const onEventsLoadedRef = useRef(onEventsLoaded);
 
@@ -69,8 +72,7 @@ export function EventList({
 
   const fetchEvents = useCallback(
     async (refresh = false) => {
-      if (refresh) setRefreshing(true);
-      else setLoading(true);
+      if (!refresh) setLoading(true);
 
       try {
         const params = new URLSearchParams();
@@ -96,7 +98,6 @@ export function EventList({
         onEventsLoadedRef.current?.([]);
       } finally {
         setLoading(false);
-        setRefreshing(false);
       }
     },
     [category, locale],
@@ -146,44 +147,31 @@ export function EventList({
 
   return (
     <div className="space-y-4">
-      <div className="flex items-center justify-between">
-        <div>
-          <h2 className="text-xl font-black text-neutral-900 dark:text-neutral-100 tracking-tight">
-            {isSearching
-              ? dict.search.activeTitle
-              : ourPicks && !category
-                ? dict.events.ourPicks
-                : category
-                  ? dict.events.filtered
-                  : dict.events.trending}
-          </h2>
-          {category && filtered.length > 0 && (
-            <p className="text-xs text-neutral-400 dark:text-neutral-500 mt-0.5">
-              {filtered.length} · {dict.events.hiddenGems}
-            </p>
-          )}
-          {!category && !ourPicks && !isSearching && source && (
-            <p className="text-xs text-neutral-400 dark:text-neutral-500 mt-0.5">{sourceLabel}</p>
-          )}
-        </div>
-        <button
-          type="button"
-          onClick={() => fetchEvents(true)}
-          disabled={refreshing}
-          className="
-            flex h-9 w-9 items-center justify-center rounded-full
-            bg-neutral-100 dark:bg-neutral-800 text-neutral-500 dark:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-neutral-700 hover:text-neutral-800 dark:hover:text-neutral-200
-            transition-colors disabled:opacity-50
-          "
-          aria-label={dict.events.refresh}
-        >
-          <RefreshCw className={`h-4 w-4 ${refreshing ? "animate-spin" : ""}`} />
-        </button>
+      <div>
+        <h2 className="text-xl font-black text-neutral-900 dark:text-neutral-100 tracking-tight">
+          {isSearching
+            ? dict.search.activeTitle
+            : ourPicks && !category
+              ? dict.events.ourPicks
+              : category
+                ? dict.events.filtered
+                : dict.events.trending}
+        </h2>
+        {category && filtered.length > 0 && (
+          <p className="text-xs text-neutral-400 dark:text-neutral-500 mt-0.5">
+            {filtered.length} · {dict.events.hiddenGems}
+          </p>
+        )}
+        {!category && !ourPicks && !isSearching && source && (
+          <p className="text-xs text-neutral-400 dark:text-neutral-500 mt-0.5">{sourceLabel}</p>
+        )}
       </div>
 
       {showTimeFilter && onTimeRangeChange && (
         <TimeFilter
-          value={timeRange}
+          value={
+            timeRange === "all" ? DEFAULT_FILTER_TIME_RANGE : timeRange
+          }
           onChange={onTimeRangeChange}
           dict={dict}
           className="mb-0"

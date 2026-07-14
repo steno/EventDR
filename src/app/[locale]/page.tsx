@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { Home } from "@/components/Home";
@@ -31,7 +32,9 @@ export default async function Page({
   return (
     <>
       <JsonLd data={buildWebSiteJsonLd(locale, dict)} />
-      <Home locale={locale} dict={dict} initialVenues={venues} />
+      <Suspense fallback={null}>
+        <Home locale={locale} dict={dict} initialVenues={venues} />
+      </Suspense>
     </>
   );
 }

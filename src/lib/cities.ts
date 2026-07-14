@@ -152,8 +152,35 @@ export const CITIES: CityMeta[] = [
 
 export const CITY_SLUGS = CITIES.map((city) => city.slug);
 
+/** Query value for “whole North Coast” on home (`?city=all`). */
+export const HOME_CITY_ALL = "all";
+
 export function isCitySlug(value: string): value is CitySlug {
   return CITY_SLUGS.includes(value as CitySlug);
+}
+
+/**
+ * Parse home `?city=` — URL is the source of truth for area filter
+ * (back/forward, reload, share).
+ */
+export function parseHomeCityParam(value: string | null): {
+  city: CitySlug | null;
+  areaChosen: boolean;
+} {
+  if (!value) return { city: null, areaChosen: false };
+  if (value === HOME_CITY_ALL) return { city: null, areaChosen: true };
+  if (isCitySlug(value)) return { city: value, areaChosen: true };
+  return { city: null, areaChosen: false };
+}
+
+/** Home href including area query when the user has chosen a zone. */
+export function homePathWithArea(
+  locale: string,
+  city: CitySlug | null,
+  areaChosen: boolean,
+): string {
+  if (!areaChosen) return `/${locale}`;
+  return `/${locale}?city=${city ?? HOME_CITY_ALL}`;
 }
 
 export function getCityMeta(slug: string): CityMeta | undefined {
