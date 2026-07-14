@@ -237,6 +237,7 @@ export const fr: Dictionary = {
     browseTopCategories: "Populaire à {city}",
     lookingIn: "Événements à",
     regionName: "Côte Nord",
+    chooseArea: "Choisir une zone",
   },
   lang: {
     en: "EN",

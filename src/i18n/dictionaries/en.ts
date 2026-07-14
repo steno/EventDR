@@ -212,6 +212,8 @@ export type Dictionary = {
     browseTopCategories: string;
     lookingIn: string;
     regionName: string;
+    /** Closed picker label before the user picks a city or the whole region. */
+    chooseArea: string;
   };
   lang: {
     en: string;
@@ -508,6 +510,7 @@ export const en: Dictionary = {
     browseTopCategories: "Popular in {city}",
     lookingIn: "Looking for events in",
     regionName: "North Coast",
+    chooseArea: "Choose area",
   },
   lang: {
     en: "EN",

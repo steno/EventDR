@@ -41,6 +41,8 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
   const [searchQuery, setSearchQuery] = useState("");
   const [timeRange, setTimeRange] = useState<TimeRange>("all");
   const [selectedCity, setSelectedCity] = useState<CitySlug | null>(null);
+  /** False until the user picks a city or the whole North Coast. */
+  const [areaChosen, setAreaChosen] = useState(false);
   const [submitOpen, setSubmitOpen] = useState(false);
   const [allEvents, setAllEvents] = useState<Event[]>([]);
   const [refreshKey, setRefreshKey] = useState(0);
@@ -161,7 +163,6 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
                     dict={dict}
                     locale={locale}
                     featuredEvent={heroEvent}
-                    onAddEvent={() => setSubmitOpen(true)}
                   />
                 </div>
               </div>
@@ -171,15 +172,21 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
                     locale={locale}
                     dict={dict}
                     currentSlug={selectedCity}
-                    onSelect={setSelectedCity}
+                    emptyLabel={areaChosen ? undefined : dict.cities.chooseArea}
+                    onSelect={(slug) => {
+                      setSelectedCity(slug);
+                      setAreaChosen(true);
+                    }}
                   />
-                  <div className="mt-1">
-                    <CategoryGrid
-                      locale={locale}
-                      dict={dict}
-                      citySlug={selectedCity}
-                    />
-                  </div>
+                  {areaChosen && (
+                    <div className="mt-1 animate-in">
+                      <CategoryGrid
+                        locale={locale}
+                        dict={dict}
+                        citySlug={selectedCity}
+                      />
+                    </div>
+                  )}
                 </div>
               )}
 
