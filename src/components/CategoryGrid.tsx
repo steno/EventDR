@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
+import { CategoryIcon } from "@/components/CategoryIcon";
 import { getFeaturedCategoryDefs } from "@/lib/categories";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
@@ -50,13 +51,16 @@ export function CategoryGrid({ locale, dict, citySlug = null }: CategoryGridProp
               className={`
                 flex h-14 w-14 items-center justify-center rounded-full
                 bg-gradient-to-br ${cat.gradient}
-                text-3xl shadow-[0_8px_20px_-12px_rgba(0,0,0,0.45)]
+                shadow-[0_8px_20px_-12px_rgba(0,0,0,0.45)]
                 ring-1 ring-black/5 transition-transform duration-200
-                group-hover:scale-[1.04] dark:ring-white/10 sm:h-16 sm:w-16 sm:text-4xl
+                group-hover:scale-[1.04] dark:ring-white/10 sm:h-16 sm:w-16
               `}
               aria-hidden
             >
-              <span className="drop-shadow-sm select-none leading-none">{cat.emoji}</span>
+              <CategoryIcon
+                id={cat.id}
+                className="h-7 w-7 text-white drop-shadow-sm sm:h-8 sm:w-8"
+              />
             </span>
             <span className="max-w-[4.75rem] text-[11px] font-bold leading-tight text-neutral-800 dark:text-neutral-200 sm:max-w-none sm:text-xs">
               {cat.label}

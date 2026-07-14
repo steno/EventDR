@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { CategoryIcon } from "@/components/CategoryIcon";
 import { getCategoryDefs } from "@/lib/categories";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
@@ -31,9 +32,10 @@ export function CategoryDirectory({ locale, dict }: CategoryDirectoryProps) {
               ring-1 ring-white/50 transition-all duration-200 group-hover:scale-105
             `}
           >
-            <span className="text-[26px] drop-shadow-md select-none" role="img" aria-hidden>
-              {cat.emoji}
-            </span>
+            <CategoryIcon
+              id={cat.id}
+              className="h-6 w-6 text-white drop-shadow-sm"
+            />
           </div>
           <span className="line-clamp-2 max-w-[92px] text-center text-[13px] font-bold leading-snug text-neutral-900 dark:text-neutral-100">
             {cat.label}

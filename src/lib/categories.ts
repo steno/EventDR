@@ -3,27 +3,27 @@ import type { CategoryMeta, EventCategory } from "./types";
 const CATEGORY_DEFS: Omit<CategoryMeta, "label">[] = [
   {
     id: "music",
-    emoji: "🎸",
+    emoji: "🎶",
     gradient: "from-rose-400 via-red-500 to-orange-500",
   },
   {
     id: "business",
-    emoji: "💼",
+    emoji: "🤝",
     gradient: "from-zinc-600 via-zinc-700 to-zinc-900",
   },
   {
     id: "concert",
-    emoji: "🎵",
+    emoji: "🎸",
     gradient: "from-amber-400 via-orange-500 to-red-500",
   },
   {
     id: "parties",
-    emoji: "🪩",
-    gradient: "from-slate-300 via-slate-400 to-slate-500",
+    emoji: "🎉",
+    gradient: "from-fuchsia-400 via-violet-500 to-indigo-600",
   },
   {
     id: "food-drinks",
-    emoji: "🍔",
+    emoji: "🍹",
     gradient: "from-yellow-400 via-amber-500 to-orange-600",
   },
   {
@@ -38,12 +38,12 @@ const CATEGORY_DEFS: Omit<CategoryMeta, "label">[] = [
   },
   {
     id: "health-wellness",
-    emoji: "🧘",
+    emoji: "🌿",
     gradient: "from-teal-400 via-emerald-500 to-green-600",
   },
   {
     id: "performances",
-    emoji: "🎤",
+    emoji: "🎭",
     gradient: "from-violet-500 via-purple-600 to-indigo-700",
   },
   {
@@ -53,12 +53,12 @@ const CATEGORY_DEFS: Omit<CategoryMeta, "label">[] = [
   },
   {
     id: "culture",
-    emoji: "🏛️",
+    emoji: "🥁",
     gradient: "from-amber-500 via-yellow-600 to-orange-700",
   },
   {
     id: "adventure",
-    emoji: "🧭",
+    emoji: "🤿",
     gradient: "from-sky-400 via-blue-500 to-indigo-600",
   },
 ];

@@ -129,19 +129,19 @@ export function CityLocationPicker({
           aria-controls={listId}
           onClick={toggleOpen}
           className="
-            inline-flex max-w-full items-center gap-1.5
+            inline-flex max-w-full items-center gap-1
             text-left text-[1.65rem] font-black leading-tight tracking-tight
             text-orange-600 transition-colors
             hover:text-rose-600 active:scale-[0.99] touch-manipulation
             dark:text-orange-400 dark:hover:text-rose-400
           "
         >
+          <span className="truncate">{currentLabel}</span>
           <ChevronDown
-            className={`h-6 w-6 shrink-0 transition-transform ${open ? "rotate-180" : ""}`}
+            className={`h-5 w-5 shrink-0 opacity-80 transition-transform ${open ? "rotate-180" : ""}`}
             aria-hidden
             strokeWidth={2.75}
           />
-          <span className="truncate">{currentLabel}</span>
         </button>
 
         {open && (
@@ -161,7 +161,7 @@ export function CityLocationPicker({
                 type="button"
                 onClick={() => goTo(null)}
                 className={`
-                  flex w-full items-center gap-2 px-4 py-2.5 text-left text-sm font-bold
+                  flex w-full px-4 py-2.5 text-left text-sm font-bold
                   transition-colors touch-manipulation
                   ${
                     regionSelected
@@ -170,7 +170,6 @@ export function CityLocationPicker({
                   }
                 `}
               >
-                <span aria-hidden>🌊</span>
                 {dict.cities.regionName}
               </button>
             </li>
@@ -182,7 +181,7 @@ export function CityLocationPicker({
                     type="button"
                     onClick={() => goTo(city.slug)}
                     className={`
-                      flex w-full items-center gap-2 px-4 py-2.5 text-left text-sm font-bold
+                      flex w-full px-4 py-2.5 text-left text-sm font-bold
                       transition-colors touch-manipulation
                       ${
                         selected
@@ -191,7 +190,6 @@ export function CityLocationPicker({
                       }
                     `}
                   >
-                    <span aria-hidden>{city.emoji}</span>
                     {getCityName(city, locale)}
                   </button>
                 </li>
