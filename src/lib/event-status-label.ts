@@ -137,17 +137,19 @@ export function getEventLiveStatusLabel(
 }
 
 export function eventStatusBadgeClass(status: EventLiveStatus): string {
+  const shell =
+    "bg-neutral-900 ring-1 ring-white/10 dark:bg-black dark:ring-white/15";
   switch (status) {
     case "live":
-      return "bg-orange-50 text-orange-600 dark:bg-orange-950/50 dark:text-orange-400";
+      return `${shell} text-orange-400`;
     case "ending":
-      return "bg-amber-50 text-amber-700 dark:bg-amber-950/40 dark:text-amber-400";
+      return `${shell} text-amber-400`;
     case "upcoming":
-      return "bg-sky-50 text-sky-700 dark:bg-sky-950/40 dark:text-sky-400";
+      return `${shell} text-sky-400`;
     case "closedToday":
-      return "bg-violet-50 text-violet-700 dark:bg-violet-950/40 dark:text-violet-400";
+      return `${shell} text-violet-400`;
     case "ended":
-      return "bg-neutral-100 text-neutral-500 dark:bg-neutral-800 dark:text-neutral-400";
+      return `${shell} text-neutral-400`;
     default:
       return "";
   }
