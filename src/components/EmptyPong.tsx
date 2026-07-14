@@ -13,7 +13,7 @@ const SPEED = 220;
  * Infinite bounce; missing resets the ball. Pauses when off-screen or hidden.
  *
  * Draws only on the canvas bitmap — never mutates the React DOM tree.
- * With Reduce Motion, the court still draws; the ball waits for a tap/drag.
+ * Starts with a centered PLAY prompt; first tap/drag begins the rally.
  */
 export function EmptyPong({ className = "" }: { className?: string }) {
   const wrapRef = useRef<HTMLDivElement>(null);
@@ -32,10 +32,6 @@ export function EmptyPong({ className = "" }: { className?: string }) {
     const canvas = canvasEl;
     const ctx = context;
 
-    const prefersReduced = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
-
     let alive = true;
     let width = 0;
     let dpr = 1;
@@ -44,8 +40,8 @@ export function EmptyPong({ className = "" }: { className?: string }) {
     let visible = true;
     let last = 0;
     let seeded = false;
-    // When Reduce Motion is on, draw the court but wait for a tap/drag to rally.
-    let motionArmed = !prefersReduced;
+    // Wait for PLAY tap so every device gets an explicit start screen.
+    let motionArmed = false;
 
     const paddle = { x: 0, y: 0 };
     const ball = { x: 0, y: 0, vx: SPEED, vy: -SPEED * 0.85 };
@@ -91,20 +87,47 @@ export function EmptyPong({ className = "" }: { className?: string }) {
       if (motionArmed) return;
       motionArmed = true;
       if (visible && !document.hidden) start();
+      else draw();
     }
 
     function onPointerMove(e: PointerEvent) {
+      if (!motionArmed) return;
       setPaddleFromClientX(e.clientX);
       if (!running) draw();
-      if (e.pointerType !== "mouse" || e.buttons > 0) armMotion();
     }
 
     function onPointerDown(e: PointerEvent) {
       // Avoid setPointerCapture — capturing a node React later removes
       // can desync the tree (insertBefore / removeChild NotFoundError).
       setPaddleFromClientX(e.clientX);
-      if (!running) draw();
       armMotion();
+      if (!running) draw();
+    }
+
+    function drawPlayPrompt(dark: boolean) {
+      const label = "PLAY";
+      const fontSize = Math.min(42, Math.max(28, width * 0.12));
+      ctx.font = `800 ${fontSize}px var(--font-syne), system-ui, sans-serif`;
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.letterSpacing = "0.08em";
+
+      const grad = ctx.createLinearGradient(
+        width / 2 - 60,
+        COURT_H / 2,
+        width / 2 + 60,
+        COURT_H / 2,
+      );
+      grad.addColorStop(0, "#f97316");
+      grad.addColorStop(0.5, "#f43f5e");
+      grad.addColorStop(1, "#d946ef");
+      ctx.fillStyle = grad;
+      ctx.fillText(label, width / 2, COURT_H / 2 - 4);
+
+      ctx.font = `600 ${Math.max(10, fontSize * 0.28)}px var(--font-inter), system-ui, sans-serif`;
+      ctx.fillStyle = dark ? "rgba(255,255,255,0.45)" : "rgba(0,0,0,0.4)";
+      ctx.letterSpacing = "0.16em";
+      ctx.fillText("TAP TO START", width / 2, COURT_H / 2 + fontSize * 0.55);
     }
 
     function draw() {
@@ -137,6 +160,11 @@ export function EmptyPong({ className = "" }: { className?: string }) {
 
       ctx.fillStyle = dark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.06)";
       ctx.fillRect(12, 8, width - 24, 3);
+
+      if (!motionArmed) {
+        drawPlayPrompt(dark);
+        return;
+      }
 
       const paddleGrad = ctx.createLinearGradient(
         paddle.x - PADDLE_W / 2,
@@ -290,7 +318,7 @@ export function EmptyPong({ className = "" }: { className?: string }) {
     >
       <canvas
         ref={canvasRef}
-        className="mx-auto block h-full w-full cursor-none rounded-2xl ring-1 ring-neutral-200/80 dark:ring-neutral-800/80"
+        className="mx-auto block h-full w-full cursor-pointer rounded-2xl ring-1 ring-neutral-200/80 dark:ring-neutral-800/80"
       />
     </div>
   );

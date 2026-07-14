@@ -127,7 +127,7 @@ export const es: Dictionary = {
     placeholder: "Buscar eventos, lugares…",
     noResults: "Nada por aquí.",
     noResultsHint: "Prueba otro día, lugar o limpia tu búsqueda.",
-    playHint: "Arrastra para mantener el rally",
+    playHint: "Toca PLAY · arrastra para el rally",
     activeTitle: "Resultados de búsqueda",
   },
   time: {

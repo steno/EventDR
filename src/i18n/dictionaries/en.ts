@@ -406,7 +406,7 @@ export const en: Dictionary = {
     placeholder: "Search events, places…",
     noResults: "Nothing turned up.",
     noResultsHint: "Try another day, place, or clear your search.",
-    playHint: "Drag to keep the rally going",
+    playHint: "Tap PLAY to start · drag to rally",
     activeTitle: "Search results",
   },
   time: {
