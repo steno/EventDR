@@ -31,6 +31,7 @@ export function CityCategoryLinks({
             <Link
               key={link.href}
               href={link.href}
+              scroll={false}
               aria-current={active ? "page" : undefined}
               className={`
                 rounded-full border px-3.5 py-1.5 text-xs font-semibold transition-colors

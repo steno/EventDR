@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useId, useRef, useState } from "react";
+import { useEffect, useId, useLayoutEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { ChevronDown } from "lucide-react";
 import { CITIES, getCityName, type CitySlug } from "@/lib/cities";
@@ -46,8 +46,11 @@ export function CityLocationPicker({
   const router = useRouter();
   const [open, setOpen] = useState(false);
   const [openUpward, setOpenUpward] = useState(false);
+  /** Bumps after an in-page select so scroll can be restored post-layout. */
+  const [scrollRestoreEpoch, setScrollRestoreEpoch] = useState(0);
   const rootRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
+  const pendingScrollY = useRef<number | null>(null);
   const listId = useId();
 
   const currentCity = currentSlug
@@ -58,6 +61,12 @@ export function CityLocationPicker({
     : (emptyLabel ?? dict.cities.regionName);
   /** Avoid highlighting North Coast while the closed label still says “Choose area”. */
   const regionSelected = currentSlug == null && emptyLabel == null;
+
+  useLayoutEffect(() => {
+    if (pendingScrollY.current == null) return;
+    window.scrollTo(0, pendingScrollY.current);
+    pendingScrollY.current = null;
+  }, [scrollRestoreEpoch, currentSlug]);
 
   useEffect(() => {
     if (!open) return;
@@ -101,18 +110,24 @@ export function CityLocationPicker({
   function goTo(slug: CitySlug | null) {
     setOpen(false);
     if (onSelect) {
+      // Filtering lists below can shrink/grow the page and jump the viewport;
+      // restore scroll after React commits the layout update.
+      pendingScrollY.current = window.scrollY;
       onSelect(slug);
+      setScrollRestoreEpoch((n) => n + 1);
       return;
     }
+    // Keep scroll on city/category swaps — same mid-page chrome, new list below.
+    // Navigating to home is a different layout, so allow the default scroll-to-top.
     if (categoryId) {
-      router.push(categoryPath(locale, categoryId, slug));
+      router.push(categoryPath(locale, categoryId, slug), { scroll: false });
       return;
     }
     if (slug == null) {
       router.push(`/${locale}`);
       return;
     }
-    router.push(`/${locale}/city/${slug}`);
+    router.push(`/${locale}/city/${slug}`, { scroll: false });
   }
 
   return (
