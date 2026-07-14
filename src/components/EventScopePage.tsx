@@ -112,8 +112,6 @@ export function EventScopePage({
               eyebrow={subtitle}
               subtitle={intro}
               imageUrl={cityHeroImage}
-              ctaLabel={addEventLabel}
-              onAddEvent={() => setSubmitOpen(true)}
             />
           ) : (
             <>
