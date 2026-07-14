@@ -13,6 +13,7 @@ import { attachTicketUrls } from "@/lib/event-tickets";
 import { lastHomePath } from "@/lib/cities";
 import { resolveBackLabel } from "@/lib/event-navigation";
 import { PAGE_SHELL_CLASS } from "@/lib/page-shell";
+import { getVenueHeroImageUrl } from "@/lib/venue-images";
 
 interface VenuePageProps {
   venue: Venue;
@@ -52,6 +53,8 @@ export function VenuePage({
 
   const returnTo = `/${locale}/venue/${venue.slug}`;
   const [backHref, setBackHref] = useState(`/${locale}`);
+  const heroImageUrl =
+    getVenueHeroImageUrl(venue.slug) ?? venue.imageUrl?.split("?")[0];
 
   useEffect(() => {
     setBackHref(lastHomePath(locale));
@@ -68,13 +71,14 @@ export function VenuePage({
             dict={dict}
             backHref={backHref}
             backLabel={backLabel}
-            flushBottom
+            flushBottom={Boolean(heroImageUrl)}
           />
 
           <CityPhotoHero
             title={venue.name}
             eyebrow={venue.city}
             subtitle={venue.description}
+            imageUrl={heroImageUrl}
           />
 
           <FilteredEventList
