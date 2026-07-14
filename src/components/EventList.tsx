@@ -18,6 +18,7 @@ import { attachEventImages } from "@/lib/event-images";
 import { eventMatchesCity, type CitySlug } from "@/lib/cities";
 import { EMPTY_EVENT_IDS } from "@/lib/home-layout";
 import { EventCard } from "./EventCard";
+import { SearchEmptyState } from "./SearchEmptyState";
 import { TimeFilter } from "./TimeFilter";
 
 interface EventListProps {
@@ -179,12 +180,22 @@ export function EventList({
       )}
 
       {filtered.length === 0 ? (
-        <div className="text-center py-12">
-          <p className="text-neutral-500 dark:text-neutral-400 font-medium">
-            {searchQuery ? dict.search.noResults : dict.events.empty}
-          </p>
-          <p className="text-sm text-neutral-400 dark:text-neutral-500 mt-1">{dict.events.emptyHint}</p>
-        </div>
+        searchQuery ? (
+          <SearchEmptyState
+            title={dict.search.noResults}
+            hint={dict.search.noResultsHint}
+            playHint={dict.search.playHint}
+          />
+        ) : (
+          <div className="text-center py-12">
+            <p className="text-neutral-500 dark:text-neutral-400 font-medium">
+              {dict.events.empty}
+            </p>
+            <p className="text-sm text-neutral-400 dark:text-neutral-500 mt-1">
+              {dict.events.emptyHint}
+            </p>
+          </div>
+        )
       ) : (
         <>
           <div className="space-y-3">

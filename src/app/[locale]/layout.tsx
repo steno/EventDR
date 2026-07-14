@@ -44,9 +44,10 @@ export async function generateMetadata({
     manifest: "/manifest.webmanifest",
     appleWebApp: {
       capable: true,
-      statusBarStyle: "default",
+      statusBarStyle: "black-translucent",
       title: "POP Events",
     },
+    themeColor: "#0a0a0a",
     icons: {
       icon: [
         { url: "/icons/icon-48.png", sizes: "48x48", type: "image/png" },

@@ -111,7 +111,9 @@ export const fr: Dictionary = {
   },
   search: {
     placeholder: "Rechercher événements, lieux…",
-    noResults: "Aucun résultat pour votre recherche.",
+    noResults: "Rien trouvé.",
+    noResultsHint: "Essayez un autre jour, lieu ou effacez la recherche.",
+    playHint: "Glissez pour garder le rallye",
     activeTitle: "Résultats de recherche",
   },
   time: {

@@ -16,6 +16,7 @@ import { sortEventsForDisplay } from "@/lib/event-sort";
 import { SCOPE_LIST_LIMIT } from "@/lib/home-layout";
 import { TimeFilter } from "@/components/TimeFilter";
 import { EventCard } from "@/components/EventCard";
+import { SearchEmptyState } from "@/components/SearchEmptyState";
 import { VenueStrip } from "@/components/VenueStrip";
 import { AddEventButton } from "@/components/AddEventButton";
 
@@ -108,7 +109,11 @@ export function FilteredEventList({
       ) : events.length === 0 ? (
         <p className="text-copy text-neutral-600 dark:text-neutral-400">{emptyMessage}</p>
       ) : filtered.length === 0 ? (
-        <p className="text-copy text-neutral-600 dark:text-neutral-400">{dict.search.noResults}</p>
+        <SearchEmptyState
+          title={dict.search.noResults}
+          hint={dict.search.noResultsHint}
+          playHint={dict.search.playHint}
+        />
       ) : (
         <>
           <div className="space-y-3.5">

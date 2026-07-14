@@ -96,6 +96,8 @@ export type Dictionary = {
   search: {
     placeholder: string;
     noResults: string;
+    noResultsHint: string;
+    playHint: string;
     activeTitle: string;
   };
   time: Record<TimeRange, string>;
@@ -384,7 +386,9 @@ export const en: Dictionary = {
   },
   search: {
     placeholder: "Search events, places…",
-    noResults: "No matches for your search.",
+    noResults: "Nothing turned up.",
+    noResultsHint: "Try another day, place, or clear your search.",
+    playHint: "Drag to keep the rally going",
     activeTitle: "Search results",
   },
   time: {

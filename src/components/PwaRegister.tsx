@@ -2,8 +2,8 @@
 
 import { useCallback, useEffect, useState } from "react";
 
-// Keep in sync with CACHE_NAME in public/sw.js (eventdr-v16 → "16").
-const PWA_VERSION = "16";
+// Keep in sync with CACHE_NAME in public/sw.js (eventdr-v17 → "17").
+const PWA_VERSION = "17";
 
 export function PwaRegister() {
   const [updateAvailable, setUpdateAvailable] = useState(false);
