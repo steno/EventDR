@@ -1,10 +1,11 @@
 import sharp from "sharp";
-import { mkdirSync } from "fs";
+import { existsSync, mkdirSync, statSync } from "fs";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const outDir = join(root, "popevent-images");
+const forceRefresh = process.env.FORCE_VENUE_IMAGE_REFRESH === "1";
 
 /** Curated venue-accurate image sources (official sites, tourism board, venue media). */
 const VENUE_SOURCES = [
@@ -90,6 +91,7 @@ const VENUE_SOURCES = [
   },
   {
     eventId: "natura-cabana-yoga-daily",
+    // Official site serves WebP; keep committed JPEG when refresh fails on CI.
     url: "https://naturacabana.com/wp-content/uploads/2024/06/yoga-package-1.webp",
   },
   {
@@ -98,6 +100,7 @@ const VENUE_SOURCES = [
   },
   {
     eventId: "sea-horse-saturday-artisan-fair",
+    // Host may return non-image payloads to some CI IPs; committed JPEG is the source of truth.
     url: "https://sea-horse-ranch.com/new/wp-content/uploads/2022/08/SHR-updated-flyer-FB-event1.jpg",
   },
   {
@@ -157,22 +160,45 @@ const VENUE_SOURCES = [
 
 mkdirSync(outDir, { recursive: true });
 
+async function isValidImage(path) {
+  if (!existsSync(path)) return false;
+  try {
+    if (statSync(path).size < 1024) return false;
+    const meta = await sharp(path).metadata();
+    return Boolean(meta.format && meta.width);
+  } catch {
+    return false;
+  }
+}
+
 let ok = 0;
+let skipped = 0;
 let failed = 0;
+let keptExisting = 0;
 
 for (const { eventId, url } of VENUE_SOURCES) {
   const outPath = join(outDir, `${eventId}.jpg`);
+  if (!forceRefresh && (await isValidImage(outPath))) {
+    console.log(`↻ ${eventId}.jpg (kept committed)`);
+    skipped++;
+    continue;
+  }
   try {
     const res = await fetch(url, {
       headers: {
         "User-Agent": url.includes("lookaside.fbsbx.com")
           ? "facebookexternalhit/1.1"
           : "EventDR/1.0 (venue image curation)",
+        Accept: "image/avif,image/webp,image/apng,image/*,*/*;q=0.8",
       },
       redirect: "follow",
     });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const buf = Buffer.from(await res.arrayBuffer());
+    const contentType = res.headers.get("content-type") || "";
+    if (contentType.includes("text/html") || contentType.includes("application/json")) {
+      throw new Error(`non-image Content-Type: ${contentType}`);
+    }
     await sharp(buf)
       .rotate()
       .resize(1200, null, { withoutEnlargement: true })
@@ -181,12 +207,19 @@ for (const { eventId, url } of VENUE_SOURCES) {
     console.log(`✓ ${eventId}.jpg`);
     ok++;
   } catch (err) {
-    console.warn(`✗ ${eventId}: ${err.message}`);
-    failed++;
+    if (await isValidImage(outPath)) {
+      console.warn(`⚠ ${eventId}: ${err.message} (kept existing)`);
+      keptExisting++;
+    } else {
+      console.warn(`✗ ${eventId}: ${err.message}`);
+      failed++;
+    }
   }
 }
 
-console.log(`\nFetched ${ok} venue images (${failed} failed)`);
+console.log(
+  `\nFetched ${ok} venue images (${skipped} skipped, ${keptExisting} kept after fetch fail, ${failed} missing)`,
+);
 
 // Local venue branding already in popevent-images.
 const localSources = [
@@ -195,6 +228,11 @@ const localSources = [
 for (const { src, eventId } of localSources) {
   const input = join(outDir, src);
   const outPath = join(outDir, `${eventId}.jpg`);
+  if (!forceRefresh && (await isValidImage(outPath))) {
+    console.log(`↻ ${eventId}.jpg ← ${src} (kept committed)`);
+    skipped++;
+    continue;
+  }
   try {
     await sharp(input)
       .rotate()
@@ -204,9 +242,22 @@ for (const { src, eventId } of localSources) {
     console.log(`✓ ${eventId}.jpg ← ${src}`);
     ok++;
   } catch (err) {
-    console.warn(`✗ ${eventId} from ${src}: ${err.message}`);
-    failed++;
+    if (await isValidImage(outPath)) {
+      console.warn(`⚠ ${eventId} from ${src}: ${err.message} (kept existing)`);
+      keptExisting++;
+    } else {
+      console.warn(`✗ ${eventId} from ${src}: ${err.message}`);
+      failed++;
+    }
   }
 }
 
-process.exit(failed > 0 ? 1 : 0);
+if (failed > 0) {
+  console.warn(
+    `\nWarning: ${failed} venue image(s) missing. Build continues with committed assets where available.`,
+  );
+  console.warn("Set FORCE_VENUE_IMAGE_REFRESH=1 to re-download all sources.");
+}
+
+// Committed JPEGs are the source of truth for Netlify; remote refresh is best-effort.
+process.exit(0);
