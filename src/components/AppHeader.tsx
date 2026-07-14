@@ -30,7 +30,7 @@ export function AppHeader({
   const onHome = pathname === homeHref;
 
   return (
-    <div className="flex items-center justify-between gap-3 pt-3 pb-4 lg:border-b lg:border-neutral-200/70 lg:pb-5 dark:lg:border-neutral-800/80">
+    <div className="flex items-center justify-between gap-3 pt-3 pb-4 lg:pb-5">
       <Link
         href={homeHref}
         aria-label={dict.seo.siteName}

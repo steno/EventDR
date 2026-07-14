@@ -13,7 +13,7 @@ interface SearchBarProps {
 }
 
 const shellClassName =
-  "flex items-center gap-1 rounded-full bg-white/85 p-1 shadow-sm ring-1 ring-neutral-200/70 backdrop-blur dark:bg-neutral-800/85 dark:ring-neutral-700/70";
+  "flex items-center gap-1 rounded-full bg-white p-1 shadow-md ring-1 ring-neutral-300/90 backdrop-blur dark:bg-neutral-800 dark:ring-neutral-600 dark:shadow-black/30";
 
 const fieldClassName =
   "min-w-0 flex-1 border-0 bg-transparent py-1 pl-1 pr-2.5 text-[11px] font-bold tracking-wide text-neutral-800 placeholder:text-neutral-500 focus:outline-none dark:text-neutral-200 dark:placeholder:text-neutral-400";
