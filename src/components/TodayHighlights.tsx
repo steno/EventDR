@@ -24,6 +24,8 @@ interface TodayHighlightsProps {
   excludeEventIds?: string[];
   /** Override “See all today” destination (e.g. city page when a zone is picked). */
   seeAllHref?: string;
+  /** Return path when opening a highlight (keeps home area). */
+  returnTo?: string;
   /** When true, `events` is already today’s sorted highlight list. */
   prefiltered?: boolean;
 }
@@ -32,12 +34,14 @@ function TodayHighlightCard({
   event,
   locale,
   dict,
+  returnTo,
 }: {
   event: Event;
   locale: Locale;
   dict: Dictionary;
+  returnTo?: string;
 }) {
-  const href = eventDetailPath(locale, event.id, `/${locale}`);
+  const href = eventDetailPath(locale, event.id, returnTo ?? `/${locale}`);
   const liveDisplay = useLiveStatusDisplay(event, dict);
   const liveStatus = liveDisplay?.status ?? null;
   const liveStatusLabel = liveDisplay?.label ?? null;
@@ -106,6 +110,7 @@ const TodayHighlightsComponent = ({
   limit = HOME_TODAY_LIMIT,
   excludeEventIds = [],
   seeAllHref,
+  returnTo,
   prefiltered = false,
 }: TodayHighlightsProps) => {
   const excludeSet = useMemo(() => new Set(excludeEventIds), [excludeEventIds]);
@@ -143,6 +148,7 @@ const TodayHighlightsComponent = ({
             event={event}
             locale={locale}
             dict={dict}
+            returnTo={returnTo}
           />
         ))}
       </div>

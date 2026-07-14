@@ -10,6 +10,7 @@ import { StickyListHeader } from "@/components/StickyListHeader";
 import { CityPhotoHero } from "@/components/CityPhotoHero";
 import { attachEventImages } from "@/lib/event-images";
 import { attachTicketUrls } from "@/lib/event-tickets";
+import { lastHomePath } from "@/lib/cities";
 import { resolveBackLabel } from "@/lib/event-navigation";
 import { PAGE_SHELL_CLASS } from "@/lib/page-shell";
 
@@ -50,7 +51,12 @@ export function VenuePage({
   }, [refreshEvents]);
 
   const returnTo = `/${locale}/venue/${venue.slug}`;
-  const backHref = `/${locale}`;
+  const [backHref, setBackHref] = useState(`/${locale}`);
+
+  useEffect(() => {
+    setBackHref(lastHomePath(locale));
+  }, [locale]);
+
   const backLabel = resolveBackLabel(locale, backHref, dict);
 
   return (

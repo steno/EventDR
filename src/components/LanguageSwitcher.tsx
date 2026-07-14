@@ -16,8 +16,10 @@ export function LanguageSwitcher({ locale, dict }: LanguageSwitcherProps) {
   function switchLocale(target: Locale) {
     if (target === locale) return;
     const newPath = pathname.replace(`/${locale}`, `/${target}`);
+    const qs =
+      typeof window !== "undefined" ? window.location.search.replace(/^\?/, "") : "";
     document.cookie = `eventdr-locale=${target};path=/;max-age=31536000`;
-    router.push(newPath);
+    router.push(qs ? `${newPath}?${qs}` : newPath);
   }
 
   return (

@@ -18,6 +18,7 @@ import { StickyListHeader } from "@/components/StickyListHeader";
 import { resolveBackLabel } from "@/lib/event-navigation";
 import {
   getCityMeta,
+  lastHomePath,
   NORTH_COAST_HERO_IMAGE,
   type CitySlug,
 } from "@/lib/cities";
@@ -65,7 +66,7 @@ export function EventScopePage({
   sectionTitle,
   emoji = "📅",
   emojiClassName,
-  backHref = `/${locale}`,
+  backHref: backHrefProp,
   emptyMessage = dict.browse.noEvents,
   fixedTimeRange,
   addEventLabel = dict.submit.createEvent,
@@ -124,6 +125,16 @@ export function EventScopePage({
   const headerEmojiClassName =
     emojiClassName ??
     "bg-white dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-800";
+  const [backHref, setBackHref] = useState(backHrefProp ?? `/${locale}`);
+
+  useEffect(() => {
+    if (backHrefProp) {
+      setBackHref(backHrefProp);
+      return;
+    }
+    setBackHref(lastHomePath(locale));
+  }, [backHrefProp, locale]);
+
   const backLabel = resolveBackLabel(locale, backHref, dict);
 
   return (

@@ -10,17 +10,20 @@ interface PhotoHeroProps {
   locale: Locale;
   /** Featured event for the photo plane; falls back to brand gradient if missing. */
   featuredEvent?: Event | null;
+  /** Return path when opening the featured event (keeps home area). */
+  returnTo?: string;
 }
 
 export function PhotoHero({
   dict,
   locale,
   featuredEvent = null,
+  returnTo,
 }: PhotoHeroProps) {
   const imageUrl = featuredEvent?.imageUrl?.trim() || null;
   const eventHref =
     featuredEvent != null
-      ? eventDetailPath(locale, featuredEvent.id, `/${locale}`)
+      ? eventDetailPath(locale, featuredEvent.id, returnTo ?? `/${locale}`)
       : null;
 
   return (

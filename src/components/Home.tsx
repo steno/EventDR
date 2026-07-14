@@ -40,6 +40,8 @@ import {
   HOME_CITY_ALL,
   homePathWithArea,
   parseHomeCityParam,
+  readHomeArea,
+  writeHomeArea,
   type CitySlug,
 } from "@/lib/cities";
 import type { Event, Venue } from "@/lib/types";
@@ -72,8 +74,19 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
     [searchParams],
   );
 
+  // Restore area when a content back link lands on bare `/[locale]`.
+  useEffect(() => {
+    if (searchParams.get("city")) return;
+    const stored = readHomeArea();
+    if (!stored.areaChosen) return;
+    router.replace(homePathWithArea(locale, stored.city, true), {
+      scroll: false,
+    });
+  }, [locale, router, searchParams]);
+
   const setArea = useCallback(
     (slug: CitySlug | null) => {
+      writeHomeArea(slug);
       const params = new URLSearchParams(searchParams.toString());
       params.set("city", slug ?? HOME_CITY_ALL);
       const qs = params.toString();
@@ -81,6 +94,12 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
     },
     [pathname, router, searchParams],
   );
+
+  // Keep session in sync when arriving via shared/bookmarked ?city=.
+  useEffect(() => {
+    if (!areaChosen) return;
+    writeHomeArea(selectedCity);
+  }, [areaChosen, selectedCity]);
 
   const { filterSaved, reconcileWithEvents } = useSavedEvents();
 
@@ -196,6 +215,7 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
                     dict={dict}
                     locale={locale}
                     featuredEvent={discoverLayout.heroEvent}
+                    returnTo={homePath}
                   />
                 </div>
               </div>
@@ -228,6 +248,7 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
                   prefiltered
                   excludeEventIds={discoverLayout.heroExcludeIds}
                   seeAllHref={seeAllTodayHref}
+                  returnTo={homePath}
                 />
               )}
 

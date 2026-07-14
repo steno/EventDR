@@ -155,6 +155,8 @@ export const CITY_SLUGS = CITIES.map((city) => city.slug);
 /** Query value for “whole North Coast” on home (`?city=all`). */
 export const HOME_CITY_ALL = "all";
 
+const HOME_AREA_STORAGE_KEY = "pop-home-area";
+
 export function isCitySlug(value: string): value is CitySlug {
   return CITY_SLUGS.includes(value as CitySlug);
 }
@@ -181,6 +183,32 @@ export function homePathWithArea(
 ): string {
   if (!areaChosen) return `/${locale}`;
   return `/${locale}?city=${city ?? HOME_CITY_ALL}`;
+}
+
+/** Persist chosen home area for the tab session (survives links that drop ?city=). */
+export function writeHomeArea(city: CitySlug | null): void {
+  try {
+    sessionStorage.setItem(HOME_AREA_STORAGE_KEY, city ?? HOME_CITY_ALL);
+  } catch {
+    /* private mode / disabled storage */
+  }
+}
+
+export function readHomeArea(): {
+  city: CitySlug | null;
+  areaChosen: boolean;
+} {
+  try {
+    return parseHomeCityParam(sessionStorage.getItem(HOME_AREA_STORAGE_KEY));
+  } catch {
+    return { city: null, areaChosen: false };
+  }
+}
+
+/** Last home path for this session, or bare locale home if none chosen. */
+export function lastHomePath(locale: string): string {
+  const { city, areaChosen } = readHomeArea();
+  return homePathWithArea(locale, city, areaChosen);
 }
 
 export function getCityMeta(slug: string): CityMeta | undefined {

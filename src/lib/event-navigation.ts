@@ -34,9 +34,10 @@ export function eventDetailPath(
 }
 
 function isSafeReturnPath(path: string, locale: Locale): boolean {
-  if (!path.startsWith(`/${locale}/`)) return false;
   if (path.includes("://") || path.startsWith("//")) return false;
-  return true;
+  // Home may be `/en` or `/en?city=sosua` (not under `/en/`).
+  if (path === `/${locale}` || path.startsWith(`/${locale}?`)) return true;
+  return path.startsWith(`/${locale}/`);
 }
 
 /** Where to go after closing an event — honors ?from=, else the event category. */
