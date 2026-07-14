@@ -4,6 +4,7 @@ import { SEED_VENUES } from "@/lib/venues-seed";
 import {
   getEventLiveStatus,
   happensOnLocalDate,
+  isEndingSoon,
   isEventActiveToday,
 } from "@/lib/event-status";
 import type { TimeRange } from "@/lib/filters";
@@ -20,14 +21,16 @@ export const SCOPE_LIST_LIMIT = HOME_PICKS_LIMIT;
 /** Max venues in the home "Popular venues" strip. */
 export const HOME_VENUE_LIMIT = 6;
 
-const STATUS_TIER_ORDER = [0, 1, 2, 3] as const;
+const STATUS_TIER_ORDER = [0, 1, 2, 3, 4] as const;
 
-function todayHighlightStatusRank(event: Event): number {
-  const status = getEventLiveStatus(event);
-  if (status === "live") return 0;
+/** Ending soon → starts soon → live → closed today → other. */
+function todayHighlightStatusRank(event: Event, now: Date): number {
+  const status = getEventLiveStatus(event, now);
+  if (status === "live" && isEndingSoon(event, now)) return 0;
   if (status === "upcoming") return 1;
-  if (status === "closedToday") return 2;
-  return 3;
+  if (status === "live") return 2;
+  if (status === "closedToday") return 3;
+  return 4;
 }
 
 function hashString(seed: string): number {
@@ -51,15 +54,16 @@ function seededShuffle<T>(items: T[], seed: string): T[] {
   return arr;
 }
 
-/** Live/upcoming first; shuffle the full pool within each status tier. */
+/** Upcoming before live; shuffle within each status tier. */
 function shuffleTodayHighlightsWithinTiers(
   events: Event[],
   shuffleSeed: string,
+  now: Date,
 ): Event[] {
   const byStatus = new Map<number, Event[]>();
 
   for (const event of events) {
-    const rank = todayHighlightStatusRank(event);
+    const rank = todayHighlightStatusRank(event, now);
     const group = byStatus.get(rank) ?? [];
     group.push(event);
     byStatus.set(rank, group);
@@ -117,7 +121,7 @@ export interface TodayHighlightOptions {
 }
 
 /**
- * Events happening today: live before upcoming, shuffle within each status band,
+ * Events happening today: starts soon before live, shuffle within each status band,
  * diverse venue mix in the carousel head.
  */
 export function getTodayHighlightEvents(
@@ -132,7 +136,11 @@ export function getTodayHighlightEvents(
   const filtered = events.filter(
     (e) => happensOnLocalDate(e, daySeed) && isEventActiveToday(e, now),
   );
-  const shuffled = shuffleTodayHighlightsWithinTiers(filtered, shuffleSeed);
+  const shuffled = shuffleTodayHighlightsWithinTiers(
+    filtered,
+    shuffleSeed,
+    now,
+  );
   const carouselHead = pickDiverseCarouselHead(
     shuffled,
     HOME_TODAY_LIMIT,

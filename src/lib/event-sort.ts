@@ -12,12 +12,13 @@ import {
 
 /**
  * Lower rank = higher in the list.
- * Live and ending-soon events surface before future dates; ended-today sink last.
+ * Ending soon, then not-yet-started today, then live; ended-today sink last.
+ * Upcoming beats live so users see the next decidable start before open windows.
  */
 const LIST_TIER = {
   endingSoon: 0,
-  live: 1,
-  upcomingToday: 2,
+  upcomingToday: 1,
+  live: 2,
   closedToday: 3,
   activeTodayUnknown: 4,
   future: 5,
@@ -119,7 +120,7 @@ function compareEventsForDisplay(
   return compareWithinTier(a, b, tierA, now);
 }
 
-/** Status-aware list order: live & ending soon first, then soonest upcoming, ended today last. */
+/** Status-aware list order: ending soon, then starts soon, then live; ended today last. */
 export function sortEventsForDisplay(
   events: Event[],
   options: SortEventsForDisplayOptions = {},
