@@ -72,10 +72,12 @@ const FILE_TO_EVENT_ID = {
   "SosuaBeachVolleyballPickup.JPG": "sosua-volleyball-weekly",
   "LAXFridayReggaeNight.JPG": "lax-reggae-friday",
   "HardRockWeekends.jpg": "hard-rock-weekends",
-  "CastawaysClassicRock.jpg": "castaways-classic-rock-wednesday",
+  "castaways-classic-rock-wednesday.jpg": "castaways-classic-rock-wednesday",
   "VoramarFridayLive.jpg": "voramar-friday-live",
-  "CheersWeeklyLive.jpg": "cheers-weekly-live",
+  "cheers-weekly-live.jpg": "cheers-weekly-live",
   "SenorRockLiveNight.jpg": "senor-rock-live-nightly",
+  "batey-open-mic-weekly.jpg": "batey-open-mic-weekly",
+  "lax-headline-concerts.jpg": "lax-headline-concerts",
   "CremoSalsaFriday.jpg": "cremo-salsa-friday",
   "CremoBohemianWednesday.jpg": "cremo-bohemian-wednesday",
   "CremoKaraokeSaturday.jpg": "cremo-karaoke-saturday",
@@ -110,11 +112,9 @@ const FILE_TO_EVENT_ID = {
 
 /** Same venue, same photo — copy after primary sync. */
 const SAME_VENUE_COPIES = [
-  ["ElBateySalsaSocial.JPG", "batey-open-mic-weekly"],
   ["ElBateySalsaSocial.JPG", "el-batey-weekend-nightlife"],
   ["CremoSalsaFriday.jpg", "cremo-friday-salsa-dance"],
-  ["LAXSunsetSessions.JPG", "lax-headline-concerts"],
-  // Ojo events use dedicated bayfront / Latin-dance assets (not LAX sunset).
+  // Ojo / open mic / LAX headlines use dedicated assets (not salsa social or sunset).
   ["voyvoy-monday-live-music.jpg", "voyvoy-saturday-session"],
   ["voyvoy-monday-live-music.jpg", "voyvoy-sunday-open-mic"],
   ["voyvoy-monday-live-music.jpg", "voyvoy-monday-live-music"],
@@ -135,6 +135,10 @@ const FILE_TO_VENUE_SLUG = {
   "d-classico-merengue-nights.jpg": "d-classico-sosua",
   "sosua-pedro-clisante-food-nights.jpg": "el-batey-sosua",
   "voyvoy-monday-live-music.jpg": "voyvoy-cabarete",
+  "cheers-weekly-live.jpg": "cheers-bar-sosua",
+  "castaways-classic-rock-wednesday.jpg": "castaways-sosua",
+  "paella-pop-el-pueblito.jpg": "paella-pop-el-pueblito",
+  "paella-pop-green-one.jpg": "paella-pop-green-one",
 };
 
 if (!existsSync(sourceDir)) {

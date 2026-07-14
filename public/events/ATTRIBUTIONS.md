@@ -11,11 +11,13 @@ Curated images under `public/events/` and `public/venues/`. Prefer venue-accurat
 | `smileys-saturday-live.jpg` / `venues/smileys-bar-sosua.jpg` | YouTube still — [Smiley's Courtyard Bar & Restaurant in Sosua](https://www.youtube.com/watch?v=WZHFtyXvELs) | Courtyard stage + Smiley's signage |
 | `finish-line-live-wednesday.jpg` / `venues/finish-line-sosua.jpg` | POP curated `FinishLineLiveWednesday.jpg` | Indoor pub live stage |
 | `d-classico-merengue-nights.jpg` / `venues/d-classico-sosua.jpg` | YouTube still — [Sosua Streets / Clasico opening](https://www.youtube.com/watch?v=OuN8IMNZ0r0) | Clasico / Club 59 night facade |
-| `sosua-pedro-clisante-food-nights.jpg` / `venues/el-batey-sosua.jpg` | POP curated `ElBateySalsaSocial.JPG` | Outdoor El Batey strip night energy |
+| `sosua-pedro-clisante-food-nights.jpg` / `venues/el-batey-sosua.jpg` | [Unsplash](https://unsplash.com/photos/assorted-meat-on-a-wooden-board-yiR9GQC8Ttk) (`photo-1555939594`) — Unsplash License | Grill / street-food feast |
 | `ojo-latin-night-thursday.jpg` | POP curated `MerengueBachataNight.JPG` | Latin dance night (not LAX sunset) |
 | `ojo-weekend-dj-parties.jpg` | POP curated `LAXFridayReggaeNight.JPG` | LAX/Ojo beach-deck party |
 | `voyvoy-monday-live-music.jpg` (+ Sat/Sun) / `venues/voyvoy-cabarete.jpg` | Restaurant Guru — Voyvoy beachfront dining | Bay tables under palms |
-
-## Still weak (possible follow-up)
-
-Pedro Clisante food nights still use El Batey social night rather than street-grill dining specifically. Finish Line shares a legacy pub-stage frame with Castaways/open-mic locals in `popevent-images/`.
+| `cheers-weekly-live.jpg` / `venues/cheers-bar-sosua.jpg` | YouTube still — [Cheers Restaurant & Bar in Sosua](https://www.youtube.com/watch?v=dSZsIuyrFgw) | Live music at Cheers |
+| `castaways-classic-rock-wednesday.jpg` / `venues/castaways-sosua.jpg` | [Unsplash](https://unsplash.com/photos/people-standing-in-front-of-stage-tOrBIHY6fhk) (`photo-1493225457124`) — Unsplash License | Live rock stage energy |
+| `paella-pop-el-pueblito.jpg` / venue | [Unsplash](https://unsplash.com/photos/cooked-food-on-black-ceramic-plate-H044GVfDs1I) (`photo-1512058564366`) — Unsplash License | Paella pan (beach soft-open) |
+| `paella-pop-green-one.jpg` / venue | FB/lookaside Paellas POP façade sign | Brand at Green One / One Club |
+| `lax-headline-concerts.jpg` | POP curated `CabareteReggaeRootsNight.JPG` | Beachfront concert (not sunset deck alias) |
+| `batey-open-mic-weekly.jpg` | YouTube still — [Smiley's rock performance](https://www.youtube.com/watch?v=cXM2b3CJVCg) | Solo/open-mic stage energy |
