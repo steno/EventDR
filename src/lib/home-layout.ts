@@ -1,10 +1,10 @@
 import { localDateISO } from "@/lib/event-dates";
+import { sortEventsForDisplay } from "@/lib/event-sort";
 import type { Event, Venue } from "@/lib/types";
 import { SEED_VENUES } from "@/lib/venues-seed";
 import {
   getEventLiveStatus,
   happensOnLocalDate,
-  isEndingSoon,
   isEventActiveToday,
 } from "@/lib/event-status";
 import type { TimeRange } from "@/lib/filters";
@@ -21,70 +21,15 @@ export const SCOPE_LIST_LIMIT = HOME_PICKS_LIMIT;
 /** Max venues in the home "Popular venues" strip. */
 export const HOME_VENUE_LIMIT = 6;
 
-const STATUS_TIER_ORDER = [0, 1, 2, 3, 4] as const;
-
-/** Ending soon → starts soon → live → closed today → other. */
-function todayHighlightStatusRank(event: Event, now: Date): number {
-  const status = getEventLiveStatus(event, now);
-  if (status === "live" && isEndingSoon(event, now)) return 0;
-  if (status === "upcoming") return 1;
-  if (status === "live") return 2;
-  if (status === "closedToday") return 3;
-  return 4;
-}
-
-function hashString(seed: string): number {
-  let h = 2166136261;
-  for (let i = 0; i < seed.length; i++) {
-    h ^= seed.charCodeAt(i);
-    h = Math.imul(h, 16777619);
-  }
-  return h >>> 0;
-}
-
-function seededShuffle<T>(items: T[], seed: string): T[] {
-  if (items.length <= 1) return [...items];
-  const arr = [...items];
-  let state = hashString(seed);
-  for (let i = arr.length - 1; i > 0; i--) {
-    state = (Math.imul(state, 1664525) + 1013904223) >>> 0;
-    const j = state % (i + 1);
-    [arr[i], arr[j]] = [arr[j], arr[i]];
-  }
-  return arr;
-}
-
-/** Upcoming before live; shuffle within each status tier. */
-function shuffleTodayHighlightsWithinTiers(
-  events: Event[],
-  shuffleSeed: string,
-  now: Date,
-): Event[] {
-  const byStatus = new Map<number, Event[]>();
-
-  for (const event of events) {
-    const rank = todayHighlightStatusRank(event, now);
-    const group = byStatus.get(rank) ?? [];
-    group.push(event);
-    byStatus.set(rank, group);
-  }
-
-  return STATUS_TIER_ORDER.filter((rank) => byStatus.has(rank)).flatMap(
-    (rank) =>
-      seededShuffle(byStatus.get(rank)!, `${shuffleSeed}:status-${rank}`),
-  );
-}
-
 function venueDedupeKey(event: Event): string {
   return (event.venueSlug ?? event.venue ?? event.location).trim().toLowerCase();
 }
 
-/** Prefer one card per venue in the carousel head; fill remaining slots from the pool. */
-function pickDiverseCarouselHead(
-  events: Event[],
-  limit: number,
-  shuffleSeed: string,
-): Event[] {
+/**
+ * Prefer one card per venue in the grid head; fill remaining slots in
+ * existing order so status/time ranking stays intact.
+ */
+function pickDiverseCarouselHead(events: Event[], limit: number): Event[] {
   if (events.length <= limit) return events;
 
   const picked: Event[] = [];
@@ -105,8 +50,7 @@ function pickDiverseCarouselHead(
     }
   }
 
-  const filler = seededShuffle(deferred, `${shuffleSeed}:carousel-fill`);
-  for (const event of filler) {
+  for (const event of deferred) {
     if (picked.length >= limit) break;
     picked.push(event);
   }
@@ -116,13 +60,11 @@ function pickDiverseCarouselHead(
 
 export interface TodayHighlightOptions {
   now?: Date;
-  /** Per-session seed from useTodayHighlightShuffleSeed — new order each visit. */
-  sessionSeed?: string;
 }
 
 /**
- * Events happening today: starts soon before live, shuffle within each status band,
- * diverse venue mix in the carousel head.
+ * Events happening today: same status/time order as lists (starts soon before
+ * live), with venue diversity only in the visible grid head.
  */
 export function getTodayHighlightEvents(
   events: Event[],
@@ -130,24 +72,16 @@ export function getTodayHighlightEvents(
 ): Event[] {
   const now = options.now ?? new Date();
   const daySeed = localDateISO(now);
-  const shuffleSeed = options.sessionSeed
-    ? `${daySeed}:${options.sessionSeed}`
-    : daySeed;
   const filtered = events.filter(
     (e) => happensOnLocalDate(e, daySeed) && isEventActiveToday(e, now),
   );
-  const shuffled = shuffleTodayHighlightsWithinTiers(
-    filtered,
-    shuffleSeed,
+  const sorted = sortEventsForDisplay(filtered, {
+    recurringLast: true,
     now,
-  );
-  const carouselHead = pickDiverseCarouselHead(
-    shuffled,
-    HOME_TODAY_LIMIT,
-    shuffleSeed,
-  );
+  });
+  const carouselHead = pickDiverseCarouselHead(sorted, HOME_TODAY_LIMIT);
   const headIds = new Set(carouselHead.map((e) => e.id));
-  const tail = shuffled.filter((e) => !headIds.has(e.id));
+  const tail = sorted.filter((e) => !headIds.has(e.id));
   return [...carouselHead, ...tail];
 }
 
@@ -163,7 +97,7 @@ export function getTodayHighlightExcludeIds(
   return getTodayHighlightEvents(events, options)
     .slice(0, limit)
     .filter((e) => {
-      const status = getEventLiveStatus(e);
+      const status = getEventLiveStatus(e, options.now);
       return status === "live" || status === "upcoming";
     })
     .map((e) => e.id);

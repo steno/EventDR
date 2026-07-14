@@ -10,7 +10,6 @@ import type { Event } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { eventDetailPath } from "@/lib/event-navigation";
-import { useTodayHighlightShuffleSeed } from "@/hooks/useTodayHighlightShuffleSeed";
 import {
   getTodayHighlightEvents,
   HOME_TODAY_LIMIT,
@@ -103,14 +102,13 @@ const TodayHighlightsComponent = ({
   limit = HOME_TODAY_LIMIT,
   excludeEventIds = [],
 }: TodayHighlightsProps) => {
-  const sessionSeed = useTodayHighlightShuffleSeed();
   const excludeSet = useMemo(() => new Set(excludeEventIds), [excludeEventIds]);
   const todayEvents = useMemo(
     () =>
-      getTodayHighlightEvents(events, { sessionSeed }).filter(
+      getTodayHighlightEvents(events).filter(
         (event) => !excludeSet.has(event.id),
       ),
-    [events, sessionSeed, excludeSet],
+    [events, excludeSet],
   );
   const visibleEvents = todayEvents.slice(0, limit);
   const hasMore = todayEvents.length > limit;

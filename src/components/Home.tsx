@@ -14,7 +14,6 @@ import { PwaRegister } from "@/components/PwaRegister";
 import { EventCard } from "@/components/EventCard";
 import { VenueStrip } from "@/components/VenueStrip";
 import { TodayHighlights } from "@/components/TodayHighlights";
-import { useTodayHighlightShuffleSeed } from "@/hooks/useTodayHighlightShuffleSeed";
 import { useSavedEvents } from "@/hooks/useSavedEvents";
 import {
   getHomeHeroEvent,
@@ -49,7 +48,6 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
   const searchInputRef = useRef<HTMLInputElement>(null);
 
   const { toggleSave, isSaved, filterSaved, reconcileWithEvents } = useSavedEvents();
-  const todayShuffleSeed = useTodayHighlightShuffleSeed();
 
   const handleEventsLoaded = useCallback((events: Event[]) => {
     setAllEvents(events);
@@ -72,19 +70,17 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
   const homePath = `/${locale}`;
 
   const heroEvent = useMemo(
-    () => getHomeHeroEvent(allEvents, { sessionSeed: todayShuffleSeed }),
-    [allEvents, todayShuffleSeed],
+    () => getHomeHeroEvent(allEvents),
+    [allEvents],
   );
 
   const todayHighlightExcludeIds = useMemo(() => {
-    const ids = getTodayHighlightExcludeIds(allEvents, HOME_TODAY_LIMIT, {
-      sessionSeed: todayShuffleSeed,
-    });
+    const ids = getTodayHighlightExcludeIds(allEvents, HOME_TODAY_LIMIT);
     if (heroEvent && !ids.includes(heroEvent.id)) {
       return [...ids, heroEvent.id];
     }
     return ids;
-  }, [allEvents, todayShuffleSeed, heroEvent]);
+  }, [allEvents, heroEvent]);
 
   const heroExcludeIds = useMemo(
     () => (heroEvent ? [heroEvent.id] : []),
