@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import {
   X,
@@ -77,9 +77,22 @@ export function EventDetailSheet({
   standalone = false,
 }: EventDetailSheetProps) {
   const [shareMsg, setShareMsg] = useState<string | null>(null);
-  const [shareOpen, setShareOpen] = useState(false);
-  const [calendarOpen, setCalendarOpen] = useState(false);
+  const [openAction, setOpenAction] = useState<"share" | "calendar" | null>(
+    null,
+  );
+  const actionsRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
+  const shareOpen = openAction === "share";
+  const calendarOpen = openAction === "calendar";
+
+  const toggleAction = useCallback((action: "share" | "calendar") => {
+    setOpenAction((current) => (current === action ? null : action));
+  }, []);
+
+  useEffect(() => {
+    setOpenAction(null);
+    setShareMsg(null);
+  }, [event?.id]);
 
   useEffect(() => {
     if (!event || standalone) return;
@@ -92,6 +105,22 @@ export function EventDetailSheet({
     };
   }, [event, standalone]);
 
+  useEffect(() => {
+    if (!openAction) return;
+
+    function handlePointerDown(e: PointerEvent) {
+      if (
+        actionsRef.current &&
+        !actionsRef.current.contains(e.target as Node)
+      ) {
+        setOpenAction(null);
+      }
+    }
+
+    document.addEventListener("pointerdown", handlePointerDown);
+    return () => document.removeEventListener("pointerdown", handlePointerDown);
+  }, [openAction]);
+
   const {
     sheetRef,
     sheetStyle,
@@ -101,7 +130,7 @@ export function EventDetailSheet({
     swipeEnabled,
   } = useSwipeToDismiss(
     onClose,
-    !standalone && Boolean(event) && !shareOpen && !calendarOpen,
+    !standalone && Boolean(event) && openAction == null,
   );
 
   const requestClose = useCallback(() => {
@@ -314,12 +343,15 @@ export function EventDetailSheet({
   );
 
   const actionsSection = (
-    <div className="border-t border-neutral-100 bg-white px-5 pt-4 pb-[max(1rem,env(safe-area-inset-bottom))] dark:border-neutral-800 dark:bg-neutral-900 sm:px-6 lg:px-8">
+    <div
+      ref={actionsRef}
+      className="border-t border-neutral-100 bg-white px-5 pt-4 pb-[max(1rem,env(safe-area-inset-bottom))] dark:border-neutral-800 dark:bg-neutral-900 sm:px-6 lg:px-8"
+    >
       {calendarOpen && (
         <CalendarMenu
           event={event}
           dict={dict}
-          onClose={() => setCalendarOpen(false)}
+          onClose={() => setOpenAction(null)}
         />
       )}
       {shareOpen && (
@@ -327,7 +359,7 @@ export function EventDetailSheet({
           event={event}
           locale={locale}
           dict={dict}
-          onClose={() => setShareOpen(false)}
+          onClose={() => setOpenAction(null)}
           onFeedback={handleShareFeedback}
         />
       )}
@@ -357,10 +389,7 @@ export function EventDetailSheet({
         )}
         <button
           type="button"
-          onClick={() => {
-            setShareOpen(false);
-            setCalendarOpen((open) => !open);
-          }}
+          onClick={() => toggleAction("calendar")}
           className={`${iconActionClass} ${
             calendarOpen ? iconActionActiveClass : iconActionIdleClass
           }`}
@@ -372,10 +401,7 @@ export function EventDetailSheet({
         </button>
         <button
           type="button"
-          onClick={() => {
-            setCalendarOpen(false);
-            setShareOpen((open) => !open);
-          }}
+          onClick={() => toggleAction("share")}
           className={`${iconActionClass} ${
             shareOpen || shareMsg ? iconActionActiveClass : iconActionIdleClass
           }`}
@@ -387,7 +413,10 @@ export function EventDetailSheet({
         </button>
         <button
           type="button"
-          onClick={() => onToggleSave(event)}
+          onClick={() => {
+            setOpenAction(null);
+            onToggleSave(event);
+          }}
           className={`${iconActionClass} ${
             isSaved ? iconActionActiveClass : iconActionIdleClass
           }`}

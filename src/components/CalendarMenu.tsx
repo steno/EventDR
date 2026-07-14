@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useSyncExternalStore } from "react";
+import { useSyncExternalStore } from "react";
 import { Download } from "lucide-react";
 import type { Event } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
@@ -46,22 +46,11 @@ const PROVIDERS: {
 ];
 
 export function CalendarMenu({ event, dict, onClose }: CalendarMenuProps) {
-  const menuRef = useRef<HTMLDivElement>(null);
   const appleAvailable = useSyncExternalStore(
     () => () => {},
     () => isAppleCalendarAvailable(),
     () => false,
   );
-
-  useEffect(() => {
-    function handlePointerDown(e: PointerEvent) {
-      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
-        onClose();
-      }
-    }
-    document.addEventListener("pointerdown", handlePointerDown);
-    return () => document.removeEventListener("pointerdown", handlePointerDown);
-  }, [onClose]);
 
   async function handleProvider(provider: CalendarProvider) {
     await addToCalendarProvider(event, provider);
@@ -73,10 +62,7 @@ export function CalendarMenu({ event, dict, onClose }: CalendarMenuProps) {
   );
 
   return (
-    <div
-      ref={menuRef}
-      className="mb-3 rounded-3xl bg-white/85 dark:bg-neutral-800/85 p-3 shadow-sm ring-1 ring-neutral-200/70 dark:ring-neutral-700/70 backdrop-blur animate-in fade-in slide-in-from-bottom-2 duration-200"
-    >
+    <div className="mb-3 rounded-3xl bg-white/85 dark:bg-neutral-800/85 p-3 shadow-sm ring-1 ring-neutral-200/70 dark:ring-neutral-700/70 backdrop-blur animate-in fade-in slide-in-from-bottom-2 duration-200">
       <p className="mb-2 px-1 text-[11px] font-bold uppercase tracking-wide text-neutral-500 dark:text-neutral-400">
         {dict.detail.calendarVia}
       </p>
