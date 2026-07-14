@@ -126,6 +126,9 @@ const SAME_VENUE_COPIES = [
 /** popevent-images filename → venue slug (copied to public/venues/). */
 const FILE_TO_VENUE_SLUG = {
   "atleticos-pp-vs-mangueros-2026-07-17.jpg": "parque-jose-briceno",
+  "la-casita-papi-beach-dining.jpg": "la-casita-de-papi",
+  "liquid-blue-watersports-daily.jpg": "liquid-blue-cabarete",
+  "sea-horse-saturday-artisan-fair.jpg": "sea-horse-ranch",
 };
 
 if (!existsSync(sourceDir)) {

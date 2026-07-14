@@ -86,8 +86,9 @@ const VENUE_SOURCES = [
     url: "https://images.prismic.io/prismic-rd-2/ajQJ4I1P9HI4Usf9_Night.jpg?auto=format,compress&rect=1600,5,2400,2150&w=1600&h=1260",
   },
   {
+    // Sunrise yoga by water — do not reuse LB surf/aerial shots for this event.
     eventId: "liquid-blue-sunrise-yoga",
-    url: "https://www.lbcabarete.com/wp-content/uploads/2019/03/leandro_castillo_cabarete_dominican_republic_1-1024x683.jpg",
+    url: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=1800&q=85",
   },
   {
     eventId: "natura-cabana-yoga-daily",
@@ -95,8 +96,9 @@ const VENUE_SOURCES = [
     url: "https://naturacabana.com/wp-content/uploads/2024/06/yoga-package-1.webp",
   },
   {
+    // Official Liquid Blue kite action (Cabarete).
     eventId: "liquid-blue-watersports-daily",
-    url: "https://www.lbcabarete.com/wp-content/uploads/2019/03/leandro_castillo_cabarete_dominican_republic_1-1024x683.jpg",
+    url: "https://www.lbcabarete.com/wp-content/uploads/2026/06/IMG_9340-scaled.jpg",
   },
   {
     eventId: "sea-horse-saturday-artisan-fair",
@@ -104,8 +106,9 @@ const VENUE_SOURCES = [
     url: "https://sea-horse-ranch.com/new/wp-content/uploads/2022/08/SHR-updated-flyer-FB-event1.jpg",
   },
   {
+    // Beachfront dining tables at La Casita de Papi (not Liquid Blue Encuentro beach).
     eventId: "la-casita-papi-beach-dining",
-    url: "https://www.lbcabarete.com/wp-content/uploads/2019/03/encuentro_beach_cabarete_liquid_blue_1-1024x681.jpg",
+    url: "https://img02.restaurantguru.com/cee4-Restaurant-La-Casita-de-Papi-interior-2.jpg",
   },
   {
     eventId: "kite-beach-wind-culture",
@@ -224,6 +227,10 @@ console.log(
 // Local venue branding already in popevent-images.
 const localSources = [
   { src: "elcareytv.png", eventId: "el-carey-weekend-nightlife" },
+  {
+    src: "SeaHorseSaturdayMarket.png",
+    eventId: "sea-horse-saturday-artisan-fair",
+  },
 ];
 for (const { src, eventId } of localSources) {
   const input = join(outDir, src);
