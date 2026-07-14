@@ -127,8 +127,9 @@ export const SEED_VENUES: Venue[] = [
     city: "Sosúa",
     description:
       "Beachfront bar on Playa Sosúa — ocean views, cold Presidentes, and live music on weekend evenings.",
-    lat: 19.7572211,
-    lng: -70.5171504,
+    // Distinct from Playa Sosúa beach pin (mid-bay); Bar 39 sits on the lounge strip nearer Casa Marina.
+    lat: 19.75942,
+    lng: -70.51672,
     emoji: "🌴",
   },
   {
