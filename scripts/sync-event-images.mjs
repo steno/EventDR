@@ -30,6 +30,8 @@ const FILE_TO_EVENT_ID = {
   "la-casita-papi-beach-dining.jpg": "la-casita-papi-beach-dining",
   "kite-beach-wind-culture.jpg": "kite-beach-wind-culture",
   "d-classico-merengue-nights.jpg": "d-classico-merengue-nights",
+  "ojo-latin-night-thursday.jpg": "ojo-latin-night-thursday",
+  "ojo-weekend-dj-parties.jpg": "ojo-weekend-dj-parties",
   "el-carey-weekend-nightlife.jpg": "el-carey-weekend-nightlife",
   "coconut-cove-ocean-zipline-daily.jpg": "coconut-cove-ocean-zipline-daily",
   "freestyle-catamaran-daily.jpg": "freestyle-catamaran-daily",
@@ -112,8 +114,7 @@ const SAME_VENUE_COPIES = [
   ["ElBateySalsaSocial.JPG", "el-batey-weekend-nightlife"],
   ["CremoSalsaFriday.jpg", "cremo-friday-salsa-dance"],
   ["LAXSunsetSessions.JPG", "lax-headline-concerts"],
-  ["LAXSunsetSessions.JPG", "ojo-latin-night-thursday"],
-  ["LAXSunsetSessions.JPG", "ojo-weekend-dj-parties"],
+  // Ojo events use dedicated bayfront / Latin-dance assets (not LAX sunset).
   ["voyvoy-monday-live-music.jpg", "voyvoy-saturday-session"],
   ["voyvoy-monday-live-music.jpg", "voyvoy-sunday-open-mic"],
   ["voyvoy-monday-live-music.jpg", "voyvoy-monday-live-music"],
@@ -129,6 +130,11 @@ const FILE_TO_VENUE_SLUG = {
   "la-casita-papi-beach-dining.jpg": "la-casita-de-papi",
   "liquid-blue-watersports-daily.jpg": "liquid-blue-cabarete",
   "sea-horse-saturday-artisan-fair.jpg": "sea-horse-ranch",
+  "smileys-saturday-live.jpg": "smileys-bar-sosua",
+  "finish-line-live-wednesday.jpg": "finish-line-sosua",
+  "d-classico-merengue-nights.jpg": "d-classico-sosua",
+  "sosua-pedro-clisante-food-nights.jpg": "el-batey-sosua",
+  "voyvoy-monday-live-music.jpg": "voyvoy-cabarete",
 };
 
 if (!existsSync(sourceDir)) {

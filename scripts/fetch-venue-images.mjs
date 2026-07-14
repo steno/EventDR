@@ -70,20 +70,13 @@ const VENUE_SOURCES = [
     url: "https://sosuadivingcenter.com/wp-content/uploads/2026/04/Diving-scaled.webp",
   },
   {
-    eventId: "sosua-pedro-clisante-food-nights",
-    url: "https://images.prismic.io/prismic-rd-2/ajQJ4I1P9HI4Usf9_Night.jpg?auto=format,compress&rect=0,5,4096,2150&w=2400&h=1260",
-  },
-  {
     eventId: "sosua-beach-live-weekends",
     url: "https://images.prismic.io/prismic-rd-2/Z46acZbqstJ99pto_Sos_a_3_80e6e742-31d7-49da-8148-1bba5ccd73a6.jpg?auto=format,compress",
   },
   {
+    // Smiley's Courtyard live stage (YouTube still — venue signage visible).
     eventId: "smileys-saturday-live",
-    url: "https://images.prismic.io/prismic-rd-2/ajQJ4I1P9HI4Usf9_Night.jpg?auto=format,compress&rect=800,5,2400,2150&w=1600&h=1260",
-  },
-  {
-    eventId: "finish-line-live-wednesday",
-    url: "https://images.prismic.io/prismic-rd-2/ajQJ4I1P9HI4Usf9_Night.jpg?auto=format,compress&rect=1600,5,2400,2150&w=1600&h=1260",
+    url: "https://i.ytimg.com/vi/WZHFtyXvELs/maxresdefault.jpg",
   },
   {
     // Sunrise yoga by water — do not reuse LB surf/aerial shots for this event.
@@ -115,8 +108,9 @@ const VENUE_SOURCES = [
     url: "https://images.prismic.io/prismic-rd-2/Z-pgqndAxsiBwHB3_22_12_MITUR_1974.jpg?auto=format,compress&rect=0,162,2281,1198&w=2400&h=1260",
   },
   {
+    // Clasico / Club 59 Sosúa facade at night (YouTube still).
     eventId: "d-classico-merengue-nights",
-    url: "https://images.prismic.io/prismic-rd-2/ajQJ4I1P9HI4Usf9_Night.jpg?auto=format,compress&rect=0,400,4096,1800&w=2400&h=1200",
+    url: "https://i.ytimg.com/vi/OuN8IMNZ0r0/maxresdefault.jpg",
   },
   {
     eventId: "hms-valeria-spanish-saturday",
@@ -230,6 +224,22 @@ const localSources = [
   {
     src: "SeaHorseSaturdayMarket.png",
     eventId: "sea-horse-saturday-artisan-fair",
+  },
+  {
+    src: "FinishLineLiveWednesday.jpg",
+    eventId: "finish-line-live-wednesday",
+  },
+  {
+    src: "ElBateySalsaSocial.JPG",
+    eventId: "sosua-pedro-clisante-food-nights",
+  },
+  {
+    src: "MerengueBachataNight.JPG",
+    eventId: "ojo-latin-night-thursday",
+  },
+  {
+    src: "LAXFridayReggaeNight.JPG",
+    eventId: "ojo-weekend-dj-parties",
   },
 ];
 for (const { src, eventId } of localSources) {
