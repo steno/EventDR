@@ -1,6 +1,5 @@
 "use client";
 
-import { useSyncExternalStore } from "react";
 import { EmptyPong } from "@/components/EmptyPong";
 
 interface SearchEmptyStateProps {
@@ -9,31 +8,11 @@ interface SearchEmptyStateProps {
   playHint: string;
 }
 
-function subscribeReducedMotion(onChange: () => void) {
-  const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-  mq.addEventListener("change", onChange);
-  return () => mq.removeEventListener("change", onChange);
-}
-
-function getReducedMotion() {
-  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-}
-
-function getServerReducedMotion() {
-  return true;
-}
-
 export function SearchEmptyState({
   title,
   hint,
   playHint,
 }: SearchEmptyStateProps) {
-  const reducedMotion = useSyncExternalStore(
-    subscribeReducedMotion,
-    getReducedMotion,
-    getServerReducedMotion,
-  );
-
   return (
     <div className="py-6 sm:py-8">
       <div className="text-center">
@@ -48,8 +27,7 @@ export function SearchEmptyState({
         </p>
       </div>
 
-      {/* Keep this subtree mounted — conditional insert/remove fights React. */}
-      <div className={`mt-5 ${reducedMotion ? "hidden" : ""}`}>
+      <div className="mt-5">
         <EmptyPong />
         <p className="mt-2 text-center text-[11px] font-medium uppercase tracking-[0.14em] text-neutral-400 dark:text-neutral-500">
           {playHint}

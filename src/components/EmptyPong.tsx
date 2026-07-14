@@ -13,6 +13,7 @@ const SPEED = 220;
  * Infinite bounce; missing resets the ball. Pauses when off-screen or hidden.
  *
  * Draws only on the canvas bitmap — never mutates the React DOM tree.
+ * With Reduce Motion, the court still draws; the ball waits for a tap/drag.
  */
 export function EmptyPong({ className = "" }: { className?: string }) {
   const wrapRef = useRef<HTMLDivElement>(null);
@@ -23,11 +24,6 @@ export function EmptyPong({ className = "" }: { className?: string }) {
     const canvasEl = canvasRef.current;
     if (!wrapEl || !canvasEl) return;
 
-    const prefersReduced = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
-    if (prefersReduced) return;
-
     const context = canvasEl.getContext("2d");
     if (!context) return;
 
@@ -35,6 +31,10 @@ export function EmptyPong({ className = "" }: { className?: string }) {
     const wrap = wrapEl;
     const canvas = canvasEl;
     const ctx = context;
+
+    const prefersReduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
 
     let alive = true;
     let width = 0;
@@ -44,6 +44,8 @@ export function EmptyPong({ className = "" }: { className?: string }) {
     let visible = true;
     let last = 0;
     let seeded = false;
+    // When Reduce Motion is on, draw the court but wait for a tap/drag to rally.
+    let motionArmed = !prefersReduced;
 
     const paddle = { x: 0, y: 0 };
     const ball = { x: 0, y: 0, vx: SPEED, vy: -SPEED * 0.85 };
@@ -85,14 +87,24 @@ export function EmptyPong({ className = "" }: { className?: string }) {
       );
     }
 
+    function armMotion() {
+      if (motionArmed) return;
+      motionArmed = true;
+      if (visible && !document.hidden) start();
+    }
+
     function onPointerMove(e: PointerEvent) {
       setPaddleFromClientX(e.clientX);
+      if (!running) draw();
+      if (e.pointerType !== "mouse" || e.buttons > 0) armMotion();
     }
 
     function onPointerDown(e: PointerEvent) {
       // Avoid setPointerCapture — capturing a node React later removes
       // can desync the tree (insertBefore / removeChild NotFoundError).
       setPaddleFromClientX(e.clientX);
+      if (!running) draw();
+      armMotion();
     }
 
     function draw() {
@@ -211,7 +223,9 @@ export function EmptyPong({ className = "" }: { className?: string }) {
     }
 
     function start() {
-      if (!alive || running || !visible || document.hidden) return;
+      if (!alive || running || !visible || !motionArmed || document.hidden) {
+        return;
+      }
       running = true;
       last = performance.now();
       raf = requestAnimationFrame(step);
