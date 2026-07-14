@@ -12,6 +12,8 @@ export type CitySeoCopy = {
 export type CityMeta = {
   slug: CitySlug;
   emoji: string;
+  /** Place hero image for city scope pages. */
+  heroImage: string;
   name: Record<Locale, string>;
   matchers: string[];
   topCategories: EventCategory[];
@@ -22,6 +24,7 @@ export const CITIES: CityMeta[] = [
   {
     slug: "puerto-plata",
     emoji: "🏛️",
+    heroImage: "/cities/puerto-plata.jpg",
     name: {
       en: "Puerto Plata",
       es: "Puerto Plata",
@@ -65,6 +68,7 @@ export const CITIES: CityMeta[] = [
   {
     slug: "sosua",
     emoji: "🌴",
+    heroImage: "/cities/sosua.jpg",
     name: {
       en: "Sosúa",
       es: "Sosúa",
@@ -99,6 +103,7 @@ export const CITIES: CityMeta[] = [
   {
     slug: "cabarete",
     emoji: "🏄",
+    heroImage: "/cities/cabarete.jpg",
     name: {
       en: "Cabarete",
       es: "Cabarete",

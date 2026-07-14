@@ -15,28 +15,46 @@ interface TimeFilterProps {
 export function TimeFilter({ value, onChange, dict, className = "mb-4" }: TimeFilterProps) {
   return (
     <div
-      className={`flex gap-2 overflow-x-auto pb-1 scrollbar-hide -mx-1 px-1 ${className}`}
-      role="group"
+      className={`-mx-1 overflow-x-auto px-1 scrollbar-hide ${className}`}
+      role="tablist"
       aria-label={dict.browse.subtitle}
     >
-      {RANGES.map((range) => (
-        <button
-          key={range}
-          type="button"
-          onClick={() => onChange(range)}
-          aria-pressed={value === range}
-          className={`
-            flex-shrink-0 rounded-full px-4 py-2 text-xs font-bold tracking-wide transition-all
-            ${
-              value === range
-                ? "bg-neutral-900 dark:bg-neutral-100 text-white dark:text-neutral-900 shadow-sm"
-                : "bg-white dark:bg-neutral-900 text-neutral-600 dark:text-neutral-300 border border-neutral-100 dark:border-neutral-800 hover:border-neutral-200 dark:hover:border-neutral-700"
-            }
-          `}
-        >
-          {dict.time[range]}
-        </button>
-      ))}
+      <div className="flex min-w-max gap-0 border-b border-neutral-200 dark:border-neutral-800">
+        {RANGES.map((range) => {
+          const selected = value === range;
+          return (
+            <button
+              key={range}
+              type="button"
+              role="tab"
+              aria-selected={selected}
+              onClick={() => onChange(range)}
+              className={`
+                relative -mb-px flex-shrink-0 px-3.5 py-2.5 text-sm font-bold tracking-tight
+                transition-colors touch-manipulation
+                ${
+                  selected
+                    ? "text-neutral-950 dark:text-neutral-50"
+                    : "text-neutral-500 hover:text-neutral-800 dark:text-neutral-400 dark:hover:text-neutral-200"
+                }
+              `}
+            >
+              {dict.time[range]}
+              <span
+                aria-hidden
+                className={`
+                  absolute inset-x-2 bottom-0 h-0.5 rounded-full transition-opacity
+                  ${
+                    selected
+                      ? "bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 opacity-100"
+                      : "opacity-0"
+                  }
+                `}
+              />
+            </button>
+          );
+        })}
+      </div>
     </div>
   );
 }

@@ -8,8 +8,8 @@ import {
 } from "@/lib/event-status";
 import type { TimeRange } from "@/lib/filters";
 
-/** Max cards in the home "Happening today" carousel. */
-export const HOME_TODAY_LIMIT = 5;
+/** Max cards in the home "Happening today" grid (even count for 2 columns). */
+export const HOME_TODAY_LIMIT = 6;
 
 /** Max events in the home "Our picks" section. */
 export const HOME_PICKS_LIMIT = 10;
@@ -159,6 +159,23 @@ export function getTodayHighlightExcludeIds(
       return status === "live" || status === "upcoming";
     })
     .map((e) => e.id);
+}
+
+/**
+ * Featured photo for the home hero: prefer an imaged "today" highlight,
+ * then any imaged event, then the first today event.
+ */
+export function getHomeHeroEvent(
+  events: Event[],
+  options: TodayHighlightOptions = {},
+): Event | null {
+  if (events.length === 0) return null;
+  const today = getTodayHighlightEvents(events, options);
+  const todayWithImage = today.find((e) => Boolean(e.imageUrl?.trim()));
+  if (todayWithImage) return todayWithImage;
+  const anyWithImage = events.find((e) => Boolean(e.imageUrl?.trim()));
+  if (anyWithImage) return anyWithImage;
+  return today[0] ?? events[0] ?? null;
 }
 
 export function getFeaturedVenues(

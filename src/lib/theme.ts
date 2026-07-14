@@ -9,7 +9,7 @@ export function getStoredTheme(): Theme | null {
 }
 
 export function resolveTheme(): Theme {
-  return getStoredTheme() ?? "light";
+  return getStoredTheme() ?? "dark";
 }
 
 export function applyTheme(theme: Theme) {

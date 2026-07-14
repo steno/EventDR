@@ -31,13 +31,13 @@ export function BottomNav({
   return (
     <nav
       className="
-        fixed bottom-0 inset-x-0 z-40
+        fixed bottom-0 inset-x-0 z-40 lg:hidden
         bg-white/90 backdrop-blur-lg border-t border-neutral-100 dark:bg-neutral-900/90 dark:border-neutral-800
         pb-[env(safe-area-inset-bottom)]
       "
       aria-label="Main navigation"
     >
-      <div className="mx-auto max-w-lg sm:max-w-2xl flex justify-around px-1 pt-2.5 pb-2.5">
+      <div className="mx-auto max-w-lg sm:max-w-3xl flex justify-around px-1 pt-2.5 pb-2.5">
         {items.map(({ id, icon: Icon, label, badge }) => {
           const isActive = active === id;
           const isSubmit = id === "submit";

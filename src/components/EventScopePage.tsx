@@ -10,10 +10,13 @@ import {
   CityCategoryLinks,
   type RelatedCategoryLink,
 } from "@/components/CityCategoryLinks";
+import { CityLocationPicker } from "@/components/CityLocationPicker";
+import { CityPhotoHero } from "@/components/CityPhotoHero";
 import { SubmitEventSheet } from "@/components/SubmitEventSheet";
 import { attachEventImages } from "@/lib/event-images";
 import { StickyListHeader } from "@/components/StickyListHeader";
 import { resolveBackLabel } from "@/lib/event-navigation";
+import { getCityMeta, type CitySlug } from "@/lib/cities";
 
 interface EventScopePageProps {
   locale: Locale;
@@ -38,6 +41,7 @@ interface EventScopePageProps {
   relatedCategoryLinks?: RelatedCategoryLink[];
   relatedCategoryLinksLabel?: string;
   initialExpanded?: boolean;
+  citySlug?: CitySlug;
 }
 
 export function EventScopePage({
@@ -60,6 +64,7 @@ export function EventScopePage({
   relatedCategoryLinks,
   relatedCategoryLinksLabel,
   initialExpanded = false,
+  citySlug,
 }: EventScopePageProps) {
   const [events, setEvents] = useState<Event[]>(() => attachEventImages(initialEvents));
   const [loading, setLoading] = useState(false);
@@ -76,6 +81,8 @@ export function EventScopePage({
       .finally(() => setLoading(false));
   }, [fetchUrl, initialEvents]);
 
+  const city = citySlug ? getCityMeta(citySlug) : undefined;
+  const cityHeroImage = city?.heroImage;
   const headerEmojiClassName =
     emojiClassName ??
     "bg-white dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-800";
@@ -84,7 +91,7 @@ export function EventScopePage({
   return (
     <>
       <main className="relative bg-neutral-50 dark:bg-transparent pb-6">
-        <div className="relative mx-auto max-w-lg sm:max-w-2xl px-4">
+        <div className="relative mx-auto max-w-lg px-4 sm:max-w-3xl lg:max-w-5xl lg:rounded-[2rem] lg:bg-white/70 lg:px-8 lg:pb-10 lg:pt-2 lg:shadow-[0_24px_80px_-48px_rgba(0,0,0,0.35)] lg:ring-1 lg:ring-neutral-200/80 dark:lg:bg-neutral-950/75 dark:lg:shadow-[0_30px_90px_-50px_rgba(0,0,0,0.95)] dark:lg:ring-white/10">
           <StickyListHeader
             locale={locale}
             dict={dict}
@@ -92,25 +99,44 @@ export function EventScopePage({
             backLabel={backLabel}
           />
 
-          <div className="flex items-start gap-4 mb-6">
-            <div
-              className={`flex h-16 w-16 items-center justify-center rounded-2xl text-3xl shadow-sm ${headerEmojiClassName}`}
-            >
-              {emoji}
-            </div>
-            <div>
-              <h1 className="text-2xl font-black text-neutral-900 dark:text-neutral-100 tracking-tight">
-                {title}
-              </h1>
-              <p className="text-sm text-neutral-500 dark:text-neutral-400 font-medium">
-                {subtitle}
-              </p>
-            </div>
-          </div>
+          {cityHeroImage ? (
+            <CityPhotoHero
+              title={title}
+              eyebrow={subtitle}
+              subtitle={intro}
+              imageUrl={cityHeroImage}
+              ctaLabel={addEventLabel}
+              onAddEvent={() => setSubmitOpen(true)}
+            />
+          ) : (
+            <>
+              <div className="flex items-start gap-4 mb-6">
+                <div
+                  className={`flex h-16 w-16 items-center justify-center rounded-2xl text-3xl shadow-sm ${headerEmojiClassName}`}
+                >
+                  {emoji}
+                </div>
+                <div>
+                  <h1 className="text-2xl font-black text-neutral-900 dark:text-neutral-100 tracking-tight">
+                    {title}
+                  </h1>
+                  <p className="text-sm text-neutral-500 dark:text-neutral-400 font-medium">
+                    {subtitle}
+                  </p>
+                </div>
+              </div>
 
-          <p className="text-copy-lead mb-6">
-            {intro}
-          </p>
+              <p className="text-copy-lead mb-6">{intro}</p>
+            </>
+          )}
+
+          {citySlug ? (
+            <CityLocationPicker
+              locale={locale}
+              dict={dict}
+              currentSlug={citySlug}
+            />
+          ) : null}
 
           {relatedCategoryLinks && relatedCategoryLinksLabel ? (
             <CityCategoryLinks

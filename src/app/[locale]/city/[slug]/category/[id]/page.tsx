@@ -108,6 +108,7 @@ export default async function Page({
         emojiClassName={`bg-gradient-to-br ${category.gradient}`}
         submitDefaults={{ category: id as EventCategory, location: cityName }}
         initialExpanded={isScopeInitiallyExpanded(all)}
+        citySlug={slug}
       />
     </>
   );

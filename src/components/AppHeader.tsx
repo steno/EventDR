@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import type { ReactNode } from "react";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { WeatherWidget } from "@/components/WeatherWidget";
@@ -14,15 +15,22 @@ interface AppHeaderProps {
   dict: Dictionary;
   /** Reset in-page home state (e.g. discover tab) when already on `/[locale]`. */
   onLogoClick?: () => void;
+  /** Extra actions for wide screens (Saved, Add, etc.). Hidden below `lg`. */
+  desktopActions?: ReactNode;
 }
 
-export function AppHeader({ locale, dict, onLogoClick }: AppHeaderProps) {
+export function AppHeader({
+  locale,
+  dict,
+  onLogoClick,
+  desktopActions,
+}: AppHeaderProps) {
   const pathname = usePathname();
   const homeHref = `/${locale}`;
   const onHome = pathname === homeHref;
 
   return (
-    <div className="flex items-center justify-between pt-3 pb-4">
+    <div className="flex items-center justify-between gap-3 pt-3 pb-4 lg:border-b lg:border-neutral-200/70 lg:pb-5 dark:lg:border-neutral-800/80">
       <Link
         href={homeHref}
         aria-label="POP Events home"
@@ -45,7 +53,12 @@ export function AppHeader({ locale, dict, onLogoClick }: AppHeaderProps) {
           className="h-14 w-auto object-contain sm:h-20"
         />
       </Link>
-      <div className="flex items-center gap-1.5">
+      <div className="flex items-center gap-1.5 sm:gap-2">
+        {desktopActions ? (
+          <div className="mr-1 hidden items-center gap-1.5 lg:flex">
+            {desktopActions}
+          </div>
+        ) : null}
         <WeatherWidget locale={locale} dict={dict} />
         <ThemeToggle dict={dict} />
         <LanguageSwitcher locale={locale} dict={dict} />

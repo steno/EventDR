@@ -100,6 +100,7 @@ export default async function Page({
         relatedCategoryLinks={relatedCategoryLinks}
         relatedCategoryLinksLabel={relatedCategoryLinksLabel}
         initialExpanded={isScopeInitiallyExpanded(all)}
+        citySlug={slug}
       />
     </>
   );

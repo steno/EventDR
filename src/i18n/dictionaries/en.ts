@@ -209,6 +209,8 @@ export type Dictionary = {
   };
   cities: {
     browseTopCategories: string;
+    lookingIn: string;
+    regionName: string;
   };
   lang: {
     en: string;
@@ -502,6 +504,8 @@ export const en: Dictionary = {
   },
   cities: {
     browseTopCategories: "Popular in {city}",
+    lookingIn: "Looking for events in",
+    regionName: "North Coast",
   },
   lang: {
     en: "EN",

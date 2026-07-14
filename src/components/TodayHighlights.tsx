@@ -21,6 +21,8 @@ interface TodayHighlightsProps {
   locale: Locale;
   dict: Dictionary;
   limit?: number;
+  /** Skip events already featured elsewhere on the home page (e.g. photo hero). */
+  excludeEventIds?: string[];
 }
 
 function TodayHighlightCard({
@@ -38,30 +40,34 @@ function TodayHighlightCard({
   const liveStatusLabel = liveDisplay?.label ?? null;
 
   return (
-    <article className="group relative flex min-w-[72%] snap-start flex-col overflow-hidden rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-[0_4px_16px_-8px_rgba(0,0,0,0.12)] dark:shadow-[0_4px_16px_-8px_rgba(0,0,0,0.35)] transition-colors hover:border-neutral-300 dark:hover:border-neutral-700 sm:min-w-[16rem]">
+    <article className="group relative min-w-0 overflow-hidden rounded-2xl bg-neutral-950 shadow-[0_8px_24px_-14px_rgba(0,0,0,0.45)] transition-transform active:scale-[0.99]">
       <Link
         href={href}
-        className="flex min-h-0 flex-1 flex-col touch-manipulation active:scale-[0.995] transition-transform"
+        className="relative block aspect-[3/2] w-full overflow-hidden touch-manipulation"
         aria-label={event.title}
       >
         {event.imageUrl ? (
-          <div className="relative h-32 w-full shrink-0 overflow-hidden bg-neutral-100 dark:bg-neutral-800">
+          <div className="absolute inset-0">
             <EventImage
               src={event.imageUrl}
               alt=""
-              sizes="(max-width: 672px) 72vw, 256px"
-              className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
-            />
-            <div
-              className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-orange-600/55 via-rose-500/35 to-transparent transition-opacity duration-300 group-hover:opacity-0"
-              aria-hidden
+              sizes="(max-width: 640px) 45vw, 220px"
+              className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
             />
           </div>
         ) : (
-          <div className="h-32 w-full shrink-0 bg-neutral-100 dark:bg-neutral-800" aria-hidden />
+          <div
+            className="absolute inset-0 bg-gradient-to-br from-orange-500 via-rose-500 to-fuchsia-600"
+            aria-hidden
+          />
         )}
 
-        <div className="flex flex-col gap-2 p-3.5">
+        <div
+          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent"
+          aria-hidden
+        />
+
+        <div className="absolute inset-x-0 bottom-0 flex flex-col gap-1.5 p-3.5">
           {liveStatusLabel && liveStatus && (
             <EventStatusBadge
               label={liveStatusLabel}
@@ -69,11 +75,11 @@ function TodayHighlightCard({
               className="w-fit"
             />
           )}
-          <h3 className="line-clamp-2 text-[17px] font-black leading-[1.25] tracking-tight text-neutral-950 dark:text-neutral-100">
+          <h3 className="line-clamp-2 text-[15px] font-black leading-snug tracking-tight text-white sm:text-base">
             {event.title}
           </h3>
           {event.time && (
-            <p className="inline-flex items-center gap-1.5 text-copy-meta font-medium text-neutral-600 dark:text-neutral-400">
+            <p className="inline-flex items-center gap-1.5 text-xs font-medium text-white/80">
               <Clock className="h-3.5 w-3.5 shrink-0" aria-hidden />
               {event.time}
             </p>
@@ -89,11 +95,16 @@ const TodayHighlightsComponent = ({
   locale,
   dict,
   limit = HOME_TODAY_LIMIT,
+  excludeEventIds = [],
 }: TodayHighlightsProps) => {
   const sessionSeed = useTodayHighlightShuffleSeed();
+  const excludeSet = useMemo(() => new Set(excludeEventIds), [excludeEventIds]);
   const todayEvents = useMemo(
-    () => getTodayHighlightEvents(events, { sessionSeed }),
-    [events, sessionSeed],
+    () =>
+      getTodayHighlightEvents(events, { sessionSeed }).filter(
+        (event) => !excludeSet.has(event.id),
+      ),
+    [events, sessionSeed, excludeSet],
   );
   const visibleEvents = todayEvents.slice(0, limit);
   const hasMore = todayEvents.length > limit;
@@ -117,7 +128,7 @@ const TodayHighlightsComponent = ({
         )}
       </div>
 
-      <div className="-mx-4 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 scrollbar-hide">
+      <div className="grid grid-cols-2 items-stretch gap-2.5 sm:gap-3 lg:grid-cols-3">
         {visibleEvents.map((event) => (
           <TodayHighlightCard
             key={event.id}

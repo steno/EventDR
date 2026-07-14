@@ -234,6 +234,8 @@ export const es: Dictionary = {
   },
   cities: {
     browseTopCategories: "Popular en {city}",
+    lookingIn: "Mirando eventos en",
+    regionName: "Costa Norte",
   },
   lang: {
     en: "EN",

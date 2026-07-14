@@ -9,7 +9,7 @@ import {
 } from "@/lib/theme";
 
 function getThemeSnapshot(): Theme {
-  if (typeof document === "undefined") return "light";
+  if (typeof document === "undefined") return "dark";
   return document.documentElement.classList.contains("dark") ? "dark" : "light";
 }
 
@@ -26,7 +26,7 @@ export function useTheme() {
   const theme = useSyncExternalStore(
     subscribeTheme,
     getThemeSnapshot,
-    () => "light" as Theme,
+    () => "dark" as Theme,
   );
 
   const setTheme = useCallback((next: Theme) => {
