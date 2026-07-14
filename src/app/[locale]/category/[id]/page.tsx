@@ -90,7 +90,6 @@ export default async function Page({
         returnTo={pagePath}
         title={category?.label ?? id}
         intro={categorySeo.intro}
-        sectionTitle={dict.browse.eventsIn}
         emoji={category?.emoji}
         emojiClassName={`bg-gradient-to-br ${category?.gradient ?? "from-neutral-200 to-neutral-300"}`}
         submitDefaults={{ category: categoryId }}

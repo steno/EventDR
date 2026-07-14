@@ -162,11 +162,6 @@ export function EventList({
               {filtered.length} · {dict.events.hiddenGems}
             </p>
           )}
-          {!category && ourPicks && !isSearching && (
-            <p className="text-xs text-neutral-400 dark:text-neutral-500 mt-0.5">
-              {dict.time[timeRange]} · {filtered.length} · {dict.events.sortedUpcoming}
-            </p>
-          )}
           {!category && !ourPicks && !isSearching && source && (
             <p className="text-xs text-neutral-400 dark:text-neutral-500 mt-0.5">{sourceLabel}</p>
           )}

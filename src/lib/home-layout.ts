@@ -69,8 +69,8 @@ export interface TodayHighlightOptions {
 }
 
 /**
- * Events happening today: same status/time order as lists (starts soon before
- * live), with venue diversity only in the visible grid head.
+ * Events happening today: same status/time order as lists (live, then ends
+ * soon, then starts soon), with venue diversity only in the visible grid head.
  */
 export function getTodayHighlightEvents(
   events: Event[],

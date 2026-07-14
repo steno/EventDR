@@ -32,7 +32,8 @@ interface EventScopePageProps {
   title: string;
   subtitle?: string;
   intro: string;
-  sectionTitle: string;
+  /** Optional list label — omit when the page title already names the list. */
+  sectionTitle?: string;
   emoji?: string;
   emojiClassName?: string;
   backHref?: string;
@@ -115,9 +116,11 @@ export function EventScopePage({
   }, [fetchUrl]);
 
   const city = citySlug ? getCityMeta(citySlug) : undefined;
-  // City pages use place photos; region category pages use the North Coast hero.
+  // Place photos for cities; regional hero for category / when scopes.
   const scopeHeroImage =
-    city?.heroImage ?? (categoryId ? NORTH_COAST_HERO_IMAGE : undefined);
+    city?.heroImage ??
+    (categoryId || fixedTimeRange ? NORTH_COAST_HERO_IMAGE : undefined);
+  const showLocationPicker = Boolean(citySlug || categoryId || fixedTimeRange);
   const headerEmojiClassName =
     emojiClassName ??
     "bg-white dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-800";
@@ -164,7 +167,7 @@ export function EventScopePage({
             </>
           )}
 
-          {citySlug || categoryId ? (
+          {showLocationPicker ? (
             <CityLocationPicker
               locale={locale}
               dict={dict}

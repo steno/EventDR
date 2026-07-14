@@ -17,7 +17,7 @@ export function TimeFilter({ value, onChange, dict, className = "mb-4" }: TimeFi
     <div
       className={`-mx-1 overflow-x-auto px-1 scrollbar-hide ${className}`}
       role="tablist"
-      aria-label={dict.browse.subtitle}
+      aria-label={dict.submit.time}
     >
       <div className="flex min-w-max gap-0 border-b border-neutral-200 dark:border-neutral-800">
         {RANGES.map((range) => {

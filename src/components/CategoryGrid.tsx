@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { CategoryIcon } from "@/components/CategoryIcon";
 import { getCategoryDefs } from "@/lib/categories";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
@@ -21,36 +20,24 @@ export function CategoryGrid({ locale, dict, citySlug = null }: CategoryGridProp
 
   return (
     <section aria-label={dict.browse.ariaLabel}>
-      <h2 className="mb-2.5 px-1 text-xl font-black tracking-tight text-neutral-950 dark:text-neutral-100">
-        {dict.browse.subtitle}
-      </h2>
-
-      <div className="grid grid-cols-4 gap-x-2 gap-y-2.5 sm:gap-x-3 sm:gap-y-3">
+      <div className="flex flex-wrap gap-2">
         {categories.map((cat) => (
           <Link
             key={cat.id}
             href={categoryPath(locale, cat.id, citySlug)}
-            className="group flex flex-col items-center gap-1 text-center touch-manipulation active:scale-[0.97] transition-transform"
+            className={`
+              inline-flex items-center gap-1.5 rounded-full px-3.5 py-2
+              text-[13px] font-bold ring-1 shadow-sm
+              transition-transform active:scale-[0.98] touch-manipulation
+              hover:brightness-[0.97] dark:hover:brightness-110
+              ${cat.chip}
+            `}
             aria-label={cat.label}
           >
-            <span
-              className={`
-                flex h-11 w-11 items-center justify-center rounded-full
-                bg-gradient-to-br ${cat.gradient}
-                shadow-[0_8px_20px_-12px_rgba(0,0,0,0.45)]
-                ring-1 ring-black/5 transition-transform duration-200
-                group-hover:scale-[1.04] dark:ring-white/10 sm:h-12 sm:w-12
-              `}
-              aria-hidden
-            >
-              <CategoryIcon
-                id={cat.id}
-                className="h-5 w-5 text-white drop-shadow-sm sm:h-6 sm:w-6"
-              />
+            <span className="text-base leading-none select-none" aria-hidden>
+              {cat.emoji}
             </span>
-            <span className="max-w-[4.75rem] text-[11px] font-bold leading-tight text-neutral-800 dark:text-neutral-200 sm:max-w-none sm:text-xs">
-              {cat.label}
-            </span>
+            <span className="whitespace-nowrap">{cat.label}</span>
           </Link>
         ))}
       </div>

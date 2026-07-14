@@ -2,12 +2,15 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { EventScopePage } from "@/components/EventScopePage";
 import { JsonLd } from "@/components/JsonLd";
+import { NORTH_COAST_TOP_CATEGORIES } from "@/lib/cities";
+import { categoryPath as buildCategoryPath } from "@/lib/event-navigation";
 import { isValidLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getPublicEvents } from "@/lib/public-events";
 import {
   buildListingPageJsonLd,
   buildWhenMetadata,
+  fillTemplate,
   localePath,
 } from "@/lib/seo";
 import { getWhenSeo, isWhenSlug, WHEN_SLUGS } from "@/lib/time-seo";
@@ -47,6 +50,13 @@ export default async function Page({
   const whenSeo = getWhenSeo(locale, range);
   const whenPath = localePath(locale, `/when/${range}`);
   const events = await getPublicEvents({ locale, when: range });
+  const relatedCategoryLinks = NORTH_COAST_TOP_CATEGORIES.map((relatedId) => ({
+    href: buildCategoryPath(locale, relatedId),
+    label: dict.categories[relatedId],
+  }));
+  const relatedCategoryLinksLabel = fillTemplate(dict.cities.browseTopCategories, {
+    city: dict.cities.regionName,
+  });
 
   return (
     <>
@@ -71,9 +81,9 @@ export default async function Page({
         returnTo={whenPath}
         title={whenSeo.h1}
         intro={whenSeo.intro}
-        sectionTitle={dict.time[range]}
-        emoji="📆"
         fixedTimeRange={range}
+        relatedCategoryLinks={relatedCategoryLinks}
+        relatedCategoryLinksLabel={relatedCategoryLinksLabel}
         initialExpanded={isScopeInitiallyExpanded(all)}
       />
     </>

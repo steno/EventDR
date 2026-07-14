@@ -7,10 +7,10 @@ import type { Locale } from "@/i18n/config";
 import { FilteredEventList } from "@/components/FilteredEventList";
 import { SubmitEventSheet } from "@/components/SubmitEventSheet";
 import { StickyListHeader } from "@/components/StickyListHeader";
+import { CityPhotoHero } from "@/components/CityPhotoHero";
 import { attachEventImages } from "@/lib/event-images";
 import { attachTicketUrls } from "@/lib/event-tickets";
 import { resolveBackLabel } from "@/lib/event-navigation";
-import { EventImage } from "@/components/EventImage";
 import { PAGE_SHELL_CLASS } from "@/lib/page-shell";
 
 interface VenuePageProps {
@@ -62,32 +62,14 @@ export function VenuePage({
             dict={dict}
             backHref={backHref}
             backLabel={backLabel}
+            flushBottom
           />
 
-          <div className="flex items-start gap-4 mb-6">
-            {venue.imageUrl ? (
-              <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-2xl border border-neutral-100 dark:border-neutral-800 shadow-sm">
-                <EventImage
-                  src={venue.imageUrl}
-                  alt={venue.name}
-                  sizes="64px"
-                  className="h-full w-full object-cover"
-                />
-              </div>
-            ) : (
-              <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-800 text-3xl shadow-sm">
-                {venue.emoji ?? "📍"}
-              </div>
-            )}
-            <div>
-              <h1 className="text-2xl font-black text-neutral-900 dark:text-neutral-100 tracking-tight">
-                {venue.name}
-              </h1>
-              <p className="text-sm text-neutral-500 dark:text-neutral-400 font-medium">{venue.city}</p>
-            </div>
-          </div>
-
-          <p className="text-copy-lead mb-6">{venue.description}</p>
+          <CityPhotoHero
+            title={venue.name}
+            eyebrow={venue.city}
+            subtitle={venue.description}
+          />
 
           <FilteredEventList
             events={events}

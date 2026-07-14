@@ -206,12 +206,6 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
                 />
               )}
 
-              {tab === "search" && !isSearching && (
-                <p className="text-center text-sm text-neutral-400 dark:text-neutral-500 font-medium py-8 px-6">
-                  {dict.search.placeholder}
-                </p>
-              )}
-
               <div className={tab === "search" && !isSearching ? "hidden" : undefined}>
                 <EventList
                   locale={locale}

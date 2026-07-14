@@ -94,7 +94,6 @@ export default async function Page({
         returnTo={cityPath}
         title={eventsInCity}
         intro={citySeo.intro}
-        sectionTitle={eventsInCity}
         emoji={city.emoji}
         submitDefaults={{ location: cityName }}
         relatedCategoryLinks={relatedCategoryLinks}

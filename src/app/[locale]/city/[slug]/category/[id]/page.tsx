@@ -117,7 +117,6 @@ export default async function Page({
         backHref={cityPath}
         title={title}
         intro={seo.intro}
-        sectionTitle={title}
         emoji={category.emoji}
         emojiClassName={`bg-gradient-to-br ${category.gradient}`}
         submitDefaults={{ category: id as EventCategory, location: cityName }}

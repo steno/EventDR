@@ -4,7 +4,8 @@ interface CityPhotoHeroProps {
   title: string;
   eyebrow?: string;
   subtitle?: string;
-  imageUrl: string;
+  /** Place / region photo; omit for brand gradient only. */
+  imageUrl?: string;
 }
 
 export function CityPhotoHero({
@@ -16,15 +17,22 @@ export function CityPhotoHero({
   return (
     <header className="relative -mx-4 mb-5 overflow-hidden sm:rounded-2xl sm:mx-0">
       <div className="relative min-h-[14.5rem] sm:min-h-[17rem]">
-        <div className="absolute inset-0">
-          <EventImage
-            src={imageUrl}
-            alt=""
-            priority
-            sizes="(max-width: 768px) 100vw, 768px"
-            className="object-cover object-center"
+        {imageUrl ? (
+          <div className="absolute inset-0">
+            <EventImage
+              src={imageUrl}
+              alt=""
+              priority
+              sizes="(max-width: 768px) 100vw, 768px"
+              className="object-cover object-center"
+            />
+          </div>
+        ) : (
+          <div
+            className="absolute inset-0 bg-gradient-to-br from-orange-500 via-rose-500 to-fuchsia-600"
+            aria-hidden
           />
-        </div>
+        )}
 
         <div
           className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20"

@@ -95,6 +95,8 @@ export interface CategoryMeta {
   label: string;
   emoji: string;
   gradient: string;
+  /** Soft tint for browse pills — personality without competing with the label. */
+  chip: string;
 }
 
 export interface PushSubscriptionPayload {
