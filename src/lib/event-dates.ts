@@ -90,7 +90,8 @@ export function filterNorthCoastUpcomingEvents(
 function parseTimeMinutes(time: string | undefined): number | null {
   if (!time) return null;
   const matches = [...time.matchAll(/(\d{1,2})(?::(\d{2}))?\s*(AM|PM)/gi)];
-  const match = matches.at(-1);
+  // Use the first clock time — ranges like "8:00 PM – 12:00 AM" must sort by start, not end.
+  const match = matches.at(0);
   if (!match) return null;
 
   let hours = Number(match[1]);
