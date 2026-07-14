@@ -7,6 +7,7 @@ import {
   Search,
 } from "lucide-react";
 import type { AppTab, Dictionary } from "@/i18n/dictionaries";
+import { PAGE_WIDTH_CLASS } from "@/lib/page-shell";
 
 interface BottomNavProps {
   active: AppTab;
@@ -37,7 +38,7 @@ export function BottomNav({
       "
       aria-label="Main navigation"
     >
-      <div className="mx-auto max-w-lg sm:max-w-3xl flex justify-around px-1 pt-2.5 pb-2.5">
+      <div className={`${PAGE_WIDTH_CLASS} flex justify-around px-1 pt-2.5 pb-2.5`}>
         {items.map(({ id, icon: Icon, label, badge }) => {
           const isActive = active === id;
           const isSubmit = id === "submit";

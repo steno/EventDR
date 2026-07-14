@@ -1,5 +1,6 @@
 import type { PartnersCopy } from "@/lib/partners-copy";
 import { PrintButton } from "@/components/PrintButton";
+import { PAGE_SHELL_CLASS } from "@/lib/page-shell";
 
 interface PartnerQrCardProps {
   label: string;
@@ -42,7 +43,7 @@ interface PartnersPageProps {
 export function PartnersPage({ copy, locale, qrCards }: PartnersPageProps) {
   return (
     <main className="relative bg-neutral-50 pb-8 dark:bg-transparent print:bg-white">
-      <div className="relative mx-auto max-w-lg px-4 sm:max-w-2xl print:max-w-none">
+      <div className={`${PAGE_SHELL_CLASS} print:max-w-none print:rounded-none print:bg-transparent print:px-4 print:shadow-none print:ring-0`}>
         <header className="pb-6 pt-4 print:pt-2">
           <a
             href={`/${locale}`}

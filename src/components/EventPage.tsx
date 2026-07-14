@@ -8,6 +8,7 @@ import { EventDetailSheet } from "@/components/EventDetailSheet";
 import { StickyListHeader } from "@/components/StickyListHeader";
 import { useSavedEvents } from "@/hooks/useSavedEvents";
 import { resolveBackLabel, resolveEventReturnPath } from "@/lib/event-navigation";
+import { PAGE_SHELL_CLASS } from "@/lib/page-shell";
 
 interface EventPageProps {
   event: Event;
@@ -45,7 +46,7 @@ export function EventPage({
 
   return (
     <div className="min-h-dvh bg-neutral-50 dark:bg-transparent pb-8">
-      <div className="mx-auto max-w-lg sm:max-w-2xl px-4">
+      <div className={PAGE_SHELL_CLASS}>
         <StickyListHeader
           locale={locale}
           dict={dict}

@@ -17,6 +17,7 @@ import { attachEventImages } from "@/lib/event-images";
 import { StickyListHeader } from "@/components/StickyListHeader";
 import { resolveBackLabel } from "@/lib/event-navigation";
 import { getCityMeta, type CitySlug } from "@/lib/cities";
+import { PAGE_SHELL_CLASS } from "@/lib/page-shell";
 
 interface EventScopePageProps {
   locale: Locale;
@@ -91,7 +92,7 @@ export function EventScopePage({
   return (
     <>
       <main className="relative bg-neutral-50 dark:bg-transparent pb-6">
-        <div className="relative mx-auto max-w-lg px-4 sm:max-w-3xl lg:max-w-5xl lg:rounded-[2rem] lg:bg-white/70 lg:px-8 lg:pb-10 lg:pt-2 lg:shadow-[0_24px_80px_-48px_rgba(0,0,0,0.35)] lg:ring-1 lg:ring-neutral-200/80 dark:lg:bg-neutral-950/75 dark:lg:shadow-[0_30px_90px_-50px_rgba(0,0,0,0.95)] dark:lg:ring-white/10">
+        <div className={PAGE_SHELL_CLASS}>
           <StickyListHeader
             locale={locale}
             dict={dict}

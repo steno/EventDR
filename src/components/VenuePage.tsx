@@ -12,6 +12,7 @@ import { attachTicketUrls } from "@/lib/event-tickets";
 import { resolveBackLabel } from "@/lib/event-navigation";
 import { EventImage } from "@/components/EventImage";
 import { matchVenueSlug } from "@/lib/venues-seed";
+import { PAGE_SHELL_CLASS } from "@/lib/page-shell";
 
 interface VenuePageProps {
   venue: Venue;
@@ -59,7 +60,7 @@ export function VenuePage({
   return (
     <>
       <main className="bg-neutral-50 dark:bg-transparent pb-6">
-        <div className="mx-auto max-w-lg sm:max-w-2xl px-4">
+        <div className={PAGE_SHELL_CLASS}>
           <StickyListHeader
             locale={locale}
             dict={dict}

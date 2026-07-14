@@ -5,6 +5,7 @@ import { getDictionary } from "@/i18n/dictionaries";
 import { CategoryDirectory } from "@/components/CategoryDirectory";
 import { StickyListHeader } from "@/components/StickyListHeader";
 import { buildAlternates, fillTemplate } from "@/lib/seo";
+import { PAGE_SHELL_CLASS } from "@/lib/page-shell";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -42,7 +43,7 @@ export default async function Page({
 
   return (
     <main className="relative bg-neutral-50 pb-6 dark:bg-transparent">
-      <div className="relative mx-auto max-w-lg px-4 sm:max-w-2xl">
+      <div className={PAGE_SHELL_CLASS}>
         <StickyListHeader
           locale={locale}
           dict={dict}
