@@ -46,6 +46,20 @@ export const es: Dictionary = {
     culture: "Cultura",
     adventure: "Aventura",
   },
+  categoriesSingular: {
+    music: "música",
+    business: "negocios",
+    concert: "concierto",
+    parties: "fiesta",
+    "food-drinks": "comida y bebida",
+    festivals: "festival",
+    dance: "baile",
+    "health-wellness": "salud y bienestar",
+    performances: "espectáculo",
+    sports: "deportes",
+    culture: "cultura",
+    adventure: "aventura",
+  },
   browse: {
     title: "Explorar",
     subtitle: "Elige tu plan",
@@ -238,6 +252,7 @@ export const es: Dictionary = {
   cities: {
     browseTopCategories: "Popular en {city}",
     lookingIn: "Mirando eventos en",
+    lookingInWithCategory: "Mirando eventos de {category} en",
     regionName: "Costa Norte",
     chooseArea: "Elige zona",
   },

@@ -24,7 +24,7 @@ export function CityCategoryLinks({
       <p className="mb-2 text-xs font-bold uppercase tracking-widest text-neutral-400">
         {label}
       </p>
-      <div className="flex flex-wrap gap-2">
+      <div className="-mx-1 flex flex-nowrap gap-2 overflow-x-auto px-1 pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         {links.map((link) => {
           const active = activeHref === link.href;
           return (
@@ -34,11 +34,11 @@ export function CityCategoryLinks({
               scroll={false}
               aria-current={active ? "page" : undefined}
               className={`
-                rounded-full border px-3.5 py-1.5 text-xs font-semibold transition-colors
+                shrink-0 rounded-full border px-3.5 py-1.5 text-xs font-semibold transition-colors
                 ${
                   active
-                    ? "border-orange-500 bg-orange-50 text-orange-700 dark:border-orange-400 dark:bg-orange-950/40 dark:text-orange-300"
-                    : "border-neutral-200 bg-white text-neutral-700 hover:border-neutral-300 hover:text-neutral-900 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-200 dark:hover:border-neutral-600 dark:hover:text-neutral-100"
+                    ? "border-orange-500 bg-transparent text-orange-600 dark:border-orange-400 dark:text-orange-400"
+                    : "border-neutral-200 bg-white text-neutral-700 hover:border-neutral-300 hover:text-neutral-900 dark:border-neutral-600 dark:bg-neutral-950 dark:text-neutral-100 dark:hover:border-neutral-500 dark:hover:text-white"
                 }
               `}
             >

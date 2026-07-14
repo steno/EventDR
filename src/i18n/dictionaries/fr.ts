@@ -46,6 +46,20 @@ export const fr: Dictionary = {
     culture: "Culture",
     adventure: "Aventure",
   },
+  categoriesSingular: {
+    music: "musique",
+    business: "affaires",
+    concert: "concert",
+    parties: "fête",
+    "food-drinks": "nourriture & boisson",
+    festivals: "festival",
+    dance: "danse",
+    "health-wellness": "santé & bien-être",
+    performances: "spectacle",
+    sports: "sports",
+    culture: "culture",
+    adventure: "aventure",
+  },
   browse: {
     title: "Explorer",
     subtitle: "Choisissez votre ambiance",
@@ -238,6 +252,7 @@ export const fr: Dictionary = {
   cities: {
     browseTopCategories: "Populaire à {city}",
     lookingIn: "Événements à",
+    lookingInWithCategory: "Événements {category} à",
     regionName: "Côte Nord",
     chooseArea: "Choisir une zone",
   },

@@ -32,6 +32,8 @@ export type Dictionary = {
     cta: string;
   };
   categories: Record<EventCategory, string>;
+  /** Singular category words for “Looking for {category} events in”. */
+  categoriesSingular: Record<EventCategory, string>;
   browse: {
     title: string;
     subtitle: string;
@@ -213,6 +215,8 @@ export type Dictionary = {
   cities: {
     browseTopCategories: string;
     lookingIn: string;
+    /** When a category is selected: insert singular category label. */
+    lookingInWithCategory: string;
     regionName: string;
     /** Closed picker label before the user picks a city or the whole region. */
     chooseArea: string;
@@ -317,6 +321,20 @@ export const en: Dictionary = {
     dance: "Dance",
     "health-wellness": "Health & Wellness",
     performances: "Performances",
+    sports: "Sports",
+    culture: "Culture",
+    adventure: "Adventure",
+  },
+  categoriesSingular: {
+    music: "Music",
+    business: "Business",
+    concert: "Concert",
+    parties: "Party",
+    "food-drinks": "Food & Drink",
+    festivals: "Festival",
+    dance: "Dance",
+    "health-wellness": "Health & Wellness",
+    performances: "Performance",
     sports: "Sports",
     culture: "Culture",
     adventure: "Adventure",
@@ -513,6 +531,7 @@ export const en: Dictionary = {
   cities: {
     browseTopCategories: "Popular in {city}",
     lookingIn: "Looking for events in",
+    lookingInWithCategory: "Looking for {category} events in",
     regionName: "North Coast",
     chooseArea: "Choose area",
   },

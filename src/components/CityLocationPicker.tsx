@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { ChevronDown } from "lucide-react";
 import { CITIES, getCityName, type CitySlug } from "@/lib/cities";
 import { categoryPath } from "@/lib/event-navigation";
+import { fillTemplate } from "@/lib/seo";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { EventCategory } from "@/lib/types";
@@ -61,6 +62,11 @@ export function CityLocationPicker({
     : (emptyLabel ?? dict.cities.regionName);
   /** Avoid highlighting North Coast while the closed label still says “Choose area”. */
   const regionSelected = currentSlug == null && emptyLabel == null;
+  const lookingInLabel = categoryId
+    ? fillTemplate(dict.cities.lookingInWithCategory, {
+        category: dict.categoriesSingular[categoryId],
+      })
+    : dict.cities.lookingIn;
 
   useLayoutEffect(() => {
     if (pendingScrollY.current == null) return;
@@ -133,7 +139,7 @@ export function CityLocationPicker({
   return (
     <div ref={rootRef} className="mb-5 px-1 last:mb-0">
       <p className="text-[15px] font-semibold text-neutral-800 dark:text-neutral-200">
-        {dict.cities.lookingIn}
+        {lookingInLabel}
       </p>
       <div className="relative mt-0.5">
         <button
@@ -163,7 +169,7 @@ export function CityLocationPicker({
           <ul
             id={listId}
             role="listbox"
-            aria-label={dict.cities.lookingIn}
+            aria-label={lookingInLabel}
             className={`
               absolute left-0 z-50 min-w-[14rem] overflow-hidden rounded-2xl
               border border-neutral-200 bg-white py-1.5 shadow-[0_16px_40px_-20px_rgba(0,0,0,0.45)]
