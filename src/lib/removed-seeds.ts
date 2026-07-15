@@ -31,6 +31,8 @@ export const REMOVED_SEED_EVENT_IDS = new Set([
   "anfiteatro-cultural-performances",
   // Overlaps La Puntilla concerts (same hours/source; older Malecón placeholder).
   "malecon-live-concert",
+  // Ingest misfire: Expo Amaprosan is Parque Central de Santiago (Cibao), not POP.
+  "ingest-expo-amaprosan-2026",
 ]);
 
 export function filterRemovedSeedEvents(events: Event[]): Event[] {

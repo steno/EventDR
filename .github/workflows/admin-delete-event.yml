@@ -1,0 +1,33 @@
+name: Admin delete event
+
+on:
+  workflow_dispatch:
+    inputs:
+      event_id:
+        description: Firestore event id to delete
+        required: true
+        type: string
+
+jobs:
+  delete:
+    runs-on: ubuntu-latest
+    steps:
+      - name: DELETE /api/admin/event
+        env:
+          SITE_URL: https://pop-event.com
+          CRON_SECRET: ${{ secrets.CRON_SECRET }}
+          EVENT_ID: ${{ inputs.event_id }}
+        run: |
+          if [ -z "$CRON_SECRET" ]; then
+            echo "CRON_SECRET secret not set"
+            exit 1
+          fi
+          res=$(curl -sS -w "\n%{http_code}" -X DELETE \
+            "${SITE_URL}/api/admin/event?id=${EVENT_ID}&secret=${CRON_SECRET}")
+          http=$(echo "$res" | tail -n1)
+          body=$(echo "$res" | sed '$d')
+          echo "HTTP ${http}"
+          echo "$body"
+          if [ "$http" -lt 200 ] || [ "$http" -ge 300 ]; then
+            exit 22
+          fi
