@@ -40,6 +40,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "plaza-independencia-daily": "plaza-independencia-daily.jpg",
   "plaza-independencia-weekend-culture": "plaza-independencia-daily.jpg",
   "el-carey-wc2026": "el-carey-wc2026.png",
+  "el-carey-wc2026-2026-07-15-england-vs-argentina-1500":
+    "el-carey-wc2026-2026-07-15-england-vs-argentina-1500.png",
   "el-colibri-karaoke-battle-2026": "el-colibri-karaoke-battle-2026.png",
   "ocean-world-daily": "ocean-world-daily.jpeg",
   "charcos-damajagua-daily": "charcos-damajagua-daily.jpeg",

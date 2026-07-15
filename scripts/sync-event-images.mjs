@@ -98,6 +98,8 @@ const FILE_TO_EVENT_ID = {
   "campamento.jpg": "inicio-del-campamento-pp-2026",
   "feriaartesanal.jpg": "feria-artesanal-verano-2026",
   "el-carey-wc2026.png": "el-carey-wc2026",
+  "worldcupengvsarg.png":
+    "el-carey-wc2026-2026-07-15-england-vs-argentina-1500",
   "el-colibri-karaoke-battle-2026.png": "el-colibri-karaoke-battle-2026",
   "oceanworld.jpeg": "ocean-world-daily",
   "Damajagua.jpeg": "charcos-damajagua-daily",

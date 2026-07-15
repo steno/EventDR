@@ -13,14 +13,14 @@ import {
   searchEvents,
   suggestOtherFilterTimeRange,
 } from "@/lib/filters";
-import { sortEventsForDisplay } from "@/lib/event-sort";
-import { categoryPath } from "@/lib/event-navigation";
-import { attachEventImages } from "@/lib/event-images";
-import { eventMatchesCity, type CitySlug } from "@/lib/cities";
 import {
   EMPTY_EVENT_IDS,
   LIST_PAGE_SIZE,
 } from "@/lib/home-layout";
+import { sortEventsForDisplay } from "@/lib/event-sort";
+import { categoryPath } from "@/lib/event-navigation";
+import { attachEventImages } from "@/lib/event-images";
+import { eventMatchesCity, type CitySlug } from "@/lib/cities";
 import { EventCard } from "./EventCard";
 import { SearchEmptyState } from "./SearchEmptyState";
 import { TimeFilter } from "./TimeFilter";
@@ -134,8 +134,12 @@ export function EventList({
       const excluded = new Set(excludeEventIds);
       result = result.filter((e) => !excluded.has(e.id));
     }
-    return sortEventsForDisplay(result, { recurringLast: true });
-  }, [events, timeRange, citySlug, searchQuery, excludeEventIds]);
+    // Home "Our picks": one-time before multi-day/recurring on every time tab.
+    return sortEventsForDisplay(result, {
+      recurringLast: true,
+      oneTimeFirst: ourPicks,
+    });
+  }, [events, timeRange, citySlug, searchQuery, excludeEventIds, ourPicks]);
 
   const visibleEvents =
     limit != null ? filtered.slice(0, visibleCount) : filtered;

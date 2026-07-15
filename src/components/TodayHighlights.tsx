@@ -47,7 +47,7 @@ function TodayHighlightCard({
   const liveStatusLabel = liveDisplay?.label ?? null;
 
   return (
-    <article className="group relative min-w-0 overflow-hidden rounded-2xl bg-neutral-950 shadow-[0_8px_24px_-14px_rgba(0,0,0,0.45)] transition-transform active:scale-[0.99]">
+    <article className="group relative min-w-0 overflow-hidden rounded-2xl bg-neutral-100 shadow-[0_8px_24px_-14px_rgba(0,0,0,0.18)] ring-1 ring-black/5 transition-transform active:scale-[0.99] dark:bg-neutral-950 dark:shadow-[0_8px_24px_-14px_rgba(0,0,0,0.45)] dark:ring-white/10">
       <Link
         href={href}
         className="relative block aspect-[3/2] w-full overflow-hidden touch-manipulation"
@@ -69,14 +69,24 @@ function TodayHighlightCard({
           />
         )}
 
-        {/* Contrast scrim — stays so white type clears bright photos */}
+        {/* Light: cool neutral scrim — legibility without muddy orange wash */}
         <div
-          className="pointer-events-none absolute inset-x-0 bottom-0 h-[75%] bg-gradient-to-t from-black/80 via-black/45 to-transparent"
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-[58%] bg-gradient-to-t from-neutral-950/75 via-neutral-950/35 to-transparent dark:hidden"
           aria-hidden
         />
-        {/* Brand tint — softens on hover; photo opens up without losing type */}
+        {/* Light: soft brand tip at the foot only */}
         <div
-          className="pointer-events-none absolute inset-x-0 bottom-0 h-[70%] bg-gradient-to-t from-orange-600/50 via-rose-500/30 to-transparent transition-opacity duration-300 group-hover:opacity-40"
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-[32%] bg-gradient-to-t from-rose-700/25 to-transparent transition-opacity duration-300 group-hover:opacity-50 dark:hidden"
+          aria-hidden
+        />
+
+        {/* Dark: richer contrast + brand wash */}
+        <div
+          className="pointer-events-none absolute inset-x-0 bottom-0 hidden h-[75%] bg-gradient-to-t from-black/80 via-black/45 to-transparent dark:block"
+          aria-hidden
+        />
+        <div
+          className="pointer-events-none absolute inset-x-0 bottom-0 hidden h-[70%] bg-gradient-to-t from-orange-600/50 via-rose-500/30 to-transparent transition-opacity duration-300 group-hover:opacity-40 dark:block"
           aria-hidden
         />
 
@@ -88,11 +98,11 @@ function TodayHighlightCard({
               className="w-fit"
             />
           )}
-          <h3 className="line-clamp-2 text-[15px] font-black leading-snug tracking-tight text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.65)] sm:text-base">
+          <h3 className="line-clamp-2 text-[15px] font-black leading-snug tracking-tight text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.55)] sm:text-base">
             {event.title}
           </h3>
           {event.time && (
-            <p className="inline-flex items-center gap-1.5 text-xs font-medium text-white/90 [text-shadow:0_1px_2px_rgba(0,0,0,0.55)]">
+            <p className="inline-flex items-center gap-1.5 text-xs font-medium text-white/90 [text-shadow:0_1px_2px_rgba(0,0,0,0.45)]">
               <Clock className="h-3.5 w-3.5 shrink-0" aria-hidden />
               {event.time}
             </p>

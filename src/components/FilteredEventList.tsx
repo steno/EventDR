@@ -23,7 +23,7 @@ import { AddEventButton } from "@/components/AddEventButton";
 
 const UNBOUNDED = Number.POSITIVE_INFINITY;
 
-/** Scope/venue lists show the full upcoming schedule; home keeps Today. */
+/** Scope/venue lists show the full upcoming schedule; home Our picks matches that. */
 const DEFAULT_SCOPE_TIME_RANGE: FilterTimeRange = "all";
 
 interface FilteredEventListProps {
@@ -111,7 +111,10 @@ export function FilteredEventList({
   const activeRange = fixedTimeRange ?? timeRange;
   const filtered = useMemo(() => {
     const timeFiltered = filterByTimeRange(events, activeRange);
-    return sortEventsForDisplay(timeFiltered, { recurringLast: true });
+    return sortEventsForDisplay(timeFiltered, {
+      recurringLast: true,
+      oneTimeFirst: true,
+    });
   }, [events, activeRange]);
 
   const visibleEvents = Number.isFinite(visibleCount)

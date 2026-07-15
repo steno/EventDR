@@ -53,23 +53,35 @@ export function PhotoHero({
           />
         )}
 
+        {/* Light: bottom-heavy scrim — photo stays open at the top */}
         <div
-          className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/45 to-black/25"
+          className="absolute inset-0 bg-gradient-to-t from-neutral-950/78 via-neutral-950/40 via-40% to-neutral-950/10 dark:hidden"
+          aria-hidden
+        />
+        {/* Light: soft brand tip under copy */}
+        <div
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-[42%] bg-gradient-to-t from-rose-800/30 to-transparent dark:hidden"
+          aria-hidden
+        />
+
+        {/* Dark: fuller wash for large white type */}
+        <div
+          className="absolute inset-0 hidden bg-gradient-to-t from-black/80 via-black/45 to-black/25 dark:block"
           aria-hidden
         />
 
         <div className="relative z-10 flex min-h-[15.5rem] flex-col justify-end gap-3 px-4 pb-5 pt-10 sm:min-h-[12.5rem] sm:px-6 sm:pb-5 sm:pt-8">
           <div className="min-w-0">
-            <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-white/75">
+            <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-white/80 [text-shadow:0_1px_2px_rgba(0,0,0,0.45)]">
               {dict.seo.siteName}
             </p>
-            <h1 className="mt-1 text-[2rem] font-black leading-[1.05] tracking-tight text-white sm:text-5xl">
+            <h1 className="mt-1 text-[2rem] font-black leading-[1.05] tracking-tight text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.4)] sm:text-5xl">
               {dict.hero.events}{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-300 via-rose-300 to-fuchsia-300">
                 {placeLabel}
               </span>
             </h1>
-            <p className="mt-2 max-w-md text-sm font-medium leading-snug text-white/85 sm:text-[15px]">
+            <p className="mt-2 max-w-md text-sm font-medium leading-snug text-white/90 [text-shadow:0_1px_2px_rgba(0,0,0,0.4)] sm:text-[15px]">
               {dict.hero.subtitle}{" "}
               <span className="font-bold text-white">
                 {dict.hero.subtitleHighlight}
@@ -81,7 +93,7 @@ export function PhotoHero({
           {featuredEvent && eventHref && (
             <Link
               href={eventHref}
-              className="group inline-flex max-w-full items-center gap-2 text-sm font-bold text-white/90 transition-colors hover:text-white touch-manipulation"
+              className="group inline-flex max-w-full items-center gap-2 text-sm font-bold text-white/90 [text-shadow:0_1px_2px_rgba(0,0,0,0.35)] transition-colors hover:text-white touch-manipulation"
             >
               <span className="truncate underline-offset-2 group-hover:underline">
                 {featuredEvent.title}

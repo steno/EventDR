@@ -6,6 +6,7 @@ import {
   hasEventEndedForToday,
   isEndingSoon,
   isEventActiveToday,
+  isMultiDayEvent,
   isRecurringEvent,
   parseEventTimeWindow,
 } from "./event-status";
@@ -28,7 +29,32 @@ const LIST_TIER = {
 export interface SortEventsForDisplayOptions {
   /** Deprioritize recurring events among future peers on the same day (not when live today). */
   recurringLast?: boolean;
+  /**
+   * One-time fixtures before multi-day festivals, then recurring —
+   * Happening today, Our picks (all time tabs), and scoped discovery lists.
+   */
+  oneTimeFirst?: boolean;
   now?: Date;
+}
+
+/**
+ * One-time fixtures before multi-day festivals, then recurring —
+ * preserves prior status/time order within each kind.
+ */
+export function prioritizeOneTimeEvents(events: Event[]): Event[] {
+  if (events.length < 2) return events;
+  const order = new Map(events.map((event, index) => [event.id, index]));
+  return [...events].sort((a, b) => {
+    const kindDiff = oneTimeKindRank(a) - oneTimeKindRank(b);
+    if (kindDiff !== 0) return kindDiff;
+    return (order.get(a.id) ?? 0) - (order.get(b.id) ?? 0);
+  });
+}
+
+function oneTimeKindRank(event: Event): number {
+  if (isRecurringEvent(event)) return 2;
+  if (isMultiDayEvent(event)) return 1;
+  return 0;
 }
 
 function eventEndTimeMinutes(time: string | undefined): number {
@@ -140,5 +166,6 @@ export function sortEventsForDisplay(
     return a.event.title.localeCompare(b.event.title);
   });
 
-  return keyed.map((row) => row.event);
+  const sorted = keyed.map((row) => row.event);
+  return options.oneTimeFirst ? prioritizeOneTimeEvents(sorted) : sorted;
 }

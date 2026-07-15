@@ -10,7 +10,7 @@ import { happensOnLocalDate, isEventActiveToday } from "./event-status";
 
 export type TimeRange = "all" | "today" | "tomorrow" | "weekend";
 
-/** Visible time-filter chips (default selection stays Today). */
+/** Visible time-filter chips (home Our picks defaults to All for upcoming one-offs). */
 export type FilterTimeRange = TimeRange;
 
 export const FILTER_TIME_RANGES: FilterTimeRange[] = [
@@ -21,7 +21,7 @@ export const FILTER_TIME_RANGES: FilterTimeRange[] = [
 ];
 
 /** Default chip when a list shows the time filter. */
-export const DEFAULT_FILTER_TIME_RANGE: FilterTimeRange = "today";
+export const DEFAULT_FILTER_TIME_RANGE: FilterTimeRange = "all";
 
 /** Next time-filter chip after `current` (wraps around). */
 export function nextFilterTimeRange(current: FilterTimeRange): FilterTimeRange {

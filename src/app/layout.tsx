@@ -1,5 +1,6 @@
 import { Syne, Inter } from "next/font/google";
 import { BootSplashDismiss } from "@/components/BootSplashDismiss";
+import { ThemeAutoSync } from "@/components/ThemeAutoSync";
 import { ThemeScript } from "@/components/ThemeScript";
 import { PageGlow } from "@/components/PageGlow";
 import "./globals.css";
@@ -53,6 +54,7 @@ export default function RootLayout({
           />
         </div>
         <BootSplashDismiss />
+        <ThemeAutoSync />
         <div
           className="pointer-events-none fixed inset-0 z-0 hidden overflow-hidden dark:block"
           aria-hidden
