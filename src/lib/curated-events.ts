@@ -33,6 +33,12 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     location: "Puerto Plata",
     isFree: true,
   },
+  "cabarete-classic-2026": {
+    // Geocoders tag Cabarete under Sosúa municipality — keep zone unambiguous.
+    location: "Cabarete",
+    venueSlug: "kite-beach",
+    address: "Residencial Mañanero, Cabarete",
+  },
   "cabarete-pilates-reformer": {
     venue: "Rafaella's Studio",
     location: "Cabarete",

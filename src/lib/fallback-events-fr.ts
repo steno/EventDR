@@ -135,7 +135,7 @@ export const FALLBACK_EVENTS_FR: Event[] = [
     location: "Cabarete",
     venue: "Playa Cabarete",
     venueSlug: "kite-beach",
-    address: "Residencial Mañanero, 57600 Sosúa, República Dominicana",
+    address: "Residencial Mañanero, Cabarete",
     category: "sports",
     format: "physical",
     trending: true,

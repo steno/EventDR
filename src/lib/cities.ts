@@ -234,9 +234,27 @@ function normalizeLocation(value: string): string {
     .replace(/\p{M}/gu, "");
 }
 
+/**
+ * When `location` names exactly one home zone, trust that over venue/address.
+ * Geocoders often put Cabarete under Sosúa municipality (shared postal codes).
+ */
+function cityFromLocationField(location: string | undefined): CitySlug | null {
+  if (!location?.trim()) return null;
+  const normalized = normalizeLocation(location);
+  const hits = CITIES.filter((city) =>
+    city.matchers.some((matcher) =>
+      normalized.includes(normalizeLocation(matcher)),
+    ),
+  );
+  return hits.length === 1 ? hits[0].slug : null;
+}
+
 export function eventMatchesCity(event: Event, slug: CitySlug): boolean {
   const city = getCityMeta(slug);
   if (!city) return false;
+
+  const primary = cityFromLocationField(event.location);
+  if (primary) return primary === slug;
 
   const haystack = normalizeLocation(
     [event.location, event.venue, event.address].filter(Boolean).join(" "),

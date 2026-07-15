@@ -29,7 +29,12 @@ export function formatEventPlace(
   pushUniquePlacePart(parts, event.address);
   if (event.location?.trim()) {
     for (const segment of event.location.split(/,\s*/)) {
-      pushUniquePlacePart(parts, segment);
+      const trimmed = segment.trim();
+      if (!trimmed) continue;
+      const lower = trimmed.toLowerCase();
+      // Skip city already present in venue/address (common geocode duplication).
+      if (parts.some((part) => part.toLowerCase().includes(lower))) continue;
+      pushUniquePlacePart(parts, trimmed);
     }
   }
   return parts.join(", ");
