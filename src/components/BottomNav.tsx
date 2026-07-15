@@ -4,7 +4,6 @@ import {
   Compass,
   Heart,
   PlusCircle,
-  Search,
 } from "lucide-react";
 import type { AppTab, Dictionary } from "@/i18n/dictionaries";
 import { PAGE_WIDTH_CLASS } from "@/lib/page-shell";
@@ -24,7 +23,6 @@ export function BottomNav({
 }: BottomNavProps) {
   const items: { id: AppTab; icon: typeof Compass; label: string; badge?: number }[] = [
     { id: "discover", icon: Compass, label: dict.nav.discover },
-    { id: "search", icon: Search, label: dict.nav.search },
     { id: "saved", icon: Heart, label: dict.nav.saved, badge: savedCount || undefined },
     { id: "submit", icon: PlusCircle, label: dict.nav.submit },
   ];

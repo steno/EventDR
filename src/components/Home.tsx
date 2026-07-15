@@ -5,7 +5,6 @@ import {
   useDeferredValue,
   useEffect,
   useMemo,
-  useRef,
   useState,
 } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
@@ -69,7 +68,6 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
   const [submitOpen, setSubmitOpen] = useState(false);
   const [allEvents, setAllEvents] = useState<Event[]>([]);
   const [refreshKey, setRefreshKey] = useState(0);
-  const searchInputRef = useRef<HTMLInputElement>(null);
 
   const { city: selectedCity, areaChosen } = useMemo(
     () => parseHomeCityParam(searchParams.get("city")),
@@ -156,9 +154,6 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
       return;
     }
     setTab(newTab);
-    if (newTab === "search") {
-      requestAnimationFrame(() => searchInputRef.current?.focus());
-    }
     if (newTab === "discover") {
       setSearchQuery("");
     }
@@ -209,13 +204,12 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
             }
           />
 
-          {(tab === "discover" || tab === "search") && (
+          {tab === "discover" && (
             <>
               <InstallBanner dict={dict} />
               <div className="flex flex-col">
                 <div className="order-2 sm:order-1">
                   <SearchBar
-                    ref={searchInputRef}
                     value={searchQuery}
                     onChange={setSearchQuery}
                     dict={dict}
@@ -252,7 +246,7 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
                 </div>
               )}
 
-              {!isSearching && tab === "discover" && (
+              {!isSearching && (
                 <TodayHighlights
                   events={discoverLayout.todayEvents}
                   locale={locale}
@@ -264,36 +258,32 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
                 />
               )}
 
-              <div className={tab === "search" && !isSearching ? "hidden" : undefined}>
-                <EventList
-                  locale={locale}
-                  dict={dict}
-                  searchQuery={listSearchQuery}
-                  timeRange={isSearching ? "all" : timeRange}
-                  citySlug={isSearching ? null : selectedCity}
-                  onEventsLoaded={handleEventsLoaded}
-                  refreshKey={refreshKey}
-                  ourPicks={!isSearching}
-                  onTimeRangeChange={setTimeRange}
-                  showTimeFilter={!isSearching}
-                  returnTo={homePath}
-                  limit={isSearching ? HOME_SEARCH_LIMIT : HOME_PICKS_LIMIT}
-                  excludeEventIds={picksExcludeIds}
-                  // All stays on-home with "More events"; other tabs deep-link.
-                  viewAllHref={
-                    !isSearching && timeRange !== "all"
-                      ? viewAllHref
-                      : undefined
-                  }
-                />
-              </div>
+              <EventList
+                locale={locale}
+                dict={dict}
+                searchQuery={listSearchQuery}
+                timeRange={isSearching ? "all" : timeRange}
+                citySlug={isSearching ? null : selectedCity}
+                onEventsLoaded={handleEventsLoaded}
+                refreshKey={refreshKey}
+                ourPicks={!isSearching}
+                onTimeRangeChange={setTimeRange}
+                showTimeFilter={!isSearching}
+                returnTo={homePath}
+                limit={isSearching ? HOME_SEARCH_LIMIT : HOME_PICKS_LIMIT}
+                excludeEventIds={picksExcludeIds}
+                // All stays on-home with "More events"; other tabs deep-link.
+                viewAllHref={
+                  !isSearching && timeRange !== "all"
+                    ? viewAllHref
+                    : undefined
+                }
+              />
 
-              {!isSearching && tab === "discover" && (
-                <>
-                  <div className="mt-8">
-                    <VenueStrip locale={locale} dict={dict} initialVenues={initialVenues} />
-                  </div>
-                </>
+              {!isSearching && (
+                <div className="mt-8">
+                  <VenueStrip locale={locale} dict={dict} initialVenues={initialVenues} />
+                </div>
               )}
             </>
           )}

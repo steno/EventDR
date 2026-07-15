@@ -140,7 +140,6 @@ export const es: Dictionary = {
   },
   nav: {
     discover: "Explorar",
-    search: "Buscar",
     saved: "Guardados",
     submit: "Publicar",
   },
