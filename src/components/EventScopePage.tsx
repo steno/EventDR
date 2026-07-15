@@ -129,13 +129,14 @@ export function EventScopePage({
     "bg-white dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-800";
   const [backHref, setBackHref] = useState(backHrefProp ?? `/${locale}`);
 
+  // Refresh when area changes via the location picker (session lastHomePath).
   useEffect(() => {
     if (backHrefProp) {
       setBackHref(backHrefProp);
       return;
     }
     setBackHref(lastHomePath(locale));
-  }, [backHrefProp, locale]);
+  }, [backHrefProp, locale, citySlug]);
 
   const backLabel = resolveBackLabel(locale, backHref, dict);
 
@@ -189,12 +190,14 @@ export function EventScopePage({
           ) : null}
 
           {showLocationPicker ? (
-            <CityLocationPicker
-              locale={locale}
-              dict={dict}
-              currentSlug={citySlug ?? null}
-              categoryId={categoryId}
-            />
+            <div className="mb-4">
+              <CityLocationPicker
+                locale={locale}
+                dict={dict}
+                currentSlug={citySlug ?? null}
+                categoryId={categoryId}
+              />
+            </div>
           ) : null}
 
           <FilteredEventList

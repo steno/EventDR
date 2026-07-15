@@ -95,8 +95,7 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
 
   const setArea = useCallback(
     (slug: CitySlug | null) => {
-      writeHomeArea(slug);
-      expandHomeCategories();
+      // writeHomeArea + expandHomeCategories run inside CityLocationPicker.goTo
       setCategoriesOpen(true);
       const params = new URLSearchParams(searchParams.toString());
       params.set("city", slug ?? HOME_CITY_ALL);
@@ -260,7 +259,7 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
                 </div>
               </div>
               {!isSearching && (
-                <div className="mb-6 rounded-2xl border border-neutral-200/80 bg-white/60 p-4 dark:border-neutral-800/80 dark:bg-neutral-900/40 sm:mb-8 sm:p-5 lg:mb-8">
+                <div className="mb-6 rounded-2xl border border-neutral-200/80 bg-white/60 px-4 py-3 dark:border-neutral-800/80 dark:bg-neutral-900/40 sm:mb-8 sm:px-5 sm:py-3.5 lg:mb-8">
                   <CityLocationPicker
                     locale={locale}
                     dict={dict}
@@ -269,7 +268,7 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
                     onSelect={setArea}
                   />
                   {areaChosen && categoriesOpen === true && (
-                    <div className="mt-1 animate-in">
+                    <div className="mt-2.5 animate-in">
                       <CategoryGrid
                         locale={locale}
                         dict={dict}
@@ -282,11 +281,11 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
                     <button
                       type="button"
                       onClick={handleExpandCategories}
-                      className="mt-1 inline-flex items-center gap-1 text-sm font-semibold text-orange-600 transition-colors touch-manipulation hover:text-rose-600 dark:text-orange-400 dark:hover:text-rose-400"
+                      className="mt-1 inline-flex items-center gap-0.5 text-sm font-semibold leading-snug text-orange-600 transition-colors touch-manipulation hover:text-rose-600 dark:text-orange-400 dark:hover:text-rose-400"
                     >
                       {dict.browse.browseCategories}
                       <ChevronDown
-                        className="h-4 w-4 opacity-80"
+                        className="h-3.5 w-3.5 opacity-80"
                         aria-hidden
                         strokeWidth={2.5}
                       />

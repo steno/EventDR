@@ -3,7 +3,13 @@
 import { useEffect, useId, useLayoutEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { ChevronDown } from "lucide-react";
-import { CITIES, getCityName, type CitySlug } from "@/lib/cities";
+import {
+  CITIES,
+  expandHomeCategories,
+  getCityName,
+  writeHomeArea,
+  type CitySlug,
+} from "@/lib/cities";
 import { categoryPath } from "@/lib/event-navigation";
 import { fillTemplate } from "@/lib/seo";
 import type { Locale } from "@/i18n/config";
@@ -115,6 +121,9 @@ export function CityLocationPicker({
 
   function goTo(slug: CitySlug | null) {
     setOpen(false);
+    // Persist on every page so “back to home” matches the last picker choice.
+    writeHomeArea(slug);
+    expandHomeCategories();
     if (onSelect) {
       // Filtering lists below can shrink/grow the page and jump the viewport;
       // restore scroll after React commits the layout update.
@@ -137,11 +146,11 @@ export function CityLocationPicker({
   }
 
   return (
-    <div ref={rootRef} className="mb-5 px-1 last:mb-0">
-      <p className="text-[15px] font-semibold text-neutral-800 dark:text-neutral-200">
-        {lookingInLabel}
-      </p>
-      <div className="relative mt-0.5">
+    <div ref={rootRef} className="mb-0">
+      <div className="relative flex flex-wrap items-baseline justify-start gap-x-1.5 gap-y-0">
+        <p className="text-[15px] font-semibold leading-snug text-neutral-800 dark:text-neutral-200">
+          {lookingInLabel}
+        </p>
         <button
           ref={triggerRef}
           type="button"
@@ -150,8 +159,8 @@ export function CityLocationPicker({
           aria-controls={listId}
           onClick={toggleOpen}
           className="
-            inline-flex max-w-full items-center gap-1
-            text-left text-[1.65rem] font-black leading-tight tracking-tight
+            inline-flex max-w-full items-center gap-0.5
+            text-left text-[1.35rem] font-black leading-snug tracking-tight
             text-orange-600 transition-colors
             hover:text-rose-600 active:scale-[0.99] touch-manipulation
             dark:text-orange-400 dark:hover:text-rose-400
@@ -159,7 +168,7 @@ export function CityLocationPicker({
         >
           <span className="truncate">{currentLabel}</span>
           <ChevronDown
-            className={`h-5 w-5 shrink-0 opacity-80 transition-transform ${open ? "rotate-180" : ""}`}
+            className={`h-4 w-4 shrink-0 opacity-80 transition-transform ${open ? "rotate-180" : ""}`}
             aria-hidden
             strokeWidth={2.75}
           />
@@ -174,7 +183,7 @@ export function CityLocationPicker({
               absolute left-0 z-50 min-w-[14rem] overflow-hidden rounded-2xl
               border border-neutral-200 bg-white py-1.5 shadow-[0_16px_40px_-20px_rgba(0,0,0,0.45)]
               dark:border-neutral-700 dark:bg-neutral-900
-              ${openUpward ? "bottom-full mb-2" : "top-full mt-2"}
+              ${openUpward ? "bottom-full mb-2" : "top-full mt-1.5"}
             `}
           >
             <li role="option" aria-selected={regionSelected}>
