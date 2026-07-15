@@ -91,6 +91,9 @@ export const CURATED_ADMISSION_PRICES: Record<string, string> = {
 export const CURATED_CALL_FOR_PRICING = new Set<string>([
   "hard-rock-weekends",
   "hard-rock-billed-concerts",
+  "anfiteatro-la-puntilla-concerts",
+  "lax-headline-concerts",
+  "womens-reconnection-kite-camp-2026",
 ]);
 
 const ADMISSION_PRICE_MAX_LEN = 32;
@@ -295,6 +298,31 @@ export function showsCallForPricing(
   if (resolveAdmissionPrice(event)) return false;
   if (!event.phone?.trim()) return false;
   return isCallForPricingFlag(event);
+}
+
+/** Variable pricing with no phone — status badge instead of a call CTA. */
+export function showsAdmissionVaries(
+  event: Pick<
+    Event,
+    | "id"
+    | "ticketUrl"
+    | "sourceUrl"
+    | "isFree"
+    | "admissionPrice"
+    | "callForPricing"
+    | "phone"
+    | "title"
+    | "description"
+    | "category"
+    | "recurrence"
+    | "communitySubmitted"
+  >,
+): boolean {
+  if (resolveTicketUrl(event)) return false;
+  if (resolveAdmissionPrice(event)) return false;
+  if (isEventFree(event)) return false;
+  if (!isCallForPricingFlag(event)) return false;
+  return !event.phone?.trim();
 }
 
 export function showsPaidAdmission(

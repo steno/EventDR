@@ -6,6 +6,8 @@ import {
   getEventLiveStatus,
   happensOnLocalDate,
   isEventActiveToday,
+  isMultiDayEvent,
+  isRecurringEvent,
 } from "@/lib/event-status";
 import type { TimeRange } from "@/lib/filters";
 
@@ -75,6 +77,27 @@ function venueDedupeKey(event: Event): string {
 }
 
 /**
+ * One-time fixtures (World Cup kickoffs) before multi-day festivals, then
+ * recurring nights — used only for Happening today, not general lists.
+ */
+function todayHighlightKindRank(event: Event): number {
+  if (isRecurringEvent(event)) return 2;
+  if (isMultiDayEvent(event)) return 1;
+  return 0;
+}
+
+/** Lift one-time events above multi-day/recurring while keeping status/time order within each kind. */
+function prioritizeOneTimeToday(events: Event[]): Event[] {
+  if (events.length < 2) return events;
+  const order = new Map(events.map((event, index) => [event.id, index]));
+  return [...events].sort((a, b) => {
+    const kindDiff = todayHighlightKindRank(a) - todayHighlightKindRank(b);
+    if (kindDiff !== 0) return kindDiff;
+    return (order.get(a.id) ?? 0) - (order.get(b.id) ?? 0);
+  });
+}
+
+/**
  * Prefer one card per venue in the grid head; fill remaining slots in
  * existing order so status/time ranking stays intact.
  */
@@ -112,8 +135,8 @@ export interface TodayHighlightOptions {
 }
 
 /**
- * Events happening today: same status/time order as lists (live, then ends
- * soon, then starts soon), with venue diversity only in the visible grid head.
+ * Events happening today: one-time before multi-day/recurring, then the same
+ * status/time order as lists, with venue diversity in the visible grid head.
  */
 export function getTodayHighlightEvents(
   events: Event[],
@@ -124,10 +147,12 @@ export function getTodayHighlightEvents(
   const filtered = events.filter(
     (e) => happensOnLocalDate(e, daySeed) && isEventActiveToday(e, now),
   );
-  const sorted = sortEventsForDisplay(filtered, {
-    recurringLast: true,
-    now,
-  });
+  const sorted = prioritizeOneTimeToday(
+    sortEventsForDisplay(filtered, {
+      recurringLast: true,
+      now,
+    }),
+  );
   const carouselHead = pickDiverseCarouselHead(sorted, HOME_TODAY_LIMIT);
   const headIds = new Set(carouselHead.map((e) => e.id));
   const tail = sorted.filter((e) => !headIds.has(e.id));

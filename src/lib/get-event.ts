@@ -17,8 +17,9 @@ import { EVENT_REVALIDATE_SECONDS } from "./http-cache";
 
 function finalizeEvent(event: Event, locale: Locale): Event | null {
   let [result] = attachVenueSlugs([event]);
-  [result] = localizeEventsForDisplay([result], locale);
+  // Curated patches may update localized copy — resolve locale after merging.
   [result] = applyCuratedEventPatches([result]);
+  [result] = localizeEventsForDisplay([result], locale);
   result = normalizeEventCoords(result);
   [result] = attachEventPhones([result]);
   result = withAdmissionMetadata(result);
@@ -60,7 +61,7 @@ async function loadEventById(
 
 const getCachedEventById = unstable_cache(
   loadEventById,
-  ["event-by-id"],
+  ["event-by-id-v3"],
   { revalidate: EVENT_REVALIDATE_SECONDS, tags: ["events"] },
 );
 

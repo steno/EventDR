@@ -180,20 +180,20 @@ export function EventScopePage({
             </>
           )}
 
+          {relatedCategoryLinks && relatedCategoryLinksLabel ? (
+            <CityCategoryLinks
+              label={relatedCategoryLinksLabel}
+              links={relatedCategoryLinks}
+              activeHref={relatedCategoryActiveHref}
+            />
+          ) : null}
+
           {showLocationPicker ? (
             <CityLocationPicker
               locale={locale}
               dict={dict}
               currentSlug={citySlug ?? null}
               categoryId={categoryId}
-            />
-          ) : null}
-
-          {relatedCategoryLinks && relatedCategoryLinksLabel ? (
-            <CityCategoryLinks
-              label={relatedCategoryLinksLabel}
-              links={relatedCategoryLinks}
-              activeHref={relatedCategoryActiveHref}
             />
           ) : null}
 

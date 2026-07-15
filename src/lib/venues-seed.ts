@@ -530,8 +530,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Puerto Plata",
     description:
       "Downtown cigar factory on Calle San Felipe — walk the production floor, meet Cuban master rollers, welcome drink, and take-home cigar on the free factory tour.",
-    lat: 19.8043,
-    lng: -70.6961,
+    lat: 19.799812,
+    lng: -70.6933279,
     emoji: "🚬",
     website: "https://cremocigars.com/dr/tabacalera-cremo/",
     phone: "+13059429440",
@@ -553,23 +553,25 @@ export const SEED_VENUES: Venue[] = [
     name: "Freestyle Catamaran",
     city: "Puerto Plata",
     description:
-      "Catamaran cruises from Puerto Plata to Sosúa Bay — two snorkeling stops, lunch, drinks, and live music on deck.",
+      "Catamaran cruises departing Playa Dorada for Sosúa Bay — two snorkeling stops, lunch, drinks, and live music on deck. Hotel pickup included.",
     lat: 19.7786014,
     lng: -70.6703871,
     emoji: "⛵",
     website: "https://freestylecatamarans.com/",
+    phone: "+18095861239",
   },
   {
     slug: "outback-adventures",
     name: "Outback Adventures",
     city: "Puerto Plata",
     description:
-      "Open-air safari trucks through countryside villages, coffee plantations, local schools, and a hidden beach — a Puerto Plata classic since 2004.",
+      "Open-air safari trucks through countryside villages, coffee plantations, local schools, and a hidden beach — a Puerto Plata classic since 2004. Hotel pickup from the North Coast.",
     lat: 19.7974584,
     lng: -70.7010331,
     emoji: "🛻",
     website:
       "https://www.sightseeing.com/packages/outback-safari-adventure-tour-from-puerto-plata/",
+    phone: "+18093202525",
   },
   {
     slug: "hms-valeria",

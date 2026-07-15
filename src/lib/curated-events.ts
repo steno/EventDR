@@ -38,6 +38,7 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     location: "Cabarete",
     venueSlug: "kite-beach",
     address: "Residencial Mañanero, Cabarete",
+    isFree: true,
   },
   "cabarete-pilates-reformer": {
     venue: "Rafaella's Studio",
@@ -99,6 +100,8 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
   "cayo-arena-tours-daily": {
     isFree: false,
     admissionPrice: "from US$55",
+    address: "Punta Rucia",
+    location: "Puerto Plata",
   },
   "sosua-diving-adventures-daily": {
     isFree: false,
@@ -145,6 +148,12 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
   "calle-sombrillas-daily": {
     isFree: true,
   },
+  "plaza-independencia-daily": {
+    isFree: true,
+  },
+  "plaza-independencia-weekend-culture": {
+    isFree: true,
+  },
   "sea-horse-saturday-market": {
     isFree: true,
   },
@@ -169,6 +178,86 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     isFree: false,
     callForPricing: true,
     phone: "+18495057778",
+  },
+  "anfiteatro-la-puntilla-concerts": {
+    address: "Desvío a La Puntilla",
+    location: "Puerto Plata",
+    venue: "Anfiteatro La Puntilla",
+    venueSlug: "anfiteatro-la-puntilla",
+    isFree: false,
+    callForPricing: true,
+    description:
+      "Outdoor concerts, cultural shows, and carnival troupes at Anfiteatro La Puntilla on the Atlantic — weekend performances on Puerto Plata's Malecón waterfront stage overlooking Fortaleza San Felipe. Admission varies by show (many municipal/Mitur concerts are free; billed artists sell tickets separately). Lineups announced per show.",
+    localized: {
+      description: {
+        en: "Outdoor concerts, cultural shows, and carnival troupes at Anfiteatro La Puntilla on the Atlantic — weekend performances on Puerto Plata's Malecón waterfront stage overlooking Fortaleza San Felipe. Admission varies by show (many municipal/Mitur concerts are free; billed artists sell tickets separately). Lineups announced per show.",
+        es: "Conciertos al aire libre, espectáculos culturales y comparsas en el Anfiteatro La Puntilla frente al Atlántico — funciones de fin de semana en el malecón de Puerto Plata con vista a la Fortaleza San Felipe. La entrada varía según el espectáculo (muchos conciertos municipales/Mitur son gratis; artistas de carteleras venden boletas aparte). Cartelera anunciada por función.",
+        fr: "Concerts en plein air, spectacles culturels et carnaval au Anfiteatro La Puntilla face à l'Atlantique — week-ends sur le malecón de Puerto Plata avec vue sur Fortaleza San Felipe. Tarif selon le spectacle (beaucoup de concerts municipaux/Mitur sont gratuits ; les têtes d'affiche vendent des billets à part). Programmation annoncée par concert.",
+      },
+    },
+  },
+  "lax-headline-concerts": {
+    address: "Cabarete Beach",
+    location: "Cabarete",
+    venue: "LAX Cabarete",
+    venueSlug: "lax-cabarete",
+    isFree: false,
+    callForPricing: true,
+  },
+  "kite-beach-wind-culture": {
+    address: "Carretera 5, Kite Beach",
+    location: "Cabarete",
+    venue: "Kite Beach",
+    venueSlug: "kite-beach",
+    isFree: true,
+  },
+  "womens-reconnection-kite-camp-2026": {
+    address: "Cabarete Beach",
+    location: "Cabarete",
+    venueSlug: "kite-beach",
+    isFree: false,
+    callForPricing: true,
+    phone: "+18299391261",
+  },
+  "charcos-damajagua-daily": {
+    address: "Imbert",
+    location: "Puerto Plata",
+  },
+  "monkeyland-puerto-plata-daily": {
+    address: "Imbert hills",
+    location: "Imbert",
+  },
+  "freestyle-catamaran-daily": {
+    address: "Playa Dorada Beach",
+    location: "Puerto Plata",
+    venue: "Freestyle Catamaran",
+    venueSlug: "freestyle-catamaran",
+    phone: "+18095861239",
+    description:
+      "Full-day catamaran from Playa Dorada to Sosúa Bay — two snorkeling stops on the north coast reef, lunch and open bar onboard, and a fun crew keeping the music going. Free hotel pickup from Playa Dorada, Costa Dorada, Sosúa, and Cabarete; confirm your pickup time when you book (~8 hours).",
+    localized: {
+      description: {
+        en: "Full-day catamaran from Playa Dorada to Sosúa Bay — two snorkeling stops on the north coast reef, lunch and open bar onboard, and a fun crew keeping the music going. Free hotel pickup from Playa Dorada, Costa Dorada, Sosúa, and Cabarete; confirm your pickup time when you book (~8 hours).",
+        es: "Día completo en catamarán desde Playa Dorada hasta la bahía de Sosúa — dos paradas de snorkel en el arrecife de la costa norte, almuerzo y barra libre a bordo, y tripulación animada. Recogida gratuita en hoteles de Playa Dorada, Costa Dorada, Sosúa y Cabarete; confirma tu hora al reservar (~8 horas).",
+        fr: "Journée en catamaran de Playa Dorada à la baie de Sosúa — deux arrêts snorkeling sur le récif de la côte nord, déjeuner et open bar à bord, équipage festif. Prise en charge gratuite aux hôtels de Playa Dorada, Costa Dorada, Sosúa et Cabarete ; confirmez l'heure à la réservation (~8 h).",
+      },
+    },
+  },
+  "outback-safari-daily": {
+    address: "Plaza Turisol, Av. Gregorio Luperón",
+    location: "Puerto Plata",
+    venue: "Outback Adventures",
+    venueSlug: "outback-adventures",
+    phone: "+18093202525",
+    description:
+      "All-inclusive day in open-air safari trucks — rural villages, coffee and cacao plantation tastings, a local school visit, and boogie boarding at a hidden beach. Free hotel pickup from Puerto Plata, Sosúa, and Cabarete; confirm meeting details the day before (~8 hours). One of Puerto Plata's classic full-day cultural adventures.",
+    localized: {
+      description: {
+        en: "All-inclusive day in open-air safari trucks — rural villages, coffee and cacao plantation tastings, a local school visit, and boogie boarding at a hidden beach. Free hotel pickup from Puerto Plata, Sosúa, and Cabarete; confirm meeting details the day before (~8 hours). One of Puerto Plata's classic full-day cultural adventures.",
+        es: "Día todo incluido en camiones safari descubiertos — pueblos rurales, degustación de café y cacao, visita a una escuela local y bodyboard en una playa escondida. Recogida gratuita en hoteles de Puerto Plata, Sosúa y Cabarete; confirma el punto de encuentro el día anterior (~8 horas). Una aventura cultural clásica de Puerto Plata.",
+        fr: "Journée tout compris en camions safari découverts — villages ruraux, dégustation café et cacao, visite d'une école locale et bodyboard sur une plage cachée. Prise en charge gratuite aux hôtels de Puerto Plata, Sosúa et Cabarete ; confirmez le point de rendez-vous la veille (~8 h). Une aventure culturelle classique de Puerto Plata.",
+      },
+    },
   },
 };
 const CURATED_EVENT_PATCHES: Record<string, CuratedPatch> = {

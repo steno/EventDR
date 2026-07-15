@@ -307,14 +307,14 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
   },
   "freestyle-catamaran": {
     description: {
-      es: "Cruceros en catamarán desde Puerto Plata hasta la bahía de Sosúa — dos paradas de snorkel, almuerzo, bebidas y música en vivo a bordo.",
-      fr: "Croisières en catamaran de Puerto Plata à la baie de Sosúa — deux arrêts snorkeling, déjeuner, boissons et musique live à bord.",
+      es: "Cruceros en catamarán desde Playa Dorada hasta la bahía de Sosúa — dos paradas de snorkel, almuerzo, bebidas y música en vivo a bordo. Recogida en hotel incluida.",
+      fr: "Croisières en catamaran au départ de Playa Dorada vers la baie de Sosúa — deux arrêts snorkeling, déjeuner, boissons et musique live à bord. Prise en charge à l'hôtel incluse.",
     },
   },
   "outback-adventures": {
     description: {
-      es: "Camiones safari descubiertos por pueblos rurales, plantaciones de café, escuelas locales y una playa escondida — un clásico de Puerto Plata desde 2004.",
-      fr: "Camions safari à ciel ouvert à travers villages ruraux, plantations de café, écoles locales et une plage cachée — un classique de Puerto Plata depuis 2004.",
+      es: "Camiones safari descubiertos por pueblos rurales, plantaciones de café, escuelas locales y una playa escondida — un clásico de Puerto Plata desde 2004. Recogida en hotel en la costa norte.",
+      fr: "Camions safari à ciel ouvert à travers villages ruraux, plantations de café, écoles locales et une plage cachée — un classique de Puerto Plata depuis 2004. Prise en charge à l'hôtel sur la côte nord.",
     },
   },
   "hms-valeria": {

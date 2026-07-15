@@ -161,6 +161,7 @@ export const fr: Dictionary = {
     freeAdmission: "Entrée gratuite",
     paidAdmission: "Entrée : {price}",
     paidAdmissionUnknown: "Entrée payante",
+    admissionVaries: "Tarif selon le spectacle",
     callForPricing: "Appeler pour le tarif",
     call: "Appeler",
     close: "Fermer",

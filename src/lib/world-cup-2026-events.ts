@@ -369,6 +369,7 @@ function buildEvent(
     trending,
     sourceUrl: EL_CAREY_FB,
     imageEmoji: "⚽",
+    isFree: true,
   };
 }
 

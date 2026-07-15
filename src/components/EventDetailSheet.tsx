@@ -42,6 +42,7 @@ import {
   resolveAdmissionPrice,
   showsPaidAdmission,
   showsCallForPricing,
+  showsAdmissionVaries,
   formatPaidAdmissionLabel,
 } from "@/lib/event-tickets";
 import { EventCallLink } from "@/components/EventCallLink";
@@ -167,6 +168,7 @@ export function EventDetailSheet({
   const admissionPrice = resolveAdmissionPrice(event);
   const showPaidAdmission = showsPaidAdmission(event);
   const showCallForPricing = showsCallForPricing(event);
+  const showAdmissionVaries = showsAdmissionVaries(event);
   const paidAdmissionLabel = admissionPrice
     ? formatPaidAdmissionLabel(admissionPrice, dict)
     : dict.detail.paidAdmissionUnknown;
@@ -319,6 +321,15 @@ export function EventDetailSheet({
             <Phone className="h-4 w-4" aria-hidden />
             {dict.detail.callForPricing}
           </a>
+        )}
+        {showAdmissionVaries && (
+          <div
+            className="mt-1 inline-flex w-fit max-w-full items-center justify-center gap-2 rounded-2xl border border-amber-200 bg-amber-50 px-5 py-3 text-sm font-bold text-amber-900 dark:border-amber-900/60 dark:bg-amber-950/40 dark:text-amber-200"
+            role="status"
+          >
+            <CircleDollarSign className="h-4 w-4 shrink-0" aria-hidden />
+            {dict.detail.admissionVaries}
+          </div>
         )}
         {showFreeAdmission && (
           <div
