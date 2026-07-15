@@ -27,8 +27,8 @@ export function TimeFilter({
       className={`
         ${
           sticky
-            ? "sticky top-[calc(var(--sticky-list-header-height,0px)-1px)] z-10 -mx-4 mb-4 bg-neutral-50 px-4 pt-px dark:bg-neutral-950"
-            : "mb-4"
+            ? "sticky top-[calc(var(--sticky-list-header-height,0px)-1px)] z-10 -mx-4 mb-4 border-b border-neutral-200/60 bg-neutral-50/95 px-4 pb-2 pt-px backdrop-blur-sm dark:border-neutral-800/60 dark:bg-neutral-950/95"
+            : ""
         }
         ${className}
       `}
@@ -45,7 +45,10 @@ export function TimeFilter({
                 type="button"
                 role="tab"
                 aria-selected={selected}
-                onClick={() => onChange(range)}
+                onClick={() => {
+                  if (range === value) return;
+                  onChange(range);
+                }}
                 className={`
                   relative -mb-px flex-shrink-0 px-3.5 py-2.5 text-sm font-bold tracking-tight
                   transition-colors touch-manipulation

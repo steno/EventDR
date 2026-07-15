@@ -189,17 +189,6 @@ export function EventScopePage({
             />
           ) : null}
 
-          {showLocationPicker ? (
-            <div className="mb-4">
-              <CityLocationPicker
-                locale={locale}
-                dict={dict}
-                currentSlug={citySlug ?? null}
-                categoryId={categoryId}
-              />
-            </div>
-          ) : null}
-
           <FilteredEventList
             events={events}
             loading={loading}
@@ -212,6 +201,16 @@ export function EventScopePage({
             initialExpanded={initialExpanded}
             onAddEvent={() => setSubmitOpen(true)}
             addEventLabel={addEventLabel}
+            locationPicker={
+              showLocationPicker ? (
+                <CityLocationPicker
+                  locale={locale}
+                  dict={dict}
+                  currentSlug={citySlug ?? null}
+                  categoryId={categoryId}
+                />
+              ) : undefined
+            }
           />
         </div>
       </main>

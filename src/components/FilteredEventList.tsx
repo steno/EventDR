@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { usePathname } from "next/navigation";
 import { ChevronRight } from "lucide-react";
 import type { Event } from "@/lib/types";
@@ -15,6 +15,8 @@ import {
 } from "@/lib/filters";
 import { sortEventsForDisplay } from "@/lib/event-sort";
 import { LIST_PAGE_SIZE, SCOPE_LIST_LIMIT } from "@/lib/home-layout";
+import { scrollToListTop } from "@/lib/list-scroll";
+import { StickyListFilters, ListScrollAnchor } from "@/components/StickyListFilters";
 import { TimeFilter } from "@/components/TimeFilter";
 import { EventCard } from "@/components/EventCard";
 import { SearchEmptyState } from "@/components/SearchEmptyState";
@@ -45,6 +47,8 @@ interface FilteredEventListProps {
   limit?: number;
   /** Cards added per "More events" tap. */
   pageSize?: number;
+  /** Renders above time tabs inside the sticky filter bar (e.g. city picker). */
+  locationPicker?: ReactNode;
 }
 
 export function FilteredEventList({
@@ -62,6 +66,7 @@ export function FilteredEventList({
   initialExpanded = false,
   limit = SCOPE_LIST_LIMIT,
   pageSize = LIST_PAGE_SIZE,
+  locationPicker,
 }: FilteredEventListProps) {
   const pathname = usePathname();
   const [timeRange, setTimeRange] = useState<FilterTimeRange>(
@@ -72,6 +77,9 @@ export function FilteredEventList({
   );
   const skipVisibleReset = useRef(true);
   const ignoreNextVisibleReset = useRef(false);
+  const skipTimeRangeScroll = useRef(true);
+  const skipScrollForUrlWhen = useRef(false);
+  const scrollAnchorRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -81,6 +89,7 @@ export function FilteredEventList({
     if (when && isFilterTimeRange(when) && !fixedTimeRange) {
       // Don't collapse the page when landing with ?when= + ?all=1 together.
       ignoreNextVisibleReset.current = true;
+      skipScrollForUrlWhen.current = true;
       setTimeRange(when);
       params.delete("when");
       dirty = true;
@@ -107,6 +116,18 @@ export function FilteredEventList({
     setVisibleCount(limit);
   }, [timeRange, limit]);
 
+  useLayoutEffect(() => {
+    if (skipTimeRangeScroll.current) {
+      skipTimeRangeScroll.current = false;
+      return;
+    }
+    if (skipScrollForUrlWhen.current) {
+      skipScrollForUrlWhen.current = false;
+      return;
+    }
+    scrollToListTop(scrollAnchorRef.current);
+  }, [timeRange]);
+
   // SSR/API payloads are already materialized — filter/sort only.
   const activeRange = fixedTimeRange ?? timeRange;
   const filtered = useMemo(() => {
@@ -129,10 +150,28 @@ export function FilteredEventList({
   const suggestedTabLabel = dict.time[suggestedRange];
   const tryTabLabel = dict.search.tryTabHint.replace("{tab}", suggestedTabLabel);
 
+  const showTimeFilter = !fixedTimeRange;
+  const showStickyFilters = Boolean(locationPicker || showTimeFilter);
+
   return (
     <>
-      {!fixedTimeRange ? (
-        <TimeFilter value={timeRange} onChange={setTimeRange} dict={dict} />
+      {showStickyFilters ? (
+        <>
+          <ListScrollAnchor anchorRef={scrollAnchorRef} className="mt-4" />
+          <StickyListFilters>
+            {locationPicker ? (
+              <div className="pb-1.5">{locationPicker}</div>
+            ) : null}
+            {showTimeFilter ? (
+              <TimeFilter
+                value={timeRange}
+                onChange={setTimeRange}
+                dict={dict}
+                sticky={false}
+              />
+            ) : null}
+          </StickyListFilters>
+        </>
       ) : null}
 
       {sectionTitle && (

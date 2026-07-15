@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { Loader2, ChevronRight } from "lucide-react";
 import type { Event, EventCategory } from "@/lib/types";
@@ -22,9 +22,11 @@ import { categoryPath } from "@/lib/event-navigation";
 import { attachEventImages } from "@/lib/event-images";
 import { eventMatchesCity, type CitySlug } from "@/lib/cities";
 import { expectBootPart, readyBootPart } from "@/lib/boot-splash";
+import { scrollToListTop } from "@/lib/list-scroll";
 import { EventCard } from "./EventCard";
 import { SearchEmptyState } from "./SearchEmptyState";
 import { TimeFilter } from "./TimeFilter";
+import { ListScrollAnchor } from "./StickyListFilters";
 
 interface EventListProps {
   category?: EventCategory | null;
@@ -77,6 +79,8 @@ export function EventList({
   const step = pageSize ?? limit ?? LIST_PAGE_SIZE;
   const [visibleCount, setVisibleCount] = useState(initialCap);
   const onEventsLoadedRef = useRef(onEventsLoaded);
+  const scrollAnchorRef = useRef<HTMLDivElement>(null);
+  const skipTimeRangeScroll = useRef(true);
 
   useEffect(() => {
     onEventsLoadedRef.current = onEventsLoaded;
@@ -85,6 +89,15 @@ export function EventList({
   useEffect(() => {
     setVisibleCount(initialCap);
   }, [timeRange, citySlug, searchQuery, excludeEventIds, initialCap]);
+
+  useLayoutEffect(() => {
+    if (!showTimeFilter) return;
+    if (skipTimeRangeScroll.current) {
+      skipTimeRangeScroll.current = false;
+      return;
+    }
+    scrollToListTop(scrollAnchorRef.current);
+  }, [timeRange]);
 
   const fetchEvents = useCallback(
     async (refresh = false) => {
@@ -211,11 +224,14 @@ export function EventList({
       </div>
 
       {showTimeFilter && onTimeRangeChange && (
-        <TimeFilter
-          value={activeRange}
-          onChange={onTimeRangeChange}
-          dict={dict}
-        />
+        <>
+          <ListScrollAnchor anchorRef={scrollAnchorRef} />
+          <TimeFilter
+            value={activeRange}
+            onChange={onTimeRangeChange}
+            dict={dict}
+          />
+        </>
       )}
 
       {filtered.length === 0 ? (
