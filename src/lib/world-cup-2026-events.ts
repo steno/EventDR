@@ -104,8 +104,8 @@ const WC_MATCHES = [
   { date: "2026-07-11", time: "21:00", home: "Argentina", away: "Switzerland", stage: "Quarter-final" },
   { date: "2026-07-14", time: "15:00", home: "France", away: "Spain", stage: "Semi-final" },
   { date: "2026-07-15", time: "15:00", home: "England", away: "Argentina", stage: "Semi-final" },
-  { date: "2026-07-18", time: "17:00", home: "Loser SF1", away: "Loser SF2", stage: "Third place" },
-  { date: "2026-07-19", time: "15:00", home: "Winner SF1", away: "Winner SF2", stage: "Final" },
+  { date: "2026-07-18", time: "17:00", home: "England", away: "France", stage: "Third place" },
+  { date: "2026-07-19", time: "15:00", home: "Argentina", away: "Spain", stage: "Final" },
 ] as const;
 
 const EL_CAREY_FB =
@@ -324,10 +324,10 @@ function buildTitle(
   const a = teamName(away, locale);
   if (stage === "Final") {
     return locale === "es"
-      ? "Final del Mundial 2026 — Pantalla gigante"
+      ? `Final del Mundial 2026: ${h} vs ${a} — Pantalla gigante`
       : locale === "fr"
-        ? "Finale de la Coupe du Monde 2026 — Grand écran"
-        : "World Cup 2026 Final — Giant Screen";
+        ? `Finale de la Coupe du Monde 2026 : ${h} vs ${a} — Grand écran`
+        : `World Cup 2026 Final: ${home} vs ${away} — Giant Screen`;
   }
   if (stage === "Third place") {
     return locale === "es"
