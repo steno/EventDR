@@ -155,6 +155,47 @@ const VENUE_SOURCES = [
     eventId: "voyvoy-monday-live-music",
     url: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1d/f0/6d/73/caption.jpg?w=1600&h=-1&s=1",
   },
+  // --- Dominican-leaning venues / events (2026 curation) ---
+  {
+    // Jazz sax close-up (Unsplash via Commons) — Cabarete Jazz Festival card.
+    eventId: "cabarete-jazz-festival-2026",
+    url: "https://upload.wikimedia.org/wikipedia/commons/e/e5/Colorful_jazz_concert_%28Unsplash%29.jpg",
+  },
+  {
+    // Merengue / Latin dance energy for Jandy Ventura tribute.
+    eventId: "jandy-ventura-legado-caballo-2026",
+    url: "https://images.unsplash.com/photo-1504609773096-104ff2c73ba4?w=1800&q=85",
+  },
+  {
+    // Playa Dorada resort grounds (Commons) — Blue JackTar sits in this complex.
+    eventId: "blue-jacktar-playa-dorada",
+    url: "https://upload.wikimedia.org/wikipedia/commons/9/97/Hotel_en_Playa_Dorada%2C_Provincia_Puerto_Plata_-_panoramio.jpg",
+  },
+  {
+    // Official Natura Cabana resort/pool — Saturday restaurant live nights.
+    eventId: "natura-cabana-saturday-live",
+    url: "https://naturacabana.com/wp-content/uploads/2024/01/00022_natura-9.webp",
+  },
+  {
+    // Busy open-air restaurant energy for El Parq Foodpark venue + Sat bands.
+    eventId: "el-parq-live-bands-saturday",
+    url: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1800&q=85",
+  },
+  {
+    // Club/party lights for El Parq Thursday karaoke.
+    eventId: "el-parq-karaoke-thursday",
+    url: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=1800&q=85",
+  },
+  {
+    // Latin dance for El Parq Friday night.
+    eventId: "el-parq-latin-friday",
+    url: "https://images.unsplash.com/photo-1547153760-18fc86324498?w=1800&q=85",
+  },
+  {
+    // Outdoor dining patio — Parada Típica El Choco Tuesday live.
+    eventId: "parada-tipica-el-choco-tuesday-live",
+    url: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=1800&q=85",
+  },
 ];
 
 mkdirSync(outDir, { recursive: true });

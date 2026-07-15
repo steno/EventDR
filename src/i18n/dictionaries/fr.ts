@@ -126,7 +126,8 @@ export const fr: Dictionary = {
   search: {
     placeholder: "Rechercher événements, lieux…",
     noResults: "Rien trouvé.",
-    noResultsHint: "Essayez un autre jour, lieu ou effacez la recherche.",
+    noResultsHint: "Essayez un autre lieu ou effacez la recherche.",
+    tryTabHint: "Essayez {tab}.",
     playHint: "Touchez PLAY · glissez pour le rallye",
     activeTitle: "Résultats de recherche",
   },
@@ -288,6 +289,8 @@ export const fr: Dictionary = {
   },
   venues: {
     title: "Lieux populaires",
+    local: "Favoris locaux",
+    visitor: "Coups de cœur visiteurs",
     eventsAt: "Événements à venir",
     noEvents: "Pas encore d'événements à ce lieu.",
   },

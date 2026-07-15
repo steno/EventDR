@@ -61,6 +61,15 @@ const FILE_TO_EVENT_ID = {
   "macorix-house-of-rum.jpg": "macorix-house-of-rum",
   "casa-de-la-cultura-exhibitions.jpg": "casa-de-la-cultura-exhibitions",
 
+  // --- Dominican-leaning venues / events (2026 curation) ---
+  "cabarete-jazz-festival-2026.jpg": "cabarete-jazz-festival-2026",
+  "jandy-ventura-legado-caballo-2026.jpg": "jandy-ventura-legado-caballo-2026",
+  "natura-cabana-saturday-live.jpg": "natura-cabana-saturday-live",
+  "el-parq-live-bands-saturday.jpg": "el-parq-live-bands-saturday",
+  "el-parq-karaoke-thursday.jpg": "el-parq-karaoke-thursday",
+  "el-parq-latin-friday.jpg": "el-parq-latin-friday",
+  "parada-tipica-el-choco-tuesday-live.jpg": "parada-tipica-el-choco-tuesday-live",
+
   // --- Original curated venue / attraction photos ---
   "MaleconOPenAir.JPG": "malecon-live-concert",
   "RumbleInParadise12.png": "rumble-in-paradise-12",
@@ -139,6 +148,10 @@ const FILE_TO_VENUE_SLUG = {
   "paella-pop-el-pueblito.jpg": "paella-pop-el-pueblito",
   "paella-pop-green-one.jpg": "paella-pop-green-one",
   "plaza-independencia.jpg": "plaza-independencia",
+  "el-parq-live-bands-saturday.jpg": "el-parq-cabarete",
+  "parada-tipica-el-choco-tuesday-live.jpg": "parada-tipica-el-choco",
+  "blue-jacktar-playa-dorada.jpg": "blue-jacktar-playa-dorada",
+  "natura-cabana-saturday-live.jpg": "natura-cabana",
 };
 
 if (!existsSync(sourceDir)) {

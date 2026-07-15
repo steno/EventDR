@@ -99,6 +99,7 @@ export type Dictionary = {
     placeholder: string;
     noResults: string;
     noResultsHint: string;
+    tryTabHint: string;
     playHint: string;
     activeTitle: string;
   };
@@ -253,6 +254,8 @@ export type Dictionary = {
   };
   venues: {
     title: string;
+    local: string;
+    visitor: string;
     eventsAt: string;
     noEvents: string;
   };
@@ -405,7 +408,8 @@ export const en: Dictionary = {
   search: {
     placeholder: "Search events, places…",
     noResults: "Nothing turned up.",
-    noResultsHint: "Try another day, place, or clear your search.",
+    noResultsHint: "Try another place, or clear your search.",
+    tryTabHint: "Try {tab}.",
     playHint: "Tap PLAY to start · drag to rally",
     activeTitle: "Search results",
   },
@@ -567,6 +571,8 @@ export const en: Dictionary = {
   },
   venues: {
     title: "Popular venues",
+    local: "Local favorites",
+    visitor: "Visitor faves",
     eventsAt: "Upcoming events",
     noEvents: "No upcoming events at this venue yet.",
   },

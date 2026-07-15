@@ -168,14 +168,47 @@ export const SEED_VENUES: Venue[] = [
   },
   {
     slug: "natura-cabana",
-    name: "Natura Cabana Yoga Temple",
+    name: "Natura Cabana",
     city: "Sosúa",
     description:
-      "Open-air oceanfront yoga temple in Perla Marina — morning flows and sunset sessions open to guests and visitors, steps from the Caribbean.",
+      "Boutique eco-resort in Perla Marina — oceanfront yoga temple plus Saturday live music at the beachfront restaurant (acoustic, jazz, and Caribbean fusion).",
     lat: 19.7833499,
     lng: -70.4621124,
     emoji: "🧘",
-    website: "https://naturacabana.com/yoga-temple-your-daily-practice-facing-the-caribbean-blue/",
+    website: "https://naturacabana.com/",
+    phone: "+18492147010",
+  },
+  {
+    slug: "el-parq-cabarete",
+    name: "El Parq Foodpark",
+    city: "Cabarete",
+    description:
+      "Open-air food park near Encuentro — street-food vendors, communal tables, Thursday karaoke, Friday Latin dance, and live bands on Saturdays.",
+    lat: 19.7588,
+    lng: -70.4094,
+    emoji: "🍔",
+  },
+  {
+    slug: "parada-tipica-el-choco",
+    name: "Parada Típica El Choco",
+    city: "Sosúa",
+    description:
+      "Roadside restaurant on the Sosúa–Cabarete corridor — Dominican and international plates, dance floor, and Tuesday live-music nights popular with locals and residents.",
+    lat: 19.7628,
+    lng: -70.4985,
+    emoji: "🎵",
+    phone: "+18098042510",
+  },
+  {
+    slug: "blue-jacktar-playa-dorada",
+    name: "Blue JackTar Playa Dorada",
+    city: "Puerto Plata",
+    description:
+      "Resort convention center inside Playa Dorada — ticketed merengue and tribute concerts with local boletería sales across Puerto Plata.",
+    lat: 19.7703,
+    lng: -70.6494,
+    emoji: "🎤",
+    phone: "+18093203800",
   },
   {
     slug: "d-classico-sosua",

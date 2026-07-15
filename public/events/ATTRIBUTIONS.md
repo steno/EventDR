@@ -23,3 +23,11 @@ Curated images under `public/events/` and `public/venues/`. Prefer venue-accurat
 | `batey-open-mic-weekly.jpg` | YouTube still — [Smiley's rock performance](https://www.youtube.com/watch?v=cXM2b3CJVCg) | Solo/open-mic stage energy |
 | `feria-artesanal-verano-2026.jpg` | POP curated `feriaartesanal.jpg` | Folk dance at Plaza Independencia during the fair |
 | `venues/plaza-independencia.jpg` | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Plaza_Independencia_de_Puerto_Plata.jpg) — Ronny Medina, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | Daytime park + cathedral + gazebo |
+| `cabarete-jazz-festival-2026.jpg` | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Colorful_jazz_concert_(Unsplash).jpg) — Jens Thekkeveettil / Unsplash | Jazz sax close-up for Cabarete Jazz Festival |
+| `jandy-ventura-legado-caballo-2026.jpg` | [Unsplash](https://unsplash.com/photos/people-dancing-photo-1504609773096) (`photo-1504609773096`) — Unsplash License | Latin / merengue dance energy for Legado del Caballo |
+| `blue-jacktar-playa-dorada.jpg` / venue | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Hotel_en_Playa_Dorada,_Provincia_Puerto_Plata_-_panoramio.jpg) — panoramio | Playa Dorada resort grounds (Blue JackTar complex) |
+| `natura-cabana-saturday-live.jpg` (+ venue refresh) | [Natura Cabana](https://naturacabana.com/) — `00022_natura-9` resort / pool | Official property photo for Saturday live nights |
+| `el-parq-live-bands-saturday.jpg` / `venues/el-parq-cabarete.jpg` | [Unsplash](https://unsplash.com/photos/people-sitting-on-chair-inside-building-photo-1555396273) (`photo-1555396273`) — Unsplash License | Busy open-air restaurant / food-park vibe |
+| `el-parq-karaoke-thursday.jpg` | [Unsplash](https://unsplash.com/photos/people-having-a-concert-photo-1470225620780) (`photo-1470225620780`) — Unsplash License | Night party lights for karaoke |
+| `el-parq-latin-friday.jpg` | [Unsplash](https://unsplash.com/photos/photo-1547153760-18fc86324498) (`photo-1547153760`) — Unsplash License | Latin dance night |
+| `parada-tipica-el-choco-tuesday-live.jpg` / venue | [Unsplash](https://unsplash.com/photos/photo-1559339352-11d035aa65de) (`photo-1559339352`) — Unsplash License | Outdoor dining patio for Tuesday live |

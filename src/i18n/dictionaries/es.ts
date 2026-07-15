@@ -126,7 +126,8 @@ export const es: Dictionary = {
   search: {
     placeholder: "Buscar eventos, lugares…",
     noResults: "Nada por aquí.",
-    noResultsHint: "Prueba otro día, lugar o limpia tu búsqueda.",
+    noResultsHint: "Prueba otro lugar o limpia tu búsqueda.",
+    tryTabHint: "Prueba {tab}.",
     playHint: "Toca PLAY · arrastra para el rally",
     activeTitle: "Resultados de búsqueda",
   },
@@ -288,6 +289,8 @@ export const es: Dictionary = {
   },
   venues: {
     title: "Lugares populares",
+    local: "Favoritos locales",
+    visitor: "Favoritos visitantes",
     eventsAt: "Próximos eventos",
     noEvents: "Aún no hay eventos en este lugar.",
   },

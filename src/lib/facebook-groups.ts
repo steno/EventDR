@@ -1,3 +1,5 @@
+import { EL_CAREY_WC2026_EVENT_IDS } from "./world-cup-2026-events";
+
 /** North Coast DR Facebook groups monitored for local events. */
 export const FACEBOOK_GROUPS = [
   {
@@ -32,7 +34,7 @@ export const FACEBOOK_GROUPS = [
   },
 ] as const;
 
-/** Facebook event *pages* (not groups) — host /events feeds for regattas, venues, etc. */
+/** Facebook event *pages* (not groups) — promoters, venues, festivals. */
 export const FACEBOOK_EVENT_PAGES = [
   {
     slug: "cabareteclassiceventpage",
@@ -46,17 +48,60 @@ export const FACEBOOK_EVENT_PAGES = [
     label: "El Carey Día y Noche",
     areas: ["Costambar", "Puerto Plata"],
   },
+  {
+    slug: "cabarete-jazz",
+    url: "https://www.facebook.com/p/Cabarete-Jazz-61561400346809/",
+    label: "Cabarete Jazz Festival",
+    areas: ["Cabarete"],
+  },
+  {
+    slug: "graaneventsplanners",
+    url: "https://www.facebook.com/graaneventsplanners",
+    label: "GRAAN Events Planners",
+    areas: ["Puerto Plata"],
+  },
+  {
+    slug: "ayuntamientodepuertoplata",
+    url: "https://www.facebook.com/ayuntamientodepuertoplata",
+    label: "Ayuntamiento de Puerto Plata",
+    areas: ["Puerto Plata"],
+  },
+  {
+    slug: "disco-club-brugal",
+    url: "https://www.facebook.com/DiscoClubBrugal",
+    label: "Disco Club Brugal",
+    areas: ["Puerto Plata"],
+  },
+] as const;
+
+/** Spanish / Dominican-first discovery queries layered onto group site: searches. */
+const DOMINICAN_SEARCH_TERMS = [
+  "evento concierto merengue bachata típico urbano",
+  "música en vivo fiesta boletería esta semana",
+  "festival jazz anfiteatro malecón",
 ] as const;
 
 export function facebookGroupSearchQueries(): string[] {
   const region = "Puerto Plata Sosúa Cabarete Costa Norte";
-  return FACEBOOK_GROUPS.flatMap((group) => [
+  const groupQueries = FACEBOOK_GROUPS.flatMap((group) => [
     `site:facebook.com/groups/${group.slug} evento fiesta concierto ${region} 2026`,
     `site:facebook.com/groups/${group.slug} party concert festival ${region}`,
+    ...DOMINICAN_SEARCH_TERMS.map(
+      (terms) => `site:facebook.com/groups/${group.slug} ${terms} ${region}`,
+    ),
   ]);
+  const pageQueries = FACEBOOK_EVENT_PAGES.flatMap((page) => [
+    `site:facebook.com ${page.label} evento concierto Puerto Plata 2026`,
+    `site:facebook.com ${page.label} merengue bachata música en vivo`,
+  ]);
+  return [
+    ...groupQueries,
+    ...pageQueries,
+    `site:facebook.com concierto merengue bachata típico Puerto Plata Sosúa 2026`,
+    `site:facebook.com "en vivo" Cabarete OR Sosúa OR "Puerto Plata" boletería`,
+    `site:instagram.com graaneventsplanners OR cabaretejazz OR nonasgrillkitchen evento`,
+  ];
 }
-
-import { EL_CAREY_WC2026_EVENT_IDS } from "./world-cup-2026-events";
 
 const FACEBOOK_SEED_EVENT_IDS_BASE = [
   "voyvoy-sunday-open-mic",
@@ -66,6 +111,8 @@ const FACEBOOK_SEED_EVENT_IDS_BASE = [
   "cabarete-classic-2026",
   "inicio-del-campamento-pp-2026",
   "feria-artesanal-verano-2026",
+  "cabarete-jazz-festival-2026",
+  "jandy-ventura-legado-caballo-2026",
 ] as const;
 
 /** Curated event ids discovered from monitored Facebook groups (see fallback-events). */
@@ -81,6 +128,6 @@ export function facebookGroupEventUrls(): string[] {
 export function facebookEventPageUrls(): string[] {
   return FACEBOOK_EVENT_PAGES.flatMap((page) => [
     page.url,
-    `${page.url}/events`,
+    `${page.url.replace(/\/$/, "")}/events`,
   ]);
 }

@@ -100,9 +100,31 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
     },
   },
   "natura-cabana": {
+    name: {
+      es: "Natura Cabana",
+      fr: "Natura Cabana",
+    },
     description: {
-      es: "Templo de yoga al aire libre frente al mar en Perla Marina — clases matutinas y al atardecer abiertas a huéspedes y visitantes, a pasos del Caribe.",
-      fr: "Temple de yoga en plein air face à l'océan à Perla Marina — cours du matin et au coucher du soleil ouverts aux hôtes et visiteurs, à deux pas des Caraïbes.",
+      es: "Eco-resort boutique en Perla Marina — templo de yoga frente al mar y música en vivo los sábados en el restaurante (acústico, jazz y fusión caribeña).",
+      fr: "Éco-resort boutique à Perla Marina — temple de yoga face à l'océan et musique live le samedi au restaurant (acoustique, jazz et fusion caribéenne).",
+    },
+  },
+  "el-parq-cabarete": {
+    description: {
+      es: "Food park al aire libre cerca de Encuentro — puestos de comida callejera, mesas comunes, karaoke los jueves, baile latino los viernes y bandas en vivo los sábados.",
+      fr: "Food park en plein air près d'Encuentro — stands de street food, tables partagées, karaoké le jeudi, danse latine le vendredi et groupes live le samedi.",
+    },
+  },
+  "parada-tipica-el-choco": {
+    description: {
+      es: "Restaurante en la carretera Sosúa–Cabarete — platos dominicanos e internacionales, pista de baile y música en vivo los martes, favorito de locales y residentes.",
+      fr: "Restaurant sur la route Sosúa–Cabarete — cuisine dominicaine et internationale, piste de danse et musique live le mardi, prisé des locaux et résidents.",
+    },
+  },
+  "blue-jacktar-playa-dorada": {
+    description: {
+      es: "Centro de convenciones del resort en Playa Dorada — conciertos de merengue y tributos con boletería local en Puerto Plata.",
+      fr: "Centre de congrès du resort à Playa Dorada — concerts de merengue et hommages avec billetterie locale à Puerto Plata.",
     },
   },
   "d-classico-sosua": {

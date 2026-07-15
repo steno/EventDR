@@ -24,8 +24,48 @@ export const EMPTY_EVENT_IDS: string[] = [];
 /** Default preview cap for city, category, venue, and when listing pages. */
 export const SCOPE_LIST_LIMIT = HOME_PICKS_LIMIT;
 
-/** Max venues in the home "Popular venues" strip. */
+/** Max venues per audience tab in the home venues strip. */
 export const HOME_VENUE_LIMIT = 6;
+
+/** Home strip tabs — Local favorites vs Visitor faves. */
+export type VenueAudienceFilter = "local" | "visitor";
+
+export const VENUE_AUDIENCE_FILTERS: readonly VenueAudienceFilter[] = [
+  "local",
+  "visitor",
+] as const;
+
+/**
+ * Curated venue order for each audience. Mixed spots can appear in both.
+ * Resolve against live/seed venue maps in getFeaturedVenues.
+ */
+export const FEATURED_VENUE_SLUGS: Record<
+  VenueAudienceFilter,
+  readonly string[]
+> = {
+  local: [
+    "d-classico-sosua",
+    "disco-club-brugal",
+    "anfiteatro-la-puntilla",
+    "el-parq-cabarete",
+    "parada-tipica-el-choco",
+    "blue-jacktar-playa-dorada",
+    "malecon-puerto-plata",
+    "parque-jose-briceno",
+    "plaza-independencia",
+  ],
+  visitor: [
+    "lax-cabarete",
+    "kite-beach",
+    "voyvoy-cabarete",
+    "natura-cabana",
+    "hard-rock-sosua",
+    "liquid-blue-cabarete",
+    "ocean-world",
+    "bar-39-sosua",
+    "hotel-voramar-sosua",
+  ],
+};
 
 function venueDedupeKey(event: Event): string {
   return (event.venueSlug ?? event.venue ?? event.location).trim().toLowerCase();
@@ -174,12 +214,17 @@ export function getHomeDiscoverLayout(
 
 export function getFeaturedVenues(
   venues: Venue[],
+  audience: VenueAudienceFilter = "local",
   limit = HOME_VENUE_LIMIT,
 ): Venue[] {
   const bySlug = new Map(venues.map((v) => [v.slug, v]));
-  return SEED_VENUES.slice(0, limit)
-    .map((seed) => bySlug.get(seed.slug))
-    .filter((v): v is Venue => v != null);
+  // Prefer live/seed map rows; fall back to seed defs so tabs stay filled offline.
+  const seedBySlug = new Map(SEED_VENUES.map((v) => [v.slug, v]));
+
+  return FEATURED_VENUE_SLUGS[audience]
+    .map((slug) => bySlug.get(slug) ?? seedBySlug.get(slug))
+    .filter((v): v is Venue => v != null)
+    .slice(0, limit);
 }
 
 /** Full listing page for the active home time filter (one-shot expand via ?all=1). */

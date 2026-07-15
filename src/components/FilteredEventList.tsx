@@ -9,6 +9,7 @@ import type { Locale } from "@/i18n/config";
 import {
   DEFAULT_FILTER_TIME_RANGE,
   filterByTimeRange,
+  suggestOtherFilterTimeRange,
   type FilterTimeRange,
   type TimeRange,
 } from "@/lib/filters";
@@ -87,6 +88,17 @@ export function FilteredEventList({
   const visibleEvents = cap != null ? filtered.slice(0, cap) : filtered;
   const hasMore = cap != null && filtered.length > cap;
 
+  const activeRange: FilterTimeRange =
+    fixedTimeRange && fixedTimeRange !== "all"
+      ? fixedTimeRange
+      : timeRange;
+  const otherTab = dict.time[
+    suggestOtherFilterTimeRange(activeRange, (range) =>
+      filterByTimeRange(events, range).length > 0,
+    )
+  ];
+  const noResultsHint = dict.search.tryTabHint.replace("{tab}", otherTab);
+
   return (
     <>
       {!fixedTimeRange ? (
@@ -111,7 +123,7 @@ export function FilteredEventList({
       ) : filtered.length === 0 ? (
         <SearchEmptyState
           title={dict.search.noResults}
-          hint={dict.search.noResultsHint}
+          hint={noResultsHint}
           playHint={dict.search.playHint}
         />
       ) : (

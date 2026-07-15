@@ -58,6 +58,9 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "paella-pop-el-pueblito": "paella-pop-el-pueblito.jpg",
   "paella-pop-green-one": "paella-pop-green-one.jpg",
   "plaza-independencia": "plaza-independencia.jpg",
+  "el-parq-cabarete": "el-parq-cabarete.jpg",
+  "parada-tipica-el-choco": "parada-tipica-el-choco.jpg",
+  "blue-jacktar-playa-dorada": "blue-jacktar-playa-dorada.jpg",
 };
 
 /** Cache-busted URL for general venue thumbnails / JSON-LD. */

@@ -22,6 +22,29 @@ export const FILTER_TIME_RANGES: FilterTimeRange[] = [
 /** Default chip when a list shows the time filter. */
 export const DEFAULT_FILTER_TIME_RANGE: FilterTimeRange = "today";
 
+/** Next time-filter chip after `current` (wraps around). */
+export function nextFilterTimeRange(current: FilterTimeRange): FilterTimeRange {
+  const idx = FILTER_TIME_RANGES.indexOf(current);
+  const next = idx < 0 ? 0 : (idx + 1) % FILTER_TIME_RANGES.length;
+  return FILTER_TIME_RANGES[next]!;
+}
+
+/**
+ * Suggest an unselected time tab. Prefers one that still has matches;
+ * otherwise the next chip after `current`.
+ */
+export function suggestOtherFilterTimeRange(
+  current: FilterTimeRange,
+  hasMatches?: (range: FilterTimeRange) => boolean,
+): FilterTimeRange {
+  if (hasMatches) {
+    for (const range of FILTER_TIME_RANGES) {
+      if (range !== current && hasMatches(range)) return range;
+    }
+  }
+  return nextFilterTimeRange(current);
+}
+
 /** Map legacy scroll-state values after filter chip changes. */
 export function normalizeTimeRange(value: string): TimeRange {
   if (value === "week" || value === "all") return DEFAULT_FILTER_TIME_RANGE;

@@ -30,9 +30,11 @@ const SOCIAL_QUERIES = [
   "site:instagram.com events Puerto Plata Sosúa Cabarete",
   "site:instagram.com fiesta evento Cabarete República Dominicana",
   "site:instagram.com concierto Puerto Plata",
+  "site:instagram.com graaneventsplanners OR cabaretejazz OR nonasgrillkitchen",
   "WhatsApp group events Cabarete Puerto Plata expat",
-  "eventos WhatsApp Costa Norte República Dominicana",
+  "eventos WhatsApp Costa Norte República Dominicana merengue bachata",
   "site:facebook.com events Puerto Plata Costa Norte",
+  "site:facebook.com concierto merengue bachata típico Puerto Plata Sosúa",
   ...facebookGroupSearchQueries(),
 ];
 
