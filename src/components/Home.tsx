@@ -178,6 +178,9 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
             onLogoClick={() => {
               setTab("discover");
               setSearchQuery("");
+              if (searchParams.get("city")) {
+                router.replace(`/${locale}`, { scroll: false });
+              }
             }}
             desktopActions={
               <>

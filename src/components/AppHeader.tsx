@@ -7,13 +7,14 @@ import type { ReactNode } from "react";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { WeatherWidget } from "@/components/WeatherWidget";
+import { clearHomeArea } from "@/lib/cities";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 
 interface AppHeaderProps {
   locale: Locale;
   dict: Dictionary;
-  /** Reset in-page home state (e.g. discover tab) when already on `/[locale]`. */
+  /** Reset in-page home state (search, area URL) when already on `/[locale]`. */
   onLogoClick?: () => void;
   /** Extra actions for wide screens (Saved, Add, etc.). Hidden below `lg`. */
   desktopActions?: ReactNode;
@@ -36,6 +37,8 @@ export function AppHeader({
         aria-label={dict.seo.siteName}
         className="focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
         onClick={(e) => {
+          // Logo always means a fresh home — drop remembered city/area.
+          clearHomeArea();
           if (onHome) {
             e.preventDefault();
             onLogoClick?.();

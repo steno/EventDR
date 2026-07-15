@@ -194,6 +194,15 @@ export function writeHomeArea(city: CitySlug | null): void {
   }
 }
 
+/** Clear session home area (e.g. logo click → fresh home). */
+export function clearHomeArea(): void {
+  try {
+    sessionStorage.removeItem(HOME_AREA_STORAGE_KEY);
+  } catch {
+    /* private mode / disabled storage */
+  }
+}
+
 export function readHomeArea(): {
   city: CitySlug | null;
   areaChosen: boolean;
