@@ -94,8 +94,8 @@ const VENUE_SOURCES = [
     url: "https://www.lbcabarete.com/wp-content/uploads/2026/06/IMG_9340-scaled.jpg",
   },
   {
-    eventId: "sea-horse-saturday-artisan-fair",
-    // Host may return non-image payloads to some CI IPs; committed JPEG is the source of truth.
+    eventId: "sea-horse-saturday-market",
+    // Host may return non-image payloads to some CI IPs; committed asset is the source of truth.
     url: "https://sea-horse-ranch.com/new/wp-content/uploads/2022/08/SHR-updated-flyer-FB-event1.jpg",
   },
   {
@@ -272,7 +272,7 @@ const localSources = [
   { src: "elcareytv.png", eventId: "el-carey-weekend-nightlife" },
   {
     src: "SeaHorseSaturdayMarket.png",
-    eventId: "sea-horse-saturday-artisan-fair",
+    eventId: "sea-horse-saturday-market",
   },
   {
     src: "FinishLineLiveWednesday.jpg",

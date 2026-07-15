@@ -84,7 +84,6 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "womens-reconnection-kite-camp-2026": "womens-reconnection-kite-camp-2026.jpg",
   "kite-beach-wind-culture": "kite-beach-wind-culture.jpg",
   "north-coast-tech-meetup": "north-coast-tech-meetup.jpg",
-  "sea-horse-saturday-artisan-fair": "sea-horse-saturday-artisan-fair.jpg",
   "puerto-plata-carnaval-2026": "puerto-plata-carnaval-2026.jpg",
   "malecon-morning-wellness-walk": "malecon-morning-wellness-walk.jpg",
   "hms-valeria-spanish-saturday": "hms-valeria-spanish-saturday.jpg",

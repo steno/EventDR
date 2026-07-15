@@ -142,9 +142,6 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
   "sea-horse-saturday-market": {
     isFree: true,
   },
-  "sea-horse-saturday-artisan-fair": {
-    isFree: true,
-  },
   "casa-de-la-cultura-exhibitions": {
     isFree: true,
   },

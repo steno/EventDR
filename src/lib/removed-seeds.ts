@@ -25,6 +25,8 @@ export const REMOVED_SEED_EVENT_IDS = new Set([
   "party-puerto-plata-2026",
   // Google Maps: temporarily closed after Jul 2026 soft opening — no verified hours yet.
   "paella-pop-el-pueblito",
+  // Duplicate of sea-horse-saturday-market (same venue, day, hours, official page).
+  "sea-horse-saturday-artisan-fair",
 ]);
 
 export function filterRemovedSeedEvents(events: Event[]): Event[] {
