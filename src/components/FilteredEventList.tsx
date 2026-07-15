@@ -7,7 +7,6 @@ import type { Event } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import {
-  DEFAULT_FILTER_TIME_RANGE,
   filterByTimeRange,
   isFilterTimeRange,
   suggestOtherFilterTimeRange,
@@ -24,6 +23,9 @@ import { AddEventButton } from "@/components/AddEventButton";
 
 const UNBOUNDED = Number.POSITIVE_INFINITY;
 
+/** Scope/venue lists show the full upcoming schedule; home keeps Today. */
+const DEFAULT_SCOPE_TIME_RANGE: FilterTimeRange = "all";
+
 interface FilteredEventListProps {
   events: Event[];
   loading: boolean;
@@ -35,6 +37,8 @@ interface FilteredEventListProps {
   addEventLabel?: string;
   returnTo?: string;
   fixedTimeRange?: TimeRange;
+  /** Initial chip when time filters are shown (venue/city default: all). */
+  defaultTimeRange?: FilterTimeRange;
   /** Reveal the full list when landing with ?all=1 (stripped from URL on mount). */
   initialExpanded?: boolean;
   /** First-page size before "More events" (defaults to SCOPE_LIST_LIMIT). */
@@ -54,13 +58,14 @@ export function FilteredEventList({
   addEventLabel,
   returnTo,
   fixedTimeRange,
+  defaultTimeRange = DEFAULT_SCOPE_TIME_RANGE,
   initialExpanded = false,
   limit = SCOPE_LIST_LIMIT,
   pageSize = LIST_PAGE_SIZE,
 }: FilteredEventListProps) {
   const pathname = usePathname();
   const [timeRange, setTimeRange] = useState<FilterTimeRange>(
-    fixedTimeRange ?? DEFAULT_FILTER_TIME_RANGE,
+    fixedTimeRange ?? defaultTimeRange,
   );
   const [visibleCount, setVisibleCount] = useState(
     initialExpanded ? UNBOUNDED : limit,

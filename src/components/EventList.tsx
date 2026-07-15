@@ -98,10 +98,9 @@ export function EventList({
         // with a city, still prefer client filter so allEvents stays complete.
         if (refresh) params.set("refresh", "true");
 
-        const res = await fetch(
-          `/api/events?${params}`,
-          refresh ? { cache: "no-store" } : { cache: "default" },
-        );
+        const res = await fetch(`/api/events?${params}`, {
+          cache: "no-store",
+        });
         const data = (await res.json()) as {
           events: Event[];
           source: string;

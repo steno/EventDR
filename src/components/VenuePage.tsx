@@ -33,7 +33,9 @@ export function VenuePage({
   const [submitOpen, setSubmitOpen] = useState(false);
 
   function loadEvents() {
-    return fetch(`/api/events?locale=${locale}&venue=${venue.slug}`)
+    return fetch(`/api/events?locale=${locale}&venue=${venue.slug}`, {
+      cache: "no-store",
+    })
       .then((r) => r.json())
       .then((d: { events?: Event[] }) => {
         // API already scopes by venue=; trust the payload.
@@ -89,6 +91,7 @@ export function VenuePage({
             emptyMessage={dict.venues.noEvents}
             sectionTitle={dict.venues.eventsAt}
             returnTo={returnTo}
+            defaultTimeRange="all"
             initialExpanded={initialExpanded}
             onAddEvent={() => setSubmitOpen(true)}
           />

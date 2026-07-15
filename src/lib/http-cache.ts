@@ -1,14 +1,11 @@
 /**
- * Shared CDN / ISR timings so listings stay reasonably fresh
- * without SSR or serverless work on every page view.
+ * Shared cache timings.
+ * Event listing APIs stay no-store (see /api/events) — CDN SWR briefly
+ * served empty/stale catalogs after the Netlify credits pass.
  */
 export const LISTING_REVALIDATE_SECONDS = 120;
 export const EVENT_REVALIDATE_SECONDS = 180;
 export const VENUES_REVALIDATE_SECONDS = 300;
-
-/** CDN-friendly responses for public listing APIs. */
-export const LISTING_CACHE_CONTROL =
-  "public, max-age=60, s-maxage=120, stale-while-revalidate=300";
 
 export const EVENT_DETAIL_CACHE_CONTROL =
   "public, max-age=60, s-maxage=180, stale-while-revalidate=300";

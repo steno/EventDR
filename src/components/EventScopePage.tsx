@@ -100,7 +100,7 @@ export function EventScopePage({
 
     let cancelled = false;
     setLoading(true);
-    fetch(fetchUrl)
+    fetch(fetchUrl, { cache: "no-store" })
       .then((response) => response.json())
       .then((data: { events?: Event[] }) => {
         if (!cancelled) setEvents(attachEventImages(data.events ?? []));

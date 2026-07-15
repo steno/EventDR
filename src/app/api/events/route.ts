@@ -30,13 +30,10 @@ import { attachEventPhones } from "@/lib/event-phone";
 import { applyCuratedEventPatches } from "@/lib/curated-events";
 import { filterRemovedSeedEvents } from "@/lib/removed-seeds";
 import { localizeEventsForDisplay } from "@/lib/localized-text";
-import {
-  LISTING_CACHE_CONTROL,
-  NO_STORE_CACHE_CONTROL,
-} from "@/lib/http-cache";
+import { NO_STORE_CACHE_CONTROL } from "@/lib/http-cache";
 
-// Allow Netlify CDN caching; refresh=true still returns no-store below.
-export const revalidate = 120;
+// Always fresh — CDN-caching listings briefly served empty/stale payloads.
+export const dynamic = "force-dynamic";
 export const maxDuration = 60;
 
 const REGION_LABELS: Record<Locale, string> = {
@@ -89,10 +86,6 @@ function mergeDbEvents(events: Event[], dbEvents: Event[]): Event[] {
 function sortEvents(events: Event[]): Event[] {
   return sortEventsForDisplay(events, { recurringLast: true });
 }
-
-const CACHE_HEADERS = {
-  "Cache-Control": LISTING_CACHE_CONTROL,
-};
 
 const NO_STORE_HEADERS = {
   "Cache-Control": NO_STORE_CACHE_CONTROL,
@@ -161,7 +154,7 @@ export async function GET(request: NextRequest) {
             source: "cache",
             region: REGION_LABELS[locale],
           },
-          { headers: CACHE_HEADERS },
+          { headers: NO_STORE_HEADERS },
         );
       }
     }
@@ -222,7 +215,7 @@ export async function GET(request: NextRequest) {
         crawledSources: crawlResults.length,
         dbCount: dbEvents.length,
       },
-      { headers: refresh ? NO_STORE_HEADERS : CACHE_HEADERS },
+      { headers: NO_STORE_HEADERS },
     );
   } catch (error) {
     console.error("Events API error:", error);
@@ -238,7 +231,7 @@ export async function GET(request: NextRequest) {
         region: REGION_LABELS[locale],
         error: getDictionary(locale).events.sourceFallback,
       },
-      { headers: CACHE_HEADERS },
+      { headers: NO_STORE_HEADERS },
     );
   }
 }

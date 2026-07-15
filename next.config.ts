@@ -34,14 +34,8 @@ const nextConfig: NextConfig = {
     ];
   },
   async headers() {
-    // Public HTML/API: short CDN cache (s-maxage) to cut Netlify compute.
-    // PWA version assets stay no-store so clients pick up updates promptly.
-    const listingCache =
-      "public, max-age=60, s-maxage=120, stale-while-revalidate=300";
-    const eventCache =
-      "public, max-age=60, s-maxage=180, stale-while-revalidate=300";
-    const venuesCache =
-      "public, max-age=120, s-maxage=300, stale-while-revalidate=600";
+    // Event listings stay no-store so CDN never serves stale/empty catalogs.
+    // Static image assets can still soft-cache; PWA version assets stay fresh.
     const assetCache = "public, max-age=3600, stale-while-revalidate=86400";
     const noStore = "no-store, max-age=0, must-revalidate";
 
@@ -52,43 +46,31 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/api/events",
-        headers: [{ key: "Cache-Control", value: listingCache }],
-      },
-      {
-        source: "/api/venues",
-        headers: [{ key: "Cache-Control", value: venuesCache }],
+        headers: [{ key: "Cache-Control", value: noStore }],
       },
       {
         source: "/:locale(en|es|fr)",
-        headers: [{ key: "Cache-Control", value: listingCache }],
+        headers: [{ key: "Cache-Control", value: noStore }],
       },
       {
         source: "/:locale(en|es|fr)/city/:path*",
-        headers: [{ key: "Cache-Control", value: listingCache }],
+        headers: [{ key: "Cache-Control", value: noStore }],
       },
       {
         source: "/:locale(en|es|fr)/category/:path*",
-        headers: [{ key: "Cache-Control", value: listingCache }],
+        headers: [{ key: "Cache-Control", value: noStore }],
       },
       {
         source: "/:locale(en|es|fr)/when/:path*",
-        headers: [{ key: "Cache-Control", value: listingCache }],
+        headers: [{ key: "Cache-Control", value: noStore }],
       },
       {
         source: "/:locale(en|es|fr)/venue/:path*",
-        headers: [{ key: "Cache-Control", value: listingCache }],
+        headers: [{ key: "Cache-Control", value: noStore }],
       },
       {
         source: "/:locale(en|es|fr)/browse",
-        headers: [{ key: "Cache-Control", value: listingCache }],
-      },
-      {
-        source: "/:locale(en|es|fr)/for-partners",
-        headers: [{ key: "Cache-Control", value: listingCache }],
-      },
-      {
-        source: "/:locale(en|es|fr)/event/:path*",
-        headers: [{ key: "Cache-Control", value: eventCache }],
+        headers: [{ key: "Cache-Control", value: noStore }],
       },
       {
         source: "/app-version.json",
@@ -111,8 +93,12 @@ const nextConfig: NextConfig = {
         headers: [{ key: "Cache-Control", value: assetCache }],
       },
       {
-        source: "/icons/:path*",
+        source: "/venues/:path*",
         headers: [{ key: "Cache-Control", value: assetCache }],
+      },
+      {
+        source: "/icons/:path*",
+        headers: [{ key: "Cache-Control", value: noStore }],
       },
     ];
   },
