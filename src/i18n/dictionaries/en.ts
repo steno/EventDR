@@ -25,7 +25,10 @@ export type Dictionary = {
   };
   hero: {
     events: string;
+    /** Default place name in the H1 before a city is chosen. */
     nearYou: string;
+    /** EN-style trailing word after the city (“region”); empty in es/fr. */
+    regionSuffix: string;
     subtitle: string;
     subtitleHighlight: string;
     subtitleEnd: string;
@@ -308,7 +311,8 @@ export const en: Dictionary = {
   },
   hero: {
     events: "Events in the",
-    nearYou: "Puerto Plata region",
+    nearYou: "Puerto Plata",
+    regionSuffix: "region",
     subtitle: "What's happening on the",
     subtitleHighlight: "North Coast of the DR",
     subtitleEnd: "Including Sosúa and Cabarete.",

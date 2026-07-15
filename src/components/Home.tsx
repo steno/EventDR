@@ -37,6 +37,8 @@ import {
 } from "@/lib/filters";
 import {
   eventMatchesCity,
+  getCityMeta,
+  getCityName,
   HOME_CITY_ALL,
   homePathWithArea,
   parseHomeCityParam,
@@ -139,6 +141,15 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
     ? `/${locale}/city/${selectedCity}`
     : `/${locale}/when/today`;
 
+  const heroPlaceName = (() => {
+    if (selectedCity) {
+      const city = getCityMeta(selectedCity);
+      return city ? getCityName(city, locale) : dict.hero.nearYou;
+    }
+    if (areaChosen) return dict.cities.regionName;
+    return dict.hero.nearYou;
+  })();
+
   function handleTabChange(newTab: AppTab) {
     if (newTab === "submit") {
       setSubmitOpen(true);
@@ -216,6 +227,7 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
                     locale={locale}
                     featuredEvent={discoverLayout.heroEvent}
                     returnTo={homePath}
+                    placeName={heroPlaceName}
                   />
                 </div>
               </div>

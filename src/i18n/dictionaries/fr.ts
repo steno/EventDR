@@ -27,6 +27,7 @@ export const fr: Dictionary = {
   hero: {
     events: "Événements dans la région de",
     nearYou: "Puerto Plata",
+    regionSuffix: "",
     subtitle: "Ce qui se passe sur la",
     subtitleHighlight: "Côte Nord de RD",
     subtitleEnd: "Y compris Sosúa et Cabarete.",

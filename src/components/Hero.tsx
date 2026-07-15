@@ -13,7 +13,9 @@ export function Hero({ dict, onAddEvent }: HeroProps) {
           {dict.hero.events}
           <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500">
-            {dict.hero.nearYou}
+            {dict.hero.regionSuffix
+              ? `${dict.hero.nearYou} ${dict.hero.regionSuffix}`
+              : dict.hero.nearYou}
           </span>
         </h1>
 

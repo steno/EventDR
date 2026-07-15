@@ -12,6 +12,8 @@ interface PhotoHeroProps {
   featuredEvent?: Event | null;
   /** Return path when opening the featured event (keeps home area). */
   returnTo?: string;
+  /** Place name synced with the home city picker (city or North Coast). */
+  placeName?: string;
 }
 
 export function PhotoHero({
@@ -19,12 +21,17 @@ export function PhotoHero({
   locale,
   featuredEvent = null,
   returnTo,
+  placeName,
 }: PhotoHeroProps) {
   const imageUrl = featuredEvent?.imageUrl?.trim() || null;
   const eventHref =
     featuredEvent != null
       ? eventDetailPath(locale, featuredEvent.id, returnTo ?? `/${locale}`)
       : null;
+  const heroPlace = placeName?.trim() || dict.hero.nearYou;
+  const placeLabel = dict.hero.regionSuffix
+    ? `${heroPlace} ${dict.hero.regionSuffix}`
+    : heroPlace;
 
   return (
     <header className="relative -mx-4 mb-5 overflow-hidden sm:rounded-2xl sm:mx-0">
@@ -59,7 +66,7 @@ export function PhotoHero({
             <h1 className="mt-1 text-[2rem] font-black leading-[1.05] tracking-tight text-white sm:text-5xl">
               {dict.hero.events}{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-300 via-rose-300 to-fuchsia-300">
-                {dict.hero.nearYou}
+                {placeLabel}
               </span>
             </h1>
             <p className="mt-2 max-w-md text-sm font-medium leading-snug text-white/85 sm:text-[15px]">
