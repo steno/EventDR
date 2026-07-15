@@ -27,22 +27,23 @@ export function CategoryGrid({
 
   return (
     <section aria-label={dict.browse.ariaLabel}>
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap gap-x-1.5 gap-y-1 sm:gap-2">
         {categories.map((cat) => (
           <Link
             key={cat.id}
             href={categoryPath(locale, cat.id, citySlug)}
             onClick={onCategorySelect}
             className={`
-              inline-flex items-center gap-1.5 rounded-full px-3.5 py-2
-              text-[13px] font-bold ring-1 shadow-sm
+              inline-flex items-center gap-1 rounded-full px-3 py-1
+              text-xs font-bold leading-5 ring-1 shadow-sm
               transition-transform active:scale-[0.98] touch-manipulation
               hover:brightness-[0.97] dark:hover:brightness-110
+              sm:gap-1.5 sm:px-3.5 sm:py-2 sm:text-[13px] sm:leading-none
               ${cat.chip}
             `}
             aria-label={cat.label}
           >
-            <span className="text-base leading-none select-none" aria-hidden>
+            <span className="text-sm leading-none select-none sm:text-base" aria-hidden>
               {cat.emoji}
             </span>
             <span className="whitespace-nowrap">{cat.label}</span>

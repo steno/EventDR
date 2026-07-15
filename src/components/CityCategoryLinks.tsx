@@ -25,7 +25,7 @@ export function CityCategoryLinks({
         {label}
       </p>
       {/* Wrap so every category stays reachable and the active pill is never off-screen. */}
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap gap-x-1.5 gap-y-1 sm:gap-2">
         {links.map((link) => {
           const active = activeHref === link.href;
           return (
@@ -35,7 +35,9 @@ export function CityCategoryLinks({
               scroll={false}
               aria-current={active ? "page" : undefined}
               className={`
-                rounded-full border px-3.5 py-1.5 text-xs font-semibold transition-colors
+                rounded-full border px-3 py-0.5 text-[11px] leading-5 font-semibold
+                transition-colors touch-manipulation
+                sm:px-3.5 sm:py-1.5 sm:text-xs sm:leading-none
                 ${
                   active
                     ? "border-orange-500 bg-transparent text-orange-600 dark:border-orange-400 dark:text-orange-400"
