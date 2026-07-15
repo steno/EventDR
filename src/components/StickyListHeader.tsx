@@ -29,7 +29,7 @@ export function StickyListHeader({
   return (
     <div
       className={`sticky top-0 z-20 -mx-4 px-4 pb-2 bg-neutral-50/95 backdrop-blur-sm dark:bg-neutral-950/95 border-b border-neutral-200/60 dark:border-neutral-800/60 ${
-        flushBottom ? "mb-0" : "mb-4"
+        flushBottom ? "mb-0" : "mb-6"
       }`}
     >
       <AppHeader locale={locale} dict={dict} />

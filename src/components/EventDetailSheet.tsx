@@ -449,7 +449,7 @@ export function EventDetailSheet({
 
   if (standalone) {
     return (
-      <article className="w-full overflow-hidden rounded-3xl bg-white shadow-2xl ring-1 ring-neutral-200/70 dark:bg-neutral-900 dark:ring-neutral-800">
+      <article className="mt-1 w-full overflow-hidden rounded-3xl bg-white shadow-2xl ring-1 ring-neutral-200/70 dark:bg-neutral-900 dark:ring-neutral-800">
         {showHero ? (
           <EventDetailMedia
             event={event}

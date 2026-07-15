@@ -57,6 +57,7 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "parque-jose-briceno": "parque-jose-briceno.jpg",
   "paella-pop-el-pueblito": "paella-pop-el-pueblito.jpg",
   "paella-pop-green-one": "paella-pop-green-one.jpg",
+  "plaza-independencia": "plaza-independencia.jpg",
 };
 
 /** Cache-busted URL for general venue thumbnails / JSON-LD. */

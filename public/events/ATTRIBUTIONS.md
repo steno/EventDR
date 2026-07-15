@@ -21,3 +21,5 @@ Curated images under `public/events/` and `public/venues/`. Prefer venue-accurat
 | `paella-pop-green-one.jpg` / venue | FB/lookaside Paellas POP façade sign | Brand at Green One / One Club |
 | `lax-headline-concerts.jpg` | POP curated `CabareteReggaeRootsNight.JPG` | Beachfront concert (not sunset deck alias) |
 | `batey-open-mic-weekly.jpg` | YouTube still — [Smiley's rock performance](https://www.youtube.com/watch?v=cXM2b3CJVCg) | Solo/open-mic stage energy |
+| `feria-artesanal-verano-2026.jpg` | POP curated `feriaartesanal.jpg` | Folk dance at Plaza Independencia during the fair |
+| `venues/plaza-independencia.jpg` | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Plaza_Independencia_de_Puerto_Plata.jpg) — Ronny Medina, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | Daytime park + cathedral + gazebo |

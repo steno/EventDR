@@ -198,7 +198,7 @@ export function EventList({
         )
       ) : (
         <>
-          <div className="space-y-3">
+          <div className="space-y-3 pt-3">
             {visibleEvents.map((event) => (
               <EventCard
                 key={event.id}

@@ -90,8 +90,7 @@ const FILE_TO_EVENT_ID = {
   "cabclassic.jpg": "cabarete-classic-2026",
   "rafaella.png": "cabarete-pilates-reformer",
   "campamento.jpg": "inicio-del-campamento-pp-2026",
-  "Feria-artesanal-Puerto-Plata-julio-2026-lead.jpg":
-    "feria-artesanal-verano-2026",
+  "feriaartesanal.jpg": "feria-artesanal-verano-2026",
   "el-carey-wc2026.png": "el-carey-wc2026",
   "el-colibri-karaoke-battle-2026.png": "el-colibri-karaoke-battle-2026",
   "oceanworld.jpeg": "ocean-world-daily",
@@ -139,6 +138,7 @@ const FILE_TO_VENUE_SLUG = {
   "castaways-classic-rock-wednesday.jpg": "castaways-sosua",
   "paella-pop-el-pueblito.jpg": "paella-pop-el-pueblito",
   "paella-pop-green-one.jpg": "paella-pop-green-one",
+  "plaza-independencia.jpg": "plaza-independencia",
 };
 
 if (!existsSync(sourceDir)) {
