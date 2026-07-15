@@ -118,12 +118,22 @@ const EVENT_IMAGE_PREFIXES: { prefix: string; file: string }[] = [
   { prefix: "el-carey-wc2026-", file: "el-carey-wc2026.png" },
 ];
 
+/** Tailwind object-position for detail heroes when the focal point isn't center. */
+const EVENT_HERO_OBJECT_POSITION: Record<string, "object-top" | "object-bottom"> = {
+  "lax-sunset-daily": "object-bottom",
+};
+
 export function getEventImageUrl(eventId: string): string | undefined {
   const resolvedId = EVENT_IMAGE_ALIASES[eventId] ?? eventId;
   const file =
     EVENT_IMAGE_FILES[resolvedId] ??
     EVENT_IMAGE_PREFIXES.find((p) => resolvedId.startsWith(p.prefix))?.file;
   return file ? `/events/${file}?v=${getAppVersion()}` : undefined;
+}
+
+export function getEventHeroObjectPosition(eventId: string): string {
+  const resolvedId = EVENT_IMAGE_ALIASES[eventId] ?? eventId;
+  return EVENT_HERO_OBJECT_POSITION[resolvedId] ?? "object-center";
 }
 
 export function attachEventImage<T extends { id: string; imageUrl?: string }>(

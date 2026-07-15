@@ -7,6 +7,7 @@ import type { Event } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { EventImage } from "@/components/EventImage";
 import { resolveEventCoords } from "@/lib/event-coords";
+import { getEventHeroObjectPosition } from "@/lib/event-images";
 import { getDirectionsUrl } from "@/lib/maps";
 
 const EventInlineMap = dynamic(
@@ -99,7 +100,7 @@ export function EventDetailMedia({
           src={event.imageUrl!}
           alt={event.title}
           sizes={imageSizes}
-          className="h-full w-full object-cover object-center"
+          className={`h-full w-full object-cover ${getEventHeroObjectPosition(event.id)}`}
           priority={priority}
         />
       );
