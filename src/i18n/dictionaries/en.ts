@@ -48,6 +48,8 @@ export type Dictionary = {
     noEvents: string;
     allCategories: string;
     allCategoriesIntro: string;
+    /** Home: reopen category pills after they auto-collapse. */
+    browseCategories: string;
   };
   events: {
     loading: string;
@@ -351,6 +353,7 @@ export const en: Dictionary = {
     noEvents: "No events in this category yet.",
     allCategories: "All categories",
     allCategoriesIntro: "Find events by vibe — music, parties, sports, and more across the North Coast.",
+    browseCategories: "Browse categories",
   },
   events: {
     loading: "Finding events near you…",

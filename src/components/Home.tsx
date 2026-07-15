@@ -35,16 +35,21 @@ import {
   type FilterTimeRange,
 } from "@/lib/filters";
 import {
+  collapseHomeCategories,
   eventMatchesCity,
+  expandHomeCategories,
   getCityMeta,
   getCityName,
   HOME_CITY_ALL,
+  homeAreaStorageKey,
   homePathWithArea,
+  isHomeCategoriesCollapsed,
   parseHomeCityParam,
   readHomeArea,
   writeHomeArea,
   type CitySlug,
 } from "@/lib/cities";
+import { ChevronDown } from "lucide-react";
 import type { Event, Venue } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
 import type { AppTab, Dictionary } from "@/i18n/dictionaries";
@@ -68,11 +73,15 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
   const [submitOpen, setSubmitOpen] = useState(false);
   const [allEvents, setAllEvents] = useState<Event[]>([]);
   const [refreshKey, setRefreshKey] = useState(0);
+  /** null until session hydrate — avoids open→closed flash when collapsed. */
+  const [categoriesOpen, setCategoriesOpen] = useState<boolean | null>(null);
 
   const { city: selectedCity, areaChosen } = useMemo(
     () => parseHomeCityParam(searchParams.get("city")),
     [searchParams],
   );
+
+  const areaKey = homeAreaStorageKey(selectedCity);
 
   // Restore area when a content back link lands on bare `/[locale]`.
   useEffect(() => {
@@ -87,6 +96,8 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
   const setArea = useCallback(
     (slug: CitySlug | null) => {
       writeHomeArea(slug);
+      expandHomeCategories();
+      setCategoriesOpen(true);
       const params = new URLSearchParams(searchParams.toString());
       params.set("city", slug ?? HOME_CITY_ALL);
       const qs = params.toString();
@@ -100,6 +111,25 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
     if (!areaChosen) return;
     writeHomeArea(selectedCity);
   }, [areaChosen, selectedCity]);
+
+  // Expand categories after area pick; keep collapsed after a category was chosen.
+  useEffect(() => {
+    if (!areaChosen) {
+      setCategoriesOpen(null);
+      return;
+    }
+    setCategoriesOpen(!isHomeCategoriesCollapsed(areaKey));
+  }, [areaChosen, areaKey]);
+
+  const handleCategorySelect = useCallback(() => {
+    collapseHomeCategories(areaKey);
+    setCategoriesOpen(false);
+  }, [areaKey]);
+
+  const handleExpandCategories = useCallback(() => {
+    expandHomeCategories();
+    setCategoriesOpen(true);
+  }, []);
 
   const { filterSaved, reconcileWithEvents } = useSavedEvents();
 
@@ -178,6 +208,7 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
             onLogoClick={() => {
               setTab("discover");
               setSearchQuery("");
+              setCategoriesOpen(null);
               if (searchParams.get("city")) {
                 router.replace(`/${locale}`, { scroll: false });
               }
@@ -237,14 +268,29 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
                     emptyLabel={areaChosen ? undefined : dict.cities.chooseArea}
                     onSelect={setArea}
                   />
-                  {areaChosen && (
+                  {areaChosen && categoriesOpen === true && (
                     <div className="mt-1 animate-in">
                       <CategoryGrid
                         locale={locale}
                         dict={dict}
                         citySlug={selectedCity}
+                        onCategorySelect={handleCategorySelect}
                       />
                     </div>
+                  )}
+                  {areaChosen && categoriesOpen === false && (
+                    <button
+                      type="button"
+                      onClick={handleExpandCategories}
+                      className="mt-1 inline-flex items-center gap-1 text-sm font-semibold text-orange-600 transition-colors touch-manipulation hover:text-rose-600 dark:text-orange-400 dark:hover:text-rose-400"
+                    >
+                      {dict.browse.browseCategories}
+                      <ChevronDown
+                        className="h-4 w-4 opacity-80"
+                        aria-hidden
+                        strokeWidth={2.5}
+                      />
+                    </button>
                   )}
                 </div>
               )}

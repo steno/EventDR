@@ -156,9 +156,41 @@ export const CITY_SLUGS = CITIES.map((city) => city.slug);
 export const HOME_CITY_ALL = "all";
 
 const HOME_AREA_STORAGE_KEY = "pop-home-area";
+/** Area key (`all` | city slug) for which the home category grid is collapsed. */
+const HOME_CATEGORIES_COLLAPSED_KEY = "pop-home-cats-collapsed";
 
 export function isCitySlug(value: string): value is CitySlug {
   return CITY_SLUGS.includes(value as CitySlug);
+}
+
+/** Stable key for home area (matches `?city=`). */
+export function homeAreaStorageKey(city: CitySlug | null): string {
+  return city ?? HOME_CITY_ALL;
+}
+
+/** True when categories were dismissed for this area (e.g. after picking a category). */
+export function isHomeCategoriesCollapsed(areaKey: string): boolean {
+  try {
+    return sessionStorage.getItem(HOME_CATEGORIES_COLLAPSED_KEY) === areaKey;
+  } catch {
+    return false;
+  }
+}
+
+export function collapseHomeCategories(areaKey: string): void {
+  try {
+    sessionStorage.setItem(HOME_CATEGORIES_COLLAPSED_KEY, areaKey);
+  } catch {
+    /* private mode / disabled storage */
+  }
+}
+
+export function expandHomeCategories(): void {
+  try {
+    sessionStorage.removeItem(HOME_CATEGORIES_COLLAPSED_KEY);
+  } catch {
+    /* private mode / disabled storage */
+  }
 }
 
 /**
@@ -198,6 +230,7 @@ export function writeHomeArea(city: CitySlug | null): void {
 export function clearHomeArea(): void {
   try {
     sessionStorage.removeItem(HOME_AREA_STORAGE_KEY);
+    sessionStorage.removeItem(HOME_CATEGORIES_COLLAPSED_KEY);
   } catch {
     /* private mode / disabled storage */
   }

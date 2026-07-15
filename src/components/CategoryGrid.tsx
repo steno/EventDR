@@ -10,9 +10,16 @@ interface CategoryGridProps {
   dict: Dictionary;
   /** When set, category links stay scoped to this city. */
   citySlug?: CitySlug | null;
+  /** Fires when the user commits to a category (before navigation). */
+  onCategorySelect?: () => void;
 }
 
-export function CategoryGrid({ locale, dict, citySlug = null }: CategoryGridProps) {
+export function CategoryGrid({
+  locale,
+  dict,
+  citySlug = null,
+  onCategorySelect,
+}: CategoryGridProps) {
   const categories = getCategoryDefs().map((def) => ({
     ...def,
     label: dict.categories[def.id],
@@ -25,6 +32,7 @@ export function CategoryGrid({ locale, dict, citySlug = null }: CategoryGridProp
           <Link
             key={cat.id}
             href={categoryPath(locale, cat.id, citySlug)}
+            onClick={onCategorySelect}
             className={`
               inline-flex items-center gap-1.5 rounded-full px-3.5 py-2
               text-[13px] font-bold ring-1 shadow-sm
