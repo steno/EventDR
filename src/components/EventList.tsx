@@ -7,7 +7,12 @@ import type { Event, EventCategory } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import type { TimeRange, FilterTimeRange } from "@/lib/filters";
-import { filterByTimeRange, searchEvents } from "@/lib/filters";
+import {
+  filterByTimeRange,
+  isFilterTimeRange,
+  searchEvents,
+  suggestOtherFilterTimeRange,
+} from "@/lib/filters";
 import { sortEventsForDisplay } from "@/lib/event-sort";
 import { categoryPath } from "@/lib/event-navigation";
 import { attachEventImages } from "@/lib/event-images";
@@ -158,6 +163,24 @@ export function EventList({
   }
 
   const isSearching = searchQuery.trim().length > 0;
+  const activeRange: FilterTimeRange = isFilterTimeRange(timeRange)
+    ? timeRange
+    : "today";
+  const suggestedRange = suggestOtherFilterTimeRange(activeRange, (range) => {
+    let pool = filterByTimeRange(events, range);
+    if (citySlug) {
+      pool = pool.filter((e) => eventMatchesCity(e, citySlug));
+    }
+    if (excludeEventIds.length > 0) {
+      const excluded = new Set(excludeEventIds);
+      pool = pool.filter((e) => !excluded.has(e.id));
+    }
+    return searchEvents(pool, searchQuery).length > 0;
+  });
+  const suggestedTabLabel = dict.time[suggestedRange];
+  const tryTabLabel = dict.search.tryTabHint.replace("{tab}", suggestedTabLabel);
+  const canSuggestTimeTab =
+    showTimeFilter && Boolean(onTimeRangeChange) && !isSearching;
 
   return (
     <div className="space-y-4">
@@ -183,18 +206,26 @@ export function EventList({
 
       {showTimeFilter && onTimeRangeChange && (
         <TimeFilter
-          value={timeRange}
+          value={activeRange}
           onChange={onTimeRangeChange}
           dict={dict}
         />
       )}
 
       {filtered.length === 0 ? (
-        searchQuery ? (
+        isSearching ? (
           <SearchEmptyState
             title={dict.search.noResults}
             hint={dict.search.noResultsHint}
             playHint={dict.search.playHint}
+          />
+        ) : canSuggestTimeTab ? (
+          <SearchEmptyState
+            title={dict.search.noResults}
+            hint={tryTabLabel}
+            playHint={dict.search.playHint}
+            actionLabel={tryTabLabel}
+            onAction={() => onTimeRangeChange?.(suggestedRange)}
           />
         ) : (
           <div className="text-center py-12">
