@@ -31,7 +31,11 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
-/* Boot splash — visible from first HTML paint until the app hydrates */
+/* Boot splash — visible from first HTML paint until home data is ready */
+html.boot-pending #app-shell {
+  visibility: hidden;
+}
+
 .app-boot-splash {
   position: fixed;
   inset: 0;

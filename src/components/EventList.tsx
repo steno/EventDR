@@ -21,6 +21,7 @@ import { sortEventsForDisplay } from "@/lib/event-sort";
 import { categoryPath } from "@/lib/event-navigation";
 import { attachEventImages } from "@/lib/event-images";
 import { eventMatchesCity, type CitySlug } from "@/lib/cities";
+import { expectBootPart, readyBootPart } from "@/lib/boot-splash";
 import { EventCard } from "./EventCard";
 import { SearchEmptyState } from "./SearchEmptyState";
 import { TimeFilter } from "./TimeFilter";
@@ -115,12 +116,14 @@ export function EventList({
         onEventsLoadedRef.current?.([]);
       } finally {
         setLoading(false);
+        readyBootPart("events");
       }
     },
     [category, locale],
   );
 
   useEffect(() => {
+    expectBootPart("events");
     fetchEvents(refreshKey > 0);
   }, [fetchEvents, refreshKey]);
 

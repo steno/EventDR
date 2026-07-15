@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { Home } from "@/components/Home";
+import { HomeBootExpect } from "@/components/HomeBootExpect";
 import { JsonLd } from "@/components/JsonLd";
 import { isValidLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
@@ -35,6 +36,7 @@ export default async function Page({
   return (
     <>
       <JsonLd data={buildWebSiteJsonLd(locale, dict)} />
+      <HomeBootExpect />
       <Suspense fallback={null}>
         <Home locale={locale} dict={dict} initialVenues={venues} />
       </Suspense>

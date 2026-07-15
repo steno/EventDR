@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef } from "react";
 import { appVersionNeedsRefresh } from "@/lib/app-version-shared";
+import { expectBootPart, readyBootPart } from "@/lib/boot-splash";
 
 const VERSION_KEY = "popevents-app-version";
 
@@ -57,7 +58,15 @@ export function AppVersionSync() {
   }, []);
 
   useEffect(() => {
-    checkVersion();
+    expectBootPart("version");
+
+    const runBootCheck = async () => {
+      await checkVersion();
+      // If a reload was triggered, stay on the splash until navigation unloads.
+      if (!reloading.current) readyBootPart("version");
+    };
+
+    void runBootCheck();
 
     const onVisible = () => {
       if (document.visibilityState === "visible") {

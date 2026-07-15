@@ -17,11 +17,11 @@ const inter = Inter({
   weight: ["400", "500", "600", "700"],
 });
 
-/** Failsafe so a hung client never leaves the splash stuck forever. */
-const bootSplashFailsafe = `(function(){setTimeout(function(){var el=document.getElementById("app-boot-splash");if(!el||el.classList.contains("app-boot-splash--done"))return;el.classList.add("app-boot-splash--done");el.setAttribute("aria-hidden","true");el.setAttribute("inert","")},8000)})()`;
-
 /** Critical styles so the splash paints before the CSS bundle arrives. */
-const bootSplashCriticalCss = `#app-boot-splash{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:#fafafa;transition:opacity .28s ease,visibility .28s ease}html.dark #app-boot-splash{background:#0a0a0a}#app-boot-splash img{width:7rem;height:auto;object-fit:contain}#app-boot-splash.app-boot-splash--done{opacity:0;visibility:hidden;pointer-events:none}`;
+const bootSplashCriticalCss = `html.boot-pending #app-shell{visibility:hidden}#app-boot-splash{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:#fafafa;transition:opacity .28s ease,visibility .28s ease}html.dark #app-boot-splash{background:#0a0a0a}#app-boot-splash img{width:7rem;height:auto;object-fit:contain}#app-boot-splash.app-boot-splash--done{opacity:0;visibility:hidden;pointer-events:none}`;
+
+/** Failsafe so a hung client never leaves the splash stuck; also clears boot-pending. */
+const bootSplashFailsafe = `(function(){setTimeout(function(){var el=document.getElementById("app-boot-splash");if(!el||el.classList.contains("app-boot-splash--done")){document.documentElement.classList.remove("boot-pending");return}el.classList.add("app-boot-splash--done");el.setAttribute("aria-hidden","true");el.setAttribute("inert","");document.documentElement.classList.remove("boot-pending")},8000)})()`;
 
 export default function RootLayout({
   children,
@@ -32,7 +32,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${syne.variable} ${inter.variable}`}
+      className={`boot-pending ${syne.variable} ${inter.variable}`}
     >
       <head>
         <ThemeScript />
@@ -49,7 +49,7 @@ export default function RootLayout({
             alt=""
             width={120}
             height={120}
-            decoding="async"
+            decoding="sync"
             fetchPriority="high"
           />
         </div>
@@ -61,7 +61,7 @@ export default function RootLayout({
         >
           <PageGlow />
         </div>
-        <div className="relative z-10">
+        <div id="app-shell" className="relative z-10">
           {children}
         </div>
       </body>

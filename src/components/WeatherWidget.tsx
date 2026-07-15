@@ -18,6 +18,7 @@ import {
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { useWeatherUnit } from "@/hooks/useWeatherUnit";
+import { expectBootPart, readyBootPart } from "@/lib/boot-splash";
 import {
   formatTemperature,
   formatTemperatureCompact,
@@ -108,10 +109,12 @@ export function WeatherWidget({ locale, dict }: WeatherWidgetProps) {
       setError(true);
     } finally {
       setLoading(false);
+      readyBootPart("weather");
     }
   }, []);
 
   useEffect(() => {
+    expectBootPart("weather");
     void loadWeather();
   }, [loadWeather]);
 
