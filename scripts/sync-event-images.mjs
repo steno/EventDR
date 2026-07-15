@@ -15,7 +15,6 @@ const FILE_TO_EVENT_ID = {
   // --- Fetched / venue-accurate ({eventId}.jpg) ---
   "malecon-morning-wellness-walk.jpg": "malecon-morning-wellness-walk",
   "anfiteatro-la-puntilla-concerts.jpg": "anfiteatro-la-puntilla-concerts",
-  "anfiteatro-cultural-performances.jpg": "anfiteatro-cultural-performances",
   "hard-rock-billed-concerts.jpg": "hard-rock-billed-concerts",
   "sosua-jewish-museum-hours.jpg": "sosua-jewish-museum-hours",
   "sosua-diving-adventures-daily.jpg": "sosua-diving-adventures-daily",
@@ -26,7 +25,6 @@ const FILE_TO_EVENT_ID = {
   "liquid-blue-sunrise-yoga.jpg": "liquid-blue-sunrise-yoga",
   "natura-cabana-yoga-daily.jpg": "natura-cabana-yoga-daily",
   "liquid-blue-watersports-daily.jpg": "liquid-blue-watersports-daily",
-  "sea-horse-saturday-market.png": "sea-horse-saturday-market",
   "la-casita-papi-beach-dining.jpg": "la-casita-papi-beach-dining",
   "kite-beach-wind-culture.jpg": "kite-beach-wind-culture",
   "d-classico-merengue-nights.jpg": "d-classico-merengue-nights",
@@ -71,7 +69,6 @@ const FILE_TO_EVENT_ID = {
   "parada-tipica-el-choco-tuesday-live.jpg": "parada-tipica-el-choco-tuesday-live",
 
   // --- Original curated venue / attraction photos ---
-  "MaleconOPenAir.JPG": "malecon-live-concert",
   "RumbleInParadise12.png": "rumble-in-paradise-12",
   "LAXSunsetSessions.JPG": "lax-sunset-daily",
   "MaleconFodKiosks.JPG": "malecon-kiosks-daily",
@@ -137,7 +134,7 @@ const FILE_TO_VENUE_SLUG = {
   "atleticos-pp-vs-mangueros-2026-07-17.jpg": "parque-jose-briceno",
   "la-casita-papi-beach-dining.jpg": "la-casita-de-papi",
   "liquid-blue-watersports-daily.jpg": "liquid-blue-cabarete",
-  "sea-horse-saturday-market.png": "sea-horse-ranch",
+  "anfiteatro-la-puntilla-concerts.jpg": "anfiteatro-la-puntilla",
   "smileys-saturday-live.jpg": "smileys-bar-sosua",
   "finish-line-live-wednesday.jpg": "finish-line-sosua",
   "d-classico-merengue-nights.jpg": "d-classico-sosua",
@@ -172,13 +169,14 @@ function destExtension(filename) {
 
 function syncOne(filename, eventId, targetDir = destDir) {
   const src = join(sourceDir, filename);
-  const resolvedSrc = existsSync(src)
-    ? src
-    : join(sourceDir, files.find((f) => f.toLowerCase() === filename.toLowerCase()) ?? "");
-  if (!existsSync(resolvedSrc)) {
+  const match = existsSync(src)
+    ? filename
+    : files.find((f) => f.toLowerCase() === filename.toLowerCase());
+  if (!match) {
     console.warn(`missing source: ${filename}`);
     return;
   }
+  const resolvedSrc = join(sourceDir, match);
   const ext = destExtension(resolvedSrc);
   copyFileSync(resolvedSrc, join(targetDir, `${eventId}${ext}`));
   copied++;

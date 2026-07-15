@@ -49,24 +49,6 @@ const FALLBACK_EVENTS_EN: Event[] = [
     recurrenceDay: 6,
     imageEmoji: "🪩",
   },
-  // Concert — weekend music on the Malecón; billed shows announced per date
-  {
-    id: "malecon-live-concert",
-    title: "Malecón Open-Air Concerts",
-    description:
-      "Weekend evenings on Puerto Plata's Malecón: informal live sets along the promenade and occasional concerts at Anfiteatro La Puntilla. Performer lineups are announced per show — check the official venue page when a date is listed.",
-    date: "2026-01-01",
-    time: "7:00 PM – 10:00 PM",
-    location: "Puerto Plata",
-    venue: "Anfiteatro La Puntilla",
-    venueSlug: "malecon-puerto-plata",
-    address: "Desvío a La Puntilla",
-    category: "music",
-    format: "physical",
-    recurrence: "weekends",
-    sourceUrl: "https://es.godominicanrepublic.com/que-hacer/anfiteatro-la-puntilla",
-    imageEmoji: "🎵",
-  },
   {
     id: "lil-naay-2026-07-17",
     title: "Lil Naay — Live at Disco Club",
@@ -378,23 +360,6 @@ const FALLBACK_EVENTS_ES: Event[] = [
     recurrence: "weekly",
     recurrenceDay: 6,
     imageEmoji: "🪩",
-  },
-  {
-    id: "malecon-live-concert",
-    title: "Conciertos al Aire Libre en el Malecón",
-    description:
-      "Noches de fin de semana en el Malecón de Puerto Plata: música informal en el paseo y conciertos ocasionales en el Anfiteatro La Puntilla. Las carteleras se anuncian por fecha — consulta la página oficial del recinto cuando haya un evento programado.",
-    date: "2026-01-01",
-    time: "7:00 PM – 10:00 PM",
-    location: "Puerto Plata",
-    venue: "Anfiteatro La Puntilla",
-    venueSlug: "malecon-puerto-plata",
-    address: "Desvío a La Puntilla",
-    category: "music",
-    format: "physical",
-    recurrence: "weekends",
-    sourceUrl: "https://es.godominicanrepublic.com/que-hacer/anfiteatro-la-puntilla",
-    imageEmoji: "🎵",
   },
   {
     id: "lil-naay-2026-07-17",

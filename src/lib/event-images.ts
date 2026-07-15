@@ -2,7 +2,6 @@
 import { getAppVersion } from "./app-version";
 
 const EVENT_IMAGE_FILES: Record<string, string> = {
-  "malecon-live-concert": "malecon-live-concert.jpg",
   "rumble-in-paradise-12": "rumble-in-paradise-12.png",
   "lax-sunset-daily": "lax-sunset-daily.jpg",
   "malecon-kiosks-daily": "malecon-kiosks-daily.jpg",
@@ -64,7 +63,6 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "cremo-friday-salsa-dance": "cremo-friday-salsa-dance.jpg",
   "anfiteatro-la-puntilla-concerts": "anfiteatro-la-puntilla-concerts.jpg",
   "el-carey-weekend-nightlife": "el-carey-weekend-nightlife.jpg",
-  "anfiteatro-cultural-performances": "anfiteatro-cultural-performances.jpg",
   "brugal-corporate-tours": "brugal-rum-center-weekdays.jpg",
   "sosua-jewish-museum-hours": "sosua-jewish-museum-hours.jpg",
   "sosua-diving-adventures-daily": "sosua-diving-adventures-daily.jpg",

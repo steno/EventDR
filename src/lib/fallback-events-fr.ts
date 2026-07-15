@@ -36,23 +36,6 @@ export const FALLBACK_EVENTS_FR: Event[] = [
     imageEmoji: "🪩",
   },
   {
-    id: "malecon-live-concert",
-    title: "Concerts en plein air sur le Malecón",
-    description:
-      "Soirées de week-end sur le Malecón de Puerto Plata : sets informels sur la promenade et concerts occasionnels à l'Anfiteatro La Puntilla. Les programmations sont annoncées par date — consultez la page officielle du lieu lorsqu'un événement est prévu.",
-    date: "2026-01-01",
-    time: "7:00 PM – 10:00 PM",
-    location: "Puerto Plata",
-    venue: "Anfiteatro La Puntilla",
-    venueSlug: "malecon-puerto-plata",
-    address: "Desvío a La Puntilla",
-    category: "music",
-    format: "physical",
-    recurrence: "weekends",
-    sourceUrl: "https://es.godominicanrepublic.com/que-hacer/anfiteatro-la-puntilla",
-    imageEmoji: "🎵",
-  },
-  {
     id: "lil-naay-2026-07-17",
     title: "Lil Naay en live au Disco Club",
     description:

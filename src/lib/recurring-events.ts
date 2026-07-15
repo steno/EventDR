@@ -801,7 +801,7 @@ const RECURRING_EN: Event[] = [
     id: "anfiteatro-la-puntilla-concerts",
     title: "Anfiteatro La Puntilla Concerts",
     description:
-      "Outdoor concerts and cultural shows at Anfiteatro La Puntilla on the Atlantic — weekend performances during carnival season and special events on Puerto Plata's Malecón. Lineups announced per show.",
+      "Outdoor concerts, cultural shows, and carnival troupes at Anfiteatro La Puntilla on the Atlantic — weekend performances on Puerto Plata's Malecón waterfront stage overlooking Fortaleza San Felipe. Lineups announced per show.",
     date: "2026-01-01",
     time: "7:00 PM – 10:00 PM",
     location: "Puerto Plata",
@@ -809,6 +809,7 @@ const RECURRING_EN: Event[] = [
     venueSlug: "anfiteatro-la-puntilla",
     address: "Desvío a La Puntilla",
     category: "concert",
+    categories: ["performances", "culture"],
     format: "physical",
     recurrence: "weekends",
     sourceUrl:
@@ -832,24 +833,6 @@ const RECURRING_EN: Event[] = [
     recurrenceDays: [5, 6],
     sourceUrl: "https://www.facebook.com/profile.php?id=100089059716413",
     imageEmoji: "🪩",
-  },
-  {
-    id: "anfiteatro-cultural-performances",
-    title: "La Puntilla Cultural Performances",
-    description:
-      "Cultural performances and carnival troupes at Anfiteatro La Puntilla — folk dance, live music, and seasonal shows on Puerto Plata's waterfront stage overlooking Fortaleza San Felipe.",
-    date: "2026-01-01",
-    time: "7:00 PM – 10:00 PM",
-    location: "Puerto Plata",
-    venue: "Anfiteatro La Puntilla",
-    venueSlug: "anfiteatro-la-puntilla",
-    address: "Desvío a La Puntilla",
-    category: "performances",
-    format: "physical",
-    recurrence: "weekends",
-    sourceUrl:
-      "https://es.godominicanrepublic.com/que-hacer/anfiteatro-la-puntilla",
-    imageEmoji: "🎭",
   },
   {
     id: "brugal-corporate-tours",
@@ -2197,7 +2180,7 @@ const RECURRING_ES: Event[] = [
     id: "anfiteatro-la-puntilla-concerts",
     title: "Conciertos en el Anfiteatro La Puntilla",
     description:
-      "Conciertos al aire libre y shows culturales en el Anfiteatro La Puntilla frente al Atlántico — presentaciones de fin de semana en carnaval y eventos especiales en el Malecón.",
+      "Conciertos al aire libre, shows culturales y comparsas de carnaval en el Anfiteatro La Puntilla frente al Atlántico — presentaciones de fin de semana en el Malecón con vistas a la Fortaleza San Felipe. Las carteleras se anuncian por fecha.",
     date: "2026-01-01",
     time: "7:00 PM – 10:00 PM",
     location: "Puerto Plata",
@@ -2205,6 +2188,7 @@ const RECURRING_ES: Event[] = [
     venueSlug: "anfiteatro-la-puntilla",
     address: "Desvío a La Puntilla",
     category: "concert",
+    categories: ["performances", "culture"],
     format: "physical",
     recurrence: "weekends",
     sourceUrl:
@@ -2228,24 +2212,6 @@ const RECURRING_ES: Event[] = [
     recurrenceDays: [5, 6],
     sourceUrl: "https://www.facebook.com/profile.php?id=100089059716413",
     imageEmoji: "🪩",
-  },
-  {
-    id: "anfiteatro-cultural-performances",
-    title: "Espectáculos culturales en La Puntilla",
-    description:
-      "Presentaciones culturales y comparsas de carnaval en el Anfiteatro La Puntilla — danza folclórica, música en vivo y shows de temporada con vistas a la Fortaleza San Felipe.",
-    date: "2026-01-01",
-    time: "7:00 PM – 10:00 PM",
-    location: "Puerto Plata",
-    venue: "Anfiteatro La Puntilla",
-    venueSlug: "anfiteatro-la-puntilla",
-    address: "Desvío a La Puntilla",
-    category: "performances",
-    format: "physical",
-    recurrence: "weekends",
-    sourceUrl:
-      "https://es.godominicanrepublic.com/que-hacer/anfiteatro-la-puntilla",
-    imageEmoji: "🎭",
   },
   {
     id: "brugal-corporate-tours",
@@ -3590,7 +3556,7 @@ const RECURRING_FR: Event[] = [
     id: "anfiteatro-la-puntilla-concerts",
     title: "Concerts à l'Anfiteatro La Puntilla",
     description:
-      "Concerts en plein air et spectacles culturels à l'Anfiteatro La Puntilla face à l'Atlantique — performances le week-end pendant le carnaval et événements spéciaux sur le Malecón.",
+      "Concerts en plein air, spectacles culturels et troupes de carnaval à l'Anfiteatro La Puntilla face à l'Atlantique — performances le week-end sur le Malecón avec vue sur la Fortaleza San Felipe. Les programmations sont annoncées par date.",
     date: "2026-01-01",
     time: "7:00 PM – 10:00 PM",
     location: "Puerto Plata",
@@ -3598,6 +3564,7 @@ const RECURRING_FR: Event[] = [
     venueSlug: "anfiteatro-la-puntilla",
     address: "Desvío a La Puntilla",
     category: "concert",
+    categories: ["performances", "culture"],
     format: "physical",
     recurrence: "weekends",
     sourceUrl:
@@ -3621,24 +3588,6 @@ const RECURRING_FR: Event[] = [
     recurrenceDays: [5, 6],
     sourceUrl: "https://www.facebook.com/profile.php?id=100089059716413",
     imageEmoji: "🪩",
-  },
-  {
-    id: "anfiteatro-cultural-performances",
-    title: "Spectacles culturels à La Puntilla",
-    description:
-      "Spectacles culturels et troupes de carnaval à l'Anfiteatro La Puntilla — danse folklorique, musique live et shows saisonniers avec vue sur la Fortaleza San Felipe.",
-    date: "2026-01-01",
-    time: "7:00 PM – 10:00 PM",
-    location: "Puerto Plata",
-    venue: "Anfiteatro La Puntilla",
-    venueSlug: "anfiteatro-la-puntilla",
-    address: "Desvío a La Puntilla",
-    category: "performances",
-    format: "physical",
-    recurrence: "weekends",
-    sourceUrl:
-      "https://es.godominicanrepublic.com/que-hacer/anfiteatro-la-puntilla",
-    imageEmoji: "🎭",
   },
   {
     id: "brugal-corporate-tours",

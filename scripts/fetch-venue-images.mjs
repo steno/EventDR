@@ -54,10 +54,6 @@ const VENUE_SOURCES = [
     url: "https://images.prismic.io/prismic-rd-2/Z46wwJbqstJ99p3X_2.dsc_1640-copy-2-1_791bdf93-f6ac-4b28-650db027bfffcd36.jpg?auto=format,compress",
   },
   {
-    eventId: "anfiteatro-cultural-performances",
-    url: "https://images.prismic.io/prismic-rd-2/Z46wwJbqstJ99p3X_2.dsc_1640-copy-2-1_791bdf93-f6ac-4b28-650db027bfffcd36.jpg?auto=format,compress&rect=200,0,1400,900",
-  },
-  {
     eventId: "hard-rock-billed-concerts",
     url: "https://cafe.hardrock.com/puerto-plata/files/7036/RockHeader.jpg",
   },

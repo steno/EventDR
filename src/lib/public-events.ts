@@ -37,17 +37,16 @@ function eventDedupeKey(event: Event): string {
 }
 
 function mergeUniqueEvents(base: Event[], extra: Event[]): Event[] {
-  const seen = new Set(base.map((event) => event.id));
-  const seenTitles = new Set(base.map(eventDedupeKey));
-  const merged = [...base];
+  const merged: Event[] = [];
+  const seen = new Set<string>();
+  const seenTitles = new Set<string>();
 
-  for (const event of extra) {
+  for (const event of [...base, ...extra]) {
     const titleKey = eventDedupeKey(event);
-    if (!seen.has(event.id) && !seenTitles.has(titleKey)) {
-      merged.push(event);
-      seen.add(event.id);
-      seenTitles.add(titleKey);
-    }
+    if (seen.has(event.id) || seenTitles.has(titleKey)) continue;
+    merged.push(event);
+    seen.add(event.id);
+    seenTitles.add(titleKey);
   }
 
   return merged;

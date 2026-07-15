@@ -27,6 +27,10 @@ export const REMOVED_SEED_EVENT_IDS = new Set([
   "paella-pop-el-pueblito",
   // Duplicate of sea-horse-saturday-market (same venue, day, hours, official page).
   "sea-horse-saturday-artisan-fair",
+  // Duplicate of anfiteatro-la-puntilla-concerts (same venue, weekends, source URL).
+  "anfiteatro-cultural-performances",
+  // Overlaps La Puntilla concerts (same hours/source; older Malecón placeholder).
+  "malecon-live-concert",
 ]);
 
 export function filterRemovedSeedEvents(events: Event[]): Event[] {
