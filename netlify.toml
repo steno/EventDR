@@ -19,7 +19,5 @@
 #   BRAVE_SEARCH_API_KEY, OPENAI_API_KEY, OPENAI_MODEL
 # Optional for push notifications:
 #   NEXT_PUBLIC_VAPID_PUBLIC_KEY, VAPID_PUBLIC_KEY, VAPID_PRIVATE_KEY, VAPID_SUBJECT
-# Optional for free weekend mailbox emails (Resend free tier: 100/day, 3000/mo):
-#   RESEND_API_KEY, MAIL_FROM (e.g. "POP Events <hello@pop-event.com>" — verify domain on Resend)
 # Optional for manual cron endpoints:
 #   CRON_SECRET (for /api/cron/cleanup, /api/cron/notify, /api/cron/partner-digest)

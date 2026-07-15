@@ -4,44 +4,27 @@ export default async () => {
   try {
     const { countWeekendEvents } = await import("../../src/lib/firebase/events");
     const { sendWeekendDigest, isPushConfigured } = await import("../../src/lib/push");
-    const {
-      sendMailboxWeekendDigest,
-      isMailboxEmailConfigured,
-    } = await import("../../src/lib/mailbox");
 
-    const pushConfigured = isPushConfigured();
-    const emailConfigured = isMailboxEmailConfigured();
-
-    if (!pushConfigured && !emailConfigured) {
-      console.log("Neither push nor mailbox email configured, skipping");
+    if (!isPushConfigured()) {
+      console.log("Push not configured, skipping notifications");
       return {
         statusCode: 503,
-        body: JSON.stringify({ error: "Nothing configured to send" }),
+        body: JSON.stringify({ error: "Push not configured" }),
       };
     }
 
     console.log("Running scheduled weekend digest...");
     const count = await countWeekendEvents();
+    const sent = await sendWeekendDigest(Math.max(count, 1));
 
-    const pushSent = pushConfigured
-      ? await sendWeekendDigest(Math.max(count, 1))
-      : 0;
-
-    const mailbox = emailConfigured
-      ? await sendMailboxWeekendDigest()
-      : { attempted: 0, sent: 0, skippedUnconfigured: true };
-
-    console.log(
-      `Weekend digest: push=${pushSent}, mailbox=${mailbox.sent}/${mailbox.attempted} for ${count} events`,
-    );
+    console.log(`Weekend digest sent: ${sent} notifications for ${count} events`);
 
     return {
       statusCode: 200,
       body: JSON.stringify({
         success: true,
         count,
-        pushSent,
-        mailbox,
+        sent,
       }),
     };
   } catch (error) {
