@@ -1,14 +1,9 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
-import type { Dictionary } from "@/i18n/dictionaries";
+import { useCallback, useEffect, useRef } from "react";
 import { appVersionNeedsRefresh } from "@/lib/app-version-shared";
 
 const VERSION_KEY = "popevents-app-version";
-
-interface AppVersionBannerProps {
-  dict: Dictionary;
-}
 
 async function fetchRemoteVersion(): Promise<string | null> {
   const sources = ["/app-version.json", "/api/app-version"];
@@ -38,20 +33,25 @@ async function purgeCachesAndReload(version: string) {
   window.location.reload();
 }
 
-export function AppVersionBanner({ dict }: AppVersionBannerProps) {
-  const [remoteVersion, setRemoteVersion] = useState<string | null>(null);
-  const [needsRefresh, setNeedsRefresh] = useState(false);
+/** Silently refreshes when a new deploy stamp is detected (stuck PWA tabs). */
+export function AppVersionSync() {
+  const reloading = useRef(false);
 
   const checkVersion = useCallback(async () => {
+    if (reloading.current) return;
+
     const remote = await fetchRemoteVersion();
     if (!remote) return;
 
     const stored = localStorage.getItem(VERSION_KEY);
-    setRemoteVersion(remote);
 
     if (appVersionNeedsRefresh(stored, remote)) {
-      setNeedsRefresh(true);
-    } else if (!stored) {
+      reloading.current = true;
+      await purgeCachesAndReload(remote);
+      return;
+    }
+
+    if (!stored) {
       localStorage.setItem(VERSION_KEY, remote);
     }
   }, []);
@@ -79,21 +79,5 @@ export function AppVersionBanner({ dict }: AppVersionBannerProps) {
     };
   }, [checkVersion]);
 
-  if (!needsRefresh || !remoteVersion) return null;
-
-  return (
-    <div className="fixed bottom-24 left-4 right-4 z-[70] pb-[env(safe-area-inset-bottom)] md:left-auto md:right-4 md:max-w-sm animate-slide-up">
-      <div className="rounded-lg bg-neutral-900 p-4 text-white shadow-lg">
-        <p className="text-sm font-semibold">{dict.update.title}</p>
-        <p className="mt-1 text-xs text-neutral-300">{dict.update.subtitle}</p>
-        <button
-          type="button"
-          onClick={() => purgeCachesAndReload(remoteVersion)}
-          className="mt-3 w-full rounded-md bg-white px-4 py-2 text-sm font-semibold text-neutral-900"
-        >
-          {dict.update.button}
-        </button>
-      </div>
-    </div>
-  );
+  return null;
 }

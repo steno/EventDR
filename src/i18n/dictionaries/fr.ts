@@ -240,11 +240,6 @@ export const fr: Dictionary = {
     iosTitle: "Ajouter POP Events à l'écran d'accueil",
     iosSubtitle: "Appuyez sur Partager, puis « Sur l'écran d'accueil ».",
   },
-  update: {
-    title: "Mise à jour disponible",
-    subtitle: "Actualisez pour les derniers événements et correctifs.",
-    button: "Actualiser l'app",
-  },
   footer: {
     tagline: "POP Events · Côte Nord République dominicaine",
     builtWith: "Fait avec ❤️ par",

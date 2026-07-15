@@ -205,11 +205,6 @@ export type Dictionary = {
     iosTitle: string;
     iosSubtitle: string;
   };
-  update: {
-    title: string;
-    subtitle: string;
-    button: string;
-  };
   footer: {
     tagline: string;
     builtWith: string;
@@ -524,11 +519,6 @@ export const en: Dictionary = {
     dismiss: "Not now",
     iosTitle: "Add POP Events to Home Screen",
     iosSubtitle: "Tap Share, then \"Add to Home Screen\" for the latest version.",
-  },
-  update: {
-    title: "Update available",
-    subtitle: "Refresh to get the latest events and fixes.",
-    button: "Refresh app",
   },
   footer: {
     tagline: "POP Events · North Coast Dominican Republic",

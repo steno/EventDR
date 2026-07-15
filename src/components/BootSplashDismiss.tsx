@@ -4,6 +4,8 @@ import { useEffect } from "react";
 
 const SPLASH_ID = "app-boot-splash";
 const DONE_CLASS = "app-boot-splash--done";
+/** Brand hold: show at least this long; never add delay if load already took longer. */
+const MIN_VISIBLE_MS = 2000;
 
 function dismissSplash() {
   const el = document.getElementById(SPLASH_ID);
@@ -17,20 +19,37 @@ function dismissSplash() {
   el.setAttribute("inert", "");
 }
 
-/** Hides the inline HTML boot splash once the app has hydrated. */
+/** Hides the inline HTML boot splash after hydrate, with a short brand hold. */
 export function BootSplashDismiss() {
   useEffect(() => {
-    // Wait two frames so first painted content sits under the fade-out.
     let cancelled = false;
-    const frame = requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        if (!cancelled) dismissSplash();
+    let frame = 0;
+    let timer: ReturnType<typeof setTimeout> | undefined;
+
+    // performance.now() is ms since navigation — when the splash first painted.
+    const elapsed = typeof performance !== "undefined" ? performance.now() : 0;
+    const remaining = Math.max(0, MIN_VISIBLE_MS - elapsed);
+
+    const finish = () => {
+      if (cancelled) return;
+      // Wait two frames so first painted content sits under the fade-out.
+      frame = requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          if (!cancelled) dismissSplash();
+        });
       });
-    });
+    };
+
+    if (remaining > 0) {
+      timer = setTimeout(finish, remaining);
+    } else {
+      finish();
+    }
 
     return () => {
       cancelled = true;
       cancelAnimationFrame(frame);
+      if (timer) clearTimeout(timer);
     };
   }, []);
 

@@ -6,7 +6,7 @@ import { SITE_URL } from "@/lib/site-url";
 import { SITE_NAME, defaultOpenGraph, defaultTwitter } from "@/lib/seo";
 import { Analytics } from "@/components/Analytics";
 import { AppFooter } from "@/components/AppFooter";
-import { AppVersionBanner } from "@/components/AppVersionBanner";
+import { AppVersionSync } from "@/components/AppVersionSync";
 import { BodyScrollGuard } from "@/components/BodyScrollGuard";
 import { DocumentLang } from "@/components/DocumentLang";
 
@@ -81,7 +81,7 @@ export default async function LocaleLayout({
       <Suspense fallback={null}>
         <Analytics />
       </Suspense>
-      <AppVersionBanner dict={dict} />
+      <AppVersionSync />
       {children}
       <AppFooter locale={locale} dict={dict} />
     </>
