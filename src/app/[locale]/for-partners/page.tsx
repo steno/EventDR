@@ -10,6 +10,8 @@ import {
 } from "@/lib/partners-copy";
 import { buildAlternates } from "@/lib/seo";
 
+export const revalidate = 300;
+
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }

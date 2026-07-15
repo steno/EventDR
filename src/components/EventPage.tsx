@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import type { Event } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
@@ -23,12 +24,21 @@ export function EventPage({
   event,
   locale,
   dict,
-  returnTo,
+  returnTo: returnToProp,
   formattedDateRange,
   recurrenceLabel,
 }: EventPageProps) {
   const router = useRouter();
   const { toggleSave, isSaved } = useSavedEvents();
+  // Read ?from= on the client so the server page can stay ISR-cached.
+  const [returnTo, setReturnTo] = useState<string | null | undefined>(returnToProp);
+
+  useEffect(() => {
+    if (returnToProp) return;
+    const from = new URLSearchParams(window.location.search).get("from");
+    if (from) setReturnTo(from);
+  }, [returnToProp]);
+
   const backHref = resolveEventReturnPath(locale, event, returnTo);
   const backLabel = resolveBackLabel(
     locale,

@@ -7,16 +7,15 @@ import type { Event, EventCategory } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import type { TimeRange, FilterTimeRange } from "@/lib/filters";
-import {
-  DEFAULT_FILTER_TIME_RANGE,
-  filterByTimeRange,
-  searchEvents,
-} from "@/lib/filters";
+import { filterByTimeRange, searchEvents } from "@/lib/filters";
 import { sortEventsForDisplay } from "@/lib/event-sort";
 import { categoryPath } from "@/lib/event-navigation";
 import { attachEventImages } from "@/lib/event-images";
 import { eventMatchesCity, type CitySlug } from "@/lib/cities";
-import { EMPTY_EVENT_IDS } from "@/lib/home-layout";
+import {
+  EMPTY_EVENT_IDS,
+  LIST_PAGE_SIZE,
+} from "@/lib/home-layout";
 import { EventCard } from "./EventCard";
 import { SearchEmptyState } from "./SearchEmptyState";
 import { TimeFilter } from "./TimeFilter";
@@ -35,9 +34,11 @@ interface EventListProps {
   returnTo?: string;
   /** Cap rendered events (home feed). */
   limit?: number;
+  /** Cards added per in-place "More events" (defaults to `limit` / LIST_PAGE_SIZE). */
+  pageSize?: number;
   /** Skip events already shown elsewhere on the page. */
   excludeEventIds?: string[];
-  /** Link when the list is truncated by `limit`. */
+  /** Link when the list is truncated by `limit` (skips in-place load-more). */
   viewAllHref?: string;
   showTimeFilter?: boolean;
   onTimeRangeChange?: (range: FilterTimeRange) => void;
@@ -55,6 +56,7 @@ export function EventList({
   ourPicks = false,
   returnTo,
   limit,
+  pageSize,
   excludeEventIds = EMPTY_EVENT_IDS,
   viewAllHref,
   showTimeFilter = false,
@@ -65,11 +67,18 @@ export function EventList({
   const [events, setEvents] = useState<Event[]>([]);
   const [loading, setLoading] = useState(true);
   const [source, setSource] = useState<string>("");
+  const initialCap = limit ?? LIST_PAGE_SIZE;
+  const step = pageSize ?? limit ?? LIST_PAGE_SIZE;
+  const [visibleCount, setVisibleCount] = useState(initialCap);
   const onEventsLoadedRef = useRef(onEventsLoaded);
 
   useEffect(() => {
     onEventsLoadedRef.current = onEventsLoaded;
   }, [onEventsLoaded]);
+
+  useEffect(() => {
+    setVisibleCount(initialCap);
+  }, [timeRange, citySlug, searchQuery, excludeEventIds, initialCap]);
 
   const fetchEvents = useCallback(
     async (refresh = false) => {
@@ -84,7 +93,10 @@ export function EventList({
         // with a city, still prefer client filter so allEvents stays complete.
         if (refresh) params.set("refresh", "true");
 
-        const res = await fetch(`/api/events?${params}`, { cache: "no-store" });
+        const res = await fetch(
+          `/api/events?${params}`,
+          refresh ? { cache: "no-store" } : { cache: "default" },
+        );
         const data = (await res.json()) as {
           events: Event[];
           source: string;
@@ -121,8 +133,9 @@ export function EventList({
     return sortEventsForDisplay(result, { recurringLast: true });
   }, [events, timeRange, citySlug, searchQuery, excludeEventIds]);
 
-  const visibleEvents = limit != null ? filtered.slice(0, limit) : filtered;
-  const hasMore = limit != null && filtered.length > limit;
+  const visibleEvents =
+    limit != null ? filtered.slice(0, visibleCount) : filtered;
+  const hasMore = limit != null && filtered.length > visibleCount;
 
   const sourceLabel =
     source === "live"
@@ -170,12 +183,9 @@ export function EventList({
 
       {showTimeFilter && onTimeRangeChange && (
         <TimeFilter
-          value={
-            timeRange === "all" ? DEFAULT_FILTER_TIME_RANGE : timeRange
-          }
+          value={timeRange}
           onChange={onTimeRangeChange}
           dict={dict}
-          className="mb-0"
         />
       )}
 
@@ -210,7 +220,7 @@ export function EventList({
               />
             ))}
           </div>
-          {hasMore && viewAllHref && (
+          {hasMore && viewAllHref ? (
             <div className="pt-2 text-center">
               <Link
                 href={viewAllHref}
@@ -220,7 +230,20 @@ export function EventList({
                 <ChevronRight className="h-4 w-4" aria-hidden />
               </Link>
             </div>
-          )}
+          ) : hasMore ? (
+            <div className="pt-2 text-center">
+              <button
+                type="button"
+                onClick={() =>
+                  setVisibleCount((count) => count + step)
+                }
+                className="inline-flex items-center gap-1 rounded-full border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 px-5 py-2.5 text-sm font-bold text-neutral-800 dark:text-neutral-200 hover:border-orange-300 dark:hover:border-orange-800 hover:text-orange-600 dark:hover:text-orange-400 transition-colors touch-manipulation"
+              >
+                {dict.events.moreEvents}
+                <ChevronRight className="h-4 w-4" aria-hidden />
+              </button>
+            </div>
+          ) : null}
         </>
       )}
     </div>

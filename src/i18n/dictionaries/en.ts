@@ -212,6 +212,16 @@ export type Dictionary = {
     builtWith: string;
     searchByBrave: string;
     partners: string;
+    mailbox: {
+      title: string;
+      subtitle: string;
+      emailLabel: string;
+      placeholder: string;
+      button: string;
+      sending: string;
+      success: string;
+      error: string;
+    };
   };
   cities: {
     browseTopCategories: string;
@@ -531,6 +541,16 @@ export const en: Dictionary = {
     builtWith: "Built with ❤️ by",
     searchByBrave: "Search by Brave",
     partners: "For hotels & partners",
+    mailbox: {
+      title: "Get events in your mailbox",
+      subtitle: "Weekend picks for the North Coast. Free, no spam.",
+      emailLabel: "Email",
+      placeholder: "you@email.com",
+      button: "Subscribe",
+      sending: "Sending…",
+      success: "You’re in — we’ll send weekend picks your way.",
+      error: "Couldn’t subscribe. Try again in a moment.",
+    },
   },
   cities: {
     browseTopCategories: "Popular in {city}",

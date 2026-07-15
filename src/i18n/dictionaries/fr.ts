@@ -249,6 +249,16 @@ export const fr: Dictionary = {
     builtWith: "Fait avec ❤️ par",
     searchByBrave: "Recherche par Brave",
     partners: "Pour hôtels et partenaires",
+    mailbox: {
+      title: "Recevez les événements par e-mail",
+      subtitle: "Sélection week-end pour la Côte Nord. Gratuit, sans spam.",
+      emailLabel: "E-mail",
+      placeholder: "vous@email.com",
+      button: "S’inscrire",
+      sending: "Envoi…",
+      success: "C’est noté — on vous envoie les idées du week-end.",
+      error: "Inscription impossible. Réessayez dans un instant.",
+    },
   },
   cities: {
     browseTopCategories: "Populaire à {city}",

@@ -134,7 +134,7 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
     [scopedEvents],
   );
 
-  const viewAllHref = homeViewAllPath(locale, timeRange);
+  const viewAllHref = homeViewAllPath(locale, timeRange, selectedCity);
   const seeAllTodayHref = selectedCity
     ? `/${locale}/city/${selectedCity}`
     : `/${locale}/when/today`;
@@ -267,7 +267,12 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
                   returnTo={homePath}
                   limit={isSearching ? HOME_SEARCH_LIMIT : HOME_PICKS_LIMIT}
                   excludeEventIds={picksExcludeIds}
-                  viewAllHref={!isSearching ? viewAllHref : undefined}
+                  // All stays on-home with "More events"; other tabs deep-link.
+                  viewAllHref={
+                    !isSearching && timeRange !== "all"
+                      ? viewAllHref
+                      : undefined
+                  }
                 />
               </div>
 

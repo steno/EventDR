@@ -7,6 +7,8 @@ import { StickyListHeader } from "@/components/StickyListHeader";
 import { buildAlternates, fillTemplate } from "@/lib/seo";
 import { PAGE_SHELL_CLASS } from "@/lib/page-shell";
 
+export const revalidate = 120;
+
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }

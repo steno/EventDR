@@ -15,6 +15,9 @@ export const HOME_TODAY_LIMIT = 6;
 /** Max events in the home "Our picks" section. */
 export const HOME_PICKS_LIMIT = 10;
 
+/** Extra cards revealed per "More events" tap on capped lists. */
+export const LIST_PAGE_SIZE = HOME_PICKS_LIMIT;
+
 /** Cap mounted search-result cards (search has no "view all" paginator). */
 export const HOME_SEARCH_LIMIT = 30;
 
@@ -231,7 +234,14 @@ export function getFeaturedVenues(
 export function homeViewAllPath(
   locale: string,
   timeRange: TimeRange,
+  citySlug?: string | null,
 ): string | undefined {
+  if (timeRange === "all") {
+    // Home already lifts its cap on All; city lists open on the All chip.
+    return citySlug
+      ? `/${locale}/city/${citySlug}?when=all&all=1`
+      : undefined;
+  }
   if (timeRange === "today") return `/${locale}/when/today?all=1`;
   if (timeRange === "tomorrow") return `/${locale}/when/tomorrow?all=1`;
   if (timeRange === "weekend") return `/${locale}/when/weekend?all=1`;

@@ -3,6 +3,7 @@ import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import { CITIES, getCityName } from "@/lib/cities";
 import { PAGE_WIDTH_CLASS } from "@/lib/page-shell";
+import { MailboxSignup } from "@/components/MailboxSignup";
 
 interface SiteFooterProps {
   dict: Dictionary;
@@ -15,6 +16,7 @@ export function SiteFooter({ dict, locale, className = "" }: SiteFooterProps) {
     <footer
       className={`border-t border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900 pt-6 pb-6 text-center ${className}`}
     >
+      <MailboxSignup dict={dict} locale={locale} />
       <nav
         aria-label={dict.browse.ariaLabel}
         className={`${PAGE_WIDTH_CLASS} mb-4 flex flex-wrap justify-center gap-x-3 gap-y-2 px-4 text-xs font-semibold text-neutral-500 dark:text-neutral-400 sm:gap-x-4`}

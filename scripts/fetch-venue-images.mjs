@@ -177,9 +177,15 @@ const VENUE_SOURCES = [
     url: "https://naturacabana.com/wp-content/uploads/2024/01/00022_natura-9.webp",
   },
   {
-    // Busy open-air restaurant energy for El Parq Foodpark venue + Sat bands.
+    // Outdoor food-truck park courtyard (tropical night market) for El Parq + Sat bands.
+    // Replaces mis-tagged Bali cafe Unsplash photo-1555396273.
     eventId: "el-parq-live-bands-saturday",
-    url: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1800&q=85",
+    url: "https://upload.wikimedia.org/wikipedia/commons/3/37/Food_Truck_Park%2C_Tulum_QR_Feb_2020_02.jpg",
+  },
+  {
+    // Indoor concert crowd/stage energy for Disco Club (Brugal depots hall).
+    eventId: "disco-club-brugal",
+    url: "https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=1800&q=85",
   },
   {
     // Club/party lights for El Parq Thursday karaoke.

@@ -6,7 +6,6 @@ import {
   type WeatherPayload,
 } from "@/lib/weather";
 
-export const dynamic = "force-dynamic";
 export const revalidate = 900;
 
 type OpenMeteoResponse = {

@@ -16,5 +16,9 @@ service cloud.firestore {
     match /pushSubscriptions/{id} {
       allow read, write: if false;
     }
+
+    match /mailboxSubscriptions/{id} {
+      allow read, write: if false;
+    }
   }
 }

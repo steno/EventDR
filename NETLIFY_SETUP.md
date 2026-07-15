@@ -45,6 +45,21 @@ VAPID_PRIVATE_KEY=your-private-key
 VAPID_SUBJECT=mailto:you@example.com
 ```
 
+### Optional: Weekend mailbox emails (free)
+
+Uses [Resend](https://resend.com) free tier (100 emails/day, 3,000/mo — no credit card).
+
+1. Create a free Resend account
+2. Verify your sending domain (e.g. `pop-event.com`) — DNS only, free
+3. Add:
+
+```bash
+RESEND_API_KEY=re_xxxxxxxx
+MAIL_FROM=POP Events <hello@pop-event.com>
+```
+
+`MAIL_FROM` must use a domain verified in Resend. Friday’s existing `scheduled-notify` job sends the weekend digest to mailbox subscribers automatically.
+
 ### Optional: Manual Cron Triggers
 
 ```bash

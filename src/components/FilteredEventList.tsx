@@ -9,17 +9,20 @@ import type { Locale } from "@/i18n/config";
 import {
   DEFAULT_FILTER_TIME_RANGE,
   filterByTimeRange,
+  isFilterTimeRange,
   suggestOtherFilterTimeRange,
   type FilterTimeRange,
   type TimeRange,
 } from "@/lib/filters";
 import { sortEventsForDisplay } from "@/lib/event-sort";
-import { SCOPE_LIST_LIMIT } from "@/lib/home-layout";
+import { LIST_PAGE_SIZE, SCOPE_LIST_LIMIT } from "@/lib/home-layout";
 import { TimeFilter } from "@/components/TimeFilter";
 import { EventCard } from "@/components/EventCard";
 import { SearchEmptyState } from "@/components/SearchEmptyState";
 import { VenueStrip } from "@/components/VenueStrip";
 import { AddEventButton } from "@/components/AddEventButton";
+
+const UNBOUNDED = Number.POSITIVE_INFINITY;
 
 interface FilteredEventListProps {
   events: Event[];
@@ -32,10 +35,12 @@ interface FilteredEventListProps {
   addEventLabel?: string;
   returnTo?: string;
   fixedTimeRange?: TimeRange;
-  /** One-shot expand when landing with ?all=1 (stripped from URL on mount). */
+  /** Reveal the full list when landing with ?all=1 (stripped from URL on mount). */
   initialExpanded?: boolean;
-  /** Preview cap before "View all" expands in place (defaults to SCOPE_LIST_LIMIT). */
+  /** First-page size before "More events" (defaults to SCOPE_LIST_LIMIT). */
   limit?: number;
+  /** Cards added per "More events" tap. */
+  pageSize?: number;
 }
 
 export function FilteredEventList({
@@ -51,47 +56,65 @@ export function FilteredEventList({
   fixedTimeRange,
   initialExpanded = false,
   limit = SCOPE_LIST_LIMIT,
+  pageSize = LIST_PAGE_SIZE,
 }: FilteredEventListProps) {
   const pathname = usePathname();
   const [timeRange, setTimeRange] = useState<FilterTimeRange>(
-    fixedTimeRange && fixedTimeRange !== "all"
-      ? fixedTimeRange
-      : DEFAULT_FILTER_TIME_RANGE,
+    fixedTimeRange ?? DEFAULT_FILTER_TIME_RANGE,
   );
-  const [expanded, setExpanded] = useState(initialExpanded);
-  const skipExpandReset = useRef(true);
+  const [visibleCount, setVisibleCount] = useState(
+    initialExpanded ? UNBOUNDED : limit,
+  );
+  const skipVisibleReset = useRef(true);
+  const ignoreNextVisibleReset = useRef(false);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    if (!params.has("all")) return;
-    params.delete("all");
+    let dirty = false;
+    // Apply client-side so listing pages can stay ISR (no server searchParams).
+    const when = params.get("when");
+    if (when && isFilterTimeRange(when) && !fixedTimeRange) {
+      // Don't collapse the page when landing with ?when= + ?all=1 together.
+      ignoreNextVisibleReset.current = true;
+      setTimeRange(when);
+      params.delete("when");
+      dirty = true;
+    }
+    if (params.get("all") === "1") {
+      setVisibleCount(UNBOUNDED);
+      params.delete("all");
+      dirty = true;
+    }
+    if (!dirty) return;
     const qs = params.toString();
     window.history.replaceState(null, "", qs ? `${pathname}?${qs}` : pathname);
-  }, [pathname]);
+  }, [pathname, fixedTimeRange]);
 
   useEffect(() => {
-    if (skipExpandReset.current) {
-      skipExpandReset.current = false;
+    if (skipVisibleReset.current) {
+      skipVisibleReset.current = false;
       return;
     }
-    setExpanded(false);
-  }, [timeRange]);
+    if (ignoreNextVisibleReset.current) {
+      ignoreNextVisibleReset.current = false;
+      return;
+    }
+    setVisibleCount(limit);
+  }, [timeRange, limit]);
 
   // SSR/API payloads are already materialized — filter/sort only.
+  const activeRange = fixedTimeRange ?? timeRange;
   const filtered = useMemo(() => {
-    const activeRange = fixedTimeRange ?? timeRange;
     const timeFiltered = filterByTimeRange(events, activeRange);
     return sortEventsForDisplay(timeFiltered, { recurringLast: true });
-  }, [events, timeRange, fixedTimeRange]);
+  }, [events, activeRange]);
 
-  const cap = expanded ? undefined : limit;
-  const visibleEvents = cap != null ? filtered.slice(0, cap) : filtered;
-  const hasMore = cap != null && filtered.length > cap;
+  const visibleEvents = Number.isFinite(visibleCount)
+    ? filtered.slice(0, visibleCount)
+    : filtered;
+  const hasMore =
+    Number.isFinite(visibleCount) && filtered.length > visibleCount;
 
-  const activeRange: FilterTimeRange =
-    fixedTimeRange && fixedTimeRange !== "all"
-      ? fixedTimeRange
-      : timeRange;
   const otherTab = dict.time[
     suggestOtherFilterTimeRange(activeRange, (range) =>
       filterByTimeRange(events, range).length > 0,
@@ -144,10 +167,14 @@ export function FilteredEventList({
             <div className="pt-4 text-center">
               <button
                 type="button"
-                onClick={() => setExpanded(true)}
+                onClick={() =>
+                  setVisibleCount((count) =>
+                    Number.isFinite(count) ? count + pageSize : count,
+                  )
+                }
                 className="inline-flex items-center gap-1 rounded-full border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 px-5 py-2.5 text-sm font-bold text-neutral-800 dark:text-neutral-200 hover:border-orange-300 dark:hover:border-orange-800 hover:text-orange-600 dark:hover:text-orange-400 transition-colors touch-manipulation"
               >
-                {dict.events.viewAllEvents}
+                {dict.events.moreEvents}
                 <ChevronRight className="h-4 w-4" aria-hidden />
               </button>
             </div>

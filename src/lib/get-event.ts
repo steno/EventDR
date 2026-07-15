@@ -1,3 +1,4 @@
+import { unstable_cache } from "next/cache";
 import type { Locale } from "@/i18n/config";
 import type { Event } from "./types";
 import { getFallbackEventById } from "./fallback-events";
@@ -12,6 +13,7 @@ import { filterRemovedSeedEvents } from "./removed-seeds";
 import { localizeEventsForDisplay } from "./localized-text";
 import { materializeEventDates } from "./event-dates";
 import { withResolvedCategories } from "./categorize";
+import { EVENT_REVALIDATE_SECONDS } from "./http-cache";
 
 function finalizeEvent(event: Event, locale: Locale): Event | null {
   let [result] = attachVenueSlugs([event]);
@@ -36,7 +38,7 @@ function finalizeEvent(event: Event, locale: Locale): Event | null {
   return withResolvedCategories(result);
 }
 
-export async function getEventById(
+async function loadEventById(
   id: string,
   locale: Locale,
 ): Promise<Event | null> {
@@ -54,4 +56,17 @@ export async function getEventById(
   if (community) return finalizeEvent(community, locale);
 
   return null;
+}
+
+const getCachedEventById = unstable_cache(
+  loadEventById,
+  ["event-by-id"],
+  { revalidate: EVENT_REVALIDATE_SECONDS, tags: ["events"] },
+);
+
+export async function getEventById(
+  id: string,
+  locale: Locale,
+): Promise<Event | null> {
+  return getCachedEventById(id, locale);
 }

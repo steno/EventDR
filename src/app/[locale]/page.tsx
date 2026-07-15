@@ -8,6 +8,9 @@ import { getDictionary } from "@/i18n/dictionaries";
 import { buildHomeMetadata, buildWebSiteJsonLd } from "@/lib/seo";
 import { getVenues } from "@/lib/venues";
 
+// ISR: regenerate home every 2 minutes instead of SSR every visit.
+export const revalidate = 120;
+
 export async function generateMetadata({
   params,
 }: {

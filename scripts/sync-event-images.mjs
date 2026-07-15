@@ -149,6 +149,7 @@ const FILE_TO_VENUE_SLUG = {
   "paella-pop-green-one.jpg": "paella-pop-green-one",
   "plaza-independencia.jpg": "plaza-independencia",
   "el-parq-live-bands-saturday.jpg": "el-parq-cabarete",
+  "disco-club-brugal.jpg": "disco-club-brugal",
   "parada-tipica-el-choco-tuesday-live.jpg": "parada-tipica-el-choco",
   "blue-jacktar-playa-dorada.jpg": "blue-jacktar-playa-dorada",
   "natura-cabana-saturday-live.jpg": "natura-cabana",

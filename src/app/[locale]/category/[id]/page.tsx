@@ -9,7 +9,6 @@ import { categoryPath as buildCategoryPath } from "@/lib/event-navigation";
 import { isValidLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getPublicEvents } from "@/lib/public-events";
-import { isScopeInitiallyExpanded } from "@/lib/home-layout";
 import {
   buildCategoryMetadata,
   buildListingPageJsonLd,
@@ -17,6 +16,8 @@ import {
   localePath,
 } from "@/lib/seo";
 import type { EventCategory } from "@/lib/types";
+
+export const revalidate = 120;
 
 export async function generateStaticParams() {
   return locales.flatMap((locale) =>
@@ -38,13 +39,10 @@ export async function generateMetadata({
 
 export default async function Page({
   params,
-  searchParams,
 }: {
   params: Promise<{ locale: string; id: string }>;
-  searchParams: Promise<{ all?: string }>;
 }) {
   const { locale, id } = await params;
-  const { all } = await searchParams;
   if (!isValidLocale(locale)) notFound();
   if (!CATEGORY_IDS.includes(id as EventCategory)) notFound();
 
@@ -96,7 +94,6 @@ export default async function Page({
         relatedCategoryLinks={relatedCategoryLinks}
         relatedCategoryLinksLabel={relatedCategoryLinksLabel}
         relatedCategoryActiveHref={pagePath}
-        initialExpanded={isScopeInitiallyExpanded(all)}
         categoryId={categoryId}
       />
     </>

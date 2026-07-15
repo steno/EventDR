@@ -15,7 +15,8 @@ import {
   localePath,
 } from "@/lib/seo";
 
-export const dynamic = "force-dynamic";
+// ISR: cache event detail HTML; `?from=` is read client-side so this stays static.
+export const revalidate = 180;
 
 export async function generateMetadata({
   params,
@@ -33,13 +34,10 @@ export async function generateMetadata({
 
 export default async function Page({
   params,
-  searchParams,
 }: {
   params: Promise<{ locale: string; id: string }>;
-  searchParams: Promise<{ from?: string }>;
 }) {
   const { locale, id } = await params;
-  const { from } = await searchParams;
   if (!isValidLocale(locale)) notFound();
 
   const event = await getEventById(id, locale);
@@ -67,7 +65,6 @@ export default async function Page({
         event={event}
         locale={locale}
         dict={dict}
-        returnTo={from}
         formattedDateRange={formattedDateRange}
         recurrenceLabel={recurrenceLabel}
       />

@@ -59,6 +59,7 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "paella-pop-green-one": "paella-pop-green-one.jpg",
   "plaza-independencia": "plaza-independencia.jpg",
   "el-parq-cabarete": "el-parq-cabarete.jpg",
+  "disco-club-brugal": "disco-club-brugal.jpg",
   "parada-tipica-el-choco": "parada-tipica-el-choco.jpg",
   "blue-jacktar-playa-dorada": "blue-jacktar-playa-dorada.jpg",
 };

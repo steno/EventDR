@@ -1,8 +1,13 @@
+"use client";
+
+import { useLayoutEffect, useRef } from "react";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { AppHeader } from "@/components/AppHeader";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
+
+const STICKY_HEADER_HEIGHT_VAR = "--sticky-list-header-height";
 
 const backControlClassName =
   "inline-flex items-center gap-2 text-sm font-semibold text-neutral-500 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200 touch-manipulation";
@@ -26,8 +31,34 @@ export function StickyListHeader({
   onBack,
   flushBottom = false,
 }: StickyListHeaderProps) {
+  const rootRef = useRef<HTMLDivElement>(null);
+
+  useLayoutEffect(() => {
+    const el = rootRef.current;
+    if (!el) return;
+
+    const publishHeight = () => {
+      // Ceil so subpixel heights never leave a gap under the sticky header.
+      const height = Math.ceil(el.getBoundingClientRect().height);
+      document.documentElement.style.setProperty(
+        STICKY_HEADER_HEIGHT_VAR,
+        `${height}px`,
+      );
+    };
+
+    publishHeight();
+    const observer = new ResizeObserver(publishHeight);
+    observer.observe(el);
+
+    return () => {
+      observer.disconnect();
+      document.documentElement.style.removeProperty(STICKY_HEADER_HEIGHT_VAR);
+    };
+  }, []);
+
   return (
     <div
+      ref={rootRef}
       className={`sticky top-0 z-20 -mx-4 px-4 pb-2 bg-neutral-50/95 backdrop-blur-sm dark:bg-neutral-950/95 border-b border-neutral-200/60 dark:border-neutral-800/60 ${
         flushBottom ? "mb-0" : "mb-6"
       }`}

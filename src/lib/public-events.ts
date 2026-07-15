@@ -1,3 +1,4 @@
+import { unstable_cache } from "next/cache";
 import type { Locale } from "@/i18n/config";
 import { attachEventImages } from "@/lib/event-images";
 import { attachTicketUrls } from "@/lib/event-tickets";
@@ -16,6 +17,7 @@ import { eventMatchesCity } from "@/lib/cities";
 import type { TimeRange } from "@/lib/filters";
 import { filterByTimeRange } from "@/lib/filters";
 import { eventInCategory, withResolvedCategories } from "@/lib/categorize";
+import { LISTING_REVALIDATE_SECONDS } from "@/lib/http-cache";
 import type { Event, EventCategory } from "@/lib/types";
 
 export type PublicEventsFilter = {
@@ -73,10 +75,7 @@ function applyScopeFilters(events: Event[], filter: PublicEventsFilter): Event[]
   return result;
 }
 
-/** Server-side event list for SEO pages — fallbacks, community, and Firebase (no crawl). */
-export async function getPublicEvents(
-  filter: PublicEventsFilter,
-): Promise<Event[]> {
+async function loadPublicEvents(filter: PublicEventsFilter): Promise<Event[]> {
   const { locale, category, venueSlug } = filter;
 
   let events = category
@@ -107,4 +106,36 @@ export async function getPublicEvents(
   events = events.map(withResolvedCategories);
 
   return events;
+}
+
+const getCachedPublicEvents = unstable_cache(
+  async (
+    locale: Locale,
+    category: string,
+    city: string,
+    venueSlug: string,
+    when: string,
+  ) =>
+    loadPublicEvents({
+      locale,
+      category: (category || undefined) as EventCategory | undefined,
+      city: (city || undefined) as CitySlug | undefined,
+      venueSlug: venueSlug || undefined,
+      when: (when || undefined) as Exclude<TimeRange, "all"> | undefined,
+    }),
+  ["public-events"],
+  { revalidate: LISTING_REVALIDATE_SECONDS, tags: ["events"] },
+);
+
+/** Server-side event list for SEO pages — fallbacks, community, and Firebase (no crawl). */
+export async function getPublicEvents(
+  filter: PublicEventsFilter,
+): Promise<Event[]> {
+  return getCachedPublicEvents(
+    filter.locale,
+    filter.category ?? "",
+    filter.city ?? "",
+    filter.venueSlug ?? "",
+    filter.when ?? "",
+  );
 }

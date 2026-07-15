@@ -249,6 +249,16 @@ export const es: Dictionary = {
     builtWith: "Hecho con ❤️ por",
     searchByBrave: "Búsqueda por Brave",
     partners: "Para hoteles y socios",
+    mailbox: {
+      title: "Recibe eventos en tu correo",
+      subtitle: "Selección de fin de semana en la Costa Norte. Gratis, sin spam.",
+      emailLabel: "Correo",
+      placeholder: "tu@email.com",
+      button: "Suscribirme",
+      sending: "Enviando…",
+      success: "Listo — te enviaremos los planes del finde.",
+      error: "No se pudo suscribir. Inténtalo de nuevo.",
+    },
   },
   cities: {
     browseTopCategories: "Popular en {city}",

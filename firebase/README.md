@@ -67,6 +67,7 @@ curl "https://popevent.netlify.app/api/status?secret=YOUR_SECRET"
 | `events` | event id | `pending` → `approved` / `rejected` |
 | `venues` | venue slug | Auto-seeded (LAX, Malecón, …) |
 | `pushSubscriptions` | hash | Web push (optional) |
+| `mailboxSubscriptions` | email hash | Weekend mailbox digests (optional) |
 
 ## 6. Firestore indexes
 
