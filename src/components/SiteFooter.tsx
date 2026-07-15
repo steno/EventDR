@@ -10,10 +10,10 @@ interface SiteFooterProps {
   className?: string;
 }
 
-export function SiteFooter({ dict, locale, className = "" }: SiteFooterProps) {
+export function SiteFooter({ dict, locale, className = "pb-6" }: SiteFooterProps) {
   return (
     <footer
-      className={`border-t border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900 pt-6 pb-6 text-center ${className}`}
+      className={`border-t border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900 pt-6 text-center ${className}`}
     >
       <nav
         aria-label={dict.browse.ariaLabel}
@@ -63,15 +63,6 @@ export function SiteFooter({ dict, locale, className = "" }: SiteFooterProps) {
           className="text-neutral-400 dark:text-neutral-500 hover:text-neutral-600 dark:hover:text-neutral-300 transition-colors font-medium"
         >
           asemota
-        </a>
-        {" · "}
-        <a
-          href="https://brave.com/search/api/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-neutral-400 dark:text-neutral-500 hover:text-neutral-600 dark:hover:text-neutral-300 transition-colors"
-        >
-          {dict.footer.searchByBrave}
         </a>
       </p>
     </footer>
