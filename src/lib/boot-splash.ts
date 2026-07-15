@@ -6,7 +6,7 @@
  * Home can still register), with a hard max so static pages never hang.
  */
 
-export type BootPart = "events" | "weather" | "version";
+export type BootPart = "events" | "weather" | "version" | "sw";
 
 const expected = new Set<BootPart>();
 const readyParts = new Set<BootPart>();
@@ -81,4 +81,15 @@ export function subscribeBootReady(listener: () => void) {
   return () => {
     listeners.delete(listener);
   };
+}
+
+/** Cover the UI again before an intentional reload (deploy / SW update). */
+export function showBootSplashForReload() {
+  if (typeof document === "undefined") return;
+  document.documentElement.classList.add("boot-pending");
+  const el = document.getElementById("app-boot-splash");
+  if (!el) return;
+  el.classList.remove("app-boot-splash--done");
+  el.removeAttribute("inert");
+  el.setAttribute("aria-hidden", "true");
 }

@@ -11,6 +11,7 @@ export function HomeBootExpect() {
   useEffect(() => {
     expectBootPart("events");
     expectBootPart("weather");
+    expectBootPart("sw");
   }, []);
 
   return null;

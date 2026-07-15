@@ -2,7 +2,11 @@
 
 import { useCallback, useEffect, useRef } from "react";
 import { appVersionNeedsRefresh } from "@/lib/app-version-shared";
-import { expectBootPart, readyBootPart } from "@/lib/boot-splash";
+import {
+  expectBootPart,
+  readyBootPart,
+  showBootSplashForReload,
+} from "@/lib/boot-splash";
 
 const VERSION_KEY = "popevents-app-version";
 
@@ -22,6 +26,7 @@ async function fetchRemoteVersion(): Promise<string | null> {
 }
 
 async function purgeCachesAndReload(version: string) {
+  showBootSplashForReload();
   if ("serviceWorker" in navigator) {
     const registrations = await navigator.serviceWorker.getRegistrations();
     await Promise.all(registrations.map((registration) => registration.unregister()));
