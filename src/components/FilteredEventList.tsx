@@ -115,12 +115,11 @@ export function FilteredEventList({
   const hasMore =
     Number.isFinite(visibleCount) && filtered.length > visibleCount;
 
-  const otherTab = dict.time[
-    suggestOtherFilterTimeRange(activeRange, (range) =>
-      filterByTimeRange(events, range).length > 0,
-    )
-  ];
-  const noResultsHint = dict.search.tryTabHint.replace("{tab}", otherTab);
+  const suggestedRange = suggestOtherFilterTimeRange(activeRange, (range) =>
+    filterByTimeRange(events, range).length > 0,
+  );
+  const suggestedTabLabel = dict.time[suggestedRange];
+  const tryTabLabel = dict.search.tryTabHint.replace("{tab}", suggestedTabLabel);
 
   return (
     <>
@@ -146,8 +145,16 @@ export function FilteredEventList({
       ) : filtered.length === 0 ? (
         <SearchEmptyState
           title={dict.search.noResults}
-          hint={noResultsHint}
+          hint={
+            fixedTimeRange
+              ? dict.search.noResultsHint
+              : tryTabLabel
+          }
           playHint={dict.search.playHint}
+          actionLabel={fixedTimeRange ? undefined : tryTabLabel}
+          onAction={
+            fixedTimeRange ? undefined : () => setTimeRange(suggestedRange)
+          }
         />
       ) : (
         <>

@@ -127,7 +127,7 @@ export const fr: Dictionary = {
     placeholder: "Rechercher événements, lieux…",
     noResults: "Rien trouvé.",
     noResultsHint: "Essayez un autre lieu ou effacez la recherche.",
-    tryTabHint: "Essayez {tab}.",
+    tryTabHint: "Voir {tab}",
     playHint: "Touchez PLAY · glissez pour le rallye",
     activeTitle: "Résultats de recherche",
   },

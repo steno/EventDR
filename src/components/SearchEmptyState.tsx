@@ -1,33 +1,49 @@
 "use client";
 
+import { ChevronRight } from "lucide-react";
 import { EmptyPong } from "@/components/EmptyPong";
 
 interface SearchEmptyStateProps {
   title: string;
   hint: string;
   playHint: string;
+  /** Prominent action — e.g. switch to a time tab that has events. */
+  actionLabel?: string;
+  onAction?: () => void;
 }
 
 export function SearchEmptyState({
   title,
   hint,
   playHint,
+  actionLabel,
+  onAction,
 }: SearchEmptyStateProps) {
+  const hasAction = Boolean(actionLabel && onAction);
+
   return (
-    <div className="py-6 sm:py-8">
-      <div className="text-center">
-        <p className="bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 bg-clip-text text-4xl font-black tracking-tight text-transparent sm:text-5xl">
-          0
-        </p>
-        <p className="mt-2 text-base font-bold text-neutral-800 dark:text-neutral-100 sm:text-lg">
+    <div className="py-8 sm:py-10">
+      <div className="mx-auto max-w-sm text-center">
+        <p className="text-lg font-bold tracking-tight text-neutral-800 dark:text-neutral-100 sm:text-xl">
           {title}
         </p>
-        <p className="mt-1 text-sm text-neutral-500 dark:text-neutral-400">
-          {hint}
-        </p>
+        {hasAction ? (
+          <button
+            type="button"
+            onClick={onAction}
+            className="mt-5 inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-6 py-3 text-sm font-bold text-white shadow-sm transition-[filter] hover:brightness-110 touch-manipulation"
+          >
+            {actionLabel}
+            <ChevronRight className="h-4 w-4" aria-hidden />
+          </button>
+        ) : (
+          <p className="mt-2 text-sm text-neutral-500 dark:text-neutral-400">
+            {hint}
+          </p>
+        )}
       </div>
 
-      <div className="mt-5">
+      <div className="mt-8">
         <EmptyPong />
         <p className="mt-2 text-center text-[11px] font-medium uppercase tracking-[0.14em] text-neutral-400 dark:text-neutral-500">
           {playHint}

@@ -419,7 +419,7 @@ export const en: Dictionary = {
     placeholder: "Search events, places…",
     noResults: "Nothing turned up.",
     noResultsHint: "Try another place, or clear your search.",
-    tryTabHint: "Try {tab}.",
+    tryTabHint: "Show {tab}",
     playHint: "Tap PLAY to start · drag to rally",
     activeTitle: "Search results",
   },
