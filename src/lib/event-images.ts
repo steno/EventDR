@@ -119,8 +119,9 @@ const EVENT_IMAGE_PREFIXES: { prefix: string; file: string }[] = [
 ];
 
 /** Tailwind object-position for detail heroes when the focal point isn't center. */
-const EVENT_HERO_OBJECT_POSITION: Record<string, "object-top" | "object-bottom"> = {
-  "lax-sunset-daily": "object-bottom",
+const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
+  // Short mobile heroes keep the sun; desktop centers the sunset composition.
+  "lax-sunset-daily": "object-top lg:object-center",
 };
 
 export function getEventImageUrl(eventId: string): string | undefined {
