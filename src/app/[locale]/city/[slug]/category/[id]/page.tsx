@@ -8,9 +8,9 @@ import {
   CITY_SLUGS,
   getCityMeta,
   getCityName,
-  getCityTopCategories,
   isCitySlug,
 } from "@/lib/cities";
+import { categoryNavLinks } from "@/lib/event-navigation";
 import { isValidLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getPublicEvents } from "@/lib/public-events";
@@ -78,14 +78,7 @@ export default async function Page({
   });
   const title = `${category.label} — ${cityName}`;
   const categoryId = id as EventCategory;
-  const topCategories = getCityTopCategories(slug);
-  const pillCategories = topCategories.includes(categoryId)
-    ? topCategories
-    : [categoryId, ...topCategories];
-  const relatedCategoryLinks = pillCategories.map((relatedId) => ({
-    href: `/${locale}/city/${slug}/category/${relatedId}`,
-    label: dict.categories[relatedId],
-  }));
+  const relatedCategoryLinks = categoryNavLinks(locale, dict.categories, slug);
   const relatedCategoryLinksLabel = fillTemplate(dict.cities.browseTopCategories, {
     city: cityName,
   });

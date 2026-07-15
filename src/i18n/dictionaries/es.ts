@@ -247,7 +247,7 @@ export const es: Dictionary = {
     partners: "Para hoteles y socios",
   },
   cities: {
-    browseTopCategories: "Popular en {city}",
+    browseTopCategories: "Categorías en {city}",
     lookingIn: "Mirando eventos en",
     lookingInWithCategory: "Mirando eventos de {category} en",
     regionName: "Costa Norte",

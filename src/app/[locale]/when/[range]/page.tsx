@@ -2,8 +2,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { EventScopePage } from "@/components/EventScopePage";
 import { JsonLd } from "@/components/JsonLd";
-import { NORTH_COAST_TOP_CATEGORIES } from "@/lib/cities";
-import { categoryPath as buildCategoryPath } from "@/lib/event-navigation";
+import { categoryNavLinks } from "@/lib/event-navigation";
 import { isValidLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getPublicEvents } from "@/lib/public-events";
@@ -48,10 +47,7 @@ export default async function Page({
   const whenSeo = getWhenSeo(locale, range);
   const whenPath = localePath(locale, `/when/${range}`);
   const events = await getPublicEvents({ locale, when: range });
-  const relatedCategoryLinks = NORTH_COAST_TOP_CATEGORIES.map((relatedId) => ({
-    href: buildCategoryPath(locale, relatedId),
-    label: dict.categories[relatedId],
-  }));
+  const relatedCategoryLinks = categoryNavLinks(locale, dict.categories);
   const relatedCategoryLinksLabel = fillTemplate(dict.cities.browseTopCategories, {
     city: dict.cities.regionName,
   });

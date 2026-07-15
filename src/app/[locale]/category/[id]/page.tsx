@@ -4,8 +4,7 @@ import { EventScopePage } from "@/components/EventScopePage";
 import { JsonLd } from "@/components/JsonLd";
 import { CATEGORY_IDS, getCategoryMeta } from "@/lib/categories";
 import { getCategorySeo } from "@/lib/category-seo";
-import { NORTH_COAST_TOP_CATEGORIES } from "@/lib/cities";
-import { categoryPath as buildCategoryPath } from "@/lib/event-navigation";
+import { categoryNavLinks } from "@/lib/event-navigation";
 import { isValidLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getPublicEvents } from "@/lib/public-events";
@@ -52,13 +51,7 @@ export default async function Page({
   const categoryId = id as EventCategory;
   const pagePath = localePath(locale, `/category/${id}`);
   const events = await getPublicEvents({ locale, category: categoryId });
-  const pillCategories = NORTH_COAST_TOP_CATEGORIES.includes(categoryId)
-    ? NORTH_COAST_TOP_CATEGORIES
-    : [categoryId, ...NORTH_COAST_TOP_CATEGORIES];
-  const relatedCategoryLinks = pillCategories.map((relatedId) => ({
-    href: buildCategoryPath(locale, relatedId),
-    label: dict.categories[relatedId],
-  }));
+  const relatedCategoryLinks = categoryNavLinks(locale, dict.categories);
   const relatedCategoryLinksLabel = fillTemplate(dict.cities.browseTopCategories, {
     city: dict.cities.regionName,
   });

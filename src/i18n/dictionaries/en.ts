@@ -527,7 +527,7 @@ export const en: Dictionary = {
     partners: "For hotels & partners",
   },
   cities: {
-    browseTopCategories: "Popular in {city}",
+    browseTopCategories: "Categories in {city}",
     lookingIn: "Looking for events in",
     lookingInWithCategory: "Looking for {category} events in",
     regionName: "North Coast",

@@ -23,6 +23,18 @@ export function categoryPath(
   return `/${locale}/category/${category}`;
 }
 
+/** Full category nav for scope pages (city hub, category, when). */
+export function categoryNavLinks(
+  locale: Locale,
+  labels: Record<EventCategory, string>,
+  citySlug?: CitySlug | null,
+): { href: string; label: string }[] {
+  return CATEGORY_IDS.map((id) => ({
+    href: categoryPath(locale, id, citySlug),
+    label: labels[id],
+  }));
+}
+
 export function eventDetailPath(
   locale: Locale,
   eventId: string,

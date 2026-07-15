@@ -7,9 +7,9 @@ import {
   getCityMeta,
   getCityName,
   getCitySeo,
-  getCityTopCategories,
   isCitySlug,
 } from "@/lib/cities";
+import { categoryNavLinks } from "@/lib/event-navigation";
 import { isValidLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getPublicEvents } from "@/lib/public-events";
@@ -61,10 +61,7 @@ export default async function Page({
   const cityPath = localePath(locale, `/city/${slug}`);
   const eventsInCity = fillTemplate(dict.browse.eventsInPlace, { place: cityName });
   const events = await getPublicEvents({ locale, city: slug });
-  const relatedCategoryLinks = getCityTopCategories(slug).map((categoryId) => ({
-    href: `/${locale}/city/${slug}/category/${categoryId}`,
-    label: dict.categories[categoryId],
-  }));
+  const relatedCategoryLinks = categoryNavLinks(locale, dict.categories, slug);
   const relatedCategoryLinksLabel = fillTemplate(dict.cities.browseTopCategories, {
     city: cityName,
   });
