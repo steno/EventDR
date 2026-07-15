@@ -35,15 +35,11 @@ import {
   type FilterTimeRange,
 } from "@/lib/filters";
 import {
-  collapseHomeCategories,
   eventMatchesCity,
-  expandHomeCategories,
   getCityMeta,
   getCityName,
   HOME_CITY_ALL,
-  homeAreaStorageKey,
   homePathWithArea,
-  isHomeCategoriesCollapsed,
   parseHomeCityParam,
   readHomeArea,
   writeHomeArea,
@@ -73,15 +69,16 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
   const [submitOpen, setSubmitOpen] = useState(false);
   const [allEvents, setAllEvents] = useState<Event[]>([]);
   const [refreshKey, setRefreshKey] = useState(0);
-  /** null until session hydrate — avoids open→closed flash when collapsed. */
-  const [categoriesOpen, setCategoriesOpen] = useState<boolean | null>(null);
+  /**
+   * Category pills: open only after an in-page area pick (or Browse).
+   * Remounting Home (back from event/scope) always starts collapsed.
+   */
+  const [categoriesOpen, setCategoriesOpen] = useState(false);
 
   const { city: selectedCity, areaChosen } = useMemo(
     () => parseHomeCityParam(searchParams.get("city")),
     [searchParams],
   );
-
-  const areaKey = homeAreaStorageKey(selectedCity);
 
   // Restore area when a content back link lands on bare `/[locale]`.
   useEffect(() => {
@@ -95,7 +92,7 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
 
   const setArea = useCallback(
     (slug: CitySlug | null) => {
-      // writeHomeArea + expandHomeCategories run inside CityLocationPicker.goTo
+      // Fresh area choice → show category onboarding wall.
       setCategoriesOpen(true);
       const params = new URLSearchParams(searchParams.toString());
       params.set("city", slug ?? HOME_CITY_ALL);
@@ -111,22 +108,11 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
     writeHomeArea(selectedCity);
   }, [areaChosen, selectedCity]);
 
-  // Expand categories after area pick; keep collapsed after a category was chosen.
-  useEffect(() => {
-    if (!areaChosen) {
-      setCategoriesOpen(null);
-      return;
-    }
-    setCategoriesOpen(!isHomeCategoriesCollapsed(areaKey));
-  }, [areaChosen, areaKey]);
-
   const handleCategorySelect = useCallback(() => {
-    collapseHomeCategories(areaKey);
     setCategoriesOpen(false);
-  }, [areaKey]);
+  }, []);
 
   const handleExpandCategories = useCallback(() => {
-    expandHomeCategories();
     setCategoriesOpen(true);
   }, []);
 
@@ -207,7 +193,7 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
             onLogoClick={() => {
               setTab("discover");
               setSearchQuery("");
-              setCategoriesOpen(null);
+              setCategoriesOpen(false);
               if (searchParams.get("city")) {
                 router.replace(`/${locale}`, { scroll: false });
               }
@@ -267,7 +253,7 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
                     emptyLabel={areaChosen ? undefined : dict.cities.chooseArea}
                     onSelect={setArea}
                   />
-                  {areaChosen && categoriesOpen === true && (
+                  {areaChosen && categoriesOpen && (
                     <div className="mt-2.5 animate-in">
                       <CategoryGrid
                         locale={locale}
@@ -277,7 +263,7 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
                       />
                     </div>
                   )}
-                  {areaChosen && categoriesOpen === false && (
+                  {areaChosen && !categoriesOpen && (
                     <button
                       type="button"
                       onClick={handleExpandCategories}
