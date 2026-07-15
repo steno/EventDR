@@ -135,7 +135,7 @@ export function ShareMenu({
   }
 
   return (
-    <div className="mb-3 rounded-3xl bg-white/85 dark:bg-neutral-800/85 p-3 shadow-sm ring-1 ring-neutral-200/70 dark:ring-neutral-700/70 backdrop-blur animate-in fade-in slide-in-from-bottom-2 duration-200">
+    <div className="rounded-3xl bg-white/85 dark:bg-neutral-800/85 p-3 shadow-sm ring-1 ring-neutral-200/70 dark:ring-neutral-700/70 backdrop-blur">
       <p className="mb-2 px-1 text-[11px] font-bold uppercase tracking-wide text-neutral-500 dark:text-neutral-400">
         {dict.detail.shareVia}
       </p>

@@ -1,6 +1,14 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  useSyncExternalStore,
+  type MouseEvent,
+  type ReactNode,
+} from "react";
 import { useRouter } from "next/navigation";
 import {
   X,
@@ -49,6 +57,53 @@ import { EventCallLink } from "@/components/EventCallLink";
 import { formatPhoneTel } from "@/lib/event-phone";
 import { useSwipeToDismiss } from "@/hooks/useSwipeToDismiss";
 
+type ActionMenu = "share" | "calendar";
+
+function prefersDesktopHover(): boolean {
+  return window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+}
+
+function subscribeDesktopHover(onStoreChange: () => void): () => void {
+  const mq = window.matchMedia("(hover: hover) and (pointer: fine)");
+  mq.addEventListener("change", onStoreChange);
+  return () => mq.removeEventListener("change", onStoreChange);
+}
+
+function ActionFlyout({
+  open,
+  onMouseEnter,
+  onMouseLeave,
+  children,
+}: {
+  open: boolean;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
+  children: ReactNode;
+}) {
+  return (
+    <div
+      className={`relative z-0 grid transition-[grid-template-rows,opacity] duration-200 ease-out ${
+        open
+          ? "grid-rows-[1fr] opacity-100"
+          : "pointer-events-none grid-rows-[0fr] opacity-0"
+      }`}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+      aria-hidden={!open}
+    >
+      <div className="min-h-0 overflow-hidden">
+        <div
+          className={`pb-3 transition-transform duration-200 ease-out ${
+            open ? "translate-y-0" : "translate-y-3"
+          }`}
+        >
+          {children}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 interface EventDetailSheetProps {
   event: Event | null;
   onClose: () => void;
@@ -78,22 +133,62 @@ export function EventDetailSheet({
   standalone = false,
 }: EventDetailSheetProps) {
   const [shareMsg, setShareMsg] = useState<string | null>(null);
-  const [openAction, setOpenAction] = useState<"share" | "calendar" | null>(
-    null,
-  );
+  const [openAction, setOpenAction] = useState<ActionMenu | null>(null);
   const actionsRef = useRef<HTMLDivElement>(null);
+  const hoverCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const router = useRouter();
+  const canHover = useSyncExternalStore(
+    subscribeDesktopHover,
+    prefersDesktopHover,
+    () => false,
+  );
   const shareOpen = openAction === "share";
   const calendarOpen = openAction === "calendar";
 
-  const toggleAction = useCallback((action: "share" | "calendar") => {
+  const clearHoverClose = useCallback(() => {
+    if (hoverCloseTimer.current) {
+      clearTimeout(hoverCloseTimer.current);
+      hoverCloseTimer.current = null;
+    }
+  }, []);
+
+  const openActionMenu = useCallback(
+    (action: ActionMenu) => {
+      clearHoverClose();
+      setOpenAction(action);
+    },
+    [clearHoverClose],
+  );
+
+  const scheduleActionClose = useCallback(() => {
+    clearHoverClose();
+    hoverCloseTimer.current = setTimeout(() => {
+      setOpenAction(null);
+      hoverCloseTimer.current = null;
+    }, 120);
+  }, [clearHoverClose]);
+
+  const toggleAction = useCallback((action: ActionMenu) => {
     setOpenAction((current) => (current === action ? null : action));
   }, []);
+
+  const handleActionClick = useCallback(
+    (action: ActionMenu, e: MouseEvent<HTMLButtonElement>) => {
+      // Keyboard activation (Enter/Space) still toggles on hover devices.
+      if (canHover && e.detail !== 0) return;
+      clearHoverClose();
+      toggleAction(action);
+    },
+    [canHover, clearHoverClose, toggleAction],
+  );
 
   useEffect(() => {
     setOpenAction(null);
     setShareMsg(null);
-  }, [event?.id]);
+    clearHoverClose();
+  }, [clearHoverClose, event?.id]);
+
+  useEffect(() => () => clearHoverClose(), [clearHoverClose]);
 
   useEffect(() => {
     if (!event || standalone) return;
@@ -114,13 +209,14 @@ export function EventDetailSheet({
         actionsRef.current &&
         !actionsRef.current.contains(e.target as Node)
       ) {
+        clearHoverClose();
         setOpenAction(null);
       }
     }
 
     document.addEventListener("pointerdown", handlePointerDown);
     return () => document.removeEventListener("pointerdown", handlePointerDown);
-  }, [openAction]);
+  }, [clearHoverClose, openAction]);
 
   const {
     sheetRef,
@@ -356,16 +452,26 @@ export function EventDetailSheet({
   const actionsSection = (
     <div
       ref={actionsRef}
-      className="border-t border-neutral-100 bg-white px-5 pt-4 pb-[max(1rem,env(safe-area-inset-bottom))] dark:border-neutral-800 dark:bg-neutral-900 sm:px-6 lg:px-8"
+      className="relative isolate border-t border-neutral-100 bg-white px-5 pt-4 pb-[max(1rem,env(safe-area-inset-bottom))] dark:border-neutral-800 dark:bg-neutral-900 sm:px-6 lg:px-8"
     >
-      {calendarOpen && (
+      <ActionFlyout
+        open={calendarOpen}
+        onMouseEnter={
+          canHover ? () => openActionMenu("calendar") : undefined
+        }
+        onMouseLeave={canHover ? scheduleActionClose : undefined}
+      >
         <CalendarMenu
           event={event}
           dict={dict}
           onClose={() => setOpenAction(null)}
         />
-      )}
-      {shareOpen && (
+      </ActionFlyout>
+      <ActionFlyout
+        open={shareOpen}
+        onMouseEnter={canHover ? () => openActionMenu("share") : undefined}
+        onMouseLeave={canHover ? scheduleActionClose : undefined}
+      >
         <ShareMenu
           event={event}
           locale={locale}
@@ -373,10 +479,10 @@ export function EventDetailSheet({
           onClose={() => setOpenAction(null)}
           onFeedback={handleShareFeedback}
         />
-      )}
+      </ActionFlyout>
       {shareMsg && (
         <p
-          className="mb-2 text-center text-xs font-semibold text-orange-600 dark:text-orange-400"
+          className="relative z-0 mb-2 text-center text-xs font-semibold text-orange-600 dark:text-orange-400"
           role="status"
           aria-live="polite"
         >
@@ -384,7 +490,7 @@ export function EventDetailSheet({
         </p>
       )}
       <div
-        className={`grid gap-2.5 ${showBottomDirections ? "grid-cols-4" : "grid-cols-3"}`}
+        className={`relative z-10 grid gap-2.5 ${showBottomDirections ? "grid-cols-4" : "grid-cols-3"}`}
       >
         {showBottomDirections && (
           <a
@@ -400,24 +506,32 @@ export function EventDetailSheet({
         )}
         <button
           type="button"
-          onClick={() => toggleAction("calendar")}
+          onClick={(e) => handleActionClick("calendar", e)}
+          onMouseEnter={
+            canHover ? () => openActionMenu("calendar") : undefined
+          }
+          onMouseLeave={canHover ? scheduleActionClose : undefined}
           className={`${iconActionClass} ${
             calendarOpen ? iconActionActiveClass : iconActionIdleClass
           }`}
           aria-label={dict.detail.calendar}
           title={dict.detail.calendar}
+          aria-expanded={calendarOpen}
           aria-pressed={calendarOpen}
         >
           <CalendarPlus className="h-5 w-5" aria-hidden />
         </button>
         <button
           type="button"
-          onClick={() => toggleAction("share")}
+          onClick={(e) => handleActionClick("share", e)}
+          onMouseEnter={canHover ? () => openActionMenu("share") : undefined}
+          onMouseLeave={canHover ? scheduleActionClose : undefined}
           className={`${iconActionClass} ${
             shareOpen || shareMsg ? iconActionActiveClass : iconActionIdleClass
           }`}
           aria-label={shareMsg ?? dict.detail.share}
           title={shareMsg ?? dict.detail.share}
+          aria-expanded={shareOpen}
           aria-pressed={shareOpen}
         >
           <Share2 className="h-5 w-5" aria-hidden />
