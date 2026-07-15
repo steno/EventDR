@@ -1,7 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import { FACEBOOK_SEED_EVENT_IDS } from "@/lib/facebook-groups";
+import { EL_CAREY_WC2026_LEGACY_EVENT_IDS } from "@/lib/world-cup-2026-events";
 import {
   upsertApprovedEvents,
+  deleteEvent,
   isFirebaseConfigured,
   syncSeedVenues,
 } from "@/lib/firebase/events";
@@ -41,10 +43,16 @@ export async function POST(request: NextRequest) {
   const venuesSynced = await syncSeedVenues({ missingOnly: false });
   const upserted = await upsertApprovedEvents(events, "crawl");
 
+  const deleted: string[] = [];
+  for (const legacyId of EL_CAREY_WC2026_LEGACY_EVENT_IDS) {
+    if (await deleteEvent(legacyId)) deleted.push(legacyId);
+  }
+
   return NextResponse.json({
     success: true,
     venuesSynced,
     upserted,
+    deleted,
     skippedExpired,
     ids: events.map((e) => e.id),
   });

@@ -274,12 +274,32 @@ function slugPart(name: string): string {
     .slice(0, 24);
 }
 
+/**
+ * Stable Firestore ids for Final / 3rd place — do not include team names.
+ * Team lineups change after semis; changing ids orphans approved docs and
+ * leaves Winner/Loser SF placeholders on home Our picks.
+ */
+const STABLE_KNOCKOUT_IDS: Record<string, string> = {
+  "2026-07-18|17:00":
+    "el-carey-wc2026-2026-07-18-loser-sf1-vs-loser-sf2-1700",
+  "2026-07-19|15:00":
+    "el-carey-wc2026-2026-07-19-winner-sf1-vs-winner-sf2-1500",
+};
+
+/** Prior team-slug ids from a brief broken update — delete on seed. */
+export const EL_CAREY_WC2026_LEGACY_EVENT_IDS = [
+  "el-carey-wc2026-2026-07-18-england-vs-france-1700",
+  "el-carey-wc2026-2026-07-19-argentina-vs-spain-1500",
+] as const;
+
 function matchId(
   date: string,
   home: string,
   away: string,
   time: string,
 ): string {
+  const stable = STABLE_KNOCKOUT_IDS[`${date}|${time}`];
+  if (stable) return stable;
   return `el-carey-wc2026-${date}-${slugPart(home)}-vs-${slugPart(away)}-${time.replace(":", "")}`;
 }
 
