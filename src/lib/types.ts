@@ -84,8 +84,17 @@ export interface VenueAssessment {
   venueSlug: string;
   /** 0–1; UI hidden below ASSESSMENT_CONFIDENCE_THRESHOLD */
   confidence: number;
-  /** i18n key under venues.assessment.verdicts */
+  /**
+   * Category key (Places/sentiment still use this).
+   * Guest-facing copy must use `body` — never show shared verdict templates alone.
+   */
   verdictKey: string;
+  /**
+   * Unique guest-facing tip for THIS venue only.
+   * Required for display — shared verdictKey strings are unacceptable as the tip.
+   */
+  body: string;
+  localized?: Partial<Record<"en" | "es" | "fr", string>>;
   crowdFit: CrowdFit[];
   /** Sparse 1–5 scores; omit axes with no evidence */
   axes: Partial<Record<AssessmentAxis, number>>;
@@ -96,6 +105,49 @@ export interface VenueAssessment {
   /** Who last wrote this: "seed" | "cron:places" | "admin" */
   updatedBy: string;
 }
+
+/**
+ * Unique short take for a specific event or recurring night.
+ * Never reuse venue template copy — body must be written for this night/series.
+ */
+export interface EventOpinion {
+  /** Matches Event.id when known */
+  eventId?: string;
+  /**
+   * Fallback match for recurring series: `${venueSlug}:${recurrence}:${day}`
+   * e.g. "lax-cabarete:weekly:5" for Friday reggae.
+   */
+  seriesKey?: string;
+  /** One or two sentences — the opinion itself (EN default). */
+  body: string;
+  localized?: Partial<Record<"en" | "es" | "fr", string>>;
+  /**
+   * Price feel for this night — required when known.
+   * Prefer omitting the whole opinion over guessing.
+   */
+  priceFeel?: PriceFeel;
+  /** Short price note (EN), e.g. "No cover · drinks tourist-priced" */
+  priceNote?: string;
+  priceNoteLocalized?: Partial<Record<"en" | "es" | "fr", string>>;
+  /** Always shown: what this is based on */
+  attribution: string;
+  /** Optional public rating cite, e.g. Google 4.4 · 1.5k reviews */
+  ratingCite?: string;
+  /** Structured Google rating for the live ★ chip (preferred over parsing ratingCite). */
+  googleRating?: number;
+  googleReviewCount?: number;
+  /** Research notes / URLs for editors — not shown in UI */
+  researchNotes?: string;
+  updatedAt: string;
+}
+
+/** Guest-facing price band for opinions and venue tips. */
+export type PriceFeel =
+  | "free"
+  | "budget"
+  | "moderate"
+  | "upscale"
+  | "varies";
 
 export type EventRecurrence = "daily" | "weekly" | "weekdays" | "weekends";
 

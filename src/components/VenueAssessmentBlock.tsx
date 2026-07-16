@@ -2,73 +2,57 @@ import Image from "next/image";
 import { User } from "lucide-react";
 import type { VenueAssessment } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
+import type { Locale } from "@/i18n/config";
 
 interface VenueAssessmentBlockProps {
   assessment: VenueAssessment;
   dict: Dictionary;
+  locale?: Locale;
   /** Small badge next to the speaker (e.g. event detail: "Venue tip"). */
   heading?: string;
   className?: string;
 }
 
-function verdictLabel(dict: Dictionary, key: string): string {
-  return dict.venues.assessment.verdicts[key] ?? key;
-}
-
-function themeLabel(dict: Dictionary, key: string): string {
-  return dict.venues.assessment.themes[key] ?? key;
-}
-
-function joinList(items: string[], join: string, and: string): string {
-  if (items.length === 0) return "";
-  if (items.length === 1) return items[0]!;
-  if (items.length === 2) return `${items[0]}${and}${items[1]}`;
-  return `${items.slice(0, -1).join(join)}${and}${items[items.length - 1]}`;
-}
-
 function formatSources(assessment: VenueAssessment, dict: Dictionary): string {
   const parts: string[] = [];
-  // Editorial first (POP judgment), then Google when present
   if (assessment.sources.some((s) => s.kind === "editorial")) {
     parts.push(dict.venues.assessment.editorialSource);
   }
   for (const source of assessment.sources) {
-    if (source.kind === "google_places" && source.rating != null) {
-      parts.push(
-        dict.venues.assessment.googleSource
-          .replace("{rating}", source.rating.toFixed(1))
-          .replace("{count}", String(countOrDash(source.reviewCount))),
-      );
+    if (source.kind === "google_places") {
+      // ★ chip already shows rating numbers — name Google only in the footer.
+      parts.push("Google");
     }
   }
-  return parts.join(dict.venues.assessment.sourceJoin);
+  return [...new Set(parts)].join(dict.venues.assessment.sourceJoin);
 }
 
-function countOrDash(count: number | undefined): string {
-  return count != null ? String(count) : "—";
+function resolveTipBody(
+  assessment: VenueAssessment,
+  locale: Locale | undefined,
+): string {
+  if (locale && assessment.localized?.[locale]) {
+    return assessment.localized[locale]!;
+  }
+  if (assessment.body?.trim()) return assessment.body.trim();
+  return "";
 }
 
 export function VenueAssessmentBlock({
   assessment,
   dict,
+  locale = "en",
   heading,
   className = "mb-6",
 }: VenueAssessmentBlockProps) {
   const a = dict.venues.assessment;
-  const themes = assessment.themes
-    .slice(0, 3)
-    .map((t) => themeLabel(dict, t.key));
-  const themeLine =
-    themes.length > 0
-      ? a.themeLead.replace(
-          "{themes}",
-          joinList(themes, a.themeJoin, a.themeAnd),
-        )
-      : null;
+  const tip = resolveTipBody(assessment, locale);
   const sources = formatSources(assessment, dict);
   const badge = heading ?? a.heading;
   const google = assessment.sources.find((s) => s.kind === "google_places");
   const blended = Boolean(google?.rating != null);
+
+  if (!tip) return null;
 
   return (
     <section
@@ -121,15 +105,7 @@ export function VenueAssessmentBlock({
               aria-hidden
             />
             <p className="relative text-[15px] leading-relaxed text-neutral-800 dark:text-neutral-100">
-              {verdictLabel(dict, assessment.verdictKey)}
-              {themeLine ? (
-                <>
-                  {" "}
-                  <span className="text-neutral-600 dark:text-neutral-300">
-                    {themeLine}
-                  </span>
-                </>
-              ) : null}
+              {tip}
             </p>
           </div>
 

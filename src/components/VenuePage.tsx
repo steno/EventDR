@@ -88,7 +88,11 @@ export function VenuePage({
           />
 
           {assessment ? (
-            <VenueAssessmentBlock assessment={assessment} dict={dict} />
+            <VenueAssessmentBlock
+              assessment={assessment}
+              dict={dict}
+              locale={locale}
+            />
           ) : null}
 
           <VenueDirectionsSection venue={venue} dict={dict} />

@@ -1,14 +1,29 @@
 import type { VenueAssessment } from "@/lib/types";
+import { VENUE_TIP_COPY } from "@/lib/venue-assessment-tips";
 
-const SEED_AT = "2026-07-16T00:00:00.000Z";
+const SEED_AT = "2026-07-16T23:00:00.000Z";
 
 function editorial(
-  partial: Omit<VenueAssessment, "confidence" | "updatedAt" | "updatedBy" | "sources"> & {
+  partial: Omit<
+    VenueAssessment,
+    "confidence" | "updatedAt" | "updatedBy" | "sources" | "body" | "localized"
+  > & {
     sources?: VenueAssessment["sources"];
+    body?: string;
+    localized?: VenueAssessment["localized"];
   },
 ): VenueAssessment {
+  const tip = VENUE_TIP_COPY[partial.venueSlug];
+  if (!tip?.body?.trim()) {
+    throw new Error(
+      `Missing unique tip body for venue "${partial.venueSlug}" — shared verdict templates are not allowed.`,
+    );
+  }
+
   return {
     ...partial,
+    body: tip.body,
+    localized: tip.localized,
     confidence: 0,
     sources: [
       {
@@ -24,8 +39,8 @@ function editorial(
 }
 
 /**
- * Phase 1 editorial venue snapshots. Confidence is recomputed at load time.
- * Theme/verdict keys resolve via venues.assessment i18n.
+ * Editorial venue tips. Guest-facing copy is unique per venue (`body`).
+ * `verdictKey` is category-only — never shown as the tip text.
  */
 export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
   editorial({

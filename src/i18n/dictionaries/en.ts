@@ -147,6 +147,15 @@ export type Dictionary = {
     shared: string;
     copied: string;
     lineup: string;
+    opinion: {
+      heading: string;
+      speaker: string;
+      basedOn: string;
+      sourceJoin: string;
+      priceLabel: string;
+      priceSep: string;
+      priceFeel: Record<string, string>;
+    };
     shareVia: string;
     shareMore: string;
     shareWhatsapp: string;
@@ -499,6 +508,21 @@ export const en: Dictionary = {
     shared: "Shared!",
     copied: "Copied to clipboard",
     lineup: "Performers",
+    opinion: {
+      heading: "POP take",
+      speaker: "POP Events",
+      basedOn: "Based on {sources}",
+      sourceJoin: " · ",
+      priceLabel: "Price feel",
+      priceSep: " — ",
+      priceFeel: {
+        free: "Free entry",
+        budget: "Budget-friendly",
+        moderate: "Moderate",
+        upscale: "Upscale",
+        varies: "Prices vary",
+      },
+    },
     shareVia: "Share via",
     shareMore: "More",
     shareWhatsapp: "WhatsApp",

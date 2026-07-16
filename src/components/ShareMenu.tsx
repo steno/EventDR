@@ -33,7 +33,7 @@ interface ShareMenuProps {
 
 const SOCIAL: {
   id: SharePlatform;
-  labelKey: keyof Dictionary["detail"];
+  labelKey: "shareWhatsapp" | "shareFacebook" | "shareX" | "shareTelegram";
   well: string;
   icon: ReactNode;
 }[] = [
@@ -65,7 +65,7 @@ const SOCIAL: {
 
 const UTILITY: {
   id: SharePlatform;
-  labelKey: keyof Dictionary["detail"];
+  labelKey: "shareEmail" | "shareCopyLink";
   icon: ReactNode;
 }[] = [
   {

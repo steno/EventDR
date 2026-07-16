@@ -25,7 +25,7 @@ import {
   BadgeCheck,
   CircleDollarSign,
 } from "lucide-react";
-import type { Event, VenueAssessment } from "@/lib/types";
+import type { Event, EventOpinion } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import { getCategoryMeta } from "@/lib/categories";
@@ -40,10 +40,10 @@ import { useLiveStatusDisplay } from "@/hooks/useLiveStatusDisplay";
 import { EventStatusBadge } from "@/components/EventStatusBadge";
 import { EventImage } from "@/components/EventImage";
 import { EventDetailMedia, hasEventDetailHero } from "@/components/EventDetailMedia";
-import { VenueAssessmentBlock } from "@/components/VenueAssessmentBlock";
+import { EventOpinionBlock } from "@/components/EventOpinionBlock";
 import { resolveEventCoords } from "@/lib/event-coords";
 import { formatEventPlace } from "@/lib/event-location";
-import { getVenueAssessmentSync } from "@/lib/venue-assessments";
+import { areEventOpinionsEnabled, getEventOpinion, withGoogleRating, googleRatingFromAssessment } from "@/lib/event-opinions";
 import {
   resolveTicketUrl,
   isEventFree,
@@ -103,6 +103,8 @@ interface EventDetailSheetProps {
   recurrenceLabel?: string | null;
   /** Use h1 when this sheet is the primary page content (dedicated event route). */
   standalone?: boolean;
+  /** Optional approved draft / preloaded opinion (seed still wins via getEventOpinion). */
+  opinionOverride?: EventOpinion | null;
 }
 
 export function EventDetailSheet({
@@ -116,9 +118,17 @@ export function EventDetailSheet({
   formattedDateRange,
   recurrenceLabel: recurrenceLabelProp,
   standalone = false,
+  opinionOverride = null,
 }: EventDetailSheetProps) {
   const [shareMsg, setShareMsg] = useState<string | null>(null);
   const [openAction, setOpenAction] = useState<ActionMenu | null>(null);
+  const [fetchedOpinion, setFetchedOpinion] = useState<EventOpinion | null>(
+    null,
+  );
+  const [venueRating, setVenueRating] = useState<{
+    rating: number;
+    reviewCount?: number;
+  } | null>(null);
   const actionsRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
   const shareOpen = openAction === "share";
@@ -131,7 +141,67 @@ export function EventDetailSheet({
   useEffect(() => {
     setOpenAction(null);
     setShareMsg(null);
+    setFetchedOpinion(null);
+    setVenueRating(null);
   }, [event?.id]);
+
+  useEffect(() => {
+    if (!event || !areEventOpinionsEnabled()) return;
+
+    const seed = getEventOpinion(event);
+    const base = seed ?? opinionOverride ?? null;
+    // Always load opinion API when no seed — also when seed lacks ★ so ratings attach.
+    const needsFetch = !base || typeof base.googleRating !== "number";
+    if (!needsFetch && seed) return;
+
+    const controller = new AbortController();
+    const id = encodeURIComponent(event.id);
+
+    fetch(`/api/events/${id}/opinion`, { signal: controller.signal })
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data: { opinion?: EventOpinion | null } | null) => {
+        if (data?.opinion?.body) setFetchedOpinion(data.opinion);
+      })
+      .catch(() => {
+        /* ignore abort / network */
+      });
+
+    return () => controller.abort();
+  }, [event, opinionOverride]);
+
+  useEffect(() => {
+    if (!event || !areEventOpinionsEnabled()) return;
+    const slug =
+      event.venueSlug ??
+      matchVenueSlug(event.venue) ??
+      matchVenueSlug(event.location);
+    if (!slug) return;
+
+    const base =
+      getEventOpinion(event) ?? opinionOverride ?? fetchedOpinion;
+    if (base && typeof base.googleRating === "number") return;
+
+    const controller = new AbortController();
+    fetch(`/api/venues/${encodeURIComponent(slug)}/assessment`, {
+      signal: controller.signal,
+    })
+      .then((res) => (res.ok ? res.json() : null))
+      .then(
+        (data: {
+          assessment?: {
+            sources?: { kind: string; rating?: number; reviewCount?: number }[];
+          } | null;
+        } | null) => {
+          const rating = googleRatingFromAssessment(data?.assessment ?? null);
+          if (rating) setVenueRating(rating);
+        },
+      )
+      .catch(() => {
+        /* ignore */
+      });
+
+    return () => controller.abort();
+  }, [event, opinionOverride, fetchedOpinion]);
 
   useEffect(() => {
     if (!event || standalone) return;
@@ -207,30 +277,17 @@ export function EventDetailSheet({
       : formatRecurrenceLabel(event, locale, dict);
   const venueSlug =
     event.venueSlug ?? matchVenueSlug(event.venue) ?? matchVenueSlug(event.location);
-  const [venueAssessment, setVenueAssessment] = useState<VenueAssessment | null>(
-    () => getVenueAssessmentSync(venueSlug),
-  );
-
-  useEffect(() => {
-    setVenueAssessment(getVenueAssessmentSync(venueSlug));
-    if (!venueSlug) return;
-
-    let cancelled = false;
-    fetch(`/api/venues/${encodeURIComponent(venueSlug)}/assessment`)
-      .then((r) => (r.ok ? r.json() : null))
-      .then((data: { assessment?: VenueAssessment | null } | null) => {
-        if (cancelled) return;
-        if (data?.assessment) setVenueAssessment(data.assessment);
-      })
-      .catch(() => {
-        /* keep sync editorial seed */
-      });
-
-    return () => {
-      cancelled = true;
-    };
-  }, [venueSlug]);
-
+  const eventOpinionRaw =
+    // Prefer API opinion when it carries Google ★ (seed body + venue rating).
+    (fetchedOpinion && typeof fetchedOpinion.googleRating === "number"
+      ? fetchedOpinion
+      : null) ??
+    getEventOpinion(event) ??
+    opinionOverride ??
+    fetchedOpinion;
+  const eventOpinion = eventOpinionRaw
+    ? withGoogleRating(eventOpinionRaw, venueRating)
+    : null;
   const liveDisplay = useLiveStatusDisplay(event, dict);
   const liveStatus = liveDisplay?.status ?? null;
   const liveStatusLabel = liveDisplay?.label ?? null;
@@ -280,6 +337,15 @@ export function EventDetailSheet({
       </TitleTag>
 
       <p className="mt-4 text-copy">{event.description}</p>
+
+      {eventOpinion ? (
+        <EventOpinionBlock
+          opinion={eventOpinion}
+          dict={dict}
+          locale={locale}
+          className="mt-5 mb-1"
+        />
+      ) : null}
 
       <EventCategoryLinks
         event={event}
@@ -426,15 +492,6 @@ export function EventDetailSheet({
           </div>
         )}
       </div>
-
-      {venueAssessment ? (
-        <VenueAssessmentBlock
-          assessment={venueAssessment}
-          dict={dict}
-          heading={dict.venues.assessment.eventHeading}
-          className="mt-5 mb-1"
-        />
-      ) : null}
     </>
   );
 

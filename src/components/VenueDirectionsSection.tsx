@@ -48,6 +48,7 @@ export function VenueDirectionsSection({
   const geo = useGeolocation();
   const [startQuery, setStartQuery] = useState("");
   const [origin, setOrigin] = useState<EventCoords | null>(null);
+  const [originLabel, setOriginLabel] = useState<string | null>(null);
   const [route, setRoute] = useState<LatLngTuple[] | null>(null);
   const [routeMeta, setRouteMeta] = useState<{
     distance: string;
@@ -60,10 +61,11 @@ export function VenueDirectionsSection({
   const destination = { lat: venue.lat, lng: venue.lng };
 
   const applyRoute = useCallback(
-    async (from: EventCoords) => {
+    async (from: EventCoords, label: string) => {
       setLoading(true);
       setError(null);
       setOrigin(from);
+      setOriginLabel(label);
       try {
         const result = await fetchDrivingRoute(from, destination);
         if (!result) {
@@ -92,7 +94,7 @@ export function VenueDirectionsSection({
     if (geo.lat != null && geo.lng != null) {
       setPendingGeoRoute(false);
       setStartQuery("");
-      void applyRoute({ lat: geo.lat, lng: geo.lng });
+      void applyRoute({ lat: geo.lat, lng: geo.lng }, dict.venues.useMyLocation);
       return;
     }
 
@@ -110,6 +112,7 @@ export function VenueDirectionsSection({
     geo.error,
     geo.denied,
     applyRoute,
+    dict.venues.useMyLocation,
     dict.venues.locationDenied,
     dict.venues.routeError,
   ]);
@@ -118,7 +121,7 @@ export function VenueDirectionsSection({
     setError(null);
     if (geo.lat != null && geo.lng != null && !geo.loading) {
       setStartQuery("");
-      void applyRoute({ lat: geo.lat, lng: geo.lng });
+      void applyRoute({ lat: geo.lat, lng: geo.lng }, dict.venues.useMyLocation);
       return;
     }
     setPendingGeoRoute(true);
@@ -141,11 +144,13 @@ export function VenueDirectionsSection({
         setRoute(null);
         setRouteMeta(null);
         setOrigin(null);
+        setOriginLabel(null);
         setError(dict.venues.geocodeError);
         setLoading(false);
         return;
       }
-      await applyRoute(place);
+      setStartQuery(place.label);
+      await applyRoute(place, place.label);
     } catch {
       setError(dict.venues.geocodeError);
       setLoading(false);
@@ -153,6 +158,10 @@ export function VenueDirectionsSection({
   }
 
   const busy = loading || pendingGeoRoute;
+  const fieldLabel =
+    originLabel && routeMeta
+      ? `${originLabel} · ${routeMeta.distance}`
+      : originLabel ?? dict.venues.startingFrom;
 
   return (
     <section className="mb-6" aria-labelledby={`${inputId}-heading`}>
@@ -177,14 +186,17 @@ export function VenueDirectionsSection({
           htmlFor={inputId}
           className="block text-sm font-medium text-neutral-700 dark:text-neutral-300"
         >
-          {dict.venues.startingFrom}
+          {fieldLabel}
         </label>
         <div className="flex gap-2">
           <input
             id={inputId}
             type="text"
             value={startQuery}
-            onChange={(e) => setStartQuery(e.target.value)}
+            onChange={(e) => {
+              setStartQuery(e.target.value);
+              setOriginLabel(null);
+            }}
             placeholder={dict.venues.startingFromPlaceholder}
             autoComplete="street-address"
             className="min-w-0 flex-1 rounded-2xl border border-neutral-200 bg-white px-4 py-3 text-sm text-neutral-900 placeholder:text-neutral-400 outline-none transition focus:border-orange-300 focus:ring-2 focus:ring-orange-400/30 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-100 dark:placeholder:text-neutral-500 dark:focus:border-orange-500/50"
@@ -202,7 +214,7 @@ export function VenueDirectionsSection({
           </button>
         </div>
 
-        <div className="flex justify-center">
+        <div className="flex flex-wrap items-center gap-2">
           <button
             type="submit"
             disabled={busy}
@@ -214,7 +226,7 @@ export function VenueDirectionsSection({
         </div>
 
         {routeMeta ? (
-          <p className="text-center text-sm text-neutral-600 dark:text-neutral-400">
+          <p className="text-sm text-neutral-600 dark:text-neutral-400">
             {dict.venues.routeSummary
               .replace("{distance}", routeMeta.distance)
               .replace("{minutes}", String(routeMeta.minutes))}
@@ -223,7 +235,7 @@ export function VenueDirectionsSection({
 
         {error ? (
           <p
-            className="text-center text-sm text-rose-600 dark:text-rose-400"
+            className="text-sm text-rose-600 dark:text-rose-400"
             role="alert"
           >
             {error}

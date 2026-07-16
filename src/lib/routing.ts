@@ -2,14 +2,29 @@ import type { EventCoords } from "@/lib/event-coords";
 
 export type LatLngTuple = [number, number];
 
+export interface GeocodeResult extends EventCoords {
+  /** Short place label from Nominatim (name or first display_name parts). */
+  label: string;
+}
+
 interface RouteResult {
   coords: LatLngTuple[];
   distanceM: number;
   durationS: number;
 }
 
+function shortenPlaceLabel(displayName: string, name?: string): string {
+  const named = name?.trim();
+  if (named) return named;
+  const parts = displayName
+    .split(",")
+    .map((p) => p.trim())
+    .filter(Boolean);
+  return parts.slice(0, 2).join(", ") || displayName;
+}
+
 /** Geocode a free-text start point (Nominatim). Biased to Dominican Republic. */
-export async function geocodePlace(query: string): Promise<EventCoords | null> {
+export async function geocodePlace(query: string): Promise<GeocodeResult | null> {
   const trimmed = query.trim();
   if (!trimmed) return null;
 
@@ -27,14 +42,25 @@ export async function geocodePlace(query: string): Promise<EventCoords | null> {
   });
   if (!res.ok) return null;
 
-  const data = (await res.json()) as Array<{ lat: string; lon: string }>;
+  const data = (await res.json()) as Array<{
+    lat: string;
+    lon: string;
+    name?: string;
+    display_name?: string;
+  }>;
   const hit = data[0];
   if (!hit) return null;
 
   const lat = Number(hit.lat);
   const lng = Number(hit.lon);
   if (!Number.isFinite(lat) || !Number.isFinite(lng)) return null;
-  return { lat, lng };
+
+  const displayName = hit.display_name?.trim() || trimmed;
+  return {
+    lat,
+    lng,
+    label: shortenPlaceLabel(displayName, hit.name),
+  };
 }
 
 /** Driving route via public OSRM demo (no API key). */

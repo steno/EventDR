@@ -24,7 +24,11 @@ interface CalendarMenuProps {
 
 const PROVIDERS: {
   id: CalendarProvider;
-  labelKey: keyof Dictionary["detail"];
+  labelKey:
+    | "calendarGoogle"
+    | "calendarApple"
+    | "calendarOutlook"
+    | "calendarDownload";
   well: string;
   icon: ReactNode;
 }[] = [
