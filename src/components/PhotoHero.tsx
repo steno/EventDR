@@ -72,7 +72,7 @@ export function PhotoHero({
 
         <div className="relative z-10 flex min-h-[15.5rem] flex-col justify-end gap-3 px-4 pb-5 pt-10 sm:min-h-[12.5rem] sm:px-6 sm:pb-5 sm:pt-8">
           <div className="min-w-0">
-            <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-white/80 [text-shadow:0_1px_2px_rgba(0,0,0,0.45)]">
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-white/80 [text-shadow:0_1px_2px_rgba(0,0,0,0.45)]">
               {dict.seo.siteName}
             </p>
             <h1 className="mt-1 text-[2rem] font-black leading-[1.05] tracking-tight text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.4)] sm:text-5xl">
@@ -93,7 +93,7 @@ export function PhotoHero({
           {featuredEvent && eventHref && (
             <Link
               href={eventHref}
-              className="group inline-flex max-w-full items-center gap-2 text-sm font-bold text-white/90 [text-shadow:0_1px_2px_rgba(0,0,0,0.35)] transition-colors hover:text-white touch-manipulation"
+              className="group inline-flex max-w-full items-center gap-2 text-sm font-bold text-white/90 [text-shadow:0_1px_2px_rgba(0,0,0,0.35)] transition-colors hover:text-white touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400 focus-visible:rounded"
             >
               <span className="truncate underline-offset-2 group-hover:underline">
                 {featuredEvent.title}

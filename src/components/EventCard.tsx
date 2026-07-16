@@ -50,7 +50,7 @@ const EventCardComponent = ({
     >
       <Link
         href={href}
-        className="absolute inset-0 z-0 rounded-2xl touch-manipulation"
+        className="absolute inset-0 z-0 rounded-2xl touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
         aria-label={event.title}
       />
       <div className="relative z-[1] flex gap-3.5 text-left pointer-events-none">
@@ -81,7 +81,7 @@ const EventCardComponent = ({
               {event.title}
             </h3>
             {event.trending && !liveStatusLabel && (
-              <span className="flex-shrink-0 inline-flex items-center gap-0.5 rounded-full bg-orange-50 dark:bg-orange-950/50 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-orange-600">
+              <span className="flex-shrink-0 inline-flex items-center gap-0.5 rounded-full bg-orange-50 dark:bg-orange-950/50 px-2.5 py-1 text-xs font-bold uppercase tracking-wide text-orange-600">
                 <Flame className="h-3.5 w-3.5" />
                 {dict.events.hot}
               </span>

@@ -70,11 +70,11 @@ export function BottomNav({
               ) : (
                 <Icon className={`h-6 w-6 ${isActive ? "stroke-[2.5]" : "stroke-2"}`} />
               )}
-              <span className={`text-[11px] font-bold tracking-wide leading-tight ${isSubmit ? "text-orange-600" : ""}`}>
+              <span className={`text-xs font-bold tracking-wide leading-tight ${isSubmit ? "text-orange-600" : ""}`}>
                 {label}
               </span>
               {badge !== undefined && badge > 0 && (
-                <span className="absolute top-1 right-2 flex h-5 min-w-5 items-center justify-center rounded-full bg-orange-500 px-1.5 text-[11px] font-bold text-white shadow-sm">
+                <span className="absolute top-1 right-2 flex h-5 min-w-5 items-center justify-center rounded-full bg-orange-500 px-1.5 text-xs font-bold text-white shadow-sm">
                   {badge}
                 </span>
               )}

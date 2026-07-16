@@ -50,7 +50,7 @@ function TodayHighlightCard({
     <article className="group relative min-w-0 overflow-hidden rounded-2xl bg-neutral-100 shadow-[0_8px_24px_-14px_rgba(0,0,0,0.18)] ring-1 ring-black/5 transition-transform active:scale-[0.99] dark:bg-neutral-950 dark:shadow-[0_8px_24px_-14px_rgba(0,0,0,0.45)] dark:ring-white/10">
       <Link
         href={href}
-        className="relative block aspect-[3/2] w-full overflow-hidden touch-manipulation"
+        className="relative block aspect-[3/2] w-full overflow-hidden touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 rounded-2xl"
         aria-label={event.title}
       >
         {event.imageUrl ? (

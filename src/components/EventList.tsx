@@ -24,6 +24,7 @@ import { eventMatchesCity, type CitySlug } from "@/lib/cities";
 import { expectBootPart, readyBootPart } from "@/lib/boot-splash";
 import { scrollToListTop } from "@/lib/list-scroll";
 import { EventCard } from "./EventCard";
+import { EventCardSkeleton } from "./EventCardSkeleton";
 import { SearchEmptyState } from "./SearchEmptyState";
 import { TimeFilter } from "./TimeFilter";
 import { ListScrollAnchor } from "./StickyListFilters";
@@ -172,11 +173,15 @@ export function EventList({
 
   if (loading) {
     return (
-      <div className="flex flex-col items-center justify-center py-16 gap-3">
-        <Loader2 className="h-8 w-8 animate-spin text-neutral-300 dark:text-neutral-600" />
-        <p className="text-sm text-neutral-400 dark:text-neutral-500 font-medium">
-          {dict.events.loading}
-        </p>
+      <div className="space-y-4">
+        <div>
+          <div className="h-7 w-48 rounded bg-neutral-200 dark:bg-neutral-800 animate-pulse" />
+        </div>
+        <div className="space-y-3 pt-3">
+          {[...Array(3)].map((_, i) => (
+            <EventCardSkeleton key={i} />
+          ))}
+        </div>
       </div>
     );
   }

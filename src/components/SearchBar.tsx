@@ -16,7 +16,7 @@ const shellClassName =
   "flex items-center gap-1 rounded-full bg-white p-1 shadow-md ring-1 ring-neutral-300/90 backdrop-blur dark:bg-neutral-800 dark:ring-neutral-600 dark:shadow-black/30";
 
 const fieldClassName =
-  "min-w-0 flex-1 border-0 bg-transparent py-1 pl-1 pr-2.5 text-[11px] font-bold tracking-wide text-neutral-800 placeholder:text-neutral-500 focus:outline-none dark:text-neutral-200 dark:placeholder:text-neutral-400";
+  "min-w-0 flex-1 border-0 bg-transparent py-2 pl-1 pr-2.5 text-base font-semibold text-neutral-800 placeholder:text-neutral-500 focus:outline-none focus-visible:outline-none dark:text-neutral-200 dark:placeholder:text-neutral-400";
 
 export const SearchBar = forwardRef<HTMLInputElement, SearchBarProps>(
   function SearchBar({ value, onChange, dict, autoFocus }, ref) {
@@ -32,8 +32,8 @@ export const SearchBar = forwardRef<HTMLInputElement, SearchBarProps>(
 
     return (
       <div className={`${shellClassName} mb-4`}>
-        <span className="ml-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-neutral-500 dark:text-neutral-400">
-          <Search className="h-3.5 w-3.5" aria-hidden />
+        <span className="ml-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-neutral-500 dark:text-neutral-400">
+          <Search className="h-4 w-4" aria-hidden />
         </span>
         <input
           ref={(node) => {
