@@ -289,6 +289,7 @@ export const SEED_VENUES: Venue[] = [
     lng: -70.41,
     emoji: "💼",
     phone: "+18095710808",
+    website: "https://www.bluecoworking.com",
   },
   {
     slug: "ocean-world",
@@ -306,7 +307,7 @@ export const SEED_VENUES: Venue[] = [
   {
     slug: "sea-horse-ranch",
     name: "Sea Horse Ranch",
-    city: "Cabarete-Sosúa",
+    city: "Sosúa",
     description:
       "Residential resort and tennis club on Route 5 between Cabarete and Sosúa, hosting local markets and community gatherings.",
     lat: 19.7799532,
@@ -466,6 +467,7 @@ export const SEED_VENUES: Venue[] = [
     lng: -70.6936521,
     emoji: "🌸",
     website: "https://puertoplatadr.com/boulevard/paseo-dona-blanca/",
+    googlePlaceId: "ChIJJSAjF67vsY4RVxVDPdQbhZQ",
   },
   {
     slug: "calle-sombrillas",

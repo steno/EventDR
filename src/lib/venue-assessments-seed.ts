@@ -470,6 +470,7 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
   }),
   editorial({
     venueSlug: "paseo-dona-blanca",
+    googlePlaceId: "ChIJJSAjF67vsY4RVxVDPdQbhZQ",
     verdictKey: "popular_public_space",
     crowdFit: ["local", "visitor", "mixed"],
     axes: { recommend: 4.2, atmosphere: 4.3, value: 4.8, practical: 4.2 },

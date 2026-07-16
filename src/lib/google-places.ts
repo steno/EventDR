@@ -53,28 +53,98 @@ async function readError(res: Response): Promise<string> {
 
 /**
  * Resolve a Google place_id from venue name + optional coords.
- * Uses Places API (New) text search — only call from cron or cached loaders.
+ * Tries several query variants (aliases, ASCII fold, city splits).
  */
 export async function findPlaceId(
   name: string,
-  venue?: Pick<Venue, "lat" | "lng" | "city">,
+  venue?: Pick<Venue, "lat" | "lng" | "city" | "slug">,
 ): Promise<string | null> {
   const probed = await findPlaceIdWithStatus(name, venue);
   return probed.placeId ?? null;
 }
 
-export async function findPlaceIdWithStatus(
+function asciiFold(value: string): string {
+  return value
+    .normalize("NFD")
+    .replace(/\p{M}/gu, "")
+    .replace(/ü/gi, "u")
+    .replace(/ñ/gi, "n");
+}
+
+/** Extra Text Search queries when the seed name alone misses Google. */
+const PLACE_SEARCH_ALIASES: Record<string, string[]> = {
+  "cowork-cabarete": [
+    "Blue Coworking Cabarete",
+    "Blue Coworking Cabarete Dominican Republic",
+  ],
+  "pingui-bar": [
+    "Pingui Bar El Pueblito Puerto Plata",
+    "Pingui Bar Restaurant Playa El Pueblito Puerto Plata",
+    "Pingüi Bar Puerto Plata",
+  ],
+  "sea-horse-ranch": [
+    "Sea Horse Ranch Sosua Cabarete",
+    "Sea Horse Ranch Sosúa",
+    "Sea Horse Ranch Cabarete Dominican Republic",
+  ],
+  "paseo-dona-blanca": [
+    "Paseo de Doña Blanca Puerto Plata",
+    "Paseo Dona Blanca Puerto Plata",
+    "Calle Rosada Puerto Plata",
+  ],
+  "el-batey-sosua": [
+    "El Batey Sosua Dominican Republic",
+    "Pedro Clisante Sosua",
+  ],
+  "paella-pop-el-pueblito": [
+    "Paella POP Playa El Pueblito Puerto Plata",
+    "Paella POP El Pueblito",
+  ],
+};
+
+function buildPlaceQueries(
   name: string,
-  venue?: Pick<Venue, "lat" | "lng" | "city">,
-): Promise<{ placeId?: string; status?: number; error?: string }> {
-  const key = apiKey();
-  if (!key || !name.trim()) {
-    return { error: "GOOGLE_PLACES_API_KEY missing or empty name" };
+  venue?: Pick<Venue, "lat" | "lng" | "city" | "slug">,
+): string[] {
+  const queries: string[] = [];
+  const push = (q: string) => {
+    const t = q.trim();
+    if (t && !queries.includes(t)) queries.push(t);
+  };
+
+  const city = venue?.city?.trim() ?? "";
+  const cityParts = city
+    .split(/[-–,\/]| and /i)
+    .map((p) => p.trim())
+    .filter(Boolean);
+
+  push(`${name} ${city} Dominican Republic`.replace(/\s+/g, " "));
+  push(`${name} Dominican Republic`);
+  push(name);
+  for (const part of cityParts) {
+    push(`${name} ${part} Dominican Republic`);
+  }
+  push(asciiFold(`${name} ${city} Dominican Republic`));
+
+  if (venue?.slug && PLACE_SEARCH_ALIASES[venue.slug]) {
+    for (const alias of PLACE_SEARCH_ALIASES[venue.slug]) {
+      push(alias);
+      push(`${alias} Dominican Republic`);
+    }
   }
 
-  const query = venue?.city ? `${name} ${venue.city} Dominican Republic` : name;
+  return queries;
+}
+
+async function textSearchPlaceId(
+  textQuery: string,
+  venue?: Pick<Venue, "lat" | "lng">,
+): Promise<{ placeId?: string; status?: number; error?: string }> {
+  const key = apiKey();
+  if (!key) return { error: "GOOGLE_PLACES_API_KEY missing" };
+
   const body: Record<string, unknown> = {
-    textQuery: query,
+    textQuery,
     maxResultCount: 1,
     languageCode: "en",
   };
@@ -82,7 +152,7 @@ export async function findPlaceIdWithStatus(
     body.locationBias = {
       circle: {
         center: { latitude: venue.lat, longitude: venue.lng },
-        radius: 2000,
+        radius: 8000,
       },
     };
   }
@@ -119,6 +189,28 @@ export async function findPlaceIdWithStatus(
       error: err instanceof Error ? err.message : "Text Search network error",
     };
   }
+}
+
+export async function findPlaceIdWithStatus(
+  name: string,
+  venue?: Pick<Venue, "lat" | "lng" | "city" | "slug">,
+): Promise<{ placeId?: string; status?: number; error?: string }> {
+  if (!apiKey() || !name.trim()) {
+    return { error: "GOOGLE_PLACES_API_KEY missing or empty name" };
+  }
+
+  const queries = buildPlaceQueries(name, venue);
+  let lastError = "Text Search returned no places";
+  let lastStatus: number | undefined;
+
+  for (const query of queries) {
+    const result = await textSearchPlaceId(query, venue);
+    if (result.placeId) return result;
+    lastError = result.error ?? lastError;
+    lastStatus = result.status ?? lastStatus;
+  }
+
+  return { status: lastStatus, error: lastError };
 }
 
 function toSnippet(text: string, max = 140): string {
@@ -200,7 +292,7 @@ export async function fetchPlaceDetailsWithStatus(
 /** One-venue health check for ops / cron. */
 export async function probeGooglePlaces(
   name: string,
-  venue?: Pick<Venue, "lat" | "lng" | "city">,
+  venue?: Pick<Venue, "lat" | "lng" | "city" | "slug">,
 ): Promise<PlacesProbeResult> {
   if (!isGooglePlacesConfigured()) {
     return {

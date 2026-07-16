@@ -11,7 +11,7 @@ import {
 import { applyReviewSentiment } from "@/lib/venue-sentiment";
 
 /** Hide assessment UI below this confidence. */
-export const ASSESSMENT_CONFIDENCE_THRESHOLD = 0.35;
+export const ASSESSMENT_CONFIDENCE_THRESHOLD = 0.25;
 
 const PLACES_REVALIDATE_SECONDS = 60 * 60 * 24 * 7; // 7 days
 
@@ -142,7 +142,7 @@ async function loadVenueAssessment(
 
 const getCachedVenueAssessment = unstable_cache(
   (slug: string) => loadVenueAssessment(slug, true),
-  ["venue-assessment-sentiment-v2"],
+  ["venue-assessment-sentiment-v3"],
   { revalidate: PLACES_REVALIDATE_SECONDS, tags: ["venue-assessments"] },
 );
 
