@@ -23,6 +23,7 @@ import { attachEventImages } from "@/lib/event-images";
 import { eventMatchesCity, type CitySlug } from "@/lib/cities";
 import { expectBootPart, readyBootPart } from "@/lib/boot-splash";
 import { scrollToListTop } from "@/lib/list-scroll";
+import { fillTemplate } from "@/lib/seo";
 import { EventCard } from "./EventCard";
 import { EventCardSkeleton } from "./EventCardSkeleton";
 import { EventListScrollPads } from "./EventCardPlaceholder";
@@ -302,7 +303,13 @@ export function EventList({
             ))}
             <EventListScrollPads
               count={filtered.length}
-              label={dict.events.yourEventHere}
+              label={
+                category
+                  ? fillTemplate(dict.events.yourEventHere, {
+                      category: dict.categories[category],
+                    })
+                  : dict.events.yourEventHereGeneric
+              }
               onAddEvent={onAddEvent}
             />
           </div>

@@ -6,6 +6,9 @@ Curated images under `public/events/` and `public/venues/`. Prefer venue-accurat
 |-------|--------|-------|
 | `la-casita-papi-beach-dining.jpg` / `venues/la-casita-de-papi.jpg` | Restaurant Guru gallery — daytime beachfront tables facing Cabarete Bay | Replaces Liquid Blue Encuentro empty-beach reuse |
 | `liquid-blue-watersports-daily.jpg` / `venues/liquid-blue-cabarete.jpg` | [Liquid Blue Cabarete](https://www.lbcabarete.com/) — `IMG_9340` kite jump | Official LB action photo |
+| `brugal-rum-center-weekdays.jpg` | [Unsplash](https://unsplash.com/photos/photo-1551538827-9c037cb4f32a) (`photo-1551538827`) — Unsplash License | Caribbean rum pour / tasting action (venue keeps Casa Brugal exterior) |
+| `brugal-corporate-tours.jpg` | [Unsplash](https://unsplash.com/photos/photo-1470337458703-46ad1756a187) (`photo-1470337458703`) — Unsplash License | Guided tasting pour into rocks glass |
+| `venues/brugal-rum-center.jpg` | TripAdvisor — Casa Brugal entrance exterior | Building for venue page only |
 | `liquid-blue-sunrise-yoga.jpg` | [Unsplash](https://unsplash.com/photos/woman-in-black-tank-top-and-black-leggings-doing-yoga-JZ51oKoCghE) (`photo-1544367567`) — Unsplash License | Sunrise yoga by water; not surf aerial |
 | `sea-horse-saturday-market.jpg` | POP curated `CabareteFarmersMarket.JPG` — outdoor artisan/produce market | Replaces Sea Horse flyer graphic |
 | `smileys-saturday-live.jpg` / `venues/smileys-bar-sosua.jpg` | YouTube still — [Smiley's Courtyard Bar & Restaurant in Sosua](https://www.youtube.com/watch?v=WZHFtyXvELs) | Courtyard stage + Smiley's signage |
@@ -34,7 +37,7 @@ Curated images under `public/events/` and `public/venues/`. Prefer venue-accurat
 | `parada-tipica-el-choco-tuesday-live.jpg` / venue | [Unsplash](https://unsplash.com/photos/photo-1559339352-11d035aa65de) (`photo-1559339352`) — Unsplash License | Outdoor dining patio for Tuesday live |
 | `puerto-plata-golf-classic-2026.jpg` / `venues/playa-dorada-golf.jpg` | [Unsplash](https://unsplash.com/photos/photo-1535131749006-b7f58c99034b) (`photo-1535131749006`) — Unsplash License | Tropical golf fairway for Ashonorte Golf Classic |
 | `cac-games-surf-playa-encuentro-2026.jpg` / `venues/playa-encuentro.jpg` | [Unsplash](https://unsplash.com/photos/photo-1502680390469-be75c86b636f) (`photo-1502680390469`) — Unsplash License | Surf action for CAC Games Playa Encuentro |
-| `puerto-plata-beach-soccer-2026.jpg` / `venues/playa-los-charamicos.jpg` | [Unsplash](https://unsplash.com/photos/photo-1574629810360-7efbbe195018) (`photo-1574629810360`) — Unsplash License | Beach soccer energy for Los Charamicos tournament |
+| `puerto-plata-beach-soccer-2026.jpg` / `venues/playa-los-charamicos.jpg` | [Unsplash](https://unsplash.com/photos/photo-1543746746-46047c4f4bb0) (`photo-1543746746`) — Unsplash License | Soccer on sand with palms (replaces grass-pitch stock) |
 | `la-chabola-wednesday-open-mic.jpg` / `venues/la-chabola-cabarete.jpg` | [La Chabola Facebook](https://www.facebook.com/chabolacabaretee) — branded pizza cover | Venue-branded food hero for Wednesday open mic |
 | `groundzero-domingos-pal-pueblo.jpg` / `venues/ground-zero-disco.jpg` | [@groundzero_disco](https://www.instagram.com/groundzero_disco/p/DayWu9phE9R/) — Domingos Pal Pueblo flyer | Official Sunday party promo (kept as flyer by request) |
 | `cabarete-pilates-reformer.jpg` | [Unsplash](https://unsplash.com/photos/woman-does-pilates-exercise-on-a-reformer-machine--j3ARb-gTBo) (`photo-1754257320311`) — Unsplash License | Reformer studio action (replaces Rafaella logo) |
@@ -45,4 +48,11 @@ Curated images under `public/events/` and `public/venues/`. Prefer venue-accurat
 | `el-colibri-karaoke-battle-2026.jpg` | [Unsplash](https://unsplash.com/photos/photo-1514525253161) (`photo-1514525253161`) — Unsplash License | Concert crowd / stage energy (replaces karaoke flyer) |
 | `rumble-in-paradise-12.jpg` | [Unsplash](https://unsplash.com/photos/photo-1552072092) (`photo-1552072092`) — Unsplash License | Boxer walkout to the ring (replaces fight poster) |
 | `inicio-del-campamento-pp-2026.jpg` | [Unsplash](https://unsplash.com/photos/photo-1526232761682) (`photo-1526232761682`) — Unsplash License | Youth sports camp huddle (replaces podcast logo) |
-| Atléticos summer league games | POP curated `atleticos-pp-pitcher-2026.jpg` | Shared pitcher action (replaces opponent team portraits) |
+| `atleticos-pp-vs-capitanes-2026-07-11.jpg` | [Unsplash](https://unsplash.com/photos/120D4zeltRA) (`photo-1772651926702`) — Unsplash License | Pitcher on the mound |
+| `atleticos-pp-vs-mangueros-2026-07-17.jpg` | [Unsplash](https://unsplash.com/photos/qJOVKt8XB-I) (`photo-1776184046370`) — Unsplash License | Pitcher mid-delivery |
+| `atleticos-pp-vs-mineros-2026-07-31.jpg` | [Unsplash](https://unsplash.com/photos/OSlwtcCUgl4) (`photo-1768172239454`) — Unsplash License | Batter at the plate with catcher |
+| `atleticos-pp-vs-granjeros-2026-08-02.jpg` | [Unsplash](https://unsplash.com/photos/Kv9i1aIpi8Q) (`photo-1764570422378`) — Unsplash License | Batter swing / catcher ready |
+| `atleticos-pp-vs-bravos-2026-08-07.jpg` | [Unsplash](https://unsplash.com/photos/ZEyabAnRw0Y) (`photo-1774014045806`) — Unsplash License | Stadium game with crowd |
+| `atleticos-pp-vs-reales-2026-08-09.jpg` | [Unsplash](https://unsplash.com/photos/nM-2U13tFKU) (`photo-1745674191772`) — Unsplash License | Catcher crouch behind the plate |
+| `atleticos-pp-vs-arroceros-2026-08-22.jpg` | [Unsplash](https://unsplash.com/photos/IF31SVWetxw) (`photo-1771208934877`) — Unsplash License | Batter, catcher, and umpire |
+| `atleticos-pp-vs-capitanes-2026-08-28.jpg` | [Unsplash](https://unsplash.com/photos/kZ1n7gQ0SqA) (`photo-1763906315759`) — Unsplash License | Night baseball under lights |

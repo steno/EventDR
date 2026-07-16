@@ -14,8 +14,14 @@ const VENUE_SOURCES = [
     url: "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/12/e5/6b/d1.jpg",
   },
   {
+    // Caribbean rum tasting pour — event action (venue keeps Casa Brugal exterior).
     eventId: "brugal-rum-center-weekdays",
-    url: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0c/c6/9f/08/brugal-experience-entrance.jpg?w=1200&h=1200&s=1",
+    url: "https://images.unsplash.com/photo-1551538827-9c037cb4f32a?w=1800&q=85",
+  },
+  {
+    // Guided tasting pour into rocks glass — group/corporate visit action.
+    eventId: "brugal-corporate-tours",
+    url: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=1800&q=85",
   },
   {
     eventId: "del-oro-chocolate-factory-weekdays",
@@ -241,8 +247,42 @@ const VENUE_SOURCES = [
   },
   {
     // Beach soccer energy for Puerto Plata Beach Soccer at Los Charamicos.
+    // Beach soccer on sand (not grass pitch) for Puerto Plata Beach Soccer.
     eventId: "puerto-plata-beach-soccer-2026",
-    url: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=1800&q=85",
+    url: "https://images.unsplash.com/photo-1543746746-46047c4f4bb0?w=1800&q=85",
+  },
+  // Atléticos summer league — unique baseball action per home game (Unsplash License).
+  {
+    eventId: "atleticos-pp-vs-capitanes-2026-07-11",
+    url: "https://images.unsplash.com/photo-1772651926702-bdd74f367d87?w=1800&q=85",
+  },
+  {
+    eventId: "atleticos-pp-vs-mangueros-2026-07-17",
+    url: "https://images.unsplash.com/photo-1776184046370-1b38b855040c?w=1800&q=85",
+  },
+  {
+    eventId: "atleticos-pp-vs-mineros-2026-07-31",
+    url: "https://images.unsplash.com/photo-1768172239454-3e00d897cba0?w=1800&q=85",
+  },
+  {
+    eventId: "atleticos-pp-vs-granjeros-2026-08-02",
+    url: "https://images.unsplash.com/photo-1764570422378-15544d67e49b?w=1800&q=85",
+  },
+  {
+    eventId: "atleticos-pp-vs-bravos-2026-08-07",
+    url: "https://images.unsplash.com/photo-1774014045806-b9f32c82d670?w=1800&q=85",
+  },
+  {
+    eventId: "atleticos-pp-vs-reales-2026-08-09",
+    url: "https://images.unsplash.com/photo-1745674191772-1c63d904d020?w=1800&q=85",
+  },
+  {
+    eventId: "atleticos-pp-vs-arroceros-2026-08-22",
+    url: "https://images.unsplash.com/photo-1771208934877-abc1add680e2?w=1800&q=85",
+  },
+  {
+    eventId: "atleticos-pp-vs-capitanes-2026-08-28",
+    url: "https://images.unsplash.com/photo-1763906315759-c903168abea9?w=1800&q=85",
   },
   // --- Jul 2026 Facebook/Instagram ingest seeds ---
   // la-chabola-wednesday-open-mic.jpg — branded pizza cover from facebook.com/chabolacabaretee

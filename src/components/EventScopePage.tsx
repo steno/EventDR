@@ -201,6 +201,7 @@ export function EventScopePage({
             initialExpanded={initialExpanded}
             onAddEvent={() => setSubmitOpen(true)}
             addEventLabel={addEventLabel}
+            categoryId={categoryId}
             locationPicker={
               showLocationPicker ? (
                 <CityLocationPicker

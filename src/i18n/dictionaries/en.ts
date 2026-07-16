@@ -48,6 +48,8 @@ export type Dictionary = {
     noEvents: string;
     allCategories: string;
     allCategoriesIntro: string;
+    /** Pill that clears category scope and shows every event in the area. */
+    allEvents: string;
     /** Home: reopen category pills after the first area pick. */
     browseCategories: string;
   };
@@ -68,12 +70,17 @@ export type Dictionary = {
     hiddenGems: string;
     mostPopular: string;
     moreEvents: string;
-    /** Short-list ghost card inviting submissions. */
+    /** Short-list ghost card inviting submissions. Use `{category}` when scoped. */
     yourEventHere: string;
+    /** Ghost card when browsing all events (no category scope). */
+    yourEventHereGeneric: string;
     hot: string;
     nearMe: string;
     nearMeOn: string;
     sortedUpcoming: string;
+    viewMode: string;
+    viewList: string;
+    viewCards: string;
     ourPicks: string;
     happeningToday: string;
     seeAllToday: string;
@@ -360,6 +367,7 @@ export const en: Dictionary = {
     noEvents: "No events in this category yet.",
     allCategories: "All categories",
     allCategoriesIntro: "Find events by vibe — music, parties, sports, and more across the North Coast.",
+    allEvents: "All Events",
     browseCategories: "See what’s on",
   },
   events: {
@@ -380,11 +388,15 @@ export const en: Dictionary = {
     hiddenGems: "Local picks — the events you won't find on big ticket sites",
     mostPopular: "Most popular",
     moreEvents: "More events",
-    yourEventHere: "Your event here?",
+    yourEventHere: "Add {category} Event here",
+    yourEventHereGeneric: "Add your event here",
     hot: "Hot",
     nearMe: "Near me",
     nearMeOn: "Sorted by distance",
     sortedUpcoming: "Live & soonest first",
+    viewMode: "Event layout",
+    viewList: "List",
+    viewCards: "Cards",
     ourPicks: "Our picks",
     happeningToday: "Happening today",
     seeAllToday: "See all today",

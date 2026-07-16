@@ -20,11 +20,12 @@ import { StickyListFilters, ListScrollAnchor } from "@/components/StickyListFilt
 import { TimeFilter } from "@/components/TimeFilter";
 import { EventCard } from "@/components/EventCard";
 import { EventListScrollPads } from "@/components/EventCardPlaceholder";
+import { EventViewToggle } from "@/components/EventViewToggle";
 import { SearchEmptyState } from "@/components/SearchEmptyState";
 import { VenueStrip } from "@/components/VenueStrip";
 import { AddEventButton } from "@/components/AddEventButton";
-
-const UNBOUNDED = Number.POSITIVE_INFINITY;
+import { useEventListView } from "@/hooks/useEventListView";
+import { fillTemplate } from "@/lib/seo";
 
 /** Scope/venue lists show the full upcoming schedule; home Our picks matches that. */
 const DEFAULT_SCOPE_TIME_RANGE: FilterTimeRange = "all";
@@ -50,6 +51,8 @@ interface FilteredEventListProps {
   pageSize?: number;
   /** Renders above time tabs inside the sticky filter bar (e.g. city picker). */
   locationPicker?: ReactNode;
+  /** When set, ghost pads invite “Add {category} Event here”. */
+  categoryId?: Event["category"];
 }
 
 export function FilteredEventList({
@@ -68,8 +71,10 @@ export function FilteredEventList({
   limit = SCOPE_LIST_LIMIT,
   pageSize = LIST_PAGE_SIZE,
   locationPicker,
+  categoryId,
 }: FilteredEventListProps) {
   const pathname = usePathname();
+  const { view, setView } = useEventListView();
   const [timeRange, setTimeRange] = useState<FilterTimeRange>(
     fixedTimeRange ?? defaultTimeRange,
   );
@@ -175,14 +180,18 @@ export function FilteredEventList({
         </>
       ) : null}
 
-      {sectionTitle && (
-        <div className="flex items-baseline justify-between gap-2 mb-3">
-          <h2 className="text-xs font-bold uppercase tracking-widest text-neutral-400">
-            {sectionTitle}
-          </h2>
-          <span className="text-[10px] font-semibold text-neutral-400 shrink-0">
-            {dict.events.sortedUpcoming}
-          </span>
+      {(sectionTitle || (!loading && events.length > 0)) && (
+        <div className="mb-3 flex items-center justify-between gap-2">
+          {sectionTitle ? (
+            <h2 className="min-w-0 text-xs font-bold uppercase tracking-widest text-neutral-400">
+              {sectionTitle}
+            </h2>
+          ) : (
+            <span className="min-w-0 text-[10px] font-semibold text-neutral-400">
+              {dict.events.sortedUpcoming}
+            </span>
+          )}
+          <EventViewToggle value={view} onChange={setView} dict={dict} />
         </div>
       )}
 
@@ -205,7 +214,13 @@ export function FilteredEventList({
         />
       ) : (
         <>
-          <div className="space-y-3.5">
+          <div
+            className={
+              view === "cards"
+                ? "grid grid-cols-2 items-stretch gap-2.5 sm:gap-3 lg:grid-cols-3"
+                : "space-y-3.5"
+            }
+          >
             {visibleEvents.map((event) => (
               <EventCard
                 key={event.id}
@@ -214,13 +229,21 @@ export function FilteredEventList({
                 locale={locale}
                 returnTo={returnTo}
                 listTimeRange={fixedTimeRange ?? timeRange}
+                view={view}
               />
             ))}
             {/* Pad short tabs so scroll-to-filter-top has enough document height. */}
             <EventListScrollPads
               count={filtered.length}
-              label={dict.events.yourEventHere}
+              label={
+                categoryId
+                  ? fillTemplate(dict.events.yourEventHere, {
+                      category: dict.categories[categoryId],
+                    })
+                  : dict.events.yourEventHereGeneric
+              }
               onAddEvent={onAddEvent}
+              view={view}
             />
           </div>
           {hasMore && (

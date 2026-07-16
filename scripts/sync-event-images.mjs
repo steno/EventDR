@@ -35,14 +35,22 @@ const FILE_TO_EVENT_ID = {
   "freestyle-catamaran-daily.jpg": "freestyle-catamaran-daily",
   "womens-reconnection-kite-camp-2026.jpg": "womens-reconnection-kite-camp-2026",
   "brugal-rum-center-weekdays.jpg": "brugal-rum-center-weekdays",
+  "brugal-corporate-tours.jpg": "brugal-corporate-tours",
   "del-oro-chocolate-factory-weekdays.jpg": "del-oro-chocolate-factory-weekdays",
   "hacienda-cufa-cacao-tour.jpg": "hacienda-cufa-cacao-tour",
   "tabacalera-cremo-factory-tour.jpg": "tabacalera-cremo-factory-tour",
   "tabacalera-cremo-rolling-experience.jpg": "tabacalera-cremo-rolling-experience",
   "vivonte-cigar-factory-weekdays.jpg": "vivonte-cigar-factory-weekdays",
   "lil-naay-2026-07-17.jpg": "lil-naay-2026-07-17",
-  // Atléticos games share pitcher action (not opponent team portraits).
-  "atleticos-pp-pitcher-2026.jpg": "atleticos-pp-vs-mangueros-2026-07-17",
+  // Atléticos summer league — unique Unsplash baseball action per home game.
+  "atleticos-pp-vs-capitanes-2026-07-11.jpg": "atleticos-pp-vs-capitanes-2026-07-11",
+  "atleticos-pp-vs-mangueros-2026-07-17.jpg": "atleticos-pp-vs-mangueros-2026-07-17",
+  "atleticos-pp-vs-mineros-2026-07-31.jpg": "atleticos-pp-vs-mineros-2026-07-31",
+  "atleticos-pp-vs-granjeros-2026-08-02.jpg": "atleticos-pp-vs-granjeros-2026-08-02",
+  "atleticos-pp-vs-bravos-2026-08-07.jpg": "atleticos-pp-vs-bravos-2026-08-07",
+  "atleticos-pp-vs-reales-2026-08-09.jpg": "atleticos-pp-vs-reales-2026-08-09",
+  "atleticos-pp-vs-arroceros-2026-08-22.jpg": "atleticos-pp-vs-arroceros-2026-08-22",
+  "atleticos-pp-vs-capitanes-2026-08-28.jpg": "atleticos-pp-vs-capitanes-2026-08-28",
 
   // --- Logo → action shot replacements ({eventId}.jpg from fetch) ---
   "cabarete-pilates-reformer.jpg": "cabarete-pilates-reformer",
@@ -131,14 +139,6 @@ const SAME_VENUE_COPIES = [
   ["voyvoy-monday-live-music.jpg", "voyvoy-monday-live-music"],
   ["del-oro-chocolate-factory-weekdays.jpg", "del-oro-chocolate-factory-saturday"],
   ["vivonte-cigar-factory-weekdays.jpg", "vivonte-cigar-factory-saturday"],
-  // Atléticos summer league — shared pitcher action across all home games.
-  ["atleticos-pp-pitcher-2026.jpg", "atleticos-pp-vs-capitanes-2026-07-11"],
-  ["atleticos-pp-pitcher-2026.jpg", "atleticos-pp-vs-mineros-2026-07-31"],
-  ["atleticos-pp-pitcher-2026.jpg", "atleticos-pp-vs-granjeros-2026-08-02"],
-  ["atleticos-pp-pitcher-2026.jpg", "atleticos-pp-vs-bravos-2026-08-07"],
-  ["atleticos-pp-pitcher-2026.jpg", "atleticos-pp-vs-reales-2026-08-09"],
-  ["atleticos-pp-pitcher-2026.jpg", "atleticos-pp-vs-arroceros-2026-08-22"],
-  ["atleticos-pp-pitcher-2026.jpg", "atleticos-pp-vs-capitanes-2026-08-28"],
 ];
 
 /** popevent-images filename → venue slug (copied to public/venues/). */

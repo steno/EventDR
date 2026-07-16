@@ -151,9 +151,19 @@ export function CityLocationPicker({
     router.push(`/${locale}/city/${slug}`, { scroll: false });
   }
 
+  const optionClassName = (selected: boolean) => `
+    flex min-h-11 w-full items-center px-4 py-3 text-left text-base font-bold
+    transition-colors touch-manipulation sm:min-h-0 sm:py-2.5 sm:text-sm
+    ${
+      selected
+        ? "bg-orange-50 text-orange-700 dark:bg-orange-950/40 dark:text-orange-300"
+        : "text-neutral-800 hover:bg-neutral-50 dark:text-neutral-100 dark:hover:bg-neutral-800"
+    }
+  `;
+
   return (
-    <div ref={rootRef} className="mb-0">
-      <div className="relative flex flex-wrap items-baseline justify-start gap-x-1.5 gap-y-0">
+    <div ref={rootRef} className="mb-0 w-full">
+      <div className="relative flex w-full flex-wrap items-baseline justify-start gap-x-1.5 gap-y-0">
         {categoryPrefix && (
           <p className="text-[1.35rem] leading-snug text-neutral-800 dark:text-neutral-200">
             {category?.emoji ? (
@@ -173,15 +183,16 @@ export function CityLocationPicker({
           aria-label={listboxLabel}
           onClick={toggleOpen}
           className="
-            inline-flex max-w-full items-center gap-0.5
-            text-left text-[1.35rem] font-black leading-snug tracking-tight
+            inline-flex w-full max-w-full items-center justify-between gap-2
+            py-0.5 text-left text-[1.35rem] font-black leading-snug tracking-tight
             text-orange-600 transition-colors
             hover:text-rose-600 active:scale-[0.99] touch-manipulation
             dark:text-orange-400 dark:hover:text-rose-400
             focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 rounded
+            sm:w-auto sm:justify-start sm:gap-0.5 sm:py-0
           "
         >
-          <span className="truncate">{currentLabel}</span>
+          <span className="min-w-0 truncate">{currentLabel}</span>
           <ChevronDown
             className={`h-4 w-4 shrink-0 opacity-80 transition-transform ${open ? "rotate-180" : ""}`}
             aria-hidden
@@ -195,9 +206,10 @@ export function CityLocationPicker({
             role="listbox"
             aria-label={listboxLabel}
             className={`
-              absolute left-0 z-50 min-w-[14rem] overflow-hidden rounded-2xl
+              absolute inset-x-0 z-50 w-full overflow-hidden rounded-2xl
               border border-neutral-200 bg-white py-1.5 shadow-[0_16px_40px_-20px_rgba(0,0,0,0.45)]
               dark:border-neutral-700 dark:bg-neutral-900
+              sm:inset-x-auto sm:left-0 sm:w-auto sm:min-w-[14rem]
               ${openUpward ? "bottom-full mb-2" : "top-full mt-1.5"}
             `}
           >
@@ -205,15 +217,7 @@ export function CityLocationPicker({
               <button
                 type="button"
                 onClick={() => goTo(null)}
-                className={`
-                  flex w-full px-4 py-2.5 text-left text-sm font-bold
-                  transition-colors touch-manipulation
-                  ${
-                    regionSelected
-                      ? "bg-orange-50 text-orange-700 dark:bg-orange-950/40 dark:text-orange-300"
-                      : "text-neutral-800 hover:bg-neutral-50 dark:text-neutral-100 dark:hover:bg-neutral-800"
-                  }
-                `}
+                className={optionClassName(regionSelected)}
               >
                 {dict.cities.regionName}
               </button>
@@ -225,15 +229,7 @@ export function CityLocationPicker({
                   <button
                     type="button"
                     onClick={() => goTo(city.slug)}
-                    className={`
-                      flex w-full px-4 py-2.5 text-left text-sm font-bold
-                      transition-colors touch-manipulation
-                      ${
-                        selected
-                          ? "bg-orange-50 text-orange-700 dark:bg-orange-950/40 dark:text-orange-300"
-                          : "text-neutral-800 hover:bg-neutral-50 dark:text-neutral-100 dark:hover:bg-neutral-800"
-                      }
-                    `}
+                    className={optionClassName(selected)}
                   >
                     {getCityName(city, locale)}
                   </button>
