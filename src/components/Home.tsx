@@ -244,25 +244,29 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
               </div>
               {!isSearching && (
                 <div className="mb-6 rounded-2xl border border-neutral-200/80 bg-white/60 px-4 py-3 dark:border-neutral-800/80 dark:bg-neutral-900/40 sm:mb-8 sm:px-5 sm:py-3.5 lg:mb-8">
-                  <CityLocationPicker
-                    locale={locale}
-                    dict={dict}
-                    currentSlug={selectedCity}
-                    emptyLabel={areaChosen ? undefined : dict.cities.chooseArea}
-                    onSelect={setArea}
-                  />
+                  <div className="flex items-center gap-2">
+                    <div className="min-w-0 flex-1">
+                      <CityLocationPicker
+                        locale={locale}
+                        dict={dict}
+                        currentSlug={selectedCity}
+                        emptyLabel={areaChosen ? undefined : dict.cities.chooseArea}
+                        onSelect={setArea}
+                      />
+                    </div>
+                    {areaChosen && categoriesOpen && (
+                      <button
+                        type="button"
+                        onClick={handleCategorySelect}
+                        aria-label={dict.detail.close}
+                        className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-neutral-500 transition-colors touch-manipulation hover:bg-neutral-100 hover:text-neutral-800 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:hover:text-neutral-100"
+                      >
+                        <X className="h-4 w-4" strokeWidth={2.5} aria-hidden />
+                      </button>
+                    )}
+                  </div>
                   {areaChosen && categoriesOpen && (
                     <div className="mt-2.5 animate-in">
-                      <div className="mb-2 flex items-center justify-end">
-                        <button
-                          type="button"
-                          onClick={handleCategorySelect}
-                          aria-label={dict.detail.close}
-                          className="inline-flex h-8 w-8 items-center justify-center rounded-full text-neutral-500 transition-colors touch-manipulation hover:bg-neutral-100 hover:text-neutral-800 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:hover:text-neutral-100"
-                        >
-                          <X className="h-4 w-4" strokeWidth={2.5} aria-hidden />
-                        </button>
-                      </div>
                       <CategoryGrid
                         locale={locale}
                         dict={dict}
