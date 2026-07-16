@@ -36,6 +36,15 @@ OPENAI_API_KEY=sk-your-openai-key
 OPENAI_MODEL=gpt-4o-mini
 ```
 
+### Optional: Venue tips (Google Places sentiment)
+
+```bash
+GOOGLE_PLACES_API_KEY=your-places-api-key
+NEXT_PUBLIC_VENUE_ASSESSMENTS_ENABLED=true
+```
+
+Used server-side to blend POP editorial tips with Google review ratings/text. Restrict the key to **Places API** only; leave application restriction as **None** (Netlify server calls).
+
 ### Optional: Push Notifications
 
 ```bash

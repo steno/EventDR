@@ -4,6 +4,7 @@ import {
   useCallback,
   useDeferredValue,
   useEffect,
+  useLayoutEffect,
   useMemo,
   useState,
 } from "react";
@@ -58,25 +59,44 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
   const [submitOpen, setSubmitOpen] = useState(false);
   const [allEvents, setAllEvents] = useState<Event[]>([]);
   const [refreshKey, setRefreshKey] = useState(0);
+  /** Session city applied before paint when the URL is bare `/[locale]`. */
+  const [restoredArea, setRestoredArea] = useState<{
+    city: CitySlug | null;
+    areaChosen: boolean;
+  } | null>(null);
 
-  const { city: selectedCity, areaChosen } = useMemo(
+  const urlArea = useMemo(
     () => parseHomeCityParam(searchParams.get("city")),
     [searchParams],
   );
 
   // Restore a remembered city when a content back link lands on bare `/[locale]`.
-  // Bare home (no ?city=) means North Coast — no prompt to choose.
-  useEffect(() => {
-    if (searchParams.get("city")) return;
+  // Apply state + history before paint; avoid router.replace (extra RSC = second load).
+  useLayoutEffect(() => {
+    if (searchParams.get("city")) {
+      setRestoredArea(null);
+      return;
+    }
     const stored = readHomeArea();
-    if (!stored.areaChosen || stored.city == null) return;
-    router.replace(homePathWithArea(locale, stored.city, true), {
-      scroll: false,
-    });
-  }, [locale, router, searchParams]);
+    if (!stored.areaChosen || stored.city == null) {
+      setRestoredArea(null);
+      return;
+    }
+    setRestoredArea(stored);
+    const href = homePathWithArea(locale, stored.city, true);
+    window.history.replaceState(window.history.state ?? null, "", href);
+  }, [locale, searchParams]);
+
+  const selectedCity = urlArea.areaChosen
+    ? urlArea.city
+    : restoredArea?.areaChosen
+      ? restoredArea.city
+      : urlArea.city;
+  const areaChosen = urlArea.areaChosen || Boolean(restoredArea?.areaChosen);
 
   const setArea = useCallback(
     (slug: CitySlug | null) => {
+      setRestoredArea(null);
       const params = new URLSearchParams(searchParams.toString());
       params.set("city", slug ?? HOME_CITY_ALL);
       const qs = params.toString();
@@ -165,7 +185,10 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
             onLogoClick={() => {
               setTab("discover");
               setSearchQuery("");
-              if (searchParams.get("city")) {
+              setRestoredArea(null);
+              // URL may already show ?city= from history.replaceState while
+              // Next searchParams are still bare — always reset to fresh home.
+              if (searchParams.get("city") || restoredArea?.areaChosen) {
                 router.replace(`/${locale}`, { scroll: false });
               }
             }}

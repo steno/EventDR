@@ -36,6 +36,65 @@ export interface Venue {
   website?: string;
   /** E.164 or local DR number for click-to-call. */
   phone?: string;
+  /** Google Places place_id when confirmed (assessments / enricher). */
+  googlePlaceId?: string;
+}
+
+/** Crowd fit for venue assessments — aligns with home local/visitor pools. */
+export type CrowdFit =
+  | "local"
+  | "visitor"
+  | "mixed"
+  | "family"
+  | "nightlife";
+
+export type AssessmentAxis =
+  | "recommend"
+  | "value"
+  | "atmosphere"
+  | "reliability"
+  | "practical";
+
+export type AssessmentSourceKind =
+  | "google_places"
+  | "editorial"
+  | "pop_pulse"
+  | "social_mention";
+
+export interface AssessmentSource {
+  kind: AssessmentSourceKind;
+  /** e.g. Google place_id, "home-layout:visitor" */
+  ref?: string;
+  label: string;
+  rating?: number;
+  reviewCount?: number;
+  fetchedAt?: string;
+  /** Short attributed snippets — never full review dumps. */
+  snippets?: string[];
+}
+
+export interface AssessmentTheme {
+  /** i18n key under venues.assessment.themes */
+  key: string;
+  sentiment: "positive" | "mixed" | "negative" | "neutral";
+  audience?: CrowdFit;
+}
+
+export interface VenueAssessment {
+  venueSlug: string;
+  /** 0–1; UI hidden below ASSESSMENT_CONFIDENCE_THRESHOLD */
+  confidence: number;
+  /** i18n key under venues.assessment.verdicts */
+  verdictKey: string;
+  crowdFit: CrowdFit[];
+  /** Sparse 1–5 scores; omit axes with no evidence */
+  axes: Partial<Record<AssessmentAxis, number>>;
+  themes: AssessmentTheme[];
+  sources: AssessmentSource[];
+  googlePlaceId?: string;
+  updatedAt: string;
+  /** Who last wrote this: "seed" | "cron:places" | "admin" */
+  updatedBy: string;
 }
 
 export type EventRecurrence = "daily" | "weekly" | "weekdays" | "weekends";

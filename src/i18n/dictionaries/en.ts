@@ -269,6 +269,33 @@ export type Dictionary = {
     visitorHint: string;
     eventsAt: string;
     noEvents: string;
+    howToGetThere: string;
+    startingFrom: string;
+    startingFromPlaceholder: string;
+    startingFromRequired: string;
+    useMyLocation: string;
+    getDirections: string;
+    routeLoading: string;
+    routeError: string;
+    routeSummary: string;
+    locationDenied: string;
+    geocodeError: string;
+    assessment: {
+      heading: string;
+      /** Event detail: same snapshot framed as venue context */
+      eventHeading: string;
+      speaker: string;
+      basedOn: string;
+      googleSource: string;
+      editorialSource: string;
+      sourceJoin: string;
+      themeLead: string;
+      themeJoin: string;
+      themeAnd: string;
+      crowd: Record<string, string>;
+      verdicts: Record<string, string>;
+      themes: Record<string, string>;
+    };
   };
   push: {
     title: string;
@@ -595,6 +622,95 @@ export const en: Dictionary = {
     visitorHint: "Beach bars, resorts, and classic visitor spots",
     eventsAt: "Upcoming events",
     noEvents: "No upcoming events at this venue yet.",
+    howToGetThere: "How to get there",
+    startingFrom: "Where are you starting from?",
+    startingFromPlaceholder: "Hotel, address, or neighborhood…",
+    startingFromRequired: "Enter a starting place or use your location.",
+    useMyLocation: "Near me",
+    getDirections: "Get directions",
+    routeLoading: "Finding route…",
+    routeError: "Couldn't draw a route. Try Open in Maps instead.",
+    routeSummary: "About {distance} · {minutes} min drive",
+    locationDenied: "Location access was denied. Enter a starting place instead.",
+    geocodeError: "Couldn't find that place. Try a clearer address nearby.",
+    assessment: {
+      heading: "Tip",
+      eventHeading: "Venue tip",
+      speaker: "POP Events",
+      basedOn: "Based on {sources}",
+      googleSource: "Google reviews ({rating} · {count})",
+      editorialSource: "local North Coast intel",
+      sourceJoin: " + ",
+      themeLead: "Think {themes}.",
+      themeJoin: ", ",
+      themeAnd: ", and ",
+      crowd: {
+        local: "Locals",
+        visitor: "Visitors",
+        mixed: "Mixed crowd",
+        family: "Families",
+        nightlife: "Nightlife",
+      },
+      verdicts: {
+        strong_visitor_nightlife:
+          "Visitors keep ending up here for a night out — and honestly, we get why.",
+        strong_visitor_beach:
+          "When guests ask for a beach pick, this is one we actually send people to.",
+        strong_local_nightlife:
+          "Ask a local where the night really happens — this place comes up a lot.",
+        strong_local_food:
+          "This is the kind of food spot locals recommend to each other, not just to tourists.",
+        strong_mixed_food_nightlife:
+          "Come hungry, stay for the night — it works for both crowds.",
+        solid_visitor_activity:
+          "A solid stop when you're mapping out a visitor day and want something that delivers.",
+        solid_local_culture:
+          "Worth the culture stop if you're curious beyond the beach circuit.",
+        popular_public_space:
+          "Open, busy, and hard to miss — a public spot people actually use.",
+        reliable_visitor_pick:
+          "Not the flashiest option — just a reliably good call when visitors need a sure thing.",
+        local_favorite_night:
+          "Local night-out energy. If that's what you came for, start here.",
+      },
+      themes: {
+        sunset_views: "sunset views",
+        live_music: "live music",
+        busy_weekends: "busy weekends",
+        easy_to_find: "easy to find",
+        loud_late: "loud after late",
+        dominican_plates: "Dominican plates",
+        beachfront: "beachfront vibes",
+        kite_scene: "kite scene energy",
+        family_friendly: "family-friendly pace",
+        tourist_crowds: "tourist crowds",
+        dance_floor: "a real dance floor",
+        expat_crowd: "an expat crowd",
+        good_for_guests: "easy for hotel guests",
+        water_sports: "water sports",
+        free_access: "free access",
+        ocean_views: "ocean views",
+        resort_shows: "resort shows",
+        food_park_vibe: "food-park energy",
+        heritage_site: "heritage vibes",
+        adventure_park: "adventure-park thrills",
+        rum_tasting: "rum tasting",
+        cigar_tour: "a cigar tour",
+        museum_visit: "a museum visit",
+        surf_break: "a surf break",
+        golf_course: "a golf course",
+        karaoke: "karaoke",
+        workshop: "a hands-on workshop",
+        boat_trip: "a boat trip",
+        baseball: "baseball",
+        snorkeling: "snorkeling",
+        photo_spot: "photo ops",
+        chocolate_tour: "a chocolate tour",
+        countryside: "countryside vibes",
+        cowork_space: "cowork space",
+        open_mic: "open mic nights",
+      },
+    },
   },
   push: {
     title: "Weekend alerts",

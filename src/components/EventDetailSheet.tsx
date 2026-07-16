@@ -40,8 +40,10 @@ import { useLiveStatusDisplay } from "@/hooks/useLiveStatusDisplay";
 import { EventStatusBadge } from "@/components/EventStatusBadge";
 import { EventImage } from "@/components/EventImage";
 import { EventDetailMedia, hasEventDetailHero } from "@/components/EventDetailMedia";
+import { VenueAssessmentBlock } from "@/components/VenueAssessmentBlock";
 import { resolveEventCoords } from "@/lib/event-coords";
 import { formatEventPlace } from "@/lib/event-location";
+import { getVenueAssessmentSync } from "@/lib/venue-assessments";
 import {
   resolveTicketUrl,
   isEventFree,
@@ -205,6 +207,7 @@ export function EventDetailSheet({
       : formatRecurrenceLabel(event, locale, dict);
   const venueSlug =
     event.venueSlug ?? matchVenueSlug(event.venue) ?? matchVenueSlug(event.location);
+  const venueAssessment = getVenueAssessmentSync(venueSlug);
   const liveDisplay = useLiveStatusDisplay(event, dict);
   const liveStatus = liveDisplay?.status ?? null;
   const liveStatusLabel = liveDisplay?.label ?? null;
@@ -400,6 +403,15 @@ export function EventDetailSheet({
           </div>
         )}
       </div>
+
+      {venueAssessment ? (
+        <VenueAssessmentBlock
+          assessment={venueAssessment}
+          dict={dict}
+          heading={dict.venues.assessment.eventHeading}
+          className="mt-5 mb-1"
+        />
+      ) : null}
     </>
   );
 

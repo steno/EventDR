@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { VenuePage } from "@/components/VenuePage";
 import { JsonLd } from "@/components/JsonLd";
 import { getVenueBySlug } from "@/lib/venues";
+import { getVenueAssessment } from "@/lib/venue-assessments";
 import { SEED_VENUES } from "@/lib/venues-seed";
 import { isValidLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
@@ -48,6 +49,7 @@ export default async function Page({
   if (!venue) notFound();
 
   const dict = getDictionary(locale);
+  const assessment = await getVenueAssessment(slug);
 
   return (
     <>
@@ -60,7 +62,12 @@ export default async function Page({
           ]),
         ]}
       />
-      <VenuePage venue={venue} locale={locale} dict={dict} />
+      <VenuePage
+        venue={venue}
+        locale={locale}
+        dict={dict}
+        assessment={assessment}
+      />
     </>
   );
 }

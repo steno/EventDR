@@ -1,13 +1,15 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import type { Event, Venue } from "@/lib/types";
+import type { Event, Venue, VenueAssessment } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import { FilteredEventList } from "@/components/FilteredEventList";
 import { SubmitEventSheet } from "@/components/SubmitEventSheet";
 import { StickyListHeader } from "@/components/StickyListHeader";
 import { CityPhotoHero } from "@/components/CityPhotoHero";
+import { VenueDirectionsSection } from "@/components/VenueDirectionsSection";
+import { VenueAssessmentBlock } from "@/components/VenueAssessmentBlock";
 import { attachEventImages } from "@/lib/event-images";
 import { attachTicketUrls } from "@/lib/event-tickets";
 import { lastHomePath } from "@/lib/cities";
@@ -20,6 +22,7 @@ interface VenuePageProps {
   locale: Locale;
   dict: Dictionary;
   initialExpanded?: boolean;
+  assessment?: VenueAssessment | null;
 }
 
 export function VenuePage({
@@ -27,6 +30,7 @@ export function VenuePage({
   locale,
   dict,
   initialExpanded = false,
+  assessment = null,
 }: VenuePageProps) {
   const [events, setEvents] = useState<Event[]>([]);
   const [loading, setLoading] = useState(true);
@@ -82,6 +86,12 @@ export function VenuePage({
             subtitle={venue.description}
             imageUrl={heroImageUrl}
           />
+
+          {assessment ? (
+            <VenueAssessmentBlock assessment={assessment} dict={dict} />
+          ) : null}
+
+          <VenueDirectionsSection venue={venue} dict={dict} />
 
           <FilteredEventList
             events={events}

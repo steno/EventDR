@@ -121,7 +121,7 @@ export function EventDetailMedia({
 
     return (
       <div
-        className={`event-inline-map relative h-full w-full bg-neutral-200 dark:bg-neutral-700${onClose ? " event-inline-map--close-offset" : ""}`}
+        className="event-inline-map relative h-full w-full bg-neutral-200 dark:bg-neutral-700"
       >
         {mapLoaded ? (
           <EventInlineMap coords={coords} active={interactive} />

@@ -1,8 +1,10 @@
 "use client";
 
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef } from "react";
 import { appVersionNeedsRefresh } from "@/lib/app-version-shared";
 import {
+  expectBootPart,
+  readyBootPart,
   showBootSplashForReload,
 } from "@/lib/boot-splash";
 
@@ -40,17 +42,41 @@ async function purgeCachesAndReload(version: string) {
 /** Silently refreshes when a new deploy stamp is detected (stuck PWA tabs). */
 export function AppVersionSync() {
   const reloading = useRef(false);
+  /** True when this boot is waiting on a version check before dismissing splash. */
+  const bootBlocked = useRef(false);
+
+  // If a prior stamp exists, hold the P splash until we know we won't reload —
+  // otherwise content paints, then splash returns (feels like a double load).
+  useLayoutEffect(() => {
+    try {
+      if (!localStorage.getItem(VERSION_KEY)) return;
+    } catch {
+      return;
+    }
+    bootBlocked.current = true;
+    expectBootPart("version");
+  }, []);
+
+  const finishBootVersion = useCallback(() => {
+    if (!bootBlocked.current) return;
+    bootBlocked.current = false;
+    readyBootPart("version");
+  }, []);
 
   const checkVersion = useCallback(async () => {
     if (reloading.current) return;
 
     const remote = await fetchRemoteVersion();
-    if (!remote) return;
+    if (!remote) {
+      finishBootVersion();
+      return;
+    }
 
     const stored = localStorage.getItem(VERSION_KEY);
 
     if (appVersionNeedsRefresh(stored, remote)) {
       reloading.current = true;
+      // Stay on splash through reload; do not mark version ready.
       await purgeCachesAndReload(remote);
       return;
     }
@@ -58,24 +84,21 @@ export function AppVersionSync() {
     if (!stored) {
       localStorage.setItem(VERSION_KEY, remote);
     }
-  }, []);
+    finishBootVersion();
+  }, [finishBootVersion]);
 
   useEffect(() => {
-    const runBootCheck = async () => {
-      await checkVersion();
-    };
-
-    void runBootCheck();
+    void checkVersion();
 
     const onVisible = () => {
       if (document.visibilityState === "visible") {
-        checkVersion();
+        void checkVersion();
       }
     };
 
     const onPageShow = (event: PageTransitionEvent) => {
       if (event.persisted) {
-        checkVersion();
+        void checkVersion();
       }
     };
 
