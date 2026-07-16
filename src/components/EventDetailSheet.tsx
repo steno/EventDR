@@ -350,7 +350,7 @@ export function EventDetailSheet({
               </span>
             )}
             {recurrenceLabel && (
-              <span className="inline-flex shrink-0 rounded-full bg-orange-50 dark:bg-orange-950/50 px-2.5 py-0.5 text-[11px] font-bold leading-none text-orange-600">
+              <span className="inline-flex shrink-0 rounded-full bg-neutral-100 dark:bg-neutral-800 px-2.5 py-0.5 text-xs font-bold leading-none text-neutral-600 dark:text-neutral-400">
                 {recurrenceLabel}
               </span>
             )}

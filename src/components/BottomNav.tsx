@@ -32,7 +32,7 @@ export function BottomNav({
       className="
         fixed bottom-0 inset-x-0 z-40 lg:hidden
         bg-white/90 backdrop-blur-lg border-t border-neutral-100 dark:bg-neutral-900/90 dark:border-neutral-800
-        pb-[env(safe-area-inset-bottom)]
+        pb-[max(env(safe-area-inset-bottom),0.5rem)]
       "
       aria-label="Main navigation"
     >

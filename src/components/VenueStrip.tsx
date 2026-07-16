@@ -85,8 +85,9 @@ export function VenueStrip({
           })}
         </div>
       </div>
-      <div className="flex gap-3 overflow-x-auto pb-1 -mx-1 px-1 scrollbar-hide">
-        {featured.map((v) => (
+      <div className="relative">
+        <div className="flex gap-3 overflow-x-auto pb-1 -mx-1 px-1 scrollbar-hide">
+          {featured.map((v) => (
           <Link
             key={v.slug}
             href={`/${locale}/venue/${v.slug}`}
@@ -109,6 +110,12 @@ export function VenueStrip({
             </div>
           </Link>
         ))}
+        </div>
+        {/* Scroll hint gradient */}
+        <div 
+          className="pointer-events-none absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-neutral-50 dark:from-black to-transparent"
+          aria-hidden="true"
+        />
       </div>
     </section>
   );

@@ -31,6 +31,31 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
+/* Smooth theme transitions */
+* {
+  transition: background-color 200ms ease-out, 
+              border-color 200ms ease-out,
+              color 200ms ease-out;
+}
+
+/* Disable transitions for elements that should be instant */
+button, a, input, textarea, select,
+[role="button"], [role="tab"], [role="option"],
+.no-theme-transition {
+  transition: background-color 200ms ease-out, 
+              border-color 200ms ease-out,
+              color 200ms ease-out,
+              transform 150ms ease-out,
+              box-shadow 150ms ease-out,
+              opacity 150ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
+
 /* Boot splash — visible from first HTML paint until home data is ready */
 html.boot-pending #app-shell {
   visibility: hidden;
