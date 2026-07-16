@@ -83,6 +83,11 @@ export type Dictionary = {
     happeningToday: string;
     seeAllToday: string;
     viewAllEvents: string;
+    audienceTitle: string;
+    local: string;
+    visitor: string;
+    localHint: string;
+    visitorHint: string;
     happeningNow: string;
     eventStarted: string;
     startsSoon: string;
@@ -437,6 +442,11 @@ export const en: Dictionary = {
     happeningToday: "Happening today",
     seeAllToday: "See all today",
     viewAllEvents: "View all events",
+    audienceTitle: "Featured events",
+    local: "Local favorites",
+    visitor: "Visitor faves",
+    localHint: "Events locals love on the North Coast",
+    visitorHint: "Must-experience events for tourists and visitors",
     happeningNow: "Happening now",
     eventStarted: "Event started",
     startsSoon: "Starts soon",
