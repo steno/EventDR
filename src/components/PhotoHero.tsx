@@ -77,7 +77,7 @@ export function PhotoHero({
             </p>
             <h1 className="mt-1 text-[2rem] font-black leading-[1.05] tracking-tight text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.4)] sm:text-5xl">
               {dict.hero.events}{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-300 via-rose-300 to-fuchsia-300">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-rose-400 to-fuchsia-400">
                 {placeLabel}
               </span>
             </h1>
