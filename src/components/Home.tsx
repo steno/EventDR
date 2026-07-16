@@ -243,8 +243,8 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
                 </div>
               </div>
               {!isSearching && (
-                <div className="mb-6 rounded-2xl border border-neutral-200/80 bg-white/60 px-4 py-3 dark:border-neutral-800/80 dark:bg-neutral-900/40 sm:mb-8 sm:px-5 sm:py-3.5 lg:mb-8">
-                  <div className="flex items-center gap-2">
+                <div className="mb-6 overflow-hidden rounded-2xl border border-neutral-200/80 bg-white/60 dark:border-neutral-800/80 dark:bg-neutral-900/40 sm:mb-8 lg:mb-8">
+                  <div className="relative z-10 flex items-center gap-2 bg-white/90 px-4 py-3 backdrop-blur-sm dark:bg-neutral-900/90 sm:px-5 sm:py-3.5">
                     <div className="min-w-0 flex-1">
                       <CityLocationPicker
                         locale={locale}
@@ -266,7 +266,7 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
                     )}
                   </div>
                   {areaChosen && categoriesOpen && (
-                    <div className="mt-2.5 animate-in">
+                    <div className="animate-reveal-down relative z-0 border-t border-neutral-200/60 px-4 pb-3 pt-2.5 dark:border-neutral-800/60 sm:px-5">
                       <CategoryGrid
                         locale={locale}
                         dict={dict}
@@ -276,18 +276,20 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
                     </div>
                   )}
                   {areaChosen && !categoriesOpen && (
-                    <button
-                      type="button"
-                      onClick={handleExpandCategories}
-                      className="mt-1 inline-flex items-center gap-0.5 text-sm font-semibold leading-snug text-orange-600 transition-colors touch-manipulation hover:text-rose-600 dark:text-orange-400 dark:hover:text-rose-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 rounded"
-                    >
-                      {dict.browse.browseCategories}
-                      <ChevronDown
-                        className="h-3.5 w-3.5 opacity-80"
-                        aria-hidden
-                        strokeWidth={2.5}
-                      />
-                    </button>
+                    <div className="px-4 pb-3 sm:px-5">
+                      <button
+                        type="button"
+                        onClick={handleExpandCategories}
+                        className="inline-flex items-center gap-0.5 text-sm font-semibold leading-snug text-orange-600 transition-colors touch-manipulation hover:text-rose-600 dark:text-orange-400 dark:hover:text-rose-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 rounded"
+                      >
+                        {dict.browse.browseCategories}
+                        <ChevronDown
+                          className="h-3.5 w-3.5 opacity-80"
+                          aria-hidden
+                          strokeWidth={2.5}
+                        />
+                      </button>
+                    </div>
                   )}
                 </div>
               )}

@@ -264,12 +264,29 @@ button, a {
   to { transform: translateY(0); opacity: 1; }
 }
 
+/* Home “Browse categories” — expand down from under the location row */
+@keyframes reveal-down-from-top {
+  from {
+    transform: translateY(-1.25rem);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 .animate-in {
   animation: slide-in-from-bottom 0.3s ease-out;
 }
 
 .animate-slide-up {
   animation: slide-up 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-reveal-down {
+  animation: reveal-down-from-top 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: top center;
 }
 
 @keyframes glow-drift-a {
