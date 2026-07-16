@@ -33,6 +33,9 @@ export const SCOPE_LIST_LIMIT = HOME_PICKS_LIMIT;
 /** Max venue slides per audience slider on home. */
 export const HOME_VENUE_LIMIT = 6;
 
+/** Max event cards per audience section on home. */
+export const HOME_EVENT_AUDIENCE_LIMIT = 4;
+
 /** Home audience sections — Local favorites vs Visitor faves. */
 export type VenueAudienceFilter = "local" | "visitor";
 
@@ -118,6 +121,29 @@ export const VENUE_AUDIENCE_POOLS: Record<
 
 /** @deprecated Use VENUE_AUDIENCE_POOLS — same curated pools. */
 export const FEATURED_VENUE_SLUGS = VENUE_AUDIENCE_POOLS;
+
+/**
+ * Curated event pools for each audience. Home displays a random sample from
+ * these lists (seeded by local calendar day for stable daily rotation).
+ * Edit these lists to add or rebalance Local vs Visitor event coverage.
+ * An event may appear in both pools when it appeals to mixed crowds.
+ * 
+ * NOTE: Only events that are currently active/upcoming will be displayed.
+ * The system automatically filters out past events from these pools.
+ */
+export const EVENT_AUDIENCE_POOLS: Record<
+  VenueAudienceFilter,
+  readonly string[]
+> = {
+  local: [
+    // Add curated event IDs that appeal to locals/residents
+    // Example format: event IDs from your database
+  ],
+  visitor: [
+    // Add curated event IDs that appeal to tourists/visitors
+    // Example format: event IDs from your database
+  ],
+};
 
 /** Simple string → 32-bit seed for daily shuffle. */
 function hashSeed(input: string): number {
@@ -319,6 +345,46 @@ export function getFeaturedVenues(
   return seededShuffle(
     resolved,
     hashSeed(`${audience}:${seedKey}`),
+  ).slice(0, limit);
+}
+
+export interface FeaturedEventsOptions {
+  /**
+   * Shuffle seed. Defaults to today's local date so each audience pool
+   * rotates daily without reshuffling on every render.
+   */
+  seed?: string;
+  /** Current time for filtering active/upcoming events. */
+  now?: Date;
+}
+
+/**
+ * Resolve up to `limit` events from the curated audience pool.
+ * Only returns events that are currently active or upcoming.
+ * Order is a seeded shuffle of the pool (not fixed ranking).
+ */
+export function getFeaturedEvents(
+  events: Event[],
+  audience: VenueAudienceFilter = "local",
+  limit = HOME_EVENT_AUDIENCE_LIMIT,
+  options: FeaturedEventsOptions = {},
+): Event[] {
+  const now = options.now ?? new Date();
+  const byId = new Map(events.map((e) => [e.id, e]));
+
+  // Resolve events from the curated pool and filter to only active/upcoming
+  const resolved = EVENT_AUDIENCE_POOLS[audience]
+    .map((id) => byId.get(id))
+    .filter((e): e is Event => {
+      if (!e) return false;
+      // Only include events that are active today or upcoming
+      return isEventActiveToday(e, now);
+    });
+
+  const seedKey = options.seed ?? localDateISO();
+  return seededShuffle(
+    resolved,
+    hashSeed(`${audience}:events:${seedKey}`),
   ).slice(0, limit);
 }
 
