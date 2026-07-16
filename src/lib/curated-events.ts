@@ -40,6 +40,23 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     address: "Residencial Mañanero, Cabarete",
     isFree: true,
   },
+  "puerto-plata-golf-classic-2026": {
+    venueSlug: "playa-dorada-golf",
+    admissionPrice: "US$210",
+    phone: "+18093204262",
+    sourceUrl: "https://playadoradagolf.com/en/event/puerto-plata-golf-classic/",
+    isFree: false,
+  },
+  "cac-games-surf-playa-encuentro-2026": {
+    venueSlug: "playa-encuentro",
+    isFree: true,
+    phone: "+18298934214",
+  },
+  "puerto-plata-beach-soccer-2026": {
+    venueSlug: "playa-los-charamicos",
+    isFree: true,
+    phone: "+18095866125",
+  },
   "cabarete-pilates-reformer": {
     venue: "Rafaella's Studio",
     location: "Cabarete",

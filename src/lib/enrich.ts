@@ -7,6 +7,7 @@ import { filterNorthCoastUpcomingEvents, localDateISO } from "./event-dates";
 import { normalizeEventLineup, normalizeLineup } from "./event-lineup";
 import { normalizeExtractedEvents } from "./event-location";
 import { withAdmissionMetadata } from "./event-tickets";
+import { attachEventPhones, normalizeEventPhone } from "./event-phone";
 
 const VALID_CATEGORIES = new Set(CATEGORY_IDS);
 
@@ -120,11 +121,15 @@ Return ONLY valid JSON: an array of event objects. Each object must have:
 - format ("physical", "digital", or "hybrid")
 - trending (boolean, true for popular events)
 - sourceUrl (optional URL from source)
-- ticketUrl (optional ticket purchase URL — use the todotickets.do /events/... or eventbrite checkout link when present; omit for free/community events)
-- isFree (optional boolean — true only when the source explicitly says admission is free; false when paid at the door without online tickets; omit when unknown)
-- admissionPrice (optional door price when stated in the source — use formats like "RD$250", "US$5", or "RD$50–100"; omit when free, online tickets only, or unknown)
+- ticketUrl (optional ticket purchase URL — use the todotickets.do /events/... , eventbrite, uepatickets, or other checkout link when present; omit for free/community events)
+- isFree (optional boolean — true only when the source explicitly says admission is free / entrada libre / entrada gratuita; false when paid at the door without online tickets; omit when unknown)
+- admissionPrice (optional door or registration price when stated — use formats like "RD$250", "US$210", "from RD$400", or "RD$50–100"; omit when free, online tickets only, or unknown)
+- callForPricing (optional boolean — true when the source says to call/WhatsApp for prices or pricing varies and no fixed rate is given)
+- phone (optional contact phone when stated — WhatsApp or tel numbers for the venue/organizer; prefer E.164 like "+18093204262")
 - lineup (optional array of performer/artist names — only when explicitly named in the source; omit if unknown or TBA)
 - imageEmoji (single emoji matching category)
+
+Always capture ticketUrl, admissionPrice or isFree, and phone when the source states them — do not drop pricing or contact details.
 
 Focus on real upcoming North Coast events. Assign the most specific category. Skip irrelevant or undated content. Max 15 events.`;
 
@@ -183,6 +188,20 @@ ${rawContent.slice(0, 18000)}`;
                 )
               : undefined,
             lineup: normalizeLineup(e.lineup),
+            phone: normalizeEventPhone(e.phone),
+            admissionPrice:
+              typeof e.admissionPrice === "string" ? e.admissionPrice : undefined,
+            isFree: e.isFree === true ? true : e.isFree === false ? false : undefined,
+            callForPricing:
+              e.callForPricing === true
+                ? true
+                : e.callForPricing === false
+                  ? false
+                  : undefined,
+            ticketUrl:
+              typeof e.ticketUrl === "string" && e.ticketUrl.trim()
+                ? e.ticketUrl.trim()
+                : undefined,
           }),
         ),
       ),
@@ -208,7 +227,9 @@ export async function enrichCrawlResults(
       ? aiEvents
       : parseEventsHeuristic(combined, category as EventCategory | undefined);
 
-  return filterNorthCoastUpcomingEvents(normalizeExtractedEvents(events));
+  return filterNorthCoastUpcomingEvents(
+    attachEventPhones(normalizeExtractedEvents(events)),
+  );
 }
 
 function stripOffRegionScrapeContent(raw: string): string {

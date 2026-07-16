@@ -161,7 +161,7 @@ const FALLBACK_EVENTS_EN: Event[] = [
     id: "puerto-plata-golf-classic-2026",
     title: "Puerto Plata Golf Classic 2026",
     description:
-      "13th edition of Ashonorte's Puerto Plata Golf Classic — scramble pairs tournament at Playa Dorada Golf Course on Saturday Jul 18, with a Night Putting Challenge and categories named for North Coast towns (Puerto Plata, Sosúa, Cabarete, La Isabela).",
+      "13th edition of Ashonorte's Puerto Plata Golf Classic — scramble pairs tournament at Playa Dorada Golf Course on Saturday Jul 18, with a Night Putting Challenge and categories named for North Coast towns (Puerto Plata, Sosúa, Cabarete, La Isabela). Registration US$210 via the golf club; call +1 809 320 4262.",
     date: "2026-07-18",
     time: "7:00 AM – 9:00 PM",
     location: "Playa Dorada",
@@ -173,15 +173,16 @@ const FALLBACK_EVENTS_EN: Event[] = [
     category: "sports",
     format: "physical",
     trending: true,
-    sourceUrl:
-      "https://listindiario.com/el-deporte/golf/20260702/ashonorte-anuncia-decimo-tercera-version-puerto-plata-golf-classic_912285.html",
+    admissionPrice: "US$210",
+    phone: "+18093204262",
+    sourceUrl: "https://playadoradagolf.com/en/event/puerto-plata-golf-classic/",
     imageEmoji: "⛳",
   },
   {
     id: "cac-games-surf-playa-encuentro-2026",
     title: "CAC Games Surf — Playa Encuentro",
     description:
-      "Surf competitions for the XXV Central American and Caribbean Games Santo Domingo 2026 at Playa Encuentro, Cabarete (Jul 25–29). Shortboard, longboard, and SUP Surf for men and women — 71 athletes from 12 countries on the North Coast's signature break.",
+      "Surf competitions for the XXV Central American and Caribbean Games Santo Domingo 2026 at Playa Encuentro, Cabarete (Jul 25–29). Shortboard, longboard, and SUP Surf for men and women — 71 athletes from 12 countries on the North Coast's signature break. Most CAC competitions are free for spectators; organizers: +1 829 893 4214.",
     date: "2026-07-25",
     endDate: "2026-07-29",
     time: "8:00 AM – 6:00 PM",
@@ -194,6 +195,8 @@ const FALLBACK_EVENTS_EN: Event[] = [
     category: "sports",
     format: "physical",
     trending: true,
+    isFree: true,
+    phone: "+18298934214",
     sourceUrl:
       "https://diamantedominicano.com/2026/05/playa-encuentro-en-cabarete-sera-sede-oficial-del-surf-en-los-juegos-centroamericanos-y-del-caribe-2026/",
     imageEmoji: "🏄",
@@ -202,7 +205,7 @@ const FALLBACK_EVENTS_EN: Event[] = [
     id: "puerto-plata-beach-soccer-2026",
     title: "Puerto Plata Beach Soccer 2026",
     description:
-      "Second edition of Puerto Plata Beach Soccer at Playa Los Charamicos, Sosúa (Aug 21–23). Six senior teams and six U-15 sides compete over three family-friendly days promoting beach soccer and North Coast sports tourism.",
+      "Second edition of Puerto Plata Beach Soccer at Playa Los Charamicos, Sosúa (Aug 21–23). Six senior teams and six U-15 sides compete over three family-friendly days promoting beach soccer and North Coast sports tourism. Free beach spectating; team/info inquiries +1 809 586 6125.",
     date: "2026-08-21",
     endDate: "2026-08-23",
     time: "9:00 AM – 6:00 PM",
@@ -215,6 +218,8 @@ const FALLBACK_EVENTS_EN: Event[] = [
     category: "sports",
     format: "physical",
     trending: true,
+    isFree: true,
+    phone: "+18095866125",
     sourceUrl:
       "https://puertoplatadigital.com/deportes/puerto-plata-beach-soccer-regresa-con-su-segunda-edicion-del-21-al-23-de-agosto-en-sosua",
     imageEmoji: "⚽",
@@ -534,7 +539,7 @@ const FALLBACK_EVENTS_ES: Event[] = [
     id: "puerto-plata-golf-classic-2026",
     title: "Puerto Plata Golf Classic 2026",
     description:
-      "13.ª edición del Puerto Plata Golf Classic de Ashonorte — torneo scramble por parejas en el campo de golf de Playa Dorada el sábado 18 de julio, con Night Putting Challenge y categorías con nombres de la costa norte (Puerto Plata, Sosúa, Cabarete, La Isabela).",
+      "13.ª edición del Puerto Plata Golf Classic de Ashonorte — torneo scramble por parejas en el campo de golf de Playa Dorada el sábado 18 de julio, con Night Putting Challenge y categorías con nombres de la costa norte (Puerto Plata, Sosúa, Cabarete, La Isabela). Inscripción US$210 vía el club; llama al +1 809 320 4262.",
     date: "2026-07-18",
     time: "7:00 AM – 9:00 PM",
     location: "Playa Dorada",
@@ -546,15 +551,16 @@ const FALLBACK_EVENTS_ES: Event[] = [
     category: "sports",
     format: "physical",
     trending: true,
-    sourceUrl:
-      "https://listindiario.com/el-deporte/golf/20260702/ashonorte-anuncia-decimo-tercera-version-puerto-plata-golf-classic_912285.html",
+    admissionPrice: "US$210",
+    phone: "+18093204262",
+    sourceUrl: "https://playadoradagolf.com/en/event/puerto-plata-golf-classic/",
     imageEmoji: "⛳",
   },
   {
     id: "cac-games-surf-playa-encuentro-2026",
     title: "Surf Juegos CAC — Playa Encuentro",
     description:
-      "Competencias de surf de los XXV Juegos Centroamericanos y del Caribe Santo Domingo 2026 en Playa Encuentro, Cabarete (25–29 jul.). Tabla corta, tabla larga y SUP Surf masculino y femenino — 71 atletas de 12 países en la ola emblemática de la costa norte.",
+      "Competencias de surf de los XXV Juegos Centroamericanos y del Caribe Santo Domingo 2026 en Playa Encuentro, Cabarete (25–29 jul.). Tabla corta, tabla larga y SUP Surf masculino y femenino — 71 atletas de 12 países en la ola emblemática de la costa norte. La mayoría de competencias CAC son gratis para el público; organizadores: +1 829 893 4214.",
     date: "2026-07-25",
     endDate: "2026-07-29",
     time: "8:00 AM – 6:00 PM",
@@ -567,6 +573,8 @@ const FALLBACK_EVENTS_ES: Event[] = [
     category: "sports",
     format: "physical",
     trending: true,
+    isFree: true,
+    phone: "+18298934214",
     sourceUrl:
       "https://diamantedominicano.com/2026/05/playa-encuentro-en-cabarete-sera-sede-oficial-del-surf-en-los-juegos-centroamericanos-y-del-caribe-2026/",
     imageEmoji: "🏄",
@@ -575,7 +583,7 @@ const FALLBACK_EVENTS_ES: Event[] = [
     id: "puerto-plata-beach-soccer-2026",
     title: "Puerto Plata Beach Soccer 2026",
     description:
-      "Segunda edición del Puerto Plata Beach Soccer en Playa Los Charamicos, Sosúa (21–23 ago.). Seis equipos de categoría superior y seis Sub-15 en tres jornadas familiares que impulsan el fútbol playa y el turismo deportivo de la costa norte.",
+      "Segunda edición del Puerto Plata Beach Soccer en Playa Los Charamicos, Sosúa (21–23 ago.). Seis equipos de categoría superior y seis Sub-15 en tres jornadas familiares que impulsan el fútbol playa y el turismo deportivo de la costa norte. Entrada libre a la playa; consultas de equipos/info +1 809 586 6125.",
     date: "2026-08-21",
     endDate: "2026-08-23",
     time: "9:00 AM – 6:00 PM",
@@ -588,6 +596,8 @@ const FALLBACK_EVENTS_ES: Event[] = [
     category: "sports",
     format: "physical",
     trending: true,
+    isFree: true,
+    phone: "+18095866125",
     sourceUrl:
       "https://puertoplatadigital.com/deportes/puerto-plata-beach-soccer-regresa-con-su-segunda-edicion-del-21-al-23-de-agosto-en-sosua",
     imageEmoji: "⚽",

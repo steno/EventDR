@@ -79,8 +79,10 @@ For each **new** event:
 
 1. Add EN + ES objects to `src/lib/fallback-events.ts` (`FALLBACK_EVENTS_EN`, `FALLBACK_EVENTS_ES`)
 2. Add FR to `src/lib/fallback-events-fr.ts` (`FALLBACK_EVENTS_FR`)
-3. Same `id` across locales; include `sourceUrl` when from Facebook
+3. Same `id` across locales; include `sourceUrl` when from Facebook/Instagram
 4. Match existing field patterns (`category`, `location`, `venue` / `venueSlug`, `format: "physical"`, dates as `YYYY-MM-DD`)
+5. **Admission & contact (required when known):** set `ticketUrl` and/or `admissionPrice` (e.g. `RD$250`, `US$210`) or `isFree: true` / `callForPricing: true`; always add `phone` when an organizer/venue number exists (also on the venue in `venues-seed.ts`). Wire curated maps in `event-tickets.ts` / `event-phone.ts` when useful.
+6. Add **venue images** (`venue-images.ts` + `public/venues/`) and event images when introducing new venues
 
 Do **not** commit unless the user asks.
 

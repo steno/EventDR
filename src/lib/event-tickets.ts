@@ -13,6 +13,7 @@ const TICKET_HOSTS = [
   "chukka.com",
   "rezdy.com",
   "freestylecatamarans.com",
+  "uepatickets.com",
 ];
 
 /** Curated ticket / booking URLs for seed events (verified on official sites). */
@@ -85,6 +86,9 @@ export const CURATED_ADMISSION_PRICES: Record<string, string> = {
   "vivonte-cigar-factory-saturday": "US$20",
   "natura-cabana-yoga-daily": "US$15",
   "liquid-blue-sunrise-yoga": "from US$15",
+
+  // Tournament registration (official club page)
+  "puerto-plata-golf-classic-2026": "US$210",
 };
 
 /** Ticketed shows with variable pricing — contact the venue (no fixed door rate). */

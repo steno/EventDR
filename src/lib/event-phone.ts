@@ -10,6 +10,9 @@ const EVENT_PHONE_BY_ID: Record<string, string> = {
   "sancocho-sabados-pingui": "+18096682051",
   "el-colibri-karaoke-battle-2026": "+18099709433",
   "community-pickleball-cabarete": "+18095712902",
+  "puerto-plata-golf-classic-2026": "+18093204262",
+  "cac-games-surf-playa-encuentro-2026": "+18298934214",
+  "puerto-plata-beach-soccer-2026": "+18095866125",
 };
 
 export function formatPhoneDisplay(phone: string): string {
@@ -27,13 +30,26 @@ export function formatPhoneTel(phone: string): string {
   return `+${digits}`;
 }
 
+/** Normalize ingest/submit phone strings to E.164 when possible. */
+export function normalizeEventPhone(raw: unknown): string | undefined {
+  if (typeof raw !== "string") return undefined;
+  const trimmed = raw.trim();
+  if (!trimmed) return undefined;
+  const digits = trimmed.replace(/\D/g, "");
+  if (digits.length === 10) return `+1${digits}`;
+  if (digits.length === 11 && digits.startsWith("1")) return `+${digits}`;
+  if (digits.length >= 10 && digits.length <= 15) return `+${digits}`;
+  return undefined;
+}
+
 function venuePhoneForSlug(slug?: string): string | undefined {
   if (!slug) return undefined;
   return SEED_VENUES.find((v) => v.slug === slug)?.phone;
 }
 
 export function resolveEventPhone(event: Event): string | undefined {
-  if (event.phone) return event.phone;
+  const explicit = normalizeEventPhone(event.phone);
+  if (explicit) return explicit;
 
   const byId = EVENT_PHONE_BY_ID[event.id];
   if (byId) return byId;
@@ -45,7 +61,6 @@ export function resolveEventPhone(event: Event): string | undefined {
 
 export function attachEventPhones(events: Event[]): Event[] {
   return events.map((event) => {
-    if (event.phone) return event;
     const phone = resolveEventPhone(event);
     return phone ? { ...event, phone } : event;
   });

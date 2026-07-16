@@ -709,6 +709,7 @@ export const SEED_VENUES: Venue[] = [
     emoji: "⛳",
     website: "https://playadoradagolf.com/",
     instagram: "ashonorte",
+    phone: "+18093204262",
   },
   {
     slug: "playa-encuentro",
@@ -719,6 +720,7 @@ export const SEED_VENUES: Venue[] = [
     lat: 19.7808,
     lng: -70.4825,
     emoji: "🏄",
+    phone: "+18298934214",
   },
   {
     slug: "playa-los-charamicos",
@@ -729,6 +731,8 @@ export const SEED_VENUES: Venue[] = [
     lat: 19.7542,
     lng: -70.5285,
     emoji: "⚽",
+    phone: "+18095866125",
+    instagram: "puertoplatabeachsoccer",
   },
 ];
 
