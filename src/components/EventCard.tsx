@@ -63,7 +63,7 @@ const EventCardComponent = ({
         />
         <div
           className={`
-            relative aspect-[4/3] w-full overflow-hidden
+            relative aspect-[4/3] w-full overflow-hidden pointer-events-none
             ${event.imageUrl ? "bg-neutral-100 dark:bg-neutral-800" : `bg-gradient-to-br ${category?.gradient ?? "from-neutral-200 to-neutral-300"}`}
           `}
           aria-hidden={!event.imageUrl}
