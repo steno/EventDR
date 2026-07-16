@@ -70,7 +70,7 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
   const [allEvents, setAllEvents] = useState<Event[]>([]);
   const [refreshKey, setRefreshKey] = useState(0);
   /**
-   * Category pills: open only via “Browse categories”.
+   * Category pills: open on the first area pick, then only via “See what’s on”.
    * Remounting Home (back from event/scope) always starts collapsed.
    */
   const [categoriesOpen, setCategoriesOpen] = useState(false);
@@ -92,12 +92,14 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
 
   const setArea = useCallback(
     (slug: CitySlug | null) => {
+      // First “Choose area” pick reveals categories; later changes stay collapsed.
+      if (!areaChosen) setCategoriesOpen(true);
       const params = new URLSearchParams(searchParams.toString());
       params.set("city", slug ?? HOME_CITY_ALL);
       const qs = params.toString();
       router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
     },
-    [pathname, router, searchParams],
+    [areaChosen, pathname, router, searchParams],
   );
 
   // Keep session in sync when arriving via shared/bookmarked ?city=.

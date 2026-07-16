@@ -72,7 +72,7 @@ export const fr: Dictionary = {
     noEvents: "Pas encore d'événements dans cette catégorie.",
     allCategories: "Toutes les catégories",
     allCategoriesIntro: "Trouvez des événements par ambiance — musique, fêtes, sport et plus sur la Côte Nord.",
-    browseCategories: "Parcourir les catégories",
+    browseCategories: "Voir ce qui se passe",
   },
   events: {
     loading: "Recherche d'événements près de vous…",
@@ -251,7 +251,7 @@ export const fr: Dictionary = {
     partners: "Pour hôtels et partenaires",
   },
   cities: {
-    browseTopCategories: "Catégories à {city}",
+    browseTopCategories: "À voir à {city}",
     lookingIn: "Événements à",
     lookingInWithCategory: "{category} à",
     regionName: "Côte Nord",

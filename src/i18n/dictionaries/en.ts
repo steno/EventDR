@@ -48,7 +48,7 @@ export type Dictionary = {
     noEvents: string;
     allCategories: string;
     allCategoriesIntro: string;
-    /** Home: open category pills (only via this control). */
+    /** Home: reopen category pills after the first area pick. */
     browseCategories: string;
   };
   events: {
@@ -359,7 +359,7 @@ export const en: Dictionary = {
     noEvents: "No events in this category yet.",
     allCategories: "All categories",
     allCategoriesIntro: "Find events by vibe — music, parties, sports, and more across the North Coast.",
-    browseCategories: "Browse categories",
+    browseCategories: "See what’s on",
   },
   events: {
     loading: "Finding events near you…",
@@ -538,7 +538,7 @@ export const en: Dictionary = {
     partners: "For hotels & partners",
   },
   cities: {
-    browseTopCategories: "Categories in {city}",
+    browseTopCategories: "What’s on in {city}",
     lookingIn: "Looking for events in",
     lookingInWithCategory: "{category} in",
     regionName: "North Coast",
