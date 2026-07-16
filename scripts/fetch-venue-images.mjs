@@ -90,9 +90,39 @@ const VENUE_SOURCES = [
     url: "https://www.lbcabarete.com/wp-content/uploads/2026/06/IMG_9340-scaled.jpg",
   },
   {
-    eventId: "sea-horse-saturday-market",
-    // Host may return non-image payloads to some CI IPs; committed asset is the source of truth.
-    url: "https://sea-horse-ranch.com/new/wp-content/uploads/2022/08/SHR-updated-flyer-FB-event1.jpg",
+    // Pilates reformer studio action — replaces Rafaella logo graphic.
+    eventId: "cabarete-pilates-reformer",
+    url: "https://images.unsplash.com/photo-1754257320311-04f65229a132?w=1800&q=85",
+  },
+  {
+    // Official Butterfly Effect SUP / river paddle action (replaces circular logo).
+    eventId: "ingest-18th-annual-cabarete-butterfly-effect",
+    url: "https://d11n7da8rpqbjy.cloudfront.net/michellebourdeau/44030738893CABARETE_BE_2024-239.jpeg",
+  },
+  {
+    // Stadium soccer energy for El Carey WC2026 watch parties (replaces promo poster).
+    eventId: "el-carey-wc2026",
+    url: "https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=1800&q=85",
+  },
+  {
+    // Night match atmosphere for England vs Argentina watch party.
+    eventId: "el-carey-wc2026-2026-07-15-england-vs-argentina-1500",
+    url: "https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=1800&q=85",
+  },
+  {
+    // Concert crowd / stage energy — karaoke battle vibe (replaces flyer; not castaways singer).
+    eventId: "el-colibri-karaoke-battle-2026",
+    url: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1800&q=85",
+  },
+  {
+    // Boxer walkout to the ring — replaces Rumble in Paradise fight poster.
+    eventId: "rumble-in-paradise-12",
+    url: "https://images.unsplash.com/photo-1552072092-7f9b8d63efcb?w=1800&q=85",
+  },
+  {
+    // Youth sports camp huddle — replaces Sin pelos podcast logo.
+    eventId: "inicio-del-campamento-pp-2026",
+    url: "https://images.unsplash.com/photo-1526232761682-d26e03ac148e?w=1800&q=85",
   },
   {
     // Beachfront dining tables at La Casita de Papi (not Liquid Blue Encuentro beach).
@@ -138,9 +168,9 @@ const VENUE_SOURCES = [
     url: "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=1800&q=85",
   },
   {
-    // Brand façade at Green One / One Club — kept distinct from Pueblito pan shot.
+    // Plated Spanish seafood — replaces Green One façade/logo sign; distinct from Pueblito pan.
     eventId: "paella-pop-green-one",
-    url: "https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=27612171988392813",
+    url: "https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=1800&q=85",
   },
   {
     eventId: "casa-de-la-cultura-exhibitions",
@@ -279,12 +309,18 @@ console.log(
   `\nFetched ${ok} venue images (${skipped} skipped, ${keptExisting} kept after fetch fail, ${failed} missing)`,
 );
 
-// Local venue branding already in popevent-images.
+// Local venue branding / action already in popevent-images.
 const localSources = [
   { src: "elcareytv.png", eventId: "el-carey-weekend-nightlife" },
+  // Tropical outdoor market action — replaces Sea Horse flyer graphic.
   {
-    src: "SeaHorseSaturdayMarket.png",
+    src: "CabareteFarmersMarket.JPG",
     eventId: "sea-horse-saturday-market",
+  },
+  // Cabarete kite beach action — replaces Cabarete Classic logo mark.
+  {
+    src: "CabareteKiteFest.JPG",
+    eventId: "cabarete-classic-2026",
   },
   {
     src: "FinishLineLiveWednesday.jpg",

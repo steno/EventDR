@@ -2,7 +2,7 @@
 import { getAppVersion } from "./app-version";
 
 const EVENT_IMAGE_FILES: Record<string, string> = {
-  "rumble-in-paradise-12": "rumble-in-paradise-12.png",
+  "rumble-in-paradise-12": "rumble-in-paradise-12.jpg",
   "lax-sunset-daily": "lax-sunset-daily.jpg",
   "malecon-kiosks-daily": "malecon-kiosks-daily.jpg",
   "kite-beach-daily": "kite-beach-daily.jpg",
@@ -25,24 +25,24 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "cremo-bohemian-wednesday": "cremo-bohemian-wednesday.jpg",
   "cremo-karaoke-saturday": "cremo-karaoke-saturday.jpg",
   "big-lees-weekend-music": "big-lees-weekend-music.jpg",
-  "sea-horse-saturday-market": "sea-horse-saturday-market.png",
+  "sea-horse-saturday-market": "sea-horse-saturday-market.jpg",
   "community-domino-sosua": "community-domino-sosua.jpg",
   "community-pickleball-cabarete": "community-pickleball-cabarete.jpg",
   "ingest-make-authentic-espadrilles-in-puerto-plata":
     "ingest-make-authentic-espadrilles-in-puerto-plata.jpg",
   "ingest-18th-annual-cabarete-butterfly-effect":
-    "ingest-18th-annual-cabarete-butterfly-effect.png",
+    "ingest-18th-annual-cabarete-butterfly-effect.jpg",
   "cabarete-classic-2026": "cabarete-classic-2026.jpg",
-  "cabarete-pilates-reformer": "cabarete-pilates-reformer.png",
+  "cabarete-pilates-reformer": "cabarete-pilates-reformer.jpg",
   "sancocho-sabados-pingui": "sancocho-sabados-pingui.jpg",
   "inicio-del-campamento-pp-2026": "inicio-del-campamento-pp-2026.jpg",
   "feria-artesanal-verano-2026": "feria-artesanal-verano-2026.jpg",
   "plaza-independencia-daily": "plaza-independencia-daily.jpg",
   "plaza-independencia-weekend-culture": "plaza-independencia-daily.jpg",
-  "el-carey-wc2026": "el-carey-wc2026.png",
+  "el-carey-wc2026": "el-carey-wc2026.jpg",
   "el-carey-wc2026-2026-07-15-england-vs-argentina-1500":
-    "el-carey-wc2026-2026-07-15-england-vs-argentina-1500.png",
-  "el-colibri-karaoke-battle-2026": "el-colibri-karaoke-battle-2026.png",
+    "el-carey-wc2026-2026-07-15-england-vs-argentina-1500.jpg",
+  "el-colibri-karaoke-battle-2026": "el-colibri-karaoke-battle-2026.jpg",
   "ocean-world-daily": "ocean-world-daily.jpeg",
   "charcos-damajagua-daily": "charcos-damajagua-daily.jpeg",
   "fortaleza-san-felipe-daily": "fortaleza-san-felipe-daily.jpeg",
@@ -105,14 +105,14 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "el-parq-karaoke-thursday": "el-parq-karaoke-thursday.jpg",
   "el-parq-latin-friday": "el-parq-latin-friday.jpg",
   "parada-tipica-el-choco-tuesday-live": "parada-tipica-el-choco-tuesday-live.jpg",
-  "atleticos-pp-vs-capitanes-2026-07-11": "atleticos-pp-vs-capitanes-2026-07-11.jpeg",
+  "atleticos-pp-vs-capitanes-2026-07-11": "atleticos-pp-vs-capitanes-2026-07-11.jpg",
   "atleticos-pp-vs-mangueros-2026-07-17": "atleticos-pp-vs-mangueros-2026-07-17.jpg",
-  "atleticos-pp-vs-mineros-2026-07-31": "atleticos-pp-vs-mineros-2026-07-31.jpeg",
+  "atleticos-pp-vs-mineros-2026-07-31": "atleticos-pp-vs-mineros-2026-07-31.jpg",
   "atleticos-pp-vs-granjeros-2026-08-02": "atleticos-pp-vs-granjeros-2026-08-02.jpg",
-  "atleticos-pp-vs-bravos-2026-08-07": "atleticos-pp-vs-bravos-2026-08-07.jpeg",
+  "atleticos-pp-vs-bravos-2026-08-07": "atleticos-pp-vs-bravos-2026-08-07.jpg",
   "atleticos-pp-vs-reales-2026-08-09": "atleticos-pp-vs-reales-2026-08-09.jpg",
-  "atleticos-pp-vs-arroceros-2026-08-22": "atleticos-pp-vs-arroceros-2026-08-22.jpeg",
-  "atleticos-pp-vs-capitanes-2026-08-28": "atleticos-pp-vs-capitanes-2026-08-28.jpeg",
+  "atleticos-pp-vs-arroceros-2026-08-22": "atleticos-pp-vs-arroceros-2026-08-22.jpg",
+  "atleticos-pp-vs-capitanes-2026-08-28": "atleticos-pp-vs-capitanes-2026-08-28.jpg",
   "puerto-plata-golf-classic-2026": "puerto-plata-golf-classic-2026.jpg",
   "cac-games-surf-playa-encuentro-2026": "cac-games-surf-playa-encuentro-2026.jpg",
   "puerto-plata-beach-soccer-2026": "puerto-plata-beach-soccer-2026.jpg",
@@ -126,7 +126,7 @@ const EVENT_IMAGE_ALIASES: Record<string, string> = {
 };
 
 const EVENT_IMAGE_PREFIXES: { prefix: string; file: string }[] = [
-  { prefix: "el-carey-wc2026-", file: "el-carey-wc2026.png" },
+  { prefix: "el-carey-wc2026-", file: "el-carey-wc2026.jpg" },
 ];
 
 /** Tailwind object-position for detail heroes when the focal point isn't center. */

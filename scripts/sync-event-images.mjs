@@ -40,13 +40,22 @@ const FILE_TO_EVENT_ID = {
   "tabacalera-cremo-factory-tour.jpg": "tabacalera-cremo-factory-tour",
   "tabacalera-cremo-rolling-experience.jpg": "tabacalera-cremo-rolling-experience",
   "vivonte-cigar-factory-weekdays.jpg": "vivonte-cigar-factory-weekdays",
-  "capitanes.jpeg": "atleticos-pp-vs-capitanes-2026-07-11",
   "lil-naay-2026-07-17.jpg": "lil-naay-2026-07-17",
-  "mineros.jpeg": "atleticos-pp-vs-mineros-2026-07-31",
-  "granjeros-de-Moca.jpg": "atleticos-pp-vs-granjeros-2026-08-02",
-  "bravos.jpeg": "atleticos-pp-vs-bravos-2026-08-07",
-  "reales-de-santiago.jpg": "atleticos-pp-vs-reales-2026-08-09",
-  "Arroceros.jpeg": "atleticos-pp-vs-arroceros-2026-08-22",
+  // Atléticos games share pitcher action (not opponent team portraits).
+  "atleticos-pp-pitcher-2026.jpg": "atleticos-pp-vs-mangueros-2026-07-17",
+
+  // --- Logo → action shot replacements ({eventId}.jpg from fetch) ---
+  "cabarete-pilates-reformer.jpg": "cabarete-pilates-reformer",
+  "ingest-18th-annual-cabarete-butterfly-effect.jpg":
+    "ingest-18th-annual-cabarete-butterfly-effect",
+  "sea-horse-saturday-market.jpg": "sea-horse-saturday-market",
+  "el-carey-wc2026.jpg": "el-carey-wc2026",
+  "el-carey-wc2026-2026-07-15-england-vs-argentina-1500.jpg":
+    "el-carey-wc2026-2026-07-15-england-vs-argentina-1500",
+  "el-colibri-karaoke-battle-2026.jpg": "el-colibri-karaoke-battle-2026",
+  "rumble-in-paradise-12.jpg": "rumble-in-paradise-12",
+  "inicio-del-campamento-pp-2026.jpg": "inicio-del-campamento-pp-2026",
+  "cabarete-classic-2026.jpg": "cabarete-classic-2026",
 
   // --- 2026 crawl: food & culture ---
   "paella-pop-el-pueblito.jpg": "paella-pop-el-pueblito",
@@ -72,7 +81,6 @@ const FILE_TO_EVENT_ID = {
   "puerto-plata-beach-soccer-2026.jpg": "puerto-plata-beach-soccer-2026",
 
   // --- Original curated venue / attraction photos ---
-  "RumbleInParadise12.png": "rumble-in-paradise-12",
   "LAXSunsetSessions.JPG": "lax-sunset-daily",
   "MaleconFodKiosks.JPG": "malecon-kiosks-daily",
   "KiteBeachWindSession.JPG": "kite-beach-daily",
@@ -91,19 +99,10 @@ const FILE_TO_EVENT_ID = {
   "CremoBohemianWednesday.jpg": "cremo-bohemian-wednesday",
   "CremoKaraokeSaturday.jpg": "cremo-karaoke-saturday",
   "BigLeesWeekendMusic.jpg": "big-lees-weekend-music",
-  "SeaHorseSaturdayMarket.png": "sea-horse-saturday-market",
   "DominoNoightColmado.JPG": "community-domino-sosua",
   "CabaretePickleBallMeet.JPG": "community-pickleball-cabarete",
   "espadrillas.jpeg": "ingest-make-authentic-espadrilles-in-puerto-plata",
-  "butterflyeffect.png": "ingest-18th-annual-cabarete-butterfly-effect",
-  "cabclassic.jpg": "cabarete-classic-2026",
-  "rafaella.png": "cabarete-pilates-reformer",
-  "campamento.jpg": "inicio-del-campamento-pp-2026",
   "feriaartesanal.jpg": "feria-artesanal-verano-2026",
-  "el-carey-wc2026.png": "el-carey-wc2026",
-  "worldcupengvsarg.png":
-    "el-carey-wc2026-2026-07-15-england-vs-argentina-1500",
-  "el-colibri-karaoke-battle-2026.png": "el-colibri-karaoke-battle-2026",
   "oceanworld.jpeg": "ocean-world-daily",
   "Damajagua.jpeg": "charcos-damajagua-daily",
   "fortaleza.jpeg": "fortaleza-san-felipe-daily",
@@ -129,9 +128,15 @@ const SAME_VENUE_COPIES = [
   ["voyvoy-monday-live-music.jpg", "voyvoy-sunday-open-mic"],
   ["voyvoy-monday-live-music.jpg", "voyvoy-monday-live-music"],
   ["del-oro-chocolate-factory-weekdays.jpg", "del-oro-chocolate-factory-saturday"],
-  ["atleticos-pp-pitcher-2026.jpg", "atleticos-pp-vs-mangueros-2026-07-17"],
-  ["capitanes.jpeg", "atleticos-pp-vs-capitanes-2026-08-28"],
   ["vivonte-cigar-factory-weekdays.jpg", "vivonte-cigar-factory-saturday"],
+  // Atléticos summer league — shared pitcher action across all home games.
+  ["atleticos-pp-pitcher-2026.jpg", "atleticos-pp-vs-capitanes-2026-07-11"],
+  ["atleticos-pp-pitcher-2026.jpg", "atleticos-pp-vs-mineros-2026-07-31"],
+  ["atleticos-pp-pitcher-2026.jpg", "atleticos-pp-vs-granjeros-2026-08-02"],
+  ["atleticos-pp-pitcher-2026.jpg", "atleticos-pp-vs-bravos-2026-08-07"],
+  ["atleticos-pp-pitcher-2026.jpg", "atleticos-pp-vs-reales-2026-08-09"],
+  ["atleticos-pp-pitcher-2026.jpg", "atleticos-pp-vs-arroceros-2026-08-22"],
+  ["atleticos-pp-pitcher-2026.jpg", "atleticos-pp-vs-capitanes-2026-08-28"],
 ];
 
 /** popevent-images filename → venue slug (copied to public/venues/). */
