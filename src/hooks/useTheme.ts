@@ -3,13 +3,13 @@
 import { useCallback, useSyncExternalStore } from "react";
 import {
   applyTheme,
-  themeFromTimeOfDay,
+  themeFromViewport,
   THEME_STORAGE_KEY,
   type Theme,
 } from "@/lib/theme";
 
 function getThemeSnapshot(): Theme {
-  if (typeof document === "undefined") return themeFromTimeOfDay();
+  if (typeof document === "undefined") return themeFromViewport();
   return document.documentElement.classList.contains("dark") ? "dark" : "light";
 }
 
@@ -26,7 +26,7 @@ export function useTheme() {
   const theme = useSyncExternalStore(
     subscribeTheme,
     getThemeSnapshot,
-    themeFromTimeOfDay,
+    () => "light",
   );
 
   const setTheme = useCallback((next: Theme) => {
