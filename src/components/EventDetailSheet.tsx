@@ -25,7 +25,7 @@ import {
   BadgeCheck,
   CircleDollarSign,
 } from "lucide-react";
-import type { Event } from "@/lib/types";
+import type { Event, VenueAssessment } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import { getCategoryMeta } from "@/lib/categories";
@@ -207,7 +207,30 @@ export function EventDetailSheet({
       : formatRecurrenceLabel(event, locale, dict);
   const venueSlug =
     event.venueSlug ?? matchVenueSlug(event.venue) ?? matchVenueSlug(event.location);
-  const venueAssessment = getVenueAssessmentSync(venueSlug);
+  const [venueAssessment, setVenueAssessment] = useState<VenueAssessment | null>(
+    () => getVenueAssessmentSync(venueSlug),
+  );
+
+  useEffect(() => {
+    setVenueAssessment(getVenueAssessmentSync(venueSlug));
+    if (!venueSlug) return;
+
+    let cancelled = false;
+    fetch(`/api/venues/${encodeURIComponent(venueSlug)}/assessment`)
+      .then((r) => (r.ok ? r.json() : null))
+      .then((data: { assessment?: VenueAssessment | null } | null) => {
+        if (cancelled) return;
+        if (data?.assessment) setVenueAssessment(data.assessment);
+      })
+      .catch(() => {
+        /* keep sync editorial seed */
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [venueSlug]);
+
   const liveDisplay = useLiveStatusDisplay(event, dict);
   const liveStatus = liveDisplay?.status ?? null;
   const liveStatusLabel = liveDisplay?.label ?? null;
