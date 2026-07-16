@@ -79,11 +79,8 @@ export function PhotoHero({
               <span className="text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.4)]">
                 {dict.hero.events}{" "}
               </span>
-              {/* Scrim behind place name — avoid text-shadow on bg-clip-text (muddies colors) */}
-              <span className="box-decoration-clone rounded-[0.35em] bg-neutral-950/55 px-[0.3em] py-[0.06em]">
-                <span className="bg-gradient-to-r from-orange-300 via-rose-300 to-fuchsia-300 bg-clip-text text-transparent">
-                  {placeLabel}
-                </span>
+              <span className="bg-gradient-to-r from-orange-300 via-rose-300 to-fuchsia-300 bg-clip-text text-transparent">
+                {placeLabel}
               </span>
             </h1>
             <p className="mt-2 max-w-md text-sm font-medium leading-snug text-white/90 [text-shadow:0_1px_2px_rgba(0,0,0,0.4)] sm:text-[15px]">
