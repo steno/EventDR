@@ -155,7 +155,7 @@ export function CityLocationPicker({
     <div ref={rootRef} className="mb-0">
       <div className="relative flex flex-wrap items-baseline justify-start gap-x-1.5 gap-y-0">
         {categoryPrefix && (
-          <p className="text-[15px] font-semibold leading-snug text-neutral-800 dark:text-neutral-200">
+          <p className="text-[1.35rem] leading-snug text-neutral-800 dark:text-neutral-200">
             {category?.emoji ? (
               <span className="mr-1.5 inline-block text-[2rem] leading-none align-[-0.2em]" aria-hidden>
                 {category.emoji}
