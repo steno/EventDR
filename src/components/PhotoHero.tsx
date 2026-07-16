@@ -75,10 +75,15 @@ export function PhotoHero({
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-white/80 [text-shadow:0_1px_2px_rgba(0,0,0,0.45)]">
               {dict.seo.siteName}
             </p>
-            <h1 className="mt-1 text-[2rem] font-black leading-[1.05] tracking-tight text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.4)] sm:text-5xl">
-              {dict.hero.events}{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-rose-400 to-fuchsia-400">
-                {placeLabel}
+            <h1 className="mt-1 text-[2rem] font-black leading-[1.05] tracking-tight sm:text-5xl">
+              <span className="text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.4)]">
+                {dict.hero.events}{" "}
+              </span>
+              {/* Scrim behind place name — avoid text-shadow on bg-clip-text (muddies colors) */}
+              <span className="box-decoration-clone rounded-[0.35em] bg-neutral-950/55 px-[0.3em] py-[0.06em]">
+                <span className="bg-gradient-to-r from-orange-300 via-rose-300 to-fuchsia-300 bg-clip-text text-transparent">
+                  {placeLabel}
+                </span>
               </span>
             </h1>
             <p className="mt-2 max-w-md text-sm font-medium leading-snug text-white/90 [text-shadow:0_1px_2px_rgba(0,0,0,0.4)] sm:text-[15px]">
