@@ -73,7 +73,6 @@ export const fr: Dictionary = {
     allCategories: "Toutes les catégories",
     allCategoriesIntro: "Trouvez des événements par ambiance — musique, fêtes, sport et plus sur la Côte Nord.",
     allEvents: "Tous les événements",
-    browseCategories: "Voir ce qui se passe",
   },
   events: {
     loading: "Recherche d'événements près de vous…",

@@ -50,8 +50,6 @@ export type Dictionary = {
     allCategoriesIntro: string;
     /** Pill that clears category scope and shows every event in the area. */
     allEvents: string;
-    /** Home: reopen category pills after the first area pick. */
-    browseCategories: string;
   };
   events: {
     loading: string;
@@ -369,7 +367,6 @@ export const en: Dictionary = {
     allCategories: "All categories",
     allCategoriesIntro: "Find events by vibe — music, parties, sports, and more across the North Coast.",
     allEvents: "All Events",
-    browseCategories: "See what’s on",
   },
   events: {
     loading: "Finding events near you…",

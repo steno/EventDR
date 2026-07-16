@@ -73,7 +73,6 @@ export const es: Dictionary = {
     allCategories: "Todas las categorías",
     allCategoriesIntro: "Encuentra eventos por ambiente — música, fiestas, deportes y más en la Costa Norte.",
     allEvents: "Todos los eventos",
-    browseCategories: "Ver qué hay",
   },
   events: {
     loading: "Buscando eventos cerca de ti…",

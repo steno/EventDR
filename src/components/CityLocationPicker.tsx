@@ -162,7 +162,7 @@ export function CityLocationPicker({
 
   return (
     <div ref={rootRef} className="mb-0 w-full">
-      <div className="relative flex w-full flex-wrap items-baseline justify-start gap-x-1.5 gap-y-0">
+      <div className="relative flex w-full flex-wrap items-center justify-start gap-x-2 gap-y-1.5">
         {scopePrefix && (
           <p className="text-[1.35rem] leading-snug text-neutral-800 dark:text-neutral-200">
             {scopeEmoji ? (
@@ -182,22 +182,23 @@ export function CityLocationPicker({
           aria-label={listboxLabel}
           onClick={toggleOpen}
           className={`
-            inline-flex max-w-full items-center gap-2
-            py-0.5 text-left text-[1.35rem] font-black leading-snug tracking-tight
-            text-orange-600 transition-colors
-            hover:text-rose-600 active:scale-[0.99] touch-manipulation
-            dark:text-orange-400 dark:hover:text-rose-400
-            focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 rounded
-            ${
-              scopePrefix
-                ? "w-auto justify-start gap-0.5 py-0"
-                : "w-full justify-between sm:w-auto sm:justify-start sm:gap-0.5 sm:py-0"
-            }
+            inline-flex max-w-full items-center gap-1.5
+            rounded-xl border border-orange-500/35 bg-orange-500/10
+            px-2.5 py-1 text-left text-[1.2rem] font-black leading-snug tracking-tight
+            text-orange-600 shadow-sm transition-[color,background-color,border-color,transform]
+            hover:border-rose-500/45 hover:bg-orange-500/15 hover:text-rose-600
+            active:scale-[0.99] touch-manipulation
+            dark:border-orange-400/35 dark:bg-orange-400/10
+            dark:text-orange-400 dark:hover:border-rose-400/45 dark:hover:bg-orange-400/15
+            dark:hover:text-rose-400
+            focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500
+            ${open ? "border-orange-500/55 bg-orange-500/15 dark:border-orange-400/55 dark:bg-orange-400/15" : ""}
+            ${scopePrefix ? "w-auto" : "w-full justify-between sm:w-auto"}
           `}
         >
           <span className="min-w-0 truncate">{currentLabel}</span>
           <ChevronDown
-            className={`h-4 w-4 shrink-0 opacity-80 transition-transform ${open ? "rotate-180" : ""}`}
+            className={`h-4 w-4 shrink-0 opacity-90 transition-transform ${open ? "rotate-180" : ""}`}
             aria-hidden
             strokeWidth={2.75}
           />

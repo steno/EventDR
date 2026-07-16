@@ -45,7 +45,6 @@ import {
   writeHomeArea,
   type CitySlug,
 } from "@/lib/cities";
-import { ChevronDown, X } from "lucide-react";
 import type { Event, Venue } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
 import type { AppTab, Dictionary } from "@/i18n/dictionaries";
@@ -69,11 +68,6 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
   const [submitOpen, setSubmitOpen] = useState(false);
   const [allEvents, setAllEvents] = useState<Event[]>([]);
   const [refreshKey, setRefreshKey] = useState(0);
-  /**
-   * Category pills: collapsed by default; open via “Browse categories”.
-   * Remounting Home (back from event/scope) always starts collapsed.
-   */
-  const [categoriesOpen, setCategoriesOpen] = useState(false);
 
   const { city: selectedCity, areaChosen } = useMemo(
     () => parseHomeCityParam(searchParams.get("city")),
@@ -109,14 +103,6 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
     }
     writeHomeArea(null);
   }, [areaChosen, selectedCity]);
-
-  const handleCategorySelect = useCallback(() => {
-    setCategoriesOpen(false);
-  }, []);
-
-  const handleExpandCategories = useCallback(() => {
-    setCategoriesOpen(true);
-  }, []);
 
   const { filterSaved, reconcileWithEvents } = useSavedEvents();
 
@@ -195,7 +181,6 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
             onLogoClick={() => {
               setTab("discover");
               setSearchQuery("");
-              setCategoriesOpen(false);
               if (searchParams.get("city")) {
                 router.replace(`/${locale}`, { scroll: false });
               }
@@ -248,52 +233,21 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
               </div>
               {!isSearching && (
                 <div className="mb-6 rounded-2xl border border-neutral-200/80 bg-white/60 dark:border-neutral-800/80 dark:bg-neutral-900/40 sm:mb-8 lg:mb-8">
-                  <div className="relative z-10 flex items-center gap-2 bg-white/90 px-4 py-3 backdrop-blur-sm dark:bg-neutral-900/90 sm:px-5 sm:py-3.5">
-                    <div className="relative z-20 min-w-0 flex-1">
-                      <CityLocationPicker
-                        locale={locale}
-                        dict={dict}
-                        currentSlug={selectedCity}
-                        onSelect={setArea}
-                      />
-                    </div>
-                    {categoriesOpen && (
-                      <button
-                        type="button"
-                        onClick={handleCategorySelect}
-                        aria-label={dict.detail.close}
-                        className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-neutral-500 transition-colors touch-manipulation hover:bg-neutral-100 hover:text-neutral-800 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:hover:text-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
-                      >
-                        <X className="h-4 w-4" strokeWidth={2.5} aria-hidden />
-                      </button>
-                    )}
+                  <div className="relative z-10 bg-white/90 px-4 py-3 backdrop-blur-sm dark:bg-neutral-900/90 sm:px-5 sm:py-3.5">
+                    <CityLocationPicker
+                      locale={locale}
+                      dict={dict}
+                      currentSlug={selectedCity}
+                      onSelect={setArea}
+                    />
                   </div>
-                  {categoriesOpen && (
-                    <div className="animate-reveal-down relative z-0 border-t border-neutral-200/60 px-4 pb-3 pt-2.5 dark:border-neutral-800/60 sm:px-5">
-                      <CategoryGrid
-                        locale={locale}
-                        dict={dict}
-                        citySlug={selectedCity}
-                        onCategorySelect={handleCategorySelect}
-                      />
-                    </div>
-                  )}
-                  {!categoriesOpen && (
-                    <div className="px-4 pb-3 sm:px-5">
-                      <button
-                        type="button"
-                        onClick={handleExpandCategories}
-                        className="inline-flex items-center gap-0.5 text-sm font-semibold leading-snug text-orange-600 transition-colors touch-manipulation hover:text-rose-600 dark:text-orange-400 dark:hover:text-rose-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 rounded"
-                      >
-                        {dict.browse.browseCategories}
-                        <ChevronDown
-                          className="h-3.5 w-3.5 opacity-80"
-                          aria-hidden
-                          strokeWidth={2.5}
-                        />
-                      </button>
-                    </div>
-                  )}
+                  <div className="border-t border-neutral-200/60 px-4 pb-3 pt-2.5 dark:border-neutral-800/60 sm:px-5">
+                    <CategoryGrid
+                      locale={locale}
+                      dict={dict}
+                      citySlug={selectedCity}
+                    />
+                  </div>
                 </div>
               )}
 
