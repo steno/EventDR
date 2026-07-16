@@ -56,6 +56,11 @@ interface EventListProps {
   onTimeRangeChange?: (range: FilterTimeRange) => void;
   /** Opens submit sheet from short-list “Your event here?” pads. */
   onAddEvent?: () => void;
+  /**
+   * Fetch and report events without rendering the list UI.
+   * Used on home so hero / today / saved still load when Our picks is hidden.
+   */
+  silent?: boolean;
 }
 
 export function EventList({
@@ -76,6 +81,7 @@ export function EventList({
   showTimeFilter = false,
   onTimeRangeChange,
   onAddEvent,
+  silent = false,
 }: EventListProps) {
   const listReturnTo =
     returnTo ?? (category ? categoryPath(locale, category) : `/${locale}`);
@@ -192,6 +198,10 @@ export function EventList({
   const handleRetry = useCallback(() => {
     fetchEvents(false);
   }, [fetchEvents]);
+
+  if (silent) {
+    return null;
+  }
 
   if (loading) {
     return (

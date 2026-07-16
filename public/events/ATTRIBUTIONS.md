@@ -6,7 +6,7 @@ Curated images under `public/events/` and `public/venues/`. Prefer venue-accurat
 |-------|--------|-------|
 | `la-casita-papi-beach-dining.jpg` / `venues/la-casita-de-papi.jpg` | Restaurant Guru gallery — daytime beachfront tables facing Cabarete Bay | Replaces Liquid Blue Encuentro empty-beach reuse |
 | `liquid-blue-watersports-daily.jpg` / `venues/liquid-blue-cabarete.jpg` | [Liquid Blue Cabarete](https://www.lbcabarete.com/) — `IMG_9340` kite jump | Official LB action photo |
-| `brugal-rum-center-weekdays.jpg` | [Unsplash](https://unsplash.com/photos/photo-1551538827-9c037cb4f32a) (`photo-1551538827`) — Unsplash License | Caribbean rum pour / tasting action (venue keeps Casa Brugal exterior) |
+| `brugal-rum-center-weekdays.jpg` | [NARA / Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Lincoln_Heritage_Scenic_Highway_-_Tasting_Room_at_the_Heaven_Hill_Bourbon_Heritage_Center_-_NARA_-_7720062.jpg) — public domain | Guided tasting room with guests sampling (tourists tasting) |
 | `brugal-corporate-tours.jpg` | [Unsplash](https://unsplash.com/photos/photo-1470337458703-46ad1756a187) (`photo-1470337458703`) — Unsplash License | Guided tasting pour into rocks glass |
 | `venues/brugal-rum-center.jpg` | TripAdvisor — Casa Brugal entrance exterior | Building for venue page only |
 | `liquid-blue-sunrise-yoga.jpg` | [Unsplash](https://unsplash.com/photos/woman-in-black-tank-top-and-black-leggings-doing-yoga-JZ51oKoCghE) (`photo-1544367567`) — Unsplash License | Sunrise yoga by water; not surf aerial |
@@ -27,14 +27,14 @@ Curated images under `public/events/` and `public/venues/`. Prefer venue-accurat
 | `feria-artesanal-verano-2026.jpg` | POP curated `feriaartesanal.jpg` | Folk dance at Plaza Independencia during the fair |
 | `venues/plaza-independencia.jpg` | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Plaza_Independencia_de_Puerto_Plata.jpg) — Ronny Medina, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | Daytime park + cathedral + gazebo |
 | `cabarete-jazz-festival-2026.jpg` | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Colorful_jazz_concert_(Unsplash).jpg) — Jens Thekkeveettil / Unsplash | Jazz sax close-up for Cabarete Jazz Festival |
-| `jandy-ventura-legado-caballo-2026.jpg` | [Unsplash](https://unsplash.com/photos/people-dancing-photo-1504609773096) (`photo-1504609773096`) — Unsplash License | Latin / merengue dance energy for Legado del Caballo |
-| `blue-jacktar-playa-dorada.jpg` / venue | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Hotel_en_Playa_Dorada,_Provincia_Puerto_Plata_-_panoramio.jpg) — panoramio | Playa Dorada resort grounds (Blue JackTar complex) |
+| `jandy-ventura-legado-caballo-2026.jpg` / `venues/blue-jacktar-playa-dorada.jpg` | [CDN.com.do](https://cdn.com.do/entretenimiento/graan-events-pone-a-bailar-a-puerto-plata-a-ritmo-de-jandy-ventura/) — GRAAN / Jandy Ventura stage at Blue JackTar | Local merengue concert action (replaces resort grounds + travel flat-lay) |
 | `natura-cabana-saturday-live.jpg` (+ venue refresh) | [Natura Cabana](https://naturacabana.com/) — `00022_natura-9` resort / pool | Official property photo for Saturday live nights |
 | `el-parq-live-bands-saturday.jpg` / `venues/el-parq-cabarete.jpg` | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Food_Truck_Park,_Tulum_QR_Feb_2020_02.jpg) — Bernard DUPONT, [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/) | Tropical outdoor food-truck park courtyard (replaces mis-tagged Bali café) |
 | `venues/disco-club-brugal.jpg` | [Unsplash](https://unsplash.com/photos/people-having-a-concert-photo-1540039155733) (`photo-1540039155733`) — Unsplash License | Indoor concert crowd / stage lights for Disco Club hall |
 | `el-parq-karaoke-thursday.jpg` | [Unsplash](https://unsplash.com/photos/people-having-a-concert-photo-1470225620780) (`photo-1470225620780`) — Unsplash License | Night party lights for karaoke |
 | `el-parq-latin-friday.jpg` | [Unsplash](https://unsplash.com/photos/photo-1547153760-18fc86324498) (`photo-1547153760`) — Unsplash License | Latin dance night |
-| `parada-tipica-el-choco-tuesday-live.jpg` / venue | [Unsplash](https://unsplash.com/photos/photo-1559339352-11d035aa65de) (`photo-1559339352`) — Unsplash License | Outdoor dining patio for Tuesday live |
+| `parada-tipica-el-choco-tuesday-live.jpg` | [Sosúa News](https://www.sosuanews.com/news_pictures/2012/02/02-27_elchoco_9.jpg) — party night at Parada Típica El Choco / Chalet Suizo | Tuesday live nights at the actual Sosúa–Cabarete road venue (replaces Puerto Plata Malecón band shot) |
+| `venues/parada-tipica-el-choco.jpg` | [Sosúa News](https://www.sosuanews.com/news_pictures/2012/02/02-27_elchoco_13.jpg) — night patio / thatched entrance | Venue place photo (replaces unrelated Unsplash lakeside patio) |
 | `puerto-plata-golf-classic-2026.jpg` / `venues/playa-dorada-golf.jpg` | [Unsplash](https://unsplash.com/photos/photo-1535131749006-b7f58c99034b) (`photo-1535131749006`) — Unsplash License | Tropical golf fairway for Ashonorte Golf Classic |
 | `cac-games-surf-playa-encuentro-2026.jpg` / `venues/playa-encuentro.jpg` | [Unsplash](https://unsplash.com/photos/photo-1502680390469-be75c86b636f) (`photo-1502680390469`) — Unsplash License | Surf action for CAC Games Playa Encuentro |
 | `puerto-plata-beach-soccer-2026.jpg` / `venues/playa-los-charamicos.jpg` | [Unsplash](https://unsplash.com/photos/photo-1543746746-46047c4f4bb0) (`photo-1543746746`) — Unsplash License | Soccer on sand with palms (replaces grass-pitch stock) |
@@ -43,8 +43,7 @@ Curated images under `public/events/` and `public/venues/`. Prefer venue-accurat
 | `cabarete-pilates-reformer.jpg` | [Unsplash](https://unsplash.com/photos/woman-does-pilates-exercise-on-a-reformer-machine--j3ARb-gTBo) (`photo-1754257320311`) — Unsplash License | Reformer studio action (replaces Rafaella logo) |
 | `ingest-18th-annual-cabarete-butterfly-effect.jpg` | [Cabarete Butterfly Effect](https://www.cabaretebutterflyeffect.com/) — official SUP / river paddle photo | Event action (replaces circular logo) |
 | `cabarete-classic-2026.jpg` | POP curated `CabareteKiteFest.JPG` — kite beach action | Replaces Cabarete Classic logo mark |
-| `el-carey-wc2026.jpg` (+ WC match prefix) | [Unsplash](https://unsplash.com/photos/photo-1522778119026) (`photo-1522778119026`) — Unsplash License | Stadium soccer crowd for WC watch parties (replaces promo poster) |
-| `el-carey-wc2026-…england-vs-argentina….jpg` | [Unsplash](https://unsplash.com/photos/photo-1431324155629) (`photo-1431324155629`) — Unsplash License | Night match atmosphere |
+| `el-carey-wc2026.jpg` (+ WC match prefix) | El Carey Día y Noche — WC 2026 watch-party promo poster | Venue promo for all World Cup watch parties |
 | `el-colibri-karaoke-battle-2026.jpg` | [Unsplash](https://unsplash.com/photos/photo-1514525253161) (`photo-1514525253161`) — Unsplash License | Concert crowd / stage energy (replaces karaoke flyer) |
 | `rumble-in-paradise-12.jpg` | [Unsplash](https://unsplash.com/photos/photo-1552072092) (`photo-1552072092`) — Unsplash License | Boxer walkout to the ring (replaces fight poster) |
 | `inicio-del-campamento-pp-2026.jpg` | [Unsplash](https://unsplash.com/photos/photo-1526232761682) (`photo-1526232761682`) — Unsplash License | Youth sports camp huddle (replaces podcast logo) |

@@ -14,9 +14,9 @@ const VENUE_SOURCES = [
     url: "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/12/e5/6b/d1.jpg",
   },
   {
-    // Caribbean rum tasting pour — event action (venue keeps Casa Brugal exterior).
+    // Guided spirits tasting — guests sampling with a guide (tour action).
     eventId: "brugal-rum-center-weekdays",
-    url: "https://images.unsplash.com/photo-1551538827-9c037cb4f32a?w=1800&q=85",
+    url: "https://commons.wikimedia.org/wiki/Special:FilePath/Lincoln_Heritage_Scenic_Highway_-_Tasting_Room_at_the_Heaven_Hill_Bourbon_Heritage_Center_-_NARA_-_7720062.jpg?width=1600",
   },
   {
     // Guided tasting pour into rocks glass — group/corporate visit action.
@@ -106,16 +106,6 @@ const VENUE_SOURCES = [
     url: "https://d11n7da8rpqbjy.cloudfront.net/michellebourdeau/44030738893CABARETE_BE_2024-239.jpeg",
   },
   {
-    // Stadium soccer energy for El Carey WC2026 watch parties (replaces promo poster).
-    eventId: "el-carey-wc2026",
-    url: "https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=1800&q=85",
-  },
-  {
-    // Night match atmosphere for England vs Argentina watch party.
-    eventId: "el-carey-wc2026-2026-07-15-england-vs-argentina-1500",
-    url: "https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=1800&q=85",
-  },
-  {
     // Concert crowd / stage energy — karaoke battle vibe (replaces flyer; not castaways singer).
     eventId: "el-colibri-karaoke-battle-2026",
     url: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1800&q=85",
@@ -194,14 +184,14 @@ const VENUE_SOURCES = [
     url: "https://upload.wikimedia.org/wikipedia/commons/e/e5/Colorful_jazz_concert_%28Unsplash%29.jpg",
   },
   {
-    // Merengue / Latin dance energy for Jandy Ventura tribute.
+    // Local GRAAN / Jandy Ventura stage shot at Blue JackTar (CDN.com.do press).
     eventId: "jandy-ventura-legado-caballo-2026",
-    url: "https://images.unsplash.com/photo-1504609773096-104ff2c73ba4?w=1800&q=85",
+    url: "https://img.mmc.com.do/cdn-bucket/uploads/2022/08/Graan-Events-pone-a-bailar-a-Puerto-Plata-a-ritmo-de-Jandy-Ventura-El-Legado.jpg",
   },
   {
-    // Playa Dorada resort grounds (Commons) — Blue JackTar sits in this complex.
+    // Same local concert action for Blue JackTar venue card (not resort grounds).
     eventId: "blue-jacktar-playa-dorada",
-    url: "https://upload.wikimedia.org/wikipedia/commons/9/97/Hotel_en_Playa_Dorada%2C_Provincia_Puerto_Plata_-_panoramio.jpg",
+    url: "https://img.mmc.com.do/cdn-bucket/uploads/2022/08/Graan-Events-pone-a-bailar-a-Puerto-Plata-a-ritmo-de-Jandy-Ventura-El-Legado.jpg",
   },
   {
     // Official Natura Cabana resort/pool — Saturday restaurant live nights.
@@ -228,11 +218,6 @@ const VENUE_SOURCES = [
     // Latin dance for El Parq Friday night.
     eventId: "el-parq-latin-friday",
     url: "https://images.unsplash.com/photo-1547153760-18fc86324498?w=1800&q=85",
-  },
-  {
-    // Outdoor dining patio — Parada Típica El Choco Tuesday live.
-    eventId: "parada-tipica-el-choco-tuesday-live",
-    url: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=1800&q=85",
   },
   // --- North Coast sports seeds (Jul–Aug 2026) ---
   {
@@ -387,6 +372,11 @@ const localSources = [
   {
     src: "CabareteReggaeRootsNight.JPG",
     eventId: "lax-headline-concerts",
+  },
+  // Real Parada Típica El Choco (Sosúa) party night — not Puerto Plata Malecón.
+  {
+    src: "ElChocoTuesdayLive.jpg",
+    eventId: "parada-tipica-el-choco-tuesday-live",
   },
 ];
 for (const { src, eventId } of localSources) {

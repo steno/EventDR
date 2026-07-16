@@ -22,7 +22,6 @@ import { EventCard } from "@/components/EventCard";
 import { EventListScrollPads } from "@/components/EventCardPlaceholder";
 import { EventViewToggle } from "@/components/EventViewToggle";
 import { SearchEmptyState } from "@/components/SearchEmptyState";
-import { VenueStrip } from "@/components/VenueStrip";
 import { AddEventButton } from "@/components/AddEventButton";
 import { useEventListView } from "@/hooks/useEventListView";
 import { fillTemplate } from "@/lib/seo";
@@ -266,10 +265,6 @@ export function FilteredEventList({
           )}
         </>
       )}
-
-      <div className="mt-10">
-        <VenueStrip locale={locale} dict={dict} />
-      </div>
 
       {onAddEvent && (
         <AddEventButton dict={dict} onClick={onAddEvent} label={addEventLabel} />

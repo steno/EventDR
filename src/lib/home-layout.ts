@@ -30,10 +30,10 @@ export const EMPTY_EVENT_IDS: string[] = [];
 /** Default preview cap for city, category, venue, and when listing pages. */
 export const SCOPE_LIST_LIMIT = HOME_PICKS_LIMIT;
 
-/** Max venues per audience tab in the home venues strip. */
+/** Max venue slides per audience slider on home. */
 export const HOME_VENUE_LIMIT = 6;
 
-/** Home strip tabs — Local favorites vs Visitor faves. */
+/** Home audience sections — Local favorites vs Visitor faves. */
 export type VenueAudienceFilter = "local" | "visitor";
 
 export const VENUE_AUDIENCE_FILTERS: readonly VenueAudienceFilter[] = [
@@ -42,10 +42,12 @@ export const VENUE_AUDIENCE_FILTERS: readonly VenueAudienceFilter[] = [
 ] as const;
 
 /**
- * Curated venue order for each audience. Mixed spots can appear in both.
- * Resolve against live/seed venue maps in getFeaturedVenues.
+ * Curated pools for each audience. Home sliders sample randomly from these
+ * (seeded by local calendar day so order is stable for a visit/day).
+ * Edit these lists to grow or rebalance Local vs Visitor coverage.
+ * A venue may appear in both pools when it serves mixed crowds.
  */
-export const FEATURED_VENUE_SLUGS: Record<
+export const VENUE_AUDIENCE_POOLS: Record<
   VenueAudienceFilter,
   readonly string[]
 > = {
@@ -59,6 +61,23 @@ export const FEATURED_VENUE_SLUGS: Record<
     "malecon-puerto-plata",
     "parque-jose-briceno",
     "plaza-independencia",
+    "ground-zero-disco",
+    "la-chabola-cabarete",
+    "la-casita-de-papi",
+    "el-carey-puerto-plata",
+    "cremo-cigar-bar",
+    "senor-rock-playa-dorada",
+    "casa-de-la-cultura",
+    "calle-sombrillas",
+    "paseo-dona-blanca",
+    "paella-pop-el-pueblito",
+    "cheers-bar-sosua",
+    "smileys-bar-sosua",
+    "finish-line-sosua",
+    "brugal-rum-center",
+    "rum-legacy-museum",
+    "macorix-house-of-rum",
+    "playa-los-charamicos",
   ],
   visitor: [
     "lax-cabarete",
@@ -70,8 +89,59 @@ export const FEATURED_VENUE_SLUGS: Record<
     "ocean-world",
     "bar-39-sosua",
     "hotel-voramar-sosua",
+    "castaways-sosua",
+    "playa-sosua",
+    "sosua-diving-center",
+    "cowork-cabarete",
+    "sea-horse-ranch",
+    "big-lees-beach-bar",
+    "pingui-bar",
+    "el-colibri-hotel",
+    "fortaleza-san-felipe",
+    "museo-ambar",
+    "charcos-damajagua",
+    "teleferico-puerto-plata",
+    "cayo-arena",
+    "fun-city",
+    "monkeyland-puerto-plata",
+    "coconut-cove",
+    "freestyle-catamaran",
+    "outback-adventures",
+    "hms-valeria",
+    "playa-dorada-golf",
+    "playa-encuentro",
+    "sosua-jewish-museum",
+    "del-oro-chocolate-factory",
+    "hacienda-cufa",
   ],
 };
+
+/** @deprecated Use VENUE_AUDIENCE_POOLS — same curated pools. */
+export const FEATURED_VENUE_SLUGS = VENUE_AUDIENCE_POOLS;
+
+/** Simple string → 32-bit seed for daily shuffle. */
+function hashSeed(input: string): number {
+  let hash = 2166136261;
+  for (let i = 0; i < input.length; i++) {
+    hash ^= input.charCodeAt(i);
+    hash = Math.imul(hash, 16777619);
+  }
+  return hash >>> 0;
+}
+
+/** Deterministic Fisher–Yates shuffle (does not mutate input). */
+export function seededShuffle<T>(items: readonly T[], seed: number): T[] {
+  const result = [...items];
+  let state = seed || 1;
+  for (let i = result.length - 1; i > 0; i--) {
+    state = (Math.imul(state, 1664525) + 1013904223) >>> 0;
+    const j = state % (i + 1);
+    const tmp = result[i]!;
+    result[i] = result[j]!;
+    result[j] = tmp;
+  }
+  return result;
+}
 
 function venueDedupeKey(event: Event): string {
   return (event.venueSlug ?? event.venue ?? event.location).trim().toLowerCase();
@@ -219,19 +289,37 @@ export function getHomeDiscoverLayout(
   };
 }
 
+export interface FeaturedVenuesOptions {
+  /**
+   * Shuffle seed. Defaults to today's local date so each audience pool
+   * rotates daily without reshuffling on every render.
+   */
+  seed?: string;
+}
+
+/**
+ * Resolve up to `limit` venues from the curated audience pool.
+ * Order is a seeded shuffle of the pool (not fixed ranking).
+ */
 export function getFeaturedVenues(
   venues: Venue[],
   audience: VenueAudienceFilter = "local",
   limit = HOME_VENUE_LIMIT,
+  options: FeaturedVenuesOptions = {},
 ): Venue[] {
   const bySlug = new Map(venues.map((v) => [v.slug, v]));
   // Prefer live/seed map rows; fall back to seed defs so tabs stay filled offline.
   const seedBySlug = new Map(SEED_VENUES.map((v) => [v.slug, v]));
 
-  return FEATURED_VENUE_SLUGS[audience]
+  const resolved = VENUE_AUDIENCE_POOLS[audience]
     .map((slug) => bySlug.get(slug) ?? seedBySlug.get(slug))
-    .filter((v): v is Venue => v != null)
-    .slice(0, limit);
+    .filter((v): v is Venue => v != null);
+
+  const seedKey = options.seed ?? localDateISO();
+  return seededShuffle(
+    resolved,
+    hashSeed(`${audience}:${seedKey}`),
+  ).slice(0, limit);
 }
 
 /** Full listing page for the active home time filter (one-shot expand via ?all=1). */

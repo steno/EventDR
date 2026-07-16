@@ -19,21 +19,14 @@ import { SubmitEventSheet } from "@/components/SubmitEventSheet";
 import { InstallBanner } from "@/components/InstallBanner";
 import { PwaRegister } from "@/components/PwaRegister";
 import { EventCard } from "@/components/EventCard";
-import { VenueStrip } from "@/components/VenueStrip";
+import { VenueAudienceCards } from "@/components/VenueAudienceCards";
 import { TodayHighlights } from "@/components/TodayHighlights";
 import { useSavedEvents } from "@/hooks/useSavedEvents";
 import {
-  EMPTY_EVENT_IDS,
   getHomeDiscoverLayout,
-  HOME_PICKS_LIMIT,
   HOME_SEARCH_LIMIT,
-  homeViewAllPath,
 } from "@/lib/home-layout";
 import { PAGE_SHELL_CLASS } from "@/lib/page-shell";
-import {
-  DEFAULT_FILTER_TIME_RANGE,
-  type FilterTimeRange,
-} from "@/lib/filters";
 import {
   eventMatchesCity,
   getCityMeta,
@@ -62,9 +55,6 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
   const [tab, setTab] = useState<AppTab>("discover");
   const [searchQuery, setSearchQuery] = useState("");
   const deferredSearchQuery = useDeferredValue(searchQuery);
-  const [timeRange, setTimeRange] = useState<FilterTimeRange>(
-    DEFAULT_FILTER_TIME_RANGE,
-  );
   const [submitOpen, setSubmitOpen] = useState(false);
   const [allEvents, setAllEvents] = useState<Event[]>([]);
   const [refreshKey, setRefreshKey] = useState(0);
@@ -127,7 +117,7 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
   // Bare home and ?city=all both mean North Coast for return links.
   const homePath = homePathWithArea(locale, selectedCity, true);
 
-  /** Zone pick scopes home highlights and picks; null = whole North Coast. */
+  /** Zone pick scopes home highlights; null = whole North Coast. */
   const scopedEvents = useMemo(() => {
     if (!selectedCity) return allEvents;
     return allEvents.filter((event) => eventMatchesCity(event, selectedCity));
@@ -138,7 +128,6 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
     [scopedEvents],
   );
 
-  const viewAllHref = homeViewAllPath(locale, timeRange, selectedCity);
   const seeAllTodayHref = selectedCity
     ? `/${locale}/city/${selectedCity}`
     : `/${locale}/when/today`;
@@ -164,11 +153,6 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
 
   const isSearching = searchQuery.trim().length > 0;
   const listSearchQuery = isSearching ? deferredSearchQuery : "";
-  // Avoid duplicating TodayHighlights when the list is also scoped to today.
-  const picksExcludeIds =
-    !isSearching && timeRange === "today"
-      ? discoverLayout.picksExcludeIds
-      : EMPTY_EVENT_IDS;
 
   return (
     <>
@@ -263,34 +247,27 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
                 />
               )}
 
+              {!isSearching && (
+                <VenueAudienceCards
+                  locale={locale}
+                  dict={dict}
+                  initialVenues={initialVenues}
+                />
+              )}
+
+              {/* Always fetch for hero / today / saved; list UI only while searching. */}
               <EventList
                 locale={locale}
                 dict={dict}
                 searchQuery={listSearchQuery}
-                timeRange={isSearching ? "all" : timeRange}
-                citySlug={isSearching ? null : selectedCity}
+                timeRange="all"
                 onEventsLoaded={handleEventsLoaded}
                 refreshKey={refreshKey}
-                ourPicks={!isSearching}
-                onTimeRangeChange={setTimeRange}
-                showTimeFilter={!isSearching}
                 onAddEvent={() => setSubmitOpen(true)}
                 returnTo={homePath}
-                limit={isSearching ? HOME_SEARCH_LIMIT : HOME_PICKS_LIMIT}
-                excludeEventIds={picksExcludeIds}
-                // All stays on-home with "More events"; other tabs deep-link.
-                viewAllHref={
-                  !isSearching && timeRange !== "all"
-                    ? viewAllHref
-                    : undefined
-                }
+                limit={HOME_SEARCH_LIMIT}
+                silent={!isSearching}
               />
-
-              {!isSearching && (
-                <div className="mt-8">
-                  <VenueStrip locale={locale} dict={dict} initialVenues={initialVenues} />
-                </div>
-              )}
             </>
           )}
 

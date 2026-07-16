@@ -265,6 +265,8 @@ export type Dictionary = {
     title: string;
     local: string;
     visitor: string;
+    localHint: string;
+    visitorHint: string;
     eventsAt: string;
     noEvents: string;
   };
@@ -589,6 +591,8 @@ export const en: Dictionary = {
     title: "Popular venues",
     local: "Local favorites",
     visitor: "Visitor faves",
+    localHint: "Where Dominicans go out on the North Coast",
+    visitorHint: "Beach bars, resorts, and classic visitor spots",
     eventsAt: "Upcoming events",
     noEvents: "No upcoming events at this venue yet.",
   },

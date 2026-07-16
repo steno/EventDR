@@ -58,8 +58,6 @@ const FILE_TO_EVENT_ID = {
     "ingest-18th-annual-cabarete-butterfly-effect",
   "sea-horse-saturday-market.jpg": "sea-horse-saturday-market",
   "el-carey-wc2026.jpg": "el-carey-wc2026",
-  "el-carey-wc2026-2026-07-15-england-vs-argentina-1500.jpg":
-    "el-carey-wc2026-2026-07-15-england-vs-argentina-1500",
   "el-colibri-karaoke-battle-2026.jpg": "el-colibri-karaoke-battle-2026",
   "rumble-in-paradise-12.jpg": "rumble-in-paradise-12",
   "inicio-del-campamento-pp-2026.jpg": "inicio-del-campamento-pp-2026",
@@ -83,7 +81,7 @@ const FILE_TO_EVENT_ID = {
   "el-parq-live-bands-saturday.jpg": "el-parq-live-bands-saturday",
   "el-parq-karaoke-thursday.jpg": "el-parq-karaoke-thursday",
   "el-parq-latin-friday.jpg": "el-parq-latin-friday",
-  "parada-tipica-el-choco-tuesday-live.jpg": "parada-tipica-el-choco-tuesday-live",
+  "ElChocoTuesdayLive.jpg": "parada-tipica-el-choco-tuesday-live",
   "puerto-plata-golf-classic-2026.jpg": "puerto-plata-golf-classic-2026",
   "cac-games-surf-playa-encuentro-2026.jpg": "cac-games-surf-playa-encuentro-2026",
   "puerto-plata-beach-soccer-2026.jpg": "puerto-plata-beach-soccer-2026",
@@ -159,9 +157,11 @@ const FILE_TO_VENUE_SLUG = {
   "plaza-independencia.jpg": "plaza-independencia",
   "el-parq-live-bands-saturday.jpg": "el-parq-cabarete",
   "disco-club-brugal.jpg": "disco-club-brugal",
-  "parada-tipica-el-choco-tuesday-live.jpg": "parada-tipica-el-choco",
-  "blue-jacktar-playa-dorada.jpg": "blue-jacktar-playa-dorada",
   "natura-cabana-saturday-live.jpg": "natura-cabana",
+  // Blue JackTar venue card uses the local Jandy / Legado concert stage shot.
+  "jandy-ventura-legado-caballo-2026.jpg": "blue-jacktar-playa-dorada",
+  // Real El Choco Sosúa night patio (Sosúa News); Tuesday live uses ElChocoTuesdayLive.jpg.
+  "parada-tipica-el-choco.jpg": "parada-tipica-el-choco",
   "puerto-plata-golf-classic-2026.jpg": "playa-dorada-golf",
   "cac-games-surf-playa-encuentro-2026.jpg": "playa-encuentro",
   "puerto-plata-beach-soccer-2026.jpg": "playa-los-charamicos",

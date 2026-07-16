@@ -295,6 +295,8 @@ export const es: Dictionary = {
     title: "Lugares populares",
     local: "Favoritos locales",
     visitor: "Favoritos visitantes",
+    localHint: "Donde salen los dominicanos en la Costa Norte",
+    visitorHint: "Beach bars, resorts y clásicos para visitantes",
     eventsAt: "Próximos eventos",
     noEvents: "Aún no hay eventos en este lugar.",
   },
