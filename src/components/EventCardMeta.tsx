@@ -5,6 +5,7 @@ import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import { formatEventDateRange } from "@/lib/format-date";
 import { formatRecurrenceLabel } from "@/lib/recurrence-label";
+import { formatEventTimeForList } from "@/lib/event-time-display";
 import { formatEventPlace } from "@/lib/event-location";
 import { EventCategoryLinks } from "@/components/EventCategoryLinks";
 import { EventStatusBadge } from "@/components/EventStatusBadge";
@@ -61,6 +62,9 @@ export function EventCardMeta({
     endDate: event.endDate,
     short: true,
   });
+  const timeLabel = formatEventTimeForList(event.time, {
+    recurrence: event.recurrence,
+  });
   if (compact) {
     return (
       <div className={`space-y-1.5 text-copy-meta font-medium text-neutral-600 dark:text-neutral-400 ${className}`}>
@@ -77,18 +81,21 @@ export function EventCardMeta({
             />
           )}
         </span>
-        {(event.time || recurrenceLabel) && (
-          <span className="inline-flex flex-wrap items-center gap-x-2 gap-y-1">
-            {event.time && (
-              <span className="inline-flex items-center gap-1.5">
+        {(timeLabel.display || recurrenceLabel) && (
+          <div className="flex min-w-0 items-center gap-x-2 gap-y-1">
+            {timeLabel.display && (
+              <span
+                className="inline-flex min-w-0 flex-1 items-center gap-1.5"
+                title={timeLabel.full !== timeLabel.display ? timeLabel.full : undefined}
+              >
                 <Clock className="h-3.5 w-3.5 shrink-0" aria-hidden />
-                {event.time}
+                <span className="truncate">{timeLabel.display}</span>
               </span>
             )}
             {recurrenceLabel && (
               <RecurrencePill label={recurrenceLabel} compact />
             )}
-          </span>
+          </div>
         )}
       </div>
     );
@@ -105,13 +112,14 @@ export function EventCardMeta({
           <EventStatusBadge label={liveStatusLabel} status={liveStatus} />
         )}
       </div>
-      {(event.time || recurrenceLabel) && (
+      {(timeLabel.display || recurrenceLabel) && (
         <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5">
-          {event.time && (
-            <span className="inline-flex items-center gap-2 text-copy-meta font-medium text-neutral-800 dark:text-neutral-200">
-              <Clock className="h-4 w-4 shrink-0 text-neutral-500 dark:text-neutral-400" />
-              {event.time}
-            </span>
+          {timeLabel.display && (
+            <MetaRow icon={<Clock className="h-4 w-4" />}>
+              <span title={timeLabel.full !== timeLabel.display ? timeLabel.full : undefined}>
+                {timeLabel.display}
+              </span>
+            </MetaRow>
           )}
           {recurrenceLabel && <RecurrencePill label={recurrenceLabel} />}
         </div>

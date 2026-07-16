@@ -2,6 +2,7 @@
 
 import { useSyncExternalStore, type ReactNode } from "react";
 import { Link2, Mail, Share2 } from "lucide-react";
+import { ActionSheet, ActionSheetTile } from "@/components/ActionSheet";
 import {
   FacebookIcon,
   TelegramIcon,
@@ -30,58 +31,57 @@ interface ShareMenuProps {
   onFeedback: (message: string) => void;
 }
 
-const PLATFORMS: {
+const SOCIAL: {
   id: SharePlatform;
   labelKey: keyof Dictionary["detail"];
-  className: string;
+  well: string;
   icon: ReactNode;
-  iconOnly?: boolean;
 }[] = [
   {
     id: "whatsapp",
     labelKey: "shareWhatsapp",
-    className: "bg-[#25D366] text-white",
+    well: "bg-[#25D366] text-white",
     icon: <WhatsAppIcon className="h-5 w-5" />,
-    iconOnly: true,
   },
   {
     id: "facebook",
     labelKey: "shareFacebook",
-    className: "bg-[#1877F2] text-white",
+    well: "bg-[#1877F2] text-white",
     icon: <FacebookIcon className="h-5 w-5" />,
-    iconOnly: true,
   },
   {
     id: "x",
     labelKey: "shareX",
-    className: "bg-neutral-900 text-white",
+    well: "bg-neutral-950 text-white dark:bg-white dark:text-neutral-950",
     icon: <XIcon className="h-4 w-4" />,
-    iconOnly: true,
   },
   {
     id: "telegram",
     labelKey: "shareTelegram",
-    className: "bg-[#26A5E4] text-white",
+    well: "bg-[#26A5E4] text-white",
     icon: <TelegramIcon className="h-5 w-5" />,
-    iconOnly: true,
   },
+];
+
+const UTILITY: {
+  id: SharePlatform;
+  labelKey: keyof Dictionary["detail"];
+  icon: ReactNode;
+}[] = [
   {
     id: "email",
     labelKey: "shareEmail",
-    className:
-      "bg-white dark:bg-neutral-800 text-neutral-500 dark:text-neutral-400 ring-1 ring-neutral-200/70 dark:ring-neutral-700/70 shadow-sm hover:text-neutral-800 dark:hover:text-neutral-200",
-    icon: <Mail className="h-4 w-4" />,
-    iconOnly: false,
+    icon: <Mail className="h-5 w-5" strokeWidth={2} />,
   },
   {
     id: "copy",
     labelKey: "shareCopyLink",
-    className:
-      "bg-white dark:bg-neutral-800 text-neutral-500 dark:text-neutral-400 ring-1 ring-neutral-200/70 dark:ring-neutral-700/70 shadow-sm hover:text-neutral-800 dark:hover:text-neutral-200",
-    icon: <Link2 className="h-4 w-4" />,
-    iconOnly: false,
+    icon: <Link2 className="h-5 w-5" strokeWidth={2} />,
   },
 ];
+
+const utilityWell =
+  "bg-white text-neutral-700 ring-1 ring-neutral-200/90 dark:bg-neutral-900 dark:text-neutral-200 dark:ring-neutral-700";
 
 export function ShareMenu({
   event,
@@ -135,45 +135,35 @@ export function ShareMenu({
   }
 
   return (
-    <div className="rounded-3xl bg-white/85 dark:bg-neutral-800/85 p-3 shadow-sm ring-1 ring-neutral-200/70 dark:ring-neutral-700/70 backdrop-blur">
-      <p className="mb-2 px-1 text-xs font-bold uppercase tracking-wide text-neutral-500 dark:text-neutral-400">
-        {dict.detail.shareVia}
-      </p>
-      <div className="relative">
-        <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-none">
+    <ActionSheet title={dict.detail.shareVia}>
+      <div className="grid grid-cols-4 gap-1 sm:grid-cols-4">
         {nativeShareAvailable && (
-          <button
-            type="button"
+          <ActionSheetTile
+            label={dict.detail.shareMore}
             onClick={() => handlePlatform("native")}
-            className="flex shrink-0 items-center gap-2 rounded-full bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-3 py-2.5 text-[13px] font-bold text-white shadow-sm touch-manipulation transition-transform active:scale-[0.98]"
-          >
-            <Share2 className="h-4 w-4" />
-            {dict.detail.shareMore}
-          </button>
+            wellClassName="bg-gradient-to-br from-orange-500 to-rose-600 text-white"
+            icon={<Share2 className="h-5 w-5" strokeWidth={2.25} />}
+          />
         )}
-        {PLATFORMS.map((platform) => (
-          <button
+        {SOCIAL.map((platform) => (
+          <ActionSheetTile
             key={platform.id}
-            type="button"
-            aria-label={dict.detail[platform.labelKey]}
+            label={dict.detail[platform.labelKey]}
             onClick={() => handlePlatform(platform.id)}
-            className={`flex shrink-0 items-center touch-manipulation transition-all active:scale-[0.98] ${
-              platform.iconOnly
-                ? `justify-center rounded-full p-3 shadow-sm ${platform.className}`
-                : `gap-2 rounded-full px-3 py-2.5 text-[13px] font-bold ${platform.className}`
-            }`}
-          >
-            {platform.icon}
-            {!platform.iconOnly && dict.detail[platform.labelKey]}
-          </button>
+            wellClassName={platform.well}
+            icon={platform.icon}
+          />
         ))}
-        </div>
-        {/* Scroll hint gradient */}
-        <div 
-          className="pointer-events-none absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-white/85 dark:from-neutral-800/85 to-transparent"
-          aria-hidden="true"
-        />
+        {UTILITY.map((platform) => (
+          <ActionSheetTile
+            key={platform.id}
+            label={dict.detail[platform.labelKey]}
+            onClick={() => handlePlatform(platform.id)}
+            wellClassName={utilityWell}
+            icon={platform.icon}
+          />
+        ))}
       </div>
-    </div>
+    </ActionSheet>
   );
 }

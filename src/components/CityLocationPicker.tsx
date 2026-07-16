@@ -9,6 +9,7 @@ import {
   writeHomeArea,
   type CitySlug,
 } from "@/lib/cities";
+import { getCategoryMeta } from "@/lib/categories";
 import { categoryPath } from "@/lib/event-navigation";
 import { fillTemplate } from "@/lib/seo";
 import type { Locale } from "@/i18n/config";
@@ -67,11 +68,18 @@ export function CityLocationPicker({
     : (emptyLabel ?? dict.cities.regionName);
   /** Avoid highlighting North Coast while the closed label still says “Choose area”. */
   const regionSelected = currentSlug == null && emptyLabel == null;
-  const lookingInLabel = categoryId
+
+  const category = categoryId
+    ? getCategoryMeta(categoryId, dict.categories)
+    : undefined;
+  const categoryPrefix = categoryId
     ? fillTemplate(dict.cities.lookingInWithCategory, {
         category: dict.categoriesSingular[categoryId],
       })
-    : dict.cities.lookingIn;
+    : null;
+  const listboxLabel = categoryPrefix
+    ? `${categoryPrefix} ${currentLabel}`
+    : currentLabel;
 
   useLayoutEffect(() => {
     if (pendingScrollY.current == null) return;
@@ -146,15 +154,23 @@ export function CityLocationPicker({
   return (
     <div ref={rootRef} className="mb-0">
       <div className="relative flex flex-wrap items-baseline justify-start gap-x-1.5 gap-y-0">
-        <p className="text-[15px] font-semibold leading-snug text-neutral-800 dark:text-neutral-200">
-          {lookingInLabel}
-        </p>
+        {categoryPrefix && (
+          <p className="text-[15px] font-semibold leading-snug text-neutral-800 dark:text-neutral-200">
+            {category?.emoji ? (
+              <span className="mr-1.5 inline-block text-[2rem] leading-none align-[-0.2em]" aria-hidden>
+                {category.emoji}
+              </span>
+            ) : null}
+            {categoryPrefix}
+          </p>
+        )}
         <button
           ref={triggerRef}
           type="button"
           aria-haspopup="listbox"
           aria-expanded={open}
           aria-controls={listId}
+          aria-label={listboxLabel}
           onClick={toggleOpen}
           className="
             inline-flex max-w-full items-center gap-0.5
@@ -177,7 +193,7 @@ export function CityLocationPicker({
           <ul
             id={listId}
             role="listbox"
-            aria-label={lookingInLabel}
+            aria-label={listboxLabel}
             className={`
               absolute left-0 z-50 min-w-[14rem] overflow-hidden rounded-2xl
               border border-neutral-200 bg-white py-1.5 shadow-[0_16px_40px_-20px_rgba(0,0,0,0.45)]

@@ -243,9 +243,9 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
                 </div>
               </div>
               {!isSearching && (
-                <div className="mb-6 overflow-hidden rounded-2xl border border-neutral-200/80 bg-white/60 dark:border-neutral-800/80 dark:bg-neutral-900/40 sm:mb-8 lg:mb-8">
+                <div className="mb-6 rounded-2xl border border-neutral-200/80 bg-white/60 dark:border-neutral-800/80 dark:bg-neutral-900/40 sm:mb-8 lg:mb-8">
                   <div className="relative z-10 flex items-center gap-2 bg-white/90 px-4 py-3 backdrop-blur-sm dark:bg-neutral-900/90 sm:px-5 sm:py-3.5">
-                    <div className="min-w-0 flex-1">
+                    <div className="relative z-20 min-w-0 flex-1">
                       <CityLocationPicker
                         locale={locale}
                         dict={dict}

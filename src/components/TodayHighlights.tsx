@@ -10,6 +10,7 @@ import type { Event } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { eventDetailPath } from "@/lib/event-navigation";
+import { formatEventTimeForList } from "@/lib/event-time-display";
 import {
   getTodayHighlightEvents,
   HOME_TODAY_LIMIT,
@@ -45,6 +46,9 @@ function TodayHighlightCard({
   const liveDisplay = useLiveStatusDisplay(event, dict);
   const liveStatus = liveDisplay?.status ?? null;
   const liveStatusLabel = liveDisplay?.label ?? null;
+  const timeLabel = formatEventTimeForList(event.time, {
+    recurrence: event.recurrence,
+  });
 
   return (
     <article className="group relative min-w-0 overflow-hidden rounded-2xl bg-neutral-100 shadow-[0_8px_24px_-14px_rgba(0,0,0,0.18)] ring-1 ring-black/5 hover:ring-orange-400/50 hover:shadow-[0_12px_32px_-16px_rgba(251,146,60,0.35)] transition-all duration-200 active:scale-[0.99] cursor-pointer dark:bg-neutral-950 dark:shadow-[0_8px_24px_-14px_rgba(0,0,0,0.45)] dark:ring-white/10 dark:hover:ring-orange-600/50">
@@ -101,10 +105,13 @@ function TodayHighlightCard({
           <h3 className="line-clamp-2 text-[15px] font-black leading-snug tracking-tight text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.55)] sm:text-base">
             {event.title}
           </h3>
-          {event.time && (
-            <p className="inline-flex items-center gap-1.5 text-xs font-medium text-white/90 [text-shadow:0_1px_2px_rgba(0,0,0,0.45)]">
+          {timeLabel.display && (
+            <p
+              className="inline-flex min-w-0 max-w-full items-center gap-1.5 text-xs font-medium text-white/90 [text-shadow:0_1px_2px_rgba(0,0,0,0.45)]"
+              title={timeLabel.full !== timeLabel.display ? timeLabel.full : undefined}
+            >
               <Clock className="h-3.5 w-3.5 shrink-0" aria-hidden />
-              {event.time}
+              <span className="truncate">{timeLabel.display}</span>
             </p>
           )}
         </div>

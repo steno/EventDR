@@ -5,8 +5,6 @@ import {
   useEffect,
   useRef,
   useState,
-  useSyncExternalStore,
-  type MouseEvent,
   type ReactNode,
 } from "react";
 import { useRouter } from "next/navigation";
@@ -56,28 +54,15 @@ import {
 import { EventCallLink } from "@/components/EventCallLink";
 import { formatPhoneTel } from "@/lib/event-phone";
 import { useSwipeToDismiss } from "@/hooks/useSwipeToDismiss";
+import { scrollBehaviorPreference } from "@/lib/list-scroll";
 
 type ActionMenu = "share" | "calendar";
 
-function prefersDesktopHover(): boolean {
-  return window.matchMedia("(hover: hover) and (pointer: fine)").matches;
-}
-
-function subscribeDesktopHover(onStoreChange: () => void): () => void {
-  const mq = window.matchMedia("(hover: hover) and (pointer: fine)");
-  mq.addEventListener("change", onStoreChange);
-  return () => mq.removeEventListener("change", onStoreChange);
-}
-
 function ActionFlyout({
   open,
-  onMouseEnter,
-  onMouseLeave,
   children,
 }: {
   open: boolean;
-  onMouseEnter?: () => void;
-  onMouseLeave?: () => void;
   children: ReactNode;
 }) {
   return (
@@ -87,8 +72,6 @@ function ActionFlyout({
           ? "grid-rows-[1fr] opacity-100"
           : "pointer-events-none grid-rows-[0fr] opacity-0"
       }`}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
       aria-hidden={!open}
     >
       <div className="min-h-0 overflow-hidden">
@@ -135,60 +118,18 @@ export function EventDetailSheet({
   const [shareMsg, setShareMsg] = useState<string | null>(null);
   const [openAction, setOpenAction] = useState<ActionMenu | null>(null);
   const actionsRef = useRef<HTMLDivElement>(null);
-  const hoverCloseTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const router = useRouter();
-  const canHover = useSyncExternalStore(
-    subscribeDesktopHover,
-    prefersDesktopHover,
-    () => false,
-  );
   const shareOpen = openAction === "share";
   const calendarOpen = openAction === "calendar";
-
-  const clearHoverClose = useCallback(() => {
-    if (hoverCloseTimer.current) {
-      clearTimeout(hoverCloseTimer.current);
-      hoverCloseTimer.current = null;
-    }
-  }, []);
-
-  const openActionMenu = useCallback(
-    (action: ActionMenu) => {
-      clearHoverClose();
-      setOpenAction(action);
-    },
-    [clearHoverClose],
-  );
-
-  const scheduleActionClose = useCallback(() => {
-    clearHoverClose();
-    hoverCloseTimer.current = setTimeout(() => {
-      setOpenAction(null);
-      hoverCloseTimer.current = null;
-    }, 120);
-  }, [clearHoverClose]);
 
   const toggleAction = useCallback((action: ActionMenu) => {
     setOpenAction((current) => (current === action ? null : action));
   }, []);
 
-  const handleActionClick = useCallback(
-    (action: ActionMenu, e: MouseEvent<HTMLButtonElement>) => {
-      // Keyboard activation (Enter/Space) still toggles on hover devices.
-      if (canHover && e.detail !== 0) return;
-      clearHoverClose();
-      toggleAction(action);
-    },
-    [canHover, clearHoverClose, toggleAction],
-  );
-
   useEffect(() => {
     setOpenAction(null);
     setShareMsg(null);
-    clearHoverClose();
-  }, [clearHoverClose, event?.id]);
-
-  useEffect(() => () => clearHoverClose(), [clearHoverClose]);
+  }, [event?.id]);
 
   useEffect(() => {
     if (!event || standalone) return;
@@ -209,14 +150,27 @@ export function EventDetailSheet({
         actionsRef.current &&
         !actionsRef.current.contains(e.target as Node)
       ) {
-        clearHoverClose();
         setOpenAction(null);
       }
     }
 
     document.addEventListener("pointerdown", handlePointerDown);
     return () => document.removeEventListener("pointerdown", handlePointerDown);
-  }, [clearHoverClose, openAction]);
+  }, [openAction]);
+
+  // Standalone event pages: flyout opens above the action bar — ease into view
+  // instead of letting the browser snap scroll when the panel expands.
+  useEffect(() => {
+    if (!openAction || !standalone) return;
+    const node = actionsRef.current;
+    if (!node) return;
+
+    const behavior = scrollBehaviorPreference();
+    const frame = requestAnimationFrame(() => {
+      node.scrollIntoView({ behavior, block: "nearest" });
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [openAction, standalone]);
 
   const {
     sheetRef,
@@ -270,11 +224,11 @@ export function EventDetailSheet({
     : dict.detail.paidAdmissionUnknown;
 
   const iconActionClass =
-    "flex h-12 w-full items-center justify-center rounded-full touch-manipulation transition-all active:scale-[0.98]";
+    "flex h-12 w-full items-center justify-center rounded-2xl touch-manipulation transition-all active:scale-[0.98]";
   const iconActionIdleClass =
-    "bg-white dark:bg-neutral-800 text-neutral-500 dark:text-neutral-400 shadow-sm ring-1 ring-neutral-200/70 dark:ring-neutral-700/70 hover:text-neutral-800 dark:hover:text-neutral-200";
+    "bg-neutral-100 text-neutral-600 ring-1 ring-neutral-200/80 hover:bg-white hover:text-neutral-900 dark:bg-neutral-800 dark:text-neutral-300 dark:ring-neutral-700/80 dark:hover:bg-neutral-700 dark:hover:text-neutral-100";
   const iconActionActiveClass =
-    "bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 text-white shadow-sm";
+    "bg-gradient-to-br from-orange-500 to-rose-600 text-white shadow-[0_8px_20px_-12px_rgba(244,63,94,0.7)]";
 
   function handleShareFeedback(message: string, durationMs = 5000) {
     setShareMsg(message);
@@ -454,24 +408,14 @@ export function EventDetailSheet({
       ref={actionsRef}
       className="relative isolate border-t border-neutral-100 bg-white px-5 pt-4 pb-[max(1rem,env(safe-area-inset-bottom))] dark:border-neutral-800 dark:bg-neutral-900 sm:px-6 lg:px-8"
     >
-      <ActionFlyout
-        open={calendarOpen}
-        onMouseEnter={
-          canHover ? () => openActionMenu("calendar") : undefined
-        }
-        onMouseLeave={canHover ? scheduleActionClose : undefined}
-      >
+      <ActionFlyout open={calendarOpen}>
         <CalendarMenu
           event={event}
           dict={dict}
           onClose={() => setOpenAction(null)}
         />
       </ActionFlyout>
-      <ActionFlyout
-        open={shareOpen}
-        onMouseEnter={canHover ? () => openActionMenu("share") : undefined}
-        onMouseLeave={canHover ? scheduleActionClose : undefined}
-      >
+      <ActionFlyout open={shareOpen}>
         <ShareMenu
           event={event}
           locale={locale}
@@ -506,11 +450,7 @@ export function EventDetailSheet({
         )}
         <button
           type="button"
-          onClick={(e) => handleActionClick("calendar", e)}
-          onMouseEnter={
-            canHover ? () => openActionMenu("calendar") : undefined
-          }
-          onMouseLeave={canHover ? scheduleActionClose : undefined}
+          onClick={() => toggleAction("calendar")}
           className={`${iconActionClass} ${
             calendarOpen ? iconActionActiveClass : iconActionIdleClass
           }`}
@@ -523,9 +463,7 @@ export function EventDetailSheet({
         </button>
         <button
           type="button"
-          onClick={(e) => handleActionClick("share", e)}
-          onMouseEnter={canHover ? () => openActionMenu("share") : undefined}
-          onMouseLeave={canHover ? scheduleActionClose : undefined}
+          onClick={() => toggleAction("share")}
           className={`${iconActionClass} ${
             shareOpen || shareMsg ? iconActionActiveClass : iconActionIdleClass
           }`}

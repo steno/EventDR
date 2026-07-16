@@ -540,7 +540,7 @@ export const en: Dictionary = {
   cities: {
     browseTopCategories: "Categories in {city}",
     lookingIn: "Looking for events in",
-    lookingInWithCategory: "Looking for {category} events in",
+    lookingInWithCategory: "{category} in",
     regionName: "North Coast",
     chooseArea: "Choose area",
   },
