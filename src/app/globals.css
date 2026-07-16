@@ -69,7 +69,7 @@ html.boot-pending #app-shell {
   align-items: center;
   justify-content: center;
   background: #fafafa;
-  transition: opacity 0.28s ease, visibility 0.28s ease;
+  transition: opacity 0.15s ease, visibility 0.15s ease;
 }
 
 html.dark .app-boot-splash {

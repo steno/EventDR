@@ -2,8 +2,6 @@
 
 import { useEffect } from "react";
 import {
-  expectBootPart,
-  readyBootPart,
   showBootSplashForReload,
 } from "@/lib/boot-splash";
 
@@ -29,10 +27,7 @@ function waitForWorkerState(
 /** Registers the service worker; updates reload under the boot splash when needed. */
 export function PwaRegister() {
   useEffect(() => {
-    expectBootPart("sw");
-
     if (!("serviceWorker" in navigator)) {
-      readyBootPart("sw");
       return;
     }
 
@@ -48,9 +43,7 @@ export function PwaRegister() {
         }
       };
 
-      cleanupDevPwa()
-        .catch(() => {})
-        .finally(() => readyBootPart("sw"));
+      void cleanupDevPwa().catch(() => {});
       return;
     }
 
@@ -87,16 +80,14 @@ export function PwaRegister() {
     document.addEventListener("visibilitychange", onVisible);
 
     const settle = async () => {
-      let awaitingReload = false;
       try {
         const reg = await navigator.serviceWorker.register(
           `/sw.js?v=${PWA_VERSION}`,
         );
         await reg.update().catch(() => {});
 
-        // Activate a waiting update while splash can still cover, then reload.
+        // Activate a waiting update, then reload under the splash.
         if (reg.waiting && hadControllerOnLoad) {
-          awaitingReload = true;
           reg.waiting.postMessage({ type: "SKIP_WAITING" });
           return;
         }
@@ -113,9 +104,6 @@ export function PwaRegister() {
         }, 15 * 60 * 1000);
       } catch (error) {
         console.error("SW registration failed:", error);
-      } finally {
-        // Keep splash up when an update reload is about to fire.
-        if (!refreshing && !awaitingReload) readyBootPart("sw");
       }
     };
 

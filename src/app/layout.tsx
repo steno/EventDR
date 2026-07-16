@@ -18,10 +18,10 @@ const inter = Inter({
 });
 
 /** Critical styles so the splash paints before the CSS bundle arrives. */
-const bootSplashCriticalCss = `html.boot-pending #app-shell{visibility:hidden}#app-boot-splash{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:#fafafa;transition:opacity .28s ease,visibility .28s ease}html.dark #app-boot-splash{background:#0a0a0a}#app-boot-splash img{width:7rem;height:auto;object-fit:contain}#app-boot-splash.app-boot-splash--done{opacity:0;visibility:hidden;pointer-events:none}`;
+const bootSplashCriticalCss = `html.boot-pending #app-shell{visibility:hidden}#app-boot-splash{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:#fafafa;transition:opacity .15s ease,visibility .15s ease}html.dark #app-boot-splash{background:#0a0a0a}#app-boot-splash img{width:7rem;height:auto;object-fit:contain}#app-boot-splash.app-boot-splash--done{opacity:0;visibility:hidden;pointer-events:none}`;
 
 /** Failsafe so a hung client never leaves the splash stuck; also clears boot-pending. */
-const bootSplashFailsafe = `(function(){setTimeout(function(){var el=document.getElementById("app-boot-splash");if(!el||el.classList.contains("app-boot-splash--done")){document.documentElement.classList.remove("boot-pending");return}el.classList.add("app-boot-splash--done");el.setAttribute("aria-hidden","true");el.setAttribute("inert","");document.documentElement.classList.remove("boot-pending")},8000)})()`;
+const bootSplashFailsafe = `(function(){setTimeout(function(){var el=document.getElementById("app-boot-splash");if(!el||el.classList.contains("app-boot-splash--done")){document.documentElement.classList.remove("boot-pending");return}el.classList.add("app-boot-splash--done");el.setAttribute("aria-hidden","true");el.setAttribute("inert","");document.documentElement.classList.remove("boot-pending")},4000)})()`;
 
 export default function RootLayout({
   children,

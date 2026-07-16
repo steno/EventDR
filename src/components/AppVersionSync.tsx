@@ -3,8 +3,6 @@
 import { useCallback, useEffect, useRef } from "react";
 import { appVersionNeedsRefresh } from "@/lib/app-version-shared";
 import {
-  expectBootPart,
-  readyBootPart,
   showBootSplashForReload,
 } from "@/lib/boot-splash";
 
@@ -63,12 +61,8 @@ export function AppVersionSync() {
   }, []);
 
   useEffect(() => {
-    expectBootPart("version");
-
     const runBootCheck = async () => {
       await checkVersion();
-      // If a reload was triggered, stay on the splash until navigation unloads.
-      if (!reloading.current) readyBootPart("version");
     };
 
     void runBootCheck();

@@ -23,6 +23,7 @@ export const SEED_VENUES: Venue[] = [
     lat: 19.7905058,
     lng: -70.6718446,
     emoji: "🌊",
+    phone: "+18095862526",
   },
   {
     slug: "kite-beach",
@@ -229,6 +230,7 @@ export const SEED_VENUES: Venue[] = [
     lat: 19.7502161,
     lng: -70.4066784,
     emoji: "🎤",
+    phone: "+18095710805",
   },
   {
     slug: "la-casita-de-papi",
@@ -428,6 +430,7 @@ export const SEED_VENUES: Venue[] = [
     emoji: "🌳",
     website:
       "https://www.google.com/maps/place/Independence+Park/@19.7976623,-70.6932862,17z",
+    phone: "+18095862526",
   },
   {
     slug: "paseo-dona-blanca",

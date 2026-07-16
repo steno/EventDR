@@ -10,8 +10,6 @@ import {
 const SPLASH_ID = "app-boot-splash";
 const DONE_CLASS = "app-boot-splash--done";
 const BOOT_PENDING_CLASS = "boot-pending";
-/** Brand hold: show at least this long; never add delay if load already took longer. */
-const MIN_VISIBLE_MS = 900;
 
 function dismissSplash() {
   const el = document.getElementById(SPLASH_ID);
@@ -26,18 +24,16 @@ function dismissSplash() {
   document.documentElement.classList.remove(BOOT_PENDING_CLASS);
 }
 
-/** Hides the inline HTML boot splash after home data is ready, with a short brand hold. */
+/** Hides the inline HTML boot splash as soon as home events are ready. */
 export function BootSplashDismiss() {
   useEffect(() => {
     let cancelled = false;
     let frame = 0;
-    let minTimer: ReturnType<typeof setTimeout> | undefined;
-    let minHoldElapsed = false;
 
     const tryDismiss = () => {
-      if (cancelled || !minHoldElapsed || !isBootReady()) return;
+      if (cancelled || !isBootReady()) return;
 
-      // Wait two frames so first painted content sits under the fade-out.
+      // Two frames so first painted content sits under the fade-out.
       frame = requestAnimationFrame(() => {
         requestAnimationFrame(() => {
           if (!cancelled && isBootReady()) dismissSplash();
@@ -46,21 +42,12 @@ export function BootSplashDismiss() {
     };
 
     openBootExpectationWindow();
-
-    const elapsed = typeof performance !== "undefined" ? performance.now() : 0;
-    const remaining = Math.max(0, MIN_VISIBLE_MS - elapsed);
-
-    minTimer = setTimeout(() => {
-      minHoldElapsed = true;
-      tryDismiss();
-    }, remaining);
-
+    tryDismiss();
     const unsubscribe = subscribeBootReady(tryDismiss);
 
     return () => {
       cancelled = true;
       cancelAnimationFrame(frame);
-      if (minTimer) clearTimeout(minTimer);
       unsubscribe();
     };
   }, []);

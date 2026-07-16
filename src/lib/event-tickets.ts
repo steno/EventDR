@@ -98,6 +98,23 @@ export const CURATED_CALL_FOR_PRICING = new Set<string>([
   "anfiteatro-la-puntilla-concerts",
   "lax-headline-concerts",
   "womens-reconnection-kite-camp-2026",
+  "cabarete-pilates-reformer",
+  "inicio-del-campamento-pp-2026",
+  "rumble-in-paradise-12",
+  "sancocho-sabados-pingui",
+  "paella-pop-el-pueblito",
+  "paella-pop-green-one",
+]);
+
+/** Free entry — street festivals, open-mic / no-cover nights, beach spectating. */
+export const CURATED_FREE_EVENTS = new Set<string>([
+  "voyvoy-sunday-open-mic",
+  "voyvoy-saturday-session",
+  "cabarete-classic-2026",
+  "puerto-plata-carnaval-2026",
+  "malecon-morning-wellness-walk",
+  "el-colibri-karaoke-battle-2026",
+  "feria-artesanal-verano-2026",
 ]);
 
 const ADMISSION_PRICE_MAX_LEN = 32;
@@ -162,6 +179,7 @@ export function normalizeEventAdmission<T extends AdmissionAwareEvent>(
 ): T {
   const ticketUrl = resolveTicketUrl(event);
   const explicitFree = normalizeIsFree(event.isFree);
+  const curatedFree = CURATED_FREE_EVENTS.has(event.id);
   const explicitPrice = normalizeAdmissionPrice(event.admissionPrice);
   const curatedPrice = CURATED_ADMISSION_PRICES[event.id];
   const explicitCall = normalizeCallForPricing(event.callForPricing);
@@ -177,7 +195,7 @@ export function normalizeEventAdmission<T extends AdmissionAwareEvent>(
       callForPricing: false,
     };
   }
-  if (explicitFree === true) {
+  if (explicitFree === true || (curatedFree && explicitFree !== false)) {
     return {
       ...event,
       isFree: true,
@@ -272,7 +290,7 @@ export function isEventFree(
   if (resolveAdmissionPrice(event)) return false;
   if (isCallForPricingFlag(event)) return false;
   if (event.isFree === false) return false;
-  if (event.isFree === true) return true;
+  if (event.isFree === true || CURATED_FREE_EVENTS.has(event.id)) return true;
   if (event.communitySubmitted) return true;
 
   const copy = `${event.title} ${event.description}`;

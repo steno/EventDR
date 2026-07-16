@@ -13,6 +13,14 @@ const EVENT_PHONE_BY_ID: Record<string, string> = {
   "puerto-plata-golf-classic-2026": "+18093204262",
   "cac-games-surf-playa-encuentro-2026": "+18298934214",
   "puerto-plata-beach-soccer-2026": "+18095866125",
+  // LIVE CABARETE EVENTS S.R.L. — cabaretejazz.com terms
+  "cabarete-jazz-festival-2026": "+18096899136",
+  // Ayuntamiento de Puerto Plata (public festivals / malecón)
+  "feria-artesanal-verano-2026": "+18095862526",
+  "puerto-plata-carnaval-2026": "+18095862526",
+  "malecon-morning-wellness-walk": "+18095862526",
+  // Pablito Guzmán / Cabarete Classic organizer line (long-published)
+  "cabarete-classic-2026": "+18098766003",
 };
 
 export function formatPhoneDisplay(phone: string): string {
