@@ -62,6 +62,9 @@ export type Dictionary = {
     refresh: string;
     empty: string;
     emptyHint: string;
+    errorTitle: string;
+    errorHint: string;
+    retry: string;
     hiddenGems: string;
     mostPopular: string;
     moreEvents: string;
@@ -279,6 +282,9 @@ export type Dictionary = {
     refresh: string;
     viewLive: string;
   };
+  a11y: {
+    skipToContent: string;
+  };
 };
 
 export const en: Dictionary = {
@@ -366,6 +372,10 @@ export const en: Dictionary = {
     refresh: "Refresh events",
     empty: "No events found.",
     emptyHint: "Try another category or refresh.",
+    errorTitle: "Unable to load events",
+    errorHint:
+      "There was a problem loading events. Please check your connection and try again.",
+    retry: "Try Again",
     hiddenGems: "Local picks — the events you won't find on big ticket sites",
     mostPopular: "Most popular",
     moreEvents: "More events",
@@ -591,5 +601,8 @@ export const en: Dictionary = {
     firebaseHint: "Set FIREBASE_SERVICE_ACCOUNT_JSON in Netlify and redeploy.",
     refresh: "Refresh",
     viewLive: "View live site",
+  },
+  a11y: {
+    skipToContent: "Skip to main content",
   },
 };

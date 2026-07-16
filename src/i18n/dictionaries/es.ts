@@ -85,6 +85,10 @@ export const es: Dictionary = {
     refresh: "Actualizar eventos",
     empty: "No se encontraron eventos.",
     emptyHint: "Prueba otra categoría o actualiza.",
+    errorTitle: "No se pudieron cargar los eventos",
+    errorHint:
+      "Hubo un problema al cargar los eventos. Revisa tu conexión e inténtalo de nuevo.",
+    retry: "Reintentar",
     hiddenGems: "Planes locales — eventos que no verás en las grandes plataformas",
     mostPopular: "Más populares",
     moreEvents: "Más eventos",
@@ -310,6 +314,9 @@ export const es: Dictionary = {
     firebaseHint: "Configura FIREBASE_SERVICE_ACCOUNT_JSON en Netlify y vuelve a desplegar.",
     refresh: "Actualizar",
     viewLive: "Ver sitio en vivo",
+  },
+  a11y: {
+    skipToContent: "Saltar al contenido principal",
   },
 };
 

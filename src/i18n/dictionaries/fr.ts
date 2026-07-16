@@ -85,6 +85,10 @@ export const fr: Dictionary = {
     refresh: "Actualiser les événements",
     empty: "Aucun événement trouvé.",
     emptyHint: "Essayez une autre catégorie ou actualisez.",
+    errorTitle: "Impossible de charger les événements",
+    errorHint:
+      "Un problème est survenu lors du chargement. Vérifiez votre connexion et réessayez.",
+    retry: "Réessayer",
     hiddenGems: "Pépites locales — des événements introuvables sur les grandes billetteries",
     mostPopular: "Les plus populaires",
     moreEvents: "Plus d'événements",
@@ -310,5 +314,8 @@ export const fr: Dictionary = {
     firebaseHint: "Définissez FIREBASE_SERVICE_ACCOUNT_JSON sur Netlify et redéployez.",
     refresh: "Actualiser",
     viewLive: "Voir le site en direct",
+  },
+  a11y: {
+    skipToContent: "Aller au contenu principal",
   },
 };
