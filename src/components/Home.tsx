@@ -45,7 +45,7 @@ import {
   writeHomeArea,
   type CitySlug,
 } from "@/lib/cities";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, X } from "lucide-react";
 import type { Event, Venue } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
 import type { AppTab, Dictionary } from "@/i18n/dictionaries";
@@ -70,7 +70,7 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
   const [allEvents, setAllEvents] = useState<Event[]>([]);
   const [refreshKey, setRefreshKey] = useState(0);
   /**
-   * Category pills: open only after an in-page area pick (or Browse).
+   * Category pills: open only via “Browse categories”.
    * Remounting Home (back from event/scope) always starts collapsed.
    */
   const [categoriesOpen, setCategoriesOpen] = useState(false);
@@ -92,8 +92,6 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
 
   const setArea = useCallback(
     (slug: CitySlug | null) => {
-      // Fresh area choice → show category onboarding wall.
-      setCategoriesOpen(true);
       const params = new URLSearchParams(searchParams.toString());
       params.set("city", slug ?? HOME_CITY_ALL);
       const qs = params.toString();
@@ -255,6 +253,16 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
                   />
                   {areaChosen && categoriesOpen && (
                     <div className="mt-2.5 animate-in">
+                      <div className="mb-2 flex items-center justify-end">
+                        <button
+                          type="button"
+                          onClick={handleCategorySelect}
+                          aria-label={dict.detail.close}
+                          className="inline-flex h-8 w-8 items-center justify-center rounded-full text-neutral-500 transition-colors touch-manipulation hover:bg-neutral-100 hover:text-neutral-800 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:hover:text-neutral-100"
+                        >
+                          <X className="h-4 w-4" strokeWidth={2.5} aria-hidden />
+                        </button>
+                      </div>
                       <CategoryGrid
                         locale={locale}
                         dict={dict}

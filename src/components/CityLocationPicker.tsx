@@ -123,7 +123,6 @@ export function CityLocationPicker({
     // Persist on every page so “back to home” matches the last picker choice.
     writeHomeArea(slug);
     if (onSelect) {
-      // Home setArea expands the category grid for the new area.
       // Filtering lists below can shrink/grow the page and jump the viewport;
       // restore scroll after React commits the layout update.
       pendingScrollY.current = window.scrollY;

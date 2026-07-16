@@ -48,7 +48,7 @@ export type Dictionary = {
     noEvents: string;
     allCategories: string;
     allCategoriesIntro: string;
-    /** Home: reopen category pills after they auto-collapse. */
+    /** Home: open category pills (only via this control). */
     browseCategories: string;
   };
   events: {
