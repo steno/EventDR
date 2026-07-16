@@ -245,11 +245,8 @@ const VENUE_SOURCES = [
     url: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=1800&q=85",
   },
   // --- Jul 2026 Facebook/Instagram ingest seeds ---
-  {
-    // La Chabola Cabarete interior — Wednesday open mic / neighborhood pizza bar.
-    eventId: "la-chabola-wednesday-open-mic",
-    url: "https://img3.restaurantguru.com/w1200/h800/r41f-La-Chabola-interior-2025-09-3.jpg",
-  },
+  // la-chabola-wednesday-open-mic.jpg — branded pizza cover from facebook.com/chabolacabaretee
+  // (committed under popevent-images/). Do not remote-refresh over it.
   // groundzero-domingos-pal-pueblo.jpg is the official Domingos Pal Pueblo flyer
   // (committed under popevent-images/). Do not remote-refresh over it.
 ];
