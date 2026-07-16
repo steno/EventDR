@@ -27,6 +27,8 @@ import { AddEventButton } from "@/components/AddEventButton";
 import { useEventListView } from "@/hooks/useEventListView";
 import { fillTemplate } from "@/lib/seo";
 
+const UNBOUNDED = Number.POSITIVE_INFINITY;
+
 /** Scope/venue lists show the full upcoming schedule; home Our picks matches that. */
 const DEFAULT_SCOPE_TIME_RANGE: FilterTimeRange = "all";
 
