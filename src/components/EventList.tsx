@@ -25,6 +25,7 @@ import { expectBootPart, readyBootPart } from "@/lib/boot-splash";
 import { scrollToListTop } from "@/lib/list-scroll";
 import { EventCard } from "./EventCard";
 import { EventCardSkeleton } from "./EventCardSkeleton";
+import { EventListError } from "./EventListError";
 import { SearchEmptyState } from "./SearchEmptyState";
 import { TimeFilter } from "./TimeFilter";
 import { ListScrollAnchor } from "./StickyListFilters";
@@ -75,6 +76,7 @@ export function EventList({
     returnTo ?? (category ? categoryPath(locale, category) : `/${locale}`);
   const [events, setEvents] = useState<Event[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
   const [source, setSource] = useState<string>("");
   const initialCap = limit ?? LIST_PAGE_SIZE;
   const step = pageSize ?? limit ?? LIST_PAGE_SIZE;
@@ -102,7 +104,10 @@ export function EventList({
 
   const fetchEvents = useCallback(
     async (refresh = false) => {
-      if (!refresh) setLoading(true);
+      if (!refresh) {
+        setLoading(true);
+        setError(false);
+      }
 
       try {
         const params = new URLSearchParams();
@@ -116,6 +121,11 @@ export function EventList({
         const res = await fetch(`/api/events?${params}`, {
           cache: "no-store",
         });
+        
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
+        
         const data = (await res.json()) as {
           events: Event[];
           source: string;
@@ -125,7 +135,10 @@ export function EventList({
         setEvents(loaded);
         onEventsLoadedRef.current?.(loaded);
         setSource(data.source ?? "");
-      } catch {
+        setError(false);
+      } catch (err) {
+        console.error("Failed to load events:", err);
+        setError(true);
         setEvents([]);
         onEventsLoadedRef.current?.([]);
       } finally {
@@ -171,6 +184,10 @@ export function EventList({
           ? dict.events.sourceCache
           : dict.events.sourceFallback;
 
+  const handleRetry = useCallback(() => {
+    fetchEvents(false);
+  }, [fetchEvents]);
+
   if (loading) {
     return (
       <div className="space-y-4">
@@ -184,6 +201,10 @@ export function EventList({
         </div>
       </div>
     );
+  }
+
+  if (error) {
+    return <EventListError dict={dict} onRetry={handleRetry} />;
   }
 
   const isSearching = searchQuery.trim().length > 0;

@@ -43,8 +43,10 @@ const EventCardComponent = ({
         group relative w-full rounded-2xl bg-white dark:bg-neutral-900 px-4 py-[1.125rem]
         border border-neutral-200 dark:border-neutral-800
         shadow-[0_2px_12px_-4px_rgba(0,0,0,0.08)] dark:shadow-[0_2px_12px_-4px_rgba(0,0,0,0.3)]
-        hover:shadow-[0_8px_24px_-8px_rgba(0,0,0,0.12)] dark:hover:shadow-[0_8px_24px_-8px_rgba(0,0,0,0.4)]
+        hover:border-orange-300 hover:shadow-[0_8px_24px_-8px_rgba(251,146,60,0.25)] 
+        dark:hover:border-orange-800 dark:hover:shadow-[0_8px_24px_-8px_rgba(251,146,60,0.3)]
         active:scale-[0.99] transition-all duration-200
+        cursor-pointer
         ${isEndedToday ? "opacity-60" : ""}
       `}
     >
@@ -77,7 +79,7 @@ const EventCardComponent = ({
 
         <div className="flex-1 min-w-0 pt-0.5">
           <div className={`flex items-start gap-2.5 ${compact ? "mb-1.5" : "mb-2"}`}>
-            <h3 className="font-bold text-neutral-900 dark:text-neutral-100 text-[1.0625rem] leading-[1.3] line-clamp-2 flex-1">
+            <h3 className="font-bold text-neutral-900 dark:text-neutral-100 text-[1.0625rem] leading-[1.3] line-clamp-3 sm:line-clamp-2 flex-1">
               {event.title}
             </h3>
             {event.trending && !liveStatusLabel && (

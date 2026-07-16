@@ -183,7 +183,7 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
   return (
     <>
       <PwaRegister />
-      <main className="relative bg-neutral-50 dark:bg-transparent pb-6">
+      <main id="main-content" className="relative bg-neutral-50 dark:bg-transparent pb-6">
         <div className={PAGE_SHELL_CLASS}>
           <AppHeader
             locale={locale}
