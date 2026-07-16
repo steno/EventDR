@@ -162,6 +162,7 @@ export function CityLocationPicker({
             text-orange-600 transition-colors
             hover:text-rose-600 active:scale-[0.99] touch-manipulation
             dark:text-orange-400 dark:hover:text-rose-400
+            focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 rounded
           "
         >
           <span className="truncate">{currentLabel}</span>

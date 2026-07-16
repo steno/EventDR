@@ -183,7 +183,7 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
   return (
     <>
       <PwaRegister />
-      <main className="relative bg-neutral-50 dark:bg-transparent pb-6">
+      <main id="main-content" className="relative bg-neutral-50 dark:bg-transparent pb-6">
         <div className={PAGE_SHELL_CLASS}>
           <AppHeader
             locale={locale}
@@ -201,7 +201,7 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
                 <button
                   type="button"
                   onClick={() => handleTabChange("saved")}
-                  className={`rounded-full px-3.5 py-2 text-xs font-bold tracking-wide transition-colors touch-manipulation ${
+                  className={`rounded-full px-3.5 py-2 text-xs font-bold tracking-wide transition-colors touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 ${
                     tab === "saved"
                       ? "bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-900"
                       : "text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:hover:text-white"
@@ -213,7 +213,7 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
                 <button
                   type="button"
                   onClick={() => setSubmitOpen(true)}
-                  className="rounded-full bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-3.5 py-2 text-xs font-bold text-white shadow-sm transition-transform active:scale-95 touch-manipulation"
+                  className="rounded-full bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-3.5 py-2 text-xs font-bold text-white shadow-sm transition-transform active:scale-95 touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400"
                 >
                   {dict.nav.submit}
                 </button>
@@ -259,7 +259,7 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
                         type="button"
                         onClick={handleCategorySelect}
                         aria-label={dict.detail.close}
-                        className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-neutral-500 transition-colors touch-manipulation hover:bg-neutral-100 hover:text-neutral-800 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:hover:text-neutral-100"
+                        className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-neutral-500 transition-colors touch-manipulation hover:bg-neutral-100 hover:text-neutral-800 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:hover:text-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
                       >
                         <X className="h-4 w-4" strokeWidth={2.5} aria-hidden />
                       </button>
@@ -279,7 +279,7 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
                     <button
                       type="button"
                       onClick={handleExpandCategories}
-                      className="mt-1 inline-flex items-center gap-0.5 text-sm font-semibold leading-snug text-orange-600 transition-colors touch-manipulation hover:text-rose-600 dark:text-orange-400 dark:hover:text-rose-400"
+                      className="mt-1 inline-flex items-center gap-0.5 text-sm font-semibold leading-snug text-orange-600 transition-colors touch-manipulation hover:text-rose-600 dark:text-orange-400 dark:hover:text-rose-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 rounded"
                     >
                       {dict.browse.browseCategories}
                       <ChevronDown

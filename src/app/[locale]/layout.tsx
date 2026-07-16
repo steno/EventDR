@@ -9,6 +9,7 @@ import { AppFooter } from "@/components/AppFooter";
 import { AppVersionSync } from "@/components/AppVersionSync";
 import { BodyScrollGuard } from "@/components/BodyScrollGuard";
 import { DocumentLang } from "@/components/DocumentLang";
+import { SkipToContent } from "@/components/SkipToContent";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -78,6 +79,7 @@ export default async function LocaleLayout({
     <>
       <DocumentLang locale={locale} />
       <BodyScrollGuard />
+      <SkipToContent dict={dict} />
       <Suspense fallback={null}>
         <Analytics />
       </Suspense>

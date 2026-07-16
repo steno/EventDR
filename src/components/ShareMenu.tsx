@@ -136,10 +136,11 @@ export function ShareMenu({
 
   return (
     <div className="rounded-3xl bg-white/85 dark:bg-neutral-800/85 p-3 shadow-sm ring-1 ring-neutral-200/70 dark:ring-neutral-700/70 backdrop-blur">
-      <p className="mb-2 px-1 text-[11px] font-bold uppercase tracking-wide text-neutral-500 dark:text-neutral-400">
+      <p className="mb-2 px-1 text-xs font-bold uppercase tracking-wide text-neutral-500 dark:text-neutral-400">
         {dict.detail.shareVia}
       </p>
-      <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-none">
+      <div className="relative">
+        <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-none">
         {nativeShareAvailable && (
           <button
             type="button"
@@ -166,6 +167,12 @@ export function ShareMenu({
             {!platform.iconOnly && dict.detail[platform.labelKey]}
           </button>
         ))}
+        </div>
+        {/* Scroll hint gradient */}
+        <div 
+          className="pointer-events-none absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-white/85 dark:from-neutral-800/85 to-transparent"
+          aria-hidden="true"
+        />
       </div>
     </div>
   );

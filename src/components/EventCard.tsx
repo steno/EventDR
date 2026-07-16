@@ -43,14 +43,16 @@ const EventCardComponent = ({
         group relative w-full rounded-2xl bg-white dark:bg-neutral-900 px-4 py-[1.125rem]
         border border-neutral-200 dark:border-neutral-800
         shadow-[0_2px_12px_-4px_rgba(0,0,0,0.08)] dark:shadow-[0_2px_12px_-4px_rgba(0,0,0,0.3)]
-        hover:shadow-[0_8px_24px_-8px_rgba(0,0,0,0.12)] dark:hover:shadow-[0_8px_24px_-8px_rgba(0,0,0,0.4)]
+        hover:border-orange-300 hover:shadow-[0_8px_24px_-8px_rgba(251,146,60,0.25)] 
+        dark:hover:border-orange-800 dark:hover:shadow-[0_8px_24px_-8px_rgba(251,146,60,0.3)]
         active:scale-[0.99] transition-all duration-200
+        cursor-pointer
         ${isEndedToday ? "opacity-60" : ""}
       `}
     >
       <Link
         href={href}
-        className="absolute inset-0 z-0 rounded-2xl touch-manipulation"
+        className="absolute inset-0 z-0 rounded-2xl touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
         aria-label={event.title}
       />
       <div className="relative z-[1] flex gap-3.5 text-left pointer-events-none">
@@ -77,11 +79,11 @@ const EventCardComponent = ({
 
         <div className="flex-1 min-w-0 pt-0.5">
           <div className={`flex items-start gap-2.5 ${compact ? "mb-1.5" : "mb-2"}`}>
-            <h3 className="font-bold text-neutral-900 dark:text-neutral-100 text-[1.0625rem] leading-[1.3] line-clamp-2 flex-1">
+            <h3 className="font-bold text-neutral-900 dark:text-neutral-100 text-[1.0625rem] leading-[1.3] line-clamp-3 sm:line-clamp-2 flex-1">
               {event.title}
             </h3>
             {event.trending && !liveStatusLabel && (
-              <span className="flex-shrink-0 inline-flex items-center gap-0.5 rounded-full bg-orange-50 dark:bg-orange-950/50 px-2.5 py-1 text-[11px] font-bold uppercase tracking-wide text-orange-600">
+              <span className="flex-shrink-0 inline-flex items-center gap-0.5 rounded-full bg-orange-50 dark:bg-orange-950/50 px-2.5 py-1 text-xs font-bold uppercase tracking-wide text-orange-600">
                 <Flame className="h-3.5 w-3.5" />
                 {dict.events.hot}
               </span>
