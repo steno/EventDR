@@ -253,7 +253,7 @@ export const fr: Dictionary = {
   cities: {
     browseTopCategories: "À voir à {city}",
     lookingIn: "Événements à",
-    lookingInWithCategory: "{category} à",
+    lookingInWithCategory: "Événements {category} à",
     regionName: "Côte Nord",
     chooseArea: "Choisir une zone",
   },

@@ -339,7 +339,7 @@ export const en: Dictionary = {
     music: "Music",
     business: "Business",
     concert: "Concert",
-    parties: "Party Events",
+    parties: "Party",
     "food-drinks": "Food & Drink",
     festivals: "Festival",
     dance: "Dance",
@@ -541,7 +541,7 @@ export const en: Dictionary = {
   cities: {
     browseTopCategories: "What’s on in {city}",
     lookingIn: "Looking for events in",
-    lookingInWithCategory: "{category} in",
+    lookingInWithCategory: "{category} Events in",
     regionName: "North Coast",
     chooseArea: "Choose area",
   },
