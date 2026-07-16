@@ -29,13 +29,13 @@ export function SearchEmptyState({
           <button
             type="button"
             onClick={onAction}
-            className="mt-5 inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-6 py-3 text-sm font-bold text-white shadow-sm transition-[filter] hover:brightness-110 touch-manipulation"
+            className="mt-5 inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-6 py-3 text-[15px] font-bold text-white shadow-sm transition-[filter] hover:brightness-110 touch-manipulation"
           >
             {actionLabel}
             <ChevronRight className="h-4 w-4" aria-hidden />
           </button>
         ) : (
-          <p className="mt-2 text-sm text-neutral-500 dark:text-neutral-400">
+          <p className="mt-2 text-[15px] text-neutral-500 dark:text-neutral-400">
             {hint}
           </p>
         )}

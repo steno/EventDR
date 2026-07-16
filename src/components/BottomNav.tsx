@@ -70,7 +70,7 @@ export function BottomNav({
               ) : (
                 <Icon className={`h-6 w-6 ${isActive ? "stroke-[2.5]" : "stroke-2"}`} />
               )}
-              <span className={`text-xs font-bold tracking-wide leading-tight ${isSubmit ? "text-orange-600" : ""}`}>
+              <span className={`text-[13px] font-bold tracking-wide leading-tight ${isSubmit ? "text-orange-600" : ""}`}>
                 {label}
               </span>
               {badge !== undefined && badge > 0 && (

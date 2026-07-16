@@ -108,7 +108,7 @@ h1, h2, h3 {
 
 /* Body copy — paragraphs, descriptions, list metadata */
 .text-copy {
-  font-size: 0.9375rem; /* 15px */
+  font-size: 1rem; /* 16px (upgraded from 15px) */
   line-height: 1.6;
   font-weight: 400;
   color: #404040; /* neutral-700 */
@@ -119,8 +119,8 @@ h1, h2, h3 {
 }
 
 .text-copy-lead {
-  font-size: 1rem; /* 16px */
-  line-height: 1.7;
+  font-size: 1.0625rem; /* 17px (upgraded from 16px) */
+  line-height: 1.65;
   font-weight: 400;
   color: #404040;
 }
@@ -130,8 +130,8 @@ h1, h2, h3 {
 }
 
 .text-copy-meta {
-  font-size: 0.875rem; /* 14px */
-  line-height: 1.5;
+  font-size: 0.9375rem; /* 15px (upgraded from 14px) */
+  line-height: 1.55;
   font-weight: 500;
   letter-spacing: 0.01em;
 }

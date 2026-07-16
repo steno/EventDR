@@ -59,7 +59,7 @@ export function VenueStrip({
                 aria-selected={selected}
                 onClick={() => setAudience(filter)}
                 className={`
-                  relative -mb-px flex-shrink-0 px-3.5 py-2.5 text-sm font-bold tracking-tight
+                  relative -mb-px flex-shrink-0 px-3.5 py-2.5 text-[15px] font-bold tracking-tight
                   transition-colors touch-manipulation
                   ${
                     selected
@@ -101,10 +101,10 @@ export function VenueStrip({
               {v.emoji ?? "📍"}
             </span>
             <div className="min-w-0">
-              <p className="text-sm font-bold text-neutral-900 dark:text-neutral-100 truncate">
+              <p className="text-[15px] font-bold text-neutral-900 dark:text-neutral-100 truncate">
                 {v.name}
               </p>
-              <p className="text-xs text-neutral-400 dark:text-neutral-500">
+              <p className="text-[13px] text-neutral-400 dark:text-neutral-500">
                 {v.city}
               </p>
             </div>

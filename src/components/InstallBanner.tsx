@@ -31,11 +31,11 @@ export function InstallBanner({ dict }: InstallBannerProps) {
     return (
       <div className="mb-4 flex items-start gap-3 rounded-2xl bg-neutral-900 p-4 text-white shadow-lg sm:hidden">
         <div className="flex-1 min-w-0">
-          <p className="font-bold text-sm">{dict.install.iosTitle}</p>
-          <p className="mt-0.5 text-xs leading-relaxed text-neutral-300">
+          <p className="font-bold text-[15px]">{dict.install.iosTitle}</p>
+          <p className="mt-0.5 text-[13px] leading-relaxed text-neutral-300">
             {dict.install.iosSubtitle}
           </p>
-          <div className="mt-3 flex items-center gap-2 text-xs font-semibold text-neutral-200">
+          <div className="mt-3 flex items-center gap-2 text-[13px] font-semibold text-neutral-200">
             <Share className="h-4 w-4" />
             Share → Add to Home Screen
           </div>
