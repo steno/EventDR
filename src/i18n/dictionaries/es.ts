@@ -257,10 +257,10 @@ export const es: Dictionary = {
   },
   cities: {
     browseTopCategories: "Qué hay en {city}",
-    lookingIn: "Mirando eventos en",
+    eventsIn: "Eventos en",
+    lookingIn: "Todos los eventos en",
     lookingInWithCategory: "Eventos de {category} en",
     regionName: "Costa Norte",
-    chooseArea: "Elige zona",
   },
   lang: {
     en: "EN",

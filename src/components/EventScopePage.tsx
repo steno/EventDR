@@ -53,6 +53,8 @@ interface EventScopePageProps {
   citySlug?: CitySlug;
   /** When set, the location picker switches cities while staying on this category. */
   categoryId?: Event["category"];
+  /** Region-wide listing (North Coast) — shows area picker + coastal hero. */
+  regionScope?: boolean;
 }
 
 export function EventScopePage({
@@ -78,6 +80,7 @@ export function EventScopePage({
   initialExpanded = false,
   citySlug,
   categoryId,
+  regionScope = false,
 }: EventScopePageProps) {
   const [events, setEvents] = useState<Event[]>(() => attachEventImages(initialEvents));
   const [loading, setLoading] = useState(false);
@@ -122,8 +125,12 @@ export function EventScopePage({
   const scopeHeroImage =
     getCategoryHeroImage(categoryId) ??
     city?.heroImage ??
-    (categoryId || fixedTimeRange ? NORTH_COAST_HERO_IMAGE : undefined);
-  const showLocationPicker = Boolean(citySlug || categoryId || fixedTimeRange);
+    (categoryId || fixedTimeRange || regionScope
+      ? NORTH_COAST_HERO_IMAGE
+      : undefined);
+  const showLocationPicker = Boolean(
+    citySlug || categoryId || fixedTimeRange || regionScope,
+  );
   const headerEmojiClassName =
     emojiClassName ??
     "bg-white dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-800";

@@ -68,6 +68,12 @@ export async function getSitemapEntries(): Promise<SitemapEntry[]> {
       priority: 1,
     });
 
+    entries.push({
+      url: absoluteUrl(localePath(locale, "/events")),
+      changeFrequency: "hourly",
+      priority: 0.95,
+    });
+
     for (const categoryId of CATEGORY_IDS) {
       entries.push({
         url: absoluteUrl(localePath(locale, `/category/${categoryId}`)),

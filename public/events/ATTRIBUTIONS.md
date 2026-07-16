@@ -16,7 +16,7 @@ Curated images under `public/events/` and `public/venues/`. Prefer venue-accurat
 | `d-classico-merengue-nights.jpg` / `venues/d-classico-sosua.jpg` | YouTube still — [Sosua Streets / Clasico opening](https://www.youtube.com/watch?v=OuN8IMNZ0r0) | Clasico / Club 59 night facade |
 | `sosua-pedro-clisante-food-nights.jpg` / `venues/el-batey-sosua.jpg` | [Unsplash](https://unsplash.com/photos/assorted-meat-on-a-wooden-board-yiR9GQC8Ttk) (`photo-1555939594`) — Unsplash License | Grill / street-food feast |
 | `ojo-latin-night-thursday.jpg` | POP curated `MerengueBachataNight.JPG` | Latin dance night (not LAX sunset) |
-| `ojo-weekend-dj-parties.jpg` | POP curated `LAXFridayReggaeNight.JPG` | LAX/Ojo beach-deck party |
+| `ojo-weekend-dj-parties.jpg` | [Unsplash](https://unsplash.com/photos/cxOitA8mP78) (`photo-1682289385881`) — Unsplash License | DJ booth / club party action (was shared LAX reggae deck) |
 | `voyvoy-monday-live-music.jpg` (+ Sat/Sun) / `venues/voyvoy-cabarete.jpg` | Restaurant Guru — Voyvoy beachfront dining | Bay tables under palms |
 | `cheers-weekly-live.jpg` / `venues/cheers-bar-sosua.jpg` | YouTube still — [Cheers Restaurant & Bar in Sosua](https://www.youtube.com/watch?v=dSZsIuyrFgw) | Live music at Cheers |
 | `castaways-classic-rock-wednesday.jpg` / `venues/castaways-sosua.jpg` | [Unsplash](https://unsplash.com/photos/people-standing-in-front-of-stage-tOrBIHY6fhk) (`photo-1493225457124`) — Unsplash License | Live rock stage energy |

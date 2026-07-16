@@ -2,8 +2,8 @@ import Link from "next/link";
 import { getCategoryDefs } from "@/lib/categories";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
-import { homePathWithArea, type CitySlug } from "@/lib/cities";
-import { categoryPath } from "@/lib/event-navigation";
+import type { CitySlug } from "@/lib/cities";
+import { allEventsPath, categoryPath } from "@/lib/event-navigation";
 
 const ALL_EVENTS_CHIP =
   "bg-neutral-100 text-neutral-900 ring-neutral-300/80 dark:bg-neutral-800/70 dark:text-neutral-50 dark:ring-neutral-600/50";
@@ -27,12 +27,32 @@ export function CategoryGrid({
     ...def,
     label: dict.categories[def.id],
   }));
-  const allEventsHref = homePathWithArea(locale, citySlug, true);
+  const allEventsHref = allEventsPath(locale, citySlug);
   const allEventsLabel = dict.browse.allEvents;
 
   return (
     <section aria-label={dict.browse.ariaLabel}>
       <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:gap-2.5">
+        <Link
+          href={allEventsHref}
+          onClick={onCategorySelect}
+          className={`
+            col-span-2 inline-flex w-full items-center justify-start gap-1.5 rounded-full
+            px-3 py-2 text-[13px] font-bold leading-none ring-1 shadow-sm
+            transition-transform active:scale-[0.98] touch-manipulation
+            hover:brightness-[0.97] dark:hover:brightness-110
+            sm:w-auto sm:px-3.5
+            ${ALL_EVENTS_CHIP}
+          `}
+          aria-label={allEventsLabel}
+        >
+          <span className="shrink-0 text-base leading-none select-none" aria-hidden>
+            📅
+          </span>
+          <span className="min-w-0 text-left sm:whitespace-nowrap">
+            {allEventsLabel}
+          </span>
+        </Link>
         {categories.map((cat) => (
           <Link
             key={cat.id}
@@ -56,26 +76,6 @@ export function CategoryGrid({
             </span>
           </Link>
         ))}
-        <Link
-          href={allEventsHref}
-          onClick={onCategorySelect}
-          className={`
-            inline-flex w-full items-center justify-start gap-1.5 rounded-full
-            px-3 py-2 text-[13px] font-bold leading-none ring-1 shadow-sm
-            transition-transform active:scale-[0.98] touch-manipulation
-            hover:brightness-[0.97] dark:hover:brightness-110
-            sm:w-auto sm:px-3.5
-            ${ALL_EVENTS_CHIP}
-          `}
-          aria-label={allEventsLabel}
-        >
-          <span className="shrink-0 text-base leading-none select-none" aria-hidden>
-            📅
-          </span>
-          <span className="min-w-0 text-left sm:whitespace-nowrap">
-            {allEventsLabel}
-          </span>
-        </Link>
       </div>
     </section>
   );

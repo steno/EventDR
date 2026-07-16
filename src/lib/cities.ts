@@ -164,6 +164,8 @@ export function isCitySlug(value: string): value is CitySlug {
 /**
  * Parse home `?city=` — URL is the source of truth for area filter
  * (back/forward, reload, share).
+ * Missing/invalid param → North Coast (`city: null`); `areaChosen` is false
+ * only when the param is absent (bare home still displays as North Coast).
  */
 export function parseHomeCityParam(value: string | null): {
   city: CitySlug | null;
@@ -175,7 +177,10 @@ export function parseHomeCityParam(value: string | null): {
   return { city: null, areaChosen: false };
 }
 
-/** Home href including area query when the user has chosen a zone. */
+/**
+ * Home href with area query. When `areaChosen` is false, bare locale home
+ * (North Coast default). When true, include `?city=` (city slug or `all`).
+ */
 export function homePathWithArea(
   locale: string,
   city: CitySlug | null,
@@ -214,7 +219,7 @@ export function readHomeArea(): {
   }
 }
 
-/** Last home path for this session, or bare locale home if none chosen. */
+/** Last home path for this session, or bare North Coast home if none stored. */
 export function lastHomePath(locale: string): string {
   const { city, areaChosen } = readHomeArea();
   return homePathWithArea(locale, city, areaChosen);

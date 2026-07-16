@@ -225,12 +225,13 @@ export type Dictionary = {
   };
   cities: {
     browseTopCategories: string;
+    /** Home picker: “Events in” before the place control. */
+    eventsIn: string;
+    /** City/when hub picker: “All Events in” before the place control. */
     lookingIn: string;
     /** When a category is selected: insert singular category label. */
     lookingInWithCategory: string;
     regionName: string;
-    /** Closed picker label before the user picks a city or the whole region. */
-    chooseArea: string;
   };
   lang: {
     en: string;
@@ -552,10 +553,10 @@ export const en: Dictionary = {
   },
   cities: {
     browseTopCategories: "What’s on in {city}",
-    lookingIn: "Looking for events in",
+    eventsIn: "Events in",
+    lookingIn: "All Events in",
     lookingInWithCategory: "{category} Events in",
     regionName: "North Coast",
-    chooseArea: "Choose area",
   },
   lang: {
     en: "EN",

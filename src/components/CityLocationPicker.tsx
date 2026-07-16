@@ -31,11 +31,6 @@ interface CityLocationPickerProps {
    * Category links then use the chosen area.
    */
   onSelect?: (slug: CitySlug | null) => void;
-  /**
-   * Closed-button label when `currentSlug` is null.
-   * Home uses this for “Choose area” before the first pick.
-   */
-  emptyLabel?: string;
 }
 
 /** Approx menu height + gap; leave room for fixed mobile bottom nav. */
@@ -48,7 +43,6 @@ export function CityLocationPicker({
   currentSlug = null,
   categoryId,
   onSelect,
-  emptyLabel,
 }: CityLocationPickerProps) {
   const router = useRouter();
   const [open, setOpen] = useState(false);
@@ -65,21 +59,26 @@ export function CityLocationPicker({
     : null;
   const currentLabel = currentCity
     ? getCityName(currentCity, locale)
-    : (emptyLabel ?? dict.cities.regionName);
-  /** Avoid highlighting North Coast while the closed label still says “Choose area”. */
-  const regionSelected = currentSlug == null && emptyLabel == null;
+    : dict.cities.regionName;
+  const regionSelected = currentSlug == null;
 
   const category = categoryId
     ? getCategoryMeta(categoryId, dict.categories)
     : undefined;
-  const categoryPrefix = categoryId
+  // Home: “Events in [place]”; scope pages keep “All Events in” + emoji.
+  const scopePrefix = categoryId
     ? fillTemplate(dict.cities.lookingInWithCategory, {
         category: dict.categoriesSingular[categoryId],
       })
-    : null;
-  const listboxLabel = categoryPrefix
-    ? `${categoryPrefix} ${currentLabel}`
-    : currentLabel;
+    : onSelect
+      ? dict.cities.eventsIn
+      : dict.cities.lookingIn;
+  const scopeEmoji = categoryId
+    ? (category?.emoji ?? null)
+    : onSelect
+      ? null
+      : "📅";
+  const listboxLabel = `${scopePrefix} ${currentLabel}`;
 
   useLayoutEffect(() => {
     if (pendingScrollY.current == null) return;
@@ -145,7 +144,7 @@ export function CityLocationPicker({
       return;
     }
     if (slug == null) {
-      router.push(`/${locale}`);
+      router.push(`/${locale}/events`, { scroll: false });
       return;
     }
     router.push(`/${locale}/city/${slug}`, { scroll: false });
@@ -164,14 +163,14 @@ export function CityLocationPicker({
   return (
     <div ref={rootRef} className="mb-0 w-full">
       <div className="relative flex w-full flex-wrap items-baseline justify-start gap-x-1.5 gap-y-0">
-        {categoryPrefix && (
+        {scopePrefix && (
           <p className="text-[1.35rem] leading-snug text-neutral-800 dark:text-neutral-200">
-            {category?.emoji ? (
+            {scopeEmoji ? (
               <span className="mr-1.5 inline-block text-[2rem] leading-none align-[-0.2em]" aria-hidden>
-                {category.emoji}
+                {scopeEmoji}
               </span>
             ) : null}
-            {categoryPrefix}
+            {scopePrefix}
           </p>
         )}
         <button
@@ -182,15 +181,19 @@ export function CityLocationPicker({
           aria-controls={listId}
           aria-label={listboxLabel}
           onClick={toggleOpen}
-          className="
-            inline-flex w-full max-w-full items-center justify-between gap-2
+          className={`
+            inline-flex max-w-full items-center gap-2
             py-0.5 text-left text-[1.35rem] font-black leading-snug tracking-tight
             text-orange-600 transition-colors
             hover:text-rose-600 active:scale-[0.99] touch-manipulation
             dark:text-orange-400 dark:hover:text-rose-400
             focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 rounded
-            sm:w-auto sm:justify-start sm:gap-0.5 sm:py-0
-          "
+            ${
+              scopePrefix
+                ? "w-auto justify-start gap-0.5 py-0"
+                : "w-full justify-between sm:w-auto sm:justify-start sm:gap-0.5 sm:py-0"
+            }
+          `}
         >
           <span className="min-w-0 truncate">{currentLabel}</span>
           <ChevronDown

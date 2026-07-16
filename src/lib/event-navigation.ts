@@ -23,6 +23,17 @@ export function categoryPath(
   return `/${locale}/category/${category}`;
 }
 
+/** Unscoped event listing for an area (city hub, or North Coast /events). */
+export function allEventsPath(
+  locale: Locale,
+  citySlug?: CitySlug | null,
+): string {
+  if (citySlug) {
+    return `/${locale}/city/${citySlug}?when=all&all=1`;
+  }
+  return `/${locale}/events?when=all&all=1`;
+}
+
 /** Full category nav for scope pages (city hub, category, when). */
 export function categoryNavLinks(
   locale: Locale,
@@ -82,6 +93,12 @@ export function resolveReturnPageTitle(
   if (pathname === `/${locale}`) return dict.nav.discover;
 
   const segments = pathname.slice(`/${locale}/`.length).split("/");
+
+  if (segments[0] === "events") {
+    return fillTemplate(dict.browse.eventsInPlace, {
+      place: dict.cities.regionName,
+    });
+  }
 
   if (segments[0] === "category" && segments[1] && CATEGORY_IDS.includes(segments[1] as EventCategory)) {
     return getCategoryMeta(segments[1], dict.categories)?.label ?? dict.nav.discover;

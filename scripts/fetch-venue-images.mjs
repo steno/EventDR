@@ -251,6 +251,11 @@ const VENUE_SOURCES = [
     eventId: "puerto-plata-beach-soccer-2026",
     url: "https://images.unsplash.com/photo-1543746746-46047c4f4bb0?w=1800&q=85",
   },
+  {
+    // DJ booth party energy for Ojo weekend (not the shared LAX reggae deck).
+    eventId: "ojo-weekend-dj-parties",
+    url: "https://images.unsplash.com/photo-1682289385881-a3c13fc3f1b4?w=1800&q=85",
+  },
   // Atléticos summer league — unique baseball action per home game (Unsplash License).
   {
     eventId: "atleticos-pp-vs-capitanes-2026-07-11",
@@ -378,10 +383,6 @@ const localSources = [
   {
     src: "MerengueBachataNight.JPG",
     eventId: "ojo-latin-night-thursday",
-  },
-  {
-    src: "LAXFridayReggaeNight.JPG",
-    eventId: "ojo-weekend-dj-parties",
   },
   {
     src: "CabareteReggaeRootsNight.JPG",

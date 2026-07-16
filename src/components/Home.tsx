@@ -70,7 +70,7 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
   const [allEvents, setAllEvents] = useState<Event[]>([]);
   const [refreshKey, setRefreshKey] = useState(0);
   /**
-   * Category pills: open on the first area pick, then only via “See what’s on”.
+   * Category pills: collapsed by default; open via “Browse categories”.
    * Remounting Home (back from event/scope) always starts collapsed.
    */
   const [categoriesOpen, setCategoriesOpen] = useState(false);
@@ -80,11 +80,12 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
     [searchParams],
   );
 
-  // Restore area when a content back link lands on bare `/[locale]`.
+  // Restore a remembered city when a content back link lands on bare `/[locale]`.
+  // Bare home (no ?city=) means North Coast — no prompt to choose.
   useEffect(() => {
     if (searchParams.get("city")) return;
     const stored = readHomeArea();
-    if (!stored.areaChosen) return;
+    if (!stored.areaChosen || stored.city == null) return;
     router.replace(homePathWithArea(locale, stored.city, true), {
       scroll: false,
     });
@@ -92,20 +93,21 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
 
   const setArea = useCallback(
     (slug: CitySlug | null) => {
-      // First “Choose area” pick reveals categories; later changes stay collapsed.
-      if (!areaChosen) setCategoriesOpen(true);
       const params = new URLSearchParams(searchParams.toString());
       params.set("city", slug ?? HOME_CITY_ALL);
       const qs = params.toString();
       router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
     },
-    [areaChosen, pathname, router, searchParams],
+    [pathname, router, searchParams],
   );
 
-  // Keep session in sync when arriving via shared/bookmarked ?city=.
+  // Persist area: explicit ?city=, or bare home as North Coast default.
   useEffect(() => {
-    if (!areaChosen) return;
-    writeHomeArea(selectedCity);
+    if (areaChosen) {
+      writeHomeArea(selectedCity);
+      return;
+    }
+    writeHomeArea(null);
   }, [areaChosen, selectedCity]);
 
   const handleCategorySelect = useCallback(() => {
@@ -136,7 +138,8 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
   }, []);
 
   const savedEvents = filterSaved(allEvents);
-  const homePath = homePathWithArea(locale, selectedCity, areaChosen);
+  // Bare home and ?city=all both mean North Coast for return links.
+  const homePath = homePathWithArea(locale, selectedCity, true);
 
   /** Zone pick scopes home highlights and picks; null = whole North Coast. */
   const scopedEvents = useMemo(() => {
@@ -159,8 +162,7 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
       const city = getCityMeta(selectedCity);
       return city ? getCityName(city, locale) : dict.hero.nearYou;
     }
-    if (areaChosen) return dict.cities.regionName;
-    return dict.hero.nearYou;
+    return dict.cities.regionName;
   })();
 
   function handleTabChange(newTab: AppTab) {
@@ -252,11 +254,10 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
                         locale={locale}
                         dict={dict}
                         currentSlug={selectedCity}
-                        emptyLabel={areaChosen ? undefined : dict.cities.chooseArea}
                         onSelect={setArea}
                       />
                     </div>
-                    {areaChosen && categoriesOpen && (
+                    {categoriesOpen && (
                       <button
                         type="button"
                         onClick={handleCategorySelect}
@@ -267,7 +268,7 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
                       </button>
                     )}
                   </div>
-                  {areaChosen && categoriesOpen && (
+                  {categoriesOpen && (
                     <div className="animate-reveal-down relative z-0 border-t border-neutral-200/60 px-4 pb-3 pt-2.5 dark:border-neutral-800/60 sm:px-5">
                       <CategoryGrid
                         locale={locale}
@@ -277,7 +278,7 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
                       />
                     </div>
                   )}
-                  {areaChosen && !categoriesOpen && (
+                  {!categoriesOpen && (
                     <div className="px-4 pb-3 sm:px-5">
                       <button
                         type="button"
