@@ -72,6 +72,42 @@ export const FACEBOOK_EVENT_PAGES = [
     label: "Disco Club Brugal",
     areas: ["Puerto Plata"],
   },
+  {
+    slug: "onnosbar",
+    url: "https://www.facebook.com/onnosbar",
+    label: "Onno's Bar Cabarete",
+    areas: ["Cabarete"],
+  },
+  {
+    slug: "driftercabarete",
+    url: "https://www.facebook.com/Driftercabarete",
+    label: "Drifter Cabarete",
+    areas: ["Cabarete"],
+  },
+  {
+    slug: "lachabola.cabarete",
+    url: "https://www.facebook.com/lachabola.cabarete",
+    label: "La Chabola Cabarete",
+    areas: ["Cabarete"],
+  },
+  {
+    slug: "anfiteatro-puerto-plata",
+    url: "https://www.facebook.com/anfiteatropuertoplata",
+    label: "Anfiteatro Puerto Plata",
+    areas: ["Puerto Plata"],
+  },
+  {
+    slug: "festival-merengue-pp",
+    url: "https://www.facebook.com/festivaldemerenguepuertoplata",
+    label: "Festival del Merengue Puerto Plata",
+    areas: ["Puerto Plata"],
+  },
+  {
+    slug: "cluster-turistico-pp",
+    url: "https://www.facebook.com/clusterpuertoplata",
+    label: "Clúster Turístico Puerto Plata",
+    areas: ["Puerto Plata"],
+  },
 ] as const;
 
 /** Spanish / Dominican-first discovery queries layered onto group site: searches. */
@@ -79,6 +115,13 @@ const DOMINICAN_SEARCH_TERMS = [
   "evento concierto merengue bachata típico urbano",
   "música en vivo fiesta boletería esta semana",
   "festival jazz anfiteatro malecón",
+  "evento local dominicano costa norte",
+  "fiesta discoteca bar música en vivo",
+  "concierto típico merengue sábado viernes",
+  "artista dominicano presentación anfiteatro",
+  "karaoke open mic micrófono abierto",
+  "comida dominicana música en vivo",
+  "carnaval comparsa festividad local",
 ] as const;
 
 export function facebookGroupSearchQueries(): string[] {
