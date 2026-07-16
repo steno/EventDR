@@ -19,6 +19,7 @@ import { scrollToListTop } from "@/lib/list-scroll";
 import { StickyListFilters, ListScrollAnchor } from "@/components/StickyListFilters";
 import { TimeFilter } from "@/components/TimeFilter";
 import { EventCard } from "@/components/EventCard";
+import { EventListScrollPads } from "@/components/EventCardPlaceholder";
 import { SearchEmptyState } from "@/components/SearchEmptyState";
 import { VenueStrip } from "@/components/VenueStrip";
 import { AddEventButton } from "@/components/AddEventButton";
@@ -197,7 +198,6 @@ export function FilteredEventList({
               ? dict.search.noResultsHint
               : tryTabLabel
           }
-          playHint={dict.search.playHint}
           actionLabel={fixedTimeRange ? undefined : tryTabLabel}
           onAction={
             fixedTimeRange ? undefined : () => setTimeRange(suggestedRange)
@@ -216,6 +216,12 @@ export function FilteredEventList({
                 listTimeRange={fixedTimeRange ?? timeRange}
               />
             ))}
+            {/* Pad short tabs so scroll-to-filter-top has enough document height. */}
+            <EventListScrollPads
+              count={filtered.length}
+              label={dict.events.yourEventHere}
+              onAddEvent={onAddEvent}
+            />
           </div>
           {hasMore && (
             <div className="pt-4 text-center">

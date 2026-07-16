@@ -92,6 +92,7 @@ export const es: Dictionary = {
     hiddenGems: "Planes locales — eventos que no verás en las grandes plataformas",
     mostPopular: "Más populares",
     moreEvents: "Más eventos",
+    yourEventHere: "¿Tu evento aquí?",
     hot: "Top",
     nearMe: "Cerca de mí",
     nearMeOn: "Ordenado por distancia",
@@ -134,7 +135,6 @@ export const es: Dictionary = {
     noResults: "Nada por aquí.",
     noResultsHint: "Prueba otro lugar o limpia tu búsqueda.",
     tryTabHint: "Ver {tab}",
-    playHint: "Toca PLAY · arrastra para el rally",
     activeTitle: "Resultados de búsqueda",
   },
   time: {

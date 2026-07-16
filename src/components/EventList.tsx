@@ -25,6 +25,7 @@ import { expectBootPart, readyBootPart } from "@/lib/boot-splash";
 import { scrollToListTop } from "@/lib/list-scroll";
 import { EventCard } from "./EventCard";
 import { EventCardSkeleton } from "./EventCardSkeleton";
+import { EventListScrollPads } from "./EventCardPlaceholder";
 import { EventListError } from "./EventListError";
 import { SearchEmptyState } from "./SearchEmptyState";
 import { TimeFilter } from "./TimeFilter";
@@ -52,6 +53,8 @@ interface EventListProps {
   viewAllHref?: string;
   showTimeFilter?: boolean;
   onTimeRangeChange?: (range: FilterTimeRange) => void;
+  /** Opens submit sheet from short-list “Your event here?” pads. */
+  onAddEvent?: () => void;
 }
 
 export function EventList({
@@ -71,6 +74,7 @@ export function EventList({
   viewAllHref,
   showTimeFilter = false,
   onTimeRangeChange,
+  onAddEvent,
 }: EventListProps) {
   const listReturnTo =
     returnTo ?? (category ? categoryPath(locale, category) : `/${locale}`);
@@ -265,13 +269,11 @@ export function EventList({
           <SearchEmptyState
             title={dict.search.noResults}
             hint={dict.search.noResultsHint}
-            playHint={dict.search.playHint}
           />
         ) : canSuggestTimeTab ? (
           <SearchEmptyState
             title={dict.search.noResults}
             hint={tryTabLabel}
-            playHint={dict.search.playHint}
             actionLabel={tryTabLabel}
             onAction={() => onTimeRangeChange?.(suggestedRange)}
           />
@@ -298,6 +300,11 @@ export function EventList({
                 listTimeRange={timeRange}
               />
             ))}
+            <EventListScrollPads
+              count={filtered.length}
+              label={dict.events.yourEventHere}
+              onAddEvent={onAddEvent}
+            />
           </div>
           {hasMore && viewAllHref ? (
             <div className="pt-2 text-center">

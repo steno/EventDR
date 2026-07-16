@@ -6,7 +6,6 @@ import { EmptyPong } from "@/components/EmptyPong";
 interface SearchEmptyStateProps {
   title: string;
   hint: string;
-  playHint: string;
   /** Prominent action — e.g. switch to a time tab that has events. */
   actionLabel?: string;
   onAction?: () => void;
@@ -15,7 +14,6 @@ interface SearchEmptyStateProps {
 export function SearchEmptyState({
   title,
   hint,
-  playHint,
   actionLabel,
   onAction,
 }: SearchEmptyStateProps) {
@@ -45,9 +43,6 @@ export function SearchEmptyState({
 
       <div className="mt-8">
         <EmptyPong />
-        <p className="mt-2 text-center text-[11px] font-medium uppercase tracking-[0.14em] text-neutral-400 dark:text-neutral-500">
-          {playHint}
-        </p>
       </div>
     </div>
   );

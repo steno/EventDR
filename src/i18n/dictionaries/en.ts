@@ -68,6 +68,8 @@ export type Dictionary = {
     hiddenGems: string;
     mostPopular: string;
     moreEvents: string;
+    /** Short-list ghost card inviting submissions. */
+    yourEventHere: string;
     hot: string;
     nearMe: string;
     nearMeOn: string;
@@ -108,7 +110,6 @@ export type Dictionary = {
     noResults: string;
     noResultsHint: string;
     tryTabHint: string;
-    playHint: string;
     activeTitle: string;
   };
   time: Record<TimeRange, string>;
@@ -379,6 +380,7 @@ export const en: Dictionary = {
     hiddenGems: "Local picks — the events you won't find on big ticket sites",
     mostPopular: "Most popular",
     moreEvents: "More events",
+    yourEventHere: "Your event here?",
     hot: "Hot",
     nearMe: "Near me",
     nearMeOn: "Sorted by distance",
@@ -421,7 +423,6 @@ export const en: Dictionary = {
     noResults: "Nothing turned up.",
     noResultsHint: "Try another place, or clear your search.",
     tryTabHint: "Show {tab}",
-    playHint: "Tap PLAY to start · drag to rally",
     activeTitle: "Search results",
   },
   time: {

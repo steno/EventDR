@@ -319,6 +319,7 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
                 ourPicks={!isSearching}
                 onTimeRangeChange={setTimeRange}
                 showTimeFilter={!isSearching}
+                onAddEvent={() => setSubmitOpen(true)}
                 returnTo={homePath}
                 limit={isSearching ? HOME_SEARCH_LIMIT : HOME_PICKS_LIMIT}
                 excludeEventIds={picksExcludeIds}

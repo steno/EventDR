@@ -30,6 +30,12 @@ export function scrollToListTop(anchor?: HTMLElement | null): void {
     window.scrollTo({ top: 0, behavior });
     return;
   }
-  const top = readDocumentTop(target) - headerHeight;
-  window.scrollTo({ top: Math.max(0, top), behavior });
+  const desired = Math.max(0, readDocumentTop(target) - headerHeight);
+  const maxScroll = Math.max(
+    0,
+    document.documentElement.scrollHeight - window.innerHeight,
+  );
+  // Short lists can't park the filter bar under the header — go to page top instead.
+  const top = desired > maxScroll ? 0 : desired;
+  window.scrollTo({ top, behavior });
 }

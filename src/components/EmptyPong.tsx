@@ -7,17 +7,22 @@ const PADDLE_W = 64;
 const PADDLE_H = 8;
 const BALL_R = 5;
 const SPEED = 220;
+/** Brief PLAY flash before the rally starts on its own. */
+const PLAY_HOLD_MS = 900;
 
 /**
  * Tiny one-paddle rally: bat follows pointer/finger X while over the court.
- * Infinite bounce; missing resets the ball. Pauses when off-screen or hidden.
+ * A miss pauses on a RESTART prompt; tap to play again. Pauses when
+ * off-screen or hidden. Score lives in a centered HUD above the court.
  *
- * Draws only on the canvas bitmap — never mutates the React DOM tree.
- * Starts with a centered PLAY prompt; first tap/drag begins the rally.
+ * Game draws only on the canvas bitmap. Score updates via a ref — never
+ * React setState from the rAF loop — so the React tree stays stable.
+ * Flashes PLAY, then auto-starts; tap skips the wait.
  */
 export function EmptyPong({ className = "" }: { className?: string }) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const scoreRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
     const wrapEl = wrapRef.current;
@@ -31,6 +36,7 @@ export function EmptyPong({ className = "" }: { className?: string }) {
     const wrap = wrapEl;
     const canvas = canvasEl;
     const ctx = context;
+    const scoreEl = scoreRef.current;
 
     let alive = true;
     let width = 0;
@@ -40,8 +46,14 @@ export function EmptyPong({ className = "" }: { className?: string }) {
     let visible = true;
     let last = 0;
     let seeded = false;
-    // Wait for PLAY tap so every device gets an explicit start screen.
     let motionArmed = false;
+    let awaitingRestart = false;
+    let playHoldTimer = 0;
+    let score = 0;
+
+    function paintHud() {
+      if (scoreEl) scoreEl.textContent = String(score);
+    }
 
     const paddle = { x: 0, y: 0 };
     const ball = { x: 0, y: 0, vx: SPEED, vy: -SPEED * 0.85 };
@@ -84,14 +96,35 @@ export function EmptyPong({ className = "" }: { className?: string }) {
     }
 
     function armMotion() {
-      if (motionArmed) return;
+      if (motionArmed || awaitingRestart) return;
       motionArmed = true;
+      if (playHoldTimer) {
+        window.clearTimeout(playHoldTimer);
+        playHoldTimer = 0;
+      }
+      if (visible && !document.hidden) start();
+      else draw();
+    }
+
+    function goToRestart() {
+      stop();
+      awaitingRestart = true;
+      draw();
+    }
+
+    function restartGame() {
+      if (!awaitingRestart) return;
+      awaitingRestart = false;
+      score = 0;
+      paintHud();
+      resetBall();
+      paddle.x = width / 2;
       if (visible && !document.hidden) start();
       else draw();
     }
 
     function onPointerMove(e: PointerEvent) {
-      if (!motionArmed) return;
+      if (!motionArmed || awaitingRestart) return;
       setPaddleFromClientX(e.clientX);
       if (!running) draw();
     }
@@ -99,13 +132,16 @@ export function EmptyPong({ className = "" }: { className?: string }) {
     function onPointerDown(e: PointerEvent) {
       // Avoid setPointerCapture — capturing a node React later removes
       // can desync the tree (insertBefore / removeChild NotFoundError).
+      if (awaitingRestart) {
+        restartGame();
+        return;
+      }
       setPaddleFromClientX(e.clientX);
       armMotion();
       if (!running) draw();
     }
 
-    function drawPlayPrompt(dark: boolean) {
-      const label = "PLAY";
+    function drawCenteredPrompt(label: string, hint?: string) {
       const fontSize = Math.min(42, Math.max(28, width * 0.12));
       ctx.font = `800 ${fontSize}px var(--font-syne), system-ui, sans-serif`;
       ctx.textAlign = "center";
@@ -113,43 +149,35 @@ export function EmptyPong({ className = "" }: { className?: string }) {
       ctx.letterSpacing = "0.08em";
 
       const grad = ctx.createLinearGradient(
-        width / 2 - 60,
+        width / 2 - 80,
         COURT_H / 2,
-        width / 2 + 60,
+        width / 2 + 80,
         COURT_H / 2,
       );
       grad.addColorStop(0, "#f97316");
       grad.addColorStop(0.5, "#f43f5e");
       grad.addColorStop(1, "#d946ef");
       ctx.fillStyle = grad;
-      ctx.fillText(label, width / 2, COURT_H / 2 - 4);
+      ctx.fillText(label, width / 2, hint ? COURT_H / 2 - 4 : COURT_H / 2);
 
-      ctx.font = `600 ${Math.max(10, fontSize * 0.28)}px var(--font-inter), system-ui, sans-serif`;
-      ctx.fillStyle = dark ? "rgba(255,255,255,0.45)" : "rgba(0,0,0,0.4)";
-      ctx.letterSpacing = "0.16em";
-      ctx.fillText("TAP TO START", width / 2, COURT_H / 2 + fontSize * 0.55);
+      if (hint) {
+        ctx.font = `600 ${Math.max(10, fontSize * 0.28)}px var(--font-inter), system-ui, sans-serif`;
+        ctx.fillStyle = "rgba(255,255,255,0.5)";
+        ctx.letterSpacing = "0.16em";
+        ctx.fillText(hint, width / 2, COURT_H / 2 + fontSize * 0.55);
+      }
     }
 
-    function draw() {
-      if (!alive || width <= 0) return;
-      const dark = document.documentElement.classList.contains("dark");
-      ctx.clearRect(0, 0, width, COURT_H);
-
+    function drawCourtChrome() {
       const wash = ctx.createLinearGradient(0, 0, width, COURT_H);
-      if (dark) {
-        wash.addColorStop(0, "rgba(244, 63, 94, 0.08)");
-        wash.addColorStop(0.55, "rgba(24, 24, 27, 0.4)");
-        wash.addColorStop(1, "rgba(217, 70, 239, 0.1)");
-      } else {
-        wash.addColorStop(0, "rgba(249, 115, 22, 0.08)");
-        wash.addColorStop(0.55, "rgba(250, 250, 250, 0.5)");
-        wash.addColorStop(1, "rgba(244, 63, 94, 0.1)");
-      }
+      wash.addColorStop(0, "#1a0a14");
+      wash.addColorStop(0.45, "#0c0c10");
+      wash.addColorStop(1, "#160a1c");
       ctx.fillStyle = wash;
       roundRect(ctx, 0, 0, width, COURT_H, 16);
       ctx.fill();
 
-      ctx.strokeStyle = dark ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.1)";
+      ctx.strokeStyle = "rgba(255,255,255,0.14)";
       ctx.lineWidth = 1;
       ctx.setLineDash([4, 6]);
       ctx.beginPath();
@@ -158,11 +186,22 @@ export function EmptyPong({ className = "" }: { className?: string }) {
       ctx.stroke();
       ctx.setLineDash([]);
 
-      ctx.fillStyle = dark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.06)";
+      ctx.fillStyle = "rgba(255,255,255,0.1)";
       ctx.fillRect(12, 8, width - 24, 3);
+    }
+
+    function draw() {
+      if (!alive || width <= 0) return;
+      ctx.clearRect(0, 0, width, COURT_H);
+      drawCourtChrome();
 
       if (!motionArmed) {
-        drawPlayPrompt(dark);
+        drawCenteredPrompt("PLAY");
+        return;
+      }
+
+      if (awaitingRestart) {
+        drawCenteredPrompt("RESTART", "TAP TO RESTART");
         return;
       }
 
@@ -203,7 +242,7 @@ export function EmptyPong({ className = "" }: { className?: string }) {
     }
 
     function step(ts: number) {
-      if (!alive || !running) return;
+      if (!alive || !running || awaitingRestart) return;
       const dt = Math.min((ts - last) / 1000, 0.04);
       last = ts;
 
@@ -242,16 +281,28 @@ export function EmptyPong({ className = "" }: { className?: string }) {
         ball.vx = (ball.vx / mag) * target;
         ball.vy = (ball.vy / mag) * target;
         if (ball.vy > -120) ball.vy = -120;
+        score += 1;
+        paintHud();
       }
 
-      if (ball.y - BALL_R > COURT_H + 8) resetBall();
+      if (ball.y - BALL_R > COURT_H + 8) {
+        goToRestart();
+        return;
+      }
 
       draw();
       raf = requestAnimationFrame(step);
     }
 
     function start() {
-      if (!alive || running || !visible || !motionArmed || document.hidden) {
+      if (
+        !alive ||
+        running ||
+        !visible ||
+        !motionArmed ||
+        awaitingRestart ||
+        document.hidden
+      ) {
         return;
       }
       running = true;
@@ -271,8 +322,14 @@ export function EmptyPong({ className = "" }: { className?: string }) {
       else if (visible) start();
     }
 
+    paintHud();
     resize();
     draw();
+
+    playHoldTimer = window.setTimeout(() => {
+      if (!alive) return;
+      armMotion();
+    }, PLAY_HOLD_MS);
 
     const ro = new ResizeObserver(() => {
       if (!alive) return;
@@ -296,11 +353,10 @@ export function EmptyPong({ className = "" }: { className?: string }) {
     canvas.addEventListener("pointermove", onPointerMove);
     document.addEventListener("visibilitychange", onVisibility);
 
-    start();
-
     return () => {
       alive = false;
       stop();
+      if (playHoldTimer) window.clearTimeout(playHoldTimer);
       ro.disconnect();
       io.disconnect();
       canvas.removeEventListener("pointerdown", onPointerDown);
@@ -311,15 +367,28 @@ export function EmptyPong({ className = "" }: { className?: string }) {
 
   return (
     <div
-      ref={wrapRef}
-      className={`relative touch-none select-none ${className}`}
-      style={{ height: COURT_H }}
+      className={`mx-auto w-full max-w-[22rem] ${className}`}
       aria-hidden
     >
-      <canvas
-        ref={canvasRef}
-        className="mx-auto block h-full w-full cursor-pointer rounded-2xl ring-1 ring-neutral-200/80 dark:ring-neutral-800/80"
-      />
+      <div className="mb-2 text-center">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-neutral-500 dark:text-neutral-400">
+          Score
+        </p>
+        <p className="text-4xl font-bold leading-none tracking-tight text-neutral-900 tabular-nums dark:text-white">
+          <span ref={scoreRef}>0</span>
+        </p>
+      </div>
+
+      <div
+        ref={wrapRef}
+        className="relative touch-none select-none"
+        style={{ height: COURT_H }}
+      >
+        <canvas
+          ref={canvasRef}
+          className="mx-auto block h-full w-full cursor-pointer rounded-2xl bg-[#0c0c10] ring-1 ring-white/10"
+        />
+      </div>
     </div>
   );
 }
