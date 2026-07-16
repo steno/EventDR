@@ -79,6 +79,8 @@ const FILE_TO_EVENT_ID = {
   "puerto-plata-golf-classic-2026.jpg": "puerto-plata-golf-classic-2026",
   "cac-games-surf-playa-encuentro-2026.jpg": "cac-games-surf-playa-encuentro-2026",
   "puerto-plata-beach-soccer-2026.jpg": "puerto-plata-beach-soccer-2026",
+  "la-chabola-wednesday-open-mic.jpg": "la-chabola-wednesday-open-mic",
+  "groundzero-domingos-pal-pueblo.jpg": "groundzero-domingos-pal-pueblo",
 
   // --- Original curated venue / attraction photos ---
   "LAXSunsetSessions.JPG": "lax-sunset-daily",
@@ -163,6 +165,8 @@ const FILE_TO_VENUE_SLUG = {
   "puerto-plata-golf-classic-2026.jpg": "playa-dorada-golf",
   "cac-games-surf-playa-encuentro-2026.jpg": "playa-encuentro",
   "puerto-plata-beach-soccer-2026.jpg": "playa-los-charamicos",
+  "la-chabola-wednesday-open-mic.jpg": "la-chabola-cabarete",
+  "groundzero-domingos-pal-pueblo.jpg": "ground-zero-disco",
 };
 
 if (!existsSync(sourceDir)) {

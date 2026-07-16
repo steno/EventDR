@@ -65,6 +65,8 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "playa-dorada-golf": "playa-dorada-golf.jpg",
   "playa-encuentro": "playa-encuentro.jpg",
   "playa-los-charamicos": "playa-los-charamicos.jpg",
+  "la-chabola-cabarete": "la-chabola-cabarete.jpg",
+  "ground-zero-disco": "ground-zero-disco.jpg",
 };
 
 /** Cache-busted URL for general venue thumbnails / JSON-LD. */

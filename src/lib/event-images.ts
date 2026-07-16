@@ -116,6 +116,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "puerto-plata-golf-classic-2026": "puerto-plata-golf-classic-2026.jpg",
   "cac-games-surf-playa-encuentro-2026": "cac-games-surf-playa-encuentro-2026.jpg",
   "puerto-plata-beach-soccer-2026": "puerto-plata-beach-soccer-2026.jpg",
+  "la-chabola-wednesday-open-mic": "la-chabola-wednesday-open-mic.jpg",
+  "groundzero-domingos-pal-pueblo": "groundzero-domingos-pal-pueblo.jpg",
 };
 
 /** Legacy ingest ids that share a curated event image. */
