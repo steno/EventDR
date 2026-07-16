@@ -142,7 +142,7 @@ async function loadVenueAssessment(
 
 const getCachedVenueAssessment = unstable_cache(
   (slug: string) => loadVenueAssessment(slug, true),
-  ["venue-assessment-sentiment-v1"],
+  ["venue-assessment-sentiment-v2"],
   { revalidate: PLACES_REVALIDATE_SECONDS, tags: ["venue-assessments"] },
 );
 

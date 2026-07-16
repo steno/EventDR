@@ -15,12 +15,40 @@ export interface GooglePlaceDetails {
   snippets: string[];
 }
 
+export interface PlacesProbeResult {
+  ok: boolean;
+  configured: boolean;
+  step: "config" | "text_search" | "place_details" | "done";
+  placeId?: string;
+  rating?: number;
+  reviewCount?: number;
+  reviewTexts?: number;
+  status?: number;
+  error?: string;
+}
+
 export function isGooglePlacesConfigured(): boolean {
   return Boolean(process.env.GOOGLE_PLACES_API_KEY?.trim());
 }
 
 function apiKey(): string | null {
   return process.env.GOOGLE_PLACES_API_KEY?.trim() || null;
+}
+
+async function readError(res: Response): Promise<string> {
+  try {
+    const body = (await res.json()) as {
+      error?: { message?: string; status?: string };
+      message?: string;
+    };
+    return (
+      body.error?.message ||
+      body.message ||
+      `${res.status} ${res.statusText}`
+    );
+  } catch {
+    return `${res.status} ${res.statusText}`;
+  }
 }
 
 /**
@@ -31,8 +59,18 @@ export async function findPlaceId(
   name: string,
   venue?: Pick<Venue, "lat" | "lng" | "city">,
 ): Promise<string | null> {
+  const probed = await findPlaceIdWithStatus(name, venue);
+  return probed.placeId ?? null;
+}
+
+export async function findPlaceIdWithStatus(
+  name: string,
+  venue?: Pick<Venue, "lat" | "lng" | "city">,
+): Promise<{ placeId?: string; status?: number; error?: string }> {
   const key = apiKey();
-  if (!key || !name.trim()) return null;
+  if (!key || !name.trim()) {
+    return { error: "GOOGLE_PLACES_API_KEY missing or empty name" };
+  }
 
   const query = venue?.city ? `${name} ${venue.city} Dominican Republic` : name;
   const body: Record<string, unknown> = {
@@ -60,18 +98,26 @@ export async function findPlaceId(
           "X-Goog-FieldMask": "places.id,places.name",
         },
         body: JSON.stringify(body),
-        next: { revalidate: 60 * 60 * 24 * 7 },
+        cache: "no-store",
       },
     );
-    if (!res.ok) return null;
+    if (!res.ok) {
+      return { status: res.status, error: await readError(res) };
+    }
     const data = (await res.json()) as {
       places?: { id?: string; name?: string }[];
     };
     const place = data.places?.[0];
     const raw = place?.id ?? place?.name;
-    return raw?.replace(/^places\//, "") ?? null;
-  } catch {
-    return null;
+    const placeId = raw?.replace(/^places\//, "") ?? undefined;
+    if (!placeId) {
+      return { status: res.status, error: "Text Search returned no places" };
+    }
+    return { placeId, status: res.status };
+  } catch (err) {
+    return {
+      error: err instanceof Error ? err.message : "Text Search network error",
+    };
   }
 }
 
@@ -85,8 +131,21 @@ function toSnippet(text: string, max = 140): string {
 export async function fetchPlaceDetails(
   placeId: string,
 ): Promise<GooglePlaceDetails | null> {
+  const probed = await fetchPlaceDetailsWithStatus(placeId);
+  return probed.details ?? null;
+}
+
+export async function fetchPlaceDetailsWithStatus(
+  placeId: string,
+): Promise<{
+  details?: GooglePlaceDetails;
+  status?: number;
+  error?: string;
+}> {
   const key = apiKey();
-  if (!key || !placeId.trim()) return null;
+  if (!key || !placeId.trim()) {
+    return { error: "GOOGLE_PLACES_API_KEY missing or empty placeId" };
+  }
 
   const id = placeId.startsWith("places/") ? placeId : `places/${placeId}`;
 
@@ -97,9 +156,11 @@ export async function fetchPlaceDetails(
         "X-Goog-FieldMask":
           "id,rating,userRatingCount,reviews.rating,reviews.text",
       },
-      next: { revalidate: 60 * 60 * 24 * 7 },
+      cache: "no-store",
     });
-    if (!res.ok) return null;
+    if (!res.ok) {
+      return { status: res.status, error: await readError(res) };
+    }
 
     const data = (await res.json()) as {
       id?: string;
@@ -120,13 +181,66 @@ export async function fetchPlaceDetails(
     }
 
     return {
-      placeId: (data.id ?? id).replace(/^places\//, ""),
-      rating: data.rating,
-      userRatingCount: data.userRatingCount,
-      reviews,
-      snippets: reviews.slice(0, 3).map((r) => toSnippet(r.text)),
+      status: res.status,
+      details: {
+        placeId: (data.id ?? id).replace(/^places\//, ""),
+        rating: data.rating,
+        userRatingCount: data.userRatingCount,
+        reviews,
+        snippets: reviews.slice(0, 3).map((r) => toSnippet(r.text)),
+      },
     };
-  } catch {
-    return null;
+  } catch (err) {
+    return {
+      error: err instanceof Error ? err.message : "Place Details network error",
+    };
   }
+}
+
+/** One-venue health check for ops / cron. */
+export async function probeGooglePlaces(
+  name: string,
+  venue?: Pick<Venue, "lat" | "lng" | "city">,
+): Promise<PlacesProbeResult> {
+  if (!isGooglePlacesConfigured()) {
+    return {
+      ok: false,
+      configured: false,
+      step: "config",
+      error: "GOOGLE_PLACES_API_KEY is not set",
+    };
+  }
+
+  const search = await findPlaceIdWithStatus(name, venue);
+  if (!search.placeId) {
+    return {
+      ok: false,
+      configured: true,
+      step: "text_search",
+      status: search.status,
+      error: search.error,
+    };
+  }
+
+  const details = await fetchPlaceDetailsWithStatus(search.placeId);
+  if (!details.details) {
+    return {
+      ok: false,
+      configured: true,
+      step: "place_details",
+      placeId: search.placeId,
+      status: details.status,
+      error: details.error,
+    };
+  }
+
+  return {
+    ok: true,
+    configured: true,
+    step: "done",
+    placeId: details.details.placeId,
+    rating: details.details.rating,
+    reviewCount: details.details.userRatingCount,
+    reviewTexts: details.details.reviews.length,
+  };
 }

@@ -4,7 +4,11 @@ import {
   areVenueAssessmentsEnabled,
   listVenueAssessments,
 } from "@/lib/venue-assessments";
-import { isGooglePlacesConfigured } from "@/lib/google-places";
+import {
+  isGooglePlacesConfigured,
+  probeGooglePlaces,
+} from "@/lib/google-places";
+import { getSeedVenue } from "@/lib/venues-seed";
 
 export const dynamic = "force-dynamic";
 export const maxDuration = 60;
@@ -22,10 +26,27 @@ function checkCronSecret(request: NextRequest): boolean {
  * Ops endpoint: list seed assessments; optionally enrich with Google Places
  * review sentiment (themes/crowd/verdict from review text + ratings).
  * GET /api/cron/venue-assessments?secret=CRON_SECRET&enrich=1
+ * GET /api/cron/venue-assessments?secret=CRON_SECRET&probe=d-classico-sosua
  */
 async function handle(request: NextRequest) {
   if (!checkCronSecret(request)) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
+  const probeSlug = request.nextUrl.searchParams.get("probe")?.trim();
+  if (probeSlug) {
+    const venue = getSeedVenue(probeSlug);
+    const probe = await probeGooglePlaces(
+      venue?.name ?? probeSlug,
+      venue ?? undefined,
+    );
+    return NextResponse.json({
+      generatedAt: new Date().toISOString(),
+      placesConfigured: isGooglePlacesConfigured(),
+      probeSlug,
+      venueName: venue?.name ?? null,
+      probe,
+    });
   }
 
   const enrich =
@@ -36,6 +57,9 @@ async function handle(request: NextRequest) {
   const visible = assessments.filter(
     (a) => a.confidence >= ASSESSMENT_CONFIDENCE_THRESHOLD,
   );
+  const withGoogle = assessments.filter((a) =>
+    a.sources.some((s) => s.kind === "google_places"),
+  ).length;
 
   return NextResponse.json({
     generatedAt: new Date().toISOString(),
@@ -44,6 +68,7 @@ async function handle(request: NextRequest) {
     enriched: enrich && isGooglePlacesConfigured(),
     total: assessments.length,
     visible: visible.length,
+    withGoogle,
     threshold: ASSESSMENT_CONFIDENCE_THRESHOLD,
     assessments: enrich ? assessments : visible,
   });
