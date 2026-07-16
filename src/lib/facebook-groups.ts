@@ -99,7 +99,6 @@ export function facebookGroupSearchQueries(): string[] {
     ...pageQueries,
     `site:facebook.com concierto merengue bachata típico Puerto Plata Sosúa 2026`,
     `site:facebook.com "en vivo" Cabarete OR Sosúa OR "Puerto Plata" boletería`,
-    `site:instagram.com graaneventsplanners OR cabaretejazz OR nonasgrillkitchen evento`,
   ];
 }
 

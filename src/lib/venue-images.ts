@@ -62,6 +62,9 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "disco-club-brugal": "disco-club-brugal.jpg",
   "parada-tipica-el-choco": "parada-tipica-el-choco.jpg",
   "blue-jacktar-playa-dorada": "blue-jacktar-playa-dorada.jpg",
+  "playa-dorada-golf": "playa-dorada-golf.jpg",
+  "playa-encuentro": "playa-encuentro.jpg",
+  "playa-los-charamicos": "playa-los-charamicos.jpg",
 };
 
 /** Cache-busted URL for general venue thumbnails / JSON-LD. */

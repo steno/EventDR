@@ -383,6 +383,24 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Cuisine originale de Paella POP au One Club, Green One Playa Dorada — paella et plats espagnols dans le clubhouse du resort de golf.",
     },
   },
+  "playa-dorada-golf": {
+    description: {
+      es: "Campo de campeonato de 18 hoyos de Robert Trent Jones Sr. en el complejo Playa Dorada — sede del Puerto Plata Golf Classic y eventos de turismo deportivo de Ashonorte.",
+      fr: "Parcours de championnat 18 trous de Robert Trent Jones Sr. dans le complexe Playa Dorada — siège du Puerto Plata Golf Classic et des événements de tourisme sportif d'Ashonorte.",
+    },
+  },
+  "playa-encuentro": {
+    description: {
+      es: "La playa de surf más importante de la costa norte entre Cabarete y Sosúa — olas de arrecife para todos los niveles y sede oficial de surf de los Juegos CAC 2026.",
+      fr: "Plage de surf phare de la côte nord entre Cabarete et Sosúa — vagues de récif pour tous niveaux et siège officiel du surf des Jeux CAC 2026.",
+    },
+  },
+  "playa-los-charamicos": {
+    description: {
+      es: "Playa local de Sosúa al oeste de El Batey — sede del Puerto Plata Beach Soccer y jornadas deportivas familiares frente al mar.",
+      fr: "Plage locale de Sosúa à l'ouest d'El Batey — siège du Puerto Plata Beach Soccer et journées sportives familiales en bord de mer.",
+    },
+  },
 };
 
 export function localizeVenue(venue: Venue, locale: Locale): Venue {

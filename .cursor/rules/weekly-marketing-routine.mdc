@@ -21,7 +21,7 @@ Run when the user says **weekly marketing**, **content pipeline**, **Sunday rout
 
 1. Verify ingest Action green (or `POST /api/ingest?secret=CRON_SECRET`)
 2. Moderate at `/en/moderate`
-3. Optional: `facebook-groups-weekly` rule for new Facebook events
+3. Optional: skill `pop-facebook-ingest` (rule `facebook-groups-weekly`) for new Facebook events
 4. Run `pop-content-pipeline` skill — save social drafts
 
 ## Friday checklist
@@ -43,5 +43,6 @@ Requires `CRON_SECRET` on Netlify (same as ingest).
 ## Skills
 
 - `pop-content-pipeline` — full orchestration
+- `pop-facebook-ingest` — browser Facebook groups/pages → new seeds + ingest
 - `pop-social-weekly` — Facebook / Instagram / WhatsApp posts
 - `pop-weekend-b2b-digest` — hotels, agents, tour groups

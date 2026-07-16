@@ -198,6 +198,22 @@ const VENUE_SOURCES = [
     eventId: "parada-tipica-el-choco-tuesday-live",
     url: "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=1800&q=85",
   },
+  // --- North Coast sports seeds (Jul–Aug 2026) ---
+  {
+    // Tropical golf fairway for Puerto Plata Golf Classic / Playa Dorada Golf.
+    eventId: "puerto-plata-golf-classic-2026",
+    url: "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=1800&q=85",
+  },
+  {
+    // Surf action for CAC Games at Playa Encuentro.
+    eventId: "cac-games-surf-playa-encuentro-2026",
+    url: "https://images.unsplash.com/photo-1502680390469-be75c86b636f?w=1800&q=85",
+  },
+  {
+    // Beach soccer energy for Puerto Plata Beach Soccer at Los Charamicos.
+    eventId: "puerto-plata-beach-soccer-2026",
+    url: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=1800&q=85",
+  },
 ];
 
 mkdirSync(outDir, { recursive: true });

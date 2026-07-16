@@ -67,6 +67,9 @@ const FILE_TO_EVENT_ID = {
   "el-parq-karaoke-thursday.jpg": "el-parq-karaoke-thursday",
   "el-parq-latin-friday.jpg": "el-parq-latin-friday",
   "parada-tipica-el-choco-tuesday-live.jpg": "parada-tipica-el-choco-tuesday-live",
+  "puerto-plata-golf-classic-2026.jpg": "puerto-plata-golf-classic-2026",
+  "cac-games-surf-playa-encuentro-2026.jpg": "cac-games-surf-playa-encuentro-2026",
+  "puerto-plata-beach-soccer-2026.jpg": "puerto-plata-beach-soccer-2026",
 
   // --- Original curated venue / attraction photos ---
   "RumbleInParadise12.png": "rumble-in-paradise-12",
@@ -152,6 +155,9 @@ const FILE_TO_VENUE_SLUG = {
   "parada-tipica-el-choco-tuesday-live.jpg": "parada-tipica-el-choco",
   "blue-jacktar-playa-dorada.jpg": "blue-jacktar-playa-dorada",
   "natura-cabana-saturday-live.jpg": "natura-cabana",
+  "puerto-plata-golf-classic-2026.jpg": "playa-dorada-golf",
+  "cac-games-surf-playa-encuentro-2026.jpg": "playa-encuentro",
+  "puerto-plata-beach-soccer-2026.jpg": "playa-los-charamicos",
 };
 
 if (!existsSync(sourceDir)) {

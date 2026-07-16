@@ -32,3 +32,6 @@ Curated images under `public/events/` and `public/venues/`. Prefer venue-accurat
 | `el-parq-karaoke-thursday.jpg` | [Unsplash](https://unsplash.com/photos/people-having-a-concert-photo-1470225620780) (`photo-1470225620780`) — Unsplash License | Night party lights for karaoke |
 | `el-parq-latin-friday.jpg` | [Unsplash](https://unsplash.com/photos/photo-1547153760-18fc86324498) (`photo-1547153760`) — Unsplash License | Latin dance night |
 | `parada-tipica-el-choco-tuesday-live.jpg` / venue | [Unsplash](https://unsplash.com/photos/photo-1559339352-11d035aa65de) (`photo-1559339352`) — Unsplash License | Outdoor dining patio for Tuesday live |
+| `puerto-plata-golf-classic-2026.jpg` / `venues/playa-dorada-golf.jpg` | [Unsplash](https://unsplash.com/photos/photo-1535131749006-b7f58c99034b) (`photo-1535131749006`) — Unsplash License | Tropical golf fairway for Ashonorte Golf Classic |
+| `cac-games-surf-playa-encuentro-2026.jpg` / `venues/playa-encuentro.jpg` | [Unsplash](https://unsplash.com/photos/photo-1502680390469-be75c86b636f) (`photo-1502680390469`) — Unsplash License | Surf action for CAC Games Playa Encuentro |
+| `puerto-plata-beach-soccer-2026.jpg` / `venues/playa-los-charamicos.jpg` | [Unsplash](https://unsplash.com/photos/photo-1574629810360-7efbbe195018) (`photo-1574629810360`) — Unsplash License | Beach soccer energy for Los Charamicos tournament |

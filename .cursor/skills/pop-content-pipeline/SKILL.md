@@ -45,7 +45,7 @@ curl -sS -X POST "https://pop-event.com/api/ingest?secret=$CRON_SECRET"
 
 Open https://pop-event.com/en/moderate — approve North Coast events only; reject duplicates and off-region posts.
 
-For richer Facebook coverage, also run rule `facebook-groups-weekly` (browser + login).
+For richer Facebook coverage, run skill `pop-facebook-ingest` (browser + login; rule `facebook-groups-weekly`).
 
 ### 3. Partner digest preview
 
@@ -94,6 +94,7 @@ Use skill `pop-weekend-b2b-digest` for hotel/agent copy-paste blocks.
 
 - Rule: `.cursor/rules/weekly-marketing-routine.mdc`
 - Rule: `.cursor/rules/facebook-groups-weekly.mdc`
+- Skill: `pop-facebook-ingest`
 - Skill: `pop-social-weekly`
 - Skill: `pop-weekend-b2b-digest`
 - Partner QR page: `https://pop-event.com/en/for-partners`

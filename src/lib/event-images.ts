@@ -113,6 +113,9 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "atleticos-pp-vs-reales-2026-08-09": "atleticos-pp-vs-reales-2026-08-09.jpg",
   "atleticos-pp-vs-arroceros-2026-08-22": "atleticos-pp-vs-arroceros-2026-08-22.jpeg",
   "atleticos-pp-vs-capitanes-2026-08-28": "atleticos-pp-vs-capitanes-2026-08-28.jpeg",
+  "puerto-plata-golf-classic-2026": "puerto-plata-golf-classic-2026.jpg",
+  "cac-games-surf-playa-encuentro-2026": "cac-games-surf-playa-encuentro-2026.jpg",
+  "puerto-plata-beach-soccer-2026": "puerto-plata-beach-soccer-2026.jpg",
 };
 
 /** Legacy ingest ids that share a curated event image. */

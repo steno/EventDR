@@ -698,6 +698,38 @@ export const SEED_VENUES: Venue[] = [
     emoji: "🥘",
     website: "https://www.greenoneplayadorada.com/",
   },
+  {
+    slug: "playa-dorada-golf",
+    name: "Playa Dorada Golf Course",
+    city: "Playa Dorada",
+    description:
+      "Robert Trent Jones Sr. 18-hole championship course inside the Playa Dorada resort complex — home of the Puerto Plata Golf Classic and Ashonorte sports tourism events.",
+    lat: 19.7635,
+    lng: -70.6555,
+    emoji: "⛳",
+    website: "https://playadoradagolf.com/",
+    instagram: "ashonorte",
+  },
+  {
+    slug: "playa-encuentro",
+    name: "Playa Encuentro",
+    city: "Cabarete",
+    description:
+      "North Coast's premier surf beach between Cabarete and Sosúa — reef breaks for all levels and the official CAC Games 2026 surf venue.",
+    lat: 19.7808,
+    lng: -70.4825,
+    emoji: "🏄",
+  },
+  {
+    slug: "playa-los-charamicos",
+    name: "Playa Los Charamicos",
+    city: "Sosúa",
+    description:
+      "Local Sosúa beach west of El Batey — host of Puerto Plata Beach Soccer and family-friendly waterfront sports days.",
+    lat: 19.7542,
+    lng: -70.5285,
+    emoji: "⚽",
+  },
 ];
 
 export function getSeedVenue(slug: string): Venue | undefined {

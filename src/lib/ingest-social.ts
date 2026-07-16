@@ -7,6 +7,11 @@ import {
   facebookGroupEventUrls,
   facebookGroupSearchQueries,
 } from "@/lib/facebook-groups";
+import {
+  INSTAGRAM_ACCOUNTS,
+  instagramProfileUrls,
+  instagramSearchQueries,
+} from "@/lib/instagram-sources";
 import { scrapeUrl, webSearch } from "@/lib/scrape";
 import type { Event } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
@@ -27,16 +32,39 @@ function ingestEventId(event: Event): string {
 }
 
 const SOCIAL_QUERIES = [
-  "site:instagram.com events Puerto Plata Sosúa Cabarete",
-  "site:instagram.com fiesta evento Cabarete República Dominicana",
-  "site:instagram.com concierto Puerto Plata",
-  "site:instagram.com graaneventsplanners OR cabaretejazz OR nonasgrillkitchen",
+  ...instagramSearchQueries(),
   "WhatsApp group events Cabarete Puerto Plata expat",
   "eventos WhatsApp Costa Norte República Dominicana merengue bachata",
   "site:facebook.com events Puerto Plata Costa Norte",
   "site:facebook.com concierto merengue bachata típico Puerto Plata Sosúa",
   ...facebookGroupSearchQueries(),
 ];
+
+async function readPublicSocialUrl(
+  url: string,
+  label: string,
+): Promise<{
+  query: string;
+  content: string;
+  fetchedAt: string;
+  source: "url";
+} | null> {
+  try {
+    const content = await scrapeUrl(url);
+    if (content.length < 80) return null;
+    if (/log into facebook|log in to instagram|create an account/i.test(content)) {
+      return null;
+    }
+    return {
+      query: label,
+      content: content.slice(0, 12000),
+      fetchedAt: new Date().toISOString(),
+      source: "url" as const,
+    };
+  } catch {
+    return null;
+  }
+}
 
 export async function ingestSocialEvents(locale: Locale = "en"): Promise<Event[]> {
   const results = await crawlEventListings();
@@ -47,25 +75,23 @@ export async function ingestSocialEvents(locale: Locale = "en"): Promise<Event[]
   ];
   const groupReads = await Promise.all(
     facebookUrls.map(async (url) => {
-        const group = FACEBOOK_GROUPS.find((g) => url.startsWith(g.url));
-        const page = FACEBOOK_EVENT_PAGES.find((p) => url.startsWith(p.url));
-        try {
-          const content = await scrapeUrl(url);
-          if (content.length < 80 || /log into facebook/i.test(content)) return null;
-          return {
-            query: group?.label ?? page?.label ?? url,
-            content: content.slice(0, 12000),
-            fetchedAt: new Date().toISOString(),
-            source: "url" as const,
-          };
-        } catch {
-          return null;
-        }
-      },
-    ),
+      const group = FACEBOOK_GROUPS.find((g) => url.startsWith(g.url));
+      const page = FACEBOOK_EVENT_PAGES.find((p) => url.startsWith(p.url));
+      return readPublicSocialUrl(url, group?.label ?? page?.label ?? url);
+    }),
   );
+
+  const instagramReads = await Promise.all(
+    instagramProfileUrls().map(async (url) => {
+      const handle = url.replace(/\/$/, "").split("/").pop() ?? url;
+      const account = INSTAGRAM_ACCOUNTS.find((a) => a.handle === handle);
+      return readPublicSocialUrl(url, account?.label ?? `Instagram @${handle}`);
+    }),
+  );
+
+  // Prefer Instagram + Facebook searches; keep volume bounded for cron time.
   const socialResults = await Promise.all(
-    SOCIAL_QUERIES.slice(0, 8).map(async (query) => {
+    SOCIAL_QUERIES.slice(0, 14).map(async (query) => {
       try {
         const content = await webSearch(query);
         if (content.length < 80) return null;
@@ -84,6 +110,7 @@ export async function ingestSocialEvents(locale: Locale = "en"): Promise<Event[]
   const combined = [
     ...results,
     ...groupReads.filter(Boolean),
+    ...instagramReads.filter(Boolean),
     ...socialResults.filter(Boolean),
   ];
 

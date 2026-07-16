@@ -1,4 +1,5 @@
 import type { EventCategory } from "./types";
+import { instagramProfileUrls } from "./instagram-sources";
 
 const REGION = "Puerto Plata Sosúa Cabarete Costa Norte";
 
@@ -39,6 +40,8 @@ export const REGION_DIRECT_URLS = [
   EVENTBRITE_PP,
   EVENTBRITE_SOSUA,
   EVENTBRITE_CABARETE,
+  // Instagram profiles — best-effort; many hits login walls (see ingest-social).
+  ...instagramProfileUrls(),
 ];
 
 export interface CategoryQuerySet {
