@@ -339,7 +339,7 @@ export const en: Dictionary = {
     music: "Music",
     business: "Business",
     concert: "Concert",
-    parties: "Party",
+    parties: "Party Events",
     "food-drinks": "Food & Drink",
     festivals: "Festival",
     dance: "Dance",
