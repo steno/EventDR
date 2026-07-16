@@ -133,6 +133,18 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Bar merengue et bachata au cœur d'El Batey — rythmes locaux, foule qui danse et adresse classique de la nuit sosuate sur Pedro Clisante.",
     },
   },
+  "ground-zero-disco": {
+    description: {
+      es: "Discoteca de la Costa Norte en la carretera Puerto Plata–Sosúa frente al Aeropuerto Gregorio Luperón — reggaetón, dembow, típico y fiestas hasta tarde (cerrado lun–mié).",
+      fr: "Discothèque de la Côte Nord sur la route Puerto Plata–Sosúa face à l'aéroport Gregorio Luperón — reggaeton, dembow, típico et soirées tardives (fermé lun–mer).",
+    },
+  },
+  "la-chabola-cabarete": {
+    description: {
+      es: "Bar de pizza del barrio en el Callejón de la Loma — pizzas al horno de piedra, músicos locales y open mic los miércoles con público asequible de Cabarete.",
+      fr: "Bar à pizza de quartier dans le Callejón de la Loma — pizzas au four à pierre, musiciens locaux et open mic le mercredi dans une ambiance abordable à Cabarete.",
+    },
+  },
   "voyvoy-cabarete": {
     description: {
       es: "Restaurante frente al mar y punto de vida nocturna en la bahía de Cabarete — jams de open mic, sesiones de DJ y fiestas de baile los fines de semana con vistas a la bahía.",

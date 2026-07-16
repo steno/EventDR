@@ -5,6 +5,8 @@ import { SEED_VENUES, matchVenueSlug } from "./venues-seed";
 const EVENT_PHONE_BY_ID: Record<string, string> = {
   "voyvoy-sunday-open-mic": "+18095710805",
   "voyvoy-saturday-session": "+18095710805",
+  "la-chabola-wednesday-open-mic": "+18095435860",
+  "groundzero-domingos-pal-pueblo": "+18494651313",
   "rumble-in-paradise-12": "+18298172884",
   "cabarete-pilates-reformer": "+18094605777",
   "sancocho-sabados-pingui": "+18096682051",

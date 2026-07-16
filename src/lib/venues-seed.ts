@@ -222,6 +222,30 @@ export const SEED_VENUES: Venue[] = [
     emoji: "💃",
   },
   {
+    slug: "ground-zero-disco",
+    name: "Ground Zero Discoteca",
+    city: "Sosúa",
+    description:
+      "North Coast discoteca on the Puerto Plata–Sosúa highway opposite Gregorio Luperón Airport — reggaeton, dembow, típico, and late-night parties (closed Mon–Wed).",
+    lat: 19.76,
+    lng: -70.565,
+    emoji: "🪩",
+    instagram: "groundzero_disco",
+    phone: "+18494651313",
+  },
+  {
+    slug: "la-chabola-cabarete",
+    name: "La Chabola",
+    city: "Cabarete",
+    description:
+      "Neighborhood pizza bar in Callejón de la Loma — stone-oven pies, local musicians, and Wednesday open mic nights with an affordable Cabarete crowd.",
+    lat: 19.7475887,
+    lng: -70.4167516,
+    emoji: "🎤",
+    website: "https://www.facebook.com/chabolacabaretee",
+    phone: "+18095435860",
+  },
+  {
     slug: "voyvoy-cabarete",
     name: "VOYVOY Cabarete",
     city: "Cabarete",
