@@ -20,10 +20,8 @@ import { StickyListFilters, ListScrollAnchor } from "@/components/StickyListFilt
 import { TimeFilter } from "@/components/TimeFilter";
 import { EventCard } from "@/components/EventCard";
 import { EventListScrollPads } from "@/components/EventCardPlaceholder";
-import { EventViewToggle } from "@/components/EventViewToggle";
 import { SearchEmptyState } from "@/components/SearchEmptyState";
 import { AddEventButton } from "@/components/AddEventButton";
-import { useEventListView } from "@/hooks/useEventListView";
 import { fillTemplate } from "@/lib/seo";
 
 const UNBOUNDED = Number.POSITIVE_INFINITY;
@@ -75,7 +73,7 @@ export function FilteredEventList({
   categoryId,
 }: FilteredEventListProps) {
   const pathname = usePathname();
-  const { view, setView } = useEventListView();
+  const view = "cards";
   const [timeRange, setTimeRange] = useState<FilterTimeRange>(
     fixedTimeRange ?? defaultTimeRange,
   );
@@ -182,7 +180,7 @@ export function FilteredEventList({
       ) : null}
 
       {(sectionTitle || (!loading && events.length > 0)) && (
-        <div className="mb-3 flex items-center justify-between gap-2">
+        <div className="mb-3">
           {sectionTitle ? (
             <h2 className="min-w-0 text-xs font-bold uppercase tracking-widest text-neutral-400">
               {sectionTitle}
@@ -192,7 +190,6 @@ export function FilteredEventList({
               {dict.events.sortedUpcoming}
             </span>
           )}
-          <EventViewToggle value={view} onChange={setView} dict={dict} />
         </div>
       )}
 
