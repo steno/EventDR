@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { HorizontalScrollEdgeFades } from "@/components/HorizontalScrollEdgeFades";
 
 export type RelatedCategoryLink = {
   href: string;
@@ -73,7 +74,7 @@ export function CityCategoryLinks({
         {label}
       </p>
       {/* Stay inside page gutters so overflow crops at the same edges as the label. */}
-      <div className="relative">
+      <div className="relative isolate">
         <div
           ref={scrollerRef}
           onScroll={syncScrollHints}
@@ -106,18 +107,10 @@ export function CityCategoryLinks({
           </div>
         </div>
 
-        {canScrollLeft && (
-          <div
-            className="pointer-events-none absolute inset-y-0 left-0 z-10 w-8 bg-gradient-to-r from-neutral-50 to-transparent dark:from-neutral-950 sm:hidden"
-            aria-hidden
-          />
-        )}
-        {canScrollRight && (
-          <div
-            className="pointer-events-none absolute inset-y-0 right-0 z-10 w-8 bg-gradient-to-l from-neutral-50 to-transparent dark:from-neutral-950 sm:hidden"
-            aria-hidden
-          />
-        )}
+        <HorizontalScrollEdgeFades
+          canScrollLeft={canScrollLeft}
+          canScrollRight={canScrollRight}
+        />
       </div>
     </nav>
   );

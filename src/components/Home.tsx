@@ -248,7 +248,7 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
                       onSelect={setArea}
                     />
                   </div>
-                  <div className="pb-1 pt-1">
+                  <div className="pb-1 pt-3 sm:pt-3.5">
                     <CategoryGrid
                       locale={locale}
                       dict={dict}

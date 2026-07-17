@@ -50,6 +50,8 @@ export type Dictionary = {
     allCategoriesIntro: string;
     /** Pill that clears category scope and shows every event in the area. */
     allEvents: string;
+    /** Tiny mobile hint above the horizontal category scroller. */
+    scrollHint: string;
   };
   events: {
     loading: string;
@@ -406,6 +408,7 @@ export const en: Dictionary = {
     allCategories: "All categories",
     allCategoriesIntro: "Find events by vibe — music, parties, sports, and more across the North Coast.",
     allEvents: "All Events",
+    scrollHint: "Scroll",
   },
   events: {
     loading: "Finding events near you…",
