@@ -39,11 +39,15 @@ export function categoryNavLinks(
   locale: Locale,
   labels: Record<EventCategory, string>,
   citySlug?: CitySlug | null,
-): { href: string; label: string }[] {
-  return CATEGORY_IDS.map((id) => ({
-    href: categoryPath(locale, id, citySlug),
-    label: labels[id],
-  }));
+): { href: string; label: string; emoji: string }[] {
+  return CATEGORY_IDS.map((id) => {
+    const meta = getCategoryMeta(id, labels);
+    return {
+      href: categoryPath(locale, id, citySlug),
+      label: labels[id],
+      emoji: meta?.emoji ?? "📅",
+    };
+  });
 }
 
 export function eventDetailPath(

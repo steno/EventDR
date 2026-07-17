@@ -15,7 +15,7 @@ import { CityPhotoHero } from "@/components/CityPhotoHero";
 import { SubmitEventSheet } from "@/components/SubmitEventSheet";
 import { attachEventImages } from "@/lib/event-images";
 import { StickyListHeader } from "@/components/StickyListHeader";
-import { resolveBackLabel } from "@/lib/event-navigation";
+import { allEventsPath, resolveBackLabel } from "@/lib/event-navigation";
 import {
   getCityMeta,
   lastHomePath,
@@ -193,6 +193,12 @@ export function EventScopePage({
               label={relatedCategoryLinksLabel}
               links={relatedCategoryLinks}
               activeHref={relatedCategoryActiveHref}
+              allLink={{
+                href: allEventsPath(locale, citySlug ?? null),
+                label: dict.browse.allEvents,
+                emoji: "📅",
+              }}
+              scrollHint={dict.browse.scrollHint}
             />
           ) : null}
 

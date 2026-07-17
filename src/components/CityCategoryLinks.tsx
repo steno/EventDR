@@ -1,12 +1,27 @@
 "use client";
 
 import Link from "next/link";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { ChevronRight } from "lucide-react";
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  type Ref,
+} from "react";
 import { HorizontalScrollEdgeFades } from "@/components/HorizontalScrollEdgeFades";
+import {
+  CATEGORY_PILL_ACTIVE,
+  CATEGORY_PILL_BASE,
+  CATEGORY_PILL_IDLE,
+  CATEGORY_SCROLL_BTN,
+  CATEGORY_SCROLLER_BAR,
+} from "@/components/category-scroller-styles";
 
 export type RelatedCategoryLink = {
   href: string;
   label: string;
+  emoji?: string;
 };
 
 interface CityCategoryLinksProps {
@@ -14,12 +29,17 @@ interface CityCategoryLinksProps {
   links: RelatedCategoryLink[];
   /** Highlights the selected category pill. */
   activeHref?: string;
+  /** Leading “All Events” pill — active when no category href matches. */
+  allLink?: RelatedCategoryLink;
+  scrollHint: string;
 }
 
 export function CityCategoryLinks({
   label,
   links,
   activeHref,
+  allLink,
+  scrollHint,
 }: CityCategoryLinksProps) {
   const activeRef = useRef<HTMLAnchorElement>(null);
   const scrollerRef = useRef<HTMLDivElement>(null);
@@ -47,7 +67,7 @@ export function CityCategoryLinks({
     const onResize = () => syncScrollHints();
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
-  }, [syncScrollHints, links]);
+  }, [syncScrollHints, links, allLink]);
 
   useEffect(() => {
     const active = activeRef.current;
@@ -68,49 +88,87 @@ export function CityCategoryLinks({
 
   if (links.length === 0) return null;
 
+  const hasActiveCategory = links.some((link) => link.href === activeHref);
+  const allIsActive = Boolean(allLink) && !hasActiveCategory;
+
+  const scrollForward = () => {
+    const el = scrollerRef.current;
+    if (!el) return;
+    const step = Math.min(280, Math.max(160, el.clientWidth * 0.55));
+    el.scrollBy({ left: step, behavior: "smooth" });
+  };
+
+  const renderPill = (
+    link: RelatedCategoryLink,
+    active: boolean,
+    ref?: Ref<HTMLAnchorElement>,
+  ) => (
+    <Link
+      key={link.href}
+      ref={ref}
+      href={link.href}
+      scroll={false}
+      aria-current={active ? "page" : undefined}
+      aria-label={link.label}
+      className={`${CATEGORY_PILL_BASE} ${active ? CATEGORY_PILL_ACTIVE : CATEGORY_PILL_IDLE}`}
+    >
+      {link.emoji ? (
+        <span className="shrink-0 text-sm leading-none select-none" aria-hidden>
+          {link.emoji}
+        </span>
+      ) : null}
+      <span className="whitespace-nowrap">{link.label}</span>
+    </Link>
+  );
+
   return (
     <nav aria-label={label} className="mb-6">
       <p className="mb-2.5 text-xs font-bold uppercase tracking-widest text-neutral-400">
         {label}
       </p>
-      {/* Stay inside page gutters so overflow crops at the same edges as the label. */}
-      <div className="relative isolate">
-        <div
-          ref={scrollerRef}
-          onScroll={syncScrollHints}
-          className="overflow-x-auto scrollbar-hide sm:overflow-visible"
-        >
-          <div className="flex w-max gap-2 sm:w-auto sm:flex-wrap sm:gap-2.5">
-            {links.map((link) => {
-              const active = activeHref === link.href;
-              return (
-                <Link
-                  key={link.href}
-                  ref={active ? activeRef : undefined}
-                  href={link.href}
-                  scroll={false}
-                  aria-current={active ? "page" : undefined}
-                  className={`
-                    shrink-0 rounded-full border px-4 py-2 text-sm leading-none font-semibold
-                    transition-colors touch-manipulation
-                    ${
-                      active
-                        ? "border-orange-500 bg-transparent text-orange-600 dark:border-orange-400 dark:text-orange-400"
-                        : "border-neutral-200 bg-white text-neutral-700 hover:border-neutral-300 hover:text-neutral-900 dark:border-neutral-600 dark:bg-neutral-950 dark:text-neutral-100 dark:hover:border-neutral-500 dark:hover:text-white"
-                    }
-                  `}
-                >
-                  {link.label}
-                </Link>
-              );
-            })}
+      <div className={CATEGORY_SCROLLER_BAR}>
+        <div className="relative min-w-0 flex-1 overflow-hidden rounded-full">
+          <div
+            ref={scrollerRef}
+            onScroll={syncScrollHints}
+            className="overflow-x-auto scrollbar-hide"
+          >
+            <div className="flex w-max gap-1.5 px-0.5">
+              {allLink
+                ? renderPill(
+                    allLink,
+                    allIsActive,
+                    allIsActive ? activeRef : undefined,
+                  )
+                : null}
+              {links.map((link) => {
+                const active = activeHref === link.href;
+                return renderPill(
+                  link,
+                  active,
+                  active ? activeRef : undefined,
+                );
+              })}
+            </div>
           </div>
+
+          <HorizontalScrollEdgeFades
+            canScrollLeft={canScrollLeft}
+            canScrollRight={canScrollRight}
+            tone="bar"
+          />
         </div>
 
-        <HorizontalScrollEdgeFades
-          canScrollLeft={canScrollLeft}
-          canScrollRight={canScrollRight}
-        />
+        {canScrollRight ? (
+          <button
+            type="button"
+            onClick={scrollForward}
+            className={CATEGORY_SCROLL_BTN}
+            aria-label={scrollHint}
+          >
+            <ChevronRight className="h-4 w-4" strokeWidth={2.5} />
+          </button>
+        ) : null}
       </div>
     </nav>
   );
