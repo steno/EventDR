@@ -4,7 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import type { Event, Venue, VenueAssessment } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
-import { FilteredEventList } from "@/components/FilteredEventList";
+import { VenueEventList } from "@/components/VenueEventList";
 import { SubmitEventSheet } from "@/components/SubmitEventSheet";
 import { StickyListHeader } from "@/components/StickyListHeader";
 import { CityPhotoHero } from "@/components/CityPhotoHero";
@@ -97,7 +97,7 @@ export function VenuePage({
 
           <VenueDirectionsSection venue={venue} dict={dict} />
 
-          <FilteredEventList
+          <VenueEventList
             events={events}
             loading={loading}
             dict={dict}
@@ -105,10 +105,8 @@ export function VenuePage({
             emptyMessage={dict.venues.noEvents}
             sectionTitle={dict.venues.eventsAt}
             returnTo={returnTo}
-            defaultTimeRange="all"
             initialExpanded={initialExpanded}
             onAddEvent={() => setSubmitOpen(true)}
-            forceView="list"
           />
         </div>
       </main>

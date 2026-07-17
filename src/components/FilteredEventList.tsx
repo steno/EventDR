@@ -54,8 +54,6 @@ interface FilteredEventListProps {
   locationPicker?: ReactNode;
   /** When set, ghost pads invite “Add {category} Event here”. */
   categoryId?: Event["category"];
-  /** Force a specific view (list or cards) and hide the toggle. */
-  forceView?: "list" | "cards";
 }
 
 export function FilteredEventList({
@@ -75,12 +73,9 @@ export function FilteredEventList({
   pageSize = LIST_PAGE_SIZE,
   locationPicker,
   categoryId,
-  forceView,
 }: FilteredEventListProps) {
   const pathname = usePathname();
-  const { view: globalView, setView: setGlobalView } = useEventListView();
-  const view = forceView ?? globalView;
-  const setView = forceView ? () => {} : setGlobalView;
+  const { view, setView } = useEventListView();
   const [timeRange, setTimeRange] = useState<FilterTimeRange>(
     fixedTimeRange ?? defaultTimeRange,
   );
@@ -197,9 +192,7 @@ export function FilteredEventList({
               {dict.events.sortedUpcoming}
             </span>
           )}
-          {!forceView && (
-            <EventViewToggle value={view} onChange={setView} dict={dict} />
-          )}
+          <EventViewToggle value={view} onChange={setView} dict={dict} />
         </div>
       )}
 
