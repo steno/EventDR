@@ -42,9 +42,6 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     // Replace legacy midnight all-day placeholder (daytime racing + evening music).
     time: "9:00 AM – 11:00 PM",
   },
-  "womens-reconnection-kite-camp-2026": {
-    time: "8:00 AM – 8:00 PM",
-  },
   "puerto-plata-golf-classic-2026": {
     venueSlug: "playa-dorada-golf",
     admissionPrice: "US$210",
@@ -240,6 +237,7 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     isFree: false,
     callForPricing: true,
     phone: "+18299391261",
+    time: "8:00 AM – 8:00 PM",
   },
   "charcos-damajagua-daily": {
     address: "Imbert",
