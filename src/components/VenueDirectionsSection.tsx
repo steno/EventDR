@@ -164,7 +164,7 @@ export function VenueDirectionsSection({
       : originLabel ?? dict.venues.startingFrom;
 
   return (
-    <section className="mb-6" aria-labelledby={`${inputId}-heading`}>
+    <section className="mt-8 mb-2" aria-labelledby={`${inputId}-heading`}>
       <h2
         id={`${inputId}-heading`}
         className="mb-3 text-xs font-bold uppercase tracking-widest text-neutral-400"

@@ -95,8 +95,6 @@ export function VenuePage({
             />
           ) : null}
 
-          <VenueDirectionsSection venue={venue} dict={dict} />
-
           <VenueEventList
             events={events}
             loading={loading}
@@ -108,6 +106,8 @@ export function VenuePage({
             initialExpanded={initialExpanded}
             onAddEvent={() => setSubmitOpen(true)}
           />
+
+          <VenueDirectionsSection venue={venue} dict={dict} />
         </div>
       </main>
 
