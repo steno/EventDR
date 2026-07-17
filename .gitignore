@@ -24,6 +24,9 @@
 .DS_Store
 *.pem
 
+# temporary scrape/debug artifacts (images, HTML challenges, etc.)
+.tmp*/
+
 # debug
 npm-debug.log*
 yarn-debug.log*

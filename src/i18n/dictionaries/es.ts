@@ -174,7 +174,7 @@ export const es: Dictionary = {
     copied: "Copiado al portapapeles",
     lineup: "Artistas",
     opinion: {
-      heading: "La mirada POP",
+      heading: "Tip",
       speaker: "POP Events",
       basedOn: "Según {sources}",
       sourceJoin: " · ",

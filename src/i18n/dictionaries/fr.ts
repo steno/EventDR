@@ -174,7 +174,7 @@ export const fr: Dictionary = {
     copied: "Copié dans le presse-papiers",
     lineup: "Artistes",
     opinion: {
-      heading: "L'avis POP",
+      heading: "Tip",
       speaker: "POP Events",
       basedOn: "Selon {sources}",
       sourceJoin: " · ",

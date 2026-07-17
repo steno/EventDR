@@ -503,7 +503,7 @@ export const en: Dictionary = {
     copied: "Copied to clipboard",
     lineup: "Performers",
     opinion: {
-      heading: "POP take",
+      heading: "Tip",
       speaker: "POP Events",
       basedOn: "Based on {sources}",
       sourceJoin: " · ",
