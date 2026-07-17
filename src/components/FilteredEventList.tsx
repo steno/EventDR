@@ -55,6 +55,11 @@ interface FilteredEventListProps {
   categoryId?: Event["category"];
   /** Layout for event tiles. Category/city lists use cards; venues may pass list. */
   view?: EventListView;
+  /**
+   * When true (default), changing time tabs scrolls the filter bar under the sticky header.
+   * Disable on venue pages — hero/details sit above the list and the jump feels wrong.
+   */
+  scrollOnFilterChange?: boolean;
 }
 
 export function FilteredEventList({
@@ -75,6 +80,7 @@ export function FilteredEventList({
   locationPicker,
   categoryId,
   view = "cards",
+  scrollOnFilterChange = true,
 }: FilteredEventListProps) {
   const pathname = usePathname();
   const [timeRange, setTimeRange] = useState<FilterTimeRange>(
@@ -125,6 +131,7 @@ export function FilteredEventList({
   }, [timeRange, limit]);
 
   useLayoutEffect(() => {
+    if (!scrollOnFilterChange) return;
     if (skipTimeRangeScroll.current) {
       skipTimeRangeScroll.current = false;
       return;

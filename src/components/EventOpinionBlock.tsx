@@ -148,12 +148,8 @@ export function EventOpinionBlock({
                         aria-hidden
                       />
                       <span>
-                        <span className="font-semibold text-neutral-800 dark:text-neutral-200">
-                          {o.priceLabel}
-                        </span>
-                        <span className="text-neutral-500 dark:text-neutral-400">
-                          {o.priceSep}
-                        </span>
+                        {o.priceLabel}
+                        {o.priceSep}
                         {priceFeelLabel(dict, opinion.priceFeel)}
                       </span>
                     </li>

@@ -141,10 +141,13 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
   "natura-cabana-yoga-daily": {
     isFree: false,
     admissionPrice: "US$15",
+    // Replace free-text hours so live status can use real windows.
+    time: "8:00 AM – 10:00 AM · 5:00 PM – 7:00 PM",
   },
   "liquid-blue-sunrise-yoga": {
     isFree: false,
     admissionPrice: "from US$15",
+    time: "6:00 AM – 8:00 AM",
   },
   "brugal-rum-center-weekdays": {
     isFree: true,

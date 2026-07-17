@@ -52,7 +52,7 @@ const EventCardComponent = ({
           shadow-[0_2px_12px_-4px_rgba(0,0,0,0.08)] dark:shadow-[0_2px_12px_-4px_rgba(0,0,0,0.3)]
           hover:border-orange-300 hover:shadow-[0_8px_24px_-8px_rgba(251,146,60,0.25)]
           dark:hover:border-orange-800 dark:hover:shadow-[0_8px_24px_-8px_rgba(251,146,60,0.3)]
-          active:scale-[0.99] transition-all duration-200 cursor-pointer
+          active:scale-[0.99] transition-[border-color,box-shadow,opacity,transform] duration-500 ease-out cursor-pointer
           ${isEndedToday ? "opacity-60" : ""}
         `}
       >
@@ -73,7 +73,7 @@ const EventCardComponent = ({
               src={event.imageUrl}
               alt={event.title}
               sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 280px"
-              className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+              className="object-cover card-media-zoom"
             />
           ) : (
             <div className="flex h-full w-full items-center justify-center text-4xl">

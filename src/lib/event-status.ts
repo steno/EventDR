@@ -323,9 +323,13 @@ export function getEventLiveStatus(
 
   const window = parseEventTimeWindow(event.time);
   if (!window) {
-    // Multi-day block still running, or open-ended hours we can't parse.
-    if (end > today) return "live";
-    return "unknown";
+    // Free-text hours ("Morning & sunset", "By reservation") — daytime only.
+    const nowMin = currentMinutes(now);
+    const daytime = ALL_DAY_DEFAULT_WINDOW;
+    if (isSameDayWithinWindow(nowMin, daytime)) return "live";
+    if (!hasSameDayWindowStarted(nowMin, daytime)) return "upcoming";
+    if (eventContinuesBeyondToday(event, now)) return "closedToday";
+    return "ended";
   }
 
   const nowMin = currentMinutes(now);

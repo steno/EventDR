@@ -31,28 +31,50 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
-/* Smooth theme transitions */
-* {
-  transition: background-color 200ms ease-out, 
-              border-color 200ms ease-out,
-              color 200ms ease-out;
-}
-
-/* Disable transitions for elements that should be instant */
-button, a, input, textarea, select,
-[role="button"], [role="tab"], [role="option"],
-.no-theme-transition {
-  transition: background-color 200ms ease-out, 
-              border-color 200ms ease-out,
-              color 200ms ease-out,
-              transform 150ms ease-out,
-              box-shadow 150ms ease-out,
-              opacity 150ms ease-out;
-}
-
-@media (prefers-reduced-motion: reduce) {
+/* Theme color fades — keep in @layer base so Tailwind motion utilities can override */
+@layer base {
   * {
-    transition: none !important;
+    transition: background-color 200ms ease-out,
+                border-color 200ms ease-out,
+                color 200ms ease-out;
+  }
+
+  button,
+  a,
+  input,
+  textarea,
+  select,
+  [role="button"],
+  [role="tab"],
+  [role="option"],
+  .no-theme-transition {
+    transition: background-color 200ms ease-out,
+                border-color 200ms ease-out,
+                color 200ms ease-out,
+                transform 150ms ease-out,
+                box-shadow 150ms ease-out,
+                opacity 150ms ease-out;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* Soft Ken Burns on card photos — unlayered so it always beats the base theme rule */
+@media (prefers-reduced-motion: no-preference) {
+  .card-media-zoom {
+    transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform;
+  }
+
+  .group:hover .card-media-zoom {
+    transform: scale(1.05);
   }
 }
 

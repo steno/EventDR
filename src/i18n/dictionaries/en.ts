@@ -277,6 +277,9 @@ export type Dictionary = {
     eventsAt: string;
     noEvents: string;
     howToGetThere: string;
+    openInMaps: string;
+    website: string;
+    instagram: string;
     startingFrom: string;
     startingFromPlaceholder: string;
     startingFromRequired: string;
@@ -643,6 +646,9 @@ export const en: Dictionary = {
     eventsAt: "Upcoming events",
     noEvents: "No upcoming events at this venue yet.",
     howToGetThere: "How to get there",
+    openInMaps: "Open in Maps",
+    website: "Website",
+    instagram: "Instagram",
     startingFrom: "Where are you starting from?",
     startingFromPlaceholder: "Hotel, address, or neighborhood…",
     startingFromRequired: "Enter a starting place or use your location.",

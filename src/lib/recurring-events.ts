@@ -55,7 +55,7 @@ const RECURRING_EN: Event[] = [
     description:
       "Beach sunrise yoga with Liquid Blue instructors on Kite Beach — calm flows to start your day, all levels welcome. Class times vary; WhatsApp +1 (849) 271-9573 to confirm the schedule and book your spot.",
     date: "2026-01-01",
-    time: "Sunrise (book ahead)",
+    time: "6:00 AM – 8:00 AM",
     location: "Cabarete",
     venue: "Liquid Blue Cabarete",
     venueSlug: "liquid-blue-cabarete",
@@ -987,7 +987,7 @@ const RECURRING_EN: Event[] = [
     description:
       "Oceanfront yoga at Natura Cabana's open-air temple in Perla Marina — morning flows and sunset sessions open to hotel guests and visitors. All levels; mats provided.",
     date: "2026-01-01",
-    time: "Morning & sunset (book ahead)",
+    time: "8:00 AM – 10:00 AM · 5:00 PM – 7:00 PM",
     location: "Sosúa",
     venue: "Natura Cabana Yoga Temple",
     venueSlug: "natura-cabana",
@@ -1477,7 +1477,7 @@ const RECURRING_ES: Event[] = [
     description:
       "Yoga al amanecer en la playa con instructores de Liquid Blue en Kite Beach — flujos suaves para empezar el día, todos los niveles. Los horarios varían; escribe por WhatsApp al +1 (849) 271-9573 para confirmar y reservar.",
     date: "2026-01-01",
-    time: "Amanecer (reserva previa)",
+    time: "6:00 AM – 8:00 AM",
     location: "Cabarete",
     venue: "Liquid Blue Cabarete",
     venueSlug: "liquid-blue-cabarete",
@@ -2407,7 +2407,7 @@ const RECURRING_ES: Event[] = [
     description:
       "Yoga frente al mar en el templo al aire libre de Natura Cabana en Perla Marina — flows matutinos y sesiones al atardecer abiertos a huéspedes y visitantes.",
     date: "2026-01-01",
-    time: "Mañana y atardecer (reservar)",
+    time: "8:00 AM – 10:00 AM · 5:00 PM – 7:00 PM",
     location: "Sosúa",
     venue: "Natura Cabana Yoga Temple",
     venueSlug: "natura-cabana",
@@ -2895,7 +2895,7 @@ const RECURRING_FR: Event[] = [
     description:
       "Yoga au lever du soleil sur la plage avec les instructeurs Liquid Blue à Kite Beach — flows doux pour bien commencer la journée, tous niveaux. Horaires variables ; WhatsApp +1 (849) 271-9573 pour confirmer et réserver.",
     date: "2026-01-01",
-    time: "Lever du soleil (sur réservation)",
+    time: "6:00 AM – 8:00 AM",
     location: "Cabarete",
     venue: "Liquid Blue Cabarete",
     venueSlug: "liquid-blue-cabarete",
@@ -3825,7 +3825,7 @@ const RECURRING_FR: Event[] = [
     description:
       "Yoga face à l'océan au temple en plein air de Natura Cabana à Perla Marina — flows matinaux et sessions au coucher du soleil ouverts aux visiteurs. Tous niveaux ; tapis fournis.",
     date: "2026-01-01",
-    time: "Matin et coucher du soleil (réserver)",
+    time: "8:00 AM – 10:00 AM · 5:00 PM – 7:00 PM",
     location: "Sosúa",
     venue: "Natura Cabana Yoga Temple",
     venueSlug: "natura-cabana",

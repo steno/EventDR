@@ -172,76 +172,78 @@ export function VenueDirectionsSection({
         {dict.venues.howToGetThere}
       </h2>
 
-      <div className="event-inline-map relative h-[13rem] overflow-hidden rounded-2xl bg-neutral-200 ring-1 ring-black/5 sm:h-[15rem] dark:bg-neutral-800 dark:ring-white/10">
-        <EventInlineMap
-          coords={destination}
-          interactive
-          origin={origin}
-          route={route}
-        />
-      </div>
-
-      <form onSubmit={handleSubmit} className="mt-3 space-y-2.5">
-        <label
-          htmlFor={inputId}
-          className="block text-sm font-medium text-neutral-700 dark:text-neutral-300"
-        >
-          {fieldLabel}
-        </label>
-        <div className="flex gap-2">
-          <input
-            id={inputId}
-            type="text"
-            value={startQuery}
-            onChange={(e) => {
-              setStartQuery(e.target.value);
-              setOriginLabel(null);
-            }}
-            placeholder={dict.venues.startingFromPlaceholder}
-            autoComplete="street-address"
-            className="min-w-0 flex-1 rounded-2xl border border-neutral-200 bg-white px-4 py-3 text-sm text-neutral-900 placeholder:text-neutral-400 outline-none transition focus:border-orange-300 focus:ring-2 focus:ring-orange-400/30 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-100 dark:placeholder:text-neutral-500 dark:focus:border-orange-500/50"
+      <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-6">
+        <div className="event-inline-map relative h-[13rem] overflow-hidden rounded-2xl bg-neutral-200 ring-1 ring-black/5 sm:h-[15rem] lg:h-[22rem] dark:bg-neutral-800 dark:ring-white/10">
+          <EventInlineMap
+            coords={destination}
+            interactive
+            origin={origin}
+            route={route}
           />
-          <button
-            type="button"
-            onClick={handleUseMyLocation}
-            disabled={busy}
-            className="inline-flex shrink-0 items-center justify-center gap-1.5 rounded-2xl border border-neutral-200 bg-white px-3.5 py-3 text-sm font-semibold text-neutral-800 touch-manipulation transition active:scale-[0.98] disabled:opacity-60 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-100"
-            aria-label={dict.venues.useMyLocation}
-            title={dict.venues.useMyLocation}
-          >
-            <LocateFixed className="h-4 w-4" aria-hidden />
-            <span className="hidden sm:inline">{dict.venues.useMyLocation}</span>
-          </button>
         </div>
 
-        <div className="flex flex-wrap items-center gap-2">
-          <button
-            type="submit"
-            disabled={busy}
-            className="inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-5 py-3 text-sm font-bold text-white shadow-sm touch-manipulation transition-transform active:scale-[0.98] disabled:opacity-60"
+        <form onSubmit={handleSubmit} className="mt-3 space-y-2.5 lg:mt-0">
+          <label
+            htmlFor={inputId}
+            className="block text-sm font-medium text-neutral-700 dark:text-neutral-300"
           >
-            <Navigation className="h-4 w-4" aria-hidden />
-            {busy ? dict.venues.routeLoading : dict.venues.getDirections}
-          </button>
-        </div>
+            {fieldLabel}
+          </label>
+          <div className="flex gap-2">
+            <input
+              id={inputId}
+              type="text"
+              value={startQuery}
+              onChange={(e) => {
+                setStartQuery(e.target.value);
+                setOriginLabel(null);
+              }}
+              placeholder={dict.venues.startingFromPlaceholder}
+              autoComplete="street-address"
+              className="min-w-0 flex-1 rounded-2xl border border-neutral-200 bg-white px-4 py-3 text-sm text-neutral-900 placeholder:text-neutral-400 outline-none transition focus:border-orange-300 focus:ring-2 focus:ring-orange-400/30 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-100 dark:placeholder:text-neutral-500 dark:focus:border-orange-500/50"
+            />
+            <button
+              type="button"
+              onClick={handleUseMyLocation}
+              disabled={busy}
+              className="inline-flex shrink-0 items-center justify-center gap-1.5 rounded-2xl border border-neutral-200 bg-white px-3.5 py-3 text-sm font-semibold text-neutral-800 touch-manipulation transition active:scale-[0.98] disabled:opacity-60 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-100"
+              aria-label={dict.venues.useMyLocation}
+              title={dict.venues.useMyLocation}
+            >
+              <LocateFixed className="h-4 w-4" aria-hidden />
+              <span className="hidden sm:inline">{dict.venues.useMyLocation}</span>
+            </button>
+          </div>
 
-        {routeMeta ? (
-          <p className="text-sm text-neutral-600 dark:text-neutral-400">
-            {dict.venues.routeSummary
-              .replace("{distance}", routeMeta.distance)
-              .replace("{minutes}", String(routeMeta.minutes))}
-          </p>
-        ) : null}
+          <div className="flex flex-wrap items-center gap-2">
+            <button
+              type="submit"
+              disabled={busy}
+              className="inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-5 py-3 text-sm font-bold text-white shadow-sm touch-manipulation transition-transform active:scale-[0.98] disabled:opacity-60"
+            >
+              <Navigation className="h-4 w-4" aria-hidden />
+              {busy ? dict.venues.routeLoading : dict.venues.getDirections}
+            </button>
+          </div>
 
-        {error ? (
-          <p
-            className="text-sm text-rose-600 dark:text-rose-400"
-            role="alert"
-          >
-            {error}
-          </p>
-        ) : null}
-      </form>
+          {routeMeta ? (
+            <p className="text-sm text-neutral-600 dark:text-neutral-400">
+              {dict.venues.routeSummary
+                .replace("{distance}", routeMeta.distance)
+                .replace("{minutes}", String(routeMeta.minutes))}
+            </p>
+          ) : null}
+
+          {error ? (
+            <p
+              className="text-sm text-rose-600 dark:text-rose-400"
+              role="alert"
+            >
+              {error}
+            </p>
+          ) : null}
+        </form>
+      </div>
     </section>
   );
 }

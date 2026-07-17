@@ -49,11 +49,6 @@ function fallbackLiveStatusDisplay(
 ): LiveStatusDisplay | null {
   if (!isEventActiveToday(event, now)) return null;
 
-  const window = parseEventTimeWindow(event.time);
-  if (!window) {
-    return { status: "live", label: dict.events.happeningNow };
-  }
-
   const status = getEventLiveStatus(event, now);
   if (status === "upcoming") {
     return { status: "upcoming", label: dict.events.startsSoon };
@@ -64,10 +59,14 @@ function fallbackLiveStatusDisplay(
   if (status === "ended") {
     return { status: "ended", label: dict.events.eventEnded };
   }
-  if (isEndingSoon(event, now)) {
+  if (status === "live" && isEndingSoon(event, now)) {
     return { status: "ending", label: dict.events.endsSoon };
   }
   if (status === "live") {
+    // Prefer Happening now only when we have a real clock window.
+    if (!parseEventTimeWindow(event.time)) {
+      return null;
+    }
     return { status: "live", label: dict.events.eventStarted };
   }
   return null;

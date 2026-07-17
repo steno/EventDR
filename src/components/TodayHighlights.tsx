@@ -52,7 +52,7 @@ function TodayHighlightCard({
   });
 
   return (
-    <article className="group relative min-w-0 overflow-hidden rounded-2xl bg-neutral-100 shadow-[0_8px_24px_-14px_rgba(0,0,0,0.18)] ring-1 ring-black/5 hover:ring-orange-400/50 hover:shadow-[0_12px_32px_-16px_rgba(251,146,60,0.35)] transition-all duration-200 active:scale-[0.99] cursor-pointer dark:bg-neutral-950 dark:shadow-[0_8px_24px_-14px_rgba(0,0,0,0.45)] dark:ring-white/10 dark:hover:ring-orange-600/50">
+    <article className="group relative min-w-0 overflow-hidden rounded-2xl bg-neutral-100 shadow-[0_8px_24px_-14px_rgba(0,0,0,0.18)] ring-1 ring-black/5 hover:ring-orange-400/50 hover:shadow-[0_12px_32px_-16px_rgba(251,146,60,0.35)] transition-[box-shadow,transform] duration-500 ease-out active:scale-[0.99] cursor-pointer dark:bg-neutral-950 dark:shadow-[0_8px_24px_-14px_rgba(0,0,0,0.45)] dark:ring-white/10 dark:hover:ring-orange-600/50">
       <Link
         href={href}
         className="relative block aspect-[3/2] w-full overflow-hidden touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 rounded-2xl"
@@ -64,7 +64,7 @@ function TodayHighlightCard({
               src={event.imageUrl}
               alt=""
               sizes="(max-width: 640px) 45vw, 220px"
-              className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+              className="object-cover card-media-zoom"
             />
           </div>
         ) : (

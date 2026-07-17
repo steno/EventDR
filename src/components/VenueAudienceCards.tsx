@@ -49,7 +49,7 @@ function VenueSlideCard({
             src={venue.imageUrl}
             alt=""
             sizes="(max-width: 640px) 92vw, 45vw"
-            className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+            className="object-cover card-media-zoom"
           />
         ) : (
           <span
