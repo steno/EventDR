@@ -175,6 +175,7 @@ const FILE_TO_VENUE_SLUG = {
   "puerto-plata-beach-soccer-2026.jpg": "playa-los-charamicos",
   "la-chabola-wednesday-open-mic.jpg": "la-chabola-cabarete",
   "groundzero-domingos-pal-pueblo.jpg": "ground-zero-disco",
+  "macorix-house-of-rum.jpg": "macorix-house-of-rum",
 };
 
 if (!existsSync(sourceDir)) {

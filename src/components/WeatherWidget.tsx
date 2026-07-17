@@ -96,24 +96,32 @@ export function WeatherWidget({ locale, dict }: WeatherWidgetProps) {
     () => false,
   );
 
-  const loadWeather = useCallback(async () => {
-    setLoading(true);
-    setError(false);
+  const loadWeather = useCallback(async (opts?: { silent?: boolean }) => {
+    if (!opts?.silent) {
+      setLoading(true);
+      setError(false);
+    }
     try {
-      const response = await fetch("/api/weather");
+      const response = await fetch("/api/weather", { cache: "no-store" });
       if (!response.ok) throw new Error("weather_unavailable");
       const data = (await response.json()) as WeatherPayload;
       setWeather(data);
+      setError(false);
     } catch {
-      setError(true);
+      if (!opts?.silent) setError(true);
     } finally {
-      setLoading(false);
+      if (!opts?.silent) setLoading(false);
     }
   }, []);
 
   useEffect(() => {
     void loadWeather();
   }, [loadWeather]);
+
+  // Refresh when opening so a stale "worst-hour" forecast can't disagree with current.
+  useEffect(() => {
+    if (open) void loadWeather({ silent: true });
+  }, [open, loadWeather]);
 
   useEffect(() => {
     if (!open) return;

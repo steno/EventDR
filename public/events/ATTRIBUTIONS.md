@@ -56,3 +56,4 @@ Curated images under `public/events/` and `public/venues/`.
 | `inicio-del-campamento-pp-2026.jpg` | [Unsplash](https://unsplash.com/photos/photo-1526232761682) (`photo-1526232761682`) — Unsplash License | Youth sports camp huddle (replaces podcast logo) |
 | `atleticos-pp-vs-mangueros-2026-07-17.jpg` (+ other Atléticos home games) | POP curated `athleticosPOP.png` — Atléticos de Puerto Plata pitcher | Authentic team photo; replaces Unsplash stock for the full home slate |
 | `venues/parque-jose-briceno.jpg` | POP curated `baseballpark.png` — packed grandstand at Parque José Briceño | Authentic venue place photo |
+| `macorix-house-of-rum.jpg` / venue | [PuertoPlataDR](https://puertoplatadr.com/tours/macorix-house-of-rum/) — `A86A5227` Ron Macorix entrance exterior | Branded venue facade (replaces dark trapiche interior) |

@@ -150,8 +150,9 @@ const VENUE_SOURCES = [
     url: "https://puertoplatadr.com/wp-content/uploads/2018/01/luperonmuseum2.jpg",
   },
   {
+    // Exterior entrance with Ron Macorix signage (replaces dark trapiche interior).
     eventId: "macorix-house-of-rum",
-    url: "https://puertoplatadr.com/wp-content/uploads/2025/04/macorix-rum-factory.jpg",
+    url: "https://puertoplatadr.com/wp-content/uploads/2025/04/A86A5227.jpg",
   },
   {
     // Soft-open / food focus — dedicated paella pan (not shared façade with Green One).
