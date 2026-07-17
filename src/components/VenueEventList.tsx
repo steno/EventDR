@@ -15,6 +15,7 @@ interface VenueEventListProps {
   returnTo?: string;
   initialExpanded?: boolean;
   onAddEvent?: () => void;
+  addEventLabel?: string;
 }
 
 /** Venue schedules use the compact list layout (no view toggle). */

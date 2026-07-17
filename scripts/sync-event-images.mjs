@@ -139,35 +139,11 @@ const SAME_VENUE_COPIES = [
   ["vivonte-cigar-factory-weekdays.jpg", "vivonte-cigar-factory-saturday"],
 ];
 
-/** popevent-images filename → venue slug (copied to public/venues/). */
-const FILE_TO_VENUE_SLUG = {
-  "atleticos-pp-vs-mangueros-2026-07-17.jpg": "parque-jose-briceno",
-  "la-casita-papi-beach-dining.jpg": "la-casita-de-papi",
-  "liquid-blue-watersports-daily.jpg": "liquid-blue-cabarete",
-  "anfiteatro-la-puntilla-concerts.jpg": "anfiteatro-la-puntilla",
-  "smileys-saturday-live.jpg": "smileys-bar-sosua",
-  "finish-line-live-wednesday.jpg": "finish-line-sosua",
-  "d-classico-merengue-nights.jpg": "d-classico-sosua",
-  "sosua-pedro-clisante-food-nights.jpg": "el-batey-sosua",
-  "voyvoy-monday-live-music.jpg": "voyvoy-cabarete",
-  "cheers-weekly-live.jpg": "cheers-bar-sosua",
-  "castaways-classic-rock-wednesday.jpg": "castaways-sosua",
-  "paella-pop-el-pueblito.jpg": "paella-pop-el-pueblito",
-  "paella-pop-green-one.jpg": "paella-pop-green-one",
-  "plaza-independencia.jpg": "plaza-independencia",
-  "el-parq-live-bands-saturday.jpg": "el-parq-cabarete",
-  "disco-club-brugal.jpg": "disco-club-brugal",
-  "natura-cabana-saturday-live.jpg": "natura-cabana",
-  // Blue JackTar venue card uses the local Jandy / Legado concert stage shot.
-  "jandy-ventura-legado-caballo-2026.jpg": "blue-jacktar-playa-dorada",
-  // Real El Choco Sosúa night patio (Sosúa News); Tuesday live uses ElChocoTuesdayLive.jpg.
-  "parada-tipica-el-choco.jpg": "parada-tipica-el-choco",
-  "puerto-plata-golf-classic-2026.jpg": "playa-dorada-golf",
-  "cac-games-surf-playa-encuentro-2026.jpg": "playa-encuentro",
-  "puerto-plata-beach-soccer-2026.jpg": "playa-los-charamicos",
-  "la-chabola-wednesday-open-mic.jpg": "la-chabola-cabarete",
-  "groundzero-domingos-pal-pueblo.jpg": "ground-zero-disco",
-};
+/**
+ * Venue place photos live only under popevent-images/venues/.
+ * Never copy event assets into public/venues/ — venues and events must not share images.
+ */
+const venueSourceDir = join(sourceDir, "venues");
 
 if (!existsSync(sourceDir)) {
   console.log("popevent-images/ not found — skipping sync");
@@ -184,16 +160,17 @@ function destExtension(filename) {
   return dot >= 0 ? filename.slice(dot).toLowerCase() : ".jpg";
 }
 
-function syncOne(filename, eventId, targetDir = destDir) {
-  const src = join(sourceDir, filename);
+function syncOne(filename, eventId, targetDir = destDir, fromDir = sourceDir) {
+  const src = join(fromDir, filename);
+  const dirFiles = fromDir === sourceDir ? files : readdirSync(fromDir);
   const match = existsSync(src)
     ? filename
-    : files.find((f) => f.toLowerCase() === filename.toLowerCase());
+    : dirFiles.find((f) => f.toLowerCase() === filename.toLowerCase());
   if (!match) {
     console.warn(`missing source: ${filename}`);
     return;
   }
-  const resolvedSrc = join(sourceDir, match);
+  const resolvedSrc = join(fromDir, match);
   const ext = destExtension(resolvedSrc);
   copyFileSync(resolvedSrc, join(targetDir, `${eventId}${ext}`));
   copied++;
@@ -210,8 +187,17 @@ for (const [filename, eventId] of SAME_VENUE_COPIES) {
 }
 
 mkdirSync(venuesDir, { recursive: true });
-for (const [filename, venueSlug] of Object.entries(FILE_TO_VENUE_SLUG)) {
-  syncOne(filename, venueSlug, venuesDir);
+let venueCopied = 0;
+if (existsSync(venueSourceDir)) {
+  for (const filename of readdirSync(venueSourceDir)) {
+    if (!/\.(jpe?g|png|webp)$/i.test(filename)) continue;
+    const slug = filename.replace(/\.[^.]+$/, "");
+    syncOne(filename, slug, venuesDir, venueSourceDir);
+    venueCopied++;
+  }
+} else {
+  console.warn("popevent-images/venues/ not found — venue images not synced");
 }
 
-console.log(`Synced ${copied} event images to public/events/`);
+console.log(`Synced ${copied - venueCopied} event images to public/events/`);
+console.log(`Synced ${venueCopied} venue place images to public/venues/`);

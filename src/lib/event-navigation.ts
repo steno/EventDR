@@ -56,11 +56,53 @@ export function eventDetailPath(
   return `${base}?from=${encodeURIComponent(returnTo)}`;
 }
 
+/** Venue page URL; optional `from` / `fromTitle` so back can label the previous page. */
+export function venueDetailPath(
+  locale: Locale,
+  slug: string,
+  returnTo?: string,
+  returnTitle?: string,
+): string {
+  const base = `/${locale}/venue/${slug}`;
+  if (!returnTo) return base;
+  const params = new URLSearchParams();
+  params.set("from", returnTo);
+  const title = sanitizeReturnTitle(returnTitle);
+  if (title) params.set("fromTitle", title);
+  return `${base}?${params.toString()}`;
+}
+
 function isSafeReturnPath(path: string, locale: Locale): boolean {
   if (path.includes("://") || path.startsWith("//")) return false;
   // Home may be `/en` or `/en?city=sosua` (not under `/en/`).
   if (path === `/${locale}` || path.startsWith(`/${locale}?`)) return true;
   return path.startsWith(`/${locale}/`);
+}
+
+const RETURN_TITLE_MAX = 80;
+
+export function sanitizeReturnTitle(raw: string | null | undefined): string | null {
+  if (!raw) return null;
+  const trimmed = raw.trim().replace(/\s+/g, " ").slice(0, RETURN_TITLE_MAX);
+  if (!trimmed || /:\/\//.test(trimmed) || trimmed.startsWith("//")) return null;
+  return trimmed;
+}
+
+/** Client-side `?from=` / `?fromTitle=` for ISR-cached detail pages. */
+export function readReturnParams(
+  search: string,
+  locale: Locale,
+): { from: string | null; fromTitle: string | null } {
+  const params = new URLSearchParams(
+    search.startsWith("?") ? search.slice(1) : search,
+  );
+  const fromRaw = params.get("from");
+  const from =
+    fromRaw && isSafeReturnPath(fromRaw, locale) ? fromRaw : null;
+  return {
+    from,
+    fromTitle: sanitizeReturnTitle(params.get("fromTitle")),
+  };
 }
 
 /** Where to go after closing an event — honors ?from=, else the event category. */
@@ -144,8 +186,10 @@ export function resolveBackLabel(
   locale: Locale,
   path: string,
   dict: Dictionary,
+  titleOverride?: string | null,
 ): string {
-  return fillTemplate(dict.browse.backTo, {
-    title: resolveReturnPageTitle(locale, path, dict),
-  });
+  const title =
+    sanitizeReturnTitle(titleOverride) ??
+    resolveReturnPageTitle(locale, path, dict);
+  return fillTemplate(dict.browse.backTo, { title });
 }

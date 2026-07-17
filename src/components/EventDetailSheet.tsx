@@ -57,6 +57,7 @@ import { EventCallLink } from "@/components/EventCallLink";
 import { formatPhoneTel } from "@/lib/event-phone";
 import { useSwipeToDismiss } from "@/hooks/useSwipeToDismiss";
 import { scrollBehaviorPreference } from "@/lib/list-scroll";
+import { eventDetailPath, venueDetailPath } from "@/lib/event-navigation";
 
 type ActionMenu = "share" | "calendar";
 
@@ -323,8 +324,9 @@ export function EventDetailSheet({
   }
 
   function handleViewVenue() {
-    if (!venueSlug) return;
-    router.push(`/${locale}/venue/${venueSlug}`);
+    if (!venueSlug || !event) return;
+    const from = eventDetailPath(locale, event.id);
+    router.push(venueDetailPath(locale, venueSlug, from, event.title));
   }
 
   const contentSection = (

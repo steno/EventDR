@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import {
   AtSign,
   ExternalLink,
@@ -11,6 +12,7 @@ import type { Event, Venue, VenueAssessment } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import { VenueEventList } from "@/components/VenueEventList";
+import { SubmitEventSheet } from "@/components/SubmitEventSheet";
 import { StickyListHeader } from "@/components/StickyListHeader";
 import { VenueDirectionsSection } from "@/components/VenueDirectionsSection";
 import { VenueAssessmentBlock } from "@/components/VenueAssessmentBlock";
@@ -19,7 +21,7 @@ import { EventCallLink } from "@/components/EventCallLink";
 import { attachEventImages } from "@/lib/event-images";
 import { attachTicketUrls } from "@/lib/event-tickets";
 import { lastHomePath } from "@/lib/cities";
-import { resolveBackLabel } from "@/lib/event-navigation";
+import { readReturnParams, resolveBackLabel } from "@/lib/event-navigation";
 import { PAGE_SHELL_CLASS } from "@/lib/page-shell";
 import { getVenueHeroImageUrl } from "@/lib/venue-images";
 import { getVenueMapUrl } from "@/lib/maps";
@@ -46,8 +48,10 @@ export function VenuePage({
   initialExpanded = false,
   assessment = null,
 }: VenuePageProps) {
+  const router = useRouter();
   const [events, setEvents] = useState<Event[]>([]);
   const [loading, setLoading] = useState(true);
+  const [submitOpen, setSubmitOpen] = useState(false);
 
   function loadEvents() {
     return fetch(`/api/events?locale=${locale}&venue=${venue.slug}`, {
@@ -70,16 +74,40 @@ export function VenuePage({
     refreshEvents();
   }, [refreshEvents]);
 
-  const returnTo = `/${locale}/venue/${venue.slug}`;
-  const [backHref, setBackHref] = useState(`/${locale}`);
+  const listReturnTo = `/${locale}/venue/${venue.slug}`;
+  // Read ?from= / ?fromTitle= on the client so the server page can stay ISR-cached.
+  const [returnTo, setReturnTo] = useState<string | null>(null);
+  const [returnTitle, setReturnTitle] = useState<string | null>(null);
+  const [fallbackHref, setFallbackHref] = useState(`/${locale}`);
   const heroImageUrl =
     getVenueHeroImageUrl(venue.slug) ?? venue.imageUrl?.split("?")[0];
 
   useEffect(() => {
-    setBackHref(lastHomePath(locale));
+    const { from, fromTitle } = readReturnParams(
+      window.location.search,
+      locale,
+    );
+    if (from) {
+      setReturnTo(from);
+      setReturnTitle(fromTitle);
+      return;
+    }
+    setReturnTo(null);
+    setReturnTitle(null);
+    setFallbackHref(lastHomePath(locale));
   }, [locale]);
 
-  const backLabel = resolveBackLabel(locale, backHref, dict);
+  const backHref = returnTo ?? fallbackHref;
+  const backLabel = resolveBackLabel(locale, backHref, dict, returnTitle);
+
+  function handleBack() {
+    if (returnTo && typeof window !== "undefined" && window.history.length > 1) {
+      router.back();
+      return;
+    }
+    router.push(backHref);
+  }
+
   const websiteUrl = venue.website
     ? normalizeExternalUrl(venue.website)
     : null;
@@ -92,13 +120,14 @@ export function VenuePage({
   })();
 
   return (
+    <>
     <main className="bg-neutral-50 dark:bg-transparent pb-6">
       <div className={PAGE_SHELL_CLASS}>
         <StickyListHeader
           locale={locale}
           dict={dict}
-          backHref={backHref}
           backLabel={backLabel}
+          onBack={handleBack}
         />
 
         <article className="mt-1 w-full overflow-hidden rounded-3xl bg-white shadow-2xl ring-1 ring-neutral-200/70 dark:bg-neutral-900 dark:ring-neutral-800 lg:grid lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-stretch">
@@ -206,13 +235,31 @@ export function VenuePage({
             locale={locale}
             emptyMessage={dict.venues.noEvents}
             sectionTitle={dict.venues.eventsAt}
-            returnTo={returnTo}
+            returnTo={listReturnTo}
             initialExpanded={initialExpanded}
+            onAddEvent={() => setSubmitOpen(true)}
+            addEventLabel={dict.submit.createEvent}
           />
         </div>
 
         <VenueDirectionsSection venue={venue} dict={dict} />
       </div>
     </main>
+
+    <SubmitEventSheet
+      open={submitOpen}
+      onClose={() => setSubmitOpen(false)}
+      dict={dict}
+      locale={locale}
+      defaults={{
+        location: venue.city,
+        venue: venue.name,
+      }}
+      onSubmitted={() => {
+        setSubmitOpen(false);
+        refreshEvents();
+      }}
+    />
+    </>
   );
 }

@@ -287,7 +287,8 @@ export function buildEventJsonLd(
   locale: Locale,
   url: string,
 ): Record<string, unknown> {
-  const image = resolveImageUrl(event.imageUrl);
+  const image =
+    resolveImageUrl(event.imageUrl) ?? absoluteUrl(DEFAULT_OG_IMAGE);
   const placeName = formatEventPlace(event);
 
   return {
@@ -301,7 +302,7 @@ export function buildEventJsonLd(
     eventStatus: "https://schema.org/EventScheduled",
     inLanguage: locale,
     url,
-    ...(image ? { image } : {}),
+    image,
     location: {
       "@type": "Place",
       name: placeName,

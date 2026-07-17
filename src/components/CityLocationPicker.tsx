@@ -164,9 +164,9 @@ export function CityLocationPicker({
     <div ref={rootRef} className="mb-0 w-full">
       <div className="relative flex w-full flex-wrap items-center justify-start gap-x-2 gap-y-1.5">
         {scopePrefix && (
-          <p className="text-[1.35rem] leading-snug text-neutral-800 dark:text-neutral-200">
+          <p className="text-xl leading-snug text-neutral-800 dark:text-neutral-200">
             {scopeEmoji ? (
-              <span className="mr-1.5 inline-block text-[2rem] leading-none align-[-0.2em]" aria-hidden>
+              <span className="mr-1.5 inline-block text-[1.65rem] leading-none align-[-0.15em]" aria-hidden>
                 {scopeEmoji}
               </span>
             ) : null}
@@ -184,7 +184,7 @@ export function CityLocationPicker({
           className={`
             inline-flex max-w-full items-center gap-1.5
             rounded-xl border border-orange-500/35 bg-orange-500/10
-            px-2.5 py-1 text-left text-[1.2rem] font-black leading-snug tracking-tight
+            px-2.5 py-1 text-left text-lg font-black leading-snug tracking-tight
             text-orange-600 shadow-sm transition-[color,background-color,border-color,transform]
             hover:border-rose-500/45 hover:bg-orange-500/15 hover:text-rose-600
             active:scale-[0.99] touch-manipulation
