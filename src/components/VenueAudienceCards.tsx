@@ -3,12 +3,15 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { EventImage } from "@/components/EventImage";
-import type { Venue } from "@/lib/types";
+import { EventCard } from "@/components/EventCard";
+import type { Event, Venue } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import {
   getFeaturedVenues,
+  getFeaturedEvents,
   HOME_VENUE_LIMIT,
+  HOME_EVENT_LIMIT,
   VENUE_AUDIENCE_FILTERS,
   type VenueAudienceFilter,
 } from "@/lib/home-layout";
@@ -18,8 +21,14 @@ interface VenueAudienceCardsProps {
   dict: Dictionary;
   /** SSR-provided venues so the sections are visible on first paint. */
   initialVenues?: Venue[];
+  /** All events for featured event pools. */
+  events?: Event[];
+  /** Return path for event detail navigation. */
+  returnTo?: string;
   /** Max venues in each audience slider. */
   limit?: number;
+  /** Max events in each audience slider. */
+  eventLimit?: number;
 }
 
 function VenueSlideCard({
@@ -75,6 +84,118 @@ function VenueSlideCard({
         ) : null}
       </div>
     </Link>
+  );
+}
+
+function EventSlider({
+  audience,
+  events,
+  locale,
+  dict,
+  returnTo,
+}: {
+  audience: VenueAudienceFilter;
+  events: Event[];
+  locale: Locale;
+  dict: Dictionary;
+  returnTo: string;
+}) {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(events.length > 1);
+
+  const syncScrollHints = useCallback(() => {
+    const el = scrollRef.current;
+    if (!el || events.length === 0) return;
+    const maxScroll = el.scrollWidth - el.clientWidth;
+    const left = el.scrollLeft;
+    setCanScrollLeft(left > 4);
+    setCanScrollRight(left < maxScroll - 4);
+
+    const slide = el.querySelector<HTMLElement>("[data-event-slide]");
+    const slideWidth = slide?.offsetWidth ?? el.clientWidth;
+    const gap = 12;
+    const index = Math.round(left / Math.max(slideWidth + gap, 1));
+    setActiveIndex(Math.min(Math.max(index, 0), events.length - 1));
+  }, [events.length]);
+
+  useEffect(() => {
+    syncScrollHints();
+    const el = scrollRef.current;
+    if (!el) return;
+    const onResize = () => syncScrollHints();
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, [syncScrollHints, events]);
+
+  const scrollToIndex = useCallback((index: number) => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const slide = el.querySelector<HTMLElement>("[data-event-slide]");
+    const slideWidth = slide?.offsetWidth ?? el.clientWidth;
+    const gap = 12;
+    el.scrollTo({ left: index * (slideWidth + gap), behavior: "smooth" });
+  }, []);
+
+  if (events.length === 0) return null;
+
+  return (
+    <div className="mt-4">
+      <div className="relative">
+        <div
+          ref={scrollRef}
+          onScroll={syncScrollHints}
+          className="flex snap-x snap-mandatory gap-3 overflow-x-auto pb-0.5 scrollbar-hide"
+        >
+          {events.map((event) => (
+            <div
+              key={event.id}
+              data-event-slide
+              className="w-[88%] shrink-0 snap-start sm:w-[90%]"
+            >
+              <EventCard
+                event={event}
+                dict={dict}
+                locale={locale}
+                returnTo={returnTo}
+              />
+            </div>
+          ))}
+        </div>
+
+        {canScrollLeft && (
+          <div
+            className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-neutral-50 to-transparent dark:from-black sm:w-14"
+            aria-hidden
+          />
+        )}
+        {canScrollRight && (
+          <div
+            className="pointer-events-none absolute inset-y-0 right-0 z-10 w-14 bg-gradient-to-l from-neutral-50 to-transparent dark:from-black sm:w-16"
+            aria-hidden
+          />
+        )}
+
+        {events.length > 1 && (
+          <div className="mt-2.5 flex justify-center gap-1.5">
+            {events.map((event, index) => (
+              <button
+                key={event.id}
+                type="button"
+                aria-label={`${event.title} (${index + 1}/${events.length})`}
+                onClick={() => scrollToIndex(index)}
+                className={`h-1.5 rounded-full transition-all touch-manipulation ${
+                  index === activeIndex
+                    ? "w-4 bg-orange-500"
+                    : "w-1.5 bg-neutral-300 hover:bg-neutral-400 dark:bg-neutral-700 dark:hover:bg-neutral-500"
+                }`}
+              />
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
   );
 }
 
@@ -205,7 +326,10 @@ export function VenueAudienceCards({
   locale,
   dict,
   initialVenues,
+  events = [],
+  returnTo = "/",
   limit = HOME_VENUE_LIMIT,
+  eventLimit = HOME_EVENT_LIMIT,
 }: VenueAudienceCardsProps) {
   const [venues, setVenues] = useState<Venue[]>(initialVenues ?? []);
 
@@ -220,21 +344,34 @@ export function VenueAudienceCards({
   const sections = VENUE_AUDIENCE_FILTERS.map((audience) => ({
     audience,
     venues: getFeaturedVenues(venues, audience, limit),
-  })).filter((section) => section.venues.length > 0);
+    events: getFeaturedEvents(events, audience, eventLimit),
+  })).filter((section) => section.venues.length > 0 || section.events.length > 0);
 
   if (sections.length === 0) return null;
 
   return (
     <section className="mb-6 sm:mb-8" aria-label={dict.venues.title}>
       <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 sm:gap-5">
-        {sections.map(({ audience, venues: featured }) => (
-          <AudienceSlider
-            key={audience}
-            audience={audience}
-            venues={featured}
-            locale={locale}
-            dict={dict}
-          />
+        {sections.map(({ audience, venues: featured, events: featuredEvents }) => (
+          <article key={audience} className="min-w-0">
+            {featured.length > 0 && (
+              <AudienceSlider
+                audience={audience}
+                venues={featured}
+                locale={locale}
+                dict={dict}
+              />
+            )}
+            {featuredEvents.length > 0 && (
+              <EventSlider
+                audience={audience}
+                events={featuredEvents}
+                locale={locale}
+                dict={dict}
+                returnTo={returnTo}
+              />
+            )}
+          </article>
         ))}
       </div>
     </section>

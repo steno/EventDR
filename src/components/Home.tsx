@@ -275,6 +275,8 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
                   locale={locale}
                   dict={dict}
                   initialVenues={initialVenues}
+                  events={scopedEvents}
+                  returnTo={homePath}
                 />
               )}
 
