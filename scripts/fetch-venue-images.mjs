@@ -188,7 +188,11 @@ const VENUE_SOURCES = [
     eventId: "jandy-ventura-legado-caballo-2026",
     url: "https://img.mmc.com.do/cdn-bucket/uploads/2022/08/Graan-Events-pone-a-bailar-a-Puerto-Plata-a-ritmo-de-Jandy-Ventura-El-Legado.jpg",
   },
-  // blue-jacktar venue place photo is fetched separately (scripts/fetch-venue-place-images.mjs).
+  {
+    // Same local concert action for Blue JackTar venue card (not resort grounds).
+    eventId: "blue-jacktar-playa-dorada",
+    url: "https://img.mmc.com.do/cdn-bucket/uploads/2022/08/Graan-Events-pone-a-bailar-a-Puerto-Plata-a-ritmo-de-Jandy-Ventura-El-Legado.jpg",
+  },
   {
     // Official Natura Cabana resort/pool — Saturday restaurant live nights.
     eventId: "natura-cabana-saturday-live",
@@ -200,7 +204,11 @@ const VENUE_SOURCES = [
     eventId: "el-parq-live-bands-saturday",
     url: "https://upload.wikimedia.org/wikipedia/commons/3/37/Food_Truck_Park%2C_Tulum_QR_Feb_2020_02.jpg",
   },
-  // disco-club-brugal venue place photo is under popevent-images/venues/ (not event sources).
+  {
+    // Indoor concert crowd/stage energy for Disco Club (Brugal depots hall).
+    eventId: "disco-club-brugal",
+    url: "https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=1800&q=85",
+  },
   {
     // Club/party lights for El Parq Thursday karaoke.
     eventId: "el-parq-karaoke-thursday",

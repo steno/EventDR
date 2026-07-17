@@ -1,4 +1,4 @@
-/** Maps venue slugs to place photos under /public/venues (from popevent-images/venues only). */
+/** Maps venue slugs to image files under /public/venues (synced from event photos / popevent-images). */
 import { getAppVersion } from "./app-version";
 
 const VENUE_IMAGE_FILES: Record<string, string> = {
