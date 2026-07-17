@@ -74,6 +74,9 @@ export const CURATED_TICKET_URLS: Record<string, string> = {
  * Verify on official sites — DR museum fees change occasionally.
  */
 export const CURATED_ADMISSION_PRICES: Record<string, string> = {
+  // Concerts & ticketed shows
+  "lil-naay-2026-07-17": "RD$700",
+
   // Museums & historic sites (door price)
   "museo-ambar-weekdays": "RD$250",
   "museo-ambar-saturday": "RD$250",
@@ -96,6 +99,7 @@ export const CURATED_ADMISSION_PRICES: Record<string, string> = {
   "vivonte-cigar-factory-saturday": "US$20",
   "natura-cabana-yoga-daily": "US$15",
   "liquid-blue-sunrise-yoga": "from US$15",
+  "ingest-make-authentic-espadrilles-in-puerto-plata": "from €99.90",
 
   // Tournament registration (official club page)
   "puerto-plata-golf-classic-2026": "US$210",

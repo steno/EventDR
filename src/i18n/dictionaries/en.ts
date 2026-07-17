@@ -172,6 +172,7 @@ export type Dictionary = {
     mediaTapDirections: string;
     mediaSwipeMap: string;
     mediaSwipePhoto: string;
+    showMap: string;
   };
   submit: {
     title: string;
@@ -279,6 +280,7 @@ export type Dictionary = {
     eventsAt: string;
     noEvents: string;
     howToGetThere: string;
+    showMap: string;
     openInMaps: string;
     website: string;
     instagram: string;
@@ -543,6 +545,7 @@ export const en: Dictionary = {
     mediaTapDirections: "Tap for directions",
     mediaSwipeMap: "Swipe for map",
     mediaSwipePhoto: "Swipe for photo",
+    showMap: "Show map",
   },
   submit: {
     title: "Share an event",
@@ -649,6 +652,7 @@ export const en: Dictionary = {
     eventsAt: "Upcoming events",
     noEvents: "No upcoming events at this venue yet.",
     howToGetThere: "How to get there",
+    showMap: "Show map",
     openInMaps: "Open in Maps",
     website: "Website",
     instagram: "Instagram",

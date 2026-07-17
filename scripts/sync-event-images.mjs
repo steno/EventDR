@@ -176,6 +176,7 @@ const FILE_TO_VENUE_SLUG = {
   "la-chabola-wednesday-open-mic.jpg": "la-chabola-cabarete",
   "groundzero-domingos-pal-pueblo.jpg": "ground-zero-disco",
   "macorix-house-of-rum.jpg": "macorix-house-of-rum",
+  "espadrillas.jpeg": "handmade-the-brand",
 };
 
 if (!existsSync(sourceDir)) {

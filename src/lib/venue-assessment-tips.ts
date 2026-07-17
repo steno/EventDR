@@ -474,11 +474,11 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "handmade-the-brand": {
-    body: "Stitch-your-own espadrille workshop downtown — book the slot; it's a craft hour, not a quick souvenir shop browse.",
+    body: "Stitch-your-own espadrille workshop downtown from about €100 — book the 10 AM or 2 PM slot; snacks and cava included, not a quick souvenir shop browse.",
     localized: {
-      en: "Stitch-your-own espadrille workshop downtown — book the slot; it's a craft hour, not a quick souvenir shop browse.",
-      es: "Taller de alpargatas para coser las tuyas en el centro — reserva el turno; es una hora de oficio, no un souvenir rápido.",
-      fr: "Atelier espadrilles à coudre soi-même au centre — réservez le créneau ; une heure de craft, pas un souvenir rapide.",
+      en: "Stitch-your-own espadrille workshop downtown from about €100 — book the 10 AM or 2 PM slot; snacks and cava included, not a quick souvenir shop browse.",
+      es: "Taller de alpargatas para coser las tuyas en el centro desde unos €100 — reserva el turno de 10 AM o 2 PM; incluye tentempiés y cava, no es un souvenir rápido.",
+      fr: "Atelier espadrilles à coudre soi-même au centre dès environ 100 € — réservez le créneau 10 h ou 14 h ; collations et cava inclus, pas un souvenir rapide.",
     },
   },
   "parque-jose-briceno": {

@@ -208,6 +208,7 @@ export const es: Dictionary = {
     mediaTapDirections: "Toca para indicaciones",
     mediaSwipeMap: "Desliza para el mapa",
     mediaSwipePhoto: "Desliza para la foto",
+    showMap: "Ver mapa",
   },
   submit: {
     title: "Comparte un evento",
@@ -314,6 +315,7 @@ export const es: Dictionary = {
     eventsAt: "Próximos eventos",
     noEvents: "Aún no hay eventos en este lugar.",
     howToGetThere: "Cómo llegar",
+    showMap: "Ver mapa",
     openInMaps: "Abrir en Maps",
     website: "Sitio web",
     instagram: "Instagram",

@@ -54,6 +54,7 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "gregorio-luperon-museum": "gregorio-luperon-museum.jpg",
   "macorix-house-of-rum": "macorix-house-of-rum.jpg",
   "casa-de-la-cultura": "casa-de-la-cultura.jpg",
+  "handmade-the-brand": "handmade-the-brand.jpg",
   "parque-jose-briceno": "parque-jose-briceno.jpg",
   "club-deportivo-fantastico": "club-deportivo-fantastico.jpeg",
   "paella-pop-el-pueblito": "paella-pop-el-pueblito.jpg",

@@ -322,7 +322,7 @@ const KEYWORDS: KeywordMap = {
 
 /** Primary category always implies these secondaries when present. */
 const CATEGORY_AFFINITIES: Partial<Record<EventCategory, EventCategory[]>> = {
-  concert: ["music"],
+  concert: ["music", "performances"],
 };
 
 function keywordWeight(keyword: Keyword): { term: string; weight: number } {

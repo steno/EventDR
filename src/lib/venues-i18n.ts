@@ -367,8 +367,8 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
   },
   "handmade-the-brand": {
     description: {
-      es: "Taller de alpargatas en el centro histórico — cose tu propio par con artesanos maestros en la Calle Duarte.",
-      fr: "Atelier d'espadrilles dans le centre historique — cousez votre paire avec des artisans maîtres sur la Calle Duarte.",
+      es: "Taller de alpargatas en el centro histórico — cose tu propio par con artesanos maestros en la Calle Duarte. Incluye tentempiés, cava y materiales; desde €99,90 en Eventbrite.",
+      fr: "Atelier d'espadrilles dans le centre historique — cousez votre paire avec des artisans maîtres sur la Calle Duarte. Collations, cava et matériel inclus ; à partir de 99,90 € sur Eventbrite.",
     },
   },
   "parque-jose-briceno": {

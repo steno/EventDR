@@ -675,7 +675,7 @@ export const SEED_VENUES: Venue[] = [
     name: "Handmade the Brand",
     city: "Puerto Plata",
     description:
-      "Espadrille workshop in the historic center — stitch your own pair with master artisans on Calle Duarte.",
+      "Espadrille workshop in the historic center — stitch your own pair with master artisans on Calle Duarte. Sessions include snacks, cava, and all materials; from €99.90 on Eventbrite.",
     lat: 19.7963,
     lng: -70.6921,
     emoji: "👟",

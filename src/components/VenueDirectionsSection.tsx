@@ -15,6 +15,7 @@ import type { EventCoords } from "@/lib/event-coords";
 import type { LatLngTuple } from "@/lib/routing";
 import { fetchDrivingRoute, geocodePlace } from "@/lib/routing";
 import { useGeolocation } from "@/hooks/useGeolocation";
+import { MapReveal } from "@/components/MapReveal";
 
 const EventInlineMap = dynamic(
   () => import("@/components/EventInlineMap").then((m) => m.EventInlineMap),
@@ -174,12 +175,20 @@ export function VenueDirectionsSection({
 
       <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-6">
         <div className="event-inline-map relative h-[13rem] overflow-hidden rounded-2xl bg-neutral-200 ring-1 ring-black/5 sm:h-[15rem] lg:h-[22rem] dark:bg-neutral-800 dark:ring-white/10">
-          <EventInlineMap
-            coords={destination}
-            interactive
-            origin={origin}
-            route={route}
-          />
+          <MapReveal
+            lat={destination.lat}
+            lng={destination.lng}
+            label={dict.venues.showMap}
+            forceReveal={Boolean(origin || route)}
+            className="h-full w-full"
+          >
+            <EventInlineMap
+              coords={destination}
+              interactive
+              origin={origin}
+              route={route}
+            />
+          </MapReveal>
         </div>
 
         <form onSubmit={handleSubmit} className="mt-3 space-y-2.5 lg:mt-0">

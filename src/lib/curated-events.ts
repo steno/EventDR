@@ -20,6 +20,26 @@ type CuratedPatch = Partial<
 
 /** Stable id patches (preferred over title key). */
 const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
+  "lil-naay-2026-07-17": {
+    isFree: false,
+    admissionPrice: "RD$700",
+    ticketUrl: "https://todotickets.do/events/lil-naay",
+    sourceUrl: "https://todotickets.do/events/lil-naay",
+    time: "8:00 PM – 11:00 PM",
+    venue: "Disco Club",
+    venueSlug: "disco-club-brugal",
+    address: "Depósitos de Brugal, Calle Duarte",
+    location: "Puerto Plata",
+    description:
+      "Dominican urban star Lil Naay live at Disco Club (Depósitos de Brugal, Calle Duarte) — Friday Jul 17, 8–11 PM. Pre-sale RD$700 on todotickets.do (service included); electronic QR entry at the door.",
+    localized: {
+      description: {
+        en: "Dominican urban star Lil Naay live at Disco Club (Depósitos de Brugal, Calle Duarte) — Friday Jul 17, 8–11 PM. Pre-sale RD$700 on todotickets.do (service included); electronic QR entry at the door.",
+        es: "El artista urbano dominicano Lil Naay en vivo en Disco Club (Depósitos de Brugal, Calle Duarte) — viernes 17 jul., 8–11 PM. Preventa RD$700 en todotickets.do (cargo por servicio incluido); ingreso con código QR electrónico.",
+        fr: "La star urbaine dominicaine Lil Naay en live au Disco Club (Depósitos de Brugal, Calle Duarte) — vendredi 17 juil., 20 h–23 h. Prévente RD$700 sur todotickets.do (frais de service inclus) ; entrée par billet QR électronique.",
+      },
+    },
+  },
   "puerto-plata-carnaval-2026": {
     date: "2026-02-01",
     endDate: "2026-03-01",
@@ -182,8 +202,11 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
   "casa-de-la-cultura-exhibitions": {
     isFree: true,
   },
-  "handmade-the-brand": {
-    isFree: true,
+  "ingest-make-authentic-espadrilles-in-puerto-plata": {
+    isFree: false,
+    admissionPrice: "from €99.90",
+    ticketUrl:
+      "https://www.eventbrite.es/e/make-authentic-espadrilles-in-puerto-plata-tickets-1981840949630",
   },
   "kite-beach-daily": {
     isFree: true,

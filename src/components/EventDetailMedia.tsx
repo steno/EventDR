@@ -6,6 +6,7 @@ import { ChevronLeft, ChevronRight, MapPin, Navigation, X } from "lucide-react";
 import type { Event } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { EventImage } from "@/components/EventImage";
+import { MapReveal } from "@/components/MapReveal";
 import { resolveEventCoords } from "@/lib/event-coords";
 import { getEventHeroObjectPosition } from "@/lib/event-images";
 import { getDirectionsUrl } from "@/lib/maps";
@@ -119,20 +120,31 @@ export function EventDetailMedia({
     );
   }
 
-  function renderMapSlide(interactive: boolean) {
+  function renderMapSlide(interactive: boolean, requireClick = false) {
     if (!coords) return null;
+
+    const map = mapLoaded ? (
+      <EventInlineMap coords={coords} active={interactive} />
+    ) : requireClick ? (
+      <MapReveal
+        lat={coords.lat}
+        lng={coords.lng}
+        label={dict.detail.showMap}
+        className="h-full w-full"
+      >
+        <EventInlineMap coords={coords} active={interactive} />
+      </MapReveal>
+    ) : (
+      <div className="flex h-full w-full items-center justify-center">
+        <MapPin className="h-8 w-8 text-neutral-400" aria-hidden />
+      </div>
+    );
 
     return (
       <div
         className="event-inline-map relative h-full w-full bg-neutral-200 dark:bg-neutral-700"
       >
-        {mapLoaded ? (
-          <EventInlineMap coords={coords} active={interactive} />
-        ) : (
-          <div className="flex h-full w-full items-center justify-center">
-            <MapPin className="h-8 w-8 text-neutral-400" aria-hidden />
-          </div>
-        )}
+        {map}
         <a
           href={getDirectionsUrl(event)}
           target="_blank"
@@ -207,7 +219,7 @@ export function EventDetailMedia({
       <div
         className={`relative isolate z-0 w-full shrink-0 overflow-hidden bg-neutral-100 dark:bg-neutral-800 ${heightClass} ${roundedClass}`}
       >
-        {hasImage ? renderPhotoSlide() : renderMapSlide(true)}
+        {hasImage ? renderPhotoSlide() : renderMapSlide(true, true)}
         {onClose && (
           <button
             type="button"

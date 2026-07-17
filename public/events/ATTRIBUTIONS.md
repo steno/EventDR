@@ -57,3 +57,4 @@ Curated images under `public/events/` and `public/venues/`.
 | `atleticos-pp-vs-mangueros-2026-07-17.jpg` (+ other Atléticos home games) | POP curated `athleticosPOP.png` — Atléticos de Puerto Plata pitcher | Authentic team photo; replaces Unsplash stock for the full home slate |
 | `venues/parque-jose-briceno.jpg` | POP curated `baseballpark.png` — packed grandstand at Parque José Briceño | Authentic venue place photo |
 | `macorix-house-of-rum.jpg` / venue | [PuertoPlataDR](https://puertoplatadr.com/tours/macorix-house-of-rum/) — `A86A5227` Ron Macorix entrance exterior | Branded venue facade (replaces dark trapiche interior) |
+| `ingest-make-authentic-espadrilles-in-puerto-plata.jpg` / `venues/handmade-the-brand.jpg` | POP curated `espadrillas.jpeg` — workshop bench with colorful handmade espadrilles | Venue + workshop hero (replaces emoji placeholder) |

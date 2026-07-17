@@ -87,7 +87,7 @@ export const FALLBACK_EVENTS_FR: Event[] = [
     id: "lil-naay-2026-07-17",
     title: "Lil Naay en live au Disco Club",
     description:
-      "La star urbaine dominicaine Lil Naay au Disco Club, Depósitos de Brugal sur la Calle Duarte. Concert vendredi soir — billets sur todotickets.do avec entrée par code QR.",
+      "La star urbaine dominicaine Lil Naay en live au Disco Club (Depósitos de Brugal, Calle Duarte) — vendredi 17 juil., 20 h–23 h. Prévente RD$700 sur todotickets.do (frais de service inclus) ; entrée par billet QR électronique.",
     date: "2026-07-17",
     time: "8:00 PM – 11:00 PM",
     location: "Puerto Plata",
@@ -99,6 +99,8 @@ export const FALLBACK_EVENTS_FR: Event[] = [
     category: "concert",
     format: "physical",
     trending: true,
+    isFree: false,
+    admissionPrice: "RD$700",
     sourceUrl: "https://todotickets.do/events/lil-naay",
     ticketUrl: "https://todotickets.do/events/lil-naay",
     lineup: ["Lil Naay"],

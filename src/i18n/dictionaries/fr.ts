@@ -208,6 +208,7 @@ export const fr: Dictionary = {
     mediaTapDirections: "Appuyer pour l'itinéraire",
     mediaSwipeMap: "Glisser pour la carte",
     mediaSwipePhoto: "Glisser pour la photo",
+    showMap: "Afficher la carte",
   },
   submit: {
     title: "Partager un événement",
@@ -314,6 +315,7 @@ export const fr: Dictionary = {
     eventsAt: "Événements à venir",
     noEvents: "Pas encore d'événements à ce lieu.",
     howToGetThere: "Comment s'y rendre",
+    showMap: "Afficher la carte",
     openInMaps: "Ouvrir dans Maps",
     website: "Site web",
     instagram: "Instagram",

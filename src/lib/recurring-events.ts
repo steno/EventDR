@@ -1320,9 +1320,9 @@ const RECURRING_EN: Event[] = [
     id: "ingest-make-authentic-espadrilles-in-puerto-plata",
     title: "Make Authentic Espadrilles Workshop",
     description:
-      "Two-hour hands-on workshop at Handmade the Brand on Calle Duarte 37 — choose your base, stitching, and laces from 100k+ combinations, then stitch your own pair with master artisans. Weekday sessions at 10 AM and 2 PM; book on Eventbrite or Airbnb Experiences.",
+      "Two-hour hands-on workshop at Handmade the Brand on Calle Duarte 37 — choose your base, stitching, and laces from 100k+ combinations, then stitch your own pair with master artisans. Snacks during the session and a glass of cava at the end (non-alcoholic drinks available); all materials and tools included. From €99.90. Weekday sessions 10 AM–12 PM and 2–4 PM; book on Eventbrite.",
     date: "2026-01-01",
-    time: "10:00 AM & 2:00 PM (book ahead)",
+    time: "10:00 AM–12:00 PM & 2:00–4:00 PM (book ahead)",
     location: "Puerto Plata",
     address: "Calle Duarte 37",
     venue: "Handmade the Brand",
@@ -1330,6 +1330,10 @@ const RECURRING_EN: Event[] = [
     category: "culture",
     format: "physical",
     recurrence: "weekdays",
+    isFree: false,
+    admissionPrice: "from €99.90",
+    ticketUrl:
+      "https://www.eventbrite.es/e/make-authentic-espadrilles-in-puerto-plata-tickets-1981840949630",
     sourceUrl:
       "https://www.eventbrite.es/e/make-authentic-espadrilles-in-puerto-plata-tickets-1981840949630",
     imageEmoji: "👟",
@@ -2739,9 +2743,9 @@ const RECURRING_ES: Event[] = [
     id: "ingest-make-authentic-espadrilles-in-puerto-plata",
     title: "Taller de alpargatas auténticas",
     description:
-      "Taller práctico de dos horas en Handmade the Brand, calle Duarte 37 — elige base, costura y cordones entre más de 100.000 combinaciones y cose tu par con artesanos maestros. Sesiones entre semana a las 10 AM y 2 PM; reserva en Eventbrite o Airbnb Experiences.",
+      "Taller práctico de dos horas en Handmade the Brand, calle Duarte 37 — elige base, costura y cordones entre más de 100.000 combinaciones y cose tu par con artesanos maestros. Tentempiés durante la sesión y una copa de cava al final (bebidas sin alcohol disponibles); materiales y herramientas incluidos. Desde €99,90. Sesiones entre semana 10 AM–12 PM y 2–4 PM; reserva en Eventbrite.",
     date: "2026-01-01",
-    time: "10:00 AM y 2:00 PM (reserva previa)",
+    time: "10:00 AM–12:00 PM y 2:00–4:00 PM (reserva previa)",
     location: "Puerto Plata",
     address: "Calle Duarte 37",
     venue: "Handmade the Brand",
@@ -2749,6 +2753,10 @@ const RECURRING_ES: Event[] = [
     category: "culture",
     format: "physical",
     recurrence: "weekdays",
+    isFree: false,
+    admissionPrice: "desde €99,90",
+    ticketUrl:
+      "https://www.eventbrite.es/e/make-authentic-espadrilles-in-puerto-plata-tickets-1981840949630",
     sourceUrl:
       "https://www.eventbrite.es/e/make-authentic-espadrilles-in-puerto-plata-tickets-1981840949630",
     imageEmoji: "👟",
@@ -4157,9 +4165,9 @@ const RECURRING_FR: Event[] = [
     id: "ingest-make-authentic-espadrilles-in-puerto-plata",
     title: "Atelier d'espadrilles authentiques",
     description:
-      "Atelier pratique de deux heures chez Handmade the Brand, calle Duarte 37 — choisissez semelle, couture et lacets parmi plus de 100 000 combinaisons et cousez votre paire avec des artisans. Séances en semaine à 10 h et 14 h ; réservez sur Eventbrite ou Airbnb Experiences.",
+      "Atelier pratique de deux heures chez Handmade the Brand, calle Duarte 37 — choisissez semelle, couture et lacets parmi plus de 100 000 combinaisons et cousez votre paire avec des artisans. Collations pendant la séance et un verre de cava à la fin (boissons sans alcool disponibles) ; matériel et outils inclus. À partir de 99,90 €. Séances en semaine 10 h–12 h et 14 h–16 h ; réservez sur Eventbrite.",
     date: "2026-01-01",
-    time: "10 h et 14 h (réservation requise)",
+    time: "10 h–12 h et 14 h–16 h (réservation requise)",
     location: "Puerto Plata",
     address: "Calle Duarte 37",
     venue: "Handmade the Brand",
@@ -4167,6 +4175,10 @@ const RECURRING_FR: Event[] = [
     category: "culture",
     format: "physical",
     recurrence: "weekdays",
+    isFree: false,
+    admissionPrice: "à partir de 99,90 €",
+    ticketUrl:
+      "https://www.eventbrite.es/e/make-authentic-espadrilles-in-puerto-plata-tickets-1981840949630",
     sourceUrl:
       "https://www.eventbrite.es/e/make-authentic-espadrilles-in-puerto-plata-tickets-1981840949630",
     imageEmoji: "👟",

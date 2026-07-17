@@ -3,6 +3,21 @@ import type { EventCoords } from "./event-coords";
 import { resolveEventCoords } from "./event-coords";
 import { eventDirectionsQuery } from "./event-location";
 
+/** Single OSM tile URL for a muted click-to-load map preview (no Leaflet). */
+export function osmTilePreviewUrl(
+  lat: number,
+  lng: number,
+  zoom = 13,
+): string {
+  const n = 2 ** zoom;
+  const x = Math.floor(((lng + 180) / 360) * n);
+  const latRad = (lat * Math.PI) / 180;
+  const y = Math.floor(
+    ((1 - Math.log(Math.tan(latRad) + 1 / Math.cos(latRad)) / Math.PI) / 2) * n,
+  );
+  return `https://tile.openstreetmap.org/${zoom}/${x}/${y}.png`;
+}
+
 export function getDirectionsUrl(event: Event): string {
   const coords = resolveEventCoords(event);
   if (coords) {
