@@ -31,7 +31,7 @@ const EventCardComponent = ({
   returnTo,
   compact = true,
   listTimeRange,
-  view = "list",
+  view = "cards",
 }: EventCardProps) => {
   const category = getCategoryMeta(event.category, dict.categories);
   const emoji = event.imageEmoji ?? category?.emoji ?? "📅";

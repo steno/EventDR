@@ -76,9 +76,6 @@ export type Dictionary = {
     nearMe: string;
     nearMeOn: string;
     sortedUpcoming: string;
-    viewMode: string;
-    viewList: string;
-    viewCards: string;
     ourPicks: string;
     happeningToday: string;
     seeAllToday: string;
@@ -430,9 +427,6 @@ export const en: Dictionary = {
     nearMe: "Near me",
     nearMeOn: "Sorted by distance",
     sortedUpcoming: "Live & soonest first",
-    viewMode: "Event layout",
-    viewList: "List",
-    viewCards: "Cards",
     ourPicks: "Our picks",
     happeningToday: "Happening today",
     seeAllToday: "See all today",

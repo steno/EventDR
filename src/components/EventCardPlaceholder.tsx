@@ -12,7 +12,7 @@ interface EventCardPlaceholderProps {
 export function EventCardPlaceholder({
   label,
   onClick,
-  view = "list",
+  view = "cards",
 }: EventCardPlaceholderProps) {
   const interactive = onClick
     ? "cursor-pointer transition-colors touch-manipulation hover:border-orange-400/70 hover:bg-orange-50/40 dark:hover:border-orange-500/50 dark:hover:bg-orange-950/20"
@@ -93,7 +93,7 @@ export function EventListScrollPads({
   count,
   label,
   onAddEvent,
-  view = "list",
+  view = "cards",
 }: {
   count: number;
   label: string;

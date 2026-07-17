@@ -239,8 +239,8 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
                 </div>
               </div>
               {!isSearching && (
-                <div className="mb-6 rounded-2xl border border-neutral-200/80 bg-white/60 dark:border-neutral-800/80 dark:bg-neutral-900/40 sm:mb-8 lg:mb-8">
-                  <div className="relative z-10 bg-white/90 px-4 py-3 backdrop-blur-sm dark:bg-neutral-900/90 sm:px-5 sm:py-3.5">
+                <div className="mb-6 sm:mb-8 lg:mb-8">
+                  <div className="relative z-10 py-3 sm:py-3.5">
                     <CityLocationPicker
                       locale={locale}
                       dict={dict}
@@ -248,7 +248,7 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
                       onSelect={setArea}
                     />
                   </div>
-                  <div className="border-t border-neutral-200/60 px-4 pb-3 pt-2.5 dark:border-neutral-800/60 sm:px-5">
+                  <div className="pb-1 pt-1">
                     <CategoryGrid
                       locale={locale}
                       dict={dict}

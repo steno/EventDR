@@ -37,11 +37,11 @@ export function CategoryGrid({
           href={allEventsHref}
           onClick={onCategorySelect}
           className={`
-            col-span-2 inline-flex w-full items-center justify-start gap-1.5 rounded-full
-            px-3 py-2 text-[13px] font-bold leading-none ring-1 shadow-sm
+            col-span-2 inline-flex w-full min-w-0 items-center justify-start gap-1.5 rounded-full
+            px-3.5 py-2.5 text-base font-bold leading-none ring-1 shadow-sm
             transition-transform active:scale-[0.98] touch-manipulation
             hover:brightness-[0.97] dark:hover:brightness-110
-            sm:w-auto sm:px-3.5
+            sm:w-auto sm:px-4
             ${ALL_EVENTS_CHIP}
           `}
           aria-label={allEventsLabel}
@@ -49,7 +49,7 @@ export function CategoryGrid({
           <span className="shrink-0 text-base leading-none select-none" aria-hidden>
             📅
           </span>
-          <span className="min-w-0 text-left sm:whitespace-nowrap">
+          <span className="min-w-0 truncate text-left">
             {allEventsLabel}
           </span>
         </Link>
@@ -59,11 +59,11 @@ export function CategoryGrid({
             href={categoryPath(locale, cat.id, citySlug)}
             onClick={onCategorySelect}
             className={`
-              inline-flex w-full items-center justify-start gap-1.5 rounded-full
-              px-3 py-2 text-[13px] font-bold leading-none ring-1 shadow-sm
+              inline-flex w-full min-w-0 items-center justify-start gap-1.5 rounded-full
+              px-3.5 py-2.5 text-base font-bold leading-none ring-1 shadow-sm
               transition-transform active:scale-[0.98] touch-manipulation
               hover:brightness-[0.97] dark:hover:brightness-110
-              sm:w-auto sm:px-3.5
+              sm:w-auto sm:px-4
               ${cat.chip}
             `}
             aria-label={cat.label}
@@ -71,7 +71,7 @@ export function CategoryGrid({
             <span className="shrink-0 text-base leading-none select-none" aria-hidden>
               {cat.emoji}
             </span>
-            <span className="min-w-0 text-left sm:whitespace-nowrap">
+            <span className="min-w-0 truncate text-left">
               {cat.label}
             </span>
           </Link>
