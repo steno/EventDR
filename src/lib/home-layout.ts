@@ -136,12 +136,117 @@ export const EVENT_AUDIENCE_POOLS: Record<
   readonly string[]
 > = {
   local: [
-    // Add curated event IDs that appeal to locals/residents
-    // Example format: event IDs from your database
+    // Local nightlife & music
+    "batey-salsa-weekly",
+    "batey-open-mic-weekly",
+    "el-batey-weekend-nightlife",
+    "cremo-salsa-friday",
+    "cremo-bohemian-wednesday",
+    "cremo-karaoke-saturday",
+    "d-classico-merengue-nights",
+    "el-carey-weekend-nightlife",
+    "ojo-latin-night-thursday",
+    "ojo-weekend-dj-parties",
+    
+    // Local food & culture
+    "malecon-kiosks-daily",
+    "sosua-pedro-clisante-food-nights",
+    "parada-tipica-el-choco-tuesday-live",
+    "paella-pop-el-pueblito",
+    "paella-pop-green-one",
+    "hms-valeria-domingo-dominicano",
+    
+    // Local spots & community
+    "el-parq-karaoke-thursday",
+    "el-parq-latin-friday",
+    "el-parq-live-bands-saturday",
+    "paseo-dona-blanca-daily",
+    "calle-sombrillas-daily",
+    "plaza-independencia-weekend-culture",
+    "anfiteatro-la-puntilla-concerts",
+    
+    // Neighborhood bars & live music
+    "smileys-saturday-live",
+    "finish-line-live-wednesday",
+    "cheers-weekly-live",
+    "senor-rock-live-nightly",
+    "castaways-classic-rock-wednesday",
+    "voramar-friday-live",
+    "big-lees-weekend-music",
+    "sosua-beach-live-weekends",
+    
+    // Local sports & recreation
+    "sosua-volleyball-weekly",
+    
+    // Cultural institutions
+    "casa-de-la-cultura-exhibitions",
+    "rum-legacy-museum-daily",
+    "la-confluencia-museum-daily",
+    "gregorio-luperon-museum",
+    
+    // Coworking & networking (local expats & residents)
+    "cowork-weekdays",
+    "north-coast-networking-saturday",
+    "north-coast-tech-meetup",
   ],
   visitor: [
-    // Add curated event IDs that appeal to tourists/visitors
-    // Example format: event IDs from your database
+    // Beach & water sports
+    "kite-beach-daily",
+    "kite-beach-wind-culture",
+    "liquid-blue-sunrise-yoga",
+    "liquid-blue-watersports-daily",
+    "natura-cabana-yoga-daily",
+    "sosua-diving-adventures-daily",
+    
+    // Popular beach bars & nightlife
+    "lax-sunset-daily",
+    "lax-reggae-friday",
+    "lax-headline-concerts",
+    "voyvoy-monday-live-music",
+    "hard-rock-weekends",
+    "hard-rock-billed-concerts",
+    "natura-cabana-saturday-live",
+    
+    // Tourist attractions & tours
+    "ocean-world-daily",
+    "charcos-damajagua-daily",
+    "fortaleza-san-felipe-daily",
+    "teleferico-puerto-plata-daily",
+    "cayo-arena-tours-daily",
+    "freestyle-catamaran-daily",
+    "outback-safari-daily",
+    "monkeyland-puerto-plata-daily",
+    "coconut-cove-ocean-zipline-daily",
+    
+    // Museums & cultural experiences
+    "museo-ambar-weekdays",
+    "museo-ambar-saturday",
+    "sosua-jewish-museum-hours",
+    
+    // Rum & chocolate tours
+    "brugal-rum-center-weekdays",
+    "brugal-corporate-tours",
+    "macorix-house-of-rum",
+    "del-oro-chocolate-factory-weekdays",
+    "del-oro-chocolate-factory-saturday",
+    "hacienda-cufa-cacao-tour",
+    
+    // Cigar experiences
+    "tabacalera-cremo-factory-tour",
+    "tabacalera-cremo-rolling-experience",
+    "vivonte-cigar-factory-weekdays",
+    "vivonte-cigar-factory-saturday",
+    
+    // Markets & family activities
+    "sea-horse-saturday-market",
+    "fun-city-daily",
+    
+    // Dining experiences
+    "la-casita-papi-beach-dining",
+    "hms-valeria-spanish-saturday",
+    
+    // Workshops & unique experiences
+    "ingest-make-authentic-espadrilles-in-puerto-plata",
   ],
 };
 
