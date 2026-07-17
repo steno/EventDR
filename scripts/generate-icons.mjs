@@ -85,10 +85,15 @@ await pwaIconFile(512, "icon-512-maskable.png", { inset: 52 });
 // Site header logo (used by AppHeader) — pop-home mark.
 await writeHeaderLogo();
 
-// Google SERP + browser favicon: square P mark, 48px minimum recommended size.
+// Google SERP + browser favicon: square P mark, 48px minimum (multiples of 48).
 const favicon48 = await iconFromFavicon(48);
+const favicon192 = await iconFromFavicon(192);
 writeFileSync(join(iconsDir, "icon-48.png"), favicon48);
 console.log("wrote icon-48.png");
+
+// Root /favicon.png — Search Console and crawlers often request this path.
+writeFileSync(join(root, "public", "favicon.png"), favicon192);
+console.log("wrote public/favicon.png");
 
 const favicon32 = await iconFromFavicon(32);
 const favicon16 = await iconFromFavicon(16);

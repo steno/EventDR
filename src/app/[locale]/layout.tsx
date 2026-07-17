@@ -51,10 +51,11 @@ export async function generateMetadata({
     themeColor: "#0a0a0a",
     icons: {
       icon: [
+        { url: "/favicon.png", sizes: "192x192", type: "image/png" },
         { url: "/icons/icon-48.png", sizes: "48x48", type: "image/png" },
         { url: "/icons/icon-192.png", sizes: "192x192", type: "image/png" },
       ],
-      shortcut: "/icons/icon-48.png",
+      shortcut: "/favicon.png",
       apple: "/icons/icon-192.png",
     },
     other: {
