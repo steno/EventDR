@@ -300,7 +300,13 @@ export function EventList({
         )
       ) : (
         <>
-          <div className="space-y-3 pt-3">
+          <div
+            className={
+              isSearching
+                ? "grid grid-cols-2 items-stretch gap-2.5 pt-3 sm:gap-3 lg:grid-cols-3"
+                : "space-y-3 pt-3"
+            }
+          >
             {visibleEvents.map((event) => (
               <EventCard
                 key={event.id}
@@ -309,6 +315,7 @@ export function EventList({
                 locale={locale}
                 returnTo={listReturnTo}
                 listTimeRange={timeRange}
+                view={isSearching ? "cards" : "list"}
               />
             ))}
             <EventListScrollPads
@@ -321,6 +328,7 @@ export function EventList({
                   : dict.events.yourEventHereGeneric
               }
               onAddEvent={onAddEvent}
+              view={isSearching ? "cards" : "list"}
             />
           </div>
           {hasMore && viewAllHref ? (
