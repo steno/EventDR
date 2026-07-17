@@ -21,7 +21,6 @@ import { InstallBanner } from "@/components/InstallBanner";
 import { PwaRegister } from "@/components/PwaRegister";
 import { EventCard } from "@/components/EventCard";
 import { VenueAudienceCards } from "@/components/VenueAudienceCards";
-import { EventAudienceCards } from "@/components/EventAudienceCards";
 import { TodayHighlights } from "@/components/TodayHighlights";
 import { useSavedEvents } from "@/hooks/useSavedEvents";
 import {
@@ -276,15 +275,6 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
                   locale={locale}
                   dict={dict}
                   initialVenues={initialVenues}
-                />
-              )}
-
-              {!isSearching && (
-                <EventAudienceCards
-                  locale={locale}
-                  dict={dict}
-                  events={scopedEvents}
-                  returnTo={homePath}
                 />
               )}
 

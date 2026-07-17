@@ -33,9 +33,6 @@ export const SCOPE_LIST_LIMIT = HOME_PICKS_LIMIT;
 /** Max venue slides per audience slider on home. */
 export const HOME_VENUE_LIMIT = 6;
 
-/** Max event cards per audience section on home. */
-export const HOME_EVENT_AUDIENCE_LIMIT = 4;
-
 /** Home audience sections — Local favorites vs Visitor faves. */
 export type VenueAudienceFilter = "local" | "visitor";
 
@@ -121,134 +118,6 @@ export const VENUE_AUDIENCE_POOLS: Record<
 
 /** @deprecated Use VENUE_AUDIENCE_POOLS — same curated pools. */
 export const FEATURED_VENUE_SLUGS = VENUE_AUDIENCE_POOLS;
-
-/**
- * Curated event pools for each audience. Home displays a random sample from
- * these lists (seeded by local calendar day for stable daily rotation).
- * Edit these lists to add or rebalance Local vs Visitor event coverage.
- * An event may appear in both pools when it appeals to mixed crowds.
- * 
- * NOTE: Only events that are currently active/upcoming will be displayed.
- * The system automatically filters out past events from these pools.
- */
-export const EVENT_AUDIENCE_POOLS: Record<
-  VenueAudienceFilter,
-  readonly string[]
-> = {
-  local: [
-    // Local nightlife & music
-    "batey-salsa-weekly",
-    "batey-open-mic-weekly",
-    "el-batey-weekend-nightlife",
-    "cremo-salsa-friday",
-    "cremo-bohemian-wednesday",
-    "cremo-karaoke-saturday",
-    "d-classico-merengue-nights",
-    "el-carey-weekend-nightlife",
-    "ojo-latin-night-thursday",
-    "ojo-weekend-dj-parties",
-    
-    // Local food & culture
-    "malecon-kiosks-daily",
-    "sosua-pedro-clisante-food-nights",
-    "parada-tipica-el-choco-tuesday-live",
-    "paella-pop-el-pueblito",
-    "paella-pop-green-one",
-    "hms-valeria-domingo-dominicano",
-    
-    // Local spots & community
-    "el-parq-karaoke-thursday",
-    "el-parq-latin-friday",
-    "el-parq-live-bands-saturday",
-    "paseo-dona-blanca-daily",
-    "calle-sombrillas-daily",
-    "plaza-independencia-weekend-culture",
-    "anfiteatro-la-puntilla-concerts",
-    
-    // Neighborhood bars & live music
-    "smileys-saturday-live",
-    "finish-line-live-wednesday",
-    "cheers-weekly-live",
-    "senor-rock-live-nightly",
-    "castaways-classic-rock-wednesday",
-    "voramar-friday-live",
-    "big-lees-weekend-music",
-    "sosua-beach-live-weekends",
-    
-    // Local sports & recreation
-    "sosua-volleyball-weekly",
-    
-    // Cultural institutions
-    "casa-de-la-cultura-exhibitions",
-    "rum-legacy-museum-daily",
-    "la-confluencia-museum-daily",
-    "gregorio-luperon-museum",
-    
-    // Coworking & networking (local expats & residents)
-    "cowork-weekdays",
-    "north-coast-networking-saturday",
-    "north-coast-tech-meetup",
-  ],
-  visitor: [
-    // Beach & water sports
-    "kite-beach-daily",
-    "kite-beach-wind-culture",
-    "liquid-blue-sunrise-yoga",
-    "liquid-blue-watersports-daily",
-    "natura-cabana-yoga-daily",
-    "sosua-diving-adventures-daily",
-    
-    // Popular beach bars & nightlife
-    "lax-sunset-daily",
-    "lax-reggae-friday",
-    "lax-headline-concerts",
-    "voyvoy-monday-live-music",
-    "hard-rock-weekends",
-    "hard-rock-billed-concerts",
-    "natura-cabana-saturday-live",
-    
-    // Tourist attractions & tours
-    "ocean-world-daily",
-    "charcos-damajagua-daily",
-    "fortaleza-san-felipe-daily",
-    "teleferico-puerto-plata-daily",
-    "cayo-arena-tours-daily",
-    "freestyle-catamaran-daily",
-    "outback-safari-daily",
-    "monkeyland-puerto-plata-daily",
-    "coconut-cove-ocean-zipline-daily",
-    
-    // Museums & cultural experiences
-    "museo-ambar-weekdays",
-    "museo-ambar-saturday",
-    "sosua-jewish-museum-hours",
-    
-    // Rum & chocolate tours
-    "brugal-rum-center-weekdays",
-    "brugal-corporate-tours",
-    "macorix-house-of-rum",
-    "del-oro-chocolate-factory-weekdays",
-    "del-oro-chocolate-factory-saturday",
-    "hacienda-cufa-cacao-tour",
-    
-    // Cigar experiences
-    "tabacalera-cremo-factory-tour",
-    "tabacalera-cremo-rolling-experience",
-    "vivonte-cigar-factory-weekdays",
-    "vivonte-cigar-factory-saturday",
-    
-    // Markets & family activities
-    "sea-horse-saturday-market",
-    "fun-city-daily",
-    
-    // Dining experiences
-    "la-casita-papi-beach-dining",
-    "hms-valeria-spanish-saturday",
-    
-    // Workshops & unique experiences
-    "ingest-make-authentic-espadrilles-in-puerto-plata",
-  ],
-};
 
 /** Simple string → 32-bit seed for daily shuffle. */
 function hashSeed(input: string): number {
@@ -450,46 +319,6 @@ export function getFeaturedVenues(
   return seededShuffle(
     resolved,
     hashSeed(`${audience}:${seedKey}`),
-  ).slice(0, limit);
-}
-
-export interface FeaturedEventsOptions {
-  /**
-   * Shuffle seed. Defaults to today's local date so each audience pool
-   * rotates daily without reshuffling on every render.
-   */
-  seed?: string;
-  /** Current time for filtering active/upcoming events. */
-  now?: Date;
-}
-
-/**
- * Resolve up to `limit` events from the curated audience pool.
- * Only returns events that are currently active or upcoming.
- * Order is a seeded shuffle of the pool (not fixed ranking).
- */
-export function getFeaturedEvents(
-  events: Event[],
-  audience: VenueAudienceFilter = "local",
-  limit = HOME_EVENT_AUDIENCE_LIMIT,
-  options: FeaturedEventsOptions = {},
-): Event[] {
-  const now = options.now ?? new Date();
-  const byId = new Map(events.map((e) => [e.id, e]));
-
-  // Resolve events from the curated pool and filter to only active/upcoming
-  const resolved = EVENT_AUDIENCE_POOLS[audience]
-    .map((id) => byId.get(id))
-    .filter((e): e is Event => {
-      if (!e) return false;
-      // Only include events that are active today or upcoming
-      return isEventActiveToday(e, now);
-    });
-
-  const seedKey = options.seed ?? localDateISO();
-  return seededShuffle(
-    resolved,
-    hashSeed(`${audience}:events:${seedKey}`),
   ).slice(0, limit);
 }
 
