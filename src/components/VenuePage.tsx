@@ -108,6 +108,7 @@ export function VenuePage({
             defaultTimeRange="all"
             initialExpanded={initialExpanded}
             onAddEvent={() => setSubmitOpen(true)}
+            forceView="list"
           />
         </div>
       </main>
