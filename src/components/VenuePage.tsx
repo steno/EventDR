@@ -5,7 +5,6 @@ import type { Event, Venue, VenueAssessment } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import { VenueEventList } from "@/components/VenueEventList";
-import { SubmitEventSheet } from "@/components/SubmitEventSheet";
 import { StickyListHeader } from "@/components/StickyListHeader";
 import { CityPhotoHero } from "@/components/CityPhotoHero";
 import { VenueDirectionsSection } from "@/components/VenueDirectionsSection";
@@ -34,7 +33,6 @@ export function VenuePage({
 }: VenuePageProps) {
   const [events, setEvents] = useState<Event[]>([]);
   const [loading, setLoading] = useState(true);
-  const [submitOpen, setSubmitOpen] = useState(false);
 
   function loadEvents() {
     return fetch(`/api/events?locale=${locale}&venue=${venue.slug}`, {
@@ -69,59 +67,44 @@ export function VenuePage({
   const backLabel = resolveBackLabel(locale, backHref, dict);
 
   return (
-    <>
-      <main className="bg-neutral-50 dark:bg-transparent pb-6">
-        <div className={PAGE_SHELL_CLASS}>
-          <StickyListHeader
-            locale={locale}
-            dict={dict}
-            backHref={backHref}
-            backLabel={backLabel}
-            flushBottom={Boolean(heroImageUrl)}
-          />
+    <main className="bg-neutral-50 dark:bg-transparent pb-6">
+      <div className={PAGE_SHELL_CLASS}>
+        <StickyListHeader
+          locale={locale}
+          dict={dict}
+          backHref={backHref}
+          backLabel={backLabel}
+          flushBottom={Boolean(heroImageUrl)}
+        />
 
-          <CityPhotoHero
-            title={venue.name}
-            eyebrow={venue.city}
-            subtitle={venue.description}
-            imageUrl={heroImageUrl}
-          />
+        <CityPhotoHero
+          title={venue.name}
+          eyebrow={venue.city}
+          subtitle={venue.description}
+          imageUrl={heroImageUrl}
+        />
 
-          {assessment ? (
-            <VenueAssessmentBlock
-              assessment={assessment}
-              dict={dict}
-              locale={locale}
-            />
-          ) : null}
-
-          <VenueEventList
-            events={events}
-            loading={loading}
+        {assessment ? (
+          <VenueAssessmentBlock
+            assessment={assessment}
             dict={dict}
             locale={locale}
-            emptyMessage={dict.venues.noEvents}
-            sectionTitle={dict.venues.eventsAt}
-            returnTo={returnTo}
-            initialExpanded={initialExpanded}
-            onAddEvent={() => setSubmitOpen(true)}
           />
+        ) : null}
 
-          <VenueDirectionsSection venue={venue} dict={dict} />
-        </div>
-      </main>
+        <VenueEventList
+          events={events}
+          loading={loading}
+          dict={dict}
+          locale={locale}
+          emptyMessage={dict.venues.noEvents}
+          sectionTitle={dict.venues.eventsAt}
+          returnTo={returnTo}
+          initialExpanded={initialExpanded}
+        />
 
-      <SubmitEventSheet
-        open={submitOpen}
-        onClose={() => setSubmitOpen(false)}
-        dict={dict}
-        locale={locale}
-        defaults={{ location: venue.city, venue: venue.name }}
-        onSubmitted={() => {
-          setSubmitOpen(false);
-          refreshEvents();
-        }}
-      />
-    </>
+        <VenueDirectionsSection venue={venue} dict={dict} />
+      </div>
+    </main>
   );
 }
