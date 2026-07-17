@@ -128,8 +128,9 @@ Return ONLY valid JSON: an array of event objects. Each object must have:
 - phone (optional contact phone when stated — WhatsApp or tel numbers for the venue/organizer; prefer E.164 like "+18093204262")
 - lineup (optional array of performer/artist names — only when explicitly named in the source; omit if unknown or TBA)
 - imageEmoji (single emoji matching category)
+- imageUrl (optional absolute https image URL when the source explicitly lists one — e.g. a line starting with "Image:" from JSON-LD / Open Graph; omit inventing or guessing URLs)
 
-Always capture ticketUrl, admissionPrice or isFree, and phone when the source states them — do not drop pricing or contact details.
+Always capture ticketUrl, admissionPrice or isFree, phone, and imageUrl when the source states them — do not drop pricing, contact, or poster/image details.
 
 Focus on real upcoming North Coast events. Assign the most specific category. Skip irrelevant or undated content. Max 15 events.`;
 
@@ -201,6 +202,11 @@ ${rawContent.slice(0, 18000)}`;
             ticketUrl:
               typeof e.ticketUrl === "string" && e.ticketUrl.trim()
                 ? e.ticketUrl.trim()
+                : undefined,
+            imageUrl:
+              typeof e.imageUrl === "string" &&
+              /^https?:\/\//i.test(e.imageUrl.trim())
+                ? e.imageUrl.trim()
                 : undefined,
           }),
         ),

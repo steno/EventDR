@@ -45,6 +45,10 @@ curl -sS -X POST "https://pop-event.com/api/ingest?secret=$CRON_SECRET"
 
 Open https://pop-event.com/en/moderate — approve North Coast events only; reject duplicates and off-region posts.
 
+Confirm pending cards have real photos when possible (ingest sources OG/JSON-LD images; curated seeds must map `event-images.ts` + `venue-images.ts`).
+
+Ingest also drafts POP expert opinions when Places reviews exist (review drafts via `/api/cron/event-opinion-drafts?secret=…&status=draft`; approve with `?approve=eventId`).
+
 For richer Facebook coverage, run skill `pop-facebook-ingest` (browser + login; rule `facebook-groups-weekly`).
 
 ### 3. Partner digest preview

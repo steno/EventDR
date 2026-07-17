@@ -1,4 +1,4 @@
-import type { Event, EventOpinion, PriceFeel, Venue } from "@/lib/types";
+import type { Event, EventOpinion, PriceFeel } from "@/lib/types";
 import {
   fetchPlaceDetails,
   findPlaceId,
@@ -93,8 +93,17 @@ export function selectOpinionDraftCandidates(
   return out.slice(0, Math.max(1, limit));
 }
 
+type PlaceLookupVenue = {
+  name?: string;
+  city?: string;
+  slug?: string;
+  lat?: number;
+  lng?: number;
+  googlePlaceId?: string;
+};
+
 async function resolvePlacesForVenue(
-  venue: Venue | undefined,
+  venue: PlaceLookupVenue | undefined,
   fallbackName: string,
 ): Promise<GooglePlaceDetails | null> {
   if (!isGooglePlacesConfigured()) return null;
@@ -142,26 +151,42 @@ async function draftOpinionWithOpenAI(input: {
       ? `Google rating: ${input.places.rating.toFixed(1)} (${input.places.userRatingCount ?? "?"} reviews)`
       : "Google rating: unknown";
 
-  const system = `You write unique guest-facing opinions for ONE recurring night/event on the North Coast of the Dominican Republic (Puerto Plata, Sosúa, Cabarete, Costambar, Playa Dorada).
+  const isRecurring = Boolean(input.event.recurrence);
+  const system = `You write unique guest-facing POP expert opinions for ONE ${
+    isRecurring ? "recurring night/series" : "upcoming event"
+  } on the North Coast of the Dominican Republic (Puerto Plata, Sosúa, Cabarete, Costambar, Playa Dorada).
 
 Rules:
-- Write a warm POP tip about THIS night/series — same voice as venue tips ("When guests ask…", "we actually send people to", "honestly, we get why").
+- Write a warm POP tip about THIS ${isRecurring ? "night/series" : "event"} — same voice as venue tips ("When guests ask…", "we actually send people to", "honestly, we get why").
 - Do NOT restate the event description (venue name + what happens + genre/location list). The listing already shows that.
-- Prefer 1 short sentence (max 2). Unique to this night — never a generic blurb that could paste onto every night.
+- Prefer 1 short sentence (max 2). Unique to this listing — never a generic blurb that could paste onto every event.
 - 1–2 sentences in English for "body". Also provide Spanish (es) and French (fr) in localized.
 - Include priceFeel when evidence supports it: free | budget | moderate | upscale | varies. Prefer skip over guessing.
-- priceNote: short EN note about cover/drinks/spend; localized es/fr when present.
+- priceNote: short EN note about cover/tickets/drinks/spend; localized es/fr when present. Prefer stated ticket/admission details over guessing.
 - Use Google reviews only as evidence of crowd/vibe/service/price feel — do not invent facts not supported by reviews or the event description.
-- If reviews are too thin or only say "nice place" with nothing night-specific, set "skip": true and "skipReason".
+- If reviews are too thin or only say "nice place" with nothing event-specific, set "skip": true and "skipReason".
 - Return ONLY valid JSON.`;
+
+  const admissionBits = [
+    input.event.isFree === true ? "free entry" : null,
+    input.event.admissionPrice
+      ? `admission ${input.event.admissionPrice}`
+      : null,
+    input.event.callForPricing === true ? "call for pricing" : null,
+    input.event.ticketUrl ? `tickets: ${input.event.ticketUrl}` : null,
+  ]
+    .filter(Boolean)
+    .join("; ");
 
   const user = `Event:
 - id: ${input.event.id}
 - title: ${input.event.title}
 - description: ${input.event.description}
-- recurrence: ${input.event.recurrence ?? "n/a"} day=${input.event.recurrenceDay ?? "n/a"}
+- date: ${input.event.date}${input.event.endDate ? ` → ${input.event.endDate}` : ""}
+- recurrence: ${input.event.recurrence ?? "one-off"} day=${input.event.recurrenceDay ?? "n/a"}
 - venue: ${input.venueName} (${input.city})
 - time: ${input.event.time ?? "n/a"}
+- admission: ${admissionBits || "unknown"}
 
 ${ratingLine}
 
@@ -267,11 +292,23 @@ export async function generateOpinionDraftForEvent(
     };
   }
 
-  const venue = event.venueSlug ? getSeedVenue(event.venueSlug) : undefined;
-  const venueName = venue?.name ?? event.venue ?? event.location;
-  const city = venue?.city ?? event.location;
+  const seedVenue = event.venueSlug ? getSeedVenue(event.venueSlug) : undefined;
+  const venueName = seedVenue?.name ?? event.venue ?? event.location;
+  const city = seedVenue?.city ?? event.location;
+  const lookupVenue: PlaceLookupVenue | undefined = seedVenue
+    ? seedVenue
+    : venueName
+      ? {
+          name: venueName,
+          city: event.location,
+          ...(event.venueSlug ? { slug: event.venueSlug } : {}),
+          ...(typeof event.lat === "number" && typeof event.lng === "number"
+            ? { lat: event.lat, lng: event.lng }
+            : {}),
+        }
+      : undefined;
 
-  const places = await resolvePlacesForVenue(venue, venueName);
+  const places = await resolvePlacesForVenue(lookupVenue, venueName);
   if (!places || places.rating == null) {
     return {
       eventId: event.id,
@@ -394,7 +431,61 @@ export async function generateOpinionDrafts(
   results: DraftGenerationResult[];
 }> {
   const candidates = selectOpinionDraftCandidates(options);
+  return generateOpinionDraftsForEvents(candidates, options);
+}
+
+/**
+ * Draft POP expert opinions for an explicit event list (ingest / seed hooks).
+ * Skips when Places/OpenAI unavailable, seed opinion exists, or evidence is thin.
+ * Drafts are never auto-published.
+ */
+export async function generateOpinionDraftsForEvents(
+  events: Event[],
+  options?: GenerateOpinionDraftsOptions,
+): Promise<{
+  enabled: boolean;
+  placesConfigured: boolean;
+  openaiConfigured: boolean;
+  results: DraftGenerationResult[];
+}> {
+  const enabled = areEventOpinionsEnabled();
+  const placesConfigured = isGooglePlacesConfigured();
+  const openaiConfigured = Boolean(process.env.OPENAI_API_KEY?.trim());
   const results: DraftGenerationResult[] = [];
+
+  if (!enabled || !placesConfigured || !openaiConfigured) {
+    return {
+      enabled,
+      placesConfigured,
+      openaiConfigured,
+      results: [],
+    };
+  }
+
+  const limit = options?.limit ?? 5;
+  const idFilter = options?.eventIds?.length
+    ? new Set(options.eventIds)
+    : null;
+  const seen = new Set<string>();
+  const candidates: Event[] = [];
+
+  for (const event of events) {
+    if (idFilter && !idFilter.has(event.id)) continue;
+    if (!event.venueSlug && !event.venue?.trim()) continue;
+    if (getEventOpinion(event)) continue;
+
+    const key =
+      eventSeriesKey({
+        venueSlug: event.venueSlug,
+        recurrence: event.recurrence,
+        recurrenceDay: event.recurrenceDay,
+        recurrenceDays: event.recurrenceDays,
+      }) ?? event.id;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    candidates.push(event);
+    if (candidates.length >= Math.max(1, limit)) break;
+  }
 
   for (const event of candidates) {
     results.push(
@@ -406,9 +497,9 @@ export async function generateOpinionDrafts(
   }
 
   return {
-    enabled: areEventOpinionsEnabled(),
-    placesConfigured: isGooglePlacesConfigured(),
-    openaiConfigured: Boolean(process.env.OPENAI_API_KEY?.trim()),
+    enabled,
+    placesConfigured,
+    openaiConfigured,
     results,
   };
 }

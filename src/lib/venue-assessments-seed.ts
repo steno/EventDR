@@ -705,6 +705,17 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     ],
   }),
   editorial({
+    venueSlug: "club-deportivo-fantastico",
+    verdictKey: "solid_local_culture",
+    crowdFit: ["local", "family", "mixed"],
+    axes: { recommend: 4.1, atmosphere: 4.2, practical: 3.9, value: 4.3 },
+    themes: [
+      { key: "family_friendly", sentiment: "positive", audience: "family" },
+      { key: "busy_weekends", sentiment: "mixed", audience: "local" },
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+    ],
+  }),
+  editorial({
     venueSlug: "disco-club-brugal",
     verdictKey: "strong_local_nightlife",
     crowdFit: ["local", "nightlife"],

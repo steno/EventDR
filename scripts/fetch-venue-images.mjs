@@ -7,22 +7,17 @@ const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const outDir = join(root, "popevent-images");
 const forceRefresh = process.env.FORCE_VENUE_IMAGE_REFRESH === "1";
 
-/** Curated venue-accurate image sources (official sites, tourism board, venue media). */
+/** Curated image sources — prefer authentic North Coast event/venue media.
+ * Do NOT add Unsplash / generic stock for branded teams, named venues, or local events.
+ * Official sites, Eventbrite/Facebook OG, local press, and POP-curated photos only.
+ */
 const VENUE_SOURCES = [
   {
     eventId: "coconut-cove-ocean-zipline-daily",
     url: "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/12/e5/6b/d1.jpg",
   },
-  {
-    // Guided spirits tasting — guests sampling with a guide (tour action).
-    eventId: "brugal-rum-center-weekdays",
-    url: "https://commons.wikimedia.org/wiki/Special:FilePath/Lincoln_Heritage_Scenic_Highway_-_Tasting_Room_at_the_Heaven_Hill_Bourbon_Heritage_Center_-_NARA_-_7720062.jpg?width=1600",
-  },
-  {
-    // Guided tasting pour into rocks glass — group/corporate visit action.
-    eventId: "brugal-corporate-tours",
-    url: "https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=1800&q=85",
-  },
+  // brugal-corporate-tours / brugal-rum-center-weekdays — curated authentic assets in
+  // popevent-images/ (aging warehouse + Casa Brugal). Do not remote-refresh over them.
   {
     eventId: "del-oro-chocolate-factory-weekdays",
     url: "https://mamalikestocook.com/wp-content/uploads/2016/05/delorotour.jpg",
@@ -241,39 +236,9 @@ const VENUE_SOURCES = [
     eventId: "ojo-weekend-dj-parties",
     url: "https://images.unsplash.com/photo-1682289385881-a3c13fc3f1b4?w=1800&q=85",
   },
-  // Atléticos summer league — unique baseball action per home game (Unsplash License).
-  {
-    eventId: "atleticos-pp-vs-capitanes-2026-07-11",
-    url: "https://images.unsplash.com/photo-1772651926702-bdd74f367d87?w=1800&q=85",
-  },
-  {
-    eventId: "atleticos-pp-vs-mangueros-2026-07-17",
-    url: "https://images.unsplash.com/photo-1776184046370-1b38b855040c?w=1800&q=85",
-  },
-  {
-    eventId: "atleticos-pp-vs-mineros-2026-07-31",
-    url: "https://images.unsplash.com/photo-1768172239454-3e00d897cba0?w=1800&q=85",
-  },
-  {
-    eventId: "atleticos-pp-vs-granjeros-2026-08-02",
-    url: "https://images.unsplash.com/photo-1764570422378-15544d67e49b?w=1800&q=85",
-  },
-  {
-    eventId: "atleticos-pp-vs-bravos-2026-08-07",
-    url: "https://images.unsplash.com/photo-1774014045806-b9f32c82d670?w=1800&q=85",
-  },
-  {
-    eventId: "atleticos-pp-vs-reales-2026-08-09",
-    url: "https://images.unsplash.com/photo-1745674191772-1c63d904d020?w=1800&q=85",
-  },
-  {
-    eventId: "atleticos-pp-vs-arroceros-2026-08-22",
-    url: "https://images.unsplash.com/photo-1771208934877-abc1add680e2?w=1800&q=85",
-  },
-  {
-    eventId: "atleticos-pp-vs-capitanes-2026-08-28",
-    url: "https://images.unsplash.com/photo-1763906315759-c903168abea9?w=1800&q=85",
-  },
+  // Atléticos summer league — authentic team/venue photos only (no Unsplash stock).
+  // atleticos-pp-vs-* → popevent-images/athleticosPOP.png via sync-event-images.mjs
+  // parque-jose-briceno → popevent-images/baseballpark.png
   // --- Jul 2026 Facebook/Instagram ingest seeds ---
   // la-chabola-wednesday-open-mic.jpg — branded pizza cover from facebook.com/chabolacabaretee
   // (committed under popevent-images/). Do not remote-refresh over it.

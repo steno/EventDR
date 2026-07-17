@@ -55,6 +55,7 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "macorix-house-of-rum": "macorix-house-of-rum.jpg",
   "casa-de-la-cultura": "casa-de-la-cultura.jpg",
   "parque-jose-briceno": "parque-jose-briceno.jpg",
+  "club-deportivo-fantastico": "club-deportivo-fantastico.jpeg",
   "paella-pop-el-pueblito": "paella-pop-el-pueblito.jpg",
   "paella-pop-green-one": "paella-pop-green-one.jpg",
   "plaza-independencia": "plaza-independencia.jpg",

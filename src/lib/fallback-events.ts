@@ -10,6 +10,10 @@ import {
   ATLETICOS_HOME_GAMES_ES,
 } from "./atleticos-summer-league-2026";
 import {
+  ASA_SURVIVAL_SERIES_EN,
+  ASA_SURVIVAL_SERIES_ES,
+} from "./asa-survival-series-2026";
+import {
   EL_CAREY_WC2026_EVENTS_EN,
   EL_CAREY_WC2026_EVENTS_ES,
   EL_CAREY_WC2026_EVENTS_FR,
@@ -186,6 +190,7 @@ const FALLBACK_EVENTS_EN: Event[] = [
     imageEmoji: "🥊",
   },
   ...ATLETICOS_HOME_GAMES_EN,
+  ...ASA_SURVIVAL_SERIES_EN,
   {
     id: "cabarete-classic-2026",
     title: "Cabarete Classic 2026",
@@ -611,6 +616,7 @@ const FALLBACK_EVENTS_ES: Event[] = [
     imageEmoji: "🥊",
   },
   ...ATLETICOS_HOME_GAMES_ES,
+  ...ASA_SURVIVAL_SERIES_ES,
   {
     id: "cabarete-classic-2026",
     title: "Cabarete Classic 2026",

@@ -694,6 +694,18 @@ export const SEED_VENUES: Venue[] = [
     website: "https://todotickets.do",
   },
   {
+    slug: "club-deportivo-fantastico",
+    name: "Club Deportivo Fantastico",
+    city: "Puerto Plata",
+    description:
+      "Covered community sports club on Calle 1ra in barrio Haití (Urbanización Gregorio Luperón) — home court for Al Sena Athletics basketball and the ASA Survival Series.",
+    lat: 19.7935,
+    lng: -70.688,
+    emoji: "🏀",
+    website:
+      "https://www.eventbrite.co/o/al-sena-athletics-121192087480",
+  },
+  {
     slug: "disco-club-brugal",
     name: "Disco Club",
     city: "Puerto Plata",

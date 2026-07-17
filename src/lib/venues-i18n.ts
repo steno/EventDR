@@ -377,6 +377,12 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Stade de baseball rénové de 6 000 places sur l'Av. Hermanas Mirabal — domicile des Atléticos de Puerto Plata en Liga Nacional de Béisbol de Verano.",
     },
   },
+  "club-deportivo-fantastico": {
+    description: {
+      es: "Club deportivo techado en Calle 1ra (barrio Haití) — cancha de baloncesto local, sede de Al Sena Athletics y de la ASA Survival Series.",
+      fr: "Club sportif couvert sur Calle 1ra (quartier Haití) — terrain de basket local, domicile d'Al Sena Athletics et de l'ASA Survival Series.",
+    },
+  },
   "disco-club-brugal": {
     description: {
       es: "Discoteca y sala de conciertos en los Depósitos de Brugal, Calle Duarte — shows con entradas para artistas dominicanos en gira.",

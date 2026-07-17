@@ -489,6 +489,14 @@ export const VENUE_TIP_COPY: Record<
       fr: "Maison des Atléticos les soirs de match — ambiance baseball locale ; vérifiez le calendrier avant d'en faire un stop touristique.",
     },
   },
+  "club-deportivo-fantastico": {
+    body: "Covered community basketball court in barrio Haití — loud local game nights when ASA or youth tournaments are on; not a tourist nightlife stop.",
+    localized: {
+      en: "Covered community basketball court in barrio Haití — loud local game nights when ASA or youth tournaments are on; not a tourist nightlife stop.",
+      es: "Cancha techada de baloncesto comunitario en el barrio Haití — noches locales ruidosas cuando hay ASA o torneos juveniles; no es parada de nightlife turística.",
+      fr: "Terrain de basket couvert du quartier Haití — soirées locales bruyantes quand ASA ou tournois jeunes jouent ; pas un stop nightlife touristique.",
+    },
+  },
   "disco-club-brugal": {
     body: "Ticketed nights at the rum-depot hall on Duarte — when a bill is up it's a real concert room; quiet otherwise, check the poster.",
     localized: {

@@ -57,7 +57,7 @@ async function readError(res: Response): Promise<string> {
  */
 export async function findPlaceId(
   name: string,
-  venue?: Pick<Venue, "lat" | "lng" | "city" | "slug">,
+  venue?: Partial<Pick<Venue, "lat" | "lng" | "city" | "slug">>,
 ): Promise<string | null> {
   const probed = await findPlaceIdWithStatus(name, venue);
   return probed.placeId ?? null;
@@ -104,7 +104,7 @@ const PLACE_SEARCH_ALIASES: Record<string, string[]> = {
 
 function buildPlaceQueries(
   name: string,
-  venue?: Pick<Venue, "lat" | "lng" | "city" | "slug">,
+  venue?: Partial<Pick<Venue, "lat" | "lng" | "city" | "slug">>,
 ): string[] {
   const queries: string[] = [];
   const push = (q: string) => {
@@ -138,7 +138,7 @@ function buildPlaceQueries(
 
 async function textSearchPlaceId(
   textQuery: string,
-  venue?: Pick<Venue, "lat" | "lng">,
+  venue?: Partial<Pick<Venue, "lat" | "lng">>,
 ): Promise<{ placeId?: string; status?: number; error?: string }> {
   const key = apiKey();
   if (!key) return { error: "GOOGLE_PLACES_API_KEY missing" };
@@ -148,7 +148,12 @@ async function textSearchPlaceId(
     maxResultCount: 1,
     languageCode: "en",
   };
-  if (venue?.lat != null && venue?.lng != null) {
+  if (
+    typeof venue?.lat === "number" &&
+    Number.isFinite(venue.lat) &&
+    typeof venue?.lng === "number" &&
+    Number.isFinite(venue.lng)
+  ) {
     body.locationBias = {
       circle: {
         center: { latitude: venue.lat, longitude: venue.lng },
@@ -193,7 +198,7 @@ async function textSearchPlaceId(
 
 export async function findPlaceIdWithStatus(
   name: string,
-  venue?: Pick<Venue, "lat" | "lng" | "city" | "slug">,
+  venue?: Partial<Pick<Venue, "lat" | "lng" | "city" | "slug">>,
 ): Promise<{ placeId?: string; status?: number; error?: string }> {
   if (!apiKey() || !name.trim()) {
     return { error: "GOOGLE_PLACES_API_KEY missing or empty name" };
@@ -292,7 +297,7 @@ export async function fetchPlaceDetailsWithStatus(
 /** One-venue health check for ops / cron. */
 export async function probeGooglePlaces(
   name: string,
-  venue?: Pick<Venue, "lat" | "lng" | "city" | "slug">,
+  venue?: Partial<Pick<Venue, "lat" | "lng" | "city" | "slug">>,
 ): Promise<PlacesProbeResult> {
   if (!isGooglePlacesConfigured()) {
     return {

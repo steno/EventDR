@@ -7,6 +7,7 @@ import { normalizeLineup } from "@/lib/event-lineup";
 import { applyCuratedEventPatch } from "@/lib/curated-events";
 import { resolveEventCoords } from "@/lib/event-coords";
 import { translateEventCopy } from "@/lib/translate-event";
+import { getVenueImageUrl } from "@/lib/venue-images";
 import { SEED_VENUES } from "@/lib/venues-seed";
 import { getFirestoreDb, isFirebaseConfigured } from "./admin";
 
@@ -164,6 +165,7 @@ export async function syncSeedVenues(options?: {
   const batch = db.batch();
   for (const venue of venues) {
     const ref = db.collection("venues").doc(venue.slug);
+    const curatedImage = getVenueImageUrl(venue.slug);
     batch.set(
       ref,
       {
@@ -176,6 +178,7 @@ export async function syncSeedVenues(options?: {
         instagram: venue.instagram ?? null,
         website: venue.website ?? null,
         phone: venue.phone ?? null,
+        ...(curatedImage ? { imageUrl: curatedImage } : {}),
       },
       { merge: true },
     );

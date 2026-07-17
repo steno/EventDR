@@ -8,8 +8,10 @@ import {
   syncSeedVenues,
 } from "@/lib/firebase/events";
 import { resolveSeedEvents } from "@/lib/seed-events";
+import { generateOpinionDraftsForEvents } from "@/lib/event-opinion-drafts";
 
 export const dynamic = "force-dynamic";
+export const maxDuration = 120;
 
 function checkCronSecret(request: NextRequest): boolean {
   const secret = process.env.CRON_SECRET;
@@ -48,6 +50,16 @@ export async function POST(request: NextRequest) {
     if (await deleteEvent(legacyId)) deleted.push(legacyId);
   }
 
+  const skipOpinions =
+    request.nextUrl.searchParams.get("opinions") === "0" ||
+    request.nextUrl.searchParams.get("opinions") === "false";
+  const opinions = skipOpinions
+    ? null
+    : await generateOpinionDraftsForEvents(events, {
+        limit: 5,
+        skipExisting: true,
+      });
+
   return NextResponse.json({
     success: true,
     venuesSynced,
@@ -55,5 +67,15 @@ export async function POST(request: NextRequest) {
     deleted,
     skippedExpired,
     ids: events.map((e) => e.id),
+    opinions: opinions
+      ? {
+          drafted: opinions.results.filter((r) => r.status === "drafted")
+            .length,
+          skipped: opinions.results.filter((r) => r.status === "skipped")
+            .length,
+          failed: opinions.results.filter((r) => r.status === "failed").length,
+          results: opinions.results,
+        }
+      : { skipped: true },
   });
 }

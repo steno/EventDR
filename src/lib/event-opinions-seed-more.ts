@@ -847,4 +847,32 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     researchNotes: "Casa de la Cultura seed.",
     updatedAt: AT,
   },
+  // ASA Survival Series — same VIP night experience across five Saturdays.
+  ...[
+    "ingest-asa-survival-series-cdf-vs-dracos-game-1",
+    "ingest-asa-survival-series-cdf-vs-dracos-game-2",
+    "ingest-asa-survival-series-cdf-vs-dracos-game-3",
+    "ingest-asa-survival-series-cdf-vs-dracos-game-4",
+    "ingest-asa-survival-series-cdf-vs-dracos-game-5",
+  ].map(
+    (eventId): EventOpinion => ({
+      eventId,
+      body: "Buy the VIP pass if you want a reserved seat plus the included meal and drink — otherwise you're in a loud local indoor gym, not a resort show.",
+      localized: {
+        es: "Compra el pase VIP si quieres asiento reservado más comida y trago incluidos — si no, es un gimnasio techado local ruidoso, no un show de resort.",
+        fr: "Prenez le pass VIP pour une place réservée plus repas et boisson inclus — sinon c'est un gymnase couvert local et bruyant, pas un show de resort.",
+      },
+      priceFeel: "moderate",
+      priceNote:
+        "VIP Game Pass from ~US$13 on Eventbrite — reserved seat, meal voucher, and one alcoholic or two soft drinks",
+      priceNoteLocalized: {
+        es: "Pase VIP desde ~US$13 en Eventbrite — asiento reservado, vale de comida y un trago alcohólico o dos sin alcohol",
+        fr: "Pass VIP dès ~US$13 sur Eventbrite — place réservée, bon repas et une boisson alcoolisée ou deux softs",
+      },
+      attribution: "POP research · Eventbrite VIP listing",
+      researchNotes:
+        "Eventbrite VIP Game Pass from $13; inclusions: reserved VIP seating, meal voucher, one alcoholic or two non-alcoholic drinks; free parking; Club Deportivo Fantastico, Puerto Plata.",
+      updatedAt: AT,
+    }),
+  ),
 ];

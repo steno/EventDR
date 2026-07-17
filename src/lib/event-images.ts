@@ -1,5 +1,6 @@
 /** Maps seed event ids to image files under /public/events (synced from popevent-images). */
 import { getAppVersion } from "./app-version";
+import { getVenueImageUrl } from "./venue-images";
 
 const EVENT_IMAGE_FILES: Record<string, string> = {
   "rumble-in-paradise-12": "rumble-in-paradise-12.jpg",
@@ -111,6 +112,16 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "atleticos-pp-vs-reales-2026-08-09": "atleticos-pp-vs-reales-2026-08-09.jpg",
   "atleticos-pp-vs-arroceros-2026-08-22": "atleticos-pp-vs-arroceros-2026-08-22.jpg",
   "atleticos-pp-vs-capitanes-2026-08-28": "atleticos-pp-vs-capitanes-2026-08-28.jpg",
+  "ingest-asa-survival-series-cdf-vs-dracos-game-1":
+    "ingest-asa-survival-series-cdf-vs-dracos-game-1.jpeg",
+  "ingest-asa-survival-series-cdf-vs-dracos-game-2":
+    "ingest-asa-survival-series-cdf-vs-dracos-game-2.jpeg",
+  "ingest-asa-survival-series-cdf-vs-dracos-game-3":
+    "ingest-asa-survival-series-cdf-vs-dracos-game-3.jpeg",
+  "ingest-asa-survival-series-cdf-vs-dracos-game-4":
+    "ingest-asa-survival-series-cdf-vs-dracos-game-4.jpeg",
+  "ingest-asa-survival-series-cdf-vs-dracos-game-5":
+    "ingest-asa-survival-series-cdf-vs-dracos-game-5.jpeg",
   "puerto-plata-golf-classic-2026": "puerto-plata-golf-classic-2026.jpg",
   "cac-games-surf-playa-encuentro-2026": "cac-games-surf-playa-encuentro-2026.jpg",
   "puerto-plata-beach-soccer-2026": "puerto-plata-beach-soccer-2026.jpg",
@@ -148,16 +159,20 @@ export function getEventHeroObjectPosition(eventId: string): string {
   return EVENT_HERO_OBJECT_POSITION[resolvedId] ?? "object-center";
 }
 
-export function attachEventImage<T extends { id: string; imageUrl?: string }>(
-  event: T,
-): T & { imageUrl?: string } {
+export function attachEventImage<
+  T extends { id: string; imageUrl?: string; venueSlug?: string },
+>(event: T): T & { imageUrl?: string } {
   const curated = getEventImageUrl(event.id);
-  const imageUrl = curated ?? event.imageUrl;
+  const venueFallback =
+    !curated && !event.imageUrl?.trim() && event.venueSlug
+      ? getVenueImageUrl(event.venueSlug)
+      : undefined;
+  const imageUrl = curated ?? event.imageUrl ?? venueFallback;
   return imageUrl ? { ...event, imageUrl } : event;
 }
 
-export function attachEventImages<T extends { id: string; imageUrl?: string }>(
-  events: T[],
-): (T & { imageUrl?: string })[] {
+export function attachEventImages<
+  T extends { id: string; imageUrl?: string; venueSlug?: string },
+>(events: T[]): (T & { imageUrl?: string })[] {
   return events.map(attachEventImage);
 }

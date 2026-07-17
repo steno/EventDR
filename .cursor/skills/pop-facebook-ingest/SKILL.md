@@ -24,7 +24,7 @@ Facebook ingest:
 - [ ] 3. Search Discussions
 - [ ] 4. Promoter / press watch
 - [ ] 5. Filter + dedupe vs site
-- [ ] 6. Add seeds (EN/ES/FR) if any new
+- [ ] 6. Add seeds + valid event/venue images (EN/ES/FR) if any new
 - [ ] 7. Optional: FACEBOOK_SEED_EVENT_IDS
 - [ ] 8. Confirm / trigger API ingest
 - [ ] 9. Report + hand off to moderate
@@ -82,11 +82,21 @@ For each **new** event:
 3. Same `id` across locales; include `sourceUrl` when from Facebook/Instagram
 4. Match existing field patterns (`category`, `location`, `venue` / `venueSlug`, `format: "physical"`, dates as `YYYY-MM-DD`)
 5. **Admission & contact (required when known):** set `ticketUrl` and/or `admissionPrice` (e.g. `RD$250`, `US$210`) or `isFree: true` / `callForPricing: true`; always add `phone` when an organizer/venue number exists (also on the venue in `venues-seed.ts`). Wire curated maps in `event-tickets.ts` / `event-phone.ts` when useful.
-6. Add **venue images** (`venue-images.ts` + `public/venues/`) and event images when introducing new venues
+6. **Images (required for every new event):** source **authentic** event + venue photos — this place, this team, this flyer.
+   - Save under `popevent-images/`, sync via `node scripts/sync-event-images.mjs`
+   - Map event id in `event-images.ts` and venue slug in `venue-images.ts`
+   - Prefer Eventbrite/Facebook/official OG, local press, or POP-shot scenes
+   - **Do not use Unsplash / generic stock** for branded teams or named North Coast venues
+   - When introducing a **new venue**, always add both venue seed + venue image
+7. **POP expert opinion (when possible):** if the venue has Google Places reviews, prefer a unique seed opinion in `event-opinions-seed.ts` / `event-opinions-seed-more.ts`, or let server ingest draft one via Places + OpenAI (`eventOpinionDrafts`, never auto-published). Skip rather than inventing a generic blurb.
 
 Do **not** commit unless the user asks.
 
 If there are zero new events, say so and skip file edits.
+
+Server ingest (`POST /api/ingest`) also:
+- sources OG/JSON-LD images from `sourceUrl`/`ticketUrl` (and curated venue fallbacks)
+- drafts POP expert opinions when Google Places + OpenAI are configured (saved as drafts for review; never auto-published)
 
 ## 7. Facebook seed API ids (when relevant)
 

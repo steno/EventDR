@@ -22,9 +22,13 @@ jobs:
           post_api() {
             local path="$1"
             local label="$2"
-            local res http body
-            res=$(curl -sS -w "\n%{http_code}" -X POST \
-              "${SITE_URL}${path}?secret=${CRON_SECRET}")
+            local res http body url
+            if [[ "$path" == *\?* ]]; then
+              url="${SITE_URL}${path}&secret=${CRON_SECRET}"
+            else
+              url="${SITE_URL}${path}?secret=${CRON_SECRET}"
+            fi
+            res=$(curl -sS -w "\n%{http_code}" -X POST "$url")
             http=$(echo "$res" | tail -n1)
             body=$(echo "$res" | sed '$d')
             echo "${label}: HTTP ${http}"
@@ -39,3 +43,5 @@ jobs:
           post_api "/api/seed/curated-events" "curated seed"
           post_api "/api/seed/facebook-events" "facebook seed"
           post_api "/api/ingest" "ingest"
+          # Backfill POP expert opinion drafts for recurring nights missing takes
+          post_api "/api/cron/event-opinion-drafts?generate=1&limit=5" "opinion drafts"

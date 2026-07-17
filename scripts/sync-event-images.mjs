@@ -42,15 +42,10 @@ const FILE_TO_EVENT_ID = {
   "tabacalera-cremo-rolling-experience.jpg": "tabacalera-cremo-rolling-experience",
   "vivonte-cigar-factory-weekdays.jpg": "vivonte-cigar-factory-weekdays",
   "lil-naay-2026-07-17.jpg": "lil-naay-2026-07-17",
-  // Atléticos summer league — unique Unsplash baseball action per home game.
-  "atleticos-pp-vs-capitanes-2026-07-11.jpg": "atleticos-pp-vs-capitanes-2026-07-11",
-  "atleticos-pp-vs-mangueros-2026-07-17.jpg": "atleticos-pp-vs-mangueros-2026-07-17",
-  "atleticos-pp-vs-mineros-2026-07-31.jpg": "atleticos-pp-vs-mineros-2026-07-31",
-  "atleticos-pp-vs-granjeros-2026-08-02.jpg": "atleticos-pp-vs-granjeros-2026-08-02",
-  "atleticos-pp-vs-bravos-2026-08-07.jpg": "atleticos-pp-vs-bravos-2026-08-07",
-  "atleticos-pp-vs-reales-2026-08-09.jpg": "atleticos-pp-vs-reales-2026-08-09",
-  "atleticos-pp-vs-arroceros-2026-08-22.jpg": "atleticos-pp-vs-arroceros-2026-08-22",
-  "atleticos-pp-vs-capitanes-2026-08-28.jpg": "atleticos-pp-vs-capitanes-2026-08-28",
+  // Atléticos summer league — authentic Atléticos pitcher (athleticosPOP.png); copies below.
+  "athleticosPOP.png": "atleticos-pp-vs-mangueros-2026-07-17",
+  // ASA Survival Series — same flyer for all five Saturday VIP games.
+  "asa-surviaval.jpeg": "ingest-asa-survival-series-cdf-vs-dracos-game-2",
 
   // --- Logo → action shot replacements ({eventId}.jpg from fetch) ---
   "cabarete-pilates-reformer.jpg": "cabarete-pilates-reformer",
@@ -137,11 +132,24 @@ const SAME_VENUE_COPIES = [
   ["voyvoy-monday-live-music.jpg", "voyvoy-monday-live-music"],
   ["del-oro-chocolate-factory-weekdays.jpg", "del-oro-chocolate-factory-saturday"],
   ["vivonte-cigar-factory-weekdays.jpg", "vivonte-cigar-factory-saturday"],
+  ["asa-surviaval.jpeg", "ingest-asa-survival-series-cdf-vs-dracos-game-1"],
+  ["asa-surviaval.jpeg", "ingest-asa-survival-series-cdf-vs-dracos-game-3"],
+  ["asa-surviaval.jpeg", "ingest-asa-survival-series-cdf-vs-dracos-game-4"],
+  ["asa-surviaval.jpeg", "ingest-asa-survival-series-cdf-vs-dracos-game-5"],
+  // Atléticos home slate — same authentic team photo until per-game authentic shots land.
+  ["athleticosPOP.png", "atleticos-pp-vs-capitanes-2026-07-11"],
+  ["athleticosPOP.png", "atleticos-pp-vs-mineros-2026-07-31"],
+  ["athleticosPOP.png", "atleticos-pp-vs-granjeros-2026-08-02"],
+  ["athleticosPOP.png", "atleticos-pp-vs-bravos-2026-08-07"],
+  ["athleticosPOP.png", "atleticos-pp-vs-reales-2026-08-09"],
+  ["athleticosPOP.png", "atleticos-pp-vs-arroceros-2026-08-22"],
+  ["athleticosPOP.png", "atleticos-pp-vs-capitanes-2026-08-28"],
 ];
 
 /** popevent-images filename → venue slug (copied to public/venues/). */
 const FILE_TO_VENUE_SLUG = {
-  "atleticos-pp-vs-mangueros-2026-07-17.jpg": "parque-jose-briceno",
+  "baseballpark.png": "parque-jose-briceno",
+  "asa-surviaval.jpeg": "club-deportivo-fantastico",
   "la-casita-papi-beach-dining.jpg": "la-casita-de-papi",
   "liquid-blue-watersports-daily.jpg": "liquid-blue-cabarete",
   "anfiteatro-la-puntilla-concerts.jpg": "anfiteatro-la-puntilla",

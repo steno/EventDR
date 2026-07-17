@@ -1,13 +1,20 @@
 # Event / venue photo notes
 
-Curated images under `public/events/` and `public/venues/`. Prefer venue-accurate scenes (dining, sport, market, live stage) over generic destination stock. Remote refresh via `scripts/fetch-venue-images.mjs` is best-effort and skips valid committed JPEGs.
+Curated images under `public/events/` and `public/venues/`.
+
+## Policy (authentic first)
+
+1. **Source real North Coast media** — official venue/event sites, Eventbrite/Facebook/Instagram OG posters, local press, tourism board, or POP-shot photos of *this* place/team/night.
+2. **Do not use Unsplash / generic stock** for branded teams, named venues, or local events (wrong jersey, wrong city, stock “vibe” shots).
+3. Prefer a reused **authentic** team/venue photo over a prettier stock stand-in.
+4. Remote refresh via `scripts/fetch-venue-images.mjs` is best-effort and must not overwrite curated authentic assets.
 
 | Asset | Source | Notes |
 |-------|--------|-------|
 | `la-casita-papi-beach-dining.jpg` / `venues/la-casita-de-papi.jpg` | Restaurant Guru gallery — daytime beachfront tables facing Cabarete Bay | Replaces Liquid Blue Encuentro empty-beach reuse |
 | `liquid-blue-watersports-daily.jpg` / `venues/liquid-blue-cabarete.jpg` | [Liquid Blue Cabarete](https://www.lbcabarete.com/) — `IMG_9340` kite jump | Official LB action photo |
-| `brugal-rum-center-weekdays.jpg` | [NARA / Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Lincoln_Heritage_Scenic_Highway_-_Tasting_Room_at_the_Heaven_Hill_Bourbon_Heritage_Center_-_NARA_-_7720062.jpg) — public domain | Guided tasting room with guests sampling (tourists tasting) |
-| `brugal-corporate-tours.jpg` | [Unsplash](https://unsplash.com/photos/photo-1470337458703-46ad1756a187) (`photo-1470337458703`) — Unsplash License | Guided tasting pour into rocks glass |
+| `brugal-rum-center-weekdays.jpg` | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Brugal_06.JPG) — visitor plant photo (timestamp cropped) | Brugal Puerto Plata bottling line with branded cases (replaces entrance reuse) |
+| `brugal-corporate-tours.jpg` | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Barricas_de_la_planta_de_envejecimiento_de_Puerto_Plata.jpg) — Ron Brugal | Puerto Plata aging warehouse barrels (replaces Unsplash cocktail pour) |
 | `venues/brugal-rum-center.jpg` | TripAdvisor — Casa Brugal entrance exterior | Building for venue page only |
 | `liquid-blue-sunrise-yoga.jpg` | [Unsplash](https://unsplash.com/photos/woman-in-black-tank-top-and-black-leggings-doing-yoga-JZ51oKoCghE) (`photo-1544367567`) — Unsplash License | Sunrise yoga by water; not surf aerial |
 | `sea-horse-saturday-market.jpg` | POP curated `CabareteFarmersMarket.JPG` — outdoor artisan/produce market | Replaces Sea Horse flyer graphic |
@@ -47,11 +54,5 @@ Curated images under `public/events/` and `public/venues/`. Prefer venue-accurat
 | `el-colibri-karaoke-battle-2026.jpg` | [Unsplash](https://unsplash.com/photos/photo-1514525253161) (`photo-1514525253161`) — Unsplash License | Concert crowd / stage energy (replaces karaoke flyer) |
 | `rumble-in-paradise-12.jpg` | [Unsplash](https://unsplash.com/photos/photo-1552072092) (`photo-1552072092`) — Unsplash License | Boxer walkout to the ring (replaces fight poster) |
 | `inicio-del-campamento-pp-2026.jpg` | [Unsplash](https://unsplash.com/photos/photo-1526232761682) (`photo-1526232761682`) — Unsplash License | Youth sports camp huddle (replaces podcast logo) |
-| `atleticos-pp-vs-capitanes-2026-07-11.jpg` | [Unsplash](https://unsplash.com/photos/120D4zeltRA) (`photo-1772651926702`) — Unsplash License | Pitcher on the mound |
-| `atleticos-pp-vs-mangueros-2026-07-17.jpg` | [Unsplash](https://unsplash.com/photos/qJOVKt8XB-I) (`photo-1776184046370`) — Unsplash License | Pitcher mid-delivery |
-| `atleticos-pp-vs-mineros-2026-07-31.jpg` | [Unsplash](https://unsplash.com/photos/OSlwtcCUgl4) (`photo-1768172239454`) — Unsplash License | Batter at the plate with catcher |
-| `atleticos-pp-vs-granjeros-2026-08-02.jpg` | [Unsplash](https://unsplash.com/photos/Kv9i1aIpi8Q) (`photo-1764570422378`) — Unsplash License | Batter swing / catcher ready |
-| `atleticos-pp-vs-bravos-2026-08-07.jpg` | [Unsplash](https://unsplash.com/photos/ZEyabAnRw0Y) (`photo-1774014045806`) — Unsplash License | Stadium game with crowd |
-| `atleticos-pp-vs-reales-2026-08-09.jpg` | [Unsplash](https://unsplash.com/photos/nM-2U13tFKU) (`photo-1745674191772`) — Unsplash License | Catcher crouch behind the plate |
-| `atleticos-pp-vs-arroceros-2026-08-22.jpg` | [Unsplash](https://unsplash.com/photos/IF31SVWetxw) (`photo-1771208934877`) — Unsplash License | Batter, catcher, and umpire |
-| `atleticos-pp-vs-capitanes-2026-08-28.jpg` | [Unsplash](https://unsplash.com/photos/kZ1n7gQ0SqA) (`photo-1763906315759`) — Unsplash License | Night baseball under lights |
+| `atleticos-pp-vs-mangueros-2026-07-17.jpg` (+ other Atléticos home games) | POP curated `athleticosPOP.png` — Atléticos de Puerto Plata pitcher | Authentic team photo; replaces Unsplash stock for the full home slate |
+| `venues/parque-jose-briceno.jpg` | POP curated `baseballpark.png` — packed grandstand at Parque José Briceño | Authentic venue place photo |

@@ -44,6 +44,16 @@ export const CURATED_TICKET_URLS: Record<string, string> = {
     "https://www.eventbrite.ca/e/18th-annual-cabarete-butterfly-effect-tickets-1568174655609",
   "ingest-1783371784615-0-18th-annual-cabarete-butterfly-effect":
     "https://www.eventbrite.ca/e/18th-annual-cabarete-butterfly-effect-tickets-1568174655609",
+  "ingest-asa-survival-series-cdf-vs-dracos-game-1":
+    "https://www.eventbrite.co/e/asa-survival-series-cdf-vs-dracos-vip-game-1-pass-tickets-1993538455184",
+  "ingest-asa-survival-series-cdf-vs-dracos-game-2":
+    "https://www.eventbrite.co/e/asa-survival-series-cdf-vs-dracos-vip-game-2-pass-tickets-1993540908522",
+  "ingest-asa-survival-series-cdf-vs-dracos-game-3":
+    "https://www.eventbrite.co/e/asa-survival-series-cdf-vs-dracos-vip-game-3-pass-tickets-1993541033897",
+  "ingest-asa-survival-series-cdf-vs-dracos-game-4":
+    "https://www.eventbrite.co/e/asa-survival-series-cdf-vs-dracos-vip-series-pass-tickets-1993541200395",
+  "ingest-asa-survival-series-cdf-vs-dracos-game-5":
+    "https://www.eventbrite.co/e/asa-survival-series-cdf-vs-dracos-vip-series-pass-tickets-1993541200395",
 
   // Attractions with official online booking
   "ocean-world-daily": "https://shop.oceanworld.net/",

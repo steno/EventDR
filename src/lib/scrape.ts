@@ -58,6 +58,22 @@ function summarizeAddress(address: unknown, lines: string[]): void {
   }
 }
 
+function summarizeJsonLdImage(image: unknown): string | undefined {
+  if (typeof image === "string" && image.trim()) return image.trim();
+  if (Array.isArray(image)) {
+    for (const item of image) {
+      const found = summarizeJsonLdImage(item);
+      if (found) return found;
+    }
+    return undefined;
+  }
+  if (image && typeof image === "object") {
+    const url = (image as Record<string, unknown>).url;
+    if (typeof url === "string" && url.trim()) return url.trim();
+  }
+  return undefined;
+}
+
 function summarizeJsonLdEvent(record: Record<string, unknown>): string {
   const lines: string[] = [];
   if (typeof record.name === "string") lines.push(`Event: ${record.name}`);
@@ -66,6 +82,9 @@ function summarizeJsonLdEvent(record: Record<string, unknown>): string {
     lines.push(`Description: ${record.description.slice(0, 300)}`);
   }
   if (typeof record.url === "string") lines.push(`URL: ${record.url}`);
+
+  const imageUrl = summarizeJsonLdImage(record.image);
+  if (imageUrl) lines.push(`Image: ${imageUrl}`);
 
   const loc = record.location;
   if (loc && typeof loc === "object") {
@@ -124,6 +143,21 @@ function htmlToText(html: string): string {
   return text.replace(/\s+/g, " ").trim();
 }
 
+function extractOpenGraphImage(html: string): string | undefined {
+  const $ = cheerio.load(html);
+  const selectors = [
+    'meta[property="og:image"]',
+    'meta[property="og:image:url"]',
+    'meta[name="twitter:image"]',
+    'meta[name="twitter:image:src"]',
+  ];
+  for (const sel of selectors) {
+    const content = $(sel).first().attr("content")?.trim();
+    if (content) return content;
+  }
+  return undefined;
+}
+
 /** Fetch a URL and return plain text (plus JSON-LD Event blocks when present). */
 export async function scrapeUrl(targetUrl: string): Promise<string> {
   const res = await fetchWithTimeout(targetUrl);
@@ -133,8 +167,15 @@ export async function scrapeUrl(targetUrl: string): Promise<string> {
 
   const html = await res.text();
   const jsonLd = extractJsonLdText(html);
+  const ogImage = extractOpenGraphImage(html);
   const text = htmlToText(html);
-  const combined = [jsonLd, text].filter(Boolean).join("\n\n---\n\n");
+  const combined = [
+    jsonLd,
+    ogImage ? `Image: ${ogImage}` : "",
+    text,
+  ]
+    .filter(Boolean)
+    .join("\n\n---\n\n");
   return combined.slice(0, MAX_CONTENT_CHARS);
 }
 

@@ -12,6 +12,7 @@ import {
   instagramProfileUrls,
   instagramSearchQueries,
 } from "@/lib/instagram-sources";
+import { attachIngestImages } from "@/lib/ingest-images";
 import { scrapeUrl, webSearch } from "@/lib/scrape";
 import type { Event } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
@@ -120,7 +121,7 @@ export async function ingestSocialEvents(locale: Locale = "en"): Promise<Event[]
     locale,
   );
 
-  return enriched.map((e) => ({
+  const pending = enriched.map((e) => ({
     ...e,
     id: ingestEventId(e),
     sourceType: e.sourceUrl?.includes("instagram")
@@ -131,4 +132,7 @@ export async function ingestSocialEvents(locale: Locale = "en"): Promise<Event[]
     status: "pending" as const,
     communitySubmitted: true,
   }));
+
+  // Source OG / JSON-LD / venue images so pending cards aren't emoji-only.
+  return attachIngestImages(pending);
 }

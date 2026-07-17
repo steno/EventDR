@@ -1,9 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 import { ingestSocialEvents } from "@/lib/ingest-social";
 import { insertIngestedEvents, isFirebaseConfigured } from "@/lib/firebase/events";
+import { generateOpinionDraftsForEvents } from "@/lib/event-opinion-drafts";
 
 export const dynamic = "force-dynamic";
-export const maxDuration = 60;
+export const maxDuration = 120;
 
 function checkCronSecret(request: NextRequest): boolean {
   const secret = process.env.CRON_SECRET;
@@ -26,10 +27,46 @@ export async function POST(request: NextRequest) {
   const events = await ingestSocialEvents("en");
   const upserted = await insertIngestedEvents(events);
 
+  const skipOpinions =
+    request.nextUrl.searchParams.get("opinions") === "0" ||
+    request.nextUrl.searchParams.get("opinions") === "false";
+  const opinionLimit = Number(
+    request.nextUrl.searchParams.get("opinionLimit") || "3",
+  );
+
+  const opinions = skipOpinions
+    ? null
+    : await generateOpinionDraftsForEvents(events, {
+        limit: Number.isFinite(opinionLimit) ? opinionLimit : 3,
+        skipExisting: true,
+      });
+
+  const opinionDrafted =
+    opinions?.results.filter((r) => r.status === "drafted").length ?? 0;
+  const opinionSkipped =
+    opinions?.results.filter((r) => r.status === "skipped").length ?? 0;
+  const opinionFailed =
+    opinions?.results.filter((r) => r.status === "failed").length ?? 0;
+
   return NextResponse.json({
     success: true,
     discovered: events.length,
     upserted,
-    message: `${upserted} ingested events synced for moderation`,
+    opinions: opinions
+      ? {
+          enabled: opinions.enabled,
+          placesConfigured: opinions.placesConfigured,
+          openaiConfigured: opinions.openaiConfigured,
+          drafted: opinionDrafted,
+          skipped: opinionSkipped,
+          failed: opinionFailed,
+          results: opinions.results,
+        }
+      : { skipped: true, reason: "disabled_by_query" },
+    message: `${upserted} ingested events synced for moderation${
+      opinions
+        ? `; ${opinionDrafted} POP opinion draft(s)`
+        : ""
+    }`,
   });
 }

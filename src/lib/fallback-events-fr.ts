@@ -1,5 +1,6 @@
 import type { Event } from "./types";
 import { ATLETICOS_HOME_GAMES_FR } from "./atleticos-summer-league-2026";
+import { ASA_SURVIVAL_SERIES_FR } from "./asa-survival-series-2026";
 
 /** French translations of curated North Coast events. */
 export const FALLBACK_EVENTS_FR: Event[] = [
@@ -171,6 +172,7 @@ export const FALLBACK_EVENTS_FR: Event[] = [
     imageEmoji: "🥊",
   },
   ...ATLETICOS_HOME_GAMES_FR,
+  ...ASA_SURVIVAL_SERIES_FR,
   {
     id: "cabarete-classic-2026",
     title: "Cabarete Classic 2026",

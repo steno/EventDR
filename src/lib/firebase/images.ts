@@ -28,12 +28,15 @@ async function resolveBucket(): Promise<Bucket | null> {
   return null;
 }
 
-export async function uploadEventImage(
+export async function uploadEventImageBytes(
   eventId: string,
-  dataUrl: unknown,
+  bytes: Buffer,
+  contentType: string,
+  extension: string,
 ): Promise<UploadEventImageResult> {
-  const parsed = parseImageDataUrl(dataUrl);
-  if (!parsed) return { ok: false, reason: "invalid" };
+  if (!bytes.length || !contentType || !extension) {
+    return { ok: false, reason: "invalid" };
+  }
 
   const bucket = await resolveBucket();
   if (!bucket) {
@@ -45,13 +48,13 @@ export async function uploadEventImage(
     return { ok: false, reason: "storage_unavailable" };
   }
 
-  const fileName = `event-images/${eventId}.${parsed.extension}`;
+  const fileName = `event-images/${eventId}.${extension}`;
   const file = bucket.file(fileName);
   const token = randomUUID();
 
   try {
-    await file.save(Buffer.from(parsed.base64, "base64"), {
-      contentType: parsed.contentType,
+    await file.save(bytes, {
+      contentType,
       metadata: {
         cacheControl: "public, max-age=31536000",
         metadata: {
@@ -68,4 +71,19 @@ export async function uploadEventImage(
     console.error("Failed to upload event image:", error);
     return { ok: false, reason: "upload_failed" };
   }
+}
+
+export async function uploadEventImage(
+  eventId: string,
+  dataUrl: unknown,
+): Promise<UploadEventImageResult> {
+  const parsed = parseImageDataUrl(dataUrl);
+  if (!parsed) return { ok: false, reason: "invalid" };
+
+  return uploadEventImageBytes(
+    eventId,
+    Buffer.from(parsed.base64, "base64"),
+    parsed.contentType,
+    parsed.extension,
+  );
 }
