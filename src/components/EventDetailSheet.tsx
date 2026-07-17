@@ -30,12 +30,12 @@ import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import { getCategoryMeta } from "@/lib/categories";
 import { formatEventDateRange } from "@/lib/format-date";
+import { formatEventTimeForList } from "@/lib/event-time-display";
 import { getDirectionsUrl } from "@/lib/maps";
 import { ShareMenu } from "@/components/ShareMenu";
 import { CalendarMenu } from "@/components/CalendarMenu";
 import { matchVenueSlug } from "@/lib/venues-seed";
 import { formatRecurrenceLabel } from "@/lib/recurrence-label";
-import { EventCategoryLinks } from "@/components/EventCategoryLinks";
 import { useLiveStatusDisplay } from "@/hooks/useLiveStatusDisplay";
 import { EventStatusBadge } from "@/components/EventStatusBadge";
 import { EventImage } from "@/components/EventImage";
@@ -291,6 +291,10 @@ export function EventDetailSheet({
   const liveDisplay = useLiveStatusDisplay(event, dict);
   const liveStatus = liveDisplay?.status ?? null;
   const liveStatusLabel = liveDisplay?.label ?? null;
+  const timeLabel = formatEventTimeForList(event.time, {
+    recurrence: event.recurrence,
+    allDayLabel: dict.events.allDay,
+  });
   const TitleTag = standalone ? "h1" : "h2";
   const showHero = hasEventDetailHero(event);
   const hasMapCoords = resolveEventCoords(event) != null;
@@ -332,50 +336,11 @@ export function EventDetailSheet({
         </span>
       )}
 
-      <TitleTag className="text-2xl font-black text-neutral-900 dark:text-neutral-100 leading-tight tracking-tight">
+      <TitleTag className="text-2xl font-black text-neutral-900 dark:text-neutral-100 leading-tight tracking-tight lg:text-[1.75rem]">
         {event.title}
       </TitleTag>
 
-      <p className="mt-4 text-copy">{event.description}</p>
-
-      {eventOpinion ? (
-        <EventOpinionBlock
-          opinion={eventOpinion}
-          dict={dict}
-          locale={locale}
-          className="mt-5 mb-1"
-        />
-      ) : null}
-
-      <EventCategoryLinks
-        event={event}
-        locale={locale}
-        dict={dict}
-        className="mt-4"
-      />
-
-      {event.lineup && event.lineup.length > 0 && (
-        <div className="mt-4">
-          <div className="flex items-center gap-2 text-neutral-500 mb-2">
-            <Mic2 className="h-4 w-4 flex-shrink-0" />
-            <span className="text-[11px] font-bold uppercase tracking-wide">
-              {dict.detail.lineup}
-            </span>
-          </div>
-          <ul className="flex flex-wrap gap-2">
-            {event.lineup.map((name) => (
-              <li
-                key={name}
-                className="rounded-full bg-neutral-100 dark:bg-neutral-800 px-3 py-1 text-copy font-medium text-neutral-800 dark:text-neutral-200"
-              >
-                {name}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-
-      <div className="mt-5 space-y-3.5">
+      <div className="mt-4 space-y-3">
         <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
           <div className="inline-flex items-center gap-2.5 text-copy-meta text-neutral-800 dark:text-neutral-200">
             <Calendar className="h-[1.125rem] w-[1.125rem] shrink-0 text-neutral-500 dark:text-neutral-400" />
@@ -387,12 +352,17 @@ export function EventDetailSheet({
             <EventStatusBadge label={liveStatusLabel} status={liveStatus} />
           )}
         </div>
-        {(event.time || recurrenceLabel) && (
+        {(timeLabel.display || recurrenceLabel) && (
           <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-copy-meta text-neutral-800 dark:text-neutral-200">
-            {event.time && (
-              <span className="inline-flex items-center gap-2.5">
+            {timeLabel.display && (
+              <span
+                className="inline-flex items-center gap-2.5"
+                title={
+                  timeLabel.full !== timeLabel.display ? timeLabel.full : undefined
+                }
+              >
                 <Clock className="h-[1.125rem] w-[1.125rem] shrink-0 text-neutral-500 dark:text-neutral-400" />
-                <span className="font-medium">{event.time}</span>
+                <span className="font-medium">{timeLabel.display}</span>
               </span>
             )}
             {recurrenceLabel && (
@@ -444,61 +414,102 @@ export function EventDetailSheet({
             </span>
           </button>
         )}
-        {ticketUrl && (
-          <a
-            href={ticketUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-1 inline-flex w-fit max-w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-5 py-3 text-sm font-bold text-white shadow-sm touch-manipulation transition-transform active:scale-[0.98]"
-          >
-            <Ticket className="h-4 w-4" aria-hidden />
-            {dict.detail.buyTickets}
-          </a>
-        )}
-        {showCallForPricing && event.phone && (
-          <a
-            href={`tel:${formatPhoneTel(event.phone)}`}
-            className="mt-1 inline-flex w-fit max-w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-5 py-3 text-sm font-bold text-white shadow-sm touch-manipulation transition-transform active:scale-[0.98]"
-          >
-            <Phone className="h-4 w-4" aria-hidden />
-            {dict.detail.callForPricing}
-          </a>
-        )}
-        {showAdmissionVaries && (
-          <div
-            className="mt-1 inline-flex w-fit max-w-full items-center justify-center gap-2 rounded-2xl border border-amber-200 bg-amber-50 px-5 py-3 text-sm font-bold text-amber-900 dark:border-amber-900/60 dark:bg-amber-950/40 dark:text-amber-200"
-            role="status"
-          >
-            <CircleDollarSign className="h-4 w-4 shrink-0" aria-hidden />
-            {dict.detail.admissionVaries}
-          </div>
-        )}
-        {showFreeAdmission && (
-          <div
-            className="mt-1 inline-flex w-fit max-w-full items-center justify-center gap-2 rounded-2xl border border-emerald-200 bg-emerald-50 px-5 py-3 text-sm font-bold text-emerald-700 dark:border-emerald-900/60 dark:bg-emerald-950/40 dark:text-emerald-300"
-            role="status"
-          >
-            <BadgeCheck className="h-4 w-4 shrink-0" aria-hidden />
-            {dict.detail.freeAdmission}
-          </div>
-        )}
-        {showPaidAdmission && (
-          <div
-            className="mt-1 inline-flex w-fit max-w-full items-center justify-center gap-2 rounded-2xl border border-amber-200 bg-amber-50 px-5 py-3 text-sm font-bold text-amber-900 dark:border-amber-900/60 dark:bg-amber-950/40 dark:text-amber-200"
-            role="status"
-          >
-            <CircleDollarSign className="h-4 w-4 shrink-0" aria-hidden />
-            {paidAdmissionLabel}
-          </div>
-        )}
       </div>
+
+      <p className="mt-5 text-copy">{event.description}</p>
+
+      {eventOpinion ? (
+        <EventOpinionBlock
+          opinion={eventOpinion}
+          dict={dict}
+          locale={locale}
+          className="mt-5 mb-1"
+        />
+      ) : null}
+
+      {event.lineup && event.lineup.length > 0 && (
+        <div className="mt-5">
+          <div className="flex items-center gap-2 text-neutral-500 mb-2">
+            <Mic2 className="h-4 w-4 flex-shrink-0" />
+            <span className="text-[11px] font-bold uppercase tracking-wide">
+              {dict.detail.lineup}
+            </span>
+          </div>
+          <ul className="flex flex-wrap gap-2">
+            {event.lineup.map((name) => (
+              <li
+                key={name}
+                className="rounded-full bg-neutral-100 dark:bg-neutral-800 px-3 py-1 text-copy font-medium text-neutral-800 dark:text-neutral-200"
+              >
+                {name}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      {(ticketUrl ||
+        (showCallForPricing && event.phone) ||
+        showAdmissionVaries ||
+        showFreeAdmission ||
+        showPaidAdmission) && (
+        <div className="mt-5 flex flex-col items-start gap-2.5">
+          {ticketUrl && (
+            <a
+              href={ticketUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex w-fit max-w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-5 py-3 text-sm font-bold text-white shadow-sm touch-manipulation transition-transform active:scale-[0.98]"
+            >
+              <Ticket className="h-4 w-4" aria-hidden />
+              {dict.detail.buyTickets}
+            </a>
+          )}
+          {showCallForPricing && event.phone && (
+            <a
+              href={`tel:${formatPhoneTel(event.phone)}`}
+              className="inline-flex w-fit max-w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-5 py-3 text-sm font-bold text-white shadow-sm touch-manipulation transition-transform active:scale-[0.98]"
+            >
+              <Phone className="h-4 w-4" aria-hidden />
+              {dict.detail.callForPricing}
+            </a>
+          )}
+          {showAdmissionVaries && (
+            <div
+              className="inline-flex w-fit max-w-full items-center justify-center gap-2 rounded-2xl border border-amber-200 bg-amber-50 px-5 py-3 text-sm font-bold text-amber-900 dark:border-amber-900/60 dark:bg-amber-950/40 dark:text-amber-200"
+              role="status"
+            >
+              <CircleDollarSign className="h-4 w-4 shrink-0" aria-hidden />
+              {dict.detail.admissionVaries}
+            </div>
+          )}
+          {showFreeAdmission && (
+            <div
+              className="inline-flex w-fit max-w-full items-center justify-center gap-2 rounded-2xl border border-emerald-200 bg-emerald-50 px-5 py-3 text-sm font-bold text-emerald-700 dark:border-emerald-900/60 dark:bg-emerald-950/40 dark:text-emerald-300"
+              role="status"
+            >
+              <BadgeCheck className="h-4 w-4 shrink-0" aria-hidden />
+              {dict.detail.freeAdmission}
+            </div>
+          )}
+          {showPaidAdmission && (
+            <div
+              className="inline-flex w-fit max-w-full items-center justify-center gap-2 rounded-2xl border border-amber-200 bg-amber-50 px-5 py-3 text-sm font-bold text-amber-900 dark:border-amber-900/60 dark:bg-amber-950/40 dark:text-amber-200"
+              role="status"
+            >
+              <CircleDollarSign className="h-4 w-4 shrink-0" aria-hidden />
+              {paidAdmissionLabel}
+            </div>
+          )}
+        </div>
+      )}
     </>
   );
 
   const actionsSection = (
     <div
       ref={actionsRef}
-      className="relative isolate border-t border-neutral-100 bg-white px-5 pt-4 pb-[max(1rem,env(safe-area-inset-bottom))] dark:border-neutral-800 dark:bg-neutral-900 sm:px-6 lg:px-8"
+      className="relative isolate border-t border-neutral-100 bg-white px-5 pt-4 pb-[max(1rem,env(safe-area-inset-bottom))] dark:border-neutral-800 dark:bg-neutral-900 sm:px-6 lg:px-7 lg:pb-6"
     >
       <ActionFlyout open={calendarOpen}>
         <CalendarMenu
@@ -604,21 +615,31 @@ export function EventDetailSheet({
 
   if (standalone) {
     return (
-      <article className="mt-1 w-full overflow-hidden rounded-3xl bg-white shadow-2xl ring-1 ring-neutral-200/70 dark:bg-neutral-900 dark:ring-neutral-800">
-        {showHero ? (
-          <EventDetailMedia
-            event={event}
-            dict={dict}
-            emoji={emoji}
-            gradient={category?.gradient}
-            variant="standalone"
-            priority
-          />
-        ) : (
-          emojiFallback
-        )}
-        <div className="px-5 pt-4 pb-3 sm:px-6 lg:px-8">{contentSection}</div>
-        {actionsSection}
+      <article className="mt-1 w-full overflow-hidden rounded-3xl bg-white shadow-2xl ring-1 ring-neutral-200/70 dark:bg-neutral-900 dark:ring-neutral-800 lg:grid lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-stretch">
+        <div className="relative h-[min(32dvh,13rem)] sm:h-[min(38dvh,18rem)] lg:h-auto lg:min-h-[32rem]">
+          {showHero ? (
+            <div className="h-full lg:absolute lg:inset-0">
+              <EventDetailMedia
+                event={event}
+                dict={dict}
+                emoji={emoji}
+                gradient={category?.gradient}
+                variant="standalone"
+                priority
+              />
+            </div>
+          ) : (
+            <div className="flex h-full items-center justify-center bg-neutral-50 dark:bg-neutral-950/40 lg:absolute lg:inset-0">
+              {emojiFallback}
+            </div>
+          )}
+        </div>
+        <div className="flex min-w-0 flex-col">
+          <div className="flex-1 px-5 pt-4 pb-3 sm:px-6 lg:px-7 lg:pt-7 lg:pb-5">
+            {contentSection}
+          </div>
+          {actionsSection}
+        </div>
       </article>
     );
   }

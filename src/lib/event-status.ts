@@ -1,5 +1,5 @@
 import type { Event } from "./types";
-import { APP_TIMEZONE, localDateISO } from "./event-dates";
+import { addDaysISO, APP_TIMEZONE, localDateISO } from "./event-dates";
 
 /** Fields used for live/ended status (recurrence may arrive as string from filters). */
 export type EventLiveFields = Pick<Event, "date" | "endDate" | "time"> & {
@@ -30,6 +30,17 @@ function currentMinutes(now: Date): number {
   }).format(now);
   const [hours, minutes] = formatted.split(":").map(Number);
   return hours * 60 + minutes;
+}
+
+/** True when `dateISO` falls inside the event's inclusive calendar span. */
+function dateInEventSpan(
+  event: Pick<Event, "date" | "endDate">,
+  dateISO: string,
+): boolean {
+  const start = eventStartISO(event);
+  const end = eventEndISO(event);
+  if (!start || !end) return false;
+  return start <= dateISO && end >= dateISO;
 }
 
 function eventStartISO(event: Pick<Event, "date">): string | null {
@@ -132,16 +143,14 @@ function minutesUntilWindowEnd(
 
 /** Live multi-hour event in its final hour before the parsed end time. */
 export function isEndingSoon(
-  event: Pick<Event, "time">,
+  event: Pick<Event, "date" | "endDate" | "time">,
   now: Date = new Date(),
 ): boolean {
   const window = parseEventTimeWindow(event.time);
   if (!window || !isMultiHourEvent(event.time)) return false;
+  if (!isEventInProgress(event, now, window)) return false;
 
-  const nowMin = currentMinutes(now);
-  if (!isWithinWindow(nowMin, window)) return false;
-
-  const minutesLeft = minutesUntilWindowEnd(nowMin, window);
+  const minutesLeft = minutesUntilWindowEnd(currentMinutes(now), window);
   return minutesLeft > 0 && minutesLeft <= ENDS_SOON_MINUTES;
 }
 
@@ -156,33 +165,122 @@ export function eventSpansToday(
   return start <= today && end >= today;
 }
 
-function isWithinWindow(nowMin: number, window: EventTimeWindow): boolean {
-  if (window.end < window.start) {
-    return nowMin >= window.start || nowMin <= window.end;
-  }
+function isSameDayWithinWindow(
+  nowMin: number,
+  window: EventTimeWindow,
+): boolean {
   return nowMin >= window.start && nowMin <= window.end;
 }
 
-function hasWindowStarted(nowMin: number, window: EventTimeWindow): boolean {
-  if (window.end < window.start) {
-    return nowMin >= window.start || nowMin <= window.end;
+/**
+ * Overnight windows (end < start) span two calendar days: doors on day D from
+ * `start` until midnight, then midnight until `end` on day D+1.
+ * Clock-only checks incorrectly treat early morning as live for tonight's show.
+ */
+function isOvernightInProgress(
+  event: Pick<Event, "date" | "endDate">,
+  now: Date,
+  window: EventTimeWindow,
+  nowMin: number,
+): boolean {
+  const today = localDateISO(now);
+  const yesterday = addDaysISO(today, -1);
+
+  // Post-midnight tail of a session that started yesterday.
+  if (dateInEventSpan(event, yesterday) && nowMin <= window.end) {
+    return true;
   }
+  // Evening of a session day (before midnight).
+  if (dateInEventSpan(event, today) && nowMin >= window.start) {
+    return true;
+  }
+  return false;
+}
+
+function isEventInProgress(
+  event: Pick<Event, "date" | "endDate">,
+  now: Date,
+  window: EventTimeWindow,
+): boolean {
+  const nowMin = currentMinutes(now);
+  if (window.end < window.start) {
+    return isOvernightInProgress(event, now, window, nowMin);
+  }
+  if (!dateInEventSpan(event, localDateISO(now))) return false;
+  return isSameDayWithinWindow(nowMin, window);
+}
+
+function hasSameDayWindowStarted(
+  nowMin: number,
+  window: EventTimeWindow,
+): boolean {
   return nowMin >= window.start;
 }
 
-/** Multi-day festivals often use midnight as an all-day placeholder. */
-function isMultiDayAllDay(
+/** Multi-day festivals often misuse midnight as an all-day placeholder. */
+export function isAllDayTimePlaceholder(time?: string): boolean {
+  return /^12:00\s*AM$/i.test(time?.trim() ?? "");
+}
+
+/**
+ * Default daytime window when a multi-day event only has a midnight placeholder.
+ * Avoids marking festivals "happening now" at 12:30 AM.
+ */
+const ALL_DAY_DEFAULT_WINDOW: EventTimeWindow = {
+  start: 9 * 60,
+  end: 21 * 60,
+};
+
+function isMultiDayAllDayPlaceholder(
   event: Pick<Event, "date" | "endDate" | "time">,
 ): boolean {
   if (!event.endDate || event.endDate === event.date) return false;
-  return /^12:00\s*AM$/i.test(event.time?.trim() ?? "");
+  return isAllDayTimePlaceholder(event.time);
 }
 
-function hasWindowEnded(nowMin: number, window: EventTimeWindow): boolean {
-  if (window.end < window.start) {
-    return nowMin > window.end && nowMin < window.start;
-  }
+function hasSameDayWindowEnded(
+  nowMin: number,
+  window: EventTimeWindow,
+): boolean {
   return nowMin > window.end;
+}
+
+/**
+ * Overnight status on a session calendar day (or its morning spillover).
+ */
+function getOvernightLiveStatus(
+  event: EventLiveFields,
+  now: Date,
+  window: EventTimeWindow,
+  nowMin: number,
+): EventLiveStatus {
+  const today = localDateISO(now);
+  const yesterday = addDaysISO(today, -1);
+  const end = eventEndISO(event);
+  if (!end) return "unknown";
+
+  if (isOvernightInProgress(event, now, window, nowMin)) {
+    return "live";
+  }
+
+  // Today is a scheduled day and doors haven't opened yet (incl. early morning).
+  if (dateInEventSpan(event, today) && nowMin < window.start) {
+    return "upcoming";
+  }
+
+  // Past the last calendar day — spillover already handled above.
+  if (end < today) return "ended";
+
+  // Between last night's close and tonight's open on a continuing series day
+  // shouldn't happen when today is in span (handled as upcoming). Fallback:
+  if (dateInEventSpan(event, yesterday) && nowMin > window.end) {
+    if (eventContinuesBeyondToday(event, now) || dateInEventSpan(event, today)) {
+      return dateInEventSpan(event, today) ? "upcoming" : "closedToday";
+    }
+    return "ended";
+  }
+
+  return "unknown";
 }
 
 /**
@@ -198,11 +296,29 @@ export function getEventLiveStatus(
   if (!start || !end) return "unknown";
 
   const today = localDateISO(now);
-  if (end < today) return "ended";
+  if (end < today) {
+    // Last night's overnight session may still be running past midnight.
+    const window = parseEventTimeWindow(event.time);
+    if (
+      window &&
+      window.end < window.start &&
+      end === addDaysISO(today, -1) &&
+      currentMinutes(now) <= window.end
+    ) {
+      return "live";
+    }
+    return "ended";
+  }
   if (start > today) return "upcoming";
 
-  if (isMultiDayAllDay(event)) {
-    return "live";
+  // Midnight placeholders are not real start times — use daytime hours.
+  if (isMultiDayAllDayPlaceholder(event)) {
+    const nowMin = currentMinutes(now);
+    const window = ALL_DAY_DEFAULT_WINDOW;
+    if (isSameDayWithinWindow(nowMin, window)) return "live";
+    if (!hasSameDayWindowStarted(nowMin, window)) return "upcoming";
+    if (eventContinuesBeyondToday(event, now)) return "closedToday";
+    return "ended";
   }
 
   const window = parseEventTimeWindow(event.time);
@@ -213,12 +329,14 @@ export function getEventLiveStatus(
   }
 
   const nowMin = currentMinutes(now);
-  // Check if event is currently live
-  if (isWithinWindow(nowMin, window)) return "live";
-  // Check if event hasn't started yet - must come before hasWindowEnded for overnight events
-  if (!hasWindowStarted(nowMin, window)) return "upcoming";
-  // Now check if event has ended
-  if (hasWindowEnded(nowMin, window)) {
+
+  if (window.end < window.start) {
+    return getOvernightLiveStatus(event, now, window, nowMin);
+  }
+
+  if (isSameDayWithinWindow(nowMin, window)) return "live";
+  if (!hasSameDayWindowStarted(nowMin, window)) return "upcoming";
+  if (hasSameDayWindowEnded(nowMin, window)) {
     if (eventContinuesBeyondToday(event, now)) return "closedToday";
     return "ended";
   }
@@ -229,14 +347,7 @@ export function hasWindowEndedForToday(
   event: EventLiveFields,
   now: Date = new Date(),
 ): boolean {
-  const window = parseEventTimeWindow(event.time);
-  if (!window) return false;
-
-  const today = localDateISO(now);
-  if (!eventSpansToday(event, now)) return false;
-  if (!hasWindowEnded(currentMinutes(now), window)) return false;
-
-  return eventContinuesBeyondToday(event, now);
+  return getEventLiveStatus(event, now) === "closedToday";
 }
 
 export function hasEventEndedForToday(

@@ -64,6 +64,7 @@ export function EventCardMeta({
   });
   const timeLabel = formatEventTimeForList(event.time, {
     recurrence: event.recurrence,
+    allDayLabel: dict.events.allDay,
   });
   if (compact) {
     return (

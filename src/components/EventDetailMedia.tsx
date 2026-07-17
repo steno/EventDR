@@ -52,7 +52,7 @@ export function EventDetailMedia({
 
   const heightClass =
     variant === "standalone"
-      ? "h-[min(28dvh,11rem)] sm:h-[min(30dvh,13rem)] lg:h-[min(28dvh,14rem)]"
+      ? "h-full min-h-[min(32dvh,13rem)]"
       : "h-[min(32dvh,13rem)]";
 
   const scrollToSlide = useCallback((index: number) => {
@@ -83,7 +83,10 @@ export function EventDetailMedia({
 
   if (totalSlides === 0) return null;
 
-  const roundedClass = variant === "standalone" ? "rounded-t-3xl" : "";
+  const roundedClass =
+    variant === "standalone"
+      ? "rounded-t-3xl lg:rounded-none lg:rounded-l-3xl"
+      : "";
   const mapIsActive = activeSlide === 1;
   const imageSizes =
     variant === "standalone"

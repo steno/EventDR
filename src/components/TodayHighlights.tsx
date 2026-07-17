@@ -48,6 +48,7 @@ function TodayHighlightCard({
   const liveStatusLabel = liveDisplay?.label ?? null;
   const timeLabel = formatEventTimeForList(event.time, {
     recurrence: event.recurrence,
+    allDayLabel: dict.events.allDay,
   });
 
   return (

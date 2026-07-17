@@ -39,6 +39,11 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     venueSlug: "kite-beach",
     address: "Residencial Mañanero, Cabarete",
     isFree: true,
+    // Replace legacy midnight all-day placeholder (daytime racing + evening music).
+    time: "9:00 AM – 11:00 PM",
+  },
+  "womens-reconnection-kite-camp-2026": {
+    time: "8:00 AM – 8:00 PM",
   },
   "puerto-plata-golf-classic-2026": {
     venueSlug: "playa-dorada-golf",

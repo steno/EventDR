@@ -1,4 +1,5 @@
 import type { Event } from "./types";
+import { isAllDayTimePlaceholder } from "./event-status";
 
 const LIST_TIME_MAX = 34;
 
@@ -26,10 +27,16 @@ function stripLeadingDayRange(segment: string): string {
  */
 export function formatEventTimeForList(
   time: string | undefined,
-  options?: Pick<Event, "recurrence">,
+  options?: Pick<Event, "recurrence"> & { allDayLabel?: string },
 ): { display: string; full: string } {
   const full = time?.trim() ?? "";
   if (!full) return { display: "", full: "" };
+
+  // Midnight-only multi-day placeholders are not a real clock time.
+  if (isAllDayTimePlaceholder(full)) {
+    const label = options?.allDayLabel?.trim() || "All day";
+    return { display: label, full: label };
+  }
 
   let display = compactClockCopy(full);
 

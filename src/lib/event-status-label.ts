@@ -1,11 +1,10 @@
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Event } from "@/lib/types";
 import type { TimeRange } from "@/lib/filters";
-import { addDaysISO, localDateISO, APP_TIMEZONE } from "@/lib/event-dates";
+import { addDaysISO, localDateISO } from "@/lib/event-dates";
 import {
   getEventLiveStatus,
   happensOnLocalDate,
-  hasWindowEndedForToday,
   isEndingSoon,
   isEventActiveToday,
   parseEventTimeWindow,
@@ -42,27 +41,6 @@ export function formatEventLiveStatusLabel(
   }
 }
 
-function currentMinutes(now: Date): number {
-  const formatted = new Intl.DateTimeFormat("en-GB", {
-    timeZone: APP_TIMEZONE,
-    hour: "2-digit",
-    minute: "2-digit",
-    hourCycle: "h23",
-  }).format(now);
-  const [hours, minutes] = formatted.split(":").map(Number);
-  return hours * 60 + minutes;
-}
-
-function hasWindowStarted(
-  nowMin: number,
-  window: { start: number; end: number },
-): boolean {
-  if (window.end < window.start) {
-    return nowMin >= window.start || nowMin <= window.end;
-  }
-  return nowMin >= window.start;
-}
-
 /** Label when status is unknown but the event is still active today. */
 function fallbackLiveStatusDisplay(
   event: Pick<Event, "date" | "endDate" | "time" | "recurrence">,
@@ -75,16 +53,24 @@ function fallbackLiveStatusDisplay(
   if (!window) {
     return { status: "live", label: dict.events.happeningNow };
   }
-  if (!hasWindowStarted(currentMinutes(now), window)) {
+
+  const status = getEventLiveStatus(event, now);
+  if (status === "upcoming") {
     return { status: "upcoming", label: dict.events.startsSoon };
   }
-  if (hasWindowEndedForToday(event, now)) {
+  if (status === "closedToday") {
     return { status: "closedToday", label: dict.events.closedForToday };
+  }
+  if (status === "ended") {
+    return { status: "ended", label: dict.events.eventEnded };
   }
   if (isEndingSoon(event, now)) {
     return { status: "ending", label: dict.events.endsSoon };
   }
-  return { status: "live", label: dict.events.eventStarted };
+  if (status === "live") {
+    return { status: "live", label: dict.events.eventStarted };
+  }
+  return null;
 }
 
 export function resolveLiveStatusDisplay(
@@ -96,9 +82,23 @@ export function resolveLiveStatusDisplay(
   const today = localDateISO(now);
   const start = event.date?.trim();
   const end = (event.endDate ?? event.date)?.trim();
-  if (!start || !end || end < today) return null;
+  if (!start || !end) return null;
 
   const status = getEventLiveStatus(event, now);
+
+  // Overnight sessions can still be live after their calendar end date (past midnight).
+  if (end < today) {
+    if (status === "live" || status === "ending") {
+      if (status === "live" && isEndingSoon(event, now)) {
+        return { status: "ending", label: dict.events.endsSoon };
+      }
+      return {
+        status,
+        label: formatEventLiveStatusLabel(status, dict) ?? dict.events.happeningNow,
+      };
+    }
+    return null;
+  }
 
   if (status === "live" && isEndingSoon(event, now)) {
     return { status: "ending", label: dict.events.endsSoon };
