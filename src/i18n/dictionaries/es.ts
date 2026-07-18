@@ -25,7 +25,7 @@ export const es: Dictionary = {
     northCoast: "Costa Norte de RD",
   },
   hero: {
-    events: "Eventos en la región de",
+    events: "Eventos en la",
     nearYou: "Puerto Plata",
     regionSuffix: "",
     subtitle: "Qué está pasando en",

@@ -32,6 +32,10 @@ export function PhotoHero({
   const placeLabel = dict.hero.regionSuffix
     ? `${heroPlace} ${dict.hero.regionSuffix}`
     : heroPlace;
+  
+  // Use "Events in the" for North Coast region, "Events in" for specific cities
+  const isRegion = heroPlace === dict.cities.regionName;
+  const eventsPrefix = isRegion ? dict.hero.events : dict.cities.eventsIn;
 
   return (
     <header className="relative -mx-4 mb-5 overflow-hidden sm:rounded-2xl sm:mx-0">
@@ -77,7 +81,7 @@ export function PhotoHero({
             </p>
             <h1 className="mt-1 text-[2rem] font-black leading-[1.05] tracking-tight sm:text-5xl">
               <span className="text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.4)]">
-                {dict.cities.eventsIn}{" "}
+                {eventsPrefix}{" "}
               </span>
               <span className="bg-gradient-to-r from-orange-300 via-rose-300 to-fuchsia-300 bg-clip-text text-transparent">
                 {heroPlace}
