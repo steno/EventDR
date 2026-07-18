@@ -137,7 +137,7 @@ export function VenuePage({
   return (
     <>
     <PullToRefreshIndicator {...pullToRefreshState} />
-    <main className="bg-neutral-50 dark:bg-transparent pb-6">
+    <main id="main-content" className="bg-neutral-50 dark:bg-transparent pb-6">
       <div className={PAGE_SHELL_CLASS}>
         <StickyListHeader
           locale={locale}

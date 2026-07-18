@@ -176,7 +176,7 @@ export function EventScopePage({
   return (
     <>
       <PullToRefreshIndicator {...pullToRefreshState} />
-      <main className="relative bg-neutral-50 dark:bg-transparent pb-6">
+      <main id="main-content" className="relative bg-neutral-50 dark:bg-transparent pb-6">
         <div className={PAGE_SHELL_CLASS}>
           <StickyListHeader
             locale={locale}
