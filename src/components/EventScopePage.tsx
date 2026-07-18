@@ -198,7 +198,6 @@ export function EventScopePage({
                 label: dict.browse.allEvents,
                 emoji: "📅",
               }}
-              scrollHint={dict.browse.scrollHint}
             />
           ) : null}
 

@@ -1,9 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { ChevronRight, Loader2 } from "lucide-react";
+import { Loader2 } from "lucide-react";
 import {
-  useCallback,
   useEffect,
   useRef,
   useState,
@@ -11,12 +10,10 @@ import {
   type Ref,
 } from "react";
 import { useRouter } from "next/navigation";
-import { HorizontalScrollEdgeFades } from "@/components/HorizontalScrollEdgeFades";
 import {
   CATEGORY_PILL_ACTIVE,
   CATEGORY_PILL_BASE,
   CATEGORY_PILL_IDLE,
-  CATEGORY_SCROLL_BTN,
   CATEGORY_SCROLLER_BAR,
 } from "@/components/category-scroller-styles";
 
@@ -33,7 +30,6 @@ interface CityCategoryLinksProps {
   activeHref?: string;
   /** Leading “All Events” pill — active when no category href matches. */
   allLink?: RelatedCategoryLink;
-  scrollHint: string;
 }
 
 export function CityCategoryLinks({
@@ -41,38 +37,12 @@ export function CityCategoryLinks({
   links,
   activeHref,
   allLink,
-  scrollHint,
 }: CityCategoryLinksProps) {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
   const [loadingHref, setLoadingHref] = useState<string | null>(null);
   const activeRef = useRef<HTMLAnchorElement>(null);
   const scrollerRef = useRef<HTMLDivElement>(null);
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(false);
-
-  const syncScrollHints = useCallback(() => {
-    const el = scrollerRef.current;
-    if (!el) return;
-    const maxScroll = el.scrollWidth - el.clientWidth;
-    if (maxScroll <= 4) {
-      setCanScrollLeft(false);
-      setCanScrollRight(false);
-      return;
-    }
-    const left = el.scrollLeft;
-    setCanScrollLeft(left > 4);
-    setCanScrollRight(left < maxScroll - 4);
-  }, []);
-
-  useEffect(() => {
-    syncScrollHints();
-    const el = scrollerRef.current;
-    if (!el) return;
-    const onResize = () => syncScrollHints();
-    window.addEventListener("resize", onResize);
-    return () => window.removeEventListener("resize", onResize);
-  }, [syncScrollHints, links, allLink]);
 
   useEffect(() => {
     const active = activeRef.current;
@@ -87,9 +57,7 @@ export function CityCategoryLinks({
       inline: "nearest",
       block: "nearest",
     });
-    // Scroll may be async; refresh fades after layout settles.
-    requestAnimationFrame(syncScrollHints);
-  }, [activeHref, syncScrollHints]);
+  }, [activeHref]);
 
   // Scroll to the time filter tabs on mount when navigating from home page.
   // This ensures users see the tabs (All, Today, Tomorrow, Weekend) after clicking a category pill.
@@ -131,13 +99,6 @@ export function CityCategoryLinks({
   const hasActiveCategory = links.some((link) => link.href === activeHref);
   const allIsActive = Boolean(allLink) && !hasActiveCategory;
 
-  const scrollForward = () => {
-    const el = scrollerRef.current;
-    if (!el) return;
-    const step = Math.min(280, Math.max(160, el.clientWidth * 0.55));
-    el.scrollBy({ left: step, behavior: "smooth" });
-  };
-
   const handleNavigation = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     setLoadingHref(href);
@@ -165,13 +126,13 @@ export function CityCategoryLinks({
         className={`${CATEGORY_PILL_BASE} ${active ? CATEGORY_PILL_ACTIVE : CATEGORY_PILL_IDLE} ${isLoading ? "opacity-70" : ""}`}
       >
         {isLoading ? (
-          <Loader2 className="h-3.5 w-3.5 animate-spin shrink-0" aria-hidden />
+          <Loader2 className="h-9 w-9 animate-spin shrink-0" aria-hidden />
         ) : link.emoji ? (
-          <span className="shrink-0 text-sm leading-none select-none" aria-hidden>
+          <span className="text-4xl leading-none select-none" aria-hidden>
             {link.emoji}
           </span>
         ) : null}
-        <span className="whitespace-nowrap">{link.label}</span>
+        <span className="truncate w-full">{link.label}</span>
       </Link>
     );
   };
@@ -182,13 +143,12 @@ export function CityCategoryLinks({
         {label}
       </p>
       <div className={CATEGORY_SCROLLER_BAR}>
-        <div className="relative min-w-0 flex-1 overflow-hidden rounded-full">
+        <div className="relative min-w-0 flex-1 overflow-hidden">
           <div
             ref={scrollerRef}
-            onScroll={syncScrollHints}
             className="overflow-x-auto scrollbar-hide"
           >
-            <div className="flex w-max gap-1.5 px-0.5">
+            <div className="flex w-max gap-3 px-0.5 py-1">
               {allLink
                 ? renderPill(
                     allLink,
@@ -206,24 +166,7 @@ export function CityCategoryLinks({
               })}
             </div>
           </div>
-
-          <HorizontalScrollEdgeFades
-            canScrollLeft={canScrollLeft}
-            canScrollRight={canScrollRight}
-            tone="bar"
-          />
         </div>
-
-        {canScrollRight ? (
-          <button
-            type="button"
-            onClick={scrollForward}
-            className={CATEGORY_SCROLL_BTN}
-            aria-label={scrollHint}
-          >
-            <ChevronRight className="h-4 w-4" strokeWidth={2.5} />
-          </button>
-        ) : null}
       </div>
     </nav>
   );
