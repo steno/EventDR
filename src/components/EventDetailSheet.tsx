@@ -68,29 +68,11 @@ function ActionFlyout({
   open: boolean;
   children: ReactNode;
 }) {
+  if (!open) return null;
+  
   return (
-    <div
-      className={`relative z-0 overflow-hidden transition-all ${
-        open
-          ? "max-h-96 opacity-100 duration-500"
-          : "pointer-events-none max-h-0 opacity-0 duration-300"
-      }`}
-      aria-hidden={!open}
-    >
-      <div
-        className={`pb-3 ${
-          open 
-            ? "animate-[slideUp_0.6s_ease-out_0.1s_both]" 
-            : "translate-y-12 opacity-0"
-        }`}
-        style={
-          open
-            ? undefined
-            : { transform: "translateY(3rem) scale(0.95)", opacity: 0 }
-        }
-      >
-        {children}
-      </div>
+    <div className="relative z-0 pb-3 animate-in slide-in-from-bottom duration-500 fade-in">
+      {children}
     </div>
   );
 }
