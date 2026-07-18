@@ -124,6 +124,32 @@ const FALLBACK_EVENTS_EN: Event[] = [
     imageEmoji: "🎤",
   },
   {
+    id: "lena-dardelet-aura-beach-club-2026-07-24",
+    title: "Lena Dardelet × Pororó — De Aquí Pa'llá",
+    description:
+      "French-Dominican singer-songwriter Lena Dardelet and Pororó open their national De Aquí Pa'llá tour at Aura Beach Club on Cabarete's Calle Principal — Friday Jul 24, 8 PM AST. Free entry with RSVP on tix.do.",
+    date: "2026-07-24",
+    time: "8:00 PM",
+    location: "Cabarete",
+    venue: "Aura Beach Club Cabarete",
+    venueSlug: "aura-beach-club-cabarete",
+    address: "Calle Principal 5, Cabarete 57000",
+    lat: 19.7500769,
+    lng: -70.4070417,
+    category: "concert",
+    categories: ["music"],
+    format: "physical",
+    trending: true,
+    isFree: true,
+    phone: "+18297870140",
+    sourceUrl:
+      "https://www.bandsintown.com/e/108603887-lena-dardelet-at-aura-beach-club-cabarete",
+    ticketUrl:
+      "https://tix.do/event/PororoyLenaDardeletdeaquipallaencabarete-1",
+    lineup: ["Lena Dardelet", "Pororó"],
+    imageEmoji: "🎤",
+  },
+  {
     id: "cabarete-jazz-festival-2026",
     title: "Cabarete Jazz Festival 2026",
     description:
@@ -638,6 +664,32 @@ const FALLBACK_EVENTS_ES: Event[] = [
     sourceUrl: "https://todotickets.do/events/lil-naay",
     ticketUrl: "https://todotickets.do/events/lil-naay",
     lineup: ["Lil Naay"],
+    imageEmoji: "🎤",
+  },
+  {
+    id: "lena-dardelet-aura-beach-club-2026-07-24",
+    title: "Lena Dardelet × Pororó — De Aquí Pa'llá",
+    description:
+      "La cantautora franco-dominicana Lena Dardelet y Pororó abren su gira nacional De Aquí Pa'llá en Aura Beach Club, Calle Principal de Cabarete — viernes 24 jul., 8 PM AST. Entrada libre con RSVP en tix.do.",
+    date: "2026-07-24",
+    time: "8:00 PM",
+    location: "Cabarete",
+    venue: "Aura Beach Club Cabarete",
+    venueSlug: "aura-beach-club-cabarete",
+    address: "Calle Principal 5, Cabarete 57000",
+    lat: 19.7500769,
+    lng: -70.4070417,
+    category: "concert",
+    categories: ["music"],
+    format: "physical",
+    trending: true,
+    isFree: true,
+    phone: "+18297870140",
+    sourceUrl:
+      "https://www.bandsintown.com/e/108603887-lena-dardelet-at-aura-beach-club-cabarete",
+    ticketUrl:
+      "https://tix.do/event/PororoyLenaDardeletdeaquipallaencabarete-1",
+    lineup: ["Lena Dardelet", "Pororó"],
     imageEmoji: "🎤",
   },
   {

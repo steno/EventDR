@@ -20,6 +20,7 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "natura-cabana": "natura-cabana.jpg",
   "d-classico-sosua": "d-classico-sosua.jpg",
   "voyvoy-cabarete": "voyvoy-cabarete.jpg",
+  "aura-beach-club-cabarete": "aura-beach-club-cabarete.jpg",
   "la-casita-de-papi": "la-casita-de-papi.jpg",
   "anfiteatro-la-puntilla": "anfiteatro-la-puntilla.jpg",
   "cowork-cabarete": "cowork-cabarete.jpg",

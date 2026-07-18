@@ -258,6 +258,19 @@ export const SEED_VENUES: Venue[] = [
     phone: "+18095710805",
   },
   {
+    slug: "aura-beach-club-cabarete",
+    name: "Aura Beach Club Cabarete",
+    city: "Cabarete",
+    description:
+      "Beachfront club on Calle Principal — daytime lounging and nighttime live shows facing Cabarete Bay.",
+    lat: 19.7500769,
+    lng: -70.4070417,
+    emoji: "🌴",
+    website: "https://auracabarete.com/",
+    instagram: "auracabarete",
+    phone: "+18297870140",
+  },
+  {
     slug: "la-casita-de-papi",
     name: "La Casita de Papi",
     city: "Cabarete",

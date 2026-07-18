@@ -107,6 +107,32 @@ export const FALLBACK_EVENTS_FR: Event[] = [
     imageEmoji: "🎤",
   },
   {
+    id: "lena-dardelet-aura-beach-club-2026-07-24",
+    title: "Lena Dardelet × Pororó — De Aquí Pa'llá",
+    description:
+      "La chanteuse franco-dominicaine Lena Dardelet et Pororó ouvrent leur tournée nationale De Aquí Pa'llá à l'Aura Beach Club, Calle Principal de Cabarete — vendredi 24 juil., 20 h AST. Entrée libre avec RSVP sur tix.do.",
+    date: "2026-07-24",
+    time: "8:00 PM",
+    location: "Cabarete",
+    venue: "Aura Beach Club Cabarete",
+    venueSlug: "aura-beach-club-cabarete",
+    address: "Calle Principal 5, Cabarete 57000",
+    lat: 19.7500769,
+    lng: -70.4070417,
+    category: "concert",
+    categories: ["music"],
+    format: "physical",
+    trending: true,
+    isFree: true,
+    phone: "+18297870140",
+    sourceUrl:
+      "https://www.bandsintown.com/e/108603887-lena-dardelet-at-aura-beach-club-cabarete",
+    ticketUrl:
+      "https://tix.do/event/PororoyLenaDardeletdeaquipallaencabarete-1",
+    lineup: ["Lena Dardelet", "Pororó"],
+    imageEmoji: "🎤",
+  },
+  {
     id: "cabarete-jazz-festival-2026",
     title: "Cabarete Jazz Festival 2026",
     description:

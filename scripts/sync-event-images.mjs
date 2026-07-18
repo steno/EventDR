@@ -42,6 +42,8 @@ const FILE_TO_EVENT_ID = {
   "tabacalera-cremo-rolling-experience.jpg": "tabacalera-cremo-rolling-experience",
   "vivonte-cigar-factory-weekdays.jpg": "vivonte-cigar-factory-weekdays",
   "lil-naay-2026-07-17.jpg": "lil-naay-2026-07-17",
+  "lena-dardelet-aura-beach-club-2026-07-24.png":
+    "lena-dardelet-aura-beach-club-2026-07-24",
   // Atléticos summer league — authentic Atléticos pitcher (athleticosPOP.png); copies below.
   "athleticosPOP.png": "atleticos-pp-vs-mangueros-2026-07-17",
   // ASA Survival Series — same flyer for all five Saturday VIP games.
@@ -181,6 +183,7 @@ const FILE_TO_VENUE_SLUG = {
   "puerto-plata-beach-soccer-2026.jpg": "playa-los-charamicos",
   "la-chabola-wednesday-open-mic.jpg": "la-chabola-cabarete",
   "groundzero-domingos-pal-pueblo.jpg": "ground-zero-disco",
+  "aurabeach.jpg": "aura-beach-club-cabarete",
   "macorix-house-of-rum.jpg": "macorix-house-of-rum",
   "espadrillas.jpeg": "handmade-the-brand",
   "paseo-de-db.jpg": "paseo-dona-blanca",

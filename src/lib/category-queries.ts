@@ -12,6 +12,12 @@ const EVENTBRITE_SOSUA =
   "https://www.eventbrite.com/d/dominican-republic--sosua/events/";
 const EVENTBRITE_CABARETE =
   "https://www.eventbrite.com/d/dominican-republic--cabarete/events/";
+const BANDSINTOWN_SOSUA =
+  "https://www.bandsintown.com/c/sosua-dominican-republic";
+const BANDSINTOWN_CABARETE =
+  "https://www.bandsintown.com/c/cabarete-dominican-republic";
+const BANDSINTOWN_PP =
+  "https://www.bandsintown.com/c/puerto-plata-dominican-republic";
 const TODOTICKETS_HOME = "https://todotickets.do/";
 const TICKETPLUS_RD = "https://dominicana.myticketplus.com/";
 const CABARETE_JAZZ = "https://www.cabaretejazz.com/";
@@ -40,6 +46,9 @@ export const REGION_DIRECT_URLS = [
   EVENTBRITE_PP,
   EVENTBRITE_SOSUA,
   EVENTBRITE_CABARETE,
+  BANDSINTOWN_SOSUA,
+  BANDSINTOWN_CABARETE,
+  BANDSINTOWN_PP,
   // Instagram profiles — best-effort; many hits login walls (see ingest-social).
   ...instagramProfileUrls(),
 ];
@@ -79,6 +88,8 @@ export const CATEGORY_QUERIES: Record<EventCategory, CategoryQuerySet> = {
     directUrls: [
       `${ALLEVENTS_PP}/music`,
       ALLEVENTS_CABARETE,
+      BANDSINTOWN_SOSUA,
+      BANDSINTOWN_CABARETE,
       NATURA_EVENTS,
       PUERTO_PLATA_DIGITAL,
     ],
@@ -88,6 +99,7 @@ export const CATEGORY_QUERIES: Record<EventCategory, CategoryQuerySet> = {
       `concierto artista en vivo ${REGION} 2026`,
       `concert live show reggaeton urbano ${REGION} Dominican Republic`,
       `site:eventbrite.com concert Puerto Plata Cabarete`,
+      `site:bandsintown.com Cabarete OR Sosúa OR Puerto Plata Dominican Republic`,
       `site:facebook.com concierto Puerto Plata boletería`,
       `acoustic night open air concert Malecón Puerto Plata`,
       `site:todotickets.do Puerto Plata Sosúa Cabarete concierto`,
@@ -99,6 +111,9 @@ export const CATEGORY_QUERIES: Record<EventCategory, CategoryQuerySet> = {
     directUrls: [
       `${ALLEVENTS_PP}/concerts`,
       EVENTBRITE_PP,
+      BANDSINTOWN_SOSUA,
+      BANDSINTOWN_CABARETE,
+      BANDSINTOWN_PP,
       TODOTICKETS_HOME,
       TICKETPLUS_RD,
       CABARETE_JAZZ,
@@ -213,6 +228,7 @@ export const BROAD_QUERIES = [
   `eventos Costa Norte Puerto Plata Sosúa Cabarete 2026`,
   `site:allevents.in Puerto Plata Dominican Republic`,
   `site:eventbrite.com Puerto Plata Sosúa Cabarete`,
+  `site:bandsintown.com Sosúa OR Cabarete OR Puerto Plata Dominican Republic`,
   `site:todotickets.do eventos Puerto Plata Sosúa Cabarete`,
   `site:dominicana.myticketplus.com Puerto Plata OR Cabarete OR Sosúa`,
   `site:tix.do Puerto Plata OR Cabarete OR Sosúa`,

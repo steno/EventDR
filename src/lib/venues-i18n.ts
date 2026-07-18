@@ -151,6 +151,12 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Restaurant en bord de mer et spot de nuit sur la baie de Cabarete — jams open mic, sets DJ et soirées danse le week-end avec vue sur la baie.",
     },
   },
+  "aura-beach-club-cabarete": {
+    description: {
+      es: "Beach club frente al mar en Calle Principal — relax de día y shows en vivo de noche con vista a la bahía de Cabarete.",
+      fr: "Beach club en bord de mer sur Calle Principal — détente le jour et concerts live le soir face à la baie de Cabarete.",
+    },
+  },
   "la-casita-de-papi": {
     description: {
       es: "Icónico restaurante de mariscos frente al mar en la playa central de Cabarete — paella, pescado a la parrilla y cenas al atardecer bajo palmeras desde los años 90.",

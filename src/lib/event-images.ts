@@ -98,6 +98,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "paella-pop-el-pueblito": "paella-pop-el-pueblito.jpg",
   "paella-pop-green-one": "paella-pop-green-one.jpg",
   "lil-naay-2026-07-17": "lil-naay-2026-07-17.jpg",
+  "lena-dardelet-aura-beach-club-2026-07-24":
+    "lena-dardelet-aura-beach-club-2026-07-24.png",
   "cabarete-jazz-festival-2026": "cabarete-jazz-festival-2026.jpg",
   "jandy-ventura-legado-caballo-2026": "jandy-ventura-legado-caballo-2026.jpg",
   "natura-cabana-saturday-live": "natura-cabana-saturday-live.jpg",

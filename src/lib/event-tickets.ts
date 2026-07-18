@@ -2,6 +2,7 @@ import type { Event, EventCategory } from "./types";
 
 const TICKET_HOSTS = [
   "todotickets.do",
+  "tix.do",
   "eventbrite.com",
   "eventbrite.es",
   "eventbrite.ca",
@@ -20,6 +21,8 @@ const TICKET_HOSTS = [
 export const CURATED_TICKET_URLS: Record<string, string> = {
   // Concerts & ticketed shows (todotickets.do)
   "lil-naay-2026-07-17": "https://todotickets.do/events/lil-naay",
+  "lena-dardelet-aura-beach-club-2026-07-24":
+    "https://tix.do/event/PororoyLenaDardeletdeaquipallaencabarete-1",
   "atleticos-pp-vs-capitanes-2026-07-11":
     "https://todotickets.do/events/3-atleticos-vs-capitanes-de-salcedo-11-de-julio",
   "atleticos-pp-vs-mangueros-2026-07-17":
