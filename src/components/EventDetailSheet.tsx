@@ -70,17 +70,19 @@ function ActionFlyout({
 }) {
   return (
     <div
-      className={`relative z-0 grid transition-[grid-template-rows,opacity] duration-300 ease-out ${
+      className={`relative z-0 grid transition-[grid-template-rows,opacity,transform] ${
         open
-          ? "grid-rows-[1fr] opacity-100"
-          : "pointer-events-none grid-rows-[0fr] opacity-0"
+          ? "grid-rows-[1fr] opacity-100 duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)]"
+          : "pointer-events-none grid-rows-[0fr] opacity-0 duration-300 ease-out"
       }`}
       aria-hidden={!open}
     >
       <div className="min-h-0 overflow-hidden">
         <div
-          className={`pb-3 transition-transform duration-300 ease-out ${
-            open ? "translate-y-0" : "translate-y-8"
+          className={`pb-3 transition-all ${
+            open 
+              ? "translate-y-0 scale-100 duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)]" 
+              : "translate-y-12 scale-95 duration-200 ease-out"
           }`}
         >
           {children}
