@@ -3,7 +3,7 @@ import type { CategoryMeta, EventCategory } from "./types";
 const CATEGORY_DEFS: Omit<CategoryMeta, "label">[] = [
   {
     id: "music",
-    emoji: "🎶",
+    emoji: "🎵",
     gradient: "from-rose-400 via-red-500 to-orange-500",
     chip: "bg-rose-50 text-rose-900 ring-rose-200/80 dark:bg-rose-950/40 dark:text-rose-100 dark:ring-rose-800/50",
   },

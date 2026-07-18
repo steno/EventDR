@@ -67,7 +67,7 @@ export function CategoryGrid({
                 <span className="text-4xl leading-none select-none" aria-hidden>
                   📅
                 </span>
-                <span className="line-clamp-2 w-full">{allEventsLabel}</span>
+                <span className="truncate w-full">{allEventsLabel}</span>
               </Link>
               {categories.map((cat) => {
                 const href = categoryPath(locale, cat.id, citySlug);
@@ -88,7 +88,7 @@ export function CategoryGrid({
                         {cat.emoji}
                       </span>
                     )}
-                    <span className="line-clamp-2 w-full">{cat.label}</span>
+                    <span className="truncate w-full">{cat.label}</span>
                   </Link>
                 );
               })}
