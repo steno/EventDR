@@ -56,6 +56,10 @@ export default async function Page({
     city: dict.cities.regionName,
   });
 
+  const title = category
+    ? `${fillTemplate(dict.cities.lookingInWithCategory, { category: category.label })} ${dict.cities.regionName}`
+    : id;
+
   return (
     <>
       {category ? (
@@ -79,7 +83,7 @@ export default async function Page({
         initialEvents={events}
         fetchUrl={`/api/events?locale=${locale}&category=${id}`}
         returnTo={pagePath}
-        title={category?.label ?? id}
+        title={title}
         intro={categorySeo.intro}
         emoji={category?.emoji}
         emojiClassName={`bg-gradient-to-br ${category?.gradient ?? "from-neutral-200 to-neutral-300"}`}
