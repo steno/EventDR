@@ -70,23 +70,21 @@ function ActionFlyout({
 }) {
   return (
     <div
-      className={`relative z-0 grid transition-[grid-template-rows,opacity,transform] ${
+      className={`relative z-0 overflow-hidden transition-all ${
         open
-          ? "grid-rows-[1fr] opacity-100 duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)]"
-          : "pointer-events-none grid-rows-[0fr] opacity-0 duration-300 ease-out"
+          ? "max-h-96 opacity-100 duration-500"
+          : "pointer-events-none max-h-0 opacity-0 duration-300"
       }`}
       aria-hidden={!open}
     >
-      <div className="min-h-0 overflow-hidden">
-        <div
-          className={`pb-3 transition-all ${
-            open 
-              ? "translate-y-0 scale-100 duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)]" 
-              : "translate-y-12 scale-95 duration-200 ease-out"
-          }`}
-        >
-          {children}
-        </div>
+      <div
+        className={`pb-3 transition-all ${
+          open 
+            ? "translate-y-0 scale-100 duration-700 delay-100 ease-[cubic-bezier(0.34,1.56,0.64,1)]" 
+            : "-translate-y-16 scale-90 duration-200 ease-in"
+        }`}
+      >
+        {children}
       </div>
     </div>
   );

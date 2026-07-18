@@ -136,7 +136,7 @@ export function ShareMenu({
 
   return (
     <ActionSheet title={dict.detail.shareVia}>
-      <div className="grid grid-cols-4 gap-2.5 sm:gap-3">
+      <div className="grid auto-rows-fr grid-cols-4 gap-x-2 gap-y-3">
         {nativeShareAvailable && (
           <ActionSheetTile
             label={dict.detail.shareMore}
