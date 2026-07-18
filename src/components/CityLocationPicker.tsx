@@ -108,7 +108,7 @@ export function CityLocationPicker({
               {scopeEmoji}
             </span>
           ) : null}
-          {scopePrefix}
+          {scopePrefix} {currentLabel}
         </p>
       ) : null}
 
