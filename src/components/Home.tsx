@@ -221,14 +221,14 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
             <>
               <InstallBanner dict={dict} />
               <div className="flex flex-col">
-                <div className="order-2 sm:order-1">
+                <div className="order-1 sm:order-1">
                   <SearchBar
                     value={searchQuery}
                     onChange={setSearchQuery}
                     dict={dict}
                   />
                 </div>
-                <div className="order-1 sm:order-2">
+                <div className="order-2 sm:order-2">
                   <PhotoHero
                     dict={dict}
                     locale={locale}
