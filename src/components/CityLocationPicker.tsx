@@ -115,7 +115,7 @@ export function CityLocationPicker({
       <div
         role="radiogroup"
         aria-label={groupLabel}
-        className="flex flex-wrap gap-2"
+        className="flex flex-wrap gap-1.5 sm:gap-2"
       >
         {options.map((option) => {
           const selected = currentSlug === option.slug;
@@ -128,7 +128,7 @@ export function CityLocationPicker({
               onClick={() => goTo(option.slug)}
               className={`
                 inline-flex min-h-11 items-center justify-center
-                rounded-xl px-3.5 py-2 text-[15px] font-bold tracking-tight
+                rounded-xl px-2.5 py-2 text-[15px] font-bold tracking-tight
                 transition-[color,background-color,border-color,transform]
                 touch-manipulation active:scale-[0.98]
                 focus-visible:outline focus-visible:outline-2
