@@ -66,7 +66,6 @@ const EventCardComponent = ({
             relative aspect-[4/3] w-full overflow-hidden pointer-events-none
             ${event.imageUrl ? "bg-neutral-100 dark:bg-neutral-800" : `bg-gradient-to-br ${category?.gradient ?? "from-neutral-200 to-neutral-300"}`}
           `}
-          aria-hidden={!event.imageUrl}
         >
           {event.imageUrl ? (
             <EventImage
@@ -76,23 +75,21 @@ const EventCardComponent = ({
               className="object-cover card-media-zoom"
             />
           ) : (
-            <div className="flex h-full w-full items-center justify-center text-4xl">
+            <div className="flex h-full w-full items-center justify-center text-4xl" aria-hidden>
               {emoji}
             </div>
           )}
+          {event.trending && !liveStatusLabel && (
+            <span className="absolute right-2 top-2 inline-flex items-center gap-0.5 rounded-full bg-black/55 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-orange-300 backdrop-blur-sm">
+              <Flame className="h-3 w-3" aria-hidden />
+              {dict.events.hot}
+            </span>
+          )}
         </div>
         <div className="relative z-[1] flex flex-1 flex-col gap-1.5 p-3 pointer-events-none">
-          <div className="flex items-start gap-1.5">
-            <h3 className="min-w-0 flex-1 line-clamp-2 text-[15px] font-bold leading-snug text-neutral-900 dark:text-neutral-100">
-              {event.title}
-            </h3>
-            {event.trending && !liveStatusLabel && (
-              <span className="flex-shrink-0 inline-flex items-center gap-0.5 rounded-full bg-orange-50 dark:bg-orange-950/50 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-orange-600">
-                <Flame className="h-3 w-3" />
-                {dict.events.hot}
-              </span>
-            )}
-          </div>
+          <h3 className="line-clamp-2 text-[15px] font-bold leading-snug text-neutral-900 dark:text-neutral-100">
+            {event.title}
+          </h3>
           <EventCardMeta
             event={event}
             locale={locale}

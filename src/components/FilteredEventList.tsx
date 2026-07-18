@@ -194,17 +194,11 @@ export function FilteredEventList({
         </>
       ) : null}
 
-      {(sectionTitle || (!loading && filtered.length > 0)) && (
+      {sectionTitle && (
         <div className="mb-3">
-          {sectionTitle ? (
-            <h2 className="min-w-0 text-xs font-bold uppercase tracking-widest text-neutral-400">
-              {sectionTitle}
-            </h2>
-          ) : (
-            <span className="min-w-0 text-[10px] font-semibold text-neutral-400">
-              {dict.events.sortedUpcoming}
-            </span>
-          )}
+          <h2 className="min-w-0 text-xs font-bold uppercase tracking-widest text-neutral-400">
+            {sectionTitle}
+          </h2>
         </div>
       )}
 
