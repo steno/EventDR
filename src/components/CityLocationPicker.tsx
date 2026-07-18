@@ -48,19 +48,14 @@ export function CityLocationPicker({
   const category = categoryId
     ? getCategoryMeta(categoryId, dict.categories)
     : undefined;
-  // Home: “Events in [place]”; scope pages keep “All Events in” + emoji.
-  // On category pages, the title already shows the category, so no prefix needed.
-  // Home: "Events in [place]"; scope pages: "All Events in" + emoji.
-  const scopePrefix = categoryId
+  // Category pages and home: show "Events in [area]"
+  // City/when scope pages: show "All Events in [area]" with emoji
+  const scopePrefix = categoryId || onSelect
+    ? dict.cities.eventsIn
+    : dict.cities.lookingIn;
+  const scopeEmoji = categoryId || onSelect
     ? null
-    : onSelect
-      ? dict.cities.eventsIn
-      : dict.cities.lookingIn;
-  const scopeEmoji = categoryId
-    ? null
-    : onSelect
-      ? null
-      : "📅";
+    : "📅";
 
   const options: AreaOption[] = [
     { slug: null, label: dict.cities.regionName },
@@ -77,7 +72,7 @@ export function CityLocationPicker({
 
   function goTo(slug: CitySlug | null) {
     if (slug === currentSlug) return;
-    // Persist on every page so “back to home” matches the last picker choice.
+    // Persist on every page so "back to home" matches the last picker choice.
     writeHomeArea(slug);
     if (onSelect) {
       onSelect(slug);
