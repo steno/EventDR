@@ -22,7 +22,9 @@ import { PwaRegister } from "@/components/PwaRegister";
 import { EventCard } from "@/components/EventCard";
 import { VenueAudienceCards } from "@/components/VenueAudienceCards";
 import { TodayHighlights } from "@/components/TodayHighlights";
+import { PullToRefreshIndicator } from "@/components/PullToRefreshIndicator";
 import { useSavedEvents } from "@/hooks/useSavedEvents";
+import { usePullToRefresh } from "@/hooks/usePullToRefresh";
 import {
   getHomeDiscoverLayout,
   HOME_SEARCH_LIMIT,
@@ -174,9 +176,23 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
   const isSearching = searchQuery.trim().length > 0;
   const listSearchQuery = isSearching ? deferredSearchQuery : "";
 
+  // Pull-to-refresh: increment refreshKey to trigger EventList re-fetch
+  const handleRefresh = useCallback(async () => {
+    setRefreshKey((k) => k + 1);
+    router.refresh();
+    // Small delay to ensure refresh is perceived as complete
+    await new Promise((resolve) => setTimeout(resolve, 500));
+  }, [router]);
+
+  const pullToRefreshState = usePullToRefresh({
+    onRefresh: handleRefresh,
+    enabled: !submitOpen,
+  });
+
   return (
     <>
       <PwaRegister />
+      <PullToRefreshIndicator {...pullToRefreshState} />
       <main id="main-content" className="relative bg-neutral-50 dark:bg-transparent pb-6">
         <div className={PAGE_SHELL_CLASS}>
           <AppHeader

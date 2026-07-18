@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 import type { Event } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
@@ -13,6 +14,7 @@ import {
 import { CityLocationPicker } from "@/components/CityLocationPicker";
 import { CityPhotoHero } from "@/components/CityPhotoHero";
 import { SubmitEventSheet } from "@/components/SubmitEventSheet";
+import { PullToRefreshIndicator } from "@/components/PullToRefreshIndicator";
 import { attachEventImages } from "@/lib/event-images";
 import { StickyListHeader } from "@/components/StickyListHeader";
 import { allEventsPath, resolveBackLabel } from "@/lib/event-navigation";
@@ -24,6 +26,7 @@ import {
 } from "@/lib/cities";
 import { getCategoryHeroImage } from "@/lib/category-heroes";
 import { PAGE_SHELL_CLASS } from "@/lib/page-shell";
+import { usePullToRefresh } from "@/hooks/usePullToRefresh";
 
 interface EventScopePageProps {
   locale: Locale;
@@ -82,6 +85,7 @@ export function EventScopePage({
   categoryId,
   regionScope = false,
 }: EventScopePageProps) {
+  const router = useRouter();
   const [events, setEvents] = useState<Event[]>(() => attachEventImages(initialEvents));
   const [loading, setLoading] = useState(false);
   const [submitOpen, setSubmitOpen] = useState(false);
@@ -120,6 +124,28 @@ export function EventScopePage({
     };
   }, [fetchUrl]);
 
+  // Pull-to-refresh: re-fetch events from the API
+  const handleRefresh = useCallback(async () => {
+    setLoading(true);
+    try {
+      const response = await fetch(fetchUrl, { cache: "no-store" });
+      const data: { events?: Event[] } = await response.json();
+      setEvents(attachEventImages(data.events ?? []));
+      router.refresh();
+    } catch (error) {
+      console.error("Failed to refresh events:", error);
+    } finally {
+      setLoading(false);
+    }
+    // Small delay to ensure refresh is perceived as complete
+    await new Promise((resolve) => setTimeout(resolve, 300));
+  }, [fetchUrl, router]);
+
+  const pullToRefreshState = usePullToRefresh({
+    onRefresh: handleRefresh,
+    enabled: !submitOpen,
+  });
+
   const city = citySlug ? getCityMeta(citySlug) : undefined;
   // Topic photo when set; else place photo; else regional hero for when-scopes.
   const scopeHeroImage =
@@ -149,6 +175,7 @@ export function EventScopePage({
 
   return (
     <>
+      <PullToRefreshIndicator {...pullToRefreshState} />
       <main className="relative bg-neutral-50 dark:bg-transparent pb-6">
         <div className={PAGE_SHELL_CLASS}>
           <StickyListHeader

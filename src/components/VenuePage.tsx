@@ -16,8 +16,10 @@ import { SubmitEventSheet } from "@/components/SubmitEventSheet";
 import { StickyListHeader } from "@/components/StickyListHeader";
 import { VenueDirectionsSection } from "@/components/VenueDirectionsSection";
 import { VenueAssessmentBlock } from "@/components/VenueAssessmentBlock";
+import { PullToRefreshIndicator } from "@/components/PullToRefreshIndicator";
 import { EventImage } from "@/components/EventImage";
 import { EventCallLink } from "@/components/EventCallLink";
+import { usePullToRefresh } from "@/hooks/usePullToRefresh";
 import { attachEventImages } from "@/lib/event-images";
 import { attachTicketUrls } from "@/lib/event-tickets";
 import { lastHomePath } from "@/lib/cities";
@@ -100,6 +102,19 @@ export function VenuePage({
   const backHref = returnTo ?? fallbackHref;
   const backLabel = resolveBackLabel(locale, backHref, dict, returnTitle);
 
+  // Pull-to-refresh: reload venue events
+  const handleRefresh = useCallback(async () => {
+    await refreshEvents();
+    router.refresh();
+    // Small delay to ensure refresh is perceived as complete
+    await new Promise((resolve) => setTimeout(resolve, 300));
+  }, [refreshEvents, router]);
+
+  const pullToRefreshState = usePullToRefresh({
+    onRefresh: handleRefresh,
+    enabled: !submitOpen,
+  });
+
   function handleBack() {
     if (returnTo && typeof window !== "undefined" && window.history.length > 1) {
       router.back();
@@ -121,6 +136,7 @@ export function VenuePage({
 
   return (
     <>
+    <PullToRefreshIndicator {...pullToRefreshState} />
     <main className="bg-neutral-50 dark:bg-transparent pb-6">
       <div className={PAGE_SHELL_CLASS}>
         <StickyListHeader
