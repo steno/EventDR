@@ -48,7 +48,6 @@ export function CityCategoryLinks({
   const [loadingHref, setLoadingHref] = useState<string | null>(null);
   const activeRef = useRef<HTMLAnchorElement>(null);
   const scrollerRef = useRef<HTMLDivElement>(null);
-  const sectionRef = useRef<HTMLElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
 
@@ -92,14 +91,17 @@ export function CityCategoryLinks({
     requestAnimationFrame(syncScrollHints);
   }, [activeHref, syncScrollHints]);
 
-  // Scroll the category section into view on mount when an active category is selected.
-  // This ensures users see the category pills after navigating from the home page.
+  // Scroll to the time filter tabs on mount when navigating from home page.
+  // This ensures users see the tabs (All, Today, Tomorrow, Weekend) after clicking a category pill.
   useEffect(() => {
-    const section = sectionRef.current;
-    if (!section || !activeHref) return;
+    if (!activeHref) return;
 
     // Only scroll on initial mount, not on subsequent activeHref changes
     const timeoutId = setTimeout(() => {
+      // Find the time filter section (marked with data-list-scroll-anchor)
+      const target = document.querySelector<HTMLElement>("[data-list-scroll-anchor]");
+      if (!target) return;
+
       const prefersReducedMotion = window.matchMedia(
         "(prefers-reduced-motion: reduce)",
       ).matches;
@@ -111,14 +113,14 @@ export function CityCategoryLinks({
         10
       );
       
-      const sectionTop = section.getBoundingClientRect().top + window.scrollY;
-      const targetScroll = Math.max(0, sectionTop - headerHeight - 16); // 16px padding
+      const targetTop = target.getBoundingClientRect().top + window.scrollY;
+      const targetScroll = Math.max(0, targetTop - headerHeight - 8); // 8px padding
       
       window.scrollTo({
         top: targetScroll,
         behavior: prefersReducedMotion ? "auto" : "smooth",
       });
-    }, 100); // Small delay to ensure layout is stable
+    }, 150); // Small delay to ensure layout is stable
 
     return () => clearTimeout(timeoutId);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -175,7 +177,7 @@ export function CityCategoryLinks({
   };
 
   return (
-    <nav ref={sectionRef} aria-label={label} className="mb-6">
+    <nav aria-label={label} className="mb-6">
       <p className="mb-2.5 text-xs font-bold uppercase tracking-widest text-neutral-400">
         {label}
       </p>
