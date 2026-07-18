@@ -54,42 +54,46 @@ export function CategoryGrid({
   return (
     <section aria-label={dict.browse.ariaLabel}>
       <div className={CATEGORY_SCROLLER_BAR}>
-        <div className="grid grid-cols-4 gap-3 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-7">
-          <Link
-            href={allEventsHref}
-            onClick={(e) => handleNavigation(e, allEventsHref)}
-            className={`${CATEGORY_PILL_BASE} ${CATEGORY_PILL_ACTIVE}`}
-            aria-label={allEventsLabel}
-            aria-current="page"
-          >
-            <span className="text-4xl leading-none select-none" aria-hidden>
-              📅
-            </span>
-            <span className="line-clamp-2 w-full">{allEventsLabel}</span>
-          </Link>
-          {categories.map((cat) => {
-            const href = categoryPath(locale, cat.id, citySlug);
-            const isLoading = isPending && loadingHref === href;
-            
-            return (
+        <div className="relative min-w-0 flex-1 overflow-hidden">
+          <div className="overflow-x-auto scrollbar-hide">
+            <div className="flex w-max gap-3 px-0.5 py-1">
               <Link
-                key={cat.id}
-                href={href}
-                onClick={(e) => handleNavigation(e, href)}
-                className={`${CATEGORY_PILL_BASE} ${CATEGORY_PILL_IDLE} ${isLoading ? "opacity-70" : ""}`}
-                aria-label={cat.label}
+                href={allEventsHref}
+                onClick={(e) => handleNavigation(e, allEventsHref)}
+                className={`${CATEGORY_PILL_BASE} ${CATEGORY_PILL_ACTIVE}`}
+                aria-label={allEventsLabel}
+                aria-current="page"
               >
-                {isLoading ? (
-                  <Loader2 className="h-9 w-9 animate-spin shrink-0" aria-hidden />
-                ) : (
-                  <span className="text-4xl leading-none select-none" aria-hidden>
-                    {cat.emoji}
-                  </span>
-                )}
-                <span className="line-clamp-2 w-full">{cat.label}</span>
+                <span className="text-4xl leading-none select-none" aria-hidden>
+                  📅
+                </span>
+                <span className="line-clamp-2 w-full">{allEventsLabel}</span>
               </Link>
-            );
-          })}
+              {categories.map((cat) => {
+                const href = categoryPath(locale, cat.id, citySlug);
+                const isLoading = isPending && loadingHref === href;
+                
+                return (
+                  <Link
+                    key={cat.id}
+                    href={href}
+                    onClick={(e) => handleNavigation(e, href)}
+                    className={`${CATEGORY_PILL_BASE} ${CATEGORY_PILL_IDLE} ${isLoading ? "opacity-70" : ""}`}
+                    aria-label={cat.label}
+                  >
+                    {isLoading ? (
+                      <Loader2 className="h-9 w-9 animate-spin shrink-0" aria-hidden />
+                    ) : (
+                      <span className="text-4xl leading-none select-none" aria-hidden>
+                        {cat.emoji}
+                      </span>
+                    )}
+                    <span className="line-clamp-2 w-full">{cat.label}</span>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
         </div>
       </div>
     </section>
