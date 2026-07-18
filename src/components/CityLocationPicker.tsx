@@ -1,6 +1,5 @@
 "use client";
 
-import { useLayoutEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import {
   CITIES,
@@ -45,9 +44,6 @@ export function CityLocationPicker({
   onSelect,
 }: CityLocationPickerProps) {
   const router = useRouter();
-  /** Bumps after an in-page select so scroll can be restored post-layout. */
-  const [scrollRestoreEpoch, setScrollRestoreEpoch] = useState(0);
-  const pendingScrollY = useRef<number | null>(null);
 
   const category = categoryId
     ? getCategoryMeta(categoryId, dict.categories)
@@ -79,22 +75,12 @@ export function CityLocationPicker({
     dict.cities.regionName;
   const groupLabel = `${scopePrefix} ${currentLabel}`;
 
-  useLayoutEffect(() => {
-    if (pendingScrollY.current == null) return;
-    window.scrollTo(0, pendingScrollY.current);
-    pendingScrollY.current = null;
-  }, [scrollRestoreEpoch, currentSlug]);
-
   function goTo(slug: CitySlug | null) {
     if (slug === currentSlug) return;
     // Persist on every page so “back to home” matches the last picker choice.
     writeHomeArea(slug);
     if (onSelect) {
-      // Filtering lists below can shrink/grow the page and jump the viewport;
-      // restore scroll after React commits the layout update.
-      pendingScrollY.current = window.scrollY;
       onSelect(slug);
-      setScrollRestoreEpoch((n) => n + 1);
       return;
     }
     // Keep scroll on city/category swaps — same mid-page chrome, new list below.

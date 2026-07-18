@@ -8,7 +8,7 @@ import {
   useMemo,
   useState,
 } from "react";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { AppHeader } from "@/components/AppHeader";
 import { PhotoHero } from "@/components/PhotoHero";
 import { CategoryGrid } from "@/components/CategoryGrid";
@@ -32,7 +32,6 @@ import {
   eventMatchesCity,
   getCityMeta,
   getCityName,
-  HOME_CITY_ALL,
   homePathWithArea,
   parseHomeCityParam,
   readHomeArea,
@@ -51,7 +50,6 @@ interface HomeProps {
 
 export function Home({ locale, dict, initialVenues }: HomeProps) {
   const router = useRouter();
-  const pathname = usePathname();
   const searchParams = useSearchParams();
   const [tab, setTab] = useState<AppTab>("discover");
   const [searchQuery, setSearchQuery] = useState("");
@@ -59,8 +57,12 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
   const [submitOpen, setSubmitOpen] = useState(false);
   const [allEvents, setAllEvents] = useState<Event[]>([]);
   const [refreshKey, setRefreshKey] = useState(0);
-  /** Session city applied before paint when the URL is bare `/[locale]`. */
-  const [restoredArea, setRestoredArea] = useState<{
+  /**
+   * Local area override — wins over Next searchParams.
+   * Used for session restore on bare `/[locale]` and for chip clicks so we can
+   * update the URL with history.replaceState (no RSC soft-nav flash).
+   */
+  const [localArea, setLocalArea] = useState<{
     city: CitySlug | null;
     areaChosen: boolean;
   } | null>(null);
@@ -74,35 +76,35 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
   // Apply state + history before paint; avoid router.replace (extra RSC = second load).
   useLayoutEffect(() => {
     if (searchParams.get("city")) {
-      setRestoredArea(null);
+      // Next has an explicit city param. Keep a chip override if we already set one
+      // via history.replaceState (searchParams stay stale until a real Next nav).
+      setLocalArea((prev) => (prev?.areaChosen ? prev : null));
       return;
     }
     const stored = readHomeArea();
     if (!stored.areaChosen || stored.city == null) {
-      setRestoredArea(null);
+      setLocalArea(null);
       return;
     }
-    setRestoredArea(stored);
+    setLocalArea(stored);
     const href = homePathWithArea(locale, stored.city, true);
     window.history.replaceState(window.history.state ?? null, "", href);
   }, [locale, searchParams]);
 
-  const selectedCity = urlArea.areaChosen
-    ? urlArea.city
-    : restoredArea?.areaChosen
-      ? restoredArea.city
-      : urlArea.city;
-  const areaChosen = urlArea.areaChosen || Boolean(restoredArea?.areaChosen);
+  // Prefer localArea so chip clicks filter instantly without waiting on (or
+  // triggering) a Next soft navigation.
+  const selectedCity = localArea?.areaChosen ? localArea.city : urlArea.city;
+  const areaChosen = Boolean(localArea?.areaChosen) || urlArea.areaChosen;
 
   const setArea = useCallback(
     (slug: CitySlug | null) => {
-      setRestoredArea(null);
-      const params = new URLSearchParams(searchParams.toString());
-      params.set("city", slug ?? HOME_CITY_ALL);
-      const qs = params.toString();
-      router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
+      setLocalArea({ city: slug, areaChosen: true });
+      // Same pattern as session restore: update the address bar without an RSC
+      // round-trip. router.replace(?city=…) was flashing the whole home shell.
+      const href = homePathWithArea(locale, slug, true);
+      window.history.replaceState(window.history.state ?? null, "", href);
     },
-    [pathname, router, searchParams],
+    [locale],
   );
 
   // Persist area: explicit ?city=, or bare home as North Coast default.
@@ -185,11 +187,17 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
             onLogoClick={() => {
               setTab("discover");
               setSearchQuery("");
-              setRestoredArea(null);
-              // URL may already show ?city= from history.replaceState while
-              // Next searchParams are still bare — always reset to fresh home.
-              if (searchParams.get("city") || restoredArea?.areaChosen) {
-                router.replace(`/${locale}`, { scroll: false });
+              setLocalArea(null);
+              const bareHome = `/${locale}`;
+              // Chip clicks update the bar via history.replaceState — sync that
+              // too, since Next searchParams may still look bare or stale.
+              window.history.replaceState(
+                window.history.state ?? null,
+                "",
+                bareHome,
+              );
+              if (searchParams.get("city")) {
+                router.replace(bareHome, { scroll: false });
               }
             }}
             search={
@@ -316,7 +324,7 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
                   </p>
                 </div>
               ) : (
-                <div className="space-y-3">
+                <div className="grid grid-cols-2 items-stretch gap-2.5 sm:gap-3 lg:grid-cols-3">
                   {savedEvents.map((event) => (
                     <EventCard
                       key={event.id}
@@ -324,6 +332,7 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
                       dict={dict}
                       locale={locale}
                       returnTo={homePath}
+                      view="cards"
                     />
                   ))}
                 </div>

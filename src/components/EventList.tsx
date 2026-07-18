@@ -94,7 +94,7 @@ export function EventList({
   const [visibleCount, setVisibleCount] = useState(initialCap);
   const onEventsLoadedRef = useRef(onEventsLoaded);
   const scrollAnchorRef = useRef<HTMLDivElement>(null);
-  const skipTimeRangeScroll = useRef(true);
+  const scrolledTimeRangeRef = useRef<FilterTimeRange | null>(null);
 
   useEffect(() => {
     onEventsLoadedRef.current = onEventsLoaded;
@@ -106,12 +106,14 @@ export function EventList({
 
   useLayoutEffect(() => {
     if (!showTimeFilter) return;
-    if (skipTimeRangeScroll.current) {
-      skipTimeRangeScroll.current = false;
+    if (scrolledTimeRangeRef.current === null) {
+      scrolledTimeRangeRef.current = timeRange;
       return;
     }
+    if (scrolledTimeRangeRef.current === timeRange) return;
+    scrolledTimeRangeRef.current = timeRange;
     scrollToListTop(scrollAnchorRef.current);
-  }, [timeRange]);
+  }, [timeRange, showTimeFilter]);
 
   const fetchEvents = useCallback(
     async (refresh = false) => {
@@ -280,11 +282,13 @@ export function EventList({
           <SearchEmptyState
             title={dict.search.noResults}
             hint={dict.search.noResultsHint}
+            gameLabels={dict.search.game}
           />
         ) : canSuggestTimeTab ? (
           <SearchEmptyState
             title={dict.search.noResults}
             hint={tryTabLabel}
+            gameLabels={dict.search.game}
             actionLabel={tryTabLabel}
             onAction={() => onTimeRangeChange?.(suggestedRange)}
           />

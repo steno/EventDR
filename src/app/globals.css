@@ -31,6 +31,11 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
+/* Subtle Caribbean lift — warm + clear without looking filtered */
+img {
+  filter: sepia(0.06) saturate(112%) contrast(104%) brightness(105%);
+}
+
 /* Theme color fades — keep in @layer base so Tailwind motion utilities can override */
 @layer base {
   * {

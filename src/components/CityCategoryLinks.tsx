@@ -61,6 +61,7 @@ export function CityCategoryLinks({
 
   // Scroll to the time filter tabs on mount when navigating from home page.
   // This ensures users see the tabs (All, Today, Tomorrow, Weekend) after clicking a category pill.
+  // Skip when already parked on the tabs (area-chip swaps keep scroll via scroll:false).
   useEffect(() => {
     if (!activeHref) return;
 
@@ -73,17 +74,28 @@ export function CityCategoryLinks({
       const prefersReducedMotion = window.matchMedia(
         "(prefers-reduced-motion: reduce)",
       ).matches;
-      
+
       // Calculate offset to account for sticky header
       const headerHeight = parseInt(
         getComputedStyle(document.documentElement)
           .getPropertyValue("--sticky-list-header-height") || "0",
-        10
+        10,
       );
-      
+
       const targetTop = target.getBoundingClientRect().top + window.scrollY;
-      const targetScroll = Math.max(0, targetTop - headerHeight - 8); // 8px padding
-      
+      // Leave a peek of the category pills under the sticky header so the user
+      // can sense there’s a row above to scroll back into — not a hard clip.
+      const CATEGORY_NAV_PEEK_PX = 44;
+      const targetScroll = Math.max(
+        0,
+        targetTop - headerHeight - CATEGORY_NAV_PEEK_PX,
+      );
+
+      // Area chips navigate with scroll:false while the user is already on the
+      // list chrome — re-animating here is the flash. Home → category still
+      // starts near the top, so this still scrolls to the tabs.
+      if (Math.abs(window.scrollY - targetScroll) < 64) return;
+
       window.scrollTo({
         top: targetScroll,
         behavior: prefersReducedMotion ? "auto" : "smooth",

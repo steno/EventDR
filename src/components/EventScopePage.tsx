@@ -101,8 +101,13 @@ export function EventScopePage({
     }
     skipMountFetch.current = false;
 
+    // Swap in the new scope's SSR events immediately — never blank the list with a
+    // loading flash while the client refetch runs (area-chip navigations).
+    const ssrEvents = attachEventImages(initialEventsRef.current);
+    setEvents(ssrEvents);
+
     let cancelled = false;
-    setLoading(true);
+    if (ssrEvents.length === 0) setLoading(true);
     fetch(fetchUrl, { cache: "no-store" })
       .then((response) => response.json())
       .then((data: { events?: Event[] }) => {

@@ -2,11 +2,13 @@
 
 import { useEffect, useRef } from "react";
 
-const COURT_H = 168;
+const COURT_H = 200;
 const PADDLE_W = 64;
 const PADDLE_H = 8;
 const BALL_R = 5;
 const SPEED = 220;
+/** Empty-state message on the court before PLAY. */
+const WELCOME_HOLD_MS = 1600;
 /** Brief PLAY flash before the rally starts on its own. */
 const PLAY_HOLD_MS = 900;
 
@@ -17,9 +19,23 @@ const PLAY_HOLD_MS = 900;
  *
  * Game draws only on the canvas bitmap. Score updates via a ref — never
  * React setState from the rAF loop — so the React tree stays stable.
- * Flashes PLAY, then auto-starts; tap skips the wait.
+ * Optional welcome flash, then PLAY, then auto-starts; tap skips waits.
  */
-export function EmptyPong({ className = "" }: { className?: string }) {
+export function EmptyPong({
+  className = "",
+  welcome,
+  labels,
+}: {
+  className?: string;
+  /** Empty-state copy shown on the court before PLAY (e.g. "Nothing turned up."). */
+  welcome?: string;
+  labels: {
+    score: string;
+    play: string;
+    restart: string;
+    tapToRestart: string;
+  };
+}) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const scoreRef = useRef<HTMLSpanElement>(null);
@@ -37,6 +53,17 @@ export function EmptyPong({ className = "" }: { className?: string }) {
     const canvas = canvasEl;
     const ctx = context;
     const scoreEl = scoreRef.current;
+    const welcomeText = welcome?.replace(/\.$/, "").trim() || "";
+
+    // Canvas ctx.font can't parse CSS var(); resolve the real family names
+    // once, or every font assignment is silently ignored (stuck at 10px).
+    const rootStyle = getComputedStyle(document.documentElement);
+    const displayFont =
+      rootStyle.getPropertyValue("--font-syne").trim() || "system-ui";
+    const bodyFont =
+      rootStyle.getPropertyValue("--font-inter").trim() || "system-ui";
+    const displayStack = `${displayFont}, system-ui, sans-serif`;
+    const bodyStack = `${bodyFont}, system-ui, sans-serif`;
 
     let alive = true;
     let width = 0;
@@ -46,8 +73,10 @@ export function EmptyPong({ className = "" }: { className?: string }) {
     let visible = true;
     let last = 0;
     let seeded = false;
+    let showingWelcome = Boolean(welcomeText);
     let motionArmed = false;
     let awaitingRestart = false;
+    let welcomeHoldTimer = 0;
     let playHoldTimer = 0;
     let score = 0;
 
@@ -95,13 +124,31 @@ export function EmptyPong({ className = "" }: { className?: string }) {
       );
     }
 
-    function armMotion() {
-      if (motionArmed || awaitingRestart) return;
-      motionArmed = true;
+    function clearHoldTimers() {
+      if (welcomeHoldTimer) {
+        window.clearTimeout(welcomeHoldTimer);
+        welcomeHoldTimer = 0;
+      }
       if (playHoldTimer) {
         window.clearTimeout(playHoldTimer);
         playHoldTimer = 0;
       }
+    }
+
+    function showPlayThenArm() {
+      showingWelcome = false;
+      draw();
+      playHoldTimer = window.setTimeout(() => {
+        if (!alive) return;
+        armMotion();
+      }, PLAY_HOLD_MS);
+    }
+
+    function armMotion() {
+      if (motionArmed || awaitingRestart) return;
+      showingWelcome = false;
+      motionArmed = true;
+      clearHoldTimers();
       if (visible && !document.hidden) start();
       else draw();
     }
@@ -141,13 +188,7 @@ export function EmptyPong({ className = "" }: { className?: string }) {
       if (!running) draw();
     }
 
-    function drawCenteredPrompt(label: string, hint?: string) {
-      const fontSize = Math.min(42, Math.max(28, width * 0.12));
-      ctx.font = `800 ${fontSize}px var(--font-syne), system-ui, sans-serif`;
-      ctx.textAlign = "center";
-      ctx.textBaseline = "middle";
-      ctx.letterSpacing = "0.08em";
-
+    function promptGradient() {
       const grad = ctx.createLinearGradient(
         width / 2 - 80,
         COURT_H / 2,
@@ -157,14 +198,75 @@ export function EmptyPong({ className = "" }: { className?: string }) {
       grad.addColorStop(0, "#f97316");
       grad.addColorStop(0.5, "#f43f5e");
       grad.addColorStop(1, "#d946ef");
-      ctx.fillStyle = grad;
-      ctx.fillText(label, width / 2, hint ? COURT_H / 2 - 4 : COURT_H / 2);
+      return grad;
+    }
+
+    function drawWelcomePrompt(text: string) {
+      const display = text.toUpperCase();
+      const maxWidth = width - 28;
+      let fontSize = Math.min(32, Math.max(22, width * 0.08));
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.letterSpacing = "0.04em";
+      ctx.fillStyle = promptGradient();
+
+      function measure(size: number) {
+        ctx.font = `800 ${size}px ${displayStack}`;
+        return ctx.measureText(display).width;
+      }
+
+      while (fontSize > 18 && measure(fontSize) > maxWidth) {
+        fontSize -= 1;
+      }
+
+      const words = display.split(/\s+/);
+      let lines: string[] = [display];
+      if (measure(fontSize) > maxWidth && words.length > 1) {
+        const mid = Math.ceil(words.length / 2);
+        lines = [words.slice(0, mid).join(" "), words.slice(mid).join(" ")];
+        fontSize = Math.min(34, Math.max(24, width * 0.085));
+        while (
+          fontSize > 18 &&
+          lines.some((line) => {
+            ctx.font = `800 ${fontSize}px ${displayStack}`;
+            return ctx.measureText(line).width > maxWidth;
+          })
+        ) {
+          fontSize -= 1;
+        }
+      }
+
+      ctx.font = `800 ${fontSize}px ${displayStack}`;
+      const lineGap = fontSize * 1.15;
+      const startY = COURT_H / 2 - ((lines.length - 1) * lineGap) / 2;
+      for (let i = 0; i < lines.length; i++) {
+        ctx.fillText(lines[i], width / 2, startY + i * lineGap);
+      }
+    }
+
+    function drawCenteredPrompt(label: string, hint?: string) {
+      const maxWidth = width - 32;
+      let fontSize = Math.min(48, Math.max(32, width * 0.13));
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.letterSpacing = "0.06em";
+      ctx.fillStyle = promptGradient();
+
+      while (fontSize > 22) {
+        ctx.font = `800 ${fontSize}px ${displayStack}`;
+        if (ctx.measureText(label).width <= maxWidth) break;
+        fontSize -= 1;
+      }
+
+      ctx.font = `800 ${fontSize}px ${displayStack}`;
+      ctx.fillText(label, width / 2, hint ? COURT_H / 2 - 10 : COURT_H / 2);
 
       if (hint) {
-        ctx.font = `600 ${Math.max(10, fontSize * 0.28)}px var(--font-inter), system-ui, sans-serif`;
-        ctx.fillStyle = "rgba(255,255,255,0.5)";
-        ctx.letterSpacing = "0.16em";
-        ctx.fillText(hint, width / 2, COURT_H / 2 + fontSize * 0.55);
+        const hintSize = Math.max(13, fontSize * 0.28);
+        ctx.font = `600 ${hintSize}px ${bodyStack}`;
+        ctx.fillStyle = "rgba(255,255,255,0.55)";
+        ctx.letterSpacing = "0.12em";
+        ctx.fillText(hint, width / 2, COURT_H / 2 + fontSize * 0.52);
       }
     }
 
@@ -195,13 +297,31 @@ export function EmptyPong({ className = "" }: { className?: string }) {
       ctx.clearRect(0, 0, width, COURT_H);
       drawCourtChrome();
 
+      if (showingWelcome && welcomeText) {
+        drawWelcomePrompt(welcomeText);
+        return;
+      }
+
       if (!motionArmed) {
-        drawCenteredPrompt("PLAY");
+        drawCenteredPrompt(labels.play.toUpperCase());
         return;
       }
 
       if (awaitingRestart) {
-        drawCenteredPrompt("RESTART", "TAP TO RESTART");
+        const text = labels.tapToRestart.toUpperCase();
+        const maxWidth = width - 32;
+        let fontSize = Math.min(20, Math.max(14, width * 0.05));
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.letterSpacing = "0.12em";
+        ctx.fillStyle = promptGradient();
+        while (fontSize > 12) {
+          ctx.font = `600 ${fontSize}px ${bodyStack}`;
+          if (ctx.measureText(text).width <= maxWidth) break;
+          fontSize -= 1;
+        }
+        ctx.font = `600 ${fontSize}px ${bodyStack}`;
+        ctx.fillText(text, width / 2, COURT_H / 2);
         return;
       }
 
@@ -326,10 +446,17 @@ export function EmptyPong({ className = "" }: { className?: string }) {
     resize();
     draw();
 
-    playHoldTimer = window.setTimeout(() => {
-      if (!alive) return;
-      armMotion();
-    }, PLAY_HOLD_MS);
+    if (showingWelcome) {
+      welcomeHoldTimer = window.setTimeout(() => {
+        if (!alive) return;
+        showPlayThenArm();
+      }, WELCOME_HOLD_MS);
+    } else {
+      playHoldTimer = window.setTimeout(() => {
+        if (!alive) return;
+        armMotion();
+      }, PLAY_HOLD_MS);
+    }
 
     const ro = new ResizeObserver(() => {
       if (!alive) return;
@@ -356,14 +483,14 @@ export function EmptyPong({ className = "" }: { className?: string }) {
     return () => {
       alive = false;
       stop();
-      if (playHoldTimer) window.clearTimeout(playHoldTimer);
+      clearHoldTimers();
       ro.disconnect();
       io.disconnect();
       canvas.removeEventListener("pointerdown", onPointerDown);
       canvas.removeEventListener("pointermove", onPointerMove);
       document.removeEventListener("visibilitychange", onVisibility);
     };
-  }, []);
+  }, [labels, welcome]);
 
   return (
     <div
@@ -372,7 +499,7 @@ export function EmptyPong({ className = "" }: { className?: string }) {
     >
       <div className="mb-2 text-center">
         <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-neutral-500 dark:text-neutral-400">
-          Score
+          {labels.score}
         </p>
         <p className="text-4xl font-bold leading-none tracking-tight text-neutral-900 tabular-nums dark:text-white">
           <span ref={scoreRef}>0</span>

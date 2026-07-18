@@ -139,6 +139,12 @@ export const fr: Dictionary = {
     noResultsHint: "Essayez un autre lieu ou effacez la recherche.",
     tryTabHint: "Voir {tab}",
     activeTitle: "Résultats de recherche",
+    game: {
+      score: "Score",
+      play: "Jouer",
+      restart: "Rejouer",
+      tapToRestart: "Touchez pour rejouer",
+    },
   },
   time: {
     all: "Tous",

@@ -116,6 +116,12 @@ export type Dictionary = {
     noResultsHint: string;
     tryTabHint: string;
     activeTitle: string;
+    game: {
+      score: string;
+      play: string;
+      restart: string;
+      tapToRestart: string;
+    };
   };
   time: Record<TimeRange, string>;
   nav: {
@@ -476,6 +482,12 @@ export const en: Dictionary = {
     noResultsHint: "Try another place, or clear your search.",
     tryTabHint: "Show {tab}",
     activeTitle: "Search results",
+    game: {
+      score: "Score",
+      play: "Play",
+      restart: "Restart",
+      tapToRestart: "Tap to restart",
+    },
   },
   time: {
     all: "All",

@@ -91,7 +91,8 @@ export function FilteredEventList({
   );
   const skipVisibleReset = useRef(true);
   const ignoreNextVisibleReset = useRef(false);
-  const skipTimeRangeScroll = useRef(true);
+  /** Last timeRange we scrolled for — skip mount / Strict Mode remount (same value). */
+  const scrolledTimeRangeRef = useRef<FilterTimeRange | null>(null);
   const skipScrollForUrlWhen = useRef(false);
   const scrollAnchorRef = useRef<HTMLDivElement>(null);
 
@@ -132,16 +133,20 @@ export function FilteredEventList({
 
   useLayoutEffect(() => {
     if (!scrollOnFilterChange) return;
-    if (skipTimeRangeScroll.current) {
-      skipTimeRangeScroll.current = false;
+    // Only scroll when the user changes tabs — not on mount, city-chip navigations,
+    // or React Strict Mode's double invoke (one-shot skip flags fail that case).
+    if (scrolledTimeRangeRef.current === null) {
+      scrolledTimeRangeRef.current = timeRange;
       return;
     }
+    if (scrolledTimeRangeRef.current === timeRange) return;
+    scrolledTimeRangeRef.current = timeRange;
     if (skipScrollForUrlWhen.current) {
       skipScrollForUrlWhen.current = false;
       return;
     }
     scrollToListTop(scrollAnchorRef.current);
-  }, [timeRange]);
+  }, [timeRange, scrollOnFilterChange]);
 
   // SSR/API payloads are already materialized — filter/sort only.
   const activeRange = fixedTimeRange ?? timeRange;
@@ -189,7 +194,7 @@ export function FilteredEventList({
         </>
       ) : null}
 
-      {(sectionTitle || (!loading && events.length > 0)) && (
+      {(sectionTitle || (!loading && filtered.length > 0)) && (
         <div className="mb-3">
           {sectionTitle ? (
             <h2 className="min-w-0 text-xs font-bold uppercase tracking-widest text-neutral-400">
@@ -215,6 +220,7 @@ export function FilteredEventList({
               ? dict.search.noResultsHint
               : tryTabLabel
           }
+          gameLabels={dict.search.game}
           actionLabel={fixedTimeRange ? undefined : tryTabLabel}
           onAction={
             fixedTimeRange ? undefined : () => setTimeRange(suggestedRange)
