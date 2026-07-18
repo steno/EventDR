@@ -77,10 +77,10 @@ export function PhotoHero({
             </p>
             <h1 className="mt-1 text-[2rem] font-black leading-[1.05] tracking-tight sm:text-5xl">
               <span className="text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.4)]">
-                {dict.hero.events}{" "}
+                {dict.cities.eventsIn}{" "}
               </span>
               <span className="bg-gradient-to-r from-orange-300 via-rose-300 to-fuchsia-300 bg-clip-text text-transparent">
-                {placeLabel}
+                {heroPlace}
               </span>
             </h1>
             <p className="mt-2 max-w-md text-[15px] font-medium leading-snug text-white/90 [text-shadow:0_1px_2px_rgba(0,0,0,0.4)]">
