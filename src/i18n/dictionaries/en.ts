@@ -228,9 +228,17 @@ export type Dictionary = {
     title: string;
     subtitle: string;
     button: string;
+    menuLabel: string;
     dismiss: string;
     iosTitle: string;
     iosSubtitle: string;
+    iosStep1: string;
+    iosStep2: string;
+    iosStep3: string;
+    androidTitle: string;
+    androidStep1: string;
+    androidStep2: string;
+    done: string;
   };
   footer: {
     tagline: string;
@@ -609,9 +617,17 @@ export const en: Dictionary = {
     title: "Install POP Events",
     subtitle: "Add to your home screen for quick access — works like an app.",
     button: "Install",
+    menuLabel: "Install app",
     dismiss: "Not now",
-    iosTitle: "Add POP Events to Home Screen",
-    iosSubtitle: "Tap Share, then \"Add to Home Screen\" for the latest version.",
+    iosTitle: "Add POP Events to your Home Screen",
+    iosSubtitle: "Just 3 quick steps in Safari:",
+    iosStep1: "Tap the Share button in the bar below",
+    iosStep2: "Scroll down and tap \"Add to Home Screen\"",
+    iosStep3: "Tap \"Add\" — the app appears on your Home Screen",
+    androidTitle: "Install POP Events",
+    androidStep1: "Open your browser menu (⋮)",
+    androidStep2: "Tap \"Install app\" or \"Add to Home screen\"",
+    done: "Got it",
   },
   footer: {
     tagline: "POP Events · North Coast Dominican Republic",

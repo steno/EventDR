@@ -8,6 +8,7 @@ import type { Event, EventCategory, EventFormat, EventRecurrence } from "@/lib/t
 import { CATEGORY_IDS } from "@/lib/categories";
 import { getSubmitValidationError, type SubmitAdmissionKind } from "@/lib/community-store";
 import { isAcceptedImageFile, parseImageDataUrl } from "@/lib/image-data-url";
+import { resetInputZoom } from "@/lib/reset-input-zoom";
 
 interface SubmitEventSheetProps {
   open: boolean;
@@ -58,10 +59,16 @@ export function SubmitEventSheet({
     if (defaults?.category) setCategory(defaults.category);
   }, [open, defaults?.location, defaults?.venue, defaults?.category]);
 
+  function handleClose() {
+    resetInputZoom();
+    onClose();
+  }
+
   if (!open) return null;
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    resetInputZoom();
     setLoading(true);
     setError(false);
     setErrorMessage("");
@@ -160,8 +167,9 @@ export function SubmitEventSheet({
     }
   }
 
+  // text-base (16px) on mobile prevents iOS Safari focus-zoom; sm:text-sm matches desktop density.
   const inputClass =
-    "w-full rounded-xl border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 px-3.5 py-3 text-sm font-medium text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-orange-500/30 focus:border-orange-200 dark:focus:border-orange-800";
+    "box-border w-full rounded-xl border border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-800 px-3.5 py-3 text-base leading-normal font-medium text-neutral-900 dark:text-neutral-100 focus:outline-none focus:ring-2 focus:ring-orange-500/30 focus:border-orange-200 dark:focus:border-orange-800 sm:text-sm";
 
   const dayFormatter = new Intl.DateTimeFormat(locale === "en" ? "en-US" : locale === "es" ? "es-DO" : "fr-FR", {
     weekday: "short",
@@ -217,7 +225,7 @@ export function SubmitEventSheet({
       <button
         type="button"
         className="absolute inset-0 bg-black/40 backdrop-blur-sm"
-        onClick={onClose}
+        onClick={handleClose}
         aria-label={dict.detail.close}
       />
       <div className="relative flex w-full max-w-lg sm:max-w-2xl max-h-[92dvh] flex-col overflow-hidden rounded-t-3xl bg-white shadow-2xl dark:bg-neutral-900 pb-[env(safe-area-inset-bottom)]">
@@ -228,7 +236,7 @@ export function SubmitEventSheet({
           </div>
           <button
             type="button"
-            onClick={onClose}
+            onClick={handleClose}
             className="flex h-9 w-9 items-center justify-center rounded-full bg-neutral-100 dark:bg-neutral-800"
           >
             <X className="h-4 w-4" />
@@ -245,6 +253,11 @@ export function SubmitEventSheet({
         ) : (
           <form
             onSubmit={handleSubmit}
+            onBlur={(e) => {
+              if (!e.currentTarget.contains(e.relatedTarget as Node | null)) {
+                resetInputZoom({ blur: false });
+              }
+            }}
             className="min-h-0 flex-1 space-y-4 overflow-y-auto overscroll-contain p-4 scrollbar-hide"
           >
             <label className="block">
@@ -273,8 +286,8 @@ export function SubmitEventSheet({
               />
             </label>
 
-            <div className="grid grid-cols-2 gap-3">
-              <label className="block">
+            <div className="grid grid-cols-[minmax(0,1fr)_minmax(0,1fr)] items-end gap-2.5">
+              <label className="block min-w-0 overflow-hidden">
                 <span className="text-xs font-bold text-neutral-500 dark:text-neutral-400 uppercase tracking-wide">
                   {dict.submit.date}
                 </span>
@@ -283,10 +296,10 @@ export function SubmitEventSheet({
                   type="date"
                   value={date}
                   onChange={(e) => setDate(e.target.value)}
-                  className={`${inputClass} mt-1.5`}
+                  className={`${inputClass} mt-1.5 h-12 min-w-0 max-w-full appearance-none px-3 [&::-webkit-date-and-time-value]:min-h-[1.25rem] [&::-webkit-date-and-time-value]:text-left`}
                 />
               </label>
-              <label className="block">
+              <label className="block min-w-0 overflow-hidden">
                 <span className="text-xs font-bold text-neutral-500 dark:text-neutral-400 uppercase tracking-wide">
                   {dict.submit.time} ({dict.submit.optional})
                 </span>
@@ -294,7 +307,10 @@ export function SubmitEventSheet({
                   value={time}
                   onChange={(e) => setTime(e.target.value)}
                   placeholder="7:00 PM"
-                  className={`${inputClass} mt-1.5`}
+                  inputMode="text"
+                  enterKeyHint="done"
+                  autoComplete="off"
+                  className={`${inputClass} mt-1.5 h-12 min-w-0 max-w-full px-3`}
                 />
               </label>
             </div>

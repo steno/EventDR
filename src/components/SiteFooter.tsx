@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
+import { FooterInstallLink } from "@/components/FooterInstallLink";
 import { CITIES, getCityName } from "@/lib/cities";
 import { PAGE_WIDTH_CLASS } from "@/lib/page-shell";
 
@@ -52,6 +53,7 @@ export function SiteFooter({ dict, locale, className = "pb-6" }: SiteFooterProps
         >
           {dict.footer.partners}
         </Link>
+        <FooterInstallLink dict={dict} />
       </nav>
       <p className="text-xs text-neutral-400 dark:text-neutral-500 font-medium">{dict.footer.tagline}</p>
       <p className="text-xs text-neutral-300 dark:text-neutral-600 mt-1">
