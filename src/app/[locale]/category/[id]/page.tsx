@@ -61,7 +61,9 @@ export default async function Page({
   });
 
   // Use article before region name: "Events in the North Coast" / "Eventos en la Costa Norte"
-  const categoryPrefix = fillTemplate(dict.cities.lookingInWithCategory, { category: category.label ?? "" });
+  const categoryPrefix = category 
+    ? fillTemplate(dict.cities.lookingInWithCategory, { category: category.label })
+    : "";
   const regionArticle = locale === "en" ? "the" : "la";
   const title = category
     ? `${categoryPrefix} ${regionArticle} ${dict.cities.regionName}`
