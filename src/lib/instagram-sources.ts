@@ -4,32 +4,32 @@
  * queries still surface public posts via web search.
  */
 
+/**
+ * Priority order: active nightlife / promoters first, then tourism and
+ * secondary venues. Accounts confirmed missing during the Jul 2026 logged-in
+ * scan are kept commented for future handle recovery.
+ */
 export const INSTAGRAM_ACCOUNTS = [
-  // Existing tourist-facing venues
+  // High-signal nightlife / promoters
   {
-    handle: "laxcabarete",
-    label: "LAX Cabarete",
-    areas: ["Cabarete"],
-  },
-  {
-    handle: "lbcabarete",
-    label: "Liquid Blue Cabarete",
-    areas: ["Cabarete"],
-  },
-  {
-    handle: "hardrockcafepuertoplata",
-    label: "Hard Rock Cafe Puerto Plata",
+    handle: "groundzero_disco",
+    label: "Ground Zero Discoteca",
     areas: ["Sosúa"],
   },
   {
-    handle: "oceanworldadventurepark",
-    label: "Ocean World",
-    areas: ["Puerto Plata"],
+    handle: "blueice_pianobar",
+    label: "Blue Ice Piano Bar",
+    areas: ["Sosúa"],
   },
   {
-    handle: "funcitypuertoplata",
-    label: "Fun City Puerto Plata",
-    areas: ["Puerto Plata"],
+    handle: "shakabardr",
+    label: "Shaka Bar DR",
+    areas: ["Cabarete"],
+  },
+  {
+    handle: "onnosbar",
+    label: "Onno's Bar Cabarete",
+    areas: ["Cabarete"],
   },
   {
     handle: "graaneventsplanners",
@@ -42,9 +42,41 @@ export const INSTAGRAM_ACCOUNTS = [
     areas: ["Cabarete"],
   },
   {
+    handle: "driftercabarete",
+    label: "Drifter Cabarete",
+    areas: ["Cabarete"],
+  },
+  {
     handle: "nonasgrillkitchen",
     label: "Nona's Grill & Kitchen",
     areas: ["Cabarete"],
+  },
+  {
+    handle: "hardrockcafepuertoplata",
+    label: "Hard Rock Cafe Puerto Plata",
+    areas: ["Sosúa"],
+  },
+  {
+    handle: "sosuaevents",
+    label: "Sosúa Events",
+    areas: ["Sosúa"],
+  },
+
+  // Active tourist / lifestyle venues
+  {
+    handle: "lbcabarete",
+    label: "Liquid Blue Cabarete",
+    areas: ["Cabarete"],
+  },
+  {
+    handle: "oceanworldadventurepark",
+    label: "Ocean World",
+    areas: ["Puerto Plata"],
+  },
+  {
+    handle: "funcitypuertoplata",
+    label: "Fun City Puerto Plata",
+    areas: ["Puerto Plata"],
   },
   {
     handle: "voyvoycabarete",
@@ -66,23 +98,6 @@ export const INSTAGRAM_ACCOUNTS = [
     label: "Ashonorte",
     areas: ["Puerto Plata", "Playa Dorada"],
   },
-  
-  // Local Cabarete bars & nightlife (Dominican community favorites)
-  {
-    handle: "onnosbar",
-    label: "Onno's Bar Cabarete",
-    areas: ["Cabarete"],
-  },
-  {
-    handle: "classicocabarete",
-    label: "Classico Bar & Lounge",
-    areas: ["Cabarete"],
-  },
-  {
-    handle: "shakabardr",
-    label: "Shaka Bar DR",
-    areas: ["Cabarete"],
-  },
   {
     handle: "bahiabeachclub",
     label: "Bahía Beach Club",
@@ -94,41 +109,9 @@ export const INSTAGRAM_ACCOUNTS = [
     areas: ["Cabarete"],
   },
   {
-    handle: "lachabola.cabarete",
-    label: "La Chabola Cabarete",
-    areas: ["Cabarete"],
-  },
-  {
-    handle: "driftercabarete",
-    label: "Drifter Cabarete",
-    areas: ["Cabarete"],
-  },
-  {
     handle: "rolfsbarandrestaurant",
     label: "Rolf's Bar & Restaurant",
     areas: ["Cabarete"],
-  },
-  
-  // Sosúa local nightlife & bars
-  {
-    handle: "blueice_pianobar",
-    label: "Blue Ice Piano Bar",
-    areas: ["Sosúa"],
-  },
-  {
-    handle: "groundzero_disco",
-    label: "Ground Zero Discoteca",
-    areas: ["Sosúa"],
-  },
-  {
-    handle: "captainbaileyssosua",
-    label: "Captain Baileys Sosúa",
-    areas: ["Sosúa"],
-  },
-  {
-    handle: "jollyrogerbargrill",
-    label: "Jolly Roger Bar & Grill",
-    areas: ["Sosúa"],
   },
   {
     handle: "baileys.restaurant",
@@ -136,30 +119,20 @@ export const INSTAGRAM_ACCOUNTS = [
     areas: ["Sosúa"],
   },
   {
-    handle: "laroca.sosua",
-    label: "La Roca Sosúa",
-    areas: ["Sosúa"],
-  },
-  {
     handle: "rumbabargrill",
     label: "Rumba Bar and Grill",
     areas: ["Sosúa"],
   },
-  
-  // Puerto Plata cultural venues & Dominican music
-  {
-    handle: "anfiteatropuertoplata",
-    label: "Anfiteatro Puerto Plata",
-    areas: ["Puerto Plata"],
-  },
+
+  // Cultural venues & tourism
   {
     handle: "anfiteatro_puertoplata_rd",
     label: "Anfiteatro La Puntilla",
     areas: ["Puerto Plata"],
   },
   {
-    handle: "discoclubbrugal",
-    label: "Disco Club Brugal",
+    handle: "anfiteatropuertoplata",
+    label: "Anfiteatro Puerto Plata",
     areas: ["Puerto Plata"],
   },
   {
@@ -168,54 +141,30 @@ export const INSTAGRAM_ACCOUNTS = [
     areas: ["Puerto Plata"],
   },
   {
-    handle: "festivaldemerenguepuertoplata",
-    label: "Festival del Merengue PP",
-    areas: ["Puerto Plata"],
-  },
-  
-  // Regional tourism & event promoters
-  {
     handle: "turismopuertoplata",
     label: "Turismo Puerto Plata",
     areas: ["Puerto Plata"],
-  },
-  {
-    handle: "ayuntamientodepuertoplata",
-    label: "Ayuntamiento de Puerto Plata",
-    areas: ["Puerto Plata"],
-  },
-  {
-    handle: "clusterpuertoplata",
-    label: "Clúster Turístico Puerto Plata",
-    areas: ["Puerto Plata"],
-  },
-  {
-    handle: "costanorterd",
-    label: "Costa Norte RD",
-    areas: ["Puerto Plata", "Sosúa", "Cabarete"],
   },
   {
     handle: "descubrepuertoplata",
     label: "Descubre Puerto Plata",
     areas: ["Puerto Plata"],
   },
-  
-  // Local event hashtags & aggregators
-  {
-    handle: "eventoscabarete",
-    label: "Eventos Cabarete",
-    areas: ["Cabarete"],
-  },
-  {
-    handle: "sosuaevents",
-    label: "Sosúa Events",
-    areas: ["Sosúa"],
-  },
-  {
-    handle: "eventosnorterd",
-    label: "Eventos Norte RD",
-    areas: ["Puerto Plata", "Sosúa", "Cabarete"],
-  },
+
+  // Confirmed missing / renamed as of Jul 2026 logged-in scan — keep for recovery
+  // { handle: "laxcabarete", label: "LAX Cabarete", areas: ["Cabarete"] },
+  // { handle: "classicocabarete", label: "Classico Bar & Lounge", areas: ["Cabarete"] },
+  // { handle: "lachabola.cabarete", label: "La Chabola Cabarete", areas: ["Cabarete"] },
+  // { handle: "captainbaileyssosua", label: "Captain Baileys Sosúa", areas: ["Sosúa"] },
+  // { handle: "jollyrogerbargrill", label: "Jolly Roger Bar & Grill", areas: ["Sosúa"] },
+  // { handle: "laroca.sosua", label: "La Roca Sosúa", areas: ["Sosúa"] },
+  // { handle: "discoclubbrugal", label: "Disco Club Brugal", areas: ["Puerto Plata"] },
+  // { handle: "festivaldemerenguepuertoplata", label: "Festival del Merengue PP", areas: ["Puerto Plata"] },
+  // { handle: "ayuntamientodepuertoplata", label: "Ayuntamiento de Puerto Plata", areas: ["Puerto Plata"] },
+  // { handle: "clusterpuertoplata", label: "Clúster Turístico Puerto Plata", areas: ["Puerto Plata"] },
+  // { handle: "costanorterd", label: "Costa Norte RD", areas: ["Puerto Plata", "Sosúa", "Cabarete"] },
+  // { handle: "eventoscabarete", label: "Eventos Cabarete", areas: ["Cabarete"] },
+  // { handle: "eventosnorterd", label: "Eventos Norte RD", areas: ["Puerto Plata", "Sosúa", "Cabarete"] },
 ] as const;
 
 export function instagramProfileUrls(): string[] {
@@ -230,18 +179,17 @@ export function instagramSearchQueries(): string[] {
   
   // Split accounts into smaller groups for more targeted searches
   const localVenues = [
-    "onnosbar", "classicocabarete", "shakabardr", "lachabola.cabarete",
-    "groundzero_disco", "blueice_pianobar", "captainbaileyssosua"
+    "onnosbar", "shakabardr", "groundzero_disco", "blueice_pianobar",
+    "driftercabarete", "nonasgrillkitchen", "hardrockcafepuertoplata",
   ].join(" OR ");
-  
+
   const culturalVenues = [
-    "anfiteatropuertoplata", "anfiteatro_puertoplata_rd", "discoclubbrugal",
-    "festivaldemerenguepuertoplata", "graaneventsplanners"
+    "anfiteatropuertoplata", "anfiteatro_puertoplata_rd",
+    "graaneventsplanners", "cabaretejazz", "luciano.vasquez.pp",
   ].join(" OR ");
-  
+
   const touristInfo = [
-    "turismopuertoplata", "ayuntamientodepuertoplata", "clusterpuertoplata",
-    "costanorterd", "descubrepuertoplata"
+    "turismopuertoplata", "descubrepuertoplata", "sosuaevents",
   ].join(" OR ");
   
   return [

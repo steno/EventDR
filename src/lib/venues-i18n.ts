@@ -111,8 +111,8 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
   },
   "el-parq-cabarete": {
     description: {
-      es: "Food park al aire libre cerca de Encuentro — puestos de comida callejera, mesas comunes, karaoke los jueves, baile latino los viernes y bandas en vivo los sábados.",
-      fr: "Food park en plein air près d'Encuentro — stands de street food, tables partagées, karaoké le jeudi, danse latine le vendredi et groupes live le samedi.",
+      es: "Food park al aire libre cerca de Encuentro — puestos de comida callejera, mesas comunes, karaoke de Shaka Bar los jueves (7:30–9:30 PM), Noche Latina de Ninafrika Dance los viernes desde las 7 PM y bandas en vivo los sábados.",
+      fr: "Food park en plein air près d'Encuentro — stands de street food, tables partagées, karaoké de Shaka Bar le jeudi (19 h 30–21 h 30), Noche Latina de Ninafrika Dance le vendredi dès 19 h et groupes live le samedi.",
     },
   },
   "parada-tipica-el-choco": {

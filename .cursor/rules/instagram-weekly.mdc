@@ -1,0 +1,22 @@
+---
+description: Weekly logged-in Instagram event discovery for POP Events (North Coast DR)
+globs:
+alwaysApply: false
+---
+
+# Weekly Instagram event agent
+
+Run when the user asks to refresh Instagram events or as the logged-in discovery step of the Sunday content pipeline.
+
+Use skill **`pop-instagram-ingest`** for the full workflow. This rule provides standing constraints:
+
+1. Scan public posts, Reels, carousels, and current Stories from accounts in `src/lib/instagram-sources.ts`.
+2. Cover only Puerto Plata, Sosúa, Cabarete, Costambar, and Playa Dorada.
+3. Add only upcoming or clearly recurring events with a verifiable date and venue.
+4. Dedupe against fallback, recurring, and curated seeds plus the live/moderation data.
+5. Preserve the canonical Instagram URL and organizer handle; cross-check ambiguous flyers.
+6. Add matching EN/ES/FR entries and authentic event/venue images for every verified new seed.
+7. Use Instagram read-only: never like, follow, comment, message, share, save, or publish.
+8. Stop for login checkpoints, CAPTCHA, passkeys, account confirmation, or rate limits and ask the user to take over.
+
+The GitHub ingest Action only performs public-profile and web-search discovery. Logged-in Instagram coverage requires a Cursor browser session and cannot be assumed to have run unattended.

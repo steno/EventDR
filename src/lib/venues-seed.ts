@@ -184,7 +184,7 @@ export const SEED_VENUES: Venue[] = [
     name: "El Parq Foodpark",
     city: "Cabarete",
     description:
-      "Open-air food park near Encuentro — street-food vendors, communal tables, Thursday karaoke, Friday Latin dance, and live bands on Saturdays.",
+      "Open-air food park near Encuentro — street-food vendors, communal tables, Shaka Bar Thursday karaoke (7:30–9:30 PM), Ninafrika Dance Friday Noche Latina from 7 PM, and live bands on Saturdays.",
     lat: 19.7588,
     lng: -70.4094,
     emoji: "🍔",

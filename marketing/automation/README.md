@@ -17,13 +17,14 @@ Runs **30 minutes after** the weekly ingest (Sunday 12:30 AST / 16:30 UTC).
 ## What it does
 
 1. Confirms `weekly-event-ingest` GitHub Action succeeded — **retries ingest APIs** if it failed
-2. Runs **Facebook group discovery** (`facebook-groups-weekly` rule) — adds new events to `fallback-events.ts`, commits, re-seeds
-3. Reminds you to moderate at `/en/moderate`
-4. Fetches partner digest from production API
-5. Writes `marketing/drafts/YYYY-MM-DD-social.md`
-6. Summarizes: ingest status, new events, weekend counts, top highlights
+2. Runs **logged-in Instagram discovery** (`pop-instagram-ingest` + `instagram-weekly`) across posts, Reels, carousels, and Stories
+3. Runs **Facebook group discovery** (`pop-facebook-ingest` + `facebook-groups-weekly`)
+4. Adds verified new events with EN/ES/FR copy and authentic images, then commits and re-ingests
+5. Reminds you to moderate at `/en/moderate`
+6. Fetches the partner digest and writes `marketing/drafts/YYYY-MM-DD-social.md`
+7. Summarizes coverage, blockers, new events, weekend counts, and highlights
 
-**Note:** Facebook discovery needs browser + Facebook login. On cloud runs without login, the agent skips discovery and continues with digest/social steps.
+**Note:** Instagram and Facebook discovery require logged-in browser sessions. On cloud runs without those sessions, the agent reports and skips the blocked scans, then continues with digest/social steps. The GitHub Action still performs best-effort public-profile and web-search ingestion.
 
 ## Manual trigger
 

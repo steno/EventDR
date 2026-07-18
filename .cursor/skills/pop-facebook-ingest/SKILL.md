@@ -67,7 +67,7 @@ Quick pass (North Coast only):
 
 - Puerto Plata Digital, Infotur Dominicano
 - cabaretejazz.com, todotickets.do (filter out non–North Coast)
-- Instagram profiles in `src/lib/instagram-sources.ts` (LAX, GRAAN, Cabarete Jazz, Nona's, Ashonorte, etc.) — scrape + `site:instagram.com` search; login walls expected
+- For logged-in Instagram posts, Reels, and Stories, use skill `pop-instagram-ingest` rather than duplicating that scan here
 
 ## 5. Filter & dedupe
 
@@ -137,5 +137,6 @@ For social + partner copy after ingest, use skill `pop-content-pipeline`.
 
 - Rule: `.cursor/rules/facebook-groups-weekly.mdc`
 - Data: `src/lib/facebook-groups.ts`
+- Skill: `pop-instagram-ingest`
 - Skill: `pop-content-pipeline`
 - Action: `.github/workflows/weekly-event-ingest.yml`

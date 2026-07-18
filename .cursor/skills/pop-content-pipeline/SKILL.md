@@ -25,10 +25,11 @@ Copy and track:
 ```
 Pipeline:
 - [ ] 1. Confirm ingest ran
-- [ ] 2. Review pending events
-- [ ] 3. Generate partner digest preview
-- [ ] 4. Draft social posts
-- [ ] 5. Save outputs for Friday
+- [ ] 2. Run logged-in Instagram and Facebook discovery
+- [ ] 3. Review pending events
+- [ ] 4. Generate partner digest preview
+- [ ] 5. Draft social posts
+- [ ] 6. Save outputs for Friday
 ```
 
 ### 1. Confirm ingest
@@ -41,7 +42,13 @@ curl -sS -X POST "https://pop-event.com/api/seed/facebook-events?secret=$CRON_SE
 curl -sS -X POST "https://pop-event.com/api/ingest?secret=$CRON_SECRET"
 ```
 
-### 2. Review pending events
+### 2. Logged-in social discovery
+
+Run skill `pop-instagram-ingest` first, then `pop-facebook-ingest`. Both browser scans cover login-walled content that the GitHub ingest cannot reliably access.
+
+If Instagram or Facebook requires login confirmation, CAPTCHA, passkey, or another manual checkpoint, report the blocker and continue with the remaining pipeline steps.
+
+### 3. Review pending events
 
 Open https://pop-event.com/en/moderate — approve North Coast events only; reject duplicates and off-region posts.
 
@@ -49,9 +56,7 @@ Confirm pending cards have real photos when possible (ingest sources OG/JSON-LD 
 
 Ingest also drafts POP expert opinions when Places reviews exist (review drafts via `/api/cron/event-opinion-drafts?secret=…&status=draft`; approve with `?approve=eventId`).
 
-For richer Facebook coverage, run skill `pop-facebook-ingest` (browser + login; rule `facebook-groups-weekly`).
-
-### 3. Partner digest preview
+### 4. Partner digest preview
 
 ```bash
 curl -sS "https://pop-event.com/api/cron/partner-digest?secret=$CRON_SECRET&locale=en&format=markdown"
@@ -63,7 +68,7 @@ Repeat for `es` and `fr`. JSON (all locales + `socialDrafts`):
 curl -sS "https://pop-event.com/api/cron/partner-digest?secret=$CRON_SECRET"
 ```
 
-### 4. Social posts
+### 5. Social posts
 
 Read `socialDrafts` from the digest JSON, or follow skill `pop-social-weekly`. Produce:
 
@@ -73,7 +78,7 @@ Read `socialDrafts` from the digest JSON, or follow skill `pop-social-weekly`. P
 
 Save drafts to `marketing/drafts/YYYY-MM-DD-social.md` if the user wants files in-repo.
 
-### 5. Friday handoff
+### 6. Friday handoff
 
 Note event count and top 3 highlights for Friday repost. GitHub Action **Weekly marketing digest** auto-fetches markdown artifacts Fridays 9 AM AST.
 
@@ -97,7 +102,9 @@ Use skill `pop-weekend-b2b-digest` for hotel/agent copy-paste blocks.
 ## Related
 
 - Rule: `.cursor/rules/weekly-marketing-routine.mdc`
+- Rule: `.cursor/rules/instagram-weekly.mdc`
 - Rule: `.cursor/rules/facebook-groups-weekly.mdc`
+- Skill: `pop-instagram-ingest`
 - Skill: `pop-facebook-ingest`
 - Skill: `pop-social-weekly`
 - Skill: `pop-weekend-b2b-digest`
