@@ -78,11 +78,16 @@ function ActionFlyout({
       aria-hidden={!open}
     >
       <div
-        className={`pb-3 transition-all ${
+        className={`pb-3 ${
           open 
-            ? "translate-y-0 scale-100 duration-700 delay-100 ease-[cubic-bezier(0.34,1.56,0.64,1)]" 
-            : "-translate-y-16 scale-90 duration-200 ease-in"
+            ? "animate-[slideUp_0.6s_ease-out_0.1s_both]" 
+            : "translate-y-12 opacity-0"
         }`}
+        style={
+          open
+            ? undefined
+            : { transform: "translateY(3rem) scale(0.95)", opacity: 0 }
+        }
       >
         {children}
       </div>
