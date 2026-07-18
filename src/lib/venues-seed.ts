@@ -52,7 +52,8 @@ export const SEED_VENUES: Venue[] = [
     slug: "el-batey-sosua",
     name: "El Batey",
     city: "Sosúa",
-    description: "Nightlife, salsa socials, and open mic nights in downtown Sosúa.",
+    description:
+      "Sosúa's walkable downtown district — beach access, the Pedro Clisante restaurant-and-bar strip, shops and cafés by day, then salsa socials and open-mic nights after dark.",
     lat: 19.7675,
     lng: -70.5115,
     emoji: "🎤",
@@ -679,6 +680,7 @@ export const SEED_VENUES: Venue[] = [
     lat: 19.7963,
     lng: -70.6921,
     emoji: "👟",
+    phone: "+19394089392",
     website:
       "https://www.eventbrite.es/e/make-authentic-espadrilles-in-puerto-plata-tickets-1981840949630",
   },

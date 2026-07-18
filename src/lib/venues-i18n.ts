@@ -35,8 +35,8 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
   },
   "el-batey-sosua": {
     description: {
-      es: "Vida nocturna, sociales de salsa y noches de open mic en el centro de Sosúa.",
-      fr: "Vie nocturne, soirées salsa et open mic au centre de Sosúa.",
+      es: "El centro peatonal de Sosúa — acceso a la playa, la calle de restaurantes y bares Pedro Clisante, tiendas y cafés de día, y sociales de salsa y open mic al caer la noche.",
+      fr: "Le centre-ville piéton de Sosúa — accès à la plage, la rue de restaurants et bars Pedro Clisante, boutiques et cafés en journée, puis soirées salsa et open mic à la tombée de la nuit.",
     },
   },
   "hard-rock-sosua": {

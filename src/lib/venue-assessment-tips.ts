@@ -186,11 +186,11 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "el-batey-sosua": {
-    body: "Downtown Sosúa's salsa socials and open mics — bilingual, scrappier than beach stages; go to join the floor, not for VIP bottle service.",
+    body: "Sosúa's downtown core — beach and cafés by day, Pedro Clisante's bilingual salsa socials and open mics after dark. Scrappier than the beach resorts; come to walk it and join in, not for VIP bottle service.",
     localized: {
-      en: "Downtown Sosúa's salsa socials and open mics — bilingual, scrappier than beach stages; go to join the floor, not for VIP bottle service.",
-      es: "Sociales de salsa y open mics del centro de Sosúa — bilingüe, más crudo que escenarios de playa; ve a sumarte, no por VIP.",
-      fr: "Socials salsa et open mics du centre de Sosúa — bilingue, plus brut que les scènes plage ; venez pour la piste, pas le VIP.",
+      en: "Sosúa's downtown core — beach and cafés by day, Pedro Clisante's bilingual salsa socials and open mics after dark. Scrappier than the beach resorts; come to walk it and join in, not for VIP bottle service.",
+      es: "El centro de Sosúa — playa y cafés de día, y las sociales de salsa y open mics bilingües de Pedro Clisante de noche. Más crudo que los resorts de playa; ven a recorrerlo y sumarte, no por VIP.",
+      fr: "Le centre de Sosúa — plage et cafés en journée, puis les soirées salsa et open mics bilingues de Pedro Clisante le soir. Plus brut que les resorts de plage ; venez le parcourir et participer, pas pour le VIP.",
     },
   },
   "hotel-voramar-sosua": {

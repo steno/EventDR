@@ -287,13 +287,13 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
   }),
   editorial({
     venueSlug: "el-batey-sosua",
-    verdictKey: "strong_local_nightlife",
-    crowdFit: ["local", "nightlife", "mixed"],
+    verdictKey: "popular_public_space",
+    crowdFit: ["local", "visitor", "mixed"],
     axes: { recommend: 4.2, atmosphere: 4.3, practical: 4.1 },
     themes: [
-      { key: "dance_floor", sentiment: "positive", audience: "nightlife" },
-      { key: "live_music", sentiment: "positive" },
       { key: "easy_to_find", sentiment: "positive" },
+      { key: "dominican_plates", sentiment: "positive" },
+      { key: "dance_floor", sentiment: "positive", audience: "nightlife" },
     ],
   }),
   editorial({

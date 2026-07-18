@@ -192,6 +192,15 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
                 router.replace(`/${locale}`, { scroll: false });
               }
             }}
+            search={
+              tab === "discover" ? (
+                <SearchBar
+                  value={searchQuery}
+                  onChange={setSearchQuery}
+                  dict={dict}
+                />
+              ) : undefined
+            }
             desktopActions={
               <>
                 <button
@@ -221,7 +230,7 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
             <>
               <InstallBanner dict={dict} />
               <div className="flex flex-col">
-                <div className="order-1 sm:order-1">
+                <div className="order-1 mb-4 sm:order-1 lg:hidden">
                   <SearchBar
                     value={searchQuery}
                     onChange={setSearchQuery}

@@ -315,6 +315,25 @@ export const SEED_EVENT_OPINIONS_BASE: EventOpinion[] = [
     researchNotes: "Paid watersports school classes. Event is daily — seriesKey matches daily.",
     updatedAt: AT,
   },
+  {
+    eventId: "ingest-make-authentic-espadrilles-in-puerto-plata",
+    seriesKey: "handmade-the-brand:weekdays",
+    body: "A strong pick for a wearable souvenir and guided craft time; allow the full two hours, and skip it if you only want a quick shop visit.",
+    localized: {
+      es: "Buena opción para llevarte un recuerdo que puedas usar y disfrutar de una actividad artesanal guiada; reserva las dos horas completas y sáltatelo si solo buscas una visita rápida a una tienda.",
+      fr: "Un bon choix pour repartir avec un souvenir à porter et profiter d'un atelier guidé ; prévoyez les deux heures complètes et passez votre chemin si vous cherchez seulement une visite rapide en boutique.",
+    },
+    priceFeel: "upscale",
+    priceNote: "From €99.90 on Eventbrite · materials, snacks, cava, and your finished pair included",
+    priceNoteLocalized: {
+      es: "Desde €99,90 en Eventbrite · incluye materiales, tentempiés, cava y el par terminado",
+      fr: "Dès 99,90 € sur Eventbrite · matériel, collations, cava et paire terminée inclus",
+    },
+    attribution: "POP research · Eventbrite and Airbnb guest reviews",
+    researchNotes:
+      "Official Eventbrite listing confirms the two-hour format and inclusions; Airbnb experience listing showed 5.0 from 3 reviews on 2026-07-17.",
+    updatedAt: "2026-07-18T02:50:00.000Z",
+  },
 ];
 
 export const SEED_EVENT_OPINIONS: EventOpinion[] = [
