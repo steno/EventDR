@@ -22,8 +22,11 @@ const extraDevOrigins = (process.env.DEV_ALLOWED_ORIGINS ?? "")
   .map((origin) => origin.trim())
   .filter(Boolean);
 
+// Allow tunnel domains for remote access
+const tunnelDomains = ["*.loca.lt"];
+
 const nextConfig: NextConfig = {
-  allowedDevOrigins: [...getLocalIPv4Addresses(), ...extraDevOrigins],
+  allowedDevOrigins: [...getLocalIPv4Addresses(), ...extraDevOrigins, ...tunnelDomains],
   async redirects() {
     return [
       {
