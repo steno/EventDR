@@ -68,24 +68,11 @@ function ActionFlyout({
   open: boolean;
   children: ReactNode;
 }) {
+  if (!open) return null;
+  
   return (
-    <div
-      className={`relative z-0 grid transition-[grid-template-rows,opacity] duration-200 ease-out ${
-        open
-          ? "grid-rows-[1fr] opacity-100"
-          : "pointer-events-none grid-rows-[0fr] opacity-0"
-      }`}
-      aria-hidden={!open}
-    >
-      <div className="min-h-0 overflow-hidden">
-        <div
-          className={`pb-3 transition-transform duration-200 ease-out ${
-            open ? "translate-y-0" : "translate-y-3"
-          }`}
-        >
-          {children}
-        </div>
-      </div>
+    <div className="relative z-0 pb-3 animate-in slide-in-from-bottom duration-500 fade-in">
+      {children}
     </div>
   );
 }
@@ -509,96 +496,106 @@ export function EventDetailSheet({
   );
 
   const actionsSection = (
-    <div
-      ref={actionsRef}
-      className="relative isolate border-t border-neutral-100 bg-white px-5 pt-4 pb-[max(1rem,env(safe-area-inset-bottom))] dark:border-neutral-800 dark:bg-neutral-900 sm:px-6 lg:px-7 lg:pb-6"
-    >
-      <ActionFlyout open={calendarOpen}>
-        <CalendarMenu
-          event={event}
-          dict={dict}
-          onClose={() => setOpenAction(null)}
+    <>
+      {openAction && standalone && (
+        <div
+          className="fixed inset-0 z-40 bg-black/20 backdrop-blur-sm transition-opacity duration-300"
+          onClick={() => setOpenAction(null)}
+          aria-hidden="true"
         />
-      </ActionFlyout>
-      <ActionFlyout open={shareOpen}>
-        <ShareMenu
-          event={event}
-          locale={locale}
-          dict={dict}
-          onClose={() => setOpenAction(null)}
-          onFeedback={handleShareFeedback}
-        />
-      </ActionFlyout>
-      {shareMsg && (
-        <p
-          className="relative z-0 mb-2 text-center text-xs font-semibold text-orange-600 dark:text-orange-400"
-          role="status"
-          aria-live="polite"
-        >
-          {shareMsg}
-        </p>
       )}
       <div
-        className={`relative z-10 grid gap-2.5 ${showBottomDirections ? "grid-cols-4" : "grid-cols-3"}`}
+        ref={actionsRef}
+        className="relative isolate border-t border-neutral-100 bg-white px-5 pt-4 pb-[max(1rem,env(safe-area-inset-bottom))] dark:border-neutral-800 dark:bg-neutral-900 sm:px-6 lg:px-7 lg:pb-6"
+        style={{ zIndex: openAction && standalone ? 50 : undefined }}
       >
-        {showBottomDirections && (
-          <a
-            href={getDirectionsUrl(event)}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`${iconActionClass} ${iconActionIdleClass}`}
-            aria-label={dict.detail.directions}
-            title={dict.detail.directions}
-          >
-            <Navigation className="h-5 w-5" aria-hidden />
-          </a>
-        )}
-        <button
-          type="button"
-          onClick={() => toggleAction("calendar")}
-          className={`${iconActionClass} ${
-            calendarOpen ? iconActionActiveClass : iconActionIdleClass
-          }`}
-          aria-label={dict.detail.calendar}
-          title={dict.detail.calendar}
-          aria-expanded={calendarOpen}
-          aria-pressed={calendarOpen}
-        >
-          <CalendarPlus className="h-5 w-5" aria-hidden />
-        </button>
-        <button
-          type="button"
-          onClick={() => toggleAction("share")}
-          className={`${iconActionClass} ${
-            shareOpen || shareMsg ? iconActionActiveClass : iconActionIdleClass
-          }`}
-          aria-label={shareMsg ?? dict.detail.share}
-          title={shareMsg ?? dict.detail.share}
-          aria-expanded={shareOpen}
-          aria-pressed={shareOpen}
-        >
-          <Share2 className="h-5 w-5" aria-hidden />
-        </button>
-        <button
-          type="button"
-          onClick={() => {
-            setOpenAction(null);
-            onToggleSave(event);
-          }}
-          className={`${iconActionClass} ${
-            isSaved ? iconActionActiveClass : iconActionIdleClass
-          }`}
-          aria-label={isSaved ? dict.detail.saved : dict.detail.save}
-          title={isSaved ? dict.detail.saved : dict.detail.save}
-          aria-pressed={isSaved}
-        >
-          <Heart
-            className={`h-5 w-5 ${isSaved ? "fill-current" : ""}`}
-            aria-hidden
+        <ActionFlyout open={calendarOpen}>
+          <CalendarMenu
+            event={event}
+            dict={dict}
+            onClose={() => setOpenAction(null)}
           />
-        </button>
+        </ActionFlyout>
+        <ActionFlyout open={shareOpen}>
+          <ShareMenu
+            event={event}
+            locale={locale}
+            dict={dict}
+            onClose={() => setOpenAction(null)}
+            onFeedback={handleShareFeedback}
+          />
+        </ActionFlyout>
+        {shareMsg && (
+          <p
+            className="relative z-0 mb-2 text-center text-xs font-semibold text-orange-600 dark:text-orange-400"
+            role="status"
+            aria-live="polite"
+          >
+            {shareMsg}
+          </p>
+        )}
+        <div
+          className={`relative z-10 grid gap-2.5 ${showBottomDirections ? "grid-cols-4" : "grid-cols-3"}`}
+        >
+          {showBottomDirections && (
+            <a
+              href={getDirectionsUrl(event)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${iconActionClass} ${iconActionIdleClass}`}
+              aria-label={dict.detail.directions}
+              title={dict.detail.directions}
+            >
+              <Navigation className="h-5 w-5" aria-hidden />
+            </a>
+          )}
+          <button
+            type="button"
+            onClick={() => toggleAction("calendar")}
+            className={`${iconActionClass} ${
+              calendarOpen ? iconActionActiveClass : iconActionIdleClass
+            }`}
+            aria-label={dict.detail.calendar}
+            title={dict.detail.calendar}
+            aria-expanded={calendarOpen}
+            aria-pressed={calendarOpen}
+          >
+            <CalendarPlus className="h-5 w-5" aria-hidden />
+          </button>
+          <button
+            type="button"
+            onClick={() => toggleAction("share")}
+            className={`${iconActionClass} ${
+              shareOpen || shareMsg ? iconActionActiveClass : iconActionIdleClass
+            }`}
+            aria-label={shareMsg ?? dict.detail.share}
+            title={shareMsg ?? dict.detail.share}
+            aria-expanded={shareOpen}
+            aria-pressed={shareOpen}
+          >
+            <Share2 className="h-5 w-5" aria-hidden />
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              setOpenAction(null);
+              onToggleSave(event);
+            }}
+            className={`${iconActionClass} ${
+              isSaved ? iconActionActiveClass : iconActionIdleClass
+            }`}
+            aria-label={isSaved ? dict.detail.saved : dict.detail.save}
+            title={isSaved ? dict.detail.saved : dict.detail.save}
+            aria-pressed={isSaved}
+          >
+            <Heart
+              className={`h-5 w-5 ${isSaved ? "fill-current" : ""}`}
+              aria-hidden
+            />
+          </button>
+        </div>
       </div>
-    </div>
+    </>
   );
 
   const emojiFallback = (

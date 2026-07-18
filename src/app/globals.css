@@ -287,6 +287,21 @@ button, a {
   to { transform: translateY(0); opacity: 1; }
 }
 
+@keyframes slideUp {
+  0% {
+    transform: translateY(3rem) scale(0.92);
+    opacity: 0;
+  }
+  60% {
+    transform: translateY(-0.25rem) scale(1.01);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
 /* Home “Browse categories” — expand down from under the location row */
 @keyframes reveal-down-from-top {
   from {
