@@ -73,6 +73,13 @@ export function CityLocationPicker({
   const currentLabel =
     options.find((option) => option.slug === currentSlug)?.label ??
     dict.cities.regionName;
+  
+  // Add article before region name: "the North Coast", "la Costa Norte"
+  const isRegion = currentLabel === dict.cities.regionName;
+  const displayLabel = isRegion
+    ? (locale === "en" ? `the ${currentLabel}` : `la ${currentLabel}`)
+    : currentLabel;
+  
   const groupLabel = `${scopePrefix} ${currentLabel}`;
 
   function goTo(slug: CitySlug | null) {
@@ -108,7 +115,7 @@ export function CityLocationPicker({
               {scopeEmoji}
             </span>
           ) : null}
-          {scopePrefix} {currentLabel}
+          {scopePrefix} {displayLabel}
         </p>
       ) : null}
 

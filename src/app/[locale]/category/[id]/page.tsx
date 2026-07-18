@@ -52,8 +52,12 @@ export default async function Page({
   const pagePath = localePath(locale, `/category/${id}`);
   const events = await getPublicEvents({ locale, category: categoryId });
   const relatedCategoryLinks = categoryNavLinks(locale, dict.categories);
+  // Add article for region: "What's on in the North Coast"
+  const regionWithArticle = locale === "en" 
+    ? `the ${dict.cities.regionName}` 
+    : `la ${dict.cities.regionName}`;
   const relatedCategoryLinksLabel = fillTemplate(dict.cities.browseTopCategories, {
-    city: dict.cities.regionName,
+    city: regionWithArticle,
   });
 
   // Use article before region name: "Events in the North Coast" / "Eventos en la Costa Norte"
