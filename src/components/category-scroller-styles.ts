@@ -1,30 +1,30 @@
-/** Shared Eventbrite-style category capsule scroller classes. */
+/** iOS-style category icon grid classes. */
 
 export const CATEGORY_PILL_BASE = `
-  inline-flex h-9 shrink-0 items-center justify-start gap-1.5 rounded-full
-  px-3.5 text-sm font-semibold leading-none
-  transition-colors active:scale-[0.98] touch-manipulation
+  flex flex-col items-center justify-center gap-2
+  aspect-square w-full rounded-3xl
+  p-4 text-xs font-semibold leading-tight text-center
+  transition-all active:scale-[0.95] touch-manipulation
+  shadow-[0_2px_8px_rgba(15,23,42,0.08)]
 `;
 
 export const CATEGORY_PILL_ACTIVE = `
-  bg-orange-500 text-white
-  hover:bg-orange-600
-  dark:bg-orange-500 dark:text-white dark:hover:bg-orange-400
+  bg-gradient-to-br from-orange-400 via-orange-500 to-orange-600 text-white
+  hover:from-orange-500 hover:via-orange-600 hover:to-orange-700
+  dark:from-orange-500 dark:via-orange-600 dark:to-orange-700
+  dark:hover:from-orange-400 dark:hover:via-orange-500 dark:hover:to-orange-600
 `;
 
 export const CATEGORY_PILL_IDLE = `
-  bg-neutral-100 text-neutral-800
-  hover:bg-neutral-200/90
+  bg-white text-neutral-800
+  hover:bg-neutral-50
   dark:bg-neutral-800 dark:text-neutral-100
-  dark:hover:bg-neutral-700
+  dark:hover:bg-neutral-750
+  border border-neutral-200/50 dark:border-neutral-700/50
 `;
 
 export const CATEGORY_SCROLLER_BAR = `
-  relative flex items-center gap-1.5 rounded-full
-  border border-neutral-200/80 bg-white py-1.5 pl-1.5 pr-1.5
-  shadow-[0_1px_3px_rgba(15,23,42,0.06),0_4px_14px_rgba(15,23,42,0.04)]
-  dark:border-neutral-700/80 dark:bg-neutral-900
-  dark:shadow-none
+  relative
 `;
 
 export const CATEGORY_SCROLL_BTN = `
