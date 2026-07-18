@@ -220,7 +220,7 @@ export function SubmitEventSheet({
         onClick={onClose}
         aria-label={dict.detail.close}
       />
-      <div className="relative flex w-full max-w-lg sm:max-w-2xl max-h-[92vh] flex-col overflow-hidden rounded-t-3xl bg-white shadow-2xl dark:bg-neutral-900 pb-[env(safe-area-inset-bottom)]">
+      <div className="relative flex w-full max-w-lg sm:max-w-2xl max-h-[92dvh] flex-col overflow-hidden rounded-t-3xl bg-white shadow-2xl dark:bg-neutral-900 pb-[env(safe-area-inset-bottom)]">
         <div className="flex shrink-0 items-start justify-between border-b border-neutral-50 bg-white px-4 pt-5 pb-3 dark:border-neutral-800 dark:bg-neutral-900">
           <div>
             <h2 className="text-xl font-black text-neutral-900 dark:text-neutral-100">{dict.submit.title}</h2>
