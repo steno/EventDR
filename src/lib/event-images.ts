@@ -66,6 +66,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "outback-safari-daily": "outback-safari-daily.jpeg",
   "cremo-friday-salsa-dance": "cremo-friday-salsa-dance.jpg",
   "anfiteatro-la-puntilla-concerts": "anfiteatro-la-puntilla-concerts.jpg",
+  "el-carey-karaoke-mujeres-monday": "el-carey-karaoke-mujeres-monday.jpg",
   "el-carey-weekend-nightlife": "el-carey-weekend-nightlife.jpg",
   "sosua-jewish-museum-hours": "sosua-jewish-museum-hours.jpg",
   "sosua-diving-adventures-daily": "sosua-diving-adventures-daily.jpg",

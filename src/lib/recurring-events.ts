@@ -859,6 +859,25 @@ const RECURRING_EN: Event[] = [
     imageEmoji: "🎵",
   },
   {
+    id: "el-carey-karaoke-mujeres-monday",
+    title: "Empowered Women’s Sunset Karaoke",
+    description:
+      "Monday sunset karaoke at El Carey Día y Noche’s Patio de Don Ramón — sing, connect, and celebrate with good music, a tropical atmosphere, and happy-hour prices on selected cocktails and drinks. Starts at 6 PM.",
+    date: "2026-01-01",
+    time: "6:00 PM",
+    location: "Puerto Plata",
+    venue: "El Carey Día y Noche",
+    venueSlug: "el-carey-puerto-plata",
+    address: "Calle Reina Isabel, Costambar",
+    category: "performances",
+    categories: ["food-drinks"],
+    format: "physical",
+    recurrence: "weekly",
+    recurrenceDay: 1,
+    sourceUrl: "https://www.facebook.com/profile.php?id=100089059716413",
+    imageEmoji: "🎤",
+  },
+  {
     id: "el-carey-weekend-nightlife",
     title: "El Carey Weekend Nightlife",
     description:
@@ -2287,6 +2306,25 @@ const RECURRING_ES: Event[] = [
     imageEmoji: "🎵",
   },
   {
+    id: "el-carey-karaoke-mujeres-monday",
+    title: "El Atardecer con Karaoke de Mujeres Empoderadas",
+    description:
+      "Karaoke al atardecer todos los lunes en el Patio de Don Ramón de El Carey Día y Noche — canta, conecta y celebra con buena música, ambiente tropical y precios de happy hour en cócteles y bebidas seleccionadas. Comienza a las 6:00 p. m.",
+    date: "2026-01-01",
+    time: "6:00 PM",
+    location: "Puerto Plata",
+    venue: "El Carey Día y Noche",
+    venueSlug: "el-carey-puerto-plata",
+    address: "Calle Reina Isabel, Costambar",
+    category: "performances",
+    categories: ["food-drinks"],
+    format: "physical",
+    recurrence: "weekly",
+    recurrenceDay: 1,
+    sourceUrl: "https://www.facebook.com/profile.php?id=100089059716413",
+    imageEmoji: "🎤",
+  },
+  {
     id: "el-carey-weekend-nightlife",
     title: "Vida nocturna de fin de semana en El Carey",
     description:
@@ -3710,6 +3748,25 @@ const RECURRING_FR: Event[] = [
     sourceUrl:
       "https://es.godominicanrepublic.com/que-hacer/anfiteatro-la-puntilla",
     imageEmoji: "🎵",
+  },
+  {
+    id: "el-carey-karaoke-mujeres-monday",
+    title: "Karaoké au coucher du soleil — Femmes en puissance",
+    description:
+      "Karaoké au coucher du soleil chaque lundi au Patio de Don Ramón du El Carey Día y Noche — chantez, échangez et célébrez dans une ambiance tropicale, avec de la bonne musique et des prix happy hour sur une sélection de cocktails et boissons. Début à 18 h.",
+    date: "2026-01-01",
+    time: "6:00 PM",
+    location: "Puerto Plata",
+    venue: "El Carey Día y Noche",
+    venueSlug: "el-carey-puerto-plata",
+    address: "Calle Reina Isabel, Costambar",
+    category: "performances",
+    categories: ["food-drinks"],
+    format: "physical",
+    recurrence: "weekly",
+    recurrenceDay: 1,
+    sourceUrl: "https://www.facebook.com/profile.php?id=100089059716413",
+    imageEmoji: "🎤",
   },
   {
     id: "el-carey-weekend-nightlife",
