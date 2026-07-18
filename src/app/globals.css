@@ -29,7 +29,11 @@ body {
   text-rendering: optimizeLegibility;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  overscroll-behavior-y: contain;
+  overscroll-behavior-y: none;
+}
+
+html {
+  overscroll-behavior-y: none;
 }
 
 /* Theme color fades — keep in @layer base so Tailwind motion utilities can override */

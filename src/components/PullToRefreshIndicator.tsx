@@ -10,8 +10,8 @@ interface PullToRefreshIndicatorProps {
 }
 
 /**
- * Visual indicator for pull-to-refresh gesture.
- * Shows spinner and animates based on pull distance.
+ * iOS-style pull-to-refresh indicator.
+ * Fixed above the viewport, becomes visible as page content moves down.
  */
 export function PullToRefreshIndicator({
   pullDistance,
@@ -26,43 +26,44 @@ export function PullToRefreshIndicator({
 
   // Calculate opacity and scale based on pull distance
   const progress = Math.min(pullDistance / threshold, 1);
-  const opacity = Math.min(progress * 1.5, 1);
-  const scale = 0.5 + (progress * 0.5);
+  const opacity = Math.min(progress * 1.8, 1);
+  const scale = 0.6 + (progress * 0.4);
 
   return (
     <div
-      className="fixed left-0 right-0 top-0 z-50 flex items-center justify-center pointer-events-none"
+      className="fixed left-0 right-0 flex items-center justify-center pointer-events-none"
       style={{
-        height: `${Math.min(pullDistance, 80)}px`,
+        top: "-60px",
+        height: "60px",
         opacity,
-        transition: isRefreshing ? "all 0.3s ease-out" : "none",
+        zIndex: 40,
       }}
     >
       <div
         className="relative flex items-center justify-center"
         style={{
-          transform: `scale(${scale}) translateY(${isRefreshing ? 0 : -10}px)`,
-          transition: isRefreshing ? "transform 0.3s ease-out" : "none",
+          transform: `scale(${scale})`,
+          transition: isRefreshing ? "transform 0.2s ease-out" : "transform 0.05s ease-out",
         }}
       >
         {isRefreshing ? (
           <Loader2 
-            className="h-7 w-7 animate-spin text-neutral-700 dark:text-neutral-300" 
+            className="h-8 w-8 animate-spin text-neutral-700 dark:text-neutral-300" 
             strokeWidth={2.5}
           />
         ) : canRelease ? (
           <div className="relative">
             <div className="absolute inset-0 animate-ping opacity-30">
-              <ArrowDown className="h-7 w-7 text-neutral-700 dark:text-neutral-300" strokeWidth={2.5} />
+              <ArrowDown className="h-8 w-8 text-neutral-700 dark:text-neutral-300" strokeWidth={2.5} />
             </div>
             <ArrowDown 
-              className="relative h-7 w-7 text-neutral-700 dark:text-neutral-300" 
+              className="relative h-8 w-8 text-neutral-700 dark:text-neutral-300" 
               strokeWidth={2.5}
             />
           </div>
         ) : (
           <ArrowDown 
-            className="h-7 w-7 text-neutral-400 dark:text-neutral-600" 
+            className="h-8 w-8 text-neutral-500 dark:text-neutral-500" 
             strokeWidth={2.5}
             style={{
               transform: `rotate(${progress * 180}deg)`,
@@ -71,14 +72,6 @@ export function PullToRefreshIndicator({
           />
         )}
       </div>
-      
-      {/* Background blur effect */}
-      <div 
-        className="absolute inset-0 -z-10 backdrop-blur-sm bg-white/60 dark:bg-neutral-950/60"
-        style={{
-          opacity: progress * 0.8,
-        }}
-      />
     </div>
   );
 }

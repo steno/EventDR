@@ -5,12 +5,14 @@ interface UsePullToRefreshOptions {
   onRefresh: () => void | Promise<void>;
   /** Minimum distance (px) to trigger refresh. Default: 80 */
   threshold?: number;
-  /** Maximum pull distance (px) for visual indicator. Default: 120 */
+  /** Maximum pull distance (px) for visual effect. Default: 140 */
   maxPullDistance?: number;
   /** Enable pull-to-refresh. Default: true */
   enabled?: boolean;
   /** Only enable when scrolled to top. Default: true */
   requireScrollTop?: boolean;
+  /** Target element ID to apply transform to. Default: "main-content" */
+  targetElementId?: string;
 }
 
 interface PullToRefreshState {
@@ -23,28 +25,42 @@ interface PullToRefreshState {
 }
 
 /**
- * Hook for implementing pull-to-refresh functionality in PWAs.
- * Detects touch gestures and triggers refresh when user pulls down from top.
+ * Hook for implementing iOS-style pull-to-refresh functionality in PWAs.
+ * The page content moves down as you pull, then bounces back on release.
  */
 export function usePullToRefresh({
   onRefresh,
   threshold = 80,
-  maxPullDistance = 120,
+  maxPullDistance = 140,
   enabled = true,
   requireScrollTop = true,
+  targetElementId = "main-content",
 }: UsePullToRefreshOptions): PullToRefreshState {
   const [pullDistance, setPullDistance] = useState(0);
   const [isRefreshing, setIsRefreshing] = useState(false);
   const startY = useRef<number | null>(null);
+  const currentPullDistance = useRef(0);
   const isPulling = useRef(false);
   const canPull = useRef(false);
 
   const reset = useCallback(() => {
+    const target = document.getElementById(targetElementId);
+    if (target) {
+      target.style.transition = "transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)";
+      target.style.transform = "translateY(0)";
+      setTimeout(() => {
+        if (target) {
+          target.style.transition = "";
+        }
+      }, 300);
+    }
+    
     setPullDistance(0);
+    currentPullDistance.current = 0;
     startY.current = null;
     isPulling.current = false;
     canPull.current = false;
-  }, []);
+  }, [targetElementId]);
 
   const handleTouchStart = useCallback(
     (e: TouchEvent) => {
@@ -87,17 +103,29 @@ export function usePullToRefresh({
         }
 
         isPulling.current = true;
+        
         // Apply rubber band effect (diminishing returns as you pull further)
         const distance = Math.min(
           maxPullDistance,
-          Math.pow(diff, 0.85)
+          diff * 0.5 // Rubber band: 50% of actual pull distance
         );
+        
+        currentPullDistance.current = distance;
         setPullDistance(distance);
+
+        // Apply transform to page content
+        const target = document.getElementById(targetElementId);
+        if (target) {
+          target.style.transition = "";
+          target.style.transform = `translateY(${distance}px)`;
+        }
       } else {
-        reset();
+        if (isPulling.current) {
+          reset();
+        }
       }
     },
-    [enabled, isRefreshing, maxPullDistance, reset]
+    [enabled, isRefreshing, maxPullDistance, reset, targetElementId]
   );
 
   const handleTouchEnd = useCallback(async () => {
@@ -106,27 +134,35 @@ export function usePullToRefresh({
       return;
     }
 
+    const distance = currentPullDistance.current;
+
     // Check if pull was far enough to trigger refresh
-    if (pullDistance >= threshold) {
+    if (distance >= threshold) {
       setIsRefreshing(true);
-      setPullDistance(threshold); // Lock at threshold during refresh
+
+      // Animate to threshold position
+      const target = document.getElementById(targetElementId);
+      if (target) {
+        target.style.transition = "transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)";
+        target.style.transform = `translateY(${threshold}px)`;
+      }
 
       try {
         await onRefresh();
       } catch (error) {
         console.error("Pull-to-refresh failed:", error);
       } finally {
-        // Delay reset to show completion
+        // Bounce back to top after refresh completes
         setTimeout(() => {
           setIsRefreshing(false);
           reset();
-        }, 300);
+        }, 500);
       }
     } else {
-      // Not pulled far enough, cancel
+      // Not pulled far enough, bounce back
       reset();
     }
-  }, [enabled, pullDistance, threshold, onRefresh, reset]);
+  }, [enabled, threshold, onRefresh, reset, targetElementId]);
 
   useEffect(() => {
     if (!enabled) return;
@@ -145,6 +181,17 @@ export function usePullToRefresh({
       document.removeEventListener("touchcancel", reset);
     };
   }, [enabled, handleTouchStart, handleTouchMove, handleTouchEnd, reset]);
+
+  // Reset on unmount
+  useEffect(() => {
+    return () => {
+      const target = document.getElementById(targetElementId);
+      if (target) {
+        target.style.transition = "";
+        target.style.transform = "";
+      }
+    };
+  }, [targetElementId]);
 
   return {
     pullDistance,
