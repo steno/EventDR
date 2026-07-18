@@ -172,8 +172,8 @@ const FILE_TO_VENUE_SLUG = {
   "el-parq-live-bands-saturday.jpg": "el-parq-cabarete",
   "disco-club-brugal.jpg": "disco-club-brugal",
   "natura-cabana-saturday-live.jpg": "natura-cabana",
-  // Blue JackTar venue card uses the local Jandy / Legado concert stage shot.
-  "jandy-ventura-legado-caballo-2026.jpg": "blue-jacktar-playa-dorada",
+  // Blue JackTar's decorated event space; keep the Jandy photo for its event card.
+  "bjt-detail.jpg": "blue-jacktar-playa-dorada",
   // Real El Choco Sosúa night patio (Sosúa News); Tuesday live uses ElChocoTuesdayLive.jpg.
   "parada-tipica-el-choco.jpg": "parada-tipica-el-choco",
   "puerto-plata-golf-classic-2026.jpg": "playa-dorada-golf",
@@ -183,6 +183,8 @@ const FILE_TO_VENUE_SLUG = {
   "groundzero-domingos-pal-pueblo.jpg": "ground-zero-disco",
   "macorix-house-of-rum.jpg": "macorix-house-of-rum",
   "espadrillas.jpeg": "handmade-the-brand",
+  "paseo-de-db.jpg": "paseo-dona-blanca",
+  "elcareyrestaurant.webp": "el-carey-puerto-plata",
 };
 
 if (!existsSync(sourceDir)) {

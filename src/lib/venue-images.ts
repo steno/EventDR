@@ -29,7 +29,7 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "cremo-cigar-bar": "cremo-cigar-bar.jpg",
   "big-lees-beach-bar": "big-lees-beach-bar.jpg",
   "pingui-bar": "pingui-bar.jpg",
-  "el-carey-puerto-plata": "el-carey-puerto-plata.jpg",
+  "el-carey-puerto-plata": "el-carey-puerto-plata.webp",
   "el-colibri-hotel": "el-colibri-hotel.jpg",
   "fortaleza-san-felipe": "fortaleza-san-felipe.jpg",
   "museo-ambar": "museo-ambar.jpg",
