@@ -48,11 +48,16 @@ export function CityLocationPicker({
   const category = categoryId
     ? getCategoryMeta(categoryId, dict.categories)
     : undefined;
-  // Category pages and home: show "Events in [area]"
+  // Category pages: show "{Category} Events in [area]" using lookingInWithCategory
+  // Home: show "Events in [area]"
   // City/when scope pages: show "All Events in [area]" with emoji
-  const scopePrefix = categoryId || onSelect
-    ? dict.cities.eventsIn
-    : dict.cities.lookingIn;
+  const scopePrefix = categoryId && category
+    ? fillTemplate(dict.cities.lookingInWithCategory, { 
+        category: dict.categoriesSingular[categoryId] 
+      })
+    : onSelect
+      ? dict.cities.eventsIn
+      : dict.cities.lookingIn;
   const scopeEmoji = categoryId || onSelect
     ? null
     : "📅";
