@@ -32,7 +32,7 @@ Instagram ingest:
 
 ## 1. Scope and safety
 
-Include upcoming or clearly recurring public events in Puerto Plata, Sosúa, Cabarete, Costambar, and Playa Dorada.
+Include public events in Puerto Plata, Sosúa, Cabarete, Costambar, and Playa Dorada. For the current 2026 discovery pass, use an explicit window from the run date through **2026-12-31**. Include clearly recurring events only when an official source confirms that the schedule remains active in this window.
 
 Skip:
 
@@ -57,7 +57,7 @@ Do not request or handle the user's Instagram password.
 
 Read `INSTAGRAM_ACCOUNTS` and scan each profile in listed order. For each account:
 
-1. Review posts and Reels published since the previous weekly scan, or the latest 12 items when no prior point is known.
+1. Review posts and Reels published since the previous weekly scan. When no prior point is known, review the latest 24 items plus pinned posts and relevant highlights; continue farther back when needed to find advance announcements dated through 2026-12-31.
 2. Open likely event flyers/captions and record:
    - title or performer
    - date and time
@@ -93,7 +93,7 @@ Before editing:
 - Treat the same date + venue + performer/title as a duplicate even when the post URL differs
 - Cross-check ambiguous flyers with a second official source
 
-Reject candidates whose date, place, or event identity cannot be verified. Never convert comments or speculative captions into facts.
+Reject candidates whose date, place, or event identity cannot be verified, or whose date falls outside the active discovery window. Never convert comments, an old recurring post, or speculative captions into future occurrences.
 
 ## 6. Add verified events
 

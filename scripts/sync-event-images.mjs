@@ -80,6 +80,10 @@ const FILE_TO_EVENT_ID = {
   "puerto-plata-golf-classic-2026.jpg": "puerto-plata-golf-classic-2026",
   "cac-games-surf-playa-encuentro-2026.jpg": "cac-games-surf-playa-encuentro-2026",
   "puerto-plata-beach-soccer-2026.jpg": "puerto-plata-beach-soccer-2026",
+  "sosua-10k-road-race-2026.jpg": "sosua-10k-road-race-2026",
+  "puerto-plata-poker-experience-2026.png": "puerto-plata-poker-experience-2026",
+  "aventurate-rd-2026.jpg": "aventurate-rd-2026",
+  "sunset-cabarete-sessions-2026.jpg": "sunset-cabarete-sessions-2026",
   "la-chabola-wednesday-open-mic.jpg": "la-chabola-wednesday-open-mic",
   "groundzero-domingos-pal-pueblo.jpg": "groundzero-domingos-pal-pueblo",
 
@@ -156,7 +160,9 @@ const FILE_TO_VENUE_SLUG = {
   "smileys-saturday-live.jpg": "smileys-bar-sosua",
   "finish-line-live-wednesday.jpg": "finish-line-sosua",
   "d-classico-merengue-nights.jpg": "d-classico-sosua",
-  "sosua-pedro-clisante-food-nights.jpg": "el-batey-sosua",
+  // El Batey venue card is the whole downtown Sosúa district (Plaza García / Entrada
+  // El Batey), so it uses a daytime street scene — not the food-nights or nightlife shot.
+  "el-batey-downtown-daytime.jpg": "el-batey-sosua",
   "voyvoy-monday-live-music.jpg": "voyvoy-cabarete",
   "cheers-weekly-live.jpg": "cheers-bar-sosua",
   "castaways-classic-rock-wednesday.jpg": "castaways-sosua",

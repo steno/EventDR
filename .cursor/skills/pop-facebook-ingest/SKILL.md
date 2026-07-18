@@ -32,7 +32,7 @@ Facebook ingest:
 
 ## 1. Scope
 
-**Include:** Puerto Plata, Sosúa, Cabarete, Costambar, Playa Dorada — upcoming or clearly recurring.
+**Include:** Puerto Plata, Sosúa, Cabarete, Costambar, Playa Dorada. For the current 2026 discovery pass, search from the run date through **2026-12-31**. Include recurring events only when an official source confirms that the schedule remains active in this window.
 
 **Skip:** real-estate / marketplace / buy-sell; Santiago / Cibao ticket spam; duplicates already on pop-event.com or in `fallback-events`; vague posts with no date/place.
 
@@ -44,7 +44,7 @@ Before editing seeds, skim existing ids in:
 
 ## 2. Events tabs
 
-For each entry in `FACEBOOK_GROUPS` and `FACEBOOK_EVENT_PAGES`, open `{url}/events` (pages: also the page root). Collect upcoming events not already seeded.
+For each entry in `FACEBOOK_GROUPS` and `FACEBOOK_EVENT_PAGES`, open `{url}/events` (pages: also the page root). Collect events in the active discovery window that are not already seeded. Review pinned and older announcement posts when necessary to catch events announced well in advance.
 
 | Kind | Labels |
 |------|--------|
@@ -71,7 +71,7 @@ Quick pass (North Coast only):
 
 ## 5. Filter & dedupe
 
-Keep a working list: title, date, place, `sourceUrl`, ticket URL if any. Drop anything that fails the scope rules or already exists (same Facebook event URL, same id, or clearly same show/date/venue).
+Keep a working list: title, date, place, `sourceUrl`, ticket URL if any. Drop anything outside the active discovery window, anything that fails the scope rules, or anything that already exists (same Facebook event URL, same id, or clearly same show/date/venue). Never infer future occurrences from an old recurring post.
 
 ## 6. Add seeds (only when new)
 

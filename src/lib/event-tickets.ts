@@ -38,6 +38,11 @@ export const CURATED_TICKET_URLS: Record<string, string> = {
     "https://todotickets.do/events/10-atleticos-vs-capitanes-de-salcedo-28-de-agosto",
 
   // Workshops & festivals (Eventbrite)
+  "sosua-10k-road-race-2026": "https://www.sdctickets.do/detail/479",
+  "puerto-plata-poker-experience-2026": "https://www.clsop.com/",
+  "aventurate-rd-2026": "https://feriaaventuraterd.com/",
+  "sunset-cabarete-sessions-2026":
+    "https://dominicana.myticketplus.com/events/sunset-cabarete-sessions",
   "ingest-make-authentic-espadrilles-in-puerto-plata":
     "https://www.eventbrite.es/e/make-authentic-espadrilles-in-puerto-plata-tickets-1981840949630",
   "ingest-18th-annual-cabarete-butterfly-effect":
@@ -103,6 +108,9 @@ export const CURATED_ADMISSION_PRICES: Record<string, string> = {
 
   // Tournament registration (official club page)
   "puerto-plata-golf-classic-2026": "US$210",
+  "sosua-10k-road-race-2026": "RD$500",
+  "sunset-cabarete-sessions-2026": "from US$16",
+  "puerto-plata-poker-experience-2026": "Main Event US$900 buy-in",
 };
 
 /** Ticketed shows with variable pricing — contact the venue (no fixed door rate). */

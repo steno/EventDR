@@ -11,6 +11,10 @@ Curated images under `public/events/` and `public/venues/`.
 
 | Asset | Source | Notes |
 |-------|--------|-------|
+| `sosua-10k-road-race-2026.jpg` | [Sea Horse Ranch — Sosúa 10K Road Race](https://sea-horse-ranch.com/sosua-10k-road-race/) — official ADSS / Sea Horse 11º Sosúa 10K flyer | Authentic race flyer with date, distances, and sdctickets.do registration |
+| `sunset-cabarete-sessions-2026.jpg` | [Ticketplus — Sunset Cabarete Sessions](https://dominicana.myticketplus.com/events/sunset-cabarete-sessions) official event OG poster | Authentic Dec 5–6 Lux Beach Bar deep-house event art |
+| `puerto-plata-poker-experience-2026.png` | [CLSOP / torneos.poker — Puerto Plata Poker Experience](https://torneos.poker/evento/puerto-plata-poker-experience-ago-2026/) official festival flyer | Authentic Aug 28–Sep 6 Coral Reef Casino poker festival art |
+| `aventurate-rd-2026.jpg` | [CDCT / Aventúrate RD](https://feriaaventuraterd.com/) official Aventúrate RD brand mark | Authentic logo for the Sep 2–4 Hotel Marién tourism fair |
 | `la-casita-papi-beach-dining.jpg` / `venues/la-casita-de-papi.jpg` | Restaurant Guru gallery — daytime beachfront tables facing Cabarete Bay | Replaces Liquid Blue Encuentro empty-beach reuse |
 | `liquid-blue-watersports-daily.jpg` / `venues/liquid-blue-cabarete.jpg` | [Liquid Blue Cabarete](https://www.lbcabarete.com/) — `IMG_9340` kite jump | Official LB action photo |
 | `brugal-rum-center-weekdays.jpg` | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Brugal_06.JPG) — visitor plant photo (timestamp cropped) | Brugal Puerto Plata bottling line with branded cases (replaces entrance reuse) |
@@ -21,7 +25,8 @@ Curated images under `public/events/` and `public/venues/`.
 | `smileys-saturday-live.jpg` / `venues/smileys-bar-sosua.jpg` | YouTube still — [Smiley's Courtyard Bar & Restaurant in Sosua](https://www.youtube.com/watch?v=WZHFtyXvELs) | Courtyard stage + Smiley's signage |
 | `finish-line-live-wednesday.jpg` / `venues/finish-line-sosua.jpg` | POP curated `FinishLineLiveWednesday.jpg` | Indoor pub live stage |
 | `d-classico-merengue-nights.jpg` / `venues/d-classico-sosua.jpg` | YouTube still — [Sosua Streets / Clasico opening](https://www.youtube.com/watch?v=OuN8IMNZ0r0) | Clasico / Club 59 night facade |
-| `sosua-pedro-clisante-food-nights.jpg` / `venues/el-batey-sosua.jpg` | [Unsplash](https://unsplash.com/photos/assorted-meat-on-a-wooden-board-yiR9GQC8Ttk) (`photo-1555939594`) — Unsplash License | Grill / street-food feast |
+| `sosua-pedro-clisante-food-nights.jpg` | [Unsplash](https://unsplash.com/photos/assorted-meat-on-a-wooden-board-yiR9GQC8Ttk) (`photo-1555939594`) — Unsplash License | Grill / street-food feast |
+| `venues/el-batey-sosua.jpg` | [Wikimedia Commons — Plaza Garcia.jpg](https://commons.wikimedia.org/wiki/File:Plaza_Garcia.jpg) — Foto Coral, [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | Daytime Entrada El Batey / Plaza García downtown street (Foto Coral watermark cropped) — represents the whole district, works for the morning Sosúa 10K as well as evening salsa socials |
 | `ojo-latin-night-thursday.jpg` | POP curated `MerengueBachataNight.JPG` | Latin dance night (not LAX sunset) |
 | `ojo-weekend-dj-parties.jpg` | [Unsplash](https://unsplash.com/photos/cxOitA8mP78) (`photo-1682289385881`) — Unsplash License | DJ booth / club party action (was shared LAX reggae deck) |
 | `voyvoy-monday-live-music.jpg` (+ Sat/Sun) / `venues/voyvoy-cabarete.jpg` | Restaurant Guru — Voyvoy beachfront dining | Bay tables under palms |

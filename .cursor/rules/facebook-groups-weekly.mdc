@@ -22,10 +22,10 @@ Prefer skill **`pop-facebook-ingest`** for the full checklist (this rule stays a
 
 ## Workflow
 
-1. **Events tab** — open `{group.url}/events` for each group and each event page; collect upcoming events not already on the site.
+1. **Events tab** — open `{group.url}/events` for each group and each event page; for the current 2026 discovery pass, collect events from the run date through **December 31, 2026** that are not already on the site.
 2. **Discussion** — search each group for: `evento`, `concierto`, `música en vivo`, `merengue`, `bachata`, `típico`, `urbano`, `boletería`, `live music`, `saturday`, `fiesta`, `open mic`, `this weekend`.
 3. **Promoter / press watch** — check Puerto Plata Digital, Infotur Dominicano, cabaretejazz.com, and todotickets.do (North Coast only). Use skill `pop-instagram-ingest` for the separate logged-in Instagram scan.
-4. **Filter** — North Coast only; upcoming or recurring; skip real-estate/marketplace posts and duplicates; skip Santiago/Cibao ticket noise.
+4. **Filter** — North Coast only; dated events in the active discovery window or recurring events clearly active in that window; skip real-estate/marketplace posts and duplicates; skip Santiago/Cibao ticket noise. Never create future occurrences from an unverified recurring schedule.
 5. **Add** — only **new** events to `src/lib/fallback-events.ts` (+ ES/FR translations in `fallback-events-fr.ts`); include `sourceUrl` when from Facebook/Instagram; **always source authentic event + venue images** (no Unsplash/generic stock for branded teams or named venues); add a unique POP expert opinion when research supports it (seed file or leave for ingest draft).
 6. **Server ingest** — `POST /api/ingest?secret=CRON_SECRET` queues Jina/OpenAI crawls to Firestore pending (GitHub Action runs this Sundays).
 

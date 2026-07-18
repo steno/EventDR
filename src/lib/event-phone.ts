@@ -13,6 +13,7 @@ const EVENT_PHONE_BY_ID: Record<string, string> = {
   "el-colibri-karaoke-battle-2026": "+18099709433",
   "community-pickleball-cabarete": "+18095712902",
   "puerto-plata-golf-classic-2026": "+18093204262",
+  "sosua-10k-road-race-2026": "+18095712100",
   "cac-games-surf-playa-encuentro-2026": "+18298934214",
   "puerto-plata-beach-soccer-2026": "+18095866125",
   // LIVE CABARETE EVENTS S.R.L. — cabaretejazz.com terms

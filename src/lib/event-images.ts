@@ -125,6 +125,10 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "puerto-plata-golf-classic-2026": "puerto-plata-golf-classic-2026.jpg",
   "cac-games-surf-playa-encuentro-2026": "cac-games-surf-playa-encuentro-2026.jpg",
   "puerto-plata-beach-soccer-2026": "puerto-plata-beach-soccer-2026.jpg",
+  "sosua-10k-road-race-2026": "sosua-10k-road-race-2026.jpg",
+  "puerto-plata-poker-experience-2026": "puerto-plata-poker-experience-2026.png",
+  "aventurate-rd-2026": "aventurate-rd-2026.jpg",
+  "sunset-cabarete-sessions-2026": "sunset-cabarete-sessions-2026.jpg",
   "la-chabola-wednesday-open-mic": "la-chabola-wednesday-open-mic.jpg",
   "groundzero-domingos-pal-pueblo": "groundzero-domingos-pal-pueblo.jpg",
 };
