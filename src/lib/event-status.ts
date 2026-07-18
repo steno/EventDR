@@ -14,6 +14,7 @@ export type EventLiveStatus =
   | "live"
   | "ending"
   | "closedToday"
+  | "temporarilyClosed"
   | "ended"
   | "unknown";
 

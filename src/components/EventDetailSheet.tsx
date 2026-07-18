@@ -277,8 +277,12 @@ export function EventDetailSheet({
     ? withGoogleRating(eventOpinionRaw, venueRating)
     : null;
   const liveDisplay = useLiveStatusDisplay(event, dict);
-  const liveStatus = liveDisplay?.status ?? null;
-  const liveStatusLabel = liveDisplay?.label ?? null;
+  const liveStatus = event.temporarilyClosed
+    ? ("temporarilyClosed" as const)
+    : liveDisplay?.status ?? null;
+  const liveStatusLabel = event.temporarilyClosed
+    ? dict.events.temporarilyClosed
+    : liveDisplay?.label ?? null;
   const timeLabel = formatEventTimeForList(event.time, {
     recurrence: event.recurrence,
     allDayLabel: dict.events.allDay,

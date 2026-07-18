@@ -109,6 +109,7 @@ export const fr: Dictionary = {
     endsSoon: "Se termine bientôt",
     closedForToday: "Fermé aujourd'hui",
     eventEnded: "Terminé",
+    temporarilyClosed: "Fermé temporairement",
     allDay: "Toute la journée",
     viewDetails: "Voir détails",
     moreToday: "{count} de plus aujourd'hui",

@@ -1,0 +1,25 @@
+---
+description: Remind to restore Paseo de Doña Blanca after temporary closure (Aug 5, 2026)
+alwaysApply: true
+---
+
+# Paseo de Doña Blanca — reopen reminder
+
+**Closure window:** Mon Jul 20 – Wed Aug 5, 2026 (renovation / painting / maintenance).
+**Restore on or after:** 2026-08-06.
+
+## When today's date is on or after 2026-08-06
+
+1. **Remind the user once** at the start of the conversation (or when they next ask about venues/events): Paseo de Doña Blanca should be restored after the temporary closure.
+2. Offer to clear the notice: set `temporarilyClosed: false` (or remove the field) on the venue and the `paseo-dona-blanca-daily` event (en/es/fr), and remove the closure lead-in from those descriptions.
+3. After the restore is done and confirmed, delete this rule file.
+
+## Before 2026-08-06
+
+Do not nag. Keep `temporarilyClosed: true` and the closure copy unless the user says the promenade reopened early.
+
+## Where the notice lives
+
+- Venue: `src/lib/venues-seed.ts` (`slug: "paseo-dona-blanca"`)
+- Event: `src/lib/recurring-events.ts` (`id: "paseo-dona-blanca-daily"` in EN/ES/FR)
+- Badge i18n: `dict.events.temporarilyClosed`

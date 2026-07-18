@@ -34,6 +34,8 @@ export function formatEventLiveStatusLabel(
       return dict.events.startsSoon;
     case "closedToday":
       return dict.events.closedForToday;
+    case "temporarilyClosed":
+      return dict.events.temporarilyClosed;
     case "ended":
       return dict.events.eventEnded;
     default:
@@ -148,6 +150,8 @@ export function eventStatusBadgeClass(status: EventLiveStatus): string {
       return `bg-sky-50 text-sky-700 ${darkMobileShell} dark:text-sky-400 dark:lg:bg-sky-950/40`;
     case "closedToday":
       return `bg-violet-50 text-violet-700 ${darkMobileShell} dark:text-violet-400 dark:lg:bg-violet-950/40`;
+    case "temporarilyClosed":
+      return `bg-rose-50 text-rose-700 ${darkMobileShell} dark:text-rose-400 dark:lg:bg-rose-950/40`;
     case "ended":
       return `bg-neutral-100 text-neutral-500 ${darkMobileShell} dark:text-neutral-400 dark:lg:bg-neutral-800`;
     default:

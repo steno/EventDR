@@ -159,6 +159,12 @@ export function VenuePage({
               {venue.name}
             </h1>
 
+            {venue.temporarilyClosed ? (
+              <span className="mt-3 inline-flex w-fit items-center rounded-full bg-rose-50 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-rose-700 ring-1 ring-rose-200 dark:bg-rose-950/40 dark:text-rose-400 dark:ring-rose-900/60">
+                {dict.events.temporarilyClosed}
+              </span>
+            ) : null}
+
             <div className="mt-4 space-y-3">
               <a
                 href={getVenueMapUrl(venue)}

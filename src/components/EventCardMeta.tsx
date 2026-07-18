@@ -58,6 +58,14 @@ export function EventCardMeta({
   liveStatusLabel = null,
 }: EventCardMetaProps) {
   const recurrenceLabel = formatRecurrenceLabel(event, locale, dict);
+  // A temporary closure overrides the live/ended badge so guests aren't told an
+  // event is "Happening now" while the venue is shut.
+  const badgeStatus: EventLiveStatus | null = event.temporarilyClosed
+    ? "temporarilyClosed"
+    : liveStatus;
+  const badgeLabel = event.temporarilyClosed
+    ? dict.events.temporarilyClosed
+    : liveStatusLabel;
   const dateLabel = formatEventDateRange(event.date, locale, {
     endDate: event.endDate,
     short: true,
@@ -74,10 +82,10 @@ export function EventCardMeta({
             <Calendar className="h-3.5 w-3.5 shrink-0" aria-hidden />
             {dateLabel}
           </span>
-          {liveStatusLabel && liveStatus && (
+          {badgeLabel && badgeStatus && (
             <EventStatusBadge
-              label={liveStatusLabel}
-              status={liveStatus}
+              label={badgeLabel}
+              status={badgeStatus}
               className="py-0.5"
             />
           )}
@@ -109,8 +117,8 @@ export function EventCardMeta({
           <Calendar className="h-4 w-4 shrink-0 text-neutral-500 dark:text-neutral-400" />
           {dateLabel}
         </span>
-        {liveStatusLabel && liveStatus && (
-          <EventStatusBadge label={liveStatusLabel} status={liveStatus} />
+        {badgeLabel && badgeStatus && (
+          <EventStatusBadge label={badgeLabel} status={badgeStatus} />
         )}
       </div>
       {(timeLabel.display || recurrenceLabel) && (

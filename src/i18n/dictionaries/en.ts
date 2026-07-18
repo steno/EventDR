@@ -88,6 +88,7 @@ export type Dictionary = {
     endsSoon: string;
     closedForToday: string;
     eventEnded: string;
+    temporarilyClosed: string;
     allDay: string;
     viewDetails: string;
     moreToday: string;
@@ -460,6 +461,7 @@ export const en: Dictionary = {
     endsSoon: "Ends soon",
     closedForToday: "Closed for the day",
     eventEnded: "Ended",
+    temporarilyClosed: "Temporarily closed",
     allDay: "All day",
     viewDetails: "View details",
     moreToday: "{count} more today",

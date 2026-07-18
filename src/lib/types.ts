@@ -38,6 +38,8 @@ export interface Venue {
   phone?: string;
   /** Google Places place_id when confirmed (assessments / enricher). */
   googlePlaceId?: string;
+  /** Show a "Temporarily closed" tag while the venue is shut for maintenance, etc. */
+  temporarilyClosed?: boolean;
 }
 
 /** Crowd fit for venue assessments — aligns with home local/visitor pools. */
@@ -168,6 +170,8 @@ export interface Event {
   category: EventCategory;
   /** Extra category tabs/listings where this event should also appear. */
   categories?: EventCategory[];
+  /** Show a "Temporarily closed" tag on cards while the venue/event is paused. */
+  temporarilyClosed?: boolean;
   format: EventFormat;
   trending?: boolean;
   sourceUrl?: string;
