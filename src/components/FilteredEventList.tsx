@@ -83,6 +83,7 @@ export function FilteredEventList({
   scrollOnFilterChange = true,
 }: FilteredEventListProps) {
   const pathname = usePathname();
+  const view = "cards";
   const [timeRange, setTimeRange] = useState<FilterTimeRange>(
     fixedTimeRange ?? defaultTimeRange,
   );
