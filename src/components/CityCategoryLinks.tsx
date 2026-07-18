@@ -1,14 +1,16 @@
 "use client";
 
 import Link from "next/link";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, Loader2 } from "lucide-react";
 import {
   useCallback,
   useEffect,
   useRef,
   useState,
+  useTransition,
   type Ref,
 } from "react";
+import { useRouter } from "next/navigation";
 import { HorizontalScrollEdgeFades } from "@/components/HorizontalScrollEdgeFades";
 import {
   CATEGORY_PILL_ACTIVE,
@@ -41,6 +43,9 @@ export function CityCategoryLinks({
   allLink,
   scrollHint,
 }: CityCategoryLinksProps) {
+  const router = useRouter();
+  const [isPending, startTransition] = useTransition();
+  const [loadingHref, setLoadingHref] = useState<string | null>(null);
   const activeRef = useRef<HTMLAnchorElement>(null);
   const scrollerRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
@@ -131,28 +136,43 @@ export function CityCategoryLinks({
     el.scrollBy({ left: step, behavior: "smooth" });
   };
 
+  const handleNavigation = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    setLoadingHref(href);
+    startTransition(() => {
+      router.push(href);
+    });
+  };
+
   const renderPill = (
     link: RelatedCategoryLink,
     active: boolean,
     ref?: Ref<HTMLAnchorElement>,
-  ) => (
-    <Link
-      key={link.href}
-      ref={ref}
-      href={link.href}
-      scroll={false}
-      aria-current={active ? "page" : undefined}
-      aria-label={link.label}
-      className={`${CATEGORY_PILL_BASE} ${active ? CATEGORY_PILL_ACTIVE : CATEGORY_PILL_IDLE}`}
-    >
-      {link.emoji ? (
-        <span className="shrink-0 text-sm leading-none select-none" aria-hidden>
-          {link.emoji}
-        </span>
-      ) : null}
-      <span className="whitespace-nowrap">{link.label}</span>
-    </Link>
-  );
+  ) => {
+    const isLoading = isPending && loadingHref === link.href;
+    
+    return (
+      <Link
+        key={link.href}
+        ref={ref}
+        href={link.href}
+        scroll={false}
+        onClick={(e) => handleNavigation(e, link.href)}
+        aria-current={active ? "page" : undefined}
+        aria-label={link.label}
+        className={`${CATEGORY_PILL_BASE} ${active ? CATEGORY_PILL_ACTIVE : CATEGORY_PILL_IDLE} ${isLoading ? "opacity-70" : ""}`}
+      >
+        {isLoading ? (
+          <Loader2 className="h-3.5 w-3.5 animate-spin shrink-0" aria-hidden />
+        ) : link.emoji ? (
+          <span className="shrink-0 text-sm leading-none select-none" aria-hidden>
+            {link.emoji}
+          </span>
+        ) : null}
+        <span className="whitespace-nowrap">{link.label}</span>
+      </Link>
+    );
+  };
 
   return (
     <nav ref={sectionRef} aria-label={label} className="mb-6">
