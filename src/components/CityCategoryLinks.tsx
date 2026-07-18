@@ -1,14 +1,16 @@
 "use client";
 
 import Link from "next/link";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, Loader2 } from "lucide-react";
 import {
   useCallback,
   useEffect,
   useRef,
   useState,
+  useTransition,
   type Ref,
 } from "react";
+import { useRouter } from "next/navigation";
 import { HorizontalScrollEdgeFades } from "@/components/HorizontalScrollEdgeFades";
 import {
   CATEGORY_PILL_ACTIVE,
@@ -41,8 +43,12 @@ export function CityCategoryLinks({
   allLink,
   scrollHint,
 }: CityCategoryLinksProps) {
+  const router = useRouter();
+  const [isPending, startTransition] = useTransition();
+  const [loadingHref, setLoadingHref] = useState<string | null>(null);
   const activeRef = useRef<HTMLAnchorElement>(null);
   const scrollerRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
 
@@ -86,6 +92,38 @@ export function CityCategoryLinks({
     requestAnimationFrame(syncScrollHints);
   }, [activeHref, syncScrollHints]);
 
+  // Scroll the category section into view on mount when an active category is selected.
+  // This ensures users see the category pills after navigating from the home page.
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section || !activeHref) return;
+
+    // Only scroll on initial mount, not on subsequent activeHref changes
+    const timeoutId = setTimeout(() => {
+      const prefersReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+      
+      // Calculate offset to account for sticky header
+      const headerHeight = parseInt(
+        getComputedStyle(document.documentElement)
+          .getPropertyValue("--sticky-list-header-height") || "0",
+        10
+      );
+      
+      const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+      const targetScroll = Math.max(0, sectionTop - headerHeight - 16); // 16px padding
+      
+      window.scrollTo({
+        top: targetScroll,
+        behavior: prefersReducedMotion ? "auto" : "smooth",
+      });
+    }, 100); // Small delay to ensure layout is stable
+
+    return () => clearTimeout(timeoutId);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // Empty deps = run only on mount
+
   if (links.length === 0) return null;
 
   const hasActiveCategory = links.some((link) => link.href === activeHref);
@@ -98,31 +136,46 @@ export function CityCategoryLinks({
     el.scrollBy({ left: step, behavior: "smooth" });
   };
 
+  const handleNavigation = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    setLoadingHref(href);
+    startTransition(() => {
+      router.push(href);
+    });
+  };
+
   const renderPill = (
     link: RelatedCategoryLink,
     active: boolean,
     ref?: Ref<HTMLAnchorElement>,
-  ) => (
-    <Link
-      key={link.href}
-      ref={ref}
-      href={link.href}
-      scroll={false}
-      aria-current={active ? "page" : undefined}
-      aria-label={link.label}
-      className={`${CATEGORY_PILL_BASE} ${active ? CATEGORY_PILL_ACTIVE : CATEGORY_PILL_IDLE}`}
-    >
-      {link.emoji ? (
-        <span className="shrink-0 text-sm leading-none select-none" aria-hidden>
-          {link.emoji}
-        </span>
-      ) : null}
-      <span className="whitespace-nowrap">{link.label}</span>
-    </Link>
-  );
+  ) => {
+    const isLoading = isPending && loadingHref === link.href;
+    
+    return (
+      <Link
+        key={link.href}
+        ref={ref}
+        href={link.href}
+        scroll={false}
+        onClick={(e) => handleNavigation(e, link.href)}
+        aria-current={active ? "page" : undefined}
+        aria-label={link.label}
+        className={`${CATEGORY_PILL_BASE} ${active ? CATEGORY_PILL_ACTIVE : CATEGORY_PILL_IDLE} ${isLoading ? "opacity-70" : ""}`}
+      >
+        {isLoading ? (
+          <Loader2 className="h-3.5 w-3.5 animate-spin shrink-0" aria-hidden />
+        ) : link.emoji ? (
+          <span className="shrink-0 text-sm leading-none select-none" aria-hidden>
+            {link.emoji}
+          </span>
+        ) : null}
+        <span className="whitespace-nowrap">{link.label}</span>
+      </Link>
+    );
+  };
 
   return (
-    <nav aria-label={label} className="mb-6">
+    <nav ref={sectionRef} aria-label={label} className="mb-6">
       <p className="mb-2.5 text-xs font-bold uppercase tracking-widest text-neutral-400">
         {label}
       </p>

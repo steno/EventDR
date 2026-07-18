@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { ChevronRight } from "lucide-react";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { ChevronRight, Loader2 } from "lucide-react";
+import { useCallback, useEffect, useRef, useState, useTransition } from "react";
+import { useRouter } from "next/navigation";
 import { getCategoryDefs } from "@/lib/categories";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
@@ -32,6 +33,9 @@ export function CategoryGrid({
   citySlug = null,
   onCategorySelect,
 }: CategoryGridProps) {
+  const router = useRouter();
+  const [isPending, startTransition] = useTransition();
+  const [loadingHref, setLoadingHref] = useState<string | null>(null);
   const scrollerRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
@@ -73,6 +77,15 @@ export function CategoryGrid({
     el.scrollBy({ left: step, behavior: "smooth" });
   };
 
+  const handleNavigation = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    onCategorySelect?.();
+    setLoadingHref(href);
+    startTransition(() => {
+      router.push(href);
+    });
+  };
+
   return (
     <section aria-label={dict.browse.ariaLabel}>
       <div className={CATEGORY_SCROLLER_BAR}>
@@ -85,7 +98,7 @@ export function CategoryGrid({
             <div className="flex w-max gap-1.5 px-0.5">
               <Link
                 href={allEventsHref}
-                onClick={onCategorySelect}
+                onClick={(e) => handleNavigation(e, allEventsHref)}
                 className={`${CATEGORY_PILL_BASE} ${CATEGORY_PILL_ACTIVE}`}
                 aria-label={allEventsLabel}
                 aria-current="page"
@@ -95,20 +108,29 @@ export function CategoryGrid({
                 </span>
                 <span className="whitespace-nowrap">{allEventsLabel}</span>
               </Link>
-              {categories.map((cat) => (
-                <Link
-                  key={cat.id}
-                  href={categoryPath(locale, cat.id, citySlug)}
-                  onClick={onCategorySelect}
-                  className={`${CATEGORY_PILL_BASE} ${CATEGORY_PILL_IDLE}`}
-                  aria-label={cat.label}
-                >
-                  <span className="shrink-0 text-sm leading-none select-none" aria-hidden>
-                    {cat.emoji}
-                  </span>
-                  <span className="whitespace-nowrap">{cat.label}</span>
-                </Link>
-              ))}
+              {categories.map((cat) => {
+                const href = categoryPath(locale, cat.id, citySlug);
+                const isLoading = isPending && loadingHref === href;
+                
+                return (
+                  <Link
+                    key={cat.id}
+                    href={href}
+                    onClick={(e) => handleNavigation(e, href)}
+                    className={`${CATEGORY_PILL_BASE} ${CATEGORY_PILL_IDLE} ${isLoading ? "opacity-70" : ""}`}
+                    aria-label={cat.label}
+                  >
+                    {isLoading ? (
+                      <Loader2 className="h-3.5 w-3.5 animate-spin shrink-0" aria-hidden />
+                    ) : (
+                      <span className="shrink-0 text-sm leading-none select-none" aria-hidden>
+                        {cat.emoji}
+                      </span>
+                    )}
+                    <span className="whitespace-nowrap">{cat.label}</span>
+                  </Link>
+                );
+              })}
             </div>
           </div>
 
