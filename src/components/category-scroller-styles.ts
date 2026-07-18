@@ -17,9 +17,9 @@ export const CATEGORY_PILL_ACTIVE = `
 
 export const CATEGORY_PILL_IDLE = `
   bg-white text-neutral-800
-  hover:bg-neutral-50
+  hover:bg-orange-50 hover:text-orange-600 hover:border-orange-200
   dark:bg-neutral-800 dark:text-neutral-100
-  dark:hover:bg-neutral-750
+  dark:hover:bg-orange-950/30 dark:hover:text-orange-400 dark:hover:border-orange-800/50
   border border-neutral-200/50 dark:border-neutral-700/50
 `;
 
