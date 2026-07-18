@@ -10,7 +10,7 @@ interface ActionSheetProps {
 /** Shared surface for share / calendar flyouts on the event detail sheet. */
 export function ActionSheet({ title, children }: ActionSheetProps) {
   return (
-    <div className="rounded-2xl border border-neutral-200/80 bg-neutral-50/95 p-3.5 dark:border-neutral-700/80 dark:bg-neutral-950/90">
+    <div className="rounded-2xl border border-neutral-200/80 bg-neutral-50/95 p-3.5 shadow-lg backdrop-blur-sm dark:border-neutral-700/80 dark:bg-neutral-950/90">
       <p className="mb-3 px-0.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-neutral-500 dark:text-neutral-400">
         {title}
       </p>
