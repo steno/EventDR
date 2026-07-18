@@ -43,6 +43,7 @@ export function CityCategoryLinks({
 }: CityCategoryLinksProps) {
   const activeRef = useRef<HTMLAnchorElement>(null);
   const scrollerRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
 
@@ -86,6 +87,38 @@ export function CityCategoryLinks({
     requestAnimationFrame(syncScrollHints);
   }, [activeHref, syncScrollHints]);
 
+  // Scroll the category section into view on mount when an active category is selected.
+  // This ensures users see the category pills after navigating from the home page.
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section || !activeHref) return;
+
+    // Only scroll on initial mount, not on subsequent activeHref changes
+    const timeoutId = setTimeout(() => {
+      const prefersReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+      ).matches;
+      
+      // Calculate offset to account for sticky header
+      const headerHeight = parseInt(
+        getComputedStyle(document.documentElement)
+          .getPropertyValue("--sticky-list-header-height") || "0",
+        10
+      );
+      
+      const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+      const targetScroll = Math.max(0, sectionTop - headerHeight - 16); // 16px padding
+      
+      window.scrollTo({
+        top: targetScroll,
+        behavior: prefersReducedMotion ? "auto" : "smooth",
+      });
+    }, 100); // Small delay to ensure layout is stable
+
+    return () => clearTimeout(timeoutId);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // Empty deps = run only on mount
+
   if (links.length === 0) return null;
 
   const hasActiveCategory = links.some((link) => link.href === activeHref);
@@ -122,7 +155,7 @@ export function CityCategoryLinks({
   );
 
   return (
-    <nav aria-label={label} className="mb-6">
+    <nav ref={sectionRef} aria-label={label} className="mb-6">
       <p className="mb-2.5 text-xs font-bold uppercase tracking-widest text-neutral-400">
         {label}
       </p>
