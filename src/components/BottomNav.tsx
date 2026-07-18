@@ -99,7 +99,7 @@ export function BottomNav({
 
               <span
                 className={`
-                  text-[11px] font-bold leading-none tracking-wide
+                  text-[13px] font-bold leading-none tracking-wide
                   transition-colors duration-200
                   ${
                     isSubmit

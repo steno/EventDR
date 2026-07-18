@@ -40,7 +40,7 @@ function RecurrencePill({ label, compact }: { label: string; compact?: boolean }
   return (
     <span
       className={`inline-flex items-center rounded-full bg-neutral-100 dark:bg-neutral-800 font-bold leading-none text-neutral-600 dark:text-neutral-400 ${
-        compact ? "px-2 py-0.5 text-xs" : "px-2.5 py-1 text-xs"
+        compact ? "px-2 py-0.5 text-[13px]" : "px-2.5 py-1 text-[13px]"
       }`}
     >
       {label}

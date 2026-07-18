@@ -14,7 +14,7 @@ export function CategoryChip({ category, locale }: CategoryChipProps) {
       href={categoryPath(locale, category.id)}
       className="
         group inline-flex shrink-0 snap-start items-center gap-1.5 rounded-full
-        border border-neutral-200/90 bg-white px-3.5 py-2 text-[13px] font-bold
+        border border-neutral-200/90 bg-white px-3.5 py-2 text-[14px] font-bold
         text-neutral-800 shadow-sm transition-colors
         hover:border-orange-200 hover:text-orange-700
         active:scale-[0.98] touch-manipulation

@@ -255,12 +255,12 @@ export function EventList({
                 : dict.events.trending}
         </h2>
         {category && filtered.length > 0 && (
-          <p className="text-xs text-neutral-400 dark:text-neutral-500 mt-0.5">
+          <p className="text-[13px] text-neutral-400 dark:text-neutral-500 mt-0.5">
             {filtered.length} · {dict.events.hiddenGems}
           </p>
         )}
         {!category && !ourPicks && !isSearching && source && (
-          <p className="text-xs text-neutral-400 dark:text-neutral-500 mt-0.5">{sourceLabel}</p>
+          <p className="text-[13px] text-neutral-400 dark:text-neutral-500 mt-0.5">{sourceLabel}</p>
         )}
       </div>
 
@@ -293,7 +293,7 @@ export function EventList({
             <p className="text-neutral-500 dark:text-neutral-400 font-medium">
               {dict.events.empty}
             </p>
-            <p className="text-sm text-neutral-400 dark:text-neutral-500 mt-1">
+            <p className="text-[15px] text-neutral-400 dark:text-neutral-500 mt-1">
               {dict.events.emptyHint}
             </p>
           </div>
@@ -335,7 +335,7 @@ export function EventList({
             <div className="pt-2 text-center">
               <Link
                 href={viewAllHref}
-                className="inline-flex items-center gap-1 rounded-full border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 px-5 py-2.5 text-sm font-bold text-neutral-800 dark:text-neutral-200 hover:border-orange-300 dark:hover:border-orange-800 hover:text-orange-600 dark:hover:text-orange-400 transition-colors touch-manipulation"
+                className="inline-flex items-center gap-1 rounded-full border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 px-5 py-2.5 text-[15px] font-bold text-neutral-800 dark:text-neutral-200 hover:border-orange-300 dark:hover:border-orange-800 hover:text-orange-600 dark:hover:text-orange-400 transition-colors touch-manipulation"
               >
                 {dict.events.viewAllEvents}
                 <ChevronRight className="h-4 w-4" aria-hidden />
@@ -348,7 +348,7 @@ export function EventList({
                 onClick={() =>
                   setVisibleCount((count) => count + step)
                 }
-                className="inline-flex items-center gap-1 rounded-full border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 px-5 py-2.5 text-sm font-bold text-neutral-800 dark:text-neutral-200 hover:border-orange-300 dark:hover:border-orange-800 hover:text-orange-600 dark:hover:text-orange-400 transition-colors touch-manipulation"
+                className="inline-flex items-center gap-1 rounded-full border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 px-5 py-2.5 text-[15px] font-bold text-neutral-800 dark:text-neutral-200 hover:border-orange-300 dark:hover:border-orange-800 hover:text-orange-600 dark:hover:text-orange-400 transition-colors touch-manipulation"
               >
                 {dict.events.moreEvents}
                 <ChevronRight className="h-4 w-4" aria-hidden />

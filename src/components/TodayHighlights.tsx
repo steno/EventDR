@@ -103,12 +103,12 @@ function TodayHighlightCard({
               className="w-fit"
             />
           )}
-          <h3 className="line-clamp-2 text-[15px] font-black leading-snug tracking-tight text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.55)] sm:text-base">
+          <h3 className="line-clamp-2 text-base font-black leading-snug tracking-tight text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.55)] sm:text-[17px]">
             {event.title}
           </h3>
           {timeLabel.display && (
             <p
-              className="inline-flex min-w-0 max-w-full items-center gap-1.5 text-xs font-medium text-white/90 [text-shadow:0_1px_2px_rgba(0,0,0,0.45)]"
+              className="inline-flex min-w-0 max-w-full items-center gap-1.5 text-[13px] font-medium text-white/90 [text-shadow:0_1px_2px_rgba(0,0,0,0.45)]"
               title={timeLabel.full !== timeLabel.display ? timeLabel.full : undefined}
             >
               <Clock className="h-3.5 w-3.5 shrink-0" aria-hidden />
@@ -151,7 +151,7 @@ const TodayHighlightsComponent = ({
         {hasMore && (
           <Link
             href={allTodayHref}
-            className="inline-flex items-center gap-0.5 rounded-full bg-orange-50 dark:bg-orange-950/50 px-2.5 py-1 text-xs font-bold text-orange-600 hover:bg-orange-100 dark:hover:bg-orange-950/70 transition-colors touch-manipulation"
+            className="inline-flex items-center gap-0.5 rounded-full bg-orange-50 dark:bg-orange-950/50 px-2.5 py-1 text-[13px] font-bold text-orange-600 hover:bg-orange-100 dark:hover:bg-orange-950/70 transition-colors touch-manipulation"
           >
             {dict.events.seeAllToday}
             <ChevronRight className="h-3.5 w-3.5" aria-hidden />

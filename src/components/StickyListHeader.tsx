@@ -10,7 +10,7 @@ import type { Dictionary } from "@/i18n/dictionaries";
 const STICKY_HEADER_HEIGHT_VAR = "--sticky-list-header-height";
 
 const backControlClassName =
-  "inline-flex max-w-full min-w-0 items-center gap-2 text-sm font-semibold text-neutral-500 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200 touch-manipulation";
+  "inline-flex max-w-full min-w-0 items-center gap-2 text-[15px] font-semibold text-neutral-500 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200 touch-manipulation";
 
 const backLabelClassName = "min-w-0 truncate";
 
