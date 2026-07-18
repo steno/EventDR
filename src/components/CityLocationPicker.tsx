@@ -63,13 +63,10 @@ export function CityLocationPicker({
       : "📅";
 
   const options: AreaOption[] = [
-    {
-      slug: null,
-      label: `${dict.cities.eventsIn} ${dict.cities.regionName}`,
-    },
+    { slug: null, label: dict.cities.regionName },
     ...CITIES.map((city) => ({
       slug: city.slug,
-      label: `${dict.cities.eventsIn} ${getCityName(city, locale)}`,
+      label: getCityName(city, locale),
     })),
   ];
 
