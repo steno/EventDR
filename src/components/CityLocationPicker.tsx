@@ -49,15 +49,15 @@ export function CityLocationPicker({
     ? getCategoryMeta(categoryId, dict.categories)
     : undefined;
   // Home: “Events in [place]”; scope pages keep “All Events in” + emoji.
+  // On category pages, the title already shows the category, so no prefix needed.
+  // Home: "Events in [place]"; scope pages: "All Events in" + emoji.
   const scopePrefix = categoryId
-    ? fillTemplate(dict.cities.lookingInWithCategory, {
-        category: dict.categoriesSingular[categoryId],
-      })
+    ? null
     : onSelect
       ? dict.cities.eventsIn
       : dict.cities.lookingIn;
   const scopeEmoji = categoryId
-    ? (category?.emoji ?? null)
+    ? null
     : onSelect
       ? null
       : "📅";
