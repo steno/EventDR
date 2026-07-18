@@ -23,7 +23,7 @@ const extraDevOrigins = (process.env.DEV_ALLOWED_ORIGINS ?? "")
   .filter(Boolean);
 
 // Allow tunnel domains for remote access
-const tunnelDomains = ["*.loca.lt"];
+const tunnelDomains = ["*.loca.lt", "*.trycloudflare.com"];
 
 const nextConfig: NextConfig = {
   allowedDevOrigins: [...getLocalIPv4Addresses(), ...extraDevOrigins, ...tunnelDomains],
