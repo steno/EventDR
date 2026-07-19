@@ -122,7 +122,7 @@ export function CityLocationPicker({
       <div
         role="radiogroup"
         aria-label={groupLabel}
-        className="flex flex-wrap justify-between gap-1 sm:justify-start sm:gap-2"
+        className="flex flex-nowrap gap-1.5 sm:gap-2"
       >
         {options.map((option) => {
           const selected = currentSlug === option.slug;
@@ -134,13 +134,13 @@ export function CityLocationPicker({
               aria-checked={selected}
               onClick={() => goTo(option.slug)}
               className={`
-                inline-flex min-h-11 items-center justify-center
-                rounded-full px-3 py-2 text-sm font-bold tracking-tight
+                inline-flex min-h-11 min-w-0 flex-1 items-center justify-center
+                rounded-full px-1.5 py-2 text-[13px] font-bold tracking-tight
                 transition-[color,background-color,border-color,transform]
                 touch-manipulation active:scale-[0.98]
                 focus-visible:outline focus-visible:outline-2
                 focus-visible:outline-offset-2 focus-visible:outline-orange-500
-                sm:min-h-0 sm:px-3.5 sm:py-1.5
+                sm:min-h-0 sm:px-3.5 sm:py-1.5 sm:flex-none sm:text-sm
                 ${
                   selected
                     ? "border border-orange-500/55 bg-orange-500/15 text-orange-700 shadow-sm dark:border-orange-400/55 dark:bg-orange-400/15 dark:text-orange-300"
@@ -148,7 +148,7 @@ export function CityLocationPicker({
                 }
               `}
             >
-              {option.label}
+              <span className="truncate">{option.label}</span>
             </button>
           );
         })}
