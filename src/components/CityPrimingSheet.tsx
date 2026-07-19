@@ -46,7 +46,7 @@ export function CityPrimingSheet({
             >
               {copy.title}
             </h2>
-            <p className="mt-2 text-sm font-medium leading-relaxed text-neutral-500 dark:text-neutral-400">
+            <p className="mt-2 text-base font-medium leading-relaxed text-neutral-500 dark:text-neutral-400">
               {copy.body}
             </p>
           </div>
@@ -60,25 +60,27 @@ export function CityPrimingSheet({
           </button>
         </div>
 
-        <div className="mt-5 grid grid-cols-2 gap-2.5">
+        <div className="mt-5 space-y-2.5">
           <button
             type="button"
             onClick={() => onChoose(null)}
-            className="col-span-2 flex min-h-14 items-center gap-3 rounded-2xl border border-orange-200 bg-orange-50 px-4 text-left font-bold text-orange-800 transition-transform active:scale-[0.98] dark:border-orange-900/70 dark:bg-orange-950/40 dark:text-orange-200"
+            className="flex min-h-14 w-full items-center gap-3 rounded-2xl border border-orange-200 bg-orange-50 px-4 text-left font-bold text-orange-800 transition-transform active:scale-[0.98] dark:border-orange-900/70 dark:bg-orange-950/40 dark:text-orange-200"
           >
             <MapPin className="h-5 w-5 shrink-0" aria-hidden />
             {copy.all}
           </button>
-          {CITIES.map((city) => (
-            <button
-              key={city.slug}
-              type="button"
-              onClick={() => onChoose(city.slug)}
-              className="min-h-14 rounded-2xl border border-neutral-200 bg-white px-3 text-sm font-bold text-neutral-800 transition-[border-color,transform] hover:border-orange-300 active:scale-[0.98] dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100"
-            >
-              {getCityName(city, locale)}
-            </button>
-          ))}
+          <div className="grid grid-cols-3 gap-2">
+            {CITIES.map((city) => (
+              <button
+                key={city.slug}
+                type="button"
+                onClick={() => onChoose(city.slug)}
+                className="min-h-14 rounded-2xl border border-neutral-200 bg-white px-1.5 text-center text-sm font-bold text-neutral-800 transition-[border-color,transform] hover:border-orange-300 active:scale-[0.98] dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100"
+              >
+                {getCityName(city, locale)}
+              </button>
+            ))}
+          </div>
         </div>
       </section>
     </div>

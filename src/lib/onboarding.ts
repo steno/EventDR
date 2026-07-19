@@ -60,7 +60,6 @@ type OnboardingCopy = {
     pushError: string;
   };
   submit: {
-    steps: [string, string, string];
     essentialsHint: string;
     detailsHint: string;
     extrasHint: string;
@@ -110,10 +109,9 @@ const COPY: Record<Locale, OnboardingCopy> = {
       pushError: "Alerts are not available right now.",
     },
     submit: {
-      steps: ["Essentials", "Place & vibe", "Tickets & repeat"],
-      essentialsHint: "Guests need the what, when, and where first.",
-      detailsHint: "Add the details that make people want to go.",
-      extrasHint: "Optional details help guests arrive prepared.",
+      essentialsHint: "Tell your guests about your event.",
+      detailsHint: "Add a place, description, and photo if you have one.",
+      extrasHint: "Tickets and repeats are optional — skip if you want.",
       back: "Back",
       next: "Continue",
       statusTitle: "Your event is submitted",
@@ -158,10 +156,9 @@ const COPY: Record<Locale, OnboardingCopy> = {
       pushError: "Las alertas no están disponibles ahora.",
     },
     submit: {
-      steps: ["Lo esencial", "Lugar y ambiente", "Entradas y frecuencia"],
-      essentialsHint: "Primero: qué, cuándo y dónde.",
-      detailsHint: "Añade los detalles que dan ganas de ir.",
-      extrasHint: "Los detalles opcionales ayudan a llegar preparados.",
+      essentialsHint: "Cuéntales a tus invitados sobre tu evento.",
+      detailsHint: "Añade lugar, descripción y una foto si tienes.",
+      extrasHint: "Entradas y repetición son opcionales — puedes saltarlas.",
       back: "Atrás",
       next: "Continuar",
       statusTitle: "Tu evento fue enviado",
@@ -206,10 +203,9 @@ const COPY: Record<Locale, OnboardingCopy> = {
       pushError: "Les alertes ne sont pas disponibles pour le moment.",
     },
     submit: {
-      steps: ["L’essentiel", "Lieu et ambiance", "Billets et fréquence"],
-      essentialsHint: "Commencez par quoi, quand et où.",
-      detailsHint: "Ajoutez les détails qui donnent envie de venir.",
-      extrasHint: "Les détails facultatifs aident les visiteurs à se préparer.",
+      essentialsHint: "Parlez de votre événement à vos invités.",
+      detailsHint: "Ajoutez un lieu, une description et une photo si vous en avez.",
+      extrasHint: "Billets et répétition sont facultatifs — passez si vous voulez.",
       back: "Retour",
       next: "Continuer",
       statusTitle: "Votre événement est envoyé",

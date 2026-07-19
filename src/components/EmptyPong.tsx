@@ -58,11 +58,8 @@ export function EmptyPong({
     // Canvas ctx.font can't parse CSS var(); resolve the real family names
     // once, or every font assignment is silently ignored (stuck at 10px).
     const rootStyle = getComputedStyle(document.documentElement);
-    const displayFont =
-      rootStyle.getPropertyValue("--font-syne").trim() || "system-ui";
     const bodyFont =
       rootStyle.getPropertyValue("--font-inter").trim() || "system-ui";
-    const displayStack = `${displayFont}, system-ui, sans-serif`;
     const bodyStack = `${bodyFont}, system-ui, sans-serif`;
 
     let alive = true;
@@ -201,21 +198,26 @@ export function EmptyPong({
       return grad;
     }
 
+    /** Shared size for every in-game label (matches TAP TO RESTART). */
+    function gameFontSize() {
+      return Math.min(20, Math.max(14, width * 0.05));
+    }
+
     function drawWelcomePrompt(text: string) {
       const display = text.toUpperCase();
       const maxWidth = width - 28;
-      let fontSize = Math.min(32, Math.max(22, width * 0.08));
+      let fontSize = gameFontSize();
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
-      ctx.letterSpacing = "0.04em";
+      ctx.letterSpacing = "0.12em";
       ctx.fillStyle = promptGradient();
 
       function measure(size: number) {
-        ctx.font = `800 ${size}px ${displayStack}`;
+        ctx.font = `600 ${size}px ${bodyStack}`;
         return ctx.measureText(display).width;
       }
 
-      while (fontSize > 18 && measure(fontSize) > maxWidth) {
+      while (fontSize > 12 && measure(fontSize) > maxWidth) {
         fontSize -= 1;
       }
 
@@ -224,11 +226,11 @@ export function EmptyPong({
       if (measure(fontSize) > maxWidth && words.length > 1) {
         const mid = Math.ceil(words.length / 2);
         lines = [words.slice(0, mid).join(" "), words.slice(mid).join(" ")];
-        fontSize = Math.min(34, Math.max(24, width * 0.085));
+        fontSize = gameFontSize();
         while (
-          fontSize > 18 &&
+          fontSize > 12 &&
           lines.some((line) => {
-            ctx.font = `800 ${fontSize}px ${displayStack}`;
+            ctx.font = `600 ${fontSize}px ${bodyStack}`;
             return ctx.measureText(line).width > maxWidth;
           })
         ) {
@@ -236,8 +238,8 @@ export function EmptyPong({
         }
       }
 
-      ctx.font = `800 ${fontSize}px ${displayStack}`;
-      const lineGap = fontSize * 1.15;
+      ctx.font = `600 ${fontSize}px ${bodyStack}`;
+      const lineGap = fontSize * 1.35;
       const startY = COURT_H / 2 - ((lines.length - 1) * lineGap) / 2;
       for (let i = 0; i < lines.length; i++) {
         ctx.fillText(lines[i], width / 2, startY + i * lineGap);
@@ -246,27 +248,26 @@ export function EmptyPong({
 
     function drawCenteredPrompt(label: string, hint?: string) {
       const maxWidth = width - 32;
-      let fontSize = Math.min(48, Math.max(32, width * 0.13));
+      let fontSize = gameFontSize();
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
-      ctx.letterSpacing = "0.06em";
+      ctx.letterSpacing = "0.12em";
       ctx.fillStyle = promptGradient();
 
-      while (fontSize > 22) {
-        ctx.font = `800 ${fontSize}px ${displayStack}`;
+      while (fontSize > 12) {
+        ctx.font = `600 ${fontSize}px ${bodyStack}`;
         if (ctx.measureText(label).width <= maxWidth) break;
         fontSize -= 1;
       }
 
-      ctx.font = `800 ${fontSize}px ${displayStack}`;
+      ctx.font = `600 ${fontSize}px ${bodyStack}`;
       ctx.fillText(label, width / 2, hint ? COURT_H / 2 - 10 : COURT_H / 2);
 
       if (hint) {
-        const hintSize = Math.max(13, fontSize * 0.28);
-        ctx.font = `600 ${hintSize}px ${bodyStack}`;
+        ctx.font = `600 ${fontSize}px ${bodyStack}`;
         ctx.fillStyle = "rgba(255,255,255,0.55)";
         ctx.letterSpacing = "0.12em";
-        ctx.fillText(hint, width / 2, COURT_H / 2 + fontSize * 0.52);
+        ctx.fillText(hint, width / 2, COURT_H / 2 + fontSize * 0.9);
       }
     }
 
@@ -310,7 +311,7 @@ export function EmptyPong({
       if (awaitingRestart) {
         const text = labels.tapToRestart.toUpperCase();
         const maxWidth = width - 32;
-        let fontSize = Math.min(20, Math.max(14, width * 0.05));
+        let fontSize = gameFontSize();
         ctx.textAlign = "center";
         ctx.textBaseline = "middle";
         ctx.letterSpacing = "0.12em";
@@ -498,10 +499,10 @@ export function EmptyPong({
       aria-hidden
     >
       <div className="mb-2 text-center">
-        <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-neutral-500 dark:text-neutral-400">
+        <p className="text-[18px] font-semibold uppercase tracking-[0.12em] text-neutral-500 dark:text-neutral-400">
           {labels.score}
         </p>
-        <p className="text-4xl font-bold leading-none tracking-tight text-neutral-900 tabular-nums dark:text-white">
+        <p className="text-[18px] font-semibold leading-none tracking-[0.12em] text-neutral-900 tabular-nums dark:text-white">
           <span ref={scoreRef}>0</span>
         </p>
       </div>

@@ -303,7 +303,7 @@ export function SubmitEventSheet({
         <div className="flex shrink-0 items-start justify-between border-b border-neutral-50 bg-white px-4 pt-5 pb-3 dark:border-neutral-800 dark:bg-neutral-900">
           <div>
             <h2 className="text-xl font-black text-neutral-900 dark:text-neutral-100">{dict.submit.title}</h2>
-            <p className="text-sm text-neutral-500 dark:text-neutral-400 mt-0.5">{dict.submit.subtitle}</p>
+            <p className="mt-0.5 text-base text-neutral-500 dark:text-neutral-400">{dict.submit.subtitle}</p>
           </div>
           <button
             type="button"
@@ -367,29 +367,26 @@ export function SubmitEventSheet({
             className="min-h-0 flex-1 space-y-4 overflow-y-auto overscroll-contain p-4 scrollbar-hide"
           >
             <div>
-              <div className="grid grid-cols-3 gap-1.5" aria-label={dict.submit.title}>
-                {onboardingCopy.steps.map((label, index) => (
-                  <div key={label}>
-                    <div
-                      className={`h-1.5 rounded-full ${
-                        index <= step
-                          ? "bg-gradient-to-r from-orange-500 to-rose-500"
-                          : "bg-neutral-200 dark:bg-neutral-700"
-                      }`}
-                    />
-                    <p
-                      className={`mt-1.5 text-[10px] font-bold ${
-                        index === step
-                          ? "text-orange-600 dark:text-orange-400"
-                          : "text-neutral-400"
-                      }`}
-                    >
-                      {label}
-                    </p>
-                  </div>
+              <div
+                className="grid grid-cols-3 gap-1.5"
+                role="progressbar"
+                aria-valuemin={1}
+                aria-valuemax={3}
+                aria-valuenow={step + 1}
+                aria-label={`${step + 1} / 3`}
+              >
+                {[0, 1, 2].map((index) => (
+                  <div
+                    key={index}
+                    className={`h-1.5 rounded-full ${
+                      index <= step
+                        ? "bg-gradient-to-r from-orange-500 to-rose-500"
+                        : "bg-neutral-200 dark:bg-neutral-700"
+                    }`}
+                  />
                 ))}
               </div>
-              <p className="mt-3 text-sm font-medium text-neutral-500 dark:text-neutral-400">
+              <p className="mt-3 text-sm text-neutral-500 dark:text-neutral-400">
                 {step === 0
                   ? onboardingCopy.essentialsHint
                   : step === 1

@@ -236,7 +236,7 @@ export function VenueDirectionsSection({
           </div>
 
           {routeMeta ? (
-            <p className="text-sm text-neutral-600 dark:text-neutral-400">
+            <p className="text-sm font-medium text-neutral-800 dark:text-neutral-200">
               {dict.venues.routeSummary
                 .replace("{distance}", routeMeta.distance)
                 .replace("{minutes}", String(routeMeta.minutes))}

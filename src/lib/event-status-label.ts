@@ -138,22 +138,21 @@ export function getEventLiveStatusLabel(
 }
 
 export function eventStatusBadgeClass(status: EventLiveStatus): string {
-  // Soft pastel on light; black shell only on dark mobile (pastel again from lg up).
-  const darkMobileShell =
-    "dark:bg-black dark:ring-1 dark:ring-white/15 dark:lg:ring-0";
+  // Soft pastel on light; tinted solid pills in dark so chips stay visible on
+  // dark cards and photo overlays (avoid near-black shells that disappear).
   switch (status) {
     case "live":
-      return `bg-orange-50 text-orange-600 ${darkMobileShell} dark:text-orange-400 dark:lg:bg-orange-950/50`;
+      return "bg-orange-50 text-orange-700 dark:bg-orange-500/25 dark:text-orange-200 dark:ring-1 dark:ring-orange-400/35";
     case "ending":
-      return `bg-amber-50 text-amber-700 ${darkMobileShell} dark:text-amber-400 dark:lg:bg-amber-950/40`;
+      return "bg-amber-50 text-amber-800 dark:bg-amber-500/25 dark:text-amber-200 dark:ring-1 dark:ring-amber-400/35";
     case "upcoming":
-      return `bg-sky-50 text-sky-700 ${darkMobileShell} dark:text-sky-400 dark:lg:bg-sky-950/40`;
+      return "bg-sky-50 text-sky-800 dark:bg-sky-500/25 dark:text-sky-200 dark:ring-1 dark:ring-sky-400/35";
     case "closedToday":
-      return `bg-violet-50 text-violet-700 ${darkMobileShell} dark:text-violet-400 dark:lg:bg-violet-950/40`;
+      return "bg-violet-50 text-violet-800 dark:bg-violet-500/25 dark:text-violet-200 dark:ring-1 dark:ring-violet-400/35";
     case "temporarilyClosed":
-      return `bg-rose-50 text-rose-700 ${darkMobileShell} dark:text-rose-400 dark:lg:bg-rose-950/40`;
+      return "bg-rose-50 text-rose-800 dark:bg-rose-500/25 dark:text-rose-200 dark:ring-1 dark:ring-rose-400/35";
     case "ended":
-      return `bg-neutral-100 text-neutral-500 ${darkMobileShell} dark:text-neutral-400 dark:lg:bg-neutral-800`;
+      return "bg-neutral-100 text-neutral-600 dark:bg-neutral-700/80 dark:text-neutral-200 dark:ring-1 dark:ring-white/15";
     default:
       return "";
   }

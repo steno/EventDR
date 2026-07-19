@@ -85,7 +85,7 @@ export function VenueAssessmentBlock({
               {badge}
             </span>
             {blended && google?.rating != null ? (
-              <span className="inline-flex items-center gap-1 rounded-full bg-amber-500/15 px-2 py-0.5 text-[10px] font-bold text-amber-800 ring-1 ring-amber-500/25 dark:bg-amber-400/15 dark:text-amber-200 dark:ring-amber-400/30">
+              <span className="inline-flex items-center gap-1 rounded-full bg-amber-500/15 px-2 py-0.5 text-[13px] font-bold text-amber-800 ring-1 ring-amber-500/25 dark:bg-amber-400/15 dark:text-amber-200 dark:ring-amber-400/30">
                 <span aria-hidden>★</span>
                 <span>{google.rating.toFixed(1)}</span>
                 {google.reviewCount != null ? (

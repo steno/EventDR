@@ -261,7 +261,7 @@ export function WeatherWidget({ locale, dict }: WeatherWidgetProps) {
                     condition={currentCondition}
                     className="h-7 w-7 text-neutral-500 dark:text-neutral-300"
                   />
-                  <p className="mt-0.5 text-[10px] font-bold leading-tight text-neutral-700 dark:text-neutral-200">
+                  <p className="mt-0.5 text-[11px] font-bold leading-tight text-neutral-700 dark:text-neutral-200">
                     {currentLabel}
                   </p>
                 </div>
@@ -270,7 +270,7 @@ export function WeatherWidget({ locale, dict }: WeatherWidgetProps) {
                   {formatTemperature(weather.current.temperature, unit)}
                 </p>
 
-                <div className="flex flex-col items-end gap-0.5 pt-0.5 text-[10px] leading-none text-neutral-500 dark:text-neutral-400">
+                <div className="flex flex-col items-end gap-0.5 pt-0.5 text-[11px] leading-none text-neutral-600 dark:text-neutral-300">
                   <p className="flex items-center gap-1 tabular-nums" title={dict.weather.wind}>
                     <Wind className="h-3 w-3 shrink-0" aria-hidden />
                     <span className="sr-only">{dict.weather.wind}: </span>
@@ -294,14 +294,14 @@ export function WeatherWidget({ locale, dict }: WeatherWidgetProps) {
                   const dayCondition = weatherCodeToCondition(day.weatherCode);
                   return (
                     <div key={day.date} className="flex flex-col items-center gap-1 text-center">
-                      <span className="text-[9px] font-bold tracking-wide text-neutral-500 dark:text-neutral-400">
+                      <span className="text-[11px] font-bold tracking-wide text-neutral-600 dark:text-neutral-300">
                         {formatDayLabel(day.date, locale)}
                       </span>
                       <WeatherIcon
                         condition={dayCondition}
                         className="h-4 w-4 text-neutral-500 dark:text-neutral-300"
                       />
-                      <span className="text-[10px] font-semibold tabular-nums text-neutral-800 dark:text-neutral-100">
+                      <span className="text-xs font-semibold tabular-nums text-neutral-800 dark:text-neutral-100">
                         {formatTemperature(day.temperatureMax, unit)}
                       </span>
                     </div>

@@ -108,7 +108,7 @@ function TodayHighlightCard({
           </h3>
           {timeLabel.display && (
             <p
-              className="inline-flex min-w-0 max-w-full items-center gap-1.5 text-[13px] font-medium text-white/90 [text-shadow:0_1px_2px_rgba(0,0,0,0.45)]"
+              className="inline-flex min-w-0 max-w-full items-center gap-1.5 text-sm font-medium text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.45)]"
               title={timeLabel.full !== timeLabel.display ? timeLabel.full : undefined}
             >
               <Clock className="h-3.5 w-3.5 shrink-0" aria-hidden />

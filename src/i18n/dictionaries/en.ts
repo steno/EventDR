@@ -70,9 +70,11 @@ export type Dictionary = {
     hiddenGems: string;
     mostPopular: string;
     moreEvents: string;
-    /** Short-list ghost card inviting submissions. Use `{category}` when scoped. */
+    /** Short-list CTA headline inviting submissions. */
+    yourEventHereTitle: string;
+    /** Short-list CTA subline. Use `{category}` when scoped. */
     yourEventHere: string;
-    /** Ghost card when browsing all events (no category scope). */
+    /** Short-list CTA subline when browsing all events (no category scope). */
     yourEventHereGeneric: string;
     hot: string;
     nearMe: string;
@@ -445,8 +447,9 @@ export const en: Dictionary = {
     hiddenGems: "Local picks — the events you won't find on big ticket sites",
     mostPopular: "Most popular",
     moreEvents: "More events",
-    yourEventHere: "Add {category} Event here",
-    yourEventHereGeneric: "Add your event here",
+    yourEventHereTitle: "Host something here?",
+    yourEventHere: "Add your {category} event",
+    yourEventHereGeneric: "Add your event",
     hot: "Hot",
     nearMe: "Near me",
     nearMeOn: "Sorted by distance",

@@ -324,6 +324,7 @@ export function EventList({
             ))}
             <EventListScrollPads
               count={filtered.length}
+              title={dict.events.yourEventHereTitle}
               label={
                 category
                   ? fillTemplate(dict.events.yourEventHere, {

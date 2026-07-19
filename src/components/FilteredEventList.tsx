@@ -51,7 +51,7 @@ interface FilteredEventListProps {
   pageSize?: number;
   /** Renders above time tabs inside the sticky filter bar (e.g. city picker). */
   locationPicker?: ReactNode;
-  /** When set, ghost pads invite “Add {category} Event here”. */
+  /** When set, the short-list CTA subline uses “Add your {category} event”. */
   categoryId?: Event["category"];
   /** Layout for event tiles. Category/city lists use cards; venues may pass list. */
   view?: EventListView;
@@ -243,6 +243,7 @@ export function FilteredEventList({
             {/* Pad short tabs so scroll-to-filter-top has enough document height. */}
             <EventListScrollPads
               count={filtered.length}
+              title={dict.events.yourEventHereTitle}
               label={
                 categoryId
                   ? fillTemplate(dict.events.yourEventHere, {

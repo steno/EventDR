@@ -81,7 +81,7 @@ const UTILITY: {
 ];
 
 const utilityWell =
-  "bg-white text-neutral-700 ring-1 ring-neutral-200/90 dark:bg-neutral-900 dark:text-neutral-200 dark:ring-neutral-700";
+  "bg-white text-orange-950 ring-1 ring-orange-200/70 dark:bg-white/10 dark:text-orange-50 dark:ring-white/15";
 
 export function ShareMenu({
   event,
@@ -136,7 +136,7 @@ export function ShareMenu({
 
   return (
     <ActionSheet title={dict.detail.shareVia}>
-      <div className="grid auto-rows-fr grid-cols-4 gap-x-2 gap-y-3">
+      <div className="grid auto-rows-fr grid-cols-4 gap-x-1 gap-y-2.5 sm:gap-x-2">
         {nativeShareAvailable && (
           <ActionSheetTile
             label={dict.detail.shareMore}

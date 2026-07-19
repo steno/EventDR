@@ -35,7 +35,7 @@ const PROVIDERS: {
   {
     id: "google",
     labelKey: "calendarGoogle",
-    well: "bg-white text-neutral-800 ring-1 ring-neutral-200/90 dark:bg-neutral-900 dark:ring-neutral-700",
+    well: "bg-white text-neutral-800 ring-1 ring-orange-200/70 dark:bg-white/10 dark:text-neutral-50 dark:ring-white/15",
     icon: <GoogleIcon className="h-5 w-5" />,
   },
   {
@@ -53,7 +53,7 @@ const PROVIDERS: {
   {
     id: "download",
     labelKey: "calendarDownload",
-    well: "bg-white text-neutral-700 ring-1 ring-neutral-200/90 dark:bg-neutral-900 dark:text-neutral-200 dark:ring-neutral-700",
+    well: "bg-white text-orange-950 ring-1 ring-orange-200/70 dark:bg-white/10 dark:text-orange-50 dark:ring-white/15",
     icon: <Download className="h-5 w-5" strokeWidth={2} />,
   },
 ];
@@ -77,7 +77,7 @@ export function CalendarMenu({ event, dict, onClose }: CalendarMenuProps) {
   return (
     <ActionSheet title={dict.detail.calendarVia}>
       <div
-        className={`grid gap-1 ${
+        className={`grid gap-x-1 gap-y-2.5 sm:gap-x-2 ${
           visibleProviders.length === 4 ? "grid-cols-4" : "grid-cols-3"
         }`}
       >

@@ -9,6 +9,7 @@ import {
   useState,
 } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
+import { ArrowLeft } from "lucide-react";
 import { AppHeader } from "@/components/AppHeader";
 import { PhotoHero } from "@/components/PhotoHero";
 import { CategoryGrid } from "@/components/CategoryGrid";
@@ -23,6 +24,7 @@ import { EventCard } from "@/components/EventCard";
 import { VenueAudienceCards } from "@/components/VenueAudienceCards";
 import { TodayHighlights } from "@/components/TodayHighlights";
 import { CityPrimingSheet } from "@/components/CityPrimingSheet";
+import { stickyBackControlClassName } from "@/components/StickyListHeader";
 import { useSavedEvents } from "@/hooks/useSavedEvents";
 import {
   getHomeDiscoverLayout,
@@ -47,6 +49,7 @@ import {
   hasSeenOnboarding,
   markOnboardingSeen,
 } from "@/lib/onboarding";
+import { fillTemplate } from "@/lib/seo";
 
 interface HomeProps {
   locale: Locale;
@@ -316,8 +319,20 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
           )}
 
           {tab === "saved" && (
-            <div className="pt-4">
-              <h2 className="text-2xl font-black text-neutral-900 dark:text-neutral-100 tracking-tight mb-6">
+            <div className="pt-1">
+              <button
+                type="button"
+                onClick={() => handleTabChange("discover")}
+                className={stickyBackControlClassName}
+              >
+                <ArrowLeft className="h-[1.125rem] w-[1.125rem] shrink-0" aria-hidden />
+                <span className="min-w-0 truncate">
+                  {fillTemplate(dict.browse.backTo, {
+                    title: dict.nav.discover,
+                  })}
+                </span>
+              </button>
+              <h2 className="mt-1 text-2xl font-black text-neutral-900 dark:text-neutral-100 tracking-tight mb-6">
                 {dict.saved.title}
               </h2>
               {!savedReady || !eventsReady ? (
@@ -329,7 +344,7 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
                   <p className="font-bold text-neutral-700 dark:text-neutral-200">
                     {onboardingCopy.saved.exampleTitle}
                   </p>
-                  <p className="mx-auto mt-1 max-w-sm text-sm text-neutral-500 dark:text-neutral-400">
+                  <p className="mx-auto mt-1 max-w-sm text-base text-neutral-500 dark:text-neutral-400">
                     {onboardingCopy.saved.exampleBody}
                   </p>
                   {savedExample ? (

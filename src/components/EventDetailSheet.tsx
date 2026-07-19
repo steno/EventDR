@@ -5,7 +5,6 @@ import {
   useEffect,
   useRef,
   useState,
-  type ReactNode,
 } from "react";
 import { useRouter } from "next/navigation";
 import {
@@ -34,6 +33,7 @@ import { getCategoryMeta } from "@/lib/categories";
 import { formatEventDateRange } from "@/lib/format-date";
 import { formatEventTimeForList } from "@/lib/event-time-display";
 import { getDirectionsUrl } from "@/lib/maps";
+import { detailActionPanelClass } from "@/components/ActionSheet";
 import { ShareMenu } from "@/components/ShareMenu";
 import { CalendarMenu } from "@/components/CalendarMenu";
 import { matchVenueSlug } from "@/lib/venues-seed";
@@ -75,22 +75,6 @@ const EMPTY_STATUS_EVENT = {
   time: undefined,
   recurrence: undefined,
 };
-
-function ActionFlyout({
-  open,
-  children,
-}: {
-  open: boolean;
-  children: ReactNode;
-}) {
-  if (!open) return null;
-  
-  return (
-    <div className="relative z-0 pb-3 animate-in slide-in-from-bottom duration-500 fade-in">
-      {children}
-    </div>
-  );
-}
 
 interface EventDetailSheetProps {
   event: Event | null;
@@ -254,8 +238,8 @@ export function EventDetailSheet({
     return () => document.removeEventListener("pointerdown", handlePointerDown);
   }, [openAction]);
 
-  // Standalone event pages: flyout opens above the action bar — ease into view
-  // instead of letting the browser snap scroll when the panel expands.
+  // Standalone event pages: panel expands above the action bar — ease into view
+  // instead of letting the browser snap scroll when content grows.
   useEffect(() => {
     if (!openAction || !standalone) return;
     const node = actionsRef.current;
@@ -327,6 +311,10 @@ export function EventDetailSheet({
   const hasMapCoords = resolveEventCoords(event) != null;
   const isPhysical = event.format !== "digital";
   const showBottomDirections = isPhysical && !hasMapCoords;
+  // Calendar CTA lives in the save celebration — hide the duplicate bar icon.
+  const showCalendarAction = !showSaveCelebration;
+  const actionCols =
+    (showBottomDirections ? 1 : 0) + (showCalendarAction ? 1 : 0) + 2;
   const ticketUrl = resolveTicketUrl(event);
   const showFreeAdmission = !ticketUrl && isEventFree(event);
   const admissionPrice = resolveAdmissionPrice(event);
@@ -338,11 +326,11 @@ export function EventDetailSheet({
     : dict.detail.paidAdmissionUnknown;
 
   const iconActionClass =
-    "flex h-12 w-full items-center justify-center rounded-2xl touch-manipulation transition-all active:scale-[0.98]";
+    "flex h-10 w-full items-center justify-center rounded-xl touch-manipulation transition-colors active:scale-[0.98]";
   const iconActionIdleClass =
-    "bg-neutral-100 text-neutral-600 ring-1 ring-neutral-200/80 hover:bg-white hover:text-neutral-900 dark:bg-neutral-800 dark:text-neutral-300 dark:ring-neutral-700/80 dark:hover:bg-neutral-700 dark:hover:text-neutral-100";
+    "bg-neutral-100/90 text-neutral-500 hover:bg-neutral-200/80 hover:text-neutral-800 dark:bg-neutral-800/80 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-100";
   const iconActionActiveClass =
-    "bg-gradient-to-br from-orange-500 to-rose-600 text-white shadow-[0_8px_20px_-12px_rgba(244,63,94,0.7)]";
+    "bg-gradient-to-br from-orange-500 to-rose-600 text-white";
 
   function handleShareFeedback(message: string, durationMs = 5000) {
     setShareMsg(message);
@@ -428,7 +416,7 @@ export function EventDetailSheet({
               </span>
             )}
             {recurrenceLabel && (
-              <span className="inline-flex shrink-0 rounded-full bg-neutral-100 dark:bg-neutral-800 px-2.5 py-0.5 text-xs font-bold leading-none text-neutral-600 dark:text-neutral-400">
+              <span className="inline-flex shrink-0 rounded-full bg-neutral-100 dark:bg-neutral-800 px-2.5 py-1 text-sm font-bold leading-none text-neutral-700 dark:text-neutral-200">
                 {recurrenceLabel}
               </span>
             )}
@@ -568,40 +556,10 @@ export function EventDetailSheet({
 
   const actionsSection = (
     <>
-      {openAction && standalone && (
-        <div
-          className="fixed inset-0 z-40 bg-black/20 backdrop-blur-sm transition-opacity duration-300"
-          onClick={() => setOpenAction(null)}
-          aria-hidden="true"
-        />
-      )}
       <div
         ref={actionsRef}
         className="relative isolate border-t border-neutral-100 bg-white px-5 pt-4 pb-[max(1rem,env(safe-area-inset-bottom))] dark:border-neutral-800 dark:bg-neutral-900 sm:px-6 lg:px-7 lg:pb-6"
-        style={{ zIndex: openAction && standalone ? 50 : undefined }}
       >
-        <ActionFlyout open={calendarOpen}>
-          <CalendarMenu
-            event={event}
-            dict={dict}
-            onClose={() => {
-              setOpenAction(null);
-              if (pushAfterCalendar) {
-                setPushAfterCalendar(false);
-                offerPushPrompt();
-              }
-            }}
-          />
-        </ActionFlyout>
-        <ActionFlyout open={shareOpen}>
-          <ShareMenu
-            event={event}
-            locale={locale}
-            dict={dict}
-            onClose={() => setOpenAction(null)}
-            onFeedback={handleShareFeedback}
-          />
-        </ActionFlyout>
         {shareMsg && (
           <p
             className="relative z-0 mb-2 text-center text-xs font-semibold text-orange-600 dark:text-orange-400"
@@ -613,23 +571,23 @@ export function EventDetailSheet({
         )}
         {showSaveCelebration ? (
           <div
-            className="relative z-10 mb-3 rounded-2xl border border-emerald-200 bg-emerald-50 p-3 dark:border-emerald-900/60 dark:bg-emerald-950/40"
+            className="relative z-10 mb-4 rounded-2xl bg-emerald-50 px-4 py-4 dark:bg-emerald-950/40"
             role="status"
             aria-live="polite"
           >
-            <div className="flex items-start gap-2.5">
+            <div className="flex items-start gap-3">
               <Sparkles
-                className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600 dark:text-emerald-400"
+                className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600 dark:text-emerald-400"
                 aria-hidden
               />
               <div className="min-w-0 flex-1">
-                <p className="text-sm font-black text-emerald-900 dark:text-emerald-100">
+                <p className="text-base font-black text-emerald-950 dark:text-emerald-100">
                   {onboardingCopy.saved.title}
                 </p>
-                <p className="mt-0.5 text-xs font-medium text-emerald-800/80 dark:text-emerald-200/80">
+                <p className="mt-1 text-sm font-medium leading-snug text-emerald-800/80 dark:text-emerald-200/80">
                   {onboardingCopy.saved.body}
                 </p>
-                <div className="mt-2 flex flex-wrap gap-2">
+                <div className="mt-3 flex flex-wrap items-center gap-2">
                   <button
                     type="button"
                     onClick={() => {
@@ -638,7 +596,7 @@ export function EventDetailSheet({
                       setPushAfterCalendar(true);
                       setOpenAction("calendar");
                     }}
-                    className="rounded-full bg-emerald-700 px-3 py-1.5 text-xs font-bold text-white dark:bg-emerald-500 dark:text-emerald-950"
+                    className="rounded-full bg-emerald-700 px-4 py-2 text-sm font-bold text-white dark:bg-emerald-500 dark:text-emerald-950"
                   >
                     {onboardingCopy.saved.calendar}
                   </button>
@@ -649,7 +607,7 @@ export function EventDetailSheet({
                       setShowSaveCelebration(false);
                       offerPushPrompt();
                     }}
-                    className="rounded-full px-3 py-1.5 text-xs font-bold text-emerald-800 dark:text-emerald-200"
+                    className="rounded-full px-3 py-2 text-sm font-bold text-emerald-800/80 dark:text-emerald-200/80"
                   >
                     {onboardingCopy.saved.keepBrowsing}
                   </button>
@@ -658,27 +616,27 @@ export function EventDetailSheet({
             </div>
           </div>
         ) : showPushPrompt ? (
-          <div className="relative z-10 mb-3 rounded-2xl border border-sky-200 bg-sky-50 p-3 dark:border-sky-900/60 dark:bg-sky-950/40">
-            <div className="flex items-start gap-2.5">
+          <div className="relative z-10 mb-4 rounded-2xl bg-sky-50 px-4 py-4 dark:bg-sky-950/40">
+            <div className="flex items-start gap-3">
               <Bell
-                className="mt-0.5 h-4 w-4 shrink-0 text-sky-600 dark:text-sky-400"
+                className="mt-0.5 h-5 w-5 shrink-0 text-sky-600 dark:text-sky-400"
                 aria-hidden
               />
               <div className="min-w-0 flex-1">
-                <p className="text-sm font-black text-sky-950 dark:text-sky-100">
+                <p className="text-base font-black text-sky-950 dark:text-sky-100">
                   {dict.push.title}
                 </p>
-                <p className="mt-0.5 text-xs font-medium text-sky-900/75 dark:text-sky-200/80">
+                <p className="mt-1 text-sm font-medium leading-snug text-sky-900/75 dark:text-sky-200/80">
                   {pushSubscription.enabled
                     ? dict.push.enabledHint
                     : dict.push.subtitle}
                 </p>
                 {pushSubscription.error ? (
-                  <p className="mt-1 text-xs font-bold text-red-600 dark:text-red-400">
+                  <p className="mt-1 text-sm font-bold text-red-600 dark:text-red-400">
                     {onboardingCopy.saved.pushError}
                   </p>
                 ) : null}
-                <div className="mt-2 flex gap-2">
+                <div className="mt-3 flex flex-wrap items-center gap-2">
                   <button
                     type="button"
                     disabled={pushSubscription.loading}
@@ -689,7 +647,7 @@ export function EventDetailSheet({
                         setShowPushPrompt(false);
                       }
                     }}
-                    className="rounded-full bg-sky-700 px-3 py-1.5 text-xs font-bold text-white disabled:opacity-60 dark:bg-sky-500 dark:text-sky-950"
+                    className="rounded-full bg-sky-700 px-4 py-2 text-sm font-bold text-white disabled:opacity-60 dark:bg-sky-500 dark:text-sky-950"
                   >
                     {pushSubscription.loading
                       ? "…"
@@ -701,7 +659,7 @@ export function EventDetailSheet({
                       markOnboardingSeen("push-prompt-seen");
                       setShowPushPrompt(false);
                     }}
-                    className="rounded-full px-3 py-1.5 text-xs font-bold text-sky-800 dark:text-sky-200"
+                    className="rounded-full px-3 py-2 text-sm font-bold text-sky-800/80 dark:text-sky-200/80"
                   >
                     {onboardingCopy.saved.pushNotNow}
                   </button>
@@ -709,36 +667,60 @@ export function EventDetailSheet({
               </div>
             </div>
           </div>
+        ) : shareOpen ? (
+          <div className={detailActionPanelClass}>
+            <ShareMenu
+              event={event}
+              locale={locale}
+              dict={dict}
+              onClose={() => setOpenAction(null)}
+              onFeedback={handleShareFeedback}
+            />
+          </div>
+        ) : calendarOpen ? (
+          <div className={detailActionPanelClass}>
+            <CalendarMenu
+              event={event}
+              dict={dict}
+              onClose={() => {
+                setOpenAction(null);
+                if (pushAfterCalendar) {
+                  setPushAfterCalendar(false);
+                  offerPushPrompt();
+                }
+              }}
+            />
+          </div>
         ) : showActionsCoach ? (
-          <div className="relative z-10 mb-3 rounded-2xl border border-orange-200 bg-orange-50 p-3 dark:border-orange-900/60 dark:bg-orange-950/40">
-            <p className="text-sm font-black text-orange-950 dark:text-orange-100">
+          <div className={detailActionPanelClass}>
+            <p className="text-base font-black text-orange-950 dark:text-orange-100">
               {onboardingCopy.actions.title}
             </p>
-            <p className="mt-0.5 text-xs font-medium text-orange-900/75 dark:text-orange-200/80">
+            <p className="mt-1 text-sm font-medium leading-snug text-orange-900/75 dark:text-orange-200/80">
               {onboardingCopy.actions.body}
             </p>
-            <div className="mt-2 flex flex-wrap gap-2">
+            <div className="mt-3 flex flex-wrap items-center gap-2">
               <button
                 type="button"
                 onClick={() => {
                   dismissActionsCoach();
                   setOpenAction("share");
                 }}
-                className="rounded-full bg-orange-600 px-3 py-1.5 text-xs font-bold text-white"
+                className="rounded-full bg-orange-600 px-4 py-2 text-sm font-bold text-white"
               >
                 {onboardingCopy.actions.share}
               </button>
               <button
                 type="button"
                 onClick={handleSave}
-                className="rounded-full border border-orange-300 px-3 py-1.5 text-xs font-bold text-orange-800 dark:border-orange-800 dark:text-orange-200"
+                className="rounded-full bg-orange-100/90 px-4 py-2 text-sm font-bold text-orange-900 dark:bg-orange-900/50 dark:text-orange-100"
               >
                 {onboardingCopy.actions.save}
               </button>
               <button
                 type="button"
                 onClick={dismissActionsCoach}
-                className="rounded-full px-2 py-1.5 text-xs font-bold text-orange-700/70 dark:text-orange-300/70"
+                className="rounded-full px-3 py-2 text-sm font-bold text-orange-800/70 dark:text-orange-300/70"
               >
                 {onboardingCopy.actions.dismiss}
               </button>
@@ -746,7 +728,13 @@ export function EventDetailSheet({
           </div>
         ) : null}
         <div
-          className={`relative z-10 grid gap-2.5 ${showBottomDirections ? "grid-cols-4" : "grid-cols-3"}`}
+          className={`relative z-10 grid gap-2 ${
+            actionCols === 4
+              ? "grid-cols-4"
+              : actionCols === 2
+                ? "grid-cols-2"
+                : "grid-cols-3"
+          }`}
         >
           {showBottomDirections && (
             <a
@@ -757,22 +745,24 @@ export function EventDetailSheet({
               aria-label={dict.detail.directions}
               title={dict.detail.directions}
             >
-              <Navigation className="h-5 w-5" aria-hidden />
+              <Navigation className="h-4 w-4" aria-hidden />
             </a>
           )}
-          <button
-            type="button"
-            onClick={() => toggleAction("calendar")}
-            className={`${iconActionClass} ${
-              calendarOpen ? iconActionActiveClass : iconActionIdleClass
-            }`}
-            aria-label={dict.detail.calendar}
-            title={dict.detail.calendar}
-            aria-expanded={calendarOpen}
-            aria-pressed={calendarOpen}
-          >
-            <CalendarPlus className="h-5 w-5" aria-hidden />
-          </button>
+          {showCalendarAction ? (
+            <button
+              type="button"
+              onClick={() => toggleAction("calendar")}
+              className={`${iconActionClass} ${
+                calendarOpen ? iconActionActiveClass : iconActionIdleClass
+              }`}
+              aria-label={dict.detail.calendar}
+              title={dict.detail.calendar}
+              aria-expanded={calendarOpen}
+              aria-pressed={calendarOpen}
+            >
+              <CalendarPlus className="h-4 w-4" aria-hidden />
+            </button>
+          ) : null}
           <button
             type="button"
             onClick={() => {
@@ -787,7 +777,7 @@ export function EventDetailSheet({
             aria-expanded={shareOpen}
             aria-pressed={shareOpen}
           >
-            <Share2 className="h-5 w-5" aria-hidden />
+            <Share2 className="h-4 w-4" aria-hidden />
           </button>
           <button
             type="button"
@@ -800,7 +790,7 @@ export function EventDetailSheet({
             aria-pressed={isSaved}
           >
             <Heart
-              className={`h-5 w-5 ${isSaved ? "fill-current" : ""}`}
+              className={`h-4 w-4 ${isSaved ? "fill-current" : ""}`}
               aria-hidden
             />
           </button>
