@@ -24,6 +24,8 @@ import {
   Users,
   BadgeCheck,
   CircleDollarSign,
+  Sparkles,
+  Bell,
 } from "lucide-react";
 import type { Event, EventOpinion } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
@@ -58,8 +60,21 @@ import { formatPhoneTel } from "@/lib/event-phone";
 import { useSwipeToDismiss } from "@/hooks/useSwipeToDismiss";
 import { scrollBehaviorPreference } from "@/lib/list-scroll";
 import { eventDetailPath, venueDetailPath } from "@/lib/event-navigation";
+import {
+  getOnboardingCopy,
+  hasSeenOnboarding,
+  markOnboardingSeen,
+} from "@/lib/onboarding";
+import { usePushSubscription } from "@/hooks/usePushSubscription";
 
 type ActionMenu = "share" | "calendar";
+
+const EMPTY_STATUS_EVENT = {
+  date: "",
+  endDate: undefined,
+  time: undefined,
+  recurrence: undefined,
+};
 
 function ActionFlyout({
   open,
@@ -102,7 +117,6 @@ export function EventDetailSheet({
   locale,
   isSaved,
   onToggleSave,
-  returnTo,
   formattedDateRange,
   recurrenceLabel: recurrenceLabelProp,
   standalone = false,
@@ -110,6 +124,10 @@ export function EventDetailSheet({
 }: EventDetailSheetProps) {
   const [shareMsg, setShareMsg] = useState<string | null>(null);
   const [openAction, setOpenAction] = useState<ActionMenu | null>(null);
+  const [showActionsCoach, setShowActionsCoach] = useState(false);
+  const [showSaveCelebration, setShowSaveCelebration] = useState(false);
+  const [showPushPrompt, setShowPushPrompt] = useState(false);
+  const [pushAfterCalendar, setPushAfterCalendar] = useState(false);
   const [fetchedOpinion, setFetchedOpinion] = useState<EventOpinion | null>(
     null,
   );
@@ -121,17 +139,35 @@ export function EventDetailSheet({
   const router = useRouter();
   const shareOpen = openAction === "share";
   const calendarOpen = openAction === "calendar";
+  const onboardingCopy = getOnboardingCopy(locale);
+  const pushSubscription = usePushSubscription(locale);
+  const liveDisplay = useLiveStatusDisplay(event ?? EMPTY_STATUS_EVENT, dict);
+  const eventId = event?.id;
 
   const toggleAction = useCallback((action: ActionMenu) => {
     setOpenAction((current) => (current === action ? null : action));
   }, []);
 
   useEffect(() => {
-    setOpenAction(null);
-    setShareMsg(null);
-    setFetchedOpinion(null);
-    setVenueRating(null);
-  }, [event?.id]);
+    const resetTimer = window.setTimeout(() => {
+      setOpenAction(null);
+      setShareMsg(null);
+      setShowActionsCoach(false);
+      setShowSaveCelebration(false);
+      setShowPushPrompt(false);
+      setPushAfterCalendar(false);
+      setFetchedOpinion(null);
+      setVenueRating(null);
+    }, 0);
+    const coachTimer =
+      eventId && !hasSeenOnboarding("event-actions-coached")
+        ? window.setTimeout(() => setShowActionsCoach(true), 1200)
+        : null;
+    return () => {
+      window.clearTimeout(resetTimer);
+      if (coachTimer) window.clearTimeout(coachTimer);
+    };
+  }, [eventId]);
 
   useEffect(() => {
     if (!event || !areEventOpinionsEnabled()) return;
@@ -276,7 +312,6 @@ export function EventDetailSheet({
   const eventOpinion = eventOpinionRaw
     ? withGoogleRating(eventOpinionRaw, venueRating)
     : null;
-  const liveDisplay = useLiveStatusDisplay(event, dict);
   const liveStatus = event.temporarilyClosed
     ? ("temporarilyClosed" as const)
     : liveDisplay?.status ?? null;
@@ -312,6 +347,40 @@ export function EventDetailSheet({
   function handleShareFeedback(message: string, durationMs = 5000) {
     setShareMsg(message);
     setTimeout(() => setShareMsg(null), durationMs);
+  }
+
+  function dismissActionsCoach() {
+    markOnboardingSeen("event-actions-coached");
+    setShowActionsCoach(false);
+  }
+
+  function handleSave() {
+    if (!event) return;
+    setOpenAction(null);
+    dismissActionsCoach();
+    const saving = !isSaved;
+    onToggleSave(event);
+    if (saving && !hasSeenOnboarding("first-save-celebrated")) {
+      markOnboardingSeen("first-save-celebrated");
+      setShowSaveCelebration(true);
+    } else if (
+      saving &&
+      pushSubscription.supported &&
+      !pushSubscription.enabled &&
+      !hasSeenOnboarding("push-prompt-seen")
+    ) {
+      setShowPushPrompt(true);
+    }
+  }
+
+  function offerPushPrompt() {
+    if (
+      pushSubscription.supported &&
+      !pushSubscription.enabled &&
+      !hasSeenOnboarding("push-prompt-seen")
+    ) {
+      setShowPushPrompt(true);
+    }
   }
 
   function handleViewVenue() {
@@ -515,7 +584,13 @@ export function EventDetailSheet({
           <CalendarMenu
             event={event}
             dict={dict}
-            onClose={() => setOpenAction(null)}
+            onClose={() => {
+              setOpenAction(null);
+              if (pushAfterCalendar) {
+                setPushAfterCalendar(false);
+                offerPushPrompt();
+              }
+            }}
           />
         </ActionFlyout>
         <ActionFlyout open={shareOpen}>
@@ -536,6 +611,140 @@ export function EventDetailSheet({
             {shareMsg}
           </p>
         )}
+        {showSaveCelebration ? (
+          <div
+            className="relative z-10 mb-3 rounded-2xl border border-emerald-200 bg-emerald-50 p-3 dark:border-emerald-900/60 dark:bg-emerald-950/40"
+            role="status"
+            aria-live="polite"
+          >
+            <div className="flex items-start gap-2.5">
+              <Sparkles
+                className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600 dark:text-emerald-400"
+                aria-hidden
+              />
+              <div className="min-w-0 flex-1">
+                <p className="text-sm font-black text-emerald-900 dark:text-emerald-100">
+                  {onboardingCopy.saved.title}
+                </p>
+                <p className="mt-0.5 text-xs font-medium text-emerald-800/80 dark:text-emerald-200/80">
+                  {onboardingCopy.saved.body}
+                </p>
+                <div className="mt-2 flex flex-wrap gap-2">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      markOnboardingSeen("calendar-prompt-seen");
+                      setShowSaveCelebration(false);
+                      setPushAfterCalendar(true);
+                      setOpenAction("calendar");
+                    }}
+                    className="rounded-full bg-emerald-700 px-3 py-1.5 text-xs font-bold text-white dark:bg-emerald-500 dark:text-emerald-950"
+                  >
+                    {onboardingCopy.saved.calendar}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      markOnboardingSeen("calendar-prompt-seen");
+                      setShowSaveCelebration(false);
+                      offerPushPrompt();
+                    }}
+                    className="rounded-full px-3 py-1.5 text-xs font-bold text-emerald-800 dark:text-emerald-200"
+                  >
+                    {onboardingCopy.saved.keepBrowsing}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        ) : showPushPrompt ? (
+          <div className="relative z-10 mb-3 rounded-2xl border border-sky-200 bg-sky-50 p-3 dark:border-sky-900/60 dark:bg-sky-950/40">
+            <div className="flex items-start gap-2.5">
+              <Bell
+                className="mt-0.5 h-4 w-4 shrink-0 text-sky-600 dark:text-sky-400"
+                aria-hidden
+              />
+              <div className="min-w-0 flex-1">
+                <p className="text-sm font-black text-sky-950 dark:text-sky-100">
+                  {dict.push.title}
+                </p>
+                <p className="mt-0.5 text-xs font-medium text-sky-900/75 dark:text-sky-200/80">
+                  {pushSubscription.enabled
+                    ? dict.push.enabledHint
+                    : dict.push.subtitle}
+                </p>
+                {pushSubscription.error ? (
+                  <p className="mt-1 text-xs font-bold text-red-600 dark:text-red-400">
+                    {onboardingCopy.saved.pushError}
+                  </p>
+                ) : null}
+                <div className="mt-2 flex gap-2">
+                  <button
+                    type="button"
+                    disabled={pushSubscription.loading}
+                    onClick={async () => {
+                      const subscribed = await pushSubscription.subscribe();
+                      if (subscribed) {
+                        markOnboardingSeen("push-prompt-seen");
+                        setShowPushPrompt(false);
+                      }
+                    }}
+                    className="rounded-full bg-sky-700 px-3 py-1.5 text-xs font-bold text-white disabled:opacity-60 dark:bg-sky-500 dark:text-sky-950"
+                  >
+                    {pushSubscription.loading
+                      ? "…"
+                      : onboardingCopy.saved.pushEnable}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      markOnboardingSeen("push-prompt-seen");
+                      setShowPushPrompt(false);
+                    }}
+                    className="rounded-full px-3 py-1.5 text-xs font-bold text-sky-800 dark:text-sky-200"
+                  >
+                    {onboardingCopy.saved.pushNotNow}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        ) : showActionsCoach ? (
+          <div className="relative z-10 mb-3 rounded-2xl border border-orange-200 bg-orange-50 p-3 dark:border-orange-900/60 dark:bg-orange-950/40">
+            <p className="text-sm font-black text-orange-950 dark:text-orange-100">
+              {onboardingCopy.actions.title}
+            </p>
+            <p className="mt-0.5 text-xs font-medium text-orange-900/75 dark:text-orange-200/80">
+              {onboardingCopy.actions.body}
+            </p>
+            <div className="mt-2 flex flex-wrap gap-2">
+              <button
+                type="button"
+                onClick={() => {
+                  dismissActionsCoach();
+                  setOpenAction("share");
+                }}
+                className="rounded-full bg-orange-600 px-3 py-1.5 text-xs font-bold text-white"
+              >
+                {onboardingCopy.actions.share}
+              </button>
+              <button
+                type="button"
+                onClick={handleSave}
+                className="rounded-full border border-orange-300 px-3 py-1.5 text-xs font-bold text-orange-800 dark:border-orange-800 dark:text-orange-200"
+              >
+                {onboardingCopy.actions.save}
+              </button>
+              <button
+                type="button"
+                onClick={dismissActionsCoach}
+                className="rounded-full px-2 py-1.5 text-xs font-bold text-orange-700/70 dark:text-orange-300/70"
+              >
+                {onboardingCopy.actions.dismiss}
+              </button>
+            </div>
+          </div>
+        ) : null}
         <div
           className={`relative z-10 grid gap-2.5 ${showBottomDirections ? "grid-cols-4" : "grid-cols-3"}`}
         >
@@ -566,7 +775,10 @@ export function EventDetailSheet({
           </button>
           <button
             type="button"
-            onClick={() => toggleAction("share")}
+            onClick={() => {
+              dismissActionsCoach();
+              toggleAction("share");
+            }}
             className={`${iconActionClass} ${
               shareOpen || shareMsg ? iconActionActiveClass : iconActionIdleClass
             }`}
@@ -579,10 +791,7 @@ export function EventDetailSheet({
           </button>
           <button
             type="button"
-            onClick={() => {
-              setOpenAction(null);
-              onToggleSave(event);
-            }}
+            onClick={handleSave}
             className={`${iconActionClass} ${
               isSaved ? iconActionActiveClass : iconActionIdleClass
             }`}

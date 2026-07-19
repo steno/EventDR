@@ -262,7 +262,6 @@ export function VenuePage({
         venue: venue.name,
       }}
       onSubmitted={() => {
-        setSubmitOpen(false);
         refreshEvents();
       }}
     />

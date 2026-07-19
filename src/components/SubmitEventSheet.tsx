@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { X, CheckCircle } from "lucide-react";
+import { X, CheckCircle, Copy, Share2 } from "lucide-react";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import type { Event, EventCategory, EventFormat, EventRecurrence } from "@/lib/types";
@@ -9,6 +9,8 @@ import { CATEGORY_IDS } from "@/lib/categories";
 import { getSubmitValidationError, type SubmitAdmissionKind } from "@/lib/community-store";
 import { isAcceptedImageFile, parseImageDataUrl } from "@/lib/image-data-url";
 import { resetInputZoom } from "@/lib/reset-input-zoom";
+import { eventDetailPath } from "@/lib/event-navigation";
+import { getOnboardingCopy } from "@/lib/onboarding";
 
 interface SubmitEventSheetProps {
   open: boolean;
@@ -49,18 +51,27 @@ export function SubmitEventSheet({
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
+  const [submittedEvent, setSubmittedEvent] = useState<Event | null>(null);
+  const [submittedPending, setSubmittedPending] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const [step, setStep] = useState(0);
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const onboardingCopy = getOnboardingCopy(locale).submit;
 
   useEffect(() => {
     if (!open) return;
-    if (defaults?.location) setLocation(defaults.location);
-    if (defaults?.venue) setVenue(defaults.venue);
-    if (defaults?.category) setCategory(defaults.category);
+    const frame = window.requestAnimationFrame(() => {
+      if (defaults?.location) setLocation(defaults.location);
+      if (defaults?.venue) setVenue(defaults.venue);
+      if (defaults?.category) setCategory(defaults.category);
+    });
+    return () => window.cancelAnimationFrame(frame);
   }, [open, defaults?.location, defaults?.venue, defaults?.category]);
 
   function handleClose() {
     resetInputZoom();
+    if (success) resetForm();
     onClose();
   }
 
@@ -141,30 +152,90 @@ export function SubmitEventSheet({
 
       setSuccessMessage(data.message ?? dict.submit.success);
       setSuccess(true);
+      setSubmittedEvent(data.event);
+      setSubmittedPending(Boolean(data.pending));
       onSubmitted(data.event, data.pending);
-      setTimeout(() => {
-        setSuccess(false);
-        setSuccessMessage("");
-        setTitle("");
-        setDescription("");
-        setDate("");
-        setTime("");
-        setLocation("");
-        setVenue("");
-        setRecurrence("none");
-        setRecurrenceDays([]);
-        setAdmissionKind("");
-        setAdmissionPrice("");
-        setTicketUrl("");
-        setImageDataUrl(undefined);
-        setImageName("");
-        onClose();
-      }, 1800);
     } catch {
       setError(true);
     } finally {
       setLoading(false);
     }
+  }
+
+  function resetForm() {
+    setSuccess(false);
+    setSuccessMessage("");
+    setSubmittedEvent(null);
+    setSubmittedPending(false);
+    setCopied(false);
+    setStep(0);
+    setTitle("");
+    setDescription("");
+    setDate("");
+    setTime("");
+    setLocation("");
+    setVenue("");
+    setCategory("music");
+    setFormat("physical");
+    setRecurrence("none");
+    setRecurrenceDays([]);
+    setAdmissionKind("");
+    setAdmissionPrice("");
+    setTicketUrl("");
+    setImageDataUrl(undefined);
+    setImageName("");
+    setError(false);
+    setErrorMessage("");
+  }
+
+  function goToNextStep() {
+    setError(false);
+    if (!title.trim()) {
+      setErrorMessage(dict.submit.validationTitle);
+      setError(true);
+      return;
+    }
+    if (!date) {
+      setErrorMessage(dict.submit.validationDate);
+      setError(true);
+      return;
+    }
+    if (!location.trim()) {
+      setErrorMessage(dict.submit.validationLocation);
+      setError(true);
+      return;
+    }
+    setStep(1);
+  }
+
+  function goToExtras() {
+    setError(false);
+    if (description.trim().length < 10) {
+      setErrorMessage(dict.submit.validationDescription);
+      setError(true);
+      return;
+    }
+    setStep(2);
+  }
+
+  const submittedPath = submittedEvent
+    ? eventDetailPath(locale, submittedEvent.id)
+    : null;
+
+  async function copySubmittedLink() {
+    if (!submittedPath) return;
+    await navigator.clipboard.writeText(new URL(submittedPath, window.location.origin).toString());
+    setCopied(true);
+  }
+
+  async function shareSubmittedEvent() {
+    if (!submittedPath || !submittedEvent) return;
+    const url = new URL(submittedPath, window.location.origin).toString();
+    if (navigator.share) {
+      await navigator.share({ title: submittedEvent.title, url });
+      return;
+    }
+    await copySubmittedLink();
   }
 
   // text-base (16px) on mobile prevents iOS Safari focus-zoom; sm:text-sm matches desktop density.
@@ -244,11 +315,46 @@ export function SubmitEventSheet({
         </div>
 
         {success ? (
-          <div className="flex flex-col items-center justify-center py-16 px-4 text-center">
-            <CheckCircle className="h-12 w-12 text-green-500 mb-3" />
-            <p className="font-bold text-neutral-900 dark:text-neutral-100">
+          <div className="flex min-h-0 flex-1 flex-col items-center justify-center overflow-y-auto px-6 py-12 text-center">
+            <CheckCircle className="mb-4 h-14 w-14 text-emerald-500" />
+            <h3 className="text-2xl font-black tracking-tight text-neutral-950 dark:text-neutral-50">
+              {onboardingCopy.statusTitle}
+            </h3>
+            <p className="mt-2 max-w-sm text-sm font-medium leading-relaxed text-neutral-500 dark:text-neutral-400">
               {successMessage || dict.submit.success}
             </p>
+            <p className="mt-2 max-w-sm text-sm font-bold text-neutral-700 dark:text-neutral-200">
+              {submittedPending
+                ? onboardingCopy.pendingBody
+                : onboardingCopy.liveBody}
+            </p>
+            {!submittedPending && submittedPath ? (
+              <div className="mt-6 grid w-full max-w-sm grid-cols-2 gap-2.5">
+                <button
+                  type="button"
+                  onClick={shareSubmittedEvent}
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-orange-500 via-rose-500 to-pink-500 px-4 text-sm font-bold text-white"
+                >
+                  <Share2 className="h-4 w-4" aria-hidden />
+                  {onboardingCopy.shareListing}
+                </button>
+                <button
+                  type="button"
+                  onClick={copySubmittedLink}
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl border border-neutral-200 px-4 text-sm font-bold text-neutral-700 dark:border-neutral-700 dark:text-neutral-200"
+                >
+                  <Copy className="h-4 w-4" aria-hidden />
+                  {copied ? onboardingCopy.copied : onboardingCopy.copyLink}
+                </button>
+              </div>
+            ) : null}
+            <button
+              type="button"
+              onClick={handleClose}
+              className="mt-4 min-h-11 rounded-full px-5 text-sm font-bold text-neutral-600 dark:text-neutral-300"
+            >
+              {onboardingCopy.done}
+            </button>
           </div>
         ) : (
           <form
@@ -260,6 +366,40 @@ export function SubmitEventSheet({
             }}
             className="min-h-0 flex-1 space-y-4 overflow-y-auto overscroll-contain p-4 scrollbar-hide"
           >
+            <div>
+              <div className="grid grid-cols-3 gap-1.5" aria-label={dict.submit.title}>
+                {onboardingCopy.steps.map((label, index) => (
+                  <div key={label}>
+                    <div
+                      className={`h-1.5 rounded-full ${
+                        index <= step
+                          ? "bg-gradient-to-r from-orange-500 to-rose-500"
+                          : "bg-neutral-200 dark:bg-neutral-700"
+                      }`}
+                    />
+                    <p
+                      className={`mt-1.5 text-[10px] font-bold ${
+                        index === step
+                          ? "text-orange-600 dark:text-orange-400"
+                          : "text-neutral-400"
+                      }`}
+                    >
+                      {label}
+                    </p>
+                  </div>
+                ))}
+              </div>
+              <p className="mt-3 text-sm font-medium text-neutral-500 dark:text-neutral-400">
+                {step === 0
+                  ? onboardingCopy.essentialsHint
+                  : step === 1
+                    ? onboardingCopy.detailsHint
+                    : onboardingCopy.extrasHint}
+              </p>
+            </div>
+
+            {step === 0 ? (
+              <>
             <label className="block">
               <span className="text-xs font-bold text-neutral-500 dark:text-neutral-400 uppercase tracking-wide">
                 {dict.submit.eventTitle}
@@ -271,7 +411,10 @@ export function SubmitEventSheet({
                 className={`${inputClass} mt-1.5`}
               />
             </label>
+              </>
+            ) : null}
 
+            {step === 1 ? (
             <label className="block">
               <span className="text-xs font-bold text-neutral-500 dark:text-neutral-400 uppercase tracking-wide">
                 {dict.submit.description}
@@ -285,7 +428,10 @@ export function SubmitEventSheet({
                 className={`${inputClass} mt-1.5 resize-none`}
               />
             </label>
+            ) : null}
 
+            {step === 0 ? (
+              <>
             <div className="grid grid-cols-[minmax(0,1fr)_minmax(0,1fr)] items-end gap-2.5">
               <label className="block min-w-0 overflow-hidden">
                 <span className="text-xs font-bold text-neutral-500 dark:text-neutral-400 uppercase tracking-wide">
@@ -327,7 +473,10 @@ export function SubmitEventSheet({
                 className={`${inputClass} mt-1.5`}
               />
             </label>
+              </>
+            ) : null}
 
+            {step === 1 ? (
             <label className="block">
               <span className="text-xs font-bold text-neutral-500 dark:text-neutral-400 uppercase tracking-wide">
                 {dict.submit.venue} ({dict.submit.optional})
@@ -338,7 +487,9 @@ export function SubmitEventSheet({
                 className={`${inputClass} mt-1.5`}
               />
             </label>
+            ) : null}
 
+            {step === 0 ? (
             <div className="grid grid-cols-2 gap-3">
               <label className="block">
                 <span className="text-xs font-bold text-neutral-500 dark:text-neutral-400 uppercase tracking-wide">
@@ -371,7 +522,9 @@ export function SubmitEventSheet({
                 </select>
               </label>
             </div>
+            ) : null}
 
+            {step === 2 ? (
             <div className="rounded-2xl border border-neutral-100 dark:border-neutral-800 bg-neutral-50/70 dark:bg-neutral-800/50 p-3">
               <label className="block">
                 <span className="text-xs font-bold text-neutral-500 dark:text-neutral-400 uppercase tracking-wide">
@@ -424,7 +577,9 @@ export function SubmitEventSheet({
                 </div>
               )}
             </div>
+            ) : null}
 
+            {step === 2 ? (
             <div className="rounded-2xl border border-neutral-100 dark:border-neutral-800 bg-neutral-50/70 dark:bg-neutral-800/50 p-3">
               <label className="block">
                 <span className="text-xs font-bold text-neutral-500 dark:text-neutral-400 uppercase tracking-wide">
@@ -478,7 +633,9 @@ export function SubmitEventSheet({
                 </label>
               )}
             </div>
+            ) : null}
 
+            {step === 1 ? (
             <label className="block">
               <span className="text-xs font-bold text-neutral-500 dark:text-neutral-400 uppercase tracking-wide">
                 {dict.submit.image} ({dict.submit.optional})
@@ -501,6 +658,7 @@ export function SubmitEventSheet({
                 />
               )}
             </label>
+            ) : null}
 
             {error && (
               <p className="text-sm text-red-500 font-medium">
@@ -508,13 +666,37 @@ export function SubmitEventSheet({
               </p>
             )}
 
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-full rounded-2xl bg-gradient-to-r from-orange-500 via-rose-500 to-pink-500 text-white py-4 text-sm font-bold shadow-lg disabled:opacity-60"
-            >
-              {loading ? "…" : dict.submit.button}
-            </button>
+            <div className="flex gap-2.5">
+              {step > 0 ? (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setError(false);
+                    setStep((current) => current - 1);
+                  }}
+                  className="min-h-12 flex-1 rounded-2xl border border-neutral-200 px-4 text-sm font-bold text-neutral-700 dark:border-neutral-700 dark:text-neutral-200"
+                >
+                  {onboardingCopy.back}
+                </button>
+              ) : null}
+              {step < 2 ? (
+                <button
+                  type="button"
+                  onClick={step === 0 ? goToNextStep : goToExtras}
+                  className="min-h-12 flex-[2] rounded-2xl bg-gradient-to-r from-orange-500 via-rose-500 to-pink-500 px-4 text-sm font-bold text-white"
+                >
+                  {onboardingCopy.next}
+                </button>
+              ) : (
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="min-h-12 flex-[2] rounded-2xl bg-gradient-to-r from-orange-500 via-rose-500 to-pink-500 px-4 text-sm font-bold text-white disabled:opacity-60"
+                >
+                  {loading ? "…" : dict.submit.button}
+                </button>
+              )}
+            </div>
           </form>
         )}
       </div>

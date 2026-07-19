@@ -22,6 +22,7 @@ import { PwaRegister } from "@/components/PwaRegister";
 import { EventCard } from "@/components/EventCard";
 import { VenueAudienceCards } from "@/components/VenueAudienceCards";
 import { TodayHighlights } from "@/components/TodayHighlights";
+import { CityPrimingSheet } from "@/components/CityPrimingSheet";
 import { useSavedEvents } from "@/hooks/useSavedEvents";
 import {
   getHomeDiscoverLayout,
@@ -41,6 +42,11 @@ import {
 import type { Event, Venue } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
 import type { AppTab, Dictionary } from "@/i18n/dictionaries";
+import {
+  getOnboardingCopy,
+  hasSeenOnboarding,
+  markOnboardingSeen,
+} from "@/lib/onboarding";
 
 interface HomeProps {
   locale: Locale;
@@ -57,6 +63,7 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
   const [submitOpen, setSubmitOpen] = useState(false);
   const [allEvents, setAllEvents] = useState<Event[]>([]);
   const [refreshKey, setRefreshKey] = useState(0);
+  const [cityPrimingOpen, setCityPrimingOpen] = useState(false);
   /**
    * Local area override — wins over Next searchParams.
    * Used for session restore on bare `/[locale]` and for chip clicks so we can
@@ -96,6 +103,12 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
   const selectedCity = localArea?.areaChosen ? localArea.city : urlArea.city;
   const areaChosen = Boolean(localArea?.areaChosen) || urlArea.areaChosen;
 
+  useEffect(() => {
+    if (areaChosen || hasSeenOnboarding("city-primed")) return;
+    const timer = window.setTimeout(() => setCityPrimingOpen(true), 500);
+    return () => window.clearTimeout(timer);
+  }, [areaChosen]);
+
   const setArea = useCallback(
     (slug: CitySlug | null) => {
       setLocalArea({ city: slug, areaChosen: true });
@@ -116,10 +129,12 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
     writeHomeArea(null);
   }, [areaChosen, selectedCity]);
 
-  const { filterSaved, reconcileWithEvents } = useSavedEvents();
+  const { filterSaved, reconcileWithEvents, ready: savedReady } = useSavedEvents();
+  const [eventsReady, setEventsReady] = useState(false);
 
   const handleEventsLoaded = useCallback((events: Event[]) => {
     setAllEvents(events);
+    setEventsReady(true);
     reconcileWithEvents(events);
   }, [reconcileWithEvents]);
 
@@ -149,6 +164,9 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
     () => getHomeDiscoverLayout(scopedEvents),
     [scopedEvents],
   );
+  const onboardingCopy = getOnboardingCopy(locale);
+  const savedExample =
+    discoverLayout.heroEvent ?? discoverLayout.todayEvents[0] ?? scopedEvents[0];
 
   const seeAllTodayHref = selectedCity
     ? `/${locale}/city/${selectedCity}`
@@ -236,7 +254,7 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
 
           {tab === "discover" && (
             <>
-              <InstallBanner dict={dict} />
+              {!cityPrimingOpen ? <InstallBanner dict={dict} /> : null}
               <div className="flex flex-col">
                 <div className="order-1 mb-4 sm:order-1 lg:hidden">
                   <SearchBar
@@ -294,20 +312,6 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
                   initialVenues={initialVenues}
                 />
               )}
-
-              {/* Always fetch for hero / today / saved; list UI only while searching. */}
-              <EventList
-                locale={locale}
-                dict={dict}
-                searchQuery={listSearchQuery}
-                timeRange="all"
-                onEventsLoaded={handleEventsLoaded}
-                refreshKey={refreshKey}
-                onAddEvent={() => setSubmitOpen(true)}
-                returnTo={homePath}
-                limit={HOME_SEARCH_LIMIT}
-                silent={!isSearching}
-              />
             </>
           )}
 
@@ -316,12 +320,29 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
               <h2 className="text-2xl font-black text-neutral-900 dark:text-neutral-100 tracking-tight mb-6">
                 {dict.saved.title}
               </h2>
-              {savedEvents.length === 0 ? (
-                <div className="text-center py-16">
-                  <p className="text-neutral-500 dark:text-neutral-400 font-medium">{dict.saved.empty}</p>
-                  <p className="text-sm text-neutral-400 dark:text-neutral-500 mt-1">
-                    {dict.saved.emptyHint}
+              {!savedReady || !eventsReady ? (
+                <div className="py-16 text-center text-sm font-medium text-neutral-400 dark:text-neutral-500">
+                  …
+                </div>
+              ) : savedEvents.length === 0 ? (
+                <div className="py-10 text-center">
+                  <p className="font-bold text-neutral-700 dark:text-neutral-200">
+                    {onboardingCopy.saved.exampleTitle}
                   </p>
+                  <p className="mx-auto mt-1 max-w-sm text-sm text-neutral-500 dark:text-neutral-400">
+                    {onboardingCopy.saved.exampleBody}
+                  </p>
+                  {savedExample ? (
+                    <div className="mx-auto mt-6 max-w-sm text-left">
+                      <EventCard
+                        event={savedExample}
+                        dict={dict}
+                        locale={locale}
+                        returnTo={homePath}
+                        view="cards"
+                      />
+                    </div>
+                  ) : null}
                 </div>
               ) : (
                 <div className="grid grid-cols-2 items-stretch gap-2.5 sm:gap-3 lg:grid-cols-3">
@@ -339,6 +360,20 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
               )}
             </div>
           )}
+
+          {/* Keep catalog mounted across tabs so Saved can resolve before Discover remounts. */}
+          <EventList
+            locale={locale}
+            dict={dict}
+            searchQuery={listSearchQuery}
+            timeRange="all"
+            onEventsLoaded={handleEventsLoaded}
+            refreshKey={refreshKey}
+            onAddEvent={() => setSubmitOpen(true)}
+            returnTo={homePath}
+            limit={HOME_SEARCH_LIMIT}
+            silent={tab !== "discover" || !isSearching}
+          />
         </div>
       </main>
 
@@ -358,6 +393,19 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
         dict={dict}
         locale={locale}
         onSubmitted={handleSubmitted}
+      />
+      <CityPrimingSheet
+        locale={locale}
+        open={cityPrimingOpen}
+        onChoose={(city) => {
+          markOnboardingSeen("city-primed");
+          setCityPrimingOpen(false);
+          setArea(city);
+        }}
+        onDismiss={() => {
+          markOnboardingSeen("city-primed");
+          setCityPrimingOpen(false);
+        }}
       />
     </>
   );

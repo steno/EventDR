@@ -1,4 +1,5 @@
 import { Syne, Inter } from "next/font/google";
+import Script from "next/script";
 import { BootSplashDismiss } from "@/components/BootSplashDismiss";
 import { ThemeAutoSync } from "@/components/ThemeAutoSync";
 import { ThemeScript } from "@/components/ThemeScript";
@@ -38,7 +39,9 @@ export default function RootLayout({
         <ThemeScript />
         <style dangerouslySetInnerHTML={{ __html: bootSplashCriticalCss }} />
         <link rel="preload" href="/pop-home-logo.png" as="image" />
-        <script dangerouslySetInnerHTML={{ __html: bootSplashFailsafe }} />
+        <Script id="boot-splash-failsafe" strategy="beforeInteractive">
+          {bootSplashFailsafe}
+        </Script>
       </head>
       <body className="relative min-h-dvh font-sans antialiased bg-neutral-50 text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100">
         {/* Inline splash: paints with first HTML, before React/JS chunks load */}

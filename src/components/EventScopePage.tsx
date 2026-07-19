@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
+import { Building2 } from "lucide-react";
 import type { Event } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
@@ -24,6 +26,7 @@ import {
 } from "@/lib/cities";
 import { getCategoryHeroImage } from "@/lib/category-heroes";
 import { PAGE_SHELL_CLASS } from "@/lib/page-shell";
+import { getOnboardingCopy } from "@/lib/onboarding";
 
 interface EventScopePageProps {
   locale: Locale;
@@ -151,6 +154,7 @@ export function EventScopePage({
   }, [backHrefProp, locale, citySlug]);
 
   const backLabel = resolveBackLabel(locale, backHref, dict);
+  const onboardingCopy = getOnboardingCopy(locale);
 
   return (
     <>
@@ -230,6 +234,26 @@ export function EventScopePage({
               ) : undefined
             }
           />
+          {fixedTimeRange === "weekend" ? (
+            <aside className="mb-8 mt-6 overflow-hidden rounded-3xl border border-orange-200 bg-orange-50 p-5 dark:border-orange-900/60 dark:bg-orange-950/30">
+              <p className="flex items-center gap-2 text-xs font-black uppercase tracking-[0.14em] text-orange-700 dark:text-orange-300">
+                <Building2 className="h-4 w-4" aria-hidden />
+                {onboardingCopy.partner.weekendEyebrow}
+              </p>
+              <h2 className="mt-2 text-xl font-black tracking-tight text-neutral-950 dark:text-neutral-50">
+                {onboardingCopy.partner.weekendTitle}
+              </h2>
+              <p className="mt-1.5 max-w-xl text-sm font-medium leading-relaxed text-neutral-600 dark:text-neutral-300">
+                {onboardingCopy.partner.weekendBody}
+              </p>
+              <Link
+                href={`/${locale}/for-partners`}
+                className="mt-4 inline-flex min-h-11 items-center rounded-full bg-neutral-950 px-4 text-sm font-bold text-white transition-transform active:scale-[0.98] dark:bg-white dark:text-neutral-950"
+              >
+                {onboardingCopy.partner.weekendCta}
+              </Link>
+            </aside>
+          ) : null}
         </div>
       </main>
 
@@ -240,7 +264,6 @@ export function EventScopePage({
         locale={locale}
         defaults={submitDefaults}
         onSubmitted={() => {
-          setSubmitOpen(false);
           fetch(fetchUrl)
             .then((response) => response.json())
             .then((data: { events?: Event[] }) =>

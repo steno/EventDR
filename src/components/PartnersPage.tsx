@@ -1,6 +1,9 @@
 import type { PartnersCopy } from "@/lib/partners-copy";
 import { PrintButton } from "@/components/PrintButton";
+import { PartnerChecklist } from "@/components/PartnerChecklist";
+import { PartnerDigestSignup } from "@/components/PartnerDigestSignup";
 import { PAGE_SHELL_CLASS } from "@/lib/page-shell";
+import type { Locale } from "@/i18n/config";
 
 interface PartnerQrCardProps {
   label: string;
@@ -32,7 +35,7 @@ export function PartnerQrCard({ label, hint, url, svg }: PartnerQrCardProps) {
 
 interface PartnersPageProps {
   copy: PartnersCopy;
-  locale: string;
+  locale: Locale;
   qrCards: {
     all: PartnerQrCardProps;
     weekend: PartnerQrCardProps;
@@ -97,24 +100,9 @@ export function PartnersPage({ copy, locale, qrCards }: PartnersPageProps) {
           </ul>
         </section>
 
-        <section className="mb-8">
-          <h2 className="mb-3 text-lg font-black text-neutral-900 dark:text-neutral-100 print:text-black">
-            {copy.howTo.title}
-          </h2>
-          <ol className="space-y-3">
-            {copy.howTo.steps.map((step, i) => (
-              <li
-                key={step}
-                className="flex gap-3 text-sm font-medium text-neutral-600 dark:text-neutral-300 print:text-neutral-800"
-              >
-                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-orange-500 to-rose-500 text-xs font-black text-white print:bg-neutral-800">
-                  {i + 1}
-                </span>
-                {step}
-              </li>
-            ))}
-          </ol>
-        </section>
+        <PartnerChecklist title={copy.howTo.title} steps={copy.howTo.steps} />
+
+        <PartnerDigestSignup locale={locale} copy={copy.digest} />
 
         <section className="print:hidden">
           <h2 className="mb-3 text-sm font-black uppercase tracking-wide text-neutral-500 dark:text-neutral-400">

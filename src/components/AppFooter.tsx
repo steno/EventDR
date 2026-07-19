@@ -13,16 +13,20 @@ interface AppFooterProps {
 export function AppFooter({ locale, dict }: AppFooterProps) {
   const pathname = usePathname();
   const padForBottomNav = pathname === `/${locale}`;
+  const hideForPrint = pathname === `/${locale}/for-partners`;
 
   return (
     <SiteFooter
       dict={dict}
       locale={locale}
-      className={
+      className={[
         padForBottomNav
           ? "pb-[calc(6.75rem+env(safe-area-inset-bottom))] lg:pb-8"
-          : "pb-6"
-      }
+          : "pb-6",
+        hideForPrint ? "print:hidden" : "",
+      ]
+        .filter(Boolean)
+        .join(" ")}
     />
   );
 }

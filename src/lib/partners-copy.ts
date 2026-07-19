@@ -16,6 +16,15 @@ export type PartnersCopy = {
   howTo: { title: string; steps: string[] };
   benefits: { title: string; items: string[] };
   links: { title: string; weekend: string; home: string };
+  digest: {
+    title: string;
+    body: string;
+    placeholder: string;
+    button: string;
+    success: string;
+    error: string;
+    privacy: string;
+  };
   print: string;
 };
 
@@ -48,9 +57,9 @@ const COPY: Record<Locale, PartnersCopy> = {
     howTo: {
       title: "How to use",
       steps: [
-        "Print the QR code that fits your desk (all events or this weekend).",
+        "Choose and print the QR that fits your desk (all events, weekend, or city).",
         "Place it at reception, the pool bar, or your excursion desk.",
-        "Guests scan with their camera — no download required.",
+        "Scan it once on a staff phone to test the guest experience.",
         "Optional: add pop-event.com to your welcome email or WhatsApp group.",
       ],
     },
@@ -67,6 +76,15 @@ const COPY: Record<Locale, PartnersCopy> = {
       title: "Quick links",
       weekend: "This weekend",
       home: "All events",
+    },
+    digest: {
+      title: "Get the weekend partner digest",
+      body: "A concise weekly roundup for your concierge, front desk, or guest WhatsApp.",
+      placeholder: "work@email.com",
+      button: "Subscribe",
+      success: "You’re on the partner list.",
+      error: "Could not subscribe right now. Please try again.",
+      privacy: "Partner updates only. No spam.",
     },
     print: "Print this page",
   },
@@ -98,9 +116,9 @@ const COPY: Record<Locale, PartnersCopy> = {
     howTo: {
       title: "Cómo usarlo",
       steps: [
-        "Imprima el QR que corresponda (todos o fin de semana).",
+        "Elija e imprima el QR adecuado (todos, fin de semana o ciudad).",
         "Colóquelo en recepción, bar de piscina o desk de excursiones.",
-        "Los huéspedes escanean con la cámara — sin descargar nada.",
+        "Escanéelo una vez con el teléfono del equipo para probar la experiencia.",
         "Opcional: incluya pop-event.com en el email o WhatsApp de bienvenida.",
       ],
     },
@@ -117,6 +135,15 @@ const COPY: Record<Locale, PartnersCopy> = {
       title: "Enlaces rápidos",
       weekend: "Este fin de semana",
       home: "Todos los eventos",
+    },
+    digest: {
+      title: "Recibe el resumen del fin de semana",
+      body: "Un resumen semanal breve para concierge, recepción o el WhatsApp de huéspedes.",
+      placeholder: "trabajo@email.com",
+      button: "Suscribirme",
+      success: "Ya estás en la lista de socios.",
+      error: "No se pudo completar ahora. Inténtalo de nuevo.",
+      privacy: "Solo novedades para socios. Sin spam.",
     },
     print: "Imprimir esta página",
   },
@@ -148,9 +175,9 @@ const COPY: Record<Locale, PartnersCopy> = {
     howTo: {
       title: "Comment utiliser",
       steps: [
-        "Imprimez le QR adapté (tous les événements ou week-end).",
+        "Choisissez et imprimez le QR adapté (tous, week-end ou ville).",
         "Placez-le à la réception, au bar piscine ou au desk excursions.",
-        "Les clients scannent avec l'appareil photo — sans téléchargement.",
+        "Scannez-le sur le téléphone de l’équipe pour tester l’expérience client.",
         "Option : ajoutez pop-event.com à l'e-mail ou WhatsApp de bienvenue.",
       ],
     },
@@ -167,6 +194,15 @@ const COPY: Record<Locale, PartnersCopy> = {
       title: "Liens rapides",
       weekend: "Ce week-end",
       home: "Tous les événements",
+    },
+    digest: {
+      title: "Recevez le digest partenaire du week-end",
+      body: "Un résumé hebdomadaire concis pour la conciergerie, la réception ou WhatsApp.",
+      placeholder: "travail@email.com",
+      button: "S’abonner",
+      success: "Vous êtes sur la liste partenaires.",
+      error: "Inscription impossible pour le moment. Réessayez.",
+      privacy: "Actualités partenaires uniquement. Aucun spam.",
     },
     print: "Imprimer cette page",
   },
