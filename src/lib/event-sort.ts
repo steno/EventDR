@@ -30,8 +30,8 @@ export interface SortEventsForDisplayOptions {
   /** Deprioritize recurring events among future peers on the same day (not when live today). */
   recurringLast?: boolean;
   /**
-   * One-time fixtures before multi-day festivals, then recurring —
-   * Happening today, Our picks (all time tabs), and scoped discovery lists.
+   * Within the same status tier, prefer one-time fixtures, then multi-day,
+   * then recurring — after time/schedule (does not float future one-offs above live/today).
    */
   oneTimeFirst?: boolean;
   now?: Date;
@@ -40,6 +40,7 @@ export interface SortEventsForDisplayOptions {
 /**
  * One-time fixtures before multi-day festivals, then recurring —
  * preserves prior status/time order within each kind.
+ * Prefer `sortEventsForDisplay({ oneTimeFirst: true })` so status tiers stay primary.
  */
 export function prioritizeOneTimeEvents(events: Event[]): Event[] {
   if (events.length < 2) return events;
@@ -108,6 +109,7 @@ export function sortEventsForDisplay(
 
   const now = options.now ?? new Date();
   const recurringLast = options.recurringLast === true;
+  const oneTimeFirst = options.oneTimeFirst === true;
 
   // Precompute sort keys once — listTier/time parsing is expensive in comparators.
   const keyed = events.map((event) => ({
@@ -117,6 +119,7 @@ export function sortEventsForDisplay(
     end: eventEndTimeMinutes(event.time),
     hasRange: hasExplicitTimeRange(event.time),
     recurring: isRecurringEvent(event),
+    kind: oneTimeKindRank(event),
     activeToday: isActiveToday(event, now),
   }));
 
@@ -160,12 +163,14 @@ export function sortEventsForDisplay(
       if (scheduleDiff !== 0) return scheduleDiff;
     }
 
+    // After schedule/time within the same tier — never across live vs future.
+    if (oneTimeFirst && a.kind !== b.kind) return a.kind - b.kind;
+
     if (a.event.trending && !b.event.trending) return -1;
     if (!a.event.trending && b.event.trending) return 1;
 
     return a.event.title.localeCompare(b.event.title);
   });
 
-  const sorted = keyed.map((row) => row.event);
-  return options.oneTimeFirst ? prioritizeOneTimeEvents(sorted) : sorted;
+  return keyed.map((row) => row.event);
 }
