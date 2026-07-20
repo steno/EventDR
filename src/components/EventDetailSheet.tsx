@@ -12,9 +12,8 @@ import {
   MapPin,
   Calendar,
   Clock,
-  Navigation,
   CalendarPlus,
-  Share2,
+  Forward,
   Heart,
   Building2,
   Mic2,
@@ -308,11 +307,9 @@ export function EventDetailSheet({
   const TitleTag = standalone ? "h1" : "h2";
   const showHero = hasEventDetailHero(event);
   const isPhysical = event.format !== "digital";
-  const showBottomDirections = isPhysical;
   // Calendar CTA lives in the save celebration — hide the duplicate bar icon.
   const showCalendarAction = !showSaveCelebration;
-  const actionCols =
-    (showBottomDirections ? 1 : 0) + (showCalendarAction ? 1 : 0) + 2;
+  const actionCols = (showCalendarAction ? 1 : 0) + 2;
   const ticketUrl = resolveTicketUrl(event);
   const showFreeAdmission = !ticketUrl && isEventFree(event);
   const admissionPrice = resolveAdmissionPrice(event);
@@ -727,25 +724,9 @@ export function EventDetailSheet({
         ) : null}
         <div
           className={`relative z-10 grid gap-2 ${
-            actionCols === 4
-              ? "grid-cols-4"
-              : actionCols === 2
-                ? "grid-cols-2"
-                : "grid-cols-3"
+            actionCols === 3 ? "grid-cols-3" : "grid-cols-2"
           }`}
         >
-          {showBottomDirections && (
-            <a
-              href={getDirectionsUrl(event)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={`${iconActionClass} ${iconActionIdleClass}`}
-              aria-label={dict.detail.directions}
-              title={dict.detail.directions}
-            >
-              <Navigation className="h-4 w-4" aria-hidden />
-            </a>
-          )}
           {showCalendarAction ? (
             <button
               type="button"
@@ -775,7 +756,7 @@ export function EventDetailSheet({
             aria-expanded={shareOpen}
             aria-pressed={shareOpen}
           >
-            <Share2 className="h-4 w-4" aria-hidden />
+            <Forward className="h-4 w-4" aria-hidden />
           </button>
           <button
             type="button"

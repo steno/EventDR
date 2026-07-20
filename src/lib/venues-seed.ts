@@ -562,8 +562,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Guananico",
     description:
       "Organic cacao farm in La Mariposa, Guananico — seven-stop sensory trail, traditional hot chocolate, choco therapy, Dominican lunch, and a river swim on the cacao tour.",
-    lat: 19.8578,
-    lng: -70.7349,
+    lat: 19.7364625,
+    lng: -70.9244844,
     emoji: "🌿",
     website: "https://puertoplatadr.com/tours/cacao-tour-hacienda-cufa/",
     phone: "+18097564806",
