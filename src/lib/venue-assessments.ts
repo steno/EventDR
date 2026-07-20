@@ -8,6 +8,11 @@ import {
   findPlaceId,
   isGooglePlacesConfigured,
 } from "@/lib/google-places";
+import {
+  fetchVenueBySlug,
+  isFirebaseConfigured,
+  patchVenueGooglePlaceId,
+} from "@/lib/firebase/events";
 import { applyReviewSentiment } from "@/lib/venue-sentiment";
 
 /** Hide assessment UI below this confidence. */
@@ -101,6 +106,33 @@ export function getVenueAssessmentSync(
   return assessment;
 }
 
+async function resolveStoredPlaceId(
+  assessment: VenueAssessment,
+  venue: Venue | undefined,
+): Promise<string | undefined> {
+  const fromSeed =
+    assessment.googlePlaceId?.trim() || venue?.googlePlaceId?.trim();
+  if (fromSeed) return fromSeed;
+
+  const slug = venue?.slug ?? assessment.venueSlug;
+  if (!slug || !isFirebaseConfigured()) return undefined;
+  try {
+    const remote = await fetchVenueBySlug(slug);
+    return remote?.googlePlaceId?.trim() || undefined;
+  } catch {
+    return undefined;
+  }
+}
+
+async function persistPlaceId(
+  slug: string | undefined,
+  placeId: string,
+  alreadyKnown?: string | null,
+): Promise<void> {
+  if (!slug || alreadyKnown?.trim() === placeId) return;
+  await patchVenueGooglePlaceId(slug, placeId);
+}
+
 async function mergeGooglePlaces(
   assessment: VenueAssessment,
   venue: Venue | undefined,
@@ -108,7 +140,7 @@ async function mergeGooglePlaces(
 ): Promise<VenueAssessment> {
   if (!isGooglePlacesConfigured()) return assessment;
 
-  let placeId = assessment.googlePlaceId ?? venue?.googlePlaceId;
+  let placeId = await resolveStoredPlaceId(assessment, venue);
   if (!placeId && options?.findIfMissing) {
     placeId =
       (await findPlaceId(venue?.name ?? assessment.venueSlug, venue)) ??
@@ -116,7 +148,14 @@ async function mergeGooglePlaces(
   }
   if (!placeId) return assessment;
 
-  const details = await fetchPlaceDetails(placeId);
+  await persistPlaceId(
+    venue?.slug ?? assessment.venueSlug,
+    placeId,
+    venue?.googlePlaceId ?? assessment.googlePlaceId,
+  );
+
+  // Rating + count only — avoid Atmosphere (reviews) SKU on page/cron enrich.
+  const details = await fetchPlaceDetails(placeId, { mode: "rating" });
   if (!details) return assessment;
 
   return applyReviewSentiment(assessment, details);
@@ -142,12 +181,12 @@ async function loadVenueAssessment(
 
 const getCachedVenueAssessment = unstable_cache(
   (slug: string) => loadVenueAssessment(slug, true),
-  ["venue-assessment-sentiment-v3"],
+  ["venue-assessment-sentiment-v4"],
   { revalidate: PLACES_REVALIDATE_SECONDS, tags: ["venue-assessments"] },
 );
 
 /**
- * Editorial seed + optional Google Places sentiment when API key is set.
+ * Editorial seed + optional Google Places rating when API key is set.
  * Returns null when disabled, missing, or below confidence threshold.
  */
 export async function getVenueAssessment(

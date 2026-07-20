@@ -101,6 +101,11 @@ function docToVenue(slug: string, data: DocumentData): Venue {
     instagram: (data.instagram as string | null) ?? undefined,
     website: (data.website as string | null) ?? undefined,
     phone: (data.phone as string | null) ?? undefined,
+    googlePlaceId: (data.googlePlaceId as string | null) ?? undefined,
+    temporarilyClosed:
+      typeof data.temporarilyClosed === "boolean"
+        ? data.temporarilyClosed
+        : undefined,
   };
 }
 
@@ -183,6 +188,12 @@ export async function syncSeedVenues(options?: {
         instagram: venue.instagram ?? null,
         website: venue.website ?? null,
         phone: venue.phone ?? null,
+        ...(venue.googlePlaceId
+          ? { googlePlaceId: venue.googlePlaceId }
+          : {}),
+        ...(typeof venue.temporarilyClosed === "boolean"
+          ? { temporarilyClosed: venue.temporarilyClosed }
+          : {}),
         ...(curatedImage ? { imageUrl: curatedImage } : {}),
       },
       { merge: true },
@@ -645,6 +656,9 @@ export async function upsertVenue(venue: Venue): Promise<boolean> {
           website: venue.website ?? null,
           phone: venue.phone ?? null,
           googlePlaceId: venue.googlePlaceId ?? null,
+          ...(typeof venue.temporarilyClosed === "boolean"
+            ? { temporarilyClosed: venue.temporarilyClosed }
+            : {}),
           ...(curatedImage ? { imageUrl: curatedImage } : {}),
         },
         { merge: true },
@@ -652,6 +666,28 @@ export async function upsertVenue(venue: Venue): Promise<boolean> {
     return true;
   } catch (err) {
     console.error("upsertVenue:", err);
+    return false;
+  }
+}
+
+/** Persist a resolved Google place_id without rewriting other venue fields. */
+export async function patchVenueGooglePlaceId(
+  slug: string,
+  googlePlaceId: string,
+): Promise<boolean> {
+  const id = googlePlaceId.trim();
+  if (!slug.trim() || !id) return false;
+  const db = getFirestoreDb();
+  if (!db) return false;
+
+  try {
+    await db
+      .collection("venues")
+      .doc(slug)
+      .set({ googlePlaceId: id }, { merge: true });
+    return true;
+  } catch (err) {
+    console.error("patchVenueGooglePlaceId:", err);
     return false;
   }
 }

@@ -756,6 +756,15 @@ export function applyReviewSentiment(
       ? aggregate.evidenceSnippets
       : details.snippets;
 
+  const usedReviewText = details.reviews.length > 0;
+  const updatedBy = usedReviewText
+    ? assessment.updatedBy.includes("sentiment")
+      ? assessment.updatedBy
+      : "seed+places+sentiment"
+    : assessment.updatedBy.includes("places")
+      ? assessment.updatedBy
+      : "seed+places";
+
   return {
     ...assessment,
     googlePlaceId: details.placeId,
@@ -768,7 +777,7 @@ export function applyReviewSentiment(
       {
         kind: "google_places",
         ref: details.placeId,
-        label: "Google reviews",
+        label: usedReviewText ? "Google reviews" : "Google rating",
         rating: details.rating,
         reviewCount: details.userRatingCount,
         fetchedAt: new Date().toISOString(),
@@ -776,8 +785,6 @@ export function applyReviewSentiment(
       },
     ],
     updatedAt: new Date().toISOString(),
-    updatedBy: assessment.updatedBy.includes("sentiment")
-      ? assessment.updatedBy
-      : "seed+places+sentiment",
+    updatedBy,
   };
 }

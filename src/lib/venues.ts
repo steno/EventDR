@@ -7,12 +7,23 @@ import { getSeedVenue, SEED_VENUES } from "@/lib/venues-seed";
 import { VENUES_REVALIDATE_SECONDS } from "@/lib/http-cache";
 import type { Venue } from "@/lib/types";
 
-/** Seed venues are canonical; Firebase may add community-only venues. */
+/** Seed venues are canonical; Firebase may add community-only venues.
+ * Overlay enrichable fields (e.g. googlePlaceId) from remote onto seed. */
 export function mergeVenueLists(seed: Venue[], remote: Venue[]): Venue[] {
   const bySlug = new Map<string, Venue>();
   for (const venue of seed) bySlug.set(venue.slug, venue);
   for (const venue of remote) {
-    if (!bySlug.has(venue.slug)) bySlug.set(venue.slug, venue);
+    const existing = bySlug.get(venue.slug);
+    if (!existing) {
+      bySlug.set(venue.slug, venue);
+      continue;
+    }
+    if (!existing.googlePlaceId && venue.googlePlaceId) {
+      bySlug.set(venue.slug, {
+        ...existing,
+        googlePlaceId: venue.googlePlaceId,
+      });
+    }
   }
   return [...bySlug.values()].sort((a, b) => a.name.localeCompare(b.name));
 }
@@ -23,11 +34,18 @@ async function loadVenueBySlug(
 ): Promise<Venue | undefined> {
   const seed = getSeedVenue(slug);
   let venue: Venue | undefined = seed;
-  if (!venue && isFirebaseConfigured()) {
+  if (isFirebaseConfigured()) {
     try {
-      venue = (await fetchVenueBySlug(slug)) ?? undefined;
+      const remote = (await fetchVenueBySlug(slug)) ?? undefined;
+      if (remote) {
+        if (!venue) {
+          venue = remote;
+        } else if (remote.googlePlaceId && !venue.googlePlaceId) {
+          venue = { ...venue, googlePlaceId: remote.googlePlaceId };
+        }
+      }
     } catch {
-      venue = undefined;
+      // keep seed
     }
   }
   if (!venue) return undefined;

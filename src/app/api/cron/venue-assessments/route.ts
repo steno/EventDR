@@ -24,7 +24,8 @@ function checkCronSecret(request: NextRequest): boolean {
 
 /**
  * Ops endpoint: list seed assessments; optionally enrich with Google Places
- * review sentiment (themes/crowd/verdict from review text + ratings).
+ * ratings (Enterprise SKU — no review Atmosphere). Review texts are only
+ * fetched on opinion-draft generation.
  * GET /api/cron/venue-assessments?secret=CRON_SECRET&enrich=1
  * GET /api/cron/venue-assessments?secret=CRON_SECRET&probe=d-classico-sosua
  */

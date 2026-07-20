@@ -43,7 +43,7 @@ GOOGLE_PLACES_API_KEY=your-places-api-key
 NEXT_PUBLIC_VENUE_ASSESSMENTS_ENABLED=true
 ```
 
-Used server-side to blend POP editorial tips with Google review ratings/text. Restrict the key to **Places API** only; leave application restriction as **None** (Netlify server calls).
+Used server-side to blend POP editorial tips with Google **ratings** (Place Details Enterprise). Review texts (Atmosphere SKU) are only fetched when drafting opinions. Restrict the key to **Places API** only; leave application restriction as **None** (Netlify server calls). Set a daily quota and budget alert — Atmosphere calls are ~$25/1k after the free cap.
 
 ### Optional: Push Notifications
 

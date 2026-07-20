@@ -10,6 +10,11 @@ import { getEventOpinion, areEventOpinionsEnabled } from "@/lib/event-opinions";
 import { eventSeriesKey } from "@/lib/event-opinions-seed";
 import { getSeedVenue } from "@/lib/venues-seed";
 import {
+  fetchVenueBySlug,
+  isFirebaseConfigured,
+  patchVenueGooglePlaceId,
+} from "@/lib/firebase/events";
+import {
   getOpinionDraft,
   saveOpinionDraft,
   type EventOpinionDraft,
@@ -114,11 +119,25 @@ async function resolvePlacesForVenue(
   if (!isGooglePlacesConfigured()) return null;
 
   let placeId = venue?.googlePlaceId?.trim() || null;
+  if (!placeId && venue?.slug && isFirebaseConfigured()) {
+    try {
+      const remote = await fetchVenueBySlug(venue.slug);
+      placeId = remote?.googlePlaceId?.trim() || null;
+    } catch {
+      // fall through to Text Search
+    }
+  }
   if (!placeId) {
     placeId = await findPlaceId(venue?.name ?? fallbackName, venue);
   }
   if (!placeId) return null;
-  return fetchPlaceDetails(placeId);
+
+  if (venue?.slug && venue.googlePlaceId?.trim() !== placeId) {
+    await patchVenueGooglePlaceId(venue.slug, placeId);
+  }
+
+  // Opinion drafts need review text → Atmosphere SKU (only on this path).
+  return fetchPlaceDetails(placeId, { mode: "reviews" });
 }
 
 interface LlmOpinionPayload {

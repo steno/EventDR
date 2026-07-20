@@ -264,7 +264,7 @@ export async function findPlaceLocation(
       placeId,
       lat,
       lng,
-      displayName: place.displayName?.text,
+      displayName: place?.displayName?.text,
     };
   } catch {
     return null;
@@ -299,16 +299,36 @@ function toSnippet(text: string, max = 140): string {
   return `${t.slice(0, max - 1)}…`;
 }
 
-/** Place Details (New) — rating, count, and review texts for aggregation. */
+/**
+ * Place Details field masks map to Google SKUs:
+ * - rating: Enterprise (rating + count) — no Atmosphere surcharge
+ * - reviews: Enterprise + Atmosphere (review text) — ~$25/1k after free cap
+ * Default is rating-only so callers do not accidentally bill Atmosphere.
+ */
+export type PlaceDetailsMode = "rating" | "reviews";
+
+const PLACE_DETAILS_FIELD_MASK: Record<PlaceDetailsMode, string> = {
+  rating: "id,rating,userRatingCount",
+  reviews: "id,rating,userRatingCount,reviews.rating,reviews.text",
+};
+
+export interface FetchPlaceDetailsOptions {
+  /** @default "rating" */
+  mode?: PlaceDetailsMode;
+}
+
+/** Place Details (New) — rating/count by default; review texts only when mode=reviews. */
 export async function fetchPlaceDetails(
   placeId: string,
+  options?: FetchPlaceDetailsOptions,
 ): Promise<GooglePlaceDetails | null> {
-  const probed = await fetchPlaceDetailsWithStatus(placeId);
+  const probed = await fetchPlaceDetailsWithStatus(placeId, options);
   return probed.details ?? null;
 }
 
 export async function fetchPlaceDetailsWithStatus(
   placeId: string,
+  options?: FetchPlaceDetailsOptions,
 ): Promise<{
   details?: GooglePlaceDetails;
   status?: number;
@@ -319,14 +339,14 @@ export async function fetchPlaceDetailsWithStatus(
     return { error: "GOOGLE_PLACES_API_KEY missing or empty placeId" };
   }
 
+  const mode: PlaceDetailsMode = options?.mode ?? "rating";
   const id = placeId.startsWith("places/") ? placeId : `places/${placeId}`;
 
   try {
     const res = await fetch(`https://places.googleapis.com/v1/${id}`, {
       headers: {
         "X-Goog-Api-Key": key,
-        "X-Goog-FieldMask":
-          "id,rating,userRatingCount,reviews.rating,reviews.text",
+        "X-Goog-FieldMask": PLACE_DETAILS_FIELD_MASK[mode],
       },
       cache: "no-store",
     });
@@ -342,14 +362,16 @@ export async function fetchPlaceDetailsWithStatus(
     };
 
     const reviews: GooglePlaceReview[] = [];
-    for (const r of data.reviews ?? []) {
-      const text = r.text?.text?.trim() ?? "";
-      if (!text) continue;
-      reviews.push({
-        text,
-        ...(typeof r.rating === "number" ? { rating: r.rating } : {}),
-      });
-      if (reviews.length >= 5) break;
+    if (mode === "reviews") {
+      for (const r of data.reviews ?? []) {
+        const text = r.text?.text?.trim() ?? "";
+        if (!text) continue;
+        reviews.push({
+          text,
+          ...(typeof r.rating === "number" ? { rating: r.rating } : {}),
+        });
+        if (reviews.length >= 5) break;
+      }
     }
 
     return {
@@ -394,7 +416,10 @@ export async function probeGooglePlaces(
     };
   }
 
-  const details = await fetchPlaceDetailsWithStatus(search.placeId);
+  // Probe uses rating-only — avoids Atmosphere SKU on health checks.
+  const details = await fetchPlaceDetailsWithStatus(search.placeId, {
+    mode: "rating",
+  });
   if (!details.details) {
     return {
       ok: false,
