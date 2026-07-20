@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, type ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 import { osmTilePreviewUrl } from "@/lib/maps";
 
 interface MapRevealProps {
@@ -25,13 +25,10 @@ export function MapReveal({
   forceReveal = false,
   className = "",
 }: MapRevealProps) {
-  const [revealed, setRevealed] = useState(false);
+  const [revealed, setRevealed] = useState(forceReveal);
+  const showMap = revealed || forceReveal;
 
-  useEffect(() => {
-    if (forceReveal) setRevealed(true);
-  }, [forceReveal]);
-
-  if (revealed) return <>{children}</>;
+  if (showMap) return <>{children}</>;
 
   const previewUrl = osmTilePreviewUrl(lat, lng);
 

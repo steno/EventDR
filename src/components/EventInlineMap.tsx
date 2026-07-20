@@ -32,8 +32,16 @@ function MapResizer({ active }: { active: boolean }) {
 
   useEffect(() => {
     if (!active) return;
-    const timer = window.setTimeout(() => map.invalidateSize(), 80);
-    return () => window.clearTimeout(timer);
+    const container = map.getContainer();
+    const invalidate = () => map.invalidateSize({ animate: false });
+    invalidate();
+    const timer = window.setTimeout(invalidate, 80);
+    const ro = new ResizeObserver(invalidate);
+    ro.observe(container.parentElement ?? container);
+    return () => {
+      window.clearTimeout(timer);
+      ro.disconnect();
+    };
   }, [active, map]);
 
   return null;

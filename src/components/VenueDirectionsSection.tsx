@@ -187,6 +187,8 @@ interface VenueMapPanelProps {
   dict: Dictionary;
   directions: VenueDirectionsState;
   className?: string;
+  /** Reveal the interactive map (e.g. when Directions opens). */
+  forceReveal?: boolean;
 }
 
 /** Inline map — pairs with hero photo in the place card. */
@@ -195,6 +197,7 @@ export function VenueMapPanel({
   dict,
   directions,
   className = "h-[12rem] sm:h-[14rem]",
+  forceReveal = false,
 }: VenueMapPanelProps) {
   const { destination, origin, route } = directions;
 
@@ -206,7 +209,7 @@ export function VenueMapPanel({
         lat={destination.lat}
         lng={destination.lng}
         label={dict.venues.showMap}
-        forceReveal={Boolean(origin || route)}
+        forceReveal={forceReveal || Boolean(origin || route)}
         className="h-full w-full"
       >
         <EventInlineMap

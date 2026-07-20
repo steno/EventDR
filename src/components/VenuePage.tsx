@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import {
   AtSign,
@@ -27,11 +27,7 @@ import { lastHomePath } from "@/lib/cities";
 import { readReturnParams, resolveBackLabel } from "@/lib/event-navigation";
 import { formatPhoneTel } from "@/lib/event-phone";
 import { PAGE_SHELL_CLASS } from "@/lib/page-shell";
-import {
-  readDocumentTop,
-  readStickyListHeaderHeight,
-  scrollBehaviorPreference,
-} from "@/lib/list-scroll";
+import { scrollUnderStickyHeader } from "@/lib/list-scroll";
 import { getVenueHeroImageUrl } from "@/lib/venue-images";
 
 interface VenuePageProps {
@@ -65,6 +61,8 @@ export function VenuePage({
   const [submitOpen, setSubmitOpen] = useState(false);
   const [plannerOpen, setPlannerOpen] = useState(false);
   const mapSectionRef = useRef<HTMLDivElement>(null);
+  /** Scroll after the planner mounts — scrolling before expand loses to scroll anchoring. */
+  const pendingMapScrollRef = useRef(false);
   const directions = useVenueDirections(venue, dict);
 
   function loadEvents() {
@@ -121,22 +119,19 @@ export function VenuePage({
   }
 
   function openDirectionsPlanner() {
+    if (plannerOpen) {
+      scrollUnderStickyHeader(mapSectionRef.current);
+      return;
+    }
+    pendingMapScrollRef.current = true;
     setPlannerOpen(true);
-    const behavior = scrollBehaviorPreference();
-    // Wait for the planner to expand so layout height is final, then pin the
-    // map (not just the form) under the sticky header.
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        const target = mapSectionRef.current;
-        if (!target) return;
-        const top = Math.max(
-          0,
-          readDocumentTop(target) - readStickyListHeaderHeight(),
-        );
-        window.scrollTo({ top, behavior });
-      });
-    });
   }
+
+  useLayoutEffect(() => {
+    if (!plannerOpen || !pendingMapScrollRef.current) return;
+    pendingMapScrollRef.current = false;
+    scrollUnderStickyHeader(mapSectionRef.current);
+  }, [plannerOpen]);
 
   const websiteUrl = venue.website
     ? normalizeExternalUrl(venue.website)
@@ -164,8 +159,16 @@ export function VenuePage({
           />
 
           {/* Place card: photo + map */}
-          <article className="mt-1 w-full overflow-hidden rounded-3xl bg-white shadow-2xl ring-1 ring-neutral-200/70 dark:bg-neutral-900 dark:ring-neutral-800">
-            <div className="relative h-[min(32dvh,13rem)] sm:h-[min(38dvh,18rem)]">
+          <article className="mt-1 w-full rounded-3xl bg-white shadow-2xl ring-1 ring-neutral-200/70 dark:bg-neutral-900 dark:ring-neutral-800">
+            {/* Collapse hero in directions mode so the map can own the viewport. */}
+            <div
+              className={
+                plannerOpen
+                  ? "hidden"
+                  : "relative h-[min(32dvh,13rem)] overflow-hidden rounded-t-3xl sm:h-[min(38dvh,18rem)]"
+              }
+              aria-hidden={plannerOpen}
+            >
               {heroImageUrl ? (
                 <EventImage
                   src={heroImageUrl}
@@ -182,16 +185,37 @@ export function VenuePage({
                 </div>
               )}
             </div>
-            <div ref={mapSectionRef}>
-              <VenueMapPanel venue={venue} dict={dict} directions={directions} />
-              <VenueDirectionsPlanner
-                venue={venue}
-                dict={dict}
-                directions={directions}
-                open={plannerOpen}
-                onOpenChange={setPlannerOpen}
-                variant="embedded"
-              />
+            <div ref={mapSectionRef} className="[overflow-anchor:none]">
+              {/* Sticky map while routing — typing in the form must not cover it. */}
+              <div
+                className={
+                  plannerOpen
+                    ? "sticky z-[11] top-[var(--sticky-list-header-height,0px)] overflow-hidden rounded-t-3xl bg-neutral-200 shadow-[0_8px_24px_-12px_rgba(0,0,0,0.45)] dark:bg-neutral-800"
+                    : undefined
+                }
+              >
+                <VenueMapPanel
+                  venue={venue}
+                  dict={dict}
+                  directions={directions}
+                  forceReveal={plannerOpen}
+                  className={
+                    plannerOpen
+                      ? "h-[min(48dvh,22rem)] sm:h-[min(52dvh,26rem)]"
+                      : "h-[12rem] sm:h-[14rem]"
+                  }
+                />
+              </div>
+              <div className="overflow-hidden rounded-b-3xl">
+                <VenueDirectionsPlanner
+                  venue={venue}
+                  dict={dict}
+                  directions={directions}
+                  open={plannerOpen}
+                  onOpenChange={setPlannerOpen}
+                  variant="embedded"
+                />
+              </div>
             </div>
           </article>
 

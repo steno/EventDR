@@ -39,3 +39,13 @@ export function scrollToListTop(anchor?: HTMLElement | null): void {
   const top = desired > maxScroll ? 0 : desired;
   window.scrollTo({ top, behavior });
 }
+
+/** Scroll so `el` sits just under the sticky list header. */
+export function scrollUnderStickyHeader(
+  el: HTMLElement | null | undefined,
+  behavior: ScrollBehavior = scrollBehaviorPreference(),
+): void {
+  if (!el) return;
+  const top = Math.max(0, readDocumentTop(el) - readStickyListHeaderHeight());
+  window.scrollTo({ top, behavior });
+}
