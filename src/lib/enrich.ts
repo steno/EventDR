@@ -107,11 +107,12 @@ Write all titles and descriptions in ${language}.
 Prioritize hidden gems: community gatherings, beach sports, local leagues, small venue shows, expat meetups.
 Skip events in other cities (Santo Domingo, Santiago, Cotuí, Mao, Cibao, etc.) even if they appear in the source.
 Do not invent events or dates — extract only what is explicitly stated in the source text.
+Exception for tour marketplaces (Viator, GetYourGuide, and similar): when the source lists continuously bookable North Coast tours/activities with no single calendar date, include distinctive ones as adventure (or culture / food-drinks when that fits better) with date set to ${today}. Prefer uncommon or specialized tours. Skip generic re-listings of Damajagua / 27 Charcos, Cayo Arena, Ocean World, Teleférico / Pico Isabel, Monkeyland, Fun City, Brugal, and other well-known park visits already covered elsewhere.
 Return ONLY valid JSON: an array of event objects. Each object must have:
 - id (slug string)
 - title (string)
 - description (1-2 sentences, clean and engaging)
-- date (ISO date YYYY-MM-DD — must match the source, never guess)
+- date (ISO date YYYY-MM-DD — must match the source, never guess; for marketplace always-on tours use ${today})
 - time (optional, e.g. "7:00 PM")
 - venue (business or place name when stated — not the street address)
 - address (street address when stated — e.g. "Calle Duarte 37"; include whenever the source mentions a street, number, or intersection; omit only if truly unknown)
@@ -121,7 +122,7 @@ Return ONLY valid JSON: an array of event objects. Each object must have:
 - format ("physical", "digital", or "hybrid")
 - trending (boolean, true for popular events)
 - sourceUrl (optional URL from source)
-- ticketUrl (optional ticket purchase URL — use the todotickets.do /events/... , eventbrite, uepatickets, or other checkout link when present; omit for free/community events)
+- ticketUrl (optional ticket purchase URL — use the todotickets.do /events/... , eventbrite, uepatickets, viator.com, getyourguide.com, or other checkout link when present; omit for free/community events)
 - isFree (optional boolean — true only when the source explicitly says admission is free / entrada libre / entrada gratuita; false when paid at the door without online tickets; omit when unknown)
 - admissionPrice (optional door or registration price when stated — use formats like "RD$250", "US$210", "from RD$400", or "RD$50–100"; omit when free, online tickets only, or unknown)
 - callForPricing (optional boolean — true when the source says to call/WhatsApp for prices or pricing varies and no fixed rate is given)
@@ -132,7 +133,7 @@ Return ONLY valid JSON: an array of event objects. Each object must have:
 
 Always capture ticketUrl, admissionPrice or isFree, phone, and imageUrl when the source states them — do not drop pricing, contact, or poster/image details.
 
-Focus on real upcoming North Coast events. Assign the most specific category. Skip irrelevant or undated content. Max 15 events.`;
+Focus on real upcoming North Coast events. Assign the most specific category. Skip irrelevant or undated content (except the marketplace exception above). Max 15 events.`;
 
   const userPrompt = `Raw crawled web content about events${category ? ` — prioritize category "${category}" but include related events` : ""}:
 

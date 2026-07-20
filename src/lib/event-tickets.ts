@@ -15,6 +15,8 @@ const TICKET_HOSTS = [
   "rezdy.com",
   "freestylecatamarans.com",
   "uepatickets.com",
+  "viator.com",
+  "getyourguide.com",
 ];
 
 /** Curated ticket / booking URLs for seed events (verified on official sites). */

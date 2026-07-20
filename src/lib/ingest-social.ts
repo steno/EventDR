@@ -7,6 +7,7 @@ import {
   facebookGroupEventUrls,
   facebookGroupSearchQueries,
 } from "@/lib/facebook-groups";
+import { filterSeededAttractionClones } from "@/lib/ingest-attraction-dedupe";
 import {
   INSTAGRAM_ACCOUNTS,
   instagramProfileUrls,
@@ -133,7 +134,10 @@ export async function ingestSocialEvents(
     locale,
   );
 
-  const pending = enriched.map((e) => ({
+  // Drop OTA clones of Damajagua / Cayo Arena / etc. already in recurring seeds.
+  const novel = filterSeededAttractionClones(enriched);
+
+  const pending = novel.map((e) => ({
     ...e,
     id: ingestEventId(e),
     sourceType: e.sourceUrl?.includes("instagram")

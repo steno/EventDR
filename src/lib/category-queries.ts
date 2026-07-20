@@ -27,6 +27,11 @@ const PUERTO_PLATA_DIGITAL = "https://puertoplatadigital.com/";
 const INFOTUR_RD = "https://infoturdominicano.com/rd/";
 const JAZZ_EN_DOMINICANA = "https://www.jazzendominicana.com/";
 
+/**
+ * Tour marketplaces (Viator / GetYourGuide) block direct scrapes (403).
+ * Discover them via Brave `site:` search in BROAD_QUERIES / adventure only.
+ */
+
 /** Known listing pages crawled on every broad ingest (no search API needed). */
 export const REGION_DIRECT_URLS = [
   TODOTICKETS_HOME,
@@ -219,6 +224,10 @@ export const CATEGORY_QUERIES: Record<EventCategory, CategoryQuerySet> = {
       `site:facebook.com excursion Cabarete Puerto Plata`,
       `Cayo Arena Damajagua Teleférico tour Costa Norte`,
       `Ocean World adventure park ${REGION}`,
+      `site:viator.com Puerto Plata OR Sosúa OR Cabarete tour`,
+      `site:viator.com Sosua snorkeling OR catamaran OR buggy OR horseback`,
+      `site:getyourguide.com Puerto Plata OR Cabarete OR Sosúa`,
+      `site:getyourguide.com Cabarete kite OR buggy OR waterfall`,
     ],
     directUrls: [ALLEVENTS_PP],
   },
@@ -232,6 +241,8 @@ export const BROAD_QUERIES = [
   `site:todotickets.do eventos Puerto Plata Sosúa Cabarete`,
   `site:dominicana.myticketplus.com Puerto Plata OR Cabarete OR Sosúa`,
   `site:tix.do Puerto Plata OR Cabarete OR Sosúa`,
+  `site:viator.com things to do Puerto Plata Sosúa Cabarete`,
+  `site:getyourguide.com Puerto Plata Cabarete tours activities`,
   `site:facebook.com events Puerto Plata Costa Norte`,
   `qué hacer Puerto Plata eventos esta semana`,
   `pasalo.do eventos Puerto Plata`,
