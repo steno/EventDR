@@ -1,11 +1,11 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import {
   AtSign,
   ExternalLink,
-  MapPin,
+  Navigation,
   Phone,
 } from "lucide-react";
 import type { Event, Venue, VenueAssessment } from "@/lib/types";
@@ -14,17 +14,21 @@ import type { Locale } from "@/i18n/config";
 import { VenueEventList } from "@/components/VenueEventList";
 import { SubmitEventSheet } from "@/components/SubmitEventSheet";
 import { StickyListHeader } from "@/components/StickyListHeader";
-import { VenueDirectionsSection } from "@/components/VenueDirectionsSection";
+import {
+  useVenueDirections,
+  VenueDirectionsPlanner,
+  VenueMapPanel,
+} from "@/components/VenueDirectionsSection";
 import { VenueAssessmentBlock } from "@/components/VenueAssessmentBlock";
 import { EventImage } from "@/components/EventImage";
-import { EventCallLink } from "@/components/EventCallLink";
 import { attachEventImages } from "@/lib/event-images";
 import { attachTicketUrls } from "@/lib/event-tickets";
 import { lastHomePath } from "@/lib/cities";
 import { readReturnParams, resolveBackLabel } from "@/lib/event-navigation";
+import { formatPhoneTel } from "@/lib/event-phone";
 import { PAGE_SHELL_CLASS } from "@/lib/page-shell";
+import { scrollBehaviorPreference } from "@/lib/list-scroll";
 import { getVenueHeroImageUrl } from "@/lib/venue-images";
-import { getVenueMapUrl } from "@/lib/maps";
 
 interface VenuePageProps {
   venue: Venue;
@@ -41,6 +45,9 @@ function normalizeExternalUrl(raw: string): string {
   return `https://${trimmed}`;
 }
 
+const venueActionClass =
+  "flex min-h-11 flex-col items-center justify-center gap-1 rounded-xl px-2 py-2 text-center touch-manipulation transition-colors active:scale-[0.98] bg-neutral-100/90 text-neutral-600 hover:bg-neutral-200/80 hover:text-neutral-900 dark:bg-neutral-800/80 dark:text-neutral-300 dark:hover:bg-neutral-700 dark:hover:text-neutral-100";
+
 export function VenuePage({
   venue,
   locale,
@@ -52,6 +59,9 @@ export function VenuePage({
   const [events, setEvents] = useState<Event[]>([]);
   const [loading, setLoading] = useState(true);
   const [submitOpen, setSubmitOpen] = useState(false);
+  const [plannerOpen, setPlannerOpen] = useState(false);
+  const plannerRef = useRef<HTMLElement>(null);
+  const directions = useVenueDirections(venue, dict);
 
   function loadEvents() {
     return fetch(`/api/events?locale=${locale}&venue=${venue.slug}`, {
@@ -59,7 +69,6 @@ export function VenuePage({
     })
       .then((r) => r.json())
       .then((d: { events?: Event[] }) => {
-        // API already scopes by venue=; trust the payload.
         setEvents(attachTicketUrls(attachEventImages(d.events ?? [])));
       })
       .catch(() => setEvents([]));
@@ -75,7 +84,6 @@ export function VenuePage({
   }, [refreshEvents]);
 
   const listReturnTo = `/${locale}/venue/${venue.slug}`;
-  // Read ?from= / ?fromTitle= on the client so the server page can stay ISR-cached.
   const [returnTo, setReturnTo] = useState<string | null>(null);
   const [returnTitle, setReturnTitle] = useState<string | null>(null);
   const [fallbackHref, setFallbackHref] = useState(`/${locale}`);
@@ -108,6 +116,16 @@ export function VenuePage({
     router.push(backHref);
   }
 
+  function openDirectionsPlanner() {
+    setPlannerOpen(true);
+    requestAnimationFrame(() => {
+      plannerRef.current?.scrollIntoView({
+        behavior: scrollBehaviorPreference(),
+        block: "nearest",
+      });
+    });
+  }
+
   const websiteUrl = venue.website
     ? normalizeExternalUrl(venue.website)
     : null;
@@ -119,43 +137,57 @@ export function VenuePage({
     return `https://instagram.com/${handle}`;
   })();
 
+  const actionCount =
+    (venue.phone ? 1 : 0) + 1 + (websiteUrl ? 1 : 0) + (instagramUrl ? 1 : 0);
+
   return (
     <>
-    <main className="bg-neutral-50 dark:bg-transparent pb-6">
-      <div className={PAGE_SHELL_CLASS}>
-        <StickyListHeader
-          locale={locale}
-          dict={dict}
-          backLabel={backLabel}
-          onBack={handleBack}
-        />
+      <main className="bg-neutral-50 dark:bg-transparent pb-6">
+        <div className={PAGE_SHELL_CLASS}>
+          <StickyListHeader
+            locale={locale}
+            dict={dict}
+            backLabel={backLabel}
+            onBack={handleBack}
+          />
 
-        <article className="mt-1 w-full overflow-hidden rounded-3xl bg-white shadow-2xl ring-1 ring-neutral-200/70 dark:bg-neutral-900 dark:ring-neutral-800 lg:grid lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-stretch">
-          <div className="relative h-[min(32dvh,13rem)] sm:h-[min(38dvh,18rem)] lg:h-auto lg:min-h-[28rem]">
-            {heroImageUrl ? (
-              <div className="relative h-full overflow-hidden rounded-t-3xl lg:absolute lg:inset-0 lg:rounded-none lg:rounded-l-3xl">
+          {/* Place card: photo + map */}
+          <article className="mt-1 w-full overflow-hidden rounded-3xl bg-white shadow-2xl ring-1 ring-neutral-200/70 dark:bg-neutral-900 dark:ring-neutral-800">
+            <div className="relative h-[min(32dvh,13rem)] sm:h-[min(38dvh,18rem)]">
+              {heroImageUrl ? (
                 <EventImage
                   src={heroImageUrl}
                   alt=""
                   priority
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover object-center"
+                  sizes="(max-width: 1024px) 100vw, 640px"
+                  className="h-full w-full object-cover object-center"
                 />
-              </div>
-            ) : (
-              <div className="flex h-full items-center justify-center overflow-hidden rounded-t-3xl bg-gradient-to-br from-orange-500 via-rose-500 to-fuchsia-600 lg:absolute lg:inset-0 lg:rounded-none lg:rounded-l-3xl">
-                <span className="text-6xl drop-shadow-sm" aria-hidden>
-                  {venue.emoji ?? "📍"}
-                </span>
-              </div>
-            )}
-          </div>
+              ) : (
+                <div className="flex h-full items-center justify-center bg-gradient-to-br from-orange-500 via-rose-500 to-fuchsia-600">
+                  <span className="text-6xl drop-shadow-sm" aria-hidden>
+                    {venue.emoji ?? "📍"}
+                  </span>
+                </div>
+              )}
+            </div>
+            <VenueMapPanel venue={venue} dict={dict} directions={directions} />
+            <VenueDirectionsPlanner
+              ref={plannerRef}
+              venue={venue}
+              dict={dict}
+              directions={directions}
+              open={plannerOpen}
+              onOpenChange={setPlannerOpen}
+              variant="embedded"
+            />
+          </article>
 
-          <div className="flex min-w-0 flex-col px-5 pt-4 pb-5 sm:px-6 lg:px-7 lg:pt-7 lg:pb-6">
+          {/* Identity + quick actions */}
+          <header className="mt-4">
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-neutral-500 dark:text-neutral-400">
               {venue.city}
             </p>
-            <h1 className="mt-1.5 text-2xl font-black leading-tight tracking-tight text-neutral-900 dark:text-neutral-100 lg:text-[1.75rem]">
+            <h1 className="mt-1.5 text-2xl font-black leading-tight tracking-tight text-neutral-900 dark:text-neutral-100">
               {venue.name}
             </h1>
 
@@ -165,106 +197,112 @@ export function VenuePage({
               </span>
             ) : null}
 
-            <div className="mt-4 space-y-3">
-              <a
-                href={getVenueMapUrl(venue)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group/place flex items-start gap-2.5 text-copy-meta text-neutral-800 dark:text-neutral-200 touch-manipulation"
-              >
-                <MapPin className="mt-0.5 h-[1.125rem] w-[1.125rem] shrink-0 text-neutral-500 transition-colors group-hover/place:text-orange-600 dark:text-neutral-400" />
-                <span className="min-w-0 font-medium leading-snug transition-colors group-hover/place:text-orange-600">
-                  {dict.venues.openInMaps}
-                </span>
-              </a>
-
-              {venue.phone ? (
-                <div className="group/phone flex items-center gap-2.5 text-copy-meta text-neutral-800 dark:text-neutral-200">
-                  <Phone className="h-[1.125rem] w-[1.125rem] shrink-0 text-emerald-600 dark:text-emerald-400 group-hover/phone:text-neutral-500 transition-colors" />
-                  <EventCallLink
-                    phone={venue.phone}
-                    label={dict.detail.call}
-                    variant="row"
-                  />
-                </div>
-              ) : null}
-
-              {websiteUrl ? (
-                <a
-                  href={websiteUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center gap-2.5 text-copy-meta text-neutral-800 dark:text-neutral-200 touch-manipulation"
-                >
-                  <ExternalLink className="h-[1.125rem] w-[1.125rem] shrink-0 text-neutral-500 transition-colors group-hover:text-orange-600 dark:text-neutral-400" />
-                  <span className="font-medium transition-colors group-hover:text-orange-600">
-                    {dict.venues.website}
-                  </span>
-                </a>
-              ) : null}
-
-              {instagramUrl ? (
-                <a
-                  href={instagramUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center gap-2.5 text-copy-meta text-neutral-800 dark:text-neutral-200 touch-manipulation"
-                >
-                  <AtSign className="h-[1.125rem] w-[1.125rem] shrink-0 text-neutral-500 transition-colors group-hover:text-orange-600 dark:text-neutral-400" />
-                  <span className="font-medium transition-colors group-hover:text-orange-600">
-                    {dict.venues.instagram}
-                  </span>
-                </a>
-              ) : null}
-            </div>
-
             {venue.description ? (
-              <p className="mt-5 text-copy">{venue.description}</p>
+              <p className="mt-4 text-copy">{venue.description}</p>
             ) : null}
-
             {assessment ? (
               <VenueAssessmentBlock
                 assessment={assessment}
                 dict={dict}
                 locale={locale}
-                className="mt-5 mb-0"
+                className={`mb-0 ${venue.description ? "mt-5" : "mt-4"}`}
               />
             ) : null}
+
+            <div
+              className={`grid gap-2 ${
+                venue.description || assessment ? "mt-5" : "mt-4"
+              } ${
+                actionCount >= 4
+                  ? "grid-cols-4"
+                  : actionCount === 3
+                    ? "grid-cols-3"
+                    : actionCount === 2
+                      ? "grid-cols-2"
+                      : "grid-cols-1"
+              }`}
+            >
+              {venue.phone ? (
+                <a
+                  href={`tel:${formatPhoneTel(venue.phone)}`}
+                  className={venueActionClass}
+                >
+                  <Phone className="h-4 w-4" aria-hidden />
+                  <span className="text-[11px] font-bold leading-none">
+                    {dict.detail.call}
+                  </span>
+                </a>
+              ) : null}
+              <button
+                type="button"
+                onClick={openDirectionsPlanner}
+                className={venueActionClass}
+              >
+                <Navigation className="h-4 w-4" aria-hidden />
+                <span className="text-[11px] font-bold leading-none">
+                  {dict.detail.directions}
+                </span>
+              </button>
+              {websiteUrl ? (
+                <a
+                  href={websiteUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={venueActionClass}
+                >
+                  <ExternalLink className="h-4 w-4" aria-hidden />
+                  <span className="text-[11px] font-bold leading-none">
+                    {dict.venues.website}
+                  </span>
+                </a>
+              ) : null}
+              {instagramUrl ? (
+                <a
+                  href={instagramUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={venueActionClass}
+                >
+                  <AtSign className="h-4 w-4" aria-hidden />
+                  <span className="text-[11px] font-bold leading-none">
+                    {dict.venues.instagram}
+                  </span>
+                </a>
+              ) : null}
+            </div>
+          </header>
+
+          {/* Events */}
+          <div className="mt-8">
+            <VenueEventList
+              events={events}
+              loading={loading}
+              dict={dict}
+              locale={locale}
+              emptyMessage={dict.venues.noEvents}
+              sectionTitle={dict.venues.eventsAt}
+              returnTo={listReturnTo}
+              initialExpanded={initialExpanded}
+              onAddEvent={() => setSubmitOpen(true)}
+              addEventLabel={dict.submit.createEvent}
+            />
           </div>
-        </article>
-
-        <div className="mt-8">
-          <VenueEventList
-            events={events}
-            loading={loading}
-            dict={dict}
-            locale={locale}
-            emptyMessage={dict.venues.noEvents}
-            sectionTitle={dict.venues.eventsAt}
-            returnTo={listReturnTo}
-            initialExpanded={initialExpanded}
-            onAddEvent={() => setSubmitOpen(true)}
-            addEventLabel={dict.submit.createEvent}
-          />
         </div>
+      </main>
 
-        <VenueDirectionsSection venue={venue} dict={dict} />
-      </div>
-    </main>
-
-    <SubmitEventSheet
-      open={submitOpen}
-      onClose={() => setSubmitOpen(false)}
-      dict={dict}
-      locale={locale}
-      defaults={{
-        location: venue.city,
-        venue: venue.name,
-      }}
-      onSubmitted={() => {
-        refreshEvents();
-      }}
-    />
+      <SubmitEventSheet
+        open={submitOpen}
+        onClose={() => setSubmitOpen(false)}
+        dict={dict}
+        locale={locale}
+        defaults={{
+          location: venue.city,
+          venue: venue.name,
+        }}
+        onSubmitted={() => {
+          refreshEvents();
+        }}
+      />
     </>
   );
 }

@@ -26,6 +26,7 @@ export function VenueEventList(props: VenueEventListProps) {
       defaultTimeRange="all"
       view="list"
       scrollOnFilterChange={false}
+      addEventCta="inline"
     />
   );
 }

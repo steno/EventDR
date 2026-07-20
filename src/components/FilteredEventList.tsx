@@ -19,7 +19,11 @@ import { scrollToListTop } from "@/lib/list-scroll";
 import { StickyListFilters, ListScrollAnchor } from "@/components/StickyListFilters";
 import { TimeFilter } from "@/components/TimeFilter";
 import { EventCard } from "@/components/EventCard";
-import { EventListScrollPads } from "@/components/EventCardPlaceholder";
+import {
+  EventListScrollPads,
+  EventCardPlaceholder,
+  LIST_SCROLL_PAD_TARGET,
+} from "@/components/EventCardPlaceholder";
 import { SearchEmptyState } from "@/components/SearchEmptyState";
 import { AddEventButton } from "@/components/AddEventButton";
 import { fillTemplate } from "@/lib/seo";
@@ -60,6 +64,13 @@ interface FilteredEventListProps {
    * Disable on venue pages — hero/details sit above the list and the jump feels wrong.
    */
   scrollOnFilterChange?: boolean;
+  /**
+   * How to invite event submissions on short/empty lists.
+   * - pad: scroll-pad CTA for category/home lists (default)
+   * - inline: one Host card, no spacer, no footer link — for venue pages
+   * - button: text link only, no pad card
+   */
+  addEventCta?: "pad" | "inline" | "button";
 }
 
 export function FilteredEventList({
@@ -81,6 +92,7 @@ export function FilteredEventList({
   categoryId,
   view = "cards",
   scrollOnFilterChange = true,
+  addEventCta = "pad",
 }: FilteredEventListProps) {
   const pathname = usePathname();
   const [timeRange, setTimeRange] = useState<FilterTimeRange>(
@@ -173,6 +185,31 @@ export function FilteredEventList({
   const showTimeFilter = !fixedTimeRange;
   const showStickyFilters = Boolean(locationPicker || showTimeFilter);
 
+  const showPadCta = addEventCta === "pad";
+  const showInlineAddCta = addEventCta === "inline" && Boolean(onAddEvent);
+  const padDeficit = Math.max(0, LIST_SCROLL_PAD_TARGET - filtered.length);
+  const showFooterAddButton =
+    Boolean(onAddEvent) &&
+    (addEventCta === "button" ||
+      (addEventCta === "pad" && padDeficit === 0));
+
+  const addEventInlineCard = showInlineAddCta ? (
+    <div className={`${view === "cards" ? "mt-3" : "mt-3 max-w-sm"}`}>
+      <EventCardPlaceholder
+        title={dict.events.yourEventHereTitle}
+        label={
+          categoryId
+            ? fillTemplate(dict.events.yourEventHere, {
+                category: dict.categories[categoryId],
+              })
+            : dict.events.yourEventHereGeneric
+        }
+        onClick={onAddEvent!}
+        view={view}
+      />
+    </div>
+  ) : null;
+
   return (
     <>
       {showStickyFilters ? (
@@ -205,7 +242,12 @@ export function FilteredEventList({
       {loading ? (
         <p className="text-copy text-neutral-500 dark:text-neutral-400">{dict.events.loading}</p>
       ) : events.length === 0 ? (
-        <p className="text-copy text-neutral-600 dark:text-neutral-400">{emptyMessage}</p>
+        <>
+          <p className="text-copy text-neutral-600 dark:text-neutral-400">
+            {emptyMessage}
+          </p>
+          {addEventInlineCard}
+        </>
       ) : filtered.length === 0 ? (
         <SearchEmptyState
           title={dict.search.noResults}
@@ -240,20 +282,21 @@ export function FilteredEventList({
                 view={view}
               />
             ))}
-            {/* Pad short tabs so scroll-to-filter-top has enough document height. */}
-            <EventListScrollPads
-              count={filtered.length}
-              title={dict.events.yourEventHereTitle}
-              label={
-                categoryId
-                  ? fillTemplate(dict.events.yourEventHere, {
-                      category: dict.categories[categoryId],
-                    })
-                  : dict.events.yourEventHereGeneric
-              }
-              onAddEvent={onAddEvent}
-              view={view}
-            />
+            {showPadCta ? (
+              <EventListScrollPads
+                count={filtered.length}
+                title={dict.events.yourEventHereTitle}
+                label={
+                  categoryId
+                    ? fillTemplate(dict.events.yourEventHere, {
+                        category: dict.categories[categoryId],
+                      })
+                    : dict.events.yourEventHereGeneric
+                }
+                onAddEvent={onAddEvent}
+                view={view}
+              />
+            ) : null}
           </div>
           {hasMore && (
             <div className="pt-4 text-center">
@@ -271,12 +314,13 @@ export function FilteredEventList({
               </button>
             </div>
           )}
+          {addEventInlineCard}
         </>
       )}
 
-      {onAddEvent && (
-        <AddEventButton dict={dict} onClick={onAddEvent} label={addEventLabel} />
-      )}
+      {showFooterAddButton ? (
+        <AddEventButton dict={dict} onClick={onAddEvent!} label={addEventLabel} />
+      ) : null}
     </>
   );
 }

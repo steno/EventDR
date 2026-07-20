@@ -2,13 +2,14 @@
 
 import {
   type FormEvent,
+  forwardRef,
   useCallback,
   useEffect,
   useId,
   useState,
 } from "react";
 import dynamic from "next/dynamic";
-import { LocateFixed, MapPin, Navigation } from "lucide-react";
+import { ChevronDown, LocateFixed, MapPin, Navigation } from "lucide-react";
 import type { Venue } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { EventCoords } from "@/lib/event-coords";
@@ -29,11 +30,6 @@ const EventInlineMap = dynamic(
   },
 );
 
-interface VenueDirectionsSectionProps {
-  venue: Venue;
-  dict: Dictionary;
-}
-
 function formatRouteMeta(distanceM: number, durationS: number) {
   const km = distanceM / 1000;
   const minutes = Math.max(1, Math.round(durationS / 60));
@@ -41,10 +37,7 @@ function formatRouteMeta(distanceM: number, durationS: number) {
   return { distance, minutes };
 }
 
-export function VenueDirectionsSection({
-  venue,
-  dict,
-}: VenueDirectionsSectionProps) {
+export function useVenueDirections(venue: Venue, dict: Dictionary) {
   const inputId = useId();
   const geo = useGeolocation();
   const [startQuery, setStartQuery] = useState("");
@@ -159,39 +152,155 @@ export function VenueDirectionsSection({
   }
 
   const busy = loading || pendingGeoRoute;
+  const routeSummaryText = routeMeta
+    ? dict.venues.routeSummary
+        .replace("{distance}", routeMeta.distance)
+        .replace("{minutes}", String(routeMeta.minutes))
+    : null;
   const fieldLabel =
-    originLabel && routeMeta
-      ? `${originLabel} · ${routeMeta.distance}`
-      : originLabel ?? dict.venues.startingFrom;
+    originLabel && routeSummaryText
+      ? `${originLabel} · ${routeSummaryText}`
+      : (originLabel ?? dict.venues.startingFrom);
+
+  return {
+    inputId,
+    destination,
+    origin,
+    route,
+    routeMeta,
+    routeSummaryText,
+    busy,
+    error,
+    fieldLabel,
+    startQuery,
+    setStartQuery,
+    setOriginLabel,
+    handleUseMyLocation,
+    handleSubmit,
+  };
+}
+
+export type VenueDirectionsState = ReturnType<typeof useVenueDirections>;
+
+interface VenueMapPanelProps {
+  venue: Venue;
+  dict: Dictionary;
+  directions: VenueDirectionsState;
+  className?: string;
+}
+
+/** Inline map — pairs with hero photo in the place card. */
+export function VenueMapPanel({
+  venue,
+  dict,
+  directions,
+  className = "h-[12rem] sm:h-[14rem]",
+}: VenueMapPanelProps) {
+  const { destination, origin, route } = directions;
 
   return (
-    <section className="mt-8 mb-2" aria-labelledby={`${inputId}-heading`}>
-      <h2
-        id={`${inputId}-heading`}
-        className="mb-3 text-xs font-bold uppercase tracking-widest text-neutral-400"
+    <div
+      className={`event-inline-map relative overflow-hidden bg-neutral-200 dark:bg-neutral-800 ${className}`}
+    >
+      <MapReveal
+        lat={destination.lat}
+        lng={destination.lng}
+        label={dict.venues.showMap}
+        forceReveal={Boolean(origin || route)}
+        className="h-full w-full"
       >
-        {dict.venues.howToGetThere}
-      </h2>
+        <EventInlineMap
+          coords={destination}
+          interactive
+          origin={origin}
+          route={route}
+        />
+      </MapReveal>
+    </div>
+  );
+}
 
-      <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-6">
-        <div className="event-inline-map relative h-[13rem] overflow-hidden rounded-2xl bg-neutral-200 ring-1 ring-black/5 sm:h-[15rem] lg:h-[22rem] dark:bg-neutral-800 dark:ring-white/10">
-          <MapReveal
-            lat={destination.lat}
-            lng={destination.lng}
-            label={dict.venues.showMap}
-            forceReveal={Boolean(origin || route)}
-            className="h-full w-full"
-          >
-            <EventInlineMap
-              coords={destination}
-              interactive
-              origin={origin}
-              route={route}
-            />
-          </MapReveal>
-        </div>
+interface VenueDirectionsPlannerProps {
+  venue: Venue;
+  dict: Dictionary;
+  directions: VenueDirectionsState;
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
+  /** Flush under the hero map inside the place card. */
+  variant?: "standalone" | "embedded";
+}
 
-        <form onSubmit={handleSubmit} className="mt-3 space-y-2.5 lg:mt-0">
+/** Collapsible driving-directions form — attach under the map on venue pages. */
+export const VenueDirectionsPlanner = forwardRef<
+  HTMLElement,
+  VenueDirectionsPlannerProps
+>(function VenueDirectionsPlanner(
+  { venue: _venue, dict, directions, open, onOpenChange, variant = "standalone" },
+  ref,
+) {
+  const embedded = variant === "embedded";
+  const {
+    inputId,
+    busy,
+    error,
+    fieldLabel,
+    startQuery,
+    setStartQuery,
+    setOriginLabel,
+    handleUseMyLocation,
+    handleSubmit,
+  } = directions;
+
+  const headingId = `${inputId}-heading`;
+
+  return (
+    <section
+      ref={ref}
+      className={
+        embedded
+          ? "border-t border-neutral-200/80 dark:border-neutral-800"
+          : "mt-8 mb-2"
+      }
+      aria-labelledby={headingId}
+    >
+      <button
+        type="button"
+        id={headingId}
+        onClick={() => onOpenChange(!open)}
+        aria-expanded={open}
+        className={
+          embedded
+            ? `
+              flex w-full min-h-11 items-center justify-between gap-3 px-4 py-3 text-left
+              touch-manipulation transition-colors
+              bg-neutral-50/90 hover:bg-neutral-100/90 active:scale-[0.99]
+              dark:bg-neutral-950/50 dark:hover:bg-neutral-900/60
+            `
+            : `
+              flex w-full min-h-11 items-center justify-between gap-3 rounded-2xl
+              border border-neutral-200/90 bg-white/80 px-4 py-3 text-left
+              touch-manipulation transition-colors
+              hover:border-orange-300/70 active:scale-[0.99]
+              dark:border-neutral-700 dark:bg-neutral-900/60
+              dark:hover:border-orange-500/40
+            `
+        }
+      >
+        <span className="inline-flex items-center gap-2.5 text-sm font-bold text-neutral-800 dark:text-neutral-100">
+          <Navigation className="h-4 w-4 shrink-0 text-orange-600 dark:text-orange-400" aria-hidden />
+          {dict.venues.howToGetThere}
+        </span>
+        <ChevronDown
+          className={`h-4 w-4 shrink-0 text-neutral-400 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+          aria-hidden
+        />
+      </button>
+
+      {open ? (
+        <form
+          onSubmit={handleSubmit}
+          className={embedded ? "space-y-2.5 px-4 pb-4 pt-3" : "mt-3 space-y-2.5"}
+        >
           <label
             htmlFor={inputId}
             className="block text-sm font-medium text-neutral-700 dark:text-neutral-300"
@@ -235,14 +344,6 @@ export function VenueDirectionsSection({
             </button>
           </div>
 
-          {routeMeta ? (
-            <p className="text-sm font-medium text-neutral-800 dark:text-neutral-200">
-              {dict.venues.routeSummary
-                .replace("{distance}", routeMeta.distance)
-                .replace("{minutes}", String(routeMeta.minutes))}
-            </p>
-          ) : null}
-
           {error ? (
             <p
               className="text-sm text-rose-600 dark:text-rose-400"
@@ -252,7 +353,32 @@ export function VenueDirectionsSection({
             </p>
           ) : null}
         </form>
-      </div>
+      ) : null}
     </section>
+  );
+});
+
+/** @deprecated Prefer VenueMapPanel + VenueDirectionsPlanner on venue pages. */
+export function VenueDirectionsSection({
+  venue,
+  dict,
+}: {
+  venue: Venue;
+  dict: Dictionary;
+}) {
+  const directions = useVenueDirections(venue, dict);
+  const [open, setOpen] = useState(true);
+
+  return (
+    <>
+      <VenueMapPanel venue={venue} dict={dict} directions={directions} />
+      <VenueDirectionsPlanner
+        venue={venue}
+        dict={dict}
+        directions={directions}
+        open={open}
+        onOpenChange={setOpen}
+      />
+    </>
   );
 }
