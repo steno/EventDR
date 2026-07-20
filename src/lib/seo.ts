@@ -13,7 +13,7 @@ import { getVenueImageUrl } from "@/lib/venue-images";
 import { SITE_URL } from "@/lib/site-url";
 
 export const SITE_NAME = "POP Events";
-export const DEFAULT_OG_IMAGE = "/og-image.png";
+export const DEFAULT_OG_IMAGE = "/og-image.jpg";
 
 const OG_LOCALE: Record<Locale, string> = {
   en: "en_US",

@@ -42,8 +42,10 @@ const nextConfig: NextConfig = {
   },
   async headers() {
     // Event listings stay no-store so CDN never serves stale/empty catalogs.
-    // Static image assets can still soft-cache; PWA version assets stay fresh.
-    const assetCache = "public, max-age=3600, stale-while-revalidate=86400";
+    // Media under /public is cached via netlify.toml + public/_headers (Netlify CDN).
+    // These Next headers still help `next start` and any SSR-handled asset paths.
+    const assetCache = "public, max-age=31536000, immutable";
+    const iconCache = "public, max-age=3600, stale-while-revalidate=86400";
     const noStore = "no-store, max-age=0, must-revalidate";
 
     return [
@@ -104,8 +106,12 @@ const nextConfig: NextConfig = {
         headers: [{ key: "Cache-Control", value: assetCache }],
       },
       {
+        source: "/categories/:path*",
+        headers: [{ key: "Cache-Control", value: assetCache }],
+      },
+      {
         source: "/icons/:path*",
-        headers: [{ key: "Cache-Control", value: noStore }],
+        headers: [{ key: "Cache-Control", value: iconCache }],
       },
     ];
   },

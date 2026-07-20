@@ -55,7 +55,6 @@ export function AppHeader({
           width={184}
           height={184}
           priority
-          unoptimized
           className="h-14 w-auto object-contain sm:h-20"
         />
       </Link>

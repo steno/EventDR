@@ -19,9 +19,13 @@ const EventImageComponent = ({
   variant = "thumb",
 }: EventImageProps) => {
   const rawImage = src.startsWith("data:") || src.startsWith("http");
-  const localWithQuery = src.startsWith("/") && src.includes("?");
+  // Strip ?v= cache-busters so next/image can optimize local assets.
+  const optimizedSrc =
+    !rawImage && src.startsWith("/") && src.includes("?")
+      ? src.slice(0, src.indexOf("?"))
+      : src;
 
-  if (rawImage || localWithQuery) {
+  if (rawImage) {
     return (
       // eslint-disable-next-line @next/next/no-img-element
       <img
@@ -32,6 +36,7 @@ const EventImageComponent = ({
             ? `block w-full h-auto ${className}`
             : `h-full w-full ${className}`
         }
+        loading={priority ? "eager" : "lazy"}
       />
     );
   }
@@ -39,7 +44,7 @@ const EventImageComponent = ({
   if (variant === "hero") {
     return (
       <Image
-        src={src}
+        src={optimizedSrc}
         alt={alt}
         width={1200}
         height={800}
@@ -53,7 +58,7 @@ const EventImageComponent = ({
 
   return (
     <Image
-      src={src}
+      src={optimizedSrc}
       alt={alt}
       fill
       sizes={sizes}
