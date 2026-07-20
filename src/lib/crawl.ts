@@ -59,11 +59,17 @@ async function crawlMany(
 
 export async function crawlEventListings(
   category?: EventCategory,
+  options?: { fast?: boolean },
 ): Promise<CrawlResult[]> {
   if (category) {
     const queries = getQueriesForCategory(category);
     const urls = getDirectUrlsForCategory(category);
-    return crawlMany(queries, urls, 5);
+    return crawlMany(queries, urls, options?.fast ? 3 : 5);
+  }
+
+  // Fast mode: broad crawl only — stays under Netlify ~26–30s gateway limit.
+  if (options?.fast) {
+    return crawlMany(BROAD_QUERIES, REGION_DIRECT_URLS, 3);
   }
 
   const broad = await crawlMany(BROAD_QUERIES, REGION_DIRECT_URLS, 4);

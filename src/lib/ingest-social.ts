@@ -67,23 +67,35 @@ async function readPublicSocialUrl(
   }
 }
 
-export async function ingestSocialEvents(locale: Locale = "en"): Promise<Event[]> {
-  const results = await crawlEventListings();
+export type IngestSocialOptions = {
+  /** Lighter crawl for Netlify gateway (~26–30s). Skip heavy image sourcing. */
+  fast?: boolean;
+};
+
+export async function ingestSocialEvents(
+  locale: Locale = "en",
+  options: IngestSocialOptions = {},
+): Promise<Event[]> {
+  const fast = Boolean(options.fast);
+  const results = await crawlEventListings(undefined, { fast });
   const facebookUrls = [
     ...FACEBOOK_GROUPS.map((group) => group.url),
     ...facebookGroupEventUrls(),
     ...facebookEventPageUrls(),
   ];
+  const cappedFacebook = fast ? facebookUrls.slice(0, 8) : facebookUrls;
   const groupReads = await Promise.all(
-    facebookUrls.map(async (url) => {
+    cappedFacebook.map(async (url) => {
       const group = FACEBOOK_GROUPS.find((g) => url.startsWith(g.url));
       const page = FACEBOOK_EVENT_PAGES.find((p) => url.startsWith(p.url));
       return readPublicSocialUrl(url, group?.label ?? page?.label ?? url);
     }),
   );
 
+  const instagramUrls = instagramProfileUrls();
+  const cappedInstagram = fast ? instagramUrls.slice(0, 6) : instagramUrls;
   const instagramReads = await Promise.all(
-    instagramProfileUrls().map(async (url) => {
+    cappedInstagram.map(async (url) => {
       const handle = url.replace(/\/$/, "").split("/").pop() ?? url;
       const account = INSTAGRAM_ACCOUNTS.find((a) => a.handle === handle);
       return readPublicSocialUrl(url, account?.label ?? `Instagram @${handle}`);
@@ -92,7 +104,7 @@ export async function ingestSocialEvents(locale: Locale = "en"): Promise<Event[]
 
   // Prefer Instagram + Facebook searches; keep volume bounded for cron time.
   const socialResults = await Promise.all(
-    SOCIAL_QUERIES.slice(0, 14).map(async (query) => {
+    SOCIAL_QUERIES.slice(0, fast ? 6 : 14).map(async (query) => {
       try {
         const content = await webSearch(query);
         if (content.length < 80) return null;
@@ -133,6 +145,7 @@ export async function ingestSocialEvents(locale: Locale = "en"): Promise<Event[]
     communitySubmitted: true,
   }));
 
-  // Source OG / JSON-LD / venue images so pending cards aren't emoji-only.
+  // Image sourcing is slow (fetch + upload). Cron uses fast mode; moderate can enrich later.
+  if (fast) return pending;
   return attachIngestImages(pending);
 }

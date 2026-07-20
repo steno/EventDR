@@ -22,26 +22,38 @@ jobs:
           post_api() {
             local path="$1"
             local label="$2"
-            local res http body url
+            local attempts="${3:-1}"
+            local res http body url try=1
             if [[ "$path" == *\?* ]]; then
               url="${SITE_URL}${path}&secret=${CRON_SECRET}"
             else
               url="${SITE_URL}${path}?secret=${CRON_SECRET}"
             fi
-            res=$(curl -sS -w "\n%{http_code}" -X POST "$url")
-            http=$(echo "$res" | tail -n1)
-            body=$(echo "$res" | sed '$d')
-            echo "${label}: HTTP ${http}"
-            echo "$body"
-            if [ "$http" -lt 200 ] || [ "$http" -ge 300 ]; then
+            while true; do
+              # Netlify gateway ~26–30s; fail the attempt before hanging forever.
+              res=$(curl -sS --max-time 90 -w "\n%{http_code}" -X POST "$url" || true)
+              http=$(echo "$res" | tail -n1)
+              body=$(echo "$res" | sed '$d')
+              echo "${label}: HTTP ${http} (attempt ${try}/${attempts})"
+              echo "$body"
+              if [ "$http" -ge 200 ] && [ "$http" -lt 300 ] 2>/dev/null; then
+                return 0
+              fi
               if [ "$http" = "401" ]; then
                 echo "::error::Unauthorized — set CRON_SECRET on Netlify to match GitHub repo secret, then redeploy."
+                exit 22
               fi
-              exit 22
-            fi
+              if [ "$try" -ge "$attempts" ]; then
+                echo "::error::${label} failed after ${attempts} attempt(s)."
+                exit 22
+              fi
+              try=$((try + 1))
+              echo "Retrying ${label} in 15s…"
+              sleep 15
+            done
           }
+          # Opinions run in a dedicated step — keep seed/ingest under the gateway limit.
           post_api "/api/seed/curated-events" "curated seed"
-          post_api "/api/seed/facebook-events" "facebook seed"
-          post_api "/api/ingest" "ingest"
-          # Backfill POP expert opinion drafts for recurring nights missing takes
-          post_api "/api/cron/event-opinion-drafts?generate=1&limit=5" "opinion drafts"
+          post_api "/api/seed/facebook-events?opinions=0" "facebook seed"
+          post_api "/api/ingest?opinions=0&fast=1" "ingest" 2
+          post_api "/api/cron/event-opinion-drafts?generate=1&limit=5" "opinion drafts" 2

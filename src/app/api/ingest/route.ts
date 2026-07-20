@@ -23,8 +23,13 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Firebase not configured" }, { status: 503 });
   }
 
+  // Cron passes fast=1 + opinions=0 — Netlify kills idle responses around 26–30s.
+  const fast =
+    request.nextUrl.searchParams.get("fast") === "1" ||
+    request.nextUrl.searchParams.get("fast") === "true";
+
   // Always ingest in English; translations are added on moderation approve.
-  const events = await ingestSocialEvents("en");
+  const events = await ingestSocialEvents("en", { fast });
   const upserted = await insertIngestedEvents(events);
 
   const skipOpinions =
@@ -50,6 +55,7 @@ export async function POST(request: NextRequest) {
 
   return NextResponse.json({
     success: true,
+    fast,
     discovered: events.length,
     upserted,
     opinions: opinions
@@ -67,6 +73,6 @@ export async function POST(request: NextRequest) {
       opinions
         ? `; ${opinionDrafted} POP opinion draft(s)`
         : ""
-    }`,
+    }${fast ? " (fast mode)" : ""}`,
   });
 }

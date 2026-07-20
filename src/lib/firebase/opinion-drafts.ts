@@ -71,6 +71,22 @@ export function draftToOpinion(draft: EventOpinionDraft): EventOpinion {
   };
 }
 
+/** Firestore rejects `undefined` field values — strip before write. */
+function omitUndefined<T extends Record<string, unknown>>(
+  value: T,
+): Record<string, unknown> {
+  const out: Record<string, unknown> = {};
+  for (const [key, v] of Object.entries(value)) {
+    if (v === undefined) continue;
+    if (v && typeof v === "object" && !Array.isArray(v) && !(v instanceof Date)) {
+      out[key] = omitUndefined(v as Record<string, unknown>);
+    } else {
+      out[key] = v;
+    }
+  }
+  return out;
+}
+
 export async function saveOpinionDraft(
   draft: EventOpinionDraft,
 ): Promise<boolean> {
@@ -79,13 +95,16 @@ export async function saveOpinionDraft(
   if (!db || !draft.eventId) return false;
 
   try {
+    const payload = omitUndefined({
+      ...draft,
+      updatedAt: new Date().toISOString(),
+    } as Record<string, unknown>);
     await db
       .collection(COLLECTION)
       .doc(draft.eventId)
       .set(
         {
-          ...draft,
-          updatedAt: new Date().toISOString(),
+          ...payload,
           savedAt: FieldValue.serverTimestamp(),
         },
         { merge: true },
