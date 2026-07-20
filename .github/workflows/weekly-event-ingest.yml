@@ -58,8 +58,5 @@ jobs:
           post_api "/api/ingest?opinions=0&fast=1" "ingest" 2
           # Source images + draft opinions for pending AND approved missing photos.
           post_api "/api/cron/ingest-enrich?limit=8&opinionLimit=5" "ingest enrich" 2
-          # Backfill the live deep-caves post approved before image enrich existed.
-          post_api "/api/cron/ingest-enrich?ids=ingest-deep-caves-tour&limit=1&opinionLimit=1&forceImages=1" "backfill deep caves" 2
-          post_api "/api/cron/event-opinion-drafts?approve=ingest-deep-caves-tour" "approve deep caves opinion" 2
           # Also top up recurring-series opinion drafts that still lack seed copy.
           post_api "/api/cron/event-opinion-drafts?generate=1&limit=5" "opinion drafts" 2
