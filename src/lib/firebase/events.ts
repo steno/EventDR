@@ -9,6 +9,11 @@ import { resolveEventCoords } from "@/lib/event-coords";
 import { translateEventCopy } from "@/lib/translate-event";
 import { getVenueImageUrl } from "@/lib/venue-images";
 import { SEED_VENUES } from "@/lib/venues-seed";
+import {
+  findNearDuplicate,
+  mergeIngestIntoExisting,
+} from "@/lib/ingest-dedupe";
+import { sourceEventImageUrl } from "@/lib/ingest-images";
 import { getFirestoreDb, isFirebaseConfigured } from "./admin";
 
 function readLocalizedText(data: DocumentData, field: string): LocalizedText | undefined {
@@ -447,7 +452,31 @@ export async function approveEvent(id: string): Promise<boolean> {
       update.description = translated.description.en ?? event.description;
     }
 
+    // Always try to attach a photo if the pending row still lacks one.
+    if (!event.imageUrl?.trim()) {
+      const imageUrl = await sourceEventImageUrl(
+        event.id,
+        [event.sourceUrl, event.ticketUrl],
+        `${event.title} ${event.venue ?? ""} ${event.location}`,
+      );
+      if (imageUrl) update.imageUrl = imageUrl;
+    }
+
     await ref.update(update);
+
+    // Draft a POP opinion for the newly approved event (never auto-published).
+    try {
+      const { generateOpinionDraftForEvent } = await import(
+        "@/lib/event-opinion-drafts"
+      );
+      await generateOpinionDraftForEvent(
+        { ...event, ...(update.imageUrl ? { imageUrl: String(update.imageUrl) } : {}) },
+        { skipExisting: true, allowWithoutPlaces: true },
+      );
+    } catch (err) {
+      console.warn("approveEvent: opinion draft skipped", id, err);
+    }
+
     return true;
   } catch (err) {
     console.error("approveEvent:", err);
@@ -455,34 +484,78 @@ export async function approveEvent(id: string): Promise<boolean> {
   }
 }
 
-export async function insertIngestedEvents(events: Event[]): Promise<number> {
+export type InsertIngestedResult = {
+  upserted: number;
+  merged: number;
+  skippedRejected: number;
+};
+
+/**
+ * Upsert crawled events for moderation.
+ * Near-duplicates of pending/approved rows are merged into the existing id
+ * (overwrite) instead of creating clone pending cards.
+ */
+export async function insertIngestedEvents(
+  events: Event[],
+): Promise<InsertIngestedResult> {
   const db = getFirestoreDb();
-  if (!db || events.length === 0) return 0;
+  if (!db || events.length === 0) {
+    return { upserted: 0, merged: 0, skippedRejected: 0 };
+  }
+
+  const [pending, approved] = await Promise.all([
+    fetchPendingEvents(),
+    fetchApprovedEvents(),
+  ]);
+  const known = [...pending, ...approved];
 
   let upserted = 0;
+  let merged = 0;
+  let skippedRejected = 0;
+
   for (const event of events) {
-    const ref = db.collection("events").doc(event.id);
-    const existing = await ref.get();
+    const near = findNearDuplicate(event, known);
+    const targetId = near?.id ?? event.id;
+    const isMergeIntoOther =
+      Boolean(near) && near!.reason === "near_title" && near!.id !== event.id;
 
-    if (existing.exists) {
-      const existingStatus = (existing.data()?.status as string) ?? "pending";
-      if (existingStatus === "rejected") continue;
+    const ref = db.collection("events").doc(targetId);
+    const existingDoc = await ref.get();
 
+    if (existingDoc.exists) {
+      const existing = docToEvent(existingDoc.id, existingDoc.data()!);
+      if (existing.status === "rejected") {
+        skippedRejected++;
+        continue;
+      }
+
+      const mergedEvent = mergeIngestIntoExisting(existing, {
+        ...event,
+        id: existing.id,
+      });
       const data = eventToFirestore(
-        event,
-        event.sourceType ?? "crawl",
-        existingStatus,
+        mergedEvent,
+        mergedEvent.sourceType ?? "crawl",
+        existing.status ?? "pending",
       );
       const { createdAt: _, ...withoutCreated } = data;
       await ref.set(withoutCreated, { merge: true });
-    } else {
-      await ref.set(
-        eventToFirestore(event, event.sourceType ?? "crawl", "pending"),
-      );
+
+      const idx = known.findIndex((e) => e.id === existing.id);
+      if (idx >= 0) known[idx] = { ...mergedEvent, status: existing.status };
+      else known.push({ ...mergedEvent, status: existing.status });
+
+      if (isMergeIntoOther) merged++;
+      else upserted++;
+      continue;
     }
+
+    await ref.set(eventToFirestore(event, event.sourceType ?? "crawl", "pending"));
+    known.push({ ...event, id: targetId, status: "pending" });
     upserted++;
   }
-  return upserted;
+
+  return { upserted, merged, skippedRejected };
 }
 
 /** Upsert events as approved (idempotent). Used for curated Facebook discoveries. */

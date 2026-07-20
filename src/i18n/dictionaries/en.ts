@@ -342,6 +342,9 @@ export type Dictionary = {
     firebaseHint: string;
     refresh: string;
     viewLive: string;
+    duplicateWarning: string;
+    duplicateLive: string;
+    duplicatePending: string;
   };
   a11y: {
     skipToContent: string;
@@ -786,6 +789,9 @@ export const en: Dictionary = {
     firebaseHint: "Set FIREBASE_SERVICE_ACCOUNT_JSON in Netlify and redeploy.",
     refresh: "Refresh",
     viewLive: "View live site",
+    duplicateWarning: "Possible duplicate",
+    duplicateLive: "Already live as “{title}” — approving creates a second listing. Prefer Reject.",
+    duplicatePending: "Similar pending item: “{title}”. Reject one to avoid doubles.",
   },
   a11y: {
     skipToContent: "Skip to main content",

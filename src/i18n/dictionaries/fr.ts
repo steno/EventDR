@@ -438,6 +438,11 @@ export const fr: Dictionary = {
     firebaseHint: "Définissez FIREBASE_SERVICE_ACCOUNT_JSON sur Netlify et redéployez.",
     refresh: "Actualiser",
     viewLive: "Voir le site en direct",
+    duplicateWarning: "Doublon possible",
+    duplicateLive:
+      "Déjà en ligne sous «{title}» — approuver créerait une seconde fiche. Préférez Rejeter.",
+    duplicatePending:
+      "Élément en attente similaire : «{title}». Rejetez-en un pour éviter les doublons.",
   },
   a11y: {
     skipToContent: "Aller au contenu principal",

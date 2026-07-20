@@ -30,7 +30,8 @@ export async function POST(request: NextRequest) {
 
   // Always ingest in English; translations are added on moderation approve.
   const events = await ingestSocialEvents("en", { fast });
-  const upserted = await insertIngestedEvents(events);
+  const inserted = await insertIngestedEvents(events);
+  const upserted = inserted.upserted + inserted.merged;
 
   const skipOpinions =
     request.nextUrl.searchParams.get("opinions") === "0" ||
@@ -58,6 +59,8 @@ export async function POST(request: NextRequest) {
     fast,
     discovered: events.length,
     upserted,
+    merged: inserted.merged,
+    skippedRejected: inserted.skippedRejected,
     opinions: opinions
       ? {
           enabled: opinions.enabled,
@@ -70,6 +73,8 @@ export async function POST(request: NextRequest) {
         }
       : { skipped: true, reason: "disabled_by_query" },
     message: `${upserted} ingested events synced for moderation${
+      inserted.merged ? ` (${inserted.merged} merged into existing)` : ""
+    }${
       opinions
         ? `; ${opinionDrafted} POP opinion draft(s)`
         : ""

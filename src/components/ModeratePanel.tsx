@@ -3,12 +3,21 @@
 import { useCallback, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { RefreshCw, CheckCircle, ExternalLink } from "lucide-react";
+import { RefreshCw, CheckCircle, ExternalLink, AlertTriangle } from "lucide-react";
 import type { Event } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import { formatEventDateRange } from "@/lib/format-date";
 import { formatEventPlace } from "@/lib/event-location";
+
+type PendingModerateEvent = Event & {
+  duplicateOf?: {
+    id: string;
+    title: string;
+    status: string;
+    score: number;
+  } | null;
+};
 
 interface ModeratePanelProps {
   dict: Dictionary;
@@ -18,7 +27,7 @@ interface ModeratePanelProps {
 export function ModeratePanel({ dict, locale }: ModeratePanelProps) {
   const searchParams = useSearchParams();
   const secret = searchParams.get("key") ?? "";
-  const [events, setEvents] = useState<Event[]>([]);
+  const [events, setEvents] = useState<PendingModerateEvent[]>([]);
   const [loading, setLoading] = useState(true);
   const [unauthorized, setUnauthorized] = useState(false);
   const [firebaseDown, setFirebaseDown] = useState(false);
@@ -44,7 +53,7 @@ export function ModeratePanel({ dict, locale }: ModeratePanelProps) {
         setEvents([]);
         return;
       }
-      const data = (await res.json()) as { events?: Event[] };
+      const data = (await res.json()) as { events?: PendingModerateEvent[] };
       setEvents(data.events ?? []);
       setUnauthorized(false);
     } catch {
@@ -117,43 +126,72 @@ export function ModeratePanel({ dict, locale }: ModeratePanelProps) {
       {loading ? (
         <p className="text-center text-neutral-400 py-8">{dict.events.loading}</p>
       ) : (
-        events.map((event) => (
-          <article
-            key={event.id}
-            className="rounded-2xl bg-white border border-neutral-100 p-4 shadow-sm"
-          >
-            <h3 className="font-bold text-neutral-900">{event.title}</h3>
-            <p className="text-sm text-neutral-600 mt-1">{event.description}</p>
-            <p className="text-xs text-neutral-400 mt-2">
-              {formatEventDateRange(event.date, locale, {
-                endDate: event.endDate,
-                short: true,
-              })}
-              {event.time ? ` · ${event.time}` : ""} · {formatEventPlace(event)}
-            </p>
-            {event.sourceType && (
-              <p className="text-xs text-violet-600 font-medium mt-1">
-                {dict.moderate.source}: {event.sourceType}
+        events.map((event) => {
+          const dup = event.duplicateOf;
+          const dupLive = dup?.status === "approved";
+          return (
+            <article
+              key={event.id}
+              className={`rounded-2xl bg-white border p-4 shadow-sm ${
+                dup ? "border-amber-300" : "border-neutral-100"
+              }`}
+            >
+              <h3 className="font-bold text-neutral-900">{event.title}</h3>
+              <p className="text-sm text-neutral-600 mt-1">{event.description}</p>
+              <p className="text-xs text-neutral-400 mt-2">
+                {formatEventDateRange(event.date, locale, {
+                  endDate: event.endDate,
+                  short: true,
+                })}
+                {event.time ? ` · ${event.time}` : ""} · {formatEventPlace(event)}
               </p>
-            )}
-            <div className="flex gap-2 mt-4">
-              <button
-                type="button"
-                onClick={() => moderate(event.id, "approve")}
-                className="flex-1 rounded-xl bg-green-600 text-white py-2.5 text-sm font-bold"
-              >
-                {dict.moderate.approve}
-              </button>
-              <button
-                type="button"
-                onClick={() => moderate(event.id, "reject")}
-                className="flex-1 rounded-xl bg-neutral-100 text-neutral-700 py-2.5 text-sm font-bold"
-              >
-                {dict.moderate.reject}
-              </button>
-            </div>
-          </article>
-        ))
+              {event.sourceType && (
+                <p className="text-xs text-violet-600 font-medium mt-1">
+                  {dict.moderate.source}: {event.sourceType}
+                </p>
+              )}
+              {dup && (
+                <div className="mt-3 flex gap-2 rounded-xl bg-amber-50 text-amber-950 px-3 py-2.5 text-xs leading-snug">
+                  <AlertTriangle className="h-4 w-4 shrink-0 mt-0.5 text-amber-600" />
+                  <div>
+                    <p className="font-bold">{dict.moderate.duplicateWarning}</p>
+                    <p className="mt-0.5">
+                      {(dupLive
+                        ? dict.moderate.duplicateLive
+                        : dict.moderate.duplicatePending
+                      ).replace("{title}", dup.title)}
+                    </p>
+                    {dupLive && (
+                      <Link
+                        href={`/${locale}/event/${dup.id}`}
+                        className="inline-flex items-center gap-1 mt-1 font-semibold text-amber-800 underline"
+                      >
+                        <ExternalLink className="h-3 w-3" />
+                        {dup.id}
+                      </Link>
+                    )}
+                  </div>
+                </div>
+              )}
+              <div className="flex gap-2 mt-4">
+                <button
+                  type="button"
+                  onClick={() => moderate(event.id, "approve")}
+                  className="flex-1 rounded-xl bg-green-600 text-white py-2.5 text-sm font-bold"
+                >
+                  {dict.moderate.approve}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => moderate(event.id, "reject")}
+                  className="flex-1 rounded-xl bg-neutral-100 text-neutral-700 py-2.5 text-sm font-bold"
+                >
+                  {dict.moderate.reject}
+                </button>
+              </div>
+            </article>
+          );
+        })
       )}
 
       <Link

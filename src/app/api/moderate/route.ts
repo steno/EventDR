@@ -1,10 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import {
   fetchPendingEvents,
+  fetchApprovedEvents,
   moderateEvent,
   deleteEvent,
   isFirebaseConfigured,
 } from "@/lib/firebase/events";
+import { findNearDuplicate } from "@/lib/ingest-dedupe";
 
 export const dynamic = "force-dynamic";
 export const maxDuration = 60;
@@ -25,7 +27,30 @@ export async function GET(request: NextRequest) {
   if (!isFirebaseConfigured()) {
     return NextResponse.json({ error: "Firebase not configured" }, { status: 503 });
   }
-  const events = await fetchPendingEvents();
+  const [pending, approved] = await Promise.all([
+    fetchPendingEvents(),
+    fetchApprovedEvents(),
+  ]);
+
+  const events = pending.map((event) => {
+    const others = [
+      ...approved,
+      ...pending.filter((p) => p.id !== event.id),
+    ];
+    const match = findNearDuplicate(event, others);
+    return {
+      ...event,
+      duplicateOf: match
+        ? {
+            id: match.id,
+            title: match.title,
+            status: match.status ?? "unknown",
+            score: match.score,
+          }
+        : null,
+    };
+  });
+
   return NextResponse.json({ events, count: events.length });
 }
 
