@@ -1,4 +1,5 @@
 import { attachIngestImages } from "@/lib/ingest-images";
+import { getEventImageUrl } from "@/lib/event-images";
 import { generateOpinionDraftsForEvents } from "@/lib/event-opinion-drafts";
 import {
   fetchApprovedEventsMissingImages,
@@ -57,8 +58,17 @@ export async function enrichPendingIngestEvents(
   } else {
     pool = [...pending];
     if (options.includeApprovedMissingImages !== false) {
-      const approvedMissing = await fetchApprovedEventsMissingImages(limit);
-      pool = mergeById([...pool, ...approvedMissing]);
+      const approvedMissing = await fetchApprovedEventsMissingImages(limit * 2);
+      // Prefer crawl/ingest posts; skip ones that already have curated static art.
+      const prioritized = approvedMissing
+        .filter((e) => !getEventImageUrl(e.id))
+        .sort((a, b) => {
+          const aScore = a.id.startsWith("ingest-") ? 0 : 1;
+          const bScore = b.id.startsWith("ingest-") ? 0 : 1;
+          if (aScore !== bScore) return aScore - bScore;
+          return b.id.localeCompare(a.id);
+        });
+      pool = mergeById([...pool, ...prioritized]);
     }
   }
 
