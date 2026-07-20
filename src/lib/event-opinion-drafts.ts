@@ -154,7 +154,7 @@ async function draftOpinionWithOpenAI(input: {
   const ratingLine =
     input.places?.rating != null
       ? `Google rating: ${input.places.rating.toFixed(1)} (${input.places.userRatingCount ?? "?"} reviews)`
-      : "Google rating: unknown";
+      : "MODE: description-only (no Google reviews — draft from the listing; do not skip for missing reviews)";
 
   const isRecurring = Boolean(input.event.recurrence);
   const system = `You write unique guest-facing POP expert opinions for ONE ${
@@ -169,8 +169,8 @@ Rules:
 - Include priceFeel when evidence supports it: free | budget | moderate | upscale | varies. Prefer skip over guessing.
 - priceNote: short EN note about cover/tickets/drinks/spend; localized es/fr when present. Prefer stated ticket/admission details over guessing.
 - Use Google reviews only as evidence of crowd/vibe/service/price feel — do not invent facts not supported by reviews or the event description.
-- When Google reviews are absent, ground the tip only in the event title/description/admission details — still unique and guest-facing; set "skip": true if that text is too generic to say anything useful.
-- If reviews are too thin or only say "nice place" with nothing event-specific, set "skip": true and "skipReason".
+- When Google reviews are absent (or the prompt says description-only mode), write a tip grounded only in the event title/description/admission/location. Do NOT skip just because reviews are missing. Only skip if that listing text is too generic to say anything useful.
+- If Google reviews ARE present but are too thin or only say "nice place" with nothing event-specific, set "skip": true and "skipReason".
 - Return ONLY valid JSON.`;
 
   const admissionBits = [
