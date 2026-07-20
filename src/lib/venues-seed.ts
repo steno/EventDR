@@ -818,7 +818,7 @@ export const SEED_VENUES: Venue[] = [
 /** Extra name fragments → seed slug (checked before fuzzy name includes). */
 const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
   {
-    pattern: /parque\s+nacional\s+el\s+choc[oó]|choc[oó]\s+national\s+park|cuevas?\s+(del\s+)?choc[oó]|laguna\s+(el\s+)?choc[oó]/i,
+    pattern: /parque\s+nacional\s+el\s+choc[oó]|choc[oó]\s+national\s+park|cuevas?\s+(del\s+)?choc[oó]|laguna\s+(el\s+)?choc[oó]|deep\s+caves?/i,
     slug: "parque-nacional-el-choco",
   },
   {

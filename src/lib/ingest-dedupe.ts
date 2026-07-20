@@ -113,6 +113,17 @@ export function mergeIngestIntoExisting(
   existing: Event,
   incoming: Event,
 ): Event {
+  const cityOnly = /^(cabarete|sos[uú]a|puerto\s*plata|costambar|playa\s*dorada|north\s*coast)$/i;
+  const pickVenue = () => {
+    const a = existing.venue?.trim();
+    const b = incoming.venue?.trim();
+    if (!b) return a;
+    if (!a) return b;
+    // Don't overwrite a specific place name with a bare city label.
+    if (cityOnly.test(b) && !cityOnly.test(a)) return a;
+    return b;
+  };
+
   return {
     ...existing,
     title: incoming.title?.trim() || existing.title,
@@ -121,7 +132,7 @@ export function mergeIngestIntoExisting(
     endDate: incoming.endDate ?? existing.endDate,
     time: incoming.time ?? existing.time,
     location: incoming.location || existing.location,
-    venue: incoming.venue ?? existing.venue,
+    venue: pickVenue(),
     venueSlug: incoming.venueSlug ?? existing.venueSlug,
     address: incoming.address ?? existing.address,
     category: incoming.category || existing.category,
@@ -134,7 +145,8 @@ export function mergeIngestIntoExisting(
     admissionPrice: incoming.admissionPrice ?? existing.admissionPrice,
     callForPricing: incoming.callForPricing ?? existing.callForPricing,
     sourceType: incoming.sourceType ?? existing.sourceType,
-    // Keep existing moderation status / id.
+    lat: incoming.lat ?? existing.lat,
+    lng: incoming.lng ?? existing.lng,
     id: existing.id,
     status: existing.status,
   };
