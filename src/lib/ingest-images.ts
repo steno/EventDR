@@ -7,6 +7,7 @@ import * as cheerio from "cheerio";
 import { getEventImageUrl } from "@/lib/event-images";
 import { getVenueImageUrl } from "@/lib/venue-images";
 import { uploadEventImageBytes } from "@/lib/firebase/images";
+import { imageSearch } from "@/lib/scrape";
 import { SITE_URL } from "@/lib/site-url";
 import type { Event } from "@/lib/types";
 
@@ -219,26 +220,12 @@ export async function fetchValidImageBytes(
   }
 }
 
-/**
- * Resolve a durable imageUrl for an ingested event.
- * Uploads to Firebase Storage when available; otherwise keeps a validated remote URL.
- */
-export async function sourceEventImageUrl(
+async function pickValidatedUploadedImage(
   eventId: string,
-  pageUrls: (string | undefined)[],
+  candidates: string[],
+  maxTry = 5,
 ): Promise<string | undefined> {
-  const curated = getEventImageUrl(eventId);
-  if (curated) return curated;
-
-  const pages = [...new Set(pageUrls.filter(Boolean))] as string[];
-  const candidates: string[] = [];
-
-  for (const page of pages) {
-    const found = await extractImageCandidatesFromUrl(page);
-    for (const url of found) pushUnique(candidates, url);
-  }
-
-  for (const candidate of candidates.slice(0, 5)) {
+  for (const candidate of candidates.slice(0, maxTry)) {
     const valid = await fetchValidImageBytes(candidate);
     if (!valid) continue;
 
@@ -252,6 +239,43 @@ export async function sourceEventImageUrl(
 
     // Storage unavailable — keep validated remote URL (better than no image).
     if (uploaded.reason === "storage_unavailable") return candidate;
+  }
+  return undefined;
+}
+
+/**
+ * Resolve a durable imageUrl for an ingested event.
+ * Prefer page OG / JSON-LD, then Brave image search, then curated maps.
+ * Uploads to Firebase Storage when available; otherwise keeps a validated remote URL.
+ */
+export async function sourceEventImageUrl(
+  eventId: string,
+  pageUrls: (string | undefined)[],
+  searchHint?: string,
+): Promise<string | undefined> {
+  const curated = getEventImageUrl(eventId);
+  if (curated) return curated;
+
+  const pages = [...new Set(pageUrls.filter(Boolean))] as string[];
+  const candidates: string[] = [];
+
+  for (const page of pages) {
+    const found = await extractImageCandidatesFromUrl(page);
+    for (const url of found) pushUnique(candidates, url);
+  }
+
+  const fromPage = await pickValidatedUploadedImage(eventId, candidates);
+  if (fromPage) return fromPage;
+
+  // Marketplace pages often 403 — fall back to Brave image search.
+  const hint = searchHint?.trim();
+  if (hint) {
+    const searched = await imageSearch(
+      `${hint} Dominican Republic Puerto Plata photo`,
+      8,
+    );
+    const fromSearch = await pickValidatedUploadedImage(eventId, searched, 6);
+    if (fromSearch) return fromSearch;
   }
 
   return undefined;
@@ -312,10 +336,11 @@ export async function attachIngestImages(events: Event[]): Promise<Event[]> {
         }
       }
 
-      const fromPage = await sourceEventImageUrl(event.id, [
-        event.sourceUrl,
-        event.ticketUrl,
-      ]);
+      const fromPage = await sourceEventImageUrl(
+        event.id,
+        [event.sourceUrl, event.ticketUrl],
+        `${event.title} ${event.venue ?? ""} ${event.location}`,
+      );
       if (fromPage) return { id: event.id, imageUrl: fromPage };
 
       if (event.venueSlug) {

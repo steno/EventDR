@@ -213,3 +213,55 @@ export async function webSearch(query: string): Promise<string> {
     .join("\n\n")
     .slice(0, MAX_CONTENT_CHARS);
 }
+
+/**
+ * Brave Image Search — candidate photo URLs for ingest when page OG scrapes fail
+ * (e.g. Viator / GetYourGuide 403). Returns direct image URLs only.
+ */
+export async function imageSearch(
+  query: string,
+  count = 8,
+): Promise<string[]> {
+  const key = process.env.BRAVE_SEARCH_API_KEY?.trim();
+  if (!key || !query.trim()) return [];
+
+  const params = new URLSearchParams({
+    q: query.trim(),
+    count: String(Math.min(20, Math.max(1, count))),
+    safesearch: "strict",
+  });
+  const res = await fetchWithTimeout(
+    `https://api.search.brave.com/res/v1/images/search?${params}`,
+    {
+      headers: {
+        Accept: "application/json",
+        "X-Subscription-Token": key,
+      },
+    },
+  );
+
+  if (!res.ok) {
+    console.warn(`Brave image search failed (${res.status}): ${query}`);
+    return [];
+  }
+
+  const json = (await res.json()) as {
+    results?: {
+      url?: string;
+      thumbnail?: { src?: string };
+      properties?: { url?: string };
+    }[];
+  };
+
+  const urls: string[] = [];
+  for (const item of json.results ?? []) {
+    const candidate =
+      item.properties?.url?.trim() ||
+      item.url?.trim() ||
+      item.thumbnail?.src?.trim();
+    if (!candidate || !/^https?:\/\//i.test(candidate)) continue;
+    if (urls.includes(candidate)) continue;
+    urls.push(candidate);
+  }
+  return urls;
+}

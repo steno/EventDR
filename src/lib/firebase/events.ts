@@ -326,6 +326,7 @@ export async function patchEventFields(
   if ("venueSlug" in fields) update.venueSlug = fields.venueSlug ?? null;
   if ("time" in fields) update.time = fields.time ?? null;
   if ("title" in fields) update.title = fields.title ?? null;
+  if ("imageUrl" in fields) update.imageUrl = fields.imageUrl ?? null;
   if ("lineup" in fields) {
     update.lineup = Array.isArray(fields.lineup) ? fields.lineup : null;
   }
