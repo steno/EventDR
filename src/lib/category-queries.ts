@@ -235,14 +235,15 @@ export const CATEGORY_QUERIES: Record<EventCategory, CategoryQuerySet> = {
 
 export const BROAD_QUERIES = [
   `eventos Costa Norte Puerto Plata Sosúa Cabarete 2026`,
+  // OTA tours early so fast-mode cron (first 3 searches) still covers them.
+  `site:viator.com things to do Puerto Plata Sosúa Cabarete`,
+  `site:getyourguide.com Puerto Plata Cabarete tours activities`,
   `site:allevents.in Puerto Plata Dominican Republic`,
   `site:eventbrite.com Puerto Plata Sosúa Cabarete`,
   `site:bandsintown.com Sosúa OR Cabarete OR Puerto Plata Dominican Republic`,
   `site:todotickets.do eventos Puerto Plata Sosúa Cabarete`,
   `site:dominicana.myticketplus.com Puerto Plata OR Cabarete OR Sosúa`,
   `site:tix.do Puerto Plata OR Cabarete OR Sosúa`,
-  `site:viator.com things to do Puerto Plata Sosúa Cabarete`,
-  `site:getyourguide.com Puerto Plata Cabarete tours activities`,
   `site:facebook.com events Puerto Plata Costa Norte`,
   `qué hacer Puerto Plata eventos esta semana`,
   `pasalo.do eventos Puerto Plata`,
