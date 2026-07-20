@@ -27,7 +27,11 @@ import { lastHomePath } from "@/lib/cities";
 import { readReturnParams, resolveBackLabel } from "@/lib/event-navigation";
 import { formatPhoneTel } from "@/lib/event-phone";
 import { PAGE_SHELL_CLASS } from "@/lib/page-shell";
-import { scrollBehaviorPreference } from "@/lib/list-scroll";
+import {
+  readDocumentTop,
+  readStickyListHeaderHeight,
+  scrollBehaviorPreference,
+} from "@/lib/list-scroll";
 import { getVenueHeroImageUrl } from "@/lib/venue-images";
 
 interface VenuePageProps {
@@ -60,7 +64,7 @@ export function VenuePage({
   const [loading, setLoading] = useState(true);
   const [submitOpen, setSubmitOpen] = useState(false);
   const [plannerOpen, setPlannerOpen] = useState(false);
-  const plannerRef = useRef<HTMLElement>(null);
+  const mapSectionRef = useRef<HTMLDivElement>(null);
   const directions = useVenueDirections(venue, dict);
 
   function loadEvents() {
@@ -118,10 +122,18 @@ export function VenuePage({
 
   function openDirectionsPlanner() {
     setPlannerOpen(true);
+    const behavior = scrollBehaviorPreference();
+    // Wait for the planner to expand so layout height is final, then pin the
+    // map (not just the form) under the sticky header.
     requestAnimationFrame(() => {
-      plannerRef.current?.scrollIntoView({
-        behavior: scrollBehaviorPreference(),
-        block: "nearest",
+      requestAnimationFrame(() => {
+        const target = mapSectionRef.current;
+        if (!target) return;
+        const top = Math.max(
+          0,
+          readDocumentTop(target) - readStickyListHeaderHeight(),
+        );
+        window.scrollTo({ top, behavior });
       });
     });
   }
@@ -170,16 +182,17 @@ export function VenuePage({
                 </div>
               )}
             </div>
-            <VenueMapPanel venue={venue} dict={dict} directions={directions} />
-            <VenueDirectionsPlanner
-              ref={plannerRef}
-              venue={venue}
-              dict={dict}
-              directions={directions}
-              open={plannerOpen}
-              onOpenChange={setPlannerOpen}
-              variant="embedded"
-            />
+            <div ref={mapSectionRef}>
+              <VenueMapPanel venue={venue} dict={dict} directions={directions} />
+              <VenueDirectionsPlanner
+                venue={venue}
+                dict={dict}
+                directions={directions}
+                open={plannerOpen}
+                onOpenChange={setPlannerOpen}
+                variant="embedded"
+              />
+            </div>
           </article>
 
           {/* Identity + quick actions */}
