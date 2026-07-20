@@ -57,7 +57,6 @@ jobs:
           post_api "/api/seed/facebook-events?opinions=0" "facebook seed"
           post_api "/api/ingest?opinions=0&fast=1" "ingest" 2
           # Source images + venues + draft opinions for pending AND approved gaps.
-          post_api "/api/cron/ingest-enrich?limit=8&opinionLimit=5&ids=ingest-deep-caves-tour,ingest-hidden-river-kayak-adventure" "ingest enrich venues" 2
           post_api "/api/cron/ingest-enrich?limit=8&opinionLimit=5" "ingest enrich" 2
           # Also top up recurring-series opinion drafts that still lack seed copy.
           post_api "/api/cron/event-opinion-drafts?generate=1&limit=5" "opinion drafts" 2
