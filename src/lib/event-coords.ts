@@ -41,10 +41,9 @@ export function resolveEventCoords(
     if (coords) return coords;
   }
 
+  // Trust stored pins (e.g. Places-geocoded ingest venues not yet in seed).
   if (event.lat != null && event.lng != null) {
-    if (!event.venueSlug?.trim() && !event.venue?.trim()) {
-      return { lat: event.lat, lng: event.lng };
-    }
+    return { lat: event.lat, lng: event.lng };
   }
 
   const loc = event.location.toLowerCase();

@@ -196,6 +196,81 @@ async function textSearchPlaceId(
   }
 }
 
+export type PlaceLocationResult = {
+  placeId: string;
+  lat: number;
+  lng: number;
+  displayName?: string;
+};
+
+/**
+ * Resolve lat/lng for a venue name via Places Text Search (ingest venue linking).
+ */
+export async function findPlaceLocation(
+  name: string,
+  city?: string,
+): Promise<PlaceLocationResult | null> {
+  const key = apiKey();
+  if (!key || !name.trim()) return null;
+
+  const textQuery = `${name.trim()} ${city?.trim() ?? ""} Dominican Republic`
+    .replace(/\s+/g, " ")
+    .trim();
+
+  try {
+    const res = await fetch(
+      "https://places.googleapis.com/v1/places:searchText",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-Goog-Api-Key": key,
+          "X-Goog-FieldMask":
+            "places.id,places.displayName,places.location",
+        },
+        body: JSON.stringify({
+          textQuery,
+          maxResultCount: 1,
+          languageCode: "en",
+        }),
+        cache: "no-store",
+      },
+    );
+    if (!res.ok) return null;
+
+    const data = (await res.json()) as {
+      places?: {
+        id?: string;
+        name?: string;
+        displayName?: { text?: string };
+        location?: { latitude?: number; longitude?: number };
+      }[];
+    };
+    const place = data.places?.[0];
+    const raw = place?.id ?? place?.name;
+    const placeId = raw?.replace(/^places\//, "");
+    const lat = place?.location?.latitude;
+    const lng = place?.location?.longitude;
+    if (
+      !placeId ||
+      typeof lat !== "number" ||
+      typeof lng !== "number" ||
+      !Number.isFinite(lat) ||
+      !Number.isFinite(lng)
+    ) {
+      return null;
+    }
+    return {
+      placeId,
+      lat,
+      lng,
+      displayName: place.displayName?.text,
+    };
+  } catch {
+    return null;
+  }
+}
+
 export async function findPlaceIdWithStatus(
   name: string,
   venue?: Partial<Pick<Venue, "lat" | "lng" | "city" | "slug">>,

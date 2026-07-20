@@ -375,6 +375,8 @@ export async function patchEventFields(
   if ("time" in fields) update.time = fields.time ?? null;
   if ("title" in fields) update.title = fields.title ?? null;
   if ("imageUrl" in fields) update.imageUrl = fields.imageUrl ?? null;
+  if ("lat" in fields) update.lat = fields.lat ?? null;
+  if ("lng" in fields) update.lng = fields.lng ?? null;
   if ("lineup" in fields) {
     update.lineup = Array.isArray(fields.lineup) ? fields.lineup : null;
   }
@@ -460,6 +462,20 @@ export async function approveEvent(id: string): Promise<boolean> {
         `${event.title} ${event.venue ?? ""} ${event.location}`,
       );
       if (imageUrl) update.imageUrl = imageUrl;
+    }
+
+    // Link venue slug + coords when missing.
+    if (!event.venueSlug?.trim()) {
+      try {
+        const { resolveEventVenue } = await import("@/lib/ingest-venue");
+        const resolved = await resolveEventVenue(event);
+        if (resolved.venueSlug) update.venueSlug = resolved.venueSlug;
+        if (resolved.venue) update.venueName = resolved.venue;
+        if (typeof resolved.lat === "number") update.lat = resolved.lat;
+        if (typeof resolved.lng === "number") update.lng = resolved.lng;
+      } catch (err) {
+        console.warn("approveEvent: venue resolve skipped", id, err);
+      }
     }
 
     await ref.update(update);
@@ -605,6 +621,39 @@ export async function fetchVenueBySlug(slug: string): Promise<Venue | null> {
   const data = doc.data();
   if (!data) return null;
   return docToVenue(doc.id, data);
+}
+
+/** Upsert a single venue (ingest-created or seed sync of one row). */
+export async function upsertVenue(venue: Venue): Promise<boolean> {
+  const db = getFirestoreDb();
+  if (!db) return false;
+
+  try {
+    const curatedImage = getVenueImageUrl(venue.slug);
+    await db
+      .collection("venues")
+      .doc(venue.slug)
+      .set(
+        {
+          name: venue.name,
+          city: venue.city,
+          description: venue.description,
+          lat: venue.lat,
+          lng: venue.lng,
+          emoji: venue.emoji ?? "📍",
+          instagram: venue.instagram ?? null,
+          website: venue.website ?? null,
+          phone: venue.phone ?? null,
+          googlePlaceId: venue.googlePlaceId ?? null,
+          ...(curatedImage ? { imageUrl: curatedImage } : {}),
+        },
+        { merge: true },
+      );
+    return true;
+  } catch (err) {
+    console.error("upsertVenue:", err);
+    return false;
+  }
 }
 
 export async function countWeekendEvents(): Promise<number> {

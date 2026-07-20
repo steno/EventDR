@@ -70,7 +70,9 @@ async function handle(request: NextRequest) {
     considered: result.considered,
     imagesUpdated: result.imagesUpdated,
     imagesFailed: result.imagesFailed,
+    venuesUpdated: result.venuesUpdated,
     imageResults: result.imageResults,
+    venueResults: result.venueResults,
     opinions: result.opinions
       ? {
           enabled: result.opinions.enabled,
@@ -82,7 +84,7 @@ async function handle(request: NextRequest) {
           results: result.opinions.results,
         }
       : { skipped: true },
-    message: `Enriched pending ingest: ${result.imagesUpdated} image(s), ${opinionDrafted} opinion draft(s)`,
+    message: `Enriched pending ingest: ${result.imagesUpdated} image(s), ${result.venuesUpdated} venue(s), ${opinionDrafted} opinion draft(s)`,
   });
 }
 

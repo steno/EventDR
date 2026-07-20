@@ -121,6 +121,22 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Restaurant sur la route Sosúa–Cabarete — cuisine dominicaine et internationale, piste de danse et musique live le mardi, prisé des locaux et résidents.",
     },
   },
+  "parque-nacional-el-choco": {
+    name: {
+      es: "Parque Nacional El Choco",
+      fr: "Parc national El Choco",
+    },
+    description: {
+      es: "Parque kárstico tierra adentro desde Cabarete — lagunas, bosque subtropical y tours en bote por cuevas con lagos subterráneos.",
+      fr: "Parc karstique à l'intérieur des terres depuis Cabarete — lagunes, forêt subtropicale et visites en bateau dans des grottes aux lacs souterrains.",
+    },
+  },
+  "jamao-al-norte": {
+    description: {
+      es: "Pueblo de ecoturismo en el río Yásica / Jamao tierra adentro desde Cabarete — kayak en aguas claras y escapadas de naturaleza.",
+      fr: "Village d'écotourisme sur la rivière Yásica / Jamao à l'intérieur des terres depuis Cabarete — kayak en eaux claires et escapades nature.",
+    },
+  },
   "blue-jacktar-playa-dorada": {
     description: {
       es: "Centro de convenciones del resort en Playa Dorada — conciertos de merengue y tributos con boletería local en Puerto Plata.",

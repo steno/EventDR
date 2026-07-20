@@ -14,6 +14,7 @@ import {
   instagramSearchQueries,
 } from "@/lib/instagram-sources";
 import { attachIngestImages } from "@/lib/ingest-images";
+import { resolveEventVenues } from "@/lib/ingest-venue";
 import { scrapeUrl, webSearch } from "@/lib/scrape";
 import type { Event } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
@@ -136,8 +137,9 @@ export async function ingestSocialEvents(
 
   // Drop OTA clones of Damajagua / Cayo Arena / etc. already in recurring seeds.
   const novel = filterSeededAttractionClones(enriched);
+  const withVenues = await resolveEventVenues(novel);
 
-  const pending = novel.map((e) => ({
+  const pending = withVenues.map((e) => ({
     ...e,
     id: ingestEventId(e),
     sourceType: e.sourceUrl?.includes("instagram")

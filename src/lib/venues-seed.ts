@@ -791,6 +791,52 @@ export const SEED_VENUES: Venue[] = [
     phone: "+18095866125",
     instagram: "puertoplatabeachsoccer",
   },
+  {
+    slug: "parque-nacional-el-choco",
+    name: "Parque Nacional El Choco",
+    city: "Cabarete",
+    description:
+      "Protected karst park just inland from Cabarete — freshwater lagoons, subtropical forest, and guided cave boat tours through underground lakes (Cuevas del Choco).",
+    lat: 19.75,
+    lng: -70.4,
+    emoji: "🏞️",
+    website:
+      "https://es.godominicanrepublic.com/destinos/cabarete",
+  },
+  {
+    slug: "jamao-al-norte",
+    name: "Jamao al Norte",
+    city: "Cabarete",
+    description:
+      "Eco-tourism town on the Yásica / Jamao River corridor inland from Cabarete — clear-water kayaking, community lunch stops, and nature escapes popular with North Coast day tours.",
+    lat: 19.635,
+    lng: -70.448,
+    emoji: "🛶",
+  },
+];
+
+/** Extra name fragments → seed slug (checked before fuzzy name includes). */
+const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
+  {
+    pattern: /parque\s+nacional\s+el\s+choc[oó]|choc[oó]\s+national\s+park|cuevas?\s+(del\s+)?choc[oó]|laguna\s+(el\s+)?choc[oó]/i,
+    slug: "parque-nacional-el-choco",
+  },
+  {
+    pattern: /jamao(\s+al\s+norte)?|yasica\s+river|r[ií]o\s+jamao/i,
+    slug: "jamao-al-norte",
+  },
+  {
+    pattern: /27\s*charcos|damajagua/i,
+    slug: "charcos-damajagua",
+  },
+  {
+    pattern: /cayo\s*arena|cayo\s*para[ií]so/i,
+    slug: "cayo-arena",
+  },
+  {
+    pattern: /ocean\s*world/i,
+    slug: "ocean-world",
+  },
 ];
 
 export function getSeedVenue(slug: string): Venue | undefined {
@@ -799,9 +845,21 @@ export function getSeedVenue(slug: string): Venue | undefined {
 
 export function matchVenueSlug(venueName?: string): string | undefined {
   if (!venueName) return undefined;
-  const lower = venueName.toLowerCase();
-  for (const v of SEED_VENUES) {
-    if (lower.includes(v.name.toLowerCase()) || lower.includes(v.slug.replace(/-/g, " "))) {
+  const lower = venueName.toLowerCase().trim();
+  if (!lower) return undefined;
+
+  for (const alias of VENUE_ALIASES) {
+    if (alias.pattern.test(lower)) return alias.slug;
+  }
+
+  // Prefer longer seed names first so "Parada Típica El Choco" wins over short fragments.
+  const byNameLength = [...SEED_VENUES].sort(
+    (a, b) => b.name.length - a.name.length,
+  );
+  for (const v of byNameLength) {
+    const name = v.name.toLowerCase();
+    const slugWords = v.slug.replace(/-/g, " ");
+    if (lower.includes(name) || lower.includes(slugWords)) {
       return v.slug;
     }
   }
