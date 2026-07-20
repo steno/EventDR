@@ -176,12 +176,6 @@ export type Dictionary = {
     linkCopied: string;
     facebookCopied: string;
     facebookCopyFailed: string;
-    mediaPhoto: string;
-    mediaMap: string;
-    mediaTapDirections: string;
-    mediaSwipeMap: string;
-    mediaSwipePhoto: string;
-    showMap: string;
   };
   submit: {
     title: string;
@@ -565,12 +559,6 @@ export const en: Dictionary = {
       "Event copied! Tap OK, then paste into your Facebook post.",
     facebookCopyFailed:
       "Could not copy automatically. Long-press to paste after Facebook opens.",
-    mediaPhoto: "Event photo",
-    mediaMap: "Location map",
-    mediaTapDirections: "Tap for directions",
-    mediaSwipeMap: "Swipe for map",
-    mediaSwipePhoto: "Swipe for photo",
-    showMap: "Show map",
   },
   submit: {
     title: "Share an event",

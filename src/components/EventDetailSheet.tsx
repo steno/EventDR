@@ -43,7 +43,6 @@ import { EventStatusBadge } from "@/components/EventStatusBadge";
 import { EventImage } from "@/components/EventImage";
 import { EventDetailMedia, hasEventDetailHero } from "@/components/EventDetailMedia";
 import { EventOpinionBlock } from "@/components/EventOpinionBlock";
-import { resolveEventCoords } from "@/lib/event-coords";
 import { formatEventPlace } from "@/lib/event-location";
 import { areEventOpinionsEnabled, getEventOpinion, withGoogleRating, googleRatingFromAssessment } from "@/lib/event-opinions";
 import {
@@ -308,9 +307,8 @@ export function EventDetailSheet({
   });
   const TitleTag = standalone ? "h1" : "h2";
   const showHero = hasEventDetailHero(event);
-  const hasMapCoords = resolveEventCoords(event) != null;
   const isPhysical = event.format !== "digital";
-  const showBottomDirections = isPhysical && !hasMapCoords;
+  const showBottomDirections = isPhysical;
   // Calendar CTA lives in the save celebration — hide the duplicate bar icon.
   const showCalendarAction = !showSaveCelebration;
   const actionCols =
@@ -822,8 +820,6 @@ export function EventDetailSheet({
               <EventDetailMedia
                 event={event}
                 dict={dict}
-                emoji={emoji}
-                gradient={category?.gradient}
                 variant="standalone"
                 priority
               />
@@ -897,8 +893,6 @@ export function EventDetailSheet({
             <EventDetailMedia
               event={event}
               dict={dict}
-              emoji={emoji}
-              gradient={category?.gradient}
               variant="sheet"
               onClose={requestClose}
               priority

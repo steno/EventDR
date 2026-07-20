@@ -211,12 +211,6 @@ export const es: Dictionary = {
       "¡Evento copiado! Pulsa OK y pégalo en tu publicación de Facebook.",
     facebookCopyFailed:
       "No se pudo copiar automáticamente. Mantén pulsado para pegar cuando se abra Facebook.",
-    mediaPhoto: "Foto del evento",
-    mediaMap: "Mapa de ubicación",
-    mediaTapDirections: "Toca para indicaciones",
-    mediaSwipeMap: "Desliza para el mapa",
-    mediaSwipePhoto: "Desliza para la foto",
-    showMap: "Ver mapa",
   },
   submit: {
     title: "Comparte un evento",

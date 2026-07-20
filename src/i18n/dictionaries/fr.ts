@@ -211,12 +211,6 @@ export const fr: Dictionary = {
       "Événement copié ! Appuyez sur OK, puis collez dans votre publication Facebook.",
     facebookCopyFailed:
       "Copie impossible. Appui long pour coller une fois Facebook ouvert.",
-    mediaPhoto: "Photo de l'événement",
-    mediaMap: "Carte du lieu",
-    mediaTapDirections: "Appuyer pour l'itinéraire",
-    mediaSwipeMap: "Glisser pour la carte",
-    mediaSwipePhoto: "Glisser pour la photo",
-    showMap: "Afficher la carte",
   },
   submit: {
     title: "Partager un événement",
