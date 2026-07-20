@@ -116,6 +116,8 @@ export async function enrichPendingIngestEvents(
     : await generateOpinionDraftsForEvents(opinionPool, {
         limit: options.opinionLimit ?? Math.min(5, limit),
         skipExisting: true,
+        // OTA tour titles often lack a Places match — still draft from listing copy.
+        allowWithoutPlaces: true,
       });
 
   return {

@@ -56,6 +56,11 @@ export interface GenerateOpinionDraftsOptions {
   skipExisting?: boolean;
   /** Force regenerate even when a draft exists (resets to draft). */
   force?: boolean;
+  /**
+   * When Places cannot resolve a rating (common for OTA tour titles),
+   * still draft from the event description. Attribution stays "POP research".
+   */
+  allowWithoutPlaces?: boolean;
 }
 
 /**
@@ -164,6 +169,7 @@ Rules:
 - Include priceFeel when evidence supports it: free | budget | moderate | upscale | varies. Prefer skip over guessing.
 - priceNote: short EN note about cover/tickets/drinks/spend; localized es/fr when present. Prefer stated ticket/admission details over guessing.
 - Use Google reviews only as evidence of crowd/vibe/service/price feel — do not invent facts not supported by reviews or the event description.
+- When Google reviews are absent, ground the tip only in the event title/description/admission details — still unique and guest-facing; set "skip": true if that text is too generic to say anything useful.
 - If reviews are too thin or only say "nice place" with nothing event-specific, set "skip": true and "skipReason".
 - Return ONLY valid JSON.`;
 
@@ -256,7 +262,11 @@ Or { "skip": true, "skipReason": "..." }`;
 
 export async function generateOpinionDraftForEvent(
   event: Event,
-  options?: { force?: boolean; skipExisting?: boolean },
+  options?: {
+    force?: boolean;
+    skipExisting?: boolean;
+    allowWithoutPlaces?: boolean;
+  },
 ): Promise<DraftGenerationResult> {
   const seriesKey =
     eventSeriesKey({
@@ -309,27 +319,29 @@ export async function generateOpinionDraftForEvent(
       : undefined;
 
   const places = await resolvePlacesForVenue(lookupVenue, venueName);
-  if (!places || places.rating == null) {
-    return {
-      eventId: event.id,
-      seriesKey,
-      status: "skipped",
-      reason: places ? "places_missing_rating" : "places_unresolved",
-    };
-  }
+  const placesOk =
+    places != null &&
+    places.rating != null &&
+    places.reviews.length >= 2;
 
-  if (places.reviews.length < 2) {
+  if (!placesOk && !options?.allowWithoutPlaces) {
     return {
       eventId: event.id,
       seriesKey,
       status: "skipped",
-      reason: "insufficient_reviews",
-      places: {
-        placeId: places.placeId,
-        rating: places.rating,
-        reviewCount: places.userRatingCount,
-        reviewSampleCount: places.reviews.length,
-      },
+      reason: !places
+        ? "places_unresolved"
+        : places.rating == null
+          ? "places_missing_rating"
+          : "insufficient_reviews",
+      places: places
+        ? {
+            placeId: places.placeId,
+            rating: places.rating,
+            reviewCount: places.userRatingCount,
+            reviewSampleCount: places.reviews.length,
+          }
+        : undefined,
     };
   }
 
@@ -337,7 +349,7 @@ export async function generateOpinionDraftForEvent(
     event,
     venueName,
     city,
-    places,
+    places: placesOk ? places : null,
   });
 
   if (error || !payload) {
@@ -346,12 +358,14 @@ export async function generateOpinionDraftForEvent(
       seriesKey,
       status: "failed",
       reason: error ?? "llm_failed",
-      places: {
-        placeId: places.placeId,
-        rating: places.rating,
-        reviewCount: places.userRatingCount,
-        reviewSampleCount: places.reviews.length,
-      },
+      places: places
+        ? {
+            placeId: places.placeId,
+            rating: places.rating,
+            reviewCount: places.userRatingCount,
+            reviewSampleCount: places.reviews.length,
+          }
+        : undefined,
     };
   }
 
@@ -361,20 +375,22 @@ export async function generateOpinionDraftForEvent(
       seriesKey,
       status: "skipped",
       reason: payload.skipReason ?? "model_skipped",
-      places: {
-        placeId: places.placeId,
-        rating: places.rating,
-        reviewCount: places.userRatingCount,
-        reviewSampleCount: places.reviews.length,
-      },
+      places: places
+        ? {
+            placeId: places.placeId,
+            rating: places.rating,
+            reviewCount: places.userRatingCount,
+            reviewSampleCount: places.reviews.length,
+          }
+        : undefined,
     };
   }
 
   const now = new Date().toISOString();
-  const ratingCite = formatGoogleRatingCite(
-    places.rating,
-    places.userRatingCount,
-  );
+  const ratingCite =
+    placesOk && places?.rating != null
+      ? formatGoogleRatingCite(places.rating, places.userRatingCount)
+      : undefined;
 
   const draft: EventOpinionDraft = {
     eventId: event.id,
@@ -384,19 +400,26 @@ export async function generateOpinionDraftForEvent(
     priceFeel: payload.priceFeel,
     priceNote: payload.priceNote,
     priceNoteLocalized: payload.priceNoteLocalized,
-    attribution: "POP research · Google reviews",
+    attribution: placesOk
+      ? "POP research · Google reviews"
+      : "POP research",
     ratingCite,
-    googleRating: places.rating,
-    googleReviewCount: places.userRatingCount,
-    researchNotes: `LLM draft from Places ${places.placeId}; not published until approved.`,
+    googleRating: placesOk ? places?.rating : undefined,
+    googleReviewCount: placesOk ? places?.userRatingCount : undefined,
+    researchNotes: placesOk
+      ? `LLM draft from Places ${places!.placeId}; not published until approved.`
+      : "LLM draft from event listing (Places unavailable); not published until approved.",
     updatedAt: now,
     status: "draft",
-    places: {
-      placeId: places.placeId,
-      rating: places.rating,
-      reviewCount: places.userRatingCount,
-      reviewSampleCount: places.reviews.length,
-    },
+    places:
+      placesOk && places
+        ? {
+            placeId: places.placeId,
+            rating: places.rating,
+            reviewCount: places.userRatingCount,
+            reviewSampleCount: places.reviews.length,
+          }
+        : undefined,
     model,
     generatedAt: now,
   };
@@ -492,6 +515,7 @@ export async function generateOpinionDraftsForEvents(
       await generateOpinionDraftForEvent(event, {
         force: options?.force,
         skipExisting: options?.skipExisting,
+        allowWithoutPlaces: options?.allowWithoutPlaces,
       }),
     );
   }
