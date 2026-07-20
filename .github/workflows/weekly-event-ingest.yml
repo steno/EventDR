@@ -56,7 +56,7 @@ jobs:
           post_api "/api/seed/curated-events" "curated seed"
           post_api "/api/seed/facebook-events?opinions=0" "facebook seed"
           post_api "/api/ingest?opinions=0&fast=1" "ingest" 2
-          # Source images + draft opinions for pending (incl. new OTA tours).
+          # Source images + draft opinions for pending AND approved missing photos.
           post_api "/api/cron/ingest-enrich?limit=8&opinionLimit=5" "ingest enrich" 2
           # Also top up recurring-series opinion drafts that still lack seed copy.
           post_api "/api/cron/event-opinion-drafts?generate=1&limit=5" "opinion drafts" 2

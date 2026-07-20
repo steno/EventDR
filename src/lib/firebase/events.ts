@@ -243,6 +243,49 @@ export async function fetchEventById(id: string): Promise<Event | null> {
   }
 }
 
+/** Load events by id regardless of moderation status (cron / enrich). */
+export async function fetchEventsByIds(ids: string[]): Promise<Event[]> {
+  const db = getFirestoreDb();
+  if (!db || ids.length === 0) return [];
+
+  const unique = [...new Set(ids.map((id) => id.trim()).filter(Boolean))];
+  const events: Event[] = [];
+  for (const id of unique) {
+    try {
+      const doc = await db.collection("events").doc(id).get();
+      if (!doc.exists) continue;
+      events.push(docToEvent(doc.id, doc.data()!));
+    } catch (error) {
+      console.error("fetchEventsByIds failed:", id, error);
+    }
+  }
+  return events;
+}
+
+/** Approved events that still need a photo (post-approve backfill). */
+export async function fetchApprovedEventsMissingImages(
+  limit = 8,
+): Promise<Event[]> {
+  try {
+    const db = getFirestoreDb();
+    if (!db) return [];
+
+    const snap = await db
+      .collection("events")
+      .where("status", "==", "approved")
+      .get();
+
+    return snap.docs
+      .map((doc) => docToEvent(doc.id, doc.data()))
+      .filter((e) => !e.imageUrl?.trim())
+      .sort((a, b) => b.id.localeCompare(a.id))
+      .slice(0, Math.max(1, limit));
+  } catch (error) {
+    console.error("fetchApprovedEventsMissingImages failed:", error);
+    return [];
+  }
+}
+
 export async function fetchApprovedEvents(options?: {
   category?: EventCategory;
   venueSlug?: string;

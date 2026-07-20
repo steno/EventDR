@@ -43,6 +43,9 @@ async function handle(request: NextRequest) {
     limit: Number.isFinite(limit) ? limit : 8,
     opinionLimit: Number.isFinite(opinionLimit) ? opinionLimit : 5,
     eventIds: ids?.length ? ids : undefined,
+    includeApprovedMissingImages:
+      params.get("includeApproved") !== "0" &&
+      params.get("includeApproved") !== "false",
     skipImages:
       params.get("skipImages") === "1" || params.get("skipImages") === "true",
     skipOpinions:

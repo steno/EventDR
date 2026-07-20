@@ -1,16 +1,20 @@
 import { attachIngestImages } from "@/lib/ingest-images";
 import { generateOpinionDraftsForEvents } from "@/lib/event-opinion-drafts";
 import {
+  fetchApprovedEventsMissingImages,
+  fetchEventsByIds,
   fetchPendingEvents,
   patchEventFields,
 } from "@/lib/firebase/events";
 import type { Event } from "@/lib/types";
 
 export type IngestEnrichOptions = {
-  /** Max pending events to enrich this run (gateway budget). */
+  /** Max events to enrich this run (gateway budget). */
   limit?: number;
-  /** Only these event ids. */
+  /** Only these event ids (any status — for live backfill). */
   eventIds?: string[];
+  /** Also enrich approved events that are missing images. */
+  includeApprovedMissingImages?: boolean;
   /** Skip image sourcing. */
   skipImages?: boolean;
   /** Skip opinion drafts. */
@@ -30,23 +34,35 @@ export type IngestEnrichResult = {
   opinions: Awaited<ReturnType<typeof generateOpinionDraftsForEvents>> | null;
 };
 
+function mergeById(events: Event[]): Event[] {
+  const map = new Map<string, Event>();
+  for (const e of events) map.set(e.id, e);
+  return [...map.values()];
+}
+
 /**
- * Source validated images + POP opinion drafts for pending ingest events.
- * Intended as a post-ingest cron step (fast ingest skips both for gateway time).
+ * Source validated images + POP opinion drafts for ingest events.
+ * Defaults to pending; can target specific ids or approved posts missing photos.
  */
 export async function enrichPendingIngestEvents(
   options: IngestEnrichOptions = {},
 ): Promise<IngestEnrichResult> {
   const limit = Math.max(1, options.limit ?? 8);
-  const idFilter = options.eventIds?.length
-    ? new Set(options.eventIds)
-    : null;
 
   const pending = await fetchPendingEvents();
-  const filtered = pending.filter((e) => {
-    if (idFilter && !idFilter.has(e.id)) return false;
-    return true;
-  });
+  let pool: Event[] = [];
+
+  if (options.eventIds?.length) {
+    pool = await fetchEventsByIds(options.eventIds);
+  } else {
+    pool = [...pending];
+    if (options.includeApprovedMissingImages !== false) {
+      const approvedMissing = await fetchApprovedEventsMissingImages(limit);
+      pool = mergeById([...pool, ...approvedMissing]);
+    }
+  }
+
+  const filtered = pool.filter((e) => e.status !== "rejected");
 
   const needsImage = filtered.filter(
     (e) => options.forceImages || !e.imageUrl?.trim(),
@@ -103,7 +119,6 @@ export async function enrichPendingIngestEvents(
     }
   }
 
-  // Opinion candidates: imaged batch + other pending in filter (with venue).
   const opinionPoolMap = new Map<string, Event>();
   for (const e of imagedEvents) opinionPoolMap.set(e.id, e);
   for (const e of filtered) {
@@ -116,7 +131,6 @@ export async function enrichPendingIngestEvents(
     : await generateOpinionDraftsForEvents(opinionPool, {
         limit: options.opinionLimit ?? Math.min(5, limit),
         skipExisting: true,
-        // OTA tour titles often lack a Places match — still draft from listing copy.
         allowWithoutPlaces: true,
       });
 
