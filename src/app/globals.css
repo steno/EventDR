@@ -36,6 +36,16 @@ img {
   filter: sepia(0.06) saturate(112%) contrast(104%) brightness(105%);
 }
 
+/* Street View uses img tiles + WebGL; filters / dark color-scheme turn it black */
+.street-view-panorama,
+.street-view-panorama img {
+  filter: none !important;
+}
+
+.street-view-panorama {
+  color-scheme: light;
+}
+
 /* Theme color fades — keep in @layer base so Tailwind motion utilities can override */
 @layer base {
   * {

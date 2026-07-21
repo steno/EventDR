@@ -29,12 +29,24 @@ export function getDirectionsUrl(event: Event): string {
 
 /** Google Maps pin / search for a venue. */
 export function getVenueMapUrl(venue: Pick<Venue, "lat" | "lng" | "name" | "city">): string {
-  return `https://www.google.com/maps/search/?api=1&query=${venue.lat},${venue.lng}`;
+  return getMapPinUrl(venue, venue.name);
+}
+
+/** Google Maps place pin at coordinates (optional label for a richer search result). */
+export function getMapPinUrl(
+  coords: Pick<EventCoords, "lat" | "lng">,
+  label?: string,
+): string {
+  const query = label?.trim()
+    ? `${label.trim()} ${coords.lat},${coords.lng}`
+    : `${coords.lat},${coords.lng}`;
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
 }
 
 /**
  * Google Maps Street View already aimed at a pin (no API key / no billing).
  * Opens the nearest panorama when Google has coverage near that point.
+ * Prefer in-app Street View when coverage is known; this URL can be empty if none exists.
  */
 export function getStreetViewUrl(coords: Pick<EventCoords, "lat" | "lng">): string {
   const params = new URLSearchParams({

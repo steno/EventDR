@@ -7,24 +7,36 @@ export function getGoogleMapsBrowserKey(): string | null {
   return key || null;
 }
 
+type LatLngLike = { lat: () => number; lng: () => number };
+
 type GoogleMapsApi = {
   maps: {
     StreetViewPanorama: new (
       el: HTMLElement,
       opts: Record<string, unknown>,
-    ) => { setVisible: (visible: boolean) => void };
+    ) => {
+      setVisible: (visible: boolean) => void;
+      getStatus?: () => string;
+      addListener?: (event: string, handler: () => void) => { remove: () => void };
+    };
     StreetViewService: new () => {
       getPanorama: (
-        request: { location: { lat: number; lng: number }; radius: number },
+        request: {
+          location: { lat: number; lng: number };
+          radius: number;
+          source?: string;
+        },
         callback: (
           data: {
-            location?: { latLng?: { lat: () => number; lng: () => number } };
+            location?: { latLng?: LatLngLike };
           } | null,
           status: string,
         ) => void,
       ) => void;
     };
     StreetViewStatus: { OK: string };
+    StreetViewSource?: { OUTDOOR: string };
+    event?: { trigger: (instance: unknown, eventName: string) => void };
   };
 };
 

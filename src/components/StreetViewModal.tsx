@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { ExternalLink, X } from "lucide-react";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { loadGoogleMapsJs } from "@/lib/google-maps-js";
-import { getStreetViewUrl } from "@/lib/maps";
+import { getMapPinUrl } from "@/lib/maps";
 
 interface StreetViewModalProps {
   open: boolean;
@@ -14,6 +14,12 @@ interface StreetViewModalProps {
   title?: string;
   dict: Dictionary;
 }
+
+type StreetViewPanoramaHandle = {
+  setVisible: (v: boolean) => void;
+  getStatus?: () => string;
+  addListener?: (event: string, handler: () => void) => { remove: () => void };
+};
 
 /** In-app Google Street View panorama (Maps JavaScript API). */
 export function StreetViewModal({
@@ -28,45 +34,88 @@ export function StreetViewModal({
   const [status, setStatus] = useState<"loading" | "ready" | "unavailable" | "error">(
     "loading",
   );
-  const externalUrl = getStreetViewUrl({ lat, lng });
+  // No panorama → open the place pin, not an empty Street View page.
+  const fallbackMapsUrl = getMapPinUrl({ lat, lng }, title);
 
   useEffect(() => {
     if (!open) return;
 
     setStatus("loading");
     let cancelled = false;
-    let panorama: { setVisible: (v: boolean) => void } | null = null;
+    let panorama: StreetViewPanoramaHandle | null = null;
+    let statusListener: { remove: () => void } | null = null;
 
     void loadGoogleMapsJs()
-      .then((google) => {
+      .then(async (google) => {
+        // Wait for layout so the WebGL canvas gets a real size (avoids black pano).
+        await new Promise<void>((resolve) => {
+          requestAnimationFrame(() => requestAnimationFrame(() => resolve()));
+        });
         if (cancelled || !containerRef.current) return;
 
         const service = new google.maps.StreetViewService();
-        service.getPanorama(
-          { location: { lat, lng }, radius: 120 },
-          (data, svStatus) => {
-            if (cancelled || !containerRef.current) return;
+        const outdoor = google.maps.StreetViewSource?.OUTDOOR;
 
-            if (
-              svStatus === google.maps.StreetViewStatus.OK &&
-              data?.location?.latLng
-            ) {
-              panorama = new google.maps.StreetViewPanorama(containerRef.current, {
-                position: data.location.latLng,
-                pov: { heading: 0, pitch: 0 },
-                zoom: 1,
-                addressControl: true,
-                fullscreenControl: true,
-                motionTracking: false,
-                enableCloseButton: false,
-              });
-              setStatus("ready");
-              return;
+        const tryPanorama = (source?: string) =>
+          new Promise<{
+            ok: boolean;
+            latLng?: { lat: () => number; lng: () => number };
+          }>((resolve) => {
+            service.getPanorama(
+              {
+                location: { lat, lng },
+                radius: 150,
+                ...(source ? { source } : {}),
+              },
+              (data, svStatus) => {
+                if (
+                  svStatus === google.maps.StreetViewStatus.OK &&
+                  data?.location?.latLng
+                ) {
+                  resolve({ ok: true, latLng: data.location.latLng });
+                  return;
+                }
+                resolve({ ok: false });
+              },
+            );
+          });
+
+        let result = outdoor ? await tryPanorama(outdoor) : { ok: false as const };
+        if (!result.ok) {
+          result = await tryPanorama();
+        }
+        if (cancelled || !containerRef.current) return;
+
+        if (!result.ok || !result.latLng) {
+          setStatus("unavailable");
+          return;
+        }
+
+        panorama = new google.maps.StreetViewPanorama(containerRef.current, {
+          position: result.latLng,
+          pov: { heading: 0, pitch: 0 },
+          zoom: 1,
+          addressControl: true,
+          fullscreenControl: true,
+          motionTracking: false,
+          enableCloseButton: false,
+        }) as StreetViewPanoramaHandle;
+
+        statusListener =
+          panorama.addListener?.("status_changed", () => {
+            if (cancelled) return;
+            const panoStatus = panorama?.getStatus?.();
+            if (panoStatus && panoStatus !== google.maps.StreetViewStatus.OK) {
+              setStatus("unavailable");
             }
+          }) ?? null;
 
-            setStatus("unavailable");
-          },
-        );
+        // Force a redraw after the dialog finishes sizing.
+        requestAnimationFrame(() => {
+          google.maps.event?.trigger?.(panorama, "resize");
+        });
+
+        setStatus("ready");
       })
       .catch(() => {
         if (!cancelled) setStatus("error");
@@ -74,6 +123,8 @@ export function StreetViewModal({
 
     return () => {
       cancelled = true;
+      statusListener?.remove();
+      statusListener = null;
       panorama?.setVisible(false);
       panorama = null;
       if (containerRef.current) containerRef.current.innerHTML = "";
@@ -118,7 +169,11 @@ export function StreetViewModal({
         </div>
 
         <div className="relative min-h-0 flex-1 bg-neutral-200 dark:bg-neutral-800">
-          <div ref={containerRef} className="absolute inset-0" />
+          <div
+            ref={containerRef}
+            className="street-view-panorama absolute inset-0"
+            style={{ colorScheme: "light" }}
+          />
 
           {status === "loading" ? (
             <div className="absolute inset-0 flex items-center justify-center text-sm font-semibold text-neutral-600 dark:text-neutral-300">
@@ -127,14 +182,14 @@ export function StreetViewModal({
           ) : null}
 
           {status === "unavailable" || status === "error" ? (
-            <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 px-6 text-center">
+            <div className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-3 bg-neutral-200 px-6 text-center dark:bg-neutral-800">
               <p className="text-sm font-semibold text-neutral-700 dark:text-neutral-200">
                 {status === "unavailable"
                   ? dict.venues.streetViewUnavailable
                   : dict.venues.streetViewError}
               </p>
               <a
-                href={externalUrl}
+                href={fallbackMapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-neutral-900 px-4 py-2 text-sm font-bold text-white dark:bg-neutral-100 dark:text-neutral-900"

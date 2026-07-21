@@ -54,8 +54,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Sosúa",
     description:
       "Sosúa's walkable downtown district — beach access, the Pedro Clisante restaurant-and-bar strip, shops and cafés by day, then salsa socials and open-mic nights after dark.",
-    lat: 19.7675,
-    lng: -70.5115,
+    lat: 19.7676443,
+    lng: -70.5085273,
     emoji: "🎤",
   },
   {
@@ -186,8 +186,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Cabarete",
     description:
       "Open-air food park near Encuentro — street-food vendors, communal tables, Shaka Bar Thursday karaoke (7:30–9:30 PM), Ninafrika Dance Friday Noche Latina from 7 PM, and live bands on Saturdays.",
-    lat: 19.7588,
-    lng: -70.4094,
+    lat: 19.7739371,
+    lng: -70.4446512,
     emoji: "🍔",
   },
   {
@@ -196,8 +196,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Sosúa",
     description:
       "Roadside restaurant on the Sosúa–Cabarete corridor — Dominican and international plates, dance floor, and Tuesday live-music nights popular with locals and residents.",
-    lat: 19.7628,
-    lng: -70.4985,
+    lat: 19.7726199,
+    lng: -70.4964466,
     emoji: "🎵",
     phone: "+18098042510",
   },
@@ -228,8 +228,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Sosúa",
     description:
       "North Coast discoteca on the Puerto Plata–Sosúa highway opposite Gregorio Luperón Airport — reggaeton, dembow, típico, and late-night parties (closed Mon–Wed).",
-    lat: 19.76,
-    lng: -70.565,
+    lat: 19.7497279,
+    lng: -70.5630864,
     emoji: "🪩",
     instagram: "groundzero_disco",
     phone: "+18494651313",
@@ -240,8 +240,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Cabarete",
     description:
       "Neighborhood pizza bar in Callejón de la Loma — stone-oven pies, local musicians, and Wednesday open mic nights with an affordable Cabarete crowd.",
-    lat: 19.7475887,
-    lng: -70.4167516,
+    lat: 19.7488174,
+    lng: -70.4146652,
     emoji: "🎤",
     website: "https://www.facebook.com/chabolacabaretee",
     phone: "+18095435860",
@@ -502,8 +502,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Puerto Plata",
     description:
       "Dominican Republic's largest go-kart park on Highway 5 — Cyclone, Sprint 500, Grand Prix, and bumper cars, plus a kids' playground near Playa Dorada.",
-    lat: 19.75519,
-    lng: -70.642975,
+    lat: 19.7450324,
+    lng: -70.6353642,
     emoji: "🏎️",
     instagram: "funcitypuertoplata",
     website: "https://puertoplatadr.com/tours/fun-city-gokarts/",
@@ -527,8 +527,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Bajo Hondo",
     description:
       "Cliffside seaside adventure park — 1,200-ft ocean zipline, ATV and dune buggy trails, private beach, and watersports west of Puerto Plata.",
-    lat: 19.8348,
-    lng: -70.7542,
+    lat: 19.9028125,
+    lng: -70.8399375,
     emoji: "🪂",
     website: "https://chukka.com/dominican-republic/ocean-outpost-coconut-cove",
     phone: "+18097967176",
@@ -539,8 +539,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Puerto Plata",
     description:
       "Working rum distillery and visitor center on the Maimón highway — guided tours, aging warehouses, and tastings of award-winning Dominican rums.",
-    lat: 19.780278,
-    lng: -70.668889,
+    lat: 19.7788429,
+    lng: -70.6690158,
     emoji: "🥃",
     website: "https://www.brugal.do/",
   },
@@ -623,8 +623,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Sosúa",
     description:
       "Ship-themed seafood restaurant at Casa Valeria Hotel — Spanish Saturday paella nights and Sunday Dominican specials steps from Sosúa Beach.",
-    lat: 19.7548,
-    lng: -70.5185,
+    lat: 19.7650527,
+    lng: -70.5150705,
     emoji: "🥘",
     website: "https://www.casavaleria.com/restaurant",
     phone: "+18095711693",
@@ -669,8 +669,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Puerto Plata",
     description:
       "Rum cellar tours and tastings — history video, aging barrels, and Macorix rum samples on Av. Francisco Alberto Caamaño.",
-    lat: 19.785,
-    lng: -70.687,
+    lat: 19.7946694,
+    lng: -70.6991738,
     emoji: "🥃",
     website: "https://macorixhouseofrum.com/en/",
   },
@@ -691,8 +691,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Puerto Plata",
     description:
       "Espadrille workshop in the historic center — stitch your own pair with master artisans on Calle Duarte. Sessions include snacks, cava, and all materials; from €99.90 on Eventbrite.",
-    lat: 19.7963,
-    lng: -70.6921,
+    lat: 19.7979791,
+    lng: -70.694567,
     emoji: "👟",
     phone: "+19394089392",
     website:
@@ -715,8 +715,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Puerto Plata",
     description:
       "Covered community sports club on Calle 1ra in barrio Haití (Urbanización Gregorio Luperón) — home court for Al Sena Athletics basketball and the ASA Survival Series.",
-    lat: 19.7935,
-    lng: -70.688,
+    lat: 19.7934114,
+    lng: -70.7072068,
     emoji: "🏀",
     website:
       "https://www.eventbrite.co/o/al-sena-athletics-121192087480",
@@ -727,8 +727,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Puerto Plata",
     description:
       "Nightlife and concert hall at the Brugal rum depots on Calle Duarte — ticketed shows for touring Dominican artists.",
-    lat: 19.7966,
-    lng: -70.6923,
+    lat: 19.7792778,
+    lng: -70.6690061,
     emoji: "🎤",
     website: "https://todotickets.do",
   },
@@ -750,8 +750,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Puerto Plata",
     description:
       "Original Paella POP kitchen at One Club, Green One Playa Dorada — paella and Spanish plates in the golf resort clubhouse.",
-    lat: 19.786,
-    lng: -70.668,
+    lat: 19.7674958,
+    lng: -70.6482428,
     emoji: "🥘",
     website: "https://www.greenoneplayadorada.com/",
   },
@@ -761,8 +761,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Playa Dorada",
     description:
       "Robert Trent Jones Sr. 18-hole championship course inside the Playa Dorada resort complex — home of the Puerto Plata Golf Classic and Ashonorte sports tourism events.",
-    lat: 19.7635,
-    lng: -70.6555,
+    lat: 19.7685063,
+    lng: -70.6427756,
     emoji: "⛳",
     website: "https://playadoradagolf.com/",
     instagram: "ashonorte",
@@ -774,8 +774,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Cabarete",
     description:
       "North Coast's premier surf beach between Cabarete and Sosúa — reef breaks for all levels and the official CAC Games 2026 surf venue.",
-    lat: 19.7808,
-    lng: -70.4825,
+    lat: 19.7834465,
+    lng: -70.4516521,
     emoji: "🏄",
     phone: "+18298934214",
   },
@@ -785,8 +785,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Sosúa",
     description:
       "Local Sosúa beach west of El Batey — host of Puerto Plata Beach Soccer and family-friendly waterfront sports days.",
-    lat: 19.7542,
-    lng: -70.5285,
+    lat: 19.7530055,
+    lng: -70.5228086,
     emoji: "⚽",
     phone: "+18095866125",
     instagram: "puertoplatabeachsoccer",
@@ -797,8 +797,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Cabarete",
     description:
       "Protected karst park just inland from Cabarete — freshwater lagoons, subtropical forest, and guided cave boat tours through underground lakes (Cuevas del Choco).",
-    lat: 19.75,
-    lng: -70.4,
+    lat: 19.7227201,
+    lng: -70.4319982,
     emoji: "🏞️",
     website:
       "https://es.godominicanrepublic.com/destinos/cabarete",
@@ -809,8 +809,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Cabarete",
     description:
       "Eco-tourism town on the Yásica / Jamao River corridor inland from Cabarete — clear-water kayaking, community lunch stops, and nature escapes popular with North Coast day tours.",
-    lat: 19.635,
-    lng: -70.448,
+    lat: 19.602236,
+    lng: -70.4669931,
     emoji: "🛶",
   },
   {
@@ -819,8 +819,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Puerto Plata",
     description:
       "Art café and restaurant on the Puerto Plata Malecón — murals, criollo kitchen, cocktails, and a meetup hub for waterfront experiences at Av. Gregorio Luperón & Padre Castellanos.",
-    lat: 19.7975,
-    lng: -70.6928,
+    lat: 19.7995463,
+    lng: -70.6909467,
     emoji: "☕",
     website: "https://victrolart.do/",
   },
@@ -830,8 +830,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Cabarete",
     description:
       "Beachfront condo complex in the heart of Cabarete Bay — gated pools, plaza access, and a direct beach entrance used for community meetups and sunset sessions.",
-    lat: 19.7505,
-    lng: -70.4082,
+    lat: 19.7495899,
+    lng: -70.4120254,
     emoji: "🏖️",
   },
   {
@@ -840,8 +840,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Puerto Plata",
     description:
       "Beach resort complex on Cofresí Beach (Lifestyle Holidays area) — pools, entertainment venues, and large multi-day party takeovers for visitors and club members.",
-    lat: 19.793,
-    lng: -70.715,
+    lat: 19.8184013,
+    lng: -70.7283993,
     emoji: "🌴",
   },
 ];

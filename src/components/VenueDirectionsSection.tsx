@@ -217,6 +217,28 @@ export function VenueMapPanel({
   const canEmbedStreetView = Boolean(getGoogleMapsBrowserKey());
   const [streetViewOpen, setStreetViewOpen] = useState(false);
 
+  const streetViewClassName =
+    "inline-flex w-full items-center justify-center rounded-lg border border-neutral-300 bg-white/95 px-4 py-2.5 text-sm font-semibold text-neutral-800 shadow-sm touch-manipulation backdrop-blur-sm transition hover:bg-white active:scale-[0.98] sm:w-auto dark:border-neutral-600 dark:bg-neutral-900/95 dark:text-neutral-100 dark:hover:bg-neutral-800";
+
+  const streetViewControl = canEmbedStreetView ? (
+    <button
+      type="button"
+      onClick={() => setStreetViewOpen(true)}
+      className={streetViewClassName}
+    >
+      {dict.venues.streetView}
+    </button>
+  ) : (
+    <a
+      href={streetViewUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={streetViewClassName}
+    >
+      {dict.venues.streetView}
+    </a>
+  );
+
   return (
     <div
       className={`event-inline-map relative overflow-hidden bg-neutral-200 dark:bg-neutral-800 ${className}`}
@@ -225,6 +247,7 @@ export function VenueMapPanel({
         lat={destination.lat}
         lng={destination.lng}
         label={dict.venues.showMap}
+        secondary={streetViewControl}
         forceReveal={mapOpen}
         onReveal={onReveal}
         attention={attention && !forceReveal}
@@ -238,24 +261,13 @@ export function VenueMapPanel({
           route={route}
         />
       </MapReveal>
-      {canEmbedStreetView ? (
-          <button
-            type="button"
-            onClick={() => setStreetViewOpen(true)}
-            className="absolute bottom-3 left-3 z-[500] inline-flex items-center rounded-lg border border-neutral-300 bg-white/95 px-3 py-1.5 text-xs font-bold text-neutral-800 shadow-sm touch-manipulation backdrop-blur-sm transition hover:bg-white active:scale-[0.98] dark:border-neutral-600 dark:bg-neutral-900/95 dark:text-neutral-100"
-          >
-            {dict.venues.streetView}
-          </button>
-        ) : (
-          <a
-            href={streetViewUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="absolute bottom-3 left-3 z-[500] inline-flex items-center rounded-lg border border-neutral-300 bg-white/95 px-3 py-1.5 text-xs font-bold text-neutral-800 shadow-sm touch-manipulation backdrop-blur-sm transition hover:bg-white active:scale-[0.98] dark:border-neutral-600 dark:bg-neutral-900/95 dark:text-neutral-100"
-          >
-            {dict.venues.streetView}
-          </a>
-        )}
+      {mapOpen ? (
+        <div className="absolute inset-x-0 bottom-0 z-[500] flex justify-center p-3 pointer-events-none">
+          <div className="pointer-events-auto w-full sm:w-auto">
+            {streetViewControl}
+          </div>
+        </div>
+      ) : null}
       {canEmbedStreetView ? (
         <StreetViewModal
           open={streetViewOpen}

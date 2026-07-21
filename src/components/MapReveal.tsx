@@ -8,6 +8,8 @@ interface MapRevealProps {
   lng: number;
   label: string;
   children: ReactNode;
+  /** Extra controls stacked under the primary reveal button (e.g. Street view). */
+  secondary?: ReactNode;
   /** Reveal automatically (e.g. once a route is ready). */
   forceReveal?: boolean;
   /** Called when the user taps Show map (not when force-revealed). */
@@ -27,6 +29,7 @@ export function MapReveal({
   lng,
   label,
   children,
+  secondary,
   forceReveal = false,
   onReveal,
   attention = false,
@@ -51,7 +54,7 @@ export function MapReveal({
         className="absolute inset-0 bg-neutral-100/45 dark:bg-neutral-900/50"
         aria-hidden
       />
-      <div className="absolute inset-0 flex items-center justify-center p-4">
+      <div className="absolute inset-x-0 bottom-0 z-10 flex flex-col items-stretch gap-2 p-3 sm:items-center">
         <button
           type="button"
           onClick={() => {
@@ -67,8 +70,8 @@ export function MapReveal({
           }}
           className={
             attention
-              ? "rounded-none border border-transparent bg-white px-4 py-2 text-sm font-semibold text-neutral-800 shadow-sm touch-manipulation animate-attention-pulse dark:bg-neutral-900 dark:text-neutral-100"
-              : "rounded-lg border border-neutral-300 bg-white px-4 py-2 text-sm font-semibold text-neutral-800 shadow-sm touch-manipulation transition hover:bg-neutral-50 active:scale-[0.98] dark:border-neutral-600 dark:bg-neutral-900 dark:text-neutral-100 dark:hover:bg-neutral-800"
+              ? "w-full rounded-none border border-transparent bg-white px-4 py-2.5 text-sm font-semibold text-neutral-800 shadow-sm touch-manipulation animate-attention-pulse sm:w-auto dark:bg-neutral-900 dark:text-neutral-100"
+              : "w-full rounded-lg border border-neutral-300 bg-white/95 px-4 py-2.5 text-sm font-semibold text-neutral-800 shadow-sm touch-manipulation backdrop-blur-sm transition hover:bg-white active:scale-[0.98] sm:w-auto dark:border-neutral-600 dark:bg-neutral-900/95 dark:text-neutral-100 dark:hover:bg-neutral-800"
           }
           style={
             attention
@@ -82,6 +85,7 @@ export function MapReveal({
         >
           {label}
         </button>
+        {secondary}
       </div>
     </div>
   );
