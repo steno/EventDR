@@ -95,6 +95,7 @@ async function handle(request: NextRequest) {
       skipExisting: !force,
     });
     return NextResponse.json({
+      success: true,
       generatedAt: new Date().toISOString(),
       ...result,
       drafted: result.results.filter((r) => r.status === "drafted").length,

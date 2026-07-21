@@ -39,11 +39,11 @@ jobs:
               echo "${label}: HTTP ${http} (attempt ${try}/${attempts})"
               echo "$body"
               if [ "$http" -ge 200 ] && [ "$http" -lt 300 ] 2>/dev/null; then
-                # Seeds return one JSON object; ingest may stream NDJSON — require success:true.
-                if echo "$body" | grep -q '"success"[[:space:]]*:[[:space:]]*true'; then
+                # Seeds return success:true; some cron routes historically used ok:true.
+                if echo "$body" | grep -Eq '"success"[[:space:]]*:[[:space:]]*true|"ok"[[:space:]]*:[[:space:]]*true'; then
                   return 0
                 fi
-                echo "${label}: HTTP ${http} but no success:true in body — treating as failure."
+                echo "${label}: HTTP ${http} but no success/ok true in body — treating as failure."
               fi
               if [ "$http" = "401" ]; then
                 echo "::error::Unauthorized — set CRON_SECRET on Netlify to match GitHub repo secret, then redeploy."
