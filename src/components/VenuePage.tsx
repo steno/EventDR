@@ -167,6 +167,21 @@ export function VenuePage({
     return () => window.cancelAnimationFrame(id);
   }, [plannerOpen]);
 
+  // After a route draws, keyboard/zoom settle can leave the form under the sticky map.
+  useLayoutEffect(() => {
+    if (!plannerOpen || !directions.route) return;
+    const id = window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
+        scrollBelowStickyStack(
+          directionsFormRef.current,
+          stickyMapRef.current,
+          "auto",
+        );
+      });
+    });
+    return () => window.cancelAnimationFrame(id);
+  }, [plannerOpen, directions.route]);
+
   const websiteUrl = venue.website
     ? normalizeExternalUrl(venue.website)
     : null;

@@ -293,6 +293,10 @@ export type Dictionary = {
     howToGetThere: string;
     showMap: string;
     openInMaps: string;
+    streetView: string;
+    streetViewLoading: string;
+    streetViewUnavailable: string;
+    streetViewError: string;
     website: string;
     instagram: string;
     startingFrom: string;
@@ -678,6 +682,10 @@ export const en: Dictionary = {
     howToGetThere: "See how to get there",
     showMap: "How to get there",
     openInMaps: "Open in Maps",
+    streetView: "Street view",
+    streetViewLoading: "Loading Street view…",
+    streetViewUnavailable: "Street view isn't available at this spot.",
+    streetViewError: "Couldn't load Street view.",
     website: "Website",
     instagram: "Instagram",
     startingFrom: "Where are you starting from?",

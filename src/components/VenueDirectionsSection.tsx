@@ -17,6 +17,10 @@ import type { LatLngTuple } from "@/lib/routing";
 import { fetchDrivingRoute, geocodePlace } from "@/lib/routing";
 import { useGeolocation } from "@/hooks/useGeolocation";
 import { MapReveal } from "@/components/MapReveal";
+import { StreetViewModal } from "@/components/StreetViewModal";
+import { getGoogleMapsBrowserKey } from "@/lib/google-maps-js";
+import { getStreetViewUrl } from "@/lib/maps";
+import { resetInputZoom } from "@/lib/reset-input-zoom";
 
 const EventInlineMap = dynamic(
   () => import("@/components/EventInlineMap").then((m) => m.EventInlineMap),
@@ -124,6 +128,7 @@ export function useVenueDirections(venue: Venue, dict: Dictionary) {
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
+    resetInputZoom();
     const query = startQuery.trim();
     if (!query) {
       setError(dict.venues.startingFromRequired);
@@ -207,6 +212,10 @@ export function VenueMapPanel({
   onAttentionEnd,
 }: VenueMapPanelProps) {
   const { destination, origin, route } = directions;
+  const mapOpen = forceReveal || Boolean(origin || route);
+  const streetViewUrl = getStreetViewUrl(destination);
+  const canEmbedStreetView = Boolean(getGoogleMapsBrowserKey());
+  const [streetViewOpen, setStreetViewOpen] = useState(false);
 
   return (
     <div
@@ -216,7 +225,7 @@ export function VenueMapPanel({
         lat={destination.lat}
         lng={destination.lng}
         label={dict.venues.showMap}
-        forceReveal={forceReveal || Boolean(origin || route)}
+        forceReveal={mapOpen}
         onReveal={onReveal}
         attention={attention && !forceReveal}
         onAttentionEnd={onAttentionEnd}
@@ -229,6 +238,36 @@ export function VenueMapPanel({
           route={route}
         />
       </MapReveal>
+      {mapOpen ? (
+        canEmbedStreetView ? (
+          <button
+            type="button"
+            onClick={() => setStreetViewOpen(true)}
+            className="absolute bottom-3 left-3 z-[500] inline-flex items-center rounded-lg border border-neutral-300 bg-white/95 px-3 py-1.5 text-xs font-bold text-neutral-800 shadow-sm touch-manipulation backdrop-blur-sm transition hover:bg-white active:scale-[0.98] dark:border-neutral-600 dark:bg-neutral-900/95 dark:text-neutral-100"
+          >
+            {dict.venues.streetView}
+          </button>
+        ) : (
+          <a
+            href={streetViewUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="absolute bottom-3 left-3 z-[500] inline-flex items-center rounded-lg border border-neutral-300 bg-white/95 px-3 py-1.5 text-xs font-bold text-neutral-800 shadow-sm touch-manipulation backdrop-blur-sm transition hover:bg-white active:scale-[0.98] dark:border-neutral-600 dark:bg-neutral-900/95 dark:text-neutral-100"
+          >
+            {dict.venues.streetView}
+          </a>
+        )
+      ) : null}
+      {canEmbedStreetView ? (
+        <StreetViewModal
+          open={streetViewOpen}
+          onClose={() => setStreetViewOpen(false)}
+          lat={destination.lat}
+          lng={destination.lng}
+          title={venue.name}
+          dict={dict}
+        />
+      ) : null}
     </div>
   );
 }
@@ -291,9 +330,12 @@ export const VenueDirectionsForm = forwardRef<
               setStartQuery(e.target.value);
               setOriginLabel(null);
             }}
+            onBlur={() => resetInputZoom({ blur: false })}
             placeholder={dict.venues.startingFromPlaceholder}
             autoComplete="street-address"
-            className="min-w-0 flex-1 rounded-2xl border border-neutral-200 bg-white px-4 py-3 text-sm text-neutral-900 placeholder:text-neutral-400 outline-none transition focus:border-orange-300 focus:ring-2 focus:ring-orange-400/30 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-100 dark:placeholder:text-neutral-500 dark:focus:border-orange-500/50"
+            enterKeyHint="search"
+            // text-base (16px) on mobile prevents iOS Safari focus-zoom
+            className="min-w-0 flex-1 rounded-2xl border border-neutral-200 bg-white px-4 py-3 text-base leading-normal text-neutral-900 placeholder:text-neutral-400 outline-none transition focus:border-orange-300 focus:ring-2 focus:ring-orange-400/30 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-100 dark:placeholder:text-neutral-500 dark:focus:border-orange-500/50 sm:text-sm"
           />
           <button
             type="button"

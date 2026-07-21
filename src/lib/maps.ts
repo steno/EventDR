@@ -33,6 +33,19 @@ export function getVenueMapUrl(venue: Pick<Venue, "lat" | "lng" | "name" | "city
 }
 
 /**
+ * Google Maps Street View already aimed at a pin (no API key / no billing).
+ * Opens the nearest panorama when Google has coverage near that point.
+ */
+export function getStreetViewUrl(coords: Pick<EventCoords, "lat" | "lng">): string {
+  const params = new URLSearchParams({
+    api: "1",
+    map_action: "pano",
+    viewpoint: `${coords.lat},${coords.lng}`,
+  });
+  return `https://www.google.com/maps/@?${params.toString()}`;
+}
+
+/**
  * Google Maps turn-by-turn to a venue.
  * Pass origin coords, or a free-text start address, or omit for destination-only.
  */
