@@ -67,7 +67,7 @@ function fallbackLiveStatusDisplay(
   if (status === "live") {
     // Prefer Happening now only when we have a real clock window.
     if (!parseEventTimeWindow(event.time)) {
-      return null;
+      return { status: "unknown", label: dict.events.happeningToday };
     }
     return { status: "live", label: dict.events.eventStarted };
   }
@@ -116,16 +116,18 @@ export function resolveLiveStatusDisplay(
 
   if (!happensOnLocalDate(event, today)) return null;
 
+  // Untimed / free-text hours: on the calendar today, not "live right now".
+  if (status === "unknown") {
+    if (options?.listTimeRange === "today") return null;
+    return { status: "unknown", label: dict.events.happeningToday };
+  }
+
   const directLabel = formatEventLiveStatusLabel(status, dict);
   if (directLabel) {
     return { status, label: directLabel };
   }
 
-  if (status === "unknown") {
-    return fallbackLiveStatusDisplay(event, dict, now);
-  }
-
-  return null;
+  return fallbackLiveStatusDisplay(event, dict, now);
 }
 
 export function getEventLiveStatusLabel(
@@ -147,6 +149,9 @@ export function eventStatusBadgeClass(status: EventLiveStatus): string {
       return "bg-amber-50 text-amber-800 dark:bg-amber-500/25 dark:text-amber-200 dark:ring-1 dark:ring-amber-400/35";
     case "upcoming":
       return "bg-sky-50 text-sky-800 dark:bg-sky-500/25 dark:text-sky-200 dark:ring-1 dark:ring-sky-400/35";
+    case "unknown":
+      // Untimed "on today" — calmer than live orange so it doesn't read as in-progress.
+      return "bg-teal-50 text-teal-800 dark:bg-teal-500/25 dark:text-teal-200 dark:ring-1 dark:ring-teal-400/35";
     case "closedToday":
       return "bg-violet-50 text-violet-800 dark:bg-violet-500/25 dark:text-violet-200 dark:ring-1 dark:ring-violet-400/35";
     case "temporarilyClosed":

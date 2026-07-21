@@ -45,7 +45,7 @@ function TodayHighlightCard({
   priority?: boolean;
 }) {
   const href = eventDetailPath(locale, event.id, returnTo ?? `/${locale}`);
-  const liveDisplay = useLiveStatusDisplay(event, dict);
+  const liveDisplay = useLiveStatusDisplay(event, dict, { listTimeRange: "today" });
   const liveStatus = liveDisplay?.status ?? null;
   const liveStatusLabel = liveDisplay?.label ?? null;
   const timeLabel = formatEventTimeForList(event.time, {

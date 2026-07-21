@@ -324,13 +324,15 @@ export function getEventLiveStatus(
 
   const window = parseEventTimeWindow(event.time);
   if (!window) {
-    // Free-text hours ("Morning & sunset", "By reservation") — daytime only.
+    // No parseable clock time (missing, free-text, "by reservation").
+    // Stay on today's list until evening, but never claim "happening now".
     const nowMin = currentMinutes(now);
     const daytime = ALL_DAY_DEFAULT_WINDOW;
-    if (isSameDayWithinWindow(nowMin, daytime)) return "live";
-    if (!hasSameDayWindowStarted(nowMin, daytime)) return "upcoming";
-    if (eventContinuesBeyondToday(event, now)) return "closedToday";
-    return "ended";
+    if (nowMin > daytime.end) {
+      if (eventContinuesBeyondToday(event, now)) return "closedToday";
+      return "ended";
+    }
+    return "unknown";
   }
 
   const nowMin = currentMinutes(now);

@@ -47,6 +47,60 @@ function MapResizer({ active }: { active: boolean }) {
   return null;
 }
 
+/**
+ * Embedded-map gestures (Mapbox / Google pattern):
+ * - Never steal page scroll via mouse wheel (use +/- / pinch / double-click).
+ * - On touch: one finger scrolls the page; two fingers pan / pinch-zoom the map.
+ */
+function CooperativeGestures({ interactive }: { interactive: boolean }) {
+  const map = useMap();
+
+  useEffect(() => {
+    map.scrollWheelZoom.disable();
+
+    if (!interactive) {
+      map.dragging.disable();
+      map.touchZoom.disable();
+      return;
+    }
+
+    map.touchZoom.enable();
+
+    const container = map.getContainer();
+    const isCoarsePointer =
+      typeof window !== "undefined" &&
+      window.matchMedia("(pointer: coarse)").matches;
+
+    if (!isCoarsePointer) {
+      map.dragging.enable();
+      return;
+    }
+
+    // Mobile / tablet: require two fingers to pan so vertical scroll still works.
+    map.dragging.disable();
+
+    const syncTouch = (e: TouchEvent) => {
+      if (e.touches.length >= 2) {
+        map.dragging.enable();
+      } else {
+        map.dragging.disable();
+      }
+    };
+
+    container.addEventListener("touchstart", syncTouch, { passive: true });
+    container.addEventListener("touchend", syncTouch, { passive: true });
+    container.addEventListener("touchcancel", syncTouch, { passive: true });
+
+    return () => {
+      container.removeEventListener("touchstart", syncTouch);
+      container.removeEventListener("touchend", syncTouch);
+      container.removeEventListener("touchcancel", syncTouch);
+    };
+  }, [map, interactive]);
+
+  return null;
+}
+
 function FitView({
   destination,
   origin,
@@ -101,8 +155,8 @@ export function EventInlineMap({
       zoom={16}
       className="h-full w-full z-0"
       zoomControl
-      scrollWheelZoom
-      touchZoom
+      scrollWheelZoom={false}
+      touchZoom={interactive}
       doubleClickZoom
       dragging={interactive}
       attributionControl={false}
@@ -126,6 +180,7 @@ export function EventInlineMap({
       ) : null}
       <FitView destination={coords} origin={origin} route={route} />
       <MapResizer active={active} />
+      <CooperativeGestures interactive={interactive} />
     </MapContainer>
   );
 }
