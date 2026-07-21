@@ -63,13 +63,7 @@ export default async function Page({
   const title = fillTemplate(dict.browse.eventsInPlace, { place: regionName });
   const events = await getPublicEvents({ locale });
   const relatedCategoryLinks = categoryNavLinks(locale, dict.categories);
-  // Add article for region: "What's on in the North Coast"
-  const regionWithArticle = locale === "en" 
-    ? `the ${regionName}` 
-    : `la ${regionName}`;
-  const relatedCategoryLinksLabel = fillTemplate(dict.cities.browseTopCategories, {
-    city: regionWithArticle,
-  });
+  const relatedCategoryLinksLabel = dict.cities.browseTopCategories;
 
   return (
     <>

@@ -9,7 +9,6 @@ import { getPublicEvents } from "@/lib/public-events";
 import {
   buildListingPageJsonLd,
   buildWhenMetadata,
-  fillTemplate,
   localePath,
 } from "@/lib/seo";
 import { getWhenSeo, isWhenSlug, WHEN_SLUGS } from "@/lib/time-seo";
@@ -48,13 +47,7 @@ export default async function Page({
   const whenPath = localePath(locale, `/when/${range}`);
   const events = await getPublicEvents({ locale, when: range });
   const relatedCategoryLinks = categoryNavLinks(locale, dict.categories);
-  // Add article for region: "What's on in the North Coast"
-  const regionWithArticle = locale === "en" 
-    ? `the ${dict.cities.regionName}` 
-    : `la ${dict.cities.regionName}`;
-  const relatedCategoryLinksLabel = fillTemplate(dict.cities.browseTopCategories, {
-    city: regionWithArticle,
-  });
+  const relatedCategoryLinksLabel = dict.cities.browseTopCategories;
 
   return (
     <>

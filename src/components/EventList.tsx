@@ -24,6 +24,7 @@ import { eventMatchesCity, type CitySlug } from "@/lib/cities";
 import { expectBootPart, readyBootPart } from "@/lib/boot-splash";
 import { scrollToListTop } from "@/lib/list-scroll";
 import { fillTemplate } from "@/lib/seo";
+import { useForegroundRefresh } from "@/hooks/useForegroundRefresh";
 import { EventCard } from "./EventCard";
 import { EventCardSkeleton } from "./EventCardSkeleton";
 import { EventListScrollPads } from "./EventCardPlaceholder";
@@ -166,6 +167,13 @@ export function EventList({
     expectBootPart("events");
     fetchEvents(refreshKey > 0);
   }, [fetchEvents, refreshKey]);
+
+  const softRefresh = useCallback(() => {
+    void fetchEvents(true);
+  }, [fetchEvents]);
+
+  // Soft refetch on PWA resume / tab focus — no full reload, no loading flash.
+  useForegroundRefresh(softRefresh);
 
   const filtered = useMemo(() => {
     let result = filterByTimeRange(events, timeRange);

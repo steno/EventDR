@@ -29,6 +29,7 @@ import { formatPhoneTel } from "@/lib/event-phone";
 import { PAGE_SHELL_CLASS } from "@/lib/page-shell";
 import { scrollUnderStickyHeader } from "@/lib/list-scroll";
 import { getVenueHeroImageUrl } from "@/lib/venue-images";
+import { useForegroundRefresh } from "@/hooks/useForegroundRefresh";
 
 interface VenuePageProps {
   venue: Venue;
@@ -81,9 +82,15 @@ export function VenuePage({
     loadEvents().finally(() => setLoading(false));
   }, [locale, venue.slug]);
 
+  const softRefreshEvents = useCallback(() => {
+    void loadEvents();
+  }, [locale, venue.slug]);
+
   useEffect(() => {
     refreshEvents();
   }, [refreshEvents]);
+
+  useForegroundRefresh(softRefreshEvents);
 
   const listReturnTo = `/${locale}/venue/${venue.slug}`;
   const [returnTo, setReturnTo] = useState<string | null>(null);

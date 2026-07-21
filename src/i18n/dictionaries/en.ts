@@ -631,7 +631,7 @@ export const en: Dictionary = {
     partners: "For hotels & partners",
   },
   cities: {
-    browseTopCategories: "What’s on in {city}",
+    browseTopCategories: "What are you into?",
     eventsIn: "Events in",
     lookingIn: "All Events in",
     lookingInWithCategory: "{category} Events in",

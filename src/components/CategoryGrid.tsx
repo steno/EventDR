@@ -51,8 +51,13 @@ export function CategoryGrid({
     });
   };
 
+  const label = dict.cities.browseTopCategories;
+
   return (
-    <section aria-label={dict.browse.ariaLabel}>
+    <section aria-label={label}>
+      <p className="mb-2.5 text-sm font-medium text-neutral-500 dark:text-neutral-400">
+        {label}
+      </p>
       <div className={CATEGORY_SCROLLER_BAR}>
         <div className="relative min-w-0 flex-1 overflow-hidden">
           <div className="overflow-x-auto scrollbar-hide">

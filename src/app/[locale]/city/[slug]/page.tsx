@@ -62,9 +62,7 @@ export default async function Page({
   const eventsInCity = fillTemplate(dict.browse.eventsInPlace, { place: cityName });
   const events = await getPublicEvents({ locale, city: slug });
   const relatedCategoryLinks = categoryNavLinks(locale, dict.categories, slug);
-  const relatedCategoryLinksLabel = fillTemplate(dict.cities.browseTopCategories, {
-    city: cityName,
-  });
+  const relatedCategoryLinksLabel = dict.cities.browseTopCategories;
 
   return (
     <>

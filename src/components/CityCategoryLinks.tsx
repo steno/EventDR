@@ -151,7 +151,7 @@ export function CityCategoryLinks({
 
   return (
     <nav aria-label={label} className="mb-6">
-      <p className="mb-2.5 text-xs font-bold uppercase tracking-widest text-neutral-400">
+      <p className="mb-2.5 text-sm font-medium text-neutral-500 dark:text-neutral-400">
         {label}
       </p>
       <div className={CATEGORY_SCROLLER_BAR}>

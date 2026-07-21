@@ -79,9 +79,7 @@ export default async function Page({
   const title = `${fillTemplate(dict.cities.lookingInWithCategory, { category: category.label })} ${cityName}`;
   const categoryId = id as EventCategory;
   const relatedCategoryLinks = categoryNavLinks(locale, dict.categories, slug);
-  const relatedCategoryLinksLabel = fillTemplate(dict.cities.browseTopCategories, {
-    city: cityName,
-  });
+  const relatedCategoryLinksLabel = dict.cities.browseTopCategories;
 
   return (
     <>

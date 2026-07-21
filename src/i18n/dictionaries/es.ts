@@ -280,7 +280,7 @@ export const es: Dictionary = {
     partners: "Para hoteles y socios",
   },
   cities: {
-    browseTopCategories: "Qué hay en {city}",
+    browseTopCategories: "¿Qué te interesa?",
     eventsIn: "Eventos en",
     lookingIn: "Todos los eventos en",
     lookingInWithCategory: "Eventos de {category} en",

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Building2 } from "lucide-react";
 import type { Event } from "@/lib/types";
@@ -27,6 +27,7 @@ import {
 import { getCategoryHeroImage } from "@/lib/category-heroes";
 import { PAGE_SHELL_CLASS } from "@/lib/page-shell";
 import { getOnboardingCopy } from "@/lib/onboarding";
+import { useForegroundRefresh } from "@/hooks/useForegroundRefresh";
 
 interface EventScopePageProps {
   locale: Locale;
@@ -93,6 +94,16 @@ export function EventScopePage({
   const skipMountFetch = useRef(initialEvents.length > 0);
   initialEventsRef.current = initialEvents;
 
+  const softRefreshEvents = useCallback(() => {
+    const url = fetchUrlRef.current;
+    fetch(url, { cache: "no-store" })
+      .then((response) => response.json())
+      .then((data: { events?: Event[] }) => {
+        setEvents(attachEventImages(data.events ?? []));
+      })
+      .catch(() => {});
+  }, []);
+
   // Trust SSR when present; refetch only when the scope URL changes (or SSR was empty).
   useEffect(() => {
     const urlChanged = fetchUrlRef.current !== fetchUrl;
@@ -127,6 +138,8 @@ export function EventScopePage({
       cancelled = true;
     };
   }, [fetchUrl]);
+
+  useForegroundRefresh(softRefreshEvents);
 
   const city = citySlug ? getCityMeta(citySlug) : undefined;
   // Topic photo when set; else place photo; else regional hero for when-scopes.
@@ -264,12 +277,7 @@ export function EventScopePage({
         locale={locale}
         defaults={submitDefaults}
         onSubmitted={() => {
-          fetch(fetchUrl)
-            .then((response) => response.json())
-            .then((data: { events?: Event[] }) =>
-              setEvents(attachEventImages(data.events ?? [])),
-            )
-            .catch(() => {});
+          softRefreshEvents();
         }}
       />
     </>
