@@ -4,6 +4,9 @@
 [build.environment]
   # Node 22: firebase-admin >=14 and @netlify/plugin-nextjs require it.
   NODE_VERSION = "22"
+  # Browser Maps key is intentionally inlined into client JS (NEXT_PUBLIC_*).
+  # Protect it with HTTP referrer restrictions in Google Cloud, not by hiding it.
+  SECRETS_SCAN_OMIT_KEYS = "NEXT_PUBLIC_GOOGLE_MAPS_API_KEY"
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
