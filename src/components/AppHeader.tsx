@@ -54,7 +54,7 @@ export function AppHeader({
           alt={dict.seo.siteName}
           width={184}
           height={184}
-          priority
+          // Splash already preloads + fetchPriority=high this asset; skip competing priority.
           className="h-14 w-auto object-contain sm:h-20"
         />
       </Link>

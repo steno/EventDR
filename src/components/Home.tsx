@@ -8,6 +8,7 @@ import {
   useMemo,
   useState,
 } from "react";
+import dynamic from "next/dynamic";
 import { useRouter, useSearchParams } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { AppHeader } from "@/components/AppHeader";
@@ -17,13 +18,11 @@ import { CityLocationPicker } from "@/components/CityLocationPicker";
 import { EventList } from "@/components/EventList";
 import { SearchBar } from "@/components/SearchBar";
 import { BottomNav } from "@/components/BottomNav";
-import { SubmitEventSheet } from "@/components/SubmitEventSheet";
 import { InstallBanner } from "@/components/InstallBanner";
 import { PwaRegister } from "@/components/PwaRegister";
 import { EventCard } from "@/components/EventCard";
 import { VenueAudienceCards } from "@/components/VenueAudienceCards";
 import { TodayHighlights } from "@/components/TodayHighlights";
-import { CityPrimingSheet } from "@/components/CityPrimingSheet";
 import { stickyBackControlClassName } from "@/components/StickyListHeader";
 import { useSavedEvents } from "@/hooks/useSavedEvents";
 import {
@@ -50,6 +49,18 @@ import {
   markOnboardingSeen,
 } from "@/lib/onboarding";
 import { fillTemplate } from "@/lib/seo";
+
+const SubmitEventSheet = dynamic(
+  () =>
+    import("@/components/SubmitEventSheet").then((m) => m.SubmitEventSheet),
+  { ssr: false },
+);
+
+const CityPrimingSheet = dynamic(
+  () =>
+    import("@/components/CityPrimingSheet").then((m) => m.CityPrimingSheet),
+  { ssr: false },
+);
 
 interface HomeProps {
   locale: Locale;

@@ -115,7 +115,23 @@ export function WeatherWidget({ locale, dict }: WeatherWidgetProps) {
   }, []);
 
   useEffect(() => {
-    void loadWeather();
+    // Keep weather off the critical path — not needed for first paint / LCP.
+    let idleId: number | undefined;
+    let timeoutId: number | undefined;
+    const start = () => {
+      void loadWeather();
+    };
+    if (typeof window.requestIdleCallback === "function") {
+      idleId = window.requestIdleCallback(start, { timeout: 2000 });
+    } else {
+      timeoutId = window.setTimeout(start, 600);
+    }
+    return () => {
+      if (idleId != null && typeof window.cancelIdleCallback === "function") {
+        window.cancelIdleCallback(idleId);
+      }
+      if (timeoutId != null) window.clearTimeout(timeoutId);
+    };
   }, [loadWeather]);
 
   // Refresh when opening so a stale "worst-hour" forecast can't disagree with current.

@@ -25,9 +25,14 @@ interface VenueAudienceCardsProps {
 function VenueSlideCard({
   venue,
   locale,
+  loadImage,
+  priority = false,
 }: {
   venue: Venue;
   locale: Locale;
+  /** When false, keep the card chrome but skip the image request. */
+  loadImage: boolean;
+  priority?: boolean;
 }) {
   return (
     <Link
@@ -44,13 +49,16 @@ function VenueSlideCard({
       aria-label={venue.name}
     >
       <div className="relative aspect-[2.4/1] w-full shrink-0 overflow-hidden bg-neutral-200 dark:bg-neutral-800">
-        {venue.imageUrl ? (
+        {venue.imageUrl && loadImage ? (
           <EventImage
             src={venue.imageUrl}
             alt=""
-            sizes="(max-width: 640px) 92vw, 45vw"
+            sizes="(max-width: 640px) 88vw, (max-width: 1024px) 45vw, 420px"
+            priority={priority}
             className="object-cover card-media-zoom"
           />
+        ) : venue.imageUrl ? (
+          <span className="block h-full w-full bg-neutral-200 dark:bg-neutral-800" aria-hidden />
         ) : (
           <span
             className="flex h-full w-full items-center justify-center text-2xl"
@@ -83,11 +91,14 @@ function AudienceSlider({
   venues,
   locale,
   dict,
+  mediaEnabled,
 }: {
   audience: VenueAudienceFilter;
   venues: Venue[];
   locale: Locale;
   dict: Dictionary;
+  /** Parent gates media until the section is near the viewport. */
+  mediaEnabled: boolean;
 }) {
   const hint =
     audience === "local" ? dict.venues.localHint : dict.venues.visitorHint;
@@ -95,6 +106,8 @@ function AudienceSlider({
   const [activeIndex, setActiveIndex] = useState(0);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(venues.length > 1);
+  // Once a slide has loaded, keep its image mounted so scroll-back doesn't flash.
+  const [loadedThrough, setLoadedThrough] = useState(0);
 
   const syncScrollHints = useCallback(() => {
     const el = scrollRef.current;
@@ -120,6 +133,12 @@ function AudienceSlider({
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
   }, [syncScrollHints, venues]);
+
+  useEffect(() => {
+    if (!mediaEnabled) return;
+    // Current + next peek (horizontal carousels defeat native lazy otherwise).
+    setLoadedThrough((prev) => Math.max(prev, Math.min(activeIndex + 1, venues.length - 1)));
+  }, [mediaEnabled, activeIndex, venues.length]);
 
   const scrollToIndex = useCallback((index: number) => {
     const el = scrollRef.current;
@@ -148,13 +167,18 @@ function AudienceSlider({
           className="flex snap-x snap-mandatory gap-3 overflow-x-auto pb-0.5 scrollbar-hide"
           aria-label={dict.venues[audience]}
         >
-          {venues.map((venue) => (
+          {venues.map((venue, index) => (
             <div
               key={venue.slug}
               data-venue-slide
               className="w-[88%] shrink-0 snap-start sm:w-[90%]"
             >
-              <VenueSlideCard venue={venue} locale={locale} />
+              <VenueSlideCard
+                venue={venue}
+                locale={locale}
+                loadImage={mediaEnabled && index <= loadedThrough}
+                priority={mediaEnabled && index === 0}
+              />
             </div>
           ))}
         </div>
@@ -208,6 +232,9 @@ export function VenueAudienceCards({
   limit = HOME_VENUE_LIMIT,
 }: VenueAudienceCardsProps) {
   const [venues, setVenues] = useState<Venue[]>(initialVenues ?? []);
+  const sectionRef = useRef<HTMLElement>(null);
+  // Skip venue image requests until the section is near the viewport (or idle).
+  const [mediaEnabled, setMediaEnabled] = useState(false);
 
   useEffect(() => {
     if (initialVenues?.length) return;
@@ -217,6 +244,40 @@ export function VenueAudienceCards({
       .catch(() => {});
   }, [initialVenues, locale]);
 
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+
+    let enabled = false;
+    let timeoutId = 0;
+
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry?.isIntersecting) return;
+        if (enabled) return;
+        enabled = true;
+        setMediaEnabled(true);
+        io.disconnect();
+        window.clearTimeout(timeoutId);
+      },
+      { rootMargin: "240px 0px" },
+    );
+    io.observe(el);
+
+    // Fallback if IntersectionObserver never fires (e.g. unusual layout).
+    timeoutId = window.setTimeout(() => {
+      if (enabled) return;
+      enabled = true;
+      setMediaEnabled(true);
+      io.disconnect();
+    }, 4000);
+
+    return () => {
+      io.disconnect();
+      window.clearTimeout(timeoutId);
+    };
+  }, []);
+
   const sections = VENUE_AUDIENCE_FILTERS.map((audience) => ({
     audience,
     venues: getFeaturedVenues(venues, audience, limit),
@@ -225,7 +286,11 @@ export function VenueAudienceCards({
   if (sections.length === 0) return null;
 
   return (
-    <section className="mb-6 sm:mb-8" aria-label={dict.venues.title}>
+    <section
+      ref={sectionRef}
+      className="mb-6 sm:mb-8"
+      aria-label={dict.venues.title}
+    >
       <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 sm:gap-5">
         {sections.map(({ audience, venues: featured }) => (
           <AudienceSlider
@@ -234,6 +299,7 @@ export function VenueAudienceCards({
             venues={featured}
             locale={locale}
             dict={dict}
+            mediaEnabled={mediaEnabled}
           />
         ))}
       </div>

@@ -36,11 +36,13 @@ function TodayHighlightCard({
   locale,
   dict,
   returnTo,
+  priority = false,
 }: {
   event: Event;
   locale: Locale;
   dict: Dictionary;
   returnTo?: string;
+  priority?: boolean;
 }) {
   const href = eventDetailPath(locale, event.id, returnTo ?? `/${locale}`);
   const liveDisplay = useLiveStatusDisplay(event, dict);
@@ -55,7 +57,7 @@ function TodayHighlightCard({
     <article className="group relative min-w-0 overflow-hidden rounded-2xl bg-neutral-100 shadow-[0_8px_24px_-14px_rgba(0,0,0,0.18)] ring-1 ring-black/5 hover:ring-orange-400/50 hover:shadow-[0_12px_32px_-16px_rgba(251,146,60,0.35)] transition-[box-shadow,transform] duration-500 ease-out active:scale-[0.99] cursor-pointer dark:bg-neutral-950 dark:shadow-[0_8px_24px_-14px_rgba(0,0,0,0.45)] dark:ring-white/10 dark:hover:ring-orange-600/50">
       <Link
         href={href}
-        className="relative block aspect-[3/2] w-full overflow-hidden touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 rounded-2xl"
+        className="relative block aspect-[2/1] w-full overflow-hidden touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 rounded-2xl sm:aspect-[2.4/1]"
         aria-label={event.title}
       >
         {event.imageUrl ? (
@@ -63,7 +65,8 @@ function TodayHighlightCard({
             <EventImage
               src={event.imageUrl}
               alt=""
-              sizes="(max-width: 640px) 45vw, 220px"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              priority={priority}
               className="object-cover card-media-zoom"
             />
           </div>
@@ -95,7 +98,7 @@ function TodayHighlightCard({
           aria-hidden
         />
 
-        <div className="absolute inset-x-0 bottom-0 flex flex-col gap-1.5 p-3.5">
+        <div className="absolute inset-x-0 bottom-0 flex flex-col gap-1.5 p-4 sm:p-5">
           {liveStatusLabel && liveStatus && (
             <EventStatusBadge
               label={liveStatusLabel}
@@ -103,15 +106,15 @@ function TodayHighlightCard({
               className="w-fit"
             />
           )}
-          <h3 className="line-clamp-2 text-base font-black leading-snug tracking-tight text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.55)] sm:text-[17px]">
+          <h3 className="line-clamp-2 text-lg font-black leading-snug tracking-tight text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.55)] sm:text-xl">
             {event.title}
           </h3>
           {timeLabel.display && (
             <p
-              className="inline-flex min-w-0 max-w-full items-center gap-1.5 text-sm font-medium text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.45)]"
+              className="inline-flex min-w-0 max-w-full items-center gap-1.5 text-sm font-medium text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.45)] sm:text-base"
               title={timeLabel.full !== timeLabel.display ? timeLabel.full : undefined}
             >
-              <Clock className="h-3.5 w-3.5 shrink-0" aria-hidden />
+              <Clock className="h-3.5 w-3.5 shrink-0 sm:h-4 sm:w-4" aria-hidden />
               <span className="truncate">{timeLabel.display}</span>
             </p>
           )}
@@ -159,14 +162,15 @@ const TodayHighlightsComponent = ({
         )}
       </div>
 
-      <div className="grid grid-cols-2 items-stretch gap-2.5 sm:gap-3 lg:grid-cols-3">
-        {visibleEvents.map((event) => (
+      <div className="grid grid-cols-1 items-stretch gap-2.5 sm:gap-3 lg:grid-cols-2">
+        {visibleEvents.map((event, index) => (
           <TodayHighlightCard
             key={event.id}
             event={event}
             locale={locale}
             dict={dict}
             returnTo={returnTo}
+            priority={index === 0}
           />
         ))}
       </div>
