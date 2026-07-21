@@ -813,6 +813,37 @@ export const SEED_VENUES: Venue[] = [
     lng: -70.448,
     emoji: "🛶",
   },
+  {
+    slug: "victrola-037",
+    name: "Victrola 037 Arte Café",
+    city: "Puerto Plata",
+    description:
+      "Art café and restaurant on the Puerto Plata Malecón — murals, criollo kitchen, cocktails, and a meetup hub for waterfront experiences at Av. Gregorio Luperón & Padre Castellanos.",
+    lat: 19.7975,
+    lng: -70.6928,
+    emoji: "☕",
+    website: "https://victrolart.do/",
+  },
+  {
+    slug: "ocean-one-cabarete",
+    name: "Ocean One Cabarete",
+    city: "Cabarete",
+    description:
+      "Beachfront condo complex in the heart of Cabarete Bay — gated pools, plaza access, and a direct beach entrance used for community meetups and sunset sessions.",
+    lat: 19.7505,
+    lng: -70.4082,
+    emoji: "🏖️",
+  },
+  {
+    slug: "vip-beach-lifestyles-resort",
+    name: "VIP Beach Lifestyles Resort and Spa",
+    city: "Puerto Plata",
+    description:
+      "Beach resort complex on Cofresí Beach (Lifestyle Holidays area) — pools, entertainment venues, and large multi-day party takeovers for visitors and club members.",
+    lat: 19.793,
+    lng: -70.715,
+    emoji: "🌴",
+  },
 ];
 
 /** Extra name fragments → seed slug (checked before fuzzy name includes). */
@@ -836,6 +867,18 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
   {
     pattern: /ocean\s*world/i,
     slug: "ocean-world",
+  },
+  {
+    pattern: /victrola\s*037|la\s*victrola/i,
+    slug: "victrola-037",
+  },
+  {
+    pattern: /ocean\s*one(\s*cabarete)?/i,
+    slug: "ocean-one-cabarete",
+  },
+  {
+    pattern: /vip\s*beach\s*lifestyles|lifestyle\s*tropical\s*beach/i,
+    slug: "vip-beach-lifestyles-resort",
   },
 ];
 

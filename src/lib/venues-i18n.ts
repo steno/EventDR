@@ -441,6 +441,24 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Plage locale de Sosúa à l'ouest d'El Batey — siège du Puerto Plata Beach Soccer et journées sportives familiales en bord de mer.",
     },
   },
+  "victrola-037": {
+    description: {
+      es: "Café-arte y restaurante en el Malecón de Puerto Plata — murales, cocina criolla, cócteles y punto de encuentro para experiencias frente al mar en Av. Gregorio Luperón esq. Padre Castellanos.",
+      fr: "Café d'art et restaurant sur le Malecón de Puerto Plata — murals, cuisine créole, cocktails et point de rendez-vous pour des expériences en bord de mer à l'Av. Gregorio Luperón esq. Padre Castellanos.",
+    },
+  },
+  "ocean-one-cabarete": {
+    description: {
+      es: "Complejo de condos frente al mar en el corazón de la bahía de Cabarete — piscinas privadas, plaza y acceso directo a la playa para encuentros y sesiones al atardecer.",
+      fr: "Complexe de condos en bord de mer au cœur de la baie de Cabarete — piscines privées, plaza et accès direct à la plage pour rencontres et sessions au coucher du soleil.",
+    },
+  },
+  "vip-beach-lifestyles-resort": {
+    description: {
+      es: "Resort de playa en Cofresí (zona Lifestyle Holidays) — piscinas, entretenimiento y fiestas de varios días para visitantes y miembros del club.",
+      fr: "Resort de plage à Cofresí (zone Lifestyle Holidays) — piscines, divertissement et fêtes de plusieurs jours pour visiteurs et membres du club.",
+    },
+  },
 };
 
 export function localizeVenue(venue: Venue, locale: Locale): Venue {

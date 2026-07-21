@@ -17,6 +17,7 @@ const TICKET_HOSTS = [
   "uepatickets.com",
   "viator.com",
   "getyourguide.com",
+  "boletu.com",
 ];
 
 /** Curated ticket / booking URLs for seed events (verified on official sites). */
@@ -25,6 +26,7 @@ export const CURATED_TICKET_URLS: Record<string, string> = {
   "lil-naay-2026-07-17": "https://todotickets.do/events/lil-naay",
   "lena-dardelet-aura-beach-club-2026-07-24":
     "https://tix.do/event/PororoyLenaDardeletdeaquipallaencabarete-1",
+  "silent-run-5k-2026-07-25": "https://boletu.com/event/silent-run-5k",
   "atleticos-pp-vs-capitanes-2026-07-11":
     "https://todotickets.do/events/3-atleticos-vs-capitanes-de-salcedo-11-de-julio",
   "atleticos-pp-vs-mangueros-2026-07-17":

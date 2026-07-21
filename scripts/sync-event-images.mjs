@@ -44,6 +44,11 @@ const FILE_TO_EVENT_ID = {
   "lil-naay-2026-07-17.jpg": "lil-naay-2026-07-17",
   "lena-dardelet-aura-beach-club-2026-07-24.png":
     "lena-dardelet-aura-beach-club-2026-07-24",
+  "silent-run-5k-2026-07-25.jpg": "silent-run-5k-2026-07-25",
+  "piscinazo-pop-urbano-037-2026-08-02.jpg":
+    "piscinazo-pop-urbano-037-2026-08-02",
+  "los-event-trilogy-2026-09-03.jpg": "los-event-trilogy-2026-09-03",
+  "sunset-laughter-club-cabarete.jpg": "sunset-laughter-club-cabarete",
   // Atléticos summer league — authentic Atléticos pitcher (athleticosPOP.png); copies below.
   "athleticosPOP.png": "atleticos-pp-vs-mangueros-2026-07-17",
   // ASA Survival Series — same flyer for all five Saturday VIP games.
@@ -188,6 +193,9 @@ const FILE_TO_VENUE_SLUG = {
   "espadrillas.jpeg": "handmade-the-brand",
   "paseo-de-db.jpg": "paseo-dona-blanca",
   "elcareyrestaurant.webp": "el-carey-puerto-plata",
+  "victrola-037.jpg": "victrola-037",
+  "ocean-one-cabarete.jpg": "ocean-one-cabarete",
+  "vip-beach-lifestyles-resort.jpg": "vip-beach-lifestyles-resort",
 };
 
 if (!existsSync(sourceDir)) {
