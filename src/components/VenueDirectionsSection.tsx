@@ -238,8 +238,7 @@ export function VenueMapPanel({
           route={route}
         />
       </MapReveal>
-      {mapOpen ? (
-        canEmbedStreetView ? (
+      {canEmbedStreetView ? (
           <button
             type="button"
             onClick={() => setStreetViewOpen(true)}
@@ -256,8 +255,7 @@ export function VenueMapPanel({
           >
             {dict.venues.streetView}
           </a>
-        )
-      ) : null}
+        )}
       {canEmbedStreetView ? (
         <StreetViewModal
           open={streetViewOpen}
