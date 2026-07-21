@@ -23,6 +23,8 @@ jobs:
             local path="$1"
             local label="$2"
             local attempts="${3:-1}"
+            # soft=1 → warn on failure instead of failing the job (seeds already published).
+            local soft="${4:-0}"
             local res http body url try=1
             if [[ "$path" == *\?* ]]; then
               url="${SITE_URL}${path}&secret=${CRON_SECRET}"
@@ -30,33 +32,42 @@ jobs:
               url="${SITE_URL}${path}?secret=${CRON_SECRET}"
             fi
             while true; do
-              # Netlify gateway ~26–30s; fail the attempt before hanging forever.
+              # Netlify gateway ~26–30s inactivity; fail the attempt before hanging forever.
               res=$(curl -sS --max-time 90 -w "\n%{http_code}" -X POST "$url" || true)
               http=$(echo "$res" | tail -n1)
               body=$(echo "$res" | sed '$d')
               echo "${label}: HTTP ${http} (attempt ${try}/${attempts})"
               echo "$body"
               if [ "$http" -ge 200 ] && [ "$http" -lt 300 ] 2>/dev/null; then
-                return 0
+                # Seeds return one JSON object; ingest may stream NDJSON — require success:true.
+                if echo "$body" | grep -q '"success"[[:space:]]*:[[:space:]]*true'; then
+                  return 0
+                fi
+                echo "${label}: HTTP ${http} but no success:true in body — treating as failure."
               fi
               if [ "$http" = "401" ]; then
                 echo "::error::Unauthorized — set CRON_SECRET on Netlify to match GitHub repo secret, then redeploy."
                 exit 22
               fi
               if [ "$try" -ge "$attempts" ]; then
+                if [ "$soft" = "1" ]; then
+                  echo "::warning::${label} failed after ${attempts} attempt(s) — continuing (seeds already synced)."
+                  return 1
+                fi
                 echo "::error::${label} failed after ${attempts} attempt(s)."
                 exit 22
               fi
               try=$((try + 1))
-              echo "Retrying ${label} in 15s…"
-              sleep 15
+              echo "Retrying ${label} in 20s…"
+              sleep 20
             done
           }
           # Opinions + images run after fast ingest (Netlify ~26–30s gateway).
           post_api "/api/seed/curated-events" "curated seed"
           post_api "/api/seed/facebook-events?opinions=0" "facebook seed"
-          post_api "/api/ingest?opinions=0&fast=1" "ingest" 2
+          # Crawl ingest often races Netlify's idle gateway — soft-fail so seed success still greens.
+          post_api "/api/ingest?opinions=0&fast=1" "ingest" 4 1 || true
           # Source images + venues + draft opinions for pending AND approved gaps.
-          post_api "/api/cron/ingest-enrich?limit=8&opinionLimit=5" "ingest enrich" 2
+          post_api "/api/cron/ingest-enrich?limit=8&opinionLimit=5" "ingest enrich" 3 1 || true
           # Also top up recurring-series opinion drafts that still lack seed copy.
-          post_api "/api/cron/event-opinion-drafts?generate=1&limit=5" "opinion drafts" 2
+          post_api "/api/cron/event-opinion-drafts?generate=1&limit=5" "opinion drafts" 3 1 || true

@@ -85,7 +85,7 @@ export async function ingestSocialEvents(
     ...facebookGroupEventUrls(),
     ...facebookEventPageUrls(),
   ];
-  const cappedFacebook = fast ? facebookUrls.slice(0, 8) : facebookUrls;
+  const cappedFacebook = fast ? facebookUrls.slice(0, 4) : facebookUrls;
   const groupReads = await Promise.all(
     cappedFacebook.map(async (url) => {
       const group = FACEBOOK_GROUPS.find((g) => url.startsWith(g.url));
@@ -95,7 +95,7 @@ export async function ingestSocialEvents(
   );
 
   const instagramUrls = instagramProfileUrls();
-  const cappedInstagram = fast ? instagramUrls.slice(0, 6) : instagramUrls;
+  const cappedInstagram = fast ? instagramUrls.slice(0, 3) : instagramUrls;
   const instagramReads = await Promise.all(
     cappedInstagram.map(async (url) => {
       const handle = url.replace(/\/$/, "").split("/").pop() ?? url;
@@ -106,7 +106,7 @@ export async function ingestSocialEvents(
 
   // Prefer Instagram + Facebook searches; keep volume bounded for cron time.
   const socialResults = await Promise.all(
-    SOCIAL_QUERIES.slice(0, fast ? 6 : 14).map(async (query) => {
+    SOCIAL_QUERIES.slice(0, fast ? 3 : 14).map(async (query) => {
       try {
         const content = await webSearch(query);
         if (content.length < 80) return null;
