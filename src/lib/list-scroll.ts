@@ -49,3 +49,19 @@ export function scrollUnderStickyHeader(
   const top = Math.max(0, readDocumentTop(el) - readStickyListHeaderHeight());
   window.scrollTo({ top, behavior });
 }
+
+/**
+ * Scroll so `el` sits just under the sticky header plus any sticky stack
+ * above it (e.g. expanded venue map) — keeps forms from vanishing under sticky chrome.
+ */
+export function scrollBelowStickyStack(
+  el: HTMLElement | null | undefined,
+  stickyStack?: HTMLElement | null,
+  behavior: ScrollBehavior = scrollBehaviorPreference(),
+): void {
+  if (!el) return;
+  const headerH = readStickyListHeaderHeight();
+  const stackH = stickyStack?.offsetHeight ?? 0;
+  const top = Math.max(0, readDocumentTop(el) - headerH - stackH);
+  window.scrollTo({ top, behavior });
+}

@@ -16,7 +16,7 @@ import { SubmitEventSheet } from "@/components/SubmitEventSheet";
 import { StickyListHeader } from "@/components/StickyListHeader";
 import {
   useVenueDirections,
-  VenueDirectionsPlanner,
+  VenueDirectionsForm,
   VenueMapPanel,
 } from "@/components/VenueDirectionsSection";
 import { VenueAssessmentBlock } from "@/components/VenueAssessmentBlock";
@@ -27,7 +27,7 @@ import { lastHomePath } from "@/lib/cities";
 import { readReturnParams, resolveBackLabel } from "@/lib/event-navigation";
 import { formatPhoneTel } from "@/lib/event-phone";
 import { PAGE_SHELL_CLASS } from "@/lib/page-shell";
-import { scrollUnderStickyHeader } from "@/lib/list-scroll";
+import { scrollBelowStickyStack, scrollUnderStickyHeader } from "@/lib/list-scroll";
 import { getVenueHeroImageUrl } from "@/lib/venue-images";
 import { useForegroundRefresh } from "@/hooks/useForegroundRefresh";
 
@@ -61,7 +61,11 @@ export function VenuePage({
   const [loading, setLoading] = useState(true);
   const [submitOpen, setSubmitOpen] = useState(false);
   const [plannerOpen, setPlannerOpen] = useState(false);
+  const [directionsAttention, setDirectionsAttention] = useState(false);
+  const placeCardRef = useRef<HTMLElement>(null);
   const mapSectionRef = useRef<HTMLDivElement>(null);
+  const stickyMapRef = useRef<HTMLDivElement>(null);
+  const directionsFormRef = useRef<HTMLElement>(null);
   /** Scroll after the planner mounts — scrolling before expand loses to scroll anchoring. */
   const pendingMapScrollRef = useRef(false);
   const directions = useVenueDirections(venue, dict);
@@ -100,19 +104,45 @@ export function VenuePage({
     getVenueHeroImageUrl(venue.slug) ?? venue.imageUrl?.split("?")[0];
 
   useEffect(() => {
-    const { from, fromTitle } = readReturnParams(
+    const { from, fromTitle, directions: fromEventLocation } = readReturnParams(
       window.location.search,
       locale,
     );
     if (from) {
       setReturnTo(from);
       setReturnTitle(fromTitle);
+    } else {
+      setReturnTo(null);
+      setReturnTitle(null);
+      setFallbackHref(lastHomePath(locale));
+    }
+
+    // From an event address / View venue link: flash Show map; keep hero + map in view.
+    if (!fromEventLocation) {
+      setDirectionsAttention(false);
       return;
     }
-    setReturnTo(null);
-    setReturnTitle(null);
-    setFallbackHref(lastHomePath(locale));
+    setDirectionsAttention(true);
+    const scroll = window.setTimeout(() => {
+      // Park the place card under the sticky header so hero and map share the viewport.
+      scrollUnderStickyHeader(placeCardRef.current, "auto");
+    }, 50);
+    return () => window.clearTimeout(scroll);
   }, [locale]);
+
+  function clearDirectionsAttention() {
+    setDirectionsAttention(false);
+  }
+
+  function openDirectionsMode() {
+    setDirectionsAttention(false);
+    if (plannerOpen) {
+      scrollBelowStickyStack(directionsFormRef.current, stickyMapRef.current);
+      return;
+    }
+    pendingMapScrollRef.current = true;
+    setPlannerOpen(true);
+  }
 
   const backHref = returnTo ?? fallbackHref;
   const backLabel = resolveBackLabel(locale, backHref, dict, returnTitle);
@@ -125,19 +155,16 @@ export function VenuePage({
     router.push(backHref);
   }
 
-  function openDirectionsPlanner() {
-    if (plannerOpen) {
-      scrollUnderStickyHeader(mapSectionRef.current);
-      return;
-    }
-    pendingMapScrollRef.current = true;
-    setPlannerOpen(true);
-  }
-
   useLayoutEffect(() => {
     if (!plannerOpen || !pendingMapScrollRef.current) return;
     pendingMapScrollRef.current = false;
-    scrollUnderStickyHeader(mapSectionRef.current);
+    // Double rAF: wait until sticky map has its expanded height before measuring.
+    const id = window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
+        scrollBelowStickyStack(directionsFormRef.current, stickyMapRef.current);
+      });
+    });
+    return () => window.cancelAnimationFrame(id);
   }, [plannerOpen]);
 
   const websiteUrl = venue.website
@@ -166,7 +193,10 @@ export function VenuePage({
           />
 
           {/* Place card: photo + map */}
-          <article className="mt-1 w-full rounded-3xl bg-white shadow-2xl ring-1 ring-neutral-200/70 dark:bg-neutral-900 dark:ring-neutral-800">
+          <article
+            ref={placeCardRef}
+            className="mt-1 w-full rounded-3xl bg-white shadow-2xl ring-1 ring-neutral-200/70 dark:bg-neutral-900 dark:ring-neutral-800"
+          >
             {/* Collapse hero in directions mode so the map can own the viewport. */}
             <div
               className={
@@ -195,10 +225,11 @@ export function VenuePage({
             <div ref={mapSectionRef} className="[overflow-anchor:none]">
               {/* Sticky map while routing — typing in the form must not cover it. */}
               <div
+                ref={stickyMapRef}
                 className={
                   plannerOpen
                     ? "sticky z-[11] top-[var(--sticky-list-header-height,0px)] overflow-hidden rounded-t-3xl bg-neutral-200 shadow-[0_8px_24px_-12px_rgba(0,0,0,0.45)] dark:bg-neutral-800"
-                    : undefined
+                    : "overflow-hidden rounded-b-3xl"
                 }
               >
                 <VenueMapPanel
@@ -206,6 +237,9 @@ export function VenuePage({
                   dict={dict}
                   directions={directions}
                   forceReveal={plannerOpen}
+                  onReveal={openDirectionsMode}
+                  attention={directionsAttention && !plannerOpen}
+                  onAttentionEnd={clearDirectionsAttention}
                   className={
                     plannerOpen
                       ? "h-[min(48dvh,22rem)] sm:h-[min(52dvh,26rem)]"
@@ -213,16 +247,17 @@ export function VenuePage({
                   }
                 />
               </div>
-              <div className="overflow-hidden rounded-b-3xl">
-                <VenueDirectionsPlanner
-                  venue={venue}
-                  dict={dict}
-                  directions={directions}
-                  open={plannerOpen}
-                  onOpenChange={setPlannerOpen}
-                  variant="embedded"
-                />
-              </div>
+              {plannerOpen ? (
+                <div className="overflow-hidden rounded-b-3xl">
+                  <VenueDirectionsForm
+                    ref={directionsFormRef}
+                    venue={venue}
+                    dict={dict}
+                    directions={directions}
+                    variant="embedded"
+                  />
+                </div>
+              ) : null}
             </div>
           </article>
 
@@ -279,7 +314,7 @@ export function VenuePage({
               ) : null}
               <button
                 type="button"
-                onClick={openDirectionsPlanner}
+                onClick={openDirectionsMode}
                 className={venueActionClass}
               >
                 <Navigation className="h-4 w-4" aria-hidden />

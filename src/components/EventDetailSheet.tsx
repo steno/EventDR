@@ -369,7 +369,7 @@ export function EventDetailSheet({
   function handleViewVenue() {
     if (!venueSlug || !event) return;
     const from = eventDetailPath(locale, event.id);
-    router.push(venueDetailPath(locale, venueSlug, from, event.title));
+    router.push(venueDetailPath(locale, venueSlug, from, event.title, true));
   }
 
   const contentSection = (
@@ -419,9 +419,20 @@ export function EventDetailSheet({
         )}
         {isPhysical ? (
           <a
-            href={getDirectionsUrl(event)}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={
+              venueSlug
+                ? venueDetailPath(
+                    locale,
+                    venueSlug,
+                    eventDetailPath(locale, event.id),
+                    event.title,
+                    true,
+                  )
+                : getDirectionsUrl(event)
+            }
+            {...(venueSlug
+              ? {}
+              : { target: "_blank", rel: "noopener noreferrer" })}
             className="group/place flex items-start gap-2.5 text-copy-meta text-neutral-800 dark:text-neutral-200 touch-manipulation"
           >
             <MapPin className="mt-0.5 h-[1.125rem] w-[1.125rem] shrink-0 text-neutral-500 transition-colors group-hover/place:text-orange-600 dark:text-neutral-400" />

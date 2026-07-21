@@ -9,7 +9,7 @@ import {
   useState,
 } from "react";
 import dynamic from "next/dynamic";
-import { ChevronDown, LocateFixed, MapPin, Navigation } from "lucide-react";
+import { LocateFixed, MapPin, Navigation } from "lucide-react";
 import type { Venue } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { EventCoords } from "@/lib/event-coords";
@@ -187,8 +187,12 @@ interface VenueMapPanelProps {
   dict: Dictionary;
   directions: VenueDirectionsState;
   className?: string;
-  /** Reveal the interactive map (e.g. when Directions opens). */
+  /** Reveal the interactive map (e.g. when directions mode opens). */
   forceReveal?: boolean;
+  /** User tapped Show map — open full map + directions. */
+  onReveal?: () => void;
+  attention?: boolean;
+  onAttentionEnd?: () => void;
 }
 
 /** Inline map — pairs with hero photo in the place card. */
@@ -198,6 +202,9 @@ export function VenueMapPanel({
   directions,
   className = "h-[12rem] sm:h-[14rem]",
   forceReveal = false,
+  onReveal,
+  attention = false,
+  onAttentionEnd,
 }: VenueMapPanelProps) {
   const { destination, origin, route } = directions;
 
@@ -210,6 +217,9 @@ export function VenueMapPanel({
         lng={destination.lng}
         label={dict.venues.showMap}
         forceReveal={forceReveal || Boolean(origin || route)}
+        onReveal={onReveal}
+        attention={attention && !forceReveal}
+        onAttentionEnd={onAttentionEnd}
         className="h-full w-full"
       >
         <EventInlineMap
@@ -223,22 +233,20 @@ export function VenueMapPanel({
   );
 }
 
-interface VenueDirectionsPlannerProps {
+interface VenueDirectionsFormProps {
   venue: Venue;
   dict: Dictionary;
   directions: VenueDirectionsState;
-  open: boolean;
-  onOpenChange: (open: boolean) => void;
   /** Flush under the hero map inside the place card. */
   variant?: "standalone" | "embedded";
 }
 
-/** Collapsible driving-directions form — attach under the map on venue pages. */
-export const VenueDirectionsPlanner = forwardRef<
+/** Starting-point form shown once the map / directions mode is open. */
+export const VenueDirectionsForm = forwardRef<
   HTMLElement,
-  VenueDirectionsPlannerProps
->(function VenueDirectionsPlanner(
-  { venue: _venue, dict, directions, open, onOpenChange, variant = "standalone" },
+  VenueDirectionsFormProps
+>(function VenueDirectionsForm(
+  { venue: _venue, dict, directions, variant = "standalone" },
   ref,
 ) {
   const embedded = variant === "embedded";
@@ -254,8 +262,6 @@ export const VenueDirectionsPlanner = forwardRef<
     handleSubmit,
   } = directions;
 
-  const headingId = `${inputId}-heading`;
-
   return (
     <section
       ref={ref}
@@ -264,104 +270,66 @@ export const VenueDirectionsPlanner = forwardRef<
           ? "border-t border-neutral-200/80 dark:border-neutral-800"
           : "mt-8 mb-2"
       }
-      aria-labelledby={headingId}
+      aria-label={dict.venues.howToGetThere}
     >
-      <button
-        type="button"
-        id={headingId}
-        onClick={() => onOpenChange(!open)}
-        aria-expanded={open}
-        className={
-          embedded
-            ? `
-              flex w-full min-h-11 items-center justify-between gap-3 px-4 py-3 text-left
-              touch-manipulation transition-colors
-              bg-neutral-50/90 hover:bg-neutral-100/90 active:scale-[0.99]
-              dark:bg-neutral-950/50 dark:hover:bg-neutral-900/60
-            `
-            : `
-              flex w-full min-h-11 items-center justify-between gap-3 rounded-2xl
-              border border-neutral-200/90 bg-white/80 px-4 py-3 text-left
-              touch-manipulation transition-colors
-              hover:border-orange-300/70 active:scale-[0.99]
-              dark:border-neutral-700 dark:bg-neutral-900/60
-              dark:hover:border-orange-500/40
-            `
-        }
+      <form
+        onSubmit={handleSubmit}
+        className={embedded ? "space-y-2.5 px-4 pb-4 pt-3" : "space-y-2.5"}
       >
-        <span className="inline-flex items-center gap-2.5 text-sm font-bold text-neutral-800 dark:text-neutral-100">
-          <Navigation className="h-4 w-4 shrink-0 text-orange-600 dark:text-orange-400" aria-hidden />
-          {dict.venues.howToGetThere}
-        </span>
-        <ChevronDown
-          className={`h-4 w-4 shrink-0 text-neutral-400 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
-          aria-hidden
-        />
-      </button>
-
-      {open ? (
-        <form
-          onSubmit={handleSubmit}
-          className={embedded ? "space-y-2.5 px-4 pb-4 pt-3" : "mt-3 space-y-2.5"}
+        <label
+          htmlFor={inputId}
+          className="block text-sm font-medium text-neutral-700 dark:text-neutral-300"
         >
-          <label
-            htmlFor={inputId}
-            className="block text-sm font-medium text-neutral-700 dark:text-neutral-300"
+          {fieldLabel}
+        </label>
+        <div className="flex gap-2">
+          <input
+            id={inputId}
+            type="text"
+            value={startQuery}
+            onChange={(e) => {
+              setStartQuery(e.target.value);
+              setOriginLabel(null);
+            }}
+            placeholder={dict.venues.startingFromPlaceholder}
+            autoComplete="street-address"
+            className="min-w-0 flex-1 rounded-2xl border border-neutral-200 bg-white px-4 py-3 text-sm text-neutral-900 placeholder:text-neutral-400 outline-none transition focus:border-orange-300 focus:ring-2 focus:ring-orange-400/30 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-100 dark:placeholder:text-neutral-500 dark:focus:border-orange-500/50"
+          />
+          <button
+            type="button"
+            onClick={handleUseMyLocation}
+            disabled={busy}
+            className="inline-flex shrink-0 items-center justify-center gap-1.5 rounded-2xl border border-neutral-200 bg-white px-3.5 py-3 text-sm font-semibold text-neutral-800 touch-manipulation transition active:scale-[0.98] disabled:opacity-60 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-100"
+            aria-label={dict.venues.useMyLocation}
+            title={dict.venues.useMyLocation}
           >
-            {fieldLabel}
-          </label>
-          <div className="flex gap-2">
-            <input
-              id={inputId}
-              type="text"
-              value={startQuery}
-              onChange={(e) => {
-                setStartQuery(e.target.value);
-                setOriginLabel(null);
-              }}
-              placeholder={dict.venues.startingFromPlaceholder}
-              autoComplete="street-address"
-              className="min-w-0 flex-1 rounded-2xl border border-neutral-200 bg-white px-4 py-3 text-sm text-neutral-900 placeholder:text-neutral-400 outline-none transition focus:border-orange-300 focus:ring-2 focus:ring-orange-400/30 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-100 dark:placeholder:text-neutral-500 dark:focus:border-orange-500/50"
-            />
-            <button
-              type="button"
-              onClick={handleUseMyLocation}
-              disabled={busy}
-              className="inline-flex shrink-0 items-center justify-center gap-1.5 rounded-2xl border border-neutral-200 bg-white px-3.5 py-3 text-sm font-semibold text-neutral-800 touch-manipulation transition active:scale-[0.98] disabled:opacity-60 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-100"
-              aria-label={dict.venues.useMyLocation}
-              title={dict.venues.useMyLocation}
-            >
-              <LocateFixed className="h-4 w-4" aria-hidden />
-              <span className="hidden sm:inline">{dict.venues.useMyLocation}</span>
-            </button>
-          </div>
+            <LocateFixed className="h-4 w-4" aria-hidden />
+            <span className="hidden sm:inline">{dict.venues.useMyLocation}</span>
+          </button>
+        </div>
 
-          <div className="flex flex-wrap items-center gap-2">
-            <button
-              type="submit"
-              disabled={busy}
-              className="inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-5 py-3 text-sm font-bold text-white shadow-sm touch-manipulation transition-transform active:scale-[0.98] disabled:opacity-60"
-            >
-              <Navigation className="h-4 w-4" aria-hidden />
-              {busy ? dict.venues.routeLoading : dict.venues.getDirections}
-            </button>
-          </div>
+        <div className="flex flex-wrap items-center gap-2">
+          <button
+            type="submit"
+            disabled={busy}
+            className="inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-5 py-3 text-sm font-bold text-white shadow-sm touch-manipulation transition-transform active:scale-[0.98] disabled:opacity-60"
+          >
+            <Navigation className="h-4 w-4" aria-hidden />
+            {busy ? dict.venues.routeLoading : dict.venues.getDirections}
+          </button>
+        </div>
 
-          {error ? (
-            <p
-              className="text-sm text-rose-600 dark:text-rose-400"
-              role="alert"
-            >
-              {error}
-            </p>
-          ) : null}
-        </form>
-      ) : null}
+        {error ? (
+          <p className="text-sm text-rose-600 dark:text-rose-400" role="alert">
+            {error}
+          </p>
+        ) : null}
+      </form>
     </section>
   );
 });
 
-/** @deprecated Prefer VenueMapPanel + VenueDirectionsPlanner on venue pages. */
+/** @deprecated Prefer VenueMapPanel + VenueDirectionsForm on venue pages. */
 export function VenueDirectionsSection({
   venue,
   dict,
@@ -374,14 +342,20 @@ export function VenueDirectionsSection({
 
   return (
     <>
-      <VenueMapPanel venue={venue} dict={dict} directions={directions} />
-      <VenueDirectionsPlanner
+      <VenueMapPanel
         venue={venue}
         dict={dict}
         directions={directions}
-        open={open}
-        onOpenChange={setOpen}
+        forceReveal={open}
+        onReveal={() => setOpen(true)}
       />
+      {open ? (
+        <VenueDirectionsForm
+          venue={venue}
+          dict={dict}
+          directions={directions}
+        />
+      ) : null}
     </>
   );
 }

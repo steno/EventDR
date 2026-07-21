@@ -183,7 +183,10 @@ export function searchEvents<
     description: string;
     location: string;
     venue?: string;
+    address?: string;
     category?: string;
+    categories?: string[];
+    lineup?: string[];
   },
 >(items: T[], query: string): T[] {
   const q = query.trim().toLowerCase();
@@ -193,7 +196,10 @@ export function searchEvents<
     if (e.title.toLowerCase().includes(q)) return true;
     if ((e.venue ?? "").toLowerCase().includes(q)) return true;
     if (e.location.toLowerCase().includes(q)) return true;
+    if ((e.address ?? "").toLowerCase().includes(q)) return true;
     if ((e.category ?? "").toLowerCase().includes(q)) return true;
+    if (e.categories?.some((c) => c.toLowerCase().includes(q))) return true;
+    if (e.lineup?.some((name) => name.toLowerCase().includes(q))) return true;
     return e.description.toLowerCase().includes(q);
   });
 }

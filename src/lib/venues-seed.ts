@@ -880,6 +880,11 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
     pattern: /vip\s*beach\s*lifestyles|lifestyle\s*tropical\s*beach/i,
     slug: "vip-beach-lifestyles-resort",
   },
+  {
+    // Local/expat name for Sea Horse Ranch Tennis Club (pickleball / courts).
+    pattern: /cabarete\s*sports?\s*club/i,
+    slug: "sea-horse-ranch",
+  },
 ];
 
 export function getSeedVenue(slug: string): Venue | undefined {

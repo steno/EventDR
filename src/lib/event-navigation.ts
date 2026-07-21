@@ -66,14 +66,18 @@ export function venueDetailPath(
   slug: string,
   returnTo?: string,
   returnTitle?: string,
+  openDirections?: boolean,
 ): string {
   const base = `/${locale}/venue/${slug}`;
-  if (!returnTo) return base;
   const params = new URLSearchParams();
-  params.set("from", returnTo);
-  const title = sanitizeReturnTitle(returnTitle);
-  if (title) params.set("fromTitle", title);
-  return `${base}?${params.toString()}`;
+  if (returnTo) {
+    params.set("from", returnTo);
+    const title = sanitizeReturnTitle(returnTitle);
+    if (title) params.set("fromTitle", title);
+  }
+  if (openDirections) params.set("directions", "1");
+  const qs = params.toString();
+  return qs ? `${base}?${qs}` : base;
 }
 
 function isSafeReturnPath(path: string, locale: Locale): boolean {
@@ -96,16 +100,21 @@ export function sanitizeReturnTitle(raw: string | null | undefined): string | nu
 export function readReturnParams(
   search: string,
   locale: Locale,
-): { from: string | null; fromTitle: string | null } {
+): { from: string | null; fromTitle: string | null; directions: boolean } {
   const params = new URLSearchParams(
     search.startsWith("?") ? search.slice(1) : search,
   );
   const fromRaw = params.get("from");
   const from =
     fromRaw && isSafeReturnPath(fromRaw, locale) ? fromRaw : null;
+  const directionsRaw = params.get("directions");
   return {
     from,
     fromTitle: sanitizeReturnTitle(params.get("fromTitle")),
+    directions:
+      directionsRaw === "1" ||
+      directionsRaw === "true" ||
+      directionsRaw === "directions",
   };
 }
 

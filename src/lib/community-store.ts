@@ -31,6 +31,7 @@ const SEED_COMMUNITY: Event[] = [
     time: "4:00 PM",
     location: "Cabarete",
     venue: "Cabarete Sports Club",
+    venueSlug: "sea-horse-ranch",
     category: "sports",
     format: "physical",
     communitySubmitted: true,

@@ -327,6 +327,56 @@ button, a {
   transform-origin: top center;
 }
 
+/* Soft “look here” pulse for deep-linked directions on venue pages.
+   Uses inset ring + background so parent overflow:hidden can’t clip it. */
+@keyframes attention-pulse {
+  0%,
+  100% {
+    background-color: rgb(249 115 22 / 0.18);
+    box-shadow: inset 0 0 0 1px rgb(249 115 22 / 0.55);
+  }
+  50% {
+    background-color: rgb(249 115 22 / 0.4);
+    box-shadow: inset 0 0 0 1px rgb(249 115 22 / 0.95);
+  }
+}
+
+@keyframes attention-icon {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+.animate-attention-pulse {
+  animation: attention-pulse 0.7s ease-in-out 4;
+  /* Kill competing bg/transition utilities while pulsing */
+  transition: none !important;
+  border-radius: 0;
+  background-color: rgb(249 115 22 / 0.18);
+  box-shadow: inset 0 0 0 1px rgb(249 115 22 / 0.55);
+}
+
+.animate-attention-icon {
+  animation: attention-icon 0.7s ease-in-out 4;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-attention-pulse {
+    animation: none;
+    border-radius: 0;
+    background-color: rgb(249 115 22 / 0.28);
+    box-shadow: inset 0 0 0 1px rgb(249 115 22 / 0.85);
+  }
+
+  .animate-attention-icon {
+    animation: none;
+  }
+}
+
 @keyframes glow-drift-a {
   0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.85; }
   50% { transform: translate(14px, 10px) scale(1.1); opacity: 1; }
