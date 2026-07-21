@@ -12,8 +12,8 @@ import type { TimeRange } from "@/lib/filters";
 /** Re-export for callers that import discovery helpers from home-layout. */
 export { prioritizeOneTimeEvents } from "@/lib/event-sort";
 
-/** Max cards in the home "Happening today" column. */
-export const HOME_TODAY_LIMIT = 3;
+/** Max cards in the home "Happening today" section (desktop 2×2). */
+export const HOME_TODAY_LIMIT = 4;
 
 /** Max events in the home "Our picks" section. */
 export const HOME_PICKS_LIMIT = 10;
