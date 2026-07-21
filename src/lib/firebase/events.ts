@@ -1,7 +1,11 @@
 import { FieldValue, type DocumentData } from "firebase-admin/firestore";
 import type { Event, EventCategory, EventFormat, Venue } from "@/lib/types";
 import type { LocalizedText } from "@/lib/localized-text";
-import { getEventCategoryList, withResolvedCategories } from "@/lib/categorize";
+import {
+  eventInCategory,
+  getEventCategoryList,
+  withResolvedCategories,
+} from "@/lib/categorize";
 import { sanitizeEventPlaceFields } from "@/lib/event-location";
 import { normalizeLineup } from "@/lib/event-lineup";
 import { applyCuratedEventPatch } from "@/lib/curated-events";
@@ -15,6 +19,48 @@ import {
 } from "@/lib/ingest-dedupe";
 import { sourceEventImageUrl } from "@/lib/ingest-images";
 import { getFirestoreDb, isFirebaseConfigured } from "./admin";
+
+/** Process-local cache — cuts repeat full-collection reads on Netlify instances. */
+const APPROVED_EVENTS_CACHE_TTL_MS = 12 * 60 * 1000;
+
+let approvedEventsCache: { events: Event[]; fetchedAt: number } | null = null;
+let approvedEventsInflight: Promise<Event[]> | null = null;
+
+export function invalidateApprovedEventsCache(): void {
+  approvedEventsCache = null;
+  approvedEventsInflight = null;
+}
+
+async function loadAllApprovedEvents(): Promise<Event[]> {
+  const now = Date.now();
+  if (
+    approvedEventsCache &&
+    now - approvedEventsCache.fetchedAt < APPROVED_EVENTS_CACHE_TTL_MS
+  ) {
+    return approvedEventsCache.events;
+  }
+
+  if (approvedEventsInflight) return approvedEventsInflight;
+
+  approvedEventsInflight = (async () => {
+    const db = getFirestoreDb();
+    if (!db) return [];
+
+    const snap = await db
+      .collection("events")
+      .where("status", "==", "approved")
+      .get();
+
+    const events = snap.docs.map((doc) => docToEvent(doc.id, doc.data()));
+    events.sort((a, b) => a.date.localeCompare(b.date));
+    approvedEventsCache = { events, fetchedAt: Date.now() };
+    return events;
+  })().finally(() => {
+    approvedEventsInflight = null;
+  });
+
+  return approvedEventsInflight;
+}
 
 function readLocalizedText(data: DocumentData, field: string): LocalizedText | undefined {
   const raw = data[field];
@@ -283,16 +329,8 @@ export async function fetchApprovedEventsMissingImages(
   limit = 8,
 ): Promise<Event[]> {
   try {
-    const db = getFirestoreDb();
-    if (!db) return [];
-
-    const snap = await db
-      .collection("events")
-      .where("status", "==", "approved")
-      .get();
-
-    return snap.docs
-      .map((doc) => docToEvent(doc.id, doc.data()))
+    const events = await loadAllApprovedEvents();
+    return events
       .filter((e) => !e.imageUrl?.trim())
       .sort((a, b) => b.id.localeCompare(a.id))
       .slice(0, Math.max(1, limit));
@@ -308,25 +346,15 @@ export async function fetchApprovedEvents(options?: {
   locale?: string;
 }): Promise<Event[]> {
   try {
-    const db = getFirestoreDb();
-    if (!db) return [];
+    let events = await loadAllApprovedEvents();
 
-    let query = db
-      .collection("events")
-      .where("status", "==", "approved");
-
-    // Apply filters at database level when possible
+    // Filter in memory so category/venue pages share one cached collection read.
     if (options?.category) {
-      query = query.where("searchCategories", "array-contains", options.category);
+      events = events.filter((e) => eventInCategory(e, options.category!));
     }
     if (options?.venueSlug) {
-      query = query.where("venueSlug", "==", options.venueSlug);
+      events = events.filter((e) => e.venueSlug === options.venueSlug);
     }
-
-    const snap = await query.get();
-
-    const events = snap.docs.map((doc) => docToEvent(doc.id, doc.data()));
-    events.sort((a, b) => a.date.localeCompare(b.date));
 
     return events;
   } catch (error) {
@@ -399,6 +427,7 @@ export async function patchEventFields(
 
   try {
     await db.collection("events").doc(id).update(update);
+    invalidateApprovedEventsCache();
     return true;
   } catch (err) {
     console.error("patchEventFields:", err);
@@ -412,6 +441,7 @@ export async function deleteEvent(id: string): Promise<boolean> {
 
   try {
     await db.collection("events").doc(id).delete();
+    invalidateApprovedEventsCache();
     return true;
   } catch (err) {
     console.error("deleteEvent:", err);
@@ -438,6 +468,7 @@ async function updateEventStatus(
 
   try {
     await db.collection("events").doc(id).update({ status });
+    invalidateApprovedEventsCache();
     return true;
   } catch (err) {
     console.error("updateEventStatus:", err);
@@ -490,6 +521,7 @@ export async function approveEvent(id: string): Promise<boolean> {
     }
 
     await ref.update(update);
+    invalidateApprovedEventsCache();
 
     // Draft a POP opinion for the newly approved event (never auto-published).
     try {
@@ -582,6 +614,7 @@ export async function insertIngestedEvents(
     upserted++;
   }
 
+  invalidateApprovedEventsCache();
   return { upserted, merged, skippedRejected };
 }
 
@@ -607,6 +640,7 @@ export async function upsertApprovedEvents(
     }
     upserted++;
   }
+  invalidateApprovedEventsCache();
   return upserted;
 }
 
@@ -693,8 +727,8 @@ export async function patchVenueGooglePlaceId(
 }
 
 export async function countWeekendEvents(): Promise<number> {
-  const db = getFirestoreDb();
-  if (!db) return 0;
+  const events = await loadAllApprovedEvents();
+  if (events.length === 0) return 0;
 
   // Use APP_TIMEZONE for consistent weekend calculation
   const now = new Date();
@@ -717,14 +751,7 @@ export async function countWeekendEvents(): Promise<number> {
   const satStr = saturday.toISOString().slice(0, 10);
   const sunStr = sunday.toISOString().slice(0, 10);
 
-  const snap = await db
-    .collection("events")
-    .where("status", "==", "approved")
-    .where("date", ">=", satStr)
-    .where("date", "<=", sunStr)
-    .get();
-
-  return snap.size;
+  return events.filter((e) => e.date >= satStr && e.date <= sunStr).length;
 }
 
 export async function deleteExpiredEvents(): Promise<{
@@ -766,6 +793,7 @@ export async function deleteExpiredEvents(): Promise<{
     }
   }
 
+  if (deleted > 0) invalidateApprovedEventsCache();
   return { deleted, errors };
 }
 

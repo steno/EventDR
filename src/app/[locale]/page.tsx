@@ -7,6 +7,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { isValidLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { buildHomeMetadata, buildWebSiteJsonLd } from "@/lib/seo";
+import { getPublicEvents } from "@/lib/public-events";
 import { getVenues } from "@/lib/venues";
 
 // ISR: regenerate home every 2 minutes instead of SSR every visit.
@@ -32,13 +33,21 @@ export default async function Page({
   if (!isValidLocale(locale)) notFound();
 
   const dict = getDictionary(locale);
-  const venues = await getVenues(locale);
+  const [venues, initialEvents] = await Promise.all([
+    getVenues(locale),
+    getPublicEvents({ locale }),
+  ]);
   return (
     <>
       <JsonLd data={buildWebSiteJsonLd(locale, dict)} />
       <HomeBootExpect />
       <Suspense fallback={null}>
-        <Home locale={locale} dict={dict} initialVenues={venues} />
+        <Home
+          locale={locale}
+          dict={dict}
+          initialVenues={venues}
+          initialEvents={initialEvents}
+        />
       </Suspense>
     </>
   );

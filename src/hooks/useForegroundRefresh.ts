@@ -2,8 +2,9 @@
 
 import { useEffect, useRef } from "react";
 
-/** Skip rapid tab switches / resume storms. */
-const MIN_INTERVAL_MS = 30_000;
+/** Skip rapid tab switches / resume storms. Soft refresh still hits the API,
+ * but Firestore is process-cached — keep this modest to avoid stampedes. */
+const MIN_INTERVAL_MS = 5 * 60_000;
 
 /**
  * Soft-refresh when the app returns to the foreground (PWA resume, tab focus,

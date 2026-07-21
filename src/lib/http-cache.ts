@@ -3,7 +3,7 @@
  * Event listing APIs stay no-store (see /api/events) — CDN SWR briefly
  * served empty/stale catalogs after the Netlify credits pass.
  */
-export const LISTING_REVALIDATE_SECONDS = 120;
+export const LISTING_REVALIDATE_SECONDS = 600;
 export const EVENT_REVALIDATE_SECONDS = 180;
 export const VENUES_REVALIDATE_SECONDS = 300;
 

@@ -33,6 +33,8 @@ import { SearchEmptyState } from "./SearchEmptyState";
 import { TimeFilter } from "./TimeFilter";
 import { ListScrollAnchor } from "./StickyListFilters";
 
+const EMPTY_EVENTS: Event[] = [];
+
 interface EventListProps {
   category?: EventCategory | null;
   locale: Locale;
@@ -62,6 +64,8 @@ interface EventListProps {
    * Used on home so hero / today / saved still load when Our picks is hidden.
    */
   silent?: boolean;
+  /** SSR catalog — skips the mount fetch when non-empty (saves Firestore reads). */
+  initialEvents?: Event[];
 }
 
 export function EventList({
@@ -83,19 +87,25 @@ export function EventList({
   onTimeRangeChange,
   onAddEvent,
   silent = false,
+  initialEvents = EMPTY_EVENTS,
 }: EventListProps) {
   const listReturnTo =
     returnTo ?? (category ? categoryPath(locale, category) : `/${locale}`);
-  const [events, setEvents] = useState<Event[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [events, setEvents] = useState<Event[]>(() =>
+    attachEventImages(initialEvents),
+  );
+  const [loading, setLoading] = useState(() => initialEvents.length === 0);
   const [error, setError] = useState(false);
-  const [source, setSource] = useState<string>("");
+  const [source, setSource] = useState<string>(
+    initialEvents.length > 0 ? "ssr" : "",
+  );
   const initialCap = limit ?? LIST_PAGE_SIZE;
   const step = pageSize ?? limit ?? LIST_PAGE_SIZE;
   const [visibleCount, setVisibleCount] = useState(initialCap);
   const onEventsLoadedRef = useRef(onEventsLoaded);
   const scrollAnchorRef = useRef<HTMLDivElement>(null);
   const scrolledTimeRangeRef = useRef<FilterTimeRange | null>(null);
+  const skipMountFetch = useRef(initialEvents.length > 0);
 
   useEffect(() => {
     onEventsLoadedRef.current = onEventsLoaded;
@@ -117,8 +127,11 @@ export function EventList({
   }, [timeRange, showTimeFilter]);
 
   const fetchEvents = useCallback(
-    async (refresh = false) => {
-      if (!refresh) {
+    async (opts?: { bypassCache?: boolean; showLoading?: boolean }) => {
+      const bypassCache = opts?.bypassCache ?? false;
+      const showLoading = opts?.showLoading ?? true;
+
+      if (showLoading) {
         setLoading(true);
         setError(false);
       }
@@ -130,7 +143,7 @@ export function EventList({
         // Home keeps an unscoped catalog for saved + client city switching.
         // Scope pages should use FilteredEventList + SSR; when this list is used
         // with a city, still prefer client filter so allEvents stays complete.
-        if (refresh) params.set("refresh", "true");
+        if (bypassCache) params.set("refresh", "true");
 
         const res = await fetch(`/api/events?${params}`, {
           cache: "no-store",
@@ -153,8 +166,11 @@ export function EventList({
       } catch (err) {
         console.error("Failed to load events:", err);
         setError(true);
-        setEvents([]);
-        onEventsLoadedRef.current?.([]);
+        // Soft refresh keeps the last good catalog on failure.
+        if (showLoading) {
+          setEvents([]);
+          onEventsLoadedRef.current?.([]);
+        }
       } finally {
         setLoading(false);
         readyBootPart("events");
@@ -165,11 +181,25 @@ export function EventList({
 
   useEffect(() => {
     expectBootPart("events");
-    fetchEvents(refreshKey > 0);
+    if (refreshKey > 0) {
+      void fetchEvents({ bypassCache: true, showLoading: true });
+      return;
+    }
+    if (skipMountFetch.current) {
+      skipMountFetch.current = false;
+      const loaded = attachEventImages(initialEvents);
+      setEvents(loaded);
+      onEventsLoadedRef.current?.(loaded);
+      setLoading(false);
+      readyBootPart("events");
+      return;
+    }
+    void fetchEvents({ showLoading: true });
   }, [fetchEvents, refreshKey]);
 
   const softRefresh = useCallback(() => {
-    void fetchEvents(true);
+    // Soft = reuse API/Firestore caches; never force refresh=true (that burns reads).
+    void fetchEvents({ bypassCache: false, showLoading: false });
   }, [fetchEvents]);
 
   // Soft refetch on PWA resume / tab focus — no full reload, no loading flash.
@@ -206,7 +236,7 @@ export function EventList({
           : dict.events.sourceFallback;
 
   const handleRetry = useCallback(() => {
-    fetchEvents(false);
+    void fetchEvents({ showLoading: true });
   }, [fetchEvents]);
 
   if (silent) {

@@ -14,7 +14,8 @@ const cache = new Map<string, CacheEntry>();
 const dbCache = new Map<string, CacheEntry>();
 /** In-memory merged feed cache — busted automatically on each deploy via versioned keys. */
 const CACHE_TTL_MS = 15 * 60 * 1000;
-const DB_CACHE_TTL_MS = 5 * 60 * 1000;
+/** Align with Firestore approved-events process cache (~12 min). */
+const DB_CACHE_TTL_MS = 12 * 60 * 1000;
 
 function versionedCacheKey(key: string): string {
   return `${getAppVersion()}:${key}`;

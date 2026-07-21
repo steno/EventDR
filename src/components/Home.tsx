@@ -66,16 +66,23 @@ interface HomeProps {
   locale: Locale;
   dict: Dictionary;
   initialVenues?: Venue[];
+  /** SSR event catalog so home skips a duplicate client Firestore fetch. */
+  initialEvents?: Event[];
 }
 
-export function Home({ locale, dict, initialVenues }: HomeProps) {
+export function Home({
+  locale,
+  dict,
+  initialVenues,
+  initialEvents = [],
+}: HomeProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [tab, setTab] = useState<AppTab>("discover");
   const [searchQuery, setSearchQuery] = useState("");
   const deferredSearchQuery = useDeferredValue(searchQuery);
   const [submitOpen, setSubmitOpen] = useState(false);
-  const [allEvents, setAllEvents] = useState<Event[]>([]);
+  const [allEvents, setAllEvents] = useState<Event[]>(() => initialEvents);
   const [refreshKey, setRefreshKey] = useState(0);
   const [cityPrimingOpen, setCityPrimingOpen] = useState(false);
   /**
@@ -399,6 +406,7 @@ export function Home({ locale, dict, initialVenues }: HomeProps) {
             returnTo={homePath}
             limit={HOME_SEARCH_LIMIT}
             silent={tab !== "discover" || !isSearching}
+            initialEvents={initialEvents}
           />
         </div>
       </main>
