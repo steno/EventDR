@@ -8,7 +8,35 @@ import { VENUES_REVALIDATE_SECONDS } from "@/lib/http-cache";
 import type { Venue } from "@/lib/types";
 
 /** Seed venues are canonical; Firebase may add community-only venues.
- * Overlay enrichable fields (e.g. googlePlaceId) from remote onto seed. */
+ * Overlay enrichable fields (place id + rating snapshot) from remote onto seed. */
+function overlayPlacesMeta(seed: Venue, remote: Venue): Venue {
+  const next: Venue = { ...seed };
+  let changed = false;
+  if (!next.googlePlaceId && remote.googlePlaceId) {
+    next.googlePlaceId = remote.googlePlaceId;
+    changed = true;
+  }
+  if (
+    typeof next.googleRating !== "number" &&
+    typeof remote.googleRating === "number"
+  ) {
+    next.googleRating = remote.googleRating;
+    next.googleReviewCount = remote.googleReviewCount;
+    next.googleRatingFetchedAt = remote.googleRatingFetchedAt;
+    changed = true;
+  }
+  if (
+    (!next.googleReviews || next.googleReviews.length === 0) &&
+    remote.googleReviews &&
+    remote.googleReviews.length > 0
+  ) {
+    next.googleReviews = remote.googleReviews;
+    next.googleReviewsFetchedAt = remote.googleReviewsFetchedAt;
+    changed = true;
+  }
+  return changed ? next : seed;
+}
+
 export function mergeVenueLists(seed: Venue[], remote: Venue[]): Venue[] {
   const bySlug = new Map<string, Venue>();
   for (const venue of seed) bySlug.set(venue.slug, venue);
@@ -18,12 +46,7 @@ export function mergeVenueLists(seed: Venue[], remote: Venue[]): Venue[] {
       bySlug.set(venue.slug, venue);
       continue;
     }
-    if (!existing.googlePlaceId && venue.googlePlaceId) {
-      bySlug.set(venue.slug, {
-        ...existing,
-        googlePlaceId: venue.googlePlaceId,
-      });
-    }
+    bySlug.set(venue.slug, overlayPlacesMeta(existing, venue));
   }
   return [...bySlug.values()].sort((a, b) => a.name.localeCompare(b.name));
 }
@@ -40,8 +63,8 @@ async function loadVenueBySlug(
       if (remote) {
         if (!venue) {
           venue = remote;
-        } else if (remote.googlePlaceId && !venue.googlePlaceId) {
-          venue = { ...venue, googlePlaceId: remote.googlePlaceId };
+        } else {
+          venue = overlayPlacesMeta(venue, remote);
         }
       }
     } catch {

@@ -38,6 +38,21 @@ export interface Venue {
   phone?: string;
   /** Google Places place_id when confirmed (assessments / enricher). */
   googlePlaceId?: string;
+  /**
+   * Persisted Place Details (rating-only) snapshot — reuse instead of re-billing
+   * Places API on every cache miss / venue page load.
+   */
+  googleRating?: number;
+  googleReviewCount?: number;
+  /** ISO timestamp when googleRating was last fetched from Places. */
+  googleRatingFetchedAt?: string;
+  /**
+   * Cached Place Details review sample (Atmosphere) — pulled once per venue
+   * for opinion-draft aggregation; reuse to avoid re-billing.
+   */
+  googleReviews?: { text: string; rating?: number }[];
+  /** ISO timestamp when googleReviews were last fetched. */
+  googleReviewsFetchedAt?: string;
   /** Show a "Temporarily closed" tag while the venue is shut for maintenance, etc. */
   temporarilyClosed?: boolean;
 }

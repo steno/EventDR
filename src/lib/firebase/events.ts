@@ -148,6 +148,39 @@ function docToVenue(slug: string, data: DocumentData): Venue {
     website: (data.website as string | null) ?? undefined,
     phone: (data.phone as string | null) ?? undefined,
     googlePlaceId: (data.googlePlaceId as string | null) ?? undefined,
+    googleRating:
+      typeof data.googleRating === "number" && Number.isFinite(data.googleRating)
+        ? data.googleRating
+        : undefined,
+    googleReviewCount:
+      typeof data.googleReviewCount === "number" &&
+      Number.isFinite(data.googleReviewCount)
+        ? data.googleReviewCount
+        : undefined,
+    googleRatingFetchedAt:
+      typeof data.googleRatingFetchedAt === "string"
+        ? data.googleRatingFetchedAt
+        : undefined,
+    googleReviews: Array.isArray(data.googleReviews)
+      ? (data.googleReviews as { text?: unknown; rating?: unknown }[])
+          .map((r) => {
+            const text = typeof r?.text === "string" ? r.text.trim() : "";
+            if (!text) return null;
+            return {
+              text,
+              rating:
+                typeof r.rating === "number" && Number.isFinite(r.rating)
+                  ? r.rating
+                  : undefined,
+            };
+          })
+          .filter((r): r is { text: string; rating?: number } => r != null)
+          .slice(0, 5)
+      : undefined,
+    googleReviewsFetchedAt:
+      typeof data.googleReviewsFetchedAt === "string"
+        ? data.googleReviewsFetchedAt
+        : undefined,
     temporarilyClosed:
       typeof data.temporarilyClosed === "boolean"
         ? data.temporarilyClosed
@@ -689,7 +722,17 @@ export async function upsertVenue(venue: Venue): Promise<boolean> {
           instagram: venue.instagram ?? null,
           website: venue.website ?? null,
           phone: venue.phone ?? null,
-          googlePlaceId: venue.googlePlaceId ?? null,
+          ...(venue.googlePlaceId
+            ? { googlePlaceId: venue.googlePlaceId }
+            : {}),
+          ...(typeof venue.googleRating === "number"
+            ? {
+                googleRating: venue.googleRating,
+                googleReviewCount: venue.googleReviewCount ?? null,
+                googleRatingFetchedAt:
+                  venue.googleRatingFetchedAt ?? new Date().toISOString(),
+              }
+            : {}),
           ...(typeof venue.temporarilyClosed === "boolean"
             ? { temporarilyClosed: venue.temporarilyClosed }
             : {}),
@@ -709,19 +752,67 @@ export async function patchVenueGooglePlaceId(
   slug: string,
   googlePlaceId: string,
 ): Promise<boolean> {
-  const id = googlePlaceId.trim();
-  if (!slug.trim() || !id) return false;
+  return patchVenueGooglePlacesSnapshot(slug, { googlePlaceId });
+}
+
+/** Persist place_id and/or a Place Details snapshot (rating and/or reviews). */
+export async function patchVenueGooglePlacesSnapshot(
+  slug: string,
+  snapshot: {
+    googlePlaceId?: string;
+    googleRating?: number;
+    googleReviewCount?: number;
+    googleRatingFetchedAt?: string;
+    googleReviews?: { text: string; rating?: number }[];
+    googleReviewsFetchedAt?: string;
+  },
+): Promise<boolean> {
+  if (!slug.trim()) return false;
   const db = getFirestoreDb();
   if (!db) return false;
 
+  const patch: Record<string, unknown> = {};
+  const placeId = snapshot.googlePlaceId?.trim();
+  if (placeId) patch.googlePlaceId = placeId;
+  if (
+    typeof snapshot.googleRating === "number" &&
+    Number.isFinite(snapshot.googleRating)
+  ) {
+    patch.googleRating = snapshot.googleRating;
+    if (
+      typeof snapshot.googleReviewCount === "number" &&
+      Number.isFinite(snapshot.googleReviewCount)
+    ) {
+      patch.googleReviewCount = snapshot.googleReviewCount;
+    }
+    patch.googleRatingFetchedAt =
+      snapshot.googleRatingFetchedAt?.trim() || new Date().toISOString();
+  }
+  if (Array.isArray(snapshot.googleReviews)) {
+    const reviews = snapshot.googleReviews
+      .map((r) => {
+        const text = r.text?.trim();
+        if (!text) return null;
+        return {
+          text: text.slice(0, 800),
+          ...(typeof r.rating === "number" && Number.isFinite(r.rating)
+            ? { rating: r.rating }
+            : {}),
+        };
+      })
+      .filter((r): r is { text: string; rating?: number } => r != null)
+      .slice(0, 5);
+    patch.googleReviews = reviews;
+    patch.googleReviewsFetchedAt =
+      snapshot.googleReviewsFetchedAt?.trim() || new Date().toISOString();
+  }
+  if (Object.keys(patch).length === 0) return false;
+
   try {
-    await db
-      .collection("venues")
-      .doc(slug)
-      .set({ googlePlaceId: id }, { merge: true });
+    await db.collection("venues").doc(slug).set(patch, { merge: true });
     return true;
   } catch (err) {
-    console.error("patchVenueGooglePlaceId:", err);
+    console.error("patchVenueGooglePlacesSnapshot:", err);
     return false;
   }
 }

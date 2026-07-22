@@ -12,7 +12,7 @@ import { getSeedVenue } from "@/lib/venues-seed";
 import {
   fetchVenueBySlug,
   isFirebaseConfigured,
-  patchVenueGooglePlaceId,
+  patchVenueGooglePlacesSnapshot,
 } from "@/lib/firebase/events";
 import {
   getOpinionDraft,
@@ -66,6 +66,8 @@ export interface GenerateOpinionDraftsOptions {
    * still draft from the event description. Attribution stays "POP research".
    */
   allowWithoutPlaces?: boolean;
+  /** Re-fetch Atmosphere review texts even when a venue snapshot exists. */
+  forceRefreshReviews?: boolean;
 }
 
 /**
@@ -110,34 +112,92 @@ type PlaceLookupVenue = {
   lat?: number;
   lng?: number;
   googlePlaceId?: string;
+  googleRating?: number;
+  googleReviewCount?: number;
+  googleReviews?: { text: string; rating?: number }[];
 };
 
+/**
+ * Resolve Places evidence for opinion drafting.
+ * Review texts (Atmosphere) are fetched once per venue and reused from Firestore.
+ */
 async function resolvePlacesForVenue(
   venue: PlaceLookupVenue | undefined,
   fallbackName: string,
+  options?: { forceRefreshReviews?: boolean },
 ): Promise<GooglePlaceDetails | null> {
   if (!isGooglePlacesConfigured()) return null;
 
   let placeId = venue?.googlePlaceId?.trim() || null;
-  if (!placeId && venue?.slug && isFirebaseConfigured()) {
+  let cachedRating =
+    typeof venue?.googleRating === "number" ? venue.googleRating : undefined;
+  let cachedReviewCount =
+    typeof venue?.googleReviewCount === "number"
+      ? venue.googleReviewCount
+      : undefined;
+  let cachedReviews = venue?.googleReviews?.filter((r) => r.text?.trim()) ?? [];
+
+  if (venue?.slug && isFirebaseConfigured()) {
     try {
       const remote = await fetchVenueBySlug(venue.slug);
-      placeId = remote?.googlePlaceId?.trim() || null;
+      if (remote) {
+        placeId = placeId || remote.googlePlaceId?.trim() || null;
+        if (cachedRating == null && typeof remote.googleRating === "number") {
+          cachedRating = remote.googleRating;
+        }
+        if (
+          cachedReviewCount == null &&
+          typeof remote.googleReviewCount === "number"
+        ) {
+          cachedReviewCount = remote.googleReviewCount;
+        }
+        if (
+          cachedReviews.length === 0 &&
+          Array.isArray(remote.googleReviews) &&
+          remote.googleReviews.length > 0
+        ) {
+          cachedReviews = remote.googleReviews.filter((r) => r.text?.trim());
+        }
+      }
     } catch {
-      // fall through to Text Search
+      // fall through
     }
   }
+
   if (!placeId) {
     placeId = await findPlaceId(venue?.name ?? fallbackName, venue);
   }
   if (!placeId) return null;
 
-  if (venue?.slug && venue.googlePlaceId?.trim() !== placeId) {
-    await patchVenueGooglePlaceId(venue.slug, placeId);
+  // Reuse stored review sample — same venue evidence for every event draft.
+  if (!options?.forceRefreshReviews && cachedReviews.length > 0) {
+    return {
+      placeId,
+      rating: cachedRating,
+      userRatingCount: cachedReviewCount,
+      reviews: cachedReviews.slice(0, 5).map((r) => ({
+        text: r.text,
+        rating: r.rating,
+      })),
+      snippets: cachedReviews.slice(0, 3).map((r) => r.text.slice(0, 140)),
+    };
   }
 
-  // Opinion drafts need review text → Atmosphere SKU (only on this path).
-  return fetchPlaceDetails(placeId, { mode: "reviews" });
+  // First pull (or forced refresh) — Atmosphere SKU once per venue.
+  const details = await fetchPlaceDetails(placeId, { mode: "reviews" });
+  if (venue?.slug) {
+    await patchVenueGooglePlacesSnapshot(venue.slug, {
+      googlePlaceId: placeId,
+      googleRating: details?.rating ?? cachedRating,
+      googleReviewCount: details?.userRatingCount ?? cachedReviewCount,
+      googleRatingFetchedAt: details ? new Date().toISOString() : undefined,
+      googleReviews: details?.reviews,
+      googleReviewsFetchedAt: details?.reviews.length
+        ? new Date().toISOString()
+        : undefined,
+    });
+  }
+  return details;
 }
 
 interface LlmOpinionPayload {
@@ -285,6 +345,7 @@ export async function generateOpinionDraftForEvent(
     force?: boolean;
     skipExisting?: boolean;
     allowWithoutPlaces?: boolean;
+    forceRefreshReviews?: boolean;
   },
 ): Promise<DraftGenerationResult> {
   const seriesKey =
@@ -337,7 +398,9 @@ export async function generateOpinionDraftForEvent(
         }
       : undefined;
 
-  const places = await resolvePlacesForVenue(lookupVenue, venueName);
+  const places = await resolvePlacesForVenue(lookupVenue, venueName, {
+    forceRefreshReviews: options?.forceRefreshReviews,
+  });
   const placesOk =
     places != null &&
     places.rating != null &&
@@ -535,6 +598,7 @@ export async function generateOpinionDraftsForEvents(
         force: options?.force,
         skipExisting: options?.skipExisting,
         allowWithoutPlaces: options?.allowWithoutPlaces,
+        forceRefreshReviews: options?.forceRefreshReviews,
       }),
     );
   }

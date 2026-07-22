@@ -24,9 +24,11 @@ function checkCronSecret(request: NextRequest): boolean {
 
 /**
  * Ops endpoint: list seed assessments; optionally enrich with Google Places
- * ratings (Enterprise SKU — no review Atmosphere). Review texts are only
- * fetched on opinion-draft generation.
+ * ratings (Enterprise SKU — no review Atmosphere). Once a rating is stored on
+ * the venue doc it is reused (no re-bill) unless refresh=1.
+ * Review texts are only fetched on opinion-draft generation.
  * GET /api/cron/venue-assessments?secret=CRON_SECRET&enrich=1
+ * GET /api/cron/venue-assessments?secret=CRON_SECRET&enrich=1&refresh=1
  * GET /api/cron/venue-assessments?secret=CRON_SECRET&probe=d-classico-sosua
  */
 async function handle(request: NextRequest) {
@@ -53,8 +55,14 @@ async function handle(request: NextRequest) {
   const enrich =
     request.nextUrl.searchParams.get("enrich") === "1" ||
     request.nextUrl.searchParams.get("enrich") === "true";
+  const forceRefresh =
+    request.nextUrl.searchParams.get("refresh") === "1" ||
+    request.nextUrl.searchParams.get("refresh") === "true";
 
-  const assessments = await listVenueAssessments({ enrichPlaces: enrich });
+  const assessments = await listVenueAssessments({
+    enrichPlaces: enrich,
+    forceRefresh: enrich && forceRefresh,
+  });
   const visible = assessments.filter(
     (a) => a.confidence >= ASSESSMENT_CONFIDENCE_THRESHOLD,
   );
@@ -67,6 +75,7 @@ async function handle(request: NextRequest) {
     enabled: areVenueAssessmentsEnabled(),
     placesConfigured: isGooglePlacesConfigured(),
     enriched: enrich && isGooglePlacesConfigured(),
+    forceRefresh: enrich && forceRefresh,
     total: assessments.length,
     visible: visible.length,
     withGoogle,
