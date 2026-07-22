@@ -213,7 +213,7 @@ export function VenueMapPanel({
   attention = false,
   onAttentionEnd,
 }: VenueMapPanelProps) {
-  const { destination, origin, route } = directions;
+  const { destination, origin, route, busy } = directions;
   const mapOpen = forceReveal || Boolean(origin || route);
   const canEmbedStreetView = Boolean(getGoogleMapsBrowserKey());
   const [streetViewOpen, setStreetViewOpen] = useState(false);
@@ -236,15 +236,28 @@ export function VenueMapPanel({
     };
   }, [canEmbedStreetView, destination.lat, destination.lng]);
 
-  const streetViewControl = streetViewAvailable ? (
-    <button
-      type="button"
-      onClick={() => setStreetViewOpen(true)}
-      className="inline-flex w-full items-center justify-center rounded-lg border border-neutral-300 bg-white/95 px-4 py-2.5 text-sm font-semibold text-neutral-800 shadow-sm touch-manipulation backdrop-blur-sm transition hover:bg-white active:scale-[0.98] sm:w-auto dark:border-neutral-600 dark:bg-neutral-900/95 dark:text-neutral-100 dark:hover:bg-neutral-800"
-    >
-      {dict.venues.streetView}
-    </button>
-  ) : null;
+  // Route send / “use my location” needs the 2D map — leave Street View.
+  useEffect(() => {
+    if (busy) setStreetViewOpen(false);
+  }, [busy]);
+
+  const openStreetView = useCallback(() => {
+    // Expand the place-card map frame first so Street View fills that area
+    // instead of a separate viewport modal.
+    onReveal?.();
+    setStreetViewOpen(true);
+  }, [onReveal]);
+
+  const streetViewControl =
+    streetViewAvailable && !streetViewOpen ? (
+      <button
+        type="button"
+        onClick={openStreetView}
+        className="inline-flex w-full items-center justify-center rounded-lg border border-neutral-300 bg-white/95 px-4 py-2.5 text-sm font-semibold text-neutral-800 shadow-sm touch-manipulation backdrop-blur-sm transition hover:bg-white active:scale-[0.98] sm:w-auto dark:border-neutral-600 dark:bg-neutral-900/95 dark:text-neutral-100 dark:hover:bg-neutral-800"
+      >
+        {dict.venues.streetView}
+      </button>
+    ) : null;
 
   return (
     <div
@@ -255,9 +268,9 @@ export function VenueMapPanel({
         lng={destination.lng}
         label={dict.venues.showMap}
         secondary={streetViewControl}
-        forceReveal={mapOpen}
+        forceReveal={mapOpen || streetViewOpen}
         onReveal={onReveal}
-        attention={attention && !forceReveal}
+        attention={attention && !forceReveal && !streetViewOpen}
         onAttentionEnd={onAttentionEnd}
         className="h-full w-full"
       >
@@ -283,6 +296,7 @@ export function VenueMapPanel({
           lng={destination.lng}
           title={venue.name}
           dict={dict}
+          variant="inline"
         />
       ) : null}
     </div>
