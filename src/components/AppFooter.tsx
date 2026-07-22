@@ -13,7 +13,9 @@ interface AppFooterProps {
 export function AppFooter({ locale, dict }: AppFooterProps) {
   const pathname = usePathname();
   const padForBottomNav = pathname === `/${locale}`;
-  const hideForPrint = pathname === `/${locale}/for-partners`;
+  const hideForPrint =
+    pathname === `/${locale}/for-partners` ||
+    pathname === `/${locale}/support`;
 
   return (
     <SiteFooter

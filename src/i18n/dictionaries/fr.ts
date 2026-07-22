@@ -278,6 +278,13 @@ export const fr: Dictionary = {
     tagline: "POP Events · Côte Nord République dominicaine",
     builtWith: "Fait avec ❤️ par",
     partners: "Pour hôtels et partenaires",
+    support: "Soutenir POP",
+  },
+  supportNudge: {
+    title: "Gardez POP gratuit pour le prochain voyageur",
+    body: "Pas de paywall, pas de revente de données. La plupart des dons tournent autour de 12 $ — participez si vous le pouvez.",
+    cta: "Soutenir POP",
+    dismiss: "Me le rappeler plus tard",
   },
   cities: {
     browseTopCategories: "Qu’est-ce qui vous branche ?",
