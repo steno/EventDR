@@ -19,8 +19,9 @@ import { useGeolocation } from "@/hooks/useGeolocation";
 import { MapReveal } from "@/components/MapReveal";
 import { StreetViewModal } from "@/components/StreetViewModal";
 import {
-  getGoogleMapsBrowserKey,
+  canUseInAppStreetView,
   hasStreetViewCoverage,
+  isGoogleMapsJsBlocked,
 } from "@/lib/google-maps-js";
 import { resetInputZoom } from "@/lib/reset-input-zoom";
 
@@ -215,26 +216,33 @@ export function VenueMapPanel({
 }: VenueMapPanelProps) {
   const { destination, origin, route, busy } = directions;
   const mapOpen = forceReveal || Boolean(origin || route);
-  const canEmbedStreetView = Boolean(getGoogleMapsBrowserKey());
   const [streetViewOpen, setStreetViewOpen] = useState(false);
-  const [streetViewAvailable, setStreetViewAvailable] = useState(false);
+  /** In-app Google SV when coverage exists; static OSM+Maps when Google is capped. */
+  const [streetViewMode, setStreetViewMode] = useState<
+    "hidden" | "google" | "static"
+  >(() => (isGoogleMapsJsBlocked() ? "static" : "hidden"));
 
   useEffect(() => {
-    if (!canEmbedStreetView) {
-      setStreetViewAvailable(false);
+    if (isGoogleMapsJsBlocked() || !canUseInAppStreetView()) {
+      setStreetViewMode("static");
       return;
     }
 
     let cancelled = false;
-    setStreetViewAvailable(false);
+    setStreetViewMode("hidden");
     void hasStreetViewCoverage(destination.lat, destination.lng).then((ok) => {
-      if (!cancelled) setStreetViewAvailable(ok);
+      if (cancelled) return;
+      if (isGoogleMapsJsBlocked()) {
+        setStreetViewMode("static");
+        return;
+      }
+      setStreetViewMode(ok ? "google" : "hidden");
     });
 
     return () => {
       cancelled = true;
     };
-  }, [canEmbedStreetView, destination.lat, destination.lng]);
+  }, [destination.lat, destination.lng]);
 
   // Route send / “use my location” needs the 2D map — leave Street View.
   useEffect(() => {
@@ -249,7 +257,7 @@ export function VenueMapPanel({
   }, [onReveal]);
 
   const streetViewControl =
-    streetViewAvailable && !streetViewOpen ? (
+    streetViewMode !== "hidden" && !streetViewOpen ? (
       <button
         type="button"
         onClick={openStreetView}
@@ -288,7 +296,7 @@ export function VenueMapPanel({
           </div>
         </div>
       ) : null}
-      {streetViewAvailable ? (
+      {streetViewMode !== "hidden" ? (
         <StreetViewModal
           open={streetViewOpen}
           onClose={() => setStreetViewOpen(false)}
@@ -297,6 +305,7 @@ export function VenueMapPanel({
           title={venue.name}
           dict={dict}
           variant="inline"
+          forceStatic={streetViewMode === "static"}
         />
       ) : null}
     </div>
