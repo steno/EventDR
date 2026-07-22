@@ -8,6 +8,7 @@ import { sortEventsForDisplay } from "@/lib/event-sort";
 import { attachCoords, attachVenueSlugs, normalizeEventCoordsList } from "@/lib/geo";
 import { applyCuratedEventPatches } from "@/lib/curated-events";
 import { filterRemovedSeedEvents } from "@/lib/removed-seeds";
+import { applyTemporaryClosures } from "@/lib/temporary-closures";
 import { localizeEventsForDisplay } from "@/lib/localized-text";
 import { getFallbackEvents, getFallbackForCategory } from "@/lib/fallback-events";
 import { getCommunityEvents } from "@/lib/community-store";
@@ -100,6 +101,7 @@ async function loadPublicEvents(filter: PublicEventsFilter): Promise<Event[]> {
   events = sortEventsForDisplay(events, { recurringLast: true });
   // Curated patches may update localized copy — resolve locale after merging.
   events = applyCuratedEventPatches(events);
+  events = applyTemporaryClosures(events, locale);
   events = localizeEventsForDisplay(events, locale);
   events = attachEventPhones(events);
   events = attachTicketUrls(events);

@@ -10,6 +10,7 @@ import { attachEventImages } from "./event-images";
 import { withAdmissionMetadata } from "./event-tickets";
 import { attachEventPhones } from "./event-phone";
 import { filterRemovedSeedEvents } from "./removed-seeds";
+import { applyTemporaryClosures } from "./temporary-closures";
 import { localizeEventsForDisplay } from "./localized-text";
 import { materializeEventDates } from "./event-dates";
 import { withResolvedCategories } from "./categorize";
@@ -19,6 +20,7 @@ function finalizeEvent(event: Event, locale: Locale): Event | null {
   let [result] = attachVenueSlugs([event]);
   // Curated patches may update localized copy — resolve locale after merging.
   [result] = applyCuratedEventPatches([result]);
+  [result] = applyTemporaryClosures([result], locale);
   [result] = localizeEventsForDisplay([result], locale);
   result = normalizeEventCoords(result);
   [result] = attachEventPhones([result]);

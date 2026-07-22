@@ -3,6 +3,10 @@ import type { Locale } from "@/i18n/config";
 import { fetchVenueBySlug, fetchVenues, isFirebaseConfigured } from "@/lib/firebase/events";
 import { localizeVenue, localizeVenues } from "@/lib/venues-i18n";
 import { attachVenueImage, attachVenueImages } from "@/lib/venue-images";
+import {
+  applyTemporaryVenueClosure,
+  applyTemporaryVenueClosures,
+} from "@/lib/temporary-closures";
 import { getSeedVenue, SEED_VENUES } from "@/lib/venues-seed";
 import { VENUES_REVALIDATE_SECONDS } from "@/lib/http-cache";
 import type { Venue } from "@/lib/types";
@@ -51,7 +55,10 @@ async function loadVenueBySlug(
   if (!venue) return undefined;
   const typedLocale = locale ? (locale as Locale) : undefined;
   const localized = typedLocale ? localizeVenue(venue, typedLocale) : venue;
-  return attachVenueImage(localized);
+  const withNotice = typedLocale
+    ? applyTemporaryVenueClosure(localized, typedLocale)
+    : localized;
+  return attachVenueImage(withNotice);
 }
 
 const getCachedVenueBySlug = unstable_cache(
@@ -81,9 +88,10 @@ async function loadVenues(locale: string): Promise<Venue[]> {
     }
   }
   const typedLocale = locale ? (locale as Locale) : undefined;
-  return typedLocale
-    ? attachVenueImages(localizeVenues(venues, typedLocale))
-    : attachVenueImages(venues);
+  if (!typedLocale) return attachVenueImages(venues);
+  return attachVenueImages(
+    applyTemporaryVenueClosures(localizeVenues(venues, typedLocale), typedLocale),
+  );
 }
 
 const getCachedVenues = unstable_cache(
