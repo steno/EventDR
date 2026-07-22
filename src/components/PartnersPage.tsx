@@ -104,6 +104,24 @@ export function PartnersPage({ copy, locale, qrCards }: PartnersPageProps) {
 
         <PartnerDigestSignup locale={locale} copy={copy.digest} />
 
+        <aside className="mb-8 print:hidden">
+          <p className="text-xs font-black uppercase tracking-[0.14em] text-orange-600 dark:text-orange-400">
+            {copy.support.eyebrow}
+          </p>
+          <h2 className="mt-2 text-xl font-black tracking-tight text-neutral-950 dark:text-neutral-50">
+            {copy.support.title}
+          </h2>
+          <p className="mt-1.5 max-w-xl text-sm font-medium leading-relaxed text-neutral-600 dark:text-neutral-300">
+            {copy.support.body}
+          </p>
+          <a
+            href={`/${locale}/support`}
+            className="mt-4 inline-flex min-h-11 items-center rounded-full bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-4 text-sm font-bold text-white transition-transform active:scale-[0.98]"
+          >
+            {copy.support.cta}
+          </a>
+        </aside>
+
         <section className="print:hidden">
           <h2 className="mb-3 text-sm font-black uppercase tracking-wide text-neutral-500 dark:text-neutral-400">
             {copy.links.title}

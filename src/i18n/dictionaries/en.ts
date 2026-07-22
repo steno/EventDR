@@ -241,6 +241,13 @@ export type Dictionary = {
     tagline: string;
     builtWith: string;
     partners: string;
+    support: string;
+  };
+  supportNudge: {
+    title: string;
+    body: string;
+    cta: string;
+    dismiss: string;
   };
   cities: {
     browseTopCategories: string;
@@ -633,6 +640,13 @@ export const en: Dictionary = {
     tagline: "POP Events · North Coast Dominican Republic",
     builtWith: "Built with ❤️ by",
     partners: "For hotels & partners",
+    support: "Support POP",
+  },
+  supportNudge: {
+    title: "Keep POP free for the next traveler",
+    body: "No paywall, no selling your data. Most gifts are about $12 — pitch in if you can.",
+    cta: "Support POP",
+    dismiss: "Remind me later",
   },
   cities: {
     browseTopCategories: "What are you into?",

@@ -10,6 +10,7 @@ import { AppVersionSync } from "@/components/AppVersionSync";
 import { BodyScrollGuard } from "@/components/BodyScrollGuard";
 import { DocumentLang } from "@/components/DocumentLang";
 import { SkipToContent } from "@/components/SkipToContent";
+import { SupportNudge } from "@/components/SupportNudge";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -86,6 +87,7 @@ export default async function LocaleLayout({
       </Suspense>
       <AppVersionSync />
       {children}
+      <SupportNudge locale={locale} dict={dict} />
       <AppFooter locale={locale} dict={dict} />
     </>
   );

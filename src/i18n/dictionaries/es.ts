@@ -278,6 +278,13 @@ export const es: Dictionary = {
     tagline: "POP Eventos · Costa Norte República Dominicana",
     builtWith: "Hecho con ❤️ por",
     partners: "Para hoteles y socios",
+    support: "Apoyar POP",
+  },
+  supportNudge: {
+    title: "Mantén POP gratis para el próximo viajero",
+    body: "Sin muro de pago ni venta de datos. La mayoría aporta unos $12 — echa una mano si puedes.",
+    cta: "Apoyar POP",
+    dismiss: "Recuérdamelo luego",
   },
   cities: {
     browseTopCategories: "¿Qué te interesa?",

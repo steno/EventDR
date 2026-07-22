@@ -25,6 +25,12 @@ export type PartnersCopy = {
     error: string;
     privacy: string;
   };
+  support: {
+    eyebrow: string;
+    title: string;
+    body: string;
+    cta: string;
+  };
   print: string;
 };
 
@@ -86,6 +92,12 @@ const COPY: Record<Locale, PartnersCopy> = {
       error: "Could not subscribe right now. Please try again.",
       privacy: "Partner updates only. No spam.",
     },
+    support: {
+      eyebrow: "Independent project",
+      title: "Help keep the guest calendar free",
+      body: "No paywall for your guests. Most supporters give about $12 — it covers hosting and weekly discovery so your QR kit stays useful.",
+      cta: "Support POP Events",
+    },
     print: "Print this page",
   },
   es: {
@@ -145,6 +157,12 @@ const COPY: Record<Locale, PartnersCopy> = {
       error: "No se pudo completar ahora. Inténtalo de nuevo.",
       privacy: "Solo novedades para socios. Sin spam.",
     },
+    support: {
+      eyebrow: "Proyecto independiente",
+      title: "Ayuda a mantener gratis el calendario",
+      body: "Sin muro de pago para tus huéspedes. La mayoría aporta unos $12 — cubre hosting y descubrimiento semanal para que el kit QR siga siendo útil.",
+      cta: "Apoyar POP Eventos",
+    },
     print: "Imprimir esta página",
   },
   fr: {
@@ -203,6 +221,12 @@ const COPY: Record<Locale, PartnersCopy> = {
       success: "Vous êtes sur la liste partenaires.",
       error: "Inscription impossible pour le moment. Réessayez.",
       privacy: "Actualités partenaires uniquement. Aucun spam.",
+    },
+    support: {
+      eyebrow: "Projet indépendant",
+      title: "Aidez à garder le calendrier gratuit",
+      body: "Pas de paywall pour vos clients. La plupart des soutiens donnent environ 12 $ — cela couvre l’hébergement et la veille pour que le kit QR reste utile.",
+      cta: "Soutenir POP Events",
     },
     print: "Imprimer cette page",
   },

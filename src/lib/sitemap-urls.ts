@@ -114,6 +114,12 @@ export async function getSitemapEntries(): Promise<SitemapEntry[]> {
       priority: 0.7,
     });
 
+    entries.push({
+      url: absoluteUrl(localePath(locale, "/support")),
+      changeFrequency: "monthly",
+      priority: 0.6,
+    });
+
     for (const slug of venueSlugs) {
       entries.push({
         url: absoluteUrl(localePath(locale, `/venue/${slug}`)),
