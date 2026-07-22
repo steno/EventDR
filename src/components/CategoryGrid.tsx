@@ -8,19 +8,26 @@ import { getCategoryDefs } from "@/lib/categories";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import type { CitySlug } from "@/lib/cities";
+import type { Event } from "@/lib/types";
 import {
   CATEGORY_PILL_ACTIVE,
   CATEGORY_PILL_BASE,
   CATEGORY_PILL_IDLE,
   CATEGORY_SCROLLER_BAR,
 } from "@/components/category-scroller-styles";
-import { allEventsPath, categoryPath } from "@/lib/event-navigation";
+import {
+  allEventsPath,
+  categoryPath,
+  sortCategoryIdsByEventCount,
+} from "@/lib/event-navigation";
 
 interface CategoryGridProps {
   locale: Locale;
   dict: Dictionary;
   /** When set, category links stay scoped to this city. */
   citySlug?: CitySlug | null;
+  /** When set, pills are ordered by how many of these events match each category. */
+  events?: Pick<Event, "category" | "categories">[];
   /** Fires when the user commits to a category (before navigation). */
   onCategorySelect?: () => void;
 }
@@ -29,16 +36,23 @@ export function CategoryGrid({
   locale,
   dict,
   citySlug = null,
+  events,
   onCategorySelect,
 }: CategoryGridProps) {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
   const [loadingHref, setLoadingHref] = useState<string | null>(null);
 
-  const categories = getCategoryDefs().map((def) => ({
-    ...def,
-    label: dict.categories[def.id],
-  }));
+  const defsById = new Map(getCategoryDefs().map((def) => [def.id, def]));
+  const orderedIds =
+    events && events.length > 0
+      ? sortCategoryIdsByEventCount(events)
+      : getCategoryDefs().map((def) => def.id);
+  const categories = orderedIds.flatMap((id) => {
+    const def = defsById.get(id);
+    if (!def) return [];
+    return [{ ...def, label: dict.categories[def.id] }];
+  });
   const allEventsHref = allEventsPath(locale, citySlug);
   const allEventsLabel = dict.browse.allEvents;
 

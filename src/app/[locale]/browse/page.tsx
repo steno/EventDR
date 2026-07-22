@@ -4,6 +4,7 @@ import { isValidLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { CategoryDirectory } from "@/components/CategoryDirectory";
 import { StickyListHeader } from "@/components/StickyListHeader";
+import { getPublicEvents } from "@/lib/public-events";
 import { buildAlternates, fillTemplate } from "@/lib/seo";
 import { PAGE_SHELL_CLASS } from "@/lib/page-shell";
 
@@ -39,6 +40,7 @@ export default async function Page({
   if (!isValidLocale(locale)) notFound();
 
   const dict = getDictionary(locale);
+  const events = await getPublicEvents({ locale });
   const backLabel = fillTemplate(dict.browse.backTo, {
     title: dict.nav.discover,
   });
@@ -62,7 +64,7 @@ export default async function Page({
           </p>
         </div>
 
-        <CategoryDirectory locale={locale} dict={dict} />
+        <CategoryDirectory locale={locale} dict={dict} events={events} />
       </div>
     </main>
   );

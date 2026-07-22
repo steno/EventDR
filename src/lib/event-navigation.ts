@@ -1,6 +1,7 @@
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import { CATEGORY_IDS, getCategoryMeta } from "./categories";
+import { eventInCategory } from "./categorize";
 import {
   getCityMeta,
   getCityName,
@@ -11,6 +12,28 @@ import { fillTemplate } from "./seo";
 import { getWhenSeo, isWhenSlug } from "./time-seo";
 import type { Event, EventCategory } from "./types";
 import { getSeedVenue } from "./venues-seed";
+
+type CategoryCountable = Pick<Event, "category" | "categories">;
+
+/** Categories with the most matching events first; ties keep catalog order. */
+export function sortCategoryIdsByEventCount(
+  events: CategoryCountable[],
+): EventCategory[] {
+  const counts = new Map<EventCategory, number>();
+  for (const id of CATEGORY_IDS) counts.set(id, 0);
+  for (const event of events) {
+    for (const id of CATEGORY_IDS) {
+      if (eventInCategory(event, id)) {
+        counts.set(id, (counts.get(id) ?? 0) + 1);
+      }
+    }
+  }
+  return [...CATEGORY_IDS].sort((a, b) => {
+    const diff = (counts.get(b) ?? 0) - (counts.get(a) ?? 0);
+    if (diff !== 0) return diff;
+    return CATEGORY_IDS.indexOf(a) - CATEGORY_IDS.indexOf(b);
+  });
+}
 
 export function categoryPath(
   locale: Locale,
@@ -39,8 +62,14 @@ export function categoryNavLinks(
   locale: Locale,
   labels: Record<EventCategory, string>,
   citySlug?: CitySlug | null,
+  /** When set, pills are ordered by how many of these events match each category. */
+  events?: CategoryCountable[],
 ): { href: string; label: string; emoji: string }[] {
-  return CATEGORY_IDS.map((id) => {
+  const ids =
+    events && events.length > 0
+      ? sortCategoryIdsByEventCount(events)
+      : CATEGORY_IDS;
+  return ids.map((id) => {
     const meta = getCategoryMeta(id, labels);
     return {
       href: categoryPath(locale, id, citySlug),

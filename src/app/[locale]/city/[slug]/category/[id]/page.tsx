@@ -71,14 +71,22 @@ export default async function Page({
   const seo = getCityCategorySeo(locale, city, id as EventCategory, category.label);
   const pagePath = localePath(locale, `/city/${slug}/category/${id}`);
   const cityPath = localePath(locale, `/city/${slug}`);
-  const events = await getPublicEvents({
-    locale,
-    city: slug,
-    category: id as EventCategory,
-  });
+  const [events, scopeEvents] = await Promise.all([
+    getPublicEvents({
+      locale,
+      city: slug,
+      category: id as EventCategory,
+    }),
+    getPublicEvents({ locale, city: slug }),
+  ]);
   const title = `${fillTemplate(dict.cities.lookingInWithCategory, { category: category.label })} ${cityName}`;
   const categoryId = id as EventCategory;
-  const relatedCategoryLinks = categoryNavLinks(locale, dict.categories, slug);
+  const relatedCategoryLinks = categoryNavLinks(
+    locale,
+    dict.categories,
+    slug,
+    scopeEvents,
+  );
   const relatedCategoryLinksLabel = dict.cities.browseTopCategories;
 
   return (

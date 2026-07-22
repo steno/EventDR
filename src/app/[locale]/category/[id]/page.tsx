@@ -50,8 +50,16 @@ export default async function Page({
   const categorySeo = getCategorySeo(locale, id as EventCategory);
   const categoryId = id as EventCategory;
   const pagePath = localePath(locale, `/category/${id}`);
-  const events = await getPublicEvents({ locale, category: categoryId });
-  const relatedCategoryLinks = categoryNavLinks(locale, dict.categories);
+  const [events, scopeEvents] = await Promise.all([
+    getPublicEvents({ locale, category: categoryId }),
+    getPublicEvents({ locale }),
+  ]);
+  const relatedCategoryLinks = categoryNavLinks(
+    locale,
+    dict.categories,
+    null,
+    scopeEvents,
+  );
   const relatedCategoryLinksLabel = dict.cities.browseTopCategories;
 
   // Use article before region name: "Events in the North Coast" / "Eventos en la Costa Norte"

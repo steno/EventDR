@@ -46,7 +46,12 @@ export default async function Page({
   const whenSeo = getWhenSeo(locale, range);
   const whenPath = localePath(locale, `/when/${range}`);
   const events = await getPublicEvents({ locale, when: range });
-  const relatedCategoryLinks = categoryNavLinks(locale, dict.categories);
+  const relatedCategoryLinks = categoryNavLinks(
+    locale,
+    dict.categories,
+    null,
+    events,
+  );
   const relatedCategoryLinksLabel = dict.cities.browseTopCategories;
 
   return (

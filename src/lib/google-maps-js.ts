@@ -94,3 +94,56 @@ export function loadGoogleMapsJs(): Promise<GoogleMapsApi> {
 
   return loadPromise;
 }
+
+const coverageCache = new Map<string, boolean>();
+
+function coverageKey(lat: number, lng: number): string {
+  return `${lat.toFixed(5)},${lng.toFixed(5)}`;
+}
+
+/**
+ * True when Google has a Street View panorama near the pin.
+ * Results are cached per ~1 m coordinate bucket for the session.
+ */
+export async function hasStreetViewCoverage(
+  lat: number,
+  lng: number,
+  radius = 150,
+): Promise<boolean> {
+  if (!getGoogleMapsBrowserKey()) return false;
+
+  const key = coverageKey(lat, lng);
+  const cached = coverageCache.get(key);
+  if (cached != null) return cached;
+
+  try {
+    const google = await loadGoogleMapsJs();
+    const service = new google.maps.StreetViewService();
+    const outdoor = google.maps.StreetViewSource?.OUTDOOR;
+
+    const tryPanorama = (source?: string) =>
+      new Promise<boolean>((resolve) => {
+        service.getPanorama(
+          {
+            location: { lat, lng },
+            radius,
+            ...(source ? { source } : {}),
+          },
+          (data, status) => {
+            resolve(
+              status === google.maps.StreetViewStatus.OK &&
+                Boolean(data?.location?.latLng),
+            );
+          },
+        );
+      });
+
+    let ok = outdoor ? await tryPanorama(outdoor) : false;
+    if (!ok) ok = await tryPanorama();
+    coverageCache.set(key, ok);
+    return ok;
+  } catch {
+    coverageCache.set(key, false);
+    return false;
+  }
+}

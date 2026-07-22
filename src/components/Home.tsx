@@ -301,6 +301,7 @@ export function Home({
                       locale={locale}
                       dict={dict}
                       citySlug={selectedCity}
+                      events={scopedEvents}
                     />
                   </div>
                   <div className="relative z-10 py-3 sm:py-3.5">

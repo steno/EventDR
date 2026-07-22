@@ -18,8 +18,10 @@ import { fetchDrivingRoute, geocodePlace } from "@/lib/routing";
 import { useGeolocation } from "@/hooks/useGeolocation";
 import { MapReveal } from "@/components/MapReveal";
 import { StreetViewModal } from "@/components/StreetViewModal";
-import { getGoogleMapsBrowserKey } from "@/lib/google-maps-js";
-import { getStreetViewUrl } from "@/lib/maps";
+import {
+  getGoogleMapsBrowserKey,
+  hasStreetViewCoverage,
+} from "@/lib/google-maps-js";
 import { resetInputZoom } from "@/lib/reset-input-zoom";
 
 const EventInlineMap = dynamic(
@@ -213,31 +215,36 @@ export function VenueMapPanel({
 }: VenueMapPanelProps) {
   const { destination, origin, route } = directions;
   const mapOpen = forceReveal || Boolean(origin || route);
-  const streetViewUrl = getStreetViewUrl(destination);
   const canEmbedStreetView = Boolean(getGoogleMapsBrowserKey());
   const [streetViewOpen, setStreetViewOpen] = useState(false);
+  const [streetViewAvailable, setStreetViewAvailable] = useState(false);
 
-  const streetViewClassName =
-    "inline-flex w-full items-center justify-center rounded-lg border border-neutral-300 bg-white/95 px-4 py-2.5 text-sm font-semibold text-neutral-800 shadow-sm touch-manipulation backdrop-blur-sm transition hover:bg-white active:scale-[0.98] sm:w-auto dark:border-neutral-600 dark:bg-neutral-900/95 dark:text-neutral-100 dark:hover:bg-neutral-800";
+  useEffect(() => {
+    if (!canEmbedStreetView) {
+      setStreetViewAvailable(false);
+      return;
+    }
 
-  const streetViewControl = canEmbedStreetView ? (
+    let cancelled = false;
+    setStreetViewAvailable(false);
+    void hasStreetViewCoverage(destination.lat, destination.lng).then((ok) => {
+      if (!cancelled) setStreetViewAvailable(ok);
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [canEmbedStreetView, destination.lat, destination.lng]);
+
+  const streetViewControl = streetViewAvailable ? (
     <button
       type="button"
       onClick={() => setStreetViewOpen(true)}
-      className={streetViewClassName}
+      className="inline-flex w-full items-center justify-center rounded-lg border border-neutral-300 bg-white/95 px-4 py-2.5 text-sm font-semibold text-neutral-800 shadow-sm touch-manipulation backdrop-blur-sm transition hover:bg-white active:scale-[0.98] sm:w-auto dark:border-neutral-600 dark:bg-neutral-900/95 dark:text-neutral-100 dark:hover:bg-neutral-800"
     >
       {dict.venues.streetView}
     </button>
-  ) : (
-    <a
-      href={streetViewUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={streetViewClassName}
-    >
-      {dict.venues.streetView}
-    </a>
-  );
+  ) : null;
 
   return (
     <div
@@ -261,14 +268,14 @@ export function VenueMapPanel({
           route={route}
         />
       </MapReveal>
-      {mapOpen ? (
+      {mapOpen && streetViewControl ? (
         <div className="absolute inset-x-0 bottom-0 z-[500] flex justify-center p-3 pointer-events-none">
           <div className="pointer-events-auto w-full sm:w-auto">
             {streetViewControl}
           </div>
         </div>
       ) : null}
-      {canEmbedStreetView ? (
+      {streetViewAvailable ? (
         <StreetViewModal
           open={streetViewOpen}
           onClose={() => setStreetViewOpen(false)}
