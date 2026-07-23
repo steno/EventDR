@@ -558,6 +558,32 @@ export const FALLBACK_EVENTS_FR: Event[] = [
     imageEmoji: "🎧",
   },
   {
+    id: "sunset-night-party-playa-encuentro-2026-07-25",
+    title: "Sunset Night Party — Un événement, deux expériences",
+    description:
+      "Fête plage du coucher de soleil jusqu'à tard chez Bonsai Poke, Playa Encuentro, Cabarete — samedi 25 juil. Session sunset 17 h–21 h ; night party dès 21 h avec HYPER, ALDENKINGS et TAÏF. Early bird RD$500 (welcome drink ; 70 billets). Produit par SONIK Productions ; accueille aussi les athlètes Surf, Longboard et SUP des Jeux CAC 2026. Billets sur tix.do.",
+    date: "2026-07-25",
+    time: "17 h – tard",
+    location: "Cabarete",
+    venue: "Bonsai Poke, Playa Encuentro",
+    venueSlug: "playa-encuentro",
+    address: "Playa Encuentro, Cabarete",
+    lat: 19.7834465,
+    lng: -70.4516521,
+    category: "parties",
+    categories: ["music"],
+    format: "physical",
+    trending: true,
+    isFree: false,
+    admissionPrice: "RD$500",
+    sourceUrl:
+      "https://tix.do/event/SUNSETNIGTHPARTYONEEVENTTWOEXPERIENCES-1",
+    ticketUrl:
+      "https://tix.do/event/SUNSETNIGTHPARTYONEEVENTTWOEXPERIENCES-1",
+    lineup: ["HYPER", "ALDENKINGS", "TAÏF"],
+    imageEmoji: "🌅",
+  },
+  {
     id: "piscinazo-pop-urbano-037-2026-08-02",
     title: "Piscinazo POP Urbano 037 — 1re édition",
     description:

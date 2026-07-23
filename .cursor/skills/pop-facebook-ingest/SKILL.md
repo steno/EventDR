@@ -66,7 +66,7 @@ Prefer posts with a concrete date, venue/area, and a Facebook event or ticket li
 Quick pass (North Coast only):
 
 - Puerto Plata Digital, Infotur Dominicano
-- cabaretejazz.com, todotickets.do (filter out non–North Coast)
+- cabaretejazz.com, todotickets.do, tix.do (filter out non–North Coast)
 - For logged-in Instagram posts, Reels, and Stories, use skill `pop-instagram-ingest` rather than duplicating that scan here
 
 ## 5. Filter & dedupe

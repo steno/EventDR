@@ -385,4 +385,5 @@ export function applyCuratedEventPatches(events: Event[]): Event[] {
 /** Fallback ids to upsert into Firebase (see fallback-events). */
 export const CURATED_SEED_EVENT_IDS = [
   "el-colibri-karaoke-battle-2026",
+  "sunset-night-party-playa-encuentro-2026-07-25",
 ] as const;

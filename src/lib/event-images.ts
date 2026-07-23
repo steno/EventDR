@@ -135,6 +135,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "la-chabola-wednesday-open-mic": "la-chabola-wednesday-open-mic.jpg",
   "groundzero-domingos-pal-pueblo": "groundzero-domingos-pal-pueblo.jpg",
   "silent-run-5k-2026-07-25": "silent-run-5k-2026-07-25.jpg",
+  "sunset-night-party-playa-encuentro-2026-07-25":
+    "sunset-night-party-playa-encuentro-2026-07-25.jpg",
   "piscinazo-pop-urbano-037-2026-08-02": "piscinazo-pop-urbano-037-2026-08-02.jpg",
   "los-event-trilogy-2026-09-03": "los-event-trilogy-2026-09-03.jpg",
   "sunset-laughter-club-cabarete": "sunset-laughter-club-cabarete.jpg",

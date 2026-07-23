@@ -33,6 +33,8 @@ export type Dictionary = {
     subtitleHighlight: string;
     subtitleEnd: string;
     cta: string;
+    /** Eyebrow for a temporary special / featured event in city heroes. */
+    featured: string;
   };
   categories: Record<EventCategory, string>;
   /** Singular category words for “Looking for {category} events in”. */
@@ -394,6 +396,7 @@ export const en: Dictionary = {
     subtitleHighlight: "Puerto Plata and the North Coast of the DR",
     subtitleEnd: "Including Sosúa and Cabarete.",
     cta: "Add My Events",
+    featured: "Featured",
   },
   categories: {
     music: "Music",

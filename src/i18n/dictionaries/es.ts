@@ -32,6 +32,7 @@ export const es: Dictionary = {
     subtitleHighlight: "Puerto Plata y la Costa Norte de RD",
     subtitleEnd: "Incluye Sosúa y Cabarete.",
     cta: "Añadir mis eventos",
+    featured: "Destacado",
   },
   categories: {
     music: "Música",

@@ -8,6 +8,7 @@ import {
   isEventActiveToday,
 } from "@/lib/event-status";
 import type { TimeRange } from "@/lib/filters";
+import { findActiveSpecialEvent } from "@/lib/special-events";
 
 /** Re-export for callers that import discovery helpers from home-layout. */
 export { prioritizeOneTimeEvents } from "@/lib/event-sort";
@@ -264,10 +265,19 @@ export function getHomeDiscoverLayout(
   }
 
   const todayEvents = getTodayHighlightEvents(events, options);
+  const specialHero = findActiveSpecialEvent(events, {
+    placement: "home-hero",
+    now: options.now,
+  });
   const todayWithImage = todayEvents.find((e) => Boolean(e.imageUrl?.trim()));
   const anyWithImage = events.find((e) => Boolean(e.imageUrl?.trim()));
   const heroEvent =
-    todayWithImage ?? anyWithImage ?? todayEvents[0] ?? events[0] ?? null;
+    specialHero ??
+    todayWithImage ??
+    anyWithImage ??
+    todayEvents[0] ??
+    events[0] ??
+    null;
 
   const picksExcludeIds = todayEvents
     .slice(0, HOME_TODAY_LIMIT)

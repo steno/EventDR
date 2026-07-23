@@ -122,7 +122,7 @@ export const CITIES: CityMeta[] = [
       es: "Cabarete",
       fr: "Cabarete",
     },
-    matchers: ["cabarete"],
+    matchers: ["cabarete", "playa encuentro"],
     topCategories: ["sports", "parties", "music", "health-wellness", "adventure"],
     seo: {
       en: {

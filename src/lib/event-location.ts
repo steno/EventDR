@@ -119,8 +119,8 @@ export function normalizeEventLocation(event: Event): Event {
 }
 
 function inferCity(event: Event): string | null {
-  const haystack = `${event.title} ${event.description} ${event.location ?? ""} ${event.venue ?? ""}`;
-  if (/cabarete/i.test(haystack)) return "Cabarete";
+  const haystack = `${event.title} ${event.description} ${event.location ?? ""} ${event.venue ?? ""} ${event.address ?? ""}`;
+  if (/cabarete|playa\s*encuentro/i.test(haystack)) return "Cabarete";
   if (/sos[uú]a/i.test(haystack)) return "Sosúa";
   if (/costambar/i.test(haystack)) return "Costambar";
   if (/playa dorada/i.test(haystack)) return "Playa Dorada";

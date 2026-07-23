@@ -20,6 +20,8 @@ const BANDSINTOWN_PP =
   "https://www.bandsintown.com/c/puerto-plata-dominican-republic";
 const TODOTICKETS_HOME = "https://todotickets.do/";
 const TICKETPLUS_RD = "https://dominicana.myticketplus.com/";
+const TIX_DO_HOME = "https://tix.do/";
+const TIX_DO_EVENTS = "https://tix.do/events";
 const CABARETE_JAZZ = "https://www.cabaretejazz.com/";
 const DR_JAZZ = "https://www.drjazzfestival.com/";
 const NATURA_EVENTS = "https://naturacabana.com/events/";
@@ -36,6 +38,8 @@ const JAZZ_EN_DOMINICANA = "https://www.jazzendominicana.com/";
 export const REGION_DIRECT_URLS = [
   TODOTICKETS_HOME,
   TICKETPLUS_RD,
+  TIX_DO_HOME,
+  TIX_DO_EVENTS,
   CABARETE_JAZZ,
   DR_JAZZ,
   NATURA_EVENTS,
@@ -109,7 +113,7 @@ export const CATEGORY_QUERIES: Record<EventCategory, CategoryQuerySet> = {
       `acoustic night open air concert Malecón Puerto Plata`,
       `site:todotickets.do Puerto Plata Sosúa Cabarete concierto`,
       `site:dominicana.myticketplus.com Puerto Plata Cabarete jazz`,
-      `site:tix.do Puerto Plata OR Sosúa OR Cabarete`,
+      `site:tix.do Puerto Plata OR Sosúa OR Cabarete OR Encuentro concierto`,
       `Jandy Ventura OR Lil Naay OR merengue Blue JackTar Puerto Plata`,
       `site:puertoplatadigital.com concierto OR en vivo`,
     ],
@@ -121,6 +125,8 @@ export const CATEGORY_QUERIES: Record<EventCategory, CategoryQuerySet> = {
       BANDSINTOWN_PP,
       TODOTICKETS_HOME,
       TICKETPLUS_RD,
+      TIX_DO_HOME,
+      TIX_DO_EVENTS,
       CABARETE_JAZZ,
       DR_JAZZ,
     ],
@@ -131,9 +137,15 @@ export const CATEGORY_QUERIES: Record<EventCategory, CategoryQuerySet> = {
       `site:facebook.com fiesta Sosúa Cabarete Puerto Plata`,
       `reggaeton party beach club ${REGION}`,
       `site:eventbrite.com party Puerto Plata`,
+      `site:tix.do fiesta OR party Cabarete OR Sosúa OR "Puerto Plata" OR Encuentro`,
       `ladies night rooftop party Costa Norte DR`,
     ],
-    directUrls: [`${ALLEVENTS_PP}/parties`, EVENTBRITE_CABARETE],
+    directUrls: [
+      `${ALLEVENTS_PP}/parties`,
+      EVENTBRITE_CABARETE,
+      TIX_DO_HOME,
+      TIX_DO_EVENTS,
+    ],
   },
   "food-drinks": {
     searches: [

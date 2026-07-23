@@ -18,6 +18,7 @@ import {
   LIST_PAGE_SIZE,
 } from "@/lib/home-layout";
 import { sortEventsForDisplay } from "@/lib/event-sort";
+import { pinSpecialEvents } from "@/lib/special-events";
 import { categoryPath } from "@/lib/event-navigation";
 import { attachEventImages } from "@/lib/event-images";
 import { eventMatchesCity, type CitySlug } from "@/lib/cities";
@@ -216,10 +217,12 @@ export function EventList({
       result = result.filter((e) => !excluded.has(e.id));
     }
     // Home "Our picks": one-time before multi-day/recurring on every time tab.
-    return sortEventsForDisplay(result, {
+    const sorted = sortEventsForDisplay(result, {
       recurringLast: true,
       oneTimeFirst: ourPicks,
     });
+    if (timeRange !== "weekend") return sorted;
+    return pinSpecialEvents(sorted, { placement: "weekend-list" });
   }, [events, timeRange, citySlug, searchQuery, excludeEventIds, ourPicks]);
 
   const visibleEvents =

@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { Building2 } from "lucide-react";
 import type { Event } from "@/lib/types";
@@ -25,6 +25,7 @@ import {
   type CitySlug,
 } from "@/lib/cities";
 import { getCategoryHeroImage } from "@/lib/category-heroes";
+import { findActiveSpecialEvent } from "@/lib/special-events";
 import { PAGE_SHELL_CLASS } from "@/lib/page-shell";
 import { getOnboardingCopy } from "@/lib/onboarding";
 import { useForegroundRefresh } from "@/hooks/useForegroundRefresh";
@@ -142,10 +143,25 @@ export function EventScopePage({
   useForegroundRefresh(softRefreshEvents);
 
   const city = citySlug ? getCityMeta(citySlug) : undefined;
-  // Topic photo when set; else place photo; else regional hero for when-scopes.
+  // City pages use city-hero; North Coast /events and /when/* use home-hero
+  // so region-wide specials still surface without a city slug.
+  const specialHeroEvent = useMemo(() => {
+    if (citySlug) {
+      return findActiveSpecialEvent(events, {
+        placement: "city-hero",
+        citySlug,
+      });
+    }
+    if (regionScope || fixedTimeRange) {
+      return findActiveSpecialEvent(events, { placement: "home-hero" });
+    }
+    return null;
+  }, [events, citySlug, regionScope, fixedTimeRange]);
+  // Special event flyer when marked; else topic photo; else place photo; else regional hero.
   const scopeHeroImage =
-    getCategoryHeroImage(categoryId) ??
-    city?.heroImage ??
+    specialHeroEvent?.imageUrl?.trim() ||
+    getCategoryHeroImage(categoryId) ||
+    city?.heroImage ||
     (categoryId || fixedTimeRange || regionScope
       ? NORTH_COAST_HERO_IMAGE
       : undefined);
@@ -187,6 +203,10 @@ export function EventScopePage({
               eyebrow={subtitle}
               subtitle={intro}
               imageUrl={scopeHeroImage}
+              featuredEvent={specialHeroEvent}
+              locale={locale}
+              dict={dict}
+              returnTo={returnTo}
             />
           ) : (
             <>

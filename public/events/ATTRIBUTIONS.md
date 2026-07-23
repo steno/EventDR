@@ -12,6 +12,7 @@ Curated images under `public/events/` and `public/venues/`.
 | Asset | Source | Notes |
 |-------|--------|-------|
 | `lena-dardelet-aura-beach-club-2026-07-24.png` | [tix.do](https://tix.do/event/PororoyLenaDardeletdeaquipallaencabarete-1) — official "Pororó × Lena Dardelet — De Aquí Pa'llá" tour cover (1080×1080) | Authentic event flyer for the Aura Beach Club Cabarete show |
+| `sunset-night-party-playa-encuentro-2026-07-25.jpg` | [tix.do](https://tix.do/event/SUNSETNIGTHPARTYONEEVENTTWOEXPERIENCES-1) — official Sunset Night Party cover (1080×1080) | Authentic SONIK Productions flyer for Bonsai Poke / Playa Encuentro Jul 25 |
 | `venues/aura-beach-club-cabarete.jpg` | POP curated `aurabeach.jpg` — Aura Beach Club Cabarete | Venue place photo |
 | `sosua-10k-road-race-2026.jpg` | [Sea Horse Ranch — Sosúa 10K Road Race](https://sea-horse-ranch.com/sosua-10k-road-race/) — official ADSS / Sea Horse 11º Sosúa 10K flyer | Authentic race flyer with date, distances, and sdctickets.do registration |
 | `sunset-cabarete-sessions-2026.jpg` | [Ticketplus — Sunset Cabarete Sessions](https://dominicana.myticketplus.com/events/sunset-cabarete-sessions) official event OG poster | Authentic Dec 5–6 Lux Beach Bar deep-house event art |

@@ -32,6 +32,7 @@ export const fr: Dictionary = {
     subtitleHighlight: "Puerto Plata et sur la Côte Nord de RD",
     subtitleEnd: "Y compris Sosúa et Cabarete.",
     cta: "Ajouter mes événements",
+    featured: "À la une",
   },
   categories: {
     music: "Musique",

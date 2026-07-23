@@ -15,6 +15,7 @@ import {
 } from "@/lib/filters";
 import { sortEventsForDisplay } from "@/lib/event-sort";
 import { LIST_PAGE_SIZE, SCOPE_LIST_LIMIT } from "@/lib/home-layout";
+import { pinSpecialEvents } from "@/lib/special-events";
 import { scrollToListTop } from "@/lib/list-scroll";
 import { StickyListFilters, ListScrollAnchor } from "@/components/StickyListFilters";
 import { TimeFilter } from "@/components/TimeFilter";
@@ -164,10 +165,12 @@ export function FilteredEventList({
   const activeRange = fixedTimeRange ?? timeRange;
   const filtered = useMemo(() => {
     const timeFiltered = filterByTimeRange(events, activeRange);
-    return sortEventsForDisplay(timeFiltered, {
+    const sorted = sortEventsForDisplay(timeFiltered, {
       recurringLast: true,
       oneTimeFirst: true,
     });
+    if (activeRange !== "weekend") return sorted;
+    return pinSpecialEvents(sorted, { placement: "weekend-list" });
   }, [events, activeRange]);
 
   const visibleEvents = Number.isFinite(visibleCount)

@@ -624,7 +624,7 @@ export function SubmitEventSheet({
                     type="url"
                     value={ticketUrl}
                     onChange={(e) => setTicketUrl(e.target.value)}
-                    placeholder="https://todotickets.do/events/..."
+                    placeholder="https://tix.do/event/..."
                     className={`${inputClass} mt-1.5 bg-white dark:bg-neutral-900`}
                   />
                 </label>

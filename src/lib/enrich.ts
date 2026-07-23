@@ -29,7 +29,7 @@ function parseEventsHeuristic(
   const datePattern =
     /\b(\d{1,2}[\/\-]\d{1,2}[\/\-]\d{2,4}|\w+ \d{1,2},? \d{4}|(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]* \d{1,2})/i;
   const locationPattern =
-    /(Puerto Plata|Sosúa|Sosua|Cabarete|Costambar|Playa Dorada|North Coast)/i;
+    /(Puerto Plata|Sosúa|Sosua|Cabarete|Costambar|Playa Dorada|Playa Encuentro|North Coast)/i;
   const addressPattern =
     /\b(?:Calle|Av\.?|Avenida|Carretera|C\/|#)\s*[A-Za-zÁ-ú0-9][^,\n]{2,60}/i;
 
@@ -101,7 +101,7 @@ async function enrichWithOpenAI(
   const language = OUTPUT_LANGUAGE[locale];
   const today = localDateISO();
 
-  const systemPrompt = `You extract local events for the North Coast of the Dominican Republic (Puerto Plata, Sosúa, Cabarete, Costambar, Playa Dorada only).
+  const systemPrompt = `You extract local events for the North Coast of the Dominican Republic (Puerto Plata, Sosúa, Cabarete, Costambar, Playa Dorada, Playa Encuentro only).
 Today is ${today}. Only include events dated between today and the next 90 days.
 Write all titles and descriptions in ${language}.
 Prioritize hidden gems: community gatherings, beach sports, local leagues, small venue shows, expat meetups.
@@ -122,7 +122,7 @@ Return ONLY valid JSON: an array of event objects. Each object must have:
 - format ("physical", "digital", or "hybrid")
 - trending (boolean, true for popular events)
 - sourceUrl (optional URL from source)
-- ticketUrl (optional ticket purchase URL — use the todotickets.do /events/... , eventbrite, uepatickets, viator.com, getyourguide.com, or other checkout link when present; omit for free/community events)
+- ticketUrl (optional ticket purchase URL — use the todotickets.do /events/... , tix.do /event/... , eventbrite, uepatickets, viator.com, getyourguide.com, or other checkout link when present; omit for free/community events)
 - isFree (optional boolean — true only when the source explicitly says admission is free / entrada libre / entrada gratuita; false when paid at the door without online tickets; omit when unknown)
 - admissionPrice (optional door or registration price when stated — use formats like "RD$250", "US$210", "from RD$400", or "RD$50–100"; omit when free, online tickets only, or unknown)
 - callForPricing (optional boolean — true when the source says to call/WhatsApp for prices or pricing varies and no fixed rate is given)

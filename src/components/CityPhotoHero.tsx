@@ -1,4 +1,9 @@
+import Link from "next/link";
 import { EventImage } from "@/components/EventImage";
+import { eventDetailPath } from "@/lib/event-navigation";
+import type { Event } from "@/lib/types";
+import type { Locale } from "@/i18n/config";
+import type { Dictionary } from "@/i18n/dictionaries";
 
 interface CityPhotoHeroProps {
   title: string;
@@ -6,6 +11,11 @@ interface CityPhotoHeroProps {
   subtitle?: string;
   /** Place / region photo; omit for brand gradient only. */
   imageUrl?: string;
+  /** When set, hero uses the event flyer and links through to the event. */
+  featuredEvent?: Event | null;
+  locale?: Locale;
+  dict?: Dictionary;
+  returnTo?: string;
 }
 
 export function CityPhotoHero({
@@ -13,14 +23,25 @@ export function CityPhotoHero({
   eyebrow,
   subtitle,
   imageUrl,
+  featuredEvent = null,
+  locale,
+  dict,
+  returnTo,
 }: CityPhotoHeroProps) {
+  const specialImage = featuredEvent?.imageUrl?.trim() || null;
+  const resolvedImage = specialImage || imageUrl;
+  const eventHref =
+    featuredEvent && locale
+      ? eventDetailPath(locale, featuredEvent.id, returnTo ?? `/${locale}`)
+      : null;
+
   return (
     <header className="relative -mx-4 mb-5 overflow-hidden sm:rounded-2xl sm:mx-0">
       <div className="relative min-h-[14.5rem] sm:min-h-[17rem]">
-        {imageUrl ? (
+        {resolvedImage ? (
           <div className="absolute inset-0">
             <EventImage
-              src={imageUrl}
+              src={resolvedImage}
               alt=""
               priority
               sizes="(max-width: 768px) 100vw, 768px"
@@ -67,6 +88,28 @@ export function CityPhotoHero({
               </p>
             ) : null}
           </div>
+
+          {featuredEvent && eventHref ? (
+            <Link
+              href={eventHref}
+              className="group inline-flex max-w-full items-center gap-2 text-[15px] font-bold touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400 focus-visible:rounded"
+            >
+              {dict?.hero.featured ? (
+                <span className="shrink-0 text-xs font-bold uppercase tracking-[0.14em] text-white/75 [text-shadow:0_1px_2px_rgba(0,0,0,0.45)]">
+                  {dict.hero.featured}
+                </span>
+              ) : null}
+              <span className="truncate bg-gradient-to-r from-orange-300 via-rose-300 to-fuchsia-300 bg-clip-text text-transparent transition-[filter] group-hover:brightness-110">
+                {featuredEvent.title}
+              </span>
+              <span
+                aria-hidden
+                className="shrink-0 text-orange-300 transition-transform group-hover:translate-x-0.5 group-hover:text-rose-300"
+              >
+                →
+              </span>
+            </Link>
+          ) : null}
         </div>
       </div>
     </header>
