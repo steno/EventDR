@@ -163,18 +163,15 @@ function docToVenue(slug: string, data: DocumentData): Venue {
         : undefined,
     googleReviews: Array.isArray(data.googleReviews)
       ? (data.googleReviews as { text?: unknown; rating?: unknown }[])
-          .map((r) => {
+          .flatMap((r) => {
             const text = typeof r?.text === "string" ? r.text.trim() : "";
-            if (!text) return null;
-            return {
-              text,
-              rating:
-                typeof r.rating === "number" && Number.isFinite(r.rating)
-                  ? r.rating
-                  : undefined,
-            };
+            if (!text) return [];
+            const review: { text: string; rating?: number } = { text };
+            if (typeof r.rating === "number" && Number.isFinite(r.rating)) {
+              review.rating = r.rating;
+            }
+            return [review];
           })
-          .filter((r): r is { text: string; rating?: number } => r != null)
           .slice(0, 5)
       : undefined,
     googleReviewsFetchedAt:
