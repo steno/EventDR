@@ -474,11 +474,27 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "handmade-the-brand": {
-    body: "Stitch-your-own espadrille workshop downtown from about €100 — book the 10 AM or 2 PM slot; snacks and cava included, not a quick souvenir shop browse.",
+    body: "Book ahead for espadrilles (~€100, 10 AM or 2 PM) or the adults-only Piña Colada Experience (~US$116, 11 AM) — pink shop on Duarte at Umbrella Street, not a quick souvenir stop.",
     localized: {
-      en: "Stitch-your-own espadrille workshop downtown from about €100 — book the 10 AM or 2 PM slot; snacks and cava included, not a quick souvenir shop browse.",
-      es: "Taller de alpargatas para coser las tuyas en el centro desde unos €100 — reserva el turno de 10 AM o 2 PM; incluye tentempiés y cava, no es un souvenir rápido.",
-      fr: "Atelier espadrilles à coudre soi-même au centre dès environ 100 € — réservez le créneau 10 h ou 14 h ; collations et cava inclus, pas un souvenir rapide.",
+      en: "Book ahead for espadrilles (~€100, 10 AM or 2 PM) or the adults-only Piña Colada Experience (~US$116, 11 AM) — pink shop on Duarte at Umbrella Street, not a quick souvenir stop.",
+      es: "Reserva alpargatas (~€100, 10 AM o 2 PM) o la experiencia Piña Colada solo adultos (~US$116, 11 AM) — tienda rosa en Duarte esquina Sombrillas, no es un souvenir rápido.",
+      fr: "Réservez espadrilles (~100 €, 10 h ou 14 h) ou l'expérience Piña Colada adultes (~116 US$, 11 h) — boutique rose sur Duarte au coin Sombrillas, pas un souvenir rapide.",
+    },
+  },
+  "gym-sov-sosua-ocean-village": {
+    body: "Ocean Village gym classes without a full membership — WhatsApp the instructor before you go so gate access and drop-in pricing are clear.",
+    localized: {
+      en: "Ocean Village gym classes without a full membership — WhatsApp the instructor before you go so gate access and drop-in pricing are clear.",
+      es: "Clases en el gym de Ocean Village sin membresía completa — escribe por WhatsApp al instructor antes para aclarar acceso y tarifa de clase suelta.",
+      fr: "Cours au gym d'Ocean Village sans abonnement complet — WhatsApp au coach avant pour clarifier l'accès et le tarif à l'unité.",
+    },
+  },
+  "zen-fitness-cabarete": {
+    body: "Beachfront residential fitness camp on Kite Beach — come for a multi-week immersion with trainers on site, not a casual day pass.",
+    localized: {
+      en: "Beachfront residential fitness camp on Kite Beach — come for a multi-week immersion with trainers on site, not a casual day pass.",
+      es: "Camp residencial de fitness frente al mar en Kite Beach — ven por una inmersión de varias semanas con trainers en el sitio, no por un day pass casual.",
+      fr: "Camp fitness résidentiel en bord de mer sur Kite Beach — venez pour une immersion de plusieurs semaines avec coachs sur place, pas un day pass casual.",
     },
   },
   "parque-jose-briceno": {

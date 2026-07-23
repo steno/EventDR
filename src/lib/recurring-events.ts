@@ -390,7 +390,7 @@ const RECURRING_EN: Event[] = [
     id: "ocean-world-daily",
     title: "Ocean World Adventure Park",
     description:
-      "Marine park open daily in Cofresí — dolphin encounters, sea lion and shark shows, exotic birds, reef snorkeling, and a giant water slide. Plan 4–6 hours.",
+      "Ocean World Adventure Park open daily in Cofresí, Puerto Plata — dolphin encounters, sea lion and shark shows, exotic birds, reef snorkeling, and a giant water slide. Plan 4–6 hours. (Often searched as Sea World Puerto Plata.)",
     date: "2026-01-01",
     time: "9:00 AM - 6:00 PM",
     location: "Puerto Plata",
@@ -443,7 +443,7 @@ const RECURRING_EN: Event[] = [
     id: "museo-ambar-weekdays",
     title: "Museo del Ámbar — Museum Hours",
     description:
-      "Victorian mansion in the historic center — Dominican amber fossils including lizards, scorpions, and insects millions of years old.",
+      "Puerto Plata's Amber Museum (Museo del Ámbar) — Victorian mansion in the historic center with Dominican amber and fossilized resin, including lizards, scorpions, and insects millions of years old.",
     date: "2026-01-01",
     time: "9:00 AM - 5:00 PM",
     location: "Puerto Plata",
@@ -460,7 +460,7 @@ const RECURRING_EN: Event[] = [
     id: "museo-ambar-saturday",
     title: "Museo del Ámbar — Saturday Hours",
     description:
-      "Shorter Saturday hours at the amber museum in downtown Puerto Plata. Closed Sundays.",
+      "Shorter Saturday hours at the Amber Museum (fossilized resin / Dominican amber) in downtown Puerto Plata. Closed Sundays.",
     date: "2026-01-01",
     time: "9:00 AM - 3:00 PM",
     location: "Puerto Plata",
@@ -585,7 +585,7 @@ const RECURRING_EN: Event[] = [
     id: "fun-city-daily",
     title: "Fun City Action Park — Go-Karts",
     description:
-      "The Dominican Republic's largest go-kart park on Highway 5 near Playa Dorada — race Cyclone, Sprint 500, Grand Prix, and bumper cars, or let kids as young as 5 drive with an adult. Playground, pitcher radar challenge, and covered cafeteria on site. Pay per ride or grab an unlimited pass; ~5 minutes from Puerto Plata, ~20 from Sosúa and Cabarete. Tel. (809) 697-0794.",
+      "Fun City Puerto Plata — the Dominican Republic's largest go-kart park on Highway 5 near Playa Dorada. Race Cyclone, Sprint 500, Grand Prix, and bumper cars, or let kids as young as 5 drive with an adult. Playground, pitcher radar challenge, and covered cafeteria on site. Pay per ride or grab an unlimited pass; ~5 minutes from Puerto Plata, ~20 from Sosúa and Cabarete. Tel. (809) 697-0794.",
     date: "2026-01-01",
     time: "10:00 AM - 6:00 PM",
     location: "Puerto Plata",
@@ -622,7 +622,7 @@ const RECURRING_EN: Event[] = [
     id: "coconut-cove-ocean-zipline-daily",
     title: "Ocean Zipline at Coconut Cove",
     description:
-      "Soar 1,200 feet over the Atlantic at Chukka Ocean Outpost — Puerto Plata's only seaside zipline with cliff-to-ocean views, private beach time, and round-trip hotel transfers. ATV, dune buggy, and full-day Damajagua combo packages also book here.",
+      "Soar 1,200 feet over the Atlantic at Chukka Ocean Outpost Coconut Cove — Puerto Plata's only seaside zipline with cliff-to-ocean views, private beach time, and round-trip hotel transfers. ATV, dune buggy, and full-day Damajagua combo packages also book here.",
     date: "2026-01-01",
     time: "9:00 AM - 5:00 PM",
     location: "Puerto Plata",
@@ -1358,6 +1358,29 @@ const RECURRING_EN: Event[] = [
       "https://www.eventbrite.es/e/make-authentic-espadrilles-in-puerto-plata-tickets-1981840949630",
     imageEmoji: "👟",
   },
+  {
+    id: "handmade-pina-colada-experience",
+    title: "The Piña Colada Experience",
+    description:
+      "Adults-only 2-hour cocktail workshop at Handmade the Brand on Calle Duarte 37 (corner of Umbrella Street) — welcome coconut rum, the story of the piña colada, then hollow a fresh pineapple and blend your own all-natural cocktail. Homemade tropical rum tastings, music, and photo ops included. From ~US$116; max 15 guests. Book ahead; arrive on time (entry closes 15 minutes after start).",
+    date: "2026-01-01",
+    time: "11:00 AM – 1:00 PM",
+    location: "Puerto Plata",
+    address: "Calle Duarte 37",
+    venue: "Handmade the Brand",
+    venueSlug: "handmade-the-brand",
+    phone: "+19394089392",
+    category: "food-drinks",
+    categories: ["culture"],
+    format: "physical",
+    recurrence: "daily",
+    isFree: false,
+    admissionPrice: "from US$116",
+    ticketUrl: "https://www.byfood.com/experiences/the-pina-colada-experience-2073",
+    sourceUrl:
+      "https://www.tripadvisor.com/AttractionProductReview-g147290-d27116509-The_pina_colada_experience-Puerto_Plata_Puerto_Plata_Province_Dominican_Republic.html",
+    imageEmoji: "🍍",
+  },
   // --- Dominican-leaning live nights (venue calendars) ---
   {
     id: "natura-cabana-saturday-live",
@@ -1488,6 +1511,26 @@ const RECURRING_EN: Event[] = [
     callForPricing: true,
     sourceUrl: "https://www.sosuaoceanvillage.com/gym",
     imageEmoji: "💪",
+  },
+  {
+    id: "zen-fitness-weightloss-camp",
+    title: "Zen Fitness Weightloss Camp",
+    description:
+      "Year-round weightloss immersion at Zen Fitness Camps on Kite Beach (Zen Cabarete) — start any day. Daily routine: 7:30 AM Morning Flow (qigong, yoga, calisthenics, breathwork), beach walk, 1:00 PM weights pump, 5:00 PM Yin Yoga, and farm-to-table vegetarian dinner. Includes beachfront eco-hotel stay, POP airport transfers, protein smoothie, weekly massage, and priority training. From US$3,990 for the first month; book at cabaretefitnesscamp.com.",
+    date: "2026-01-01",
+    time: "7:30 AM – 6:30 PM",
+    location: "Cabarete",
+    venue: "Zen Fitness Camps",
+    venueSlug: "zen-fitness-cabarete",
+    address: "Kite Beach, Carretera Sosúa–Cabarete Km 10.5",
+    category: "health-wellness",
+    categories: ["sports"],
+    format: "physical",
+    recurrence: "daily",
+    admissionPrice: "from US$3,990/mo",
+    ticketUrl: "https://cabaretefitnesscamp.com/book-now/",
+    sourceUrl: "https://cabaretefitnesscamp.com/the-camps/weightloss-camp/",
+    imageEmoji: "🏋️",
   },
 ];
 
@@ -1880,7 +1923,7 @@ const RECURRING_ES: Event[] = [
     id: "ocean-world-daily",
     title: "Ocean World Adventure Park",
     description:
-      "Parque marino abierto todos los días en Cofresí — encuentros con delfines, shows de leones marinos y tiburones, aves exóticas, snorkel y tobogán acuático. Planifica 4–6 horas.",
+      "Ocean World Adventure Park abierto todos los días en Cofresí, Puerto Plata — encuentros con delfines, shows de leones marinos y tiburones, aves exóticas, snorkel y tobogán acuático. Planifica 4–6 horas. (A veces buscado como Sea World Puerto Plata.)",
     date: "2026-01-01",
     time: "9:00 AM - 6:00 PM",
     location: "Puerto Plata",
@@ -1933,7 +1976,7 @@ const RECURRING_ES: Event[] = [
     id: "museo-ambar-weekdays",
     title: "Museo del Ámbar — Horario entre semana",
     description:
-      "Mansión victoriana en el centro histórico — fósiles de ámbar dominicano con lagartos, escorpiones e insectos de millones de años.",
+      "Museo del Ámbar de Puerto Plata — mansión victoriana en el centro histórico con ámbar dominicano y resina fosilizada, incluyendo lagartos, escorpiones e insectos de millones de años.",
     date: "2026-01-01",
     time: "9:00 AM - 5:00 PM",
     location: "Puerto Plata",
@@ -1950,7 +1993,7 @@ const RECURRING_ES: Event[] = [
     id: "museo-ambar-saturday",
     title: "Museo del Ámbar — Horario de sábado",
     description:
-      "Horario reducido los sábados en el museo del ámbar del centro de Puerto Plata. Cerrado los domingos.",
+      "Horario reducido los sábados en el Museo del Ámbar (ámbar / resina fosilizada) del centro de Puerto Plata. Cerrado los domingos.",
     date: "2026-01-01",
     time: "9:00 AM - 3:00 PM",
     location: "Puerto Plata",
@@ -2075,7 +2118,7 @@ const RECURRING_ES: Event[] = [
     id: "fun-city-daily",
     title: "Fun City Action Park — Go-Karts",
     description:
-      "El parque de go-karts más grande de República Dominicana en la carretera 5 cerca de Playa Dorada — compite en Cyclone, Sprint 500, Grand Prix y autos chocones, o deja que niños desde 5 años conduzcan con un adulto. Parque infantil, reto de lanzamiento con radar y cafetería techada. Pago por vuelta o pase ilimitado; ~5 min de Puerto Plata, ~20 de Sosúa y Cabarete. Tel. (809) 697-0794.",
+      "Fun City Puerto Plata — el parque de go-karts más grande de República Dominicana en la carretera 5 cerca de Playa Dorada. Compite en Cyclone, Sprint 500, Grand Prix y autos chocones, o deja que niños desde 5 años conduzcan con un adulto. Parque infantil, reto de lanzamiento con radar y cafetería techada. Pago por vuelta o pase ilimitado; ~5 min de Puerto Plata, ~20 de Sosúa y Cabarete. Tel. (809) 697-0794.",
     date: "2026-01-01",
     time: "10:00 AM - 6:00 PM",
     location: "Puerto Plata",
@@ -2112,7 +2155,7 @@ const RECURRING_ES: Event[] = [
     id: "coconut-cove-ocean-zipline-daily",
     title: "Tirolesa sobre el océano en Coconut Cove",
     description:
-      "Vuela 1,200 pies sobre el Atlántico en Chukka Ocean Outpost — la única tirolesa frente al mar en Puerto Plata, con playa privada y traslados desde hoteles. También hay paquetes de ATV, dune buggy y combo con Damajagua.",
+      "Vuela 1,200 pies sobre el Atlántico en Chukka Ocean Outpost Coconut Cove — la única tirolesa frente al mar en Puerto Plata, con playa privada y traslados desde hoteles. También hay paquetes de ATV, dune buggy y combo con Damajagua.",
     date: "2026-01-01",
     time: "9:00 AM - 5:00 PM",
     location: "Puerto Plata",
@@ -2846,6 +2889,29 @@ const RECURRING_ES: Event[] = [
     imageEmoji: "👟",
   },
   {
+    id: "handmade-pina-colada-experience",
+    title: "Experiencia Piña Colada",
+    description:
+      "Taller de cócteles solo para adultos (2 horas) en Handmade the Brand, Calle Duarte 37 (esquina Calle de las Sombrillas) — ron de coco de bienvenida, la historia de la piña colada, y luego vacías una piña fresca y preparas tu cóctel natural. Incluye degustaciones de rones tropicales caseros, música y fotos. Desde ~US$116; máx. 15 personas. Reserva con anticipación; llega a tiempo (cierran la entrada 15 minutos después del inicio).",
+    date: "2026-01-01",
+    time: "11:00 AM – 1:00 PM",
+    location: "Puerto Plata",
+    address: "Calle Duarte 37",
+    venue: "Handmade the Brand",
+    venueSlug: "handmade-the-brand",
+    phone: "+19394089392",
+    category: "food-drinks",
+    categories: ["culture"],
+    format: "physical",
+    recurrence: "daily",
+    isFree: false,
+    admissionPrice: "desde US$116",
+    ticketUrl: "https://www.byfood.com/experiences/the-pina-colada-experience-2073",
+    sourceUrl:
+      "https://www.tripadvisor.com/AttractionProductReview-g147290-d27116509-The_pina_colada_experience-Puerto_Plata_Puerto_Plata_Province_Dominican_Republic.html",
+    imageEmoji: "🍍",
+  },
+  {
     id: "natura-cabana-saturday-live",
     title: "Música en vivo los sábados en Natura Cabana",
     description:
@@ -2974,6 +3040,26 @@ const RECURRING_ES: Event[] = [
     callForPricing: true,
     sourceUrl: "https://www.sosuaoceanvillage.com/gym",
     imageEmoji: "💪",
+  },
+  {
+    id: "zen-fitness-weightloss-camp",
+    title: "Campamento de pérdida de peso Zen Fitness",
+    description:
+      "Inmersión de pérdida de peso todo el año en Zen Fitness Camps en Kite Beach (Zen Cabarete) — empieza cualquier día. Rutina diaria: 7:30 AM Morning Flow (qigong, yoga, calistenia, respiración), caminata en la playa, 1:00 PM pesas, 5:00 PM Yin Yoga y cena vegetariana de la granja a la mesa. Incluye eco-hotel frente al mar, traslados al aeropuerto POP, smoothie de proteína, masaje semanal y prioridad con los trainers. Desde US$3,990 el primer mes; reserva en cabaretefitnesscamp.com.",
+    date: "2026-01-01",
+    time: "7:30 AM – 6:30 PM",
+    location: "Cabarete",
+    venue: "Zen Fitness Camps",
+    venueSlug: "zen-fitness-cabarete",
+    address: "Kite Beach, Carretera Sosúa–Cabarete Km 10.5",
+    category: "health-wellness",
+    categories: ["sports"],
+    format: "physical",
+    recurrence: "daily",
+    admissionPrice: "from US$3,990/mo",
+    ticketUrl: "https://cabaretefitnesscamp.com/book-now/",
+    sourceUrl: "https://cabaretefitnesscamp.com/the-camps/weightloss-camp/",
+    imageEmoji: "🏋️",
   },
 ];
 
@@ -3366,7 +3452,7 @@ const RECURRING_FR: Event[] = [
     id: "ocean-world-daily",
     title: "Ocean World Adventure Park",
     description:
-      "Parc marin ouvert tous les jours à Cofresí — dauphins, otaries et requins, oiseaux exotiques, snorkeling sur récif et toboggan géant. Prévoyez 4 à 6 heures.",
+      "Ocean World Adventure Park ouvert tous les jours à Cofresí, Puerto Plata — dauphins, otaries et requins, oiseaux exotiques, snorkeling sur récif et toboggan géant. Prévoyez 4 à 6 heures. (Parfois cherché comme Sea World Puerto Plata.)",
     date: "2026-01-01",
     time: "9:00 AM - 6:00 PM",
     location: "Puerto Plata",
@@ -3419,7 +3505,7 @@ const RECURRING_FR: Event[] = [
     id: "museo-ambar-weekdays",
     title: "Museo del Ámbar — Horaires en semaine",
     description:
-      "Manoir victorien au centre historique — fossiles d'ambre dominicain avec lézards, scorpions et insectes vieux de millions d'années.",
+      "Musée de l'Ambre de Puerto Plata (Museo del Ámbar) — manoir victorien au centre historique avec ambre dominicain et résine fossilisée, lézards, scorpions et insectes vieux de millions d'années.",
     date: "2026-01-01",
     time: "9:00 AM - 5:00 PM",
     location: "Puerto Plata",
@@ -3436,7 +3522,7 @@ const RECURRING_FR: Event[] = [
     id: "museo-ambar-saturday",
     title: "Museo del Ámbar — Horaires du samedi",
     description:
-      "Horaires réduits le samedi au musée de l'ambre du centre de Puerto Plata. Fermé le dimanche.",
+      "Horaires réduits le samedi au musée de l'Ambre (résine fossilisée / ambre dominicain) du centre de Puerto Plata. Fermé le dimanche.",
     date: "2026-01-01",
     time: "9:00 AM - 3:00 PM",
     location: "Puerto Plata",
@@ -3561,7 +3647,7 @@ const RECURRING_FR: Event[] = [
     id: "fun-city-daily",
     title: "Fun City Action Park — Go-Karts",
     description:
-      "Le plus grand parc de go-karts de République dominicaine sur la route 5 près de Playa Dorada — Cyclone, Sprint 500, Grand Prix et autos tamponneuses, ou laissez les enfants dès 5 ans conduire avec un adulte. Aire de jeux, lancer avec radar et cafétéria couverte sur place. Paiement à la course ou pass illimité ; ~5 min de Puerto Plata, ~20 de Sosúa et Cabarete. Tél. (809) 697-0794.",
+      "Fun City Puerto Plata — le plus grand parc de go-karts de République dominicaine sur la route 5 près de Playa Dorada. Cyclone, Sprint 500, Grand Prix et autos tamponneuses, ou laissez les enfants dès 5 ans conduire avec un adulte. Aire de jeux, lancer avec radar et cafétéria couverte sur place. Paiement à la course ou pass illimité ; ~5 min de Puerto Plata, ~20 de Sosúa et Cabarete. Tél. (809) 697-0794.",
     date: "2026-01-01",
     time: "10:00 AM - 6:00 PM",
     location: "Puerto Plata",
@@ -3598,7 +3684,7 @@ const RECURRING_FR: Event[] = [
     id: "coconut-cove-ocean-zipline-daily",
     title: "Tyrolienne océanique à Coconut Cove",
     description:
-      "Survolez l'Atlantique sur 1 200 pieds au Chukka Ocean Outpost — la seule tyrolienne en bord de mer à Puerto Plata, avec plage privée et transferts hôtel. Forfaits quad, dune buggy et combo Damajagua aussi disponibles.",
+      "Survolez l'Atlantique sur 1 200 pieds au Chukka Ocean Outpost Coconut Cove — la seule tyrolienne en bord de mer à Puerto Plata, avec plage privée et transferts hôtel. Forfaits quad, dune buggy et combo Damajagua aussi disponibles.",
     date: "2026-01-01",
     time: "9:00 AM - 5:00 PM",
     location: "Puerto Plata",
@@ -4332,6 +4418,29 @@ const RECURRING_FR: Event[] = [
     imageEmoji: "👟",
   },
   {
+    id: "handmade-pina-colada-experience",
+    title: "Expérience Piña Colada",
+    description:
+      "Atelier cocktail réservé aux adultes (2 h) chez Handmade the Brand, Calle Duarte 37 (coin Calle de las Sombrillas) — rhum coco de bienvenue, l'histoire de la piña colada, puis vous creusez un ananas frais et préparez votre cocktail naturel. Dégustations de rhums tropicaux maison, musique et photos incluses. À partir de ~116 US$ ; max. 15 personnes. Réservez à l'avance ; arrivez à l'heure (entrée fermée 15 minutes après le début).",
+    date: "2026-01-01",
+    time: "11:00 AM – 1:00 PM",
+    location: "Puerto Plata",
+    address: "Calle Duarte 37",
+    venue: "Handmade the Brand",
+    venueSlug: "handmade-the-brand",
+    phone: "+19394089392",
+    category: "food-drinks",
+    categories: ["culture"],
+    format: "physical",
+    recurrence: "daily",
+    isFree: false,
+    admissionPrice: "à partir de 116 US$",
+    ticketUrl: "https://www.byfood.com/experiences/the-pina-colada-experience-2073",
+    sourceUrl:
+      "https://www.tripadvisor.com/AttractionProductReview-g147290-d27116509-The_pina_colada_experience-Puerto_Plata_Puerto_Plata_Province_Dominican_Republic.html",
+    imageEmoji: "🍍",
+  },
+  {
     id: "natura-cabana-saturday-live",
     title: "Musique live le samedi à Natura Cabana",
     description:
@@ -4460,6 +4569,26 @@ const RECURRING_FR: Event[] = [
     callForPricing: true,
     sourceUrl: "https://www.sosuaoceanvillage.com/gym",
     imageEmoji: "💪",
+  },
+  {
+    id: "zen-fitness-weightloss-camp",
+    title: "Camp perte de poids Zen Fitness",
+    description:
+      "Immersion perte de poids toute l'année chez Zen Fitness Camps sur Kite Beach (Zen Cabarete) — démarrez n'importe quel jour. Routine quotidienne : 7 h 30 Morning Flow (qigong, yoga, callisthénie, respiration), marche sur la plage, musculation à 13 h, Yin Yoga à 17 h et dîner végétarien de la ferme à la table. Comprend éco-hôtel en bord de mer, transferts aéroport POP, smoothie protéiné, massage hebdomadaire et priorité avec les coachs. À partir de 3 990 US$ le premier mois ; réservez sur cabaretefitnesscamp.com.",
+    date: "2026-01-01",
+    time: "7:30 AM – 6:30 PM",
+    location: "Cabarete",
+    venue: "Zen Fitness Camps",
+    venueSlug: "zen-fitness-cabarete",
+    address: "Kite Beach, Carretera Sosúa–Cabarete Km 10.5",
+    category: "health-wellness",
+    categories: ["sports"],
+    format: "physical",
+    recurrence: "daily",
+    admissionPrice: "from US$3,990/mo",
+    ticketUrl: "https://cabaretefitnesscamp.com/book-now/",
+    sourceUrl: "https://cabaretefitnesscamp.com/the-camps/weightloss-camp/",
+    imageEmoji: "🏋️",
   },
 ];
 

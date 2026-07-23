@@ -310,7 +310,7 @@ export const SEED_VENUES: Venue[] = [
     name: "Ocean World Adventure Park",
     city: "Puerto Plata",
     description:
-      "Marine adventure park in Cofresí — dolphin swims, sea lion and shark encounters, snorkeling, and a water slide lagoon.",
+      "Marine adventure park in Cofresí — dolphin swims, sea lion and shark encounters, snorkeling, and a water slide lagoon. Puerto Plata's Ocean World (sometimes searched as Sea World).",
     lat: 19.8263178,
     lng: -70.7314779,
     emoji: "🐬",
@@ -414,7 +414,7 @@ export const SEED_VENUES: Venue[] = [
     name: "Museo del Ámbar",
     city: "Puerto Plata",
     description:
-      "Victorian mansion in the historic center showcasing Dominican amber fossils — lizards, insects, and Jurassic-era specimens.",
+      "Victorian mansion in the historic center — Puerto Plata's amber museum of Dominican fossilized resin, with lizards, insects, and Jurassic-era specimens.",
     lat: 19.7963741,
     lng: -70.6921771,
     emoji: "🟠",
@@ -501,7 +501,7 @@ export const SEED_VENUES: Venue[] = [
     name: "Fun City Action Park",
     city: "Puerto Plata",
     description:
-      "Dominican Republic's largest go-kart park on Highway 5 — Cyclone, Sprint 500, Grand Prix, and bumper cars, plus a kids' playground near Playa Dorada.",
+      "Dominican Republic's largest go-kart park on Highway 5 — Fun City Puerto Plata with Cyclone, Sprint 500, Grand Prix, and bumper cars, plus a kids' playground near Playa Dorada.",
     lat: 19.7450324,
     lng: -70.6353642,
     emoji: "🏎️",
@@ -526,7 +526,7 @@ export const SEED_VENUES: Venue[] = [
     name: "Chukka Ocean Outpost — Coconut Cove",
     city: "Bajo Hondo",
     description:
-      "Cliffside seaside adventure park — 1,200-ft ocean zipline, ATV and dune buggy trails, private beach, and watersports west of Puerto Plata.",
+      "Chukka Ocean Outpost near Puerto Plata — cliffside seaside adventure park with a 1,200-ft ocean zipline, ATV and dune buggy trails, private beach, and watersports in Bajo Hondo.",
     lat: 19.9028125,
     lng: -70.8399375,
     emoji: "🪂",
@@ -690,10 +690,10 @@ export const SEED_VENUES: Venue[] = [
     name: "Handmade the Brand",
     city: "Puerto Plata",
     description:
-      "Espadrille workshop in the historic center — stitch your own pair with master artisans on Calle Duarte. Sessions include snacks, cava, and all materials; from €99.90 on Eventbrite.",
+      "Colorful workshop on Calle Duarte 37 (corner of Umbrella Street) — stitch-your-own espadrilles and the adults-only Piña Colada Experience (pineapple cocktail + rum tasting). Book workshops ahead.",
     lat: 19.7979791,
     lng: -70.694567,
-    emoji: "👟",
+    emoji: "🍍",
     phone: "+19394089392",
     website:
       "https://www.eventbrite.es/e/make-authentic-espadrilles-in-puerto-plata-tickets-1981840949630",
@@ -857,6 +857,18 @@ export const SEED_VENUES: Venue[] = [
     website: "https://www.sosuaoceanvillage.com/gym",
     phone: "+18299612269",
   },
+  {
+    slug: "zen-fitness-cabarete",
+    name: "Zen Fitness Camps",
+    city: "Cabarete",
+    description:
+      "Beachfront fitness and wellness camp at Zen Cabarete on Kite Beach (formerly eXtreme) — barefoot tiki gym, ocean-view yoga loft, farm-to-table meals, and year-round weightloss and fitness holidays.",
+    lat: 19.7638004,
+    lng: -70.4240155,
+    emoji: "🏋️",
+    instagram: "extremefitnesscamps",
+    website: "https://cabaretefitnesscamp.com/",
+  },
 ];
 
 /** Extra name fragments → seed slug (checked before fuzzy name includes). */
@@ -901,6 +913,11 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
   {
     pattern: /gym\s*sov|sov\s*gym|sosu[aá]\s*ocean\s*village\s*gym/i,
     slug: "gym-sov-sosua-ocean-village",
+  },
+  {
+    pattern:
+      /zen\s*fitness|cabarete\s*fitness\s*camp|extreme\s*fitness\s*camp|e?xtreme\s*hotels?\s*cabarete|zen\s*cabarete/i,
+    slug: "zen-fitness-cabarete",
   },
 ];
 

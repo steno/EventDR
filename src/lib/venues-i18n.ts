@@ -193,8 +193,8 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
   },
   "ocean-world": {
     description: {
-      es: "Parque de aventura marina en Cofresí — nado con delfines, encuentros con leones marinos y tiburones, snorkel y laguna con toboganes acuáticos.",
-      fr: "Parc d'aventure marine à Cofresí — nage avec les dauphins, rencontres avec otaries et requins, snorkeling et lagon avec toboggans aquatiques.",
+      es: "Parque de aventura marina en Cofresí — nado con delfines, encuentros con leones marinos y tiburones, snorkel y laguna con toboganes. Ocean World Puerto Plata (a veces buscado como Sea World).",
+      fr: "Parc d'aventure marine à Cofresí — nage avec les dauphins, rencontres avec otaries et requins, snorkeling et lagon avec toboggans. Ocean World Puerto Plata (parfois cherché comme Sea World).",
     },
   },
   "sea-horse-ranch": {
@@ -247,8 +247,8 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
   },
   "museo-ambar": {
     description: {
-      es: "Mansión victoriana en el centro histórico con fósiles de ámbar dominicano — lagartos, insectos y especímenes de la era jurásica.",
-      fr: "Manoir victorien dans le centre historique présentant des fossiles d'ambre dominicain — lézards, insectes et spécimens de l'ère jurassique.",
+      es: "Mansión victoriana en el centro histórico — museo del ámbar de Puerto Plata con resina fosilizada dominicana, lagartos, insectos y especímenes de la era jurásica.",
+      fr: "Manoir victorien dans le centre historique — musée de l'ambre de Puerto Plata avec résine fossilisée dominicaine, lézards, insectes et spécimens de l'ère jurassique.",
     },
   },
   "charcos-damajagua": {
@@ -293,8 +293,8 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
   },
   "fun-city": {
     description: {
-      es: "El parque de go-karts más grande de República Dominicana en la Carretera 5 — Cyclone, Sprint 500, Grand Prix y autos chocadores, además de un parque infantil cerca de Playa Dorada.",
-      fr: "Le plus grand parc de go-karts de République dominicaine sur la Highway 5 — Cyclone, Sprint 500, Grand Prix et autos tamponneuses, plus une aire de jeux près de Playa Dorada.",
+      es: "El parque de go-karts más grande de República Dominicana en la Carretera 5 — Fun City Puerto Plata con Cyclone, Sprint 500, Grand Prix y autos chocadores, además de un parque infantil cerca de Playa Dorada.",
+      fr: "Le plus grand parc de go-karts de République dominicaine sur la Highway 5 — Fun City Puerto Plata avec Cyclone, Sprint 500, Grand Prix et autos tamponneuses, plus une aire de jeux près de Playa Dorada.",
     },
   },
   "monkeyland-puerto-plata": {
@@ -305,8 +305,8 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
   },
   "coconut-cove": {
     description: {
-      es: "Parque de aventura junto al acantilado — tirolesa oceánica de 1.200 pies, rutas en ATV y buggy, playa privada y deportes acuáticos al oeste de Puerto Plata.",
-      fr: "Parc d'aventure en bord de falaise — tyrolienne océanique de 365 m, pistes ATV et buggy, plage privée et sports nautiques à l'ouest de Puerto Plata.",
+      es: "Chukka Ocean Outpost cerca de Puerto Plata — parque de aventura junto al acantilado con tirolesa oceánica de 1.200 pies, rutas en ATV y buggy, playa privada y deportes acuáticos en Bajo Hondo.",
+      fr: "Chukka Ocean Outpost près de Puerto Plata — parc d'aventure en bord de falaise avec tyrolienne océanique de 365 m, pistes ATV et buggy, plage privée et sports nautiques à Bajo Hondo.",
     },
   },
   "brugal-rum-center": {
@@ -389,8 +389,8 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
   },
   "handmade-the-brand": {
     description: {
-      es: "Taller de alpargatas en el centro histórico — cose tu propio par con artesanos maestros en la Calle Duarte. Incluye tentempiés, cava y materiales; desde €99,90 en Eventbrite.",
-      fr: "Atelier d'espadrilles dans le centre historique — cousez votre paire avec des artisans maîtres sur la Calle Duarte. Collations, cava et matériel inclus ; à partir de 99,90 € sur Eventbrite.",
+      es: "Taller colorido en Calle Duarte 37 (esquina Calle de las Sombrillas) — cose tus alpargatas y la experiencia Piña Colada solo para adultos (cóctel en piña + degustación de ron). Reserva con anticipación.",
+      fr: "Atelier coloré au Calle Duarte 37 (coin Calle de las Sombrillas) — cousez vos espadrilles et l'expérience Piña Colada réservée aux adultes (cocktail dans un ananas + dégustation de rhum). Réservez à l'avance.",
     },
   },
   "parque-jose-briceno": {
@@ -457,6 +457,18 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
     description: {
       es: "Resort de playa en Cofresí (zona Lifestyle Holidays) — piscinas, entretenimiento y fiestas de varios días para visitantes y miembros del club.",
       fr: "Resort de plage à Cofresí (zone Lifestyle Holidays) — piscines, divertissement et fêtes de plusieurs jours pour visiteurs et membres du club.",
+    },
+  },
+  "gym-sov-sosua-ocean-village": {
+    description: {
+      es: "Gimnasio de dos pisos con vista al mar en Sosúa Ocean Village — cardio, máquinas, sala de boxeo y clases grupales (Zumba, fuerza) sin necesidad de membresía completa.",
+      fr: "Salle de sport sur deux niveaux avec vue mer à Sosúa Ocean Village — cardio, machines, salle de boxe et cours collectifs (Zumba, renforcement) sans abonnement complet.",
+    },
+  },
+  "zen-fitness-cabarete": {
+    description: {
+      es: "Camp de fitness y wellness frente al mar en Zen Cabarete en Kite Beach (antes eXtreme) — gym tiki barefoot, loft de yoga con vista al océano, comida de la granja a la mesa, y campamentos de pérdida de peso y fitness todo el año.",
+      fr: "Camp fitness et wellness en bord de mer à Zen Cabarete sur Kite Beach (ex-eXtreme) — gym tiki pieds nus, loft yoga vue océan, repas de la ferme à la table, et camps perte de poids / fitness toute l'année.",
     },
   },
 };

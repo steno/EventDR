@@ -6,13 +6,27 @@ import { getCommunityEvents } from "@/lib/community-store";
 import { getFallbackEvents } from "@/lib/fallback-events";
 import { fetchApprovedEvents, fetchVenues } from "@/lib/firebase/events";
 import { SEED_VENUES } from "@/lib/venues-seed";
-import { absoluteUrl, localePath } from "@/lib/seo";
+import {
+  absoluteUrl,
+  buildLanguageAlternates,
+  localePath,
+} from "@/lib/seo";
 
 export type SitemapEntry = {
   url: string;
   lastModified?: Date;
-  changeFrequency?: "always" | "hourly" | "daily" | "weekly" | "monthly" | "yearly" | "never";
+  changeFrequency?:
+    | "always"
+    | "hourly"
+    | "daily"
+    | "weekly"
+    | "monthly"
+    | "yearly"
+    | "never";
   priority?: number;
+  alternates?: {
+    languages?: Record<string, string>;
+  };
 };
 
 async function getAllEventIds(): Promise<string[]> {
@@ -53,6 +67,21 @@ async function getAllVenueSlugs(): Promise<string[]> {
   return [...slugs];
 }
 
+function pushLocalized(
+  entries: SitemapEntry[],
+  path: string,
+  meta: Omit<SitemapEntry, "url" | "alternates">,
+) {
+  const languages = buildLanguageAlternates(path);
+  for (const locale of locales) {
+    entries.push({
+      ...meta,
+      url: absoluteUrl(localePath(locale, path)),
+      alternates: { languages },
+    });
+  }
+}
+
 export async function getSitemapEntries(): Promise<SitemapEntry[]> {
   const [eventIds, venueSlugs] = await Promise.all([
     getAllEventIds(),
@@ -61,80 +90,66 @@ export async function getSitemapEntries(): Promise<SitemapEntry[]> {
 
   const entries: SitemapEntry[] = [];
 
-  for (const locale of locales) {
-    entries.push({
-      url: absoluteUrl(localePath(locale)),
-      changeFrequency: "hourly",
-      priority: 1,
-    });
+  pushLocalized(entries, "", {
+    changeFrequency: "hourly",
+    priority: 1,
+  });
 
-    entries.push({
-      url: absoluteUrl(localePath(locale, "/events")),
-      changeFrequency: "hourly",
-      priority: 0.95,
+  pushLocalized(entries, "/events", {
+    changeFrequency: "hourly",
+    priority: 0.95,
+  });
+
+  for (const categoryId of CATEGORY_IDS) {
+    pushLocalized(entries, `/category/${categoryId}`, {
+      changeFrequency: "daily",
+      priority: 0.8,
+    });
+  }
+
+  for (const citySlug of CITY_SLUGS) {
+    pushLocalized(entries, `/city/${citySlug}`, {
+      changeFrequency: "daily",
+      priority: 0.85,
     });
 
     for (const categoryId of CATEGORY_IDS) {
-      entries.push({
-        url: absoluteUrl(localePath(locale, `/category/${categoryId}`)),
+      pushLocalized(entries, `/city/${citySlug}/category/${categoryId}`, {
         changeFrequency: "daily",
-        priority: 0.8,
+        priority: 0.75,
       });
     }
+  }
 
-    for (const citySlug of CITY_SLUGS) {
-      entries.push({
-        url: absoluteUrl(localePath(locale, `/city/${citySlug}`)),
-        changeFrequency: "daily",
-        priority: 0.85,
-      });
+  for (const whenSlug of WHEN_SLUGS) {
+    pushLocalized(entries, `/when/${whenSlug}`, {
+      changeFrequency: "hourly",
+      priority: 0.9,
+    });
+  }
 
-      for (const categoryId of CATEGORY_IDS) {
-        entries.push({
-          url: absoluteUrl(
-            localePath(locale, `/city/${citySlug}/category/${categoryId}`),
-          ),
-          changeFrequency: "daily",
-          priority: 0.75,
-        });
-      }
-    }
+  pushLocalized(entries, "/for-partners", {
+    changeFrequency: "monthly",
+    priority: 0.7,
+  });
 
-    for (const whenSlug of WHEN_SLUGS) {
-      entries.push({
-        url: absoluteUrl(localePath(locale, `/when/${whenSlug}`)),
-        changeFrequency: "hourly",
-        priority: 0.9,
-      });
-    }
+  pushLocalized(entries, "/support", {
+    changeFrequency: "monthly",
+    priority: 0.6,
+  });
 
-    entries.push({
-      url: absoluteUrl(localePath(locale, "/for-partners")),
-      changeFrequency: "monthly",
+  for (const slug of venueSlugs) {
+    pushLocalized(entries, `/venue/${slug}`, {
+      changeFrequency: "daily",
       priority: 0.7,
     });
+  }
 
-    entries.push({
-      url: absoluteUrl(localePath(locale, "/support")),
-      changeFrequency: "monthly",
+  for (const id of eventIds) {
+    pushLocalized(entries, `/event/${id}`, {
+      changeFrequency: "daily",
       priority: 0.6,
     });
-
-    for (const slug of venueSlugs) {
-      entries.push({
-        url: absoluteUrl(localePath(locale, `/venue/${slug}`)),
-        changeFrequency: "daily",
-        priority: 0.7,
-      });
-    }
-
-    for (const id of eventIds) {
-      entries.push({
-        url: absoluteUrl(localePath(locale, `/event/${id}`)),
-        changeFrequency: "daily",
-        priority: 0.6,
-      });
-    }
   }
 
   return entries;

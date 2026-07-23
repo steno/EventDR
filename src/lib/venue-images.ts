@@ -55,7 +55,7 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "gregorio-luperon-museum": "gregorio-luperon-museum.jpg",
   "macorix-house-of-rum": "macorix-house-of-rum.jpg",
   "casa-de-la-cultura": "casa-de-la-cultura.jpg",
-  "handmade-the-brand": "handmade-the-brand.jpg",
+  "handmade-the-brand": "handmade-the-brand.jpeg",
   "parque-jose-briceno": "parque-jose-briceno.jpg",
   "club-deportivo-fantastico": "club-deportivo-fantastico.jpeg",
   "paella-pop-el-pueblito": "paella-pop-el-pueblito.jpg",
@@ -74,6 +74,7 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "ocean-one-cabarete": "ocean-one-cabarete.jpg",
   "vip-beach-lifestyles-resort": "vip-beach-lifestyles-resort.jpg",
   "gym-sov-sosua-ocean-village": "gym-sov-sosua-ocean-village.webp",
+  "zen-fitness-cabarete": "zen-fitness-cabarete.jpg",
 };
 
 /** Cache-busted URL for general venue thumbnails / JSON-LD. */

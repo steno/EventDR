@@ -59,6 +59,8 @@ Curated images under `public/events/` and `public/venues/`.
 | `cabarete-pilates-reformer.jpg` | [Unsplash](https://unsplash.com/photos/woman-does-pilates-exercise-on-a-reformer-machine--j3ARb-gTBo) (`photo-1754257320311`) — Unsplash License | Reformer studio action (replaces Rafaella logo) |
 | `gym-sov-zumba-fitness.jpg` | [Wikimedia Commons — US Army Zumba class](https://commons.wikimedia.org/wiki/File:US_Army_52862_Zumba_adds_Latin_dance_to_fitness_routine.jpg) — Brittany Carlson (USAG Stuttgart), public domain | Generic Zumba class action for GYM SOV Tue/Thu listings |
 | `venues/gym-sov-sosua-ocean-village.webp` | POP curated `zumbavenue.webp` — GYM SOV / Sosúa Ocean Village | Venue place photo |
+| `venues/zen-fitness-cabarete.jpg` | [Cabarete Fitness Camp](https://cabaretefitnesscamp.com/) — barefoot tiki gym interior (`gym-empty-1.jpg`) | Official Zen Fitness / Zen Cabarete gym |
+| `zen-fitness-weightloss-camp.jpg` | [Cabarete Fitness Camp](https://cabaretefitnesscamp.com/the-camps/weightloss-camp/) — outdoor training (`ropes-uk-mike-5.jpg`) | Official Weightloss Camp training action |
 | `ingest-18th-annual-cabarete-butterfly-effect.jpg` | [Cabarete Butterfly Effect](https://www.cabaretebutterflyeffect.com/) — official SUP / river paddle photo | Event action (replaces circular logo) |
 | `cabarete-classic-2026.jpg` | POP curated `CabareteKiteFest.JPG` — kite beach action | Replaces Cabarete Classic logo mark |
 | `el-carey-wc2026.jpg` (+ WC match prefix) | El Carey Día y Noche — WC 2026 watch-party promo poster | Venue promo for all World Cup watch parties |
@@ -68,4 +70,6 @@ Curated images under `public/events/` and `public/venues/`.
 | `atleticos-pp-vs-mangueros-2026-07-17.jpg` (+ other Atléticos home games) | POP curated `athleticosPOP.png` — Atléticos de Puerto Plata pitcher | Authentic team photo; replaces Unsplash stock for the full home slate |
 | `venues/parque-jose-briceno.jpg` | POP curated `baseballpark.png` — packed grandstand at Parque José Briceño | Authentic venue place photo |
 | `macorix-house-of-rum.jpg` / venue | [PuertoPlataDR](https://puertoplatadr.com/tours/macorix-house-of-rum/) — `A86A5227` Ron Macorix entrance exterior | Branded venue facade (replaces dark trapiche interior) |
-| `ingest-make-authentic-espadrilles-in-puerto-plata.jpg` / `venues/handmade-the-brand.jpg` | POP curated `espadrillas.jpeg` — workshop bench with colorful handmade espadrilles | Venue + workshop hero (replaces emoji placeholder) |
+| `ingest-make-authentic-espadrilles-in-puerto-plata.jpg` | POP curated `espadrillas.jpeg` — workshop bench with colorful handmade espadrilles | Espadrille workshop hero |
+| `venues/handmade-the-brand.jpeg` | POP curated `handmadebrand.jpeg` — Handmade the Brand shop / workshop | Venue place photo |
+| `handmade-pina-colada-experience.webp` | POP curated `pinacoloadexp.webp` — Piña Colada Experience | Official cocktail workshop promo |

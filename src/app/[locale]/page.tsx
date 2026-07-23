@@ -6,7 +6,11 @@ import { HomeBootExpect } from "@/components/HomeBootExpect";
 import { JsonLd } from "@/components/JsonLd";
 import { isValidLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
-import { buildHomeMetadata, buildWebSiteJsonLd } from "@/lib/seo";
+import {
+  buildHomeMetadata,
+  buildOrganizationJsonLd,
+  buildWebSiteJsonLd,
+} from "@/lib/seo";
 import { getPublicEvents } from "@/lib/public-events";
 import { getVenues } from "@/lib/venues";
 
@@ -39,7 +43,12 @@ export default async function Page({
   ]);
   return (
     <>
-      <JsonLd data={buildWebSiteJsonLd(locale, dict)} />
+      <JsonLd
+        data={[
+          buildOrganizationJsonLd(locale, dict),
+          buildWebSiteJsonLd(locale, dict),
+        ]}
+      />
       <HomeBootExpect />
       <Suspense fallback={null}>
         <Home

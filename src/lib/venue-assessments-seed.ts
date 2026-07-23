@@ -694,6 +694,28 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     ],
   }),
   editorial({
+    venueSlug: "gym-sov-sosua-ocean-village",
+    verdictKey: "solid_visitor_activity",
+    crowdFit: ["visitor", "local", "mixed"],
+    axes: { recommend: 4.1, atmosphere: 4.0, practical: 3.9, value: 4.2 },
+    themes: [
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+      { key: "family_friendly", sentiment: "positive", audience: "family" },
+      { key: "easy_to_find", sentiment: "mixed" },
+    ],
+  }),
+  editorial({
+    venueSlug: "zen-fitness-cabarete",
+    verdictKey: "reliable_visitor_pick",
+    crowdFit: ["visitor", "family"],
+    axes: { recommend: 4.3, atmosphere: 4.4, practical: 4.0, reliability: 4.1 },
+    themes: [
+      { key: "beachfront", sentiment: "positive", audience: "visitor" },
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+      { key: "family_friendly", sentiment: "positive", audience: "family" },
+    ],
+  }),
+  editorial({
     venueSlug: "parque-jose-briceno",
     verdictKey: "solid_local_culture",
     crowdFit: ["local", "family", "mixed"],

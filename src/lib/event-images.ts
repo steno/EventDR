@@ -142,6 +142,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "sunset-laughter-club-cabarete": "sunset-laughter-club-cabarete.jpg",
   "gym-sov-zumba-tuesday": "gym-sov-zumba-fitness.jpg",
   "gym-sov-zumba-lift-thursday": "gym-sov-zumba-fitness.jpg",
+  "zen-fitness-weightloss-camp": "zen-fitness-weightloss-camp.jpg",
+  "handmade-pina-colada-experience": "handmade-pina-colada-experience.webp",
 };
 
 /** Legacy ingest ids that share a curated event image. */

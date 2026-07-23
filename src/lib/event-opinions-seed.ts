@@ -334,6 +334,80 @@ export const SEED_EVENT_OPINIONS_BASE: EventOpinion[] = [
       "Official Eventbrite listing confirms the two-hour format and inclusions; Airbnb experience listing showed 5.0 from 3 reviews on 2026-07-17.",
     updatedAt: "2026-07-18T02:50:00.000Z",
   },
+  {
+    eventId: "handmade-pina-colada-experience",
+    seriesKey: "handmade-the-brand:daily",
+    body: "Adults-only party workshop — come for the pineapple cocktail and rum tasting energy, not a quiet craft sit-down like the espadrille class.",
+    localized: {
+      es: "Taller-fiesta solo adultos — ven por la piña colada y el ambiente de cata de ron, no por un craft silencioso como el de alpargatas.",
+      fr: "Atelier-fête réservé aux adultes — venez pour le cocktail ananas et l'ambiance dégustation, pas pour un craft calme comme les espadrilles.",
+    },
+    priceFeel: "upscale",
+    priceNote: "From ~US$116 · all ingredients, rum tastings, and tools included; book ahead",
+    priceNoteLocalized: {
+      es: "Desde ~US$116 · ingredientes, catas de ron y herramientas incluidos; reserva con anticipación",
+      fr: "À partir de ~116 US$ · ingrédients, dégustations de rhum et outils inclus ; réservez à l'avance",
+    },
+    attribution: "POP research · byFood / TripAdvisor product listing",
+    ratingCite: "Viator 5.0",
+    researchNotes:
+      "byFood ~US$123; tourist listings ~US$116; Viator reviews 5.0 (small sample). Adults-only 2h workshop at Calle Duarte 37.",
+    updatedAt: "2026-07-23T16:00:00.000Z",
+  },
+  {
+    eventId: "gym-sov-zumba-tuesday",
+    seriesKey: "gym-sov-sosua-ocean-village:weekly:2",
+    body: "Morning dance cardio inside Ocean Village — open to non-members; WhatsApp ahead so you are not locked out at the gate.",
+    localized: {
+      es: "Cardio de baile por la mañana en Ocean Village — abierto sin membresía; avisa por WhatsApp para que no te dejen fuera en la entrada.",
+      fr: "Cardio danse le matin à Ocean Village — ouvert sans abonnement ; prévenez par WhatsApp pour ne pas rester bloqué à l'entrée.",
+    },
+    priceFeel: "varies",
+    priceNote: "Drop-in class fee via WhatsApp +1 829 519 1974 — confirm before you go; gym membership not required",
+    priceNoteLocalized: {
+      es: "Tarifa de clase suelta por WhatsApp +1 829 519 1974 — confirma antes; no hace falta membresía del gym",
+      fr: "Tarif cours à l'unité via WhatsApp +1 829 519 1974 — confirmez avant ; pas d'abonnement gym requis",
+    },
+    attribution: "POP research · instructor flyer / GYM SOV",
+    researchNotes: "Instructor WhatsApp on flyer; drop-in without membership stated on promo.",
+    updatedAt: "2026-07-23T16:00:00.000Z",
+  },
+  {
+    eventId: "gym-sov-zumba-lift-thursday",
+    seriesKey: "gym-sov-sosua-ocean-village:weekly:4",
+    body: "Same gate logistics as Tuesday, but bring mats energy — this mix adds weights and toning, not pure dance hour.",
+    localized: {
+      es: "Misma logística de acceso que el martes, pero con tono de fuerza — mezcla pesas y tonificación, no solo una hora de baile.",
+      fr: "Même accès que le mardi, mais ambiance renfo — mélange poids et tonus, pas seulement une heure de danse.",
+    },
+    priceFeel: "varies",
+    priceNote: "Drop-in via WhatsApp +1 829 519 1974 — confirm fee; no membership required",
+    priceNoteLocalized: {
+      es: "Clase suelta por WhatsApp +1 829 519 1974 — confirma tarifa; sin membresía",
+      fr: "Cours à l'unité via WhatsApp +1 829 519 1974 — confirmez le tarif ; sans abonnement",
+    },
+    attribution: "POP research · instructor flyer / GYM SOV",
+    researchNotes: "Thursday format is Zumba + Lift Tone Up per flyer.",
+    updatedAt: "2026-07-23T16:00:00.000Z",
+  },
+  {
+    eventId: "zen-fitness-weightloss-camp",
+    seriesKey: "zen-fitness-cabarete:daily",
+    body: "A full residential immersion on Kite Beach — book it as a multi-week reset, not a single drop-in class.",
+    localized: {
+      es: "Inmersión residencial completa en Kite Beach — resérvalo como un reset de varias semanas, no como una clase suelta.",
+      fr: "Immersion résidentielle complète sur Kite Beach — réservez-le comme un reset de plusieurs semaines, pas un cours à l'unité.",
+    },
+    priceFeel: "upscale",
+    priceNote: "From US$3,990 first month · eco-hotel, meals, training, transfers included; book via cabaretefitnesscamp.com",
+    priceNoteLocalized: {
+      es: "Desde US$3,990 el primer mes · eco-hotel, comidas, entrenamiento y traslados incluidos; reserva en cabaretefitnesscamp.com",
+      fr: "À partir de 3 990 US$ le premier mois · éco-hôtel, repas, coaching et transferts inclus ; réservez sur cabaretefitnesscamp.com",
+    },
+    attribution: "POP research · cabaretefitnesscamp.com",
+    researchNotes: "Official Weightloss Camp page lists from ~$3990–3999/mo first month inclusions.",
+    updatedAt: "2026-07-23T16:00:00.000Z",
+  },
 ];
 
 export const SEED_EVENT_OPINIONS: EventOpinion[] = [

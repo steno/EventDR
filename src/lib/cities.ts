@@ -58,23 +58,23 @@ export const CITIES: CityMeta[] = [
       en: {
         title: "Events in Puerto Plata | Things to Do This Weekend | POP Events",
         description:
-          "Discover concerts, festivals, Malecón gatherings, Ocean World activities, and local events in Puerto Plata on the North Coast of the Dominican Republic.",
+          "Discover concerts, festivals, Malecón gatherings, Ocean World, Fun City go-karts, the Amber Museum, and local events in Puerto Plata on the North Coast of the Dominican Republic.",
         intro:
-          "From waterfront concerts on the Malecón to Damajagua waterfall tours and downtown culture walks — here's what's happening in Puerto Plata.",
+          "From waterfront concerts on the Malecón to Damajagua waterfall tours, Fun City, and downtown culture walks — here's what's happening in Puerto Plata.",
       },
       es: {
         title: "Eventos en Puerto Plata | Qué hacer este fin de semana | POP Eventos",
         description:
-          "Descubre conciertos, festivales, eventos en el Malecón, Ocean World y actividades locales en Puerto Plata en la Costa Norte de RD.",
+          "Descubre conciertos, festivales, eventos en el Malecón, Ocean World, Fun City, el Museo del Ámbar y actividades locales en Puerto Plata en la Costa Norte de RD.",
         intro:
-          "Desde conciertos en el Malecón hasta tours a Damajagua y paseos culturales — esto es lo que pasa en Puerto Plata.",
+          "Desde conciertos en el Malecón hasta tours a Damajagua, Fun City y paseos culturales — esto es lo que pasa en Puerto Plata.",
       },
       fr: {
         title: "Événements à Puerto Plata | Que faire ce week-end | POP Events",
         description:
-          "Concerts, festivals, Malecón, Ocean World et événements locaux à Puerto Plata sur la Côte Nord de la République dominicaine.",
+          "Concerts, festivals, Malecón, Ocean World, Fun City, musée de l'Ambre et événements locaux à Puerto Plata sur la Côte Nord de la République dominicaine.",
         intro:
-          "Des concerts sur le Malecón aux cascades de Damajagua — voici ce qui se passe à Puerto Plata.",
+          "Des concerts sur le Malecón aux cascades de Damajagua, Fun City et balades culturelles — voici ce qui se passe à Puerto Plata.",
       },
     },
   },
@@ -126,25 +126,25 @@ export const CITIES: CityMeta[] = [
     topCategories: ["sports", "parties", "music", "health-wellness", "adventure"],
     seo: {
       en: {
-        title: "Events in Cabarete | Kite Surf, Parties & Live Music | POP Events",
+        title: "Events in Cabarete | Nightlife, Kite Surf & Live Music | POP Events",
         description:
-          "Live music, kite surf competitions, yoga on Kite Beach, reggae nights, and parties in Cabarete — the adventure hub of the North Coast DR.",
+          "Cabarete nightlife, live music, kite surf competitions, yoga on Kite Beach, reggae nights, and beach parties — the adventure hub of the North Coast DR.",
         intro:
-          "Kite Beach competitions, sunset sessions at LAX, and weekend parties — Cabarete's event calendar starts here.",
+          "Kite Beach competitions, sunset sessions at LAX, and weekend nightlife — Cabarete's event calendar starts here.",
       },
       es: {
-        title: "Eventos en Cabarete | Kite surf, fiestas y música en vivo | POP Eventos",
+        title: "Eventos en Cabarete | Vida nocturna, kite surf y música | POP Eventos",
         description:
-          "Música en vivo, competencias de kite surf, yoga en Kite Beach, noches de reggae y fiestas en Cabarete, el corazón de la Costa Norte.",
+          "Vida nocturna en Cabarete, música en vivo, competencias de kite surf, yoga en Kite Beach, noches de reggae y fiestas en la playa — el corazón de la Costa Norte.",
         intro:
-          "Competencias en Kite Beach, sesiones al atardecer en LAX y fiestas de fin de semana — el calendario de Cabarete empieza aquí.",
+          "Competencias en Kite Beach, sesiones al atardecer en LAX y vida nocturna de fin de semana — el calendario de Cabarete empieza aquí.",
       },
       fr: {
-        title: "Événements à Cabarete | Kite surf, fêtes et musique live | POP Events",
+        title: "Événements à Cabarete | Nightlife, kite surf et musique live | POP Events",
         description:
-          "Musique live, compétitions kite surf, yoga à Kite Beach, soirées reggae et fêtes à Cabarete, le cœur de la Côte Nord.",
+          "Nightlife à Cabarete, musique live, compétitions kite surf, yoga à Kite Beach, soirées reggae et fêtes de plage — le cœur de la Côte Nord.",
         intro:
-          "Compétitions à Kite Beach, sessions au coucher du soleil à LAX et fêtes du week-end — le calendrier de Cabarete commence ici.",
+          "Compétitions à Kite Beach, sessions au coucher du soleil à LAX et nightlife du week-end — le calendrier de Cabarete commence ici.",
       },
     },
   },

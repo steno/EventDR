@@ -10,6 +10,7 @@ import { getWhenSeo, type WhenSlug } from "@/lib/time-seo";
 import type { Event, EventCategory, Venue } from "@/lib/types";
 import { formatEventPlace } from "@/lib/event-location";
 import { getVenueImageUrl } from "@/lib/venue-images";
+import { getVenueSeo } from "@/lib/venue-seo";
 import { SITE_URL } from "@/lib/site-url";
 
 export const SITE_NAME = "POP Events";
@@ -194,12 +195,17 @@ export function buildVenueMetadata(
   venue: Venue,
 ): Metadata {
   const path = `/venue/${venue.slug}`;
-  const title = fillTemplate(dict.seo.venueTitle, { venue: venue.name });
-  const description = fillTemplate(dict.seo.venueDescription, {
-    venue: venue.name,
-    city: venue.city,
-    description: venue.description,
-  });
+  const tuned = getVenueSeo(venue.slug, locale);
+  const title =
+    tuned?.title ??
+    fillTemplate(dict.seo.venueTitle, { venue: venue.name });
+  const description =
+    tuned?.description ??
+    fillTemplate(dict.seo.venueDescription, {
+      venue: venue.name,
+      city: venue.city,
+      description: venue.description,
+    });
   const alternates = buildAlternates(locale, path);
   const image = resolveImageUrl(venue.imageUrl ?? getVenueImageUrl(venue.slug));
 
@@ -282,6 +288,60 @@ function eventStartIso(event: Event): string {
   return parsed ? `${event.date}T${parsed}` : event.date;
 }
 
+/** Best-effort numeric price for Schema.org Offer (returns undefined if unparseable). */
+function parseOfferPrice(admissionPrice: string): number | undefined {
+  const cleaned = admissionPrice.replace(/,/g, "").replace(/\s/g, " ");
+  const match = cleaned.match(/(\d+(?:\.\d+)?)/);
+  if (!match) return undefined;
+  const value = Number.parseFloat(match[1]);
+  return Number.isFinite(value) ? value : undefined;
+}
+
+function inferPriceCurrency(admissionPrice?: string): string {
+  if (!admissionPrice) return "DOP";
+  if (/US\$|USD|\$/i.test(admissionPrice) && !/RD\$/i.test(admissionPrice)) {
+    return "USD";
+  }
+  if (/€|EUR/i.test(admissionPrice)) return "EUR";
+  return "DOP";
+}
+
+function buildEventOffers(
+  event: Event,
+  pageUrl: string,
+): Record<string, unknown> | undefined {
+  const offerUrl = event.ticketUrl ?? event.sourceUrl ?? pageUrl;
+
+  if (event.isFree) {
+    return {
+      "@type": "Offer",
+      price: 0,
+      priceCurrency: "DOP",
+      availability: "https://schema.org/InStock",
+      url: offerUrl,
+    };
+  }
+
+  if (!event.ticketUrl && !event.admissionPrice) return undefined;
+
+  const numericPrice = event.admissionPrice
+    ? parseOfferPrice(event.admissionPrice)
+    : undefined;
+
+  return {
+    "@type": "Offer",
+    availability: "https://schema.org/InStock",
+    url: offerUrl,
+    ...(numericPrice != null
+      ? {
+          price: numericPrice,
+          priceCurrency: inferPriceCurrency(event.admissionPrice),
+        }
+      : {}),
+    ...(event.admissionPrice ? { name: event.admissionPrice } : {}),
+  };
+}
+
 export function buildEventJsonLd(
   event: Event,
   locale: Locale,
@@ -290,6 +350,7 @@ export function buildEventJsonLd(
   const image =
     resolveImageUrl(event.imageUrl) ?? absoluteUrl(DEFAULT_OG_IMAGE);
   const placeName = formatEventPlace(event);
+  const offers = buildEventOffers(event, url);
 
   return {
     "@context": "https://schema.org",
@@ -322,7 +383,25 @@ export function buildEventJsonLd(
           }
         : {}),
     },
+    ...(offers ? { offers } : {}),
     ...(event.sourceUrl ? { sameAs: [event.sourceUrl] } : {}),
+  };
+}
+
+export function buildOrganizationJsonLd(locale: Locale, dict: Dictionary) {
+  const url = absoluteUrl(localePath(locale));
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: SITE_NAME,
+    alternateName: "POP Eventos",
+    url,
+    logo: absoluteUrl(DEFAULT_OG_IMAGE),
+    description: dict.meta.description,
+    areaServed: {
+      "@type": "AdministrativeArea",
+      name: "Puerto Plata Province, Dominican Republic",
+    },
   };
 }
 
@@ -334,6 +413,11 @@ export function buildWebSiteJsonLd(locale: Locale, dict: Dictionary) {
     description: dict.meta.description,
     url: absoluteUrl(localePath(locale)),
     inLanguage: locale,
+    publisher: {
+      "@type": "Organization",
+      name: SITE_NAME,
+      url: absoluteUrl(localePath(locale)),
+    },
   };
 }
 
@@ -414,16 +498,22 @@ export function buildLocalBusinessJsonLd(
   locale: Locale,
 ): Record<string, unknown> {
   const url = absoluteUrl(localePath(locale, `/venue/${venue.slug}`));
-  
+  const tuned = getVenueSeo(venue.slug, locale);
+  const schemaType = tuned?.schemaType ?? "LocalBusiness";
+  const locality = tuned?.addressLocality ?? venue.city;
+  const image = resolveImageUrl(venue.imageUrl ?? getVenueImageUrl(venue.slug));
+
   return {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": schemaType,
     name: venue.name,
-    description: venue.description,
+    description: tuned?.description ?? venue.description,
     url,
+    ...(image ? { image } : {}),
     address: {
       "@type": "PostalAddress",
-      addressLocality: venue.city,
+      addressLocality: locality,
+      addressRegion: "Puerto Plata",
       addressCountry: "DO",
     },
     geo: {
@@ -433,5 +523,6 @@ export function buildLocalBusinessJsonLd(
     },
     inLanguage: locale,
     ...(venue.website ? { sameAs: [venue.website] } : {}),
+    ...(venue.phone ? { telephone: venue.phone } : {}),
   };
 }
