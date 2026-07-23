@@ -57,6 +57,8 @@ Curated images under `public/events/` and `public/venues/`.
 | `la-chabola-wednesday-open-mic.jpg` / `venues/la-chabola-cabarete.jpg` | [La Chabola Facebook](https://www.facebook.com/chabolacabaretee) — branded pizza cover | Venue-branded food hero for Wednesday open mic |
 | `groundzero-domingos-pal-pueblo.jpg` / `venues/ground-zero-disco.jpg` | [@groundzero_disco](https://www.instagram.com/groundzero_disco/p/DayWu9phE9R/) — Domingos Pal Pueblo flyer | Official Sunday party promo (kept as flyer by request) |
 | `cabarete-pilates-reformer.jpg` | [Unsplash](https://unsplash.com/photos/woman-does-pilates-exercise-on-a-reformer-machine--j3ARb-gTBo) (`photo-1754257320311`) — Unsplash License | Reformer studio action (replaces Rafaella logo) |
+| `gym-sov-zumba-fitness.jpg` | [Wikimedia Commons — US Army Zumba class](https://commons.wikimedia.org/wiki/File:US_Army_52862_Zumba_adds_Latin_dance_to_fitness_routine.jpg) — Brittany Carlson (USAG Stuttgart), public domain | Generic Zumba class action for GYM SOV Tue/Thu listings |
+| `venues/gym-sov-sosua-ocean-village.webp` | POP curated `zumbavenue.webp` — GYM SOV / Sosúa Ocean Village | Venue place photo |
 | `ingest-18th-annual-cabarete-butterfly-effect.jpg` | [Cabarete Butterfly Effect](https://www.cabaretebutterflyeffect.com/) — official SUP / river paddle photo | Event action (replaces circular logo) |
 | `cabarete-classic-2026.jpg` | POP curated `CabareteKiteFest.JPG` — kite beach action | Replaces Cabarete Classic logo mark |
 | `el-carey-wc2026.jpg` (+ WC match prefix) | El Carey Día y Noche — WC 2026 watch-party promo poster | Venue promo for all World Cup watch parties |

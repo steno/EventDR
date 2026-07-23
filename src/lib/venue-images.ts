@@ -73,6 +73,7 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "victrola-037": "victrola-037.jpg",
   "ocean-one-cabarete": "ocean-one-cabarete.jpg",
   "vip-beach-lifestyles-resort": "vip-beach-lifestyles-resort.jpg",
+  "gym-sov-sosua-ocean-village": "gym-sov-sosua-ocean-village.webp",
 };
 
 /** Cache-busted URL for general venue thumbnails / JSON-LD. */

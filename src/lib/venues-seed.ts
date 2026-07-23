@@ -844,6 +844,19 @@ export const SEED_VENUES: Venue[] = [
     lng: -70.7283993,
     emoji: "🌴",
   },
+  {
+    slug: "gym-sov-sosua-ocean-village",
+    name: "GYM SOV — Sosúa Ocean Village",
+    city: "Sosúa",
+    description:
+      "Two-story ocean-view fitness center inside Sosúa Ocean Village — cardio, machines, boxing room, and drop-in group classes (Zumba, strength) open without a full gym membership.",
+    lat: 19.78102,
+    lng: -70.50059,
+    emoji: "💪",
+    instagram: "gymsov",
+    website: "https://www.sosuaoceanvillage.com/gym",
+    phone: "+18299612269",
+  },
 ];
 
 /** Extra name fragments → seed slug (checked before fuzzy name includes). */
@@ -884,6 +897,10 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
     // Local/expat name for Sea Horse Ranch Tennis Club (pickleball / courts).
     pattern: /cabarete\s*sports?\s*club/i,
     slug: "sea-horse-ranch",
+  },
+  {
+    pattern: /gym\s*sov|sov\s*gym|sosu[aá]\s*ocean\s*village\s*gym/i,
+    slug: "gym-sov-sosua-ocean-village",
   },
 ];
 

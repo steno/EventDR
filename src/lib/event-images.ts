@@ -140,6 +140,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "piscinazo-pop-urbano-037-2026-08-02": "piscinazo-pop-urbano-037-2026-08-02.jpg",
   "los-event-trilogy-2026-09-03": "los-event-trilogy-2026-09-03.jpg",
   "sunset-laughter-club-cabarete": "sunset-laughter-club-cabarete.jpg",
+  "gym-sov-zumba-tuesday": "gym-sov-zumba-fitness.jpg",
+  "gym-sov-zumba-lift-thursday": "gym-sov-zumba-fitness.jpg",
 };
 
 /** Legacy ingest ids that share a curated event image. */
