@@ -339,7 +339,16 @@ export const VenueDirectionsForm = forwardRef<
     setOriginLabel,
     handleUseMyLocation,
     handleSubmit,
+    route,
   } = directions;
+  const [startDirty, setStartDirty] = useState(false);
+  // Loud CTA until a route exists; quiet after so the map keeps focus.
+  // Editing the start field brings the CTA back so “update” is obvious.
+  const emphasizeSubmit = !route || startDirty;
+
+  useEffect(() => {
+    if (route) setStartDirty(false);
+  }, [route]);
 
   return (
     <section
@@ -369,6 +378,7 @@ export const VenueDirectionsForm = forwardRef<
             onChange={(e) => {
               setStartQuery(e.target.value);
               setOriginLabel(null);
+              if (route) setStartDirty(true);
             }}
             onBlur={() => resetInputZoom({ blur: false })}
             placeholder={dict.venues.startingFromPlaceholder}
@@ -394,7 +404,11 @@ export const VenueDirectionsForm = forwardRef<
           <button
             type="submit"
             disabled={busy}
-            className="inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-5 py-3 text-sm font-bold text-white shadow-sm touch-manipulation transition-transform active:scale-[0.98] disabled:opacity-60"
+            className={
+              emphasizeSubmit
+                ? "inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-5 py-3 text-sm font-bold text-white shadow-sm touch-manipulation transition-[transform,box-shadow,background-color,color,border-color] active:scale-[0.98] disabled:opacity-60"
+                : "inline-flex items-center justify-center gap-2 rounded-2xl border border-neutral-200 bg-white px-5 py-3 text-sm font-semibold text-neutral-700 shadow-none touch-manipulation transition-[transform,box-shadow,background-color,color,border-color] active:scale-[0.98] disabled:opacity-60 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-200"
+            }
           >
             <Navigation className="h-4 w-4" aria-hidden />
             {busy ? dict.venues.routeLoading : dict.venues.getDirections}

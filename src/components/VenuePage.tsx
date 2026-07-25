@@ -165,20 +165,46 @@ export function VenuePage({
     return () => window.cancelAnimationFrame(id);
   }, [plannerOpen]);
 
-  // After a route draws, keyboard/zoom settle can leave the form under the sticky map.
+  // After route work starts or a route draws, keyboard / autofill / zoom settle
+  // can leave the form under the sticky map — especially when the OS address
+  // suggestion keeps the keyboard open longer than a typed submit.
   useLayoutEffect(() => {
-    if (!plannerOpen || !directions.route) return;
-    const id = window.requestAnimationFrame(() => {
-      window.requestAnimationFrame(() => {
-        scrollBelowStickyStack(
-          directionsFormRef.current,
-          stickyMapRef.current,
-          "auto",
-        );
-      });
+    if (!plannerOpen || (!directions.route && !directions.busy)) return;
+
+    const revealForm = () => {
+      scrollBelowStickyStack(
+        directionsFormRef.current,
+        stickyMapRef.current,
+        "auto",
+      );
+    };
+
+    let raf2 = 0;
+    const raf1 = window.requestAnimationFrame(() => {
+      raf2 = window.requestAnimationFrame(revealForm);
     });
-    return () => window.cancelAnimationFrame(id);
-  }, [plannerOpen, directions.route]);
+
+    // Catch keyboard dismiss + resetInputZoom viewport restore (~150ms).
+    const timers = [150, 350].map((ms) => window.setTimeout(revealForm, ms));
+
+    const vv = window.visualViewport;
+    const onViewport = () => revealForm();
+    vv?.addEventListener("resize", onViewport);
+    vv?.addEventListener("scroll", onViewport);
+    const stopViewport = window.setTimeout(() => {
+      vv?.removeEventListener("resize", onViewport);
+      vv?.removeEventListener("scroll", onViewport);
+    }, 500);
+
+    return () => {
+      window.cancelAnimationFrame(raf1);
+      window.cancelAnimationFrame(raf2);
+      timers.forEach((id) => window.clearTimeout(id));
+      window.clearTimeout(stopViewport);
+      vv?.removeEventListener("resize", onViewport);
+      vv?.removeEventListener("scroll", onViewport);
+    };
+  }, [plannerOpen, directions.route, directions.busy]);
 
   const websiteUrl = venue.website
     ? normalizeExternalUrl(venue.website)
@@ -255,7 +281,9 @@ export function VenuePage({
                   onAttentionEnd={clearDirectionsAttention}
                   className={
                     plannerOpen
-                      ? "h-[min(48dvh,22rem)] sm:h-[min(52dvh,26rem)]"
+                      ? // svh: don't grow when the keyboard closes after autofill
+                        // submit — dvh expansion was covering the directions form.
+                        "h-[min(48svh,22rem)] sm:h-[min(52svh,26rem)]"
                       : "h-[12rem] sm:h-[14rem]"
                   }
                 />
