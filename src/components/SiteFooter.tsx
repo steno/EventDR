@@ -24,6 +24,7 @@ export function SiteFooter({ dict, locale, className = "pb-6" }: SiteFooterProps
           <Link
             key={city.slug}
             href={`/${locale}/city/${city.slug}`}
+            prefetch={false}
             className="hover:text-neutral-800 dark:hover:text-neutral-200 transition-colors"
           >
             {getCityName(city, locale)}
@@ -31,30 +32,35 @@ export function SiteFooter({ dict, locale, className = "pb-6" }: SiteFooterProps
         ))}
         <Link
           href={`/${locale}/when/today`}
+          prefetch={false}
           className="hover:text-neutral-800 dark:hover:text-neutral-200 transition-colors"
         >
           {dict.time.today}
         </Link>
         <Link
           href={`/${locale}/when/tomorrow`}
+          prefetch={false}
           className="hover:text-neutral-800 dark:hover:text-neutral-200 transition-colors"
         >
           {dict.time.tomorrow}
         </Link>
         <Link
           href={`/${locale}/when/weekend`}
+          prefetch={false}
           className="hover:text-neutral-800 dark:hover:text-neutral-200 transition-colors"
         >
           {dict.time.weekend}
         </Link>
         <Link
           href={`/${locale}/for-partners`}
+          prefetch={false}
           className="hover:text-neutral-800 dark:hover:text-neutral-200 transition-colors"
         >
           {dict.footer.partners}
         </Link>
         <Link
           href={`/${locale}/support`}
+          prefetch={false}
           className="hover:text-neutral-800 dark:hover:text-neutral-200 transition-colors"
         >
           {dict.footer.support}

@@ -49,6 +49,7 @@ const EventImageComponent = ({
         width={1200}
         height={800}
         sizes={sizes}
+        quality={70}
         priority={priority}
         loading={priority ? "eager" : "lazy"}
         className={`block w-full h-auto ${className}`}
@@ -62,6 +63,7 @@ const EventImageComponent = ({
       alt={alt}
       fill
       sizes={sizes}
+      quality={65}
       priority={priority}
       loading={priority ? "eager" : "lazy"}
       className={className}

@@ -93,20 +93,19 @@ img {
   }
 }
 
-/* Boot splash — visible from first HTML paint until home data is ready */
-html.boot-pending #app-shell {
-  visibility: hidden;
-}
-
+/* Boot splash — opaque overlay; app shell paints underneath so Slow 3G
+   can decode images/fonts while the logo + spinner hold the first paint. */
 .app-boot-splash {
   position: fixed;
   inset: 0;
   z-index: 9999;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 1.25rem;
   background: #fafafa;
-  transition: opacity 0.15s ease, visibility 0.15s ease;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
 }
 
 html.dark .app-boot-splash {
@@ -119,7 +118,40 @@ html.dark .app-boot-splash {
   object-fit: contain;
 }
 
-.app-boot-splash--done {
+/* Spinner fades in after a short brand beat — works before React hydrates */
+.app-boot-splash .boot-spinner {
+  position: relative;
+  width: 1.75rem;
+  height: 1.75rem;
+  color: #a3a3a3;
+  opacity: 0;
+  animation: boot-spinner-show 0.01s linear 0.7s forwards;
+}
+
+html.dark .app-boot-splash .boot-spinner {
+  color: #f5f5f5;
+}
+
+.app-boot-splash .boot-spinner i {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 0.15rem;
+  height: 0.45rem;
+  margin-left: -0.075rem;
+  border-radius: 999px;
+  background: currentColor;
+  transform-origin: 50% 0.875rem;
+  animation: page-loading-fade 1.2s linear infinite;
+}
+
+@keyframes boot-spinner-show {
+  to {
+    opacity: 1;
+  }
+}
+
+html.boot-splash-done #app-boot-splash {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -128,6 +160,22 @@ html.dark .app-boot-splash {
 @media (prefers-reduced-motion: reduce) {
   .app-boot-splash {
     transition: none;
+  }
+
+  .app-boot-splash .boot-spinner {
+    opacity: 1;
+    animation: none;
+  }
+
+  .app-boot-splash .boot-spinner i {
+    animation: none;
+    opacity: 0.45;
+  }
+
+  .app-boot-splash .boot-spinner i:nth-child(1),
+  .app-boot-splash .boot-spinner i:nth-child(2),
+  .app-boot-splash .boot-spinner i:nth-child(12) {
+    opacity: 1;
   }
 }
 
@@ -413,5 +461,74 @@ button, a {
   .page-glow-orange,
   .page-glow-fuchsia {
     animation: none;
+  }
+}
+
+/* Sitewide page-transition loading (iOS-style activity indicator) */
+.page-loading-portal {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+}
+
+.page-loading {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fafafa;
+}
+
+html.dark .page-loading {
+  background: #0a0a0a;
+}
+
+.page-loading-spinner {
+  position: relative;
+  width: 2.25rem;
+  height: 2.25rem;
+  color: #a3a3a3;
+}
+
+html.dark .page-loading-spinner {
+  color: #f5f5f5;
+}
+
+.page-loading-spinner__bar {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 0.1875rem;
+  height: 0.5625rem;
+  margin-left: -0.09375rem;
+  border-radius: 999px;
+  background: currentColor;
+  transform-origin: 50% 1.125rem;
+  animation: page-loading-fade 1.2s linear infinite;
+}
+
+@keyframes page-loading-fade {
+  0%,
+  39%,
+  100% {
+    opacity: 0.15;
+  }
+  40% {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-loading-spinner__bar {
+    animation: none;
+    opacity: 0.45;
+  }
+
+  .page-loading-spinner__bar:nth-child(1),
+  .page-loading-spinner__bar:nth-child(2),
+  .page-loading-spinner__bar:nth-child(12) {
+    opacity: 1;
   }
 }

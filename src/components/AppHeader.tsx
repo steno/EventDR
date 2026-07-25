@@ -2,14 +2,19 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import { WeatherWidget } from "@/components/WeatherWidget";
 import { clearHomeArea } from "@/lib/cities";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
+
+const WeatherWidget = dynamic(
+  () => import("@/components/WeatherWidget").then((m) => m.WeatherWidget),
+  { ssr: false, loading: () => <span className="h-9 w-9 shrink-0" aria-hidden /> },
+);
 
 interface AppHeaderProps {
   locale: Locale;

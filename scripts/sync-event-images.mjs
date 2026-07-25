@@ -42,7 +42,7 @@ const FILE_TO_EVENT_ID = {
   "tabacalera-cremo-rolling-experience.jpg": "tabacalera-cremo-rolling-experience",
   "vivonte-cigar-factory-weekdays.jpg": "vivonte-cigar-factory-weekdays",
   "lil-naay-2026-07-17.jpg": "lil-naay-2026-07-17",
-  "lena-dardelet-aura-beach-club-2026-07-24.png":
+  "lena-dardelet-aura-beach-club-2026-07-24.jpg":
     "lena-dardelet-aura-beach-club-2026-07-24",
   "silent-run-5k-2026-07-25.jpg": "silent-run-5k-2026-07-25",
   "piscinazo-pop-urbano-037-2026-08-02.jpg":
@@ -88,7 +88,7 @@ const FILE_TO_EVENT_ID = {
   "cac-games-surf-playa-encuentro-2026.jpg": "cac-games-surf-playa-encuentro-2026",
   "puerto-plata-beach-soccer-2026.jpg": "puerto-plata-beach-soccer-2026",
   "sosua-10k-road-race-2026.jpg": "sosua-10k-road-race-2026",
-  "puerto-plata-poker-experience-2026.png": "puerto-plata-poker-experience-2026",
+  "puerto-plata-poker-experience-2026.jpg": "puerto-plata-poker-experience-2026",
   "aventurate-rd-2026.jpg": "aventurate-rd-2026",
   "sunset-cabarete-sessions-2026.jpg": "sunset-cabarete-sessions-2026",
   "la-chabola-wednesday-open-mic.jpg": "la-chabola-wednesday-open-mic",

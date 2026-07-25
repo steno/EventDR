@@ -1,12 +1,8 @@
 "use client";
 
-import { useCallback, useEffect, useLayoutEffect, useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import { appVersionNeedsRefresh } from "@/lib/app-version-shared";
-import {
-  expectBootPart,
-  readyBootPart,
-  showBootSplashForReload,
-} from "@/lib/boot-splash";
+import { showBootSplashForReload } from "@/lib/boot-splash";
 
 const VERSION_KEY = "popevents-app-version";
 
@@ -42,41 +38,18 @@ async function purgeCachesAndReload(version: string) {
 /** Silently refreshes when a new deploy stamp is detected (stuck PWA tabs). */
 export function AppVersionSync() {
   const reloading = useRef(false);
-  /** True when this boot is waiting on a version check before dismissing splash. */
-  const bootBlocked = useRef(false);
-
-  // If a prior stamp exists, hold the P splash until we know we won't reload —
-  // otherwise content paints, then splash returns (feels like a double load).
-  useLayoutEffect(() => {
-    try {
-      if (!localStorage.getItem(VERSION_KEY)) return;
-    } catch {
-      return;
-    }
-    bootBlocked.current = true;
-    expectBootPart("version");
-  }, []);
-
-  const finishBootVersion = useCallback(() => {
-    if (!bootBlocked.current) return;
-    bootBlocked.current = false;
-    readyBootPart("version");
-  }, []);
 
   const checkVersion = useCallback(async () => {
     if (reloading.current) return;
 
     const remote = await fetchRemoteVersion();
-    if (!remote) {
-      finishBootVersion();
-      return;
-    }
+    if (!remote) return;
 
     const stored = localStorage.getItem(VERSION_KEY);
 
     if (appVersionNeedsRefresh(stored, remote)) {
       reloading.current = true;
-      // Stay on splash through reload; do not mark version ready.
+      // Cover the UI before purge+reload so users don't see a half-updated shell.
       await purgeCachesAndReload(remote);
       return;
     }
@@ -84,10 +57,11 @@ export function AppVersionSync() {
     if (!stored) {
       localStorage.setItem(VERSION_KEY, remote);
     }
-    finishBootVersion();
-  }, [finishBootVersion]);
+  }, []);
 
   useEffect(() => {
+    // Don't block the boot splash on this fetch — on Slow 3G it stretches the
+    // logo screen for every returning visitor. Mismatch reloads are rare.
     void checkVersion();
 
     const onVisible = () => {

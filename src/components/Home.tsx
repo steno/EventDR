@@ -9,7 +9,7 @@ import {
   useState,
 } from "react";
 import dynamic from "next/dynamic";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { AppHeader } from "@/components/AppHeader";
 import { PhotoHero } from "@/components/PhotoHero";
@@ -18,8 +18,6 @@ import { CityLocationPicker } from "@/components/CityLocationPicker";
 import { EventList } from "@/components/EventList";
 import { SearchBar } from "@/components/SearchBar";
 import { BottomNav } from "@/components/BottomNav";
-import { InstallBanner } from "@/components/InstallBanner";
-import { PwaRegister } from "@/components/PwaRegister";
 import { EventCard } from "@/components/EventCard";
 import { VenueAudienceCards } from "@/components/VenueAudienceCards";
 import { TodayHighlights } from "@/components/TodayHighlights";
@@ -62,22 +60,62 @@ const CityPrimingSheet = dynamic(
   { ssr: false },
 );
 
+const InstallBanner = dynamic(
+  () => import("@/components/InstallBanner").then((m) => m.InstallBanner),
+  { ssr: false },
+);
+
+const PwaRegister = dynamic(
+  () => import("@/components/PwaRegister").then((m) => m.PwaRegister),
+  { ssr: false },
+);
+
 interface HomeProps {
   locale: Locale;
   dict: Dictionary;
   initialVenues?: Venue[];
   /** SSR event catalog so home skips a duplicate client Firestore fetch. */
   initialEvents?: Event[];
+  /**
+   * `?city=` from the server request — keeps first HTML useful without
+   * `useSearchParams` (which would blank the page behind Suspense until JS).
+   */
+  initialCityParam?: string | null;
 }
 
+/**
+ * Home must SSR real markup for Slow 3G. Avoid `useSearchParams` here — it
+ * suspends and used to ship behind `fallback={null}`, so users stared at the
+ * logo for ~30s waiting on JS. City comes from the server; client URL sync
+ * uses window + popstate.
+ */
 export function Home({
   locale,
   dict,
   initialVenues,
   initialEvents = [],
+  initialCityParam = null,
 }: HomeProps) {
+  return (
+    <HomeApp
+      locale={locale}
+      dict={dict}
+      initialVenues={initialVenues}
+      initialEvents={initialEvents}
+      cityQuery={initialCityParam}
+    />
+  );
+}
+
+function HomeApp({
+  locale,
+  dict,
+  initialVenues,
+  initialEvents = [],
+  cityQuery: cityQueryProp,
+}: HomeProps & { cityQuery: string | null }) {
   const router = useRouter();
-  const searchParams = useSearchParams();
+  const [cityQuery, setCityQuery] = useState(cityQueryProp);
   const [tab, setTab] = useState<AppTab>("discover");
   const [searchQuery, setSearchQuery] = useState("");
   const deferredSearchQuery = useDeferredValue(searchQuery);
@@ -86,7 +124,7 @@ export function Home({
   const [refreshKey, setRefreshKey] = useState(0);
   const [cityPrimingOpen, setCityPrimingOpen] = useState(false);
   /**
-   * Local area override — wins over Next searchParams.
+   * Local area override — wins over URL city.
    * Used for session restore on bare `/[locale]` and for chip clicks so we can
    * update the URL with history.replaceState (no RSC soft-nav flash).
    */
@@ -95,17 +133,31 @@ export function Home({
     areaChosen: boolean;
   } | null>(null);
 
+  // Keep city in sync with the address bar without useSearchParams (no suspend).
+  useLayoutEffect(() => {
+    const readCity = () =>
+      new URLSearchParams(window.location.search).get("city");
+
+    const syncFromUrl = () => {
+      setCityQuery(readCity());
+    };
+
+    syncFromUrl();
+    window.addEventListener("popstate", syncFromUrl);
+    return () => window.removeEventListener("popstate", syncFromUrl);
+  }, []);
+
   const urlArea = useMemo(
-    () => parseHomeCityParam(searchParams.get("city")),
-    [searchParams],
+    () => parseHomeCityParam(cityQuery),
+    [cityQuery],
   );
 
   // Restore a remembered city when a content back link lands on bare `/[locale]`.
   // Apply state + history before paint; avoid router.replace (extra RSC = second load).
   useLayoutEffect(() => {
-    if (searchParams.get("city")) {
-      // Next has an explicit city param. Keep a chip override if we already set one
-      // via history.replaceState (searchParams stay stale until a real Next nav).
+    if (cityQuery) {
+      // Explicit city in the URL. Keep a chip override if we already set one
+      // via history.replaceState (Next searchParams stay stale until a real nav).
       setLocalArea((prev) => (prev?.areaChosen ? prev : null));
       return;
     }
@@ -117,7 +169,8 @@ export function Home({
     setLocalArea(stored);
     const href = homePathWithArea(locale, stored.city, true);
     window.history.replaceState(window.history.state ?? null, "", href);
-  }, [locale, searchParams]);
+    setCityQuery(new URLSearchParams(href.split("?")[1] ?? "").get("city"));
+  }, [locale, cityQuery]);
 
   // Prefer localArea so chip clicks filter instantly without waiting on (or
   // triggering) a Next soft navigation.
@@ -137,6 +190,7 @@ export function Home({
       // round-trip. router.replace(?city=…) was flashing the whole home shell.
       const href = homePathWithArea(locale, slug, true);
       window.history.replaceState(window.history.state ?? null, "", href);
+      setCityQuery(new URLSearchParams(href.split("?")[1] ?? "").get("city"));
     },
     [locale],
   );
@@ -228,14 +282,13 @@ export function Home({
               setSearchQuery("");
               setLocalArea(null);
               const bareHome = `/${locale}`;
-              // Chip clicks update the bar via history.replaceState — sync that
-              // too, since Next searchParams may still look bare or stale.
               window.history.replaceState(
                 window.history.state ?? null,
                 "",
                 bareHome,
               );
-              if (searchParams.get("city")) {
+              setCityQuery(null);
+              if (cityQuery) {
                 router.replace(bareHome, { scroll: false });
               }
             }}

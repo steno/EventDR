@@ -78,6 +78,7 @@ export function CategoryGrid({
             <div className="flex w-max gap-3 px-0.5 py-1">
               <Link
                 href={allEventsHref}
+                prefetch={false}
                 onClick={(e) => handleNavigation(e, allEventsHref)}
                 className={`${CATEGORY_PILL_BASE} ${CATEGORY_PILL_ACTIVE}`}
                 aria-label={allEventsLabel}
@@ -96,6 +97,7 @@ export function CategoryGrid({
                   <Link
                     key={cat.id}
                     href={href}
+                    prefetch={false}
                     onClick={(e) => handleNavigation(e, href)}
                     className={`${CATEGORY_PILL_BASE} ${CATEGORY_PILL_IDLE} ${isLoading ? "opacity-70" : ""}`}
                     aria-label={cat.label}

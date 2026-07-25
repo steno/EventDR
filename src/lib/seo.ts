@@ -9,6 +9,7 @@ import { getCityCategorySeo } from "@/lib/city-category-seo";
 import { getWhenSeo, type WhenSlug } from "@/lib/time-seo";
 import type { Event, EventCategory, Venue } from "@/lib/types";
 import { formatEventPlace } from "@/lib/event-location";
+import { parseEventTimeWindow } from "@/lib/event-status";
 import { getVenueImageUrl } from "@/lib/venue-images";
 import { getVenueSeo } from "@/lib/venue-seo";
 import { SITE_URL } from "@/lib/site-url";
@@ -268,6 +269,16 @@ function attendanceMode(format: Event["format"]): string {
   }
 }
 
+/** Atlantic Standard Time (Dominican Republic) — no DST. */
+const AST_OFFSET = "-04:00";
+
+function minutesToTime24(minutes: number): string {
+  const normalized = ((minutes % (24 * 60)) + 24 * 60) % (24 * 60);
+  const hours = Math.floor(normalized / 60);
+  const mins = normalized % 60;
+  return `${String(hours).padStart(2, "0")}:${String(mins).padStart(2, "0")}:00`;
+}
+
 function parseTimeTo24h(time: string): string | undefined {
   const match = time.trim().match(/^(\d{1,2})(?::(\d{2}))?\s*(AM|PM)$/i);
   if (!match) return undefined;
@@ -283,9 +294,32 @@ function parseTimeTo24h(time: string): string | undefined {
 }
 
 function eventStartIso(event: Event): string {
-  if (!event.time) return event.date;
-  const parsed = parseTimeTo24h(event.time);
-  return parsed ? `${event.date}T${parsed}` : event.date;
+  const window = parseEventTimeWindow(event.time);
+  if (window) {
+    return `${event.date}T${minutesToTime24(window.start)}${AST_OFFSET}`;
+  }
+  if (event.time) {
+    const parsed = parseTimeTo24h(event.time);
+    if (parsed) return `${event.date}T${parsed}${AST_OFFSET}`;
+  }
+  // Date-only when the hour is unknown (Google guideline).
+  return event.date;
+}
+
+function eventEndIso(event: Event): string {
+  const endDay = event.endDate?.trim() || event.date;
+  const window = parseEventTimeWindow(event.time);
+  if (window) {
+    return `${endDay}T${minutesToTime24(window.end)}${AST_OFFSET}`;
+  }
+  if (event.time) {
+    const parsed = parseTimeTo24h(event.time);
+    if (parsed) {
+      const [hours, minutes] = parsed.split(":").map(Number);
+      return `${endDay}T${minutesToTime24(hours * 60 + minutes + 120)}${AST_OFFSET}`;
+    }
+  }
+  return endDay;
 }
 
 /** Best-effort numeric price for Schema.org Offer (returns undefined if unparseable). */
@@ -306,40 +340,98 @@ function inferPriceCurrency(admissionPrice?: string): string {
   return "DOP";
 }
 
+/**
+ * When tickets went on sale is rarely known for aggregated listings.
+ * Use a stable ISO datetime ~60 days before the event (AST, no DST).
+ */
+function offerValidFrom(event: Event): string {
+  const match = event.date.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  if (!match) return `${event.date}T00:00:00${AST_OFFSET}`;
+
+  const day = new Date(
+    Date.UTC(Number(match[1]), Number(match[2]) - 1, Number(match[3])),
+  );
+  day.setUTCDate(day.getUTCDate() - 60);
+  const y = day.getUTCFullYear();
+  const m = String(day.getUTCMonth() + 1).padStart(2, "0");
+  const d = String(day.getUTCDate()).padStart(2, "0");
+  return `${y}-${m}-${d}T09:00:00${AST_OFFSET}`;
+}
+
 function buildEventOffers(
   event: Event,
   pageUrl: string,
 ): Record<string, unknown> | undefined {
   const offerUrl = event.ticketUrl ?? event.sourceUrl ?? pageUrl;
+  const validFrom = offerValidFrom(event);
+  const base = {
+    "@type": "Offer",
+    availability: "https://schema.org/InStock",
+    url: offerUrl,
+    validFrom,
+  } as const;
 
   if (event.isFree) {
-    return {
-      "@type": "Offer",
-      price: 0,
-      priceCurrency: "DOP",
-      availability: "https://schema.org/InStock",
-      url: offerUrl,
-    };
+    return { ...base, price: 0, priceCurrency: "DOP" };
   }
-
-  if (!event.ticketUrl && !event.admissionPrice) return undefined;
 
   const numericPrice = event.admissionPrice
     ? parseOfferPrice(event.admissionPrice)
     : undefined;
+  if (numericPrice != null) {
+    return {
+      ...base,
+      price: numericPrice,
+      priceCurrency: inferPriceCurrency(event.admissionPrice),
+      ...(event.admissionPrice ? { name: event.admissionPrice } : {}),
+    };
+  }
 
+  // Ticketed / call-for-pricing without a known amount — don't invent a price.
+  if (event.ticketUrl || event.callForPricing) return undefined;
+
+  // No pricing signals → open/free admission for schema purposes.
+  return { ...base, price: 0, priceCurrency: "DOP" };
+}
+
+function buildEventOrganizer(
+  event: Event,
+  locale: Locale,
+): Record<string, unknown> {
+  if (event.venue) {
+    return {
+      "@type": "Organization",
+      name: event.venue,
+      url: event.venueSlug
+        ? absoluteUrl(localePath(locale, `/venue/${event.venueSlug}`))
+        : absoluteUrl(localePath(locale)),
+    };
+  }
   return {
-    "@type": "Offer",
-    availability: "https://schema.org/InStock",
-    url: offerUrl,
-    ...(numericPrice != null
-      ? {
-          price: numericPrice,
-          priceCurrency: inferPriceCurrency(event.admissionPrice),
-        }
-      : {}),
-    ...(event.admissionPrice ? { name: event.admissionPrice } : {}),
+    "@type": "Organization",
+    name: SITE_NAME,
+    url: absoluteUrl(localePath(locale)),
   };
+}
+
+function buildEventPerformers(
+  event: Event,
+): Record<string, unknown> | Record<string, unknown>[] | undefined {
+  const names = event.lineup
+    ?.map((name) => name.trim())
+    .filter((name) => name.length > 0);
+  if (!names?.length) return undefined;
+
+  const performers = names.map((name) => ({
+    "@type": "PerformingGroup",
+    name,
+  }));
+  return performers.length === 1 ? performers[0] : performers;
+}
+
+function buildEventImage(event: Event): string {
+  const raw = event.imageUrl?.trim();
+  return resolveImageUrl(raw) ?? absoluteUrl(DEFAULT_OG_IMAGE);
 }
 
 export function buildEventJsonLd(
@@ -347,10 +439,10 @@ export function buildEventJsonLd(
   locale: Locale,
   url: string,
 ): Record<string, unknown> {
-  const image =
-    resolveImageUrl(event.imageUrl) ?? absoluteUrl(DEFAULT_OG_IMAGE);
+  const image = buildEventImage(event);
   const placeName = formatEventPlace(event);
   const offers = buildEventOffers(event, url);
+  const performers = buildEventPerformers(event);
 
   return {
     "@context": "https://schema.org",
@@ -358,12 +450,12 @@ export function buildEventJsonLd(
     name: event.title,
     description: event.description,
     startDate: eventStartIso(event),
-    ...(event.endDate ? { endDate: event.endDate } : {}),
+    endDate: eventEndIso(event),
     eventAttendanceMode: attendanceMode(event.format),
     eventStatus: "https://schema.org/EventScheduled",
     inLanguage: locale,
     url,
-    image,
+    image: [image],
     location: {
       "@type": "Place",
       name: placeName,
@@ -383,6 +475,8 @@ export function buildEventJsonLd(
           }
         : {}),
     },
+    organizer: buildEventOrganizer(event, locale),
+    ...(performers ? { performer: performers } : {}),
     ...(offers ? { offers } : {}),
     ...(event.sourceUrl ? { sameAs: [event.sourceUrl] } : {}),
   };

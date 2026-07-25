@@ -58,6 +58,7 @@ const EventCardComponent = ({
       >
         <Link
           href={href}
+          prefetch={false}
           className="absolute inset-0 z-0 rounded-2xl touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
           aria-label={event.title}
         />
@@ -118,6 +119,7 @@ const EventCardComponent = ({
     >
       <Link
         href={href}
+        prefetch={false}
         className="absolute inset-0 z-0 rounded-2xl touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
         aria-label={event.title}
       />

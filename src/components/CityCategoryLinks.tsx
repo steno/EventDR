@@ -131,6 +131,7 @@ export function CityCategoryLinks({
         key={link.href}
         ref={ref}
         href={link.href}
+        prefetch={false}
         scroll={false}
         onClick={(e) => handleNavigation(e, link.href)}
         aria-current={active ? "page" : undefined}

@@ -15,7 +15,6 @@ import {
 import { CityLocationPicker } from "@/components/CityLocationPicker";
 import { CityPhotoHero } from "@/components/CityPhotoHero";
 import { SubmitEventSheet } from "@/components/SubmitEventSheet";
-import { attachEventImages } from "@/lib/event-images";
 import { StickyListHeader } from "@/components/StickyListHeader";
 import { allEventsPath, resolveBackLabel } from "@/lib/event-navigation";
 import {
@@ -87,7 +86,7 @@ export function EventScopePage({
   categoryId,
   regionScope = false,
 }: EventScopePageProps) {
-  const [events, setEvents] = useState<Event[]>(() => attachEventImages(initialEvents));
+  const [events, setEvents] = useState<Event[]>(() => initialEvents);
   const [loading, setLoading] = useState(false);
   const [submitOpen, setSubmitOpen] = useState(false);
   const fetchUrlRef = useRef(fetchUrl);
@@ -100,7 +99,7 @@ export function EventScopePage({
     fetch(url, { cache: "no-store" })
       .then((response) => response.json())
       .then((data: { events?: Event[] }) => {
-        setEvents(attachEventImages(data.events ?? []));
+        setEvents(data.events ?? []);
       })
       .catch(() => {});
   }, []);
@@ -118,7 +117,7 @@ export function EventScopePage({
 
     // Swap in the new scope's SSR events immediately — never blank the list with a
     // loading flash while the client refetch runs (area-chip navigations).
-    const ssrEvents = attachEventImages(initialEventsRef.current);
+    const ssrEvents = initialEventsRef.current;
     setEvents(ssrEvents);
 
     let cancelled = false;
@@ -126,10 +125,10 @@ export function EventScopePage({
     fetch(fetchUrl, { cache: "no-store" })
       .then((response) => response.json())
       .then((data: { events?: Event[] }) => {
-        if (!cancelled) setEvents(attachEventImages(data.events ?? []));
+        if (!cancelled) setEvents(data.events ?? []);
       })
       .catch(() => {
-        if (!cancelled) setEvents(attachEventImages(initialEventsRef.current));
+        if (!cancelled) setEvents(initialEventsRef.current);
       })
       .finally(() => {
         if (!cancelled) setLoading(false);

@@ -31,6 +31,12 @@ const tunnelDomains = [
 
 const nextConfig: NextConfig = {
   allowedDevOrigins: [...getLocalIPv4Addresses(), ...extraDevOrigins, ...tunnelDomains],
+  images: {
+    formats: ["image/avif", "image/webp"],
+    deviceSizes: [384, 640, 750, 828, 1080, 1200],
+    imageSizes: [64, 96, 128, 256, 384],
+    qualities: [65, 75],
+  },
   async redirects() {
     return [
       {
@@ -58,8 +64,15 @@ const nextConfig: NextConfig = {
         headers: [{ key: "Cache-Control", value: noStore }],
       },
       {
+        // Short CDN cache aligned with ISR — avoids re-downloading the home
+        // document on every Slow-3G visit while still refreshing often.
         source: "/:locale(en|es|fr)",
-        headers: [{ key: "Cache-Control", value: noStore }],
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, s-maxage=60, stale-while-revalidate=120",
+          },
+        ],
       },
       {
         source: "/:locale(en|es|fr)/city/:path*",

@@ -18,6 +18,7 @@ import type { TimeRange } from "@/lib/filters";
 import { filterByTimeRange } from "@/lib/filters";
 import { eventInCategory, withResolvedCategories } from "@/lib/categorize";
 import { LISTING_REVALIDATE_SECONDS } from "@/lib/http-cache";
+import { slimEventsForList } from "@/lib/list-payload";
 import type { Event, EventCategory } from "@/lib/types";
 
 export type PublicEventsFilter = {
@@ -106,7 +107,8 @@ async function loadPublicEvents(filter: PublicEventsFilter): Promise<Event[]> {
   events = attachEventImages(events);
   events = events.map(withResolvedCategories);
 
-  return events;
+  // List routes serialize into RSC/HTML — drop long descriptions.
+  return slimEventsForList(events);
 }
 
 const getCachedPublicEvents = unstable_cache(

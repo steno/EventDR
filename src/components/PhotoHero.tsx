@@ -99,6 +99,7 @@ export function PhotoHero({
           {featuredEvent && eventHref && (
             <Link
               href={eventHref}
+              prefetch={false}
               className="group inline-flex max-w-full items-center gap-2 text-[15px] font-bold touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400 focus-visible:rounded"
             >
               <span className="truncate bg-gradient-to-r from-orange-300 via-rose-300 to-fuchsia-300 bg-clip-text text-transparent transition-[filter] group-hover:brightness-110">

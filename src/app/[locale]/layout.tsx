@@ -9,6 +9,7 @@ import { AppFooter } from "@/components/AppFooter";
 import { AppVersionSync } from "@/components/AppVersionSync";
 import { BodyScrollGuard } from "@/components/BodyScrollGuard";
 import { DocumentLang } from "@/components/DocumentLang";
+import { NavigationLoading } from "@/components/NavigationLoading";
 import { SkipToContent } from "@/components/SkipToContent";
 import { SupportNudge } from "@/components/SupportNudge";
 
@@ -84,6 +85,9 @@ export default async function LocaleLayout({
       <SkipToContent dict={dict} />
       <Suspense fallback={null}>
         <Analytics />
+      </Suspense>
+      <Suspense fallback={null}>
+        <NavigationLoading />
       </Suspense>
       <AppVersionSync />
       {children}

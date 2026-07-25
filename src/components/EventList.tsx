@@ -20,7 +20,6 @@ import {
 import { sortEventsForDisplay } from "@/lib/event-sort";
 import { pinSpecialEvents } from "@/lib/special-events";
 import { categoryPath } from "@/lib/event-navigation";
-import { attachEventImages } from "@/lib/event-images";
 import { eventMatchesCity, type CitySlug } from "@/lib/cities";
 import { expectBootPart, readyBootPart } from "@/lib/boot-splash";
 import { scrollToListTop } from "@/lib/list-scroll";
@@ -92,9 +91,7 @@ export function EventList({
 }: EventListProps) {
   const listReturnTo =
     returnTo ?? (category ? categoryPath(locale, category) : `/${locale}`);
-  const [events, setEvents] = useState<Event[]>(() =>
-    attachEventImages(initialEvents),
-  );
+  const [events, setEvents] = useState<Event[]>(() => initialEvents);
   const [loading, setLoading] = useState(() => initialEvents.length === 0);
   const [error, setError] = useState(false);
   const [source, setSource] = useState<string>(
@@ -158,8 +155,8 @@ export function EventList({
           events: Event[];
           source: string;
         };
-        // API already materializes dates; only re-attach images for client display.
-        const loaded = attachEventImages(data.events ?? []);
+        // API attaches imageUrl + slims descriptions server-side.
+        const loaded = data.events ?? [];
         setEvents(loaded);
         onEventsLoadedRef.current?.(loaded);
         setSource(data.source ?? "");
@@ -188,7 +185,7 @@ export function EventList({
     }
     if (skipMountFetch.current) {
       skipMountFetch.current = false;
-      const loaded = attachEventImages(initialEvents);
+      const loaded = initialEvents;
       setEvents(loaded);
       onEventsLoadedRef.current?.(loaded);
       setLoading(false);

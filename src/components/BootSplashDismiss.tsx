@@ -7,21 +7,18 @@ import {
   subscribeBootReady,
 } from "@/lib/boot-splash";
 
-const SPLASH_ID = "app-boot-splash";
-const DONE_CLASS = "app-boot-splash--done";
 const BOOT_PENDING_CLASS = "boot-pending";
+const BOOT_SPLASH_DONE_CLASS = "boot-splash-done";
 
 function dismissSplash() {
-  const el = document.getElementById(SPLASH_ID);
-  if (!el || el.classList.contains(DONE_CLASS)) return;
+  const root = document.documentElement;
+  if (root.classList.contains(BOOT_SPLASH_DONE_CLASS)) return;
 
-  // Hide only — never el.remove(). This node is owned by React's root layout;
-  // removing it desyncs the fiber tree (insertBefore / removeChild NotFoundError)
-  // on the next client navigation (e.g. language switch).
-  el.classList.add(DONE_CLASS);
-  el.setAttribute("aria-hidden", "true");
-  el.setAttribute("inert", "");
-  document.documentElement.classList.remove(BOOT_PENDING_CLASS);
+  // Only toggle <html> classes — never mutate #app-boot-splash. That node is
+  // owned by the root layout; pre-hydration DOM edits (failsafe on slow 3G)
+  // would otherwise mismatch React's server HTML.
+  root.classList.add(BOOT_SPLASH_DONE_CLASS);
+  root.classList.remove(BOOT_PENDING_CLASS);
 }
 
 /** Hides the inline HTML boot splash as soon as home events are ready. */

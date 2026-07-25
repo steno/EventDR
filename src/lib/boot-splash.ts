@@ -18,7 +18,7 @@ const listeners = new Set<() => void>();
 /** Quiet period after the latest expect before freezing the set. */
 const EXPECT_QUIET_MS = 150;
 /** Hard cap from when the boot window opens. */
-const EXPECT_MAX_MS = 2500;
+const EXPECT_MAX_MS = 1200;
 
 function notify() {
   for (const listener of listeners) listener();
@@ -86,10 +86,7 @@ export function subscribeBootReady(listener: () => void) {
 /** Cover the UI again before an intentional reload (deploy / SW update). */
 export function showBootSplashForReload() {
   if (typeof document === "undefined") return;
-  document.documentElement.classList.add("boot-pending");
-  const el = document.getElementById("app-boot-splash");
-  if (!el) return;
-  el.classList.remove("app-boot-splash--done");
-  el.removeAttribute("inert");
-  el.setAttribute("aria-hidden", "true");
+  const root = document.documentElement;
+  root.classList.remove("boot-splash-done");
+  root.classList.add("boot-pending");
 }

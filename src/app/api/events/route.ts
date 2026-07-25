@@ -30,6 +30,7 @@ import { attachEventPhones } from "@/lib/event-phone";
 import { applyCuratedEventPatches } from "@/lib/curated-events";
 import { filterRemovedSeedEvents } from "@/lib/removed-seeds";
 import { localizeEventsForDisplay } from "@/lib/localized-text";
+import { slimEventsForList } from "@/lib/list-payload";
 import { NO_STORE_CACHE_CONTROL } from "@/lib/http-cache";
 
 // Always fresh — CDN-caching listings briefly served empty/stale payloads.
@@ -139,7 +140,7 @@ export async function GET(request: NextRequest) {
     events = attachEventPhones(events);
     events = attachTicketUrls(events);
     events = attachEventImages(events);
-    return events;
+    return slimEventsForList(events);
   }
 
   try {
@@ -148,8 +149,10 @@ export async function GET(request: NextRequest) {
       if (cached?.length) {
         return NextResponse.json(
           {
-            events: attachEventImages(
-              attachTicketUrls(attachEventPhones(attachCoords(cached))),
+            events: slimEventsForList(
+              attachEventImages(
+                attachTicketUrls(attachEventPhones(attachCoords(cached))),
+              ),
             ),
             source: "cache",
             region: REGION_LABELS[locale],

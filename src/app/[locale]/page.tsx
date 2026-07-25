@@ -1,4 +1,3 @@
-import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { Home } from "@/components/Home";
@@ -11,6 +10,7 @@ import {
   buildOrganizationJsonLd,
   buildWebSiteJsonLd,
 } from "@/lib/seo";
+import { slimVenuesForList } from "@/lib/list-payload";
 import { getPublicEvents } from "@/lib/public-events";
 import { getVenues } from "@/lib/venues";
 
@@ -30,17 +30,30 @@ export async function generateMetadata({
 
 export default async function Page({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: string }>;
+  searchParams: Promise<{ city?: string | string[] }>;
 }) {
   const { locale } = await params;
   if (!isValidLocale(locale)) notFound();
+
+  const sp = await searchParams;
+  const cityRaw = sp.city;
+  const initialCityParam =
+    typeof cityRaw === "string"
+      ? cityRaw
+      : Array.isArray(cityRaw)
+        ? (cityRaw[0] ?? null)
+        : null;
 
   const dict = getDictionary(locale);
   const [venues, initialEvents] = await Promise.all([
     getVenues(locale),
     getPublicEvents({ locale }),
   ]);
+  // Events are already list-slimmed by getPublicEvents; venues still need Places dumps stripped.
+  const listVenues = slimVenuesForList(venues);
   return (
     <>
       <JsonLd
@@ -50,14 +63,14 @@ export default async function Page({
         ]}
       />
       <HomeBootExpect />
-      <Suspense fallback={null}>
-        <Home
-          locale={locale}
-          dict={dict}
-          initialVenues={venues}
-          initialEvents={initialEvents}
-        />
-      </Suspense>
+      {/* No Suspense/null fallback — Home must be in the first HTML for Slow 3G. */}
+      <Home
+        locale={locale}
+        dict={dict}
+        initialVenues={listVenues}
+        initialEvents={initialEvents}
+        initialCityParam={initialCityParam}
+      />
     </>
   );
 }

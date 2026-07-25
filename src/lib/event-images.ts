@@ -99,7 +99,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "paella-pop-green-one": "paella-pop-green-one.jpg",
   "lil-naay-2026-07-17": "lil-naay-2026-07-17.jpg",
   "lena-dardelet-aura-beach-club-2026-07-24":
-    "lena-dardelet-aura-beach-club-2026-07-24.png",
+    "lena-dardelet-aura-beach-club-2026-07-24.jpg",
   "cabarete-jazz-festival-2026": "cabarete-jazz-festival-2026.jpg",
   "jandy-ventura-legado-caballo-2026": "jandy-ventura-legado-caballo-2026.jpg",
   "natura-cabana-saturday-live": "natura-cabana-saturday-live.jpg",
@@ -129,7 +129,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "cac-games-surf-playa-encuentro-2026": "cac-games-surf-playa-encuentro-2026.jpg",
   "puerto-plata-beach-soccer-2026": "puerto-plata-beach-soccer-2026.jpg",
   "sosua-10k-road-race-2026": "sosua-10k-road-race-2026.jpg",
-  "puerto-plata-poker-experience-2026": "puerto-plata-poker-experience-2026.png",
+  "puerto-plata-poker-experience-2026": "puerto-plata-poker-experience-2026.jpg",
   "aventurate-rd-2026": "aventurate-rd-2026.jpg",
   "sunset-cabarete-sessions-2026": "sunset-cabarete-sessions-2026.jpg",
   "la-chabola-wednesday-open-mic": "la-chabola-wednesday-open-mic.jpg",

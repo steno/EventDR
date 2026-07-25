@@ -26,17 +26,16 @@ function VenueSlideCard({
   venue,
   locale,
   loadImage,
-  priority = false,
 }: {
   venue: Venue;
   locale: Locale;
   /** When false, keep the card chrome but skip the image request. */
   loadImage: boolean;
-  priority?: boolean;
 }) {
   return (
     <Link
       href={`/${locale}/venue/${venue.slug}`}
+      prefetch={false}
       className="
         group flex h-full flex-col overflow-hidden rounded-2xl
         border border-neutral-200/90 bg-white
@@ -54,7 +53,7 @@ function VenueSlideCard({
             src={venue.imageUrl}
             alt=""
             sizes="(max-width: 640px) 88vw, (max-width: 1024px) 45vw, 420px"
-            priority={priority}
+            priority={false}
             className="object-cover card-media-zoom"
           />
         ) : venue.imageUrl ? (
@@ -177,7 +176,6 @@ function AudienceSlider({
                 venue={venue}
                 locale={locale}
                 loadImage={mediaEnabled && index <= loadedThrough}
-                priority={mediaEnabled && index === 0}
               />
             </div>
           ))}

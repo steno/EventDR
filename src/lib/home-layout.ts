@@ -1,7 +1,6 @@
 import { localDateISO } from "@/lib/event-dates";
 import { sortEventsForDisplay } from "@/lib/event-sort";
 import type { Event, Venue } from "@/lib/types";
-import { SEED_VENUES } from "@/lib/venues-seed";
 import {
   getEventLiveStatus,
   happensOnLocalDate,
@@ -318,11 +317,10 @@ export function getFeaturedVenues(
   options: FeaturedVenuesOptions = {},
 ): Venue[] {
   const bySlug = new Map(venues.map((v) => [v.slug, v]));
-  // Prefer live/seed map rows; fall back to seed defs so tabs stay filled offline.
-  const seedBySlug = new Map(SEED_VENUES.map((v) => [v.slug, v]));
-
+  // SSR `getVenues` already merges seed + remote — don't pull the full seed
+  // module into the home client graph for offline fill-ins.
   const resolved = VENUE_AUDIENCE_POOLS[audience]
-    .map((slug) => bySlug.get(slug) ?? seedBySlug.get(slug))
+    .map((slug) => bySlug.get(slug))
     .filter((v): v is Venue => v != null);
 
   const seedKey = options.seed ?? localDateISO();

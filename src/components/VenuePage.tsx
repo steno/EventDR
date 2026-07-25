@@ -21,8 +21,6 @@ import {
 } from "@/components/VenueDirectionsSection";
 import { VenueAssessmentBlock } from "@/components/VenueAssessmentBlock";
 import { EventImage } from "@/components/EventImage";
-import { attachEventImages } from "@/lib/event-images";
-import { attachTicketUrls } from "@/lib/event-tickets";
 import { lastHomePath } from "@/lib/cities";
 import { readReturnParams, resolveBackLabel } from "@/lib/event-navigation";
 import { formatPhoneTel } from "@/lib/event-phone";
@@ -76,7 +74,7 @@ export function VenuePage({
     })
       .then((r) => r.json())
       .then((d: { events?: Event[] }) => {
-        setEvents(attachTicketUrls(attachEventImages(d.events ?? [])));
+        setEvents(d.events ?? []);
       })
       .catch(() => setEvents([]));
   }

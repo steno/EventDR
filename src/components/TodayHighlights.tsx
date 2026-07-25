@@ -36,13 +36,11 @@ function TodayHighlightCard({
   locale,
   dict,
   returnTo,
-  priority = false,
 }: {
   event: Event;
   locale: Locale;
   dict: Dictionary;
   returnTo?: string;
-  priority?: boolean;
 }) {
   const href = eventDetailPath(locale, event.id, returnTo ?? `/${locale}`);
   const liveDisplay = useLiveStatusDisplay(event, dict, { listTimeRange: "today" });
@@ -57,6 +55,7 @@ function TodayHighlightCard({
     <article className="group relative min-w-0 overflow-hidden rounded-2xl bg-neutral-100 shadow-[0_8px_24px_-14px_rgba(0,0,0,0.18)] ring-1 ring-black/5 hover:ring-orange-400/50 hover:shadow-[0_12px_32px_-16px_rgba(251,146,60,0.35)] transition-[box-shadow,transform] duration-500 ease-out active:scale-[0.99] cursor-pointer dark:bg-neutral-950 dark:shadow-[0_8px_24px_-14px_rgba(0,0,0,0.45)] dark:ring-white/10 dark:hover:ring-orange-600/50">
       <Link
         href={href}
+        prefetch={false}
         className="relative block aspect-[2/1] w-full overflow-hidden touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 rounded-2xl sm:aspect-[2.4/1]"
         aria-label={event.title}
       >
@@ -65,8 +64,8 @@ function TodayHighlightCard({
             <EventImage
               src={event.imageUrl}
               alt=""
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              priority={priority}
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 560px"
+              priority={false}
               className="object-cover card-media-zoom"
             />
           </div>
@@ -154,6 +153,7 @@ const TodayHighlightsComponent = ({
         {hasMore && (
           <Link
             href={allTodayHref}
+            prefetch={false}
             className="inline-flex items-center gap-0.5 rounded-full bg-orange-50 dark:bg-orange-950/50 px-2.5 py-1 text-[13px] font-bold text-orange-600 hover:bg-orange-100 dark:hover:bg-orange-950/70 transition-colors touch-manipulation"
           >
             {dict.events.seeAllToday}
@@ -163,14 +163,13 @@ const TodayHighlightsComponent = ({
       </div>
 
       <div className="grid grid-cols-1 items-stretch gap-2.5 sm:gap-3 lg:grid-cols-2">
-        {visibleEvents.map((event, index) => (
+        {visibleEvents.map((event) => (
           <TodayHighlightCard
             key={event.id}
             event={event}
             locale={locale}
             dict={dict}
             returnTo={returnTo}
-            priority={index === 0}
           />
         ))}
       </div>
