@@ -229,7 +229,6 @@ export function EventScopePage({
             </>
           )}
 
-          {/* City/region/when: area first. Category pages: categories first. */}
           {showLocationPicker && !categoryId ? (
             <div className="mb-6">
               <CityLocationPicker
