@@ -229,13 +229,13 @@ export function EventScopePage({
             </>
           )}
 
-          {showLocationPicker ? (
+          {/* City/region/when: area first. Category pages: categories first. */}
+          {showLocationPicker && !categoryId ? (
             <div className="mb-6">
               <CityLocationPicker
                 locale={locale}
                 dict={dict}
                 currentSlug={citySlug ?? null}
-                categoryId={categoryId}
               />
             </div>
           ) : null}
@@ -266,6 +266,16 @@ export function EventScopePage({
             onAddEvent={() => setSubmitOpen(true)}
             addEventLabel={addEventLabel}
             categoryId={categoryId}
+            locationPicker={
+              showLocationPicker && categoryId ? (
+                <CityLocationPicker
+                  locale={locale}
+                  dict={dict}
+                  currentSlug={citySlug ?? null}
+                  categoryId={categoryId}
+                />
+              ) : undefined
+            }
           />
           {fixedTimeRange === "weekend" ? (
             <aside className="mb-8 mt-6 overflow-hidden rounded-3xl border border-orange-200 bg-orange-50 p-5 dark:border-orange-900/60 dark:bg-orange-950/30">
