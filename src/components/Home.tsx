@@ -349,20 +349,20 @@ function HomeApp({
               </div>
               {!isSearching && (
                 <div className="mb-6 sm:mb-8 lg:mb-8">
-                  <div className="pb-1 pt-1">
-                    <CategoryGrid
-                      locale={locale}
-                      dict={dict}
-                      citySlug={selectedCity}
-                      events={scopedEvents}
-                    />
-                  </div>
                   <div className="relative z-10 py-3 sm:py-3.5">
                     <CityLocationPicker
                       locale={locale}
                       dict={dict}
                       currentSlug={selectedCity}
                       onSelect={setArea}
+                    />
+                  </div>
+                  <div className="pb-1 pt-1">
+                    <CategoryGrid
+                      locale={locale}
+                      dict={dict}
+                      citySlug={selectedCity}
+                      events={scopedEvents}
                     />
                   </div>
                 </div>
