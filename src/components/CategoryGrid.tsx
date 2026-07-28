@@ -1,9 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { Loader2 } from "lucide-react";
-import { useState, useTransition } from "react";
-import { useRouter } from "next/navigation";
 import { getCategoryDefs } from "@/lib/categories";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
@@ -39,10 +36,6 @@ export function CategoryGrid({
   events,
   onCategorySelect,
 }: CategoryGridProps) {
-  const router = useRouter();
-  const [isPending, startTransition] = useTransition();
-  const [loadingHref, setLoadingHref] = useState<string | null>(null);
-
   const defsById = new Map(getCategoryDefs().map((def) => [def.id, def]));
   const orderedIds =
     events && events.length > 0
@@ -55,15 +48,6 @@ export function CategoryGrid({
   });
   const allEventsHref = allEventsPath(locale, citySlug);
   const allEventsLabel = dict.browse.allEvents;
-
-  const handleNavigation = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
-    onCategorySelect?.();
-    setLoadingHref(href);
-    startTransition(() => {
-      router.push(href);
-    });
-  };
 
   const label = dict.cities.browseTopCategories;
 
@@ -79,7 +63,7 @@ export function CategoryGrid({
               <Link
                 href={allEventsHref}
                 prefetch={false}
-                onClick={(e) => handleNavigation(e, allEventsHref)}
+                onClick={() => onCategorySelect?.()}
                 className={`${CATEGORY_PILL_BASE} ${CATEGORY_PILL_ACTIVE}`}
                 aria-label={allEventsLabel}
                 aria-current="page"
@@ -91,24 +75,19 @@ export function CategoryGrid({
               </Link>
               {categories.map((cat) => {
                 const href = categoryPath(locale, cat.id, citySlug);
-                const isLoading = isPending && loadingHref === href;
-                
+
                 return (
                   <Link
                     key={cat.id}
                     href={href}
                     prefetch={false}
-                    onClick={(e) => handleNavigation(e, href)}
-                    className={`${CATEGORY_PILL_BASE} ${CATEGORY_PILL_IDLE} ${isLoading ? "opacity-70" : ""}`}
+                    onClick={() => onCategorySelect?.()}
+                    className={`${CATEGORY_PILL_BASE} ${CATEGORY_PILL_IDLE}`}
                     aria-label={cat.label}
                   >
-                    {isLoading ? (
-                      <Loader2 className="h-9 w-9 animate-spin shrink-0" aria-hidden />
-                    ) : (
-                      <span className="text-4xl leading-none select-none" aria-hidden>
-                        {cat.emoji}
-                      </span>
-                    )}
+                    <span className="text-4xl leading-none select-none" aria-hidden>
+                      {cat.emoji}
+                    </span>
                     <span className="truncate w-full">{cat.label}</span>
                   </Link>
                 );

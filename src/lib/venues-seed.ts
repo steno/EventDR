@@ -869,6 +869,17 @@ export const SEED_VENUES: Venue[] = [
     instagram: "extremefitnesscamps",
     website: "https://cabaretefitnesscamp.com/",
   },
+  {
+    slug: "cacique-moncion",
+    name: "Disco Restaurant Cacique",
+    city: "Puerto Plata",
+    description:
+      "Disco-restaurant on the Monción road outside Puerto Plata — live típico, merengue, and bachata nights with local bands and a full Dominican menu.",
+    lat: 19.4603685,
+    lng: -71.1481517,
+    emoji: "🎶",
+    googlePlaceId: "ChIJlUlv1FSosY4R9XlZloLWhl0",
+  },
 ];
 
 /** Extra name fragments → seed slug (checked before fuzzy name includes). */
@@ -896,6 +907,10 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
   {
     pattern: /victrola\s*037|la\s*victrola/i,
     slug: "victrola-037",
+  },
+  {
+    pattern: /cacique(\s+monci[oó]n)?|disco\s+restaurant\s+cacique|restaurante\s+cacique/i,
+    slug: "cacique-moncion",
   },
   {
     pattern: /ocean\s*one(\s*cabarete)?/i,

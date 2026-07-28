@@ -8,7 +8,11 @@ import type { Locale } from "@/i18n/config";
 import { EventDetailSheet } from "@/components/EventDetailSheet";
 import { StickyListHeader } from "@/components/StickyListHeader";
 import { useSavedEvents } from "@/hooks/useSavedEvents";
-import { resolveBackLabel, resolveEventReturnPath } from "@/lib/event-navigation";
+import {
+  resolveBackLabel,
+  resolveEventReturnPath,
+  takeReturnPath,
+} from "@/lib/event-navigation";
 import { PAGE_SHELL_CLASS } from "@/lib/page-shell";
 
 interface EventPageProps {
@@ -30,14 +34,14 @@ export function EventPage({
 }: EventPageProps) {
   const router = useRouter();
   const { toggleSave, isSaved } = useSavedEvents();
-  // Read ?from= on the client so the server page can stay ISR-cached.
+  // Return path from sessionStorage (set on list → detail click), not ?from=.
   const [returnTo, setReturnTo] = useState<string | null | undefined>(returnToProp);
 
   useEffect(() => {
     if (returnToProp) return;
-    const from = new URLSearchParams(window.location.search).get("from");
-    if (from) setReturnTo(from);
-  }, [returnToProp]);
+    const stored = takeReturnPath(locale);
+    if (stored?.path) setReturnTo(stored.path);
+  }, [returnToProp, locale]);
 
   const backHref = resolveEventReturnPath(locale, event, returnTo);
   const backLabel = resolveBackLabel(

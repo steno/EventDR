@@ -57,7 +57,7 @@ import { EventCallLink } from "@/components/EventCallLink";
 import { formatPhoneTel } from "@/lib/event-phone";
 import { useSwipeToDismiss } from "@/hooks/useSwipeToDismiss";
 import { scrollBehaviorPreference } from "@/lib/list-scroll";
-import { eventDetailPath, venueDetailPath } from "@/lib/event-navigation";
+import { eventDetailPath, rememberReturnPath, venueDetailPath } from "@/lib/event-navigation";
 import {
   getOnboardingCopy,
   hasSeenOnboarding,
@@ -369,6 +369,7 @@ export function EventDetailSheet({
   function handleViewVenue() {
     if (!venueSlug || !event) return;
     const from = eventDetailPath(locale, event.id);
+    rememberReturnPath(from, event.title);
     router.push(venueDetailPath(locale, venueSlug, from, event.title, true));
   }
 
@@ -430,6 +431,10 @@ export function EventDetailSheet({
                   )
                 : getDirectionsUrl(event)
             }
+            onClick={() => {
+              if (!venueSlug) return;
+              rememberReturnPath(eventDetailPath(locale, event.id), event.title);
+            }}
             {...(venueSlug
               ? {}
               : { target: "_blank", rel: "noopener noreferrer" })}

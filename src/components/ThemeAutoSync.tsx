@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { scheduleAutoTheme } from "@/lib/theme";
 
-/** Applies viewport theme (desktop light / mobile dark) when unset. */
+/** Applies system preference theme when the user has not toggled one. */
 export function ThemeAutoSync() {
   useEffect(() => scheduleAutoTheme(), []);
   return null;

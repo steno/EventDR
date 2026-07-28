@@ -22,7 +22,7 @@ import {
 import { VenueAssessmentBlock } from "@/components/VenueAssessmentBlock";
 import { EventImage } from "@/components/EventImage";
 import { lastHomePath } from "@/lib/cities";
-import { readReturnParams, resolveBackLabel } from "@/lib/event-navigation";
+import { readReturnParams, resolveBackLabel, takeReturnPath } from "@/lib/event-navigation";
 import { formatPhoneTel } from "@/lib/event-phone";
 import { PAGE_SHELL_CLASS } from "@/lib/page-shell";
 import { scrollBelowStickyStack, scrollUnderStickyHeader } from "@/lib/list-scroll";
@@ -102,13 +102,14 @@ export function VenuePage({
     getVenueHeroImageUrl(venue.slug) ?? venue.imageUrl?.split("?")[0];
 
   useEffect(() => {
-    const { from, fromTitle, directions: fromEventLocation } = readReturnParams(
+    const stored = takeReturnPath(locale);
+    const { directions: fromEventLocation } = readReturnParams(
       window.location.search,
       locale,
     );
-    if (from) {
-      setReturnTo(from);
-      setReturnTitle(fromTitle);
+    if (stored?.path) {
+      setReturnTo(stored.path);
+      setReturnTitle(stored.title ?? null);
     } else {
       setReturnTo(null);
       setReturnTitle(null);

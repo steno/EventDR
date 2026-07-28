@@ -9,7 +9,7 @@ import { useLiveStatusDisplay } from "@/hooks/useLiveStatusDisplay";
 import type { Event } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
-import { eventDetailPath } from "@/lib/event-navigation";
+import { eventDetailPath, rememberReturnPath } from "@/lib/event-navigation";
 import { formatEventTimeForList } from "@/lib/event-time-display";
 import {
   getTodayHighlightEvents,
@@ -42,7 +42,7 @@ function TodayHighlightCard({
   dict: Dictionary;
   returnTo?: string;
 }) {
-  const href = eventDetailPath(locale, event.id, returnTo ?? `/${locale}`);
+  const href = eventDetailPath(locale, event.id);
   const liveDisplay = useLiveStatusDisplay(event, dict, { listTimeRange: "today" });
   const liveStatus = liveDisplay?.status ?? null;
   const liveStatusLabel = liveDisplay?.label ?? null;
@@ -56,6 +56,7 @@ function TodayHighlightCard({
       <Link
         href={href}
         prefetch={false}
+        onClick={() => rememberReturnPath(returnTo ?? `/${locale}`)}
         className="relative block aspect-[2/1] w-full overflow-hidden touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 rounded-2xl sm:aspect-[2.4/1]"
         aria-label={event.title}
       >

@@ -1,15 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Loader2 } from "lucide-react";
-import {
-  useEffect,
-  useRef,
-  useState,
-  useTransition,
-  type Ref,
-} from "react";
-import { useRouter } from "next/navigation";
+import { useEffect, useRef, type Ref } from "react";
 import {
   CATEGORY_PILL_ACTIVE,
   CATEGORY_PILL_BASE,
@@ -38,9 +30,6 @@ export function CityCategoryLinks({
   activeHref,
   allLink,
 }: CityCategoryLinksProps) {
-  const router = useRouter();
-  const [isPending, startTransition] = useTransition();
-  const [loadingHref, setLoadingHref] = useState<string | null>(null);
   const activeRef = useRef<HTMLAnchorElement>(null);
   const scrollerRef = useRef<HTMLDivElement>(null);
 
@@ -111,21 +100,11 @@ export function CityCategoryLinks({
   const hasActiveCategory = links.some((link) => link.href === activeHref);
   const allIsActive = Boolean(allLink) && !hasActiveCategory;
 
-  const handleNavigation = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
-    setLoadingHref(href);
-    startTransition(() => {
-      router.push(href);
-    });
-  };
-
   const renderPill = (
     link: RelatedCategoryLink,
     active: boolean,
     ref?: Ref<HTMLAnchorElement>,
   ) => {
-    const isLoading = isPending && loadingHref === link.href;
-    
     return (
       <Link
         key={link.href}
@@ -133,14 +112,11 @@ export function CityCategoryLinks({
         href={link.href}
         prefetch={false}
         scroll={false}
-        onClick={(e) => handleNavigation(e, link.href)}
         aria-current={active ? "page" : undefined}
         aria-label={link.label}
-        className={`${CATEGORY_PILL_BASE} ${active ? CATEGORY_PILL_ACTIVE : CATEGORY_PILL_IDLE} ${isLoading ? "opacity-70" : ""}`}
+        className={`${CATEGORY_PILL_BASE} ${active ? CATEGORY_PILL_ACTIVE : CATEGORY_PILL_IDLE}`}
       >
-        {isLoading ? (
-          <Loader2 className="h-9 w-9 animate-spin shrink-0" aria-hidden />
-        ) : link.emoji ? (
+        {link.emoji ? (
           <span className="text-4xl leading-none select-none" aria-hidden>
             {link.emoji}
           </span>

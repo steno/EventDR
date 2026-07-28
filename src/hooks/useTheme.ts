@@ -3,13 +3,13 @@
 import { useCallback, useSyncExternalStore } from "react";
 import {
   applyTheme,
-  themeFromViewport,
+  themeFromSystem,
   THEME_STORAGE_KEY,
   type Theme,
 } from "@/lib/theme";
 
 function getThemeSnapshot(): Theme {
-  if (typeof document === "undefined") return themeFromViewport();
+  if (typeof document === "undefined") return themeFromSystem();
   return document.documentElement.classList.contains("dark") ? "dark" : "light";
 }
 

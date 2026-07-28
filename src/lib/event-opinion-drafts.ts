@@ -542,7 +542,7 @@ export async function generateOpinionDrafts(
 /**
  * Draft POP expert opinions for an explicit event list (ingest / seed hooks).
  * Skips when Places/OpenAI unavailable, seed opinion exists, or evidence is thin.
- * Drafts are never auto-published.
+ * Solid Google-backed drafts auto-publish during ingest-enrich / approve.
  */
 export async function generateOpinionDraftsForEvents(
   events: Event[],

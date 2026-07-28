@@ -7,7 +7,7 @@ import type { Event } from "@/lib/types";
 import { getCategoryMeta } from "@/lib/categories";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
-import { eventDetailPath } from "@/lib/event-navigation";
+import { eventDetailPath, rememberReturnPath } from "@/lib/event-navigation";
 import { EventCallLink } from "@/components/EventCallLink";
 import { useLiveStatusDisplay } from "@/hooks/useLiveStatusDisplay";
 import type { TimeRange } from "@/lib/filters";
@@ -35,12 +35,16 @@ const EventCardComponent = ({
 }: EventCardProps) => {
   const category = getCategoryMeta(event.category, dict.categories);
   const emoji = event.imageEmoji ?? category?.emoji ?? "📅";
-  const href = eventDetailPath(locale, event.id, returnTo);
+  const href = eventDetailPath(locale, event.id);
   const liveDisplay = useLiveStatusDisplay(event, dict, { listTimeRange });
   const liveStatus = liveDisplay?.status ?? null;
   const liveStatusLabel = liveDisplay?.label ?? null;
   const isEndedToday = liveStatus === "ended";
   const isCards = view === "cards";
+
+  function handleNavigate() {
+    rememberReturnPath(returnTo);
+  }
 
   if (isCards) {
     return (
@@ -59,6 +63,7 @@ const EventCardComponent = ({
         <Link
           href={href}
           prefetch={false}
+          onClick={handleNavigate}
           className="absolute inset-0 z-0 rounded-2xl touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
           aria-label={event.title}
         />
@@ -120,6 +125,7 @@ const EventCardComponent = ({
       <Link
         href={href}
         prefetch={false}
+        onClick={handleNavigate}
         className="absolute inset-0 z-0 rounded-2xl touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
         aria-label={event.title}
       />

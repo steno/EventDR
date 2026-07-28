@@ -1,7 +1,8 @@
-import { attachIngestImages } from "@/lib/ingest-images";
 import { getEventImageUrl } from "@/lib/event-images";
-import { generateOpinionDraftsForEvents } from "@/lib/event-opinion-drafts";
-import { resolveEventVenue } from "@/lib/ingest-venue";
+import {
+  isWeakIngestImageUrl,
+  prepareEventForPublish,
+} from "@/lib/ingest-quality";
 import {
   fetchApprovedEvents,
   fetchApprovedEventsMissingImages,
@@ -36,9 +37,16 @@ export type IngestEnrichResult = {
   imagesUpdated: number;
   imagesFailed: number;
   venuesUpdated: number;
+  phonesUpdated: number;
+  opinionsApproved: number;
   imageResults: { id: string; title: string; imageUrl?: string; status: string }[];
   venueResults: { id: string; venueSlug?: string; status: string }[];
-  opinions: Awaited<ReturnType<typeof generateOpinionDraftsForEvents>> | null;
+  opinions: {
+    drafted: number;
+    skipped: number;
+    failed: number;
+    approved: number;
+  } | null;
 };
 
 function mergeById(events: Event[]): Event[] {
@@ -48,7 +56,8 @@ function mergeById(events: Event[]): Event[] {
 }
 
 /**
- * Source validated images, link venues, and draft POP opinions for ingest events.
+ * Editorial prep for pending (and approved-gap) ingest events:
+ * venue, phone, validated image, POP opinion draft + auto-publish when evidence is solid.
  */
 export async function enrichPendingIngestEvents(
   options: IngestEnrichOptions = {},
@@ -65,8 +74,20 @@ export async function enrichPendingIngestEvents(
     if (options.includeApprovedMissingImages !== false) {
       const approvedMissing = await fetchApprovedEventsMissingImages(limit * 2);
       const approved = await fetchApprovedEvents();
+      const weakImages = approved
+        .filter(
+          (e) =>
+            e.imageUrl?.trim() &&
+            isWeakIngestImageUrl(e.imageUrl, e) &&
+            !getEventImageUrl(e.id),
+        )
+        .slice(0, limit);
       const missingVenue = approved
-        .filter((e) => !e.venueSlug?.trim() && (e.venue?.trim() || e.id.startsWith("ingest-")))
+        .filter(
+          (e) =>
+            !e.venueSlug?.trim() &&
+            (e.venue?.trim() || e.id.startsWith("ingest-")),
+        )
         .slice(0, limit);
       const prioritized = approvedMissing
         .filter((e) => !getEventImageUrl(e.id))
@@ -76,99 +97,104 @@ export async function enrichPendingIngestEvents(
           if (aScore !== bScore) return aScore - bScore;
           return b.id.localeCompare(a.id);
         });
-      pool = mergeById([...pool, ...prioritized, ...missingVenue]);
+      pool = mergeById([...pool, ...prioritized, ...missingVenue, ...weakImages]);
     }
   }
 
   const filtered = pool.filter((e) => e.status !== "rejected");
-
-  // Venue linking first so opinions/images can use venueSlug.
-  const venueResults: IngestEnrichResult["venueResults"] = [];
-  let venuesUpdated = 0;
-  const withVenues: Event[] = [];
-
-  if (!options.skipVenues) {
-    for (const event of filtered.slice(0, limit)) {
-      if (event.venueSlug?.trim()) {
-        withVenues.push(event);
-        venueResults.push({
-          id: event.id,
-          venueSlug: event.venueSlug,
-          status: "unchanged",
-        });
-        continue;
-      }
-      const resolved = await resolveEventVenue(event);
-      if (resolved.venueSlug && resolved.venueSlug !== event.venueSlug) {
-        const ok = await patchEventFields(event.id, {
-          venueSlug: resolved.venueSlug,
-          venue: resolved.venue,
-          lat: resolved.lat,
-          lng: resolved.lng,
-        });
-        if (ok) {
-          venuesUpdated++;
-          withVenues.push(resolved);
-          venueResults.push({
-            id: event.id,
-            venueSlug: resolved.venueSlug,
-            status: "updated",
-          });
-          continue;
-        }
-        venueResults.push({ id: event.id, status: "patch_failed" });
-        withVenues.push(event);
-        continue;
-      }
-      withVenues.push(event);
-      venueResults.push({ id: event.id, status: "unresolved" });
-    }
-  } else {
-    withVenues.push(...filtered.slice(0, limit));
-  }
-
-  const needsImage = withVenues.filter(
-    (e) => options.forceImages || !e.imageUrl?.trim(),
-  );
-  const toImage = options.skipImages ? [] : needsImage.slice(0, limit);
+  const toProcess = filtered.slice(0, limit);
 
   const imageResults: IngestEnrichResult["imageResults"] = [];
+  const venueResults: IngestEnrichResult["venueResults"] = [];
   let imagesUpdated = 0;
   let imagesFailed = 0;
-  const imagedEvents: Event[] = [];
+  let venuesUpdated = 0;
+  let phonesUpdated = 0;
+  let opinionsApproved = 0;
+  let drafted = 0;
+  let skipped = 0;
+  let failed = 0;
 
-  if (toImage.length > 0) {
-    const withImages = await attachIngestImages(toImage);
-    for (const event of withImages) {
-      const original = toImage.find((e) => e.id === event.id);
-      const nextUrl = event.imageUrl?.trim();
-      if (nextUrl && nextUrl !== original?.imageUrl?.trim()) {
-        const ok = await patchEventFields(event.id, { imageUrl: nextUrl });
-        if (ok) {
-          imagesUpdated++;
-          imagedEvents.push({ ...event, imageUrl: nextUrl });
-          imageResults.push({
-            id: event.id,
-            title: event.title,
-            imageUrl: nextUrl,
-            status: "updated",
-          });
-          continue;
-        }
-        imagesFailed++;
+  for (const event of toProcess) {
+    if (options.skipImages && options.skipVenues && options.skipOpinions) {
+      continue;
+    }
+
+    const prepared = await prepareEventForPublish(event, {
+      forceImage: options.forceImages ?? false,
+      skipOpinions: options.skipOpinions ?? false,
+    });
+
+    const patch: Record<string, unknown> = {};
+    if (!options.skipVenues) {
+      for (const key of [
+        "venueSlug",
+        "venue",
+        "venueName",
+        "location",
+        "description",
+        "lat",
+        "lng",
+      ] as const) {
+        if (key in prepared.fields) patch[key] = prepared.fields[key];
+      }
+    }
+    if (!options.skipImages && "imageUrl" in prepared.fields) {
+      patch.imageUrl = prepared.fields.imageUrl;
+    }
+    if ("phone" in prepared.fields) {
+      patch.phone = prepared.fields.phone;
+    }
+
+    if (Object.keys(patch).length > 0) {
+      const ok = await patchEventFields(event.id, patch);
+      if (!ok) {
         imageResults.push({
           id: event.id,
           title: event.title,
           status: "patch_failed",
         });
+        failed++;
         continue;
       }
-      if (nextUrl) {
-        imagedEvents.push(event);
+
+      if ("venueSlug" in patch) venuesUpdated++;
+      if ("phone" in patch) phonesUpdated++;
+      if ("imageUrl" in patch) {
+        if (prepared.imageReplaced || !event.imageUrl?.trim()) {
+          imagesUpdated++;
+          imageResults.push({
+            id: event.id,
+            title: event.title,
+            imageUrl: prepared.event.imageUrl,
+            status: "updated",
+          });
+        } else {
+          imageResults.push({
+            id: event.id,
+            title: event.title,
+            imageUrl: prepared.event.imageUrl,
+            status: "unchanged",
+          });
+        }
+      }
+
+      venueResults.push({
+        id: event.id,
+        venueSlug: prepared.event.venueSlug,
+        status: prepared.event.venueSlug !== event.venueSlug ? "updated" : "unchanged",
+      });
+    } else {
+      venueResults.push({
+        id: event.id,
+        venueSlug: event.venueSlug,
+        status: event.venueSlug ? "unchanged" : "unresolved",
+      });
+      if (event.imageUrl?.trim()) {
         imageResults.push({
           id: event.id,
           title: event.title,
-          imageUrl: nextUrl,
+          imageUrl: event.imageUrl,
           status: "unchanged",
         });
       } else {
@@ -180,31 +206,27 @@ export async function enrichPendingIngestEvents(
         });
       }
     }
-  }
 
-  const opinionPoolMap = new Map<string, Event>();
-  for (const e of imagedEvents) opinionPoolMap.set(e.id, e);
-  for (const e of withVenues) {
-    if (!opinionPoolMap.has(e.id)) opinionPoolMap.set(e.id, e);
+    if (!options.skipOpinions && prepared.opinion) {
+      if (prepared.opinion.status === "drafted") drafted++;
+      else if (prepared.opinion.status === "skipped") skipped++;
+      else if (prepared.opinion.status === "failed") failed++;
+    }
+    if (prepared.opinionApproved) opinionsApproved++;
   }
-  const opinionPool = [...opinionPoolMap.values()].slice(0, limit);
-
-  const opinions = options.skipOpinions
-    ? null
-    : await generateOpinionDraftsForEvents(opinionPool, {
-        limit: options.opinionLimit ?? Math.min(5, limit),
-        skipExisting: true,
-        allowWithoutPlaces: true,
-      });
 
   return {
     pendingTotal: pending.length,
-    considered: Math.min(filtered.length, limit),
+    considered: toProcess.length,
     imagesUpdated,
     imagesFailed,
     venuesUpdated,
+    phonesUpdated,
+    opinionsApproved,
     imageResults,
     venueResults,
-    opinions,
+    opinions: options.skipOpinions
+      ? null
+      : { drafted, skipped, failed, approved: opinionsApproved },
   };
 }

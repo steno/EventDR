@@ -16,7 +16,16 @@ function getPreferredLocale(request: NextRequest): Locale {
 }
 
 export function middleware(request: NextRequest) {
-  const { pathname } = request.nextUrl;
+  const { pathname, searchParams } = request.nextUrl;
+
+  // Collapse legacy `?from=` / `?fromTitle=` detail URLs so Google indexes only
+  // the clean path (GSC: "Duplicate without user-selected canonical").
+  if (searchParams.has("from") || searchParams.has("fromTitle")) {
+    const clean = request.nextUrl.clone();
+    clean.searchParams.delete("from");
+    clean.searchParams.delete("fromTitle");
+    return NextResponse.redirect(clean, 301);
+  }
 
   const pathnameHasLocale = locales.some(
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`,

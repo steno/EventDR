@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { EventImage } from "@/components/EventImage";
-import { eventDetailPath } from "@/lib/event-navigation";
+import { eventDetailPath, rememberReturnPath } from "@/lib/event-navigation";
 import type { Event } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
@@ -32,7 +32,7 @@ export function CityPhotoHero({
   const resolvedImage = specialImage || imageUrl;
   const eventHref =
     featuredEvent && locale
-      ? eventDetailPath(locale, featuredEvent.id, returnTo ?? `/${locale}`)
+      ? eventDetailPath(locale, featuredEvent.id)
       : null;
 
   return (
@@ -92,6 +92,9 @@ export function CityPhotoHero({
           {featuredEvent && eventHref ? (
             <Link
               href={eventHref}
+              onClick={() =>
+                locale && rememberReturnPath(returnTo ?? `/${locale}`)
+              }
               className="group inline-flex max-w-full items-center gap-2 text-[15px] font-bold touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400 focus-visible:rounded"
             >
               {dict?.hero.featured ? (

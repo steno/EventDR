@@ -9,6 +9,10 @@ import { getVenueImageUrl } from "@/lib/venue-images";
 import { uploadEventImageBytes } from "@/lib/firebase/images";
 import { imageSearch } from "@/lib/scrape";
 import { SITE_URL } from "@/lib/site-url";
+import {
+  ingestImageSearchHint,
+  isWeakIngestImageUrl,
+} from "@/lib/ingest-quality";
 import type { Event } from "@/lib/types";
 
 const USER_AGENT = `Mozilla/5.0 (compatible; EventDR/1.0; +${SITE_URL})`;
@@ -226,6 +230,7 @@ async function pickValidatedUploadedImage(
   maxTry = 5,
 ): Promise<string | undefined> {
   for (const candidate of candidates.slice(0, maxTry)) {
+    if (isWeakIngestImageUrl(candidate)) continue;
     const valid = await fetchValidImageBytes(candidate);
     if (!valid) continue;
 
@@ -252,6 +257,7 @@ export async function sourceEventImageUrl(
   eventId: string,
   pageUrls: (string | undefined)[],
   searchHint?: string,
+  event?: Pick<Event, "title" | "venue" | "venueSlug" | "location">,
 ): Promise<string | undefined> {
   const curated = getEventImageUrl(eventId);
   if (curated) return curated;
@@ -271,11 +277,16 @@ export async function sourceEventImageUrl(
   const hint = searchHint?.trim();
   if (hint) {
     const searched = await imageSearch(
-      `${hint} Dominican Republic Puerto Plata photo`,
+      `${hint} Dominican Republic photo`,
       8,
     );
     const fromSearch = await pickValidatedUploadedImage(eventId, searched, 6);
-    if (fromSearch) return fromSearch;
+    if (fromSearch && !isWeakIngestImageUrl(fromSearch, event)) return fromSearch;
+  }
+
+  if (event?.venueSlug) {
+    const venueImg = getVenueImageUrl(event.venueSlug);
+    if (venueImg) return venueImg;
   }
 
   return undefined;
@@ -309,7 +320,11 @@ async function mapWithConcurrency<T, R>(
  * Validates AI-provided imageUrl; otherwise sources from page / venue.
  */
 export async function attachIngestImages(events: Event[]): Promise<Event[]> {
-  const needsWork = events.filter((e) => !getEventImageUrl(e.id));
+  const needsWork = events.filter((e) => {
+    if (getEventImageUrl(e.id)) return false;
+    if (!e.imageUrl?.trim()) return true;
+    return isWeakIngestImageUrl(e.imageUrl, e);
+  });
   const toProcess = needsWork.slice(0, MAX_EVENTS_TO_SOURCE);
   const processedIds = new Set(toProcess.map((e) => e.id));
 
@@ -320,7 +335,7 @@ export async function attachIngestImages(events: Event[]): Promise<Event[]> {
       // Validate enrich-provided URL first (may be hallucinated).
       if (event.imageUrl?.trim()) {
         const valid = await fetchValidImageBytes(event.imageUrl.trim());
-        if (valid) {
+        if (valid && !isWeakIngestImageUrl(event.imageUrl, event)) {
           const uploaded = await uploadEventImageBytes(
             event.id,
             valid.bytes,
@@ -339,7 +354,8 @@ export async function attachIngestImages(events: Event[]): Promise<Event[]> {
       const fromPage = await sourceEventImageUrl(
         event.id,
         [event.sourceUrl, event.ticketUrl],
-        `${event.title} ${event.venue ?? ""} ${event.location}`,
+        ingestImageSearchHint(event),
+        event,
       );
       if (fromPage) return { id: event.id, imageUrl: fromPage };
 

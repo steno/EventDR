@@ -15,11 +15,10 @@ function checkCronSecret(request: NextRequest): boolean {
 }
 
 /**
- * Post-ingest enrichment for pending moderation events:
- * - Source + validate images (page OG, then Brave image search)
- * - Draft POP expert opinions (Places + OpenAI; never auto-published)
+ * Post-ingest editorial prep for pending (and approved-gap) events:
+ * venue link, phone, validated image, POP opinion draft + auto-publish when solid.
  *
- * GET/POST ?secret=&limit=8&opinionLimit=5
+ * GET/POST ?secret=&limit=8
  * Optional: &ids=id1,id2 &skipImages=1 &skipOpinions=1 &forceImages=1
  */
 async function handle(request: NextRequest) {
@@ -32,7 +31,6 @@ async function handle(request: NextRequest) {
 
   const params = request.nextUrl.searchParams;
   const limit = Number(params.get("limit") || "8");
-  const opinionLimit = Number(params.get("opinionLimit") || "5");
   const ids = params
     .get("ids")
     ?.split(",")
@@ -41,7 +39,6 @@ async function handle(request: NextRequest) {
 
   const result = await enrichPendingIngestEvents({
     limit: Number.isFinite(limit) ? limit : 8,
-    opinionLimit: Number.isFinite(opinionLimit) ? opinionLimit : 5,
     eventIds: ids?.length ? ids : undefined,
     includeApprovedMissingImages:
       params.get("includeApproved") !== "0" &&
@@ -56,13 +53,6 @@ async function handle(request: NextRequest) {
       params.get("forceImages") === "true",
   });
 
-  const opinionDrafted =
-    result.opinions?.results.filter((r) => r.status === "drafted").length ?? 0;
-  const opinionSkipped =
-    result.opinions?.results.filter((r) => r.status === "skipped").length ?? 0;
-  const opinionFailed =
-    result.opinions?.results.filter((r) => r.status === "failed").length ?? 0;
-
   return NextResponse.json({
     success: true,
     generatedAt: new Date().toISOString(),
@@ -71,20 +61,12 @@ async function handle(request: NextRequest) {
     imagesUpdated: result.imagesUpdated,
     imagesFailed: result.imagesFailed,
     venuesUpdated: result.venuesUpdated,
+    phonesUpdated: result.phonesUpdated,
+    opinionsApproved: result.opinionsApproved,
     imageResults: result.imageResults,
     venueResults: result.venueResults,
-    opinions: result.opinions
-      ? {
-          enabled: result.opinions.enabled,
-          placesConfigured: result.opinions.placesConfigured,
-          openaiConfigured: result.opinions.openaiConfigured,
-          drafted: opinionDrafted,
-          skipped: opinionSkipped,
-          failed: opinionFailed,
-          results: result.opinions.results,
-        }
-      : { skipped: true },
-    message: `Enriched pending ingest: ${result.imagesUpdated} image(s), ${result.venuesUpdated} venue(s), ${opinionDrafted} opinion draft(s)`,
+    opinions: result.opinions ?? { skipped: true },
+    message: `Editorial prep: ${result.imagesUpdated} image(s), ${result.venuesUpdated} venue(s), ${result.phonesUpdated} phone(s), ${result.opinionsApproved} opinion(s) live`,
   });
 }
 

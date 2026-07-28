@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { EventImage } from "@/components/EventImage";
-import { eventDetailPath } from "@/lib/event-navigation";
+import { eventDetailPath, rememberReturnPath } from "@/lib/event-navigation";
 import type { Event } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
@@ -26,7 +26,7 @@ export function PhotoHero({
   const imageUrl = featuredEvent?.imageUrl?.trim() || null;
   const eventHref =
     featuredEvent != null
-      ? eventDetailPath(locale, featuredEvent.id, returnTo ?? `/${locale}`)
+      ? eventDetailPath(locale, featuredEvent.id)
       : null;
   const heroPlace = placeName?.trim() || dict.hero.nearYou;
   const placeLabel = dict.hero.regionSuffix
@@ -100,6 +100,7 @@ export function PhotoHero({
             <Link
               href={eventHref}
               prefetch={false}
+              onClick={() => rememberReturnPath(returnTo ?? `/${locale}`)}
               className="group inline-flex max-w-full items-center gap-2 text-[15px] font-bold touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400 focus-visible:rounded"
             >
               <span className="truncate bg-gradient-to-r from-orange-300 via-rose-300 to-fuchsia-300 bg-clip-text text-transparent transition-[filter] group-hover:brightness-110">

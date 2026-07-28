@@ -54,7 +54,7 @@ Open https://pop-event.com/en/moderate — approve North Coast events only; reje
 
 Confirm pending cards have real photos when possible (ingest sources OG/JSON-LD images; curated seeds must map `event-images.ts` + `venue-images.ts`).
 
-Ingest also drafts POP expert opinions when Places reviews exist (review drafts via `/api/cron/event-opinion-drafts?secret=…&status=draft`; approve with `?approve=eventId`).
+Ingest drafts POP expert opinions from Google reviews when Places resolves (auto-published on solid evidence during enrich/approve). Manual review: `/api/cron/event-opinion-drafts?secret=…&status=draft`.
 
 ### 4. Partner digest preview
 

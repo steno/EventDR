@@ -15,7 +15,7 @@ import {
   localePath,
 } from "@/lib/seo";
 
-// ISR: cache event detail HTML; `?from=` is read client-side so this stays static.
+// ISR: cache event detail HTML; back-nav uses sessionStorage, not ?from=.
 export const revalidate = 180;
 
 export async function generateMetadata({

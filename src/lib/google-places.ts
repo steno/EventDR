@@ -100,6 +100,11 @@ const PLACE_SEARCH_ALIASES: Record<string, string[]> = {
     "Paella POP Playa El Pueblito Puerto Plata",
     "Paella POP El Pueblito",
   ],
+  "cacique-moncion": [
+    "Disco Restaurant Cacique Puerto Plata",
+    "Cacique Moncion Puerto Plata",
+    "Restaurante Disco Cacique Puerto Plata",
+  ],
 };
 
 function buildPlaceQueries(
@@ -312,6 +317,9 @@ const PLACE_DETAILS_FIELD_MASK: Record<PlaceDetailsMode, string> = {
   reviews: "id,rating,userRatingCount,reviews.rating,reviews.text",
 };
 
+const PLACE_CONTACT_FIELD_MASK =
+  "id,nationalPhoneNumber,internationalPhoneNumber";
+
 export interface FetchPlaceDetailsOptions {
   /** @default "rating" */
   mode?: PlaceDetailsMode;
@@ -388,6 +396,42 @@ export async function fetchPlaceDetailsWithStatus(
     return {
       error: err instanceof Error ? err.message : "Place Details network error",
     };
+  }
+}
+
+/** Place phone for ingest / event cards (Enterprise contact SKU). */
+export async function fetchPlacePhone(placeId: string): Promise<string | undefined> {
+  const key = apiKey();
+  if (!key || !placeId.trim()) return undefined;
+
+  const id = placeId.startsWith("places/") ? placeId : `places/${placeId}`;
+
+  try {
+    const res = await fetch(`https://places.googleapis.com/v1/${id}`, {
+      headers: {
+        "X-Goog-Api-Key": key,
+        "X-Goog-FieldMask": PLACE_CONTACT_FIELD_MASK,
+      },
+      cache: "no-store",
+    });
+    if (!res.ok) return undefined;
+
+    const data = (await res.json()) as {
+      internationalPhoneNumber?: string;
+      nationalPhoneNumber?: string;
+    };
+    const raw =
+      data.internationalPhoneNumber?.trim() ||
+      data.nationalPhoneNumber?.trim();
+    if (!raw) return undefined;
+
+    const digits = raw.replace(/\D/g, "");
+    if (digits.length === 10) return `+1${digits}`;
+    if (digits.length === 11 && digits.startsWith("1")) return `+${digits}`;
+    if (digits.length >= 10) return raw.startsWith("+") ? raw : `+${digits}`;
+    return undefined;
+  } catch {
+    return undefined;
   }
 }
 

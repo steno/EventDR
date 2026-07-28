@@ -22,7 +22,7 @@ Runs **30 minutes after** the weekly ingest (Sunday 12:30 AST / 16:30 UTC).
 4. Adds verified new events with EN/ES/FR copy and authentic images, then commits and re-ingests
 5. Reminds you to moderate at `/en/moderate`
 6. Fetches the partner digest and writes `marketing/drafts/YYYY-MM-DD-social.md`
-7. Summarizes coverage, blockers, new events, weekend counts, and highlights
+7. Summarizes coverage, blockers, new events, weekend counts, and highlights 
 
 **Note:** Instagram and Facebook discovery require logged-in browser sessions. On cloud runs without those sessions, the agent reports and skips the blocked scans, then continues with digest/social steps. The GitHub Action still performs best-effort public-profile and web-search ingestion.
 

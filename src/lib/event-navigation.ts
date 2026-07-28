@@ -79,17 +79,22 @@ export function categoryNavLinks(
   });
 }
 
+/**
+ * Clean event URL (no query). Pass `returnTo` into `rememberReturnPath` on click
+ * so back-nav works without creating indexable `?from=` duplicates.
+ */
 export function eventDetailPath(
   locale: Locale,
   eventId: string,
-  returnTo?: string,
+  _returnTo?: string,
 ): string {
-  const base = `/${locale}/event/${eventId}`;
-  if (!returnTo) return base;
-  return `${base}?from=${encodeURIComponent(returnTo)}`;
+  return `/${locale}/event/${eventId}`;
 }
 
-/** Venue page URL; optional `from` / `fromTitle` so back can label the previous page. */
+/**
+ * Venue URL. Optional `returnTo` / `returnTitle` are not put in the query string
+ * (use `rememberReturnPath`); only `directions=1` stays in the URL for UI state.
+ */
 export function venueDetailPath(
   locale: Locale,
   slug: string,
@@ -97,16 +102,53 @@ export function venueDetailPath(
   returnTitle?: string,
   openDirections?: boolean,
 ): string {
+  void returnTo;
+  void returnTitle;
   const base = `/${locale}/venue/${slug}`;
-  const params = new URLSearchParams();
-  if (returnTo) {
-    params.set("from", returnTo);
-    const title = sanitizeReturnTitle(returnTitle);
-    if (title) params.set("fromTitle", title);
+  if (openDirections) return `${base}?directions=1`;
+  return base;
+}
+
+const RETURN_STORAGE_KEY = "pop-event-return";
+
+export type ReturnContext = {
+  path: string;
+  title?: string | null;
+};
+
+/** Store back-nav context before client navigation to a clean detail URL. */
+export function rememberReturnPath(
+  path: string | null | undefined,
+  title?: string | null,
+): void {
+  if (typeof window === "undefined" || !path) return;
+  try {
+    const payload: ReturnContext = {
+      path,
+      title: sanitizeReturnTitle(title) ?? null,
+    };
+    sessionStorage.setItem(RETURN_STORAGE_KEY, JSON.stringify(payload));
+  } catch {
+    // Private mode / quota — back falls back to category/home.
   }
-  if (openDirections) params.set("directions", "1");
-  const qs = params.toString();
-  return qs ? `${base}?${qs}` : base;
+}
+
+/** Read and clear stored back-nav context (preferred over legacy `?from=`). */
+export function takeReturnPath(locale: Locale): ReturnContext | null {
+  if (typeof window === "undefined") return null;
+  try {
+    const raw = sessionStorage.getItem(RETURN_STORAGE_KEY);
+    if (!raw) return null;
+    sessionStorage.removeItem(RETURN_STORAGE_KEY);
+    const parsed = JSON.parse(raw) as ReturnContext;
+    if (!parsed?.path || !isSafeReturnPath(parsed.path, locale)) return null;
+    return {
+      path: parsed.path,
+      title: sanitizeReturnTitle(parsed.title) ?? null,
+    };
+  } catch {
+    return null;
+  }
 }
 
 function isSafeReturnPath(path: string, locale: Locale): boolean {
@@ -125,7 +167,7 @@ export function sanitizeReturnTitle(raw: string | null | undefined): string | nu
   return trimmed;
 }
 
-/** Client-side `?from=` / `?fromTitle=` for ISR-cached detail pages. */
+/** Parse remaining detail-page query flags (`directions`); legacy `from` ignored after 301 strip. */
 export function readReturnParams(
   search: string,
   locale: Locale,
@@ -147,7 +189,7 @@ export function readReturnParams(
   };
 }
 
-/** Where to go after closing an event — honors ?from=, else the event category. */
+/** Where to go after closing an event — honors stored return path, else category. */
 export function resolveEventReturnPath(
   locale: Locale,
   event: Pick<Event, "category">,

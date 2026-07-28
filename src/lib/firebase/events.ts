@@ -13,11 +13,7 @@ import { resolveEventCoords } from "@/lib/event-coords";
 import { translateEventCopy } from "@/lib/translate-event";
 import { getVenueImageUrl } from "@/lib/venue-images";
 import { SEED_VENUES } from "@/lib/venues-seed";
-import {
-  findNearDuplicate,
-  mergeIngestIntoExisting,
-} from "@/lib/ingest-dedupe";
-import { sourceEventImageUrl } from "@/lib/ingest-images";
+import { findNearDuplicate, mergeIngestIntoExisting } from "@/lib/ingest-dedupe";
 import { getFirestoreDb, isFirebaseConfigured } from "./admin";
 
 /** Process-local cache — cuts repeat full-collection reads on Netlify instances. */
@@ -215,6 +211,7 @@ function eventToFirestore(
     isFree: event.isFree ?? null,
     admissionPrice: event.admissionPrice ?? null,
     callForPricing: event.callForPricing ?? null,
+    phone: event.phone ?? null,
     sourceType,
     imageEmoji: event.imageEmoji ?? "📌",
     imageUrl: event.imageUrl ?? null,
@@ -449,6 +446,7 @@ export async function patchEventFields(
   if ("lineup" in fields) {
     update.lineup = Array.isArray(fields.lineup) ? fields.lineup : null;
   }
+  if ("phone" in fields) update.phone = fields.phone ?? null;
   if ("venue" in fields || "venueName" in fields) {
     update.venueName = fields.venue ?? fields.venueName ?? null;
   }
@@ -516,56 +514,28 @@ export async function approveEvent(id: string): Promise<boolean> {
     if (!doc.exists) return false;
 
     const event = docToEvent(doc.id, doc.data()!);
-    const translated = await translateEventCopy(event.title, event.description);
+    const { prepareEventForPublish } = await import("@/lib/ingest-quality");
+    const prepared = await prepareEventForPublish(event, { forceImage: false });
+    const working = prepared.event;
 
-    const update: Record<string, unknown> = { status: "approved" };
+    const translated = await translateEventCopy(
+      working.title,
+      working.description,
+    );
+
+    const update: Record<string, unknown> = {
+      status: "approved",
+      ...prepared.fields,
+    };
     if (translated) {
       update.titles = translated.title;
       update.descriptions = translated.description;
-      update.title = translated.title.en ?? event.title;
-      update.description = translated.description.en ?? event.description;
-    }
-
-    // Always try to attach a photo if the pending row still lacks one.
-    if (!event.imageUrl?.trim()) {
-      const imageUrl = await sourceEventImageUrl(
-        event.id,
-        [event.sourceUrl, event.ticketUrl],
-        `${event.title} ${event.venue ?? ""} ${event.location}`,
-      );
-      if (imageUrl) update.imageUrl = imageUrl;
-    }
-
-    // Link venue slug + coords when missing.
-    if (!event.venueSlug?.trim()) {
-      try {
-        const { resolveEventVenue } = await import("@/lib/ingest-venue");
-        const resolved = await resolveEventVenue(event);
-        if (resolved.venueSlug) update.venueSlug = resolved.venueSlug;
-        if (resolved.venue) update.venueName = resolved.venue;
-        if (typeof resolved.lat === "number") update.lat = resolved.lat;
-        if (typeof resolved.lng === "number") update.lng = resolved.lng;
-      } catch (err) {
-        console.warn("approveEvent: venue resolve skipped", id, err);
-      }
+      update.title = translated.title.en ?? working.title;
+      update.description = translated.description.en ?? working.description;
     }
 
     await ref.update(update);
     invalidateApprovedEventsCache();
-
-    // Draft a POP opinion for the newly approved event (never auto-published).
-    try {
-      const { generateOpinionDraftForEvent } = await import(
-        "@/lib/event-opinion-drafts"
-      );
-      await generateOpinionDraftForEvent(
-        { ...event, ...(update.imageUrl ? { imageUrl: String(update.imageUrl) } : {}) },
-        { skipExisting: true, allowWithoutPlaces: true },
-      );
-    } catch (err) {
-      console.warn("approveEvent: opinion draft skipped", id, err);
-    }
-
     return true;
   } catch (err) {
     console.error("approveEvent:", err);
