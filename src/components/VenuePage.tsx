@@ -69,9 +69,12 @@ export function VenuePage({
   const directions = useVenueDirections(venue, dict);
 
   function loadEvents() {
-    return fetch(`/api/events?locale=${locale}&venue=${venue.slug}`, {
-      cache: "no-store",
-    })
+    return fetch(
+      `/api/events?locale=${locale}&venue=${venue.slug}&includePast=1`,
+      {
+        cache: "no-store",
+      },
+    )
       .then((r) => r.json())
       .then((d: { events?: Event[] }) => {
         setEvents(d.events ?? []);

@@ -88,8 +88,9 @@ function listTier(event: Event, now: Date): number {
     return LIST_TIER.activeTodayUnknown;
   }
 
-  const end = (event.endDate ?? event.date).trim();
-  if (end >= today) return LIST_TIER.future;
+  const endRaw = (event.endDate ?? event.date).trim();
+  const endDay = endRaw.length >= 10 ? endRaw.slice(0, 10) : endRaw;
+  if (endDay >= today) return LIST_TIER.future;
 
   return LIST_TIER.past;
 }

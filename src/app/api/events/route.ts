@@ -103,6 +103,9 @@ export async function GET(request: NextRequest) {
   const city = cityParam && isCitySlug(cityParam) ? cityParam : undefined;
   const whenParam = searchParams.get("when") ?? undefined;
   const when = whenParam && isValidWhen(whenParam) ? whenParam : undefined;
+  const includePast =
+    searchParams.get("includePast") === "1" ||
+    searchParams.get("includePast") === "true";
   const refresh = searchParams.get("refresh") === "true";
   const localeParam = searchParams.get("locale") ?? "en";
   const locale: Locale = isValidLocale(localeParam) ? localeParam : "en";
@@ -110,6 +113,7 @@ export async function GET(request: NextRequest) {
     when ? `when:${when}` : null,
     city ? `city:${city}` : null,
     venueSlug ? `venue:${venueSlug}` : null,
+    includePast ? "past:1" : null,
   ]
     .filter(Boolean)
     .join("|");
@@ -130,7 +134,9 @@ export async function GET(request: NextRequest) {
   }
 
   function finalizeEvents(list: Event[]): Event[] {
-    let events = materializeEventDates(applyScopeFilters(list));
+    let events = materializeEventDates(applyScopeFilters(list), new Date(), {
+      includePastOneOffs: includePast,
+    });
     events = attachCoords(events);
     if (when) {
       events = filterByTimeRange(events, when);

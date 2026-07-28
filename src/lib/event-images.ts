@@ -34,6 +34,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "ingest-18th-annual-cabarete-butterfly-effect":
     "ingest-18th-annual-cabarete-butterfly-effect.jpg",
   "ingest-el-blachy": "ingest-el-blachy.jpg",
+  "ingest-nacho-estrella-nd-eventos": "ingest-el-blachy.jpg",
   "cabarete-classic-2026": "cabarete-classic-2026.jpg",
   "cabarete-pilates-reformer": "cabarete-pilates-reformer.jpg",
   "sancocho-sabados-pingui": "sancocho-sabados-pingui.jpg",

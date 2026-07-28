@@ -72,6 +72,8 @@ interface FilteredEventListProps {
    * - button: text link only, no pad card
    */
   addEventCta?: "pad" | "inline" | "button";
+  /** Hide All/Today/Tomorrow/Weekend chips (venue Past tab). */
+  hideTimeFilter?: boolean;
 }
 
 export function FilteredEventList({
@@ -94,6 +96,7 @@ export function FilteredEventList({
   view = "cards",
   scrollOnFilterChange = true,
   addEventCta = "pad",
+  hideTimeFilter = false,
 }: FilteredEventListProps) {
   const pathname = usePathname();
   const [timeRange, setTimeRange] = useState<FilterTimeRange>(
@@ -185,7 +188,7 @@ export function FilteredEventList({
   const suggestedTabLabel = dict.time[suggestedRange];
   const tryTabLabel = dict.search.tryTabHint.replace("{tab}", suggestedTabLabel);
 
-  const showTimeFilter = !fixedTimeRange;
+  const showTimeFilter = !fixedTimeRange && !hideTimeFilter;
   const showStickyFilters = Boolean(locationPicker || showTimeFilter);
 
   const showPadCta = addEventCta === "pad";

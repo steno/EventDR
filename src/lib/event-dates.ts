@@ -193,9 +193,6 @@ function nextWeeklyOccurrenceISO(
     .sort()[0]!;
 }
 
-/** Keep recently ended one-offs in lists/search so share titles stay findable briefly. */
-const ONE_OFF_LIST_GRACE_DAYS = 7;
-
 function eventEndDayISO(event: { date: string; endDate?: string }): string {
   const raw = (event.endDate ?? event.date).trim();
   // Support full ISO datetimes from ingest ("2026-07-26T23:00:00-04:00").
@@ -205,21 +202,25 @@ function eventEndDayISO(event: { date: string; endDate?: string }): string {
 function oneOffIsActive(event: Event, now: Date): boolean {
   const endDay = eventEndDayISO(event);
   if (!/^\d{4}-\d{2}-\d{2}$/.test(endDay)) return true;
-  const today = localDateISO(now);
-  if (today <= endDay) return true;
-  return today <= addDaysISO(endDay, ONE_OFF_LIST_GRACE_DAYS);
+  return localDateISO(now) <= endDay;
 }
 
+export type MaterializeEventDatesOptions = {
+  /** Keep ended one-offs (venue Past tab). Default lists/search omit them. */
+  includePastOneOffs?: boolean;
+};
+
 /**
- * Sets display dates for recurring events and removes expired one-off events
- * (after a short post-end grace window for search / list visibility).
+ * Sets display dates for recurring events and removes expired one-off events.
  * Calendar math uses ISO strings in APP_TIMEZONE — never the host system clock day.
  */
 export function materializeEventDates(
   events: Event[],
   now: Date = new Date(),
+  options?: MaterializeEventDatesOptions,
 ): Event[] {
   const today = localDateISO(now);
+  const includePast = options?.includePastOneOffs === true;
 
   return events.flatMap((event) => {
     if (event.recurrence === "daily") {
@@ -245,10 +246,22 @@ export function materializeEventDates(
       return [{ ...event, date: next }];
     }
     if (!event.recurrence) {
-      return oneOffIsActive(event, now) ? [event] : [];
+      if (oneOffIsActive(event, now)) return [event];
+      return includePast ? [event] : [];
     }
     return [event];
   });
+}
+
+/** True when a one-off's calendar end is before today (APP_TIMEZONE). */
+export function isPastOneOffEvent(
+  event: Pick<Event, "date" | "endDate" | "recurrence">,
+  now: Date = new Date(),
+): boolean {
+  if (event.recurrence) return false;
+  const endDay = eventEndDayISO(event);
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(endDay)) return false;
+  return localDateISO(now) > endDay;
 }
 
 export function eventMatchesRecurrence(

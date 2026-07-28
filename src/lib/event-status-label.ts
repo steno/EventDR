@@ -88,7 +88,8 @@ export function resolveLiveStatusDisplay(
   const status = getEventLiveStatus(event, now);
 
   // Overnight sessions can still be live after their calendar end date (past midnight).
-  if (end < today) {
+  const endDay = end.length >= 10 ? end.slice(0, 10) : end;
+  if (endDay < today) {
     if (status === "live" || status === "ending") {
       if (status === "live" && isEndingSoon(event, now)) {
         return { status: "ending", label: dict.events.endsSoon };
@@ -98,7 +99,7 @@ export function resolveLiveStatusDisplay(
         label: formatEventLiveStatusLabel(status, dict) ?? dict.events.happeningNow,
       };
     }
-    return null;
+    return { status: "ended", label: dict.events.eventEnded };
   }
 
   if (status === "live" && isEndingSoon(event, now)) {

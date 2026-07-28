@@ -298,6 +298,11 @@ export type Dictionary = {
     localHint: string;
     visitorHint: string;
     eventsAt: string;
+    upcomingTab: string;
+    pastTab: string;
+    pastEvents: string;
+    noPastEvents: string;
+    scheduleTabs: string;
     noEvents: string;
     howToGetThere: string;
     showMap: string;
@@ -695,6 +700,11 @@ export const en: Dictionary = {
     localHint: "Where Dominicans go out on the North Coast",
     visitorHint: "Beach bars, resorts, and classic visitor spots",
     eventsAt: "Upcoming events",
+    upcomingTab: "Upcoming",
+    pastTab: "Past",
+    pastEvents: "Past events",
+    noPastEvents: "No past events listed for this venue yet.",
+    scheduleTabs: "Venue schedule",
     noEvents: "No upcoming events at this venue yet.",
     howToGetThere: "See how to get there",
     showMap: "How to get there",

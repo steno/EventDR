@@ -156,6 +156,7 @@ const SAME_VENUE_COPIES = [
   ["athleticosPOP.png", "atleticos-pp-vs-reales-2026-08-09"],
   ["athleticosPOP.png", "atleticos-pp-vs-arroceros-2026-08-22"],
   ["athleticosPOP.png", "atleticos-pp-vs-capitanes-2026-08-28"],
+  ["ingest-el-blachy.jpg", "ingest-nacho-estrella-nd-eventos"],
 ];
 
 /** popevent-images filename → venue slug (copied to public/venues/). */

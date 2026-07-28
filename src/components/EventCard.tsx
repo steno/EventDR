@@ -85,7 +85,7 @@ const EventCardComponent = ({
               {emoji}
             </div>
           )}
-          {event.trending && !liveStatusLabel && (
+          {event.trending && !liveStatusLabel && liveStatus !== "ended" && (
             <span className="absolute right-2 top-2 inline-flex items-center gap-0.5 rounded-full bg-black/55 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-orange-300 backdrop-blur-sm">
               <Flame className="h-3 w-3" aria-hidden />
               {dict.events.hot}
@@ -156,7 +156,7 @@ const EventCardComponent = ({
             <h3 className="font-bold text-neutral-900 dark:text-neutral-100 text-[1.1875rem] leading-[1.3] line-clamp-3 sm:line-clamp-2 flex-1">
               {event.title}
             </h3>
-            {event.trending && !liveStatusLabel && (
+            {event.trending && !liveStatusLabel && liveStatus !== "ended" && (
               <span className="flex-shrink-0 inline-flex items-center gap-0.5 rounded-full bg-orange-50 dark:bg-orange-950/50 px-2.5 py-1 text-[13px] font-bold uppercase tracking-wide text-orange-600">
                 <Flame className="h-3.5 w-3.5" />
                 {dict.events.hot}
