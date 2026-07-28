@@ -193,13 +193,26 @@ function nextWeeklyOccurrenceISO(
     .sort()[0]!;
 }
 
+/** Keep recently ended one-offs in lists/search so share titles stay findable briefly. */
+const ONE_OFF_LIST_GRACE_DAYS = 7;
+
+function eventEndDayISO(event: { date: string; endDate?: string }): string {
+  const raw = (event.endDate ?? event.date).trim();
+  // Support full ISO datetimes from ingest ("2026-07-26T23:00:00-04:00").
+  return raw.length >= 10 ? raw.slice(0, 10) : raw;
+}
+
 function oneOffIsActive(event: Event, now: Date): boolean {
-  const end = event.endDate ?? event.date;
-  return localDateISO(now) <= end;
+  const endDay = eventEndDayISO(event);
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(endDay)) return true;
+  const today = localDateISO(now);
+  if (today <= endDay) return true;
+  return today <= addDaysISO(endDay, ONE_OFF_LIST_GRACE_DAYS);
 }
 
 /**
- * Sets display dates for recurring events and removes expired one-off events.
+ * Sets display dates for recurring events and removes expired one-off events
+ * (after a short post-end grace window for search / list visibility).
  * Calendar math uses ISO strings in APP_TIMEZONE — never the host system clock day.
  */
 export function materializeEventDates(
