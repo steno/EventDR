@@ -8,6 +8,11 @@ import {
   CATEGORY_PILL_IDLE,
   CATEGORY_SCROLLER_BAR,
 } from "@/components/category-scroller-styles";
+import {
+  readDocumentTop,
+  readStickyListHeaderHeight,
+  scrollBehaviorPreference,
+} from "@/lib/list-scroll";
 
 export type RelatedCategoryLink = {
   href: string;
@@ -32,62 +37,43 @@ export function CityCategoryLinks({
 }: CityCategoryLinksProps) {
   const activeRef = useRef<HTMLAnchorElement>(null);
   const scrollerRef = useRef<HTMLDivElement>(null);
+  const navRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const active = activeRef.current;
     if (!active) return;
 
     // Keep the active pill in view on the mobile slider without jumping the page.
-    const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)",
-    ).matches;
     active.scrollIntoView({
-      behavior: prefersReducedMotion ? "auto" : "smooth",
+      behavior: scrollBehaviorPreference(),
       inline: "nearest",
       block: "nearest",
     });
   }, [activeHref]);
 
-  // Scroll to the time filter tabs on mount when navigating from home page.
-  // This ensures users see the tabs (All, Today, Tomorrow, Weekend) after clicking a category pill.
-  // Skip when already parked on the tabs (area-chip swaps keep scroll via scroll:false).
+  // On mount (home → category), skip the hero and park the category icon row
+  // under the sticky header so catpills stay fully visible with the list chrome.
+  // Skip when already parked there (area-chip swaps keep scroll via scroll:false).
   useEffect(() => {
     if (!activeHref) return;
 
-    // Only scroll on initial mount, not on subsequent activeHref changes
     const timeoutId = setTimeout(() => {
-      // Find the time filter section (marked with data-list-scroll-anchor)
-      const target = document.querySelector<HTMLElement>("[data-list-scroll-anchor]");
-      if (!target) return;
+      const nav = navRef.current;
+      if (!nav) return;
 
-      const prefersReducedMotion = window.matchMedia(
-        "(prefers-reduced-motion: reduce)",
-      ).matches;
-
-      // Calculate offset to account for sticky header
-      const headerHeight = parseInt(
-        getComputedStyle(document.documentElement)
-          .getPropertyValue("--sticky-list-header-height") || "0",
-        10,
-      );
-
-      const targetTop = target.getBoundingClientRect().top + window.scrollY;
-      // Leave a peek of the category pills under the sticky header so the user
-      // can sense there’s a row above to scroll back into — not a hard clip.
-      const CATEGORY_NAV_PEEK_PX = 44;
       const targetScroll = Math.max(
         0,
-        targetTop - headerHeight - CATEGORY_NAV_PEEK_PX,
+        readDocumentTop(nav) - readStickyListHeaderHeight(),
       );
 
       // Area chips navigate with scroll:false while the user is already on the
       // list chrome — re-animating here is the flash. Home → category still
-      // starts near the top, so this still scrolls to the tabs.
+      // starts near the top, so this still scrolls past the hero.
       if (Math.abs(window.scrollY - targetScroll) < 64) return;
 
       window.scrollTo({
         top: targetScroll,
-        behavior: prefersReducedMotion ? "auto" : "smooth",
+        behavior: scrollBehaviorPreference(),
       });
     }, 150); // Small delay to ensure layout is stable
 
@@ -127,7 +113,7 @@ export function CityCategoryLinks({
   };
 
   return (
-    <nav aria-label={label} className="mb-6">
+    <nav ref={navRef} aria-label={label} className="mb-6">
       <p className="mb-2.5 text-sm font-medium text-neutral-500 dark:text-neutral-400">
         {label}
       </p>

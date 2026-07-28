@@ -116,6 +116,7 @@ const FILE_TO_EVENT_ID = {
   "DominoNoightColmado.JPG": "community-domino-sosua",
   "CabaretePickleBallMeet.JPG": "community-pickleball-cabarete",
   "espadrillas.jpeg": "ingest-make-authentic-espadrilles-in-puerto-plata",
+  "ingest-el-blachy.jpg": "ingest-el-blachy",
   "feriaartesanal.jpg": "feria-artesanal-verano-2026",
   "oceanworld.jpeg": "ocean-world-daily",
   "Damajagua.jpeg": "charcos-damajagua-daily",
@@ -196,6 +197,7 @@ const FILE_TO_VENUE_SLUG = {
   "victrola-037.jpg": "victrola-037",
   "ocean-one-cabarete.jpg": "ocean-one-cabarete",
   "vip-beach-lifestyles-resort.jpg": "vip-beach-lifestyles-resort",
+  "cacique-moncion.jpg": "cacique-moncion",
 };
 
 if (!existsSync(sourceDir)) {

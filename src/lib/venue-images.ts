@@ -75,6 +75,7 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "vip-beach-lifestyles-resort": "vip-beach-lifestyles-resort.jpg",
   "gym-sov-sosua-ocean-village": "gym-sov-sosua-ocean-village.webp",
   "zen-fitness-cabarete": "zen-fitness-cabarete.jpg",
+  "cacique-moncion": "cacique-moncion.jpg",
 };
 
 /** Cache-busted URL for general venue thumbnails / JSON-LD. */
