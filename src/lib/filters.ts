@@ -203,3 +203,25 @@ export function searchEvents<
     return e.description.toLowerCase().includes(q);
   });
 }
+
+/** Match venues by name, city, slug tokens, or description. */
+export function searchVenues<
+  T extends {
+    name: string;
+    city: string;
+    slug: string;
+    description?: string;
+  },
+>(items: T[], query: string): T[] {
+  const q = query.trim().toLowerCase();
+  if (!q) return items;
+  const slugQ = q.replace(/\s+/g, "-");
+  return items.filter((v) => {
+    if (v.name.toLowerCase().includes(q)) return true;
+    if (v.city.toLowerCase().includes(q)) return true;
+    if (v.slug.includes(slugQ) || v.slug.replace(/-/g, " ").includes(q)) {
+      return true;
+    }
+    return (v.description ?? "").toLowerCase().includes(q);
+  });
+}

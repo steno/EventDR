@@ -121,6 +121,7 @@ export type Dictionary = {
     noResultsHint: string;
     tryTabHint: string;
     activeTitle: string;
+    places: string;
     game: {
       score: string;
       play: string;
@@ -511,6 +512,7 @@ export const en: Dictionary = {
     noResultsHint: "Try another place, or clear your search.",
     tryTabHint: "Show {tab}",
     activeTitle: "Search results",
+    places: "Places",
     game: {
       score: "Score",
       play: "Play",

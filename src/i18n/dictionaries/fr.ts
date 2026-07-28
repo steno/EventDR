@@ -142,6 +142,7 @@ export const fr: Dictionary = {
     noResultsHint: "Essayez un autre lieu ou effacez la recherche.",
     tryTabHint: "Voir {tab}",
     activeTitle: "Résultats de recherche",
+    places: "Lieux",
     game: {
       score: "Score",
       play: "Jouer",

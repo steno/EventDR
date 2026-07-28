@@ -54,6 +54,7 @@ export const VENUE_AUDIENCE_POOLS: Record<
   local: [
     "d-classico-sosua",
     "disco-club-brugal",
+    "cacique-moncion",
     "anfiteatro-la-puntilla",
     "el-parq-cabarete",
     "parada-tipica-el-choco",

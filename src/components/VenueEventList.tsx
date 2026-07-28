@@ -36,8 +36,6 @@ export function VenueEventList({
   onAddEvent,
   addEventLabel,
 }: VenueEventListProps) {
-  const [tab, setTab] = useState<VenueScheduleTab>("upcoming");
-
   const { upcoming, past } = useMemo(() => {
     const up: Event[] = [];
     const ended: Event[] = [];
@@ -55,7 +53,14 @@ export function VenueEventList({
     };
   }, [events]);
 
-  const showPastTab = past.length > 0;
+  // null = follow the smart default (Past when Upcoming is empty).
+  const [tabOverride, setTabOverride] = useState<VenueScheduleTab | null>(
+    null,
+  );
+  const defaultTab: VenueScheduleTab =
+    upcoming.length === 0 && past.length > 0 ? "past" : "upcoming";
+  const tab = tabOverride ?? defaultTab;
+
   const activeEvents = tab === "past" ? past : upcoming;
   const activeEmpty =
     tab === "past" ? dict.venues.noPastEvents : emptyMessage;
@@ -64,41 +69,39 @@ export function VenueEventList({
 
   return (
     <div>
-      {showPastTab ? (
-        <div
-          className="mb-4 flex gap-1 rounded-full bg-neutral-100/90 p-1 dark:bg-neutral-800/80"
-          role="tablist"
-          aria-label={dict.venues.scheduleTabs}
-        >
-          {(
-            [
-              { id: "upcoming" as const, label: dict.venues.upcomingTab },
-              { id: "past" as const, label: dict.venues.pastTab },
-            ] as const
-          ).map((item) => {
-            const selected = tab === item.id;
-            return (
-              <button
-                key={item.id}
-                type="button"
-                role="tab"
-                aria-selected={selected}
-                onClick={() => setTab(item.id)}
-                className={`min-h-10 flex-1 rounded-full px-3 text-sm font-bold transition-colors touch-manipulation ${
-                  selected
-                    ? "bg-white text-neutral-900 shadow-sm dark:bg-neutral-700 dark:text-neutral-50"
-                    : "text-neutral-500 hover:text-neutral-800 dark:text-neutral-400 dark:hover:text-neutral-200"
-                }`}
-              >
-                {item.label}
-                <span className="ml-1 tabular-nums opacity-60">
-                  ({item.id === "upcoming" ? upcoming.length : past.length})
-                </span>
-              </button>
-            );
-          })}
-        </div>
-      ) : null}
+      <div
+        className="mb-4 flex gap-1 rounded-full bg-neutral-100/90 p-1 dark:bg-neutral-800/80"
+        role="tablist"
+        aria-label={dict.venues.scheduleTabs}
+      >
+        {(
+          [
+            { id: "upcoming" as const, label: dict.venues.upcomingTab },
+            { id: "past" as const, label: dict.venues.pastTab },
+          ] as const
+        ).map((item) => {
+          const selected = tab === item.id;
+          return (
+            <button
+              key={item.id}
+              type="button"
+              role="tab"
+              aria-selected={selected}
+              onClick={() => setTabOverride(item.id)}
+              className={`min-h-10 flex-1 rounded-full px-3 text-sm font-bold transition-colors touch-manipulation ${
+                selected
+                  ? "bg-white text-neutral-900 shadow-sm dark:bg-neutral-700 dark:text-neutral-50"
+                  : "text-neutral-500 hover:text-neutral-800 dark:text-neutral-400 dark:hover:text-neutral-200"
+              }`}
+            >
+              {item.label}
+              <span className="ml-1 tabular-nums opacity-60">
+                ({item.id === "upcoming" ? upcoming.length : past.length})
+              </span>
+            </button>
+          );
+        })}
+      </div>
 
       <FilteredEventList
         events={activeEvents}

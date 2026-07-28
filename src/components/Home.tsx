@@ -17,6 +17,7 @@ import { CategoryGrid } from "@/components/CategoryGrid";
 import { CityLocationPicker } from "@/components/CityLocationPicker";
 import { EventList } from "@/components/EventList";
 import { SearchBar } from "@/components/SearchBar";
+import { SearchVenueHits } from "@/components/SearchVenueHits";
 import { BottomNav } from "@/components/BottomNav";
 import { EventCard } from "@/components/EventCard";
 import { VenueAudienceCards } from "@/components/VenueAudienceCards";
@@ -27,6 +28,7 @@ import {
   getHomeDiscoverLayout,
   HOME_SEARCH_LIMIT,
 } from "@/lib/home-layout";
+import { searchVenues } from "@/lib/filters";
 import { PAGE_SHELL_CLASS } from "@/lib/page-shell";
 import {
   eventMatchesCity,
@@ -121,8 +123,21 @@ function HomeApp({
   const deferredSearchQuery = useDeferredValue(searchQuery);
   const [submitOpen, setSubmitOpen] = useState(false);
   const [allEvents, setAllEvents] = useState<Event[]>(() => initialEvents);
+  const [venues, setVenues] = useState<Venue[]>(() => initialVenues ?? []);
   const [refreshKey, setRefreshKey] = useState(0);
   const [cityPrimingOpen, setCityPrimingOpen] = useState(false);
+
+  useEffect(() => {
+    if (initialVenues?.length) {
+      setVenues(initialVenues);
+      return;
+    }
+    if (venues.length > 0) return;
+    fetch(`/api/venues?locale=${locale}`)
+      .then((r) => r.json())
+      .then((d: { venues?: Venue[] }) => setVenues(d.venues ?? []))
+      .catch(() => {});
+  }, [initialVenues, locale, venues.length]);
   /**
    * Local area override — wins over URL city.
    * Used for session restore on bare `/[locale]` and for chip clicks so we can
@@ -268,6 +283,10 @@ function HomeApp({
 
   const isSearching = searchQuery.trim().length > 0;
   const listSearchQuery = isSearching ? deferredSearchQuery : "";
+  const venueHits = useMemo(() => {
+    if (!isSearching) return [];
+    return searchVenues(venues, deferredSearchQuery).slice(0, 6);
+  }, [isSearching, venues, deferredSearchQuery]);
 
   return (
     <>
@@ -447,6 +466,14 @@ function HomeApp({
               )}
             </div>
           )}
+
+          {tab === "discover" && isSearching ? (
+            <SearchVenueHits
+              venues={venueHits}
+              locale={locale}
+              title={dict.search.places}
+            />
+          ) : null}
 
           {/* Keep catalog mounted across tabs so Saved can resolve before Discover remounts. */}
           <EventList
