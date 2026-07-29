@@ -271,7 +271,7 @@ export function VenuePage({
                 ref={stickyMapRef}
                 className={
                   plannerOpen
-                    ? "sticky z-[11] top-[var(--sticky-list-header-height,0px)] overflow-hidden rounded-t-3xl bg-neutral-200 shadow-[0_8px_24px_-12px_rgba(0,0,0,0.45)] dark:bg-neutral-800"
+                    ? "sticky z-[11] top-[var(--sticky-list-header-height,0px)] overflow-hidden rounded-t-3xl bg-neutral-200 shadow-[0_8px_24px_-12px_rgba(0,0,0,0.45)] transition-[top] duration-200 ease-out motion-reduce:transition-none dark:bg-neutral-800"
                     : "overflow-hidden rounded-b-3xl"
                 }
               >

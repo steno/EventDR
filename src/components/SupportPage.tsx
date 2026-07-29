@@ -25,36 +25,34 @@ export function SupportPage({ locale, copy, available }: SupportPageProps) {
         </header>
 
         <section className="relative mt-3 overflow-hidden rounded-[1.75rem]">
-          <div className="relative min-h-[16rem] sm:min-h-[18rem]">
-            <Image
-              src="/cities/north-coast.jpg"
-              alt=""
-              fill
-              priority
-              sizes="(max-width: 1024px) 100vw, 64rem"
-              className="object-cover object-center"
-            />
-            <div
-              className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/55 to-neutral-950/20"
-              aria-hidden
-            />
-            <div className="absolute inset-x-0 bottom-0 p-5 sm:p-7">
-              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-orange-200/90">
-                {copy.eyebrow}
-              </p>
-              <h1 className="mt-2 max-w-xl font-display text-3xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-4xl">
-                {copy.title}
-              </h1>
-              <p className="mt-3 max-w-lg text-sm font-medium leading-relaxed text-neutral-200 sm:text-base">
-                {copy.lead}
-              </p>
-              <a
-                href="#donate"
-                className="mt-5 inline-flex min-h-11 items-center rounded-full bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-5 text-sm font-black text-white shadow-lg shadow-rose-500/30 transition-transform active:scale-[0.98]"
-              >
-                {copy.form.title}
-              </a>
-            </div>
+          <Image
+            src="/cities/north-coast.jpg"
+            alt=""
+            fill
+            priority
+            sizes="(max-width: 1024px) 100vw, 64rem"
+            className="object-cover object-center"
+          />
+          <div
+            className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/55 to-neutral-950/20"
+            aria-hidden
+          />
+          <div className="relative flex min-h-[16rem] flex-col justify-end p-5 sm:min-h-[18rem] sm:p-7">
+            <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-orange-200/90">
+              {copy.eyebrow}
+            </p>
+            <h1 className="mt-2 max-w-xl font-display text-3xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-4xl">
+              {copy.title}
+            </h1>
+            <p className="mt-3 max-w-lg text-sm font-medium leading-relaxed text-neutral-200 sm:text-base">
+              {copy.lead}
+            </p>
+            <a
+              href="#donate"
+              className="mt-5 inline-flex min-h-11 items-center self-start rounded-full bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-5 text-sm font-black text-white shadow-lg shadow-rose-500/30 transition-transform active:scale-[0.98]"
+            >
+              {copy.form.title}
+            </a>
           </div>
         </section>
 

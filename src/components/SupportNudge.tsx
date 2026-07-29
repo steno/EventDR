@@ -4,8 +4,10 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Heart, X } from "lucide-react";
+import { useScrollChromeVisible } from "@/hooks/useScrollChrome";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
+import { SCROLL_CHROME_TRANSITION_CLASS } from "@/lib/scroll-chrome";
 import {
   dismissSupportNudge,
   recordSupportVisit,
@@ -22,6 +24,7 @@ const SHOW_DELAY_MS = 4500;
 export function SupportNudge({ locale, dict }: SupportNudgeProps) {
   const pathname = usePathname();
   const [visible, setVisible] = useState(false);
+  const chromeVisible = useScrollChromeVisible();
   const homePath = `/${locale}`;
   const onHome = pathname === homePath || pathname === `${homePath}/`;
   const onSupport = pathname?.includes("/support") ?? false;
@@ -51,8 +54,11 @@ export function SupportNudge({ locale, dict }: SupportNudgeProps) {
       aria-label={dict.supportNudge.title}
       className={[
         "pointer-events-none fixed inset-x-0 z-30 flex justify-center px-3",
+        SCROLL_CHROME_TRANSITION_CLASS,
         onHome
-          ? "bottom-[calc(4.25rem+env(safe-area-inset-bottom))] lg:bottom-6"
+          ? chromeVisible
+            ? "bottom-[calc(4.25rem+env(safe-area-inset-bottom))] lg:bottom-6"
+            : "bottom-[max(1rem,env(safe-area-inset-bottom))] lg:bottom-6"
           : "bottom-[max(1rem,env(safe-area-inset-bottom))]",
       ].join(" ")}
     >

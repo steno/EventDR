@@ -467,7 +467,7 @@ export function EventDetailSheet({
           <button
             type="button"
             onClick={handleViewVenue}
-            className="inline-flex items-center gap-2 rounded-full border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 px-4 py-2.5 text-sm font-bold text-neutral-800 dark:text-neutral-200 hover:border-orange-300 dark:hover:border-orange-800 hover:text-orange-600 dark:hover:text-orange-400 transition-colors touch-manipulation"
+            className="inline-flex items-center gap-2 rounded-full border border-orange-200 dark:border-orange-800/60 bg-orange-50 dark:bg-orange-950/40 px-4 py-2.5 text-sm font-bold text-orange-800 dark:text-orange-300 hover:bg-orange-100 dark:hover:bg-orange-950/60 hover:border-orange-300 dark:hover:border-orange-700 transition-colors touch-manipulation"
           >
             <Building2 className="h-4 w-4 shrink-0" aria-hidden />
             {dict.detail.viewVenue}

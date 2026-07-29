@@ -69,14 +69,14 @@ function VenueSlideCard({
       </div>
 
       <div className="flex flex-1 flex-col gap-1 px-3.5 py-3 sm:px-4 sm:py-3.5">
-        <h3 className="text-[15px] font-black leading-snug tracking-tight text-neutral-950 dark:text-neutral-50 sm:text-base">
+        <h3 className="text-base font-black leading-snug tracking-tight text-neutral-950 dark:text-neutral-50">
           {venue.name}
         </h3>
         <p className="text-xs font-semibold text-orange-600 dark:text-orange-400">
           {venue.city}
         </p>
         {venue.description ? (
-          <p className="mt-1 line-clamp-3 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
+          <p className="mt-1 line-clamp-3 text-base leading-relaxed text-neutral-600 dark:text-neutral-400">
             {venue.description}
           </p>
         ) : null}
@@ -154,7 +154,7 @@ function AudienceSlider({
         <h2 className="text-lg font-black tracking-tight text-neutral-950 dark:text-neutral-50 sm:text-xl">
           {dict.venues[audience]}
         </h2>
-        <p className="mt-0.5 text-sm leading-snug text-neutral-600 dark:text-neutral-400">
+        <p className="mt-0.5 text-base leading-snug text-neutral-600 dark:text-neutral-400">
           {hint}
         </p>
       </header>

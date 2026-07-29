@@ -40,7 +40,7 @@ function RecurrencePill({ label, compact }: { label: string; compact?: boolean }
   return (
     <span
       className={`inline-flex items-center rounded-full bg-neutral-100 dark:bg-neutral-800 font-bold leading-none text-neutral-700 dark:text-neutral-200 ${
-        compact ? "px-2 py-0.5 text-sm" : "px-2.5 py-1 text-sm"
+        compact ? "px-1.5 py-0.5 text-[11px]" : "px-2.5 py-1 text-sm"
       }`}
     >
       {label}
@@ -91,14 +91,16 @@ export function EventCardMeta({
           )}
         </span>
         {(timeLabel.display || recurrenceLabel) && (
-          <div className="flex min-w-0 items-center gap-x-2 gap-y-1">
+          <div className="flex min-w-0 flex-wrap items-center gap-x-1.5 gap-y-1">
             {timeLabel.display && (
               <span
-                className="inline-flex min-w-0 flex-1 items-center gap-1.5"
-                title={timeLabel.full !== timeLabel.display ? timeLabel.full : undefined}
+                className="inline-flex shrink-0 items-center gap-1 text-[12px] font-medium tabular-nums leading-none text-neutral-800 dark:text-neutral-200"
+                title={
+                  timeLabel.full !== timeLabel.display ? timeLabel.full : undefined
+                }
               >
-                <Clock className="h-3.5 w-3.5 shrink-0" aria-hidden />
-                <span className="truncate">{timeLabel.display}</span>
+                <Clock className="h-3 w-3 shrink-0" aria-hidden />
+                <span className="whitespace-nowrap">{timeLabel.display}</span>
               </span>
             )}
             {recurrenceLabel && (

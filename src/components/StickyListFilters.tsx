@@ -18,6 +18,7 @@ export function StickyListFilters({
         sticky top-[calc(var(--sticky-list-header-height,0px)-1px)] z-10 -mx-4 mb-4
         border-b border-neutral-200/60 bg-neutral-50/95 px-4 pb-2 pt-3 backdrop-blur-sm
         dark:border-neutral-800/60 dark:bg-neutral-950/95
+        transition-[top] duration-200 ease-out motion-reduce:transition-none
         ${className}
       `}
     >

@@ -285,7 +285,7 @@ export function EventScopePage({
               <h2 className="mt-2 text-xl font-black tracking-tight text-neutral-950 dark:text-neutral-50">
                 {onboardingCopy.partner.weekendTitle}
               </h2>
-              <p className="mt-1.5 max-w-xl text-sm font-medium leading-relaxed text-neutral-600 dark:text-neutral-300">
+              <p className="mt-1.5 max-w-xl text-base font-medium leading-relaxed text-neutral-600 dark:text-neutral-300">
                 {onboardingCopy.partner.weekendBody}
               </p>
               <Link

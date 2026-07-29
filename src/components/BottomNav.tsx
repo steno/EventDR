@@ -1,8 +1,10 @@
 "use client";
 
 import { Heart, Plus } from "lucide-react";
+import { useScrollChromeVisible } from "@/hooks/useScrollChrome";
 import type { AppTab, Dictionary } from "@/i18n/dictionaries";
 import { PAGE_WIDTH_CLASS } from "@/lib/page-shell";
+import { SCROLL_CHROME_TRANSITION_CLASS } from "@/lib/scroll-chrome";
 
 interface BottomNavProps {
   active: AppTab;
@@ -17,6 +19,7 @@ export function BottomNav({
   dict,
   savedCount,
 }: BottomNavProps) {
+  const chromeVisible = useScrollChromeVisible();
   const items: {
     id: Extract<AppTab, "saved" | "submit">;
     label: string;
@@ -32,13 +35,16 @@ export function BottomNav({
 
   return (
     <nav
-      className="
+      className={`
         fixed bottom-0 inset-x-0 z-40 lg:hidden
         border-t border-neutral-200/80 bg-white/95 backdrop-blur-xl
         dark:border-neutral-800 dark:bg-neutral-950/95
         pb-[max(env(safe-area-inset-bottom),0.375rem)]
-      "
+        ${SCROLL_CHROME_TRANSITION_CLASS}
+        ${chromeVisible ? "" : "translate-y-full pointer-events-none"}
+      `}
       aria-label="Main navigation"
+      aria-hidden={chromeVisible ? undefined : true}
     >
       <div
         className={`${PAGE_WIDTH_CLASS} grid grid-cols-2 items-center px-6 pt-2 pb-2.5`}

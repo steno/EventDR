@@ -24,6 +24,8 @@ import { VenueAudienceCards } from "@/components/VenueAudienceCards";
 import { TodayHighlights } from "@/components/TodayHighlights";
 import { stickyBackControlClassName } from "@/components/StickyListHeader";
 import { useSavedEvents } from "@/hooks/useSavedEvents";
+import { useScrollChromeVisible } from "@/hooks/useScrollChrome";
+import { SCROLL_CHROME_TRANSITION_CLASS } from "@/lib/scroll-chrome";
 import {
   getHomeDiscoverLayout,
   HOME_SEARCH_LIMIT,
@@ -283,6 +285,7 @@ function HomeApp({
 
   const isSearching = searchQuery.trim().length > 0;
   const listSearchQuery = isSearching ? deferredSearchQuery : "";
+  const chromeVisible = useScrollChromeVisible();
   const venueHits = useMemo(() => {
     if (!isSearching) return [];
     return searchVenues(venues, deferredSearchQuery).slice(0, 6);
@@ -293,57 +296,65 @@ function HomeApp({
       <PwaRegister />
       <main id="main-content" className="relative bg-neutral-50 dark:bg-transparent pb-6">
         <div className={PAGE_SHELL_CLASS}>
-          <AppHeader
-            locale={locale}
-            dict={dict}
-            onLogoClick={() => {
-              setTab("discover");
-              setSearchQuery("");
-              setLocalArea(null);
-              const bareHome = `/${locale}`;
-              window.history.replaceState(
-                window.history.state ?? null,
-                "",
-                bareHome,
-              );
-              setCityQuery(null);
-              if (cityQuery) {
-                router.replace(bareHome, { scroll: false });
+          <div
+            className={`sticky top-0 z-20 -mx-4 px-4 bg-neutral-50/95 backdrop-blur-sm dark:bg-neutral-950/95 lg:static lg:bg-transparent lg:backdrop-blur-none ${SCROLL_CHROME_TRANSITION_CLASS} ${
+              chromeVisible
+                ? ""
+                : "-translate-y-full pointer-events-none lg:translate-y-0 lg:pointer-events-auto"
+            }`}
+          >
+            <AppHeader
+              locale={locale}
+              dict={dict}
+              onLogoClick={() => {
+                setTab("discover");
+                setSearchQuery("");
+                setLocalArea(null);
+                const bareHome = `/${locale}`;
+                window.history.replaceState(
+                  window.history.state ?? null,
+                  "",
+                  bareHome,
+                );
+                setCityQuery(null);
+                if (cityQuery) {
+                  router.replace(bareHome, { scroll: false });
+                }
+              }}
+              search={
+                tab === "discover" ? (
+                  <SearchBar
+                    value={searchQuery}
+                    onChange={setSearchQuery}
+                    dict={dict}
+                  />
+                ) : undefined
               }
-            }}
-            search={
-              tab === "discover" ? (
-                <SearchBar
-                  value={searchQuery}
-                  onChange={setSearchQuery}
-                  dict={dict}
-                />
-              ) : undefined
-            }
-            desktopActions={
-              <>
-                <button
-                  type="button"
-                  onClick={() => handleTabChange("saved")}
-                  className={`rounded-full px-3.5 py-2 text-[13px] font-bold tracking-wide transition-colors touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 ${
-                    tab === "saved"
-                      ? "bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-900"
-                      : "text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:hover:text-white"
-                  }`}
-                >
-                  {dict.nav.saved}
-                  {savedEvents.length > 0 ? ` (${savedEvents.length})` : ""}
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setSubmitOpen(true)}
-                  className="rounded-full bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-3.5 py-2 text-[13px] font-bold text-white shadow-sm transition-transform active:scale-95 touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400"
-                >
-                  {dict.nav.submit}
-                </button>
-              </>
-            }
-          />
+              desktopActions={
+                <>
+                  <button
+                    type="button"
+                    onClick={() => handleTabChange("saved")}
+                    className={`rounded-full px-3.5 py-2 text-[13px] font-bold tracking-wide transition-colors touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 ${
+                      tab === "saved"
+                        ? "bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-900"
+                        : "text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:hover:text-white"
+                    }`}
+                  >
+                    {dict.nav.saved}
+                    {savedEvents.length > 0 ? ` (${savedEvents.length})` : ""}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setSubmitOpen(true)}
+                    className="rounded-full bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-3.5 py-2 text-[13px] font-bold text-white shadow-sm transition-transform active:scale-95 touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400"
+                  >
+                    {dict.nav.submit}
+                  </button>
+                </>
+              }
+            />
+          </div>
 
           {tab === "discover" && (
             <>

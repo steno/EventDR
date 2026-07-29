@@ -295,12 +295,12 @@ export function EventList({
                 : dict.events.trending}
         </h2>
         {category && filtered.length > 0 && (
-          <p className="text-[13px] text-neutral-400 dark:text-neutral-500 mt-0.5">
+          <p className="mt-0.5 text-sm text-neutral-400 dark:text-neutral-500">
             {filtered.length} · {dict.events.hiddenGems}
           </p>
         )}
         {!category && !ourPicks && !isSearching && source && (
-          <p className="text-[13px] text-neutral-400 dark:text-neutral-500 mt-0.5">{sourceLabel}</p>
+          <p className="mt-0.5 text-sm text-neutral-400 dark:text-neutral-500">{sourceLabel}</p>
         )}
       </div>
 

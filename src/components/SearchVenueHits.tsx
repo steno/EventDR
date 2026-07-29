@@ -49,7 +49,7 @@ export function SearchVenueHits({ venues, locale, title }: SearchVenueHitsProps)
                 )}
               </div>
               <div className="min-w-0 flex-1">
-                <p className="truncate text-[15px] font-bold text-neutral-900 dark:text-neutral-100">
+                <p className="truncate text-base font-bold text-neutral-900 dark:text-neutral-100">
                   {venue.name}
                 </p>
                 <p className="mt-0.5 flex items-center gap-1 text-[13px] font-medium text-neutral-500 dark:text-neutral-400">

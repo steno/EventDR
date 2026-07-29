@@ -4,8 +4,10 @@ import { useLayoutEffect, useRef } from "react";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { AppHeader } from "@/components/AppHeader";
+import { useScrollChromeVisible } from "@/hooks/useScrollChrome";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
+import { SCROLL_CHROME_TRANSITION_CLASS } from "@/lib/scroll-chrome";
 
 const STICKY_HEADER_HEIGHT_VAR = "--sticky-list-header-height";
 
@@ -36,12 +38,20 @@ export function StickyListHeader({
   flushBottom = false,
 }: StickyListHeaderProps) {
   const rootRef = useRef<HTMLDivElement>(null);
+  const chromeVisible = useScrollChromeVisible();
 
   useLayoutEffect(() => {
     const el = rootRef.current;
     if (!el) return;
 
     const publishHeight = () => {
+      if (!chromeVisible) {
+        document.documentElement.style.setProperty(
+          STICKY_HEADER_HEIGHT_VAR,
+          "0px",
+        );
+        return;
+      }
       // Ceil so subpixel heights never leave a gap under the sticky header.
       const height = Math.ceil(el.getBoundingClientRect().height);
       document.documentElement.style.setProperty(
@@ -58,14 +68,16 @@ export function StickyListHeader({
       observer.disconnect();
       document.documentElement.style.removeProperty(STICKY_HEADER_HEIGHT_VAR);
     };
-  }, []);
+  }, [chromeVisible]);
 
   return (
     <div
       ref={rootRef}
-      className={`sticky top-0 z-20 -mx-4 px-4 pb-2 bg-neutral-50/95 backdrop-blur-sm dark:bg-neutral-950/95 border-b border-neutral-200/60 dark:border-neutral-800/60 ${
-        flushBottom ? "mb-0" : "mb-6"
-      }`}
+      className={`sticky top-0 z-20 -mx-4 px-4 pb-2 bg-neutral-50/95 backdrop-blur-sm dark:bg-neutral-950/95 border-b border-neutral-200/60 dark:border-neutral-800/60 ${SCROLL_CHROME_TRANSITION_CLASS} ${
+        chromeVisible
+          ? ""
+          : "-translate-y-full border-transparent pointer-events-none"
+      } ${flushBottom ? "mb-0" : "mb-6"}`}
     >
       <AppHeader locale={locale} dict={dict} />
       {onBack ? (
