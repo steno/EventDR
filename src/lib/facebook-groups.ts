@@ -35,7 +35,14 @@ export const FACEBOOK_GROUPS = [
 ] as const;
 
 /** Facebook event *pages* (not groups) — promoters, venues, festivals. */
-export const FACEBOOK_EVENT_PAGES = [
+export const FACEBOOK_EVENT_PAGES: readonly {
+  slug: string;
+  url: string;
+  label: string;
+  areas: readonly string[];
+  /** Institutional pages get business-flavoured discovery queries instead of music ones. */
+  kind?: "institutional";
+}[] = [
   {
     slug: "cabareteclassiceventpage",
     url: "https://www.facebook.com/cabareteclassiceventpage",
@@ -108,7 +115,14 @@ export const FACEBOOK_EVENT_PAGES = [
     label: "Clúster Turístico Puerto Plata",
     areas: ["Puerto Plata"],
   },
-] as const;
+  {
+    slug: "foro-empresarial-pp",
+    url: "https://www.facebook.com/foropuertoplata",
+    label: "Foro Empresarial Puerto Plata",
+    areas: ["Puerto Plata", "Playa Dorada"],
+    kind: "institutional",
+  },
+];
 
 /** Spanish / Dominican-first discovery queries layered onto group site: searches. */
 const DOMINICAN_SEARCH_TERMS = [
@@ -133,10 +147,17 @@ export function facebookGroupSearchQueries(): string[] {
       (terms) => `site:facebook.com/groups/${group.slug} ${terms} ${region}`,
     ),
   ]);
-  const pageQueries = FACEBOOK_EVENT_PAGES.flatMap((page) => [
-    `site:facebook.com ${page.label} evento concierto Puerto Plata 2026`,
-    `site:facebook.com ${page.label} merengue bachata música en vivo`,
-  ]);
+  const pageQueries = FACEBOOK_EVENT_PAGES.flatMap((page) =>
+    page.kind === "institutional"
+      ? [
+          `site:facebook.com ${page.label} foro OR feria OR congreso 2026`,
+          `site:facebook.com ${page.label} "rueda de negocios" OR networking empresarial`,
+        ]
+      : [
+          `site:facebook.com ${page.label} evento concierto Puerto Plata 2026`,
+          `site:facebook.com ${page.label} merengue bachata música en vivo`,
+        ],
+  );
   return [
     ...groupQueries,
     ...pageQueries,

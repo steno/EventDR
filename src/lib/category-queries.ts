@@ -28,6 +28,13 @@ const NATURA_EVENTS = "https://naturacabana.com/events/";
 const PUERTO_PLATA_DIGITAL = "https://puertoplatadigital.com/";
 const INFOTUR_RD = "https://infoturdominicano.com/rd/";
 const JAZZ_EN_DOMINICANA = "https://www.jazzendominicana.com/";
+// Local press — carries chamber/civic announcements that never reach ticketing
+// sites. The organizer sites they cover (e.g. foroempresarialpuertoplata.com)
+// publish no dates and 403 our crawler, so the press is the usable surface.
+const DIARIO_PUERTO_PLATA = "https://diariopuertoplata.com.do/";
+const PUERTO_PLATA_NOTICIAS = "https://puertoplatanoticias.com/";
+const SOSUA_DIGITAL_TV = "https://sosuadigitaltv.com/";
+const OPINION_DIGITAL_PP = "https://opiniondigitalpp.com/";
 
 /**
  * Tour marketplaces (Viator / GetYourGuide) block direct scrapes (403).
@@ -46,6 +53,10 @@ export const REGION_DIRECT_URLS = [
   PUERTO_PLATA_DIGITAL,
   INFOTUR_RD,
   JAZZ_EN_DOMINICANA,
+  DIARIO_PUERTO_PLATA,
+  PUERTO_PLATA_NOTICIAS,
+  SOSUA_DIGITAL_TV,
+  OPINION_DIGITAL_PP,
   ALLEVENTS_PP,
   `${ALLEVENTS_PP}/music`,
   `${ALLEVENTS_PP}/concerts`,
@@ -210,14 +221,27 @@ export const CATEGORY_QUERIES: Record<EventCategory, CategoryQuerySet> = {
     directUrls: [`${ALLEVENTS_PP}/performances`, `${ALLEVENTS_PP}/concerts`],
   },
   business: {
+    // Institutional queries lead: Dominican chamber/free-zone events are
+    // announced as "foro", "rueda de negocios" or "feria", never as "meetup",
+    // and fast mode only runs the first few searches.
     searches: [
+      `foro empresarial OR "rueda de negocios" OR "feria comercial" ${REGION} 2026`,
+      `"Cámara de Comercio" OR "Zona Franca" Puerto Plata evento OR foro OR congreso 2026`,
+      `site:instagram.com foroempresarialpuertoplata OR camarapuertoplata OR zonafrancapuertoplata evento`,
+      `congreso OR seminario OR capacitación empresarial ${REGION} 2026`,
+      `site:diariopuertoplata.com.do OR site:puertoplatanoticias.com foro OR feria OR congreso empresarial`,
       `networking emprendimiento meetup ${REGION} 2026`,
       `business workshop conference ${REGION} Dominican Republic`,
       `site:eventbrite.com business Puerto Plata Cabarete`,
       `coworking remote work meetup ${REGION}`,
       `site:facebook.com networking Puerto Plata`,
     ],
-    directUrls: [EVENTBRITE_PP, ALLEVENTS_PP],
+    directUrls: [
+      EVENTBRITE_PP,
+      ALLEVENTS_PP,
+      DIARIO_PUERTO_PLATA,
+      PUERTO_PLATA_NOTICIAS,
+    ],
   },
   culture: {
     searches: [

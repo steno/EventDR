@@ -16,21 +16,47 @@ declare global {
   }
 }
 
+function sendPageView(path: string) {
+  if (!GA_MEASUREMENT_ID || typeof window.gtag === "undefined") return false;
+
+  // GA4 attributes path from page_location. page_path alone (UA-era) is ignored,
+  // which collapsed every client-side navigation onto the first landing URL.
+  window.gtag("event", "page_view", {
+    page_title: document.title,
+    page_location: `${window.location.origin}${path}`,
+    page_path: path,
+  });
+  return true;
+}
+
 export function Analytics() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
+  const query = searchParams?.toString() ?? "";
+
   useEffect(() => {
     if (!GA_MEASUREMENT_ID) return;
 
-    const url = pathname + (searchParams?.toString() ? `?${searchParams.toString()}` : "");
-    
-    if (typeof window.gtag !== "undefined") {
-      window.gtag("config", GA_MEASUREMENT_ID, {
-        page_path: url,
-      });
-    }
-  }, [pathname, searchParams]);
+    const path = pathname + (query ? `?${query}` : "");
+
+    // Title often updates a tick after the route; wait briefly so page_title is right.
+    // Also wait for lazyOnload gtag to appear before the first hit.
+    let cancelled = false;
+    let tries = 0;
+    const timer = window.setInterval(() => {
+      if (cancelled) return;
+      tries += 1;
+      if (sendPageView(path) || tries >= 50) {
+        window.clearInterval(timer);
+      }
+    }, 100);
+
+    return () => {
+      cancelled = true;
+      window.clearInterval(timer);
+    };
+  }, [pathname, query]);
 
   if (!GA_MEASUREMENT_ID) {
     return null;
@@ -51,7 +77,7 @@ export function Analytics() {
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', '${GA_MEASUREMENT_ID}', {
-              page_path: window.location.pathname,
+              send_page_view: false,
             });
           `,
         }}

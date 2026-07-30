@@ -14,9 +14,10 @@ import {
   instagramSearchQueries,
 } from "@/lib/instagram-sources";
 import { attachIngestImages } from "@/lib/ingest-images";
+import { rotatingSlice } from "@/lib/ingest-rotation";
 import { resolveEventVenues } from "@/lib/ingest-venue";
 import { scrapeUrl, webSearch } from "@/lib/scrape";
-import type { Event } from "@/lib/types";
+import type { Event, EventCategory } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
 
 function slugify(text: string): string {
@@ -69,9 +70,14 @@ async function readPublicSocialUrl(
   }
 }
 
+/** Social queries per fast run. Rotated so the tail of the list still runs. */
+const FAST_SOCIAL_QUERY_LIMIT = 6;
+
 export type IngestSocialOptions = {
   /** Lighter crawl for Netlify gateway (~26–30s). Skip heavy image sourcing. */
   fast?: boolean;
+  /** Categories to fold into a fast crawl. Defaults to this week's rotation. */
+  categories?: EventCategory[];
 };
 
 export async function ingestSocialEvents(
@@ -79,7 +85,10 @@ export async function ingestSocialEvents(
   options: IngestSocialOptions = {},
 ): Promise<Event[]> {
   const fast = Boolean(options.fast);
-  const results = await crawlEventListings(undefined, { fast });
+  const results = await crawlEventListings(undefined, {
+    fast,
+    categories: options.categories,
+  });
   const facebookUrls = [
     ...FACEBOOK_GROUPS.map((group) => group.url),
     ...facebookGroupEventUrls(),
@@ -105,8 +114,11 @@ export async function ingestSocialEvents(
   );
 
   // Prefer Instagram + Facebook searches; keep volume bounded for cron time.
+  const socialQueries = fast
+    ? rotatingSlice(SOCIAL_QUERIES, FAST_SOCIAL_QUERY_LIMIT)
+    : SOCIAL_QUERIES.slice(0, 14);
   const socialResults = await Promise.all(
-    SOCIAL_QUERIES.slice(0, fast ? 3 : 14).map(async (query) => {
+    socialQueries.map(async (query) => {
       try {
         const content = await webSearch(query);
         if (content.length < 80) return null;

@@ -23,7 +23,6 @@ export const SEED_VENUES: Venue[] = [
     lat: 19.7905058,
     lng: -70.6718446,
     emoji: "🌊",
-    phone: "+18095862526",
   },
   {
     slug: "kite-beach",

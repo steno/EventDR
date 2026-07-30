@@ -6,7 +6,33 @@ import {
   getDirectUrlsForCategory,
   getQueriesForCategory,
 } from "./category-queries";
+import { rotatingSlice } from "./ingest-rotation";
 import { scrapeUrl, webSearch } from "./scrape";
+
+/**
+ * Categories folded into every fast crawl. Institutional events are announced
+ * in short windows (a chamber forum is publicised ~2 weeks ahead), so business
+ * cannot wait for its turn in the rotation.
+ */
+const FAST_PINNED_CATEGORIES: EventCategory[] = ["business"];
+
+/** Extra priority categories added per fast run, rotating week to week. */
+const FAST_ROTATION_SLICE = 2;
+
+/** Searches taken from each category folded into a fast crawl. */
+const FAST_CATEGORY_SEARCH_LIMIT = 3;
+
+/**
+ * Priority categories a fast crawl covers this week. Fast mode used to skip
+ * category crawls entirely, so business/sports/culture queries never ran on the
+ * weekly cron — only on a manual full ingest.
+ */
+export function fastCrawlCategories(now?: Date): EventCategory[] {
+  const pool = PRIORITY_CATEGORIES.filter(
+    (cat) => !FAST_PINNED_CATEGORIES.includes(cat),
+  );
+  return [...FAST_PINNED_CATEGORIES, ...rotatingSlice(pool, FAST_ROTATION_SLICE, now)];
+}
 
 export interface CrawlResult {
   query: string;
@@ -57,9 +83,15 @@ async function crawlMany(
   return results;
 }
 
+export interface CrawlOptions {
+  fast?: boolean;
+  /** Categories to fold into a fast crawl. Defaults to this week's rotation. */
+  categories?: EventCategory[];
+}
+
 export async function crawlEventListings(
   category?: EventCategory,
-  options?: { fast?: boolean },
+  options?: CrawlOptions,
 ): Promise<CrawlResult[]> {
   if (category) {
     const queries = getQueriesForCategory(category);
@@ -67,9 +99,22 @@ export async function crawlEventListings(
     return crawlMany(queries, urls, options?.fast ? 3 : 5);
   }
 
-  // Fast mode: broad crawl only — stays under Netlify ~26–30s gateway limit.
+  // Fast mode: broad crawl plus a slice of categories — searches run in
+  // parallel, so the added cost is Brave quota rather than wall clock, which
+  // is what keeps this under Netlify's ~26–30s gateway limit.
   if (options?.fast) {
-    return crawlMany(BROAD_QUERIES, REGION_DIRECT_URLS, 3);
+    const categories = options.categories ?? fastCrawlCategories();
+    const searches = [
+      ...BROAD_QUERIES.slice(0, 3),
+      ...categories.flatMap((cat) =>
+        getQueriesForCategory(cat).slice(0, FAST_CATEGORY_SEARCH_LIMIT),
+      ),
+    ];
+    const urls = new Set(REGION_DIRECT_URLS);
+    for (const cat of categories) {
+      for (const url of getDirectUrlsForCategory(cat)) urls.add(url);
+    }
+    return crawlMany(searches, [...urls], searches.length);
   }
 
   const broad = await crawlMany(BROAD_QUERIES, REGION_DIRECT_URLS, 4);

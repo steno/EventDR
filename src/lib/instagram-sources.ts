@@ -151,6 +151,23 @@ export const INSTAGRAM_ACCOUNTS = [
     areas: ["Puerto Plata"],
   },
 
+  // Business / institutional — chamber, free zone and the annual business forum
+  {
+    handle: "camarapuertoplata",
+    label: "Cámara de Comercio y Producción de Puerto Plata",
+    areas: ["Puerto Plata"],
+  },
+  {
+    handle: "foroempresarialpuertoplata",
+    label: "Foro Empresarial Puerto Plata",
+    areas: ["Puerto Plata", "Playa Dorada"],
+  },
+  {
+    handle: "zonafrancapuertoplata",
+    label: "Zona Franca Puerto Plata",
+    areas: ["Puerto Plata"],
+  },
+
   // Confirmed missing / renamed as of Jul 2026 logged-in scan — keep for recovery
   // { handle: "laxcabarete", label: "LAX Cabarete", areas: ["Cabarete"] },
   // { handle: "classicocabarete", label: "Classico Bar & Lounge", areas: ["Cabarete"] },
@@ -191,6 +208,10 @@ export function instagramSearchQueries(): string[] {
   const touristInfo = [
     "turismopuertoplata", "descubrepuertoplata", "sosuaevents",
   ].join(" OR ");
+
+  const institutional = [
+    "camarapuertoplata", "foroempresarialpuertoplata", "zonafrancapuertoplata",
+  ].join(" OR ");
   
   return [
     // General event discovery
@@ -219,6 +240,11 @@ export function instagramSearchQueries(): string[] {
     `site:instagram.com (${localVenues}) evento OR fiesta OR concierto OR "live music"`,
     `site:instagram.com (${culturalVenues}) concierto OR festival OR presentación`,
     `site:instagram.com (${touristInfo}) evento OR actividad OR fiesta`,
+    `site:instagram.com (${institutional}) foro OR feria OR congreso OR "rueda de negocios"`,
+    
+    // Business & institutional
+    `site:instagram.com foro empresarial OR "rueda de negocios" Puerto Plata`,
+    `site:instagram.com congreso OR seminario OR capacitación empresarial ${region}`,
     
     // Food & entertainment
     `site:instagram.com restaurante bar música ${region}`,

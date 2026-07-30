@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { fastCrawlCategories } from "@/lib/crawl";
 import { ingestSocialEvents } from "@/lib/ingest-social";
 import { insertIngestedEvents, isFirebaseConfigured } from "@/lib/firebase/events";
 import { generateOpinionDraftsForEvents } from "@/lib/event-opinion-drafts";
@@ -47,9 +48,11 @@ export async function POST(request: NextRequest) {
     const ping = setInterval(() => {
       void writeLine({ ping: true, t: Date.now() });
     }, 8000);
+    // Resolved here so the cron log records which categories this run covered.
+    const categories = fast ? fastCrawlCategories() : [];
     try {
-      await writeLine({ phase: "start", fast });
-      const events = await ingestSocialEvents("en", { fast });
+      await writeLine({ phase: "start", fast, categories });
+      const events = await ingestSocialEvents("en", { fast, categories });
       await writeLine({ phase: "crawled", discovered: events.length });
       const inserted = await insertIngestedEvents(events);
       const upserted = inserted.upserted + inserted.merged;
@@ -76,6 +79,7 @@ export async function POST(request: NextRequest) {
       await writeLine({
         success: true,
         fast,
+        categories,
         discovered: events.length,
         upserted,
         merged: inserted.merged,
