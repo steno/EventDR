@@ -821,7 +821,7 @@ export const SEED_VENUES: Venue[] = [
     lat: 19.7995463,
     lng: -70.6909467,
     emoji: "☕",
-    website: "https://victrolart.do/",
+    instagram: "victrolart",
   },
   {
     slug: "ocean-one-cabarete",
