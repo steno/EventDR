@@ -29,6 +29,7 @@ import { attachTicketUrls } from "@/lib/event-tickets";
 import { attachEventPhones } from "@/lib/event-phone";
 import { applyCuratedEventPatches } from "@/lib/curated-events";
 import { filterRemovedSeedEvents } from "@/lib/removed-seeds";
+import { applyTemporaryClosures } from "@/lib/temporary-closures";
 import { localizeEventsForDisplay } from "@/lib/localized-text";
 import { slimEventsForList } from "@/lib/list-payload";
 import { NO_STORE_CACHE_CONTROL } from "@/lib/http-cache";
@@ -146,6 +147,8 @@ export async function GET(request: NextRequest) {
     }
     events = sortEvents(events, category);
     events = applyCuratedEventPatches(events);
+    events = applyTemporaryClosures(events, locale);
+    events = localizeEventsForDisplay(events, locale);
     events = attachEventPhones(events);
     events = attachTicketUrls(events);
     events = attachEventImages(events);
