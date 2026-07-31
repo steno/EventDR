@@ -28,11 +28,6 @@ const KEYWORDS: KeywordMap = {
     { term: "go kart", weight: 2 },
     { term: "grand prix", weight: 2 },
     { term: "motorsport", weight: 2 },
-    { term: "snorkeling", weight: 2 },
-    { term: "snorkel", weight: 2 },
-    { term: "diving", weight: 2 },
-    { term: "buceo", weight: 2 },
-    { term: "scuba", weight: 2 },
     { term: "softball", weight: 2 },
     { term: "softbol", weight: 2 },
     { term: "basketball", weight: 2 },
@@ -42,11 +37,6 @@ const KEYWORDS: KeywordMap = {
     { term: "beisbol", weight: 2 },
     { term: "tournament", weight: 2 },
     { term: "torneo", weight: 2 },
-    { term: "trek", weight: 2 },
-    { term: "hike", weight: 2 },
-    { term: "caminata", weight: 2 },
-    { term: "randonnée", weight: 2 },
-    { term: "randonnee", weight: 2 },
     { term: "bodyboard", weight: 2 },
     "sport",
     "deporte",
@@ -325,6 +315,18 @@ const CATEGORY_AFFINITIES: Partial<Record<EventCategory, EventCategory[]>> = {
   concert: ["music", "performances"],
 };
 
+/**
+ * Secondaries that keyword inference must never add for a given primary.
+ * Adventure tours (boats, snorkel, hikes) stay off Sports unless explicitly tagged.
+ */
+const CATEGORY_INFERENCE_BLOCKS: Partial<
+  Record<EventCategory, EventCategory[]>
+> = {
+  adventure: ["sports"],
+  /** Game nights / socials with “tournament” in the copy stay off Sports. */
+  parties: ["sports"],
+};
+
 function keywordWeight(keyword: Keyword): { term: string; weight: number } {
   return typeof keyword === "string"
     ? { term: keyword, weight: 1 }
@@ -411,15 +413,16 @@ export function inferSecondaryCategories(
   primary: EventCategory,
   minScore = 2,
 ): EventCategory[] {
+  const blocked = new Set(CATEGORY_INFERENCE_BLOCKS[primary] ?? []);
   const scores = categoryScores(text);
   const fromKeywords = CATEGORY_IDS.filter((id) => {
     const category = id as EventCategory;
-    if (category === primary) return false;
+    if (category === primary || blocked.has(category)) return false;
     return (scores.get(category) ?? 0) >= minScore;
   }) as EventCategory[];
 
   const fromAffinity = (CATEGORY_AFFINITIES[primary] ?? []).filter(
-    (category) => category !== primary,
+    (category) => category !== primary && !blocked.has(category),
   );
 
   return [...new Set([...fromAffinity, ...fromKeywords])];

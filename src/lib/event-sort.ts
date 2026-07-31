@@ -34,6 +34,12 @@ export interface SortEventsForDisplayOptions {
    * then recurring — after time/schedule (does not float future one-offs above live/today).
    */
   oneTimeFirst?: boolean;
+  /**
+   * On category pages: within the same status tier, prefer events whose
+   * primary `category` matches this id over secondary-only matches
+   * (before time/schedule among those peers).
+   */
+  preferPrimaryCategory?: Event["category"];
   now?: Date;
 }
 
@@ -111,6 +117,7 @@ export function sortEventsForDisplay(
   const now = options.now ?? new Date();
   const recurringLast = options.recurringLast === true;
   const oneTimeFirst = options.oneTimeFirst === true;
+  const preferPrimary = options.preferPrimaryCategory;
 
   // Precompute sort keys once — listTier/time parsing is expensive in comparators.
   const keyed = events.map((event) => ({
@@ -122,10 +129,16 @@ export function sortEventsForDisplay(
     recurring: isRecurringEvent(event),
     kind: oneTimeKindRank(event),
     activeToday: isActiveToday(event, now),
+    primaryMatch: preferPrimary ? event.category === preferPrimary : true,
   }));
 
   keyed.sort((a, b) => {
     if (a.tier !== b.tier) return a.tier - b.tier;
+
+    // Category pages: primary matches before secondary-only, within the same status tier.
+    if (preferPrimary && a.primaryMatch !== b.primaryMatch) {
+      return a.primaryMatch ? -1 : 1;
+    }
 
     if (
       recurringLast &&

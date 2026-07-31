@@ -171,10 +171,11 @@ export function FilteredEventList({
     const sorted = sortEventsForDisplay(timeFiltered, {
       recurringLast: true,
       oneTimeFirst: true,
+      preferPrimaryCategory: categoryId,
     });
     if (activeRange !== "weekend") return sorted;
     return pinSpecialEvents(sorted, { placement: "weekend-list" });
-  }, [events, activeRange]);
+  }, [events, activeRange, categoryId]);
 
   const visibleEvents = Number.isFinite(visibleCount)
     ? filtered.slice(0, visibleCount)

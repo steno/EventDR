@@ -113,7 +113,6 @@ const FILE_TO_EVENT_ID = {
   "CremoBohemianWednesday.jpg": "cremo-bohemian-wednesday",
   "CremoKaraokeSaturday.jpg": "cremo-karaoke-saturday",
   "BigLeesWeekendMusic.jpg": "big-lees-weekend-music",
-  "DominoNoightColmado.JPG": "community-domino-sosua",
   "CabaretePickleBallMeet.JPG": "community-pickleball-cabarete",
   "espadrillas.jpeg": "ingest-make-authentic-espadrilles-in-puerto-plata",
   "ingest-el-blachy.jpg": "ingest-el-blachy",

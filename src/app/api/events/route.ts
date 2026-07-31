@@ -84,8 +84,11 @@ function mergeDbEvents(events: Event[], dbEvents: Event[]): Event[] {
   return mergeUniqueEvents(dbEvents, events);
 }
 
-function sortEvents(events: Event[]): Event[] {
-  return sortEventsForDisplay(events, { recurringLast: true });
+function sortEvents(events: Event[], category?: EventCategory): Event[] {
+  return sortEventsForDisplay(events, {
+    recurringLast: true,
+    preferPrimaryCategory: category,
+  });
 }
 
 const NO_STORE_HEADERS = {
@@ -141,7 +144,7 @@ export async function GET(request: NextRequest) {
     if (when) {
       events = filterByTimeRange(events, when);
     }
-    events = sortEvents(events);
+    events = sortEvents(events, category);
     events = applyCuratedEventPatches(events);
     events = attachEventPhones(events);
     events = attachTicketUrls(events);

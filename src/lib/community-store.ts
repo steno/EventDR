@@ -7,22 +7,6 @@ import { normalizeAdmissionPrice } from "./event-tickets";
 
 const SEED_COMMUNITY: Event[] = [
   {
-    id: "community-domino-sosua",
-    title: "Domino Night at the Colmado",
-    description:
-      "Friday night domino tournament behind the main colmado. Small entry fee, cold Presidente, serious bragging rights.",
-    date: "2026-07-10",
-    time: "8:00 PM",
-    location: "Sosúa",
-    venue: "Los Charamicos",
-    category: "parties",
-    format: "physical",
-    communitySubmitted: true,
-    recurrence: "weekly",
-    recurrenceDay: 5,
-    imageEmoji: "🎲",
-  },
-  {
     id: "community-pickleball-cabarete",
     title: "Cabarete Pickleball Meetup",
     description:

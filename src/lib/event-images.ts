@@ -27,7 +27,6 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "cremo-karaoke-saturday": "cremo-karaoke-saturday.jpg",
   "big-lees-weekend-music": "big-lees-weekend-music.jpg",
   "sea-horse-saturday-market": "sea-horse-saturday-market.jpg",
-  "community-domino-sosua": "community-domino-sosua.jpg",
   "community-pickleball-cabarete": "community-pickleball-cabarete.jpg",
   "ingest-make-authentic-espadrilles-in-puerto-plata":
     "ingest-make-authentic-espadrilles-in-puerto-plata.jpg",

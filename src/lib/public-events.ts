@@ -98,7 +98,10 @@ async function loadPublicEvents(filter: PublicEventsFilter): Promise<Event[]> {
 
   events = applyScopeFilters(events, filter);
   events = attachCoords(events);
-  events = sortEventsForDisplay(events, { recurringLast: true });
+  events = sortEventsForDisplay(events, {
+    recurringLast: true,
+    preferPrimaryCategory: category,
+  });
   // Curated patches may update localized copy — resolve locale after merging.
   events = applyCuratedEventPatches(events);
   events = localizeEventsForDisplay(events, locale);
@@ -126,7 +129,7 @@ const getCachedPublicEvents = unstable_cache(
       venueSlug: venueSlug || undefined,
       when: (when || undefined) as Exclude<TimeRange, "all"> | undefined,
     }),
-  ["public-events-v2"],
+  ["public-events-v4"],
   { revalidate: LISTING_REVALIDATE_SECONDS, tags: ["events"] },
 );
 
