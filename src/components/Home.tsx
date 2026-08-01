@@ -22,6 +22,7 @@ import { BottomNav } from "@/components/BottomNav";
 import { EventCard } from "@/components/EventCard";
 import { VenueAudienceCards } from "@/components/VenueAudienceCards";
 import { TodayHighlights } from "@/components/TodayHighlights";
+import { CrossPromoBanner } from "@/components/CrossPromoBanner";
 import { stickyBackControlClassName } from "@/components/StickyListHeader";
 import { useSavedEvents } from "@/hooks/useSavedEvents";
 import { useScrollChromeVisible } from "@/hooks/useScrollChrome";
@@ -409,6 +410,14 @@ function HomeApp({
                   returnTo={homePath}
                 />
               )}
+
+              {!isSearching ? (
+                <CrossPromoBanner
+                  dict={dict}
+                  variant="strip"
+                  className="mb-5 mt-1"
+                />
+              ) : null}
 
               {!isSearching && (
                 <VenueAudienceCards

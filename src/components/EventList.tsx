@@ -28,10 +28,12 @@ import { useForegroundRefresh } from "@/hooks/useForegroundRefresh";
 import { EventCard } from "./EventCard";
 import { EventCardSkeleton } from "./EventCardSkeleton";
 import { EventListScrollPads } from "./EventCardPlaceholder";
+import { CrossPromoBanner } from "./CrossPromoBanner";
 import { EventListError } from "./EventListError";
 import { SearchEmptyState } from "./SearchEmptyState";
 import { TimeFilter } from "./TimeFilter";
 import { ListScrollAnchor } from "./StickyListFilters";
+import { CROSS_PROMO_LIST_AFTER } from "@/lib/cross-promo";
 
 const EMPTY_EVENTS: Event[] = [];
 
@@ -349,17 +351,33 @@ export function EventList({
                 : "space-y-3 pt-3"
             }
           >
-            {visibleEvents.map((event) => (
-              <EventCard
-                key={event.id}
-                event={event}
-                dict={dict}
-                locale={locale}
-                returnTo={listReturnTo}
-                listTimeRange={timeRange}
-                view={isSearching ? "cards" : "list"}
-              />
-            ))}
+            {visibleEvents.flatMap((event, index) => {
+              const cards = [
+                <EventCard
+                  key={event.id}
+                  event={event}
+                  dict={dict}
+                  locale={locale}
+                  returnTo={listReturnTo}
+                  listTimeRange={timeRange}
+                  view={isSearching ? "cards" : "list"}
+                />,
+              ];
+              if (
+                index === CROSS_PROMO_LIST_AFTER - 1 &&
+                visibleEvents.length > CROSS_PROMO_LIST_AFTER
+              ) {
+                cards.push(
+                  <CrossPromoBanner
+                    key="cross-promo"
+                    dict={dict}
+                    variant="list"
+                    view={isSearching ? "cards" : "list"}
+                  />,
+                );
+              }
+              return cards;
+            })}
             <EventListScrollPads
               count={filtered.length}
               title={dict.events.yourEventHereTitle}

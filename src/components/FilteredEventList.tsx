@@ -25,9 +25,11 @@ import {
   EventCardPlaceholder,
   LIST_SCROLL_PAD_TARGET,
 } from "@/components/EventCardPlaceholder";
+import { CrossPromoBanner } from "@/components/CrossPromoBanner";
 import { SearchEmptyState } from "@/components/SearchEmptyState";
 import { AddEventButton } from "@/components/AddEventButton";
 import { fillTemplate } from "@/lib/seo";
+import { CROSS_PROMO_LIST_AFTER } from "@/lib/cross-promo";
 import type { EventListView } from "@/lib/event-list-view";
 
 const UNBOUNDED = Number.POSITIVE_INFINITY;
@@ -279,17 +281,33 @@ export function FilteredEventList({
                 : "space-y-3.5"
             }
           >
-            {visibleEvents.map((event) => (
-              <EventCard
-                key={event.id}
-                event={event}
-                dict={dict}
-                locale={locale}
-                returnTo={returnTo}
-                listTimeRange={fixedTimeRange ?? timeRange}
-                view={view}
-              />
-            ))}
+            {visibleEvents.flatMap((event, index) => {
+              const cards = [
+                <EventCard
+                  key={event.id}
+                  event={event}
+                  dict={dict}
+                  locale={locale}
+                  returnTo={returnTo}
+                  listTimeRange={fixedTimeRange ?? timeRange}
+                  view={view}
+                />,
+              ];
+              if (
+                index === CROSS_PROMO_LIST_AFTER - 1 &&
+                visibleEvents.length > CROSS_PROMO_LIST_AFTER
+              ) {
+                cards.push(
+                  <CrossPromoBanner
+                    key="cross-promo"
+                    dict={dict}
+                    variant="list"
+                    view={view}
+                  />,
+                );
+              }
+              return cards;
+            })}
             {showPadCta ? (
               <EventListScrollPads
                 count={filtered.length}

@@ -281,6 +281,17 @@ export const fr: Dictionary = {
     builtWith: "Fait avec ❤️ par",
     partners: "Pour hôtels et partenaires",
     support: "Soutenir POP",
+    crossPromo: "Domenus · menus digitaux",
+  },
+  crossPromo: {
+    ariaLabel: "Domenus — menus digitaux pour restaurants",
+    brand: "Domenus",
+    price: "RD$1,500",
+    sponsor: "Sponsorisé",
+    title: "Menu + QR pour votre lieu",
+    body: "Les clients scannent et commandent sur WhatsApp. Prêt en ~30 min.",
+    cta: "Obtenir Domenus",
+    dismiss: "Fermer",
   },
   supportNudge: {
     title: "Gardez POP gratuit pour le prochain voyageur",

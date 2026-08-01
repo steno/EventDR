@@ -245,6 +245,18 @@ export type Dictionary = {
     builtWith: string;
     partners: string;
     support: string;
+    /** Quiet footer link for Domenus cross-promo. */
+    crossPromo: string;
+  };
+  crossPromo: {
+    ariaLabel: string;
+    brand: string;
+    price: string;
+    sponsor: string;
+    title: string;
+    body: string;
+    cta: string;
+    dismiss: string;
   };
   supportNudge: {
     title: string;
@@ -651,6 +663,17 @@ export const en: Dictionary = {
     builtWith: "Built with ❤️ by",
     partners: "For hotels & partners",
     support: "Support POP",
+    crossPromo: "Domenus · digital menus",
+  },
+  crossPromo: {
+    ariaLabel: "Domenus — digital menus for restaurants",
+    brand: "Domenus",
+    price: "RD$1,500",
+    sponsor: "Sponsored",
+    title: "Menu + QR for your place",
+    body: "Guests scan & order on WhatsApp. Live in ~30 min.",
+    cta: "Get Domenus",
+    dismiss: "Dismiss",
   },
   supportNudge: {
     title: "Keep POP free for the next traveler",
