@@ -155,6 +155,12 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Discothèque de la Côte Nord sur la route Puerto Plata–Sosúa face à l'aéroport Gregorio Luperón — reggaeton, dembow, típico et soirées tardives (fermé lun–mer).",
     },
   },
+  "blue-ice-pianobar-sosua": {
+    description: {
+      es: "Piano bar y restaurante en la Calle Dr. Rosen de El Batey — noches largas, gogo dance los sábados y reservas de mesa por WhatsApp.",
+      fr: "Piano-bar et restaurant sur la Calle Dr. Rosen à El Batey — soirées tardives, gogo dance le samedi et réservations de table par WhatsApp.",
+    },
+  },
   "la-chabola-cabarete": {
     description: {
       es: "Bar de pizza del barrio en el Callejón de la Loma — pizzas al horno de piedra, músicos locales y open mic los miércoles con público asequible de Cabarete.",

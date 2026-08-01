@@ -37,6 +37,11 @@ export const INSTAGRAM_ACCOUNTS = [
     areas: ["Puerto Plata"],
   },
   {
+    handle: "djblueeventos",
+    label: "Dj Blue Eventos",
+    areas: ["Puerto Plata", "Imbert"],
+  },
+  {
     handle: "cabaretejazz",
     label: "Cabarete Jazz Festival",
     areas: ["Cabarete"],
@@ -198,6 +203,7 @@ export function instagramSearchQueries(): string[] {
   const localVenues = [
     "onnosbar", "shakabardr", "groundzero_disco", "blueice_pianobar",
     "driftercabarete", "nonasgrillkitchen", "hardrockcafepuertoplata",
+    "djblueeventos",
   ].join(" OR ");
 
   const culturalVenues = [

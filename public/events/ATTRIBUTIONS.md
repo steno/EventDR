@@ -56,6 +56,9 @@ Curated images under `public/events/` and `public/venues/`.
 | `puerto-plata-beach-soccer-2026.jpg` / `venues/playa-los-charamicos.jpg` | [Unsplash](https://unsplash.com/photos/photo-1543746746-46047c4f4bb0) (`photo-1543746746`) — Unsplash License | Soccer on sand with palms (replaces grass-pitch stock) |
 | `la-chabola-wednesday-open-mic.jpg` / `venues/la-chabola-cabarete.jpg` | [La Chabola Facebook](https://www.facebook.com/chabolacabaretee) — branded pizza cover | Venue-branded food hero for Wednesday open mic |
 | `groundzero-domingos-pal-pueblo.jpg` / `venues/ground-zero-disco.jpg` | [@groundzero_disco](https://www.instagram.com/groundzero_disco/p/DayWu9phE9R/) — Domingos Pal Pueblo flyer | Official Sunday party promo (kept as flyer by request) |
+| `groundzero-viernes-locos.jpg` | [@groundzero_disco](https://www.instagram.com/groundzero_disco/p/DbclfDnuf2U/) — Viernes Locos flyer | Official Friday whisky half-price party promo |
+| `groundzero-party-rojo-2026-08-01.jpg` | [@groundzero_disco](https://www.instagram.com/groundzero_disco/p/DbTqSiPPq35/) — Party Rojo flyer | Official Aug 1 2026 red-theme night flyer |
+| `blue-ice-saturday-gogo.jpg` | [@blueice_pianobar](https://www.instagram.com/blueice_pianobar/p/Cn7pItKJQMD/) — Every Saturdays Gogo Dance flyer | Official Saturday gogo dance promo |
 | `cabarete-pilates-reformer.jpg` | [Unsplash](https://unsplash.com/photos/woman-does-pilates-exercise-on-a-reformer-machine--j3ARb-gTBo) (`photo-1754257320311`) — Unsplash License | Reformer studio action (replaces Rafaella logo) |
 | `gym-sov-zumba-fitness.jpg` | [Wikimedia Commons — US Army Zumba class](https://commons.wikimedia.org/wiki/File:US_Army_52862_Zumba_adds_Latin_dance_to_fitness_routine.jpg) — Brittany Carlson (USAG Stuttgart), public domain | Generic Zumba class action for GYM SOV Tue/Thu listings |
 | `venues/gym-sov-sosua-ocean-village.webp` | POP curated `zumbavenue.webp` — GYM SOV / Sosúa Ocean Village | Venue place photo |

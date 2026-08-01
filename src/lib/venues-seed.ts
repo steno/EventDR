@@ -234,6 +234,18 @@ export const SEED_VENUES: Venue[] = [
     phone: "+18494651313",
   },
   {
+    slug: "blue-ice-pianobar-sosua",
+    name: "Blue Ice Piano Bar & Restaurant",
+    city: "Sosúa",
+    description:
+      "Piano bar and restaurant on Calle Dr. Rosen in El Batey — late nights, gogo dance Saturdays, and WhatsApp reservations for tables.",
+    lat: 19.7649879,
+    lng: -70.5150442,
+    emoji: "🍸",
+    instagram: "blueice_pianobar",
+    phone: "+18297977856",
+  },
+  {
     slug: "la-chabola-cabarete",
     name: "La Chabola",
     city: "Cabarete",
