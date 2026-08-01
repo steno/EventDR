@@ -671,6 +671,23 @@ const FALLBACK_EVENTS_EN: Event[] = [
       "https://www.facebook.com/events/2243877129723142/2243877133056475",
     imageEmoji: "😊",
   },
+  {
+    id: "huelga-velada-maltrato-animal-torre-alta-2026-08-07",
+    title: "Huelga-Velada Pacífica — No Maltrato Animal",
+    description:
+      "Peaceful strike-vigil against animal abuse at the entrance to Torre Alta in Puerto Plata — Friday Aug 7 at 6:30 PM. Community candlelight gathering in response to recent pet poisonings in Torre Alta II; free and open. Slogan: “No es solo por ellos, es por todos.”",
+    date: "2026-08-07",
+    time: "6:30 PM",
+    location: "Puerto Plata",
+    venue: "Entrada de Torre Alta",
+    address: "Urbanización Torre Alta, Puerto Plata",
+    lat: 19.77605,
+    lng: -70.68428,
+    category: "culture",
+    format: "physical",
+    isFree: true,
+    imageEmoji: "🕯️",
+  },
 ];
 
 const FALLBACK_EVENTS_ES: Event[] = [
@@ -1315,6 +1332,23 @@ const FALLBACK_EVENTS_ES: Event[] = [
     sourceUrl:
       "https://www.facebook.com/events/2243877129723142/2243877133056475",
     imageEmoji: "😊",
+  },
+  {
+    id: "huelga-velada-maltrato-animal-torre-alta-2026-08-07",
+    title: "Huelga-Velada Pacífica — No Maltrato Animal",
+    description:
+      "Huelga-velada pacífica por el no maltrato animal en la entrada de Torre Alta, Puerto Plata — viernes 7 de agosto a las 6:30 PM. Concentración comunitaria con velas en respuesta al envenenamiento de mascotas en Torre Alta II; gratuita y abierta. “No es solo por ellos, es por todos.”",
+    date: "2026-08-07",
+    time: "6:30 PM",
+    location: "Puerto Plata",
+    venue: "Entrada de Torre Alta",
+    address: "Urbanización Torre Alta, Puerto Plata",
+    lat: 19.77605,
+    lng: -70.68428,
+    category: "culture",
+    format: "physical",
+    isFree: true,
+    imageEmoji: "🕯️",
   },
 ];
 

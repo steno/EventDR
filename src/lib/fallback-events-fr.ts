@@ -644,4 +644,21 @@ export const FALLBACK_EVENTS_FR: Event[] = [
       "https://www.facebook.com/events/2243877129723142/2243877133056475",
     imageEmoji: "😊",
   },
+  {
+    id: "huelga-velada-maltrato-animal-torre-alta-2026-08-07",
+    title: "Huelga-Velada Pacífica — No Maltrato Animal",
+    description:
+      "Veillée-grève pacifique contre la maltraitance animale à l'entrée de Torre Alta, Puerto Plata — vendredi 7 août à 18 h 30. Rassemblement communautaire aux chandelles suite aux empoisonnements d'animaux à Torre Alta II ; gratuit et ouvert. « No es solo por ellos, es por todos. »",
+    date: "2026-08-07",
+    time: "6:30 PM",
+    location: "Puerto Plata",
+    venue: "Entrada de Torre Alta",
+    address: "Urbanización Torre Alta, Puerto Plata",
+    lat: 19.77605,
+    lng: -70.68428,
+    category: "culture",
+    format: "physical",
+    isFree: true,
+    imageEmoji: "🕯️",
+  },
 ];

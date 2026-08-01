@@ -100,6 +100,8 @@ async function loadPublicEvents(filter: PublicEventsFilter): Promise<Event[]> {
   events = attachCoords(events);
   events = sortEventsForDisplay(events, {
     recurringLast: true,
+    oneTimeFirst: Boolean(category),
+    discoveryMode: Boolean(category),
     preferPrimaryCategory: category,
   });
   // Curated patches may update localized copy — resolve locale after merging.

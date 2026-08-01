@@ -35,12 +35,41 @@ export interface SortEventsForDisplayOptions {
    */
   oneTimeFirst?: boolean;
   /**
+   * Category "All" browse: keep live urgency first, then float non-recurring
+   * dated events above the evergreen recurring catalog (closed-today museums, etc.).
+   */
+  discoveryMode?: boolean;
+  /**
    * On category pages: within the same status tier, prefer events whose
    * primary `category` matches this id over secondary-only matches
    * (before time/schedule among those peers).
    */
   preferPrimaryCategory?: Event["category"];
   now?: Date;
+}
+
+/**
+ * Lower = higher in discovery lists.
+ * 0 urgency (live / ending soon / upcoming today),
+ * 1 dated non-recurring still relevant,
+ * 2 evergreen recurring + ended/past.
+ */
+function discoveryBand(tier: number, recurring: boolean): number {
+  if (
+    tier === LIST_TIER.live ||
+    tier === LIST_TIER.endingSoon ||
+    tier === LIST_TIER.upcomingToday
+  ) {
+    return 0;
+  }
+  if (
+    !recurring &&
+    tier !== LIST_TIER.endedToday &&
+    tier !== LIST_TIER.past
+  ) {
+    return 1;
+  }
+  return 2;
 }
 
 /**
@@ -117,22 +146,30 @@ export function sortEventsForDisplay(
   const now = options.now ?? new Date();
   const recurringLast = options.recurringLast === true;
   const oneTimeFirst = options.oneTimeFirst === true;
+  const discoveryMode = options.discoveryMode === true;
   const preferPrimary = options.preferPrimaryCategory;
 
   // Precompute sort keys once — listTier/time parsing is expensive in comparators.
-  const keyed = events.map((event) => ({
-    event,
-    tier: listTier(event, now),
-    start: eventStartTimeMinutes(event.time),
-    end: eventEndTimeMinutes(event.time),
-    hasRange: hasExplicitTimeRange(event.time),
-    recurring: isRecurringEvent(event),
-    kind: oneTimeKindRank(event),
-    activeToday: isActiveToday(event, now),
-    primaryMatch: preferPrimary ? event.category === preferPrimary : true,
-  }));
+  const keyed = events.map((event) => {
+    const tier = listTier(event, now);
+    const recurring = isRecurringEvent(event);
+    return {
+      event,
+      tier,
+      band: discoveryMode ? discoveryBand(tier, recurring) : 0,
+      start: eventStartTimeMinutes(event.time),
+      end: eventEndTimeMinutes(event.time),
+      hasRange: hasExplicitTimeRange(event.time),
+      recurring,
+      kind: oneTimeKindRank(event),
+      activeToday: isActiveToday(event, now),
+      primaryMatch: preferPrimary ? event.category === preferPrimary : true,
+    };
+  });
 
   keyed.sort((a, b) => {
+    if (discoveryMode && a.band !== b.band) return a.band - b.band;
+
     if (a.tier !== b.tier) return a.tier - b.tier;
 
     // Category pages: primary matches before secondary-only, within the same status tier.

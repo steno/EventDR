@@ -15,8 +15,8 @@ export { prioritizeOneTimeEvents } from "@/lib/event-sort";
 /** Max cards in the home "Happening today" section (desktop 2×2). */
 export const HOME_TODAY_LIMIT = 4;
 
-/** Max events in the home "Our picks" section. */
-export const HOME_PICKS_LIMIT = 10;
+/** Max events in the home "Our picks" section (12 fills 3-col + 2-col grids evenly). */
+export const HOME_PICKS_LIMIT = 12;
 
 /** Extra cards revealed per "More events" tap on capped lists. */
 export const LIST_PAGE_SIZE = HOME_PICKS_LIMIT;

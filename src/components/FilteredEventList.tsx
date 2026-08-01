@@ -171,6 +171,7 @@ export function FilteredEventList({
     const sorted = sortEventsForDisplay(timeFiltered, {
       recurringLast: true,
       oneTimeFirst: true,
+      discoveryMode: Boolean(categoryId) && activeRange === "all",
       preferPrimaryCategory: categoryId,
     });
     if (activeRange !== "weekend") return sorted;
