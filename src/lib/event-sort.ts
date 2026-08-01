@@ -50,16 +50,15 @@ export interface SortEventsForDisplayOptions {
 
 /**
  * Lower = higher in discovery lists.
- * 0 urgency (live / ending soon / upcoming today),
- * 1 dated non-recurring still relevant,
- * 2 evergreen recurring + ended/past.
+ * 0 real urgency — live / ending soon, or a one-off still upcoming today
+ * 1 dated non-recurring still relevant (future one-offs, multi-day, etc.)
+ * 2 evergreen recurring catalog (incl. “opens later today” / closed-today dailies)
  */
 function discoveryBand(tier: number, recurring: boolean): number {
-  if (
-    tier === LIST_TIER.live ||
-    tier === LIST_TIER.endingSoon ||
-    tier === LIST_TIER.upcomingToday
-  ) {
+  if (tier === LIST_TIER.live || tier === LIST_TIER.endingSoon) {
+    return 0;
+  }
+  if (tier === LIST_TIER.upcomingToday && !recurring) {
     return 0;
   }
   if (

@@ -48,6 +48,33 @@ describe("sortEventsForDisplay discoveryMode", () => {
     assert.equal(withDiscovery.map((e) => e.id).join(","), "vigil-one-off,museum-daily");
   });
 
+  it("ranks a future one-off above a recurring museum that opens later today", () => {
+    /** Saturday Aug 1, 2026 00:53 America/Santo_Domingo — before museum hours. */
+    const earlyMorning = new Date("2026-08-01T04:53:00.000Z");
+    const museum = event({
+      id: "museum-daily",
+      title: "La Confluencia Ethnographic Museum",
+      date: "2026-08-01",
+      time: "9:00 AM – 5:00 PM",
+      recurrence: "daily",
+    });
+    const vigil = event({
+      id: "vigil-one-off",
+      title: "Huelga-Velada Pacífica",
+      date: "2026-08-07",
+      time: "6:30 PM",
+    });
+
+    const sorted = sortEventsForDisplay([museum, vigil], {
+      now: earlyMorning,
+      discoveryMode: true,
+      oneTimeFirst: true,
+      preferPrimaryCategory: "culture",
+      recurringLast: true,
+    });
+    assert.equal(sorted.map((e) => e.id).join(","), "vigil-one-off,museum-daily");
+  });
+
   it("keeps live urgency above a future one-off", () => {
     const liveShow = event({
       id: "live-concert",
@@ -68,5 +95,32 @@ describe("sortEventsForDisplay discoveryMode", () => {
       oneTimeFirst: true,
     });
     assert.equal(sorted.map((e) => e.id).join(","), "live-concert,vigil-one-off");
+  });
+
+  it("keeps preferPrimary ahead of schedule within the same discovery band", () => {
+    const secondary = event({
+      id: "adventure-bleed",
+      title: "Boat Snorkel Tour",
+      date: "2026-08-08",
+      time: "9:00 AM",
+      category: "adventure",
+      categories: ["sports"],
+    });
+    const primary = event({
+      id: "sports-game",
+      title: "Atléticos Home Game",
+      date: "2026-08-09",
+      time: "5:00 PM",
+      category: "sports",
+    });
+
+    const sorted = sortEventsForDisplay([secondary, primary], {
+      now: NOW,
+      discoveryMode: true,
+      oneTimeFirst: true,
+      preferPrimaryCategory: "sports",
+      recurringLast: true,
+    });
+    assert.equal(sorted.map((e) => e.id).join(","), "sports-game,adventure-bleed");
   });
 });

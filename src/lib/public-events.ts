@@ -131,7 +131,7 @@ const getCachedPublicEvents = unstable_cache(
       venueSlug: venueSlug || undefined,
       when: (when || undefined) as Exclude<TimeRange, "all"> | undefined,
     }),
-  ["public-events-v4"],
+  ["public-events-v5"],
   { revalidate: LISTING_REVALIDATE_SECONDS, tags: ["events"] },
 );
 
