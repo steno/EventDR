@@ -16,6 +16,10 @@ type CuratedPatch = Partial<
   admissionPrice?: Event["admissionPrice"] | null;
   callForPricing?: Event["callForPricing"] | null;
   ticketUrl?: Event["ticketUrl"] | null;
+  venueSlug?: Event["venueSlug"] | null;
+  address?: Event["address"] | null;
+  lat?: Event["lat"] | null;
+  lng?: Event["lng"] | null;
 };
 
 /** Stable id patches (preferred over title key). */

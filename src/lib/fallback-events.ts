@@ -611,23 +611,6 @@ const FALLBACK_EVENTS_EN: Event[] = [
     imageEmoji: "🌅",
   },
   {
-    id: "piscinazo-pop-urbano-037-2026-08-02",
-    title: "Piscinazo POP Urbano 037 — 1st Edition",
-    description:
-      "First 2026 pool-party showcase from Pop Urbano 037 under the Black & White Music and Entertainment label — five Puerto Plata singers take the stage. Venue TBA in San Felipe; follow the Facebook event for lineup votes and details.",
-    date: "2026-08-02",
-    time: "10:00 AM",
-    location: "Puerto Plata",
-    venue: "San Felipe de Puerto Plata",
-    category: "parties",
-    categories: ["music"],
-    format: "physical",
-    trending: true,
-    callForPricing: true,
-    sourceUrl: "https://www.facebook.com/events/979095458299610",
-    imageEmoji: "🏊",
-  },
-  {
     id: "los-event-trilogy-2026-09-03",
     title: "LOS Event — Trilogy Labor Day Weekend",
     description:
@@ -1271,23 +1254,6 @@ const FALLBACK_EVENTS_ES: Event[] = [
       "https://tix.do/event/SUNSETNIGTHPARTYONEEVENTTWOEXPERIENCES-1",
     lineup: ["HYPER", "ALDENKINGS", "TAÏF"],
     imageEmoji: "🌅",
-  },
-  {
-    id: "piscinazo-pop-urbano-037-2026-08-02",
-    title: "Piscinazo POP Urbano 037 — 1ra Edición",
-    description:
-      "Primer piscinazo 2026 de Pop Urbano 037 bajo el sello Black & White Music and Entertainment — cinco cantantes de Puerto Plata en escena. Lugar por confirmar en San Felipe; sigue el evento de Facebook para votar el lineup y más detalles.",
-    date: "2026-08-02",
-    time: "10:00 AM",
-    location: "Puerto Plata",
-    venue: "San Felipe de Puerto Plata",
-    category: "parties",
-    categories: ["music"],
-    format: "physical",
-    trending: true,
-    callForPricing: true,
-    sourceUrl: "https://www.facebook.com/events/979095458299610",
-    imageEmoji: "🏊",
   },
   {
     id: "los-event-trilogy-2026-09-03",

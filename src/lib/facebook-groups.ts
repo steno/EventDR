@@ -179,7 +179,6 @@ const FACEBOOK_SEED_EVENT_IDS_BASE = [
   "cabarete-jazz-festival-2026",
   "jandy-ventura-legado-caballo-2026",
   "silent-run-5k-2026-07-25",
-  "piscinazo-pop-urbano-037-2026-08-02",
   "los-event-trilogy-2026-09-03",
   "sunset-laughter-club-cabarete",
 ] as const;

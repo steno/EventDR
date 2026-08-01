@@ -33,6 +33,8 @@ export const REMOVED_SEED_EVENT_IDS = new Set([
   "malecon-live-concert",
   // Ingest misfire: Expo Amaprosan is Parque Central de Santiago (Cibao), not POP.
   "ingest-expo-amaprosan-2026",
+  // Pop Urbano 037 podcast brand — not a verified North Coast dated event.
+  "piscinazo-pop-urbano-037-2026-08-02",
 ]);
 
 export function filterRemovedSeedEvents(events: Event[]): Event[] {

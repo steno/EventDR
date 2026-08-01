@@ -16,9 +16,9 @@ function slugifyVenue(text: string): string {
 function looksLikeRealVenueName(name: string): boolean {
   const t = name.trim();
   if (t.length < 4 || t.length > 80) return false;
-  // Skip bare city labels used as venue.
+  // Skip bare city / municipality labels used as venue.
   if (
-    /^(cabarete|sos[uú]a|puerto\s*plata|costambar|playa\s*dorada|north\s*coast)$/i.test(
+    /^(cabarete|sos[uú]a|puerto\s*plata|san\s*felipe(\s*de\s*puerto\s*plata)?|costambar|playa\s*dorada|north\s*coast)$/i.test(
       t,
     )
   ) {

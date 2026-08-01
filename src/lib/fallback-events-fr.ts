@@ -584,23 +584,6 @@ export const FALLBACK_EVENTS_FR: Event[] = [
     imageEmoji: "🌅",
   },
   {
-    id: "piscinazo-pop-urbano-037-2026-08-02",
-    title: "Piscinazo POP Urbano 037 — 1re édition",
-    description:
-      "Premier piscinazo 2026 de Pop Urbano 037 sous le label Black & White Music and Entertainment — cinq chanteurs de Puerto Plata sur scène. Lieu à confirmer à San Felipe ; suivez l'événement Facebook pour voter le lineup et plus de détails.",
-    date: "2026-08-02",
-    time: "10:00 AM",
-    location: "Puerto Plata",
-    venue: "San Felipe de Puerto Plata",
-    category: "parties",
-    categories: ["music"],
-    format: "physical",
-    trending: true,
-    callForPricing: true,
-    sourceUrl: "https://www.facebook.com/events/979095458299610",
-    imageEmoji: "🏊",
-  },
-  {
     id: "los-event-trilogy-2026-09-03",
     title: "LOS Event — Week-end Labor Day avec Trilogy",
     description:
