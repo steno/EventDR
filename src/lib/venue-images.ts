@@ -71,6 +71,7 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "la-chabola-cabarete": "la-chabola-cabarete.jpg",
   "ground-zero-disco": "ground-zero-disco.jpg",
   "victrola-037": "victrola-037.jpg",
+  "cigar-town-pop": "cigar-town-pop.jpg",
   "ocean-one-cabarete": "ocean-one-cabarete.jpg",
   "vip-beach-lifestyles-resort": "vip-beach-lifestyles-resort.jpg",
   "gym-sov-sosua-ocean-village": "gym-sov-sosua-ocean-village.webp",

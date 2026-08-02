@@ -72,13 +72,15 @@ export const SEED_VENUES: Venue[] = [
   },
   {
     slug: "castaways-sosua",
-    name: "Castaway's Clubhouse & Eatery",
+    name: "Chill & Grill Bar & Eatery",
     city: "Sosúa",
     description:
-      "Expat clubhouse in Casa Linda with classic-rock cover bands, wing specials, and a North American pub atmosphere.",
+      "Casa Linda's community bar and eatery (formerly Castaway's) — food, drink specials, live events, and expat social nights at the Phase 7–9 entrance on Carretera El Choco.",
     lat: 19.7643646,
     lng: -70.4890209,
-    emoji: "🎸",
+    emoji: "🎱",
+    phone: "+18296798389",
+    website: "https://www.facebook.com/chillandgrilldr/",
   },
   {
     slug: "hotel-voramar-sosua",
@@ -194,11 +196,12 @@ export const SEED_VENUES: Venue[] = [
     name: "Parada Típica El Choco",
     city: "Sosúa",
     description:
-      "Roadside restaurant on the Sosúa–Cabarete corridor — Dominican and international plates, dance floor, and Tuesday live-music nights popular with locals and residents.",
+      "Roadside Swiss-Italian restaurant on the Sosúa–Cabarete corridor — Tuesday aperitivo with rotating live bands from 5:00 PM, free finger food, and a local/expat crowd opposite Ocean Village.",
     lat: 19.7726199,
     lng: -70.4964466,
     emoji: "🎵",
     phone: "+18098042510",
+    instagram: "paradaelchoco",
   },
   {
     slug: "blue-jacktar-playa-dorada",
@@ -891,6 +894,17 @@ export const SEED_VENUES: Venue[] = [
     emoji: "🎶",
     googlePlaceId: "ChIJlUlv1FSosY4R9XlZloLWhl0",
   },
+  {
+    slug: "cigar-town-pop",
+    name: "Cigar Town Pop",
+    city: "Puerto Plata",
+    description:
+      "Cigar lounge and session spot on Av. Luis Ginebra — premium puros, whisky, and intimate live acoustic nights in downtown Puerto Plata.",
+    lat: 19.7915,
+    lng: -70.6805,
+    emoji: "🚬",
+    instagram: "cigartownpop",
+  },
 ];
 
 /** Extra name fragments → seed slug (checked before fuzzy name includes). */
@@ -918,6 +932,10 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
   {
     pattern: /victrola\s*037|la\s*victrola/i,
     slug: "victrola-037",
+  },
+  {
+    pattern: /cigar\s*town(\s*pop)?/i,
+    slug: "cigar-town-pop",
   },
   {
     pattern: /cacique(\s+monci[oó]n)?|disco\s+restaurant\s+cacique|restaurante\s+cacique/i,

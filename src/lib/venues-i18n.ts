@@ -47,8 +47,8 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
   },
   "castaways-sosua": {
     description: {
-      es: "Club expat en Casa Linda con bandas de rock clásico, alitas y ambiente de pub norteamericano.",
-      fr: "Club expat à Casa Linda avec groupes de rock classique, ailes de poulet et ambiance pub nord-américaine.",
+      es: "Bar y eatery comunitario de Casa Linda (antes Castaway's) — comida, especiales de tragos, eventos en vivo y noches sociales expat en la entrada Phase 7–9 de Carretera El Choco.",
+      fr: "Bar et eatery communautaire de Casa Linda (ex-Castaway's) — cuisine, specials boissons, live et soirées sociales expat à l'entrée Phase 7–9, Carretera El Choco.",
     },
   },
   "hotel-voramar-sosua": {
@@ -117,8 +117,8 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
   },
   "parada-tipica-el-choco": {
     description: {
-      es: "Restaurante en la carretera Sosúa–Cabarete — platos dominicanos e internacionales, pista de baile y música en vivo los martes, favorito de locales y residentes.",
-      fr: "Restaurant sur la route Sosúa–Cabarete — cuisine dominicaine et internationale, piste de danse et musique live le mardi, prisé des locaux et résidents.",
+      es: "Restaurante suizo-italiano en la carretera Sosúa–Cabarete — aperitivo los martes desde las 5:00 PM con bandas distintas cada semana, finger food gratis y público local/expat frente a Ocean Village.",
+      fr: "Restaurant suisse-italien sur la route Sosúa–Cabarete — apéritivo le mardi dès 17 h avec un groupe différent chaque semaine, finger food offert et public local/expat face à Ocean Village.",
     },
   },
   "parque-nacional-el-choco": {
@@ -451,6 +451,12 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
     description: {
       es: "Café-arte y restaurante en el Malecón de Puerto Plata — murales, cocina criolla, cócteles y punto de encuentro para experiencias frente al mar en Av. Gregorio Luperón esq. Padre Castellanos.",
       fr: "Café d'art et restaurant sur le Malecón de Puerto Plata — murals, cuisine créole, cocktails et point de rendez-vous pour des expériences en bord de mer à l'Av. Gregorio Luperón esq. Padre Castellanos.",
+    },
+  },
+  "cigar-town-pop": {
+    description: {
+      es: "Lounge de cigarros y sesiones en Av. Luis Ginebra — puros premium, whisky y noches acústicas íntimas en el centro de Puerto Plata.",
+      fr: "Lounge à cigares et sessions sur l'Av. Luis Ginebra — puros premium, whisky et soirées acoustiques intimistes au centre de Puerto Plata.",
     },
   },
   "ocean-one-cabarete": {

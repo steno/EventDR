@@ -139,6 +139,11 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "groundzero-party-rojo-2026-08-01": "groundzero-party-rojo-2026-08-01.jpg",
   "blue-ice-saturday-gogo": "blue-ice-saturday-gogo.jpg",
   "silent-run-5k-2026-07-25": "silent-run-5k-2026-07-25.jpg",
+  "victrola-sabado-bailable": "victrola-sabado-bailable.jpg",
+  "victrola-ladies-night-friday": "victrola-ladies-night-friday.jpg",
+  "cigar-town-acustico-humos-2026-08-14":
+    "cigar-town-acustico-humos-2026-08-14.jpg",
+  "chill-and-grill-bingo-2026-08-03": "chill-and-grill-bingo-2026-08-03.jpg",
   "sunset-night-party-playa-encuentro-2026-07-25":
     "sunset-night-party-playa-encuentro-2026-07-25.jpg",
   "los-event-trilogy-2026-09-03": "los-event-trilogy-2026-09-03.jpg",

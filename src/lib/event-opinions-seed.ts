@@ -171,10 +171,10 @@ export const SEED_EVENT_OPINIONS_BASE: EventOpinion[] = [
   {
     eventId: "parada-tipica-el-choco-tuesday-live",
     seriesKey: "parada-tipica-el-choco:weekly:2",
-    body: "Arrive hungry and early if you want a table before the dance floor peaks — roadside energy, not beach-bar chic.",
+    body: "RSVP — free finger food runs ~5–7 PM and a different band each Tuesday; tables go first opposite Ocean Village.",
     localized: {
-      es: "Llega con hambre y temprano si quieres mesa antes de que la pista se llene — energía de parada, no beach-bar chic.",
-      fr: "Venez tôt et affamés pour avoir une table avant que la piste ne se remplisse — énergie de parada, pas beach-bar chic.",
+      es: "Reserva — finger food gratis ~5–7 PM y banda distinta cada martes; las mesas se van primero frente a Ocean Village.",
+      fr: "Réservez — finger food offert ~17–19 h et un groupe différent chaque mardi ; les tables partent vite face à Ocean Village.",
     },
     priceFeel: "moderate",
     priceNote:
@@ -183,9 +183,10 @@ export const SEED_EVENT_OPINIONS_BASE: EventOpinion[] = [
       es: "Gasto de restaurante local — platos dominicanos y tragos a precio de corredor, no markup turístico del Malecón",
       fr: "Addition resto local — plats dominicains et verres au tarif corridor, pas le markup touristique du Malecón",
     },
-    attribution: "POP research · venue history + listing",
-    researchNotes: "Roadside típico pricing vs beach tourist bars.",
-    updatedAt: AT,
+    attribution: "POP research · @paradaelchoco + local tip",
+    researchNotes:
+      "Official IG aperitivo flyers (5–7pm free finger food, RSVP); Darwin Martinez tip: every Tuesday different band from 5pm.",
+    updatedAt: "2026-08-02T22:40:00.000Z",
   },
   {
     eventId: "hard-rock-weekends",
@@ -407,6 +408,76 @@ export const SEED_EVENT_OPINIONS_BASE: EventOpinion[] = [
     attribution: "POP research · cabaretefitnesscamp.com",
     researchNotes: "Official Weightloss Camp page lists from ~$3990–3999/mo first month inclusions.",
     updatedAt: "2026-07-23T16:00:00.000Z",
+  },
+  {
+    eventId: "victrola-sabado-bailable",
+    seriesKey: "victrola-037:weekly:6",
+    body: "Starts at 10 PM and runs late — come to dance salsa/merengue/bachata, not for an early dinner on the Malecón.",
+    localized: {
+      es: "Empieza a las 10 PM y se alarga — ven a bailar salsa/merengue/bachata, no a cenar temprano en el Malecón.",
+      fr: "Ça commence à 22 h et ça dure — venez danser salsa/merengue/bachata, pas dîner tôt sur le Malecón.",
+    },
+    priceFeel: "moderate",
+    priceNote: "Malecón café-bar spend — drinks and snacks; no cover announced on the flyer",
+    priceNoteLocalized: {
+      es: "Gasto de café-bar del Malecón — tragos y snacks; sin cover anunciado en el flyer",
+      fr: "Budget café-bar du Malecón — boissons et snacks ; pas de cover annoncé sur le flyer",
+    },
+    attribution: "POP research · @victrolart Jul 2026",
+    researchNotes: "Official IG sábado bailable flyer — from 10 PM to 1 AM.",
+    updatedAt: "2026-08-02T22:40:00.000Z",
+  },
+  {
+    eventId: "victrola-ladies-night-friday",
+    seriesKey: "victrola-037:weekly:5",
+    body: "Early Malecón window (7–9 PM) with free sangria — better for a mellow start than the late Saturday dance floor.",
+    localized: {
+      es: "Ventana temprana en el Malecón (7–9 PM) con sangría gratis — mejor para arrancar suave que la pista tardía del sábado.",
+      fr: "Créneau Malecón tôt (19–21 h) avec sangria offerte — mieux pour démarrer soft que la piste tardive du samedi.",
+    },
+    priceFeel: "moderate",
+    priceNote: "Free sangria promo — other drinks/food at Malecón café prices",
+    priceNoteLocalized: {
+      es: "Promo de sangría gratis — resto de tragos/comida a precio de café del Malecón",
+      fr: "Promo sangria offerte — autres boissons/repas au tarif café Malecón",
+    },
+    attribution: "POP research · @victrolart + local tip",
+    researchNotes: "Ladies Night flyer: Lisbeth Naar, free sangria, 7–9 PM; friend-confirmed still active.",
+    updatedAt: "2026-08-02T22:40:00.000Z",
+  },
+  {
+    eventId: "chill-and-grill-bingo-2026-08-03",
+    body: "Casa Linda community night — WhatsApp the venue for cards/cover; not a tourist strip bingo hall.",
+    localized: {
+      es: "Noche de comunidad en Casa Linda — escribe por WhatsApp por cartones/cover; no es bingo de strip turístico.",
+      fr: "Soirée voisinage à Casa Linda — WhatsApp pour cartons/cover ; pas un bingo de strip touristique.",
+    },
+    priceFeel: "moderate",
+    priceNote: "Confirm card packs and any cover by WhatsApp — food/drinks at neighborhood bar prices",
+    priceNoteLocalized: {
+      es: "Confirma cartones y cover por WhatsApp — comida/tragos a precio de bar de barrio",
+      fr: "Confirmez cartons et cover par WhatsApp — resto/boissons au tarif bar de quartier",
+    },
+    attribution: "POP research · Everything Sosúa tip",
+    researchNotes: "Nic Fowler tip: bingo Mon Aug 3 6:30pm Chill & Grill; venue WhatsApp +18296798389.",
+    updatedAt: "2026-08-02T22:40:00.000Z",
+  },
+  {
+    eventId: "cigar-town-acustico-humos-2026-08-14",
+    body: "Intimate lounge night — confirm start time on IG; expect cigar/whisky spend more than a dance-club cover.",
+    localized: {
+      es: "Noche íntima de lounge — confirma la hora en IG; espera más gasto en cigarro/whisky que cover de disco.",
+      fr: "Soirée lounge intimiste — confirmez l'heure sur IG ; budget cigare/whisky plus que cover disco.",
+    },
+    priceFeel: "upscale",
+    priceNote: "Cigar lounge pricing — puros and whisky drive the check; start time not on the flyer",
+    priceNoteLocalized: {
+      es: "Precios de lounge de cigarros — puros y whisky marcan la cuenta; hora no está en el flyer",
+      fr: "Tarifs lounge à cigares — puros et whisky font l'addition ; heure absente du flyer",
+    },
+    attribution: "POP research · @cigartownpop",
+    researchNotes: "Official IG: Fri Aug 14 Acústico & Humos with Eddy Almonte & Café Meclao, Luis Ginebra 56.",
+    updatedAt: "2026-08-02T22:40:00.000Z",
   },
 ];
 

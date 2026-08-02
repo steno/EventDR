@@ -108,6 +108,10 @@ const FILE_TO_EVENT_ID = {
   "batey-open-mic-weekly.jpg": "batey-open-mic-weekly",
   "lax-headline-concerts.jpg": "lax-headline-concerts",
   "CremoSalsaFriday.jpg": "cremo-salsa-friday",
+  "victrola-sabado-bailable.jpg": "victrola-sabado-bailable",
+  "victrola-ladies-night-friday.jpg": "victrola-ladies-night-friday",
+  "cigar-town-acustico-humos-2026-08-14.jpg":
+    "cigar-town-acustico-humos-2026-08-14",
   "CremoBohemianWednesday.jpg": "cremo-bohemian-wednesday",
   "CremoKaraokeSaturday.jpg": "cremo-karaoke-saturday",
   "BigLeesWeekendMusic.jpg": "big-lees-weekend-music",
@@ -193,6 +197,7 @@ const FILE_TO_VENUE_SLUG = {
   "paseo-de-db.jpg": "paseo-dona-blanca",
   "elcareyrestaurant.webp": "el-carey-puerto-plata",
   "victrola-037.jpg": "victrola-037",
+  "cigar-town-pop.jpg": "cigar-town-pop",
   "ocean-one-cabarete.jpg": "ocean-one-cabarete",
   "vip-beach-lifestyles-resort.jpg": "vip-beach-lifestyles-resort",
   "cacique-moncion.jpg": "cacique-moncion",

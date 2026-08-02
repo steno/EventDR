@@ -42,11 +42,11 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "castaways-sosua": {
-    body: "Casa Linda's expat clubhouse night — wings, classic-rock covers, low drama. Skip it if you came for dembow or a fashion crowd.",
+    body: "Casa Linda's neighborhood hub (now Chill & Grill) — food, drink specials, and low-drama expat nights. Skip it if you came for dembow or a fashion crowd.",
     localized: {
-      en: "Casa Linda's expat clubhouse night — wings, classic-rock covers, low drama. Skip it if you came for dembow or a fashion crowd.",
-      es: "La noche clubhouse expat de Casa Linda — alitas, covers de rock clásico, sin drama. Sáltalo si viniste por dembow o moda.",
-      fr: "La soirée clubhouse expat de Casa Linda — wings, reprises classic-rock, low drama. Skip si vous vouliez du dembow ou une scène fashion.",
+      en: "Casa Linda's neighborhood hub (now Chill & Grill) — food, drink specials, and low-drama expat nights. Skip it if you came for dembow or a fashion crowd.",
+      es: "El hub de vecinos de Casa Linda (ahora Chill & Grill) — comida, especiales de tragos y noches expat sin drama. Sáltalo si viniste por dembow o moda.",
+      fr: "Le hub voisinage de Casa Linda (désormais Chill & Grill) — cuisine, specials boissons et soirées expat low drama. Skip si vous vouliez du dembow ou une scène fashion.",
     },
   },
   "malecon-puerto-plata": {
@@ -58,11 +58,11 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "parada-tipica-el-choco": {
-    body: "The Sosúa–Cabarete corridor stop locals still use for plates and a real dance floor — roadside energy, arrive hungry if you want a table before it peaks.",
+    body: "RSVP for Tuesday aperitivo — free finger food at the table, a different band each week, and the corridor fills early opposite Ocean Village.",
     localized: {
-      en: "The Sosúa–Cabarete corridor stop locals still use for plates and a real dance floor — roadside energy, arrive hungry if you want a table before it peaks.",
-      es: "La parada del corredor Sosúa–Cabarete que los locales aún usan para platos y pista de verdad — llega con hambre si quieres mesa antes del pico.",
-      fr: "L'arrêt du corridor Sosúa–Cabarete que les locaux utilisent encore pour manger et danser — venez tôt et affamés pour une table.",
+      en: "RSVP for Tuesday aperitivo — free finger food at the table, a different band each week, and the corridor fills early opposite Ocean Village.",
+      es: "Reserva para el aperitivo del martes — finger food gratis en la mesa, banda distinta cada semana, y el corredor se llena temprano frente a Ocean Village.",
+      fr: "Réservez pour l'apéritivo du mardi — finger food offert à table, un groupe différent chaque semaine, et le corridor se remplit tôt face à Ocean Village.",
     },
   },
   "el-parq-cabarete": {
