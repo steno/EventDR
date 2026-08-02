@@ -106,6 +106,16 @@ const VENUE_SOURCES = [
     url: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1800&q=85",
   },
   {
+    // Chill & Grill Casa Linda interior dining/bar (Sosúa Digital TV opening photos).
+    eventId: "chill-and-grill-bingo-2026-08-03",
+    url: "https://sosuadigitaltv.com/wp-content/uploads/2026/07/WhatsApp-Image-2026-07-02-at-8.58.09-AM-3.jpeg",
+  },
+  {
+    // Covered patio / big-screen terrace at Chill & Grill (same press set).
+    eventId: "castaways-classic-rock-wednesday",
+    url: "https://sosuadigitaltv.com/wp-content/uploads/2026/07/WhatsApp-Image-2026-07-02-at-8.58.09-AM-2.jpeg",
+  },
+  {
     // Boxer walkout to the ring — replaces Rumble in Paradise fight poster.
     eventId: "rumble-in-paradise-12",
     url: "https://images.unsplash.com/photo-1552072092-7f9b8d63efcb?w=1800&q=85",
