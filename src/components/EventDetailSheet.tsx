@@ -386,7 +386,7 @@ export function EventDetailSheet({
         {event.title}
       </TitleTag>
 
-      <div className="mt-4 space-y-3">
+      <div className={standalone ? "mt-3 space-y-2" : "mt-4 space-y-3"}>
         <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
           <div className="inline-flex items-center gap-2.5 text-copy-meta text-neutral-800 dark:text-neutral-200">
             <Calendar className="h-[1.125rem] w-[1.125rem] shrink-0 text-neutral-500 dark:text-neutral-400" />
@@ -475,19 +475,27 @@ export function EventDetailSheet({
         )}
       </div>
 
-      <p className="mt-5 text-copy">{event.description}</p>
+      <p
+        className={
+          standalone
+            ? "mt-3 text-copy leading-[1.35]"
+            : "mt-5 text-copy"
+        }
+      >
+        {event.description}
+      </p>
 
       {eventOpinion ? (
         <EventOpinionBlock
           opinion={eventOpinion}
           dict={dict}
           locale={locale}
-          className="mt-5 mb-1"
+          className={standalone ? "mt-3 mb-1" : "mt-5 mb-1"}
         />
       ) : null}
 
       {event.lineup && event.lineup.length > 0 && (
-        <div className="mt-5">
+        <div className={standalone ? "mt-3" : "mt-5"}>
           <div className="flex items-center gap-2 text-neutral-500 mb-2">
             <Mic2 className="h-4 w-4 flex-shrink-0" />
             <span className="text-[11px] font-bold uppercase tracking-wide">
@@ -512,7 +520,13 @@ export function EventDetailSheet({
         showAdmissionVaries ||
         showFreeAdmission ||
         showPaidAdmission) && (
-        <div className="mt-5 flex flex-col items-start gap-2.5">
+        <div
+          className={
+            standalone
+              ? "mt-3 flex flex-col items-start gap-2.5"
+              : "mt-5 flex flex-col items-start gap-2.5"
+          }
+        >
           {ticketUrl && (
             <a
               href={ticketUrl}
@@ -569,7 +583,11 @@ export function EventDetailSheet({
     <>
       <div
         ref={actionsRef}
-        className="relative isolate border-t border-neutral-100 bg-white px-5 pt-4 pb-[max(1rem,env(safe-area-inset-bottom))] dark:border-neutral-800 dark:bg-neutral-900 sm:px-6 lg:px-7 lg:pb-6"
+        className={
+          standalone
+            ? "relative isolate border-t border-neutral-100 bg-white px-4 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] dark:border-neutral-800 dark:bg-neutral-900 sm:px-5 lg:px-5 lg:pb-4"
+            : "relative isolate border-t border-neutral-100 bg-white px-5 pt-4 pb-[max(1rem,env(safe-area-inset-bottom))] dark:border-neutral-800 dark:bg-neutral-900 sm:px-6 lg:px-7 lg:pb-6"
+        }
       >
         {shareMsg && (
           <p
@@ -810,8 +828,8 @@ export function EventDetailSheet({
 
   if (standalone) {
     return (
-      <article className="mt-1 w-full overflow-hidden rounded-3xl bg-white shadow-2xl ring-1 ring-neutral-200/70 dark:bg-neutral-900 dark:ring-neutral-800 lg:grid lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-stretch">
-        <div className="relative h-[min(32dvh,13rem)] sm:h-[min(38dvh,18rem)] lg:h-auto lg:min-h-[32rem]">
+      <article className="mt-0 w-full overflow-hidden rounded-2xl bg-white shadow-md ring-1 ring-neutral-200/60 dark:bg-neutral-900 dark:ring-neutral-800 lg:grid lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-stretch">
+        <div className="relative h-[min(32dvh,13rem)] sm:h-[min(38dvh,18rem)] lg:h-auto lg:min-h-0">
           {showHero ? (
             <div className="h-full lg:absolute lg:inset-0">
               <EventDetailMedia
@@ -828,7 +846,7 @@ export function EventDetailSheet({
           )}
         </div>
         <div className="flex min-w-0 flex-col">
-          <div className="flex-1 px-5 pt-4 pb-3 sm:px-6 lg:px-7 lg:pt-7 lg:pb-5">
+          <div className="flex-1 px-4 pt-3 pb-2 sm:px-5 lg:px-5 lg:pt-4 lg:pb-3">
             {contentSection}
           </div>
           {actionsSection}

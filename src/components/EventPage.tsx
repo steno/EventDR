@@ -13,7 +13,7 @@ import {
   resolveEventReturnPath,
   takeReturnPath,
 } from "@/lib/event-navigation";
-import { PAGE_SHELL_CLASS } from "@/lib/page-shell";
+import { PAGE_SHELL_DETAIL_CLASS } from "@/lib/page-shell";
 
 interface EventPageProps {
   event: Event;
@@ -60,12 +60,13 @@ export function EventPage({
 
   return (
     <div className="min-h-dvh bg-neutral-50 dark:bg-transparent pb-8">
-      <div className={PAGE_SHELL_CLASS}>
+      <div className={PAGE_SHELL_DETAIL_CLASS}>
         <StickyListHeader
           locale={locale}
           dict={dict}
           backLabel={backLabel}
           onBack={handleClose}
+          variant="detail"
         />
 
         <EventDetailSheet

@@ -4,3 +4,7 @@ export const PAGE_SHELL_CLASS =
 
 /** Footer / bottom-nav width without the framed panel treatment. */
 export const PAGE_WIDTH_CLASS = "mx-auto max-w-lg sm:max-w-3xl lg:max-w-5xl";
+
+/** Event/venue detail — width + gutters only, no outer framed panel. */
+export const PAGE_SHELL_DETAIL_CLASS =
+  "relative mx-auto max-w-lg px-4 sm:max-w-3xl lg:max-w-5xl lg:px-6";

@@ -24,7 +24,7 @@ import { EventImage } from "@/components/EventImage";
 import { lastHomePath } from "@/lib/cities";
 import { readReturnParams, resolveBackLabel, takeReturnPath } from "@/lib/event-navigation";
 import { formatPhoneTel } from "@/lib/event-phone";
-import { PAGE_SHELL_CLASS } from "@/lib/page-shell";
+import { PAGE_SHELL_DETAIL_CLASS } from "@/lib/page-shell";
 import { scrollBelowStickyStack, scrollUnderStickyHeader } from "@/lib/list-scroll";
 import { getVenueHeroImageUrl } from "@/lib/venue-images";
 import { useForegroundRefresh } from "@/hooks/useForegroundRefresh";
@@ -227,12 +227,13 @@ export function VenuePage({
   return (
     <>
       <main className="bg-neutral-50 dark:bg-transparent pb-6">
-        <div className={PAGE_SHELL_CLASS}>
+        <div className={PAGE_SHELL_DETAIL_CLASS}>
           <StickyListHeader
             locale={locale}
             dict={dict}
             backLabel={backLabel}
             onBack={handleBack}
+            variant="detail"
           />
 
           {/* Place card: photo + map */}
