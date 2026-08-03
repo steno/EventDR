@@ -27,7 +27,7 @@ export function StickyListFilters({
   );
 }
 
-/** Non-sticky marker at the filter bar's document position — safe target for scrollToListTop. */
+/** Non-sticky marker at the filter bar — fallback when no category-nav anchor exists. */
 export function ListScrollAnchor({
   anchorRef,
   className = "",

@@ -163,7 +163,8 @@ export function FilteredEventList({
       skipScrollForUrlWhen.current = false;
       return;
     }
-    scrollToListTop(scrollAnchorRef.current);
+    // Prefer page-level anchor (category pills) when present — same park as mount.
+    scrollToListTop();
   }, [timeRange, scrollOnFilterChange]);
 
   // SSR/API payloads are already materialized — filter/sort only.
@@ -259,19 +260,38 @@ export function FilteredEventList({
           {addEventInlineCard}
         </>
       ) : filtered.length === 0 ? (
-        <SearchEmptyState
-          title={dict.search.noResults}
-          hint={
-            fixedTimeRange
-              ? dict.search.noResultsHint
-              : tryTabLabel
-          }
-          gameLabels={dict.search.game}
-          actionLabel={fixedTimeRange ? undefined : tryTabLabel}
-          onAction={
-            fixedTimeRange ? undefined : () => setTimeRange(suggestedRange)
-          }
-        />
+        <>
+          <SearchEmptyState
+            title={dict.search.noResults}
+            hint={
+              fixedTimeRange
+                ? dict.search.noResultsHint
+                : tryTabLabel
+            }
+            gameLabels={dict.search.game}
+            actionLabel={fixedTimeRange ? undefined : tryTabLabel}
+            onAction={
+              fixedTimeRange ? undefined : () => setTimeRange(suggestedRange)
+            }
+          />
+          {showPadCta ? (
+            <div className={view === "cards" ? "mt-3 grid grid-cols-2 gap-2.5 sm:gap-3 lg:grid-cols-3" : "mt-3"}>
+              <EventListScrollPads
+                count={0}
+                title={dict.events.yourEventHereTitle}
+                label={
+                  categoryId
+                    ? fillTemplate(dict.events.yourEventHere, {
+                        category: dict.categories[categoryId],
+                      })
+                    : dict.events.yourEventHereGeneric
+                }
+                onAddEvent={onAddEvent}
+                view={view}
+              />
+            </div>
+          ) : null}
+        </>
       ) : (
         <>
           <div

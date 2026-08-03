@@ -110,6 +110,7 @@ export function StickyListHeader({
   return (
     <div
       ref={rootRef}
+      data-sticky-list-header
       className={`sticky top-0 z-20 -mx-4 px-4 bg-neutral-50/95 backdrop-blur-sm dark:bg-neutral-950/95 border-b border-neutral-200/60 dark:border-neutral-800/60 ${SCROLL_CHROME_TRANSITION_CLASS} ${
         chromeVisible
           ? ""

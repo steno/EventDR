@@ -17,6 +17,8 @@ let visible = true;
 let lastScrollY = 0;
 let ticking = false;
 let listenerCount = 0;
+/** Ignore hide-on-scroll while list park / category land scrolls run. */
+let programmaticDepth = 0;
 const listeners = new Set<() => void>();
 
 function isDesktop(): boolean {
@@ -39,6 +41,11 @@ function setVisible(next: boolean) {
 
 function updateFromScroll() {
   ticking = false;
+
+  if (programmaticDepth > 0) {
+    lastScrollY = window.scrollY;
+    return;
+  }
 
   if (isDesktop() || prefersReducedMotion()) {
     setVisible(true);
@@ -109,4 +116,14 @@ export function getScrollChromeVisible(): boolean {
 
 export function getScrollChromeServerSnapshot(): boolean {
   return true;
+}
+
+/** Show sticky header/nav and ignore hide-on-scroll until `end` runs. */
+export function beginProgrammaticScrollChrome(): () => void {
+  programmaticDepth += 1;
+  setVisible(true);
+  return () => {
+    lastScrollY = window.scrollY;
+    programmaticDepth = Math.max(0, programmaticDepth - 1);
+  };
 }

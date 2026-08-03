@@ -10,9 +10,11 @@ import {
 } from "@/components/category-scroller-styles";
 import {
   readDocumentTop,
-  readStickyListHeaderHeight,
+  readStickyListHeaderReserve,
   scrollBehaviorPreference,
+  scrollToListTop,
 } from "@/lib/list-scroll";
+import { getScrollChromeVisible } from "@/lib/scroll-chrome";
 
 export type RelatedCategoryLink = {
   href: string;
@@ -52,7 +54,7 @@ export function CityCategoryLinks({
   }, [activeHref]);
 
   // On mount (home → category), skip the hero and park the category icon row
-  // under the sticky header so catpills stay fully visible with the list chrome.
+  // under the sticky header — same target as time-tab switches (scrollToListTop).
   // Skip when already parked there (area-chip swaps keep scroll via scroll:false).
   useEffect(() => {
     if (!activeHref) return;
@@ -63,18 +65,21 @@ export function CityCategoryLinks({
 
       const targetScroll = Math.max(
         0,
-        readDocumentTop(nav) - readStickyListHeaderHeight(),
+        readDocumentTop(nav) - readStickyListHeaderReserve(),
       );
 
       // Area chips navigate with scroll:false while the user is already on the
       // list chrome — re-animating here is the flash. Home → category still
       // starts near the top, so this still scrolls past the hero.
-      if (Math.abs(window.scrollY - targetScroll) < 64) return;
+      // If chrome hid during a prior park, re-run so the header covers the gap.
+      if (
+        Math.abs(window.scrollY - targetScroll) < 64 &&
+        getScrollChromeVisible()
+      ) {
+        return;
+      }
 
-      window.scrollTo({
-        top: targetScroll,
-        behavior: scrollBehaviorPreference(),
-      });
+      scrollToListTop(nav);
     }, 150); // Small delay to ensure layout is stable
 
     return () => clearTimeout(timeoutId);
@@ -113,7 +118,12 @@ export function CityCategoryLinks({
   };
 
   return (
-    <nav ref={navRef} aria-label={label} className="mb-6">
+    <nav
+      ref={navRef}
+      aria-label={label}
+      className="mb-6"
+      data-list-scroll-anchor
+    >
       <p className="mb-2.5 text-sm font-medium text-neutral-500 dark:text-neutral-400">
         {label}
       </p>
