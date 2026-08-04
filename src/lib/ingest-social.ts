@@ -71,7 +71,7 @@ async function readPublicSocialUrl(
 }
 
 /** Social queries per fast run. Rotated so the tail of the list still runs. */
-const FAST_SOCIAL_QUERY_LIMIT = 6;
+const FAST_SOCIAL_QUERY_LIMIT = 8;
 
 export type IngestSocialOptions = {
   /** Lighter crawl for Netlify gateway (~26–30s). Skip heavy image sourcing. */
@@ -94,7 +94,8 @@ export async function ingestSocialEvents(
     ...facebookGroupEventUrls(),
     ...facebookEventPageUrls(),
   ];
-  const cappedFacebook = fast ? facebookUrls.slice(0, 4) : facebookUrls;
+  // Rotate which public pages we hit — always-first-N never reached venues further down.
+  const cappedFacebook = fast ? rotatingSlice(facebookUrls, 6) : facebookUrls;
   const groupReads = await Promise.all(
     cappedFacebook.map(async (url) => {
       const group = FACEBOOK_GROUPS.find((g) => url.startsWith(g.url));
@@ -104,7 +105,7 @@ export async function ingestSocialEvents(
   );
 
   const instagramUrls = instagramProfileUrls();
-  const cappedInstagram = fast ? instagramUrls.slice(0, 3) : instagramUrls;
+  const cappedInstagram = fast ? rotatingSlice(instagramUrls, 6) : instagramUrls;
   const instagramReads = await Promise.all(
     cappedInstagram.map(async (url) => {
       const handle = url.replace(/\/$/, "").split("/").pop() ?? url;

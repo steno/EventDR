@@ -66,6 +66,27 @@ export const INSTAGRAM_ACCOUNTS = [
     label: "Sosúa Events",
     areas: ["Sosúa"],
   },
+  // High-signal local venues that announce mostly on IG flyers (missed Aug 2026 cron)
+  {
+    handle: "victrolart",
+    label: "Victrola 037 Arte Café",
+    areas: ["Puerto Plata"],
+  },
+  {
+    handle: "cigartownpop",
+    label: "Cigar Town Pop",
+    areas: ["Puerto Plata"],
+  },
+  {
+    handle: "paradaelchoco",
+    label: "Parada Típica El Choco",
+    areas: ["Sosúa", "Cabarete"],
+  },
+  {
+    handle: "kitestreetpop",
+    label: "Kite Street POP",
+    areas: ["Cabarete", "Puerto Plata"],
+  },
 
   // Active tourist / lifestyle venues
   {
@@ -203,12 +224,14 @@ export function instagramSearchQueries(): string[] {
   const localVenues = [
     "onnosbar", "shakabardr", "groundzero_disco", "blueice_pianobar",
     "driftercabarete", "nonasgrillkitchen", "hardrockcafepuertoplata",
-    "djblueeventos",
+    "djblueeventos", "victrolart", "cigartownpop", "paradaelchoco",
+    "kitestreetpop",
   ].join(" OR ");
 
   const culturalVenues = [
     "anfiteatropuertoplata", "anfiteatro_puertoplata_rd",
     "graaneventsplanners", "cabaretejazz", "luciano.vasquez.pp",
+    "victrolart",
   ].join(" OR ");
 
   const touristInfo = [
@@ -247,6 +270,8 @@ export function instagramSearchQueries(): string[] {
     `site:instagram.com (${culturalVenues}) concierto OR festival OR presentación`,
     `site:instagram.com (${touristInfo}) evento OR actividad OR fiesta`,
     `site:instagram.com (${institutional}) foro OR feria OR congreso OR "rueda de negocios"`,
+    `site:instagram.com victrolart OR cigartownpop OR paradaelchoco OR kitestreetpop 2026`,
+    `site:instagram.com "Ladies Night" OR "Sábado Bailable" OR Acústico Puerto Plata`,
     
     // Business & institutional
     `site:instagram.com foro empresarial OR "rueda de negocios" Puerto Plata`,

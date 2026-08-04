@@ -122,6 +122,12 @@ export const FACEBOOK_EVENT_PAGES: readonly {
     areas: ["Puerto Plata", "Playa Dorada"],
     kind: "institutional",
   },
+  {
+    slug: "chillandgrilldr",
+    url: "https://www.facebook.com/chillandgrilldr",
+    label: "Chill & Grill Bar & Eatery",
+    areas: ["Sosúa"],
+  },
 ];
 
 /** Spanish / Dominican-first discovery queries layered onto group site: searches. */
@@ -134,6 +140,7 @@ const DOMINICAN_SEARCH_TERMS = [
   "concierto típico merengue sábado viernes",
   "artista dominicano presentación anfiteatro",
   "karaoke open mic micrófono abierto",
+  "bingo trivia quiz night",
   "comida dominicana música en vivo",
   "carnaval comparsa festividad local",
 ] as const;
