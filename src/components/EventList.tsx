@@ -367,12 +367,14 @@ export function EventList({
                 index === CROSS_PROMO_LIST_AFTER - 1 &&
                 visibleEvents.length > CROSS_PROMO_LIST_AFTER
               ) {
+                const cardsView = isSearching;
                 cards.push(
                   <CrossPromoBanner
                     key="cross-promo"
                     dict={dict}
-                    variant="list"
-                    view={isSearching ? "cards" : "list"}
+                    variant={cardsView ? "strip" : "list"}
+                    view={cardsView ? "cards" : "list"}
+                    className={cardsView ? "col-span-full" : undefined}
                   />,
                 );
               }

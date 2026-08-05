@@ -15,7 +15,11 @@ export { prioritizeOneTimeEvents } from "@/lib/event-sort";
 /** Max cards in the home "Happening today" section (desktop 2×2). */
 export const HOME_TODAY_LIMIT = 4;
 
-/** Max events in the home "Our picks" section (12 fills 3-col + 2-col grids evenly). */
+/**
+ * Max events before "More events" on home picks / scope lists.
+ * 12 fills 3-col (desktop) and 2-col (mobile) grids evenly — keep the in-grid
+ * cross-promo on `col-span-full` so it doesn't become a 13th card slot.
+ */
 export const HOME_PICKS_LIMIT = 12;
 
 /** Extra cards revealed per "More events" tap on capped lists. */

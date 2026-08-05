@@ -11,7 +11,7 @@ import { withAdmissionMetadata } from "./event-tickets";
 import { attachEventPhones } from "./event-phone";
 import { filterRemovedSeedEvents } from "./removed-seeds";
 import { localizeEventsForDisplay } from "./localized-text";
-import { materializeEventDates } from "./event-dates";
+import { localDateISO, materializeEventDates } from "./event-dates";
 import { withResolvedCategories } from "./categorize";
 import { EVENT_REVALIDATE_SECONDS } from "./http-cache";
 
@@ -60,8 +60,8 @@ async function loadEventById(
 }
 
 const getCachedEventById = unstable_cache(
-  loadEventById,
-  ["event-by-id-v3"],
+  async (id: string, locale: Locale, _dayKey: string) => loadEventById(id, locale),
+  ["event-by-id-v4"],
   { revalidate: EVENT_REVALIDATE_SECONDS, tags: ["events"] },
 );
 
@@ -69,5 +69,9 @@ export async function getEventById(
   id: string,
   locale: Locale,
 ): Promise<Event | null> {
-  return getCachedEventById(id, locale);
+  const event = await getCachedEventById(id, locale, localDateISO());
+  if (!event?.recurrence) return event;
+  // Refresh occurrence date outside the data cache (same day-boundary issue as lists).
+  const [materialized] = materializeEventDates([event]);
+  return materialized ?? null;
 }

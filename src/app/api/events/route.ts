@@ -158,13 +158,11 @@ export async function GET(request: NextRequest) {
     if (!refresh) {
       const cached = getCachedEvents(cacheKey);
       if (cached?.length) {
+        // Rematerialize on hit — in-memory entries can span midnight and would
+        // otherwise keep yesterday's weekday occurrence as "Ended".
         return NextResponse.json(
           {
-            events: slimEventsForList(
-              attachEventImages(
-                attachTicketUrls(attachEventPhones(attachCoords(cached))),
-              ),
-            ),
+            events: finalizeEvents(cached),
             source: "cache",
             region: REGION_LABELS[locale],
           },

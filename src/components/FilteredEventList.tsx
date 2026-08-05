@@ -317,12 +317,15 @@ export function FilteredEventList({
                 index === CROSS_PROMO_LIST_AFTER - 1 &&
                 visibleEvents.length > CROSS_PROMO_LIST_AFTER
               ) {
+                // Full-width strip in card grids so a 12-cap stays on complete rows
+                // (a card-shaped promo would be a 13th cell and leave a hole).
                 cards.push(
                   <CrossPromoBanner
                     key="cross-promo"
                     dict={dict}
-                    variant="list"
+                    variant={view === "cards" ? "strip" : "list"}
                     view={view}
+                    className={view === "cards" ? "col-span-full" : undefined}
                   />,
                 );
               }

@@ -3,7 +3,7 @@ import type { Locale } from "@/i18n/config";
 import { attachEventImages } from "@/lib/event-images";
 import { attachTicketUrls } from "@/lib/event-tickets";
 import { attachEventPhones } from "@/lib/event-phone";
-import { materializeEventDates } from "@/lib/event-dates";
+import { localDateISO, materializeEventDates } from "@/lib/event-dates";
 import { sortEventsForDisplay } from "@/lib/event-sort";
 import { attachCoords, attachVenueSlugs, normalizeEventCoordsList } from "@/lib/geo";
 import { applyCuratedEventPatches } from "@/lib/curated-events";
@@ -118,6 +118,7 @@ async function loadPublicEvents(filter: PublicEventsFilter): Promise<Event[]> {
 
 const getCachedPublicEvents = unstable_cache(
   async (
+    _dayKey: string,
     locale: Locale,
     category: string,
     city: string,
@@ -131,7 +132,7 @@ const getCachedPublicEvents = unstable_cache(
       venueSlug: venueSlug || undefined,
       when: (when || undefined) as Exclude<TimeRange, "all"> | undefined,
     }),
-  ["public-events-v5"],
+  ["public-events-v6"],
   { revalidate: LISTING_REVALIDATE_SECONDS, tags: ["events"] },
 );
 
@@ -139,11 +140,22 @@ const getCachedPublicEvents = unstable_cache(
 export async function getPublicEvents(
   filter: PublicEventsFilter,
 ): Promise<Event[]> {
-  return getCachedPublicEvents(
+  const events = await getCachedPublicEvents(
+    // Bust the data cache at midnight AST so weekday/daily dates can't stick
+    // from yesterday while the payload is still within revalidate.
+    localDateISO(),
     filter.locale,
     filter.category ?? "",
     filter.city ?? "",
     filter.venueSlug ?? "",
     filter.when ?? "",
   );
+  // Rematerialize + re-sort outside the cache: occurrence dates and live/ended
+  // tiers are clock-dependent even within the same cached calendar day.
+  return sortEventsForDisplay(materializeEventDates(events), {
+    recurringLast: true,
+    oneTimeFirst: Boolean(filter.category),
+    discoveryMode: Boolean(filter.category),
+    preferPrimaryCategory: filter.category,
+  });
 }

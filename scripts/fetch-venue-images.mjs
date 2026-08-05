@@ -111,9 +111,10 @@ const VENUE_SOURCES = [
     url: "https://sosuadigitaltv.com/wp-content/uploads/2026/07/WhatsApp-Image-2026-07-02-at-8.58.09-AM-3.jpeg",
   },
   {
-    // Covered patio / big-screen terrace at Chill & Grill (same press set).
+    // Official Casa Linda Castaways outdoor clubhouse dining (pre-rebrand era photo).
+    // Authentic patio string-lights vibe — not opening PR group or generic pub-band stock.
     eventId: "castaways-classic-rock-wednesday",
-    url: "https://sosuadigitaltv.com/wp-content/uploads/2026/07/WhatsApp-Image-2026-07-02-at-8.58.09-AM-2.jpeg",
+    url: "https://casalindaclub.com/wp-content/uploads/2024/07/Castaways-Restaurant.jpg",
   },
   {
     // Boxer walkout to the ring — replaces Rumble in Paradise fight poster.

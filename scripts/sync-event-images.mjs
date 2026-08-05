@@ -176,7 +176,8 @@ const FILE_TO_VENUE_SLUG = {
   "el-batey-downtown-daytime.jpg": "el-batey-sosua",
   "voyvoy-monday-live-music.jpg": "voyvoy-cabarete",
   "cheers-weekly-live.jpg": "cheers-bar-sosua",
-  "castaways-classic-rock-wednesday.jpg": "castaways-sosua",
+  // Dining/bar interior — distinct filename so browsers don't keep the old concert-stock URL.
+  "castaways-sosua-dining.jpg": "castaways-sosua-dining",
   "paella-pop-el-pueblito.jpg": "paella-pop-el-pueblito",
   "paella-pop-green-one.jpg": "paella-pop-green-one",
   "plaza-independencia.jpg": "plaza-independencia",

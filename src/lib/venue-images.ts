@@ -8,7 +8,8 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "liquid-blue-cabarete": "liquid-blue-cabarete.jpg",
   "el-batey-sosua": "el-batey-sosua.jpg",
   "hard-rock-sosua": "hard-rock-sosua.jpg",
-  "castaways-sosua": "castaways-sosua.jpg",
+  // Filename bump after replacing shared concert stock — next/image rejects ?v= on local paths.
+  "castaways-sosua": "castaways-sosua-dining.jpg",
   "hotel-voramar-sosua": "hotel-voramar-sosua.jpg",
   "smileys-bar-sosua": "smileys-bar-sosua.jpg",
   "finish-line-sosua": "finish-line-sosua.jpg",

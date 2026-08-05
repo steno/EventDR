@@ -222,7 +222,7 @@ export const SEED_EVENT_OPINIONS_BASE: EventOpinion[] = [
       fr: "Soirée menu pub — wings et verres au tarif bar expat, pas de cover type club",
     },
     attribution: "POP research · venue listing",
-    researchNotes: "Castaways clubhouse/eatery pricing.",
+    researchNotes: "Chill & Grill (formerly Castaway's) clubhouse/eatery pricing.",
     updatedAt: AT,
   },
   {
