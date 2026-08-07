@@ -558,7 +558,7 @@ const RECURRING_EN: Event[] = [
     id: "paseo-dona-blanca-daily",
     title: "Paseo de Doña Blanca — Pink Street",
     description:
-      "Temporarily closed to the public from Monday, July 20 to August 5, 2026 for renovation, painting, and general maintenance work (about 15 days). Reopening after August 5th. Pedestrian alley painted in every shade of pink — a tribute to Bianca \"Doña Blanca\" Franceschini, who helped pioneer Puerto Plata tourism from the Hotel Europa in the late 1800s. Victorian-style details, benches, and a favorite backdrop for photos and weddings. Free to stroll between Calle Beller and Calle John F. Kennedy, steps from Parque Independencia.",
+      "Temporarily closed to the public from Monday, July 20 to August 10, 2026 for renovation, painting, and general maintenance work. Reopening after August 10th. Pedestrian alley painted in every shade of pink — a tribute to Bianca \"Doña Blanca\" Franceschini, who helped pioneer Puerto Plata tourism from the Hotel Europa in the late 1800s. Victorian-style details, benches, and a favorite backdrop for photos and weddings. Free to stroll between Calle Beller and Calle John F. Kennedy, steps from Parque Independencia.",
     date: "2026-01-01",
     time: "9:00 AM - 9:00 PM",
     location: "Puerto Plata",
@@ -2165,7 +2165,7 @@ const RECURRING_ES: Event[] = [
     id: "paseo-dona-blanca-daily",
     title: "Paseo de Doña Blanca — Calle Rosada",
     description:
-      "Cerrado temporalmente al público del lunes 20 de julio al 5 de agosto de 2026 por trabajos de renovación, pintura y mantenimiento general (unos 15 días). Reabre después del 5 de agosto. Pasaje peatonal pintado de rosa en honor a Bianca \"Doña Blanca\" Franceschini, pionera del turismo en Puerto Plata desde el Hotel Europa a fines del siglo XIX. Detalles de estilo victoriano, bancas y escenario favorito para fotos y bodas. Gratis entre la calle Beller y la calle John F. Kennedy, a pasos del Parque Independencia.",
+      "Cerrado temporalmente al público del lunes 20 de julio al 10 de agosto de 2026 por trabajos de renovación, pintura y mantenimiento general. Reabre después del 10 de agosto. Pasaje peatonal pintado de rosa en honor a Bianca \"Doña Blanca\" Franceschini, pionera del turismo en Puerto Plata desde el Hotel Europa a fines del siglo XIX. Detalles de estilo victoriano, bancas y escenario favorito para fotos y bodas. Gratis entre la calle Beller y la calle John F. Kennedy, a pasos del Parque Independencia.",
     date: "2026-01-01",
     time: "9:00 AM - 9:00 PM",
     location: "Puerto Plata",
@@ -3768,7 +3768,7 @@ const RECURRING_FR: Event[] = [
     id: "paseo-dona-blanca-daily",
     title: "Paseo de Doña Blanca — Rue Rose",
     description:
-      "Fermé temporairement au public du lundi 20 juillet au 5 août 2026 pour des travaux de rénovation, de peinture et d'entretien général (environ 15 jours). Réouverture après le 5 août. Allée piétonne entièrement rose en hommage à Bianca « Doña Blanca » Franceschini, pionnière du tourisme à Puerto Plata depuis l'Hotel Europa à la fin du XIXe siècle. Détails victoriens, bancs et décor prisé pour photos et mariages. Gratuit entre la calle Beller et la calle John F. Kennedy, à deux pas du Parque Independencia.",
+      "Fermé temporairement au public du lundi 20 juillet au 10 août 2026 pour des travaux de rénovation, de peinture et d'entretien général. Réouverture après le 10 août. Allée piétonne entièrement rose en hommage à Bianca « Doña Blanca » Franceschini, pionnière du tourisme à Puerto Plata depuis l'Hotel Europa à la fin du XIXe siècle. Détails victoriens, bancs et décor prisé pour photos et mariages. Gratuit entre la calle Beller et la calle John F. Kennedy, à deux pas du Parque Independencia.",
     date: "2026-01-01",
     time: "9:00 AM - 9:00 PM",
     location: "Puerto Plata",

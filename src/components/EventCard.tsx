@@ -93,7 +93,7 @@ const EventCardComponent = ({
           )}
         </div>
         <div className="relative z-[1] flex flex-1 flex-col gap-1.5 p-3 pointer-events-none">
-          <h3 className="line-clamp-2 text-lg font-bold leading-snug text-neutral-900 dark:text-neutral-100">
+          <h3 className="line-clamp-2 font-sans text-[0.9375rem] font-semibold leading-snug tracking-tight text-neutral-900 dark:text-neutral-100 sm:text-base">
             {event.title}
           </h3>
           <EventCardMeta

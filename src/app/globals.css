@@ -79,6 +79,14 @@ img {
       animation-duration: 0.01ms !important;
     }
   }
+
+  /* In @layer base so Tailwind font-* utilities can override (e.g. card titles → Inter). */
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.015em;
+  }
 }
 
 /* Soft Ken Burns on card photos — unlayered so it always beats the base theme rule */
@@ -184,11 +192,6 @@ button:not(:disabled),
 [role="button"] {
   cursor: pointer;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0.05);
-}
-
-h1, h2, h3 {
-  font-family: var(--font-display);
-  letter-spacing: -0.015em;
 }
 
 /* Body copy — paragraphs, descriptions, list metadata */
