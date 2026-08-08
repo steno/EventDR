@@ -459,6 +459,12 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Lounge à cigares et sessions sur l'Av. Luis Ginebra — puros premium, whisky et soirées acoustiques intimistes au centre de Puerto Plata.",
     },
   },
+  "gran-ventana-beach-resort": {
+    description: {
+      es: "Resort todo incluido frente al mar en Playa Dorada — piscinas, restaurantes y salones para congresos y estancias grupales en la Costa Norte.",
+      fr: "Resort tout compris en bord de mer à Playa Dorada — piscines, restaurants et salles pour congrès et séjours de groupe sur la Côte Nord.",
+    },
+  },
   "ocean-one-cabarete": {
     description: {
       es: "Complejo de condos frente al mar en el corazón de la bahía de Cabarete — piscinas privadas, plaza y acceso directo a la playa para encuentros y sesiones al atardecer.",

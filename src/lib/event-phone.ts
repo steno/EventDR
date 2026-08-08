@@ -25,6 +25,8 @@ const EVENT_PHONE_BY_ID: Record<string, string> = {
   "feria-artesanal-verano-2026": "+18095862526",
   "puerto-plata-carnaval-2026": "+18095862526",
   "malecon-morning-wellness-walk": "+18095862526",
+  // Asociación Dominicana del Norte — Congreso de Damas registration desk
+  "congreso-damas-adn-2026": "+18095826688",
   // Pablito Guzmán / Cabarete Classic organizer line (long-published)
   "cabarete-classic-2026": "+18098766003",
 };

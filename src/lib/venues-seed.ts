@@ -905,6 +905,19 @@ export const SEED_VENUES: Venue[] = [
     emoji: "🚬",
     instagram: "cigartownpop",
   },
+  {
+    slug: "gran-ventana-beach-resort",
+    name: "Gran Ventana Beach Resort",
+    city: "Playa Dorada",
+    description:
+      "All-inclusive beachfront resort inside Playa Dorada — pools, restaurants, and meeting space for North Coast conferences and group stays.",
+    lat: 19.7723664,
+    lng: -70.6402715,
+    emoji: "🏨",
+    website: "https://www.granventanahotel.com/",
+    phone: "+18093202111",
+    instagram: "granventanadr",
+  },
 ];
 
 /** Extra name fragments → seed slug (checked before fuzzy name includes). */
@@ -948,6 +961,10 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
   {
     pattern: /vip\s*beach\s*lifestyles|lifestyle\s*tropical\s*beach/i,
     slug: "vip-beach-lifestyles-resort",
+  },
+  {
+    pattern: /gran\s*ventana(\s*beach)?(\s*resort)?|hotel\s*gran\s*ventana/i,
+    slug: "gran-ventana-beach-resort",
   },
   {
     // Local/expat name for Sea Horse Ranch Tennis Club (pickleball / courts).

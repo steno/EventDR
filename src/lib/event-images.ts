@@ -154,6 +154,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "gym-sov-zumba-lift-thursday": "gym-sov-zumba-fitness.jpg",
   "zen-fitness-weightloss-camp": "zen-fitness-weightloss-camp.jpg",
   "handmade-pina-colada-experience": "handmade-pina-colada-experience.webp",
+  "congreso-damas-adn-2026": "congreso-damas-adn-2026.jpg",
 };
 
 /** Legacy ingest ids that share a curated event image. */

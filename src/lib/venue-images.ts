@@ -78,6 +78,7 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "gym-sov-sosua-ocean-village": "gym-sov-sosua-ocean-village.webp",
   "zen-fitness-cabarete": "zen-fitness-cabarete.jpg",
   "cacique-moncion": "cacique-moncion.jpg",
+  "gran-ventana-beach-resort": "gran-ventana-beach-resort.jpg",
 };
 
 /** Cache-busted URL for general venue thumbnails / JSON-LD. */

@@ -47,6 +47,7 @@ const FILE_TO_EVENT_ID = {
   "silent-run-5k-2026-07-25.jpg": "silent-run-5k-2026-07-25",
   "los-event-trilogy-2026-09-03.jpg": "los-event-trilogy-2026-09-03",
   "sunset-laughter-club-cabarete.jpg": "sunset-laughter-club-cabarete",
+  "congreso-damas-adn-2026.jpg": "congreso-damas-adn-2026",
   // Atléticos summer league — authentic Atléticos pitcher (athleticosPOP.png); copies below.
   "athleticosPOP.png": "atleticos-pp-vs-mangueros-2026-07-17",
   // ASA Survival Series — same flyer for all five Saturday VIP games.
@@ -203,6 +204,7 @@ const FILE_TO_VENUE_SLUG = {
   "ocean-one-cabarete.jpg": "ocean-one-cabarete",
   "vip-beach-lifestyles-resort.jpg": "vip-beach-lifestyles-resort",
   "cacique-moncion.jpg": "cacique-moncion",
+  "gran-ventana-beach-resort.jpg": "gran-ventana-beach-resort",
 };
 
 if (!existsSync(sourceDir)) {
