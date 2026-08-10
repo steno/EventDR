@@ -30,6 +30,7 @@ import { SearchEmptyState } from "@/components/SearchEmptyState";
 import { AddEventButton } from "@/components/AddEventButton";
 import { fillTemplate } from "@/lib/seo";
 import { CROSS_PROMO_LIST_AFTER } from "@/lib/cross-promo";
+import { CARD_GRID_CLASS } from "@/lib/page-shell";
 import type { EventListView } from "@/lib/event-list-view";
 
 const UNBOUNDED = Number.POSITIVE_INFINITY;
@@ -275,7 +276,7 @@ export function FilteredEventList({
             }
           />
           {showPadCta ? (
-            <div className={view === "cards" ? "mt-3 grid grid-cols-2 gap-2.5 sm:gap-3 lg:grid-cols-3" : "mt-3"}>
+            <div className={view === "cards" ? `mt-3 ${CARD_GRID_CLASS}` : "mt-3"}>
               <EventListScrollPads
                 count={0}
                 title={dict.events.yourEventHereTitle}
@@ -297,40 +298,49 @@ export function FilteredEventList({
           <div
             className={
               view === "cards"
-                ? "grid grid-cols-2 items-stretch gap-2.5 sm:gap-3 lg:grid-cols-3"
+                ? CARD_GRID_CLASS
                 : "space-y-3.5"
             }
           >
-            {visibleEvents.flatMap((event, index) => {
-              const cards = [
-                <EventCard
-                  key={event.id}
-                  event={event}
-                  dict={dict}
-                  locale={locale}
-                  returnTo={returnTo}
-                  listTimeRange={fixedTimeRange ?? timeRange}
-                  view={view}
-                />,
-              ];
-              if (
-                index === CROSS_PROMO_LIST_AFTER - 1 &&
-                visibleEvents.length > CROSS_PROMO_LIST_AFTER
-              ) {
-                // Full-width strip in card grids so a 12-cap stays on complete rows
-                // (a card-shaped promo would be a 13th cell and leave a hole).
-                cards.push(
-                  <CrossPromoBanner
-                    key="cross-promo"
+            {view === "cards"
+              ? visibleEvents.map((event) => (
+                  <EventCard
+                    key={event.id}
+                    event={event}
                     dict={dict}
-                    variant={view === "cards" ? "strip" : "list"}
+                    locale={locale}
+                    returnTo={returnTo}
+                    listTimeRange={fixedTimeRange ?? timeRange}
                     view={view}
-                    className={view === "cards" ? "col-span-full" : undefined}
-                  />,
-                );
-              }
-              return cards;
-            })}
+                  />
+                ))
+              : visibleEvents.flatMap((event, index) => {
+                  const rows = [
+                    <EventCard
+                      key={event.id}
+                      event={event}
+                      dict={dict}
+                      locale={locale}
+                      returnTo={returnTo}
+                      listTimeRange={fixedTimeRange ?? timeRange}
+                      view={view}
+                    />,
+                  ];
+                  if (
+                    index === CROSS_PROMO_LIST_AFTER - 1 &&
+                    visibleEvents.length > CROSS_PROMO_LIST_AFTER
+                  ) {
+                    rows.push(
+                      <CrossPromoBanner
+                        key="cross-promo"
+                        dict={dict}
+                        variant="list"
+                        view="list"
+                      />,
+                    );
+                  }
+                  return rows;
+                })}
             {showPadCta ? (
               <EventListScrollPads
                 count={filtered.length}
@@ -347,6 +357,17 @@ export function FilteredEventList({
               />
             ) : null}
           </div>
+          {/* Card grids: promo sits between rows as a sibling so auto-fit
+              columns aren't left empty on the first row. */}
+          {view === "cards" &&
+          visibleEvents.length > CROSS_PROMO_LIST_AFTER ? (
+            <CrossPromoBanner
+              dict={dict}
+              variant="strip"
+              view="cards"
+              className="mt-3"
+            />
+          ) : null}
           {hasMore && (
             <div className="pt-4 text-center">
               <button

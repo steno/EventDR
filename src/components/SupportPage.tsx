@@ -30,7 +30,7 @@ export function SupportPage({ locale, copy, available }: SupportPageProps) {
             alt=""
             fill
             priority
-            sizes="(max-width: 1024px) 100vw, 64rem"
+            sizes="100vw"
             className="object-cover object-center"
           />
           <div

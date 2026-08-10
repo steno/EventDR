@@ -52,7 +52,7 @@ function VenueSlideCard({
           <EventImage
             src={venue.imageUrl}
             alt=""
-            sizes="(max-width: 640px) 88vw, (max-width: 1024px) 45vw, 420px"
+            sizes="(max-width: 640px) 88vw, (max-width: 1024px) 45vw, 32vw"
             priority={false}
             className="object-cover card-media-zoom"
           />

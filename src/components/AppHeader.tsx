@@ -65,7 +65,7 @@ export function AppHeader({
       </Link>
       {search ? (
         <div className="hidden min-w-0 flex-1 px-2 lg:block">
-          <div className="w-full max-w-md">{search}</div>
+          <div className="w-full max-w-md lg:max-w-xl xl:max-w-2xl">{search}</div>
         </div>
       ) : null}
       <div className="ml-auto flex shrink-0 items-center gap-1.5 sm:gap-2">

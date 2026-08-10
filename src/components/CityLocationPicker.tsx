@@ -121,7 +121,7 @@ export function CityLocationPicker({
         </p>
       ) : null}
 
-      <div className="-mx-4 overflow-x-auto px-4 scrollbar-hide sm:mx-0 sm:px-0">
+      <div className="-mx-5 overflow-x-auto px-5 scrollbar-hide sm:-mx-6 sm:px-6 lg:mx-0 lg:px-0">
         <div
           role="radiogroup"
           aria-label={groupLabel}

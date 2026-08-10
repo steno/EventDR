@@ -38,7 +38,7 @@ export function PhotoHero({
   const eventsPrefix = isRegion ? dict.hero.events : dict.cities.eventsIn;
 
   return (
-    <header className="relative -mx-4 mb-5 overflow-hidden sm:rounded-2xl sm:mx-0">
+    <header className="relative -mx-5 mb-5 overflow-hidden sm:-mx-6 sm:rounded-2xl lg:mx-0">
       <div className="relative min-h-[15.5rem] sm:min-h-[12.5rem]">
         {imageUrl ? (
           <div className="absolute inset-0">
@@ -46,7 +46,7 @@ export function PhotoHero({
               src={imageUrl}
               alt=""
               priority
-              sizes="(max-width: 768px) 100vw, 768px"
+              sizes="100vw"
               className="object-cover"
             />
           </div>

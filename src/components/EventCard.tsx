@@ -77,7 +77,7 @@ const EventCardComponent = ({
             <EventImage
               src={event.imageUrl}
               alt={event.title}
-              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 280px"
+              sizes="(max-width: 640px) 50vw, 240px"
               className="object-cover card-media-zoom"
             />
           ) : (

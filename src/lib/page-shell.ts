@@ -1,10 +1,37 @@
-/** Shared content column — keeps home and inner pages aligned on desktop. */
-export const PAGE_SHELL_CLASS =
-  "relative mx-auto max-w-lg px-4 sm:max-w-3xl lg:max-w-5xl lg:rounded-[2rem] lg:bg-white/70 lg:px-8 lg:pb-10 lg:pt-2 lg:shadow-[0_24px_80px_-48px_rgba(0,0,0,0.35)] lg:ring-1 lg:ring-neutral-200/80 dark:lg:bg-neutral-950/75 dark:lg:shadow-[0_30px_90px_-50px_rgba(0,0,0,0.95)] dark:lg:ring-white/10";
+/**
+ * Shared layout width tokens.
+ *
+ * Listing shells are fluid up to a soft ~1440px ceiling (Airbnb-ish density
+ * without infinite stretch on ultrawide). Card grids use auto-fit so columns
+ * grow inside that shell. Detail pages stay narrower for readable prose.
+ */
 
-/** Footer / bottom-nav width without the framed panel treatment. */
-export const PAGE_WIDTH_CLASS = "mx-auto max-w-lg sm:max-w-3xl lg:max-w-5xl";
+/** Soft desktop ceiling — wide enough for dense grids, not billboard-wide. */
+export const PAGE_MAX_WIDTH_CLASS = "max-w-[90rem]";
 
-/** Event/venue detail — width + gutters only, no outer framed panel. */
-export const PAGE_SHELL_DETAIL_CLASS =
-  "relative mx-auto max-w-lg px-4 sm:max-w-3xl lg:max-w-5xl lg:px-6";
+/** Horizontal gutters — keep in sync with PAGE_GUTTER_BLEED_CLASS. */
+export const PAGE_GUTTER_CLASS = "px-5 sm:px-6 lg:px-10";
+
+/**
+ * Sticky chrome that paints edge-to-edge within the shell: cancel gutter then
+ * re-apply it so the blur/border spans the full content column.
+ */
+export const PAGE_GUTTER_BLEED_CLASS =
+  "-mx-5 px-5 sm:-mx-6 sm:px-6 lg:-mx-10 lg:px-10";
+
+/** Listing / discovery — fluid inside the soft ceiling. */
+export const PAGE_SHELL_CLASS = `relative mx-auto w-full ${PAGE_MAX_WIDTH_CLASS} ${PAGE_GUTTER_CLASS}`;
+
+/** Footer / bottom-nav width (callers add gutters). */
+export const PAGE_WIDTH_CLASS = `mx-auto w-full ${PAGE_MAX_WIDTH_CLASS}`;
+
+/** Event/venue detail — readable split width, no outer framed panel. */
+export const PAGE_SHELL_DETAIL_CLASS = `relative mx-auto w-full max-w-6xl ${PAGE_GUTTER_CLASS}`;
+
+/**
+ * Card discovery grids — elastic columns: 2 on narrow phones, then as many
+ * ~220px tiles as fit. `auto-fit` collapses empty tracks so short rows still
+ * stretch edge-to-edge within the shell.
+ */
+export const CARD_GRID_CLASS =
+  "grid grid-cols-2 items-stretch gap-2.5 sm:grid-cols-[repeat(auto-fit,minmax(220px,1fr))] sm:gap-3";

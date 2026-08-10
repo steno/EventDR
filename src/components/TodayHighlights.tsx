@@ -57,7 +57,7 @@ function TodayHighlightCard({
         href={href}
         prefetch={false}
         onClick={() => rememberReturnPath(returnTo ?? `/${locale}`)}
-        className="relative block aspect-[2/1] w-full overflow-hidden touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 rounded-2xl sm:aspect-[2.4/1]"
+        className="relative block aspect-[16/10] w-full overflow-hidden touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 rounded-2xl sm:aspect-[3/2]"
         aria-label={event.title}
       >
         {event.imageUrl ? (
@@ -65,7 +65,7 @@ function TodayHighlightCard({
             <EventImage
               src={event.imageUrl}
               alt=""
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 560px"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               priority={false}
               className="object-cover card-media-zoom"
             />
@@ -163,7 +163,7 @@ const TodayHighlightsComponent = ({
         )}
       </div>
 
-      <div className="grid grid-cols-1 items-stretch gap-2.5 sm:gap-3 lg:grid-cols-2">
+      <div className="grid grid-cols-1 items-stretch gap-2.5 sm:grid-cols-2 sm:gap-3 lg:grid-cols-3">
         {visibleEvents.map((event) => (
           <TodayHighlightCard
             key={event.id}

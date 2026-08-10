@@ -32,7 +32,7 @@ import {
   HOME_SEARCH_LIMIT,
 } from "@/lib/home-layout";
 import { searchVenues } from "@/lib/filters";
-import { PAGE_SHELL_CLASS } from "@/lib/page-shell";
+import { CARD_GRID_CLASS, PAGE_GUTTER_BLEED_CLASS, PAGE_SHELL_CLASS } from "@/lib/page-shell";
 import {
   eventMatchesCity,
   getCityMeta,
@@ -298,7 +298,7 @@ function HomeApp({
       <main id="main-content" className="relative bg-neutral-50 dark:bg-transparent pb-6">
         <div className={PAGE_SHELL_CLASS}>
           <div
-            className={`sticky top-0 z-20 -mx-4 px-4 bg-neutral-50/95 backdrop-blur-sm dark:bg-neutral-950/95 lg:static lg:bg-transparent lg:backdrop-blur-none ${SCROLL_CHROME_TRANSITION_CLASS} ${
+            className={`sticky top-0 z-20 ${PAGE_GUTTER_BLEED_CLASS} bg-neutral-50/95 backdrop-blur-sm dark:bg-neutral-950/95 lg:static lg:mx-0 lg:bg-transparent lg:px-0 lg:backdrop-blur-none ${SCROLL_CHROME_TRANSITION_CLASS} ${
               chromeVisible
                 ? ""
                 : "-translate-y-full pointer-events-none lg:translate-y-0 lg:pointer-events-auto"
@@ -471,7 +471,7 @@ function HomeApp({
                   ) : null}
                 </div>
               ) : (
-                <div className="grid grid-cols-2 items-stretch gap-2.5 sm:gap-3 lg:grid-cols-3">
+                <div className={CARD_GRID_CLASS}>
                   {savedEvents.map((event) => (
                     <EventCard
                       key={event.id}

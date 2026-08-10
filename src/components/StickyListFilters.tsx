@@ -1,6 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
+import { PAGE_GUTTER_BLEED_CLASS } from "@/lib/page-shell";
 
 type StickyListFiltersProps = {
   children: ReactNode;
@@ -15,8 +16,9 @@ export function StickyListFilters({
   return (
     <div
       className={`
-        sticky top-[calc(var(--sticky-list-header-height,0px)-1px)] z-10 -mx-4 mb-4
-        border-b border-neutral-200/60 bg-neutral-50/95 px-4 pb-2 pt-3 backdrop-blur-sm
+        sticky top-[calc(var(--sticky-list-header-height,0px)-1px)] z-10 mb-4
+        ${PAGE_GUTTER_BLEED_CLASS}
+        border-b border-neutral-200/60 bg-neutral-50/95 pb-2 pt-3 backdrop-blur-sm
         dark:border-neutral-800/60 dark:bg-neutral-950/95
         transition-[top] duration-200 ease-out motion-reduce:transition-none
         ${className}

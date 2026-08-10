@@ -4,7 +4,7 @@ import type { Locale } from "@/i18n/config";
 import { FooterInstallLink } from "@/components/FooterInstallLink";
 import { CITIES, getCityName } from "@/lib/cities";
 import { CROSS_PROMO_URL } from "@/lib/cross-promo";
-import { PAGE_WIDTH_CLASS } from "@/lib/page-shell";
+import { PAGE_GUTTER_CLASS, PAGE_WIDTH_CLASS } from "@/lib/page-shell";
 
 interface SiteFooterProps {
   dict: Dictionary;
@@ -19,7 +19,7 @@ export function SiteFooter({ dict, locale, className = "pb-6" }: SiteFooterProps
     >
       <nav
         aria-label={dict.browse.ariaLabel}
-        className={`${PAGE_WIDTH_CLASS} mb-4 flex flex-wrap justify-center gap-x-3 gap-y-2 px-4 text-xs font-semibold text-neutral-500 dark:text-neutral-400 sm:gap-x-4`}
+        className={`${PAGE_WIDTH_CLASS} ${PAGE_GUTTER_CLASS} mb-4 flex flex-wrap justify-center gap-x-3 gap-y-2 text-xs font-semibold text-neutral-500 dark:text-neutral-400 sm:gap-x-4`}
       >
         {CITIES.map((city) => (
           <Link

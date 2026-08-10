@@ -34,6 +34,7 @@ import { SearchEmptyState } from "./SearchEmptyState";
 import { TimeFilter } from "./TimeFilter";
 import { ListScrollAnchor } from "./StickyListFilters";
 import { CROSS_PROMO_LIST_AFTER } from "@/lib/cross-promo";
+import { CARD_GRID_CLASS } from "@/lib/page-shell";
 
 const EMPTY_EVENTS: Event[] = [];
 
@@ -347,39 +348,49 @@ export function EventList({
           <div
             className={
               isSearching
-                ? "grid grid-cols-2 items-stretch gap-2.5 pt-3 sm:gap-3 lg:grid-cols-3"
+                ? `${CARD_GRID_CLASS} pt-3`
                 : "space-y-3 pt-3"
             }
           >
-            {visibleEvents.flatMap((event, index) => {
-              const cards = [
-                <EventCard
-                  key={event.id}
-                  event={event}
-                  dict={dict}
-                  locale={locale}
-                  returnTo={listReturnTo}
-                  listTimeRange={timeRange}
-                  view={isSearching ? "cards" : "list"}
-                />,
-              ];
-              if (
-                index === CROSS_PROMO_LIST_AFTER - 1 &&
-                visibleEvents.length > CROSS_PROMO_LIST_AFTER
-              ) {
-                const cardsView = isSearching;
-                cards.push(
-                  <CrossPromoBanner
-                    key="cross-promo"
+            {isSearching
+              ? visibleEvents.map((event) => (
+                  <EventCard
+                    key={event.id}
+                    event={event}
                     dict={dict}
-                    variant={cardsView ? "strip" : "list"}
-                    view={cardsView ? "cards" : "list"}
-                    className={cardsView ? "col-span-full" : undefined}
-                  />,
-                );
-              }
-              return cards;
-            })}
+                    locale={locale}
+                    returnTo={listReturnTo}
+                    listTimeRange={timeRange}
+                    view="cards"
+                  />
+                ))
+              : visibleEvents.flatMap((event, index) => {
+                  const rows = [
+                    <EventCard
+                      key={event.id}
+                      event={event}
+                      dict={dict}
+                      locale={locale}
+                      returnTo={listReturnTo}
+                      listTimeRange={timeRange}
+                      view="list"
+                    />,
+                  ];
+                  if (
+                    index === CROSS_PROMO_LIST_AFTER - 1 &&
+                    visibleEvents.length > CROSS_PROMO_LIST_AFTER
+                  ) {
+                    rows.push(
+                      <CrossPromoBanner
+                        key="cross-promo"
+                        dict={dict}
+                        variant="list"
+                        view="list"
+                      />,
+                    );
+                  }
+                  return rows;
+                })}
             <EventListScrollPads
               count={filtered.length}
               title={dict.events.yourEventHereTitle}
@@ -394,6 +405,14 @@ export function EventList({
               view={isSearching ? "cards" : "list"}
             />
           </div>
+          {isSearching && visibleEvents.length > CROSS_PROMO_LIST_AFTER ? (
+            <CrossPromoBanner
+              dict={dict}
+              variant="strip"
+              view="cards"
+              className="mt-3"
+            />
+          ) : null}
           {hasMore && viewAllHref ? (
             <div className="pt-2 text-center">
               <Link

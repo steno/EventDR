@@ -12,13 +12,14 @@ import { findActiveSpecialEvent } from "@/lib/special-events";
 /** Re-export for callers that import discovery helpers from home-layout. */
 export { prioritizeOneTimeEvents } from "@/lib/event-sort";
 
-/** Max cards in the home "Happening today" section (desktop 2×2). */
-export const HOME_TODAY_LIMIT = 4;
+/** Max cards in the home "Happening today" section (desktop 3×2). */
+export const HOME_TODAY_LIMIT = 6;
 
 /**
  * Max events before "More events" on home picks / scope lists.
- * 12 fills 3-col (desktop) and 2-col (mobile) grids evenly — keep the in-grid
- * cross-promo on `col-span-full` so it doesn't become a 13th card slot.
+ * 12 keeps short first paints; elastic auto-fill grids may leave a partial
+ * last row — keep the in-grid cross-promo on `col-span-full` so it doesn't
+ * become an extra card slot.
  */
 export const HOME_PICKS_LIMIT = 12;
 

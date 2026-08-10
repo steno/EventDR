@@ -36,7 +36,7 @@ export function CityPhotoHero({
       : null;
 
   return (
-    <header className="relative -mx-4 mb-5 overflow-hidden sm:rounded-2xl sm:mx-0">
+    <header className="relative -mx-5 mb-5 overflow-hidden sm:-mx-6 sm:rounded-2xl lg:mx-0">
       <div className="relative min-h-[14.5rem] sm:min-h-[17rem]">
         {resolvedImage ? (
           <div className="absolute inset-0">
@@ -44,7 +44,7 @@ export function CityPhotoHero({
               src={resolvedImage}
               alt=""
               priority
-              sizes="(max-width: 768px) 100vw, 768px"
+              sizes="100vw"
               className="object-cover object-center"
             />
           </div>

@@ -9,6 +9,7 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 import { useScrollChromeVisible } from "@/hooks/useScrollChrome";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
+import { PAGE_GUTTER_BLEED_CLASS } from "@/lib/page-shell";
 import { SCROLL_CHROME_TRANSITION_CLASS } from "@/lib/scroll-chrome";
 
 const STICKY_HEADER_HEIGHT_VAR = "--sticky-list-header-height";
@@ -111,7 +112,7 @@ export function StickyListHeader({
     <div
       ref={rootRef}
       data-sticky-list-header
-      className={`sticky top-0 z-20 -mx-4 px-4 bg-neutral-50/95 backdrop-blur-sm dark:bg-neutral-950/95 border-b border-neutral-200/60 dark:border-neutral-800/60 ${SCROLL_CHROME_TRANSITION_CLASS} ${
+      className={`sticky top-0 z-20 ${PAGE_GUTTER_BLEED_CLASS} bg-neutral-50/95 backdrop-blur-sm dark:bg-neutral-950/95 border-b border-neutral-200/60 dark:border-neutral-800/60 ${SCROLL_CHROME_TRANSITION_CLASS} ${
         chromeVisible
           ? ""
           : "-translate-y-full border-transparent pointer-events-none"
