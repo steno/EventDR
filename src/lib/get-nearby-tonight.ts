@@ -81,5 +81,7 @@ export async function getNearbyTonightForVenue(
     category: "culture",
     format: "physical",
   };
-  return findNearbyOnStrip(source, pool);
+  return findNearbyOnStrip(source, pool, {
+    preferEvening: true,
+  });
 }

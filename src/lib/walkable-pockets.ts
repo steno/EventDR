@@ -115,8 +115,8 @@ export const WALKABLE_POCKETS: readonly WalkablePocket[] = [
     slug: "malecon-pp",
     radiusMeters: 800,
     parkOnce: true,
-    lat: 19.7935,
-    lng: -70.688,
+    lat: 19.7968,
+    lng: -70.6885,
     names: {
       en: "Puerto Plata Malecón",
       es: "Malecón de Puerto Plata",

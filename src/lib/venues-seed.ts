@@ -20,8 +20,10 @@ export const SEED_VENUES: Venue[] = [
     city: "Puerto Plata",
     description:
       "Waterfront promenade with free concerts, food festivals, and local gatherings.",
-    lat: 19.7905058,
-    lng: -70.6718446,
+    // Mid-promenade pin — tip-to-tip Malecón spans ~2–3 km; an east-biased pin
+    // made Victrola / Plaza / Anfiteatro look like 28–35 min “walks.”
+    lat: 19.7968,
+    lng: -70.6885,
     emoji: "🌊",
   },
   {

@@ -15,12 +15,24 @@ import {
 export const NEARBY_WALK_METERS = 900;
 
 /**
- * Same-pocket pairs still need to be this close — membership alone can span a
- * long Malecón or a bad venue mapping.
+ * Same-pocket pairs still need a distance sanity check — membership alone can
+ * include a bad venue mapping across town.
+ *
+ * Tuned for long waterfronts (Puerto Plata Malecón ~2–3 km tip-to-tip).
  */
-export const NEARBY_POCKET_WALK_METERS = 1600;
+export const NEARBY_POCKET_WALK_METERS = 3200;
+
+/**
+ * Strip look-ahead (“Also on this strip”) trusts editorial pocket membership.
+ * Wide safety net so a mis-tagged Cabarete venue never appears on the Malecón
+ * strip, without cutting Victrola / Plaza / Anfiteatro from the hub pin.
+ */
+export const NEARBY_STRIP_MAX_METERS = 5000;
 
 export const NEARBY_MAX_RESULTS = 3;
+
+/** More cards on venue strip rails — guests are planning a park-once evening. */
+export const NEARBY_STRIP_MAX_RESULTS = 5;
 
 /** Venue strip look-ahead window (calendar days including today). */
 export const NEARBY_STRIP_DAYS_AHEAD = 7;
@@ -245,16 +257,22 @@ export function findNearbyOnStrip(
   options?: {
     now?: Date;
     maxResults?: number;
+    /** @deprecated Prefer stripMaxMeters — strip trusts pocket membership. */
     pocketWalkMeters?: number;
+    stripMaxMeters?: number;
     daysAhead?: number;
     /** Inclusive start day (YYYY-MM-DD). Defaults to today. */
     fromDate?: string;
+    /** Force evening-first ranking (venue hubs have no clock time). */
+    preferEvening?: boolean;
   },
 ): NearbyTonightResult {
   const now = options?.now ?? new Date();
-  const maxResults = options?.maxResults ?? NEARBY_MAX_RESULTS;
-  const pocketWalkMeters =
-    options?.pocketWalkMeters ?? NEARBY_POCKET_WALK_METERS;
+  const maxResults = options?.maxResults ?? NEARBY_STRIP_MAX_RESULTS;
+  const stripMaxMeters =
+    options?.stripMaxMeters ??
+    options?.pocketWalkMeters ??
+    NEARBY_STRIP_MAX_METERS;
   const daysAhead = options?.daysAhead ?? NEARBY_STRIP_DAYS_AHEAD;
   const todayISO = localDateISO(now);
   const fromISO =
@@ -282,8 +300,9 @@ export function findNearbyOnStrip(
     "food-drinks",
   ]);
   const preferEvening =
-    (sourceStart != null && sourceStart >= 16 * 60) ||
-    (sourceStart == null && nightlifeCategories.has(source.category));
+    options?.preferEvening ??
+    ((sourceStart != null && sourceStart >= 16 * 60) ||
+      (sourceStart == null && nightlifeCategories.has(source.category)));
 
   const hits: NearbyEventHit[] = [];
 
@@ -299,6 +318,12 @@ export function findNearbyOnStrip(
     }
     if (isStandingAttraction(candidate)) continue;
 
+    // Venue strip rails are park-once evening planning — skip morning museum hours.
+    if (preferEvening) {
+      const candidateStart = eventStartMinutes(candidate.time);
+      if (candidateStart != null && candidateStart < 16 * 60) continue;
+    }
+
     const candidateDate = candidate.date?.trim();
     if (!candidateDate || candidateDate < fromISO || candidateDate > endISO) {
       continue;
@@ -311,7 +336,7 @@ export function findNearbyOnStrip(
     if (!dest) continue;
 
     const distanceMeters = haversineMeters(origin, dest);
-    if (distanceMeters > pocketWalkMeters) continue;
+    if (distanceMeters > stripMaxMeters) continue;
 
     hits.push({
       event: candidate,
@@ -326,11 +351,11 @@ export function findNearbyOnStrip(
     ? [
         ...hits.filter((h) => {
           const t = eventStartMinutes(h.event.time);
-          return t == null || t >= 16 * 60;
+          return t != null && t >= 16 * 60;
         }),
         ...hits.filter((h) => {
           const t = eventStartMinutes(h.event.time);
-          return t != null && t < 16 * 60;
+          return t == null || t < 16 * 60;
         }),
       ]
     : hits;
@@ -346,8 +371,8 @@ export function findNearbyOnStrip(
 
   ordered.sort((a, b) => {
     if (preferEvening) {
-      const aEve = (eventStartMinutes(a.event.time) ?? 0) >= 16 * 60 ? 0 : 1;
-      const bEve = (eventStartMinutes(b.event.time) ?? 0) >= 16 * 60 ? 0 : 1;
+      const aEve = (eventStartMinutes(a.event.time) ?? -1) >= 16 * 60 ? 0 : 1;
+      const bEve = (eventStartMinutes(b.event.time) ?? -1) >= 16 * 60 ? 0 : 1;
       if (aEve !== bEve) return aEve - bEve;
     }
     const dateCmp = a.event.date.localeCompare(b.event.date);
@@ -358,7 +383,21 @@ export function findNearbyOnStrip(
     return a.distanceMeters - b.distanceMeters;
   });
 
-  const limited = ordered.slice(0, maxResults);
+  // One card per venue — strip rails should sample the waterfront, not stack
+  // duplicate Friday listings from the same lounge.
+  const byVenue = new Map<string, NearbyEventHit>();
+  const noVenue: NearbyEventHit[] = [];
+  for (const hit of ordered) {
+    const slug = hit.event.venueSlug?.trim();
+    if (!slug) {
+      noVenue.push(hit);
+      continue;
+    }
+    if (!byVenue.has(slug)) byVenue.set(slug, hit);
+  }
+  const diversified = [...byVenue.values(), ...noVenue];
+
+  const limited = diversified.slice(0, maxResults);
   return {
     pocket: sourcePocket,
     parkOnce: Boolean(sourcePocket.parkOnce) && limited.length > 0,
@@ -385,5 +424,6 @@ export function findNearbyForEventDetail(
     ...options,
     fromDate: source.date?.trim() || undefined,
     daysAhead: 4,
+    preferEvening: true,
   });
 }
