@@ -1,8 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import { MapPin } from "lucide-react";
 import { EventImage } from "@/components/EventImage";
+import { IntentLink } from "@/components/IntentLink";
 import type { Venue } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
 
@@ -24,9 +24,8 @@ export function SearchVenueHits({ venues, locale, title }: SearchVenueHitsProps)
       <ul className="space-y-2">
         {venues.map((venue) => (
           <li key={venue.slug}>
-            <Link
+            <IntentLink
               href={`/${locale}/venue/${venue.slug}`}
-              prefetch={false}
               className="
                 flex items-center gap-3 rounded-2xl border border-neutral-200 bg-white p-2.5
                 shadow-sm transition-colors touch-manipulation
@@ -57,7 +56,7 @@ export function SearchVenueHits({ venues, locale, title }: SearchVenueHitsProps)
                   <span className="truncate">{venue.city}</span>
                 </p>
               </div>
-            </Link>
+            </IntentLink>
           </li>
         ))}
       </ul>

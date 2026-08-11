@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { EventImage } from "@/components/EventImage";
+import { IntentLink } from "@/components/IntentLink";
 import { eventDetailPath, rememberReturnPath } from "@/lib/event-navigation";
 import type { Event } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
@@ -97,9 +97,8 @@ export function PhotoHero({
           </div>
 
           {featuredEvent && eventHref && (
-            <Link
+            <IntentLink
               href={eventHref}
-              prefetch={false}
               onClick={() => rememberReturnPath(returnTo ?? `/${locale}`)}
               className="group inline-flex max-w-full items-center gap-2 text-[15px] font-bold touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400 focus-visible:rounded"
             >
@@ -112,7 +111,7 @@ export function PhotoHero({
               >
                 →
               </span>
-            </Link>
+            </IntentLink>
           )}
         </div>
       </div>

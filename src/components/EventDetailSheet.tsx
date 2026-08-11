@@ -64,6 +64,9 @@ import {
   markOnboardingSeen,
 } from "@/lib/onboarding";
 import { usePushSubscription } from "@/hooks/usePushSubscription";
+import { NearbyTonight, PocketPlaceHint } from "@/components/NearbyTonight";
+import type { NearbyTonightResult } from "@/lib/nearby-events";
+import { getPocketForEvent } from "@/lib/walkable-pockets";
 
 type ActionMenu = "share" | "calendar";
 
@@ -90,6 +93,8 @@ interface EventDetailSheetProps {
   standalone?: boolean;
   /** Optional approved draft / preloaded opinion (seed still wins via getEventOpinion). */
   opinionOverride?: EventOpinion | null;
+  /** Same-day walkable events near this one (server-computed). */
+  nearbyTonight?: NearbyTonightResult | null;
 }
 
 export function EventDetailSheet({
@@ -99,10 +104,12 @@ export function EventDetailSheet({
   locale,
   isSaved,
   onToggleSave,
+  returnTo = null,
   formattedDateRange,
   recurrenceLabel: recurrenceLabelProp,
   standalone = false,
   opinionOverride = null,
+  nearbyTonight = null,
 }: EventDetailSheetProps) {
   const [shareMsg, setShareMsg] = useState<string | null>(null);
   const [openAction, setOpenAction] = useState<ActionMenu | null>(null);
@@ -283,6 +290,7 @@ export function EventDetailSheet({
       : formatRecurrenceLabel(event, locale, dict);
   const venueSlug =
     event.venueSlug ?? matchVenueSlug(event.venue) ?? matchVenueSlug(event.location);
+  const walkablePocket = nearbyTonight?.pocket ?? getPocketForEvent(event);
   const eventOpinionRaw =
     // Prefer API opinion when it carries Google ★ (seed body + venue rating).
     (fetchedOpinion && typeof fetchedOpinion.googleRating === "number"
@@ -443,6 +451,13 @@ export function EventDetailSheet({
             <MapPin className="mt-0.5 h-[1.125rem] w-[1.125rem] shrink-0 text-neutral-500 transition-colors group-hover/place:text-orange-600 dark:text-neutral-400" />
             <span className="min-w-0 font-medium leading-snug transition-colors group-hover/place:text-orange-600">
               {formatEventPlace(event)}
+              {walkablePocket ? (
+                <PocketPlaceHint
+                  pocket={walkablePocket}
+                  locale={locale}
+                  dict={dict}
+                />
+              ) : null}
             </span>
           </a>
         ) : (
@@ -450,6 +465,13 @@ export function EventDetailSheet({
             <MapPin className="mt-0.5 h-[1.125rem] w-[1.125rem] shrink-0 text-neutral-500 dark:text-neutral-400" />
             <span className="min-w-0 font-medium leading-snug">
               {formatEventPlace(event)}
+              {walkablePocket ? (
+                <PocketPlaceHint
+                  pocket={walkablePocket}
+                  locale={locale}
+                  dict={dict}
+                />
+              ) : null}
             </span>
           </div>
         )}
@@ -514,6 +536,18 @@ export function EventDetailSheet({
           </ul>
         </div>
       )}
+
+      {nearbyTonight && nearbyTonight.hits.length > 0 ? (
+        <NearbyTonight
+          nearby={nearbyTonight}
+          locale={locale}
+          dict={dict}
+          returnTo={
+            returnTo ??
+            (event ? eventDetailPath(locale, event.id) : undefined)
+          }
+        />
+      ) : null}
 
       {(ticketUrl ||
         (showCallForPricing && event.phone) ||

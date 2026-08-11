@@ -4,6 +4,7 @@ import { VenuePage } from "@/components/VenuePage";
 import { JsonLd } from "@/components/JsonLd";
 import { getVenueBySlug } from "@/lib/venues";
 import { getVenueAssessment } from "@/lib/venue-assessments";
+import { getNearbyTonightForVenue } from "@/lib/get-nearby-tonight";
 import { SEED_VENUES } from "@/lib/venues-seed";
 import { isValidLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
@@ -50,6 +51,7 @@ export default async function Page({
 
   const dict = getDictionary(locale);
   const assessment = await getVenueAssessment(slug);
+  const nearbyTonight = await getNearbyTonightForVenue(venue, locale);
 
   return (
     <>
@@ -67,6 +69,7 @@ export default async function Page({
         locale={locale}
         dict={dict}
         assessment={assessment}
+        nearbyTonight={nearbyTonight}
       />
     </>
   );

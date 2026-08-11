@@ -159,6 +159,16 @@ export type Dictionary = {
     shared: string;
     copied: string;
     lineup: string;
+    /** Same-day walkable events near this one. */
+    alsoNearbyTonight: string;
+    alsoNearby: string;
+    alsoOnThisStrip: string;
+    parkOnceWalk: string;
+    walkMinutes: string;
+    sameStrip: string;
+    sameVenue: string;
+    walkableStrip: string;
+    pocketPlaceMeta: string;
     opinion: {
       heading: string;
       speaker: string;
@@ -567,6 +577,15 @@ export const en: Dictionary = {
     shared: "Shared!",
     copied: "Copied to clipboard",
     lineup: "Performers",
+    alsoNearbyTonight: "Also nearby tonight",
+    alsoNearby: "Also nearby",
+    alsoOnThisStrip: "Also on this strip",
+    parkOnceWalk: "Park once · walk between",
+    walkMinutes: "{n} min walk",
+    sameStrip: "Same strip",
+    sameVenue: "Same venue",
+    walkableStrip: "Walkable strip",
+    pocketPlaceMeta: "{pocket} · {strip}",
     opinion: {
       heading: "Tip",
       speaker: "POP Events",

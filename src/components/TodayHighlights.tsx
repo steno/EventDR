@@ -1,10 +1,10 @@
 "use client";
 
 import { memo, useMemo } from "react";
-import Link from "next/link";
 import { ChevronRight, Clock } from "lucide-react";
 import { EventImage } from "@/components/EventImage";
 import { EventStatusBadge } from "@/components/EventStatusBadge";
+import { IntentLink } from "@/components/IntentLink";
 import { useLiveStatusDisplay } from "@/hooks/useLiveStatusDisplay";
 import type { Event } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
@@ -53,9 +53,8 @@ function TodayHighlightCard({
 
   return (
     <article className="group relative min-w-0 overflow-hidden rounded-2xl bg-neutral-100 shadow-[0_8px_24px_-14px_rgba(0,0,0,0.18)] ring-1 ring-black/5 hover:ring-orange-400/50 hover:shadow-[0_12px_32px_-16px_rgba(251,146,60,0.35)] transition-[box-shadow,transform] duration-500 ease-out active:scale-[0.99] cursor-pointer dark:bg-neutral-950 dark:shadow-[0_8px_24px_-14px_rgba(0,0,0,0.45)] dark:ring-white/10 dark:hover:ring-orange-600/50">
-      <Link
+      <IntentLink
         href={href}
-        prefetch={false}
         onClick={() => rememberReturnPath(returnTo ?? `/${locale}`)}
         className="relative block aspect-[16/10] w-full overflow-hidden touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 rounded-2xl sm:aspect-[3/2]"
         aria-label={event.title}
@@ -119,7 +118,7 @@ function TodayHighlightCard({
             </p>
           )}
         </div>
-      </Link>
+      </IntentLink>
     </article>
   );
 }
@@ -152,14 +151,13 @@ const TodayHighlightsComponent = ({
           {dict.events.happeningToday}
         </h2>
         {hasMore && (
-          <Link
+          <IntentLink
             href={allTodayHref}
-            prefetch={false}
             className="inline-flex items-center gap-0.5 rounded-full bg-orange-50 dark:bg-orange-950/50 px-2.5 py-1 text-[13px] font-bold text-orange-600 hover:bg-orange-100 dark:hover:bg-orange-950/70 transition-colors touch-manipulation"
           >
             {dict.events.seeAllToday}
             <ChevronRight className="h-3.5 w-3.5" aria-hidden />
-          </Link>
+          </IntentLink>
         )}
       </div>
 

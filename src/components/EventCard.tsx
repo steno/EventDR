@@ -1,8 +1,8 @@
 import { memo } from "react";
-import Link from "next/link";
 import { Flame } from "lucide-react";
 import { EventImage } from "@/components/EventImage";
 import { EventCardMeta } from "@/components/EventCardMeta";
+import { IntentLink } from "@/components/IntentLink";
 import type { Event } from "@/lib/types";
 import { getCategoryMeta } from "@/lib/categories";
 import type { Dictionary } from "@/i18n/dictionaries";
@@ -60,9 +60,8 @@ const EventCardComponent = ({
           ${isEndedToday ? "opacity-60" : ""}
         `}
       >
-        <Link
+        <IntentLink
           href={href}
-          prefetch={false}
           onClick={handleNavigate}
           className="absolute inset-0 z-0 rounded-2xl touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
           aria-label={event.title}
@@ -122,9 +121,8 @@ const EventCardComponent = ({
         ${isEndedToday ? "opacity-60" : ""}
       `}
     >
-      <Link
+      <IntentLink
         href={href}
-        prefetch={false}
         onClick={handleNavigate}
         className="absolute inset-0 z-0 rounded-2xl touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
         aria-label={event.title}

@@ -1,0 +1,198 @@
+"use client";
+
+import { Footprints } from "lucide-react";
+import { EventImage } from "@/components/EventImage";
+import { IntentLink } from "@/components/IntentLink";
+import type { Dictionary } from "@/i18n/dictionaries";
+import type { Locale } from "@/i18n/config";
+import { getCategoryMeta } from "@/lib/categories";
+import { eventDetailPath, rememberReturnPath } from "@/lib/event-navigation";
+import { formatEventTimeForList } from "@/lib/event-time-display";
+import { formatEventDateRange } from "@/lib/format-date";
+import type { NearbyEventHit, NearbyTonightResult } from "@/lib/nearby-events";
+import {
+  pocketDisplayName,
+  pocketStripLabel,
+} from "@/lib/walkable-pockets";
+
+interface NearbyTonightProps {
+  nearby: NearbyTonightResult;
+  locale: Locale;
+  dict: Dictionary;
+  returnTo?: string;
+  className?: string;
+}
+
+function relationLabel(
+  hit: NearbyEventHit,
+  dict: Dictionary,
+): string {
+  if (hit.relation === "same-venue") return dict.detail.sameVenue;
+  const walk = dict.detail.walkMinutes.replace(
+    "{n}",
+    String(hit.walkMinutes),
+  );
+  if (hit.relation === "same-pocket") {
+    if (hit.walkMinutes <= 3) return dict.detail.sameStrip;
+    return `${dict.detail.sameStrip} · ${walk}`;
+  }
+  return walk;
+}
+
+function NearbyCard({
+  hit,
+  locale,
+  dict,
+  returnTo,
+  showDate,
+}: {
+  hit: NearbyEventHit;
+  locale: Locale;
+  dict: Dictionary;
+  returnTo?: string;
+  showDate?: boolean;
+}) {
+  const { event } = hit;
+  const href = eventDetailPath(locale, event.id);
+  const category = getCategoryMeta(event.category, dict.categories);
+  const emoji = event.imageEmoji ?? category?.emoji ?? "📅";
+  const timeLabel = formatEventTimeForList(event.time, {
+    recurrence: event.recurrence,
+    allDayLabel: dict.events.allDay,
+  });
+  const meta = relationLabel(hit, dict);
+  const dateLabel = showDate
+    ? formatEventDateRange(event.date, locale, { short: true })
+    : null;
+  const schedule = [dateLabel, timeLabel.display].filter(Boolean).join(" · ");
+
+  return (
+    <article className="group relative w-[11.5rem] shrink-0 snap-start overflow-hidden rounded-2xl bg-white dark:bg-neutral-900 ring-1 ring-neutral-200/90 dark:ring-neutral-800 shadow-[0_2px_12px_-6px_rgba(0,0,0,0.12)] transition-[box-shadow,transform] duration-300 hover:shadow-[0_8px_24px_-10px_rgba(251,146,60,0.28)] hover:ring-orange-300/70 dark:hover:ring-orange-800/60 active:scale-[0.99] cursor-pointer">
+      <IntentLink
+        href={href}
+        onClick={() => rememberReturnPath(returnTo)}
+        className="absolute inset-0 z-0 rounded-2xl touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
+        aria-label={event.title}
+      />
+      <div
+        className={`relative aspect-[4/3] w-full overflow-hidden pointer-events-none ${
+          event.imageUrl
+            ? "bg-neutral-100 dark:bg-neutral-800"
+            : `bg-gradient-to-br ${category?.gradient ?? "from-neutral-200 to-neutral-300"}`
+        }`}
+      >
+        {event.imageUrl ? (
+          <EventImage
+            src={event.imageUrl}
+            alt=""
+            sizes="184px"
+            className="object-cover card-media-zoom"
+          />
+        ) : (
+          <div className="flex h-full w-full items-center justify-center text-3xl" aria-hidden>
+            {emoji}
+          </div>
+        )}
+      </div>
+      <div className="relative z-[1] space-y-1 p-2.5 pointer-events-none">
+        <h3 className="line-clamp-2 text-[0.8125rem] font-semibold leading-snug tracking-tight text-neutral-900 dark:text-neutral-100">
+          {event.title}
+        </h3>
+        <p className="truncate text-[11px] font-semibold text-orange-700 dark:text-orange-400">
+          {meta}
+        </p>
+        {schedule ? (
+          <p className="truncate text-[11px] font-medium text-neutral-500 dark:text-neutral-400">
+            {schedule}
+          </p>
+        ) : null}
+      </div>
+    </article>
+  );
+}
+
+export function NearbyTonight({
+  nearby,
+  locale,
+  dict,
+  returnTo,
+  className = "mt-6",
+}: NearbyTonightProps) {
+  if (!nearby.hits.length) return null;
+
+  const heading = nearby.stripAhead
+    ? dict.detail.alsoOnThisStrip
+    : nearby.isToday
+      ? dict.detail.alsoNearbyTonight
+      : dict.detail.alsoNearby;
+
+  return (
+    <section
+      className={className}
+      aria-labelledby="nearby-tonight-heading"
+    >
+      <div className="mb-3 flex items-start gap-2.5">
+        <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-orange-50 text-orange-700 dark:bg-orange-950/50 dark:text-orange-300">
+          <Footprints className="h-4 w-4" aria-hidden />
+        </span>
+        <div className="min-w-0">
+          <h2
+            id="nearby-tonight-heading"
+            className="text-[11px] font-bold uppercase tracking-wide text-neutral-500 dark:text-neutral-400"
+          >
+            {heading}
+          </h2>
+          {nearby.parkOnce && nearby.pocket ? (
+            <p className="mt-0.5 text-sm font-medium leading-snug text-neutral-800 dark:text-neutral-200">
+              {dict.detail.parkOnceWalk}
+              <span className="text-neutral-400 dark:text-neutral-500">
+                {" · "}
+                {pocketDisplayName(nearby.pocket, locale)}
+              </span>
+            </p>
+          ) : nearby.pocket ? (
+            <p className="mt-0.5 text-sm font-medium leading-snug text-neutral-600 dark:text-neutral-300">
+              {pocketDisplayName(nearby.pocket, locale)}
+              {" · "}
+              {pocketStripLabel(nearby.pocket, locale)}
+            </p>
+          ) : null}
+        </div>
+      </div>
+
+      <div className="-mx-1 flex gap-2.5 overflow-x-auto px-1 pb-1 snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        {nearby.hits.map((hit) => (
+          <NearbyCard
+            key={hit.event.id}
+            hit={hit}
+            locale={locale}
+            dict={dict}
+            returnTo={returnTo}
+            showDate={Boolean(nearby.stripAhead)}
+          />
+        ))}
+      </div>
+    </section>
+  );
+}
+
+/** Compact place-line meta when the event sits in a walkable pocket. */
+export function PocketPlaceHint({
+  pocket,
+  locale,
+  dict,
+}: {
+  pocket: NonNullable<NearbyTonightResult["pocket"]>;
+  locale: Locale;
+  dict: Dictionary;
+}) {
+  const label = dict.detail.pocketPlaceMeta
+    .replace("{pocket}", pocketDisplayName(pocket, locale))
+    .replace("{strip}", pocketStripLabel(pocket, locale));
+
+  return (
+    <span className="mt-1 block text-[12px] font-medium leading-snug text-neutral-500 dark:text-neutral-400">
+      {label}
+    </span>
+  );
+}

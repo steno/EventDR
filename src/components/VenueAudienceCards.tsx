@@ -1,8 +1,8 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import Link from "next/link";
 import { EventImage } from "@/components/EventImage";
+import { IntentLink } from "@/components/IntentLink";
 import type { Venue } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
@@ -33,9 +33,8 @@ function VenueSlideCard({
   loadImage: boolean;
 }) {
   return (
-    <Link
+    <IntentLink
       href={`/${locale}/venue/${venue.slug}`}
-      prefetch={false}
       className="
         group flex h-full flex-col overflow-hidden rounded-2xl
         border border-neutral-200/90 bg-white
@@ -81,7 +80,7 @@ function VenueSlideCard({
           </p>
         ) : null}
       </div>
-    </Link>
+    </IntentLink>
   );
 }
 

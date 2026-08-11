@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useRef, type Ref } from "react";
+import { IntentLink } from "@/components/IntentLink";
 import {
   CATEGORY_PILL_ACTIVE,
   CATEGORY_PILL_BASE,
@@ -97,11 +97,10 @@ export function CityCategoryLinks({
     ref?: Ref<HTMLAnchorElement>,
   ) => {
     return (
-      <Link
+      <IntentLink
         key={link.href}
         ref={ref}
         href={link.href}
-        prefetch={false}
         scroll={false}
         aria-current={active ? "page" : undefined}
         aria-label={link.label}
@@ -113,7 +112,7 @@ export function CityCategoryLinks({
           </span>
         ) : null}
         <span className="truncate w-full">{link.label}</span>
-      </Link>
+      </IntentLink>
     );
   };
 

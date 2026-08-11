@@ -28,6 +28,9 @@ import { PAGE_SHELL_DETAIL_CLASS } from "@/lib/page-shell";
 import { scrollBelowStickyStack, scrollUnderStickyHeader } from "@/lib/list-scroll";
 import { getVenueHeroImageUrl } from "@/lib/venue-images";
 import { useForegroundRefresh } from "@/hooks/useForegroundRefresh";
+import { NearbyTonight, PocketPlaceHint } from "@/components/NearbyTonight";
+import type { NearbyTonightResult } from "@/lib/nearby-events";
+import { getPocketForVenueSlug } from "@/lib/walkable-pockets";
 
 interface VenuePageProps {
   venue: Venue;
@@ -35,6 +38,7 @@ interface VenuePageProps {
   dict: Dictionary;
   initialExpanded?: boolean;
   assessment?: VenueAssessment | null;
+  nearbyTonight?: NearbyTonightResult | null;
 }
 
 function normalizeExternalUrl(raw: string): string {
@@ -53,6 +57,7 @@ export function VenuePage({
   dict,
   initialExpanded = false,
   assessment = null,
+  nearbyTonight = null,
 }: VenuePageProps) {
   const router = useRouter();
   const [events, setEvents] = useState<Event[]>([]);
@@ -223,6 +228,8 @@ export function VenuePage({
 
   const actionCount =
     (venue.phone ? 1 : 0) + 1 + (websiteUrl ? 1 : 0) + (instagramUrl ? 1 : 0);
+  const walkablePocket =
+    nearbyTonight?.pocket ?? getPocketForVenueSlug(venue.slug);
 
   return (
     <>
@@ -315,6 +322,13 @@ export function VenuePage({
             <h1 className="mt-1.5 text-2xl font-black leading-tight tracking-tight text-neutral-900 dark:text-neutral-100">
               {venue.name}
             </h1>
+            {walkablePocket ? (
+              <PocketPlaceHint
+                pocket={walkablePocket}
+                locale={locale}
+                dict={dict}
+              />
+            ) : null}
 
             {venue.temporarilyClosed ? (
               <span className="mt-3 inline-flex w-fit items-center rounded-full bg-rose-50 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-rose-700 ring-1 ring-rose-200 dark:bg-rose-950/40 dark:text-rose-400 dark:ring-rose-900/60">
@@ -397,8 +411,18 @@ export function VenuePage({
             </div>
           </header>
 
+          {nearbyTonight && nearbyTonight.hits.length > 0 ? (
+            <NearbyTonight
+              nearby={nearbyTonight}
+              locale={locale}
+              dict={dict}
+              returnTo={listReturnTo}
+              className="mt-6"
+            />
+          ) : null}
+
           {/* Events */}
-          <div className="mt-8">
+          <div className={nearbyTonight && nearbyTonight.hits.length > 0 ? "mt-6" : "mt-8"}>
             <VenueEventList
               events={events}
               loading={loading}

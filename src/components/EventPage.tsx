@@ -14,6 +14,7 @@ import {
   takeReturnPath,
 } from "@/lib/event-navigation";
 import { PAGE_SHELL_DETAIL_CLASS } from "@/lib/page-shell";
+import type { NearbyTonightResult } from "@/lib/nearby-events";
 
 interface EventPageProps {
   event: Event;
@@ -22,6 +23,7 @@ interface EventPageProps {
   returnTo?: string | null;
   formattedDateRange?: string;
   recurrenceLabel?: string | null;
+  nearbyTonight?: NearbyTonightResult | null;
 }
 
 export function EventPage({
@@ -31,6 +33,7 @@ export function EventPage({
   returnTo: returnToProp,
   formattedDateRange,
   recurrenceLabel,
+  nearbyTonight = null,
 }: EventPageProps) {
   const router = useRouter();
   const { toggleSave, isSaved } = useSavedEvents();
@@ -79,6 +82,7 @@ export function EventPage({
           returnTo={returnTo ?? backHref}
           formattedDateRange={formattedDateRange}
           recurrenceLabel={recurrenceLabel}
+          nearbyTonight={nearbyTonight}
           standalone
         />
       </div>

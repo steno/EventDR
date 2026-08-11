@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { IntentLink } from "@/components/IntentLink";
 import { getCategoryDefs } from "@/lib/categories";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
@@ -60,9 +60,8 @@ export function CategoryGrid({
         <div className="relative min-w-0 flex-1 overflow-hidden">
           <div className="overflow-x-auto scrollbar-hide">
             <div className="flex w-max gap-3 px-0.5 py-1">
-              <Link
+              <IntentLink
                 href={allEventsHref}
-                prefetch={false}
                 onClick={() => onCategorySelect?.()}
                 className={`${CATEGORY_PILL_BASE} ${CATEGORY_PILL_ACTIVE}`}
                 aria-label={allEventsLabel}
@@ -72,15 +71,14 @@ export function CategoryGrid({
                   📅
                 </span>
                 <span className="truncate w-full">{allEventsLabel}</span>
-              </Link>
+              </IntentLink>
               {categories.map((cat) => {
                 const href = categoryPath(locale, cat.id, citySlug);
 
                 return (
-                  <Link
+                  <IntentLink
                     key={cat.id}
                     href={href}
-                    prefetch={false}
                     onClick={() => onCategorySelect?.()}
                     className={`${CATEGORY_PILL_BASE} ${CATEGORY_PILL_IDLE}`}
                     aria-label={cat.label}
@@ -89,7 +87,7 @@ export function CategoryGrid({
                       {cat.emoji}
                     </span>
                     <span className="truncate w-full">{cat.label}</span>
-                  </Link>
+                  </IntentLink>
                 );
               })}
             </div>

@@ -62,6 +62,13 @@ export default function RootLayout({
         <ThemeScript />
         <style dangerouslySetInnerHTML={{ __html: bootSplashCriticalCss }} />
         <link rel="preload" href="/pop-home-logo.png" as="image" />
+        {/* Ingested / uploaded event media — warm DNS+TLS before first remote thumb. */}
+        <link rel="dns-prefetch" href="https://firebasestorage.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://firebasestorage.googleapis.com"
+          crossOrigin=""
+        />
         <Script id="boot-splash-failsafe" strategy="beforeInteractive">
           {bootSplashFailsafe}
         </Script>
