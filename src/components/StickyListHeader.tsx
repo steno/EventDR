@@ -1,6 +1,6 @@
 "use client";
 
-import { useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef, type ReactNode } from "react";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { AppHeader } from "@/components/AppHeader";
@@ -28,12 +28,40 @@ type StickyListHeaderProps = {
   backLabel: string;
   /** Drop bottom margin when the next block should sit flush (e.g. city photo hero). */
   flushBottom?: boolean;
-  /** Slim chrome for event/venue detail: back + theme/lang, no logo/weather. */
+  /**
+   * - default: list pages — slim back + theme/lang on mobile; logo/weather on `lg+`
+   * - detail: event/venue — always slim (no logo/weather)
+   *
+   * Height is published via ResizeObserver into `--sticky-list-header-height`
+   * so scroll-to-list and sticky filters stay aligned when chrome shrinks.
+   */
   variant?: "default" | "detail";
 } & (
   | { backHref: string; onBack?: never }
   | { backHref?: never; onBack: () => void }
 );
+
+function CompactChromeRow({
+  backControl,
+  locale,
+  dict,
+  className = "",
+}: {
+  backControl: ReactNode;
+  locale: Locale;
+  dict: Dictionary;
+  className?: string;
+}) {
+  return (
+    <div className={`flex items-center gap-2 ${className}`.trim()}>
+      <div className="min-w-0 flex-1">{backControl}</div>
+      <div className="ml-auto flex shrink-0 items-center gap-1.5 sm:gap-2">
+        <ThemeToggle dict={dict} />
+        <LanguageSwitcher locale={locale} dict={dict} />
+      </div>
+    </div>
+  );
+}
 
 export function StickyListHeader({
   locale,
@@ -81,32 +109,26 @@ export function StickyListHeader({
   const backControlClassName = isDetail
     ? detailBackControlClassName
     : stickyBackControlClassName;
+  const backIconClassName = isDetail
+    ? "h-4 w-4 shrink-0"
+    : "h-[1.125rem] w-[1.125rem] shrink-0";
 
-  const backControl = onBack ? (
-    <button type="button" onClick={onBack} className={backControlClassName}>
-      <ArrowLeft
-        className={
-          isDetail
-            ? "h-4 w-4 shrink-0"
-            : "h-[1.125rem] w-[1.125rem] shrink-0"
-        }
-        aria-hidden
-      />
-      <span className={backLabelClassName}>{backLabel}</span>
-    </button>
-  ) : (
-    <Link href={backHref} className={backControlClassName}>
-      <ArrowLeft
-        className={
-          isDetail
-            ? "h-4 w-4 shrink-0"
-            : "h-[1.125rem] w-[1.125rem] shrink-0"
-        }
-        aria-hidden
-      />
-      <span className={backLabelClassName}>{backLabel}</span>
-    </Link>
-  );
+  function renderBackControl() {
+    if (onBack) {
+      return (
+        <button type="button" onClick={onBack} className={backControlClassName}>
+          <ArrowLeft className={backIconClassName} aria-hidden />
+          <span className={backLabelClassName}>{backLabel}</span>
+        </button>
+      );
+    }
+    return (
+      <Link href={backHref} className={backControlClassName}>
+        <ArrowLeft className={backIconClassName} aria-hidden />
+        <span className={backLabelClassName}>{backLabel}</span>
+      </Link>
+    );
+  }
 
   return (
     <div
@@ -119,21 +141,30 @@ export function StickyListHeader({
       } ${
         isDetail
           ? "py-2 mb-2"
-          : `pb-2 ${flushBottom ? "mb-0" : "mb-6"}`
+          : // Mobile list chrome is compact (no logo); keep a little top pad.
+            `pt-2 pb-2 lg:pt-0 ${flushBottom ? "mb-0" : "mb-6"}`
       }`}
     >
       {isDetail ? (
-        <div className="flex items-center gap-2">
-          <div className="min-w-0 flex-1">{backControl}</div>
-          <div className="ml-auto flex shrink-0 items-center gap-1.5 sm:gap-2">
-            <ThemeToggle dict={dict} />
-            <LanguageSwitcher locale={locale} dict={dict} />
-          </div>
-        </div>
+        <CompactChromeRow
+          backControl={renderBackControl()}
+          locale={locale}
+          dict={dict}
+        />
       ) : (
         <>
-          <AppHeader locale={locale} dict={dict} />
-          {backControl}
+          {/* Mobile: logo/weather are redundant under sticky list chrome. */}
+          <CompactChromeRow
+            backControl={renderBackControl()}
+            locale={locale}
+            dict={dict}
+            className="lg:hidden"
+          />
+          {/* Desktop: keep brand + weather above the back link. */}
+          <div className="hidden lg:block">
+            <AppHeader locale={locale} dict={dict} />
+            {renderBackControl()}
+          </div>
         </>
       )}
     </div>
