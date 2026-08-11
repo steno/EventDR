@@ -1,12 +1,50 @@
 import type { Locale } from "@/i18n/config";
-import { localDateISO } from "@/lib/event-dates";
+import { localDateISO, materializeEventDates } from "@/lib/event-dates";
+import { getFallbackEvents } from "@/lib/fallback-events";
+import { attachCoords, attachVenueSlugs } from "@/lib/geo";
 import {
   findNearbyForEventDetail,
   findNearbyOnStrip,
   type NearbyTonightResult,
 } from "@/lib/nearby-events";
 import { getPublicEvents } from "@/lib/public-events";
+import { filterRemovedSeedEvents } from "@/lib/removed-seeds";
 import type { Event, Venue } from "@/lib/types";
+
+/**
+ * Process-local pool cache. Static generation hits this hundreds of times
+ * (venues × locales); reloading/rematerializing getPublicEvents each call
+ * OOMs Netlify's build workers (SIGKILL).
+ */
+const nearbyPoolByLocale = new Map<Locale, Promise<Event[]>>();
+
+function isProductionBuild(): boolean {
+  return process.env.NEXT_PHASE === "phase-production-build";
+}
+
+/**
+ * Event pool for nearby matching.
+ * Build: seed fallbacks only (no Firebase / full public pipeline).
+ * Runtime: full public catalog, memoized once per locale per process.
+ */
+function getNearbyEventPool(locale: Locale): Promise<Event[]> {
+  const cached = nearbyPoolByLocale.get(locale);
+  if (cached) return cached;
+
+  const loading = (async () => {
+    if (isProductionBuild()) {
+      return attachCoords(
+        materializeEventDates(
+          attachVenueSlugs(filterRemovedSeedEvents(getFallbackEvents(locale))),
+        ),
+      );
+    }
+    return getPublicEvents({ locale });
+  })();
+
+  nearbyPoolByLocale.set(locale, loading);
+  return loading;
+}
 
 /**
  * Same-day walkable neighbors for an event detail page.
@@ -16,7 +54,7 @@ export async function getNearbyTonightForEvent(
   event: Event,
   locale: Locale,
 ): Promise<NearbyTonightResult> {
-  const pool = await getPublicEvents({ locale });
+  const pool = await getNearbyEventPool(locale);
   return findNearbyForEventDetail(event, pool);
 }
 
@@ -28,7 +66,7 @@ export async function getNearbyTonightForVenue(
   venue: Venue,
   locale: Locale,
 ): Promise<NearbyTonightResult> {
-  const pool = await getPublicEvents({ locale });
+  const pool = await getNearbyEventPool(locale);
   const today = localDateISO();
   const source: Event = {
     id: `__venue__${venue.slug}`,

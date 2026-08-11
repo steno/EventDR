@@ -142,7 +142,8 @@ export function loadGoogleMapsJs(): Promise<GoogleMapsApi> {
     script.id = SCRIPT_ID;
     script.async = true;
     script.defer = true;
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${encodeURIComponent(key)}&v=weekly`;
+    // loading=async is required by Google's JS API bootstrap (script.async alone is not enough).
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${encodeURIComponent(key)}&v=weekly&loading=async`;
     script.onload = () => {
       // Auth failures often fire right after load.
       window.setTimeout(() => {
