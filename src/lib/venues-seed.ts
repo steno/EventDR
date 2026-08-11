@@ -490,13 +490,12 @@ export const SEED_VENUES: Venue[] = [
     name: "Paseo de Doña Blanca",
     city: "Puerto Plata",
     description:
-      "Temporarily closed to the public from Monday, July 20 to August 10, 2026 for renovation, painting, and general maintenance work. Reopening after August 10th. Pink-paved pedestrian alley honoring tourism pioneer Bianca Franceschini — Victorian touches, photo spots, and cafés between Calle Beller and John F. Kennedy.",
+      "Pink-paved pedestrian alley honoring tourism pioneer Bianca Franceschini — Victorian touches, photo spots, and cafés between Calle Beller and John F. Kennedy.",
     lat: 19.79859,
     lng: -70.6936521,
     emoji: "🌸",
     website: "https://puertoplatadr.com/boulevard/paseo-dona-blanca/",
     googlePlaceId: "ChIJJSAjF67vsY4RVxVDPdQbhZQ",
-    temporarilyClosed: true,
   },
   {
     slug: "calle-sombrillas",

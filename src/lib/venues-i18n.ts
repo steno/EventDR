@@ -287,8 +287,8 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
   },
   "paseo-dona-blanca": {
     description: {
-      es: "Cerrado temporalmente al público del lunes 20 de julio al 10 de agosto de 2026 por renovación, pintura y mantenimiento general. Reabre después del 10 de agosto. Calle peatonal de adoquines rosados en honor a la pionera del turismo Bianca Franceschini — detalles victorianos, spots para fotos y cafés entre la Calle Beller y John F. Kennedy.",
-      fr: "Fermé temporairement au public du lundi 20 juillet au 10 août 2026 pour rénovation, peinture et entretien général. Réouverture après le 10 août. Allée piétonne pavée de rose en l'honneur de la pionnière du tourisme Bianca Franceschini — touches victoriennes, spots photo et cafés entre la Calle Beller et John F. Kennedy.",
+      es: "Calle peatonal de adoquines rosados en honor a la pionera del turismo Bianca Franceschini — detalles victorianos, spots para fotos y cafés entre la Calle Beller y John F. Kennedy.",
+      fr: "Allée piétonne pavée de rose en l'honneur de la pionnière du tourisme Bianca Franceschini — touches victoriennes, spots photo et cafés entre la Calle Beller et John F. Kennedy.",
     },
   },
   "calle-sombrillas": {
