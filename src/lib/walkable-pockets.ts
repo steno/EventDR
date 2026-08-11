@@ -168,7 +168,8 @@ export const WALKABLE_POCKETS: readonly WalkablePocket[] = [
       "senor-rock-playa-dorada",
       "playa-dorada-golf",
       "coconut-cove",
-      "fun-city",
+      "paella-pop-green-one",
+      "paella-pop-el-pueblito",
     ],
   },
 ] as const;

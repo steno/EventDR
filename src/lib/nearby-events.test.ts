@@ -197,6 +197,59 @@ describe("findNearbyTonight", () => {
     );
   });
 
+  it("excludes hops beyond a comfortable walk even in the same pocket", () => {
+    const greenOne = event({
+      id: "paella",
+      title: "One Playa Dorada",
+      date: "2026-08-01",
+      time: "12:00 PM – 10:00 PM",
+      recurrence: "daily",
+      venueSlug: "paella-pop-green-one",
+      location: "Puerto Plata",
+      lat: 19.7674958,
+      lng: -70.6482428,
+      category: "food-drinks",
+    });
+    const senorRock = event({
+      id: "senor-rock",
+      title: "Señor Rock",
+      date: "2026-08-01",
+      time: "7:00 PM – 11:00 PM",
+      venueSlug: "senor-rock-playa-dorada",
+      location: "Puerto Plata",
+      lat: 19.7694757,
+      lng: -70.6430326,
+      category: "music",
+    });
+    const funCity = event({
+      id: "fun-city",
+      title: "Fun City Go-Karts",
+      date: "2026-08-01",
+      time: "10:00 AM – 6:00 PM",
+      recurrence: "daily",
+      venueSlug: "fun-city",
+      location: "Puerto Plata",
+      lat: 19.7450324,
+      lng: -70.6353642,
+      category: "adventure",
+    });
+
+    const result = findNearbyTonight(
+      greenOne,
+      [greenOne, senorRock, funCity],
+      { now: NOW },
+    );
+
+    assert.equal(
+      result.hits.some((h) => h.event.id === "fun-city"),
+      false,
+    );
+    assert.equal(
+      result.hits.some((h) => h.event.id === "senor-rock"),
+      true,
+    );
+  });
+
   it("prefers same-venue over farther pocket mates", () => {
     const source = event({
       id: "early",

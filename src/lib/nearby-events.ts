@@ -17,18 +17,19 @@ export const NEARBY_WALK_METERS = 900;
 
 /**
  * Same-pocket pairs still need a distance sanity check — membership alone can
- * include a bad venue mapping across town.
- *
- * Tuned for long waterfronts (Puerto Plata Malecón ~2–3 km tip-to-tip).
+ * span a resort complex or a long Malecón tip-to-tip that is not park-and-walk.
+ * ~1500 m ≈ 19 min at our walk pace — beyond that, drop the claim.
  */
-export const NEARBY_POCKET_WALK_METERS = 3200;
+export const NEARBY_POCKET_WALK_METERS = 1500;
+
+/** Hard guest-facing ceiling for “nearby” / “walk between” (minutes). */
+export const NEARBY_MAX_WALK_MINUTES = 18;
 
 /**
- * Strip look-ahead (“Also on this strip”) trusts editorial pocket membership.
- * Wide safety net so a mis-tagged Cabarete venue never appears on the Malecón
- * strip, without cutting Victrola / Plaza / Anfiteatro from the hub pin.
+ * Strip look-ahead (“Also on this strip”) trusts editorial pocket membership
+ * but still respects NEARBY_MAX_WALK_MINUTES for walk claims.
  */
-export const NEARBY_STRIP_MAX_METERS = 5000;
+export const NEARBY_STRIP_MAX_METERS = 1500;
 
 export const NEARBY_MAX_RESULTS = 3;
 
@@ -219,10 +220,17 @@ export function findNearbyTonight(
 
     if (!relation) continue;
 
+    const walkMinutes = walkMinutesFromMeters(distanceMeters);
+    // Same-venue can be a second show at the pin; everything else must be a
+    // real walk — 35 min is a short drive, not “park once · walk between.”
+    if (relation !== "same-venue" && walkMinutes > NEARBY_MAX_WALK_MINUTES) {
+      continue;
+    }
+
     hits.push({
       event: candidate,
       distanceMeters,
-      walkMinutes: walkMinutesFromMeters(distanceMeters),
+      walkMinutes,
       driveMinutes: driveMinutesFromMeters(distanceMeters),
       relation,
       pocket: candidatePocket,
@@ -364,10 +372,13 @@ export function findNearbyOnStrip(
     const distanceMeters = haversineMeters(origin, dest);
     if (distanceMeters > stripMaxMeters) continue;
 
+    const walkMinutes = walkMinutesFromMeters(distanceMeters);
+    if (walkMinutes > NEARBY_MAX_WALK_MINUTES) continue;
+
     hits.push({
       event: candidate,
       distanceMeters,
-      walkMinutes: walkMinutesFromMeters(distanceMeters),
+      walkMinutes,
       driveMinutes: driveMinutesFromMeters(distanceMeters),
       relation: "same-pocket",
       pocket: candidatePocket,
