@@ -424,6 +424,5 @@ export function findNearbyForEventDetail(
     ...options,
     fromDate: source.date?.trim() || undefined,
     daysAhead: 4,
-    preferEvening: true,
   });
 }
