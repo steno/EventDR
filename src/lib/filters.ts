@@ -7,6 +7,7 @@ import {
   weekdayFromISO,
 } from "./event-dates";
 import { happensOnLocalDate, isEventActiveToday } from "./event-status";
+import { matchVenueSlug } from "./venues-seed";
 
 export type TimeRange = "all" | "today" | "tomorrow" | "weekend";
 
@@ -177,12 +178,36 @@ export function filterByTimeRange<
   return matched;
 }
 
+/**
+ * Match a free-text search against a haystack.
+ * Supports exact substring, space-stripped brands (cabarete fitness → cabaretefitness),
+ * and multi-word AND (all tokens must appear somewhere).
+ */
+export function textMatchesSearchQuery(haystack: string, query: string): boolean {
+  const q = query.trim().toLowerCase();
+  if (!q) return true;
+  const hay = haystack.toLowerCase();
+  if (hay.includes(q)) return true;
+
+  const compactQ = q.replace(/\s+/g, "");
+  if (compactQ.length >= 6 && hay.replace(/\s+/g, "").includes(compactQ)) {
+    return true;
+  }
+
+  const tokens = q.split(/\s+/).filter(Boolean);
+  if (tokens.length > 1) {
+    return tokens.every((token) => hay.includes(token));
+  }
+  return false;
+}
+
 export function searchEvents<
   T extends {
     title: string;
     description: string;
     location: string;
     venue?: string;
+    venueSlug?: string;
     address?: string;
     category?: string;
     categories?: string[];
@@ -191,20 +216,27 @@ export function searchEvents<
 >(items: T[], query: string): T[] {
   const q = query.trim().toLowerCase();
   if (!q) return items;
+  const aliasSlug = matchVenueSlug(q);
   return items.filter((e) => {
-    // Cheap fields first — most matches never scan the full description.
-    if (e.title.toLowerCase().includes(q)) return true;
-    if ((e.venue ?? "").toLowerCase().includes(q)) return true;
-    if (e.location.toLowerCase().includes(q)) return true;
-    if ((e.address ?? "").toLowerCase().includes(q)) return true;
-    if ((e.category ?? "").toLowerCase().includes(q)) return true;
-    if (e.categories?.some((c) => c.toLowerCase().includes(q))) return true;
-    if (e.lineup?.some((name) => name.toLowerCase().includes(q))) return true;
-    return e.description.toLowerCase().includes(q);
+    if (aliasSlug && e.venueSlug === aliasSlug) return true;
+
+    const haystack = [
+      e.title,
+      e.description,
+      e.location,
+      e.venue ?? "",
+      e.address ?? "",
+      e.category ?? "",
+      e.venueSlug?.replace(/-/g, " ") ?? "",
+      ...(e.categories ?? []),
+      ...(e.lineup ?? []),
+    ].join("\n");
+
+    return textMatchesSearchQuery(haystack, q);
   });
 }
 
-/** Match venues by name, city, slug tokens, or description. */
+/** Match venues by name, city, slug tokens, aliases, or description. */
 export function searchVenues<
   T extends {
     name: string;
@@ -215,13 +247,17 @@ export function searchVenues<
 >(items: T[], query: string): T[] {
   const q = query.trim().toLowerCase();
   if (!q) return items;
-  const slugQ = q.replace(/\s+/g, "-");
+  const aliasSlug = matchVenueSlug(q);
   return items.filter((v) => {
-    if (v.name.toLowerCase().includes(q)) return true;
-    if (v.city.toLowerCase().includes(q)) return true;
-    if (v.slug.includes(slugQ) || v.slug.replace(/-/g, " ").includes(q)) {
-      return true;
-    }
-    return (v.description ?? "").toLowerCase().includes(q);
+    if (aliasSlug && v.slug === aliasSlug) return true;
+
+    const haystack = [
+      v.name,
+      v.city,
+      v.slug.replace(/-/g, " "),
+      v.description ?? "",
+    ].join("\n");
+
+    return textMatchesSearchQuery(haystack, q);
   });
 }
