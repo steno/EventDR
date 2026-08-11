@@ -165,6 +165,7 @@ export type Dictionary = {
     alsoOnThisStrip: string;
     parkOnceWalk: string;
     walkMinutes: string;
+    driveMinutes: string;
     sameStrip: string;
     sameVenue: string;
     walkableStrip: string;
@@ -582,6 +583,7 @@ export const en: Dictionary = {
     alsoOnThisStrip: "Also on this strip",
     parkOnceWalk: "Park once · walk between",
     walkMinutes: "{n} min walk",
+    driveMinutes: "{n} min drive",
     sameStrip: "Same strip",
     sameVenue: "Same venue",
     walkableStrip: "Walkable strip",

@@ -1,6 +1,7 @@
 import {
   haversineMeters,
   walkMinutesFromMeters,
+  driveMinutesFromMeters,
 } from "@/lib/distance";
 import { resolveEventCoords } from "@/lib/event-coords";
 import { addDaysISO, localDateISO } from "@/lib/event-dates";
@@ -43,6 +44,7 @@ export interface NearbyEventHit {
   event: Event;
   distanceMeters: number;
   walkMinutes: number;
+  driveMinutes: number;
   relation: NearbyRelation;
   pocket: WalkablePocket | null;
 }
@@ -214,6 +216,7 @@ export function findNearbyTonight(
       event: candidate,
       distanceMeters,
       walkMinutes: walkMinutesFromMeters(distanceMeters),
+      driveMinutes: driveMinutesFromMeters(distanceMeters),
       relation,
       pocket: candidatePocket,
     });
@@ -342,6 +345,7 @@ export function findNearbyOnStrip(
       event: candidate,
       distanceMeters,
       walkMinutes: walkMinutesFromMeters(distanceMeters),
+      driveMinutes: driveMinutesFromMeters(distanceMeters),
       relation: "same-pocket",
       pocket: candidatePocket,
     });

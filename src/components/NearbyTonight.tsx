@@ -1,6 +1,6 @@
 "use client";
 
-import { Footprints } from "lucide-react";
+import { Car, Footprints } from "lucide-react";
 import { EventImage } from "@/components/EventImage";
 import { IntentLink } from "@/components/IntentLink";
 import type { Dictionary } from "@/i18n/dictionaries";
@@ -26,17 +26,57 @@ interface NearbyTonightProps {
 function relationLabel(
   hit: NearbyEventHit,
   dict: Dictionary,
-): string {
+): string | null {
   if (hit.relation === "same-venue") return dict.detail.sameVenue;
-  const walk = dict.detail.walkMinutes.replace(
+  if (hit.relation === "same-pocket") return dict.detail.sameStrip;
+  return null;
+}
+
+function TravelMeta({
+  hit,
+  dict,
+}: {
+  hit: NearbyEventHit;
+  dict: Dictionary;
+}) {
+  const relation = relationLabel(hit, dict);
+  const driveLabel = dict.detail.driveMinutes.replace(
+    "{n}",
+    String(hit.driveMinutes),
+  );
+  const walkLabel = dict.detail.walkMinutes.replace(
     "{n}",
     String(hit.walkMinutes),
   );
-  if (hit.relation === "same-pocket") {
-    if (hit.walkMinutes <= 3) return dict.detail.sameStrip;
-    return `${dict.detail.sameStrip} · ${walk}`;
-  }
-  return walk;
+
+  return (
+    <p className="flex min-w-0 flex-wrap items-center gap-x-1.5 gap-y-0.5 text-[11px] font-semibold text-orange-700 dark:text-orange-400">
+      {relation ? <span className="truncate">{relation}</span> : null}
+      {relation ? (
+        <span className="text-orange-300 dark:text-orange-700" aria-hidden>
+          ·
+        </span>
+      ) : null}
+      <span className="inline-flex items-center gap-2">
+        <span
+          className="inline-flex items-center gap-0.5"
+          title={driveLabel}
+          aria-label={driveLabel}
+        >
+          <Car className="h-3 w-3 shrink-0" aria-hidden />
+          <span>{hit.driveMinutes}&nbsp;min</span>
+        </span>
+        <span
+          className="inline-flex items-center gap-0.5"
+          title={walkLabel}
+          aria-label={walkLabel}
+        >
+          <Footprints className="h-3 w-3 shrink-0" aria-hidden />
+          <span>{hit.walkMinutes}&nbsp;min</span>
+        </span>
+      </span>
+    </p>
+  );
 }
 
 function NearbyCard({
@@ -60,7 +100,6 @@ function NearbyCard({
     recurrence: event.recurrence,
     allDayLabel: dict.events.allDay,
   });
-  const meta = relationLabel(hit, dict);
   const dateLabel = showDate
     ? formatEventDateRange(event.date, locale, { short: true })
     : null;
@@ -98,9 +137,7 @@ function NearbyCard({
         <h3 className="line-clamp-2 text-[0.8125rem] font-semibold leading-snug tracking-tight text-neutral-900 dark:text-neutral-100">
           {event.title}
         </h3>
-        <p className="truncate text-[11px] font-semibold text-orange-700 dark:text-orange-400">
-          {meta}
-        </p>
+        <TravelMeta hit={hit} dict={dict} />
         {schedule ? (
           <p className="truncate text-[11px] font-medium text-neutral-500 dark:text-neutral-400">
             {schedule}

@@ -4,6 +4,12 @@ const EARTH_RADIUS_M = 6_371_000;
 /** Typical flat-ground walking speed used for guest-facing ETAs. */
 const WALK_METERS_PER_MINUTE = 80;
 
+/**
+ * Short-hop city driving (moto-concho / taxi pace with lights) — not highway.
+ * ~24 km/h keeps “18 min walk” in the ~4–5 min drive range on the Malecón.
+ */
+const DRIVE_METERS_PER_MINUTE = 400;
+
 export type LatLng = { lat: number; lng: number };
 
 function toRad(degrees: number): number {
@@ -28,4 +34,10 @@ export function haversineMeters(a: LatLng, b: LatLng): number {
 export function walkMinutesFromMeters(meters: number): number {
   if (!Number.isFinite(meters) || meters <= 0) return 1;
   return Math.max(1, Math.round(meters / WALK_METERS_PER_MINUTE));
+}
+
+/** Guest-facing drive ETA for strip / nearby cards. */
+export function driveMinutesFromMeters(meters: number): number {
+  if (!Number.isFinite(meters) || meters <= 0) return 1;
+  return Math.max(1, Math.round(meters / DRIVE_METERS_PER_MINUTE));
 }

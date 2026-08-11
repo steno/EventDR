@@ -190,6 +190,7 @@ export const fr: Dictionary = {
     alsoOnThisStrip: "Aussi dans le quartier",
     parkOnceWalk: "Une seule fois · à pied entre les lieux",
     walkMinutes: "{n} min à pied",
+    driveMinutes: "{n} min en voiture",
     sameStrip: "Même quartier",
     sameVenue: "Même lieu",
     walkableStrip: "Quartier piéton",
