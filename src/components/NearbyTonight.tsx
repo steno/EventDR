@@ -64,7 +64,7 @@ function TravelMeta({
           title={driveLabel}
           aria-label={driveLabel}
         >
-          <Car className="h-3 w-3 shrink-0" aria-hidden />
+          <Car className="h-3.5 w-3.5 shrink-0" aria-hidden />
           <span>{hit.driveMinutes}&nbsp;min</span>
         </span>
         <span
@@ -72,7 +72,7 @@ function TravelMeta({
           title={walkLabel}
           aria-label={walkLabel}
         >
-          <WalkingPersonIcon className="h-3.5 w-3.5 shrink-0 -mx-0.5" />
+          <WalkingPersonIcon className="h-3 w-3 shrink-0" />
           <span>{hit.walkMinutes}&nbsp;min</span>
         </span>
       </span>
