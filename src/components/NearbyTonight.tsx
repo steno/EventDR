@@ -1,8 +1,9 @@
 "use client";
 
-import { Car, PersonStanding } from "lucide-react";
+import { Car } from "lucide-react";
 import { EventImage } from "@/components/EventImage";
 import { IntentLink } from "@/components/IntentLink";
+import { WalkingPersonIcon } from "@/components/icons/WalkingPersonIcon";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import { getCategoryMeta } from "@/lib/categories";
@@ -71,7 +72,7 @@ function TravelMeta({
           title={walkLabel}
           aria-label={walkLabel}
         >
-          <PersonStanding className="h-3.5 w-3.5 shrink-0 -mx-0.5" aria-hidden />
+          <WalkingPersonIcon className="h-3.5 w-3.5 shrink-0 -mx-0.5" />
           <span>{hit.walkMinutes}&nbsp;min</span>
         </span>
       </span>
@@ -170,7 +171,7 @@ export function NearbyTonight({
     >
       <div className="mb-3 flex items-start gap-2.5">
         <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-orange-50 text-orange-700 dark:bg-orange-950/50 dark:text-orange-300">
-          <PersonStanding className="h-4 w-4" aria-hidden />
+          <WalkingPersonIcon className="h-4 w-4" />
         </span>
         <div className="min-w-0">
           <h2
