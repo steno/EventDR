@@ -110,8 +110,8 @@ describe("findNearbyTonight", () => {
     assert.equal(result.parkOnce, false);
   });
 
-  it("skips daily attractions and other calendar days", () => {
-    const source = event({
+  it("skips daily attractions next to nightlife, not next to daytime walks", () => {
+    const nightlife = event({
       id: "show",
       title: "Concert",
       date: "2026-08-01",
@@ -141,11 +141,60 @@ describe("findNearbyTonight", () => {
       lng: -70.5103493,
     });
 
-    const result = findNearbyTonight(source, [source, museum, tomorrow], {
-      now: NOW,
+    assert.equal(
+      findNearbyTonight(nightlife, [nightlife, museum, tomorrow], {
+        now: NOW,
+      }).hits.length,
+      0,
+    );
+
+    const umbrellas = event({
+      id: "sombrillas",
+      title: "Umbrella Street",
+      date: "2026-08-01",
+      time: "9:00 AM - 9:00 PM",
+      recurrence: "daily",
+      venueSlug: "calle-sombrillas",
+      location: "Puerto Plata",
+      lat: 19.7968,
+      lng: -70.6935,
+      category: "culture",
+    });
+    const pinkStreet = event({
+      id: "paseo",
+      title: "Pink Street",
+      date: "2026-08-01",
+      time: "9:00 AM - 9:00 PM",
+      recurrence: "daily",
+      venueSlug: "paseo-dona-blanca",
+      location: "Puerto Plata",
+      lat: 19.7969,
+      lng: -70.6938,
+      category: "culture",
+    });
+    const rum = event({
+      id: "rum",
+      title: "Rum Museum",
+      date: "2026-08-01",
+      time: "9:30 AM – 4:30 PM",
+      recurrence: "daily",
+      venueSlug: "rum-legacy-museum",
+      location: "Puerto Plata",
+      lat: 19.7972,
+      lng: -70.694,
+      category: "culture",
     });
 
-    assert.equal(result.hits.length, 0);
+    const daytime = findNearbyTonight(
+      umbrellas,
+      [umbrellas, pinkStreet, rum, museum],
+      { now: NOW },
+    );
+    assert.equal(daytime.hits.length >= 2, true);
+    assert.equal(
+      daytime.hits.some((h) => h.event.id === "paseo"),
+      true,
+    );
   });
 
   it("prefers same-venue over farther pocket mates", () => {

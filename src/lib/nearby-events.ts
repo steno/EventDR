@@ -86,11 +86,18 @@ function relationRank(relation: NearbyRelation): number {
 }
 
 /**
- * Standing attraction hours rarely help “park and walk between events.”
- * Keep weekly nightlife / one-offs.
+ * Standing attraction hours (museum hours, all-day streets) rarely help
+ * nightlife pairing — but they ARE the right neighbors for another daytime
+ * walkable stop (Umbrella Street → Pink Street → Rum Museum).
  */
 function isStandingAttraction(event: Event): boolean {
   return event.recurrence === "daily" || event.recurrence === "weekdays";
+}
+
+/** Skip standing attractions next to nightlife; keep them next to daytime walks. */
+function shouldSkipStandingAttraction(source: Event, candidate: Event): boolean {
+  if (!isStandingAttraction(candidate)) return false;
+  return !isStandingAttraction(source);
 }
 
 function sameCalendarDay(candidate: Event, dayISO: string): boolean {
@@ -190,7 +197,7 @@ export function findNearbyTonight(
       continue;
     }
     if (!sameCalendarDay(candidate, dayISO)) continue;
-    if (isStandingAttraction(candidate)) continue;
+    if (shouldSkipStandingAttraction(source, candidate)) continue;
 
     const dest = resolveEventCoords(candidate);
     if (!dest) continue;
@@ -226,6 +233,12 @@ export function findNearbyTonight(
     const rel = relationRank(a.relation) - relationRank(b.relation);
     if (rel !== 0) return rel;
 
+    // Daytime walkable stops: closest first (Pink Street beats a farther museum
+    // that happens to open at the same hour).
+    if (isStandingAttraction(source)) {
+      return a.distanceMeters - b.distanceMeters;
+    }
+
     if (sourceStart != null) {
       const aStart = eventStartMinutes(a.event.time);
       const bStart = eventStartMinutes(b.event.time);
@@ -240,8 +253,18 @@ export function findNearbyTonight(
     return a.distanceMeters - b.distanceMeters;
   });
 
+  // Prefer one card per venue so the rail isn’t three Handmade workshops.
+  const uniqueVenueHits: NearbyEventHit[] = [];
+  const seenVenues = new Set<string>();
+  for (const hit of hits) {
+    const key = hit.event.venueSlug ?? hit.event.id;
+    if (seenVenues.has(key)) continue;
+    seenVenues.add(key);
+    uniqueVenueHits.push(hit);
+  }
+
   return finalizeHits(
-    hits,
+    uniqueVenueHits,
     source,
     sourcePocket,
     dayISO,
@@ -319,7 +342,7 @@ export function findNearbyOnStrip(
     ) {
       continue;
     }
-    if (isStandingAttraction(candidate)) continue;
+    if (shouldSkipStandingAttraction(source, candidate)) continue;
 
     // Venue strip rails are park-once evening planning — skip morning museum hours.
     if (preferEvening) {
