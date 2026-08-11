@@ -978,7 +978,7 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
   },
   {
     pattern:
-      /zen\s*fitness|cabarete\s*fitness\s*camp|extreme\s*fitness\s*camp|e?xtreme\s*hotels?\s*cabarete|zen\s*cabarete/i,
+      /zen\s*fitness|cabarete\s*fitness(\s*camp)?|extreme\s*fitness(\s*camp)?|e?xtreme\s*hotels?\s*cabarete|zen\s*cabarete/i,
     slug: "zen-fitness-cabarete",
   },
 ];
