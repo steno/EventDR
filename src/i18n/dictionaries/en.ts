@@ -161,8 +161,11 @@ export type Dictionary = {
     lineup: string;
     /** Same-day walkable events near this one. */
     alsoNearbyTonight: string;
+    alsoNearbyToday: string;
     alsoNearby: string;
     alsoOnThisStrip: string;
+    /** Source closed/ended — neighbors that may still be open. */
+    stillOpenNearby: string;
     parkOnceWalk: string;
     walkMinutes: string;
     driveMinutes: string;
@@ -579,8 +582,10 @@ export const en: Dictionary = {
     copied: "Copied to clipboard",
     lineup: "Performers",
     alsoNearbyTonight: "Also nearby tonight",
+    alsoNearbyToday: "Also nearby today",
     alsoNearby: "Also nearby",
     alsoOnThisStrip: "Also on this strip",
+    stillOpenNearby: "Still open nearby",
     parkOnceWalk: "Park once · walk between",
     walkMinutes: "{n} min walk",
     driveMinutes: "{n} min drive",

@@ -11,6 +11,7 @@ import { eventDetailPath, rememberReturnPath } from "@/lib/event-navigation";
 import { formatEventTimeForList } from "@/lib/event-time-display";
 import { formatEventDateRange } from "@/lib/format-date";
 import type { NearbyEventHit, NearbyTonightResult } from "@/lib/nearby-events";
+import type { EventLiveStatus } from "@/lib/event-status";
 import {
   pocketDisplayName,
   pocketStripLabel,
@@ -22,6 +23,13 @@ interface NearbyTonightProps {
   dict: Dictionary;
   returnTo?: string;
   className?: string;
+  /** Live status of the event/venue this rail sits under. */
+  sourceStatus?: EventLiveStatus | null;
+  /**
+   * When true, prefer “today” over “tonight” (daytime standing attractions
+   * like museums and umbrella streets).
+   */
+  daytimeSource?: boolean;
 }
 
 function relationLabel(
@@ -31,6 +39,27 @@ function relationLabel(
   if (hit.relation === "same-venue") return dict.detail.sameVenue;
   if (hit.relation === "same-pocket") return dict.detail.sameStrip;
   return null;
+}
+
+function pickNearbyHeading(
+  nearby: NearbyTonightResult,
+  dict: Dictionary,
+  sourceStatus?: EventLiveStatus | null,
+  daytimeSource?: boolean,
+): string {
+  if (nearby.stripAhead) return dict.detail.alsoOnThisStrip;
+  if (!nearby.isToday) return dict.detail.alsoNearby;
+
+  if (
+    sourceStatus === "closedToday" ||
+    sourceStatus === "ended"
+  ) {
+    return dict.detail.stillOpenNearby;
+  }
+
+  if (daytimeSource) return dict.detail.alsoNearbyToday;
+
+  return dict.detail.alsoNearbyTonight;
 }
 
 function TravelMeta({
@@ -155,14 +184,17 @@ export function NearbyTonight({
   dict,
   returnTo,
   className = "mt-6",
+  sourceStatus = null,
+  daytimeSource = false,
 }: NearbyTonightProps) {
   if (!nearby.hits.length) return null;
 
-  const heading = nearby.stripAhead
-    ? dict.detail.alsoOnThisStrip
-    : nearby.isToday
-      ? dict.detail.alsoNearbyTonight
-      : dict.detail.alsoNearby;
+  const heading = pickNearbyHeading(
+    nearby,
+    dict,
+    sourceStatus,
+    daytimeSource,
+  );
 
   return (
     <section

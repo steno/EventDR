@@ -546,6 +546,10 @@ export function EventDetailSheet({
             returnTo ??
             (event ? eventDetailPath(locale, event.id) : undefined)
           }
+          sourceStatus={liveStatus}
+          daytimeSource={
+            event.recurrence === "daily" || event.recurrence === "weekdays"
+          }
         />
       ) : null}
 
