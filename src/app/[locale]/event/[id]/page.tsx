@@ -10,6 +10,14 @@ import { getCanonicalEventShareUrl } from "@/lib/share";
 import { formatEventDateRange } from "@/lib/format-date";
 import { formatRecurrenceLabel } from "@/lib/recurrence-label";
 import {
+  areEventOpinionsEnabled,
+  getEventOpinion,
+  googleRatingFromAssessment,
+  withGoogleRating,
+} from "@/lib/event-opinions";
+import { getVenueAssessment } from "@/lib/venue-assessments";
+import { matchVenueSlug } from "@/lib/venues-seed";
+import {
   buildBreadcrumbJsonLd,
   buildEventJsonLd,
   buildEventMetadata,
@@ -50,7 +58,27 @@ export default async function Page({
     endDate: event.endDate,
   });
   const recurrenceLabel = formatRecurrenceLabel(event, locale, dict);
-  const nearbyTonight = await getNearbyTonightForEvent(event, locale);
+
+  const venueSlug =
+    event.venueSlug ??
+    matchVenueSlug(event.venue) ??
+    matchVenueSlug(event.location);
+
+  const [nearbyTonight, assessment] = await Promise.all([
+    getNearbyTonightForEvent(event, locale),
+    areEventOpinionsEnabled() && venueSlug
+      ? getVenueAssessment(venueSlug)
+      : Promise.resolve(null),
+  ]);
+
+  const seedOpinion = areEventOpinionsEnabled()
+    ? getEventOpinion(event)
+    : null;
+  const venueRating = googleRatingFromAssessment(assessment);
+  const opinionOverride =
+    seedOpinion && venueRating
+      ? withGoogleRating(seedOpinion, venueRating)
+      : seedOpinion;
 
   return (
     <>
@@ -70,6 +98,8 @@ export default async function Page({
         formattedDateRange={formattedDateRange}
         recurrenceLabel={recurrenceLabel}
         nearbyTonight={nearbyTonight}
+        opinionOverride={opinionOverride}
+        initialVenueRating={venueRating}
       />
     </>
   );

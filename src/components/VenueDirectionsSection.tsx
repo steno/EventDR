@@ -230,17 +230,39 @@ export function VenueMapPanel({
 
     let cancelled = false;
     setStreetViewMode("hidden");
-    void hasStreetViewCoverage(destination.lat, destination.lng).then((ok) => {
+
+    const run = () => {
       if (cancelled) return;
-      if (isGoogleMapsJsBlocked()) {
-        setStreetViewMode("static");
-        return;
-      }
-      setStreetViewMode(ok ? "google" : "hidden");
-    });
+      void hasStreetViewCoverage(destination.lat, destination.lng).then((ok) => {
+        if (cancelled) return;
+        if (isGoogleMapsJsBlocked()) {
+          setStreetViewMode("static");
+          return;
+        }
+        setStreetViewMode(ok ? "google" : "hidden");
+      });
+    };
+
+    // Keep Google Maps JS off the venue critical path — probe after idle.
+    const w = window as Window & {
+      requestIdleCallback?: (
+        cb: () => void,
+        opts?: { timeout: number },
+      ) => number;
+      cancelIdleCallback?: (id: number) => void;
+    };
+    const idleHandle =
+      typeof w.requestIdleCallback === "function"
+        ? w.requestIdleCallback(run, { timeout: 2500 })
+        : window.setTimeout(run, 1200);
 
     return () => {
       cancelled = true;
+      if (typeof w.cancelIdleCallback === "function") {
+        w.cancelIdleCallback(idleHandle);
+      } else {
+        window.clearTimeout(idleHandle);
+      }
     };
   }, [destination.lat, destination.lng]);
 

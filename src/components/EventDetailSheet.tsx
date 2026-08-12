@@ -68,6 +68,8 @@ interface EventDetailSheetProps {
   standalone?: boolean;
   /** Optional approved draft / preloaded opinion (seed still wins via getEventOpinion). */
   opinionOverride?: EventOpinion | null;
+  /** SSR venue ★ — skips the post-paint assessment fetch when present. */
+  initialVenueRating?: { rating: number; reviewCount?: number } | null;
   /** Same-day walkable events near this one (server-computed). */
   nearbyTonight?: NearbyTonightResult | null;
 }
@@ -84,6 +86,7 @@ export function EventDetailSheet({
   recurrenceLabel: recurrenceLabelProp,
   standalone = false,
   opinionOverride = null,
+  initialVenueRating = null,
   nearbyTonight = null,
 }: EventDetailSheetProps) {
   const [shareMsg, setShareMsg] = useState<string | null>(null);
@@ -98,7 +101,7 @@ export function EventDetailSheet({
   const [venueRating, setVenueRating] = useState<{
     rating: number;
     reviewCount?: number;
-  } | null>(null);
+  } | null>(() => initialVenueRating);
   const actionsRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
   const shareOpen = openAction === "share";
@@ -140,7 +143,15 @@ export function EventDetailSheet({
     const base = seed ?? opinionOverride ?? null;
     // Always load opinion API when no seed — also when seed lacks ★ so ratings attach.
     const needsFetch = !base || typeof base.googleRating !== "number";
-    if (!needsFetch && seed) return;
+    if (!needsFetch) return;
+    // SSR already supplied ★ via opinionOverride or initialVenueRating — skip waterfall.
+    if (
+      base &&
+      (typeof initialVenueRating?.rating === "number" ||
+        typeof base.googleRating === "number")
+    ) {
+      return;
+    }
 
     const controller = new AbortController();
     const id = encodeURIComponent(event.id);
@@ -155,10 +166,11 @@ export function EventDetailSheet({
       });
 
     return () => controller.abort();
-  }, [event, opinionOverride]);
+  }, [event, opinionOverride, initialVenueRating]);
 
   useEffect(() => {
     if (!event || !areEventOpinionsEnabled()) return;
+    if (typeof initialVenueRating?.rating === "number") return;
     const slug =
       event.venueSlug ??
       matchVenueSlug(event.venue) ??
@@ -189,7 +201,7 @@ export function EventDetailSheet({
       });
 
     return () => controller.abort();
-  }, [event, opinionOverride, fetchedOpinion]);
+  }, [event, opinionOverride, fetchedOpinion, initialVenueRating]);
 
   useEffect(() => {
     if (!event || standalone) return;
@@ -355,6 +367,19 @@ export function EventDetailSheet({
     router.push(venueDetailPath(locale, venueSlug, from, event.title, true));
   }
 
+  function warmVenueRoute() {
+    if (!venueSlug || !event) return;
+    void router.prefetch(
+      venueDetailPath(
+        locale,
+        venueSlug,
+        eventDetailPath(locale, event.id),
+        event.title,
+        true,
+      ),
+    );
+  }
+
   const contentSection = (
     <EventDetailContent
       event={event}
@@ -370,6 +395,7 @@ export function EventDetailSheet({
       venueSlug={venueSlug}
       walkablePocket={walkablePocket}
       onViewVenue={handleViewVenue}
+      onWarmVenue={warmVenueRoute}
       eventOpinion={eventOpinion}
       nearbyTonight={nearbyTonight}
       returnTo={returnTo}

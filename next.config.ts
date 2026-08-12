@@ -135,6 +135,16 @@ const nextConfig: NextConfig = {
         headers: [{ key: "Cache-Control", value: listingHtml }],
       },
       {
+        // Event detail ISR (revalidate=180) — short edge TTL + SWR.
+        source: "/:locale(en|es|fr)/event/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=60, s-maxage=180, stale-while-revalidate=300",
+          },
+        ],
+      },
+      {
         source: "/:locale(en|es|fr)/browse",
         headers: [{ key: "Cache-Control", value: listingHtml }],
       },

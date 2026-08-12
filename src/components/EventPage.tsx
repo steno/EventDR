@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import type { Event } from "@/lib/types";
+import type { Event, EventOpinion } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import { EventDetailSheet } from "@/components/EventDetailSheet";
@@ -24,6 +24,8 @@ interface EventPageProps {
   formattedDateRange?: string;
   recurrenceLabel?: string | null;
   nearbyTonight?: NearbyTonightResult | null;
+  opinionOverride?: EventOpinion | null;
+  initialVenueRating?: { rating: number; reviewCount?: number } | null;
 }
 
 export function EventPage({
@@ -34,6 +36,8 @@ export function EventPage({
   formattedDateRange,
   recurrenceLabel,
   nearbyTonight = null,
+  opinionOverride = null,
+  initialVenueRating = null,
 }: EventPageProps) {
   const router = useRouter();
   const { toggleSave, isSaved } = useSavedEvents();
@@ -83,6 +87,8 @@ export function EventPage({
           formattedDateRange={formattedDateRange}
           recurrenceLabel={recurrenceLabel}
           nearbyTonight={nearbyTonight}
+          opinionOverride={opinionOverride}
+          initialVenueRating={initialVenueRating}
           standalone
         />
       </div>

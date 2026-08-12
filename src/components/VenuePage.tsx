@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
+import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import {
   AtSign,
@@ -12,7 +13,6 @@ import type { Event, Venue, VenueAssessment } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import { VenueEventList } from "@/components/VenueEventList";
-import { SubmitEventSheet } from "@/components/SubmitEventSheet";
 import { StickyListHeader } from "@/components/StickyListHeader";
 import {
   useVenueDirections,
@@ -32,6 +32,12 @@ import { NearbyTonight, PocketPlaceHint } from "@/components/NearbyTonight";
 import type { NearbyTonightResult } from "@/lib/nearby-events";
 import { getPocketForVenueSlug } from "@/lib/walkable-pockets";
 
+const SubmitEventSheet = dynamic(
+  () =>
+    import("@/components/SubmitEventSheet").then((m) => m.SubmitEventSheet),
+  { ssr: false },
+);
+
 interface VenuePageProps {
   venue: Venue;
   locale: Locale;
@@ -39,6 +45,8 @@ interface VenuePageProps {
   initialExpanded?: boolean;
   assessment?: VenueAssessment | null;
   nearbyTonight?: NearbyTonightResult | null;
+  /** SSR schedule — paint immediately; client only soft-refreshes. */
+  initialEvents?: Event[];
 }
 
 function normalizeExternalUrl(raw: string): string {
@@ -58,10 +66,11 @@ export function VenuePage({
   initialExpanded = false,
   assessment = null,
   nearbyTonight = null,
+  initialEvents = [],
 }: VenuePageProps) {
   const router = useRouter();
-  const [events, setEvents] = useState<Event[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [events, setEvents] = useState<Event[]>(() => initialEvents);
+  const [loading, setLoading] = useState(() => initialEvents.length === 0);
   const [submitOpen, setSubmitOpen] = useState(false);
   const [plannerOpen, setPlannerOpen] = useState(false);
   const [directionsAttention, setDirectionsAttention] = useState(false);
@@ -84,21 +93,31 @@ export function VenuePage({
       .then((d: { events?: Event[] }) => {
         setEvents(d.events ?? []);
       })
-      .catch(() => setEvents([]));
+      .catch(() => {
+        if (initialEvents.length === 0) setEvents([]);
+      });
   }
 
   const refreshEvents = useCallback(() => {
     setLoading(true);
     loadEvents().finally(() => setLoading(false));
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- venue.slug / locale drive URL
   }, [locale, venue.slug]);
 
   const softRefreshEvents = useCallback(() => {
     void loadEvents();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [locale, venue.slug]);
 
+  // Trust SSR when present — only fetch on mount if the schedule arrived empty.
   useEffect(() => {
+    if (initialEvents.length > 0) {
+      setEvents(initialEvents);
+      setLoading(false);
+      return;
+    }
     refreshEvents();
-  }, [refreshEvents]);
+  }, [initialEvents, refreshEvents]);
 
   useForegroundRefresh(softRefreshEvents);
 

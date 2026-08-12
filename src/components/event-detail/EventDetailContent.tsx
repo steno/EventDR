@@ -17,6 +17,7 @@ import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import type { EventLiveStatus } from "@/lib/event-status";
 import { getDirectionsUrl } from "@/lib/maps";
+import { IntentLink } from "@/components/IntentLink";
 import { EventStatusBadge } from "@/components/EventStatusBadge";
 import { EventOpinionBlock } from "@/components/EventOpinionBlock";
 import { formatEventPlace } from "@/lib/event-location";
@@ -45,6 +46,8 @@ export interface EventDetailContentProps {
   venueSlug: string | undefined;
   walkablePocket: WalkablePocket | null;
   onViewVenue: () => void;
+  /** Prefetch venue route on press (View venue button). */
+  onWarmVenue?: () => void;
   eventOpinion: EventOpinion | null;
   nearbyTonight: NearbyTonightResult | null;
   returnTo: string | null;
@@ -70,6 +73,7 @@ export function EventDetailContent({
   venueSlug,
   walkablePocket,
   onViewVenue,
+  onWarmVenue,
   eventOpinion,
   nearbyTonight,
   returnTo,
@@ -128,39 +132,52 @@ export function EventDetailContent({
           </div>
         )}
         {isPhysical ? (
-          <a
-            href={
-              venueSlug
-                ? venueDetailPath(
-                    locale,
-                    venueSlug,
-                    eventDetailPath(locale, event.id),
-                    event.title,
-                    true,
-                  )
-                : getDirectionsUrl(event)
-            }
-            onClick={() => {
-              if (!venueSlug) return;
-              rememberReturnPath(eventDetailPath(locale, event.id), event.title);
-            }}
-            {...(venueSlug
-              ? {}
-              : { target: "_blank", rel: "noopener noreferrer" })}
-            className="group/place flex items-start gap-2.5 text-copy-meta text-neutral-800 dark:text-neutral-200 touch-manipulation"
-          >
-            <MapPin className="mt-0.5 h-[1.125rem] w-[1.125rem] shrink-0 text-neutral-500 transition-colors group-hover/place:text-orange-600 dark:text-neutral-400" />
-            <span className="min-w-0 font-medium leading-snug transition-colors group-hover/place:text-orange-600">
-              {formatEventPlace(event)}
-              {walkablePocket ? (
-                <PocketPlaceHint
-                  pocket={walkablePocket}
-                  locale={locale}
-                  dict={dict}
-                />
-              ) : null}
-            </span>
-          </a>
+          venueSlug ? (
+            <IntentLink
+              href={venueDetailPath(
+                locale,
+                venueSlug,
+                eventDetailPath(locale, event.id),
+                event.title,
+                true,
+              )}
+              onClick={() => {
+                rememberReturnPath(eventDetailPath(locale, event.id), event.title);
+              }}
+              className="group/place flex items-start gap-2.5 text-copy-meta text-neutral-800 dark:text-neutral-200 touch-manipulation"
+            >
+              <MapPin className="mt-0.5 h-[1.125rem] w-[1.125rem] shrink-0 text-neutral-500 transition-colors group-hover/place:text-orange-600 dark:text-neutral-400" />
+              <span className="min-w-0 font-medium leading-snug transition-colors group-hover/place:text-orange-600">
+                {formatEventPlace(event)}
+                {walkablePocket ? (
+                  <PocketPlaceHint
+                    pocket={walkablePocket}
+                    locale={locale}
+                    dict={dict}
+                  />
+                ) : null}
+              </span>
+            </IntentLink>
+          ) : (
+            <a
+              href={getDirectionsUrl(event)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group/place flex items-start gap-2.5 text-copy-meta text-neutral-800 dark:text-neutral-200 touch-manipulation"
+            >
+              <MapPin className="mt-0.5 h-[1.125rem] w-[1.125rem] shrink-0 text-neutral-500 transition-colors group-hover/place:text-orange-600 dark:text-neutral-400" />
+              <span className="min-w-0 font-medium leading-snug transition-colors group-hover/place:text-orange-600">
+                {formatEventPlace(event)}
+                {walkablePocket ? (
+                  <PocketPlaceHint
+                    pocket={walkablePocket}
+                    locale={locale}
+                    dict={dict}
+                  />
+                ) : null}
+              </span>
+            </a>
+          )
         ) : (
           <div className="flex items-start gap-2.5 text-copy-meta text-neutral-800 dark:text-neutral-200">
             <MapPin className="mt-0.5 h-[1.125rem] w-[1.125rem] shrink-0 text-neutral-500 dark:text-neutral-400" />
@@ -186,15 +203,75 @@ export function EventDetailContent({
             />
           </div>
         )}
-        {venueSlug && (
-          <button
-            type="button"
-            onClick={onViewVenue}
-            className="inline-flex items-center gap-2 rounded-full border border-orange-200 dark:border-orange-800/60 bg-orange-50 dark:bg-orange-950/40 px-4 py-2.5 text-sm font-bold text-orange-800 dark:text-orange-300 hover:bg-orange-100 dark:hover:bg-orange-950/60 hover:border-orange-300 dark:hover:border-orange-700 transition-colors touch-manipulation"
-          >
-            <Building2 className="h-4 w-4 shrink-0" aria-hidden />
-            {dict.detail.viewVenue}
-          </button>
+        {(venueSlug ||
+          showAdmissionVaries ||
+          showFreeAdmission ||
+          showPaidAdmission) && (
+          <div className="flex flex-wrap items-center gap-2">
+            {venueSlug && (
+              <button
+                type="button"
+                onClick={onViewVenue}
+                onPointerDown={onWarmVenue}
+                onFocus={onWarmVenue}
+                className="inline-flex items-center gap-2 rounded-full border border-orange-200 dark:border-orange-800/60 bg-orange-50 dark:bg-orange-950/40 px-4 py-2.5 text-sm font-bold text-orange-800 dark:text-orange-300 hover:bg-orange-100 dark:hover:bg-orange-950/60 hover:border-orange-300 dark:hover:border-orange-700 transition-colors touch-manipulation"
+              >
+                <Building2 className="h-4 w-4 shrink-0" aria-hidden />
+                {dict.detail.viewVenue}
+              </button>
+            )}
+            {showAdmissionVaries && (
+              <div
+                className="inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-4 py-2.5 text-sm font-bold text-amber-900 dark:border-amber-900/60 dark:bg-amber-950/40 dark:text-amber-200"
+                role="status"
+              >
+                <CircleDollarSign className="h-4 w-4 shrink-0" aria-hidden />
+                {dict.detail.admissionVaries}
+              </div>
+            )}
+            {showFreeAdmission && (
+              <div
+                className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-4 py-2.5 text-sm font-bold text-emerald-700 dark:border-emerald-900/60 dark:bg-emerald-950/40 dark:text-emerald-300"
+                role="status"
+              >
+                <BadgeCheck className="h-4 w-4 shrink-0" aria-hidden />
+                {dict.detail.freeAdmission}
+              </div>
+            )}
+            {showPaidAdmission && (
+              <div
+                className="inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-4 py-2.5 text-sm font-bold text-amber-900 dark:border-amber-900/60 dark:bg-amber-950/40 dark:text-amber-200"
+                role="status"
+              >
+                <CircleDollarSign className="h-4 w-4 shrink-0" aria-hidden />
+                {paidAdmissionLabel}
+              </div>
+            )}
+          </div>
+        )}
+        {(ticketUrl || (showCallForPricing && event.phone)) && (
+          <div className="flex flex-wrap items-center gap-2">
+            {ticketUrl && (
+              <a
+                href={ticketUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex w-fit max-w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-4 py-2.5 text-sm font-bold text-white shadow-sm touch-manipulation transition-transform active:scale-[0.98]"
+              >
+                <Ticket className="h-4 w-4" aria-hidden />
+                {dict.detail.buyTickets}
+              </a>
+            )}
+            {showCallForPricing && event.phone && (
+              <a
+                href={`tel:${formatPhoneTel(event.phone)}`}
+                className="inline-flex w-fit max-w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-4 py-2.5 text-sm font-bold text-white shadow-sm touch-manipulation transition-transform active:scale-[0.98]"
+              >
+                <Phone className="h-4 w-4" aria-hidden />
+                {dict.detail.callForPricing}
+              </a>
+            )}
+          </div>
         )}
       </div>
 
@@ -253,68 +330,6 @@ export function EventDetailContent({
           }
         />
       ) : null}
-
-      {(ticketUrl ||
-        (showCallForPricing && event.phone) ||
-        showAdmissionVaries ||
-        showFreeAdmission ||
-        showPaidAdmission) && (
-        <div
-          className={
-            standalone
-              ? "mt-3 flex flex-col items-start gap-2.5"
-              : "mt-5 flex flex-col items-start gap-2.5"
-          }
-        >
-          {ticketUrl && (
-            <a
-              href={ticketUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex w-fit max-w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-5 py-3 text-sm font-bold text-white shadow-sm touch-manipulation transition-transform active:scale-[0.98]"
-            >
-              <Ticket className="h-4 w-4" aria-hidden />
-              {dict.detail.buyTickets}
-            </a>
-          )}
-          {showCallForPricing && event.phone && (
-            <a
-              href={`tel:${formatPhoneTel(event.phone)}`}
-              className="inline-flex w-fit max-w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-5 py-3 text-sm font-bold text-white shadow-sm touch-manipulation transition-transform active:scale-[0.98]"
-            >
-              <Phone className="h-4 w-4" aria-hidden />
-              {dict.detail.callForPricing}
-            </a>
-          )}
-          {showAdmissionVaries && (
-            <div
-              className="inline-flex w-fit max-w-full items-center justify-center gap-2 rounded-2xl border border-amber-200 bg-amber-50 px-5 py-3 text-sm font-bold text-amber-900 dark:border-amber-900/60 dark:bg-amber-950/40 dark:text-amber-200"
-              role="status"
-            >
-              <CircleDollarSign className="h-4 w-4 shrink-0" aria-hidden />
-              {dict.detail.admissionVaries}
-            </div>
-          )}
-          {showFreeAdmission && (
-            <div
-              className="inline-flex w-fit max-w-full items-center justify-center gap-2 rounded-2xl border border-emerald-200 bg-emerald-50 px-5 py-3 text-sm font-bold text-emerald-700 dark:border-emerald-900/60 dark:bg-emerald-950/40 dark:text-emerald-300"
-              role="status"
-            >
-              <BadgeCheck className="h-4 w-4 shrink-0" aria-hidden />
-              {dict.detail.freeAdmission}
-            </div>
-          )}
-          {showPaidAdmission && (
-            <div
-              className="inline-flex w-fit max-w-full items-center justify-center gap-2 rounded-2xl border border-amber-200 bg-amber-50 px-5 py-3 text-sm font-bold text-amber-900 dark:border-amber-900/60 dark:bg-amber-950/40 dark:text-amber-200"
-              role="status"
-            >
-              <CircleDollarSign className="h-4 w-4 shrink-0" aria-hidden />
-              {paidAdmissionLabel}
-            </div>
-          )}
-        </div>
-      )}
     </>
   );
 }

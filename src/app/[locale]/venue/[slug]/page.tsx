@@ -5,6 +5,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { getVenueBySlug } from "@/lib/venues";
 import { getVenueAssessment } from "@/lib/venue-assessments";
 import { getNearbyTonightForVenue } from "@/lib/get-nearby-tonight";
+import { getPublicEvents } from "@/lib/public-events";
 import { SEED_VENUES } from "@/lib/venues-seed";
 import { isValidLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
@@ -50,8 +51,15 @@ export default async function Page({
   if (!venue) notFound();
 
   const dict = getDictionary(locale);
-  const assessment = await getVenueAssessment(slug);
-  const nearbyTonight = await getNearbyTonightForVenue(venue, locale);
+  const [assessment, nearbyTonight, events] = await Promise.all([
+    getVenueAssessment(slug),
+    getNearbyTonightForVenue(venue, locale),
+    getPublicEvents({
+      locale,
+      venueSlug: venue.slug,
+      includePast: true,
+    }),
+  ]);
 
   return (
     <>
@@ -70,6 +78,7 @@ export default async function Page({
         dict={dict}
         assessment={assessment}
         nearbyTonight={nearbyTonight}
+        initialEvents={events}
       />
     </>
   );

@@ -27,6 +27,8 @@ export type PublicEventsFilter = {
   city?: CitySlug;
   venueSlug?: string;
   when?: Exclude<TimeRange, "all">;
+  /** Keep ended one-offs (venue Past tab). Default drops them. */
+  includePast?: boolean;
 };
 
 function eventDedupeKey(event: Event): string {
@@ -66,7 +68,9 @@ function applyScopeFilters(events: Event[], filter: PublicEventsFilter): Event[]
     result = result.filter((event) => eventInCategory(event, filter.category!));
   }
 
-  result = materializeEventDates(result);
+  result = materializeEventDates(result, new Date(), {
+    includePastOneOffs: Boolean(filter.includePast),
+  });
 
   if (filter.when) {
     result = filterByTimeRange(result, filter.when);
@@ -124,6 +128,7 @@ const getCachedPublicEvents = unstable_cache(
     city: string,
     venueSlug: string,
     when: string,
+    includePast: string,
   ) =>
     loadPublicEvents({
       locale,
@@ -131,8 +136,9 @@ const getCachedPublicEvents = unstable_cache(
       city: (city || undefined) as CitySlug | undefined,
       venueSlug: venueSlug || undefined,
       when: (when || undefined) as Exclude<TimeRange, "all"> | undefined,
+      includePast: includePast === "1",
     }),
-  ["public-events-v6"],
+  ["public-events-v7"],
   { revalidate: LISTING_REVALIDATE_SECONDS, tags: ["events"] },
 );
 
@@ -149,13 +155,19 @@ export async function getPublicEvents(
     filter.city ?? "",
     filter.venueSlug ?? "",
     filter.when ?? "",
+    filter.includePast ? "1" : "",
   );
   // Rematerialize + re-sort outside the cache: occurrence dates and live/ended
   // tiers are clock-dependent even within the same cached calendar day.
-  return sortEventsForDisplay(materializeEventDates(events), {
-    recurringLast: true,
-    oneTimeFirst: Boolean(filter.category),
-    discoveryMode: Boolean(filter.category),
-    preferPrimaryCategory: filter.category,
-  });
+  return sortEventsForDisplay(
+    materializeEventDates(events, new Date(), {
+      includePastOneOffs: Boolean(filter.includePast),
+    }),
+    {
+      recurringLast: true,
+      oneTimeFirst: Boolean(filter.category),
+      discoveryMode: Boolean(filter.category),
+      preferPrimaryCategory: filter.category,
+    },
+  );
 }
