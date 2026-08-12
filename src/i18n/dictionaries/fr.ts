@@ -317,6 +317,7 @@ export const fr: Dictionary = {
     lookingIn: "Tous les événements à",
     lookingInWithCategory: "Événements {category} à",
     regionName: "Côte Nord",
+    chooseArea: "Choisir la zone",
   },
   lang: {
     en: "EN",

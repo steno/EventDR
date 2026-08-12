@@ -317,6 +317,7 @@ export const es: Dictionary = {
     lookingIn: "Todos los eventos en",
     lookingInWithCategory: "Eventos de {category} en",
     regionName: "Costa Norte",
+    chooseArea: "Elegir zona",
   },
   lang: {
     en: "EN",

@@ -287,6 +287,8 @@ export type Dictionary = {
     /** When a category is selected: insert singular category label. */
     lookingInWithCategory: string;
     regionName: string;
+    /** Accessibility label for the inline place dropdown. */
+    chooseArea: string;
   };
   lang: {
     en: string;
@@ -713,6 +715,7 @@ export const en: Dictionary = {
     lookingIn: "All Events in",
     lookingInWithCategory: "{category} Events in",
     regionName: "North Coast",
+    chooseArea: "Choose area",
   },
   lang: {
     en: "EN",

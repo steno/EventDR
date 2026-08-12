@@ -1,6 +1,8 @@
 "use client";
 
+import { useEffect, useId, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
+import { Check, ChevronDown } from "lucide-react";
 import {
   CITIES,
   getCityName,
@@ -44,6 +46,10 @@ export function CityLocationPicker({
   onSelect,
 }: CityLocationPickerProps) {
   const router = useRouter();
+  const [open, setOpen] = useState(false);
+  const rootRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const listId = useId();
 
   const category = categoryId
     ? getCategoryMeta(categoryId, dict.categories)
@@ -52,8 +58,8 @@ export function CityLocationPicker({
   // Home: show "Events in [area]"
   // City/when scope pages: show "📅 All Events in [area]"
   const scopePrefix = categoryId && category
-    ? fillTemplate(dict.cities.lookingInWithCategory, { 
-        category: dict.categoriesSingular[categoryId] 
+    ? fillTemplate(dict.cities.lookingInWithCategory, {
+        category: dict.categoriesSingular[categoryId],
       })
     : onSelect
       ? dict.cities.eventsIn
@@ -75,16 +81,41 @@ export function CityLocationPicker({
   const currentLabel =
     options.find((option) => option.slug === currentSlug)?.label ??
     dict.cities.regionName;
-  
+
   // Add article before region name: "the North Coast", "la Costa Norte"
   const isRegion = currentLabel === dict.cities.regionName;
   const displayLabel = isRegion
-    ? (locale === "en" ? `the ${currentLabel}` : `la ${currentLabel}`)
+    ? locale === "en"
+      ? `the ${currentLabel}`
+      : `la ${currentLabel}`
     : currentLabel;
-  
-  const groupLabel = `${scopePrefix} ${currentLabel}`;
+
+  useEffect(() => {
+    if (!open) return;
+
+    function handlePointerDown(event: PointerEvent) {
+      if (rootRef.current && !rootRef.current.contains(event.target as Node)) {
+        setOpen(false);
+      }
+    }
+
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        setOpen(false);
+        buttonRef.current?.focus();
+      }
+    }
+
+    document.addEventListener("pointerdown", handlePointerDown);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("pointerdown", handlePointerDown);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [open]);
 
   function goTo(slug: CitySlug | null) {
+    setOpen(false);
     if (slug === currentSlug) return;
     // Persist on every page so "back to home" matches the last picker choice.
     writeHomeArea(slug);
@@ -106,57 +137,92 @@ export function CityLocationPicker({
   }
 
   return (
-    <div className="w-full">
-      {scopePrefix ? (
-        <p className="mb-2.5 text-xl leading-snug text-neutral-800 dark:text-neutral-200">
-          {scopeEmoji ? (
-            <span
-              className="mr-1.5 inline-block text-[1.65rem] leading-none align-[-0.15em]"
-              aria-hidden
-            >
-              {scopeEmoji}
-            </span>
-          ) : null}
-          {scopePrefix} {displayLabel}
-        </p>
-      ) : null}
+    <div ref={rootRef} className="relative w-full">
+      <p className="text-xl leading-snug text-neutral-800 dark:text-neutral-200">
+        {scopeEmoji ? (
+          <span
+            className="mr-1.5 inline-block text-[1.65rem] leading-none align-[-0.15em]"
+            aria-hidden
+          >
+            {scopeEmoji}
+          </span>
+        ) : null}
+        {scopePrefix}{" "}
+        <button
+          ref={buttonRef}
+          type="button"
+          aria-haspopup="listbox"
+          aria-expanded={open}
+          aria-controls={listId}
+          aria-label={`${dict.cities.chooseArea}: ${currentLabel}`}
+          onClick={() => setOpen((value) => !value)}
+          className="
+            inline-flex max-w-full items-center gap-1 align-baseline
+            rounded-lg border border-orange-500/50 bg-orange-500/12
+            px-2 py-0.5 font-bold tracking-tight text-orange-700
+            shadow-sm transition-[color,background-color,border-color,transform]
+            touch-manipulation active:scale-[0.98]
+            hover:border-orange-500/80 hover:bg-orange-500/18
+            focus-visible:outline focus-visible:outline-2
+            focus-visible:outline-offset-2 focus-visible:outline-orange-500
+            dark:border-orange-400/50 dark:bg-orange-400/15 dark:text-orange-300
+            dark:hover:border-orange-400/80 dark:hover:bg-orange-400/22
+          "
+        >
+          <span className="truncate">{displayLabel}</span>
+          <ChevronDown
+            className={`h-4 w-4 shrink-0 opacity-80 transition-transform ${
+              open ? "rotate-180" : ""
+            }`}
+            aria-hidden
+          />
+        </button>
+      </p>
 
-      <div className="-mx-5 overflow-x-auto px-5 scrollbar-hide sm:-mx-6 sm:px-6 lg:mx-0 lg:px-0">
-        <div
-          role="radiogroup"
-          aria-label={groupLabel}
-          className="flex w-max gap-1.5 sm:gap-2"
+      {open ? (
+        <ul
+          id={listId}
+          role="listbox"
+          aria-label={dict.cities.chooseArea}
+          className="
+            absolute left-0 top-full z-50 mt-2 min-w-[12.5rem]
+            overflow-hidden rounded-xl bg-white/95 py-1 shadow-lg
+            ring-1 ring-neutral-200/80 backdrop-blur
+            dark:bg-neutral-900/95 dark:ring-neutral-700/80
+          "
         >
           {options.map((option) => {
             const selected = currentSlug === option.slug;
             return (
-              <button
-                key={option.slug ?? "north-coast"}
-                type="button"
-                role="radio"
-                aria-checked={selected}
-                onClick={() => goTo(option.slug)}
-                className={`
-                  inline-flex shrink-0 min-h-11 items-center justify-center
-                  whitespace-nowrap rounded-full px-3.5 py-2 text-sm font-bold tracking-tight
-                  transition-[color,background-color,border-color,transform]
-                  touch-manipulation active:scale-[0.98]
-                  focus-visible:outline focus-visible:outline-2
-                  focus-visible:outline-offset-2 focus-visible:outline-orange-500
-                  sm:min-h-0 sm:px-3.5 sm:py-1.5
-                  ${
-                    selected
-                      ? "border border-orange-500/55 bg-orange-500/15 text-orange-700 shadow-sm dark:border-orange-400/55 dark:bg-orange-400/15 dark:text-orange-300"
-                      : "border border-neutral-200/90 bg-white/70 text-neutral-700 hover:border-orange-300/70 hover:text-orange-700 dark:border-neutral-700 dark:bg-neutral-900/60 dark:text-neutral-300 dark:hover:border-orange-500/40 dark:hover:text-orange-300"
-                  }
-                `}
-              >
-                {option.label}
-              </button>
+              <li key={option.slug ?? "north-coast"} role="presentation">
+                <button
+                  type="button"
+                  role="option"
+                  aria-selected={selected}
+                  onClick={() => goTo(option.slug)}
+                  className={`
+                    flex w-full items-center justify-between gap-3
+                    px-3.5 py-2.5 text-left text-sm font-semibold tracking-tight
+                    transition-colors touch-manipulation
+                    focus-visible:outline focus-visible:outline-2
+                    focus-visible:outline-offset-[-2px] focus-visible:outline-orange-500
+                    ${
+                      selected
+                        ? "bg-orange-500/12 text-orange-700 dark:bg-orange-400/15 dark:text-orange-300"
+                        : "text-neutral-700 hover:bg-neutral-100/90 dark:text-neutral-200 dark:hover:bg-neutral-800/90"
+                    }
+                  `}
+                >
+                  <span>{option.label}</span>
+                  {selected ? (
+                    <Check className="h-4 w-4 shrink-0" aria-hidden />
+                  ) : null}
+                </button>
+              </li>
             );
           })}
-        </div>
-      </div>
+        </ul>
+      ) : null}
     </div>
   );
 }
