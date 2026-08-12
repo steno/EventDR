@@ -54,7 +54,27 @@ const nextConfig: NextConfig = {
     const iconCache = "public, max-age=3600, stale-while-revalidate=86400";
     const noStore = "no-store, max-age=0, must-revalidate";
 
+    // Baseline browser hardening. Full CSP is deferred — GA, Maps, and Storage
+    // need careful allowlists; these headers are safe for the current stack.
+    const securityHeaders = [
+      { key: "X-Content-Type-Options", value: "nosniff" },
+      { key: "X-Frame-Options", value: "DENY" },
+      { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+      {
+        key: "Permissions-Policy",
+        value: "camera=(), microphone=(), payment=(), usb=()",
+      },
+      {
+        key: "Cross-Origin-Opener-Policy",
+        value: "same-origin-allow-popups",
+      },
+    ];
+
     return [
+      {
+        source: "/:path*",
+        headers: securityHeaders,
+      },
       {
         source: "/api/app-version",
         headers: [{ key: "Cache-Control", value: noStore }],

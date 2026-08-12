@@ -17,8 +17,8 @@ curl https://popevent.netlify.app/api/venues
 ```
 
 ```bash
-curl https://popevent.netlify.app/api/status
-# → {"ok":true,"firebase":true,"venueCount":6,...}
+curl -H "Authorization: Bearer $MODERATOR_SECRET" https://popevent.netlify.app/api/status
+# → ok/firebase + pendingCount when authenticated; public body is {ok, firebase} only
 ```
 
 ## 2. Moderation secret (Netlify)

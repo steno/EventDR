@@ -5,12 +5,20 @@ import {
   subscriptionDocId,
 } from "@/lib/firebase/admin";
 import { isValidLocale } from "@/i18n/config";
+import {
+  RATE_LIMITS,
+  checkRateLimit,
+  rateLimitResponse,
+} from "@/lib/rate-limit";
 
 export const dynamic = "force-dynamic";
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export async function POST(request: NextRequest) {
+  const limited = checkRateLimit(request, RATE_LIMITS.partnerDigest);
+  if (!limited.ok) return rateLimitResponse(limited);
+
   try {
     const body = (await request.json()) as {
       email?: string;

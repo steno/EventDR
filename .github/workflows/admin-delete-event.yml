@@ -23,7 +23,8 @@ jobs:
             exit 1
           fi
           res=$(curl -sS -w "\n%{http_code}" -X DELETE \
-            "${SITE_URL}/api/admin/event?id=${EVENT_ID}&secret=${CRON_SECRET}")
+            -H "Authorization: Bearer ${CRON_SECRET}" \
+            "${SITE_URL}/api/admin/event?id=${EVENT_ID}")
           http=$(echo "$res" | tail -n1)
           body=$(echo "$res" | sed '$d')
           echo "HTTP ${http}"

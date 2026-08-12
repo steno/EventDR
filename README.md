@@ -87,10 +87,10 @@ These functions are in `netlify/functions/` and deploy automatically with your s
 
 You can also trigger cleanup and notifications manually via secured API endpoints:
 
-- **`POST /api/cron/cleanup?secret=CRON_SECRET`** — Manual cleanup trigger
-- **`POST /api/cron/notify?secret=CRON_SECRET`** — Manual notification trigger
+- **`POST /api/cron/cleanup`** — Manual cleanup (`Authorization: Bearer CRON_SECRET`)
+- **`POST /api/cron/notify`** — Manual notification (`Authorization: Bearer CRON_SECRET`)
 
-Set `CRON_SECRET` in your environment variables to enable manual triggers (optional).
+Set `CRON_SECRET` in your environment variables to enable manual triggers (optional). Query-string `?secret=` is no longer accepted.
 
 ## How it works
 

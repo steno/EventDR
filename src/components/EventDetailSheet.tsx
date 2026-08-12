@@ -7,43 +7,18 @@ import {
   useState,
 } from "react";
 import { useRouter } from "next/navigation";
-import {
-  X,
-  MapPin,
-  Calendar,
-  Clock,
-  CalendarPlus,
-  Forward,
-  Heart,
-  Building2,
-  Mic2,
-  Phone,
-  Ticket,
-  Users,
-  BadgeCheck,
-  CircleDollarSign,
-  Sparkles,
-  Bell,
-} from "lucide-react";
+import { X } from "lucide-react";
 import type { Event, EventOpinion } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import { getCategoryMeta } from "@/lib/categories";
 import { formatEventDateRange } from "@/lib/format-date";
 import { formatEventTimeForList } from "@/lib/event-time-display";
-import { getDirectionsUrl } from "@/lib/maps";
-import { detailActionPanelClass } from "@/components/ActionSheet";
-import { ShareMenu } from "@/components/ShareMenu";
-import { CalendarMenu } from "@/components/CalendarMenu";
 import { matchVenueSlug } from "@/lib/venues-seed";
 import { formatRecurrenceLabel } from "@/lib/recurrence-label";
 import { useLiveStatusDisplay } from "@/hooks/useLiveStatusDisplay";
-import { EventStatusBadge } from "@/components/EventStatusBadge";
 import { EventImage } from "@/components/EventImage";
 import { EventDetailMedia, hasEventDetailHero } from "@/components/EventDetailMedia";
-import { EventOpinionBlock } from "@/components/EventOpinionBlock";
-import { formatEventPlace } from "@/lib/event-location";
-import { areEventOpinionsEnabled, getEventOpinion, withGoogleRating, googleRatingFromAssessment } from "@/lib/event-opinions";
 import {
   resolveTicketUrl,
   isEventFree,
@@ -53,8 +28,6 @@ import {
   showsAdmissionVaries,
   formatPaidAdmissionLabel,
 } from "@/lib/event-tickets";
-import { EventCallLink } from "@/components/EventCallLink";
-import { formatPhoneTel } from "@/lib/event-phone";
 import { useSwipeToDismiss } from "@/hooks/useSwipeToDismiss";
 import { scrollBehaviorPreference } from "@/lib/list-scroll";
 import { eventDetailPath, rememberReturnPath, venueDetailPath } from "@/lib/event-navigation";
@@ -64,9 +37,11 @@ import {
   markOnboardingSeen,
 } from "@/lib/onboarding";
 import { usePushSubscription } from "@/hooks/usePushSubscription";
-import { NearbyTonight, PocketPlaceHint } from "@/components/NearbyTonight";
 import type { NearbyTonightResult } from "@/lib/nearby-events";
 import { getPocketForEvent } from "@/lib/walkable-pockets";
+import { areEventOpinionsEnabled, getEventOpinion, withGoogleRating, googleRatingFromAssessment } from "@/lib/event-opinions";
+import { EventDetailContent } from "@/components/event-detail/EventDetailContent";
+import { EventDetailActions } from "@/components/event-detail/EventDetailActions";
 
 type ActionMenu = "share" | "calendar";
 
@@ -312,7 +287,6 @@ export function EventDetailSheet({
     recurrence: event.recurrence,
     allDayLabel: dict.events.allDay,
   });
-  const TitleTag = standalone ? "h1" : "h2";
   const showHero = hasEventDetailHero(event);
   const isPhysical = event.format !== "digital";
   // Calendar CTA lives in the save celebration — hide the duplicate bar icon.
@@ -382,472 +356,64 @@ export function EventDetailSheet({
   }
 
   const contentSection = (
-    <>
-      {event.communitySubmitted && (
-        <span className="inline-flex items-center gap-1 rounded-full bg-violet-50 dark:bg-violet-950/50 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wide text-violet-600 dark:text-violet-400 mb-3">
-          <Users className="h-3.5 w-3.5" />
-          {dict.detail.community}
-        </span>
-      )}
-
-      <TitleTag className="text-2xl font-black text-neutral-900 dark:text-neutral-100 leading-tight tracking-tight lg:text-[1.75rem]">
-        {event.title}
-      </TitleTag>
-
-      <div className={standalone ? "mt-3 space-y-2" : "mt-4 space-y-3"}>
-        <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
-          <div className="inline-flex items-center gap-2.5 text-copy-meta text-neutral-800 dark:text-neutral-200">
-            <Calendar className="h-[1.125rem] w-[1.125rem] shrink-0 text-neutral-500 dark:text-neutral-400" />
-            <span className="font-medium" suppressHydrationWarning>
-              {dateLabel}
-            </span>
-          </div>
-          {liveStatusLabel && liveStatus && (
-            <EventStatusBadge label={liveStatusLabel} status={liveStatus} />
-          )}
-        </div>
-        {(timeLabel.display || recurrenceLabel) && (
-          <div className="flex flex-wrap items-center gap-x-3 gap-y-2 text-copy-meta text-neutral-800 dark:text-neutral-200">
-            {timeLabel.display && (
-              <span
-                className="inline-flex items-center gap-2.5"
-                title={
-                  timeLabel.full !== timeLabel.display ? timeLabel.full : undefined
-                }
-              >
-                <Clock className="h-[1.125rem] w-[1.125rem] shrink-0 text-neutral-500 dark:text-neutral-400" />
-                <span className="font-medium">{timeLabel.display}</span>
-              </span>
-            )}
-            {recurrenceLabel && (
-              <span className="inline-flex shrink-0 rounded-full bg-neutral-100 dark:bg-neutral-800 px-2.5 py-1 text-sm font-bold leading-none text-neutral-700 dark:text-neutral-200">
-                {recurrenceLabel}
-              </span>
-            )}
-          </div>
-        )}
-        {isPhysical ? (
-          <a
-            href={
-              venueSlug
-                ? venueDetailPath(
-                    locale,
-                    venueSlug,
-                    eventDetailPath(locale, event.id),
-                    event.title,
-                    true,
-                  )
-                : getDirectionsUrl(event)
-            }
-            onClick={() => {
-              if (!venueSlug) return;
-              rememberReturnPath(eventDetailPath(locale, event.id), event.title);
-            }}
-            {...(venueSlug
-              ? {}
-              : { target: "_blank", rel: "noopener noreferrer" })}
-            className="group/place flex items-start gap-2.5 text-copy-meta text-neutral-800 dark:text-neutral-200 touch-manipulation"
-          >
-            <MapPin className="mt-0.5 h-[1.125rem] w-[1.125rem] shrink-0 text-neutral-500 transition-colors group-hover/place:text-orange-600 dark:text-neutral-400" />
-            <span className="min-w-0 font-medium leading-snug transition-colors group-hover/place:text-orange-600">
-              {formatEventPlace(event)}
-              {walkablePocket ? (
-                <PocketPlaceHint
-                  pocket={walkablePocket}
-                  locale={locale}
-                  dict={dict}
-                />
-              ) : null}
-            </span>
-          </a>
-        ) : (
-          <div className="flex items-start gap-2.5 text-copy-meta text-neutral-800 dark:text-neutral-200">
-            <MapPin className="mt-0.5 h-[1.125rem] w-[1.125rem] shrink-0 text-neutral-500 dark:text-neutral-400" />
-            <span className="min-w-0 font-medium leading-snug">
-              {formatEventPlace(event)}
-              {walkablePocket ? (
-                <PocketPlaceHint
-                  pocket={walkablePocket}
-                  locale={locale}
-                  dict={dict}
-                />
-              ) : null}
-            </span>
-          </div>
-        )}
-        {event.phone && (
-          <div className="group/phone flex items-center gap-2.5 text-copy-meta text-neutral-800 dark:text-neutral-200">
-            <Phone className="h-[1.125rem] w-[1.125rem] shrink-0 text-emerald-600 dark:text-emerald-400 group-hover/phone:text-neutral-500 transition-colors" />
-            <EventCallLink
-              phone={event.phone}
-              label={dict.detail.call}
-              variant="row"
-            />
-          </div>
-        )}
-        {venueSlug && (
-          <button
-            type="button"
-            onClick={handleViewVenue}
-            className="inline-flex items-center gap-2 rounded-full border border-orange-200 dark:border-orange-800/60 bg-orange-50 dark:bg-orange-950/40 px-4 py-2.5 text-sm font-bold text-orange-800 dark:text-orange-300 hover:bg-orange-100 dark:hover:bg-orange-950/60 hover:border-orange-300 dark:hover:border-orange-700 transition-colors touch-manipulation"
-          >
-            <Building2 className="h-4 w-4 shrink-0" aria-hidden />
-            {dict.detail.viewVenue}
-          </button>
-        )}
-      </div>
-
-      <p
-        className={
-          standalone
-            ? "mt-3 text-copy leading-[1.35]"
-            : "mt-5 text-copy"
-        }
-      >
-        {event.description}
-      </p>
-
-      {eventOpinion ? (
-        <EventOpinionBlock
-          opinion={eventOpinion}
-          dict={dict}
-          locale={locale}
-          className={standalone ? "mt-3 mb-1" : "mt-5 mb-1"}
-        />
-      ) : null}
-
-      {event.lineup && event.lineup.length > 0 && (
-        <div className={standalone ? "mt-3" : "mt-5"}>
-          <div className="flex items-center gap-2 text-neutral-500 mb-2">
-            <Mic2 className="h-4 w-4 flex-shrink-0" />
-            <span className="text-[11px] font-bold uppercase tracking-wide">
-              {dict.detail.lineup}
-            </span>
-          </div>
-          <ul className="flex flex-wrap gap-2">
-            {event.lineup.map((name) => (
-              <li
-                key={name}
-                className="rounded-full bg-neutral-100 dark:bg-neutral-800 px-3 py-1 text-copy font-medium text-neutral-800 dark:text-neutral-200"
-              >
-                {name}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-
-      {nearbyTonight && nearbyTonight.hits.length > 0 ? (
-        <NearbyTonight
-          nearby={nearbyTonight}
-          locale={locale}
-          dict={dict}
-          returnTo={
-            returnTo ??
-            (event ? eventDetailPath(locale, event.id) : undefined)
-          }
-          sourceStatus={liveStatus}
-          daytimeSource={
-            event.recurrence === "daily" || event.recurrence === "weekdays"
-          }
-        />
-      ) : null}
-
-      {(ticketUrl ||
-        (showCallForPricing && event.phone) ||
-        showAdmissionVaries ||
-        showFreeAdmission ||
-        showPaidAdmission) && (
-        <div
-          className={
-            standalone
-              ? "mt-3 flex flex-col items-start gap-2.5"
-              : "mt-5 flex flex-col items-start gap-2.5"
-          }
-        >
-          {ticketUrl && (
-            <a
-              href={ticketUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex w-fit max-w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-5 py-3 text-sm font-bold text-white shadow-sm touch-manipulation transition-transform active:scale-[0.98]"
-            >
-              <Ticket className="h-4 w-4" aria-hidden />
-              {dict.detail.buyTickets}
-            </a>
-          )}
-          {showCallForPricing && event.phone && (
-            <a
-              href={`tel:${formatPhoneTel(event.phone)}`}
-              className="inline-flex w-fit max-w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-5 py-3 text-sm font-bold text-white shadow-sm touch-manipulation transition-transform active:scale-[0.98]"
-            >
-              <Phone className="h-4 w-4" aria-hidden />
-              {dict.detail.callForPricing}
-            </a>
-          )}
-          {showAdmissionVaries && (
-            <div
-              className="inline-flex w-fit max-w-full items-center justify-center gap-2 rounded-2xl border border-amber-200 bg-amber-50 px-5 py-3 text-sm font-bold text-amber-900 dark:border-amber-900/60 dark:bg-amber-950/40 dark:text-amber-200"
-              role="status"
-            >
-              <CircleDollarSign className="h-4 w-4 shrink-0" aria-hidden />
-              {dict.detail.admissionVaries}
-            </div>
-          )}
-          {showFreeAdmission && (
-            <div
-              className="inline-flex w-fit max-w-full items-center justify-center gap-2 rounded-2xl border border-emerald-200 bg-emerald-50 px-5 py-3 text-sm font-bold text-emerald-700 dark:border-emerald-900/60 dark:bg-emerald-950/40 dark:text-emerald-300"
-              role="status"
-            >
-              <BadgeCheck className="h-4 w-4 shrink-0" aria-hidden />
-              {dict.detail.freeAdmission}
-            </div>
-          )}
-          {showPaidAdmission && (
-            <div
-              className="inline-flex w-fit max-w-full items-center justify-center gap-2 rounded-2xl border border-amber-200 bg-amber-50 px-5 py-3 text-sm font-bold text-amber-900 dark:border-amber-900/60 dark:bg-amber-950/40 dark:text-amber-200"
-              role="status"
-            >
-              <CircleDollarSign className="h-4 w-4 shrink-0" aria-hidden />
-              {paidAdmissionLabel}
-            </div>
-          )}
-        </div>
-      )}
-    </>
+    <EventDetailContent
+      event={event}
+      dict={dict}
+      locale={locale}
+      standalone={standalone}
+      dateLabel={dateLabel}
+      recurrenceLabel={recurrenceLabel}
+      liveStatus={liveStatus}
+      liveStatusLabel={liveStatusLabel}
+      timeLabel={timeLabel}
+      isPhysical={isPhysical}
+      venueSlug={venueSlug}
+      walkablePocket={walkablePocket}
+      onViewVenue={handleViewVenue}
+      eventOpinion={eventOpinion}
+      nearbyTonight={nearbyTonight}
+      returnTo={returnTo}
+      ticketUrl={ticketUrl}
+      showCallForPricing={showCallForPricing}
+      showAdmissionVaries={showAdmissionVaries}
+      showFreeAdmission={showFreeAdmission}
+      showPaidAdmission={showPaidAdmission}
+      paidAdmissionLabel={paidAdmissionLabel}
+    />
   );
 
   const actionsSection = (
-    <>
-      <div
-        ref={actionsRef}
-        className={
-          standalone
-            ? "relative isolate border-t border-neutral-100 bg-white px-4 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] dark:border-neutral-800 dark:bg-neutral-900 sm:px-5 lg:px-5 lg:pb-4"
-            : "relative isolate border-t border-neutral-100 bg-white px-5 pt-4 pb-[max(1rem,env(safe-area-inset-bottom))] dark:border-neutral-800 dark:bg-neutral-900 sm:px-6 lg:px-7 lg:pb-6"
-        }
-      >
-        {shareMsg && (
-          <p
-            className="relative z-0 mb-2 text-center text-xs font-semibold text-orange-600 dark:text-orange-400"
-            role="status"
-            aria-live="polite"
-          >
-            {shareMsg}
-          </p>
-        )}
-        {showSaveCelebration ? (
-          <div
-            className="relative z-10 mb-4 rounded-2xl bg-emerald-50 px-4 py-4 dark:bg-emerald-950/40"
-            role="status"
-            aria-live="polite"
-          >
-            <div className="flex items-start gap-3">
-              <Sparkles
-                className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600 dark:text-emerald-400"
-                aria-hidden
-              />
-              <div className="min-w-0 flex-1">
-                <p className="text-base font-black text-emerald-950 dark:text-emerald-100">
-                  {onboardingCopy.saved.title}
-                </p>
-                <p className="mt-1 text-sm font-medium leading-snug text-emerald-800/80 dark:text-emerald-200/80">
-                  {onboardingCopy.saved.body}
-                </p>
-                <div className="mt-3 flex flex-wrap items-center gap-2">
-                  <button
-                    type="button"
-                    onClick={() => {
-                      markOnboardingSeen("calendar-prompt-seen");
-                      setShowSaveCelebration(false);
-                      setPushAfterCalendar(true);
-                      setOpenAction("calendar");
-                    }}
-                    className="rounded-full bg-emerald-700 px-4 py-2 text-sm font-bold text-white dark:bg-emerald-500 dark:text-emerald-950"
-                  >
-                    {onboardingCopy.saved.calendar}
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      markOnboardingSeen("calendar-prompt-seen");
-                      setShowSaveCelebration(false);
-                      offerPushPrompt();
-                    }}
-                    className="rounded-full px-3 py-2 text-sm font-bold text-emerald-800/80 dark:text-emerald-200/80"
-                  >
-                    {onboardingCopy.saved.keepBrowsing}
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        ) : showPushPrompt ? (
-          <div className="relative z-10 mb-4 rounded-2xl bg-sky-50 px-4 py-4 dark:bg-sky-950/40">
-            <div className="flex items-start gap-3">
-              <Bell
-                className="mt-0.5 h-5 w-5 shrink-0 text-sky-600 dark:text-sky-400"
-                aria-hidden
-              />
-              <div className="min-w-0 flex-1">
-                <p className="text-base font-black text-sky-950 dark:text-sky-100">
-                  {dict.push.title}
-                </p>
-                <p className="mt-1 text-sm font-medium leading-snug text-sky-900/75 dark:text-sky-200/80">
-                  {pushSubscription.enabled
-                    ? dict.push.enabledHint
-                    : dict.push.subtitle}
-                </p>
-                {pushSubscription.error ? (
-                  <p className="mt-1 text-sm font-bold text-red-600 dark:text-red-400">
-                    {onboardingCopy.saved.pushError}
-                  </p>
-                ) : null}
-                <div className="mt-3 flex flex-wrap items-center gap-2">
-                  <button
-                    type="button"
-                    disabled={pushSubscription.loading}
-                    onClick={async () => {
-                      const subscribed = await pushSubscription.subscribe();
-                      if (subscribed) {
-                        markOnboardingSeen("push-prompt-seen");
-                        setShowPushPrompt(false);
-                      }
-                    }}
-                    className="rounded-full bg-sky-700 px-4 py-2 text-sm font-bold text-white disabled:opacity-60 dark:bg-sky-500 dark:text-sky-950"
-                  >
-                    {pushSubscription.loading
-                      ? "…"
-                      : onboardingCopy.saved.pushEnable}
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      markOnboardingSeen("push-prompt-seen");
-                      setShowPushPrompt(false);
-                    }}
-                    className="rounded-full px-3 py-2 text-sm font-bold text-sky-800/80 dark:text-sky-200/80"
-                  >
-                    {onboardingCopy.saved.pushNotNow}
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        ) : shareOpen ? (
-          <div className={detailActionPanelClass}>
-            <ShareMenu
-              event={event}
-              locale={locale}
-              dict={dict}
-              onClose={() => setOpenAction(null)}
-              onFeedback={handleShareFeedback}
-            />
-          </div>
-        ) : calendarOpen ? (
-          <div className={detailActionPanelClass}>
-            <CalendarMenu
-              event={event}
-              dict={dict}
-              onClose={() => {
-                setOpenAction(null);
-                if (pushAfterCalendar) {
-                  setPushAfterCalendar(false);
-                  offerPushPrompt();
-                }
-              }}
-            />
-          </div>
-        ) : showActionsCoach ? (
-          <div className={detailActionPanelClass}>
-            <p className="text-base font-black text-orange-950 dark:text-orange-100">
-              {onboardingCopy.actions.title}
-            </p>
-            <p className="mt-1 text-sm font-medium leading-snug text-orange-900/75 dark:text-orange-200/80">
-              {onboardingCopy.actions.body}
-            </p>
-            <div className="mt-3 flex flex-wrap items-center gap-2">
-              <button
-                type="button"
-                onClick={() => {
-                  dismissActionsCoach();
-                  setOpenAction("share");
-                }}
-                className="rounded-full bg-orange-600 px-4 py-2 text-sm font-bold text-white"
-              >
-                {onboardingCopy.actions.share}
-              </button>
-              <button
-                type="button"
-                onClick={handleSave}
-                className="rounded-full bg-orange-100/90 px-4 py-2 text-sm font-bold text-orange-900 dark:bg-orange-900/50 dark:text-orange-100"
-              >
-                {onboardingCopy.actions.save}
-              </button>
-              <button
-                type="button"
-                onClick={dismissActionsCoach}
-                className="rounded-full px-3 py-2 text-sm font-bold text-orange-800/70 dark:text-orange-300/70"
-              >
-                {onboardingCopy.actions.dismiss}
-              </button>
-            </div>
-          </div>
-        ) : null}
-        <div
-          className={`relative z-10 grid gap-2 ${
-            actionCols === 3 ? "grid-cols-3" : "grid-cols-2"
-          }`}
-        >
-          {showCalendarAction ? (
-            <button
-              type="button"
-              onClick={() => toggleAction("calendar")}
-              className={`${iconActionClass} ${
-                calendarOpen ? iconActionActiveClass : iconActionIdleClass
-              }`}
-              aria-label={dict.detail.calendar}
-              title={dict.detail.calendar}
-              aria-expanded={calendarOpen}
-              aria-pressed={calendarOpen}
-            >
-              <CalendarPlus className="h-4 w-4" aria-hidden />
-            </button>
-          ) : null}
-          <button
-            type="button"
-            onClick={() => {
-              dismissActionsCoach();
-              toggleAction("share");
-            }}
-            className={`${iconActionClass} ${
-              shareOpen || shareMsg ? iconActionActiveClass : iconActionIdleClass
-            }`}
-            aria-label={shareMsg ?? dict.detail.share}
-            title={shareMsg ?? dict.detail.share}
-            aria-expanded={shareOpen}
-            aria-pressed={shareOpen}
-          >
-            <Forward className="h-4 w-4" aria-hidden />
-          </button>
-          <button
-            type="button"
-            onClick={handleSave}
-            className={`${iconActionClass} ${
-              isSaved ? iconActionActiveClass : iconActionIdleClass
-            }`}
-            aria-label={isSaved ? dict.detail.saved : dict.detail.save}
-            title={isSaved ? dict.detail.saved : dict.detail.save}
-            aria-pressed={isSaved}
-          >
-            <Heart
-              className={`h-4 w-4 ${isSaved ? "fill-current" : ""}`}
-              aria-hidden
-            />
-          </button>
-        </div>
-      </div>
-    </>
+    <EventDetailActions
+      event={event}
+      dict={dict}
+      locale={locale}
+      standalone={standalone}
+      actionsRef={actionsRef}
+      isSaved={isSaved}
+      shareMsg={shareMsg}
+      shareOpen={shareOpen}
+      calendarOpen={calendarOpen}
+      showSaveCelebration={showSaveCelebration}
+      showPushPrompt={showPushPrompt}
+      showActionsCoach={showActionsCoach}
+      showCalendarAction={showCalendarAction}
+      actionCols={actionCols}
+      pushAfterCalendar={pushAfterCalendar}
+      onboardingCopy={onboardingCopy}
+      pushSubscription={pushSubscription}
+      iconActionClass={iconActionClass}
+      iconActionIdleClass={iconActionIdleClass}
+      iconActionActiveClass={iconActionActiveClass}
+      onToggleAction={toggleAction}
+      onShareFeedback={handleShareFeedback}
+      onDismissActionsCoach={dismissActionsCoach}
+      onSave={handleSave}
+      onOfferPushPrompt={offerPushPrompt}
+      onSetOpenAction={setOpenAction}
+      onSetShowSaveCelebration={setShowSaveCelebration}
+      onSetShowPushPrompt={setShowPushPrompt}
+      onSetPushAfterCalendar={setPushAfterCalendar}
+    />
   );
 
   const emojiFallback = (

@@ -474,7 +474,7 @@ export const fr: Dictionary = {
     rejected: "Rejeté",
     source: "Source",
     unauthorized: "Clé modérateur invalide.",
-    unauthorizedHint: "Ajoutez ?key=VOTRE_MODERATOR_SECRET à l'URL.",
+    unauthorizedHint: "Ouvrez /moderate?key=VOTRE_MODERATOR_SECRET une fois (la clé est stockée pour cet onglet, puis retirée de l’URL). L’API utilise Authorization: Bearer.",
     firebaseRequired: "Firebase non connecté.",
     firebaseHint: "Définissez FIREBASE_SERVICE_ACCOUNT_JSON sur Netlify et redéployez.",
     refresh: "Actualiser",

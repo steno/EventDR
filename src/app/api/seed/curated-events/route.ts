@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { checkCronSecret } from "@/lib/ops-auth";
 import { CURATED_SEED_EVENT_IDS } from "@/lib/curated-events";
 import {
   upsertApprovedEvents,
@@ -10,14 +11,6 @@ import { resolveSeedEvents } from "@/lib/seed-events";
 
 export const dynamic = "force-dynamic";
 
-function checkCronSecret(request: NextRequest): boolean {
-  const secret = process.env.CRON_SECRET;
-  if (!secret) return false;
-  const provided =
-    request.nextUrl.searchParams.get("secret") ??
-    request.headers.get("authorization")?.replace("Bearer ", "");
-  return provided === secret;
-}
 
 /** Legacy ingest ids superseded by stable curated ids. */
 const LEGACY_DUPLICATE_IDS = [

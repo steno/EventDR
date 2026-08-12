@@ -107,15 +107,15 @@ If the event should be re-seeded via `POST /api/seed/facebook-events`, add its `
 After seeds (or if seeds unchanged but user wants a refresh):
 
 ```bash
-curl -sS -X POST "https://pop-event.com/api/ingest?secret=$CRON_SECRET"
+curl -sS -X POST "https://pop-event.com/api/ingest" -H "Authorization: Bearer $CRON_SECRET"
 ```
 
 Optional full Sunday seed chain (same as GitHub Action):
 
 ```bash
-curl -sS -X POST "https://pop-event.com/api/seed/curated-events?secret=$CRON_SECRET"
-curl -sS -X POST "https://pop-event.com/api/seed/facebook-events?secret=$CRON_SECRET"
-curl -sS -X POST "https://pop-event.com/api/ingest?secret=$CRON_SECRET"
+curl -sS -X POST "https://pop-event.com/api/seed/curated-events" -H "Authorization: Bearer $CRON_SECRET"
+curl -sS -X POST "https://pop-event.com/api/seed/facebook-events" -H "Authorization: Bearer $CRON_SECRET"
+curl -sS -X POST "https://pop-event.com/api/ingest" -H "Authorization: Bearer $CRON_SECRET"
 ```
 
 Or confirm **Weekly event ingest** succeeded on GitHub.

@@ -1,9 +1,17 @@
 import { NextRequest, NextResponse } from "next/server";
 import { saveSubscription } from "@/lib/push";
+import {
+  RATE_LIMITS,
+  checkRateLimit,
+  rateLimitResponse,
+} from "@/lib/rate-limit";
 
 export const dynamic = "force-dynamic";
 
 export async function POST(request: NextRequest) {
+  const limited = checkRateLimit(request, RATE_LIMITS.pushSubscribe);
+  if (!limited.ok) return rateLimitResponse(limited);
+
   try {
     const body = (await request.json()) as {
       subscription?: {

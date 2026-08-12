@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { checkCronSecret } from "@/lib/ops-auth";
 import { FACEBOOK_SEED_EVENT_IDS } from "@/lib/facebook-groups";
 import { EL_CAREY_WC2026_LEGACY_EVENT_IDS } from "@/lib/world-cup-2026-events";
 import {
@@ -13,14 +14,6 @@ import { generateOpinionDraftsForEvents } from "@/lib/event-opinion-drafts";
 export const dynamic = "force-dynamic";
 export const maxDuration = 120;
 
-function checkCronSecret(request: NextRequest): boolean {
-  const secret = process.env.CRON_SECRET;
-  if (!secret) return false;
-  const provided =
-    request.nextUrl.searchParams.get("secret") ??
-    request.headers.get("authorization")?.replace("Bearer ", "");
-  return provided === secret;
-}
 
 /** Idempotent: publish curated Facebook group events from fallback seeds. */
 export async function POST(request: NextRequest) {

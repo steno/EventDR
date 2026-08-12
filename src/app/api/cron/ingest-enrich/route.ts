@@ -1,24 +1,17 @@
 import { NextRequest, NextResponse } from "next/server";
+import { checkCronSecret } from "@/lib/ops-auth";
 import { enrichPendingIngestEvents } from "@/lib/ingest-enrich";
 import { isFirebaseConfigured } from "@/lib/firebase/events";
 
 export const dynamic = "force-dynamic";
 export const maxDuration = 120;
 
-function checkCronSecret(request: NextRequest): boolean {
-  const secret = process.env.CRON_SECRET;
-  if (!secret) return false;
-  const provided =
-    request.nextUrl.searchParams.get("secret") ??
-    request.headers.get("authorization")?.replace("Bearer ", "");
-  return provided === secret;
-}
 
 /**
  * Post-ingest editorial prep for pending (and approved-gap) events:
  * venue link, phone, validated image, POP opinion draft + auto-publish when solid.
  *
- * GET/POST ?secret=&limit=8
+ * GET/POST ?limit=8  (Authorization: Bearer CRON_SECRET)
  * Optional: &ids=id1,id2 &skipImages=1 &skipOpinions=1 &forceImages=1
  */
 async function handle(request: NextRequest) {

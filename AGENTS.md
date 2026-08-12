@@ -19,6 +19,6 @@ For Instagram—the primary source for many DR event flyers—run skill `pop-ins
 | Sun ~12:00 AST | `weekly-event-ingest.yml` | Skills `pop-instagram-ingest`, `pop-facebook-ingest`, then `pop-content-pipeline` |
 | Fri ~9:00 AST | `weekly-marketing-digest.yml` → artifact `weekend-marketing-digests` | Skills `pop-social-weekly`, `pop-weekend-b2b-digest` |
 
-Partner digest API: `GET /api/cron/partner-digest?secret=CRON_SECRET` (formats: `json`, `markdown`, `whatsapp`; locales: `en`, `es`, `fr`).
+Partner digest API: `GET /api/cron/partner-digest` with `Authorization: Bearer CRON_SECRET` (formats: `json`, `markdown`, `whatsapp`; locales: `en`, `es`, `fr`).
 
 Partner QR page: `/en/for-partners` (also `/es`, `/fr`). Sunday Cursor Automation: `marketing/automation/sunday-content-pipeline.workflow.json` — create in **Agents Window**.

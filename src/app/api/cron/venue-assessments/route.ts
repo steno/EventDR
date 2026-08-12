@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { checkCronSecret } from "@/lib/ops-auth";
 import {
   ASSESSMENT_CONFIDENCE_THRESHOLD,
   areVenueAssessmentsEnabled,
@@ -13,23 +14,15 @@ import { getSeedVenue } from "@/lib/venues-seed";
 export const dynamic = "force-dynamic";
 export const maxDuration = 60;
 
-function checkCronSecret(request: NextRequest): boolean {
-  const secret = process.env.CRON_SECRET;
-  if (!secret) return false;
-  const provided =
-    request.nextUrl.searchParams.get("secret") ??
-    request.headers.get("authorization")?.replace("Bearer ", "");
-  return provided === secret;
-}
 
 /**
  * Ops endpoint: list seed assessments; optionally enrich with Google Places
  * ratings (Enterprise SKU — no review Atmosphere). Once a rating is stored on
  * the venue doc it is reused (no re-bill) unless refresh=1.
  * Review texts are only fetched on opinion-draft generation.
- * GET /api/cron/venue-assessments?secret=CRON_SECRET&enrich=1
- * GET /api/cron/venue-assessments?secret=CRON_SECRET&enrich=1&refresh=1
- * GET /api/cron/venue-assessments?secret=CRON_SECRET&probe=d-classico-sosua
+ * GET /api/cron/venue-assessments?enrich=1  (Authorization: Bearer CRON_SECRET)
+ * GET /api/cron/venue-assessments?enrich=1&refresh=1
+ * GET /api/cron/venue-assessments?probe=d-classico-sosua
  */
 async function handle(request: NextRequest) {
   if (!checkCronSecret(request)) {

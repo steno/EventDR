@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { checkModeratorSecret } from "@/lib/ops-auth";
 import {
   fetchPendingEvents,
   fetchApprovedEvents,
@@ -11,17 +12,8 @@ import { findNearDuplicate } from "@/lib/ingest-dedupe";
 export const dynamic = "force-dynamic";
 export const maxDuration = 60;
 
-function checkSecret(request: NextRequest): boolean {
-  const secret = process.env.MODERATOR_SECRET;
-  if (!secret) return false;
-  const provided =
-    request.nextUrl.searchParams.get("secret") ??
-    request.headers.get("x-moderator-secret");
-  return provided === secret;
-}
-
 export async function GET(request: NextRequest) {
-  if (!checkSecret(request)) {
+  if (!checkModeratorSecret(request)) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
   if (!isFirebaseConfigured()) {
@@ -55,7 +47,7 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: NextRequest) {
-  if (!checkSecret(request)) {
+  if (!checkModeratorSecret(request)) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
   if (!isFirebaseConfigured()) {

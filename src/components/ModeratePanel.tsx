@@ -1,7 +1,7 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { useCallback, useEffect, useState, useSyncExternalStore } from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { RefreshCw, CheckCircle, ExternalLink, AlertTriangle } from "lucide-react";
 import type { Event } from "@/lib/types";
@@ -9,6 +9,9 @@ import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import { formatEventDateRange } from "@/lib/format-date";
 import { formatEventPlace } from "@/lib/event-location";
+
+const MOD_SECRET_STORAGE_KEY = "pop-moderator-secret";
+const SECRET_CHANGE_EVENT = "pop-moderator-secret-change";
 
 type PendingModerateEvent = Event & {
   duplicateOf?: {
@@ -24,16 +27,112 @@ interface ModeratePanelProps {
   locale: Locale;
 }
 
+function readStoredSecret(): string {
+  try {
+    return sessionStorage.getItem(MOD_SECRET_STORAGE_KEY) ?? "";
+  } catch {
+    return "";
+  }
+}
+
+function storeSecret(value: string) {
+  try {
+    sessionStorage.setItem(MOD_SECRET_STORAGE_KEY, value);
+    window.dispatchEvent(new Event(SECRET_CHANGE_EVENT));
+  } catch {
+    /* ignore quota / private mode */
+  }
+}
+
+function subscribeSecretStore(onStoreChange: () => void) {
+  window.addEventListener(SECRET_CHANGE_EVENT, onStoreChange);
+  window.addEventListener("storage", onStoreChange);
+  return () => {
+    window.removeEventListener(SECRET_CHANGE_EVENT, onStoreChange);
+    window.removeEventListener("storage", onStoreChange);
+  };
+}
+
 export function ModeratePanel({ dict, locale }: ModeratePanelProps) {
   const searchParams = useSearchParams();
-  const secret = searchParams.get("key") ?? "";
+  const pathname = usePathname();
+  const router = useRouter();
+  const fromQuery = searchParams.get("key")?.trim() ?? "";
+  const fromStore = useSyncExternalStore(
+    subscribeSecretStore,
+    readStoredSecret,
+    () => "",
+  );
+  const secret = fromQuery || fromStore;
+
   const [events, setEvents] = useState<PendingModerateEvent[]>([]);
   const [loading, setLoading] = useState(true);
   const [unauthorized, setUnauthorized] = useState(false);
   const [firebaseDown, setFirebaseDown] = useState(false);
   const [actionMsg, setActionMsg] = useState<string | null>(null);
 
-  const load = useCallback(async () => {
+  // One-shot ?key= boots sessionStorage, then strip from the URL (history/logs).
+  useEffect(() => {
+    if (!fromQuery) return;
+    storeSecret(fromQuery);
+    router.replace(pathname, { scroll: false });
+  }, [fromQuery, pathname, router]);
+
+  const authHeaders = useCallback(
+    (extra?: HeadersInit): HeadersInit => ({
+      ...(extra ?? {}),
+      Authorization: `Bearer ${secret}`,
+    }),
+    [secret],
+  );
+
+  useEffect(() => {
+    let cancelled = false;
+
+    async function loadQueue() {
+      if (!secret) {
+        if (!cancelled) {
+          setUnauthorized(true);
+          setLoading(false);
+        }
+        return;
+      }
+      if (!cancelled) {
+        setLoading(true);
+        setFirebaseDown(false);
+      }
+      try {
+        const res = await fetch("/api/moderate", {
+          headers: { Authorization: `Bearer ${secret}` },
+        });
+        if (cancelled) return;
+        if (res.status === 401) {
+          setUnauthorized(true);
+          setEvents([]);
+          return;
+        }
+        if (res.status === 503) {
+          setFirebaseDown(true);
+          setEvents([]);
+          return;
+        }
+        const data = (await res.json()) as { events?: PendingModerateEvent[] };
+        setEvents(data.events ?? []);
+        setUnauthorized(false);
+      } catch {
+        if (!cancelled) setEvents([]);
+      } finally {
+        if (!cancelled) setLoading(false);
+      }
+    }
+
+    void loadQueue();
+    return () => {
+      cancelled = true;
+    };
+  }, [secret]);
+
+  async function load() {
     if (!secret) {
       setUnauthorized(true);
       setLoading(false);
@@ -42,7 +141,7 @@ export function ModeratePanel({ dict, locale }: ModeratePanelProps) {
     setLoading(true);
     setFirebaseDown(false);
     try {
-      const res = await fetch(`/api/moderate?secret=${encodeURIComponent(secret)}`);
+      const res = await fetch("/api/moderate", { headers: authHeaders() });
       if (res.status === 401) {
         setUnauthorized(true);
         setEvents([]);
@@ -61,16 +160,12 @@ export function ModeratePanel({ dict, locale }: ModeratePanelProps) {
     } finally {
       setLoading(false);
     }
-  }, [secret]);
-
-  useEffect(() => {
-    load();
-  }, [load]);
+  }
 
   async function moderate(id: string, action: "approve" | "reject") {
-    const res = await fetch(`/api/moderate?secret=${encodeURIComponent(secret)}`, {
+    const res = await fetch("/api/moderate", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: authHeaders({ "Content-Type": "application/json" }),
       body: JSON.stringify({ id, action }),
     });
     if (!res.ok) return;

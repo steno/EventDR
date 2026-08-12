@@ -37,9 +37,9 @@ Pipeline:
 Check GitHub Action **Weekly event ingest** succeeded, or run manually:
 
 ```bash
-curl -sS -X POST "https://pop-event.com/api/seed/curated-events?secret=$CRON_SECRET"
-curl -sS -X POST "https://pop-event.com/api/seed/facebook-events?secret=$CRON_SECRET"
-curl -sS -X POST "https://pop-event.com/api/ingest?secret=$CRON_SECRET"
+curl -sS -X POST "https://pop-event.com/api/seed/curated-events" -H "Authorization: Bearer $CRON_SECRET"
+curl -sS -X POST "https://pop-event.com/api/seed/facebook-events" -H "Authorization: Bearer $CRON_SECRET"
+curl -sS -X POST "https://pop-event.com/api/ingest" -H "Authorization: Bearer $CRON_SECRET"
 ```
 
 ### 2. Logged-in social discovery
@@ -54,18 +54,18 @@ Open https://pop-event.com/en/moderate — approve North Coast events only; reje
 
 Confirm pending cards have real photos when possible (ingest sources OG/JSON-LD images; curated seeds must map `event-images.ts` + `venue-images.ts`).
 
-Ingest drafts POP expert opinions from Google reviews when Places resolves (auto-published on solid evidence during enrich/approve). Manual review: `/api/cron/event-opinion-drafts?secret=…&status=draft`.
+Ingest drafts POP expert opinions from Google reviews when Places resolves (auto-published on solid evidence during enrich/approve). Manual review: `/api/cron/event-opinion-drafts?status=draft (Authorization: Bearer CRON_SECRET)`.
 
 ### 4. Partner digest preview
 
 ```bash
-curl -sS "https://pop-event.com/api/cron/partner-digest?secret=$CRON_SECRET&locale=en&format=markdown"
+curl -sS "https://pop-event.com/api/cron/partner-digest?locale=en&format=markdown" -H "Authorization: Bearer $CRON_SECRET"
 ```
 
 Repeat for `es` and `fr`. JSON (all locales + `socialDrafts`):
 
 ```bash
-curl -sS "https://pop-event.com/api/cron/partner-digest?secret=$CRON_SECRET"
+curl -sS "https://pop-event.com/api/cron/partner-digest" -H "Authorization: Bearer $CRON_SECRET"
 ```
 
 ### 5. Social posts

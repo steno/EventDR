@@ -13,7 +13,7 @@ Generate **ready-to-post** copy from the partner digest API. Do not invent event
 ## Fetch data
 
 ```bash
-curl -sS "https://pop-event.com/api/cron/partner-digest?secret=$CRON_SECRET"
+curl -sS "https://pop-event.com/api/cron/partner-digest" -H "Authorization: Bearer $CRON_SECRET"
 ```
 
 Use `locales.en.socialDrafts` as starting points. Enrich only with facts from `events` array.

@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { checkCronSecret } from "@/lib/ops-auth";
 import { isValidLocale, type Locale } from "@/i18n/config";
 import {
   buildAllPartnerDigests,
@@ -7,14 +8,6 @@ import {
 
 export const dynamic = "force-dynamic";
 
-function checkCronSecret(request: NextRequest): boolean {
-  const secret = process.env.CRON_SECRET;
-  if (!secret) return false;
-  const provided =
-    request.nextUrl.searchParams.get("secret") ??
-    request.headers.get("authorization")?.replace("Bearer ", "");
-  return provided === secret;
-}
 
 async function handleDigest(request: NextRequest) {
   if (!checkCronSecret(request)) {

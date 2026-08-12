@@ -116,7 +116,7 @@ Do not commit unless the user or the active automation explicitly asks.
 After additions, or when the user requests a refresh:
 
 ```bash
-curl -sS -X POST "https://pop-event.com/api/ingest?secret=$CRON_SECRET"
+curl -sS -X POST "https://pop-event.com/api/ingest" -H "Authorization: Bearer $CRON_SECRET"
 ```
 
 Then hand off to `https://pop-event.com/en/moderate`. Approve only verified North Coast events.

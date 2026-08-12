@@ -26,14 +26,11 @@ jobs:
             # soft=1 → warn on failure instead of failing the job (seeds already published).
             local soft="${4:-0}"
             local res http body url try=1
-            if [[ "$path" == *\?* ]]; then
-              url="${SITE_URL}${path}&secret=${CRON_SECRET}"
-            else
-              url="${SITE_URL}${path}?secret=${CRON_SECRET}"
-            fi
+            url="${SITE_URL}${path}"
             while true; do
               # Netlify gateway ~26–30s inactivity; fail the attempt before hanging forever.
-              res=$(curl -sS --max-time 90 -w "\n%{http_code}" -X POST "$url" || true)
+              res=$(curl -sS --max-time 90 -w "\n%{http_code}" -X POST "$url" \
+                -H "Authorization: Bearer ${CRON_SECRET}" || true)
               http=$(echo "$res" | tail -n1)
               body=$(echo "$res" | sed '$d')
               echo "${label}: HTTP ${http} (attempt ${try}/${attempts})"

@@ -1,7 +1,20 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { ChevronRight } from "lucide-react";
-import { EmptyPong } from "@/components/EmptyPong";
+
+const EmptyPong = dynamic(
+  () => import("@/components/EmptyPong").then((m) => m.EmptyPong),
+  {
+    ssr: false,
+    loading: () => (
+      <div
+        className="mx-auto h-48 max-w-sm rounded-2xl bg-neutral-100/80 dark:bg-neutral-800/50"
+        aria-hidden
+      />
+    ),
+  },
+);
 
 interface SearchEmptyStateProps {
   title: string;

@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { checkCronSecret } from "@/lib/ops-auth";
 import { fastCrawlCategories } from "@/lib/crawl";
 import { ingestSocialEvents } from "@/lib/ingest-social";
 import { insertIngestedEvents, isFirebaseConfigured } from "@/lib/firebase/events";
@@ -7,14 +8,6 @@ import { generateOpinionDraftsForEvents } from "@/lib/event-opinion-drafts";
 export const dynamic = "force-dynamic";
 export const maxDuration = 120;
 
-function checkCronSecret(request: NextRequest): boolean {
-  const secret = process.env.CRON_SECRET;
-  if (!secret) return false;
-  const provided =
-    request.nextUrl.searchParams.get("secret") ??
-    request.headers.get("authorization")?.replace("Bearer ", "");
-  return provided === secret;
-}
 
 export async function POST(request: NextRequest) {
   if (!checkCronSecret(request)) {

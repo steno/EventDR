@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { checkCronSecret } from "@/lib/ops-auth";
 import {
   generateOpinionDrafts,
   selectOpinionDraftCandidates,
@@ -14,23 +15,15 @@ import { isGooglePlacesConfigured } from "@/lib/google-places";
 export const dynamic = "force-dynamic";
 export const maxDuration = 120;
 
-function checkCronSecret(request: NextRequest): boolean {
-  const secret = process.env.CRON_SECRET;
-  if (!secret) return false;
-  const provided =
-    request.nextUrl.searchParams.get("secret") ??
-    request.headers.get("authorization")?.replace("Bearer ", "");
-  return provided === secret;
-}
 
 /**
  * Places → unique event-opinion drafts (never auto-published).
  *
- * Generate:  GET/POST ?secret=&generate=1&limit=5
- * List:      GET ?secret=&status=draft|approved|rejected
- * Approve:   POST ?secret=&approve=eventId
- * Reject:    POST ?secret=&reject=eventId
- * Candidates: GET ?secret=&candidates=1
+ * Generate:  GET/POST ?generate=1&limit=5  (Authorization: Bearer CRON_SECRET)
+ * List:      GET ?status=draft|approved|rejected
+ * Approve:   POST ?approve=eventId
+ * Reject:    POST ?reject=eventId
+ * Candidates: GET ?candidates=1
  */
 async function handle(request: NextRequest) {
   if (!checkCronSecret(request)) {

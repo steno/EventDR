@@ -15,16 +15,16 @@ Copy-paste blocks for **hotels, tour ops, and travel agents**. Source: live dige
 
 ```bash
 # Markdown — paste into email body
-curl -sS "https://pop-event.com/api/cron/partner-digest?secret=$CRON_SECRET&locale=en&format=markdown"
+curl -sS "https://pop-event.com/api/cron/partner-digest?locale=en&format=markdown" -H "Authorization: Bearer $CRON_SECRET"
 
 # WhatsApp — tour guide group chats
-curl -sS "https://pop-event.com/api/cron/partner-digest?secret=$CRON_SECRET&locale=es&format=whatsapp"
+curl -sS "https://pop-event.com/api/cron/partner-digest?locale=es&format=whatsapp" -H "Authorization: Bearer $CRON_SECRET"
 ```
 
 JSON for structured email:
 
 ```bash
-curl -sS "https://pop-event.com/api/cron/partner-digest?secret=$CRON_SECRET&locale=en"
+curl -sS "https://pop-event.com/api/cron/partner-digest?locale=en" -H "Authorization: Bearer $CRON_SECRET"
 ```
 
 ## Email subject lines

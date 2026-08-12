@@ -1,8 +1,9 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    // Public read for approved events and venues.
-    // All writes go through Firebase Admin SDK in API routes (bypasses rules).
+    // Client SDK is not used for writes — Admin SDK in API routes bypasses rules.
+    // Public client reads are limited to approved catalog data only.
+
     match /venues/{slug} {
       allow read: if true;
       allow write: if false;
@@ -13,7 +14,21 @@ service cloud.firestore {
       allow write: if false;
     }
 
+    // Ops / PII collections — Admin only (explicit deny for clarity).
     match /pushSubscriptions/{id} {
+      allow read, write: if false;
+    }
+
+    match /partnerDigestSubscribers/{id} {
+      allow read, write: if false;
+    }
+
+    match /eventOpinionDrafts/{id} {
+      allow read, write: if false;
+    }
+
+    // Deny-by-default for any other collection or nested path.
+    match /{document=**} {
       allow read, write: if false;
     }
   }
