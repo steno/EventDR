@@ -2,8 +2,13 @@ import { readFileSync, readdirSync, existsSync } from "fs";
 import { join } from "path";
 
 const root = new URL("..", import.meta.url).pathname;
-const fallback = readFileSync(join(root, "src/lib/fallback-events.ts"), "utf8");
-const fallbackFr = readFileSync(join(root, "src/lib/fallback-events-fr.ts"), "utf8");
+const seedsDir = join(root, "src/data/seeds");
+const fallback = [
+  readFileSync(join(seedsDir, "fallback.en.json"), "utf8"),
+  readFileSync(join(seedsDir, "fallback.es.json"), "utf8"),
+  readFileSync(join(seedsDir, "fallback.fr.json"), "utf8"),
+].join("\n");
+const fallbackFr = readFileSync(join(seedsDir, "fallback.fr.json"), "utf8");
 const tickets = readFileSync(join(root, "src/lib/event-tickets.ts"), "utf8");
 const phones = readFileSync(join(root, "src/lib/event-phone.ts"), "utf8");
 const images = readFileSync(join(root, "src/lib/event-images.ts"), "utf8");
@@ -14,9 +19,11 @@ const atleticos = readFileSync(
   "utf8",
 );
 const worldCup = readFileSync(join(root, "src/lib/world-cup-2026-events.ts"), "utf8");
-const recurring = existsSync(join(root, "src/lib/recurring-events.ts"))
-  ? readFileSync(join(root, "src/lib/recurring-events.ts"), "utf8")
-  : "";
+const recurring = [
+  readFileSync(join(seedsDir, "recurring.en.json"), "utf8"),
+  readFileSync(join(seedsDir, "recurring.es.json"), "utf8"),
+  readFileSync(join(seedsDir, "recurring.fr.json"), "utf8"),
+].join("\n");
 
 /**
  * Find a `const Name = { ... }` or `export const Name = { ... }` object body.
@@ -94,14 +101,16 @@ function extractStringArray(src, constName) {
 
 function extractEventBlocks(src) {
   const blocks = [];
-  const re = /\{\s*id:\s*"([^"]+)"([\s\S]*?)(?=\n\s*\{|\n\];)/g;
+  // JSON seeds use "id": "..."; leftover TS packs use id: "..."
+  const re =
+    /\{\s*(?:"id"|id):\s*"([^"]+)"([\s\S]*?)(?=\n\s*\{|\n\];|\n\s*\])/g;
   let m;
   while ((m = re.exec(src))) {
     const id = m[1];
     const body = m[2];
     const field = (name) => {
       const fm = body.match(
-        new RegExp(`${name}:\\s*("(?:\\\\.|[^"])*"|true|false)`),
+        new RegExp(`(?:"${name}"|${name}):\\s*("(?:\\\\.|[^"])*"|true|false)`),
       );
       if (!fm) return undefined;
       const v = fm[1];
@@ -120,7 +129,7 @@ function extractEventBlocks(src) {
       sourceUrl: field("sourceUrl"),
       venueSlug: field("venueSlug"),
       venue: field("venue"),
-      recurrence: /recurrence:/.test(body),
+      recurrence: /(?:"recurrence"|recurrence)\s*:/.test(body),
       imageUrl: field("imageUrl"),
     });
   }

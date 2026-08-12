@@ -29,3 +29,27 @@ jobs:
 
       - name: Unit tests
         run: npm test
+
+  smoke:
+    # Hits production — useful after main merges, not a PR preview gate.
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
+    needs: check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Production smoke
+        env:
+          SMOKE_BASE_URL: https://pop-event.com
+        run: npm run test:smoke

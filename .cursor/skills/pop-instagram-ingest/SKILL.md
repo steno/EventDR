@@ -88,7 +88,7 @@ Keep a candidate list with title, date, venue, city, source URL, and confidence 
 
 Before editing:
 
-- Search `src/lib/fallback-events.ts`, `src/lib/fallback-events-fr.ts`, `src/lib/recurring-events.ts`, and `src/lib/curated-events.ts`
+- Search `src/data/seeds/fallback.*.json`, `src/data/seeds/recurring.*.json`, and `src/lib/curated-events.ts`
 - Check the live site and moderation queue when available
 - Treat the same date + venue + performer/title as a duplicate even when the post URL differs
 - Cross-check ambiguous flyers with a second official source
@@ -99,9 +99,9 @@ Reject candidates whose date, place, or event identity cannot be verified, or wh
 
 For each new event:
 
-1. Add matching EN and ES entries to `src/lib/fallback-events.ts`.
-2. Add the FR entry to `src/lib/fallback-events-fr.ts`.
-3. Use one stable event `id` across locales and set `sourceType: "instagram"` when supported.
+1. Add matching EN, ES, and FR entries to `src/data/seeds/fallback.{en,es,fr}.json`.
+2. Use one stable event `id` across locales and set `sourceType: "instagram"` when supported.
+3. Do not put one-off seeds in the thin loaders under `src/lib/`.
 4. Preserve the canonical post/Reel URL as `sourceUrl`; add `ticketUrl`, `admissionPrice`, `isFree`, `callForPricing`, and `phone` when verified.
 5. Follow existing date, time, category, venue, and localization conventions.
 6. Source authentic event and venue images from the official post, organizer, venue, or ticket page. Update image maps and `public/events/ATTRIBUTIONS.md`; never substitute generic stock for a named event or venue.

@@ -34,12 +34,12 @@ Facebook ingest:
 
 **Include:** Puerto Plata, Sosúa, Cabarete, Costambar, Playa Dorada. For the current 2026 discovery pass, search from the run date through **2026-12-31**. Include recurring events only when an official source confirms that the schedule remains active in this window.
 
-**Skip:** real-estate / marketplace / buy-sell; Santiago / Cibao ticket spam; duplicates already on pop-event.com or in `fallback-events`; vague posts with no date/place.
+**Skip:** real-estate / marketplace / buy-sell; Santiago / Cibao ticket spam; duplicates already on pop-event.com or in `src/data/seeds/fallback.*.json`; vague posts with no date/place.
 
 Before editing seeds, skim existing ids in:
 
-- `src/lib/fallback-events.ts` (`FALLBACK_EVENTS_EN` / `FALLBACK_EVENTS_ES`)
-- `src/lib/fallback-events-fr.ts`
+- `src/data/seeds/fallback.en.json`, `fallback.es.json`, `fallback.fr.json`
+- `src/data/seeds/recurring.*.json` (recurring schedules only)
 - Live site / moderate queue when useful
 
 ## 2. Events tabs
@@ -77,9 +77,9 @@ Keep a working list: title, date, place, `sourceUrl`, ticket URL if any. Drop an
 
 For each **new** event:
 
-1. Add EN + ES objects to `src/lib/fallback-events.ts` (`FALLBACK_EVENTS_EN`, `FALLBACK_EVENTS_ES`)
-2. Add FR to `src/lib/fallback-events-fr.ts` (`FALLBACK_EVENTS_FR`)
-3. Same `id` across locales; include `sourceUrl` when from Facebook/Instagram
+1. Add matching objects to `src/data/seeds/fallback.en.json`, `fallback.es.json`, and `fallback.fr.json`
+2. Same `id` across locales; include `sourceUrl` when from Facebook/Instagram
+3. Do not edit the thin loaders in `src/lib/fallback-events.ts` / `src/lib/recurring-events.ts` for seed content
 4. Match existing field patterns (`category`, `location`, `venue` / `venueSlug`, `format: "physical"`, dates as `YYYY-MM-DD`)
 5. **Admission & contact (required when known):** set `ticketUrl` and/or `admissionPrice` (e.g. `RD$250`, `US$210`) or `isFree: true` / `callForPricing: true`; always add `phone` when an organizer/venue number exists (also on the venue in `venues-seed.ts`). Wire curated maps in `event-tickets.ts` / `event-phone.ts` when useful.
 6. **Images (required for every new event):** source **authentic** event + venue photos — this place, this team, this flyer.

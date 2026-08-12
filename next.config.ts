@@ -54,8 +54,26 @@ const nextConfig: NextConfig = {
     const iconCache = "public, max-age=3600, stale-while-revalidate=86400";
     const noStore = "no-store, max-age=0, must-revalidate";
 
-    // Baseline browser hardening. Full CSP is deferred — GA, Maps, and Storage
-    // need careful allowlists; these headers are safe for the current stack.
+    // Baseline browser hardening + CSP allowlisting for GA, Maps, OSM, Firebase Storage.
+    const csp = [
+      "default-src 'self'",
+      "base-uri 'self'",
+      "object-src 'none'",
+      "frame-ancestors 'none'",
+      "form-action 'self'",
+      // Next inline boot scripts + GA snippet; Maps loader is external.
+      "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://maps.googleapis.com",
+      "style-src 'self' 'unsafe-inline'",
+      "img-src 'self' data: blob: https://firebasestorage.googleapis.com https://*.googleusercontent.com https://maps.gstatic.com https://maps.googleapis.com https://*.tile.openstreetmap.org",
+      "font-src 'self' data:",
+      "connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://firebasestorage.googleapis.com https://maps.googleapis.com https://nominatim.openstreetmap.org",
+      "worker-src 'self' blob:",
+      "manifest-src 'self'",
+      "media-src 'self' blob:",
+      "frame-src https://www.google.com https://maps.google.com",
+      "upgrade-insecure-requests",
+    ].join("; ");
+
     const securityHeaders = [
       { key: "X-Content-Type-Options", value: "nosniff" },
       { key: "X-Frame-Options", value: "DENY" },
@@ -68,6 +86,7 @@ const nextConfig: NextConfig = {
         key: "Cross-Origin-Opener-Policy",
         value: "same-origin-allow-popups",
       },
+      { key: "Content-Security-Policy", value: csp },
     ];
 
     return [
