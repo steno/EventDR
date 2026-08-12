@@ -138,10 +138,10 @@ export function CityLocationPicker({
 
   return (
     <div ref={rootRef} className="relative w-full">
-      <p className="text-xl leading-snug text-neutral-800 dark:text-neutral-200">
+      <p className="text-base leading-snug text-neutral-800 dark:text-neutral-200">
         {scopeEmoji ? (
           <span
-            className="mr-1.5 inline-block text-[1.65rem] leading-none align-[-0.15em]"
+            className="mr-1.5 inline-block text-[1.25em] leading-none align-[-0.15em]"
             aria-hidden
           >
             {scopeEmoji}
