@@ -9,7 +9,6 @@ import {
   writeHomeArea,
   type CitySlug,
 } from "@/lib/cities";
-import { getCategoryMeta } from "@/lib/categories";
 import { categoryPath } from "@/lib/event-navigation";
 import { fillTemplate } from "@/lib/seo";
 import type { Locale } from "@/i18n/config";
@@ -51,24 +50,16 @@ export function CityLocationPicker({
   const buttonRef = useRef<HTMLButtonElement>(null);
   const listId = useId();
 
-  const category = categoryId
-    ? getCategoryMeta(categoryId, dict.categories)
-    : undefined;
-  // Category pages: show "{cat-icon} {Category} Events in [area]"
-  // Home: show "Events in [area]"
-  // City/when scope pages: show "📅 All Events in [area]"
-  const scopePrefix = categoryId && category
+  // Category pages: "{Category} Events in [area]"
+  // Home: "Events in [area]"
+  // City/when scope pages: "All Events in [area]"
+  const scopePrefix = categoryId
     ? fillTemplate(dict.cities.lookingInWithCategory, {
         category: dict.categoriesSingular[categoryId],
       })
     : onSelect
       ? dict.cities.eventsIn
       : dict.cities.lookingIn;
-  const scopeEmoji = category
-    ? category.emoji
-    : onSelect
-      ? null
-      : "📅";
 
   const options: AreaOption[] = [
     { slug: null, label: dict.cities.regionName },
@@ -139,14 +130,6 @@ export function CityLocationPicker({
   return (
     <div ref={rootRef} className="relative w-full">
       <p className="text-base leading-snug text-neutral-800 dark:text-neutral-200">
-        {scopeEmoji ? (
-          <span
-            className="mr-1.5 inline-block text-[1.25em] leading-none align-[-0.15em]"
-            aria-hidden
-          >
-            {scopeEmoji}
-          </span>
-        ) : null}
         {scopePrefix}{" "}
         <button
           ref={buttonRef}
