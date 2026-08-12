@@ -429,17 +429,6 @@ export function EventScopePage({
             </>
           )}
 
-          {showLocationPicker && !activeCategoryId ? (
-            <div className="mb-6">
-              <CityLocationPicker
-                locale={locale}
-                dict={dict}
-                currentSlug={activeCitySlug ?? null}
-                onSelect={softNav ? onSoftCitySelect : undefined}
-              />
-            </div>
-          ) : null}
-
           {relatedCategoryLinks && relatedCategoryLinksLabel ? (
             <CityCategoryLinks
               label={relatedCategoryLinksLabel}
@@ -469,7 +458,7 @@ export function EventScopePage({
             addEventLabel={addEventLabel}
             categoryId={activeCategoryId}
             locationPicker={
-              showLocationPicker && activeCategoryId ? (
+              showLocationPicker ? (
                 <CityLocationPicker
                   locale={locale}
                   dict={dict}
