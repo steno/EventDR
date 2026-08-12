@@ -15,7 +15,11 @@ export function LanguageSwitcher({ locale, dict }: LanguageSwitcherProps) {
 
   function switchLocale(target: Locale) {
     if (target === locale) return;
-    const newPath = pathname.replace(`/${locale}`, `/${target}`);
+    // Prefer the address bar — soft city/category swaps update history without
+    // notifying the App Router, so usePathname can lag behind.
+    const currentPath =
+      typeof window !== "undefined" ? window.location.pathname : pathname;
+    const newPath = currentPath.replace(`/${locale}`, `/${target}`);
     const qs =
       typeof window !== "undefined" ? window.location.search.replace(/^\?/, "") : "";
     document.cookie = `eventdr-locale=${target};path=/;max-age=31536000`;

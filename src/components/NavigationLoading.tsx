@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import { PageLoading } from "@/components/PageLoading";
+import { isListingSoftPath } from "@/lib/scope-listing";
 
 const SHOW_DELAY_MS = 120;
 const FAILSAFE_MS = 10_000;
@@ -29,6 +30,9 @@ function isInternalNavAnchor(anchor: HTMLAnchorElement): boolean {
     ) {
       return false;
     }
+    // Category / city / when chips soft-nav or stay on listing shells — a
+    // full-screen overlay makes those taps feel slower than they are.
+    if (isListingSoftPath(url.pathname)) return false;
     return true;
   } catch {
     return false;
@@ -37,8 +41,8 @@ function isInternalNavAnchor(anchor: HTMLAnchorElement): boolean {
 
 /**
  * Shows the page loading overlay as soon as an in-app navigation starts,
- * bridging the gap before `loading.tsx` takes over (or when the route is
- * already prefetched and would otherwise feel blank).
+ * bridging the gap before the destination route paints. Listing chip routes
+ * are excluded so category/city swaps stay instant.
  */
 export function NavigationLoading() {
   const pathname = usePathname();
@@ -78,7 +82,7 @@ export function NavigationLoading() {
 
   useEffect(() => {
     endPending();
-    // Route settled — hide overlay; loading.tsx covers any remaining RSC wait.
+    // Route settled — hide overlay.
     // eslint-disable-next-line react-hooks/exhaustive-deps -- only on URL change
   }, [pathname, search]);
 

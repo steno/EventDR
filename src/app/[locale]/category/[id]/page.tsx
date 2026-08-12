@@ -9,9 +9,12 @@ import { isValidLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getPublicEvents } from "@/lib/public-events";
 import {
+  filterCatalogForScope,
+  resolveScopeListingChrome,
+} from "@/lib/scope-listing";
+import {
   buildCategoryMetadata,
   buildListingPageJsonLd,
-  fillTemplate,
   localePath,
 } from "@/lib/seo";
 import type { EventCategory } from "@/lib/types";
@@ -50,26 +53,22 @@ export default async function Page({
   const categorySeo = getCategorySeo(locale, id as EventCategory);
   const categoryId = id as EventCategory;
   const pagePath = localePath(locale, `/category/${id}`);
-  const [events, scopeEvents] = await Promise.all([
-    getPublicEvents({ locale, category: categoryId }),
-    getPublicEvents({ locale }),
-  ]);
+  // One region catalog powers SSR + instant city/category soft-nav.
+  const catalog = await getPublicEvents({ locale });
+  const events = filterCatalogForScope(catalog, {
+    categoryId,
+    regionScope: true,
+  });
   const relatedCategoryLinks = categoryNavLinks(
     locale,
     dict.categories,
     null,
-    scopeEvents,
+    catalog,
   );
-  const relatedCategoryLinksLabel = dict.cities.browseTopCategories;
-
-  // Use article before region name: "Events in the North Coast" / "Eventos en la Costa Norte"
-  const categoryPrefix = category 
-    ? fillTemplate(dict.cities.lookingInWithCategory, { category: category.label })
-    : "";
-  const regionArticle = locale === "en" ? "the" : "la";
-  const title = category
-    ? `${categoryPrefix} ${regionArticle} ${dict.cities.regionName}`
-    : id;
+  const chrome = resolveScopeListingChrome(locale, dict, {
+    categoryId,
+    regionScope: true,
+  });
 
   return (
     <>
@@ -92,17 +91,20 @@ export default async function Page({
         locale={locale}
         dict={dict}
         initialEvents={events}
+        catalogEvents={catalog}
+        catalogFetchUrl={`/api/events?locale=${locale}`}
         fetchUrl={`/api/events?locale=${locale}&category=${id}`}
         returnTo={pagePath}
-        title={title}
-        intro={categorySeo.intro}
-        emoji={category?.emoji}
-        emojiClassName={`bg-gradient-to-br ${category?.gradient ?? "from-neutral-200 to-neutral-300"}`}
-        submitDefaults={{ category: categoryId }}
+        title={chrome.title}
+        intro={chrome.intro}
+        emoji={chrome.emoji}
+        emojiClassName={chrome.emojiClassName}
+        submitDefaults={chrome.submitDefaults}
         relatedCategoryLinks={relatedCategoryLinks}
-        relatedCategoryLinksLabel={relatedCategoryLinksLabel}
+        relatedCategoryLinksLabel={dict.cities.browseTopCategories}
         relatedCategoryActiveHref={pagePath}
         categoryId={categoryId}
+        regionScope
       />
     </>
   );

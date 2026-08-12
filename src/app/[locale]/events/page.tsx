@@ -92,6 +92,8 @@ export default async function Page({
         locale={locale}
         dict={dict}
         initialEvents={events}
+        catalogEvents={events}
+        catalogFetchUrl={`/api/events?locale=${locale}`}
         fetchUrl={`/api/events?locale=${locale}`}
         returnTo={eventsPath}
         title={title}

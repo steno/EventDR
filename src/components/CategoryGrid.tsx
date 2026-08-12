@@ -1,5 +1,7 @@
 "use client";
 
+import { useEffect, useMemo } from "react";
+import { useRouter } from "next/navigation";
 import { IntentLink } from "@/components/IntentLink";
 import { getCategoryDefs } from "@/lib/categories";
 import type { Dictionary } from "@/i18n/dictionaries";
@@ -36,11 +38,18 @@ export function CategoryGrid({
   events,
   onCategorySelect,
 }: CategoryGridProps) {
-  const defsById = new Map(getCategoryDefs().map((def) => [def.id, def]));
-  const orderedIds =
-    events && events.length > 0
-      ? sortCategoryIdsByEventCount(events)
-      : getCategoryDefs().map((def) => def.id);
+  const router = useRouter();
+  const defsById = useMemo(
+    () => new Map(getCategoryDefs().map((def) => [def.id, def])),
+    [],
+  );
+  const orderedIds = useMemo(
+    () =>
+      events && events.length > 0
+        ? sortCategoryIdsByEventCount(events)
+        : getCategoryDefs().map((def) => def.id),
+    [events],
+  );
   const categories = orderedIds.flatMap((id) => {
     const def = defsById.get(id);
     if (!def) return [];
@@ -48,8 +57,33 @@ export function CategoryGrid({
   });
   const allEventsHref = allEventsPath(locale, citySlug);
   const allEventsLabel = dict.browse.allEvents;
-
   const label = dict.cities.browseTopCategories;
+
+  const categoryHrefs = useMemo(
+    () => orderedIds.map((id) => categoryPath(locale, id, citySlug)),
+    [orderedIds, citySlug, locale],
+  );
+
+  // Mobile has no hover — warm visible category routes after first paint so
+  // the first tap overlaps with an in-flight RSC fetch.
+  useEffect(() => {
+    const hrefs = [allEventsHref.split("?")[0]!, ...categoryHrefs];
+    const idle =
+      typeof window !== "undefined" && "requestIdleCallback" in window
+        ? window.requestIdleCallback.bind(window)
+        : (cb: () => void) => window.setTimeout(cb, 200);
+    const cancel =
+      typeof window !== "undefined" && "cancelIdleCallback" in window
+        ? window.cancelIdleCallback.bind(window)
+        : (handle: number) => window.clearTimeout(handle);
+
+    const id = idle(() => {
+      for (const href of hrefs.slice(0, 8)) {
+        void router.prefetch(href);
+      }
+    }) as number;
+    return () => cancel(id);
+  }, [allEventsHref, categoryHrefs, router]);
 
   return (
     <section aria-label={label}>

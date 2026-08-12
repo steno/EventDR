@@ -1,7 +1,6 @@
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import { CATEGORY_IDS, getCategoryMeta } from "./categories";
-import { eventInCategory } from "./categorize";
 import {
   getCityMeta,
   getCityName,
@@ -21,9 +20,12 @@ export function sortCategoryIdsByEventCount(
 ): EventCategory[] {
   const counts = new Map<EventCategory, number>();
   for (const id of CATEGORY_IDS) counts.set(id, 0);
+  // Single pass — eventInCategory is O(categories); avoid O(events×12).
   for (const event of events) {
-    for (const id of CATEGORY_IDS) {
-      if (eventInCategory(event, id)) {
+    counts.set(event.category, (counts.get(event.category) ?? 0) + 1);
+    if (event.categories) {
+      for (const id of event.categories) {
+        if (id === event.category) continue;
         counts.set(id, (counts.get(id) ?? 0) + 1);
       }
     }

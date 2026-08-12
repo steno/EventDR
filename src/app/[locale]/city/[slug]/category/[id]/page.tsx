@@ -15,9 +15,12 @@ import { isValidLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getPublicEvents } from "@/lib/public-events";
 import {
+  filterCatalogForScope,
+  resolveScopeListingChrome,
+} from "@/lib/scope-listing";
+import {
   buildCityCategoryMetadata,
   buildListingPageJsonLd,
-  fillTemplate,
   localePath,
 } from "@/lib/seo";
 import type { EventCategory } from "@/lib/types";
@@ -68,26 +71,26 @@ export default async function Page({
   if (!category) notFound();
 
   const cityName = getCityName(city, locale);
-  const seo = getCityCategorySeo(locale, city, id as EventCategory, category.label);
+  const categoryId = id as EventCategory;
+  const seo = getCityCategorySeo(locale, city, categoryId, category.label);
   const pagePath = localePath(locale, `/city/${slug}/category/${id}`);
   const cityPath = localePath(locale, `/city/${slug}`);
-  const [events, scopeEvents] = await Promise.all([
-    getPublicEvents({
-      locale,
-      city: slug,
-      category: id as EventCategory,
-    }),
-    getPublicEvents({ locale, city: slug }),
-  ]);
-  const title = `${fillTemplate(dict.cities.lookingInWithCategory, { category: category.label })} ${cityName}`;
-  const categoryId = id as EventCategory;
+  const catalog = await getPublicEvents({ locale });
+  const events = filterCatalogForScope(catalog, {
+    citySlug: slug,
+    categoryId,
+  });
+  const cityEvents = filterCatalogForScope(catalog, { citySlug: slug });
   const relatedCategoryLinks = categoryNavLinks(
     locale,
     dict.categories,
     slug,
-    scopeEvents,
+    cityEvents,
   );
-  const relatedCategoryLinksLabel = dict.cities.browseTopCategories;
+  const chrome = resolveScopeListingChrome(locale, dict, {
+    citySlug: slug,
+    categoryId,
+  });
 
   return (
     <>
@@ -109,16 +112,18 @@ export default async function Page({
         locale={locale}
         dict={dict}
         initialEvents={events}
+        catalogEvents={catalog}
+        catalogFetchUrl={`/api/events?locale=${locale}`}
         fetchUrl={`/api/events?locale=${locale}&city=${slug}&category=${id}`}
         returnTo={pagePath}
         backHref={cityPath}
-        title={title}
-        intro={seo.intro}
-        emoji={category.emoji}
-        emojiClassName={`bg-gradient-to-br ${category.gradient}`}
-        submitDefaults={{ category: id as EventCategory, location: cityName }}
+        title={chrome.title}
+        intro={chrome.intro}
+        emoji={chrome.emoji}
+        emojiClassName={chrome.emojiClassName}
+        submitDefaults={chrome.submitDefaults}
         relatedCategoryLinks={relatedCategoryLinks}
-        relatedCategoryLinksLabel={relatedCategoryLinksLabel}
+        relatedCategoryLinksLabel={dict.cities.browseTopCategories}
         relatedCategoryActiveHref={pagePath}
         citySlug={slug}
         categoryId={categoryId}

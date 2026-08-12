@@ -13,5 +13,9 @@ export const EVENT_DETAIL_CACHE_CONTROL =
 export const VENUES_CACHE_CONTROL =
   "public, max-age=120, s-maxage=300, stale-while-revalidate=600";
 
+/** Listing HTML — short CDN TTL aligned with page `revalidate = 120`. */
+export const LISTING_HTML_CACHE_CONTROL =
+  "public, s-maxage=60, stale-while-revalidate=300";
+
 export const NO_STORE_CACHE_CONTROL =
   "no-store, max-age=0, must-revalidate";

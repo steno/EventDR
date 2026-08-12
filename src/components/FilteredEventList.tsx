@@ -116,26 +116,33 @@ export function FilteredEventList({
   const scrollAnchorRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    let dirty = false;
-    // Apply client-side so listing pages can stay ISR (no server searchParams).
-    const when = params.get("when");
-    if (when && isFilterTimeRange(when) && !fixedTimeRange) {
-      // Don't collapse the page when landing with ?when= + ?all=1 together.
-      ignoreNextVisibleReset.current = true;
-      skipScrollForUrlWhen.current = true;
-      setTimeRange(when);
-      params.delete("when");
-      dirty = true;
-    }
-    if (params.get("all") === "1") {
-      setVisibleCount(UNBOUNDED);
-      params.delete("all");
-      dirty = true;
-    }
-    if (!dirty) return;
-    const qs = params.toString();
-    window.history.replaceState(null, "", qs ? `${pathname}?${qs}` : pathname);
+    const applyListingParams = () => {
+      const path = window.location.pathname;
+      const params = new URLSearchParams(window.location.search);
+      let dirty = false;
+      // Apply client-side so listing pages can stay ISR (no server searchParams).
+      const when = params.get("when");
+      if (when && isFilterTimeRange(when) && !fixedTimeRange) {
+        // Don't collapse the page when landing with ?when= + ?all=1 together.
+        ignoreNextVisibleReset.current = true;
+        skipScrollForUrlWhen.current = true;
+        setTimeRange(when);
+        params.delete("when");
+        dirty = true;
+      }
+      if (params.get("all") === "1") {
+        setVisibleCount(UNBOUNDED);
+        params.delete("all");
+        dirty = true;
+      }
+      if (!dirty) return;
+      const qs = params.toString();
+      window.history.replaceState(null, "", qs ? `${path}?${qs}` : path);
+    };
+
+    applyListingParams();
+    window.addEventListener("popstate", applyListingParams);
+    return () => window.removeEventListener("popstate", applyListingParams);
   }, [pathname, fixedTimeRange]);
 
   useEffect(() => {

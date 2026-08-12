@@ -47,12 +47,13 @@ const nextConfig: NextConfig = {
     ];
   },
   async headers() {
-    // Event listings stay no-store so CDN never serves stale/empty catalogs.
-    // Media under /public is cached via netlify.toml + public/_headers (Netlify CDN).
-    // These Next headers still help `next start` and any SSR-handled asset paths.
+    // Listing HTML uses short CDN SWR (aligned with ISR). /api/events stays
+    // no-store — JSON catalogs briefly went empty/stale on the CDN before.
+    // Media under /public is cached via netlify.toml + public/_headers.
     const assetCache = "public, max-age=31536000, immutable";
     const iconCache = "public, max-age=3600, stale-while-revalidate=86400";
     const noStore = "no-store, max-age=0, must-revalidate";
+    const listingHtml = "public, s-maxage=60, stale-while-revalidate=300";
 
     // Baseline browser hardening + CSP allowlisting for GA, Maps, OSM, Firebase Storage.
     const csp = [
@@ -109,29 +110,33 @@ const nextConfig: NextConfig = {
         headers: [
           {
             key: "Cache-Control",
-            value: "public, s-maxage=60, stale-while-revalidate=120",
+            value: listingHtml,
           },
         ],
       },
       {
+        source: "/:locale(en|es|fr)/events",
+        headers: [{ key: "Cache-Control", value: listingHtml }],
+      },
+      {
         source: "/:locale(en|es|fr)/city/:path*",
-        headers: [{ key: "Cache-Control", value: noStore }],
+        headers: [{ key: "Cache-Control", value: listingHtml }],
       },
       {
         source: "/:locale(en|es|fr)/category/:path*",
-        headers: [{ key: "Cache-Control", value: noStore }],
+        headers: [{ key: "Cache-Control", value: listingHtml }],
       },
       {
         source: "/:locale(en|es|fr)/when/:path*",
-        headers: [{ key: "Cache-Control", value: noStore }],
+        headers: [{ key: "Cache-Control", value: listingHtml }],
       },
       {
         source: "/:locale(en|es|fr)/venue/:path*",
-        headers: [{ key: "Cache-Control", value: noStore }],
+        headers: [{ key: "Cache-Control", value: listingHtml }],
       },
       {
         source: "/:locale(en|es|fr)/browse",
-        headers: [{ key: "Cache-Control", value: noStore }],
+        headers: [{ key: "Cache-Control", value: listingHtml }],
       },
       {
         source: "/app-version.json",

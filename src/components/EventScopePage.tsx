@@ -16,11 +16,16 @@ import { CityLocationPicker } from "@/components/CityLocationPicker";
 import { CityPhotoHero } from "@/components/CityPhotoHero";
 import { SubmitEventSheet } from "@/components/SubmitEventSheet";
 import { StickyListHeader } from "@/components/StickyListHeader";
-import { allEventsPath, resolveBackLabel } from "@/lib/event-navigation";
+import {
+  allEventsPath,
+  categoryNavLinks,
+  resolveBackLabel,
+} from "@/lib/event-navigation";
 import {
   getCityMeta,
   lastHomePath,
   NORTH_COAST_HERO_IMAGE,
+  writeHomeArea,
   type CitySlug,
 } from "@/lib/cities";
 import { getCategoryHeroImage } from "@/lib/category-heroes";
@@ -28,11 +33,26 @@ import { findActiveSpecialEvent } from "@/lib/special-events";
 import { PAGE_SHELL_CLASS } from "@/lib/page-shell";
 import { getOnboardingCopy } from "@/lib/onboarding";
 import { useForegroundRefresh } from "@/hooks/useForegroundRefresh";
+import {
+  filterCatalogForScope,
+  parseScopeListingPath,
+  resolveScopeListingChrome,
+  scopeListingPath,
+  type ScopeListingSelection,
+} from "@/lib/scope-listing";
 
 interface EventScopePageProps {
   locale: Locale;
   dict: Dictionary;
   initialEvents: Event[];
+  /**
+   * Wider catalog for instant city/category soft-nav (usually region-wide).
+   * When omitted, soft scope switching is disabled and the page refetches on
+   * hard navigations only via foreground refresh.
+   */
+  catalogEvents?: Event[];
+  /** Unscoped (or when-scoped) list API used to refresh the soft-nav catalog. */
+  catalogFetchUrl?: string;
   fetchUrl: string;
   returnTo: string;
   title: string;
@@ -61,128 +81,308 @@ interface EventScopePageProps {
   regionScope?: boolean;
 }
 
+function selectionFromProps(
+  citySlug: CitySlug | undefined,
+  categoryId: Event["category"] | undefined,
+  regionScope: boolean,
+): ScopeListingSelection {
+  return {
+    citySlug,
+    categoryId,
+    regionScope: regionScope || (!citySlug && !categoryId),
+  };
+}
+
 export function EventScopePage({
   locale,
   dict,
   initialEvents,
+  catalogEvents,
+  catalogFetchUrl,
   fetchUrl,
-  returnTo,
-  title,
+  returnTo: returnToProp,
+  title: titleProp,
   subtitle = dict.region.northCoast,
-  intro,
+  intro: introProp,
   sectionTitle,
-  emoji = "📅",
-  emojiClassName,
+  emoji: emojiProp = "📅",
+  emojiClassName: emojiClassNameProp,
   backHref: backHrefProp,
   emptyMessage = dict.browse.noEvents,
   fixedTimeRange,
   addEventLabel = dict.submit.createEvent,
-  submitDefaults,
-  relatedCategoryLinks,
+  submitDefaults: submitDefaultsProp,
+  relatedCategoryLinks: relatedCategoryLinksProp,
   relatedCategoryLinksLabel,
-  relatedCategoryActiveHref,
+  relatedCategoryActiveHref: relatedCategoryActiveHrefProp,
   initialExpanded = false,
   citySlug,
   categoryId,
   regionScope = false,
 }: EventScopePageProps) {
-  const [events, setEvents] = useState<Event[]>(() => initialEvents);
+  const softNav = Boolean(catalogEvents && !fixedTimeRange);
+
+  const [selection, setSelection] = useState<ScopeListingSelection>(() =>
+    selectionFromProps(citySlug, categoryId, regionScope),
+  );
+  const [catalog, setCatalog] = useState<Event[]>(
+    () => catalogEvents ?? initialEvents,
+  );
   const [loading, setLoading] = useState(false);
   const [submitOpen, setSubmitOpen] = useState(false);
+
+  const catalogFetchUrlRef = useRef(catalogFetchUrl ?? fetchUrl);
   const fetchUrlRef = useRef(fetchUrl);
-  const initialEventsRef = useRef(initialEvents);
-  const skipMountFetch = useRef(initialEvents.length > 0);
-  initialEventsRef.current = initialEvents;
+  catalogFetchUrlRef.current = catalogFetchUrl ?? fetchUrl;
+  fetchUrlRef.current = fetchUrl;
+
+  // Sync from RSC when a real route transition remounts/replaces props
+  // (e.g. home → category, or when-page entry). Soft-nav updates selection
+  // locally without waiting on this.
+  useEffect(() => {
+    setSelection(selectionFromProps(citySlug, categoryId, regionScope));
+    setCatalog(catalogEvents ?? initialEvents);
+  }, [citySlug, categoryId, regionScope, catalogEvents, initialEvents]);
 
   const softRefreshEvents = useCallback(() => {
-    const url = fetchUrlRef.current;
+    const url = softNav ? catalogFetchUrlRef.current : fetchUrlRef.current;
     fetch(url, { cache: "no-store" })
       .then((response) => response.json())
       .then((data: { events?: Event[] }) => {
-        setEvents(data.events ?? []);
+        setCatalog(data.events ?? []);
       })
       .catch(() => {});
-  }, []);
+  }, [softNav]);
 
-  // Trust SSR when present; refetch only when the scope URL changes (or SSR was empty).
+  // Trust SSR for first paint. Only fetch when SSR handed us an empty list
+  // (cold cache / error) — never refetch after every category/city soft-nav.
   useEffect(() => {
-    const urlChanged = fetchUrlRef.current !== fetchUrl;
-    fetchUrlRef.current = fetchUrl;
-
-    if (skipMountFetch.current && !urlChanged) {
-      skipMountFetch.current = false;
-      return;
+    if (softNav) {
+      if (catalogEvents && catalogEvents.length > 0) return;
+      let cancelled = false;
+      setLoading(true);
+      fetch(catalogFetchUrlRef.current, { cache: "no-store" })
+        .then((response) => response.json())
+        .then((data: { events?: Event[] }) => {
+          if (!cancelled) setCatalog(data.events ?? []);
+        })
+        .catch(() => {})
+        .finally(() => {
+          if (!cancelled) setLoading(false);
+        });
+      return () => {
+        cancelled = true;
+      };
     }
-    skipMountFetch.current = false;
 
-    // Swap in the new scope's SSR events immediately — never blank the list with a
-    // loading flash while the client refetch runs (area-chip navigations).
-    const ssrEvents = initialEventsRef.current;
-    setEvents(ssrEvents);
+    if (initialEvents.length > 0) return;
 
     let cancelled = false;
-    if (ssrEvents.length === 0) setLoading(true);
+    setLoading(true);
     fetch(fetchUrl, { cache: "no-store" })
       .then((response) => response.json())
       .then((data: { events?: Event[] }) => {
-        if (!cancelled) setEvents(data.events ?? []);
+        if (!cancelled) setCatalog(data.events ?? []);
       })
-      .catch(() => {
-        if (!cancelled) setEvents(initialEventsRef.current);
-      })
+      .catch(() => {})
       .finally(() => {
         if (!cancelled) setLoading(false);
       });
-
     return () => {
       cancelled = true;
     };
-  }, [fetchUrl]);
+    // Mount / softNav mode only — prop-driven catalog sync is handled above.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [softNav]);
 
   useForegroundRefresh(softRefreshEvents);
 
-  const city = citySlug ? getCityMeta(citySlug) : undefined;
-  // City pages use city-hero; North Coast /events and /when/* use home-hero
-  // so region-wide specials still surface without a city slug.
+  // Browser back/forward after soft city/category swaps.
+  useEffect(() => {
+    if (!softNav) return;
+
+    const onPopState = () => {
+      const parsed = parseScopeListingPath(window.location.pathname, locale);
+      if (!parsed) return;
+      setSelection(parsed);
+    };
+
+    window.addEventListener("popstate", onPopState);
+    return () => window.removeEventListener("popstate", onPopState);
+  }, [softNav, locale]);
+
+  const applySoftSelection = useCallback(
+    (next: ScopeListingSelection, mode: "push" | "replace" = "push") => {
+      const href = scopeListingPath(locale, next);
+      setSelection(next);
+      writeHomeArea(next.citySlug ?? null);
+      if (href === window.location.pathname) return;
+      if (mode === "replace") {
+        window.history.replaceState(window.history.state ?? null, "", href);
+      } else {
+        window.history.pushState(window.history.state ?? null, "", href);
+      }
+    },
+    [locale],
+  );
+
+  const onSoftCitySelect = useCallback(
+    (slug: CitySlug | null) => {
+      applySoftSelection({
+        citySlug: slug ?? undefined,
+        categoryId: selection.categoryId,
+        regionScope: !slug && !selection.categoryId,
+      });
+    },
+    [applySoftSelection, selection.categoryId],
+  );
+
+  const onSoftCategoryNavigate = useCallback(
+    (href: string) => {
+      try {
+        const url = new URL(href, window.location.origin);
+        const parsed = parseScopeListingPath(url.pathname, locale);
+        if (!parsed) return false;
+        applySoftSelection({
+          citySlug: parsed.citySlug,
+          categoryId: parsed.categoryId,
+          regionScope:
+            Boolean(parsed.regionScope) ||
+            (!parsed.citySlug && !parsed.categoryId),
+        });
+        return true;
+      } catch {
+        return false;
+      }
+    },
+    [applySoftSelection, locale],
+  );
+
+  const chrome = useMemo(() => {
+    if (!softNav) {
+      return {
+        title: titleProp,
+        intro: introProp,
+        emoji: emojiProp,
+        emojiClassName: emojiClassNameProp,
+        returnTo: returnToProp,
+        backHref: backHrefProp,
+        submitDefaults: submitDefaultsProp,
+      };
+    }
+    return resolveScopeListingChrome(locale, dict, selection);
+  }, [
+    softNav,
+    locale,
+    dict,
+    selection,
+    titleProp,
+    introProp,
+    emojiProp,
+    emojiClassNameProp,
+    returnToProp,
+    backHrefProp,
+    submitDefaultsProp,
+  ]);
+
+  const events = useMemo(() => {
+    if (!softNav) return catalog;
+    return filterCatalogForScope(catalog, selection);
+  }, [softNav, catalog, selection]);
+
+  const activeCitySlug = softNav ? selection.citySlug : citySlug;
+  const activeCategoryId = softNav ? selection.categoryId : categoryId;
+  const activeRegionScope = softNav
+    ? Boolean(selection.regionScope) ||
+      (!selection.citySlug && !selection.categoryId)
+    : regionScope;
+
+  const relatedCategoryLinks = useMemo(() => {
+    if (!softNav) return relatedCategoryLinksProp;
+    const scopeForCounts = selection.citySlug
+      ? filterCatalogForScope(catalog, { citySlug: selection.citySlug })
+      : catalog;
+    return categoryNavLinks(
+      locale,
+      dict.categories,
+      selection.citySlug ?? null,
+      scopeForCounts,
+    );
+  }, [
+    softNav,
+    relatedCategoryLinksProp,
+    catalog,
+    selection.citySlug,
+    locale,
+    dict.categories,
+  ]);
+
+  const relatedCategoryActiveHref = softNav
+    ? activeCategoryId
+      ? scopeListingPath(locale, {
+          categoryId: activeCategoryId,
+          citySlug: activeCitySlug,
+        })
+      : undefined
+    : relatedCategoryActiveHrefProp;
+
+  const city = activeCitySlug ? getCityMeta(activeCitySlug) : undefined;
   const specialHeroEvent = useMemo(() => {
-    if (citySlug) {
+    if (activeCitySlug) {
       return findActiveSpecialEvent(events, {
         placement: "city-hero",
-        citySlug,
+        citySlug: activeCitySlug,
       });
     }
-    if (regionScope || fixedTimeRange) {
+    if (activeRegionScope || fixedTimeRange) {
       return findActiveSpecialEvent(events, { placement: "home-hero" });
     }
     return null;
-  }, [events, citySlug, regionScope, fixedTimeRange]);
-  // Special event flyer when marked; else topic photo; else place photo; else regional hero.
+  }, [events, activeCitySlug, activeRegionScope, fixedTimeRange]);
+
   const scopeHeroImage =
     specialHeroEvent?.imageUrl?.trim() ||
-    getCategoryHeroImage(categoryId) ||
+    getCategoryHeroImage(activeCategoryId) ||
     city?.heroImage ||
-    (categoryId || fixedTimeRange || regionScope
+    (activeCategoryId || fixedTimeRange || activeRegionScope
       ? NORTH_COAST_HERO_IMAGE
       : undefined);
   const showLocationPicker = Boolean(
-    citySlug || categoryId || fixedTimeRange || regionScope,
+    activeCitySlug || activeCategoryId || fixedTimeRange || activeRegionScope,
   );
   const headerEmojiClassName =
-    emojiClassName ??
+    chrome.emojiClassName ??
+    emojiClassNameProp ??
     "bg-white dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-800";
-  const [backHref, setBackHref] = useState(backHrefProp ?? `/${locale}`);
+  const [backHref, setBackHref] = useState(
+    chrome.backHref ?? backHrefProp ?? `/${locale}`,
+  );
 
-  // Refresh when area changes via the location picker (session lastHomePath).
   useEffect(() => {
+    if (chrome.backHref) {
+      setBackHref(chrome.backHref);
+      return;
+    }
     if (backHrefProp) {
       setBackHref(backHrefProp);
       return;
     }
     setBackHref(lastHomePath(locale));
-  }, [backHrefProp, locale, citySlug]);
+  }, [chrome.backHref, backHrefProp, locale, activeCitySlug]);
 
   const backLabel = resolveBackLabel(locale, backHref, dict);
   const onboardingCopy = getOnboardingCopy(locale);
+  const title = chrome.title;
+  const intro = chrome.intro;
+  const emoji = chrome.emoji;
+  const returnTo = chrome.returnTo;
+  const submitDefaults = chrome.submitDefaults ?? submitDefaultsProp;
+
+  // Keep the document title in sync during soft scope swaps (SEO pages set it on SSR).
+  useEffect(() => {
+    if (!softNav || typeof document === "undefined") return;
+    document.title = `${title} | POP Events`;
+  }, [softNav, title]);
 
   return (
     <>
@@ -229,12 +429,13 @@ export function EventScopePage({
             </>
           )}
 
-          {showLocationPicker && !categoryId ? (
+          {showLocationPicker && !activeCategoryId ? (
             <div className="mb-6">
               <CityLocationPicker
                 locale={locale}
                 dict={dict}
-                currentSlug={citySlug ?? null}
+                currentSlug={activeCitySlug ?? null}
+                onSelect={softNav ? onSoftCitySelect : undefined}
               />
             </div>
           ) : null}
@@ -245,14 +446,16 @@ export function EventScopePage({
               links={relatedCategoryLinks}
               activeHref={relatedCategoryActiveHref}
               allLink={{
-                href: allEventsPath(locale, citySlug ?? null),
+                href: allEventsPath(locale, activeCitySlug ?? null),
                 label: dict.browse.allEvents,
                 emoji: "📅",
               }}
+              onSoftNavigate={softNav ? onSoftCategoryNavigate : undefined}
             />
           ) : null}
 
           <FilteredEventList
+            key={returnTo}
             events={events}
             loading={loading}
             dict={dict}
@@ -264,14 +467,15 @@ export function EventScopePage({
             initialExpanded={initialExpanded}
             onAddEvent={() => setSubmitOpen(true)}
             addEventLabel={addEventLabel}
-            categoryId={categoryId}
+            categoryId={activeCategoryId}
             locationPicker={
-              showLocationPicker && categoryId ? (
+              showLocationPicker && activeCategoryId ? (
                 <CityLocationPicker
                   locale={locale}
                   dict={dict}
-                  currentSlug={citySlug ?? null}
-                  categoryId={categoryId}
+                  currentSlug={activeCitySlug ?? null}
+                  categoryId={activeCategoryId}
+                  onSelect={softNav ? onSoftCitySelect : undefined}
                 />
               ) : undefined
             }

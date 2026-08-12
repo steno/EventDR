@@ -14,9 +14,12 @@ import { isValidLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getPublicEvents } from "@/lib/public-events";
 import {
+  filterCatalogForScope,
+  resolveScopeListingChrome,
+} from "@/lib/scope-listing";
+import {
   buildCityMetadata,
   buildListingPageJsonLd,
-  fillTemplate,
   localePath,
 } from "@/lib/seo";
 
@@ -59,15 +62,15 @@ export default async function Page({
   const citySeo = getCitySeo(city, locale);
   const cityName = getCityName(city, locale);
   const cityPath = localePath(locale, `/city/${slug}`);
-  const eventsInCity = fillTemplate(dict.browse.eventsInPlace, { place: cityName });
-  const events = await getPublicEvents({ locale, city: slug });
+  const catalog = await getPublicEvents({ locale });
+  const events = filterCatalogForScope(catalog, { citySlug: slug });
   const relatedCategoryLinks = categoryNavLinks(
     locale,
     dict.categories,
     slug,
     events,
   );
-  const relatedCategoryLinksLabel = dict.cities.browseTopCategories;
+  const chrome = resolveScopeListingChrome(locale, dict, { citySlug: slug });
 
   return (
     <>
@@ -88,14 +91,16 @@ export default async function Page({
         locale={locale}
         dict={dict}
         initialEvents={events}
+        catalogEvents={catalog}
+        catalogFetchUrl={`/api/events?locale=${locale}`}
         fetchUrl={`/api/events?locale=${locale}&city=${slug}`}
         returnTo={cityPath}
-        title={eventsInCity}
-        intro={citySeo.intro}
-        emoji={city.emoji}
-        submitDefaults={{ location: cityName }}
+        title={chrome.title}
+        intro={chrome.intro}
+        emoji={chrome.emoji}
+        submitDefaults={chrome.submitDefaults}
         relatedCategoryLinks={relatedCategoryLinks}
-        relatedCategoryLinksLabel={relatedCategoryLinksLabel}
+        relatedCategoryLinksLabel={dict.cities.browseTopCategories}
         citySlug={slug}
       />
     </>

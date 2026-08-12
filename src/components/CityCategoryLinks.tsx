@@ -29,6 +29,11 @@ interface CityCategoryLinksProps {
   activeHref?: string;
   /** Leading “All Events” pill — active when no category href matches. */
   allLink?: RelatedCategoryLink;
+  /**
+   * Instant in-page scope swap (no RSC). Return true when handled so the
+   * default link navigation is skipped.
+   */
+  onSoftNavigate?: (href: string) => boolean;
 }
 
 export function CityCategoryLinks({
@@ -36,6 +41,7 @@ export function CityCategoryLinks({
   links,
   activeHref,
   allLink,
+  onSoftNavigate,
 }: CityCategoryLinksProps) {
   const activeRef = useRef<HTMLAnchorElement>(null);
   const scrollerRef = useRef<HTMLDivElement>(null);
@@ -105,6 +111,17 @@ export function CityCategoryLinks({
         aria-current={active ? "page" : undefined}
         aria-label={link.label}
         className={`${CATEGORY_PILL_BASE} ${active ? CATEGORY_PILL_ACTIVE : CATEGORY_PILL_IDLE}`}
+        onClick={(event) => {
+          if (!onSoftNavigate) return;
+          if (event.defaultPrevented) return;
+          if (event.button !== 0) return;
+          if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
+            return;
+          }
+          if (onSoftNavigate(link.href)) {
+            event.preventDefault();
+          }
+        }}
       >
         {link.emoji ? (
           <span className="text-4xl leading-none select-none" aria-hidden>
