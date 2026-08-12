@@ -11,7 +11,11 @@ import { eventDetailPath, rememberReturnPath } from "@/lib/event-navigation";
 import { formatEventTimeForList } from "@/lib/event-time-display";
 import { formatEventDateRange } from "@/lib/format-date";
 import type { NearbyEventHit, NearbyTonightResult } from "@/lib/nearby-events";
-import type { EventLiveStatus } from "@/lib/event-status";
+import { localDateISO } from "@/lib/event-dates";
+import {
+  getEventLiveStatus,
+  type EventLiveStatus,
+} from "@/lib/event-status";
 import {
   pocketDisplayName,
   pocketStripLabel,
@@ -41,20 +45,51 @@ function relationLabel(
   return null;
 }
 
+/** Drop places that already closed today — don’t claim they’re “still open.” */
+function isHitStillVisitable(
+  hit: NearbyEventHit,
+  now: Date = new Date(),
+): boolean {
+  const today = localDateISO(now);
+  const date = hit.event.date?.trim();
+  // Strip look-ahead: tomorrow+ stays.
+  if (date && date > today) return true;
+
+  const status = getEventLiveStatus(hit.event, now);
+  return (
+    status === "live" ||
+    status === "ending" ||
+    status === "upcoming" ||
+    status === "unknown"
+  );
+}
+
+function hitIsOpenNow(
+  hit: NearbyEventHit,
+  now: Date = new Date(),
+): boolean {
+  const status = getEventLiveStatus(hit.event, now);
+  return status === "live" || status === "ending";
+}
+
 function pickNearbyHeading(
   nearby: NearbyTonightResult,
   dict: Dictionary,
+  hits: NearbyEventHit[],
   sourceStatus?: EventLiveStatus | null,
   daytimeSource?: boolean,
+  now: Date = new Date(),
 ): string {
   if (nearby.stripAhead) return dict.detail.alsoOnThisStrip;
   if (!nearby.isToday) return dict.detail.alsoNearby;
 
-  if (
-    sourceStatus === "closedToday" ||
-    sourceStatus === "ended"
-  ) {
-    return dict.detail.stillOpenNearby;
+  const sourceClosed =
+    sourceStatus === "closedToday" || sourceStatus === "ended";
+  if (sourceClosed) {
+    // Only promise “still open” when at least one neighbor is actually open.
+    return hits.some((hit) => hitIsOpenNow(hit, now))
+      ? dict.detail.stillOpenNearby
+      : dict.detail.alsoNearby;
   }
 
   if (daytimeSource) return dict.detail.alsoNearbyToday;
@@ -187,11 +222,13 @@ export function NearbyTonight({
   sourceStatus = null,
   daytimeSource = false,
 }: NearbyTonightProps) {
-  if (!nearby.hits.length) return null;
+  const hits = nearby.hits.filter((hit) => isHitStillVisitable(hit));
+  if (!hits.length) return null;
 
   const heading = pickNearbyHeading(
     nearby,
     dict,
+    hits,
     sourceStatus,
     daytimeSource,
   );
@@ -231,7 +268,7 @@ export function NearbyTonight({
       </div>
 
       <div className="-mx-1 flex gap-2.5 overflow-x-auto px-1 pb-1 snap-x snap-mandatory [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-        {nearby.hits.map((hit) => (
+        {hits.map((hit) => (
           <NearbyCard
             key={hit.event.id}
             hit={hit}

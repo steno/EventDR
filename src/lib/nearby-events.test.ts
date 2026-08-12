@@ -185,10 +185,11 @@ describe("findNearbyTonight", () => {
       category: "culture",
     });
 
+    const daytimeNow = new Date("2026-08-01T14:00:00.000-04:00"); // mid-afternoon
     const daytime = findNearbyTonight(
       umbrellas,
       [umbrellas, pinkStreet, rum, museum],
-      { now: NOW },
+      { now: daytimeNow },
     );
     assert.equal(daytime.hits.length >= 2, true);
     assert.equal(

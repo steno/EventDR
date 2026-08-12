@@ -5,7 +5,7 @@ import {
 } from "@/lib/distance";
 import { resolveEventCoords } from "@/lib/event-coords";
 import { addDaysISO, localDateISO } from "@/lib/event-dates";
-import { happensOnLocalDate } from "@/lib/event-status";
+import { getEventLiveStatus, happensOnLocalDate } from "@/lib/event-status";
 import type { Event } from "@/lib/types";
 import {
   getPocketForEvent,
@@ -199,6 +199,12 @@ export function findNearbyTonight(
     }
     if (!sameCalendarDay(candidate, dayISO)) continue;
     if (shouldSkipStandingAttraction(source, candidate)) continue;
+
+    // Don’t suggest places that already closed today (e.g. 9–5 museums at 10pm).
+    if (dayISO === todayISO) {
+      const status = getEventLiveStatus(candidate, now);
+      if (status === "closedToday" || status === "ended") continue;
+    }
 
     const dest = resolveEventCoords(candidate);
     if (!dest) continue;
