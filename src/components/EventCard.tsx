@@ -18,6 +18,7 @@ interface EventCardProps {
   dict: Dictionary;
   locale: Locale;
   returnTo?: string;
+  returnTitle?: string | null;
   compact?: boolean;
   listTimeRange?: TimeRange;
   /** List = horizontal row; cards = image-forward grid tile. */
@@ -29,6 +30,7 @@ const EventCardComponent = ({
   dict,
   locale,
   returnTo,
+  returnTitle = null,
   compact = true,
   listTimeRange,
   view = "cards",
@@ -43,7 +45,7 @@ const EventCardComponent = ({
   const isCards = view === "cards";
 
   function handleNavigate() {
-    rememberReturnPath(returnTo);
+    rememberReturnPath(returnTo, returnTitle);
   }
 
   if (isCards) {

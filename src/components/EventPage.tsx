@@ -15,6 +15,7 @@ import {
 } from "@/lib/event-navigation";
 import { navigateBackSoft, navigateSoft } from "@/lib/nav-feedback";
 import { PAGE_SHELL_DETAIL_CLASS } from "@/lib/page-shell";
+import { isDetailNavPath } from "@/lib/scope-listing";
 import type { NearbyTonightResult } from "@/lib/nearby-events";
 
 interface EventPageProps {
@@ -42,13 +43,18 @@ export function EventPage({
 }: EventPageProps) {
   const router = useRouter();
   const { toggleSave, isSaved } = useSavedEvents();
-  // Return path from sessionStorage (set on list → detail click), not ?from=.
+  // Return path from sessionStorage (set on list → detail / nearby click).
   const [returnTo, setReturnTo] = useState<string | null | undefined>(returnToProp);
+  const [returnTitle, setReturnTitle] = useState<string | null>(null);
 
   useEffect(() => {
     if (returnToProp) return;
+    // One-shot read of session back-context after mount (avoids SSR mismatch).
     const stored = takeReturnPath(locale);
-    if (stored?.path) setReturnTo(stored.path);
+    if (!stored?.path) return;
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- external sessionStorage hydrate
+    setReturnTo(stored.path);
+    setReturnTitle(stored.title ?? null);
   }, [returnToProp, locale]);
 
   const backHref = resolveEventReturnPath(locale, event, returnTo);
@@ -56,10 +62,16 @@ export function EventPage({
     locale,
     returnTo ?? backHref,
     dict,
+    returnTitle,
   );
 
   function handleClose() {
-    // Swipe/sheet close skip StickyListHeader — signal here so all exits get feedback.
+    // Nearby / venue hops store a detail returnTo — push so label matches.
+    // List → detail keeps history.back() so the list scroll position survives.
+    if (returnTo && isDetailNavPath(returnTo)) {
+      navigateSoft(router, returnTo);
+      return;
+    }
     if (returnTo && typeof window !== "undefined" && window.history.length > 1) {
       navigateBackSoft(router);
       return;
@@ -85,7 +97,6 @@ export function EventPage({
           locale={locale}
           isSaved={isSaved(event)}
           onToggleSave={toggleSave}
-          returnTo={returnTo ?? backHref}
           formattedDateRange={formattedDateRange}
           recurrenceLabel={recurrenceLabel}
           nearbyTonight={nearbyTonight}

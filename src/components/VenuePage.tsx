@@ -26,6 +26,7 @@ import { readReturnParams, resolveBackLabel, takeReturnPath } from "@/lib/event-
 import { formatPhoneTel } from "@/lib/event-phone";
 import { navigateBackSoft, navigateSoft } from "@/lib/nav-feedback";
 import { PAGE_SHELL_DETAIL_CLASS } from "@/lib/page-shell";
+import { isDetailNavPath } from "@/lib/scope-listing";
 import { scrollBelowStickyStack, scrollUnderStickyHeader } from "@/lib/list-scroll";
 import { getVenueHeroImageUrl } from "@/lib/venue-images";
 import { useForegroundRefresh } from "@/hooks/useForegroundRefresh";
@@ -172,7 +173,12 @@ export function VenuePage({
   const backLabel = resolveBackLabel(locale, backHref, dict, returnTitle);
 
   function handleBack() {
-    // Cover StickyListHeader + any future programmatic exits.
+    // Detail→detail (e.g. event → venue): push to the remembered path.
+    // List→venue: history.back() keeps list scroll.
+    if (returnTo && isDetailNavPath(returnTo)) {
+      navigateSoft(router, returnTo);
+      return;
+    }
     if (returnTo && typeof window !== "undefined" && window.history.length > 1) {
       navigateBackSoft(router);
       return;
@@ -435,6 +441,7 @@ export function VenuePage({
               locale={locale}
               dict={dict}
               returnTo={listReturnTo}
+              returnTitle={venue.name}
               className="mt-6"
             />
           ) : null}
@@ -449,6 +456,7 @@ export function VenuePage({
               emptyMessage={dict.venues.noEvents}
               sectionTitle={dict.venues.eventsAt}
               returnTo={listReturnTo}
+              returnTitle={venue.name}
               initialExpanded={initialExpanded}
               onAddEvent={() => setSubmitOpen(true)}
               addEventLabel={dict.submit.createEvent}

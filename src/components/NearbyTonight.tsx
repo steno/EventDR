@@ -1,8 +1,10 @@
 "use client";
 
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import { Car } from "lucide-react";
 import { EventImage } from "@/components/EventImage";
-import { IntentLink } from "@/components/IntentLink";
+import { IntentLink, warmRoutesIdle } from "@/components/IntentLink";
 import { WalkingPersonIcon } from "@/components/icons/WalkingPersonIcon";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
@@ -25,7 +27,13 @@ interface NearbyTonightProps {
   nearby: NearbyTonightResult;
   locale: Locale;
   dict: Dictionary;
+  /**
+   * Page to return to (the event/venue hosting this rail), not the original
+   * list the user came from.
+   */
   returnTo?: string;
+  /** Title for back label (event/venue name). */
+  returnTitle?: string | null;
   className?: string;
   /** Live status of the event/venue this rail sits under. */
   sourceStatus?: EventLiveStatus | null;
@@ -149,13 +157,21 @@ function NearbyCard({
   locale,
   dict,
   returnTo,
+  returnTitle,
   showDate,
+  pending,
+  dimmed,
+  onNavigate,
 }: {
   hit: NearbyEventHit;
   locale: Locale;
   dict: Dictionary;
   returnTo?: string;
+  returnTitle?: string | null;
   showDate?: boolean;
+  pending: boolean;
+  dimmed: boolean;
+  onNavigate: () => void;
 }) {
   const { event } = hit;
   const href = eventDetailPath(locale, event.id);
@@ -171,10 +187,22 @@ function NearbyCard({
   const schedule = [dateLabel, timeLabel.display].filter(Boolean).join(" · ");
 
   return (
-    <article className="group relative w-[11.5rem] shrink-0 snap-start overflow-hidden rounded-2xl bg-white dark:bg-neutral-900 ring-1 ring-neutral-200/90 dark:ring-neutral-800 shadow-[0_2px_12px_-6px_rgba(0,0,0,0.12)] transition-[box-shadow,transform] duration-300 hover:shadow-[0_8px_24px_-10px_rgba(251,146,60,0.28)] hover:ring-orange-300/70 dark:hover:ring-orange-800/60 active:scale-[0.99] cursor-pointer">
+    <article
+      className={`group relative w-[11.5rem] shrink-0 snap-start overflow-hidden rounded-2xl bg-white dark:bg-neutral-900 shadow-[0_2px_12px_-6px_rgba(0,0,0,0.12)] transition-[box-shadow,transform,opacity,ring] duration-300 cursor-pointer ${
+        pending
+          ? "scale-[0.985] ring-2 ring-orange-500/80 dark:ring-orange-400/70"
+          : dimmed
+            ? "opacity-45 ring-1 ring-neutral-200/90 dark:ring-neutral-800"
+            : "ring-1 ring-neutral-200/90 dark:ring-neutral-800 hover:shadow-[0_8px_24px_-10px_rgba(251,146,60,0.28)] hover:ring-orange-300/70 dark:hover:ring-orange-800/60 active:scale-[0.99]"
+      }`}
+      aria-busy={pending || undefined}
+    >
       <IntentLink
         href={href}
-        onClick={() => rememberReturnPath(returnTo)}
+        onClick={() => {
+          onNavigate();
+          rememberReturnPath(returnTo, returnTitle);
+        }}
         className="absolute inset-0 z-0 rounded-2xl touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
         aria-label={event.title}
       />
@@ -197,6 +225,12 @@ function NearbyCard({
             {emoji}
           </div>
         )}
+        {pending ? (
+          <div
+            className="pointer-events-none absolute inset-0 bg-orange-500/10"
+            aria-hidden
+          />
+        ) : null}
       </div>
       <div className="relative z-[1] space-y-1 p-2.5 pointer-events-none">
         <h3 className="line-clamp-2 font-sans text-xs font-semibold leading-snug tracking-tight text-neutral-900 dark:text-neutral-100">
@@ -218,11 +252,25 @@ export function NearbyTonight({
   locale,
   dict,
   returnTo,
+  returnTitle = null,
   className = "mt-6",
   sourceStatus = null,
   daytimeSource = false,
 }: NearbyTonightProps) {
+  const router = useRouter();
+  const [pendingId, setPendingId] = useState<string | null>(null);
   const hits = nearby.hits.filter((hit) => isHitStillVisitable(hit));
+
+  // Prefetch nearby detail pages while the user is still reading this page —
+  // mobile has no hover, so intent-only warm is too late for the first tap.
+  useEffect(() => {
+    const hrefs = hits.map((hit) => eventDetailPath(locale, hit.event.id));
+    if (hrefs.length === 0) return;
+    return warmRoutesIdle(router, hrefs, hrefs.length);
+    // nearby.hits is stable from SSR; don't re-warm on every filter tick.
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- intentional
+  }, [nearby.hits, locale, router]);
+
   if (!hits.length) return null;
 
   const heading = pickNearbyHeading(
@@ -275,7 +323,11 @@ export function NearbyTonight({
             locale={locale}
             dict={dict}
             returnTo={returnTo}
+            returnTitle={returnTitle}
             showDate={Boolean(nearby.stripAhead)}
+            pending={pendingId === hit.event.id}
+            dimmed={pendingId != null && pendingId !== hit.event.id}
+            onNavigate={() => setPendingId(hit.event.id)}
           />
         ))}
       </div>

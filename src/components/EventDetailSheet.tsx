@@ -60,8 +60,6 @@ interface EventDetailSheetProps {
   locale: Locale;
   isSaved: boolean;
   onToggleSave: (event: Pick<Event, "id" | "title">) => void;
-  /** Clears stale home scroll/tab state when sharing externally. */
-  returnTo?: string | null;
   /** Pre-formatted on the server so SSR matches hydration (Node vs browser Intl). */
   formattedDateRange?: string;
   recurrenceLabel?: string | null;
@@ -82,7 +80,6 @@ export function EventDetailSheet({
   locale,
   isSaved,
   onToggleSave,
-  returnTo = null,
   formattedDateRange,
   recurrenceLabel: recurrenceLabelProp,
   standalone = false,
@@ -402,7 +399,6 @@ export function EventDetailSheet({
       onWarmVenue={warmVenueRoute}
       eventOpinion={eventOpinion}
       nearbyTonight={nearbyTonight}
-      returnTo={returnTo}
       ticketUrl={ticketUrl}
       showCallForPricing={showCallForPricing}
       showAdmissionVaries={showAdmissionVaries}

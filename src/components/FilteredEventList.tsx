@@ -46,6 +46,8 @@ interface FilteredEventListProps {
   onAddEvent?: () => void;
   addEventLabel?: string;
   returnTo?: string;
+  /** Optional title stored with returnTo for detail→detail back labels. */
+  returnTitle?: string | null;
   fixedTimeRange?: TimeRange;
   /** Initial chip when time filters are shown (venue/city default: all). */
   defaultTimeRange?: FilterTimeRange;
@@ -87,6 +89,7 @@ export function FilteredEventList({
   onAddEvent,
   addEventLabel,
   returnTo,
+  returnTitle = null,
   fixedTimeRange,
   defaultTimeRange = DEFAULT_SCOPE_TIME_RANGE,
   initialExpanded = false,
@@ -322,6 +325,7 @@ export function FilteredEventList({
                 dict={dict}
                 locale={locale}
                 returnTo={returnTo}
+                returnTitle={returnTitle}
                 listTimeRange={fixedTimeRange ?? timeRange}
                 view={view}
               />

@@ -1,11 +1,14 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
 import { FilteredEventList } from "@/components/FilteredEventList";
+import { warmRoutesIdle } from "@/components/IntentLink";
 import type { Event } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import { isPastOneOffEvent } from "@/lib/event-dates";
+import { eventDetailPath } from "@/lib/event-navigation";
 import { sortEventsForDisplay } from "@/lib/event-sort";
 
 interface VenueEventListProps {
@@ -16,6 +19,8 @@ interface VenueEventListProps {
   emptyMessage: string;
   sectionTitle?: string;
   returnTo?: string;
+  /** Title for back label when `returnTo` is a venue/event detail path. */
+  returnTitle?: string | null;
   initialExpanded?: boolean;
   onAddEvent?: () => void;
   addEventLabel?: string;
@@ -32,6 +37,7 @@ export function VenueEventList({
   emptyMessage,
   sectionTitle,
   returnTo,
+  returnTitle = null,
   initialExpanded,
   onAddEvent,
   addEventLabel,
@@ -66,6 +72,15 @@ export function VenueEventList({
     tab === "past" ? dict.venues.noPastEvents : emptyMessage;
   const activeTitle =
     tab === "past" ? dict.venues.pastEvents : sectionTitle ?? dict.venues.eventsAt;
+
+  const router = useRouter();
+  useEffect(() => {
+    const hrefs = activeEvents
+      .slice(0, 10)
+      .map((event) => eventDetailPath(locale, event.id));
+    if (hrefs.length === 0) return;
+    return warmRoutesIdle(router, hrefs, hrefs.length);
+  }, [activeEvents, locale, router]);
 
   return (
     <div>
@@ -111,6 +126,7 @@ export function VenueEventList({
         emptyMessage={activeEmpty}
         sectionTitle={activeTitle}
         returnTo={returnTo}
+        returnTitle={returnTitle}
         initialExpanded={initialExpanded || tab === "past"}
         onAddEvent={tab === "upcoming" ? onAddEvent : undefined}
         addEventLabel={addEventLabel}

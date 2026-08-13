@@ -51,7 +51,6 @@ export interface EventDetailContentProps {
   onWarmVenue?: () => void;
   eventOpinion: EventOpinion | null;
   nearbyTonight: NearbyTonightResult | null;
-  returnTo: string | null;
   ticketUrl: string | undefined;
   showCallForPricing: boolean;
   showAdmissionVaries: boolean;
@@ -77,7 +76,6 @@ export function EventDetailContent({
   onWarmVenue,
   eventOpinion,
   nearbyTonight,
-  returnTo,
   ticketUrl,
   showCallForPricing,
   showAdmissionVaries,
@@ -330,10 +328,8 @@ export function EventDetailContent({
           nearby={nearbyTonight}
           locale={locale}
           dict={dict}
-          returnTo={
-            returnTo ??
-            (event ? eventDetailPath(locale, event.id) : undefined)
-          }
+          returnTo={eventDetailPath(locale, event.id)}
+          returnTitle={event.title}
           sourceStatus={liveStatus}
           daytimeSource={
             event.recurrence === "daily" || event.recurrence === "weekdays"
