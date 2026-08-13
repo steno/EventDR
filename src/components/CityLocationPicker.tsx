@@ -11,6 +11,7 @@ import {
 } from "@/lib/cities";
 import { categoryPath } from "@/lib/event-navigation";
 import { fillTemplate } from "@/lib/seo";
+import { signalNavPending } from "@/lib/nav-feedback";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { EventCategory } from "@/lib/types";
@@ -111,9 +112,12 @@ export function CityLocationPicker({
     // Persist on every page so "back to home" matches the last picker choice.
     writeHomeArea(slug);
     if (onSelect) {
+      // Instant client filter — no progress chrome.
       onSelect(slug);
       return;
     }
+    // Hard RSC city/category swap (when pages, etc.).
+    signalNavPending("soft");
     // Keep scroll on city/category swaps — same mid-page chrome, new list below.
     // Navigating to home is a different layout, so allow the default scroll-to-top.
     if (categoryId) {

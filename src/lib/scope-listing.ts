@@ -31,6 +31,16 @@ export function isListingSoftPath(pathname: string): boolean {
   return /\/(en|es|fr)\/(category|city|events|when)(\/|$)/.test(pathname);
 }
 
+/** Event/venue detail — keep the previous page visible instead of a spinner. */
+export function isDetailNavPath(pathname: string): boolean {
+  return /\/(en|es|fr)\/(event|venue)(\/|$)/.test(pathname);
+}
+
+/** Skip the full-screen nav overlay for soft listing transitions. */
+export function shouldSkipNavOverlay(pathname: string): boolean {
+  return isListingSoftPath(pathname);
+}
+
 export function parseScopeListingPath(
   pathname: string,
   locale: Locale,

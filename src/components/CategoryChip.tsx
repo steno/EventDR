@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { IntentLink } from "@/components/IntentLink";
 import type { CategoryMeta } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
 import { categoryPath } from "@/lib/event-navigation";
@@ -10,7 +10,7 @@ interface CategoryChipProps {
 
 export function CategoryChip({ category, locale }: CategoryChipProps) {
   return (
-    <Link
+    <IntentLink
       href={categoryPath(locale, category.id)}
       className="
         group inline-flex shrink-0 snap-start items-center gap-1.5 rounded-full
@@ -27,6 +27,6 @@ export function CategoryChip({ category, locale }: CategoryChipProps) {
         {category.emoji}
       </span>
       <span className="whitespace-nowrap">{category.label}</span>
-    </Link>
+    </IntentLink>
   );
 }

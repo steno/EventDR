@@ -108,6 +108,7 @@ export function CityCategoryLinks({
         ref={ref}
         href={link.href}
         scroll={false}
+        data-soft-nav={onSoftNavigate ? "1" : undefined}
         aria-current={active ? "page" : undefined}
         aria-label={link.label}
         className={`${CATEGORY_PILL_BASE} ${active ? CATEGORY_PILL_ACTIVE : CATEGORY_PILL_IDLE}`}

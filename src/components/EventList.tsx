@@ -1,8 +1,8 @@
 "use client";
 
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
-import Link from "next/link";
 import { Loader2, ChevronRight } from "lucide-react";
+import { IntentLink } from "@/components/IntentLink";
 import type { Event, EventCategory } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
@@ -399,13 +399,13 @@ export function EventList({
           </div>
           {hasMore && viewAllHref ? (
             <div className="pt-2 text-center">
-              <Link
+              <IntentLink
                 href={viewAllHref}
                 className="inline-flex items-center gap-1 rounded-full border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 px-5 py-2.5 text-sm font-bold text-neutral-800 dark:text-neutral-200 hover:border-orange-300 dark:hover:border-orange-800 hover:text-orange-600 dark:hover:text-orange-400 transition-colors touch-manipulation"
               >
                 {dict.events.viewAllEvents}
                 <ChevronRight className="h-4 w-4" aria-hidden />
-              </Link>
+              </IntentLink>
             </div>
           ) : hasMore ? (
             <div className="pt-2 text-center">

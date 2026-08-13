@@ -40,6 +40,7 @@ import {
   scopeListingPath,
   type ScopeListingSelection,
 } from "@/lib/scope-listing";
+import { signalNavDone } from "@/lib/nav-feedback";
 
 interface EventScopePageProps {
   locale: Locale;
@@ -216,12 +217,17 @@ export function EventScopePage({
       const href = scopeListingPath(locale, next);
       setSelection(next);
       writeHomeArea(next.citySlug ?? null);
-      if (href === window.location.pathname) return;
+      if (href === window.location.pathname) {
+        signalNavDone();
+        return;
+      }
       if (mode === "replace") {
         window.history.replaceState(window.history.state ?? null, "", href);
       } else {
         window.history.pushState(window.history.state ?? null, "", href);
       }
+      // Soft-nav never updates Next pathname — clear any stray progress chrome.
+      signalNavDone();
     },
     [locale],
   );

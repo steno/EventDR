@@ -3,52 +3,78 @@
 import { useEffect, useRef, useState } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import { PageLoading } from "@/components/PageLoading";
-import { isListingSoftPath } from "@/lib/scope-listing";
+import { isDetailNavPath, isListingSoftPath } from "@/lib/scope-listing";
+import {
+  NAV_DONE_EVENT,
+  NAV_PENDING_EVENT,
+  type NavFeedbackMode,
+} from "@/lib/nav-feedback";
 
 const SHOW_DELAY_MS = 120;
 const FAILSAFE_MS = 10_000;
 
-function isInternalNavAnchor(anchor: HTMLAnchorElement): boolean {
-  if (anchor.target && anchor.target !== "_self") return false;
-  if (anchor.hasAttribute("download")) return false;
+type NavFeedback = "none" | "soft" | "full";
+
+function isHomePath(pathname: string): boolean {
+  return /^\/(en|es|fr)\/?$/.test(pathname);
+}
+
+function classifyNav(pathname: string): NavFeedback {
+  // Instant client soft-nav chips mark data-soft-nav and skip capture.
+  // Hard RSC into listing/home/detail keeps a slim bar instead of a blank spinner.
+  if (
+    isListingSoftPath(pathname) ||
+    isDetailNavPath(pathname) ||
+    isHomePath(pathname)
+  ) {
+    return "soft";
+  }
+  return "full";
+}
+
+function readNavTarget(anchor: HTMLAnchorElement): {
+  feedback: NavFeedback;
+} | null {
+  if (anchor.target && anchor.target !== "_self") return null;
+  if (anchor.hasAttribute("download")) return null;
+  // Client soft-nav (no RSC) — don't flash progress for instant filters.
+  if (anchor.dataset.softNav === "1") return null;
   const href = anchor.getAttribute("href");
-  if (!href || href.startsWith("#")) return false;
+  if (!href || href.startsWith("#")) return null;
   if (
     href.startsWith("mailto:") ||
     href.startsWith("tel:") ||
     href.startsWith("sms:")
   ) {
-    return false;
+    return null;
   }
 
   try {
     const url = new URL(href, window.location.href);
-    if (url.origin !== window.location.origin) return false;
+    if (url.origin !== window.location.origin) return null;
     if (
       url.pathname === window.location.pathname &&
       url.search === window.location.search
     ) {
-      return false;
+      return null;
     }
-    // Category / city / when chips soft-nav or stay on listing shells — a
-    // full-screen overlay makes those taps feel slower than they are.
-    if (isListingSoftPath(url.pathname)) return false;
-    return true;
+    return { feedback: classifyNav(url.pathname) };
   } catch {
-    return false;
+    return null;
   }
 }
 
 /**
- * Shows the page loading overlay as soon as an in-app navigation starts,
- * bridging the gap before the destination route paints. Listing chip routes
- * are excluded so category/city swaps stay instant.
+ * Navigation feedback without blanking the screen for common taps:
+ * - soft: slim top progress (home stays up)
+ * - full: page spinner after a short delay (partners/support/etc.)
+ * - programmatic backs / pushes: `pop-nav-pending` / `pop-nav-done`
  */
 export function NavigationLoading() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const search = searchParams.toString();
-  const [visible, setVisible] = useState(false);
+  const [mode, setMode] = useState<"idle" | "soft" | "full">("idle");
   const showTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const failsafeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const pendingRef = useRef(false);
@@ -67,22 +93,28 @@ export function NavigationLoading() {
   const endPending = () => {
     pendingRef.current = false;
     clearTimers();
-    setVisible(false);
+    setMode("idle");
   };
 
-  const beginPending = () => {
+  const beginPending = (feedback: NavFeedback) => {
+    if (feedback === "none") return;
     if (pendingRef.current) return;
     pendingRef.current = true;
     clearTimers();
-    showTimer.current = setTimeout(() => {
-      if (pendingRef.current) setVisible(true);
-    }, SHOW_DELAY_MS);
+
+    if (feedback === "soft") {
+      setMode("soft");
+    } else {
+      showTimer.current = setTimeout(() => {
+        if (pendingRef.current) setMode("full");
+      }, SHOW_DELAY_MS);
+    }
+
     failsafeTimer.current = setTimeout(endPending, FAILSAFE_MS);
   };
 
   useEffect(() => {
     endPending();
-    // Route settled — hide overlay.
     // eslint-disable-next-line react-hooks/exhaustive-deps -- only on URL change
   }, [pathname, search]);
 
@@ -98,21 +130,47 @@ export function NavigationLoading() {
       if (!(target instanceof Element)) return;
       const anchor = target.closest("a");
       if (!(anchor instanceof HTMLAnchorElement)) return;
-      if (!isInternalNavAnchor(anchor)) return;
+      const nav = readNavTarget(anchor);
+      if (!nav) return;
 
-      beginPending();
+      beginPending(nav.feedback);
     };
 
-    // Capture so we see the intent before Next.js / handlers run.
+    const onProgrammatic = (event: Event) => {
+      const detail = (event as CustomEvent<{ mode?: NavFeedbackMode }>).detail;
+      const next = detail?.mode === "full" ? "full" : "soft";
+      beginPending(next);
+    };
+
+    const onDone = () => endPending();
+
     document.addEventListener("click", onClick, true);
+    window.addEventListener(NAV_PENDING_EVENT, onProgrammatic);
+    window.addEventListener(NAV_DONE_EVENT, onDone);
     return () => {
       document.removeEventListener("click", onClick, true);
+      window.removeEventListener(NAV_PENDING_EVENT, onProgrammatic);
+      window.removeEventListener(NAV_DONE_EVENT, onDone);
       clearTimers();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps -- mount once
   }, []);
 
-  if (!visible) return null;
+  if (mode === "idle") return null;
+
+  if (mode === "soft") {
+    return (
+      <div
+        className="nav-progress"
+        role="status"
+        aria-live="polite"
+        aria-busy="true"
+      >
+        <span className="sr-only">Loading</span>
+        <div className="nav-progress__bar" aria-hidden />
+      </div>
+    );
+  }
 
   return (
     <div className="page-loading-portal">

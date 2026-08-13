@@ -3,6 +3,7 @@
 import { usePathname, useRouter } from "next/navigation";
 import { locales, type Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
+import { signalNavPending } from "@/lib/nav-feedback";
 
 interface LanguageSwitcherProps {
   locale: Locale;
@@ -23,6 +24,7 @@ export function LanguageSwitcher({ locale, dict }: LanguageSwitcherProps) {
     const qs =
       typeof window !== "undefined" ? window.location.search.replace(/^\?/, "") : "";
     document.cookie = `eventdr-locale=${target};path=/;max-age=31536000`;
+    signalNavPending("soft");
     router.push(qs ? `${newPath}?${qs}` : newPath);
   }
 
