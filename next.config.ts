@@ -55,7 +55,7 @@ const nextConfig: NextConfig = {
     const noStore = "no-store, max-age=0, must-revalidate";
     const listingHtml = "public, s-maxage=60, stale-while-revalidate=300";
 
-    // Baseline browser hardening + CSP allowlisting for GA, Maps, OSM, Firebase Storage.
+    // Baseline browser hardening + CSP allowlisting for GA, Maps, OSM routing, Firebase Storage.
     const csp = [
       "default-src 'self'",
       "base-uri 'self'",
@@ -63,11 +63,12 @@ const nextConfig: NextConfig = {
       "frame-ancestors 'none'",
       "form-action 'self'",
       // Next inline boot scripts + GA snippet; Maps loader is external.
-      "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://maps.googleapis.com",
+      // React dev overlays need eval(); production never does.
+      `script-src 'self' 'unsafe-inline'${process.env.NODE_ENV !== "production" ? " 'unsafe-eval'" : ""} https://www.googletagmanager.com https://maps.googleapis.com`,
       "style-src 'self' 'unsafe-inline'",
       "img-src 'self' data: blob: https://firebasestorage.googleapis.com https://*.googleusercontent.com https://maps.gstatic.com https://maps.googleapis.com https://*.tile.openstreetmap.org",
       "font-src 'self' data:",
-      "connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://firebasestorage.googleapis.com https://maps.googleapis.com https://nominatim.openstreetmap.org",
+      "connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://firebasestorage.googleapis.com https://maps.googleapis.com https://nominatim.openstreetmap.org https://router.project-osrm.org",
       "worker-src 'self' blob:",
       "manifest-src 'self'",
       "media-src 'self' blob:",
