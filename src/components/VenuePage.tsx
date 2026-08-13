@@ -86,9 +86,6 @@ export function VenuePage({
   function loadEvents() {
     return fetch(
       `/api/events?locale=${locale}&venue=${venue.slug}&includePast=1`,
-      {
-        cache: "no-store",
-      },
     )
       .then((r) => r.json())
       .then((d: { events?: Event[] }) => {

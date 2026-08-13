@@ -102,7 +102,7 @@ export function WeatherWidget({ locale, dict }: WeatherWidgetProps) {
       setError(false);
     }
     try {
-      const response = await fetch("/api/weather", { cache: "no-store" });
+      const response = await fetch("/api/weather");
       if (!response.ok) throw new Error("weather_unavailable");
       const data = (await response.json()) as WeatherPayload;
       setWeather(data);

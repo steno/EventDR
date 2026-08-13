@@ -147,7 +147,7 @@ export function EventScopePage({
 
   const softRefreshEvents = useCallback(() => {
     const url = softNav ? catalogFetchUrlRef.current : fetchUrlRef.current;
-    fetch(url, { cache: "no-store" })
+    fetch(url)
       .then((response) => response.json())
       .then((data: { events?: Event[] }) => {
         setCatalog(data.events ?? []);
@@ -162,7 +162,7 @@ export function EventScopePage({
       if (catalogEvents && catalogEvents.length > 0) return;
       let cancelled = false;
       setLoading(true);
-      fetch(catalogFetchUrlRef.current, { cache: "no-store" })
+      fetch(catalogFetchUrlRef.current)
         .then((response) => response.json())
         .then((data: { events?: Event[] }) => {
           if (!cancelled) setCatalog(data.events ?? []);
@@ -180,7 +180,7 @@ export function EventScopePage({
 
     let cancelled = false;
     setLoading(true);
-    fetch(fetchUrl, { cache: "no-store" })
+    fetch(fetchUrl)
       .then((response) => response.json())
       .then((data: { events?: Event[] }) => {
         if (!cancelled) setCatalog(data.events ?? []);

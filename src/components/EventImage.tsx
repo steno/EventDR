@@ -1,5 +1,6 @@
 import { memo } from "react";
 import Image from "next/image";
+import { isOptimizableImageSrc } from "@/lib/optimizable-image";
 
 interface EventImageProps {
   src: string;
@@ -18,14 +19,15 @@ const EventImageComponent = ({
   priority = false,
   variant = "thumb",
 }: EventImageProps) => {
-  const rawImage = src.startsWith("data:") || src.startsWith("http");
+  const optimize = isOptimizableImageSrc(src);
   // Strip ?v= cache-busters so next/image can optimize local assets.
-  const optimizedSrc =
-    !rawImage && src.startsWith("/") && src.includes("?")
+  // Remote URLs keep their query string (Firebase download tokens).
+  const imageSrc =
+    optimize && src.startsWith("/") && src.includes("?")
       ? src.slice(0, src.indexOf("?"))
       : src;
 
-  if (rawImage) {
+  if (!optimize) {
     return (
       // eslint-disable-next-line @next/next/no-img-element
       <img
@@ -44,12 +46,12 @@ const EventImageComponent = ({
   if (variant === "hero") {
     return (
       <Image
-        src={optimizedSrc}
+        src={imageSrc}
         alt={alt}
         width={1200}
         height={800}
         sizes={sizes}
-        quality={70}
+        quality={75}
         priority={priority}
         loading={priority ? "eager" : "lazy"}
         className={`block w-full h-auto ${className}`}
@@ -59,7 +61,7 @@ const EventImageComponent = ({
 
   return (
     <Image
-      src={optimizedSrc}
+      src={imageSrc}
       alt={alt}
       fill
       sizes={sizes}

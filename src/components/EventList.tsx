@@ -149,7 +149,7 @@ export function EventList({
         if (bypassCache) params.set("refresh", "true");
 
         const res = await fetch(`/api/events?${params}`, {
-          cache: "no-store",
+          cache: bypassCache ? "no-store" : "default",
         });
         
         if (!res.ok) {

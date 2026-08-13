@@ -15,6 +15,7 @@ import { getVenueImageUrl } from "@/lib/venue-images";
 import { SEED_VENUES } from "@/lib/venues-seed";
 import { findNearDuplicate, mergeIngestIntoExisting } from "@/lib/ingest-dedupe";
 import { getFirestoreDb, isFirebaseConfigured } from "./admin";
+import { revalidatePublicEvents } from "@/lib/revalidate-public-events";
 
 /** Process-local cache — cuts repeat full-collection reads on Netlify instances. */
 const APPROVED_EVENTS_CACHE_TTL_MS = 12 * 60 * 1000;
@@ -25,6 +26,7 @@ let approvedEventsInflight: Promise<Event[]> | null = null;
 export function invalidateApprovedEventsCache(): void {
   approvedEventsCache = null;
   approvedEventsInflight = null;
+  revalidatePublicEvents();
 }
 
 async function loadAllApprovedEvents(): Promise<Event[]> {

@@ -59,6 +59,12 @@ export function setCachedDbEvents(key: string, events: Event[]): void {
   dbCache.set(versionedCacheKey(key), { events, fetchedAt: Date.now() });
 }
 
+/** Drop process-local listing maps after approve / ingest / delete. */
+export function clearCachedEvents(): void {
+  cache.clear();
+  dbCache.clear();
+}
+
 export function addToPool(locale: Locale, events: Event[]): Event[] {
   const key = getPoolCacheKey(locale);
   const existing = getCachedEvents(key) ?? [];

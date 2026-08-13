@@ -2,6 +2,7 @@ import type { NextConfig } from "next";
 import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { REMOTE_IMAGE_PATTERNS } from "./src/lib/optimizable-image";
 
 const projectRoot = path.dirname(fileURLToPath(import.meta.url));
 
@@ -36,6 +37,9 @@ const nextConfig: NextConfig = {
     deviceSizes: [384, 640, 750, 828, 1080, 1200, 1920],
     imageSizes: [64, 96, 128, 256, 384],
     qualities: [65, 75],
+    // Firebase tokens are in the URL — optimized variants can live a day.
+    minimumCacheTTL: 60 * 60 * 24,
+    remotePatterns: [...REMOTE_IMAGE_PATTERNS],
   },
   async redirects() {
     return [
@@ -47,8 +51,8 @@ const nextConfig: NextConfig = {
     ];
   },
   async headers() {
-    // Listing HTML uses short CDN SWR (aligned with ISR). /api/events stays
-    // no-store — JSON catalogs briefly went empty/stale on the CDN before.
+    // Listing HTML uses short CDN SWR (aligned with ISR). /api/events sets
+    // Cache-Control per response (no-store when empty or ?refresh=true).
     // Media under /public is cached via netlify.toml + public/_headers.
     const assetCache = "public, max-age=31536000, immutable";
     const iconCache = "public, max-age=3600, stale-while-revalidate=86400";
@@ -98,10 +102,6 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/api/app-version",
-        headers: [{ key: "Cache-Control", value: noStore }],
-      },
-      {
-        source: "/api/events",
         headers: [{ key: "Cache-Control", value: noStore }],
       },
       {

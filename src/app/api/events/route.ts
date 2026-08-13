@@ -31,9 +31,9 @@ import { applyCuratedEventPatches } from "@/lib/curated-events";
 import { filterRemovedSeedEvents } from "@/lib/removed-seeds";
 import { localizeEventsForDisplay } from "@/lib/localized-text";
 import { slimEventsForList } from "@/lib/list-payload";
-import { NO_STORE_CACHE_CONTROL } from "@/lib/http-cache";
+import { eventsApiCacheControl } from "@/lib/http-cache";
 
-// Always fresh — CDN-caching listings briefly served empty/stale payloads.
+// Render at origin; Cache-Control below lets the CDN hold non-empty catalogs.
 export const dynamic = "force-dynamic";
 export const maxDuration = 60;
 
@@ -93,9 +93,15 @@ function sortEvents(events: Event[], category?: EventCategory): Event[] {
   });
 }
 
-const NO_STORE_HEADERS = {
-  "Cache-Control": NO_STORE_CACHE_CONTROL,
-};
+function listingHeaders(events: Event[], options?: { refresh?: boolean; error?: boolean }) {
+  return {
+    "Cache-Control": eventsApiCacheControl({
+      refresh: options?.refresh,
+      error: options?.error,
+      empty: events.length === 0,
+    }),
+  };
+}
 
 export async function GET(request: NextRequest) {
   const { searchParams } = request.nextUrl;
@@ -160,13 +166,14 @@ export async function GET(request: NextRequest) {
       if (cached?.length) {
         // Rematerialize on hit — in-memory entries can span midnight and would
         // otherwise keep yesterday's weekday occurrence as "Ended".
+        const events = finalizeEvents(cached);
         return NextResponse.json(
           {
-            events: finalizeEvents(cached),
+            events,
             source: "cache",
             region: REGION_LABELS[locale],
           },
-          { headers: NO_STORE_HEADERS },
+          { headers: listingHeaders(events) },
         );
       }
     }
@@ -227,7 +234,7 @@ export async function GET(request: NextRequest) {
         crawledSources: crawlResults.length,
         dbCount: dbEvents.length,
       },
-      { headers: NO_STORE_HEADERS },
+      { headers: listingHeaders(events, { refresh }) },
     );
   } catch (error) {
     console.error("Events API error:", error);
@@ -243,7 +250,7 @@ export async function GET(request: NextRequest) {
         region: REGION_LABELS[locale],
         error: getDictionary(locale).events.sourceFallback,
       },
-      { headers: NO_STORE_HEADERS },
+      { headers: listingHeaders(events, { refresh, error: true }) },
     );
   }
 }
