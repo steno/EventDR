@@ -464,7 +464,14 @@ export const fr: Dictionary = {
     rejected: "Rejeté",
     source: "Source",
     unauthorized: "Clé modérateur invalide.",
-    unauthorizedHint: "Ouvrez /moderate?key=VOTRE_MODERATOR_SECRET une fois (la clé est stockée pour cet onglet, puis retirée de l’URL). L’API utilise Authorization: Bearer.",
+    unauthorizedHint:
+      "Collez MODERATOR_SECRET depuis Netlify ci-dessous, ou ouvrez /moderate?key=… une fois. Après connexion, la clé reste dans cet onglet et disparaît de l’URL.",
+    keyLabel: "Clé modérateur",
+    keyPlaceholder: "MODERATOR_SECRET",
+    keySubmit: "Déverrouiller la file",
+    notConfigured: "Le secret modérateur n’est pas défini sur le serveur.",
+    notConfiguredHint:
+      "Ajoutez MODERATOR_SECRET dans Netlify → Environment variables, puis redéployez.",
     firebaseRequired: "Firebase non connecté.",
     firebaseHint: "Définissez FIREBASE_SERVICE_ACCOUNT_JSON sur Netlify et redéployez.",
     refresh: "Actualiser",
