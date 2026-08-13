@@ -465,7 +465,10 @@ export const fr: Dictionary = {
     source: "Source",
     unauthorized: "Clé modérateur invalide.",
     unauthorizedHint:
-      "Collez MODERATOR_SECRET depuis Netlify ci-dessous, ou ouvrez /moderate?key=… une fois. Après connexion, la clé reste dans cet onglet et disparaît de l’URL.",
+      "Cette clé ne correspond pas. Révélez MODERATOR_SECRET dans Netlify → Site configuration → Environment variables, collez-la ci-dessous, puis déverrouillez.",
+    keyRequired: "Déverrouiller la file de modération",
+    keyRequiredHint:
+      "Collez MODERATOR_SECRET depuis Netlify (Site configuration → Environment variables). Après connexion, elle reste uniquement dans cet onglet.",
     keyLabel: "Clé modérateur",
     keyPlaceholder: "MODERATOR_SECRET",
     keySubmit: "Déverrouiller la file",

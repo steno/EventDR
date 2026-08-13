@@ -80,6 +80,7 @@ export function ModeratePanel({ dict, locale }: ModeratePanelProps) {
 
   const [events, setEvents] = useState<PendingModerateEvent[]>([]);
   const [loading, setLoading] = useState(true);
+  const [needsKey, setNeedsKey] = useState(false);
   const [unauthorized, setUnauthorized] = useState(false);
   const [notConfigured, setNotConfigured] = useState(false);
   const [firebaseDown, setFirebaseDown] = useState(false);
@@ -112,6 +113,7 @@ export function ModeratePanel({ dict, locale }: ModeratePanelProps) {
       // Drop a bad ?key= so the form can set sessionStorage without being overridden.
       stripBootstrapQuery();
       setEvents([]);
+      setNeedsKey(false);
       if (code === "not_configured") {
         setNotConfigured(true);
         setUnauthorized(false);
@@ -129,7 +131,8 @@ export function ModeratePanel({ dict, locale }: ModeratePanelProps) {
     async function loadQueue() {
       if (!secret) {
         if (!cancelled) {
-          setUnauthorized(true);
+          setNeedsKey(true);
+          setUnauthorized(false);
           setNotConfigured(false);
           setLoading(false);
         }
@@ -139,6 +142,7 @@ export function ModeratePanel({ dict, locale }: ModeratePanelProps) {
         setLoading(true);
         setFirebaseDown(false);
         setNotConfigured(false);
+        setNeedsKey(false);
       }
       try {
         const res = await fetch("/api/moderate", {
@@ -164,6 +168,7 @@ export function ModeratePanel({ dict, locale }: ModeratePanelProps) {
         const data = (await res.json()) as { events?: PendingModerateEvent[] };
         setEvents(data.events ?? []);
         setUnauthorized(false);
+        setNeedsKey(false);
         setNotConfigured(false);
         finishAuthSuccess();
       } catch {
@@ -181,13 +186,15 @@ export function ModeratePanel({ dict, locale }: ModeratePanelProps) {
 
   async function load() {
     if (!secret) {
-      setUnauthorized(true);
+      setNeedsKey(true);
+      setUnauthorized(false);
       setLoading(false);
       return;
     }
     setLoading(true);
     setFirebaseDown(false);
     setNotConfigured(false);
+    setNeedsKey(false);
     try {
       const res = await fetch("/api/moderate", { headers: authHeaders() });
       if (res.status === 401) {
@@ -209,6 +216,7 @@ export function ModeratePanel({ dict, locale }: ModeratePanelProps) {
       const data = (await res.json()) as { events?: PendingModerateEvent[] };
       setEvents(data.events ?? []);
       setUnauthorized(false);
+      setNeedsKey(false);
       setNotConfigured(false);
       finishAuthSuccess();
     } catch {
@@ -226,6 +234,7 @@ export function ModeratePanel({ dict, locale }: ModeratePanelProps) {
     stripBootstrapQuery();
     setKeyDraft("");
     setUnauthorized(false);
+    setNeedsKey(false);
     setNotConfigured(false);
     setLoading(true);
   }
@@ -251,12 +260,22 @@ export function ModeratePanel({ dict, locale }: ModeratePanelProps) {
     );
   }
 
-  if (unauthorized) {
+  if (unauthorized || needsKey) {
     return (
       <div className="py-12 space-y-6 max-w-sm mx-auto">
         <div className="text-center space-y-2">
-          <p className="text-red-500 font-medium">{dict.moderate.unauthorized}</p>
-          <p className="text-sm text-neutral-400">{dict.moderate.unauthorizedHint}</p>
+          <p
+            className={`font-medium ${unauthorized ? "text-red-500" : "text-neutral-800 dark:text-neutral-100"}`}
+          >
+            {unauthorized
+              ? dict.moderate.unauthorized
+              : dict.moderate.keyRequired}
+          </p>
+          <p className="text-sm text-neutral-400">
+            {unauthorized
+              ? dict.moderate.unauthorizedHint
+              : dict.moderate.keyRequiredHint}
+          </p>
         </div>
         <form onSubmit={submitKey} className="space-y-3">
           <label className="block text-left text-sm font-medium text-neutral-700 dark:text-neutral-300">

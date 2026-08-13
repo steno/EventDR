@@ -465,7 +465,10 @@ export const es: Dictionary = {
     source: "Fuente",
     unauthorized: "Clave de moderador inválida.",
     unauthorizedHint:
-      "Pega MODERATOR_SECRET de Netlify abajo, o abre /moderate?key=… una vez. Tras iniciar sesión la clave queda en esta pestaña y se quita de la URL.",
+      "Esa clave no coincide. Revela MODERATOR_SECRET en Netlify → Site configuration → Environment variables, pégala abajo y desbloquea.",
+    keyRequired: "Desbloquea la cola de moderación",
+    keyRequiredHint:
+      "Pega MODERATOR_SECRET desde Netlify (Site configuration → Environment variables). Tras iniciar sesión solo queda en esta pestaña.",
     keyLabel: "Clave de moderador",
     keyPlaceholder: "MODERATOR_SECRET",
     keySubmit: "Desbloquear cola",

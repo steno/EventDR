@@ -373,6 +373,8 @@ export type Dictionary = {
     source: string;
     unauthorized: string;
     unauthorizedHint: string;
+    keyRequired: string;
+    keyRequiredHint: string;
     keyLabel: string;
     keyPlaceholder: string;
     keySubmit: string;
@@ -856,7 +858,10 @@ export const en: Dictionary = {
     source: "Source",
     unauthorized: "Invalid moderator key.",
     unauthorizedHint:
-      "Paste MODERATOR_SECRET from Netlify below, or open /moderate?key=… once. After a successful login the key stays in this tab and is removed from the URL.",
+      "That key didn’t match. Reveal MODERATOR_SECRET in Netlify → Site configuration → Environment variables, paste it below, then Unlock.",
+    keyRequired: "Unlock the moderation queue",
+    keyRequiredHint:
+      "Paste MODERATOR_SECRET from Netlify (Site configuration → Environment variables). After a successful login it stays in this tab only.",
     keyLabel: "Moderator key",
     keyPlaceholder: "MODERATOR_SECRET",
     keySubmit: "Unlock queue",
