@@ -641,6 +641,24 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: AT,
   },
   {
+    eventId: "letrero-puerto-plata-daily",
+    seriesKey: "letrero-puerto-plata:daily",
+    body: "The Malecón must-do selfie stop — five minutes by the letters, then keep walking to the fort.",
+    localized: {
+      es: "La parada selfie del malecón — cinco minutos en las letras y sigue hacia la fortaleza.",
+      fr: "Le stop selfie du malecón — cinq minutes aux lettres, puis continuez vers le fort.",
+    },
+    priceFeel: "free",
+    priceNote: "Free public photo stop — no ticket",
+    priceNoteLocalized: {
+      es: "Parador fotográfico público gratis — sin boleta",
+      fr: "Parador photo public gratuit — pas de billet",
+    },
+    attribution: "POP research · venue listing",
+    researchNotes: "Municipal parador fotográfico on the Malecón.",
+    updatedAt: AT,
+  },
+  {
     eventId: "sosua-jewish-museum-hours",
     seriesKey: "sosua-jewish-museum:weekdays",
     body: "Worth an hour if you want history mixed into a beach trip — compact, not a big-attraction time sink.",

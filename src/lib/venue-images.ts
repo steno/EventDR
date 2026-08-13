@@ -40,6 +40,7 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "cayo-arena": "cayo-arena.jpg",
   "paseo-dona-blanca": "paseo-dona-blanca.jpg",
   "calle-sombrillas": "calle-sombrillas.jpg",
+  "letrero-puerto-plata": "letrero-puerto-plata.jpg",
   "fun-city": "fun-city.jpg",
   "monkeyland-puerto-plata": "monkeyland-puerto-plata.jpg",
   "coconut-cove": "coconut-cove.jpg",

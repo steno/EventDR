@@ -512,6 +512,18 @@ export const SEED_VENUES: Venue[] = [
       "https://gobernacionpuertoplata.gob.do/turismo/whatsapp-image-2024-09-06-at-10-15-43-am/",
   },
   {
+    slug: "letrero-puerto-plata",
+    name: "Letrero de Puerto Plata",
+    city: "Puerto Plata",
+    description:
+      "Iconic vertical PUERTO PLATA letters on the Malecón near La Puntilla — free parador fotográfico with Atlantic views, steps from Fortaleza San Felipe and Anfiteatro La Puntilla.",
+    lat: 19.8032,
+    lng: -70.6938,
+    emoji: "📸",
+    website:
+      "https://ayuntamientopuertoplata.gob.do/ayuntamiento-de-puerto-plata-concluye-instalacion-del-parador-turistico-en-el-malecon/",
+  },
+  {
     slug: "fun-city",
     name: "Fun City Action Park",
     city: "Puerto Plata",

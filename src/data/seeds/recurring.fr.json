@@ -567,6 +567,22 @@
     "imageEmoji": "☂️"
   },
   {
+    "id": "letrero-puerto-plata-daily",
+    "title": "Letrero de Puerto Plata — Lettres photo",
+    "description": "Les lettres verticales emblématiques PUERTO PLATA sur le malecón près de La Puntilla — parador photo gratuit avec vue sur l'Atlantique. À combiner avec Fortaleza San Felipe et l'Anfiteatro La Puntilla ; meilleure lumière tôt le matin ou en fin d'après-midi.",
+    "date": "2026-01-01",
+    "time": "6:00 AM - 10:00 PM",
+    "location": "Puerto Plata",
+    "address": "Av. Gregorio Luperón (Malecón), près de La Puntilla",
+    "venue": "Letrero de Puerto Plata",
+    "venueSlug": "letrero-puerto-plata",
+    "category": "culture",
+    "format": "physical",
+    "recurrence": "daily",
+    "sourceUrl": "https://ayuntamientopuertoplata.gob.do/ayuntamiento-de-puerto-plata-concluye-instalacion-del-parador-turistico-en-el-malecon/",
+    "imageEmoji": "📸"
+  },
+  {
     "id": "plaza-independencia-daily",
     "title": "Parc de l'Indépendance — Place du centre historique",
     "description": "Le Parque Central de Puerto Plata (Plaza Independencia) — bancs à l'ombre, façades victoriennes et vue sur la cathédrale au cœur du centre historique. Gratuit pour se promener ; démarrez ici une balade vers le Paseo de Doña Blanca, la Calle de las Sombrillas et la Casa de la Cultura.",

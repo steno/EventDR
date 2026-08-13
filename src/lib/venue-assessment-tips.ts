@@ -345,6 +345,14 @@ export const VENUE_TIP_COPY: Record<
       fr: "Rue selfie des parapluies — gratuite et colorée ; venez tôt ou tard pour des photos sans la foule des groupes.",
     },
   },
+  "letrero-puerto-plata": {
+    body: "Malecón letters by La Puntilla — free postcard shot; golden hour beats midday glare on the silver faces.",
+    localized: {
+      en: "Malecón letters by La Puntilla — free postcard shot; golden hour beats midday glare on the silver faces.",
+      es: "Letras del malecón en La Puntilla — postal gratis; la hora dorada gana al sol del mediodía en las caras plateadas.",
+      fr: "Lettres du malecón à La Puntilla — carte postale gratuite ; l'heure dorée bat l'éclat de midi sur les faces argentées.",
+    },
+  },
   "fun-city": {
     body: "Highway 5 go-kart adrenaline near Playa Dorada — kids and speed between beach days, not a cultural outing.",
     localized: {

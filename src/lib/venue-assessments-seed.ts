@@ -507,6 +507,17 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     ],
   }),
   editorial({
+    venueSlug: "letrero-puerto-plata",
+    verdictKey: "popular_public_space",
+    crowdFit: ["local", "visitor", "family", "mixed"],
+    axes: { recommend: 4.4, atmosphere: 4.5, value: 4.9, practical: 4.3 },
+    themes: [
+      { key: "photo_spot", sentiment: "positive", audience: "visitor" },
+      { key: "free_access", sentiment: "positive" },
+      { key: "easy_to_find", sentiment: "positive" },
+    ],
+  }),
+  editorial({
     venueSlug: "fun-city",
     verdictKey: "solid_visitor_activity",
     crowdFit: ["visitor", "family"],

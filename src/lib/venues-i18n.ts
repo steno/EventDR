@@ -297,6 +297,12 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "178 parapluies multicolores au-dessus de la Calle San Felipe dans le centre historique — balade photo gratuite entre boutiques artisanales, cafés et vendeurs locaux.",
     },
   },
+  "letrero-puerto-plata": {
+    description: {
+      es: "Letras corpóreas verticales PUERTO PLATA en el malecón cerca de La Puntilla — parador fotográfico gratis con vista al Atlántico, a pasos de la Fortaleza San Felipe y el Anfiteatro La Puntilla.",
+      fr: "Lettres verticales PUERTO PLATA sur le malecón près de La Puntilla — parador photo gratuit avec vue sur l'Atlantique, à deux pas de Fortaleza San Felipe et de l'Anfiteatro La Puntilla.",
+    },
+  },
   "fun-city": {
     description: {
       es: "El parque de go-karts más grande de República Dominicana en la Carretera 5 — Fun City Puerto Plata con Cyclone, Sprint 500, Grand Prix y autos chocadores, además de un parque infantil cerca de Playa Dorada.",

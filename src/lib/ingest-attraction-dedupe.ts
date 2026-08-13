@@ -23,6 +23,7 @@ const SEEDED_ATTRACTION_PATTERNS: RegExp[] = [
   /\btabacalera\s+cremo\b|\bcremo\s+cigar\b/i,
   /\bvivont[eé]\b/i,
   /\bpaseo\s+(de\s+)?do[nñ]a\s+blanca\b|\bpink\s+street\b/i,
+  /\bletrero\s+(de\s+)?puerto\s+plata\b|\bparador\s+fotogr[aá]fico\s+(de\s+)?puerto\s+plata\b|\bpuerto\s+plata\s+photo\s+sign\b/i,
   /\bmacorix\b/i,
   /\bsos[uú]a\s+jewish\s+museum\b|\bmuseo\s+jud[ií]o\b/i,
 ];

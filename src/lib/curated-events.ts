@@ -194,6 +194,9 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
   "calle-sombrillas-daily": {
     isFree: true,
   },
+  "letrero-puerto-plata-daily": {
+    isFree: true,
+  },
   "plaza-independencia-daily": {
     isFree: true,
   },

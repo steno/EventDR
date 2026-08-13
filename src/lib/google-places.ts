@@ -92,6 +92,11 @@ const PLACE_SEARCH_ALIASES: Record<string, string[]> = {
     "Paseo Dona Blanca Puerto Plata",
     "Calle Rosada Puerto Plata",
   ],
+  "letrero-puerto-plata": [
+    "Letrero Puerto Plata Malecón",
+    "Parador Fotográfico Puerto Plata",
+    "Parador Turístico Puerto Plata letras",
+  ],
   "el-batey-sosua": [
     "El Batey Sosua Dominican Republic",
     "Pedro Clisante Sosua",

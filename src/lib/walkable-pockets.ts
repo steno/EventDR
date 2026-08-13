@@ -131,6 +131,7 @@ export const WALKABLE_POCKETS: readonly WalkablePocket[] = [
       "malecon-puerto-plata",
       "victrola-037",
       "fortaleza-san-felipe",
+      "letrero-puerto-plata",
       "plaza-independencia",
       "calle-sombrillas",
       "museo-ambar",
