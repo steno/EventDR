@@ -3,7 +3,6 @@ import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import { FooterInstallLink } from "@/components/FooterInstallLink";
 import { CITIES, getCityName } from "@/lib/cities";
-import { CROSS_PROMO_URL } from "@/lib/cross-promo";
 import { PAGE_GUTTER_CLASS, PAGE_WIDTH_CLASS } from "@/lib/page-shell";
 
 interface SiteFooterProps {
@@ -66,14 +65,6 @@ export function SiteFooter({ dict, locale, className = "pb-6" }: SiteFooterProps
         >
           {dict.footer.support}
         </Link>
-        <a
-          href={CROSS_PROMO_URL}
-          target="_blank"
-          rel="noopener noreferrer sponsored"
-          className="hover:text-neutral-800 dark:hover:text-neutral-200 transition-colors"
-        >
-          {dict.footer.crossPromo}
-        </a>
         <FooterInstallLink dict={dict} />
       </nav>
       <p className="text-xs text-neutral-400 dark:text-neutral-500 font-medium">{dict.footer.tagline}</p>

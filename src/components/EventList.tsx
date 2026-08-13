@@ -27,13 +27,15 @@ import { fillTemplate } from "@/lib/seo";
 import { useForegroundRefresh } from "@/hooks/useForegroundRefresh";
 import { EventCard } from "./EventCard";
 import { EventCardSkeleton } from "./EventCardSkeleton";
-import { EventListScrollPads } from "./EventCardPlaceholder";
-import { CrossPromoBanner } from "./CrossPromoBanner";
+import {
+  EventCardPlaceholder,
+  EventListScrollPads,
+  LIST_SCROLL_PAD_TARGET,
+} from "./EventCardPlaceholder";
 import { EventListError } from "./EventListError";
 import { SearchEmptyState } from "./SearchEmptyState";
 import { TimeFilter } from "./TimeFilter";
 import { ListScrollAnchor } from "./StickyListFilters";
-import { CROSS_PROMO_LIST_AFTER } from "@/lib/cross-promo";
 import { CARD_GRID_CLASS } from "@/lib/page-shell";
 
 const EMPTY_EVENTS: Event[] = [];
@@ -225,9 +227,26 @@ export function EventList({
     return pinSpecialEvents(sorted, { placement: "weekend-list" });
   }, [events, timeRange, citySlug, searchQuery, excludeEventIds, ourPicks]);
 
+  const isSearching = searchQuery.trim().length > 0;
+  const showEndTeaser =
+    Boolean(onAddEvent) &&
+    filtered.length >= LIST_SCROLL_PAD_TARGET;
+  const eventCap =
+    showEndTeaser &&
+    isSearching &&
+    limit != null &&
+    filtered.length >= visibleCount
+      ? Math.max(0, visibleCount - 1)
+      : visibleCount;
   const visibleEvents =
-    limit != null ? filtered.slice(0, visibleCount) : filtered;
-  const hasMore = limit != null && filtered.length > visibleCount;
+    limit != null ? filtered.slice(0, eventCap) : filtered;
+  const hasMore = limit != null && filtered.length > visibleEvents.length;
+
+  const teaserLabel = category
+    ? fillTemplate(dict.events.yourEventHere, {
+        category: dict.categories[category],
+      })
+    : dict.events.yourEventHereGeneric;
 
   const sourceLabel =
     source === "live"
@@ -265,7 +284,6 @@ export function EventList({
     return <EventListError dict={dict} onRetry={handleRetry} />;
   }
 
-  const isSearching = searchQuery.trim().length > 0;
   const activeRange: FilterTimeRange = isFilterTimeRange(timeRange)
     ? timeRange
     : "today";
@@ -352,67 +370,33 @@ export function EventList({
                 : "space-y-3 pt-3"
             }
           >
-            {isSearching
-              ? visibleEvents.map((event) => (
-                  <EventCard
-                    key={event.id}
-                    event={event}
-                    dict={dict}
-                    locale={locale}
-                    returnTo={listReturnTo}
-                    listTimeRange={timeRange}
-                    view="cards"
-                  />
-                ))
-              : visibleEvents.flatMap((event, index) => {
-                  const rows = [
-                    <EventCard
-                      key={event.id}
-                      event={event}
-                      dict={dict}
-                      locale={locale}
-                      returnTo={listReturnTo}
-                      listTimeRange={timeRange}
-                      view="list"
-                    />,
-                  ];
-                  if (
-                    index === CROSS_PROMO_LIST_AFTER - 1 &&
-                    visibleEvents.length > CROSS_PROMO_LIST_AFTER
-                  ) {
-                    rows.push(
-                      <CrossPromoBanner
-                        key="cross-promo"
-                        dict={dict}
-                        variant="list"
-                        view="list"
-                      />,
-                    );
-                  }
-                  return rows;
-                })}
+            {visibleEvents.map((event) => (
+              <EventCard
+                key={event.id}
+                event={event}
+                dict={dict}
+                locale={locale}
+                returnTo={listReturnTo}
+                listTimeRange={timeRange}
+                view={isSearching ? "cards" : "list"}
+              />
+            ))}
+            {showEndTeaser ? (
+              <EventCardPlaceholder
+                title={dict.events.yourEventHereTitle}
+                label={teaserLabel}
+                onClick={onAddEvent!}
+                view={isSearching ? "cards" : "list"}
+              />
+            ) : null}
             <EventListScrollPads
               count={filtered.length}
               title={dict.events.yourEventHereTitle}
-              label={
-                category
-                  ? fillTemplate(dict.events.yourEventHere, {
-                      category: dict.categories[category],
-                    })
-                  : dict.events.yourEventHereGeneric
-              }
+              label={teaserLabel}
               onAddEvent={onAddEvent}
               view={isSearching ? "cards" : "list"}
             />
           </div>
-          {isSearching && visibleEvents.length > CROSS_PROMO_LIST_AFTER ? (
-            <CrossPromoBanner
-              dict={dict}
-              variant="strip"
-              view="cards"
-              className="mt-3"
-            />
-          ) : null}
           {hasMore && viewAllHref ? (
             <div className="pt-2 text-center">
               <Link

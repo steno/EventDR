@@ -17,9 +17,8 @@ export const HOME_TODAY_LIMIT = 6;
 
 /**
  * Max events before "More events" on home picks / scope lists.
- * 12 keeps short first paints; elastic auto-fill grids may leave a partial
- * last row — keep the in-grid cross-promo on `col-span-full` so it doesn't
- * become an extra card slot.
+ * 12 keeps short first paints; elastic auto-fit grids may leave a partial
+ * last row — category lists reserve one slot for the “Your event here?” card.
  */
 export const HOME_PICKS_LIMIT = 12;
 

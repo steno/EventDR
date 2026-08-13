@@ -25,11 +25,9 @@ import {
   EventCardPlaceholder,
   LIST_SCROLL_PAD_TARGET,
 } from "@/components/EventCardPlaceholder";
-import { CrossPromoBanner } from "@/components/CrossPromoBanner";
 import { SearchEmptyState } from "@/components/SearchEmptyState";
 import { AddEventButton } from "@/components/AddEventButton";
 import { fillTemplate } from "@/lib/seo";
-import { CROSS_PROMO_LIST_AFTER } from "@/lib/cross-promo";
 import { CARD_GRID_CLASS } from "@/lib/page-shell";
 import type { EventListView } from "@/lib/event-list-view";
 
@@ -189,11 +187,28 @@ export function FilteredEventList({
     return pinSpecialEvents(sorted, { placement: "weekend-list" });
   }, [events, activeRange, categoryId]);
 
-  const visibleEvents = Number.isFinite(visibleCount)
-    ? filtered.slice(0, visibleCount)
+  const showPadCta = addEventCta === "pad";
+  const showInlineAddCta = addEventCta === "inline" && Boolean(onAddEvent);
+  const padDeficit = Math.max(0, LIST_SCROLL_PAD_TARGET - filtered.length);
+  /** Short lists already get a pad CTA — don't duplicate at the end. */
+  const showEndTeaser =
+    Boolean(onAddEvent) && addEventCta === "pad" && padDeficit === 0;
+  /**
+   * When the page is full of events, reserve one grid slot for the teaser
+   * (e.g. 11 events + CTA = 12) so the last row isn't a sparse pair.
+   */
+  const eventCap =
+    showEndTeaser &&
+    view === "cards" &&
+    Number.isFinite(visibleCount) &&
+    filtered.length >= visibleCount
+      ? Math.max(0, visibleCount - 1)
+      : visibleCount;
+  const visibleEvents = Number.isFinite(eventCap)
+    ? filtered.slice(0, eventCap)
     : filtered;
   const hasMore =
-    Number.isFinite(visibleCount) && filtered.length > visibleCount;
+    Number.isFinite(eventCap) && filtered.length > visibleEvents.length;
 
   const suggestedRange = suggestOtherFilterTimeRange(activeRange, (range) =>
     filterByTimeRange(events, range).length > 0,
@@ -204,25 +219,22 @@ export function FilteredEventList({
   const showTimeFilter = !fixedTimeRange && !hideTimeFilter;
   const showStickyFilters = Boolean(locationPicker || showTimeFilter);
 
-  const showPadCta = addEventCta === "pad";
-  const showInlineAddCta = addEventCta === "inline" && Boolean(onAddEvent);
-  const padDeficit = Math.max(0, LIST_SCROLL_PAD_TARGET - filtered.length);
+  /** Text link only when no card CTA is used (e.g. venue Past). */
   const showFooterAddButton =
-    Boolean(onAddEvent) &&
-    (addEventCta === "button" ||
-      (addEventCta === "pad" && padDeficit === 0));
+    Boolean(onAddEvent) && addEventCta === "button";
+
+  const addEventLabelResolved =
+    categoryId
+      ? fillTemplate(dict.events.yourEventHere, {
+          category: dict.categories[categoryId],
+        })
+      : dict.events.yourEventHereGeneric;
 
   const addEventInlineCard = showInlineAddCta ? (
     <div className={`${view === "cards" ? "mt-3" : "mt-3 max-w-sm"}`}>
       <EventCardPlaceholder
         title={dict.events.yourEventHereTitle}
-        label={
-          categoryId
-            ? fillTemplate(dict.events.yourEventHere, {
-                category: dict.categories[categoryId],
-              })
-            : dict.events.yourEventHereGeneric
-        }
+        label={addEventLabelResolved}
         onClick={onAddEvent!}
         view={view}
       />
@@ -287,13 +299,7 @@ export function FilteredEventList({
               <EventListScrollPads
                 count={0}
                 title={dict.events.yourEventHereTitle}
-                label={
-                  categoryId
-                    ? fillTemplate(dict.events.yourEventHere, {
-                        category: dict.categories[categoryId],
-                      })
-                    : dict.events.yourEventHereGeneric
-                }
+                label={addEventLabelResolved}
                 onAddEvent={onAddEvent}
                 view={view}
               />
@@ -309,72 +315,35 @@ export function FilteredEventList({
                 : "space-y-3.5"
             }
           >
-            {view === "cards"
-              ? visibleEvents.map((event) => (
-                  <EventCard
-                    key={event.id}
-                    event={event}
-                    dict={dict}
-                    locale={locale}
-                    returnTo={returnTo}
-                    listTimeRange={fixedTimeRange ?? timeRange}
-                    view={view}
-                  />
-                ))
-              : visibleEvents.flatMap((event, index) => {
-                  const rows = [
-                    <EventCard
-                      key={event.id}
-                      event={event}
-                      dict={dict}
-                      locale={locale}
-                      returnTo={returnTo}
-                      listTimeRange={fixedTimeRange ?? timeRange}
-                      view={view}
-                    />,
-                  ];
-                  if (
-                    index === CROSS_PROMO_LIST_AFTER - 1 &&
-                    visibleEvents.length > CROSS_PROMO_LIST_AFTER
-                  ) {
-                    rows.push(
-                      <CrossPromoBanner
-                        key="cross-promo"
-                        dict={dict}
-                        variant="list"
-                        view="list"
-                      />,
-                    );
-                  }
-                  return rows;
-                })}
+            {visibleEvents.map((event) => (
+              <EventCard
+                key={event.id}
+                event={event}
+                dict={dict}
+                locale={locale}
+                returnTo={returnTo}
+                listTimeRange={fixedTimeRange ?? timeRange}
+                view={view}
+              />
+            ))}
+            {showEndTeaser ? (
+              <EventCardPlaceholder
+                title={dict.events.yourEventHereTitle}
+                label={addEventLabelResolved}
+                onClick={onAddEvent!}
+                view={view}
+              />
+            ) : null}
             {showPadCta ? (
               <EventListScrollPads
                 count={filtered.length}
                 title={dict.events.yourEventHereTitle}
-                label={
-                  categoryId
-                    ? fillTemplate(dict.events.yourEventHere, {
-                        category: dict.categories[categoryId],
-                      })
-                    : dict.events.yourEventHereGeneric
-                }
+                label={addEventLabelResolved}
                 onAddEvent={onAddEvent}
                 view={view}
               />
             ) : null}
           </div>
-          {/* Card grids: promo sits between rows as a sibling so auto-fit
-              columns aren't left empty on the first row. */}
-          {view === "cards" &&
-          visibleEvents.length > CROSS_PROMO_LIST_AFTER ? (
-            <CrossPromoBanner
-              dict={dict}
-              variant="strip"
-              view="cards"
-              className="mt-3"
-            />
-          ) : null}
           {hasMore && (
             <div className="pt-4 text-center">
               <button

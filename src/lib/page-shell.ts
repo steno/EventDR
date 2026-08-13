@@ -30,8 +30,8 @@ export const PAGE_SHELL_DETAIL_CLASS = `relative mx-auto w-full max-w-6xl ${PAGE
 
 /**
  * Card discovery grids — elastic columns: 2 on narrow phones, then as many
- * ~220px tiles as fit. `auto-fit` collapses empty tracks so short rows still
- * stretch edge-to-edge within the shell.
+ * ~220px tiles as fit. Underscore in `1fr` keeps the arbitrary value valid in
+ * Tailwind; `auto-fit` collapses empty tracks so short rows still stretch.
  */
 export const CARD_GRID_CLASS =
-  "grid grid-cols-2 items-stretch gap-2.5 sm:grid-cols-[repeat(auto-fit,minmax(220px,1fr))] sm:gap-3";
+  "grid grid-cols-2 items-stretch gap-2.5 sm:grid-cols-[repeat(auto-fit,minmax(220px,_1fr))] sm:gap-3";
