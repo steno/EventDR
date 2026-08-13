@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { checkModeratorSecret } from "@/lib/ops-auth";
+import { checkModeratorAuth } from "@/lib/ops-auth";
 import {
   fetchPendingEvents,
   fetchApprovedEvents,
@@ -12,10 +12,22 @@ import { findNearDuplicate } from "@/lib/ingest-dedupe";
 export const dynamic = "force-dynamic";
 export const maxDuration = 60;
 
-export async function GET(request: NextRequest) {
-  if (!checkModeratorSecret(request)) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+function unauthorizedResponse(reason: "not_configured" | "unauthorized") {
+  if (reason === "not_configured") {
+    return NextResponse.json(
+      { error: "Moderator not configured", code: "not_configured" },
+      { status: 401 },
+    );
   }
+  return NextResponse.json(
+    { error: "Unauthorized", code: "unauthorized" },
+    { status: 401 },
+  );
+}
+
+export async function GET(request: NextRequest) {
+  const auth = checkModeratorAuth(request);
+  if (!auth.ok) return unauthorizedResponse(auth.reason);
   if (!isFirebaseConfigured()) {
     return NextResponse.json({ error: "Firebase not configured" }, { status: 503 });
   }
@@ -47,9 +59,8 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: NextRequest) {
-  if (!checkModeratorSecret(request)) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  }
+  const auth = checkModeratorAuth(request);
+  if (!auth.ok) return unauthorizedResponse(auth.reason);
   if (!isFirebaseConfigured()) {
     return NextResponse.json({ error: "Firebase not configured" }, { status: 503 });
   }

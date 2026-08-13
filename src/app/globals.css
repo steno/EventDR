@@ -484,6 +484,45 @@ button, a {
   }
 }
 
+/* Soft detail navigation — keep the page visible, acknowledge the tap. */
+.nav-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 95;
+  height: 2px;
+  pointer-events: none;
+  overflow: hidden;
+  background: transparent;
+}
+
+.nav-progress__bar {
+  height: 100%;
+  width: 40%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #f97316, #e11d48);
+  transform-origin: left center;
+  animation: nav-progress-slide 0.9s ease-in-out infinite;
+}
+
+@keyframes nav-progress-slide {
+  0% {
+    transform: translateX(-120%);
+  }
+  100% {
+    transform: translateX(320%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-progress__bar {
+    width: 100%;
+    animation: none;
+    opacity: 0.7;
+  }
+}
+
 /* Sitewide page-transition loading (iOS-style activity indicator) */
 .page-loading-portal {
   position: fixed;

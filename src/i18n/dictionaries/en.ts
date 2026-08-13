@@ -373,6 +373,11 @@ export type Dictionary = {
     source: string;
     unauthorized: string;
     unauthorizedHint: string;
+    keyLabel: string;
+    keyPlaceholder: string;
+    keySubmit: string;
+    notConfigured: string;
+    notConfiguredHint: string;
     firebaseRequired: string;
     firebaseHint: string;
     refresh: string;
@@ -850,7 +855,14 @@ export const en: Dictionary = {
     rejected: "Rejected",
     source: "Source",
     unauthorized: "Invalid moderator key.",
-    unauthorizedHint: "Open /moderate?key=YOUR_MODERATOR_SECRET once (key is stored for this tab, then removed from the URL). API calls use Authorization: Bearer.",
+    unauthorizedHint:
+      "Paste MODERATOR_SECRET from Netlify below, or open /moderate?key=… once. After a successful login the key stays in this tab and is removed from the URL.",
+    keyLabel: "Moderator key",
+    keyPlaceholder: "MODERATOR_SECRET",
+    keySubmit: "Unlock queue",
+    notConfigured: "Moderator secret is not set on the server.",
+    notConfiguredHint:
+      "Add MODERATOR_SECRET in Netlify → Environment variables, then redeploy.",
     firebaseRequired: "Firebase not connected.",
     firebaseHint: "Set FIREBASE_SERVICE_ACCOUNT_JSON in Netlify and redeploy.",
     refresh: "Refresh",

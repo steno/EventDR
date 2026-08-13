@@ -12,6 +12,7 @@ import {
   BadgeCheck,
   CircleDollarSign,
 } from "lucide-react";
+import { useState } from "react";
 import type { Event, EventOpinion } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
@@ -85,6 +86,7 @@ export function EventDetailContent({
   paidAdmissionLabel,
 }: EventDetailContentProps) {
   const TitleTag = standalone ? "h1" : "h2";
+  const [venuePending, setVenuePending] = useState(false);
 
   return (
     <>
@@ -211,10 +213,18 @@ export function EventDetailContent({
             {venueSlug && (
               <button
                 type="button"
-                onClick={onViewVenue}
+                aria-busy={venuePending || undefined}
+                onClick={() => {
+                  setVenuePending(true);
+                  onViewVenue();
+                }}
                 onPointerDown={onWarmVenue}
                 onFocus={onWarmVenue}
-                className="inline-flex items-center gap-2 rounded-full border border-orange-200 dark:border-orange-800/60 bg-orange-50 dark:bg-orange-950/40 px-4 py-2.5 text-sm font-bold text-orange-800 dark:text-orange-300 hover:bg-orange-100 dark:hover:bg-orange-950/60 hover:border-orange-300 dark:hover:border-orange-700 transition-colors touch-manipulation"
+                className={`inline-flex items-center gap-2 rounded-full border px-4 py-2.5 text-sm font-bold transition-colors touch-manipulation ${
+                  venuePending
+                    ? "scale-[0.98] border-orange-400 bg-orange-100 text-orange-900 dark:border-orange-500/80 dark:bg-orange-950/70 dark:text-orange-200"
+                    : "border-orange-200 dark:border-orange-800/60 bg-orange-50 dark:bg-orange-950/40 text-orange-800 dark:text-orange-300 hover:bg-orange-100 dark:hover:bg-orange-950/60 hover:border-orange-300 dark:hover:border-orange-700"
+                }`}
               >
                 <Building2 className="h-4 w-4 shrink-0" aria-hidden />
                 {dict.detail.viewVenue}

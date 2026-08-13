@@ -99,6 +99,7 @@ export function PhotoHero({
           {featuredEvent && eventHref && (
             <IntentLink
               href={eventHref}
+              eagerWarm
               onClick={() => rememberReturnPath(returnTo ?? `/${locale}`)}
               className="group inline-flex max-w-full items-center gap-2 text-sm font-bold touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400 focus-visible:rounded"
             >

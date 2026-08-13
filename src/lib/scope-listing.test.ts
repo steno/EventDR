@@ -2,9 +2,11 @@ import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import {
   filterCatalogForScope,
+  isDetailNavPath,
   isListingSoftPath,
   parseScopeListingPath,
   scopeListingPath,
+  shouldSkipNavOverlay,
 } from "./scope-listing";
 import type { Event } from "./types";
 
@@ -30,6 +32,15 @@ describe("scope-listing", () => {
     assert.equal(isListingSoftPath("/en/when/weekend"), true);
     assert.equal(isListingSoftPath("/en/event/abc"), false);
     assert.equal(isListingSoftPath("/en"), false);
+  });
+
+  it("skips full overlay only for listing soft paths", () => {
+    assert.equal(shouldSkipNavOverlay("/en/category/music"), true);
+    assert.equal(shouldSkipNavOverlay("/en/event/plaza-independencia-daily"), false);
+    assert.equal(shouldSkipNavOverlay("/es/venue/lax-cabarete"), false);
+    assert.equal(shouldSkipNavOverlay("/en/for-partners"), false);
+    assert.equal(isDetailNavPath("/en/event/plaza-independencia-daily"), true);
+    assert.equal(isDetailNavPath("/es/venue/lax-cabarete"), true);
   });
 
   it("parses and builds scope paths", () => {

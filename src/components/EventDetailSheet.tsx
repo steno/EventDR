@@ -31,6 +31,7 @@ import {
 import { useSwipeToDismiss } from "@/hooks/useSwipeToDismiss";
 import { scrollBehaviorPreference } from "@/lib/list-scroll";
 import { eventDetailPath, rememberReturnPath, venueDetailPath } from "@/lib/event-navigation";
+import { navigateSoft } from "@/lib/nav-feedback";
 import {
   getOnboardingCopy,
   hasSeenOnboarding,
@@ -364,7 +365,10 @@ export function EventDetailSheet({
     if (!venueSlug || !event) return;
     const from = eventDetailPath(locale, event.id);
     rememberReturnPath(from, event.title);
-    router.push(venueDetailPath(locale, venueSlug, from, event.title, true));
+    navigateSoft(
+      router,
+      venueDetailPath(locale, venueSlug, from, event.title, true),
+    );
   }
 
   function warmVenueRoute() {

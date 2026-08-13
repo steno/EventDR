@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { IntentLink } from "@/components/IntentLink";
 import { EventImage } from "@/components/EventImage";
 import { eventDetailPath, rememberReturnPath } from "@/lib/event-navigation";
 import type { Event } from "@/lib/types";
@@ -90,8 +90,9 @@ export function CityPhotoHero({
           </div>
 
           {featuredEvent && eventHref ? (
-            <Link
+            <IntentLink
               href={eventHref}
+              eagerWarm
               onClick={() =>
                 locale && rememberReturnPath(returnTo ?? `/${locale}`)
               }
@@ -111,7 +112,7 @@ export function CityPhotoHero({
               >
                 →
               </span>
-            </Link>
+            </IntentLink>
           ) : null}
         </div>
       </div>

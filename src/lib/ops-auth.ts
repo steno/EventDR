@@ -37,10 +37,20 @@ export function checkCronSecret(request: NextRequest): boolean {
   return safeEqualString(provided, expected);
 }
 
-export function checkModeratorSecret(request: NextRequest): boolean {
+export type ModeratorAuthResult =
+  | { ok: true }
+  | { ok: false; reason: "not_configured" | "unauthorized" };
+
+export function checkModeratorAuth(request: NextRequest): ModeratorAuthResult {
   const expected = process.env.MODERATOR_SECRET?.trim();
-  if (!expected) return false;
+  if (!expected) return { ok: false, reason: "not_configured" };
   const provided = providedSecret(request, "x-moderator-secret");
-  if (!provided) return false;
-  return safeEqualString(provided, expected);
+  if (!provided || !safeEqualString(provided, expected)) {
+    return { ok: false, reason: "unauthorized" };
+  }
+  return { ok: true };
+}
+
+export function checkModeratorSecret(request: NextRequest): boolean {
+  return checkModeratorAuth(request).ok;
 }

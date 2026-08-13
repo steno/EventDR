@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState, useSyncExternalStore } from "react";
+import { useCallback, useEffect, useState, useSyncExternalStore, type FormEvent } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { RefreshCw, CheckCircle, ExternalLink, AlertTriangle } from "lucide-react";
@@ -44,6 +44,15 @@ function storeSecret(value: string) {
   }
 }
 
+function clearSecret() {
+  try {
+    sessionStorage.removeItem(MOD_SECRET_STORAGE_KEY);
+    window.dispatchEvent(new Event(SECRET_CHANGE_EVENT));
+  } catch {
+    /* ignore */
+  }
+}
+
 function subscribeSecretStore(onStoreChange: () => void) {
   window.addEventListener(SECRET_CHANGE_EVENT, onStoreChange);
   window.addEventListener("storage", onStoreChange);
@@ -57,7 +66,11 @@ export function ModeratePanel({ dict, locale }: ModeratePanelProps) {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const router = useRouter();
-  const fromQuery = searchParams.get("key")?.trim() ?? "";
+  // Accept ?key= (docs) or legacy ?secret= bookmarks for one-shot bootstrap only.
+  const fromQuery =
+    searchParams.get("key")?.trim() ||
+    searchParams.get("secret")?.trim() ||
+    "";
   const fromStore = useSyncExternalStore(
     subscribeSecretStore,
     readStoredSecret,
@@ -68,15 +81,10 @@ export function ModeratePanel({ dict, locale }: ModeratePanelProps) {
   const [events, setEvents] = useState<PendingModerateEvent[]>([]);
   const [loading, setLoading] = useState(true);
   const [unauthorized, setUnauthorized] = useState(false);
+  const [notConfigured, setNotConfigured] = useState(false);
   const [firebaseDown, setFirebaseDown] = useState(false);
   const [actionMsg, setActionMsg] = useState<string | null>(null);
-
-  // One-shot ?key= boots sessionStorage, then strip from the URL (history/logs).
-  useEffect(() => {
-    if (!fromQuery) return;
-    storeSecret(fromQuery);
-    router.replace(pathname, { scroll: false });
-  }, [fromQuery, pathname, router]);
+  const [keyDraft, setKeyDraft] = useState("");
 
   const authHeaders = useCallback(
     (extra?: HeadersInit): HeadersInit => ({
@@ -86,6 +94,35 @@ export function ModeratePanel({ dict, locale }: ModeratePanelProps) {
     [secret],
   );
 
+  const stripBootstrapQuery = useCallback(() => {
+    if (!fromQuery) return;
+    router.replace(pathname, { scroll: false });
+  }, [fromQuery, pathname, router]);
+
+  const finishAuthSuccess = useCallback(() => {
+    if (!secret) return;
+    storeSecret(secret);
+    // Strip bootstrap query only after the key is confirmed.
+    stripBootstrapQuery();
+  }, [secret, stripBootstrapQuery]);
+
+  const handleUnauthorized = useCallback(
+    (code: string) => {
+      clearSecret();
+      // Drop a bad ?key= so the form can set sessionStorage without being overridden.
+      stripBootstrapQuery();
+      setEvents([]);
+      if (code === "not_configured") {
+        setNotConfigured(true);
+        setUnauthorized(false);
+      } else {
+        setUnauthorized(true);
+        setNotConfigured(false);
+      }
+    },
+    [stripBootstrapQuery],
+  );
+
   useEffect(() => {
     let cancelled = false;
 
@@ -93,6 +130,7 @@ export function ModeratePanel({ dict, locale }: ModeratePanelProps) {
       if (!secret) {
         if (!cancelled) {
           setUnauthorized(true);
+          setNotConfigured(false);
           setLoading(false);
         }
         return;
@@ -100,6 +138,7 @@ export function ModeratePanel({ dict, locale }: ModeratePanelProps) {
       if (!cancelled) {
         setLoading(true);
         setFirebaseDown(false);
+        setNotConfigured(false);
       }
       try {
         const res = await fetch("/api/moderate", {
@@ -107,8 +146,14 @@ export function ModeratePanel({ dict, locale }: ModeratePanelProps) {
         });
         if (cancelled) return;
         if (res.status === 401) {
-          setUnauthorized(true);
-          setEvents([]);
+          let code = "unauthorized";
+          try {
+            const body = (await res.json()) as { code?: string };
+            code = body.code ?? "unauthorized";
+          } catch {
+            /* ignore */
+          }
+          handleUnauthorized(code);
           return;
         }
         if (res.status === 503) {
@@ -119,6 +164,8 @@ export function ModeratePanel({ dict, locale }: ModeratePanelProps) {
         const data = (await res.json()) as { events?: PendingModerateEvent[] };
         setEvents(data.events ?? []);
         setUnauthorized(false);
+        setNotConfigured(false);
+        finishAuthSuccess();
       } catch {
         if (!cancelled) setEvents([]);
       } finally {
@@ -130,7 +177,7 @@ export function ModeratePanel({ dict, locale }: ModeratePanelProps) {
     return () => {
       cancelled = true;
     };
-  }, [secret]);
+  }, [secret, finishAuthSuccess, handleUnauthorized]);
 
   async function load() {
     if (!secret) {
@@ -140,11 +187,18 @@ export function ModeratePanel({ dict, locale }: ModeratePanelProps) {
     }
     setLoading(true);
     setFirebaseDown(false);
+    setNotConfigured(false);
     try {
       const res = await fetch("/api/moderate", { headers: authHeaders() });
       if (res.status === 401) {
-        setUnauthorized(true);
-        setEvents([]);
+        let code = "unauthorized";
+        try {
+          const body = (await res.json()) as { code?: string };
+          code = body.code ?? "unauthorized";
+        } catch {
+          /* ignore */
+        }
+        handleUnauthorized(code);
         return;
       }
       if (res.status === 503) {
@@ -155,11 +209,25 @@ export function ModeratePanel({ dict, locale }: ModeratePanelProps) {
       const data = (await res.json()) as { events?: PendingModerateEvent[] };
       setEvents(data.events ?? []);
       setUnauthorized(false);
+      setNotConfigured(false);
+      finishAuthSuccess();
     } catch {
       setEvents([]);
     } finally {
       setLoading(false);
     }
+  }
+
+  function submitKey(e: FormEvent) {
+    e.preventDefault();
+    const value = keyDraft.trim();
+    if (!value) return;
+    storeSecret(value);
+    stripBootstrapQuery();
+    setKeyDraft("");
+    setUnauthorized(false);
+    setNotConfigured(false);
+    setLoading(true);
   }
 
   async function moderate(id: string, action: "approve" | "reject") {
@@ -174,11 +242,42 @@ export function ModeratePanel({ dict, locale }: ModeratePanelProps) {
     setTimeout(() => setActionMsg(null), 2500);
   }
 
-  if (unauthorized) {
+  if (notConfigured) {
     return (
       <div className="text-center py-16 space-y-2">
-        <p className="text-red-500 font-medium">{dict.moderate.unauthorized}</p>
-        <p className="text-sm text-neutral-400">{dict.moderate.unauthorizedHint}</p>
+        <p className="text-red-500 font-medium">{dict.moderate.notConfigured}</p>
+        <p className="text-sm text-neutral-400">{dict.moderate.notConfiguredHint}</p>
+      </div>
+    );
+  }
+
+  if (unauthorized) {
+    return (
+      <div className="py-12 space-y-6 max-w-sm mx-auto">
+        <div className="text-center space-y-2">
+          <p className="text-red-500 font-medium">{dict.moderate.unauthorized}</p>
+          <p className="text-sm text-neutral-400">{dict.moderate.unauthorizedHint}</p>
+        </div>
+        <form onSubmit={submitKey} className="space-y-3">
+          <label className="block text-left text-sm font-medium text-neutral-700 dark:text-neutral-300">
+            {dict.moderate.keyLabel}
+            <input
+              type="password"
+              name="moderator-key"
+              autoComplete="current-password"
+              value={keyDraft}
+              onChange={(e) => setKeyDraft(e.target.value)}
+              className="mt-1.5 w-full rounded-xl border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 px-3 py-2.5 text-sm text-neutral-900 dark:text-neutral-100"
+              placeholder={dict.moderate.keyPlaceholder}
+            />
+          </label>
+          <button
+            type="submit"
+            className="w-full rounded-xl bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 py-2.5 text-sm font-bold"
+          >
+            {dict.moderate.keySubmit}
+          </button>
+        </form>
       </div>
     );
   }

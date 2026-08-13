@@ -1,6 +1,6 @@
 "use client";
 
-import { useLayoutEffect, useRef, type ReactNode } from "react";
+import { useLayoutEffect, useRef, useState, type ReactNode } from "react";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { AppHeader } from "@/components/AppHeader";
@@ -9,6 +9,7 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 import { useScrollChromeVisible } from "@/hooks/useScrollChrome";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
+import { signalNavPending } from "@/lib/nav-feedback";
 import { PAGE_GUTTER_BLEED_CLASS } from "@/lib/page-shell";
 import { SCROLL_CHROME_TRANSITION_CLASS } from "@/lib/scroll-chrome";
 
@@ -19,6 +20,9 @@ export const stickyBackControlClassName =
 
 const detailBackControlClassName =
   "inline-flex max-w-full min-h-9 min-w-0 items-center gap-1.5 -ml-2 rounded-lg px-1.5 py-1.5 text-sm font-semibold text-neutral-500 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200 active:bg-neutral-200/60 dark:active:bg-neutral-800/60 touch-manipulation";
+
+const backPendingClassName =
+  "text-orange-700 dark:text-orange-300 bg-orange-500/12 dark:bg-orange-400/15";
 
 const backLabelClassName = "min-w-0 truncate";
 
@@ -75,6 +79,7 @@ export function StickyListHeader({
   const rootRef = useRef<HTMLDivElement>(null);
   const chromeVisible = useScrollChromeVisible();
   const isDetail = variant === "detail";
+  const [pending, setPending] = useState(false);
 
   useLayoutEffect(() => {
     const el = rootRef.current;
@@ -106,24 +111,43 @@ export function StickyListHeader({
     };
   }, [chromeVisible]);
 
-  const backControlClassName = isDetail
-    ? detailBackControlClassName
-    : stickyBackControlClassName;
+  const backControlClassName = `${isDetail ? detailBackControlClassName : stickyBackControlClassName}${
+    pending ? ` ${backPendingClassName}` : ""
+  }`;
   const backIconClassName = isDetail
     ? "h-4 w-4 shrink-0"
     : "h-[1.125rem] w-[1.125rem] shrink-0";
 
+  function beginBack() {
+    setPending(true);
+    // Detail/list backs are often `router.back()` (no <a>) — ping the soft bar.
+    signalNavPending("soft");
+  }
+
   function renderBackControl() {
     if (onBack) {
       return (
-        <button type="button" onClick={onBack} className={backControlClassName}>
+        <button
+          type="button"
+          aria-busy={pending || undefined}
+          onClick={() => {
+            beginBack();
+            onBack();
+          }}
+          className={backControlClassName}
+        >
           <ArrowLeft className={backIconClassName} aria-hidden />
           <span className={backLabelClassName}>{backLabel}</span>
         </button>
       );
     }
     return (
-      <Link href={backHref} className={backControlClassName}>
+      <Link
+        href={backHref}
+        aria-busy={pending || undefined}
+        onClick={beginBack}
+        className={backControlClassName}
+      >
         <ArrowLeft className={backIconClassName} aria-hidden />
         <span className={backLabelClassName}>{backLabel}</span>
       </Link>

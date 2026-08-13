@@ -13,6 +13,7 @@ import {
   resolveEventReturnPath,
   takeReturnPath,
 } from "@/lib/event-navigation";
+import { navigateBackSoft, navigateSoft } from "@/lib/nav-feedback";
 import { PAGE_SHELL_DETAIL_CLASS } from "@/lib/page-shell";
 import type { NearbyTonightResult } from "@/lib/nearby-events";
 
@@ -58,11 +59,12 @@ export function EventPage({
   );
 
   function handleClose() {
+    // Swipe/sheet close skip StickyListHeader — signal here so all exits get feedback.
     if (returnTo && typeof window !== "undefined" && window.history.length > 1) {
-      router.back();
+      navigateBackSoft(router);
       return;
     }
-    router.push(backHref);
+    navigateSoft(router, backHref);
   }
 
   return (

@@ -24,6 +24,7 @@ import { EventImage } from "@/components/EventImage";
 import { lastHomePath } from "@/lib/cities";
 import { readReturnParams, resolveBackLabel, takeReturnPath } from "@/lib/event-navigation";
 import { formatPhoneTel } from "@/lib/event-phone";
+import { navigateBackSoft, navigateSoft } from "@/lib/nav-feedback";
 import { PAGE_SHELL_DETAIL_CLASS } from "@/lib/page-shell";
 import { scrollBelowStickyStack, scrollUnderStickyHeader } from "@/lib/list-scroll";
 import { getVenueHeroImageUrl } from "@/lib/venue-images";
@@ -174,11 +175,12 @@ export function VenuePage({
   const backLabel = resolveBackLabel(locale, backHref, dict, returnTitle);
 
   function handleBack() {
+    // Cover StickyListHeader + any future programmatic exits.
     if (returnTo && typeof window !== "undefined" && window.history.length > 1) {
-      router.back();
+      navigateBackSoft(router);
       return;
     }
-    router.push(backHref);
+    navigateSoft(router, backHref);
   }
 
   useLayoutEffect(() => {

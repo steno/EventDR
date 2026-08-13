@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { describe, it, beforeEach, afterEach } from "node:test";
 import { NextRequest } from "next/server";
-import { checkCronSecret, checkModeratorSecret } from "./ops-auth";
+import { checkCronSecret, checkModeratorSecret, checkModeratorAuth } from "./ops-auth";
 
 const PREV_CRON = process.env.CRON_SECRET;
 const PREV_MOD = process.env.MODERATOR_SECRET;
@@ -83,6 +83,29 @@ describe("ops-auth", () => {
         ),
       ),
       false,
+    );
+  });
+
+  it("fails closed when MODERATOR_SECRET unset", () => {
+    delete process.env.MODERATOR_SECRET;
+    assert.equal(
+      checkModeratorSecret(
+        req({ Authorization: "Bearer mod-test-secret-value" }),
+      ),
+      false,
+    );
+    assert.deepEqual(
+      checkModeratorAuth(
+        req({ Authorization: "Bearer mod-test-secret-value" }),
+      ),
+      { ok: false, reason: "not_configured" },
+    );
+  });
+
+  it("reports unauthorized for wrong moderator secret", () => {
+    assert.deepEqual(
+      checkModeratorAuth(req({ Authorization: "Bearer wrong" })),
+      { ok: false, reason: "unauthorized" },
     );
   });
 });

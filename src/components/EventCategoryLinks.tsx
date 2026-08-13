@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { IntentLink } from "@/components/IntentLink";
 import { getCategoryMeta } from "@/lib/categories";
 import { getEventCategoryList } from "@/lib/categorize";
 import { categoryPath } from "@/lib/event-navigation";
@@ -61,9 +61,9 @@ export function EventCategoryLinks({
         }
 
         return (
-          <Link key={id} href={categoryPath(locale, id)} className={chipClass}>
+          <IntentLink key={id} href={categoryPath(locale, id)} className={chipClass}>
             {content}
-          </Link>
+          </IntentLink>
         );
       })}
     </div>
