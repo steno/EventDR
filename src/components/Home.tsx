@@ -335,7 +335,7 @@ function HomeApp({
                   <button
                     type="button"
                     onClick={() => handleTabChange("saved")}
-                    className={`rounded-full px-3.5 py-2 text-[13px] font-bold tracking-wide transition-colors touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 ${
+                    className={`rounded-full px-3.5 py-2 text-xs font-bold tracking-wide transition-colors touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 ${
                       tab === "saved"
                         ? "bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-900"
                         : "text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:hover:text-white"
@@ -347,7 +347,7 @@ function HomeApp({
                   <button
                     type="button"
                     onClick={() => setSubmitOpen(true)}
-                    className="rounded-full bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-3.5 py-2 text-[13px] font-bold text-white shadow-sm transition-transform active:scale-95 touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400"
+                    className="rounded-full bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-3.5 py-2 text-xs font-bold text-white shadow-sm transition-transform active:scale-95 touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400"
                   >
                     {dict.nav.submit}
                   </button>
@@ -434,7 +434,7 @@ function HomeApp({
                   })}
                 </span>
               </button>
-              <h2 className="mt-1 text-2xl font-black text-neutral-900 dark:text-neutral-100 tracking-tight mb-6">
+              <h2 className="mt-1 mb-6 text-title font-extrabold tracking-tight text-neutral-900 dark:text-neutral-100">
                 {dict.saved.title}
               </h2>
               {!savedReady || !eventsReady ? (
@@ -446,7 +446,7 @@ function HomeApp({
                   <p className="font-bold text-neutral-700 dark:text-neutral-200">
                     {onboardingCopy.saved.exampleTitle}
                   </p>
-                  <p className="mx-auto mt-1 max-w-sm text-base text-neutral-500 dark:text-neutral-400">
+                  <p className="mx-auto mt-1 max-w-sm text-copy text-neutral-500 dark:text-neutral-400">
                     {onboardingCopy.saved.exampleBody}
                   </p>
                   {savedExample ? (

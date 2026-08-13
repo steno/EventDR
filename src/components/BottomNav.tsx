@@ -105,7 +105,7 @@ export function BottomNav({
 
               <span
                 className={`
-                  text-[13px] font-bold leading-none tracking-wide
+                  text-xs font-bold leading-none tracking-wide
                   transition-colors duration-200
                   ${
                     isSubmit

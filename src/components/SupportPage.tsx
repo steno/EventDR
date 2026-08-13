@@ -38,18 +38,18 @@ export function SupportPage({ locale, copy, available }: SupportPageProps) {
             aria-hidden
           />
           <div className="relative flex min-h-[16rem] flex-col justify-end p-5 sm:min-h-[18rem] sm:p-7">
-            <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-orange-200/90">
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-orange-200/90">
               {copy.eyebrow}
             </p>
-            <h1 className="mt-2 max-w-xl font-display text-3xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-4xl">
+            <h1 className="mt-2 max-w-xl text-display font-extrabold tracking-tight text-white sm:text-display-lg">
               {copy.title}
             </h1>
-            <p className="mt-3 max-w-lg text-sm font-medium leading-relaxed text-neutral-200 sm:text-base">
+            <p className="mt-3 max-w-lg text-copy-lead font-medium text-neutral-200">
               {copy.lead}
             </p>
             <a
               href="#donate"
-              className="mt-5 inline-flex min-h-11 items-center self-start rounded-full bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-5 text-sm font-black text-white shadow-lg shadow-rose-500/30 transition-transform active:scale-[0.98]"
+              className="mt-5 inline-flex min-h-11 items-center self-start rounded-full bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-5 text-sm font-bold text-white shadow-lg shadow-rose-500/30 transition-transform active:scale-[0.98]"
             >
               {copy.form.title}
             </a>
@@ -61,7 +61,7 @@ export function SupportPage({ locale, copy, available }: SupportPageProps) {
         </div>
 
         <section className="mt-10">
-          <h2 className="font-display text-xl font-extrabold tracking-tight text-neutral-950 dark:text-neutral-50">
+          <h2 className="text-section font-extrabold tracking-tight text-neutral-950 dark:text-neutral-50">
             {copy.storyTitle}
           </h2>
           <div className="mt-4 space-y-4">
@@ -77,7 +77,7 @@ export function SupportPage({ locale, copy, available }: SupportPageProps) {
         </section>
 
         <section className="mt-10 mb-2">
-          <h2 className="font-display text-xl font-extrabold tracking-tight text-neutral-950 dark:text-neutral-50">
+          <h2 className="text-section font-extrabold tracking-tight text-neutral-950 dark:text-neutral-50">
             {copy.fundsTitle}
           </h2>
           <ul className="mt-5 space-y-5">
@@ -86,10 +86,10 @@ export function SupportPage({ locale, copy, available }: SupportPageProps) {
                 key={item.label}
                 className="border-t border-neutral-200/80 pt-5 dark:border-neutral-800"
               >
-                <p className="text-sm font-black text-neutral-900 dark:text-neutral-100">
+                <p className="font-sans text-sm font-bold text-neutral-900 dark:text-neutral-100">
                   {item.label}
                 </p>
-                <p className="mt-1 text-sm font-medium leading-relaxed text-neutral-600 dark:text-neutral-300">
+                <p className="mt-1 text-copy text-neutral-600 dark:text-neutral-300">
                   {item.detail}
                 </p>
               </li>

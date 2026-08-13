@@ -259,7 +259,7 @@ export function StreetViewModal({
     >
       <div className="flex shrink-0 items-center justify-between gap-3 border-b border-neutral-100 px-3 py-2.5 dark:border-neutral-800">
         <div className="min-w-0">
-          <p className="text-sm font-black text-neutral-900 dark:text-neutral-100">
+          <p className="text-sm font-bold text-neutral-900 dark:text-neutral-100">
             {dict.venues.streetView}
           </p>
           {title ? (

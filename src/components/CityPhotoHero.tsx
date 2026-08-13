@@ -79,11 +79,11 @@ export function CityPhotoHero({
                 {eyebrow}
               </p>
             ) : null}
-            <h1 className="mt-1 text-[2rem] font-black leading-[1.05] tracking-tight text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.4)] sm:text-4xl">
+            <h1 className="mt-1 text-display font-extrabold tracking-tight text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.4)] sm:text-display-lg">
               {title}
             </h1>
             {subtitle ? (
-              <p className="mt-2 max-w-xl text-sm font-medium leading-snug text-white/90 [text-shadow:0_1px_2px_rgba(0,0,0,0.4)] sm:text-[15px]">
+              <p className="mt-2 max-w-xl text-copy font-medium text-white/90 [text-shadow:0_1px_2px_rgba(0,0,0,0.4)]">
                 {subtitle}
               </p>
             ) : null}
@@ -95,7 +95,7 @@ export function CityPhotoHero({
               onClick={() =>
                 locale && rememberReturnPath(returnTo ?? `/${locale}`)
               }
-              className="group inline-flex max-w-full items-center gap-2 text-[15px] font-bold touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400 focus-visible:rounded"
+              className="group inline-flex max-w-full items-center gap-2 text-sm font-bold touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400 focus-visible:rounded"
             >
               {dict?.hero.featured ? (
                 <span className="shrink-0 text-xs font-bold uppercase tracking-[0.14em] text-white/75 [text-shadow:0_1px_2px_rgba(0,0,0,0.45)]">

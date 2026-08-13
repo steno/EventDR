@@ -92,7 +92,7 @@ const EventCardComponent = ({
           )}
         </div>
         <div className="relative z-[1] flex flex-1 flex-col gap-1.5 p-3 pointer-events-none">
-          <h3 className="line-clamp-2 font-sans text-[0.9375rem] font-semibold leading-snug tracking-tight text-neutral-900 dark:text-neutral-100 sm:text-base">
+          <h3 className="line-clamp-2 font-sans text-sm font-semibold leading-snug tracking-tight text-neutral-900 dark:text-neutral-100 sm:text-base">
             {event.title}
           </h3>
           <EventCardMeta
@@ -151,11 +151,11 @@ const EventCardComponent = ({
 
         <div className="flex-1 min-w-0 pt-0.5">
           <div className={`flex items-start gap-2.5 ${compact ? "mb-1.5" : "mb-2"}`}>
-            <h3 className="font-bold text-neutral-900 dark:text-neutral-100 text-[1.25rem] leading-[1.3] line-clamp-3 sm:line-clamp-2 flex-1">
+            <h3 className="font-sans text-base font-semibold leading-snug tracking-tight text-neutral-900 dark:text-neutral-100 line-clamp-3 sm:line-clamp-2 flex-1 sm:text-lg">
               {event.title}
             </h3>
             {event.trending && !liveStatusLabel && liveStatus !== "ended" && (
-              <span className="flex-shrink-0 inline-flex items-center gap-0.5 rounded-full bg-orange-50 dark:bg-orange-950/50 px-2.5 py-1 text-[13px] font-bold uppercase tracking-wide text-orange-600">
+              <span className="flex-shrink-0 inline-flex items-center gap-0.5 rounded-full bg-orange-50 dark:bg-orange-950/50 px-2.5 py-1 text-xs font-bold uppercase tracking-wide text-orange-600">
                 <Flame className="h-3.5 w-3.5" />
                 {dict.events.hot}
               </span>

@@ -416,10 +416,10 @@ export function EventScopePage({
                   {emoji}
                 </div>
                 <div>
-                  <h1 className="text-2xl font-black text-neutral-900 dark:text-neutral-100 tracking-tight">
+                  <h1 className="text-title font-extrabold tracking-tight text-neutral-900 dark:text-neutral-100">
                     {title}
                   </h1>
-                  <p className="text-sm text-neutral-500 dark:text-neutral-400 font-medium">
+                  <p className="text-copy-meta text-neutral-500 dark:text-neutral-400">
                     {subtitle}
                   </p>
                 </div>
@@ -471,14 +471,14 @@ export function EventScopePage({
           />
           {fixedTimeRange === "weekend" ? (
             <aside className="mb-8 mt-6 overflow-hidden rounded-3xl border border-orange-200 bg-orange-50 p-5 dark:border-orange-900/60 dark:bg-orange-950/30">
-              <p className="flex items-center gap-2 text-xs font-black uppercase tracking-[0.14em] text-orange-700 dark:text-orange-300">
+              <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] text-orange-700 dark:text-orange-300">
                 <Building2 className="h-4 w-4" aria-hidden />
                 {onboardingCopy.partner.weekendEyebrow}
               </p>
-              <h2 className="mt-2 text-xl font-black tracking-tight text-neutral-950 dark:text-neutral-50">
+              <h2 className="mt-2 text-section font-extrabold tracking-tight text-neutral-950 dark:text-neutral-50">
                 {onboardingCopy.partner.weekendTitle}
               </h2>
-              <p className="mt-1.5 max-w-xl text-base font-medium leading-relaxed text-neutral-600 dark:text-neutral-300">
+              <p className="mt-1.5 max-w-xl text-copy font-medium text-neutral-600 dark:text-neutral-300">
                 {onboardingCopy.partner.weekendBody}
               </p>
               <Link

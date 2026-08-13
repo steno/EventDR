@@ -338,7 +338,7 @@ export function VenuePage({
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-neutral-500 dark:text-neutral-400">
               {venue.city}
             </p>
-            <h1 className="mt-1.5 text-2xl font-black leading-tight tracking-tight text-neutral-900 dark:text-neutral-100">
+            <h1 className="mt-1.5 text-title font-extrabold leading-tight tracking-tight text-neutral-900 dark:text-neutral-100">
               {venue.name}
             </h1>
             {walkablePocket ? (
@@ -350,7 +350,7 @@ export function VenuePage({
             ) : null}
 
             {venue.temporarilyClosed ? (
-              <span className="mt-3 inline-flex w-fit items-center rounded-full bg-rose-50 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-rose-700 ring-1 ring-rose-200 dark:bg-rose-950/40 dark:text-rose-400 dark:ring-rose-900/60">
+              <span className="mt-3 inline-flex w-fit items-center rounded-full bg-rose-50 px-3 py-1 text-xs font-bold uppercase tracking-wide text-rose-700 ring-1 ring-rose-200 dark:bg-rose-950/40 dark:text-rose-400 dark:ring-rose-900/60">
                 {dict.events.temporarilyClosed}
               </span>
             ) : null}
@@ -386,7 +386,7 @@ export function VenuePage({
                   className={venueActionClass}
                 >
                   <Phone className="h-4 w-4" aria-hidden />
-                  <span className="text-[11px] font-bold leading-none">
+                  <span className="text-xs font-bold leading-none">
                     {dict.detail.call}
                   </span>
                 </a>
@@ -397,7 +397,7 @@ export function VenuePage({
                 className={venueActionClass}
               >
                 <Navigation className="h-4 w-4" aria-hidden />
-                <span className="text-[11px] font-bold leading-none">
+                <span className="text-xs font-bold leading-none">
                   {dict.detail.directions}
                 </span>
               </button>
@@ -409,7 +409,7 @@ export function VenuePage({
                   className={venueActionClass}
                 >
                   <ExternalLink className="h-4 w-4" aria-hidden />
-                  <span className="text-[11px] font-bold leading-none">
+                  <span className="text-xs font-bold leading-none">
                     {dict.venues.website}
                   </span>
                 </a>
@@ -422,7 +422,7 @@ export function VenuePage({
                   className={venueActionClass}
                 >
                   <AtSign className="h-4 w-4" aria-hidden />
-                  <span className="text-[11px] font-bold leading-none">
+                  <span className="text-xs font-bold leading-none">
                     {dict.venues.instagram}
                   </span>
                 </a>

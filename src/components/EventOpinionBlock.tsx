@@ -108,7 +108,7 @@ export function EventOpinionBlock({
           <div className="mb-1.5 flex flex-wrap items-center gap-2">
             <h2
               id="event-opinion-heading"
-              className="text-sm font-bold text-neutral-900 dark:text-white"
+              className="font-sans text-sm font-bold text-neutral-900 dark:text-white"
             >
               {o.speaker}
             </h2>
@@ -116,7 +116,7 @@ export function EventOpinionBlock({
               {o.heading}
             </span>
             {rating ? (
-              <span className="inline-flex items-center gap-1 rounded-full bg-amber-500/15 px-2 py-0.5 text-[13px] font-bold text-amber-800 ring-1 ring-amber-500/25 dark:bg-amber-400/15 dark:text-amber-200 dark:ring-amber-400/30">
+              <span className="inline-flex items-center gap-1 rounded-full bg-amber-500/15 px-2 py-0.5 text-xs font-bold text-amber-800 ring-1 ring-amber-500/25 dark:bg-amber-400/15 dark:text-amber-200 dark:ring-amber-400/30">
                 <span aria-hidden>★</span>
                 <span>{rating.rating.toFixed(1)}</span>
                 {rating.count != null ? (
@@ -136,13 +136,13 @@ export function EventOpinionBlock({
               aria-hidden
             />
             <div className="relative space-y-2.5">
-              <p className="text-[15px] leading-relaxed text-neutral-800 dark:text-neutral-100">
+              <p className="text-copy text-neutral-800 dark:text-neutral-100">
                 {body}
               </p>
               {opinion.priceFeel || priceNote ? (
                 <ul className="space-y-1.5 border-t border-neutral-200/80 pt-2.5 dark:border-neutral-700/80">
                   {opinion.priceFeel ? (
-                    <li className="flex gap-2 text-[14px] leading-snug text-neutral-700 dark:text-neutral-300">
+                    <li className="flex gap-2 text-copy-meta leading-snug text-neutral-700 dark:text-neutral-300">
                       <span
                         className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gradient-to-br from-orange-500 to-rose-500"
                         aria-hidden
@@ -155,7 +155,7 @@ export function EventOpinionBlock({
                     </li>
                   ) : null}
                   {priceNote ? (
-                    <li className="flex gap-2 text-[14px] leading-snug text-neutral-700 dark:text-neutral-300">
+                    <li className="flex gap-2 text-copy-meta leading-snug text-neutral-700 dark:text-neutral-300">
                       <span
                         className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-neutral-400 dark:bg-neutral-400"
                         aria-hidden

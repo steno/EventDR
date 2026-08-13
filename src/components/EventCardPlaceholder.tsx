@@ -56,10 +56,10 @@ export function EventCardPlaceholder({
             <Plus className="h-5 w-5" strokeWidth={2.25} />
           </span>
           <span className="text-center">
-            <span className="block text-[15px] font-bold leading-snug text-neutral-700 dark:text-neutral-200">
+            <span className="block text-sm font-bold leading-snug text-neutral-700 dark:text-neutral-200">
               {title}
             </span>
-            <span className="mt-1 block text-[13px] font-medium leading-snug text-neutral-500 dark:text-neutral-400">
+            <span className="mt-1 block text-xs font-medium leading-snug text-neutral-500 dark:text-neutral-400">
               {label}
             </span>
           </span>
@@ -96,10 +96,10 @@ export function EventCardPlaceholder({
         <Plus className="h-5 w-5" strokeWidth={2.25} />
       </span>
       <span className="min-w-0 flex-1 text-left">
-        <span className="block text-[15px] font-bold leading-snug text-neutral-700 dark:text-neutral-200">
+        <span className="block text-sm font-bold leading-snug text-neutral-700 dark:text-neutral-200">
           {title}
         </span>
-        <span className="mt-0.5 block text-[13px] font-medium leading-snug text-neutral-500 dark:text-neutral-400">
+        <span className="mt-0.5 block text-xs font-medium leading-snug text-neutral-500 dark:text-neutral-400">
           {label}
         </span>
       </span>

@@ -93,13 +93,13 @@ export function FooterInstallLink({ dict }: FooterInstallLinkProps) {
 
             <p className="pr-8 text-lg font-bold">{title}</p>
             {subtitle && (
-              <p className="mt-1 text-[13px] text-neutral-400">{subtitle}</p>
+              <p className="mt-1 text-xs text-neutral-400">{subtitle}</p>
             )}
 
             <ol className="mt-4 space-y-3">
               {steps.map((step) => (
                 <li key={step.n} className="flex items-center gap-3">
-                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white/10 text-[13px] font-bold">
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white/10 text-xs font-bold">
                     {step.n}
                   </span>
                   {step.icon && (
@@ -107,7 +107,7 @@ export function FooterInstallLink({ dict }: FooterInstallLinkProps) {
                       {step.icon}
                     </span>
                   )}
-                  <span className="text-[14px] leading-snug text-neutral-100">
+                  <span className="text-sm leading-snug text-neutral-100">
                     {step.text}
                   </span>
                 </li>
@@ -117,7 +117,7 @@ export function FooterInstallLink({ dict }: FooterInstallLinkProps) {
             <button
               type="button"
               onClick={() => setShowGuide(false)}
-              className="mt-6 w-full rounded-full bg-white py-3 text-[15px] font-bold text-neutral-900 active:scale-[0.98] transition-transform"
+              className="mt-6 w-full rounded-full bg-white py-3 text-sm font-bold text-neutral-900 active:scale-[0.98] transition-transform"
             >
               {dict.install.done}
             </button>

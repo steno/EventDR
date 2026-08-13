@@ -14,11 +14,11 @@ interface PartnerQrCardProps {
 
 export function PartnerQrCard({ label, hint, url, svg }: PartnerQrCardProps) {
   return (
-    <article className="flex flex-col items-center rounded-2xl border border-neutral-200 bg-white p-5 shadow-sm dark:border-neutral-700 dark:bg-neutral-900 print:break-inside-avoid">
-      <h3 className="text-center text-sm font-black text-neutral-900 dark:text-neutral-100">
+    <article className="flex flex-col items-center rounded-2xl border border-neutral-200 bg-white p-5 dark:border-neutral-700 dark:bg-neutral-900 print:break-inside-avoid">
+      <h3 className="text-center font-sans text-base font-semibold tracking-tight text-neutral-900 dark:text-neutral-100">
         {label}
       </h3>
-      <p className="mt-1 text-center text-xs font-medium text-neutral-500 dark:text-neutral-400">
+      <p className="mt-1 text-center text-xs font-medium leading-snug text-neutral-500 dark:text-neutral-400">
         {hint}
       </p>
       <div
@@ -26,8 +26,8 @@ export function PartnerQrCard({ label, hint, url, svg }: PartnerQrCardProps) {
         dangerouslySetInnerHTML={{ __html: svg }}
         aria-hidden
       />
-      <p className="mt-3 max-w-[200px] break-all text-center font-mono text-[10px] text-neutral-400 dark:text-neutral-500 print:text-neutral-600">
-        {url.replace(/^https?:\/\//, "")}
+      <p className="mt-3 max-w-[220px] break-all text-center font-mono text-xs leading-snug text-neutral-500 dark:text-neutral-400 print:text-neutral-600">
+        {url.replace(/^https?:\/\//, "").split("?")[0]}
       </p>
     </article>
   );
@@ -47,27 +47,27 @@ export function PartnersPage({ copy, locale, qrCards }: PartnersPageProps) {
   return (
     <main className="relative bg-neutral-50 pb-8 dark:bg-transparent print:bg-white">
       <div className={`${PAGE_SHELL_CLASS} print:max-w-none print:rounded-none print:bg-transparent print:px-4 print:shadow-none print:ring-0`}>
-        <header className="pb-6 pt-4 print:pt-2">
+        <header className="pb-8 pt-4 print:pt-2">
           <a
             href={`/${locale}`}
-            className="text-sm font-semibold text-orange-600 hover:text-orange-500 print:hidden"
+            className="text-xs font-bold uppercase tracking-[0.14em] text-orange-600 hover:text-orange-500 print:hidden"
           >
             ← POP Events
           </a>
-          <h1 className="mt-4 text-3xl font-black tracking-tight text-neutral-950 dark:text-neutral-50 print:text-black">
+          <h1 className="mt-3 text-display font-extrabold tracking-tight text-neutral-950 dark:text-neutral-50 sm:text-display-lg print:text-black">
             {copy.title}
           </h1>
-          <p className="mt-2 text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 print:text-neutral-800 print:bg-none">
+          <p className="mt-2 max-w-2xl text-copy-lead font-semibold text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 print:text-neutral-800 print:bg-none">
             {copy.subtitle}
           </p>
-          <p className="mt-3 text-copy-lead text-neutral-600 dark:text-neutral-300 print:text-neutral-700">
+          <p className="mt-3 max-w-2xl text-copy text-neutral-600 dark:text-neutral-300 print:text-neutral-700">
             {copy.intro}
           </p>
           <PrintButton label={copy.print} />
         </header>
 
-        <section className="mb-8">
-          <h2 className="mb-4 text-lg font-black text-neutral-900 dark:text-neutral-100 print:text-black">
+        <section className="mb-10">
+          <h2 className="mb-4 text-section font-extrabold tracking-tight text-neutral-900 dark:text-neutral-100 print:text-black">
             {copy.qrSection}
           </h2>
           <div className="grid gap-4 sm:grid-cols-2 print:grid-cols-2">
@@ -81,20 +81,20 @@ export function PartnersPage({ copy, locale, qrCards }: PartnersPageProps) {
           </div>
         </section>
 
-        <section className="mb-8 rounded-2xl border border-neutral-200 bg-white p-5 dark:border-neutral-700 dark:bg-neutral-900 print:border-neutral-300">
-          <h2 className="text-lg font-black text-neutral-900 dark:text-neutral-100 print:text-black">
+        <section className="mb-10 rounded-2xl border border-neutral-200 bg-white p-5 dark:border-neutral-700 dark:bg-neutral-900 print:border-neutral-300">
+          <h2 className="text-section font-extrabold tracking-tight text-neutral-900 dark:text-neutral-100 print:text-black">
             {copy.benefits.title}
           </h2>
-          <ul className="mt-3 space-y-2">
+          <ul className="mt-4 space-y-3">
             {copy.benefits.items.map((item) => (
               <li
                 key={item}
-                className="flex gap-2 text-sm font-medium text-neutral-600 dark:text-neutral-300 print:text-neutral-800"
+                className="flex gap-2.5 text-copy text-neutral-600 dark:text-neutral-300 print:text-neutral-800"
               >
-                <span className="text-orange-500" aria-hidden>
+                <span className="mt-0.5 text-orange-500" aria-hidden>
                   ✓
                 </span>
-                {item}
+                <span>{item}</span>
               </li>
             ))}
           </ul>
@@ -105,7 +105,7 @@ export function PartnersPage({ copy, locale, qrCards }: PartnersPageProps) {
         <PartnerDigestSignup locale={locale} copy={copy.digest} />
 
         <section className="print:hidden">
-          <h2 className="mb-3 text-sm font-black uppercase tracking-wide text-neutral-500 dark:text-neutral-400">
+          <h2 className="mb-3 font-sans text-xs font-bold uppercase tracking-wide text-neutral-500 dark:text-neutral-400">
             {copy.links.title}
           </h2>
           <div className="flex flex-wrap gap-2">

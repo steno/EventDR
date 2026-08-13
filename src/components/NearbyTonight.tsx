@@ -115,7 +115,7 @@ function TravelMeta({
   );
 
   return (
-    <p className="flex min-w-0 flex-wrap items-center gap-x-1.5 gap-y-0.5 text-[11px] font-semibold text-orange-700 dark:text-orange-400">
+    <p className="flex min-w-0 flex-wrap items-center gap-x-1.5 gap-y-0.5 text-xs font-semibold text-orange-700 dark:text-orange-400">
       {relation ? <span className="truncate">{relation}</span> : null}
       {relation ? (
         <span className="text-orange-300 dark:text-orange-700" aria-hidden>
@@ -199,12 +199,12 @@ function NearbyCard({
         )}
       </div>
       <div className="relative z-[1] space-y-1 p-2.5 pointer-events-none">
-        <h3 className="line-clamp-2 text-[0.8125rem] font-semibold leading-snug tracking-tight text-neutral-900 dark:text-neutral-100">
+        <h3 className="line-clamp-2 font-sans text-xs font-semibold leading-snug tracking-tight text-neutral-900 dark:text-neutral-100">
           {event.title}
         </h3>
         <TravelMeta hit={hit} dict={dict} />
         {schedule ? (
-          <p className="truncate text-[11px] font-medium text-neutral-500 dark:text-neutral-400">
+          <p className="truncate text-xs font-medium text-neutral-500 dark:text-neutral-400">
             {schedule}
           </p>
         ) : null}
@@ -245,7 +245,7 @@ export function NearbyTonight({
         <div className="min-w-0">
           <h2
             id="nearby-tonight-heading"
-            className="text-[11px] font-bold uppercase tracking-wide text-neutral-500 dark:text-neutral-400"
+            className="font-sans text-xs font-bold uppercase tracking-wide text-neutral-500 dark:text-neutral-400"
           >
             {heading}
           </h2>
@@ -298,7 +298,7 @@ export function PocketPlaceHint({
     .replace("{strip}", pocketStripLabel(pocket, locale));
 
   return (
-    <span className="mt-1 block text-[12px] font-medium leading-snug text-neutral-500 dark:text-neutral-400">
+    <span className="mt-1 block text-xs font-medium leading-snug text-neutral-500 dark:text-neutral-400">
       {label}
     </span>
   );

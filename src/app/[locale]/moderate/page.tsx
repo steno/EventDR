@@ -24,7 +24,7 @@ export default async function Page({
     <main className="min-h-screen bg-neutral-50 dark:bg-transparent px-4 pb-8">
       <div className="mx-auto max-w-lg">
         <AppHeader locale={locale} dict={dict} />
-        <h1 className="text-2xl font-black text-neutral-900 mb-6">
+        <h1 className="text-title font-extrabold text-neutral-900 mb-6">
           {dict.moderate.title}
         </h1>
         <Suspense fallback={<p className="text-neutral-400">{dict.events.loading}</p>}>

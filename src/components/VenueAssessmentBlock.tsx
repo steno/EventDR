@@ -77,7 +77,7 @@ export function VenueAssessmentBlock({
           <div className="mb-1.5 flex flex-wrap items-center gap-2">
             <h2
               id="venue-assessment-heading"
-              className="text-sm font-bold text-neutral-900 dark:text-white"
+              className="font-sans text-sm font-bold text-neutral-900 dark:text-white"
             >
               {a.speaker}
             </h2>
@@ -85,7 +85,7 @@ export function VenueAssessmentBlock({
               {badge}
             </span>
             {blended && google?.rating != null ? (
-              <span className="inline-flex items-center gap-1 rounded-full bg-amber-500/15 px-2 py-0.5 text-[13px] font-bold text-amber-800 ring-1 ring-amber-500/25 dark:bg-amber-400/15 dark:text-amber-200 dark:ring-amber-400/30">
+              <span className="inline-flex items-center gap-1 rounded-full bg-amber-500/15 px-2 py-0.5 text-xs font-bold text-amber-800 ring-1 ring-amber-500/25 dark:bg-amber-400/15 dark:text-amber-200 dark:ring-amber-400/30">
                 <span aria-hidden>★</span>
                 <span>{google.rating.toFixed(1)}</span>
                 {google.reviewCount != null ? (
@@ -104,7 +104,7 @@ export function VenueAssessmentBlock({
               className="absolute -left-1.5 top-3 h-3 w-3 rotate-45 bg-neutral-100 dark:bg-neutral-800/90"
               aria-hidden
             />
-            <p className="relative text-[15px] leading-relaxed text-neutral-800 dark:text-neutral-100">
+            <p className="relative text-copy text-neutral-800 dark:text-neutral-100">
               {tip}
             </p>
           </div>

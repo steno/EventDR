@@ -116,7 +116,7 @@ export function EventDetailActions({
                 aria-hidden
               />
               <div className="min-w-0 flex-1">
-                <p className="text-base font-black text-emerald-950 dark:text-emerald-100">
+                <p className="text-base font-bold text-emerald-950 dark:text-emerald-100">
                   {onboardingCopy.saved.title}
                 </p>
                 <p className="mt-1 text-sm font-medium leading-snug text-emerald-800/80 dark:text-emerald-200/80">
@@ -158,7 +158,7 @@ export function EventDetailActions({
                 aria-hidden
               />
               <div className="min-w-0 flex-1">
-                <p className="text-base font-black text-sky-950 dark:text-sky-100">
+                <p className="text-base font-bold text-sky-950 dark:text-sky-100">
                   {dict.push.title}
                 </p>
                 <p className="mt-1 text-sm font-medium leading-snug text-sky-900/75 dark:text-sky-200/80">
@@ -228,7 +228,7 @@ export function EventDetailActions({
           </div>
         ) : showActionsCoach ? (
           <div className={detailActionPanelClass}>
-            <p className="text-base font-black text-orange-950 dark:text-orange-100">
+            <p className="text-base font-bold text-orange-950 dark:text-orange-100">
               {onboardingCopy.actions.title}
             </p>
             <p className="mt-1 text-sm font-medium leading-snug text-orange-900/75 dark:text-orange-200/80">

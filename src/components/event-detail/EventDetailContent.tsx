@@ -89,13 +89,13 @@ export function EventDetailContent({
   return (
     <>
       {event.communitySubmitted && (
-        <span className="inline-flex items-center gap-1 rounded-full bg-violet-50 dark:bg-violet-950/50 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wide text-violet-600 dark:text-violet-400 mb-3">
+        <span className="inline-flex items-center gap-1 rounded-full bg-violet-50 dark:bg-violet-950/50 px-3 py-1.5 text-xs font-bold uppercase tracking-wide text-violet-600 dark:text-violet-400 mb-3">
           <Users className="h-3.5 w-3.5" />
           {dict.detail.community}
         </span>
       )}
 
-      <TitleTag className="text-2xl font-black text-neutral-900 dark:text-neutral-100 leading-tight tracking-tight lg:text-[1.75rem]">
+      <TitleTag className="text-title font-extrabold leading-tight tracking-tight text-neutral-900 dark:text-neutral-100 lg:text-display">
         {event.title}
       </TitleTag>
 
@@ -298,7 +298,7 @@ export function EventDetailContent({
         <div className={standalone ? "mt-3" : "mt-5"}>
           <div className="flex items-center gap-2 text-neutral-500 mb-2">
             <Mic2 className="h-4 w-4 flex-shrink-0" />
-            <span className="text-[11px] font-bold uppercase tracking-wide">
+            <span className="text-xs font-bold uppercase tracking-wide">
               {dict.detail.lineup}
             </span>
           </div>

@@ -18,8 +18,8 @@ interface EventCategoryLinksProps {
 function categoryChipClass(index: number, linkable: boolean): string {
   const base =
     index === 0
-      ? "inline-flex items-center gap-1 rounded-full bg-neutral-100 dark:bg-neutral-800 px-2.5 py-1 text-[11px] font-bold text-neutral-800 dark:text-neutral-200"
-      : "inline-flex items-center gap-1 rounded-full bg-neutral-50 dark:bg-neutral-900 px-2.5 py-1 text-[11px] font-semibold text-neutral-600 dark:text-neutral-400 ring-1 ring-neutral-200/80 dark:ring-neutral-700/80";
+      ? "inline-flex items-center gap-1 rounded-full bg-neutral-100 dark:bg-neutral-800 px-2.5 py-1 text-xs font-bold text-neutral-800 dark:text-neutral-200"
+      : "inline-flex items-center gap-1 rounded-full bg-neutral-50 dark:bg-neutral-900 px-2.5 py-1 text-xs font-semibold text-neutral-600 dark:text-neutral-400 ring-1 ring-neutral-200/80 dark:ring-neutral-700/80";
 
   if (!linkable) return base;
 

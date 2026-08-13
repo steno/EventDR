@@ -9,7 +9,7 @@ export function Hero({ dict, onAddEvent }: HeroProps) {
   return (
     <header className="pb-4">
       <div className="sm:flex sm:items-start sm:justify-between sm:gap-6">
-        <h1 className="text-[2rem] sm:text-5xl font-black text-neutral-950 dark:text-neutral-50 leading-[1.08] tracking-tight">
+        <h1 className="text-display sm:text-display-lg font-extrabold tracking-tight text-neutral-950 dark:text-neutral-50">
           {dict.hero.events}
           <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500">
@@ -25,7 +25,7 @@ export function Hero({ dict, onAddEvent }: HeroProps) {
           className="
             hidden sm:inline-flex shrink-0 items-center justify-center rounded-full
             bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500
-            px-6 py-3.5 text-[15px] font-black text-white shadow-[0_14px_30px_-14px_rgba(244,63,94,0.8)]
+            px-6 py-3.5 text-sm font-bold text-white shadow-[0_14px_30px_-14px_rgba(244,63,94,0.8)]
             transition-transform active:scale-95 sm:mt-1 touch-manipulation
           "
         >

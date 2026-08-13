@@ -15,7 +15,7 @@ import { SCROLL_CHROME_TRANSITION_CLASS } from "@/lib/scroll-chrome";
 const STICKY_HEADER_HEIGHT_VAR = "--sticky-list-header-height";
 
 export const stickyBackControlClassName =
-  "inline-flex max-w-full min-h-11 min-w-0 items-center gap-2 -ml-2 rounded-xl px-2 py-2.5 text-[15px] font-semibold text-neutral-500 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200 active:bg-neutral-200/60 dark:active:bg-neutral-800/60 touch-manipulation";
+  "inline-flex max-w-full min-h-11 min-w-0 items-center gap-2 -ml-2 rounded-xl px-2 py-2.5 text-sm font-semibold text-neutral-500 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200 active:bg-neutral-200/60 dark:active:bg-neutral-800/60 touch-manipulation";
 
 const detailBackControlClassName =
   "inline-flex max-w-full min-h-9 min-w-0 items-center gap-1.5 -ml-2 rounded-lg px-1.5 py-1.5 text-sm font-semibold text-neutral-500 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200 active:bg-neutral-200/60 dark:active:bg-neutral-800/60 touch-manipulation";

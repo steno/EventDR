@@ -18,6 +18,17 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
   --font-display: var(--font-syne), system-ui, sans-serif;
+
+  /* Type ladder — Syne display titles; Inter via font-sans on cards/UI.
+     display: heroes only · title: page H1 · section: list/sheet H2 */
+  --text-display: 2rem;
+  --text-display--line-height: 1.05;
+  --text-display-lg: 3rem;
+  --text-display-lg--line-height: 1.05;
+  --text-title: 1.5rem;
+  --text-title--line-height: 1.2;
+  --text-section: 1.25rem;
+  --text-section--line-height: 1.25;
 }
 
 body {
@@ -80,11 +91,14 @@ img {
     }
   }
 
-  /* In @layer base so Tailwind font-* utilities can override (e.g. card titles → Inter). */
+  /* Display (Syne 800) for true page/section titles.
+     Card/UI headings override with font-sans + semibold/bold.
+     Uppercase chrome labels should also use font-sans. */
   h1,
   h2,
   h3 {
     font-family: var(--font-display);
+    font-weight: 800;
     letter-spacing: -0.015em;
   }
 }
@@ -194,34 +208,37 @@ button:not(:disabled),
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0.05);
 }
 
-/* Body copy — paragraphs, descriptions, list metadata */
-.text-copy {
-  font-size: 1.0625rem; /* 17px — size bump kept */
-  line-height: 1.6;
-  font-weight: 400;
-  color: #404040; /* neutral-700 */
-}
+/* Body copy — Inter. Pair with text-neutral-* when you need a non-default color
+   (in @layer components so utilities win). */
+@layer components {
+  .text-copy {
+    font-size: 1.0625rem; /* 17px */
+    line-height: 1.6;
+    font-weight: 400;
+    color: #404040; /* neutral-700 */
+  }
 
-.dark .text-copy {
-  color: #d4d4d4; /* neutral-300 */
-}
+  .dark .text-copy {
+    color: #d4d4d4; /* neutral-300 */
+  }
 
-.text-copy-lead {
-  font-size: 1.125rem; /* 18px — size bump kept */
-  line-height: 1.65;
-  font-weight: 400;
-  color: #404040;
-}
+  .text-copy-lead {
+    font-size: 1.125rem; /* 18px */
+    line-height: 1.65;
+    font-weight: 400;
+    color: #404040;
+  }
 
-.dark .text-copy-lead {
-  color: #d4d4d4;
-}
+  .dark .text-copy-lead {
+    color: #d4d4d4;
+  }
 
-.text-copy-meta {
-  font-size: 1rem; /* 16px — size bump kept */
-  line-height: 1.55;
-  font-weight: 500;
-  letter-spacing: 0.01em;
+  .text-copy-meta {
+    font-size: 1rem; /* 16px */
+    line-height: 1.55;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+  }
 }
 
 /* Better touch interaction feedback */

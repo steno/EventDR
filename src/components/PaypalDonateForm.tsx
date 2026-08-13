@@ -43,7 +43,7 @@ export function PaypalDonateForm({ copy, available }: PaypalDonateFormProps) {
         aria-hidden
       />
 
-      <h2 className="relative text-xl font-black tracking-tight">{copy.form.title}</h2>
+      <h2 className="relative text-section font-extrabold tracking-tight">{copy.form.title}</h2>
 
       <div
         className="relative mt-5 grid grid-cols-2 gap-2 sm:grid-cols-4"
@@ -66,7 +66,7 @@ export function PaypalDonateForm({ copy, available }: PaypalDonateFormProps) {
                   : "border-white/15 bg-white/5 text-white hover:border-white/30 dark:border-neutral-300 dark:bg-white dark:text-neutral-950 dark:hover:border-neutral-400",
               ].join(" ")}
             >
-              <span className="block text-lg font-black tracking-tight">
+              <span className="block text-lg font-bold tracking-tight">
                 {formatDonateAmount(preset)}
               </span>
             </button>
@@ -87,7 +87,7 @@ export function PaypalDonateForm({ copy, available }: PaypalDonateFormProps) {
           <button
             type="button"
             onClick={donate}
-            className="relative mt-5 flex min-h-12 w-full items-center justify-center rounded-2xl bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-5 text-base font-black text-white shadow-lg shadow-rose-500/25 transition-transform duration-200 hover:brightness-105 active:scale-[0.98]"
+            className="relative mt-5 flex min-h-12 w-full items-center justify-center rounded-2xl bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-5 text-base font-bold text-white shadow-lg shadow-rose-500/25 transition-transform duration-200 hover:brightness-105 active:scale-[0.98]"
           >
             {cta}
           </button>

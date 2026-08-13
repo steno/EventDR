@@ -37,16 +37,16 @@ export function CityPrimingSheet({
       >
         <div className="flex items-start justify-between gap-4">
           <div>
-            <p className="text-xs font-black uppercase tracking-[0.16em] text-orange-600 dark:text-orange-400">
+            <p className="text-xs font-bold uppercase tracking-[0.16em] text-orange-600 dark:text-orange-400">
               {copy.eyebrow}
             </p>
             <h2
               id="city-priming-title"
-              className="mt-1 text-2xl font-black tracking-tight text-neutral-950 dark:text-neutral-50"
+              className="mt-1 text-title font-extrabold tracking-tight text-neutral-950 dark:text-neutral-50"
             >
               {copy.title}
             </h2>
-            <p className="mt-2 text-base font-medium leading-relaxed text-neutral-500 dark:text-neutral-400">
+            <p className="mt-2 text-copy font-medium text-neutral-500 dark:text-neutral-400">
               {copy.body}
             </p>
           </div>

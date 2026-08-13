@@ -9,7 +9,7 @@ export function PrintButton({ label }: PrintButtonProps) {
     <button
       type="button"
       onClick={() => window.print()}
-      className="mt-4 inline-flex items-center rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-bold text-neutral-800 shadow-sm transition active:scale-95 dark:border-neutral-600 dark:bg-neutral-800 dark:text-neutral-100 print:hidden"
+      className="mt-5 inline-flex items-center rounded-full bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-5 py-2.5 text-sm font-bold text-white transition-transform active:scale-95 print:hidden"
     >
       {label}
     </button>

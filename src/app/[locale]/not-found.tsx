@@ -27,7 +27,7 @@ export default async function NotFound() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-neutral-50 dark:bg-transparent px-4 text-center">
-      <h1 className="text-2xl font-black text-neutral-900 dark:text-neutral-100">{dict.seo.notFoundTitle}</h1>
+      <h1 className="text-title font-extrabold text-neutral-900 dark:text-neutral-100">{dict.seo.notFoundTitle}</h1>
       <p className="mt-3 max-w-md text-sm text-neutral-600 dark:text-neutral-400">{dict.seo.notFoundDescription}</p>
       <Link
         href={`/${locale}`}

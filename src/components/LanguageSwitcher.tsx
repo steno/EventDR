@@ -38,7 +38,7 @@ export function LanguageSwitcher({ locale, dict }: LanguageSwitcherProps) {
           type="button"
           onClick={() => switchLocale(lang)}
           className={`
-            px-2.5 py-1 rounded-full text-[11px] font-bold tracking-wide transition-all
+            px-2.5 py-1 rounded-full text-xs font-bold tracking-wide transition-all
             ${
               locale === lang
                 ? "bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 text-white shadow-sm"

@@ -56,7 +56,7 @@ export default async function Page({
         />
 
         <div className="mb-4">
-          <h1 className="text-2xl font-black tracking-tight text-neutral-900 dark:text-neutral-100">
+          <h1 className="text-title font-extrabold tracking-tight text-neutral-900 dark:text-neutral-100">
             {dict.browse.title}
           </h1>
           <p className="mt-0.5 text-sm font-medium text-neutral-500 dark:text-neutral-400">

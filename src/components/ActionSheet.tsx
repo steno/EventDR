@@ -17,7 +17,7 @@ interface ActionSheetProps {
 export function ActionSheet({ title, children }: ActionSheetProps) {
   return (
     <div>
-      <p className="text-base font-black text-orange-950 dark:text-orange-100">
+      <p className="text-base font-bold text-orange-950 dark:text-orange-100">
         {title}
       </p>
       <div className="mt-3">{children}</div>
@@ -62,7 +62,7 @@ export function ActionSheetTile({
       >
         {icon}
       </span>
-      <span className="w-full truncate px-0.5 text-[13px] font-semibold leading-tight text-orange-950 dark:text-orange-100">
+      <span className="w-full truncate px-0.5 text-xs font-semibold leading-tight text-orange-950 dark:text-orange-100">
         {label}
       </span>
     </button>

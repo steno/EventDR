@@ -70,7 +70,7 @@ export function SupportNudge({ locale, dict }: SupportNudgeProps) {
           <Heart className="h-4 w-4 fill-current" />
         </span>
         <div className="min-w-0 flex-1">
-          <p className="text-sm font-black tracking-tight text-neutral-950 dark:text-neutral-50">
+          <p className="text-sm font-bold tracking-tight text-neutral-950 dark:text-neutral-50">
             {dict.supportNudge.title}
           </p>
           <p className="mt-0.5 text-xs font-medium leading-relaxed text-neutral-600 dark:text-neutral-300">
@@ -80,7 +80,7 @@ export function SupportNudge({ locale, dict }: SupportNudgeProps) {
             <Link
               href={`/${locale}/support`}
               onClick={dismiss}
-              className="inline-flex min-h-9 items-center rounded-full bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-3.5 text-xs font-black text-white transition-transform active:scale-[0.98]"
+              className="inline-flex min-h-9 items-center rounded-full bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-3.5 text-xs font-bold text-white transition-transform active:scale-[0.98]"
             >
               {dict.supportNudge.cta}
             </Link>

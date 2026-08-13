@@ -12,7 +12,7 @@ export function EventListError({ dict, onRetry }: EventListErrorProps) {
       <div className="flex h-16 w-16 items-center justify-center rounded-full bg-red-50 dark:bg-red-950/30 mb-4">
         <AlertCircle className="h-8 w-8 text-red-500 dark:text-red-400" />
       </div>
-      <h3 className="text-lg font-bold text-neutral-900 dark:text-neutral-100 mb-2">
+      <h3 className="mb-2 text-section font-extrabold text-neutral-900 dark:text-neutral-100">
         {dict.events.errorTitle || "Unable to load events"}
       </h3>
       <p className="text-sm text-neutral-600 dark:text-neutral-400 text-center max-w-md mb-6">

@@ -76,10 +76,10 @@ export function PhotoHero({
 
         <div className="relative z-10 flex min-h-[15.5rem] flex-col justify-end gap-3 px-4 pb-5 pt-10 sm:min-h-[12.5rem] sm:px-6 sm:pb-5 sm:pt-8">
           <div className="min-w-0">
-            <p className="text-[13px] font-bold uppercase tracking-[0.18em] text-white/80 [text-shadow:0_1px_2px_rgba(0,0,0,0.45)]">
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-white/80 [text-shadow:0_1px_2px_rgba(0,0,0,0.45)]">
               {dict.seo.siteName}
             </p>
-            <h1 className="mt-1 text-[2rem] font-black leading-[1.05] tracking-tight sm:text-5xl">
+            <h1 className="mt-1 text-display font-extrabold tracking-tight sm:text-display-lg">
               <span className="text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.4)]">
                 {eventsPrefix}{" "}
               </span>
@@ -87,7 +87,7 @@ export function PhotoHero({
                 {heroPlace}
               </span>
             </h1>
-            <p className="mt-2 max-w-md text-[15px] font-medium leading-snug text-white/90 [text-shadow:0_1px_2px_rgba(0,0,0,0.4)]">
+            <p className="mt-2 max-w-md text-copy font-medium text-white/90 [text-shadow:0_1px_2px_rgba(0,0,0,0.4)]">
               {dict.hero.subtitle}{" "}
               <span className="font-bold text-white">
                 {dict.hero.subtitleHighlight}
@@ -100,7 +100,7 @@ export function PhotoHero({
             <IntentLink
               href={eventHref}
               onClick={() => rememberReturnPath(returnTo ?? `/${locale}`)}
-              className="group inline-flex max-w-full items-center gap-2 text-[15px] font-bold touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400 focus-visible:rounded"
+              className="group inline-flex max-w-full items-center gap-2 text-sm font-bold touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400 focus-visible:rounded"
             >
               <span className="truncate bg-gradient-to-r from-orange-300 via-rose-300 to-fuchsia-300 bg-clip-text text-transparent transition-[filter] group-hover:brightness-110">
                 {featuredEvent.title}

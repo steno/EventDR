@@ -499,10 +499,10 @@ export function EmptyPong({
       aria-hidden
     >
       <div className="mb-2 text-center">
-        <p className="text-[18px] font-semibold uppercase tracking-[0.12em] text-neutral-500 dark:text-neutral-400">
+        <p className="text-lg font-semibold uppercase tracking-[0.12em] text-neutral-500 dark:text-neutral-400">
           {labels.score}
         </p>
-        <p className="text-[18px] font-semibold leading-none tracking-[0.12em] text-neutral-900 tabular-nums dark:text-white">
+        <p className="text-lg font-semibold leading-none tracking-[0.12em] text-neutral-900 tabular-nums dark:text-white">
           <span ref={scoreRef}>0</span>
         </p>
       </div>

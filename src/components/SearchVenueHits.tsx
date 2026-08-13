@@ -18,7 +18,7 @@ export function SearchVenueHits({ venues, locale, title }: SearchVenueHitsProps)
 
   return (
     <section className="mb-6" aria-label={title}>
-      <h2 className="mb-3 text-xl font-black tracking-tight text-neutral-900 dark:text-neutral-100">
+      <h2 className="mb-3 text-section font-extrabold tracking-tight text-neutral-900 dark:text-neutral-100">
         {title}
       </h2>
       <ul className="space-y-2">
@@ -51,7 +51,7 @@ export function SearchVenueHits({ venues, locale, title }: SearchVenueHitsProps)
                 <p className="truncate text-base font-bold text-neutral-900 dark:text-neutral-100">
                   {venue.name}
                 </p>
-                <p className="mt-0.5 flex items-center gap-1 text-[13px] font-medium text-neutral-500 dark:text-neutral-400">
+                <p className="mt-0.5 flex items-center gap-1 text-xs font-medium text-neutral-500 dark:text-neutral-400">
                   <MapPin className="h-3.5 w-3.5 shrink-0" aria-hidden />
                   <span className="truncate">{venue.city}</span>
                 </p>

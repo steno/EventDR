@@ -38,10 +38,10 @@ export function PartnerDigestSignup({
   }
 
   return (
-    <section className="mb-8 rounded-3xl bg-neutral-950 p-5 text-white dark:bg-neutral-100 dark:text-neutral-950 print:hidden">
+    <section className="mb-10 rounded-3xl bg-neutral-950 p-6 text-white dark:bg-neutral-100 dark:text-neutral-950 print:hidden">
       <Mail className="h-6 w-6 text-orange-400" aria-hidden />
-      <h2 className="mt-3 text-xl font-black tracking-tight">{copy.title}</h2>
-      <p className="mt-1.5 max-w-xl text-sm font-medium leading-relaxed text-neutral-300 dark:text-neutral-600">
+      <h2 className="mt-3 text-section font-extrabold tracking-tight">{copy.title}</h2>
+      <p className="mt-2 max-w-xl text-copy text-neutral-300 dark:text-neutral-600">
         {copy.body}
       </p>
       {status === "success" ? (
@@ -75,7 +75,7 @@ export function PartnerDigestSignup({
             <button
               type="submit"
               disabled={status === "loading"}
-              className="min-h-12 rounded-2xl bg-gradient-to-r from-orange-500 to-rose-500 px-5 text-sm font-black text-white disabled:opacity-60"
+              className="min-h-12 rounded-2xl bg-gradient-to-r from-orange-500 to-rose-500 px-5 text-sm font-bold text-white disabled:opacity-60"
             >
               {status === "loading" ? "…" : copy.button}
             </button>

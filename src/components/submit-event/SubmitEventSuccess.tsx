@@ -32,10 +32,10 @@ export function SubmitEventSuccess({
   return (
     <div className="flex min-h-0 flex-1 flex-col items-center justify-center overflow-y-auto px-6 py-12 text-center">
       <CheckCircle className="mb-4 h-14 w-14 text-emerald-500" />
-      <h3 className="text-2xl font-black tracking-tight text-neutral-950 dark:text-neutral-50">
+      <h3 className="text-title font-extrabold tracking-tight text-neutral-950 dark:text-neutral-50">
         {onboardingCopy.statusTitle}
       </h3>
-      <p className="mt-2 max-w-sm text-sm font-medium leading-relaxed text-neutral-500 dark:text-neutral-400">
+      <p className="mt-2 max-w-sm text-copy font-medium text-neutral-500 dark:text-neutral-400">
         {successMessage || dict.submit.success}
       </p>
       <p className="mt-2 max-w-sm text-sm font-bold text-neutral-700 dark:text-neutral-200">
