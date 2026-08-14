@@ -130,7 +130,7 @@ function TodayHighlightCard({
               className="w-fit"
             />
           )}
-          <h3 className="line-clamp-2 font-sans text-lg font-bold leading-snug text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.55)] sm:text-xl">
+          <h3 className="line-clamp-2 font-sans text-xl font-extrabold leading-snug tracking-[0.01em] text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.55)] sm:text-2xl">
             {event.title}
           </h3>
           {timeLabel.display && (
