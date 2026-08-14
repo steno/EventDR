@@ -141,7 +141,6 @@ const FILE_TO_EVENT_ID = {
 /** Same venue, same photo — copy after primary sync. */
 const SAME_VENUE_COPIES = [
   ["ElBateySalsaSocial.JPG", "el-batey-weekend-nightlife"],
-  ["CremoSalsaFriday.jpg", "cremo-friday-salsa-dance"],
   // Ojo / open mic / LAX headlines use dedicated assets (not salsa social or sunset).
   ["voyvoy-monday-live-music.jpg", "voyvoy-saturday-session"],
   ["voyvoy-monday-live-music.jpg", "voyvoy-sunday-open-mic"],

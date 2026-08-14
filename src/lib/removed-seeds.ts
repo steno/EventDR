@@ -29,6 +29,8 @@ export const REMOVED_SEED_EVENT_IDS = new Set([
   "sea-horse-saturday-artisan-fair",
   // Duplicate of anfiteatro-la-puntilla-concerts (same venue, weekends, source URL).
   "anfiteatro-cultural-performances",
+  // Duplicate of cremo-salsa-friday (same venue, Friday 8–11 PM, source URL).
+  "cremo-friday-salsa-dance",
   // Overlaps La Puntilla concerts (same hours/source; older Malecón placeholder).
   "malecon-live-concert",
   // Ingest misfire: Expo Amaprosan is Parque Central de Santiago (Cibao), not POP.

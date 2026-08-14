@@ -66,7 +66,6 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "vivonte-cigar-factory-saturday": "vivonte-cigar-factory-weekdays.jpg",
   "freestyle-catamaran-daily": "freestyle-catamaran-daily.jpg",
   "outback-safari-daily": "outback-safari-daily.jpeg",
-  "cremo-friday-salsa-dance": "cremo-friday-salsa-dance.jpg",
   "anfiteatro-la-puntilla-concerts": "anfiteatro-la-puntilla-concerts.jpg",
   "el-carey-karaoke-mujeres-monday": "el-carey-karaoke-mujeres-monday.jpg",
   "el-carey-weekend-nightlife": "el-carey-weekend-nightlife.jpg",

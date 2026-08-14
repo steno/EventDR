@@ -861,23 +861,6 @@
     "imageEmoji": "🛻"
   },
   {
-    "id": "cremo-friday-salsa-dance",
-    "title": "Cremo Friday Salsa Dance Social",
-    "description": "Friday salsa social at Cremo Cigar Bar in downtown Puerto Plata — live Latin band, dance floor, and Dominican rum cocktails in the historic center. All levels welcome.",
-    "date": "2026-01-01",
-    "time": "8:00 PM – 11:00 PM",
-    "location": "Puerto Plata",
-    "venue": "Cremo Cigar Bar & Lounge",
-    "venueSlug": "cremo-cigar-bar",
-    "address": "C. José del Carmen Ariza 47",
-    "category": "dance",
-    "format": "physical",
-    "recurrence": "weekly",
-    "recurrenceDay": 5,
-    "sourceUrl": "https://cremocigars.com/cremo-cigar-bar-lounge-en/",
-    "imageEmoji": "💃"
-  },
-  {
     "id": "anfiteatro-la-puntilla-concerts",
     "title": "Anfiteatro La Puntilla Concerts",
     "description": "Outdoor concerts, cultural shows, and carnival troupes at Anfiteatro La Puntilla on the Atlantic — weekend performances on Puerto Plata's Malecón waterfront stage overlooking Fortaleza San Felipe. Admission varies by show (many municipal/Mitur concerts are free; billed artists sell tickets separately). Lineups announced per show.",
