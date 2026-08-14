@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import { notFound } from "next/navigation";
+import type { Viewport } from "next";
 import { isValidLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { SITE_URL } from "@/lib/site-url";
@@ -16,6 +17,10 @@ import { SupportNudge } from "@/components/SupportNudge";
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
+
+export const viewport: Viewport = {
+  themeColor: "#0a0a0a",
+};
 
 export async function generateMetadata({
   params,
@@ -50,7 +55,6 @@ export async function generateMetadata({
       statusBarStyle: "black-translucent",
       title: "POP Events",
     },
-    themeColor: "#0a0a0a",
     icons: {
       icon: [
         { url: "/favicon.png", sizes: "192x192", type: "image/png" },

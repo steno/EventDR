@@ -296,9 +296,11 @@ export async function getVenueAssessment(
 ): Promise<VenueAssessment | null> {
   if (!areVenueAssessmentsEnabled()) return null;
 
-  const assessment = isGooglePlacesConfigured()
-    ? await getCachedVenueAssessment(slug)
-    : await loadVenueAssessment(slug, false);
+  const assessment =
+    isGooglePlacesConfigured() &&
+    process.env.NEXT_PHASE !== "phase-production-build"
+      ? await getCachedVenueAssessment(slug)
+      : await loadVenueAssessment(slug, false);
 
   if (!assessment) return null;
   if (assessment.confidence < ASSESSMENT_CONFIDENCE_THRESHOLD) return null;

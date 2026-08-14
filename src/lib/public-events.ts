@@ -88,16 +88,20 @@ async function loadPublicEvents(filter: PublicEventsFilter): Promise<Event[]> {
 
   events = mergeUniqueEvents(events, getCommunityEvents());
 
-  try {
-    const dbEvents = normalizeEventCoordsList(
-      await fetchApprovedEvents({ category, venueSlug, locale }),
-    );
-    events = mergeUniqueEvents(
-      localizeEventsForDisplay(dbEvents, locale),
-      events,
-    );
-  } catch {
-    // Firebase may be unavailable at build time.
+  // Same as nearby-tonight: Firestore + admin SDK during SSG of ~400 pages
+  // OOMs Netlify workers (SIGKILL). ISR/runtime still loads approved events.
+  if (process.env.NEXT_PHASE !== "phase-production-build") {
+    try {
+      const dbEvents = normalizeEventCoordsList(
+        await fetchApprovedEvents({ category, venueSlug, locale }),
+      );
+      events = mergeUniqueEvents(
+        localizeEventsForDisplay(dbEvents, locale),
+        events,
+      );
+    } catch {
+      // Firebase may be unavailable at build time.
+    }
   }
 
   events = applyScopeFilters(events, filter);

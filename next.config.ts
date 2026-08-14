@@ -32,6 +32,10 @@ const tunnelDomains = [
 
 const nextConfig: NextConfig = {
   allowedDevOrigins: [...getLocalIPv4Addresses(), ...extraDevOrigins, ...tunnelDomains],
+  // One SSG worker so Netlify's ~8GB box isn't SIGKILL'd by 2×4GB heaps.
+  experimental: {
+    cpus: 1,
+  },
   images: {
     formats: ["image/avif", "image/webp"],
     deviceSizes: [384, 640, 750, 828, 1080, 1200, 1920],
