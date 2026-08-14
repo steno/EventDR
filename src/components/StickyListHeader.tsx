@@ -10,6 +10,7 @@ import { useScrollChromeVisible } from "@/hooks/useScrollChrome";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { signalNavPending } from "@/lib/nav-feedback";
+import { fillTemplate } from "@/lib/seo";
 import { PAGE_GUTTER_BLEED_CLASS } from "@/lib/page-shell";
 import { SCROLL_CHROME_TRANSITION_CLASS } from "@/lib/scroll-chrome";
 
@@ -124,11 +125,14 @@ export function StickyListHeader({
     signalNavPending("soft");
   }
 
+  const backAriaLabel = fillTemplate(dict.browse.backTo, { title: backLabel });
+
   function renderBackControl() {
     if (onBack) {
       return (
         <button
           type="button"
+          aria-label={backAriaLabel}
           aria-busy={pending || undefined}
           onClick={() => {
             beginBack();
@@ -144,6 +148,7 @@ export function StickyListHeader({
     return (
       <Link
         href={backHref}
+        aria-label={backAriaLabel}
         aria-busy={pending || undefined}
         onClick={beginBack}
         className={backControlClassName}

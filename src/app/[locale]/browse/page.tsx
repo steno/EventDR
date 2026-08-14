@@ -5,7 +5,7 @@ import { getDictionary } from "@/i18n/dictionaries";
 import { CategoryDirectory } from "@/components/CategoryDirectory";
 import { StickyListHeader } from "@/components/StickyListHeader";
 import { getPublicEvents } from "@/lib/public-events";
-import { buildAlternates, fillTemplate } from "@/lib/seo";
+import { buildAlternates } from "@/lib/seo";
 import { PAGE_SHELL_CLASS } from "@/lib/page-shell";
 
 export const revalidate = 120;
@@ -41,9 +41,7 @@ export default async function Page({
 
   const dict = getDictionary(locale);
   const events = await getPublicEvents({ locale });
-  const backLabel = fillTemplate(dict.browse.backTo, {
-    title: dict.nav.discover,
-  });
+  const backLabel = dict.nav.discover;
 
   return (
     <main className="relative bg-neutral-50 pb-6 dark:bg-transparent">

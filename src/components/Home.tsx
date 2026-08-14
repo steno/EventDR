@@ -422,18 +422,17 @@ function HomeApp({
 
           {tab === "saved" && (
             <div className="pt-1">
-              <button
-                type="button"
-                onClick={() => handleTabChange("discover")}
-                className={stickyBackControlClassName}
-              >
-                <ArrowLeft className="h-[1.125rem] w-[1.125rem] shrink-0" aria-hidden />
-                <span className="min-w-0 truncate">
-                  {fillTemplate(dict.browse.backTo, {
+                <button
+                  type="button"
+                  aria-label={fillTemplate(dict.browse.backTo, {
                     title: dict.nav.discover,
                   })}
-                </span>
-              </button>
+                  onClick={() => handleTabChange("discover")}
+                  className={stickyBackControlClassName}
+                >
+                  <ArrowLeft className="h-[1.125rem] w-[1.125rem] shrink-0" aria-hidden />
+                  <span className="min-w-0 truncate">{dict.nav.discover}</span>
+                </button>
               <h2 className="mt-1 mb-6 text-title font-extrabold text-neutral-900 dark:text-neutral-100">
                 {dict.saved.title}
               </h2>

@@ -10,7 +10,6 @@ import {
   type CitySlug,
 } from "@/lib/cities";
 import { categoryPath } from "@/lib/event-navigation";
-import { fillTemplate } from "@/lib/seo";
 import { signalNavPending } from "@/lib/nav-feedback";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
@@ -51,17 +50,6 @@ export function CityLocationPicker({
   const buttonRef = useRef<HTMLButtonElement>(null);
   const listId = useId();
 
-  // Category pages: "{Category} Events in [area]"
-  // Home: "Events in [area]"
-  // City/when scope pages: "All Events in [area]"
-  const scopePrefix = categoryId
-    ? fillTemplate(dict.cities.lookingInWithCategory, {
-        category: dict.categoriesSingular[categoryId],
-      })
-    : onSelect
-      ? dict.cities.eventsIn
-      : dict.cities.lookingIn;
-
   const options: AreaOption[] = [
     { slug: null, label: dict.cities.regionName },
     ...CITIES.map((city) => ({
@@ -73,14 +61,6 @@ export function CityLocationPicker({
   const currentLabel =
     options.find((option) => option.slug === currentSlug)?.label ??
     dict.cities.regionName;
-
-  // Add article before region name: "the North Coast", "la Costa Norte"
-  const isRegion = currentLabel === dict.cities.regionName;
-  const displayLabel = isRegion
-    ? locale === "en"
-      ? `the ${currentLabel}`
-      : `la ${currentLabel}`
-    : currentLabel;
 
   useEffect(() => {
     if (!open) return;
@@ -133,38 +113,35 @@ export function CityLocationPicker({
 
   return (
     <div ref={rootRef} className="relative w-full">
-      <p className="text-section font-extrabold text-neutral-950 dark:text-white">
-        {scopePrefix}
-        <button
-          ref={buttonRef}
-          type="button"
-          aria-haspopup="listbox"
-          aria-expanded={open}
-          aria-controls={listId}
-          aria-label={`${dict.cities.chooseArea}: ${currentLabel}`}
-          onClick={() => setOpen((value) => !value)}
-          className="
-            ml-3 inline-flex max-w-full items-center gap-1 align-middle
-            rounded-lg border border-orange-500/50 bg-orange-500/12
-            px-2.5 py-0.5 font-bold text-orange-700
-            shadow-sm transition-[color,background-color,border-color,transform]
-            touch-manipulation active:scale-[0.98]
-            hover:border-orange-500/80 hover:bg-orange-500/18
-            focus-visible:outline focus-visible:outline-2
-            focus-visible:outline-offset-2 focus-visible:outline-orange-500
-            dark:border-orange-400/50 dark:bg-orange-400/15 dark:text-orange-300
-            dark:hover:border-orange-400/80 dark:hover:bg-orange-400/22
-          "
-        >
-          <span className="truncate">{displayLabel}</span>
-          <ChevronDown
-            className={`h-4 w-4 shrink-0 opacity-80 transition-transform ${
-              open ? "rotate-180" : ""
-            }`}
-            aria-hidden
-          />
-        </button>
-      </p>
+      <button
+        ref={buttonRef}
+        type="button"
+        aria-haspopup="listbox"
+        aria-expanded={open}
+        aria-controls={listId}
+        aria-label={`${dict.cities.chooseArea}: ${currentLabel}`}
+        onClick={() => setOpen((value) => !value)}
+        className="
+          inline-flex max-w-full items-center gap-1.5
+          rounded-lg border border-orange-500/50 bg-orange-500/12
+          px-3 py-1 text-section font-extrabold text-orange-700
+          shadow-sm transition-[color,background-color,border-color,transform]
+          touch-manipulation active:scale-[0.98]
+          hover:border-orange-500/80 hover:bg-orange-500/18
+          focus-visible:outline focus-visible:outline-2
+          focus-visible:outline-offset-2 focus-visible:outline-orange-500
+          dark:border-orange-400/50 dark:bg-orange-400/15 dark:text-orange-300
+          dark:hover:border-orange-400/80 dark:hover:bg-orange-400/22
+        "
+      >
+        <span className="truncate">{currentLabel}</span>
+        <ChevronDown
+          className={`h-4 w-4 shrink-0 opacity-80 transition-transform ${
+            open ? "rotate-180" : ""
+          }`}
+          aria-hidden
+        />
+      </button>
 
       {open ? (
         <ul

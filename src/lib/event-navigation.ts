@@ -7,7 +7,6 @@ import {
   isCitySlug,
   type CitySlug,
 } from "./cities";
-import { fillTemplate } from "./seo";
 import { getWhenSeo, isWhenSlug } from "./time-seo";
 import type { Event, EventCategory } from "./types";
 import { getSeedVenue } from "./venues-seed";
@@ -223,9 +222,7 @@ export function resolveReturnPageTitle(
   const segments = pathname.slice(`/${locale}/`.length).split("/");
 
   if (segments[0] === "events") {
-    return fillTemplate(dict.browse.eventsInPlace, {
-      place: dict.cities.regionName,
-    });
+    return dict.cities.regionName;
   }
 
   if (segments[0] === "category" && segments[1] && CATEGORY_IDS.includes(segments[1] as EventCategory)) {
@@ -250,9 +247,7 @@ export function resolveReturnPageTitle(
   if (segments[0] === "city" && segments[1] && isCitySlug(segments[1])) {
     const city = getCityMeta(segments[1]);
     if (city) {
-      return fillTemplate(dict.browse.eventsInPlace, {
-        place: getCityName(city, locale),
-      });
+      return getCityName(city, locale);
     }
   }
 
@@ -277,5 +272,5 @@ export function resolveBackLabel(
   const title =
     sanitizeReturnTitle(titleOverride) ??
     resolveReturnPageTitle(locale, path, dict);
-  return fillTemplate(dict.browse.backTo, { title });
+  return title;
 }

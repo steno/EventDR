@@ -44,6 +44,7 @@ export type Dictionary = {
     subtitle: string;
     clear: string;
     ariaLabel: string;
+    /** Accessible name for back controls with an arrow (`Back to {title}`). */
     backTo: string;
     eventsIn: string;
     eventsInPlace: string;

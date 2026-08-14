@@ -278,12 +278,13 @@ export function VenueMapPanel({
     setStreetViewOpen(true);
   }, [onReveal]);
 
+  const expanded = mapOpen || streetViewOpen;
   const streetViewControl =
     streetViewMode !== "hidden" && !streetViewOpen ? (
       <button
         type="button"
         onClick={openStreetView}
-        className="inline-flex w-full items-center justify-center rounded-lg border border-neutral-300 bg-white/95 px-4 py-2.5 text-sm font-semibold text-neutral-800 shadow-sm touch-manipulation backdrop-blur-sm transition hover:bg-white active:scale-[0.98] sm:w-auto dark:border-neutral-600 dark:bg-neutral-900/95 dark:text-neutral-100 dark:hover:bg-neutral-800"
+        className="inline-flex w-full items-center justify-center rounded-lg border border-neutral-300 bg-white px-4 py-2.5 text-sm font-semibold text-neutral-800 shadow-sm touch-manipulation transition hover:bg-neutral-50 active:scale-[0.98] dark:border-neutral-600 dark:bg-neutral-900 dark:text-neutral-100 dark:hover:bg-neutral-800"
       >
         {dict.venues.streetView}
       </button>
@@ -291,18 +292,20 @@ export function VenueMapPanel({
 
   return (
     <div
-      className={`event-inline-map relative overflow-hidden bg-neutral-200 dark:bg-neutral-800 ${className}`}
+      className={`event-inline-map relative overflow-hidden ${
+        expanded
+          ? `bg-neutral-200 dark:bg-neutral-800 ${className}`
+          : "h-auto bg-white dark:bg-neutral-900"
+      }`}
     >
       <MapReveal
-        lat={destination.lat}
-        lng={destination.lng}
         label={dict.venues.showMap}
         secondary={streetViewControl}
-        forceReveal={mapOpen || streetViewOpen}
+        forceReveal={expanded}
         onReveal={onReveal}
         attention={attention && !forceReveal && !streetViewOpen}
         onAttentionEnd={onAttentionEnd}
-        className="h-full w-full"
+        className={expanded ? "h-full w-full" : "w-full"}
       >
         <EventInlineMap
           coords={destination}
