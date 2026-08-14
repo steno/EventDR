@@ -94,7 +94,7 @@ const EventCardComponent = ({
           )}
         </div>
         <div className="relative z-[1] flex flex-1 flex-col gap-1.5 p-3 pointer-events-none">
-          <h3 className="line-clamp-2 font-sans text-sm font-semibold leading-snug tracking-tight text-neutral-900 dark:text-neutral-100 sm:text-base">
+          <h3 className="line-clamp-2 font-sans text-base font-bold leading-snug text-neutral-950 dark:text-white sm:text-lg">
             {event.title}
           </h3>
           <EventCardMeta
@@ -153,7 +153,7 @@ const EventCardComponent = ({
 
         <div className="flex-1 min-w-0 pt-0.5">
           <div className={`flex items-start gap-2.5 ${compact ? "mb-1.5" : "mb-2"}`}>
-            <h3 className="font-sans text-base font-semibold leading-snug tracking-tight text-neutral-900 dark:text-neutral-100 line-clamp-3 sm:line-clamp-2 flex-1 sm:text-lg">
+            <h3 className="font-sans text-lg font-bold leading-snug text-neutral-950 dark:text-white line-clamp-3 sm:line-clamp-2 flex-1 sm:text-xl">
               {event.title}
             </h3>
             {event.trending && !liveStatusLabel && liveStatus !== "ended" && (

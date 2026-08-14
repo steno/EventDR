@@ -133,8 +133,8 @@ export function CityLocationPicker({
 
   return (
     <div ref={rootRef} className="relative w-full">
-      <p className="text-base leading-snug text-neutral-800 dark:text-neutral-200">
-        {scopePrefix}{" "}
+      <p className="text-section font-extrabold text-neutral-950 dark:text-white">
+        {scopePrefix}
         <button
           ref={buttonRef}
           type="button"
@@ -144,9 +144,9 @@ export function CityLocationPicker({
           aria-label={`${dict.cities.chooseArea}: ${currentLabel}`}
           onClick={() => setOpen((value) => !value)}
           className="
-            inline-flex max-w-full items-center gap-1 align-baseline
+            ml-3 inline-flex max-w-full items-center gap-1 align-middle
             rounded-lg border border-orange-500/50 bg-orange-500/12
-            px-2 py-0.5 font-bold tracking-tight text-orange-700
+            px-2.5 py-0.5 font-bold text-orange-700
             shadow-sm transition-[color,background-color,border-color,transform]
             touch-manipulation active:scale-[0.98]
             hover:border-orange-500/80 hover:bg-orange-500/18
@@ -189,7 +189,7 @@ export function CityLocationPicker({
                   onClick={() => goTo(option.slug)}
                   className={`
                     flex w-full items-center justify-between gap-3
-                    px-3.5 py-2.5 text-left text-sm font-semibold tracking-tight
+                    px-3.5 py-2.5 text-left text-base font-semibold tracking-tight
                     transition-colors touch-manipulation
                     focus-visible:outline focus-visible:outline-2
                     focus-visible:outline-offset-[-2px] focus-visible:outline-orange-500

@@ -76,7 +76,7 @@ export function EventCardMeta({
   });
   if (compact) {
     return (
-      <div className={`space-y-1.5 text-copy-meta font-medium text-neutral-800 dark:text-neutral-200 ${className}`}>
+      <div className={`space-y-1.5 text-sm font-medium text-neutral-500 dark:text-neutral-400 ${className}`}>
         <span className="inline-flex flex-wrap items-center gap-x-2 gap-y-1">
           <span className="inline-flex items-center gap-1.5">
             <Calendar className="h-3.5 w-3.5 shrink-0" aria-hidden />
@@ -94,7 +94,7 @@ export function EventCardMeta({
           <div className="flex min-w-0 flex-wrap items-center gap-x-1.5 gap-y-1">
             {timeLabel.display && (
               <span
-                className="inline-flex shrink-0 items-center gap-1 text-xs font-medium tabular-nums leading-none text-neutral-800 dark:text-neutral-200"
+                className="inline-flex shrink-0 items-center gap-1 text-sm font-medium tabular-nums leading-none text-neutral-500 dark:text-neutral-400"
                 title={
                   timeLabel.full !== timeLabel.display ? timeLabel.full : undefined
                 }

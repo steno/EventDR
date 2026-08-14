@@ -95,7 +95,7 @@ export function EventDetailContent({
         </span>
       )}
 
-      <TitleTag className="text-title font-extrabold leading-tight tracking-tight text-neutral-900 dark:text-neutral-100 lg:text-display">
+      <TitleTag className="text-title font-extrabold leading-snug text-neutral-900 dark:text-neutral-100 lg:text-display">
         {event.title}
       </TitleTag>
 

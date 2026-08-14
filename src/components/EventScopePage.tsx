@@ -422,7 +422,7 @@ export function EventScopePage({
                   {emoji}
                 </div>
                 <div>
-                  <h1 className="text-title font-extrabold tracking-tight text-neutral-900 dark:text-neutral-100">
+                  <h1 className="text-title font-extrabold text-neutral-900 dark:text-neutral-100">
                     {title}
                   </h1>
                   <p className="text-copy-meta text-neutral-500 dark:text-neutral-400">
@@ -481,7 +481,7 @@ export function EventScopePage({
                 <Building2 className="h-4 w-4" aria-hidden />
                 {onboardingCopy.partner.weekendEyebrow}
               </p>
-              <h2 className="mt-2 text-section font-extrabold tracking-tight text-neutral-950 dark:text-neutral-50">
+              <h2 className="mt-2 text-section font-extrabold text-neutral-950 dark:text-neutral-50">
                 {onboardingCopy.partner.weekendTitle}
               </h2>
               <p className="mt-1.5 max-w-xl text-copy font-medium text-neutral-600 dark:text-neutral-300">

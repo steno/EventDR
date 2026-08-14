@@ -59,7 +59,7 @@ export function EmptyPong({
     // once, or every font assignment is silently ignored (stuck at 10px).
     const rootStyle = getComputedStyle(document.documentElement);
     const bodyFont =
-      rootStyle.getPropertyValue("--font-inter").trim() || "system-ui";
+      rootStyle.getPropertyValue("--font-outfit").trim() || "system-ui";
     const bodyStack = `${bodyFont}, system-ui, sans-serif`;
 
     let alive = true;

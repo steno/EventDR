@@ -129,7 +129,7 @@ export function CityCategoryLinks({
             {link.emoji}
           </span>
         ) : null}
-        <span className="truncate w-full">{link.label}</span>
+        <span className="line-clamp-2 w-full">{link.label}</span>
       </IntentLink>
     );
   };
@@ -141,7 +141,7 @@ export function CityCategoryLinks({
       className="mb-6"
       data-list-scroll-anchor
     >
-      <p className="mb-2.5 text-sm font-medium text-neutral-500 dark:text-neutral-400">
+      <p className="mb-2.5 text-base font-semibold text-neutral-700 dark:text-neutral-300">
         {label}
       </p>
       <div className={CATEGORY_SCROLLER_BAR}>

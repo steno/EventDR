@@ -16,19 +16,19 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
-  --font-display: var(--font-syne), system-ui, sans-serif;
+  --font-sans: var(--font-outfit), system-ui, -apple-system, sans-serif;
+  --font-display: var(--font-outfit), system-ui, sans-serif;
 
-  /* Type ladder — Syne display titles; Inter via font-sans on cards/UI.
+  /* Type ladder — Outfit for UI and display (GT Eesti / GetYourGuide-like).
      display: heroes only · title: page H1 · section: list/sheet H2 */
   --text-display: 2rem;
   --text-display--line-height: 1.05;
   --text-display-lg: 3rem;
   --text-display-lg--line-height: 1.05;
-  --text-title: 1.5rem;
-  --text-title--line-height: 1.2;
-  --text-section: 1.25rem;
-  --text-section--line-height: 1.25;
+  --text-title: 1.75rem;
+  --text-title--line-height: 1.15;
+  --text-section: 1.5rem;
+  --text-section--line-height: 1.2;
 }
 
 body {
@@ -91,15 +91,15 @@ img {
     }
   }
 
-  /* Display (Syne 800) for true page/section titles.
-     Card/UI headings override with font-sans + semibold/bold.
+  /* Display (Outfit 800) for true page/section titles.
+     Card/UI headings override with font-sans + bold.
      Uppercase chrome labels should also use font-sans. */
   h1,
   h2,
   h3 {
     font-family: var(--font-display);
     font-weight: 800;
-    letter-spacing: -0.015em;
+    letter-spacing: -0.005em;
   }
 }
 
@@ -208,7 +208,7 @@ button:not(:disabled),
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0.05);
 }
 
-/* Body copy — Inter. Pair with text-neutral-* when you need a non-default color
+/* Body copy — Outfit. Pair with text-neutral-* when you need a non-default color
    (in @layer components so utilities win). */
 @layer components {
   .text-copy {

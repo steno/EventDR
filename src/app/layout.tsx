@@ -1,4 +1,4 @@
-import { Syne, Inter } from "next/font/google";
+import { Outfit } from "next/font/google";
 import Script from "next/script";
 import { BootSplashDismiss } from "@/components/BootSplashDismiss";
 import { ThemeAutoSync } from "@/components/ThemeAutoSync";
@@ -6,17 +6,11 @@ import { ThemeScript } from "@/components/ThemeScript";
 import { PageGlow } from "@/components/PageGlow";
 import "./globals.css";
 
-const syne = Syne({
-  variable: "--font-syne",
+/** Geometric grotesque close to GetYourGuide’s GT Eesti — one family for UI + display. */
+const outfit = Outfit({
+  variable: "--font-outfit",
   subsets: ["latin"],
-  weight: ["800"],
-  display: "swap",
-});
-
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800"],
   display: "swap",
 });
 
@@ -56,7 +50,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`boot-pending ${syne.variable} ${inter.variable}`}
+      className={`boot-pending ${outfit.variable}`}
     >
       <head>
         <ThemeScript />

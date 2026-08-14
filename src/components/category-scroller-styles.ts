@@ -2,8 +2,8 @@
 
 export const CATEGORY_PILL_BASE = `
   flex flex-col items-center justify-center gap-1.5
-  h-[90px] w-[90px] shrink-0 rounded-3xl
-  px-2 py-2 text-xs font-semibold leading-tight text-center
+  h-[7rem] w-[7.25rem] shrink-0 rounded-3xl
+  px-2 py-2 text-sm font-bold leading-tight text-center
   transition-all active:scale-[0.95] touch-manipulation
   shadow-[0_2px_8px_rgba(15,23,42,0.08)]
 `;

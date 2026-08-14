@@ -87,7 +87,7 @@ export function CategoryGrid({
 
   return (
     <section aria-label={label}>
-      <p className="mb-2.5 text-sm font-medium text-neutral-500 dark:text-neutral-400">
+      <p className="mb-2.5 text-base font-semibold text-neutral-700 dark:text-neutral-300">
         {label}
       </p>
       <div className={CATEGORY_SCROLLER_BAR}>
@@ -104,7 +104,7 @@ export function CategoryGrid({
                 <span className="text-4xl leading-none select-none" aria-hidden>
                   📅
                 </span>
-                <span className="truncate w-full">{allEventsLabel}</span>
+                <span className="line-clamp-2 w-full">{allEventsLabel}</span>
               </IntentLink>
               {categories.map((cat) => {
                 const href = categoryPath(locale, cat.id, citySlug);
@@ -120,7 +120,7 @@ export function CategoryGrid({
                     <span className="text-4xl leading-none select-none" aria-hidden>
                       {cat.emoji}
                     </span>
-                    <span className="truncate w-full">{cat.label}</span>
+                    <span className="line-clamp-2 w-full">{cat.label}</span>
                   </IntentLink>
                 );
               })}

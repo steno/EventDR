@@ -51,7 +51,7 @@ export function TimeFilter({
                   onChange(range);
                 }}
                 className={`
-                  relative -mb-px flex-shrink-0 px-3.5 py-2.5 text-sm font-bold tracking-tight
+                  relative -mb-px flex-shrink-0 px-3.5 py-2.5 text-base font-bold tracking-tight
                   transition-colors touch-manipulation
                   ${
                     selected

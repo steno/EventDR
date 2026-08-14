@@ -343,7 +343,7 @@ export function VenuePage({
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-neutral-500 dark:text-neutral-400">
               {venue.city}
             </p>
-            <h1 className="mt-1.5 text-title font-extrabold leading-tight tracking-tight text-neutral-900 dark:text-neutral-100">
+            <h1 className="mt-1.5 text-title font-extrabold leading-snug text-neutral-900 dark:text-neutral-100">
               {venue.name}
             </h1>
             {walkablePocket ? (

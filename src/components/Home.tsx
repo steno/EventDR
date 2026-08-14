@@ -360,7 +360,7 @@ function HomeApp({
             <>
               {!cityPrimingOpen ? <InstallBanner dict={dict} /> : null}
               <div className="flex flex-col">
-                <div className="order-1 mb-4 sm:order-1 lg:hidden">
+                <div className="order-1 mt-4 mb-4 sm:order-1 lg:hidden">
                   <SearchBar
                     value={searchQuery}
                     onChange={setSearchQuery}
@@ -434,7 +434,7 @@ function HomeApp({
                   })}
                 </span>
               </button>
-              <h2 className="mt-1 mb-6 text-title font-extrabold tracking-tight text-neutral-900 dark:text-neutral-100">
+              <h2 className="mt-1 mb-6 text-title font-extrabold text-neutral-900 dark:text-neutral-100">
                 {dict.saved.title}
               </h2>
               {!savedReady || !eventsReady ? (

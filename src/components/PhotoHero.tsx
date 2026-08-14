@@ -79,7 +79,7 @@ export function PhotoHero({
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-white/80 [text-shadow:0_1px_2px_rgba(0,0,0,0.45)]">
               {dict.seo.siteName}
             </p>
-            <h1 className="mt-1 text-display font-extrabold tracking-tight sm:text-display-lg">
+            <h1 className="mt-1 text-display font-extrabold sm:text-display-lg">
               <span className="text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.4)]">
                 {eventsPrefix}{" "}
               </span>

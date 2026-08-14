@@ -123,7 +123,7 @@ function TravelMeta({
   );
 
   return (
-    <p className="flex min-w-0 flex-wrap items-center gap-x-1.5 gap-y-0.5 text-xs font-semibold text-orange-700 dark:text-orange-400">
+    <p className="flex min-w-0 flex-wrap items-center gap-x-1.5 gap-y-0.5 text-sm font-semibold text-orange-700 dark:text-orange-400">
       {relation ? <span className="truncate">{relation}</span> : null}
       {relation ? (
         <span className="text-orange-300 dark:text-orange-700" aria-hidden>
@@ -132,19 +132,19 @@ function TravelMeta({
       ) : null}
       <span className="inline-flex items-center gap-2">
         <span
-          className="inline-flex items-center gap-0.5"
+          className="inline-flex items-center gap-1"
           title={driveLabel}
           aria-label={driveLabel}
         >
-          <Car className="h-3.5 w-3.5 shrink-0" aria-hidden />
+          <Car className="h-5 w-5 shrink-0" aria-hidden />
           <span>{hit.driveMinutes}&nbsp;min</span>
         </span>
         <span
-          className="inline-flex items-center gap-0.5"
+          className="inline-flex items-center gap-1"
           title={walkLabel}
           aria-label={walkLabel}
         >
-          <WalkingPersonIcon className="h-3 w-3 shrink-0" />
+          <WalkingPersonIcon className="h-5 w-5 shrink-0" />
           <span>{hit.walkMinutes}&nbsp;min</span>
         </span>
       </span>
@@ -188,7 +188,7 @@ function NearbyCard({
 
   return (
     <article
-      className={`group relative w-[11.5rem] shrink-0 snap-start overflow-hidden rounded-2xl bg-white dark:bg-neutral-900 shadow-[0_2px_12px_-6px_rgba(0,0,0,0.12)] transition-[box-shadow,transform,opacity,ring] duration-300 cursor-pointer ${
+      className={`group relative w-[13.5rem] shrink-0 snap-start overflow-hidden rounded-2xl bg-white dark:bg-neutral-900 shadow-[0_2px_12px_-6px_rgba(0,0,0,0.12)] transition-[box-shadow,transform,opacity,ring] duration-300 cursor-pointer ${
         pending
           ? "scale-[0.985] ring-2 ring-orange-500/80 dark:ring-orange-400/70"
           : dimmed
@@ -217,7 +217,7 @@ function NearbyCard({
           <EventImage
             src={event.imageUrl}
             alt=""
-            sizes="184px"
+            sizes="216px"
             className="object-cover card-media-zoom"
           />
         ) : (
@@ -233,12 +233,12 @@ function NearbyCard({
         ) : null}
       </div>
       <div className="relative z-[1] space-y-1 p-2.5 pointer-events-none">
-        <h3 className="line-clamp-2 font-sans text-xs font-semibold leading-snug tracking-tight text-neutral-900 dark:text-neutral-100">
+        <h3 className="line-clamp-2 font-sans text-sm font-bold leading-snug text-neutral-950 dark:text-white">
           {event.title}
         </h3>
         <TravelMeta hit={hit} dict={dict} />
         {schedule ? (
-          <p className="truncate text-xs font-medium text-neutral-500 dark:text-neutral-400">
+          <p className="truncate text-sm font-medium text-neutral-500 dark:text-neutral-400">
             {schedule}
           </p>
         ) : null}
@@ -287,13 +287,13 @@ export function NearbyTonight({
       aria-labelledby="nearby-tonight-heading"
     >
       <div className="mb-3 flex items-start gap-2.5">
-        <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-orange-50 text-orange-700 dark:bg-orange-950/50 dark:text-orange-300">
-          <WalkingPersonIcon className="h-4 w-4" />
+        <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-orange-50 text-orange-700 dark:bg-orange-950/50 dark:text-orange-300">
+          <WalkingPersonIcon className="h-5 w-5" />
         </span>
         <div className="min-w-0">
           <h2
             id="nearby-tonight-heading"
-            className="font-sans text-xs font-bold uppercase tracking-wide text-neutral-500 dark:text-neutral-400"
+            className="font-sans text-base font-extrabold text-neutral-950 dark:text-white sm:text-lg"
           >
             {heading}
           </h2>

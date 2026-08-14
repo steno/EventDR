@@ -306,7 +306,7 @@ export function EventList({
   return (
     <div className="space-y-4">
       <div>
-        <h2 className="text-section font-extrabold tracking-tight text-neutral-900 dark:text-neutral-100">
+        <h2 className="text-section font-extrabold text-neutral-900 dark:text-neutral-100">
           {isSearching
             ? dict.search.activeTitle
             : ourPicks && !category

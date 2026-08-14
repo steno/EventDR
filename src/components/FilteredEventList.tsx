@@ -267,7 +267,7 @@ export function FilteredEventList({
 
       {sectionTitle && (
         <div className="mb-3">
-          <h2 className="min-w-0 font-sans text-xs font-bold uppercase tracking-widest text-neutral-400">
+          <h2 className="min-w-0 font-sans text-section font-extrabold text-neutral-950 dark:text-neutral-100">
             {sectionTitle}
           </h2>
         </div>
