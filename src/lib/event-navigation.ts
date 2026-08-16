@@ -274,3 +274,23 @@ export function resolveBackLabel(
     resolveReturnPageTitle(locale, path, dict);
   return title;
 }
+
+/**
+ * Listing chrome sits next to a city picker. If the parent is that same city,
+ * name the action ("All Events") instead of repeating Sosúa / Cabarete / etc.
+ */
+export function resolveListingBackLabel(
+  locale: Locale,
+  path: string,
+  dict: Dictionary,
+  currentCitySlug?: CitySlug | null,
+): string {
+  const label = resolveBackLabel(locale, path, dict);
+  if (!currentCitySlug) return label;
+  const city = getCityMeta(currentCitySlug);
+  if (!city) return label;
+  if (label === getCityName(city, locale)) {
+    return dict.browse.allEvents;
+  }
+  return label;
+}

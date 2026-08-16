@@ -19,7 +19,7 @@ import { StickyListHeader } from "@/components/StickyListHeader";
 import {
   allEventsPath,
   categoryNavLinks,
-  resolveBackLabel,
+  resolveListingBackLabel,
 } from "@/lib/event-navigation";
 import {
   getCityMeta,
@@ -376,7 +376,12 @@ export function EventScopePage({
     setBackHref(lastHomePath(locale));
   }, [chrome.backHref, backHrefProp, locale, activeCitySlug]);
 
-  const backLabel = resolveBackLabel(locale, backHref, dict);
+  const backLabel = resolveListingBackLabel(
+    locale,
+    backHref,
+    dict,
+    activeCitySlug,
+  );
   const onboardingCopy = getOnboardingCopy(locale);
   const title = chrome.title;
   const intro = chrome.intro;
