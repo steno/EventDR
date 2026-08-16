@@ -126,7 +126,7 @@ export function EventList({
     }
     if (scrolledTimeRangeRef.current === timeRange) return;
     scrolledTimeRangeRef.current = timeRange;
-    scrollToListTop();
+    scrollToListTop(undefined, { onlyScrollDown: true });
   }, [timeRange, showTimeFilter]);
 
   const fetchEvents = useCallback(

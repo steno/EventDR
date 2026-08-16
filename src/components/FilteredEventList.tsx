@@ -172,8 +172,9 @@ export function FilteredEventList({
       skipScrollForUrlWhen.current = false;
       return;
     }
-    // Prefer page-level anchor (category pills) when present — same park as mount.
-    scrollToListTop();
+    // Park only when still above list chrome — never scroll up to re-show
+    // category pills once sticky time tabs are already in place.
+    scrollToListTop(undefined, { onlyScrollDown: true });
   }, [timeRange, scrollOnFilterChange]);
 
   // SSR/API payloads are already materialized — filter/sort only.

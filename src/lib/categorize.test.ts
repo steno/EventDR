@@ -43,6 +43,16 @@ describe("inferSecondaryCategories — business trade fairs", () => {
       false,
     );
   });
+
+  it("does not put adventure-tourism trade fairs under Adventure", () => {
+    const text =
+      "Aventúrate RD, the North Coast's adventure tourism business fair with business rounds";
+    assert.equal(
+      inferSecondaryCategories(text, "festivals").includes("adventure"),
+      false,
+    );
+    assert.ok(inferSecondaryCategories(text, "festivals").includes("business"));
+  });
 });
 
 describe("aventurate-rd-2026 categories", () => {
@@ -52,6 +62,7 @@ describe("aventurate-rd-2026 categories", () => {
     const resolved = withResolvedCategories(event);
     assert.equal(eventInCategory(resolved, "business"), true);
     assert.equal(eventInCategory(resolved, "festivals"), true);
+    assert.equal(eventInCategory(resolved, "adventure"), false);
   });
 
   it("keeps curated business even when primary stays festivals", () => {
@@ -59,5 +70,6 @@ describe("aventurate-rd-2026 categories", () => {
     assert.ok(event);
     assert.equal(event.category, "festivals");
     assert.ok(resolveSecondaryCategories(event).includes("business"));
+    assert.equal(resolveSecondaryCategories(event).includes("adventure"), false);
   });
 });

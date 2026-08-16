@@ -54,19 +54,49 @@ function endProgrammaticScrollAfterSettle(
 }
 
 /**
+ * Whether parking should run when `onlyScrollDown` is set.
+ * True only if the viewport is still above the list chrome (need to scroll down).
+ * False when already parked or further into the list — avoids yanking back up
+ * to category pills on Today/Tomorrow/Weekend changes.
+ */
+export function shouldScrollDownToListPark(
+  scrollY: number,
+  desired: number,
+  epsilon = 8,
+): boolean {
+  return scrollY < desired - epsilon;
+}
+
+export type ScrollToListTopOptions = {
+  /**
+   * Time-tab switches: only scroll down to park list chrome. Never scroll up
+   * to re-reveal category pills when the sticky time tabs are already in place.
+   */
+  onlyScrollDown?: boolean;
+};
+
+/**
  * Pin list chrome under the sticky page header after a tab/filter change.
  * Prefers `[data-list-scroll-anchor]` (category pills when present, else time filters).
  * Short pages scroll as far as they can — never jump to the hero.
  */
-export function scrollToListTop(anchor?: HTMLElement | null): void {
+export function scrollToListTop(
+  anchor?: HTMLElement | null,
+  options?: ScrollToListTopOptions,
+): void {
   const endChrome = beginProgrammaticScrollChrome();
   const behavior = scrollBehaviorPreference();
+  const onlyScrollDown = Boolean(options?.onlyScrollDown);
   const target =
     anchor ??
     document.querySelector<HTMLElement>("[data-list-scroll-anchor]");
 
   const park = () => {
     if (!target) {
+      if (onlyScrollDown && window.scrollY > 0) {
+        endChrome();
+        return;
+      }
       window.scrollTo({ top: 0, behavior });
       endProgrammaticScrollAfterSettle(endChrome, behavior);
       return;
@@ -75,6 +105,13 @@ export function scrollToListTop(anchor?: HTMLElement | null): void {
     // matches — parks "What are you into?" just under the sticky header.
     const headerHeight = readStickyListHeaderReserve();
     const desired = Math.max(0, readDocumentTop(target) - headerHeight);
+    if (
+      onlyScrollDown &&
+      !shouldScrollDownToListPark(window.scrollY, desired)
+    ) {
+      endChrome();
+      return;
+    }
     const maxScroll = Math.max(
       0,
       document.documentElement.scrollHeight - window.innerHeight,

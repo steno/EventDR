@@ -60,7 +60,8 @@ export function CityCategoryLinks({
   }, [activeHref]);
 
   // On mount (home → category), skip the hero and park the category icon row
-  // under the sticky header — same target as time-tab switches (scrollToListTop).
+  // under the sticky header. Time-tab switches use onlyScrollDown so they do
+  // not yank back up once the user is browsing the list.
   // Skip when already parked there (area-chip swaps keep scroll via scroll:false).
   useEffect(() => {
     if (!activeHref) return;

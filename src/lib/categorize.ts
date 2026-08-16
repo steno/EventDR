@@ -339,6 +339,11 @@ const CATEGORY_INFERENCE_BLOCKS: Partial<
   adventure: ["sports"],
   /** Game nights / socials with “tournament” in the copy stay off Sports. */
   parties: ["sports"],
+  /**
+   * B2B / trade events often say “adventure tourism” without being an outing —
+   * keep Adventure for activities attendees actually go on.
+   */
+  business: ["adventure"],
 };
 
 function keywordWeight(keyword: Keyword): { term: string; weight: number } {
@@ -429,6 +434,14 @@ export function inferSecondaryCategories(
 ): EventCategory[] {
   const blocked = new Set(CATEGORY_INFERENCE_BLOCKS[primary] ?? []);
   const scores = categoryScores(text);
+  // Trade-fair copy that unlocks Business must not also unlock Adventure from
+  // industry phrases like “adventure tourism” / “turismo de aventura”.
+  if (
+    primary === "business" ||
+    (scores.get("business") ?? 0) >= minScore
+  ) {
+    blocked.add("adventure");
+  }
   const fromKeywords = CATEGORY_IDS.filter((id) => {
     const category = id as EventCategory;
     if (category === primary || blocked.has(category)) return false;
