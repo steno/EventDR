@@ -1,4 +1,5 @@
-import type { EventRecurrence } from "./types";
+import { isEventFree } from "./event-tickets";
+import type { Event, EventRecurrence } from "./types";
 import {
   addDaysISO,
   eventMatchesRecurrence,
@@ -68,6 +69,35 @@ export function isFilterTimeRange(value: string): value is FilterTimeRange {
     value === "tomorrow" ||
     value === "weekend"
   );
+}
+
+/** Visible price modifiers (Gratis / Pago). Combine with time via `filterByTimeAndPrice`. */
+export type PriceFilter = "all" | "free" | "paid";
+
+export const PRICE_FILTERS: Array<Exclude<PriceFilter, "all">> = ["free", "paid"];
+
+export const DEFAULT_PRICE_FILTER: PriceFilter = "all";
+
+export function isPriceFilter(value: string): value is PriceFilter {
+  return value === "all" || value === "free" || value === "paid";
+}
+
+export function filterByPrice<T extends Event>(
+  items: T[],
+  price: PriceFilter,
+): T[] {
+  if (price === "all") return items;
+  if (price === "free") return items.filter((event) => isEventFree(event));
+  return items.filter((event) => !isEventFree(event));
+}
+
+/** Time tab AND price toggle — Today + Free is free events today, not all free events. */
+export function filterByTimeAndPrice<T extends Event>(
+  items: T[],
+  range: TimeRange,
+  price: PriceFilter,
+): T[] {
+  return filterByPrice(filterByTimeRange(items, range), price);
 }
 
 function getWeekendRangeISO(now: Date): { start: string; end: string } {

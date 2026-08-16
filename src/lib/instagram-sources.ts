@@ -231,7 +231,7 @@ export function instagramSearchQueries(): string[] {
   const culturalVenues = [
     "anfiteatropuertoplata", "anfiteatro_puertoplata_rd",
     "graaneventsplanners", "cabaretejazz", "luciano.vasquez.pp",
-    "victrolart",
+    "victrolart", "turismopuertoplata", "descubrepuertoplata",
   ].join(" OR ");
 
   const touristInfo = [
@@ -264,6 +264,8 @@ export function instagramSearchQueries(): string[] {
     `site:instagram.com anfiteatro Puerto Plata concierto`,
     `site:instagram.com carnaval Puerto Plata`,
     `site:instagram.com dominicano local ${region} evento`,
+    `site:instagram.com "casa de la cultura" OR ayuntamiento Puerto Plata evento OR exposición OR teatro`,
+    `site:instagram.com ayuntamientodepuertoplata OR "anfiteatro la puntilla" concierto OR cultural`,
     
     // Local venue searches
     `site:instagram.com (${localVenues}) evento OR fiesta OR concierto OR "live music"`,

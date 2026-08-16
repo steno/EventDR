@@ -33,6 +33,7 @@ import {
 import { searchVenues } from "@/lib/filters";
 import { CARD_GRID_CLASS, PAGE_GUTTER_BLEED_CLASS, PAGE_SHELL_CLASS } from "@/lib/page-shell";
 import {
+  countEventsByCity,
   eventMatchesCity,
   getCityMeta,
   getCityName,
@@ -252,6 +253,11 @@ function HomeApp({
     return allEvents.filter((event) => eventMatchesCity(event, selectedCity));
   }, [allEvents, selectedCity]);
 
+  const cityCounts = useMemo(
+    () => (allEvents.length > 0 ? countEventsByCity(allEvents) : null),
+    [allEvents],
+  );
+
   const discoverLayout = useMemo(
     () => getHomeDiscoverLayout(scopedEvents),
     [scopedEvents],
@@ -297,7 +303,7 @@ function HomeApp({
       <main id="main-content" className="relative bg-neutral-50 dark:bg-transparent pb-6">
         <div className={PAGE_SHELL_CLASS}>
           <div
-            className={`sticky top-0 z-20 ${PAGE_GUTTER_BLEED_CLASS} bg-neutral-50/95 backdrop-blur-sm dark:bg-neutral-950/95 lg:static lg:mx-0 lg:bg-transparent lg:px-0 lg:backdrop-blur-none ${SCROLL_CHROME_TRANSITION_CLASS} ${
+            className={`sticky top-0 z-20 ${PAGE_GUTTER_BLEED_CLASS} bg-neutral-50/95 backdrop-blur-sm dark:bg-transparent dark:backdrop-blur-none lg:static lg:mx-0 lg:bg-transparent lg:px-0 lg:backdrop-blur-none ${SCROLL_CHROME_TRANSITION_CLASS} ${
               chromeVisible
                 ? ""
                 : "-translate-y-full pointer-events-none lg:translate-y-0 lg:pointer-events-auto"
@@ -385,6 +391,7 @@ function HomeApp({
                       dict={dict}
                       currentSlug={selectedCity}
                       onSelect={setArea}
+                      counts={cityCounts}
                     />
                   </div>
                   <div className="pb-1 pt-1">
@@ -522,6 +529,7 @@ function HomeApp({
       <CityPrimingSheet
         locale={locale}
         open={cityPrimingOpen}
+        counts={cityCounts}
         onChoose={(city) => {
           markOnboardingSeen("city-primed");
           setCityPrimingOpen(false);

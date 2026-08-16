@@ -7,10 +7,12 @@ import type { Event } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import {
-  filterByTimeRange,
+  DEFAULT_PRICE_FILTER,
+  filterByTimeAndPrice,
   isFilterTimeRange,
   suggestOtherFilterTimeRange,
   type FilterTimeRange,
+  type PriceFilter,
   type TimeRange,
 } from "@/lib/filters";
 import { sortEventsForDisplay } from "@/lib/event-sort";
@@ -19,6 +21,7 @@ import { pinSpecialEvents } from "@/lib/special-events";
 import { scrollToListTop } from "@/lib/list-scroll";
 import { StickyListFilters, ListScrollAnchor } from "@/components/StickyListFilters";
 import { TimeFilter } from "@/components/TimeFilter";
+import { PriceFilterChips } from "@/components/PriceFilterChips";
 import { EventCard } from "@/components/EventCard";
 import {
   EventListScrollPads,
@@ -106,6 +109,9 @@ export function FilteredEventList({
   const [timeRange, setTimeRange] = useState<FilterTimeRange>(
     fixedTimeRange ?? defaultTimeRange,
   );
+  const [priceFilter, setPriceFilter] = useState<PriceFilter>(
+    DEFAULT_PRICE_FILTER,
+  );
   const [visibleCount, setVisibleCount] = useState(
     initialExpanded ? UNBOUNDED : limit,
   );
@@ -156,7 +162,7 @@ export function FilteredEventList({
       return;
     }
     setVisibleCount(limit);
-  }, [timeRange, limit]);
+  }, [timeRange, priceFilter, limit]);
 
   useLayoutEffect(() => {
     if (!scrollOnFilterChange) return;
@@ -180,8 +186,8 @@ export function FilteredEventList({
   // SSR/API payloads are already materialized — filter/sort only.
   const activeRange = fixedTimeRange ?? timeRange;
   const filtered = useMemo(() => {
-    const timeFiltered = filterByTimeRange(events, activeRange);
-    const sorted = sortEventsForDisplay(timeFiltered, {
+    const combined = filterByTimeAndPrice(events, activeRange, priceFilter);
+    const sorted = sortEventsForDisplay(combined, {
       recurringLast: true,
       oneTimeFirst: true,
       discoveryMode: Boolean(categoryId) && activeRange === "all",
@@ -189,7 +195,7 @@ export function FilteredEventList({
     });
     if (activeRange !== "weekend") return sorted;
     return pinSpecialEvents(sorted, { placement: "weekend-list" });
-  }, [events, activeRange, categoryId]);
+  }, [events, activeRange, priceFilter, categoryId]);
 
   const showPadCta = addEventCta === "pad";
   const showInlineAddCta = addEventCta === "inline" && Boolean(onAddEvent);
@@ -215,13 +221,17 @@ export function FilteredEventList({
     Number.isFinite(eventCap) && filtered.length > visibleEvents.length;
 
   const suggestedRange = suggestOtherFilterTimeRange(activeRange, (range) =>
-    filterByTimeRange(events, range).length > 0,
+    filterByTimeAndPrice(events, range, priceFilter).length > 0,
   );
   const suggestedTabLabel = dict.time[suggestedRange];
   const tryTabLabel = dict.search.tryTabHint.replace("{tab}", suggestedTabLabel);
+  const tryPriceLabel = dict.price.showAll;
 
   const showTimeFilter = !fixedTimeRange && !hideTimeFilter;
-  const showStickyFilters = Boolean(locationPicker || showTimeFilter);
+  const showPriceFilter = !hideTimeFilter;
+  const showStickyFilters = Boolean(
+    locationPicker || showTimeFilter || showPriceFilter,
+  );
 
   /** Text link only when no card CTA is used (e.g. venue Past). */
   const showFooterAddButton =
@@ -260,6 +270,14 @@ export function FilteredEventList({
                 onChange={setTimeRange}
                 dict={dict}
                 sticky={false}
+                price={priceFilter}
+                onPriceChange={setPriceFilter}
+              />
+            ) : showPriceFilter ? (
+              <PriceFilterChips
+                value={priceFilter}
+                onChange={setPriceFilter}
+                dict={dict}
               />
             ) : null}
           </StickyListFilters>
@@ -288,14 +306,26 @@ export function FilteredEventList({
           <SearchEmptyState
             title={dict.search.noResults}
             hint={
-              fixedTimeRange
-                ? dict.search.noResultsHint
-                : tryTabLabel
+              priceFilter !== "all"
+                ? tryPriceLabel
+                : fixedTimeRange
+                  ? dict.search.noResultsHint
+                  : tryTabLabel
             }
             gameLabels={dict.search.game}
-            actionLabel={fixedTimeRange ? undefined : tryTabLabel}
+            actionLabel={
+              priceFilter !== "all"
+                ? tryPriceLabel
+                : fixedTimeRange
+                  ? undefined
+                  : tryTabLabel
+            }
             onAction={
-              fixedTimeRange ? undefined : () => setTimeRange(suggestedRange)
+              priceFilter !== "all"
+                ? () => setPriceFilter("all")
+                : fixedTimeRange
+                  ? undefined
+                  : () => setTimeRange(suggestedRange)
             }
           />
           {showPadCta ? (

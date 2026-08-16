@@ -7,10 +7,12 @@ import {
   CITIES,
   getCityName,
   writeHomeArea,
+  type CityEventCounts,
   type CitySlug,
 } from "@/lib/cities";
 import { categoryPath } from "@/lib/event-navigation";
 import { signalNavPending } from "@/lib/nav-feedback";
+import { fillTemplate } from "@/lib/seo";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { EventCategory } from "@/lib/types";
@@ -30,11 +32,14 @@ interface CityLocationPickerProps {
    * Category links then use the chosen area.
    */
   onSelect?: (slug: CitySlug | null) => void;
+  /** Live catalog sizes. Shown on the closed button and in the menu. */
+  counts?: CityEventCounts | null;
 }
 
 type AreaOption = {
   slug: CitySlug | null;
   label: string;
+  countKey: keyof CityEventCounts;
 };
 
 export function CityLocationPicker({
@@ -43,6 +48,7 @@ export function CityLocationPicker({
   currentSlug = null,
   categoryId,
   onSelect,
+  counts = null,
 }: CityLocationPickerProps) {
   const router = useRouter();
   const [open, setOpen] = useState(false);
@@ -51,16 +57,16 @@ export function CityLocationPicker({
   const listId = useId();
 
   const options: AreaOption[] = [
-    { slug: null, label: dict.cities.regionName },
+    { slug: null, label: dict.cities.regionName, countKey: "all" },
     ...CITIES.map((city) => ({
       slug: city.slug,
       label: getCityName(city, locale),
+      countKey: city.slug,
     })),
   ];
 
-  const currentLabel =
-    options.find((option) => option.slug === currentSlug)?.label ??
-    dict.cities.regionName;
+  const current = options.find((option) => option.slug === currentSlug);
+  const currentLabel = current?.label ?? dict.cities.regionName;
 
   useEffect(() => {
     if (!open) return;
@@ -89,17 +95,12 @@ export function CityLocationPicker({
   function goTo(slug: CitySlug | null) {
     setOpen(false);
     if (slug === currentSlug) return;
-    // Persist on every page so "back to home" matches the last picker choice.
     writeHomeArea(slug);
     if (onSelect) {
-      // Instant client filter — no progress chrome.
       onSelect(slug);
       return;
     }
-    // Hard RSC city/category swap (when pages, etc.).
     signalNavPending("soft");
-    // Keep scroll on city/category swaps — same mid-page chrome, new list below.
-    // Navigating to home is a different layout, so allow the default scroll-to-top.
     if (categoryId) {
       router.push(categoryPath(locale, categoryId, slug), { scroll: false });
       return;
@@ -157,12 +158,16 @@ export function CityLocationPicker({
         >
           {options.map((option) => {
             const selected = currentSlug === option.slug;
+            const count = countLabel(dict, counts, option.countKey);
             return (
               <li key={option.slug ?? "north-coast"} role="presentation">
                 <button
                   type="button"
                   role="option"
                   aria-selected={selected}
+                  aria-label={
+                    count ? `${option.label}, ${count}` : option.label
+                  }
                   onClick={() => goTo(option.slug)}
                   className={`
                     flex w-full items-center justify-between gap-3
@@ -178,9 +183,23 @@ export function CityLocationPicker({
                   `}
                 >
                   <span>{option.label}</span>
-                  {selected ? (
-                    <Check className="h-4 w-4 shrink-0" aria-hidden />
-                  ) : null}
+                  <span className="flex items-center gap-2">
+                    {count ? (
+                      <span
+                        aria-hidden
+                        className="
+                          min-w-6 rounded-full bg-neutral-100 px-1.5 py-0.5
+                          text-center text-xs font-bold tabular-nums text-neutral-500
+                          dark:bg-neutral-800 dark:text-neutral-400
+                        "
+                      >
+                        {count}
+                      </span>
+                    ) : null}
+                    {selected ? (
+                      <Check className="h-4 w-4 shrink-0" aria-hidden />
+                    ) : null}
+                  </span>
                 </button>
               </li>
             );
@@ -189,4 +208,14 @@ export function CityLocationPicker({
       ) : null}
     </div>
   );
+}
+
+function countLabel(
+  dict: Dictionary,
+  counts: CityEventCounts | null,
+  key: keyof CityEventCounts,
+): string | null {
+  const count = counts?.[key];
+  if (count == null) return null;
+  return fillTemplate(dict.cities.eventCount, { count: String(count) });
 }

@@ -35,6 +35,9 @@ const DIARIO_PUERTO_PLATA = "https://diariopuertoplata.com.do/";
 const PUERTO_PLATA_NOTICIAS = "https://puertoplatanoticias.com/";
 const SOSUA_DIGITAL_TV = "https://sosuadigitaltv.com/";
 const OPINION_DIGITAL_PP = "https://opiniondigitalpp.com/";
+const AYUNTAMIENTO_PP = "https://ayuntamientopuertoplata.gob.do/";
+const ANFITEATRO_PUNTILLA =
+  "https://es.godominicanrepublic.com/que-hacer/anfiteatro-la-puntilla";
 
 /**
  * Tour marketplaces (Viator / GetYourGuide) block direct scrapes (403).
@@ -57,6 +60,8 @@ export const REGION_DIRECT_URLS = [
   PUERTO_PLATA_NOTICIAS,
   SOSUA_DIGITAL_TV,
   OPINION_DIGITAL_PP,
+  AYUNTAMIENTO_PP,
+  ANFITEATRO_PUNTILLA,
   ALLEVENTS_PP,
   `${ALLEVENTS_PP}/music`,
   `${ALLEVENTS_PP}/concerts`,
@@ -250,8 +255,13 @@ export const CATEGORY_QUERIES: Record<EventCategory, CategoryQuerySet> = {
       `site:facebook.com cultural event Puerto Plata`,
       `feria artesanal exposición ${REGION}`,
       `Fortaleza San Felipe Museo del Ámbar eventos`,
+      `"Casa de la Cultura" OR "Casa de la Cultura Eduardo Brito" Puerto Plata exposición OR teatro OR concierto`,
+      `ayuntamiento Puerto Plata evento cultural OR concierto OR exposición OR teatro 2026`,
+      `anfiteatro "La Puntilla" Puerto Plata concierto OR cultural OR ballet OR folclórico 2026`,
+      `site:ayuntamientopuertoplata.gob.do evento OR concierto OR cultural OR exposición`,
+      `site:facebook.com/ayuntamientodepuertoplata evento OR concierto OR cultural`,
     ],
-    directUrls: [ALLEVENTS_PP],
+    directUrls: [ALLEVENTS_PP, AYUNTAMIENTO_PP, ANFITEATRO_PUNTILLA],
   },
   adventure: {
     searches: [
@@ -290,6 +300,7 @@ export const BROAD_QUERIES = [
   `site:diariolibre.com Puerto Plata OR Sosúa OR Cabarete concierto`,
   `site:suelocaribe.com Puerto Plata eventos`,
   `boletería José Luis OR Tío Pan concierto Puerto Plata`,
+  `ayuntamiento OR "casa de la cultura" OR anfiteatro Puerto Plata evento cultural 2026`,
 ];
 
 /** Categories we always deep-crawl on the home feed (often under-represented). */

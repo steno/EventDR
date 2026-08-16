@@ -278,3 +278,26 @@ export function eventMatchesCity(event: Event, slug: CitySlug): boolean {
     haystack.includes(normalizeLocation(matcher)),
   );
 }
+
+export type CityEventCounts = Record<CitySlug | "all", number>;
+
+export function emptyCityEventCounts(): CityEventCounts {
+  return {
+    all: 0,
+    "puerto-plata": 0,
+    sosua: 0,
+    cabarete: 0,
+  };
+}
+
+/** Catalog sizes for city chips — `all` is the unscoped list length. */
+export function countEventsByCity(events: Event[]): CityEventCounts {
+  const counts = emptyCityEventCounts();
+  counts.all = events.length;
+  for (const event of events) {
+    for (const slug of CITY_SLUGS) {
+      if (eventMatchesCity(event, slug)) counts[slug] += 1;
+    }
+  }
+  return counts;
+}

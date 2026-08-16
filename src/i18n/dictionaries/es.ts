@@ -307,6 +307,13 @@ export const es: Dictionary = {
     lookingInWithCategory: "Eventos de {category} en",
     regionName: "Costa Norte",
     chooseArea: "Elegir zona",
+    eventCount: "{count}",
+  },
+  price: {
+    free: "Gratis",
+    paid: "Pago",
+    ariaLabel: "Precio",
+    showAll: "Ver todos los precios",
   },
   lang: {
     en: "EN",

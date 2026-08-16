@@ -22,6 +22,7 @@ import {
   resolveListingBackLabel,
 } from "@/lib/event-navigation";
 import {
+  countEventsByCity,
   getCityMeta,
   lastHomePath,
   NORTH_COAST_HERO_IMAGE,
@@ -332,6 +333,10 @@ export function EventScopePage({
       : undefined
     : relatedCategoryActiveHrefProp;
 
+  const cityCounts = useMemo(
+    () => (catalog.length > 0 ? countEventsByCity(catalog) : null),
+    [catalog],
+  );
   const city = activeCitySlug ? getCityMeta(activeCitySlug) : undefined;
   const specialHeroEvent = useMemo(() => {
     if (activeCitySlug) {
@@ -476,6 +481,7 @@ export function EventScopePage({
                   currentSlug={activeCitySlug ?? null}
                   categoryId={activeCategoryId}
                   onSelect={softNav ? onSoftCitySelect : undefined}
+                  counts={cityCounts}
                 />
               ) : undefined
             }

@@ -2,7 +2,7 @@
 
 import { MapPin, X } from "lucide-react";
 import type { Locale } from "@/i18n/config";
-import { CITIES, getCityName, type CitySlug } from "@/lib/cities";
+import { CITIES, getCityName, type CityEventCounts, type CitySlug } from "@/lib/cities";
 import { getOnboardingCopy } from "@/lib/onboarding";
 
 interface CityPrimingSheetProps {
@@ -10,6 +10,7 @@ interface CityPrimingSheetProps {
   open: boolean;
   onChoose: (city: CitySlug | null) => void;
   onDismiss: () => void;
+  counts?: CityEventCounts | null;
 }
 
 export function CityPrimingSheet({
@@ -17,6 +18,7 @@ export function CityPrimingSheet({
   open,
   onChoose,
   onDismiss,
+  counts = null,
 }: CityPrimingSheetProps) {
   if (!open) return null;
   const copy = getOnboardingCopy(locale).city;
@@ -70,16 +72,24 @@ export function CityPrimingSheet({
             {copy.all}
           </button>
           <div className="grid grid-cols-3 gap-2">
-            {CITIES.map((city) => (
-              <button
-                key={city.slug}
-                type="button"
-                onClick={() => onChoose(city.slug)}
-                className="min-h-14 rounded-2xl border border-neutral-200 bg-white px-1.5 text-center text-sm font-bold text-neutral-800 transition-[border-color,transform] hover:border-orange-300 active:scale-[0.98] dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100"
-              >
-                {getCityName(city, locale)}
-              </button>
-            ))}
+            {CITIES.map((city) => {
+              const count = counts?.[city.slug];
+              return (
+                <button
+                  key={city.slug}
+                  type="button"
+                  onClick={() => onChoose(city.slug)}
+                  className="min-h-14 rounded-2xl border border-neutral-200 bg-white px-1.5 text-center text-sm font-bold text-neutral-800 transition-[border-color,transform] hover:border-orange-300 active:scale-[0.98] dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100"
+                >
+                  <span className="block">{getCityName(city, locale)}</span>
+                  {count != null ? (
+                    <span className="mt-0.5 block text-xs font-semibold tabular-nums text-neutral-400 dark:text-neutral-500">
+                      {count}
+                    </span>
+                  ) : null}
+                </button>
+              );
+            })}
           </div>
         </div>
       </section>

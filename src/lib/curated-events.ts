@@ -209,6 +209,15 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
   "casa-de-la-cultura-exhibitions": {
     isFree: true,
   },
+  "casa-de-la-cultura-saturday-stage": {
+    isFree: true,
+  },
+  "ayuntamiento-pp-sunday-malecon": {
+    isFree: true,
+  },
+  "anfiteatro-la-puntilla-weekday-culture": {
+    isFree: true,
+  },
   "ingest-make-authentic-espadrilles-in-puerto-plata": {
     isFree: false,
     admissionPrice: "from €99.90",

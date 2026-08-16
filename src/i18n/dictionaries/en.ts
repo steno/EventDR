@@ -278,6 +278,14 @@ export type Dictionary = {
     regionName: string;
     /** Accessibility label for the inline place dropdown. */
     chooseArea: string;
+    /** Compact count on a city chip (e.g. “42”). */
+    eventCount: string;
+  };
+  price: {
+    free: string;
+    paid: string;
+    ariaLabel: string;
+    showAll: string;
   };
   lang: {
     en: string;
@@ -701,6 +709,13 @@ export const en: Dictionary = {
     lookingInWithCategory: "{category} Events in",
     regionName: "North Coast",
     chooseArea: "Choose area",
+    eventCount: "{count}",
+  },
+  price: {
+    free: "Free",
+    paid: "Paid",
+    ariaLabel: "Price",
+    showAll: "Show all prices",
   },
   lang: {
     en: "EN",

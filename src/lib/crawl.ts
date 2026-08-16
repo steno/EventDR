@@ -12,9 +12,10 @@ import { scrapeUrl, webSearch } from "./scrape";
 /**
  * Categories folded into every fast crawl. Institutional events are announced
  * in short windows (a chamber forum is publicised ~2 weeks ahead), so business
- * cannot wait for its turn in the rotation.
+ * cannot wait for its turn in the rotation. Culture is pinned so municipal /
+ * Casa de la Cultura / Anfiteatro weekday programming is not skipped on Sundays.
  */
-const FAST_PINNED_CATEGORIES: EventCategory[] = ["business"];
+const FAST_PINNED_CATEGORIES: EventCategory[] = ["business", "culture"];
 
 /** Extra priority categories added per fast run, rotating week to week. */
 const FAST_ROTATION_SLICE = 2;

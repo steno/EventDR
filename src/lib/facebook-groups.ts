@@ -41,7 +41,7 @@ export const FACEBOOK_EVENT_PAGES: readonly {
   label: string;
   areas: readonly string[];
   /** Institutional pages get business-flavoured discovery queries instead of music ones. */
-  kind?: "institutional";
+  kind?: "institutional" | "cultural";
 }[] = [
   {
     slug: "cabareteclassiceventpage",
@@ -72,6 +72,7 @@ export const FACEBOOK_EVENT_PAGES: readonly {
     url: "https://www.facebook.com/ayuntamientodepuertoplata",
     label: "Ayuntamiento de Puerto Plata",
     areas: ["Puerto Plata"],
+    kind: "cultural",
   },
   {
     slug: "disco-club-brugal",
@@ -102,6 +103,7 @@ export const FACEBOOK_EVENT_PAGES: readonly {
     url: "https://www.facebook.com/anfiteatropuertoplata",
     label: "Anfiteatro Puerto Plata",
     areas: ["Puerto Plata"],
+    kind: "cultural",
   },
   {
     slug: "festival-merengue-pp",
@@ -160,10 +162,15 @@ export function facebookGroupSearchQueries(): string[] {
           `site:facebook.com ${page.label} foro OR feria OR congreso 2026`,
           `site:facebook.com ${page.label} "rueda de negocios" OR networking empresarial`,
         ]
-      : [
-          `site:facebook.com ${page.label} evento concierto Puerto Plata 2026`,
-          `site:facebook.com ${page.label} merengue bachata música en vivo`,
-        ],
+      : page.kind === "cultural"
+        ? [
+            `site:facebook.com ${page.label} exposición OR teatro OR concierto OR cultural 2026`,
+            `site:facebook.com ${page.label} malecón OR "casa de la cultura" OR anfiteatro evento`,
+          ]
+        : [
+            `site:facebook.com ${page.label} evento concierto Puerto Plata 2026`,
+            `site:facebook.com ${page.label} merengue bachata música en vivo`,
+          ],
   );
   return [
     ...groupQueries,
