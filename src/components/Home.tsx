@@ -24,14 +24,12 @@ import { VenueAudienceCards } from "@/components/VenueAudienceCards";
 import { TodayHighlights } from "@/components/TodayHighlights";
 import { stickyBackControlClassName } from "@/components/StickyListHeader";
 import { useSavedEvents } from "@/hooks/useSavedEvents";
-import { useScrollChromeVisible } from "@/hooks/useScrollChrome";
-import { SCROLL_CHROME_TRANSITION_CLASS } from "@/lib/scroll-chrome";
 import {
   getHomeDiscoverLayout,
   HOME_SEARCH_LIMIT,
 } from "@/lib/home-layout";
 import { searchVenues } from "@/lib/filters";
-import { CARD_GRID_CLASS, PAGE_GUTTER_BLEED_CLASS, PAGE_SHELL_CLASS } from "@/lib/page-shell";
+import { CARD_GRID_CLASS, PAGE_SHELL_CLASS } from "@/lib/page-shell";
 import {
   countEventsByCity,
   eventMatchesCity,
@@ -291,7 +289,6 @@ function HomeApp({
 
   const isSearching = searchQuery.trim().length > 0;
   const listSearchQuery = isSearching ? deferredSearchQuery : "";
-  const chromeVisible = useScrollChromeVisible();
   const venueHits = useMemo(() => {
     if (!isSearching) return [];
     return searchVenues(venues, deferredSearchQuery).slice(0, 6);
@@ -302,13 +299,7 @@ function HomeApp({
       <PwaRegister />
       <main id="main-content" className="relative bg-neutral-50 dark:bg-transparent pb-6">
         <div className={PAGE_SHELL_CLASS}>
-          <div
-            className={`sticky top-0 z-20 ${PAGE_GUTTER_BLEED_CLASS} bg-neutral-50/95 backdrop-blur-sm dark:bg-transparent dark:backdrop-blur-none lg:static lg:mx-0 lg:bg-transparent lg:px-0 lg:backdrop-blur-none ${SCROLL_CHROME_TRANSITION_CLASS} ${
-              chromeVisible
-                ? ""
-                : "-translate-y-full pointer-events-none lg:translate-y-0 lg:pointer-events-auto"
-            }`}
-          >
+          <div>
             <AppHeader
               locale={locale}
               dict={dict}
