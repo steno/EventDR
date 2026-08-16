@@ -618,7 +618,9 @@
     "lng": -70.7079,
     "category": "festivals",
     "categories": [
-      "culture"
+      "business",
+      "culture",
+      "adventure"
     ],
     "format": "physical",
     "trending": true,
