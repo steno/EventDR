@@ -27,6 +27,9 @@ const EVENT_PHONE_BY_ID: Record<string, string> = {
   "malecon-morning-wellness-walk": "+18095862526",
   // Asociación Dominicana del Norte — Congreso de Damas registration desk
   "congreso-damas-adn-2026": "+18095826688",
+  "master-of-the-ocean-2026": "+18098564798",
+  "terraza-ocean-world-evenings": "+18092911000",
+  "kviar-disco-casino-nights": "+18093201632",
   // Pablito Guzmán / Cabarete Classic organizer line (long-published)
   "cabarete-classic-2026": "+18098766003",
 };

@@ -2,7 +2,6 @@
 
 import { useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { usePathname } from "next/navigation";
-import { ChevronRight } from "lucide-react";
 import type { Event } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
@@ -18,7 +17,9 @@ import {
 import { sortEventsForDisplay } from "@/lib/event-sort";
 import { LIST_PAGE_SIZE, SCOPE_LIST_LIMIT } from "@/lib/home-layout";
 import { pinSpecialEvents } from "@/lib/special-events";
+import { cardGridRowRemainder, fillCardGridPage } from "@/lib/card-grid";
 import { scrollToListTop } from "@/lib/list-scroll";
+import { useCardGridColumns } from "@/hooks/useCardGridColumns";
 import { StickyListFilters, ListScrollAnchor } from "@/components/StickyListFilters";
 import { TimeFilter } from "@/components/TimeFilter";
 import { PriceFilterChips } from "@/components/PriceFilterChips";
@@ -26,6 +27,7 @@ import { EventCard } from "@/components/EventCard";
 import {
   EventListScrollPads,
   EventCardPlaceholder,
+  EventListMoreTile,
   LIST_SCROLL_PAD_TARGET,
 } from "@/components/EventCardPlaceholder";
 import { SearchEmptyState } from "@/components/SearchEmptyState";
@@ -121,6 +123,7 @@ export function FilteredEventList({
   const scrolledTimeRangeRef = useRef<FilterTimeRange | null>(null);
   const skipScrollForUrlWhen = useRef(false);
   const scrollAnchorRef = useRef<HTMLDivElement>(null);
+  const [gridRef, columns] = useCardGridColumns(view === "cards");
 
   useEffect(() => {
     const applyListingParams = () => {
@@ -200,25 +203,30 @@ export function FilteredEventList({
   const showPadCta = addEventCta === "pad";
   const showInlineAddCta = addEventCta === "inline" && Boolean(onAddEvent);
   const padDeficit = Math.max(0, LIST_SCROLL_PAD_TARGET - filtered.length);
-  /** Short lists already get a pad CTA — don't duplicate at the end. */
-  const showEndTeaser =
-    Boolean(onAddEvent) && addEventCta === "pad" && padDeficit === 0;
-  /**
-   * When the page is full of events, reserve one grid slot for the teaser
-   * (e.g. 11 events + CTA = 12) so the last row isn't a sparse pair.
-   */
   const eventCap =
-    showEndTeaser &&
-    view === "cards" &&
-    Number.isFinite(visibleCount) &&
-    filtered.length >= visibleCount
-      ? Math.max(0, visibleCount - 1)
+    view === "cards" && Number.isFinite(visibleCount)
+      ? fillCardGridPage(visibleCount, filtered.length, columns)
       : visibleCount;
   const visibleEvents = Number.isFinite(eventCap)
     ? filtered.slice(0, eventCap)
     : filtered;
   const hasMore =
     Number.isFinite(eventCap) && filtered.length > visibleEvents.length;
+  /**
+   * Truncated grids fill leftover columns with extra events so More events
+   * can sit on a complete row. The add-event teaser only appears once the
+   * full list is already on screen.
+   */
+  const showEndTeaser =
+    Boolean(onAddEvent) &&
+    addEventCta === "pad" &&
+    padDeficit === 0 &&
+    !hasMore;
+  const leftover = cardGridRowRemainder(
+    showEndTeaser ? visibleEvents.length : filtered.length,
+    columns,
+  );
+  const fillSpan = view === "cards" ? leftover || "full" : undefined;
 
   const suggestedRange = suggestOtherFilterTimeRange(activeRange, (range) =>
     filterByTimeAndPrice(events, range, priceFilter).length > 0,
@@ -336,6 +344,7 @@ export function FilteredEventList({
                 label={addEventLabelResolved}
                 onAddEvent={onAddEvent}
                 view={view}
+                fillSpan={view === "cards" ? "full" : undefined}
               />
             </div>
           ) : null}
@@ -343,6 +352,7 @@ export function FilteredEventList({
       ) : (
         <>
           <div
+            ref={view === "cards" ? gridRef : undefined}
             className={
               view === "cards"
                 ? CARD_GRID_CLASS
@@ -367,6 +377,7 @@ export function FilteredEventList({
                 label={addEventLabelResolved}
                 onClick={onAddEvent!}
                 view={view}
+                fillSpan={fillSpan}
               />
             ) : null}
             {showPadCta ? (
@@ -376,25 +387,26 @@ export function FilteredEventList({
                 label={addEventLabelResolved}
                 onAddEvent={onAddEvent}
                 view={view}
+                fillSpan={fillSpan}
+              />
+            ) : null}
+            {hasMore ? (
+              <EventListMoreTile
+                label={dict.events.moreEvents}
+                view={view}
+                onClick={() =>
+                  setVisibleCount((count) => {
+                    if (!Number.isFinite(count)) return count;
+                    const shown =
+                      view === "cards"
+                        ? fillCardGridPage(count, filtered.length, columns)
+                        : count;
+                    return shown + pageSize;
+                  })
+                }
               />
             ) : null}
           </div>
-          {hasMore && (
-            <div className="pt-4 text-center">
-              <button
-                type="button"
-                onClick={() =>
-                  setVisibleCount((count) =>
-                    Number.isFinite(count) ? count + pageSize : count,
-                  )
-                }
-                className="inline-flex items-center gap-1 rounded-full border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 px-5 py-2.5 text-sm font-bold text-neutral-800 dark:text-neutral-200 hover:border-orange-300 dark:hover:border-orange-800 hover:text-orange-600 dark:hover:text-orange-400 transition-colors touch-manipulation"
-              >
-                {dict.events.moreEvents}
-                <ChevronRight className="h-4 w-4" aria-hidden />
-              </button>
-            </div>
-          )}
           {addEventInlineCard}
         </>
       )}

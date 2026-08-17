@@ -19,7 +19,7 @@ Runs **30 minutes after** the weekly ingest (Sunday 12:30 AST / 16:30 UTC).
 1. Confirms `weekly-event-ingest` GitHub Action succeeded — **retries ingest APIs** if it failed
 2. Runs **logged-in Instagram discovery** (`pop-instagram-ingest` + `instagram-weekly`) across posts, Reels, carousels, and Stories
 3. Runs **Facebook group discovery** (`pop-facebook-ingest` + `facebook-groups-weekly`)
-4. Adds verified new events with EN/ES/FR copy and authentic images, then commits and re-ingests
+4. Adds verified new events with EN/ES/FR copy and authentic images (Google Maps / official / ticket OG — not Instagram/Facebook scrapes), then commits and re-ingests
 5. Reminds you to moderate at `/en/moderate`
 6. Fetches the partner digest and writes `marketing/drafts/YYYY-MM-DD-social.md`
 7. Summarizes coverage, blockers, new events, weekend counts, and highlights 

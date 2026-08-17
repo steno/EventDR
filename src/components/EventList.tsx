@@ -1,8 +1,6 @@
 "use client";
 
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
-import { Loader2, ChevronRight } from "lucide-react";
-import { IntentLink } from "@/components/IntentLink";
 import type { Event, EventCategory } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
@@ -25,10 +23,13 @@ import { expectBootPart, readyBootPart } from "@/lib/boot-splash";
 import { scrollToListTop } from "@/lib/list-scroll";
 import { fillTemplate } from "@/lib/seo";
 import { useForegroundRefresh } from "@/hooks/useForegroundRefresh";
+import { useCardGridColumns } from "@/hooks/useCardGridColumns";
+import { cardGridRowRemainder, fillCardGridPage } from "@/lib/card-grid";
 import { EventCard } from "./EventCard";
 import { EventCardSkeleton } from "./EventCardSkeleton";
 import {
   EventCardPlaceholder,
+  EventListMoreTile,
   EventListScrollPads,
   LIST_SCROLL_PAD_TARGET,
 } from "./EventCardPlaceholder";
@@ -109,6 +110,9 @@ export function EventList({
   const scrollAnchorRef = useRef<HTMLDivElement>(null);
   const scrolledTimeRangeRef = useRef<FilterTimeRange | null>(null);
   const skipMountFetch = useRef(initialEvents.length > 0);
+  const [gridRef, columns] = useCardGridColumns(
+    searchQuery.trim().length > 0,
+  );
 
   useEffect(() => {
     onEventsLoadedRef.current = onEventsLoaded;
@@ -228,19 +232,23 @@ export function EventList({
   }, [events, timeRange, citySlug, searchQuery, excludeEventIds, ourPicks]);
 
   const isSearching = searchQuery.trim().length > 0;
-  const showEndTeaser =
-    Boolean(onAddEvent) &&
-    filtered.length >= LIST_SCROLL_PAD_TARGET;
+  const listView = isSearching ? "cards" : "list";
   const eventCap =
-    showEndTeaser &&
-    isSearching &&
-    limit != null &&
-    filtered.length >= visibleCount
-      ? Math.max(0, visibleCount - 1)
+    listView === "cards" && limit != null
+      ? fillCardGridPage(visibleCount, filtered.length, columns)
       : visibleCount;
   const visibleEvents =
     limit != null ? filtered.slice(0, eventCap) : filtered;
   const hasMore = limit != null && filtered.length > visibleEvents.length;
+  const showEndTeaser =
+    Boolean(onAddEvent) &&
+    filtered.length >= LIST_SCROLL_PAD_TARGET &&
+    !hasMore;
+  const leftover = cardGridRowRemainder(
+    showEndTeaser ? visibleEvents.length : filtered.length,
+    columns,
+  );
+  const fillSpan = listView === "cards" ? leftover || "full" : undefined;
 
   const teaserLabel = category
     ? fillTemplate(dict.events.yourEventHere, {
@@ -364,6 +372,7 @@ export function EventList({
       ) : (
         <>
           <div
+            ref={isSearching ? gridRef : undefined}
             className={
               isSearching
                 ? `${CARD_GRID_CLASS} pt-3`
@@ -378,7 +387,7 @@ export function EventList({
                 locale={locale}
                 returnTo={listReturnTo}
                 listTimeRange={timeRange}
-                view={isSearching ? "cards" : "list"}
+                view={listView}
               />
             ))}
             {showEndTeaser ? (
@@ -386,7 +395,8 @@ export function EventList({
                 title={dict.events.yourEventHereTitle}
                 label={teaserLabel}
                 onClick={onAddEvent!}
-                view={isSearching ? "cards" : "list"}
+                view={listView}
+                fillSpan={fillSpan}
               />
             ) : null}
             <EventListScrollPads
@@ -394,33 +404,29 @@ export function EventList({
               title={dict.events.yourEventHereTitle}
               label={teaserLabel}
               onAddEvent={onAddEvent}
-              view={isSearching ? "cards" : "list"}
+              view={listView}
+              fillSpan={fillSpan}
             />
-          </div>
-          {hasMore && viewAllHref ? (
-            <div className="pt-2 text-center">
-              <IntentLink
+            {hasMore ? (
+              <EventListMoreTile
+                label={viewAllHref ? dict.events.viewAllEvents : dict.events.moreEvents}
+                view={listView}
                 href={viewAllHref}
-                className="inline-flex items-center gap-1 rounded-full border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 px-5 py-2.5 text-sm font-bold text-neutral-800 dark:text-neutral-200 hover:border-orange-300 dark:hover:border-orange-800 hover:text-orange-600 dark:hover:text-orange-400 transition-colors touch-manipulation"
-              >
-                {dict.events.viewAllEvents}
-                <ChevronRight className="h-4 w-4" aria-hidden />
-              </IntentLink>
-            </div>
-          ) : hasMore ? (
-            <div className="pt-2 text-center">
-              <button
-                type="button"
-                onClick={() =>
-                  setVisibleCount((count) => count + step)
+                onClick={
+                  viewAllHref
+                    ? undefined
+                    : () =>
+                        setVisibleCount((count) => {
+                          const shown =
+                            listView === "cards"
+                              ? fillCardGridPage(count, filtered.length, columns)
+                              : count;
+                          return shown + step;
+                        })
                 }
-                className="inline-flex items-center gap-1 rounded-full border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 px-5 py-2.5 text-sm font-bold text-neutral-800 dark:text-neutral-200 hover:border-orange-300 dark:hover:border-orange-800 hover:text-orange-600 dark:hover:text-orange-400 transition-colors touch-manipulation"
-              >
-                {dict.events.moreEvents}
-                <ChevronRight className="h-4 w-4" aria-hidden />
-              </button>
-            </div>
-          ) : null}
+              />
+            ) : null}
+          </div>
         </>
       )}
     </div>

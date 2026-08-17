@@ -25,7 +25,7 @@ Instagram ingest:
 - [ ] 4. Search local hashtags and venue names
 - [ ] 5. Verify dates, venue, admission, and source
 - [ ] 6. Dedupe against seeds and live/moderation data
-- [ ] 7. Add EN/ES/FR seeds and authentic images
+- [ ] 7. Add EN/ES/FR seeds and authentic images (not from Instagram)
 - [ ] 8. Confirm or trigger API ingest
 - [ ] 9. Report candidates, additions, skips, and blockers
 ```
@@ -104,7 +104,7 @@ For each new event:
 3. Do not put one-off seeds in the thin loaders under `src/lib/`.
 4. Preserve the canonical post/Reel URL as `sourceUrl`; add `ticketUrl`, `admissionPrice`, `isFree`, `callForPricing`, and `phone` when verified.
 5. Follow existing date, time, category, venue, and localization conventions.
-6. Source authentic event and venue images from the official post, organizer, venue, or ticket page. Update image maps and `public/events/ATTRIBUTIONS.md`; never substitute generic stock for a named event or venue.
+6. Source authentic event and venue images from Google Maps/Places, the official website, or the ticket page — **not** from the Instagram post, Stories, or Reels (login walls and expiring CDNs). Update image maps and `public/events/ATTRIBUTIONS.md`; never substitute generic stock for a named event or venue. See the policy in `public/events/ATTRIBUTIONS.md`.
 7. Add a new venue and venue image only when required and supported by reliable location information.
 
 If an Instagram post lacks enough detail, leave it in the report as a candidate instead of seeding it.

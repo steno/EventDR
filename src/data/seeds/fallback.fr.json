@@ -991,5 +991,41 @@
     "phone": "+18095826688",
     "sourceUrl": "https://www.facebook.com/events/2570492776681289/",
     "imageEmoji": "💜"
+  },
+  {
+    "id": "master-of-the-ocean-2026",
+    "title": "Master of the Ocean 2026",
+    "description": "21e Master of the Ocean sur Kite Beach, Cabarete — 16–20 sept. Le seul contest océanique tropical en cinq disciplines : surf, kitesurf, windsurf, SUP et wingfoil. Le spectating depuis le sable est gratuit ; afters et hub culturel toute la semaine. Site officiel masteroftheocean.org.",
+    "date": "2026-09-16",
+    "endDate": "2026-09-20",
+    "time": "8:00 AM – 6:00 PM",
+    "location": "Cabarete",
+    "venue": "Kite Beach",
+    "venueSlug": "kite-beach",
+    "address": "Kite Beach, Cabarete",
+    "lat": 19.7637836,
+    "lng": -70.4226424,
+    "category": "sports",
+    "categories": [
+      "festivals",
+      "adventure"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "phone": "+18098564798",
+    "sourceUrl": "https://www.masteroftheocean.org/",
+    "lineup": [
+      "Tom Court",
+      "Maxime L’Huiller",
+      "Sammy Perez Hultz",
+      "JS Lena",
+      "Brian Talma",
+      "Aline Adisaka",
+      "Yannick Mittas",
+      "Francis Gonzalez Martinez",
+      "Carlo Ciabatti"
+    ],
+    "imageEmoji": "🏄"
   }
 ]

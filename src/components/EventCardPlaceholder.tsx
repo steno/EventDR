@@ -1,5 +1,9 @@
-import { Plus } from "lucide-react";
+"use client";
+
+import { ChevronRight, Plus } from "lucide-react";
+import { IntentLink } from "@/components/IntentLink";
 import type { EventListView } from "@/lib/event-list-view";
+import { CARD_GRID_FULL_ROW_CLASS } from "@/lib/page-shell";
 
 /**
  * Minimum list “slots” so short tabs have enough document height for
@@ -12,11 +16,107 @@ export const LIST_SCROLL_PAD_TARGET = 3;
 const CARD_SLOT_MIN_HEIGHT = "14rem";
 const LIST_SLOT_MIN_HEIGHT = "5.5rem";
 
+/** Span leftover last-row columns, or the full next row. */
+export type GridFillSpan = number | "full";
+
 interface EventCardPlaceholderProps {
   title: string;
   label: string;
   onClick: () => void;
   view?: EventListView;
+  fillSpan?: GridFillSpan;
+}
+
+const PLACEHOLDER_TILE_CLASS = `
+  group relative flex h-full min-w-0 flex-col overflow-hidden rounded-2xl
+  border border-dashed border-neutral-300 bg-neutral-50
+  transition-colors touch-manipulation
+  hover:border-orange-400 hover:bg-orange-50/70
+  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500
+  dark:border-neutral-600 dark:bg-neutral-900/60
+  dark:hover:border-orange-500/60 dark:hover:bg-orange-950/30
+`;
+
+const MORE_BAR_CLASS = `
+  ${CARD_GRID_FULL_ROW_CLASS}
+  flex min-h-14 items-center justify-center gap-1.5 rounded-2xl
+  border border-neutral-200 bg-white px-5 text-center
+  text-sm font-bold text-neutral-800
+  transition-colors touch-manipulation
+  hover:border-orange-300 hover:bg-orange-50/70 hover:text-orange-600
+  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500
+  dark:border-neutral-700 dark:bg-neutral-900
+  dark:text-neutral-200 dark:hover:border-orange-800 dark:hover:bg-orange-950/30 dark:hover:text-orange-400
+`;
+
+const MORE_PILL_CLASS = `
+  inline-flex items-center gap-1 rounded-full
+  border border-neutral-200 dark:border-neutral-700
+  bg-white dark:bg-neutral-900 px-5 py-2.5
+  text-sm font-bold text-neutral-800 dark:text-neutral-200
+  hover:border-orange-300 dark:hover:border-orange-800
+  hover:text-orange-600 dark:hover:text-orange-400
+  transition-colors touch-manipulation
+  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500
+`;
+
+interface EventListMoreTileProps {
+  label: string;
+  view?: EventListView;
+  href?: string;
+  onClick?: () => void;
+}
+
+function fillSpanStyle(
+  fillSpan: GridFillSpan | undefined,
+): { gridColumn: string } | undefined {
+  if (fillSpan === "full") return { gridColumn: "1 / -1" };
+  if (typeof fillSpan === "number" && fillSpan > 1) {
+    return { gridColumn: `span ${fillSpan}` };
+  }
+  return undefined;
+}
+
+/** Load-more control: full-width bar in card grids, compact pill in list view. */
+export function EventListMoreTile({
+  label,
+  view = "cards",
+  href,
+  onClick,
+}: EventListMoreTileProps) {
+  const content = (
+    <>
+      {label}
+      <ChevronRight className="h-4 w-4" aria-hidden />
+    </>
+  );
+
+  if (view === "cards") {
+    if (href) {
+      return (
+        <IntentLink href={href} className={MORE_BAR_CLASS}>
+          {content}
+        </IntentLink>
+      );
+    }
+    return (
+      <button type="button" onClick={onClick} className={MORE_BAR_CLASS}>
+        {content}
+      </button>
+    );
+  }
+
+  const pill = href ? (
+    <IntentLink href={href} className={MORE_PILL_CLASS}>
+      {content}
+    </IntentLink>
+  ) : (
+    <button type="button" onClick={onClick} className={MORE_PILL_CLASS}>
+      {content}
+    </button>
+  );
+
+  return <div className="pt-1 text-center">{pill}</div>;
 }
 
 /** Inviting “add your event” tile — one per short list, never duplicated. */
@@ -25,23 +125,28 @@ export function EventCardPlaceholder({
   label,
   onClick,
   view = "cards",
+  fillSpan,
 }: EventCardPlaceholderProps) {
   if (view === "cards") {
+    const spanning = fillSpan === "full" || (typeof fillSpan === "number" && fillSpan > 1);
     return (
       <button
         type="button"
         onClick={onClick}
-        className="
-          group relative flex h-full min-w-0 flex-col overflow-hidden rounded-2xl
-          border border-dashed border-neutral-300 bg-neutral-50
-          transition-colors touch-manipulation
-          hover:border-orange-400 hover:bg-orange-50/70
-          focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500
-          dark:border-neutral-600 dark:bg-neutral-900/60
-          dark:hover:border-orange-500/60 dark:hover:bg-orange-950/30
-        "
+        className={
+          spanning
+            ? `${PLACEHOLDER_TILE_CLASS} ${fillSpan === "full" ? CARD_GRID_FULL_ROW_CLASS : "w-full"}`
+            : PLACEHOLDER_TILE_CLASS
+        }
+        style={fillSpanStyle(fillSpan)}
       >
-        <div className="flex aspect-[4/3] w-full flex-col items-center justify-center gap-3 px-4">
+        <div
+          className={
+            spanning
+              ? "flex min-h-[6.75rem] w-full flex-1 flex-col items-center justify-center gap-3 px-4"
+              : "flex aspect-[4/3] w-full flex-col items-center justify-center gap-3 px-4"
+          }
+        >
           <span
             className="
               flex h-11 w-11 items-center justify-center rounded-full
@@ -136,12 +241,14 @@ export function EventListScrollPads({
   label,
   onAddEvent,
   view = "cards",
+  fillSpan,
 }: {
   count: number;
   title: string;
   label: string;
   onAddEvent?: () => void;
   view?: EventListView;
+  fillSpan?: GridFillSpan;
 }) {
   const deficit = Math.max(0, LIST_SCROLL_PAD_TARGET - count);
   if (deficit === 0) return null;
@@ -157,6 +264,7 @@ export function EventListScrollPads({
           label={label}
           onClick={onAddEvent}
           view={view}
+          fillSpan={fillSpan}
         />
       ) : null}
       <ListScrollSpacer slots={spacerSlots} view={view} />

@@ -108,6 +108,7 @@ export type Dictionary = {
       weekdays: string;
       weekends: string;
       every: string;
+      closedOn: string;
       separator: string;
     };
     format: {
@@ -530,6 +531,7 @@ export const en: Dictionary = {
       weekdays: "Weekdays",
       weekends: "Weekends",
       every: "Every",
+      closedOn: "Closed on {days}",
       separator: " & ",
     },
     format: {

@@ -16,7 +16,7 @@ Use skill **`pop-instagram-ingest`** for the full workflow. This rule provides s
 4. Review enough older posts, pinned posts, Reels, and highlights to catch advance announcements through the end of the window; do not limit the scan to only the newest weekly posts.
 5. Dedupe against fallback, recurring, and curated seeds plus the live/moderation data.
 6. Preserve the canonical Instagram URL and organizer handle; cross-check ambiguous flyers.
-7. Add matching EN/ES/FR entries and authentic event/venue images for every verified new seed.
+7. Add matching EN/ES/FR entries for every verified new seed. Pull event/venue images from Google Maps, official sites, or ticket OG — **not** from Instagram posts, Reels, or Stories.
 8. Use Instagram read-only: never like, follow, comment, message, share, save, or publish.
 9. Stop for login checkpoints, CAPTCHA, passkeys, account confirmation, or rate limits and ask the user to take over.
 

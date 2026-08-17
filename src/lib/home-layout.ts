@@ -17,8 +17,8 @@ export const HOME_TODAY_LIMIT = 6;
 
 /**
  * Max events before "More events" on home picks / scope lists.
- * 12 keeps short first paints; elastic auto-fit grids may leave a partial
- * last row — category lists reserve one slot for the “Your event here?” card.
+ * 12 keeps short first paints. Desktop auto-fit grids then add a few extra
+ * cards (`fillCardGridPage`) so the last row is complete before More events.
  */
 export const HOME_PICKS_LIMIT = 12;
 
@@ -83,6 +83,8 @@ export const VENUE_AUDIENCE_POOLS: Record<
     "rum-legacy-museum",
     "macorix-house-of-rum",
     "playa-los-charamicos",
+    "meclao-rooftop",
+    "kviar-costa-dorada",
   ],
   visitor: [
     "lax-cabarete",
@@ -119,6 +121,12 @@ export const VENUE_AUDIENCE_POOLS: Record<
     "sosua-jewish-museum",
     "del-oro-chocolate-factory",
     "hacienda-cufa",
+    "playa-cofresi",
+    "kviar-costa-dorada",
+    "meclao-rooftop",
+    "laguna-sov",
+    "santa-fe-sov",
+    "restaurant-maria-sov",
   ],
 };
 

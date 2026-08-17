@@ -497,6 +497,30 @@ export const VENUE_TIP_COPY: Record<
       fr: "Cours au gym d'Ocean Village sans abonnement complet — WhatsApp au coach avant pour clarifier l'accès et le tarif à l'unité.",
     },
   },
+  "laguna-sov": {
+    body: "The kids’ water park inside Ocean Village — day pass for slides and inflatables, not Santa Fe’s oceanfront club and not El Choco lagoon.",
+    localized: {
+      en: "The kids’ water park inside Ocean Village — day pass for slides and inflatables, not Santa Fe’s oceanfront club and not El Choco lagoon.",
+      es: "El parque acuático de niños dentro de Ocean Village — day pass de toboganes e inflables, no el club frente al mar de Santa Fe ni la laguna de El Choco.",
+      fr: "Le parc aquatique enfants dans Ocean Village — day pass toboggans et inflatables, pas le club océanfront Santa Fe ni la lagune El Choco.",
+    },
+  },
+  "santa-fe-sov": {
+    body: "Oceanfront fortress-and-ship day club — the pass is consumable at Santa Maria restaurant; don’t confuse it with Restaurant Maria or Laguna SOV’s kids park.",
+    localized: {
+      en: "Oceanfront fortress-and-ship day club — the pass is consumable at Santa Maria restaurant; don’t confuse it with Restaurant Maria or Laguna SOV’s kids park.",
+      es: "Club de día frente al mar con fortaleza y barco — el pase es consumible en el restaurante Santa Maria; no lo confundas con Restaurant Maria ni con el parque infantil de Laguna SOV.",
+      fr: "Club day océanfront forteresse-et-bateau — le pass est consommable au restaurant Santa Maria ; ne le confondez pas avec Restaurant Maria ni le parc enfants Laguna SOV.",
+    },
+  },
+  "restaurant-maria-sov": {
+    body: "Infinity-pool gourmet at Club House Maria — WhatsApp to book; the day pass is for the pool, not a free look, and it is not Santa Fe’s Santa Maria ship.",
+    localized: {
+      en: "Infinity-pool gourmet at Club House Maria — WhatsApp to book; the day pass is for the pool, not a free look, and it is not Santa Fe’s Santa Maria ship.",
+      es: "Gourmet con infinity pool en Club House Maria — reserva por WhatsApp; el day pass es para la piscina, no una visita gratis, y no es el barco Santa Maria de Santa Fe.",
+      fr: "Gourmet infinity pool au Club House Maria — réservez par WhatsApp ; le day pass est pour la piscine, pas une visite gratuite, et ce n'est pas le bateau Santa Maria de Santa Fe.",
+    },
+  },
   "zen-fitness-cabarete": {
     body: "Beachfront residential fitness camp on Kite Beach — come for a multi-week immersion with trainers on site, not a casual day pass.",
     localized: {
@@ -567,6 +591,30 @@ export const VENUE_TIP_COPY: Record<
       en: "Local Sosúa beach west of El Batey — beach soccer and neighborhood energy; less polished than the main bay tourist strip.",
       es: "Playa local de Sosúa al oeste de El Batey — fútbol playa y energía de barrio; menos pulida que la franja turística de la bahía.",
       fr: "Plage locale de Sosúa à l'ouest d'El Batey — beach soccer et énergie de quartier ; moins polie que la strip touristique de la baie.",
+    },
+  },
+  "meclao-rooftop": {
+    body: "Luis Ginebra rooftop for live sets and a late cocktail crowd — skip Monday; this is not a quiet dinner terrace.",
+    localized: {
+      en: "Luis Ginebra rooftop for live sets and a late cocktail crowd — skip Monday; this is not a quiet dinner terrace.",
+      es: "Rooftop de Luis Ginebra para sets en vivo y cócteles tarde — sáltate el lunes; no es terraza de cena tranquila.",
+      fr: "Rooftop Luis Ginebra pour sets live et cocktails tardifs — passez le lundi ; pas une terrasse dîner calme.",
+    },
+  },
+  "kviar-costa-dorada": {
+    body: "Costa Dorada's casino-plus-disco send inside Be Live Marien — tourist-night energy and tables until 4 AM, not a downtown típico floor.",
+    localized: {
+      en: "Costa Dorada's casino-plus-disco send inside Be Live Marien — tourist-night energy and tables until 4 AM, not a downtown típico floor.",
+      es: "El envío casino-disco de Costa Dorada dentro del Be Live Marien — energía de noche turística y mesas hasta las 4 AM, no una pista típico de centro.",
+      fr: "L'envoi casino-disco de Costa Dorada dans le Be Live Marien — énergie nuit touristique et tables jusqu'à 4 h, pas une piste típico du centre.",
+    },
+  },
+  "playa-cofresi": {
+    body: "The easy family sunset west of town — snack shacks and a marina backdrop, not a kite-session beach and not the dolphin-park ticket.",
+    localized: {
+      en: "The easy family sunset west of town — snack shacks and a marina backdrop, not a kite-session beach and not the dolphin-park ticket.",
+      es: "El atardecer familiar fácil al oeste del pueblo — snacks y marina de fondo, no playa de kite ni el ticket del parque de delfines.",
+      fr: "Le sunset familial à l'ouest de la ville — snacks et marina en fond, pas une plage kite ni le billet dauphins.",
     },
   },
 };

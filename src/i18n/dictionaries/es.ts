@@ -128,6 +128,7 @@ export const es: Dictionary = {
       weekdays: "Entre semana",
       weekends: "Fines de semana",
       every: "Cada",
+      closedOn: "Cerrado los {days}",
       separator: " y ",
     },
     format: {

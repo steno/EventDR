@@ -117,12 +117,37 @@ export type ReturnContext = {
   title?: string | null;
 };
 
+/**
+ * Replay of the last successful take — React Strict Mode remounts detail pages
+ * in dev and would otherwise clear sessionStorage on the first effect pass.
+ * Scoped to the pathname where the take happened so a later visit to another
+ * detail page does not replay stale context (e.g. venue → nearby event → venue).
+ */
+let lastTakenReturn: ReturnContext | null = null;
+let lastTakenAtPath: string | null = null;
+
+function currentPathname(): string {
+  if (typeof window === "undefined") return "";
+  return window.location.pathname;
+}
+
+function normalizeReturnPathname(path: string): string {
+  const pathname = path.split(/[?#]/)[0].replace(/\/$/, "");
+  return pathname || path;
+}
+
+function isSelfReturn(path: string, atPath: string): boolean {
+  return normalizeReturnPathname(path) === normalizeReturnPathname(atPath);
+}
+
 /** Store back-nav context before client navigation to a clean detail URL. */
 export function rememberReturnPath(
   path: string | null | undefined,
   title?: string | null,
 ): void {
   if (typeof window === "undefined" || !path) return;
+  lastTakenReturn = null;
+  lastTakenAtPath = null;
   try {
     const payload: ReturnContext = {
       path,
@@ -137,19 +162,44 @@ export function rememberReturnPath(
 /** Read and clear stored back-nav context (preferred over legacy `?from=`). */
 export function takeReturnPath(locale: Locale): ReturnContext | null {
   if (typeof window === "undefined") return null;
+  const atPath = currentPathname();
+
+  if (lastTakenReturn && lastTakenAtPath === atPath) {
+    if (isSelfReturn(lastTakenReturn.path, atPath)) {
+      lastTakenReturn = null;
+      lastTakenAtPath = null;
+      return null;
+    }
+    return lastTakenReturn;
+  }
+
+  if (lastTakenAtPath !== atPath) {
+    lastTakenReturn = null;
+    lastTakenAtPath = null;
+  }
+
   try {
     const raw = sessionStorage.getItem(RETURN_STORAGE_KEY);
     if (!raw) return null;
     sessionStorage.removeItem(RETURN_STORAGE_KEY);
     const parsed = JSON.parse(raw) as ReturnContext;
     if (!parsed?.path || !isSafeReturnPath(parsed.path, locale)) return null;
-    return {
+    if (isSelfReturn(parsed.path, atPath)) return null;
+    lastTakenReturn = {
       path: parsed.path,
       title: sanitizeReturnTitle(parsed.title) ?? null,
     };
+    lastTakenAtPath = atPath;
+    return lastTakenReturn;
   } catch {
     return null;
   }
+}
+
+/** @internal Test helper — clears in-memory Strict Mode replay cache. */
+export function resetReturnPathReplayForTests(): void {
+  lastTakenReturn = null;
+  lastTakenAtPath = null;
 }
 
 function isSafeReturnPath(path: string, locale: Locale): boolean {

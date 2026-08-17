@@ -4,10 +4,11 @@ Curated images under `public/events/` and `public/venues/`.
 
 ## Policy (authentic first)
 
-1. **Source real North Coast media** — official venue/event sites, Eventbrite/Facebook/Instagram OG posters, local press, tourism board, or POP-shot photos of *this* place/team/night.
-2. **Do not use Unsplash / generic stock** for branded teams, named venues, or local events (wrong jersey, wrong city, stock “vibe” shots).
-3. Prefer a reused **authentic** team/venue photo over a prettier stock stand-in.
-4. Remote refresh via `scripts/fetch-venue-images.mjs` is best-effort and must not overwrite curated authentic assets.
+1. **Source real North Coast media** — Google Maps/Places photos of *this* place, official venue/event sites, ticket-page OG (Eventbrite, tix.do, TodoTickets), local press, tourism board, Wikimedia, or POP-shot photos of *this* place/team/night.
+2. **Do not scrape Instagram or Facebook for venue/event heroes.** Login walls, flyer collages, and expiring CDNs waste the seed pass. Keep IG/FB for event *discovery* only (`sourceUrl` is fine). Existing committed IG/FB assets stay until replaced.
+3. **Do not use Unsplash / generic stock** for branded teams, named venues, or local events (wrong jersey, wrong city, stock “vibe” shots).
+4. Prefer a reused **authentic** team/venue photo over a prettier stock stand-in. One photo per named venue; listings inherit it. No logos or flyers as venue heroes.
+5. Remote refresh via `scripts/fetch-venue-images.mjs` is best-effort and must not overwrite curated authentic assets.
 
 | Asset | Source | Notes |
 |-------|--------|-------|
@@ -78,3 +79,11 @@ Curated images under `public/events/` and `public/venues/`.
 | `ingest-make-authentic-espadrilles-in-puerto-plata.jpg` | POP curated `espadrillas.jpeg` — workshop bench with colorful handmade espadrilles | Espadrille workshop hero |
 | `venues/handmade-the-brand.jpeg` | POP curated `handmadebrand.jpeg` — Handmade the Brand shop / workshop | Venue place photo |
 | `handmade-pina-colada-experience.webp` | POP curated `pinacoloadexp.webp` — Piña Colada Experience | Official cocktail workshop promo |
+| `master-of-the-ocean-2026.jpg` | [Master of the Ocean](https://www.masteroftheocean.org/) gallery — Frithjof Blaasch / bulgenslag.de (`JS Lena is getting ready to take off`) | Official MOTO Cabarete action for the 2026 contest |
+| `venues/meclao-rooftop-lounge.jpg` | [@meclaorooftop](https://www.instagram.com/meclaorooftop/) — 7 Aug 2026 lounge night | Actual Mecla'o interior (neon ceiling, tables, crowd); listing reuses the venue shot |
+| `venues/kviar-costa-dorada-floor.jpg` | [@kviarcasinos](https://www.instagram.com/kviarcasinos/) — 15 Aug 2026 floor post | Slot-floor action with chandelier and Kviar machines; listing reuses the venue shot |
+| `venues/playa-cofresi-shore.jpg` | [Wikimedia Commons — Beach@Night.jpg](https://commons.wikimedia.org/wiki/File:Beach@Night.jpg) — Ludovic Bertron, [CC BY 2.0](https://creativecommons.org/licenses/by/2.0) | Cofresí shoreline at night (Sun Village stay); listing reuses the venue shot |
+| `terraza-ocean-world-evenings` | Uses `venues/ocean-world.jpg` (dolphin jump at the Cofresí park) | One Ocean World place photo; no second aerial |
+| `venues/laguna-sov-kids-park.jpg` | [Google Maps — Laguna SOV](https://www.google.com/maps/place/Laguna+SOV/@19.7773238,-70.4988058,17z) visitor photo | Kids’ water-park structures and shallow pool at Sosúa Ocean Village; listing reuses the venue shot |
+| `venues/santa-fe-sov-pools.jpg` | [Google Maps — Santa Fe Recreational Complex](https://www.google.com/maps/place/Santa+Fe+-+Recreational+Complex/@19.7803548,-70.505895,17z) visitor photo | Infinity pool, waterfalls, and cabanas at the oceanfront club; listing reuses the venue shot |
+| `venues/restaurant-maria-sov-terrace.jpg` | [Google Maps — Restaurant Maria](https://www.google.com/maps/place/Restaurant+Maria/@19.7813838,-70.5040742,17z) visitor photo | Oceanfront dining terrace at Club House Maria; listing reuses the venue shot |

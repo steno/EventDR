@@ -73,6 +73,31 @@ export const INSTAGRAM_ACCOUNTS = [
     areas: ["Puerto Plata"],
   },
   {
+    handle: "meclaorooftop",
+    label: "Mecla'o Rooftop Lounge",
+    areas: ["Puerto Plata"],
+  },
+  {
+    handle: "kviarcasinos",
+    label: "Kviar Casinos",
+    areas: ["Puerto Plata"],
+  },
+  {
+    handle: "lagunasov",
+    label: "Laguna SOV",
+    areas: ["Sosúa"],
+  },
+  {
+    handle: "santafesov",
+    label: "Santa Fe SOV",
+    areas: ["Sosúa"],
+  },
+  {
+    handle: "masteroftheocean",
+    label: "Master of the Ocean",
+    areas: ["Cabarete"],
+  },
+  {
     handle: "cigartownpop",
     label: "Cigar Town Pop",
     areas: ["Puerto Plata"],
@@ -225,12 +250,14 @@ export function instagramSearchQueries(): string[] {
     "onnosbar", "shakabardr", "groundzero_disco", "blueice_pianobar",
     "driftercabarete", "nonasgrillkitchen", "hardrockcafepuertoplata",
     "djblueeventos", "victrolart", "cigartownpop", "paradaelchoco",
-    "kitestreetpop",
+    "kitestreetpop", "meclaorooftop", "kviarcasinos",
+    "lagunasov", "santafesov",
   ].join(" OR ");
 
   const culturalVenues = [
     "anfiteatropuertoplata", "anfiteatro_puertoplata_rd",
     "graaneventsplanners", "cabaretejazz", "luciano.vasquez.pp",
+    "masteroftheocean",
     "victrolart", "turismopuertoplata", "descubrepuertoplata",
   ].join(" OR ");
 

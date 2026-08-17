@@ -82,12 +82,14 @@ For each **new** event:
 3. Do not edit the thin loaders in `src/lib/fallback-events.ts` / `src/lib/recurring-events.ts` for seed content
 4. Match existing field patterns (`category`, `location`, `venue` / `venueSlug`, `format: "physical"`, dates as `YYYY-MM-DD`)
 5. **Admission & contact (required when known):** set `ticketUrl` and/or `admissionPrice` (e.g. `RD$250`, `US$210`) or `isFree: true` / `callForPricing: true`; always add `phone` when an organizer/venue number exists (also on the venue in `venues-seed.ts`). Wire curated maps in `event-tickets.ts` / `event-phone.ts` when useful.
-6. **Images (required for every new event):** source **authentic** event + venue photos — this place, this team, this flyer.
+6. **Images (required for every new event):** source **authentic** event + venue photos — this place, this team, this night.
    - Save under `popevent-images/`, sync via `node scripts/sync-event-images.mjs`
    - Map event id in `event-images.ts` and venue slug in `venue-images.ts`
-   - Prefer Eventbrite/Facebook/official OG, local press, or POP-shot scenes
+   - Prefer Google Maps/Places photos, official sites, ticket OG (Eventbrite/tix.do), local press, or POP-shot scenes
+   - **Do not scrape Instagram or Facebook** for venue/event heroes (discovery `sourceUrl` only)
    - **Do not use Unsplash / generic stock** for branded teams or named North Coast venues
    - When introducing a **new venue**, always add both venue seed + venue image
+   - Policy: `public/events/ATTRIBUTIONS.md`
 7. **POP expert opinion (when possible):** if the venue has Google Places reviews, prefer a unique seed opinion in `event-opinions-seed.ts` / `event-opinions-seed-more.ts`, or let server ingest draft one via Places + OpenAI (`eventOpinionDrafts`, never auto-published). Skip rather than inventing a generic blurb.
 
 Do **not** commit unless the user asks.

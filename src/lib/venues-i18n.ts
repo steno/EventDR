@@ -489,6 +489,42 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Salle de sport sur deux niveaux avec vue mer à Sosúa Ocean Village — cardio, machines, salle de boxe et cours collectifs (Zumba, renforcement) sans abonnement complet.",
     },
   },
+  "laguna-sov": {
+    description: {
+      es: "Parque acuático familiar dentro de Sosúa Ocean Village — juegos infantiles, toboganes, inflables y piscinas en la carretera Sosúa–Cabarete. Day pass; no es la laguna de El Choco ni Santa Fe.",
+      fr: "Parc aquatique familial dans Sosúa Ocean Village — structures enfants, toboggans, inflatables et piscines sur la route Sosúa–Cabarete. Day pass ; ce n'est pas la lagune El Choco ni Santa Fe.",
+    },
+  },
+  "santa-fe-sov": {
+    description: {
+      es: "Club recreativo frente al mar en Sosúa Ocean Village — fortaleza colonial, piscinas, cascadas y el restaurante-barco Santa Maria. El day pass es consumible; no es Restaurant Maria.",
+      fr: "Club océanfront dans Sosúa Ocean Village — forteresse coloniale, piscines, cascades et le restaurant-bateau Santa Maria. Le day pass est consommable ; ce n'est pas Restaurant Maria.",
+    },
+  },
+  "restaurant-maria-sov": {
+    description: {
+      es: "Restaurante gourmet frente al mar en Club House Maria, Ocean Village Deluxe — infinity pool y jacuzzis con vista al Atlántico. Day pass para las piscinas; no es Santa Maria dentro de Santa Fe.",
+      fr: "Restaurant gourmet océanfront au Club House Maria, Ocean Village Deluxe — infinity pool et jacuzzis face à l'Atlantique. Day pass pour les piscines ; ce n'est pas Santa Maria dans Santa Fe.",
+    },
+  },
+  "meclao-rooftop": {
+    description: {
+      es: "Rooftop en Av. Luis Ginebra — música en vivo, cócteles y vista de la ciudad. Cerrado los lunes; los fines de semana cierra más tarde.",
+      fr: "Rooftop sur l'Av. Luis Ginebra — musique live, cocktails et vue ville. Fermé le lundi ; week-ends plus tardifs.",
+    },
+  },
+  "kviar-costa-dorada": {
+    description: {
+      es: "Casino y disco en el Hotel Be Live Marien, Costa Dorada — mesas, DJs y baile desde la tarde hasta las 4:00 AM.",
+      fr: "Casino et disco à l'hôtel Be Live Marien, Costa Dorada — tables, DJ et piste de l'après-midi jusqu'à 4 h.",
+    },
+  },
+  "playa-cofresi": {
+    description: {
+      es: "Playa pública al oeste de Puerto Plata — paseos al atardecer, snacks en la arena y orilla junto a la marina de Ocean World.",
+      fr: "Plage publique à l'ouest de Puerto Plata — promenades au sunset, snacks sur le sable et rivage le long de la marina Ocean World.",
+    },
+  },
   "zen-fitness-cabarete": {
     description: {
       es: "Camp de fitness y wellness frente al mar en Zen Cabarete en Kite Beach (antes eXtreme) — gym tiki barefoot, loft de yoga con vista al océano, comida de la granja a la mesa, y campamentos de pérdida de peso y fitness todo el año.",

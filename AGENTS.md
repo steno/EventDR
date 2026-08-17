@@ -12,6 +12,8 @@ For richer coverage (Discussion posts, login-gated groups), run the agent with r
 
 For Instagram—the primary source for many DR event flyers—run skill `pop-instagram-ingest` with rule `instagram-weekly` while logged into Instagram. It scans monitored posts, Reels, carousels, and Stories from `src/lib/instagram-sources.ts`. The GitHub Action only provides public-profile and web-search fallback coverage.
 
+**Images (not Instagram/Facebook):** when seeding venues or events, pull place shots from Google Maps/Places, official sites, ticket OG, press, Wikimedia, or a POP photo of *this* place. Do not scrape IG/FB for heroes — use those networks only to discover events (`sourceUrl`). Policy: `public/events/ATTRIBUTIONS.md`.
+
 ## Weekly content pipeline (marketing)
 
 | When | Automation | Agent |

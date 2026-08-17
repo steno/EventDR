@@ -78,9 +78,16 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "ocean-one-cabarete": "ocean-one-cabarete.jpg",
   "vip-beach-lifestyles-resort": "vip-beach-lifestyles-resort.jpg",
   "gym-sov-sosua-ocean-village": "gym-sov-sosua-ocean-village.webp",
+  "laguna-sov": "laguna-sov-kids-park.jpg",
+  "santa-fe-sov": "santa-fe-sov-pools.jpg",
+  "restaurant-maria-sov": "restaurant-maria-sov-terrace.jpg",
   "zen-fitness-cabarete": "zen-fitness-cabarete.jpg",
   "cacique-moncion": "cacique-moncion.jpg",
   "gran-ventana-beach-resort": "gran-ventana-beach-resort.jpg",
+  // Filename bumps after replacing flyer / logo / park-aerial stand-ins.
+  "meclao-rooftop": "meclao-rooftop-lounge.jpg",
+  "kviar-costa-dorada": "kviar-costa-dorada-floor.jpg",
+  "playa-cofresi": "playa-cofresi-shore.jpg",
 };
 
 /** Cache-busted URL for general venue thumbnails / JSON-LD. */

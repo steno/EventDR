@@ -9,7 +9,9 @@ const forceRefresh = process.env.FORCE_VENUE_IMAGE_REFRESH === "1";
 
 /** Curated image sources — prefer authentic North Coast event/venue media.
  * Do NOT add Unsplash / generic stock for branded teams, named venues, or local events.
- * Official sites, Eventbrite/Facebook OG, local press, and POP-curated photos only.
+ * Google Maps/Places, official sites, ticket OG, local press, Wikimedia, and POP-curated
+ * photos only. Do not scrape Instagram or Facebook CDNs (login walls, flyer collages,
+ * expiring URLs). See public/events/ATTRIBUTIONS.md.
  */
 const VENUE_SOURCES = [
   {
@@ -256,6 +258,18 @@ const VENUE_SOURCES = [
   // (committed under popevent-images/). Do not remote-refresh over it.
   // groundzero-domingos-pal-pueblo.jpg is the official Domingos Pal Pueblo flyer
   // (committed under popevent-images/). Do not remote-refresh over it.
+  {
+    eventId: "master-of-the-ocean-2026",
+    url: "https://static.wixstatic.com/media/c23fd5_ee7b6ee12742489abb13f57ecfdd8449~mv2.jpg",
+  },
+  // meclao-rooftop-lounge.jpg — official @meclaorooftop lounge night (committed).
+  // kviar-costa-dorada-floor.jpg — official @kviarcasinos floor (committed).
+  // playa-cofresi-shore.jpg — Wikimedia Cofresí shoreline (committed).
+  // terraza-ocean-world-evenings uses the ocean-world venue dolphin shot — do not
+  // remote-refresh a second Ocean World aerial over it.
+  // laguna-sov-kids-park.jpg — Google Maps Laguna SOV kids water-park photo (committed).
+  // santa-fe-sov-pools.jpg — Google Maps Santa Fe Recreational Complex pool/waterfall (committed).
+  // restaurant-maria-sov-terrace.jpg — Google Maps Restaurant Maria ocean terrace (committed).
 ];
 
 mkdirSync(outDir, { recursive: true });

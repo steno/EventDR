@@ -93,10 +93,12 @@ export const CATEGORY_QUERIES: Record<EventCategory, CategoryQuerySet> = {
       `site:eventbrite.com sports Cabarete Puerto Plata`,
       `liga softbol pickup soccer beach volleyball Sosúa Cabarete`,
       `running race triathlon paddleboard ${REGION} Dominican Republic`,
+      `Master of the Ocean Cabarete kite beach 2026`,
     ],
     directUrls: [
       `${ALLEVENTS_PP}/sports`,
       EVENTBRITE_CABARETE,
+      "https://www.masteroftheocean.org/",
     ],
   },
   music: {

@@ -716,6 +716,39 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     ],
   }),
   editorial({
+    venueSlug: "laguna-sov",
+    verdictKey: "solid_visitor_activity",
+    crowdFit: ["family", "visitor", "mixed"],
+    axes: { recommend: 4.5, atmosphere: 4.4, practical: 4.0, value: 4.3 },
+    themes: [
+      { key: "family_friendly", sentiment: "positive", audience: "family" },
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+      { key: "busy_weekends", sentiment: "mixed" },
+    ],
+  }),
+  editorial({
+    venueSlug: "santa-fe-sov",
+    verdictKey: "reliable_visitor_pick",
+    crowdFit: ["visitor", "family", "mixed"],
+    axes: { recommend: 4.4, atmosphere: 4.6, practical: 4.0, value: 3.8 },
+    themes: [
+      { key: "beachfront", sentiment: "positive", audience: "visitor" },
+      { key: "family_friendly", sentiment: "positive", audience: "family" },
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+    ],
+  }),
+  editorial({
+    venueSlug: "restaurant-maria-sov",
+    verdictKey: "reliable_visitor_pick",
+    crowdFit: ["visitor", "family", "mixed"],
+    axes: { recommend: 4.4, atmosphere: 4.6, practical: 4.1, value: 3.7 },
+    themes: [
+      { key: "ocean_views", sentiment: "positive", audience: "visitor" },
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+      { key: "family_friendly", sentiment: "positive", audience: "family" },
+    ],
+  }),
+  editorial({
     venueSlug: "zen-fitness-cabarete",
     verdictKey: "reliable_visitor_pick",
     crowdFit: ["visitor", "family"],
@@ -812,6 +845,38 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
       { key: "beachfront", sentiment: "positive" },
       { key: "family_friendly", sentiment: "positive", audience: "family" },
       { key: "baseball", sentiment: "positive", audience: "local" },
+    ],
+  }),
+  editorial({
+    venueSlug: "meclao-rooftop",
+    verdictKey: "strong_visitor_nightlife",
+    crowdFit: ["nightlife", "visitor", "mixed"],
+    axes: { recommend: 4.5, atmosphere: 4.6, practical: 4.0 },
+    themes: [
+      { key: "live_music", sentiment: "positive" },
+      { key: "sunset_views", sentiment: "positive", audience: "visitor" },
+      { key: "busy_weekends", sentiment: "mixed" },
+    ],
+  }),
+  editorial({
+    venueSlug: "kviar-costa-dorada",
+    verdictKey: "strong_visitor_nightlife",
+    crowdFit: ["nightlife", "visitor"],
+    axes: { recommend: 4.2, atmosphere: 4.3, practical: 4.1 },
+    themes: [
+      { key: "busy_weekends", sentiment: "positive", audience: "nightlife" },
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+    ],
+  }),
+  editorial({
+    venueSlug: "playa-cofresi",
+    verdictKey: "popular_public_space",
+    crowdFit: ["family", "visitor", "mixed"],
+    axes: { recommend: 4.3, atmosphere: 4.5, value: 4.8, practical: 4.0 },
+    themes: [
+      { key: "beachfront", sentiment: "positive" },
+      { key: "family_friendly", sentiment: "positive", audience: "family" },
+      { key: "sunset_views", sentiment: "positive", audience: "visitor" },
     ],
   }),
 ];

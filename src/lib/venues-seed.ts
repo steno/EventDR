@@ -885,6 +885,44 @@ export const SEED_VENUES: Venue[] = [
     phone: "+18299612269",
   },
   {
+    slug: "laguna-sov",
+    name: "Laguna SOV",
+    city: "Sosúa",
+    description:
+      "Family water park inside Sosúa Ocean Village — kids’ play structures, slides, inflatables, and pools on the Sosúa–Cabarete highway. Day pass; not El Choco lagoon and not Santa Fe.",
+    lat: 19.7773238,
+    lng: -70.4988058,
+    emoji: "🎢",
+    instagram: "lagunasov",
+    website: "https://www.lagunasov.do/",
+    phone: "+18299612269",
+  },
+  {
+    slug: "santa-fe-sov",
+    name: "Santa Fe",
+    city: "Sosúa",
+    description:
+      "Oceanfront recreation club in Sosúa Ocean Village — colonial fortress, pools, waterfalls, and the Santa Maria ship restaurant. Day pass is consumable; not Restaurant Maria.",
+    lat: 19.7803548,
+    lng: -70.505895,
+    emoji: "🏰",
+    instagram: "santafesov",
+    website: "https://www.santafe.do/",
+    phone: "+18299612269",
+  },
+  {
+    slug: "restaurant-maria-sov",
+    name: "Restaurant Maria",
+    city: "Sosúa",
+    description:
+      "Oceanfront gourmet restaurant at Club House Maria in Ocean Village Deluxe — infinity pool and jacuzzis overlooking the Atlantic. Day pass for the pools; not Santa Maria inside Santa Fe.",
+    lat: 19.7813838,
+    lng: -70.5040742,
+    emoji: "🍽️",
+    website: "https://oceanvillagedeluxe.com/restaurants/restaurant-maria",
+    phone: "+18299614455",
+  },
+  {
     slug: "zen-fitness-cabarete",
     name: "Zen Fitness Camps",
     city: "Cabarete",
@@ -930,6 +968,40 @@ export const SEED_VENUES: Venue[] = [
     website: "https://www.granventanahotel.com/",
     phone: "+18093202111",
     instagram: "granventanadr",
+  },
+  {
+    slug: "meclao-rooftop",
+    name: "Mecla'o Rooftop Lounge",
+    city: "Puerto Plata",
+    description:
+      "Rooftop lounge on Av. Luis Ginebra — live music, cocktails, and city views. Closed Mondays; weekends run later.",
+    lat: 19.788312,
+    lng: -70.677453,
+    emoji: "🎶",
+    instagram: "meclaorooftop",
+  },
+  {
+    slug: "kviar-costa-dorada",
+    name: "Kviar Show Disco & Casino",
+    city: "Puerto Plata",
+    description:
+      "Casino and late disco at Hotel Be Live Marien in Costa Dorada — tables, DJ sets, and dancing from afternoon until 4:00 AM.",
+    lat: 19.776438,
+    lng: -70.659688,
+    emoji: "🎰",
+    website: "https://kviar.do/nuestros-casinos/",
+    phone: "+18093201632",
+    instagram: "kviarcasinos",
+  },
+  {
+    slug: "playa-cofresi",
+    name: "Playa Cofresí",
+    city: "Puerto Plata",
+    description:
+      "Public beach west of Puerto Plata city — sunset walks, snack shacks, and the shoreline beside Ocean World Marina.",
+    lat: 19.8235,
+    lng: -70.7285,
+    emoji: "🌅",
   },
 ];
 
@@ -980,9 +1052,40 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
     slug: "gran-ventana-beach-resort",
   },
   {
+    pattern: /mecla['’]?o\s*rooftop|meclao\s*rooftop/i,
+    slug: "meclao-rooftop",
+  },
+  {
+    pattern: /kviar|grand\s*oasis\s*marien/i,
+    slug: "kviar-costa-dorada",
+  },
+  {
+    pattern: /playa\s*cofre[sś][ií]|cofre[sś][ií]\s*beach/i,
+    slug: "playa-cofresi",
+  },
+  {
     // Local/expat name for Sea Horse Ranch Tennis Club (pickleball / courts).
     pattern: /cabarete\s*sports?\s*club/i,
     slug: "sea-horse-ranch",
+  },
+  {
+    pattern: /santa\s*fe\s*laguna|hotel\s*laguna\s*sov/i,
+    slug: "laguna-sov",
+  },
+  {
+    pattern:
+      /laguna\s*sov|lagunasov|parque\s*acu[aá]tico\s*laguna|laguna\s*water\s*park/i,
+    slug: "laguna-sov",
+  },
+  {
+    pattern:
+      /santa\s*fe(\s*(sov|club|sosua|beach(\s*club)?))?|santafeclub/i,
+    slug: "santa-fe-sov",
+  },
+  {
+    pattern:
+      /restaurante?\s*mar[ií]a|club\s*house\s*mar[ií]a|casa\s*club\s*mar[ií]a/i,
+    slug: "restaurant-maria-sov",
   },
   {
     pattern: /gym\s*sov|sov\s*gym|sosu[aá]\s*ocean\s*village\s*gym/i,

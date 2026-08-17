@@ -31,7 +31,12 @@ export const PAGE_SHELL_DETAIL_CLASS = `relative mx-auto w-full max-w-6xl ${PAGE
 /**
  * Card discovery grids — elastic columns: 2 on narrow phones, then as many
  * ~220px tiles as fit. Underscore in `1fr` keeps the arbitrary value valid in
- * Tailwind; `auto-fit` collapses empty tracks so short rows still stretch.
+ * Tailwind; `auto-fit` collapses unused tracks when the whole grid is short.
+ * Truncated lists fill leftover cells with extra events (`fillCardGridPage`);
+ * “More events” is a full-width bar on the next row (`col-span-full`).
  */
 export const CARD_GRID_CLASS =
   "grid grid-cols-2 items-stretch gap-2.5 sm:grid-cols-[repeat(auto-fit,minmax(220px,_1fr))] sm:gap-3";
+
+/** Full-row control under a complete card grid (More events). */
+export const CARD_GRID_FULL_ROW_CLASS = "col-span-full w-full";
