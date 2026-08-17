@@ -230,6 +230,25 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
   "malecon-kiosks-daily": {
     isFree: true,
   },
+  "sosua-pedro-clisante-food-nights": {
+    // Open street strip — free to walk; pay only for what you order.
+    isFree: true,
+  },
+  "la-casita-papi-beach-dining": {
+    isFree: false,
+    callForPricing: true,
+    phone: "+18099863750",
+  },
+  "hms-valeria-spanish-saturday": {
+    isFree: false,
+    callForPricing: true,
+    phone: "+18095711693",
+  },
+  "hms-valeria-domingo-dominicano": {
+    isFree: false,
+    callForPricing: true,
+    phone: "+18095711693",
+  },
   "hard-rock-weekends": {
     isFree: false,
     callForPricing: true,

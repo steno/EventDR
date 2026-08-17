@@ -1,4 +1,4 @@
-import type { Event, EventCategory } from "./types";
+import type { Event } from "./types";
 
 const TICKET_HOSTS = [
   "todotickets.do",
@@ -135,10 +135,26 @@ export const CURATED_CALL_FOR_PRICING = new Set<string>([
   "sancocho-sabados-pingui",
   "paella-pop-el-pueblito",
   "paella-pop-green-one",
+  // Restaurant dining — pay for food/drinks, not free admission
+  "la-casita-papi-beach-dining",
+  "hms-valeria-spanish-saturday",
+  "hms-valeria-domingo-dominicano",
+  // Club / DJ / dance nights — cover or class fee often applies
+  "ojo-weekend-dj-parties",
+  "ojo-latin-night-thursday",
+  "el-batey-weekend-nightlife",
+  "el-carey-weekend-nightlife",
+  "d-classico-merengue-nights",
+  "el-parq-latin-friday",
+  "batey-salsa-weekly",
 ]);
 
-/** Free entry — street festivals, open-mic / no-cover nights, beach spectating. */
+/**
+ * Confirmed free entry — only list events we know have no admission/cover.
+ * Do not put club nights or restaurants here; use call-for-pricing / isFree: false.
+ */
 export const CURATED_FREE_EVENTS = new Set<string>([
+  // Festivals & public
   "voyvoy-sunday-open-mic",
   "voyvoy-saturday-session",
   "cabarete-classic-2026",
@@ -146,6 +162,28 @@ export const CURATED_FREE_EVENTS = new Set<string>([
   "malecon-morning-wellness-walk",
   "el-colibri-karaoke-battle-2026",
   "feria-artesanal-verano-2026",
+  // Open mic / karaoke / pickup
+  "batey-open-mic-weekly",
+  "la-chabola-wednesday-open-mic",
+  "el-carey-karaoke-mujeres-monday",
+  "cremo-karaoke-saturday",
+  "big-lees-weekend-music",
+  "el-parq-karaoke-thursday",
+  "sosua-volleyball-weekly",
+  // Bar live music / jam — typically no cover (pay for drinks)
+  "lax-sunset-daily",
+  "lax-reggae-friday",
+  "castaways-classic-rock-wednesday",
+  "voramar-friday-live",
+  "smileys-saturday-live",
+  "finish-line-live-wednesday",
+  "sosua-beach-live-weekends",
+  "cheers-weekly-live",
+  "senor-rock-live-nightly",
+  "cremo-salsa-friday",
+  "cremo-bohemian-wednesday",
+  "voyvoy-monday-live-music",
+  "el-parq-live-bands-saturday",
 ]);
 
 const ADMISSION_PRICE_MAX_LEN = 32;
@@ -269,19 +307,7 @@ export function attachAdmissionMetadata<T extends AdmissionAwareEvent>(
 }
 
 const FREE_TEXT_RE =
-  /\b(free admission|free entry|entrada libre|entrada gratuita|entrée gratuite|admission gratuite|free guided|visita gratuita|visite gratuite)\b/i;
-
-const FREE_RECURRING_CATEGORIES = new Set<EventCategory>([
-  "music",
-  "parties",
-  "food-drinks",
-  "sports",
-  "festivals",
-  "dance",
-  "performances",
-  "business",
-  "health-wellness",
-]);
+  /\b(free admission|free entry|no cover|sin cover|entrada libre|entrada gratuita|entrée gratuite|admission gratuite|free guided|visita gratuita|visite gratuite)\b/i;
 
 /** Door price when paid at the venue (not online tickets). */
 export function resolveAdmissionPrice(
@@ -300,7 +326,10 @@ function isCallForPricingFlag(
   return event.callForPricing === true || CURATED_CALL_FOR_PRICING.has(event.id);
 }
 
-/** Whether to show the free-admission label (no online ticket link). */
+/**
+ * Free admission only when explicitly known — curated list, isFree flag, or
+ * clear free-entry copy. Unknown recurring nightlife is not assumed free.
+ */
 export function isEventFree(
   event: Pick<
     Event,
@@ -325,13 +354,7 @@ export function isEventFree(
   if (event.communitySubmitted) return true;
 
   const copy = `${event.title} ${event.description}`;
-  if (FREE_TEXT_RE.test(copy)) return true;
-
-  if (event.recurrence && FREE_RECURRING_CATEGORIES.has(event.category)) {
-    return true;
-  }
-
-  return false;
+  return FREE_TEXT_RE.test(copy);
 }
 
 /** Variable pricing — call the venue (shown when a phone number is available). */

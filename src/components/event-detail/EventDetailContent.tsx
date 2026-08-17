@@ -203,84 +203,6 @@ export function EventDetailContent({
             />
           </div>
         )}
-        {(venueSlug ||
-          showAdmissionVaries ||
-          showFreeAdmission ||
-          showPaidAdmission) && (
-          <div className="flex flex-wrap items-center gap-2">
-            {venueSlug && (
-              <button
-                type="button"
-                aria-busy={venuePending || undefined}
-                onClick={() => {
-                  setVenuePending(true);
-                  onViewVenue();
-                }}
-                onPointerDown={onWarmVenue}
-                onFocus={onWarmVenue}
-                className={`inline-flex items-center gap-2 rounded-full border px-4 py-2.5 text-sm font-bold transition-colors touch-manipulation ${
-                  venuePending
-                    ? "scale-[0.98] border-orange-400 bg-orange-100 text-orange-900 dark:border-orange-500/80 dark:bg-orange-950/70 dark:text-orange-200"
-                    : "border-orange-200 dark:border-orange-800/60 bg-orange-50 dark:bg-orange-950/40 text-orange-800 dark:text-orange-300 hover:bg-orange-100 dark:hover:bg-orange-950/60 hover:border-orange-300 dark:hover:border-orange-700"
-                }`}
-              >
-                <Building2 className="h-4 w-4 shrink-0" aria-hidden />
-                {dict.detail.viewVenue}
-              </button>
-            )}
-            {showAdmissionVaries && (
-              <div
-                className="inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-4 py-2.5 text-sm font-bold text-amber-900 dark:border-amber-900/60 dark:bg-amber-950/40 dark:text-amber-200"
-                role="status"
-              >
-                <CircleDollarSign className="h-4 w-4 shrink-0" aria-hidden />
-                {dict.detail.admissionVaries}
-              </div>
-            )}
-            {showFreeAdmission && (
-              <div
-                className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-4 py-2.5 text-sm font-bold text-emerald-700 dark:border-emerald-900/60 dark:bg-emerald-950/40 dark:text-emerald-300"
-                role="status"
-              >
-                <BadgeCheck className="h-4 w-4 shrink-0" aria-hidden />
-                {dict.detail.freeAdmission}
-              </div>
-            )}
-            {showPaidAdmission && (
-              <div
-                className="inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-4 py-2.5 text-sm font-bold text-amber-900 dark:border-amber-900/60 dark:bg-amber-950/40 dark:text-amber-200"
-                role="status"
-              >
-                <CircleDollarSign className="h-4 w-4 shrink-0" aria-hidden />
-                {paidAdmissionLabel}
-              </div>
-            )}
-          </div>
-        )}
-        {(ticketUrl || (showCallForPricing && event.phone)) && (
-          <div className="flex flex-wrap items-center gap-2">
-            {ticketUrl && (
-              <a
-                href={ticketUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex w-fit max-w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-4 py-2.5 text-sm font-bold text-white shadow-sm touch-manipulation transition-transform active:scale-[0.98]"
-              >
-                <Ticket className="h-4 w-4" aria-hidden />
-                {dict.detail.buyTickets}
-              </a>
-            )}
-            {showCallForPricing && event.phone && (
-              <a
-                href={`tel:${formatPhoneTel(event.phone)}`}
-                className="inline-flex w-fit max-w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-4 py-2.5 text-sm font-bold text-white shadow-sm touch-manipulation transition-transform active:scale-[0.98]"
-              >
-                <Phone className="h-4 w-4" aria-hidden />
-                {dict.detail.callForPricing}
-              </a>
-            )}
-          </div>
-        )}
       </div>
 
       <p
@@ -320,6 +242,94 @@ export function EventDetailContent({
               </li>
             ))}
           </ul>
+        </div>
+      )}
+
+      {(venueSlug ||
+        showAdmissionVaries ||
+        showFreeAdmission ||
+        showPaidAdmission ||
+        ticketUrl ||
+        (showCallForPricing && event.phone)) && (
+        <div className={standalone ? "mt-3 space-y-2" : "mt-5 space-y-3"}>
+          {(venueSlug ||
+            showAdmissionVaries ||
+            showFreeAdmission ||
+            showPaidAdmission) && (
+            <div className="flex flex-wrap items-center gap-2">
+              {venueSlug && (
+                <button
+                  type="button"
+                  aria-busy={venuePending || undefined}
+                  onClick={() => {
+                    setVenuePending(true);
+                    onViewVenue();
+                  }}
+                  onPointerDown={onWarmVenue}
+                  onFocus={onWarmVenue}
+                  className={`inline-flex items-center gap-2 rounded-full border px-4 py-2.5 text-sm font-bold transition-colors touch-manipulation ${
+                    venuePending
+                      ? "scale-[0.98] border-orange-400 bg-orange-100 text-orange-900 dark:border-orange-500/80 dark:bg-orange-950/70 dark:text-orange-200"
+                      : "border-orange-200 dark:border-orange-800/60 bg-orange-50 dark:bg-orange-950/40 text-orange-800 dark:text-orange-300 hover:bg-orange-100 dark:hover:bg-orange-950/60 hover:border-orange-300 dark:hover:border-orange-700"
+                  }`}
+                >
+                  <Building2 className="h-4 w-4 shrink-0" aria-hidden />
+                  {dict.detail.viewVenue}
+                </button>
+              )}
+              {showAdmissionVaries && (
+                <div
+                  className="inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-4 py-2.5 text-sm font-bold text-amber-900 dark:border-amber-900/60 dark:bg-amber-950/40 dark:text-amber-200"
+                  role="status"
+                >
+                  <CircleDollarSign className="h-4 w-4 shrink-0" aria-hidden />
+                  {dict.detail.admissionVaries}
+                </div>
+              )}
+              {showFreeAdmission && (
+                <div
+                  className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-4 py-2.5 text-sm font-bold text-emerald-700 dark:border-emerald-900/60 dark:bg-emerald-950/40 dark:text-emerald-300"
+                  role="status"
+                >
+                  <BadgeCheck className="h-4 w-4 shrink-0" aria-hidden />
+                  {dict.detail.freeAdmission}
+                </div>
+              )}
+              {showPaidAdmission && (
+                <div
+                  className="inline-flex items-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-4 py-2.5 text-sm font-bold text-amber-900 dark:border-amber-900/60 dark:bg-amber-950/40 dark:text-amber-200"
+                  role="status"
+                >
+                  <CircleDollarSign className="h-4 w-4 shrink-0" aria-hidden />
+                  {paidAdmissionLabel}
+                </div>
+              )}
+            </div>
+          )}
+          {(ticketUrl || (showCallForPricing && event.phone)) && (
+            <div className="flex flex-wrap items-center gap-2">
+              {ticketUrl && (
+                <a
+                  href={ticketUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex w-fit max-w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-4 py-2.5 text-sm font-bold text-white shadow-sm touch-manipulation transition-transform active:scale-[0.98]"
+                >
+                  <Ticket className="h-4 w-4" aria-hidden />
+                  {dict.detail.buyTickets}
+                </a>
+              )}
+              {showCallForPricing && event.phone && (
+                <a
+                  href={`tel:${formatPhoneTel(event.phone)}`}
+                  className="inline-flex w-fit max-w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-4 py-2.5 text-sm font-bold text-white shadow-sm touch-manipulation transition-transform active:scale-[0.98]"
+                >
+                  <Phone className="h-4 w-4" aria-hidden />
+                  {dict.detail.callForPricing}
+                </a>
+              )}
+            </div>
+          )}
         </div>
       )}
 

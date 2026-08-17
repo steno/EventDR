@@ -106,6 +106,16 @@ describe("filterByPrice", () => {
       ticketUrl: "https://tix.do/event/example",
       isFree: false,
     },
+    {
+      id: "la-casita-papi-beach-dining",
+      title: "La Casita de Papi Beachfront Dining",
+      description: "Sunset dinners on Cabarete Central Beach.",
+      date: "2026-08-16",
+      location: "Cabarete",
+      category: "food-drinks" as const,
+      format: "physical" as const,
+      recurrence: "daily" as const,
+    },
   ];
 
   it("keeps free events on the Gratis chip", () => {
@@ -115,7 +125,15 @@ describe("filterByPrice", () => {
 
   it("keeps ticketed events on the Paid chip", () => {
     const hits = filterByPrice(priced, "paid");
-    assert.deepEqual(hits.map((e) => e.id), ["ticketed-show"]);
+    assert.deepEqual(hits.map((e) => e.id), [
+      "ticketed-show",
+      "la-casita-papi-beach-dining",
+    ]);
+  });
+
+  it("does not treat restaurant dining as free just because it is recurring food-drinks", () => {
+    const hits = filterByPrice(priced, "free");
+    assert.ok(!hits.some((e) => e.id === "la-casita-papi-beach-dining"));
   });
 });
 
