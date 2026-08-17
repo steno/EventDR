@@ -120,20 +120,20 @@ describe("filterByPrice", () => {
 
   it("keeps free events on the Gratis chip", () => {
     const hits = filterByPrice(priced, "free");
-    assert.deepEqual(hits.map((e) => e.id), ["free-plaza"]);
-  });
-
-  it("keeps ticketed events on the Paid chip", () => {
-    const hits = filterByPrice(priced, "paid");
     assert.deepEqual(hits.map((e) => e.id), [
-      "ticketed-show",
+      "free-plaza",
       "la-casita-papi-beach-dining",
     ]);
   });
 
-  it("does not treat restaurant dining as free just because it is recurring food-drinks", () => {
+  it("keeps ticketed events on the Paid chip", () => {
+    const hits = filterByPrice(priced, "paid");
+    assert.deepEqual(hits.map((e) => e.id), ["ticketed-show"]);
+  });
+
+  it("treats restaurant dining as free entry (no cover / no ticket)", () => {
     const hits = filterByPrice(priced, "free");
-    assert.ok(!hits.some((e) => e.id === "la-casita-papi-beach-dining"));
+    assert.ok(hits.some((e) => e.id === "la-casita-papi-beach-dining"));
   });
 });
 

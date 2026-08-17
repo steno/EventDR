@@ -132,13 +132,6 @@ export const CURATED_CALL_FOR_PRICING = new Set<string>([
   "cabarete-pilates-reformer",
   "inicio-del-campamento-pp-2026",
   "rumble-in-paradise-12",
-  "sancocho-sabados-pingui",
-  "paella-pop-el-pueblito",
-  "paella-pop-green-one",
-  // Restaurant dining — pay for food/drinks, not free admission
-  "la-casita-papi-beach-dining",
-  "hms-valeria-spanish-saturday",
-  "hms-valeria-domingo-dominicano",
   // Club / DJ / dance nights — cover or class fee often applies
   "ojo-weekend-dj-parties",
   "ojo-latin-night-thursday",
@@ -150,8 +143,10 @@ export const CURATED_CALL_FOR_PRICING = new Set<string>([
 ]);
 
 /**
- * Confirmed free entry — only list events we know have no admission/cover.
- * Do not put club nights or restaurants here; use call-for-pricing / isFree: false.
+ * Confirmed free *admission* (no cover / no ticket).
+ * Restaurants and bars belong here when entry is free — ordering food or drinks
+ * does not make the listing "paid." Use CURATED_CALL_FOR_PRICING / tickets for
+ * cover charges, door fees, and ticketed shows.
  */
 export const CURATED_FREE_EVENTS = new Set<string>([
   // Festivals & public
@@ -162,6 +157,13 @@ export const CURATED_FREE_EVENTS = new Set<string>([
   "malecon-morning-wellness-walk",
   "el-colibri-karaoke-battle-2026",
   "feria-artesanal-verano-2026",
+  // Restaurant / dining nights — free to enter; pay for what you order
+  "la-casita-papi-beach-dining",
+  "hms-valeria-spanish-saturday",
+  "hms-valeria-domingo-dominicano",
+  "sancocho-sabados-pingui",
+  "paella-pop-el-pueblito",
+  "paella-pop-green-one",
   // Open mic / karaoke / pickup
   "batey-open-mic-weekly",
   "la-chabola-wednesday-open-mic",
@@ -327,8 +329,9 @@ function isCallForPricingFlag(
 }
 
 /**
- * Free admission only when explicitly known — curated list, isFree flag, or
- * clear free-entry copy. Unknown recurring nightlife is not assumed free.
+ * Free *admission* only when explicitly known — curated list, isFree flag, or
+ * clear free-entry / no-cover copy. Ordering food or drinks does not count as
+ * paid admission. Unknown recurring nightlife is not assumed free.
  */
 export function isEventFree(
   event: Pick<

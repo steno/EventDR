@@ -164,7 +164,7 @@ export const es: Dictionary = {
   detail: {
     directions: "Cómo llegar",
     calendar: "Añadir al calendario",
-    calendarVia: "Añadir a",
+    calendarVia: "Añadir al calendario",
     calendarGoogle: "Google",
     calendarApple: "Apple",
     calendarOutlook: "Outlook",
@@ -310,10 +310,10 @@ export const es: Dictionary = {
     eventCount: "{count}",
   },
   price: {
-    free: "Gratis",
-    paid: "Pago",
-    ariaLabel: "Precio",
-    showAll: "Ver todos los precios",
+    free: "Entrada gratis",
+    paid: "Boletos",
+    ariaLabel: "Entrada",
+    showAll: "Ver todas las entradas",
   },
   lang: {
     en: "EN",

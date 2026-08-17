@@ -3,7 +3,7 @@ import { describe, it } from "node:test";
 import { isEventFree } from "./event-tickets";
 
 describe("isEventFree", () => {
-  it("does not treat recurring restaurant dining as free admission", () => {
+  it("treats restaurant dining as free entry (pay for food, not admission)", () => {
     assert.equal(
       isEventFree({
         id: "la-casita-papi-beach-dining",
@@ -12,7 +12,7 @@ describe("isEventFree", () => {
         category: "food-drinks",
         recurrence: "daily",
       }),
-      false,
+      true,
     );
   });
 

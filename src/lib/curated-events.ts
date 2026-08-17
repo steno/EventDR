@@ -235,19 +235,26 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     isFree: true,
   },
   "la-casita-papi-beach-dining": {
-    isFree: false,
-    callForPricing: true,
+    // Free entry — order food/drinks to dine; not a ticketed show.
+    isFree: true,
     phone: "+18099863750",
   },
   "hms-valeria-spanish-saturday": {
-    isFree: false,
-    callForPricing: true,
+    isFree: true,
     phone: "+18095711693",
   },
   "hms-valeria-domingo-dominicano": {
-    isFree: false,
-    callForPricing: true,
+    isFree: true,
     phone: "+18095711693",
+  },
+  "sancocho-sabados-pingui": {
+    isFree: true,
+  },
+  "paella-pop-el-pueblito": {
+    isFree: true,
+  },
+  "paella-pop-green-one": {
+    isFree: true,
   },
   "hard-rock-weekends": {
     isFree: false,
