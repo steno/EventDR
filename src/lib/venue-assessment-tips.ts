@@ -617,4 +617,12 @@ export const VENUE_TIP_COPY: Record<
       fr: "Le sunset familial à l'ouest de la ville — snacks et marina en fond, pas une plage kite ni le billet dauphins.",
     },
   },
+  "crazy-lobster-maimon": {
+    body: "The grilled-lobster hut guests walk to from Senator / Playabachata — beach or patio tables, not a resort buffet, and you will want a ride or the beach walk; call before you go.",
+    localized: {
+      en: "The grilled-lobster hut guests walk to from Senator / Playabachata — beach or patio tables, not a resort buffet, and you will want a ride or the beach walk; call before you go.",
+      es: "La caseta de langosta a la que caminan desde Senator / Playabachata — mesas en playa o patio, no buffet de resort; planea taxi o la caminata por la playa y llama antes.",
+      fr: "La paillote langouste où l'on marche depuis Senator / Playabachata — tables plage ou patio, pas un buffet resort ; prévoyez un trajet ou la marche plage, et appelez avant.",
+    },
+  },
 };

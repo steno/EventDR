@@ -1053,4 +1053,25 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "Daily 8am–10pm; Google Maps 19.7813838,-70.5040742; spend band DOP 500–3,000 (147 reports); 2021 published RD$1500/500 not restated on current official page so callForPricing; reservations +18299614455.",
     updatedAt: "2026-08-17T15:10:00.000Z",
   },
+  {
+    eventId: "crazy-lobster-beach-dining",
+    seriesKey: "crazy-lobster-maimon:daily",
+    body: "Walk the beach from Senator or Playabachata for grilled lobster at a sand hut — sit-down seafood, not the resort buffet, and hours can shift so call first.",
+    localized: {
+      es: "Camina por la playa desde Senator o Playabachata por langosta a la parrilla en una caseta — mariscos sentados, no el buffet del resort; las horas cambian, llama antes.",
+      fr: "Marchez la plage depuis Senator ou Playabachata pour la langouste grillée en paillote — fruits de mer assis, pas le buffet resort ; les horaires bougent, appelez d'abord.",
+    },
+    priceFeel: "upscale",
+    priceNote:
+      "No cover — lobster and seafood at tourist $$–$$$ beach-grill prices; cash-friendly; call +1 809-749-6917",
+    priceNoteLocalized: {
+      es: "Sin cover — langosta y mariscos a precios de parrilla de playa $$–$$$; fácil en efectivo; llama al +1 809-749-6917",
+      fr: "Sans cover — langouste et fruits de mer au tarif grill plage $$–$$$ ; cash friendly ; appelez le +1 809-749-6917",
+    },
+    attribution: "POP research · TripAdvisor Crazy Lobster Bar And Grill",
+    ratingCite: "TripAdvisor 4.9 (9 reviews)",
+    researchNotes:
+      "Caseta 21 Playa Los Cocos, Maimón; reviews cite Senator Puerto Plata, Playabachata, Amber Cove. Pin at Senator beach 19.8341,-70.7707 — ignore TripAdvisor geo near Buen Hombre. Unclaimed TA hours (24h, closed Mon) look placeholder; guests describe lunch through early evening. Phone +1 809-749-6917. 9 TA reviews.",
+    updatedAt: "2026-08-18T14:30:00.000Z",
+  },
 ];

@@ -82,6 +82,11 @@ const PLACE_SEARCH_ALIASES: Record<string, string[]> = {
     "Pingui Bar Restaurant Playa El Pueblito Puerto Plata",
     "Pingüi Bar Puerto Plata",
   ],
+  "crazy-lobster-maimon": [
+    "Crazy Lobster Bar And Grill Maimon Puerto Plata",
+    "Crazy Lobster Playa Los Cocos Maimon",
+    "Crazy Lobster Amber Cove Puerto Plata",
+  ],
   "sea-horse-ranch": [
     "Sea Horse Ranch Sosua Cabarete",
     "Sea Horse Ranch Sosúa",

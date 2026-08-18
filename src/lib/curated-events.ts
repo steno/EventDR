@@ -239,6 +239,10 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     isFree: true,
     phone: "+18099863750",
   },
+  "crazy-lobster-beach-dining": {
+    isFree: true,
+    phone: "+18097496917",
+  },
   "hms-valeria-spanish-saturday": {
     isFree: true,
     phone: "+18095711693",

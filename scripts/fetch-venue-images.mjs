@@ -270,6 +270,11 @@ const VENUE_SOURCES = [
   // laguna-sov-kids-park.jpg — Google Maps Laguna SOV kids water-park photo (committed).
   // santa-fe-sov-pools.jpg — Google Maps Santa Fe Recreational Complex pool/waterfall (committed).
   // restaurant-maria-sov-terrace.jpg — Google Maps Restaurant Maria ocean terrace (committed).
+  {
+    // Beach-hut restaurant exterior at Crazy Lobster, Playa Los Cocos, Maimón.
+    eventId: "crazy-lobster-beach-dining",
+    url: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/27/a7/1a/c1/view-of-restaurante.jpg?w=1400&h=800&s=1",
+  },
 ];
 
 mkdirSync(outDir, { recursive: true });

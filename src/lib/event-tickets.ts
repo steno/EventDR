@@ -159,6 +159,7 @@ export const CURATED_FREE_EVENTS = new Set<string>([
   "feria-artesanal-verano-2026",
   // Restaurant / dining nights — free to enter; pay for what you order
   "la-casita-papi-beach-dining",
+  "crazy-lobster-beach-dining",
   "hms-valeria-spanish-saturday",
   "hms-valeria-domingo-dominicano",
   "sancocho-sabados-pingui",

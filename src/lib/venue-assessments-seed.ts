@@ -749,6 +749,17 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     ],
   }),
   editorial({
+    venueSlug: "crazy-lobster-maimon",
+    verdictKey: "strong_mixed_food_nightlife",
+    crowdFit: ["visitor", "family", "mixed"],
+    axes: { recommend: 4.7, atmosphere: 4.5, practical: 3.6, value: 3.8 },
+    themes: [
+      { key: "beachfront", sentiment: "positive", audience: "visitor" },
+      { key: "dominican_plates", sentiment: "positive" },
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+    ],
+  }),
+  editorial({
     venueSlug: "zen-fitness-cabarete",
     verdictKey: "reliable_visitor_pick",
     crowdFit: ["visitor", "family"],

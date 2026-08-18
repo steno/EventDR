@@ -1772,5 +1772,24 @@
     "phone": "+18299614455",
     "sourceUrl": "https://oceanvillagedeluxe.com/restaurants/restaurant-maria",
     "imageEmoji": "🍽️"
+  },
+  {
+    "id": "crazy-lobster-beach-dining",
+    "title": "Crazy Lobster Beach Grill",
+    "description": "Beach-hut seafood at Crazy Lobster on Playa Los Cocos in Maimón — grilled lobster, Dominican plates, and patio or sand tables a short walk from Senator Puerto Plata, Playabachata, and Amber Cove. Typical lunch through early evening; call +1 809-749-6917 to confirm hours.",
+    "date": "2026-01-01",
+    "time": "11:00 AM – 8:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Crazy Lobster Bar & Grill",
+    "venueSlug": "crazy-lobster-maimon",
+    "address": "Caseta 21, Playa Los Cocos, Maimón",
+    "lat": 19.8341,
+    "lng": -70.7707,
+    "category": "food-drinks",
+    "format": "physical",
+    "recurrence": "daily",
+    "phone": "+18097496917",
+    "sourceUrl": "https://www.tripadvisor.com/Restaurant_Review-g1189048-d23790781-Reviews-Crazy_Lobster_Bar_And_Grill-Maimon_Puerto_Plata_Province_Dominican_Republic.html",
+    "imageEmoji": "🦞"
   }
 ]

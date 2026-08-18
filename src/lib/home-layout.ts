@@ -122,6 +122,7 @@ export const VENUE_AUDIENCE_POOLS: Record<
     "del-oro-chocolate-factory",
     "hacienda-cufa",
     "playa-cofresi",
+    "crazy-lobster-maimon",
     "kviar-costa-dorada",
     "meclao-rooftop",
     "laguna-sov",

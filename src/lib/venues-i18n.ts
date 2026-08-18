@@ -525,6 +525,12 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Plage publique à l'ouest de Puerto Plata — promenades au sunset, snacks sur le sable et rivage le long de la marina Ocean World.",
     },
   },
+  "crazy-lobster-maimon": {
+    description: {
+      es: "Parrilla de mariscos en caseta en Playa Los Cocos, Maimón — langosta a la parrilla, platos dominicanos y mesas en patio o arena a pocos pasos del Senator Puerto Plata, Playabachata y Amber Cove.",
+      fr: "Grill fruits de mer en paillote sur Playa Los Cocos à Maimón — langouste grillée, plats dominicains et tables patio ou sable à quelques pas du Senator Puerto Plata, Playabachata et Amber Cove.",
+    },
+  },
   "zen-fitness-cabarete": {
     description: {
       es: "Camp de fitness y wellness frente al mar en Zen Cabarete en Kite Beach (antes eXtreme) — gym tiki barefoot, loft de yoga con vista al océano, comida de la granja a la mesa, y campamentos de pérdida de peso y fitness todo el año.",

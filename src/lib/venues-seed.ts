@@ -1003,6 +1003,19 @@ export const SEED_VENUES: Venue[] = [
     lng: -70.7285,
     emoji: "🌅",
   },
+  {
+    slug: "crazy-lobster-maimon",
+    name: "Crazy Lobster Bar & Grill",
+    city: "Puerto Plata",
+    description:
+      "Beach-hut seafood grill on Playa Los Cocos in Maimón — grilled lobster, Dominican plates, and patio or sand tables a short walk from Senator Puerto Plata, Playabachata, and Amber Cove.",
+    lat: 19.8341,
+    lng: -70.7707,
+    emoji: "🦞",
+    website:
+      "https://www.tripadvisor.com/Restaurant_Review-g1189048-d23790781-Reviews-Crazy_Lobster_Bar_And_Grill-Maimon_Puerto_Plata_Province_Dominican_Republic.html",
+    phone: "+18097496917",
+  },
 ];
 
 /** Extra name fragments → seed slug (checked before fuzzy name includes). */
@@ -1062,6 +1075,11 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
   {
     pattern: /playa\s*cofre[sś][ií]|cofre[sś][ií]\s*beach/i,
     slug: "playa-cofresi",
+  },
+  {
+    pattern:
+      /crazy\s*lobster|langosta\s*loca|crazy\s*labster/i,
+    slug: "crazy-lobster-maimon",
   },
   {
     // Local/expat name for Sea Horse Ranch Tennis Club (pickleball / courts).
