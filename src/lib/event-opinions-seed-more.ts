@@ -1074,4 +1074,24 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "Caseta 21 Playa Los Cocos, Maimón; reviews cite Senator Puerto Plata, Playabachata, Amber Cove. Pin at Senator beach 19.8341,-70.7707 — ignore TripAdvisor geo near Buen Hombre. Unclaimed TA hours (24h, closed Mon) look placeholder; guests describe lunch through early evening. Phone +1 809-749-6917. 9 TA reviews.",
     updatedAt: "2026-08-18T14:30:00.000Z",
   },
+  {
+    eventId: "ocean-winds-karaoke-nights",
+    seriesKey: "hotel-ocean-winds:weekly:6",
+    body: "New Saturday karaoke at Amado’s — take the mic from 8 PM, not Facebook’s midnight stamp; hotel restaurant, not El Carey’s beach night.",
+    localized: {
+      es: "Karaoke nuevo los sábados en Amado’s — micrófono desde las 8 PM, no el sello de medianoche de Facebook; restaurante de hotel, no la noche de playa de El Carey.",
+      fr: "Nouveau karaoké samedi chez Amado’s — micro dès 20 h, pas le tampon minuit Facebook ; resto d'hôtel, pas la nuit plage d'El Carey.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "No cover announced — pay for food and drinks; WhatsApp +1 849-591-5588",
+    priceNoteLocalized: {
+      es: "Sin cover anunciado — pagas comida y tragos; WhatsApp +1 849-591-5588",
+      fr: "Pas de cover annoncé — vous payez nourriture et verres ; WhatsApp +1 849-591-5588",
+    },
+    attribution: "POP research · Facebook event + hoteloceanwinds.com",
+    researchNotes:
+      "FB event 1076617124903340: inauguration Sat 22 Aug 2026, then every Saturday from 8:00 PM at Amado’s, C. Guayacanes 79. Host Carolina Cruz Castillo / Costambar group. Phone matches hotel WhatsApp.",
+    updatedAt: "2026-08-18T20:00:00.000Z",
+  },
 ];

@@ -169,6 +169,7 @@ export const CURATED_FREE_EVENTS = new Set<string>([
   "batey-open-mic-weekly",
   "la-chabola-wednesday-open-mic",
   "el-carey-karaoke-mujeres-monday",
+  "ocean-winds-karaoke-nights",
   "cremo-karaoke-saturday",
   "big-lees-weekend-music",
   "el-parq-karaoke-thursday",

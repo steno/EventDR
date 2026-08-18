@@ -1029,5 +1029,29 @@
       "Carlo Ciabatti"
     ],
     "imageEmoji": "🏄"
+  },
+  {
+    "id": "ocean-winds-karaoke-nights",
+    "date": "2026-08-22",
+    "time": "8:00 PM",
+    "location": "Costambar",
+    "venue": "Hotel Ocean Winds",
+    "venueSlug": "hotel-ocean-winds",
+    "address": "Calle Guayacanes 79, Costambar",
+    "lat": 19.814951,
+    "lng": -70.711963,
+    "category": "performances",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "recurrence": "weekly",
+    "recurrenceDay": 6,
+    "phone": "+18495915588",
+    "sourceUrl": "https://www.facebook.com/events/1076617124903340",
+    "imageEmoji": "🎤",
+    "title": "Karaoke de sábados en Ocean Winds",
+    "description": "Karaoke los sábados en Amado’s, dentro del Hotel Ocean Winds en Costambar — toma el micrófono desde las 8:00 PM. La serie empieza el sábado 22 de agosto de 2026. WhatsApp +1 849-591-5588."
   }
 ]

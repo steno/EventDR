@@ -89,6 +89,7 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "kviar-costa-dorada": "kviar-costa-dorada-floor.jpg",
   "playa-cofresi": "playa-cofresi-shore.jpg",
   "crazy-lobster-maimon": "crazy-lobster-maimon.jpg",
+  "hotel-ocean-winds": "hotel-ocean-winds.jpg",
 };
 
 /** Cache-busted URL for general venue thumbnails / JSON-LD. */

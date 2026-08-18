@@ -289,6 +289,14 @@ export const VENUE_TIP_COPY: Record<
       fr: "Spot jour-et-nuit à Costambar à l'ouest du centre — écrans sport et énergie beach club ; prévoyez un trajet.",
     },
   },
+  "hotel-ocean-winds": {
+    body: "Saturday karaoke at Amado’s inside the Costambar boutique hotel — grab the mic from 8 PM; call WhatsApp +1 849-591-5588, and don’t treat Facebook’s midnight stamp as the start time.",
+    localized: {
+      en: "Saturday karaoke at Amado’s inside the Costambar boutique hotel — grab the mic from 8 PM; call WhatsApp +1 849-591-5588, and don’t treat Facebook’s midnight stamp as the start time.",
+      es: "Karaoke los sábados en Amado’s, dentro del hotel boutique de Costambar — micrófono desde las 8 PM; WhatsApp +1 849-591-5588; ignora el sello de medianoche de Facebook.",
+      fr: "Karaoké le samedi chez Amado’s, dans l'hôtel boutique de Costambar — micro dès 20 h ; WhatsApp +1 849-591-5588 ; ignorez le tampon minuit de Facebook.",
+    },
+  },
   "el-colibri-hotel": {
     body: "Poolside Thursday karaoke battles with real prize money — fun if you want to sing or watch; skip if you need a quiet early night.",
     localized: {

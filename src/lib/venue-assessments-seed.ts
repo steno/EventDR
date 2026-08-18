@@ -429,6 +429,16 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     ],
   }),
   editorial({
+    venueSlug: "hotel-ocean-winds",
+    verdictKey: "reliable_visitor_pick",
+    crowdFit: ["visitor", "local", "nightlife", "mixed"],
+    axes: { recommend: 4.0, atmosphere: 4.1, practical: 4.0, value: 3.9 },
+    themes: [
+      { key: "karaoke", sentiment: "positive" },
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+    ],
+  }),
+  editorial({
     venueSlug: "el-colibri-hotel",
     verdictKey: "reliable_visitor_pick",
     crowdFit: ["visitor", "nightlife", "mixed"],

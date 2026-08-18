@@ -402,6 +402,18 @@ export const SEED_VENUES: Venue[] = [
     phone: "+18494404199",
   },
   {
+    slug: "hotel-ocean-winds",
+    name: "Hotel Ocean Winds",
+    city: "Costambar",
+    description:
+      "Boutique hotel on Calle Guayacanes in Costambar — Amado’s restaurant, pool, and Saturday karaoke nights. WhatsApp +1 849-591-5588.",
+    lat: 19.814951,
+    lng: -70.711963,
+    emoji: "🎤",
+    website: "https://hoteloceanwinds.com/",
+    phone: "+18495915588",
+  },
+  {
     slug: "el-colibri-hotel",
     name: "El Colibri Hotel",
     city: "Sosúa",
@@ -1051,6 +1063,10 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
   {
     pattern: /cacique(\s+monci[oó]n)?|disco\s+restaurant\s+cacique|restaurante\s+cacique/i,
     slug: "cacique-moncion",
+  },
+  {
+    pattern: /ocean\s*winds|hotel\s*ocean\s*winds|amado['’]?s\s*restaurante/i,
+    slug: "hotel-ocean-winds",
   },
   {
     pattern: /ocean\s*one(\s*cabarete)?/i,

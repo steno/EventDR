@@ -243,6 +243,10 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     isFree: true,
     phone: "+18097496917",
   },
+  "ocean-winds-karaoke-nights": {
+    isFree: true,
+    phone: "+18495915588",
+  },
   "hms-valeria-spanish-saturday": {
     isFree: true,
     phone: "+18095711693",

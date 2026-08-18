@@ -14,6 +14,7 @@ const EVENT_PHONE_BY_ID: Record<string, string> = {
   "cabarete-pilates-reformer": "+18094605777",
   "sancocho-sabados-pingui": "+18096682051",
   "el-colibri-karaoke-battle-2026": "+18099709433",
+  "ocean-winds-karaoke-nights": "+18495915588",
   "community-pickleball-cabarete": "+18095712902",
   "puerto-plata-golf-classic-2026": "+18093204262",
   "sosua-10k-road-race-2026": "+18095712100",

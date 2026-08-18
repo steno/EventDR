@@ -69,6 +69,7 @@ export const VENUE_AUDIENCE_POOLS: Record<
     "la-chabola-cabarete",
     "la-casita-de-papi",
     "el-carey-puerto-plata",
+    "hotel-ocean-winds",
     "cremo-cigar-bar",
     "senor-rock-playa-dorada",
     "casa-de-la-cultura",

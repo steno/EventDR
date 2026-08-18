@@ -199,6 +199,7 @@ const FACEBOOK_SEED_EVENT_IDS_BASE = [
   "los-event-trilogy-2026-09-03",
   "sunset-laughter-club-cabarete",
   "congreso-damas-adn-2026",
+  "ocean-winds-karaoke-nights",
 ] as const;
 
 /** Curated event ids discovered from monitored Facebook groups (see fallback-events). */

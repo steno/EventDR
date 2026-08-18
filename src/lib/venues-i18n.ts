@@ -239,6 +239,12 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Spot jour et nuit sur la plage de Costambar (Calle Reina Isabel) avec sports en direct sur écran géant, boissons et vie nocturne locale.",
     },
   },
+  "hotel-ocean-winds": {
+    description: {
+      es: "Hotel boutique en Calle Guayacanes, Costambar — restaurante Amado’s, piscina y karaoke los sábados. WhatsApp +1 849-591-5588.",
+      fr: "Hôtel boutique sur Calle Guayacanes à Costambar — restaurant Amado’s, piscine et karaoké le samedi. WhatsApp +1 849-591-5588.",
+    },
+  },
   "el-colibri-hotel": {
     description: {
       es: "Hotel boutique tropical en el centro de Sosúa — bar junto a la piscina, karaoke los jueves y vida nocturna local.",
