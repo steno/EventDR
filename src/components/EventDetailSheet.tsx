@@ -24,7 +24,6 @@ import {
   isEventFree,
   resolveAdmissionPrice,
   showsPaidAdmission,
-  showsCallForPricing,
   showsAdmissionVaries,
   formatPaidAdmissionLabel,
 } from "@/lib/event-tickets";
@@ -306,7 +305,6 @@ export function EventDetailSheet({
   const showFreeAdmission = !ticketUrl && isEventFree(event);
   const admissionPrice = resolveAdmissionPrice(event);
   const showPaidAdmission = showsPaidAdmission(event);
-  const showCallForPricing = showsCallForPricing(event);
   const showAdmissionVaries = showsAdmissionVaries(event);
   const paidAdmissionLabel = admissionPrice
     ? formatPaidAdmissionLabel(admissionPrice, dict)
@@ -400,7 +398,6 @@ export function EventDetailSheet({
       eventOpinion={eventOpinion}
       nearbyTonight={nearbyTonight}
       ticketUrl={ticketUrl}
-      showCallForPricing={showCallForPricing}
       showAdmissionVaries={showAdmissionVaries}
       showFreeAdmission={showFreeAdmission}
       showPaidAdmission={showPaidAdmission}

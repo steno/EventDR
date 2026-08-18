@@ -1556,27 +1556,6 @@
     "imageEmoji": "💪"
   },
   {
-    "id": "zen-fitness-weightloss-camp",
-    "title": "Campamento de pérdida de peso Zen Fitness",
-    "description": "Inmersión de pérdida de peso todo el año en Zen Fitness Camps en Kite Beach (Zen Cabarete) — empieza cualquier día. Rutina diaria: 7:30 AM Morning Flow (qigong, yoga, calistenia, respiración), caminata en la playa, 1:00 PM pesas, 5:00 PM Yin Yoga y cena vegetariana de la granja a la mesa. Incluye eco-hotel frente al mar, traslados al aeropuerto POP, smoothie de proteína, masaje semanal y prioridad con los trainers. Desde US$3,990 el primer mes; reserva en cabaretefitnesscamp.com.",
-    "date": "2026-01-01",
-    "time": "7:30 AM – 6:30 PM",
-    "location": "Cabarete",
-    "venue": "Zen Fitness Camps",
-    "venueSlug": "zen-fitness-cabarete",
-    "address": "Kite Beach, Carretera Sosúa–Cabarete Km 10.5",
-    "category": "health-wellness",
-    "categories": [
-      "sports"
-    ],
-    "format": "physical",
-    "recurrence": "daily",
-    "admissionPrice": "from US$3,990/mo",
-    "ticketUrl": "https://cabaretefitnesscamp.com/book-now/",
-    "sourceUrl": "https://cabaretefitnesscamp.com/the-camps/weightloss-camp/",
-    "imageEmoji": "🏋️"
-  },
-  {
     "id": "ayuntamiento-pp-sunday-malecon",
     "title": "Domingo en el Malecón con el Ayuntamiento",
     "description": "Tarde familiar de domingo en el Malecón de Puerto Plata — pop-ups culturales municipales, música folclórica y paseos frente al mar con el Ayuntamiento y Mitur. Programación pública gratis; busca las carpas cerca del letrero PUERTO PLATA y el Anfiteatro La Puntilla. Horario típico 4–8 PM.",

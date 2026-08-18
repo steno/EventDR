@@ -360,26 +360,7 @@ export function isEventFree(
   return FREE_TEXT_RE.test(copy);
 }
 
-/** Variable pricing — call the venue (shown when a phone number is available). */
-export function showsCallForPricing(
-  event: Pick<
-    Event,
-    | "id"
-    | "ticketUrl"
-    | "sourceUrl"
-    | "isFree"
-    | "admissionPrice"
-    | "callForPricing"
-    | "phone"
-  >,
-): boolean {
-  if (resolveTicketUrl(event)) return false;
-  if (resolveAdmissionPrice(event)) return false;
-  if (!event.phone?.trim()) return false;
-  return isCallForPricingFlag(event);
-}
-
-/** Variable pricing with no phone — status badge instead of a call CTA. */
+/** Variable pricing with no listed rate and no phone — status badge. */
 export function showsAdmissionVaries(
   event: Pick<
     Event,

@@ -155,7 +155,6 @@ export type Dictionary = {
     paidAdmission: string;
     paidAdmissionUnknown: string;
     admissionVaries: string;
-    callForPricing: string;
     call: string;
     close: string;
     shared: string;
@@ -583,7 +582,6 @@ export const en: Dictionary = {
     paidAdmission: "Admission: {price}",
     paidAdmissionUnknown: "Paid admission",
     admissionVaries: "Admission varies by show",
-    callForPricing: "Call for pricing",
     call: "Call",
     close: "Close",
     shared: "Shared!",

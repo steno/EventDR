@@ -23,7 +23,6 @@ import { EventStatusBadge } from "@/components/EventStatusBadge";
 import { EventOpinionBlock } from "@/components/EventOpinionBlock";
 import { formatEventPlace } from "@/lib/event-location";
 import { EventCallLink } from "@/components/EventCallLink";
-import { formatPhoneTel } from "@/lib/event-phone";
 import {
   eventDetailPath,
   rememberReturnPath,
@@ -52,7 +51,6 @@ export interface EventDetailContentProps {
   eventOpinion: EventOpinion | null;
   nearbyTonight: NearbyTonightResult | null;
   ticketUrl: string | undefined;
-  showCallForPricing: boolean;
   showAdmissionVaries: boolean;
   showFreeAdmission: boolean;
   showPaidAdmission: boolean;
@@ -77,7 +75,6 @@ export function EventDetailContent({
   eventOpinion,
   nearbyTonight,
   ticketUrl,
-  showCallForPricing,
   showAdmissionVaries,
   showFreeAdmission,
   showPaidAdmission,
@@ -265,8 +262,7 @@ export function EventDetailContent({
       {(venueSlug ||
         showAdmissionVaries ||
         showFreeAdmission ||
-        showPaidAdmission ||
-        (showCallForPricing && event.phone)) && (
+        showPaidAdmission) && (
         <div
           className={`flex flex-wrap items-center gap-2 ${standalone ? "mt-3" : "mt-5"}`}
         >
@@ -314,15 +310,6 @@ export function EventDetailContent({
               <CircleDollarSign className="h-4 w-4 shrink-0" aria-hidden />
               {paidAdmissionLabel}
             </div>
-          )}
-          {showCallForPricing && event.phone && (
-            <a
-              href={`tel:${formatPhoneTel(event.phone)}`}
-              className="inline-flex w-fit max-w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-4 py-2.5 text-sm font-bold text-white shadow-sm touch-manipulation transition-transform active:scale-[0.98]"
-            >
-              <Phone className="h-4 w-4" aria-hidden />
-              {dict.detail.callForPricing}
-            </a>
           )}
         </div>
       )}

@@ -180,7 +180,6 @@ export const fr: Dictionary = {
     paidAdmission: "Entrée : {price}",
     paidAdmissionUnknown: "Entrée payante",
     admissionVaries: "Tarif selon le spectacle",
-    callForPricing: "Appeler pour le tarif",
     call: "Appeler",
     close: "Fermer",
     shared: "Partagé !",

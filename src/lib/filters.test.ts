@@ -58,10 +58,10 @@ describe("searchVenues", () => {
 describe("searchEvents", () => {
   const events = [
     {
-      id: "zen-fitness-weightloss-camp",
-      title: "Zen Fitness Weightloss Camp",
+      id: "zen-fitness-morning-flow",
+      title: "Zen Fitness Morning Flow",
       description:
-        "Year-round weightloss immersion at Zen Fitness Camps on Kite Beach (Zen Cabarete). Book at cabaretefitnesscamp.com.",
+        "Drop-in training at Zen Fitness Camps on Kite Beach (Zen Cabarete). Book at cabaretefitnesscamp.com.",
       location: "Cabarete",
       venue: "Zen Fitness Camps",
       venueSlug: "zen-fitness-cabarete",
@@ -76,10 +76,10 @@ describe("searchEvents", () => {
     },
   ];
 
-  it("finds the camp event for cabarete fitness", () => {
+  it("finds a Zen Fitness event for cabarete fitness", () => {
     const hits = searchEvents(events, "cabarete fitness");
     assert.equal(hits.length, 1);
-    assert.equal(hits[0]?.id, "zen-fitness-weightloss-camp");
+    assert.equal(hits[0]?.id, "zen-fitness-morning-flow");
   });
 });
 

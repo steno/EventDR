@@ -392,24 +392,6 @@ export const SEED_EVENT_OPINIONS_BASE: EventOpinion[] = [
     updatedAt: "2026-07-23T16:00:00.000Z",
   },
   {
-    eventId: "zen-fitness-weightloss-camp",
-    seriesKey: "zen-fitness-cabarete:daily",
-    body: "A full residential immersion on Kite Beach — book it as a multi-week reset, not a single drop-in class.",
-    localized: {
-      es: "Inmersión residencial completa en Kite Beach — resérvalo como un reset de varias semanas, no como una clase suelta.",
-      fr: "Immersion résidentielle complète sur Kite Beach — réservez-le comme un reset de plusieurs semaines, pas un cours à l'unité.",
-    },
-    priceFeel: "upscale",
-    priceNote: "From US$3,990 first month · eco-hotel, meals, training, transfers included; book via cabaretefitnesscamp.com",
-    priceNoteLocalized: {
-      es: "Desde US$3,990 el primer mes · eco-hotel, comidas, entrenamiento y traslados incluidos; reserva en cabaretefitnesscamp.com",
-      fr: "À partir de 3 990 US$ le premier mois · éco-hôtel, repas, coaching et transferts inclus ; réservez sur cabaretefitnesscamp.com",
-    },
-    attribution: "POP research · cabaretefitnesscamp.com",
-    researchNotes: "Official Weightloss Camp page lists from ~$3990–3999/mo first month inclusions.",
-    updatedAt: "2026-07-23T16:00:00.000Z",
-  },
-  {
     eventId: "victrola-sabado-bailable",
     seriesKey: "victrola-037:weekly:6",
     body: "Starts at 10 PM and runs late — come to dance salsa/merengue/bachata, not for an early dinner on the Malecón.",

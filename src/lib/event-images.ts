@@ -152,7 +152,6 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "huelga-velada-maltrato-animal-torre-alta-2026-08-07.jpg",
   "gym-sov-zumba-tuesday": "gym-sov-zumba-fitness.jpg",
   "gym-sov-zumba-lift-thursday": "gym-sov-zumba-fitness.jpg",
-  "zen-fitness-weightloss-camp": "zen-fitness-weightloss-camp.jpg",
   "handmade-pina-colada-experience": "handmade-pina-colada-experience.webp",
   "congreso-damas-adn-2026": "congreso-damas-adn-2026.jpg",
   "master-of-the-ocean-2026": "master-of-the-ocean-2026.jpg",

@@ -1556,27 +1556,6 @@
     "imageEmoji": "💪"
   },
   {
-    "id": "zen-fitness-weightloss-camp",
-    "title": "Zen Fitness Weightloss Camp",
-    "description": "Year-round weightloss immersion at Zen Fitness Camps on Kite Beach (Zen Cabarete) — start any day. Daily routine: 7:30 AM Morning Flow (qigong, yoga, calisthenics, breathwork), beach walk, 1:00 PM weights pump, 5:00 PM Yin Yoga, and farm-to-table vegetarian dinner. Includes beachfront eco-hotel stay, POP airport transfers, protein smoothie, weekly massage, and priority training. From US$3,990 for the first month; book at cabaretefitnesscamp.com.",
-    "date": "2026-01-01",
-    "time": "7:30 AM – 6:30 PM",
-    "location": "Cabarete",
-    "venue": "Zen Fitness Camps",
-    "venueSlug": "zen-fitness-cabarete",
-    "address": "Kite Beach, Carretera Sosúa–Cabarete Km 10.5",
-    "category": "health-wellness",
-    "categories": [
-      "sports"
-    ],
-    "format": "physical",
-    "recurrence": "daily",
-    "admissionPrice": "from US$3,990/mo",
-    "ticketUrl": "https://cabaretefitnesscamp.com/book-now/",
-    "sourceUrl": "https://cabaretefitnesscamp.com/the-camps/weightloss-camp/",
-    "imageEmoji": "🏋️"
-  },
-  {
     "id": "ayuntamiento-pp-sunday-malecon",
     "title": "Sunday Malecón with the City",
     "description": "Sunday family afternoon on Puerto Plata's Malecón — municipal cultural pop-ups, folkloric music, and waterfront strolls programmed with the Ayuntamiento and Mitur. Free public programming; look for tents near the PUERTO PLATA letters and Anfiteatro La Puntilla. Typical hours 4–8 PM.",
