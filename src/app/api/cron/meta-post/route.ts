@@ -70,7 +70,8 @@ export async function POST(request: NextRequest) {
 
   let caption = body.caption ?? "";
   if (body.source === "weekend") {
-    const locale: Locale = isValidLocale(body.locale) ? body.locale : "en";
+    const localeParam = body.locale ?? "en";
+    const locale: Locale = isValidLocale(localeParam) ? localeParam : "en";
     const digest = await buildPartnerDigest(locale);
     const draft = digest.socialDrafts[0];
     if (!draft) {
