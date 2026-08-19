@@ -71,6 +71,9 @@ Open [http://localhost:3000](http://localhost:3000).
 | `OPENAI_API_KEY` | No | Powers AI event card enrichment |
 | `OPENAI_MODEL` | No | Default: `gpt-4o-mini` |
 | `CRON_SECRET` | No | Secret token for authenticated cron endpoints |
+| `META_PAGE_ID` | No | Facebook Page id for Graph publishing |
+| `META_PAGE_ACCESS_TOKEN` | No | Long-lived Page token (`pages_manage_posts` + IG publish) |
+| `META_INSTAGRAM_ACCOUNT_ID` | No | Linked Instagram professional account id |
 
 Without API keys, the app serves curated North Coast fallback events and uses heuristic parsing on crawled content.
 
@@ -89,6 +92,8 @@ You can also trigger cleanup and notifications manually via secured API endpoint
 
 - **`POST /api/cron/cleanup`** — Manual cleanup (`Authorization: Bearer CRON_SECRET`)
 - **`POST /api/cron/notify`** — Manual notification (`Authorization: Bearer CRON_SECRET`)
+- **`GET /api/cron/meta-post`** — Verify Facebook Page + Instagram Graph tokens
+- **`POST /api/cron/meta-post`** — Publish a photo+caption to Facebook and/or Instagram (`dryRun`, or `source: "weekend"`)
 
 Set `CRON_SECRET` in your environment variables to enable manual triggers (optional). Query-string `?secret=` is no longer accepted.
 

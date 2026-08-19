@@ -81,6 +81,7 @@ mkdirSync(appDir, { recursive: true });
 await pwaIconFile(192, "icon-192.png");
 await pwaIconFile(512, "icon-512.png");
 await pwaIconFile(512, "icon-512-maskable.png", { inset: 52 });
+await pwaIconFile(1024, "icon-1024.png");
 
 // Site header logo (used by AppHeader) — pop-home mark.
 await writeHeaderLogo();

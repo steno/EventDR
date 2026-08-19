@@ -39,6 +39,53 @@ Run anytime from Automations UI, or in chat:
 | Ingest | `0 16 * * 0` | Sun 12:00 |
 | This automation | `30 16 * * 0` | Sun 12:30 |
 
+## Meta posting (Facebook Page + Instagram)
+
+Publishing is **not** TikTok (separate API). Once Instagram is a **Professional** account linked to the POP Events Page:
+
+1. Create an app at [developers.facebook.com/apps](https://developers.facebook.com/apps) (type Business). Add **Facebook Login for Business** and **Instagram**.
+2. In [Graph API Explorer](https://developers.facebook.com/tools/explorer/), as the Page admin, grant:
+   - `pages_show_list`
+   - `pages_read_engagement`
+   - `pages_manage_posts`
+   - `instagram_basic`
+   - `instagram_content_publish`
+3. Generate a user token, then exchange it for a long-lived token (`fb_exchange_token` with app id + secret).
+4. `GET /me/accounts` → copy the **Page** `id` and `access_token` into Netlify:
+   - `META_PAGE_ID`
+   - `META_PAGE_ACCESS_TOKEN`
+5. `GET /{page-id}?fields=instagram_business_account` → `META_INSTAGRAM_ACCOUNT_ID`.
+6. Redeploy. In Development mode, only **app admins/testers** can publish (you). App Review is only needed if other people will connect.
+
+Check:
+
+```bash
+curl -sS "https://pop-event.com/api/cron/meta-post" -H "Authorization: Bearer $CRON_SECRET"
+```
+
+Dry run, then live weekend post (uses `public/cities/cabarete.jpg` unless `imageUrl` is set to another `https://pop-event.com/...` file):
+
+```bash
+curl -sS -X POST "https://pop-event.com/api/cron/meta-post" \
+  -H "Authorization: Bearer $CRON_SECRET" \
+  -H "Content-Type: application/json" \
+  -d '{"source":"weekend","locale":"en","dryRun":true}'
+
+curl -sS -X POST "https://pop-event.com/api/cron/meta-post" \
+  -H "Authorization: Bearer $CRON_SECRET" \
+  -H "Content-Type: application/json" \
+  -d '{"source":"weekend","locale":"en"}'
+```
+
+Custom caption:
+
+```bash
+curl -sS -X POST "https://pop-event.com/api/cron/meta-post" \
+  -H "Authorization: Bearer $CRON_SECRET" \
+  -H "Content-Type: application/json" \
+  -d '{"caption":"North Coast weekend is loaded.\n\nhttps://pop-event.com/en/when/weekend","facebook":true,"instagram":true}'
+```
+
 ## Partner page
 
 Hotels print QR codes from:

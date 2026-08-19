@@ -260,6 +260,7 @@ export type Dictionary = {
     builtWith: string;
     partners: string;
     support: string;
+    follow: string;
   };
   supportNudge: {
     title: string;
@@ -695,6 +696,7 @@ export const en: Dictionary = {
     builtWith: "Built with ❤️ by",
     partners: "For hotels & partners",
     support: "Support POP",
+    follow: "Follow POP Events",
   },
   supportNudge: {
     title: "Keep POP free for the next traveler",

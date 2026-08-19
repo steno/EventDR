@@ -12,6 +12,7 @@ import { formatEventPlace } from "@/lib/event-location";
 import { parseEventTimeWindow } from "@/lib/event-status";
 import { getVenueImageUrl } from "@/lib/venue-images";
 import { getVenueSeo } from "@/lib/venue-seo";
+import { BRAND_SOCIAL_SAME_AS } from "@/lib/brand-social";
 import { SITE_URL } from "@/lib/site-url";
 
 export const SITE_NAME = "POP Events";
@@ -492,6 +493,7 @@ export function buildOrganizationJsonLd(locale: Locale, dict: Dictionary) {
     url,
     logo: absoluteUrl(DEFAULT_OG_IMAGE),
     description: dict.meta.description,
+    sameAs: [...BRAND_SOCIAL_SAME_AS],
     areaServed: {
       "@type": "AdministrativeArea",
       name: "Puerto Plata Province, Dominican Republic",

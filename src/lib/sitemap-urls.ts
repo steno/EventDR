@@ -145,6 +145,16 @@ export async function getSitemapEntries(): Promise<SitemapEntry[]> {
     priority: 0.6,
   });
 
+  pushLocalized(entries, "/privacy", {
+    changeFrequency: "yearly",
+    priority: 0.3,
+  });
+
+  pushLocalized(entries, "/data-deletion", {
+    changeFrequency: "yearly",
+    priority: 0.2,
+  });
+
   for (const slug of venueSlugs) {
     pushLocalized(entries, `/venue/${slug}`, {
       changeFrequency: "daily",

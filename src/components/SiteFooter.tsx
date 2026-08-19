@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import { FooterInstallLink } from "@/components/FooterInstallLink";
+import { BRAND_SOCIAL_LINKS } from "@/lib/brand-social";
 import { CITIES, getCityName } from "@/lib/cities";
 import { PAGE_GUTTER_CLASS, PAGE_WIDTH_CLASS } from "@/lib/page-shell";
 
@@ -66,6 +67,22 @@ export function SiteFooter({ dict, locale, className = "pb-6" }: SiteFooterProps
           {dict.footer.support}
         </Link>
         <FooterInstallLink dict={dict} />
+      </nav>
+      <nav
+        aria-label={dict.footer.follow}
+        className={`${PAGE_WIDTH_CLASS} ${PAGE_GUTTER_CLASS} mb-4 flex flex-wrap justify-center gap-x-4 gap-y-1 text-xs font-semibold text-neutral-500 dark:text-neutral-400`}
+      >
+        {BRAND_SOCIAL_LINKS.map((link) => (
+          <a
+            key={link.id}
+            href={link.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-neutral-800 dark:hover:text-neutral-200 transition-colors"
+          >
+            {link.label}
+          </a>
+        ))}
       </nav>
       <p className="text-xs text-neutral-400 dark:text-neutral-500 font-medium">{dict.footer.tagline}</p>
       <p className="text-xs text-neutral-300 dark:text-neutral-600 mt-1">

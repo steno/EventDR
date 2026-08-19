@@ -293,6 +293,7 @@ export const es: Dictionary = {
     builtWith: "Hecho con ❤️ por",
     partners: "Para hoteles y socios",
     support: "Apoyar POP",
+    follow: "Seguir POP Events",
   },
   supportNudge: {
     title: "Mantén POP gratis para el próximo viajero",
