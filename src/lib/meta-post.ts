@@ -192,6 +192,36 @@ export async function metaGraphRequest<T>(
   return { ok: true, data: json as T };
 }
 
+/** System-user tokens must be exchanged for a Page token before Page/IG publish. */
+export async function withPageAccessToken(
+  config: MetaPostConfig,
+  fetchImpl?: GraphFetch,
+): Promise<{ ok: true; config: MetaPostConfig } | { ok: false; error: MetaGraphError }> {
+  const page = await metaGraphRequest<{ access_token?: string }>(config, config.pageId, {
+    params: { fields: "access_token" },
+    fetchImpl,
+  });
+  if (page.ok && page.data.access_token) {
+    return {
+      ok: true,
+      config: { ...config, pageAccessToken: page.data.access_token },
+    };
+  }
+  const accounts = await metaGraphRequest<{
+    data?: Array<{ id?: string; access_token?: string }>;
+  }>(config, "me/accounts", { fetchImpl });
+  if (accounts.ok) {
+    const match = accounts.data.data?.find((row) => row.id === config.pageId);
+    if (match?.access_token) {
+      return {
+        ok: true,
+        config: { ...config, pageAccessToken: match.access_token },
+      };
+    }
+  }
+  return { ok: true, config };
+}
+
 export async function inspectMetaAccounts(
   config: MetaPostConfig,
   fetchImpl?: GraphFetch,
@@ -203,6 +233,9 @@ export async function inspectMetaAccounts(
     }
   | { ok: false; error: MetaGraphError }
 > {
+  const resolved = await withPageAccessToken(config, fetchImpl);
+  if (!resolved.ok) return resolved;
+  config = resolved.config;
   const result = await metaGraphRequest<{
     id: string;
     name?: string;
@@ -366,6 +399,12 @@ export async function publishToMeta(
     if (wantInstagram) result.instagram = { ok: true, id: "dry-run" };
     return { ok: true, result };
   }
+
+  const resolved = await withPageAccessToken(config, fetchImpl);
+  if (!resolved.ok) {
+    return { ok: false, error: resolved.error.message };
+  }
+  config = resolved.config;
 
   if (wantFacebook) {
     result.facebook = await publishFacebookPhoto(
