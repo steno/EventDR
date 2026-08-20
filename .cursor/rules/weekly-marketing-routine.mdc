@@ -14,6 +14,7 @@ Run when the user says **weekly marketing**, **content pipeline**, **Sunday rout
 |------|--------|------------|
 | Sun ~12:00 AST | Event ingest | GitHub: `weekly-event-ingest.yml` |
 | Sun after ingest | Logged-in discovery + pipeline review | Skills: `pop-instagram-ingest`, `pop-facebook-ingest`, `pop-content-pipeline` |
+| Daily ~9:00 AST | Facebook + Instagram today spotlight (top 3) | GitHub: `daily-today-spotlight.yml` |
 | Fri ~9:00 AST | Digest artifacts | GitHub: `weekly-marketing-digest.yml` |
 | Fri morning | Social + B2B | Skills: `pop-social-weekly`, `pop-weekend-b2b-digest` |
 

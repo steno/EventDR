@@ -302,6 +302,31 @@ export async function publishFacebookPhoto(
   return { ok: true, id };
 }
 
+/** Link posts show on New Pages "All"; photo uploads often stay in Photos only. */
+export async function publishFacebookFeed(
+  config: MetaPostConfig,
+  input: { caption: string; link: string },
+  fetchImpl?: GraphFetch,
+): Promise<{ ok: true; id: string } | { ok: false; error: MetaGraphError }> {
+  const result = await metaGraphRequest<{ id?: string }>(
+    config,
+    `${config.pageId}/feed`,
+    {
+      method: "POST",
+      params: {
+        message: input.caption,
+        link: input.link,
+        published: "true",
+      },
+      fetchImpl,
+    },
+  );
+  if (!result.ok) return result;
+  const id = result.data.id;
+  if (!id) return { ok: false, error: { message: "Facebook feed missing id" } };
+  return { ok: true, id };
+}
+
 export async function publishInstagramPhoto(
   config: MetaPostConfig,
   input: { caption: string; imageUrl: string },
@@ -349,9 +374,86 @@ export async function publishInstagramPhoto(
   return { ok: true, id };
 }
 
+export async function publishInstagramCarousel(
+  config: MetaPostConfig,
+  input: { caption: string; imageUrls: string[] },
+  fetchImpl?: GraphFetch,
+): Promise<{ ok: true; id: string } | { ok: false; error: MetaGraphError }> {
+  if (!config.instagramAccountId) {
+    return {
+      ok: false,
+      error: { message: "META_INSTAGRAM_ACCOUNT_ID is not set" },
+    };
+  }
+  const childIds: string[] = [];
+  for (const imageUrl of input.imageUrls.slice(0, 10)) {
+    const child = await metaGraphRequest<{ id?: string }>(
+      config,
+      `${config.instagramAccountId}/media`,
+      {
+        method: "POST",
+        params: { image_url: imageUrl, is_carousel_item: "true" },
+        fetchImpl,
+      },
+    );
+    if (!child.ok) return child;
+    const childId = child.data.id;
+    if (!childId) {
+      return { ok: false, error: { message: "Instagram carousel child missing id" } };
+    }
+    const ready = await waitForInstagramContainer(config, childId, fetchImpl);
+    if (!ready.ok) return ready;
+    childIds.push(childId);
+  }
+  if (childIds.length < 2) {
+    return {
+      ok: false,
+      error: { message: "Instagram carousel needs at least 2 images" },
+    };
+  }
+
+  const parent = await metaGraphRequest<{ id?: string }>(
+    config,
+    `${config.instagramAccountId}/media`,
+    {
+      method: "POST",
+      params: {
+        media_type: "CAROUSEL",
+        children: childIds.join(","),
+        caption: input.caption,
+      },
+      fetchImpl,
+    },
+  );
+  if (!parent.ok) return parent;
+  const creationId = parent.data.id;
+  if (!creationId) {
+    return { ok: false, error: { message: "Instagram carousel missing id" } };
+  }
+  const ready = await waitForInstagramContainer(config, creationId, fetchImpl);
+  if (!ready.ok) return ready;
+
+  const published = await metaGraphRequest<{ id?: string }>(
+    config,
+    `${config.instagramAccountId}/media_publish`,
+    {
+      method: "POST",
+      params: { creation_id: creationId },
+      fetchImpl,
+    },
+  );
+  if (!published.ok) return published;
+  const id = published.data.id;
+  if (!id) return { ok: false, error: { message: "Instagram publish missing id" } };
+  return { ok: true, id };
+}
+
 export type MetaPublishInput = {
   caption: string;
   imageUrl?: string;
+  imageUrls?: string[];
+  /** When set, Facebook publishes to /feed (shows on All) instead of /photos. */
+  link?: string;
   facebook?: boolean;
   instagram?: boolean;
   dryRun?: boolean;
@@ -361,6 +463,8 @@ export type MetaPublishResult = {
   dryRun: boolean;
   caption: string;
   imageUrl: string;
+  imageUrls?: string[];
+  link?: string;
   facebook?: { ok: true; id: string } | { ok: false; error: MetaGraphError };
   instagram?: { ok: true; id: string } | { ok: false; error: MetaGraphError };
 };
@@ -373,13 +477,30 @@ export async function publishToMeta(
   const caption = clipMetaCaption(input.caption);
   if (!caption) return { ok: false, error: "caption is required" };
 
-  const imageUrl = (input.imageUrl ?? defaultMetaImageUrl()).trim();
-  if (!isAllowedMetaImageUrl(imageUrl)) {
+  const imageUrls = (input.imageUrls?.length
+    ? input.imageUrls
+    : [input.imageUrl ?? defaultMetaImageUrl()]
+  )
+    .map((url) => url.trim())
+    .filter(Boolean);
+  const imageUrl = imageUrls[0] ?? defaultMetaImageUrl();
+  if (imageUrls.some((url) => !isAllowedMetaImageUrl(url))) {
     return {
       ok: false,
       error:
         "imageUrl must be HTTPS on pop-event.com (or SITE_URL). Instagram fetches the file itself.",
     };
+  }
+  const link = input.link?.trim() || undefined;
+  if (link) {
+    try {
+      const parsed = new URL(link);
+      if (parsed.protocol !== "https:") {
+        return { ok: false, error: "link must be HTTPS" };
+      }
+    } catch {
+      return { ok: false, error: "link must be a valid URL" };
+    }
   }
 
   const wantFacebook = input.facebook !== false;
@@ -392,6 +513,8 @@ export async function publishToMeta(
     dryRun: Boolean(input.dryRun),
     caption,
     imageUrl,
+    imageUrls: imageUrls.length > 1 ? imageUrls : undefined,
+    link,
   };
 
   if (input.dryRun) {
@@ -407,18 +530,23 @@ export async function publishToMeta(
   config = resolved.config;
 
   if (wantFacebook) {
-    result.facebook = await publishFacebookPhoto(
-      config,
-      { caption, imageUrl },
-      fetchImpl,
-    );
+    result.facebook = link
+      ? await publishFacebookFeed(config, { caption, link }, fetchImpl)
+      : await publishFacebookPhoto(config, { caption, imageUrl }, fetchImpl);
   }
   if (wantInstagram) {
-    result.instagram = await publishInstagramPhoto(
-      config,
-      { caption, imageUrl },
-      fetchImpl,
-    );
+    result.instagram =
+      imageUrls.length >= 2
+        ? await publishInstagramCarousel(
+            config,
+            { caption, imageUrls },
+            fetchImpl,
+          )
+        : await publishInstagramPhoto(
+            config,
+            { caption, imageUrl },
+            fetchImpl,
+          );
   }
   return { ok: true, result };
 }

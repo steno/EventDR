@@ -42,6 +42,12 @@ Template:
 
 Pick trending events first, then variety across cities/categories.
 
+## Recurring publish
+
+GitHub Action `daily-today-spotlight.yml` posts the **top 3 today** to Facebook (feed link) and Instagram (photo/carousel) every day ~9:00 AST.
+
+In chat: **spotlight the top 3 today** (live) or **dry run today spotlight**.
+
 ### 3. City-specific post
 
 Only if that city has 2+ weekend events. Link to `/en/city/[slug]`.

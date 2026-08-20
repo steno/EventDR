@@ -63,6 +63,20 @@ Check:
 curl -sS "https://pop-event.com/api/cron/meta-post" -H "Authorization: Bearer $CRON_SECRET"
 ```
 
+Daily top 3 (also GitHub Action `daily-today-spotlight.yml` at ~9:00 AST):
+
+```bash
+curl -sS -X POST "https://pop-event.com/api/cron/meta-post" \
+  -H "Authorization: Bearer $CRON_SECRET" \
+  -H "Content-Type: application/json" \
+  -d '{"source":"today","locale":"en","dryRun":true}'
+
+curl -sS -X POST "https://pop-event.com/api/cron/meta-post" \
+  -H "Authorization: Bearer $CRON_SECRET" \
+  -H "Content-Type: application/json" \
+  -d '{"source":"today","locale":"en"}'
+```
+
 Dry run, then live weekend post (uses `public/cities/cabarete.jpg` unless `imageUrl` is set to another `https://pop-event.com/...` file):
 
 ```bash

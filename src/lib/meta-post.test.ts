@@ -58,6 +58,25 @@ describe("meta-post", () => {
     assert.deepEqual(published.result.instagram, { ok: true, id: "dry-run" });
   });
 
+  it("keeps a feed link on dry-run", async () => {
+    const published = await publishToMeta(config, {
+      caption: "Today on the North Coast.",
+      link: "https://pop-event.com/en/when/today",
+      imageUrls: [
+        "https://pop-event.com/events/a.jpg",
+        "https://pop-event.com/events/b.jpg",
+      ],
+      dryRun: true,
+    });
+    assert.equal(published.ok, true);
+    if (!published.ok) return;
+    assert.equal(
+      published.result.link,
+      "https://pop-event.com/en/when/today",
+    );
+    assert.equal(published.result.imageUrls?.length, 2);
+  });
+
   it("requires a caption", async () => {
     const published = await publishToMeta(config, { caption: "  ", dryRun: true });
     assert.equal(published.ok, false);
