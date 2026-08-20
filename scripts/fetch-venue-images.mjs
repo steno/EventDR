@@ -278,11 +278,8 @@ const VENUE_SOURCES = [
     eventId: "crazy-lobster-beach-dining",
     url: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/27/a7/1a/c1/view-of-restaurante.jpg?w=1400&h=800&s=1",
   },
-  {
-    // Cuban dining room at Don Limón, Playa Cofresí (Google Maps visitor photo).
-    eventId: "don-limon-beach-dining",
-    url: "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWk0HXn-KhpOWAYWJG9czUE3WciVJR9mWWZzGB0f57-GgDt1BffB8WViXnHowC52hWhz5OHFJvhaj-g_Xtt6YDXh9Ce0arZjjvU0ZeD1Ukm7klw6t98fzPU8e55oiNV0mAPlhg3lYHW1hRRk=w1800-h1350-k-no",
-  },
+  // don-limon.jpeg — POP-supplied event photo (logo wall).
+  // don-limon-venue.jpeg — POP-supplied beach-bar venue hero. Do not remote-refresh.
   {
     // Official Hotel Ocean Winds Costambar daytime pool (hoteloceanwinds.com).
     eventId: "ocean-winds-karaoke-nights",

@@ -89,7 +89,7 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "meclao-rooftop": "meclao-rooftop-lounge.jpg",
   "kviar-costa-dorada": "kviar-costa-dorada-floor.jpg",
   "playa-cofresi": "playa-cofresi-shore.jpg",
-  "don-limon-cofresi": "don-limon-cofresi.jpg",
+  "don-limon-cofresi": "don-limon-cofresi.jpeg",
   "crazy-lobster-maimon": "crazy-lobster-maimon.jpg",
   "hotel-ocean-winds": "hotel-ocean-winds.jpg",
 };
