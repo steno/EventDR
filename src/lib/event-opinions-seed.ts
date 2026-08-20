@@ -444,6 +444,25 @@ export const SEED_EVENT_OPINIONS_BASE: EventOpinion[] = [
     researchNotes: "Official IG: Fri Aug 14 Acústico & Humos with Eddy Almonte & Café Meclao, Luis Ginebra 56.",
     updatedAt: "2026-08-02T22:40:00.000Z",
   },
+  {
+    eventId: "rumble-in-paradise-13",
+    body: "Book a VIP table if you want a reserved view of the ring — this is a beach-bar setup, not stadium seats. No bell time on the flyer; the last edition here ran 5–9 PM, so confirm before you go.",
+    localized: {
+      es: "Reserva mesa VIP si quieres vista reservada al ring — es un beach bar, no asientos de estadio. El flyer no trae hora; la edición anterior aquí fue 5–9 PM, confirma antes de ir.",
+      fr: "Réservez une table VIP pour une vue réservée sur le ring — c'est un beach bar, pas des sièges de stade. Pas d'heure sur l'affiche ; la dernière édition ici a tourné 17 h–21 h, confirmez avant.",
+    },
+    priceFeel: "varies",
+    priceNote:
+      "VIP and sponsorship packages by WhatsApp — no published door ticket; table spend, not a cheap beach-beer night",
+    priceNoteLocalized: {
+      es: "Paquetes VIP y patrocinio por WhatsApp — no hay boleto de puerta publicado; gasto de mesa, no noche barata de cerveza de playa",
+      fr: "Forfaits VIP et sponsoring par WhatsApp — pas de billet porte publié ; budget table, pas une soirée bière de plage",
+    },
+    attribution: "POP research · Chiro’s Boxing Promotions poster + RIP 12 listing",
+    researchNotes:
+      "Poster Oct 30 2026 Bar 39 / Tiki Wiki, 3 championship fights, VIP packages, no start time. RIP 12 same venue 5–9 PM (Jul 4 2026 Facebook listing). Earlier Tapology cards (RIP 4, 7, 9, 10) were restaurant-ring nights at Coco Locos Sports Bar, typically late afternoon–evening.",
+    updatedAt: "2026-08-20T16:00:00.000Z",
+  },
 ];
 
 export const SEED_EVENT_OPINIONS: EventOpinion[] = [
