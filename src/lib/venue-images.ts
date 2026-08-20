@@ -13,8 +13,9 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "hotel-voramar-sosua": "hotel-voramar-sosua.jpg",
   "smileys-bar-sosua": "smileys-bar-sosua.jpg",
   "finish-line-sosua": "finish-line-sosua.jpg",
-  "playa-sosua": "playa-sosua.jpg",
-  "bar-39-sosua": "bar-39-sosua.jpg",
+  // Filename bump after replacing a shared Freestyle Catamaran shot.
+  "playa-sosua": "playa-sosua-shore.jpg",
+  "bar-39-sosua": "bar-39-sosua-beach.jpg",
   "cheers-bar-sosua": "cheers-bar-sosua.jpg",
   "sosua-jewish-museum": "sosua-jewish-museum.jpg",
   "sosua-diving-center": "sosua-diving-center.jpg",

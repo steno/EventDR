@@ -136,6 +136,7 @@ export const SEED_VENUES: Venue[] = [
     lat: 19.75942,
     lng: -70.51672,
     emoji: "🌴",
+    phone: "+18298172884",
   },
   {
     slug: "cheers-bar-sosua",

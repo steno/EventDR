@@ -111,6 +111,11 @@ const PLACE_SEARCH_ALIASES: Record<string, string[]> = {
     "El Batey Sosua Dominican Republic",
     "Pedro Clisante Sosua",
   ],
+  "bar-39-sosua": [
+    "39th street beach bar Sosua",
+    "Bar 39 Playa Sosua",
+    "Bar 39 Sosua Beach",
+  ],
   "paella-pop-el-pueblito": [
     "Paella POP Playa El Pueblito Puerto Plata",
     "Paella POP El Pueblito",

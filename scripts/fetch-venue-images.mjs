@@ -270,6 +270,9 @@ const VENUE_SOURCES = [
   // laguna-sov-kids-park.jpg — Google Maps Laguna SOV kids water-park photo (committed).
   // santa-fe-sov-pools.jpg — Google Maps Santa Fe Recreational Complex pool/waterfall (committed).
   // restaurant-maria-sov-terrace.jpg — Google Maps Restaurant Maria ocean terrace (committed).
+  // bar-39-sosua-beach.jpg — Wikimedia Playa Sosúa lounge strip geotagged at Bar 39.
+  // playa-sosua-shore.jpg — Wikimedia Sosúa Bay shoreline. Do not remote-refresh
+  // a Freestyle Catamaran over either.
   {
     // Beach-hut restaurant exterior at Crazy Lobster, Playa Los Cocos, Maimón.
     eventId: "crazy-lobster-beach-dining",

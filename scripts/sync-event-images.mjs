@@ -219,6 +219,9 @@ const FILE_TO_VENUE_SLUG = {
   "laguna-sov-kids-park.jpg": "laguna-sov-kids-park",
   "santa-fe-sov-pools.jpg": "santa-fe-sov-pools",
   "restaurant-maria-sov-terrace.jpg": "restaurant-maria-sov-terrace",
+  // Filename bumps after replacing a shared Freestyle Catamaran stand-in.
+  "bar-39-sosua-beach.jpg": "bar-39-sosua-beach",
+  "playa-sosua-shore.jpg": "playa-sosua-shore",
 };
 
 if (!existsSync(sourceDir)) {
