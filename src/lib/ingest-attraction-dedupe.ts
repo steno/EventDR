@@ -25,6 +25,7 @@ const SEEDED_ATTRACTION_PATTERNS: RegExp[] = [
   /\bpaseo\s+(de\s+)?do[nñ]a\s+blanca\b|\bpink\s+street\b/i,
   /\bletrero\s+(de\s+)?puerto\s+plata\b|\bparador\s+fotogr[aá]fico\s+(de\s+)?puerto\s+plata\b|\bpuerto\s+plata\s+photo\s+sign\b/i,
   /\bmacorix\b/i,
+  /\bdon\s*lim[oó]n\b|\bdonlimon\b/i,
   /\bsos[uú]a\s+jewish\s+museum\b|\bmuseo\s+jud[ií]o\b/i,
 ];
 

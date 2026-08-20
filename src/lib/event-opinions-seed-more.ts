@@ -1075,6 +1075,29 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: "2026-08-18T14:30:00.000Z",
   },
   {
+    eventId: "don-limon-beach-dining",
+    seriesKey: "don-limon-cofresi:daily",
+    body: "Come for the family-run welcome — reviewers name Don Limón and the staff as much as the Cuban sandwich. Sit down and let them take care of you; this is not a grab-and-go beach hut.",
+    localized: {
+      es: "Ven por la bienvenida de familia — las reseñas nombran a Don Limón y al staff tanto como el sándwich cubano. Siéntate y déjate atender; no es un kiosco para llevar.",
+      fr: "Venez pour l'accueil familial — les avis nomment Don Limón et l'équipe autant que le sandwich cubain. Asseyez-vous et laissez-vous chouchouter ; pas un kiosque à emporter.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "No cover — typical Google spend around DOP 500–1,000; Cuban sandwiches and cocktails, not a resort buffet",
+    priceNoteLocalized: {
+      es: "Sin cover — gasto típico en Google DOP 500–1,000; sándwiches cubanos y cócteles, no buffet de resort",
+      fr: "Sans cover — budget Google typique DOP 500–1 000 ; sandwiches cubains et cocktails, pas un buffet resort",
+    },
+    attribution: "POP research · Google reviews",
+    ratingCite: "Google 4.8",
+    googleRating: 4.8,
+    googleReviewCount: 165,
+    researchNotes:
+      "Google Maps Don Limon 19.8220126,-70.7301193; 4.8 from 165 reviews (Aug 20 2026). Daily 11AM–1AM. Plus code R7C9+RX Cofresi. Phone +18092157676. Instagram @donlimon02. Review topics: Cuban sandwich 27, Cuban food 21, beach view 10, mojitos 5. Restaurant Guru #1 of 20 in Cofresi; guests cite family service (Joanna Bruno, Mariana Yanes, Lesther Diaz). Price reports DOP 500–1,000 typical; Google $1–2,000 band is DOP.",
+    updatedAt: "2026-08-20T18:50:00.000Z",
+  },
+  {
     eventId: "ocean-winds-karaoke-nights",
     seriesKey: "hotel-ocean-winds:weekly:6",
     body: "New Saturday karaoke at Amado’s — take the mic from 8 PM, not Facebook’s midnight stamp; hotel restaurant, not El Carey’s beach night.",

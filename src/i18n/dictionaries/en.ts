@@ -835,6 +835,7 @@ export const en: Dictionary = {
         dance_floor: "a real dance floor",
         expat_crowd: "an expat crowd",
         good_for_guests: "easy for hotel guests",
+        attentive_service: "attentive service",
         water_sports: "water sports",
         free_access: "free access",
         ocean_views: "ocean views",

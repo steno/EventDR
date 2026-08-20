@@ -1017,6 +1017,23 @@ export const SEED_VENUES: Venue[] = [
     emoji: "🌅",
   },
   {
+    slug: "don-limon-cofresi",
+    name: "Don Limón",
+    city: "Puerto Plata",
+    description:
+      "Family-run Cuban restaurant on Playa Cofresí — sandwiches, grilled fish, paella, and cocktails with a beach view. Open daily 11:00 AM–1:00 AM; guests praise the service as much as the plates.",
+    lat: 19.8220126,
+    lng: -70.7301193,
+    emoji: "🍋",
+    instagram: "donlimon02",
+    website:
+      "https://www.google.com/maps/place/Don+Limon/@19.8220126,-70.7301193,17z",
+    phone: "+18092157676",
+    googleRating: 4.8,
+    googleReviewCount: 165,
+    googleRatingFetchedAt: "2026-08-20T18:50:00.000Z",
+  },
+  {
     slug: "crazy-lobster-maimon",
     name: "Crazy Lobster Bar & Grill",
     city: "Puerto Plata",
@@ -1092,6 +1109,11 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
   {
     pattern: /playa\s*cofre[sś][ií]|cofre[sś][ií]\s*beach/i,
     slug: "playa-cofresi",
+  },
+  {
+    pattern:
+      /don\s*lim[oó]n|donlimon(\s*(bar\s*(and|&)\s*grill|cofresi|cofre[sś][ií]))?/i,
+    slug: "don-limon-cofresi",
   },
   {
     pattern:

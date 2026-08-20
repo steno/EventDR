@@ -432,6 +432,7 @@ export const es: Dictionary = {
         dance_floor: "pista de baile de verdad",
         expat_crowd: "ambiente expat",
         good_for_guests: "fácil para huéspedes de hotel",
+        attentive_service: "servicio atento",
         water_sports: "deportes acuáticos",
         free_access: "acceso libre",
         ocean_views: "vistas al océano",

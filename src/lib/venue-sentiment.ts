@@ -185,6 +185,22 @@ const THEME_LEXICON: ThemeLexiconEntry[] = [
     audience: "visitor",
   },
   {
+    key: "attentive_service",
+    keywords: [
+      "excellent service",
+      "spectacular service",
+      "servicio excelente",
+      "calidad de servicio",
+      "personal atento",
+      "very attentive",
+      "went out of their way",
+      "family vibes",
+      "treated us amazingly",
+      "taking care of their customers",
+    ],
+    defaultSentiment: "positive",
+  },
+  {
     key: "water_sports",
     keywords: [
       "water sports",

@@ -900,6 +900,32 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
       { key: "sunset_views", sentiment: "positive", audience: "visitor" },
     ],
   }),
+  editorial({
+    venueSlug: "don-limon-cofresi",
+    verdictKey: "reliable_visitor_pick",
+    crowdFit: ["visitor", "family", "mixed"],
+    axes: { recommend: 4.8, atmosphere: 4.6, value: 4.3, practical: 4.2 },
+    themes: [
+      { key: "beachfront", sentiment: "positive", audience: "visitor" },
+      { key: "ocean_views", sentiment: "positive", audience: "visitor" },
+      { key: "attentive_service", sentiment: "positive" },
+      { key: "family_friendly", sentiment: "positive", audience: "family" },
+    ],
+    sources: [
+      {
+        kind: "google_places",
+        label: "Google",
+        rating: 4.8,
+        reviewCount: 165,
+        fetchedAt: "2026-08-20T18:50:00.000Z",
+        snippets: [
+          "Family vibes, humble people who love taking care of their customers.",
+          "The owner as well as his family treated us amazingly.",
+          "Don Limón for the win, again! Food here never fails.",
+        ],
+      },
+    ],
+  }),
 ];
 
 const bySlug = new Map(

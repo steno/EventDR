@@ -87,6 +87,11 @@ const PLACE_SEARCH_ALIASES: Record<string, string[]> = {
     "Crazy Lobster Playa Los Cocos Maimon",
     "Crazy Lobster Amber Cove Puerto Plata",
   ],
+  "don-limon-cofresi": [
+    "Don Limon Cofresi Puerto Plata",
+    "Don Limón Playa Cofresí",
+    "Don Limon Bar and Grill Cofresi",
+  ],
   "hotel-ocean-winds": [
     "Hotel Ocean Winds Costambar",
     "Ocean Winds Hotel Calle Guayacanes Puerto Plata",

@@ -243,6 +243,10 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     isFree: true,
     phone: "+18097496917",
   },
+  "don-limon-beach-dining": {
+    isFree: true,
+    phone: "+18092157676",
+  },
   "ocean-winds-karaoke-nights": {
     isFree: true,
     phone: "+18495915588",

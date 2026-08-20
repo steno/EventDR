@@ -86,6 +86,7 @@ export const VENUE_AUDIENCE_POOLS: Record<
     "playa-los-charamicos",
     "meclao-rooftop",
     "kviar-costa-dorada",
+    "don-limon-cofresi",
   ],
   visitor: [
     "lax-cabarete",
@@ -123,6 +124,7 @@ export const VENUE_AUDIENCE_POOLS: Record<
     "del-oro-chocolate-factory",
     "hacienda-cufa",
     "playa-cofresi",
+    "don-limon-cofresi",
     "crazy-lobster-maimon",
     "kviar-costa-dorada",
     "meclao-rooftop",

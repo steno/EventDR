@@ -1771,5 +1771,24 @@
     "phone": "+18097496917",
     "sourceUrl": "https://www.tripadvisor.com/Restaurant_Review-g1189048-d23790781-Reviews-Crazy_Lobster_Bar_And_Grill-Maimon_Puerto_Plata_Province_Dominican_Republic.html",
     "imageEmoji": "🦞"
+  },
+  {
+    "id": "don-limon-beach-dining",
+    "title": "Don Limón Cuban Kitchen",
+    "description": "Cuban tables on Playa Cofresí — sandwiches, grilled fish, paella, and mojitos at family-run Don Limón, just west of Puerto Plata near Ocean World. Open daily 11:00 AM–1:00 AM. Call +1 809-215-7676.",
+    "date": "2026-01-01",
+    "time": "11:00 AM – 1:00 AM",
+    "location": "Puerto Plata",
+    "venue": "Don Limón",
+    "venueSlug": "don-limon-cofresi",
+    "address": "5, Cofresí 57000",
+    "lat": 19.8220126,
+    "lng": -70.7301193,
+    "category": "food-drinks",
+    "format": "physical",
+    "recurrence": "daily",
+    "phone": "+18092157676",
+    "sourceUrl": "https://www.google.com/maps/place/Don+Limon/@19.8220126,-70.7301193,17z",
+    "imageEmoji": "🍋"
   }
 ]

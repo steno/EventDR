@@ -100,6 +100,29 @@ const VENUE_SEO: Record<string, Record<Locale, VenueSeoCopy>> = {
       schemaType: ["AmusementPark", "TouristAttraction"],
     },
   },
+  "don-limon-cofresi": {
+    en: {
+      title: "Don Limón Cofresí | Cuban Beach Restaurant Puerto Plata | POP Events",
+      description:
+        "Don Limón on Playa Cofresí — family-run Cuban restaurant with sandwiches, grilled fish, paella, and cocktails. Open daily 11 AM–1 AM. Google 4.8 from 165 reviews.",
+      schemaType: "Restaurant",
+      addressLocality: "Cofresí",
+    },
+    es: {
+      title: "Don Limón Cofresí | Restaurante cubano Puerto Plata | POP Eventos",
+      description:
+        "Don Limón en Playa Cofresí — restaurante cubano de familia con sándwiches, pescado a la parrilla, paella y cócteles. Abierto todos los días 11 AM–1 AM. Google 4.8 de 165 reseñas.",
+      schemaType: "Restaurant",
+      addressLocality: "Cofresí",
+    },
+    fr: {
+      title: "Don Limón Cofresí | Restaurant cubain Puerto Plata | POP Events",
+      description:
+        "Don Limón sur Playa Cofresí — restaurant cubain familial, sandwiches, poisson grillé, paella et cocktails. Ouvert tous les jours 11 h–1 h. Google 4,8 sur 165 avis.",
+      schemaType: "Restaurant",
+      addressLocality: "Cofresí",
+    },
+  },
 };
 
 export function getVenueSeo(

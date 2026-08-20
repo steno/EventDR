@@ -161,6 +161,7 @@ export const CURATED_FREE_EVENTS = new Set<string>([
   // Restaurant / dining nights — free to enter; pay for what you order
   "la-casita-papi-beach-dining",
   "crazy-lobster-beach-dining",
+  "don-limon-beach-dining",
   "hms-valeria-spanish-saturday",
   "hms-valeria-domingo-dominicano",
   "sancocho-sabados-pingui",

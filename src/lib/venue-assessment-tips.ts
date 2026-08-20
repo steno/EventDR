@@ -625,6 +625,14 @@ export const VENUE_TIP_COPY: Record<
       fr: "Le sunset familial à l'ouest de la ville — snacks et marina en fond, pas une plage kite ni le billet dauphins.",
     },
   },
+  "don-limon-cofresi": {
+    body: "Family-run Cuban kitchen on Playa Cofresí — guests talk about the welcome as much as the plates. Independent beach restaurant, not the Ocean World ticket next door.",
+    localized: {
+      en: "Family-run Cuban kitchen on Playa Cofresí — guests talk about the welcome as much as the plates. Independent beach restaurant, not the Ocean World ticket next door.",
+      es: "Cocina cubana de familia en Playa Cofresí — la gente habla de la bienvenida tanto como de los platos. Restaurante de playa independiente, no el ticket de Ocean World al lado.",
+      fr: "Cuisine cubaine familiale sur Playa Cofresí — les avis parlent de l'accueil autant que des assiettes. Restaurant de plage indépendant, pas le billet Ocean World à côté.",
+    },
+  },
   "crazy-lobster-maimon": {
     body: "The grilled-lobster hut guests walk to from Senator / Playabachata — beach or patio tables, not a resort buffet, and you will want a ride or the beach walk; call before you go.",
     localized: {

@@ -531,6 +531,12 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Plage publique à l'ouest de Puerto Plata — promenades au sunset, snacks sur le sable et rivage le long de la marina Ocean World.",
     },
   },
+  "don-limon-cofresi": {
+    description: {
+      es: "Restaurante cubano de familia en Playa Cofresí — sándwiches, pescado a la parrilla, paella y cócteles con vista a la playa. Abierto todos los días 11:00 AM–1:00 AM; la gente destaca el servicio tanto como los platos.",
+      fr: "Restaurant cubain familial sur Playa Cofresí — sandwiches, poisson grillé, paella et cocktails avec vue plage. Ouvert tous les jours 11 h–1 h ; les avis parlent du service autant que des assiettes.",
+    },
+  },
   "crazy-lobster-maimon": {
     description: {
       es: "Parrilla de mariscos en caseta en Playa Los Cocos, Maimón — langosta a la parrilla, platos dominicanos y mesas en patio o arena a pocos pasos del Senator Puerto Plata, Playabachata y Amber Cove.",
