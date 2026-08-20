@@ -132,6 +132,7 @@ export const CURATED_CALL_FOR_PRICING = new Set<string>([
   "cabarete-pilates-reformer",
   "inicio-del-campamento-pp-2026",
   "rumble-in-paradise-12",
+  "rumble-in-paradise-13",
   // Club / DJ / dance nights — cover or class fee often applies
   "ojo-weekend-dj-parties",
   "ojo-latin-night-thursday",

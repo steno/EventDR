@@ -181,6 +181,7 @@ const ingestLikeIds = [
   ...fbSeedIds,
   "lil-naay-2026-07-17",
   "rumble-in-paradise-12",
+  "rumble-in-paradise-13",
   "sancocho-sabados-pingui",
   "puerto-plata-carnaval-2026",
   "malecon-morning-wellness-walk",

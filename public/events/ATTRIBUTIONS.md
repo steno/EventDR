@@ -72,6 +72,7 @@ Curated images under `public/events/` and `public/venues/`.
 | `el-carey-wc2026.jpg` (+ WC match prefix) | El Carey Día y Noche — WC 2026 watch-party promo poster | Venue promo for all World Cup watch parties |
 | `el-colibri-karaoke-battle-2026.jpg` | [Unsplash](https://unsplash.com/photos/photo-1514525253161) (`photo-1514525253161`) — Unsplash License | Concert crowd / stage energy (replaces karaoke flyer) |
 | `rumble-in-paradise-12.jpg` | [Unsplash](https://unsplash.com/photos/photo-1552072092) (`photo-1552072092`) — Unsplash License | Boxer walkout to the ring (replaces fight poster) |
+| `rumble-in-paradise-13.png` | Chiro’s Boxing Promotions — official “Rumble in Paradise 13” Halloween Weekend poster (promoter-supplied) | Authentic event flyer for the Oct 30 Sosúa Beach championship card |
 | `inicio-del-campamento-pp-2026.jpg` | [Unsplash](https://unsplash.com/photos/photo-1526232761682) (`photo-1526232761682`) — Unsplash License | Youth sports camp huddle (replaces podcast logo) |
 | `atleticos-pp-vs-mangueros-2026-07-17.jpg` (+ other Atléticos home games) | POP curated `athleticosPOP.png` — Atléticos de Puerto Plata pitcher | Authentic team photo; replaces Unsplash stock for the full home slate |
 | `venues/parque-jose-briceno.jpg` | POP curated `baseballpark.png` — packed grandstand at Parque José Briceño | Authentic venue place photo |

@@ -251,6 +251,23 @@
     "imageEmoji": "🥊"
   },
   {
+    "id": "rumble-in-paradise-13",
+    "title": "Rumble in Paradise 13",
+    "description": "Boxeo profesional de fin de semana de Halloween en Playa Sosúa — tres peleas de campeonato presentadas por Chiro’s Boxing Promotions junto a Bar 39 y Tiki Wiki Beach Club. El evento de boxeo más grande de la costa norte. Paquetes VIP y de patrocinio (mesas premium, servicio top shelf, exposición de marca, acceso exclusivo). Llama/WhatsApp +1 829 817 2884 o +1 829 586 3118. #RUMBLEINPARADISE13",
+    "date": "2026-10-30",
+    "location": "Sosúa",
+    "venue": "Bar 39, Playa Sosúa",
+    "venueSlug": "bar-39-sosua",
+    "lat": 19.75942,
+    "lng": -70.51672,
+    "category": "sports",
+    "format": "physical",
+    "trending": true,
+    "phone": "+18298172884",
+    "callForPricing": true,
+    "imageEmoji": "🥊"
+  },
+  {
     "id": "atleticos-pp-vs-capitanes-2026-07-11",
     "title": "Atléticos de Puerto Plata vs Capitanes de Salcedo",
     "description": "Béisbol de verano en el renovado Parque José Briceño — los Atléticos de Puerto Plata reciben a los Capitanes de Salcedo. Liga Nacional de Béisbol de Verano; entradas desde RD$200 en todotickets.do o en la boletería del estadio.",

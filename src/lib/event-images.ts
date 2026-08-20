@@ -4,6 +4,7 @@ import { getVenueImageUrl } from "./venue-images";
 
 const EVENT_IMAGE_FILES: Record<string, string> = {
   "rumble-in-paradise-12": "rumble-in-paradise-12.jpg",
+  "rumble-in-paradise-13": "rumble-in-paradise-13.png",
   "lax-sunset-daily": "lax-sunset-daily.jpg",
   "malecon-kiosks-daily": "malecon-kiosks-daily.jpg",
   "kite-beach-daily": "kite-beach-daily.jpg",

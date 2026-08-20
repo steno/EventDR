@@ -64,6 +64,7 @@ const FILE_TO_EVENT_ID = {
   "el-carey-wc2026.jpg": "el-carey-wc2026",
   "el-colibri-karaoke-battle-2026.jpg": "el-colibri-karaoke-battle-2026",
   "rumble-in-paradise-12.jpg": "rumble-in-paradise-12",
+  "rumble-in-paradise-13.png": "rumble-in-paradise-13",
   "inicio-del-campamento-pp-2026.jpg": "inicio-del-campamento-pp-2026",
   "cabarete-classic-2026.jpg": "cabarete-classic-2026",
 
