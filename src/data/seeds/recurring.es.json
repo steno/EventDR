@@ -1511,8 +1511,8 @@
   },
   {
     "id": "gym-sov-zumba-tuesday",
-    "title": "Zumba Fitness en GYM SOV",
-    "description": "Una hora de Zumba con Raffaella en GYM SOV (Sosúa Ocean Village) — cardio de baile latino/pop, alegre y abierto a todos los adultos; no hace falta membresía del gym. Martes 9:00 AM; reserva o confirma por WhatsApp +1 829 519 1974.",
+    "title": "Zumba en GYM SOV",
+    "description": "Clases de la mañana con Raffaella en GYM SOV (Sosúa Ocean Village) — martes Zumba Fitness y jueves Zumba + Lift Tone Up (pesas y mats de yoga). Cardio de baile latino/pop, adultos bienvenidos, sin membresía. 9:00–10:00 AM; reserva o confirma por WhatsApp +1 829 519 1974.",
     "date": "2026-01-01",
     "time": "9:00 AM – 10:00 AM",
     "location": "Sosúa",
@@ -1526,34 +1526,14 @@
     ],
     "format": "physical",
     "recurrence": "weekly",
-    "recurrenceDay": 2,
+    "recurrenceDays": [
+      2,
+      4
+    ],
     "phone": "+18295191974",
     "callForPricing": true,
     "sourceUrl": "https://www.sosuaoceanvillage.com/gym",
     "imageEmoji": "💃"
-  },
-  {
-    "id": "gym-sov-zumba-lift-thursday",
-    "title": "Zumba + Lift Tone Up en GYM SOV",
-    "description": "Clase mixta los jueves con Raffaella en GYM SOV — Zumba Fitness más Lift Tone Up con pesas y mats de yoga para fuerza y tonificación (ideal para mujeres; adultos bienvenidos). 9:00 AM, sin membresía. WhatsApp +1 829 519 1974 para reservar.",
-    "date": "2026-01-01",
-    "time": "9:00 AM – 10:00 AM",
-    "location": "Sosúa",
-    "venue": "GYM SOV — Sosúa Ocean Village",
-    "venueSlug": "gym-sov-sosua-ocean-village",
-    "address": "Carretera Sosúa–Cabarete Km 2, Sosúa Ocean Village",
-    "category": "health-wellness",
-    "categories": [
-      "dance",
-      "sports"
-    ],
-    "format": "physical",
-    "recurrence": "weekly",
-    "recurrenceDay": 4,
-    "phone": "+18295191974",
-    "callForPricing": true,
-    "sourceUrl": "https://www.sosuaoceanvillage.com/gym",
-    "imageEmoji": "💪"
   },
   {
     "id": "ayuntamiento-pp-sunday-malecon",

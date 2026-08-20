@@ -1511,8 +1511,8 @@
   },
   {
     "id": "gym-sov-zumba-tuesday",
-    "title": "Zumba Fitness au GYM SOV",
-    "description": "Une heure de Zumba avec Raffaella au GYM SOV (Sosúa Ocean Village) — cardio danse latino/pop, joyeux et ouvert à tous les adultes ; pas d'abonnement gym requis. Mardi 9 h ; réservez ou confirmez sur WhatsApp +1 829 519 1974.",
+    "title": "Zumba au GYM SOV",
+    "description": "Cours du matin avec Raffaella au GYM SOV (Sosúa Ocean Village) — mardi Zumba Fitness et jeudi Zumba + Lift Tone Up (poids et tapis de yoga). Cardio danse latino/pop, adultes bienvenus, sans abonnement. 9 h–10 h ; réservez ou confirmez sur WhatsApp +1 829 519 1974.",
     "date": "2026-01-01",
     "time": "9:00 AM – 10:00 AM",
     "location": "Sosúa",
@@ -1526,34 +1526,14 @@
     ],
     "format": "physical",
     "recurrence": "weekly",
-    "recurrenceDay": 2,
+    "recurrenceDays": [
+      2,
+      4
+    ],
     "phone": "+18295191974",
     "callForPricing": true,
     "sourceUrl": "https://www.sosuaoceanvillage.com/gym",
     "imageEmoji": "💃"
-  },
-  {
-    "id": "gym-sov-zumba-lift-thursday",
-    "title": "Zumba + Lift Tone Up au GYM SOV",
-    "description": "Cours mixte le jeudi avec Raffaella au GYM SOV — Zumba Fitness plus Lift Tone Up avec poids et tapis de yoga pour la force et le tonus (idéal pour les femmes ; adultes bienvenus). 9 h, sans abonnement. WhatsApp +1 829 519 1974 pour réserver.",
-    "date": "2026-01-01",
-    "time": "9:00 AM – 10:00 AM",
-    "location": "Sosúa",
-    "venue": "GYM SOV — Sosúa Ocean Village",
-    "venueSlug": "gym-sov-sosua-ocean-village",
-    "address": "Carretera Sosúa–Cabarete Km 2, Sosúa Ocean Village",
-    "category": "health-wellness",
-    "categories": [
-      "dance",
-      "sports"
-    ],
-    "format": "physical",
-    "recurrence": "weekly",
-    "recurrenceDay": 4,
-    "phone": "+18295191974",
-    "callForPricing": true,
-    "sourceUrl": "https://www.sosuaoceanvillage.com/gym",
-    "imageEmoji": "💪"
   },
   {
     "id": "ayuntamiento-pp-sunday-malecon",

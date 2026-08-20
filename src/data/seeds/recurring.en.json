@@ -1511,8 +1511,8 @@
   },
   {
     "id": "gym-sov-zumba-tuesday",
-    "title": "Zumba Fitness at GYM SOV",
-    "description": "One-hour Zumba with Raffaella at GYM SOV (Sosúa Ocean Village) — joyful Latin/pop dance cardio, open to all adults, no gym membership required. Drop in Tuesday 9:00 AM; book or confirm on WhatsApp +1 829 519 1974.",
+    "title": "Zumba at GYM SOV",
+    "description": "Morning classes with Raffaella at GYM SOV (Sosúa Ocean Village) — Tuesday Zumba Fitness and Thursday Zumba + Lift Tone Up (weights and yoga mats). Latin/pop dance cardio, adults welcome, no gym membership required. 9:00–10:00 AM; book or confirm on WhatsApp +1 829 519 1974.",
     "date": "2026-01-01",
     "time": "9:00 AM – 10:00 AM",
     "location": "Sosúa",
@@ -1526,34 +1526,14 @@
     ],
     "format": "physical",
     "recurrence": "weekly",
-    "recurrenceDay": 2,
+    "recurrenceDays": [
+      2,
+      4
+    ],
     "phone": "+18295191974",
     "callForPricing": true,
     "sourceUrl": "https://www.sosuaoceanvillage.com/gym",
     "imageEmoji": "💃"
-  },
-  {
-    "id": "gym-sov-zumba-lift-thursday",
-    "title": "Zumba + Lift Tone Up at GYM SOV",
-    "description": "Thursday mixed class with Raffaella at GYM SOV — Zumba Fitness plus Lift Tone Up with weights and yoga mats for strength and toning (great for women; adults welcome). 9:00 AM, no membership needed. WhatsApp +1 829 519 1974 to book.",
-    "date": "2026-01-01",
-    "time": "9:00 AM – 10:00 AM",
-    "location": "Sosúa",
-    "venue": "GYM SOV — Sosúa Ocean Village",
-    "venueSlug": "gym-sov-sosua-ocean-village",
-    "address": "Carretera Sosúa–Cabarete Km 2, Sosúa Ocean Village",
-    "category": "health-wellness",
-    "categories": [
-      "dance",
-      "sports"
-    ],
-    "format": "physical",
-    "recurrence": "weekly",
-    "recurrenceDay": 4,
-    "phone": "+18295191974",
-    "callForPricing": true,
-    "sourceUrl": "https://www.sosuaoceanvillage.com/gym",
-    "imageEmoji": "💪"
   },
   {
     "id": "ayuntamiento-pp-sunday-malecon",

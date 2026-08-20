@@ -154,7 +154,6 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "huelga-velada-maltrato-animal-torre-alta-2026-08-07":
     "huelga-velada-maltrato-animal-torre-alta-2026-08-07.jpg",
   "gym-sov-zumba-tuesday": "gym-sov-zumba-fitness.jpg",
-  "gym-sov-zumba-lift-thursday": "gym-sov-zumba-fitness.jpg",
   "handmade-pina-colada-experience": "handmade-pina-colada-experience.webp",
   "congreso-damas-adn-2026": "congreso-damas-adn-2026.jpg",
   "master-of-the-ocean-2026": "master-of-the-ocean-2026.jpg",
@@ -165,6 +164,7 @@ const EVENT_IMAGE_ALIASES: Record<string, string> = {
   "ingest-1783371784615-0-18th-annual-cabarete-butterfly-effect":
     "ingest-18th-annual-cabarete-butterfly-effect",
   "museo-ambar-saturday": "museo-ambar-weekdays",
+  "gym-sov-zumba-lift-thursday": "gym-sov-zumba-tuesday",
 };
 
 const EVENT_IMAGE_PREFIXES: { prefix: string; file: string }[] = [

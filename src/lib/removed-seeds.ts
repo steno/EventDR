@@ -33,6 +33,8 @@ export const REMOVED_SEED_EVENT_IDS = new Set([
   "cremo-friday-salsa-dance",
   // Overlaps La Puntilla concerts (same hours/source; older Malecón placeholder).
   "malecon-live-concert",
+  // Duplicate of gym-sov-zumba-tuesday (same class, Tue + Thu 9 AM).
+  "gym-sov-zumba-lift-thursday",
   // Ingest misfire: Expo Amaprosan is Parque Central de Santiago (Cibao), not POP.
   "ingest-expo-amaprosan-2026",
   // Pop Urbano 037 podcast brand — not a verified North Coast dated event.

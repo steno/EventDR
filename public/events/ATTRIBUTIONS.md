@@ -63,7 +63,7 @@ Curated images under `public/events/` and `public/venues/`.
 | `groundzero-party-rojo-2026-08-01.jpg` | [@groundzero_disco](https://www.instagram.com/groundzero_disco/p/DbTqSiPPq35/) — Party Rojo flyer | Official Aug 1 2026 red-theme night flyer |
 | `blue-ice-saturday-gogo.jpg` | [@blueice_pianobar](https://www.instagram.com/blueice_pianobar/p/Cn7pItKJQMD/) — Every Saturdays Gogo Dance flyer | Official Saturday gogo dance promo |
 | `cabarete-pilates-reformer.jpg` | [Unsplash](https://unsplash.com/photos/woman-does-pilates-exercise-on-a-reformer-machine--j3ARb-gTBo) (`photo-1754257320311`) — Unsplash License | Reformer studio action (replaces Rafaella logo) |
-| `gym-sov-zumba-fitness.jpg` | [Wikimedia Commons — US Army Zumba class](https://commons.wikimedia.org/wiki/File:US_Army_52862_Zumba_adds_Latin_dance_to_fitness_routine.jpg) — Brittany Carlson (USAG Stuttgart), public domain | Generic Zumba class action for GYM SOV Tue/Thu listings |
+| `gym-sov-zumba-fitness.jpg` | [Wikimedia Commons — US Army Zumba class](https://commons.wikimedia.org/wiki/File:US_Army_52862_Zumba_adds_Latin_dance_to_fitness_routine.jpg) — Brittany Carlson (USAG Stuttgart), public domain | Generic Zumba class action for GYM SOV Tue/Thu listing |
 | `venues/gym-sov-sosua-ocean-village.webp` | POP curated `zumbavenue.webp` — GYM SOV / Sosúa Ocean Village | Venue place photo |
 | `venues/zen-fitness-cabarete.jpg` | [Cabarete Fitness Camp](https://cabaretefitnesscamp.com/) — barefoot tiki gym interior (`gym-empty-1.jpg`) | Official Zen Fitness / Zen Cabarete gym |
 | `zen-fitness-weightloss-camp.jpg` | [Cabarete Fitness Camp](https://cabaretefitnesscamp.com/the-camps/weightloss-camp/) — outdoor training (`ropes-uk-mike-5.jpg`) | Official Weightloss Camp training action |

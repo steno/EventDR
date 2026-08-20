@@ -357,11 +357,11 @@ export const SEED_EVENT_OPINIONS_BASE: EventOpinion[] = [
   },
   {
     eventId: "gym-sov-zumba-tuesday",
-    seriesKey: "gym-sov-sosua-ocean-village:weekly:2",
-    body: "Morning dance cardio inside Ocean Village — open to non-members; WhatsApp ahead so you are not locked out at the gate.",
+    seriesKey: "gym-sov-sosua-ocean-village:weekly",
+    body: "Morning class inside Ocean Village — open to non-members; WhatsApp ahead so you are not locked out at the gate. Thursday adds weights and toning, not a pure dance hour.",
     localized: {
-      es: "Cardio de baile por la mañana en Ocean Village — abierto sin membresía; avisa por WhatsApp para que no te dejen fuera en la entrada.",
-      fr: "Cardio danse le matin à Ocean Village — ouvert sans abonnement ; prévenez par WhatsApp pour ne pas rester bloqué à l'entrée.",
+      es: "Clase de la mañana en Ocean Village — abierta sin membresía; avisa por WhatsApp para que no te dejen fuera en la entrada. El jueves suma pesas y tonificación, no solo baile.",
+      fr: "Cours du matin à Ocean Village — ouvert sans abonnement ; prévenez par WhatsApp pour ne pas rester bloqué à l'entrée. Le jeudi ajoute poids et tonus, pas seulement de la danse.",
     },
     priceFeel: "varies",
     priceNote: "Drop-in class fee via WhatsApp +1 829 519 1974 — confirm before you go; gym membership not required",
@@ -370,25 +370,8 @@ export const SEED_EVENT_OPINIONS_BASE: EventOpinion[] = [
       fr: "Tarif cours à l'unité via WhatsApp +1 829 519 1974 — confirmez avant ; pas d'abonnement gym requis",
     },
     attribution: "POP research · instructor flyer / GYM SOV",
-    researchNotes: "Instructor WhatsApp on flyer; drop-in without membership stated on promo.",
-    updatedAt: "2026-07-23T16:00:00.000Z",
-  },
-  {
-    eventId: "gym-sov-zumba-lift-thursday",
-    seriesKey: "gym-sov-sosua-ocean-village:weekly:4",
-    body: "Same gate logistics as Tuesday, but bring mats energy — this mix adds weights and toning, not pure dance hour.",
-    localized: {
-      es: "Misma logística de acceso que el martes, pero con tono de fuerza — mezcla pesas y tonificación, no solo una hora de baile.",
-      fr: "Même accès que le mardi, mais ambiance renfo — mélange poids et tonus, pas seulement une heure de danse.",
-    },
-    priceFeel: "varies",
-    priceNote: "Drop-in via WhatsApp +1 829 519 1974 — confirm fee; no membership required",
-    priceNoteLocalized: {
-      es: "Clase suelta por WhatsApp +1 829 519 1974 — confirma tarifa; sin membresía",
-      fr: "Cours à l'unité via WhatsApp +1 829 519 1974 — confirmez le tarif ; sans abonnement",
-    },
-    attribution: "POP research · instructor flyer / GYM SOV",
-    researchNotes: "Thursday format is Zumba + Lift Tone Up per flyer.",
+    researchNotes:
+      "Instructor WhatsApp on flyer; drop-in without membership. Tuesday Zumba Fitness, Thursday Zumba + Lift Tone Up.",
     updatedAt: "2026-07-23T16:00:00.000Z",
   },
   {
