@@ -118,6 +118,7 @@ export const CURATED_ADMISSION_PRICES: Record<string, string> = {
   // Tournament registration (official club page)
   "puerto-plata-golf-classic-2026": "US$210",
   "sosua-10k-road-race-2026": "RD$500",
+  "pop-cinemas-week-2026-08-20": "RD$300",
   "sunset-cabarete-sessions-2026": "from US$16",
   "puerto-plata-poker-experience-2026": "Main Event US$900 buy-in",
 };
@@ -141,6 +142,7 @@ export const CURATED_CALL_FOR_PRICING = new Set<string>([
   "d-classico-merengue-nights",
   "el-parq-latin-friday",
   "batey-salsa-weekly",
+  "atlantico-fc-vs-delfines-2026-08-22",
 ]);
 
 /**
@@ -172,6 +174,8 @@ export const CURATED_FREE_EVENTS = new Set<string>([
   "la-chabola-wednesday-open-mic",
   "el-carey-karaoke-mujeres-monday",
   "ocean-winds-karaoke-nights",
+  "petit-francois-friday-karaoke",
+  "dewry-luciano-zona-acapella-2026-08-23",
   "cremo-karaoke-saturday",
   "big-lees-weekend-music",
   "el-parq-karaoke-thursday",

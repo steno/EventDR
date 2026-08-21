@@ -1070,5 +1070,99 @@
     "phone": "+18495915588",
     "sourceUrl": "https://www.facebook.com/events/1076617124903340",
     "imageEmoji": "🎤"
+  },
+  {
+    "id": "atlantico-fc-vs-delfines-2026-08-22",
+    "title": "Atlántico FC vs Delfines del Este",
+    "description": "Liga Dominicana de Fútbol Apertura 2026–27 matchday 1 — Atlántico FC host Delfines del Este at Estadio Leonel Plácido. Kickoff Saturday 22 August at 4:00 PM. Tickets at the stadium; the LDF YouTube channel streams home games.",
+    "date": "2026-08-22",
+    "time": "4:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Estadio Leonel Plácido",
+    "venueSlug": "estadio-leonel-placido",
+    "address": "Calle Hugo Kunhardt, Puerto Plata 57000",
+    "lat": 19.792117,
+    "lng": -70.681193,
+    "category": "sports",
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18496323133",
+    "sourceUrl": "https://www.facebook.com/groups/costambar/permalink/2613183035803361/",
+    "imageEmoji": "⚽"
+  },
+  {
+    "id": "dewry-luciano-zona-acapella-2026-08-23",
+    "title": "Dewry Luciano — Domingo Típico",
+    "description": "Accordion típico with Dewry Luciano at Zona Acapella Club on the Puerto Plata Malecón (Cuarto de Milla / Playa Acapulco) — Sunday 23 August, 18+. Free entry and free parking. WhatsApp +1 829 726 0344 · @acapella.pop.",
+    "date": "2026-08-23",
+    "location": "Puerto Plata",
+    "venue": "Zona Acapella Club",
+    "venueSlug": "zona-acapella-club",
+    "address": "Cuarto de Milla, Av. Gral. Gregorio Luperón, Puerto Plata",
+    "lat": 19.791341,
+    "lng": -70.674021,
+    "category": "concert",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "phone": "+18297260344",
+    "sourceUrl": "https://www.facebook.com/groups/costambar/permalink/2613183035803361/",
+    "lineup": [
+      "Dewry Luciano"
+    ],
+    "imageEmoji": "🪗"
+  },
+  {
+    "id": "pop-cinemas-week-2026-08-20",
+    "title": "POP Cinemas — Week of Aug 20–26",
+    "description": "Weekly billboard at POP Cinemas in Playa Dorada Mall (Aug 20–26), all in Spanish, RD$300 per person every day: Paw Patrol: Dino Movie 5:45 PM; El Final de la Calle Oak 7:15 PM; L.O.S. Rechazados 2: Operación Libertad 7:30 PM; Spider-Man: No Way Home 7:45 PM; premieres Relajadas y Peligrosas 9:15 PM and La Noche del Demonio 9:30 PM. Snacks and tickets: cinemaspop.com.do · 809-320-1400.",
+    "date": "2026-08-20",
+    "endDate": "2026-08-26",
+    "time": "5:45 PM – 9:30 PM",
+    "location": "Playa Dorada",
+    "venue": "POP Cinemas",
+    "venueSlug": "pop-cinemas-playa-dorada",
+    "address": "Calle Principal Playa Dorada 538, Playa Dorada Shopping Centre",
+    "lat": 19.769859,
+    "lng": -70.642341,
+    "category": "culture",
+    "categories": [
+      "performances"
+    ],
+    "format": "physical",
+    "admissionPrice": "RD$300",
+    "phone": "+18093201400",
+    "sourceUrl": "https://www.facebook.com/groups/costambar/permalink/2613183035803361/",
+    "imageEmoji": "🎬"
+  },
+  {
+    "id": "petit-francois-friday-karaoke",
+    "title": "Le Petit François Friday Karaoke",
+    "description": "Every Friday karaoke beach party at Le Petit François, El Pueblito / Playa Chaparral, with DJ Leandro from 8:00 PM. Limoncello shots 2-for-1 this week. No cover — pay for food and drinks. Reservations +1 829 492 2910.",
+    "date": "2026-08-21",
+    "time": "8:00 PM – 2:00 AM",
+    "location": "Playa Dorada",
+    "venue": "Le Petit François",
+    "venueSlug": "le-petit-francois",
+    "address": "Playa Dorada G1, El Pueblito / Playa Chaparral, Puerto Plata",
+    "lat": 19.7734212,
+    "lng": -70.6517978,
+    "category": "performances",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "recurrence": "weekly",
+    "recurrenceDay": 5,
+    "isFree": true,
+    "phone": "+18294922910",
+    "sourceUrl": "https://www.facebook.com/groups/costambar/permalink/2613183035803361/",
+    "imageEmoji": "🎤"
   }
 ]

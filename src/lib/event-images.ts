@@ -158,6 +158,12 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "handmade-pina-colada-experience": "handmade-pina-colada-experience.webp",
   "congreso-damas-adn-2026": "congreso-damas-adn-2026.jpg",
   "master-of-the-ocean-2026": "master-of-the-ocean-2026.jpg",
+  "atlantico-fc-vs-delfines-2026-08-22":
+    "atlantico-fc-vs-delfines-2026-08-22.jpg",
+  "dewry-luciano-zona-acapella-2026-08-23":
+    "dewry-luciano-zona-acapella-2026-08-23.jpg",
+  "pop-cinemas-week-2026-08-20": "pop-cinemas-week-2026-08-20.jpg",
+  "petit-francois-friday-karaoke": "petit-francois-friday-karaoke.jpg",
 };
 
 /** Legacy ingest ids that share a curated event image. */

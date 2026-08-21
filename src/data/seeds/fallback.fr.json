@@ -1068,5 +1068,99 @@
     "imageEmoji": "🎤",
     "title": "Karaoké du samedi à Ocean Winds",
     "description": "Karaoké le samedi chez Amado’s, dans l'hôtel Ocean Winds à Costambar — prenez le micro dès 20 h. La série commence le samedi 22 août 2026. WhatsApp +1 849-591-5588."
+  },
+  {
+    "id": "atlantico-fc-vs-delfines-2026-08-22",
+    "date": "2026-08-22",
+    "time": "4:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Estadio Leonel Plácido",
+    "venueSlug": "estadio-leonel-placido",
+    "address": "Calle Hugo Kunhardt, Puerto Plata 57000",
+    "lat": 19.792117,
+    "lng": -70.681193,
+    "category": "sports",
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18496323133",
+    "sourceUrl": "https://www.facebook.com/groups/costambar/permalink/2613183035803361/",
+    "imageEmoji": "⚽",
+    "title": "Atlántico FC vs Delfines del Este",
+    "description": "1re journée de la Liga Dominicana de Fútbol Apertura 2026–27 — l'Atlántico FC reçoit Delfines del Este au Estadio Leonel Plácido. Samedi 22 août à 16 h. Billets au stade ; la LDF diffuse sur YouTube."
+  },
+  {
+    "id": "dewry-luciano-zona-acapella-2026-08-23",
+    "date": "2026-08-23",
+    "location": "Puerto Plata",
+    "venue": "Zona Acapella Club",
+    "venueSlug": "zona-acapella-club",
+    "address": "Cuarto de Milla, Av. Gral. Gregorio Luperón, Puerto Plata",
+    "lat": 19.791341,
+    "lng": -70.674021,
+    "category": "concert",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "phone": "+18297260344",
+    "sourceUrl": "https://www.facebook.com/groups/costambar/permalink/2613183035803361/",
+    "lineup": [
+      "Dewry Luciano"
+    ],
+    "imageEmoji": "🪗",
+    "title": "Dewry Luciano — Domingo Típico",
+    "description": "Típico à l'accordéon avec Dewry Luciano au Zona Acapella Club, Malecón de Puerto Plata (Cuarto de Milla / Playa Acapulco) — dimanche 23 août, 18+. Entrée et parking gratuits. WhatsApp +1 829 726 0344 · @acapella.pop."
+  },
+  {
+    "id": "pop-cinemas-week-2026-08-20",
+    "date": "2026-08-20",
+    "endDate": "2026-08-26",
+    "time": "5:45 PM – 9:30 PM",
+    "location": "Playa Dorada",
+    "venue": "POP Cinemas",
+    "venueSlug": "pop-cinemas-playa-dorada",
+    "address": "Calle Principal Playa Dorada 538, Playa Dorada Shopping Centre",
+    "lat": 19.769859,
+    "lng": -70.642341,
+    "category": "culture",
+    "categories": [
+      "performances"
+    ],
+    "format": "physical",
+    "admissionPrice": "RD$300",
+    "phone": "+18093201400",
+    "sourceUrl": "https://www.facebook.com/groups/costambar/permalink/2613183035803361/",
+    "imageEmoji": "🎬",
+    "title": "POP Cinemas — semaine du 20 au 26 août",
+    "description": "Programme de la semaine à POP Cinemas, Playa Dorada Mall (20–26 août), tout en espagnol, RD$300 par personne tous les jours : Paw Patrol: Dino Movie 17 h 45 ; El Final de la Calle Oak 19 h 15 ; L.O.S. Rechazados 2: Operación Libertad 19 h 30 ; Spider-Man: No Way Home 19 h 45 ; premières Relajadas y Peligrosas 21 h 15 et La Noche del Demonio 21 h 30. Snacks et billets : cinemaspop.com.do · 809-320-1400."
+  },
+  {
+    "id": "petit-francois-friday-karaoke",
+    "date": "2026-08-21",
+    "time": "8:00 PM – 2:00 AM",
+    "location": "Playa Dorada",
+    "venue": "Le Petit François",
+    "venueSlug": "le-petit-francois",
+    "address": "Playa Dorada G1, El Pueblito / Playa Chaparral, Puerto Plata",
+    "lat": 19.7734212,
+    "lng": -70.6517978,
+    "category": "performances",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "recurrence": "weekly",
+    "recurrenceDay": 5,
+    "isFree": true,
+    "phone": "+18294922910",
+    "sourceUrl": "https://www.facebook.com/groups/costambar/permalink/2613183035803361/",
+    "imageEmoji": "🎤",
+    "title": "Karaoké du vendredi au Petit François",
+    "description": "Karaoké beach party tous les vendredis au Petit François, El Pueblito / Playa Chaparral, avec DJ Leandro dès 20 h. Shots de limoncello 2 pour 1 cette semaine. Pas de cover — vous payez nourriture et verres. Réservations +1 829 492 2910."
   }
 ]

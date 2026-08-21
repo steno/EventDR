@@ -1070,5 +1070,99 @@
     "imageEmoji": "🎤",
     "title": "Karaoke de sábados en Ocean Winds",
     "description": "Karaoke los sábados en Amado’s, dentro del Hotel Ocean Winds en Costambar — toma el micrófono desde las 8:00 PM. La serie empieza el sábado 22 de agosto de 2026. WhatsApp +1 849-591-5588."
+  },
+  {
+    "id": "atlantico-fc-vs-delfines-2026-08-22",
+    "date": "2026-08-22",
+    "time": "4:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Estadio Leonel Plácido",
+    "venueSlug": "estadio-leonel-placido",
+    "address": "Calle Hugo Kunhardt, Puerto Plata 57000",
+    "lat": 19.792117,
+    "lng": -70.681193,
+    "category": "sports",
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18496323133",
+    "sourceUrl": "https://www.facebook.com/groups/costambar/permalink/2613183035803361/",
+    "imageEmoji": "⚽",
+    "title": "Atlántico FC vs Delfines del Este",
+    "description": "Jornada 1 de la Liga Dominicana de Fútbol Apertura 2026–27 — Atlántico FC recibe a Delfines del Este en el Estadio Leonel Plácido. Sábado 22 de agosto a las 4:00 PM. Boletos en el estadio; la LDF transmite por YouTube."
+  },
+  {
+    "id": "dewry-luciano-zona-acapella-2026-08-23",
+    "date": "2026-08-23",
+    "location": "Puerto Plata",
+    "venue": "Zona Acapella Club",
+    "venueSlug": "zona-acapella-club",
+    "address": "Cuarto de Milla, Av. Gral. Gregorio Luperón, Puerto Plata",
+    "lat": 19.791341,
+    "lng": -70.674021,
+    "category": "concert",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "phone": "+18297260344",
+    "sourceUrl": "https://www.facebook.com/groups/costambar/permalink/2613183035803361/",
+    "lineup": [
+      "Dewry Luciano"
+    ],
+    "imageEmoji": "🪗",
+    "title": "Dewry Luciano — Domingo Típico",
+    "description": "Típico con acordeón de Dewry Luciano en Zona Acapella Club, Malecón de Puerto Plata (Cuarto de Milla / Playa Acapulco) — domingo 23 de agosto, 18+. Entrada y parqueo gratis. WhatsApp +1 829 726 0344 · @acapella.pop."
+  },
+  {
+    "id": "pop-cinemas-week-2026-08-20",
+    "date": "2026-08-20",
+    "endDate": "2026-08-26",
+    "time": "5:45 PM – 9:30 PM",
+    "location": "Playa Dorada",
+    "venue": "POP Cinemas",
+    "venueSlug": "pop-cinemas-playa-dorada",
+    "address": "Calle Principal Playa Dorada 538, Playa Dorada Shopping Centre",
+    "lat": 19.769859,
+    "lng": -70.642341,
+    "category": "culture",
+    "categories": [
+      "performances"
+    ],
+    "format": "physical",
+    "admissionPrice": "RD$300",
+    "phone": "+18093201400",
+    "sourceUrl": "https://www.facebook.com/groups/costambar/permalink/2613183035803361/",
+    "imageEmoji": "🎬",
+    "title": "POP Cinemas — semana del 20 al 26 ago.",
+    "description": "Cartelera de la semana en POP Cinemas, Playa Dorada Mall (20–26 ago.), todo en español, RD$300 por persona todos los días: Paw Patrol: Dino Movie 5:45 PM; El Final de la Calle Oak 7:15 PM; L.O.S. Rechazados 2: Operación Libertad 7:30 PM; Spider-Man: No Way Home 7:45 PM; estrenos Relajadas y Peligrosas 9:15 PM y La Noche del Demonio 9:30 PM. Snacks y boletos: cinemaspop.com.do · 809-320-1400."
+  },
+  {
+    "id": "petit-francois-friday-karaoke",
+    "date": "2026-08-21",
+    "time": "8:00 PM – 2:00 AM",
+    "location": "Playa Dorada",
+    "venue": "Le Petit François",
+    "venueSlug": "le-petit-francois",
+    "address": "Playa Dorada G1, El Pueblito / Playa Chaparral, Puerto Plata",
+    "lat": 19.7734212,
+    "lng": -70.6517978,
+    "category": "performances",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "recurrence": "weekly",
+    "recurrenceDay": 5,
+    "isFree": true,
+    "phone": "+18294922910",
+    "sourceUrl": "https://www.facebook.com/groups/costambar/permalink/2613183035803361/",
+    "imageEmoji": "🎤",
+    "title": "Karaoke de viernes en Le Petit François",
+    "description": "Karaoke playero todos los viernes en Le Petit François, El Pueblito / Playa Chaparral, con DJ Leandro desde las 8:00 PM. Shots de limoncello 2x1 esta semana. Sin cover — pagas comida y tragos. Reservas +1 829 492 2910."
   }
 ]

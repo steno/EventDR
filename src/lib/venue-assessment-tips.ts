@@ -641,4 +641,36 @@ export const VENUE_TIP_COPY: Record<
       fr: "La paillote langouste où l'on marche depuis Senator / Playabachata — tables plage ou patio, pas un buffet resort ; prévoyez un trajet ou la marche plage, et appelez avant.",
     },
   },
+  "estadio-leonel-placido": {
+    body: "Compact 2,000-seat LDF ground at the polideportivo — afternoon kickoffs, buy at the gate, and it is not Parque José Briceño baseball next door.",
+    localized: {
+      en: "Compact 2,000-seat LDF ground at the polideportivo — afternoon kickoffs, buy at the gate, and it is not Parque José Briceño baseball next door.",
+      es: "Cancha LDF de 2.000 asientos en el polideportivo — saques de tarde, boletos en taquilla, y no es el béisbol del Parque José Briceño al lado.",
+      fr: "Terrain LDF de 2 000 places au polideportivo — coups d'envoi l'après-midi, billets au guichet, et ce n'est pas le baseball du Parque José Briceño à côté.",
+    },
+  },
+  "zona-acapella-club": {
+    body: "Malecón típico room with a sea-view terrace — Sunday accordion nights run free at the door, but drinks are nightclub prices and it is 18+.",
+    localized: {
+      en: "Malecón típico room with a sea-view terrace — Sunday accordion nights run free at the door, but drinks are nightclub prices and it is 18+.",
+      es: "Salón de típico del Malecón con terraza al mar — los domingos de acordeón entran gratis, pero los tragos son de discoteca y es 18+.",
+      fr: "Salle típico du Malecón avec terrasse mer — les dimanches accordéon sont gratuits à l'entrée, mais les verres sont tarif club et c'est 18+.",
+    },
+  },
+  "pop-cinemas-playa-dorada": {
+    body: "The North Coast's only cinema — Spanish dubs, mall AC that runs cold, and RD$300 at the door; bring a sweater and skip English-subtitle assumptions.",
+    localized: {
+      en: "The North Coast's only cinema — Spanish dubs, mall AC that runs cold, and RD$300 at the door; bring a sweater and skip English-subtitle assumptions.",
+      es: "El único cine de la Costa Norte — doblaje en español, aire del mall bien frío y RD$300 en taquilla; lleva suéter y no asumas subtítulos en inglés.",
+      fr: "Le seul cinéma de la Côte Nord — versions espagnoles, clim du mall très froide et RD$300 au guichet ; prenez un pull et ne comptez pas sur des sous-titres anglais.",
+    },
+  },
+  "le-petit-francois": {
+    body: "Beach tables at El Pueblito, not the Playa Dorada Mall food court — Friday karaoke with DJ Leandro from 8 PM; Google's midnight close is the restaurant, the party runs later.",
+    localized: {
+      en: "Beach tables at El Pueblito, not the Playa Dorada Mall food court — Friday karaoke with DJ Leandro from 8 PM; Google's midnight close is the restaurant, the party runs later.",
+      es: "Mesas en la arena de El Pueblito, no el food court del mall de Playa Dorada — karaoke los viernes con DJ Leandro desde las 8 PM; el cierre de medianoche de Google es el restaurante, la fiesta sigue.",
+      fr: "Tables sur le sable à El Pueblito, pas le food court du mall Playa Dorada — karaoké vendredi avec DJ Leandro dès 20 h ; la fermeture minuit Google est le resto, la fête continue.",
+    },
+  },
 };

@@ -92,6 +92,10 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "don-limon-cofresi": "don-limon-cofresi.jpeg",
   "crazy-lobster-maimon": "crazy-lobster-maimon.jpg",
   "hotel-ocean-winds": "hotel-ocean-winds.jpg",
+  "estadio-leonel-placido": "estadio-leonel-placido.jpg",
+  "zona-acapella-club": "zona-acapella-club.jpg",
+  "pop-cinemas-playa-dorada": "pop-cinemas-playa-dorada.jpg",
+  "le-petit-francois": "le-petit-francois.jpg",
 };
 
 /** Cache-busted URL for general venue thumbnails / JSON-LD. */

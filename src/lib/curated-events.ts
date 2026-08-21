@@ -251,6 +251,27 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     isFree: true,
     phone: "+18495915588",
   },
+  "atlantico-fc-vs-delfines-2026-08-22": {
+    callForPricing: true,
+    phone: "+18496323133",
+    venueSlug: "estadio-leonel-placido",
+  },
+  "dewry-luciano-zona-acapella-2026-08-23": {
+    isFree: true,
+    phone: "+18297260344",
+    venueSlug: "zona-acapella-club",
+  },
+  "pop-cinemas-week-2026-08-20": {
+    isFree: false,
+    admissionPrice: "RD$300",
+    phone: "+18093201400",
+    venueSlug: "pop-cinemas-playa-dorada",
+  },
+  "petit-francois-friday-karaoke": {
+    isFree: true,
+    phone: "+18294922910",
+    venueSlug: "le-petit-francois",
+  },
   "hms-valeria-spanish-saturday": {
     isFree: true,
     phone: "+18095711693",

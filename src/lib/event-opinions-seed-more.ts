@@ -1117,4 +1117,82 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "FB event 1076617124903340: inauguration Sat 22 Aug 2026, then every Saturday from 8:00 PM at Amado’s, C. Guayacanes 79. Host Carolina Cruz Castillo / Costambar group. Phone matches hotel WhatsApp.",
     updatedAt: "2026-08-18T20:00:00.000Z",
   },
+  {
+    eventId: "atlantico-fc-vs-delfines-2026-08-22",
+    body: "Matchday 1 at a 2,000-seat LDF ground — go for the 4 PM kickoff, not a night game; buy at the gate and don’t confuse it with Atléticos baseball at José Briceño.",
+    localized: {
+      es: "Jornada 1 en una cancha LDF de 2.000 asientos — ve al saque de las 4 PM, no es partido de noche; boletos en taquilla y no lo confundas con el béisbol de Atléticos en José Briceño.",
+      fr: "1re journée dans un stade LDF de 2 000 places — allez pour le coup d'envoi 16 h, pas un match de nuit ; billets au guichet et ne confondez pas avec le baseball Atléticos à José Briceño.",
+    },
+    priceFeel: "budget",
+    priceNote: "Stadium gate tickets — typical LDF home prices, no todotickets page for this match",
+    priceNoteLocalized: {
+      es: "Boletos en taquilla del estadio — precios típicos LDF de local; no hay página en todotickets para este partido",
+      fr: "Billets au guichet du stade — tarifs LDF domicile habituels ; pas de page todotickets pour ce match",
+    },
+    attribution: "POP research · Fútbol Total RD + El Nuevo Diario + Google 4.2",
+    ratingCite: "Google 4.2",
+    googleRating: 4.2,
+    researchNotes:
+      "Fútbol Total RD lists Sat 22 Aug 2026 4:00 PM Atlántico vs Delfines at Leonel Plácido. El Nuevo Diario confirms jornada 1. Google Polideportivo 4.2/394.",
+    updatedAt: "2026-08-21T16:00:00.000Z",
+  },
+  {
+    eventId: "dewry-luciano-zona-acapella-2026-08-23",
+    body: "18+ Malecón típico — free at the door, but drinks run nightclub money; Sunday accordion night, not a tourist beach bar.",
+    localized: {
+      es: "Típico 18+ del Malecón — entran gratis, pero los tragos son de discoteca; noche de acordeón del domingo, no un beach bar turista.",
+      fr: "Típico 18+ du Malecón — gratuit à l'entrée, mais verres tarif club ; soirée accordéon du dimanche, pas un beach bar touriste.",
+    },
+    priceFeel: "moderate",
+    priceNote: "Free entry and parking; Google reports ~RD$500–1,000 per person on drinks/food",
+    priceNoteLocalized: {
+      es: "Entrada y parqueo gratis; Google reporta ~RD$500–1,000 por persona en tragos/comida",
+      fr: "Entrée et parking gratuits ; Google indique ~RD$500–1 000 par personne en verres/repas",
+    },
+    attribution: "POP research · flyer + Google Maps (354 reviews, sea-view / Sunday mentions)",
+    researchNotes:
+      "Flyer: Dewry Luciano Domingo Típico 23 Aug, entrada/parqueo gratis, 18+, WhatsApp 829-726-0344. Google place ChIJMRMD8EvusY4RcIGbv5r8m6U, reviews mention sundays and sea view.",
+    updatedAt: "2026-08-21T16:00:00.000Z",
+  },
+  {
+    eventId: "pop-cinemas-week-2026-08-20",
+    body: "Spanish dubs only this week — bring a sweater; reviewers still warn the mall AC runs meat-locker cold.",
+    localized: {
+      es: "Solo doblaje en español esta semana — lleva suéter; las reseñas siguen avisando que el aire del mall está helado.",
+      fr: "Uniquement en version espagnole cette semaine — prenez un pull ; les avis préviennent encore que la clim du mall est glaciale.",
+    },
+    priceFeel: "budget",
+    priceNote: "RD$300 per person every day; snacks extra — cinemaspop.com.do / 809-320-1400",
+    priceNoteLocalized: {
+      es: "RD$300 por persona todos los días; snacks aparte — cinemaspop.com.do / 809-320-1400",
+      fr: "RD$300 par personne tous les jours ; snacks en plus — cinemaspop.com.do / 809-320-1400",
+    },
+    attribution: "POP research · POP Cinemas flyer + Google Maps (788 reviews)",
+    researchNotes:
+      "Flyer week of 20–26 Aug 2026, all Español, 300 P/P. Google Pop Cinemas in Playa Dorada Shopping Centre. Historic DR1/reviewer notes on cold AC and Spanish prints.",
+    updatedAt: "2026-08-21T16:00:00.000Z",
+  },
+  {
+    eventId: "petit-francois-friday-karaoke",
+    seriesKey: "le-petit-francois:weekly:5",
+    body: "Karaoke from 8 PM with DJ Leandro — Google’s midnight close is the kitchen; the beach party is listed until 2 AM on the official site.",
+    localized: {
+      es: "Karaoke desde las 8 PM con DJ Leandro — el cierre de medianoche de Google es la cocina; la beach party está hasta las 2 AM en el sitio oficial.",
+      fr: "Karaoké dès 20 h avec DJ Leandro — la fermeture minuit Google est la cuisine ; la beach party va jusqu'à 2 h sur le site officiel.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "No cover — pay for food and drinks; Limoncello shots 2-for-1 this week; Google 4.4 from 869 reviews",
+    priceNoteLocalized: {
+      es: "Sin cover — pagas comida y tragos; shots de limoncello 2x1 esta semana; Google 4.4 de 869 reseñas",
+      fr: "Pas de cover — vous payez nourriture et verres ; shots limoncello 2 pour 1 cette semaine ; Google 4,4 sur 869 avis",
+    },
+    attribution: "POP research · lepetitfrancois.com + Google 4.4",
+    ratingCite: "Google 4.4",
+    googleRating: 4.4,
+    researchNotes:
+      "Official site: Friday karaoke with DJ Leandro from 8 PM. Spanish site 8 PM–2 AM. Google 4.4/869, phone +1 829-492-2910, El Pueblito / Playa Chaparral.",
+    updatedAt: "2026-08-21T16:00:00.000Z",
+  },
 ];

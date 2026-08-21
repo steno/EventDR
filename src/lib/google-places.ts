@@ -97,6 +97,26 @@ const PLACE_SEARCH_ALIASES: Record<string, string[]> = {
     "Ocean Winds Hotel Calle Guayacanes Puerto Plata",
     "Amado's Restaurante Costambar",
   ],
+  "estadio-leonel-placido": [
+    "Estadio Leonel Plácido Puerto Plata",
+    "Polideportivo Puerto Plata Hugo Kunhardt",
+    "Atlántico FC estadio Puerto Plata",
+  ],
+  "zona-acapella-club": [
+    "Zona Acapella Club Puerto Plata",
+    "Acapella Club Malecón Puerto Plata",
+    "Zona Acapella Cuarto de Milla",
+  ],
+  "pop-cinemas-playa-dorada": [
+    "POP Cinemas Playa Dorada",
+    "Pop Cinemas Playa Dorada Mall",
+    "Cine Playa Dorada Puerto Plata",
+  ],
+  "le-petit-francois": [
+    "Le Petit François Playa Dorada",
+    "Le petit Francois El Pueblito Puerto Plata",
+    "Petit Francois Playa Chaparral",
+  ],
   "sea-horse-ranch": [
     "Sea Horse Ranch Sosua Cabarete",
     "Sea Horse Ranch Sosúa",

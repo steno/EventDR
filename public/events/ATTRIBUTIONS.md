@@ -94,3 +94,11 @@ Curated images under `public/events/` and `public/venues/`.
 | `don-limon-beach-dining.jpeg` | POP-supplied `don-limon.jpeg` — guests at the Don Limón logo wall | Event hero (branded bar, not the dining-room place shot) |
 | `venues/don-limon-cofresi.jpeg` | POP-supplied `don-limon-venue.jpeg` — grill, bar stools, and Cofresí beach beyond | Venue hero (open-air beach bar, replaces empty dining-room shot) |
 | `ocean-winds-karaoke-nights.jpg` / `venues/hotel-ocean-winds.jpg` | [Hotel Ocean Winds](https://hoteloceanwinds.com/) — `hero-pool-day.jpg` | Official Costambar pool / hotel place photo |
+| `atlantico-fc-vs-delfines-2026-08-22.jpg` | POP-supplied `jornada1.jpg` — Atlántico FC jornada 1 flyer vs Delfines del Este | Authentic matchday graphic for Sat 22 Aug 2026 at Estadio Leonel Plácido |
+| `venues/estadio-leonel-placido.jpg` | [Google Maps — Polideportivo / Estadio Leonel Plácido](https://www.google.com/maps/place/Polideportivo/@19.792117,-70.6811928,17z) visitor photo (Jose manuel Peralta, Aug 2022) | Outdoor football pitch at dusk with floodlights |
+| `dewry-luciano-zona-acapella-2026-08-23.jpg` | POP-supplied `dewryluciano.jpg` — Zona Acapella Club Domingo Típico flyer | Authentic 23 Aug Dewry Luciano accordion-night flyer |
+| `venues/zona-acapella-club.jpg` | [Google Maps — Zona Acapella Club](https://www.google.com/maps/place/?q=place_id:ChIJMRMD8EvusY4RcIGbv5r8m6U) visitor photo | Outdoor terrace table (Presidente, tostones) under the club gazebo lights |
+| `pop-cinemas-week-2026-08-20.jpg` | POP-supplied `pop-cinemas.jpg` — weekly cartelera 20–26 Aug | Official POP Cinemas Playa Dorada Mall billboard |
+| `venues/pop-cinemas-playa-dorada.jpg` | [Google Maps — Pop Cinemas](https://www.google.com/maps/place/Pop+Cinemas/@19.7698587,-70.6423406,17z) visitor photo | POP CINEMAS mall entrance with “Vive la diferencia” signage |
+| `petit-francois-friday-karaoke.jpg` | POP-supplied `petitfrancois.jpg` — Friday karaoke flyer | Official Le Petit François karaoke night graphic |
+| `venues/le-petit-francois.jpg` | [lepetitfrancois.com](https://lepetitfrancois.com/) — `DSC00912.jpeg` beach dinner | Official sand tables, tiki torch, and string lights at El Pueblito |

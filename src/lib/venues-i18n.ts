@@ -543,6 +543,30 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Grill fruits de mer en paillote sur Playa Los Cocos à Maimón — langouste grillée, plats dominicains et tables patio ou sable à quelques pas du Senator Puerto Plata, Playabachata et Amber Cove.",
     },
   },
+  "estadio-leonel-placido": {
+    description: {
+      es: "Casa del Atlántico FC en el polideportivo de Puerto Plata — estadio de 2.000 asientos de la Liga Dominicana de Fútbol en Calle Hugo Kunhardt, a pocas cuadras de Playa Acapulco.",
+      fr: "Terrain de l'Atlántico FC au polideportivo de Puerto Plata — stade de 2 000 places de la Liga Dominicana de Fútbol, Calle Hugo Kunhardt, à quelques rues de Playa Acapulco.",
+    },
+  },
+  "zona-acapella-club": {
+    description: {
+      es: "Discoteca del Malecón en Cuarto de Milla / Playa Acapulco — típico, merengue y noches de baile en la Av. Gregorio Luperón.",
+      fr: "Boîte du Malecón à Cuarto de Milla / Playa Acapulco — típico, merengue et nuits dansantes sur l'Av. Gregorio Luperón.",
+    },
+  },
+  "pop-cinemas-playa-dorada": {
+    description: {
+      es: "Cine en Playa Dorada Mall — cartelera semanal en español, snacks y el único cine de la Costa Norte. Entrada RD$300; info 809-320-1400.",
+      fr: "Cinéma au Playa Dorada Mall — programme hebdomadaire en espagnol, snacks et le seul cinéma de la Côte Nord. Entrée RD$300 ; info 809-320-1400.",
+    },
+  },
+  "le-petit-francois": {
+    description: {
+      es: "Bar-restaurante de playa en El Pueblito / Playa Chaparral — platos franco-canadienses-dominicanos, karaoke los viernes con DJ Leandro y mesas en la arena. Abierto todos los días desde las 8:30 AM.",
+      fr: "Bar-restaurant de plage à El Pueblito / Playa Chaparral — cuisine franco-canadienne-dominicaine, karaoké le vendredi avec DJ Leandro et tables sur le sable. Ouvert tous les jours dès 8 h 30.",
+    },
+  },
   "zen-fitness-cabarete": {
     description: {
       es: "Camp de fitness y wellness frente al mar en Zen Cabarete en Kite Beach (antes eXtreme) — gym tiki barefoot, loft de yoga con vista al océano, comida de la granja a la mesa, y campamentos de pérdida de peso y fitness todo el año.",

@@ -926,6 +926,70 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
       },
     ],
   }),
+  editorial({
+    venueSlug: "estadio-leonel-placido",
+    verdictKey: "popular_public_space",
+    crowdFit: ["local", "family", "mixed"],
+    axes: { recommend: 4.2, atmosphere: 4.0, value: 4.4, practical: 3.8 },
+    themes: [
+      { key: "family_friendly", sentiment: "positive", audience: "family" },
+    ],
+    sources: [
+      {
+        kind: "google_places",
+        label: "Google",
+        rating: 4.2,
+        reviewCount: 394,
+        fetchedAt: "2026-08-21T16:00:00.000Z",
+        snippets: [
+          "Great place to watch games.",
+        ],
+      },
+    ],
+  }),
+  editorial({
+    venueSlug: "zona-acapella-club",
+    verdictKey: "strong_local_nightlife",
+    crowdFit: ["local", "nightlife", "mixed"],
+    axes: { recommend: 4.1, atmosphere: 4.3, value: 3.6, practical: 3.7 },
+    themes: [
+      { key: "live_music", sentiment: "positive" },
+      { key: "ocean_views", sentiment: "positive", audience: "visitor" },
+      { key: "dance_floor", sentiment: "positive", audience: "nightlife" },
+    ],
+  }),
+  editorial({
+    venueSlug: "pop-cinemas-playa-dorada",
+    verdictKey: "solid_visitor_activity",
+    crowdFit: ["family", "visitor", "mixed"],
+    axes: { recommend: 3.9, atmosphere: 3.5, value: 4.2, practical: 4.0 },
+    themes: [
+      { key: "family_friendly", sentiment: "positive", audience: "family" },
+    ],
+  }),
+  editorial({
+    venueSlug: "le-petit-francois",
+    verdictKey: "reliable_visitor_pick",
+    crowdFit: ["visitor", "mixed", "nightlife"],
+    axes: { recommend: 4.4, atmosphere: 4.5, value: 3.8, practical: 4.1 },
+    themes: [
+      { key: "beachfront", sentiment: "positive", audience: "visitor" },
+      { key: "karaoke", sentiment: "positive" },
+      { key: "attentive_service", sentiment: "positive" },
+    ],
+    sources: [
+      {
+        kind: "google_places",
+        label: "Google",
+        rating: 4.4,
+        reviewCount: 869,
+        fetchedAt: "2026-08-21T16:00:00.000Z",
+        snippets: [
+          "Quel endroit super le petit François, j'ai eu la chance d'être servie a plusieurs reprises par la belle Bernadine.",
+        ],
+      },
+    ],
+  }),
 ];
 
 const bySlug = new Map(

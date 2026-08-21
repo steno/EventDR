@@ -200,6 +200,10 @@ const FACEBOOK_SEED_EVENT_IDS_BASE = [
   "sunset-laughter-club-cabarete",
   "congreso-damas-adn-2026",
   "ocean-winds-karaoke-nights",
+  "atlantico-fc-vs-delfines-2026-08-22",
+  "dewry-luciano-zona-acapella-2026-08-23",
+  "pop-cinemas-week-2026-08-20",
+  "petit-francois-friday-karaoke",
 ] as const;
 
 /** Curated event ids discovered from monitored Facebook groups (see fallback-events). */

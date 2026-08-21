@@ -52,6 +52,12 @@ const FILE_TO_EVENT_ID = {
   "sunset-laughter-club-cabarete.jpg": "sunset-laughter-club-cabarete",
   "congreso-damas-adn-2026.jpg": "congreso-damas-adn-2026",
   "master-of-the-ocean-2026.jpg": "master-of-the-ocean-2026",
+  "atlantico-fc-vs-delfines-2026-08-22.jpg":
+    "atlantico-fc-vs-delfines-2026-08-22",
+  "dewry-luciano-zona-acapella-2026-08-23.jpg":
+    "dewry-luciano-zona-acapella-2026-08-23",
+  "pop-cinemas-week-2026-08-20.jpg": "pop-cinemas-week-2026-08-20",
+  "petit-francois-friday-karaoke.jpg": "petit-francois-friday-karaoke",
   // Atléticos summer league — authentic Atléticos pitcher (athleticosPOP.png); copies below.
   "athleticosPOP.png": "atleticos-pp-vs-mangueros-2026-07-17",
   // ASA Survival Series — same flyer for all five Saturday VIP games.
@@ -224,6 +230,10 @@ const FILE_TO_VENUE_SLUG = {
   // Filename bumps after replacing a shared Freestyle Catamaran stand-in.
   "bar-39-sosua-beach.jpg": "bar-39-sosua-beach",
   "playa-sosua-shore.jpg": "playa-sosua-shore",
+  "estadio-leonel-placido.jpg": "estadio-leonel-placido",
+  "zona-acapella-club.jpg": "zona-acapella-club",
+  "pop-cinemas-playa-dorada.jpg": "pop-cinemas-playa-dorada",
+  "le-petit-francois.jpg": "le-petit-francois",
 };
 
 if (!existsSync(sourceDir)) {

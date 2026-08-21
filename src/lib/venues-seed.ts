@@ -1046,6 +1046,63 @@ export const SEED_VENUES: Venue[] = [
       "https://www.tripadvisor.com/Restaurant_Review-g1189048-d23790781-Reviews-Crazy_Lobster_Bar_And_Grill-Maimon_Puerto_Plata_Province_Dominican_Republic.html",
     phone: "+18097496917",
   },
+  {
+    slug: "estadio-leonel-placido",
+    name: "Estadio Leonel Plácido",
+    city: "Puerto Plata",
+    description:
+      "Home ground of Atlántico FC at the Puerto Plata polideportivo — 2,000-seat Liga Dominicana de Fútbol stadium on Calle Hugo Kunhardt, a few blocks south of Playa Acapulco.",
+    lat: 19.792117,
+    lng: -70.681193,
+    emoji: "⚽",
+    phone: "+18496323133",
+    website:
+      "https://www.google.com/maps/place/Polideportivo/@19.792117,-70.6811928,17z",
+    googleRating: 4.2,
+    googleReviewCount: 394,
+    googleRatingFetchedAt: "2026-08-21T16:00:00.000Z",
+  },
+  {
+    slug: "zona-acapella-club",
+    name: "Zona Acapella Club",
+    city: "Puerto Plata",
+    description:
+      "Malecón nightclub at Cuarto de Milla / Playa Acapulco — típico, merengue, and late dance nights on Av. Gregorio Luperón.",
+    lat: 19.791341,
+    lng: -70.674021,
+    emoji: "🪗",
+    phone: "+18094845636",
+    instagram: "acapella.pop",
+    googlePlaceId: "ChIJMRMD8EvusY4RcIGbv5r8m6U",
+  },
+  {
+    slug: "pop-cinemas-playa-dorada",
+    name: "POP Cinemas",
+    city: "Playa Dorada",
+    description:
+      "Movie theater in Playa Dorada Mall — weekly Spanish-language billboard, snacks, and the North Coast's only cinema. Tickets RD$300; info 809-320-1400.",
+    lat: 19.769859,
+    lng: -70.642341,
+    emoji: "🎬",
+    phone: "+18093201400",
+    website: "https://www.cinemaspop.com.do",
+  },
+  {
+    slug: "le-petit-francois",
+    name: "Le Petit François",
+    city: "Playa Dorada",
+    description:
+      "Beach bar and restaurant at El Pueblito / Playa Chaparral — French-Canadian-Dominican plates, Friday karaoke with DJ Leandro, and tables on the sand. Open daily from 8:30 AM.",
+    lat: 19.7734212,
+    lng: -70.6517978,
+    emoji: "🎤",
+    phone: "+18294922910",
+    instagram: "lepetitfrancois.rd",
+    website: "https://lepetitfrancois.com/",
+    googleRating: 4.4,
+    googleReviewCount: 869,
+    googleRatingFetchedAt: "2026-08-21T16:00:00.000Z",
+  },
 ];
 
 /** Extra name fragments → seed slug (checked before fuzzy name includes). */
@@ -1119,6 +1176,26 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
     pattern:
       /crazy\s*lobster|langosta\s*loca|crazy\s*labster/i,
     slug: "crazy-lobster-maimon",
+  },
+  {
+    pattern:
+      /leonel\s*pl[aá]cido|polideportivo(\s*(de\s*)?puerto\s*plata)?|atl[aá]ntico\s*f\.?\s*c/i,
+    slug: "estadio-leonel-placido",
+  },
+  {
+    pattern:
+      /zona\s*acapella|acapella\s*club|ona\s*acapella/i,
+    slug: "zona-acapella-club",
+  },
+  {
+    pattern:
+      /pop\s*cinemas|cinemas?\s*pop|playa\s*dorada\s*(mall|cinema|cine)/i,
+    slug: "pop-cinemas-playa-dorada",
+  },
+  {
+    pattern:
+      /petit\s*fran[cç]ois|le\s*petit\s*francois/i,
+    slug: "le-petit-francois",
   },
   {
     // Local/expat name for Sea Horse Ranch Tennis Club (pickleball / courts).
