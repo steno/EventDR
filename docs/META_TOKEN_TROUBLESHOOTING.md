@@ -64,12 +64,36 @@ The "Check Meta configuration" step should now show valid account info.
 ### "API access blocked" specifically
 
 This can also mean:
+- **App is restricted or disabled** in [Meta App Dashboard](https://developers.facebook.com/apps/) → check Alerts / App Review / Settings
 - **App is in Development Mode**: Only app admins/testers can post
-  - Solution: Submit app for review or add your page as a test account
+  - Solution: Add yourself as App Admin/Developer, or switch app to Live (for your own Page, Standard Access is enough)
 - **Missing App Review**: Some permissions require Facebook App Review
   - For testing: Add your Facebook user as an "App Admin" or "App Tester"
 - **Page role issues**: Token user must have admin/editor role on the Page
   - Solution: Add yourself as Page admin in Page Settings
+
+### Graph API Explorer: "Sorry, something went wrong" on Generate Access Token
+
+Console lines like `ERR_NAME_NOT_RESOLVED` / CSP blocks to `*.run.app` / `*.on.aws` are **Facebook Pixel noise** — ignore them.
+
+The OAuth popup failure usually means:
+
+1. **Check the app first** (most important with "API access blocked"):
+   - Open [developers.facebook.com/apps](https://developers.facebook.com/apps/) → **Events Poster**
+   - Look for red banners: restricted, disabled, or policy alerts
+   - Settings → Basic: App must have a display name; save settings
+   - Roles → Roles: your Facebook user must be **Admin** or **Developer**
+
+2. **Bypass Explorer popups** (often more reliable):
+   - Use an **incognito window** with ad blockers off
+   - Or use Meta Business Suite → Business Settings → **Users → System users** → generate a token with `pages_manage_posts` + `instagram_content_publish` assigned to your Page (does not expire)
+
+3. **Permissions for POP spotlight**:
+   - Required: `pages_show_list`, `pages_manage_posts`, `pages_read_engagement`
+   - For Instagram: `instagram_basic`, `instagram_content_publish`
+   - `business_management` is optional; drop it if Explorer keeps failing
+
+4. **After you get a user token**, still exchange for a **Page** token (`GET /me/accounts`) and put *that* in Netlify as `META_PAGE_ACCESS_TOKEN`
 
 ### Token appears valid but still fails
 
