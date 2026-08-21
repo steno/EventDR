@@ -284,7 +284,11 @@ export async function publishFacebookPhoto(
   input: { caption: string; imageUrl: string },
   fetchImpl?: GraphFetch,
 ): Promise<{ ok: true; id: string } | { ok: false; error: MetaGraphError }> {
-  return publishFacebookAlbum(config, { caption, imageUrls: [input.imageUrl] }, fetchImpl);
+  return publishFacebookAlbum(
+    config,
+    { caption: input.caption, imageUrls: [input.imageUrl] },
+    fetchImpl,
+  );
 }
 
 /** Link-only feed post. Prefer album/photo when event images exist. */
