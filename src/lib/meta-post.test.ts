@@ -81,4 +81,75 @@ describe("meta-post", () => {
     const published = await publishToMeta(config, { caption: "  ", dryRun: true });
     assert.equal(published.ok, false);
   });
+
+  it("attaches event photos to Facebook even when a link is set", async () => {
+    const calls: Array<{ path: string; params: URLSearchParams }> = [];
+    let photoCount = 0;
+    const fetchImpl: typeof fetch = async (input, init) => {
+      const url = new URL(String(input));
+      const method = (init?.method ?? "GET").toUpperCase();
+      const params =
+        method === "GET"
+          ? url.searchParams
+          : new URLSearchParams(String(init?.body ?? ""));
+      const path = url.pathname.replace(/^\/v[\d.]+/, "");
+      calls.push({ path, params });
+      if (method === "GET" && path.endsWith("/page-1")) {
+        return jsonResponse({ access_token: "page-token" });
+      }
+      if (path.endsWith("/photos")) {
+        photoCount += 1;
+        return jsonResponse({ id: `photo-${photoCount}` });
+      }
+      if (path.endsWith("/feed")) {
+        return jsonResponse({ id: "feed-1" });
+      }
+      return jsonResponse({ error: { message: `unexpected ${path}` } }, 400);
+    };
+
+    const published = await publishToMeta(
+      config,
+      {
+        caption: "Today on the North Coast.",
+        link: "https://pop-event.com/en/when/today",
+        imageUrls: [
+          "https://pop-event.com/events/a.jpg",
+          "https://pop-event.com/events/b.jpg",
+        ],
+        instagram: false,
+      },
+      fetchImpl,
+    );
+
+    assert.equal(published.ok, true);
+    if (!published.ok) return;
+    assert.deepEqual(published.result.facebook, { ok: true, id: "feed-1" });
+
+    const photoUploads = calls.filter((call) => call.path.endsWith("/photos"));
+    assert.equal(photoUploads.length, 2);
+    assert.equal(photoUploads[0]?.params.get("published"), "false");
+    assert.equal(
+      photoUploads[0]?.params.get("url"),
+      "https://pop-event.com/events/a.jpg",
+    );
+
+    const feed = calls.find((call) => call.path.endsWith("/feed"));
+    assert.ok(feed);
+    assert.equal(feed?.params.get("link"), null);
+    assert.equal(
+      feed?.params.get("attached_media[0]"),
+      JSON.stringify({ media_fbid: "photo-1" }),
+    );
+    assert.equal(
+      feed?.params.get("attached_media[1]"),
+      JSON.stringify({ media_fbid: "photo-2" }),
+    );
+  });
 });
+
+function jsonResponse(body: unknown, status = 200): Response {
+  return new Response(JSON.stringify(body), {
+    status,
+    headers: { "Content-Type": "application/json" },
+  });
+}

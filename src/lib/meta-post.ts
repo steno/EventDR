@@ -110,7 +110,7 @@ export async function metaGraphRequest<T>(
   config: Pick<MetaPostConfig, "pageAccessToken" | "graphVersion">,
   path: string,
   options?: {
-    method?: "GET" | "POST";
+    method?: "GET" | "POST" | "DELETE";
     params?: Record<string, string>;
     fetchImpl?: GraphFetch;
   },
@@ -130,7 +130,7 @@ export async function metaGraphRequest<T>(
     method === "GET"
       ? { method: "GET" }
       : {
-          method: "POST",
+          method,
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
           body: new URLSearchParams({
             ...params,
@@ -278,31 +278,16 @@ async function waitForInstagramContainer(
   return { ok: true };
 }
 
+/** Photo-with-caption on the Page feed. `/photos` published=true often stays in Photos only. */
 export async function publishFacebookPhoto(
   config: MetaPostConfig,
   input: { caption: string; imageUrl: string },
   fetchImpl?: GraphFetch,
 ): Promise<{ ok: true; id: string } | { ok: false; error: MetaGraphError }> {
-  const result = await metaGraphRequest<{ id?: string; post_id?: string }>(
-    config,
-    `${config.pageId}/photos`,
-    {
-      method: "POST",
-      params: {
-        url: input.imageUrl,
-        caption: input.caption,
-        published: "true",
-      },
-      fetchImpl,
-    },
-  );
-  if (!result.ok) return result;
-  const id = result.data.post_id ?? result.data.id;
-  if (!id) return { ok: false, error: { message: "Facebook photo missing id" } };
-  return { ok: true, id };
+  return publishFacebookAlbum(config, { caption, imageUrls: [input.imageUrl] }, fetchImpl);
 }
 
-/** Link posts show on New Pages "All"; photo uploads often stay in Photos only. */
+/** Link-only feed post. Prefer album/photo when event images exist. */
 export async function publishFacebookFeed(
   config: MetaPostConfig,
   input: { caption: string; link: string },
@@ -324,6 +309,57 @@ export async function publishFacebookFeed(
   if (!result.ok) return result;
   const id = result.data.id;
   if (!id) return { ok: false, error: { message: "Facebook feed missing id" } };
+  return { ok: true, id };
+}
+
+/** Unpublished photos attached to a feed post — shows on New Pages All with images. */
+export async function publishFacebookAlbum(
+  config: MetaPostConfig,
+  input: { caption: string; imageUrls: string[] },
+  fetchImpl?: GraphFetch,
+): Promise<{ ok: true; id: string } | { ok: false; error: MetaGraphError }> {
+  const photoIds: string[] = [];
+  for (const imageUrl of input.imageUrls.slice(0, 10)) {
+    const photo = await metaGraphRequest<{ id?: string }>(
+      config,
+      `${config.pageId}/photos`,
+      {
+        method: "POST",
+        params: {
+          url: imageUrl,
+          published: "false",
+          temporary: "true",
+        },
+        fetchImpl,
+      },
+    );
+    if (!photo.ok) return photo;
+    const id = photo.data.id;
+    if (!id) return { ok: false, error: { message: "Facebook album photo missing id" } };
+    photoIds.push(id);
+  }
+  if (!photoIds.length) {
+    return { ok: false, error: { message: "Facebook album needs at least 1 photo" } };
+  }
+  const params: Record<string, string> = {
+    message: input.caption,
+    published: "true",
+  };
+  photoIds.forEach((id, index) => {
+    params[`attached_media[${index}]`] = JSON.stringify({ media_fbid: id });
+  });
+  const result = await metaGraphRequest<{ id?: string }>(
+    config,
+    `${config.pageId}/feed`,
+    {
+      method: "POST",
+      params,
+      fetchImpl,
+    },
+  );
+  if (!result.ok) return result;
+  const id = result.data.id;
+  if (!id) return { ok: false, error: { message: "Facebook album missing id" } };
   return { ok: true, id };
 }
 
@@ -452,7 +488,7 @@ export type MetaPublishInput = {
   caption: string;
   imageUrl?: string;
   imageUrls?: string[];
-  /** When set, Facebook publishes to /feed (shows on All) instead of /photos. */
+  /** Kept on the result and in captions. Does not replace attached photos. */
   link?: string;
   facebook?: boolean;
   instagram?: boolean;
@@ -529,24 +565,28 @@ export async function publishToMeta(
   }
   config = resolved.config;
 
+  const jobs: Promise<void>[] = [];
   if (wantFacebook) {
-    result.facebook = link
-      ? await publishFacebookFeed(config, { caption, link }, fetchImpl)
-      : await publishFacebookPhoto(config, { caption, imageUrl }, fetchImpl);
+    jobs.push(
+      publishFacebookAlbum(
+        config,
+        { caption, imageUrls },
+        fetchImpl,
+      ).then((facebook) => {
+        result.facebook = facebook;
+      }),
+    );
   }
   if (wantInstagram) {
-    result.instagram =
-      imageUrls.length >= 2
-        ? await publishInstagramCarousel(
-            config,
-            { caption, imageUrls },
-            fetchImpl,
-          )
-        : await publishInstagramPhoto(
-            config,
-            { caption, imageUrl },
-            fetchImpl,
-          );
+    jobs.push(
+      (imageUrls.length >= 2
+        ? publishInstagramCarousel(config, { caption, imageUrls }, fetchImpl)
+        : publishInstagramPhoto(config, { caption, imageUrl }, fetchImpl)
+      ).then((instagram) => {
+        result.instagram = instagram;
+      }),
+    );
   }
+  await Promise.all(jobs);
   return { ok: true, result };
 }

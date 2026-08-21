@@ -40,11 +40,6 @@ function siteOrigin(origin = SITE_URL): string {
   return origin.replace(/\/$/, "");
 }
 
-function withSocialUtm(path: string, origin = SITE_URL): string {
-  const sep = path.includes("?") ? "&" : "?";
-  return `${siteOrigin(origin)}${path}${sep}utm_source=meta&utm_medium=social&utm_campaign=today-spotlight`;
-}
-
 export function toAbsoluteMetaImageUrl(
   raw: string | undefined,
   origin = SITE_URL,
@@ -54,7 +49,16 @@ export function toAbsoluteMetaImageUrl(
   const absolute = value.startsWith("/")
     ? `${siteOrigin(origin)}${value}`
     : value;
-  return isAllowedMetaImageUrl(absolute, origin) ? absolute : undefined;
+  let cleaned = absolute;
+  try {
+    const parsed = new URL(absolute);
+    parsed.search = "";
+    parsed.hash = "";
+    cleaned = parsed.toString();
+  } catch {
+    return undefined;
+  }
+  return isAllowedMetaImageUrl(cleaned, origin) ? cleaned : undefined;
 }
 
 function resolveCity(event: Event): CitySlug | "other" {
@@ -62,6 +66,14 @@ function resolveCity(event: Event): CitySlug | "other" {
     if (eventMatchesCity(event, city.slug)) return city.slug;
   }
   return "other";
+}
+
+/** Lower = preferred. One-offs fill first; daily only fills leftover slots. */
+function spotlightRecurrenceTier(event: Event): number {
+  if (!isRecurringEvent(event)) return 0;
+  if (event.recurrence === "weekly" || event.recurrence === "weekends") return 1;
+  if (event.recurrence === "weekdays") return 2;
+  return 3;
 }
 
 function spotlightScore(
@@ -72,12 +84,6 @@ function spotlightScore(
 ): number {
   let score = 0;
   if (event.trending) score += 50;
-  if (!isRecurringEvent(event)) score += 30;
-  else if (event.recurrence === "weekly" || event.recurrence === "weekends") {
-    score += 12;
-  } else if (event.recurrence === "weekdays") {
-    score += 4;
-  }
   const status = getEventLiveStatus(event, now);
   if (status === "live" || status === "ending") score += 20;
   if (status === "upcoming") score += 10;
@@ -86,7 +92,7 @@ function spotlightScore(
   return score;
 }
 
-/** Prefer trending / one-offs, then weekly nights, with category and city variety. */
+/** Prefer one-offs over daily, then weekly nights, with category and city variety. */
 export function pickTodaySpotlights(
   events: Event[],
   limit = TODAY_SPOTLIGHT_LIMIT,
@@ -101,11 +107,14 @@ export function pickTodaySpotlights(
   const usedCities = new Set<string>();
 
   while (picked.length < limit && remaining.length) {
-    remaining.sort(
-      (a, b) =>
+    remaining.sort((a, b) => {
+      const tier = spotlightRecurrenceTier(a) - spotlightRecurrenceTier(b);
+      if (tier !== 0) return tier;
+      return (
         spotlightScore(b, usedCategories, usedCities, now) -
-        spotlightScore(a, usedCategories, usedCities, now),
-    );
+        spotlightScore(a, usedCategories, usedCities, now)
+      );
+    });
     const next = remaining.shift();
     if (!next) break;
     picked.push(next);
@@ -115,19 +124,44 @@ export function pickTodaySpotlights(
   return picked;
 }
 
-const MARKERS = ["①", "②", "③"] as const;
-
 const INTRO: Record<Locale, string> = {
   en: "Today on the North Coast.",
   es: "Hoy en la Costa Norte.",
   fr: "Aujourd’hui sur la Côte Nord.",
 };
 
-const FULL_LIST: Record<Locale, string> = {
-  en: "Full list (free, EN/ES/FR):",
-  es: "Lista completa (gratis, EN/ES/FR):",
-  fr: "Liste complète (gratuit, EN/ES/FR) :",
+const MORE: Record<Locale, string> = {
+  en: "More at",
+  es: "Más en",
+  fr: "Plus sur",
 };
+
+/** 4:00 PM → 4pm, 8:30 AM – 3:30 PM → 8:30am */
+export function shortEventTime(time?: string): string | undefined {
+  if (!time?.trim()) return undefined;
+  const match = time.match(/(\d{1,2})(?::(\d{2}))?\s*(AM|PM)/i);
+  if (!match) return time.trim();
+  const hour = match[1];
+  const minutes = match[2] && match[2] !== "00" ? `:${match[2]}` : "";
+  return `${hour}${minutes}${match[3].toLowerCase()}`;
+}
+
+function shortPlace(event: TodaySpotlightEvent | Event): string {
+  const venue =
+    "place" in event && typeof event.place === "string"
+      ? event.place
+      : formatEventPlace(event as Event);
+  const first = venue.split(",")[0]?.trim();
+  return first || ("location" in event ? String(event.location ?? "") : "");
+}
+
+function displayTitle(title: string): string {
+  return title.replace(/\s+[—–-]\s+(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday|Thursdays|Fridays|Saturdays|Sundays)s?\s*$/i, "").trim();
+}
+
+function displayUrl(url: string): string {
+  return url.replace(/^https:\/\//, "").replace(/\?.*$/, "");
+}
 
 export function buildTodaySpotlightCaption(
   events: TodaySpotlightEvent[],
@@ -135,16 +169,16 @@ export function buildTodaySpotlightCaption(
   todayUrl: string,
 ): string {
   const lines = [INTRO[locale], ""];
-  events.forEach((event, index) => {
-    const marker = MARKERS[index] ?? `${index + 1}.`;
-    const when = event.time ? ` · ${event.time}` : "";
-    lines.push(`${marker} ${event.title}${when}`);
-    lines.push(`📍 ${event.place}`);
-    lines.push(event.url);
-    lines.push("");
-  });
-  lines.push(FULL_LIST[locale]);
-  lines.push(todayUrl);
+  for (const event of events) {
+    const bits = [displayTitle(event.title)];
+    const when = shortEventTime(event.time);
+    if (when) bits.push(when);
+    const place = shortPlace(event);
+    if (place) bits.push(place);
+    lines.push(`• ${bits.join(" · ")}`);
+  }
+  lines.push("");
+  lines.push(`${MORE[locale]} ${displayUrl(todayUrl)}`);
   lines.push("");
   lines.push(weekendMetaHashtags());
   return lines.join("\n").trim();
@@ -159,8 +193,11 @@ function toSpotlightEvent(
     id: event.id,
     title: event.title,
     time: event.time,
-    place: formatEventPlace(event) || event.location,
-    url: withSocialUtm(`/${locale}/event/${event.id}`, origin),
+    place: (event.venue?.split(",")[0]?.trim() ||
+      formatEventPlace(event).split(",")[0]?.trim() ||
+      event.location.split(",")[0]?.trim() ||
+      event.location),
+    url: `${siteOrigin(origin)}/${locale}/event/${event.id}`,
     imageUrl:
       toAbsoluteMetaImageUrl(event.imageUrl, origin) ??
       defaultMetaImageUrl(origin),
@@ -182,7 +219,7 @@ export async function buildTodayMetaPost(
   for (const event of events) {
     if (!imageUrls.includes(event.imageUrl)) imageUrls.push(event.imageUrl);
   }
-  const todayUrl = withSocialUtm(`/${locale}/when/today`, origin);
+  const todayUrl = `${siteOrigin(origin)}/${locale}/when/today`;
 
   return {
     ok: true,

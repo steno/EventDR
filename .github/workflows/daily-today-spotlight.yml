@@ -57,7 +57,8 @@ jobs:
           fi
           
           tmp="$(mktemp)"
-          http=$(curl -sS --max-time 90 -o "$tmp" -w "%{http_code}" \
+          # Live publish streams NDJSON pings so Netlify's ~26s inactivity gateway does not 504.
+          http=$(curl -sS --max-time 180 -o "$tmp" -w "%{http_code}" \
             -X POST "${SITE_URL}/api/cron/meta-post" \
             -H "Authorization: Bearer ${CRON_SECRET}" \
             -H "Content-Type: application/json" \
@@ -67,6 +68,11 @@ jobs:
           cat "$tmp"
           echo
           echo "::endgroup::"
+          
+          result_line=$(awk 'NF && $0 !~ /"ping"/ { line=$0 } END { print line }' "$tmp")
+          if [ -n "$result_line" ]; then
+            printf '%s\n' "$result_line" > "$tmp"
+          fi
           
           # Handle no events to spotlight (422 is expected and OK)
           if [ "$http" = "422" ]; then

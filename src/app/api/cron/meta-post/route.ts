@@ -13,7 +13,7 @@ import {
 } from "@/lib/meta-post";
 
 export const dynamic = "force-dynamic";
-export const maxDuration = 60;
+export const maxDuration = 120;
 
 function unauthorized() {
   return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -106,7 +106,7 @@ export async function POST(request: NextRequest) {
     spotlightIds = built.post.events.map((event) => event.id);
   }
 
-  const published = await publishToMeta(parsed.config, {
+  const input = {
     caption,
     imageUrl,
     imageUrls,
@@ -114,20 +114,78 @@ export async function POST(request: NextRequest) {
     facebook: body.facebook,
     instagram: body.instagram,
     dryRun: body.dryRun,
-  });
+  };
 
-  if (!published.ok) {
-    return NextResponse.json({ error: published.error }, { status: 400 });
+  if (body.dryRun) {
+    return jsonPublishResult(
+      await publishToMeta(parsed.config, input),
+      spotlightIds,
+    );
   }
 
+  // Stream pings so Netlify's inactivity gateway does not 504 mid-publish.
+  const encoder = new TextEncoder();
+  const stream = new TransformStream();
+  const writer = stream.writable.getWriter();
+  const writeLine = async (payload: unknown) => {
+    await writer.write(encoder.encode(`${JSON.stringify(payload)}\n`));
+  };
+
+  void (async () => {
+    const ping = setInterval(() => {
+      void writeLine({ ping: true, t: Date.now() });
+    }, 8000);
+    try {
+      await writeLine({
+        phase: "publish",
+        source: body.source ?? "custom",
+      });
+      const published = await publishToMeta(parsed.config, input);
+      await writeLine(publishPayload(published, spotlightIds));
+    } catch (err) {
+      await writeLine({
+        success: false,
+        error: err instanceof Error ? err.message : String(err),
+      });
+    } finally {
+      clearInterval(ping);
+      await writer.close();
+    }
+  })();
+
+  return new Response(stream.readable, {
+    headers: {
+      "Content-Type": "application/x-ndjson; charset=utf-8",
+      "Cache-Control": "no-store",
+    },
+  });
+}
+
+function publishPayload(
+  published: Awaited<ReturnType<typeof publishToMeta>>,
+  spotlightIds: string[],
+) {
+  if (!published.ok) {
+    return { success: false, error: published.error, eventIds: spotlightIds };
+  }
   const facebookFailed =
     published.result.facebook && !published.result.facebook.ok;
   const instagramFailed =
     published.result.instagram && !published.result.instagram.ok;
-  const status = facebookFailed || instagramFailed ? 502 : 200;
+  return {
+    success: !facebookFailed && !instagramFailed,
+    eventIds: spotlightIds,
+    ...published.result,
+  };
+}
 
-  return NextResponse.json(
-    { success: !facebookFailed && !instagramFailed, eventIds: spotlightIds, ...published.result },
-    { status },
-  );
+function jsonPublishResult(
+  published: Awaited<ReturnType<typeof publishToMeta>>,
+  spotlightIds: string[],
+) {
+  const payload = publishPayload(published, spotlightIds);
+  if (!published.ok) {
+    return NextResponse.json(payload, { status: 400 });
+  }
+  return NextResponse.json(payload, { status: payload.success ? 200 : 502 });
 }

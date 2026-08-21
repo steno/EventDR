@@ -95,6 +95,53 @@ describe("pickTodaySpotlights", () => {
       ["night"],
     );
   });
+
+  it("fills one-offs before daily recurrences even when a daily is trending", () => {
+    const picked = pickTodaySpotlights(
+      [
+        event({
+          id: "daily-hot",
+          title: "Monkeyland",
+          date: "2026-08-20",
+          location: "Puerto Plata",
+          category: "adventure",
+          recurrence: "daily",
+          trending: true,
+        }),
+        event({
+          id: "once-a",
+          title: "Beach soccer",
+          date: "2026-08-20",
+          time: "9:00 AM – 6:00 PM",
+          location: "Sosúa",
+          category: "sports",
+        }),
+        event({
+          id: "once-b",
+          title: "Gallery opening",
+          date: "2026-08-20",
+          time: "6:00 PM",
+          location: "Cabarete",
+          category: "culture",
+        }),
+        event({
+          id: "weekly",
+          title: "Reggae night",
+          date: "2026-08-20",
+          time: "9:00 PM",
+          location: "Cabarete",
+          category: "music",
+          recurrence: "weekly",
+        }),
+      ],
+      3,
+      NOW,
+    );
+    assert.deepEqual(
+      picked.map((item) => item.id),
+      ["once-a", "once-b", "weekly"],
+    );
+  });
 });
 
 describe("buildTodaySpotlightCaption", () => {
@@ -121,9 +168,11 @@ describe("buildTodaySpotlightCaption", () => {
       "https://pop-event.com/en/when/today",
     );
     assert.match(caption, /Today on the North Coast/);
-    assert.match(caption, /① Viernes Locos · 11:00 PM/);
-    assert.match(caption, /② Open mic/);
-    assert.match(caption, /https:\/\/pop-event.com\/en\/when\/today/);
+    assert.match(caption, /• Viernes Locos · 11pm · Ground Zero/);
+    assert.match(caption, /• Open mic · VOYVOY/);
+    assert.match(caption, /More at pop-event.com\/en\/when\/today/);
+    assert.doesNotMatch(caption, /utm_/);
+    assert.doesNotMatch(caption, /📍/);
     assert.match(caption, /#POPEvents/);
   });
 });
@@ -132,6 +181,13 @@ describe("toAbsoluteMetaImageUrl", () => {
   it("prefixes site-relative event images", () => {
     assert.equal(
       toAbsoluteMetaImageUrl("/events/foo.jpg"),
+      "https://pop-event.com/events/foo.jpg",
+    );
+  });
+
+  it("strips cache-busting query strings", () => {
+    assert.equal(
+      toAbsoluteMetaImageUrl("/events/foo.jpg?v=abc"),
       "https://pop-event.com/events/foo.jpg",
     );
   });
