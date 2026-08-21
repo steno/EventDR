@@ -5,37 +5,119 @@ on:
     # Every day 13:00 UTC (~9:00 AST)
     - cron: "0 13 * * *"
   workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run (test without posting to social media)'
+        required: false
+        type: boolean
+        default: false
 
 jobs:
   post:
     runs-on: ubuntu-latest
     steps:
-      - name: Post today's top 3 to Facebook + Instagram
+      - name: Check Meta configuration
         env:
           SITE_URL: https://pop-event.com
           CRON_SECRET: ${{ secrets.CRON_SECRET }}
         run: |
+          echo "::group::Checking Meta API configuration"
+          config_check="$(mktemp)"
+          config_http=$(curl -sS --max-time 30 -o "$config_check" -w "%{http_code}" \
+            -X GET "${SITE_URL}/api/cron/meta-post" \
+            -H "Authorization: Bearer ${CRON_SECRET}")
+          
+          if [ "$config_http" = "200" ]; then
+            echo "✓ Meta configuration is valid"
+            cat "$config_check"
+            echo
+          else
+            echo "::warning::Meta configuration check returned HTTP ${config_http}"
+            cat "$config_check"
+            echo
+          fi
+          echo "::endgroup::"
+      
+      - name: Post today's top 3 to Facebook + Instagram
+        env:
+          SITE_URL: https://pop-event.com
+          CRON_SECRET: ${{ secrets.CRON_SECRET }}
+          DRY_RUN: ${{ github.event.inputs.dry_run == 'true' && 'true' || 'false' }}
+        run: |
           if [ -z "$CRON_SECRET" ]; then
-            echo "CRON_SECRET secret not set — add it in repo Settings → Secrets."
+            echo "::error::CRON_SECRET secret not set — add it in repo Settings → Secrets."
             exit 1
           fi
+          
+          if [ "$DRY_RUN" = "true" ]; then
+            echo "::notice::Running in DRY RUN mode - no posts will be published"
+            payload='{"source":"today","locale":"en","dryRun":true}'
+          else
+            payload='{"source":"today","locale":"en"}'
+          fi
+          
           tmp="$(mktemp)"
           http=$(curl -sS --max-time 90 -o "$tmp" -w "%{http_code}" \
             -X POST "${SITE_URL}/api/cron/meta-post" \
             -H "Authorization: Bearer ${CRON_SECRET}" \
             -H "Content-Type: application/json" \
-            -d '{"source":"today","locale":"en"}')
-          echo "HTTP ${http}"
+            -d "$payload")
+          
+          echo "::group::Response (HTTP ${http})"
           cat "$tmp"
           echo
+          echo "::endgroup::"
+          
+          # Handle no events to spotlight (422 is expected and OK)
           if [ "$http" = "422" ]; then
-            echo "No today events to spotlight — skipping."
+            echo "::notice::No today events to spotlight — skipping post."
             exit 0
           fi
+          
+          # Handle missing Meta configuration (503)
+          if [ "$http" = "503" ]; then
+            echo "::error::Meta posting is not configured. Add META_PAGE_ID and META_PAGE_ACCESS_TOKEN to Netlify environment variables."
+            grep -o '"missing":\[[^]]*\]' "$tmp" || true
+            exit 1
+          fi
+          
+          # Handle unauthorized (401)
+          if [ "$http" = "401" ]; then
+            echo "::error::Unauthorized. Check that CRON_SECRET matches the secret configured in Netlify."
+            exit 1
+          fi
+          
+          # Handle Meta API errors (502)
+          if [ "$http" = "502" ]; then
+            echo "::error::Meta Graph API rejected the request. Check token validity and permissions."
+            grep -o '"error":[^,}]*' "$tmp" || true
+            exit 1
+          fi
+          
+          # Handle success (200-299)
           if [ "$http" -ge 200 ] && [ "$http" -lt 300 ]; then
             if grep -Eq '"success"[[:space:]]*:[[:space:]]*true' "$tmp"; then
+              if [ "$DRY_RUN" = "true" ]; then
+                echo "::notice::✓ Dry run successful - post preview generated without publishing."
+              else
+                echo "::notice::✓ Successfully posted today's events to Facebook and Instagram."
+              fi
               exit 0
+            else
+              # Got 2xx but success: false (partial failure)
+              echo "::warning::Post partially succeeded or failed. Check response details."
+              if grep -q '"facebook"' "$tmp"; then
+                echo "Facebook result:"
+                grep -o '"facebook":\{[^}]*\}' "$tmp" || true
+              fi
+              if grep -q '"instagram"' "$tmp"; then
+                echo "Instagram result:"
+                grep -o '"instagram":\{[^}]*\}' "$tmp" || true
+              fi
+              exit 1
             fi
           fi
-          echo "Today spotlight publish failed."
+          
+          # Unexpected error
+          echo "::error::Today spotlight publish failed with HTTP ${http}."
           exit 1
