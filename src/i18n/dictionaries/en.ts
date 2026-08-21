@@ -87,6 +87,10 @@ export type Dictionary = {
     happeningToday: string;
     seeAllToday: string;
     viewAllEvents: string;
+    /** Accessibility label for the cards/list layout control. */
+    viewMode: string;
+    viewList: string;
+    viewCards: string;
     happeningNow: string;
     eventStarted: string;
     startsSoon: string;
@@ -508,6 +512,9 @@ export const en: Dictionary = {
     happeningToday: "Happening today",
     seeAllToday: "See all today",
     viewAllEvents: "View all events",
+    viewMode: "Event layout",
+    viewList: "List",
+    viewCards: "Cards",
     happeningNow: "Happening now",
     eventStarted: "Event started",
     startsSoon: "Starts soon",

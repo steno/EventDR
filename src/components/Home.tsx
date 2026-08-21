@@ -20,10 +20,12 @@ import { SearchBar } from "@/components/SearchBar";
 import { SearchVenueHits } from "@/components/SearchVenueHits";
 import { BottomNav } from "@/components/BottomNav";
 import { EventCard } from "@/components/EventCard";
+import { EventViewToggle } from "@/components/EventViewToggle";
 import { VenueAudienceCards } from "@/components/VenueAudienceCards";
 import { TodayHighlights } from "@/components/TodayHighlights";
 import { stickyBackControlClassName } from "@/components/StickyListHeader";
 import { useSavedEvents } from "@/hooks/useSavedEvents";
+import { useEventListView } from "@/hooks/useEventListView";
 import {
   getHomeDiscoverLayout,
   HOME_SEARCH_LIMIT,
@@ -221,6 +223,7 @@ function HomeApp({
   }, [areaChosen, selectedCity]);
 
   const { filterSaved, reconcileWithEvents, ready: savedReady } = useSavedEvents();
+  const { view: savedView, setView: setSavedView } = useEventListView();
   const [eventsReady, setEventsReady] = useState(false);
 
   const handleEventsLoaded = useCallback((events: Event[]) => {
@@ -431,9 +434,18 @@ function HomeApp({
                   <ArrowLeft className="h-[1.125rem] w-[1.125rem] shrink-0" aria-hidden />
                   <span className="min-w-0 truncate">{dict.nav.discover}</span>
                 </button>
-              <h2 className="mt-1 mb-6 text-title font-extrabold text-neutral-900 dark:text-neutral-100">
-                {dict.saved.title}
-              </h2>
+              <div className="mt-1 mb-6 flex items-center justify-between gap-2">
+                <h2 className="min-w-0 text-title font-extrabold text-neutral-900 dark:text-neutral-100">
+                  {dict.saved.title}
+                </h2>
+                {savedReady && eventsReady && savedEvents.length > 0 ? (
+                  <EventViewToggle
+                    value={savedView}
+                    onChange={setSavedView}
+                    dict={dict}
+                  />
+                ) : null}
+              </div>
               {!savedReady || !eventsReady ? (
                 <div className="py-16 text-center text-sm font-medium text-neutral-400 dark:text-neutral-500">
                   …
@@ -459,7 +471,11 @@ function HomeApp({
                   ) : null}
                 </div>
               ) : (
-                <div className={CARD_GRID_CLASS}>
+                <div
+                  className={
+                    savedView === "cards" ? CARD_GRID_CLASS : "space-y-3.5"
+                  }
+                >
                   {savedEvents.map((event) => (
                     <EventCard
                       key={event.id}
@@ -467,7 +483,7 @@ function HomeApp({
                       dict={dict}
                       locale={locale}
                       returnTo={homePath}
-                      view="cards"
+                      view={savedView}
                     />
                   ))}
                 </div>

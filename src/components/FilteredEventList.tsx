@@ -32,6 +32,8 @@ import {
 } from "@/components/EventCardPlaceholder";
 import { SearchEmptyState } from "@/components/SearchEmptyState";
 import { AddEventButton } from "@/components/AddEventButton";
+import { EventViewToggle } from "@/components/EventViewToggle";
+import { useEventListView } from "@/hooks/useEventListView";
 import { fillTemplate } from "@/lib/seo";
 import { CARD_GRID_CLASS } from "@/lib/page-shell";
 import type { EventListView } from "@/lib/event-list-view";
@@ -66,7 +68,10 @@ interface FilteredEventListProps {
   locationPicker?: ReactNode;
   /** When set, the short-list CTA subline uses “Add your {category} event”. */
   categoryId?: Event["category"];
-  /** Layout for event tiles. Category/city lists use cards; venues may pass list. */
+  /**
+   * Locked layout (hides the cards/list toggle). Venue schedules pass `"list"`.
+   * Omit to follow the visitor’s saved preference (cards by default).
+   */
   view?: EventListView;
   /**
    * When true (default), changing time tabs scrolls the filter bar under the sticky header.
@@ -102,12 +107,15 @@ export function FilteredEventList({
   pageSize = LIST_PAGE_SIZE,
   locationPicker,
   categoryId,
-  view = "cards",
+  view: lockedView,
   scrollOnFilterChange = true,
   addEventCta = "pad",
   hideTimeFilter = false,
 }: FilteredEventListProps) {
   const pathname = usePathname();
+  const { view: preferredView, setView } = useEventListView();
+  const viewLocked = lockedView != null;
+  const view = lockedView ?? preferredView;
   const [timeRange, setTimeRange] = useState<FilterTimeRange>(
     fixedTimeRange ?? defaultTimeRange,
   );
@@ -263,6 +271,11 @@ export function FilteredEventList({
     </div>
   ) : null;
 
+  const viewToggle = viewLocked ? null : (
+    <EventViewToggle value={view} onChange={setView} dict={dict} />
+  );
+  const showToggleInTitle = Boolean(viewToggle) && !showStickyFilters;
+
   return (
     <>
       {showStickyFilters ? (
@@ -280,23 +293,38 @@ export function FilteredEventList({
                 sticky={false}
                 price={priceFilter}
                 onPriceChange={setPriceFilter}
+                trailing={viewToggle}
               />
             ) : showPriceFilter ? (
-              <PriceFilterChips
-                value={priceFilter}
-                onChange={setPriceFilter}
-                dict={dict}
-              />
+              <div className="flex min-w-0 flex-1 items-center justify-between gap-2">
+                <div className="min-w-0 flex-1">
+                  <PriceFilterChips
+                    value={priceFilter}
+                    onChange={setPriceFilter}
+                    dict={dict}
+                  />
+                </div>
+                {viewToggle}
+              </div>
+            ) : viewToggle ? (
+              <div className="flex justify-end">{viewToggle}</div>
             ) : null}
           </StickyListFilters>
         </>
       ) : null}
 
-      {sectionTitle && (
-        <div className="mb-3">
-          <h2 className="min-w-0 font-sans text-section font-extrabold text-neutral-950 dark:text-neutral-100">
-            {sectionTitle}
-          </h2>
+      {(sectionTitle || showToggleInTitle) && (
+        <div className="mb-3 flex items-center justify-between gap-2">
+          {sectionTitle ? (
+            <h2 className="min-w-0 font-sans text-section font-extrabold text-neutral-950 dark:text-neutral-100">
+              {sectionTitle}
+            </h2>
+          ) : (
+            <span className="min-w-0 text-copy-meta font-semibold text-neutral-400 dark:text-neutral-500">
+              {dict.events.sortedUpcoming}
+            </span>
+          )}
+          {showToggleInTitle ? viewToggle : null}
         </div>
       )}
 

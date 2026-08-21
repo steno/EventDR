@@ -34,10 +34,12 @@ import {
   LIST_SCROLL_PAD_TARGET,
 } from "./EventCardPlaceholder";
 import { EventListError } from "./EventListError";
+import { EventViewToggle } from "./EventViewToggle";
 import { SearchEmptyState } from "./SearchEmptyState";
 import { TimeFilter } from "./TimeFilter";
 import { ListScrollAnchor } from "./StickyListFilters";
 import { CARD_GRID_CLASS } from "@/lib/page-shell";
+import { useEventListView } from "@/hooks/useEventListView";
 
 const EMPTY_EVENTS: Event[] = [];
 
@@ -110,9 +112,8 @@ export function EventList({
   const scrollAnchorRef = useRef<HTMLDivElement>(null);
   const scrolledTimeRangeRef = useRef<FilterTimeRange | null>(null);
   const skipMountFetch = useRef(initialEvents.length > 0);
-  const [gridRef, columns] = useCardGridColumns(
-    searchQuery.trim().length > 0,
-  );
+  const { view: listView, setView } = useEventListView();
+  const [gridRef, columns] = useCardGridColumns(listView === "cards");
 
   useEffect(() => {
     onEventsLoadedRef.current = onEventsLoaded;
@@ -232,7 +233,6 @@ export function EventList({
   }, [events, timeRange, citySlug, searchQuery, excludeEventIds, ourPicks]);
 
   const isSearching = searchQuery.trim().length > 0;
-  const listView = isSearching ? "cards" : "list";
   const eventCap =
     listView === "cards" && limit != null
       ? fillCardGridPage(visibleCount, filtered.length, columns)
@@ -276,12 +276,17 @@ export function EventList({
   if (loading) {
     return (
       <div className="space-y-4">
-        <div>
+        <div className="flex items-center justify-between gap-2">
           <div className="h-7 w-48 rounded bg-neutral-200 dark:bg-neutral-800 animate-pulse" />
+          <EventViewToggle value={listView} onChange={setView} dict={dict} />
         </div>
-        <div className="space-y-3 pt-3">
-          {[...Array(3)].map((_, i) => (
-            <EventCardSkeleton key={i} />
+        <div
+          className={
+            listView === "cards" ? `${CARD_GRID_CLASS} pt-3` : "space-y-3 pt-3"
+          }
+        >
+          {[...Array(listView === "cards" ? 4 : 3)].map((_, i) => (
+            <EventCardSkeleton key={i} view={listView} />
           ))}
         </div>
       </div>
@@ -310,27 +315,34 @@ export function EventList({
   const tryTabLabel = dict.search.tryTabHint.replace("{tab}", suggestedTabLabel);
   const canSuggestTimeTab =
     showTimeFilter && Boolean(onTimeRangeChange) && !isSearching;
+  const viewToggle = (
+    <EventViewToggle value={listView} onChange={setView} dict={dict} />
+  );
+  const showToggleInHeading = !(showTimeFilter && onTimeRangeChange);
 
   return (
     <div className="space-y-4">
-      <div>
-        <h2 className="text-section font-extrabold text-neutral-900 dark:text-neutral-100">
-          {isSearching
-            ? dict.search.activeTitle
-            : ourPicks && !category
-              ? dict.events.ourPicks
-              : category
-                ? dict.events.filtered
-                : dict.events.trending}
-        </h2>
-        {category && filtered.length > 0 && (
-          <p className="mt-0.5 text-copy-meta text-neutral-400 dark:text-neutral-500">
-            {filtered.length} · {dict.events.hiddenGems}
-          </p>
-        )}
-        {!category && !ourPicks && !isSearching && source && (
-          <p className="mt-0.5 text-copy-meta text-neutral-400 dark:text-neutral-500">{sourceLabel}</p>
-        )}
+      <div className="flex items-start justify-between gap-2">
+        <div className="min-w-0">
+          <h2 className="text-section font-extrabold text-neutral-900 dark:text-neutral-100">
+            {isSearching
+              ? dict.search.activeTitle
+              : ourPicks && !category
+                ? dict.events.ourPicks
+                : category
+                  ? dict.events.filtered
+                  : dict.events.trending}
+          </h2>
+          {category && filtered.length > 0 && (
+            <p className="mt-0.5 text-copy-meta text-neutral-400 dark:text-neutral-500">
+              {filtered.length} · {dict.events.hiddenGems}
+            </p>
+          )}
+          {!category && !ourPicks && !isSearching && source && (
+            <p className="mt-0.5 text-copy-meta text-neutral-400 dark:text-neutral-500">{sourceLabel}</p>
+          )}
+        </div>
+        {showToggleInHeading ? viewToggle : null}
       </div>
 
       {showTimeFilter && onTimeRangeChange && (
@@ -340,6 +352,7 @@ export function EventList({
             value={activeRange}
             onChange={onTimeRangeChange}
             dict={dict}
+            trailing={viewToggle}
           />
         </>
       )}
@@ -372,9 +385,9 @@ export function EventList({
       ) : (
         <>
           <div
-            ref={isSearching ? gridRef : undefined}
+            ref={listView === "cards" ? gridRef : undefined}
             className={
-              isSearching
+              listView === "cards"
                 ? `${CARD_GRID_CLASS} pt-3`
                 : "space-y-3 pt-3"
             }
