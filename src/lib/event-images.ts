@@ -184,12 +184,25 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "lax-sunset-daily": "object-top lg:object-center",
 };
 
-export function getEventImageUrl(eventId: string): string | undefined {
+function curatedEventImageFile(eventId: string): string | undefined {
   const resolvedId = EVENT_IMAGE_ALIASES[eventId] ?? eventId;
-  const file =
+  return (
     EVENT_IMAGE_FILES[resolvedId] ??
-    EVENT_IMAGE_PREFIXES.find((p) => resolvedId.startsWith(p.prefix))?.file;
+    EVENT_IMAGE_PREFIXES.find((p) => resolvedId.startsWith(p.prefix))?.file
+  );
+}
+
+export function getEventImageUrl(eventId: string): string | undefined {
+  const file = curatedEventImageFile(eventId);
   return file ? `/events/${file}?v=${getAppVersion()}` : undefined;
+}
+
+/** Facebook/WhatsApp OG file generated at build (1200×630 baseline JPEG, no query string). */
+export function getEventOgImageUrl(eventId: string): string | undefined {
+  const file = curatedEventImageFile(eventId);
+  if (!file) return undefined;
+  const stem = file.replace(/\.(jpe?g|png|webp)$/i, "");
+  return `/og/events/${stem}.jpg`;
 }
 
 export function getEventHeroObjectPosition(eventId: string): string {

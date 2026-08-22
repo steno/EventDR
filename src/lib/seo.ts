@@ -10,6 +10,7 @@ import { getWhenSeo, type WhenSlug } from "@/lib/time-seo";
 import type { Event, EventCategory, Venue } from "@/lib/types";
 import { formatEventPlace } from "@/lib/event-location";
 import { parseEventTimeWindow } from "@/lib/event-status";
+import { getEventOgImageUrl } from "@/lib/event-images";
 import { getVenueImageUrl } from "@/lib/venue-images";
 import { getVenueSeo } from "@/lib/venue-seo";
 import { BRAND_SOCIAL_SAME_AS } from "@/lib/brand-social";
@@ -60,6 +61,64 @@ export function buildAlternates(locale: Locale, path = "") {
 export function resolveImageUrl(image?: string): string | undefined {
   if (!image) return undefined;
   return image.startsWith("http") ? image : absoluteUrl(image);
+}
+
+/** Absolute media URL with query/hash stripped — Facebook's crawler is picky about both. */
+export function canonicalMediaUrl(image?: string): string | undefined {
+  const resolved = resolveImageUrl(image);
+  if (!resolved) return undefined;
+  try {
+    const url = new URL(resolved);
+    url.search = "";
+    url.hash = "";
+    return url.toString();
+  } catch {
+    return resolved;
+  }
+}
+
+function mimeFromImageUrl(url: string): string | undefined {
+  const path = url.split("?")[0]?.toLowerCase() ?? "";
+  if (path.endsWith(".png")) return "image/png";
+  if (path.endsWith(".webp")) return "image/webp";
+  if (path.endsWith(".jpg") || path.endsWith(".jpeg")) return "image/jpeg";
+  return undefined;
+}
+
+function eventOpenGraphImage(event: Event): {
+  url: string;
+  alt: string;
+  width?: number;
+  height?: number;
+  type?: string;
+} {
+  const ogPath = getEventOgImageUrl(event.id);
+  if (ogPath) {
+    return {
+      url: canonicalMediaUrl(ogPath) ?? absoluteUrl(ogPath),
+      alt: event.title,
+      width: 1200,
+      height: 630,
+      type: "image/jpeg",
+    };
+  }
+
+  const fallback = canonicalMediaUrl(event.imageUrl);
+  if (fallback) {
+    return {
+      url: fallback,
+      alt: event.title,
+      type: mimeFromImageUrl(fallback),
+    };
+  }
+
+  return {
+    url: absoluteUrl(DEFAULT_OG_IMAGE),
+    alt: event.title,
+    width: 1200,
+    height: 630,
+    type: "image/jpeg",
+  };
 }
 
 export function defaultOpenGraph(
@@ -235,7 +294,7 @@ export function buildEventMetadata(
   shareUrl: string,
 ): Metadata {
   const path = `/event/${event.id}`;
-  const image = resolveImageUrl(event.imageUrl);
+  const image = eventOpenGraphImage(event);
   const alternates = buildAlternates(locale, path);
 
   return {
@@ -247,14 +306,12 @@ export function buildEventMetadata(
       description: event.description,
       url: shareUrl,
       type: "website",
-      images: image
-        ? [{ url: image, alt: event.title }]
-        : [{ url: DEFAULT_OG_IMAGE, alt: event.title }],
+      images: [image],
     }),
     twitter: defaultTwitter({
       title: event.title,
       description: event.description,
-      images: image ? [image] : [absoluteUrl(DEFAULT_OG_IMAGE)],
+      images: [image.url],
     }),
   };
 }
@@ -431,8 +488,7 @@ function buildEventPerformers(
 }
 
 function buildEventImage(event: Event): string {
-  const raw = event.imageUrl?.trim();
-  return resolveImageUrl(raw) ?? absoluteUrl(DEFAULT_OG_IMAGE);
+  return eventOpenGraphImage(event).url;
 }
 
 export function buildEventJsonLd(

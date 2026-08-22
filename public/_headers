@@ -16,6 +16,10 @@
 /events/*
   Cache-Control: public, max-age=31536000, immutable
 
+# Facebook OG crops — stable URL, shorter cache so new flyers replace old scrapes.
+/og/events/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
 /venues/*
   Cache-Control: public, max-age=31536000, immutable
 

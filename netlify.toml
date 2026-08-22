@@ -20,6 +20,12 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
+# OG share images keep a stable URL (no ?v=) so Facebook can cache them.
+[[headers]]
+  for = "/og/events/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400, stale-while-revalidate=604800"
+
 [[headers]]
   for = "/venues/*"
   [headers.values]

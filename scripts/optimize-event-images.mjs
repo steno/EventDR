@@ -1,13 +1,25 @@
 import sharp from "sharp";
-import { existsSync, readdirSync, readFileSync, renameSync, statSync, unlinkSync } from "fs";
+import {
+  existsSync,
+  mkdirSync,
+  readdirSync,
+  readFileSync,
+  renameSync,
+  statSync,
+  unlinkSync,
+} from "fs";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const eventsDir = join(root, "public", "events");
+const ogDir = join(root, "public", "og", "events");
 const syncScript = join(root, "scripts", "sync-event-images.mjs");
 const MAX_WIDTH = 1200;
 const JPEG_QUALITY = 82;
+const OG_WIDTH = 1200;
+const OG_HEIGHT = 630;
+const OG_BACKGROUND = { r: 10, g: 10, b: 10 };
 
 function syncedEventFiles() {
   const source = readFileSync(syncScript, "utf8");
@@ -61,6 +73,33 @@ for (const file of readdirSync(eventsDir)) {
   console.log(`${file}: ${Math.round(before / 1024)}KB → ${Math.round(after / 1024)}KB`);
 }
 
+mkdirSync(ogDir, { recursive: true });
+let ogWritten = 0;
+
+for (const file of readdirSync(eventsDir)) {
+  if (!/\.(jpe?g|png|webp)$/i.test(file)) continue;
+  const input = join(eventsDir, file);
+  const stem = file.replace(/\.(jpe?g|png|webp)$/i, "");
+  const output = join(ogDir, `${stem}.jpg`);
+
+  if (existsSync(output) && statSync(output).mtimeMs >= statSync(input).mtimeMs) {
+    continue;
+  }
+
+  // No mozjpeg: it always writes progressive JPEGs, which Facebook's crawler
+  // often fails to decode. OG must be baseline 1200×630.
+  await sharp(input)
+    .rotate()
+    .resize(OG_WIDTH, OG_HEIGHT, {
+      fit: "contain",
+      background: OG_BACKGROUND,
+    })
+    .jpeg({ quality: 84, progressive: false })
+    .toFile(output);
+  ogWritten++;
+  console.log(`og ${stem}.jpg`);
+}
+
 console.log(
-  `Optimized ${optimized} JPEG images, saved ${Math.round(savedBytes / 1024)}KB`,
+  `Optimized ${optimized} JPEG images, saved ${Math.round(savedBytes / 1024)}KB; wrote ${ogWritten} Facebook OG images`,
 );
