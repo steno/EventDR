@@ -4,7 +4,9 @@ import {
   clipMetaCaption,
   defaultMetaImageUrl,
   isAllowedMetaImageUrl,
+  isMetaRateLimitError,
   META_CAPTION_MAX,
+  metaGraphRequest,
   publishToMeta,
   type MetaPostConfig,
 } from "./meta-post";
@@ -144,6 +146,56 @@ describe("meta-post", () => {
       feed?.params.get("attached_media[1]"),
       JSON.stringify({ media_fbid: "photo-2" }),
     );
+  });
+
+  it("detects Insights / app rate-limit errors", () => {
+    assert.equal(
+      isMetaRateLimitError({
+        message:
+          "There have been too many calls from this app. Wait a bit and try again.",
+        code: 4,
+        errorSubcode: 1504018,
+      }),
+      true,
+    );
+    assert.equal(
+      isMetaRateLimitError({
+        message: "API access blocked.",
+        type: "OAuthException",
+        code: 200,
+      }),
+      false,
+    );
+  });
+
+  it("retries Graph calls once after a rate-limit error", async () => {
+    let n = 0;
+    const fetchImpl: typeof fetch = async () => {
+      n += 1;
+      if (n === 1) {
+        return jsonResponse(
+          {
+            error: {
+              message: "There have been too many calls from this app.",
+              code: 4,
+              error_subcode: 1504018,
+            },
+          },
+          400,
+        );
+      }
+      return jsonResponse({ id: "feed-ok" });
+    };
+
+    const result = await metaGraphRequest<{ id: string }>(
+      config,
+      "page-1/feed",
+      { method: "POST", fetchImpl, retryDelaysMs: [0] },
+    );
+    assert.equal(result.ok, true);
+    if (!result.ok) return;
+    assert.equal(result.data.id, "feed-ok");
+    assert.equal(n, 2);
   });
 });
 

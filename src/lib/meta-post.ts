@@ -26,9 +26,64 @@ export type MetaGraphError = {
   message: string;
   type?: string;
   code?: number;
+  errorSubcode?: number;
 };
 
 type GraphFetch = typeof fetch;
+
+/** App / Page / Ads Insights throttle codes Meta returns as "Too many API requests". */
+const RATE_LIMIT_CODES = new Set([4, 17, 32, 613, 80000, 80001, 80002, 80004]);
+const RATE_LIMIT_SUBCODES = new Set([1504018, 1504022, 1504039, 2446079]);
+const DEFAULT_RATE_LIMIT_RETRY_MS = [2_000, 8_000];
+const GRAPH_WRITE_GAP_MS = 400;
+const IG_CONTAINER_INITIAL_WAIT_MS = 2_500;
+const IG_CONTAINER_POLL_MS = 3_000;
+const IG_CONTAINER_MAX_ATTEMPTS = 5;
+
+let graphCooldownUntil = 0;
+
+export function isMetaRateLimitError(error: MetaGraphError): boolean {
+  if (error.code != null && RATE_LIMIT_CODES.has(error.code)) return true;
+  if (error.errorSubcode != null && RATE_LIMIT_SUBCODES.has(error.errorSubcode)) {
+    return true;
+  }
+  return /too many (api )?calls|too many api requests|request limit reached|rate limit/i.test(
+    error.message,
+  );
+}
+
+function sleep(ms: number): Promise<void> {
+  if (ms <= 0) return Promise.resolve();
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+function shouldPace(fetchImpl?: GraphFetch): boolean {
+  return !fetchImpl;
+}
+
+function parseUsagePercent(response: Response): number | null {
+  const raw = response.headers.get("x-app-usage");
+  if (!raw) return null;
+  try {
+    const parsed = JSON.parse(raw) as { call_count?: unknown };
+    return typeof parsed.call_count === "number" ? parsed.call_count : null;
+  } catch {
+    return null;
+  }
+}
+
+function noteGraphUsage(response: Response) {
+  const percent = parseUsagePercent(response);
+  if (percent == null) return;
+  if (percent >= 95) graphCooldownUntil = Date.now() + 15_000;
+  else if (percent >= 80) graphCooldownUntil = Date.now() + 3_000;
+}
+
+async function waitForGraphCooldown(paced: boolean) {
+  if (!paced) return;
+  const wait = graphCooldownUntil - Date.now();
+  if (wait > 0) await sleep(Math.min(wait, 20_000));
+}
 
 export function metaGraphVersion(): string {
   return process.env.META_GRAPH_VERSION?.trim() || DEFAULT_META_GRAPH_VERSION;
@@ -113,11 +168,15 @@ export async function metaGraphRequest<T>(
     method?: "GET" | "POST" | "DELETE";
     params?: Record<string, string>;
     fetchImpl?: GraphFetch;
+    retryDelaysMs?: number[];
   },
 ): Promise<{ ok: true; data: T } | { ok: false; error: MetaGraphError }> {
   const method = options?.method ?? "GET";
   const fetchImpl = options?.fetchImpl ?? fetch;
   const params = options?.params ?? {};
+  const paced = shouldPace(options?.fetchImpl);
+  const retryDelays =
+    options?.retryDelaysMs ?? (paced ? DEFAULT_RATE_LIMIT_RETRY_MS : []);
   const url =
     method === "GET"
       ? graphUrl(config.graphVersion, path, {
@@ -138,58 +197,68 @@ export async function metaGraphRequest<T>(
           }),
         };
 
-  let response: Response;
-  try {
-    response = await fetchImpl(url, init);
-  } catch (error) {
-    return {
-      ok: false,
-      error: {
+  let lastError: MetaGraphError = { message: "Meta request failed" };
+
+  for (let attempt = 0; attempt <= retryDelays.length; attempt++) {
+    if (attempt > 0) await sleep(retryDelays[attempt - 1] ?? 0);
+    await waitForGraphCooldown(paced);
+
+    let response: Response;
+    try {
+      response = await fetchImpl(url, init);
+    } catch (error) {
+      lastError = {
         message: error instanceof Error ? error.message : "Network error",
-      },
-    };
-  }
+      };
+      continue;
+    }
 
-  let json: unknown;
-  try {
-    json = await response.json();
-  } catch {
-    return {
-      ok: false,
-      error: { message: `Meta returned HTTP ${response.status}` },
-    };
-  }
+    noteGraphUsage(response);
 
-  if (
-    json &&
-    typeof json === "object" &&
-    "error" in json &&
-    json.error &&
-    typeof json.error === "object"
-  ) {
-    const err = json.error as {
-      message?: string;
-      type?: string;
-      code?: number;
-    };
-    return {
-      ok: false,
-      error: {
+    let json: unknown;
+    try {
+      json = await response.json();
+    } catch {
+      lastError = { message: `Meta returned HTTP ${response.status}` };
+      if (!response.ok && attempt < retryDelays.length) continue;
+      return { ok: false, error: lastError };
+    }
+
+    if (
+      json &&
+      typeof json === "object" &&
+      "error" in json &&
+      json.error &&
+      typeof json.error === "object"
+    ) {
+      const err = json.error as {
+        message?: string;
+        type?: string;
+        code?: number;
+        error_subcode?: number;
+      };
+      lastError = {
         message: err.message ?? `Meta error HTTP ${response.status}`,
         type: err.type,
         code: err.code,
-      },
-    };
+        errorSubcode: err.error_subcode,
+      };
+      if (isMetaRateLimitError(lastError) && attempt < retryDelays.length) {
+        continue;
+      }
+      return { ok: false, error: lastError };
+    }
+
+    if (!response.ok) {
+      lastError = { message: `Meta returned HTTP ${response.status}` };
+      if (attempt < retryDelays.length) continue;
+      return { ok: false, error: lastError };
+    }
+
+    return { ok: true, data: json as T };
   }
 
-  if (!response.ok) {
-    return {
-      ok: false,
-      error: { message: `Meta returned HTTP ${response.status}` },
-    };
-  }
-
-  return { ok: true, data: json as T };
+  return { ok: false, error: lastError };
 }
 
 /** System-user tokens must be exchanged for a Page token before Page/IG publish. */
@@ -258,7 +327,9 @@ async function waitForInstagramContainer(
   creationId: string,
   fetchImpl?: GraphFetch,
 ): Promise<{ ok: true } | { ok: false; error: MetaGraphError }> {
-  for (let attempt = 0; attempt < 8; attempt++) {
+  const paced = shouldPace(fetchImpl);
+  if (paced) await sleep(IG_CONTAINER_INITIAL_WAIT_MS);
+  for (let attempt = 0; attempt < IG_CONTAINER_MAX_ATTEMPTS; attempt++) {
     const status = await metaGraphRequest<{ status_code?: string }>(
       config,
       creationId,
@@ -273,7 +344,7 @@ async function waitForInstagramContainer(
         error: { message: `Instagram container ${code}` },
       };
     }
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    if (paced) await sleep(IG_CONTAINER_POLL_MS);
   }
   return { ok: true };
 }
@@ -323,7 +394,10 @@ export async function publishFacebookAlbum(
   fetchImpl?: GraphFetch,
 ): Promise<{ ok: true; id: string } | { ok: false; error: MetaGraphError }> {
   const photoIds: string[] = [];
-  for (const imageUrl of input.imageUrls.slice(0, 10)) {
+  const paced = shouldPace(fetchImpl);
+  const imageUrls = input.imageUrls.slice(0, 10);
+  for (const [index, imageUrl] of imageUrls.entries()) {
+    if (paced && index > 0) await sleep(GRAPH_WRITE_GAP_MS);
     const photo = await metaGraphRequest<{ id?: string }>(
       config,
       `${config.pageId}/photos`,
@@ -497,6 +571,10 @@ export type MetaPublishInput = {
   facebook?: boolean;
   instagram?: boolean;
   dryRun?: boolean;
+  onPosted?: (update: {
+    facebookId?: string;
+    instagramId?: string;
+  }) => Promise<void> | void;
 };
 
 export type MetaPublishResult = {
@@ -569,28 +647,55 @@ export async function publishToMeta(
   }
   config = resolved.config;
 
-  const jobs: Promise<void>[] = [];
   if (wantFacebook) {
-    jobs.push(
-      publishFacebookAlbum(
-        config,
-        { caption, imageUrls },
-        fetchImpl,
-      ).then((facebook) => {
-        result.facebook = facebook;
-      }),
+    result.facebook = await publishFacebookAlbum(
+      config,
+      { caption, imageUrls },
+      fetchImpl,
     );
+    if (
+      !result.facebook.ok &&
+      isMetaRateLimitError(result.facebook.error) &&
+      wantInstagram
+    ) {
+      result.instagram = { ok: false, error: result.facebook.error };
+      return { ok: true, result };
+    }
+    if (result.facebook.ok) {
+      await input.onPosted?.({ facebookId: result.facebook.id });
+    }
   }
   if (wantInstagram) {
-    jobs.push(
-      (imageUrls.length >= 2
-        ? publishInstagramCarousel(config, { caption, imageUrls }, fetchImpl)
-        : publishInstagramPhoto(config, { caption, imageUrl }, fetchImpl)
-      ).then((instagram) => {
-        result.instagram = instagram;
-      }),
-    );
+    result.instagram =
+      imageUrls.length >= 2
+        ? await publishInstagramCarousel(
+            config,
+            { caption, imageUrls },
+            fetchImpl,
+          )
+        : await publishInstagramPhoto(
+            config,
+            { caption, imageUrl },
+            fetchImpl,
+          );
+    if (result.instagram.ok) {
+      await input.onPosted?.({ instagramId: result.instagram.id });
+    }
   }
-  await Promise.all(jobs);
   return { ok: true, result };
+}
+
+export function metaPublishIsRateLimited(
+  published: Awaited<ReturnType<typeof publishToMeta>>,
+): boolean {
+  if (!published.ok) return isMetaRateLimitError({ message: published.error });
+  const facebook = published.result.facebook;
+  const instagram = published.result.instagram;
+  if (facebook && !facebook.ok && isMetaRateLimitError(facebook.error)) {
+    return true;
+  }
+  if (instagram && !instagram.ok && isMetaRateLimitError(instagram.error)) {
+    return true;
+  }
+  return false;
 }

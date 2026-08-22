@@ -23,6 +23,7 @@ jobs:
         run: |
           echo "::group::Checking Meta API configuration"
           config_check="$(mktemp)"
+          # Env-only check — do not call Graph here (inspect=1 burns rate-limit quota).
           config_http=$(curl -sS --max-time 30 -o "$config_check" -w "%{http_code}" \
             -X GET "${SITE_URL}/api/cron/meta-post" \
             -H "Authorization: Bearer ${CRON_SECRET}")
@@ -31,6 +32,11 @@ jobs:
             echo "✓ Meta configuration is valid"
             cat "$config_check"
             echo
+          elif [ "$config_http" = "429" ]; then
+            echo "::error::Meta Graph is rate-limited. Skip posting and wait ~15 minutes."
+            cat "$config_check"
+            echo
+            exit 1
           else
             echo "::warning::Meta configuration check returned HTTP ${config_http}"
             cat "$config_check"
@@ -93,6 +99,13 @@ jobs:
             exit 1
           fi
           
+          # Handle Meta rate limits (429)
+          if [ "$http" = "429" ]; then
+            echo "::error::Facebook rate-limited this app (too many Graph calls). Wait 15–30 minutes before retrying."
+            grep -o '"error":[^,}]*' "$tmp" || true
+            exit 1
+          fi
+
           # Handle Meta API errors (502)
           if [ "$http" = "502" ]; then
             echo "::error::Meta Graph API rejected the request. Check token validity and permissions."
@@ -103,6 +116,14 @@ jobs:
           # Handle success (200-299)
           if [ "$http" -ge 200 ] && [ "$http" -lt 300 ]; then
             if grep -Eq '"success"[[:space:]]*:[[:space:]]*true' "$tmp"; then
+              if grep -Eq '"reused"[[:space:]]*:[[:space:]]*true' "$tmp"; then
+                echo "::notice::Today's spotlight was already posted — skipped a duplicate Graph publish."
+                exit 0
+              fi
+              if grep -Eq '"inProgress"[[:space:]]*:[[:space:]]*true' "$tmp"; then
+                echo "::notice::Today's spotlight is already publishing on the server — not starting another burst."
+                exit 0
+              fi
               if [ "$DRY_RUN" = "true" ]; then
                 echo "::notice::✓ Dry run successful - post preview generated without publishing."
               else

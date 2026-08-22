@@ -46,10 +46,11 @@ Publishing is **not** TikTok (separate API). Once Instagram is a **Professional*
 1. Create an app at [developers.facebook.com/apps](https://developers.facebook.com/apps) (type Business). Add **Facebook Login for Business** and **Instagram**.
 2. In [Graph API Explorer](https://developers.facebook.com/tools/explorer/), as the Page admin, grant:
    - `pages_show_list`
-   - `pages_read_engagement`
    - `pages_manage_posts`
    - `instagram_basic`
    - `instagram_content_publish`
+   
+   Do **not** add `pages_read_engagement`, ads, or insights permissions. Those put the app on Meta's Insights call-load quota and show “Too many API requests”.
 3. Generate a user token, then exchange it for a long-lived token (`fb_exchange_token` with app id + secret).
 4. `GET /me/accounts` → copy the **Page** `id` and `access_token` into Netlify:
    - `META_PAGE_ID`
@@ -61,6 +62,7 @@ Check:
 
 ```bash
 curl -sS "https://pop-event.com/api/cron/meta-post" -H "Authorization: Bearer $CRON_SECRET"
+# Live Graph inspect (uses quota): append ?inspect=1
 ```
 
 Daily top 3 (also GitHub Action `daily-today-spotlight.yml` at ~9:00 AST):

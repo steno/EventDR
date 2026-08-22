@@ -18,9 +18,10 @@ Facebook Page Access Tokens expire. Even "long-lived" tokens expire after 60 day
 4. Grant permissions:
    - `pages_show_list`
    - `pages_manage_posts`
-   - `pages_read_engagement`
    - `instagram_basic`
    - `instagram_content_publish`
+
+   Skip `pages_read_engagement` and any ads/insights permission. Publishing does not need them, and they put the app on Meta's Insights call-load limit.
 5. Copy the short-lived User Access Token
 
 ### 2. Convert to Long-Lived Token
@@ -86,6 +87,19 @@ Try regenerating from scratch:
    ```
 2. Ensure Instagram account is a Business/Creator account (not Personal)
 3. Ensure Instagram account is linked to your Facebook Page
+
+---
+
+## Rate limit: "Too many API requests"
+
+Meta shows this dialog (Insights call-load) when the **same app** bursts Graph calls. Daily spotlight retries after a Netlify 504 are the usual cause: each run inspects tokens, uploads 3 photos, then polls Instagram carousel containers.
+
+What the app now does:
+- Same-day spotlight is locked — a retry will reuse the existing post instead of publishing again
+- GET `/api/cron/meta-post` no longer calls Graph unless you add `?inspect=1`
+- Graph writes are paced, Instagram status is polled less often, and rate-limit errors (code 4 / 17 / 32) retry with backoff
+
+If you still see the dialog: wait 15–30 minutes, do not re-run **Daily today spotlight**, and stay out of Ads Manager / Page Insights until it clears.
 
 ---
 
