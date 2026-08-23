@@ -129,8 +129,20 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     admissionPrice: "US$8",
   },
   "teleferico-puerto-plata-daily": {
-    isFree: false,
-    admissionPrice: "RD$350",
+    isFree: null,
+    admissionPrice: null,
+    temporarilyClosed: true,
+    sourceUrl:
+      "https://www.arecoa.com/destinos/2026/08/20/teleferico-de-puerto-plata-sera-reconstruido-por-consorcio-doma-en-18-a-20-meses/",
+    description:
+      "Caribbean cable car to Pico Isabel de Torres — Christ statue and botanical gardens. Closed since June 2024; Consorcio Doma (Doppelmayr, Bartholet, and Grupo Malespín) won the rebuild bid in August 2026 with an 18–20 month construction window. Reopening is expected around 2028 — the gondola is not operating.",
+    localized: {
+      description: {
+        en: "Caribbean cable car to Pico Isabel de Torres — Christ statue and botanical gardens. Closed since June 2024; Consorcio Doma (Doppelmayr, Bartholet, and Grupo Malespín) won the rebuild bid in August 2026 with an 18–20 month construction window. Reopening is expected around 2028 — the gondola is not operating.",
+        es: "Único teleférico del Caribe al pico Isabel de Torres — estatua del Cristo y jardín botánico. Cerrado desde junio 2024; el Consorcio Doma (Doppelmayr, Bartholet y Grupo Malespín) ganó la licitación de reconstrucción en agosto 2026, con 18–20 meses de obra. La reapertura se espera hacia 2028 — el teleférico no está operando.",
+        fr: "Téléphérique vers le pic Isabel de Torres — statue du Christ et jardins botaniques. Fermé depuis juin 2024 ; le consortium Doma (Doppelmayr, Bartholet et Grupo Malespín) a remporté l'appel d'offres en août 2026, pour 18–20 mois de travaux. Réouverture prévue vers 2028 — la cabine n'est pas en service.",
+      },
+    },
   },
   "hacienda-cufa-cacao-tour": {
     isFree: false,

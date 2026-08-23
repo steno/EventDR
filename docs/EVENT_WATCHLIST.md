@@ -13,4 +13,5 @@ and if an official source confirms dates + venue, seed via
 
 ## Notes
 - Anfiteatro La Puntilla is under renovation (activities limited as of mid-2026); watch for a reopening + commercial concert calendar before seeding Anfiteatro shows.
+- **Teleférico Puerto Plata** gondola closed 6 June 2024; Consorcio Doma (Doppelmayr / Bartholet / Grupo Malespín) awarded rebuild Aug 2026 (18–20 months). Recheck operations ~early 2028 before dropping the Temporarily closed flag. Seed: `teleferico-puerto-plata-daily`.
 - When confirming Jazz Festival, capture the per-night city/venue split (opening PP Malecón, Cabarete beach, Playa Alicia Sosúa) — only seed the North Coast nights.

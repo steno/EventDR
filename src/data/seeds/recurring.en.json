@@ -506,7 +506,7 @@
   {
     "id": "teleferico-puerto-plata-daily",
     "title": "Teleférico Puerto Plata — Cable Car",
-    "description": "Caribbean cable car to Pico Isabel de Torres — Christ statue and botanical gardens. Check if operating; renovation has closed the lift at times — safari truck tours may run instead.",
+    "description": "Caribbean cable car to Pico Isabel de Torres — Christ statue and botanical gardens. Closed since June 2024; Consorcio Doma (Doppelmayr, Bartholet, and Grupo Malespín) won the rebuild bid in August 2026 with an 18–20 month construction window. Reopening is expected around 2028 — the gondola is not operating.",
     "date": "2026-01-01",
     "time": "8:30 AM - 5:00 PM",
     "location": "Puerto Plata",
@@ -516,7 +516,8 @@
     "category": "adventure",
     "format": "physical",
     "recurrence": "daily",
-    "sourceUrl": "https://es.godominicanrepublic.com/destinos/puerto-plata",
+    "temporarilyClosed": true,
+    "sourceUrl": "https://www.arecoa.com/destinos/2026/08/20/teleferico-de-puerto-plata-sera-reconstruido-por-consorcio-doma-en-18-a-20-meses/",
     "imageEmoji": "🚡"
   },
   {

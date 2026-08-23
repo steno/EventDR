@@ -506,7 +506,7 @@
   {
     "id": "teleferico-puerto-plata-daily",
     "title": "Téléphérique de Puerto Plata",
-    "description": "Téléphérique vers le pic Isabel de Torres — statue du Christ et jardins botaniques. Vérifiez s'il est en service ; des travaux ont parfois fermé la cabine — tours en camion safari possibles.",
+    "description": "Téléphérique vers le pic Isabel de Torres — statue du Christ et jardins botaniques. Fermé depuis juin 2024 ; le consortium Doma (Doppelmayr, Bartholet et Grupo Malespín) a remporté l'appel d'offres en août 2026, pour 18–20 mois de travaux. Réouverture prévue vers 2028 — la cabine n'est pas en service.",
     "date": "2026-01-01",
     "time": "8:30 AM - 5:00 PM",
     "location": "Puerto Plata",
@@ -516,7 +516,8 @@
     "category": "adventure",
     "format": "physical",
     "recurrence": "daily",
-    "sourceUrl": "https://es.godominicanrepublic.com/destinos/puerto-plata",
+    "temporarilyClosed": true,
+    "sourceUrl": "https://www.arecoa.com/destinos/2026/08/20/teleferico-de-puerto-plata-sera-reconstruido-por-consorcio-doma-en-18-a-20-meses/",
     "imageEmoji": "🚡"
   },
   {

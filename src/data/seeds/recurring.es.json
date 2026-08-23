@@ -506,7 +506,7 @@
   {
     "id": "teleferico-puerto-plata-daily",
     "title": "Teleférico Puerto Plata",
-    "description": "Único teleférico del Caribe al pico Isabel de Torres — estatua del Cristo y jardín botánico. Verifica si está operando; renovaciones han cerrado el teleférico a veces — pueden ofrecer tours en camión safari.",
+    "description": "Único teleférico del Caribe al pico Isabel de Torres — estatua del Cristo y jardín botánico. Cerrado desde junio 2024; el Consorcio Doma (Doppelmayr, Bartholet y Grupo Malespín) ganó la licitación de reconstrucción en agosto 2026, con 18–20 meses de obra. La reapertura se espera hacia 2028 — el teleférico no está operando.",
     "date": "2026-01-01",
     "time": "8:30 AM - 5:00 PM",
     "location": "Puerto Plata",
@@ -516,7 +516,8 @@
     "category": "adventure",
     "format": "physical",
     "recurrence": "daily",
-    "sourceUrl": "https://es.godominicanrepublic.com/destinos/puerto-plata",
+    "temporarilyClosed": true,
+    "sourceUrl": "https://www.arecoa.com/destinos/2026/08/20/teleferico-de-puerto-plata-sera-reconstruido-por-consorcio-doma-en-18-a-20-meses/",
     "imageEmoji": "🚡"
   },
   {

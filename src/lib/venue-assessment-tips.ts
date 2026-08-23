@@ -178,11 +178,11 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "teleferico-puerto-plata": {
-    body: "Classic Pico Isabel panorama when the gondola is running — confirm operations first; renovations have periodically grounded it.",
+    body: "Iconic Pico Isabel views when it reopens — gondola shut since 2024 for a full rebuild; don't send guests up expecting a ride until around 2028.",
     localized: {
-      en: "Classic Pico Isabel panorama when the gondola is running — confirm operations first; renovations have periodically grounded it.",
-      es: "El panorama clásico de Pico Isabel cuando opera la góndola — confirma antes; renovaciones la han parado a veces.",
-      fr: "Le panorama classique de Pico Isabel quand la cabine tourne — confirmez l'ouverture ; des rénovations l'ont parfois arrêtée.",
+      en: "Iconic Pico Isabel views when it reopens — gondola shut since 2024 for a full rebuild; don't send guests up expecting a ride until around 2028.",
+      es: "Las vistas icónicas de Pico Isabel cuando reabra — góndola cerrada desde 2024 por reconstrucción; no mandes huéspedes esperando un viaje hasta alrededor de 2028.",
+      fr: "Les vues emblématiques de Pico Isabel à la réouverture — cabine fermée depuis 2024 pour reconstruction ; n'envoyez pas les visiteurs en attendant un tour avant 2028 environ.",
     },
   },
   "el-batey-sosua": {

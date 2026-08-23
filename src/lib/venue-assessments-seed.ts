@@ -278,7 +278,7 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     venueSlug: "teleferico-puerto-plata",
     verdictKey: "solid_visitor_activity",
     crowdFit: ["visitor", "family"],
-    axes: { recommend: 4.3, atmosphere: 4.4, practical: 4.2, reliability: 4.2 },
+    axes: { recommend: 3.2, atmosphere: 4.4, practical: 2.4, reliability: 1.8 },
     themes: [
       { key: "ocean_views", sentiment: "positive", audience: "visitor" },
       { key: "family_friendly", sentiment: "positive", audience: "family" },

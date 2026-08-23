@@ -467,12 +467,13 @@ export const SEED_VENUES: Venue[] = [
     name: "Teleférico Puerto Plata",
     city: "Puerto Plata",
     description:
-      "Caribbean cable car to the summit of Pico Isabel de Torres — Christ statue, botanical gardens, and panoramic views.",
+      "Caribbean cable car to the summit of Pico Isabel de Torres — Christ statue, botanical gardens, and panoramic views. Gondola closed since June 2024 for a full rebuild (Consorcio Doma; expected around 2028).",
     lat: 19.7881298,
     lng: -70.7099725,
     emoji: "🚡",
     website: "https://telefericopuertoplata.com",
     phone: "+18099700501",
+    temporarilyClosed: true,
   },
   {
     slug: "cayo-arena",

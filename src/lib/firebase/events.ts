@@ -114,6 +114,7 @@ function docToEvent(id: string, data: DocumentData): Event {
     recurrenceDays: (data.recurrenceDays as number[] | null) ?? undefined,
     lat: (data.lat as number | null) ?? undefined,
     lng: (data.lng as number | null) ?? undefined,
+    temporarilyClosed: data.temporarilyClosed === true ? true : undefined,
     communitySubmitted:
       data.sourceType === "community" ||
       data.sourceType === "instagram" ||
@@ -223,6 +224,7 @@ function eventToFirestore(
     recurrenceDays: event.recurrenceDays ?? null,
     lat: event.lat ?? null,
     lng: event.lng ?? null,
+    temporarilyClosed: event.temporarilyClosed === true ? true : null,
     status,
     createdAt: FieldValue.serverTimestamp(),
   };

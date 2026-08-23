@@ -101,7 +101,6 @@ export const CURATED_ADMISSION_PRICES: Record<string, string> = {
   "macorix-house-of-rum": "US$8",
 
   // Adventure & tours (typical walk-up / operator rate)
-  "teleferico-puerto-plata-daily": "RD$350",
   "hacienda-cufa-cacao-tour": "from RD$400",
   "fun-city-daily": "from RD$200",
   "cayo-arena-tours-daily": "from US$55",

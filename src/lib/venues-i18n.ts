@@ -271,8 +271,8 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
   },
   "teleferico-puerto-plata": {
     description: {
-      es: "Teleférico caribeño a la cima del Pico Isabel de Torres — estatua del Cristo, jardines botánicos y vistas panorámicas.",
-      fr: "Téléphérique caribéen au sommet du Pico Isabel de Torres — statue du Christ, jardins botaniques et vues panoramiques.",
+      es: "Teleférico caribeño a la cima del Pico Isabel de Torres — estatua del Cristo, jardines botánicos y vistas panorámicas. Góndola cerrada desde junio 2024 por reconstrucción (Consorcio Doma; reapertura prevista hacia 2028).",
+      fr: "Téléphérique caribéen au sommet du Pico Isabel de Torres — statue du Christ, jardins botaniques et vues panoramiques. Cabine fermée depuis juin 2024 pour reconstruction (consortium Doma ; réouverture prévue vers 2028).",
     },
   },
   "cayo-arena": {

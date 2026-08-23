@@ -496,21 +496,22 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   {
     eventId: "teleferico-puerto-plata-daily",
     seriesKey: "teleferico-puerto-plata:daily",
-    body: "Confirm it's running before you go — renovations have periodically swapped the gondola for ground alternatives.",
+    body: "Don't plan a gondola ride — this is a multi-year rebuild, not a weekend closure. Recheck around 2028.",
     localized: {
-      es: "Confirma que esté operando antes de ir — renovaciones han sustituido a veces la góndola por alternativas en tierra.",
-      fr: "Confirmez que ça fonctionne avant d'y aller — des rénovations ont parfois remplacé la cabine par des alternatives au sol.",
+      es: "No planifiques el teleférico — es una reconstrucción de varios años, no un cierre de fin de semana. Revisa hacia 2028.",
+      fr: "Ne comptez pas sur la cabine — c'est une reconstruction de plusieurs années, pas une fermeture de week-end. Revenez vers 2028.",
     },
     priceFeel: "moderate",
     priceNote:
-      "Round-trip historically ~US$10 adult when operating — cash at the station; verify status",
+      "Tickets paused while closed — historic walk-up was ~RD$350 / ~US$10 when operating",
     priceNoteLocalized: {
-      es: "Ida y vuelta históricamente ~US$10 adulto cuando opera — efectivo en estación; verifica estado",
-      fr: "Aller-retour historiquement ~US$10 adulte quand ouvert — cash à la station ; vérifiez le statut",
+      es: "Boletos pausados mientras está cerrado — históricamente ~RD$350 / ~US$10 adulto cuando operaba",
+      fr: "Billets suspendus pendant la fermeture — historiquement ~RD$350 / ~US$10 adulte quand ouvert",
     },
-    attribution: "POP research · travel guides",
-    researchNotes: "Ticket ~US$10; renovation notes through 2026 in guides.",
-    updatedAt: AT,
+    attribution: "POP research · Puerto Plata Digital / Arecoa Aug 2026",
+    researchNotes:
+      "Closed 6 Jun 2024 (27 months as of Aug 2026). Consorcio Doma (Doppelmayr AT, Bartholet CH, Grupo Malespín DR) won rebuild bid; 18–20 month construction; reopening 4+ years after closure. https://www.arecoa.com/destinos/2026/08/20/teleferico-de-puerto-plata-sera-reconstruido-por-consorcio-doma-en-18-a-20-meses/",
+    updatedAt: "2026-08-23T14:00:00.000Z",
   },
   {
     eventId: "del-oro-chocolate-factory-weekdays",
