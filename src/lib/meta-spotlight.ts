@@ -195,8 +195,9 @@ function toSpotlightEvent(
     time: event.time,
     place: (event.venue?.split(",")[0]?.trim() ||
       formatEventPlace(event).split(",")[0]?.trim() ||
-      event.location.split(",")[0]?.trim() ||
-      event.location),
+      event.location?.split(",")[0]?.trim() ||
+      event.location ||
+      ""),
     url: `${siteOrigin(origin)}/${locale}/event/${event.id}`,
     imageUrl:
       toAbsoluteMetaImageUrl(event.imageUrl, origin) ??

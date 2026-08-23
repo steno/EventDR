@@ -118,7 +118,19 @@ export async function POST(request: NextRequest) {
   }
 
   if (body.source === "today") {
-    const built = await buildTodayMetaPost(locale);
+    let built: Awaited<ReturnType<typeof buildTodayMetaPost>>;
+    try {
+      built = await buildTodayMetaPost(locale);
+    } catch (error) {
+      console.error("buildTodayMetaPost failed", error);
+      return NextResponse.json(
+        {
+          success: false,
+          error: error instanceof Error ? error.message : String(error),
+        },
+        { status: 500 },
+      );
+    }
     if (!built.ok) {
       return NextResponse.json({ error: built.error }, { status: 422 });
     }

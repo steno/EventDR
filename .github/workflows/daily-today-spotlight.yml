@@ -11,6 +11,11 @@ on:
         required: false
         type: boolean
         default: false
+      instagram_only:
+        description: 'Post to Instagram only (skip Facebook)'
+        required: false
+        type: boolean
+        default: false
 
 jobs:
   post:
@@ -49,6 +54,7 @@ jobs:
           SITE_URL: https://pop-event.com
           CRON_SECRET: ${{ secrets.CRON_SECRET }}
           DRY_RUN: ${{ github.event.inputs.dry_run == 'true' && 'true' || 'false' }}
+          INSTAGRAM_ONLY: ${{ github.event.inputs.instagram_only == 'true' && 'true' || 'false' }}
         run: |
           if [ -z "$CRON_SECRET" ]; then
             echo "::error::CRON_SECRET secret not set — add it in repo Settings → Secrets."
@@ -58,6 +64,9 @@ jobs:
           if [ "$DRY_RUN" = "true" ]; then
             echo "::notice::Running in DRY RUN mode - no posts will be published"
             payload='{"source":"today","locale":"en","dryRun":true}'
+          elif [ "$INSTAGRAM_ONLY" = "true" ]; then
+            echo "::notice::Posting to Instagram only — skipping Facebook"
+            payload='{"source":"today","locale":"en","facebook":false,"instagram":true}'
           else
             payload='{"source":"today","locale":"en"}'
           fi

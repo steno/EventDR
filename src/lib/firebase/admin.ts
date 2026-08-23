@@ -10,6 +10,7 @@ type ServiceAccountFields = {
 };
 
 let initFailed = false;
+let firestoreSettingsApplied = false;
 
 function normalizePrivateKey(key: string): string {
   return key.replace(/\\n/g, "\n");
@@ -113,7 +114,16 @@ export function getFirestoreDb(): Firestore | null {
       });
     }
 
-    return getFirestore(getApps()[0]!);
+    const db = getFirestore(getApps()[0]!);
+    if (!firestoreSettingsApplied) {
+      try {
+        db.settings({ ignoreUndefinedProperties: true });
+      } catch {
+        // settings() throws if Firestore was already used in this isolate.
+      }
+      firestoreSettingsApplied = true;
+    }
+    return db;
   } catch (error) {
     initFailed = true;
     console.error("Firebase Admin init failed:", error);

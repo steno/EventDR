@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import {
   decideSpotlightLockAction,
+  lockRecordForWrite,
   SPOTLIGHT_LOCK_STALE_MS,
   type SpotlightLockRecord,
 } from "./meta-spotlight-lock";
@@ -95,5 +96,23 @@ describe("decideSpotlightLockAction", () => {
       ),
       "proceed",
     );
+  });
+});
+
+describe("lockRecordForWrite", () => {
+  it("omits undefined Facebook and Instagram ids so Firestore does not reject the write", () => {
+    const doc = lockRecordForWrite(
+      lock({ facebookId: undefined, instagramId: undefined }),
+    );
+    assert.equal("facebookId" in doc, false);
+    assert.equal("instagramId" in doc, false);
+    assert.equal(doc.source, "today");
+    assert.deepEqual(doc.eventIds, ["a"]);
+  });
+
+  it("keeps ids that are present", () => {
+    const doc = lockRecordForWrite(lock({ facebookId: "fb", instagramId: "ig" }));
+    assert.equal(doc.facebookId, "fb");
+    assert.equal(doc.instagramId, "ig");
   });
 });

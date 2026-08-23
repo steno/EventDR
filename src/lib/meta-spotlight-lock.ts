@@ -43,6 +43,23 @@ export function decideSpotlightLockAction(
   return "proceed";
 }
 
+/** Firestore rejects `undefined` field values unless ignoreUndefinedProperties is on. */
+export function lockRecordForWrite(
+  record: SpotlightLockRecord,
+): Record<string, unknown> {
+  return {
+    date: record.date,
+    locale: record.locale,
+    source: record.source,
+    status: record.status,
+    eventIds: record.eventIds,
+    startedAt: record.startedAt,
+    updatedAt: record.updatedAt,
+    ...(record.facebookId ? { facebookId: record.facebookId } : {}),
+    ...(record.instagramId ? { instagramId: record.instagramId } : {}),
+  };
+}
+
 function asLockRecord(data: DocumentData | undefined) {
   if (!data) return null;
   if (data.source !== "today") return null;
@@ -90,35 +107,43 @@ export async function claimTodaySpotlightLock(input: {
   const now = Date.now();
   const ref = db.collection(COLLECTION).doc(DOC_ID);
 
-  return db.runTransaction(async (tx) => {
-    const snap = await tx.get(ref);
-    const existing = asLockRecord(snap.data());
-    const action = decideSpotlightLockAction(existing, today, now);
-    if (action === "reuse" && existing) {
-      return { ok: true as const, action, record: existing };
-    }
-    if (action === "wait" && existing) {
-      return { ok: true as const, action, record: existing };
-    }
+  try {
+    return await db.runTransaction(async (tx) => {
+      const snap = await tx.get(ref);
+      const existing = asLockRecord(snap.data());
+      const action = decideSpotlightLockAction(existing, today, now);
+      if (action === "reuse" && existing) {
+        return { ok: true as const, action, record: existing };
+      }
+      if (action === "wait" && existing) {
+        return { ok: true as const, action, record: existing };
+      }
 
-    const record: SpotlightLockRecord = {
-      date: today,
-      locale: input.locale,
-      source: "today",
-      status: "in_progress",
-      eventIds: input.eventIds,
-      facebookId:
-        action === "resume-instagram" ? existing?.facebookId : undefined,
-      instagramId: undefined,
-      startedAt:
-        action === "resume-instagram" && existing
-          ? existing.startedAt
-          : now,
-      updatedAt: now,
-    };
-    tx.set(ref, record);
-    return { ok: true as const, action: action === "resume-instagram" ? action : "proceed", record };
-  });
+      const record: SpotlightLockRecord = {
+        date: today,
+        locale: input.locale,
+        source: "today",
+        status: "in_progress",
+        eventIds: input.eventIds,
+        facebookId:
+          action === "resume-instagram" ? existing?.facebookId : undefined,
+        startedAt:
+          action === "resume-instagram" && existing
+            ? existing.startedAt
+            : now,
+        updatedAt: now,
+      };
+      tx.set(ref, lockRecordForWrite(record));
+      return {
+        ok: true as const,
+        action: action === "resume-instagram" ? action : "proceed",
+        record,
+      };
+    });
+  } catch (error) {
+    console.error("claimTodaySpotlightLock failed; publishing without lock", error);
+    return { ok: true, action: "skip" };
+  }
 }
 
 export async function finishTodaySpotlightLock(input: {
@@ -133,22 +158,27 @@ export async function finishTodaySpotlightLock(input: {
   if (!db) return;
   const now = Date.now();
   const ref = db.collection(COLLECTION).doc(DOC_ID);
-  const snap = await ref.get();
-  const existing = asLockRecord(snap.data());
-  const facebookId = input.facebookId ?? existing?.facebookId;
-  const instagramId = input.instagramId ?? existing?.instagramId;
-  const complete = Boolean(facebookId && instagramId) && !input.failed;
-  await ref.set(
-    {
-      date: localDateISO(),
-      locale: input.locale,
-      source: "today",
-      status: input.failed ? "failed" : complete ? "complete" : "in_progress",
-      eventIds: input.eventIds,
-      updatedAt: now,
-      ...(facebookId ? { facebookId } : {}),
-      ...(instagramId ? { instagramId } : {}),
-    },
-    { merge: true },
-  );
+  try {
+    const snap = await ref.get();
+    const existing = asLockRecord(snap.data());
+    const facebookId = input.facebookId ?? existing?.facebookId;
+    const instagramId = input.instagramId ?? existing?.instagramId;
+    const complete = Boolean(facebookId && instagramId) && !input.failed;
+    await ref.set(
+      lockRecordForWrite({
+        date: localDateISO(),
+        locale: input.locale,
+        source: "today",
+        status: input.failed ? "failed" : complete ? "complete" : "in_progress",
+        eventIds: input.eventIds,
+        startedAt: existing?.startedAt ?? now,
+        updatedAt: now,
+        facebookId,
+        instagramId,
+      }),
+      { merge: true },
+    );
+  } catch (error) {
+    console.error("finishTodaySpotlightLock failed", error);
+  }
 }
