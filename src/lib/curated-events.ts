@@ -2,7 +2,21 @@ import type { Event } from "./types";
 import type { LocalizedText } from "./localized-text";
 
 type CuratedPatch = Partial<
-  Omit<Event, "localized" | "recurrence" | "recurrenceDay" | "recurrenceDays">
+  Omit<
+    Event,
+    | "localized"
+    | "recurrence"
+    | "recurrenceDay"
+    | "recurrenceDays"
+    | "isFree"
+    | "admissionPrice"
+    | "callForPricing"
+    | "ticketUrl"
+    | "venueSlug"
+    | "address"
+    | "lat"
+    | "lng"
+  >
 > & {
   localized?: Partial<{
     title: LocalizedText;
