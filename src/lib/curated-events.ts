@@ -287,6 +287,12 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     isFree: true,
     phone: "+18096576116",
   },
+  "iberostar-costa-dorada-day-pass": {
+    isFree: false,
+    phone: "+18093201000",
+    ticketUrl:
+      "https://local-experiences.iberostar.com/en/dominican-republic/puerto-plata/puerto-plata/iberostar-waves-costa-dorada/all-inclusive-day-pass",
+  },
   "crazy-lobster-beach-dining": {
     isFree: true,
     phone: "+18097496917",

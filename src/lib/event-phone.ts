@@ -35,6 +35,7 @@ const EVENT_PHONE_BY_ID: Record<string, string> = {
   "master-of-the-ocean-2026": "+18098564798",
   "terraza-ocean-world-evenings": "+18092911000",
   "kviar-disco-casino-nights": "+18093201632",
+  "iberostar-costa-dorada-day-pass": "+18093201000",
   "atlantico-fc-vs-delfines-2026-08-22": "+18496323133",
   "dewry-luciano-zona-acapella-2026-08-23": "+18297260344",
   "pop-cinemas-week-2026-08-20": "+18093201400",

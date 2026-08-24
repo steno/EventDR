@@ -91,6 +91,7 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   // Filename bumps after replacing flyer / logo / park-aerial stand-ins.
   "meclao-rooftop": "meclao-rooftop-lounge.jpg",
   "kviar-costa-dorada": "kviar-costa-dorada-floor.jpg",
+  "iberostar-waves-costa-dorada": "iberostar-waves-costa-dorada.jpg",
   "playa-cofresi": "playa-cofresi-shore.jpg",
   "don-limon-cofresi": "don-limon-cofresi.jpeg",
   "crazy-lobster-maimon": "crazy-lobster-maimon.jpg",

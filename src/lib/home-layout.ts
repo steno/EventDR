@@ -127,6 +127,7 @@ export const VENUE_AUDIENCE_POOLS: Record<
     "don-limon-cofresi",
     "crazy-lobster-maimon",
     "kviar-costa-dorada",
+    "iberostar-waves-costa-dorada",
     "meclao-rooftop",
     "laguna-sov",
     "santa-fe-sov",

@@ -97,6 +97,11 @@ const PLACE_SEARCH_ALIASES: Record<string, string[]> = {
     "Ocean Winds Hotel Calle Guayacanes Puerto Plata",
     "Amado's Restaurante Costambar",
   ],
+  "iberostar-waves-costa-dorada": [
+    "Iberostar Waves Costa Dorada",
+    "Iberostar Costa Dorada Puerto Plata",
+    "Iberostar Costa Dorada",
+  ],
   "estadio-leonel-placido": [
     "Estadio Leonel Plácido Puerto Plata",
     "Polideportivo Puerto Plata Hugo Kunhardt",

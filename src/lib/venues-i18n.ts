@@ -557,6 +557,12 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Casino et disco à l'hôtel Be Live Marien, Costa Dorada — tables, DJ et piste de l'après-midi jusqu'à 4 h.",
     },
   },
+  "iberostar-waves-costa-dorada": {
+    description: {
+      es: "Resort todo incluido en Costa Dorada, junto a Kviar / Be Live Marien — tres piscinas, playa premiada y day pass reservable. Hotel cerrado del 30 ago al 26 oct 2026 por reforma.",
+      fr: "Resort tout compris à Costa Dorada, à côté de Kviar / Be Live Marien — trois piscines, plage primée et day pass réservable. Hôtel fermé du 30 août au 26 oct. 2026 pour rénovation.",
+    },
+  },
   "playa-cofresi": {
     description: {
       es: "Playa pública al oeste de Puerto Plata — paseos al atardecer, snacks en la arena y orilla junto a la marina de Ocean World.",

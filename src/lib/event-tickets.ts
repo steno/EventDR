@@ -18,6 +18,7 @@ const TICKET_HOSTS = [
   "viator.com",
   "getyourguide.com",
   "boletu.com",
+  "local-experiences.iberostar.com",
 ];
 
 /** Curated ticket / booking URLs for seed events (verified on official sites). */
@@ -81,6 +82,8 @@ export const CURATED_TICKET_URLS: Record<string, string> = {
   "freestyle-catamaran-daily": "https://freestylecatamarans.com/reservation/",
   "outback-safari-daily":
     "https://www.sightseeing.com/packages/outback-safari-adventure-tour-from-puerto-plata/",
+  "iberostar-costa-dorada-day-pass":
+    "https://local-experiences.iberostar.com/en/dominican-republic/puerto-plata/puerto-plata/iberostar-waves-costa-dorada/all-inclusive-day-pass",
 };
 
 /**

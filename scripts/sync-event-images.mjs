@@ -27,6 +27,7 @@ const FILE_TO_EVENT_ID = {
   "liquid-blue-watersports-daily.jpg": "liquid-blue-watersports-daily",
   "la-casita-papi-beach-dining.jpg": "la-casita-papi-beach-dining",
   "el-cocotazo-cafe-beach-dining.jpg": "el-cocotazo-cafe-beach-dining",
+  "iberostar-costa-dorada-day-pass.jpg": "iberostar-costa-dorada-day-pass",
   "crazy-lobster-beach-dining.jpg": "crazy-lobster-beach-dining",
   "don-limon.jpeg": "don-limon-beach-dining",
   "ocean-winds-karaoke-nights.jpg": "ocean-winds-karaoke-nights",
@@ -187,6 +188,8 @@ const FILE_TO_VENUE_SLUG = {
   "asa-surviaval.jpeg": "club-deportivo-fantastico",
   "la-casita-papi-beach-dining.jpg": "la-casita-de-papi",
   "el-cocotazo-cafe-beach-dining.jpg": "el-cocotazo-cafe",
+  // Place shot of the main pool; day-pass listing uses the swim-up bar instead.
+  "iberostar-waves-costa-dorada.jpg": "iberostar-waves-costa-dorada",
   "crazy-lobster-beach-dining.jpg": "crazy-lobster-maimon",
   "don-limon-venue.jpeg": "don-limon-cofresi",
   "ocean-winds-karaoke-nights.jpg": "hotel-ocean-winds",

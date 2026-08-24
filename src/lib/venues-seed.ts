@@ -1053,6 +1053,19 @@ export const SEED_VENUES: Venue[] = [
     instagram: "kviarcasinos",
   },
   {
+    slug: "iberostar-waves-costa-dorada",
+    name: "Iberostar Waves Costa Dorada",
+    city: "Puerto Plata",
+    description:
+      "All-inclusive beach resort in Costa Dorada, next to Kviar / Be Live Marien — three pools, award-winning beach, and a bookable day pass. Hotel closed 30 Aug–26 Oct 2026 for refurbishment.",
+    lat: 19.775977,
+    lng: -70.657986,
+    emoji: "🏨",
+    website:
+      "https://www.iberostar.com/en/hotels/puerto-plata/iberostar-waves-costa-dorada/",
+    phone: "+18093201000",
+  },
+  {
     slug: "playa-cofresi",
     name: "Playa Cofresí",
     city: "Puerto Plata",
@@ -1228,6 +1241,10 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
   {
     pattern: /kviar|grand\s*oasis\s*marien/i,
     slug: "kviar-costa-dorada",
+  },
+  {
+    pattern: /iberostar(\s+waves)?\s+costa\s+dorada/i,
+    slug: "iberostar-waves-costa-dorada",
   },
   {
     pattern: /playa\s*cofre[sś][ií]|cofre[sś][ií]\s*beach/i,

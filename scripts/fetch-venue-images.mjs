@@ -268,6 +268,10 @@ const VENUE_SOURCES = [
   },
   // meclao-rooftop-lounge.jpg — official @meclaorooftop lounge night (committed).
   // kviar-costa-dorada-floor.jpg — official @kviarcasinos floor (committed).
+  {
+    eventId: "iberostar-costa-dorada-day-pass",
+    url: "https://static.hoteltreats.com/site/styles/hero/s3/2024-07/dor_pool_0051_low.jpg?h=f692311e&itok=wX2x9pYg",
+  },
   // playa-cofresi-shore.jpg — Wikimedia Cofresí shoreline (committed).
   // terraza-ocean-world-evenings uses the ocean-world venue dolphin shot — do not
   // remote-refresh a second Ocean World aerial over it.

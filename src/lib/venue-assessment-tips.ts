@@ -625,6 +625,14 @@ export const VENUE_TIP_COPY: Record<
       fr: "L'envoi casino-disco de Costa Dorada dans le Be Live Marien — énergie nuit touristique et tables jusqu'à 4 h, pas une piste típico du centre.",
     },
   },
+  "iberostar-waves-costa-dorada": {
+    body: "Costa Dorada's all-inclusive resort day next door to Kviar — book the pass, don't walk in; pools 9–6. Closed 30 Aug–26 Oct 2026 for refurbishment.",
+    localized: {
+      en: "Costa Dorada's all-inclusive resort day next door to Kviar — book the pass, don't walk in; pools 9–6. Closed 30 Aug–26 Oct 2026 for refurbishment.",
+      es: "El día de resort todo incluido de Costa Dorada al lado de Kviar — reserva el pase, no entres sin él; piscinas 9–6. Cerrado del 30 ago al 26 oct 2026 por reforma.",
+      fr: "La journée resort tout compris de Costa Dorada à côté de Kviar — réservez le pass, n'entrez pas sans ; piscines 9 h–18 h. Fermé du 30 août au 26 oct. 2026 pour rénovation.",
+    },
+  },
   "playa-cofresi": {
     body: "The easy family sunset west of town — snack shacks and a marina backdrop, not a kite-session beach and not the dolphin-park ticket.",
     localized: {

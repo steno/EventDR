@@ -123,6 +123,7 @@ function inferCity(event: Event): string | null {
   if (/cabarete|playa\s*encuentro/i.test(haystack)) return "Cabarete";
   if (/sos[uú]a/i.test(haystack)) return "Sosúa";
   if (/costambar/i.test(haystack)) return "Costambar";
+  if (/costa dorada/i.test(haystack)) return "Puerto Plata";
   if (/playa dorada/i.test(haystack)) return "Playa Dorada";
   if (/imbert|guananico|rinc[oó]n caliente/i.test(haystack)) return "Puerto Plata";
   if (/puerto plata/i.test(haystack)) return "Puerto Plata";

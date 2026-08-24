@@ -994,6 +994,26 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: "2026-08-17T13:00:00.000Z",
   },
   {
+    eventId: "iberostar-costa-dorada-day-pass",
+    seriesKey: "iberostar-waves-costa-dorada:daily",
+    body: "Buy the all-inclusive pass for the Costa Dorada resort day next to Kviar — pools, beach, and buffet, not a walk-in, and not the casino next door. Hotel closed 30 Aug–26 Oct 2026 for refurbishment.",
+    localized: {
+      es: "Compra el pase todo incluido para el día de resort en Costa Dorada junto a Kviar — piscinas, playa y buffet, no es entrar sin reserva ni el casino de al lado. Hotel cerrado del 30 ago al 26 oct 2026 por reforma.",
+      fr: "Achetez le pass tout compris pour la journée resort à Costa Dorada à côté de Kviar — piscines, plage et buffet, pas une entrée libre ni le casino d'à côté. Hôtel fermé du 30 août au 26 oct. 2026 pour rénovation.",
+    },
+    priceFeel: "upscale",
+    priceNote:
+      "From US$65 adult / US$33 child (2–12) on Iberostar Local Experiences; under 2 free. Pools 9:00 AM–6:00 PM. Hotel closed 30 Aug–26 Oct 2026.",
+    priceNoteLocalized: {
+      es: "Desde US$65 adulto / US$33 niño (2–12) en Iberostar Local Experiences; menores de 2 gratis. Piscinas 9:00 AM–6:00 PM. Hotel cerrado 30 ago–26 oct 2026.",
+      fr: "À partir de 65 $ US adulte / 33 $ US enfant (2–12) sur Iberostar Local Experiences ; moins de 2 ans gratuit. Piscines 9 h–18 h. Hôtel fermé du 30 août au 26 oct. 2026.",
+    },
+    attribution: "POP research · Iberostar Local Experiences day pass",
+    researchNotes:
+      "Official day pass: pools 09:00–18:00, from US$65/US$33, under 2 free. OSM 19.775977,-70.657986 next to Kviar/Be Live Marien. Hotel closed 30 Aug–26 Oct 2026. Phone +1 809 320 1000.",
+    updatedAt: "2026-08-24T21:00:00.000Z",
+  },
+  {
     eventId: "cofresi-beach-sunset-walk",
     seriesKey: "playa-cofresi:daily",
     body: "A free family sunset on the bay — snack cash only, and you are next to the marina, not on a remote wild beach.",

@@ -1,7 +1,7 @@
 import type { Event, EventRecurrence } from "./types";
 
 const NORTH_COAST_RE =
-  /puerto plata|sosúa|sosua|cabarete|costambar|playa dorada|playa encuentro|imbert|costa norte|north coast/i;
+  /puerto plata|sosúa|sosua|cabarete|costambar|playa dorada|costa dorada|playa encuentro|imbert|costa norte|north coast/i;
 
 const OFF_REGION_RE =
   /cotui|cotuí|\bmao\b|santiago|cibao|amaprosan|santo domingo|la vega|san francisco de macor[ií]s|santo domingo/i;

@@ -61,4 +61,18 @@ describe("countEventsByCity", () => {
     assert.equal(counts.sosua, 0);
     assert.equal(counts.cabarete, 0);
   });
+
+  it("counts Costa Dorada listings under Puerto Plata", () => {
+    const counts = countEventsByCity([
+      event({
+        id: "iberostar",
+        location: "Costa Dorada",
+        address: "Carretera Luperón Km 4, Costa Dorada",
+        venue: "Iberostar Waves Costa Dorada",
+      }),
+    ]);
+    assert.equal(counts["puerto-plata"], 1);
+    assert.equal(counts.sosua, 0);
+    assert.equal(counts.cabarete, 0);
+  });
 });

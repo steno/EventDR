@@ -1664,6 +1664,29 @@
     "imageEmoji": "🎰"
   },
   {
+    "id": "iberostar-costa-dorada-day-pass",
+    "title": "Day Pass Iberostar Waves Costa Dorada",
+    "description": "Day pass tout compris à l'Iberostar Waves Costa Dorada — trois piscines, transat piscine et plage (selon disponibilité), nourriture et boissons illimitées, pataugeoire, sports nautiques non motorisés, salle de sport et Star Camp (4–12 ans, sur réservation). Piscines 9 h–18 h. À partir de 65 $ US adulte / 33 $ US enfant (2–12 ans) ; moins de 2 ans gratuit. Réservez sur Iberostar Local Experiences. À côté de Kviar / Be Live Marien à Costa Dorada. Hôtel fermé du 30 août au 26 oct. 2026 pour rénovation — réservez jusqu'au 29 août ou à partir du 26 oct.",
+    "date": "2026-01-01",
+    "time": "9:00 AM – 6:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Iberostar Waves Costa Dorada",
+    "venueSlug": "iberostar-waves-costa-dorada",
+    "address": "Carretera Luperón Km 4, Costa Dorada, Puerto Plata",
+    "lat": 19.775977,
+    "lng": -70.657986,
+    "category": "adventure",
+    "categories": [
+      "food-drinks"
+    ],
+    "format": "physical",
+    "recurrence": "daily",
+    "phone": "+18093201000",
+    "ticketUrl": "https://local-experiences.iberostar.com/en/dominican-republic/puerto-plata/puerto-plata/iberostar-waves-costa-dorada/all-inclusive-day-pass",
+    "sourceUrl": "https://local-experiences.iberostar.com/en/dominican-republic/puerto-plata/puerto-plata/iberostar-waves-costa-dorada/all-inclusive-day-pass",
+    "imageEmoji": "🏖️"
+  },
+  {
     "id": "cofresi-beach-sunset-walk",
     "title": "Promenade au coucher du soleil à Playa Cofresí",
     "description": "Promenade familiale du soir sur Playa Cofresí, à l'ouest de Puerto Plata — sunset sur la baie, snacks sur le sable et marche facile le long de la marina Ocean World. Sans billet ; emportez du cash pour les meriendas.",
