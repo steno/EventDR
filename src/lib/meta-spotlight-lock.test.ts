@@ -3,7 +3,7 @@ import { describe, it } from "node:test";
 import {
   decideSpotlightLockAction,
   lockRecordForWrite,
-  SPOTLIGHT_LOCK_STALE_MS,
+  SPOTLIGHT_STEP_LEASE_MS,
   type SpotlightLockRecord,
 } from "./meta-spotlight-lock";
 
@@ -47,24 +47,41 @@ describe("decideSpotlightLockAction", () => {
     );
   });
 
-  it("resumes Instagram when Facebook already posted", () => {
+  it("reuses Facebook-only when Instagram was not requested", () => {
     assert.equal(
       decideSpotlightLockAction(
-        lock({ status: "in_progress", facebookId: "fb" }),
+        lock({ facebookId: "fb" }),
         "2026-08-21",
+        Date.now(),
+        { instagram: false },
       ),
-      "resume-instagram",
+      "reuse",
     );
   });
 
-  it("waits while a fresh publish is in flight", () => {
+  it("resumes Instagram when Facebook already posted and the step lease expired", () => {
     const now = 1_000_000;
     assert.equal(
       decideSpotlightLockAction(
         lock({
           status: "in_progress",
-          startedAt: now - 10_000,
-          facebookId: undefined,
+          facebookId: "fb",
+          stepLockUntil: now - 1,
+        }),
+        "2026-08-21",
+        now,
+      ),
+      "resume",
+    );
+  });
+
+  it("waits while another step still holds the lease", () => {
+    const now = 1_000_000;
+    assert.equal(
+      decideSpotlightLockAction(
+        lock({
+          status: "in_progress",
+          stepLockUntil: now + 10_000,
         }),
         "2026-08-21",
         now,
@@ -73,18 +90,19 @@ describe("decideSpotlightLockAction", () => {
     );
   });
 
-  it("retries after a stale in-progress lock", () => {
+  it("resumes a previous step after the lease expires, keeping progress", () => {
     const now = 1_000_000;
     assert.equal(
       decideSpotlightLockAction(
         lock({
           status: "in_progress",
-          startedAt: now - SPOTLIGHT_LOCK_STALE_MS - 1,
+          instagramChildIds: ["c1"],
+          stepLockUntil: now - SPOTLIGHT_STEP_LEASE_MS - 1,
         }),
         "2026-08-21",
         now,
       ),
-      "proceed",
+      "resume",
     );
   });
 
@@ -93,6 +111,18 @@ describe("decideSpotlightLockAction", () => {
       decideSpotlightLockAction(
         lock({ facebookId: "fb", instagramId: "ig" }),
         "2026-08-22",
+      ),
+      "proceed",
+    );
+  });
+
+  it("starts fresh when force is set", () => {
+    assert.equal(
+      decideSpotlightLockAction(
+        lock({ facebookId: "fb", instagramId: "ig" }),
+        "2026-08-21",
+        Date.now(),
+        { force: true },
       ),
       "proceed",
     );
@@ -110,9 +140,22 @@ describe("lockRecordForWrite", () => {
     assert.deepEqual(doc.eventIds, ["a"]);
   });
 
-  it("keeps ids that are present", () => {
-    const doc = lockRecordForWrite(lock({ facebookId: "fb", instagramId: "ig" }));
+  it("keeps ids and carousel state that are present", () => {
+    const doc = lockRecordForWrite(
+      lock({
+        facebookId: "fb",
+        instagramId: "ig",
+        instagramChildIds: ["c1", "c2"],
+        instagramParentId: "p1",
+        caption: "Today on the North Coast.",
+        stepLockUntil: 0,
+      }),
+    );
     assert.equal(doc.facebookId, "fb");
     assert.equal(doc.instagramId, "ig");
+    assert.deepEqual(doc.instagramChildIds, ["c1", "c2"]);
+    assert.equal(doc.instagramParentId, "p1");
+    assert.equal(doc.caption, "Today on the North Coast.");
+    assert.equal(doc.stepLockUntil, 0);
   });
 });

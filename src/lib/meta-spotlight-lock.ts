@@ -2,7 +2,10 @@ import { localDateISO } from "@/lib/event-dates";
 import { getFirestoreDb, isFirebaseConfigured } from "@/lib/firebase/admin";
 import type { DocumentData } from "firebase-admin/firestore";
 
-export const SPOTLIGHT_LOCK_STALE_MS = 4 * 60 * 1000;
+/** Lease so two overlapping `next` steps cannot both hit Graph. */
+export const SPOTLIGHT_STEP_LEASE_MS = 60 * 1000;
+export const SPOTLIGHT_LOCK_STALE_MS = SPOTLIGHT_STEP_LEASE_MS;
+
 const COLLECTION = "ops";
 const DOC_ID = "metaDailySpotlight";
 
@@ -12,35 +15,46 @@ export type SpotlightLockRecord = {
   source: "today";
   status: "in_progress" | "complete" | "failed";
   eventIds: string[];
+  caption?: string;
+  imageUrls?: string[];
+  link?: string;
   facebookId?: string;
   instagramId?: string;
+  instagramChildIds?: string[];
+  instagramParentId?: string;
+  stepLockUntil?: number;
   startedAt: number;
   updatedAt: number;
 };
 
-export type SpotlightLockDecision =
-  | "proceed"
-  | "reuse"
-  | "wait"
-  | "resume-instagram";
+export type SpotlightLockDecision = "proceed" | "reuse" | "wait" | "resume";
 
 export function decideSpotlightLockAction(
   record: SpotlightLockRecord | null,
   today: string,
   now = Date.now(),
+  options: {
+    force?: boolean;
+    facebook?: boolean;
+    instagram?: boolean;
+  } = {},
 ): SpotlightLockDecision {
-  if (!record || record.date !== today) return "proceed";
-  const hasFacebook = Boolean(record.facebookId);
-  const hasInstagram = Boolean(record.instagramId);
-  if (hasFacebook && hasInstagram) return "reuse";
-  if (hasFacebook && !hasInstagram) return "resume-instagram";
-  if (
-    record.status === "in_progress" &&
-    now - record.startedAt < SPOTLIGHT_LOCK_STALE_MS
-  ) {
-    return "wait";
-  }
-  return "proceed";
+  if (!record || record.date !== today || options.force) return "proceed";
+  const wantFacebook = options.facebook !== false;
+  const wantInstagram = options.instagram !== false;
+  const facebookDone = !wantFacebook || Boolean(record.facebookId);
+  const instagramDone = !wantInstagram || Boolean(record.instagramId);
+  if (facebookDone && instagramDone) return "reuse";
+  if (record.stepLockUntil && record.stepLockUntil > now) return "wait";
+  return "resume";
+}
+
+function stringList(value: unknown): string[] | undefined {
+  if (!Array.isArray(value)) return undefined;
+  const items = value.filter(
+    (item): item is string => typeof item === "string" && item.length > 0,
+  );
+  return items.length ? items : undefined;
 }
 
 /** Firestore rejects `undefined` field values unless ignoreUndefinedProperties is on. */
@@ -55,8 +69,20 @@ export function lockRecordForWrite(
     eventIds: record.eventIds,
     startedAt: record.startedAt,
     updatedAt: record.updatedAt,
+    ...(record.caption ? { caption: record.caption } : {}),
+    ...(record.imageUrls?.length ? { imageUrls: record.imageUrls } : {}),
+    ...(record.link ? { link: record.link } : {}),
     ...(record.facebookId ? { facebookId: record.facebookId } : {}),
     ...(record.instagramId ? { instagramId: record.instagramId } : {}),
+    ...(record.instagramChildIds?.length
+      ? { instagramChildIds: record.instagramChildIds }
+      : {}),
+    ...(record.instagramParentId
+      ? { instagramParentId: record.instagramParentId }
+      : {}),
+    ...(typeof record.stepLockUntil === "number"
+      ? { stepLockUntil: record.stepLockUntil }
+      : {}),
   };
 }
 
@@ -78,23 +104,50 @@ function asLockRecord(data: DocumentData | undefined) {
     locale: data.locale,
     source: "today" as const,
     status: data.status,
-    eventIds: Array.isArray(data.eventIds)
-      ? data.eventIds.filter((id): id is string => typeof id === "string")
-      : [],
+    eventIds: stringList(data.eventIds) ?? [],
+    caption: typeof data.caption === "string" ? data.caption : undefined,
+    imageUrls: stringList(data.imageUrls),
+    link: typeof data.link === "string" ? data.link : undefined,
     facebookId:
       typeof data.facebookId === "string" ? data.facebookId : undefined,
     instagramId:
       typeof data.instagramId === "string" ? data.instagramId : undefined,
+    instagramChildIds: stringList(data.instagramChildIds),
+    instagramParentId:
+      typeof data.instagramParentId === "string"
+        ? data.instagramParentId
+        : undefined,
+    stepLockUntil:
+      typeof data.stepLockUntil === "number" ? data.stepLockUntil : undefined,
     startedAt: typeof data.startedAt === "number" ? data.startedAt : 0,
     updatedAt: typeof data.updatedAt === "number" ? data.updatedAt : 0,
   } satisfies SpotlightLockRecord;
 }
 
+export async function readTodaySpotlightLock(): Promise<SpotlightLockRecord | null> {
+  if (!isFirebaseConfigured()) return null;
+  const db = getFirestoreDb();
+  if (!db) return null;
+  try {
+    const snap = await db.collection(COLLECTION).doc(DOC_ID).get();
+    return asLockRecord(snap.data());
+  } catch (error) {
+    console.error("readTodaySpotlightLock failed", error);
+    return null;
+  }
+}
+
 export async function claimTodaySpotlightLock(input: {
   locale: string;
   eventIds: string[];
+  caption?: string;
+  imageUrls?: string[];
+  link?: string;
+  force?: boolean;
+  facebook?: boolean;
+  instagram?: boolean;
 }): Promise<
-  | { ok: true; action: "proceed" | "resume-instagram"; record: SpotlightLockRecord }
+  | { ok: true; action: "proceed" | "resume"; record: SpotlightLockRecord }
   | { ok: true; action: "reuse"; record: SpotlightLockRecord }
   | { ok: true; action: "wait"; record: SpotlightLockRecord }
   | { ok: true; action: "skip" }
@@ -111,7 +164,11 @@ export async function claimTodaySpotlightLock(input: {
     return await db.runTransaction(async (tx) => {
       const snap = await tx.get(ref);
       const existing = asLockRecord(snap.data());
-      const action = decideSpotlightLockAction(existing, today, now);
+      const action = decideSpotlightLockAction(existing, today, now, {
+        force: input.force,
+        facebook: input.facebook,
+        instagram: input.instagram,
+      });
       if (action === "reuse" && existing) {
         return { ok: true as const, action, record: existing };
       }
@@ -119,24 +176,28 @@ export async function claimTodaySpotlightLock(input: {
         return { ok: true as const, action, record: existing };
       }
 
+      const keep = action === "resume" ? existing : null;
       const record: SpotlightLockRecord = {
         date: today,
         locale: input.locale,
         source: "today",
         status: "in_progress",
-        eventIds: input.eventIds,
-        facebookId:
-          action === "resume-instagram" ? existing?.facebookId : undefined,
-        startedAt:
-          action === "resume-instagram" && existing
-            ? existing.startedAt
-            : now,
+        eventIds: keep?.eventIds.length ? keep.eventIds : input.eventIds,
+        caption: keep?.caption ?? input.caption,
+        imageUrls: keep?.imageUrls ?? input.imageUrls,
+        link: keep?.link ?? input.link,
+        facebookId: keep?.facebookId,
+        instagramId: keep?.instagramId,
+        instagramChildIds: keep?.instagramChildIds,
+        instagramParentId: keep?.instagramParentId,
+        stepLockUntil: now + SPOTLIGHT_STEP_LEASE_MS,
+        startedAt: keep?.startedAt ?? now,
         updatedAt: now,
       };
       tx.set(ref, lockRecordForWrite(record));
       return {
         ok: true as const,
-        action: action === "resume-instagram" ? action : "proceed",
+        action: keep ? ("resume" as const) : ("proceed" as const),
         record,
       };
     });
@@ -149,9 +210,15 @@ export async function claimTodaySpotlightLock(input: {
 export async function finishTodaySpotlightLock(input: {
   eventIds: string[];
   locale: string;
+  caption?: string;
+  imageUrls?: string[];
+  link?: string;
   facebookId?: string;
   instagramId?: string;
+  instagramChildIds?: string[];
+  instagramParentId?: string;
   failed?: boolean;
+  complete?: boolean;
 }): Promise<void> {
   if (!isFirebaseConfigured()) return;
   const db = getFirestoreDb();
@@ -163,18 +230,26 @@ export async function finishTodaySpotlightLock(input: {
     const existing = asLockRecord(snap.data());
     const facebookId = input.facebookId ?? existing?.facebookId;
     const instagramId = input.instagramId ?? existing?.instagramId;
-    const complete = Boolean(facebookId && instagramId) && !input.failed;
+    const complete =
+      !input.failed &&
+      (input.complete === true || Boolean(facebookId && instagramId));
     await ref.set(
       lockRecordForWrite({
         date: localDateISO(),
         locale: input.locale,
         source: "today",
         status: input.failed ? "failed" : complete ? "complete" : "in_progress",
-        eventIds: input.eventIds,
-        startedAt: existing?.startedAt ?? now,
-        updatedAt: now,
+        eventIds: input.eventIds.length ? input.eventIds : existing?.eventIds ?? [],
+        caption: input.caption ?? existing?.caption,
+        imageUrls: input.imageUrls ?? existing?.imageUrls,
+        link: input.link ?? existing?.link,
         facebookId,
         instagramId,
+        instagramChildIds: input.instagramChildIds ?? existing?.instagramChildIds,
+        instagramParentId: input.instagramParentId ?? existing?.instagramParentId,
+        stepLockUntil: 0,
+        startedAt: existing?.startedAt ?? now,
+        updatedAt: now,
       }),
       { merge: true },
     );

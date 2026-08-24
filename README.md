@@ -93,7 +93,7 @@ You can also trigger cleanup and notifications manually via secured API endpoint
 - **`POST /api/cron/cleanup`** — Manual cleanup (`Authorization: Bearer CRON_SECRET`)
 - **`POST /api/cron/notify`** — Manual notification (`Authorization: Bearer CRON_SECRET`)
 - **`GET /api/cron/meta-post`** — Confirm Meta env is set (add `?inspect=1` only when you need a live Graph token check)
-- **`POST /api/cron/meta-post`** — Publish to Facebook and/or Instagram (`dryRun`, `source: "today"` for the daily top 3, or `source: "weekend"`)
+- **`POST /api/cron/meta-post`** — Publish to Facebook and/or Instagram (`dryRun`, `source: "today"` for the daily top 3, or `source: "weekend"`). Today’s live post is stepped; use `scripts/run-today-spotlight.mjs` or the GitHub Action rather than a single curl.
 
 GitHub Action **Daily today spotlight** (`daily-today-spotlight.yml`) posts the top 3 events happening today every day ~9:00 AST.
 

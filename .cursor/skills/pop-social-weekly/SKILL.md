@@ -44,9 +44,9 @@ Pick trending events first, then variety across cities/categories.
 
 ## Recurring publish
 
-GitHub Action `daily-today-spotlight.yml` posts the **top 3 today** to Facebook (feed link) and Instagram (photo/carousel) every day ~9:00 AST.
+GitHub Action `daily-today-spotlight.yml` posts the **top 3 today** to Facebook (album) and Instagram (photo/carousel) every day ~9:00 AST. The Action loops short Graph steps so Netlify’s ~26s timeout cannot abort the job.
 
-In chat: **spotlight the top 3 today** (live) or **dry run today spotlight**.
+In chat: **spotlight the top 3 today** (live) or **dry run today spotlight**. Live post: `node scripts/run-today-spotlight.mjs` with `SITE_URL` and `CRON_SECRET` (production must already be on the stepped API). Do not fire one `POST /api/cron/meta-post` with `source: today` and wait for both networks.
 
 ### 3. City-specific post
 

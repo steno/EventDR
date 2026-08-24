@@ -13,10 +13,11 @@ import {
   weekendMetaHashtags,
   type MetaPublishInput,
 } from "@/lib/meta-post";
+import { readTodaySpotlightLock } from "@/lib/meta-spotlight-lock";
 import {
-  claimTodaySpotlightLock,
-  finishTodaySpotlightLock,
-} from "@/lib/meta-spotlight-lock";
+  runTodaySpotlightStep,
+  type TodaySpotlightProgress,
+} from "@/lib/meta-spotlight-run";
 
 export const dynamic = "force-dynamic";
 export const maxDuration = 120;
@@ -41,8 +42,12 @@ export async function GET(request: NextRequest) {
   const parsed = readMetaPostConfig();
   if (!parsed.ok) return notConfigured(parsed.missing);
 
-  const inspectLive =
-    request.nextUrl.searchParams.get("inspect") === "1";
+  if (request.nextUrl.searchParams.get("lock") === "1") {
+    const lock = await readTodaySpotlightLock();
+    return NextResponse.json({ ready: true, lock });
+  }
+
+  const inspectLive = request.nextUrl.searchParams.get("inspect") === "1";
   if (!inspectLive) {
     return NextResponse.json({
       ready: true,
@@ -51,7 +56,7 @@ export async function GET(request: NextRequest) {
       instagramConfigured: Boolean(parsed.config.instagramAccountId),
       envInstagramId: parsed.config.instagramAccountId,
       graphVersion: parsed.config.graphVersion,
-      hint: "Add ?inspect=1 to call Graph (uses API quota).",
+      hint: "Add ?inspect=1 to call Graph (uses API quota). Add ?lock=1 to read today's spotlight lock.",
     });
   }
 
@@ -74,11 +79,13 @@ export async function GET(request: NextRequest) {
   });
 }
 
-type PostBody = Partial<MetaPublishInput> & {
-  source?: "weekend" | "today";
-  locale?: string;
-  force?: boolean;
-};
+type PostBody = Partial<MetaPublishInput> &
+  TodaySpotlightProgress & {
+    source?: "weekend" | "today";
+    locale?: string;
+    force?: boolean;
+    step?: "next" | "all";
+  };
 
 export async function POST(request: NextRequest) {
   if (!checkCronSecret(request)) return unauthorized();
@@ -93,14 +100,81 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Invalid JSON" }, { status: 400 });
   }
 
+  const localeParam = body.locale ?? "en";
+  const locale: Locale = isValidLocale(localeParam) ? localeParam : "en";
+
+  if (body.source === "today") {
+    if (body.dryRun) {
+      let built: Awaited<ReturnType<typeof buildTodayMetaPost>>;
+      try {
+        built = await buildTodayMetaPost(locale);
+      } catch (error) {
+        console.error("buildTodayMetaPost failed", error);
+        return NextResponse.json(
+          {
+            success: false,
+            error: error instanceof Error ? error.message : String(error),
+          },
+          { status: 500 },
+        );
+      }
+      if (!built.ok) {
+        return NextResponse.json({ error: built.error }, { status: 422 });
+      }
+      return jsonPublishResult(
+        await publishToMeta(parsed.config, {
+          caption: built.post.caption,
+          imageUrl: built.post.imageUrl,
+          imageUrls: built.post.imageUrls,
+          link: built.post.link,
+          facebook: body.facebook,
+          instagram: body.instagram,
+          dryRun: true,
+        }),
+        built.post.events.map((event) => event.id),
+      );
+    }
+
+    try {
+      const stepped = await runTodaySpotlightStep({
+        config: parsed.config,
+        locale,
+        wantFacebook: body.facebook !== false,
+        wantInstagram: body.instagram !== false,
+        force: body.force,
+        progress: {
+          facebookId: body.facebookId,
+          instagramId: body.instagramId,
+          instagramChildIds: body.instagramChildIds,
+          instagramParentId: body.instagramParentId,
+          caption: body.caption,
+          imageUrls: body.imageUrls,
+          link: body.link,
+          eventIds: body.eventIds,
+        },
+      });
+      return NextResponse.json(stepped.body, {
+        status: stepped.status,
+        headers: stepped.body.rateLimited ? { "Retry-After": "300" } : undefined,
+      });
+    } catch (error) {
+      console.error("runTodaySpotlightStep failed", error);
+      return NextResponse.json(
+        {
+          success: false,
+          done: false,
+          error: error instanceof Error ? error.message : String(error),
+        },
+        { status: 500 },
+      );
+    }
+  }
+
   let caption = body.caption ?? "";
   let imageUrl = body.imageUrl;
   let imageUrls = body.imageUrls;
   let link = body.link;
-  let spotlightIds: string[] = [];
-
-  const localeParam = body.locale ?? "en";
-  const locale: Locale = isValidLocale(localeParam) ? localeParam : "en";
+  const spotlightIds: string[] = [];
 
   if (body.source === "weekend") {
     const digest = await buildPartnerDigest(locale);
@@ -117,30 +191,6 @@ export async function POST(request: NextRequest) {
       `${SITE_URL.replace(/\/$/, "")}/${locale}/when/weekend?utm_source=meta&utm_medium=social&utm_campaign=weekend`;
   }
 
-  if (body.source === "today") {
-    let built: Awaited<ReturnType<typeof buildTodayMetaPost>>;
-    try {
-      built = await buildTodayMetaPost(locale);
-    } catch (error) {
-      console.error("buildTodayMetaPost failed", error);
-      return NextResponse.json(
-        {
-          success: false,
-          error: error instanceof Error ? error.message : String(error),
-        },
-        { status: 500 },
-      );
-    }
-    if (!built.ok) {
-      return NextResponse.json({ error: built.error }, { status: 422 });
-    }
-    caption = built.post.caption;
-    imageUrl = built.post.imageUrl;
-    imageUrls = built.post.imageUrls;
-    link = built.post.link;
-    spotlightIds = built.post.events.map((event) => event.id);
-  }
-
   const input: MetaPublishInput = {
     caption,
     imageUrl,
@@ -149,60 +199,10 @@ export async function POST(request: NextRequest) {
     facebook: body.facebook,
     instagram: body.instagram,
     dryRun: body.dryRun,
-    onPosted:
-      body.source === "today"
-        ? async (update) => {
-            await finishTodaySpotlightLock({
-              locale,
-              eventIds: spotlightIds,
-              facebookId: update.facebookId,
-              instagramId: update.instagramId,
-            });
-          }
-        : undefined,
   };
-  let preservedFacebookId: string | undefined;
 
   if (body.dryRun) {
-    return jsonPublishResult(
-      await publishToMeta(parsed.config, input),
-      spotlightIds,
-    );
-  }
-
-  if (body.source === "today" && !body.force) {
-    const claimed = await claimTodaySpotlightLock({
-      locale,
-      eventIds: spotlightIds,
-    });
-    if (claimed.action === "reuse") {
-      return NextResponse.json({
-        success: true,
-        reused: true,
-        eventIds: claimed.record.eventIds,
-        facebook: claimed.record.facebookId
-          ? { ok: true, id: claimed.record.facebookId }
-          : undefined,
-        instagram: claimed.record.instagramId
-          ? { ok: true, id: claimed.record.instagramId }
-          : undefined,
-      });
-    }
-    if (claimed.action === "wait") {
-      return NextResponse.json(
-        {
-          success: true,
-          inProgress: true,
-          error: "Today's spotlight is already publishing. Not starting another Graph burst.",
-          eventIds: claimed.record.eventIds,
-        },
-        { status: 200 },
-      );
-    }
-    if (claimed.action === "resume-instagram") {
-      input.facebook = false;
-      preservedFacebookId = claimed.record.facebookId;
-    }
+    return jsonPublishResult(await publishToMeta(parsed.config, input), spotlightIds);
   }
 
   // Stream pings so Netlify's inactivity gateway does not 504 mid-publish.
@@ -223,32 +223,8 @@ export async function POST(request: NextRequest) {
         source: body.source ?? "custom",
       });
       const published = await publishToMeta(parsed.config, input);
-      if (body.source === "today") {
-        const facebookId =
-          published.ok && published.result.facebook?.ok
-            ? published.result.facebook.id
-            : preservedFacebookId;
-        const instagramId =
-          published.ok && published.result.instagram?.ok
-            ? published.result.instagram.id
-            : undefined;
-        await finishTodaySpotlightLock({
-          locale,
-          eventIds: spotlightIds,
-          facebookId,
-          instagramId,
-          failed: !published.ok || (!facebookId && !instagramId),
-        });
-      }
       await writeLine(publishPayload(published, spotlightIds));
     } catch (err) {
-      if (body.source === "today") {
-        await finishTodaySpotlightLock({
-          locale,
-          eventIds: spotlightIds,
-          failed: true,
-        });
-      }
       await writeLine({
         success: false,
         error: err instanceof Error ? err.message : String(err),

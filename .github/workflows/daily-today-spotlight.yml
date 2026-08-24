@@ -20,7 +20,10 @@ on:
 jobs:
   post:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
+      - uses: actions/checkout@v4
+
       - name: Check Meta configuration
         env:
           SITE_URL: https://pop-event.com
@@ -60,100 +63,9 @@ jobs:
             echo "::error::CRON_SECRET secret not set — add it in repo Settings → Secrets."
             exit 1
           fi
-          
           if [ "$DRY_RUN" = "true" ]; then
             echo "::notice::Running in DRY RUN mode - no posts will be published"
-            payload='{"source":"today","locale":"en","dryRun":true}'
           elif [ "$INSTAGRAM_ONLY" = "true" ]; then
             echo "::notice::Posting to Instagram only — skipping Facebook"
-            payload='{"source":"today","locale":"en","facebook":false,"instagram":true}'
-          else
-            payload='{"source":"today","locale":"en"}'
           fi
-          
-          tmp="$(mktemp)"
-          # Live publish streams NDJSON pings so Netlify's ~26s inactivity gateway does not 504.
-          http=$(curl -sS --max-time 180 -o "$tmp" -w "%{http_code}" \
-            -X POST "${SITE_URL}/api/cron/meta-post" \
-            -H "Authorization: Bearer ${CRON_SECRET}" \
-            -H "Content-Type: application/json" \
-            -d "$payload")
-          
-          echo "::group::Response (HTTP ${http})"
-          cat "$tmp"
-          echo
-          echo "::endgroup::"
-          
-          result_line=$(awk 'NF && $0 !~ /"ping"/ { line=$0 } END { print line }' "$tmp")
-          if [ -n "$result_line" ]; then
-            printf '%s\n' "$result_line" > "$tmp"
-          fi
-          
-          # Handle no events to spotlight (422 is expected and OK)
-          if [ "$http" = "422" ]; then
-            echo "::notice::No today events to spotlight — skipping post."
-            exit 0
-          fi
-          
-          # Handle missing Meta configuration (503)
-          if [ "$http" = "503" ]; then
-            echo "::error::Meta posting is not configured. Add META_PAGE_ID and META_PAGE_ACCESS_TOKEN to Netlify environment variables."
-            grep -o '"missing":\[[^]]*\]' "$tmp" || true
-            exit 1
-          fi
-          
-          # Handle unauthorized (401)
-          if [ "$http" = "401" ]; then
-            echo "::error::Unauthorized. Check that CRON_SECRET matches the secret configured in Netlify."
-            exit 1
-          fi
-          
-          # Handle Meta rate limits (429)
-          if [ "$http" = "429" ]; then
-            echo "::error::Facebook rate-limited this app (too many Graph calls). Wait 15–30 minutes before retrying."
-            grep -o '"error":[^,}]*' "$tmp" || true
-            exit 1
-          fi
-
-          # Handle Meta API errors (502)
-          if [ "$http" = "502" ]; then
-            echo "::error::Meta Graph API rejected the request. Check token validity and permissions."
-            grep -o '"error":[^,}]*' "$tmp" || true
-            exit 1
-          fi
-          
-          # Handle success (200-299)
-          if [ "$http" -ge 200 ] && [ "$http" -lt 300 ]; then
-            if grep -Eq '"success"[[:space:]]*:[[:space:]]*true' "$tmp"; then
-              if grep -Eq '"reused"[[:space:]]*:[[:space:]]*true' "$tmp"; then
-                echo "::notice::Today's spotlight was already posted — skipped a duplicate Graph publish."
-                exit 0
-              fi
-              if grep -Eq '"inProgress"[[:space:]]*:[[:space:]]*true' "$tmp"; then
-                echo "::notice::Today's spotlight is already publishing on the server — not starting another burst."
-                exit 0
-              fi
-              if [ "$DRY_RUN" = "true" ]; then
-                echo "::notice::✓ Dry run successful - post preview generated without publishing."
-              else
-                echo "::notice::✓ Successfully posted today's events to Facebook and Instagram."
-              fi
-              exit 0
-            else
-              # Got 2xx but success: false (partial failure)
-              echo "::warning::Post partially succeeded or failed. Check response details."
-              if grep -q '"facebook"' "$tmp"; then
-                echo "Facebook result:"
-                grep -o '"facebook":\{[^}]*\}' "$tmp" || true
-              fi
-              if grep -q '"instagram"' "$tmp"; then
-                echo "Instagram result:"
-                grep -o '"instagram":\{[^}]*\}' "$tmp" || true
-              fi
-              exit 1
-            fi
-          fi
-          
-          # Unexpected error
-          echo "::error::Today spotlight publish failed with HTTP ${http}."
-          exit 1
+          node scripts/run-today-spotlight.mjs

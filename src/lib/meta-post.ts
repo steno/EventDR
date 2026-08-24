@@ -349,6 +349,146 @@ async function waitForInstagramContainer(
   return { ok: true };
 }
 
+export function instagramContainersFinished(
+  ids: string[],
+  statuses: Record<string, string | undefined>,
+): boolean {
+  return ids.length > 0 && ids.every((id) => statuses[id] === "FINISHED");
+}
+
+export function instagramContainerFailure(
+  ids: string[],
+  statuses: Record<string, string | undefined>,
+): string | undefined {
+  for (const id of ids) {
+    const code = statuses[id];
+    if (code === "ERROR" || code === "EXPIRED") return `${id}:${code}`;
+  }
+  return undefined;
+}
+
+export async function createInstagramMediaContainers(
+  config: MetaPostConfig,
+  input: { imageUrls: string[]; caption?: string; carousel: boolean },
+  fetchImpl?: GraphFetch,
+): Promise<{ ok: true; ids: string[] } | { ok: false; error: MetaGraphError }> {
+  if (!config.instagramAccountId) {
+    return {
+      ok: false,
+      error: { message: "META_INSTAGRAM_ACCOUNT_ID is not set" },
+    };
+  }
+  const paced = shouldPace(fetchImpl);
+  const ids: string[] = [];
+  const imageUrls = input.imageUrls.slice(0, 10);
+  for (const [index, imageUrl] of imageUrls.entries()) {
+    if (paced && index > 0) await sleep(GRAPH_WRITE_GAP_MS);
+    const params: Record<string, string> = { image_url: imageUrl };
+    if (input.carousel) params.is_carousel_item = "true";
+    else if (input.caption) params.caption = input.caption;
+    const child = await metaGraphRequest<{ id?: string }>(
+      config,
+      `${config.instagramAccountId}/media`,
+      { method: "POST", params, fetchImpl },
+    );
+    if (!child.ok) return child;
+    const childId = child.data.id;
+    if (!childId) {
+      return { ok: false, error: { message: "Instagram container missing id" } };
+    }
+    ids.push(childId);
+  }
+  if (!ids.length) {
+    return { ok: false, error: { message: "Instagram needs at least 1 image" } };
+  }
+  return { ok: true, ids };
+}
+
+export async function readInstagramContainerStatuses(
+  config: MetaPostConfig,
+  ids: string[],
+  fetchImpl?: GraphFetch,
+): Promise<
+  | { ok: true; statuses: Record<string, string | undefined> }
+  | { ok: false; error: MetaGraphError }
+> {
+  const statuses: Record<string, string | undefined> = {};
+  for (const id of ids) {
+    const status = await metaGraphRequest<{ status_code?: string }>(
+      config,
+      id,
+      { params: { fields: "status_code" }, fetchImpl },
+    );
+    if (!status.ok) return status;
+    statuses[id] = status.data.status_code;
+  }
+  return { ok: true, statuses };
+}
+
+export async function createInstagramCarouselParent(
+  config: MetaPostConfig,
+  input: { childIds: string[]; caption: string },
+  fetchImpl?: GraphFetch,
+): Promise<{ ok: true; id: string } | { ok: false; error: MetaGraphError }> {
+  if (!config.instagramAccountId) {
+    return {
+      ok: false,
+      error: { message: "META_INSTAGRAM_ACCOUNT_ID is not set" },
+    };
+  }
+  if (input.childIds.length < 2) {
+    return {
+      ok: false,
+      error: { message: "Instagram carousel needs at least 2 images" },
+    };
+  }
+  const parent = await metaGraphRequest<{ id?: string }>(
+    config,
+    `${config.instagramAccountId}/media`,
+    {
+      method: "POST",
+      params: {
+        media_type: "CAROUSEL",
+        children: input.childIds.join(","),
+        caption: input.caption,
+      },
+      fetchImpl,
+    },
+  );
+  if (!parent.ok) return parent;
+  const id = parent.data.id;
+  if (!id) {
+    return { ok: false, error: { message: "Instagram carousel missing id" } };
+  }
+  return { ok: true, id };
+}
+
+export async function publishInstagramCreation(
+  config: MetaPostConfig,
+  creationId: string,
+  fetchImpl?: GraphFetch,
+): Promise<{ ok: true; id: string } | { ok: false; error: MetaGraphError }> {
+  if (!config.instagramAccountId) {
+    return {
+      ok: false,
+      error: { message: "META_INSTAGRAM_ACCOUNT_ID is not set" },
+    };
+  }
+  const published = await metaGraphRequest<{ id?: string }>(
+    config,
+    `${config.instagramAccountId}/media_publish`,
+    {
+      method: "POST",
+      params: { creation_id: creationId },
+      fetchImpl,
+    },
+  );
+  if (!published.ok) return published;
+  const id = published.data.id;
+  if (!id) return { ok: false, error: { message: "Instagram publish missing id" } };
+  return { ok: true, id };
+}
+
 /** Photo-with-caption on the Page feed. `/photos` published=true often stays in Photos only. */
 export async function publishFacebookPhoto(
   config: MetaPostConfig,

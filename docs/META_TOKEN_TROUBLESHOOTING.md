@@ -97,9 +97,22 @@ Meta shows this dialog (Insights call-load) when the **same app** bursts Graph c
 What the app now does:
 - Same-day spotlight is locked — a retry will reuse the existing post instead of publishing again
 - GET `/api/cron/meta-post` no longer calls Graph unless you add `?inspect=1`
-- Graph writes are paced, Instagram status is polled less often, and rate-limit errors (code 4 / 17 / 32) retry with backoff
+- Live today-spotlight is split into short Graph steps (Facebook album, IG children, wait, carousel parent, publish). GitHub Action `daily-today-spotlight.yml` loops those steps with `scripts/run-today-spotlight.mjs` so Netlify’s ~26s function limit cannot abort the whole job
+- Graph writes are paced, and rate-limit errors (code 4 / 17 / 32) retry with backoff
 
 If you still see the dialog: wait 15–30 minutes, do not re-run **Daily today spotlight**, and stay out of Ads Manager / Page Insights until it clears.
+
+### Netlify 26-second timeout (empty HTTP 200 / pings only)
+
+A single request that uploads a Facebook album **and** waits for an Instagram carousel will be killed around 26 seconds. The stream ends with `{"phase":"publish"}` and keep-alive pings, and the workflow used to treat that as a failed publish.
+
+Do not POST `{"source":"today"}` once and expect both networks to finish. Use:
+
+```bash
+SITE_URL=https://pop-event.com CRON_SECRET=... node scripts/run-today-spotlight.mjs
+```
+
+or run the GitHub Action. Each API call does one Graph step and returns JSON (`done`, `inProgress`, `phase`).
 
 ---
 

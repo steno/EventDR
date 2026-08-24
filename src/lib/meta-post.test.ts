@@ -2,7 +2,10 @@ import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import {
   clipMetaCaption,
+  createInstagramMediaContainers,
   defaultMetaImageUrl,
+  instagramContainersFinished,
+  instagramContainerFailure,
   isAllowedMetaImageUrl,
   isMetaRateLimitError,
   META_CAPTION_MAX,
@@ -196,6 +199,46 @@ describe("meta-post", () => {
     if (!result.ok) return;
     assert.equal(result.data.id, "feed-ok");
     assert.equal(n, 2);
+  });
+
+  it("creates Instagram carousel children without polling container status", async () => {
+    const paths: string[] = [];
+    const fetchImpl: typeof fetch = async (input, init) => {
+      const url = new URL(String(input));
+      const path = url.pathname.replace(/^\/v[\d.]+/, "");
+      paths.push(`${init?.method ?? "GET"} ${path}`);
+      return jsonResponse({ id: `ig-${paths.length}` });
+    };
+    const created = await createInstagramMediaContainers(
+      config,
+      {
+        imageUrls: [
+          "https://pop-event.com/events/a.jpg",
+          "https://pop-event.com/events/b.jpg",
+        ],
+        carousel: true,
+      },
+      fetchImpl,
+    );
+    assert.equal(created.ok, true);
+    if (!created.ok) return;
+    assert.deepEqual(created.ids, ["ig-1", "ig-2"]);
+    assert.deepEqual(paths, ["POST /ig-1/media", "POST /ig-1/media"]);
+  });
+
+  it("treats only FINISHED Instagram containers as ready", () => {
+    assert.equal(
+      instagramContainersFinished(["a", "b"], { a: "FINISHED", b: "FINISHED" }),
+      true,
+    );
+    assert.equal(
+      instagramContainersFinished(["a", "b"], { a: "FINISHED", b: "IN_PROGRESS" }),
+      false,
+    );
+    assert.equal(
+      instagramContainerFailure(["a"], { a: "ERROR" }),
+      "a:ERROR",
+    );
   });
 });
 
