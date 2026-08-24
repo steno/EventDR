@@ -176,6 +176,17 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     ],
   }),
   editorial({
+    venueSlug: "el-cocotazo-cafe",
+    verdictKey: "strong_local_food",
+    crowdFit: ["local", "visitor", "mixed"],
+    axes: { recommend: 4.2, atmosphere: 4.4, value: 4.0, practical: 4.1 },
+    themes: [
+      { key: "beachfront", sentiment: "positive" },
+      { key: "dominican_plates", sentiment: "positive" },
+      { key: "kite_scene", sentiment: "positive", audience: "visitor" },
+    ],
+  }),
+  editorial({
     venueSlug: "playa-sosua",
     verdictKey: "popular_public_space",
     crowdFit: ["visitor", "family", "mixed"],

@@ -84,6 +84,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "ojo-latin-night-thursday": "ojo-latin-night-thursday.jpg",
   "ojo-weekend-dj-parties": "ojo-weekend-dj-parties.jpg",
   "la-casita-papi-beach-dining": "la-casita-papi-beach-dining.jpg",
+  "el-cocotazo-cafe-beach-dining": "el-cocotazo-cafe-beach-dining.jpg",
   "crazy-lobster-beach-dining": "crazy-lobster-beach-dining.jpg",
   "don-limon-beach-dining": "don-limon-beach-dining.jpeg",
   "liquid-blue-watersports-daily": "liquid-blue-watersports-daily.jpg",

@@ -20,6 +20,7 @@ Curated images under `public/events/` and `public/venues/`.
 | `puerto-plata-poker-experience-2026.png` | [CLSOP / torneos.poker — Puerto Plata Poker Experience](https://torneos.poker/evento/puerto-plata-poker-experience-ago-2026/) official festival flyer | Authentic Aug 28–Sep 6 Coral Reef Casino poker festival art |
 | `aventurate-rd-2026.jpg` | [CDCT / Aventúrate RD](https://feriaaventuraterd.com/) official Aventúrate RD brand mark | Authentic logo for the Sep 2–4 Hotel Marién tourism fair |
 | `la-casita-papi-beach-dining.jpg` / `venues/la-casita-de-papi.jpg` | Restaurant Guru gallery — daytime beachfront tables facing Cabarete Bay | Replaces Liquid Blue Encuentro empty-beach reuse |
+| `el-cocotazo-cafe-beach-dining.jpg` / `venues/el-cocotazo-cafe.jpg` | POP on-site photo — Agualina Kite Beach deck tables facing the kite line | El Cocotazo Cafe daytime beach dining (editor-provided, not scraped) |
 | `liquid-blue-watersports-daily.jpg` / `venues/liquid-blue-cabarete.jpg` | [Liquid Blue Cabarete](https://www.lbcabarete.com/) — `IMG_9340` kite jump | Official LB action photo |
 | `brugal-rum-center-weekdays.jpg` | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Brugal_06.JPG) — visitor plant photo (timestamp cropped) | Brugal Puerto Plata bottling line with branded cases (replaces entrance reuse) |
 | `brugal-corporate-tours.jpg` | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Barricas_de_la_planta_de_envejecimiento_de_Puerto_Plata.jpg) — Ron Brugal | Puerto Plata aging warehouse barrels (replaces Unsplash cocktail pour) |

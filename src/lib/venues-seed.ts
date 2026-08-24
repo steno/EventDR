@@ -300,6 +300,18 @@ export const SEED_VENUES: Venue[] = [
     phone: "+18099863750",
   },
   {
+    slug: "el-cocotazo-cafe",
+    name: "El Cocotazo Cafe",
+    city: "Cabarete",
+    description:
+      "Family-run beach cafe on Kite Beach at Agualina Kitebeach Hotel — Dominican breakfast, tacos, and salads facing the kite line. Kitchen 9:00 AM–4:45 PM; happy hour 4:00–5:00 PM.",
+    lat: 19.7649114,
+    lng: -70.4249331,
+    emoji: "🥥",
+    website: "https://cabaretekitepoint.com/eat/",
+    phone: "+18096576116",
+  },
+  {
     slug: "anfiteatro-la-puntilla",
     name: "Anfiteatro La Puntilla",
     city: "Puerto Plata",
@@ -1297,6 +1309,11 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
   {
     pattern: /love\s*does|loco\s*amor|centro\s*para\s*mujeres/i,
     slug: "love-does-sosua",
+  },
+  {
+    pattern:
+      /el\s*cocotazo|cocotazo\s*caf[eé]|agualina\s*kitebeach/i,
+    slug: "el-cocotazo-cafe",
   },
 ];
 

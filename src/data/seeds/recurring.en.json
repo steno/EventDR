@@ -1793,6 +1793,25 @@
     "imageEmoji": "🍋"
   },
   {
+    "id": "el-cocotazo-cafe-beach-dining",
+    "title": "El Cocotazo Cafe Beachfront Breakfast & Lunch",
+    "description": "Daytime beach tables at El Cocotazo Cafe on Kite Beach (Agualina Kitebeach Hotel) — Dominican breakfast, tacos, and salads facing the kite line. Kitchen 9:00 AM–4:45 PM; happy hour 4:00–5:00 PM. Family-run by José Luis and Manuel. Confirm hours at +1 809-657-6116.",
+    "date": "2026-01-01",
+    "time": "9:00 AM – 4:45 PM",
+    "location": "Cabarete",
+    "venue": "El Cocotazo Cafe",
+    "venueSlug": "el-cocotazo-cafe",
+    "address": "Agualina Kitebeach Hotel, Carretera Principal, Kite Beach",
+    "lat": 19.7649114,
+    "lng": -70.4249331,
+    "category": "food-drinks",
+    "format": "physical",
+    "recurrence": "daily",
+    "phone": "+18096576116",
+    "sourceUrl": "https://cabaretekitepoint.com/eat/",
+    "imageEmoji": "🥥"
+  },
+  {
     "id": "costambar-beach-fitness",
     "title": "Costambar Beach Fitness",
     "description": "Free beach fitness on Costambar sand, to the left of El Carey Restaurant. Classes restart Monday 31 August 2026, then Monday–Friday 9:00–10:00 AM. Strength, coordination, balance, and cardio on weekdays; yoga on Fridays. All genders welcome — bring light hand weights, a yoga mat, and water; it is still hot.",

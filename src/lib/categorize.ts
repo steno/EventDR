@@ -246,6 +246,16 @@ const KEYWORDS: KeywordMap = {
     { term: "coworking", weight: 2 },
     { term: "entrepreneur", weight: 2 },
     { term: "webinar", weight: 2 },
+    // Vocational / skills training (INFOTEP). Do not add bare
+    // "course"/"curso"/"cours" — those collide with races, dance classes, golf.
+    { term: "infotep", weight: 2 },
+    { term: "vocational", weight: 2 },
+    { term: "vocacional", weight: 2 },
+    { term: "capacitación", weight: 2 },
+    { term: "capacitacion", weight: 2 },
+    { term: "formación profesional", weight: 2 },
+    { term: "formacion profesional", weight: 2 },
+    { term: "formation professionnelle", weight: 2 },
     // Trade / B2B fairs — bare "business"/"negocio" stay weight 1 so casual
     // mentions do not unlock Business as a secondary alone.
     { term: "business fair", weight: 2 },

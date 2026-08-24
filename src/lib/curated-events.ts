@@ -283,6 +283,10 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     isFree: true,
     phone: "+18099863750",
   },
+  "el-cocotazo-cafe-beach-dining": {
+    isFree: true,
+    phone: "+18096576116",
+  },
   "crazy-lobster-beach-dining": {
     isFree: true,
     phone: "+18097496917",

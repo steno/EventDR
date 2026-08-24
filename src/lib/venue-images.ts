@@ -24,6 +24,7 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "voyvoy-cabarete": "voyvoy-cabarete.jpg",
   "aura-beach-club-cabarete": "aura-beach-club-cabarete.jpg",
   "la-casita-de-papi": "la-casita-de-papi.jpg",
+  "el-cocotazo-cafe": "el-cocotazo-cafe.jpg",
   "anfiteatro-la-puntilla": "anfiteatro-la-puntilla.jpg",
   "cowork-cabarete": "cowork-cabarete.jpg",
   "ocean-world": "ocean-world.jpg",

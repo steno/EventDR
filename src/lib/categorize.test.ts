@@ -149,6 +149,51 @@ describe("guananico-san-miguel-patronales-2026 categories", () => {
   });
 });
 
+describe("inferSecondaryCategories — vocational / INFOTEP courses", () => {
+  it("tags INFOTEP vocational cooking copy under business", () => {
+    const text =
+      "INFOTEP vocational cooking course at Love Does Centro Para Mujeres";
+    assert.ok(inferSecondaryCategories(text, "food-drinks").includes("business"));
+  });
+
+  it("tags ES curso INFOTEP copy under business", () => {
+    const text = "Curso INFOTEP de Bocadillos — formación profesional de cocina";
+    assert.ok(inferSecondaryCategories(text, "food-drinks").includes("business"));
+  });
+
+  it("does not treat a French 5K course as business", () => {
+    const text =
+      "Course 5K immersive sur le Malecón de Puerto Plata avec casques synchronisés";
+    assert.equal(
+      inferSecondaryCategories(text, "sports").includes("business"),
+      false,
+    );
+  });
+
+  it("does not pull salsa classes into business from class language", () => {
+    const text = "Beginner salsa class then social dancing at El Batey";
+    assert.equal(
+      inferSecondaryCategories(text, "dance").includes("business"),
+      false,
+    );
+  });
+});
+
+describe("love-does-bocadillos-course-2026 categories", () => {
+  it("lists under food-drinks and business across locales", () => {
+    for (const locale of ["en", "es", "fr"] as const) {
+      const event = getFallbackEventById(
+        "love-does-bocadillos-course-2026",
+        locale,
+      );
+      assert.ok(event, locale);
+      const resolved = withResolvedCategories(event);
+      assert.equal(eventInCategory(resolved, "food-drinks"), true, locale);
+      assert.equal(eventInCategory(resolved, "business"), true, locale);
+    }
+  });
+});
+
 describe("costambar-beach-fitness categories", () => {
   it("lists under health-wellness and sports across locales", () => {
     for (const locale of ["en", "es", "fr"] as const) {

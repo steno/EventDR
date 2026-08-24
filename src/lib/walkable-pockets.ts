@@ -111,7 +111,12 @@ export const WALKABLE_POCKETS: readonly WalkablePocket[] = [
       es: "Zona de playa",
       fr: "Coin de plage",
     },
-    venueSlugs: ["kite-beach", "playa-encuentro", "el-parq-cabarete"],
+    venueSlugs: [
+      "kite-beach",
+      "playa-encuentro",
+      "el-parq-cabarete",
+      "el-cocotazo-cafe",
+    ],
   },
   {
     slug: "malecon-pp",

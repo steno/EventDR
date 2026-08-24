@@ -105,6 +105,14 @@ export const VENUE_TIP_COPY: Record<
       fr: "Fruits de mer front de mer — les poêles à l'ail font débat ; les tables sunset se remplissent vite.",
     },
   },
+  "el-cocotazo-cafe": {
+    body: "Kite Beach's daytime table — sit on the Agualina deck for breakfast while the kite line is up; the kitchen is done by late afternoon, so don't treat it like Casita's sunset dinner.",
+    localized: {
+      en: "Kite Beach's daytime table — sit on the Agualina deck for breakfast while the kite line is up; the kitchen is done by late afternoon, so don't treat it like Casita's sunset dinner.",
+      es: "La mesa de día en Kite Beach — desayuna en la terraza de Agualina con la línea de kite arriba; la cocina cierra a media tarde, no es la cena de atardecer de Casita.",
+      fr: "La table de jour à Kite Beach — petit-déj sur la terrasse Agualina pendant que la ligne de kite est en l'air ; la cuisine ferme en fin d'après-midi, ce n'est pas le dîner sunset de Casita.",
+    },
+  },
   "playa-sosua": {
     body: "Sosúa Bay's main public beach — calm water and tourist volume by midday; go early if you want space, or accept the buzz.",
     localized: {

@@ -69,6 +69,26 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: AT,
   },
   {
+    eventId: "el-cocotazo-cafe-beach-dining",
+    seriesKey: "el-cocotazo-cafe:daily",
+    body: "Come for mangú and kite-watching, not a sunset booking — breakfast-to-late-lunch on the Agualina deck while the kite line is up. Kitchen wraps ~4:45; happy hour is a short 4–5 window.",
+    localized: {
+      es: "Ven por el mangú y a ver kite, no por una reserva de atardecer — desayuno hasta almuerzo tarde en la terraza de Agualina con la línea de kite arriba. La cocina cierra ~4:45; el happy hour es un rato corto de 4 a 5.",
+      fr: "Venez pour le mangú et le kite, pas pour une table sunset — petit-déj jusqu'au déjeuner tardif sur la terrasse Agualina pendant que la ligne de kite est en l'air. La cuisine ferme vers 16 h 45 ; happy hour court de 16 h à 17 h.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "No cover — Dominican breakfast and lunch plates; happy hour 4–5. Confirm kitchen hours at +1 809-657-6116",
+    priceNoteLocalized: {
+      es: "Sin cover — desayuno y almuerzo dominicano; happy hour 4–5. Confirma cocina al +1 809-657-6116",
+      fr: "Sans cover — petit-déj et déjeuner dominicains ; happy hour 16 h–17 h. Confirmez la cuisine au +1 809-657-6116",
+    },
+    attribution: "POP research · cabaretekitepoint.com/eat + on-site deck photo",
+    researchNotes:
+      "Official hours breakfast/lunch 9:00 AM–4:45 PM, happy hour 4–5 PM at Agualina Kitebeach Hotel. Family-run (José Luis and Manuel). Phone listings +1 809-657-6116. Distinct from La Casita de Papi sunset dinner on Central Beach.",
+    updatedAt: AT,
+  },
+  {
     eventId: "malecon-kiosks-daily",
     seriesKey: "malecon-puerto-plata:daily",
     body: "Locals and visitors share the same promenade — treat it as stall-hopping, not a single restaurant reservation.",

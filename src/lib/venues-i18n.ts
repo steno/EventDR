@@ -185,6 +185,12 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Restaurant emblématique de fruits de mer en bord de mer sur la plage centrale de Cabarete — paella, poisson grillé et dîners au coucher du soleil sous les palmiers depuis les années 1990.",
     },
   },
+  "el-cocotazo-cafe": {
+    description: {
+      es: "Café de playa familiar en Kite Beach, en Agualina Kitebeach Hotel — desayuno dominicano, tacos y ensaladas frente a la línea de kite. Cocina 9:00 AM–4:45 PM; happy hour 4:00–5:00 PM.",
+      fr: "Café de plage familial sur Kite Beach, à l'Agualina Kitebeach Hotel — petit-déj dominicain, tacos et salades face à la ligne de kite. Cuisine 9 h–16 h 45 ; happy hour 16 h–17 h.",
+    },
+  },
   "anfiteatro-la-puntilla": {
     description: {
       es: "Anfiteatro frente al mar en La Puntilla — conciertos al aire libre, desfiles de carnaval y espectáculos culturales con vistas al Atlántico.",
