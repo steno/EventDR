@@ -18,7 +18,7 @@ function looksLikeRealVenueName(name: string): boolean {
   if (t.length < 4 || t.length > 80) return false;
   // Skip bare city / municipality labels used as venue.
   if (
-    /^(cabarete|sos[uú]a|puerto\s*plata|san\s*felipe(\s*de\s*puerto\s*plata)?|costambar|playa\s*dorada|imbert|north\s*coast)$/i.test(
+    /^(cabarete|sos[uú]a|puerto\s*plata|san\s*felipe(\s*de\s*puerto\s*plata)?|costambar|playa\s*dorada|imbert|guananico|north\s*coast)$/i.test(
       t,
     )
   ) {

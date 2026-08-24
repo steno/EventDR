@@ -523,6 +523,18 @@ export const SEED_VENUES: Venue[] = [
     website: "https://ayuntamientoimbert.gob.do/cultura/",
   },
   {
+    slug: "rincon-caliente-guananico",
+    name: "Rincón Caliente, Guananico",
+    city: "Puerto Plata",
+    description:
+      "Community gathering spot in Rincón Caliente, Guananico — inland Puerto Plata and a cradle of merengue típico. Hosts traditional patron-saint fiestas, including San Miguel Arcángel in September.",
+    lat: 19.7166,
+    lng: -70.9236,
+    emoji: "🪗",
+    website:
+      "https://www.google.com/maps/place/Guananico/@19.7166,-70.9236,15z",
+  },
+  {
     slug: "paseo-dona-blanca",
     name: "Paseo de Doña Blanca",
     city: "Puerto Plata",
@@ -1125,6 +1137,22 @@ export const SEED_VENUES: Venue[] = [
     googleReviewCount: 869,
     googleRatingFetchedAt: "2026-08-21T16:00:00.000Z",
   },
+  {
+    slug: "love-does-sosua",
+    name: "Love Does Centro Para Mujeres",
+    city: "Sosúa",
+    description:
+      "Women's resource center on Pedro Clisante (across from Playero) — free English classes, INFOTEP vocational courses, psychology consults, medical days, and a training café. Also known as Loco Amor. Tue–Sat 10 AM–6 PM.",
+    lat: 19.7630314,
+    lng: -70.515632,
+    emoji: "💜",
+    instagram: "lovedoesrd",
+    website: "https://locoamorsosua.com/",
+    phone: "+18095713826",
+    googleRating: 5,
+    googleReviewCount: 2,
+    googleRatingFetchedAt: "2026-08-24T20:00:00.000Z",
+  },
 ];
 
 /** Extra name fragments → seed slug (checked before fuzzy name includes). */
@@ -1234,6 +1262,11 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
     slug: "plaza-sanchez-imbert",
   },
   {
+    pattern:
+      /rinc[oó]n\s+caliente|guananico.*(san\s*miguel|patronal|t[ií]pico)|san\s*miguel.*guananico/i,
+    slug: "rincon-caliente-guananico",
+  },
+  {
     pattern: /santa\s*fe\s*laguna|hotel\s*laguna\s*sov/i,
     slug: "laguna-sov",
   },
@@ -1260,6 +1293,10 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
     pattern:
       /zen\s*fitness|cabarete\s*fitness(\s*camp)?|extreme\s*fitness(\s*camp)?|e?xtreme\s*hotels?\s*cabarete|zen\s*cabarete/i,
     slug: "zen-fitness-cabarete",
+  },
+  {
+    pattern: /love\s*does|loco\s*amor|centro\s*para\s*mujeres/i,
+    slug: "love-does-sosua",
   },
 ];
 

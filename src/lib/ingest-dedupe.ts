@@ -47,7 +47,7 @@ function sameArea(a: Event, b: Event): boolean {
   const left = `${a.location} ${a.venue ?? ""}`.toLowerCase();
   const right = `${b.location} ${b.venue ?? ""}`.toLowerCase();
   if (!left.trim() || !right.trim()) return true;
-  const tokens = ["cabarete", "sosúa", "sosua", "puerto plata", "jamao", "costambar", "playa dorada", "imbert"];
+  const tokens = ["cabarete", "sosúa", "sosua", "puerto plata", "jamao", "costambar", "playa dorada", "imbert", "guananico"];
   for (const t of tokens) {
     if (left.includes(t) && right.includes(t)) return true;
   }

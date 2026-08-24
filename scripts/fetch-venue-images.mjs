@@ -289,6 +289,10 @@ const VENUE_SOURCES = [
     eventId: "ocean-winds-karaoke-nights",
     url: "https://hoteloceanwinds.com/images/hero-pool-day.jpg",
   },
+  {
+    eventId: "love-does-sosua",
+    url: "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkpQb-LzUHDNct8gGV7xMn7fBY-OAC1fCQ8DyRYrxhtvm_wvT0NRdoV3Y55dCHbg0oGe1bWM4_Mj3lyWMRVJ6C2_n0LTuvGi-b11yXOlNbb6Z3ujrIPxKUy8iL6hF8j6BPyO69v0w=s1600",
+  },
 ];
 
 mkdirSync(outDir, { recursive: true });

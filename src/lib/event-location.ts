@@ -124,7 +124,7 @@ function inferCity(event: Event): string | null {
   if (/sos[uú]a/i.test(haystack)) return "Sosúa";
   if (/costambar/i.test(haystack)) return "Costambar";
   if (/playa dorada/i.test(haystack)) return "Playa Dorada";
-  if (/imbert/i.test(haystack)) return "Puerto Plata";
+  if (/imbert|guananico|rinc[oó]n caliente/i.test(haystack)) return "Puerto Plata";
   if (/puerto plata/i.test(haystack)) return "Puerto Plata";
   return null;
 }

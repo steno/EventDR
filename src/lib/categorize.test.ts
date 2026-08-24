@@ -131,6 +131,24 @@ describe("imbert-mercedes-patronales-2026 categories", () => {
   });
 });
 
+describe("guananico-san-miguel-patronales-2026 categories", () => {
+  it("stays under festivals, culture, and music, not concert", () => {
+    for (const locale of ["en", "es", "fr"] as const) {
+      const event = getFallbackEventById(
+        "guananico-san-miguel-patronales-2026",
+        locale,
+      );
+      assert.ok(event, locale);
+      const resolved = withResolvedCategories(event);
+      assert.equal(eventInCategory(resolved, "festivals"), true, locale);
+      assert.equal(eventInCategory(resolved, "culture"), true, locale);
+      assert.equal(eventInCategory(resolved, "music"), true, locale);
+      assert.equal(eventInCategory(resolved, "concert"), false, locale);
+      assert.equal(eventInCategory(resolved, "adventure"), false, locale);
+    }
+  });
+});
+
 describe("costambar-beach-fitness categories", () => {
   it("lists under health-wellness and sports across locales", () => {
     for (const locale of ["en", "es", "fr"] as const) {

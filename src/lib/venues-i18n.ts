@@ -307,6 +307,16 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Place du village d'Imbert, Calle Sánchez — paroisse Nuestra Señora de las Mercedes, rassemblements municipaux et soirées de clôture des patronales de septembre. Puerto Plata intérieur, vers Damajagua.",
     },
   },
+  "rincon-caliente-guananico": {
+    name: {
+      es: "Rincón Caliente, Guananico",
+      fr: "Rincón Caliente, Guananico",
+    },
+    description: {
+      es: "Punto de encuentro comunitario en Rincón Caliente, Guananico — Puerto Plata interior y cuna del merengue típico. Sede de fiestas patronales tradicionales, incluyendo San Miguel Arcángel en septiembre.",
+      fr: "Lieu de rassemblement à Rincón Caliente, Guananico — Puerto Plata intérieur et berceau du merengue típico. Accueille les fêtes patronales traditionnelles, dont San Miguel Arcángel en septembre.",
+    },
+  },
   "paseo-dona-blanca": {
     description: {
       es: "Calle peatonal de adoquines rosados en honor a la pionera del turismo Bianca Franceschini — detalles victorianos, spots para fotos y cafés entre la Calle Beller y John F. Kennedy.",
@@ -581,6 +591,16 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
     description: {
       es: "Bar-restaurante de playa en El Pueblito / Playa Chaparral — platos franco-canadienses-dominicanos, karaoke los viernes con DJ Leandro y mesas en la arena. Abierto todos los días desde las 8:30 AM.",
       fr: "Bar-restaurant de plage à El Pueblito / Playa Chaparral — cuisine franco-canadienne-dominicaine, karaoké le vendredi avec DJ Leandro et tables sur le sable. Ouvert tous les jours dès 8 h 30.",
+    },
+  },
+  "love-does-sosua": {
+    name: {
+      es: "Love Does Centro Para Mujeres",
+      fr: "Love Does Centro Para Mujeres",
+    },
+    description: {
+      es: "Centro de recursos para mujeres en Pedro Clisante (frente a Playero) — inglés gratis, cursos INFOTEP, psicología, operativos médicos y café de formación. También Loco Amor. Mar–sáb 10 AM–6 PM.",
+      fr: "Centre de ressources pour femmes sur Pedro Clisante (en face de Playero) — anglais gratuit, cours INFOTEP, psychologie, journées médicales et café de formation. Aussi Loco Amor. Mar–sam. 10 h–18 h.",
     },
   },
   "zen-fitness-cabarete": {

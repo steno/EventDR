@@ -464,9 +464,12 @@ export function findNearbyForEventDetail(
   const sameDay = findNearbyTonight(source, pool, options);
   if (sameDay.hits.length > 0) return sameDay;
 
+  const now = options?.now ?? new Date();
+  // Look ahead from today, not the source occurrence. A class that starts next
+  // week should still surface karaoke on this strip tonight.
   return findNearbyOnStrip(source, pool, {
     ...options,
-    fromDate: source.date?.trim() || undefined,
-    daysAhead: 4,
+    fromDate: localDateISO(now),
+    daysAhead: NEARBY_STRIP_DAYS_AHEAD,
   });
 }

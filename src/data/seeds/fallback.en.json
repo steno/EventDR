@@ -1166,6 +1166,30 @@
     "imageEmoji": "🎤"
   },
   {
+    "id": "guananico-san-miguel-patronales-2026",
+    "title": "Guananico Traditional Fiestas — San Miguel Arcángel",
+    "description": "Traditional patron-saint fiesta of San Miguel Arcángel in Rincón Caliente, Guananico — inland Puerto Plata and the cradle of merengue típico. Facebook lists the run Sunday 20 through Tuesday 29 September 2026 (San Miguel's feast). Opening night Sunday 20 Sept at 8:00 PM with Los Hermanos López, presented by Al Toque Fast Food; hosts Rafael & Esperanza. Free entry.",
+    "date": "2026-09-20",
+    "endDate": "2026-09-29",
+    "time": "8:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Rincón Caliente, Guananico",
+    "venueSlug": "rincon-caliente-guananico",
+    "address": "Rincón Caliente, Guananico",
+    "lat": 19.7166,
+    "lng": -70.9236,
+    "category": "festivals",
+    "categories": [
+      "culture",
+      "music"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "sourceUrl": "https://www.facebook.com/events/1964485960928143/",
+    "imageEmoji": "🪗"
+  },
+  {
     "id": "imbert-mercedes-patronales-2026",
     "title": "Imbert Fiestas Patronales — Nuestra Señora de las Mercedes",
     "description": "Nine-day fiestas patronales in Imbert (inland Puerto Plata, on the road toward Damajagua) for Nuestra Señora de las Mercedes — the town's patron and a national feast day on September 24. Masses and a procession with the Virgin's image, the queen's parade with baton ballet, street games, and a closing night in Plaza Sánchez. Free to attend; pay only for food and stalls. The Ayuntamiento announces the nightly lineup locally.",
@@ -1186,5 +1210,55 @@
     "isFree": true,
     "sourceUrl": "https://www.acercateard.com/en-us/cultura-de-la-republica-dominicana/provincia_2/fiestas-patronales-en-puerto-plata",
     "imageEmoji": "⛪"
+  },
+  {
+    "id": "love-does-bocadillos-course-2026",
+    "title": "INFOTEP Bocadillos Course",
+    "description": "INFOTEP vocational cooking course at Love Does Centro Para Mujeres on Pedro Clisante in Sosúa (across from Playero). Wednesdays and Fridays 9:00 AM–1:00 PM starting Friday 2 October 2026. Bring a copy of your cédula. WhatsApp 809-571-3826 to register — confirm the fee when you book.",
+    "date": "2026-10-02",
+    "time": "9:00 AM – 1:00 PM",
+    "location": "Sosúa",
+    "venue": "Love Does Centro Para Mujeres",
+    "venueSlug": "love-does-sosua",
+    "address": "Pedro Clisante 10, frente al supermercado Playero, Sosúa",
+    "lat": 19.7630314,
+    "lng": -70.515632,
+    "category": "food-drinks",
+    "categories": [
+      "food-drinks"
+    ],
+    "format": "physical",
+    "recurrence": "weekly",
+    "recurrenceDays": [
+      3,
+      5
+    ],
+    "callForPricing": true,
+    "phone": "+18095713826",
+    "sourceUrl": "https://www.facebook.com/locoamorsosua",
+    "imageEmoji": "🥟"
+  },
+  {
+    "id": "love-does-cocktails-solidarity-2026-09-04",
+    "title": "Night of Cocktails, Flavors & Solidarity",
+    "description": "Bartending-course practice night at Love Does Centro Para Mujeres in Sosúa — three student-made cocktails and a cheese-and-charcuterie board. Friday 4 September 2026 from 5:00 PM, across from Playero on Pedro Clisante. RD$2,000 per person; WhatsApp 809-571-3826 for tickets.",
+    "date": "2026-09-04",
+    "time": "5:00 PM",
+    "location": "Sosúa",
+    "venue": "Love Does Centro Para Mujeres",
+    "venueSlug": "love-does-sosua",
+    "address": "Pedro Clisante 10, frente al supermercado Playero, Sosúa",
+    "lat": 19.7630314,
+    "lng": -70.515632,
+    "category": "food-drinks",
+    "categories": [
+      "food-drinks"
+    ],
+    "format": "physical",
+    "isFree": false,
+    "admissionPrice": "RD$2,000",
+    "phone": "+18095713826",
+    "sourceUrl": "https://www.facebook.com/events/1393854669351364",
+    "imageEmoji": "🍸"
   }
 ]

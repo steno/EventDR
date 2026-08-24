@@ -66,6 +66,11 @@ export const INSTAGRAM_ACCOUNTS = [
     label: "Sosúa Events",
     areas: ["Sosúa"],
   },
+  {
+    handle: "lovedoesrd",
+    label: "Love Does Centro Para Mujeres",
+    areas: ["Sosúa"],
+  },
   // High-signal local venues that announce mostly on IG flyers (missed Aug 2026 cron)
   {
     handle: "victrolart",
@@ -111,6 +116,11 @@ export const INSTAGRAM_ACCOUNTS = [
     handle: "kitestreetpop",
     label: "Kite Street POP",
     areas: ["Cabarete", "Puerto Plata"],
+  },
+  {
+    handle: "puertoplatabeachsoccer",
+    label: "Puerto Plata Beach Soccer",
+    areas: ["Sosúa", "Puerto Plata"],
   },
 
   // Active tourist / lifestyle venues
@@ -256,7 +266,7 @@ export function instagramSearchQueries(): string[] {
     "driftercabarete", "nonasgrillkitchen", "hardrockcafepuertoplata",
     "djblueeventos", "victrolart", "cigartownpop", "paradaelchoco",
     "kitestreetpop", "meclaorooftop", "kviarcasinos",
-    "lagunasov", "santafesov", "donlimon02",
+    "lagunasov", "santafesov", "donlimon02", "lovedoesrd",
   ].join(" OR ");
 
   const culturalVenues = [
@@ -317,6 +327,7 @@ export function instagramSearchQueries(): string[] {
     
     // Sports & adventure (local favorites)
     `site:instagram.com kitesurf windsurf torneo Cabarete`,
+    `site:instagram.com puertoplatabeachsoccer OR "beach soccer" Sosúa OR "fútbol playa" Puerto Plata`,
     `site:instagram.com beach volley soccer ${region}`,
     `site:instagram.com deportivo evento costa norte`,
     

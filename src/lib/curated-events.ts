@@ -80,6 +80,15 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     lat: 19.75371,
     lng: -70.82906,
   },
+  "guananico-san-miguel-patronales-2026": {
+    venue: "Rincón Caliente, Guananico",
+    venueSlug: "rincon-caliente-guananico",
+    address: "Rincón Caliente, Guananico",
+    location: "Puerto Plata",
+    isFree: true,
+    lat: 19.7166,
+    lng: -70.9236,
+  },
   "cabarete-classic-2026": {
     // Geocoders tag Cabarete under Sosúa municipality — keep zone unambiguous.
     location: "Cabarete",

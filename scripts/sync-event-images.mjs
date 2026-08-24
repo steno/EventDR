@@ -102,6 +102,8 @@ const FILE_TO_EVENT_ID = {
   "puerto-plata-poker-experience-2026.jpg": "puerto-plata-poker-experience-2026",
   "aventurate-rd-2026.jpg": "aventurate-rd-2026",
   "imbert-mercedes-patronales-2026.jpg": "imbert-mercedes-patronales-2026",
+  "guananico-san-miguel-patronales-2026.jpg":
+    "guananico-san-miguel-patronales-2026",
   "sunset-cabarete-sessions-2026.jpg": "sunset-cabarete-sessions-2026",
   "la-chabola-wednesday-open-mic.jpg": "la-chabola-wednesday-open-mic",
   "groundzero-domingos-pal-pueblo.jpg": "groundzero-domingos-pal-pueblo",
@@ -149,6 +151,9 @@ const FILE_TO_EVENT_ID = {
   "NorthCoastStartupMeet.JPG": "north-coast-networking-saturday",
   "CarribeanTechTalks.JPG": "north-coast-tech-meetup",
   "PlayaDoradaSummerFest.JPG": "puerto-plata-carnaval-2026",
+  "love-does-bocadillos-course-2026.jpg": "love-does-bocadillos-course-2026",
+  "love-does-cocktails-solidarity-2026-09-04.jpg":
+    "love-does-cocktails-solidarity-2026-09-04",
 };
 
 /** Same venue, same photo — copy after primary sync. */
@@ -199,6 +204,7 @@ const FILE_TO_VENUE_SLUG = {
   "paella-pop-green-one.jpg": "paella-pop-green-one",
   "plaza-independencia.jpg": "plaza-independencia",
   "imbert-mercedes-patronales-2026.jpg": "plaza-sanchez-imbert",
+  "rincon-caliente-guananico.jpg": "rincon-caliente-guananico",
   "el-parq-live-bands-saturday.jpg": "el-parq-cabarete",
   "disco-club-brugal.jpg": "disco-club-brugal",
   "natura-cabana-saturday-live.jpg": "natura-cabana",
@@ -238,6 +244,7 @@ const FILE_TO_VENUE_SLUG = {
   "pop-cinemas-playa-dorada.jpg": "pop-cinemas-playa-dorada",
   "le-petit-francois.jpg": "le-petit-francois",
   "costambar-beach-fitness.png": "playa-costambar",
+  "love-does-sosua.jpg": "love-does-sosua",
 };
 
 if (!existsSync(sourceDir)) {

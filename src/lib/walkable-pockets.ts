@@ -12,7 +12,8 @@ export type WalkablePocketSlug =
   | "cabarete-bay"
   | "kite-encuentro"
   | "malecon-pp"
-  | "playa-dorada";
+  | "playa-dorada"
+  | "costambar-beach";
 
 export interface WalkablePocket {
   slug: WalkablePocketSlug;
@@ -62,6 +63,7 @@ export const WALKABLE_POCKETS: readonly WalkablePocket[] = [
       "hotel-voramar-sosua",
       "hms-valeria",
       "el-colibri-hotel",
+      "love-does-sosua",
     ],
   },
   {
@@ -174,6 +176,26 @@ export const WALKABLE_POCKETS: readonly WalkablePocket[] = [
       "kviar-costa-dorada",
       "paella-pop-el-pueblito",
     ],
+  },
+  {
+    slug: "costambar-beach",
+    // Tight radius: El Carey is on the sand; Hotel Ocean Winds is inland
+    // on Calle Guayacanes (~350 m) and is not a beach venue.
+    radiusMeters: 220,
+    parkOnce: true,
+    lat: 19.81484,
+    lng: -70.71532,
+    names: {
+      en: "Costambar Beach",
+      es: "Playa Costambar",
+      fr: "Plage Costambar",
+    },
+    stripLabels: {
+      en: "Beach pocket",
+      es: "Zona de playa",
+      fr: "Coin de plage",
+    },
+    venueSlugs: ["playa-costambar", "el-carey-puerto-plata"],
   },
 ] as const;
 

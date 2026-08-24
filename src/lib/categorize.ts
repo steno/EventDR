@@ -155,11 +155,18 @@ const KEYWORDS: KeywordMap = {
     "rum",
     "ron",
     "rhum",
+    { term: "charcuterie", weight: 2 },
+    { term: "bocadillo", weight: 2 },
+    { term: "bocadillos", weight: 2 },
   ],
   festivals: [
     { term: "festival", weight: 2 },
     { term: "feria", weight: 2 },
     { term: "fiesta patronal", weight: 2 },
+    { term: "fiestas tradicionales", weight: 2 },
+    { term: "fiesta tradicional", weight: 2 },
+    { term: "patron-saint fiesta", weight: 2 },
+    { term: "fête patronale", weight: 2 },
     { term: "summer fest", weight: 2 },
     { term: "cultural fest", weight: 2 },
     // Weight 1: museums often mention carnival history without being a festival

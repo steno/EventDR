@@ -48,4 +48,17 @@ describe("countEventsByCity", () => {
     assert.equal(counts.sosua, 0);
     assert.equal(counts.cabarete, 0);
   });
+
+  it("counts Guananico San Miguel patronales under Puerto Plata", () => {
+    const counts = countEventsByCity([
+      event({
+        id: "san-miguel",
+        location: "Guananico",
+        venue: "Rincón Caliente, Guananico",
+      }),
+    ]);
+    assert.equal(counts["puerto-plata"], 1);
+    assert.equal(counts.sosua, 0);
+    assert.equal(counts.cabarete, 0);
+  });
 });

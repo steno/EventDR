@@ -130,6 +130,13 @@ export const FACEBOOK_EVENT_PAGES: readonly {
     label: "Chill & Grill Bar & Eatery",
     areas: ["Sosúa"],
   },
+  {
+    slug: "locoamorsosua",
+    url: "https://www.facebook.com/locoamorsosua",
+    label: "Love Does Centro Para Mujeres",
+    areas: ["Sosúa"],
+    kind: "cultural",
+  },
 ];
 
 /** Spanish / Dominican-first discovery queries layered onto group site: searches. */
@@ -204,6 +211,9 @@ const FACEBOOK_SEED_EVENT_IDS_BASE = [
   "dewry-luciano-zona-acapella-2026-08-23",
   "pop-cinemas-week-2026-08-20",
   "petit-francois-friday-karaoke",
+  "guananico-san-miguel-patronales-2026",
+  "love-does-bocadillos-course-2026",
+  "love-does-cocktails-solidarity-2026-09-04",
 ] as const;
 
 /** Curated event ids discovered from monitored Facebook groups (see fallback-events). */

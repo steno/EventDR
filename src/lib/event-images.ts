@@ -41,6 +41,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "inicio-del-campamento-pp-2026": "inicio-del-campamento-pp-2026.jpg",
   "feria-artesanal-verano-2026": "feria-artesanal-verano-2026.jpg",
   "imbert-mercedes-patronales-2026": "imbert-mercedes-patronales-2026.jpg",
+  "guananico-san-miguel-patronales-2026":
+    "guananico-san-miguel-patronales-2026.jpg",
   "plaza-independencia-daily": "plaza-independencia-daily.jpg",
   "plaza-independencia-weekend-culture": "plaza-independencia-daily.jpg",
   "el-carey-wc2026": "el-carey-wc2026.jpg",
@@ -166,6 +168,9 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "pop-cinemas-week-2026-08-20": "pop-cinemas-week-2026-08-20.jpg",
   "petit-francois-friday-karaoke": "petit-francois-friday-karaoke.jpg",
   "costambar-beach-fitness": "costambar-beach-fitness.png",
+  "love-does-bocadillos-course-2026": "love-does-bocadillos-course-2026.jpg",
+  "love-does-cocktails-solidarity-2026-09-04":
+    "love-does-cocktails-solidarity-2026-09-04.jpg",
 };
 
 /** Legacy ingest ids that share a curated event image. */

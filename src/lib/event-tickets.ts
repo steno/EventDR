@@ -118,6 +118,7 @@ export const CURATED_ADMISSION_PRICES: Record<string, string> = {
   "puerto-plata-golf-classic-2026": "US$210",
   "sosua-10k-road-race-2026": "RD$500",
   "pop-cinemas-week-2026-08-20": "RD$300",
+  "love-does-cocktails-solidarity-2026-09-04": "RD$2,000",
   "sunset-cabarete-sessions-2026": "from US$16",
   "puerto-plata-poker-experience-2026": "Main Event US$900 buy-in",
 };
@@ -130,6 +131,7 @@ export const CURATED_CALL_FOR_PRICING = new Set<string>([
   "lax-headline-concerts",
   "womens-reconnection-kite-camp-2026",
   "cabarete-pilates-reformer",
+  "love-does-bocadillos-course-2026",
   "inicio-del-campamento-pp-2026",
   "rumble-in-paradise-12",
   "rumble-in-paradise-13",
@@ -161,6 +163,7 @@ export const CURATED_FREE_EVENTS = new Set<string>([
   "el-colibri-karaoke-battle-2026",
   "feria-artesanal-verano-2026",
   "imbert-mercedes-patronales-2026",
+  "guananico-san-miguel-patronales-2026",
   // Restaurant / dining nights — free to enter; pay for what you order
   "la-casita-papi-beach-dining",
   "crazy-lobster-beach-dining",

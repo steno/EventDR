@@ -1166,6 +1166,30 @@
     "description": "Karaoke playero todos los viernes en Le Petit François, El Pueblito / Playa Chaparral, con DJ Leandro desde las 8:00 PM. Shots de limoncello 2x1 esta semana. Sin cover — pagas comida y tragos. Reservas +1 829 492 2910."
   },
   {
+    "id": "guananico-san-miguel-patronales-2026",
+    "title": "Fiestas tradicionales de Guananico — San Miguel Arcángel",
+    "description": "Fiesta patronal tradicional de San Miguel Arcángel en Rincón Caliente, Guananico — Puerto Plata interior y cuna del merengue típico. Facebook anuncia el ciclo del domingo 20 al martes 29 de septiembre de 2026 (fiesta de San Miguel). Noche de apertura el domingo 20 a las 8:00 PM con Los Hermanos López, presentada por Al Toque Fast Food; invitan Rafael y Esperanza. Entrada gratis.",
+    "date": "2026-09-20",
+    "endDate": "2026-09-29",
+    "time": "8:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Rincón Caliente, Guananico",
+    "venueSlug": "rincon-caliente-guananico",
+    "address": "Rincón Caliente, Guananico",
+    "lat": 19.7166,
+    "lng": -70.9236,
+    "category": "festivals",
+    "categories": [
+      "culture",
+      "music"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "sourceUrl": "https://www.facebook.com/events/1964485960928143/",
+    "imageEmoji": "🪗"
+  },
+  {
     "id": "imbert-mercedes-patronales-2026",
     "title": "Fiestas Patronales de Imbert — Nuestra Señora de las Mercedes",
     "description": "Nueve días de fiestas patronales en Imbert (Puerto Plata interior, rumbo a Damajagua) en honor a Nuestra Señora de las Mercedes, patrona del pueblo y fiesta nacional el 24 de septiembre. Misas y procesión con la imagen de la Virgen, desfile de reinas con batón ballet, juegos populares y noche de cierre en la Plaza Sánchez. Entrada libre; se paga solo comida y puestos. El Ayuntamiento anuncia la programación de cada noche.",
@@ -1186,5 +1210,55 @@
     "isFree": true,
     "sourceUrl": "https://www.acercateard.com/en-us/cultura-de-la-republica-dominicana/provincia_2/fiestas-patronales-en-puerto-plata",
     "imageEmoji": "⛪"
+  },
+  {
+    "id": "love-does-bocadillos-course-2026",
+    "title": "Curso INFOTEP de Bocadillos",
+    "description": "Curso de cocina INFOTEP en Love Does Centro Para Mujeres, Pedro Clisante en Sosúa (frente a Playero). Miércoles y viernes 9:00 AM–1:00 PM desde el viernes 2 de octubre de 2026. Lleva copia de cédula. WhatsApp 809-571-3826 para inscribirte — confirma el costo al reservar.",
+    "date": "2026-10-02",
+    "time": "9:00 AM – 1:00 PM",
+    "location": "Sosúa",
+    "venue": "Love Does Centro Para Mujeres",
+    "venueSlug": "love-does-sosua",
+    "address": "Pedro Clisante 10, frente al supermercado Playero, Sosúa",
+    "lat": 19.7630314,
+    "lng": -70.515632,
+    "category": "food-drinks",
+    "categories": [
+      "food-drinks"
+    ],
+    "format": "physical",
+    "recurrence": "weekly",
+    "recurrenceDays": [
+      3,
+      5
+    ],
+    "callForPricing": true,
+    "phone": "+18095713826",
+    "sourceUrl": "https://www.facebook.com/locoamorsosua",
+    "imageEmoji": "🥟"
+  },
+  {
+    "id": "love-does-cocktails-solidarity-2026-09-04",
+    "title": "Noche de Cócteles, Sabores y Solidaridad",
+    "description": "Noche de práctica del curso de bartender en Love Does Centro Para Mujeres, Sosúa — tres cócteles preparados por las estudiantes y tabla de quesos y charcutería. Viernes 4 de septiembre de 2026 desde las 5:00 PM, frente a Playero en Pedro Clisante. RD$2,000 por persona; WhatsApp 809-571-3826 para boletas.",
+    "date": "2026-09-04",
+    "time": "5:00 PM",
+    "location": "Sosúa",
+    "venue": "Love Does Centro Para Mujeres",
+    "venueSlug": "love-does-sosua",
+    "address": "Pedro Clisante 10, frente al supermercado Playero, Sosúa",
+    "lat": 19.7630314,
+    "lng": -70.515632,
+    "category": "food-drinks",
+    "categories": [
+      "food-drinks"
+    ],
+    "format": "physical",
+    "isFree": false,
+    "admissionPrice": "RD$2,000",
+    "phone": "+18095713826",
+    "sourceUrl": "https://www.facebook.com/events/1393854669351364",
+    "imageEmoji": "🍸"
   }
 ]
