@@ -1164,5 +1164,27 @@
     "phone": "+18294922910",
     "sourceUrl": "https://www.facebook.com/groups/costambar/permalink/2613183035803361/",
     "imageEmoji": "🎤"
+  },
+  {
+    "id": "imbert-mercedes-patronales-2026",
+    "title": "Imbert Fiestas Patronales — Nuestra Señora de las Mercedes",
+    "description": "Nine-day fiestas patronales in Imbert (inland Puerto Plata, on the road toward Damajagua) for Nuestra Señora de las Mercedes — the town's patron and a national feast day on September 24. Masses and a procession with the Virgin's image, the queen's parade with baton ballet, street games, and a closing night in Plaza Sánchez. Free to attend; pay only for food and stalls. The Ayuntamiento announces the nightly lineup locally.",
+    "date": "2026-09-16",
+    "endDate": "2026-09-24",
+    "location": "Puerto Plata",
+    "venue": "Plaza Sánchez, Imbert",
+    "venueSlug": "plaza-sanchez-imbert",
+    "address": "Calle Sánchez, Imbert",
+    "lat": 19.75371,
+    "lng": -70.82906,
+    "category": "festivals",
+    "categories": [
+      "culture"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "sourceUrl": "https://www.acercateard.com/en-us/cultura-de-la-republica-dominicana/provincia_2/fiestas-patronales-en-puerto-plata",
+    "imageEmoji": "⛪"
   }
 ]

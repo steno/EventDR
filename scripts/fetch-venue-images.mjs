@@ -18,6 +18,10 @@ const VENUE_SOURCES = [
     eventId: "coconut-cove-ocean-zipline-daily",
     url: "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/12/e5/6b/d1.jpg",
   },
+  {
+    eventId: "imbert-mercedes-patronales-2026",
+    url: "https://commons.wikimedia.org/wiki/Special:FilePath/Acceso_a_Imbert_por_la_Ruta_5.jpg",
+  },
   // brugal-corporate-tours / brugal-rum-center-weekdays — curated authentic assets in
   // popevent-images/ (aging warehouse + Casa Brugal). Do not remote-refresh over them.
   {

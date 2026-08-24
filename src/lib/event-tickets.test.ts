@@ -43,6 +43,19 @@ describe("isEventFree", () => {
     );
   });
 
+  it("marks curated free beach fitness as free", () => {
+    assert.equal(
+      isEventFree({
+        id: "costambar-beach-fitness",
+        title: "Costambar Beach Fitness",
+        description: "Free beach fitness on Costambar sand.",
+        category: "health-wellness",
+        recurrence: "weekdays",
+      }),
+      true,
+    );
+  });
+
   it("does not assume recurring music nights are free without a signal", () => {
     assert.equal(
       isEventFree({

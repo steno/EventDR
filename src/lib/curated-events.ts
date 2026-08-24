@@ -71,6 +71,15 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     location: "Puerto Plata",
     isFree: true,
   },
+  "imbert-mercedes-patronales-2026": {
+    venue: "Plaza Sánchez, Imbert",
+    venueSlug: "plaza-sanchez-imbert",
+    address: "Calle Sánchez, Imbert",
+    location: "Puerto Plata",
+    isFree: true,
+    lat: 19.75371,
+    lng: -70.82906,
+  },
   "cabarete-classic-2026": {
     // Geocoders tag Cabarete under Sosúa municipality — keep zone unambiguous.
     location: "Cabarete",

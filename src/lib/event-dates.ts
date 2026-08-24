@@ -1,7 +1,7 @@
 import type { Event, EventRecurrence } from "./types";
 
 const NORTH_COAST_RE =
-  /puerto plata|sosúa|sosua|cabarete|costambar|playa dorada|playa encuentro|costa norte|north coast/i;
+  /puerto plata|sosúa|sosua|cabarete|costambar|playa dorada|playa encuentro|imbert|costa norte|north coast/i;
 
 const OFF_REGION_RE =
   /cotui|cotuí|\bmao\b|santiago|cibao|amaprosan|santo domingo|la vega|san francisco de macor[ií]s|santo domingo/i;
@@ -153,6 +153,16 @@ export function sortUpcomingEvents(
   });
 }
 
+function seriesStartISO(event: { date?: string }): string | null {
+  const day = event.date?.trim().slice(0, 10);
+  return day && /^\d{4}-\d{2}-\d{2}$/.test(day) ? day : null;
+}
+
+function recurrenceCursorISO(today: string, event: { date?: string }): string {
+  const start = seriesStartISO(event);
+  return start && start > today ? start : today;
+}
+
 function recurringSeriesEnded(
   event: Pick<Event, "endDate">,
   now: Date,
@@ -162,9 +172,11 @@ function recurringSeriesEnded(
 }
 
 function recurringOccurrenceIsValid(
-  event: Pick<Event, "endDate">,
+  event: { date?: string; endDate?: string },
   occurrenceISO: string,
 ): boolean {
+  const start = seriesStartISO(event);
+  if (start && occurrenceISO < start) return false;
   if (!event.endDate) return true;
   return occurrenceISO <= event.endDate;
 }
@@ -225,23 +237,30 @@ export function materializeEventDates(
   return events.flatMap((event) => {
     if (event.recurrence === "daily") {
       if (recurringSeriesEnded(event, now)) return [];
-      return [{ ...event, date: today }];
+      const next = recurrenceCursorISO(today, event);
+      if (!recurringOccurrenceIsValid(event, next)) return [];
+      return [{ ...event, date: next }];
     }
     if (event.recurrence === "weekdays") {
       if (recurringSeriesEnded(event, now)) return [];
-      const next = nextFromWeekdaysISO(today, [1, 2, 3, 4, 5]);
+      const next = nextFromWeekdaysISO(recurrenceCursorISO(today, event), [
+        1, 2, 3, 4, 5,
+      ]);
       if (!recurringOccurrenceIsValid(event, next)) return [];
       return [{ ...event, date: next }];
     }
     if (event.recurrence === "weekends") {
       if (recurringSeriesEnded(event, now)) return [];
-      const next = nextFromWeekdaysISO(today, [6, 0]);
+      const next = nextFromWeekdaysISO(recurrenceCursorISO(today, event), [6, 0]);
       if (!recurringOccurrenceIsValid(event, next)) return [];
       return [{ ...event, date: next }];
     }
     if (event.recurrence === "weekly") {
       if (recurringSeriesEnded(event, now)) return [];
-      const next = nextWeeklyOccurrenceISO(today, event);
+      const next = nextWeeklyOccurrenceISO(
+        recurrenceCursorISO(today, event),
+        event,
+      );
       if (!next || !recurringOccurrenceIsValid(event, next)) return [];
       return [{ ...event, date: next }];
     }
@@ -266,6 +285,8 @@ export function isPastOneOffEvent(
 
 export function eventMatchesRecurrence(
   event: {
+    date?: string;
+    endDate?: string;
     recurrence?: EventRecurrence;
     recurrenceDay?: number;
     recurrenceDays?: number[];
@@ -283,26 +304,25 @@ export function eventMatchesRecurrence(
   const isWeekday = day >= 1 && day <= 5;
   const isTomorrowWeekend = tomorrowDay === 0 || tomorrowDay === 6;
   const isTomorrowWeekday = tomorrowDay >= 1 && tomorrowDay <= 5;
+  const todayInSeries = recurringOccurrenceIsValid(event, today);
+  const tomorrowInSeries = recurringOccurrenceIsValid(event, tomorrow);
 
   if (event.recurrence === "daily") {
-    return (
-      range === "all" ||
-      range === "today" ||
-      range === "tomorrow" ||
-      range === "weekend"
-    );
+    if (range === "today") return todayInSeries;
+    if (range === "tomorrow") return tomorrowInSeries;
+    return range === "all" || range === "weekend";
   }
 
   if (event.recurrence === "weekdays") {
-    if (range === "today") return isWeekday;
-    if (range === "tomorrow") return isTomorrowWeekday;
+    if (range === "today") return isWeekday && todayInSeries;
+    if (range === "tomorrow") return isTomorrowWeekday && tomorrowInSeries;
     if (range === "weekend") return false;
     return false;
   }
 
   if (event.recurrence === "weekends") {
-    if (range === "today") return isWeekend;
-    if (range === "tomorrow") return isTomorrowWeekend;
+    if (range === "today") return isWeekend && todayInSeries;
+    if (range === "tomorrow") return isTomorrowWeekend && tomorrowInSeries;
     if (range === "weekend") return true;
     return false;
   }
@@ -310,8 +330,8 @@ export function eventMatchesRecurrence(
   if (event.recurrence === "weekly") {
     const targets = weeklyDays(event);
     if (targets.length === 0) return false;
-    if (range === "today") return targets.includes(day);
-    if (range === "tomorrow") return targets.includes(tomorrowDay);
+    if (range === "today") return targets.includes(day) && todayInSeries;
+    if (range === "tomorrow") return targets.includes(tomorrowDay) && tomorrowInSeries;
     if (range === "weekend") return targets.some((target) => target === 0 || target === 6);
     return false;
   }
@@ -322,6 +342,8 @@ export function eventMatchesRecurrence(
 /** First calendar day in [rangeStart, rangeEnd] where a recurring event occurs. */
 export function findRecurringOccurrenceInRange(
   event: {
+    date?: string;
+    endDate?: string;
     recurrence?: EventRecurrence;
     recurrenceDay?: number;
     recurrenceDays?: number[];
@@ -331,10 +353,16 @@ export function findRecurringOccurrenceInRange(
 ): string | null {
   if (!event.recurrence) return null;
 
-  for (let cursor = rangeStart; cursor <= rangeEnd; cursor = addDaysISO(cursor, 1)) {
+  const start = seriesStartISO(event);
+  const from = start && start > rangeStart ? start : rangeStart;
+  if (from > rangeEnd) return null;
+
+  for (let cursor = from; cursor <= rangeEnd; cursor = addDaysISO(cursor, 1)) {
+    if (!recurringOccurrenceIsValid(event, cursor)) continue;
     const day = weekdayFromISO(cursor);
 
     if (event.recurrence === "daily") return cursor;
+    if (event.recurrence === "weekdays" && day >= 1 && day <= 5) return cursor;
     if (event.recurrence === "weekends" && (day === 0 || day === 6)) return cursor;
     if (event.recurrence === "weekly") {
       if (weeklyDays(event).includes(day)) return cursor;

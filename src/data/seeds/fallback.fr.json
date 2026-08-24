@@ -1162,5 +1162,27 @@
     "imageEmoji": "🎤",
     "title": "Karaoké du vendredi au Petit François",
     "description": "Karaoké beach party tous les vendredis au Petit François, El Pueblito / Playa Chaparral, avec DJ Leandro dès 20 h. Shots de limoncello 2 pour 1 cette semaine. Pas de cover — vous payez nourriture et verres. Réservations +1 829 492 2910."
+  },
+  {
+    "id": "imbert-mercedes-patronales-2026",
+    "title": "Fêtes patronales d'Imbert — Nuestra Señora de las Mercedes",
+    "description": "Neuf jours de fêtes patronales à Imbert (Puerto Plata intérieur, vers Damajagua) en l'honneur de Nuestra Señora de las Mercedes, patronne du village et fête nationale le 24 septembre. Messes et procession avec l'image de la Vierge, défilé des reines avec baton ballet, jeux populaires et soirée de clôture sur la Plaza Sánchez. Entrée libre ; on paie seulement nourriture et stands. L'Ayuntamiento annonce le programme de chaque soir.",
+    "date": "2026-09-16",
+    "endDate": "2026-09-24",
+    "location": "Puerto Plata",
+    "venue": "Plaza Sánchez, Imbert",
+    "venueSlug": "plaza-sanchez-imbert",
+    "address": "Calle Sánchez, Imbert",
+    "lat": 19.75371,
+    "lng": -70.82906,
+    "category": "festivals",
+    "categories": [
+      "culture"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "sourceUrl": "https://www.acercateard.com/en-us/cultura-de-la-republica-dominicana/provincia_2/fiestas-patronales-en-puerto-plata",
+    "imageEmoji": "⛪"
   }
 ]

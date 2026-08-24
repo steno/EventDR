@@ -35,4 +35,17 @@ describe("countEventsByCity", () => {
     assert.equal(counts.cabarete, 1);
     assert.equal(counts.sosua, 0);
   });
+
+  it("counts Imbert patronales under Puerto Plata", () => {
+    const counts = countEventsByCity([
+      event({
+        id: "mercedes",
+        location: "Imbert",
+        venue: "Plaza Sánchez, Imbert",
+      }),
+    ]);
+    assert.equal(counts["puerto-plata"], 1);
+    assert.equal(counts.sosua, 0);
+    assert.equal(counts.cabarete, 0);
+  });
 });

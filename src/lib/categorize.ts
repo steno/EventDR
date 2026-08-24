@@ -195,6 +195,11 @@ const KEYWORDS: KeywordMap = {
     { term: "pilates", weight: 2 },
     { term: "mindfulness", weight: 2 },
     { term: "sound healing", weight: 2 },
+    { term: "fitness", weight: 2 },
+    { term: "exercise", weight: 2 },
+    { term: "ejercicio", weight: 2 },
+    { term: "cardio", weight: 2 },
+    { term: "workout", weight: 2 },
     "retreat",
     "retiro",
     "healing",
@@ -305,6 +310,7 @@ const KEYWORDS: KeywordMap = {
     { term: "canopy", weight: 2 },
     { term: "island trip", weight: 2 },
     { term: "sandbar", weight: 2 },
+    // Landmark names — primary ingest only; secondaries skip these (see ADVENTURE_LANDMARK_TERMS).
     { term: "ocean world", weight: 2 },
     { term: "monkeyland", weight: 2 },
     { term: "safari truck", weight: 2 },
@@ -371,20 +377,42 @@ function textIncludesKeyword(haystack: string, term: string): boolean {
   ).test(haystack);
 }
 
-function scoreCategory(text: string, keywords: Keyword[]): number {
+/**
+ * Park names that classify an unlabeled outing as Adventure, but must not
+ * unlock Adventure as a secondary — neighbors say “near Ocean World” without
+ * being the ticketed park visit.
+ */
+const ADVENTURE_LANDMARK_TERMS = new Set(["ocean world", "monkeyland"]);
+
+function scoreCategory(
+  text: string,
+  keywords: Keyword[],
+  skipTerms?: ReadonlySet<string>,
+): number {
   const lower = text.toLowerCase();
   return keywords.reduce((score, keyword) => {
     const { term, weight } = keywordWeight(keyword);
+    if (skipTerms?.has(term)) return score;
     return score + (textIncludesKeyword(lower, term) ? weight : 0);
   }, 0);
 }
 
-function categoryScores(text: string): Map<EventCategory, number> {
+function categoryScores(
+  text: string,
+  options?: { skipAdventureLandmarks?: boolean },
+): Map<EventCategory, number> {
+  const skipAdventure = options?.skipAdventureLandmarks
+    ? ADVENTURE_LANDMARK_TERMS
+    : undefined;
   const scores = new Map<EventCategory, number>();
   for (const id of CATEGORY_IDS) {
     scores.set(
       id as EventCategory,
-      scoreCategory(text, KEYWORDS[id as EventCategory]),
+      scoreCategory(
+        text,
+        KEYWORDS[id as EventCategory],
+        id === "adventure" ? skipAdventure : undefined,
+      ),
     );
   }
   return scores;
@@ -433,7 +461,7 @@ export function inferSecondaryCategories(
   minScore = 2,
 ): EventCategory[] {
   const blocked = new Set(CATEGORY_INFERENCE_BLOCKS[primary] ?? []);
-  const scores = categoryScores(text);
+  const scores = categoryScores(text, { skipAdventureLandmarks: true });
   // Trade-fair copy that unlocks Business must not also unlock Adventure from
   // industry phrases like “adventure tourism” / “turismo de aventura”.
   if (

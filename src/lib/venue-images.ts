@@ -64,6 +64,7 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "paella-pop-el-pueblito": "paella-pop-el-pueblito.jpg",
   "paella-pop-green-one": "paella-pop-green-one.jpg",
   "plaza-independencia": "plaza-independencia.jpg",
+  "plaza-sanchez-imbert": "plaza-sanchez-imbert.jpg",
   "el-parq-cabarete": "el-parq-cabarete.jpg",
   "disco-club-brugal": "disco-club-brugal.jpg",
   "parada-tipica-el-choco": "parada-tipica-el-choco.jpg",
@@ -96,6 +97,7 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "zona-acapella-club": "zona-acapella-club.jpg",
   "pop-cinemas-playa-dorada": "pop-cinemas-playa-dorada.jpg",
   "le-petit-francois": "le-petit-francois.jpg",
+  "playa-costambar": "playa-costambar.png",
 };
 
 /** Cache-busted URL for general venue thumbnails / JSON-LD. */

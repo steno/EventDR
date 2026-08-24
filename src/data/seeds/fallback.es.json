@@ -1164,5 +1164,27 @@
     "imageEmoji": "🎤",
     "title": "Karaoke de viernes en Le Petit François",
     "description": "Karaoke playero todos los viernes en Le Petit François, El Pueblito / Playa Chaparral, con DJ Leandro desde las 8:00 PM. Shots de limoncello 2x1 esta semana. Sin cover — pagas comida y tragos. Reservas +1 829 492 2910."
+  },
+  {
+    "id": "imbert-mercedes-patronales-2026",
+    "title": "Fiestas Patronales de Imbert — Nuestra Señora de las Mercedes",
+    "description": "Nueve días de fiestas patronales en Imbert (Puerto Plata interior, rumbo a Damajagua) en honor a Nuestra Señora de las Mercedes, patrona del pueblo y fiesta nacional el 24 de septiembre. Misas y procesión con la imagen de la Virgen, desfile de reinas con batón ballet, juegos populares y noche de cierre en la Plaza Sánchez. Entrada libre; se paga solo comida y puestos. El Ayuntamiento anuncia la programación de cada noche.",
+    "date": "2026-09-16",
+    "endDate": "2026-09-24",
+    "location": "Puerto Plata",
+    "venue": "Plaza Sánchez, Imbert",
+    "venueSlug": "plaza-sanchez-imbert",
+    "address": "Calle Sánchez, Imbert",
+    "lat": 19.75371,
+    "lng": -70.82906,
+    "category": "festivals",
+    "categories": [
+      "culture"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "sourceUrl": "https://www.acercateard.com/en-us/cultura-de-la-republica-dominicana/provincia_2/fiestas-patronales-en-puerto-plata",
+    "imageEmoji": "⛪"
   }
 ]

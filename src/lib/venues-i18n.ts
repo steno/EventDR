@@ -239,6 +239,12 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Spot jour et nuit sur la plage de Costambar (Calle Reina Isabel) avec sports en direct sur écran géant, boissons et vie nocturne locale.",
     },
   },
+  "playa-costambar": {
+    description: {
+      es: "Playa residencial en Costambar, al oeste de Puerto Plata — fitness matutino en la arena a la izquierda del restaurante El Carey, baño y días de playa local.",
+      fr: "Plage résidentielle à Costambar, à l'ouest de Puerto Plata — fitness du matin sur le sable à gauche du restaurant El Carey, baignade et journées plage locales.",
+    },
+  },
   "hotel-ocean-winds": {
     description: {
       es: "Hotel boutique en Calle Guayacanes, Costambar — restaurante Amado’s, piscina y karaoke los sábados. WhatsApp +1 849-591-5588.",
@@ -289,6 +295,16 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
     description: {
       es: "Parque central de Puerto Plata (Plaza Independencia) en el centro histórico — plaza sombreada, vistas a la catedral y punto de encuentro para festivales y eventos comunitarios.",
       fr: "Parc central de Puerto Plata (Plaza Independencia) dans le centre historique — place ombragée, vue sur la cathédrale et lieu de rassemblement pour festivals et événements communautaires.",
+    },
+  },
+  "plaza-sanchez-imbert": {
+    name: {
+      es: "Plaza Sánchez",
+      fr: "Plaza Sánchez",
+    },
+    description: {
+      es: "Plaza del pueblo de Imbert en la Calle Sánchez — parroquia Nuestra Señora de las Mercedes, actos municipales y noches de cierre de las patronales de septiembre. Puerto Plata interior, rumbo a Damajagua.",
+      fr: "Place du village d'Imbert, Calle Sánchez — paroisse Nuestra Señora de las Mercedes, rassemblements municipaux et soirées de clôture des patronales de septembre. Puerto Plata intérieur, vers Damajagua.",
     },
   },
   "paseo-dona-blanca": {

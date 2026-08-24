@@ -58,6 +58,7 @@ const FILE_TO_EVENT_ID = {
     "dewry-luciano-zona-acapella-2026-08-23",
   "pop-cinemas-week-2026-08-20.jpg": "pop-cinemas-week-2026-08-20",
   "petit-francois-friday-karaoke.jpg": "petit-francois-friday-karaoke",
+  "costambar-beach-fitness.png": "costambar-beach-fitness",
   // Atléticos summer league — authentic Atléticos pitcher (athleticosPOP.png); copies below.
   "athleticosPOP.png": "atleticos-pp-vs-mangueros-2026-07-17",
   // ASA Survival Series — same flyer for all five Saturday VIP games.
@@ -100,6 +101,7 @@ const FILE_TO_EVENT_ID = {
   "sosua-10k-road-race-2026.jpg": "sosua-10k-road-race-2026",
   "puerto-plata-poker-experience-2026.jpg": "puerto-plata-poker-experience-2026",
   "aventurate-rd-2026.jpg": "aventurate-rd-2026",
+  "imbert-mercedes-patronales-2026.jpg": "imbert-mercedes-patronales-2026",
   "sunset-cabarete-sessions-2026.jpg": "sunset-cabarete-sessions-2026",
   "la-chabola-wednesday-open-mic.jpg": "la-chabola-wednesday-open-mic",
   "groundzero-domingos-pal-pueblo.jpg": "groundzero-domingos-pal-pueblo",
@@ -196,6 +198,7 @@ const FILE_TO_VENUE_SLUG = {
   "paella-pop-el-pueblito.jpg": "paella-pop-el-pueblito",
   "paella-pop-green-one.jpg": "paella-pop-green-one",
   "plaza-independencia.jpg": "plaza-independencia",
+  "imbert-mercedes-patronales-2026.jpg": "plaza-sanchez-imbert",
   "el-parq-live-bands-saturday.jpg": "el-parq-cabarete",
   "disco-club-brugal.jpg": "disco-club-brugal",
   "natura-cabana-saturday-live.jpg": "natura-cabana",
@@ -234,6 +237,7 @@ const FILE_TO_VENUE_SLUG = {
   "zona-acapella-club.jpg": "zona-acapella-club",
   "pop-cinemas-playa-dorada.jpg": "pop-cinemas-playa-dorada",
   "le-petit-francois.jpg": "le-petit-francois",
+  "costambar-beach-fitness.png": "playa-costambar",
 };
 
 if (!existsSync(sourceDir)) {

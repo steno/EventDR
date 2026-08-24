@@ -157,8 +157,10 @@ export const CURATED_FREE_EVENTS = new Set<string>([
   "cabarete-classic-2026",
   "puerto-plata-carnaval-2026",
   "malecon-morning-wellness-walk",
+  "costambar-beach-fitness",
   "el-colibri-karaoke-battle-2026",
   "feria-artesanal-verano-2026",
+  "imbert-mercedes-patronales-2026",
   // Restaurant / dining nights — free to enter; pay for what you order
   "la-casita-papi-beach-dining",
   "crazy-lobster-beach-dining",

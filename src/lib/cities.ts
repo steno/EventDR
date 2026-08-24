@@ -49,6 +49,7 @@ export const CITIES: CityMeta[] = [
       "cofresi",
       "playa dorada",
       "costambar",
+      "imbert",
       "damajagua",
       "teleférico",
       "teleferico",

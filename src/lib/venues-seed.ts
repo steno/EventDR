@@ -415,6 +415,16 @@ export const SEED_VENUES: Venue[] = [
     phone: "+18495915588",
   },
   {
+    slug: "playa-costambar",
+    name: "Playa Costambar",
+    city: "Costambar",
+    description:
+      "Residential beach in Costambar west of Puerto Plata — morning fitness on the sand to the left of El Carey Restaurant, plus swimming and local beach days.",
+    lat: 19.81515,
+    lng: -70.71555,
+    emoji: "🏖️",
+  },
+  {
     slug: "el-colibri-hotel",
     name: "El Colibri Hotel",
     city: "Sosúa",
@@ -500,6 +510,17 @@ export const SEED_VENUES: Venue[] = [
     website:
       "https://www.google.com/maps/place/Independence+Park/@19.7976623,-70.6932862,17z",
     phone: "+18095862526",
+  },
+  {
+    slug: "plaza-sanchez-imbert",
+    name: "Plaza Sánchez",
+    city: "Puerto Plata",
+    description:
+      "Imbert's town plaza on Calle Sánchez — parish of Nuestra Señora de las Mercedes, municipal gatherings, and the closing nights of the September patronales. Inland Puerto Plata, on the highway toward Damajagua.",
+    lat: 19.75371,
+    lng: -70.82906,
+    emoji: "⛪",
+    website: "https://ayuntamientoimbert.gob.do/cultura/",
   },
   {
     slug: "paseo-dona-blanca",
@@ -1145,6 +1166,10 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
     slug: "hotel-ocean-winds",
   },
   {
+    pattern: /playa\s*costambar|costambar\s*beach/i,
+    slug: "playa-costambar",
+  },
+  {
     pattern: /ocean\s*one(\s*cabarete)?/i,
     slug: "ocean-one-cabarete",
   },
@@ -1202,6 +1227,11 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
     // Local/expat name for Sea Horse Ranch Tennis Club (pickleball / courts).
     pattern: /cabarete\s*sports?\s*club/i,
     slug: "sea-horse-ranch",
+  },
+  {
+    pattern:
+      /plaza\s+s[aá]nchez|parque\s+s[aá]nchez|imbert.*(mercedes|patronal)|mercedes.*imbert/i,
+    slug: "plaza-sanchez-imbert",
   },
   {
     pattern: /santa\s*fe\s*laguna|hotel\s*laguna\s*sov/i,

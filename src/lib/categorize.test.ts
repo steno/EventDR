@@ -73,3 +73,72 @@ describe("aventurate-rd-2026 categories", () => {
     assert.equal(resolveSecondaryCategories(event).includes("adventure"), false);
   });
 });
+
+describe("landmark names do not unlock Adventure as a secondary", () => {
+  it("keeps Don Limón under food-drinks despite “near Ocean World”", () => {
+    const event = getFallbackEventById("don-limon-beach-dining", "en");
+    assert.ok(event);
+    assert.equal(event.category, "food-drinks");
+    const resolved = withResolvedCategories(event);
+    assert.equal(eventInCategory(resolved, "food-drinks"), true);
+    assert.equal(eventInCategory(resolved, "adventure"), false);
+  });
+
+  it("does not tag ES / FR Don Limón copy as adventure from Ocean World", () => {
+    for (const locale of ["es", "fr"] as const) {
+      const event = getFallbackEventById("don-limon-beach-dining", locale);
+      assert.ok(event);
+      assert.equal(
+        resolveSecondaryCategories(event).includes("adventure"),
+        false,
+        locale,
+      );
+    }
+  });
+
+  it("does not pull the Cofresí sunset walk into Adventure from the marina landmark", () => {
+    const event = getFallbackEventById("cofresi-beach-sunset-walk", "en");
+    assert.ok(event);
+    assert.equal(
+      resolveSecondaryCategories(event).includes("adventure"),
+      false,
+    );
+  });
+
+  it("still infers Adventure as a secondary from outing keywords", () => {
+    const text =
+      "Sunset catamaran with reef snorkeling and a beach barbecue";
+    assert.ok(
+      inferSecondaryCategories(text, "food-drinks").includes("adventure"),
+    );
+  });
+});
+
+describe("imbert-mercedes-patronales-2026 categories", () => {
+  it("stays under festivals and culture, not concert", () => {
+    for (const locale of ["en", "es", "fr"] as const) {
+      const event = getFallbackEventById(
+        "imbert-mercedes-patronales-2026",
+        locale,
+      );
+      assert.ok(event, locale);
+      const resolved = withResolvedCategories(event);
+      assert.equal(eventInCategory(resolved, "festivals"), true);
+      assert.equal(eventInCategory(resolved, "culture"), true);
+      assert.equal(eventInCategory(resolved, "concert"), false);
+      assert.equal(eventInCategory(resolved, "adventure"), false);
+    }
+  });
+});
+
+describe("costambar-beach-fitness categories", () => {
+  it("lists under health-wellness and sports across locales", () => {
+    for (const locale of ["en", "es", "fr"] as const) {
+      const event = getFallbackEventById("costambar-beach-fitness", locale);
+      assert.ok(event, locale);
+      const resolved = withResolvedCategories(event);
+      assert.equal(eventInCategory(resolved, "health-wellness"), true, locale);
+      assert.equal(eventInCategory(resolved, "sports"), true, locale);
+    }
+  });
+});

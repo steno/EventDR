@@ -1791,5 +1791,26 @@
     "phone": "+18092157676",
     "sourceUrl": "https://www.google.com/maps/place/Don+Limon/@19.8220126,-70.7301193,17z",
     "imageEmoji": "🍋"
+  },
+  {
+    "id": "costambar-beach-fitness",
+    "title": "Costambar Beach Fitness",
+    "description": "Fitness gratuit sur la plage de Costambar, à gauche du restaurant El Carey. Les cours reprennent le lundi 31 août 2026, puis du lundi au vendredi de 9 h à 10 h. Renforcement, coordination, équilibre et cardio en semaine ; yoga le vendredi. Hommes et femmes bienvenus — apportez des haltères légers, un tapis de yoga et de l'eau ; il fait encore chaud.",
+    "date": "2026-08-31",
+    "time": "9:00 AM – 10:00 AM",
+    "location": "Costambar",
+    "venue": "Plage de Costambar (à gauche d'El Carey)",
+    "venueSlug": "playa-costambar",
+    "address": "Plage de Costambar, à gauche du restaurant El Carey, Calle Reina Isabel",
+    "lat": 19.81515,
+    "lng": -70.71555,
+    "category": "health-wellness",
+    "categories": [
+      "sports"
+    ],
+    "format": "physical",
+    "recurrence": "weekdays",
+    "isFree": true,
+    "imageEmoji": "💪"
   }
 ]

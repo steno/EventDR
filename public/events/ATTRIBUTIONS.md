@@ -101,4 +101,6 @@ Curated images under `public/events/` and `public/venues/`.
 | `pop-cinemas-week-2026-08-20.jpg` | POP-supplied `pop-cinemas.jpg` — weekly cartelera 20–26 Aug | Official POP Cinemas Playa Dorada Mall billboard |
 | `venues/pop-cinemas-playa-dorada.jpg` | [Google Maps — Pop Cinemas](https://www.google.com/maps/place/Pop+Cinemas/@19.7698587,-70.6423406,17z) visitor photo | POP CINEMAS mall entrance with “Vive la diferencia” signage |
 | `petit-francois-friday-karaoke.jpg` | POP-supplied `petitfrancois.jpg` — Friday karaoke flyer | Official Le Petit François karaoke night graphic |
+| `costambar-beach-fitness.png` / `venues/playa-costambar.png` | Organizer-supplied Costambar Fitness class photo (beach session left of El Carey) | Authentic Costambar Beach Fitness group on the sand |
 | `venues/le-petit-francois.jpg` | [lepetitfrancois.com](https://lepetitfrancois.com/) — `DSC00912.jpeg` beach dinner | Official sand tables, tiki torch, and string lights at El Pueblito |
+| `imbert-mercedes-patronales-2026.jpg` / `venues/plaza-sanchez-imbert.jpg` | [Wikimedia Commons — Acceso a Imbert por la Ruta 5](https://commons.wikimedia.org/wiki/File:Acceso_a_Imbert_por_la_Ruta_5.jpg) — Ulises Icardi, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | Highway entrance to Imbert on Ruta 5 (Nov 2024) — town of the Mercedes patronales |
