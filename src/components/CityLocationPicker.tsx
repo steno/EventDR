@@ -160,7 +160,7 @@ export function CityLocationPicker({
         <span
           className={
             isHero
-              ? "relative z-10 whitespace-nowrap bg-gradient-to-r from-orange-300 via-rose-300 to-fuchsia-300 bg-clip-text text-transparent"
+              ? "relative z-10 whitespace-nowrap text-white sm:bg-gradient-to-r sm:from-orange-300 sm:via-rose-300 sm:to-fuchsia-300 sm:bg-clip-text sm:text-transparent [text-shadow:0_1px_2px_rgba(0,0,0,0.4)] sm:[text-shadow:none]"
               : "truncate"
           }
         >
@@ -171,7 +171,7 @@ export function CityLocationPicker({
             open ? "rotate-180" : ""
           } ${
             isHero
-              ? "relative z-10 h-[0.65em] w-[0.65em] text-orange-300 drop-shadow-[0_1px_2px_rgba(0,0,0,0.45)]"
+              ? "relative z-10 h-[0.65em] w-[0.65em] text-white sm:text-orange-300 drop-shadow-[0_1px_2px_rgba(0,0,0,0.45)]"
               : "h-4 w-4 opacity-80"
           }`}
           aria-hidden
@@ -249,31 +249,54 @@ function HeroCityPickerStroke() {
   const gradId = `hero-city-stroke-${rawId.replace(/:/g, "")}`;
 
   return (
-    <svg
-      aria-hidden
-      className="pointer-events-none absolute inset-0 h-full w-full overflow-visible"
-    >
-      <defs>
-        <linearGradient id={gradId} x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%" stopColor="var(--color-orange-300)" />
-          <stop offset="50%" stopColor="var(--color-rose-300)" />
-          <stop offset="100%" stopColor="var(--color-fuchsia-300)" />
-        </linearGradient>
-      </defs>
-      <rect
-        fill="none"
-        stroke={`url(#${gradId})`}
-        strokeWidth="2"
-        style={{
-          x: 1,
-          y: 1,
-          width: "calc(100% - 2px)",
-          height: "calc(100% - 2px)",
-          rx: 8,
-          ry: 8,
-        }}
-      />
-    </svg>
+    <>
+      {/* White border for mobile */}
+      <svg
+        aria-hidden
+        className="pointer-events-none absolute inset-0 h-full w-full overflow-visible sm:hidden"
+      >
+        <rect
+          fill="none"
+          stroke="white"
+          strokeWidth="2"
+          style={{
+            x: 1,
+            y: 1,
+            width: "calc(100% - 2px)",
+            height: "calc(100% - 2px)",
+            rx: 8,
+            ry: 8,
+            filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.4))",
+          }}
+        />
+      </svg>
+      {/* Gradient border for desktop */}
+      <svg
+        aria-hidden
+        className="pointer-events-none absolute inset-0 hidden h-full w-full overflow-visible sm:block"
+      >
+        <defs>
+          <linearGradient id={gradId} x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stopColor="var(--color-orange-300)" />
+            <stop offset="50%" stopColor="var(--color-rose-300)" />
+            <stop offset="100%" stopColor="var(--color-fuchsia-300)" />
+          </linearGradient>
+        </defs>
+        <rect
+          fill="none"
+          stroke={`url(#${gradId})`}
+          strokeWidth="2"
+          style={{
+            x: 1,
+            y: 1,
+            width: "calc(100% - 2px)",
+            height: "calc(100% - 2px)",
+            rx: 8,
+            ry: 8,
+          }}
+        />
+      </svg>
+    </>
   );
 }
 
