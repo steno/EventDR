@@ -5,8 +5,8 @@ import {
   showBootSplashForReload,
 } from "@/lib/boot-splash";
 
-// Keep in sync with CACHE_NAME in public/sw.js (eventdr-v17 → "17").
-const PWA_VERSION = "17";
+// Keep in sync with CACHE_NAME in public/sw.js (eventdr-v19 → "19").
+const PWA_VERSION = "19";
 
 function waitForWorkerState(
   worker: ServiceWorker,
