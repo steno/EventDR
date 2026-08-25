@@ -1093,6 +1093,23 @@ export const SEED_VENUES: Venue[] = [
     googleRatingFetchedAt: "2026-08-20T18:50:00.000Z",
   },
   {
+    slug: "los-tres-cocos-cofresi",
+    name: "Los Tres Cocos",
+    city: "Puerto Plata",
+    description:
+      "Intimate Caribbean–European dinner in La Roka, Cofresí — chef Micky’s garden tables, seafood and steaks, reservations recommended. Open Wed–Mon 5:00–11:00 PM; closed Tuesdays.",
+    lat: 19.8070375,
+    lng: -70.7270156,
+    emoji: "🌴",
+    instagram: "lostrescocosrd",
+    website:
+      "https://www.google.com/maps/place/Los+Tres+Cocos/@19.8070375,-70.7270156,17z",
+    phone: "+18099707627",
+    googleRating: 4.8,
+    googleReviewCount: 326,
+    googleRatingFetchedAt: "2026-08-25T16:49:00.000Z",
+  },
+  {
     slug: "crazy-lobster-maimon",
     name: "Crazy Lobster Bar & Grill",
     city: "Puerto Plata",
@@ -1355,6 +1372,11 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
     pattern:
       /don\s*lim[oó]n|donlimon(\s*(bar\s*(and|&)\s*grill|cofresi|cofre[sś][ií]))?/i,
     slug: "don-limon-cofresi",
+  },
+  {
+    pattern:
+      /los\s*tres\s*cocos|tres\s*cocos(\s*(cofresi|cofre[sś][ií]|la\s*roka))?/i,
+    slug: "los-tres-cocos-cofresi",
   },
   {
     pattern:

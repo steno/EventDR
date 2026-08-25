@@ -19,6 +19,7 @@ import { LIST_PAGE_SIZE, SCOPE_LIST_LIMIT } from "@/lib/home-layout";
 import { pinSpecialEvents } from "@/lib/special-events";
 import { cardGridRowRemainder, fillCardGridPage } from "@/lib/card-grid";
 import { scrollToListTop } from "@/lib/list-scroll";
+import { clusterRecurringVenueEvents } from "@/lib/venue-recurring-siblings";
 import { useCardGridColumns } from "@/hooks/useCardGridColumns";
 import { StickyListFilters, ListScrollAnchor } from "@/components/StickyListFilters";
 import { TimeFilter } from "@/components/TimeFilter";
@@ -34,6 +35,7 @@ import { SearchEmptyState } from "@/components/SearchEmptyState";
 import { AddEventButton } from "@/components/AddEventButton";
 import { EventViewToggle } from "@/components/EventViewToggle";
 import { useEventListView } from "@/hooks/useEventListView";
+import { useListTimeRange } from "@/hooks/useListTimeRange";
 import { fillTemplate } from "@/lib/seo";
 import { CARD_GRID_CLASS } from "@/lib/page-shell";
 import type { EventListView } from "@/lib/event-list-view";
@@ -87,6 +89,17 @@ interface FilteredEventListProps {
   addEventCta?: "pad" | "inline" | "button";
   /** Hide All/Today/Tomorrow/Weekend chips (venue Past tab). */
   hideTimeFilter?: boolean;
+  /**
+   * Collapse recurring programs that share a venue into one card with
+   * sibling night chips. Off for venue schedules (already the full grid).
+   */
+  clusterVenueRecurring?: boolean;
+  /**
+   * Keep All/Today/Tomorrow/Weekend across city and category swaps
+   * (sessionStorage). Off for venue schedules so a listing chip does not
+   * hide the weekly grid.
+   */
+  persistTimeRange?: boolean;
 }
 
 export function FilteredEventList({
@@ -111,14 +124,22 @@ export function FilteredEventList({
   scrollOnFilterChange = true,
   addEventCta = "pad",
   hideTimeFilter = false,
+  clusterVenueRecurring = true,
+  persistTimeRange = false,
 }: FilteredEventListProps) {
   const pathname = usePathname();
   const { view: preferredView, setView } = useEventListView();
   const viewLocked = lockedView != null;
   const view = lockedView ?? preferredView;
-  const [timeRange, setTimeRange] = useState<FilterTimeRange>(
+  const persistWhenChip = persistTimeRange && !fixedTimeRange;
+  const persisted = useListTimeRange();
+  const [localTimeRange, setLocalTimeRange] = useState<FilterTimeRange>(
     fixedTimeRange ?? defaultTimeRange,
   );
+  const timeRange = persistWhenChip ? persisted.timeRange : localTimeRange;
+  const setTimeRange = persistWhenChip
+    ? persisted.setTimeRange
+    : setLocalTimeRange;
   const [priceFilter, setPriceFilter] = useState<PriceFilter>(
     DEFAULT_PRICE_FILTER,
   );
@@ -208,18 +229,26 @@ export function FilteredEventList({
     return pinSpecialEvents(sorted, { placement: "weekend-list" });
   }, [events, activeRange, priceFilter, categoryId]);
 
+  const displayEvents = useMemo(
+    () =>
+      clusterVenueRecurring
+        ? clusterRecurringVenueEvents(filtered, locale, dict)
+        : filtered,
+    [filtered, clusterVenueRecurring, locale, dict],
+  );
+
   const showPadCta = addEventCta === "pad";
   const showInlineAddCta = addEventCta === "inline" && Boolean(onAddEvent);
-  const padDeficit = Math.max(0, LIST_SCROLL_PAD_TARGET - filtered.length);
+  const padDeficit = Math.max(0, LIST_SCROLL_PAD_TARGET - displayEvents.length);
   const eventCap =
     view === "cards" && Number.isFinite(visibleCount)
-      ? fillCardGridPage(visibleCount, filtered.length, columns)
+      ? fillCardGridPage(visibleCount, displayEvents.length, columns)
       : visibleCount;
   const visibleEvents = Number.isFinite(eventCap)
-    ? filtered.slice(0, eventCap)
-    : filtered;
+    ? displayEvents.slice(0, eventCap)
+    : displayEvents;
   const hasMore =
-    Number.isFinite(eventCap) && filtered.length > visibleEvents.length;
+    Number.isFinite(eventCap) && displayEvents.length > visibleEvents.length;
   /**
    * Truncated grids fill leftover columns with extra events so More events
    * can sit on a complete row. The add-event teaser only appears once the
@@ -231,7 +260,7 @@ export function FilteredEventList({
     padDeficit === 0 &&
     !hasMore;
   const leftover = cardGridRowRemainder(
-    showEndTeaser ? visibleEvents.length : filtered.length,
+    showEndTeaser ? visibleEvents.length : displayEvents.length,
     columns,
   );
   const fillSpan = view === "cards" ? leftover || "full" : undefined;
@@ -410,7 +439,7 @@ export function FilteredEventList({
             ) : null}
             {showPadCta ? (
               <EventListScrollPads
-                count={filtered.length}
+                count={displayEvents.length}
                 title={dict.events.yourEventHereTitle}
                 label={addEventLabelResolved}
                 onAddEvent={onAddEvent}
@@ -427,7 +456,7 @@ export function FilteredEventList({
                     if (!Number.isFinite(count)) return count;
                     const shown =
                       view === "cards"
-                        ? fillCardGridPage(count, filtered.length, columns)
+                        ? fillCardGridPage(count, displayEvents.length, columns)
                         : count;
                     return shown + pageSize;
                   })

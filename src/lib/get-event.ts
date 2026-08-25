@@ -61,7 +61,7 @@ async function loadEventById(
 
 const getCachedEventById = unstable_cache(
   async (id: string, locale: Locale, _dayKey: string) => loadEventById(id, locale),
-  ["event-by-id-v4"],
+  ["event-by-id-v5"],
   { revalidate: EVENT_REVALIDATE_SECONDS, tags: ["events"] },
 );
 

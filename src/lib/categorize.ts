@@ -359,7 +359,12 @@ const CATEGORY_AFFINITIES: Partial<Record<EventCategory, EventCategory[]>> = {
 const CATEGORY_INFERENCE_BLOCKS: Partial<
   Record<EventCategory, EventCategory[]>
 > = {
-  adventure: ["sports"],
+  /**
+   * Tours mention lunch / open bar / a restaurant as amenities.
+   * Keep Food & Drinks for dining-first listings, or explicit tags
+   * (day-pass buffets, etc.).
+   */
+  adventure: ["sports", "food-drinks"],
   /** Game nights / socials with “tournament” in the copy stay off Sports. */
   parties: ["sports"],
   /**

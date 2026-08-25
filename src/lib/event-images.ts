@@ -71,7 +71,10 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "vivonte-cigar-factory-saturday": "vivonte-cigar-factory-weekdays.jpg",
   "freestyle-catamaran-daily": "freestyle-catamaran-daily.jpg",
   "outback-safari-daily": "outback-safari-daily.jpeg",
-  "anfiteatro-la-puntilla-concerts": "anfiteatro-la-puntilla-concerts.jpg",
+  // Filename bumps — night show vs daytime bowl (venue uses separate stage shot).
+  "anfiteatro-la-puntilla-concerts": "anfiteatro-la-puntilla-concerts-night.jpg",
+  "anfiteatro-la-puntilla-weekday-culture":
+    "anfiteatro-la-puntilla-weekday-bowl.jpg",
   "el-carey-karaoke-mujeres-monday": "el-carey-karaoke-mujeres-monday.jpg",
   "el-carey-weekend-nightlife": "el-carey-weekend-nightlife.jpg",
   "sosua-jewish-museum-hours": "sosua-jewish-museum-hours.jpg",
@@ -88,11 +91,13 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "iberostar-costa-dorada-day-pass": "iberostar-costa-dorada-day-pass.jpg",
   "crazy-lobster-beach-dining": "crazy-lobster-beach-dining.jpg",
   "don-limon-beach-dining": "don-limon-beach-dining.jpeg",
+  "los-tres-cocos-dinner": "los-tres-cocos-dinner.jpg",
   "liquid-blue-watersports-daily": "liquid-blue-watersports-daily.jpg",
   "lax-headline-concerts": "lax-headline-concerts.jpg",
   "voyvoy-monday-live-music": "voyvoy-monday-live-music.jpg",
-  "voyvoy-saturday-session": "voyvoy-saturday-session.jpg",
-  "voyvoy-sunday-open-mic": "voyvoy-sunday-open-mic.jpg",
+  // Filename bumps — unique heroes (sync used to clone Monday dining onto Sat/Sun).
+  "voyvoy-saturday-session": "voyvoy-saturday-session-band.jpg",
+  "voyvoy-sunday-open-mic": "voyvoy-sunday-open-mic-closeup.jpg",
   "womens-reconnection-kite-camp-2026": "womens-reconnection-kite-camp-2026.jpg",
   "kite-beach-wind-culture": "kite-beach-wind-culture.jpg",
   "north-coast-tech-meetup": "north-coast-tech-meetup.jpg",

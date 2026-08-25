@@ -92,6 +92,7 @@ export const VENUE_AUDIENCE_POOLS: Record<
     "meclao-rooftop",
     "kviar-costa-dorada",
     "don-limon-cofresi",
+    "los-tres-cocos-cofresi",
   ],
   visitor: [
     "lax-cabarete",
@@ -136,6 +137,7 @@ export const VENUE_AUDIENCE_POOLS: Record<
     "hacienda-cufa",
     "playa-cofresi",
     "don-limon-cofresi",
+    "los-tres-cocos-cofresi",
     "crazy-lobster-maimon",
     "kviar-costa-dorada",
     "iberostar-waves-costa-dorada",

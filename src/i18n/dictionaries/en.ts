@@ -90,6 +90,8 @@ export type Dictionary = {
     viewMode: string;
     viewList: string;
     viewCards: string;
+    /** Card chip prefix when other nights at the same venue are clustered. */
+    alsoNights: string;
     happeningNow: string;
     eventStarted: string;
     startsSoon: string;
@@ -139,6 +141,8 @@ export type Dictionary = {
     discover: string;
     saved: string;
     submit: string;
+    /** Accessible name for the inner-page home control. */
+    home: string;
   };
   detail: {
     directions: string;
@@ -175,6 +179,9 @@ export type Dictionary = {
     driveMinutes: string;
     sameStrip: string;
     sameVenue: string;
+    /** Recurring sibling nights at this venue. */
+    otherNights: string;
+    otherNightsAt: string;
     walkableStrip: string;
     pocketPlaceMeta: string;
     opinion: {
@@ -517,6 +524,7 @@ export const en: Dictionary = {
     viewMode: "Event layout",
     viewList: "List",
     viewCards: "Cards",
+    alsoNights: "Also",
     happeningNow: "Happening now",
     eventStarted: "Event started",
     startsSoon: "Starts soon",
@@ -573,6 +581,7 @@ export const en: Dictionary = {
     discover: "Discover",
     saved: "Saved",
     submit: "Add event",
+    home: "Home",
   },
   detail: {
     directions: "Directions",
@@ -607,6 +616,8 @@ export const en: Dictionary = {
     driveMinutes: "{n} min drive",
     sameStrip: "Same strip",
     sameVenue: "Same venue",
+    otherNights: "Other nights here",
+    otherNightsAt: "Other nights at {venue}",
     walkableStrip: "Walkable strip",
     pocketPlaceMeta: "{pocket} · {strip}",
     opinion: {

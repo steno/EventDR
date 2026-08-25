@@ -18,6 +18,7 @@ import {
   allEventsPath,
   categoryPath,
 } from "@/lib/event-navigation";
+import { eventsAfterVenueClustering } from "@/lib/venue-recurring-siblings";
 import { sortEventsForDisplay } from "@/lib/event-sort";
 import { fillTemplate, localePath } from "@/lib/seo";
 import type { Event, EventCategory } from "@/lib/types";
@@ -124,8 +125,8 @@ export function filterCatalogForScope(
 
 /**
  * Area-picker sizes for the current listing filters.
- * Counts follow the selected category (and not the selected city), so each
- * city option shows how many matching events live there.
+ * Counts follow the selected category (not the selected city) and match
+ * clustered list rows, so two weekly nights at one venue count as one card.
  */
 export function cityCountsForSelection(
   catalog: Event[],
@@ -134,7 +135,7 @@ export function cityCountsForSelection(
   const scoped = selection.categoryId
     ? filterCatalogForScope(catalog, { categoryId: selection.categoryId })
     : catalog;
-  return countEventsByCity(scoped);
+  return countEventsByCity(eventsAfterVenueClustering(scoped));
 }
 
 export type ScopeListingChrome = {

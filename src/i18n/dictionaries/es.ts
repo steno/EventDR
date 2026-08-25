@@ -107,6 +107,7 @@ export const es: Dictionary = {
     viewMode: "Diseño de eventos",
     viewList: "Lista",
     viewCards: "Tarjetas",
+    alsoNights: "También",
     happeningNow: "En curso",
     eventStarted: "Evento iniciado",
     startsSoon: "Empieza pronto",
@@ -163,6 +164,7 @@ export const es: Dictionary = {
     discover: "Explorar",
     saved: "Guardados",
     submit: "Publicar",
+    home: "Inicio",
   },
   detail: {
     directions: "Cómo llegar",
@@ -197,6 +199,8 @@ export const es: Dictionary = {
     driveMinutes: "{n} min en auto",
     sameStrip: "Misma zona",
     sameVenue: "Mismo lugar",
+    otherNights: "Otras noches aquí",
+    otherNightsAt: "Otras noches en {venue}",
     walkableStrip: "Zona peatonal",
     pocketPlaceMeta: "{pocket} · {strip}",
     opinion: {

@@ -575,6 +575,12 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Restaurant cubain familial sur Playa Cofresí — sandwiches, poisson grillé, paella et cocktails avec vue plage. Ouvert tous les jours 11 h–1 h ; les avis parlent du service autant que des assiettes.",
     },
   },
+  "los-tres-cocos-cofresi": {
+    description: {
+      es: "Cena íntima caribeña–europea en La Roka, Cofresí — mesas en jardín del chef Micky, mariscos y carnes; reserva recomendada. Abierto mié–lun 5:00–11:00 PM; cerrado los martes.",
+      fr: "Dîner intimiste caribéo-européen à La Roka, Cofresí — tables jardin du chef Micky, fruits de mer et viandes ; réservation conseillée. Ouvert mer–lun 17 h–23 h ; fermé le mardi.",
+    },
+  },
   "crazy-lobster-maimon": {
     description: {
       es: "Parrilla de mariscos en caseta en Playa Los Cocos, Maimón — langosta a la parrilla, platos dominicanos y mesas en patio o arena a pocos pasos del Senator Puerto Plata, Playabachata y Amber Cove.",

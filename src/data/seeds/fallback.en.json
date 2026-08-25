@@ -624,24 +624,24 @@
   {
     "id": "aventurate-rd-2026",
     "title": "Aventúrate RD 2026",
-    "description": "Second edition of Aventúrate RD, the North Coast's adventure- and eco-tourism business fair, at Hotel Marién in Puerto Plata (Sep 2–4). 60+ exhibitors and 200+ international buyers, plus forums, business rounds, and a gastronomic closing in Sosúa. Organized by AFEET RD and CDCT; register at feriaaventuraterd.com.",
-    "date": "2026-09-02",
-    "endDate": "2026-09-04",
-    "time": "9:00 AM – 8:00 PM",
+    "description": "Dominican adventure-tourism trade fair at Hotel Marien, Puerto Plata — Sep 1–3, 2026. Three days of regional showcases, B2B rounds, forums, and networking for exhibitors and industry professionals (100+ exhibitors, 5,000+ expected visitors). Professional access; register at feriaaventuraterd.com.",
+    "date": "2026-09-01",
+    "endDate": "2026-09-03",
+    "time": "9:00 AM – 5:00 PM",
     "location": "Puerto Plata",
-    "venue": "Hotel Marién",
-    "address": "Costa Dorada, Puerto Plata",
-    "lat": 19.8206,
-    "lng": -70.7079,
+    "venue": "Hotel Marien",
+    "address": "Hotel Marien, Puerto Plata",
+    "lat": 19.7765,
+    "lng": -70.6585,
     "category": "festivals",
     "categories": [
-      "business",
-      "culture"
+      "business"
     ],
     "format": "physical",
     "trending": true,
+    "phone": "+18093025910",
     "sourceUrl": "https://feriaaventuraterd.com/",
-    "ticketUrl": "https://feriaaventuraterd.com/",
+    "ticketUrl": "https://feriaaventuraterd.com/registro",
     "imageEmoji": "🌿"
   },
   {

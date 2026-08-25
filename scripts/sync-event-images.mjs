@@ -14,7 +14,11 @@ const venuesDir = join(root, "public", "venues");
 const FILE_TO_EVENT_ID = {
   // --- Fetched / venue-accurate ({eventId}.jpg) ---
   "malecon-morning-wellness-walk.jpg": "malecon-morning-wellness-walk",
-  "anfiteatro-la-puntilla-concerts.jpg": "anfiteatro-la-puntilla-concerts",
+  "anfiteatro-la-puntilla-concerts-night.jpg": "anfiteatro-la-puntilla-concerts-night",
+  "anfiteatro-la-puntilla-weekday-bowl.jpg": "anfiteatro-la-puntilla-weekday-bowl",
+  "voyvoy-saturday-session-band.jpg": "voyvoy-saturday-session-band",
+  "voyvoy-sunday-open-mic-closeup.jpg": "voyvoy-sunday-open-mic-closeup",
+  "voyvoy-monday-live-music.jpg": "voyvoy-monday-live-music",
   "hard-rock-billed-concerts.jpg": "hard-rock-billed-concerts",
   "sosua-jewish-museum-hours.jpg": "sosua-jewish-museum-hours",
   "sosua-diving-adventures-daily.jpg": "sosua-diving-adventures-daily",
@@ -30,6 +34,7 @@ const FILE_TO_EVENT_ID = {
   "iberostar-costa-dorada-day-pass.jpg": "iberostar-costa-dorada-day-pass",
   "crazy-lobster-beach-dining.jpg": "crazy-lobster-beach-dining",
   "don-limon.jpeg": "don-limon-beach-dining",
+  "los-tres-cocos-dinner.jpg": "los-tres-cocos-dinner",
   "ocean-winds-karaoke-nights.jpg": "ocean-winds-karaoke-nights",
   "kite-beach-wind-culture.jpg": "kite-beach-wind-culture",
   "d-classico-merengue-nights.jpg": "d-classico-merengue-nights",
@@ -170,9 +175,7 @@ const FILE_TO_EVENT_ID = {
 const SAME_VENUE_COPIES = [
   ["ElBateySalsaSocial.JPG", "el-batey-weekend-nightlife"],
   // Ojo / open mic / LAX headlines use dedicated assets (not salsa social or sunset).
-  ["voyvoy-monday-live-music.jpg", "voyvoy-saturday-session"],
-  ["voyvoy-monday-live-music.jpg", "voyvoy-sunday-open-mic"],
-  ["voyvoy-monday-live-music.jpg", "voyvoy-monday-live-music"],
+  // Voy Voy: do NOT clone Monday dining onto Sat/Sun — unique band / mic heroes.
   ["del-oro-chocolate-factory-weekdays.jpg", "del-oro-chocolate-factory-saturday"],
   ["vivonte-cigar-factory-weekdays.jpg", "vivonte-cigar-factory-saturday"],
   ["asa-surviaval.jpeg", "ingest-asa-survival-series-cdf-vs-dracos-game-1"],
@@ -202,18 +205,23 @@ const FILE_TO_VENUE_SLUG = {
   "iberostar-waves-costa-dorada.jpg": "iberostar-waves-costa-dorada",
   "crazy-lobster-beach-dining.jpg": "crazy-lobster-maimon",
   "don-limon-venue.jpeg": "don-limon-cofresi",
+  "los-tres-cocos-dinner.jpg": "los-tres-cocos-cofresi",
   "ocean-winds-karaoke-nights.jpg": "hotel-ocean-winds",
   // Filename bump after replacing a tiny shared dolphin-jump JPEG.
   "ocean-world-park.jpg": "ocean-world-park",
   "liquid-blue-watersports-daily.jpg": "liquid-blue-cabarete",
-  "anfiteatro-la-puntilla-concerts.jpg": "anfiteatro-la-puntilla",
+  // Venue: stage+arch place shot (Wikimedia). Concerts use night hero; weekday uses bowl.
+  "anfiteatro-la-puntilla-stage.jpg": "anfiteatro-la-puntilla-stage",
+  // Filename bump — daytime Malecón promenade (not night open-air stage).
+  "malecon-puerto-plata-promenade.jpg": "malecon-puerto-plata-promenade",
   "smileys-saturday-live.jpg": "smileys-bar-sosua",
   "finish-line-live-wednesday.jpg": "finish-line-sosua",
   "d-classico-merengue-nights.jpg": "d-classico-sosua",
   // El Batey venue card is the whole downtown Sosúa district (Plaza García / Entrada
   // El Batey), so it uses a daytime street scene — not the food-nights or nightlife shot.
   "el-batey-downtown-daytime.jpg": "el-batey-sosua",
-  "voyvoy-monday-live-music.jpg": "voyvoy-cabarete",
+  // Authentic Voyvoy bar interior; Sat/Sun use dedicated event heroes (see FILE_TO_EVENT_ID).
+  "voyvoy-cabarete-bar.jpg": "voyvoy-cabarete-bar",
   "cheers-weekly-live.jpg": "cheers-bar-sosua",
   // Dining/bar interior — distinct filename so browsers don't keep the old concert-stock URL.
   "castaways-sosua-dining.jpg": "castaways-sosua-dining",

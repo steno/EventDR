@@ -649,6 +649,14 @@ export const VENUE_TIP_COPY: Record<
       fr: "Cuisine cubaine familiale sur Playa Cofresí — les avis parlent de l'accueil autant que des assiettes. Restaurant de plage indépendant, pas le billet Ocean World à côté.",
     },
   },
+  "los-tres-cocos-cofresi": {
+    body: "Reservation dinner in La Roka — chef Micky’s garden room, not beach-hut casual like Don Limón next door, and Tuesday is closed.",
+    localized: {
+      en: "Reservation dinner in La Roka — chef Micky’s garden room, not beach-hut casual like Don Limón next door, and Tuesday is closed.",
+      es: "Cena con reserva en La Roka — el jardín del chef Micky, no la caseta casual de Don Limón cerca, y el martes está cerrado.",
+      fr: "Dîner sur réservation à La Roka — la salle jardin du chef Micky, pas la paillote casual de Don Limón à côté, et fermé le mardi.",
+    },
+  },
   "crazy-lobster-maimon": {
     body: "The grilled-lobster hut guests walk to from Senator / Playabachata — beach or patio tables, not a resort buffet, and you will want a ride or the beach walk; call before you go.",
     localized: {

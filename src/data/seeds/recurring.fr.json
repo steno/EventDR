@@ -1816,6 +1816,26 @@
     "imageEmoji": "🍋"
   },
   {
+    "id": "los-tres-cocos-dinner",
+    "title": "Dîner jardin Los Tres Cocos",
+    "description": "Dîner sur réservation à La Roka, Cofresí — assiettes caribéo-européennes du chef Micky dans une salle jardin à l'ouest de Puerto Plata. Mer–lun 17 h–23 h ; fermé le mardi. Appelez le +1 809-970-7627.",
+    "date": "2026-01-01",
+    "time": "5:00 PM – 11:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Los Tres Cocos",
+    "venueSlug": "los-tres-cocos-cofresi",
+    "address": "R74F+R59 La Roka, Cofresí 57000",
+    "lat": 19.8070375,
+    "lng": -70.7270156,
+    "category": "food-drinks",
+    "format": "physical",
+    "recurrence": "weekly",
+    "recurrenceDays": [0, 1, 3, 4, 5, 6],
+    "phone": "+18099707627",
+    "sourceUrl": "https://www.google.com/maps/place/Los+Tres+Cocos/@19.8070375,-70.7270156,17z",
+    "imageEmoji": "🌴"
+  },
+  {
     "id": "el-cocotazo-cafe-beach-dining",
     "title": "Petit-déj et déjeuner en bord de mer à El Cocotazo Cafe",
     "description": "Tables de jour à El Cocotazo Cafe sur Kite Beach (Agualina Kitebeach Hotel) — petit-déj dominicain, tacos et salades face à la ligne de kite. Cuisine 9 h–16 h 45 ; happy hour 16 h–17 h. Tenue par José Luis et Manuel. Confirmez les horaires au +1 809-657-6116.",
@@ -1902,9 +1922,6 @@
     "venueSlug": "finca-papirucho",
     "address": "HFW7+4FJ, Yásica Arriba",
     "category": "adventure",
-    "categories": [
-      "food-drinks"
-    ],
     "format": "physical",
     "recurrence": "daily",
     "phone": "+18492077092",

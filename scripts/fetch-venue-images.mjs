@@ -56,10 +56,9 @@ const VENUE_SOURCES = [
     eventId: "malecon-morning-wellness-walk",
     url: "https://images.prismic.io/prismic-rd-2/Z464MJbqstJ99p8j_puerto-plata-rconti-131_7870549d-e07a-da28-37eba65318d2c384.jpg?auto=format,compress",
   },
-  {
-    eventId: "anfiteatro-la-puntilla-concerts",
-    url: "https://images.prismic.io/prismic-rd-2/Z46wwJbqstJ99p3X_2.dsc_1640-copy-2-1_791bdf93-f6ac-4b28-650db027bfffcd36.jpg?auto=format,compress",
-  },
+  // anfiteatro-la-puntilla concerts / weekday / venue — curated distinct heroes in
+  // popevent-images/ (MaleconOPenAir night, goDR seating bowl, Wikimedia stage+arch).
+  // Do not remote-refresh over them (old remote was one daytime shot shared for all).
   {
     eventId: "hard-rock-billed-concerts",
     url: "https://cafe.hardrock.com/puerto-plata/files/7036/RockHeader.jpg",
@@ -291,6 +290,11 @@ const VENUE_SOURCES = [
   },
   // don-limon.jpeg — POP-supplied event photo (logo wall).
   // don-limon-venue.jpeg — POP-supplied beach-bar venue hero. Do not remote-refresh.
+  {
+    // Google Maps place photo — tropical garden dining room at Los Tres Cocos, La Roka Cofresí.
+    eventId: "los-tres-cocos-dinner",
+    url: "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlMuJPYDnM1ByN6BGEGlPs51kwpPEFV5wKU0zu4rGDHkkfr4WIboyt1ljPFCIzk25Q8UXekXLrdhkGcsZgBm-LOeAEfSpnIE1XzRuODwp_C-n9RsptLOT1yC8WDbN0qT9fgmeni=w1600-h900-k-no",
+  },
   {
     // Official Hotel Ocean Winds Costambar daytime pool (hoteloceanwinds.com).
     eventId: "ocean-winds-karaoke-nights",

@@ -92,6 +92,11 @@ const PLACE_SEARCH_ALIASES: Record<string, string[]> = {
     "Don Limón Playa Cofresí",
     "Don Limon Bar and Grill Cofresi",
   ],
+  "los-tres-cocos-cofresi": [
+    "Los Tres Cocos Cofresi Puerto Plata",
+    "Los Tres Cocos La Roka Cofresi",
+    "Los Tres Cocos Puerto Plata restaurant",
+  ],
   "hotel-ocean-winds": [
     "Hotel Ocean Winds Costambar",
     "Ocean Winds Hotel Calle Guayacanes Puerto Plata",

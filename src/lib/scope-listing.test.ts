@@ -119,4 +119,36 @@ describe("scope-listing", () => {
     assert.equal(foodCounts.cabarete, 1);
     assert.equal(foodCounts["puerto-plata"], 0);
   });
+
+  it("counts clustered venue nights as one card per city", () => {
+    const catalog = [
+      stubEvent({
+        id: "kite-daily",
+        category: "sports",
+        location: "Cabarete",
+        venueSlug: "kite-beach",
+        recurrence: "daily",
+      }),
+      stubEvent({
+        id: "kite-culture",
+        category: "sports",
+        location: "Cabarete",
+        venueSlug: "kite-beach",
+        recurrence: "daily",
+      }),
+      stubEvent({
+        id: "pickleball",
+        category: "sports",
+        location: "Cabarete",
+        venueSlug: "sea-horse-ranch",
+        recurrence: "weekly",
+      }),
+    ];
+
+    const sportsCounts = cityCountsForSelection(catalog, {
+      categoryId: "sports",
+    });
+    assert.equal(sportsCounts.cabarete, 2);
+    assert.equal(sportsCounts.all, 2);
+  });
 });

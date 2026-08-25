@@ -5,7 +5,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { isValidLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getEventById } from "@/lib/get-event";
-import { getNearbyTonightForEvent } from "@/lib/get-nearby-tonight";
+import { getNearbyTonightForEvent, getVenueOtherNightsForEvent } from "@/lib/get-nearby-tonight";
 import { getCanonicalEventShareUrl } from "@/lib/share";
 import { formatEventDateRange } from "@/lib/format-date";
 import { formatRecurrenceLabel } from "@/lib/recurrence-label";
@@ -64,8 +64,9 @@ export default async function Page({
     matchVenueSlug(event.venue) ??
     matchVenueSlug(event.location);
 
-  const [nearbyTonight, assessment] = await Promise.all([
+  const [nearbyTonight, venueOtherNights, assessment] = await Promise.all([
     getNearbyTonightForEvent(event, locale),
+    getVenueOtherNightsForEvent(event, locale),
     areEventOpinionsEnabled() && venueSlug
       ? getVenueAssessment(venueSlug)
       : Promise.resolve(null),
@@ -98,6 +99,7 @@ export default async function Page({
         formattedDateRange={formattedDateRange}
         recurrenceLabel={recurrenceLabel}
         nearbyTonight={nearbyTonight}
+        venueOtherNights={venueOtherNights}
         opinionOverride={opinionOverride}
         initialVenueRating={venueRating}
       />

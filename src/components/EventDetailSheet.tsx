@@ -38,6 +38,7 @@ import {
 } from "@/lib/onboarding";
 import { usePushSubscription } from "@/hooks/usePushSubscription";
 import type { NearbyTonightResult } from "@/lib/nearby-events";
+import type { VenueSiblingNight } from "@/lib/venue-recurring-siblings";
 import { getPocketForEvent } from "@/lib/walkable-pockets";
 import { areEventOpinionsEnabled, getEventOpinion, withGoogleRating, googleRatingFromAssessment } from "@/lib/event-opinions";
 import { EventDetailContent } from "@/components/event-detail/EventDetailContent";
@@ -71,6 +72,8 @@ interface EventDetailSheetProps {
   initialVenueRating?: { rating: number; reviewCount?: number } | null;
   /** Same-day walkable events near this one (server-computed). */
   nearbyTonight?: NearbyTonightResult | null;
+  /** Other recurring nights at the same venue (server-computed). */
+  venueOtherNights?: VenueSiblingNight[];
 }
 
 export function EventDetailSheet({
@@ -86,6 +89,7 @@ export function EventDetailSheet({
   opinionOverride = null,
   initialVenueRating = null,
   nearbyTonight = null,
+  venueOtherNights = [],
 }: EventDetailSheetProps) {
   const [shareMsg, setShareMsg] = useState<string | null>(null);
   const [openAction, setOpenAction] = useState<ActionMenu | null>(null);
@@ -398,6 +402,7 @@ export function EventDetailSheet({
       onWarmVenue={warmVenueRoute}
       eventOpinion={eventOpinion}
       nearbyTonight={nearbyTonight}
+      venueOtherNights={venueOtherNights}
       ticketUrl={ticketUrl}
       showAdmissionVaries={showAdmissionVaries}
       showFreeAdmission={showFreeAdmission}
