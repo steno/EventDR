@@ -1,4 +1,5 @@
 import type { Locale } from "@/i18n/config";
+import { getDictionary } from "@/i18n/dictionaries";
 import { localDateISO, materializeEventDates } from "@/lib/event-dates";
 import { getFallbackEvents } from "@/lib/fallback-events";
 import { attachCoords, attachVenueSlugs } from "@/lib/geo";
@@ -10,6 +11,10 @@ import {
 import { getPublicEvents } from "@/lib/public-events";
 import { filterRemovedSeedEvents } from "@/lib/removed-seeds";
 import type { Event, Venue } from "@/lib/types";
+import {
+  findVenueRecurringSiblings,
+  type VenueSiblingNight,
+} from "@/lib/venue-recurring-siblings";
 
 /**
  * Process-local pool cache. Static generation hits this hundreds of times
@@ -56,6 +61,16 @@ export async function getNearbyTonightForEvent(
 ): Promise<NearbyTonightResult> {
   const pool = await getNearbyEventPool(locale);
   return findNearbyForEventDetail(event, pool);
+}
+
+/** Other recurring nights/programs at the same venue for event detail. */
+export async function getVenueOtherNightsForEvent(
+  event: Event,
+  locale: Locale,
+): Promise<VenueSiblingNight[]> {
+  const pool = await getNearbyEventPool(locale);
+  const dict = getDictionary(locale);
+  return findVenueRecurringSiblings(event, pool, locale, dict);
 }
 
 /**

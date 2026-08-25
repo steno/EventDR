@@ -126,7 +126,7 @@ export function CityCategoryLinks({
         }}
       >
         {link.emoji ? (
-          <span className="text-4xl leading-none select-none" aria-hidden>
+          <span className="text-[48px] leading-none select-none" aria-hidden>
             {link.emoji}
           </span>
         ) : null}

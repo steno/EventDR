@@ -17,6 +17,7 @@ import { navigateBackSoft, navigateSoft } from "@/lib/nav-feedback";
 import { PAGE_SHELL_DETAIL_CLASS } from "@/lib/page-shell";
 import { isDetailNavPath } from "@/lib/scope-listing";
 import type { NearbyTonightResult } from "@/lib/nearby-events";
+import type { VenueSiblingNight } from "@/lib/venue-recurring-siblings";
 
 interface EventPageProps {
   event: Event;
@@ -26,6 +27,7 @@ interface EventPageProps {
   formattedDateRange?: string;
   recurrenceLabel?: string | null;
   nearbyTonight?: NearbyTonightResult | null;
+  venueOtherNights?: VenueSiblingNight[];
   opinionOverride?: EventOpinion | null;
   initialVenueRating?: { rating: number; reviewCount?: number } | null;
 }
@@ -38,6 +40,7 @@ export function EventPage({
   formattedDateRange,
   recurrenceLabel,
   nearbyTonight = null,
+  venueOtherNights = [],
   opinionOverride = null,
   initialVenueRating = null,
 }: EventPageProps) {
@@ -100,6 +103,7 @@ export function EventPage({
           formattedDateRange={formattedDateRange}
           recurrenceLabel={recurrenceLabel}
           nearbyTonight={nearbyTonight}
+          venueOtherNights={venueOtherNights}
           opinionOverride={opinionOverride}
           initialVenueRating={initialVenueRating}
           standalone

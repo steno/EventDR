@@ -123,6 +123,29 @@ const VENUE_SEO: Record<string, Record<Locale, VenueSeoCopy>> = {
       addressLocality: "Cofresí",
     },
   },
+  "los-tres-cocos-cofresi": {
+    en: {
+      title: "Los Tres Cocos Cofresí | Garden Dinner Puerto Plata | POP Events",
+      description:
+        "Los Tres Cocos in La Roka, Cofresí — Caribbean–European dinner with chef Micky. Wed–Mon 5–11 PM, closed Tuesday. Google 4.8 from 326 reviews.",
+      schemaType: "Restaurant",
+      addressLocality: "Cofresí",
+    },
+    es: {
+      title: "Los Tres Cocos Cofresí | Cena en jardín Puerto Plata | POP Eventos",
+      description:
+        "Los Tres Cocos en La Roka, Cofresí — cena caribeña–europea con el chef Micky. Mié–lun 5–11 PM, cerrado martes. Google 4.8 de 326 reseñas.",
+      schemaType: "Restaurant",
+      addressLocality: "Cofresí",
+    },
+    fr: {
+      title: "Los Tres Cocos Cofresí | Dîner jardin Puerto Plata | POP Events",
+      description:
+        "Los Tres Cocos à La Roka, Cofresí — dîner caribéo-européen avec le chef Micky. Mer–lun 17 h–23 h, fermé mardi. Google 4,8 sur 326 avis.",
+      schemaType: "Restaurant",
+      addressLocality: "Cofresí",
+    },
+  },
 };
 
 export function getVenueSeo(

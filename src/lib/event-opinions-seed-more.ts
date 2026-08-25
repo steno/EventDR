@@ -1139,6 +1139,29 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: "2026-08-20T18:50:00.000Z",
   },
   {
+    eventId: "los-tres-cocos-dinner",
+    seriesKey: "los-tres-cocos-cofresi:weekly:closed-tue",
+    body: "Book ahead — chef Micky greets the room in a garden dining hall, not a beach hut; Tuesday is closed, and this is the reservation dinner next to casual Don Limón on Cofresí.",
+    localized: {
+      es: "Reserva con tiempo — el chef Micky saluda en un salón-jardín, no en caseta de playa; martes cerrado, y es la cena con reserva junto al casual Don Limón en Cofresí.",
+      fr: "Réservez — le chef Micky accueille en salle jardin, pas en paillote plage ; fermé mardi, et c'est le dîner sur réservation à côté du casual Don Limón à Cofresí.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "No cover — Google reports DOP 500–3,000 per person; reserve by phone +1 809-970-7627",
+    priceNoteLocalized: {
+      es: "Sin cover — Google indica DOP 500–3,000 por persona; reserva al +1 809-970-7627",
+      fr: "Sans cover — Google indique DOP 500–3 000 par personne ; réservez au +1 809-970-7627",
+    },
+    attribution: "POP research · Google Maps",
+    ratingCite: "Google 4.8",
+    googleRating: 4.8,
+    googleReviewCount: 326,
+    researchNotes:
+      "Google Maps Los Tres Cocos 19.8070375,-70.7270156; 4.8 from 326 reviews (Aug 25 2026). Wed–Mon 5–11 PM, closed Tue. Plus code R74F+R59 La Roka Cofresi. Phone +18099707627. Instagram @lostrescocosrd. TripAdvisor ~4.8/338 historically. Topics: cozy place, chef interaction, mahi mahi, ribs. Austrian chef Micky; Caribbean–European menu.",
+    updatedAt: "2026-08-25T16:49:00.000Z",
+  },
+  {
     eventId: "ocean-winds-karaoke-nights",
     seriesKey: "hotel-ocean-winds:weekly:6",
     body: "New Saturday karaoke at Amado’s — take the mic from 8 PM, not Facebook’s midnight stamp; hotel restaurant, not El Carey’s beach night.",

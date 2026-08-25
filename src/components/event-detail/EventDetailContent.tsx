@@ -29,7 +29,9 @@ import {
   venueDetailPath,
 } from "@/lib/event-navigation";
 import { NearbyTonight, PocketPlaceHint } from "@/components/NearbyTonight";
+import { VenueOtherNights } from "@/components/VenueOtherNights";
 import type { NearbyTonightResult } from "@/lib/nearby-events";
+import type { VenueSiblingNight } from "@/lib/venue-recurring-siblings";
 import type { WalkablePocket } from "@/lib/walkable-pockets";
 
 export interface EventDetailContentProps {
@@ -50,6 +52,7 @@ export interface EventDetailContentProps {
   onWarmVenue?: () => void;
   eventOpinion: EventOpinion | null;
   nearbyTonight: NearbyTonightResult | null;
+  venueOtherNights?: VenueSiblingNight[];
   ticketUrl: string | undefined;
   showAdmissionVaries: boolean;
   showFreeAdmission: boolean;
@@ -74,6 +77,7 @@ export function EventDetailContent({
   onWarmVenue,
   eventOpinion,
   nearbyTonight,
+  venueOtherNights = [],
   ticketUrl,
   showAdmissionVaries,
   showFreeAdmission,
@@ -313,6 +317,17 @@ export function EventDetailContent({
           )}
         </div>
       )}
+
+      {venueOtherNights.length > 0 ? (
+        <VenueOtherNights
+          siblings={venueOtherNights}
+          venueName={event.venue}
+          locale={locale}
+          dict={dict}
+          returnTo={eventDetailPath(locale, event.id)}
+          returnTitle={event.title}
+        />
+      ) : null}
 
       {nearbyTonight && nearbyTonight.hits.length > 0 ? (
         <NearbyTonight

@@ -38,6 +38,29 @@ type CuratedPatch = Partial<
 
 /** Stable id patches (preferred over title key). */
 const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
+  "aventurate-rd-2026": {
+    date: "2026-09-01",
+    endDate: "2026-09-03",
+    time: "9:00 AM – 5:00 PM",
+    venue: "Hotel Marien",
+    address: "Hotel Marien, Puerto Plata",
+    location: "Puerto Plata",
+    lat: 19.7765,
+    lng: -70.6585,
+    phone: "+18093025910",
+    ticketUrl: "https://feriaaventuraterd.com/registro",
+    sourceUrl: "https://feriaaventuraterd.com/",
+    categories: ["business"],
+    description:
+      "Dominican adventure-tourism trade fair at Hotel Marien, Puerto Plata — Sep 1–3, 2026. Three days of regional showcases, B2B rounds, forums, and networking for exhibitors and industry professionals (100+ exhibitors, 5,000+ expected visitors). Professional access; register at feriaaventuraterd.com.",
+    localized: {
+      description: {
+        en: "Dominican adventure-tourism trade fair at Hotel Marien, Puerto Plata — Sep 1–3, 2026. Three days of regional showcases, B2B rounds, forums, and networking for exhibitors and industry professionals (100+ exhibitors, 5,000+ expected visitors). Professional access; register at feriaaventuraterd.com.",
+        es: "Feria de turismo de aventura de la República Dominicana en el Hotel Marien, Puerto Plata — 1–3 sep. 2026. Tres días de salas regionales, rondas B2B, foros y networking para expositores y profesionales (100+ expositores, 5.000+ visitantes esperados). Acceso profesional; inscripción en feriaaventuraterd.com.",
+        fr: "Salon professionnel du tourisme d'aventure de la République dominicaine à l'Hôtel Marien, Puerto Plata — 1–3 sept. 2026. Trois jours de vitrines régionales, rondes B2B, forums et networking pour exposants et professionnels (100+ exposants, 5 000+ visiteurs attendus). Accès professionnel ; inscription sur feriaaventuraterd.com.",
+      },
+    },
+  },
   "lil-naay-2026-07-17": {
     isFree: false,
     admissionPrice: "RD$700",
@@ -301,6 +324,10 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     isFree: true,
     phone: "+18092157676",
   },
+  "los-tres-cocos-dinner": {
+    isFree: true,
+    phone: "+18099707627",
+  },
   "ocean-winds-karaoke-nights": {
     isFree: true,
     phone: "+18495915588",
@@ -408,6 +435,8 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     venue: "Freestyle Catamaran",
     venueSlug: "freestyle-catamaran",
     phone: "+18095861239",
+    // Open-bar/lunch copy must not keep a stale Food & Drinks tag from Firebase.
+    categories: [],
     description:
       "Full-day catamaran from Playa Dorada to Sosúa Bay — two snorkeling stops on the north coast reef, lunch and open bar onboard, and a fun crew keeping the music going. Free hotel pickup from Playa Dorada, Costa Dorada, Sosúa, and Cabarete; confirm your pickup time when you book (~8 hours).",
     localized: {
@@ -417,6 +446,10 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
         fr: "Journée en catamaran de Playa Dorada à la baie de Sosúa — deux arrêts snorkeling sur le récif de la côte nord, déjeuner et open bar à bord, équipage festif. Prise en charge gratuite aux hôtels de Playa Dorada, Costa Dorada, Sosúa et Cabarete ; confirmez l'heure à la réservation (~8 h).",
       },
     },
+  },
+  "rio-sonador-finca-papirucho": {
+    // River day with on-site restaurant amenities — not a food listing.
+    categories: [],
   },
   "outback-safari-daily": {
     address: "Plaza Turisol, Av. Gregorio Luperón",

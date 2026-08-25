@@ -4,7 +4,8 @@ import { getAppVersion } from "./app-version";
 const VENUE_IMAGE_FILES: Record<string, string> = {
   // Filename bump after replacing the shared Sunset Sessions deck shot.
   "lax-cabarete": "lax-cabarete-bar.jpg",
-  "malecon-puerto-plata": "malecon-puerto-plata.jpg",
+  // Filename bump after replacing night concert stage with daytime promenade.
+  "malecon-puerto-plata": "malecon-puerto-plata-promenade.jpg",
   "kite-beach": "kite-beach.jpg",
   "liquid-blue-cabarete": "liquid-blue-cabarete.jpg",
   "el-batey-sosua": "el-batey-sosua.jpg",
@@ -22,12 +23,14 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "sosua-diving-center": "sosua-diving-center.jpg",
   "natura-cabana": "natura-cabana.jpg",
   "d-classico-sosua": "d-classico-sosua.jpg",
-  "voyvoy-cabarete": "voyvoy-cabarete.jpg",
+  // Filename bump — authentic Voyvoy bar interior (not shared dining URL with all nights).
+  "voyvoy-cabarete": "voyvoy-cabarete-bar.jpg",
   "aura-beach-club-cabarete": "aura-beach-club-cabarete.jpg",
   // Filename bump after replacing a generic Restaurant Guru table shot.
   "la-casita-de-papi": "la-casita-de-papi-awning.jpg",
   "el-cocotazo-cafe": "el-cocotazo-cafe.jpg",
-  "anfiteatro-la-puntilla": "anfiteatro-la-puntilla.jpg",
+  // Filename bump — distinct stage/arch place shot (not shared with concert heroes).
+  "anfiteatro-la-puntilla": "anfiteatro-la-puntilla-stage.jpg",
   "cowork-cabarete": "cowork-cabarete.jpg",
   "ocean-world": "ocean-world-park.jpg",
   "sea-horse-ranch": "sea-horse-ranch.jpg",
@@ -96,6 +99,7 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "iberostar-waves-costa-dorada": "iberostar-waves-costa-dorada.jpg",
   "playa-cofresi": "playa-cofresi-shore.jpg",
   "don-limon-cofresi": "don-limon-cofresi.jpeg",
+  "los-tres-cocos-cofresi": "los-tres-cocos-cofresi.jpg",
   "crazy-lobster-maimon": "crazy-lobster-maimon.jpg",
   "hotel-ocean-winds": "hotel-ocean-winds.jpg",
   "estadio-leonel-placido": "estadio-leonel-placido.jpg",

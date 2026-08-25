@@ -59,10 +59,13 @@ describe("aventurate-rd-2026 categories", () => {
   it("lists under business after category resolution", () => {
     const event = getFallbackEventById("aventurate-rd-2026", "en");
     assert.ok(event);
+    assert.equal(event.date, "2026-09-01");
+    assert.equal(event.endDate, "2026-09-03");
     const resolved = withResolvedCategories(event);
     assert.equal(eventInCategory(resolved, "business"), true);
     assert.equal(eventInCategory(resolved, "festivals"), true);
     assert.equal(eventInCategory(resolved, "adventure"), false);
+    assert.equal(eventInCategory(resolved, "food-drinks"), false);
   });
 
   it("keeps curated business even when primary stays festivals", () => {
@@ -71,6 +74,7 @@ describe("aventurate-rd-2026 categories", () => {
     assert.equal(event.category, "festivals");
     assert.ok(resolveSecondaryCategories(event).includes("business"));
     assert.equal(resolveSecondaryCategories(event).includes("adventure"), false);
+    assert.equal(resolveSecondaryCategories(event).includes("food-drinks"), false);
   });
 });
 
@@ -202,6 +206,45 @@ describe("costambar-beach-fitness categories", () => {
       const resolved = withResolvedCategories(event);
       assert.equal(eventInCategory(resolved, "health-wellness"), true, locale);
       assert.equal(eventInCategory(resolved, "sports"), true, locale);
+    }
+  });
+});
+
+describe("adventure tours do not inherit Food & Drinks from amenities", () => {
+  it("does not infer food-drinks from open bar / lunch on a snorkel tour", () => {
+    const text =
+      "Full-day catamaran with two snorkeling stops, lunch and open bar onboard";
+    assert.equal(
+      inferSecondaryCategories(text, "adventure").includes("food-drinks"),
+      false,
+    );
+  });
+
+  it("keeps an explicit food-drinks tag on an adventure day pass", () => {
+    const event = getFallbackEventById("iberostar-costa-dorada-day-pass", "en");
+    assert.ok(event);
+    assert.equal(event.category, "adventure");
+    const resolved = withResolvedCategories(event);
+    assert.equal(eventInCategory(resolved, "adventure"), true);
+    assert.equal(eventInCategory(resolved, "food-drinks"), true);
+  });
+
+  it("keeps Freestyle Catamaran and Río Soñador off food-drinks", () => {
+    for (const id of [
+      "freestyle-catamaran-daily",
+      "rio-sonador-finca-papirucho",
+    ] as const) {
+      for (const locale of ["en", "es", "fr"] as const) {
+        const event = getFallbackEventById(id, locale);
+        assert.ok(event, `${id} ${locale}`);
+        const resolved = withResolvedCategories(event);
+        assert.equal(eventInCategory(resolved, "adventure"), true, `${id} ${locale}`);
+        assert.equal(
+          eventInCategory(resolved, "food-drinks"),
+          false,
+          `${id} ${locale}`,
+        );
+      }
     }
   });
 });

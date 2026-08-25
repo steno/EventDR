@@ -107,6 +107,7 @@ export const fr: Dictionary = {
     viewMode: "Disposition des événements",
     viewList: "Liste",
     viewCards: "Cartes",
+    alsoNights: "Aussi",
     happeningNow: "En ce moment",
     eventStarted: "Événement commencé",
     startsSoon: "Bientôt",
@@ -163,6 +164,7 @@ export const fr: Dictionary = {
     discover: "Explorer",
     saved: "Enregistrés",
     submit: "Publier",
+    home: "Accueil",
   },
   detail: {
     directions: "Itinéraire",
@@ -197,6 +199,8 @@ export const fr: Dictionary = {
     driveMinutes: "{n} min en voiture",
     sameStrip: "Même quartier",
     sameVenue: "Même lieu",
+    otherNights: "Autres soirées ici",
+    otherNightsAt: "Autres soirées à {venue}",
     walkableStrip: "Quartier piéton",
     pocketPlaceMeta: "{pocket} · {strip}",
     opinion: {

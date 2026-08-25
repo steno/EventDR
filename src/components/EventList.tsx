@@ -22,6 +22,7 @@ import { eventMatchesCity, type CitySlug } from "@/lib/cities";
 import { expectBootPart, readyBootPart } from "@/lib/boot-splash";
 import { scrollToListTop } from "@/lib/list-scroll";
 import { fillTemplate } from "@/lib/seo";
+import { clusterRecurringVenueEvents } from "@/lib/venue-recurring-siblings";
 import { useForegroundRefresh } from "@/hooks/useForegroundRefresh";
 import { useCardGridColumns } from "@/hooks/useCardGridColumns";
 import { cardGridRowRemainder, fillCardGridPage } from "@/lib/card-grid";
@@ -232,20 +233,25 @@ export function EventList({
     return pinSpecialEvents(sorted, { placement: "weekend-list" });
   }, [events, timeRange, citySlug, searchQuery, excludeEventIds, ourPicks]);
 
+  const displayEvents = useMemo(
+    () => clusterRecurringVenueEvents(filtered, locale, dict),
+    [filtered, locale, dict],
+  );
+
   const isSearching = searchQuery.trim().length > 0;
   const eventCap =
     listView === "cards" && limit != null
-      ? fillCardGridPage(visibleCount, filtered.length, columns)
+      ? fillCardGridPage(visibleCount, displayEvents.length, columns)
       : visibleCount;
   const visibleEvents =
-    limit != null ? filtered.slice(0, eventCap) : filtered;
-  const hasMore = limit != null && filtered.length > visibleEvents.length;
+    limit != null ? displayEvents.slice(0, eventCap) : displayEvents;
+  const hasMore = limit != null && displayEvents.length > visibleEvents.length;
   const showEndTeaser =
     Boolean(onAddEvent) &&
-    filtered.length >= LIST_SCROLL_PAD_TARGET &&
+    displayEvents.length >= LIST_SCROLL_PAD_TARGET &&
     !hasMore;
   const leftover = cardGridRowRemainder(
-    showEndTeaser ? visibleEvents.length : filtered.length,
+    showEndTeaser ? visibleEvents.length : displayEvents.length,
     columns,
   );
   const fillSpan = listView === "cards" ? leftover || "full" : undefined;
@@ -333,9 +339,9 @@ export function EventList({
                   ? dict.events.filtered
                   : dict.events.trending}
           </h2>
-          {category && filtered.length > 0 && (
+          {category && displayEvents.length > 0 && (
             <p className="mt-0.5 text-copy-meta text-neutral-400 dark:text-neutral-500">
-              {filtered.length} · {dict.events.hiddenGems}
+              {displayEvents.length} · {dict.events.hiddenGems}
             </p>
           )}
           {!category && !ourPicks && !isSearching && source && (
@@ -413,7 +419,7 @@ export function EventList({
               />
             ) : null}
             <EventListScrollPads
-              count={filtered.length}
+              count={displayEvents.length}
               title={dict.events.yourEventHereTitle}
               label={teaserLabel}
               onAddEvent={onAddEvent}
@@ -432,7 +438,7 @@ export function EventList({
                         setVisibleCount((count) => {
                           const shown =
                             listView === "cards"
-                              ? fillCardGridPage(count, filtered.length, columns)
+                              ? fillCardGridPage(count, displayEvents.length, columns)
                               : count;
                           return shown + step;
                         })

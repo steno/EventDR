@@ -150,6 +150,11 @@ export const INSTAGRAM_ACCOUNTS = [
     areas: ["Puerto Plata"],
   },
   {
+    handle: "lostrescocosrd",
+    label: "Los Tres Cocos Cofresí",
+    areas: ["Puerto Plata"],
+  },
+  {
     handle: "funcitypuertoplata",
     label: "Fun City Puerto Plata",
     areas: ["Puerto Plata"],
@@ -276,7 +281,7 @@ export function instagramSearchQueries(): string[] {
     "driftercabarete", "nonasgrillkitchen", "hardrockcafepuertoplata",
     "djblueeventos", "victrolart", "cigartownpop", "paradaelchoco",
     "kitestreetpop", "meclaorooftop", "kviarcasinos",
-    "lagunasov", "santafesov", "donlimon02", "lovedoesrd",
+    "lagunasov", "santafesov", "donlimon02", "lostrescocosrd", "lovedoesrd",
   ].join(" OR ");
 
   const culturalVenues = [

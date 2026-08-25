@@ -16,11 +16,7 @@ import { CityLocationPicker } from "@/components/CityLocationPicker";
 import { CityPhotoHero } from "@/components/CityPhotoHero";
 import { SubmitEventSheet } from "@/components/SubmitEventSheet";
 import { StickyListHeader } from "@/components/StickyListHeader";
-import {
-  allEventsPath,
-  categoryNavLinks,
-  resolveListingBackLabel,
-} from "@/lib/event-navigation";
+import { categoryNavLinks, resolveListingBackLabel } from "@/lib/event-navigation";
 import {
   getCityMeta,
   lastHomePath,
@@ -460,7 +456,10 @@ export function EventScopePage({
               links={relatedCategoryLinks}
               activeHref={relatedCategoryActiveHref}
               allLink={{
-                href: allEventsPath(locale, activeCitySlug ?? null),
+                href: scopeListingPath(locale, {
+                  citySlug: activeCitySlug,
+                  regionScope: !activeCitySlug,
+                }),
                 label: dict.browse.allEvents,
                 emoji: "📅",
               }}
@@ -482,6 +481,7 @@ export function EventScopePage({
             onAddEvent={() => setSubmitOpen(true)}
             addEventLabel={addEventLabel}
             categoryId={activeCategoryId}
+            persistTimeRange
             locationPicker={
               showLocationPicker ? (
                 <CityLocationPicker

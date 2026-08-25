@@ -949,6 +949,31 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     ],
   }),
   editorial({
+    venueSlug: "los-tres-cocos-cofresi",
+    verdictKey: "reliable_visitor_pick",
+    crowdFit: ["visitor", "mixed"],
+    axes: { recommend: 4.8, atmosphere: 4.7, value: 4.4, practical: 4.0 },
+    themes: [
+      { key: "attentive_service", sentiment: "positive" },
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+      { key: "photo_spot", sentiment: "positive", audience: "visitor" },
+    ],
+    sources: [
+      {
+        kind: "google_places",
+        label: "Google",
+        rating: 4.8,
+        reviewCount: 326,
+        fetchedAt: "2026-08-25T16:49:00.000Z",
+        snippets: [
+          "Undoubtedly the most professional restaurant we have been to on the North Coast.",
+          "Every diner is greeted personally by the owner.",
+          "La vieja confiable… Micky el chef y los camareros son excelente.",
+        ],
+      },
+    ],
+  }),
+  editorial({
     venueSlug: "estadio-leonel-placido",
     verdictKey: "popular_public_space",
     crowdFit: ["local", "family", "mixed"],

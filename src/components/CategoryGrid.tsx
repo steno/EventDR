@@ -101,7 +101,7 @@ export function CategoryGrid({
                 aria-label={allEventsLabel}
                 aria-current="page"
               >
-                <span className="text-4xl leading-none select-none" aria-hidden>
+                <span className="text-[48px] leading-none select-none" aria-hidden>
                   📅
                 </span>
                 <span className="line-clamp-2 w-full">{allEventsLabel}</span>
@@ -117,7 +117,7 @@ export function CategoryGrid({
                     className={`${CATEGORY_PILL_BASE} ${CATEGORY_PILL_IDLE}`}
                     aria-label={cat.label}
                   >
-                    <span className="text-4xl leading-none select-none" aria-hidden>
+                    <span className="text-[48px] leading-none select-none" aria-hidden>
                       {cat.emoji}
                     </span>
                     <span className="line-clamp-2 w-full">{cat.label}</span>

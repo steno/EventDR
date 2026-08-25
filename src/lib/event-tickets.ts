@@ -50,7 +50,7 @@ export const CURATED_TICKET_URLS: Record<string, string> = {
   // Workshops & festivals (Eventbrite)
   "sosua-10k-road-race-2026": "https://www.sdctickets.do/detail/479",
   "puerto-plata-poker-experience-2026": "https://www.clsop.com/",
-  "aventurate-rd-2026": "https://feriaaventuraterd.com/",
+  "aventurate-rd-2026": "https://feriaaventuraterd.com/registro",
   "sunset-cabarete-sessions-2026":
     "https://dominicana.myticketplus.com/events/sunset-cabarete-sessions",
   "ingest-make-authentic-espadrilles-in-puerto-plata":
@@ -175,6 +175,7 @@ export const CURATED_FREE_EVENTS = new Set<string>([
   "el-cocotazo-cafe-beach-dining",
   "crazy-lobster-beach-dining",
   "don-limon-beach-dining",
+  "los-tres-cocos-dinner",
   "hms-valeria-spanish-saturday",
   "hms-valeria-domingo-dominicano",
   "sancocho-sabados-pingui",
