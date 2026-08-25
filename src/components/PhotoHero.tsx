@@ -17,6 +17,8 @@ interface PhotoHeroProps {
   placeName?: string;
   /** Replaces the static H1 place name — typically the city dropdown. */
   locationPicker?: ReactNode;
+  /** Area-specific SEO H2 under the title. */
+  tagline: string;
 }
 
 export function PhotoHero({
@@ -26,6 +28,7 @@ export function PhotoHero({
   returnTo,
   placeName,
   locationPicker,
+  tagline,
 }: PhotoHeroProps) {
   const imageUrl = featuredEvent?.imageUrl?.trim() || null;
   const eventHref =
@@ -81,23 +84,21 @@ export function PhotoHero({
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-white/80 [text-shadow:0_1px_2px_rgba(0,0,0,0.45)]">
             {dict.seo.siteName}
           </p>
-          <h1 className="mt-1 text-display font-extrabold sm:text-display-lg">
-            <span className="text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.4)]">
+          <h1 className="mt-1 flex max-w-full flex-nowrap items-baseline gap-x-1.5 text-[clamp(1.625rem,4.5vw,2.75rem)] font-extrabold leading-[1.05] sm:gap-x-2">
+            <span className="shrink-0 text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.4)]">
               {eventsPrefix}{" "}
             </span>
-            {locationPicker ?? (
-              <span className="bg-gradient-to-r from-orange-300 via-rose-300 to-fuchsia-300 bg-clip-text text-transparent">
-                {heroPlace}
-              </span>
-            )}
-          </h1>
-          <p className="mt-2 max-w-md text-copy font-medium text-white/90 [text-shadow:0_1px_2px_rgba(0,0,0,0.4)]">
-            {dict.hero.subtitle}{" "}
-            <span className="font-bold text-white">
-              {dict.hero.subtitleHighlight}
+            <span className="min-w-0 shrink">
+              {locationPicker ?? (
+                <span className="bg-gradient-to-r from-orange-300 via-rose-300 to-fuchsia-300 bg-clip-text text-transparent">
+                  {heroPlace}
+                </span>
+              )}
             </span>
-            . {dict.hero.subtitleEnd}
-          </p>
+          </h1>
+          <h2 className="mt-2 max-w-xl text-copy font-medium text-white/90 [text-shadow:0_1px_2px_rgba(0,0,0,0.4)]">
+            {tagline}
+          </h2>
         </div>
 
         {featuredEvent && eventHref && (

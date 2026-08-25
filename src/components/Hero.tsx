@@ -34,11 +34,7 @@ export function Hero({ dict, onAddEvent }: HeroProps) {
       </div>
 
       <p className="mt-4 text-copy-lead sm:max-w-none sm:whitespace-nowrap">
-        {dict.hero.subtitle}{" "}
-        <span className="text-neutral-900 dark:text-neutral-100 font-bold">
-          {dict.hero.subtitleHighlight}
-        </span>
-        . {dict.hero.subtitleEnd}
+        {dict.hero.regionTagline}
       </p>
     </header>
   );

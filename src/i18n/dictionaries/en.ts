@@ -29,9 +29,8 @@ export type Dictionary = {
     nearYou: string;
     /** EN-style trailing word after the city (“region”); empty in es/fr. */
     regionSuffix: string;
-    subtitle: string;
-    subtitleHighlight: string;
-    subtitleEnd: string;
+    /** Home hero H2 when North Coast (all areas) is selected. */
+    regionTagline: string;
     cta: string;
     /** Eyebrow for a temporary special / featured event in city heroes. */
     featured: string;
@@ -435,9 +434,8 @@ export const en: Dictionary = {
     events: "Events in the",
     nearYou: "Puerto Plata",
     regionSuffix: "region",
-    subtitle: "What's happening in",
-    subtitleHighlight: "Puerto Plata and the North Coast of the DR",
-    subtitleEnd: "Including Sosúa and Cabarete.",
+    regionTagline:
+      "Live music, beach parties, and local gatherings across Puerto Plata, Sosúa, and Cabarete — your North Coast Dominican Republic event calendar.",
     cta: "Add My Events",
     featured: "Featured",
   },

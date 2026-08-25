@@ -37,6 +37,7 @@ import {
   eventMatchesCity,
   getCityMeta,
   getCityName,
+  getHomeHeroTagline,
   homePathWithArea,
   parseHomeCityParam,
   readHomeArea,
@@ -279,6 +280,11 @@ function HomeApp({
     return dict.cities.regionName;
   })();
 
+  const heroTagline = useMemo(
+    () => getHomeHeroTagline(locale, selectedCity, dict.hero.regionTagline),
+    [locale, selectedCity, dict.hero.regionTagline],
+  );
+
   function handleTabChange(newTab: AppTab) {
     if (newTab === "submit") {
       setSubmitOpen(true);
@@ -374,6 +380,7 @@ function HomeApp({
                     featuredEvent={discoverLayout.heroEvent}
                     returnTo={homePath}
                     placeName={heroPlaceName}
+                    tagline={heroTagline}
                     locationPicker={
                       <CityLocationPicker
                         variant="hero"

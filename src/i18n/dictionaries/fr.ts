@@ -28,9 +28,8 @@ export const fr: Dictionary = {
     events: "Événements à la",
     nearYou: "Puerto Plata",
     regionSuffix: "",
-    subtitle: "Ce qui se passe à",
-    subtitleHighlight: "Puerto Plata et sur la Côte Nord de RD",
-    subtitleEnd: "Y compris Sosúa et Cabarete.",
+    regionTagline:
+      "Musique live, fêtes de plage et sorties locales à Puerto Plata, Sosúa et Cabarete — votre calendrier d'événements sur la Côte Nord de RD.",
     cta: "Ajouter mes événements",
     featured: "À la une",
   },
