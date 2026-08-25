@@ -122,7 +122,7 @@ export function CityLocationPicker({
   return (
     <div
       ref={rootRef}
-      className={isHero ? "relative inline-block max-w-full align-baseline" : "relative w-full"}
+      className={isHero ? "relative inline-flex max-w-full shrink align-baseline" : "relative w-full"}
     >
       <button
         ref={buttonRef}
@@ -135,8 +135,8 @@ export function CityLocationPicker({
         className={
           isHero
             ? `
-              relative isolate inline-flex max-w-full items-center gap-1.5
-              rounded-lg px-2.5 py-0.5 text-left font-extrabold
+              relative isolate inline-flex max-w-full shrink-0 items-center gap-1
+              whitespace-nowrap rounded-lg px-2 py-0.5 text-left font-extrabold
               touch-manipulation transition-[filter,transform]
               active:scale-[0.98] hover:brightness-110
               focus-visible:outline focus-visible:outline-2
@@ -160,7 +160,7 @@ export function CityLocationPicker({
         <span
           className={
             isHero
-              ? "relative z-10 truncate bg-gradient-to-r from-orange-300 via-rose-300 to-fuchsia-300 bg-clip-text text-transparent"
+              ? "relative z-10 whitespace-nowrap bg-gradient-to-r from-orange-300 via-rose-300 to-fuchsia-300 bg-clip-text text-transparent"
               : "truncate"
           }
         >

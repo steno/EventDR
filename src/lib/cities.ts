@@ -20,6 +20,8 @@ export type CitySeoCopy = {
   title: string;
   description: string;
   intro: string;
+  /** Home hero H2 — unique, keyword-rich copy per zone. */
+  heroTagline: string;
 };
 
 export type CityMeta = {
@@ -66,6 +68,8 @@ export const CITIES: CityMeta[] = [
           "Discover concerts, festivals, Malecón gatherings, Ocean World, Fun City go-karts, the Amber Museum, and local events in Puerto Plata on the North Coast of the Dominican Republic.",
         intro:
           "From waterfront concerts on the Malecón to Damajagua waterfall tours, Fun City, and downtown culture walks — here's what's happening in Puerto Plata.",
+        heroTagline:
+          "Malecón concerts, Amber Museum culture, Damajagua tours, and waterfront nightlife — events in Puerto Plata, Dominican Republic.",
       },
       es: {
         title: "Eventos en Puerto Plata | Qué hacer este fin de semana | POP Eventos",
@@ -73,6 +77,8 @@ export const CITIES: CityMeta[] = [
           "Descubre conciertos, festivales, eventos en el Malecón, Ocean World, Fun City, el Museo del Ámbar y actividades locales en Puerto Plata en la Costa Norte de RD.",
         intro:
           "Desde conciertos en el Malecón hasta tours a Damajagua, Fun City y paseos culturales — esto es lo que pasa en Puerto Plata.",
+        heroTagline:
+          "Conciertos en el Malecón, cultura en el Museo del Ámbar, tours a Damajagua y vida nocturna frente al mar — eventos en Puerto Plata, República Dominicana.",
       },
       fr: {
         title: "Événements à Puerto Plata | Que faire ce week-end | POP Events",
@@ -80,6 +86,8 @@ export const CITIES: CityMeta[] = [
           "Concerts, festivals, Malecón, Ocean World, Fun City, musée de l'Ambre et événements locaux à Puerto Plata sur la Côte Nord de la République dominicaine.",
         intro:
           "Des concerts sur le Malecón aux cascades de Damajagua, Fun City et balades culturelles — voici ce qui se passe à Puerto Plata.",
+        heroTagline:
+          "Concerts sur le Malecón, culture au musée de l'Ambre, cascades de Damajagua et nightlife au bord de l'eau — événements à Puerto Plata, République dominicaine.",
       },
     },
   },
@@ -101,6 +109,8 @@ export const CITIES: CityMeta[] = [
           "Find salsa socials, beach volleyball, nightlife at El Batey, expat meetups, and local events in Sosúa on the North Coast of the DR.",
         intro:
           "Beach days, salsa nights, and expat community events — discover what's on in Sosúa this week.",
+        heroTagline:
+          "Salsa socials, beach volleyball, El Batey nightlife, and expat meetups — events in Sosúa on the North Coast of the DR.",
       },
       es: {
         title: "Eventos en Sosúa | Qué hacer este fin de semana | POP Eventos",
@@ -108,6 +118,8 @@ export const CITIES: CityMeta[] = [
           "Encuentra sociales de salsa, voleibol de playa, vida nocturna en El Batey, meetups de expats y eventos locales en Sosúa.",
         intro:
           "Playa, salsa y comunidad expat — descubre qué pasa en Sosúa esta semana.",
+        heroTagline:
+          "Sociales de salsa, voleibol de playa, vida nocturna en El Batey y meetups de expats — eventos en Sosúa, Costa Norte de RD.",
       },
       fr: {
         title: "Événements à Sosúa | Que faire ce week-end | POP Events",
@@ -115,6 +127,8 @@ export const CITIES: CityMeta[] = [
           "Soirées salsa, beach volley, nightlife à El Batey, meetups expats et événements locaux à Sosúa sur la Côte Nord.",
         intro:
           "Plage, salsa et communauté expat — découvrez ce qui se passe à Sosúa cette semaine.",
+        heroTagline:
+          "Soirées salsa, beach volley, nightlife à El Batey et meetups expats — événements à Sosúa sur la Côte Nord de RD.",
       },
     },
   },
@@ -136,6 +150,8 @@ export const CITIES: CityMeta[] = [
           "Cabarete nightlife, live music, kite surf competitions, yoga on Kite Beach, reggae nights, and beach parties — the adventure hub of the North Coast DR.",
         intro:
           "Kite Beach competitions, sunset sessions at LAX, and weekend nightlife — Cabarete's event calendar starts here.",
+        heroTagline:
+          "Kite Beach competitions, LAX live music, reggae nights, and beach parties — events in Cabarete, North Coast Dominican Republic.",
       },
       es: {
         title: "Eventos en Cabarete | Vida nocturna, kite surf y música | POP Eventos",
@@ -143,6 +159,8 @@ export const CITIES: CityMeta[] = [
           "Vida nocturna en Cabarete, música en vivo, competencias de kite surf, yoga en Kite Beach, noches de reggae y fiestas en la playa — el corazón de la Costa Norte.",
         intro:
           "Competencias en Kite Beach, sesiones al atardecer en LAX y vida nocturna de fin de semana — el calendario de Cabarete empieza aquí.",
+        heroTagline:
+          "Competencias en Kite Beach, música en vivo en LAX, noches de reggae y fiestas en la playa — eventos en Cabarete, Costa Norte de RD.",
       },
       fr: {
         title: "Événements à Cabarete | Nightlife, kite surf et musique live | POP Events",
@@ -150,6 +168,8 @@ export const CITIES: CityMeta[] = [
           "Nightlife à Cabarete, musique live, compétitions kite surf, yoga à Kite Beach, soirées reggae et fêtes de plage — le cœur de la Côte Nord.",
         intro:
           "Compétitions à Kite Beach, sessions au coucher du soleil à LAX et nightlife du week-end — le calendrier de Cabarete commence ici.",
+        heroTagline:
+          "Compétitions à Kite Beach, musique live au LAX, soirées reggae et fêtes de plage — événements à Cabarete, Côte Nord dominicaine.",
       },
     },
   },
@@ -240,6 +260,17 @@ export function getCityName(city: CityMeta, locale: Locale): string {
 
 export function getCitySeo(city: CityMeta, locale: Locale): CitySeoCopy {
   return city.seo[locale] ?? city.seo.en;
+}
+
+export function getHomeHeroTagline(
+  locale: Locale,
+  citySlug: CitySlug | null,
+  regionTagline: string,
+): string {
+  if (!citySlug) return regionTagline;
+  const city = getCityMeta(citySlug);
+  if (!city) return regionTagline;
+  return getCitySeo(city, locale).heroTagline;
 }
 
 export function getCityTopCategories(slug: CitySlug): EventCategory[] {
