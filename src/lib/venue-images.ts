@@ -110,6 +110,7 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "charco-los-militares": "charco-los-militares.jpg",
   "la-rejoya": "la-rejoya.jpg",
   "rio-martinico": "rio-martinico.jpg",
+  "jamao-al-norte": "jamao-al-norte.jpg",
 };
 
 /** Cache-busted URL for general venue thumbnails / JSON-LD. */

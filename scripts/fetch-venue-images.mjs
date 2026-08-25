@@ -324,6 +324,10 @@ const VENUE_SOURCES = [
     eventId: "rio-martinico-sosua",
     url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgfxJIPmlFcxaIxbVfaBHmibh2-TgjcJFf46vr-VkKljGwohjgLfo_-JS9srLCHqJdbGACocjvIxAGkGFuikVPXs7dOOfUKH8GQsgRNeEN-moSbGadVPx6Ygib9QYPZU6Gtf_hP2g3pTf4AydqtH62YDBVXeyY6mnS0z6QonexzPJK67MX0CY7ZPd8YDopy/s1600/IMG_20240330_134609.jpg",
   },
+  {
+    eventId: "jamao-al-norte",
+    url: "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmnWGxpUwDqlx8OxzCDjysyj53gD7LFjxiCTmydUYRvJRlJ_QlfbqZtUYkMjVa8hGbLqlTTSHMdWC8Xh4xZb_Sbj8L4lJP_vfW9oufYTsq0PgDhXc-gfZ8O89zOQOdqYOyGjLv6=w1600-h1200-k-no",
+  },
 ];
 
 mkdirSync(outDir, { recursive: true });

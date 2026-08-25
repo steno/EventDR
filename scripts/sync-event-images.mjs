@@ -268,6 +268,7 @@ const FILE_TO_VENUE_SLUG = {
   "charco-los-militares-daily.jpg": "charco-los-militares",
   "la-rejoya-trek.jpg": "la-rejoya",
   "rio-martinico-sosua.jpg": "rio-martinico",
+  "jamao-al-norte.jpg": "jamao-al-norte",
 };
 
 if (!existsSync(sourceDir)) {
