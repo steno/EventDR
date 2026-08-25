@@ -29,13 +29,16 @@ export const PAGE_WIDTH_CLASS = `mx-auto w-full ${PAGE_MAX_WIDTH_CLASS}`;
 export const PAGE_SHELL_DETAIL_CLASS = `relative mx-auto w-full max-w-6xl ${PAGE_GUTTER_CLASS}`;
 
 /**
- * Venue place-card photo: half of `min(68dvh, 36rem)` minus the 2.75rem action row.
- * Event heroes use the same box so detail photos line up across pages.
+ * Event/venue detail photo height.
+ * Mobile: half of `min(68dvh, 36rem)` minus the 2.75rem action row (matches
+ * venue place-card photo so detail photos line up).
+ * Desktop: fill the remaining viewport under the sticky header (same as
+ * venue place-card), so short copy does not leave a stubby hero.
  */
 export const DETAIL_HERO_PHOTO_HEIGHT_MOBILE_CLASS =
   "h-[calc((min(68dvh,36rem)-2.75rem)/2)]";
 
-export const DETAIL_HERO_PHOTO_HEIGHT_CLASS = `${DETAIL_HERO_PHOTO_HEIGHT_MOBILE_CLASS} lg:h-auto lg:min-h-[calc((100dvh-var(--sticky-list-header-height,_0px)-1.5rem-2.75rem)/2)]`;
+export const DETAIL_HERO_PHOTO_HEIGHT_CLASS = `${DETAIL_HERO_PHOTO_HEIGHT_MOBILE_CLASS} lg:h-auto lg:min-h-[calc(100dvh-var(--sticky-list-header-height,_0px)-1.5rem)]`;
 
 /**
  * Card discovery grids — elastic columns: 2 on narrow phones, then as many

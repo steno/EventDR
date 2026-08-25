@@ -105,6 +105,7 @@ export const CURATED_ADMISSION_PRICES: Record<string, string> = {
 
   // Adventure & tours (typical walk-up / operator rate)
   "hacienda-cufa-cacao-tour": "from RD$400",
+  "rio-sonador-finca-papirucho": "RD$200",
   "fun-city-daily": "from RD$200",
   "cayo-arena-tours-daily": "from US$55",
   "sosua-diving-adventures-daily": "from US$35",
@@ -138,6 +139,8 @@ export const CURATED_CALL_FOR_PRICING = new Set<string>([
   "inicio-del-campamento-pp-2026",
   "rumble-in-paradise-12",
   "rumble-in-paradise-13",
+  "charco-los-militares-daily",
+  "la-rejoya-trek",
   // Club / DJ / dance nights — cover or class fee often applies
   "ojo-weekend-dj-parties",
   "ojo-latin-night-thursday",
@@ -202,6 +205,11 @@ export const CURATED_FREE_EVENTS = new Set<string>([
   "cremo-bohemian-wednesday",
   "voyvoy-monday-live-music",
   "el-parq-live-bands-saturday",
+  "waterfront-playa-alicia-sunset-dining",
+  "waterfront-playa-alicia-friday-jazz",
+  "sunset-grill-velero-beachfront-dining",
+  "sunset-grill-velero-sushi-nights",
+  "rio-martinico-sosua",
 ]);
 
 const ADMISSION_PRICE_MAX_LEN = 32;

@@ -71,6 +71,16 @@ export const INSTAGRAM_ACCOUNTS = [
     label: "Love Does Centro Para Mujeres",
     areas: ["Sosúa"],
   },
+  {
+    handle: "waterfrontplayaalicia",
+    label: "Waterfront Playa Alicia",
+    areas: ["Sosúa"],
+  },
+  {
+    handle: "velerobeachresort",
+    label: "Sunset Grill at Velero / Velero Beach Resort",
+    areas: ["Cabarete"],
+  },
   // High-signal local venues that announce mostly on IG flyers (missed Aug 2026 cron)
   {
     handle: "victrolart",

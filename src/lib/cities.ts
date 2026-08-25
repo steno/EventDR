@@ -1,5 +1,5 @@
 import type { Locale } from "@/i18n/config";
-import type { Event, EventCategory } from "@/lib/types";
+import type { Event, EventCategory, Venue } from "@/lib/types";
 
 export type CitySlug = "puerto-plata" | "sosua" | "cabarete";
 
@@ -57,6 +57,11 @@ export const CITIES: CityMeta[] = [
       "rincón caliente",
       "rincon caliente",
       "damajagua",
+      "tubagua",
+      "juan de nina",
+      "camú",
+      "camu",
+      "rejoya",
       "teleférico",
       "teleferico",
     ],
@@ -100,7 +105,21 @@ export const CITIES: CityMeta[] = [
       es: "Sosúa",
       fr: "Sosúa",
     },
-    matchers: ["sosúa", "sosua"],
+    matchers: [
+      "sosúa",
+      "sosua",
+      "yásica arriba",
+      "yasica arriba",
+      "río sonador",
+      "rio sonador",
+      "papirucho",
+      "madre vieja",
+      "martinico",
+      "río martinico",
+      "rio martinico",
+      "río azul",
+      "rio azul",
+    ],
     topCategories: ["dance", "parties", "sports", "performances", "music"],
     seo: {
       en: {
@@ -308,6 +327,26 @@ export function eventMatchesCity(event: Event, slug: CitySlug): boolean {
 
   const haystack = normalizeLocation(
     [event.location, event.venue, event.address].filter(Boolean).join(" "),
+  );
+
+  return city.matchers.some((matcher) =>
+    haystack.includes(normalizeLocation(matcher)),
+  );
+}
+
+/** Match a venue to a home city using `city` (and name as a weak fallback). */
+export function venueMatchesCity(
+  venue: Pick<Venue, "city" | "name">,
+  slug: CitySlug,
+): boolean {
+  const city = getCityMeta(slug);
+  if (!city) return false;
+
+  const primary = cityFromLocationField(venue.city);
+  if (primary) return primary === slug;
+
+  const haystack = normalizeLocation(
+    [venue.city, venue.name].filter(Boolean).join(" "),
   );
 
   return city.matchers.some((matcher) =>

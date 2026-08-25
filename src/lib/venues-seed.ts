@@ -1178,6 +1178,79 @@ export const SEED_VENUES: Venue[] = [
     googleReviewCount: 2,
     googleRatingFetchedAt: "2026-08-24T20:00:00.000Z",
   },
+  {
+    slug: "waterfront-playa-alicia",
+    name: "Waterfront Playa Alicia",
+    city: "Sosúa",
+    description:
+      "Oceanfront restaurant on Playa Alicia in El Batey — 30+ years of sunset dinners over the bay, a Caribbean-international kitchen, and live jazz on Fridays. Daily 8:00 AM–10:00 PM.",
+    lat: 19.7656127,
+    lng: -70.5182562,
+    emoji: "🌅",
+    instagram: "waterfrontplayaalicia",
+    website: "https://playaalicia.com/the-restaurant/",
+    phone: "+18095713024",
+  },
+  {
+    slug: "finca-papirucho",
+    name: "Finca Papirucho",
+    city: "Sosúa",
+    description:
+      "Most accessible swimming stretch of Río Soñador inland from Sosúa — river pools (El Palo, La Cortina) plus bathrooms, restaurant, and lockers at the finca. Weekdays are quieter. GPS to Finca Papirucho; last stretch is dirt with cement patches.",
+    lat: 19.59534,
+    lng: -70.53636,
+    emoji: "🏞️",
+    website: "https://puertoplatadr.com/tours/sonador-river-yasica/",
+    phone: "+18492077092",
+  },
+  {
+    slug: "sunset-grill-velero",
+    name: "Sunset Grill at Velero",
+    city: "Cabarete",
+    description:
+      "Beachfront restaurant at Velero Beach Resort on Calle La Punta — open to the public, international/island kitchen, Cabarete Bay sunset dining, and Sushi Nights Wed & Thu from 3:00 PM. Daily ~8:00 AM–10:00 PM.",
+    lat: 19.7522458,
+    lng: -70.4020882,
+    emoji: "🌅",
+    instagram: "velerobeachresort",
+    website: "https://velerobeach.com/sunset-grill/",
+    phone: "+18095719727",
+  },
+  {
+    slug: "charco-los-militares",
+    name: "Charco de los Militares",
+    city: "Puerto Plata",
+    description:
+      "Hidden cascading pools in the Tubagua hills — guided hike (~45–60 min) or 4×4 approach through farmland to turquoise charcos. Book via Tubagua Eco Lodge; not a casual walk-up.",
+    lat: 19.6743656,
+    lng: -70.5974301,
+    emoji: "💧",
+    website: "https://puertoplatadr.com/eco-tours/charco-de-los-militares/",
+    phone: "+18094139058",
+  },
+  {
+    slug: "la-rejoya",
+    name: "La Rejoya",
+    city: "Puerto Plata",
+    description:
+      "Wild Camú River canyon trek near Juan de Nina — muddy river crossings, forest pools, and a deep waterfall basin (~1–1.5 hr each way). Guide strongly recommended; book small groups via Tubagua Eco Lodge.",
+    lat: 19.6803875,
+    lng: -70.6453281,
+    emoji: "🏞️",
+    website: "https://puertoplatadr.com/tours/la-rejoya/",
+    phone: "+18094139058",
+  },
+  {
+    slug: "rio-martinico",
+    name: "Río Martinico",
+    city: "Sosúa",
+    description:
+      "Lesser-known Sosúa river day in Madre Vieja (locals also say Río Azul) — near-road access toward the Yásica corridor, serene swimming spots, and a local-crowd vibe. Ask residents for the current swimming stretch; pack out trash.",
+    lat: 19.65,
+    lng: -70.5087,
+    emoji: "🌊",
+    website: "https://remolacha.net/2022/09/rio-martinico/",
+  },
 ];
 
 /** Extra name fragments → seed slug (checked before fuzzy name includes). */
@@ -1187,8 +1260,36 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
     slug: "parque-nacional-el-choco",
   },
   {
+    pattern:
+      /papirucho|finca\s*papirucho|r[ií]o\s*so[nñ]ador|sonador\s*river/i,
+    slug: "finca-papirucho",
+  },
+  {
     pattern: /jamao(\s+al\s+norte)?|yasica\s+river|r[ií]o\s+jamao/i,
     slug: "jamao-al-norte",
+  },
+  {
+    pattern:
+      /waterfront(\s+playa\s+alicia)?|playa\s+alicia(\s+(restaurant|villas))?/i,
+    slug: "waterfront-playa-alicia",
+  },
+  {
+    pattern:
+      /sunset\s*grill(\s+(at\s+)?velero)?|velero\s+sunset\s*grill|velero\s+beach\s*(resort|hotel)/i,
+    slug: "sunset-grill-velero",
+  },
+  {
+    pattern:
+      /charco(\s+de)?\s+los\s+militares|militares(\s+tubagua)?|piscina\s+de\s+dios/i,
+    slug: "charco-los-militares",
+  },
+  {
+    pattern: /la\s+rejoya|rejoya(\s+(waterfall|canyon|river))?|rejolla/i,
+    slug: "la-rejoya",
+  },
+  {
+    pattern: /r[ií]o\s+martinico|martinico|r[ií]o\s+azul(\s+sos[uú]a)?|madre\s+vieja/i,
+    slug: "rio-martinico",
   },
   {
     pattern: /27\s*charcos|damajagua/i,

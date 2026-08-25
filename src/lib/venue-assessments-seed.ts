@@ -1012,6 +1012,72 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
       },
     ],
   }),
+  editorial({
+    venueSlug: "waterfront-playa-alicia",
+    verdictKey: "strong_mixed_food_nightlife",
+    crowdFit: ["visitor", "mixed", "family"],
+    axes: { recommend: 4.5, atmosphere: 4.7, value: 3.9, practical: 4.2 },
+    themes: [
+      { key: "sunset_views", sentiment: "positive", audience: "visitor" },
+      { key: "live_music", sentiment: "positive" },
+      { key: "beachfront", sentiment: "positive", audience: "visitor" },
+    ],
+  }),
+  editorial({
+    venueSlug: "finca-papirucho",
+    verdictKey: "solid_visitor_activity",
+    crowdFit: ["visitor", "family", "mixed"],
+    axes: { recommend: 4.4, atmosphere: 4.6, practical: 4.1, reliability: 4.0 },
+    themes: [
+      { key: "countryside", sentiment: "positive" },
+      { key: "family_friendly", sentiment: "positive", audience: "family" },
+      { key: "busy_weekends", sentiment: "mixed" },
+    ],
+  }),
+  editorial({
+    venueSlug: "sunset-grill-velero",
+    verdictKey: "strong_mixed_food_nightlife",
+    crowdFit: ["visitor", "mixed", "family"],
+    axes: { recommend: 4.3, atmosphere: 4.5, value: 3.7, practical: 4.2 },
+    themes: [
+      { key: "sunset_views", sentiment: "positive", audience: "visitor" },
+      { key: "beachfront", sentiment: "positive", audience: "visitor" },
+      { key: "attentive_service", sentiment: "mixed" },
+    ],
+  }),
+  editorial({
+    venueSlug: "charco-los-militares",
+    verdictKey: "solid_visitor_activity",
+    crowdFit: ["visitor", "mixed"],
+    axes: { recommend: 4.6, atmosphere: 4.8, practical: 3.6, reliability: 4.0 },
+    themes: [
+      { key: "adventure_park", sentiment: "positive", audience: "visitor" },
+      { key: "countryside", sentiment: "positive" },
+      { key: "easy_to_find", sentiment: "mixed" },
+    ],
+  }),
+  editorial({
+    venueSlug: "la-rejoya",
+    verdictKey: "solid_visitor_activity",
+    crowdFit: ["visitor", "mixed"],
+    axes: { recommend: 4.5, atmosphere: 4.7, practical: 3.4, reliability: 3.8 },
+    themes: [
+      { key: "adventure_park", sentiment: "positive", audience: "visitor" },
+      { key: "countryside", sentiment: "positive" },
+      { key: "busy_weekends", sentiment: "mixed" },
+    ],
+  }),
+  editorial({
+    venueSlug: "rio-martinico",
+    verdictKey: "solid_visitor_activity",
+    crowdFit: ["local", "mixed", "family"],
+    axes: { recommend: 4.2, atmosphere: 4.4, practical: 3.8, value: 4.5 },
+    themes: [
+      { key: "countryside", sentiment: "positive" },
+      { key: "family_friendly", sentiment: "positive", audience: "family" },
+      { key: "free_access", sentiment: "positive", audience: "local" },
+    ],
+  }),
 ];
 
 const bySlug = new Map(

@@ -173,6 +173,14 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "love-does-bocadillos-course-2026": "love-does-bocadillos-course-2026.jpg",
   "love-does-cocktails-solidarity-2026-09-04":
     "love-does-cocktails-solidarity-2026-09-04.jpg",
+  "waterfront-playa-alicia-sunset-dining":
+    "waterfront-playa-alicia-sunset-dining.jpg",
+  "rio-sonador-finca-papirucho": "rio-sonador-finca-papirucho.jpg",
+  "sunset-grill-velero-beachfront-dining":
+    "sunset-grill-velero-beachfront-dining.jpg",
+  "charco-los-militares-daily": "charco-los-militares-daily.jpg",
+  "la-rejoya-trek": "la-rejoya-trek.jpg",
+  "rio-martinico-sosua": "rio-martinico-sosua.jpg",
 };
 
 /** Legacy ingest ids that share a curated event image. */
@@ -181,6 +189,10 @@ const EVENT_IMAGE_ALIASES: Record<string, string> = {
     "ingest-18th-annual-cabarete-butterfly-effect",
   "museo-ambar-saturday": "museo-ambar-weekdays",
   "gym-sov-zumba-lift-thursday": "gym-sov-zumba-tuesday",
+  "waterfront-playa-alicia-friday-jazz":
+    "waterfront-playa-alicia-sunset-dining",
+  "sunset-grill-velero-sushi-nights":
+    "sunset-grill-velero-beachfront-dining",
 };
 
 const EVENT_IMAGE_PREFIXES: { prefix: string; file: string }[] = [

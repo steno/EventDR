@@ -605,6 +605,42 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Bar-restaurant de plage à El Pueblito / Playa Chaparral — cuisine franco-canadienne-dominicaine, karaoké le vendredi avec DJ Leandro et tables sur le sable. Ouvert tous les jours dès 8 h 30.",
     },
   },
+  "waterfront-playa-alicia": {
+    description: {
+      es: "Restaurante frente al mar en Playa Alicia, El Batey — más de 30 años de cenas al atardecer sobre la bahía, cocina caribeña-internacional y jazz en vivo los viernes. Diario 8:00 AM–10:00 PM.",
+      fr: "Restaurant face à la mer à Playa Alicia, El Batey — plus de 30 ans de dîners au coucher du soleil sur la baie, cuisine caribéenne-internationale et jazz live le vendredi. Tous les jours 8 h–22 h.",
+    },
+  },
+  "finca-papirucho": {
+    description: {
+      es: "El tramo más accesible del Río Soñador tierra adentro desde Sosúa — charcos (El Palo, La Cortina) más baños, restaurante y lockers en la finca. Entre semana hay menos gente. GPS a Finca Papirucho; el último tramo es de tierra con parches de cemento.",
+      fr: "Le tronçon le plus accessible du Río Soñador à l'intérieur des terres depuis Sosúa — bassins (El Palo, La Cortina) plus toilettes, restaurant et consigne à la finca. Moins de monde en semaine. GPS vers Finca Papirucho ; dernier tronçon en terre avec des plaques de ciment.",
+    },
+  },
+  "sunset-grill-velero": {
+    description: {
+      es: "Restaurante frente al mar en Velero Beach Resort, Calle La Punta — abierto al público, cocina internacional/isleña, cenas al atardecer en la bahía de Cabarete y Sushi Nights mié y jue desde las 3:00 PM. Diario ~8:00 AM–10:00 PM.",
+      fr: "Restaurant en bord de mer au Velero Beach Resort, Calle La Punta — ouvert au public, cuisine internationale/insulaire, dîners sunset sur la baie de Cabarete et Sushi Nights mer. et jeu. dès 15 h. Tous les jours ~8 h–22 h.",
+    },
+  },
+  "charco-los-militares": {
+    description: {
+      es: "Pozas en cascada ocultas en las colinas de Tubagua — caminata guiada (~45–60 min) o acceso en 4×4 por fincas hasta charcos turquesa. Reserva por Tubagua Eco Lodge; no es walk-up casual.",
+      fr: "Bassins en cascade cachés dans les collines de Tubagua — randonnée guidée (~45–60 min) ou approche en 4×4 à travers les fermes jusqu'aux charcos turquoise. Réservez via Tubagua Eco Lodge ; pas un walk-up casual.",
+    },
+  },
+  "la-rejoya": {
+    description: {
+      es: "Trek salvaje por el cañón del río Camú cerca de Juan de Nina — cruces de río con barro, pozas en el bosque y una poza profunda bajo la cascada (~1–1.5 h ida). Guía muy recomendada; grupos pequeños vía Tubagua Eco Lodge.",
+      fr: "Trek sauvage dans le canyon du río Camú près de Juan de Nina — traversées boueuses, bassins forestiers et bassin profond sous la cascade (~1–1,5 h aller). Guide fortement recommandé ; petits groupes via Tubagua Eco Lodge.",
+    },
+  },
+  "rio-martinico": {
+    description: {
+      es: "Día de río poco conocido en Sosúa, Madre Vieja (locales también dicen Río Azul) — acceso cerca de la carretera hacia el corredor Yásica, balnearios tranquilos y vibe local. Pregunta a vecinos por el tramo actual; llévate la basura.",
+      fr: "Journée rivière peu connue à Sosúa, Madre Vieja (les locaux disent aussi Río Azul) — accès près de la route vers le corridor Yásica, baignades sereines et ambiance locale. Demandez aux habitants le tronçon actuel ; emportez vos déchets.",
+    },
+  },
   "love-does-sosua": {
     name: {
       es: "Love Does Centro Para Mujeres",

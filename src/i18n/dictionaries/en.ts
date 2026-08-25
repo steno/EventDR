@@ -326,7 +326,11 @@ export type Dictionary = {
     local: string;
     visitor: string;
     localHint: string;
+    /** City-scoped local favorites subtitle — `{area}` is the city name. */
+    localHintIn: string;
     visitorHint: string;
+    /** City-scoped visitor favorites subtitle — `{area}` is the city name. */
+    visitorHintIn: string;
     eventsAt: string;
     upcomingTab: string;
     pastTab: string;
@@ -759,7 +763,9 @@ export const en: Dictionary = {
     local: "Local favorites",
     visitor: "Visitor faves",
     localHint: "Where Dominicans go out on the North Coast",
+    localHintIn: "Where Dominicans go out in {area}",
     visitorHint: "Beach bars, resorts, and classic visitor spots",
+    visitorHintIn: "Beach bars, resorts, and classic visitor spots in {area}",
     eventsAt: "Upcoming events",
     upcomingTab: "Upcoming",
     pastTab: "Past",

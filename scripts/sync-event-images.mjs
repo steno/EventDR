@@ -156,6 +156,14 @@ const FILE_TO_EVENT_ID = {
   "love-does-bocadillos-course-2026.jpg": "love-does-bocadillos-course-2026",
   "love-does-cocktails-solidarity-2026-09-04.jpg":
     "love-does-cocktails-solidarity-2026-09-04",
+  "waterfront-playa-alicia-sunset-dining.jpg":
+    "waterfront-playa-alicia-sunset-dining",
+  "rio-sonador-finca-papirucho.jpg": "rio-sonador-finca-papirucho",
+  "sunset-grill-velero-beachfront-dining.jpg":
+    "sunset-grill-velero-beachfront-dining",
+  "charco-los-militares-daily.jpg": "charco-los-militares-daily",
+  "la-rejoya-trek.jpg": "la-rejoya-trek",
+  "rio-martinico-sosua.jpg": "rio-martinico-sosua",
 };
 
 /** Same venue, same photo — copy after primary sync. */
@@ -254,6 +262,12 @@ const FILE_TO_VENUE_SLUG = {
   "le-petit-francois.jpg": "le-petit-francois",
   "costambar-beach-fitness.png": "playa-costambar",
   "love-does-sosua.jpg": "love-does-sosua",
+  "waterfront-playa-alicia-sunset-dining.jpg": "waterfront-playa-alicia",
+  "rio-sonador-finca-papirucho.jpg": "finca-papirucho",
+  "sunset-grill-velero-beachfront-dining.jpg": "sunset-grill-velero",
+  "charco-los-militares-daily.jpg": "charco-los-militares",
+  "la-rejoya-trek.jpg": "la-rejoya",
+  "rio-martinico-sosua.jpg": "rio-martinico",
 };
 
 if (!existsSync(sourceDir)) {

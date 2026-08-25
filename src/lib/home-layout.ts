@@ -1,9 +1,11 @@
-import { localDateISO } from "@/lib/event-dates";
+import { venueMatchesCity, type CitySlug } from "@/lib/cities";
+import { APP_TIMEZONE, localDateISO } from "@/lib/event-dates";
 import { sortEventsForDisplay } from "@/lib/event-sort";
 import type { Event, Venue } from "@/lib/types";
 import {
   getEventLiveStatus,
   happensOnLocalDate,
+  isEndingSoon,
   isEventActiveToday,
 } from "@/lib/event-status";
 import type { TimeRange } from "@/lib/filters";
@@ -68,6 +70,9 @@ export const VENUE_AUDIENCE_POOLS: Record<
     "ground-zero-disco",
     "la-chabola-cabarete",
     "la-casita-de-papi",
+    "waterfront-playa-alicia",
+    "sunset-grill-velero",
+    "rio-martinico",
     "el-carey-puerto-plata",
     "hotel-ocean-winds",
     "cremo-cigar-bar",
@@ -118,6 +123,12 @@ export const VENUE_AUDIENCE_POOLS: Record<
     "freestyle-catamaran",
     "outback-adventures",
     "hms-valeria",
+    "waterfront-playa-alicia",
+    "finca-papirucho",
+    "sunset-grill-velero",
+    "charco-los-militares",
+    "la-rejoya",
+    "rio-martinico",
     "playa-dorada-golf",
     "playa-encuentro",
     "sosua-jewish-museum",
@@ -201,11 +212,90 @@ function pickDiverseCarouselHead(events: Event[], limit: number): Event[] {
 
 export interface TodayHighlightOptions {
   now?: Date;
+  /**
+   * Override peer shuffle seed. Default: 2-hour bucket in APP_TIMEZONE so
+   * revisits feel fresh without reshuffling on every render/hydration.
+   */
+  shuffleSeed?: string | number;
+}
+
+/** Local hour 0–23 in the North Coast timezone. */
+function localHour(now: Date): number {
+  const formatted = new Intl.DateTimeFormat("en-GB", {
+    timeZone: APP_TIMEZONE,
+    hour: "2-digit",
+    hourCycle: "h23",
+  }).format(now);
+  return Number.parseInt(formatted, 10) || 0;
+}
+
+/**
+ * Live and upcoming peers rotate; ending-soon stays time-ordered.
+ * `null` = leave this event in its sorted position.
+ */
+function highlightShuffleGroup(
+  event: Event,
+  now: Date,
+): "live" | "upcoming" | null {
+  if (isEndingSoon(event, now)) return null;
+  const status = getEventLiveStatus(event, now);
+  if (status === "live") return "live";
+  if (status === "upcoming") return "upcoming";
+  return null;
+}
+
+/**
+ * Shuffle live / upcoming runs after status sort so the home grid rotates
+ * without letting soft all-day events bury urgent ones.
+ */
+function shuffleHighlightPeers(
+  events: Event[],
+  seed: number,
+  now: Date,
+): Event[] {
+  if (events.length < 2) return events;
+
+  const result: Event[] = [];
+  let i = 0;
+  let runIndex = 0;
+  while (i < events.length) {
+    const group = highlightShuffleGroup(events[i]!, now);
+    if (group == null) {
+      result.push(events[i]!);
+      i += 1;
+      continue;
+    }
+    const run: Event[] = [];
+    while (
+      i < events.length &&
+      highlightShuffleGroup(events[i]!, now) === group
+    ) {
+      run.push(events[i]!);
+      i += 1;
+    }
+    result.push(
+      ...seededShuffle(run, hashSeed(`${seed}:${group}:${runIndex}`)),
+    );
+    runIndex += 1;
+  }
+  return result;
+}
+
+function resolveHighlightShuffleSeed(
+  now: Date,
+  override?: string | number,
+): number {
+  if (typeof override === "number") return override >>> 0 || 1;
+  if (typeof override === "string") return hashSeed(override);
+  const day = localDateISO(now);
+  const bucket = Math.floor(localHour(now) / 2);
+  return hashSeed(`today-highlights:${day}:${bucket}`);
 }
 
 /**
  * Events happening today: one-time before multi-day/recurring, then the same
- * status/time order as lists, with venue diversity in the visible grid head.
+ * status/time order as lists, with live/upcoming peers rotated and venue
+ * diversity in the visible grid head.
  */
 export function getTodayHighlightEvents(
   events: Event[],
@@ -221,9 +311,14 @@ export function getTodayHighlightEvents(
     oneTimeFirst: true,
     now,
   });
-  const carouselHead = pickDiverseCarouselHead(sorted, HOME_TODAY_LIMIT);
+  const rotated = shuffleHighlightPeers(
+    sorted,
+    resolveHighlightShuffleSeed(now, options.shuffleSeed),
+    now,
+  );
+  const carouselHead = pickDiverseCarouselHead(rotated, HOME_TODAY_LIMIT);
   const headIds = new Set(carouselHead.map((e) => e.id));
-  const tail = sorted.filter((e) => !headIds.has(e.id));
+  const tail = rotated.filter((e) => !headIds.has(e.id));
   return [...carouselHead, ...tail];
 }
 
@@ -323,6 +418,8 @@ export interface FeaturedVenuesOptions {
    * rotates daily without reshuffling on every render.
    */
   seed?: string;
+  /** When set, only include venues that match this home city. */
+  citySlug?: CitySlug | null;
 }
 
 /**
@@ -338,14 +435,17 @@ export function getFeaturedVenues(
   const bySlug = new Map(venues.map((v) => [v.slug, v]));
   // SSR `getVenues` already merges seed + remote — don't pull the full seed
   // module into the home client graph for offline fill-ins.
+  const citySlug = options.citySlug ?? null;
   const resolved = VENUE_AUDIENCE_POOLS[audience]
     .map((slug) => bySlug.get(slug))
-    .filter((v): v is Venue => v != null);
+    .filter((v): v is Venue => v != null)
+    .filter((v) => (citySlug ? venueMatchesCity(v, citySlug) : true));
 
   const seedKey = options.seed ?? localDateISO();
+  const areaKey = citySlug ?? "all";
   return seededShuffle(
     resolved,
-    hashSeed(`${audience}:${seedKey}`),
+    hashSeed(`${audience}:${areaKey}:${seedKey}`),
   ).slice(0, limit);
 }
 

@@ -1236,4 +1236,162 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "Official site: Friday karaoke with DJ Leandro from 8 PM. Spanish site 8 PM–2 AM. Google 4.4/869, phone +1 829-492-2910, El Pueblito / Playa Chaparral.",
     updatedAt: "2026-08-21T16:00:00.000Z",
   },
+  {
+    eventId: "waterfront-playa-alicia-sunset-dining",
+    seriesKey: "waterfront-playa-alicia:daily",
+    body: "Come for the Playa Alicia sunset rail, not a quick Pedro Clisante bite — walk-ins work, but book if you want the edge table.",
+    localized: {
+      es: "Ven por la baranda del atardecer en Playa Alicia, no por un bocado rápido en Pedro Clisante — se puede llegar sin reserva, pero reserva si quieres la mesa del borde.",
+      fr: "Venez pour la rambarde sunset de Playa Alicia, pas un snack Pedro Clisante — walk-in possible, mais réservez pour la table du bord.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "No cover — pay for dinner and drinks; reviewers call prices fair for the view (TripAdvisor 4.4 / 528)",
+    priceNoteLocalized: {
+      es: "Sin cover — pagas cena y tragos; las reseñas dicen precios justos por la vista (TripAdvisor 4.4 / 528)",
+      fr: "Pas de cover — vous payez dîner et verres ; les avis disent des prix justes pour la vue (TripAdvisor 4,4 / 528)",
+    },
+    attribution: "POP research · playaalicia.com + TripAdvisor 4.4",
+    ratingCite: "TripAdvisor 4.4",
+    researchNotes:
+      "Official: daily 8 AM–10 PM, 30+ years, walk-ins welcome, +1 809-571-3024. TripAdvisor #2 of 108 Sosúa restaurants, 4.4/528.",
+    updatedAt: "2026-08-25T12:00:00.000Z",
+  },
+  {
+    eventId: "waterfront-playa-alicia-friday-jazz",
+    seriesKey: "waterfront-playa-alicia:weekly:5",
+    body: "Friday is the jazz night on the terrace — pair it with sunset dinner; confirm the set when you WhatsApp the table.",
+    localized: {
+      es: "El viernes es la noche de jazz en la terraza — combínalo con la cena de atardecer; confirma el set cuando escribas por WhatsApp.",
+      fr: "Le vendredi est la soirée jazz sur la terrasse — couplez-la au dîner sunset ; confirmez le set en WhatsApp.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "No cover for the jazz — dinner and drinks on the terrace; WhatsApp +1 809-571-3024",
+    priceNoteLocalized: {
+      es: "Sin cover por el jazz — cena y tragos en la terraza; WhatsApp +1 809-571-3024",
+      fr: "Pas de cover pour le jazz — dîner et verres sur la terrasse ; WhatsApp +1 809-571-3024",
+    },
+    attribution: "POP research · playaalicia.com/explore-more",
+    researchNotes:
+      "Official explore-more page: “We do offer live music every Friday.” Menu/review roundups specify jazz Fridays.",
+    updatedAt: "2026-08-25T12:00:00.000Z",
+  },
+  {
+    eventId: "rio-sonador-finca-papirucho",
+    seriesKey: "finca-papirucho:daily",
+    body: "Skip the weekend crush — weekday at Finca Papirucho is the calmer Soñador stretch with bathrooms, a kitchen, and lockers.",
+    localized: {
+      es: "Sáltate el fin lleno — entre semana en Finca Papirucho es el tramo más tranquilo del Soñador con baños, cocina y lockers.",
+      fr: "Évitez le week-end bondé — en semaine à Finca Papirucho, c'est le tronçon Soñador plus calme avec toilettes, cuisine et consigne.",
+    },
+    priceFeel: "budget",
+    priceNote: "Walk-up entry about RD$200; food extra at the finca restaurant",
+    priceNoteLocalized: {
+      es: "Entrada de walk-up unos RD$200; la comida aparte en el restaurante de la finca",
+      fr: "Entrée walk-up environ RD$200 ; repas en plus au restaurant de la finca",
+    },
+    attribution: "POP research · Puerto Plata DR + local access notes",
+    researchNotes:
+      "GPS Finca Papirucho / plus code HFW7+4FJ Yásica Arriba. Tourism writeups: ~RD$200 entry, dirt road with cement patches, named pools El Palo and La Cortina. Amenities (bathrooms, restaurant, lockers) and weekday tip from local source.",
+    updatedAt: "2026-08-25T12:00:00.000Z",
+  },
+  {
+    eventId: "sunset-grill-velero-beachfront-dining",
+    seriesKey: "sunset-grill-velero:daily",
+    body: "Hotel terrace on Calle La Punta, open to the public — come for the Cabarete Bay sunset; food reviews are mixed so lead with the view.",
+    localized: {
+      es: "Terraza de hotel en Calle La Punta, abierta al público — ven por el atardecer en la bahía de Cabarete; las reseñas de comida son mixtas, prioriza la vista.",
+      fr: "Terrasse d'hôtel sur Calle La Punta, ouverte au public — venez pour le sunset sur la baie de Cabarete ; avis cuisine mixtes, misez sur la vue.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "No cover — dinner/drinks; Google DOP 500–2,500 per person (216 reviews, 4.3)",
+    priceNoteLocalized: {
+      es: "Sin cover — cena/tragos; Google DOP 500–2,500 por persona (216 reseñas, 4.3)",
+      fr: "Pas de cover — dîner/verres ; Google DOP 500–2 500 par personne (216 avis, 4,3)",
+    },
+    attribution: "POP research · velerobeach.com + Google Maps 4.3",
+    ratingCite: "Google 4.3",
+    researchNotes:
+      "Official: open to public daily ~8 AM–10 PM, +1 809-571-9727. Google: Velero Sunset Grill, Calle La Punta 1, closes 10:30 PM, 4.3/216. Everything Sosúa FB page for the restaurant.",
+    updatedAt: "2026-08-25T13:30:00.000Z",
+  },
+  {
+    eventId: "sunset-grill-velero-sushi-nights",
+    seriesKey: "sunset-grill-velero:weekly",
+    body: "Wed and Thu from 3 PM is the sushi menu on the bay — reserve if you want a sunset table, not a walk-up gamble.",
+    localized: {
+      es: "Mié y jue desde las 3 PM es el menú de sushi en la bahía — reserva si quieres mesa al atardecer, no un walk-up a ciegas.",
+      fr: "Mer et jeu dès 15 h c'est le menu sushi sur la baie — réservez pour une table sunset, pas un walk-up au hasard.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "Sushi menu Wed/Thu from 3 PM — nigiri/sashimi/rolls à la carte; reserve +1 809-571-9727",
+    priceNoteLocalized: {
+      es: "Menú sushi mié/jue desde las 3 PM — nigiri/sashimi/rolls à la carte; reserva +1 809-571-9727",
+      fr: "Menu sushi mer/jeu dès 15 h — nigiri/sashimi/rolls à la carte ; réservez +1 809-571-9727",
+    },
+    attribution: "POP research · velerobeach.com sushi menu post",
+    researchNotes:
+      "Official: Sushi Nights every Wednesday and Thursday from 3pm; Chef Leandro. IG @velerobeachresort confirms open to public + sushi nights.",
+    updatedAt: "2026-08-25T13:30:00.000Z",
+  },
+  {
+    eventId: "charco-los-militares-daily",
+    seriesKey: "charco-los-militares:daily",
+    body: "Book Tubagua — the farm gate is guided-only now, and the 4×4 dirt approach beats getting lost in cane fields.",
+    localized: {
+      es: "Reserva Tubagua — la finca ahora es solo con guía, y el 4×4 por tierra gana a perderte en caña.",
+      fr: "Réservez Tubagua — la ferme est guidée seulement, et le 4×4 sur terre bat de se perdre dans la canne.",
+    },
+    priceFeel: "varies",
+    priceNote: "Call for group guide rate via Tubagua Eco Lodge +1 809-413-9058",
+    priceNoteLocalized: {
+      es: "Llama por tarifa de guía grupal vía Tubagua Eco Lodge +1 809-413-9058",
+      fr: "Appelez pour le tarif guide de groupe via Tubagua Eco Lodge +1 809-413-9058",
+    },
+    attribution: "POP research · puertoplatadr.com + Tubagua Eco Lodge",
+    researchNotes:
+      "Guided via Tubagua; coords 19.6743656,-70.5974301; legend of deserting soldiers; deepest ~17 ft; not for small kids.",
+    updatedAt: "2026-08-25T13:45:00.000Z",
+  },
+  {
+    eventId: "la-rejoya-trek",
+    seriesKey: "la-rejoya:daily",
+    body: "Worth the mud if you want wild Camú pools — take a Tubagua guide; cell signal dies inside the canyon.",
+    localized: {
+      es: "Vale el barro si quieres pozas salvajes del Camú — ve con guía de Tubagua; la señal muere en el cañón.",
+      fr: "Ça vaut la boue pour les bassins sauvages du Camú — guide Tubagua ; plus de réseau dans le canyon.",
+    },
+    priceFeel: "varies",
+    priceNote: "Small-group guide via Tubagua Eco Lodge +1 809-413-9058",
+    priceNoteLocalized: {
+      es: "Guía en grupo pequeño vía Tubagua Eco Lodge +1 809-413-9058",
+      fr: "Guide petit groupe via Tubagua Eco Lodge +1 809-413-9058",
+    },
+    attribution: "POP research · puertoplatadr.com/tours/la-rejoya",
+    researchNotes:
+      "Juan de Nina / Camú; ~1–1.5 hr; community drinking water — no soap; Google La Rejoya ~4.7/116.",
+    updatedAt: "2026-08-25T13:45:00.000Z",
+  },
+  {
+    eventId: "rio-martinico-sosua",
+    seriesKey: "rio-martinico:daily",
+    body: "Sosúa locals' quiet river — not Damajagua. Ask in Madre Vieja for today's stretch and leave it cleaner than you found it.",
+    localized: {
+      es: "El río tranquilo de locales en Sosúa — no es Damajagua. Pregunta en Madre Vieja por el tramo de hoy y déjalo más limpio.",
+      fr: "La rivière tranquille des locaux à Sosúa — pas Damajagua. Demandez à Madre Vieja le tronçon du jour et laissez plus propre.",
+    },
+    priceFeel: "budget",
+    priceNote: "Typically free / local access — tip a local guide if you hire one",
+    priceNoteLocalized: {
+      es: "Suele ser gratis / acceso local — propina a guía local si contratas uno",
+      fr: "Souvent gratuit / accès local — pourboire si vous prenez un guide local",
+    },
+    attribution: "POP research · Remolacha / local Madre Vieja notes",
+    researchNotes:
+      "Also called Río Azul; Madre Vieja Sosúa ~19.65,-70.5087; connects toward Yásica corridor.",
+    updatedAt: "2026-08-25T13:45:00.000Z",
+  },
 ];

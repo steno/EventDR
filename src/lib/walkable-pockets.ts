@@ -64,6 +64,7 @@ export const WALKABLE_POCKETS: readonly WalkablePocket[] = [
       "hms-valeria",
       "el-colibri-hotel",
       "love-does-sosua",
+      "waterfront-playa-alicia",
     ],
   },
   {
@@ -93,6 +94,7 @@ export const WALKABLE_POCKETS: readonly WalkablePocket[] = [
       "big-lees-beach-bar",
       "zen-fitness-cabarete",
       "la-casita-de-papi",
+      "sunset-grill-velero",
     ],
   },
   {

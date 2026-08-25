@@ -689,4 +689,52 @@ export const VENUE_TIP_COPY: Record<
       fr: "Tables sur le sable à El Pueblito, pas le food court du mall Playa Dorada — karaoké vendredi avec DJ Leandro dès 20 h ; la fermeture minuit Google est le resto, la fête continue.",
     },
   },
+  "waterfront-playa-alicia": {
+    body: "Playa Alicia's sunset terrace — this is the Sosúa send for a rail table and a view, not Pedro Clisante pub food. Friday jazz is the standing night; book if you want the edge.",
+    localized: {
+      en: "Playa Alicia's sunset terrace — this is the Sosúa send for a rail table and a view, not Pedro Clisante pub food. Friday jazz is the standing night; book if you want the edge.",
+      es: "La terraza de atardecer de Playa Alicia — el envío de Sosúa para mesa en la baranda y vista, no comida de pub en Pedro Clisante. El jazz del viernes es la noche fija; reserva si quieres el borde.",
+      fr: "La terrasse sunset de Playa Alicia — l'envoi Sosúa pour une table à la rambarde et la vue, pas un pub Pedro Clisante. Le jazz du vendredi est la soirée fixe ; réservez pour le bord.",
+    },
+  },
+  "finca-papirucho": {
+    body: "The Sosúa-side river day that doesn't need a tour bus — GPS to Finca Papirucho for bathrooms, a kitchen, and lockers. Go weekday; weekends fill the charcos.",
+    localized: {
+      en: "The Sosúa-side river day that doesn't need a tour bus — GPS to Finca Papirucho for bathrooms, a kitchen, and lockers. Go weekday; weekends fill the charcos.",
+      es: "El día de río del lado Sosúa que no necesita bus de tour — GPS a Finca Papirucho para baños, cocina y lockers. Ve entre semana; los fines llenan los charcos.",
+      fr: "La journée rivière côté Sosúa sans bus de tour — GPS vers Finca Papirucho pour toilettes, cuisine et consigne. Allez en semaine ; le week-end remplit les bassins.",
+    },
+  },
+  "sunset-grill-velero": {
+    body: "Hotel restaurant on Calle La Punta, open to the public — come for the Cabarete Bay sunset rail; Wed/Thu from 3 PM is sushi. Reserve +1 809-571-9727.",
+    localized: {
+      en: "Hotel restaurant on Calle La Punta, open to the public — come for the Cabarete Bay sunset rail; Wed/Thu from 3 PM is sushi. Reserve +1 809-571-9727.",
+      es: "Restaurante de hotel en Calle La Punta, abierto al público — ven por la baranda del atardecer en la bahía; mié/jue desde las 3 PM es sushi. Reserva +1 809-571-9727.",
+      fr: "Restaurant d'hôtel sur Calle La Punta, ouvert au public — venez pour la rambarde sunset sur la baie ; mer/jeu dès 15 h c'est sushi. Réservez +1 809-571-9727.",
+    },
+  },
+  "charco-los-militares": {
+    body: "Guided only from Tubagua — skip the DIY farm-gate hunt. SUV helps; leave small kids for Damajagua or Sonador instead.",
+    localized: {
+      en: "Guided only from Tubagua — skip the DIY farm-gate hunt. SUV helps; leave small kids for Damajagua or Sonador instead.",
+      es: "Solo con guía desde Tubagua — no busques la finca por tu cuenta. SUV ayuda; deja niños pequeños para Damajagua o Soñador.",
+      fr: "Guidé seulement depuis Tubagua — pas de chasse DIY à la ferme. Un SUV aide ; laissez les petits pour Damajagua ou Soñador.",
+    },
+  },
+  "la-rejoya": {
+    body: "Muddy Camú crossings and no cell signal — take a guide from Tubagua, not a solo GPS pin drop.",
+    localized: {
+      en: "Muddy Camú crossings and no cell signal — take a guide from Tubagua, not a solo GPS pin drop.",
+      es: "Cruces de barro en el Camú y sin señal — ve con guía de Tubagua, no solo con un pin de GPS.",
+      fr: "Traversées boueuses du Camú et pas de réseau — prenez un guide Tubagua, pas un pin GPS en solo.",
+    },
+  },
+  "rio-martinico": {
+    body: "Sosúa's quiet river card in Madre Vieja — ask locals for today's swim stretch, go weekday, and pack out trash.",
+    localized: {
+      en: "Sosúa's quiet river card in Madre Vieja — ask locals for today's swim stretch, go weekday, and pack out trash.",
+      es: "El río tranquilo de Sosúa en Madre Vieja — pregunta a locales por el tramo de hoy, ve entre semana y llévate la basura.",
+      fr: "La rivière tranquille de Sosúa à Madre Vieja — demandez aux locaux le tronçon du jour, allez en semaine et emportez vos déchets.",
+    },
+  },
 };

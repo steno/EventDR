@@ -1,17 +1,23 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { EventImage } from "@/components/EventImage";
 import { IntentLink } from "@/components/IntentLink";
 import type { Venue } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import {
+  getCityMeta,
+  getCityName,
+  type CitySlug,
+} from "@/lib/cities";
+import {
   getFeaturedVenues,
   HOME_VENUE_LIMIT,
   VENUE_AUDIENCE_FILTERS,
   type VenueAudienceFilter,
 } from "@/lib/home-layout";
+import { fillTemplate } from "@/lib/seo";
 
 interface VenueAudienceCardsProps {
   locale: Locale;
@@ -20,6 +26,8 @@ interface VenueAudienceCardsProps {
   initialVenues?: Venue[];
   /** Max venues in each audience slider. */
   limit?: number;
+  /** Home area filter — null means whole North Coast. */
+  citySlug?: CitySlug | null;
 }
 
 function VenueSlideCard({
@@ -84,12 +92,26 @@ function VenueSlideCard({
   );
 }
 
+function audienceHint(
+  audience: VenueAudienceFilter,
+  dict: Dictionary,
+  areaName: string | null,
+): string {
+  if (!areaName) {
+    return audience === "local" ? dict.venues.localHint : dict.venues.visitorHint;
+  }
+  const template =
+    audience === "local" ? dict.venues.localHintIn : dict.venues.visitorHintIn;
+  return fillTemplate(template, { area: areaName });
+}
+
 function AudienceSlider({
   audience,
   venues,
   locale,
   dict,
   mediaEnabled,
+  areaName,
 }: {
   audience: VenueAudienceFilter;
   venues: Venue[];
@@ -97,9 +119,9 @@ function AudienceSlider({
   dict: Dictionary;
   /** Parent gates media until the section is near the viewport. */
   mediaEnabled: boolean;
+  areaName: string | null;
 }) {
-  const hint =
-    audience === "local" ? dict.venues.localHint : dict.venues.visitorHint;
+  const hint = audienceHint(audience, dict, areaName);
   const scrollRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
@@ -227,6 +249,7 @@ export function VenueAudienceCards({
   dict,
   initialVenues,
   limit = HOME_VENUE_LIMIT,
+  citySlug = null,
 }: VenueAudienceCardsProps) {
   const [venues, setVenues] = useState<Venue[]>(initialVenues ?? []);
   const sectionRef = useRef<HTMLElement>(null);
@@ -275,10 +298,20 @@ export function VenueAudienceCards({
     };
   }, []);
 
-  const sections = VENUE_AUDIENCE_FILTERS.map((audience) => ({
-    audience,
-    venues: getFeaturedVenues(venues, audience, limit),
-  })).filter((section) => section.venues.length > 0);
+  const areaName = useMemo(() => {
+    if (!citySlug) return null;
+    const city = getCityMeta(citySlug);
+    return city ? getCityName(city, locale) : null;
+  }, [citySlug, locale]);
+
+  const sections = useMemo(
+    () =>
+      VENUE_AUDIENCE_FILTERS.map((audience) => ({
+        audience,
+        venues: getFeaturedVenues(venues, audience, limit, { citySlug }),
+      })).filter((section) => section.venues.length > 0),
+    [venues, limit, citySlug],
+  );
 
   if (sections.length === 0) return null;
 
@@ -291,12 +324,13 @@ export function VenueAudienceCards({
       <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 sm:gap-5">
         {sections.map(({ audience, venues: featured }) => (
           <AudienceSlider
-            key={audience}
+            key={`${audience}-${citySlug ?? "all"}`}
             audience={audience}
             venues={featured}
             locale={locale}
             dict={dict}
             mediaEnabled={mediaEnabled}
+            areaName={areaName}
           />
         ))}
       </div>

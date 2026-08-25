@@ -7,6 +7,10 @@ import type { Event } from "@/lib/types";
  */
 const SEEDED_ATTRACTION_PATTERNS: RegExp[] = [
   /\bdamajagua\b|\b27\s*charcos\b|\bcharcos\s+de\s+damajagua\b/i,
+  /\bcharco(\s+de)?\s+los\s+militares\b|\bmilitares\b.*\btubagua\b/i,
+  /\bla\s+rejoya\b|\brejoya\s+(waterfall|canyon|trek)\b/i,
+  /\br[ií]o\s+martinico\b|\bmartinico\b|\br[ií]o\s+azul\b.*\bsos[uú]a\b/i,
+  /\br[ií]o\s+so[nñ]ador\b|\bpapirucho\b/i,
   /\bcayo\s*arena\b|\bcayo\s*para[ií]so\b/i,
   /\bocean\s*world\b/i,
   /\btelef[eé]rico\b|\bpico\s+isabel\b/i,

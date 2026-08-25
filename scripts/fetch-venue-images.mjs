@@ -300,6 +300,30 @@ const VENUE_SOURCES = [
     eventId: "love-does-sosua",
     url: "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkpQb-LzUHDNct8gGV7xMn7fBY-OAC1fCQ8DyRYrxhtvm_wvT0NRdoV3Y55dCHbg0oGe1bWM4_Mj3lyWMRVJ6C2_n0LTuvGi-b11yXOlNbb6Z3ujrIPxKUy8iL6hF8j6BPyO69v0w=s1600",
   },
+  {
+    eventId: "waterfront-playa-alicia-sunset-dining",
+    url: "https://playaalicia.com/wp-content/uploads/2024/04/A-view-of-Waterfront-Playa-Alicia.png",
+  },
+  {
+    eventId: "rio-sonador-finca-papirucho",
+    url: "https://puertoplatadr.com/wp-content/uploads/2021/05/sonador-river-yasica.jpg",
+  },
+  {
+    eventId: "sunset-grill-velero-beachfront-dining",
+    url: "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWloDCOkOu-ZwJ6PEUNcXJXXanJBct6jKEbHq8RzHzicu7o5o_8Wwhqk7jEFPeyMPYOaNyVO7HhADoYjDS3ERQz5_UK2w13hEbRNGAndA_6TiViFhiJscRYR9yCUwDUxAsngKJ5b-g=w1600-h900-k-no",
+  },
+  {
+    eventId: "charco-los-militares-daily",
+    url: "https://puertoplatadr.com/wp-content/uploads/2022/03/charco-militares07.jpg",
+  },
+  {
+    eventId: "la-rejoya-trek",
+    url: "https://puertoplatadr.com/wp-content/uploads/2022/04/la-rejoya-14.jpg",
+  },
+  {
+    eventId: "rio-martinico-sosua",
+    url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgfxJIPmlFcxaIxbVfaBHmibh2-TgjcJFf46vr-VkKljGwohjgLfo_-JS9srLCHqJdbGACocjvIxAGkGFuikVPXs7dOOfUKH8GQsgRNeEN-moSbGadVPx6Ygib9QYPZU6Gtf_hP2g3pTf4AydqtH62YDBVXeyY6mnS0z6QonexzPJK67MX0CY7ZPd8YDopy/s1600/IMG_20240330_134609.jpg",
+  },
 ];
 
 mkdirSync(outDir, { recursive: true });

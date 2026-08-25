@@ -11,6 +11,7 @@ import { AppVersionSync } from "@/components/AppVersionSync";
 import { BodyScrollGuard } from "@/components/BodyScrollGuard";
 import { DocumentLang } from "@/components/DocumentLang";
 import { NavigationLoading } from "@/components/NavigationLoading";
+import { PwaRegister } from "@/components/PwaRegister";
 import { SkipToContent } from "@/components/SkipToContent";
 import { SupportNudge } from "@/components/SupportNudge";
 
@@ -94,6 +95,7 @@ export default async function LocaleLayout({
         <NavigationLoading />
       </Suspense>
       <AppVersionSync />
+      <PwaRegister />
       {children}
       <SupportNudge locale={locale} dict={dict} />
       <AppFooter locale={locale} dict={dict} />

@@ -104,6 +104,12 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "le-petit-francois": "le-petit-francois.jpg",
   "playa-costambar": "playa-costambar.png",
   "love-does-sosua": "love-does-sosua.jpg",
+  "waterfront-playa-alicia": "waterfront-playa-alicia.jpg",
+  "finca-papirucho": "finca-papirucho.jpg",
+  "sunset-grill-velero": "sunset-grill-velero.jpg",
+  "charco-los-militares": "charco-los-militares.jpg",
+  "la-rejoya": "la-rejoya.jpg",
+  "rio-martinico": "rio-martinico.jpg",
 };
 
 /** Cache-busted URL for general venue thumbnails / JSON-LD. */

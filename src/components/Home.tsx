@@ -70,10 +70,6 @@ const InstallBanner = dynamic(
   { ssr: false },
 );
 
-const PwaRegister = dynamic(
-  () => import("@/components/PwaRegister").then((m) => m.PwaRegister),
-  { ssr: false },
-);
 
 interface HomeProps {
   locale: Locale;
@@ -299,7 +295,6 @@ function HomeApp({
 
   return (
     <>
-      <PwaRegister />
       <main id="main-content" className="relative bg-neutral-50 dark:bg-transparent pb-6">
         <div className={PAGE_SHELL_CLASS}>
           <div>
@@ -416,6 +411,7 @@ function HomeApp({
                   locale={locale}
                   dict={dict}
                   initialVenues={initialVenues}
+                  citySlug={selectedCity}
                 />
               )}
             </>

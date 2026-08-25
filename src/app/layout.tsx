@@ -3,6 +3,7 @@ import Script from "next/script";
 import { BootSplashDismiss } from "@/components/BootSplashDismiss";
 import { ThemeAutoSync } from "@/components/ThemeAutoSync";
 import { ThemeScript } from "@/components/ThemeScript";
+import { PwaInstallCapture } from "@/components/PwaInstallCapture";
 import { PageGlow } from "@/components/PageGlow";
 import "./globals.css";
 
@@ -54,6 +55,7 @@ export default function RootLayout({
     >
       <head>
         <ThemeScript />
+        <PwaInstallCapture />
         <style dangerouslySetInnerHTML={{ __html: bootSplashCriticalCss }} />
         <link rel="preload" href="/pop-home-logo.png" as="image" />
         {/* Ingested / uploaded event media — warm DNS+TLS before first remote thumb. */}

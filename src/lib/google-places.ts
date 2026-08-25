@@ -122,6 +122,36 @@ const PLACE_SEARCH_ALIASES: Record<string, string[]> = {
     "Le petit Francois El Pueblito Puerto Plata",
     "Petit Francois Playa Chaparral",
   ],
+  "waterfront-playa-alicia": [
+    "Waterfront Playa Alicia Sosua",
+    "Waterfront Restaurant Playa Alicia",
+    "Waterfront Playa Alicia El Batey",
+  ],
+  "finca-papirucho": [
+    "Río Sonador Finca Papirucho",
+    "Finca Papirucho Yasica Arriba",
+    "Rio Sonador Yasica Puerto Plata",
+  ],
+  "sunset-grill-velero": [
+    "Velero Sunset Grill restaurant Cabarete",
+    "Sunset Grill Velero Beach Resort",
+    "Sunset Grill at Velero Cabarete",
+  ],
+  "charco-los-militares": [
+    "Charco de los Militares Tubagua",
+    "Charcos de los Militares Puerto Plata",
+    "Charco Los Militares Tubagua",
+  ],
+  "la-rejoya": [
+    "La Rejoya Puerto Plata",
+    "La Rejoya waterfall Juan de Nina",
+    "Cascada La Rejoya Camu",
+  ],
+  "rio-martinico": [
+    "Rio Martinico Madre Vieja Sosua",
+    "Río Martinico Sosúa",
+    "Rio Azul Madre Vieja Sosua",
+  ],
   "sea-horse-ranch": [
     "Sea Horse Ranch Sosua Cabarete",
     "Sea Horse Ranch Sosúa",
