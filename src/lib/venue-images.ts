@@ -2,7 +2,8 @@
 import { getAppVersion } from "./app-version";
 
 const VENUE_IMAGE_FILES: Record<string, string> = {
-  "lax-cabarete": "lax-cabarete.jpg",
+  // Filename bump after replacing the shared Sunset Sessions deck shot.
+  "lax-cabarete": "lax-cabarete-bar.jpg",
   "malecon-puerto-plata": "malecon-puerto-plata.jpg",
   "kite-beach": "kite-beach.jpg",
   "liquid-blue-cabarete": "liquid-blue-cabarete.jpg",
@@ -23,11 +24,12 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "d-classico-sosua": "d-classico-sosua.jpg",
   "voyvoy-cabarete": "voyvoy-cabarete.jpg",
   "aura-beach-club-cabarete": "aura-beach-club-cabarete.jpg",
-  "la-casita-de-papi": "la-casita-de-papi.jpg",
+  // Filename bump after replacing a generic Restaurant Guru table shot.
+  "la-casita-de-papi": "la-casita-de-papi-awning.jpg",
   "el-cocotazo-cafe": "el-cocotazo-cafe.jpg",
   "anfiteatro-la-puntilla": "anfiteatro-la-puntilla.jpg",
   "cowork-cabarete": "cowork-cabarete.jpg",
-  "ocean-world": "ocean-world.jpg",
+  "ocean-world": "ocean-world-park.jpg",
   "sea-horse-ranch": "sea-horse-ranch.jpg",
   "senor-rock-playa-dorada": "senor-rock-playa-dorada.jpg",
   "cremo-cigar-bar": "cremo-cigar-bar.jpg",

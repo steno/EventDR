@@ -34,6 +34,11 @@ interface CityLocationPickerProps {
   onSelect?: (slug: CitySlug | null) => void;
   /** Live catalog sizes. Shown on the closed button and in the menu. */
   counts?: CityEventCounts | null;
+  /**
+   * `hero` inlines the control as the home H1 place name (gradient + chevron).
+   * `chip` is the listing-page filter control.
+   */
+  variant?: "chip" | "hero";
 }
 
 type AreaOption = {
@@ -49,7 +54,9 @@ export function CityLocationPicker({
   categoryId,
   onSelect,
   counts = null,
+  variant = "chip",
 }: CityLocationPickerProps) {
+  const isHero = variant === "hero";
   const router = useRouter();
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
@@ -113,7 +120,10 @@ export function CityLocationPicker({
   }
 
   return (
-    <div ref={rootRef} className="relative w-full">
+    <div
+      ref={rootRef}
+      className={isHero ? "relative inline-block max-w-full align-baseline" : "relative w-full"}
+    >
       <button
         ref={buttonRef}
         type="button"
@@ -122,23 +132,47 @@ export function CityLocationPicker({
         aria-controls={listId}
         aria-label={`${dict.cities.chooseArea}: ${currentLabel}`}
         onClick={() => setOpen((value) => !value)}
-        className="
-          inline-flex max-w-full items-center gap-1.5
-          rounded-lg border border-orange-500/50 bg-orange-500/12
-          px-3 py-1 text-section font-extrabold text-orange-700
-          shadow-sm transition-[color,background-color,border-color,transform]
-          touch-manipulation active:scale-[0.98]
-          hover:border-orange-500/80 hover:bg-orange-500/18
-          focus-visible:outline focus-visible:outline-2
-          focus-visible:outline-offset-2 focus-visible:outline-orange-500
-          dark:border-orange-400/50 dark:bg-orange-400/15 dark:text-orange-300
-          dark:hover:border-orange-400/80 dark:hover:bg-orange-400/22
-        "
+        className={
+          isHero
+            ? `
+              relative isolate inline-flex max-w-full items-center gap-1.5
+              rounded-lg px-2.5 py-0.5 text-left font-extrabold
+              touch-manipulation transition-[filter,transform]
+              active:scale-[0.98] hover:brightness-110
+              focus-visible:outline focus-visible:outline-2
+              focus-visible:outline-offset-2 focus-visible:outline-orange-400
+            `
+            : `
+              inline-flex max-w-full items-center gap-1.5
+              rounded-lg border border-orange-500/50 bg-orange-500/12
+              px-3 py-1 text-section font-extrabold text-orange-700
+              shadow-sm transition-[color,background-color,border-color,transform]
+              touch-manipulation active:scale-[0.98]
+              hover:border-orange-500/80 hover:bg-orange-500/18
+              focus-visible:outline focus-visible:outline-2
+              focus-visible:outline-offset-2 focus-visible:outline-orange-500
+              dark:border-orange-400/50 dark:bg-orange-400/15 dark:text-orange-300
+              dark:hover:border-orange-400/80 dark:hover:bg-orange-400/22
+            `
+        }
       >
-        <span className="truncate">{currentLabel}</span>
+        {isHero ? <HeroCityPickerStroke /> : null}
+        <span
+          className={
+            isHero
+              ? "relative z-10 truncate bg-gradient-to-r from-orange-300 via-rose-300 to-fuchsia-300 bg-clip-text text-transparent"
+              : "truncate"
+          }
+        >
+          {currentLabel}
+        </span>
         <ChevronDown
-          className={`h-4 w-4 shrink-0 opacity-80 transition-transform ${
+          className={`shrink-0 transition-transform ${
             open ? "rotate-180" : ""
+          } ${
+            isHero
+              ? "relative z-10 h-[0.65em] w-[0.65em] text-orange-300 drop-shadow-[0_1px_2px_rgba(0,0,0,0.45)]"
+              : "h-4 w-4 opacity-80"
           }`}
           aria-hidden
         />
@@ -149,12 +183,12 @@ export function CityLocationPicker({
           id={listId}
           role="listbox"
           aria-label={dict.cities.chooseArea}
-          className="
-            absolute left-0 top-full z-50 mt-2 min-w-[12.5rem]
-            overflow-hidden rounded-xl bg-white/95 py-1 shadow-lg
-            ring-1 ring-neutral-200/80 backdrop-blur
+          className={`
+            absolute left-0 top-full z-50 mt-2 overflow-hidden rounded-xl
+            bg-white/95 py-1 shadow-lg ring-1 ring-neutral-200/80 backdrop-blur
             dark:bg-neutral-900/95 dark:ring-neutral-700/80
-          "
+            ${isHero ? "min-w-[14rem]" : "min-w-[12.5rem]"}
+          `}
         >
           {options.map((option) => {
             const selected = currentSlug === option.slug;
@@ -207,6 +241,39 @@ export function CityLocationPicker({
         </ul>
       ) : null}
     </div>
+  );
+}
+
+function HeroCityPickerStroke() {
+  const rawId = useId();
+  const gradId = `hero-city-stroke-${rawId.replace(/:/g, "")}`;
+
+  return (
+    <svg
+      aria-hidden
+      className="pointer-events-none absolute inset-0 h-full w-full overflow-visible"
+    >
+      <defs>
+        <linearGradient id={gradId} x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stopColor="var(--color-orange-300)" />
+          <stop offset="50%" stopColor="var(--color-rose-300)" />
+          <stop offset="100%" stopColor="var(--color-fuchsia-300)" />
+        </linearGradient>
+      </defs>
+      <rect
+        fill="none"
+        stroke={`url(#${gradId})`}
+        strokeWidth="2"
+        style={{
+          x: 1,
+          y: 1,
+          width: "calc(100% - 2px)",
+          height: "calc(100% - 2px)",
+          rx: 8,
+          ry: 8,
+        }}
+      />
+    </svg>
   );
 }
 

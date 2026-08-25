@@ -29,6 +29,15 @@ export const PAGE_WIDTH_CLASS = `mx-auto w-full ${PAGE_MAX_WIDTH_CLASS}`;
 export const PAGE_SHELL_DETAIL_CLASS = `relative mx-auto w-full max-w-6xl ${PAGE_GUTTER_CLASS}`;
 
 /**
+ * Venue place-card photo: half of `min(68dvh, 36rem)` minus the 2.75rem action row.
+ * Event heroes use the same box so detail photos line up across pages.
+ */
+export const DETAIL_HERO_PHOTO_HEIGHT_MOBILE_CLASS =
+  "h-[calc((min(68dvh,36rem)-2.75rem)/2)]";
+
+export const DETAIL_HERO_PHOTO_HEIGHT_CLASS = `${DETAIL_HERO_PHOTO_HEIGHT_MOBILE_CLASS} lg:h-auto lg:min-h-[calc((100dvh-var(--sticky-list-header-height,_0px)-1.5rem-2.75rem)/2)]`;
+
+/**
  * Card discovery grids — elastic columns: 2 on narrow phones, then as many
  * ~220px tiles as fit. Underscore in `1fr` keeps the arbitrary value valid in
  * Tailwind; `auto-fit` collapses unused tracks when the whole grid is short.

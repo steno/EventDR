@@ -34,7 +34,13 @@ export function MapReveal({
   const [revealed, setRevealed] = useState(forceReveal);
   const showMap = revealed || forceReveal;
 
-  if (showMap) return <>{children}</>;
+  if (showMap) {
+    return className ? (
+      <div className={className}>{children}</div>
+    ) : (
+      <>{children}</>
+    );
+  }
 
   return (
     <div className={`relative isolate ${className}`}>

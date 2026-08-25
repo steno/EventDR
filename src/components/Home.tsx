@@ -374,28 +374,27 @@ function HomeApp({
                     featuredEvent={discoverLayout.heroEvent}
                     returnTo={homePath}
                     placeName={heroPlaceName}
+                    locationPicker={
+                      <CityLocationPicker
+                        variant="hero"
+                        locale={locale}
+                        dict={dict}
+                        currentSlug={selectedCity}
+                        onSelect={setArea}
+                        counts={cityCounts}
+                      />
+                    }
                   />
                 </div>
               </div>
               {!isSearching && (
                 <div className="mb-6 sm:mb-8 lg:mb-8">
-                  <div className="relative z-10 py-3 sm:py-3.5">
-                    <CityLocationPicker
-                      locale={locale}
-                      dict={dict}
-                      currentSlug={selectedCity}
-                      onSelect={setArea}
-                      counts={cityCounts}
-                    />
-                  </div>
-                  <div className="pb-1 pt-1">
-                    <CategoryGrid
-                      locale={locale}
-                      dict={dict}
-                      citySlug={selectedCity}
-                      events={scopedEvents}
-                    />
-                  </div>
+                  <CategoryGrid
+                    locale={locale}
+                    dict={dict}
+                    citySlug={selectedCity}
+                    events={scopedEvents}
+                  />
                 </div>
               )}
 

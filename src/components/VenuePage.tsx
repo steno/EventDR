@@ -6,7 +6,6 @@ import { useRouter } from "next/navigation";
 import {
   AtSign,
   ExternalLink,
-  Navigation,
   Phone,
 } from "lucide-react";
 import type { Event, Venue, VenueAssessment } from "@/lib/types";
@@ -22,12 +21,12 @@ import {
 import { VenueAssessmentBlock } from "@/components/VenueAssessmentBlock";
 import { EventImage } from "@/components/EventImage";
 import { lastHomePath } from "@/lib/cities";
-import { readReturnParams, resolveBackLabel, takeReturnPath } from "@/lib/event-navigation";
+import { resolveBackLabel, takeReturnPath } from "@/lib/event-navigation";
 import { formatPhoneTel } from "@/lib/event-phone";
 import { navigateBackSoft, navigateSoft } from "@/lib/nav-feedback";
 import { PAGE_SHELL_DETAIL_CLASS } from "@/lib/page-shell";
 import { isDetailNavPath } from "@/lib/scope-listing";
-import { scrollBelowStickyStack, scrollUnderStickyHeader } from "@/lib/list-scroll";
+import { scrollBelowStickyStack } from "@/lib/list-scroll";
 import { getVenueHeroImageUrl } from "@/lib/venue-images";
 import { useForegroundRefresh } from "@/hooks/useForegroundRefresh";
 import { NearbyTonight, PocketPlaceHint } from "@/components/NearbyTonight";
@@ -75,13 +74,11 @@ export function VenuePage({
   const [loading, setLoading] = useState(() => initialEvents.length === 0);
   const [submitOpen, setSubmitOpen] = useState(false);
   const [plannerOpen, setPlannerOpen] = useState(false);
-  const [directionsAttention, setDirectionsAttention] = useState(false);
+  const [areaViewOpen, setAreaViewOpen] = useState(false);
   const placeCardRef = useRef<HTMLElement>(null);
   const mapSectionRef = useRef<HTMLDivElement>(null);
   const stickyMapRef = useRef<HTMLDivElement>(null);
   const directionsFormRef = useRef<HTMLElement>(null);
-  /** Scroll after the planner mounts — scrolling before expand loses to scroll anchoring. */
-  const pendingMapScrollRef = useRef(false);
   const directions = useVenueDirections(venue, dict);
 
   function loadEvents() {
@@ -129,10 +126,6 @@ export function VenuePage({
 
   useEffect(() => {
     const stored = takeReturnPath(locale);
-    const { directions: fromEventLocation } = readReturnParams(
-      window.location.search,
-      locale,
-    );
     if (stored?.path) {
       setReturnTo(stored.path);
       setReturnTitle(stored.title ?? null);
@@ -141,31 +134,9 @@ export function VenuePage({
       setReturnTitle(null);
       setFallbackHref(lastHomePath(locale));
     }
-
-    // From an event address / View venue link: flash Show map; keep hero + map in view.
-    if (!fromEventLocation) {
-      setDirectionsAttention(false);
-      return;
-    }
-    setDirectionsAttention(true);
-    const scroll = window.setTimeout(() => {
-      // Park the place card under the sticky header so hero and map share the viewport.
-      scrollUnderStickyHeader(placeCardRef.current, "auto");
-    }, 50);
-    return () => window.clearTimeout(scroll);
   }, [locale]);
 
-  function clearDirectionsAttention() {
-    setDirectionsAttention(false);
-  }
-
   function openDirectionsMode() {
-    setDirectionsAttention(false);
-    if (plannerOpen) {
-      scrollBelowStickyStack(directionsFormRef.current, stickyMapRef.current);
-      return;
-    }
-    pendingMapScrollRef.current = true;
     setPlannerOpen(true);
   }
 
@@ -185,18 +156,6 @@ export function VenuePage({
     }
     navigateSoft(router, backHref);
   }
-
-  useLayoutEffect(() => {
-    if (!plannerOpen || !pendingMapScrollRef.current) return;
-    pendingMapScrollRef.current = false;
-    // Double rAF: wait until sticky map has its expanded height before measuring.
-    const id = window.requestAnimationFrame(() => {
-      window.requestAnimationFrame(() => {
-        scrollBelowStickyStack(directionsFormRef.current, stickyMapRef.current);
-      });
-    });
-    return () => window.cancelAnimationFrame(id);
-  }, [plannerOpen]);
 
   // After route work starts or a route draws, keyboard / autofill / zoom settle
   // can leave the form under the sticky map — especially when the OS address
@@ -251,9 +210,10 @@ export function VenuePage({
   })();
 
   const actionCount =
-    (venue.phone ? 1 : 0) + 1 + (websiteUrl ? 1 : 0) + (instagramUrl ? 1 : 0);
+    (venue.phone ? 1 : 0) + (websiteUrl ? 1 : 0) + (instagramUrl ? 1 : 0);
   const walkablePocket =
     nearbyTonight?.pocket ?? getPocketForVenueSlug(venue.slug);
+  const mapTakesPhotoSpace = areaViewOpen || plannerOpen;
 
   return (
     <>
@@ -267,65 +227,63 @@ export function VenuePage({
             variant="detail"
           />
 
-          {/* Place card: photo + map */}
-          <article
-            ref={placeCardRef}
-            className="mt-1 w-full rounded-3xl bg-white shadow-2xl ring-1 ring-neutral-200/70 dark:bg-neutral-900 dark:ring-neutral-800"
-          >
-            {/* Collapse hero in directions mode so the map can own the viewport. */}
-            <div
-              className={
-                plannerOpen
-                  ? "hidden"
-                  : "relative h-[min(32dvh,13rem)] overflow-hidden rounded-t-3xl sm:h-[min(38dvh,18rem)]"
-              }
-              aria-hidden={plannerOpen}
+          <div className="lg:grid lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-start lg:gap-6">
+            {/* Place card: photo + map + directions (left column on desktop) */}
+            <article
+              ref={placeCardRef}
+              className={`mt-1 grid h-[min(68dvh,36rem)] w-full overflow-hidden rounded-3xl bg-white shadow-2xl ring-1 ring-neutral-200/70 dark:bg-neutral-900 dark:ring-neutral-800 lg:sticky lg:top-[calc(var(--sticky-list-header-height,_0px)+0.75rem)] lg:mt-0 lg:h-[calc(100dvh-var(--sticky-list-header-height,_0px)-1.5rem)] lg:rounded-2xl lg:shadow-md ${
+                mapTakesPhotoSpace
+                  ? areaViewOpen && !plannerOpen
+                    ? "grid-rows-[minmax(0,1fr)]"
+                    : "grid-rows-[minmax(0,1fr)_auto]"
+                  : "grid-rows-[minmax(0,1fr)_minmax(0,1fr)_auto]"
+              }`}
             >
-              {heroImageUrl ? (
-                <EventImage
-                  src={heroImageUrl}
-                  alt=""
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 640px"
-                  className="h-full w-full object-cover object-center"
-                />
-              ) : (
-                <div className="flex h-full items-center justify-center bg-gradient-to-br from-orange-500 via-rose-500 to-fuchsia-600">
-                  <span className="text-6xl drop-shadow-sm" aria-hidden>
-                    {venue.emoji ?? "📍"}
-                  </span>
-                </div>
-              )}
-            </div>
-            <div ref={mapSectionRef} className="[overflow-anchor:none]">
-              {/* Sticky map while routing — typing in the form must not cover it. */}
               <div
-                ref={stickyMapRef}
                 className={
-                  plannerOpen
-                    ? "sticky z-[11] top-[var(--sticky-list-header-height,0px)] overflow-hidden rounded-t-3xl bg-neutral-200 shadow-[0_8px_24px_-12px_rgba(0,0,0,0.45)] transition-[top] duration-200 ease-out motion-reduce:transition-none dark:bg-neutral-800"
-                    : "overflow-hidden rounded-b-3xl"
+                  mapTakesPhotoSpace
+                    ? "hidden"
+                    : "relative min-h-0 overflow-hidden"
                 }
               >
-                <VenueMapPanel
-                  venue={venue}
-                  dict={dict}
-                  directions={directions}
-                  forceReveal={plannerOpen}
-                  onReveal={openDirectionsMode}
-                  attention={directionsAttention && !plannerOpen}
-                  onAttentionEnd={clearDirectionsAttention}
-                  className={
-                    plannerOpen
-                      ? // svh: don't grow when the keyboard closes after autofill
-                        // submit — dvh expansion was covering the directions form.
-                        "h-[min(48svh,22rem)] sm:h-[min(52svh,26rem)]"
-                      : "h-[12rem] sm:h-[14rem]"
-                  }
-                />
+                {heroImageUrl ? (
+                  <EventImage
+                    src={heroImageUrl}
+                    alt=""
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="h-full w-full object-cover object-center"
+                  />
+                ) : (
+                  <div className="flex h-full items-center justify-center bg-gradient-to-br from-orange-500 via-rose-500 to-fuchsia-600">
+                    <span className="text-6xl drop-shadow-sm" aria-hidden>
+                      {venue.emoji ?? "📍"}
+                    </span>
+                  </div>
+                )}
+              </div>
+              <div
+                ref={mapSectionRef}
+                className="min-h-0 [overflow-anchor:none]"
+              >
+                <div
+                  ref={stickyMapRef}
+                  className="h-full min-h-0 overflow-hidden bg-neutral-200 dark:bg-neutral-800"
+                >
+                  <VenueMapPanel
+                    venue={venue}
+                    dict={dict}
+                    directions={directions}
+                    forceReveal
+                    streetViewOpen={areaViewOpen}
+                    onStreetViewChange={setAreaViewOpen}
+                    overlayStreetView={plannerOpen}
+                    className="h-full"
+                  />
+                </div>
               </div>
               {plannerOpen ? (
-                <div className="overflow-hidden rounded-b-3xl">
+                <div id="venue-directions" className="overflow-hidden">
                   <VenueDirectionsForm
                     ref={directionsFormRef}
                     venue={venue}
@@ -334,133 +292,141 @@ export function VenuePage({
                     variant="embedded"
                   />
                 </div>
+              ) : mapTakesPhotoSpace ? null : (
+                <div className="grid grid-cols-2 border-t border-neutral-200/80 dark:border-neutral-800">
+                  <button
+                    type="button"
+                    onClick={openDirectionsMode}
+                    className="flex min-h-11 items-center justify-center border-r border-neutral-200/80 px-3 py-3 text-sm font-semibold text-neutral-800 touch-manipulation dark:border-neutral-800 dark:text-neutral-100"
+                  >
+                    {dict.venues.getDirections}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setAreaViewOpen(true)}
+                    className="flex min-h-11 items-center justify-center px-3 py-3 text-sm font-semibold text-neutral-800 touch-manipulation dark:text-neutral-100"
+                  >
+                    {dict.venues.streetView}
+                  </button>
+                </div>
+              )}
+            </article>
+
+            <div className="min-w-0 lg:rounded-2xl lg:bg-white lg:px-5 lg:pt-4 lg:pb-6 lg:shadow-md lg:ring-1 lg:ring-neutral-200/60 dark:lg:bg-neutral-900 dark:lg:ring-neutral-800">
+              {/* Identity + quick actions */}
+              <header className="mt-4 lg:mt-0">
+                <p className="text-xs font-bold uppercase tracking-[0.18em] text-neutral-500 dark:text-neutral-400">
+                  {venue.city}
+                </p>
+                <h1 className="mt-1.5 text-title font-extrabold leading-snug text-neutral-900 dark:text-neutral-100 lg:text-display">
+                  {venue.name}
+                </h1>
+                {walkablePocket ? (
+                  <PocketPlaceHint
+                    pocket={walkablePocket}
+                    locale={locale}
+                    dict={dict}
+                  />
+                ) : null}
+
+                {venue.temporarilyClosed ? (
+                  <span className="mt-3 inline-flex w-fit items-center rounded-full bg-rose-50 px-3 py-1 text-xs font-bold uppercase tracking-wide text-rose-700 ring-1 ring-rose-200 dark:bg-rose-950/40 dark:text-rose-400 dark:ring-rose-900/60">
+                    {dict.events.temporarilyClosed}
+                  </span>
+                ) : null}
+
+                {venue.description ? (
+                  <p className="mt-4 text-copy">{venue.description}</p>
+                ) : null}
+                {assessment ? (
+                  <VenueAssessmentBlock
+                    assessment={assessment}
+                    dict={dict}
+                    locale={locale}
+                    className={`mb-0 ${venue.description ? "mt-5" : "mt-4"}`}
+                  />
+                ) : null}
+
+                {actionCount > 0 ? (
+                  <div
+                    className={`grid gap-2 ${
+                      venue.description || assessment ? "mt-5" : "mt-4"
+                    } ${
+                      actionCount === 3
+                        ? "grid-cols-3"
+                        : actionCount === 2
+                          ? "grid-cols-2"
+                          : "grid-cols-1"
+                    }`}
+                  >
+                  {venue.phone ? (
+                    <a
+                      href={`tel:${formatPhoneTel(venue.phone)}`}
+                      className={venueActionClass}
+                    >
+                      <Phone className="h-4 w-4" aria-hidden />
+                      <span className="text-xs font-bold leading-none">
+                        {dict.detail.call}
+                      </span>
+                    </a>
+                  ) : null}
+                  {websiteUrl ? (
+                    <a
+                      href={websiteUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={venueActionClass}
+                    >
+                      <ExternalLink className="h-4 w-4" aria-hidden />
+                      <span className="text-xs font-bold leading-none">
+                        {dict.venues.website}
+                      </span>
+                    </a>
+                  ) : null}
+                  {instagramUrl ? (
+                    <a
+                      href={instagramUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={venueActionClass}
+                    >
+                      <AtSign className="h-4 w-4" aria-hidden />
+                      <span className="text-xs font-bold leading-none">
+                        {dict.venues.instagram}
+                      </span>
+                    </a>
+                  ) : null}
+                  </div>
+                ) : null}
+              </header>
+
+              <div className="mt-8 lg:mt-6">
+                <VenueEventList
+                  events={events}
+                  loading={loading}
+                  dict={dict}
+                  locale={locale}
+                  emptyMessage={dict.venues.noEvents}
+                  sectionTitle={dict.venues.eventsAt}
+                  returnTo={listReturnTo}
+                  returnTitle={venue.name}
+                  initialExpanded={initialExpanded}
+                  onAddEvent={() => setSubmitOpen(true)}
+                  addEventLabel={dict.submit.createEvent}
+                />
+              </div>
+
+              {nearbyTonight && nearbyTonight.hits.length > 0 ? (
+                <NearbyTonight
+                  nearby={nearbyTonight}
+                  locale={locale}
+                  dict={dict}
+                  returnTo={listReturnTo}
+                  returnTitle={venue.name}
+                  className="mt-6"
+                />
               ) : null}
             </div>
-          </article>
-
-          {/* Identity + quick actions */}
-          <header className="mt-4">
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-neutral-500 dark:text-neutral-400">
-              {venue.city}
-            </p>
-            <h1 className="mt-1.5 text-title font-extrabold leading-snug text-neutral-900 dark:text-neutral-100">
-              {venue.name}
-            </h1>
-            {walkablePocket ? (
-              <PocketPlaceHint
-                pocket={walkablePocket}
-                locale={locale}
-                dict={dict}
-              />
-            ) : null}
-
-            {venue.temporarilyClosed ? (
-              <span className="mt-3 inline-flex w-fit items-center rounded-full bg-rose-50 px-3 py-1 text-xs font-bold uppercase tracking-wide text-rose-700 ring-1 ring-rose-200 dark:bg-rose-950/40 dark:text-rose-400 dark:ring-rose-900/60">
-                {dict.events.temporarilyClosed}
-              </span>
-            ) : null}
-
-            {venue.description ? (
-              <p className="mt-4 text-copy">{venue.description}</p>
-            ) : null}
-            {assessment ? (
-              <VenueAssessmentBlock
-                assessment={assessment}
-                dict={dict}
-                locale={locale}
-                className={`mb-0 ${venue.description ? "mt-5" : "mt-4"}`}
-              />
-            ) : null}
-
-            <div
-              className={`grid gap-2 ${
-                venue.description || assessment ? "mt-5" : "mt-4"
-              } ${
-                actionCount >= 4
-                  ? "grid-cols-4"
-                  : actionCount === 3
-                    ? "grid-cols-3"
-                    : actionCount === 2
-                      ? "grid-cols-2"
-                      : "grid-cols-1"
-              }`}
-            >
-              {venue.phone ? (
-                <a
-                  href={`tel:${formatPhoneTel(venue.phone)}`}
-                  className={venueActionClass}
-                >
-                  <Phone className="h-4 w-4" aria-hidden />
-                  <span className="text-xs font-bold leading-none">
-                    {dict.detail.call}
-                  </span>
-                </a>
-              ) : null}
-              <button
-                type="button"
-                onClick={openDirectionsMode}
-                className={venueActionClass}
-              >
-                <Navigation className="h-4 w-4" aria-hidden />
-                <span className="text-xs font-bold leading-none">
-                  {dict.detail.directions}
-                </span>
-              </button>
-              {websiteUrl ? (
-                <a
-                  href={websiteUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={venueActionClass}
-                >
-                  <ExternalLink className="h-4 w-4" aria-hidden />
-                  <span className="text-xs font-bold leading-none">
-                    {dict.venues.website}
-                  </span>
-                </a>
-              ) : null}
-              {instagramUrl ? (
-                <a
-                  href={instagramUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={venueActionClass}
-                >
-                  <AtSign className="h-4 w-4" aria-hidden />
-                  <span className="text-xs font-bold leading-none">
-                    {dict.venues.instagram}
-                  </span>
-                </a>
-              ) : null}
-            </div>
-          </header>
-
-          {nearbyTonight && nearbyTonight.hits.length > 0 ? (
-            <NearbyTonight
-              nearby={nearbyTonight}
-              locale={locale}
-              dict={dict}
-              returnTo={listReturnTo}
-              returnTitle={venue.name}
-              className="mt-6"
-            />
-          ) : null}
-
-          {/* Events */}
-          <div className={nearbyTonight && nearbyTonight.hits.length > 0 ? "mt-6" : "mt-8"}>
-            <VenueEventList
-              events={events}
-              loading={loading}
-              dict={dict}
-              locale={locale}
-              emptyMessage={dict.venues.noEvents}
-              sectionTitle={dict.venues.eventsAt}
-              returnTo={listReturnTo}
-              returnTitle={venue.name}
-              initialExpanded={initialExpanded}
-              onAddEvent={() => setSubmitOpen(true)}
-              addEventLabel={dict.submit.createEvent}
-            />
           </div>
         </div>
       </main>

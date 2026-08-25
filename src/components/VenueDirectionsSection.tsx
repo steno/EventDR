@@ -199,6 +199,12 @@ interface VenueMapPanelProps {
   forceReveal?: boolean;
   /** User tapped Show map — open full map + directions. */
   onReveal?: () => void;
+  /** Street View ("See the area") opened or closed — parent can grow the map frame. */
+  onStreetViewChange?: (open: boolean) => void;
+  /** Controlled Street View; omit to keep it internal. */
+  streetViewOpen?: boolean;
+  /** Overlay “See the area” on the map (hide when a sibling button already exists). */
+  overlayStreetView?: boolean;
   attention?: boolean;
   onAttentionEnd?: () => void;
 }
@@ -211,16 +217,30 @@ export function VenueMapPanel({
   className = "h-[12rem] sm:h-[14rem]",
   forceReveal = false,
   onReveal,
+  onStreetViewChange,
+  streetViewOpen: streetViewOpenProp,
+  overlayStreetView = true,
   attention = false,
   onAttentionEnd,
 }: VenueMapPanelProps) {
   const { destination, origin, route, busy } = directions;
   const mapOpen = forceReveal || Boolean(origin || route);
-  const [streetViewOpen, setStreetViewOpen] = useState(false);
-  /** In-app Google SV when coverage exists; static OSM+Maps when Google is capped. */
+  const [uncontrolledStreetView, setUncontrolledStreetView] = useState(false);
+  const streetViewControlled = streetViewOpenProp !== undefined;
+  const streetViewOpen = streetViewControlled
+    ? streetViewOpenProp
+    : uncontrolledStreetView;
+  const setStreetViewOpen = useCallback(
+    (open: boolean) => {
+      if (!streetViewControlled) setUncontrolledStreetView(open);
+      onStreetViewChange?.(open);
+    },
+    [streetViewControlled, onStreetViewChange],
+  );
+  /** Prefer in-app Google SV; static OSM+Maps when Google is capped or uncovered. */
   const [streetViewMode, setStreetViewMode] = useState<
     "hidden" | "google" | "static"
-  >(() => (isGoogleMapsJsBlocked() ? "static" : "hidden"));
+  >("google");
 
   useEffect(() => {
     if (isGoogleMapsJsBlocked() || !canUseInAppStreetView()) {
@@ -229,7 +249,6 @@ export function VenueMapPanel({
     }
 
     let cancelled = false;
-    setStreetViewMode("hidden");
 
     const run = () => {
       if (cancelled) return;
@@ -239,7 +258,7 @@ export function VenueMapPanel({
           setStreetViewMode("static");
           return;
         }
-        setStreetViewMode(ok ? "google" : "hidden");
+        setStreetViewMode(ok ? "google" : "static");
       });
     };
 
@@ -269,14 +288,11 @@ export function VenueMapPanel({
   // Route send / “use my location” needs the 2D map — leave Street View.
   useEffect(() => {
     if (busy) setStreetViewOpen(false);
-  }, [busy]);
+  }, [busy, setStreetViewOpen]);
 
   const openStreetView = useCallback(() => {
-    // Expand the place-card map frame first so Street View fills that area
-    // instead of a separate viewport modal.
-    onReveal?.();
     setStreetViewOpen(true);
-  }, [onReveal]);
+  }, [setStreetViewOpen]);
 
   const expanded = mapOpen || streetViewOpen;
   const streetViewControl =
@@ -292,10 +308,10 @@ export function VenueMapPanel({
 
   return (
     <div
-      className={`event-inline-map relative overflow-hidden ${
+      className={`event-inline-map relative overflow-hidden ${className} ${
         expanded
-          ? `bg-neutral-200 dark:bg-neutral-800 ${className}`
-          : "h-auto bg-white dark:bg-neutral-900"
+          ? "bg-neutral-200 dark:bg-neutral-800"
+          : "bg-white dark:bg-neutral-900"
       }`}
     >
       <MapReveal
@@ -307,14 +323,16 @@ export function VenueMapPanel({
         onAttentionEnd={onAttentionEnd}
         className={expanded ? "h-full w-full" : "w-full"}
       >
-        <EventInlineMap
-          coords={destination}
-          interactive
-          origin={origin}
-          route={route}
-        />
+        <div className="h-full w-full">
+          <EventInlineMap
+            coords={destination}
+            interactive
+            origin={origin}
+            route={route}
+          />
+        </div>
       </MapReveal>
-      {mapOpen && streetViewControl ? (
+      {mapOpen && overlayStreetView && streetViewControl ? (
         <div className="absolute inset-x-0 bottom-0 z-[500] flex justify-center p-3 pointer-events-none">
           <div className="pointer-events-auto w-full sm:w-auto">
             {streetViewControl}

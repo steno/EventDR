@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { EventImage } from "@/components/EventImage";
 import { IntentLink } from "@/components/IntentLink";
 import { eventDetailPath, rememberReturnPath } from "@/lib/event-navigation";
@@ -14,6 +15,8 @@ interface PhotoHeroProps {
   returnTo?: string;
   /** Place name synced with the home city picker (city or North Coast). */
   placeName?: string;
+  /** Replaces the static H1 place name — typically the city dropdown. */
+  locationPicker?: ReactNode;
 }
 
 export function PhotoHero({
@@ -22,6 +25,7 @@ export function PhotoHero({
   featuredEvent = null,
   returnTo,
   placeName,
+  locationPicker,
 }: PhotoHeroProps) {
   const imageUrl = featuredEvent?.imageUrl?.trim() || null;
   const eventHref =
@@ -29,17 +33,14 @@ export function PhotoHero({
       ? eventDetailPath(locale, featuredEvent.id)
       : null;
   const heroPlace = placeName?.trim() || dict.hero.nearYou;
-  const placeLabel = dict.hero.regionSuffix
-    ? `${heroPlace} ${dict.hero.regionSuffix}`
-    : heroPlace;
-  
+
   // Use "Events in the" for North Coast region, "Events in" for specific cities
   const isRegion = heroPlace === dict.cities.regionName;
   const eventsPrefix = isRegion ? dict.hero.events : dict.cities.eventsIn;
 
   return (
-    <header className="relative -mx-5 mb-5 overflow-hidden sm:-mx-6 sm:rounded-2xl lg:mx-0">
-      <div className="relative min-h-[15.5rem] sm:min-h-[12.5rem]">
+    <header className="relative -mx-5 mb-5 sm:-mx-6 lg:mx-0">
+      <div className="absolute inset-0 overflow-hidden sm:rounded-2xl">
         {imageUrl ? (
           <div className="absolute inset-0">
             <EventImage
@@ -73,48 +74,50 @@ export function PhotoHero({
           className="absolute inset-0 hidden bg-gradient-to-t from-black/80 via-black/45 to-black/25 dark:block"
           aria-hidden
         />
+      </div>
 
-        <div className="relative z-10 flex min-h-[15.5rem] flex-col justify-end gap-3 px-4 pb-5 pt-10 sm:min-h-[12.5rem] sm:px-6 sm:pb-5 sm:pt-8">
-          <div className="min-w-0">
-            <p className="text-xs font-bold uppercase tracking-[0.18em] text-white/80 [text-shadow:0_1px_2px_rgba(0,0,0,0.45)]">
-              {dict.seo.siteName}
-            </p>
-            <h1 className="mt-1 text-display font-extrabold sm:text-display-lg">
-              <span className="text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.4)]">
-                {eventsPrefix}{" "}
-              </span>
+      <div className="relative z-10 flex min-h-[15.5rem] flex-col justify-end gap-3 px-4 pb-5 pt-10 sm:min-h-[12.5rem] sm:px-6 sm:pb-5 sm:pt-8">
+        <div className="min-w-0">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-white/80 [text-shadow:0_1px_2px_rgba(0,0,0,0.45)]">
+            {dict.seo.siteName}
+          </p>
+          <h1 className="mt-1 text-display font-extrabold sm:text-display-lg">
+            <span className="text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.4)]">
+              {eventsPrefix}{" "}
+            </span>
+            {locationPicker ?? (
               <span className="bg-gradient-to-r from-orange-300 via-rose-300 to-fuchsia-300 bg-clip-text text-transparent">
                 {heroPlace}
               </span>
-            </h1>
-            <p className="mt-2 max-w-md text-copy font-medium text-white/90 [text-shadow:0_1px_2px_rgba(0,0,0,0.4)]">
-              {dict.hero.subtitle}{" "}
-              <span className="font-bold text-white">
-                {dict.hero.subtitleHighlight}
-              </span>
-              . {dict.hero.subtitleEnd}
-            </p>
-          </div>
-
-          {featuredEvent && eventHref && (
-            <IntentLink
-              href={eventHref}
-              eagerWarm
-              onClick={() => rememberReturnPath(returnTo ?? `/${locale}`)}
-              className="group inline-flex max-w-full items-center gap-2 text-sm font-bold touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400 focus-visible:rounded"
-            >
-              <span className="truncate bg-gradient-to-r from-orange-300 via-rose-300 to-fuchsia-300 bg-clip-text text-transparent transition-[filter] group-hover:brightness-110">
-                {featuredEvent.title}
-              </span>
-              <span
-                aria-hidden
-                className="shrink-0 text-orange-300 transition-transform group-hover:translate-x-0.5 group-hover:text-rose-300"
-              >
-                →
-              </span>
-            </IntentLink>
-          )}
+            )}
+          </h1>
+          <p className="mt-2 max-w-md text-copy font-medium text-white/90 [text-shadow:0_1px_2px_rgba(0,0,0,0.4)]">
+            {dict.hero.subtitle}{" "}
+            <span className="font-bold text-white">
+              {dict.hero.subtitleHighlight}
+            </span>
+            . {dict.hero.subtitleEnd}
+          </p>
         </div>
+
+        {featuredEvent && eventHref && (
+          <IntentLink
+            href={eventHref}
+            eagerWarm
+            onClick={() => rememberReturnPath(returnTo ?? `/${locale}`)}
+            className="group inline-flex max-w-full items-center gap-2 text-sm font-bold touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400 focus-visible:rounded"
+          >
+            <span className="truncate bg-gradient-to-r from-orange-300 via-rose-300 to-fuchsia-300 bg-clip-text text-transparent transition-[filter] group-hover:brightness-110">
+              {featuredEvent.title}
+            </span>
+            <span
+              aria-hidden
+              className="shrink-0 text-orange-300 transition-transform group-hover:translate-x-0.5 group-hover:text-rose-300"
+            >
+              →
+            </span>
+          </IntentLink>
+        )}
       </div>
     </header>
   );

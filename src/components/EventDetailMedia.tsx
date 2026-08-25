@@ -5,6 +5,7 @@ import type { Event } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { EventImage } from "@/components/EventImage";
 import { getEventHeroObjectPosition } from "@/lib/event-images";
+import { DETAIL_HERO_PHOTO_HEIGHT_MOBILE_CLASS } from "@/lib/page-shell";
 
 interface EventDetailMediaProps {
   event: Event;
@@ -25,8 +26,8 @@ export function EventDetailMedia({
 
   const heightClass =
     variant === "standalone"
-      ? "h-full min-h-[min(32dvh,13rem)]"
-      : "h-[min(32dvh,13rem)]";
+      ? `h-full min-h-[calc((min(68dvh,36rem)-2.75rem)/2)]`
+      : DETAIL_HERO_PHOTO_HEIGHT_MOBILE_CLASS;
   const roundedClass =
     variant === "standalone"
       ? "rounded-t-3xl lg:rounded-none lg:rounded-l-3xl"

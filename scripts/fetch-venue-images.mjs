@@ -132,11 +132,10 @@ const VENUE_SOURCES = [
     eventId: "inicio-del-campamento-pp-2026",
     url: "https://images.unsplash.com/photo-1526232761682-d26e03ac148e?w=1800&q=85",
   },
-  {
-    // Beachfront dining tables at La Casita de Papi (not Liquid Blue Encuentro beach).
-    eventId: "la-casita-papi-beach-dining",
-    url: "https://img02.restaurantguru.com/cee4-Restaurant-La-Casita-de-Papi-interior-2.jpg",
-  },
+  // la-casita-de-papi-awning.jpg / la-casita-papi-sand-dining.jpg — Google Maps
+  // place photos of La Casita de Papi (Papi awning + twilight sand tables).
+  // lax-cabarete-bar.jpg — Google Maps OJO CLUB/LAX night bar (not sunset deck).
+  // Do not remote-refresh cropped committed assets.
   {
     eventId: "kite-beach-wind-culture",
     url: "https://images.prismic.io/prismic-rd-2/Z-pgqndAxsiBwHB3_22_12_MITUR_1974.jpg?auto=format,compress&rect=0,162,2281,1198&w=2400&h=1260",
@@ -272,9 +271,13 @@ const VENUE_SOURCES = [
     eventId: "iberostar-costa-dorada-day-pass",
     url: "https://static.hoteltreats.com/site/styles/hero/s3/2024-07/dor_pool_0051_low.jpg?h=f692311e&itok=wX2x9pYg",
   },
+  {
+    eventId: "ocean-world-daily",
+    url: "https://www.shop.oceanworld.net/wp-content/uploads/2017/03/dolphin-encounter-local.jpeg",
+  },
+  // ocean-world-park.jpg — Wikimedia visitor photo of the Cofresí park building.
+  // terraza-ocean-world-evenings inherits the venue place shot.
   // playa-cofresi-shore.jpg — Wikimedia Cofresí shoreline (committed).
-  // terraza-ocean-world-evenings uses the ocean-world venue dolphin shot — do not
-  // remote-refresh a second Ocean World aerial over it.
   // laguna-sov-kids-park.jpg — Google Maps Laguna SOV kids water-park photo (committed).
   // santa-fe-sov-pools.jpg — Google Maps Santa Fe Recreational Complex pool/waterfall (committed).
   // restaurant-maria-sov-terrace.jpg — Google Maps Restaurant Maria ocean terrace (committed).

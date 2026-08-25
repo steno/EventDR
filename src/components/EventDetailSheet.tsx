@@ -42,6 +42,7 @@ import { getPocketForEvent } from "@/lib/walkable-pockets";
 import { areEventOpinionsEnabled, getEventOpinion, withGoogleRating, googleRatingFromAssessment } from "@/lib/event-opinions";
 import { EventDetailContent } from "@/components/event-detail/EventDetailContent";
 import { EventDetailActions } from "@/components/event-detail/EventDetailActions";
+import { DETAIL_HERO_PHOTO_HEIGHT_CLASS } from "@/lib/page-shell";
 
 type ActionMenu = "share" | "calendar";
 
@@ -456,7 +457,7 @@ export function EventDetailSheet({
   if (standalone) {
     return (
       <article className="mt-0 w-full overflow-hidden rounded-2xl bg-white shadow-md ring-1 ring-neutral-200/60 dark:bg-neutral-900 dark:ring-neutral-800 lg:grid lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-stretch">
-        <div className="relative h-[min(32dvh,13rem)] sm:h-[min(38dvh,18rem)] lg:h-auto lg:min-h-0">
+        <div className={`relative ${DETAIL_HERO_PHOTO_HEIGHT_CLASS}`}>
           {showHero ? (
             <div className="h-full lg:absolute lg:inset-0">
               <EventDetailMedia

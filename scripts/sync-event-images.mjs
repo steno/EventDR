@@ -25,7 +25,7 @@ const FILE_TO_EVENT_ID = {
   "liquid-blue-sunrise-yoga.jpg": "liquid-blue-sunrise-yoga",
   "natura-cabana-yoga-daily.jpg": "natura-cabana-yoga-daily",
   "liquid-blue-watersports-daily.jpg": "liquid-blue-watersports-daily",
-  "la-casita-papi-beach-dining.jpg": "la-casita-papi-beach-dining",
+  "la-casita-papi-sand-dining.jpg": "la-casita-papi-sand-dining",
   "el-cocotazo-cafe-beach-dining.jpg": "el-cocotazo-cafe-beach-dining",
   "iberostar-costa-dorada-day-pass.jpg": "iberostar-costa-dorada-day-pass",
   "crazy-lobster-beach-dining.jpg": "crazy-lobster-beach-dining",
@@ -138,7 +138,7 @@ const FILE_TO_EVENT_ID = {
   "espadrillas.jpeg": "ingest-make-authentic-espadrilles-in-puerto-plata",
   "ingest-el-blachy.jpg": "ingest-el-blachy",
   "feriaartesanal.jpg": "feria-artesanal-verano-2026",
-  "oceanworld.jpeg": "ocean-world-daily",
+  "ocean-world-daily.jpg": "ocean-world-daily",
   "Damajagua.jpeg": "charcos-damajagua-daily",
   "fortaleza.jpeg": "fortaleza-san-felipe-daily",
   "museoambar.jpeg": "museo-ambar-weekdays",
@@ -186,13 +186,17 @@ const SAME_VENUE_COPIES = [
 const FILE_TO_VENUE_SLUG = {
   "baseballpark.png": "parque-jose-briceno",
   "asa-surviaval.jpeg": "club-deportivo-fantastico",
-  "la-casita-papi-beach-dining.jpg": "la-casita-de-papi",
+  "la-casita-de-papi-awning.jpg": "la-casita-de-papi-awning",
+  // Filename bump — venue page was reusing the Sunset Sessions deck photo.
+  "lax-cabarete-bar.jpg": "lax-cabarete-bar",
   "el-cocotazo-cafe-beach-dining.jpg": "el-cocotazo-cafe",
   // Place shot of the main pool; day-pass listing uses the swim-up bar instead.
   "iberostar-waves-costa-dorada.jpg": "iberostar-waves-costa-dorada",
   "crazy-lobster-beach-dining.jpg": "crazy-lobster-maimon",
   "don-limon-venue.jpeg": "don-limon-cofresi",
   "ocean-winds-karaoke-nights.jpg": "hotel-ocean-winds",
+  // Filename bump after replacing a tiny shared dolphin-jump JPEG.
+  "ocean-world-park.jpg": "ocean-world-park",
   "liquid-blue-watersports-daily.jpg": "liquid-blue-cabarete",
   "anfiteatro-la-puntilla-concerts.jpg": "anfiteatro-la-puntilla",
   "smileys-saturday-live.jpg": "smileys-bar-sosua",
