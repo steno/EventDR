@@ -83,9 +83,9 @@ export function CityPhotoHero({
               {title}
             </h1>
             {subtitle ? (
-              <p className="mt-2 max-w-xl text-copy font-medium text-white/90 [text-shadow:0_1px_2px_rgba(0,0,0,0.4)]">
+              <h2 className="mt-2 max-w-xl text-copy font-medium text-white/90 [text-shadow:0_1px_2px_rgba(0,0,0,0.4)]">
                 {subtitle}
-              </p>
+              </h2>
             ) : null}
           </div>
 

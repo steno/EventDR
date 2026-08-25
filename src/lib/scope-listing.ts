@@ -122,6 +122,8 @@ export function filterCatalogForScope(
 
 export type ScopeListingChrome = {
   title: string;
+  /** Small eyebrow above the H1 (region or city label). */
+  eyebrow: string;
   intro: string;
   emoji: string;
   emojiClassName?: string;
@@ -145,6 +147,7 @@ export function resolveScopeListingChrome(
   const category = selection.categoryId
     ? getCategoryMeta(selection.categoryId, dict.categories)
     : undefined;
+  const regionEyebrow = dict.region.northCoast;
 
   if (selection.categoryId && category) {
     const returnTo = scopeListingPath(locale, selection);
@@ -159,6 +162,7 @@ export function resolveScopeListingChrome(
         title: `${fillTemplate(dict.cities.lookingInWithCategory, {
           category: category.label,
         })} ${cityName}`,
+        eyebrow: cityName,
         intro: seo.intro,
         emoji: category.emoji,
         emojiClassName: `bg-gradient-to-br ${category.gradient}`,
@@ -178,6 +182,7 @@ export function resolveScopeListingChrome(
     const regionArticle = locale === "en" ? "the" : "la";
     return {
       title: `${categoryPrefix} ${regionArticle} ${dict.cities.regionName}`,
+      eyebrow: regionEyebrow,
       intro: categorySeo.intro,
       emoji: category.emoji,
       emojiClassName: `bg-gradient-to-br ${category.gradient}`,
@@ -190,7 +195,8 @@ export function resolveScopeListingChrome(
     const citySeo = getCitySeo(city, locale);
     return {
       title: fillTemplate(dict.browse.eventsInPlace, { place: cityName }),
-      intro: citySeo.intro,
+      eyebrow: cityName,
+      intro: citySeo.heroTagline,
       emoji: city.emoji,
       returnTo: localePath(locale, `/city/${city.slug}`),
       submitDefaults: { location: cityName },
@@ -200,6 +206,7 @@ export function resolveScopeListingChrome(
   const regionName = dict.cities.regionName;
   return {
     title: fillTemplate(dict.browse.eventsInPlace, { place: regionName }),
+    eyebrow: regionEyebrow,
     intro: dict.browse.allCategoriesIntro,
     emoji: "📅",
     returnTo: localePath(locale, "/events"),

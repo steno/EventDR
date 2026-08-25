@@ -269,6 +269,7 @@ export function EventScopePage({
     if (!softNav) {
       return {
         title: titleProp,
+        eyebrow: subtitle,
         intro: introProp,
         emoji: emojiProp,
         emojiClassName: emojiClassNameProp,
@@ -284,6 +285,7 @@ export function EventScopePage({
     dict,
     selection,
     titleProp,
+    subtitle,
     introProp,
     emojiProp,
     emojiClassNameProp,
@@ -390,6 +392,7 @@ export function EventScopePage({
   const onboardingCopy = getOnboardingCopy(locale);
   const title = chrome.title;
   const intro = chrome.intro;
+  const eyebrow = chrome.eyebrow;
   const emoji = chrome.emoji;
   const returnTo = chrome.returnTo;
   const submitDefaults = chrome.submitDefaults ?? submitDefaultsProp;
@@ -414,8 +417,9 @@ export function EventScopePage({
 
           {scopeHeroImage ? (
             <CityPhotoHero
+              key={activeCitySlug ?? "north-coast"}
               title={title}
-              eyebrow={subtitle}
+              eyebrow={eyebrow}
               subtitle={intro}
               imageUrl={scopeHeroImage}
               featuredEvent={specialHeroEvent}
@@ -436,7 +440,7 @@ export function EventScopePage({
                     {title}
                   </h1>
                   <p className="text-copy-meta text-neutral-500 dark:text-neutral-400">
-                    {subtitle}
+                    {eyebrow}
                   </p>
                 </div>
               </div>

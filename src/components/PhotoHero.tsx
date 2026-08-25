@@ -1,6 +1,10 @@
 import type { ReactNode } from "react";
 import { EventImage } from "@/components/EventImage";
 import { IntentLink } from "@/components/IntentLink";
+import {
+  getHomeHeroTagline,
+  type CitySlug,
+} from "@/lib/cities";
 import { eventDetailPath, rememberReturnPath } from "@/lib/event-navigation";
 import type { Event } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
@@ -15,10 +19,10 @@ interface PhotoHeroProps {
   returnTo?: string;
   /** Place name synced with the home city picker (city or North Coast). */
   placeName?: string;
+  /** Active home area — drives the SEO H2 so it stays in sync with the select. */
+  citySlug?: CitySlug | null;
   /** Replaces the static H1 place name — typically the city dropdown. */
   locationPicker?: ReactNode;
-  /** Area-specific SEO H2 under the title. */
-  tagline: string;
 }
 
 export function PhotoHero({
@@ -27,8 +31,8 @@ export function PhotoHero({
   featuredEvent = null,
   returnTo,
   placeName,
+  citySlug = null,
   locationPicker,
-  tagline,
 }: PhotoHeroProps) {
   const imageUrl = featuredEvent?.imageUrl?.trim() || null;
   const eventHref =
@@ -36,9 +40,14 @@ export function PhotoHero({
       ? eventDetailPath(locale, featuredEvent.id)
       : null;
   const heroPlace = placeName?.trim() || dict.hero.nearYou;
+  const tagline = getHomeHeroTagline(
+    locale,
+    citySlug,
+    dict.hero.regionTagline,
+  );
 
   // Use "Events in the" for North Coast region, "Events in" for specific cities
-  const isRegion = heroPlace === dict.cities.regionName;
+  const isRegion = citySlug == null || heroPlace === dict.cities.regionName;
   const eventsPrefix = isRegion ? dict.hero.events : dict.cities.eventsIn;
 
   return (
@@ -96,7 +105,10 @@ export function PhotoHero({
               )}
             </span>
           </h1>
-          <h2 className="mt-2 max-w-xl text-copy font-medium text-white/90 [text-shadow:0_1px_2px_rgba(0,0,0,0.4)]">
+          <h2
+            key={citySlug ?? "north-coast"}
+            className="mt-2 max-w-xl text-copy font-medium text-white/90 [text-shadow:0_1px_2px_rgba(0,0,0,0.4)]"
+          >
             {tagline}
           </h2>
         </div>
