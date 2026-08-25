@@ -60,6 +60,17 @@ export const SEED_VENUES: Venue[] = [
     emoji: "🎤",
   },
   {
+    slug: "nonas-grill-kitchen",
+    name: "Nona's Grill & Kitchen",
+    city: "Sosúa",
+    description:
+      "Dominican creole restaurant on Calle María Montes in El Batey — comida criolla con historia, family dining, and live concerts including special events with Grupo Braho. Behind Super Pola.",
+    lat: 19.7676,
+    lng: -70.5105,
+    emoji: "🍽️",
+    phone: "+18095711529",
+  },
+  {
     slug: "hard-rock-sosua",
     name: "Hard Rock Cafe Puerto Plata",
     city: "Sosúa",
