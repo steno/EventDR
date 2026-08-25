@@ -326,7 +326,7 @@ export function emptyCityEventCounts(): CityEventCounts {
   };
 }
 
-/** Catalog sizes for city chips — `all` is the unscoped list length. */
+/** Catalog sizes for city chips — `all` is the length of the list passed in. */
 export function countEventsByCity(events: Event[]): CityEventCounts {
   const counts = emptyCityEventCounts();
   counts.all = events.length;

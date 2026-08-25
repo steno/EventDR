@@ -22,7 +22,6 @@ import {
   resolveListingBackLabel,
 } from "@/lib/event-navigation";
 import {
-  countEventsByCity,
   getCityMeta,
   lastHomePath,
   NORTH_COAST_HERO_IMAGE,
@@ -35,6 +34,7 @@ import { PAGE_SHELL_CLASS } from "@/lib/page-shell";
 import { getOnboardingCopy } from "@/lib/onboarding";
 import { useForegroundRefresh } from "@/hooks/useForegroundRefresh";
 import {
+  cityCountsForSelection,
   filterCatalogForScope,
   parseScopeListingPath,
   resolveScopeListingChrome,
@@ -336,8 +336,13 @@ export function EventScopePage({
     : relatedCategoryActiveHrefProp;
 
   const cityCounts = useMemo(
-    () => (catalog.length > 0 ? countEventsByCity(catalog) : null),
-    [catalog],
+    () =>
+      catalog.length > 0
+        ? cityCountsForSelection(catalog, {
+            categoryId: activeCategoryId,
+          })
+        : null,
+    [catalog, activeCategoryId],
   );
   const city = activeCitySlug ? getCityMeta(activeCitySlug) : undefined;
   const specialHeroEvent = useMemo(() => {

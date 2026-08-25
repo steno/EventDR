@@ -5,11 +5,13 @@ import { eventInCategory } from "@/lib/categorize";
 import { getCategorySeo } from "@/lib/category-seo";
 import { getCityCategorySeo } from "@/lib/city-category-seo";
 import {
+  countEventsByCity,
   eventMatchesCity,
   getCityMeta,
   getCityName,
   getCitySeo,
   isCitySlug,
+  type CityEventCounts,
   type CitySlug,
 } from "@/lib/cities";
 import {
@@ -118,6 +120,21 @@ export function filterCatalogForScope(
     discoveryMode: Boolean(selection.categoryId),
     preferPrimaryCategory: selection.categoryId,
   });
+}
+
+/**
+ * Area-picker sizes for the current listing filters.
+ * Counts follow the selected category (and not the selected city), so each
+ * city option shows how many matching events live there.
+ */
+export function cityCountsForSelection(
+  catalog: Event[],
+  selection: Pick<ScopeListingSelection, "categoryId">,
+): CityEventCounts {
+  const scoped = selection.categoryId
+    ? filterCatalogForScope(catalog, { categoryId: selection.categoryId })
+    : catalog;
+  return countEventsByCity(scoped);
 }
 
 export type ScopeListingChrome = {

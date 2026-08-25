@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import {
+  cityCountsForSelection,
   filterCatalogForScope,
   isDetailNavPath,
   isListingSoftPath,
@@ -96,5 +97,26 @@ describe("scope-listing", () => {
       sosuaMusic.map((e) => e.id),
       ["3"],
     );
+  });
+
+  it("counts cities against the selected category, not the full catalog", () => {
+    const catalog = [
+      stubEvent({ id: "1", category: "food-drinks", location: "Sosúa" }),
+      stubEvent({ id: "2", category: "music", location: "Sosúa" }),
+      stubEvent({ id: "3", category: "food-drinks", location: "Cabarete" }),
+      stubEvent({ id: "4", category: "parties", location: "Puerto Plata" }),
+    ];
+
+    const allCounts = cityCountsForSelection(catalog, {});
+    assert.equal(allCounts.all, 4);
+    assert.equal(allCounts.sosua, 2);
+
+    const foodCounts = cityCountsForSelection(catalog, {
+      categoryId: "food-drinks",
+    });
+    assert.equal(foodCounts.all, 2);
+    assert.equal(foodCounts.sosua, 1);
+    assert.equal(foodCounts.cabarete, 1);
+    assert.equal(foodCounts["puerto-plata"], 0);
   });
 });
