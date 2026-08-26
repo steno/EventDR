@@ -7,6 +7,7 @@ import {
   happensOnLocalDate,
   isEndingSoon,
   isEventActiveToday,
+  isStartingSoon,
   parseEventTimeWindow,
   type EventLiveStatus,
 } from "@/lib/event-status";
@@ -53,7 +54,10 @@ function fallbackLiveStatusDisplay(
 
   const status = getEventLiveStatus(event, now);
   if (status === "upcoming") {
-    return { status: "upcoming", label: dict.events.startsSoon };
+    if (isStartingSoon(event, now)) {
+      return { status: "upcoming", label: dict.events.startsSoon };
+    }
+    return null;
   }
   if (status === "closedToday") {
     return { status: "closedToday", label: dict.events.closedForToday };
@@ -119,6 +123,12 @@ export function resolveLiveStatusDisplay(
 
   // Untimed / free-text hours: on the calendar today, not "live right now".
   if (status === "unknown") {
+    if (options?.listTimeRange === "today") return null;
+    return { status: "unknown", label: dict.events.happeningToday };
+  }
+
+  // Same calendar day, doors still hours away — don't cry "starts soon" at 12:30 AM.
+  if (status === "upcoming" && !isStartingSoon(event, now)) {
     if (options?.listTimeRange === "today") return null;
     return { status: "unknown", label: dict.events.happeningToday };
   }

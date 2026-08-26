@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, type Ref } from "react";
+import { useEffect, useLayoutEffect, useRef, type Ref } from "react";
 import { IntentLink } from "@/components/IntentLink";
 import {
   CATEGORY_PILL_ACTIVE,
@@ -9,12 +9,9 @@ import {
   CATEGORY_SCROLLER_BAR,
 } from "@/components/category-scroller-styles";
 import {
-  readDocumentTop,
-  readStickyListHeaderReserve,
   scrollBehaviorPreference,
   scrollToListTop,
 } from "@/lib/list-scroll";
-import { getScrollChromeVisible } from "@/lib/scroll-chrome";
 
 export type RelatedCategoryLink = {
   href: string;
@@ -44,8 +41,7 @@ export function CityCategoryLinks({
   onSoftNavigate,
 }: CityCategoryLinksProps) {
   const activeRef = useRef<HTMLAnchorElement>(null);
-  const scrollerRef = useRef<HTMLDivElement>(null);
-  const navRef = useRef<HTMLElement>(null);
+  const scrolledHrefRef = useRef<string | null>(null);
 
   useEffect(() => {
     const active = activeRef.current;
@@ -59,39 +55,55 @@ export function CityCategoryLinks({
     });
   }, [activeHref]);
 
-  // On mount (home → category), skip the hero and park the category icon row
-  // under the sticky header. Time-tab switches use onlyScrollDown so they do
-  // not yank back up once the user is browsing the list.
-  // Skip when already parked there (area-chip swaps keep scroll via scroll:false).
+  // Category landing: let the hero sit, then nudge down to the pills.
+  // Cancel if the visitor already scrolled (or a pill/tab already parked).
   useEffect(() => {
     if (!activeHref) return;
+    if (typeof window === "undefined") return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
 
-    const timeoutId = setTimeout(() => {
-      const nav = navRef.current;
-      if (!nav) return;
+    const startY = window.scrollY;
+    const userMovedPx = 24;
+    if (startY > userMovedPx) return;
 
-      const targetScroll = Math.max(
-        0,
-        readDocumentTop(nav) - readStickyListHeaderReserve(),
-      );
-
-      // Area chips navigate with scroll:false while the user is already on the
-      // list chrome — re-animating here is the flash. Home → category still
-      // starts near the top, so this still scrolls past the hero.
-      // If chrome hid during a prior park, re-run so the header covers the gap.
-      if (
-        Math.abs(window.scrollY - targetScroll) < 64 &&
-        getScrollChromeVisible()
-      ) {
-        return;
+    let cancelled = false;
+    const onScroll = () => {
+      if (Math.abs(window.scrollY - startY) >= userMovedPx) {
+        cancelled = true;
       }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
 
-      scrollToListTop(nav);
-    }, 150); // Small delay to ensure layout is stable
+    const timeoutId = window.setTimeout(() => {
+      window.removeEventListener("scroll", onScroll);
+      if (cancelled) return;
+      if (Math.abs(window.scrollY - startY) >= userMovedPx) return;
+      scrollToListTop(undefined, { onlyScrollDown: true });
+    }, 5000);
 
-    return () => clearTimeout(timeoutId);
+    return () => {
+      cancelled = true;
+      window.clearTimeout(timeoutId);
+      window.removeEventListener("scroll", onScroll);
+    };
+    // Landing only — pill clicks park immediately via the layout effect below.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []); // Empty deps = run only on mount
+  }, []);
+
+  // Same park as All/Today/Tomorrow/Weekend: after the user picks a pill,
+  // tuck list chrome under the sticky header (only scroll down).
+  useLayoutEffect(() => {
+    const key = activeHref ?? "";
+    if (scrolledHrefRef.current === null) {
+      scrolledHrefRef.current = key;
+      return;
+    }
+    if (scrolledHrefRef.current === key) return;
+    scrolledHrefRef.current = key;
+    scrollToListTop(undefined, { onlyScrollDown: true });
+  }, [activeHref]);
 
   if (links.length === 0) return null;
 
@@ -137,7 +149,6 @@ export function CityCategoryLinks({
 
   return (
     <nav
-      ref={navRef}
       aria-label={label}
       className="mb-6"
       data-list-scroll-anchor
@@ -147,10 +158,7 @@ export function CityCategoryLinks({
       </p>
       <div className={CATEGORY_SCROLLER_BAR}>
         <div className="relative min-w-0 flex-1 overflow-hidden">
-          <div
-            ref={scrollerRef}
-            className="overflow-x-auto scrollbar-hide"
-          >
+          <div className="overflow-x-auto scrollbar-hide">
             <div className="flex w-max gap-3 px-0.5 py-1">
               {allLink
                 ? renderPill(

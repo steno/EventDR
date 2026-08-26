@@ -21,6 +21,8 @@ export type EventLiveStatus =
 const DEFAULT_DURATION_MINUTES = 120;
 /** Show "ends soon" when a multi-hour event is within this many minutes of closing. */
 export const ENDS_SOON_MINUTES = 60;
+/** Show "starts soon" only when doors are actually close — not all morning on event day. */
+export const STARTS_SOON_MINUTES = 120;
 
 function currentMinutes(now: Date): number {
   const formatted = new Intl.DateTimeFormat("en-GB", {
@@ -129,6 +131,14 @@ export function isMultiHourEvent(time?: string): boolean {
   return getEventDurationMinutes(time) > ENDS_SOON_MINUTES;
 }
 
+function minutesUntilWindowStart(
+  nowMin: number,
+  window: EventTimeWindow,
+): number {
+  if (nowMin >= window.start) return 0;
+  return window.start - nowMin;
+}
+
 function minutesUntilWindowEnd(
   nowMin: number,
   window: EventTimeWindow,
@@ -140,6 +150,20 @@ function minutesUntilWindowEnd(
     return window.end - nowMin;
   }
   return window.end - nowMin;
+}
+
+/** Same-day event whose parsed start is within STARTS_SOON_MINUTES. */
+export function isStartingSoon(
+  event: Pick<Event, "date" | "endDate" | "time" | "recurrence">,
+  now: Date = new Date(),
+): boolean {
+  const window = parseEventTimeWindow(event.time);
+  if (!window) return false;
+  if (getEventLiveStatus(event, now) !== "upcoming") return false;
+  if (!happensOnLocalDate(event, localDateISO(now))) return false;
+
+  const minutesLeft = minutesUntilWindowStart(currentMinutes(now), window);
+  return minutesLeft > 0 && minutesLeft <= STARTS_SOON_MINUTES;
 }
 
 /** Live multi-hour event in its final hour before the parsed end time. */

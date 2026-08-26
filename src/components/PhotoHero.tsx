@@ -89,15 +89,15 @@ export function PhotoHero({
       </div>
 
       <div className="relative z-10 flex min-h-[15.5rem] flex-col justify-end gap-3 px-4 pb-5 pt-10 sm:min-h-[12.5rem] sm:px-6 sm:pb-5 sm:pt-8">
-        <div className="min-w-0">
+        <div className="@container min-w-0">
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-white/80 [text-shadow:0_1px_2px_rgba(0,0,0,0.45)]">
             {dict.seo.siteName}
           </p>
-          <h1 className="mt-1 flex max-w-full flex-nowrap items-baseline gap-x-1.5 text-[clamp(1.625rem,4.5vw,2.75rem)] font-extrabold leading-[1.05] sm:gap-x-2">
+          <h1 className="mt-1 flex max-w-full flex-nowrap items-center gap-x-1 whitespace-nowrap font-extrabold leading-none [font-size:min(2.35rem,7.22cqi)] sm:items-baseline sm:gap-x-2 sm:text-[clamp(1.625rem,4.5vw,2.75rem)] sm:leading-[1.05]">
             <span className="shrink-0 text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.4)]">
               {eventsPrefix}{" "}
             </span>
-            <span className="min-w-0 shrink">
+            <span className="shrink-0">
               {locationPicker ?? (
                 <span className="bg-gradient-to-r from-orange-300 via-rose-300 to-fuchsia-300 bg-clip-text text-transparent">
                   {heroPlace}

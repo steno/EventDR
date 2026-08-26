@@ -122,7 +122,7 @@ export function CityLocationPicker({
   return (
     <div
       ref={rootRef}
-      className={isHero ? "relative inline-flex max-w-full shrink align-baseline" : "relative w-full"}
+      className={isHero ? "relative inline-flex shrink-0 align-baseline" : "relative w-full"}
     >
       <button
         ref={buttonRef}
@@ -135,8 +135,10 @@ export function CityLocationPicker({
         className={
           isHero
             ? `
-              relative isolate inline-flex max-w-full shrink-0 items-center gap-1
-              whitespace-nowrap rounded-lg px-2 py-0.5 text-left font-extrabold
+              relative isolate inline-flex shrink-0 items-center gap-1
+              whitespace-nowrap rounded-lg px-1.5 py-1 text-left text-[1em]
+              font-extrabold sm:px-2 sm:py-0.5
+              ring-2 ring-white/80 sm:ring-0
               touch-manipulation transition-[filter,transform]
               active:scale-[0.98] hover:brightness-110
               focus-visible:outline focus-visible:outline-2
@@ -160,7 +162,7 @@ export function CityLocationPicker({
         <span
           className={
             isHero
-              ? "relative z-10 whitespace-nowrap text-white sm:bg-gradient-to-r sm:from-orange-300 sm:via-rose-300 sm:to-fuchsia-300 sm:bg-clip-text sm:text-transparent [text-shadow:0_1px_2px_rgba(0,0,0,0.4)] sm:[text-shadow:none]"
+              ? "relative z-10 whitespace-nowrap text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.4)] sm:bg-gradient-to-r sm:from-orange-300 sm:via-rose-300 sm:to-fuchsia-300 sm:bg-clip-text sm:text-transparent sm:[text-shadow:none]"
               : "truncate"
           }
         >
@@ -171,9 +173,11 @@ export function CityLocationPicker({
             open ? "rotate-180" : ""
           } ${
             isHero
-              ? "relative z-10 h-[0.65em] w-[0.65em] text-white sm:text-orange-300 drop-shadow-[0_1px_2px_rgba(0,0,0,0.45)]"
+              ? "relative z-10 h-[0.7em] w-[0.7em] text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.45)] sm:text-orange-300"
               : "h-4 w-4 opacity-80"
           }`}
+          strokeWidth={isHero ? 3 : 2.5}
+          absoluteStrokeWidth={isHero}
           aria-hidden
         />
       </button>
@@ -184,10 +188,10 @@ export function CityLocationPicker({
           role="listbox"
           aria-label={dict.cities.chooseArea}
           className={`
-            absolute left-0 top-full z-50 mt-2 overflow-hidden rounded-xl
+            absolute top-full z-50 mt-2 overflow-hidden rounded-xl
             bg-white/95 py-1 shadow-lg ring-1 ring-neutral-200/80 backdrop-blur
             dark:bg-neutral-900/95 dark:ring-neutral-700/80
-            ${isHero ? "min-w-[14rem]" : "min-w-[12.5rem]"}
+            ${isHero ? "right-0 min-w-[16rem]" : "left-0 min-w-[14rem]"}
           `}
         >
           {options.map((option) => {
@@ -205,7 +209,8 @@ export function CityLocationPicker({
                   onClick={() => goTo(option.slug)}
                   className={`
                     flex w-full items-center justify-between gap-3
-                    px-3.5 py-2.5 text-left text-base font-semibold tracking-tight
+                    px-4 py-3 text-left text-lg font-semibold tracking-tight
+                    sm:text-xl
                     transition-colors touch-manipulation
                     focus-visible:outline focus-visible:outline-2
                     focus-visible:outline-offset-[-2px] focus-visible:outline-orange-500
@@ -222,8 +227,8 @@ export function CityLocationPicker({
                       <span
                         aria-hidden
                         className="
-                          min-w-6 rounded-full bg-neutral-100 px-1.5 py-0.5
-                          text-center text-xs font-bold tabular-nums text-neutral-500
+                          min-w-7 rounded-full bg-neutral-100 px-2 py-0.5
+                          text-center text-sm font-bold tabular-nums text-neutral-500
                           dark:bg-neutral-800 dark:text-neutral-400
                         "
                       >
@@ -231,7 +236,7 @@ export function CityLocationPicker({
                       </span>
                     ) : null}
                     {selected ? (
-                      <Check className="h-4 w-4 shrink-0" aria-hidden />
+                      <Check className="h-5 w-5 shrink-0" aria-hidden />
                     ) : null}
                   </span>
                 </button>
@@ -249,54 +254,31 @@ function HeroCityPickerStroke() {
   const gradId = `hero-city-stroke-${rawId.replace(/:/g, "")}`;
 
   return (
-    <>
-      {/* White border for mobile */}
-      <svg
-        aria-hidden
-        className="pointer-events-none absolute inset-0 h-full w-full overflow-visible sm:hidden"
-      >
-        <rect
-          fill="none"
-          stroke="white"
-          strokeWidth="2"
-          style={{
-            x: 1,
-            y: 1,
-            width: "calc(100% - 2px)",
-            height: "calc(100% - 2px)",
-            rx: 8,
-            ry: 8,
-            filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.4))",
-          }}
-        />
-      </svg>
-      {/* Gradient border for desktop */}
-      <svg
-        aria-hidden
-        className="pointer-events-none absolute inset-0 hidden h-full w-full overflow-visible sm:block"
-      >
-        <defs>
-          <linearGradient id={gradId} x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="var(--color-orange-300)" />
-            <stop offset="50%" stopColor="var(--color-rose-300)" />
-            <stop offset="100%" stopColor="var(--color-fuchsia-300)" />
-          </linearGradient>
-        </defs>
-        <rect
-          fill="none"
-          stroke={`url(#${gradId})`}
-          strokeWidth="2"
-          style={{
-            x: 1,
-            y: 1,
-            width: "calc(100% - 2px)",
-            height: "calc(100% - 2px)",
-            rx: 8,
-            ry: 8,
-          }}
-        />
-      </svg>
-    </>
+    <svg
+      aria-hidden
+      className="pointer-events-none absolute inset-0 hidden h-full w-full overflow-visible sm:block"
+    >
+      <defs>
+        <linearGradient id={gradId} x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stopColor="var(--color-orange-300)" />
+          <stop offset="50%" stopColor="var(--color-rose-300)" />
+          <stop offset="100%" stopColor="var(--color-fuchsia-300)" />
+        </linearGradient>
+      </defs>
+      <rect
+        fill="none"
+        stroke={`url(#${gradId})`}
+        strokeWidth="3"
+        style={{
+          x: 1.5,
+          y: 1.5,
+          width: "calc(100% - 3px)",
+          height: "calc(100% - 3px)",
+          rx: 8,
+          ry: 8,
+        }}
+      />
+    </svg>
   );
 }
 

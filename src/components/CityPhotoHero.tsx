@@ -37,7 +37,7 @@ export function CityPhotoHero({
 
   return (
     <header className="relative -mx-5 mb-5 overflow-hidden sm:-mx-6 sm:rounded-2xl lg:mx-0">
-      <div className="relative min-h-[14.5rem] sm:min-h-[17rem]">
+      <div className="relative min-h-[15.5rem] sm:min-h-[12.5rem]">
         {resolvedImage ? (
           <div className="absolute inset-0">
             <EventImage
@@ -72,7 +72,7 @@ export function CityPhotoHero({
           aria-hidden
         />
 
-        <div className="relative z-10 flex min-h-[14.5rem] flex-col justify-end gap-3 px-4 pb-5 pt-10 sm:min-h-[17rem] sm:px-6 sm:pb-6">
+        <div className="relative z-10 flex min-h-[15.5rem] flex-col justify-end gap-3 px-4 pb-5 pt-10 sm:min-h-[12.5rem] sm:px-6 sm:pb-5 sm:pt-8">
           <div className="min-w-0">
             {eyebrow ? (
               <p className="text-xs font-bold uppercase tracking-[0.18em] text-white/80 [text-shadow:0_1px_2px_rgba(0,0,0,0.45)]">

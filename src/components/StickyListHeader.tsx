@@ -39,12 +39,13 @@ type StickyListHeaderProps = {
   flushBottom?: boolean;
   /**
    * - default: list pages — home + slim back + theme/lang on mobile; logo/weather on `lg+`
+   * - compact: list pages without brand — same chrome at every breakpoint (category)
    * - detail: event/venue — always slim (home + back, no logo/weather)
    *
    * Height is published via ResizeObserver into `--sticky-list-header-height`
    * so scroll-to-list and sticky filters stay aligned when chrome shrinks.
    */
-  variant?: "default" | "detail";
+  variant?: "default" | "compact" | "detail";
 } & (
   | { backHref: string; onBack?: never }
   | { backHref?: never; onBack: () => void }
@@ -96,6 +97,7 @@ export function StickyListHeader({
   const rootRef = useRef<HTMLDivElement>(null);
   const chromeVisible = useScrollChromeVisible();
   const isDetail = variant === "detail";
+  const hideBrand = isDetail || variant === "compact";
   const [pending, setPending] = useState(false);
   const [homePending, setHomePending] = useState(false);
   const homeHref = `/${locale}`;
@@ -217,11 +219,13 @@ export function StickyListHeader({
       } ${
         isDetail
           ? "py-2 mb-2"
-          : // Mobile list chrome is compact (no logo); keep a little top pad.
-            `pt-2 pb-2 lg:pt-0 ${flushBottom ? "mb-0" : "mb-6"}`
+          : hideBrand
+            ? `pt-2 pb-2 ${flushBottom ? "mb-0" : "mb-6"}`
+            : // Mobile list chrome is compact (no logo); keep a little top pad.
+              `pt-2 pb-2 lg:pt-0 ${flushBottom ? "mb-0" : "mb-6"}`
       }`}
     >
-      {isDetail ? (
+      {hideBrand ? (
         <CompactChromeRow
           homeControl={renderHomeControl()}
           backControl={renderBackControl()}
