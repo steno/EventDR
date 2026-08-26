@@ -1418,6 +1418,25 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: "2026-08-25T13:45:00.000Z",
   },
   {
+    eventId: "ingest-hidden-river-kayak-adventure",
+    seriesKey: "jamao-al-norte:daily",
+    body: "Book the kayak, don't DIY the river — ~5 km sit-on-top with snack stops and a community lunch; pickup is Parque Central, not a Cabarete beach shack.",
+    localized: {
+      es: "Reserva el kayak, no improvises el río — ~5 km sit-on-top con merienda y almuerzo comunitario; el pickup es el Parque Central, no un kiosco de playa en Cabarete.",
+      fr: "Réservez le kayak, ne bricolez pas la rivière — ~5 km sit-on-top avec goûter et déjeuner chez l'habitant ; le pickup est le Parque Central, pas un kiosque de plage à Cabarete.",
+    },
+    priceFeel: "varies",
+    priceNote: "Call/WhatsApp Jamao Ecotours +1 809-743-5523 — includes gear, lunch, and transport",
+    priceNoteLocalized: {
+      es: "Llama/WhatsApp Jamao Ecotours +1 809-743-5523 — incluye equipo, almuerzo y transporte",
+      fr: "Appelez/WhatsApp Jamao Ecotours +1 809-743-5523 — équipement, déjeuner et transport inclus",
+    },
+    attribution: "POP research · jamaoecotours.com/excursiones/kayaking",
+    researchNotes:
+      "Official: 5 km, ~3 hr + lunch, every day, meeting Parque Central Jamao al Norte, age 5+, groups 5–30, WhatsApp +1 809-743-5523. Operator currently notes Sat/Sun pause until September — confirm weekends.",
+    updatedAt: "2026-08-26T16:20:00.000Z",
+  },
+  {
     eventId: "flip-flop-live-sports-daily",
     seriesKey: "flip-flop-sports-bar-sosua:daily",
     body: "The beach-entrance pin for a game, not a nightclub — five TVs and wings; save Pedro Clisante for after the final whistle.",

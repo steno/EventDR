@@ -209,6 +209,11 @@ export const INSTAGRAM_ACCOUNTS = [
     label: "Flip Flop Sports Bar",
     areas: ["Sosúa"],
   },
+  {
+    handle: "jamaoecotours",
+    label: "Jamao Ecotours",
+    areas: ["Cabarete"],
+  },
 
   // Cultural venues & tourism
   {

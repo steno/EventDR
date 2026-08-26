@@ -20,9 +20,10 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "voramar-friday-live": "voramar-friday-live.jpg",
   "smileys-saturday-live": "smileys-saturday-live.jpg",
   "finish-line-live-wednesday": "finish-line-live-wednesday.jpg",
-  "sosua-beach-live-weekends": "sosua-beach-live-weekends.jpg",
+  "sosua-beach-live-weekends": "sosua-beach-live-bay.jpg",
   "cheers-weekly-live": "cheers-weekly-live.jpg",
-  "senor-rock-live-nightly": "senor-rock-live-nightly.jpg",
+  // Filename bump — live stage (not the shared dining-room still).
+  "senor-rock-live-nightly": "senor-rock-live-stage.jpg",
   "cremo-salsa-friday": "cremo-salsa-friday.jpg",
   "cremo-bohemian-wednesday": "cremo-bohemian-wednesday.jpg",
   "cremo-karaoke-saturday": "cremo-karaoke-saturday.jpg",
@@ -34,7 +35,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "ingest-18th-annual-cabarete-butterfly-effect":
     "ingest-18th-annual-cabarete-butterfly-effect.jpg",
   "ingest-el-blachy": "ingest-el-blachy.jpg",
-  "ingest-nacho-estrella-nd-eventos": "ingest-el-blachy.jpg",
+  "ingest-nacho-estrella-nd-eventos": "ingest-nacho-estrella-nd-eventos.jpg",
   "cabarete-classic-2026": "cabarete-classic-2026.jpg",
   "cabarete-pilates-reformer": "cabarete-pilates-reformer.jpg",
   "sancocho-sabados-pingui": "sancocho-sabados-pingui.jpg",
@@ -44,10 +45,10 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "guananico-san-miguel-patronales-2026":
     "guananico-san-miguel-patronales-2026.jpg",
   "plaza-independencia-daily": "plaza-independencia-daily.jpg",
-  "plaza-independencia-weekend-culture": "plaza-independencia-daily.jpg",
+  "plaza-independencia-weekend-culture": "plaza-independencia-weekend-culture.jpg",
   "el-carey-wc2026": "el-carey-wc2026.jpg",
   "el-colibri-karaoke-battle-2026": "el-colibri-karaoke-battle-2026.jpg",
-  "ocean-winds-karaoke-nights": "ocean-winds-karaoke-nights.jpg",
+  "ocean-winds-karaoke-nights": "ocean-winds-karaoke-amados.jpg",
   "ocean-world-daily": "ocean-world-daily.jpg",
   "charcos-damajagua-daily": "charcos-damajagua-daily.jpeg",
   "fortaleza-san-felipe-daily": "fortaleza-san-felipe-daily.jpeg",
@@ -62,8 +63,9 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "coconut-cove-ocean-zipline-daily": "coconut-cove-ocean-zipline-daily.jpg",
   "brugal-rum-center-weekdays": "brugal-rum-center-weekdays.jpg",
   "brugal-corporate-tours": "brugal-corporate-tours.jpg",
-  "del-oro-chocolate-factory-weekdays": "del-oro-chocolate-factory-weekdays.jpg",
-  "del-oro-chocolate-factory-saturday": "del-oro-chocolate-factory-weekdays.jpg",
+  // Filename bump — Google Maps tour-counter action (not the chocolate-box overlay).
+  "del-oro-chocolate-factory-weekdays": "del-oro-chocolate-factory-tour.jpg",
+  "del-oro-chocolate-factory-saturday": "del-oro-chocolate-factory-tour.jpg",
   "hacienda-cufa-cacao-tour": "hacienda-cufa-cacao-tour.jpg",
   "tabacalera-cremo-factory-tour": "tabacalera-cremo-factory-tour.jpg",
   "tabacalera-cremo-rolling-experience": "tabacalera-cremo-rolling-experience.jpg",
@@ -79,8 +81,10 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "el-carey-weekend-nightlife": "el-carey-weekend-nightlife.jpg",
   "sosua-jewish-museum-hours": "sosua-jewish-museum-hours.jpg",
   "sosua-diving-adventures-daily": "sosua-diving-adventures-daily.jpg",
-  "el-batey-weekend-nightlife": "el-batey-weekend-nightlife.jpg",
-  "d-classico-merengue-nights": "d-classico-merengue-nights.jpg",
+  // Filename bump — Pedro Clisante night strip (not the shared salsa-social shot).
+  "el-batey-weekend-nightlife": "el-batey-weekend-nightlife-clisante.jpg",
+  // Filename bump — packed night bar (not the daytime Club 59 facade).
+  "d-classico-merengue-nights": "d-classico-merengue-bar.jpg",
   "sosua-pedro-clisante-food-nights": "sosua-pedro-clisante-food-nights.jpg",
   "natura-cabana-yoga-daily": "natura-cabana-yoga-daily.jpg",
   "north-coast-networking-saturday": "north-coast-networking-saturday.jpg",
@@ -89,12 +93,12 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "la-casita-papi-beach-dining": "la-casita-papi-sand-dining.jpg",
   "el-cocotazo-cafe-beach-dining": "el-cocotazo-cafe-beach-dining.jpg",
   "iberostar-costa-dorada-day-pass": "iberostar-costa-dorada-day-pass.jpg",
-  "crazy-lobster-beach-dining": "crazy-lobster-beach-dining.jpg",
+  "crazy-lobster-beach-dining": "crazy-lobster-shrimp.jpg",
   "don-limon-beach-dining": "don-limon-beach-dining.jpeg",
-  "los-tres-cocos-dinner": "los-tres-cocos-dinner.jpg",
+  "los-tres-cocos-dinner": "los-tres-cocos-coconut-shrimp.jpg",
   "liquid-blue-watersports-daily": "liquid-blue-watersports-daily.jpg",
   "lax-headline-concerts": "lax-headline-concerts.jpg",
-  "voyvoy-monday-live-music": "voyvoy-monday-live-music.jpg",
+  "voyvoy-monday-live-music": "voyvoy-monday-night-terrace.jpg",
   // Filename bumps — unique heroes (sync used to clone Monday dining onto Sat/Sun).
   "voyvoy-saturday-session": "voyvoy-saturday-session-band.jpg",
   "voyvoy-sunday-open-mic": "voyvoy-sunday-open-mic-closeup.jpg",
@@ -108,7 +112,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "rum-legacy-museum-daily": "rum-legacy-museum-daily.jpg",
   "la-confluencia-museum-daily": "la-confluencia-museum-daily.jpg",
   "gregorio-luperon-museum": "gregorio-luperon-museum.jpg",
-  "macorix-house-of-rum": "macorix-house-of-rum.jpg",
+  // Filename bump — barrel cellar tour (Ron Macorix entrance stays on the venue).
+  "macorix-house-of-rum": "macorix-house-of-rum-cellar.jpg",
   "casa-de-la-cultura-exhibitions": "casa-de-la-cultura-exhibitions.jpg",
   "paella-pop-el-pueblito": "paella-pop-el-pueblito.jpg",
   "paella-pop-green-one": "paella-pop-green-one.jpg",
@@ -117,8 +122,10 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "lena-dardelet-aura-beach-club-2026-07-24.jpg",
   "cabarete-jazz-festival-2026": "cabarete-jazz-festival-2026.jpg",
   "jandy-ventura-legado-caballo-2026": "jandy-ventura-legado-caballo-2026.jpg",
-  "natura-cabana-saturday-live": "natura-cabana-saturday-live.jpg",
-  "el-parq-live-bands-saturday": "el-parq-live-bands-saturday.jpg",
+  // Filename bump — restaurant cocktail (not the shared resort-pool still).
+  "natura-cabana-saturday-live": "natura-cabana-saturday-dining.jpg",
+  // Filename bump — Cabarete foodpark night (not Wikimedia Tulum).
+  "el-parq-live-bands-saturday": "el-parq-saturday-night.jpg",
   "el-parq-karaoke-thursday": "el-parq-karaoke-thursday.jpg",
   "el-parq-latin-friday": "el-parq-latin-friday.jpg",
   "parada-tipica-el-choco-tuesday-live": "parada-tipica-el-choco-tuesday-live.jpg",
@@ -157,7 +164,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "victrola-ladies-night-friday": "victrola-ladies-night-friday.jpg",
   "cigar-town-acustico-humos-2026-08-14":
     "cigar-town-acustico-humos-2026-08-14.jpg",
-  "chill-and-grill-bingo-2026-08-03": "chill-and-grill-bingo-2026-08-03.jpg",
+  // Filename bump — terrace crowd (not the shared dining-room still).
+  "chill-and-grill-bingo-2026-08-03": "chill-and-grill-bingo-terrace.jpg",
   "sunset-night-party-playa-encuentro-2026-07-25":
     "sunset-night-party-playa-encuentro-2026-07-25.jpg",
   "los-event-trilogy-2026-09-03": "los-event-trilogy-2026-09-03.jpg",
@@ -180,15 +188,22 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "love-does-cocktails-solidarity-2026-09-04.jpg",
   "waterfront-playa-alicia-sunset-dining":
     "waterfront-playa-alicia-sunset-dining.jpg",
+  "waterfront-playa-alicia-friday-jazz":
+    "waterfront-playa-alicia-friday-jazz.jpg",
   "rio-sonador-finca-papirucho": "rio-sonador-finca-papirucho.jpg",
   "sunset-grill-velero-beachfront-dining":
     "sunset-grill-velero-beachfront-dining.jpg",
+  "sunset-grill-velero-sushi-nights":
+    "sunset-grill-velero-sushi-nights.jpg",
   "charco-los-militares-daily": "charco-los-militares-daily.jpg",
   "la-rejoya-trek": "la-rejoya-trek.jpg",
   "rio-martinico-sosua": "rio-martinico-sosua.jpg",
   "ingest-hidden-river-kayak-adventure":
     "ingest-hidden-river-kayak-adventure.jpg",
   "flip-flop-live-sports-daily": "flip-flop-live-sports-daily.jpg",
+  "flip-flop-wing-wednesday": "flip-flop-wing-wednesday.jpg",
+  "flip-flop-taco-tuesday": "flip-flop-taco-tuesday.jpg",
+  "flip-flop-monday-happy-hour": "flip-flop-monday-happy-hour.jpg",
 };
 
 /** Legacy ingest ids that share a curated event image. */
@@ -197,13 +212,6 @@ const EVENT_IMAGE_ALIASES: Record<string, string> = {
     "ingest-18th-annual-cabarete-butterfly-effect",
   "museo-ambar-saturday": "museo-ambar-weekdays",
   "gym-sov-zumba-lift-thursday": "gym-sov-zumba-tuesday",
-  "waterfront-playa-alicia-friday-jazz":
-    "waterfront-playa-alicia-sunset-dining",
-  "sunset-grill-velero-sushi-nights":
-    "sunset-grill-velero-beachfront-dining",
-  "flip-flop-taco-tuesday": "flip-flop-live-sports-daily",
-  "flip-flop-monday-happy-hour": "flip-flop-live-sports-daily",
-  "flip-flop-wing-wednesday": "flip-flop-live-sports-daily",
 };
 
 const EVENT_IMAGE_PREFIXES: { prefix: string; file: string }[] = [

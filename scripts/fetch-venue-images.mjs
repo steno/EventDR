@@ -18,16 +18,14 @@ const VENUE_SOURCES = [
     eventId: "coconut-cove-ocean-zipline-daily",
     url: "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/12/e5/6b/d1.jpg",
   },
-  {
-    eventId: "imbert-mercedes-patronales-2026",
-    url: "https://commons.wikimedia.org/wiki/Special:FilePath/Acceso_a_Imbert_por_la_Ruta_5.jpg",
-  },
+  // imbert-mercedes-patronales-2026.jpg — Wikimedia Acceso a Imbert por la Ruta 5
+  // (highway welcome sign). Venue is plaza-sanchez-imbert-park.jpg (gazebo aerial).
+  // Do not remote-refresh or copy the sign onto the venue slug.
   // brugal-corporate-tours / brugal-rum-center-weekdays — curated authentic assets in
   // popevent-images/ (aging warehouse + Casa Brugal). Do not remote-refresh over them.
-  {
-    eventId: "del-oro-chocolate-factory-weekdays",
-    url: "https://mamalikestocook.com/wp-content/uploads/2016/05/delorotour.jpg",
-  },
+  // del-oro weekdays/saturday + venue — curated Maps facade + tour-counter photos.
+  // Do not remote-refresh the 2016 blog product-still overlay.
+
   {
     eventId: "hacienda-cufa-cacao-tour",
     url: "https://puertoplatadr.com/wp-content/uploads/2022/12/cocoa-tour-cufa.jpg",
@@ -71,12 +69,11 @@ const VENUE_SOURCES = [
     eventId: "sosua-diving-adventures-daily",
     url: "https://sosuadivingcenter.com/wp-content/uploads/2026/04/Diving-scaled.webp",
   },
-  {
-    eventId: "sosua-beach-live-weekends",
-    url: "https://images.prismic.io/prismic-rd-2/Z46acZbqstJ99pto_Sos_a_3_80e6e742-31d7-49da-8148-1bba5ccd73a6.jpg?auto=format,compress",
-  },
+  // sosua-beach-live-bay.jpg — Wikimedia Playa Sosúa water-sports strip.
+  // Do not remote-refresh the Freestyle catamaran stand-in.
   {
     // Smiley's Courtyard live stage (YouTube still — venue signage visible).
+    // Venue place shot is smileys-bar-sosua-daytime.jpg (Maps daytime bar).
     eventId: "smileys-saturday-live",
     url: "https://i.ytimg.com/vi/WZHFtyXvELs/maxresdefault.jpg",
   },
@@ -91,7 +88,8 @@ const VENUE_SOURCES = [
     url: "https://naturacabana.com/wp-content/uploads/2024/06/yoga-package-1.webp",
   },
   {
-    // Official Liquid Blue kite action (Cabarete).
+    // Official Liquid Blue kite action (Cabarete). Venue is liquid-blue-cabarete-beach.jpg
+    // (Kite Beach school patio). Do not copy the jump onto the venue slug.
     eventId: "liquid-blue-watersports-daily",
     url: "https://www.lbcabarete.com/wp-content/uploads/2026/06/IMG_9340-scaled.jpg",
   },
@@ -110,11 +108,8 @@ const VENUE_SOURCES = [
     eventId: "el-colibri-karaoke-battle-2026",
     url: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1800&q=85",
   },
-  {
-    // Chill & Grill Casa Linda interior dining/bar (Sosúa Digital TV opening photos).
-    eventId: "chill-and-grill-bingo-2026-08-03",
-    url: "https://sosuadigitaltv.com/wp-content/uploads/2026/07/WhatsApp-Image-2026-07-02-at-8.58.09-AM-3.jpeg",
-  },
+  // chill-and-grill-bingo-terrace.jpg — terrace crowd at Chill & Grill.
+  // Do not remote-refresh the shared dining-room still.
   {
     // Official Casa Linda Castaways outdoor clubhouse dining (pre-rebrand era photo).
     // Authentic patio string-lights vibe — not opening PR group or generic pub-band stock.
@@ -139,11 +134,7 @@ const VENUE_SOURCES = [
     eventId: "kite-beach-wind-culture",
     url: "https://images.prismic.io/prismic-rd-2/Z-pgqndAxsiBwHB3_22_12_MITUR_1974.jpg?auto=format,compress&rect=0,162,2281,1198&w=2400&h=1260",
   },
-  {
-    // Clasico / Club 59 Sosúa facade at night (YouTube still).
-    eventId: "d-classico-merengue-nights",
-    url: "https://i.ytimg.com/vi/OuN8IMNZ0r0/maxresdefault.jpg",
-  },
+  // d-classico-merengue-bar.jpg — Maps night bar. Do not remote-refresh the YouTube facade.
   {
     eventId: "hms-valeria-spanish-saturday",
     url: "https://static.wixstatic.com/media/02154c_67e5d348034b45fd8fbb695c6549c8ac~mv2.jpg/v1/fit/w_2000,h_2000,al_c/02154c_67e5d348034b45fd8fbb695c6549c8ac~mv2.jpg",
@@ -165,17 +156,21 @@ const VENUE_SOURCES = [
     url: "https://puertoplatadr.com/wp-content/uploads/2018/01/luperonmuseum2.jpg",
   },
   {
-    // Exterior entrance with Ron Macorix signage (replaces dark trapiche interior).
+    // Exterior entrance with Ron Macorix signage — venue file only.
+    // Event is macorix-house-of-rum-cellar.jpg (A86A5241 barrel warehouse).
+    // Do not remote-refresh the cellar with this facade.
     eventId: "macorix-house-of-rum",
     url: "https://puertoplatadr.com/wp-content/uploads/2025/04/A86A5227.jpg",
   },
   {
     // Soft-open / food focus — dedicated paella pan (not shared façade with Green One).
+    // Venue is paella-pop-el-pueblito-sign.jpg. Do not copy the pan onto the venue slug.
     eventId: "paella-pop-el-pueblito",
     url: "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=1800&q=85",
   },
   {
-    // Plated Spanish seafood — replaces Green One façade/logo sign; distinct from Pueblito pan.
+    // Plated Spanish seafood — distinct from Pueblito pan.
+    // Venue is paella-pop-green-one-resort.jpg. Do not copy the plate onto the venue slug.
     eventId: "paella-pop-green-one",
     url: "https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=1800&q=85",
   },
@@ -183,11 +178,9 @@ const VENUE_SOURCES = [
     eventId: "casa-de-la-cultura-exhibitions",
     url: "https://i0.wp.com/depuertoplata.com/wp-content/uploads/2019/06/cropped-casa-cultura-pp-nytybbf7w8mauyhgzol9b097kuvnl4akq67unt4srw.jpg?fit=1200%2C675&ssl=1",
   },
-  {
-    // Bar/venue shot — prefer over logo graphics for Voyvoy event cards.
-    eventId: "voyvoy-monday-live-music",
-    url: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1d/f0/6d/73/caption.jpg?w=1600&h=-1&s=1",
-  },
+  // voyvoy-monday-night-terrace.jpg — Maps visitor photo of Voy Voy's
+  // beach terrace at night. Do not remote-refresh the TripAdvisor interior
+  // that was cloned onto Ocean One.
   // --- Dominican-leaning venues / events (2026 curation) ---
   {
     // Jazz sax close-up (Unsplash via Commons) — Cabarete Jazz Festival card.
@@ -204,17 +197,11 @@ const VENUE_SOURCES = [
     eventId: "blue-jacktar-playa-dorada",
     url: "https://img.mmc.com.do/cdn-bucket/uploads/2022/08/Graan-Events-pone-a-bailar-a-Puerto-Plata-a-ritmo-de-Jandy-Ventura-El-Legado.jpg",
   },
-  {
-    // Official Natura Cabana resort/pool — Saturday restaurant live nights.
-    eventId: "natura-cabana-saturday-live",
-    url: "https://naturacabana.com/wp-content/uploads/2024/01/00022_natura-9.webp",
-  },
-  {
-    // Outdoor food-truck park courtyard (tropical night market) for El Parq + Sat bands.
-    // Replaces mis-tagged Bali cafe Unsplash photo-1555396273.
-    eventId: "el-parq-live-bands-saturday",
-    url: "https://upload.wikimedia.org/wikipedia/commons/3/37/Food_Truck_Park%2C_Tulum_QR_Feb_2020_02.jpg",
-  },
+  // natura-cabana-saturday-dining.jpg — Maps cocktail at the beach restaurant.
+  // Do not remote-refresh the shared resort-pool still.
+  // el-parq-saturday-night.jpg — Maps visitor photo of this Cabarete foodpark.
+  // Do not remote-refresh the Wikimedia Tulum stand-in.
+
   {
     // Indoor concert crowd/stage energy for Disco Club (Brugal depots hall).
     eventId: "disco-club-brugal",
@@ -257,9 +244,11 @@ const VENUE_SOURCES = [
   // parque-jose-briceno → popevent-images/baseballpark.png
   // --- Jul 2026 Facebook/Instagram ingest seeds ---
   // la-chabola-wednesday-open-mic.jpg — branded pizza cover from facebook.com/chabolacabaretee
-  // (committed under popevent-images/). Do not remote-refresh over it.
+  // (committed under popevent-images/). Venue is la-chabola-bar.jpg (tiki interior).
+  // Do not remote-refresh or copy the pizza onto the venue slug.
   // groundzero-domingos-pal-pueblo.jpg is the official Domingos Pal Pueblo flyer
-  // (committed under popevent-images/). Do not remote-refresh over it.
+  // (committed under popevent-images/). Venue is ground-zero-disco-lounge.jpg.
+  // Do not remote-refresh or copy the flyer onto the venue slug.
   {
     eventId: "master-of-the-ocean-2026",
     url: "https://static.wixstatic.com/media/c23fd5_ee7b6ee12742489abb13f57ecfdd8449~mv2.jpg",
@@ -283,23 +272,14 @@ const VENUE_SOURCES = [
   // bar-39-sosua-beach.jpg — Wikimedia Playa Sosúa lounge strip geotagged at Bar 39.
   // playa-sosua-shore.jpg — Wikimedia Sosúa Bay shoreline. Do not remote-refresh
   // a Freestyle Catamaran over either.
-  {
-    // Beach-hut restaurant exterior at Crazy Lobster, Playa Los Cocos, Maimón.
-    eventId: "crazy-lobster-beach-dining",
-    url: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/27/a7/1a/c1/view-of-restaurante.jpg?w=1400&h=800&s=1",
-  },
+  // crazy-lobster-shrimp.jpg — Maps grilled shrimp at this beach hut.
+  // Do not remote-refresh the TripAdvisor shack onto the event.
   // don-limon.jpeg — POP-supplied event photo (logo wall).
   // don-limon-venue.jpeg — POP-supplied beach-bar venue hero. Do not remote-refresh.
-  {
-    // Google Maps place photo — tropical garden dining room at Los Tres Cocos, La Roka Cofresí.
-    eventId: "los-tres-cocos-dinner",
-    url: "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWlMuJPYDnM1ByN6BGEGlPs51kwpPEFV5wKU0zu4rGDHkkfr4WIboyt1ljPFCIzk25Q8UXekXLrdhkGcsZgBm-LOeAEfSpnIE1XzRuODwp_C-n9RsptLOT1yC8WDbN0qT9fgmeni=w1600-h900-k-no",
-  },
-  {
-    // Official Hotel Ocean Winds Costambar daytime pool (hoteloceanwinds.com).
-    eventId: "ocean-winds-karaoke-nights",
-    url: "https://hoteloceanwinds.com/images/hero-pool-day.jpg",
-  },
+  // los-tres-cocos-coconut-shrimp.jpg — Maps plated dinner. Dining room stays on the venue.
+  // Do not remote-refresh the shared garden-dining still onto the event.
+  // ocean-winds-karaoke-amados.jpg — Maps night patio at Amado’s.
+  // Do not remote-refresh the shared daytime pool still.
   {
     eventId: "love-does-sosua",
     url: "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkpQb-LzUHDNct8gGV7xMn7fBY-OAC1fCQ8DyRYrxhtvm_wvT0NRdoV3Y55dCHbg0oGe1bWM4_Mj3lyWMRVJ6C2_n0LTuvGi-b11yXOlNbb6Z3ujrIPxKUy8iL6hF8j6BPyO69v0w=s1600",
@@ -307,10 +287,12 @@ const VENUE_SOURCES = [
   {
     eventId: "waterfront-playa-alicia-sunset-dining",
     url: "https://playaalicia.com/wp-content/uploads/2024/04/A-view-of-Waterfront-Playa-Alicia.png",
+    // Venue is waterfront-playa-alicia-palapa.jpg. Do not copy the terrace onto the venue slug.
   },
   {
     eventId: "rio-sonador-finca-papirucho",
     url: "https://puertoplatadr.com/wp-content/uploads/2021/05/sonador-river-yasica.jpg",
+    // Venue is finca-papirucho-glamping.jpg. Do not copy the log crossing onto the venue slug.
   },
   {
     eventId: "sunset-grill-velero-beachfront-dining",

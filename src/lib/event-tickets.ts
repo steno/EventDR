@@ -141,6 +141,7 @@ export const CURATED_CALL_FOR_PRICING = new Set<string>([
   "rumble-in-paradise-13",
   "charco-los-militares-daily",
   "la-rejoya-trek",
+  "ingest-hidden-river-kayak-adventure",
   // Club / DJ / dance nights — cover or class fee often applies
   "ojo-weekend-dj-parties",
   "ojo-latin-night-thursday",

@@ -128,6 +128,7 @@ export const VENUE_AUDIENCE_POOLS: Record<
     "hms-valeria",
     "waterfront-playa-alicia",
     "finca-papirucho",
+    "jamao-al-norte",
     "sunset-grill-velero",
     "charco-los-militares",
     "la-rejoya",

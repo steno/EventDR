@@ -745,6 +745,14 @@ export const VENUE_TIP_COPY: Record<
       fr: "La rivière tranquille de Sosúa à Madre Vieja — demandez aux locaux le tronçon du jour, allez en semaine et emportez vos déchets.",
     },
   },
+  "jamao-al-norte": {
+    body: "Inland from Cabarete — book Jamao Ecotours for the 5 km kayak with lunch, don't show up expecting a beach rental. Pickup is Parque Central; confirm weekend dates.",
+    localized: {
+      en: "Inland from Cabarete — book Jamao Ecotours for the 5 km kayak with lunch, don't show up expecting a beach rental. Pickup is Parque Central; confirm weekend dates.",
+      es: "Tierra adentro desde Cabarete — reserva Jamao Ecotours para el kayak de 5 km con almuerzo; no llegues esperando un alquiler de playa. El pickup es el Parque Central; confirma fines de semana.",
+      fr: "À l'intérieur des terres depuis Cabarete — réservez Jamao Ecotours pour le kayak de 5 km avec déjeuner ; n'arrivez pas en location de plage. Pickup au Parque Central ; confirmez les week-ends.",
+    },
+  },
   "flip-flop-sports-bar-sosua": {
     body: "Beach-entrance sports bar at the yellow steps — come for the TVs and wings, not a Pedro Clisante disco crawl. Game days fill up; weekdays are the easy walk-in.",
     localized: {

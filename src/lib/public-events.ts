@@ -39,17 +39,29 @@ function eventDedupeKey(event: Event): string {
     .slice(0, 48);
 }
 
+function isLiveCatalogEvent(event: Event): boolean {
+  return materializeEventDates([event]).length > 0;
+}
+
 function mergeUniqueEvents(base: Event[], extra: Event[]): Event[] {
   const merged: Event[] = [];
-  const seen = new Set<string>();
+  const seenId = new Map<string, number>();
   const seenTitles = new Set<string>();
 
   for (const event of [...base, ...extra]) {
     const titleKey = eventDedupeKey(event);
-    if (seen.has(event.id) || seenTitles.has(titleKey)) continue;
-    merged.push(event);
-    seen.add(event.id);
+    const existingIndex = seenId.get(event.id);
+    if (existingIndex !== undefined) {
+      const existing = merged[existingIndex]!;
+      if (!isLiveCatalogEvent(existing) && isLiveCatalogEvent(event)) {
+        merged[existingIndex] = event;
+      }
+      continue;
+    }
+    if (seenTitles.has(titleKey)) continue;
+    seenId.set(event.id, merged.length);
     seenTitles.add(titleKey);
+    merged.push(event);
   }
 
   return merged;
@@ -142,7 +154,7 @@ const getCachedPublicEvents = unstable_cache(
       when: (when || undefined) as Exclude<TimeRange, "all"> | undefined,
       includePast: includePast === "1",
     }),
-  ["public-events-v8"],
+  ["public-events-v9"],
   { revalidate: LISTING_REVALIDATE_SECONDS, tags: ["events"] },
 );
 

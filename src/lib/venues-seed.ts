@@ -910,6 +910,9 @@ export const SEED_VENUES: Venue[] = [
     lat: 19.602236,
     lng: -70.4669931,
     emoji: "🛶",
+    instagram: "jamaoecotours",
+    website: "https://jamaoecotours.com/excursiones/kayaking/",
+    phone: "+18097435523",
   },
   {
     slug: "victrola-037",
@@ -1308,7 +1311,7 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
     slug: "finca-papirucho",
   },
   {
-    pattern: /jamao(\s+al\s+norte)?|yasica\s+river|r[ií]o\s+jamao/i,
+    pattern: /jamao(\s+al\s+norte)?|jamao\s*ecotours|yasica\s+river|r[ií]o\s+jamao/i,
     slug: "jamao-al-norte",
   },
   {

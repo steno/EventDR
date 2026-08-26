@@ -1260,24 +1260,5 @@
     "phone": "+18095713826",
     "sourceUrl": "https://www.facebook.com/events/1393854669351364",
     "imageEmoji": "🍸"
-  },
-  {
-    "id": "ingest-hidden-river-kayak-adventure",
-    "title": "Jamao al Norte: Hidden River Kayak Adventure & Nature Escape",
-    "description": "Experience a unique kayak adventure on the hidden rivers of Jamao al Norte, surrounded by breathtaking nature.",
-    "date": "2026-08-16",
-    "time": "9:00 AM",
-    "location": "Cabarete",
-    "venue": "Jamao al Norte",
-    "venueSlug": "jamao-al-norte",
-    "lat": 19.602236,
-    "lng": -70.4669931,
-    "category": "adventure",
-    "format": "physical",
-    "sourceUrl": "https://www.getyourguide.com/cabarete-l2296/",
-    "ticketUrl": "https://www.getyourguide.com/cabarete-l2296/",
-    "phone": "+18097435523",
-    "callForPricing": true,
-    "imageEmoji": "🛶"
   }
 ]

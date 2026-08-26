@@ -157,6 +157,11 @@ const PLACE_SEARCH_ALIASES: Record<string, string[]> = {
     "Río Martinico Sosúa",
     "Rio Azul Madre Vieja Sosua",
   ],
+  "jamao-al-norte": [
+    "Jamao Ecotours Jamao al Norte",
+    "Jamao al Norte kayak",
+    "Parque Central Jamao al Norte Espaillat",
+  ],
   "sea-horse-ranch": [
     "Sea Horse Ranch Sosua Cabarete",
     "Sea Horse Ranch Sosúa",

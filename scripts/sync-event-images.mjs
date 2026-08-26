@@ -27,12 +27,12 @@ const FILE_TO_EVENT_ID = {
   "anfiteatro-la-puntilla-weekday-bowl.jpg": "anfiteatro-la-puntilla-weekday-bowl",
   "voyvoy-saturday-session-band.jpg": "voyvoy-saturday-session-band",
   "voyvoy-sunday-open-mic-closeup.jpg": "voyvoy-sunday-open-mic-closeup",
-  "voyvoy-monday-live-music.jpg": "voyvoy-monday-live-music",
+  "voyvoy-monday-night-terrace.jpg": "voyvoy-monday-live-music",
   "hard-rock-billed-concerts.jpg": "hard-rock-billed-concerts",
   "sosua-jewish-museum-hours.jpg": "sosua-jewish-museum-hours",
   "sosua-diving-adventures-daily.jpg": "sosua-diving-adventures-daily",
   "sosua-pedro-clisante-food-nights.jpg": "sosua-pedro-clisante-food-nights",
-  "sosua-beach-live-weekends.jpg": "sosua-beach-live-weekends",
+  "sosua-beach-live-bay.jpg": "sosua-beach-live-weekends",
   "smileys-saturday-live.jpg": "smileys-saturday-live",
   "finish-line-live-wednesday.jpg": "finish-line-live-wednesday",
   "liquid-blue-sunrise-yoga.jpg": "liquid-blue-sunrise-yoga",
@@ -41,12 +41,12 @@ const FILE_TO_EVENT_ID = {
   "la-casita-papi-sand-dining.jpg": "la-casita-papi-sand-dining",
   "el-cocotazo-cafe-beach-dining.jpg": "el-cocotazo-cafe-beach-dining",
   "iberostar-costa-dorada-day-pass.jpg": "iberostar-costa-dorada-day-pass",
-  "crazy-lobster-beach-dining.jpg": "crazy-lobster-beach-dining",
+  "crazy-lobster-shrimp.jpg": "crazy-lobster-shrimp",
   "don-limon.jpeg": "don-limon-beach-dining",
-  "los-tres-cocos-dinner.jpg": "los-tres-cocos-dinner",
-  "ocean-winds-karaoke-nights.jpg": "ocean-winds-karaoke-nights",
+  "los-tres-cocos-coconut-shrimp.jpg": "los-tres-cocos-coconut-shrimp",
+  "ocean-winds-karaoke-amados.jpg": "ocean-winds-karaoke-amados",
   "kite-beach-wind-culture.jpg": "kite-beach-wind-culture",
-  "d-classico-merengue-nights.jpg": "d-classico-merengue-nights",
+  "d-classico-merengue-bar.jpg": "d-classico-merengue-bar",
   "ojo-latin-night-thursday.jpg": "ojo-latin-night-thursday",
   "ojo-weekend-dj-parties.jpg": "ojo-weekend-dj-parties",
   "el-carey-weekend-nightlife.jpg": "el-carey-weekend-nightlife",
@@ -55,7 +55,7 @@ const FILE_TO_EVENT_ID = {
   "womens-reconnection-kite-camp-2026.jpg": "womens-reconnection-kite-camp-2026",
   "brugal-rum-center-weekdays.jpg": "brugal-rum-center-weekdays",
   "brugal-corporate-tours.jpg": "brugal-corporate-tours",
-  "del-oro-chocolate-factory-weekdays.jpg": "del-oro-chocolate-factory-weekdays",
+  "del-oro-chocolate-factory-tour.jpg": "del-oro-chocolate-factory-tour",
   "hacienda-cufa-cacao-tour.jpg": "hacienda-cufa-cacao-tour",
   "tabacalera-cremo-factory-tour.jpg": "tabacalera-cremo-factory-tour",
   "tabacalera-cremo-rolling-experience.jpg": "tabacalera-cremo-rolling-experience",
@@ -103,14 +103,15 @@ const FILE_TO_EVENT_ID = {
   "rum-legacy-museum-daily.jpg": "rum-legacy-museum-daily",
   "la-confluencia-museum-daily.jpg": "la-confluencia-museum-daily",
   "gregorio-luperon-museum.jpg": "gregorio-luperon-museum",
-  "macorix-house-of-rum.jpg": "macorix-house-of-rum",
+  "macorix-house-of-rum-cellar.jpg": "macorix-house-of-rum",
   "casa-de-la-cultura-exhibitions.jpg": "casa-de-la-cultura-exhibitions",
 
   // --- Dominican-leaning venues / events (2026 curation) ---
   "cabarete-jazz-festival-2026.jpg": "cabarete-jazz-festival-2026",
   "jandy-ventura-legado-caballo-2026.jpg": "jandy-ventura-legado-caballo-2026",
-  "natura-cabana-saturday-live.jpg": "natura-cabana-saturday-live",
-  "el-parq-live-bands-saturday.jpg": "el-parq-live-bands-saturday",
+  "natura-cabana-saturday-dining.jpg": "natura-cabana-saturday-dining",
+  "el-parq-saturday-night.jpg": "el-parq-saturday-night",
+  "plaza-independencia-weekend-culture.jpg": "plaza-independencia-weekend-culture",
   "el-parq-karaoke-thursday.jpg": "el-parq-karaoke-thursday",
   "el-parq-latin-friday.jpg": "el-parq-latin-friday",
   "ElChocoTuesdayLive.jpg": "parada-tipica-el-choco-tuesday-live",
@@ -133,13 +134,14 @@ const FILE_TO_EVENT_ID = {
   "KiteBeachWindSession.JPG": "kite-beach-daily",
   "CoworkCabarete.JPG": "cowork-weekdays",
   "ElBateySalsaSocial.JPG": "batey-salsa-weekly",
+  "el-batey-weekend-nightlife-clisante.jpg": "el-batey-weekend-nightlife-clisante",
   "SosuaBeachVolleyballPickup.JPG": "sosua-volleyball-weekly",
   "LAXFridayReggaeNight.JPG": "lax-reggae-friday",
   "HardRockWeekends.jpg": "hard-rock-weekends",
   "castaways-classic-rock-wednesday.jpg": "castaways-classic-rock-wednesday",
   "VoramarFridayLive.jpg": "voramar-friday-live",
   "cheers-weekly-live.jpg": "cheers-weekly-live",
-  "SenorRockLiveNight.jpg": "senor-rock-live-nightly",
+  "senor-rock-live-stage.jpg": "senor-rock-live-stage",
   "batey-open-mic-weekly.jpg": "batey-open-mic-weekly",
   "lax-headline-concerts.jpg": "lax-headline-concerts",
   "CremoSalsaFriday.jpg": "cremo-salsa-friday",
@@ -147,13 +149,14 @@ const FILE_TO_EVENT_ID = {
   "victrola-ladies-night-friday.jpg": "victrola-ladies-night-friday",
   "cigar-town-acustico-humos-2026-08-14.jpg":
     "cigar-town-acustico-humos-2026-08-14",
-  "chill-and-grill-bingo-2026-08-03.jpg": "chill-and-grill-bingo-2026-08-03",
+  "chill-and-grill-bingo-terrace.jpg": "chill-and-grill-bingo-terrace",
   "CremoBohemianWednesday.jpg": "cremo-bohemian-wednesday",
   "CremoKaraokeSaturday.jpg": "cremo-karaoke-saturday",
   "BigLeesWeekendMusic.jpg": "big-lees-weekend-music",
   "CabaretePickleBallMeet.JPG": "community-pickleball-cabarete",
   "espadrillas.jpeg": "ingest-make-authentic-espadrilles-in-puerto-plata",
   "ingest-el-blachy.jpg": "ingest-el-blachy",
+  "ingest-nacho-estrella-nd-eventos.jpg": "ingest-nacho-estrella-nd-eventos",
   "feriaartesanal.jpg": "feria-artesanal-verano-2026",
   "ocean-world-daily.jpg": "ocean-world-daily",
   "Damajagua.jpeg": "charcos-damajagua-daily",
@@ -175,21 +178,28 @@ const FILE_TO_EVENT_ID = {
     "love-does-cocktails-solidarity-2026-09-04",
   "waterfront-playa-alicia-sunset-dining.jpg":
     "waterfront-playa-alicia-sunset-dining",
+  "waterfront-playa-alicia-friday-jazz.jpg":
+    "waterfront-playa-alicia-friday-jazz",
   "rio-sonador-finca-papirucho.jpg": "rio-sonador-finca-papirucho",
   "sunset-grill-velero-beachfront-dining.jpg":
     "sunset-grill-velero-beachfront-dining",
+  "sunset-grill-velero-sushi-nights.jpg":
+    "sunset-grill-velero-sushi-nights",
   "charco-los-militares-daily.jpg": "charco-los-militares-daily",
   "la-rejoya-trek.jpg": "la-rejoya-trek",
   "rio-martinico-sosua.jpg": "rio-martinico-sosua",
   "flip-flop-live-sports-daily.jpg": "flip-flop-live-sports-daily",
+  "flip-flop-wing-wednesday.jpg": "flip-flop-wing-wednesday",
+  "flip-flop-taco-tuesday.jpg": "flip-flop-taco-tuesday",
+  "flip-flop-monday-happy-hour.jpg": "flip-flop-monday-happy-hour",
 };
 
 /** Same venue, same photo — copy after primary sync. */
 const SAME_VENUE_COPIES = [
-  ["ElBateySalsaSocial.JPG", "el-batey-weekend-nightlife"],
+  // El Batey salsa vs weekend nightlife now have distinct heroes.
   // Ojo / open mic / LAX headlines use dedicated assets (not salsa social or sunset).
   // Voy Voy: do NOT clone Monday dining onto Sat/Sun — unique band / mic heroes.
-  ["del-oro-chocolate-factory-weekdays.jpg", "del-oro-chocolate-factory-saturday"],
+  // Del Oro Sat listing reuses the weekday tour-counter hero via event-images.ts.
   ["vivonte-cigar-factory-weekdays.jpg", "vivonte-cigar-factory-saturday"],
   ["asa-surviaval.jpeg", "ingest-asa-survival-series-cdf-vs-dracos-game-1"],
   ["asa-surviaval.jpeg", "ingest-asa-survival-series-cdf-vs-dracos-game-3"],
@@ -203,7 +213,6 @@ const SAME_VENUE_COPIES = [
   ["athleticosPOP.png", "atleticos-pp-vs-reales-2026-08-09"],
   ["athleticosPOP.png", "atleticos-pp-vs-arroceros-2026-08-22"],
   ["athleticosPOP.png", "atleticos-pp-vs-capitanes-2026-08-28"],
-  ["ingest-el-blachy.jpg", "ingest-nacho-estrella-nd-eventos"],
 ];
 
 /** popevent-images filename → venue slug (copied to public/venues/). */
@@ -213,39 +222,45 @@ const FILE_TO_VENUE_SLUG = {
   "la-casita-de-papi-awning.jpg": "la-casita-de-papi-awning",
   // Filename bump — venue page was reusing the Sunset Sessions deck photo.
   "lax-cabarete-bar.jpg": "lax-cabarete-bar",
-  "el-cocotazo-cafe-beach-dining.jpg": "el-cocotazo-cafe",
+  "el-cocotazo-cafe-deck.jpg": "el-cocotazo-cafe-deck",
   // Place shot of the main pool; day-pass listing uses the swim-up bar instead.
   "iberostar-waves-costa-dorada.jpg": "iberostar-waves-costa-dorada",
-  "crazy-lobster-beach-dining.jpg": "crazy-lobster-maimon",
+  "crazy-lobster-maimon.jpg": "crazy-lobster-maimon",
   "don-limon-venue.jpeg": "don-limon-cofresi",
   "los-tres-cocos-dinner.jpg": "los-tres-cocos-cofresi",
-  "ocean-winds-karaoke-nights.jpg": "hotel-ocean-winds",
+  "hotel-ocean-winds-facade.jpg": "hotel-ocean-winds-facade",
   // Filename bump after replacing a tiny shared dolphin-jump JPEG.
   "ocean-world-park.jpg": "ocean-world-park",
-  "liquid-blue-watersports-daily.jpg": "liquid-blue-cabarete",
+  // Filename bump — Kite Beach school patio (official kite jump stays on the event).
+  "liquid-blue-cabarete-beach.jpg": "liquid-blue-cabarete-beach",
   // Venue: stage+arch place shot (Wikimedia). Concerts use night hero; weekday uses bowl.
   "anfiteatro-la-puntilla-stage.jpg": "anfiteatro-la-puntilla-stage",
   // Filename bump — daytime Malecón promenade (not night open-air stage).
   "malecon-puerto-plata-promenade.jpg": "malecon-puerto-plata-promenade",
-  "smileys-saturday-live.jpg": "smileys-bar-sosua",
-  "finish-line-live-wednesday.jpg": "finish-line-sosua",
-  "d-classico-merengue-nights.jpg": "d-classico-sosua",
+  // Filename bump — daytime street-facing bar (not the Saturday live stage).
+  "smileys-bar-sosua-daytime.jpg": "smileys-bar-sosua-daytime",
+  // Filename bump — busy pub bar (not the Wednesday live stage).
+  "finish-line-sosua-bar.jpg": "finish-line-sosua-bar",
+  "d-classico-sosua-daytime.jpg": "d-classico-sosua-daytime",
   // El Batey venue card is the whole downtown Sosúa district (Plaza García / Entrada
   // El Batey), so it uses a daytime street scene — not the food-nights or nightlife shot.
   "el-batey-downtown-daytime.jpg": "el-batey-sosua",
   // Authentic Voyvoy bar interior; Sat/Sun use dedicated event heroes (see FILE_TO_EVENT_ID).
   "voyvoy-cabarete-bar.jpg": "voyvoy-cabarete-bar",
-  "cheers-weekly-live.jpg": "cheers-bar-sosua",
+  // Filename bump — daytime dining room (not the weekly live-music still).
+  "cheers-bar-sosua-dining.jpg": "cheers-bar-sosua-dining",
   // Dining/bar interior — distinct filename so browsers don't keep the old concert-stock URL.
   "castaways-sosua-dining.jpg": "castaways-sosua-dining",
-  "paella-pop-el-pueblito.jpg": "paella-pop-el-pueblito",
-  "paella-pop-green-one.jpg": "paella-pop-green-one",
+  // Filename bumps — place shots (food stills stay on the event listings).
+  "paella-pop-el-pueblito-sign.jpg": "paella-pop-el-pueblito-sign",
+  "paella-pop-green-one-resort.jpg": "paella-pop-green-one-resort",
   "plaza-independencia.jpg": "plaza-independencia",
-  "imbert-mercedes-patronales-2026.jpg": "plaza-sanchez-imbert",
+  // Filename bump — plaza gazebo aerial (welcome sign stays on the patronales event).
+  "plaza-sanchez-imbert-park.jpg": "plaza-sanchez-imbert-park",
   "rincon-caliente-guananico.jpg": "rincon-caliente-guananico",
-  "el-parq-live-bands-saturday.jpg": "el-parq-cabarete",
+  "el-parq-cabarete-foodpark.jpg": "el-parq-cabarete-foodpark",
   "disco-club-brugal.jpg": "disco-club-brugal",
-  "natura-cabana-saturday-live.jpg": "natura-cabana",
+  "natura-cabana-recepcion.jpg": "natura-cabana-recepcion",
   // Blue JackTar's decorated event space; keep the Jandy photo for its event card.
   "bjt-detail.jpg": "blue-jacktar-playa-dorada",
   // Real El Choco Sosúa night patio (Sosúa News); Tuesday live uses ElChocoTuesdayLive.jpg.
@@ -253,19 +268,24 @@ const FILE_TO_VENUE_SLUG = {
   "puerto-plata-golf-classic-2026.jpg": "playa-dorada-golf",
   "cac-games-surf-playa-encuentro-2026.jpg": "playa-encuentro",
   "puerto-plata-beach-soccer-2026.jpg": "playa-los-charamicos",
-  "la-chabola-wednesday-open-mic.jpg": "la-chabola-cabarete",
-  "groundzero-domingos-pal-pueblo.jpg": "ground-zero-disco",
+  // Filename bump — tiki bar interior (pizza stays on Wednesday open mic).
+  "la-chabola-bar.jpg": "la-chabola-bar",
+  // Filename bump — branded lounge (Domingos Pal Pueblo flyer stays on the event).
+  "ground-zero-disco-lounge.jpg": "ground-zero-disco-lounge",
   "aurabeach.jpg": "aura-beach-club-cabarete",
   "macorix-house-of-rum.jpg": "macorix-house-of-rum",
+  // Filename bump — Google Maps Del Oro facade (not the chocolate-box overlay).
+  "del-oro-chocolate-factory-facade.jpg": "del-oro-chocolate-factory-facade",
   "espadrillas.jpeg": "handmade-the-brand",
   "paseo-de-db.jpg": "paseo-dona-blanca",
   "letrero-pop.jpg": "letrero-puerto-plata",
   "elcareyrestaurant.webp": "el-carey-puerto-plata",
   "victrola-037.jpg": "victrola-037",
   "cigar-town-pop.jpg": "cigar-town-pop",
-  "ocean-one-cabarete.jpg": "ocean-one-cabarete",
+  "ocean-one-cabarete-pool.jpg": "ocean-one-cabarete",
   "vip-beach-lifestyles-resort.jpg": "vip-beach-lifestyles-resort",
-  "cacique-moncion.jpg": "cacique-moncion",
+  "cacique-moncion-palapa.jpg": "cacique-moncion-palapa",
+  "pingui-bar-tiki.jpg": "pingui-bar-tiki",
   "gran-ventana-beach-resort.jpg": "gran-ventana-beach-resort",
   // Filename bumps after replacing flyer / logo / park-aerial stand-ins.
   "meclao-rooftop-lounge.jpg": "meclao-rooftop-lounge",
@@ -283,8 +303,10 @@ const FILE_TO_VENUE_SLUG = {
   "le-petit-francois.jpg": "le-petit-francois",
   "costambar-beach-fitness.png": "playa-costambar",
   "love-does-sosua.jpg": "love-does-sosua",
-  "waterfront-playa-alicia-sunset-dining.jpg": "waterfront-playa-alicia",
-  "rio-sonador-finca-papirucho.jpg": "finca-papirucho",
+  // Filename bump — palapa-to-deck (sunset terrace stays on the dining event).
+  "waterfront-playa-alicia-palapa.jpg": "waterfront-playa-alicia-palapa",
+  // Filename bump — finca campsite (log crossing stays on the river event).
+  "finca-papirucho-glamping.jpg": "finca-papirucho-glamping",
   "sunset-grill-velero-beachfront-dining.jpg": "sunset-grill-velero",
   "charco-los-militares-daily.jpg": "charco-los-militares",
   "la-rejoya-trek.jpg": "la-rejoya",

@@ -43,15 +43,22 @@ async function loadEventById(
   id: string,
   locale: Locale,
 ): Promise<Event | null> {
+  const fallback = getFallbackEventById(id, locale);
+  const seed = fallback ? finalizeEvent(fallback, locale) : null;
+
   try {
     const dbEvent = await fetchEventById(id);
-    if (dbEvent) return finalizeEvent(dbEvent, locale);
+    if (dbEvent) {
+      const fromDb = finalizeEvent(dbEvent, locale);
+      // A stale ingest one-off / ended series must not hide a live seed.
+      if (seed?.recurrence && !fromDb?.recurrence) return seed;
+      if (fromDb) return fromDb;
+    }
   } catch (error) {
     console.error("getEventById: database lookup failed, using fallback:", id, error);
   }
 
-  const fallback = getFallbackEventById(id, locale);
-  if (fallback) return finalizeEvent(fallback, locale);
+  if (seed) return seed;
 
   const community = getCommunityEvents().find((e) => e.id === id);
   if (community) return finalizeEvent(community, locale);
@@ -61,7 +68,7 @@ async function loadEventById(
 
 const getCachedEventById = unstable_cache(
   async (id: string, locale: Locale, _dayKey: string) => loadEventById(id, locale),
-  ["event-by-id-v5"],
+  ["event-by-id-v6"],
   { revalidate: EVENT_REVALIDATE_SECONDS, tags: ["events"] },
 );
 

@@ -2017,6 +2017,27 @@
     "imageEmoji": "🌊"
   },
   {
+    "id": "ingest-hidden-river-kayak-adventure",
+    "title": "Kayak en el río Jamao",
+    "description": "Kayak sit-on-top ~5 km por el río Jamao — agua turquesa, paradas para merienda y almuerzo comunitario. Salida ~9:00 AM desde el Parque Central de Jamao al Norte; regreso ~2:00 PM. Incluye equipo, guías y transporte. Reserva Jamao Ecotours +1 809-743-5523 (confirma fines de semana).",
+    "date": "2026-01-01",
+    "time": "9:00 AM – 2:00 PM",
+    "location": "Cabarete",
+    "venue": "Jamao al Norte",
+    "venueSlug": "jamao-al-norte",
+    "address": "Parque Central, Jamao al Norte, Espaillat",
+    "lat": 19.602236,
+    "lng": -70.4669931,
+    "category": "adventure",
+    "format": "physical",
+    "recurrence": "daily",
+    "phone": "+18097435523",
+    "callForPricing": true,
+    "sourceUrl": "https://jamaoecotours.com/excursiones/kayaking/",
+    "ticketUrl": "https://jamaoecotours.com/excursiones/kayaking/",
+    "imageEmoji": "🛶"
+  },
+  {
     "id": "flip-flop-live-sports-daily",
     "title": "Deportes en vivo en Flip Flop",
     "description": "Sports bar en la entrada de Playa Sosúa (The Yellow Steps) — cinco pantallas grandes para MLB, NBA, UFC, NFL, college, Premier League y boxeo, más alitas famosas y cervezas frías. Diario 8:00 AM–10:00 PM en Calle Duarte 2. Llama al +1 829-817-8147.",

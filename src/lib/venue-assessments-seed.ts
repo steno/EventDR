@@ -1104,6 +1104,17 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     ],
   }),
   editorial({
+    venueSlug: "jamao-al-norte",
+    verdictKey: "solid_visitor_activity",
+    crowdFit: ["visitor", "family", "mixed"],
+    axes: { recommend: 4.5, atmosphere: 4.7, practical: 3.8, reliability: 4.1 },
+    themes: [
+      { key: "adventure_park", sentiment: "positive", audience: "visitor" },
+      { key: "countryside", sentiment: "positive" },
+      { key: "family_friendly", sentiment: "positive", audience: "family" },
+    ],
+  }),
+  editorial({
     venueSlug: "flip-flop-sports-bar-sosua",
     verdictKey: "strong_mixed_food_nightlife",
     crowdFit: ["visitor", "mixed", "local"],

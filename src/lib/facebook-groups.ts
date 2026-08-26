@@ -143,6 +143,12 @@ export const FACEBOOK_EVENT_PAGES: readonly {
     label: "Flip Flop Sports Bar",
     areas: ["Sosúa"],
   },
+  {
+    slug: "jamaoecotours",
+    url: "https://www.facebook.com/Jamao-Ecotours-171455809670443/",
+    label: "Jamao Ecotours",
+    areas: ["Cabarete"],
+  },
 ];
 
 /** Spanish / Dominican-first discovery queries layered onto group site: searches. */

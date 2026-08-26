@@ -233,6 +233,7 @@ describe("adventure tours do not inherit Food & Drinks from amenities", () => {
     for (const id of [
       "freestyle-catamaran-daily",
       "rio-sonador-finca-papirucho",
+      "ingest-hidden-river-kayak-adventure",
     ] as const) {
       for (const locale of ["en", "es", "fr"] as const) {
         const event = getFallbackEventById(id, locale);
