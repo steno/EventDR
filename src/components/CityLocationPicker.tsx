@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useId, useRef, useState } from "react";
+import { useEffect, useId, useLayoutEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Check, ChevronDown } from "lucide-react";
 import {
@@ -61,6 +61,7 @@ export function CityLocationPicker({
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
+  const listRef = useRef<HTMLUListElement>(null);
   const listId = useId();
 
   const options: AreaOption[] = [
@@ -98,6 +99,38 @@ export function CityLocationPicker({
       document.removeEventListener("keydown", handleKeyDown);
     };
   }, [open]);
+
+  // Keep the hero menu right-aligned to the trigger, but shift it in if a
+  // short label (Sosúa) would otherwise hang off the left edge of the screen.
+  useLayoutEffect(() => {
+    if (!open || !isHero) return;
+    const list = listRef.current;
+    const button = buttonRef.current;
+    if (!list || !button) return;
+
+    const gutter = 16;
+    function place() {
+      const btn = button.getBoundingClientRect();
+      const menuWidth = list.offsetWidth;
+      const maxLeft = window.innerWidth - gutter - menuWidth;
+      const left = Math.min(
+        Math.max(btn.right - menuWidth, gutter),
+        Math.max(gutter, maxLeft),
+      );
+      list.style.position = "fixed";
+      list.style.left = `${left}px`;
+      list.style.right = "auto";
+      list.style.top = `${btn.bottom + 8}px`;
+    }
+
+    place();
+    window.addEventListener("resize", place);
+    window.addEventListener("scroll", place, true);
+    return () => {
+      window.removeEventListener("resize", place);
+      window.removeEventListener("scroll", place, true);
+    };
+  }, [open, isHero]);
 
   function goTo(slug: CitySlug | null) {
     setOpen(false);
@@ -184,6 +217,7 @@ export function CityLocationPicker({
 
       {open ? (
         <ul
+          ref={listRef}
           id={listId}
           role="listbox"
           aria-label={dict.cities.chooseArea}
@@ -191,7 +225,7 @@ export function CityLocationPicker({
             absolute top-full z-50 mt-2 overflow-hidden rounded-xl
             bg-white/95 py-1 shadow-lg ring-1 ring-neutral-200/80 backdrop-blur
             dark:bg-neutral-900/95 dark:ring-neutral-700/80
-            ${isHero ? "right-0 min-w-[16rem]" : "left-0 min-w-[14rem]"}
+            ${isHero ? "min-w-[16rem] max-w-[calc(100vw-2rem)]" : "left-0 min-w-[14rem]"}
           `}
         >
           {options.map((option) => {
