@@ -73,6 +73,75 @@ function progressFrom(json) {
   };
 }
 
+/** Instagram feed rejects wider than 1.91:1; Netlify Image CDN cover-crops to 1:1. */
+function instagramSafeImageUrl(url) {
+  try {
+    const parsed = new URL(url);
+    const host = parsed.hostname.toLowerCase();
+    if (
+      host !== "pop-event.com" &&
+      host !== "www.pop-event.com" &&
+      host !== "popevent.netlify.app"
+    ) {
+      return url;
+    }
+    if (parsed.pathname.startsWith("/.netlify/images")) return url;
+    const origin = "https://pop-event.com";
+    const params = new URLSearchParams({
+      url: parsed.pathname,
+      fit: "cover",
+      w: "1080",
+      h: "1080",
+      fm: "jpg",
+    });
+    return `${origin}/.netlify/images?${params.toString()}`;
+  } catch {
+    return url;
+  }
+}
+
+async function readLock() {
+  const response = await fetch(`${SITE_URL}/api/cron/meta-post?lock=1`, {
+    headers: { Authorization: `Bearer ${CRON_SECRET}` },
+  });
+  const json = await response.json().catch(() => null);
+  return json?.lock ?? null;
+}
+
+async function publishInstagramWithSafeImages(progress) {
+  const lock = await readLock();
+  const imageUrls = (progress.imageUrls ?? lock?.imageUrls ?? []).map(
+    instagramSafeImageUrl,
+  );
+  const caption = progress.caption ?? lock?.caption;
+  const link = progress.link ?? lock?.link;
+  if (!imageUrls.length) {
+    return { ok: false, error: "No image URLs to retry Instagram with." };
+  }
+  if (!caption) {
+    return { ok: false, error: "No caption to retry Instagram with." };
+  }
+  const { http, json, text } = await post({
+    caption,
+    imageUrls,
+    link,
+    facebook: false,
+    instagram: true,
+  });
+  console.log(`Instagram retry HTTP ${http}`);
+  console.log(json ? JSON.stringify(json) : text);
+  const instagram = json?.instagram;
+  if (http >= 200 && http < 300 && instagram?.ok) {
+    console.log("Successfully posted today's events to Instagram.");
+    return { ok: true };
+  }
+  const err =
+    json?.error ||
+    instagram?.error?.message ||
+    `Instagram retry failed with HTTP ${http}.`;
+  return { ok: false, error: err };
+}
+
 async function main() {
   if (!CRON_SECRET) {
     console.error("CRON_SECRET is not set.");
@@ -104,6 +173,23 @@ async function main() {
     process.exit(1);
   }
 
+  if (INSTAGRAM_ONLY) {
+    const lock = await readLock();
+    if (lock?.facebookId && !lock?.instagramId) {
+      console.log(
+        "Facebook already posted. Publishing Instagram with 1:1 crops.",
+      );
+      const ig = await publishInstagramWithSafeImages({
+        caption: lock.caption,
+        imageUrls: lock.imageUrls,
+        link: lock.link,
+      });
+      if (ig.ok) process.exit(0);
+      console.error(ig.error);
+      process.exit(1);
+    }
+  }
+
   let progress = {};
   for (let attempt = 1; attempt <= MAX_STEPS; attempt++) {
     const { http, json, text } = await post({ ...payload, ...progress });
@@ -133,6 +219,18 @@ async function main() {
       process.exit(1);
     }
     if (http === 502 || (http >= 400 && !body.inProgress)) {
+      const aspectRatio =
+        typeof body.error === "string" &&
+        /aspect ratio is not supported/i.test(body.error);
+      if (aspectRatio && (INSTAGRAM_ONLY || progress.facebookId)) {
+        console.log(
+          "Instagram rejected an image aspect ratio. Retrying Instagram with 1:1 crops.",
+        );
+        const ig = await publishInstagramWithSafeImages(progress);
+        if (ig.ok) process.exit(0);
+        console.error(ig.error);
+        process.exit(1);
+      }
       console.error(body.error || `Today spotlight failed with HTTP ${http}.`);
       process.exit(1);
     }
