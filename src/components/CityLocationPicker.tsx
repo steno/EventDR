@@ -107,20 +107,22 @@ export function CityLocationPicker({
     const list = listRef.current;
     const button = buttonRef.current;
     if (!list || !button) return;
+    const menu = list;
+    const trigger = button;
 
     const gutter = 16;
     function place() {
-      const btn = button.getBoundingClientRect();
-      const menuWidth = list.offsetWidth;
+      const btn = trigger.getBoundingClientRect();
+      const menuWidth = menu.offsetWidth;
       const maxLeft = window.innerWidth - gutter - menuWidth;
       const left = Math.min(
         Math.max(btn.right - menuWidth, gutter),
         Math.max(gutter, maxLeft),
       );
-      list.style.position = "fixed";
-      list.style.left = `${left}px`;
-      list.style.right = "auto";
-      list.style.top = `${btn.bottom + 8}px`;
+      menu.style.position = "fixed";
+      menu.style.left = `${left}px`;
+      menu.style.right = "auto";
+      menu.style.top = `${btn.bottom + 8}px`;
     }
 
     place();
