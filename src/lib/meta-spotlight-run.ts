@@ -13,9 +13,12 @@ import {
   type MetaPostConfig,
 } from "@/lib/meta-post";
 import { buildTodayMetaPost } from "@/lib/meta-spotlight";
+import { localDateISO } from "@/lib/event-dates";
 import {
   claimTodaySpotlightLock,
   finishTodaySpotlightLock,
+  readTodaySpotlightLock,
+  spotlightExclusions,
 } from "@/lib/meta-spotlight-lock";
 import { nextSpotlightWork } from "@/lib/meta-spotlight-steps";
 
@@ -77,7 +80,11 @@ export async function runTodaySpotlightStep(input: {
   force?: boolean;
   progress?: TodaySpotlightProgress;
 }): Promise<{ status: number; body: TodaySpotlightStepResult }> {
-  const built = await buildTodayMetaPost(input.locale);
+  const lock = await readTodaySpotlightLock();
+  const exclusions = spotlightExclusions(lock, localDateISO(), {
+    force: input.force,
+  });
+  const built = await buildTodayMetaPost(input.locale, undefined, exclusions);
   if (!built.ok) {
     return {
       status: 422,
@@ -94,6 +101,7 @@ export async function runTodaySpotlightStep(input: {
   const claimed = await claimTodaySpotlightLock({
     locale: input.locale,
     eventIds,
+    repeatKeys: built.post.repeatKeys,
     caption: built.post.caption,
     imageUrls: built.post.imageUrls,
     link: built.post.link,

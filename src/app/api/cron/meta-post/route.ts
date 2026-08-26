@@ -13,7 +13,11 @@ import {
   weekendMetaHashtags,
   type MetaPublishInput,
 } from "@/lib/meta-post";
-import { readTodaySpotlightLock } from "@/lib/meta-spotlight-lock";
+import {
+  readTodaySpotlightLock,
+  spotlightExclusions,
+} from "@/lib/meta-spotlight-lock";
+import { localDateISO } from "@/lib/event-dates";
 import {
   runTodaySpotlightStep,
   type TodaySpotlightProgress,
@@ -107,7 +111,11 @@ export async function POST(request: NextRequest) {
     if (body.dryRun) {
       let built: Awaited<ReturnType<typeof buildTodayMetaPost>>;
       try {
-        built = await buildTodayMetaPost(locale);
+        built = await buildTodayMetaPost(
+          locale,
+          undefined,
+          spotlightExclusions(await readTodaySpotlightLock(), localDateISO()),
+        );
       } catch (error) {
         console.error("buildTodayMetaPost failed", error);
         return NextResponse.json(

@@ -3,6 +3,9 @@ import { describe, it } from "node:test";
 import {
   buildTodaySpotlightCaption,
   pickTodaySpotlights,
+  spotlightCaptionIntro,
+  spotlightRepeatKey,
+  spotlightSeriesKeyFromId,
   toAbsoluteMetaImageUrl,
 } from "./meta-spotlight";
 import type { Event } from "./types";
@@ -142,6 +145,102 @@ describe("pickTodaySpotlights", () => {
       ["once-a", "once-b", "weekly"],
     );
   });
+
+  it("skips recently posted events and related venue/series keys", () => {
+    const picked = pickTodaySpotlights(
+      [
+        event({
+          id: "pop-cinemas-week-2026-08-20",
+          title: "POP Cinemas",
+          date: "2026-08-20",
+          venueSlug: "pop-cinemas",
+          category: "culture",
+        }),
+        event({
+          id: "once-a",
+          title: "Beach soccer",
+          date: "2026-08-20",
+          time: "9:00 AM",
+          location: "Sosúa",
+          category: "sports",
+        }),
+        event({
+          id: "once-b",
+          title: "Gallery opening",
+          date: "2026-08-20",
+          time: "6:00 PM",
+          location: "Cabarete",
+          category: "culture",
+        }),
+        event({
+          id: "once-c",
+          title: "Jazz night",
+          date: "2026-08-20",
+          time: "8:00 PM",
+          location: "Puerto Plata",
+          category: "music",
+        }),
+      ],
+      3,
+      NOW,
+      {
+        excludeIds: ["pop-cinemas-week-2026-08-20"],
+        excludeKeys: ["venue:pop-cinemas"],
+      },
+    );
+    assert.deepEqual(
+      picked.map((item) => item.id),
+      ["once-a", "once-b", "once-c"],
+    );
+  });
+
+  it("falls back to a recent event when there are not enough new ones", () => {
+    const picked = pickTodaySpotlights(
+      [
+        event({
+          id: "recent",
+          title: "POP Cinemas",
+          date: "2026-08-20",
+          category: "culture",
+        }),
+        event({
+          id: "fresh",
+          title: "Open mic",
+          date: "2026-08-20",
+          time: "8:00 PM",
+          location: "Cabarete",
+          category: "music",
+        }),
+      ],
+      3,
+      NOW,
+      { excludeIds: ["recent"] },
+    );
+    assert.deepEqual(
+      picked.map((item) => item.id),
+      ["fresh", "recent"],
+    );
+  });
+});
+
+describe("spotlightRepeatKey", () => {
+  it("groups dated week listings and weekday recurrences", () => {
+    assert.equal(
+      spotlightSeriesKeyFromId("pop-cinemas-week-2026-08-20"),
+      "pop-cinemas-week",
+    );
+    assert.equal(
+      spotlightSeriesKeyFromId("gym-sov-zumba-tuesday"),
+      "gym-sov-zumba",
+    );
+    assert.equal(
+      spotlightRepeatKey({
+        id: "pop-cinemas-week-2026-08-20",
+        venueSlug: "pop-cinemas",
+      }),
+      "venue:pop-cinemas",
+    );
+  });
 });
 
 describe("buildTodaySpotlightCaption", () => {
@@ -166,14 +265,22 @@ describe("buildTodaySpotlightCaption", () => {
       ],
       "en",
       "https://pop-event.com/en/when/today",
+      "2026-08-20",
     );
-    assert.match(caption, /Today on the North Coast/);
+    assert.match(caption, /What's on Thursday/);
     assert.match(caption, /• Viernes Locos · 11pm · Ground Zero/);
     assert.match(caption, /• Open mic · VOYVOY/);
     assert.match(caption, /More at pop-event.com\/en\/when\/today/);
     assert.doesNotMatch(caption, /utm_/);
     assert.doesNotMatch(caption, /📍/);
     assert.match(caption, /#POPEvents/);
+  });
+
+  it("rotates the intro so consecutive days are not the same hook", () => {
+    assert.notEqual(
+      spotlightCaptionIntro("en", "2026-08-25"),
+      spotlightCaptionIntro("en", "2026-08-26"),
+    );
   });
 });
 
