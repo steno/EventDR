@@ -3,6 +3,8 @@ import { describe, it } from "node:test";
 import {
   decideSpotlightLockAction,
   lockRecordForWrite,
+  rollSpotlightHistory,
+  spotlightExclusions,
   SPOTLIGHT_STEP_LEASE_MS,
   type SpotlightLockRecord,
 } from "./meta-spotlight-lock";
@@ -157,5 +159,50 @@ describe("lockRecordForWrite", () => {
     assert.equal(doc.instagramParentId, "p1");
     assert.equal(doc.caption, "Today on the North Coast.");
     assert.equal(doc.stepLockUntil, 0);
+  });
+});
+
+describe("rollSpotlightHistory", () => {
+  it("moves yesterday's post into recent and keeps prior days", () => {
+    const recent = rollSpotlightHistory(
+      lock({
+        date: "2026-08-25",
+        eventIds: ["pop-cinemas-week-2026-08-20", "pickleball"],
+        repeatKeys: ["venue:pop-cinemas", "venue:cabarete-sports-club"],
+        recent: [{ date: "2026-08-24", eventIds: ["zumba"] }],
+      }),
+      "2026-08-26",
+    );
+    assert.deepEqual(
+      recent.map((day) => day.date),
+      ["2026-08-25", "2026-08-24"],
+    );
+    assert.deepEqual(recent[0]?.eventIds, [
+      "pop-cinemas-week-2026-08-20",
+      "pickleball",
+    ]);
+  });
+});
+
+describe("spotlightExclusions", () => {
+  it("excludes ids from the last week and keys from the last three days", () => {
+    const { excludeIds, excludeKeys } = spotlightExclusions(
+      lock({
+        date: "2026-08-25",
+        eventIds: ["pop-cinemas-week-2026-08-20"],
+        repeatKeys: ["venue:pop-cinemas"],
+        recent: [
+          { date: "2026-08-20", eventIds: ["week-old"], keys: ["venue:week"] },
+          { date: "2026-08-18", eventIds: ["old-id"], keys: ["venue:old"] },
+        ],
+      }),
+      "2026-08-26",
+    );
+    assert.equal(excludeIds.includes("pop-cinemas-week-2026-08-20"), true);
+    assert.equal(excludeKeys.includes("venue:pop-cinemas"), true);
+    assert.equal(excludeIds.includes("week-old"), true);
+    assert.equal(excludeKeys.includes("venue:week"), false);
+    assert.equal(excludeIds.includes("old-id"), false);
+    assert.equal(excludeKeys.includes("venue:old"), false);
   });
 });

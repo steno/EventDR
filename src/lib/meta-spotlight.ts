@@ -1,5 +1,6 @@
 import type { Locale } from "@/i18n/config";
 import { CITIES, eventMatchesCity, type CitySlug } from "@/lib/cities";
+import { localDateISO, weekdayFromISO } from "@/lib/event-dates";
 import { formatEventPlace } from "@/lib/event-location";
 import { getEventLiveStatus, isRecurringEvent } from "@/lib/event-status";
 import {
@@ -34,6 +35,31 @@ export type TodayMetaPost = {
   imageUrl: string;
   imageUrls: string[];
   events: TodaySpotlightEvent[];
+  repeatKeys: string[];
+};
+
+const ISO_DATE_SUFFIX = /-\d{4}-\d{2}-\d{2}$/;
+const WEEKDAY_SUFFIX =
+  /-(mondays?|tuesdays?|wednesdays?|thursdays?|fridays?|saturdays?|sundays?)$/i;
+
+/** Collapse dated / weekday listings so POP Cinemas week-of-X does not win every day. */
+export function spotlightSeriesKeyFromId(id: string): string {
+  return id.replace(ISO_DATE_SUFFIX, "").replace(WEEKDAY_SUFFIX, "");
+}
+
+export function spotlightRepeatKey(
+  event: Pick<Event, "id" | "venueSlug" | "venue">,
+): string {
+  const slug = event.venueSlug?.trim().toLowerCase();
+  if (slug) return `venue:${slug}`;
+  const venue = event.venue?.split(",")[0]?.trim().toLowerCase();
+  if (venue) return `venue:${venue}`;
+  return `id:${spotlightSeriesKeyFromId(event.id)}`;
+}
+
+export type SpotlightPickOptions = {
+  excludeIds?: Iterable<string>;
+  excludeKeys?: Iterable<string>;
 };
 
 function siteOrigin(origin = SITE_URL): string {
@@ -97,37 +123,109 @@ export function pickTodaySpotlights(
   events: Event[],
   limit = TODAY_SPOTLIGHT_LIMIT,
   now = new Date(),
+  options: SpotlightPickOptions = {},
 ): Event[] {
-  const remaining = events.filter((event) => {
+  const excludeIds = new Set(
+    [...(options.excludeIds ?? [])].filter((id) => id.length > 0),
+  );
+  const excludeKeys = new Set(
+    [...(options.excludeKeys ?? [])].filter((key) => key.length > 0),
+  );
+  const open = events.filter((event) => {
     const status = getEventLiveStatus(event, now);
     return !SKIP_STATUSES.has(status);
   });
+  const isRecent = (event: Event) =>
+    excludeIds.has(event.id) || excludeKeys.has(spotlightRepeatKey(event));
+  const fresh = open.filter((event) => !isRecent(event));
+  const reused = open.filter((event) => isRecent(event));
+
   const picked: Event[] = [];
   const usedCategories = new Set<string>();
   const usedCities = new Set<string>();
 
-  while (picked.length < limit && remaining.length) {
-    remaining.sort((a, b) => {
-      const tier = spotlightRecurrenceTier(a) - spotlightRecurrenceTier(b);
-      if (tier !== 0) return tier;
-      return (
-        spotlightScore(b, usedCategories, usedCities, now) -
-        spotlightScore(a, usedCategories, usedCities, now)
-      );
-    });
-    const next = remaining.shift();
-    if (!next) break;
-    picked.push(next);
-    usedCategories.add(next.category);
-    usedCities.add(resolveCity(next));
-  }
+  const takeFrom = (pool: Event[]) => {
+    const remaining = [...pool];
+    while (picked.length < limit && remaining.length) {
+      remaining.sort((a, b) => {
+        const tier = spotlightRecurrenceTier(a) - spotlightRecurrenceTier(b);
+        if (tier !== 0) return tier;
+        return (
+          spotlightScore(b, usedCategories, usedCities, now) -
+          spotlightScore(a, usedCategories, usedCities, now)
+        );
+      });
+      const next = remaining.shift();
+      if (!next) break;
+      picked.push(next);
+      usedCategories.add(next.category);
+      usedCities.add(resolveCity(next));
+    }
+  };
+
+  takeFrom(fresh);
+  takeFrom(reused);
   return picked;
 }
 
-const INTRO: Record<Locale, string> = {
-  en: "Today on the North Coast.",
-  es: "Hoy en la Costa Norte.",
-  fr: "Aujourd’hui sur la Côte Nord.",
+const WEEKDAY_NAMES: Record<Locale, string[]> = {
+  en: [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ],
+  es: [
+    "domingo",
+    "lunes",
+    "martes",
+    "miércoles",
+    "jueves",
+    "viernes",
+    "sábado",
+  ],
+  fr: [
+    "dimanche",
+    "lundi",
+    "mardi",
+    "mercredi",
+    "jeudi",
+    "vendredi",
+    "samedi",
+  ],
+};
+
+const INTRO_TEMPLATES: Record<Locale, string[]> = {
+  en: [
+    "Today on the North Coast.",
+    "{weekday} on the North Coast.",
+    "Three North Coast picks for {weekday}.",
+    "What's on {weekday}.",
+    "North Coast lineup — {weekday}.",
+    "Don't miss these {weekday}.",
+    "POP Events — {weekday}.",
+  ],
+  es: [
+    "Hoy en la Costa Norte.",
+    "{weekday} en la Costa Norte.",
+    "Tres planes en la Costa Norte este {weekday}.",
+    "Qué hay {weekday}.",
+    "Cartelera Costa Norte — {weekday}.",
+    "No te pierdas esto {weekday}.",
+    "POP Events — {weekday}.",
+  ],
+  fr: [
+    "Aujourd’hui sur la Côte Nord.",
+    "{weekday} sur la Côte Nord.",
+    "Trois idées Côte Nord pour {weekday}.",
+    "Au programme {weekday}.",
+    "Line-up Côte Nord — {weekday}.",
+    "À ne pas manquer {weekday}.",
+    "POP Events — {weekday}.",
+  ],
 };
 
 const MORE: Record<Locale, string> = {
@@ -163,12 +261,28 @@ function displayUrl(url: string): string {
   return url.replace(/^https:\/\//, "").replace(/\?.*$/, "");
 }
 
+export function spotlightCaptionIntro(
+  locale: Locale,
+  dateISO = localDateISO(),
+): string {
+  const templates = INTRO_TEMPLATES[locale];
+  const [year, month, day] = dateISO.split("-").map(Number);
+  const template =
+    templates[((year || 0) + (month || 0) * 17 + (day || 0) * 3) % templates.length] ??
+    templates[0];
+  const weekdayIndex = weekdayFromISO(dateISO);
+  const weekday =
+    WEEKDAY_NAMES[locale][Number.isFinite(weekdayIndex) ? weekdayIndex : 0] ?? "";
+  return template.replaceAll("{weekday}", weekday);
+}
+
 export function buildTodaySpotlightCaption(
   events: TodaySpotlightEvent[],
   locale: Locale,
   todayUrl: string,
+  dateISO = localDateISO(),
 ): string {
-  const lines = [INTRO[locale], ""];
+  const lines = [spotlightCaptionIntro(locale, dateISO), ""];
   for (const event of events) {
     const bits = [displayTitle(event.title)];
     const when = shortEventTime(event.time);
@@ -208,9 +322,10 @@ function toSpotlightEvent(
 export async function buildTodayMetaPost(
   locale: Locale,
   origin = SITE_URL,
+  options: SpotlightPickOptions = {},
 ): Promise<{ ok: true; post: TodayMetaPost } | { ok: false; error: string }> {
   const today = await getPublicEvents({ locale, when: "today" });
-  const picked = pickTodaySpotlights(today);
+  const picked = pickTodaySpotlights(today, TODAY_SPOTLIGHT_LIMIT, new Date(), options);
   if (!picked.length) {
     return { ok: false, error: "No today events to spotlight" };
   }
@@ -220,16 +335,18 @@ export async function buildTodayMetaPost(
   for (const event of events) {
     if (!imageUrls.includes(event.imageUrl)) imageUrls.push(event.imageUrl);
   }
+  const dateISO = localDateISO();
   const todayUrl = `${siteOrigin(origin)}/${locale}/when/today`;
 
   return {
     ok: true,
     post: {
-      caption: buildTodaySpotlightCaption(events, locale, todayUrl),
+      caption: buildTodaySpotlightCaption(events, locale, todayUrl, dateISO),
       link: todayUrl,
       imageUrl: imageUrls[0] ?? defaultMetaImageUrl(origin),
       imageUrls,
       events,
+      repeatKeys: picked.map((event) => spotlightRepeatKey(event)),
     },
   };
 }
