@@ -64,11 +64,12 @@ export const SEED_VENUES: Venue[] = [
     name: "Nona's Grill & Kitchen",
     city: "Sosúa",
     description:
-      "Dominican creole restaurant on Calle María Montes in El Batey — comida criolla con historia, family dining, and live concerts including special events with Grupo Braho. Behind Super Pola.",
+      "Family-run Dominican restaurant on Calle María Montes — comida criolla con historia featuring authentic mofongo, sancocho, fresh seafood, and Caribbean grilled specialties in a welcoming atmosphere. Live music nights and special concerts with Grupo Braho. Behind Super Pola, steps from the Pedro Clisante strip.",
     lat: 19.7676,
     lng: -70.5105,
     emoji: "🍽️",
     phone: "+18095711529",
+    instagram: "nonasgrillkitchen",
   },
   {
     slug: "hard-rock-sosua",
