@@ -1,15 +1,24 @@
-import { copyFileSync, existsSync, mkdirSync, readdirSync } from "fs";
+import { copyFileSync, existsSync, mkdirSync, readdirSync, statSync } from "fs";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
+import sharp from "sharp";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const sourceDir = join(root, "popevent-images");
 const destDir = join(root, "public", "events");
 const venuesDir = join(root, "public", "venues");
+const forceSync =
+  process.env.FORCE_IMAGE_SYNC === "1" ||
+  process.env.FORCE_VENUE_IMAGE_REFRESH === "1";
 
 /**
  * popevent-images filename → event id.
  * Prefer `{eventId}.jpg` files produced by fetch-venue-images.mjs when present.
+ *
+ * One unique place shot per venue (`public/venues/`) and one action shot per
+ * event (`public/events/`). Do not stamp the same file onto both unless it is
+ * explicitly listed in SAME_VENUE_COPIES. Existing dest files are kept —
+ * set FORCE_IMAGE_SYNC=1 to overwrite.
  */
 const FILE_TO_EVENT_ID = {
   // --- Fetched / venue-accurate ({eventId}.jpg) ---
@@ -75,6 +84,9 @@ const FILE_TO_EVENT_ID = {
   "cabarete-pilates-reformer.jpg": "cabarete-pilates-reformer",
   "ingest-18th-annual-cabarete-butterfly-effect.jpg":
     "ingest-18th-annual-cabarete-butterfly-effect",
+  // Kayak action shot only — venue place photo is jamao-al-norte.jpg.
+  "ingest-hidden-river-kayak-adventure.jpg":
+    "ingest-hidden-river-kayak-adventure",
   "sea-horse-saturday-market.jpg": "sea-horse-saturday-market",
   "el-carey-wc2026.jpg": "el-carey-wc2026",
   "el-colibri-karaoke-battle-2026.jpg": "el-colibri-karaoke-battle-2026",
@@ -169,6 +181,7 @@ const FILE_TO_EVENT_ID = {
   "charco-los-militares-daily.jpg": "charco-los-militares-daily",
   "la-rejoya-trek.jpg": "la-rejoya-trek",
   "rio-martinico-sosua.jpg": "rio-martinico-sosua",
+  "flip-flop-live-sports-daily.jpg": "flip-flop-live-sports-daily",
 };
 
 /** Same venue, same photo — copy after primary sync. */
@@ -276,7 +289,9 @@ const FILE_TO_VENUE_SLUG = {
   "charco-los-militares-daily.jpg": "charco-los-militares",
   "la-rejoya-trek.jpg": "la-rejoya",
   "rio-martinico-sosua.jpg": "rio-martinico",
+  // Place shot of the river corridor — distinct from the kayak action listing.
   "jamao-al-norte.jpg": "jamao-al-norte",
+  "flip-flop-live-sports-daily.jpg": "flip-flop-sports-bar-sosua",
 };
 
 if (!existsSync(sourceDir)) {
@@ -288,13 +303,34 @@ mkdirSync(destDir, { recursive: true });
 
 const files = readdirSync(sourceDir);
 let copied = 0;
+let skipped = 0;
 
 function destExtension(filename) {
   const dot = filename.lastIndexOf(".");
   return dot >= 0 ? filename.slice(dot).toLowerCase() : ".jpg";
 }
 
-function syncOne(filename, eventId, targetDir = destDir) {
+function hasCommittedImage(path) {
+  try {
+    return existsSync(path) && statSync(path).size > 1024;
+  } catch {
+    return false;
+  }
+}
+
+async function writeDest(resolvedSrc, dest, ext) {
+  if (/\.jpe?g$/i.test(ext)) {
+    await sharp(resolvedSrc)
+      .rotate()
+      .resize(1200, null, { withoutEnlargement: true })
+      .jpeg({ quality: 85, mozjpeg: true })
+      .toFile(dest);
+    return;
+  }
+  copyFileSync(resolvedSrc, dest);
+}
+
+async function syncOne(filename, eventId, targetDir = destDir) {
   const src = join(sourceDir, filename);
   const match = existsSync(src)
     ? filename
@@ -305,23 +341,30 @@ function syncOne(filename, eventId, targetDir = destDir) {
   }
   const resolvedSrc = join(sourceDir, match);
   const ext = destExtension(resolvedSrc);
-  copyFileSync(resolvedSrc, join(targetDir, `${eventId}${ext}`));
-  copied++;
+  const dest = join(targetDir, `${eventId}${ext}`);
   const rel = targetDir === destDir ? "events" : "venues";
+  if (!forceSync && hasCommittedImage(dest)) {
+    skipped++;
+    return;
+  }
+  await writeDest(resolvedSrc, dest, ext);
+  copied++;
   console.log(`${filename} → ${rel}/${eventId}${ext}`);
 }
 
 for (const [filename, eventId] of Object.entries(FILE_TO_EVENT_ID)) {
-  syncOne(filename, eventId);
+  await syncOne(filename, eventId);
 }
 
 for (const [filename, eventId] of SAME_VENUE_COPIES) {
-  syncOne(filename, eventId);
+  await syncOne(filename, eventId);
 }
 
 mkdirSync(venuesDir, { recursive: true });
 for (const [filename, venueSlug] of Object.entries(FILE_TO_VENUE_SLUG)) {
-  syncOne(filename, venueSlug, venuesDir);
+  await syncOne(filename, venueSlug, venuesDir);
 }
 
-console.log(`Synced ${copied} event images to public/events/`);
+console.log(
+  `Synced ${copied} image(s) (${skipped} kept committed${forceSync ? ", FORCE_IMAGE_SYNC" : ""})`,
+);

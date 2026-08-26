@@ -186,6 +186,9 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "charco-los-militares-daily": "charco-los-militares-daily.jpg",
   "la-rejoya-trek": "la-rejoya-trek.jpg",
   "rio-martinico-sosua": "rio-martinico-sosua.jpg",
+  "ingest-hidden-river-kayak-adventure":
+    "ingest-hidden-river-kayak-adventure.jpg",
+  "flip-flop-live-sports-daily": "flip-flop-live-sports-daily.jpg",
 };
 
 /** Legacy ingest ids that share a curated event image. */
@@ -198,6 +201,9 @@ const EVENT_IMAGE_ALIASES: Record<string, string> = {
     "waterfront-playa-alicia-sunset-dining",
   "sunset-grill-velero-sushi-nights":
     "sunset-grill-velero-beachfront-dining",
+  "flip-flop-taco-tuesday": "flip-flop-live-sports-daily",
+  "flip-flop-monday-happy-hour": "flip-flop-live-sports-daily",
+  "flip-flop-wing-wednesday": "flip-flop-live-sports-daily",
 };
 
 const EVENT_IMAGE_PREFIXES: { prefix: string; file: string }[] = [
@@ -236,15 +242,40 @@ export function getEventHeroObjectPosition(eventId: string): string {
   return EVENT_HERO_OBJECT_POSITION[resolvedId] ?? "object-center";
 }
 
+function storedHeroIsDisplayable(url: string | undefined): boolean {
+  const stored = url?.trim();
+  if (!stored) return false;
+  // OTA thumbs hotlink-block and aren't on the next/image allowlist —
+  // they render as an empty hero. Keep other remotes and local paths.
+  try {
+    const host = new URL(stored).hostname.toLowerCase();
+    if (
+      host === "cdn.getyourguide.com" ||
+      host.endsWith(".getyourguide.com") ||
+      host.endsWith(".viator.com") ||
+      host.endsWith(".civitatis.com")
+    ) {
+      return false;
+    }
+  } catch {
+    return stored.startsWith("/");
+  }
+  return true;
+}
+
 export function attachEventImage<
   T extends { id: string; imageUrl?: string; venueSlug?: string },
 >(event: T): T & { imageUrl?: string } {
   const curated = getEventImageUrl(event.id);
-  const venueFallback =
-    !curated && !event.imageUrl?.trim() && event.venueSlug
-      ? getVenueImageUrl(event.venueSlug)
-      : undefined;
-  const imageUrl = curated ?? event.imageUrl ?? venueFallback;
+  const stored = event.imageUrl?.trim();
+  const venueFallback = event.venueSlug
+    ? getVenueImageUrl(event.venueSlug)
+    : undefined;
+  const imageUrl =
+    curated ??
+    (storedHeroIsDisplayable(stored) ? stored : undefined) ??
+    venueFallback ??
+    stored;
   return imageUrl ? { ...event, imageUrl } : event;
 }
 

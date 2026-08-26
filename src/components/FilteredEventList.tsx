@@ -89,6 +89,8 @@ interface FilteredEventListProps {
   addEventCta?: "pad" | "inline" | "button";
   /** Hide All/Today/Tomorrow/Weekend chips (venue Past tab). */
   hideTimeFilter?: boolean;
+  /** Hide Free entry / Tickets chips (venue schedules — not useful on a single place). */
+  hidePriceFilter?: boolean;
   /**
    * Collapse recurring programs that share a venue into one card with
    * sibling night chips. Off for venue schedules (already the full grid).
@@ -124,6 +126,7 @@ export function FilteredEventList({
   scrollOnFilterChange = true,
   addEventCta = "pad",
   hideTimeFilter = false,
+  hidePriceFilter = false,
   clusterVenueRecurring = true,
   persistTimeRange = false,
 }: FilteredEventListProps) {
@@ -273,7 +276,7 @@ export function FilteredEventList({
   const tryPriceLabel = dict.price.showAll;
 
   const showTimeFilter = !fixedTimeRange && !hideTimeFilter;
-  const showPriceFilter = !hideTimeFilter;
+  const showPriceFilter = !hidePriceFilter && !hideTimeFilter;
   const showStickyFilters = Boolean(
     locationPicker || showTimeFilter || showPriceFilter,
   );
@@ -320,8 +323,8 @@ export function FilteredEventList({
                 onChange={setTimeRange}
                 dict={dict}
                 sticky={false}
-                price={priceFilter}
-                onPriceChange={setPriceFilter}
+                price={showPriceFilter ? priceFilter : undefined}
+                onPriceChange={showPriceFilter ? setPriceFilter : undefined}
                 trailing={viewToggle}
               />
             ) : showPriceFilter ? (

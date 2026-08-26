@@ -181,6 +181,11 @@ const PLACE_SEARCH_ALIASES: Record<string, string[]> = {
     "Bar 39 Playa Sosua",
     "Bar 39 Sosua Beach",
   ],
+  "flip-flop-sports-bar-sosua": [
+    "Flip Flop Sports Bar Sosua",
+    "Flip Flop Sports Bar The Yellow Steps",
+    "The Yellow Steps Sosua",
+  ],
   "paella-pop-el-pueblito": [
     "Paella POP Playa El Pueblito Puerto Plata",
     "Paella POP El Pueblito",

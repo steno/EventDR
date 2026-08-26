@@ -18,10 +18,10 @@ import {
 
 /** OTA / stock hosts — not event or venue photos. */
 const WEAK_IMAGE_HOST_RE =
-  /(?:^|\.)evendo\.com|unsplash\.com|pexels\.com|pixabay\.com|shutterstock\.com|gettyimages\.com|istockphoto\.com|depositphotos\.com|123rf\.com|alamy\.com|dreamstime\.com|freepik\.com|stock\.adobe\.com|wedding-dominicanrepublic\.com/i;
+  /(?:^|\.)evendo\.com|unsplash\.com|pexels\.com|pixabay\.com|shutterstock\.com|gettyimages\.com|istockphoto\.com|depositphotos\.com|123rf\.com|alamy\.com|dreamstime\.com|freepik\.com|stock\.adobe\.com|wedding-dominicanrepublic\.com|getyourguide\.com|viator\.com|civitatis\.com/i;
 
 const WEAK_IMAGE_PATH_RE =
-  /\/(?:thumb|thumbnail|preview|placeholder|360x263|320x240|200x200|150x150)(?:[_/-]|\.)/i;
+  /\/(?:thumb|thumbnail|preview|placeholder|360x263|320x240|200x200|150x150)(?:[_/-]|\.)|width=270,height=180/i;
 
 /** True when an image URL is unlikely to represent this event or venue. */
 export function isWeakIngestImageUrl(

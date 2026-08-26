@@ -135,6 +135,7 @@ export function VenueEventList({
         scrollOnFilterChange={false}
         addEventCta={tab === "upcoming" ? "inline" : "button"}
         hideTimeFilter={tab === "past"}
+        hidePriceFilter
         clusterVenueRecurring={false}
       />
     </div>

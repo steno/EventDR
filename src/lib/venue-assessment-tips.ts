@@ -745,4 +745,12 @@ export const VENUE_TIP_COPY: Record<
       fr: "La rivière tranquille de Sosúa à Madre Vieja — demandez aux locaux le tronçon du jour, allez en semaine et emportez vos déchets.",
     },
   },
+  "flip-flop-sports-bar-sosua": {
+    body: "Beach-entrance sports bar at the yellow steps — come for the TVs and wings, not a Pedro Clisante disco crawl. Game days fill up; weekdays are the easy walk-in.",
+    localized: {
+      en: "Beach-entrance sports bar at the yellow steps — come for the TVs and wings, not a Pedro Clisante disco crawl. Game days fill up; weekdays are the easy walk-in.",
+      es: "Sports bar en la entrada de la playa junto a las gradas amarillas — ven por las pantallas y las alitas, no por un crawl de disco en Pedro Clisante. Los días de partido se llenan; entre semana es fácil entrar.",
+      fr: "Sports bar à l'entrée de la plage, aux marches jaunes — venez pour les écrans et les ailes, pas un crawl disco Pedro Clisante. Les jours de match se remplissent ; en semaine c'est plus facile.",
+    },
+  },
 };

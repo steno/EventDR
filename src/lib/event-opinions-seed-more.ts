@@ -1417,4 +1417,79 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "Also called Río Azul; Madre Vieja Sosúa ~19.65,-70.5087; connects toward Yásica corridor.",
     updatedAt: "2026-08-25T13:45:00.000Z",
   },
+  {
+    eventId: "flip-flop-live-sports-daily",
+    seriesKey: "flip-flop-sports-bar-sosua:daily",
+    body: "The beach-entrance pin for a game, not a nightclub — five TVs and wings; save Pedro Clisante for after the final whistle.",
+    localized: {
+      es: "El pin de la entrada de la playa para un partido, no una disco — cinco pantallas y alitas; deja Pedro Clisante para después del silbato.",
+      fr: "Le pin de l'entrée de plage pour un match, pas une discothèque — cinq écrans et ailes ; gardez Pedro Clisante pour après le coup de sifflet.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "No cover — pay for wings, tacos, and beers; sports-bar spend at the yellow steps",
+    priceNoteLocalized: {
+      es: "Sin cover — pagas alitas, tacos y cervezas; gasto de sports bar en las gradas amarillas",
+      fr: "Pas de cover — vous payez ailes, tacos et bières ; budget sports bar aux marches jaunes",
+    },
+    attribution: "POP research · flipflop360.com + TripAdvisor",
+    researchNotes:
+      "Official: 2 Duarte / Sosúa Beach entrance, 8 AM–10 PM daily, 5 TVs, MLB/NBA/UFC/NFL/Premier League. Phone +1 829-817-8147. TripAdvisor d19502025.",
+    updatedAt: "2026-08-26T15:00:00.000Z",
+  },
+  {
+    eventId: "flip-flop-taco-tuesday",
+    seriesKey: "flip-flop-sports-bar-sosua:weekly:2",
+    body: "Tuesday is tacos plus whatever is on the screens — eat here, then walk the strip; this isn't a late disco.",
+    localized: {
+      es: "El martes son tacos más lo que haya en las pantallas — come aquí y luego camina la franja; no es una disco tardía.",
+      fr: "Le mardi, ce sont des tacos plus ce qu'il y a à l'écran — mangez ici, puis marchez la strip ; ce n'est pas une disco tardive.",
+    },
+    priceFeel: "moderate",
+    priceNote: "No cover — Taco Tuesday menu and drinks; open 8:00 AM–10:00 PM",
+    priceNoteLocalized: {
+      es: "Sin cover — menú de Taco Tuesday y tragos; abre 8:00 AM–10:00 PM",
+      fr: "Pas de cover — menu Taco Tuesday et verres ; ouvert 8 h–22 h",
+    },
+    attribution: "POP research · flipflop360.com",
+    researchNotes:
+      "Official daily specials: Taco Tuesday from open to close at Sosúa Beach entrance.",
+    updatedAt: "2026-08-26T15:00:00.000Z",
+  },
+  {
+    eventId: "flip-flop-monday-happy-hour",
+    seriesKey: "flip-flop-sports-bar-sosua:weekly:1",
+    body: "Monday is the all-day drink deal at the yellow steps — come for the happy hour, not a nightlife crawl; screens stay on.",
+    localized: {
+      es: "El lunes es la promo de tragos todo el día en las gradas amarillas — ven por el happy hour, no por un crawl nocturno; las pantallas siguen.",
+      fr: "Le lundi, c'est l'offre boissons toute la journée aux marches jaunes — venez pour le happy hour, pas un crawl nightlife ; les écrans restent allumés.",
+    },
+    priceFeel: "moderate",
+    priceNote: "No cover — all-day Monday happy hour drinks plus food; 8:00 AM–9:30 PM",
+    priceNoteLocalized: {
+      es: "Sin cover — happy hour de tragos todo el lunes más comida; 8:00 AM–9:30 PM",
+      fr: "Pas de cover — happy hour boissons tout le lundi plus nourriture ; 8 h–21 h 30",
+    },
+    attribution: "POP research · flipflop360.com",
+    researchNotes: "Official: ALL DAY Happy Hour every Monday, 8 AM–9:30 PM, Sosúa Beach entrance.",
+    updatedAt: "2026-08-26T15:30:00.000Z",
+  },
+  {
+    eventId: "flip-flop-wing-wednesday",
+    seriesKey: "flip-flop-sports-bar-sosua:weekly:3",
+    body: "Wednesday is wings-first at the beach entrance — the house special, not a Pedro Clisante bar-band night.",
+    localized: {
+      es: "El miércoles son alitas primero en la entrada de la playa — el especial de la casa, no una noche de banda en Pedro Clisante.",
+      fr: "Le mercredi, ce sont les ailes d'abord à l'entrée de plage — la spécialité maison, pas une soirée groupe Pedro Clisante.",
+    },
+    priceFeel: "moderate",
+    priceNote: "No cover — Wing Wednesday menu and drinks; open 8:00 AM–10:00 PM",
+    priceNoteLocalized: {
+      es: "Sin cover — menú de Wing Wednesday y tragos; abre 8:00 AM–10:00 PM",
+      fr: "Pas de cover — menu Wing Wednesday et verres ; ouvert 8 h–22 h",
+    },
+    attribution: "POP research · flipflop360.com",
+    researchNotes: "Official: WING WEDNESDAY — famous wings all day.",
+    updatedAt: "2026-08-26T15:30:00.000Z",
+  },
 ];

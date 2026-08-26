@@ -204,6 +204,11 @@ export const INSTAGRAM_ACCOUNTS = [
     label: "Rumba Bar and Grill",
     areas: ["Sosúa"],
   },
+  {
+    handle: "flipflopsportsbar",
+    label: "Flip Flop Sports Bar",
+    areas: ["Sosúa"],
+  },
 
   // Cultural venues & tourism
   {

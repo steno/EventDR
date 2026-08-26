@@ -1103,6 +1103,17 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
       { key: "free_access", sentiment: "positive", audience: "local" },
     ],
   }),
+  editorial({
+    venueSlug: "flip-flop-sports-bar-sosua",
+    verdictKey: "strong_mixed_food_nightlife",
+    crowdFit: ["visitor", "mixed", "local"],
+    axes: { recommend: 4.1, atmosphere: 4.2, value: 4.0, practical: 4.3 },
+    themes: [
+      { key: "expat_crowd", sentiment: "positive" },
+      { key: "easy_to_find", sentiment: "positive" },
+      { key: "beachfront", sentiment: "positive", audience: "visitor" },
+    ],
+  }),
 ];
 
 const bySlug = new Map(

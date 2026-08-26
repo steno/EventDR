@@ -332,6 +332,16 @@ const VENUE_SOURCES = [
     eventId: "jamao-al-norte",
     url: "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmnWGxpUwDqlx8OxzCDjysyj53gD7LFjxiCTmydUYRvJRlJ_QlfbqZtUYkMjVa8hGbLqlTTSHMdWC8Xh4xZb_Sbj8L4lJP_vfW9oufYTsq0PgDhXc-gfZ8O89zOQOdqYOyGjLv6=w1600-h1200-k-no",
   },
+  {
+    // Official Jamao Ecotours kayak action — event listing only, not the venue hero.
+    eventId: "ingest-hidden-river-kayak-adventure",
+    url: "https://jamaoecotours.com/wp-content/uploads/2019/04/IMG_20180930_113237_612-e1555630898964.jpg",
+  },
+  {
+    // Official Flip Flop Sports Bar place photo (flipflop360.com homepage hero).
+    eventId: "flip-flop-live-sports-daily",
+    url: "https://img1.wsimg.com/isteam/ip/285b5b41-3850-4c2d-8a2b-a7de7adec968/WhatsApp%20Image%202026-03-27%20at%202.53.19%20AM%20(3).jpeg",
+  },
 ];
 
 mkdirSync(outDir, { recursive: true });

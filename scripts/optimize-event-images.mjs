@@ -20,6 +20,8 @@ const JPEG_QUALITY = 82;
 const OG_WIDTH = 1200;
 const OG_HEIGHT = 630;
 const OG_BACKGROUND = { r: 10, g: 10, b: 10 };
+/** Re-encode catalog JPEGs / rewrite existing OG only when explicitly requested. */
+const forceOptimize = process.env.FORCE_IMAGE_OPTIMIZE === "1";
 
 function syncedEventFiles() {
   const source = readFileSync(syncScript, "utf8");
@@ -40,6 +42,7 @@ if (!existsSync(eventsDir)) {
 
 const targets = syncedEventFiles();
 let optimized = 0;
+let skipped = 0;
 let savedBytes = 0;
 
 for (const file of readdirSync(eventsDir)) {
@@ -47,11 +50,17 @@ for (const file of readdirSync(eventsDir)) {
   if (!/\.(jpe?g)$/i.test(file)) continue;
 
   const input = join(eventsDir, file);
+  // Committed catalog stays as-is. New files are sized at sync time.
+  if (!forceOptimize) {
+    skipped++;
+    continue;
+  }
+
   const before = statSync(input).size;
   const tmp = `${input}.opt`;
+  const meta = await sharp(input).metadata();
 
   let pipeline = sharp(input).rotate();
-  const meta = await pipeline.metadata();
   if ((meta.width ?? 0) > MAX_WIDTH) {
     pipeline = pipeline.resize(MAX_WIDTH, null, { withoutEnlargement: true });
   }
@@ -82,7 +91,7 @@ for (const file of readdirSync(eventsDir)) {
   const stem = file.replace(/\.(jpe?g|png|webp)$/i, "");
   const output = join(ogDir, `${stem}.jpg`);
 
-  if (existsSync(output) && statSync(output).mtimeMs >= statSync(input).mtimeMs) {
+  if (existsSync(output) && process.env.FORCE_IMAGE_OPTIMIZE !== "1") {
     continue;
   }
 
@@ -101,5 +110,5 @@ for (const file of readdirSync(eventsDir)) {
 }
 
 console.log(
-  `Optimized ${optimized} JPEG images, saved ${Math.round(savedBytes / 1024)}KB; wrote ${ogWritten} Facebook OG images`,
+  `Optimized ${optimized} JPEG images (${skipped} kept committed), saved ${Math.round(savedBytes / 1024)}KB; wrote ${ogWritten} Facebook OG images`,
 );

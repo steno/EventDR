@@ -7,6 +7,7 @@ import {
   eventsAfterVenueClustering,
   findVenueRecurringSiblings,
 } from "./venue-recurring-siblings";
+import { getRecurringEvents } from "./recurring-events";
 
 const dict = getDictionary("en");
 
@@ -147,5 +148,22 @@ describe("findVenueRecurringSiblings", () => {
     assert.equal(siblings.length, 1);
     assert.equal(siblings[0]?.id, "anfiteatro-la-puntilla-concerts");
     assert.equal(siblings[0]?.label, "Weekends");
+  });
+
+  it("lists Flip Flop weekly specials as other nights", () => {
+    const pool = getRecurringEvents("en").filter(
+      (event) => event.venueSlug === "flip-flop-sports-bar-sosua",
+    );
+    const daily = pool.find((event) => event.id === "flip-flop-live-sports-daily");
+    assert.ok(daily);
+    const siblings = findVenueRecurringSiblings(daily, pool, "en", dict);
+    assert.deepEqual(
+      siblings.map((s) => s.id).sort(),
+      [
+        "flip-flop-monday-happy-hour",
+        "flip-flop-taco-tuesday",
+        "flip-flop-wing-wednesday",
+      ],
+    );
   });
 });

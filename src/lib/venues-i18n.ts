@@ -657,6 +657,12 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Centre de ressources pour femmes sur Pedro Clisante (en face de Playero) — anglais gratuit, cours INFOTEP, psychologie, journées médicales et café de formation. Aussi Loco Amor. Mar–sam. 10 h–18 h.",
     },
   },
+  "flip-flop-sports-bar-sosua": {
+    description: {
+      es: "Sports bar en la entrada de Playa Sosúa (The Yellow Steps) — 5 pantallas para deportes en vivo, alitas famosas, happy hour los lunes, Taco Tuesday y Wing Wednesday. Diario 8:00 AM–10:00 PM.",
+      fr: "Sports bar à l'entrée de Playa Sosúa (The Yellow Steps) — 5 écrans pour le sport en direct, ailes célèbres, happy hour le lundi, Taco Tuesday et Wing Wednesday. Tous les jours 8 h–22 h.",
+    },
+  },
   "zen-fitness-cabarete": {
     description: {
       es: "Camp de fitness y wellness frente al mar en Zen Cabarete en Kite Beach (antes eXtreme) — gym tiki barefoot, loft de yoga con vista al océano, comida de la granja a la mesa, y campamentos de pérdida de peso y fitness todo el año.",

@@ -1268,6 +1268,20 @@ export const SEED_VENUES: Venue[] = [
     emoji: "🌊",
     website: "https://remolacha.net/2022/09/rio-martinico/",
   },
+  {
+    slug: "flip-flop-sports-bar-sosua",
+    name: "Flip Flop Sports Bar",
+    city: "Sosúa",
+    description:
+      "Sports bar at the Sosúa Beach entrance (The Yellow Steps) — five TVs for live sports, famous wings, Monday happy hour, Taco Tuesday, and Wing Wednesday. Open daily 8:00 AM–10:00 PM.",
+    // Beach-entrance pin on Calle Duarte / Yellow Steps — distinct from Hard Rock (uphill Duarte) and Bar 39 (on the sand).
+    lat: 19.7622,
+    lng: -70.5166,
+    emoji: "📺",
+    instagram: "flipflopsportsbar",
+    website: "https://flipflop360.com/",
+    phone: "+18298178147",
+  },
 ];
 
 /** Extra name fragments → seed slug (checked before fuzzy name includes). */
@@ -1454,6 +1468,11 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
     pattern:
       /el\s*cocotazo|cocotazo\s*caf[eé]|agualina\s*kitebeach/i,
     slug: "el-cocotazo-cafe",
+  },
+  {
+    pattern:
+      /flip\s*flops?(\s*sports?\s*bar)?|yellow\s*steps|the\s*yellow\s*steps/i,
+    slug: "flip-flop-sports-bar-sosua",
   },
 ];
 

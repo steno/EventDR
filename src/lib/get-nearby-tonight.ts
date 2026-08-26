@@ -17,9 +17,10 @@ import {
 } from "@/lib/venue-recurring-siblings";
 
 /**
- * Process-local pool cache. Static generation hits this hundreds of times
- * (venues × locales); reloading/rematerializing getPublicEvents each call
- * OOMs Netlify's build workers (SIGKILL).
+ * Process-local pool cache for static generation only. Reloading
+ * getPublicEvents hundreds of times (venues × locales) OOMs Netlify
+ * build workers (SIGKILL). Runtime uses getPublicEvents' own data cache
+ * so newly seeded sibling nights are not stuck behind a process-lifetime map.
  */
 const nearbyPoolByLocale = new Map<Locale, Promise<Event[]>>();
 
@@ -28,25 +29,25 @@ function isProductionBuild(): boolean {
 }
 
 /**
- * Event pool for nearby matching.
+ * Event pool for nearby matching and same-venue other nights.
  * Build: seed fallbacks only (no Firebase / full public pipeline).
- * Runtime: full public catalog, memoized once per locale per process.
+ * Runtime: full public catalog (unstable_cache).
  */
 function getNearbyEventPool(locale: Locale): Promise<Event[]> {
+  if (!isProductionBuild()) {
+    return getPublicEvents({ locale });
+  }
+
   const cached = nearbyPoolByLocale.get(locale);
   if (cached) return cached;
 
-  const loading = (async () => {
-    if (isProductionBuild()) {
-      return attachCoords(
-        materializeEventDates(
-          attachVenueSlugs(filterRemovedSeedEvents(getFallbackEvents(locale))),
-        ),
-      );
-    }
-    return getPublicEvents({ locale });
-  })();
-
+  const loading = Promise.resolve(
+    attachCoords(
+      materializeEventDates(
+        attachVenueSlugs(filterRemovedSeedEvents(getFallbackEvents(locale))),
+      ),
+    ),
+  );
   nearbyPoolByLocale.set(locale, loading);
   return loading;
 }

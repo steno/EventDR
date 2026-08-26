@@ -137,6 +137,12 @@ export const FACEBOOK_EVENT_PAGES: readonly {
     areas: ["Sosúa"],
     kind: "cultural",
   },
+  {
+    slug: "flipflopsportsbar",
+    url: "https://www.facebook.com/FlipFlopSportsBar",
+    label: "Flip Flop Sports Bar",
+    areas: ["Sosúa"],
+  },
 ];
 
 /** Spanish / Dominican-first discovery queries layered onto group site: searches. */
