@@ -87,7 +87,7 @@ const FILE_TO_EVENT_ID = {
   // Kayak action shot only — venue place photo is jamao-al-norte.jpg.
   "ingest-hidden-river-kayak-adventure.jpg":
     "ingest-hidden-river-kayak-adventure",
-  "sea-horse-saturday-market.jpg": "sea-horse-saturday-market",
+  "sea-horse-saturday-market-tents.jpg": "sea-horse-saturday-market-tents",
   "el-carey-wc2026.jpg": "el-carey-wc2026",
   "el-colibri-karaoke-battle-2026.jpg": "el-colibri-karaoke-battle-2026",
   "rumble-in-paradise-12.jpg": "rumble-in-paradise-12",
@@ -104,7 +104,8 @@ const FILE_TO_EVENT_ID = {
   "la-confluencia-museum-daily.jpg": "la-confluencia-museum-daily",
   "gregorio-luperon-museum.jpg": "gregorio-luperon-museum",
   "macorix-house-of-rum-cellar.jpg": "macorix-house-of-rum",
-  "casa-de-la-cultura-exhibitions.jpg": "casa-de-la-cultura-exhibitions",
+  "casa-de-la-cultura-gallery-opening.jpg": "casa-de-la-cultura-gallery-opening",
+  "casa-de-la-cultura-saturday-keyboard.jpg": "casa-de-la-cultura-saturday-keyboard",
 
   // --- Dominican-leaning venues / events (2026 curation) ---
   "cabarete-jazz-festival-2026.jpg": "cabarete-jazz-festival-2026",
@@ -141,7 +142,7 @@ const FILE_TO_EVENT_ID = {
   "castaways-classic-rock-wednesday.jpg": "castaways-classic-rock-wednesday",
   "VoramarFridayLive.jpg": "voramar-friday-live",
   "cheers-weekly-live.jpg": "cheers-weekly-live",
-  "senor-rock-live-stage.jpg": "senor-rock-live-stage",
+  "senor-rock-cadillac-bar.jpg": "senor-rock-cadillac-bar",
   "batey-open-mic-weekly.jpg": "batey-open-mic-weekly",
   "lax-headline-concerts.jpg": "lax-headline-concerts",
   "CremoSalsaFriday.jpg": "cremo-salsa-friday",
@@ -231,6 +232,10 @@ const FILE_TO_VENUE_SLUG = {
   "hotel-ocean-winds-facade.jpg": "hotel-ocean-winds-facade",
   // Filename bump after replacing a tiny shared dolphin-jump JPEG.
   "ocean-world-park.jpg": "ocean-world-park",
+  // Filename bump — Tennis Club patio (Saturday Market flyer/action stay on the event).
+  "sea-horse-ranch-tennis-club.jpg": "sea-horse-ranch-tennis-club",
+  // Filename bump — night entrance (Cadillac bar stays on the live listing).
+  "senor-rock-playa-dorada-entrance.jpg": "senor-rock-playa-dorada-entrance",
   // Filename bump — Kite Beach school patio (official kite jump stays on the event).
   "liquid-blue-cabarete-beach.jpg": "liquid-blue-cabarete-beach",
   // Venue: stage+arch place shot (Wikimedia). Concerts use night hero; weekday uses bowl.

@@ -32,14 +32,16 @@ Curated images under `public/events/` and `public/venues/`.
 | `del-oro-chocolate-factory-tour.jpg` | [Google Maps — Del Oro Chocolate Factory](https://www.google.com/maps/place/Del+Oro+Chocolate+Factory/@19.7767245,-70.6662354,17z) visitor photo | Tour-counter action: Del Oro guide, labeled cacao ingredients, and production gear (replaces 2016 blog chocolate-box overlay) |
 | `venues/del-oro-chocolate-factory-facade.jpg` | [Google Maps — Del Oro Chocolate Factory](https://www.google.com/maps/place/Del+Oro+Chocolate+Factory/@19.7767245,-70.6662354,17z) place photo (Jan 2020) | Venue place shot — teal factory with oval Del Oro sign |
 | `liquid-blue-sunrise-yoga.jpg` | [Unsplash](https://unsplash.com/photos/woman-in-black-tank-top-and-black-leggings-doing-yoga-JZ51oKoCghE) (`photo-1544367567`) — Unsplash License | Sunrise yoga by water; not surf aerial |
-| `sea-horse-saturday-market.jpg` | POP curated `CabareteFarmersMarket.JPG` — outdoor artisan/produce market | Replaces Sea Horse flyer graphic |
+| `sea-horse-saturday-market-tents.jpg` | POP-supplied Sea Horse Ranch Saturday Market — lawn tents / shoppers | Market action (Tennis Club patio stays on the venue) |
+| `venues/sea-horse-ranch-tennis-club.jpg` | [Google Maps — Sea Horse Ranch Tennis](https://www.google.com/maps/place/Sea+Horse+Ranch+Tennis/@19.7808431,-70.4805888,17z) visitor photo | Tennis Club patio / courts (flyer stays off the venue) |
 | `smileys-saturday-live.jpg` | YouTube still — [Smiley's Courtyard Bar & Restaurant in Sosua](https://www.youtube.com/watch?v=WZHFtyXvELs) | Courtyard stage + Smiley's signage |
 | `venues/smileys-bar-sosua-daytime.jpg` | [Google Maps — Smiley's Courtyard Bar](https://www.google.com/maps/place/Smiley's+Courtyard+Bar/@19.7679864,-70.5100086,17z) visitor photo | Daytime open-air bar looking onto Pedro Clisante (not the Saturday live stage) |
 | `finish-line-live-wednesday.jpg` | POP curated `FinishLineLiveWednesday.jpg` | Indoor pub live stage |
 | `venues/finish-line-sosua-bar.jpg` | [Google Maps — Mike's Finish Line Bar](https://www.google.com/maps/place/Mike's+Finish+Line+Bar/@19.7661412,-70.5130522,17z) visitor photo | Packed bar with hanging glasses and Presidente — venue place shot (not the Wednesday stage) |
 | `d-classico-merengue-bar.jpg` | Google Maps visitor photo — packed night bar at Clasico Club 59 | Merengue-night action (not the daytime facade) |
 | `venues/d-classico-sosua-daytime.jpg` | Google Maps visitor photo — daytime Clasico Club 59 facade on Pedro Clisante | Venue place shot |
-| `senor-rock-live-stage.jpg` | Google Maps visitor photo — live stage at Señor Rock Bar & Grill | Nightly live-band action (dining room stays on the venue) |
+| `senor-rock-cadillac-bar.jpg` | POP-supplied Señor Rock interior — hanging Cadillac over the bar | Nightly live / bar action (entrance stays on the venue) |
+| `venues/senor-rock-playa-dorada-entrance.jpg` | POP-supplied Señor Rock night entrance — Sport Bar & Grill sign | Venue place shot |
 | `sosua-pedro-clisante-food-nights.jpg` | [Unsplash](https://unsplash.com/photos/assorted-meat-on-a-wooden-board-yiR9GQC8Ttk) (`photo-1555939594`) — Unsplash License | Grill / street-food feast |
 | `venues/el-batey-sosua.jpg` | [Wikimedia Commons — Plaza Garcia.jpg](https://commons.wikimedia.org/wiki/File:Plaza_Garcia.jpg) — Foto Coral, [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | Daytime Entrada El Batey / Plaza García downtown street (Foto Coral watermark cropped) — represents the whole district, works for the morning Sosúa 10K as well as evening salsa socials |
 | `el-batey-weekend-nightlife-clisante.jpg` | [Sosúa News — Friday night on Pedro Clisante](https://www.sosuanews.com/index.php?id=4452&article=1) — `05-20_clisante_2.jpg` | Night strip action (Premium Disco patio, Presidente tables) — replaces the shared salsa-social clone |
@@ -108,7 +110,8 @@ Curated images under `public/events/` and `public/venues/`.
 | `inicio-del-campamento-pp-2026.jpg` | [Unsplash](https://unsplash.com/photos/photo-1526232761682) (`photo-1526232761682`) — Unsplash License | Youth sports camp huddle (replaces podcast logo) |
 | `atleticos-pp-vs-mangueros-2026-07-17.jpg` (+ other Atléticos home games) | POP curated `athleticosPOP.png` — Atléticos de Puerto Plata pitcher | Authentic team photo; replaces Unsplash stock for the full home slate |
 | `venues/parque-jose-briceno.jpg` | POP curated `baseballpark.png` — packed grandstand at Parque José Briceño | Authentic venue place photo |
-| `macorix-house-of-rum-cellar.jpg` | [PuertoPlataDR](https://puertoplatadr.com/tours/macorix-house-of-rum/) — `A86A5241` barrel warehouse | Rum-cellar tour action (entrance stays on the venue) |
+| `casa-de-la-cultura-gallery-opening.jpg` | POP-supplied gallery opening at Casa de la Cultura (Danilo de los Santos exhibition) | Exhibition action (peach facade stays on the venue) |
+| `casa-de-la-cultura-saturday-keyboard.jpg` | POP-supplied Saturday gallery set — keyboard / live performance | Saturday Stage action (peach facade stays on the venue) |
 | `venues/macorix-house-of-rum.jpg` | [PuertoPlataDR](https://puertoplatadr.com/tours/macorix-house-of-rum/) — `A86A5227` Ron Macorix entrance exterior | Branded venue facade |
 | `ingest-make-authentic-espadrilles-in-puerto-plata.jpg` | POP curated `espadrillas.jpeg` — workshop bench with colorful handmade espadrilles | Espadrille workshop hero |
 | `venues/handmade-the-brand.jpeg` | POP curated `handmadebrand.jpeg` — Handmade the Brand shop / workshop | Venue place photo |

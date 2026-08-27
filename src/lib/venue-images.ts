@@ -38,8 +38,10 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "anfiteatro-la-puntilla": "anfiteatro-la-puntilla-stage.jpg",
   "cowork-cabarete": "cowork-cabarete.jpg",
   "ocean-world": "ocean-world-park.jpg",
-  "sea-horse-ranch": "sea-horse-ranch.jpg",
-  "senor-rock-playa-dorada": "senor-rock-playa-dorada.jpg",
+  // Filename bump — Tennis Club patio (Saturday Market flyer stays off the venue).
+  "sea-horse-ranch": "sea-horse-ranch-tennis-club.jpg",
+  // Filename bump — night entrance (Cadillac bar stays on the live listing).
+  "senor-rock-playa-dorada": "senor-rock-playa-dorada-entrance.jpg",
   "cremo-cigar-bar": "cremo-cigar-bar.jpg",
   "big-lees-beach-bar": "big-lees-beach-bar.jpg",
   // Filename bump — Maps tiki bar (not the Saturday sancocho flyer).

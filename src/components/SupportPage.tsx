@@ -26,18 +26,18 @@ export function SupportPage({ locale, copy, available }: SupportPageProps) {
 
         <section className="relative mt-3 overflow-hidden rounded-[1.75rem]">
           <Image
-            src="/cities/north-coast.jpg"
-            alt=""
+            src="/support/donate-hero.jpg"
+            alt="Friends gathering at a North Coast malecón kiosk at sunset"
             fill
             priority
             sizes="100vw"
-            className="object-cover object-center"
+            className="object-cover object-[center_42%]"
           />
           <div
-            className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/55 to-neutral-950/20"
+            className="absolute inset-0 bg-gradient-to-t from-neutral-950/90 via-orange-950/30 to-transparent"
             aria-hidden
           />
-          <div className="relative flex min-h-[16rem] flex-col justify-end p-5 sm:min-h-[18rem] sm:p-7">
+          <div className="relative flex min-h-[18rem] flex-col justify-end p-5 sm:min-h-[22rem] sm:p-7">
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-orange-200/90">
               {copy.eyebrow}
             </p>

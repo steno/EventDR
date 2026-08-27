@@ -174,10 +174,11 @@ const VENUE_SOURCES = [
     eventId: "paella-pop-green-one",
     url: "https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=1800&q=85",
   },
-  {
-    eventId: "casa-de-la-cultura-exhibitions",
-    url: "https://i0.wp.com/depuertoplata.com/wp-content/uploads/2019/06/cropped-casa-cultura-pp-nytybbf7w8mauyhgzol9b097kuvnl4akq67unt4srw.jpg?fit=1200%2C675&ssl=1",
-  },
+  // casa-de-la-cultura-gallery-opening.jpg — POP-supplied exhibition opening.
+  // casa-de-la-cultura-saturday-keyboard.jpg — POP-supplied keyboard set in the gallery.
+  // Venue is the peach facade. Do not remote-refresh the depuertoplata building crop.
+  // senor-rock-cadillac-bar.jpg / senor-rock-playa-dorada-entrance.jpg — POP-supplied.
+  // Do not remote-refresh the Maps stage still over them.
   // voyvoy-monday-night-terrace.jpg — Maps visitor photo of Voy Voy's
   // beach terrace at night. Do not remote-refresh the TripAdvisor interior
   // that was cloned onto Ocean One.
@@ -392,11 +393,9 @@ console.log(
 // Local venue branding / action already in popevent-images.
 const localSources = [
   { src: "elcareytv.png", eventId: "el-carey-weekend-nightlife" },
-  // Tropical outdoor market action — replaces Sea Horse flyer graphic.
-  {
-    src: "CabareteFarmersMarket.JPG",
-    eventId: "sea-horse-saturday-market",
-  },
+  // Tropical outdoor market action — POP-supplied Sea Horse lawn tents.
+  // Venue place shot is the Tennis Club patio (sea-horse-ranch-tennis-club.jpg) — do not overwrite.
+  // Do not remote-refresh CabareteFarmersMarket.JPG over the lawn tents.
   // Cabarete kite beach action — replaces Cabarete Classic logo mark.
   {
     src: "CabareteKiteFest.JPG",

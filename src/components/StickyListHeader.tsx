@@ -39,7 +39,8 @@ type StickyListHeaderProps = {
   flushBottom?: boolean;
   /**
    * - default: list pages — home + slim back + theme/lang on mobile; logo/weather on `lg+`
-   * - compact: list pages without brand — same chrome at every breakpoint (category)
+   * - compact: list pages without brand — same chrome at every breakpoint
+   *   (events, when, city, category, browse)
    * - detail: event/venue — always slim (home + back, no logo/weather)
    *
    * Height is published via ResizeObserver into `--sticky-list-header-height`

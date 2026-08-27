@@ -22,13 +22,13 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "finish-line-live-wednesday": "finish-line-live-wednesday.jpg",
   "sosua-beach-live-weekends": "sosua-beach-live-bay.jpg",
   "cheers-weekly-live": "cheers-weekly-live.jpg",
-  // Filename bump — live stage (not the shared dining-room still).
-  "senor-rock-live-nightly": "senor-rock-live-stage.jpg",
+  // Filename bump — live bar with hanging Cadillac (entrance stays on the venue).
+  "senor-rock-live-nightly": "senor-rock-cadillac-bar.jpg",
   "cremo-salsa-friday": "cremo-salsa-friday.jpg",
   "cremo-bohemian-wednesday": "cremo-bohemian-wednesday.jpg",
   "cremo-karaoke-saturday": "cremo-karaoke-saturday.jpg",
   "big-lees-weekend-music": "big-lees-weekend-music.jpg",
-  "sea-horse-saturday-market": "sea-horse-saturday-market.jpg",
+  "sea-horse-saturday-market": "sea-horse-saturday-market-tents.jpg",
   "community-pickleball-cabarete": "community-pickleball-cabarete.jpg",
   "ingest-make-authentic-espadrilles-in-puerto-plata":
     "ingest-make-authentic-espadrilles-in-puerto-plata.jpg",
@@ -114,7 +114,9 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "gregorio-luperon-museum": "gregorio-luperon-museum.jpg",
   // Filename bump — barrel cellar tour (Ron Macorix entrance stays on the venue).
   "macorix-house-of-rum": "macorix-house-of-rum-cellar.jpg",
-  "casa-de-la-cultura-exhibitions": "casa-de-la-cultura-exhibitions.jpg",
+  // Filename bump — gallery opening (peach facade stays on the venue).
+  "casa-de-la-cultura-exhibitions": "casa-de-la-cultura-gallery-opening.jpg",
+  "casa-de-la-cultura-saturday-stage": "casa-de-la-cultura-saturday-keyboard.jpg",
   "paella-pop-el-pueblito": "paella-pop-el-pueblito.jpg",
   "paella-pop-green-one": "paella-pop-green-one.jpg",
   "lil-naay-2026-07-17": "lil-naay-2026-07-17.jpg",

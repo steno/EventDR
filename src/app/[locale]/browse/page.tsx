@@ -51,6 +51,7 @@ export default async function Page({
           dict={dict}
           backHref={`/${locale}`}
           backLabel={backLabel}
+          variant="compact"
         />
 
         <div className="mb-4">

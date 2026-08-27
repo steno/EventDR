@@ -414,7 +414,7 @@ export function EventScopePage({
             backHref={backHref}
             backLabel={backLabel}
             flushBottom={Boolean(scopeHeroImage)}
-            variant={activeCategoryId ? "compact" : "default"}
+            variant="compact"
           />
 
           {scopeHeroImage ? (
