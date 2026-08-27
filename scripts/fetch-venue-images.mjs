@@ -260,13 +260,18 @@ const VENUE_SOURCES = [
     eventId: "iberostar-costa-dorada-day-pass",
     url: "https://static.hoteltreats.com/site/styles/hero/s3/2024-07/dor_pool_0051_low.jpg?h=f692311e&itok=wX2x9pYg",
   },
+  // gran-ventana-day-pass.jpg — official Gran Ventana pool (CMS pool-gran-ventana).
+  // Venue keeps gran-ventana-beach-resort.jpg (beach loungers). Do not remote-refresh.
+  // cofresi-palm-day-pass.jpg — official Cofresí Palm balcony/pool slide.
+  // Venue is cofresi-palm-beach-spa.jpg (official aerial). Do not remote-refresh.
   {
     eventId: "ocean-world-daily",
     url: "https://www.shop.oceanworld.net/wp-content/uploads/2017/03/dolphin-encounter-local.jpeg",
   },
   // ocean-world-park.jpg — Wikimedia visitor photo of the Cofresí park building.
   // terraza-ocean-world-evenings inherits the venue place shot.
-  // playa-cofresi-shore.jpg — Wikimedia Cofresí shoreline (committed).
+  // playa-cofresi-beach.jpg — Maps daytime public shore + Ocean World sign.
+  // Event is cofresi-beach-sunset-walk.jpg (Maps sunset on this bay). Do not remote-refresh.
   // laguna-sov-kids-park.jpg — Google Maps Laguna SOV kids water-park photo (committed).
   // santa-fe-sov-pools.jpg — Google Maps Santa Fe Recreational Complex pool/waterfall (committed).
   // restaurant-maria-sov-terrace.jpg — Google Maps Restaurant Maria ocean terrace (committed).

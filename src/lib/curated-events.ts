@@ -316,6 +316,17 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     ticketUrl:
       "https://local-experiences.iberostar.com/en/dominican-republic/puerto-plata/puerto-plata/iberostar-waves-costa-dorada/all-inclusive-day-pass",
   },
+  "gran-ventana-day-pass": {
+    isFree: false,
+    phone: "+18093202111",
+    ticketUrl: "https://www.granventanahotel.com/es/paquetes/day-pass/",
+  },
+  "cofresi-palm-day-pass": {
+    isFree: false,
+    phone: "+18099707777",
+    ticketUrl:
+      "https://www.resortpass.com/hotels/cofresi-palm-beach-spa-resort",
+  },
   "crazy-lobster-beach-dining": {
     isFree: true,
     phone: "+18097496917",

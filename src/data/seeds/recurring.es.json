@@ -1687,6 +1687,52 @@
     "imageEmoji": "🏖️"
   },
   {
+    "id": "gran-ventana-day-pass",
+    "title": "Day Pass Gran Ventana Beach Resort",
+    "description": "Day pass todo incluido en Gran Ventana Beach Resort, Playa Dorada — almuerzo buffet en Mercado Las Almejas (12:30–3:00 PM), snacks en Ocean Grill (12:00–5:00 PM), bebidas nacionales en cinco bares, tres piscinas (familiar, solo adultos, infantil), camastros y toallas, animación de día, gimnasio y club infantil (4–12 años). Desde US$62. Reserva en la página oficial del day pass. El Vintage Club es solo para huéspedes. Complejo Hotelero Playa Dorada.",
+    "date": "2026-01-01",
+    "time": "12:00 PM – 5:00 PM",
+    "location": "Playa Dorada",
+    "venue": "Gran Ventana Beach Resort",
+    "venueSlug": "gran-ventana-beach-resort",
+    "address": "Complejo Hotelero Playa Dorada s/n, Puerto Plata 57000",
+    "lat": 19.7723664,
+    "lng": -70.6402715,
+    "category": "adventure",
+    "categories": [
+      "food-drinks"
+    ],
+    "format": "physical",
+    "recurrence": "daily",
+    "phone": "+18093202111",
+    "ticketUrl": "https://www.granventanahotel.com/es/paquetes/day-pass/",
+    "sourceUrl": "https://www.granventanahotel.com/es/paquetes/day-pass/",
+    "imageEmoji": "🏖️"
+  },
+  {
+    "id": "cofresi-palm-day-pass",
+    "title": "Day Pass Cofresí Palm Beach & Spa",
+    "description": "Day pass de día todo incluido en Cofresí Palm Beach & Spa Resort — piscinas, bares swim-up, playa Cofresí, y comida y bebida ilimitadas (almuerzo en Casablanca y The Pearl). Acceso de day guest 10:30 AM–5:30 PM. Desde US$106 en ResortPass. No incluye ICE Nightclub ni shows del Colosseum. 1 Paradise Drive, Playa Cofresí.",
+    "date": "2026-01-01",
+    "time": "10:30 AM – 5:30 PM",
+    "location": "Puerto Plata",
+    "venue": "Cofresí Palm Beach & Spa Resort",
+    "venueSlug": "cofresi-palm-beach-spa",
+    "address": "1 Paradise Drive, Playa Cofresí, Puerto Plata 57000",
+    "lat": 19.8187231,
+    "lng": -70.7303509,
+    "category": "adventure",
+    "categories": [
+      "food-drinks"
+    ],
+    "format": "physical",
+    "recurrence": "daily",
+    "phone": "+18099707777",
+    "ticketUrl": "https://www.resortpass.com/hotels/cofresi-palm-beach-spa-resort",
+    "sourceUrl": "https://www.resortpass.com/hotels/cofresi-palm-beach-spa-resort",
+    "imageEmoji": "🏖️"
+  },
+  {
     "id": "cofresi-beach-sunset-walk",
     "title": "Paseo al atardecer en Playa Cofresí",
     "description": "Paseo familiar de atardecer en Playa Cofresí, al oeste de Puerto Plata — puesta de sol sobre la bahía, puestos de snack en la arena y caminata fácil junto a la marina de Ocean World. Sin boleto; lleva efectivo para meriendas.",

@@ -1014,6 +1014,46 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: "2026-08-24T21:00:00.000Z",
   },
   {
+    eventId: "gran-ventana-day-pass",
+    seriesKey: "gran-ventana-beach-resort:daily",
+    body: "Buy the Playa Dorada VH pass — lunch, pools, and snacks, not a walk-in, and Vintage Club is hotel guests only.",
+    localized: {
+      es: "Compra el pase VH de Playa Dorada — almuerzo, piscinas y snacks, no es entrar sin reserva, y el Vintage Club es solo para huéspedes.",
+      fr: "Achetez le pass VH de Playa Dorada — déjeuner, piscines et snacks, pas une entrée libre, et le Vintage Club est réservé aux clients de l'hôtel.",
+    },
+    priceFeel: "upscale",
+    priceNote:
+      "From US$62 on the official Gran Ventana day-pass page; lunch 12:30–3:00 PM, snacks until 5:00 PM. Confirm taxes at booking.",
+    priceNoteLocalized: {
+      es: "Desde US$62 en la página oficial del day pass Gran Ventana; almuerzo 12:30–3:00 PM, snacks hasta las 5:00 PM. Confirma impuestos al reservar.",
+      fr: "À partir de 62 $ US sur la page officielle du day pass Gran Ventana ; déjeuner 12 h 30–15 h, snacks jusqu'à 17 h. Confirmez les taxes à la réservation.",
+    },
+    attribution: "POP research · Gran Ventana official day pass",
+    researchNotes:
+      "Official package: US$62, lunch Las Almejas 12:30–15:00, Ocean Grill snacks 12:00–17:00, five bars, three pools, beach loungers. Phone +1 809 320 2111. Vintage Club hotel-guest only.",
+    updatedAt: "2026-08-27T05:00:00.000Z",
+  },
+  {
+    eventId: "cofresi-palm-day-pass",
+    seriesKey: "cofresi-palm-beach-spa:daily",
+    body: "Buy the Lifestyle Cofresí daytime pass for pools and lunch — not ICE, not the Colosseum, and not Ocean World next door.",
+    localized: {
+      es: "Compra el pase de día Lifestyle Cofresí por piscinas y almuerzo — no es ICE, ni el Colosseum, ni Ocean World al lado.",
+      fr: "Achetez le pass de jour Lifestyle Cofresí pour piscines et déjeuner — pas ICE, pas le Colosseum, et pas Ocean World à côté.",
+    },
+    priceFeel: "upscale",
+    priceNote:
+      "From US$106 on ResortPass; day guest access 10:30 AM–5:30 PM. Wristband nightlife is not included.",
+    priceNoteLocalized: {
+      es: "Desde US$106 en ResortPass; acceso day guest 10:30 AM–5:30 PM. El nightlife con pulsera no está incluido.",
+      fr: "À partir de 106 $ US sur ResortPass ; accès day guest 10 h 30–17 h 30. Le nightlife avec bracelet n'est pas inclus.",
+    },
+    attribution: "POP research · ResortPass Cofresí Palm day pass",
+    researchNotes:
+      "ResortPass all-inclusive day pass 10:30–17:30 from US$106. OSM 19.8187231,-70.7303509. Phone +1 809 970 7777. Distinct from public Playa Cofresí and VIP Beach Lifestyles takeovers.",
+    updatedAt: "2026-08-27T05:00:00.000Z",
+  },
+  {
     eventId: "cofresi-beach-sunset-walk",
     seriesKey: "playa-cofresi:daily",
     body: "A free family sunset on the bay — snack cash only, and you are next to the marina, not on a remote wild beach.",

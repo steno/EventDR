@@ -19,6 +19,8 @@ const TICKET_HOSTS = [
   "getyourguide.com",
   "boletu.com",
   "local-experiences.iberostar.com",
+  "granventanahotel.com",
+  "resortpass.com",
 ];
 
 /** Curated ticket / booking URLs for seed events (verified on official sites). */
@@ -84,6 +86,10 @@ export const CURATED_TICKET_URLS: Record<string, string> = {
     "https://www.sightseeing.com/packages/outback-safari-adventure-tour-from-puerto-plata/",
   "iberostar-costa-dorada-day-pass":
     "https://local-experiences.iberostar.com/en/dominican-republic/puerto-plata/puerto-plata/iberostar-waves-costa-dorada/all-inclusive-day-pass",
+  "gran-ventana-day-pass":
+    "https://www.granventanahotel.com/es/paquetes/day-pass/",
+  "cofresi-palm-day-pass":
+    "https://www.resortpass.com/hotels/cofresi-palm-beach-spa-resort",
 };
 
 /**

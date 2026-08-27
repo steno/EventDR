@@ -41,6 +41,9 @@ const FILE_TO_EVENT_ID = {
   "la-casita-papi-sand-dining.jpg": "la-casita-papi-sand-dining",
   "el-cocotazo-cafe-beach-dining.jpg": "el-cocotazo-cafe-beach-dining",
   "iberostar-costa-dorada-day-pass.jpg": "iberostar-costa-dorada-day-pass",
+  "gran-ventana-day-pass.jpg": "gran-ventana-day-pass",
+  "cofresi-palm-day-pass.jpg": "cofresi-palm-day-pass",
+  "cofresi-beach-sunset-walk.jpg": "cofresi-beach-sunset-walk",
   "crazy-lobster-shrimp.jpg": "crazy-lobster-shrimp",
   "don-limon.jpeg": "don-limon-beach-dining",
   "los-tres-cocos-coconut-shrimp.jpg": "los-tres-cocos-coconut-shrimp",
@@ -226,6 +229,7 @@ const FILE_TO_VENUE_SLUG = {
   "el-cocotazo-cafe-deck.jpg": "el-cocotazo-cafe-deck",
   // Place shot of the main pool; day-pass listing uses the swim-up bar instead.
   "iberostar-waves-costa-dorada.jpg": "iberostar-waves-costa-dorada",
+  "cofresi-palm-beach-spa.jpg": "cofresi-palm-beach-spa",
   "crazy-lobster-maimon.jpg": "crazy-lobster-maimon",
   "don-limon-venue.jpeg": "don-limon-cofresi",
   "los-tres-cocos-dinner.jpg": "los-tres-cocos-cofresi",
@@ -295,7 +299,7 @@ const FILE_TO_VENUE_SLUG = {
   // Filename bumps after replacing flyer / logo / park-aerial stand-ins.
   "meclao-rooftop-lounge.jpg": "meclao-rooftop-lounge",
   "kviar-costa-dorada-floor.jpg": "kviar-costa-dorada-floor",
-  "playa-cofresi-shore.jpg": "playa-cofresi-shore",
+  "playa-cofresi-beach.jpg": "playa-cofresi-beach",
   "laguna-sov-kids-park.jpg": "laguna-sov-kids-park",
   "santa-fe-sov-pools.jpg": "santa-fe-sov-pools",
   "restaurant-maria-sov-terrace.jpg": "restaurant-maria-sov-terrace",

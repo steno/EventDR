@@ -1035,7 +1035,7 @@ export const SEED_VENUES: Venue[] = [
     name: "Gran Ventana Beach Resort",
     city: "Playa Dorada",
     description:
-      "All-inclusive beachfront resort inside Playa Dorada — pools, restaurants, and meeting space for North Coast conferences and group stays.",
+      "All-inclusive beachfront resort inside Playa Dorada — pools, restaurants, meeting space, and a bookable day pass. VH Hotels.",
     lat: 19.7723664,
     lng: -70.6402715,
     emoji: "🏨",
@@ -1079,6 +1079,18 @@ export const SEED_VENUES: Venue[] = [
     website:
       "https://www.iberostar.com/en/hotels/puerto-plata/iberostar-waves-costa-dorada/",
     phone: "+18093201000",
+  },
+  {
+    slug: "cofresi-palm-beach-spa",
+    name: "Cofresí Palm Beach & Spa Resort",
+    city: "Puerto Plata",
+    description:
+      "Lifestyle Holidays all-inclusive on Cofresí Beach — pools, beach, and a bookable daytime day pass. ICE and Colosseum shows stay behind the guest wristband.",
+    lat: 19.8187231,
+    lng: -70.7303509,
+    emoji: "🏨",
+    website: "https://www.cofresipalmbeachresort.com/",
+    phone: "+18099707777",
   },
   {
     slug: "playa-cofresi",
@@ -1380,6 +1392,11 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
   {
     pattern: /gran\s*ventana(\s*beach)?(\s*resort)?|hotel\s*gran\s*ventana/i,
     slug: "gran-ventana-beach-resort",
+  },
+  {
+    pattern:
+      /cofre[sś][ií]\s*palm(\s*beach)?(\s*(&|and)?\s*spa)?(\s*resort)?/i,
+    slug: "cofresi-palm-beach-spa",
   },
   {
     pattern: /mecla['’]?o\s*rooftop|meclao\s*rooftop/i,

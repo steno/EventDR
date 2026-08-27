@@ -144,6 +144,8 @@ export const VENUE_AUDIENCE_POOLS: Record<
     "crazy-lobster-maimon",
     "kviar-costa-dorada",
     "iberostar-waves-costa-dorada",
+    "gran-ventana-beach-resort",
+    "cofresi-palm-beach-spa",
     "meclao-rooftop",
     "laguna-sov",
     "santa-fe-sov",

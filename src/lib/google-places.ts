@@ -107,6 +107,21 @@ const PLACE_SEARCH_ALIASES: Record<string, string[]> = {
     "Iberostar Costa Dorada Puerto Plata",
     "Iberostar Costa Dorada",
   ],
+  "gran-ventana-beach-resort": [
+    "Gran Ventana Beach Resort",
+    "Gran Ventana Playa Dorada",
+    "Hotel Gran Ventana Puerto Plata",
+  ],
+  "cofresi-palm-beach-spa": [
+    "Cofresi Palm Beach Spa Resort",
+    "Cofresí Palm Beach Puerto Plata",
+    "Cofresi Palm Lifestyle Holidays",
+  ],
+  "playa-cofresi": [
+    "Playa Cofresí Puerto Plata",
+    "Cofresí Beach Puerto Plata",
+    "Playa cofresi publica Puerto Plata",
+  ],
   "estadio-leonel-placido": [
     "Estadio Leonel Plácido Puerto Plata",
     "Polideportivo Puerto Plata Hugo Kunhardt",

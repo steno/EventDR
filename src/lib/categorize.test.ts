@@ -221,12 +221,18 @@ describe("adventure tours do not inherit Food & Drinks from amenities", () => {
   });
 
   it("keeps an explicit food-drinks tag on an adventure day pass", () => {
-    const event = getFallbackEventById("iberostar-costa-dorada-day-pass", "en");
-    assert.ok(event);
-    assert.equal(event.category, "adventure");
-    const resolved = withResolvedCategories(event);
-    assert.equal(eventInCategory(resolved, "adventure"), true);
-    assert.equal(eventInCategory(resolved, "food-drinks"), true);
+    for (const id of [
+      "iberostar-costa-dorada-day-pass",
+      "gran-ventana-day-pass",
+      "cofresi-palm-day-pass",
+    ] as const) {
+      const event = getFallbackEventById(id, "en");
+      assert.ok(event, id);
+      assert.equal(event.category, "adventure", id);
+      const resolved = withResolvedCategories(event);
+      assert.equal(eventInCategory(resolved, "adventure"), true, id);
+      assert.equal(eventInCategory(resolved, "food-drinks"), true, id);
+    }
   });
 
   it("keeps Freestyle Catamaran and Río Soñador off food-drinks", () => {

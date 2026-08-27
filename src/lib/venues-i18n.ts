@@ -505,8 +505,8 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
   },
   "gran-ventana-beach-resort": {
     description: {
-      es: "Resort todo incluido frente al mar en Playa Dorada — piscinas, restaurantes y salones para congresos y estancias grupales en la Costa Norte.",
-      fr: "Resort tout compris en bord de mer à Playa Dorada — piscines, restaurants et salles pour congrès et séjours de groupe sur la Côte Nord.",
+      es: "Resort todo incluido frente al mar en Playa Dorada — piscinas, restaurantes, salones y day pass reservable. VH Hotels.",
+      fr: "Resort tout compris en bord de mer à Playa Dorada — piscines, restaurants, salles et day pass réservable. VH Hotels.",
     },
   },
   "ocean-one-cabarete": {
@@ -561,6 +561,12 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
     description: {
       es: "Resort todo incluido en Costa Dorada, junto a Kviar / Be Live Marien — tres piscinas, playa premiada y day pass reservable. Hotel cerrado del 30 ago al 26 oct 2026 por reforma.",
       fr: "Resort tout compris à Costa Dorada, à côté de Kviar / Be Live Marien — trois piscines, plage primée et day pass réservable. Hôtel fermé du 30 août au 26 oct. 2026 pour rénovation.",
+    },
+  },
+  "cofresi-palm-beach-spa": {
+    description: {
+      es: "Todo incluido de Lifestyle Holidays en Playa Cofresí — piscinas, playa y day pass de día reservable. ICE y el Colosseum quedan detrás de la pulsera de huésped.",
+      fr: "Tout compris Lifestyle Holidays sur Playa Cofresí — piscines, plage et day pass de jour réservable. ICE et le Colosseum restent derrière le bracelet d'hôte.",
     },
   },
   "playa-cofresi": {

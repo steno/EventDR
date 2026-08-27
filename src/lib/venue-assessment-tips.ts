@@ -633,6 +633,22 @@ export const VENUE_TIP_COPY: Record<
       fr: "La journée resort tout compris de Costa Dorada à côté de Kviar — réservez le pass, n'entrez pas sans ; piscines 9 h–18 h. Fermé du 30 août au 26 oct. 2026 pour rénovation.",
     },
   },
+  "gran-ventana-beach-resort": {
+    body: "Playa Dorada's VH all-inclusive day — book the US$62 pass, don't walk in; lunch 12:30–3, snacks to 5. Vintage Club is hotel guests only.",
+    localized: {
+      en: "Playa Dorada's VH all-inclusive day — book the US$62 pass, don't walk in; lunch 12:30–3, snacks to 5. Vintage Club is hotel guests only.",
+      es: "El día todo incluido VH de Playa Dorada — reserva el pase de US$62, no entres sin él; almuerzo 12:30–3, snacks hasta las 5. El Vintage Club es solo para huéspedes.",
+      fr: "La journée tout compris VH de Playa Dorada — réservez le pass 62 $ US, n'entrez pas sans ; déjeuner 12 h 30–15 h, snacks jusqu'à 17 h. Le Vintage Club est réservé aux clients de l'hôtel.",
+    },
+  },
+  "cofresi-palm-beach-spa": {
+    body: "Lifestyle Cofresí's daytime pass — pools and lunch on ResortPass, not ICE or the Colosseum, and not Ocean World next door.",
+    localized: {
+      en: "Lifestyle Cofresí's daytime pass — pools and lunch on ResortPass, not ICE or the Colosseum, and not Ocean World next door.",
+      es: "El pase de día Lifestyle Cofresí — piscinas y almuerzo en ResortPass, no ICE ni el Colosseum, ni Ocean World al lado.",
+      fr: "Le pass de jour Lifestyle Cofresí — piscines et déjeuner sur ResortPass, pas ICE ni le Colosseum, et pas Ocean World à côté.",
+    },
+  },
   "playa-cofresi": {
     body: "The easy family sunset west of town — snack shacks and a marina backdrop, not a kite-session beach and not the dolphin-park ticket.",
     localized: {

@@ -109,11 +109,12 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   // Filename bump — Maps palapa dining hall (not El Blachy’s patio still).
   "cacique-moncion": "cacique-moncion-palapa.jpg",
   "gran-ventana-beach-resort": "gran-ventana-beach-resort.jpg",
+  "cofresi-palm-beach-spa": "cofresi-palm-beach-spa.jpg",
   // Filename bumps after replacing flyer / logo / park-aerial stand-ins.
   "meclao-rooftop": "meclao-rooftop-lounge.jpg",
   "kviar-costa-dorada": "kviar-costa-dorada-floor.jpg",
   "iberostar-waves-costa-dorada": "iberostar-waves-costa-dorada.jpg",
-  "playa-cofresi": "playa-cofresi-shore.jpg",
+  "playa-cofresi": "playa-cofresi-beach.jpg",
   "don-limon-cofresi": "don-limon-cofresi.jpeg",
   "los-tres-cocos-cofresi": "los-tres-cocos-cofresi.jpg",
   "crazy-lobster-maimon": "crazy-lobster-maimon.jpg",
