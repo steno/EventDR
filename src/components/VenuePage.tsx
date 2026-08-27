@@ -277,7 +277,11 @@ export function VenuePage({
                     forceReveal
                     streetViewOpen={areaViewOpen}
                     onStreetViewChange={setAreaViewOpen}
-                    overlayStreetView={plannerOpen}
+                    overlayStreetView={false}
+                    onDismiss={
+                      plannerOpen ? () => setPlannerOpen(false) : undefined
+                    }
+                    dismissTitle={dict.venues.getDirections}
                     className="h-full"
                   />
                 </div>

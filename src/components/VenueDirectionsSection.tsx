@@ -9,7 +9,7 @@ import {
   useState,
 } from "react";
 import dynamic from "next/dynamic";
-import { LocateFixed, MapPin, Navigation } from "lucide-react";
+import { LocateFixed, MapPin, Navigation, X } from "lucide-react";
 import type { Venue } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { EventCoords } from "@/lib/event-coords";
@@ -205,6 +205,9 @@ interface VenueMapPanelProps {
   streetViewOpen?: boolean;
   /** Overlay “See the area” on the map (hide when a sibling button already exists). */
   overlayStreetView?: boolean;
+  /** Exit expanded map / directions (same chrome as Street View). */
+  onDismiss?: () => void;
+  dismissTitle?: string;
   attention?: boolean;
   onAttentionEnd?: () => void;
 }
@@ -219,7 +222,9 @@ export function VenueMapPanel({
   onReveal,
   onStreetViewChange,
   streetViewOpen: streetViewOpenProp,
-  overlayStreetView = true,
+  overlayStreetView = false,
+  onDismiss,
+  dismissTitle,
   attention = false,
   onAttentionEnd,
 }: VenueMapPanelProps) {
@@ -295,6 +300,7 @@ export function VenueMapPanel({
   }, [setStreetViewOpen]);
 
   const expanded = mapOpen || streetViewOpen;
+  const showDismissChrome = Boolean(onDismiss) && mapOpen && !streetViewOpen;
   const streetViewControl =
     streetViewMode !== "hidden" && !streetViewOpen ? (
       <button
@@ -308,37 +314,54 @@ export function VenueMapPanel({
 
   return (
     <div
-      className={`event-inline-map relative overflow-hidden ${className} ${
+      className={`event-inline-map relative flex flex-col overflow-hidden ${className} ${
         expanded
           ? "bg-neutral-200 dark:bg-neutral-800"
           : "bg-white dark:bg-neutral-900"
       }`}
     >
-      <MapReveal
-        label={dict.venues.showMap}
-        secondary={streetViewControl}
-        forceReveal={expanded}
-        onReveal={onReveal}
-        attention={attention && !forceReveal && !streetViewOpen}
-        onAttentionEnd={onAttentionEnd}
-        className={expanded ? "h-full w-full" : "w-full"}
-      >
-        <div className="h-full w-full">
-          <EventInlineMap
-            coords={destination}
-            interactive
-            origin={origin}
-            route={route}
-          />
-        </div>
-      </MapReveal>
-      {mapOpen && overlayStreetView && streetViewControl ? (
-        <div className="absolute inset-x-0 bottom-0 z-[500] flex justify-center p-3 pointer-events-none">
-          <div className="pointer-events-auto w-full sm:w-auto">
-            {streetViewControl}
-          </div>
+      {showDismissChrome ? (
+        <div className="flex shrink-0 items-center justify-between gap-3 border-b border-neutral-100 bg-white px-3 py-2.5 dark:border-neutral-800 dark:bg-neutral-900">
+          <p className="min-w-0 truncate text-sm font-bold text-neutral-900 dark:text-neutral-100">
+            {dismissTitle ?? dict.venues.getDirections}
+          </p>
+          <button
+            type="button"
+            onClick={onDismiss}
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-neutral-100 dark:bg-neutral-800"
+            aria-label={dict.detail.close}
+          >
+            <X className="h-4 w-4" aria-hidden />
+          </button>
         </div>
       ) : null}
+      <div className="relative min-h-0 flex-1">
+        <MapReveal
+          label={dict.venues.showMap}
+          secondary={streetViewControl}
+          forceReveal={expanded}
+          onReveal={onReveal}
+          attention={attention && !forceReveal && !streetViewOpen}
+          onAttentionEnd={onAttentionEnd}
+          className={expanded ? "h-full w-full" : "w-full"}
+        >
+          <div className="h-full w-full">
+            <EventInlineMap
+              coords={destination}
+              interactive
+              origin={origin}
+              route={route}
+            />
+          </div>
+        </MapReveal>
+        {mapOpen && overlayStreetView && streetViewControl ? (
+          <div className="absolute inset-x-0 bottom-0 z-[500] flex justify-center p-3 pointer-events-none">
+            <div className="pointer-events-auto w-full sm:w-auto">
+              {streetViewControl}
+            </div>
+          </div>
+        ) : null}
+      </div>
       {streetViewMode !== "hidden" ? (
         <StreetViewModal
           open={streetViewOpen}
