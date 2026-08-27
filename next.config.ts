@@ -37,7 +37,8 @@ const nextConfig: NextConfig = {
     cpus: 1,
   },
   images: {
-    formats: ["image/avif", "image/webp"],
+    // WebP only — AVIF encoding of unique venue heroes OOM-kills Netlify SSG.
+    formats: ["image/webp"],
     deviceSizes: [384, 640, 750, 828, 1080, 1200, 1920],
     imageSizes: [64, 96, 128, 256, 384],
     qualities: [65, 75],
