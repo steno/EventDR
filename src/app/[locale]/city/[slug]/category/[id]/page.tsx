@@ -5,12 +5,13 @@ import { JsonLd } from "@/components/JsonLd";
 import { CATEGORY_IDS, getCategoryMeta } from "@/lib/categories";
 import { getCityCategorySeo } from "@/lib/city-category-seo";
 import {
+  CITY_SLUGS,
   getCityMeta,
   getCityName,
   isCitySlug,
 } from "@/lib/cities";
 import { categoryNavLinks } from "@/lib/event-navigation";
-import { isValidLocale } from "@/i18n/config";
+import { isValidLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getPublicEvents } from "@/lib/public-events";
 import {
@@ -27,10 +28,11 @@ import type { EventCategory } from "@/lib/types";
 export const revalidate = 120;
 
 export async function generateStaticParams() {
-  // On-demand ISR — the city × category × locale cartesian (~100 pages)
-  // plus unique venue heroes OOMs Netlify SSG. City and category indexes
-  // still prebuild.
-  return [];
+  return locales.flatMap((locale) =>
+    CITY_SLUGS.flatMap((slug) =>
+      CATEGORY_IDS.map((id) => ({ locale, slug, id })),
+    ),
+  );
 }
 
 export async function generateMetadata({
