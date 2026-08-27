@@ -271,10 +271,10 @@ export function StreetViewModal({
         <button
           type="button"
           onClick={onClose}
-          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-neutral-100 dark:bg-neutral-800"
+          className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-neutral-700 text-white shadow-sm ring-1 ring-black/10 dark:bg-neutral-200 dark:text-neutral-900 dark:ring-white/20"
           aria-label={dict.detail.close}
         >
-          <X className="h-4 w-4" aria-hidden />
+          <X className="h-4 w-4" strokeWidth={2.5} aria-hidden />
         </button>
       </div>
 
