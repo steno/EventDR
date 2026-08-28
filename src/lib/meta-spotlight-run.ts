@@ -78,13 +78,17 @@ export async function runTodaySpotlightStep(input: {
   wantFacebook: boolean;
   wantInstagram: boolean;
   force?: boolean;
+  featureEventId?: string;
   progress?: TodaySpotlightProgress;
 }): Promise<{ status: number; body: TodaySpotlightStepResult }> {
   const lock = await readTodaySpotlightLock();
   const exclusions = spotlightExclusions(lock, localDateISO(), {
     force: input.force,
   });
-  const built = await buildTodayMetaPost(input.locale, undefined, exclusions);
+  const built = await buildTodayMetaPost(input.locale, undefined, {
+    ...exclusions,
+    featureEventId: input.featureEventId,
+  });
   if (!built.ok) {
     return {
       status: 422,

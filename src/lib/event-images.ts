@@ -169,6 +169,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "victrola-ladies-night-friday": "victrola-ladies-night-friday.jpg",
   "cigar-town-acustico-humos-2026-08-14":
     "cigar-town-acustico-humos-2026-08-14.jpg",
+  "cigar-town-acustico-humos-2026-08-28": "cigar-town-acustico-humos.jpg",
   // Filename bump — terrace crowd (not the shared dining-room still).
   "chill-and-grill-bingo-2026-08-03": "chill-and-grill-bingo-terrace.jpg",
   "sunset-night-party-playa-encuentro-2026-07-25":

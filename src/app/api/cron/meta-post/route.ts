@@ -88,6 +88,7 @@ type PostBody = Partial<MetaPublishInput> &
     source?: "weekend" | "today";
     locale?: string;
     force?: boolean;
+    featureEventId?: string;
     step?: "next" | "all";
   };
 
@@ -114,7 +115,14 @@ export async function POST(request: NextRequest) {
         built = await buildTodayMetaPost(
           locale,
           undefined,
-          spotlightExclusions(await readTodaySpotlightLock(), localDateISO()),
+          {
+            ...spotlightExclusions(
+              await readTodaySpotlightLock(),
+              localDateISO(),
+              { force: body.force },
+            ),
+            featureEventId: body.featureEventId,
+          },
         );
       } catch (error) {
         console.error("buildTodayMetaPost failed", error);
@@ -150,6 +158,7 @@ export async function POST(request: NextRequest) {
         wantFacebook: body.facebook !== false,
         wantInstagram: body.instagram !== false,
         force: body.force,
+        featureEventId: body.featureEventId,
         progress: {
           facebookId: body.facebookId,
           instagramId: body.instagramId,

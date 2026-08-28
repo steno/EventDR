@@ -172,6 +172,7 @@ Curated images under `public/events/` and `public/venues/`.
 | `flip-flop-wing-wednesday.jpg` | [Flip Flop Sports Bar](https://flipflop360.com/) official gallery — baskets of garlic-parm and glazed wings with fries and Presidente | Wing Wednesday action (not the yellow-steps place shot) |
 | `flip-flop-taco-tuesday.jpg` | [Flip Flop Sports Bar](https://flipflop360.com/) official gallery — taco bowl with Valentina and drink menu | Taco Tuesday action |
 | `flip-flop-monday-happy-hour.jpg` | [Flip Flop Sports Bar](https://flipflop360.com/) official gallery — Presidente/Corona lineup on the bar | Monday happy-hour drinks |
+| `cigar-town-acustico-humos.jpg` | POP-supplied Cigar Town Sessions flyer (Acústico & Humos — Eddy Almonte & Café Meclao; no date on art) | Series flyer for the Aug 28 night; dateless so it can reuse for later sessions |
 | `ingest-nacho-estrella-nd-eventos.jpg` | [TodoTickets — Nacho Estrella @ ND Eventos](https://todotickets.do/events/nacho-estrella-nd-eventos) official event cover | Billed Cacique Monción concert art (no longer clones El Blachy’s patio shot) |
 | `venues/pingui-bar-tiki.jpg` | Google Maps visitor photo — Pingüi Bar tiki counter at Playa El Pueblito | Venue place shot (Saturday sancocho keeps the flyer) |
 | `venues/cacique-moncion-palapa.jpg` | Google Maps visitor photo — Disco Restaurant Cacique palapa dining hall | Venue place shot (El Blachy keeps the patio still) |

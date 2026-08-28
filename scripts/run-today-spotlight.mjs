@@ -11,6 +11,7 @@
  *   INSTAGRAM_ONLY=true   Skip Facebook
  *   FACEBOOK_ONLY=true    Skip Instagram
  *   FORCE=true            Ignore today's lock and start over
+ *   FEATURE_EVENT_ID=...  Pin this event first (cover image)
  */
 
 const SITE_URL = (process.env.SITE_URL || "https://pop-event.com").replace(
@@ -22,6 +23,7 @@ const DRY_RUN = process.env.DRY_RUN === "true";
 const INSTAGRAM_ONLY = process.env.INSTAGRAM_ONLY === "true";
 const FACEBOOK_ONLY = process.env.FACEBOOK_ONLY === "true";
 const FORCE = process.env.FORCE === "true";
+const FEATURE_EVENT_ID = process.env.FEATURE_EVENT_ID?.trim() || "";
 const MAX_STEPS = 30;
 const WAIT_MS = 4_000;
 
@@ -153,6 +155,7 @@ async function main() {
     locale: "en",
     dryRun: DRY_RUN,
     force: FORCE || undefined,
+    featureEventId: FEATURE_EVENT_ID || undefined,
     facebook: INSTAGRAM_ONLY ? false : undefined,
     instagram: FACEBOOK_ONLY ? false : undefined,
   };

@@ -986,6 +986,31 @@
     "imageEmoji": "🎸"
   },
   {
+    "id": "cigar-town-acustico-humos-2026-08-28",
+    "title": "Cigar Town Sessions — Acústico & Humos · 28 août",
+    "description": "Soirée acoustique live à Cigar Town Pop, Puerto Plata — Eddy Almonte et Café Meclao pour Cigar Town Sessions : Acústico & Humos. Vendredi 28 août, Av. Luis Ginebra n° 56. Confirmez l'heure via Instagram @cigartownpop.",
+    "date": "2026-08-28",
+    "location": "Puerto Plata",
+    "venue": "Cigar Town Pop",
+    "venueSlug": "cigar-town-pop",
+    "address": "Avenida Luis Ginebra No. 56, Puerto Plata",
+    "lat": 19.7915,
+    "lng": -70.6805,
+    "category": "performances",
+    "categories": [
+      "music"
+    ],
+    "format": "physical",
+    "callForPricing": true,
+    "lineup": [
+      "Eddy Almonte",
+      "Café Meclao"
+    ],
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/cigartownpop/",
+    "imageEmoji": "🎸"
+  },
+  {
     "id": "congreso-damas-adn-2026",
     "title": "Congreso de Damas ADN 2026 — Mujer, Vive sin Temor",
     "description": "Congrès des femmes de l'Asociación Dominicana del Norte (ADN / Ministerio de la Mujer ADN) au Gran Ventana Beach Resort tout compris à Playa Dorada — du 2 au 4 octobre sous le thème « Mujer, Vive sin Temor / Bajo el manto de Su gracia ». Inscription RD$2,000 (places limitées) ; chambres de RD$13,200 à 16,900 par personne. Bureaux ADN : +1 809 582 6688 ; Directora MM Nancy Vera : +1 809 501 5074.",

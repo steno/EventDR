@@ -146,6 +146,48 @@ describe("pickTodaySpotlights", () => {
     );
   });
 
+  it("pins a featured today event first as the cover", () => {
+    const picked = pickTodaySpotlights(
+      [
+        event({
+          id: "once-a",
+          title: "Beach soccer",
+          date: "2026-08-20",
+          time: "9:00 AM",
+          location: "Sosúa",
+          category: "sports",
+          trending: true,
+        }),
+        event({
+          id: "cigar-town-acustico-humos-2026-08-28",
+          title: "Cigar Town Sessions",
+          date: "2026-08-20",
+          location: "Puerto Plata",
+          category: "performances",
+        }),
+        event({
+          id: "once-b",
+          title: "Gallery opening",
+          date: "2026-08-20",
+          time: "6:00 PM",
+          location: "Cabarete",
+          category: "culture",
+        }),
+      ],
+      3,
+      NOW,
+      { featureEventId: "cigar-town-acustico-humos-2026-08-28" },
+    );
+    assert.deepEqual(
+      picked.map((item) => item.id),
+      [
+        "cigar-town-acustico-humos-2026-08-28",
+        "once-a",
+        "once-b",
+      ],
+    );
+  });
+
   it("skips recently posted events and related venue/series keys", () => {
     const picked = pickTodaySpotlights(
       [

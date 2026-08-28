@@ -445,6 +445,23 @@ export const SEED_EVENT_OPINIONS_BASE: EventOpinion[] = [
     updatedAt: "2026-08-02T22:40:00.000Z",
   },
   {
+    eventId: "cigar-town-acustico-humos-2026-08-28",
+    body: "Intimate lounge night — confirm start time on IG; expect cigar/whisky spend more than a dance-club cover.",
+    localized: {
+      es: "Noche íntima de lounge — confirma la hora en IG; espera más gasto en cigarro/whisky que cover de disco.",
+      fr: "Soirée lounge intimiste — confirmez l'heure sur IG ; budget cigare/whisky plus que cover disco.",
+    },
+    priceFeel: "upscale",
+    priceNote: "Cigar lounge pricing — puros and whisky drive the check; start time not on the flyer",
+    priceNoteLocalized: {
+      es: "Precios de lounge de cigarros — puros y whisky marcan la cuenta; hora no está en el flyer",
+      fr: "Tarifs lounge à cigares — puros et whisky font l'addition ; heure absente du flyer",
+    },
+    attribution: "POP research · @cigartownpop",
+    researchNotes: "Official IG flyer: Fri Aug 28 Acústico & Humos with Eddy Almonte & Café Meclao, Luis Ginebra 56. Same session as Aug 14; start time still not on the flyer.",
+    updatedAt: "2026-08-28T12:25:00.000Z",
+  },
+  {
     eventId: "rumble-in-paradise-13",
     body: "Book a VIP table if you want a reserved view of the ring — this is a beach-bar setup, not stadium seats. No bell time on the flyer; the last edition here ran 5–9 PM, so confirm before you go.",
     localized: {

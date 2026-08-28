@@ -153,6 +153,7 @@ const FILE_TO_EVENT_ID = {
   "victrola-ladies-night-friday.jpg": "victrola-ladies-night-friday",
   "cigar-town-acustico-humos-2026-08-14.jpg":
     "cigar-town-acustico-humos-2026-08-14",
+  "cigar-town-acustico-humos.jpg": "cigar-town-acustico-humos",
   "chill-and-grill-bingo-terrace.jpg": "chill-and-grill-bingo-terrace",
   "CremoBohemianWednesday.jpg": "cremo-bohemian-wednesday",
   "CremoKaraokeSaturday.jpg": "cremo-karaoke-saturday",

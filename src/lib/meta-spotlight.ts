@@ -60,6 +60,8 @@ export function spotlightRepeatKey(
 export type SpotlightPickOptions = {
   excludeIds?: Iterable<string>;
   excludeKeys?: Iterable<string>;
+  /** Pin this event first (cover image) when it is happening today. */
+  featureEventId?: string;
 };
 
 function siteOrigin(origin = SITE_URL): string {
@@ -144,8 +146,20 @@ export function pickTodaySpotlights(
   const usedCategories = new Set<string>();
   const usedCities = new Set<string>();
 
+  const featuredId = options.featureEventId?.trim();
+  if (featuredId) {
+    const featured = open.find((event) => event.id === featuredId);
+    if (featured) {
+      picked.push(featured);
+      usedCategories.add(featured.category);
+      usedCities.add(resolveCity(featured));
+    }
+  }
+
   const takeFrom = (pool: Event[]) => {
-    const remaining = [...pool];
+    const remaining = pool.filter(
+      (event) => !picked.some((item) => item.id === event.id),
+    );
     while (picked.length < limit && remaining.length) {
       remaining.sort((a, b) => {
         const tier = spotlightRecurrenceTier(a) - spotlightRecurrenceTier(b);
