@@ -193,15 +193,23 @@ async function main() {
     }
   }
 
+  let sendForce = FORCE;
   let progress = {};
   for (let attempt = 1; attempt <= MAX_STEPS; attempt++) {
-    const { http, json, text } = await post({ ...payload, ...progress });
+    const { http, json, text } = await post({
+      ...payload,
+      ...progress,
+      force: sendForce || undefined,
+    });
     const body = json ?? { raw: text };
     const phase = body.phase ?? "unknown";
     console.log(`Step ${attempt}/${MAX_STEPS} HTTP ${http} phase=${phase}`);
     console.log(JSON.stringify(body));
 
     progress = { ...progress, ...progressFrom(json) };
+    if (body.inProgress || phase === "prepared" || phase === "facebook") {
+      sendForce = false;
+    }
 
     if (http === 422) {
       console.log("No today events to spotlight.");

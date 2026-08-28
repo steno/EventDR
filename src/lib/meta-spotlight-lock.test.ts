@@ -129,6 +129,22 @@ describe("decideSpotlightLockAction", () => {
       "proceed",
     );
   });
+
+  it("does not restart an in-progress post when force is set", () => {
+    const now = 1_000_000;
+    assert.equal(
+      decideSpotlightLockAction(
+        lock({
+          status: "in_progress",
+          stepLockUntil: now - 1,
+        }),
+        "2026-08-21",
+        now,
+        { force: true },
+      ),
+      "resume",
+    );
+  });
 });
 
 describe("lockRecordForWrite", () => {

@@ -52,12 +52,14 @@ export function decideSpotlightLockAction(
     instagram?: boolean;
   } = {},
 ): SpotlightLockDecision {
-  if (!record || record.date !== today || options.force) return "proceed";
+  if (!record || record.date !== today) return "proceed";
   const wantFacebook = options.facebook !== false;
   const wantInstagram = options.instagram !== false;
   const facebookDone = !wantFacebook || Boolean(record.facebookId);
   const instagramDone = !wantInstagram || Boolean(record.instagramId);
-  if (facebookDone && instagramDone) return "reuse";
+  if (facebookDone && instagramDone) {
+    return options.force ? "proceed" : "reuse";
+  }
   if (record.stepLockUntil && record.stepLockUntil > now) return "wait";
   return "resume";
 }
