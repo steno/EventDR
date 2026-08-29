@@ -157,7 +157,7 @@ function minutesUntilWindowEnd(
 
 /** Same-day event whose parsed start is within STARTS_SOON_MINUTES. */
 export function isStartingSoon(
-  event: Pick<Event, "date" | "endDate" | "time" | "recurrence">,
+  event: EventLiveFields,
   now: Date = new Date(),
 ): boolean {
   const window = parseEventTimeWindow(event.time);
