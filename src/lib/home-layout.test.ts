@@ -126,4 +126,22 @@ describe("getTodayHighlightEvents peer shuffle", () => {
     }).map((e) => e.id);
     assert.deepEqual(ids, ["still-live", "ending-soon"]);
   });
+
+  it("does not treat a temporarily closed daily as live", () => {
+    const closed = event({
+      id: "teleferico",
+      title: "Teleférico Puerto Plata",
+      date: "2026-08-25",
+      time: "8:30 AM - 5:00 PM",
+      recurrence: "daily",
+      temporarilyClosed: true,
+      venue: "Teleférico Puerto Plata",
+      venueSlug: "teleferico-puerto-plata",
+    });
+    const ids = getTodayHighlightEvents([closed, liveA], {
+      now: AFTERNOON,
+      shuffleSeed: "closed-check",
+    }).map((e) => e.id);
+    assert.equal(ids[0], "live-a");
+  });
 });

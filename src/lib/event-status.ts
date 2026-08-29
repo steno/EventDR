@@ -2,7 +2,10 @@ import type { Event } from "./types";
 import { addDaysISO, APP_TIMEZONE, localDateISO } from "./event-dates";
 
 /** Fields used for live/ended status (recurrence may arrive as string from filters). */
-export type EventLiveFields = Pick<Event, "date" | "endDate" | "time"> & {
+export type EventLiveFields = Pick<
+  Event,
+  "date" | "endDate" | "time" | "temporarilyClosed"
+> & {
   recurrence?: Event["recurrence"] | string;
 };
 
@@ -316,6 +319,8 @@ export function getEventLiveStatus(
   event: EventLiveFields,
   now: Date = new Date(),
 ): EventLiveStatus {
+  if (event.temporarilyClosed) return "temporarilyClosed";
+
   const start = eventStartISO(event);
   const end = eventEndISO(event);
   if (!start || !end) return "unknown";

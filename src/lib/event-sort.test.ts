@@ -124,3 +124,25 @@ describe("sortEventsForDisplay discoveryMode", () => {
     assert.equal(sorted.map((e) => e.id).join(","), "sports-game,adventure-bleed");
   });
 });
+
+describe("sortEventsForDisplay temporarilyClosed", () => {
+  it("ranks a closed daily attraction below a live peer during listed hours", () => {
+    const closed = event({
+      id: "teleferico-puerto-plata-daily",
+      title: "Teleférico Puerto Plata — Cable Car",
+      date: "2026-07-31",
+      time: "8:30 AM - 5:00 PM",
+      recurrence: "daily",
+      temporarilyClosed: true,
+    });
+    const liveShow = event({
+      id: "live-concert",
+      title: "Live Concert Tonight",
+      date: "2026-07-31",
+      time: "8:00 PM – 11:00 PM",
+    });
+
+    const sorted = sortEventsForDisplay([closed, liveShow], { now: NOW });
+    assert.equal(sorted.map((e) => e.id).join(","), "live-concert,teleferico-puerto-plata-daily");
+  });
+});

@@ -12,7 +12,10 @@ import { useLiveClockMs } from "@/hooks/useLiveClock";
 
 /** Client-only live labels — avoids SSR/client clock drift hydration mismatches. */
 export function useLiveStatusDisplay(
-  event: Pick<Event, "date" | "endDate" | "time" | "recurrence">,
+  event: Pick<
+    Event,
+    "date" | "endDate" | "time" | "recurrence" | "temporarilyClosed"
+  >,
   dict: Dictionary,
   options?: LiveStatusDisplayOptions,
 ): LiveStatusDisplay | null {
@@ -31,6 +34,7 @@ export function useLiveStatusDisplay(
     event.endDate,
     event.time,
     event.recurrence,
+    event.temporarilyClosed,
     listTimeRange,
     nowMs,
   ]);

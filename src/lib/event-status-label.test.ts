@@ -46,3 +46,23 @@ describe("resolveLiveStatusDisplay starts soon", () => {
     assert.notEqual(display?.label, dict.events.startsSoon);
   });
 });
+
+describe("resolveLiveStatusDisplay temporarily closed", () => {
+  /** Sat Aug 29, 2026 12:30 — inside 8:30 AM–5:00 PM hours. */
+  const midday = new Date("2026-08-29T16:30:00.000Z");
+  const teleferico = {
+    date: "2026-08-29",
+    time: "8:30 AM - 5:00 PM",
+    recurrence: "daily" as const,
+    temporarilyClosed: true,
+  };
+
+  it("says temporarily closed instead of happening now during listed hours", () => {
+    const display = resolveLiveStatusDisplay(teleferico, dict, midday, {
+      listTimeRange: "today",
+    });
+    assert.equal(display?.status, "temporarilyClosed");
+    assert.equal(display?.label, dict.events.temporarilyClosed);
+    assert.notEqual(display?.label, dict.events.happeningNow);
+  });
+});

@@ -1,5 +1,4 @@
 import type { Dictionary } from "@/i18n/dictionaries";
-import type { Event } from "@/lib/types";
 import type { TimeRange } from "@/lib/filters";
 import { addDaysISO, localDateISO } from "@/lib/event-dates";
 import {
@@ -9,6 +8,7 @@ import {
   isEventActiveToday,
   isStartingSoon,
   parseEventTimeWindow,
+  type EventLiveFields,
   type EventLiveStatus,
 } from "@/lib/event-status";
 
@@ -46,7 +46,7 @@ export function formatEventLiveStatusLabel(
 
 /** Label when status is unknown but the event is still active today. */
 function fallbackLiveStatusDisplay(
-  event: Pick<Event, "date" | "endDate" | "time" | "recurrence">,
+  event: EventLiveFields,
   dict: Dictionary,
   now: Date,
 ): LiveStatusDisplay | null {
@@ -79,11 +79,18 @@ function fallbackLiveStatusDisplay(
 }
 
 export function resolveLiveStatusDisplay(
-  event: Pick<Event, "date" | "endDate" | "time" | "recurrence">,
+  event: EventLiveFields,
   dict: Dictionary,
   now: Date = new Date(),
   options?: LiveStatusDisplayOptions,
 ): LiveStatusDisplay | null {
+  if (event.temporarilyClosed) {
+    return {
+      status: "temporarilyClosed",
+      label: dict.events.temporarilyClosed,
+    };
+  }
+
   const today = localDateISO(now);
   const start = event.date?.trim();
   const end = (event.endDate ?? event.date)?.trim();
@@ -142,7 +149,7 @@ export function resolveLiveStatusDisplay(
 }
 
 export function getEventLiveStatusLabel(
-  event: Pick<Event, "date" | "endDate" | "time" | "recurrence">,
+  event: EventLiveFields,
   dict: Dictionary,
   now?: Date,
   options?: LiveStatusDisplayOptions,

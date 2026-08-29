@@ -23,7 +23,8 @@ const LIST_TIER = {
   activeTodayUnknown: 4,
   future: 5,
   endedToday: 6,
-  past: 7,
+  temporarilyClosed: 7,
+  past: 8,
 } as const;
 
 export interface SortEventsForDisplayOptions {
@@ -64,6 +65,7 @@ function discoveryBand(tier: number, recurring: boolean): number {
   if (
     !recurring &&
     tier !== LIST_TIER.endedToday &&
+    tier !== LIST_TIER.temporarilyClosed &&
     tier !== LIST_TIER.past
   ) {
     return 1;
@@ -108,6 +110,8 @@ function hasExplicitTimeRange(time: string | undefined): boolean {
 function listTier(event: Event, now: Date): number {
   const today = localDateISO(now);
   const onToday = happensOnLocalDate(event, today);
+
+  if (event.temporarilyClosed) return LIST_TIER.temporarilyClosed;
 
   if (onToday && hasEventEndedForToday(event, now)) {
     return LIST_TIER.endedToday;
