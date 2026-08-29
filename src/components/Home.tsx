@@ -23,6 +23,9 @@ import { EventCard } from "@/components/EventCard";
 import { EventViewToggle } from "@/components/EventViewToggle";
 import { VenueAudienceCards } from "@/components/VenueAudienceCards";
 import { TodayHighlights } from "@/components/TodayHighlights";
+import { HomeAlerts } from "@/components/HomeAlerts";
+import { NewsletterSignup } from "@/components/NewsletterSignup";
+import { getHomeAlerts } from "@/lib/alerts";
 import { stickyBackControlClassName } from "@/components/StickyListHeader";
 import { useSavedEvents } from "@/hooks/useSavedEvents";
 import { useEventListView } from "@/hooks/useEventListView";
@@ -259,6 +262,16 @@ function HomeApp({
     () => getHomeDiscoverLayout(scopedEvents),
     [scopedEvents],
   );
+  const homeAlerts = useMemo(
+    () =>
+      getHomeAlerts({
+        locale,
+        dict,
+        venues,
+        citySlug: selectedCity,
+      }),
+    [locale, dict, venues, selectedCity],
+  );
   const onboardingCopy = getOnboardingCopy(locale);
   const savedExample =
     discoverLayout.heroEvent ?? discoverLayout.todayEvents[0] ?? scopedEvents[0];
@@ -395,6 +408,15 @@ function HomeApp({
               )}
 
               {!isSearching && (
+                <HomeAlerts
+                  alerts={homeAlerts}
+                  dict={dict}
+                  locale={locale}
+                  returnTo={homePath}
+                />
+              )}
+
+              {!isSearching && (
                 <TodayHighlights
                   events={discoverLayout.todayEvents}
                   locale={locale}
@@ -413,6 +435,10 @@ function HomeApp({
                   initialVenues={initialVenues}
                   citySlug={selectedCity}
                 />
+              )}
+
+              {!isSearching && (
+                <NewsletterSignup locale={locale} dict={dict} />
               )}
             </>
           )}

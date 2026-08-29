@@ -301,6 +301,29 @@ export const fr: Dictionary = {
     support: "Soutenir POP",
     follow: "Suivre POP Events",
   },
+  alerts: {
+    title: "À savoir avant d’y aller",
+    closure: "Fermé",
+    coming: "À venir",
+    watch: "Info",
+    closedNotice: "Fermé temporairement — vérifiez avant de prévoir une visite.",
+  },
+  newsletter: {
+    title: "Ce week-end, dans votre boîte mail",
+    body: "Un court e-mail le vendredi avec ce qu’il se passe à Puerto Plata, Sosúa et Cabarete. Gratuit — désinscription à tout moment.",
+    placeholder: "vous@email.com",
+    button: "Recevoir la liste",
+    success: "C’est noté — rendez-vous vendredi pour la liste du week-end.",
+    error: "Inscription impossible pour le moment. Réessayez.",
+    privacy: "Nous n’enverrons que la liste du week-end.",
+    privacyLink: "Confidentialité",
+    unsubscribeTitle: "Désinscription",
+    unsubscribeBody:
+      "Vous ne recevrez plus la liste du week-end. Vous pouvez vous réinscrire depuis l’accueil à tout moment.",
+    unsubscribeMissing:
+      "Ce lien manque ou a déjà été utilisé. Si vous recevez encore des e-mails, touchez Se désinscrire dans le dernier message ou écrivez à popeventdr@gmail.com.",
+    home: "Retour aux événements",
+  },
   supportNudge: {
     title: "Gardez POP gratuit pour le prochain voyageur",
     body: "Pas de paywall, pas de revente de données. La plupart des dons tournent autour de 12 $ — participez si vous le pouvez.",

@@ -301,6 +301,29 @@ export const es: Dictionary = {
     support: "Apoyar POP",
     follow: "Seguir POP Events",
   },
+  alerts: {
+    title: "Antes de ir",
+    closure: "Cerrado",
+    coming: "Próximo",
+    watch: "Aviso",
+    closedNotice: "Cerrado temporalmente — confirma antes de planear la visita.",
+  },
+  newsletter: {
+    title: "Este fin de semana, en tu correo",
+    body: "Un email corto los viernes con lo que hay en Puerto Plata, Sosúa y Cabarete. Gratis — cancela cuando quieras.",
+    placeholder: "tu@email.com",
+    button: "Recibir la lista",
+    success: "Listo — busca la lista del fin de semana los viernes.",
+    error: "No se pudo suscribir ahora. Inténtalo de nuevo.",
+    privacy: "Solo enviaremos la lista del fin de semana.",
+    privacyLink: "Privacidad",
+    unsubscribeTitle: "Suscripción cancelada",
+    unsubscribeBody:
+      "Ya no recibirás la lista del fin de semana. Puedes volver a suscribirte en la portada cuando quieras.",
+    unsubscribeMissing:
+      "Ese enlace falta o ya se usó. Si sigues recibiendo correo, toca Cancelar en el último mensaje o escribe a popeventdr@gmail.com.",
+    home: "Volver a eventos",
+  },
   supportNudge: {
     title: "Mantén POP gratis para el próximo viajero",
     body: "Sin muro de pago ni venta de datos. La mayoría aporta unos $12 — echa una mano si puedes.",

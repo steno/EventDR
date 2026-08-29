@@ -33,6 +33,18 @@ jobs:
             -o digests/weekend-all.json
           echo "Wrote digests/weekend-all.json"
 
+      - name: Send weekend newsletter
+        env:
+          SITE_URL: https://pop-event.com
+          CRON_SECRET: ${{ secrets.CRON_SECRET }}
+        run: |
+          mkdir -p digests
+          curl -sS -f -X POST \
+            -H "Authorization: Bearer ${CRON_SECRET}" \
+            "${SITE_URL}/api/cron/newsletter" \
+            -o digests/newsletter-send.json
+          echo "Wrote digests/newsletter-send.json"
+
       - name: Upload digest artifacts
         uses: actions/upload-artifact@v4
         with:

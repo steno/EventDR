@@ -272,6 +272,27 @@ export type Dictionary = {
     support: string;
     follow: string;
   };
+  alerts: {
+    title: string;
+    closure: string;
+    coming: string;
+    watch: string;
+    closedNotice: string;
+  };
+  newsletter: {
+    title: string;
+    body: string;
+    placeholder: string;
+    button: string;
+    success: string;
+    error: string;
+    privacy: string;
+    privacyLink: string;
+    unsubscribeTitle: string;
+    unsubscribeBody: string;
+    unsubscribeMissing: string;
+    home: string;
+  };
   supportNudge: {
     title: string;
     body: string;
@@ -717,6 +738,29 @@ export const en: Dictionary = {
     partners: "For hotels & partners",
     support: "Support POP",
     follow: "Follow POP Events",
+  },
+  alerts: {
+    title: "Know before you go",
+    closure: "Closed",
+    coming: "Coming",
+    watch: "Heads-up",
+    closedNotice: "Temporarily closed — check before you plan a visit.",
+  },
+  newsletter: {
+    title: "This weekend, in your inbox",
+    body: "A short Friday email with what’s on in Puerto Plata, Sosúa, and Cabarete. Free — unsubscribe any time.",
+    placeholder: "you@email.com",
+    button: "Get the list",
+    success: "You’re in — look for Friday’s weekend list.",
+    error: "Could not subscribe right now. Please try again.",
+    privacy: "We’ll only send the weekend list.",
+    privacyLink: "Privacy",
+    unsubscribeTitle: "Unsubscribed",
+    unsubscribeBody:
+      "You’re off the weekend list. You can subscribe again from the home page any time.",
+    unsubscribeMissing:
+      "That unsubscribe link is missing or already used. If you still get email, tap Unsubscribe in the latest message or write popeventdr@gmail.com.",
+    home: "Back to events",
   },
   supportNudge: {
     title: "Keep POP free for the next traveler",

@@ -16,7 +16,7 @@ export const PRIVACY_COPY: Record<Locale, LegalPageCopy> = {
     metaDescription:
       "How POP Events handles information on pop-event.com and related Meta apps.",
     title: "Privacy",
-    updated: "Last updated 19 August 2026",
+    updated: "Last updated 29 August 2026",
     sections: [
       {
         heading: "Who we are",
@@ -31,6 +31,7 @@ export const PRIVACY_COPY: Record<Locale, LegalPageCopy> = {
         body: [
           "Browsing the calendar does not require an account. We may collect standard server and analytics data (pages viewed, approximate location from IP, device type) to keep the site working.",
           "If you submit an event, donate, or email us, we keep the details you send so we can respond or publish the listing.",
+          "If you subscribe to the Friday weekend email, we store your address and language so we can send that list and honor unsubscribe requests.",
           "The POP Events Meta app is for the site operator to publish to our own Facebook Page and Instagram. It is not a consumer login for visitors.",
         ],
       },
@@ -43,7 +44,7 @@ export const PRIVACY_COPY: Record<Locale, LegalPageCopy> = {
       {
         heading: "Third parties",
         body: [
-          "Hosting, maps, analytics, and payment (PayPal) process data under their own policies. Meta processes data if you interact with our Page or Instagram.",
+          "Hosting, maps, analytics, and payment (PayPal) process data under their own policies. Meta processes data if you interact with our Page or Instagram. Weekend emails are delivered by Resend when that service is configured.",
         ],
       },
       {
@@ -61,7 +62,7 @@ export const PRIVACY_COPY: Record<Locale, LegalPageCopy> = {
     metaDescription:
       "Cómo POP Eventos trata la información en pop-event.com y apps de Meta relacionadas.",
     title: "Privacidad",
-    updated: "Actualizado 19 de agosto de 2026",
+    updated: "Actualizado 29 de agosto de 2026",
     sections: [
       {
         heading: "Quiénes somos",
@@ -76,6 +77,7 @@ export const PRIVACY_COPY: Record<Locale, LegalPageCopy> = {
         body: [
           "Ver el calendario no requiere cuenta. Podemos registrar datos técnicos habituales para que el sitio funcione.",
           "Si envías un evento, donas o escribes, guardamos lo que nos mandes para responder o publicar.",
+          "Si te suscribes al email del viernes, guardamos tu correo e idioma para enviar esa lista y respetar la baja.",
           "La app de Meta de POP Events es para que el operador publique en nuestra Página e Instagram, no un login para visitantes.",
         ],
       },
@@ -88,7 +90,7 @@ export const PRIVACY_COPY: Record<Locale, LegalPageCopy> = {
       {
         heading: "Terceros",
         body: [
-          "Alojamiento, mapas, analítica y PayPal tratan datos con sus propias políticas. Meta trata datos si interactúas con nuestra Página o Instagram.",
+          "Alojamiento, mapas, analítica y PayPal tratan datos con sus propias políticas. Meta trata datos si interactúas con nuestra Página o Instagram. El email del fin de semana lo entrega Resend cuando está configurado.",
         ],
       },
       {
@@ -106,7 +108,7 @@ export const PRIVACY_COPY: Record<Locale, LegalPageCopy> = {
     metaDescription:
       "Comment POP Events traite les informations sur pop-event.com et les apps Meta liées.",
     title: "Confidentialité",
-    updated: "Mis à jour le 19 août 2026",
+    updated: "Mis à jour le 29 août 2026",
     sections: [
       {
         heading: "Qui nous sommes",
@@ -121,6 +123,7 @@ export const PRIVACY_COPY: Record<Locale, LegalPageCopy> = {
         body: [
           "Consulter le calendrier ne nécessite pas de compte. Nous pouvons enregistrer des données techniques habituelles.",
           "Si vous envoyez un événement, donnez ou écrivez, nous gardons ce que vous envoyez pour répondre ou publier.",
+          "Si vous vous inscrivez à l’e-mail du vendredi, nous conservons votre adresse et la langue pour l’envoyer et honorer la désinscription.",
           "L’app Meta POP Events sert à l’opérateur pour publier sur notre Page et Instagram, pas à connecter les visiteurs.",
         ],
       },
@@ -133,7 +136,7 @@ export const PRIVACY_COPY: Record<Locale, LegalPageCopy> = {
       {
         heading: "Tiers",
         body: [
-          "Hébergement, cartes, analytics et PayPal ont leurs propres politiques. Meta traite des données si vous interagissez avec notre Page ou Instagram.",
+          "Hébergement, cartes, analytics et PayPal ont leurs propres politiques. Meta traite des données si vous interagissez avec notre Page ou Instagram. Les e-mails du week-end sont envoyés via Resend lorsque ce service est configuré.",
         ],
       },
       {
