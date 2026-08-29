@@ -31,6 +31,7 @@ describe("scope-listing", () => {
     assert.equal(isListingSoftPath("/es/city/cabarete"), true);
     assert.equal(isListingSoftPath("/fr/events"), true);
     assert.equal(isListingSoftPath("/en/when/weekend"), true);
+    assert.equal(isListingSoftPath("/en/cruise/taino-bay"), true);
     assert.equal(isListingSoftPath("/en/event/abc"), false);
     assert.equal(isListingSoftPath("/en"), false);
   });

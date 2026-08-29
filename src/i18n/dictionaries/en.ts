@@ -269,6 +269,7 @@ export type Dictionary = {
     tagline: string;
     builtWith: string;
     partners: string;
+    cruise: string;
     support: string;
     follow: string;
   };
@@ -278,6 +279,46 @@ export type Dictionary = {
     coming: string;
     watch: string;
     closedNotice: string;
+  };
+  cruise: {
+    metaTitle: string;
+    metaDescription: string;
+    eyebrow: string;
+    shipPill: string;
+    choosePort: string;
+    portLabel: string;
+    tainoBay: string;
+    amberCove: string;
+    tainoBayHint: string;
+    amberCoveHint: string;
+    allAboard: string;
+    allAboardHelp: string;
+    allAboardHint: string;
+    leaveBy: string;
+    leaveByNow: string;
+    minutesLeft: string;
+    pastLeave: string;
+    taxiTipTaino: string;
+    taxiTipAmber: string;
+    itinerariesTitle: string;
+    itineraryMinutes: string;
+    fitsTitle: string;
+    moreFits: string;
+    skipTitle: string;
+    skipTaino: string;
+    skipAmber: string;
+    exit: string;
+    walk: string;
+    taxi: string;
+    visit: string;
+    tight: string;
+    venuesTitle: string;
+    loops: {
+      "taino-walk": { title: string; body: string };
+      "taino-culture": { title: string; body: string };
+      "amber-local": { title: string; body: string };
+      "amber-centro": { title: string; body: string };
+    };
   };
   newsletter: {
     title: string;
@@ -736,6 +777,7 @@ export const en: Dictionary = {
     tagline: "POP Events · North Coast Dominican Republic",
     builtWith: "Built with ❤️ by",
     partners: "For hotels & partners",
+    cruise: "Cruise day",
     support: "Support POP",
     follow: "Follow POP Events",
   },
@@ -745,6 +787,61 @@ export const en: Dictionary = {
     coming: "Coming",
     watch: "Heads-up",
     closedNotice: "Temporarily closed — check before you plan a visit.",
+  },
+  cruise: {
+    metaTitle: "Puerto Plata cruise day from {port} | POP Events",
+    metaDescription:
+      "What actually fits before you sail from {port}: walkable downtown loops, taxi times, and today’s events — not the ship excursion desk.",
+    eyebrow: "Cruise day",
+    shipPill: "I'm on a ship today",
+    choosePort: "Which port did you dock at?",
+    portLabel: "Your port",
+    tainoBay: "Taino Bay",
+    amberCove: "Amber Cove",
+    tainoBayHint: "Downtown — walk to the Malecón",
+    amberCoveHint: "Maimón — taxi to Centro ~20–25 min",
+    allAboard: "Back on ship by",
+    allAboardHelp: "When do you need to be back on the ship?",
+    allAboardHint: "Ships call this all-aboard — check the time on your cruise card.",
+    leaveBy: "Be back at the pier by {time}",
+    leaveByNow: "Head back to the ship now",
+    minutesLeft: "{minutes} min until you should leave",
+    pastLeave: "If your ship is still docked, go back to the pier now.",
+    taxiTipTaino: "Walk downtown. Agree any taxi fare before you sit.",
+    taxiTipAmber: "Taxi to Centro is about 20–25 min. Agree the fare before you sit.",
+    itinerariesTitle: "Ready-made loops",
+    itineraryMinutes: "~{minutes} min",
+    fitsTitle: "Fits before you sail",
+    moreFits: "More that still fits",
+    skipTitle: "Skip today",
+    skipTaino:
+      "Cabarete, Sosúa, and Damajagua are long taxis. The ship already sells those — stay in Centro.",
+    skipAmber:
+      "Sosúa, Cabarete, and Damajagua usually miss the ship. Stay near Maimón unless you have 5+ hours left.",
+    exit: "See the full North Coast calendar",
+    walk: "{minutes} min walk",
+    taxi: "{minutes} min taxi",
+    visit: "~{minutes} min visit",
+    tight: "Tight on time",
+    venuesTitle: "Near this port",
+    loops: {
+      "taino-walk": {
+        title: "Walk downtown",
+        body: "Fortaleza, the Malecón letters, Umbrella Street, Amber Museum — no taxi.",
+      },
+      "taino-culture": {
+        title: "Rum, cigars & plaza",
+        body: "A shorter authentic loop if you already did a ship tour this morning.",
+      },
+      "amber-local": {
+        title: "Stay near the port",
+        body: "Lunch on Maimón, Ocean World, or Cofresí beach — skip the Centro taxi.",
+      },
+      "amber-centro": {
+        title: "Taxi to Centro",
+        body: "Worth it only with a long window. Fortaleza + Umbrella Street + Amber Museum.",
+      },
+    },
   },
   newsletter: {
     title: "This weekend, in your inbox",

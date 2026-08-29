@@ -23,6 +23,8 @@ interface PhotoHeroProps {
   citySlug?: CitySlug | null;
   /** Replaces the static H1 place name — typically the city dropdown. */
   locationPicker?: ReactNode;
+  /** Shown under the tagline — e.g. cruise-day ship pill. */
+  afterTagline?: ReactNode;
 }
 
 export function PhotoHero({
@@ -33,6 +35,7 @@ export function PhotoHero({
   placeName,
   citySlug = null,
   locationPicker,
+  afterTagline,
 }: PhotoHeroProps) {
   const imageUrl = featuredEvent?.imageUrl?.trim() || null;
   const eventHref =
@@ -111,6 +114,7 @@ export function PhotoHero({
           >
             {tagline}
           </h2>
+          {afterTagline}
         </div>
 
         {featuredEvent && eventHref && (

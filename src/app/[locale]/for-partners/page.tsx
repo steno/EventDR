@@ -45,9 +45,11 @@ export default async function Page({
   const copy = getPartnersCopy(locale);
   const targets = partnerQrTargets(locale);
 
-  const [allSvg, weekendSvg, ...citySvgs] = await Promise.all([
+  const [allSvg, weekendSvg, tainoSvg, amberSvg, ...citySvgs] = await Promise.all([
     generateQrSvg(targets.all),
     generateQrSvg(targets.weekend),
+    generateQrSvg(targets.cruiseTaino),
+    generateQrSvg(targets.cruiseAmber),
     ...targets.cities.map((c) => generateQrSvg(c.url)),
   ]);
 
@@ -70,6 +72,18 @@ export default async function Page({
       url: city.url,
       svg: citySvgs[i]!,
     })),
+    cruiseTaino: {
+      label: copy.qrCards.cruiseTaino.label,
+      hint: copy.qrCards.cruiseTaino.hint,
+      url: targets.cruiseTaino,
+      svg: tainoSvg,
+    },
+    cruiseAmber: {
+      label: copy.qrCards.cruiseAmber.label,
+      hint: copy.qrCards.cruiseAmber.hint,
+      url: targets.cruiseAmber,
+      svg: amberSvg,
+    },
   };
 
   return <PartnersPage copy={copy} locale={locale} qrCards={qrCards} />;

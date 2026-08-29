@@ -135,6 +135,17 @@ export async function getSitemapEntries(): Promise<SitemapEntry[]> {
     });
   }
 
+  pushLocalized(entries, "/cruise/taino-bay", {
+    lastModified: listingLastModified,
+    changeFrequency: "daily",
+    priority: 0.9,
+  });
+  pushLocalized(entries, "/cruise/amber-cove", {
+    lastModified: listingLastModified,
+    changeFrequency: "daily",
+    priority: 0.9,
+  });
+
   pushLocalized(entries, "/for-partners", {
     changeFrequency: "monthly",
     priority: 0.7,

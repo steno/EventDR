@@ -4,15 +4,23 @@ import type { Locale } from "@/i18n/config";
 import { FooterInstallLink } from "@/components/FooterInstallLink";
 import { BRAND_SOCIAL_LINKS } from "@/lib/brand-social";
 import { CITIES, getCityName } from "@/lib/cities";
+import { cruisePath } from "@/lib/cruise";
 import { PAGE_GUTTER_CLASS, PAGE_WIDTH_CLASS } from "@/lib/page-shell";
 
 interface SiteFooterProps {
   dict: Dictionary;
   locale: Locale;
   className?: string;
+  /** Hide when the guest is already on a cruise-day page. */
+  showCruiseLink?: boolean;
 }
 
-export function SiteFooter({ dict, locale, className = "pb-6" }: SiteFooterProps) {
+export function SiteFooter({
+  dict,
+  locale,
+  className = "pb-6",
+  showCruiseLink = true,
+}: SiteFooterProps) {
   return (
     <footer
       className={`border-t border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-900 pt-6 text-center ${className}`}
@@ -52,6 +60,15 @@ export function SiteFooter({ dict, locale, className = "pb-6" }: SiteFooterProps
         >
           {dict.time.weekend}
         </Link>
+        {showCruiseLink ? (
+          <Link
+            href={cruisePath(locale, "taino-bay")}
+            prefetch={false}
+            className="hover:text-neutral-800 dark:hover:text-neutral-200 transition-colors"
+          >
+            {dict.footer.cruise}
+          </Link>
+        ) : null}
         <Link
           href={`/${locale}/for-partners`}
           prefetch={false}

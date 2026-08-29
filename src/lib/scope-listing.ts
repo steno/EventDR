@@ -31,7 +31,7 @@ export type ScopeListingSelection = {
 
 /** Paths where chip/city swaps should stay instant (no full-page spinner). */
 export function isListingSoftPath(pathname: string): boolean {
-  return /\/(en|es|fr)\/(category|city|events|when)(\/|$)/.test(pathname);
+  return /\/(en|es|fr)\/(category|city|events|when|cruise)(\/|$)/.test(pathname);
 }
 
 /** Event/venue detail — keep the previous page visible instead of a spinner. */

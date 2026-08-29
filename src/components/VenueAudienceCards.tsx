@@ -28,6 +28,12 @@ interface VenueAudienceCardsProps {
   limit?: number;
   /** Home area filter — null means whole North Coast. */
   citySlug?: CitySlug | null;
+  /** Limit which audience sliders render. Default: both. */
+  audiences?: readonly VenueAudienceFilter[];
+  /** When set, only these venue slugs appear (e.g. cruise-port allowlist). */
+  allowedSlugs?: readonly string[];
+  /** Override the visitor-slider heading. */
+  visitorTitle?: string;
 }
 
 function VenueSlideCard({
@@ -112,6 +118,7 @@ function AudienceSlider({
   dict,
   mediaEnabled,
   areaName,
+  title,
 }: {
   audience: VenueAudienceFilter;
   venues: Venue[];
@@ -120,6 +127,7 @@ function AudienceSlider({
   /** Parent gates media until the section is near the viewport. */
   mediaEnabled: boolean;
   areaName: string | null;
+  title?: string;
 }) {
   const hint = audienceHint(audience, dict, areaName);
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -173,7 +181,7 @@ function AudienceSlider({
     <article className="min-w-0">
       <header className="mb-3 px-0.5">
         <h2 className="text-section font-extrabold tracking-tight text-neutral-950 dark:text-neutral-50">
-          {dict.venues[audience]}
+          {title ?? dict.venues[audience]}
         </h2>
         <p className="mt-0.5 text-copy text-neutral-600 dark:text-neutral-400">
           {hint}
@@ -250,6 +258,9 @@ export function VenueAudienceCards({
   initialVenues,
   limit = HOME_VENUE_LIMIT,
   citySlug = null,
+  audiences = VENUE_AUDIENCE_FILTERS,
+  allowedSlugs,
+  visitorTitle,
 }: VenueAudienceCardsProps) {
   const [venues, setVenues] = useState<Venue[]>(initialVenues ?? []);
   const sectionRef = useRef<HTMLElement>(null);
@@ -304,13 +315,27 @@ export function VenueAudienceCards({
     return city ? getCityName(city, locale) : null;
   }, [citySlug, locale]);
 
+  const allow = useMemo(
+    () => (allowedSlugs?.length ? new Set(allowedSlugs) : null),
+    [allowedSlugs],
+  );
+
   const sections = useMemo(
     () =>
-      VENUE_AUDIENCE_FILTERS.map((audience) => ({
-        audience,
-        venues: getFeaturedVenues(venues, audience, limit, { citySlug }),
-      })).filter((section) => section.venues.length > 0),
-    [venues, limit, citySlug],
+      audiences
+        .map((audience) => ({
+          audience,
+          venues: getFeaturedVenues(
+            venues,
+            audience,
+            allow ? Math.max(limit, 24) : limit,
+            { citySlug },
+          )
+            .filter((venue) => (allow ? allow.has(venue.slug) : true))
+            .slice(0, limit),
+        }))
+        .filter((section) => section.venues.length > 0),
+    [venues, limit, citySlug, audiences, allow],
   );
 
   if (sections.length === 0) return null;
@@ -331,6 +356,7 @@ export function VenueAudienceCards({
             dict={dict}
             mediaEnabled={mediaEnabled}
             areaName={areaName}
+            title={audience === "visitor" ? visitorTitle : undefined}
           />
         ))}
       </div>

@@ -40,6 +40,8 @@ interface PartnersPageProps {
     all: PartnerQrCardProps;
     weekend: PartnerQrCardProps;
     cities: PartnerQrCardProps[];
+    cruiseTaino: PartnerQrCardProps;
+    cruiseAmber: PartnerQrCardProps;
   };
 }
 
@@ -78,6 +80,16 @@ export function PartnersPage({ copy, locale, qrCards }: PartnersPageProps) {
             {qrCards.cities.map((card) => (
               <PartnerQrCard key={card.url} {...card} />
             ))}
+          </div>
+        </section>
+
+        <section className="mb-10">
+          <h2 className="mb-4 text-section font-extrabold tracking-tight text-neutral-900 dark:text-neutral-100 print:text-black">
+            {copy.cruiseSection}
+          </h2>
+          <div className="grid gap-4 sm:grid-cols-2 print:grid-cols-2">
+            <PartnerQrCard {...qrCards.cruiseTaino} />
+            <PartnerQrCard {...qrCards.cruiseAmber} />
           </div>
         </section>
 

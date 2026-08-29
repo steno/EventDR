@@ -16,11 +16,13 @@ export function AppFooter({ locale, dict }: AppFooterProps) {
   const hideForPrint =
     pathname === `/${locale}/for-partners` ||
     pathname === `/${locale}/support`;
+  const onCruisePage = /\/cruise\//.test(pathname);
 
   return (
     <SiteFooter
       dict={dict}
       locale={locale}
+      showCruiseLink={!onCruisePage}
       className={[
         padForBottomNav
           ? "pb-[calc(6.75rem+env(safe-area-inset-bottom))] lg:pb-8"

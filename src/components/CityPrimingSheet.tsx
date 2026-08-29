@@ -1,25 +1,33 @@
 "use client";
 
+import { useState } from "react";
 import { MapPin, X } from "lucide-react";
+import { CruiseShipEntry } from "@/components/CruiseShipEntry";
 import type { Locale } from "@/i18n/config";
+import type { Dictionary } from "@/i18n/dictionaries";
 import { CITIES, getCityName, type CityEventCounts, type CitySlug } from "@/lib/cities";
 import { getOnboardingCopy } from "@/lib/onboarding";
 
 interface CityPrimingSheetProps {
   locale: Locale;
+  dict: Dictionary;
   open: boolean;
   onChoose: (city: CitySlug | null) => void;
+  onChooseCruise: () => void;
   onDismiss: () => void;
   counts?: CityEventCounts | null;
 }
 
 export function CityPrimingSheet({
   locale,
+  dict,
   open,
   onChoose,
+  onChooseCruise,
   onDismiss,
   counts = null,
 }: CityPrimingSheetProps) {
+  const [cruiseOpen, setCruiseOpen] = useState(false);
   if (!open) return null;
   const copy = getOnboardingCopy(locale).city;
 
@@ -91,6 +99,14 @@ export function CityPrimingSheet({
               );
             })}
           </div>
+          <CruiseShipEntry
+            dict={dict}
+            locale={locale}
+            variant="sheet"
+            open={cruiseOpen}
+            onOpenChange={setCruiseOpen}
+            onSelectPort={onChooseCruise}
+          />
         </div>
       </section>
     </div>

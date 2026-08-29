@@ -12,7 +12,10 @@ export type PartnersCopy = {
     all: { label: string; hint: string };
     weekend: { label: string; hint: string };
     city: { label: string; hint: string };
+    cruiseTaino: { label: string; hint: string };
+    cruiseAmber: { label: string; hint: string };
   };
+  cruiseSection: string;
   howTo: { title: string; steps: string[] };
   benefits: { title: string; items: string[] };
   links: { title: string; weekend: string; home: string };
@@ -53,11 +56,20 @@ const COPY: Record<Locale, PartnersCopy> = {
         label: "Events in {city}",
         hint: "City-specific — leave at the front desk",
       },
+      cruiseTaino: {
+        label: "Taino Bay cruise day",
+        hint: "Port gate / taxi rank / Fortaleza — independent walkers",
+      },
+      cruiseAmber: {
+        label: "Amber Cove cruise day",
+        hint: "Terminal / El Pueblito — clock-aware, not the ship desk",
+      },
     },
+    cruiseSection: "Cruise ports (Puerto Plata)",
     howTo: {
       title: "How to use",
       steps: [
-        "Choose and print the QR that fits your desk (all events, weekend, or city).",
+        "Choose and print the QR that fits your desk (all events, weekend, city, or cruise port).",
         "Place it at reception, the pool bar, or your excursion desk.",
         "Scan it once on a staff phone to test the guest experience.",
         "Optional: add pop-event.com to your welcome email or WhatsApp group.",
@@ -66,7 +78,7 @@ const COPY: Record<Locale, PartnersCopy> = {
     benefits: {
       title: "Why partners use POP Events",
       items: [
-        "Live concerts, festivals, nightlife, culture, and sports",
+        "Live concerts, festivals, nightlife, culture, sports, and cruise-day shore plans",
         "Puerto Plata, Sosúa, and Cabarete in English, Spanish, and French",
         "Directions, share, and add-to-calendar on every event",
         "Updated weekly — your team does not maintain a list",
@@ -112,11 +124,20 @@ const COPY: Record<Locale, PartnersCopy> = {
         label: "Eventos en {city}",
         hint: "Por ciudad — en recepción",
       },
+      cruiseTaino: {
+        label: "Día de crucero Taino Bay",
+        hint: "Puerta del puerto / taxis / Fortaleza — quien baja por su cuenta",
+      },
+      cruiseAmber: {
+        label: "Día de crucero Amber Cove",
+        hint: "Terminal / El Pueblito — con reloj, no el desk del barco",
+      },
     },
+    cruiseSection: "Puertos de crucero (Puerto Plata)",
     howTo: {
       title: "Cómo usarlo",
       steps: [
-        "Elija e imprima el QR adecuado (todos, fin de semana o ciudad).",
+        "Elija e imprima el QR adecuado (todos, fin de semana, ciudad o puerto de crucero).",
         "Colóquelo en recepción, bar de piscina o desk de excursiones.",
         "Escanéelo una vez con el teléfono del equipo para probar la experiencia.",
         "Opcional: incluya pop-event.com en el email o WhatsApp de bienvenida.",
@@ -125,7 +146,7 @@ const COPY: Record<Locale, PartnersCopy> = {
     benefits: {
       title: "Por qué los socios usan POP Eventos",
       items: [
-        "Conciertos, festivales, vida nocturna, cultura y deportes en vivo",
+        "Conciertos, festivales, vida nocturna, cultura, deportes y planes para el día de crucero",
         "Puerto Plata, Sosúa y Cabarete en español, inglés y francés",
         "Direcciones, compartir y agregar al calendario",
         "Actualizado cada semana — su equipo no mantiene listas",
@@ -171,11 +192,20 @@ const COPY: Record<Locale, PartnersCopy> = {
         label: "Événements à {city}",
         hint: "Par ville — à la réception",
       },
+      cruiseTaino: {
+        label: "Journée croisière Taino Bay",
+        hint: "Porte du port / taxis / Fortaleza — visiteurs indépendants",
+      },
+      cruiseAmber: {
+        label: "Journée croisière Amber Cove",
+        hint: "Terminal / El Pueblito — selon l’horloge, pas le desk du navire",
+      },
     },
+    cruiseSection: "Ports de croisière (Puerto Plata)",
     howTo: {
       title: "Comment utiliser",
       steps: [
-        "Choisissez et imprimez le QR adapté (tous, week-end ou ville).",
+        "Choisissez et imprimez le QR adapté (tous, week-end, ville ou port de croisière).",
         "Placez-le à la réception, au bar piscine ou au desk excursions.",
         "Scannez-le sur le téléphone de l’équipe pour tester l’expérience client.",
         "Option : ajoutez pop-event.com à l'e-mail ou WhatsApp de bienvenue.",
@@ -184,7 +214,7 @@ const COPY: Record<Locale, PartnersCopy> = {
     benefits: {
       title: "Pourquoi les partenaires utilisent POP Events",
       items: [
-        "Concerts, festivals, nightlife, culture et sport en direct",
+        "Concerts, festivals, nightlife, culture, sport et plans pour la journée croisière",
         "Puerto Plata, Sosúa et Cabarete en français, anglais et espagnol",
         "Itinéraires, partage et ajout au calendrier",
         "Mis à jour chaque semaine — pas de liste à maintenir",
@@ -227,6 +257,8 @@ export function partnerQrTargets(locale: Locale): {
   all: string;
   weekend: string;
   cities: { slug: CitySlug; name: string; url: string }[];
+  cruiseTaino: string;
+  cruiseAmber: string;
 } {
   const cityNames: Record<Locale, Record<CitySlug, string>> = {
     en: { "puerto-plata": "Puerto Plata", sosua: "Sosúa", cabarete: "Cabarete" },
@@ -244,6 +276,8 @@ export function partnerQrTargets(locale: Locale): {
       name: cityNames[locale][slug],
       url: partnerTrackUrl(locale, `/city/${slug}`, `lobby-${slug}`),
     })),
+    cruiseTaino: partnerTrackUrl(locale, "/cruise/taino-bay", "port-taino-bay"),
+    cruiseAmber: partnerTrackUrl(locale, "/cruise/amber-cove", "port-amber-cove"),
   };
 }
 

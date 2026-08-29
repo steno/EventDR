@@ -2,11 +2,13 @@
 
 import { memo, useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
-import { ChevronRight, Clock } from "lucide-react";
+import { ChevronRight, CircleAlert, Clock } from "lucide-react";
 import { EventImage } from "@/components/EventImage";
 import { EventStatusBadge } from "@/components/EventStatusBadge";
+import { HomeAlerts } from "@/components/HomeAlerts";
 import { IntentLink, warmRoutesIdle } from "@/components/IntentLink";
 import { useLiveStatusDisplay } from "@/hooks/useLiveStatusDisplay";
+import type { HomeAlert } from "@/lib/alerts";
 import type { Event } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
@@ -30,6 +32,14 @@ interface TodayHighlightsProps {
   returnTo?: string;
   /** When true, `events` is already today’s sorted highlight list. */
   prefiltered?: boolean;
+  /** Know-before-you-go notices, opened from a labeled chip next to the title. */
+  alerts?: HomeAlert[];
+  /** Override the section heading (e.g. cruise “Fits before you sail”). */
+  title?: string;
+  /** Extra line under each highlight card, keyed by event id. */
+  notes?: Record<string, string>;
+  /** Hide the “See all today” link (used when the rest of the list is on-page). */
+  hideSeeAll?: boolean;
 }
 
 function TodayHighlightCard({
@@ -40,6 +50,7 @@ function TodayHighlightCard({
   pending,
   dimmed,
   onNavigate,
+  note,
 }: {
   event: Event;
   locale: Locale;
@@ -48,6 +59,7 @@ function TodayHighlightCard({
   pending: boolean;
   dimmed: boolean;
   onNavigate: () => void;
+  note?: string;
 }) {
   const href = eventDetailPath(locale, event.id);
   const liveDisplay = useLiveStatusDisplay(event, dict, {
@@ -144,6 +156,11 @@ function TodayHighlightCard({
               <span className="truncate">{timeLabel.display}</span>
             </p>
           )}
+          {note ? (
+            <p className="text-xs font-semibold text-orange-200 [text-shadow:0_1px_2px_rgba(0,0,0,0.45)] sm:text-sm">
+              {note}
+            </p>
+          ) : null}
         </div>
       </IntentLink>
     </article>
@@ -159,9 +176,14 @@ const TodayHighlightsComponent = ({
   seeAllHref,
   returnTo,
   prefiltered = false,
+  alerts = [],
+  title,
+  notes,
+  hideSeeAll = false,
 }: TodayHighlightsProps) => {
   const router = useRouter();
   const [pendingId, setPendingId] = useState<string | null>(null);
+  const [alertsOpen, setAlertsOpen] = useState(false);
   const excludeSet = useMemo(() => new Set(excludeEventIds), [excludeEventIds]);
   const todayEvents = useMemo(() => {
     const base = prefiltered ? events : getTodayHighlightEvents(events);
@@ -182,15 +204,33 @@ const TodayHighlightsComponent = ({
     return warmRoutesIdle(router, highlightHrefs, HOME_TODAY_LIMIT);
   }, [highlightHrefs, router]);
 
-  if (visibleEvents.length === 0) return null;
+  if (visibleEvents.length === 0 && alerts.length === 0) return null;
 
   return (
     <section className="mb-6">
-      <div className="mb-3 flex items-end justify-between gap-3 px-1">
-        <h2 className="text-section font-extrabold text-neutral-950 dark:text-neutral-100">
-          {dict.events.happeningToday}
-        </h2>
-        {hasMore && (
+      <div className="mb-3 flex flex-wrap items-center justify-between gap-x-3 gap-y-2 px-1">
+        <div className="flex min-w-0 flex-wrap items-center gap-2">
+          <h2 className="text-section font-extrabold text-neutral-950 dark:text-neutral-100">
+            {title ?? dict.events.happeningToday}
+          </h2>
+          {alerts.length > 0 && (
+            <button
+              type="button"
+              onClick={() => setAlertsOpen(true)}
+              className={`inline-flex max-w-full items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-bold tracking-wide ring-1 transition-colors touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 ${
+                alerts.some((alert) => alert.kind === "closure")
+                  ? "bg-rose-50 text-rose-800 ring-rose-200/90 hover:bg-rose-100 dark:bg-rose-500/20 dark:text-rose-100 dark:ring-rose-400/35 dark:hover:bg-rose-500/30"
+                  : "bg-amber-50 text-amber-800 ring-amber-200/90 hover:bg-amber-100 dark:bg-amber-500/20 dark:text-amber-100 dark:ring-amber-400/35 dark:hover:bg-amber-500/30"
+              }`}
+              aria-expanded={alertsOpen}
+              aria-haspopup="dialog"
+            >
+              <CircleAlert className="h-3.5 w-3.5 shrink-0" aria-hidden />
+              <span className="truncate">{dict.alerts.title}</span>
+            </button>
+          )}
+        </div>
+        {hasMore && !hideSeeAll && (
           <IntentLink
             href={allTodayHref}
             className="inline-flex items-center gap-0.5 rounded-full bg-orange-50 dark:bg-orange-950/50 px-2.5 py-1 text-sm font-bold text-orange-600 hover:bg-orange-100 dark:hover:bg-orange-950/70 transition-colors touch-manipulation"
@@ -201,20 +241,32 @@ const TodayHighlightsComponent = ({
         )}
       </div>
 
-      <div className="grid grid-cols-1 items-stretch gap-2.5 sm:grid-cols-2 sm:gap-3 lg:grid-cols-3">
-        {visibleEvents.map((event) => (
-          <TodayHighlightCard
-            key={event.id}
-            event={event}
-            locale={locale}
-            dict={dict}
-            returnTo={returnTo}
-            pending={pendingId === event.id}
-            dimmed={pendingId != null && pendingId !== event.id}
-            onNavigate={() => setPendingId(event.id)}
-          />
-        ))}
-      </div>
+      {visibleEvents.length > 0 && (
+        <div className="grid grid-cols-1 items-stretch gap-2.5 sm:grid-cols-2 sm:gap-3 lg:grid-cols-3">
+          {visibleEvents.map((event) => (
+            <TodayHighlightCard
+              key={event.id}
+              event={event}
+              locale={locale}
+              dict={dict}
+              returnTo={returnTo}
+              pending={pendingId === event.id}
+              dimmed={pendingId != null && pendingId !== event.id}
+              onNavigate={() => setPendingId(event.id)}
+              note={notes?.[event.id]}
+            />
+          ))}
+        </div>
+      )}
+
+      <HomeAlerts
+        open={alertsOpen}
+        onClose={() => setAlertsOpen(false)}
+        alerts={alerts}
+        dict={dict}
+        locale={locale}
+        returnTo={returnTo}
+      />
     </section>
   );
 };

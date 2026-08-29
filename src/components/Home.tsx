@@ -13,6 +13,8 @@ import { useRouter } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { AppHeader } from "@/components/AppHeader";
 import { PhotoHero } from "@/components/PhotoHero";
+import { CruiseDiscover } from "@/components/CruiseDiscover";
+import { CruiseShipEntry } from "@/components/CruiseShipEntry";
 import { CategoryGrid } from "@/components/CategoryGrid";
 import { CityLocationPicker } from "@/components/CityLocationPicker";
 import { EventList } from "@/components/EventList";
@@ -23,7 +25,6 @@ import { EventCard } from "@/components/EventCard";
 import { EventViewToggle } from "@/components/EventViewToggle";
 import { VenueAudienceCards } from "@/components/VenueAudienceCards";
 import { TodayHighlights } from "@/components/TodayHighlights";
-import { HomeAlerts } from "@/components/HomeAlerts";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { getHomeAlerts } from "@/lib/alerts";
 import { stickyBackControlClassName } from "@/components/StickyListHeader";
@@ -46,6 +47,12 @@ import {
   writeHomeArea,
   type CitySlug,
 } from "@/lib/cities";
+import {
+  cruisePath,
+  isCruisePortSlug,
+  parseAllAboardMinutes,
+  type CruisePortSlug,
+} from "@/lib/cruise";
 import type { Event, Venue } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
 import type { AppTab, Dictionary } from "@/i18n/dictionaries";
@@ -85,6 +92,9 @@ interface HomeProps {
    * `useSearchParams` (which would blank the page behind Suspense until JS).
    */
   initialCityParam?: string | null;
+  /** Shore-day mode from `/[locale]/cruise/[port]`. */
+  initialCruisePort?: CruisePortSlug | null;
+  initialAllAboardParam?: string | null;
 }
 
 /**
@@ -99,6 +109,8 @@ export function Home({
   initialVenues,
   initialEvents = [],
   initialCityParam = null,
+  initialCruisePort = null,
+  initialAllAboardParam = null,
 }: HomeProps) {
   return (
     <HomeApp
@@ -107,6 +119,8 @@ export function Home({
       initialVenues={initialVenues}
       initialEvents={initialEvents}
       cityQuery={initialCityParam}
+      initialCruisePort={initialCruisePort}
+      initialAllAboardParam={initialAllAboardParam}
     />
   );
 }
@@ -117,6 +131,8 @@ function HomeApp({
   initialVenues,
   initialEvents = [],
   cityQuery: cityQueryProp,
+  initialCruisePort = null,
+  initialAllAboardParam = null,
 }: HomeProps & { cityQuery: string | null }) {
   const router = useRouter();
   const [cityQuery, setCityQuery] = useState(cityQueryProp);
@@ -128,6 +144,13 @@ function HomeApp({
   const [venues, setVenues] = useState<Venue[]>(() => initialVenues ?? []);
   const [refreshKey, setRefreshKey] = useState(0);
   const [cityPrimingOpen, setCityPrimingOpen] = useState(false);
+  const [cruiseEntryOpen, setCruiseEntryOpen] = useState(false);
+  const [cruisePort, setCruisePort] = useState<CruisePortSlug | null>(
+    initialCruisePort,
+  );
+  const [allAboardMinutes, setAllAboardMinutes] = useState(() =>
+    parseAllAboardMinutes(initialAllAboardParam),
+  );
 
   useEffect(() => {
     if (initialVenues?.length) {
@@ -154,9 +177,25 @@ function HomeApp({
   useLayoutEffect(() => {
     const readCity = () =>
       new URLSearchParams(window.location.search).get("city");
+    const readCruise = () => {
+      const match = window.location.pathname.match(
+        /\/(?:en|es|fr)\/cruise\/([^/?#]+)/,
+      );
+      const port = match?.[1];
+      const aboard = new URLSearchParams(window.location.search).get("allAboard");
+      return {
+        port: isCruisePortSlug(port) ? port : null,
+        aboard,
+      };
+    };
 
     const syncFromUrl = () => {
       setCityQuery(readCity());
+      const cruise = readCruise();
+      if (cruise.port) {
+        setCruisePort(cruise.port);
+        if (cruise.aboard) setAllAboardMinutes(parseAllAboardMinutes(cruise.aboard));
+      }
     };
 
     syncFromUrl();
@@ -172,6 +211,7 @@ function HomeApp({
   // Restore a remembered city when a content back link lands on bare `/[locale]`.
   // Apply state + history before paint; avoid router.replace (extra RSC = second load).
   useLayoutEffect(() => {
+    if (cruisePort) return;
     if (cityQuery) {
       // Explicit city in the URL. Keep a chip override if we already set one
       // via history.replaceState (Next searchParams stay stale until a real nav).
@@ -187,7 +227,7 @@ function HomeApp({
     const href = homePathWithArea(locale, stored.city, true);
     window.history.replaceState(window.history.state ?? null, "", href);
     setCityQuery(new URLSearchParams(href.split("?")[1] ?? "").get("city"));
-  }, [locale, cityQuery]);
+  }, [locale, cityQuery, cruisePort]);
 
   // Prefer localArea so chip clicks filter instantly without waiting on (or
   // triggering) a Next soft navigation.
@@ -195,10 +235,10 @@ function HomeApp({
   const areaChosen = Boolean(localArea?.areaChosen) || urlArea.areaChosen;
 
   useEffect(() => {
-    if (areaChosen || hasSeenOnboarding("city-primed")) return;
+    if (cruisePort || areaChosen || hasSeenOnboarding("city-primed")) return;
     const timer = window.setTimeout(() => setCityPrimingOpen(true), 500);
     return () => window.clearTimeout(timer);
-  }, [areaChosen]);
+  }, [areaChosen, cruisePort]);
 
   const setArea = useCallback(
     (slug: CitySlug | null) => {
@@ -244,14 +284,47 @@ function HomeApp({
   }, []);
 
   const savedEvents = filterSaved(allEvents);
-  // Bare home and ?city=all both mean North Coast for return links.
-  const homePath = homePathWithArea(locale, selectedCity, true);
+  const homePath = cruisePort
+    ? cruisePath(locale, cruisePort, allAboardMinutes)
+    : homePathWithArea(locale, selectedCity, true);
+
+  const setCruisePortUrl = useCallback(
+    (port: CruisePortSlug) => {
+      setCruisePort(port);
+      window.history.replaceState(
+        window.history.state ?? null,
+        "",
+        cruisePath(locale, port, allAboardMinutes),
+      );
+    },
+    [locale, allAboardMinutes],
+  );
+
+  const enterCruise = useCallback(() => {
+    markOnboardingSeen("city-primed");
+    setCityPrimingOpen(false);
+    setCruiseEntryOpen(false);
+  }, []);
+
+  const setCruiseAllAboard = useCallback(
+    (minutes: number) => {
+      setAllAboardMinutes(minutes);
+      if (!cruisePort) return;
+      window.history.replaceState(
+        window.history.state ?? null,
+        "",
+        cruisePath(locale, cruisePort, minutes),
+      );
+    },
+    [locale, cruisePort],
+  );
 
   /** Zone pick scopes home highlights; null = whole North Coast. */
   const scopedEvents = useMemo(() => {
-    if (!selectedCity) return allEvents;
-    return allEvents.filter((event) => eventMatchesCity(event, selectedCity));
-  }, [allEvents, selectedCity]);
+    const city = cruisePort ? "puerto-plata" : selectedCity;
+    if (!city) return allEvents;
+    return allEvents.filter((event) => eventMatchesCity(event, city));
+  }, [allEvents, selectedCity, cruisePort]);
 
   const cityCounts = useMemo(
     () => (allEvents.length > 0 ? countEventsByCity(allEvents) : null),
@@ -268,7 +341,7 @@ function HomeApp({
         locale,
         dict,
         venues,
-        citySlug: selectedCity,
+        citySlug: cruisePort ? "puerto-plata" : selectedCity,
       }),
     [locale, dict, venues, selectedCity],
   );
@@ -366,7 +439,9 @@ function HomeApp({
 
           {tab === "discover" && (
             <>
-              {!cityPrimingOpen ? <InstallBanner dict={dict} /> : null}
+              {cruisePort ? null : !cityPrimingOpen ? (
+                <InstallBanner dict={dict} />
+              ) : null}
               <div className="flex flex-col">
                 <div className="order-1 mt-4 mb-4 sm:order-1 lg:hidden">
                   <SearchBar
@@ -375,6 +450,7 @@ function HomeApp({
                     dict={dict}
                   />
                 </div>
+                {cruisePort ? null : (
                 <div className="order-2 sm:order-2">
                   <PhotoHero
                     dict={dict}
@@ -391,12 +467,37 @@ function HomeApp({
                         currentSlug={selectedCity}
                         onSelect={setArea}
                         counts={cityCounts}
+                        onCruiseIntent={() => setCruiseEntryOpen(true)}
+                      />
+                    }
+                    afterTagline={
+                      <CruiseShipEntry
+                        dict={dict}
+                        locale={locale}
+                        open={cruiseEntryOpen}
+                        onOpenChange={setCruiseEntryOpen}
+                        onSelectPort={enterCruise}
                       />
                     }
                   />
                 </div>
+                )}
               </div>
-              {!isSearching && (
+              {cruisePort && !isSearching ? (
+                <CruiseDiscover
+                  locale={locale}
+                  dict={dict}
+                  port={cruisePort}
+                  allAboardMinutes={allAboardMinutes}
+                  events={allEvents}
+                  venues={venues}
+                  alerts={homeAlerts}
+                  returnTo={homePath}
+                  onPortChange={setCruisePortUrl}
+                  onAllAboardChange={setCruiseAllAboard}
+                />
+              ) : null}
+              {!isSearching && !cruisePort && (
                 <div className="mb-6 sm:mb-8 lg:mb-8">
                   <CategoryGrid
                     locale={locale}
@@ -407,16 +508,7 @@ function HomeApp({
                 </div>
               )}
 
-              {!isSearching && (
-                <HomeAlerts
-                  alerts={homeAlerts}
-                  dict={dict}
-                  locale={locale}
-                  returnTo={homePath}
-                />
-              )}
-
-              {!isSearching && (
+              {!isSearching && !cruisePort && (
                 <TodayHighlights
                   events={discoverLayout.todayEvents}
                   locale={locale}
@@ -425,10 +517,11 @@ function HomeApp({
                   excludeEventIds={discoverLayout.heroExcludeIds}
                   seeAllHref={seeAllTodayHref}
                   returnTo={homePath}
+                  alerts={homeAlerts}
                 />
               )}
 
-              {!isSearching && (
+              {!isSearching && !cruisePort && (
                 <VenueAudienceCards
                   locale={locale}
                   dict={dict}
@@ -437,7 +530,7 @@ function HomeApp({
                 />
               )}
 
-              {!isSearching && (
+              {!isSearching && !cruisePort && (
                 <NewsletterSignup locale={locale} dict={dict} />
               )}
             </>
@@ -526,7 +619,6 @@ function HomeApp({
             locale={locale}
             dict={dict}
             searchQuery={listSearchQuery}
-            timeRange="all"
             onEventsLoaded={handleEventsLoaded}
             refreshKey={refreshKey}
             onAddEvent={() => setSubmitOpen(true)}
@@ -534,6 +626,8 @@ function HomeApp({
             limit={HOME_SEARCH_LIMIT}
             silent={tab !== "discover" || !isSearching}
             initialEvents={initialEvents}
+            citySlug={cruisePort ? "puerto-plata" : undefined}
+            timeRange={cruisePort && isSearching ? "today" : "all"}
           />
         </div>
       </main>
@@ -557,13 +651,15 @@ function HomeApp({
       />
       <CityPrimingSheet
         locale={locale}
-        open={cityPrimingOpen}
+        dict={dict}
+        open={cityPrimingOpen && !cruisePort}
         counts={cityCounts}
         onChoose={(city) => {
           markOnboardingSeen("city-primed");
           setCityPrimingOpen(false);
           setArea(city);
         }}
+        onChooseCruise={enterCruise}
         onDismiss={() => {
           markOnboardingSeen("city-primed");
           setCityPrimingOpen(false);

@@ -26,6 +26,8 @@ interface EventCardProps {
   listTimeRange?: TimeRange;
   /** List = horizontal row; cards = image-forward grid tile. */
   view?: EventListView;
+  /** Extra guest hint (e.g. cruise walk/taxi + visit time). */
+  note?: string;
 }
 
 function VenueSiblingChips({
@@ -77,6 +79,7 @@ const EventCardComponent = ({
   compact = true,
   listTimeRange,
   view = "cards",
+  note,
 }: EventCardProps) => {
   const category = getCategoryMeta(event.category, dict.categories);
   const emoji = event.imageEmoji ?? category?.emoji ?? "📅";
@@ -148,6 +151,11 @@ const EventCardComponent = ({
             liveStatus={liveStatus}
             liveStatusLabel={liveStatusLabel}
           />
+          {note ? (
+            <p className="text-xs font-semibold text-orange-700 dark:text-orange-300">
+              {note}
+            </p>
+          ) : null}
           <VenueSiblingChips
             siblings={event.venueSiblings ?? []}
             locale={locale}
@@ -229,6 +237,11 @@ const EventCardComponent = ({
             liveStatus={liveStatus}
             liveStatusLabel={liveStatusLabel}
           />
+          {note ? (
+            <p className="mt-1.5 text-xs font-semibold text-orange-700 dark:text-orange-300">
+              {note}
+            </p>
+          ) : null}
           <VenueSiblingChips
             siblings={event.venueSiblings ?? []}
             locale={locale}

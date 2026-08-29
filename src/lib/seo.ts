@@ -165,6 +165,32 @@ export function buildHomeMetadata(
   };
 }
 
+export function buildCruiseMetadata(
+  locale: Locale,
+  dict: Dictionary,
+  port: "taino-bay" | "amber-cove",
+): Metadata {
+  const path = `/cruise/${port}`;
+  const portName =
+    port === "taino-bay" ? dict.cruise.tainoBay : dict.cruise.amberCove;
+  const title = fillTemplate(dict.cruise.metaTitle, { port: portName });
+  const description = fillTemplate(dict.cruise.metaDescription, {
+    port: portName,
+  });
+  const alternates = buildAlternates(locale, path);
+  return {
+    title,
+    description,
+    alternates,
+    openGraph: defaultOpenGraph(locale, {
+      title,
+      description,
+      url: alternates.canonical,
+    }),
+    twitter: defaultTwitter({ title, description }),
+  };
+}
+
 export function buildCategoryMetadata(
   locale: Locale,
   categoryId: EventCategory,

@@ -2,7 +2,7 @@
 
 import { useEffect, useId, useLayoutEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import { Check, ChevronDown } from "lucide-react";
+import { Anchor, Check, ChevronDown } from "lucide-react";
 import {
   CITIES,
   getCityName,
@@ -39,6 +39,8 @@ interface CityLocationPickerProps {
    * `chip` is the listing-page filter control.
    */
   variant?: "chip" | "hero";
+  /** Home hero only: opens cruise-day port choice (not a city). */
+  onCruiseIntent?: () => void;
 }
 
 type AreaOption = {
@@ -55,13 +57,14 @@ export function CityLocationPicker({
   onSelect,
   counts = null,
   variant = "chip",
+  onCruiseIntent,
 }: CityLocationPickerProps) {
   const isHero = variant === "hero";
   const router = useRouter();
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
-  const listRef = useRef<HTMLUListElement>(null);
+  const listRef = useRef<HTMLDivElement>(null);
   const listId = useId();
 
   const options: AreaOption[] = [
@@ -218,11 +221,8 @@ export function CityLocationPicker({
       </button>
 
       {open ? (
-        <ul
+        <div
           ref={listRef}
-          id={listId}
-          role="listbox"
-          aria-label={dict.cities.chooseArea}
           className={`
             absolute top-full z-50 mt-2 overflow-hidden rounded-xl
             bg-white/95 py-1 shadow-lg ring-1 ring-neutral-200/80 backdrop-blur
@@ -230,6 +230,11 @@ export function CityLocationPicker({
             ${isHero ? "min-w-[16rem] max-w-[calc(100vw-2rem)]" : "left-0 min-w-[14rem]"}
           `}
         >
+          <ul
+            id={listId}
+            role="listbox"
+            aria-label={dict.cities.chooseArea}
+          >
           {options.map((option) => {
             const selected = currentSlug === option.slug;
             const count = countLabel(dict, counts, option.countKey);
@@ -279,7 +284,23 @@ export function CityLocationPicker({
               </li>
             );
           })}
-        </ul>
+          </ul>
+          {onCruiseIntent ? (
+            <div className="border-t border-neutral-200/80 dark:border-neutral-700/80">
+              <button
+                type="button"
+                onClick={() => {
+                  setOpen(false);
+                  onCruiseIntent();
+                }}
+                className="flex w-full items-center gap-2.5 px-4 py-3 text-left text-lg font-semibold tracking-tight text-sky-800 transition-colors touch-manipulation hover:bg-sky-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-orange-500 sm:text-xl dark:text-sky-200 dark:hover:bg-sky-950/40"
+              >
+                <Anchor className="h-5 w-5 shrink-0" aria-hidden />
+                {dict.cruise.shipPill}
+              </button>
+            </div>
+          ) : null}
+        </div>
       ) : null}
     </div>
   );
