@@ -167,7 +167,7 @@ const DOMINICAN_SEARCH_TERMS = [
 ] as const;
 
 export function facebookGroupSearchQueries(): string[] {
-  const region = "Puerto Plata Sosúa Cabarete Costa Norte";
+  const region = "Puerto Plata Sosúa Cabarete Cofresí Maimón Costa Norte";
   const groupQueries = FACEBOOK_GROUPS.flatMap((group) => [
     `site:facebook.com/groups/${group.slug} evento fiesta concierto ${region} 2026`,
     `site:facebook.com/groups/${group.slug} party concert festival ${region}`,

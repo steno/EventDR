@@ -101,7 +101,7 @@ async function enrichWithOpenAI(
   const language = OUTPUT_LANGUAGE[locale];
   const today = localDateISO();
 
-  const systemPrompt = `You extract local events for the North Coast of the Dominican Republic (Puerto Plata, Sosúa, Cabarete, Costambar, Playa Dorada, Playa Encuentro only).
+  const systemPrompt = `You extract local events for the North Coast of the Dominican Republic (Puerto Plata including Cofresí and Maimón, Sosúa, Cabarete, Costambar, Playa Dorada, Playa Encuentro only).
 Today is ${today}. Only include events dated between today and the next 90 days.
 Write all titles and descriptions in ${language}.
 Prioritize hidden gems: community gatherings, beach sports, local leagues, small venue shows, expat meetups.
@@ -116,7 +116,7 @@ Return ONLY valid JSON: an array of event objects. Each object must have:
 - time (optional, e.g. "7:00 PM")
 - venue (business or place name when stated — not the street address)
 - address (street address when stated — e.g. "Calle Duarte 37"; include whenever the source mentions a street, number, or intersection; omit only if truly unknown)
-- location (city/area only: Puerto Plata, Sosúa, Cabarete, Costambar, or Playa Dorada — never repeat the street address here)
+- location (city/area only: Puerto Plata, Cofresí, Maimón, Sosúa, Cabarete, Costambar, or Playa Dorada — never repeat the street address here)
 - category (one of: ${categoryList})
 - categories (optional array of additional categories from the same list when the event clearly fits more than one — e.g. a distillery tour with tastings: business + food-drinks)
 - format ("physical", "digital", or "hybrid")

@@ -32,7 +32,7 @@ Facebook ingest:
 
 ## 1. Scope
 
-**Include:** Puerto Plata, Sosúa, Cabarete, Costambar, Playa Dorada. For the current 2026 discovery pass, search from the run date through **2026-12-31**. Include recurring events only when an official source confirms that the schedule remains active in this window.
+**Include:** Puerto Plata (including Cofresí and Maimón), Sosúa, Cabarete, Costambar, Playa Dorada. For the current 2026 discovery pass, search from the run date through **2026-12-31**. Include recurring events only when an official source confirms that the schedule remains active in this window.
 
 **Skip:** real-estate / marketplace / buy-sell; Santiago / Cibao ticket spam; duplicates already on pop-event.com or in `src/data/seeds/fallback.*.json`; vague posts with no date/place.
 

@@ -11,7 +11,7 @@ Run when the user asks to refresh Instagram events or as the logged-in discovery
 Use skill **`pop-instagram-ingest`** for the full workflow. This rule provides standing constraints:
 
 1. Scan public posts, Reels, carousels, and current Stories from accounts in `src/lib/instagram-sources.ts`.
-2. Cover only Puerto Plata, Sosúa, Cabarete, Costambar, and Playa Dorada.
+2. Cover only Puerto Plata (including Cofresí and Maimón), Sosúa, Cabarete, Costambar, and Playa Dorada.
 3. For the current 2026 discovery pass, search from the run date through **December 31, 2026**. Add only events in that window, or clearly recurring events active in that window, with a verifiable date and venue.
 4. Review enough older posts, pinned posts, Reels, and highlights to catch advance announcements through the end of the window; do not limit the scan to only the newest weekly posts.
 5. Dedupe against fallback, recurring, and curated seeds plus the live/moderation data.

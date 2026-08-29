@@ -283,7 +283,7 @@ export function instagramProfileUrls(): string[] {
 
 /** Discovery queries layered onto social ingest (web search, not direct scrape). */
 export function instagramSearchQueries(): string[] {
-  const region = "Puerto Plata Sosúa Cabarete Costa Norte";
+  const region = "Puerto Plata Sosúa Cabarete Cofresí Maimón Costa Norte";
   
   // Split accounts into smaller groups for more targeted searches
   const localVenues = [

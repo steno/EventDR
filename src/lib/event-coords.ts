@@ -13,6 +13,10 @@ const CITY_COORDS: Record<string, EventCoords> = {
   cabarete: { lat: 19.7502745, lng: -70.4073077 },
   costambar: { lat: 19.8145, lng: -70.7151 },
   "playa dorada": { lat: 19.7695, lng: -70.643 },
+  cofresí: { lat: 19.822, lng: -70.73 },
+  cofresi: { lat: 19.822, lng: -70.73 },
+  maimón: { lat: 19.834, lng: -70.771 },
+  maimon: { lat: 19.834, lng: -70.771 },
 };
 
 export const NORTH_COAST_CENTER = CITY_COORDS["puerto plata"];

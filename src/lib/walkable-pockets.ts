@@ -13,7 +13,8 @@ export type WalkablePocketSlug =
   | "kite-encuentro"
   | "malecon-pp"
   | "playa-dorada"
-  | "costambar-beach";
+  | "costambar-beach"
+  | "cofresi-beach";
 
 export interface WalkablePocket {
   slug: WalkablePocketSlug;
@@ -206,6 +207,30 @@ export const WALKABLE_POCKETS: readonly WalkablePocket[] = [
       fr: "Coin de plage",
     },
     venueSlugs: ["playa-costambar", "el-carey-puerto-plata"],
+  },
+  {
+    slug: "cofresi-beach",
+    radiusMeters: 700,
+    parkOnce: true,
+    lat: 19.822,
+    lng: -70.73,
+    names: {
+      en: "Cofresí Beach",
+      es: "Playa Cofresí",
+      fr: "Plage Cofresí",
+    },
+    stripLabels: {
+      en: "West-coast strip",
+      es: "Franja oeste",
+      fr: "Bande ouest",
+    },
+    venueSlugs: [
+      "playa-cofresi",
+      "don-limon-cofresi",
+      "ocean-world",
+      "cofresi-palm-beach-spa",
+      "vip-beach-lifestyles-resort",
+    ],
   },
 ] as const;
 

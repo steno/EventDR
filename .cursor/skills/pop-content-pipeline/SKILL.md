@@ -98,7 +98,7 @@ Use skill `pop-weekend-b2b-digest` for hotel/agent copy-paste blocks.
 - Always link `https://pop-event.com` with locale (`/en`, `/es`, `/fr`)
 - UTM params are already on digest event URLs (`utm_source=partner`)
 - Never invent events — only use digest API or live site data
-- North Coast only: Puerto Plata, Sosúa, Cabarete, Costambar, Playa Dorada
+- North Coast only: Puerto Plata (including Cofresí and Maimón), Sosúa, Cabarete, Costambar, Playa Dorada
 
 ## Related
 

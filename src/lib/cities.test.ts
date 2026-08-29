@@ -62,6 +62,30 @@ describe("countEventsByCity", () => {
     assert.equal(counts.cabarete, 0);
   });
 
+  it("counts Cofresí and Maimón listings under Puerto Plata", () => {
+    const counts = countEventsByCity([
+      event({
+        id: "don-limon",
+        location: "Cofresí",
+        venue: "Don Limón",
+      }),
+      event({
+        id: "crazy-lobster",
+        location: "Maimón",
+        venue: "Crazy Lobster Bar & Grill",
+        address: "Playa Los Cocos, Maimón",
+      }),
+      event({
+        id: "amber-cove",
+        location: "Amber Cove",
+        venue: "Amber Cove",
+      }),
+    ]);
+    assert.equal(counts["puerto-plata"], 3);
+    assert.equal(counts.sosua, 0);
+    assert.equal(counts.cabarete, 0);
+  });
+
   it("counts Costa Dorada listings under Puerto Plata", () => {
     const counts = countEventsByCity([
       event({

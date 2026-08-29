@@ -2,7 +2,7 @@ import type { Event } from "./types";
 import { normalizeEventLineup } from "./event-lineup";
 
 const NORTH_COAST_CITY =
-  /^(Puerto Plata|Sosúa|Sosua|Cabarete|Costambar|Playa Dorada|North Coast, DR)$/i;
+  /^(Puerto Plata|Sosúa|Sosua|Cabarete|Costambar|Playa Dorada|Cofresí|Cofresi|Maimón|Maimon|North Coast, DR)$/i;
 
 const STREET_IN_TEXT =
   /\b(?:Calle|Av\.?|Avenida|Carretera|C\/| Blvd\.?|#)\s*[A-Za-zÁ-ú0-9][^,\n]{2,80}/i;
@@ -123,6 +123,8 @@ function inferCity(event: Event): string | null {
   if (/cabarete|playa\s*encuentro/i.test(haystack)) return "Cabarete";
   if (/sos[uú]a/i.test(haystack)) return "Sosúa";
   if (/costambar/i.test(haystack)) return "Costambar";
+  if (/cofres[ií]/i.test(haystack)) return "Cofresí";
+  if (/maim[oó]n|amber\s*cove/i.test(haystack)) return "Maimón";
   if (/costa dorada/i.test(haystack)) return "Puerto Plata";
   if (/playa dorada/i.test(haystack)) return "Playa Dorada";
   if (/imbert|guananico|rinc[oó]n caliente/i.test(haystack)) return "Puerto Plata";

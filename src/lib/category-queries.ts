@@ -1,7 +1,7 @@
 import type { EventCategory } from "./types";
 import { instagramProfileUrls } from "./instagram-sources";
 
-const REGION = "Puerto Plata Sosúa Cabarete Costa Norte";
+const REGION = "Puerto Plata Sosúa Cabarete Cofresí Maimón Costa Norte";
 
 const ALLEVENTS_PP = "https://allevents.in/puerto-plata";
 const ALLEVENTS_SOSUA = "https://allevents.in/sosua";

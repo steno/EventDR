@@ -432,6 +432,53 @@ describe("findNearbyOnStrip", () => {
       false,
     );
   });
+
+  it("lists Ocean World from the Cofresí beach hub", () => {
+    const hub = event({
+      id: "__venue__playa-cofresi",
+      title: "Playa Cofresí",
+      date: "2026-08-27",
+      venueSlug: "playa-cofresi",
+      location: "Cofresí",
+      lat: 19.8235,
+      lng: -70.7285,
+    });
+    const oceanWorld = event({
+      id: "terraza-ocean-world-evenings",
+      title: "Terraza Ocean World & Casino",
+      date: "2026-08-27",
+      time: "6:00 PM – 2:00 AM",
+      venueSlug: "ocean-world",
+      location: "Cofresí",
+      lat: 19.826313,
+      lng: -70.732062,
+      category: "parties",
+    });
+    const far = event({
+      id: "crazy-lobster",
+      title: "Crazy Lobster",
+      date: "2026-08-27",
+      time: "11:00 AM – 8:00 PM",
+      venueSlug: "crazy-lobster-maimon",
+      location: "Maimón",
+      lat: 19.8341,
+      lng: -70.7707,
+    });
+
+    const result = findNearbyOnStrip(hub, [hub, oceanWorld, far], {
+      now: new Date("2026-08-27T11:00:00.000-04:00"),
+      preferEvening: true,
+    });
+
+    assert.equal(result.stripAhead, true);
+    assert.equal(result.pocket?.slug, "cofresi-beach");
+    assert.equal(result.hits.length, 1);
+    assert.equal(result.hits[0]?.event.venueSlug, "ocean-world");
+    assert.equal(
+      result.hits.some((h) => h.event.venueSlug === "crazy-lobster-maimon"),
+      false,
+    );
+  });
 });
 
 describe("findNearbyForEventDetail", () => {

@@ -238,7 +238,7 @@ async function draftOpinionWithOpenAI(input: {
   const isRecurring = Boolean(input.event.recurrence);
   const system = `You write unique guest-facing POP expert opinions for ONE ${
     isRecurring ? "recurring night/series" : "upcoming event"
-  } on the North Coast of the Dominican Republic (Puerto Plata, Sosúa, Cabarete, Costambar, Playa Dorada).
+  } on the North Coast of the Dominican Republic (Puerto Plata including Cofresí and Maimón, Sosúa, Cabarete, Costambar, Playa Dorada).
 
 Rules:
 - Write a warm POP tip about THIS ${isRecurring ? "night/series" : "event"} — same voice as venue tips ("When guests ask…", "we actually send people to", "honestly, we get why").

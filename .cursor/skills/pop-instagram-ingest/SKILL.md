@@ -32,7 +32,7 @@ Instagram ingest:
 
 ## 1. Scope and safety
 
-Include public events in Puerto Plata, Sosúa, Cabarete, Costambar, and Playa Dorada. For the current 2026 discovery pass, use an explicit window from the run date through **2026-12-31**. Include clearly recurring events only when an official source confirms that the schedule remains active in this window.
+Include public events in Puerto Plata (including Cofresí and Maimón), Sosúa, Cabarete, Costambar, and Playa Dorada. For the current 2026 discovery pass, use an explicit window from the run date through **2026-12-31**. Include clearly recurring events only when an official source confirms that the schedule remains active in this window.
 
 Skip:
 
@@ -74,7 +74,7 @@ For Stories, inspect only currently public Stories from monitored accounts. Capt
 
 Search Instagram for:
 
-- `#puertoplata`, `#sosua`, `#cabarete`, `#costanorterd`
+- `#puertoplata`, `#sosua`, `#cabarete`, `#cofresi`, `#maimon`, `#costanorterd`
 - `#eventosdominicanos`, `#eventospuertoplata`, `#eventoscabarete`
 - `Puerto Plata concierto`, `Sosúa fiesta`, `Cabarete live music`
 - `merengue`, `bachata`, `típico`, `urbano`, `DJ`, `karaoke`, `open mic`
