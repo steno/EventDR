@@ -1,11 +1,9 @@
 import type { ReactNode } from "react";
 import { EventImage } from "@/components/EventImage";
-import { IntentLink } from "@/components/IntentLink";
 import {
   getHomeHeroTagline,
   type CitySlug,
 } from "@/lib/cities";
-import { eventDetailPath, rememberReturnPath } from "@/lib/event-navigation";
 import type { Event } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
@@ -15,8 +13,6 @@ interface PhotoHeroProps {
   locale: Locale;
   /** Featured event for the photo plane; falls back to brand gradient if missing. */
   featuredEvent?: Event | null;
-  /** Return path when opening the featured event (keeps home area). */
-  returnTo?: string;
   /** Place name synced with the home city picker (city or North Coast). */
   placeName?: string;
   /** Active home area — drives the SEO H2 so it stays in sync with the select. */
@@ -31,17 +27,12 @@ export function PhotoHero({
   dict,
   locale,
   featuredEvent = null,
-  returnTo,
   placeName,
   citySlug = null,
   locationPicker,
   afterTagline,
 }: PhotoHeroProps) {
   const imageUrl = featuredEvent?.imageUrl?.trim() || null;
-  const eventHref =
-    featuredEvent != null
-      ? eventDetailPath(locale, featuredEvent.id)
-      : null;
   const heroPlace = placeName?.trim() || dict.hero.nearYou;
   const tagline = getHomeHeroTagline(
     locale,
@@ -116,25 +107,6 @@ export function PhotoHero({
           </h2>
           {afterTagline}
         </div>
-
-        {featuredEvent && eventHref && (
-          <IntentLink
-            href={eventHref}
-            eagerWarm
-            onClick={() => rememberReturnPath(returnTo ?? `/${locale}`)}
-            className="group inline-flex max-w-full items-center gap-2 text-sm font-bold touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400 focus-visible:rounded"
-          >
-            <span className="truncate bg-gradient-to-r from-orange-300 via-rose-300 to-fuchsia-300 bg-clip-text text-transparent transition-[filter] group-hover:brightness-110">
-              {featuredEvent.title}
-            </span>
-            <span
-              aria-hidden
-              className="shrink-0 text-orange-300 transition-transform group-hover:translate-x-0.5 group-hover:text-rose-300"
-            >
-              →
-            </span>
-          </IntentLink>
-        )}
       </div>
     </header>
   );

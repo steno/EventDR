@@ -456,7 +456,6 @@ function HomeApp({
                     dict={dict}
                     locale={locale}
                     featuredEvent={discoverLayout.heroEvent}
-                    returnTo={homePath}
                     placeName={heroPlaceName}
                     citySlug={selectedCity}
                     locationPicker={

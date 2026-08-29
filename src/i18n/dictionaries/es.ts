@@ -328,6 +328,9 @@ export const es: Dictionary = {
     leaveByNow: "Vuelve al barco ahora",
     minutesLeft: "{minutes} min para salir hacia el barco",
     pastLeave: "Si tu barco sigue atracado, vuelve al muelle ahora.",
+    shipsSailed: "La mayoría de los barcos ya zarparon.",
+    shipsSailedHint:
+      "¿Sigues en puerto? Pon una hora más tarde. Si te quedas en tierra, aquí está esta noche en la Costa Norte.",
     taxiTipTaino: "Camina al centro. Acuerda cualquier tarifa de taxi antes de subir.",
     taxiTipAmber: "El taxi al Centro toma unos 20–25 min. Acuerda la tarifa antes de subir.",
     itinerariesTitle: "Rutas listas",

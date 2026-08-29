@@ -298,6 +298,8 @@ export type Dictionary = {
     leaveByNow: string;
     minutesLeft: string;
     pastLeave: string;
+    shipsSailed: string;
+    shipsSailedHint: string;
     taxiTipTaino: string;
     taxiTipAmber: string;
     itinerariesTitle: string;
@@ -807,6 +809,9 @@ export const en: Dictionary = {
     leaveByNow: "Head back to the ship now",
     minutesLeft: "{minutes} min until you should leave",
     pastLeave: "If your ship is still docked, go back to the pier now.",
+    shipsSailed: "Most ships have already left.",
+    shipsSailedHint:
+      "Still in port? Set a later return time. If you’re staying ashore, here’s tonight on the North Coast.",
     taxiTipTaino: "Walk downtown. Agree any taxi fare before you sit.",
     taxiTipAmber: "Taxi to Centro is about 20–25 min. Agree the fare before you sit.",
     itinerariesTitle: "Ready-made loops",

@@ -315,6 +315,21 @@ export function minutesUntil(targetMinutes: number, now: Date = new Date()): num
   return targetMinutes - localMinutesOfDay(now);
 }
 
+export type CruiseDayPhase = "open" | "leave-now" | "sailed";
+
+/** `sailed` = past the chosen return time; `leave-now` = still before it, but past leave-by. */
+export function cruiseDayPhase(
+  port: CruisePort,
+  allAboardMinutes: number,
+  now: Date = new Date(),
+): CruiseDayPhase {
+  if (minutesUntil(clampMinutes(allAboardMinutes), now) <= 0) return "sailed";
+  if (minutesUntil(leaveByMinutes(port, allAboardMinutes), now) <= 0) {
+    return "leave-now";
+  }
+  return "open";
+}
+
 /** Same calendar day at `hour`:00 in America/Santo_Domingo (no DST). */
 export function atLocalHour(now: Date, hour: number): Date {
   const day = localDateISO(now);
@@ -536,18 +551,18 @@ export function itinerariesForPort(
   const remaining = minutesUntil(leaveByMinutes(meta, allAboardMinutes), now);
   return CRUISE_ITINERARIES.filter((loop) => {
     if (loop.port !== port) return false;
-    // After ships have sailed, still show the typical loops for QR / overnight guests.
-    if (remaining <= 0) return true;
+    if (remaining <= 0) return false;
     if (loop.id === "amber-centro") return remaining >= 210;
     return loop.typicalMinutes + loop.taxiMinutes <= remaining + TIGHT_SLACK_MINUTES;
   });
 }
 
-/** Venue slugs that belong on this port’s “near here” rail. */
+/** Venue slugs that belong on this port’s “near here” rail — not a taxi into Centro. */
 export function cruiseVenueAllowlist(port: CruisePortSlug): string[] {
   const slugs = new Set<string>();
   for (const loop of CRUISE_ITINERARIES) {
     if (loop.port !== port) continue;
+    if (loop.taxiMinutes > 15) continue;
     for (const slug of loop.stopSlugs) slugs.add(slug);
   }
   if (port === "taino-bay") {
@@ -567,8 +582,6 @@ export function cruiseVenueAllowlist(port: CruisePortSlug): string[] {
       "playa-cofresi",
       "don-limon-cofresi",
       "los-tres-cocos-cofresi",
-      "paella-pop-el-pueblito",
-      "fun-city",
     ]) {
       slugs.add(slug);
     }

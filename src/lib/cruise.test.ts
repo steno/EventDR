@@ -3,8 +3,10 @@ import { describe, it } from "node:test";
 import {
   CRUISE_PORTS,
   CRUISE_PORT_SLUGS,
+  cruiseDayPhase,
   cruisePath,
   cruiseTravelFromPort,
+  cruiseVenueAllowlist,
   formatAllAboardParam,
   formatClockMinutes,
   getCruiseVisitMinutes,
@@ -15,6 +17,7 @@ import {
   visibleCruiseEvents,
 } from "./cruise";
 import { getVenueHeroImageUrl } from "./venue-images";
+import { SEED_VENUES } from "./venues-seed";
 import type { Event } from "./types";
 
 /** Saturday 29 Aug 2026, 11:00 AST. */
@@ -65,6 +68,18 @@ describe("leaveByMinutes", () => {
       leaveByMinutes(CRUISE_PORTS["amber-cove"], 16 * 60 + 30),
       15 * 60,
     );
+  });
+});
+
+describe("cruiseDayPhase", () => {
+  it("is open in the morning, leave-now after leave-by, sailed after all-aboard", () => {
+    const port = CRUISE_PORTS["taino-bay"];
+    const aboard = 16 * 60 + 30;
+    assert.equal(cruiseDayPhase(port, aboard, MORNING), "open");
+    const rushing = new Date("2026-08-29T19:40:00.000Z"); // 15:40 AST
+    assert.equal(cruiseDayPhase(port, aboard, rushing), "leave-now");
+    const evening = new Date("2026-08-29T21:45:00.000Z"); // 17:45 AST
+    assert.equal(cruiseDayPhase(port, aboard, evening), "sailed");
   });
 });
 
@@ -241,5 +256,51 @@ describe("itinerariesForPort", () => {
     const loops = itinerariesForPort("amber-cove", 16 * 60 + 30, midday);
     assert.ok(!loops.some((loop) => loop.id === "amber-centro"));
     assert.ok(loops.some((loop) => loop.id === "amber-local"));
+  });
+
+  it("hides port-day loops after all-aboard", () => {
+    const evening = new Date("2026-08-29T21:45:00.000Z"); // 17:45 AST
+    assert.deepEqual(itinerariesForPort("taino-bay", 16 * 60 + 30, evening), []);
+  });
+});
+
+function travelMinutes(
+  port: (typeof CRUISE_PORTS)[keyof typeof CRUISE_PORTS],
+  coords: { lat: number; lng: number },
+): number {
+  const travel = cruiseTravelFromPort(port, coords);
+  return travel.kind === "walk" ? travel.walkMinutes : travel.driveMinutes;
+}
+
+describe("cruiseVenueAllowlist", () => {
+  const bySlug = new Map(SEED_VENUES.map((venue) => [venue.slug, venue]));
+
+  it("keeps Centro stops on Taino Bay and Maimón/Cofresí on Amber Cove", () => {
+    const taino = cruiseVenueAllowlist("taino-bay");
+    const amber = cruiseVenueAllowlist("amber-cove");
+    assert.ok(taino.includes("fortaleza-san-felipe"));
+    assert.ok(!amber.includes("fortaleza-san-felipe"));
+    assert.ok(!amber.includes("museo-ambar"));
+    assert.ok(!amber.includes("calle-sombrillas"));
+    assert.ok(!amber.includes("fun-city"));
+    assert.ok(!amber.includes("paella-pop-el-pueblito"));
+    assert.ok(amber.includes("playa-cofresi"));
+    assert.ok(amber.includes("crazy-lobster-maimon"));
+  });
+
+  it("only lists venues closer to that port than the other", () => {
+    for (const portSlug of CRUISE_PORT_SLUGS) {
+      const other = portSlug === "taino-bay" ? "amber-cove" : "taino-bay";
+      for (const slug of cruiseVenueAllowlist(portSlug)) {
+        const venue = bySlug.get(slug);
+        assert.ok(venue?.lat != null && venue.lng != null, slug);
+        const here = travelMinutes(CRUISE_PORTS[portSlug], venue);
+        const there = travelMinutes(CRUISE_PORTS[other], venue);
+        assert.ok(
+          here < there,
+          `${slug} is ${here} min from ${portSlug} vs ${there} from ${other}`,
+        );
+      }
+    }
   });
 });
