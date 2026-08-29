@@ -6,9 +6,7 @@ import { getVenueBySlug } from "@/lib/venues";
 import { getVenueAssessment } from "@/lib/venue-assessments";
 import { getNearbyTonightForVenue } from "@/lib/get-nearby-tonight";
 import { getPublicEvents } from "@/lib/public-events";
-import { VENUE_AUDIENCE_POOLS } from "@/lib/home-layout";
-import { SEED_VENUES } from "@/lib/venues-seed";
-import { isValidLocale, locales } from "@/i18n/config";
+import { isValidLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import {
   buildBreadcrumbJsonLd,
@@ -18,20 +16,13 @@ import {
 } from "@/lib/seo";
 
 export const revalidate = 120;
-
-const PREBUILD_VENUE_SLUGS = new Set([
-  ...VENUE_AUDIENCE_POOLS.local,
-  ...VENUE_AUDIENCE_POOLS.visitor,
-]);
+export const dynamicParams = true;
 
 export async function generateStaticParams() {
-  // Home-slider venues only. Prebuilding ~100 slugs × 3 locales plus
-  // next/image on unique JPEGs SIGKILL'd Netlify (8GB). The rest ISR.
-  return locales.flatMap((locale) =>
-    SEED_VENUES.filter((venue) => PREBUILD_VENUE_SLUGS.has(venue.slug)).map(
-      (venue) => ({ locale, slug: venue.slug }),
-    ),
-  );
+  // Do not prebuild venues. ~80 home-slider slugs × 3 locales plus next/image
+  // on unique JPEGs SIGKILL'd Netlify's 8GB box (worker exit at ~111/447).
+  // First request ISR-fills the page (revalidate=120).
+  return [];
 }
 
 export async function generateMetadata({

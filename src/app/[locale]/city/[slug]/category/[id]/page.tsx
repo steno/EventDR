@@ -4,14 +4,9 @@ import { EventScopePage } from "@/components/EventScopePage";
 import { JsonLd } from "@/components/JsonLd";
 import { CATEGORY_IDS, getCategoryMeta } from "@/lib/categories";
 import { getCityCategorySeo } from "@/lib/city-category-seo";
-import {
-  CITY_SLUGS,
-  getCityMeta,
-  getCityName,
-  isCitySlug,
-} from "@/lib/cities";
+import { getCityMeta, getCityName, isCitySlug } from "@/lib/cities";
 import { categoryNavLinks } from "@/lib/event-navigation";
-import { isValidLocale, locales } from "@/i18n/config";
+import { isValidLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getPublicEvents } from "@/lib/public-events";
 import {
@@ -26,13 +21,14 @@ import {
 import type { EventCategory } from "@/lib/types";
 
 export const revalidate = 120;
+export const dynamicParams = true;
 
 export async function generateStaticParams() {
-  return locales.flatMap((locale) =>
-    CITY_SLUGS.flatMap((slug) =>
-      CATEGORY_IDS.map((id) => ({ locale, slug, id })),
-    ),
-  );
+  // 3 cities × 12 categories × 3 locales = 108 pages, each embedding the full
+  // region catalog for soft-nav. That combo plus listing images OOMs Netlify
+  // SSG (SIGKILL around page 111/447). City + category hubs still prebuild;
+  // these scoped URLs ISR on first crawl (sitemap lists them).
+  return [];
 }
 
 export async function generateMetadata({

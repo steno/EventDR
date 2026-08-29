@@ -57,7 +57,11 @@ async function loadVenueBySlug(
 ): Promise<Venue | undefined> {
   const seed = getSeedVenue(slug);
   let venue: Venue | undefined = seed;
-  if (isFirebaseConfigured()) {
+  // Skip Firestore during SSG (same as public-events) — admin SDK + review dumps OOM Netlify.
+  if (
+    isFirebaseConfigured() &&
+    process.env.NEXT_PHASE !== "phase-production-build"
+  ) {
     try {
       const remote = (await fetchVenueBySlug(slug)) ?? undefined;
       if (remote) {
@@ -93,7 +97,10 @@ export async function getVenueBySlug(
 
 async function loadVenues(locale: string): Promise<Venue[]> {
   let venues: Venue[];
-  if (!isFirebaseConfigured()) {
+  if (
+    !isFirebaseConfigured() ||
+    process.env.NEXT_PHASE === "phase-production-build"
+  ) {
     venues = SEED_VENUES;
   } else {
     try {

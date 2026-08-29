@@ -4,8 +4,9 @@
 [build.environment]
   # Node 22: firebase-admin >=14 and @netlify/plugin-nextjs require it.
   NODE_VERSION = "22"
-  # Static generation of ~400 pages (venues × locales + nearby pool) needs headroom.
-  NODE_OPTIONS = "--max-old-space-size=4096"
+  # Parent + 1 SSG worker share an ~8GB box. 4GB heaps left no room for sharp
+  # native buffers and the kernel SIGKILL'd the worker. 2GB forces earlier GC.
+  NODE_OPTIONS = "--max-old-space-size=2048"
   # Browser Maps key is intentionally inlined into client JS (NEXT_PUBLIC_*).
   # Protect it with HTTP referrer restrictions in Google Cloud, not by hiding it.
   SECRETS_SCAN_OMIT_KEYS = "NEXT_PUBLIC_GOOGLE_MAPS_API_KEY"

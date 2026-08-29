@@ -32,7 +32,7 @@ const tunnelDomains = [
 
 const nextConfig: NextConfig = {
   allowedDevOrigins: [...getLocalIPv4Addresses(), ...extraDevOrigins, ...tunnelDomains],
-  // One SSG worker so Netlify's ~8GB box isn't SIGKILL'd by 2×4GB heaps.
+  // One SSG worker so Netlify's ~8GB box isn't SIGKILL'd by 2×2GB heaps + sharp.
   experimental: {
     cpus: 1,
   },
