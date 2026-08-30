@@ -135,13 +135,15 @@ const VENUE_SOURCES = [
     url: "https://images.prismic.io/prismic-rd-2/Z-pgqndAxsiBwHB3_22_12_MITUR_1974.jpg?auto=format,compress&rect=0,162,2281,1198&w=2400&h=1260",
   },
   // d-classico-merengue-bar.jpg — Maps night bar. Do not remote-refresh the YouTube facade.
+  // Saturday paella night — guests at the bar. Venue keeps the empty dining-room place shot.
   {
-    eventId: "hms-valeria-spanish-saturday",
-    url: "https://static.wixstatic.com/media/02154c_67e5d348034b45fd8fbb695c6549c8ac~mv2.jpg/v1/fit/w_2000,h_2000,al_c/02154c_67e5d348034b45fd8fbb695c6549c8ac~mv2.jpg",
+    eventId: "hms-valeria-spanish-saturday-guests",
+    url: "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWndv4fLlFlAJQZYV_JqBs8EfcIgG7y_SK6biBCLs_vy5HMbn6IOp0OZMM_uKEJgatqZeVeV-bBk_qHYYfp_ihikzsMY4iJxv-JSgU8Nt-a1AoZ3-AOaqqEwpJ54arqLgXwA46fY0gtJePiX=s1600",
   },
+  // Sunday lunch 12–4 — seated daytime table. Do not remote-refresh the night mural.
   {
-    eventId: "hms-valeria-domingo-dominicano",
-    url: "https://static.wixstatic.com/media/02154c_145420d3ce2b4196ac8234b55cabf921~mv2.jpg/v1/fit/w_2000,h_2000,al_c/02154c_145420d3ce2b4196ac8234b55cabf921~mv2.jpg",
+    eventId: "hms-valeria-domingo-table",
+    url: "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWmDt3ObU2hTvkqzMA5IyNAK9Ff3ri51aKuuDzH6tbtgkq7N-ziBNty--GQFzlZVWZ7INWRnh-OmBTKYTMUot_8-wIdCoVKJqiBZUYQ8aPZE452zZ_JKxI9sMJUuVeSApSEJnMTSOx-1SxGn=s1600",
   },
   {
     eventId: "rum-legacy-museum-daily",
@@ -278,7 +280,7 @@ const VENUE_SOURCES = [
   // bar-39-sosua-beach.jpg — Wikimedia Playa Sosúa lounge strip geotagged at Bar 39.
   // playa-sosua-shore.jpg — Wikimedia Sosúa Bay shoreline. Do not remote-refresh
   // a Freestyle Catamaran over either.
-  // crazy-lobster-shrimp.jpg — Maps grilled shrimp at this beach hut.
+  // crazy-lobster-beach-dining.jpg — POP on-site table (grilled lobster).
   // Do not remote-refresh the TripAdvisor shack onto the event.
   // don-limon.jpeg — POP-supplied event photo (logo wall).
   // don-limon-venue.jpeg — POP-supplied beach-bar venue hero. Do not remote-refresh.
@@ -286,6 +288,28 @@ const VENUE_SOURCES = [
   // Do not remote-refresh the shared garden-dining still onto the event.
   // ocean-winds-karaoke-amados.jpg — Maps night patio at Amado’s.
   // Do not remote-refresh the shared daytime pool still.
+  // Calle de las Sombrillas walk — TripAdvisor visitor photo looking down
+  // Calle San Felipe. Venue keeps the looking-up canopy place shot.
+  {
+    eventId: "calle-sombrillas-umbrella-walk",
+    url: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/28/ce/f6/4b/caption.jpg?w=1600&h=-1&s=1",
+  },
+  // Paseo de Doña Blanca walk — official gallery landscape of the pink alley.
+  // Venue keeps paseo-dona-blanca.jpg (portrait place shot).
+  {
+    eventId: "paseo-dona-blanca-pink-walk",
+    url: "https://puertoplatadr.com/wp-content/uploads/2021/12/donablanca-puertoplata.jpg",
+  },
+  // Fortaleza San Felipe — Wikimedia CC0 ground-level ramparts (not the 524px aerial).
+  // Venue is fortaleza-san-felipe-bastion.jpg (different angle, lawn + flags).
+  {
+    eventId: "fortaleza-san-felipe-ramparts",
+    url: "https://upload.wikimedia.org/wikipedia/commons/c/c6/Fortaleza_de_San_Felipe_DR_3.jpg",
+  },
+  {
+    eventId: "fortaleza-san-felipe-bastion",
+    url: "https://upload.wikimedia.org/wikipedia/commons/a/a6/Fortaleza_de_San_Felipe_DR_1.jpg",
+  },
   {
     eventId: "love-does-sosua",
     url: "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWkpQb-LzUHDNct8gGV7xMn7fBY-OAC1fCQ8DyRYrxhtvm_wvT0NRdoV3Y55dCHbg0oGe1bWM4_Mj3lyWMRVJ6C2_n0LTuvGi-b11yXOlNbb6Z3ujrIPxKUy8iL6hF8j6BPyO69v0w=s1600",
@@ -410,6 +434,8 @@ const localSources = [
     src: "FinishLineLiveWednesday.jpg",
     eventId: "finish-line-live-wednesday",
   },
+  // ElBateySalsaSocial.JPG is a patio-crowd clone — do not stamp it onto
+  // salsa (uses SosuaSalsaSocial.JPG), open mic, or weekend nightlife.
   {
     src: "ElBateySalsaSocial.JPG",
     eventId: "sosua-pedro-clisante-food-nights",

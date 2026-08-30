@@ -87,12 +87,14 @@ const getCachedVenueBySlug = unstable_cache(
   { revalidate: VENUES_REVALIDATE_SECONDS, tags: ["venues"] },
 );
 
-/** Single venue lookup — seed coords win over stale Firestore copies. */
+/** Single venue lookup — seed coords win over stale Firestore copies.
+ * Re-attach curated heroes outside cache so filename bumps aren't frozen. */
 export async function getVenueBySlug(
   slug: string,
   locale?: Locale,
 ): Promise<Venue | undefined> {
-  return getCachedVenueBySlug(slug, locale ?? "");
+  const venue = await getCachedVenueBySlug(slug, locale ?? "");
+  return venue ? attachVenueImage(venue) : undefined;
 }
 
 async function loadVenues(locale: string): Promise<Venue[]> {
@@ -122,7 +124,8 @@ const getCachedVenues = unstable_cache(
   { revalidate: VENUES_REVALIDATE_SECONDS, tags: ["venues"] },
 );
 
-/** Venues for SSR and API — full seed list plus any Firebase-only venues. */
+/** Venues for SSR and API — full seed list plus any Firebase-only venues.
+ * Re-attach curated heroes outside cache so filename bumps aren't frozen. */
 export async function getVenues(locale?: Locale): Promise<Venue[]> {
-  return getCachedVenues(locale ?? "");
+  return attachVenueImages(await getCachedVenues(locale ?? ""));
 }

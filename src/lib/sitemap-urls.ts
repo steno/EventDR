@@ -39,16 +39,13 @@ const MIN_EVENTS_FOR_SCOPED_PAGE = 3;
 async function getAllVenueSlugs(): Promise<string[]> {
   const slugs = new Set(SEED_VENUES.map((venue) => venue.slug));
 
-  // Skip Firestore during SSG — seeds cover the sitemap; ISR/runtime merges.
-  if (process.env.NEXT_PHASE !== "phase-production-build") {
-    try {
-      const venues = await fetchVenues();
-      for (const venue of venues) {
-        slugs.add(venue.slug);
-      }
-    } catch {
-      // Firebase may be unavailable at build time.
+  try {
+    const venues = await fetchVenues();
+    for (const venue of venues) {
+      slugs.add(venue.slug);
     }
+  } catch {
+    // Firebase may be unavailable at build time.
   }
 
   return [...slugs];

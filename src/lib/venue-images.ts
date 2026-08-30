@@ -9,7 +9,8 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "kite-beach": "kite-beach.jpg",
   // Filename bump — Kite Beach school patio (kite-jump stays on the watersports event).
   "liquid-blue-cabarete": "liquid-blue-cabarete-beach.jpg",
-  "el-batey-sosua": "el-batey-sosua.jpg",
+  // Filename bump — Pedro Clisante restaurant strip (not Plaza García / Entrada).
+  "el-batey-sosua": "el-batey-pedro-clisante-strip.jpg",
   "nonas-grill-kitchen": "nonas-grill-kitchen.jpg",
   "hard-rock-sosua": "hard-rock-sosua.jpg",
   // Filename bump after replacing shared concert stock — next/image rejects ?v= on local paths.
@@ -48,7 +49,8 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "pingui-bar": "pingui-bar-tiki.jpg",
   "el-carey-puerto-plata": "el-carey-puerto-plata.webp",
   "el-colibri-hotel": "el-colibri-hotel.jpg",
-  "fortaleza-san-felipe": "fortaleza-san-felipe.jpg",
+  // Filename bump — Wikimedia lawn + flags (not the 524px aerial clone / event hero).
+  "fortaleza-san-felipe": "fortaleza-san-felipe-bastion.jpg",
   "museo-ambar": "museo-ambar.jpg",
   "charcos-damajagua": "charcos-damajagua.jpg",
   "teleferico-puerto-plata": "teleferico-puerto-plata.jpg",

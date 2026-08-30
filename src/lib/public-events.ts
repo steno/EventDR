@@ -173,12 +173,14 @@ export async function getPublicEvents(
     filter.when ?? "",
     filter.includePast ? "1" : "",
   );
-  // Rematerialize + re-sort outside the cache: occurrence dates and live/ended
-  // tiers are clock-dependent even within the same cached calendar day.
+  // Rematerialize + re-sort outside the cache: occurrence dates, live/ended
+  // tiers, and curated heroes can change without waiting for revalidate.
   return sortEventsForDisplay(
-    materializeEventDates(events, new Date(), {
-      includePastOneOffs: Boolean(filter.includePast),
-    }),
+    attachEventImages(
+      materializeEventDates(events, new Date(), {
+        includePastOneOffs: Boolean(filter.includePast),
+      }),
+    ),
     {
       recurringLast: true,
       oneTimeFirst: Boolean(filter.category),

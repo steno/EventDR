@@ -37,11 +37,8 @@ export type CruisePort = {
   /** Minutes before all-aboard to be at the terminal. */
   leaveBufferMinutes: number;
   walkablePockets: readonly WalkablePocketSlug[];
-  /**
-   * Nearby place photo that reads as this terminal (Fortaleza + ship in the
-   * bay; Cofresí shore beside Amber Cove). Used by the cruise port switcher.
-   */
-  heroVenueSlug: string;
+  /** Ship-at-port photo for the cruise card (no query string — next/image). */
+  imageSrc: string;
 };
 
 /** Taino Bay sits beside Fortaleza; Amber Cove is the Maimón private port. */
@@ -53,7 +50,7 @@ export const CRUISE_PORTS: Record<CruisePortSlug, CruisePort> = {
     defaultAllAboardMinutes: 16 * 60 + 30,
     leaveBufferMinutes: 75,
     walkablePockets: ["malecon-pp"],
-    heroVenueSlug: "fortaleza-san-felipe",
+    imageSrc: "/cruise/taino-bay.jpg",
   },
   "amber-cove": {
     slug: "amber-cove",
@@ -62,7 +59,7 @@ export const CRUISE_PORTS: Record<CruisePortSlug, CruisePort> = {
     defaultAllAboardMinutes: 16 * 60 + 30,
     leaveBufferMinutes: 90,
     walkablePockets: ["cofresi-beach"],
-    heroVenueSlug: "playa-cofresi",
+    imageSrc: "/cruise/amber-cove.jpg",
   },
 };
 
@@ -406,6 +403,36 @@ function isNightlifeTooLate(
   return false;
 }
 
+function travelMinutesOf(travel: CruiseTravel): number {
+  return travel.kind === "walk" ? travel.walkMinutes : travel.driveMinutes;
+}
+
+function isForeignPortPocket(
+  port: CruisePort,
+  pocket: WalkablePocketSlug | undefined,
+): boolean {
+  if (!pocket) return false;
+  for (const other of Object.values(CRUISE_PORTS)) {
+    if (other.slug === port.slug) continue;
+    if (other.walkablePockets.includes(pocket)) return true;
+  }
+  return false;
+}
+
+/** Centro is ~25 min from Amber Cove — under the taxi cap, but not “near this port”. */
+function isCloserToOtherPort(
+  port: CruisePort,
+  coords: { lat: number; lng: number },
+): boolean {
+  const here = travelMinutesOf(cruiseTravelFromPort(port, coords));
+  for (const other of Object.values(CRUISE_PORTS)) {
+    if (other.slug === port.slug) continue;
+    const there = travelMinutesOf(cruiseTravelFromPort(other, coords));
+    if (there < here) return true;
+  }
+  return false;
+}
+
 function classifyCruiseEvent(
   event: Event,
   port: CruisePort,
@@ -416,8 +443,9 @@ function classifyCruiseEvent(
   const coords = resolveEventCoords(event);
   const travel = coords ? cruiseTravelFromPort(port, coords) : null;
   const pocket = getPocketForEvent(event);
+  const pocketSlug = pocket?.slug;
   const inWalkablePocket = Boolean(
-    pocket && port.walkablePockets.includes(pocket.slug),
+    pocketSlug && port.walkablePockets.includes(pocketSlug),
   );
 
   const travelMinutes = travel
@@ -445,6 +473,10 @@ function classifyCruiseEvent(
     fit = "too-late-night";
   } else if (window && window.start > leaveBy) {
     fit = "too-late";
+  } else if (isForeignPortPocket(port, pocketSlug)) {
+    fit = "too-far";
+  } else if (coords && isCloserToOtherPort(port, coords)) {
+    fit = "too-far";
   } else if (!coords && !inWalkablePocket) {
     fit = "too-far";
   } else if (
@@ -585,6 +617,7 @@ export function cruiseVenueAllowlist(port: CruisePortSlug): string[] {
     ]) {
       slugs.add(slug);
     }
+    slugs.delete("fortaleza-san-felipe");
   }
   return [...slugs];
 }

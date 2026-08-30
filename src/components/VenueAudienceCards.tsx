@@ -40,12 +40,19 @@ function VenueSlideCard({
   venue,
   locale,
   loadImage,
+  wide,
 }: {
   venue: Venue;
   locale: Locale;
   /** When false, keep the card chrome but skip the image request. */
   loadImage: boolean;
+  /** Full-width slider (one audience) vs half-column home pair. */
+  wide?: boolean;
 }) {
+  const sizes = wide
+    ? "(max-width: 640px) 88vw, (max-width: 1024px) 50vw, 33vw"
+    : "(max-width: 640px) 88vw, (max-width: 1024px) 45vw, 32vw";
+
   return (
     <IntentLink
       href={`/${locale}/venue/${venue.slug}`}
@@ -65,9 +72,9 @@ function VenueSlideCard({
           <EventImage
             src={venue.imageUrl}
             alt=""
-            sizes="(max-width: 640px) 88vw, (max-width: 1024px) 45vw, 32vw"
+            sizes={sizes}
             priority={false}
-            className="object-cover card-media-zoom"
+            className="object-cover object-top sm:object-center card-media-zoom"
           />
         ) : venue.imageUrl ? (
           <span className="block h-full w-full bg-neutral-200 dark:bg-neutral-800" aria-hidden />
@@ -119,6 +126,7 @@ function AudienceSlider({
   mediaEnabled,
   areaName,
   title,
+  wide,
 }: {
   audience: VenueAudienceFilter;
   venues: Venue[];
@@ -128,6 +136,8 @@ function AudienceSlider({
   mediaEnabled: boolean;
   areaName: string | null;
   title?: string;
+  /** One slider spanning the shell — show more cards as the viewport grows. */
+  wide?: boolean;
 }) {
   const hint = audienceHint(audience, dict, areaName);
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -164,9 +174,12 @@ function AudienceSlider({
 
   useEffect(() => {
     if (!mediaEnabled) return;
-    // Current + next peek (horizontal carousels defeat native lazy otherwise).
-    setLoadedThrough((prev) => Math.max(prev, Math.min(activeIndex + 1, venues.length - 1)));
-  }, [mediaEnabled, activeIndex, venues.length]);
+    // Current + visible neighbors (horizontal carousels defeat native lazy otherwise).
+    const ahead = wide ? 3 : 1;
+    setLoadedThrough((prev) =>
+      Math.max(prev, Math.min(activeIndex + ahead, venues.length - 1)),
+    );
+  }, [mediaEnabled, activeIndex, venues.length, wide]);
 
   const scrollToIndex = useCallback((index: number) => {
     const el = scrollRef.current;
@@ -199,12 +212,17 @@ function AudienceSlider({
             <div
               key={venue.slug}
               data-venue-slide
-              className="w-[88%] shrink-0 snap-start sm:w-[90%]"
+              className={
+                wide
+                  ? "w-[88%] shrink-0 snap-start sm:w-[calc((100%-0.75rem)/2)] lg:w-[calc((100%-1.5rem)/3)]"
+                  : "w-[88%] shrink-0 snap-start sm:w-[90%]"
+              }
             >
               <VenueSlideCard
                 venue={venue}
                 locale={locale}
                 loadImage={mediaEnabled && index <= loadedThrough}
+                wide={wide}
               />
             </div>
           ))}
@@ -315,30 +333,31 @@ export function VenueAudienceCards({
     return city ? getCityName(city, locale) : null;
   }, [citySlug, locale]);
 
-  const allow = useMemo(
-    () => (allowedSlugs?.length ? new Set(allowedSlugs) : null),
-    [allowedSlugs],
-  );
-
   const sections = useMemo(
     () =>
       audiences
-        .map((audience) => ({
-          audience,
-          venues: getFeaturedVenues(
-            venues,
+        .map((audience) => {
+          if (allowedSlugs) {
+            const bySlug = new Map(venues.map((venue) => [venue.slug, venue]));
+            return {
+              audience,
+              venues: allowedSlugs
+                .map((slug) => bySlug.get(slug))
+                .filter((venue): venue is Venue => venue != null),
+            };
+          }
+          return {
             audience,
-            allow ? Math.max(limit, 24) : limit,
-            { citySlug },
-          )
-            .filter((venue) => (allow ? allow.has(venue.slug) : true))
-            .slice(0, limit),
-        }))
+            venues: getFeaturedVenues(venues, audience, limit, { citySlug }),
+          };
+        })
         .filter((section) => section.venues.length > 0),
-    [venues, limit, citySlug, audiences, allow],
+    [venues, limit, citySlug, audiences, allowedSlugs],
   );
 
   if (sections.length === 0) return null;
+
+  const wide = sections.length === 1;
 
   return (
     <section
@@ -346,7 +365,11 @@ export function VenueAudienceCards({
       className="mb-6 sm:mb-8"
       aria-label={dict.venues.title}
     >
-      <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 sm:gap-5">
+      <div
+        className={
+          wide ? "min-w-0" : "grid grid-cols-1 gap-7 sm:grid-cols-2 sm:gap-5"
+        }
+      >
         {sections.map(({ audience, venues: featured }) => (
           <AudienceSlider
             key={`${audience}-${citySlug ?? "all"}`}
@@ -357,6 +380,7 @@ export function VenueAudienceCards({
             mediaEnabled={mediaEnabled}
             areaName={areaName}
             title={audience === "visitor" ? visitorTitle : undefined}
+            wide={wide}
           />
         ))}
       </div>

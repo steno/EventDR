@@ -406,7 +406,7 @@ export function EventScopePage({
 
   return (
     <>
-      <main className="relative bg-neutral-50 dark:bg-transparent pb-6">
+      <main className="relative bg-background dark:bg-transparent pb-6">
         <div className={PAGE_SHELL_CLASS}>
           <StickyListHeader
             locale={locale}

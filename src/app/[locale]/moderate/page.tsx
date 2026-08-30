@@ -21,7 +21,7 @@ export default async function Page({
   const dict = getDictionary(locale);
 
   return (
-    <main className="min-h-screen bg-neutral-50 dark:bg-transparent px-4 pb-8">
+    <main className="min-h-screen bg-background dark:bg-transparent px-4 pb-8">
       <div className="mx-auto max-w-lg">
         <AppHeader locale={locale} dict={dict} />
         <h1 className="text-title font-extrabold text-neutral-900 mb-6">

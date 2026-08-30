@@ -179,6 +179,7 @@ export const fr: Dictionary = {
     saved: "Enregistré",
     community: "Partagé par la communauté",
     viewVenue: "Voir le lieu",
+    viewEvent: "Voir l'événement",
     buyTickets: "Acheter des billets",
     freeAdmission: "Entrée gratuite",
     paidAdmission: "Entrée : {price}",
@@ -199,8 +200,8 @@ export const fr: Dictionary = {
     driveMinutes: "{n} min en voiture",
     sameStrip: "Même quartier",
     sameVenue: "Même lieu",
-    otherNights: "Autres soirées ici",
-    otherNightsAt: "Autres soirées à {venue}",
+    otherNights: "Aussi ici",
+    otherNightsAt: "Aussi à {venue}",
     walkableStrip: "Quartier piéton",
     pocketPlaceMeta: "{pocket} · {strip}",
     opinion: {

@@ -83,7 +83,7 @@ export function EventPage({
   }
 
   return (
-    <div className="min-h-dvh bg-neutral-50 dark:bg-transparent pb-8">
+    <div className="min-h-dvh bg-background dark:bg-transparent pb-8">
       <div className={PAGE_SHELL_DETAIL_CLASS}>
         <StickyListHeader
           locale={locale}

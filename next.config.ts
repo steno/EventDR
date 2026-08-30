@@ -191,6 +191,10 @@ const nextConfig: NextConfig = {
         headers: [{ key: "Cache-Control", value: assetCache }],
       },
       {
+        source: "/cruise/:path*",
+        headers: [{ key: "Cache-Control", value: assetCache }],
+      },
+      {
         source: "/categories/:path*",
         headers: [{ key: "Cache-Control", value: assetCache }],
       },

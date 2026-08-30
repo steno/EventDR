@@ -44,7 +44,7 @@ export default async function Page({
   const backLabel = dict.nav.discover;
 
   return (
-    <main className="relative bg-neutral-50 pb-6 dark:bg-transparent">
+    <main className="relative bg-background pb-6 dark:bg-transparent">
       <div className={PAGE_SHELL_CLASS}>
         <StickyListHeader
           locale={locale}

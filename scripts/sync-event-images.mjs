@@ -44,7 +44,7 @@ const FILE_TO_EVENT_ID = {
   "gran-ventana-day-pass.jpg": "gran-ventana-day-pass",
   "cofresi-palm-day-pass.jpg": "cofresi-palm-day-pass",
   "cofresi-beach-sunset-walk.jpg": "cofresi-beach-sunset-walk",
-  "crazy-lobster-shrimp.jpg": "crazy-lobster-shrimp",
+  "crazy-lobster-beach-dining.jpg": "crazy-lobster-beach-dining",
   "don-limon.jpeg": "don-limon-beach-dining",
   "los-tres-cocos-coconut-shrimp.jpg": "los-tres-cocos-coconut-shrimp",
   "ocean-winds-karaoke-amados.jpg": "ocean-winds-karaoke-amados",
@@ -101,8 +101,10 @@ const FILE_TO_EVENT_ID = {
   // --- 2026 crawl: food & culture ---
   "paella-pop-el-pueblito.jpg": "paella-pop-el-pueblito",
   "paella-pop-green-one.jpg": "paella-pop-green-one",
-  "hms-valeria-spanish-saturday.jpg": "hms-valeria-spanish-saturday",
-  "hms-valeria-domingo-dominicano.jpg": "hms-valeria-domingo-dominicano",
+  // Filename bump — guests at the bar (empty dining room stays on the venue).
+  "hms-valeria-spanish-saturday-guests.jpg": "hms-valeria-spanish-saturday-guests",
+  // Filename bump — seated daytime table for Sunday 12–4 lunch.
+  "hms-valeria-domingo-table.jpg": "hms-valeria-domingo-table",
   "rum-legacy-museum-daily.jpg": "rum-legacy-museum-daily",
   "la-confluencia-museum-daily.jpg": "la-confluencia-museum-daily",
   "gregorio-luperon-museum.jpg": "gregorio-luperon-museum",
@@ -138,6 +140,7 @@ const FILE_TO_EVENT_ID = {
   "KiteBeachWindSession.JPG": "kite-beach-daily",
   "CoworkCabarete.JPG": "cowork-weekdays",
   "ElBateySalsaSocial.JPG": "batey-salsa-weekly",
+  "batey-salsa-social-dance.jpg": "batey-salsa-social-dance",
   "el-batey-weekend-nightlife-clisante.jpg": "el-batey-weekend-nightlife-clisante",
   "SosuaBeachVolleyballPickup.JPG": "sosua-volleyball-weekly",
   "LAXFridayReggaeNight.JPG": "lax-reggae-friday",
@@ -147,6 +150,7 @@ const FILE_TO_EVENT_ID = {
   "cheers-weekly-live.jpg": "cheers-weekly-live",
   "senor-rock-cadillac-bar.jpg": "senor-rock-cadillac-bar",
   "batey-open-mic-weekly.jpg": "batey-open-mic-weekly",
+  "batey-open-mic-stage.jpg": "batey-open-mic-stage",
   "lax-headline-concerts.jpg": "lax-headline-concerts",
   "CremoSalsaFriday.jpg": "cremo-salsa-friday",
   "victrola-sabado-bailable.jpg": "victrola-sabado-bailable",
@@ -165,12 +169,15 @@ const FILE_TO_EVENT_ID = {
   "feriaartesanal.jpg": "feria-artesanal-verano-2026",
   "ocean-world-daily.jpg": "ocean-world-daily",
   "Damajagua.jpeg": "charcos-damajagua-daily",
-  "fortaleza.jpeg": "fortaleza-san-felipe-daily",
+  // Filename bump — Wikimedia ramparts + visitors (not the tiny aerial clone).
+  "fortaleza-san-felipe-ramparts.jpg": "fortaleza-san-felipe-ramparts",
   "museoambar.jpeg": "museo-ambar-weekdays",
   "teleferico.jpeg": "teleferico-puerto-plata-daily",
   "cayoarena.jpeg": "cayo-arena-tours-daily",
-  "paseodonablanca.jpeg": "paseo-dona-blanca-daily",
+  // Filename bump — landscape pink-alley walk (not the tiny crowded-arch JPEG).
+  "paseo-dona-blanca-pink-walk.jpg": "paseo-dona-blanca-pink-walk",
   "callesombrillas.jpeg": "calle-sombrillas-daily",
+  "calle-sombrillas-umbrella-walk.jpg": "calle-sombrillas-umbrella-walk",
   "letrero-pop.jpg": "letrero-puerto-plata-daily",
   "funcity.jpeg": "fun-city-daily",
   "monkeyland.jpeg": "monkeyland-puerto-plata-daily",
@@ -252,9 +259,9 @@ const FILE_TO_VENUE_SLUG = {
   // Filename bump — busy pub bar (not the Wednesday live stage).
   "finish-line-sosua-bar.jpg": "finish-line-sosua-bar",
   "d-classico-sosua-daytime.jpg": "d-classico-sosua-daytime",
-  // El Batey venue card is the whole downtown Sosúa district (Plaza García / Entrada
-  // El Batey), so it uses a daytime street scene — not the food-nights or nightlife shot.
-  "el-batey-downtown-daytime.jpg": "el-batey-sosua",
+  // El Batey venue card is the walkable Pedro Clisante restaurant-and-bar strip —
+  // not Plaza García / Entrada, not the nightlife event shot.
+  "el-batey-pedro-clisante-strip.jpg": "el-batey-pedro-clisante-strip",
   // Authentic Voyvoy bar interior; Sat/Sun use dedicated event heroes (see FILE_TO_EVENT_ID).
   "voyvoy-cabarete-bar.jpg": "voyvoy-cabarete-bar",
   // Filename bump — daytime dining room (not the weekly live-music still).
@@ -287,6 +294,8 @@ const FILE_TO_VENUE_SLUG = {
   // Filename bump — Google Maps Del Oro facade (not the chocolate-box overlay).
   "del-oro-chocolate-factory-facade.jpg": "del-oro-chocolate-factory-facade",
   "espadrillas.jpeg": "handmade-the-brand",
+  // Filename bump — Wikimedia lawn + flags (event uses the visitors/ramparts shot).
+  "fortaleza-san-felipe-bastion.jpg": "fortaleza-san-felipe-bastion",
   "paseo-de-db.jpg": "paseo-dona-blanca",
   "letrero-pop.jpg": "letrero-puerto-plata",
   "elcareyrestaurant.webp": "el-carey-puerto-plata",

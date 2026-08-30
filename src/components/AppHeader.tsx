@@ -60,7 +60,7 @@ export function AppHeader({
           width={184}
           height={184}
           // Splash already preloads + fetchPriority=high this asset; skip competing priority.
-          className="h-14 w-auto object-contain sm:h-20"
+          className="h-14 w-auto object-contain sm:h-20 no-photo-filter"
         />
       </Link>
       {search ? (

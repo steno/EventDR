@@ -9,7 +9,7 @@ import {
 } from "./cities";
 import { getWhenSeo, isWhenSlug } from "./time-seo";
 import type { Event, EventCategory } from "./types";
-import { getSeedVenue } from "./venues-seed";
+import { getSeedVenue, matchVenueSlug } from "./venues-seed";
 
 type CategoryCountable = Pick<Event, "category" | "categories">;
 
@@ -90,6 +90,25 @@ export function eventDetailPath(
   _returnTo?: string,
 ): string {
   return `/${locale}/event/${eventId}`;
+}
+
+/** Event id from a locale event URL (`/en/event/foo`). */
+export function eventIdFromPath(
+  path: string | null | undefined,
+): string | undefined {
+  if (!path) return undefined;
+  const pathname = path.split(/[?#]/)[0];
+  const match = pathname.match(/\/(?:en|es|fr)\/event\/([^/]+)\/?$/);
+  return match?.[1];
+}
+
+/** Seed or stored slug for linking an event photo/place through to the venue. */
+export function resolveEventVenueSlug(
+  event: Pick<Event, "venueSlug" | "venue" | "location">,
+): string | undefined {
+  const slug = event.venueSlug?.trim();
+  if (slug) return slug;
+  return matchVenueSlug(event.venue) ?? matchVenueSlug(event.location);
 }
 
 /**

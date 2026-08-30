@@ -92,7 +92,7 @@ export function HomeAlerts({
             const Icon = KIND_ICON[alert.kind];
             const kindLabel = dict.alerts[alert.kind];
             const className =
-              "flex items-start gap-3 px-3.5 py-3.5 touch-manipulation transition-colors hover:bg-neutral-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 dark:hover:bg-neutral-800/80";
+              "flex items-start gap-3 px-3.5 py-4 touch-manipulation transition-colors hover:bg-background/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 dark:hover:bg-neutral-800/80";
             const body = (
               <>
                 <span className="min-w-0 flex-1">
@@ -102,10 +102,10 @@ export function HomeAlerts({
                     <Icon className="h-3.5 w-3.5" aria-hidden />
                     {kindLabel}
                   </span>
-                  <span className="block font-semibold leading-snug text-neutral-950 dark:text-neutral-50">
+                  <span className="block font-sans text-base font-bold leading-snug text-neutral-950 dark:text-neutral-50 sm:text-lg">
                     {alert.title}
                   </span>
-                  <span className="mt-0.5 block text-sm leading-snug text-neutral-500 dark:text-neutral-400">
+                  <span className="mt-1 block text-base leading-relaxed text-neutral-600 dark:text-neutral-400">
                     {alert.summary}
                   </span>
                 </span>

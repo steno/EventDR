@@ -10,10 +10,12 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "kite-beach-daily": "kite-beach-daily.jpg",
   "liquid-blue-sunrise-yoga": "liquid-blue-sunrise-yoga.jpg",
   "cowork-weekdays": "cowork-weekdays.jpg",
-  "batey-salsa-weekly": "batey-salsa-weekly.jpg",
+  // Filename bump — dance floor under string lights (not the shared patio-crowd clone).
+  "batey-salsa-weekly": "batey-salsa-social-dance.jpg",
   "sosua-volleyball-weekly": "sosua-volleyball-weekly.jpg",
   "lax-reggae-friday": "lax-reggae-friday.jpg",
-  "batey-open-mic-weekly": "batey-open-mic-weekly.jpg",
+  // Filename bump — stage + mics (not the Smiley's YouTube still / salsa clone).
+  "batey-open-mic-weekly": "batey-open-mic-stage.jpg",
   "hard-rock-weekends": "hard-rock-weekends.jpg",
   "hard-rock-billed-concerts": "hard-rock-billed-concerts.jpg",
   "castaways-classic-rock-wednesday": "castaways-classic-rock-wednesday.jpg",
@@ -51,12 +53,16 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "ocean-winds-karaoke-nights": "ocean-winds-karaoke-amados.jpg",
   "ocean-world-daily": "ocean-world-daily.jpg",
   "charcos-damajagua-daily": "charcos-damajagua-daily.jpeg",
-  "fortaleza-san-felipe-daily": "fortaleza-san-felipe-daily.jpeg",
+  // Filename bump — Wikimedia ramparts + visitors (not the 524px aerial clone).
+  "fortaleza-san-felipe-daily": "fortaleza-san-felipe-ramparts.jpg",
   "museo-ambar-weekdays": "museo-ambar-weekdays.jpeg",
   "teleferico-puerto-plata-daily": "teleferico-puerto-plata-daily.jpeg",
   "cayo-arena-tours-daily": "cayo-arena-tours-daily.jpeg",
-  "paseo-dona-blanca-daily": "paseo-dona-blanca-daily.jpeg",
-  "calle-sombrillas-daily": "calle-sombrillas-daily.jpeg",
+  // Filename bump — landscape walk down the pink alley (not the 597px crowded arch).
+  "paseo-dona-blanca-daily": "paseo-dona-blanca-pink-walk.jpg",
+  // Filename bump — looking down Calle San Felipe under the canopy (not the tiny
+  // looking-up clone shared with the venue).
+  "calle-sombrillas-daily": "calle-sombrillas-umbrella-walk.jpg",
   "letrero-puerto-plata-daily": "letrero-puerto-plata-daily.jpg",
   "fun-city-daily": "fun-city-daily.jpeg",
   "monkeyland-puerto-plata-daily": "monkeyland-puerto-plata-daily.jpeg",
@@ -96,7 +102,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "gran-ventana-day-pass": "gran-ventana-day-pass.jpg",
   "cofresi-palm-day-pass": "cofresi-palm-day-pass.jpg",
   "cofresi-beach-sunset-walk": "cofresi-beach-sunset-walk.jpg",
-  "crazy-lobster-beach-dining": "crazy-lobster-shrimp.jpg",
+  "crazy-lobster-beach-dining": "crazy-lobster-beach-dining.jpg",
   "don-limon-beach-dining": "don-limon-beach-dining.jpeg",
   "los-tres-cocos-dinner": "los-tres-cocos-coconut-shrimp.jpg",
   "liquid-blue-watersports-daily": "liquid-blue-watersports-daily.jpg",
@@ -110,8 +116,10 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "north-coast-tech-meetup": "north-coast-tech-meetup.jpg",
   "puerto-plata-carnaval-2026": "puerto-plata-carnaval-2026.jpg",
   "malecon-morning-wellness-walk": "malecon-morning-wellness-walk.jpg",
-  "hms-valeria-spanish-saturday": "hms-valeria-spanish-saturday.jpg",
-  "hms-valeria-domingo-dominicano": "hms-valeria-domingo-dominicano.jpg",
+  // Filename bump — guests at the bar (empty dining room stays on the venue).
+  "hms-valeria-spanish-saturday": "hms-valeria-spanish-saturday-guests.jpg",
+  // Filename bump — seated daytime table (Sunday lunch, not a food plate).
+  "hms-valeria-domingo-dominicano": "hms-valeria-domingo-table.jpg",
   "rum-legacy-museum-daily": "rum-legacy-museum-daily.jpg",
   "la-confluencia-museum-daily": "la-confluencia-museum-daily.jpg",
   "gregorio-luperon-museum": "gregorio-luperon-museum.jpg",

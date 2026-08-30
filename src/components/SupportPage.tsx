@@ -13,7 +13,7 @@ interface SupportPageProps {
 
 export function SupportPage({ locale, copy, available }: SupportPageProps) {
   return (
-    <main className="relative bg-neutral-50 pb-10 dark:bg-transparent">
+    <main className="relative bg-background pb-10 dark:bg-transparent">
       <div className={PAGE_SHELL_CLASS}>
         <header className="pb-2 pt-4">
           <Link

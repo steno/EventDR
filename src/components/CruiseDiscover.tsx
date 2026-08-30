@@ -33,14 +33,8 @@ import {
 import { CARD_GRID_CLASS } from "@/lib/page-shell";
 import { fillTemplate } from "@/lib/seo";
 import type { Event, Venue } from "@/lib/types";
-import { getVenueHeroImageUrl } from "@/lib/venue-images";
 
 const CRUISE_HIGHLIGHT_LIMIT = 6;
-
-const HERO_OBJECT: Record<CruisePortSlug, string> = {
-  "taino-bay": "object-[center_42%]",
-  "amber-cove": "object-[center_68%]",
-};
 
 interface CruiseDiscoverProps {
   locale: Locale;
@@ -112,8 +106,6 @@ export function CruiseDiscover({
       <section className="relative mt-4 overflow-hidden rounded-2xl bg-neutral-950 text-white shadow-lg ring-1 ring-white/10">
         <div className="absolute inset-0" aria-hidden>
           {CRUISE_PORT_SLUGS.map((slug) => {
-            const src = getVenueHeroImageUrl(CRUISE_PORTS[slug].heroVenueSlug);
-            if (!src) return null;
             const active = slug === port;
             return (
               <div
@@ -123,11 +115,11 @@ export function CruiseDiscover({
                 }`}
               >
                 <EventImage
-                  src={src}
+                  src={CRUISE_PORTS[slug].imageSrc}
                   alt=""
                   priority
                   sizes="(max-width: 1024px) 100vw, 90rem"
-                  className={`object-cover ${HERO_OBJECT[slug]}`}
+                  className="object-cover object-top sm:object-center"
                 />
               </div>
             );

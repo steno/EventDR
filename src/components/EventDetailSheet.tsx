@@ -14,7 +14,6 @@ import type { Locale } from "@/i18n/config";
 import { getCategoryMeta } from "@/lib/categories";
 import { formatEventDateRange } from "@/lib/format-date";
 import { formatEventTimeForList } from "@/lib/event-time-display";
-import { matchVenueSlug } from "@/lib/venues-seed";
 import { formatRecurrenceLabel } from "@/lib/recurrence-label";
 import { useLiveStatusDisplay } from "@/hooks/useLiveStatusDisplay";
 import { EventImage } from "@/components/EventImage";
@@ -29,7 +28,7 @@ import {
 } from "@/lib/event-tickets";
 import { useSwipeToDismiss } from "@/hooks/useSwipeToDismiss";
 import { scrollBehaviorPreference } from "@/lib/list-scroll";
-import { eventDetailPath, rememberReturnPath, venueDetailPath } from "@/lib/event-navigation";
+import { eventDetailPath, rememberReturnPath, resolveEventVenueSlug, venueDetailPath } from "@/lib/event-navigation";
 import { navigateSoft } from "@/lib/nav-feedback";
 import {
   getOnboardingCopy,
@@ -72,7 +71,7 @@ interface EventDetailSheetProps {
   initialVenueRating?: { rating: number; reviewCount?: number } | null;
   /** Same-day walkable events near this one (server-computed). */
   nearbyTonight?: NearbyTonightResult | null;
-  /** Other recurring nights at the same venue (server-computed). */
+  /** Other recurring events at the same venue (server-computed). */
   venueOtherNights?: VenueSiblingNight[];
 }
 
@@ -173,10 +172,7 @@ export function EventDetailSheet({
   useEffect(() => {
     if (!event || !areEventOpinionsEnabled()) return;
     if (typeof initialVenueRating?.rating === "number") return;
-    const slug =
-      event.venueSlug ??
-      matchVenueSlug(event.venue) ??
-      matchVenueSlug(event.location);
+    const slug = resolveEventVenueSlug(event);
     if (!slug) return;
 
     const base =
@@ -277,8 +273,7 @@ export function EventDetailSheet({
     recurrenceLabelProp !== undefined
       ? recurrenceLabelProp
       : formatRecurrenceLabel(event, locale, dict);
-  const venueSlug =
-    event.venueSlug ?? matchVenueSlug(event.venue) ?? matchVenueSlug(event.location);
+  const venueSlug = resolveEventVenueSlug(event);
   const walkablePocket = nearbyTonight?.pocket ?? getPocketForEvent(event);
   const eventOpinionRaw =
     // Prefer API opinion when it carries Google ★ (seed body + venue rating).
@@ -470,6 +465,17 @@ export function EventDetailSheet({
                 dict={dict}
                 variant="standalone"
                 priority
+                venueHref={
+                  venueSlug
+                    ? venueDetailPath(locale, venueSlug)
+                    : undefined
+                }
+                onNavigateToVenue={() => {
+                  rememberReturnPath(
+                    eventDetailPath(locale, event.id),
+                    event.title,
+                  );
+                }}
               />
             </div>
           ) : (
@@ -544,6 +550,17 @@ export function EventDetailSheet({
               variant="sheet"
               onClose={requestClose}
               priority
+              venueHref={
+                venueSlug
+                  ? venueDetailPath(locale, venueSlug)
+                  : undefined
+              }
+              onNavigateToVenue={() => {
+                rememberReturnPath(
+                  eventDetailPath(locale, event.id),
+                  event.title,
+                );
+              }}
             />
           ) : (
             <div className="flex shrink-0 items-start justify-between px-4 pt-4 pb-2">

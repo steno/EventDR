@@ -1,10 +1,11 @@
 "use client";
 
-import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import {
   AtSign,
+  Calendar,
   ExternalLink,
   Phone,
 } from "lucide-react";
@@ -20,8 +21,16 @@ import {
 } from "@/components/VenueDirectionsSection";
 import { VenueAssessmentBlock } from "@/components/VenueAssessmentBlock";
 import { EventImage } from "@/components/EventImage";
+import { IntentLink } from "@/components/IntentLink";
 import { lastHomePath } from "@/lib/cities";
-import { resolveBackLabel, takeReturnPath } from "@/lib/event-navigation";
+import { isPastOneOffEvent } from "@/lib/event-dates";
+import {
+  eventDetailPath,
+  eventIdFromPath,
+  rememberReturnPath,
+  resolveBackLabel,
+  takeReturnPath,
+} from "@/lib/event-navigation";
 import { formatPhoneTel } from "@/lib/event-phone";
 import { navigateBackSoft, navigateSoft } from "@/lib/nav-feedback";
 import { PAGE_SHELL_DETAIL_CLASS } from "@/lib/page-shell";
@@ -214,10 +223,28 @@ export function VenuePage({
   const walkablePocket =
     nearbyTonight?.pocket ?? getPocketForVenueSlug(venue.slug);
   const mapTakesPhotoSpace = areaViewOpen || plannerOpen;
+  const returnEventId = eventIdFromPath(returnTo);
+  const photoEvent = useMemo(() => {
+    if (returnEventId) {
+      const match = events.find((event) => event.id === returnEventId);
+      if (match) return match;
+      return {
+        id: returnEventId,
+        title: returnTitle?.trim() || dict.detail.viewEvent,
+      };
+    }
+    return events.find((event) => !isPastOneOffEvent(event)) ?? null;
+  }, [dict.detail.viewEvent, events, returnEventId, returnTitle]);
+  const eventHref = photoEvent
+    ? eventDetailPath(locale, photoEvent.id)
+    : null;
+  const eventLabel = photoEvent
+    ? `${dict.detail.viewEvent}: ${photoEvent.title}`
+    : dict.detail.viewEvent;
 
   return (
     <>
-      <main className="bg-neutral-50 dark:bg-transparent pb-6">
+      <main className="bg-background dark:bg-transparent pb-6">
         <div className={PAGE_SHELL_DETAIL_CLASS}>
           <StickyListHeader
             locale={locale}
@@ -247,13 +274,39 @@ export function VenuePage({
                 }
               >
                 {heroImageUrl ? (
-                  <EventImage
-                    src={heroImageUrl}
-                    alt=""
-                    priority
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    className="h-full w-full object-cover object-center"
-                  />
+                  eventHref ? (
+                    <IntentLink
+                      href={eventHref}
+                      onClick={() =>
+                        rememberReturnPath(listReturnTo, venue.name)
+                      }
+                      className="group/event absolute inset-0 z-0 block touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
+                      aria-label={eventLabel}
+                    >
+                      <EventImage
+                        src={heroImageUrl}
+                        alt=""
+                        priority
+                        sizes="(max-width: 1024px) 100vw, 50vw"
+                        className="h-full w-full object-cover object-center transition-transform duration-500 ease-out group-hover/event:scale-[1.03]"
+                      />
+                      <span
+                        className="absolute bottom-3 left-3 z-10 inline-flex items-center gap-1.5 rounded-full bg-black/55 px-3 py-1.5 text-xs font-bold text-white backdrop-blur-sm transition-colors group-hover/event:bg-black/70"
+                        aria-hidden
+                      >
+                        <Calendar className="h-3.5 w-3.5 shrink-0" />
+                        {dict.detail.viewEvent}
+                      </span>
+                    </IntentLink>
+                  ) : (
+                    <EventImage
+                      src={heroImageUrl}
+                      alt=""
+                      priority
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      className="h-full w-full object-cover object-center"
+                    />
+                  )
                 ) : (
                   <div className="flex h-full items-center justify-center bg-gradient-to-br from-orange-500 via-rose-500 to-fuchsia-600">
                     <span className="text-6xl drop-shadow-sm" aria-hidden>

@@ -42,7 +42,7 @@ export function TimeFilter({
       className={`
         ${
           sticky
-            ? `sticky top-[calc(var(--sticky-list-header-height,0px)-1px)] z-10 mb-4 ${PAGE_GUTTER_BLEED_CLASS} border-b border-neutral-200/60 bg-neutral-50/95 pb-2 pt-px backdrop-blur-sm dark:border-neutral-800/60 dark:bg-neutral-950/95 transition-[top] duration-200 ease-out motion-reduce:transition-none`
+            ? `sticky top-[calc(var(--sticky-list-header-height,0px)-1px)] z-10 mb-4 ${PAGE_GUTTER_BLEED_CLASS} border-b border-neutral-200/60 bg-background/95 pb-2 pt-px backdrop-blur-sm dark:border-neutral-800/60 dark:bg-neutral-950/95 transition-[top] duration-200 ease-out motion-reduce:transition-none`
             : ""
         }
         ${className}

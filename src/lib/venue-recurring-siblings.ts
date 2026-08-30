@@ -1,8 +1,13 @@
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
+import { getEventImageUrl } from "@/lib/event-images";
 import { isRecurringEvent } from "@/lib/event-status";
 import { formatRecurrenceLabel } from "@/lib/recurrence-label";
 import type { Event } from "@/lib/types";
+
+function siblingHeroUrl(event: Event): string | undefined {
+  return getEventImageUrl(event.id) ?? event.imageUrl;
+}
 
 export interface VenueSiblingNight {
   id: string;
@@ -100,7 +105,7 @@ export function findVenueRecurringSiblings(
       label: siblingLabel(candidate, locale, dict),
       date: candidate.date,
       time: candidate.time,
-      imageUrl: candidate.imageUrl,
+      imageUrl: siblingHeroUrl(candidate),
     }));
 }
 
@@ -132,7 +137,7 @@ export function clusterRecurringVenueEvents(
           label: siblingLabel(candidate, locale, dict),
           date: candidate.date,
           time: candidate.time,
-          imageUrl: candidate.imageUrl,
+          imageUrl: siblingHeroUrl(candidate),
         })),
     };
   });

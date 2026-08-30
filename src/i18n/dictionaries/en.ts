@@ -90,7 +90,7 @@ export type Dictionary = {
     viewMode: string;
     viewList: string;
     viewCards: string;
-    /** Card chip prefix when other nights at the same venue are clustered. */
+    /** Card chip prefix when other events at the same venue are clustered. */
     alsoNights: string;
     happeningNow: string;
     eventStarted: string;
@@ -157,6 +157,7 @@ export type Dictionary = {
     saved: string;
     community: string;
     viewVenue: string;
+    viewEvent: string;
     buyTickets: string;
     freeAdmission: string;
     paidAdmission: string;
@@ -179,7 +180,7 @@ export type Dictionary = {
     driveMinutes: string;
     sameStrip: string;
     sameVenue: string;
-    /** Recurring sibling nights at this venue. */
+    /** Recurring sibling events at this venue. */
     otherNights: string;
     otherNightsAt: string;
     walkableStrip: string;
@@ -660,6 +661,7 @@ export const en: Dictionary = {
     saved: "Saved",
     community: "Shared by the community",
     viewVenue: "View venue",
+    viewEvent: "View event",
     buyTickets: "Buy tickets",
     freeAdmission: "Free admission",
     paidAdmission: "Admission: {price}",
@@ -680,8 +682,8 @@ export const en: Dictionary = {
     driveMinutes: "{n} min drive",
     sameStrip: "Same strip",
     sameVenue: "Same venue",
-    otherNights: "Other nights here",
-    otherNightsAt: "Other nights at {venue}",
+    otherNights: "Also here",
+    otherNightsAt: "Also at {venue}",
     walkableStrip: "Walkable strip",
     pocketPlaceMeta: "{pocket} · {strip}",
     opinion: {

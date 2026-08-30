@@ -1,6 +1,7 @@
 import type { Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { localDateISO, materializeEventDates } from "@/lib/event-dates";
+import { attachEventImages } from "@/lib/event-images";
 import { getFallbackEvents } from "@/lib/fallback-events";
 import { attachCoords, attachVenueSlugs } from "@/lib/geo";
 import {
@@ -35,16 +36,18 @@ function isProductionBuild(): boolean {
  */
 function getNearbyEventPool(locale: Locale): Promise<Event[]> {
   if (!isProductionBuild()) {
-    return getPublicEvents({ locale });
+    return getPublicEvents({ locale }).then(attachEventImages);
   }
 
   const cached = nearbyPoolByLocale.get(locale);
   if (cached) return cached;
 
   const loading = Promise.resolve(
-    attachCoords(
-      materializeEventDates(
-        attachVenueSlugs(filterRemovedSeedEvents(getFallbackEvents(locale))),
+    attachEventImages(
+      attachCoords(
+        materializeEventDates(
+          attachVenueSlugs(filterRemovedSeedEvents(getFallbackEvents(locale))),
+        ),
       ),
     ),
   );

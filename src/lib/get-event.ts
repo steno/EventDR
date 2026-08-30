@@ -77,8 +77,12 @@ export async function getEventById(
   locale: Locale,
 ): Promise<Event | null> {
   const event = await getCachedEventById(id, locale, localDateISO());
-  if (!event?.recurrence) return event;
+  if (!event) return null;
+  // Re-attach curated heroes outside the cache so filename bumps show up
+  // without waiting for EVENT_REVALIDATE_SECONDS.
+  const [withImage] = attachEventImages([event]);
+  if (!withImage.recurrence) return withImage;
   // Refresh occurrence date outside the data cache (same day-boundary issue as lists).
-  const [materialized] = materializeEventDates([event]);
+  const [materialized] = materializeEventDates([withImage]);
   return materialized ?? null;
 }

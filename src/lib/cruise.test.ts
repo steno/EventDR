@@ -16,7 +16,6 @@ import {
   rankCruiseEvents,
   visibleCruiseEvents,
 } from "./cruise";
-import { getVenueHeroImageUrl } from "./venue-images";
 import { SEED_VENUES } from "./venues-seed";
 import type { Event } from "./types";
 
@@ -50,10 +49,9 @@ describe("parseAllAboardMinutes", () => {
 });
 
 describe("cruise port heroes", () => {
-  it("maps each terminal to a curated place photo", () => {
+  it("uses the ship-at-port photo for each terminal", () => {
     for (const slug of CRUISE_PORT_SLUGS) {
-      const src = getVenueHeroImageUrl(CRUISE_PORTS[slug].heroVenueSlug);
-      assert.ok(src, `${slug} needs a heroVenueSlug with a venue photo`);
+      assert.equal(CRUISE_PORTS[slug].imageSrc, `/cruise/${slug}.jpg`);
     }
   });
 });
@@ -193,7 +191,7 @@ describe("rankCruiseEvents", () => {
     assert.ok(!ids.includes("lax"));
   });
 
-  it("keeps Maimón lunch from Amber Cove and treats Centro as a taxi", () => {
+  it("keeps Maimón lunch from Amber Cove and hides downtown Fortaleza", () => {
     const ranked = rankCruiseEvents(
       [fortaleza, lobster],
       "amber-cove",
@@ -202,9 +200,32 @@ describe("rankCruiseEvents", () => {
     );
     const visible = visibleCruiseEvents(ranked);
     assert.equal(visible.find((item) => item.event.id === "lobster")?.fit, "short-taxi");
-    const centro = visible.find((item) => item.event.id === "fortaleza");
-    assert.ok(centro);
-    assert.ok(centro.fit === "short-taxi" || centro.fit === "tight");
+    assert.ok(!visible.some((item) => item.event.id === "fortaleza"));
+    assert.equal(
+      ranked.find((item) => item.event.id === "fortaleza")?.fit,
+      "too-far",
+    );
+  });
+
+  it("hides Fortaleza from Amber Cove even when the pocket slug is missing", () => {
+    const unlabeled = event({
+      id: "fortaleza-coords",
+      title: "Fortaleza San Felipe",
+      venueSlug: "unlabeled-fortaleza",
+      lat: 19.8041466,
+      lng: -70.6958831,
+    });
+    const ranked = rankCruiseEvents(
+      [unlabeled],
+      "amber-cove",
+      16 * 60 + 30,
+      MORNING,
+    );
+    assert.equal(
+      ranked.find((item) => item.event.id === "fortaleza-coords")?.fit,
+      "too-far",
+    );
+    assert.ok(!visibleCruiseEvents(ranked).some((item) => item.event.id === "fortaleza-coords"));
   });
 
   it("hides a 45-minute museum when leave-by is minutes away", () => {

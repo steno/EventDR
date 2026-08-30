@@ -5,8 +5,10 @@ import {
   rememberReturnPath,
   resetReturnPathReplayForTests,
   resolveBackLabel,
+  resolveEventVenueSlug,
   resolveListingBackLabel,
   takeReturnPath,
+  eventIdFromPath,
 } from "./event-navigation";
 
 const RETURN_STORAGE_KEY = "pop-event-return";
@@ -115,5 +117,45 @@ describe("resolveListingBackLabel", () => {
 
   it("still names the city on detail pages with no picker", () => {
     assert.equal(resolveBackLabel("en", "/en/city/sosua", dict), "Sosúa");
+  });
+});
+
+describe("resolveEventVenueSlug", () => {
+  it("prefers the stored venueSlug", () => {
+    assert.equal(
+      resolveEventVenueSlug({
+        venueSlug: "lax-cabarete",
+        venue: "LAX Cabarete",
+        location: "Cabarete",
+      }),
+      "lax-cabarete",
+    );
+  });
+
+  it("falls back to matching the venue name", () => {
+    assert.equal(
+      resolveEventVenueSlug({
+        venue: "LAX Cabarete",
+        location: "Cabarete",
+      }),
+      "lax-cabarete",
+    );
+  });
+});
+
+describe("eventIdFromPath", () => {
+  it("reads the event id from a locale event URL", () => {
+    assert.equal(
+      eventIdFromPath("/en/event/crazy-lobster-beach-dining"),
+      "crazy-lobster-beach-dining",
+    );
+  });
+
+  it("ignores query strings and non-event paths", () => {
+    assert.equal(
+      eventIdFromPath("/en/event/crazy-lobster-beach-dining?from=1"),
+      "crazy-lobster-beach-dining",
+    );
+    assert.equal(eventIdFromPath("/en/venue/crazy-lobster-maimon"), undefined);
   });
 });

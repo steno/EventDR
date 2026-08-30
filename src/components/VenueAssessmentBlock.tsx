@@ -68,7 +68,7 @@ export function VenueAssessmentBlock({
               width={36}
               height={36}
               unoptimized
-              className="h-7 w-7 object-contain"
+              className="h-7 w-7 object-contain no-photo-filter"
             />
           </div>
         </div>

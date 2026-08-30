@@ -3,7 +3,7 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #fafafa;
+  --background: #f6f3ee;
   --foreground: #171717;
 }
 
@@ -42,8 +42,14 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
-/* Subtle Caribbean lift — warm + clear without looking filtered */
+/* Photos sit on a warm canvas now — skip sepia in light so they stay clear
+   against parchment instead of stacking a yellow veil. Dark still needs the
+   original Caribbean lift against black. */
 img {
+  filter: saturate(108%) contrast(103%) brightness(101%);
+}
+
+.dark img {
   filter: sepia(0.06) saturate(112%) contrast(104%) brightness(105%);
 }
 
@@ -51,6 +57,11 @@ img {
 .street-view-panorama,
 .street-view-panorama img {
   filter: none !important;
+}
+
+.app-boot-splash img,
+img.no-photo-filter {
+  filter: none;
 }
 
 .street-view-panorama {
@@ -126,7 +137,7 @@ img {
   align-items: center;
   justify-content: center;
   gap: 1.25rem;
-  background: #fafafa;
+  background: #f6f3ee;
   transition: opacity 0.2s ease, visibility 0.2s ease;
 }
 
@@ -537,7 +548,7 @@ button, a {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #fafafa;
+  background: #f6f3ee;
 }
 
 html.dark .page-loading {

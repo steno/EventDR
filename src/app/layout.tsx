@@ -18,7 +18,7 @@ const outfit = Outfit({
 /** Critical styles so the splash paints before the CSS bundle arrives. */
 const bootSplashCriticalCss = `
 html.boot-pending #app-boot-splash{pointer-events:auto}
-#app-boot-splash{position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.25rem;background:#fafafa;transition:opacity .2s ease,visibility .2s ease}
+#app-boot-splash{position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.25rem;background:#f6f3ee;transition:opacity .2s ease,visibility .2s ease}
 html.dark #app-boot-splash{background:#0a0a0a}
 #app-boot-splash img{width:7rem;height:auto;object-fit:contain}
 #app-boot-splash .boot-spinner{position:relative;width:1.75rem;height:1.75rem;color:#a3a3a3;opacity:0;animation:boot-spinner-show .01s linear .7s forwards}
@@ -69,7 +69,7 @@ export default function RootLayout({
           {bootSplashFailsafe}
         </Script>
       </head>
-      <body className="relative min-h-dvh font-sans antialiased bg-neutral-50 text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100">
+      <body className="relative min-h-dvh font-sans antialiased bg-background text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100">
         {/* Inline splash: brand first, then spinner — overlay only (shell paints underneath) */}
         <div
           id="app-boot-splash"
