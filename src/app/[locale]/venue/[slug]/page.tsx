@@ -15,15 +15,10 @@ import {
   localePath,
 } from "@/lib/seo";
 
+// ISR on first request, same as /event/[id]. Do not export
+// generateStaticParams returning [] — Netlify 500s those fallbacks
+// (prebuilding ~80 slugs × 3 locales also SIGKILL'd the 8GB SSG box).
 export const revalidate = 120;
-export const dynamicParams = true;
-
-export async function generateStaticParams() {
-  // Do not prebuild venues. ~80 home-slider slugs × 3 locales plus next/image
-  // on unique JPEGs SIGKILL'd Netlify's 8GB box (worker exit at ~111/447).
-  // First request ISR-fills the page (revalidate=120).
-  return [];
-}
 
 export async function generateMetadata({
   params,

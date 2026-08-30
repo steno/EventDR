@@ -20,16 +20,10 @@ import {
 } from "@/lib/seo";
 import type { EventCategory } from "@/lib/types";
 
+// ISR on first request, same as /event/[id]. Do not export
+// generateStaticParams returning [] — Netlify 500s those fallbacks
+// (prebuilding 108 city×category pages also SIGKILL'd the 8GB SSG box).
 export const revalidate = 120;
-export const dynamicParams = true;
-
-export async function generateStaticParams() {
-  // 3 cities × 12 categories × 3 locales = 108 pages, each embedding the full
-  // region catalog for soft-nav. That combo plus listing images OOMs Netlify
-  // SSG (SIGKILL around page 111/447). City + category hubs still prebuild;
-  // these scoped URLs ISR on first crawl (sitemap lists them).
-  return [];
-}
 
 export async function generateMetadata({
   params,
