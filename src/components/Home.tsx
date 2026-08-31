@@ -27,7 +27,10 @@ import { VenueAudienceCards } from "@/components/VenueAudienceCards";
 import { TodayHighlights } from "@/components/TodayHighlights";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { getHomeAlerts } from "@/lib/alerts";
-import { stickyBackControlClassName } from "@/components/StickyListHeader";
+import {
+  StickyListHeader,
+  stickyBackControlClassName,
+} from "@/components/StickyListHeader";
 import { useSavedEvents } from "@/hooks/useSavedEvents";
 import { useEventListView } from "@/hooks/useEventListView";
 import {
@@ -380,6 +383,14 @@ function HomeApp({
     ? CRUISE_PORTS[cruisePort].imageSrc
     : undefined;
 
+  // Both ports are Puerto Plata, so back out to that area instead of bare home
+  // (the header's home icon already covers a fresh start).
+  const cruiseBackHref = homePathWithArea(locale, "puerto-plata", true);
+  const cruiseCity = getCityMeta("puerto-plata");
+  const cruiseBackLabel = cruiseCity
+    ? getCityName(cruiseCity, locale)
+    : dict.nav.discover;
+
   function handleTabChange(newTab: AppTab) {
     if (newTab === "submit") {
       setSubmitOpen(true);
@@ -402,60 +413,72 @@ function HomeApp({
     <>
       <main id="main-content" className="relative bg-background dark:bg-transparent pb-6">
         <div className={PAGE_SHELL_CLASS}>
-          <div>
-            <AppHeader
+          {cruisePort ? (
+            // Shore day is a scoped inner page: home + back, no logo/weather.
+            <StickyListHeader
               locale={locale}
               dict={dict}
-              onLogoClick={() => {
-                setTab("discover");
-                setSearchQuery("");
-                setLocalArea(null);
-                setCruisePort(null);
-                const bareHome = `/${locale}`;
-                window.history.replaceState(
-                  window.history.state ?? null,
-                  "",
-                  bareHome,
-                );
-                setCityQuery(null);
-                if (cityQuery) {
-                  router.replace(bareHome, { scroll: false });
-                }
-              }}
-              search={
-                tab === "discover" ? (
-                  <SearchBar
-                    value={searchQuery}
-                    onChange={setSearchQuery}
-                    dict={dict}
-                  />
-                ) : undefined
-              }
-              desktopActions={
-                <>
-                  <button
-                    type="button"
-                    onClick={() => handleTabChange("saved")}
-                    className={`rounded-full px-3.5 py-2 text-xs font-bold tracking-wide transition-colors touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 ${
-                      tab === "saved"
-                        ? "bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-900"
-                        : "text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:hover:text-white"
-                    }`}
-                  >
-                    {dict.nav.saved}
-                    {savedEvents.length > 0 ? ` (${savedEvents.length})` : ""}
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setSubmitOpen(true)}
-                    className="rounded-full bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-3.5 py-2 text-xs font-bold text-white shadow-sm transition-transform active:scale-95 touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400"
-                  >
-                    {dict.nav.submit}
-                  </button>
-                </>
-              }
+              backHref={cruiseBackHref}
+              backLabel={cruiseBackLabel}
+              variant="compact"
+              flushBottom
             />
-          </div>
+          ) : (
+            <div>
+              <AppHeader
+                locale={locale}
+                dict={dict}
+                onLogoClick={() => {
+                  setTab("discover");
+                  setSearchQuery("");
+                  setLocalArea(null);
+                  setCruisePort(null);
+                  const bareHome = `/${locale}`;
+                  window.history.replaceState(
+                    window.history.state ?? null,
+                    "",
+                    bareHome,
+                  );
+                  setCityQuery(null);
+                  if (cityQuery) {
+                    router.replace(bareHome, { scroll: false });
+                  }
+                }}
+                search={
+                  tab === "discover" ? (
+                    <SearchBar
+                      value={searchQuery}
+                      onChange={setSearchQuery}
+                      dict={dict}
+                    />
+                  ) : undefined
+                }
+                desktopActions={
+                  <>
+                    <button
+                      type="button"
+                      onClick={() => handleTabChange("saved")}
+                      className={`rounded-full px-3.5 py-2 text-xs font-bold tracking-wide transition-colors touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 ${
+                        tab === "saved"
+                          ? "bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-900"
+                          : "text-neutral-600 hover:bg-neutral-100 hover:text-neutral-900 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:hover:text-white"
+                      }`}
+                    >
+                      {dict.nav.saved}
+                      {savedEvents.length > 0 ? ` (${savedEvents.length})` : ""}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setSubmitOpen(true)}
+                      className="rounded-full bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-3.5 py-2 text-xs font-bold text-white shadow-sm transition-transform active:scale-95 touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400"
+                    >
+                      {dict.nav.submit}
+                    </button>
+                  </>
+                }
+              />
+            </div>
+          )}
 
           {tab === "discover" && (
             <>
@@ -463,7 +486,12 @@ function HomeApp({
                 <InstallBanner dict={dict} />
               ) : null}
               <div className="flex flex-col">
-                <div className="order-1 mt-4 mb-4 sm:order-1 lg:hidden">
+                {/* Cruise chrome has no header search, so keep this one at every width. */}
+                <div
+                  className={`order-1 mt-4 mb-4 sm:order-1 ${
+                    cruisePort ? "" : "lg:hidden"
+                  }`}
+                >
                   <SearchBar
                     value={searchQuery}
                     onChange={setSearchQuery}
