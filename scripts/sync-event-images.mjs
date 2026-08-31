@@ -23,7 +23,7 @@ const forceSync =
 const FILE_TO_EVENT_ID = {
   // --- Fetched / venue-accurate ({eventId}.jpg) ---
   "malecon-morning-wellness-walk.jpg": "malecon-morning-wellness-walk",
-  "anfiteatro-la-puntilla-concerts-night.jpg": "anfiteatro-la-puntilla-concerts-night",
+  "anfiteatro-la-puntilla-mitur-concert.jpg": "anfiteatro-la-puntilla-mitur-concert",
   "anfiteatro-la-puntilla-weekday-bowl.jpg": "anfiteatro-la-puntilla-weekday-bowl",
   "voyvoy-saturday-session-band.jpg": "voyvoy-saturday-session-band",
   "voyvoy-sunday-open-mic-closeup.jpg": "voyvoy-sunday-open-mic-closeup",

@@ -55,7 +55,7 @@ const VENUE_SOURCES = [
     url: "https://images.prismic.io/prismic-rd-2/Z464MJbqstJ99p8j_puerto-plata-rconti-131_7870549d-e07a-da28-37eba65318d2c384.jpg?auto=format,compress",
   },
   // anfiteatro-la-puntilla concerts / weekday / venue — curated distinct heroes in
-  // popevent-images/ (MaleconOPenAir night, goDR seating bowl, Wikimedia stage+arch).
+  // popevent-images/ (Mitur night concert, goDR seating bowl, Wikimedia stage+arch).
   // Do not remote-refresh over them (old remote was one daytime shot shared for all).
   {
     eventId: "hard-rock-billed-concerts",

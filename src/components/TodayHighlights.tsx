@@ -2,7 +2,7 @@
 
 import { memo, useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
-import { ChevronRight, CircleAlert, Clock, Building2 } from "lucide-react";
+import { ChevronRight, CircleAlert, Clock } from "lucide-react";
 import { EventImage } from "@/components/EventImage";
 import { EventStatusBadge } from "@/components/EventStatusBadge";
 import { HomeAlerts } from "@/components/HomeAlerts";
@@ -12,12 +12,7 @@ import type { HomeAlert } from "@/lib/alerts";
 import type { Event } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
-import {
-  eventDetailPath,
-  rememberReturnPath,
-  resolveEventVenueSlug,
-  venueDetailPath,
-} from "@/lib/event-navigation";
+import { eventDetailPath, rememberReturnPath } from "@/lib/event-navigation";
 import { formatEventTimeForList } from "@/lib/event-time-display";
 import {
   getTodayHighlightEvents,
@@ -67,11 +62,6 @@ function TodayHighlightCard({
   note?: string;
 }) {
   const href = eventDetailPath(locale, event.id);
-  const venueSlug = event.imageUrl ? resolveEventVenueSlug(event) : undefined;
-  const venueHref = venueSlug ? venueDetailPath(locale, venueSlug) : null;
-  const venueLabel = event.venue
-    ? `${dict.detail.viewVenue}: ${event.venue}`
-    : dict.detail.viewVenue;
   const liveDisplay = useLiveStatusDisplay(event, dict, {
     listTimeRange: "today",
   });
@@ -173,17 +163,6 @@ function TodayHighlightCard({
           ) : null}
         </div>
       </IntentLink>
-      {venueHref ? (
-        <IntentLink
-          href={venueHref}
-          onClick={() => rememberReturnPath(returnTo ?? `/${locale}`)}
-          className="absolute left-3 top-3 z-10 inline-flex items-center gap-1.5 rounded-full bg-black/55 px-2.5 py-1 text-[11px] font-bold text-white backdrop-blur-sm touch-manipulation hover:bg-black/70 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
-          aria-label={venueLabel}
-        >
-          <Building2 className="h-3.5 w-3.5 shrink-0" aria-hidden />
-          {dict.detail.viewVenue}
-        </IntentLink>
-      ) : null}
     </article>
   );
 }

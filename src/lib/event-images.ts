@@ -80,8 +80,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "vivonte-cigar-factory-saturday": "vivonte-cigar-factory-weekdays.jpg",
   "freestyle-catamaran-daily": "freestyle-catamaran-daily.jpg",
   "outback-safari-daily": "outback-safari-daily.jpeg",
-  // Filename bumps — night show vs daytime bowl (venue uses separate stage shot).
-  "anfiteatro-la-puntilla-concerts": "anfiteatro-la-puntilla-concerts-night.jpg",
+  // Filename bump — Mitur night concert in this seating bowl (not a generic waterfront stage).
+  "anfiteatro-la-puntilla-concerts": "anfiteatro-la-puntilla-mitur-concert.jpg",
   "anfiteatro-la-puntilla-weekday-culture":
     "anfiteatro-la-puntilla-weekday-bowl.jpg",
   "el-carey-karaoke-mujeres-monday": "el-carey-karaoke-mujeres-monday.jpg",

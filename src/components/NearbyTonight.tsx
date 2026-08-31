@@ -9,12 +9,7 @@ import { WalkingPersonIcon } from "@/components/icons/WalkingPersonIcon";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import { getCategoryMeta } from "@/lib/categories";
-import {
-  eventDetailPath,
-  rememberReturnPath,
-  resolveEventVenueSlug,
-  venueDetailPath,
-} from "@/lib/event-navigation";
+import { eventDetailPath, rememberReturnPath } from "@/lib/event-navigation";
 import { formatEventTimeForList } from "@/lib/event-time-display";
 import { formatEventDateRange } from "@/lib/format-date";
 import type { NearbyEventHit, NearbyTonightResult } from "@/lib/nearby-events";
@@ -180,17 +175,6 @@ function NearbyCard({
 }) {
   const { event } = hit;
   const href = eventDetailPath(locale, event.id);
-  const venueSlug = event.imageUrl ? resolveEventVenueSlug(event) : undefined;
-  const venueCandidate = venueSlug ? venueDetailPath(locale, venueSlug) : null;
-  const venueHref =
-    venueCandidate &&
-    hit.relation !== "same-venue" &&
-    venueCandidate !== returnTo?.split("?")[0]
-      ? venueCandidate
-      : null;
-  const venueLabel = event.venue
-    ? `${dict.detail.viewVenue}: ${event.venue}`
-    : dict.detail.viewVenue;
   const category = getCategoryMeta(event.category, dict.categories);
   const emoji = event.imageEmoji ?? category?.emoji ?? "📅";
   const timeLabel = formatEventTimeForList(event.time, {
@@ -222,60 +206,32 @@ function NearbyCard({
         className="absolute inset-0 z-0 rounded-2xl touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
         aria-label={event.title}
       />
-      {venueHref ? (
-        <IntentLink
-          href={venueHref}
-          onClick={() => rememberReturnPath(returnTo, returnTitle)}
-          className={`relative z-[2] block aspect-[4/3] w-full overflow-hidden touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 ${
-            event.imageUrl
-              ? "bg-neutral-100 dark:bg-neutral-800"
-              : `bg-gradient-to-br ${category?.gradient ?? "from-neutral-200 to-neutral-300"}`
-          }`}
-          aria-label={venueLabel}
-        >
-          {event.imageUrl ? (
-            <EventImage
-              src={event.imageUrl}
-              alt=""
-              sizes="216px"
-              className="object-cover card-media-zoom"
-            />
-          ) : null}
-          {pending ? (
-            <div
-              className="pointer-events-none absolute inset-0 bg-orange-500/10"
-              aria-hidden
-            />
-          ) : null}
-        </IntentLink>
-      ) : (
-        <div
-          className={`relative aspect-[4/3] w-full overflow-hidden pointer-events-none ${
-            event.imageUrl
-              ? "bg-neutral-100 dark:bg-neutral-800"
-              : `bg-gradient-to-br ${category?.gradient ?? "from-neutral-200 to-neutral-300"}`
-          }`}
-        >
-          {event.imageUrl ? (
-            <EventImage
-              src={event.imageUrl}
-              alt=""
-              sizes="216px"
-              className="object-cover card-media-zoom"
-            />
-          ) : (
-            <div className="flex h-full w-full items-center justify-center text-3xl" aria-hidden>
-              {emoji}
-            </div>
-          )}
-          {pending ? (
-            <div
-              className="pointer-events-none absolute inset-0 bg-orange-500/10"
-              aria-hidden
-            />
-          ) : null}
-        </div>
-      )}
+      <div
+        className={`relative aspect-[4/3] w-full overflow-hidden pointer-events-none ${
+          event.imageUrl
+            ? "bg-neutral-100 dark:bg-neutral-800"
+            : `bg-gradient-to-br ${category?.gradient ?? "from-neutral-200 to-neutral-300"}`
+        }`}
+      >
+        {event.imageUrl ? (
+          <EventImage
+            src={event.imageUrl}
+            alt=""
+            sizes="216px"
+            className="object-cover card-media-zoom"
+          />
+        ) : (
+          <div className="flex h-full w-full items-center justify-center text-3xl" aria-hidden>
+            {emoji}
+          </div>
+        )}
+        {pending ? (
+          <div
+            className="pointer-events-none absolute inset-0 bg-orange-500/10"
+            aria-hidden
+          />
+        ) : null}
+      </div>
       <div className="relative z-[1] space-y-1 p-2.5 pointer-events-none">
         <h3 className="line-clamp-2 font-sans text-sm font-bold leading-snug text-neutral-950 dark:text-white">
           {event.title}
