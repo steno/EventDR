@@ -310,6 +310,8 @@ function HomeApp({
       markOnboardingSeen("city-primed");
       setCityPrimingOpen(false);
       setCruiseEntryOpen(false);
+      // Shore day has no search field, so a query typed on home must not survive.
+      setSearchQuery("");
       setCruisePortUrl(port);
     },
     [setCruisePortUrl],
@@ -486,18 +488,16 @@ function HomeApp({
                 <InstallBanner dict={dict} />
               ) : null}
               <div className="flex flex-col">
-                {/* Cruise chrome has no header search, so keep this one at every width. */}
-                <div
-                  className={`order-1 mt-4 mb-4 sm:order-1 ${
-                    cruisePort ? "" : "lg:hidden"
-                  }`}
-                >
-                  <SearchBar
-                    value={searchQuery}
-                    onChange={setSearchQuery}
-                    dict={dict}
-                  />
-                </div>
+                {/* Shore day is a fixed "what fits before you sail" view — no search. */}
+                {cruisePort ? null : (
+                  <div className="order-1 mt-4 mb-4 sm:order-1 lg:hidden">
+                    <SearchBar
+                      value={searchQuery}
+                      onChange={setSearchQuery}
+                      dict={dict}
+                    />
+                  </div>
+                )}
                 <div className="order-2 sm:order-2">
                   <PhotoHero
                     dict={dict}
@@ -534,7 +534,7 @@ function HomeApp({
                   />
                 </div>
               </div>
-              {cruisePort && !isSearching ? (
+              {cruisePort ? (
                 <CruiseDiscover
                   locale={locale}
                   dict={dict}
@@ -677,8 +677,6 @@ function HomeApp({
             limit={HOME_SEARCH_LIMIT}
             silent={tab !== "discover" || !isSearching}
             initialEvents={initialEvents}
-            citySlug={cruisePort ? "puerto-plata" : undefined}
-            timeRange={cruisePort && isSearching ? "today" : "all"}
           />
         </div>
       </main>
