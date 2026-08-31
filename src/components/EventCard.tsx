@@ -1,17 +1,12 @@
 import { memo } from "react";
-import { Building2, Flame } from "lucide-react";
+import { Flame } from "lucide-react";
 import { EventImage } from "@/components/EventImage";
 import { EventCardMeta } from "@/components/EventCardMeta";
 import { IntentLink } from "@/components/IntentLink";
 import { getCategoryMeta } from "@/lib/categories";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
-import {
-  eventDetailPath,
-  rememberReturnPath,
-  resolveEventVenueSlug,
-  venueDetailPath,
-} from "@/lib/event-navigation";
+import { eventDetailPath, rememberReturnPath } from "@/lib/event-navigation";
 import { EventCallLink } from "@/components/EventCallLink";
 import { useLiveStatusDisplay } from "@/hooks/useLiveStatusDisplay";
 import type { TimeRange } from "@/lib/filters";
@@ -75,61 +70,32 @@ function VenueSiblingChips({
   );
 }
 
-function eventVenueHref(
-  event: EventWithVenueSiblings,
-  locale: Locale,
-  returnTo?: string,
-): string | null {
-  const slug = resolveEventVenueSlug(event);
-  if (!slug) return null;
-  const href = venueDetailPath(locale, slug);
-  const from = returnTo?.split("?")[0];
-  if (from && from === href) return null;
-  return href;
-}
-
 function EventCardMedia({
   event,
-  locale,
-  dict,
-  returnTo,
-  returnTitle,
   emoji,
   gradient,
   sizes,
   imageClassName,
   frameClassName,
-  showVenueHint,
   emojiClassName,
 }: {
   event: EventWithVenueSiblings;
-  locale: Locale;
-  dict: Dictionary;
-  returnTo?: string;
-  returnTitle?: string | null;
   emoji: string;
   gradient: string;
   sizes: string;
   imageClassName: string;
   frameClassName: string;
-  showVenueHint?: boolean;
   emojiClassName?: string;
 }) {
-  const venueHref = event.imageUrl
-    ? eventVenueHref(event, locale, returnTo)
-    : null;
-  const venueLabel = event.venue
-    ? `${dict.detail.viewVenue}: ${event.venue}`
-    : dict.detail.viewVenue;
   const frame = `
-    relative overflow-hidden
+    relative overflow-hidden pointer-events-none
     ${event.imageUrl ? "bg-neutral-100 dark:bg-neutral-800" : `bg-gradient-to-br ${gradient}`}
     ${frameClassName}
   `;
   const media = event.imageUrl ? (
     <EventImage
       src={event.imageUrl}
-      alt={venueHref ? "" : event.title}
+      alt=""
       sizes={sizes}
       className={imageClassName}
     />
@@ -142,32 +108,10 @@ function EventCardMedia({
     </div>
   );
 
-  if (!venueHref) {
-    return (
-      <div className={`${frame} pointer-events-none`} aria-hidden={!event.imageUrl}>
-        {media}
-      </div>
-    );
-  }
-
   return (
-    <IntentLink
-      href={venueHref}
-      onClick={() => rememberReturnPath(returnTo, returnTitle)}
-      className={`${frame} z-[2] block pointer-events-auto touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500`}
-      aria-label={venueLabel}
-    >
+    <div className={frame} aria-hidden>
       {media}
-      {showVenueHint ? (
-        <span
-          className="absolute bottom-2 left-2 inline-flex items-center gap-1 rounded-full bg-black/55 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white backdrop-blur-sm"
-          aria-hidden
-        >
-          <Building2 className="h-3 w-3" />
-          {dict.detail.viewVenue}
-        </span>
-      ) : null}
-    </IntentLink>
+    </div>
   );
 }
 
@@ -215,19 +159,14 @@ const EventCardComponent = ({
           className="absolute inset-0 z-0 rounded-2xl touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
           aria-label={event.title}
         />
-        <div className="relative">
+        <div className="relative pointer-events-none">
           <EventCardMedia
             event={event}
-            locale={locale}
-            dict={dict}
-            returnTo={returnTo}
-            returnTitle={returnTitle}
             emoji={emoji}
             gradient={category?.gradient ?? "from-neutral-200 to-neutral-300"}
             sizes="(max-width: 640px) 50vw, 240px"
             imageClassName="object-cover object-top sm:object-center card-media-zoom"
             frameClassName="aspect-[4/3] w-full"
-            showVenueHint
           />
           {event.trending && !liveStatusLabel && liveStatus !== "ended" && (
             <span className="pointer-events-none absolute right-2 top-2 z-[3] inline-flex items-center gap-0.5 rounded-full bg-black/55 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-orange-300 backdrop-blur-sm">
@@ -288,10 +227,6 @@ const EventCardComponent = ({
       <div className="relative z-[1] flex gap-3.5 text-left pointer-events-none">
         <EventCardMedia
           event={event}
-          locale={locale}
-          dict={dict}
-          returnTo={returnTo}
-          returnTitle={returnTitle}
           emoji={emoji}
           gradient={category?.gradient ?? "from-neutral-200 to-neutral-300"}
           sizes="68px"

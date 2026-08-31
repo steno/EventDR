@@ -21,7 +21,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "castaways-classic-rock-wednesday": "castaways-classic-rock-wednesday.jpg",
   "voramar-friday-live": "voramar-friday-live.jpg",
   "smileys-saturday-live": "smileys-saturday-live.jpg",
-  "finish-line-live-wednesday": "finish-line-live-wednesday.jpg",
+  // Filename bump — house-band live set (not the El Batey open-mic clone).
+  "finish-line-live-wednesday": "finish-line-live-band.jpg",
   "sosua-beach-live-weekends": "sosua-beach-live-bay.jpg",
   "cheers-weekly-live": "cheers-weekly-live.jpg",
   // Filename bump — live bar with hanging Cadillac (entrance stays on the venue).

@@ -434,7 +434,7 @@ const localSources = [
   },
   {
     src: "FinishLineLiveWednesday.jpg",
-    eventId: "finish-line-live-wednesday",
+    eventId: "finish-line-live-band",
   },
   // ElBateySalsaSocial.JPG is a patio-crowd clone — do not stamp it onto
   // salsa (uses SosuaSalsaSocial.JPG), open mic, or weekend nightlife.

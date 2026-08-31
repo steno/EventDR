@@ -126,7 +126,8 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "estadio-leonel-placido": "estadio-leonel-placido.jpg",
   "zona-acapella-club": "zona-acapella-club.jpg",
   "pop-cinemas-playa-dorada": "pop-cinemas-playa-dorada.jpg",
-  "le-petit-francois": "le-petit-francois.jpg",
+  // Filename bump — daytime bistro with the Le Petit François sign (not the tall tiki-torch dinner).
+  "le-petit-francois": "le-petit-francois-bistro.jpg",
   "playa-costambar": "playa-costambar.png",
   "love-does-sosua": "love-does-sosua.jpg",
   // Filename bump — palapa-to-deck (sunset terrace stays on the dining event).

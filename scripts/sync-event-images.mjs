@@ -34,7 +34,7 @@ const FILE_TO_EVENT_ID = {
   "sosua-pedro-clisante-food-nights.jpg": "sosua-pedro-clisante-food-nights",
   "sosua-beach-live-bay.jpg": "sosua-beach-live-weekends",
   "smileys-saturday-live.jpg": "smileys-saturday-live",
-  "finish-line-live-wednesday.jpg": "finish-line-live-wednesday",
+  "finish-line-live-band.jpg": "finish-line-live-band",
   "liquid-blue-sunrise-yoga.jpg": "liquid-blue-sunrise-yoga",
   "natura-cabana-yoga-daily.jpg": "natura-cabana-yoga-daily",
   "liquid-blue-watersports-daily.jpg": "liquid-blue-watersports-daily",
@@ -320,7 +320,8 @@ const FILE_TO_VENUE_SLUG = {
   "estadio-leonel-placido.jpg": "estadio-leonel-placido",
   "zona-acapella-club.jpg": "zona-acapella-club",
   "pop-cinemas-playa-dorada.jpg": "pop-cinemas-playa-dorada",
-  "le-petit-francois.jpg": "le-petit-francois",
+  // Filename bump — daytime bistro + sign (not the tall tiki-torch dinner).
+  "le-petit-francois-bistro.jpg": "le-petit-francois-bistro",
   "costambar-beach-fitness.png": "playa-costambar",
   "love-does-sosua.jpg": "love-does-sosua",
   // Filename bump — palapa-to-deck (sunset terrace stays on the dining event).

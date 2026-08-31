@@ -37,7 +37,7 @@ Curated images under `public/events/` and `public/venues/`.
 | `venues/sea-horse-ranch-tennis-club.jpg` | [Google Maps — Sea Horse Ranch Tennis](https://www.google.com/maps/place/Sea+Horse+Ranch+Tennis/@19.7808431,-70.4805888,17z) visitor photo | Tennis Club patio / courts (flyer stays off the venue) |
 | `smileys-saturday-live.jpg` | YouTube still — [Smiley's Courtyard Bar & Restaurant in Sosua](https://www.youtube.com/watch?v=WZHFtyXvELs) | Courtyard stage + Smiley's signage |
 | `venues/smileys-bar-sosua-daytime.jpg` | [Google Maps — Smiley's Courtyard Bar](https://www.google.com/maps/place/Smiley's+Courtyard+Bar/@19.7679864,-70.5100086,17z) visitor photo | Daytime open-air bar looking onto Pedro Clisante (not the Saturday live stage) |
-| `finish-line-live-wednesday.jpg` | POP curated `FinishLineLiveWednesday.jpg` | Indoor pub live stage |
+| `finish-line-live-band.jpg` | POP-supplied Finish Line house band (editor-provided, not scraped) | Wednesday live listing — guitar, bass, drums (filename bump — was a clone of El Batey open mic) |
 | `venues/finish-line-sosua-bar.jpg` | [Google Maps — Mike's Finish Line Bar](https://www.google.com/maps/place/Mike's+Finish+Line+Bar/@19.7661412,-70.5130522,17z) visitor photo | Packed bar with hanging glasses and Presidente — venue place shot (not the Wednesday stage) |
 | `d-classico-merengue-bar.jpg` | Google Maps visitor photo — packed night bar at Clasico Club 59 | Merengue-night action (not the daytime facade) |
 | `venues/d-classico-sosua-daytime.jpg` | Google Maps visitor photo — daytime Clasico Club 59 facade on Pedro Clisante | Venue place shot |
@@ -157,7 +157,7 @@ Curated images under `public/events/` and `public/venues/`.
 | `venues/pop-cinemas-playa-dorada.jpg` | [Google Maps — Pop Cinemas](https://www.google.com/maps/place/Pop+Cinemas/@19.7698587,-70.6423406,17z) visitor photo | POP CINEMAS mall entrance with “Vive la diferencia” signage |
 | `petit-francois-friday-karaoke.jpg` | POP-supplied `petitfrancois.jpg` — Friday karaoke flyer | Official Le Petit François karaoke night graphic |
 | `costambar-beach-fitness.png` / `venues/playa-costambar.png` | Organizer-supplied Costambar Fitness class photo (beach session left of El Carey) | Authentic Costambar Beach Fitness group on the sand |
-| `venues/le-petit-francois.jpg` | [lepetitfrancois.com](https://lepetitfrancois.com/) — `DSC00912.jpeg` beach dinner | Official sand tables, tiki torch, and string lights at El Pueblito |
+| `venues/le-petit-francois-bistro.jpg` | POP-supplied `lepetitfrancois.png` — daytime El Pueblito bistro (editor-provided, not scraped) | Venue place shot with the Le Petit François sign (filename bump — was a tall tiki-torch dinner) |
 | `imbert-mercedes-patronales-2026.jpg` | [Wikimedia Commons — Acceso a Imbert por la Ruta 5](https://commons.wikimedia.org/wiki/File:Acceso_a_Imbert_por_la_Ruta_5.jpg) — Ulises Icardi, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | Highway welcome sign on Ruta 5 (Nov 2024) — Mercedes patronales event hero |
 | `venues/plaza-sanchez-imbert-park.jpg` | [Google Maps — Plaza Sánchez de Imbert](https://www.google.com/maps/place/Plaza+S%C3%A1nchez+de+Imbert) visitor photo | Aerial of the plaza gazebo and orange planters |
 | `guananico-san-miguel-patronales-2026.jpg` | Organizer-supplied flyer via POP (Facebook event 1964485960928143; editor-provided, not scraped) | Fiestas tradicionales San Miguel Arcángel — Rincón Caliente, Guananico, 20–29 Sep 2026 |
