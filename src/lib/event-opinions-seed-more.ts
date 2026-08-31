@@ -1551,4 +1551,23 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     researchNotes: "Official: WING WEDNESDAY — famous wings all day.",
     updatedAt: "2026-08-26T15:30:00.000Z",
   },
+  {
+    eventId: "los-event-trilogy-2026-09-03",
+    body: "This is a booked NYC-group takeover, not a walk-up Cofresí night — buy the package or the US$200 party pass; the public beach next door is not the guest list.",
+    localized: {
+      es: "Es un takeover reservado del grupo de NYC, no una noche walk-up en Cofresí — compra el paquete o el party pass de US$200; la playa pública de al lado no es la lista.",
+      fr: "C'est un takeover réservé du groupe new-yorkais, pas une soirée walk-up à Cofresí — achetez le forfait ou le party pass à 200 $ US ; la plage publique à côté n'est pas la guest list.",
+    },
+    priceFeel: "upscale",
+    priceNote:
+      "Party pass US$200; all-inclusive packages from US$875/person (US$250 deposit). Not a ResortPass day pass.",
+    priceNoteLocalized: {
+      es: "Party pass US$200; paquetes todo incluido desde US$875/persona (depósito US$250). No es un day pass de ResortPass.",
+      fr: "Party pass 200 $ US ; forfaits tout compris dès 875 $ US/personne (acompte 250 $ US). Ce n'est pas un day pass ResortPass.",
+    },
+    attribution: "POP research · trilogylosevent.com",
+    researchNotes:
+      "Official LOS Getaway 2026: Sep 3–7 at Lifestyle Holidays / VIP Beach Lifestyles Cofresí. Tropical from US$875, Cofresí Palm and Presidential from US$960, US$250 deposit. Off-property guests need a US$200 party pass. Schedule: Thu welcome 8pm + game night; Fri–Sun beach workouts, pool/day parties; Fri 80s vs 90s; Sat all-white; Sun comedy. POP transfer included.",
+    updatedAt: "2026-08-31T01:00:00.000Z",
+  },
 ];

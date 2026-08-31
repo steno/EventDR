@@ -322,6 +322,10 @@ export const fr: Dictionary = {
     amberCove: "Amber Cove",
     tainoBayHint: "Centre-ville — à pied jusqu’au Malecón",
     amberCoveHint: "Maimón — taxi vers le centre ~20–25 min",
+    tainoBayTagline:
+      "Le Malecón, Fortaleza et Calle de las Sombrillas à pied — une journée croisière en centre-ville qui tient avant le départ de Taino Bay.",
+    amberCoveTagline:
+      "Déjeuner à Maimón, plage Cofresí ou taxi vers le centre — ce qui tient vraiment avant le départ d’Amber Cove.",
     allAboard: "Retour à bord",
     allAboardHelp: "À quelle heure devez-vous être de retour à bord ?",
     allAboardHint: "Le navire l’appelle all-aboard — vérifiez l’heure sur votre carte de croisière.",

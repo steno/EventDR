@@ -49,6 +49,7 @@ import {
 } from "@/lib/cities";
 import {
   cruisePath,
+  CRUISE_PORTS,
   isCruisePortSlug,
   parseAllAboardMinutes,
   type CruisePortSlug,
@@ -192,9 +193,9 @@ function HomeApp({
     const syncFromUrl = () => {
       setCityQuery(readCity());
       const cruise = readCruise();
-      if (cruise.port) {
-        setCruisePort(cruise.port);
-        if (cruise.aboard) setAllAboardMinutes(parseAllAboardMinutes(cruise.aboard));
+      setCruisePort(cruise.port);
+      if (cruise.port && cruise.aboard) {
+        setAllAboardMinutes(parseAllAboardMinutes(cruise.aboard));
       }
     };
 
@@ -242,6 +243,7 @@ function HomeApp({
 
   const setArea = useCallback(
     (slug: CitySlug | null) => {
+      setCruisePort(null);
       setLocalArea({ city: slug, areaChosen: true });
       // Same pattern as session restore: update the address bar without an RSC
       // round-trip. router.replace(?city=…) was flashing the whole home shell.
@@ -300,11 +302,15 @@ function HomeApp({
     [locale, allAboardMinutes],
   );
 
-  const enterCruise = useCallback(() => {
-    markOnboardingSeen("city-primed");
-    setCityPrimingOpen(false);
-    setCruiseEntryOpen(false);
-  }, []);
+  const enterCruise = useCallback(
+    (port: CruisePortSlug) => {
+      markOnboardingSeen("city-primed");
+      setCityPrimingOpen(false);
+      setCruiseEntryOpen(false);
+      setCruisePortUrl(port);
+    },
+    [setCruisePortUrl],
+  );
 
   const setCruiseAllAboard = useCallback(
     (minutes: number) => {
@@ -354,12 +360,25 @@ function HomeApp({
     : `/${locale}/when/today`;
 
   const heroPlaceName = (() => {
+    if (cruisePort) {
+      return cruisePort === "taino-bay"
+        ? dict.cruise.tainoBay
+        : dict.cruise.amberCove;
+    }
     if (selectedCity) {
       const city = getCityMeta(selectedCity);
       return city ? getCityName(city, locale) : dict.hero.nearYou;
     }
     return dict.cities.regionName;
   })();
+  const heroTagline = cruisePort
+    ? cruisePort === "taino-bay"
+      ? dict.cruise.tainoBayTagline
+      : dict.cruise.amberCoveTagline
+    : undefined;
+  const heroImageSrc = cruisePort
+    ? CRUISE_PORTS[cruisePort].imageSrc
+    : undefined;
 
   function handleTabChange(newTab: AppTab) {
     if (newTab === "submit") {
@@ -391,6 +410,7 @@ function HomeApp({
                 setTab("discover");
                 setSearchQuery("");
                 setLocalArea(null);
+                setCruisePort(null);
                 const bareHome = `/${locale}`;
                 window.history.replaceState(
                   window.history.state ?? null,
@@ -450,37 +470,41 @@ function HomeApp({
                     dict={dict}
                   />
                 </div>
-                {cruisePort ? null : (
                 <div className="order-2 sm:order-2">
                   <PhotoHero
                     dict={dict}
                     locale={locale}
-                    featuredEvent={discoverLayout.heroEvent}
+                    featuredEvent={cruisePort ? null : discoverLayout.heroEvent}
                     placeName={heroPlaceName}
-                    citySlug={selectedCity}
+                    citySlug={cruisePort ? null : selectedCity}
+                    tagline={heroTagline}
+                    imageSrc={heroImageSrc}
                     locationPicker={
                       <CityLocationPicker
                         variant="hero"
                         locale={locale}
                         dict={dict}
-                        currentSlug={selectedCity}
+                        currentSlug={cruisePort ? null : selectedCity}
+                        cruisePort={cruisePort}
                         onSelect={setArea}
+                        onSelectCruise={enterCruise}
                         counts={cityCounts}
                         onCruiseIntent={() => setCruiseEntryOpen(true)}
                       />
                     }
                     afterTagline={
-                      <CruiseShipEntry
-                        dict={dict}
-                        locale={locale}
-                        open={cruiseEntryOpen}
-                        onOpenChange={setCruiseEntryOpen}
-                        onSelectPort={enterCruise}
-                      />
+                      cruisePort ? null : (
+                        <CruiseShipEntry
+                          dict={dict}
+                          locale={locale}
+                          open={cruiseEntryOpen}
+                          onOpenChange={setCruiseEntryOpen}
+                          onSelectPort={enterCruise}
+                        />
+                      )
                     }
                   />
                 </div>
-                )}
               </div>
               {cruisePort && !isSearching ? (
                 <CruiseDiscover

@@ -17,6 +17,10 @@ interface PhotoHeroProps {
   placeName?: string;
   /** Active home area — drives the SEO H2 so it stays in sync with the select. */
   citySlug?: CitySlug | null;
+  /** Overrides the city/region H2 (e.g. cruise-port copy). */
+  tagline?: string;
+  /** Overrides the featured-event photo (e.g. cruise-port hero). */
+  imageSrc?: string | null;
   /** Replaces the static H1 place name — typically the city dropdown. */
   locationPicker?: ReactNode;
   /** Shown under the tagline — e.g. cruise-day ship pill. */
@@ -29,19 +33,20 @@ export function PhotoHero({
   featuredEvent = null,
   placeName,
   citySlug = null,
+  tagline: taglineOverride,
+  imageSrc = null,
   locationPicker,
   afterTagline,
 }: PhotoHeroProps) {
-  const imageUrl = featuredEvent?.imageUrl?.trim() || null;
+  const imageUrl =
+    imageSrc?.trim() || featuredEvent?.imageUrl?.trim() || null;
   const heroPlace = placeName?.trim() || dict.hero.nearYou;
-  const tagline = getHomeHeroTagline(
-    locale,
-    citySlug,
-    dict.hero.regionTagline,
-  );
+  const tagline =
+    taglineOverride ??
+    getHomeHeroTagline(locale, citySlug, dict.hero.regionTagline);
 
-  // Use "Events in the" for North Coast region, "Events in" for specific cities
-  const isRegion = citySlug == null || heroPlace === dict.cities.regionName;
+  // "Events in the" only for the North Coast region; cities and ports use "Events in".
+  const isRegion = heroPlace === dict.cities.regionName;
   const eventsPrefix = isRegion ? dict.hero.events : dict.cities.eventsIn;
 
   return (
@@ -49,13 +54,18 @@ export function PhotoHero({
       <div className="absolute inset-0 overflow-hidden sm:rounded-2xl">
         {imageUrl ? (
           <div className="absolute inset-0">
-            <EventImage
-              src={imageUrl}
-              alt=""
-              priority
-              sizes="100vw"
-              className="object-cover"
-            />
+                <EventImage
+                  key={imageUrl}
+                  src={imageUrl}
+                  alt=""
+                  priority
+                  sizes="100vw"
+                  className={
+                    imageSrc
+                      ? "object-cover object-top sm:object-center"
+                      : "object-cover"
+                  }
+                />
           </div>
         ) : (
           <div
@@ -100,7 +110,7 @@ export function PhotoHero({
             </span>
           </h1>
           <h2
-            key={citySlug ?? "north-coast"}
+            key={tagline}
             className="mt-2 max-w-xl text-copy font-medium text-white/90 [text-shadow:0_1px_2px_rgba(0,0,0,0.4)]"
           >
             {tagline}

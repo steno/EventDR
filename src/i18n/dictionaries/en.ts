@@ -292,6 +292,9 @@ export type Dictionary = {
     amberCove: string;
     tainoBayHint: string;
     amberCoveHint: string;
+    /** Home hero H2 after a cruise port is chosen. */
+    tainoBayTagline: string;
+    amberCoveTagline: string;
     allAboard: string;
     allAboardHelp: string;
     allAboardHint: string;
@@ -804,6 +807,10 @@ export const en: Dictionary = {
     amberCove: "Amber Cove",
     tainoBayHint: "Downtown — walk to the Malecón",
     amberCoveHint: "Maimón — taxi to Centro ~20–25 min",
+    tainoBayTagline:
+      "Walk to the Malecón, Fortaleza, and Umbrella Street — a downtown cruise day that actually fits before you sail from Taino Bay.",
+    amberCoveTagline:
+      "Maimón lunch, Cofresí beach, or a taxi to Centro — what actually fits before you sail from Amber Cove.",
     allAboard: "Back on ship by",
     allAboardHelp: "When do you need to be back on the ship?",
     allAboardHint: "Ships call this all-aboard — check the time on your cruise card.",

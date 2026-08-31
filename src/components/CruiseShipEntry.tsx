@@ -66,9 +66,19 @@ export function CruiseShipEntry({
               <a
                 key={slug}
                 href={cruisePath(locale, slug)}
-                onClick={() => {
+                onClick={(event) => {
+                  if (
+                    !onSelectPort ||
+                    event.metaKey ||
+                    event.ctrlKey ||
+                    event.shiftKey ||
+                    event.altKey
+                  ) {
+                    return;
+                  }
+                  event.preventDefault();
                   signalNavPending("soft");
-                  onSelectPort?.(slug);
+                  onSelectPort(slug);
                 }}
                 className={
                   isHero

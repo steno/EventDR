@@ -6,6 +6,7 @@ import { CruiseShipEntry } from "@/components/CruiseShipEntry";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { CITIES, getCityName, type CityEventCounts, type CitySlug } from "@/lib/cities";
+import type { CruisePortSlug } from "@/lib/cruise";
 import { getOnboardingCopy } from "@/lib/onboarding";
 
 interface CityPrimingSheetProps {
@@ -13,7 +14,7 @@ interface CityPrimingSheetProps {
   dict: Dictionary;
   open: boolean;
   onChoose: (city: CitySlug | null) => void;
-  onChooseCruise: () => void;
+  onChooseCruise: (port: CruisePortSlug) => void;
   onDismiss: () => void;
   counts?: CityEventCounts | null;
 }

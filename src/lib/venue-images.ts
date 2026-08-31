@@ -102,7 +102,8 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "victrola-037": "victrola-037-storefront.jpg",
   "cigar-town-pop": "cigar-town-pop.jpg",
   "ocean-one-cabarete": "ocean-one-cabarete-pool.jpg",
-  "vip-beach-lifestyles-resort": "vip-beach-lifestyles-resort.jpg",
+  // Filename bump after replacing an Ocean World dolphin-sign stand-in.
+  "vip-beach-lifestyles-resort": "vip-beach-lifestyles-tropical.jpg",
   "gym-sov-sosua-ocean-village": "gym-sov-sosua-ocean-village.webp",
   "laguna-sov": "laguna-sov-kids-park.jpg",
   "santa-fe-sov": "santa-fe-sov-pools.jpg",

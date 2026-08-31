@@ -3,7 +3,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { Clock } from "lucide-react";
 import { EventCard } from "@/components/EventCard";
-import { EventImage } from "@/components/EventImage";
 import { IntentLink } from "@/components/IntentLink";
 import { TodayHighlights } from "@/components/TodayHighlights";
 import { VenueAudienceCards } from "@/components/VenueAudienceCards";
@@ -103,49 +102,17 @@ export function CruiseDiscover({
 
   return (
     <div className="flex flex-col gap-6">
-      <section className="relative mt-4 overflow-hidden rounded-2xl bg-neutral-950 text-white shadow-lg ring-1 ring-white/10">
-        <div className="absolute inset-0" aria-hidden>
-          {CRUISE_PORT_SLUGS.map((slug) => {
-            const active = slug === port;
-            return (
-              <div
-                key={slug}
-                className={`absolute inset-0 transition-opacity duration-500 motion-reduce:duration-0 ${
-                  active ? "opacity-100" : "opacity-0"
-                }`}
-              >
-                <EventImage
-                  src={CRUISE_PORTS[slug].imageSrc}
-                  alt=""
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 90rem"
-                  className="object-cover object-top sm:object-center"
-                />
-              </div>
-            );
-          })}
-          <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/58 via-45% to-black/20" />
-        </div>
-
-        <div className="relative z-10 px-4 py-5 sm:px-6">
-        <p className="text-xs font-bold uppercase tracking-[0.18em] text-orange-300 [text-shadow:0_1px_2px_rgba(0,0,0,0.45)]">
+      <section className="rounded-2xl border border-neutral-200 bg-white px-4 py-4 shadow-sm dark:border-neutral-800 dark:bg-neutral-950 sm:px-5">
+        <p className="text-xs font-bold uppercase tracking-[0.18em] text-orange-600 dark:text-orange-400">
           {copy.eyebrow}
         </p>
-        <div className="mt-3">
-          <h1 className="text-title font-extrabold tracking-tight [text-shadow:0_1px_3px_rgba(0,0,0,0.45)] sm:text-3xl">
-            {port === "taino-bay" ? copy.tainoBay : copy.amberCove}
-          </h1>
-          <p className="mt-1 text-sm font-medium text-white/80 [text-shadow:0_1px_2px_rgba(0,0,0,0.4)]">
-            {port === "taino-bay" ? copy.tainoBayHint : copy.amberCoveHint}
-          </p>
-        </div>
-        <p className="mt-3 inline-flex max-w-full items-start gap-2 rounded-xl bg-black/75 px-3 py-2 text-sm font-bold leading-snug text-white ring-1 ring-white/25 backdrop-blur-md">
-          <Clock className="mt-0.5 h-4 w-4 shrink-0 text-orange-300" aria-hidden />
+        <p className="mt-3 inline-flex max-w-full items-start gap-2 rounded-xl bg-neutral-100 px-3 py-2 text-sm font-bold leading-snug text-neutral-900 ring-1 ring-neutral-200 dark:bg-neutral-900 dark:text-white dark:ring-neutral-700">
+          <Clock className="mt-0.5 h-4 w-4 shrink-0 text-orange-500 dark:text-orange-300" aria-hidden />
           <span>{clockLine}</span>
         </p>
 
         <div
-          className="mt-4 flex rounded-xl bg-black/35 p-1 ring-1 ring-white/15 backdrop-blur-sm"
+          className="mt-4 flex rounded-xl bg-neutral-100 p-1 ring-1 ring-neutral-200 dark:bg-neutral-900 dark:ring-neutral-700"
           role="tablist"
           aria-label={copy.portLabel}
         >
@@ -161,8 +128,8 @@ export function CruiseDiscover({
                 onClick={() => onPortChange(slug)}
                 className={`flex-1 rounded-lg px-3 py-2 text-sm font-bold transition-colors touch-manipulation ${
                   selected
-                    ? "bg-white text-neutral-950 shadow-sm"
-                    : "text-white/85 hover:bg-white/10"
+                    ? "bg-white text-neutral-950 shadow-sm dark:bg-neutral-100 dark:text-neutral-950"
+                    : "text-neutral-600 hover:bg-white/70 dark:text-neutral-300 dark:hover:bg-white/10"
                 }`}
               >
                 {label}
@@ -172,17 +139,17 @@ export function CruiseDiscover({
         </div>
 
         <label className="mt-4 block">
-          <span className="text-xs font-bold uppercase tracking-wide text-white/80 [text-shadow:0_1px_2px_rgba(0,0,0,0.45)]">
+          <span className="text-xs font-bold uppercase tracking-wide text-neutral-500 dark:text-neutral-400">
             {copy.allAboard}
           </span>
           <span
             id="cruise-all-aboard-hint"
-            className="mt-1 block text-xs font-medium leading-snug text-white/80 [text-shadow:0_1px_2px_rgba(0,0,0,0.4)]"
+            className="mt-1 block text-xs font-medium leading-snug text-neutral-500 dark:text-neutral-400"
           >
             {sailed ? copy.shipsSailedHint : copy.allAboardHint}
           </span>
           <select
-            className="mt-1.5 w-full rounded-xl border-0 bg-black/40 px-3 py-2.5 text-sm font-bold text-white outline-none ring-1 ring-white/20 backdrop-blur-sm focus:ring-2 focus:ring-orange-400 sm:max-w-xs"
+            className="mt-1.5 w-full rounded-xl border-0 bg-neutral-100 px-3 py-2.5 text-sm font-bold text-neutral-950 outline-none ring-1 ring-neutral-200 focus:ring-2 focus:ring-orange-400 dark:bg-neutral-900 dark:text-white dark:ring-neutral-700 sm:max-w-xs"
             aria-label={copy.allAboardHelp}
             aria-describedby="cruise-all-aboard-hint"
             value={formatAllAboardParam(allAboardMinutes)}
@@ -197,7 +164,7 @@ export function CruiseDiscover({
               <option
                 key={preset}
                 value={formatAllAboardParam(preset)}
-                className="bg-neutral-900 text-white"
+                className="bg-white text-neutral-950 dark:bg-neutral-900 dark:text-white"
               >
                 {formatClockMinutes(preset, locale)}
               </option>
@@ -206,19 +173,18 @@ export function CruiseDiscover({
         </label>
 
         {phase === "open" ? (
-          <p className="mt-3 text-sm font-medium text-white/85 [text-shadow:0_1px_2px_rgba(0,0,0,0.4)]">
+          <p className="mt-3 text-sm font-medium text-neutral-600 dark:text-neutral-300">
             {port === "taino-bay" ? copy.taxiTipTaino : copy.taxiTipAmber}
           </p>
         ) : null}
         {sailed ? (
           <a
             href={`/${locale}?city=puerto-plata`}
-            className="mt-4 inline-flex w-full items-center justify-center rounded-xl bg-white px-4 py-2.5 text-sm font-bold text-neutral-950 shadow-sm sm:w-auto"
+            className="mt-4 inline-flex w-full items-center justify-center rounded-xl bg-neutral-900 px-4 py-2.5 text-sm font-bold text-white shadow-sm dark:bg-neutral-100 dark:text-neutral-950 sm:w-auto"
           >
             {copy.exit}
           </a>
         ) : null}
-        </div>
       </section>
 
       {loops.length > 0 ? (

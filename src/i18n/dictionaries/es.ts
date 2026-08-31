@@ -322,6 +322,10 @@ export const es: Dictionary = {
     amberCove: "Amber Cove",
     tainoBayHint: "Centro — camina al Malecón",
     amberCoveHint: "Maimón — taxi al Centro ~20–25 min",
+    tainoBayTagline:
+      "Camina al Malecón, la Fortaleza y la Calle de las Sombrillas — un día de crucero en el Centro que sí cabe antes de zarpar de Taino Bay.",
+    amberCoveTagline:
+      "Almuerzo en Maimón, playa Cofresí o un taxi al Centro — lo que sí cabe antes de zarpar de Amber Cove.",
     allAboard: "De vuelta al barco",
     allAboardHelp: "¿A qué hora debes estar de vuelta a bordo?",
     allAboardHint: "En el barco lo llaman all-aboard — mira la hora en tu tarjeta del crucero.",

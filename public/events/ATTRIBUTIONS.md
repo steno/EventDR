@@ -12,6 +12,7 @@ Curated images under `public/events/` and `public/venues/`.
 
 | Asset | Source | Notes |
 |-------|--------|-------|
+| `los-event-trilogy-2026-09-03.jpg` | [LOS Events / Trilogy](https://www.trilogylosevent.com/) official "LOS Last of Summer" Labor Day 2026 flyer | Authentic event art — Sep 3–7 Cofresí getaway, from US$875/person |
 | `lena-dardelet-aura-beach-club-2026-07-24.png` | [tix.do](https://tix.do/event/PororoyLenaDardeletdeaquipallaencabarete-1) — official "Pororó × Lena Dardelet — De Aquí Pa'llá" tour cover (1080×1080) | Authentic event flyer for the Aura Beach Club Cabarete show |
 | `sunset-night-party-playa-encuentro-2026-07-25.jpg` | [tix.do](https://tix.do/event/SUNSETNIGTHPARTYONEEVENTTWOEXPERIENCES-1) — official Sunset Night Party cover (1080×1080) | Authentic SONIK Productions flyer for Bonsai Poke / Playa Encuentro Jul 25 |
 | `venues/aura-beach-club-cabarete.jpg` | POP curated `aurabeach.jpg` — Aura Beach Club Cabarete | Venue place photo |
@@ -131,6 +132,7 @@ Curated images under `public/events/` and `public/venues/`.
 | `gran-ventana-day-pass.jpg` | [Gran Ventana Beach Resort](https://www.granventanahotel.com/en/) official CMS (`pool-gran-ventana-.webp`) | Pool, volleyball net, and guest buildings — day-pass action (beach loungers stay on the venue) |
 | `cofresi-palm-day-pass.jpg` | [Cofresí Palm Beach & Spa](https://www.cofresipalmbeachresort.com/) official gallery (`slide-29.jpg`) | Balcony view of the lagoon pool and palapa swim-up bar |
 | `venues/cofresi-palm-beach-spa.jpg` | [Cofresí Palm Beach & Spa](https://www.cofresipalmbeachresort.com/) official gallery (`slide-25.jpg`) | Aerial of this resort’s pool, red-tile roofs, and Cofresí shoreline |
+| `venues/vip-beach-lifestyles-tropical.jpg` | [LHVC — Lifestyle Tropical Beach Resort & Spa](https://www.lhvcresorts.com/en/lifestyle-tropical-beach-resort--spa.html) official gallery | The Tropical pool, palapa bar, and terracotta-roof rooms — replaces an Ocean World dolphin-sign stand-in |
 | `venues/playa-cofresi-beach.jpg` | [Google Maps — Cofresí Beach](https://www.google.com/maps/place/Cofres%C3%AD+Beach/@19.8206157,-70.7289026,17z) visitor photo | Daytime public shore with the Ocean World sign (replaces the dark night long-exposure) |
 | `cofresi-beach-sunset-walk.jpg` | [Google Maps — Cofresí Beach](https://www.google.com/maps/place/Cofres%C3%AD+Beach/@19.8206157,-70.7289026,17z) visitor photo | Sunset over this bay — listing action (daytime shore stays on the venue) |
 | `ocean-world-daily.jpg` | [Ocean World shop](https://shop.oceanworld.net/) — `dolphin-encounter-local` | Guest and dolphin in the encounter pool with the Ocean World Puerto Plata sign |

@@ -55,6 +55,8 @@ export const CURATED_TICKET_URLS: Record<string, string> = {
   "aventurate-rd-2026": "https://feriaaventuraterd.com/registro",
   "sunset-cabarete-sessions-2026":
     "https://dominicana.myticketplus.com/events/sunset-cabarete-sessions",
+  "los-event-trilogy-2026-09-03":
+    "https://www.trilogylosevent.com/event-details/los-getaway-2026-puerto-plata-dominican-republic",
   "ingest-make-authentic-espadrilles-in-puerto-plata":
     "https://www.eventbrite.es/e/make-authentic-espadrilles-in-puerto-plata-tickets-1981840949630",
   "ingest-18th-annual-cabarete-butterfly-effect":
@@ -131,6 +133,7 @@ export const CURATED_ADMISSION_PRICES: Record<string, string> = {
   "love-does-cocktails-solidarity-2026-09-04": "RD$2,000",
   "sunset-cabarete-sessions-2026": "from US$16",
   "puerto-plata-poker-experience-2026": "Main Event US$900 buy-in",
+  "los-event-trilogy-2026-09-03": "from US$875",
 };
 
 /** Ticketed shows with variable pricing — contact the venue (no fixed door rate). */

@@ -10,6 +10,7 @@ import {
   type CityEventCounts,
   type CitySlug,
 } from "@/lib/cities";
+import { CRUISE_PORT_SLUGS, type CruisePortSlug } from "@/lib/cruise";
 import { categoryPath } from "@/lib/event-navigation";
 import { signalNavPending } from "@/lib/nav-feedback";
 import { fillTemplate } from "@/lib/seo";
@@ -41,6 +42,10 @@ interface CityLocationPickerProps {
   variant?: "chip" | "hero";
   /** Home hero only: opens cruise-day port choice (not a city). */
   onCruiseIntent?: () => void;
+  /** Active cruise port — shown as the closed-button label. */
+  cruisePort?: CruisePortSlug | null;
+  /** Home hero: choosing Taino Bay / Amber Cove from the place menu. */
+  onSelectCruise?: (port: CruisePortSlug) => void;
 }
 
 type AreaOption = {
@@ -58,6 +63,8 @@ export function CityLocationPicker({
   counts = null,
   variant = "chip",
   onCruiseIntent,
+  cruisePort = null,
+  onSelectCruise,
 }: CityLocationPickerProps) {
   const isHero = variant === "hero";
   const router = useRouter();
@@ -77,7 +84,11 @@ export function CityLocationPicker({
   ];
 
   const current = options.find((option) => option.slug === currentSlug);
-  const currentLabel = current?.label ?? dict.cities.regionName;
+  const currentLabel = cruisePort
+    ? cruisePort === "taino-bay"
+      ? dict.cruise.tainoBay
+      : dict.cruise.amberCove
+    : (current?.label ?? dict.cities.regionName);
 
   useEffect(() => {
     if (!open) return;
@@ -236,7 +247,7 @@ export function CityLocationPicker({
             aria-label={dict.cities.chooseArea}
           >
           {options.map((option) => {
-            const selected = currentSlug === option.slug;
+            const selected = !cruisePort && currentSlug === option.slug;
             const count = countLabel(dict, counts, option.countKey);
             return (
               <li key={option.slug ?? "north-coast"} role="presentation">
@@ -284,8 +295,59 @@ export function CityLocationPicker({
               </li>
             );
           })}
+          {onSelectCruise
+            ? CRUISE_PORT_SLUGS.map((slug, index) => {
+                const selected = cruisePort === slug;
+                const label =
+                  slug === "taino-bay"
+                    ? dict.cruise.tainoBay
+                    : dict.cruise.amberCove;
+                return (
+                  <li
+                    key={slug}
+                    role="presentation"
+                    className={
+                      index === 0
+                        ? "border-t border-neutral-200/80 dark:border-neutral-700/80"
+                        : undefined
+                    }
+                  >
+                    <button
+                      type="button"
+                      role="option"
+                      aria-selected={selected}
+                      onClick={() => {
+                        setOpen(false);
+                        if (slug !== cruisePort) onSelectCruise(slug);
+                      }}
+                      className={`
+                        flex w-full items-center justify-between gap-3
+                        px-4 py-3 text-left text-lg font-semibold tracking-tight
+                        sm:text-xl
+                        transition-colors touch-manipulation
+                        focus-visible:outline focus-visible:outline-2
+                        focus-visible:outline-offset-[-2px] focus-visible:outline-orange-500
+                        ${
+                          selected
+                            ? "bg-sky-500/12 text-sky-800 dark:bg-sky-400/15 dark:text-sky-200"
+                            : "text-sky-800 hover:bg-sky-50 dark:text-sky-200 dark:hover:bg-sky-950/40"
+                        }
+                      `}
+                    >
+                      <span className="flex items-center gap-2.5">
+                        <Anchor className="h-5 w-5 shrink-0" aria-hidden />
+                        {label}
+                      </span>
+                      {selected ? (
+                        <Check className="h-5 w-5 shrink-0" aria-hidden />
+                      ) : null}
+                    </button>
+                  </li>
+                );
+              })
+            : null}
           </ul>
-          {onCruiseIntent ? (
+          {!onSelectCruise && onCruiseIntent ? (
             <div className="border-t border-neutral-200/80 dark:border-neutral-700/80">
               <button
                 type="button"

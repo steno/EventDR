@@ -38,6 +38,38 @@ type CuratedPatch = Partial<
 
 /** Stable id patches (preferred over title key). */
 const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
+  "los-event-trilogy-2026-09-03": {
+    title: "LOS Last of Summer — Labor Day Getaway",
+    date: "2026-09-03",
+    endDate: "2026-09-07",
+    time: "See schedule",
+    venue: "VIP Beach Lifestyles Resort and Spa",
+    venueSlug: "vip-beach-lifestyles-resort",
+    address: "Cofresí Beach #1, Puerto Plata 57000",
+    location: "Puerto Plata",
+    lat: 19.8184013,
+    lng: -70.7283993,
+    isFree: false,
+    callForPricing: null,
+    admissionPrice: "from US$875",
+    sourceUrl: "https://www.trilogylosevent.com/",
+    ticketUrl:
+      "https://www.trilogylosevent.com/event-details/los-getaway-2026-puerto-plata-dominican-republic",
+    description:
+      "Trilogy and Friends present LOS (Last of Summer) — a 5-day, 4-night all-inclusive Labor Day getaway at VIP Beach Lifestyles / Lifestyle Holidays in Cofresí (Sep 3–7). Welcome party, game night, beach workouts, pool and day parties, 80s vs 90s house party, all-white party, and Sunday comedy. Packages from US$875/person include the room and party pass (US$250 deposit); already on the coast? Party pass US$200. Book at trilogylosevent.com; complimentary POP airport transfer.",
+    localized: {
+      title: {
+        en: "LOS Last of Summer — Labor Day Getaway",
+        es: "LOS Last of Summer — Getaway de Labor Day",
+        fr: "LOS Last of Summer — séjour Labor Day",
+      },
+      description: {
+        en: "Trilogy and Friends present LOS (Last of Summer) — a 5-day, 4-night all-inclusive Labor Day getaway at VIP Beach Lifestyles / Lifestyle Holidays in Cofresí (Sep 3–7). Welcome party, game night, beach workouts, pool and day parties, 80s vs 90s house party, all-white party, and Sunday comedy. Packages from US$875/person include the room and party pass (US$250 deposit); already on the coast? Party pass US$200. Book at trilogylosevent.com; complimentary POP airport transfer.",
+        es: "Trilogy and Friends presentan LOS (Last of Summer) — getaway todo incluido de 5 días y 4 noches por Labor Day en VIP Beach Lifestyles / Lifestyle Holidays en Cofresí (3–7 sep). Fiesta de bienvenida, game night, entrenos en la playa, pool y day parties, house party 80s vs 90s, all-white party y comedia el domingo. Paquetes desde US$875/persona con habitación y party pass (depósito US$250); ¿ya estás en la costa? Party pass US$200. Reserva en trilogylosevent.com; traslado POP de cortesía.",
+        fr: "Trilogy and Friends présentent LOS (Last of Summer) — séjour tout compris de 5 jours et 4 nuits pour le Labor Day au VIP Beach Lifestyles / Lifestyle Holidays à Cofresí (3–7 sept.). Soirée d'accueil, game night, séances plage, pool et day parties, house party 80s vs 90s, all-white party et comedy le dimanche. Forfaits dès 875 $ US/personne (chambre + party pass, acompte 250 $ US) ; déjà sur la côte ? Party pass 200 $ US. Réservation sur trilogylosevent.com ; transfert POP offert.",
+      },
+    },
+  },
   "aventurate-rd-2026": {
     date: "2026-09-01",
     endDate: "2026-09-03",

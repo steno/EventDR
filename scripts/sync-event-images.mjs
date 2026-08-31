@@ -302,7 +302,8 @@ const FILE_TO_VENUE_SLUG = {
   "victrola-037.jpg": "victrola-037",
   "cigar-town-pop.jpg": "cigar-town-pop",
   "ocean-one-cabarete-pool.jpg": "ocean-one-cabarete",
-  "vip-beach-lifestyles-resort.jpg": "vip-beach-lifestyles-resort",
+  // Filename bump — official Lifestyle Tropical pool (Ocean World sign stays off this venue).
+  "vip-beach-lifestyles-tropical.jpg": "vip-beach-lifestyles-tropical",
   "cacique-moncion-palapa.jpg": "cacique-moncion-palapa",
   "pingui-bar-tiki.jpg": "pingui-bar-tiki",
   "gran-ventana-beach-resort.jpg": "gran-ventana-beach-resort",

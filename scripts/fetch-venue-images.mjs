@@ -266,6 +266,8 @@ const VENUE_SOURCES = [
   // Venue keeps gran-ventana-beach-resort.jpg (beach loungers). Do not remote-refresh.
   // cofresi-palm-day-pass.jpg — official Cofresí Palm balcony/pool slide.
   // Venue is cofresi-palm-beach-spa.jpg (official aerial). Do not remote-refresh.
+  // vip-beach-lifestyles-tropical.jpg — official LHVC Lifestyle Tropical pool.
+  // Distinct from Ocean World (next door) and Cofresí Palm. Do not remote-refresh.
   {
     eventId: "ocean-world-daily",
     url: "https://www.shop.oceanworld.net/wp-content/uploads/2017/03/dolphin-encounter-local.jpeg",
