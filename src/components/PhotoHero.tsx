@@ -62,7 +62,7 @@ export function PhotoHero({
                   sizes="100vw"
                   className={
                     imageSrc
-                      ? "object-cover object-top sm:object-center"
+                      ? "object-cover object-[center_40%]"
                       : "object-cover"
                   }
                 />
@@ -97,7 +97,7 @@ export function PhotoHero({
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-white/80 [text-shadow:0_1px_2px_rgba(0,0,0,0.45)]">
             {dict.seo.siteName}
           </p>
-          <h1 className="mt-1 flex max-w-full flex-nowrap items-center gap-x-1 whitespace-nowrap font-extrabold leading-none [font-size:min(2.35rem,7.22cqi)] sm:items-baseline sm:gap-x-2 sm:text-[clamp(1.625rem,4.5vw,2.75rem)] sm:leading-[1.05]">
+          <h1 className="mt-1 flex max-w-full flex-nowrap items-baseline gap-x-1.5 whitespace-nowrap font-extrabold leading-none [font-size:min(2.35rem,7.22cqi)] sm:gap-x-2 sm:text-[clamp(1.625rem,4.5vw,2.75rem)] sm:leading-[1.05]">
             <span className="shrink-0 text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.4)]">
               {eventsPrefix}{" "}
             </span>

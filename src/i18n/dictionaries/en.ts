@@ -308,6 +308,24 @@ export type Dictionary = {
     taxiTipAmber: string;
     itinerariesTitle: string;
     itineraryMinutes: string;
+    viewRoute: string;
+    openGoogleMaps: string;
+    openAppleMaps: string;
+    shareLoop: string;
+    copyLink: string;
+    linkCopied: string;
+    fromTheShip: string;
+    backToTheShip: string;
+    walkToStop: string;
+    taxiToStop: string;
+    walkBackToShip: string;
+    taxiBackToShip: string;
+    routeUnavailable: string;
+    loopMetaTitle: string;
+    loopMetaDescription: string;
+    backToCruiseDay: string;
+    stopsTitle: string;
+    routeTitle: string;
     fitsTitle: string;
     moreFits: string;
     skipTitle: string;
@@ -318,6 +336,7 @@ export type Dictionary = {
     taxi: string;
     visit: string;
     tight: string;
+    loopTooLate: string;
     venuesTitle: string;
     loops: {
       "taino-walk": { title: string; body: string };
@@ -816,7 +835,7 @@ export const en: Dictionary = {
     allAboardHint: "Ships call this all-aboard — check the time on your cruise card.",
     leaveBy: "Be back at the pier by {time}",
     leaveByNow: "Head back to the ship now",
-    minutesLeft: "{minutes} min until you should leave",
+    minutesLeft: "{duration} until you should leave",
     pastLeave: "If your ship is still docked, go back to the pier now.",
     shipsSailed: "Most ships have already left.",
     shipsSailedHint:
@@ -825,6 +844,26 @@ export const en: Dictionary = {
     taxiTipAmber: "Taxi to Centro is about 20–25 min. Agree the fare before you sit.",
     itinerariesTitle: "Ready-made loops",
     itineraryMinutes: "~{minutes} min",
+    viewRoute: "View route",
+    openGoogleMaps: "Open in Google Maps",
+    openAppleMaps: "Open in Apple Maps",
+    shareLoop: "Share loop",
+    copyLink: "Copy link",
+    linkCopied: "Link copied",
+    fromTheShip: "From the ship",
+    backToTheShip: "Back to the ship",
+    walkToStop: "{minutes} min walk to {stop}",
+    taxiToStop: "{minutes} min taxi to {stop}",
+    walkBackToShip: "{minutes} min walk back to the ship",
+    taxiBackToShip: "{minutes} min taxi back to the ship",
+    routeUnavailable:
+      "Street map is unavailable right now — open in Maps to follow the stops.",
+    loopMetaTitle: "{loop} from {port} | POP Events",
+    loopMetaDescription:
+      "{body} Map the loop from the ship, or open it in Google Maps before you leave the pier.",
+    backToCruiseDay: "Back to cruise day",
+    stopsTitle: "Stops",
+    routeTitle: "The route",
     fitsTitle: "Fits before you sail",
     moreFits: "More that still fits",
     skipTitle: "Skip today",
@@ -837,6 +876,7 @@ export const en: Dictionary = {
     taxi: "{minutes} min taxi",
     visit: "~{minutes} min visit",
     tight: "Tight on time",
+    loopTooLate: "Won't fit before you sail",
     venuesTitle: "Near this port",
     loops: {
       "taino-walk": {

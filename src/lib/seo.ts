@@ -191,6 +191,37 @@ export function buildCruiseMetadata(
   };
 }
 
+export function buildCruiseLoopMetadata(
+  locale: Locale,
+  dict: Dictionary,
+  port: "taino-bay" | "amber-cove",
+  loopId: keyof Dictionary["cruise"]["loops"],
+): Metadata {
+  const path = `/cruise/${port}/${loopId}`;
+  const portName =
+    port === "taino-bay" ? dict.cruise.tainoBay : dict.cruise.amberCove;
+  const loop = dict.cruise.loops[loopId];
+  const title = fillTemplate(dict.cruise.loopMetaTitle, {
+    loop: loop.title,
+    port: portName,
+  });
+  const description = fillTemplate(dict.cruise.loopMetaDescription, {
+    body: loop.body,
+  });
+  const alternates = buildAlternates(locale, path);
+  return {
+    title,
+    description,
+    alternates,
+    openGraph: defaultOpenGraph(locale, {
+      title,
+      description,
+      url: alternates.canonical,
+    }),
+    twitter: defaultTwitter({ title, description }),
+  };
+}
+
 export function buildCategoryMetadata(
   locale: Locale,
   categoryId: EventCategory,

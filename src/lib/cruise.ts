@@ -243,6 +243,97 @@ export function cruisePath(
   return `${base}?allAboard=${formatAllAboardParam(allAboardMinutes)}`;
 }
 
+export function isCruiseItineraryId(
+  value: string | null | undefined,
+): value is CruiseItineraryId {
+  return CRUISE_ITINERARIES.some((loop) => loop.id === value);
+}
+
+export function itineraryById(
+  id: string | null | undefined,
+): CruiseItinerary | null {
+  if (!isCruiseItineraryId(id)) return null;
+  return CRUISE_ITINERARIES.find((loop) => loop.id === id) ?? null;
+}
+
+export function cruiseLoopPath(
+  locale: Locale,
+  port: CruisePortSlug,
+  loopId: CruiseItineraryId,
+  allAboardMinutes?: number,
+): string {
+  const base = `/${locale}/cruise/${port}/${loopId}`;
+  if (
+    allAboardMinutes == null ||
+    allAboardMinutes === DEFAULT_ALL_ABOARD_MINUTES
+  ) {
+    return base;
+  }
+  return `${base}?allAboard=${formatAllAboardParam(allAboardMinutes)}`;
+}
+
+export type CruiseTravelProfile = "walking" | "driving";
+
+export function loopTravelProfile(
+  itinerary: Pick<CruiseItinerary, "taxiMinutes">,
+): CruiseTravelProfile {
+  return itinerary.taxiMinutes > 0 ? "driving" : "walking";
+}
+
+export type LoopWaypoint = {
+  kind: "port" | "stop";
+  slug: string;
+  name: string;
+  lat: number;
+  lng: number;
+};
+
+export type LoopMapStop = {
+  lat: number;
+  lng: number;
+  kind: "port" | "stop";
+  label?: string;
+  number?: number;
+};
+
+/** Closed circuit: port → stops → port. Null if no stop has coordinates. */
+export function loopWaypoints(
+  port: CruisePort,
+  itinerary: CruiseItinerary,
+  venues: Pick<Venue, "slug" | "name" | "lat" | "lng">[],
+  portName: string,
+): LoopWaypoint[] | null {
+  const bySlug = new Map(venues.map((venue) => [venue.slug, venue]));
+  const stops: LoopWaypoint[] = [];
+  for (const slug of itinerary.stopSlugs) {
+    const venue = bySlug.get(slug);
+    if (
+      !venue ||
+      !Number.isFinite(venue.lat) ||
+      !Number.isFinite(venue.lng)
+    ) {
+      continue;
+    }
+    stops.push({
+      kind: "stop",
+      slug: venue.slug,
+      name: venue.name,
+      lat: venue.lat,
+      lng: venue.lng,
+    });
+  }
+  if (stops.length === 0) return null;
+
+  const ship: LoopWaypoint = {
+    kind: "port",
+    slug: port.slug,
+    name: portName,
+    lat: port.lat,
+    lng: port.lng,
+  };
+  return [ship, ...stops, { ...ship }];
+}
+
 export function parseAllAboardMinutes(
   value: string | null | undefined,
   fallback = DEFAULT_ALL_ABOARD_MINUTES,
@@ -291,6 +382,67 @@ export function formatClockMinutes(minutes: number, locale: Locale): string {
     return `${hours12}:${String(mins).padStart(2, "0")} ${meridiem}`;
   }
   return `${String(hours24).padStart(2, "0")}:${String(mins).padStart(2, "0")}`;
+}
+
+type DurationParts = { hours: number; minutes: number };
+
+/** CLDR short duration: "1 hr, 26 min" / "1 h y 26 min" / "1 h et 26 min". */
+export function formatRemainingDuration(
+  totalMinutes: number,
+  locale: Locale,
+): string {
+  const clamped = Math.max(0, Math.round(totalMinutes));
+  const hours = Math.floor(clamped / 60);
+  const minutes = clamped % 60;
+  const duration: DurationParts = { hours, minutes };
+  const DurationFormat = (
+    Intl as typeof Intl & {
+      DurationFormat?: new (
+        locales?: Intl.LocalesArgument,
+        options?: {
+          style?: "long" | "short" | "narrow" | "digital";
+          hoursDisplay?: "auto" | "always";
+          minutesDisplay?: "auto" | "always";
+        },
+      ) => { format(value: DurationParts): string };
+    }
+  ).DurationFormat;
+  if (DurationFormat) {
+    return new DurationFormat(locale, {
+      style: "short",
+      hoursDisplay: "auto",
+      minutesDisplay: hours === 0 ? "always" : "auto",
+    }).format(duration);
+  }
+  return formatRemainingDurationFallback(duration, locale);
+}
+
+function formatRemainingDurationFallback(
+  { hours, minutes }: DurationParts,
+  locale: Locale,
+): string {
+  const parts: string[] = [];
+  if (hours > 0) {
+    parts.push(
+      new Intl.NumberFormat(locale, {
+        style: "unit",
+        unit: "hour",
+        unitDisplay: "short",
+      }).format(hours),
+    );
+  }
+  if (minutes > 0 || hours === 0) {
+    parts.push(
+      new Intl.NumberFormat(locale, {
+        style: "unit",
+        unit: "minute",
+        unitDisplay: "short",
+      }).format(minutes),
+    );
+  }
+  return new Intl.ListFormat(locale, { style: "narrow", type: "unit" }).format(
+    parts,
+  );
 }
 
 export function localMinutesOfDay(now: Date = new Date()): number {
@@ -574,19 +726,25 @@ export function visibleCruiseEvents(
   return ranked.filter((item) => CRUISE_VISIBLE_FITS.has(item.fit));
 }
 
-export function itinerariesForPort(
-  port: CruisePortSlug,
-  allAboardMinutes: number,
-  now: Date = new Date(),
-): CruiseItinerary[] {
-  const meta = CRUISE_PORTS[port];
-  const remaining = minutesUntil(leaveByMinutes(meta, allAboardMinutes), now);
-  return CRUISE_ITINERARIES.filter((loop) => {
-    if (loop.port !== port) return false;
-    if (remaining <= 0) return false;
-    if (loop.id === "amber-centro") return remaining >= 210;
-    return loop.typicalMinutes + loop.taxiMinutes <= remaining + TIGHT_SLACK_MINUTES;
-  });
+export type CruiseItineraryFit = "fits" | "tight" | "too-late";
+
+export function itinerariesForPort(port: CruisePortSlug): CruiseItinerary[] {
+  return CRUISE_ITINERARIES.filter((loop) => loop.port === port);
+}
+
+/** Whether a saved loop still fits before leave-by. */
+export function itineraryTimeFit(
+  loop: CruiseItinerary,
+  remainingMinutes: number,
+): CruiseItineraryFit {
+  if (remainingMinutes <= 0) return "too-late";
+  const needed =
+    loop.id === "amber-centro"
+      ? 210
+      : loop.typicalMinutes + loop.taxiMinutes;
+  if (needed <= remainingMinutes) return "fits";
+  if (needed <= remainingMinutes + TIGHT_SLACK_MINUTES) return "tight";
+  return "too-late";
 }
 
 /** Venue slugs that belong on this port’s “near here” rail — not a taxi into Centro. */

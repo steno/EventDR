@@ -331,7 +331,7 @@ export const fr: Dictionary = {
     allAboardHint: "Le navire l’appelle all-aboard — vérifiez l’heure sur votre carte de croisière.",
     leaveBy: "Soyez de retour au quai à {time}",
     leaveByNow: "Rentrez maintenant au navire",
-    minutesLeft: "{minutes} min avant de devoir partir",
+    minutesLeft: "{duration} avant de devoir partir",
     pastLeave: "Si votre navire est encore à quai, retournez-y maintenant.",
     shipsSailed: "La plupart des navires sont déjà partis.",
     shipsSailedHint:
@@ -340,6 +340,26 @@ export const fr: Dictionary = {
     taxiTipAmber: "Le taxi vers le centre prend environ 20–25 min. Convenez du prix avant de monter.",
     itinerariesTitle: "Boucles toutes faites",
     itineraryMinutes: "~{minutes} min",
+    viewRoute: "Voir l’itinéraire",
+    openGoogleMaps: "Ouvrir dans Google Maps",
+    openAppleMaps: "Ouvrir dans Apple Maps",
+    shareLoop: "Partager la boucle",
+    copyLink: "Copier le lien",
+    linkCopied: "Lien copié",
+    fromTheShip: "Depuis le navire",
+    backToTheShip: "Retour au navire",
+    walkToStop: "{minutes} min à pied vers {stop}",
+    taxiToStop: "{minutes} min en taxi vers {stop}",
+    walkBackToShip: "{minutes} min à pied jusqu’au navire",
+    taxiBackToShip: "{minutes} min en taxi jusqu’au navire",
+    routeUnavailable:
+      "La carte n’est pas disponible pour le moment — ouvrez Maps pour suivre les arrêts.",
+    loopMetaTitle: "{loop} depuis {port} | POP Events",
+    loopMetaDescription:
+      "{body} Visualisez la boucle depuis le navire, ou ouvrez-la dans Google Maps avant de quitter le quai.",
+    backToCruiseDay: "Retour à la journée croisière",
+    stopsTitle: "Arrêts",
+    routeTitle: "L’itinéraire",
     fitsTitle: "Ça tient avant le départ",
     moreFits: "Encore possible aujourd’hui",
     skipTitle: "À éviter aujourd’hui",
@@ -352,6 +372,7 @@ export const fr: Dictionary = {
     taxi: "{minutes} min en taxi",
     visit: "~{minutes} min de visite",
     tight: "Juste à temps",
+    loopTooLate: "Ne tient pas avant le départ",
     venuesTitle: "Près de ce port",
     loops: {
       "taino-walk": {

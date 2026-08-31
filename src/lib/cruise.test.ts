@@ -4,14 +4,20 @@ import {
   CRUISE_PORTS,
   CRUISE_PORT_SLUGS,
   cruiseDayPhase,
+  cruiseLoopPath,
   cruisePath,
   cruiseTravelFromPort,
   cruiseVenueAllowlist,
   formatAllAboardParam,
   formatClockMinutes,
+  formatRemainingDuration,
   getCruiseVisitMinutes,
   itinerariesForPort,
+  itineraryById,
+  itineraryTimeFit,
   leaveByMinutes,
+  loopTravelProfile,
+  loopWaypoints,
   parseAllAboardMinutes,
   rankCruiseEvents,
   visibleCruiseEvents,
@@ -89,12 +95,103 @@ describe("formatClockMinutes", () => {
   });
 });
 
+describe("formatRemainingDuration", () => {
+  it("uses CLDR short hours and minutes instead of a raw minute count", () => {
+    const mixed = formatRemainingDuration(86, "en");
+    assert.match(mixed, /1/);
+    assert.match(mixed, /26/);
+    assert.match(mixed, /hr/i);
+    assert.match(mixed, /min/i);
+    assert.doesNotMatch(mixed, /86/);
+
+    const spanish = formatRemainingDuration(86, "es");
+    assert.match(spanish, /1/);
+    assert.match(spanish, /26/);
+    assert.match(spanish, /min/i);
+    assert.doesNotMatch(spanish, /86/);
+
+    const onlyMinutes = formatRemainingDuration(26, "en");
+    assert.match(onlyMinutes, /26/);
+    assert.match(onlyMinutes, /min/i);
+    assert.doesNotMatch(onlyMinutes, /hr/i);
+
+    const exactHour = formatRemainingDuration(60, "en");
+    assert.match(exactHour, /1/);
+    assert.match(exactHour, /hr/i);
+    assert.doesNotMatch(exactHour, /\b0\b/);
+  });
+});
+
 describe("cruisePath", () => {
   it("omits the default all-aboard query", () => {
     assert.equal(cruisePath("en", "taino-bay"), "/en/cruise/taino-bay");
     assert.equal(
       cruisePath("es", "amber-cove", 17 * 60),
       "/es/cruise/amber-cove?allAboard=17:00",
+    );
+  });
+});
+
+describe("cruiseLoopPath", () => {
+  it("nests the loop under its port and keeps all-aboard", () => {
+    assert.equal(
+      cruiseLoopPath("en", "taino-bay", "taino-walk"),
+      "/en/cruise/taino-bay/taino-walk",
+    );
+    assert.equal(
+      cruiseLoopPath("fr", "amber-cove", "amber-local", 17 * 60),
+      "/fr/cruise/amber-cove/amber-local?allAboard=17:00",
+    );
+  });
+});
+
+describe("itineraryById", () => {
+  it("returns the editorial loop or null", () => {
+    assert.equal(itineraryById("taino-walk")?.port, "taino-bay");
+    assert.equal(itineraryById("amber-centro")?.port, "amber-cove");
+    assert.equal(itineraryById("not-a-loop"), null);
+  });
+});
+
+describe("loopTravelProfile", () => {
+  it("walks Centro loops and drives Amber taxi loops", () => {
+    assert.equal(loopTravelProfile(itineraryById("taino-walk")!), "walking");
+    assert.equal(loopTravelProfile(itineraryById("taino-culture")!), "walking");
+    assert.equal(loopTravelProfile(itineraryById("amber-local")!), "driving");
+    assert.equal(loopTravelProfile(itineraryById("amber-centro")!), "driving");
+  });
+});
+
+describe("loopWaypoints", () => {
+  it("closes the circuit at the ship with every stop in order", () => {
+    const loop = itineraryById("taino-walk");
+    assert.ok(loop);
+    const points = loopWaypoints(
+      CRUISE_PORTS["taino-bay"],
+      loop,
+      SEED_VENUES,
+      "Taino Bay",
+    );
+    assert.ok(points);
+    assert.equal(points[0]?.kind, "port");
+    assert.equal(points[0]?.lat, CRUISE_PORTS["taino-bay"].lat);
+    assert.deepEqual(
+      points.slice(1, -1).map((stop) => stop.slug),
+      [...loop.stopSlugs],
+    );
+    const last = points[points.length - 1];
+    assert.equal(last?.kind, "port");
+    assert.equal(last?.lat, points[0]?.lat);
+    assert.equal(last?.lng, points[0]?.lng);
+    assert.ok(points.length === loop.stopSlugs.length + 2);
+  });
+
+  it("returns null when no stop can be placed", () => {
+    const loop = itineraryById("taino-walk");
+    assert.ok(loop);
+    assert.equal(
+      loopWaypoints(CRUISE_PORTS["taino-bay"], loop, [], "Taino Bay"),
+      null,
     );
   });
 });
@@ -264,24 +361,39 @@ describe("getCruiseVisitMinutes", () => {
 });
 
 describe("itinerariesForPort", () => {
-  it("offers two Taino Bay loops in the morning", () => {
-    const loops = itinerariesForPort("taino-bay", 16 * 60 + 30, MORNING);
+  it("lists both Taino Bay loops regardless of remaining time", () => {
     assert.deepEqual(
-      loops.map((loop) => loop.id),
+      itinerariesForPort("taino-bay").map((loop) => loop.id),
       ["taino-walk", "taino-culture"],
     );
   });
 
-  it("hides Amber Centro when the remaining window is too short", () => {
-    const midday = new Date("2026-08-29T16:00:00.000Z"); // 12:00 AST
-    const loops = itinerariesForPort("amber-cove", 16 * 60 + 30, midday);
-    assert.ok(!loops.some((loop) => loop.id === "amber-centro"));
-    assert.ok(loops.some((loop) => loop.id === "amber-local"));
+  it("lists both Amber Cove loops, including Centro", () => {
+    assert.deepEqual(
+      itinerariesForPort("amber-cove").map((loop) => loop.id),
+      ["amber-local", "amber-centro"],
+    );
+  });
+});
+
+describe("itineraryTimeFit", () => {
+  const walk = itineraryById("taino-walk")!;
+  const centro = itineraryById("amber-centro")!;
+
+  it("fits a downtown walk in the morning window", () => {
+    assert.equal(itineraryTimeFit(walk, 4 * 60), "fits");
   });
 
-  it("hides port-day loops after all-aboard", () => {
-    const evening = new Date("2026-08-29T21:45:00.000Z"); // 17:45 AST
-    assert.deepEqual(itinerariesForPort("taino-bay", 16 * 60 + 30, evening), []);
+  it("marks a long loop tight, then too late, as the window shrinks", () => {
+    assert.equal(itineraryTimeFit(walk, 170), "tight");
+    assert.equal(itineraryTimeFit(walk, 100), "too-late");
+    assert.equal(itineraryTimeFit(walk, 0), "too-late");
+  });
+
+  it("treats Amber Centro as a long-window taxi", () => {
+    assert.equal(itineraryTimeFit(centro, 210), "fits");
+    assert.equal(itineraryTimeFit(centro, 190), "tight");
+    assert.equal(itineraryTimeFit(centro, 120), "too-late");
   });
 });
 

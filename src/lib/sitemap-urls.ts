@@ -2,6 +2,7 @@ import { locales } from "@/i18n/config";
 import { CATEGORY_IDS } from "@/lib/categories";
 import { CITY_SLUGS, eventMatchesCity } from "@/lib/cities";
 import { eventInCategory } from "@/lib/categorize";
+import { CRUISE_ITINERARIES } from "@/lib/cruise";
 import { WHEN_SLUGS } from "@/lib/time-seo";
 import { getPublicEvents } from "@/lib/public-events";
 import { fetchVenues } from "@/lib/firebase/events";
@@ -145,6 +146,13 @@ export async function getSitemapEntries(): Promise<SitemapEntry[]> {
     changeFrequency: "daily",
     priority: 0.9,
   });
+  for (const loop of CRUISE_ITINERARIES) {
+    pushLocalized(entries, `/cruise/${loop.port}/${loop.id}`, {
+      lastModified: listingLastModified,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    });
+  }
 
   pushLocalized(entries, "/for-partners", {
     changeFrequency: "monthly",

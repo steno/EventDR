@@ -79,3 +79,78 @@ export function getVenueDirectionsUrl(
 
   return `https://www.google.com/maps/dir/?${params.toString()}`;
 }
+
+export type MapsTravelMode = "walking" | "driving";
+
+function formatLatLng(coords: Pick<EventCoords, "lat" | "lng">): string {
+  return `${coords.lat},${coords.lng}`;
+}
+
+/**
+ * Google Maps multi-stop directions.
+ * Closed loops pass the same origin and destination (port → stops → port).
+ */
+export function getLoopGoogleMapsUrl(
+  points: Pick<EventCoords, "lat" | "lng">[],
+  travelMode: MapsTravelMode,
+): string {
+  if (points.length < 2) return "";
+  const origin = points[0];
+  const destination = points[points.length - 1];
+  if (!origin || !destination) return "";
+
+  const params = new URLSearchParams({
+    api: "1",
+    origin: formatLatLng(origin),
+    destination: formatLatLng(destination),
+    travelmode: travelMode,
+  });
+  const via = points.slice(1, -1);
+  if (via.length > 0) {
+    params.set("waypoints", via.map(formatLatLng).join("|"));
+  }
+  return `https://www.google.com/maps/dir/?${params.toString()}`;
+}
+
+/**
+ * Apple Maps directions. Extra `daddr` values are the remaining stops
+ * (including the return to the ship on a closed loop).
+ */
+export function getLoopAppleMapsUrl(
+  points: Pick<EventCoords, "lat" | "lng">[],
+  travelMode: MapsTravelMode,
+): string {
+  if (points.length < 2) return "";
+  const origin = points[0];
+  if (!origin) return "";
+
+  const params = new URLSearchParams();
+  params.set("saddr", formatLatLng(origin));
+  params.set("dirflg", travelMode === "walking" ? "w" : "d");
+  for (const point of points.slice(1)) {
+    params.append("daddr", formatLatLng(point));
+  }
+  return `https://maps.apple.com/?${params.toString()}`;
+}
+
+/** OSM embed for a set of points (closed loops included). */
+export function osmEmbedUrl(
+  points: Pick<EventCoords, "lat" | "lng">[],
+): string {
+  if (points.length === 0) return "";
+  const lats = points.map((point) => point.lat);
+  const lngs = points.map((point) => point.lng);
+  const pad = 0.004;
+  const minLng = Math.min(...lngs) - pad;
+  const minLat = Math.min(...lats) - pad;
+  const maxLng = Math.max(...lngs) + pad;
+  const maxLat = Math.max(...lats) + pad;
+  const marker = points[0];
+  if (!marker) return "";
+  const params = new URLSearchParams({
+    bbox: `${minLng},${minLat},${maxLng},${maxLat}`,
+    layer: "mapnik",
+    marker: `${marker.lat},${marker.lng}`,
+  });
+  return `https://www.openstreetmap.org/export/embed.html?${params.toString()}`;
+}

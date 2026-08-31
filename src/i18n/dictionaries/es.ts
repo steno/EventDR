@@ -331,7 +331,7 @@ export const es: Dictionary = {
     allAboardHint: "En el barco lo llaman all-aboard — mira la hora en tu tarjeta del crucero.",
     leaveBy: "Regresa al muelle a las {time}",
     leaveByNow: "Vuelve al barco ahora",
-    minutesLeft: "{minutes} min para salir hacia el barco",
+    minutesLeft: "{duration} para salir hacia el barco",
     pastLeave: "Si tu barco sigue atracado, vuelve al muelle ahora.",
     shipsSailed: "La mayoría de los barcos ya zarparon.",
     shipsSailedHint:
@@ -340,6 +340,26 @@ export const es: Dictionary = {
     taxiTipAmber: "El taxi al Centro toma unos 20–25 min. Acuerda la tarifa antes de subir.",
     itinerariesTitle: "Rutas listas",
     itineraryMinutes: "~{minutes} min",
+    viewRoute: "Ver la ruta",
+    openGoogleMaps: "Abrir en Google Maps",
+    openAppleMaps: "Abrir en Apple Maps",
+    shareLoop: "Compartir ruta",
+    copyLink: "Copiar enlace",
+    linkCopied: "Enlace copiado",
+    fromTheShip: "Desde el barco",
+    backToTheShip: "De vuelta al barco",
+    walkToStop: "{minutes} min a pie hasta {stop}",
+    taxiToStop: "{minutes} min en taxi hasta {stop}",
+    walkBackToShip: "{minutes} min a pie de vuelta al barco",
+    taxiBackToShip: "{minutes} min en taxi de vuelta al barco",
+    routeUnavailable:
+      "El mapa no está disponible ahora — ábrelo en Maps para seguir las paradas.",
+    loopMetaTitle: "{loop} desde {port} | POP Events",
+    loopMetaDescription:
+      "{body} Mira el circuito desde el barco o ábrelo en Google Maps antes de dejar el muelle.",
+    backToCruiseDay: "Volver al día de crucero",
+    stopsTitle: "Paradas",
+    routeTitle: "La ruta",
     fitsTitle: "Cabe antes de zarpar",
     moreFits: "Más que aún cabe",
     skipTitle: "Mejor no hoy",
@@ -352,6 +372,7 @@ export const es: Dictionary = {
     taxi: "{minutes} min en taxi",
     visit: "~{minutes} min de visita",
     tight: "Justo de tiempo",
+    loopTooLate: "No cabe antes de zarpar",
     venuesTitle: "Cerca de este puerto",
     loops: {
       "taino-walk": {

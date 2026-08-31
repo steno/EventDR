@@ -81,7 +81,7 @@ const nextConfig: NextConfig = {
       "worker-src 'self' blob:",
       "manifest-src 'self'",
       "media-src 'self' blob:",
-      "frame-src https://www.google.com https://maps.google.com",
+      "frame-src https://www.google.com https://maps.google.com https://www.openstreetmap.org",
       // Dev LAN phones (http://192.168.x.x) cannot satisfy HTTPS upgrades.
       ...(process.env.NODE_ENV === "production"
         ? ["upgrade-insecure-requests"]

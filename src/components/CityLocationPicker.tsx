@@ -185,8 +185,8 @@ export function CityLocationPicker({
           isHero
             ? `
               relative isolate inline-flex shrink-0 items-center gap-1
-              whitespace-nowrap rounded-lg px-1.5 py-1 text-left text-[1em]
-              font-extrabold sm:px-2 sm:py-0.5
+              whitespace-nowrap rounded-lg px-1.5 py-0.5 text-left text-[1em]
+              font-extrabold leading-none sm:px-2
               ring-2 ring-white/80 sm:ring-0
               touch-manipulation transition-[filter,transform]
               active:scale-[0.98] hover:brightness-110
