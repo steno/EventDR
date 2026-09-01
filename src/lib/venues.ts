@@ -1,5 +1,7 @@
 import { unstable_cache } from "next/cache";
 import type { Locale } from "@/i18n/config";
+import { applyActiveEditorialClosureToVenue } from "@/lib/alerts";
+import { localDateISO } from "@/lib/event-dates";
 import { fetchVenueBySlug, fetchVenues, isFirebaseConfigured } from "@/lib/firebase/events";
 import { localizeVenue, localizeVenues } from "@/lib/venues-i18n";
 import { attachVenueImage, attachVenueImages } from "@/lib/venue-images";
@@ -76,6 +78,7 @@ async function loadVenueBySlug(
     }
   }
   if (!venue) return undefined;
+  venue = applyActiveEditorialClosureToVenue(venue, localDateISO(new Date()));
   const typedLocale = locale ? (locale as Locale) : undefined;
   const localized = typedLocale ? localizeVenue(venue, typedLocale) : venue;
   return attachVenueImage(localized);
@@ -112,6 +115,10 @@ async function loadVenues(locale: string): Promise<Venue[]> {
       venues = SEED_VENUES;
     }
   }
+  const today = localDateISO(new Date());
+  venues = venues.map((venue) =>
+    applyActiveEditorialClosureToVenue(venue, today),
+  );
   const typedLocale = locale ? (locale as Locale) : undefined;
   return typedLocale
     ? attachVenueImages(localizeVenues(venues, typedLocale))

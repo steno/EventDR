@@ -1,5 +1,7 @@
-import type { Event } from "./types";
+import { applyActiveEditorialClosure } from "./alerts";
+import { localDateISO } from "./event-dates";
 import type { LocalizedText } from "./localized-text";
+import type { Event } from "./types";
 
 type CuratedPatch = Partial<
   Omit<
@@ -544,14 +546,15 @@ export function eventCuratedKey(title: string): string {
 /** Stable key for saved events — survives ingest id changes. */
 export const eventSaveKey = eventCuratedKey;
 
-export function applyCuratedEventPatch(event: Event): Event {
-  const byId = CURATED_EVENT_BY_ID[event.id];
-  if (byId) return mergeCuratedPatch(event, byId);
-
-  const patch = CURATED_EVENT_PATCHES[eventCuratedKey(event.title)];
-  if (!patch) return event;
-
-  return mergeCuratedPatch(event, patch);
+export function applyCuratedEventPatch(
+  event: Event,
+  now: Date = new Date(),
+): Event {
+  const patch =
+    CURATED_EVENT_BY_ID[event.id] ??
+    CURATED_EVENT_PATCHES[eventCuratedKey(event.title)];
+  const patched = patch ? mergeCuratedPatch(event, patch) : event;
+  return applyActiveEditorialClosure(patched, localDateISO(now));
 }
 
 function mergeCuratedPatch(event: Event, patch: CuratedPatch): Event {
@@ -583,8 +586,11 @@ function mergeCuratedPatch(event: Event, patch: CuratedPatch): Event {
   return merged;
 }
 
-export function applyCuratedEventPatches(events: Event[]): Event[] {
-  return events.map(applyCuratedEventPatch);
+export function applyCuratedEventPatches(
+  events: Event[],
+  now: Date = new Date(),
+): Event[] {
+  return events.map((event) => applyCuratedEventPatch(event, now));
 }
 
 /** Fallback ids to upsert into Firebase (see fallback-events). */

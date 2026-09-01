@@ -2,6 +2,8 @@ import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import { getDictionary } from "@/i18n/dictionaries";
 import {
+  applyActiveEditorialClosure,
+  applyActiveEditorialClosureToVenue,
   EDITORIAL_ALERTS,
   getHomeAlerts,
   isAlertActive,
@@ -76,5 +78,35 @@ describe("getHomeAlerts", () => {
       now: TODAY,
     });
     assert.equal(alerts.filter((a) => a.id.includes("teleferico")).length, 1);
+  });
+});
+
+describe("applyActiveEditorialClosure", () => {
+  const iberostar = {
+    id: "iberostar-costa-dorada-day-pass",
+    venueSlug: "iberostar-waves-costa-dorada",
+  };
+
+  it("marks the Iberostar day pass closed during the refurb window", () => {
+    const closed = applyActiveEditorialClosure(iberostar, "2026-09-01");
+    assert.equal(closed.temporarilyClosed, true);
+  });
+
+  it("clears the day pass after the hotel reopens", () => {
+    const open = applyActiveEditorialClosure(iberostar, "2026-10-27");
+    assert.equal(open.temporarilyClosed, undefined);
+  });
+
+  it("marks the Iberostar venue closed during the same window", () => {
+    const venue = applyActiveEditorialClosureToVenue(
+      { slug: "iberostar-waves-costa-dorada" },
+      "2026-09-01",
+    );
+    assert.equal(venue.temporarilyClosed, true);
+    const reopen = applyActiveEditorialClosureToVenue(
+      { slug: "iberostar-waves-costa-dorada" },
+      "2026-10-27",
+    );
+    assert.equal(reopen.temporarilyClosed, undefined);
   });
 });

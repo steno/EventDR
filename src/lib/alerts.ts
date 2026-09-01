@@ -28,6 +28,11 @@ export type EditorialAlert = {
   until?: string;
   /** Omit = show in every home area (day-trip relevant). */
   citySlugs?: CitySlug[];
+  /**
+   * Venues to mark temporarily closed while this closure alert is active.
+   * Needed when `href` points at an event page rather than the venue.
+   */
+  closesVenueSlugs?: string[];
   href: AlertHref;
   title: Record<Locale, string>;
   summary: Record<Locale, string>;
@@ -63,6 +68,7 @@ export const EDITORIAL_ALERTS: readonly EditorialAlert[] = [
     kind: "closure",
     until: "2028-03-01",
     href: { type: "event", id: "teleferico-puerto-plata-daily" },
+    closesVenueSlugs: ["teleferico-puerto-plata"],
     title: {
       en: "Teleférico Puerto Plata is closed",
       es: "El Teleférico de Puerto Plata está cerrado",
@@ -80,6 +86,7 @@ export const EDITORIAL_ALERTS: readonly EditorialAlert[] = [
     from: "2026-08-29",
     until: "2026-10-26",
     href: { type: "event", id: "iberostar-costa-dorada-day-pass" },
+    closesVenueSlugs: ["iberostar-waves-costa-dorada"],
     title: {
       en: "Iberostar Costa Dorada day pass paused",
       es: "Day pass de Iberostar Costa Dorada en pausa",
@@ -134,6 +141,57 @@ export function isAlertActive(
   return true;
 }
 
+function activeClosureAlerts(today: string): readonly EditorialAlert[] {
+  return EDITORIAL_ALERTS.filter(
+    (alert) => alert.kind === "closure" && isAlertActive(alert, today),
+  );
+}
+
+/** True when a home closure notice is currently pointing at this event. */
+export function eventHasActiveClosureAlert(
+  event: { id: string; venueSlug?: string },
+  today: string,
+): boolean {
+  for (const alert of activeClosureAlerts(today)) {
+    if (alert.href.type === "event" && alert.href.id === event.id) return true;
+    if (
+      event.venueSlug &&
+      (alert.closesVenueSlugs?.includes(event.venueSlug) ||
+        (alert.href.type === "venue" && alert.href.slug === event.venueSlug))
+    ) {
+      return true;
+    }
+  }
+  return false;
+}
+
+/** True when a home closure notice is currently pointing at this venue. */
+export function venueHasActiveClosureAlert(slug: string, today: string): boolean {
+  for (const alert of activeClosureAlerts(today)) {
+    if (alert.href.type === "venue" && alert.href.slug === slug) return true;
+    if (alert.closesVenueSlugs?.includes(slug)) return true;
+  }
+  return false;
+}
+
+/** Mark the event closed while its editorial maintenance window is live. */
+export function applyActiveEditorialClosure<
+  T extends { id: string; venueSlug?: string; temporarilyClosed?: boolean },
+>(event: T, today: string): T {
+  if (event.temporarilyClosed) return event;
+  if (!eventHasActiveClosureAlert(event, today)) return event;
+  return { ...event, temporarilyClosed: true };
+}
+
+/** Mark the venue closed while its editorial maintenance window is live. */
+export function applyActiveEditorialClosureToVenue<
+  T extends { slug: string; temporarilyClosed?: boolean },
+>(venue: T, today: string): T {
+  if (venue.temporarilyClosed) return venue;
+  if (!venueHasActiveClosureAlert(venue.slug, today)) return venue;
+  return { ...venue, temporarilyClosed: true };
+}
+
 function alertMatchesCity(
   alert: Pick<EditorialAlert, "citySlugs">,
   citySlug: CitySlug | null,
@@ -149,12 +207,10 @@ export function resolveAlertHref(href: AlertHref, locale: Locale): string {
 }
 
 function editorialCoveredSlugs(): Set<string> {
-  const slugs = new Set<string>([
-    "teleferico-puerto-plata",
-    "iberostar-waves-costa-dorada",
-  ]);
+  const slugs = new Set<string>();
   for (const alert of EDITORIAL_ALERTS) {
     if (alert.href.type === "venue") slugs.add(alert.href.slug);
+    for (const slug of alert.closesVenueSlugs ?? []) slugs.add(slug);
   }
   return slugs;
 }
