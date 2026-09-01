@@ -90,8 +90,6 @@ export type Dictionary = {
     viewMode: string;
     viewList: string;
     viewCards: string;
-    /** Card chip prefix when other events at the same venue are clustered. */
-    alsoNights: string;
     happeningNow: string;
     eventStarted: string;
     startsSoon: string;
@@ -529,7 +527,7 @@ export const en: Dictionary = {
     northCoast: "North Coast of the DR",
   },
   hero: {
-    events: "Events in the",
+    events: "Events on the",
     nearYou: "Puerto Plata",
     regionSuffix: "region",
     regionTagline:
@@ -611,7 +609,6 @@ export const en: Dictionary = {
     viewMode: "Event layout",
     viewList: "List",
     viewCards: "Cards",
-    alsoNights: "Also",
     happeningNow: "Happening now",
     eventStarted: "Event started",
     startsSoon: "Starts soon",

@@ -107,7 +107,6 @@ export const es: Dictionary = {
     viewMode: "Diseño de eventos",
     viewList: "Lista",
     viewCards: "Tarjetas",
-    alsoNights: "También",
     happeningNow: "En curso",
     eventStarted: "Evento iniciado",
     startsSoon: "Empieza pronto",

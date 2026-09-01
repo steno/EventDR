@@ -111,7 +111,8 @@ export function findVenueRecurringSiblings(
 
 /**
  * Collapse recurring programs that share a venue into one list row.
- * First occurrence in the already-sorted list stays; siblings become card chips.
+ * First occurrence in the already-sorted list stays; other nights live on the
+ * event detail "Also at" section, not as extra day chips on the card.
  * Venue schedule pages should skip this (pass through unchanged).
  */
 export function clusterRecurringVenueEvents(

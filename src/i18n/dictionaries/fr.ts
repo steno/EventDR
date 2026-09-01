@@ -25,7 +25,7 @@ export const fr: Dictionary = {
     northCoast: "Côte Nord de RD",
   },
   hero: {
-    events: "Événements à la",
+    events: "Événements sur la",
     nearYou: "Puerto Plata",
     regionSuffix: "",
     regionTagline:
@@ -107,7 +107,6 @@ export const fr: Dictionary = {
     viewMode: "Disposition des événements",
     viewList: "Liste",
     viewCards: "Cartes",
-    alsoNights: "Aussi",
     happeningNow: "En ce moment",
     eventStarted: "Événement commencé",
     startsSoon: "Bientôt",

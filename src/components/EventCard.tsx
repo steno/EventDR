@@ -11,10 +11,7 @@ import { EventCallLink } from "@/components/EventCallLink";
 import { useLiveStatusDisplay } from "@/hooks/useLiveStatusDisplay";
 import type { TimeRange } from "@/lib/filters";
 import type { EventListView } from "@/lib/event-list-view";
-import type {
-  EventWithVenueSiblings,
-  VenueSiblingNight,
-} from "@/lib/venue-recurring-siblings";
+import type { EventWithVenueSiblings } from "@/lib/venue-recurring-siblings";
 
 interface EventCardProps {
   event: EventWithVenueSiblings;
@@ -28,46 +25,6 @@ interface EventCardProps {
   view?: EventListView;
   /** Extra guest hint (e.g. cruise walk/taxi + visit time). */
   note?: string;
-}
-
-function VenueSiblingChips({
-  siblings,
-  locale,
-  dict,
-  returnTo,
-  returnTitle,
-  compact,
-}: {
-  siblings: VenueSiblingNight[];
-  locale: Locale;
-  dict: Dictionary;
-  returnTo?: string;
-  returnTitle?: string | null;
-  compact?: boolean;
-}) {
-  if (siblings.length === 0) return null;
-  return (
-    <div
-      className={`relative z-[2] flex flex-wrap items-center gap-1.5 pointer-events-auto ${
-        compact ? "pt-0.5" : "pt-1"
-      }`}
-    >
-      <span className="text-[11px] font-bold uppercase tracking-wide text-neutral-400 dark:text-neutral-500">
-        {dict.events.alsoNights}
-      </span>
-      {siblings.map((sibling) => (
-        <IntentLink
-          key={sibling.id}
-          href={eventDetailPath(locale, sibling.id)}
-          onClick={() => rememberReturnPath(returnTo, returnTitle)}
-          className="inline-flex items-center rounded-full bg-neutral-100 px-1.5 py-0.5 text-xs font-bold leading-none text-neutral-700 hover:bg-orange-50 hover:text-orange-700 dark:bg-neutral-800 dark:text-neutral-200 dark:hover:bg-orange-950/40 dark:hover:text-orange-300"
-          title={sibling.title}
-        >
-          {sibling.label}
-        </IntentLink>
-      ))}
-    </div>
-  );
 }
 
 function EventCardMedia({
@@ -192,14 +149,6 @@ const EventCardComponent = ({
               {note}
             </p>
           ) : null}
-          <VenueSiblingChips
-            siblings={event.venueSiblings ?? []}
-            locale={locale}
-            dict={dict}
-            returnTo={returnTo}
-            returnTitle={returnTitle}
-            compact
-          />
         </div>
       </article>
     );
@@ -267,14 +216,6 @@ const EventCardComponent = ({
               {note}
             </p>
           ) : null}
-          <VenueSiblingChips
-            siblings={event.venueSiblings ?? []}
-            locale={locale}
-            dict={dict}
-            returnTo={returnTo}
-            returnTitle={returnTitle}
-            compact={compact}
-          />
         </div>
       </div>
       {!compact && event.phone && (

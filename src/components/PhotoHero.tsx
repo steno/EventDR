@@ -45,7 +45,7 @@ export function PhotoHero({
     taglineOverride ??
     getHomeHeroTagline(locale, citySlug, dict.hero.regionTagline);
 
-  // "Events in the" only for the North Coast region; cities and ports use "Events in".
+  // "Events on the" only for the North Coast region; cities and ports use "Events in".
   const isRegion = heroPlace === dict.cities.regionName;
   const eventsPrefix = isRegion ? dict.hero.events : dict.cities.eventsIn;
 
