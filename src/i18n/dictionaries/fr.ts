@@ -141,6 +141,8 @@ export const fr: Dictionary = {
   },
   search: {
     placeholder: "Rechercher événements, lieux…",
+    open: "Rechercher",
+    close: "Fermer la recherche",
     noResults: "Rien trouvé.",
     noResultsHint: "Essayez un autre lieu ou effacez la recherche.",
     tryTabHint: "Voir {tab}",

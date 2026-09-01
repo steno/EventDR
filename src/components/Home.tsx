@@ -4,8 +4,10 @@ import {
   useCallback,
   useDeferredValue,
   useEffect,
+  useId,
   useLayoutEffect,
   useMemo,
+  useRef,
   useState,
 } from "react";
 import dynamic from "next/dynamic";
@@ -143,6 +145,9 @@ function HomeApp({
   const [tab, setTab] = useState<AppTab>("discover");
   const [searchQuery, setSearchQuery] = useState("");
   const deferredSearchQuery = useDeferredValue(searchQuery);
+  const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
+  const mobileSearchRef = useRef<HTMLInputElement>(null);
+  const mobileSearchPanelId = useId();
   const [submitOpen, setSubmitOpen] = useState(false);
   const [allEvents, setAllEvents] = useState<Event[]>(() => initialEvents);
   const [venues, setVenues] = useState<Venue[]>(() => initialVenues ?? []);
@@ -393,6 +398,42 @@ function HomeApp({
     ? getCityName(cruiseCity, locale)
     : dict.nav.discover;
 
+  const closeMobileSearch = useCallback(() => {
+    mobileSearchRef.current?.blur();
+    setMobileSearchOpen(false);
+    setSearchQuery("");
+  }, []);
+
+  const toggleMobileSearch = useCallback(() => {
+    if (mobileSearchOpen) {
+      closeMobileSearch();
+      return;
+    }
+    setMobileSearchOpen(true);
+  }, [mobileSearchOpen, closeMobileSearch]);
+
+  useEffect(() => {
+    if (searchQuery.trim().length > 0) setMobileSearchOpen(true);
+  }, [searchQuery]);
+
+  useEffect(() => {
+    if (!mobileSearchOpen) return;
+    if (window.matchMedia("(min-width: 1024px)").matches) return;
+    const frame = window.requestAnimationFrame(() => {
+      mobileSearchRef.current?.focus();
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, [mobileSearchOpen]);
+
+  useEffect(() => {
+    if (!mobileSearchOpen) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") closeMobileSearch();
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [mobileSearchOpen, closeMobileSearch]);
+
   function handleTabChange(newTab: AppTab) {
     if (newTab === "submit") {
       setSubmitOpen(true);
@@ -400,7 +441,7 @@ function HomeApp({
     }
     setTab(newTab);
     if (newTab === "discover") {
-      setSearchQuery("");
+      closeMobileSearch();
     }
   }
 
@@ -432,7 +473,7 @@ function HomeApp({
                 dict={dict}
                 onLogoClick={() => {
                   setTab("discover");
-                  setSearchQuery("");
+                  closeMobileSearch();
                   setLocalArea(null);
                   setCruisePort(null);
                   const bareHome = `/${locale}`;
@@ -454,6 +495,15 @@ function HomeApp({
                       dict={dict}
                     />
                   ) : undefined
+                }
+                searchToggle={
+                  tab === "discover"
+                    ? {
+                        open: mobileSearchOpen,
+                        onToggle: toggleMobileSearch,
+                        controlsId: mobileSearchPanelId,
+                      }
+                    : undefined
                 }
                 desktopActions={
                   <>
@@ -479,6 +529,35 @@ function HomeApp({
                   </>
                 }
               />
+              {tab === "discover" ? (
+                <div
+                  id={mobileSearchPanelId}
+                  className={`grid lg:hidden motion-reduce:transition-none ${
+                    mobileSearchOpen
+                      ? "grid-rows-[1fr]"
+                      : "grid-rows-[0fr]"
+                  } transition-[grid-template-rows] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]`}
+                  aria-hidden={!mobileSearchOpen}
+                  {...(!mobileSearchOpen ? { inert: true } : {})}
+                >
+                  <div className="min-h-0 overflow-hidden">
+                    <div
+                      className={`pb-3 pt-0.5 ${
+                        mobileSearchOpen
+                          ? "translate-y-0"
+                          : "-translate-y-2"
+                      } transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] motion-reduce:transition-none`}
+                    >
+                      <SearchBar
+                        ref={mobileSearchRef}
+                        value={searchQuery}
+                        onChange={setSearchQuery}
+                        dict={dict}
+                      />
+                    </div>
+                  </div>
+                </div>
+              ) : null}
             </div>
           )}
 
@@ -487,53 +566,39 @@ function HomeApp({
               {cruisePort ? null : !cityPrimingOpen ? (
                 <InstallBanner dict={dict} />
               ) : null}
-              <div className="flex flex-col">
-                {/* Shore day is a fixed "what fits before you sail" view — no search. */}
-                {cruisePort ? null : (
-                  <div className="order-1 mt-4 mb-4 sm:order-1 lg:hidden">
-                    <SearchBar
-                      value={searchQuery}
-                      onChange={setSearchQuery}
-                      dict={dict}
-                    />
-                  </div>
-                )}
-                <div className="order-2 sm:order-2">
-                  <PhotoHero
-                    dict={dict}
+              <PhotoHero
+                dict={dict}
+                locale={locale}
+                featuredEvent={cruisePort ? null : discoverLayout.heroEvent}
+                placeName={heroPlaceName}
+                citySlug={cruisePort ? null : selectedCity}
+                tagline={heroTagline}
+                imageSrc={heroImageSrc}
+                locationPicker={
+                  <CityLocationPicker
+                    variant="hero"
                     locale={locale}
-                    featuredEvent={cruisePort ? null : discoverLayout.heroEvent}
-                    placeName={heroPlaceName}
-                    citySlug={cruisePort ? null : selectedCity}
-                    tagline={heroTagline}
-                    imageSrc={heroImageSrc}
-                    locationPicker={
-                      <CityLocationPicker
-                        variant="hero"
-                        locale={locale}
-                        dict={dict}
-                        currentSlug={cruisePort ? null : selectedCity}
-                        cruisePort={cruisePort}
-                        onSelect={setArea}
-                        onSelectCruise={enterCruise}
-                        counts={cityCounts}
-                        onCruiseIntent={() => setCruiseEntryOpen(true)}
-                      />
-                    }
-                    afterTagline={
-                      cruisePort ? null : (
-                        <CruiseShipEntry
-                          dict={dict}
-                          locale={locale}
-                          open={cruiseEntryOpen}
-                          onOpenChange={setCruiseEntryOpen}
-                          onSelectPort={enterCruise}
-                        />
-                      )
-                    }
+                    dict={dict}
+                    currentSlug={cruisePort ? null : selectedCity}
+                    cruisePort={cruisePort}
+                    onSelect={setArea}
+                    onSelectCruise={enterCruise}
+                    counts={cityCounts}
+                    onCruiseIntent={() => setCruiseEntryOpen(true)}
                   />
-                </div>
-              </div>
+                }
+                afterTagline={
+                  cruisePort ? null : (
+                    <CruiseShipEntry
+                      dict={dict}
+                      locale={locale}
+                      open={cruiseEntryOpen}
+                      onOpenChange={setCruiseEntryOpen}
+                      onSelectPort={enterCruise}
+                    />
+                  )
+                }
+              />
               {cruisePort ? (
                 <CruiseDiscover
                   locale={locale}

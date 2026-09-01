@@ -122,6 +122,10 @@ export type Dictionary = {
   };
   search: {
     placeholder: string;
+    /** Header icon — opens the mobile search field. */
+    open: string;
+    /** Header icon — closes the mobile search field. */
+    close: string;
     noResults: string;
     noResultsHint: string;
     tryTabHint: string;
@@ -643,6 +647,8 @@ export const en: Dictionary = {
   },
   search: {
     placeholder: "Search events, places…",
+    open: "Search",
+    close: "Close search",
     noResults: "Nothing turned up.",
     noResultsHint: "Try another place, or clear your search.",
     tryTabHint: "Show {tab}",
