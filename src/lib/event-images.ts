@@ -219,6 +219,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "flip-flop-wing-wednesday": "flip-flop-wing-wednesday.jpg",
   "flip-flop-taco-tuesday": "flip-flop-taco-tuesday.jpg",
   "flip-flop-monday-happy-hour": "flip-flop-monday-happy-hour.jpg",
+  "nonas-grill-kitchen-daily": "nonas-grill-kitchen-daily.jpg",
 };
 
 /** Legacy ingest ids that share a curated event image. */
