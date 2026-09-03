@@ -31,6 +31,10 @@
   --text-section--line-height: 1.2;
 }
 
+html {
+  overscroll-behavior-y: contain;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
@@ -40,6 +44,13 @@ body {
   text-rendering: optimizeLegibility;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: contain;
+}
+
+html.pull-reloading,
+html.pull-reloading body {
+  overscroll-behavior: none;
+  user-select: none;
 }
 
 /* Photos sit on a warm canvas now — skip sepia in light so they stay clear
@@ -599,6 +610,77 @@ html.dark .page-loading-spinner {
   .page-loading-spinner__bar:nth-child(1),
   .page-loading-spinner__bar:nth-child(2),
   .page-loading-spinner__bar:nth-child(12) {
+    opacity: 1;
+  }
+}
+
+/* Long pull-down to reload — spinner sits in the rubber-band gap. */
+.pull-reload {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 45;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+.pull-reload__spinner {
+  position: relative;
+  width: 2rem;
+  height: 2rem;
+  color: #ea580c;
+  transform-origin: center center;
+  filter: drop-shadow(0 1px 2px rgb(246 243 238 / 0.9));
+}
+
+html.dark .pull-reload__spinner {
+  color: #fb923c;
+  filter: drop-shadow(0 1px 2px rgb(10 10 10 / 0.9));
+}
+
+.pull-reload__spinner i {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 0.18rem;
+  height: 0.5rem;
+  margin-left: -0.09rem;
+  border-radius: 999px;
+  background: currentColor;
+  transform-origin: 50% 1rem;
+  opacity: 0.55;
+}
+
+.pull-reload--pulling .pull-reload__spinner i,
+.pull-reload--armed .pull-reload__spinner i,
+.pull-reload--reloading .pull-reload__spinner i {
+  animation: page-loading-fade 1.2s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pull-reload--pulling .pull-reload__spinner i,
+  .pull-reload--armed .pull-reload__spinner i,
+  .pull-reload--reloading .pull-reload__spinner i {
+    animation: none;
+    opacity: 0.45;
+  }
+
+  .pull-reload--pulling .pull-reload__spinner i:nth-child(1),
+  .pull-reload--pulling .pull-reload__spinner i:nth-child(2),
+  .pull-reload--pulling .pull-reload__spinner i:nth-child(12),
+  .pull-reload--armed .pull-reload__spinner i:nth-child(1),
+  .pull-reload--armed .pull-reload__spinner i:nth-child(2),
+  .pull-reload--armed .pull-reload__spinner i:nth-child(12),
+  .pull-reload--reloading .pull-reload__spinner i:nth-child(1),
+  .pull-reload--reloading .pull-reload__spinner i:nth-child(2),
+  .pull-reload--reloading .pull-reload__spinner i:nth-child(12) {
     opacity: 1;
   }
 }

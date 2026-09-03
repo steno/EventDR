@@ -12,6 +12,7 @@ import { BodyScrollGuard } from "@/components/BodyScrollGuard";
 import { DocumentLang } from "@/components/DocumentLang";
 import { NavigationLoading } from "@/components/NavigationLoading";
 import { PwaRegister } from "@/components/PwaRegister";
+import { PullToReload } from "@/components/PullToReload";
 import { SkipToContent } from "@/components/SkipToContent";
 import { SupportNudge } from "@/components/SupportNudge";
 
@@ -88,6 +89,7 @@ export default async function LocaleLayout({
       <DocumentLang locale={locale} />
       <BodyScrollGuard />
       <SkipToContent dict={dict} />
+      <PullToReload dict={dict} />
       <Suspense fallback={null}>
         <Analytics />
       </Suspense>

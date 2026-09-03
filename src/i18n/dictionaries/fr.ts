@@ -613,5 +613,8 @@ export const fr: Dictionary = {
   },
   a11y: {
     skipToContent: "Aller au contenu principal",
+    pullToReload: "Tirez pour recharger",
+    releaseToReload: "Relâchez pour recharger",
+    reloading: "Rechargement",
   },
 };

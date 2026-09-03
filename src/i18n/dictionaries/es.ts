@@ -613,6 +613,9 @@ export const es: Dictionary = {
   },
   a11y: {
     skipToContent: "Saltar al contenido principal",
+    pullToReload: "Desliza para recargar",
+    releaseToReload: "Suelta para recargar",
+    reloading: "Recargando",
   },
 };
 
