@@ -503,6 +503,9 @@ export type Dictionary = {
   };
   a11y: {
     skipToContent: string;
+    pullToReload: string;
+    releaseToReload: string;
+    reloading: string;
   };
 };
 
@@ -1117,5 +1120,8 @@ export const en: Dictionary = {
   },
   a11y: {
     skipToContent: "Skip to main content",
+    pullToReload: "Pull to reload",
+    releaseToReload: "Release to reload",
+    reloading: "Reloading",
   },
 };
