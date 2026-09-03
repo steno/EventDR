@@ -219,7 +219,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "flip-flop-wing-wednesday": "flip-flop-wing-wednesday.jpg",
   "flip-flop-taco-tuesday": "flip-flop-taco-tuesday.jpg",
   "flip-flop-monday-happy-hour": "flip-flop-monday-happy-hour.jpg",
-  "nonas-grill-kitchen-daily": "nonas-grill-kitchen-daily.jpg",
+  // Filename bump — woman at the NONAS entrance (garden patio stays on the venue).
+  "nonas-grill-kitchen-daily": "nonas-grill-kitchen-entrance.jpg",
 };
 
 /** Legacy ingest ids that share a curated event image. */
@@ -238,6 +239,8 @@ const EVENT_IMAGE_PREFIXES: { prefix: string; file: string }[] = [
 const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   // Short mobile heroes keep the sun; desktop centers the sunset composition.
   "lax-sunset-daily": "object-top lg:object-center",
+  // Portrait entrance — keep the walkers in a wide crop.
+  "nonas-grill-kitchen-daily": "object-[70%_80%]",
 };
 
 function curatedEventImageFile(eventId: string): string | undefined {

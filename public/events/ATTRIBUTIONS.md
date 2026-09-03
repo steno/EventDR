@@ -185,5 +185,5 @@ Curated images under `public/events/` and `public/venues/`.
 | `ingest-nacho-estrella-nd-eventos.jpg` | [TodoTickets — Nacho Estrella @ ND Eventos](https://todotickets.do/events/nacho-estrella-nd-eventos) official event cover | Billed Cacique Monción concert art (no longer clones El Blachy’s patio shot) |
 | `venues/pingui-bar-tiki.jpg` | Google Maps visitor photo — Pingüi Bar tiki counter at Playa El Pueblito | Venue place shot (Saturday sancocho keeps the flyer) |
 | `venues/cacique-moncion-palapa.jpg` | Google Maps visitor photo — Disco Restaurant Cacique palapa dining hall | Venue place shot (El Blachy keeps the patio still) |
-| `nonas-grill-kitchen-daily.jpg` | POP-supplied garden dining photo — umbrella, swing seats, NOMA'S Grill Kitchen sign, gravel path, and thatched palapas | Daily dining card (same place shot as the venue) |
-| `venues/nonas-grill-kitchen-garden.jpg` | POP-supplied garden patio — NOMA'S Grill Kitchen sign, swing table, bougainvillea, palapas (editor-provided, not scraped) | Venue location hero; filename bump after replacing the entrance walk-by |
+| `nonas-grill-kitchen-entrance.jpg` | POP-supplied entrance photo — woman and child walking past the wooden NONAS sign (editor-provided, not scraped) | Daily dining event hero; filename bump so it does not share the garden patio |
+| `venues/nonas-grill-kitchen-garden.jpg` | POP-supplied garden patio — NOMA'S Grill Kitchen sign, swing table, bougainvillea, palapas (editor-provided, not scraped) | Venue location hero |
