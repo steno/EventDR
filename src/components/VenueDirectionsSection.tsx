@@ -118,7 +118,7 @@ export function useVenueDirections(venue: Venue, dict: Dictionary) {
     dict.venues.routeError,
   ]);
 
-  function handleUseMyLocation() {
+  const handleUseMyLocation = useCallback(() => {
     setError(null);
     if (geo.lat != null && geo.lng != null && !geo.loading) {
       setStartQuery("");
@@ -127,7 +127,14 @@ export function useVenueDirections(venue: Venue, dict: Dictionary) {
     }
     setPendingGeoRoute(true);
     geo.requestLocation();
-  }
+  }, [
+    applyRoute,
+    dict.venues.useMyLocation,
+    geo.lat,
+    geo.lng,
+    geo.loading,
+    geo.requestLocation,
+  ]);
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
