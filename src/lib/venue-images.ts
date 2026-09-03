@@ -11,7 +11,8 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "liquid-blue-cabarete": "liquid-blue-cabarete-beach.jpg",
   // Filename bump — Pedro Clisante restaurant strip (not Plaza García / Entrada).
   "el-batey-sosua": "el-batey-pedro-clisante-strip.jpg",
-  "nonas-grill-kitchen": "nonas-grill-kitchen.jpg",
+  // Filename bump — garden patio with NOMA'S sign (replaces entrance walk-by).
+  "nonas-grill-kitchen": "nonas-grill-kitchen-garden.jpg",
   "hard-rock-sosua": "hard-rock-sosua.jpg",
   // Filename bump after replacing shared concert stock — next/image rejects ?v= on local paths.
   "castaways-sosua": "castaways-sosua-dining.jpg",
