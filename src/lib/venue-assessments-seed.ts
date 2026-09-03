@@ -1147,6 +1147,17 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
       { key: "beachfront", sentiment: "positive", audience: "visitor" },
     ],
   }),
+  editorial({
+    venueSlug: "nonas-grill-kitchen",
+    verdictKey: "strong_local_food",
+    crowdFit: ["local", "family", "mixed", "visitor"],
+    axes: { recommend: 4.1, atmosphere: 4.2, value: 4.0, practical: 4.1 },
+    themes: [
+      { key: "dominican_plates", sentiment: "positive", audience: "local" },
+      { key: "family_friendly", sentiment: "positive", audience: "family" },
+      { key: "live_music", sentiment: "positive" },
+    ],
+  }),
 ];
 
 const bySlug = new Map(

@@ -39,6 +39,12 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Le centre-ville piéton de Sosúa — accès à la plage, la rue de restaurants et bars Pedro Clisante, boutiques et cafés en journée, puis soirées salsa et open mic à la tombée de la nuit.",
     },
   },
+  "nonas-grill-kitchen": {
+    description: {
+      es: "Restaurante familiar dominicano en Calle María Montes — comida criolla con historia: mofongo, sancocho, mariscos y parrilla caribeña en un jardín. Noches de música en vivo y conciertos con Grupo Braho. Detrás de Super Pola, a pasos de Pedro Clisante.",
+      fr: "Restaurant familial dominicain sur Calle María Montes — comida criolla con historia : mofongo, sancocho, fruits de mer et grillades caraïbes dans un jardin. Soirées live et concerts avec Grupo Braho. Derrière Super Pola, à deux pas de Pedro Clisante.",
+    },
+  },
   "hard-rock-sosua": {
     description: {
       es: "Escenario de dos pisos en el centro sobre la Calle Duarte — giras, bandas de rock locales y tributos en la mayor sala de música en vivo de la Costa Norte.",
