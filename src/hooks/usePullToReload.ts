@@ -100,7 +100,7 @@ export function usePullToReload(enabled = true) {
     const spinner = spinnerRef.current;
     if (spinner) {
       const progress = Math.min(1, pullPx / PULL_ARM_PX);
-      spinner.style.opacity = String(0.25 + progress * 0.75);
+      spinner.style.opacity = String(0.55 + progress * 0.45);
       spinner.style.transform = `scale(${0.7 + progress * 0.3})`;
     }
   }, []);
