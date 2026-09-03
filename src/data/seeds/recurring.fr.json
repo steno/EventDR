@@ -1938,6 +1938,23 @@
     "imageEmoji": "🌅"
   },
   {
+    "id": "nonas-grill-kitchen-daily",
+    "title": "Cuisine Dominicaine de Jardin chez Nona's",
+    "description": "Comida criolla familiale sur Calle María Montes, El Batey — mofongo authentique, sancocho, fruits de mer frais et spécialités caribéennes grillées dans une ambiance de jardin avec hospitalité dominicaine. Soirées musique live avec groupes locaux. Ouvert tous les jours ; appelez +1 809-571-1529 pour confirmer les horaires.",
+    "date": "2026-01-01",
+    "time": "11:00 AM – 10:00 PM",
+    "location": "Sosúa",
+    "venue": "Nona's Grill & Kitchen",
+    "venueSlug": "nonas-grill-kitchen",
+    "address": "Calle María Montes 16, derrière Super Pola, El Batey",
+    "category": "food-drinks",
+    "format": "physical",
+    "recurrence": "daily",
+    "phone": "+18095711529",
+    "instagram": "nonasgrillkitchen",
+    "imageEmoji": "🍽️"
+  },
+  {
     "id": "waterfront-playa-alicia-friday-jazz",
     "title": "Jazz du vendredi au Waterfront Playa Alicia",
     "description": "Jazz live sur la terrasse de Playa Alicia chaque vendredi — coucher de soleil sur la baie, service dîner, et la soirée musique fixe de Waterfront. Confirmez l'heure du set en réservant.",
