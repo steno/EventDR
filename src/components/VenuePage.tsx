@@ -147,6 +147,9 @@ export function VenuePage({
 
   function openDirectionsMode() {
     setPlannerOpen(true);
+    // Same tap as the permission prompt so the browser will share GPS,
+    // then the existing directions hook draws the driving route on the map.
+    directions.handleUseMyLocation();
   }
 
   const backHref = returnTo ?? fallbackHref;

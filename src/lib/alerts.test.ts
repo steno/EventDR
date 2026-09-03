@@ -82,7 +82,11 @@ describe("getHomeAlerts", () => {
 });
 
 describe("applyActiveEditorialClosure", () => {
-  const iberostar = {
+  const iberostar: {
+    id: string;
+    venueSlug: string;
+    temporarilyClosed?: boolean;
+  } = {
     id: "iberostar-costa-dorada-day-pass",
     venueSlug: "iberostar-waves-costa-dorada",
   };
@@ -98,15 +102,12 @@ describe("applyActiveEditorialClosure", () => {
   });
 
   it("marks the Iberostar venue closed during the same window", () => {
-    const venue = applyActiveEditorialClosureToVenue(
-      { slug: "iberostar-waves-costa-dorada" },
-      "2026-09-01",
-    );
+    const venueInput: { slug: string; temporarilyClosed?: boolean } = {
+      slug: "iberostar-waves-costa-dorada",
+    };
+    const venue = applyActiveEditorialClosureToVenue(venueInput, "2026-09-01");
     assert.equal(venue.temporarilyClosed, true);
-    const reopen = applyActiveEditorialClosureToVenue(
-      { slug: "iberostar-waves-costa-dorada" },
-      "2026-10-27",
-    );
+    const reopen = applyActiveEditorialClosureToVenue(venueInput, "2026-10-27");
     assert.equal(reopen.temporarilyClosed, undefined);
   });
 });
