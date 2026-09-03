@@ -1570,4 +1570,24 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "Official LOS Getaway 2026: Sep 3–7 at Lifestyle Holidays / VIP Beach Lifestyles Cofresí. Tropical from US$875, Cofresí Palm and Presidential from US$960, US$250 deposit. Off-property guests need a US$200 party pass. Schedule: Thu welcome 8pm + game night; Fri–Sun beach workouts, pool/day parties; Fri 80s vs 90s; Sat all-white; Sun comedy. POP transfer included.",
     updatedAt: "2026-08-31T01:00:00.000Z",
   },
+  {
+    eventId: "nonas-grill-kitchen-daily",
+    seriesKey: "nonas-grill-kitchen:daily",
+    body: "Go for a lunch or early-dinner table — this is family criolla one street back, not a late Pedro Clisante crawl. Bands are billed concert nights (Grupo Braho and similar), so call before you assume a live set.",
+    localized: {
+      es: "Ve a almorzar o a una cena temprana — es criolla familiar a una calle atrás, no un crawl tardío en Pedro Clisante. Las bandas son noches de concierto con cartel (Grupo Braho y similares); llama antes de asumir que hay live.",
+      fr: "Allez-y pour un déjeuner ou un dîner tôt — criolla familiale une rue en retrait, pas un crawl tardif Pedro Clisante. Les groupes sont des soirs concert annoncés (Grupo Braho et similaires) ; appelez avant de compter sur un live.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "No cover for daily dining — pay for plates; billed concert nights are separate. Confirm hours at +1 809-571-1529",
+    priceNoteLocalized: {
+      es: "Sin cover en el diario — pagas los platos; las noches de concierto son aparte. Confirma horario al +1 809-571-1529",
+      fr: "Pas de cover au quotidien — vous payez les plats ; les soirs concert sont à part. Confirmez les horaires au +1 809-571-1529",
+    },
+    attribution: "POP research · Places to Go RD + Sosua Digital TV",
+    researchNotes:
+      "Places to Go RD: “Comida Criolla con Historia”, C. Maria Monte No.16 El Batey, (809) 571-1529. Sosua Digital TV: family/gastro tourism + billed Grupo Braho Mother's Day concert. Seed: behind Super Pola, daily 11 AM–10 PM. Restaurant Guru lists 3.5/172 (aggregator, not cited as Google).",
+    updatedAt: "2026-09-03T17:30:00.000Z",
+  },
 ];

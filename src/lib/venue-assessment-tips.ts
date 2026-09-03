@@ -777,4 +777,12 @@ export const VENUE_TIP_COPY: Record<
       fr: "Sports bar à l'entrée de la plage, aux marches jaunes — venez pour les écrans et les ailes, pas un crawl disco Pedro Clisante. Les jours de match se remplissent ; en semaine c'est plus facile.",
     },
   },
+  "nonas-grill-kitchen": {
+    body: "El Batey's sit-down criolla behind Super Pola — come for a garden table, not a Pedro Clisante bar crawl. Concert nights with groups like Braho are billed; call before you assume a band.",
+    localized: {
+      en: "El Batey's sit-down criolla behind Super Pola — come for a garden table, not a Pedro Clisante bar crawl. Concert nights with groups like Braho are billed; call before you assume a band.",
+      es: "La criolla sentada de El Batey detrás de Super Pola — ven por una mesa en el jardín, no por un crawl de bares en Pedro Clisante. Las noches de concierto con grupos como Braho son con cartel; llama antes de asumir que hay banda.",
+      fr: "La criolla assise d'El Batey derrière Super Pola — venez pour une table au jardin, pas un crawl Pedro Clisante. Les soirs concert avec des groupes comme Braho sont annoncés ; appelez avant de compter sur un live.",
+    },
+  },
 };

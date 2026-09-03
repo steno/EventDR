@@ -86,6 +86,7 @@ export const VENUE_AUDIENCE_POOLS: Record<
     "smileys-bar-sosua",
     "finish-line-sosua",
     "flip-flop-sports-bar-sosua",
+    "nonas-grill-kitchen",
     "brugal-rum-center",
     "rum-legacy-museum",
     "macorix-house-of-rum",
