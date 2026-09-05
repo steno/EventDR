@@ -41,6 +41,7 @@ import { useForegroundRefresh } from "@/hooks/useForegroundRefresh";
 import { NearbyTonight, PocketPlaceHint } from "@/components/NearbyTonight";
 import type { NearbyTonightResult } from "@/lib/nearby-events";
 import { getPocketForVenueSlug } from "@/lib/walkable-pockets";
+import { filterByVenueSlug } from "@/lib/geo";
 
 const SubmitEventSheet = dynamic(
   () =>
@@ -79,7 +80,9 @@ export function VenuePage({
   initialEvents = [],
 }: VenuePageProps) {
   const router = useRouter();
-  const [events, setEvents] = useState<Event[]>(() => initialEvents);
+  const [events, setEvents] = useState<Event[]>(() =>
+    filterByVenueSlug(initialEvents, venue.slug),
+  );
   const [loading, setLoading] = useState(() => initialEvents.length === 0);
   const [submitOpen, setSubmitOpen] = useState(false);
   const [plannerOpen, setPlannerOpen] = useState(false);
@@ -90,13 +93,17 @@ export function VenuePage({
   const directionsFormRef = useRef<HTMLElement>(null);
   const directions = useVenueDirections(venue, dict);
 
+  function applyVenueEvents(incoming: Event[]) {
+    setEvents(filterByVenueSlug(incoming, venue.slug));
+  }
+
   function loadEvents() {
     return fetch(
       `/api/events?locale=${locale}&venue=${venue.slug}&includePast=1`,
     )
       .then((r) => r.json())
       .then((d: { events?: Event[] }) => {
-        setEvents(d.events ?? []);
+        applyVenueEvents(d.events ?? []);
       })
       .catch(() => {
         if (initialEvents.length === 0) setEvents([]);
@@ -117,7 +124,7 @@ export function VenuePage({
   // Trust SSR when present — only fetch on mount if the schedule arrived empty.
   useEffect(() => {
     if (initialEvents.length > 0) {
-      setEvents(initialEvents);
+      applyVenueEvents(initialEvents);
       setLoading(false);
       return;
     }

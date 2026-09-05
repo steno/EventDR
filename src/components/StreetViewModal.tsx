@@ -299,7 +299,7 @@ export function StreetViewModal({
             lng={lng}
             title={title}
             dict={dict}
-            message={dict.venues.streetViewError}
+            message={dict.venues.streetViewHint}
           />
         ) : null}
 

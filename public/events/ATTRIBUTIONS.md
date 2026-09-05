@@ -108,6 +108,7 @@ Curated images under `public/events/` and `public/venues/`.
 | `ingest-18th-annual-cabarete-butterfly-effect.jpg` | [Cabarete Butterfly Effect](https://www.cabaretebutterflyeffect.com/) — official SUP / river paddle photo | Event action (replaces circular logo) |
 | `cabarete-classic-2026.jpg` | POP curated `CabareteKiteFest.JPG` — kite beach action | Replaces Cabarete Classic logo mark |
 | `el-carey-wc2026.jpg` (+ WC match prefix) | El Carey Día y Noche — WC 2026 watch-party promo poster | Venue promo for all World Cup watch parties |
+| `el-carey-weekend-nightlife-lanterns.jpg` | POP-supplied El Carey Día y Noche patio at night — hanging lanterns, white tables, Costambar | Weekend nightlife listing (venue keeps `elcareyrestaurant.webp`) |
 | `el-colibri-karaoke-battle-2026.jpg` | [Unsplash](https://unsplash.com/photos/photo-1514525253161) (`photo-1514525253161`) — Unsplash License | Concert crowd / stage energy (replaces karaoke flyer) |
 | `rumble-in-paradise-12.jpg` | [Unsplash](https://unsplash.com/photos/photo-1552072092) (`photo-1552072092`) — Unsplash License | Boxer walkout to the ring (replaces fight poster) |
 | `rumble-in-paradise-13.png` | Chiro’s Boxing Promotions — official “Rumble in Paradise 13” Halloween Weekend poster (promoter-supplied) | Authentic event flyer for the Oct 30 Sosúa Beach championship card |

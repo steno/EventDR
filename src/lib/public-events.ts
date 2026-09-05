@@ -154,7 +154,7 @@ const getCachedPublicEvents = unstable_cache(
       when: (when || undefined) as Exclude<TimeRange, "all"> | undefined,
       includePast: includePast === "1",
     }),
-  ["public-events-v10"],
+  ["public-events-v12"],
   { revalidate: LISTING_REVALIDATE_SECONDS, tags: ["events"] },
 );
 
@@ -173,19 +173,13 @@ export async function getPublicEvents(
     filter.when ?? "",
     filter.includePast ? "1" : "",
   );
-  // Rematerialize + re-sort outside the cache: occurrence dates, live/ended
-  // tiers, and curated heroes can change without waiting for revalidate.
-  return sortEventsForDisplay(
-    attachEventImages(
-      materializeEventDates(events, new Date(), {
-        includePastOneOffs: Boolean(filter.includePast),
-      }),
-    ),
-    {
-      recurringLast: true,
-      oneTimeFirst: Boolean(filter.category),
-      discoveryMode: Boolean(filter.category),
-      preferPrimaryCategory: filter.category,
-    },
-  );
+  // Re-apply scope + rematerialize outside the cache. Venue/city/category
+  // must not leak if a cache entry was stored under the wrong key, and
+  // occurrence dates can change without waiting for revalidate.
+  return sortEventsForDisplay(attachEventImages(applyScopeFilters(events, filter)), {
+    recurringLast: true,
+    oneTimeFirst: Boolean(filter.category),
+    discoveryMode: Boolean(filter.category),
+    preferPrimaryCategory: filter.category,
+  });
 }

@@ -85,7 +85,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "anfiteatro-la-puntilla-weekday-culture":
     "anfiteatro-la-puntilla-weekday-bowl.jpg",
   "el-carey-karaoke-mujeres-monday": "el-carey-karaoke-mujeres-monday.jpg",
-  "el-carey-weekend-nightlife": "el-carey-weekend-nightlife.jpg",
+  "el-carey-weekend-nightlife": "el-carey-weekend-nightlife-lanterns.jpg",
   "sosua-jewish-museum-hours": "sosua-jewish-museum-hours.jpg",
   "sosua-diving-adventures-daily": "sosua-diving-adventures-daily.jpg",
   // Filename bump — Pedro Clisante night strip (not the shared salsa-social shot).
@@ -249,6 +249,8 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "chill-and-grill-saturday-karaoke": "object-top",
   "flip-flop-monday-happy-hour": "object-bottom",
   "flip-flop-live-sports-daily": "object-top lg:object-left",
+  // Keep the lantern canopy; avoid the close face on the right.
+  "el-carey-weekend-nightlife": "object-center lg:object-left",
 };
 
 function curatedEventImageFile(eventId: string): string | undefined {

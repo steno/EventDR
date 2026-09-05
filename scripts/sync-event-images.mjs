@@ -52,7 +52,7 @@ const FILE_TO_EVENT_ID = {
   "d-classico-merengue-bar.jpg": "d-classico-merengue-bar",
   "ojo-latin-night-thursday.jpg": "ojo-latin-night-thursday",
   "ojo-weekend-dj-parties.jpg": "ojo-weekend-dj-parties",
-  "el-carey-weekend-nightlife.jpg": "el-carey-weekend-nightlife",
+  "el-carey-weekend-nightlife-lanterns.jpg": "el-carey-weekend-nightlife-lanterns",
   "coconut-cove-ocean-zipline-daily.jpg": "coconut-cove-ocean-zipline-daily",
   "freestyle-catamaran-daily.jpg": "freestyle-catamaran-daily",
   "womens-reconnection-kite-camp-2026.jpg": "womens-reconnection-kite-camp-2026",

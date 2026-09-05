@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { isValidLocale } from "@/i18n/config";
 import { isFirebaseConfigured } from "@/lib/firebase/events";
-import { VENUES_CACHE_CONTROL } from "@/lib/http-cache";
+import { VENUES_API_NETLIFY_VARY, VENUES_CACHE_CONTROL } from "@/lib/http-cache";
 import { getVenues } from "@/lib/venues";
 
 export const revalidate = 300;
@@ -18,6 +18,7 @@ export async function GET(request: NextRequest) {
     {
       headers: {
         "Cache-Control": VENUES_CACHE_CONTROL,
+        "Netlify-Vary": VENUES_API_NETLIFY_VARY,
       },
     },
   );

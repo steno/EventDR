@@ -3,19 +3,35 @@ import type { EventCoords } from "./event-coords";
 import { resolveEventCoords } from "./event-coords";
 import { eventDirectionsQuery } from "./event-location";
 
-/** Single OSM tile URL for a muted click-to-load map preview (no Leaflet). */
-export function osmTilePreviewUrl(
-  lat: number,
-  lng: number,
-  zoom = 13,
-): string {
+/**
+ * OSM-derived raster tiles from OSM France — free, no API key.
+ * tile.openstreetmap.org volunteer servers block apps that skip attribution
+ * or hit them as a production tile CDN (418 “Access blocked”).
+ */
+export const OSM_RASTER_TILE_URL =
+  "https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png";
+export const OSM_RASTER_TILE_SUBDOMAINS = "abc";
+export const OSM_RASTER_ATTRIBUTION =
+  '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>';
+
+function osmTileXY(lat: number, lng: number, zoom: number): { x: number; y: number } {
   const n = 2 ** zoom;
   const x = Math.floor(((lng + 180) / 360) * n);
   const latRad = (lat * Math.PI) / 180;
   const y = Math.floor(
     ((1 - Math.log(Math.tan(latRad) + 1 / Math.cos(latRad)) / Math.PI) / 2) * n,
   );
-  return `https://tile.openstreetmap.org/${zoom}/${x}/${y}.png`;
+  return { x, y };
+}
+
+/** Single OSM tile URL for a muted click-to-load map preview (no Leaflet). */
+export function osmTilePreviewUrl(
+  lat: number,
+  lng: number,
+  zoom = 13,
+): string {
+  const { x, y } = osmTileXY(lat, lng, zoom);
+  return `https://a.tile.openstreetmap.fr/osmfr/${zoom}/${x}/${y}.png`;
 }
 
 export function getDirectionsUrl(event: Event): string {

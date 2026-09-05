@@ -255,3 +255,24 @@ describe("adventure tours do not inherit Food & Drinks from amenities", () => {
     }
   });
 });
+
+describe("dining listings do not inherit Music from house-band copy", () => {
+  it("does not infer music from live music nights on a restaurant listing", () => {
+    const text =
+      "Family-run comida criolla with Dominican hospitality. Live music nights with local bands.";
+    assert.equal(
+      inferSecondaryCategories(text, "food-drinks").includes("music"),
+      false,
+    );
+  });
+
+  it("keeps Nona's Dominican dining off Music across locales", () => {
+    for (const locale of ["en", "es", "fr"] as const) {
+      const event = getFallbackEventById("nonas-grill-kitchen-daily", locale);
+      assert.ok(event, locale);
+      const resolved = withResolvedCategories(event);
+      assert.equal(eventInCategory(resolved, "food-drinks"), true, locale);
+      assert.equal(eventInCategory(resolved, "music"), false, locale);
+    }
+  });
+});

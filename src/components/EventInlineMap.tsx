@@ -11,6 +11,11 @@ import {
 import L from "leaflet";
 import type { EventCoords } from "@/lib/event-coords";
 import type { LatLngTuple } from "@/lib/routing";
+import {
+  OSM_RASTER_ATTRIBUTION,
+  OSM_RASTER_TILE_SUBDOMAINS,
+  OSM_RASTER_TILE_URL,
+} from "@/lib/maps";
 import "leaflet/dist/leaflet.css";
 
 const pinIcon = L.divIcon({
@@ -159,9 +164,12 @@ export function EventInlineMap({
       touchZoom={interactive}
       doubleClickZoom
       dragging={interactive}
-      attributionControl={false}
     >
-      <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+      <TileLayer
+        url={OSM_RASTER_TILE_URL}
+        subdomains={OSM_RASTER_TILE_SUBDOMAINS}
+        attribution={OSM_RASTER_ATTRIBUTION}
+      />
       <Marker position={[coords.lat, coords.lng]} icon={pinIcon} />
       {origin ? (
         <Marker position={[origin.lat, origin.lng]} icon={originIcon} />

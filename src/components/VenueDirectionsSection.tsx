@@ -18,11 +18,7 @@ import { fetchDrivingRoute, geocodePlace } from "@/lib/routing";
 import { useGeolocation } from "@/hooks/useGeolocation";
 import { MapReveal } from "@/components/MapReveal";
 import { StreetViewModal } from "@/components/StreetViewModal";
-import {
-  canUseInAppStreetView,
-  hasStreetViewCoverage,
-  isGoogleMapsJsBlocked,
-} from "@/lib/google-maps-js";
+import { canUseInAppStreetView } from "@/lib/google-maps-js";
 import { resetInputZoom } from "@/lib/reset-input-zoom";
 
 const EventInlineMap = dynamic(
@@ -249,53 +245,8 @@ export function VenueMapPanel({
     },
     [streetViewControlled, onStreetViewChange],
   );
-  /** Prefer in-app Google SV; static OSM+Maps when Google is capped or uncovered. */
-  const [streetViewMode, setStreetViewMode] = useState<
-    "hidden" | "google" | "static"
-  >("google");
-
-  useEffect(() => {
-    if (isGoogleMapsJsBlocked() || !canUseInAppStreetView()) {
-      setStreetViewMode("static");
-      return;
-    }
-
-    let cancelled = false;
-
-    const run = () => {
-      if (cancelled) return;
-      void hasStreetViewCoverage(destination.lat, destination.lng).then((ok) => {
-        if (cancelled) return;
-        if (isGoogleMapsJsBlocked()) {
-          setStreetViewMode("static");
-          return;
-        }
-        setStreetViewMode(ok ? "google" : "static");
-      });
-    };
-
-    // Keep Google Maps JS off the venue critical path — probe after idle.
-    const w = window as Window & {
-      requestIdleCallback?: (
-        cb: () => void,
-        opts?: { timeout: number },
-      ) => number;
-      cancelIdleCallback?: (id: number) => void;
-    };
-    const idleHandle =
-      typeof w.requestIdleCallback === "function"
-        ? w.requestIdleCallback(run, { timeout: 2500 })
-        : window.setTimeout(run, 1200);
-
-    return () => {
-      cancelled = true;
-      if (typeof w.cancelIdleCallback === "function") {
-        w.cancelIdleCallback(idleHandle);
-      } else {
-        window.clearTimeout(idleHandle);
-      }
-    };
-  }, [destination.lat, destination.lng]);
+  /** In-app Google Street View on tap; OSM + open-in-Maps if the key is missing or billed out. */
+  const streetViewMode = canUseInAppStreetView() ? "google" : "static";
 
   // Route send / “use my location” needs the 2D map — leave Street View.
   useEffect(() => {

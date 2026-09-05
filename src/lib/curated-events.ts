@@ -40,6 +40,12 @@ type CuratedPatch = Partial<
 
 /** Stable id patches (preferred over title key). */
 const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
+  "el-carey-weekend-nightlife": {
+    categories: ["food-drinks"],
+  },
+  "nonas-grill-kitchen-daily": {
+    categories: [],
+  },
   "flip-flop-monday-happy-hour": {
     title: "Flip Flop Happy Hour",
     time: "Mon all day; Tue–Fri 2:00 PM – 5:00 PM; Sat–Sun 1:00 PM – 3:30 PM",

@@ -372,6 +372,11 @@ const CATEGORY_INFERENCE_BLOCKS: Partial<
    * keep Adventure for activities attendees actually go on.
    */
   business: ["adventure"],
+  /**
+   * Restaurant listings often mention house bands or “live music nights” as
+   * atmosphere. Keep Music for billed music-first nights.
+   */
+  "food-drinks": ["music"],
 };
 
 function keywordWeight(keyword: Keyword): { term: string; weight: number } {

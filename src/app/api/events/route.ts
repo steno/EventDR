@@ -31,7 +31,7 @@ import { applyCuratedEventPatches } from "@/lib/curated-events";
 import { filterRemovedSeedEvents } from "@/lib/removed-seeds";
 import { localizeEventsForDisplay } from "@/lib/localized-text";
 import { slimEventsForList } from "@/lib/list-payload";
-import { eventsApiCacheControl } from "@/lib/http-cache";
+import { eventsApiHeaders } from "@/lib/http-cache";
 
 // Render at origin; Cache-Control below lets the CDN hold non-empty catalogs.
 export const dynamic = "force-dynamic";
@@ -94,13 +94,11 @@ function sortEvents(events: Event[], category?: EventCategory): Event[] {
 }
 
 function listingHeaders(events: Event[], options?: { refresh?: boolean; error?: boolean }) {
-  return {
-    "Cache-Control": eventsApiCacheControl({
-      refresh: options?.refresh,
-      error: options?.error,
-      empty: events.length === 0,
-    }),
-  };
+  return eventsApiHeaders({
+    refresh: options?.refresh,
+    error: options?.error,
+    empty: events.length === 0,
+  });
 }
 
 export async function GET(request: NextRequest) {

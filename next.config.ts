@@ -2,6 +2,7 @@ import type { NextConfig } from "next";
 import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { EVENTS_API_NETLIFY_VARY } from "./src/lib/http-cache";
 import { REMOTE_IMAGE_PATTERNS } from "./src/lib/optimizable-image";
 
 const projectRoot = path.dirname(fileURLToPath(import.meta.url));
@@ -75,7 +76,7 @@ const nextConfig: NextConfig = {
       // React dev overlays need eval(); production never does.
       `script-src 'self' 'unsafe-inline'${process.env.NODE_ENV !== "production" ? " 'unsafe-eval'" : ""} https://www.googletagmanager.com https://maps.googleapis.com`,
       "style-src 'self' 'unsafe-inline'",
-      "img-src 'self' data: blob: https://firebasestorage.googleapis.com https://*.googleusercontent.com https://maps.gstatic.com https://maps.googleapis.com https://*.tile.openstreetmap.org",
+      "img-src 'self' data: blob: https://firebasestorage.googleapis.com https://*.googleusercontent.com https://maps.gstatic.com https://maps.googleapis.com https://tile.openstreetmap.org https://*.tile.openstreetmap.org https://tile.openstreetmap.fr https://*.tile.openstreetmap.fr",
       "font-src 'self' data:",
       "connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://firebasestorage.googleapis.com https://maps.googleapis.com https://nominatim.openstreetmap.org https://router.project-osrm.org",
       "worker-src 'self' blob:",
@@ -111,6 +112,10 @@ const nextConfig: NextConfig = {
       {
         source: "/api/app-version",
         headers: [{ key: "Cache-Control", value: noStore }],
+      },
+      {
+        source: "/api/events",
+        headers: [{ key: "Netlify-Vary", value: EVENTS_API_NETLIFY_VARY }],
       },
       {
         // Short CDN cache aligned with ISR — avoids re-downloading the home

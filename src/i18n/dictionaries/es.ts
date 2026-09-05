@@ -488,6 +488,7 @@ export const es: Dictionary = {
     streetViewLoading: "Cargando el entorno…",
     streetViewUnavailable: "La vista del entorno no está disponible aquí.",
     streetViewError: "No se pudo cargar la vista del entorno.",
+    streetViewHint: "Abre Street View o Maps para ver este punto.",
     website: "Sitio web",
     instagram: "Instagram",
     startingFrom: "¿Desde dónde partes?",

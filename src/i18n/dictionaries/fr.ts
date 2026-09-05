@@ -488,6 +488,7 @@ export const fr: Dictionary = {
     streetViewLoading: "Chargement du quartier…",
     streetViewUnavailable: "La vue du quartier n'est pas disponible ici.",
     streetViewError: "Impossible de charger la vue du quartier.",
+    streetViewHint: "Ouvre Street View ou Maps pour voir ce point.",
     website: "Site web",
     instagram: "Instagram",
     startingFrom: "D'où partez-vous ?",

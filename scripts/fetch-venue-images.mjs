@@ -418,7 +418,8 @@ console.log(
 
 // Local venue branding / action already in popevent-images.
 const localSources = [
-  { src: "elcareytv.png", eventId: "el-carey-weekend-nightlife" },
+  // Weekend nightlife uses el-carey-weekend-nightlife-lanterns.jpg.
+  // Do not stamp elcareytv.png onto that listing.
   // Tropical outdoor market action — POP-supplied Sea Horse lawn tents.
   // Venue place shot is the Tennis Club patio (sea-horse-ranch-tennis-club.jpg) — do not overwrite.
   // Do not remote-refresh CabareteFarmersMarket.JPG over the lawn tents.

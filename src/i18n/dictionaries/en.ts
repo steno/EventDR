@@ -446,6 +446,7 @@ export type Dictionary = {
     streetViewLoading: string;
     streetViewUnavailable: string;
     streetViewError: string;
+    streetViewHint: string;
     website: string;
     instagram: string;
     startingFrom: string;
@@ -1002,6 +1003,7 @@ export const en: Dictionary = {
     streetViewLoading: "Loading the area…",
     streetViewUnavailable: "A street preview isn't available at this spot.",
     streetViewError: "Couldn't load the area preview.",
+    streetViewHint: "Open Street View or Maps for this pin.",
     website: "Website",
     instagram: "Instagram",
     startingFrom: "Where are you starting from?",

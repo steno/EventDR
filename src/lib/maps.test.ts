@@ -1,6 +1,11 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { getLoopAppleMapsUrl, getLoopGoogleMapsUrl, osmEmbedUrl } from "./maps";
+import {
+  getLoopAppleMapsUrl,
+  getLoopGoogleMapsUrl,
+  osmEmbedUrl,
+  osmTilePreviewUrl,
+} from "./maps";
 
 const LOOP = [
   { lat: 19.8054, lng: -70.6965 },
@@ -58,6 +63,15 @@ describe("getLoopAppleMapsUrl", () => {
   it("uses driving dirflg for taxi loops", () => {
     const url = getLoopAppleMapsUrl(LOOP, "driving");
     assert.equal(new URL(url).searchParams.get("dirflg"), "d");
+  });
+});
+
+describe("osmTilePreviewUrl", () => {
+  it("uses OSM France tiles, not osm.org volunteer servers", () => {
+    const url = osmTilePreviewUrl(19.7503643, -70.406125, 13);
+    const parsed = new URL(url);
+    assert.equal(parsed.hostname, "a.tile.openstreetmap.fr");
+    assert.match(parsed.pathname, /^\/osmfr\/13\/\d+\/\d+\.png$/);
   });
 });
 

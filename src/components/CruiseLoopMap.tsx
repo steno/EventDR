@@ -11,6 +11,11 @@ import {
 import L from "leaflet";
 import type { LatLngTuple } from "@/lib/routing";
 import type { LoopMapStop } from "@/lib/cruise";
+import {
+  OSM_RASTER_ATTRIBUTION,
+  OSM_RASTER_TILE_SUBDOMAINS,
+  OSM_RASTER_TILE_URL,
+} from "@/lib/maps";
 import "leaflet/dist/leaflet.css";
 
 const shipIcon = L.divIcon({
@@ -152,9 +157,12 @@ export function CruiseLoopMap({
       touchZoom={interactive}
       doubleClickZoom
       dragging={interactive}
-      attributionControl={false}
     >
-      <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+      <TileLayer
+        url={OSM_RASTER_TILE_URL}
+        subdomains={OSM_RASTER_TILE_SUBDOMAINS}
+        attribution={OSM_RASTER_ATTRIBUTION}
+      />
       {markers.map((stop, index) => (
         <Marker
           key={`${stop.kind}-${stop.lat}-${stop.lng}-${index}`}

@@ -913,6 +913,9 @@
     "venueSlug": "el-carey-puerto-plata",
     "address": "Calle Reina Isabel, Costambar",
     "category": "parties",
+    "categories": [
+      "food-drinks"
+    ],
     "format": "physical",
     "recurrence": "weekly",
     "recurrenceDays": [

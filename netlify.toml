@@ -14,6 +14,18 @@
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
+# Netlify Durable cache ignores query strings unless Netlify-Vary lists them.
+# Without this, /api/events?venue=… can reuse the unscoped North Coast catalog.
+[[headers]]
+  for = "/api/events"
+  [headers.values]
+    Netlify-Vary = "query=locale|category|venue|city|when|includePast|refresh|__nextDataReq|_rsc"
+
+[[headers]]
+  for = "/api/venues"
+  [headers.values]
+    Netlify-Vary = "query=locale"
+
 # Static files from /public are served by Netlify's CDN (not Next headers()).
 # Keep HTML/API no-store via next.config; cache versioned media aggressively.
 [[headers]]
