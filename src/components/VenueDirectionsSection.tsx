@@ -260,7 +260,7 @@ export function VenueMapPanel({
   const expanded = mapOpen || streetViewOpen;
   const showDismissChrome = Boolean(onDismiss) && mapOpen && !streetViewOpen;
   const streetViewControl =
-    streetViewMode !== "hidden" && !streetViewOpen ? (
+    !streetViewOpen ? (
       <button
         type="button"
         onClick={openStreetView}
@@ -320,18 +320,16 @@ export function VenueMapPanel({
           </div>
         ) : null}
       </div>
-      {streetViewMode !== "hidden" ? (
-        <StreetViewModal
-          open={streetViewOpen}
-          onClose={() => setStreetViewOpen(false)}
-          lat={destination.lat}
-          lng={destination.lng}
-          title={venue.name}
-          dict={dict}
-          variant="inline"
-          forceStatic={streetViewMode === "static"}
-        />
-      ) : null}
+      <StreetViewModal
+        open={streetViewOpen}
+        onClose={() => setStreetViewOpen(false)}
+        lat={destination.lat}
+        lng={destination.lng}
+        title={venue.name}
+        dict={dict}
+        variant="inline"
+        forceStatic={streetViewMode === "static"}
+      />
     </div>
   );
 }
