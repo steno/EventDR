@@ -1517,21 +1517,59 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "flip-flop-monday-happy-hour",
-    seriesKey: "flip-flop-sports-bar-sosua:weekly:1",
-    body: "Monday is the all-day drink deal at the yellow steps — come for the happy hour, not a nightlife crawl; screens stay on.",
+    body: "One drink window all week at the yellow steps — all day Monday, 2–5 PM Tue–Fri, 1–3:30 PM weekends. Come for the deal, not a nightlife crawl; screens stay on.",
     localized: {
-      es: "El lunes es la promo de tragos todo el día en las gradas amarillas — ven por el happy hour, no por un crawl nocturno; las pantallas siguen.",
-      fr: "Le lundi, c'est l'offre boissons toute la journée aux marches jaunes — venez pour le happy hour, pas un crawl nightlife ; les écrans restent allumés.",
+      es: "Una sola ventana de tragos toda la semana en las gradas amarillas — todo el lunes, 2–5 PM mar–vie, 1–3:30 PM fin de semana. Ven por el deal, no por un crawl nocturno; las pantallas siguen.",
+      fr: "Une seule fenêtre boissons toute la semaine aux marches jaunes — toute la journée le lundi, 14 h–17 h mar–ven, 13 h–15 h 30 le week-end. Venez pour l'offre, pas un crawl nightlife ; les écrans restent allumés.",
     },
     priceFeel: "moderate",
-    priceNote: "No cover — all-day Monday happy hour drinks plus food; 8:00 AM–9:30 PM",
+    priceNote: "No cover — happy hour drinks plus food; hours change by day (see flyer)",
     priceNoteLocalized: {
-      es: "Sin cover — happy hour de tragos todo el lunes más comida; 8:00 AM–9:30 PM",
-      fr: "Pas de cover — happy hour boissons tout le lundi plus nourriture ; 8 h–21 h 30",
+      es: "Sin cover — tragos de happy hour más comida; el horario cambia según el día (ver flyer)",
+      fr: "Pas de cover — boissons happy hour plus nourriture ; horaires selon le jour (voir le flyer)",
     },
-    attribution: "POP research · flipflop360.com",
-    researchNotes: "Official: ALL DAY Happy Hour every Monday, 8 AM–9:30 PM, Sosúa Beach entrance.",
-    updatedAt: "2026-08-26T15:30:00.000Z",
+    attribution: "POP research · Flip Flop happy-hour flyer",
+    researchNotes:
+      "Venue flyer: Monday ALL DAY; Tue–Fri 2–5 PM; Sat–Sun 1–3:30 PM. Phone (829) 817-8147. Yellow Steps, Sosúa Beach entry. No seriesKey — live sports already owns flip-flop-sports-bar-sosua:daily.",
+    updatedAt: "2026-09-05T18:45:00.000Z",
+  },
+  {
+    eventId: "chill-and-grill-sunday-bingo",
+    seriesKey: "castaways-sosua:weekly:0",
+    body: "Casa Linda Sunday bingo with free cards — neighborhood night off El Choco, not a tourist-strip hall. WhatsApp first; eat and drink at the bar.",
+    localized: {
+      es: "Bingo del domingo en Casa Linda con cartones gratis — noche de vecindario fuera de El Choco, no un salón de strip turístico. WhatsApp primero; come y bebe en el bar.",
+      fr: "Bingo du dimanche à Casa Linda, cartons gratuits — soirée de quartier hors El Choco, pas une salle touristique. WhatsApp d'abord ; mangez et buvez au bar.",
+    },
+    priceFeel: "free",
+    priceNote: "Bingo cards are free — pay for food and drinks; prizes for winners",
+    priceNoteLocalized: {
+      es: "Cartones de bingo gratis — pagas comida y tragos; premios para ganadores",
+      fr: "Cartons de bingo gratuits — vous payez nourriture et verres ; prix pour les gagnants",
+    },
+    attribution: "POP research · Chill & Grill bingo flyer",
+    researchNotes:
+      "Official flyer: This Sunday 7:30 PM, cards free, Casa Linda Phase 7–9, WhatsApp 829-679-8389. Facebook photo fbid=1716968790433509.",
+    updatedAt: "2026-09-05T18:30:00.000Z",
+  },
+  {
+    eventId: "chill-and-grill-saturday-karaoke",
+    seriesKey: "castaways-sosua:weekly:6",
+    body: "Saturday karaoke at Casa Linda's Chill & Grill — neighborhood stage, not Pedro Clisante. 7:30 PM; WhatsApp +1 829-679-8389 to confirm.",
+    localized: {
+      es: "Karaoke del sábado en Chill & Grill de Casa Linda — escenario de vecindario, no Pedro Clisante. 7:30 PM; WhatsApp +1 829-679-8389 para confirmar.",
+      fr: "Karaoké du samedi au Chill & Grill de Casa Linda — scène de quartier, pas Pedro Clisante. 19 h 30 ; WhatsApp +1 829-679-8389 pour confirmer.",
+    },
+    priceFeel: "free",
+    priceNote: "No cover posted — pay for food and drinks; prizes on the night",
+    priceNoteLocalized: {
+      es: "Sin cover publicado — pagas comida y tragos; premios en la noche",
+      fr: "Pas de cover annoncé — vous payez nourriture et verres ; prix sur place",
+    },
+    attribution: "POP research · Chill & Grill karaoke flyer",
+    researchNotes:
+      "Official flyer: This Saturday 7:30 PM, Casa Linda Phase 7–9, WhatsApp 829-679-8389.",
+    updatedAt: "2026-09-05T18:30:00.000Z",
   },
   {
     eventId: "flip-flop-wing-wednesday",

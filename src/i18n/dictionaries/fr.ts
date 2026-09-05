@@ -303,6 +303,11 @@ export const fr: Dictionary = {
     cruise: "Journée croisière",
     support: "Soutenir POP",
     follow: "Suivre POP Events",
+    legal: "Mentions légales",
+    privacy: "Confidentialité",
+    dataDisclaimer: "Avertissement sur les données",
+    dataSources: "Sources des données",
+    dataDeletion: "Suppression des données",
   },
   alerts: {
     title: "À savoir avant d’y aller",

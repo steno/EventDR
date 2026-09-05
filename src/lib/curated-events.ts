@@ -40,6 +40,27 @@ type CuratedPatch = Partial<
 
 /** Stable id patches (preferred over title key). */
 const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
+  "flip-flop-monday-happy-hour": {
+    title: "Flip Flop Happy Hour",
+    time: "Mon all day; Tue–Fri 2:00 PM – 5:00 PM; Sat–Sun 1:00 PM – 3:30 PM",
+    recurrence: "weekly",
+    recurrenceDay: null,
+    recurrenceDays: [0, 1, 2, 3, 4, 5, 6],
+    description:
+      "Happy hour at Flip Flop Sports Bar by the Sosúa Beach yellow steps — all day Monday, 2:00–5:00 PM Tuesday–Friday, and 1:00–3:30 PM Saturday–Sunday. Local drinks, sports on five TVs. Open daily 8:00 AM–10:00 PM; WhatsApp +1 829-817-8147.",
+    localized: {
+      title: {
+        en: "Flip Flop Happy Hour",
+        es: "Happy hour en Flip Flop",
+        fr: "Happy hour au Flip Flop",
+      },
+      description: {
+        en: "Happy hour at Flip Flop Sports Bar by the Sosúa Beach yellow steps — all day Monday, 2:00–5:00 PM Tuesday–Friday, and 1:00–3:30 PM Saturday–Sunday. Local drinks, sports on five TVs. Open daily 8:00 AM–10:00 PM; WhatsApp +1 829-817-8147.",
+        es: "Happy hour en Flip Flop Sports Bar junto a las gradas amarillas de Playa Sosúa — todo el lunes, 2:00–5:00 PM martes a viernes, y 1:00–3:30 PM sábado y domingo. Tragos locales y deporte en cinco pantallas. Abre diario 8:00 AM–10:00 PM; WhatsApp +1 829-817-8147.",
+        fr: "Happy hour au Flip Flop Sports Bar près des marches jaunes de Playa Sosúa — toute la journée le lundi, 14 h–17 h mardi à vendredi, et 13 h–15 h 30 samedi et dimanche. Verres locaux et sport sur cinq écrans. Ouvert tous les jours 8 h–22 h ; WhatsApp +1 829-817-8147.",
+      },
+    },
+  },
   "los-event-trilogy-2026-09-03": {
     title: "LOS Last of Summer — Labor Day Getaway",
     date: "2026-09-03",

@@ -77,6 +77,9 @@ const FILE_TO_EVENT_ID = {
     "dewry-luciano-zona-acapella-2026-08-23",
   "pop-cinemas-week-2026-08-20.jpg": "pop-cinemas-week-2026-08-20",
   "petit-francois-friday-karaoke.jpg": "petit-francois-friday-karaoke",
+  "chill-and-grill-sunday-bingo.jpg": "chill-and-grill-sunday-bingo",
+  "chill-and-grill-saturday-karaoke.jpg": "chill-and-grill-saturday-karaoke",
+  "flip-flop-happy-hour-schedule.jpg": "flip-flop-happy-hour-schedule",
   "costambar-beach-fitness.png": "costambar-beach-fitness",
   // Atléticos summer league — authentic Atléticos pitcher (athleticosPOP.png); copies below.
   "athleticosPOP.png": "atleticos-pp-vs-mangueros-2026-07-17",
@@ -200,7 +203,7 @@ const FILE_TO_EVENT_ID = {
   "charco-los-militares-daily.jpg": "charco-los-militares-daily",
   "la-rejoya-trek.jpg": "la-rejoya-trek",
   "rio-martinico-sosua.jpg": "rio-martinico-sosua",
-  "flip-flop-live-sports-daily.jpg": "flip-flop-live-sports-daily",
+  "flip-flop-live-sports-bar-tvs.jpg": "flip-flop-live-sports-bar-tvs",
   "flip-flop-wing-wednesday.jpg": "flip-flop-wing-wednesday",
   "flip-flop-taco-tuesday.jpg": "flip-flop-taco-tuesday",
   "flip-flop-monday-happy-hour.jpg": "flip-flop-monday-happy-hour",
@@ -334,7 +337,9 @@ const FILE_TO_VENUE_SLUG = {
   "rio-martinico-sosua.jpg": "rio-martinico",
   // Place shot of the river corridor — distinct from the kayak action listing.
   "jamao-al-norte.jpg": "jamao-al-norte",
-  "flip-flop-live-sports-daily.jpg": "flip-flop-sports-bar-sosua",
+  // Filename bump — yellow-steps entrance (live-sports listing keeps the homepage still).
+  "flip-flop-sports-bar-sosua-yellow-steps.jpg":
+    "flip-flop-sports-bar-sosua-yellow-steps",
 };
 
 if (!existsSync(sourceDir)) {

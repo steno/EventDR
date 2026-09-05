@@ -275,6 +275,11 @@ export type Dictionary = {
     cruise: string;
     support: string;
     follow: string;
+    legal: string;
+    privacy: string;
+    dataDisclaimer: string;
+    dataSources: string;
+    dataDeletion: string;
   };
   alerts: {
     title: string;
@@ -812,6 +817,11 @@ export const en: Dictionary = {
     cruise: "Cruise day",
     support: "Support POP",
     follow: "Follow POP Events",
+    legal: "Legal",
+    privacy: "Privacy",
+    dataDisclaimer: "Data disclaimer",
+    dataSources: "Data sources",
+    dataDeletion: "Data deletion",
   },
   alerts: {
     title: "Know before you go",

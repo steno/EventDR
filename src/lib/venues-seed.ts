@@ -1300,7 +1300,7 @@ export const SEED_VENUES: Venue[] = [
     name: "Flip Flop Sports Bar",
     city: "Sosúa",
     description:
-      "Sports bar at the Sosúa Beach entrance (The Yellow Steps) — five TVs for live sports, famous wings, Monday happy hour, Taco Tuesday, and Wing Wednesday. Open daily 8:00 AM–10:00 PM.",
+      "Sports bar at the Sosúa Beach entrance (The Yellow Steps) — five TVs for live sports, famous wings, happy hour all day Monday / 2–5 PM Tue–Fri / 1–3:30 PM Sat–Sun, Taco Tuesday, and Wing Wednesday. Open daily 8:00 AM–10:00 PM.",
     // Beach-entrance pin on Calle Duarte / Yellow Steps — distinct from Hard Rock (uphill Duarte) and Bar 39 (on the sand).
     lat: 19.7622,
     lng: -70.5166,

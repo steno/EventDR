@@ -215,10 +215,12 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "rio-martinico-sosua": "rio-martinico-sosua.jpg",
   "ingest-hidden-river-kayak-adventure":
     "ingest-hidden-river-kayak-adventure.jpg",
-  "flip-flop-live-sports-daily": "flip-flop-live-sports-daily.jpg",
+  "flip-flop-live-sports-daily": "flip-flop-live-sports-bar-tvs.jpg",
   "flip-flop-wing-wednesday": "flip-flop-wing-wednesday.jpg",
   "flip-flop-taco-tuesday": "flip-flop-taco-tuesday.jpg",
-  "flip-flop-monday-happy-hour": "flip-flop-monday-happy-hour.jpg",
+  "flip-flop-monday-happy-hour": "flip-flop-happy-hour-schedule.jpg",
+  "chill-and-grill-sunday-bingo": "chill-and-grill-sunday-bingo.jpg",
+  "chill-and-grill-saturday-karaoke": "chill-and-grill-saturday-karaoke.jpg",
   // Filename bump — woman at the NONAS entrance (garden patio stays on the venue).
   "nonas-grill-kitchen-daily": "nonas-grill-kitchen-entrance.jpg",
 };
@@ -229,6 +231,8 @@ const EVENT_IMAGE_ALIASES: Record<string, string> = {
     "ingest-18th-annual-cabarete-butterfly-effect",
   "museo-ambar-saturday": "museo-ambar-weekdays",
   "gym-sov-zumba-lift-thursday": "gym-sov-zumba-tuesday",
+  "flip-flop-weekday-happy-hour": "flip-flop-monday-happy-hour",
+  "flip-flop-weekend-happy-hour": "flip-flop-monday-happy-hour",
 };
 
 const EVENT_IMAGE_PREFIXES: { prefix: string; file: string }[] = [
@@ -241,6 +245,10 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "lax-sunset-daily": "object-top lg:object-center",
   // Portrait entrance — keep the walkers in a wide crop.
   "nonas-grill-kitchen-daily": "object-[70%_80%]",
+  "chill-and-grill-sunday-bingo": "object-top",
+  "chill-and-grill-saturday-karaoke": "object-top",
+  "flip-flop-monday-happy-hour": "object-bottom",
+  "flip-flop-live-sports-daily": "object-top lg:object-left",
 };
 
 function curatedEventImageFile(eventId: string): string | undefined {

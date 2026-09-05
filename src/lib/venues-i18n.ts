@@ -671,8 +671,8 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
   },
   "flip-flop-sports-bar-sosua": {
     description: {
-      es: "Sports bar en la entrada de Playa Sosúa (The Yellow Steps) — 5 pantallas para deportes en vivo, alitas famosas, happy hour los lunes, Taco Tuesday y Wing Wednesday. Diario 8:00 AM–10:00 PM.",
-      fr: "Sports bar à l'entrée de Playa Sosúa (The Yellow Steps) — 5 écrans pour le sport en direct, ailes célèbres, happy hour le lundi, Taco Tuesday et Wing Wednesday. Tous les jours 8 h–22 h.",
+      es: "Sports bar en la entrada de Playa Sosúa (The Yellow Steps) — 5 pantallas para deportes en vivo, alitas famosas, happy hour todo el lunes, 2–5 PM mar–vie, 1–3:30 PM sáb–dom, Taco Tuesday y Wing Wednesday. Diario 8:00 AM–10:00 PM.",
+      fr: "Sports bar à l'entrée de Playa Sosúa (The Yellow Steps) — 5 écrans pour le sport en direct, ailes célèbres, happy hour tout le lundi, 14 h–17 h mar–ven, 13 h–15 h 30 sam–dim, Taco Tuesday et Wing Wednesday. Tous les jours 8 h–22 h.",
     },
   },
   "zen-fitness-cabarete": {

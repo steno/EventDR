@@ -35,6 +35,9 @@ export const REMOVED_SEED_EVENT_IDS = new Set([
   "malecon-live-concert",
   // Duplicate of gym-sov-zumba-tuesday (same class, Tue + Thu 9 AM).
   "gym-sov-zumba-lift-thursday",
+  // Folded into flip-flop-monday-happy-hour (one flyer, daily schedule).
+  "flip-flop-weekday-happy-hour",
+  "flip-flop-weekend-happy-hour",
   // Ingest misfire: Expo Amaprosan is Parque Central de Santiago (Cibao), not POP.
   "ingest-expo-amaprosan-2026",
   // Pop Urbano 037 podcast brand — not a verified North Coast dated event.

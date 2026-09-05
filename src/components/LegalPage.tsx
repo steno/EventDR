@@ -25,12 +25,35 @@ export function LegalPage({
           </h1>
           <p className="mt-2 text-sm text-neutral-500">{copy.updated}</p>
         </header>
+        {copy.intro?.map((p) => (
+          <p
+            key={p.slice(0, 48)}
+            className="mt-4 text-copy text-neutral-700 dark:text-neutral-300"
+          >
+            {p}
+          </p>
+        ))}
         {copy.sections.map((section) => (
           <section key={section.heading} className="mt-8">
             <h2 className="text-lg font-bold text-neutral-900 dark:text-white">
               {section.heading}
             </h2>
             {section.body.map((p) => (
+              <p
+                key={p.slice(0, 48)}
+                className="mt-3 text-copy text-neutral-700 dark:text-neutral-300"
+              >
+                {p}
+              </p>
+            ))}
+            {section.items?.length ? (
+              <ul className="mt-3 list-disc space-y-1 pl-5 text-copy text-neutral-700 dark:text-neutral-300">
+                {section.items.map((item) => (
+                  <li key={item.slice(0, 48)}>{item}</li>
+                ))}
+              </ul>
+            ) : null}
+            {section.after?.map((p) => (
               <p
                 key={p.slice(0, 48)}
                 className="mt-3 text-copy text-neutral-700 dark:text-neutral-300"

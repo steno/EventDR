@@ -303,6 +303,11 @@ export const es: Dictionary = {
     cruise: "Día de crucero",
     support: "Apoyar POP",
     follow: "Seguir POP Events",
+    legal: "Legal",
+    privacy: "Privacidad",
+    dataDisclaimer: "Aviso de datos",
+    dataSources: "Fuentes de datos",
+    dataDeletion: "Eliminación de datos",
   },
   alerts: {
     title: "Antes de ir",

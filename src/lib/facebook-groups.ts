@@ -226,6 +226,8 @@ const FACEBOOK_SEED_EVENT_IDS_BASE = [
   "guananico-san-miguel-patronales-2026",
   "love-does-bocadillos-course-2026",
   "love-does-cocktails-solidarity-2026-09-04",
+  "chill-and-grill-sunday-bingo",
+  "chill-and-grill-saturday-karaoke",
 ] as const;
 
 /** Curated event ids discovered from monitored Facebook groups (see fallback-events). */

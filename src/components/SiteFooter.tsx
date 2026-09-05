@@ -101,6 +101,39 @@ export function SiteFooter({
           </a>
         ))}
       </nav>
+      <nav
+        aria-label={dict.footer.legal}
+        className={`${PAGE_WIDTH_CLASS} ${PAGE_GUTTER_CLASS} mb-4 flex flex-wrap justify-center gap-x-4 gap-y-1 text-xs font-semibold text-neutral-500 dark:text-neutral-400`}
+      >
+        <Link
+          href={`/${locale}/privacy`}
+          prefetch={false}
+          className="hover:text-neutral-800 dark:hover:text-neutral-200 transition-colors"
+        >
+          {dict.footer.privacy}
+        </Link>
+        <Link
+          href={`/${locale}/data-disclaimer`}
+          prefetch={false}
+          className="hover:text-neutral-800 dark:hover:text-neutral-200 transition-colors"
+        >
+          {dict.footer.dataDisclaimer}
+        </Link>
+        <Link
+          href={`/${locale}/data-sources`}
+          prefetch={false}
+          className="hover:text-neutral-800 dark:hover:text-neutral-200 transition-colors"
+        >
+          {dict.footer.dataSources}
+        </Link>
+        <Link
+          href={`/${locale}/data-deletion`}
+          prefetch={false}
+          className="hover:text-neutral-800 dark:hover:text-neutral-200 transition-colors"
+        >
+          {dict.footer.dataDeletion}
+        </Link>
+      </nav>
       <p className="text-xs text-neutral-400 dark:text-neutral-500 font-medium">{dict.footer.tagline}</p>
       <p className="text-xs text-neutral-300 dark:text-neutral-600 mt-1">
         {dict.footer.builtWith}{" "}

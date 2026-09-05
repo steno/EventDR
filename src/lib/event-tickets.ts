@@ -197,11 +197,13 @@ export const CURATED_FREE_EVENTS = new Set<string>([
   "el-carey-karaoke-mujeres-monday",
   "ocean-winds-karaoke-nights",
   "petit-francois-friday-karaoke",
+  "chill-and-grill-saturday-karaoke",
   "dewry-luciano-zona-acapella-2026-08-23",
   "cremo-karaoke-saturday",
   "big-lees-weekend-music",
   "el-parq-karaoke-thursday",
   "sosua-volleyball-weekly",
+  "chill-and-grill-sunday-bingo",
   // Bar live music / jam — typically no cover (pay for drinks)
   "lax-sunset-daily",
   "lax-reggae-friday",

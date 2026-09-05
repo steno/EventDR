@@ -140,7 +140,8 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "la-rejoya": "la-rejoya.jpg",
   "rio-martinico": "rio-martinico.jpg",
   "jamao-al-norte": "jamao-al-norte.jpg",
-  "flip-flop-sports-bar-sosua": "flip-flop-sports-bar-sosua.jpg",
+  // Filename bump — yellow-steps entrance (homepage interior stays on live sports).
+  "flip-flop-sports-bar-sosua": "flip-flop-sports-bar-sosua-yellow-steps.jpg",
 };
 
 /** Cache-busted URL for general venue thumbnails / JSON-LD. */
