@@ -275,6 +275,12 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Village pour passagers de croisière au quai de Puerto Plata — lazy river et piscines gratuits, boutiques, bars et spectacles quand un navire est là. Pas ouvert au public. Fortaleza et le Malecón sont à pied hors des portes.",
     },
   },
+  "amber-cove": {
+    description: {
+      es: "Pueblo Carnival en Bahía de Maimón — piscina Aqua Zone y toboganes gratis, tiendas, bares y vistas del Sky Bar cuando hay barco. Tirolina y cabañas son extra. No está abierto al público. El Centro necesita taxi.",
+      fr: "Village Carnival sur la baie de Maimón — piscine Aqua Zone et toboggans gratuits, boutiques, bars et vues du Sky Bar quand un navire est là. Tyrolienne et cabanas en supplément. Pas ouvert au public. Le centre demande un taxi.",
+    },
+  },
   "fortaleza-san-felipe": {
     description: {
       es: "Fortaleza y museo español del siglo XVI con vistas al Atlántico — cañones, historia colonial y atardeceres desde La Puntilla.",

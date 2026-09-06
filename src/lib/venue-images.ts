@@ -51,6 +51,7 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "el-carey-puerto-plata": "el-carey-puerto-plata.webp",
   "el-colibri-hotel": "el-colibri-hotel.jpg",
   "taino-bay": "taino-bay-village.jpg",
+  "amber-cove": "amber-cove-village.jpg",
   // Filename bump — Wikimedia lawn + flags (not the 524px aerial clone / event hero).
   "fortaleza-san-felipe": "fortaleza-san-felipe-bastion.jpg",
   "museo-ambar": "museo-ambar.jpg",

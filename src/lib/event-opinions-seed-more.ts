@@ -718,6 +718,26 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: AT,
   },
   {
+    eventId: "amber-cove-village-daily",
+    seriesKey: "amber-cove:daily",
+    body: "Do this first if you might skip the taxi — Aqua Zone loungers go early, and Cofresí/Centro only make sense with a long window.",
+    localized: {
+      es: "Haz esto primero si podrías saltarte el taxi — las tumbonas del Aqua Zone se van temprano, y Cofresí/Centro solo valen con una ventana larga.",
+      fr: "Faites ça d'abord si vous pourriez zapper le taxi — les transats de l'Aqua Zone partent tôt, et Cofresí/centre ne valent qu'avec une large fenêtre.",
+    },
+    priceFeel: "free",
+    priceNote:
+      "Aqua Zone pool and waterslides are free for cruise passengers; zip line and cabanas extra; drinks are ship-port priced",
+    priceNoteLocalized: {
+      es: "Piscina Aqua Zone y toboganes son gratis para pasajeros de crucero; tirolina y cabañas extra; tragos a precio de puerto",
+      fr: "Piscine Aqua Zone et toboggans gratuits pour les croisiéristes ; tyrolienne et cabanas en plus ; boissons au tarif port",
+    },
+    attribution: "POP research · Amber Cove FAQ + port guides",
+    researchNotes:
+      "Official FAQ: Aqua Zone pool/slides free; zip line, kayaks, cabanas paid. Cruise-passenger only. Typical hours ~8 AM–6 PM with ship day. Address KM 10 Carretera PP–Navarrete.",
+    updatedAt: AT,
+  },
+  {
     eventId: "fun-city-daily",
     seriesKey: "fun-city:daily",
     body: "Best with kids, or anyone who wants a speed break between beach days.",

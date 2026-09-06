@@ -473,6 +473,19 @@ export const SEED_VENUES: Venue[] = [
     website: "https://www.porttainobay.com",
   },
   {
+    slug: "amber-cove",
+    name: "Amber Cove",
+    city: "Puerto Plata",
+    description:
+      "Carnival cruise village on Bahía de Maimón — free Aqua Zone pool and waterslides, shopping, bars, and Sky Bar views when a ship is in. Zip line and cabanas are extra. Not open to the public. Centro needs a taxi.",
+    lat: 19.8278,
+    lng: -70.7417,
+    emoji: "🏊",
+    instagram: "ambercoveport",
+    website: "https://www.ambercoveport.com",
+    phone: "+18297350272",
+  },
+  {
     slug: "fortaleza-san-felipe",
     name: "Fortaleza San Felipe",
     city: "Puerto Plata",
@@ -1329,6 +1342,10 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
     pattern:
       /ta[ií]no\s*bay|port\s*ta[ií]no|puerto\s*ta[ií]no\s*bay/i,
     slug: "taino-bay",
+  },
+  {
+    pattern: /amber\s*cove|puerto\s*amber\s*cove/i,
+    slug: "amber-cove",
   },
   {
     pattern: /parque\s+nacional\s+el\s+choc[oó]|choc[oó]\s+national\s+park|cuevas?\s+(del\s+)?choc[oó]|laguna\s+(el\s+)?choc[oó]|deep\s+caves?/i,

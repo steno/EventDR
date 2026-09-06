@@ -32,6 +32,8 @@ describe("matchVenueSlug", () => {
     assert.equal(matchVenueSlug("El Parq Foodpark"), "el-parq-cabarete");
     assert.equal(matchVenueSlug("Taino Bay"), "taino-bay");
     assert.equal(matchVenueSlug("Port Taino Bay Puerto Plata"), "taino-bay");
+    assert.equal(matchVenueSlug("Amber Cove"), "amber-cove");
+    assert.equal(matchVenueSlug("Puerto Amber Cove"), "amber-cove");
   });
 });
 

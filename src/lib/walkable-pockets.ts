@@ -226,6 +226,7 @@ export const WALKABLE_POCKETS: readonly WalkablePocket[] = [
       fr: "Bande ouest",
     },
     venueSlugs: [
+      "amber-cove",
       "playa-cofresi",
       "don-limon-cofresi",
       "ocean-world",

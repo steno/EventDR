@@ -472,6 +472,23 @@
     "imageEmoji": "🏊"
   },
   {
+    "id": "amber-cove-village-daily",
+    "title": "Amber Cove Village Day",
+    "description": "Carnival cruise village on Bahía de Maimón — free Aqua Zone pool and waterslides, shopping, bars, and Sky Bar views when a ship is in. Zip line and cabanas are extra. Not a public day pass. Cofresí and Centro need a taxi.",
+    "date": "2026-01-01",
+    "time": "8:00 AM - 6:00 PM",
+    "location": "Puerto Plata",
+    "address": "KM 10 Carretera Puerto Plata–Navarrete, Bahía de Maimón",
+    "venue": "Amber Cove",
+    "venueSlug": "amber-cove",
+    "category": "adventure",
+    "format": "physical",
+    "recurrence": "daily",
+    "isFree": true,
+    "sourceUrl": "https://www.ambercoveport.com/faqs/",
+    "imageEmoji": "🏊"
+  },
+  {
     "id": "fortaleza-san-felipe-daily",
     "title": "Fortaleza San Felipe — Museum Hours",
     "description": "16th-century Spanish fortress and museum — original cannons, colonial weapons, and Atlantic views. Sunset from La Puntilla park nearby.",

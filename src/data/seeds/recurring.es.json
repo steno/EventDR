@@ -472,6 +472,23 @@
     "imageEmoji": "🏊"
   },
   {
+    "id": "amber-cove-village-daily",
+    "title": "Día en el pueblo Amber Cove",
+    "description": "Pueblo Carnival en Bahía de Maimón — piscina Aqua Zone y toboganes gratis, tiendas, bares y vistas del Sky Bar cuando hay barco. Tirolina y cabañas son extra. No es un day pass público. Cofresí y el Centro necesitan taxi.",
+    "date": "2026-01-01",
+    "time": "8:00 AM - 6:00 PM",
+    "location": "Puerto Plata",
+    "address": "KM 10 Carretera Puerto Plata–Navarrete, Bahía de Maimón",
+    "venue": "Amber Cove",
+    "venueSlug": "amber-cove",
+    "category": "adventure",
+    "format": "physical",
+    "recurrence": "daily",
+    "isFree": true,
+    "sourceUrl": "https://www.ambercoveport.com/faqs/",
+    "imageEmoji": "🏊"
+  },
+  {
     "id": "fortaleza-san-felipe-daily",
     "title": "Fortaleza San Felipe — Horario del museo",
     "description": "Fortaleza española del siglo XVI y museo — cañones originales, armas coloniales y vistas al Atlántico. Atardecer desde el parque La Puntilla.",

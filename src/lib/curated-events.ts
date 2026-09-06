@@ -232,6 +232,9 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
   "taino-bay-village-daily": {
     isFree: true,
   },
+  "amber-cove-village-daily": {
+    isFree: true,
+  },
   "gregorio-luperon-museum": {
     isFree: false,
     admissionPrice: "RD$50",

@@ -327,11 +327,11 @@ export const fr: Dictionary = {
     tainoBay: "Taino Bay",
     amberCove: "Amber Cove",
     tainoBayHint: "Village au quai — le centre est à pied",
-    amberCoveHint: "Maimón — taxi vers le centre ~20–25 min",
+    amberCoveHint: "Village au quai — taxi vers le centre",
     tainoBayTagline:
       "Restez au village (lazy river, piscine, spectacles) ou marchez jusqu’au Malecón et Fortaleza — une journée croisière qui tient avant le départ de Taino Bay.",
     amberCoveTagline:
-      "Déjeuner à Maimón, plage Cofresí ou taxi vers le centre — ce qui tient vraiment avant le départ d’Amber Cove.",
+      "Restez au village (piscine Aqua Zone, toboggans, Sky Bar) ou prenez un taxi vers Cofresí et Maimón — ce qui tient vraiment avant le départ d’Amber Cove.",
     allAboard: "Retour à bord",
     allAboardHelp: "À quelle heure devez-vous être de retour à bord ?",
     allAboardHint: "Le navire l’appelle all-aboard — vérifiez l’heure sur votre carte de croisière.",
@@ -344,7 +344,8 @@ export const fr: Dictionary = {
       "Encore à quai ? Choisissez une heure plus tardive. Si vous restez à terre, voici ce soir sur la Côte Nord.",
     taxiTipTaino:
       "Le village est au quai — piscine et lazy river sont gratuits. Marchez en centre-ville si vous sortez des portes. Convenez du prix du taxi avant de monter.",
-    taxiTipAmber: "Le taxi vers le centre prend environ 20–25 min. Convenez du prix avant de monter.",
+    taxiTipAmber:
+      "Le village est au quai — piscine Aqua Zone et toboggans sont gratuits. Le taxi vers le centre prend environ 20–25 min. Convenez du prix avant de monter.",
     itinerariesTitle: "Boucles toutes faites",
     itineraryMinutes: "~{minutes} min",
     viewRoute: "Voir l’itinéraire",
@@ -373,7 +374,7 @@ export const fr: Dictionary = {
     skipTaino:
       "Cabarete, Sosúa et Damajagua sont de longs taxis. Le navire vend déjà ces excursions — restez au village ou marchez en centre-ville.",
     skipAmber:
-      "Sosúa, Cabarete et Damajagua ratent souvent le navire. Restez à Maimón sauf s’il vous reste 5 h ou plus.",
+      "Sosúa, Cabarete et Damajagua ratent souvent le navire. Restez au village ou près de Maimón sauf s’il vous reste 5 h ou plus.",
     exit: "Voir tout le calendrier de la Côte Nord",
     walk: "{minutes} min à pied",
     taxi: "{minutes} min en taxi",
@@ -392,7 +393,7 @@ export const fr: Dictionary = {
       },
       "amber-local": {
         title: "Restez près du port",
-        body: "Déjeuner à Maimón, Ocean World ou plage Cofresí — sans taxi vers le centre.",
+        body: "D’abord la journée piscine au village — puis déjeuner à Maimón, Ocean World ou plage Cofresí si vous sortez des portes.",
       },
       "amber-centro": {
         title: "Taxi vers le centre",

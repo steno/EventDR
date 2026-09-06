@@ -276,6 +276,18 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     ],
   }),
   editorial({
+    venueSlug: "amber-cove",
+    verdictKey: "solid_visitor_activity",
+    crowdFit: ["visitor", "family"],
+    axes: { recommend: 4.4, atmosphere: 4.5, value: 4.1, practical: 4.5, reliability: 4.4 },
+    themes: [
+      { key: "family_friendly", sentiment: "positive", audience: "family" },
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+      { key: "tourist_crowds", sentiment: "mixed", audience: "visitor" },
+      { key: "free_access", sentiment: "positive" },
+    ],
+  }),
+  editorial({
     venueSlug: "fortaleza-san-felipe",
     verdictKey: "solid_local_culture",
     crowdFit: ["visitor", "family", "mixed"],

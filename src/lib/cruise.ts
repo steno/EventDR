@@ -111,6 +111,7 @@ const VISIT_MINUTES_BY_SLUG: Record<string, number> = {
   "fortaleza-san-felipe": 30,
   "letrero-puerto-plata": 15,
   "taino-bay": 90,
+  "amber-cove": 90,
   "malecon-puerto-plata": 45,
   "plaza-independencia": 25,
   "calle-sombrillas": 30,
@@ -776,6 +777,7 @@ export function cruiseVenueAllowlist(port: CruisePortSlug): string[] {
     }
   } else {
     for (const slug of [
+      "amber-cove",
       "playa-cofresi",
       "don-limon-cofresi",
       "los-tres-cocos-cofresi",

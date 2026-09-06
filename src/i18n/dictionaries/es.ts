@@ -327,11 +327,11 @@ export const es: Dictionary = {
     tainoBay: "Taino Bay",
     amberCove: "Amber Cove",
     tainoBayHint: "Pueblo en el muelle — el Centro es a pie",
-    amberCoveHint: "Maimón — taxi al Centro ~20–25 min",
+    amberCoveHint: "Pueblo en el muelle — taxi al Centro",
     tainoBayTagline:
       "Quédate en el pueblo (río lento, piscina, shows) o camina al Malecón y la Fortaleza — un día de crucero que sí cabe antes de zarpar de Taino Bay.",
     amberCoveTagline:
-      "Almuerzo en Maimón, playa Cofresí o un taxi al Centro — lo que sí cabe antes de zarpar de Amber Cove.",
+      "Quédate en el pueblo (piscina Aqua Zone, toboganes, Sky Bar) o toma taxi a Cofresí y Maimón — lo que sí cabe antes de zarpar de Amber Cove.",
     allAboard: "De vuelta al barco",
     allAboardHelp: "¿A qué hora debes estar de vuelta a bordo?",
     allAboardHint: "En el barco lo llaman all-aboard — mira la hora en tu tarjeta del crucero.",
@@ -344,7 +344,8 @@ export const es: Dictionary = {
       "¿Sigues en puerto? Pon una hora más tarde. Si te quedas en tierra, aquí está esta noche en la Costa Norte.",
     taxiTipTaino:
       "El pueblo está en el muelle — piscina y río lento son gratis. Camina al centro si sales de las puertas. Acuerda cualquier tarifa de taxi antes de subir.",
-    taxiTipAmber: "El taxi al Centro toma unos 20–25 min. Acuerda la tarifa antes de subir.",
+    taxiTipAmber:
+      "El pueblo está en el muelle — la piscina Aqua Zone y los toboganes son gratis. El taxi al Centro toma unos 20–25 min. Acuerda la tarifa antes de subir.",
     itinerariesTitle: "Rutas listas",
     itineraryMinutes: "~{minutes} min",
     viewRoute: "Ver la ruta",
@@ -373,7 +374,7 @@ export const es: Dictionary = {
     skipTaino:
       "Cabarete, Sosúa y Damajagua son taxis largos. El barco ya vende esos tours — quédate en el pueblo o camina el Centro.",
     skipAmber:
-      "Sosúa, Cabarete y Damajagua casi nunca llegan a tiempo. Quédate en Maimón salvo que te queden 5+ horas.",
+      "Sosúa, Cabarete y Damajagua casi nunca llegan a tiempo. Quédate en el pueblo o cerca de Maimón salvo que te queden 5+ horas.",
     exit: "Ver todo el calendario de la Costa Norte",
     walk: "{minutes} min a pie",
     taxi: "{minutes} min en taxi",
@@ -392,7 +393,7 @@ export const es: Dictionary = {
       },
       "amber-local": {
         title: "Quédate cerca del puerto",
-        body: "Almuerzo en Maimón, Ocean World o playa Cofresí — sin taxi al Centro.",
+        body: "Primero el pueblo con piscina — luego almuerzo en Maimón, Ocean World o playa Cofresí si sales de las puertas.",
       },
       "amber-centro": {
         title: "Taxi al Centro",

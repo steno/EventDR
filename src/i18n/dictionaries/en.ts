@@ -842,11 +842,11 @@ export const en: Dictionary = {
     tainoBay: "Taino Bay",
     amberCove: "Amber Cove",
     tainoBayHint: "Village at the pier — Centro is a walk",
-    amberCoveHint: "Maimón — taxi to Centro ~20–25 min",
+    amberCoveHint: "Village at the pier — taxi for Centro",
     tainoBayTagline:
       "Stay in the village (lazy river, pool, shows) or walk to the Malecón and Fortaleza — a cruise day that actually fits before you sail from Taino Bay.",
     amberCoveTagline:
-      "Maimón lunch, Cofresí beach, or a taxi to Centro — what actually fits before you sail from Amber Cove.",
+      "Stay in the village (Aqua Zone pool, slides, Sky Bar) or taxi to Cofresí and Maimón — what actually fits before you sail from Amber Cove.",
     allAboard: "Back on ship by",
     allAboardHelp: "When do you need to be back on the ship?",
     allAboardHint: "Ships call this all-aboard — check the time on your cruise card.",
@@ -859,7 +859,8 @@ export const en: Dictionary = {
       "Still in port? Set a later return time. If you’re staying ashore, here’s tonight on the North Coast.",
     taxiTipTaino:
       "The village is at the pier — pool and lazy river are free. Walk downtown if you leave the gates. Agree any taxi fare before you sit.",
-    taxiTipAmber: "Taxi to Centro is about 20–25 min. Agree the fare before you sit.",
+    taxiTipAmber:
+      "The village is at the pier — Aqua Zone pool and slides are free. Taxi to Centro is about 20–25 min. Agree the fare before you sit.",
     itinerariesTitle: "Ready-made loops",
     itineraryMinutes: "~{minutes} min",
     viewRoute: "View route",
@@ -888,7 +889,7 @@ export const en: Dictionary = {
     skipTaino:
       "Cabarete, Sosúa, and Damajagua are long taxis. The ship already sells those — stay in the village or walk Centro.",
     skipAmber:
-      "Sosúa, Cabarete, and Damajagua usually miss the ship. Stay near Maimón unless you have 5+ hours left.",
+      "Sosúa, Cabarete, and Damajagua usually miss the ship. Stay in the village or near Maimón unless you have 5+ hours left.",
     exit: "See the full North Coast calendar",
     walk: "{minutes} min walk",
     taxi: "{minutes} min taxi",
@@ -907,7 +908,7 @@ export const en: Dictionary = {
       },
       "amber-local": {
         title: "Stay near the port",
-        body: "Lunch on Maimón, Ocean World, or Cofresí beach — skip the Centro taxi.",
+        body: "Village pool day first — then lunch on Maimón, Ocean World, or Cofresí beach if you leave the gates.",
       },
       "amber-centro": {
         title: "Taxi to Centro",

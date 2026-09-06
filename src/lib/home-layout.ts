@@ -104,6 +104,7 @@ export const VENUE_AUDIENCE_POOLS: Record<
     "hard-rock-sosua",
     "liquid-blue-cabarete",
     "ocean-world",
+    "amber-cove",
     "bar-39-sosua",
     "flip-flop-sports-bar-sosua",
     "hotel-voramar-sosua",

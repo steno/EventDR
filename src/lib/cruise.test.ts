@@ -333,6 +333,51 @@ describe("rankCruiseEvents", () => {
     );
   });
 
+  it("ranks the Amber Cove village first from that port and hides it from Taino Bay", () => {
+    const village = event({
+      id: "amber-cove-village-daily",
+      title: "Amber Cove Village Day",
+      venueSlug: "amber-cove",
+      category: "adventure",
+      time: "8:00 AM – 6:00 PM",
+      lat: 19.8278,
+      lng: -70.7417,
+    });
+    const fromAmber = rankCruiseEvents(
+      [lobster, fortaleza, village],
+      "amber-cove",
+      16 * 60 + 30,
+      MORNING,
+    );
+    const visible = visibleCruiseEvents(fromAmber);
+    assert.equal(visible[0]?.event.id, "amber-cove-village-daily");
+    assert.equal(visible[0]?.fit, "walk");
+    assert.equal(
+      getCruiseVisitMinutes({
+        venueSlug: "amber-cove",
+        category: "adventure",
+        time: "8:00 AM – 6:00 PM",
+      }),
+      90,
+    );
+
+    const fromTaino = rankCruiseEvents(
+      [village],
+      "taino-bay",
+      16 * 60 + 30,
+      MORNING,
+    );
+    assert.equal(
+      fromTaino.find((item) => item.event.id === "amber-cove-village-daily")?.fit,
+      "too-far",
+    );
+    assert.ok(
+      !visibleCruiseEvents(fromTaino).some(
+        (item) => item.event.id === "amber-cove-village-daily",
+      ),
+    );
+  });
+
   it("keeps Maimón lunch from Amber Cove and hides downtown Fortaleza", () => {
     const ranked = rankCruiseEvents(
       [fortaleza, lobster],
@@ -460,12 +505,15 @@ describe("cruiseVenueAllowlist", () => {
     assert.ok(taino.includes("fortaleza-san-felipe"));
     assert.ok(!amber.includes("taino-bay"));
     assert.ok(!amber.includes("fortaleza-san-felipe"));
+    assert.ok(amber.includes("amber-cove"));
+    assert.ok(amber.includes("playa-cofresi"));
+    assert.ok(amber.includes("crazy-lobster-maimon"));
+    assert.ok(!amber.includes("taino-bay"));
+    assert.ok(!amber.includes("fortaleza-san-felipe"));
     assert.ok(!amber.includes("museo-ambar"));
     assert.ok(!amber.includes("calle-sombrillas"));
     assert.ok(!amber.includes("fun-city"));
     assert.ok(!amber.includes("paella-pop-el-pueblito"));
-    assert.ok(amber.includes("playa-cofresi"));
-    assert.ok(amber.includes("crazy-lobster-maimon"));
   });
 
   it("only lists venues closer to that port than the other", () => {

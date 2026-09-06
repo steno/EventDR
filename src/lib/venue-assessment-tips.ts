@@ -177,6 +177,14 @@ export const VENUE_TIP_COPY: Record<
       fr: "Restez dans l'enceinte si vous voulez zéro taxi — piscine et lazy river font la journée ; les boissons sont au tarif port, et le centre ne vaut le trajet que si vous voulez encore la ville.",
     },
   },
+  "amber-cove": {
+    body: "Zero-taxi resort day at the pier — Aqua Zone pool and slides are the free play; zip line and cabanas cost extra, and Centro is a 20–25 min taxi you only need with a long window.",
+    localized: {
+      en: "Zero-taxi resort day at the pier — Aqua Zone pool and slides are the free play; zip line and cabanas cost extra, and Centro is a 20–25 min taxi you only need with a long window.",
+      es: "Día resort sin taxi en el muelle — la piscina Aqua Zone y los toboganes son lo gratis; tirolina y cabañas cuestan extra, y el Centro es un taxi de 20–25 min solo si te queda una ventana larga.",
+      fr: "Journée resort sans taxi au quai — piscine Aqua Zone et toboggans sont le gratuit ; tyrolienne et cabanas coûtent plus, et le centre est un taxi de 20–25 min seulement avec une large fenêtre.",
+    },
+  },
   "fortaleza-san-felipe": {
     body: "Worth the short fortress museum stop for Atlantic views and 16th-century context — compact, not an all-afternoon site.",
     localized: {
