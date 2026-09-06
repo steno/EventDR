@@ -120,7 +120,9 @@ export function CruiseDiscover({
     if (!list) return;
 
     function measure() {
-      const selected = list.querySelector<HTMLElement>(
+      const tablist = portTablistRef.current;
+      if (!tablist) return;
+      const selected = tablist.querySelector<HTMLElement>(
         '[role="tab"][aria-selected="true"]',
       );
       if (!selected) return;
