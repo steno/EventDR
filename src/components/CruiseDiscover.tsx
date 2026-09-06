@@ -88,6 +88,7 @@ export function CruiseDiscover({
     ? cruiseDayPhase(portMeta, allAboardMinutes, now)
     : "open";
   const sailed = phase === "sailed";
+  const loopsClosed = clockReady && (sailed || remaining <= 0);
   const clockLine = !clockReady
     ? staticLeave
     : sailed
@@ -108,6 +109,8 @@ export function CruiseDiscover({
   const moreFits = visible.slice(CRUISE_HIGHLIGHT_LIMIT);
   const loops = useMemo(() => itinerariesForPort(port), [port]);
   const allowSlugs = useMemo(() => cruiseVenueAllowlist(port), [port]);
+  const panelEyebrow = sailed ? copy.sailedEyebrow : copy.eyebrow;
+  const venuesHeading = sailed ? copy.venuesTitleSailed : copy.venuesTitle;
 
   useEffect(() => {
     setClockReady(true);
@@ -149,7 +152,7 @@ export function CruiseDiscover({
       <div className="flex flex-col gap-6 lg:grid lg:grid-cols-[minmax(18rem,0.9fr)_minmax(0,1.1fr)] lg:items-start lg:gap-8">
         <section className="rounded-2xl border border-neutral-200 bg-white px-4 py-4 shadow-sm dark:border-neutral-800 dark:bg-neutral-950 sm:px-5 lg:px-5 lg:py-5">
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-orange-600 dark:text-orange-400">
-            {copy.eyebrow}
+            {panelEyebrow}
           </p>
 
           <div
@@ -264,7 +267,29 @@ export function CruiseDiscover({
           </div>
         </section>
 
-        {loops.length > 0 ? (
+        {loopsClosed ? (
+          <section
+            key={`loops-closed-${port}-${sailed ? "sailed" : "leave"}`}
+            className="cruise-port-swap min-w-0"
+          >
+            <div className="flex h-full flex-col justify-center rounded-2xl border border-neutral-200 bg-white px-4 py-5 shadow-sm dark:border-neutral-800 dark:bg-neutral-950 sm:px-5">
+              <h2 className="text-section font-extrabold text-neutral-950 dark:text-neutral-100">
+                {sailed ? copy.sailedLoopsTitle : copy.leaveNowLoopsTitle}
+              </h2>
+              <p className="mt-2 text-sm leading-snug text-neutral-600 dark:text-neutral-400">
+                {sailed ? copy.sailedLoopsBody : copy.leaveNowLoopsBody}
+              </p>
+              {sailed ? (
+                <a
+                  href={`/${locale}?city=puerto-plata`}
+                  className="mt-4 inline-flex w-full items-center justify-center rounded-xl bg-neutral-900 px-4 py-2.5 text-sm font-bold text-white shadow-sm dark:bg-neutral-100 dark:text-neutral-950 sm:w-auto"
+                >
+                  {copy.exit}
+                </a>
+              ) : null}
+            </div>
+          </section>
+        ) : loops.length > 0 ? (
           <section key={`loops-${port}`} className="cruise-port-swap min-w-0">
             <h2 className="mb-3 text-section font-extrabold text-neutral-950 dark:text-neutral-100">
               {copy.itinerariesTitle}
@@ -283,7 +308,7 @@ export function CruiseDiscover({
                     clockReady ? itineraryTimeFit(loop, remaining) : "fits"
                   }
                   returnTo={returnTo}
-                  returnTitle={copy.eyebrow}
+                  returnTitle={panelEyebrow}
                 />
               ))}
             </div>
@@ -301,7 +326,7 @@ export function CruiseDiscover({
             title={copy.fitsTitle}
             hideSeeAll
             returnTo={returnTo}
-            returnTitle={copy.eyebrow}
+            returnTitle={panelEyebrow}
             alerts={alerts}
             notes={Object.fromEntries(
               highlightEvents.map((item) => [
@@ -325,7 +350,7 @@ export function CruiseDiscover({
                   dict={dict}
                   locale={locale}
                   returnTo={returnTo}
-                  returnTitle={copy.eyebrow}
+                  returnTitle={panelEyebrow}
                   view="cards"
                   note={cruiseNote(item, dict)}
                 />
@@ -341,9 +366,9 @@ export function CruiseDiscover({
           citySlug="puerto-plata"
           audiences={["visitor"]}
           allowedSlugs={allowSlugs}
-          visitorTitle={copy.venuesTitle}
+          visitorTitle={venuesHeading}
           returnTo={returnTo}
-          returnTitle={copy.eyebrow}
+          returnTitle={panelEyebrow}
         />
 
         {phase === "open" ? (

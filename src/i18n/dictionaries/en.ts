@@ -302,6 +302,9 @@ export type Dictionary = {
     /** Home hero H2 after a cruise port is chosen. */
     tainoBayTagline: string;
     amberCoveTagline: string;
+    /** Home hero H2 after all-aboard — ships are gone. */
+    tainoBaySailedTagline: string;
+    amberCoveSailedTagline: string;
     allAboard: string;
     allAboardHelp: string;
     allAboardHint: string;
@@ -311,6 +314,14 @@ export type Dictionary = {
     pastLeave: string;
     shipsSailed: string;
     shipsSailedHint: string;
+    /** Panel eyebrow when past all-aboard. */
+    sailedEyebrow: string;
+    /** Replaces ready-made loops after ships leave. */
+    sailedLoopsTitle: string;
+    sailedLoopsBody: string;
+    /** Too late to start a loop, but all-aboard not yet past. */
+    leaveNowLoopsTitle: string;
+    leaveNowLoopsBody: string;
     taxiTipTaino: string;
     taxiTipAmber: string;
     itinerariesTitle: string;
@@ -345,6 +356,8 @@ export type Dictionary = {
     tight: string;
     loopTooLate: string;
     venuesTitle: string;
+    /** Venue rail title after ships leave. */
+    venuesTitleSailed: string;
     loops: {
       "taino-walk": { title: string; body: string };
       "taino-culture": { title: string; body: string };
@@ -847,6 +860,10 @@ export const en: Dictionary = {
       "Stay in the village (lazy river, pool, shows) or walk to the Malecón and Fortaleza — a cruise day that actually fits before you sail from Taino Bay.",
     amberCoveTagline:
       "Stay in the village (Aqua Zone pool, slides, Sky Bar) or taxi to Cofresí and Maimón — what actually fits before you sail from Amber Cove.",
+    tainoBaySailedTagline:
+      "Ships have left Taino Bay — pier walks are done. Here’s tonight in Centro, the Malecón, and the rest of the North Coast.",
+    amberCoveSailedTagline:
+      "Ships have left Amber Cove — no more ship-day loops. Here’s tonight around Cofresí, Maimón, and the North Coast.",
     allAboard: "Back on ship by",
     allAboardHelp: "When do you need to be back on the ship?",
     allAboardHint: "Ships call this all-aboard — check the time on your cruise card.",
@@ -857,6 +874,13 @@ export const en: Dictionary = {
     shipsSailed: "Most ships have already left.",
     shipsSailedHint:
       "Still in port? Set a later return time. If you’re staying ashore, here’s tonight on the North Coast.",
+    sailedEyebrow: "Staying ashore",
+    sailedLoopsTitle: "Ship-day walks are over",
+    sailedLoopsBody:
+      "The ships have left the pier, so ready-made loops from the ship no longer apply. Switch to tonight on the North Coast — dinner, bars, and what’s open near here.",
+    leaveNowLoopsTitle: "Too late to start a loop",
+    leaveNowLoopsBody:
+      "There isn’t enough time left before all-aboard. If your ship is still docked, head back now — don’t start a new walk or taxi loop.",
     taxiTipTaino:
       "The village is at the pier — pool and lazy river are free. Walk downtown if you leave the gates. Agree any taxi fare before you sit.",
     taxiTipAmber:
@@ -897,6 +921,7 @@ export const en: Dictionary = {
     tight: "Tight on time",
     loopTooLate: "Won't fit before you sail",
     venuesTitle: "Near this port",
+    venuesTitleSailed: "Tonight near this port",
     loops: {
       "taino-walk": {
         title: "Walk downtown",

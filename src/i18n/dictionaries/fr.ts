@@ -332,6 +332,10 @@ export const fr: Dictionary = {
       "Restez au village (lazy river, piscine, spectacles) ou marchez jusqu’au Malecón et Fortaleza — une journée croisière qui tient avant le départ de Taino Bay.",
     amberCoveTagline:
       "Restez au village (piscine Aqua Zone, toboggans, Sky Bar) ou prenez un taxi vers Cofresí et Maimón — ce qui tient vraiment avant le départ d’Amber Cove.",
+    tainoBaySailedTagline:
+      "Les navires ont quitté Taino Bay — plus de balades depuis le quai. Voici ce soir au centre, sur le Malecón et sur le reste de la Côte Nord.",
+    amberCoveSailedTagline:
+      "Les navires ont quitté Amber Cove — plus de boucles du jour de croisière. Voici ce soir autour de Cofresí, Maimón et de la Côte Nord.",
     allAboard: "Retour à bord",
     allAboardHelp: "À quelle heure devez-vous être de retour à bord ?",
     allAboardHint: "Le navire l’appelle all-aboard — vérifiez l’heure sur votre carte de croisière.",
@@ -342,6 +346,13 @@ export const fr: Dictionary = {
     shipsSailed: "La plupart des navires sont déjà partis.",
     shipsSailedHint:
       "Encore à quai ? Choisissez une heure plus tardive. Si vous restez à terre, voici ce soir sur la Côte Nord.",
+    sailedEyebrow: "Reste à terre",
+    sailedLoopsTitle: "Les boucles du navire sont terminées",
+    sailedLoopsBody:
+      "Les navires ont quitté le quai, donc les boucles depuis le bateau ne s’appliquent plus. Passez à ce soir sur la Côte Nord — dîner, bars et ce qui est encore ouvert près d’ici.",
+    leaveNowLoopsTitle: "Trop tard pour commencer une boucle",
+    leaveNowLoopsBody:
+      "Il ne reste pas assez de temps avant l’all-aboard. Si votre navire est encore à quai, rentrez maintenant — ne démarrez pas une nouvelle marche ni une boucle en taxi.",
     taxiTipTaino:
       "Le village est au quai — piscine et lazy river sont gratuits. Marchez en centre-ville si vous sortez des portes. Convenez du prix du taxi avant de monter.",
     taxiTipAmber:
@@ -382,6 +393,7 @@ export const fr: Dictionary = {
     tight: "Juste à temps",
     loopTooLate: "Ne tient pas avant le départ",
     venuesTitle: "Près de ce port",
+    venuesTitleSailed: "Ce soir près de ce port",
     loops: {
       "taino-walk": {
         title: "Centre à pied",

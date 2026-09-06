@@ -1,5 +1,5 @@
 /**
- * Column math for CARD_GRID_CLASS (2 cols on phones, auto-fit minmax(220px)
+ * Column math for CARD_GRID_CLASS (2 cols on phones, auto-fill minmax(220px)
  * from the `sm` breakpoint). Keep gaps in sync with page-shell.
  */
 

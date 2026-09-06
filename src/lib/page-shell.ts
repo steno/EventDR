@@ -2,8 +2,9 @@
  * Shared layout width tokens.
  *
  * Listing shells are fluid up to a soft ~1440px ceiling (Airbnb-ish density
- * without infinite stretch on ultrawide). Card grids use auto-fit so columns
- * grow inside that shell. Detail pages stay narrower for readable prose.
+ * without infinite stretch on ultrawide). Card grids use auto-fill so columns
+ * grow inside that shell without a single tile ballooning full-width. Detail
+ * pages stay narrower for readable prose.
  */
 
 /** Soft desktop ceiling — wide enough for dense grids, not billboard-wide. */
@@ -43,12 +44,13 @@ export const DETAIL_HERO_PHOTO_HEIGHT_CLASS = `${DETAIL_HERO_PHOTO_HEIGHT_MOBILE
 /**
  * Card discovery grids — elastic columns: 2 on narrow phones, then as many
  * ~220px tiles as fit. Underscore in `1fr` keeps the arbitrary value valid in
- * Tailwind; `auto-fit` collapses unused tracks when the whole grid is short.
+ * Tailwind; `auto-fill` keeps empty tracks so sparse lists (e.g. one saved
+ * event) stay tile-sized instead of stretching billboard-wide.
  * Truncated lists fill leftover cells with extra events (`fillCardGridPage`);
  * “More events” is a full-width bar on the next row (`col-span-full`).
  */
 export const CARD_GRID_CLASS =
-  "grid grid-cols-2 items-stretch gap-2.5 sm:grid-cols-[repeat(auto-fit,minmax(220px,_1fr))] sm:gap-3";
+  "grid grid-cols-2 items-stretch gap-2.5 sm:grid-cols-[repeat(auto-fill,minmax(220px,_1fr))] sm:gap-3";
 
 /** Full-row control under a complete card grid (More events). */
 export const CARD_GRID_FULL_ROW_CLASS = "col-span-full w-full";

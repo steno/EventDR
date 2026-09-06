@@ -332,6 +332,10 @@ export const es: Dictionary = {
       "Quédate en el pueblo (río lento, piscina, shows) o camina al Malecón y la Fortaleza — un día de crucero que sí cabe antes de zarpar de Taino Bay.",
     amberCoveTagline:
       "Quédate en el pueblo (piscina Aqua Zone, toboganes, Sky Bar) o toma taxi a Cofresí y Maimón — lo que sí cabe antes de zarpar de Amber Cove.",
+    tainoBaySailedTagline:
+      "Los barcos ya zarparon de Taino Bay — se acabaron las caminatas desde el muelle. Aquí está esta noche en el Centro, el Malecón y el resto de la Costa Norte.",
+    amberCoveSailedTagline:
+      "Los barcos ya zarparon de Amber Cove — no hay más rutas del día de crucero. Aquí está esta noche cerca de Cofresí, Maimón y la Costa Norte.",
     allAboard: "De vuelta al barco",
     allAboardHelp: "¿A qué hora debes estar de vuelta a bordo?",
     allAboardHint: "En el barco lo llaman all-aboard — mira la hora en tu tarjeta del crucero.",
@@ -342,6 +346,13 @@ export const es: Dictionary = {
     shipsSailed: "La mayoría de los barcos ya zarparon.",
     shipsSailedHint:
       "¿Sigues en puerto? Pon una hora más tarde. Si te quedas en tierra, aquí está esta noche en la Costa Norte.",
+    sailedEyebrow: "Quedándote en tierra",
+    sailedLoopsTitle: "Se acabaron las rutas del barco",
+    sailedLoopsBody:
+      "Los barcos ya dejaron el muelle, así que las rutas listas desde el barco ya no aplican. Pasa a esta noche en la Costa Norte — cena, bares y lo que esté abierto por aquí.",
+    leaveNowLoopsTitle: "Ya no da tiempo para una ruta",
+    leaveNowLoopsBody:
+      "No queda tiempo suficiente antes del all-aboard. Si tu barco sigue atracado, vuelve ahora — no empieces una caminata ni un circuito en taxi.",
     taxiTipTaino:
       "El pueblo está en el muelle — piscina y río lento son gratis. Camina al centro si sales de las puertas. Acuerda cualquier tarifa de taxi antes de subir.",
     taxiTipAmber:
@@ -382,6 +393,7 @@ export const es: Dictionary = {
     tight: "Justo de tiempo",
     loopTooLate: "No cabe antes de zarpar",
     venuesTitle: "Cerca de este puerto",
+    venuesTitleSailed: "Esta noche cerca de este puerto",
     loops: {
       "taino-walk": {
         title: "Camina el Centro",

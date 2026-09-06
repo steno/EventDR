@@ -24,7 +24,6 @@ import { SearchBar } from "@/components/SearchBar";
 import { SearchVenueHits } from "@/components/SearchVenueHits";
 import { BottomNav } from "@/components/BottomNav";
 import { EventCard } from "@/components/EventCard";
-import { EventViewToggle } from "@/components/EventViewToggle";
 import { VenueAudienceCards } from "@/components/VenueAudienceCards";
 import { TodayHighlights } from "@/components/TodayHighlights";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
@@ -34,13 +33,12 @@ import {
   stickyBackControlClassName,
 } from "@/components/StickyListHeader";
 import { useSavedEvents } from "@/hooks/useSavedEvents";
-import { useEventListView } from "@/hooks/useEventListView";
 import {
   getHomeDiscoverLayout,
   HOME_SEARCH_LIMIT,
 } from "@/lib/home-layout";
 import { searchVenues } from "@/lib/filters";
-import { CARD_GRID_CLASS, PAGE_SHELL_CLASS } from "@/lib/page-shell";
+import { PAGE_SHELL_CLASS } from "@/lib/page-shell";
 import {
   countEventsByCity,
   eventMatchesCity,
@@ -53,6 +51,7 @@ import {
   type CitySlug,
 } from "@/lib/cities";
 import {
+  cruiseDayPhase,
   cruisePath,
   CRUISE_PORTS,
   isCruisePortSlug,
@@ -160,6 +159,22 @@ function HomeApp({
   const [allAboardMinutes, setAllAboardMinutes] = useState(() =>
     parseAllAboardMinutes(initialAllAboardParam),
   );
+  const [cruiseSailed, setCruiseSailed] = useState(false);
+
+  useEffect(() => {
+    if (!cruisePort) {
+      setCruiseSailed(false);
+      return;
+    }
+    const tick = () => {
+      setCruiseSailed(
+        cruiseDayPhase(CRUISE_PORTS[cruisePort], allAboardMinutes) === "sailed",
+      );
+    };
+    tick();
+    const id = window.setInterval(tick, 30_000);
+    return () => window.clearInterval(id);
+  }, [cruisePort, allAboardMinutes]);
 
   useEffect(() => {
     if (initialVenues?.length) {
@@ -272,7 +287,6 @@ function HomeApp({
   }, [areaChosen, selectedCity]);
 
   const { filterSaved, reconcileWithEvents, ready: savedReady } = useSavedEvents();
-  const { view: savedView, setView: setSavedView } = useEventListView();
   const [eventsReady, setEventsReady] = useState(false);
 
   const handleEventsLoaded = useCallback((events: Event[]) => {
@@ -383,8 +397,12 @@ function HomeApp({
   })();
   const heroTagline = cruisePort
     ? cruisePort === "taino-bay"
-      ? dict.cruise.tainoBayTagline
-      : dict.cruise.amberCoveTagline
+      ? cruiseSailed
+        ? dict.cruise.tainoBaySailedTagline
+        : dict.cruise.tainoBayTagline
+      : cruiseSailed
+        ? dict.cruise.amberCoveSailedTagline
+        : dict.cruise.amberCoveTagline
     : undefined;
   const heroImageSrc = cruisePort
     ? CRUISE_PORTS[cruisePort].imageSrc
@@ -666,18 +684,9 @@ function HomeApp({
                   <ArrowLeft className="h-[1.125rem] w-[1.125rem] shrink-0" aria-hidden />
                   <span className="min-w-0 truncate">{dict.nav.discover}</span>
                 </button>
-              <div className="mt-1 mb-6 flex items-center justify-between gap-2">
-                <h2 className="min-w-0 text-title font-extrabold text-neutral-900 dark:text-neutral-100">
-                  {dict.saved.title}
-                </h2>
-                {savedReady && eventsReady && savedEvents.length > 0 ? (
-                  <EventViewToggle
-                    value={savedView}
-                    onChange={setSavedView}
-                    dict={dict}
-                  />
-                ) : null}
-              </div>
+              <h2 className="mt-1 mb-6 text-title font-extrabold text-neutral-900 dark:text-neutral-100">
+                {dict.saved.title}
+              </h2>
               {!savedReady || !eventsReady ? (
                 <div className="py-16 text-center text-sm font-medium text-neutral-400 dark:text-neutral-500">
                   …
@@ -691,23 +700,19 @@ function HomeApp({
                     {onboardingCopy.saved.exampleBody}
                   </p>
                   {savedExample ? (
-                    <div className="mx-auto mt-6 max-w-sm text-left">
+                    <div className="mx-auto mt-6 max-w-lg text-left">
                       <EventCard
                         event={savedExample}
                         dict={dict}
                         locale={locale}
                         returnTo={homePath}
-                        view="cards"
+                        view="list"
                       />
                     </div>
                   ) : null}
                 </div>
               ) : (
-                <div
-                  className={
-                    savedView === "cards" ? CARD_GRID_CLASS : "space-y-3.5"
-                  }
-                >
+                <div className="space-y-3.5">
                   {savedEvents.map((event) => (
                     <EventCard
                       key={event.id}
@@ -715,7 +720,7 @@ function HomeApp({
                       dict={dict}
                       locale={locale}
                       returnTo={homePath}
-                      view={savedView}
+                      view="list"
                     />
                   ))}
                 </div>

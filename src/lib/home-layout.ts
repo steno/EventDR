@@ -19,7 +19,7 @@ export const HOME_TODAY_LIMIT = 6;
 
 /**
  * Max events before "More events" on home picks / scope lists.
- * 12 keeps short first paints. Desktop auto-fit grids then add a few extra
+ * 12 keeps short first paints. Desktop auto-fill grids then add a few extra
  * cards (`fillCardGridPage`) so the last row is complete before More events.
  */
 export const HOME_PICKS_LIMIT = 12;
