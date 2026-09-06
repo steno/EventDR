@@ -74,6 +74,23 @@ export function getStreetViewUrl(coords: Pick<EventCoords, "lat" | "lng">): stri
 }
 
 /**
+ * Inline Street View iframe (no Maps JavaScript API).
+ * Used when the billable panorama can't load — still fills the venue map frame.
+ */
+export function getStreetViewEmbedUrl(
+  coords: Pick<EventCoords, "lat" | "lng">,
+  heading = 0,
+): string {
+  const params = new URLSearchParams({
+    layer: "c",
+    cbll: `${coords.lat},${coords.lng}`,
+    cbp: `12,${Math.round(heading)},0,0,0`,
+    output: "svembed",
+  });
+  return `https://www.google.com/maps?${params.toString()}`;
+}
+
+/**
  * Google Maps turn-by-turn to a venue.
  * Pass origin coords, or a free-text start address, or omit for destination-only.
  */

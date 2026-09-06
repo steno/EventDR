@@ -245,8 +245,8 @@ export function VenueMapPanel({
     },
     [streetViewControlled, onStreetViewChange],
   );
-  /** In-app Google Street View on tap; OSM + open-in-Maps if the key is missing or billed out. */
-  const streetViewMode = canUseInAppStreetView() ? "google" : "static";
+  /** Prefer Maps JS panorama; iframe embed when the key is missing or Maps JS is blocked. */
+  const forceStreetViewEmbed = !canUseInAppStreetView();
 
   // Route send / “use my location” needs the 2D map — leave Street View.
   useEffect(() => {
@@ -328,7 +328,7 @@ export function VenueMapPanel({
         title={venue.name}
         dict={dict}
         variant="inline"
-        forceStatic={streetViewMode === "static"}
+        forceEmbed={forceStreetViewEmbed}
       />
     </div>
   );

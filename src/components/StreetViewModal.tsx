@@ -8,7 +8,7 @@ import {
   loadGoogleMapsJs,
   markGoogleMapsJsBlocked,
 } from "@/lib/google-maps-js";
-import { getMapPinUrl, getStreetViewUrl, osmTilePreviewUrl } from "@/lib/maps";
+import { getMapPinUrl, getStreetViewEmbedUrl } from "@/lib/maps";
 
 interface StreetViewModalProps {
   open: boolean;
@@ -22,8 +22,8 @@ interface StreetViewModalProps {
    * `dialog` is a full-viewport sheet (legacy / other surfaces).
    */
   variant?: "inline" | "dialog";
-  /** Skip Maps JS and show the OSM + Open in Maps safety net. */
-  forceStatic?: boolean;
+  /** Skip Maps JS and show the iframe embed (key missing / previously blocked). */
+  forceEmbed?: boolean;
 }
 
 type StreetViewPanoramaHandle = {
@@ -32,64 +32,48 @@ type StreetViewPanoramaHandle = {
   addListener?: (event: string, handler: () => void) => { remove: () => void };
 };
 
-type ViewStatus = "loading" | "ready" | "unavailable" | "error" | "static";
+type ViewStatus = "loading" | "ready" | "unavailable" | "error" | "embed";
 
-function StaticAreaFallback({
+function StreetViewEmbed({
   lat,
   lng,
   title,
   dict,
-  message,
 }: {
   lat: number;
   lng: number;
   title?: string;
   dict: Dictionary;
-  message: string;
 }) {
-  const previewUrl = osmTilePreviewUrl(lat, lng, 16);
-  const streetViewUrl = getStreetViewUrl({ lat, lng });
+  const embedUrl = getStreetViewEmbedUrl({ lat, lng });
   const mapsUrl = getMapPinUrl({ lat, lng }, title);
 
   return (
     <div className="absolute inset-0 z-10 flex flex-col bg-neutral-200 dark:bg-neutral-800">
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${previewUrl})` }}
-        aria-hidden
+      <iframe
+        title={dict.venues.streetView}
+        src={embedUrl}
+        className="min-h-0 w-full flex-1 border-0 bg-neutral-200 dark:bg-neutral-800"
+        allow="accelerometer; gyroscope; fullscreen"
+        loading="eager"
+        referrerPolicy="no-referrer-when-downgrade"
       />
-      <div
-        className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/15 to-black/10"
-        aria-hidden
-      />
-      <div className="relative mt-auto flex flex-col items-center gap-3 px-5 pb-5 pt-10 text-center">
-        <p className="text-sm font-semibold text-white drop-shadow-sm">{message}</p>
-        <div className="flex flex-wrap items-center justify-center gap-2">
-          <a
-            href={streetViewUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-bold text-neutral-900"
-          >
-            <ExternalLink className="h-4 w-4" aria-hidden />
-            {dict.venues.streetView}
-          </a>
-          <a
-            href={mapsUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-neutral-900/80 px-4 py-2 text-sm font-bold text-white ring-1 ring-white/30"
-          >
-            <ExternalLink className="h-4 w-4" aria-hidden />
-            {dict.venues.openInMaps}
-          </a>
-        </div>
+      <div className="flex shrink-0 items-center justify-end border-t border-neutral-200/80 bg-white/95 px-3 py-2 dark:border-neutral-800 dark:bg-neutral-900/95">
+        <a
+          href={mapsUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold text-neutral-700 touch-manipulation dark:text-neutral-200"
+        >
+          <ExternalLink className="h-3.5 w-3.5" aria-hidden />
+          {dict.venues.openInMaps}
+        </a>
       </div>
     </div>
   );
 }
 
-/** In-app Google Street View panorama (Maps JavaScript API), with OSM safety net. */
+/** In-app Google Street View panorama (Maps JavaScript API), with iframe embed safety net. */
 export function StreetViewModal({
   open,
   onClose,
@@ -98,11 +82,11 @@ export function StreetViewModal({
   title,
   dict,
   variant = "inline",
-  forceStatic = false,
+  forceEmbed = false,
 }: StreetViewModalProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [status, setStatus] = useState<ViewStatus>(
-    forceStatic || !canUseInAppStreetView() ? "static" : "loading",
+    forceEmbed || !canUseInAppStreetView() ? "embed" : "loading",
   );
   const fallbackMapsUrl = getMapPinUrl({ lat, lng }, title);
   const inline = variant === "inline";
@@ -110,8 +94,8 @@ export function StreetViewModal({
   useEffect(() => {
     if (!open) return;
 
-    if (forceStatic || !canUseInAppStreetView()) {
-      setStatus("static");
+    if (forceEmbed || !canUseInAppStreetView()) {
+      setStatus("embed");
       return;
     }
 
@@ -129,7 +113,7 @@ export function StreetViewModal({
         });
         if (cancelled || !containerRef.current) return;
         if (!canUseInAppStreetView()) {
-          setStatus("static");
+          setStatus("embed");
           return;
         }
 
@@ -178,12 +162,13 @@ export function StreetViewModal({
 
         if (result.hardFail) {
           markGoogleMapsJsBlocked("StreetViewPanorama");
-          setStatus("static");
+          setStatus("embed");
           return;
         }
 
         if (!result.ok || !result.latLng) {
-          setStatus("unavailable");
+          // No panorama near the pin — still show the embed (Google picks nearest).
+          setStatus("embed");
           return;
         }
 
@@ -208,7 +193,7 @@ export function StreetViewModal({
             if (cancelled) return;
             const panoStatus = panorama?.getStatus?.();
             if (panoStatus && panoStatus !== google.maps.StreetViewStatus.OK) {
-              setStatus("unavailable");
+              setStatus("embed");
             }
           }) ?? null;
 
@@ -228,7 +213,7 @@ export function StreetViewModal({
       .catch(() => {
         if (!cancelled) {
           markGoogleMapsJsBlocked("StreetViewModal");
-          setStatus("static");
+          setStatus("embed");
         }
       });
 
@@ -242,7 +227,7 @@ export function StreetViewModal({
       panorama = null;
       if (containerRef.current) containerRef.current.innerHTML = "";
     };
-  }, [open, lat, lng, forceStatic]);
+  }, [open, lat, lng, forceEmbed]);
 
   if (!open) return null;
 
@@ -279,7 +264,7 @@ export function StreetViewModal({
       </div>
 
       <div className="relative min-h-0 flex-1 bg-neutral-200 dark:bg-neutral-800">
-        {status !== "static" ? (
+        {status === "loading" || status === "ready" ? (
           <div
             ref={containerRef}
             className="street-view-panorama absolute inset-0"
@@ -293,14 +278,8 @@ export function StreetViewModal({
           </div>
         ) : null}
 
-        {status === "static" ? (
-          <StaticAreaFallback
-            lat={lat}
-            lng={lng}
-            title={title}
-            dict={dict}
-            message={dict.venues.streetViewHint}
-          />
+        {status === "embed" ? (
+          <StreetViewEmbed lat={lat} lng={lng} title={title} dict={dict} />
         ) : null}
 
         {status === "unavailable" || status === "error" ? (

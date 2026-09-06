@@ -74,11 +74,11 @@ const nextConfig: NextConfig = {
       "form-action 'self'",
       // Next inline boot scripts + GA snippet; Maps loader is external.
       // React dev overlays need eval(); production never does.
-      `script-src 'self' 'unsafe-inline'${process.env.NODE_ENV !== "production" ? " 'unsafe-eval'" : ""} https://www.googletagmanager.com https://maps.googleapis.com`,
+      `script-src 'self' 'unsafe-inline'${process.env.NODE_ENV !== "production" ? " 'unsafe-eval'" : ""} https://www.googletagmanager.com https://maps.googleapis.com https://maps.gstatic.com`,
       "style-src 'self' 'unsafe-inline'",
-      "img-src 'self' data: blob: https://firebasestorage.googleapis.com https://*.googleusercontent.com https://maps.gstatic.com https://maps.googleapis.com https://tile.openstreetmap.org https://*.tile.openstreetmap.org https://tile.openstreetmap.fr https://*.tile.openstreetmap.fr",
+      "img-src 'self' data: blob: https://firebasestorage.googleapis.com https://*.googleusercontent.com https://maps.gstatic.com https://*.googleapis.com https://maps.googleapis.com https://tile.openstreetmap.org https://*.tile.openstreetmap.org https://tile.openstreetmap.fr https://*.tile.openstreetmap.fr",
       "font-src 'self' data:",
-      "connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://firebasestorage.googleapis.com https://maps.googleapis.com https://nominatim.openstreetmap.org https://router.project-osrm.org",
+      "connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://firebasestorage.googleapis.com https://maps.googleapis.com https://maps.gstatic.com https://nominatim.openstreetmap.org https://router.project-osrm.org",
       "worker-src 'self' blob:",
       "manifest-src 'self'",
       "media-src 'self' blob:",

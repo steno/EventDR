@@ -3,6 +3,7 @@ import { describe, it } from "node:test";
 import {
   getLoopAppleMapsUrl,
   getLoopGoogleMapsUrl,
+  getStreetViewEmbedUrl,
   osmEmbedUrl,
   osmTilePreviewUrl,
 } from "./maps";
@@ -72,6 +73,18 @@ describe("osmTilePreviewUrl", () => {
     const parsed = new URL(url);
     assert.equal(parsed.hostname, "a.tile.openstreetmap.fr");
     assert.match(parsed.pathname, /^\/osmfr\/13\/\d+\/\d+\.png$/);
+  });
+});
+
+describe("getStreetViewEmbedUrl", () => {
+  it("builds an inline Street View embed aimed at the pin", () => {
+    const url = getStreetViewEmbedUrl({ lat: 19.7649114, lng: -70.4249331 }, 210);
+    const parsed = new URL(url);
+    assert.equal(parsed.origin + parsed.pathname, "https://www.google.com/maps");
+    assert.equal(parsed.searchParams.get("layer"), "c");
+    assert.equal(parsed.searchParams.get("cbll"), "19.7649114,-70.4249331");
+    assert.equal(parsed.searchParams.get("cbp"), "12,210,0,0,0");
+    assert.equal(parsed.searchParams.get("output"), "svembed");
   });
 });
 
