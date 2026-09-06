@@ -455,6 +455,23 @@
     "imageEmoji": "💧"
   },
   {
+    "id": "taino-bay-village-daily",
+    "title": "Día en el pueblo Taino Bay",
+    "description": "Pueblo exclusivo para pasajeros de crucero en el muelle — río lento y piscinas gratis, tiendas, bares y shows cuando hay barco. Monkey Island es extra. No es un day pass público. La Fortaleza y el Malecón quedan a poca caminata si sales de las puertas.",
+    "date": "2026-01-01",
+    "time": "8:00 AM - 6:00 PM",
+    "location": "Puerto Plata",
+    "address": "Av. Antigua Vía Férrea, Muelle Turístico",
+    "venue": "Taino Bay",
+    "venueSlug": "taino-bay",
+    "category": "adventure",
+    "format": "physical",
+    "recurrence": "daily",
+    "isFree": true,
+    "sourceUrl": "https://www.porttainobay.com/es/faqs",
+    "imageEmoji": "🏊"
+  },
+  {
     "id": "fortaleza-san-felipe-daily",
     "title": "Fortaleza San Felipe — Horario del museo",
     "description": "Fortaleza española del siglo XVI y museo — cañones originales, armas coloniales y vistas al Atlántico. Atardecer desde el parque La Puntilla.",

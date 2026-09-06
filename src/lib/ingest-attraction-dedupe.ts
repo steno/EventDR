@@ -15,6 +15,7 @@ const SEEDED_ATTRACTION_PATTERNS: RegExp[] = [
   /\bocean\s*world\b/i,
   /\btelef[eé]rico\b|\bpico\s+isabel\b/i,
   /\bfortaleza\s+san\s+felipe\b/i,
+  /\bta[ií]no\s*bay\b|\bport\s*ta[ií]no\b/i,
   /\bmuseo\s+del?\s*[aá]mbar\b|\bamber\s+museum\b/i,
   /\bchukka\b|\bcoconut\s+cove\b|\bocean\s+zipline\b/i,
   /\boutback\s+safari\b/i,

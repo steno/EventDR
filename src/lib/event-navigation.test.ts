@@ -9,6 +9,7 @@ import {
   resolveListingBackLabel,
   takeReturnPath,
   eventIdFromPath,
+  isCruiseReturnPath,
 } from "./event-navigation";
 
 const RETURN_STORAGE_KEY = "pop-event-return";
@@ -118,6 +119,17 @@ describe("resolveListingBackLabel", () => {
   it("still names the city on detail pages with no picker", () => {
     assert.equal(resolveBackLabel("en", "/en/city/sosua", dict), "Sosúa");
   });
+
+  it("names the cruise port and loop for shore-day returns", () => {
+    assert.equal(
+      resolveBackLabel("en", "/en/cruise/amber-cove", dict),
+      dict.cruise.amberCove,
+    );
+    assert.equal(
+      resolveBackLabel("en", "/en/cruise/amber-cove/amber-local?allAboard=16:30", dict),
+      dict.cruise.loops["amber-local"].title,
+    );
+  });
 });
 
 describe("resolveEventVenueSlug", () => {
@@ -140,6 +152,18 @@ describe("resolveEventVenueSlug", () => {
       }),
       "lax-cabarete",
     );
+  });
+});
+
+describe("isCruiseReturnPath", () => {
+  it("matches cruise day and loop URLs", () => {
+    assert.equal(isCruiseReturnPath("/en/cruise/amber-cove"), true);
+    assert.equal(
+      isCruiseReturnPath("/es/cruise/taino-bay/taino-walk?allAboard=16:30"),
+      true,
+    );
+    assert.equal(isCruiseReturnPath("/en/event/ocean-world"), false);
+    assert.equal(isCruiseReturnPath("/en"), false);
   });
 });
 

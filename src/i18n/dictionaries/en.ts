@@ -841,10 +841,10 @@ export const en: Dictionary = {
     portLabel: "Your port",
     tainoBay: "Taino Bay",
     amberCove: "Amber Cove",
-    tainoBayHint: "Downtown — walk to the Malecón",
+    tainoBayHint: "Village at the pier — Centro is a walk",
     amberCoveHint: "Maimón — taxi to Centro ~20–25 min",
     tainoBayTagline:
-      "Walk to the Malecón, Fortaleza, and Umbrella Street — a downtown cruise day that actually fits before you sail from Taino Bay.",
+      "Stay in the village (lazy river, pool, shows) or walk to the Malecón and Fortaleza — a cruise day that actually fits before you sail from Taino Bay.",
     amberCoveTagline:
       "Maimón lunch, Cofresí beach, or a taxi to Centro — what actually fits before you sail from Amber Cove.",
     allAboard: "Back on ship by",
@@ -857,7 +857,8 @@ export const en: Dictionary = {
     shipsSailed: "Most ships have already left.",
     shipsSailedHint:
       "Still in port? Set a later return time. If you’re staying ashore, here’s tonight on the North Coast.",
-    taxiTipTaino: "Walk downtown. Agree any taxi fare before you sit.",
+    taxiTipTaino:
+      "The village is at the pier — pool and lazy river are free. Walk downtown if you leave the gates. Agree any taxi fare before you sit.",
     taxiTipAmber: "Taxi to Centro is about 20–25 min. Agree the fare before you sit.",
     itinerariesTitle: "Ready-made loops",
     itineraryMinutes: "~{minutes} min",
@@ -885,7 +886,7 @@ export const en: Dictionary = {
     moreFits: "More that still fits",
     skipTitle: "Skip today",
     skipTaino:
-      "Cabarete, Sosúa, and Damajagua are long taxis. The ship already sells those — stay in Centro.",
+      "Cabarete, Sosúa, and Damajagua are long taxis. The ship already sells those — stay in the village or walk Centro.",
     skipAmber:
       "Sosúa, Cabarete, and Damajagua usually miss the ship. Stay near Maimón unless you have 5+ hours left.",
     exit: "See the full North Coast calendar",

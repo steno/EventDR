@@ -567,6 +567,7 @@ function HomeApp({
                 <InstallBanner dict={dict} />
               ) : null}
               <PhotoHero
+                key={cruisePort ?? "home"}
                 dict={dict}
                 locale={locale}
                 featuredEvent={cruisePort ? null : discoverLayout.heroEvent}

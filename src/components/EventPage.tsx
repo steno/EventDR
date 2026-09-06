@@ -12,6 +12,7 @@ import {
   resolveBackLabel,
   resolveEventReturnPath,
   takeReturnPath,
+  isCruiseReturnPath,
 } from "@/lib/event-navigation";
 import { navigateBackSoft, navigateSoft } from "@/lib/nav-feedback";
 import { PAGE_SHELL_DETAIL_CLASS } from "@/lib/page-shell";
@@ -69,9 +70,10 @@ export function EventPage({
   );
 
   function handleClose() {
-    // Nearby / venue hops store a detail returnTo — push so label matches.
-    // List → detail keeps history.back() so the list scroll position survives.
-    if (returnTo && isDetailNavPath(returnTo)) {
+    // Nearby / venue hops and cruise shore-day store a returnTo — push so
+    // the label matches (cruise uses history.replaceState, so back() can skip it).
+    // Other list → detail keeps history.back() so list scroll survives.
+    if (returnTo && (isDetailNavPath(returnTo) || isCruiseReturnPath(returnTo))) {
       navigateSoft(router, returnTo);
       return;
     }

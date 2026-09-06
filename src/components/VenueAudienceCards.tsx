@@ -34,6 +34,8 @@ interface VenueAudienceCardsProps {
   allowedSlugs?: readonly string[];
   /** Override the visitor-slider heading. */
   visitorTitle?: string;
+  returnTo?: string;
+  returnTitle?: string | null;
 }
 
 function VenueSlideCard({
@@ -41,6 +43,8 @@ function VenueSlideCard({
   locale,
   loadImage,
   wide,
+  returnTo,
+  returnTitle,
 }: {
   venue: Venue;
   locale: Locale;
@@ -48,6 +52,8 @@ function VenueSlideCard({
   loadImage: boolean;
   /** Full-width slider (one audience) vs half-column home pair. */
   wide?: boolean;
+  returnTo?: string;
+  returnTitle?: string | null;
 }) {
   const sizes = wide
     ? "(max-width: 640px) 88vw, (max-width: 1024px) 50vw, 33vw"
@@ -56,6 +62,8 @@ function VenueSlideCard({
   return (
     <IntentLink
       href={`/${locale}/venue/${venue.slug}`}
+      returnTo={returnTo}
+      returnTitle={returnTitle}
       className="
         group flex h-full flex-col overflow-hidden rounded-2xl
         border border-neutral-200/90 bg-white
@@ -127,6 +135,8 @@ function AudienceSlider({
   areaName,
   title,
   wide,
+  returnTo,
+  returnTitle,
 }: {
   audience: VenueAudienceFilter;
   venues: Venue[];
@@ -138,6 +148,8 @@ function AudienceSlider({
   title?: string;
   /** One slider spanning the shell — show more cards as the viewport grows. */
   wide?: boolean;
+  returnTo?: string;
+  returnTitle?: string | null;
 }) {
   const hint = audienceHint(audience, dict, areaName);
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -223,6 +235,8 @@ function AudienceSlider({
                 locale={locale}
                 loadImage={mediaEnabled && index <= loadedThrough}
                 wide={wide}
+                returnTo={returnTo}
+                returnTitle={returnTitle}
               />
             </div>
           ))}
@@ -279,6 +293,8 @@ export function VenueAudienceCards({
   audiences = VENUE_AUDIENCE_FILTERS,
   allowedSlugs,
   visitorTitle,
+  returnTo,
+  returnTitle,
 }: VenueAudienceCardsProps) {
   const [venues, setVenues] = useState<Venue[]>(initialVenues ?? []);
   const sectionRef = useRef<HTMLElement>(null);
@@ -381,6 +397,8 @@ export function VenueAudienceCards({
             areaName={areaName}
             title={audience === "visitor" ? visitorTitle : undefined}
             wide={wide}
+            returnTo={returnTo}
+            returnTitle={returnTitle}
           />
         ))}
       </div>

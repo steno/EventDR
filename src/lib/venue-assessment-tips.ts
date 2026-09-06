@@ -169,6 +169,14 @@ export const VENUE_TIP_COPY: Record<
       fr: "Shows dans le complexe Playa Dorada — facile pour les hôtes, billet quand annoncé, pas un crawl du centre de Sosúa.",
     },
   },
+  "taino-bay": {
+    body: "Stay inside the gates if you want zero taxi risk — pool and lazy river are the day; drinks are ship-port priced and Centro is only worth the walk if you still want the city.",
+    localized: {
+      en: "Stay inside the gates if you want zero taxi risk — pool and lazy river are the day; drinks are ship-port priced and Centro is only worth the walk if you still want the city.",
+      es: "Quédate dentro de las puertas si no quieres taxi — la piscina y el río lento son el día; los tragos cuestan precio de puerto y el Centro solo vale si aún quieres la ciudad.",
+      fr: "Restez dans l'enceinte si vous voulez zéro taxi — piscine et lazy river font la journée ; les boissons sont au tarif port, et le centre ne vaut le trajet que si vous voulez encore la ville.",
+    },
+  },
   "fortaleza-san-felipe": {
     body: "Worth the short fortress museum stop for Atlantic views and 16th-century context — compact, not an all-afternoon site.",
     localized: {

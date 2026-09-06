@@ -25,6 +25,7 @@ export function CruiseLoopView({
   route,
   legs,
   stops,
+  returnTo,
 }: {
   dict: Dictionary;
   portName: string;
@@ -40,6 +41,7 @@ export function CruiseLoopView({
   route: LatLngTuple[] | null;
   legs: string[];
   stops: CruiseStopLink[];
+  returnTo: string;
 }) {
   const copy = dict.cruise;
 
@@ -85,8 +87,19 @@ export function CruiseLoopView({
               </div>
             ) : null}
             {mapStops.length > 0 ? (
-              <div className="pointer-events-none absolute inset-0 [&_.leaflet-container]:pointer-events-auto">
-                <CruiseLoopLeaflet stops={mapStops} route={route} />
+              <div className="pointer-events-none absolute inset-0 [&_.leaflet-container]:pointer-events-auto [&_.cruise-loop-pin-card]:pointer-events-auto">
+                <CruiseLoopLeaflet
+                  stops={mapStops}
+                  route={route}
+                  pinCopy={{
+                    fromShip: copy.fromTheShip,
+                    viewVenue: dict.detail.viewVenue,
+                    viewEvent: dict.detail.viewEvent,
+                    close: dict.detail.close,
+                  }}
+                  returnTo={returnTo}
+                  returnTitle={title}
+                />
               </div>
             ) : null}
           </div>
@@ -165,6 +178,8 @@ export function CruiseLoopView({
                 <li key={stop.slug}>
                   <IntentLink
                     href={stop.href}
+                    returnTo={returnTo}
+                    returnTitle={title}
                     className="flex min-h-11 items-center gap-2 rounded-lg px-1 py-1.5 text-sm font-semibold text-orange-700 touch-manipulation active:bg-orange-50 dark:text-orange-300 dark:active:bg-orange-950/40"
                   >
                     <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-orange-50 text-[11px] font-bold text-orange-700 dark:bg-orange-950/50 dark:text-orange-300">

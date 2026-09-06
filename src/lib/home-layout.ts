@@ -116,6 +116,7 @@ export const VENUE_AUDIENCE_POOLS: Record<
     "pingui-bar",
     "el-colibri-hotel",
     "fortaleza-san-felipe",
+    "taino-bay",
     "letrero-puerto-plata",
     "museo-ambar",
     "charcos-damajagua",

@@ -10,6 +10,7 @@ import {
   type FocusEvent,
   type PointerEvent,
 } from "react";
+import { rememberReturnPath } from "@/lib/event-navigation";
 
 /** Session-scoped; avoids repeat prefetch work for the same href. */
 const warmed = new Set<string>();
@@ -85,6 +86,9 @@ type IntentLinkProps = Omit<ComponentProps<typeof Link>, "prefetch"> & {
    * Happening today). Default stays intent-only to avoid network storms.
    */
   eagerWarm?: boolean;
+  /** Store back-nav context before following this link (cruise → event, etc.). */
+  returnTo?: string | null;
+  returnTitle?: string | null;
 };
 
 /**
@@ -98,8 +102,11 @@ export const IntentLink = forwardRef<HTMLAnchorElement, IntentLinkProps>(
       href,
       onPointerEnter,
       onPointerDown,
+      onClick,
       onFocus,
       eagerWarm = false,
+      returnTo,
+      returnTitle,
       ...rest
     },
     ref,
@@ -110,6 +117,10 @@ export const IntentLink = forwardRef<HTMLAnchorElement, IntentLinkProps>(
     const warm = useCallback(() => {
       warmRoute(router, hrefStr);
     }, [hrefStr, router]);
+
+    const remember = useCallback(() => {
+      if (returnTo) rememberReturnPath(returnTo, returnTitle);
+    }, [returnTo, returnTitle]);
 
     useEffect(() => {
       if (!eagerWarm || !hrefStr) return;
@@ -127,8 +138,13 @@ export const IntentLink = forwardRef<HTMLAnchorElement, IntentLinkProps>(
         }}
         onPointerDown={(event: PointerEvent<HTMLAnchorElement>) => {
           // Touch has no hover — start warm on press so navigation overlaps fetch.
+          remember();
           warm();
           onPointerDown?.(event);
+        }}
+        onClick={(event) => {
+          remember();
+          onClick?.(event);
         }}
         onFocus={(event: FocusEvent<HTMLAnchorElement>) => {
           warm();

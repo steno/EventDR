@@ -445,6 +445,46 @@ button, a {
   transform-origin: top center;
 }
 
+/* Cruise day port switch — sliding thumb flash + content crossfade */
+@keyframes cruise-port-thumb-flash {
+  0% {
+    box-shadow:
+      0 0 0 0 rgb(249 115 22 / 0.55),
+      0 1px 3px rgba(0, 0, 0, 0.12);
+  }
+  100% {
+    box-shadow:
+      0 0 0 1px rgb(249 115 22 / 0.35),
+      0 1px 3px rgba(0, 0, 0, 0.12);
+  }
+}
+
+@keyframes cruise-port-swap {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cruise-port-thumb {
+  animation: cruise-port-thumb-flash 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cruise-port-swap {
+  animation: cruise-port-swap 0.34s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cruise-port-thumb,
+  .cruise-port-swap {
+    animation: none;
+  }
+}
+
 /* Soft “look here” pulse for deep-linked directions on venue pages.
    Uses inset ring + background so parent overflow:hidden can’t clip it. */
 @keyframes attention-pulse {

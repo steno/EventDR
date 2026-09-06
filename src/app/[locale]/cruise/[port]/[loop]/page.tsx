@@ -155,11 +155,13 @@ export default async function Page({
     : "";
   const embedUrl = waypoints ? osmEmbedUrl(waypoints) : "";
 
+  const stopHrefBySlug = new Map(stops.map((stop) => [stop.slug, stop.href]));
   const mapStops = (waypoints ?? []).map((point) => ({
     lat: point.lat,
     lng: point.lng,
     kind: point.kind,
     label: point.name,
+    href: point.kind === "stop" ? stopHrefBySlug.get(point.slug) : undefined,
     number: undefined as number | undefined,
   }));
 
@@ -209,6 +211,7 @@ export default async function Page({
         route={route?.coords ?? null}
         legs={legs}
         stops={stops}
+        returnTo={cruiseLoopPath(locale, port, itinerary.id, allAboardMinutes)}
       />
     </>
   );

@@ -27,6 +27,7 @@ import { isPastOneOffEvent } from "@/lib/event-dates";
 import {
   eventDetailPath,
   eventIdFromPath,
+  isCruiseReturnPath,
   rememberReturnPath,
   resolveBackLabel,
   takeReturnPath,
@@ -163,9 +164,9 @@ export function VenuePage({
   const backLabel = resolveBackLabel(locale, backHref, dict, returnTitle);
 
   function handleBack() {
-    // Detail→detail (e.g. event → venue): push to the remembered path.
-    // List→venue: history.back() keeps list scroll.
-    if (returnTo && isDetailNavPath(returnTo)) {
+    // Detail→detail (e.g. event → venue) and cruise shore-day: push to the
+    // remembered path. Other list→venue: history.back() keeps list scroll.
+    if (returnTo && (isDetailNavPath(returnTo) || isCruiseReturnPath(returnTo))) {
       navigateSoft(router, returnTo);
       return;
     }

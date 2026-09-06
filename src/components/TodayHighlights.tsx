@@ -30,6 +30,7 @@ interface TodayHighlightsProps {
   seeAllHref?: string;
   /** Return path when opening a highlight (keeps home area). */
   returnTo?: string;
+  returnTitle?: string | null;
   /** When true, `events` is already today’s sorted highlight list. */
   prefiltered?: boolean;
   /** Know-before-you-go notices, opened from a labeled chip next to the title. */
@@ -47,6 +48,7 @@ function TodayHighlightCard({
   locale,
   dict,
   returnTo,
+  returnTitle,
   pending,
   dimmed,
   onNavigate,
@@ -56,6 +58,7 @@ function TodayHighlightCard({
   locale: Locale;
   dict: Dictionary;
   returnTo?: string;
+  returnTitle?: string | null;
   pending: boolean;
   dimmed: boolean;
   onNavigate: () => void;
@@ -87,7 +90,7 @@ function TodayHighlightCard({
         href={href}
         onClick={() => {
           onNavigate();
-          rememberReturnPath(returnTo ?? `/${locale}`);
+          rememberReturnPath(returnTo ?? `/${locale}`, returnTitle);
         }}
         className="relative block aspect-[16/10] w-full overflow-hidden touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 rounded-2xl sm:aspect-[3/2]"
         aria-label={event.title}
@@ -175,6 +178,7 @@ const TodayHighlightsComponent = ({
   excludeEventIds = [],
   seeAllHref,
   returnTo,
+  returnTitle,
   prefiltered = false,
   alerts = [],
   title,
@@ -250,6 +254,7 @@ const TodayHighlightsComponent = ({
               locale={locale}
               dict={dict}
               returnTo={returnTo}
+              returnTitle={returnTitle}
               pending={pendingId === event.id}
               dimmed={pendingId != null && pendingId !== event.id}
               onNavigate={() => setPendingId(event.id)}

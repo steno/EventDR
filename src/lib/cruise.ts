@@ -110,6 +110,7 @@ const NIGHT_CATEGORIES = new Set<EventCategory>(["parties", "dance"]);
 const VISIT_MINUTES_BY_SLUG: Record<string, number> = {
   "fortaleza-san-felipe": 30,
   "letrero-puerto-plata": 15,
+  "taino-bay": 90,
   "malecon-puerto-plata": 45,
   "plaza-independencia": 25,
   "calle-sombrillas": 30,
@@ -294,6 +295,7 @@ export type LoopMapStop = {
   kind: "port" | "stop";
   label?: string;
   number?: number;
+  href?: string;
 };
 
 /** Closed circuit: port → stops → port. Null if no stop has coordinates. */
@@ -705,6 +707,10 @@ export function rankCruiseEvents(
   ranked.sort((a, b) => {
     const fitDelta = FIT_RANK[a.fit] - FIT_RANK[b.fit];
     if (fitDelta !== 0) return fitDelta;
+    // On-pier village (slug matches the port) beats a 30-min Centro stop.
+    const aVillage = a.event.venueSlug === portSlug ? 0 : 1;
+    const bVillage = b.event.venueSlug === portSlug ? 0 : 1;
+    if (aVillage !== bVillage) return aVillage - bVillage;
     const aTravel =
       a.travel?.kind === "walk"
         ? a.travel.walkMinutes
@@ -757,6 +763,7 @@ export function cruiseVenueAllowlist(port: CruisePortSlug): string[] {
   }
   if (port === "taino-bay") {
     for (const slug of [
+      "taino-bay",
       "malecon-puerto-plata",
       "plaza-independencia",
       "casa-de-la-cultura",

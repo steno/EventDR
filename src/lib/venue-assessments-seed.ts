@@ -264,6 +264,18 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     ],
   }),
   editorial({
+    venueSlug: "taino-bay",
+    verdictKey: "solid_visitor_activity",
+    crowdFit: ["visitor", "family"],
+    axes: { recommend: 4.3, atmosphere: 4.4, value: 4.2, practical: 4.6, reliability: 4.4 },
+    themes: [
+      { key: "family_friendly", sentiment: "positive", audience: "family" },
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+      { key: "tourist_crowds", sentiment: "mixed", audience: "visitor" },
+      { key: "free_access", sentiment: "positive" },
+    ],
+  }),
+  editorial({
     venueSlug: "fortaleza-san-felipe",
     verdictKey: "solid_local_culture",
     crowdFit: ["visitor", "family", "mixed"],

@@ -326,10 +326,10 @@ export const fr: Dictionary = {
     portLabel: "Votre port",
     tainoBay: "Taino Bay",
     amberCove: "Amber Cove",
-    tainoBayHint: "Centre-ville — à pied jusqu’au Malecón",
+    tainoBayHint: "Village au quai — le centre est à pied",
     amberCoveHint: "Maimón — taxi vers le centre ~20–25 min",
     tainoBayTagline:
-      "Le Malecón, Fortaleza et Calle de las Sombrillas à pied — une journée croisière en centre-ville qui tient avant le départ de Taino Bay.",
+      "Restez au village (lazy river, piscine, spectacles) ou marchez jusqu’au Malecón et Fortaleza — une journée croisière qui tient avant le départ de Taino Bay.",
     amberCoveTagline:
       "Déjeuner à Maimón, plage Cofresí ou taxi vers le centre — ce qui tient vraiment avant le départ d’Amber Cove.",
     allAboard: "Retour à bord",
@@ -342,7 +342,8 @@ export const fr: Dictionary = {
     shipsSailed: "La plupart des navires sont déjà partis.",
     shipsSailedHint:
       "Encore à quai ? Choisissez une heure plus tardive. Si vous restez à terre, voici ce soir sur la Côte Nord.",
-    taxiTipTaino: "Marchez en centre-ville. Convenez du prix du taxi avant de monter.",
+    taxiTipTaino:
+      "Le village est au quai — piscine et lazy river sont gratuits. Marchez en centre-ville si vous sortez des portes. Convenez du prix du taxi avant de monter.",
     taxiTipAmber: "Le taxi vers le centre prend environ 20–25 min. Convenez du prix avant de monter.",
     itinerariesTitle: "Boucles toutes faites",
     itineraryMinutes: "~{minutes} min",
@@ -370,7 +371,7 @@ export const fr: Dictionary = {
     moreFits: "Encore possible aujourd’hui",
     skipTitle: "À éviter aujourd’hui",
     skipTaino:
-      "Cabarete, Sosúa et Damajagua sont de longs taxis. Le navire vend déjà ces excursions — restez en centre-ville.",
+      "Cabarete, Sosúa et Damajagua sont de longs taxis. Le navire vend déjà ces excursions — restez au village ou marchez en centre-ville.",
     skipAmber:
       "Sosúa, Cabarete et Damajagua ratent souvent le navire. Restez à Maimón sauf s’il vous reste 5 h ou plus.",
     exit: "Voir tout le calendrier de la Côte Nord",

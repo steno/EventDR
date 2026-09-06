@@ -139,6 +139,7 @@ export const WALKABLE_POCKETS: readonly WalkablePocket[] = [
       fr: "Front de mer piéton",
     },
     venueSlugs: [
+      "taino-bay",
       "malecon-puerto-plata",
       "victrola-037",
       "fortaleza-san-felipe",

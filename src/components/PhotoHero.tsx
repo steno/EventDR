@@ -111,7 +111,7 @@ export function PhotoHero({
           </h1>
           <h2
             key={tagline}
-            className="mt-2 max-w-xl text-copy font-medium text-white/90 [text-shadow:0_1px_2px_rgba(0,0,0,0.4)]"
+            className="cruise-port-swap mt-2 max-w-xl text-copy font-medium text-white/90 [text-shadow:0_1px_2px_rgba(0,0,0,0.4)]"
           >
             {tagline}
           </h2>

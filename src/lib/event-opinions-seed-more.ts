@@ -698,6 +698,26 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: AT,
   },
   {
+    eventId: "taino-bay-village-daily",
+    seriesKey: "taino-bay:daily",
+    body: "Do this first if you might skip Centro — loungers go early, and you can still walk out to Fortaleza later.",
+    localized: {
+      es: "Haz esto primero si podrías saltarte el Centro — las tumbonas se van temprano, y igual puedes caminar a la Fortaleza después.",
+      fr: "Faites ça d'abord si vous pourriez zapper le centre — les transats partent tôt, et vous pouvez encore marcher vers Fortaleza ensuite.",
+    },
+    priceFeel: "free",
+    priceNote:
+      "Pool and lazy river are free for cruise passengers; drinks ~US$11–17; Monkey Island extra (~US$25)",
+    priceNoteLocalized: {
+      es: "Piscina y río lento son gratis para pasajeros de crucero; tragos ~US$11–17; Monkey Island extra (~US$25)",
+      fr: "Piscine et lazy river gratuits pour les croisiéristes ; boissons ~11–17 $ US ; Monkey Island en plus (~25 $ US)",
+    },
+    attribution: "POP research · Port Taino Bay FAQ + Cruise Critic",
+    researchNotes:
+      "Official FAQ: free pools/lazy river/hammocks; Monkey Island on-site extra. Cruise Critic: sun loungers first-come. Tripadvisor: drinks US$11–17. Gated — not a public day pass.",
+    updatedAt: AT,
+  },
+  {
     eventId: "fun-city-daily",
     seriesKey: "fun-city:daily",
     body: "Best with kids, or anyone who wants a speed break between beach days.",

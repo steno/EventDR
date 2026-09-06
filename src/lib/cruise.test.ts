@@ -288,6 +288,51 @@ describe("rankCruiseEvents", () => {
     assert.ok(!ids.includes("lax"));
   });
 
+  it("ranks the Taino Bay village first from that port and hides it from Amber Cove", () => {
+    const village = event({
+      id: "taino-bay-village-daily",
+      title: "Taino Bay Village Day",
+      venueSlug: "taino-bay",
+      category: "adventure",
+      time: "8:00 AM – 6:00 PM",
+      lat: 19.8054,
+      lng: -70.6965,
+    });
+    const fromTaino = rankCruiseEvents(
+      [fortaleza, museum, village],
+      "taino-bay",
+      16 * 60 + 30,
+      MORNING,
+    );
+    const visible = visibleCruiseEvents(fromTaino);
+    assert.equal(visible[0]?.event.id, "taino-bay-village-daily");
+    assert.equal(visible[0]?.fit, "walk");
+    assert.equal(
+      getCruiseVisitMinutes({
+        venueSlug: "taino-bay",
+        category: "adventure",
+        time: "8:00 AM – 6:00 PM",
+      }),
+      90,
+    );
+
+    const fromAmber = rankCruiseEvents(
+      [village],
+      "amber-cove",
+      16 * 60 + 30,
+      MORNING,
+    );
+    assert.equal(
+      fromAmber.find((item) => item.event.id === "taino-bay-village-daily")?.fit,
+      "too-far",
+    );
+    assert.ok(
+      !visibleCruiseEvents(fromAmber).some(
+        (item) => item.event.id === "taino-bay-village-daily",
+      ),
+    );
+  });
+
   it("keeps Maimón lunch from Amber Cove and hides downtown Fortaleza", () => {
     const ranked = rankCruiseEvents(
       [fortaleza, lobster],
@@ -411,7 +456,9 @@ describe("cruiseVenueAllowlist", () => {
   it("keeps Centro stops on Taino Bay and Maimón/Cofresí on Amber Cove", () => {
     const taino = cruiseVenueAllowlist("taino-bay");
     const amber = cruiseVenueAllowlist("amber-cove");
+    assert.ok(taino.includes("taino-bay"));
     assert.ok(taino.includes("fortaleza-san-felipe"));
+    assert.ok(!amber.includes("taino-bay"));
     assert.ok(!amber.includes("fortaleza-san-felipe"));
     assert.ok(!amber.includes("museo-ambar"));
     assert.ok(!amber.includes("calle-sombrillas"));

@@ -227,6 +227,7 @@ export const CURATED_FREE_EVENTS = new Set<string>([
   "flip-flop-monday-happy-hour",
   "flip-flop-taco-tuesday",
   "flip-flop-wing-wednesday",
+  "taino-bay-village-daily",
 ]);
 
 const ADMISSION_PRICE_MAX_LEN = 32;

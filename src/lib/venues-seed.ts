@@ -461,6 +461,18 @@ export const SEED_VENUES: Venue[] = [
     phone: "+18099709433",
   },
   {
+    slug: "taino-bay",
+    name: "Taino Bay",
+    city: "Puerto Plata",
+    description:
+      "Cruise-passenger village at the Puerto Plata pier — free lazy river and pools, shopping, bars, and on-site shows when a ship is in. Not open to the public. Fortaleza and the Malecón are a short walk outside the gates.",
+    lat: 19.8054,
+    lng: -70.6965,
+    emoji: "🏊",
+    instagram: "tainobay_puertoplata",
+    website: "https://www.porttainobay.com",
+  },
+  {
     slug: "fortaleza-san-felipe",
     name: "Fortaleza San Felipe",
     city: "Puerto Plata",
@@ -1313,6 +1325,11 @@ export const SEED_VENUES: Venue[] = [
 
 /** Extra name fragments → seed slug (checked before fuzzy name includes). */
 const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
+  {
+    pattern:
+      /ta[ií]no\s*bay|port\s*ta[ií]no|puerto\s*ta[ií]no\s*bay/i,
+    slug: "taino-bay",
+  },
   {
     pattern: /parque\s+nacional\s+el\s+choc[oó]|choc[oó]\s+national\s+park|cuevas?\s+(del\s+)?choc[oó]|laguna\s+(el\s+)?choc[oó]|deep\s+caves?/i,
     slug: "parque-nacional-el-choco",

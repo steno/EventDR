@@ -326,10 +326,10 @@ export const es: Dictionary = {
     portLabel: "Tu puerto",
     tainoBay: "Taino Bay",
     amberCove: "Amber Cove",
-    tainoBayHint: "Centro — camina al Malecón",
+    tainoBayHint: "Pueblo en el muelle — el Centro es a pie",
     amberCoveHint: "Maimón — taxi al Centro ~20–25 min",
     tainoBayTagline:
-      "Camina al Malecón, la Fortaleza y la Calle de las Sombrillas — un día de crucero en el Centro que sí cabe antes de zarpar de Taino Bay.",
+      "Quédate en el pueblo (río lento, piscina, shows) o camina al Malecón y la Fortaleza — un día de crucero que sí cabe antes de zarpar de Taino Bay.",
     amberCoveTagline:
       "Almuerzo en Maimón, playa Cofresí o un taxi al Centro — lo que sí cabe antes de zarpar de Amber Cove.",
     allAboard: "De vuelta al barco",
@@ -342,7 +342,8 @@ export const es: Dictionary = {
     shipsSailed: "La mayoría de los barcos ya zarparon.",
     shipsSailedHint:
       "¿Sigues en puerto? Pon una hora más tarde. Si te quedas en tierra, aquí está esta noche en la Costa Norte.",
-    taxiTipTaino: "Camina al centro. Acuerda cualquier tarifa de taxi antes de subir.",
+    taxiTipTaino:
+      "El pueblo está en el muelle — piscina y río lento son gratis. Camina al centro si sales de las puertas. Acuerda cualquier tarifa de taxi antes de subir.",
     taxiTipAmber: "El taxi al Centro toma unos 20–25 min. Acuerda la tarifa antes de subir.",
     itinerariesTitle: "Rutas listas",
     itineraryMinutes: "~{minutes} min",
@@ -370,7 +371,7 @@ export const es: Dictionary = {
     moreFits: "Más que aún cabe",
     skipTitle: "Mejor no hoy",
     skipTaino:
-      "Cabarete, Sosúa y Damajagua son taxis largos. El barco ya vende esos tours — quédate en el Centro.",
+      "Cabarete, Sosúa y Damajagua son taxis largos. El barco ya vende esos tours — quédate en el pueblo o camina el Centro.",
     skipAmber:
       "Sosúa, Cabarete y Damajagua casi nunca llegan a tiempo. Quédate en Maimón salvo que te queden 5+ horas.",
     exit: "Ver todo el calendario de la Costa Norte",

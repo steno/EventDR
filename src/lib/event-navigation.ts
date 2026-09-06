@@ -228,6 +228,12 @@ function isSafeReturnPath(path: string, locale: Locale): boolean {
   return path.startsWith(`/${locale}/`);
 }
 
+/** Cruise day / loop listing — back from an event should land here, not history.back(). */
+export function isCruiseReturnPath(path: string): boolean {
+  const pathname = path.split(/[?#]/)[0];
+  return /\/(?:en|es|fr)\/cruise\//.test(pathname);
+}
+
 const RETURN_TITLE_MAX = 80;
 
 export function sanitizeReturnTitle(raw: string | null | undefined): string | null {
@@ -327,6 +333,17 @@ export function resolveReturnPageTitle(
   if (segments[0] === "venue" && segments[1]) {
     const venue = getSeedVenue(segments[1]);
     if (venue) return venue.name;
+  }
+
+  if (segments[0] === "cruise") {
+    const loopId = segments[2];
+    if (loopId && loopId in dict.cruise.loops) {
+      return dict.cruise.loops[loopId as keyof Dictionary["cruise"]["loops"]]
+        .title;
+    }
+    if (segments[1] === "taino-bay") return dict.cruise.tainoBay;
+    if (segments[1] === "amber-cove") return dict.cruise.amberCove;
+    return dict.cruise.eyebrow;
   }
 
   return dict.nav.discover;

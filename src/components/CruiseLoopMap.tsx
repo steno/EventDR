@@ -1,14 +1,17 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
   MapContainer,
   Marker,
   Polyline,
   TileLayer,
   useMap,
+  useMapEvents,
 } from "react-leaflet";
 import L from "leaflet";
+import { ChevronRight, X } from "lucide-react";
+import { IntentLink } from "@/components/IntentLink";
 import type { LatLngTuple } from "@/lib/routing";
 import type { LoopMapStop } from "@/lib/cruise";
 import {
@@ -18,17 +21,31 @@ import {
 } from "@/lib/maps";
 import "leaflet/dist/leaflet.css";
 
-const shipIcon = L.divIcon({
-  className: "",
-  html: `<span style="display:flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:9999px;background:#2563eb;color:#fff;font:700 11px/1 ui-sans-serif,system-ui;box-shadow:0 0 0 2px #fff,0 2px 8px rgba(0,0,0,.35)">S</span>`,
-  iconSize: [22, 22],
-  iconAnchor: [11, 11],
-});
+export type CruisePinCopy = {
+  fromShip: string;
+  viewVenue: string;
+  viewEvent: string;
+  close: string;
+};
 
-function stopIcon(n: number) {
+const PIN_RING =
+  "0 0 0 2px #fff,0 2px 8px rgba(0,0,0,.35)";
+const PIN_RING_SELECTED =
+  "0 0 0 3px #fff,0 0 0 6px #ea580c,0 2px 10px rgba(0,0,0,.4)";
+
+function shipIcon(selected: boolean) {
   return L.divIcon({
     className: "",
-    html: `<span style="display:flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:9999px;background:#c2410c;color:#fff;font:700 11px/1 ui-sans-serif,system-ui;box-shadow:0 0 0 2px #fff,0 2px 8px rgba(0,0,0,.35)">${n}</span>`,
+    html: `<span style="display:flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:9999px;background:#2563eb;color:#fff;font:700 11px/1 ui-sans-serif,system-ui;cursor:pointer;box-shadow:${selected ? PIN_RING_SELECTED : PIN_RING}">S</span>`,
+    iconSize: [22, 22],
+    iconAnchor: [11, 11],
+  });
+}
+
+function stopIcon(n: number, selected: boolean) {
+  return L.divIcon({
+    className: "",
+    html: `<span style="display:flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:9999px;background:#c2410c;color:#fff;font:700 11px/1 ui-sans-serif,system-ui;cursor:pointer;box-shadow:${selected ? PIN_RING_SELECTED : PIN_RING}">${n}</span>`,
     iconSize: [22, 22],
     iconAnchor: [11, 11],
   });
@@ -128,17 +145,65 @@ function FitLoop({
   return null;
 }
 
+function MapClickDismiss({ onDismiss }: { onDismiss: () => void }) {
+  useMapEvents({
+    click: () => onDismiss(),
+  });
+  return null;
+}
+
+function KeepSelectedVisible({ stop }: { stop: LoopMapStop | null }) {
+  const map = useMap();
+
+  useEffect(() => {
+    if (!stop) return;
+    map.panInside([stop.lat, stop.lng], {
+      paddingTopLeft: [48, 56],
+      paddingBottomRight: [48, 128],
+      animate: true,
+    });
+  }, [map, stop]);
+
+  return null;
+}
+
+function sameStop(a: LoopMapStop, b: LoopMapStop) {
+  return (
+    a.kind === b.kind &&
+    a.lat === b.lat &&
+    a.lng === b.lng &&
+    a.number === b.number
+  );
+}
+
 interface CruiseLoopMapProps {
   stops: LoopMapStop[];
   route?: LatLngTuple[] | null;
   interactive?: boolean;
+  pinCopy: CruisePinCopy;
+  returnTo?: string | null;
+  returnTitle?: string | null;
 }
 
 export function CruiseLoopMap({
   stops,
   route = null,
   interactive = true,
+  pinCopy,
+  returnTo,
+  returnTitle,
 }: CruiseLoopMapProps) {
+  const [selected, setSelected] = useState<LoopMapStop | null>(null);
+
+  useEffect(() => {
+    if (!selected) return;
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setSelected(null);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [selected]);
+
   const center = stops[0];
   if (!center) return null;
 
@@ -148,47 +213,110 @@ export function CruiseLoopMap({
   });
 
   return (
-    <MapContainer
-      center={[center.lat, center.lng]}
-      zoom={15}
-      className="h-full w-full z-0"
-      zoomControl
-      scrollWheelZoom={false}
-      touchZoom={interactive}
-      doubleClickZoom
-      dragging={interactive}
-    >
-      <TileLayer
-        url={OSM_RASTER_TILE_URL}
-        subdomains={OSM_RASTER_TILE_SUBDOMAINS}
-        attribution={OSM_RASTER_ATTRIBUTION}
-      />
-      {markers.map((stop, index) => (
-        <Marker
-          key={`${stop.kind}-${stop.lat}-${stop.lng}-${index}`}
-          position={[stop.lat, stop.lng]}
-          icon={
-            stop.kind === "port"
-              ? shipIcon
-              : stopIcon(stop.number ?? index)
-          }
+    <div className="relative h-full w-full">
+      <MapContainer
+        center={[center.lat, center.lng]}
+        zoom={15}
+        className="h-full w-full z-0"
+        zoomControl
+        scrollWheelZoom={false}
+        touchZoom={interactive}
+        doubleClickZoom
+        dragging={interactive}
+      >
+        <TileLayer
+          url={OSM_RASTER_TILE_URL}
+          subdomains={OSM_RASTER_TILE_SUBDOMAINS}
+          attribution={OSM_RASTER_ATTRIBUTION}
         />
-      ))}
-      {route && route.length > 1 ? (
-        <Polyline
-          positions={route}
-          pathOptions={{
-            color: "#ea580c",
-            weight: 4,
-            opacity: 0.9,
-            lineCap: "round",
-            lineJoin: "round",
-          }}
-        />
+        {markers.map((stop, index) => {
+          const isSelected = selected ? sameStop(selected, stop) : false;
+          return (
+            <Marker
+              key={`${stop.kind}-${stop.lat}-${stop.lng}-${index}`}
+              position={[stop.lat, stop.lng]}
+              title={stop.label ?? (stop.kind === "port" ? pinCopy.fromShip : undefined)}
+              zIndexOffset={isSelected ? 1000 : 0}
+              icon={
+                stop.kind === "port"
+                  ? shipIcon(isSelected)
+                  : stopIcon(stop.number ?? index, isSelected)
+              }
+              eventHandlers={{
+                click: (event) => {
+                  L.DomEvent.stopPropagation(event.originalEvent);
+                  setSelected((current) =>
+                    current && sameStop(current, stop) ? null : stop,
+                  );
+                },
+              }}
+            />
+          );
+        })}
+        {route && route.length > 1 ? (
+          <Polyline
+            positions={route}
+            pathOptions={{
+              color: "#ea580c",
+              weight: 4,
+              opacity: 0.9,
+              lineCap: "round",
+              lineJoin: "round",
+            }}
+          />
+        ) : null}
+        <FitLoop stops={stops} route={route} />
+        <MapResizer active />
+        <CooperativeGestures interactive={interactive} />
+        <MapClickDismiss onDismiss={() => setSelected(null)} />
+        <KeepSelectedVisible stop={selected} />
+      </MapContainer>
+
+      {selected ? (
+        <aside
+          className="cruise-loop-pin-card absolute inset-x-3 bottom-3 z-[1000] max-w-md"
+          aria-live="polite"
+        >
+          <div className="flex items-center gap-0.5 rounded-2xl border border-neutral-200 bg-white p-1 pr-1.5 shadow-lg dark:border-neutral-800 dark:bg-neutral-950">
+            {selected.href ? (
+              <IntentLink
+                href={selected.href}
+                returnTo={returnTo}
+                returnTitle={returnTitle}
+                className="flex min-h-11 min-w-0 flex-1 items-center gap-2 rounded-lg px-1 py-1.5 text-sm font-semibold text-orange-700 touch-manipulation active:bg-orange-50 dark:text-orange-300 dark:active:bg-orange-950/40"
+              >
+                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-orange-50 text-[11px] font-bold text-orange-700 dark:bg-orange-950/50 dark:text-orange-300">
+                  {selected.number ?? ""}
+                </span>
+                <span className="min-w-0 flex-1 truncate underline decoration-orange-300 underline-offset-[3px] dark:decoration-orange-700">
+                  {selected.label}
+                </span>
+                <ChevronRight
+                  className="h-4 w-4 shrink-0 text-orange-500 dark:text-orange-400"
+                  aria-hidden
+                />
+              </IntentLink>
+            ) : (
+              <div className="flex min-h-11 min-w-0 flex-1 items-center gap-2 rounded-lg px-1 py-1.5 text-sm font-semibold text-neutral-600 dark:text-neutral-300">
+                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-blue-50 text-[11px] font-bold text-blue-700 dark:bg-blue-950/50 dark:text-blue-300">
+                  S
+                </span>
+                <span className="min-w-0 flex-1 truncate">
+                  {selected.label ?? pinCopy.fromShip}
+                </span>
+              </div>
+            )}
+            <button
+              type="button"
+              onClick={() => setSelected(null)}
+              className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-neutral-500 touch-manipulation hover:bg-neutral-100 dark:text-neutral-400 dark:hover:bg-neutral-800"
+              aria-label={pinCopy.close}
+            >
+              <X className="h-4 w-4" aria-hidden />
+            </button>
+          </div>
+        </aside>
       ) : null}
-      <FitLoop stops={stops} route={route} />
-      <MapResizer active />
-      <CooperativeGestures interactive={interactive} />
-    </MapContainer>
+    </div>
   );
 }

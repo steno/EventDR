@@ -269,6 +269,12 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Hôtel boutique tropical au centre de Sosúa — bar au bord de la piscine, karaoké le jeudi et vie nocturne locale.",
     },
   },
+  "taino-bay": {
+    description: {
+      es: "Pueblo para pasajeros de crucero en el muelle de Puerto Plata — río lento y piscinas gratis, tiendas, bares y shows cuando hay barco. No está abierto al público. La Fortaleza y el Malecón quedan a poca caminata fuera de las puertas.",
+      fr: "Village pour passagers de croisière au quai de Puerto Plata — lazy river et piscines gratuits, boutiques, bars et spectacles quand un navire est là. Pas ouvert au public. Fortaleza et le Malecón sont à pied hors des portes.",
+    },
+  },
   "fortaleza-san-felipe": {
     description: {
       es: "Fortaleza y museo español del siglo XVI con vistas al Atlántico — cañones, historia colonial y atardeceres desde La Puntilla.",

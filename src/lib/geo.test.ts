@@ -30,6 +30,8 @@ describe("matchVenueSlug", () => {
     );
     assert.notEqual(matchVenueSlug("Parque Independencia"), "el-parq-cabarete");
     assert.equal(matchVenueSlug("El Parq Foodpark"), "el-parq-cabarete");
+    assert.equal(matchVenueSlug("Taino Bay"), "taino-bay");
+    assert.equal(matchVenueSlug("Port Taino Bay Puerto Plata"), "taino-bay");
   });
 });
 
