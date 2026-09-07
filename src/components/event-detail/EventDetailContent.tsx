@@ -33,6 +33,7 @@ import { VenueOtherNights } from "@/components/VenueOtherNights";
 import type { NearbyTonightResult } from "@/lib/nearby-events";
 import type { VenueSiblingNight } from "@/lib/venue-recurring-siblings";
 import type { WalkablePocket } from "@/lib/walkable-pockets";
+import type { ReactNode } from "react";
 
 export interface EventDetailContentProps {
   event: Event;
@@ -58,6 +59,8 @@ export interface EventDetailContentProps {
   showFreeAdmission: boolean;
   showPaidAdmission: boolean;
   paidAdmissionLabel: string;
+  /** Remind / calendar / share / save — sits with this event, before related lists. */
+  actionsSlot?: ReactNode;
 }
 
 export function EventDetailContent({
@@ -83,6 +86,7 @@ export function EventDetailContent({
   showFreeAdmission,
   showPaidAdmission,
   paidAdmissionLabel,
+  actionsSlot,
 }: EventDetailContentProps) {
   const TitleTag = standalone ? "h1" : "h2";
   const [venuePending, setVenuePending] = useState(false);
@@ -317,6 +321,8 @@ export function EventDetailContent({
           )}
         </div>
       )}
+
+      {actionsSlot}
 
       {venueOtherNights.length > 0 ? (
         <VenueOtherNights

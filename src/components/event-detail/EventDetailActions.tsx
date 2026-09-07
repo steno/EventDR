@@ -104,7 +104,7 @@ export function EventDetailActions({
   onSetShowPushPrompt,
   onSetPushAfterCalendar,
 }: EventDetailActionsProps) {
-  const showRemindAction = remindSupported && (canRemind || isReminded);
+  const showRemindAction = canRemind || isReminded;
 
   return (
     <>
@@ -112,8 +112,8 @@ export function EventDetailActions({
         ref={actionsRef}
         className={
           standalone
-            ? "relative isolate border-t border-neutral-100 bg-white px-4 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] dark:border-neutral-800 dark:bg-neutral-900 sm:px-5 lg:px-5 lg:pb-4"
-            : "relative isolate border-t border-neutral-100 bg-white px-5 pt-4 pb-[max(1rem,env(safe-area-inset-bottom))] dark:border-neutral-800 dark:bg-neutral-900 sm:px-6 lg:px-7 lg:pb-6"
+            ? "relative isolate mt-4 border-t border-neutral-100 pt-3 dark:border-neutral-800"
+            : "relative isolate mt-5 border-t border-neutral-100 pt-4 dark:border-neutral-800"
         }
       >
         {shareMsg && (
@@ -322,6 +322,10 @@ export function EventDetailActions({
               type="button"
               onClick={() => {
                 onDismissActionsCoach();
+                if (!remindSupported) {
+                  onShareFeedback(dict.detail.remindUnsupported, 4500);
+                  return;
+                }
                 onToggleAction("remind");
               }}
               className={`${iconActionClass} ${

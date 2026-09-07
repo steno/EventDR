@@ -306,8 +306,9 @@ export function EventDetailSheet({
   const showCalendarAction = !showSaveCelebration;
   const isReminded = event ? eventReminders.isReminded(event.id) : false;
   const canRemind = event ? eventReminders.canRemind(event) : false;
-  const showRemindAction =
-    eventReminders.supported && (canRemind || isReminded);
+  // Always show the bell when a reminder is possible (or already set).
+  // Unsupported browsers still see it and get a clear message on tap.
+  const showRemindAction = canRemind || isReminded;
   const actionCols =
     (showRemindAction ? 1 : 0) + (showCalendarAction ? 1 : 0) + 2;
   const ticketUrl = resolveTicketUrl(event);
@@ -442,52 +443,51 @@ export function EventDetailSheet({
       showFreeAdmission={showFreeAdmission}
       showPaidAdmission={showPaidAdmission}
       paidAdmissionLabel={paidAdmissionLabel}
-    />
-  );
-
-  const actionsSection = (
-    <EventDetailActions
-      event={event}
-      dict={dict}
-      locale={locale}
-      standalone={standalone}
-      actionsRef={actionsRef}
-      isSaved={isSaved}
-      isReminded={isReminded}
-      activeReminder={
-        event ? eventReminders.getReminder(event.id) : null
+      actionsSlot={
+        <EventDetailActions
+          event={event}
+          dict={dict}
+          locale={locale}
+          standalone={standalone}
+          actionsRef={actionsRef}
+          isSaved={isSaved}
+          isReminded={isReminded}
+          activeReminder={
+            event ? eventReminders.getReminder(event.id) : null
+          }
+          canRemind={canRemind}
+          remindSupported={eventReminders.supported}
+          remindLoading={
+            Boolean(event && eventReminders.loadingEventId === event.id)
+          }
+          shareMsg={shareMsg}
+          shareOpen={shareOpen}
+          calendarOpen={calendarOpen}
+          remindOpen={remindOpen}
+          showSaveCelebration={showSaveCelebration}
+          showPushPrompt={showPushPrompt}
+          showActionsCoach={showActionsCoach}
+          showCalendarAction={showCalendarAction}
+          actionCols={actionCols}
+          pushAfterCalendar={pushAfterCalendar}
+          onboardingCopy={onboardingCopy}
+          pushSubscription={pushSubscription}
+          iconActionClass={iconActionClass}
+          iconActionIdleClass={iconActionIdleClass}
+          iconActionActiveClass={iconActionActiveClass}
+          onToggleAction={toggleAction}
+          onShareFeedback={handleShareFeedback}
+          onDismissActionsCoach={dismissActionsCoach}
+          onSave={handleSave}
+          onSetReminder={handleSetReminder}
+          onCancelReminder={handleCancelReminder}
+          onOfferPushPrompt={offerPushPrompt}
+          onSetOpenAction={setOpenAction}
+          onSetShowSaveCelebration={setShowSaveCelebration}
+          onSetShowPushPrompt={setShowPushPrompt}
+          onSetPushAfterCalendar={setPushAfterCalendar}
+        />
       }
-      canRemind={canRemind}
-      remindSupported={eventReminders.supported}
-      remindLoading={
-        Boolean(event && eventReminders.loadingEventId === event.id)
-      }
-      shareMsg={shareMsg}
-      shareOpen={shareOpen}
-      calendarOpen={calendarOpen}
-      remindOpen={remindOpen}
-      showSaveCelebration={showSaveCelebration}
-      showPushPrompt={showPushPrompt}
-      showActionsCoach={showActionsCoach}
-      showCalendarAction={showCalendarAction}
-      actionCols={actionCols}
-      pushAfterCalendar={pushAfterCalendar}
-      onboardingCopy={onboardingCopy}
-      pushSubscription={pushSubscription}
-      iconActionClass={iconActionClass}
-      iconActionIdleClass={iconActionIdleClass}
-      iconActionActiveClass={iconActionActiveClass}
-      onToggleAction={toggleAction}
-      onShareFeedback={handleShareFeedback}
-      onDismissActionsCoach={dismissActionsCoach}
-      onSave={handleSave}
-      onSetReminder={handleSetReminder}
-      onCancelReminder={handleCancelReminder}
-      onOfferPushPrompt={offerPushPrompt}
-      onSetOpenAction={setOpenAction}
-      onSetShowSaveCelebration={setShowSaveCelebration}
-      onSetShowPushPrompt={setShowPushPrompt}
-      onSetPushAfterCalendar={setPushAfterCalendar}
     />
   );
 
@@ -536,10 +536,9 @@ export function EventDetailSheet({
           )}
         </div>
         <div className="flex min-w-0 flex-col">
-          <div className="flex-1 px-4 pt-3 pb-2 sm:px-5 lg:px-5 lg:pt-4 lg:pb-3">
+          <div className="flex-1 px-4 pt-3 pb-4 sm:px-5 lg:px-5 lg:pt-4 lg:pb-5">
             {contentSection}
           </div>
-          {actionsSection}
         </div>
       </article>
     );
@@ -636,11 +635,9 @@ export function EventDetailSheet({
           )}
         </div>
 
-        <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain touch-pan-y px-5 pt-4 pb-3">
+        <div className="min-h-0 flex-1 overflow-y-auto overscroll-contain touch-pan-y px-5 pt-4 pb-[max(1rem,env(safe-area-inset-bottom))]">
           {contentSection}
         </div>
-
-        <div className="shrink-0">{actionsSection}</div>
       </div>
     </div>
   );
