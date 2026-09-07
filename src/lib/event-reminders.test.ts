@@ -6,6 +6,7 @@ import {
   computeRemindAt,
   northCoastLocalToUtc,
   recommendedReminderOffset,
+  resolveRemindableDate,
 } from "./event-reminders";
 
 describe("event-reminders", () => {
@@ -39,11 +40,25 @@ describe("event-reminders", () => {
     assert.equal(recommendedReminderOffset(timings), "morning_of");
   });
 
-  it("returns no timings once the event has started", () => {
+  it("returns no timings once a one-off has started", () => {
     const timings = availableReminderTimings(
       { date: "2026-09-01", time: "8:00 PM" },
       northCoastLocalToUtc("2026-09-01", 21, 0),
     );
     assert.deepEqual(timings, []);
+  });
+
+  it("rolls a daily event that already started to tomorrow", () => {
+    const now = northCoastLocalToUtc("2026-09-07", 10, 56);
+    const event = {
+      date: "2026-09-07",
+      time: "8:00 AM–12:00 PM",
+      recurrence: "daily" as const,
+    };
+    assert.equal(resolveRemindableDate(event, now), "2026-09-08");
+    const timings = availableReminderTimings(event, now);
+    assert.ok(timings.length > 0);
+    assert.ok(timings.every((t) => t.eventDate === "2026-09-08"));
+    assert.ok(timings.some((t) => t.offset === "hours_before_2"));
   });
 });

@@ -1,5 +1,10 @@
 import { createHash } from "node:crypto";
-import { addDaysISO, APP_TIMEZONE } from "@/lib/event-dates";
+import {
+  addDaysISO,
+  APP_TIMEZONE,
+  findRecurringOccurrenceInRange,
+  localDateISO,
+} from "@/lib/event-dates";
 import type { Event } from "@/lib/types";
 
 /** How far ahead of the event to notify. */
@@ -16,10 +21,20 @@ const NORTH_COAST_UTC_OFFSET_HOURS = 4;
 
 const LEAD_MS = 5 * 60 * 1000;
 
+/** Look ahead this many days for the next recurring occurrence. */
+const RECURRENCE_LOOKAHEAD_DAYS = 21;
+
 export type ReminderTiming = {
   offset: ReminderOffset;
   remindAt: Date;
+  /** Calendar day the reminder is for (may be tomorrow+ for recurring). */
+  eventDate: string;
 };
+
+export type RemindableEvent = Pick<
+  Event,
+  "date" | "time" | "endDate" | "recurrence" | "recurrenceDay" | "recurrenceDays"
+>;
 
 function parseEventClock(time?: string): { hours: number; minutes: number } {
   if (!time) return { hours: 18, minutes: 0 };
@@ -77,25 +92,61 @@ export function computeRemindAt(
   return northCoastLocalToUtc(addDaysISO(day, -1), 10, 0);
 }
 
-/** Offsets still in the future and before the event starts. */
-export function availableReminderTimings(
-  event: Pick<Event, "date" | "time">,
-  now: Date = new Date(),
+function timingsForOccurrence(
+  eventDate: string,
+  eventTime: string | undefined,
+  now: Date,
 ): ReminderTiming[] {
-  const start = eventStartUtc(event.date, event.time);
+  const start = eventStartUtc(eventDate, eventTime);
   if (Number.isNaN(start.getTime()) || start.getTime() <= now.getTime() + LEAD_MS) {
     return [];
   }
 
   const out: ReminderTiming[] = [];
   for (const offset of REMINDER_OFFSETS) {
-    const remindAt = computeRemindAt(event.date, event.time, offset);
+    const remindAt = computeRemindAt(eventDate, eventTime, offset);
     if (!remindAt || Number.isNaN(remindAt.getTime())) continue;
     if (remindAt.getTime() <= now.getTime() + LEAD_MS) continue;
     if (remindAt.getTime() >= start.getTime()) continue;
-    out.push({ offset, remindAt });
+    out.push({ offset, remindAt, eventDate });
   }
   return out;
+}
+
+/**
+ * Date to attach a reminder to: today's listing if still remindable,
+ * otherwise the next recurring occurrence (daily / weekly / …).
+ */
+export function resolveRemindableDate(
+  event: RemindableEvent,
+  now: Date = new Date(),
+): string | null {
+  const primary = event.date.trim().slice(0, 10);
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(primary)) return null;
+
+  if (timingsForOccurrence(primary, event.time, now).length > 0) {
+    return primary;
+  }
+
+  if (!event.recurrence) return null;
+
+  const today = localDateISO(now);
+  const searchStart = addDaysISO(today, 1);
+  const searchEnd = addDaysISO(searchStart, RECURRENCE_LOOKAHEAD_DAYS);
+  const next = findRecurringOccurrenceInRange(event, searchStart, searchEnd);
+  if (!next) return null;
+  if (timingsForOccurrence(next, event.time, now).length === 0) return null;
+  return next;
+}
+
+/** Offsets still in the future and before the (possibly next) occurrence starts. */
+export function availableReminderTimings(
+  event: RemindableEvent,
+  now: Date = new Date(),
+): ReminderTiming[] {
+  const date = resolveRemindableDate(event, now);
+  if (!date) return [];
+  return timingsForOccurrence(date, event.time, now);
 }
 
 /** Prefer day-before, then morning-of, then 2h before. */

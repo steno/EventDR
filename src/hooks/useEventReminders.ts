@@ -6,6 +6,7 @@ import type { Event } from "@/lib/types";
 import {
   type ReminderOffset,
   availableReminderTimings,
+  resolveRemindableDate,
 } from "@/lib/event-reminders";
 import { eventDetailPath } from "@/lib/event-navigation";
 
@@ -135,13 +136,36 @@ export function useEventReminders(locale: Locale) {
     [reminders],
   );
 
-  const canRemind = useCallback((event: Pick<Event, "date" | "time">) => {
-    return availableReminderTimings(event).length > 0;
-  }, []);
+  const canRemind = useCallback(
+    (
+      event: Pick<
+        Event,
+        | "date"
+        | "time"
+        | "endDate"
+        | "recurrence"
+        | "recurrenceDay"
+        | "recurrenceDays"
+      >,
+    ) => {
+      return availableReminderTimings(event).length > 0;
+    },
+    [],
+  );
 
   const setReminder = useCallback(
     async (
-      event: Pick<Event, "id" | "title" | "date" | "time">,
+      event: Pick<
+        Event,
+        | "id"
+        | "title"
+        | "date"
+        | "time"
+        | "endDate"
+        | "recurrence"
+        | "recurrenceDay"
+        | "recurrenceDays"
+      >,
       offset: ReminderOffset,
     ): Promise<{ ok: boolean; remindAt?: string; error?: "unsupported" | "permission" | "failed" }> => {
       if (!supported) return { ok: false, error: "unsupported" };
@@ -150,6 +174,8 @@ export function useEventReminders(locale: Locale) {
         const subscription = await ensurePushSubscription(locale);
         if (!subscription) return { ok: false, error: "permission" };
 
+        const eventDate = resolveRemindableDate(event) ?? event.date;
+
         const response = await fetch("/api/push/remind", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -157,7 +183,7 @@ export function useEventReminders(locale: Locale) {
             action: "set",
             eventId: event.id,
             eventTitle: event.title,
-            eventDate: event.date,
+            eventDate,
             eventTime: event.time,
             offset,
             locale,
