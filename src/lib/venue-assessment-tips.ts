@@ -297,6 +297,14 @@ export const VENUE_TIP_COPY: Record<
       fr: "Soirées cigar lounge downtown avec vraie piste les vendredis salsa — un cran au-dessus des tongs ; cocktails au tarif lounge.",
     },
   },
+  "cigar-town-pop": {
+    body: "Intimate downtown cigar lounge on Luis Ginebra (open Mon–Sun) — Ron & Humos Mon/Wed, La Peña Thursdays with Brugal, and Saturday Sessions like Noche Bohemia. Confirm hours on @cigartownpop.",
+    localized: {
+      en: "Intimate downtown cigar lounge on Luis Ginebra (open Mon–Sun) — Ron & Humos Mon/Wed, La Peña Thursdays with Brugal, and Saturday Sessions like Noche Bohemia. Confirm hours on @cigartownpop.",
+      es: "Lounge íntimo de cigarros downtown en Luis Ginebra (lun–dom) — Ron & Humos lun/mié, La Peña los jueves con Brugal y Sessions de sábado como Noche Bohemia. Confirma horarios en @cigartownpop.",
+      fr: "Lounge à cigares intimiste downtown sur Luis Ginebra (lun–dim) — Ron & Humos lun/mer, La Peña le jeudi avec Brugal et Sessions du samedi comme Noche Bohemia. Confirmez les horaires sur @cigartownpop.",
+    },
+  },
   "big-lees-beach-bar": {
     body: "Cosita Rica sand since 2011 — classic rock and karaoke with Atlantic views; louder after dark, chairs-and-Presidente by day.",
     localized: {

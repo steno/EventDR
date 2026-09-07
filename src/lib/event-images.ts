@@ -27,6 +27,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "cheers-weekly-live": "cheers-weekly-live.jpg",
   // Filename bump — cleaner flyer crop (social caption chrome removed).
   "cheers-mandarin-mondays": "cheers-mandarin-mondays-menu.jpg",
+  "cigar-town-la-pena-thursdays": "cigar-town-la-pena-thursdays.jpg",
+  "cigar-town-ron-humos": "cigar-town-ron-humos.jpg",
   // Filename bump — live bar with hanging Cadillac (entrance stays on the venue).
   "senor-rock-live-nightly": "senor-rock-cadillac-bar.jpg",
   "cremo-salsa-friday": "cremo-salsa-friday.jpg",
@@ -183,6 +185,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "cigar-town-acustico-humos-2026-08-14":
     "cigar-town-acustico-humos-2026-08-14.jpg",
   "cigar-town-acustico-humos-2026-08-28": "cigar-town-acustico-humos.jpg",
+  "cigar-town-noche-bohemia-2026-09-12": "cigar-town-noche-bohemia-2026-09-12.jpg",
   // Filename bump — terrace crowd (not the shared dining-room still).
   "chill-and-grill-bingo-2026-08-03": "chill-and-grill-bingo-terrace.jpg",
   "sunset-night-party-playa-encuentro-2026-07-25":
@@ -257,6 +260,11 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "el-carey-weekend-nightlife": "object-center lg:object-left",
   // Portrait flyer — keep Mandarin Mondays branding in a wide desktop crop.
   "cheers-mandarin-mondays": "object-center lg:object-left",
+  // Keep rum glass + cigar in a wide desktop crop.
+  "cigar-town-la-pena-thursdays": "object-center lg:object-left",
+  "cigar-town-ron-humos": "object-center lg:object-left",
+  // Guitar flyer — keep soundhole/strings in a wide desktop crop.
+  "cigar-town-noche-bohemia-2026-09-12": "object-center lg:object-left",
 };
 
 function curatedEventImageFile(eventId: string): string | undefined {

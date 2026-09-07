@@ -480,6 +480,65 @@ export const SEED_EVENT_OPINIONS_BASE: EventOpinion[] = [
     updatedAt: "2026-08-28T12:25:00.000Z",
   },
   {
+    eventId: "cigar-town-la-pena-thursdays",
+    seriesKey: "cigar-town-pop:weekly:4",
+    body: "Thursday rum-and-cigar ritual, not a dance night — ask for the Brugal Extra Viejo package (bottle + mixer, 4 cigars, 10% off) and confirm hours on IG before you go.",
+    localized: {
+      es: "Ritual de jueves de ron y cigarro, no noche de baile — pide el paquete Brugal Extra Viejo (botella + acompañante, 4 cigarros, 10% off) y confirma horario en IG antes de ir.",
+      fr: "Rituel jeudi rhum-et-cigare, pas une soirée danse — demandez le forfait Brugal Extra Viejo (bouteille + accompagnement, 4 cigares, 10 % off) et confirmez l'horaire sur IG avant d'y aller.",
+    },
+    priceFeel: "upscale",
+    priceNote:
+      "Package promo on flyer (bottle + 4 cigars + 10% off) — no published price; lounge spend, not a cheap Presidente night",
+    priceNoteLocalized: {
+      es: "Promo de paquete en el flyer (botella + 4 cigarros + 10% off) — sin precio publicado; gasto de lounge, no noche barata de Presidente",
+      fr: "Promo forfait sur l'affiche (bouteille + 4 cigares + 10 % off) — pas de prix publié ; budget lounge, pas une soirée Presidente bon marché",
+    },
+    attribution: "POP research · Cigar Town × Brugal flyer",
+    researchNotes:
+      "Editor-supplied La Peña flyer: every Thursday, Av. Luis Ginebra 56; Brugal Extra Viejo bottle + acompañante + 4 cigars + 10% discount; no start time or RD$ price on art.",
+    updatedAt: "2026-09-07T17:00:00.000Z",
+  },
+  {
+    eventId: "cigar-town-ron-humos",
+    seriesKey: "cigar-town-pop:weekly:1-3",
+    body: "Midweek rum-and-cigar promo — 1 Brugal Extra Viejo drink plus 2 house cigars; quieter than Saturday Sessions, still lounge-priced.",
+    localized: {
+      es: "Promo de mitad de semana de ron y cigarro — 1 trago Brugal Extra Viejo más 2 cigarros de la casa; más quieto que las Sessions de sábado, igual precio lounge.",
+      fr: "Promo mi-semaine rhum-et-cigare — 1 verre Brugal Extra Viejo plus 2 cigares de la maison ; plus calme que les Sessions du samedi, toujours tarif lounge.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "Flyer promo (1 Extra Viejo + 2 house cigars) — no published RD$ price; ask the lounge",
+    priceNoteLocalized: {
+      es: "Promo del flyer (1 Extra Viejo + 2 cigarros de la casa) — sin precio RD$ publicado; pregunta en el lounge",
+      fr: "Promo de l'affiche (1 Extra Viejo + 2 cigares maison) — pas de prix RD$ publié ; demandez au lounge",
+    },
+    attribution: "POP research · @cigartownpop",
+    researchNotes:
+      "Pinned IG https://www.instagram.com/cigartownpop/p/DcyjYAYxcI3/ — Ron & Humos Mon/Wed; flyer: 1 Brugal Extra Viejo drink + 2 house cigars. Caption says Mondays and Wednesdays of September; flyer says every Mon/Wed. No start time or package price.",
+    updatedAt: "2026-09-07T17:30:00.000Z",
+  },
+  {
+    eventId: "cigar-town-noche-bohemia-2026-09-12",
+    body: "Intimate acoustic lounge night with Eddy Almonte and Café Meclao — cigar/whisky spend more than a dance-club cover; confirm start time on @cigartownpop.",
+    localized: {
+      es: "Noche acústica íntima con Eddy Almonte y Café Meclao — más gasto en cigarro/whisky que cover de disco; confirma la hora en @cigartownpop.",
+      fr: "Soirée acoustique intimiste avec Eddy Almonte et Café Meclao — budget cigare/whisky plus que cover disco ; confirmez l'heure sur @cigartownpop.",
+    },
+    priceFeel: "upscale",
+    priceNote:
+      "Cigar lounge pricing — no door price on the flyer; puros and drinks drive the check",
+    priceNoteLocalized: {
+      es: "Precios de lounge de cigarros — sin cover en el flyer; puros y tragos marcan la cuenta",
+      fr: "Tarifs lounge à cigares — pas de cover sur l'affiche ; puros et verres font l'addition",
+    },
+    attribution: "POP research · @cigartownpop",
+    researchNotes:
+      "Official IG https://www.instagram.com/cigartownpop/p/Dc_l8cYR1X3/ — Sat Sep 12 2026 Noche Bohemia, Eddy Almonte (@eddyalmb) & Café Meclao, Luis Ginebra 56. Caption has no start time or ticket price. Same duo as Aug Acústico & Humos sessions.",
+    updatedAt: "2026-09-07T17:20:00.000Z",
+  },
+  {
     eventId: "rumble-in-paradise-13",
     body: "Book a VIP table if you want a reserved view of the ring — this is a beach-bar setup, not stadium seats. No bell time on the flyer; the last edition here ran 5–9 PM, so confirm before you go.",
     localized: {

@@ -192,6 +192,9 @@ Curated images under `public/events/` and `public/venues/`.
 | `chill-and-grill-sunday-bingo.jpg` | Chill & Grill Bar & Eatery official bingo flyer — Sunday 7:30 PM, free cards, Casa Linda Phase 7–9 | Weekly Sunday bingo listing |
 | `chill-and-grill-saturday-karaoke.jpg` | Chill & Grill Bar & Eatery official karaoke flyer — Saturday 7:30 PM, Casa Linda Phase 7–9 | Weekly Saturday karaoke listing |
 | `cigar-town-acustico-humos.jpg` | POP-supplied Cigar Town Sessions flyer (Acústico & Humos — Eddy Almonte & Café Meclao; no date on art) | Series flyer for the Aug 28 night; dateless so it can reuse for later sessions |
+| `cigar-town-la-pena-thursdays.jpg` | POP editor-provided — Cigar Town × Brugal La Peña Thursday ritual flyer | Weekly Extra Viejo + 4 cigars package night art (Av. Luis Ginebra 56) |
+| `cigar-town-ron-humos.jpg` | POP editor-provided — Cigar Town × Brugal Ron & Humos flyer ([@cigartownpop](https://www.instagram.com/cigartownpop/p/DcyjYAYxcI3/)) | Mon/Wed Extra Viejo drink + 2 house cigars promo art |
+| `cigar-town-noche-bohemia-2026-09-12.jpg` | [@cigartownpop](https://www.instagram.com/cigartownpop/p/Dc_l8cYR1X3/) — Cigar Town Sessions Noche Bohemia flyer (Sep 12 2026) | Eddy Almonte & Café Meclao live; editor-saved from official IG post |
 | `ingest-nacho-estrella-nd-eventos.jpg` | [TodoTickets — Nacho Estrella @ ND Eventos](https://todotickets.do/events/nacho-estrella-nd-eventos) official event cover | Billed Cacique Monción concert art (no longer clones El Blachy’s patio shot) |
 | `venues/pingui-bar-tiki.jpg` | Google Maps visitor photo — Pingüi Bar tiki counter at Playa El Pueblito | Venue place shot (Saturday sancocho keeps the flyer) |
 | `venues/cacique-moncion-palapa.jpg` | Google Maps visitor photo — Disco Restaurant Cacique palapa dining hall | Venue place shot (El Blachy keeps the patio still) |

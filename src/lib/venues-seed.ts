@@ -1049,7 +1049,7 @@ export const SEED_VENUES: Venue[] = [
     name: "Cigar Town Pop",
     city: "Puerto Plata",
     description:
-      "Cigar lounge and session spot on Av. Luis Ginebra — premium puros, whisky, and intimate live acoustic nights in downtown Puerto Plata.",
+      "Cigar lounge on Av. Luis Ginebra No. 56 — premium puros, whisky, open Mon–Sun; Ron & Humos Mon/Wed, Thursday La Peña with Brugal, and Cigar Town Sessions live nights (Eddy Almonte & Café Meclao) in downtown Puerto Plata.",
     lat: 19.7915,
     lng: -70.6805,
     emoji: "🚬",

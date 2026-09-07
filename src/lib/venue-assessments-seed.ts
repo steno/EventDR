@@ -442,6 +442,17 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     ],
   }),
   editorial({
+    venueSlug: "cigar-town-pop",
+    verdictKey: "local_favorite_night",
+    crowdFit: ["local", "mixed", "nightlife"],
+    axes: { recommend: 4.2, atmosphere: 4.4, value: 3.8, practical: 4.0 },
+    themes: [
+      { key: "cigar_tour", sentiment: "positive" },
+      { key: "live_music", sentiment: "positive" },
+      { key: "easy_to_find", sentiment: "positive" },
+    ],
+  }),
+  editorial({
     venueSlug: "big-lees-beach-bar",
     verdictKey: "strong_visitor_nightlife",
     crowdFit: ["visitor", "nightlife", "mixed"],

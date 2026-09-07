@@ -517,8 +517,8 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
   },
   "cigar-town-pop": {
     description: {
-      es: "Lounge de cigarros y sesiones en Av. Luis Ginebra — puros premium, whisky y noches acústicas íntimas en el centro de Puerto Plata.",
-      fr: "Lounge à cigares et sessions sur l'Av. Luis Ginebra — puros premium, whisky et soirées acoustiques intimistes au centre de Puerto Plata.",
+      es: "Lounge de cigarros en Av. Luis Ginebra No. 56 — puros premium, whisky, abierto lun–dom; Ron & Humos lun/mié, La Peña los jueves con Brugal y Cigar Town Sessions en vivo (Eddy Almonte & Café Meclao) en el centro de Puerto Plata.",
+      fr: "Lounge à cigares sur l'Av. Luis Ginebra n° 56 — puros premium, whisky, ouvert lun–dim ; Ron & Humos lun/mer, La Peña le jeudi avec Brugal et Cigar Town Sessions live (Eddy Almonte & Café Meclao) au centre de Puerto Plata.",
     },
   },
   "gran-ventana-beach-resort": {
