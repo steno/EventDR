@@ -36,6 +36,7 @@ import {
   markOnboardingSeen,
 } from "@/lib/onboarding";
 import { usePushSubscription } from "@/hooks/usePushSubscription";
+import { useEventReminders } from "@/hooks/useEventReminders";
 import type { NearbyTonightResult } from "@/lib/nearby-events";
 import type { VenueSiblingNight } from "@/lib/venue-recurring-siblings";
 import { getPocketForEvent } from "@/lib/walkable-pockets";
@@ -43,8 +44,9 @@ import { areEventOpinionsEnabled, getEventOpinion, withGoogleRating, googleRatin
 import { EventDetailContent } from "@/components/event-detail/EventDetailContent";
 import { EventDetailActions } from "@/components/event-detail/EventDetailActions";
 import { DETAIL_HERO_PHOTO_HEIGHT_CLASS } from "@/lib/page-shell";
+import type { ReminderOffset } from "@/lib/event-reminders";
 
-type ActionMenu = "share" | "calendar";
+type ActionMenu = "share" | "calendar" | "remind";
 
 const EMPTY_STATUS_EVENT = {
   date: "",
@@ -107,8 +109,10 @@ export function EventDetailSheet({
   const router = useRouter();
   const shareOpen = openAction === "share";
   const calendarOpen = openAction === "calendar";
+  const remindOpen = openAction === "remind";
   const onboardingCopy = getOnboardingCopy(locale);
   const pushSubscription = usePushSubscription(locale);
+  const eventReminders = useEventReminders(locale);
   const liveDisplay = useLiveStatusDisplay(event ?? EMPTY_STATUS_EVENT, dict);
   const eventId = event?.id;
 
@@ -300,7 +304,12 @@ export function EventDetailSheet({
   const isPhysical = event.format !== "digital";
   // Calendar CTA lives in the save celebration — hide the duplicate bar icon.
   const showCalendarAction = !showSaveCelebration;
-  const actionCols = (showCalendarAction ? 1 : 0) + 2;
+  const isReminded = event ? eventReminders.isReminded(event.id) : false;
+  const canRemind = event ? eventReminders.canRemind(event) : false;
+  const showRemindAction =
+    eventReminders.supported && (canRemind || isReminded);
+  const actionCols =
+    (showRemindAction ? 1 : 0) + (showCalendarAction ? 1 : 0) + 2;
   const ticketUrl = resolveTicketUrl(event);
   const showFreeAdmission = !ticketUrl && isEventFree(event);
   const admissionPrice = resolveAdmissionPrice(event);
@@ -354,6 +363,36 @@ export function EventDetailSheet({
     ) {
       setShowPushPrompt(true);
     }
+  }
+
+  async function handleSetReminder(offset: ReminderOffset) {
+    if (!event) return;
+    const result = await eventReminders.setReminder(event, offset);
+    if (result.ok) {
+      if (!isSaved) onToggleSave(event);
+      handleShareFeedback(dict.detail.remindSet, 3500);
+      setOpenAction(null);
+      return;
+    }
+    if (result.error === "permission") {
+      handleShareFeedback(dict.detail.remindNeedPermission, 4500);
+      return;
+    }
+    if (result.error === "unsupported") {
+      handleShareFeedback(dict.detail.remindUnsupported, 4500);
+      return;
+    }
+    handleShareFeedback(dict.detail.remindFailed, 4500);
+  }
+
+  async function handleCancelReminder() {
+    if (!event) return;
+    const result = await eventReminders.cancelReminder(event.id);
+    if (result.ok) {
+      setOpenAction(null);
+      return;
+    }
+    handleShareFeedback(dict.detail.remindFailed, 4500);
   }
 
   function handleViewVenue() {
@@ -414,9 +453,19 @@ export function EventDetailSheet({
       standalone={standalone}
       actionsRef={actionsRef}
       isSaved={isSaved}
+      isReminded={isReminded}
+      activeReminder={
+        event ? eventReminders.getReminder(event.id) : null
+      }
+      canRemind={canRemind}
+      remindSupported={eventReminders.supported}
+      remindLoading={
+        Boolean(event && eventReminders.loadingEventId === event.id)
+      }
       shareMsg={shareMsg}
       shareOpen={shareOpen}
       calendarOpen={calendarOpen}
+      remindOpen={remindOpen}
       showSaveCelebration={showSaveCelebration}
       showPushPrompt={showPushPrompt}
       showActionsCoach={showActionsCoach}
@@ -432,6 +481,8 @@ export function EventDetailSheet({
       onShareFeedback={handleShareFeedback}
       onDismissActionsCoach={dismissActionsCoach}
       onSave={handleSave}
+      onSetReminder={handleSetReminder}
+      onCancelReminder={handleCancelReminder}
       onOfferPushPrompt={offerPushPrompt}
       onSetOpenAction={setOpenAction}
       onSetShowSaveCelebration={setShowSaveCelebration}

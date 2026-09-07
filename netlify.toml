@@ -107,6 +107,7 @@
 # Scheduled functions run automatically on production deploys
 # - scheduled-cleanup.mts: Daily at midnight UTC (@daily)
 # - scheduled-notify.mts: Fridays at 9:00 AM UTC (0 9 * * 5)
+# - scheduled-reminders.mts: Hourly (0 * * * *) for per-event Remind me pushes
 
 # Environment variables to set in Site settings → Environment variables:
 # Required for Firebase:
@@ -116,6 +117,6 @@
 # Optional for push notifications:
 #   NEXT_PUBLIC_VAPID_PUBLIC_KEY, VAPID_PUBLIC_KEY, VAPID_PRIVATE_KEY, VAPID_SUBJECT
 # Optional for manual cron endpoints:
-#   CRON_SECRET (for /api/cron/cleanup, /api/cron/notify, /api/cron/partner-digest, /api/cron/newsletter)
+#   CRON_SECRET (for /api/cron/cleanup, /api/cron/notify, /api/cron/reminders, /api/cron/partner-digest, /api/cron/newsletter)
 # Optional for Friday weekend email (Resend free tier):
 #   RESEND_API_KEY, RESEND_FROM

@@ -14,13 +14,16 @@ import type { Locale } from "@/i18n/config";
 import { detailActionPanelClass } from "@/components/ActionSheet";
 import { ShareMenu } from "@/components/ShareMenu";
 import { CalendarMenu } from "@/components/CalendarMenu";
+import { ReminderMenu } from "@/components/ReminderMenu";
 import {
   getOnboardingCopy,
   markOnboardingSeen,
 } from "@/lib/onboarding";
 import { usePushSubscription } from "@/hooks/usePushSubscription";
+import type { StoredReminder } from "@/hooks/useEventReminders";
+import type { ReminderOffset } from "@/lib/event-reminders";
 
-type ActionMenu = "share" | "calendar";
+type ActionMenu = "share" | "calendar" | "remind";
 
 export interface EventDetailActionsProps {
   event: Event;
@@ -29,9 +32,15 @@ export interface EventDetailActionsProps {
   standalone: boolean;
   actionsRef: RefObject<HTMLDivElement | null>;
   isSaved: boolean;
+  isReminded: boolean;
+  activeReminder: StoredReminder | null;
+  canRemind: boolean;
+  remindSupported: boolean;
+  remindLoading: boolean;
   shareMsg: string | null;
   shareOpen: boolean;
   calendarOpen: boolean;
+  remindOpen: boolean;
   showSaveCelebration: boolean;
   showPushPrompt: boolean;
   showActionsCoach: boolean;
@@ -47,6 +56,8 @@ export interface EventDetailActionsProps {
   onShareFeedback: (message: string, durationMs?: number) => void;
   onDismissActionsCoach: () => void;
   onSave: () => void;
+  onSetReminder: (offset: ReminderOffset) => void;
+  onCancelReminder: () => void;
   onOfferPushPrompt: () => void;
   onSetOpenAction: (action: ActionMenu | null) => void;
   onSetShowSaveCelebration: (show: boolean) => void;
@@ -61,9 +72,15 @@ export function EventDetailActions({
   standalone,
   actionsRef,
   isSaved,
+  isReminded,
+  activeReminder,
+  canRemind,
+  remindSupported,
+  remindLoading,
   shareMsg,
   shareOpen,
   calendarOpen,
+  remindOpen,
   showSaveCelebration,
   showPushPrompt,
   showActionsCoach,
@@ -79,12 +96,16 @@ export function EventDetailActions({
   onShareFeedback,
   onDismissActionsCoach,
   onSave,
+  onSetReminder,
+  onCancelReminder,
   onOfferPushPrompt,
   onSetOpenAction,
   onSetShowSaveCelebration,
   onSetShowPushPrompt,
   onSetPushAfterCalendar,
 }: EventDetailActionsProps) {
+  const showRemindAction = remindSupported && (canRemind || isReminded);
+
   return (
     <>
       <div
@@ -135,6 +156,19 @@ export function EventDetailActions({
                   >
                     {onboardingCopy.saved.calendar}
                   </button>
+                  {showRemindAction ? (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        markOnboardingSeen("calendar-prompt-seen");
+                        onSetShowSaveCelebration(false);
+                        onSetOpenAction("remind");
+                      }}
+                      className="rounded-full bg-emerald-100 px-4 py-2 text-sm font-bold text-emerald-900 dark:bg-emerald-900/50 dark:text-emerald-100"
+                    >
+                      {dict.detail.remind}
+                    </button>
+                  ) : null}
                   <button
                     type="button"
                     onClick={() => {
@@ -226,6 +260,18 @@ export function EventDetailActions({
               }}
             />
           </div>
+        ) : remindOpen ? (
+          <div className={detailActionPanelClass}>
+            <ReminderMenu
+              event={event}
+              dict={dict}
+              locale={locale}
+              active={activeReminder}
+              loading={remindLoading}
+              onSelect={onSetReminder}
+              onCancel={onCancelReminder}
+            />
+          </div>
         ) : showActionsCoach ? (
           <div className={detailActionPanelClass}>
             <p className="text-base font-bold text-orange-950 dark:text-orange-100">
@@ -264,9 +310,36 @@ export function EventDetailActions({
         ) : null}
         <div
           className={`relative z-10 grid gap-2 ${
-            actionCols === 3 ? "grid-cols-3" : "grid-cols-2"
+            actionCols === 4
+              ? "grid-cols-4"
+              : actionCols === 3
+                ? "grid-cols-3"
+                : "grid-cols-2"
           }`}
         >
+          {showRemindAction ? (
+            <button
+              type="button"
+              onClick={() => {
+                onDismissActionsCoach();
+                onToggleAction("remind");
+              }}
+              className={`${iconActionClass} ${
+                remindOpen || isReminded
+                  ? iconActionActiveClass
+                  : iconActionIdleClass
+              }`}
+              aria-label={isReminded ? dict.detail.remindOn : dict.detail.remind}
+              title={isReminded ? dict.detail.remindOn : dict.detail.remind}
+              aria-expanded={remindOpen}
+              aria-pressed={isReminded}
+            >
+              <Bell
+                className={`h-4 w-4 ${isReminded ? "fill-current" : ""}`}
+                aria-hidden
+              />
+            </button>
+          ) : null}
           {showCalendarAction ? (
             <button
               type="button"

@@ -157,6 +157,22 @@ export type Dictionary = {
     share: string;
     save: string;
     saved: string;
+    remind: string;
+    remindOn: string;
+    remindVia: string;
+    remindDayBefore: string;
+    remindDayBeforeHint: string;
+    remindMorningOf: string;
+    remindMorningOfHint: string;
+    remindTwoHours: string;
+    remindTwoHoursHint: string;
+    remindRecommended: string;
+    remindCancel: string;
+    remindSet: string;
+    remindTooLate: string;
+    remindNeedPermission: string;
+    remindUnsupported: string;
+    remindFailed: string;
     community: string;
     viewVenue: string;
     viewEvent: string;
@@ -454,12 +470,10 @@ export type Dictionary = {
     noEvents: string;
     howToGetThere: string;
     showMap: string;
-    openInMaps: string;
     streetView: string;
     streetViewLoading: string;
     streetViewUnavailable: string;
     streetViewError: string;
-    streetViewHint: string;
     website: string;
     instagram: string;
     startingFrom: string;
@@ -706,6 +720,22 @@ export const en: Dictionary = {
     share: "Share",
     save: "Save",
     saved: "Saved",
+    remind: "Remind me",
+    remindOn: "Reminder set",
+    remindVia: "Remind me",
+    remindDayBefore: "Day before",
+    remindDayBeforeHint: "10:00 AM",
+    remindMorningOf: "Morning of",
+    remindMorningOfHint: "10:00 AM",
+    remindTwoHours: "2 hours before",
+    remindTwoHoursHint: "Before it starts",
+    remindRecommended: "Best",
+    remindCancel: "Cancel reminder",
+    remindSet: "Reminder set!",
+    remindTooLate: "This event is too soon to remind.",
+    remindNeedPermission: "Allow notifications to get reminders",
+    remindUnsupported: "Reminders need a browser that supports notifications",
+    remindFailed: "Couldn’t set reminder — try again",
     community: "Shared by the community",
     viewVenue: "View venue",
     viewEvent: "View event",
@@ -1025,12 +1055,10 @@ export const en: Dictionary = {
     noEvents: "No upcoming events at this venue yet.",
     howToGetThere: "See how to get there",
     showMap: "How to get there",
-    openInMaps: "Open in Maps",
     streetView: "See the area",
     streetViewLoading: "Loading the area…",
     streetViewUnavailable: "A street preview isn't available at this spot.",
     streetViewError: "Couldn't load the area preview.",
-    streetViewHint: "Open Street View or Maps for this pin.",
     website: "Website",
     instagram: "Instagram",
     startingFrom: "Where are you starting from?",
@@ -1039,7 +1067,7 @@ export const en: Dictionary = {
     useMyLocation: "Near me",
     getDirections: "Get directions",
     routeLoading: "Finding route…",
-    routeError: "Couldn't draw a route. Try Open in Maps instead.",
+    routeError: "Couldn't draw a route. Try a clearer starting place.",
     routeSummary: "About {distance} · {minutes} min drive",
     locationDenied: "Location access was denied. Enter a starting place instead.",
     geocodeError: "Couldn't find that place. Try a clearer address nearby.",

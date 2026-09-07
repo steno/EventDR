@@ -1,14 +1,14 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { ExternalLink, X } from "lucide-react";
+import { X } from "lucide-react";
 import type { Dictionary } from "@/i18n/dictionaries";
 import {
   canUseInAppStreetView,
   loadGoogleMapsJs,
   markGoogleMapsJsBlocked,
 } from "@/lib/google-maps-js";
-import { getMapPinUrl, getStreetViewEmbedUrl } from "@/lib/maps";
+import { getStreetViewEmbedUrl } from "@/lib/maps";
 
 interface StreetViewModalProps {
   open: boolean;
@@ -37,38 +37,24 @@ type ViewStatus = "loading" | "ready" | "unavailable" | "error" | "embed";
 function StreetViewEmbed({
   lat,
   lng,
-  title,
   dict,
 }: {
   lat: number;
   lng: number;
-  title?: string;
   dict: Dictionary;
 }) {
   const embedUrl = getStreetViewEmbedUrl({ lat, lng });
-  const mapsUrl = getMapPinUrl({ lat, lng }, title);
 
   return (
     <div className="absolute inset-0 z-10 flex flex-col bg-neutral-200 dark:bg-neutral-800">
       <iframe
         title={dict.venues.streetView}
         src={embedUrl}
-        className="min-h-0 w-full flex-1 border-0 bg-neutral-200 dark:bg-neutral-800"
+        className="h-full w-full flex-1 border-0 bg-neutral-200 dark:bg-neutral-800"
         allow="accelerometer; gyroscope; fullscreen"
         loading="eager"
         referrerPolicy="no-referrer-when-downgrade"
       />
-      <div className="flex shrink-0 items-center justify-end border-t border-neutral-200/80 bg-white/95 px-3 py-2 dark:border-neutral-800 dark:bg-neutral-900/95">
-        <a
-          href={mapsUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold text-neutral-700 touch-manipulation dark:text-neutral-200"
-        >
-          <ExternalLink className="h-3.5 w-3.5" aria-hidden />
-          {dict.venues.openInMaps}
-        </a>
-      </div>
     </div>
   );
 }
@@ -88,7 +74,6 @@ export function StreetViewModal({
   const [status, setStatus] = useState<ViewStatus>(
     forceEmbed || !canUseInAppStreetView() ? "embed" : "loading",
   );
-  const fallbackMapsUrl = getMapPinUrl({ lat, lng }, title);
   const inline = variant === "inline";
 
   useEffect(() => {
@@ -279,7 +264,7 @@ export function StreetViewModal({
         ) : null}
 
         {status === "embed" ? (
-          <StreetViewEmbed lat={lat} lng={lng} title={title} dict={dict} />
+          <StreetViewEmbed lat={lat} lng={lng} dict={dict} />
         ) : null}
 
         {status === "unavailable" || status === "error" ? (
@@ -289,15 +274,6 @@ export function StreetViewModal({
                 ? dict.venues.streetViewUnavailable
                 : dict.venues.streetViewError}
             </p>
-            <a
-              href={fallbackMapsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-neutral-900 px-4 py-2 text-sm font-bold text-white dark:bg-neutral-100 dark:text-neutral-900"
-            >
-              <ExternalLink className="h-4 w-4" aria-hidden />
-              {dict.venues.openInMaps}
-            </a>
           </div>
         ) : null}
       </div>
