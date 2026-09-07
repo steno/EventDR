@@ -155,7 +155,7 @@ export const SEED_VENUES: Venue[] = [
     name: "Cheers Bar & Grill",
     city: "Sosúa",
     description:
-      "Expat-owned sports pub on Calle Pedro Clisante — rock and blues cover bands, big-screen sports, pub food, and a steady weekly live-music crowd.",
+      "Expat-owned sports pub on Calle Pedro Clisante — rock and blues cover bands, big-screen sports, pub food, Mandarin Mondays Chinese takeout from 3 PM, and a steady weekly live-music crowd.",
     lat: 19.7678473,
     lng: -70.5103493,
     emoji: "🍻",

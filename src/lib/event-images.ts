@@ -25,6 +25,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "finish-line-live-wednesday": "finish-line-live-band.jpg",
   "sosua-beach-live-weekends": "sosua-beach-live-bay.jpg",
   "cheers-weekly-live": "cheers-weekly-live.jpg",
+  // Filename bump — cleaner flyer crop (social caption chrome removed).
+  "cheers-mandarin-mondays": "cheers-mandarin-mondays-menu.jpg",
   // Filename bump — live bar with hanging Cadillac (entrance stays on the venue).
   "senor-rock-live-nightly": "senor-rock-cadillac-bar.jpg",
   "cremo-salsa-friday": "cremo-salsa-friday.jpg",
@@ -253,6 +255,8 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "flip-flop-live-sports-daily": "object-top lg:object-left",
   // Keep the lantern canopy; avoid the close face on the right.
   "el-carey-weekend-nightlife": "object-center lg:object-left",
+  // Portrait flyer — keep Mandarin Mondays branding in a wide desktop crop.
+  "cheers-mandarin-mondays": "object-center lg:object-left",
 };
 
 function curatedEventImageFile(eventId: string): string | undefined {

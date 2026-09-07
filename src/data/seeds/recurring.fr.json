@@ -271,6 +271,25 @@
     "imageEmoji": "🍻"
   },
   {
+    "id": "cheers-mandarin-mondays",
+    "title": "Mandarin Mondays au Cheers",
+    "description": "Tous les lundis dès 15 h — China Grill @ Cheers Bar & Grill sur Pedro Clisante (à côté du Club Residential) propose du takeout chinois style New York : bœuf mongol, poulet aigre-doux, chow mein, dumplings et plus dès environ RD$200. Même ambiance pub, menu asiatique. Appelez le +1 809-404-8224.",
+    "date": "2026-01-01",
+    "time": "from 3:00 PM",
+    "location": "Sosúa",
+    "venue": "Cheers Bar & Grill",
+    "venueSlug": "cheers-bar-sosua",
+    "address": "Calle Pedro Clisante (à côté du Club Residential)",
+    "category": "food-drinks",
+    "format": "physical",
+    "recurrence": "weekly",
+    "recurrenceDay": 1,
+    "phone": "+1809404822463",
+    "callForPricing": true,
+    "sourceType": "community",
+    "imageEmoji": "🥡"
+  },
+  {
     "id": "senor-rock-live-nightly",
     "title": "Groupes live au Señor Rock",
     "description": "Musique live chaque soir au Señor Rock, Playa Dorada Plaza — groupes locaux rock, reprises et classiques caribéens, dîner et cocktails.",

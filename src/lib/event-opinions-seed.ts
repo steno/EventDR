@@ -244,6 +244,24 @@ export const SEED_EVENT_OPINIONS_BASE: EventOpinion[] = [
     updatedAt: AT,
   },
   {
+    eventId: "cheers-mandarin-mondays",
+    seriesKey: "cheers-bar-sosua:weekly:1",
+    body: "Monday Chinese takeout night at the pub — order Mongolian beef or dumplings and linger with a cold drink on Pedro Clisante.",
+    localized: {
+      es: "Lunes de comida china para llevar en el pub — pide Mongolian beef o dumplings y quédate con un trago frío en Pedro Clisante.",
+      fr: "Lundi takeout chinois au pub — commandez du bœuf mongol ou des dumplings et restez autour d'un verre froid sur Pedro Clisante.",
+    },
+    priceFeel: "budget",
+    priceNote: "Menu plates roughly RD$200–350; drinks extra; no cover",
+    priceNoteLocalized: {
+      es: "Platos del menú unos RD$200–350; tragos aparte; sin cover",
+      fr: "Plats du menu environ RD$200–350 ; boissons en plus ; pas de cover",
+    },
+    attribution: "POP research · venue flyer",
+    researchNotes: "China Grill @ Cheers Mandarin Mondays menu pricing from community flyer.",
+    updatedAt: AT,
+  },
+  {
     eventId: "groundzero-domingos-pal-pueblo",
     seriesKey: "ground-zero-disco:weekly:0",
     body: "Plan a ride — this is a real Dominican club night, not a tourist beach crawl. Watch for whisky promos.",

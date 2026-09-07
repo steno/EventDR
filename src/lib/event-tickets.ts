@@ -213,6 +213,7 @@ export const CURATED_FREE_EVENTS = new Set<string>([
   "finish-line-live-wednesday",
   "sosua-beach-live-weekends",
   "cheers-weekly-live",
+  "cheers-mandarin-mondays",
   "senor-rock-live-nightly",
   "cremo-salsa-friday",
   "cremo-bohemian-wednesday",
