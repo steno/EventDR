@@ -36,7 +36,7 @@ import {
   markOnboardingSeen,
 } from "@/lib/onboarding";
 import { usePushSubscription } from "@/hooks/usePushSubscription";
-import { useEventReminders } from "@/hooks/useEventReminders";
+import { isWebPushSupported, useEventReminders } from "@/hooks/useEventReminders";
 import type { NearbyTonightResult } from "@/lib/nearby-events";
 import type { VenueSiblingNight } from "@/lib/venue-recurring-siblings";
 import { getPocketForEvent } from "@/lib/walkable-pockets";
@@ -389,7 +389,7 @@ export function EventDetailSheet({
     // Ask for notification permission in this click turn so Safari keeps the
     // user-gesture and actually shows the system prompt.
     if (
-      eventReminders.supported &&
+      isWebPushSupported() &&
       typeof Notification !== "undefined" &&
       Notification.permission === "default"
     ) {

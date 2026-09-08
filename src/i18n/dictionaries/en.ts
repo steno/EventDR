@@ -175,6 +175,7 @@ export type Dictionary = {
     remindSet: string;
     remindTooLate: string;
     remindNeedPermission: string;
+    remindNeedHomeScreen: string;
     remindUnsupported: string;
     remindFailed: string;
     community: string;
@@ -743,7 +744,8 @@ export const en: Dictionary = {
     remindCancel: "Cancel reminder",
     remindSet: "Reminder set!",
     remindTooLate: "This event is too soon to remind.",
-    remindNeedPermission: "Notifications blocked — allow them via the lock icon in the address bar",
+    remindNeedPermission: "Notifications blocked — allow them in Settings, then try again",
+    remindNeedHomeScreen: "On iPhone, open POP Events from your Home Screen icon to enable reminders",
     remindUnsupported: "Reminders need a browser that supports notifications",
     remindFailed: "Couldn’t set reminder — try again",
     community: "Shared by the community",

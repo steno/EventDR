@@ -21,6 +21,10 @@ import {
 } from "@/lib/onboarding";
 import { usePushSubscription } from "@/hooks/usePushSubscription";
 import type { StoredReminder } from "@/hooks/useEventReminders";
+import {
+  isWebPushSupported,
+  needsIosHomeScreenForPush,
+} from "@/hooks/useEventReminders";
 import type { ReminderOffset } from "@/lib/event-reminders";
 
 type ActionMenu = "share" | "calendar" | "remind";
@@ -330,7 +334,13 @@ export function EventDetailActions({
               type="button"
               onClick={() => {
                 onDismissActionsCoach();
-                if (!remindSupported) {
+                // Check APIs at click time — React `supported` state can still be
+                // false for a tick after mount and wrongly show "unsupported".
+                if (needsIosHomeScreenForPush()) {
+                  onRemindFeedback(dict.detail.remindNeedHomeScreen, 5500);
+                  return;
+                }
+                if (!isWebPushSupported()) {
                   onRemindFeedback(dict.detail.remindUnsupported, 4500);
                   return;
                 }

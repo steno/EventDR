@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import type { Locale } from "@/i18n/config";
+import { isWebPushSupported } from "@/hooks/useEventReminders";
 
 function decodeVapidKey(value: string): Uint8Array<ArrayBuffer> {
   const padding = "=".repeat((4 - (value.length % 4)) % 4);
@@ -21,18 +22,14 @@ export function usePushSubscription(locale: Locale) {
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    const canSubscribe =
-      "serviceWorker" in navigator &&
-      "PushManager" in window &&
-      "Notification" in window;
-    const frame = window.requestAnimationFrame(() => setSupported(canSubscribe));
+    const canSubscribe = isWebPushSupported();
+    setSupported(canSubscribe);
     if (!canSubscribe) return;
 
     navigator.serviceWorker.ready
       .then((registration) => registration.pushManager.getSubscription())
       .then((subscription) => setEnabled(Boolean(subscription)))
       .catch(() => {});
-    return () => window.cancelAnimationFrame(frame);
   }, []);
 
   const subscribe = useCallback(async () => {

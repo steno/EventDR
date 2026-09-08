@@ -46,6 +46,43 @@ function decodeVapidKey(value: string): Uint8Array<ArrayBuffer> {
   return bytes;
 }
 
+/** Live capability check — do not rely on async React state for click handlers. */
+export function isWebPushSupported(): boolean {
+  if (typeof window === "undefined") return false;
+  if (!("serviceWorker" in navigator) || !("Notification" in window)) {
+    return false;
+  }
+  // Chrome: `PushManager` on window. Safari/iOS: only on the registration prototype,
+  // and only when launched as a Home Screen / standalone web app (iOS 16.4+).
+  return (
+    "PushManager" in window ||
+    "pushManager" in ServiceWorkerRegistration.prototype
+  );
+}
+
+export function isIosLikeDevice(): boolean {
+  if (typeof navigator === "undefined") return false;
+  const ua = navigator.userAgent;
+  if (/iPad|iPhone|iPod/.test(ua)) return true;
+  // iPadOS desktop UA
+  return navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1;
+}
+
+export function isStandaloneDisplay(): boolean {
+  if (typeof window === "undefined") return false;
+  const nav = navigator as Navigator & { standalone?: boolean };
+  return (
+    window.matchMedia("(display-mode: standalone)").matches ||
+    window.matchMedia("(display-mode: fullscreen)").matches ||
+    nav.standalone === true
+  );
+}
+
+/** iOS Safari tab (not Home Screen) — push APIs are intentionally withheld. */
+export function needsIosHomeScreenForPush(): boolean {
+  return isIosLikeDevice() && !isStandaloneDisplay();
+}
+
 type PushSubscribeResult =
   | {
       ok: true;
@@ -56,14 +93,31 @@ type PushSubscribeResult =
     }
   | { ok: false; error: "unsupported" | "permission" | "failed" };
 
+async function getServiceWorkerRegistration(): Promise<ServiceWorkerRegistration | null> {
+  if (!("serviceWorker" in navigator)) return null;
+
+  try {
+    const existing = await navigator.serviceWorker.getRegistration();
+    if (!existing) {
+      // Remind flow can race PwaRegister — register here if needed.
+      await navigator.serviceWorker.register("/sw.js");
+    }
+  } catch {
+    return null;
+  }
+
+  return Promise.race([
+    navigator.serviceWorker.ready,
+    new Promise<null>((resolve) => {
+      window.setTimeout(() => resolve(null), 8000);
+    }),
+  ]);
+}
+
 async function ensurePushSubscription(
   locale: Locale,
 ): Promise<PushSubscribeResult> {
-  if (
-    !("serviceWorker" in navigator) ||
-    !("PushManager" in window) ||
-    !("Notification" in window)
-  ) {
+  if (!isWebPushSupported()) {
     return { ok: false, error: "unsupported" };
   }
 
@@ -87,16 +141,9 @@ async function ensurePushSubscription(
       return { ok: false, error: "failed" };
     }
 
-    // Local `next dev` used to skip SW registration; wait with a timeout so the
-    // UI doesn't hang forever if registration is still settling.
-    const registration = await Promise.race([
-      navigator.serviceWorker.ready,
-      new Promise<null>((resolve) => {
-        window.setTimeout(() => resolve(null), 8000);
-      }),
-    ]);
+    const registration = await getServiceWorkerRegistration();
     if (!registration) {
-      return { ok: false, error: "unsupported" };
+      return { ok: false, error: "failed" };
     }
 
     const subscription =
@@ -152,16 +199,9 @@ export function useEventReminders(locale: Locale) {
   const [supported, setSupported] = useState(false);
 
   useEffect(() => {
-    const can =
-      "serviceWorker" in navigator &&
-      "PushManager" in window &&
-      "Notification" in window;
-    const frame = window.requestAnimationFrame(() => {
-      setSupported(can);
-      setReminders(readStore());
-      setReady(true);
-    });
-    return () => window.cancelAnimationFrame(frame);
+    setSupported(isWebPushSupported());
+    setReminders(readStore());
+    setReady(true);
   }, []);
 
   const isReminded = useCallback(
@@ -206,7 +246,7 @@ export function useEventReminders(locale: Locale) {
       >,
       offset: ReminderOffset,
     ): Promise<{ ok: boolean; remindAt?: string; error?: "unsupported" | "permission" | "failed" }> => {
-      if (!supported) return { ok: false, error: "unsupported" };
+      if (!isWebPushSupported()) return { ok: false, error: "unsupported" };
       setLoadingEventId(event.id);
       try {
         const push = await ensurePushSubscription(locale);
@@ -255,14 +295,14 @@ export function useEventReminders(locale: Locale) {
         setLoadingEventId(null);
       }
     },
-    [locale, supported],
+    [locale],
   );
 
   const cancelReminder = useCallback(
     async (
       eventId: string,
     ): Promise<{ ok: boolean; error?: "unsupported" | "permission" | "failed" }> => {
-      if (!supported) return { ok: false, error: "unsupported" };
+      if (!isWebPushSupported()) return { ok: false, error: "unsupported" };
       setLoadingEventId(eventId);
       try {
         const push = await ensurePushSubscription(locale);
@@ -297,7 +337,7 @@ export function useEventReminders(locale: Locale) {
         setLoadingEventId(null);
       }
     },
-    [locale, supported],
+    [locale],
   );
 
   return {
