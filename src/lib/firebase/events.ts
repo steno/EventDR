@@ -75,9 +75,40 @@ function readLocalizedText(data: DocumentData, field: string): LocalizedText | u
   return Object.keys(result).length > 0 ? result : undefined;
 }
 
+/** Normalize Firestore Timestamp / ISO string into an ISO date string. */
+function readCreatedAt(value: unknown): string | undefined {
+  if (value == null) return undefined;
+  if (typeof value === "string") {
+    const ms = Date.parse(value);
+    return Number.isFinite(ms) ? new Date(ms).toISOString() : undefined;
+  }
+  if (
+    typeof value === "object" &&
+    "toDate" in value &&
+    typeof (value as { toDate?: unknown }).toDate === "function"
+  ) {
+    try {
+      return (value as { toDate: () => Date }).toDate().toISOString();
+    } catch {
+      return undefined;
+    }
+  }
+  if (typeof value === "object") {
+    const seconds =
+      typeof (value as { seconds?: unknown }).seconds === "number"
+        ? (value as { seconds: number }).seconds
+        : typeof (value as { _seconds?: unknown })._seconds === "number"
+          ? (value as { _seconds: number })._seconds
+          : null;
+    if (seconds != null) return new Date(seconds * 1000).toISOString();
+  }
+  return undefined;
+}
+
 function docToEvent(id: string, data: DocumentData): Event {
   const titles = readLocalizedText(data, "titles");
   const descriptions = readLocalizedText(data, "descriptions");
+  const createdAt = readCreatedAt(data.createdAt);
 
   const event: Event = {
     id,
@@ -123,6 +154,7 @@ function docToEvent(id: string, data: DocumentData): Event {
       data.sourceType === "whatsapp",
     sourceType: data.sourceType as Event["sourceType"],
     status: data.status as Event["status"],
+    ...(createdAt ? { createdAt } : {}),
     localized:
       titles || descriptions
         ? {

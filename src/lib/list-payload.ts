@@ -33,6 +33,7 @@ export function slimEventForList(event: Event): Event {
   if (event.communitySubmitted) slim.communitySubmitted = true;
   if (event.sourceType) slim.sourceType = event.sourceType;
   if (event.status) slim.status = event.status;
+  if (event.createdAt) slim.createdAt = event.createdAt;
   if (typeof event.lat === "number") slim.lat = event.lat;
   if (typeof event.lng === "number") slim.lng = event.lng;
   if (event.recurrence) slim.recurrence = event.recurrence;

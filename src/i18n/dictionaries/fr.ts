@@ -103,6 +103,8 @@ export const fr: Dictionary = {
     ourPicks: "Nos sélections",
     happeningToday: "Aujourd'hui",
     seeAllToday: "Tout voir aujourd'hui",
+    recentlyAdded: "Ajoutés récemment",
+    comingUp: "À venir",
     viewAllEvents: "Voir tous les événements",
     viewMode: "Disposition des événements",
     viewList: "Liste",

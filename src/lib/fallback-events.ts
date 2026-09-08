@@ -4,6 +4,7 @@ import { getRecurringEvents } from "./recurring-events";
 import { materializeEventDates } from "./event-dates";
 import { filterRemovedSeedEvents } from "./removed-seeds";
 import { eventInCategory, withResolvedCategories } from "./categorize";
+import { attachSeedCreatedAt } from "./seed-created-at";
 import {
   EL_CAREY_WC2026_EVENTS_EN,
   EL_CAREY_WC2026_EVENTS_ES,
@@ -35,8 +36,10 @@ export function getFallbackEvents(locale: Locale = "en"): Event[] {
     ...getFallbackBase(locale),
     ...getWorldCupEvents(locale),
   ];
-  return materializeEventDates(filterRemovedSeedEvents(merged)).map(
-    withResolvedCategories,
+  return attachSeedCreatedAt(
+    materializeEventDates(filterRemovedSeedEvents(merged)).map(
+      withResolvedCategories,
+    ),
   );
 }
 

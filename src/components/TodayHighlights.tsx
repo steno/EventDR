@@ -2,7 +2,7 @@
 
 import { memo, useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
-import { ChevronRight, CircleAlert, Clock } from "lucide-react";
+import { ChevronRight, CircleAlert, Calendar, Clock } from "lucide-react";
 import { EventImage } from "@/components/EventImage";
 import { EventStatusBadge } from "@/components/EventStatusBadge";
 import { HomeAlerts } from "@/components/HomeAlerts";
@@ -12,7 +12,9 @@ import type { HomeAlert } from "@/lib/alerts";
 import type { Event } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
+import type { TimeRange } from "@/lib/filters";
 import { eventDetailPath, rememberReturnPath } from "@/lib/event-navigation";
+import { formatEventDateRange } from "@/lib/format-date";
 import { formatEventTimeForList } from "@/lib/event-time-display";
 import {
   getTodayHighlightEvents,
@@ -28,6 +30,8 @@ interface TodayHighlightsProps {
   excludeEventIds?: string[];
   /** Override “See all today” destination (e.g. city page when a zone is picked). */
   seeAllHref?: string;
+  /** Override the see-all pill label (defaults to “See all today”). */
+  seeAllLabel?: string;
   /** Return path when opening a highlight (keeps home area). */
   returnTo?: string;
   returnTitle?: string | null;
@@ -41,6 +45,10 @@ interface TodayHighlightsProps {
   notes?: Record<string, string>;
   /** Hide the “See all today” link (used when the rest of the list is on-page). */
   hideSeeAll?: boolean;
+  /** Live-status label context for cards (default today). */
+  listTimeRange?: TimeRange;
+  /** Show calendar date on cards (useful for Coming up / non-today grids). */
+  showDate?: boolean;
 }
 
 function TodayHighlightCard({
@@ -53,6 +61,8 @@ function TodayHighlightCard({
   dimmed,
   onNavigate,
   note,
+  listTimeRange,
+  showDate,
 }: {
   event: Event;
   locale: Locale;
@@ -63,17 +73,33 @@ function TodayHighlightCard({
   dimmed: boolean;
   onNavigate: () => void;
   note?: string;
+  listTimeRange?: TimeRange;
+  showDate?: boolean;
 }) {
   const href = eventDetailPath(locale, event.id);
   const liveDisplay = useLiveStatusDisplay(event, dict, {
-    listTimeRange: "today",
+    listTimeRange: listTimeRange ?? "today",
   });
   const liveStatus = liveDisplay?.status ?? null;
   const liveStatusLabel = liveDisplay?.label ?? null;
+  const dateLabel = showDate
+    ? formatEventDateRange(event.date, locale, {
+        endDate: event.endDate,
+        short: true,
+      })
+    : null;
   const timeLabel = formatEventTimeForList(event.time, {
     recurrence: event.recurrence,
     allDayLabel: dict.events.allDay,
   });
+  const metaTitle =
+    dateLabel && timeLabel.full && timeLabel.full !== timeLabel.display
+      ? `${dateLabel} · ${timeLabel.full}`
+      : dateLabel && timeLabel.display
+        ? `${dateLabel} · ${timeLabel.display}`
+        : timeLabel.full !== timeLabel.display
+          ? timeLabel.full
+          : undefined;
 
   return (
     <article
@@ -148,15 +174,29 @@ function TodayHighlightCard({
           <h3 className="line-clamp-2 font-sans text-xl font-extrabold leading-snug tracking-[0.01em] text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.55)] sm:text-2xl">
             {event.title}
           </h3>
-          {timeLabel.display && (
+          {(dateLabel || timeLabel.display) && (
             <p
-              className="inline-flex min-w-0 max-w-full items-center gap-1.5 text-sm font-medium text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.45)] sm:text-base"
-              title={
-                timeLabel.full !== timeLabel.display ? timeLabel.full : undefined
-              }
+              className="inline-flex min-w-0 max-w-full flex-wrap items-center gap-x-2 gap-y-1 text-sm font-medium text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.45)] sm:text-base"
+              title={metaTitle}
             >
-              <Clock className="h-3.5 w-3.5 shrink-0 sm:h-4 sm:w-4" aria-hidden />
-              <span className="truncate">{timeLabel.display}</span>
+              {dateLabel ? (
+                <span className="inline-flex min-w-0 items-center gap-1.5">
+                  <Calendar
+                    className="h-3.5 w-3.5 shrink-0 sm:h-4 sm:w-4"
+                    aria-hidden
+                  />
+                  <span className="truncate">{dateLabel}</span>
+                </span>
+              ) : null}
+              {timeLabel.display ? (
+                <span className="inline-flex min-w-0 items-center gap-1.5">
+                  <Clock
+                    className="h-3.5 w-3.5 shrink-0 sm:h-4 sm:w-4"
+                    aria-hidden
+                  />
+                  <span className="truncate">{timeLabel.display}</span>
+                </span>
+              ) : null}
             </p>
           )}
           {note ? (
@@ -177,6 +217,7 @@ const TodayHighlightsComponent = ({
   limit = HOME_TODAY_LIMIT,
   excludeEventIds = [],
   seeAllHref,
+  seeAllLabel,
   returnTo,
   returnTitle,
   prefiltered = false,
@@ -184,6 +225,8 @@ const TodayHighlightsComponent = ({
   title,
   notes,
   hideSeeAll = false,
+  listTimeRange = "today",
+  showDate = false,
 }: TodayHighlightsProps) => {
   const router = useRouter();
   const [pendingId, setPendingId] = useState<string | null>(null);
@@ -239,7 +282,7 @@ const TodayHighlightsComponent = ({
             href={allTodayHref}
             className="inline-flex items-center gap-0.5 rounded-full bg-orange-50 dark:bg-orange-950/50 px-2.5 py-1 text-sm font-bold text-orange-600 hover:bg-orange-100 dark:hover:bg-orange-950/70 transition-colors touch-manipulation"
           >
-            {dict.events.seeAllToday}
+            {seeAllLabel ?? dict.events.seeAllToday}
             <ChevronRight className="h-3.5 w-3.5" aria-hidden />
           </IntentLink>
         )}
@@ -259,6 +302,8 @@ const TodayHighlightsComponent = ({
               dimmed={pendingId != null && pendingId !== event.id}
               onNavigate={() => setPendingId(event.id)}
               note={notes?.[event.id]}
+              listTimeRange={listTimeRange}
+              showDate={showDate}
             />
           ))}
         </div>

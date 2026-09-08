@@ -177,6 +177,16 @@ export function getVenueHeroImageUrl(slug: string): string | undefined {
   return file ? `/venues/${file}` : undefined;
 }
 
+/** Tailwind object-position for venue heroes when the focal point isn't center. */
+const VENUE_HERO_OBJECT_POSITION: Record<string, string> = {
+  // Balcony lunch overlooking the park — keep the table/view at the top of the crop.
+  "casa-balcon-puerto-plata": "object-top",
+};
+
+export function getVenueHeroObjectPosition(slug: string): string {
+  return VENUE_HERO_OBJECT_POSITION[slug] ?? "object-center";
+}
+
 export function attachVenueImage<T extends { slug: string; imageUrl?: string }>(
   venue: T,
 ): T & { imageUrl?: string } {

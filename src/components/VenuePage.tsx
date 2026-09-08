@@ -1,7 +1,6 @@
 "use client";
 
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
-import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import {
   AtSign,
@@ -37,7 +36,10 @@ import { navigateBackSoft, navigateSoft } from "@/lib/nav-feedback";
 import { PAGE_SHELL_DETAIL_CLASS } from "@/lib/page-shell";
 import { isDetailNavPath } from "@/lib/scope-listing";
 import { scrollBelowStickyStack } from "@/lib/list-scroll";
-import { getVenueHeroImageUrl } from "@/lib/venue-images";
+import {
+  getVenueHeroImageUrl,
+  getVenueHeroObjectPosition,
+} from "@/lib/venue-images";
 import { useForegroundRefresh } from "@/hooks/useForegroundRefresh";
 import { NearbyTonight, PocketPlaceHint } from "@/components/NearbyTonight";
 import type { NearbyTonightResult } from "@/lib/nearby-events";
@@ -47,12 +49,6 @@ import {
   isRestaurantWeekParticipantVenue,
   RESTAURANT_WEEK_2026_ID,
 } from "@/lib/restaurant-week";
-
-const SubmitEventSheet = dynamic(
-  () =>
-    import("@/components/SubmitEventSheet").then((m) => m.SubmitEventSheet),
-  { ssr: false },
-);
 
 interface VenuePageProps {
   venue: Venue;
@@ -89,7 +85,6 @@ export function VenuePage({
     filterByVenueSlug(initialEvents, venue.slug),
   );
   const [loading, setLoading] = useState(() => initialEvents.length === 0);
-  const [submitOpen, setSubmitOpen] = useState(false);
   const [plannerOpen, setPlannerOpen] = useState(false);
   const [areaViewOpen, setAreaViewOpen] = useState(false);
   const placeCardRef = useRef<HTMLElement>(null);
@@ -144,6 +139,7 @@ export function VenuePage({
   const [fallbackHref, setFallbackHref] = useState(`/${locale}`);
   const heroImageUrl =
     getVenueHeroImageUrl(venue.slug) ?? venue.imageUrl?.split("?")[0];
+  const heroObjectPosition = getVenueHeroObjectPosition(venue.slug);
 
   useEffect(() => {
     const stored = takeReturnPath(locale);
@@ -303,7 +299,7 @@ export function VenuePage({
                         alt=""
                         priority
                         sizes="(max-width: 1024px) 100vw, 50vw"
-                        className="h-full w-full object-cover object-center transition-transform duration-500 ease-out group-hover/event:scale-[1.03]"
+                        className={`h-full w-full object-cover ${heroObjectPosition} transition-transform duration-500 ease-out group-hover/event:scale-[1.03]`}
                       />
                       <span
                         className="absolute bottom-3 left-3 z-10 inline-flex items-center gap-1.5 rounded-full bg-black/55 px-3 py-1.5 text-xs font-bold text-white backdrop-blur-sm transition-colors group-hover/event:bg-black/70"
@@ -319,7 +315,7 @@ export function VenuePage({
                       alt=""
                       priority
                       sizes="(max-width: 1024px) 100vw, 50vw"
-                      className="h-full w-full object-cover object-center"
+                      className={`h-full w-full object-cover ${heroObjectPosition}`}
                     />
                   )
                 ) : (
@@ -495,8 +491,6 @@ export function VenuePage({
                   returnTo={listReturnTo}
                   returnTitle={venue.name}
                   initialExpanded={initialExpanded}
-                  onAddEvent={() => setSubmitOpen(true)}
-                  addEventLabel={dict.submit.createEvent}
                 />
               </div>
 
@@ -514,20 +508,6 @@ export function VenuePage({
           </div>
         </div>
       </main>
-
-      <SubmitEventSheet
-        open={submitOpen}
-        onClose={() => setSubmitOpen(false)}
-        dict={dict}
-        locale={locale}
-        defaults={{
-          location: venue.city,
-          venue: venue.name,
-        }}
-        onSubmitted={() => {
-          refreshEvents();
-        }}
-      />
     </>
   );
 }

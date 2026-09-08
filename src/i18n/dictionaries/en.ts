@@ -85,6 +85,10 @@ export type Dictionary = {
     ourPicks: string;
     happeningToday: string;
     seeAllToday: string;
+    /** Home section: recently added listings. */
+    recentlyAdded: string;
+    /** Home section: future one-offs / concerts ahead. */
+    comingUp: string;
     viewAllEvents: string;
     /** Accessibility label for the cards/list layout control. */
     viewMode: string;
@@ -649,6 +653,8 @@ export const en: Dictionary = {
     ourPicks: "Our picks",
     happeningToday: "Happening today",
     seeAllToday: "See all today",
+    recentlyAdded: "Recently added",
+    comingUp: "Coming up",
     viewAllEvents: "View all events",
     viewMode: "Event layout",
     viewList: "List",

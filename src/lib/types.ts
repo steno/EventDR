@@ -210,6 +210,11 @@ export interface Event {
   communitySubmitted?: boolean;
   sourceType?: EventSourceType;
   status?: EventStatus;
+  /**
+   * When the listing was first added (ISO). Used for home “New”; omitted on
+   * seed-only fallbacks that never hit Firestore.
+   */
+  createdAt?: string;
   lat?: number;
   lng?: number;
   /** Repeating local happenings — always match the right day filters */

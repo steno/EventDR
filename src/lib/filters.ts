@@ -194,10 +194,10 @@ export function filterByTimeRange<
 >(
   items: T[],
   range: TimeRange,
+  now: Date = new Date(),
 ): T[] {
   if (range === "all") return items;
 
-  const now = new Date();
   const matched: T[] = [];
 
   for (const item of items) {

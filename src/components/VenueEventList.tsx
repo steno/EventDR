@@ -22,8 +22,6 @@ interface VenueEventListProps {
   /** Title for back label when `returnTo` is a venue/event detail path. */
   returnTitle?: string | null;
   initialExpanded?: boolean;
-  onAddEvent?: () => void;
-  addEventLabel?: string;
 }
 
 type VenueScheduleTab = "upcoming" | "past";
@@ -39,8 +37,6 @@ export function VenueEventList({
   returnTo,
   returnTitle = null,
   initialExpanded,
-  onAddEvent,
-  addEventLabel,
 }: VenueEventListProps) {
   const { upcoming, past } = useMemo(() => {
     const up: Event[] = [];
@@ -128,12 +124,10 @@ export function VenueEventList({
         returnTo={returnTo}
         returnTitle={returnTitle}
         initialExpanded={initialExpanded || tab === "past"}
-        onAddEvent={tab === "upcoming" ? onAddEvent : undefined}
-        addEventLabel={addEventLabel}
         defaultTimeRange="all"
         view="list"
         scrollOnFilterChange={false}
-        addEventCta={tab === "upcoming" ? "inline" : "button"}
+        addEventCta="button"
         hideTimeFilter={tab === "past"}
         hidePriceFilter
         clusterVenueRecurring={false}

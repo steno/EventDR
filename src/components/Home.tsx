@@ -680,6 +680,33 @@ function HomeApp({
               )}
 
               {!isSearching && !cruisePort && (
+                <TodayHighlights
+                  events={discoverLayout.newEvents}
+                  locale={locale}
+                  dict={dict}
+                  prefiltered
+                  title={dict.events.recentlyAdded}
+                  hideSeeAll
+                  listTimeRange="all"
+                  returnTo={homePath}
+                />
+              )}
+
+              {!isSearching && !cruisePort && (
+                <TodayHighlights
+                  events={discoverLayout.comingUpEvents}
+                  locale={locale}
+                  dict={dict}
+                  prefiltered
+                  title={dict.events.comingUp}
+                  hideSeeAll
+                  listTimeRange="all"
+                  showDate
+                  returnTo={homePath}
+                />
+              )}
+
+              {!isSearching && !cruisePort && (
                 <VenueAudienceCards
                   locale={locale}
                   dict={dict}

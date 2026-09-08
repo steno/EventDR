@@ -1,6 +1,11 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { getTodayHighlightEvents, seededShuffle } from "./home-layout";
+import {
+  getComingUpHighlightEvents,
+  getNewHighlightEvents,
+  getTodayHighlightEvents,
+  seededShuffle,
+} from "./home-layout";
 import type { Event } from "./types";
 
 /** Tuesday Aug 25, 2026 14:00 America/Santo_Domingo (UTC−4). */
@@ -23,6 +28,187 @@ describe("seededShuffle", () => {
     const items = ["a", "b", "c", "d", "e"];
     assert.deepEqual(seededShuffle(items, 42), seededShuffle(items, 42));
     assert.notDeepEqual(seededShuffle(items, 1), seededShuffle(items, 2));
+  });
+});
+
+describe("getComingUpHighlightEvents", () => {
+  it("keeps future one-offs and skips recurring / today", () => {
+    const todayShow = event({
+      id: "today-show",
+      title: "Tonight",
+      date: "2026-08-25",
+      time: "9:00 PM",
+    });
+    const recurring = event({
+      id: "daily-dining",
+      title: "Daily Dining",
+      date: "2026-08-26",
+      time: "6:00 PM",
+      recurrence: "daily",
+    });
+    const soon = event({
+      id: "soon-concert",
+      title: "Soon Concert",
+      date: "2026-08-28",
+      time: "8:00 PM",
+      category: "concert",
+      trending: true,
+      venueSlug: "venue-a",
+    });
+    const later = event({
+      id: "later-fest",
+      title: "Later Fest",
+      date: "2026-09-10",
+      time: "4:00 PM",
+      category: "festivals",
+      venueSlug: "venue-b",
+    });
+    const beyond = event({
+      id: "far-away",
+      title: "Far Away",
+      date: "2026-12-01",
+      time: "8:00 PM",
+      venueSlug: "venue-c",
+    });
+
+    const ids = getComingUpHighlightEvents(
+      [beyond, later, recurring, todayShow, soon],
+      { now: AFTERNOON, horizonDays: 42 },
+    ).map((e) => e.id);
+
+    assert.deepEqual(ids, ["soon-concert", "later-fest"]);
+  });
+
+  it("prefers a trending concert further out over a nearer low-signal one-off", () => {
+    const patronales = event({
+      id: "small-patronales",
+      title: "Local Patronales",
+      date: "2026-09-16",
+      time: "All day",
+      category: "culture",
+    });
+    const urban = event({
+      id: "super-mega-urban-fest-2026-11-04",
+      title: "Super Mega Urban Fest",
+      date: "2026-11-04",
+      time: "From 3:00 PM",
+      category: "concert",
+      categories: ["music", "festivals"],
+      trending: true,
+      ticketUrl: "https://www.ticket.com.do/",
+      imageUrl: "/events/urban.jpg",
+      venueSlug: "anfiteatro-la-puntilla",
+    });
+    const ids = getComingUpHighlightEvents([patronales, urban], {
+      now: new Date("2026-09-08T03:30:00.000Z"),
+      horizonDays: 90,
+      limit: 1,
+    }).map((e) => e.id);
+    assert.equal(ids[0], "super-mega-urban-fest-2026-11-04");
+  });
+
+  it("excludes ids already shown elsewhere", () => {
+    const a = event({
+      id: "a",
+      title: "A",
+      date: "2026-08-28",
+      time: "8:00 PM",
+    });
+    const b = event({
+      id: "b",
+      title: "B",
+      date: "2026-08-29",
+      time: "9:00 PM",
+    });
+
+    const ids = getComingUpHighlightEvents([a, b], {
+      now: AFTERNOON,
+      excludeIds: ["a"],
+    }).map((e) => e.id);
+
+    assert.deepEqual(ids, ["b"]);
+  });
+});
+
+describe("getNewHighlightEvents", () => {
+  it("orders by createdAt newest first and skips missing timestamps", () => {
+    const older = event({
+      id: "older",
+      title: "Older Add",
+      date: "2026-08-28",
+      time: "8:00 PM",
+      createdAt: "2026-08-20T12:00:00.000Z",
+      venueSlug: "venue-a",
+    });
+    const newer = event({
+      id: "newer",
+      title: "Newer Add",
+      date: "2026-08-29",
+      time: "9:00 PM",
+      createdAt: "2026-08-24T12:00:00.000Z",
+      venueSlug: "venue-b",
+    });
+    const seedOnly = event({
+      id: "seed",
+      title: "Seed Fallback",
+      date: "2026-08-30",
+      time: "7:00 PM",
+      venueSlug: "venue-c",
+    });
+
+    const ids = getNewHighlightEvents([seedOnly, older, newer], {
+      now: AFTERNOON,
+    }).map((e) => e.id);
+
+    assert.deepEqual(ids, ["newer", "older"]);
+  });
+
+  it("drops listings older than maxAgeDays", () => {
+    const stale = event({
+      id: "stale",
+      title: "Stale",
+      date: "2026-09-01",
+      time: "8:00 PM",
+      createdAt: "2026-07-01T12:00:00.000Z",
+    });
+    const fresh = event({
+      id: "fresh",
+      title: "Fresh",
+      date: "2026-09-01",
+      time: "9:00 PM",
+      createdAt: "2026-08-20T12:00:00.000Z",
+    });
+
+    const ids = getNewHighlightEvents([stale, fresh], {
+      now: AFTERNOON,
+      maxAgeDays: 14,
+    }).map((e) => e.id);
+
+    assert.deepEqual(ids, ["fresh"]);
+  });
+
+  it("excludes ids already shown elsewhere", () => {
+    const a = event({
+      id: "a",
+      title: "A",
+      date: "2026-08-28",
+      time: "8:00 PM",
+      createdAt: "2026-08-24T12:00:00.000Z",
+    });
+    const b = event({
+      id: "b",
+      title: "B",
+      date: "2026-08-28",
+      time: "9:00 PM",
+      createdAt: "2026-08-23T12:00:00.000Z",
+    });
+
+    const ids = getNewHighlightEvents([a, b], {
+      now: AFTERNOON,
+      excludeIds: ["a"],
+    }).map((e) => e.id);
+
+    assert.deepEqual(ids, ["b"]);
   });
 });
 

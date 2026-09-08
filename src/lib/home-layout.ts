@@ -1,5 +1,5 @@
 import { venueMatchesCity, type CitySlug } from "@/lib/cities";
-import { APP_TIMEZONE, localDateISO } from "@/lib/event-dates";
+import { addDaysISO, APP_TIMEZONE, localDateISO } from "@/lib/event-dates";
 import { sortEventsForDisplay } from "@/lib/event-sort";
 import type { Event, Venue } from "@/lib/types";
 import {
@@ -7,6 +7,7 @@ import {
   happensOnLocalDate,
   isEndingSoon,
   isEventActiveToday,
+  isRecurringEvent,
 } from "@/lib/event-status";
 import type { TimeRange } from "@/lib/filters";
 import { findActiveSpecialEvent } from "@/lib/special-events";
@@ -16,6 +17,18 @@ export { prioritizeOneTimeEvents } from "@/lib/event-sort";
 
 /** Max cards in the home "Happening today" section (desktop 3×2). */
 export const HOME_TODAY_LIMIT = 6;
+
+/** Max cards in the home "Recently added" section. */
+export const HOME_NEW_LIMIT = 6;
+
+/** Only surface listings added within this many days on home Recently added. */
+export const HOME_NEW_MAX_AGE_DAYS = 14;
+
+/** Max cards in the home "Coming up" section. */
+export const HOME_COMING_UP_LIMIT = 6;
+
+/** How far ahead (calendar days) one-offs may start for “Coming up”. */
+export const HOME_COMING_UP_HORIZON_DAYS = 90;
 
 /**
  * Max events before "More events" on home picks / scope lists.
@@ -294,12 +307,149 @@ function shuffleHighlightPeers(
 function resolveHighlightShuffleSeed(
   now: Date,
   override?: string | number,
+  prefix = "today-highlights",
 ): number {
   if (typeof override === "number") return override >>> 0 || 1;
   if (typeof override === "string") return hashSeed(override);
   const day = localDateISO(now);
   const bucket = Math.floor(localHour(now) / 2);
-  return hashSeed(`today-highlights:${day}:${bucket}`);
+  return hashSeed(`${prefix}:${day}:${bucket}`);
+}
+
+export interface NewHighlightOptions extends TodayHighlightOptions {
+  /** Skip events already featured in hero / today (or elsewhere). */
+  excludeIds?: readonly string[];
+  /** Visible grid cap (default {@link HOME_NEW_LIMIT}). */
+  limit?: number;
+  /** Max age in days for “recently added” (default {@link HOME_NEW_MAX_AGE_DAYS}). */
+  maxAgeDays?: number;
+}
+
+function createdAtMs(event: Event): number {
+  if (!event.createdAt) return Number.NaN;
+  return Date.parse(event.createdAt);
+}
+
+/** Still worth showing on New — not a finished past one-off. */
+function isStillRelevantForNew(event: Event, now: Date): boolean {
+  if (event.temporarilyClosed) return false;
+  const status = getEventLiveStatus(event, now);
+  if (status === "live" || status === "ending" || status === "upcoming") {
+    return true;
+  }
+  if (event.recurrence) return status !== "ended";
+  const today = localDateISO(now);
+  const end = (event.endDate ?? event.date)?.trim();
+  return Boolean(end && end >= today);
+}
+
+/**
+ * Recently added listings for home: require `createdAt`, newest first,
+ * within {@link HOME_NEW_MAX_AGE_DAYS}, with venue diversity in the visible head.
+ */
+export function getNewHighlightEvents(
+  events: Event[],
+  options: NewHighlightOptions = {},
+): Event[] {
+  const now = options.now ?? new Date();
+  const exclude = new Set(options.excludeIds ?? []);
+  const limit = options.limit ?? HOME_NEW_LIMIT;
+  const maxAgeDays = options.maxAgeDays ?? HOME_NEW_MAX_AGE_DAYS;
+  const cutoff = now.getTime() - maxAgeDays * 24 * 60 * 60 * 1000;
+
+  const fresh = events.filter((event) => {
+    if (exclude.has(event.id)) return false;
+    if (!isStillRelevantForNew(event, now)) return false;
+    const ms = createdAtMs(event);
+    return Number.isFinite(ms) && ms >= cutoff;
+  });
+
+  if (fresh.length === 0) return [];
+
+  fresh.sort((a, b) => {
+    const diff = createdAtMs(b) - createdAtMs(a);
+    if (diff !== 0) return diff;
+    // Stable tie-break: prefer imaged, then title.
+    const img = Number(Boolean(b.imageUrl?.trim())) - Number(Boolean(a.imageUrl?.trim()));
+    if (img !== 0) return img;
+    return a.title.localeCompare(b.title);
+  });
+
+  const carouselHead = pickDiverseCarouselHead(fresh, limit);
+  const headIds = new Set(carouselHead.map((e) => e.id));
+  const tail = fresh.filter((e) => !headIds.has(e.id));
+  return [...carouselHead, ...tail];
+}
+
+export interface ComingUpHighlightOptions extends TodayHighlightOptions {
+  /** Skip events already featured in hero / today / recently added. */
+  excludeIds?: readonly string[];
+  /** Visible grid cap (default {@link HOME_COMING_UP_LIMIT}). */
+  limit?: number;
+  /** Max days ahead the event may start (default {@link HOME_COMING_UP_HORIZON_DAYS}). */
+  horizonDays?: number;
+}
+
+/**
+ * Future one-offs / multi-day fixtures for home “Coming up” — no recurring
+ * evergreens. Prefer concerts/shows (trending, ticketed, imaged), then soonest.
+ */
+export function getComingUpHighlightEvents(
+  events: Event[],
+  options: ComingUpHighlightOptions = {},
+): Event[] {
+  const now = options.now ?? new Date();
+  const exclude = new Set(options.excludeIds ?? []);
+  const limit = options.limit ?? HOME_COMING_UP_LIMIT;
+  const horizonDays = options.horizonDays ?? HOME_COMING_UP_HORIZON_DAYS;
+  const today = localDateISO(now);
+  const horizonEnd = addDaysISO(today, horizonDays);
+
+  const pool = events.filter((event) => {
+    if (exclude.has(event.id) || event.temporarilyClosed) return false;
+    if (isRecurringEvent(event)) return false;
+    const start = event.date?.trim();
+    if (!start || start <= today || start > horizonEnd) return false;
+    return true;
+  });
+
+  if (pool.length === 0) return [];
+
+  pool.sort((a, b) => {
+    const scoreDiff = comingUpSpotlightScore(b) - comingUpSpotlightScore(a);
+    if (scoreDiff !== 0) return scoreDiff;
+    const dateDiff = a.date.localeCompare(b.date);
+    if (dateDiff !== 0) return dateDiff;
+    return a.title.localeCompare(b.title);
+  });
+
+  const carouselHead = pickDiverseCarouselHead(pool, limit);
+  const headIds = new Set(carouselHead.map((e) => e.id));
+  const tail = pool.filter((e) => !headIds.has(e.id));
+  return [...carouselHead, ...tail];
+}
+
+/** Boost destination shows so patronales don’t bury concerts further out. */
+function comingUpSpotlightScore(event: Event): number {
+  let score = 0;
+  if (event.trending) score += 100;
+  const cats = new Set<string>([
+    event.category,
+    ...(event.categories ?? []),
+  ]);
+  if (
+    cats.has("concert") ||
+    cats.has("music") ||
+    cats.has("parties") ||
+    cats.has("festivals") ||
+    cats.has("sports")
+  ) {
+    score += 40;
+  }
+  if (event.ticketUrl?.trim()) score += 25;
+  if (event.imageUrl?.trim()) score += 20;
+  if (event.lineup?.length) score += 10;
+  return score;
 }
 
 /**
@@ -365,6 +515,10 @@ export interface HomeDiscoverLayout {
   heroEvent: Event | null;
   /** Today highlights already sorted (full list, not sliced). */
   todayEvents: Event[];
+  /** Recently added highlights (by `createdAt`, newest first). */
+  newEvents: Event[];
+  /** Future one-offs / multi-day fixtures (soonest first). */
+  comingUpEvents: Event[];
   /** IDs to hide from Our picks (active today carousel + hero). */
   picksExcludeIds: string[];
   /** Hero only — for the today grid. */
@@ -372,7 +526,7 @@ export interface HomeDiscoverLayout {
 }
 
 /**
- * One filter+sort pass for home hero, today grid, and picks dedupe.
+ * One filter+sort pass for home hero, today, recently added, coming up, and picks.
  */
 export function getHomeDiscoverLayout(
   events: Event[],
@@ -382,6 +536,8 @@ export function getHomeDiscoverLayout(
     return {
       heroEvent: null,
       todayEvents: [],
+      newEvents: [],
+      comingUpEvents: [],
       picksExcludeIds: EMPTY_EVENT_IDS,
       heroExcludeIds: EMPTY_EVENT_IDS,
     };
@@ -414,9 +570,33 @@ export function getHomeDiscoverLayout(
     picksExcludeIds.push(heroEvent.id);
   }
 
+  // Coming up owns future one-offs; exclude only today carousel + hero.
+  const sharedExclude = new Set<string>(
+    todayEvents.slice(0, HOME_TODAY_LIMIT).map((e) => e.id),
+  );
+  if (heroEvent) sharedExclude.add(heroEvent.id);
+
+  const comingUpEvents = getComingUpHighlightEvents(events, {
+    ...options,
+    excludeIds: [...sharedExclude],
+  });
+
+  // Recently added: also skip what’s already in Coming up so concerts aren’t repeated.
+  const newExclude = new Set(sharedExclude);
+  for (const event of comingUpEvents.slice(0, HOME_COMING_UP_LIMIT)) {
+    newExclude.add(event.id);
+  }
+
+  const newEvents = getNewHighlightEvents(events, {
+    ...options,
+    excludeIds: [...newExclude],
+  });
+
   return {
     heroEvent,
     todayEvents,
+    newEvents,
+    comingUpEvents,
     picksExcludeIds,
     heroExcludeIds: heroEvent ? [heroEvent.id] : EMPTY_EVENT_IDS,
   };
