@@ -330,4 +330,44 @@ describe("getTodayHighlightEvents peer shuffle", () => {
     }).map((e) => e.id);
     assert.equal(ids[0], "live-a");
   });
+
+  it("pins tonight’s trending one-off ahead of live evergreen dailies", () => {
+    const tonight = event({
+      id: "tonight-play",
+      title: "Civic Play Tonight",
+      date: "2026-08-25",
+      time: "7:30 PM",
+      category: "culture",
+      categories: ["performances"],
+      trending: true,
+      venueSlug: "plaza-independencia",
+      imageUrl: "/events/play.jpg",
+    });
+    const dailyMuseum = event({
+      id: "museum-daily",
+      title: "Museum Hours",
+      date: "2026-08-25",
+      time: "9:00 AM – 5:00 PM",
+      recurrence: "daily",
+      venueSlug: "museo-ambar",
+      imageUrl: "/events/museum.jpg",
+    });
+    const dailyTour = event({
+      id: "tour-daily",
+      title: "Adventure Tour",
+      date: "2026-08-25",
+      time: "8:00 AM – 4:00 PM",
+      recurrence: "daily",
+      category: "adventure",
+      venueSlug: "damajagua",
+      imageUrl: "/events/tour.jpg",
+    });
+
+    const ids = getTodayHighlightEvents([dailyTour, dailyMuseum, tonight], {
+      now: AFTERNOON,
+      shuffleSeed: "one-off-pin",
+    }).map((e) => e.id);
+
+    assert.equal(ids[0], "tonight-play");
+  });
 });

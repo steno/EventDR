@@ -453,6 +453,41 @@ function comingUpSpotlightScore(event: Event): number {
 }
 
 /**
+ * Home “Happening today”: keep live/ending urgency, but don’t let evergreen
+ * museum/tour dailies bury the only dated one-offs tonight (theater, concerts).
+ * Trending one-offs lead that pin group.
+ */
+function preferTodayOneOffs(events: Event[], now: Date): Event[] {
+  if (events.length < 2) return events;
+
+  const oneOffs: Event[] = [];
+  const rest: Event[] = [];
+  for (const event of events) {
+    if (isRecurringEvent(event)) {
+      rest.push(event);
+      continue;
+    }
+    const status = getEventLiveStatus(event, now);
+    if (
+      status === "live" ||
+      status === "ending" ||
+      status === "upcoming"
+    ) {
+      oneOffs.push(event);
+    } else {
+      rest.push(event);
+    }
+  }
+
+  if (oneOffs.length === 0) return events;
+
+  oneOffs.sort(
+    (a, b) => Number(Boolean(b.trending)) - Number(Boolean(a.trending)),
+  );
+  return [...oneOffs, ...rest];
+}
+
+/**
  * Events happening today: one-time before multi-day/recurring, then the same
  * status/time order as lists, with live/upcoming peers rotated and venue
  * diversity in the visible grid head.
@@ -476,9 +511,10 @@ export function getTodayHighlightEvents(
     resolveHighlightShuffleSeed(now, options.shuffleSeed),
     now,
   );
-  const carouselHead = pickDiverseCarouselHead(rotated, HOME_TODAY_LIMIT);
+  const spotlighted = preferTodayOneOffs(rotated, now);
+  const carouselHead = pickDiverseCarouselHead(spotlighted, HOME_TODAY_LIMIT);
   const headIds = new Set(carouselHead.map((e) => e.id));
-  const tail = rotated.filter((e) => !headIds.has(e.id));
+  const tail = spotlighted.filter((e) => !headIds.has(e.id));
   return [...carouselHead, ...tail];
 }
 
