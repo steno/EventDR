@@ -1436,9 +1436,9 @@
     "address": "Calle San Felipe, Puerto Plata",
     "lat": 19.7976623,
     "lng": -70.6932862,
-    "category": "performances",
+    "category": "culture",
     "categories": [
-      "culture"
+      "performances"
     ],
     "format": "physical",
     "trending": true,

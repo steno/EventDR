@@ -132,7 +132,8 @@ export function EventList({
     }
     if (scrolledTimeRangeRef.current === timeRange) return;
     scrolledTimeRangeRef.current = timeRange;
-    scrollToListTop(undefined, { onlyScrollDown: true });
+    // Reset to list top under sticky header + time tabs (scroll up or down).
+    scrollToListTop(scrollAnchorRef.current);
   }, [timeRange, showTimeFilter]);
 
   const fetchEvents = useCallback(

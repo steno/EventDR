@@ -77,7 +77,10 @@ export type ScrollToListTopOptions = {
 
 /**
  * Pin list chrome under the sticky page header after a tab/filter change.
- * Prefers `[data-list-scroll-anchor]` (category pills when present, else time filters).
+ * Prefers `[data-list-scroll-anchor]` when no explicit anchor is passed
+ * (category pills when present, else time filters).
+ * Pass the filter-bar sentinel for time-tab switches so list items reset to the
+ * top under sticky tabs, even after the user has scrolled deep into the list.
  * Short pages scroll as far as they can — never jump to the hero.
  */
 export function scrollToListTop(
@@ -102,7 +105,8 @@ export function scrollToListTop(
       return;
     }
     // Measure after chrome reveal so the header is on-screen and the CSS var
-    // matches — parks "What are you into?" just under the sticky header.
+    // matches. Park the (non-sticky) sentinel under the sticky header so sticky
+    // time tabs sit flush below it and list items start under that stack.
     const headerHeight = readStickyListHeaderReserve();
     const desired = Math.max(0, readDocumentTop(target) - headerHeight);
     if (
