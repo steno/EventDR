@@ -262,6 +262,16 @@ export const CATEGORY_QUERIES: Record<EventCategory, CategoryQuerySet> = {
       `anfiteatro "La Puntilla" Puerto Plata concierto OR cultural OR ballet OR folclórico 2026`,
       `site:ayuntamientopuertoplata.gob.do evento OR concierto OR cultural OR exposición`,
       `site:facebook.com/ayuntamientodepuertoplata evento OR concierto OR cultural`,
+      // Civic / national anniversary programming (North Coast only)
+      `"Semana Luperoniana" OR "natalicio" Luperón Puerto Plata teatro OR acto OR plaza`,
+      `"Casa Museo" Luperón OR "Gregorio Luperón" evento OR obra OR conmemoración Puerto Plata`,
+      `"fiestas patrias" OR Independencia OR Restauración Puerto Plata Malecón OR plaza OR anfiteatro`,
+      `"Día de Duarte" OR "natalicio Duarte" Puerto Plata acto OR cultural 2026`,
+      `"Día de la Independencia" OR "27 de febrero" Puerto Plata Malecón OR Plaza Independencia`,
+      `"Día de la Restauración" OR "16 de agosto" Puerto Plata acto OR cultural OR desfile`,
+      `"Constitución" OR "6 de noviembre" Puerto Plata acto cívico OR cultural`,
+      `fiestas patronales Imbert OR Guananico OR Sosúa OR Cabarete 2026`,
+      `Ministerio de Cultura OR Mitur Puerto Plata obra teatral OR ballet OR folclórico plaza`,
     ],
     directUrls: [ALLEVENTS_PP, AYUNTAMIENTO_PP, ANFITEATRO_PUNTILLA],
   },
@@ -303,6 +313,7 @@ export const BROAD_QUERIES = [
   `site:suelocaribe.com Puerto Plata eventos`,
   `boletería José Luis OR Tío Pan concierto Puerto Plata`,
   `ayuntamiento OR "casa de la cultura" OR anfiteatro Puerto Plata evento cultural 2026`,
+  `"Semana Luperoniana" OR "fiestas patrias" OR patronales Puerto Plata Sosúa Cabarete 2026`,
 ];
 
 /** Categories we always deep-crawl on the home feed (often under-represented). */

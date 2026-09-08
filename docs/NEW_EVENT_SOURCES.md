@@ -80,6 +80,12 @@ This document catalogs all new Instagram accounts and search patterns added to d
 - `site:instagram.com anfiteatro Puerto Plata concierto`
 - `site:instagram.com carnaval Puerto Plata`
 - `site:instagram.com dominicano local Puerto Plata Sosúa Cabarete evento`
+- `site:instagram.com "Semana Luperoniana" OR "natalicio Luperón" Puerto Plata`
+- `site:instagram.com "fiestas patrias" OR Independencia OR Restauración Puerto Plata`
+- `site:instagram.com "Día de Duarte" OR "27 de febrero" OR "16 de agosto" Puerto Plata`
+- `site:instagram.com fiestas patronales Imbert OR Guananico OR Sosúa`
+
+See also the anniversary calendar in `docs/EVENT_WATCHLIST.md`.
 
 #### Food & Entertainment
 - `site:instagram.com restaurante bar música Puerto Plata Sosúa Cabarete`

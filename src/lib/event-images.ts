@@ -175,6 +175,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "sosua-10k-road-race-2026": "sosua-10k-road-race-2026.jpg",
   "puerto-plata-poker-experience-2026": "puerto-plata-poker-experience-2026.jpg",
   "aventurate-rd-2026": "aventurate-rd-2026.jpg",
+  "todos-somos-luperon-2026-09-08": "todos-somos-luperon-2026-09-08.jpg",
   "restaurant-week-puerto-plata-2026":
     "restaurant-week-puerto-plata-2026-calendar.jpg",
   "super-mega-urban-fest-2026-11-04": "super-mega-urban-fest-2026-11-04.jpg",

@@ -185,6 +185,7 @@ export function facebookGroupSearchQueries(): string[] {
         ? [
             `site:facebook.com ${page.label} exposición OR teatro OR concierto OR cultural 2026`,
             `site:facebook.com ${page.label} malecón OR "casa de la cultura" OR anfiteatro evento`,
+            `site:facebook.com ${page.label} "Semana Luperoniana" OR "fiestas patrias" OR Independencia OR Restauración OR patronales`,
           ]
         : [
             `site:facebook.com ${page.label} evento concierto Puerto Plata 2026`,

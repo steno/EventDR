@@ -333,6 +333,13 @@ export function instagramSearchQueries(): string[] {
     `site:instagram.com dominicano local ${region} evento`,
     `site:instagram.com "casa de la cultura" OR ayuntamiento Puerto Plata evento OR exposición OR teatro`,
     `site:instagram.com ayuntamientodepuertoplata OR "anfiteatro la puntilla" concierto OR cultural`,
+    // Civic / national anniversary programming
+    `site:instagram.com "Semana Luperoniana" OR "natalicio Luperón" Puerto Plata`,
+    `site:instagram.com "Casa Museo" Luperón OR "Gregorio Luperón" obra OR teatro Puerto Plata`,
+    `site:instagram.com "fiestas patrias" OR Independencia OR Restauración Puerto Plata`,
+    `site:instagram.com "Día de Duarte" OR "27 de febrero" OR "16 de agosto" Puerto Plata`,
+    `site:instagram.com fiestas patronales Imbert OR Guananico OR Sosúa`,
+    `site:instagram.com "Ministerio de Cultura" OR Mitur Puerto Plata teatro OR plaza OR malecón`,
     
     // Local venue searches
     `site:instagram.com (${localVenues}) evento OR fiesta OR concierto OR "live music"`,

@@ -1423,5 +1423,27 @@
     "callForPricing": true,
     "sourceUrl": "https://www.instagram.com/p/Dc3tjbbpXK7/",
     "imageEmoji": "🏄"
+  },
+  {
+    "id": "todos-somos-luperon-2026-09-08",
+    "title": "Todos Somos Luperón",
+    "description": "Pièce de théâtre Todos Somos Luperón à la Plaza Independencia (Parque Central), Puerto Plata — mardi 8 septembre à 19 h 30. Dans le cadre de la Semana Luperoniana 2026 pour le 187e anniversaire de la naissance du général Gregorio Luperón. Texte de Rhadames Polanco ; mise en scène d'Arisleyda Beard. Présenté par la Casa Museo General Gregorio Luperón et le Teatro Escuela Ivan García, avec le Ministerio de Cultura. Spectacle civique gratuit ; confirmez auprès du musée : +1 809 261 8661.",
+    "date": "2026-09-08",
+    "time": "19 h 30",
+    "location": "Puerto Plata",
+    "venue": "Plaza Independencia (Parque Central)",
+    "venueSlug": "plaza-independencia",
+    "address": "Calle San Felipe, Puerto Plata",
+    "lat": 19.7976623,
+    "lng": -70.6932862,
+    "category": "performances",
+    "categories": [
+      "culture"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "phone": "+18092618661",
+    "imageEmoji": "🎭"
   }
 ]

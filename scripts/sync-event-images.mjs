@@ -130,6 +130,7 @@ const FILE_TO_EVENT_ID = {
   "sosua-10k-road-race-2026.jpg": "sosua-10k-road-race-2026",
   "puerto-plata-poker-experience-2026.jpg": "puerto-plata-poker-experience-2026",
   "aventurate-rd-2026.jpg": "aventurate-rd-2026",
+  "todos-somos-luperon-2026-09-08.jpg": "todos-somos-luperon-2026-09-08",
   "imbert-mercedes-patronales-2026.jpg": "imbert-mercedes-patronales-2026",
   "guananico-san-miguel-patronales-2026.jpg":
     "guananico-san-miguel-patronales-2026",
