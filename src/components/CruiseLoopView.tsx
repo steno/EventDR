@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronRight, MapPinned, Navigation } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { CruiseLoopLeaflet } from "@/components/CruiseLoopLeaflet";
 import { CruiseLoopShare } from "@/components/CruiseLoopShare";
 import { IntentLink } from "@/components/IntentLink";
@@ -18,8 +18,6 @@ export function CruiseLoopView({
   minutes,
   backHref,
   shareUrl,
-  googleMapsUrl,
-  appleMapsUrl,
   osmEmbedUrl,
   mapStops,
   route,
@@ -34,8 +32,6 @@ export function CruiseLoopView({
   minutes: number;
   backHref: string;
   shareUrl: string;
-  googleMapsUrl: string;
-  appleMapsUrl: string;
   osmEmbedUrl: string;
   mapStops: LoopMapStop[];
   route: LatLngTuple[] | null;
@@ -107,31 +103,7 @@ export function CruiseLoopView({
           </p>
         ) : null}
 
-        <div className="mt-4 grid gap-2 sm:grid-cols-2">
-          {googleMapsUrl ? (
-            <a
-              href={googleMapsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl bg-orange-600 px-4 text-sm font-bold text-white shadow-sm touch-manipulation transition hover:bg-orange-500 active:scale-[0.98]"
-            >
-              <Navigation className="h-4 w-4" aria-hidden />
-              {copy.openGoogleMaps}
-            </a>
-          ) : null}
-          {appleMapsUrl ? (
-            <a
-              href={appleMapsUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-neutral-300 bg-white px-4 text-sm font-bold text-neutral-800 shadow-sm touch-manipulation transition hover:bg-neutral-50 active:scale-[0.98] dark:border-neutral-600 dark:bg-neutral-900 dark:text-neutral-100 dark:hover:bg-neutral-800"
-            >
-              <MapPinned className="h-4 w-4" aria-hidden />
-              {copy.openAppleMaps}
-            </a>
-          ) : null}
-        </div>
-        <div className="mt-2">
+        <div className="mt-4">
           <CruiseLoopShare
             title={title}
             url={shareUrl}

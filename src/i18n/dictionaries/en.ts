@@ -350,8 +350,6 @@ export type Dictionary = {
     itinerariesTitle: string;
     itineraryMinutes: string;
     viewRoute: string;
-    openGoogleMaps: string;
-    openAppleMaps: string;
     shareLoop: string;
     copyLink: string;
     linkCopied: string;
@@ -930,8 +928,6 @@ export const en: Dictionary = {
     itinerariesTitle: "Ready-made loops",
     itineraryMinutes: "~{minutes} min",
     viewRoute: "View route",
-    openGoogleMaps: "Open in Google Maps",
-    openAppleMaps: "Open in Apple Maps",
     shareLoop: "Share loop",
     copyLink: "Copy link",
     linkCopied: "Link copied",
@@ -942,10 +938,10 @@ export const en: Dictionary = {
     walkBackToShip: "{minutes} min walk back to the ship",
     taxiBackToShip: "{minutes} min taxi back to the ship",
     routeUnavailable:
-      "Street map is unavailable right now — open in Maps to follow the stops.",
+      "Street map is unavailable right now — use the stop list below.",
     loopMetaTitle: "{loop} from {port} | POP Events",
     loopMetaDescription:
-      "{body} Map the loop from the ship, or open it in Google Maps before you leave the pier.",
+      "{body} Map the loop from the ship before you leave the pier.",
     backToCruiseDay: "Back to cruise day",
     stopsTitle: "Stops",
     routeTitle: "The route",

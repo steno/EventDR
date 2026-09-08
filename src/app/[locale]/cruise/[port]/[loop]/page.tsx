@@ -18,7 +18,7 @@ import {
   resolveItineraryStops,
   type CruisePortSlug,
 } from "@/lib/cruise";
-import { getLoopAppleMapsUrl, getLoopGoogleMapsUrl, osmEmbedUrl } from "@/lib/maps";
+import { osmEmbedUrl } from "@/lib/maps";
 import { getPublicEvents } from "@/lib/public-events";
 import { fetchOsrmRoute, type RouteLeg } from "@/lib/routing";
 import {
@@ -147,12 +147,6 @@ export default async function Page({
   );
 
   const route = waypoints ? await fetchOsrmRoute(waypoints, profile) : null;
-  const googleMapsUrl = waypoints
-    ? getLoopGoogleMapsUrl(waypoints, profile)
-    : "";
-  const appleMapsUrl = waypoints
-    ? getLoopAppleMapsUrl(waypoints, profile)
-    : "";
   const embedUrl = waypoints ? osmEmbedUrl(waypoints) : "";
 
   const stopHrefBySlug = new Map(stops.map((stop) => [stop.slug, stop.href]));
@@ -204,8 +198,6 @@ export default async function Page({
         minutes={minutes}
         backHref={backHref}
         shareUrl={shareUrl}
-        googleMapsUrl={googleMapsUrl}
-        appleMapsUrl={appleMapsUrl}
         osmEmbedUrl={embedUrl}
         mapStops={mapStops}
         route={route?.coords ?? null}

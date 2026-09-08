@@ -379,8 +379,6 @@ export const fr: Dictionary = {
     itinerariesTitle: "Boucles toutes faites",
     itineraryMinutes: "~{minutes} min",
     viewRoute: "Voir l’itinéraire",
-    openGoogleMaps: "Ouvrir dans Google Maps",
-    openAppleMaps: "Ouvrir dans Apple Maps",
     shareLoop: "Partager la boucle",
     copyLink: "Copier le lien",
     linkCopied: "Lien copié",
@@ -391,10 +389,10 @@ export const fr: Dictionary = {
     walkBackToShip: "{minutes} min à pied jusqu’au navire",
     taxiBackToShip: "{minutes} min en taxi jusqu’au navire",
     routeUnavailable:
-      "La carte n’est pas disponible pour le moment — ouvrez Maps pour suivre les arrêts.",
+      "La carte n’est pas disponible pour le moment — utilisez la liste des arrêts ci-dessous.",
     loopMetaTitle: "{loop} depuis {port} | POP Events",
     loopMetaDescription:
-      "{body} Visualisez la boucle depuis le navire, ou ouvrez-la dans Google Maps avant de quitter le quai.",
+      "{body} Visualisez la boucle depuis le navire avant de quitter le quai.",
     backToCruiseDay: "Retour à la journée croisière",
     stopsTitle: "Arrêts",
     routeTitle: "L’itinéraire",
