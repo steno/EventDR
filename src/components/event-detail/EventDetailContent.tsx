@@ -6,13 +6,14 @@ import {
   Clock,
   Building2,
   Mic2,
+  UtensilsCrossed,
   Phone,
   Ticket,
   Users,
   BadgeCheck,
   CircleDollarSign,
 } from "lucide-react";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import type { Event, EventOpinion } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
@@ -28,6 +29,7 @@ import {
   rememberReturnPath,
   venueDetailPath,
 } from "@/lib/event-navigation";
+import { resolveParticipantLinks } from "@/lib/event-participants";
 import { NearbyTonight, PocketPlaceHint } from "@/components/NearbyTonight";
 import { VenueOtherNights } from "@/components/VenueOtherNights";
 import type { NearbyTonightResult } from "@/lib/nearby-events";
@@ -90,6 +92,18 @@ export function EventDetailContent({
 }: EventDetailContentProps) {
   const TitleTag = standalone ? "h1" : "h2";
   const [venuePending, setVenuePending] = useState(false);
+  const returnPath = eventDetailPath(locale, event.id);
+  const participantLinks = useMemo(
+    () =>
+      resolveParticipantLinks(event.participants?.filter(Boolean) ?? [], locale, {
+        returnTo: returnPath,
+        returnTitle: event.title,
+      }),
+    [event.participants, event.title, locale, returnPath],
+  );
+  const hasParticipants = participantLinks.length > 0;
+  /** Multi-venue lists are the destination — don't dump users into city-level Maps. */
+  const placeIsLinked = isPhysical && Boolean(venueSlug || !hasParticipants);
 
   return (
     <>
@@ -136,53 +150,51 @@ export function EventDetailContent({
             )}
           </div>
         )}
-        {isPhysical ? (
-          venueSlug ? (
-            <IntentLink
-              href={venueDetailPath(
-                locale,
-                venueSlug,
-                eventDetailPath(locale, event.id),
-                event.title,
-                true,
-              )}
-              onClick={() => {
-                rememberReturnPath(eventDetailPath(locale, event.id), event.title);
-              }}
-              className="group/place flex items-start gap-2.5 text-copy-meta text-neutral-800 dark:text-neutral-200 touch-manipulation"
-            >
-              <MapPin className="mt-0.5 h-[1.125rem] w-[1.125rem] shrink-0 text-neutral-500 transition-colors group-hover/place:text-orange-600 dark:text-neutral-400" />
-              <span className="min-w-0 font-medium leading-snug transition-colors group-hover/place:text-orange-600">
-                {formatEventPlace(event)}
-                {walkablePocket ? (
-                  <PocketPlaceHint
-                    pocket={walkablePocket}
-                    locale={locale}
-                    dict={dict}
-                  />
-                ) : null}
-              </span>
-            </IntentLink>
-          ) : (
-            <a
-              href={getDirectionsUrl(event)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group/place flex items-start gap-2.5 text-copy-meta text-neutral-800 dark:text-neutral-200 touch-manipulation"
-            >
-              <MapPin className="mt-0.5 h-[1.125rem] w-[1.125rem] shrink-0 text-neutral-500 transition-colors group-hover/place:text-orange-600 dark:text-neutral-400" />
-              <span className="min-w-0 font-medium leading-snug transition-colors group-hover/place:text-orange-600">
-                {formatEventPlace(event)}
-                {walkablePocket ? (
-                  <PocketPlaceHint
-                    pocket={walkablePocket}
-                    locale={locale}
-                    dict={dict}
-                  />
-                ) : null}
-              </span>
-            </a>
-          )
+        {placeIsLinked && venueSlug ? (
+          <IntentLink
+            href={venueDetailPath(
+              locale,
+              venueSlug,
+              eventDetailPath(locale, event.id),
+              event.title,
+              true,
+            )}
+            onClick={() => {
+              rememberReturnPath(eventDetailPath(locale, event.id), event.title);
+            }}
+            className="group/place flex items-start gap-2.5 text-copy-meta text-neutral-800 dark:text-neutral-200 touch-manipulation"
+          >
+            <MapPin className="mt-0.5 h-[1.125rem] w-[1.125rem] shrink-0 text-neutral-500 transition-colors group-hover/place:text-orange-600 dark:text-neutral-400" />
+            <span className="min-w-0 font-medium leading-snug transition-colors group-hover/place:text-orange-600">
+              {formatEventPlace(event)}
+              {walkablePocket ? (
+                <PocketPlaceHint
+                  pocket={walkablePocket}
+                  locale={locale}
+                  dict={dict}
+                />
+              ) : null}
+            </span>
+          </IntentLink>
+        ) : placeIsLinked ? (
+          <a
+            href={getDirectionsUrl(event)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group/place flex items-start gap-2.5 text-copy-meta text-neutral-800 dark:text-neutral-200 touch-manipulation"
+          >
+            <MapPin className="mt-0.5 h-[1.125rem] w-[1.125rem] shrink-0 text-neutral-500 transition-colors group-hover/place:text-orange-600 dark:text-neutral-400" />
+            <span className="min-w-0 font-medium leading-snug transition-colors group-hover/place:text-orange-600">
+              {formatEventPlace(event)}
+              {walkablePocket ? (
+                <PocketPlaceHint
+                  pocket={walkablePocket}
+                  locale={locale}
+                  dict={dict}
+                />
+              ) : null}
+            </span>
+          </a>
         ) : (
           <div className="flex items-start gap-2.5 text-copy-meta text-neutral-800 dark:text-neutral-200">
             <MapPin className="mt-0.5 h-[1.125rem] w-[1.125rem] shrink-0 text-neutral-500 dark:text-neutral-400" />
@@ -196,6 +208,47 @@ export function EventDetailContent({
                 />
               ) : null}
             </span>
+          </div>
+        )}
+        {hasParticipants && (
+          <div className="pl-[1.875rem]">
+            <div className="mb-1.5 flex items-center gap-1.5 text-neutral-500">
+              <UtensilsCrossed className="h-3.5 w-3.5 flex-shrink-0" />
+              <span className="text-[0.65rem] font-bold uppercase tracking-wide">
+                {dict.detail.participants}
+              </span>
+            </div>
+            <ul className="flex flex-wrap gap-1">
+              {participantLinks.map(({ name, href }) => (
+                <li key={name}>
+                  {href ? (
+                    <IntentLink
+                      href={href}
+                      onClick={() => {
+                        rememberReturnPath(returnPath, event.title);
+                      }}
+                      className="inline-flex rounded-md bg-neutral-100 px-2 py-0.5 text-xs font-medium text-orange-800 touch-manipulation transition-colors hover:bg-orange-50 hover:text-orange-700 dark:bg-neutral-800 dark:text-orange-300 dark:hover:bg-neutral-700 dark:hover:text-orange-200"
+                    >
+                      {name}
+                    </IntentLink>
+                  ) : (
+                    <span className="inline-flex rounded-md bg-neutral-100 px-2 py-0.5 text-xs font-medium text-neutral-700 dark:bg-neutral-800 dark:text-neutral-300">
+                      {name}
+                    </span>
+                  )}
+                </li>
+              ))}
+            </ul>
+            {event.sourceUrl ? (
+              <a
+                href={event.sourceUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-1.5 inline-block text-xs font-semibold text-orange-700 dark:text-orange-400 touch-manipulation"
+              >
+                {dict.detail.participantsDirectory}
+              </a>
+            ) : null}
           </div>
         )}
         {(event.phone || ticketUrl) && (

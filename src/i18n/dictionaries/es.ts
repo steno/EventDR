@@ -207,6 +207,8 @@ export const es: Dictionary = {
     shared: "¡Compartido!",
     copied: "Copiado al portapapeles",
     lineup: "Artistas",
+    participants: "Locales participantes",
+    participantsDirectory: "Ver lista completa",
     alsoNearbyTonight: "También cerca esta noche",
     alsoNearbyToday: "También cerca hoy",
     alsoNearby: "También cerca",
@@ -360,8 +362,6 @@ export const es: Dictionary = {
     minutesLeft: "{duration} para salir hacia el barco",
     pastLeave: "Si tu barco sigue atracado, vuelve al muelle ahora.",
     shipsSailed: "La mayoría de los barcos ya zarparon.",
-    shipsSailedHint:
-      "¿Sigues en puerto? Pon una hora más tarde. Si te quedas en tierra, aquí está esta noche en la Costa Norte.",
     sailedEyebrow: "Quedándote en tierra",
     sailedLoopsTitle: "Se acabaron las rutas del barco",
     sailedLoopsBody:

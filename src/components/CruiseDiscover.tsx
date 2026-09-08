@@ -208,40 +208,42 @@ export function CruiseDiscover({
           </p>
 
           <div key={`form-${port}`} className="cruise-port-swap">
-            <label className="mt-4 block">
-              <span className="text-xs font-bold uppercase tracking-wide text-neutral-500 dark:text-neutral-400">
-                {copy.allAboard}
-              </span>
-              <span
-                id="cruise-all-aboard-hint"
-                className="mt-1 block text-xs font-medium leading-snug text-neutral-500 dark:text-neutral-400"
-              >
-                {sailed ? copy.shipsSailedHint : copy.allAboardHint}
-              </span>
-              <select
-                className="mt-1.5 w-full rounded-xl border-0 bg-neutral-100 px-3 py-2.5 text-sm font-bold text-neutral-950 outline-none ring-1 ring-neutral-200 focus:ring-2 focus:ring-orange-400 dark:bg-neutral-900 dark:text-white dark:ring-neutral-700"
-                aria-label={copy.allAboardHelp}
-                aria-describedby="cruise-all-aboard-hint"
-                value={formatAllAboardParam(allAboardMinutes)}
-                onChange={(event) => {
-                  const next = ALL_ABOARD_PRESETS.find(
-                    (preset) =>
-                      formatAllAboardParam(preset) === event.target.value,
-                  );
-                  if (next != null) onAllAboardChange(next);
-                }}
-              >
-                {ALL_ABOARD_PRESETS.map((preset) => (
-                  <option
-                    key={preset}
-                    value={formatAllAboardParam(preset)}
-                    className="bg-white text-neutral-950 dark:bg-neutral-900 dark:text-white"
-                  >
-                    {formatClockMinutes(preset, locale)}
-                  </option>
-                ))}
-              </select>
-            </label>
+            {!sailed ? (
+              <label className="mt-4 block">
+                <span className="text-xs font-bold uppercase tracking-wide text-neutral-500 dark:text-neutral-400">
+                  {copy.allAboard}
+                </span>
+                <span
+                  id="cruise-all-aboard-hint"
+                  className="mt-1 block text-xs font-medium leading-snug text-neutral-500 dark:text-neutral-400"
+                >
+                  {copy.allAboardHint}
+                </span>
+                <select
+                  className="mt-1.5 w-full rounded-xl border-0 bg-neutral-100 px-3 py-2.5 text-sm font-bold text-neutral-950 outline-none ring-1 ring-neutral-200 focus:ring-2 focus:ring-orange-400 dark:bg-neutral-900 dark:text-white dark:ring-neutral-700"
+                  aria-label={copy.allAboardHelp}
+                  aria-describedby="cruise-all-aboard-hint"
+                  value={formatAllAboardParam(allAboardMinutes)}
+                  onChange={(event) => {
+                    const next = ALL_ABOARD_PRESETS.find(
+                      (preset) =>
+                        formatAllAboardParam(preset) === event.target.value,
+                    );
+                    if (next != null) onAllAboardChange(next);
+                  }}
+                >
+                  {ALL_ABOARD_PRESETS.map((preset) => (
+                    <option
+                      key={preset}
+                      value={formatAllAboardParam(preset)}
+                      className="bg-white text-neutral-950 dark:bg-neutral-900 dark:text-white"
+                    >
+                      {formatClockMinutes(preset, locale)}
+                    </option>
+                  ))}
+                </select>
+              </label>
+            ) : null}
 
             <p className="mt-4 inline-flex max-w-full items-start gap-2 rounded-xl bg-orange-50 px-3 py-2 text-sm font-bold leading-snug text-orange-950 ring-1 ring-orange-200/80 dark:bg-orange-950/40 dark:text-orange-100 dark:ring-orange-500/30">
               <Clock

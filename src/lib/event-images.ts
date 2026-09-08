@@ -173,6 +173,10 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "sosua-10k-road-race-2026": "sosua-10k-road-race-2026.jpg",
   "puerto-plata-poker-experience-2026": "puerto-plata-poker-experience-2026.jpg",
   "aventurate-rd-2026": "aventurate-rd-2026.jpg",
+  "restaurant-week-puerto-plata-2026":
+    "restaurant-week-puerto-plata-2026-calendar.jpg",
+  "super-mega-urban-fest-2026-11-04": "super-mega-urban-fest-2026-11-04.jpg",
+  "masters-surf-reunion-10-2026": "masters-surf-reunion-10-2026.png",
   "sunset-cabarete-sessions-2026": "sunset-cabarete-sessions-2026.jpg",
   "la-chabola-wednesday-open-mic": "la-chabola-wednesday-open-mic.jpg",
   "groundzero-domingos-pal-pueblo": "groundzero-domingos-pal-pueblo.jpg",

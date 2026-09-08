@@ -202,6 +202,11 @@ export interface Event {
   imageUrl?: string;
   /** Named performers when announced in the source. */
   lineup?: string[];
+  /**
+   * Participating places for multi-venue events (e.g. Restaurant Week spots).
+   * Shown as chips; suppresses the Google Maps place-row link when set.
+   */
+  participants?: string[];
   communitySubmitted?: boolean;
   sourceType?: EventSourceType;
   status?: EventStatus;

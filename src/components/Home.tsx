@@ -48,6 +48,7 @@ import {
   parseHomeCityParam,
   readHomeArea,
   writeHomeArea,
+  clearHomeArea,
   type CitySlug,
 } from "@/lib/cities";
 import {
@@ -67,6 +68,7 @@ import {
   markOnboardingSeen,
 } from "@/lib/onboarding";
 import { fillTemplate } from "@/lib/seo";
+import { signalNavDone } from "@/lib/nav-feedback";
 
 const SubmitEventSheet = dynamic(
   () =>
@@ -277,6 +279,26 @@ function HomeApp({
     [locale],
   );
 
+  /** Leave shore-day without remounting Home via RSC (keeps events in memory). */
+  const leaveCruise = useCallback(
+    (city: CitySlug | null, areaChosen: boolean) => {
+      setCruisePort(null);
+      setSearchQuery("");
+      if (areaChosen) {
+        setLocalArea({ city, areaChosen: true });
+        writeHomeArea(city);
+      } else {
+        setLocalArea(null);
+        clearHomeArea();
+      }
+      const href = homePathWithArea(locale, city, areaChosen);
+      window.history.replaceState(window.history.state ?? null, "", href);
+      setCityQuery(new URLSearchParams(href.split("?")[1] ?? "").get("city"));
+      signalNavDone();
+    },
+    [locale],
+  );
+
   // Persist area: explicit ?city=, or bare home as North Coast default.
   useEffect(() => {
     if (areaChosen) {
@@ -410,7 +432,6 @@ function HomeApp({
 
   // Both ports are Puerto Plata, so back out to that area instead of bare home
   // (the header's home icon already covers a fresh start).
-  const cruiseBackHref = homePathWithArea(locale, "puerto-plata", true);
   const cruiseCity = getCityMeta("puerto-plata");
   const cruiseBackLabel = cruiseCity
     ? getCityName(cruiseCity, locale)
@@ -476,10 +497,12 @@ function HomeApp({
         <div className={PAGE_SHELL_CLASS}>
           {cruisePort ? (
             // Shore day is a scoped inner page: home + back, no logo/weather.
+            // Exit client-side (same as city chips) — Link remount was slow/stuck.
             <StickyListHeader
               locale={locale}
               dict={dict}
-              backHref={cruiseBackHref}
+              onBack={() => leaveCruise("puerto-plata", true)}
+              onHome={() => leaveCruise(null, false)}
               backLabel={cruiseBackLabel}
               variant="compact"
               flushBottom

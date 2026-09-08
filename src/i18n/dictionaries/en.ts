@@ -186,6 +186,9 @@ export type Dictionary = {
     shared: string;
     copied: string;
     lineup: string;
+    /** Multi-venue participants (restaurants, hotels, etc.). */
+    participants: string;
+    participantsDirectory: string;
     /** Same-day walkable events near this one. */
     alsoNearbyTonight: string;
     alsoNearbyToday: string;
@@ -329,7 +332,6 @@ export type Dictionary = {
     minutesLeft: string;
     pastLeave: string;
     shipsSailed: string;
-    shipsSailedHint: string;
     /** Panel eyebrow when past all-aboard. */
     sailedEyebrow: string;
     /** Replaces ready-made loops after ships leave. */
@@ -749,6 +751,8 @@ export const en: Dictionary = {
     shared: "Shared!",
     copied: "Copied to clipboard",
     lineup: "Performers",
+    participants: "Participating spots",
+    participantsDirectory: "See full list",
     alsoNearbyTonight: "Also nearby tonight",
     alsoNearbyToday: "Also nearby today",
     alsoNearby: "Also nearby",
@@ -902,8 +906,6 @@ export const en: Dictionary = {
     minutesLeft: "{duration} until you should leave",
     pastLeave: "If your ship is still docked, go back to the pier now.",
     shipsSailed: "Most ships have already left.",
-    shipsSailedHint:
-      "Still in port? Set a later return time. If you’re staying ashore, here’s tonight on the North Coast.",
     sailedEyebrow: "Staying ashore",
     sailedLoopsTitle: "Ship-day walks are over",
     sailedLoopsBody:

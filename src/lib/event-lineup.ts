@@ -18,7 +18,14 @@ export function normalizeLineup(lineup: unknown): string[] | undefined {
   return names.length > 0 ? names.slice(0, 30) : undefined;
 }
 
-export function normalizeEventLineup<T extends { lineup?: string[] }>(event: T): T {
+export function normalizeEventLineup<
+  T extends { lineup?: string[]; participants?: string[] },
+>(event: T): T {
   const lineup = normalizeLineup(event.lineup);
-  return lineup ? { ...event, lineup } : { ...event, lineup: undefined };
+  const participants = normalizeLineup(event.participants);
+  return {
+    ...event,
+    lineup,
+    participants,
+  };
 }

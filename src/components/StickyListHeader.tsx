@@ -47,6 +47,11 @@ type StickyListHeaderProps = {
    * so scroll-to-list and sticky filters stay aligned when chrome shrinks.
    */
   variant?: "default" | "compact" | "detail";
+  /**
+   * Client exit (e.g. leave cruise shore-day) — avoids a slow RSC remount of Home.
+   * When set, home is a button instead of a Link.
+   */
+  onHome?: () => void;
 } & (
   | { backHref: string; onBack?: never }
   | { backHref?: never; onBack: () => void }
@@ -92,6 +97,7 @@ export function StickyListHeader({
   backHref,
   backLabel,
   onBack,
+  onHome,
   flushBottom = false,
   variant = "default",
 }: StickyListHeaderProps) {
@@ -155,6 +161,32 @@ export function StickyListHeader({
   const backAriaLabel = fillTemplate(dict.browse.backTo, { title: backLabel });
 
   function renderHomeControl() {
+    const className = `${homeControlClassName} ${
+      isDetail ? "h-9 w-9 -ml-1.5" : "h-11 w-11 -ml-2"
+    }${homePending ? ` ${backPendingClassName}` : ""}`;
+
+    if (onHome) {
+      return (
+        <button
+          type="button"
+          aria-label={dict.nav.home}
+          title={dict.nav.home}
+          aria-busy={homePending || undefined}
+          onClick={() => {
+            clearHomeArea();
+            setHomePending(true);
+            signalNavPending("soft");
+            onHome();
+            // Instant client exit — clear busy on next frame.
+            requestAnimationFrame(() => setHomePending(false));
+          }}
+          className={className}
+        >
+          <House className={backIconClassName} aria-hidden />
+        </button>
+      );
+    }
+
     return (
       <Link
         href={homeHref}
@@ -167,9 +199,7 @@ export function StickyListHeader({
           setHomePending(true);
           signalNavPending("soft");
         }}
-        className={`${homeControlClassName} ${
-          isDetail ? "h-9 w-9 -ml-1.5" : "h-11 w-11 -ml-2"
-        }${homePending ? ` ${backPendingClassName}` : ""}`}
+        className={className}
       >
         <House className={backIconClassName} aria-hidden />
       </Link>
@@ -187,6 +217,7 @@ export function StickyListHeader({
           onClick={() => {
             beginBack();
             onBack();
+            requestAnimationFrame(() => setPending(false));
           }}
           className={className}
         >

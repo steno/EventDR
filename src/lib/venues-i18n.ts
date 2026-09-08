@@ -641,6 +641,102 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Restaurant face à la mer à Playa Alicia, El Batey — plus de 30 ans de dîners au coucher du soleil sur la baie, cuisine caribéenne-internationale et jazz live le vendredi. Tous les jours 8 h–22 h.",
     },
   },
+  "aguaji-sosua": {
+    description: {
+      es: "Alta cocina dominicana en El Batey (Calle Bruno Philips) — platos criollos contemporáneos. Participante de Restaurant Week RD.",
+      fr: "Alta cocina dominicaine à El Batey (Calle Bruno Philips) — plats créoles contemporains. Participant Restaurant Week RD.",
+    },
+  },
+  "baia-lounge-sosua": {
+    description: {
+      es: "Lounge-restaurante internacional en Calle Bruno Philips, El Batey. Participante de Restaurant Week RD.",
+      fr: "Lounge-restaurant international sur Calle Bruno Philips, El Batey. Participant Restaurant Week RD.",
+    },
+  },
+  "bliss-cabarete": {
+    description: {
+      es: "Restaurante italo-mediterráneo de cena en La Ciénaga / Callejón Máximo, Cabarete — pasta casera y pescado local. Cena lun–sáb; participante Restaurant Week RD.",
+      fr: "Restaurant italo-méditerranéen le soir à La Ciénaga / Callejón Máximo, Cabarete — pâtes maison et poisson local. Dîner lun–sam ; participant Restaurant Week RD.",
+    },
+  },
+  "casa-balcon-puerto-plata": {
+    description: {
+      es: "Cocina internacional en Plaza Paseo del Parque (Calle Separación). Participante Restaurant Week RD.",
+      fr: "Cuisine internationale à Plaza Paseo del Parque (Calle Separación). Participant Restaurant Week RD.",
+    },
+  },
+  "casa-caribe-puerto-plata": {
+    description: {
+      es: "Restaurante internacional en Ave. Luis Ginebra, centro de Puerto Plata. Participante Restaurant Week RD.",
+      fr: "Restaurant international sur Ave. Luis Ginebra, centre de Puerto Plata. Participant Restaurant Week RD.",
+    },
+  },
+  "casita-azul-puerto-plata": {
+    description: {
+      es: "Restaurante internacional en Calle Beller / Plaza Independencia. Participante Restaurant Week RD.",
+      fr: "Restaurant international sur Calle Beller / Plaza Independencia. Participant Restaurant Week RD.",
+    },
+  },
+  "la-isabela-colonial-puerto-plata": {
+    description: {
+      es: "Restaurante internacional cerca de Prof. Juan Bosch y Eugenio Deschamps. Participante Restaurant Week RD.",
+      fr: "Restaurant international près de Prof. Juan Bosch et Eugenio Deschamps. Participant Restaurant Week RD.",
+    },
+  },
+  "la-lola-malecon": {
+    description: {
+      es: "Beach club en el Malecón de Puerto Plata — cocina internacional frente al mar. Participante Restaurant Week RD.",
+      fr: "Beach club sur le Malecón de Puerto Plata — cuisine internationale face à la mer. Participant Restaurant Week RD.",
+    },
+  },
+  "latinwok-puerto-plata": {
+    description: {
+      es: "Fusión latina-asiática en Ave. Luis Ginebra (Plaza 1). Participante Restaurant Week RD.",
+      fr: "Fusion latino-asiatique sur Ave. Luis Ginebra (Plaza 1). Participant Restaurant Week RD.",
+    },
+  },
+  "mauros-puerto-plata": {
+    description: {
+      es: "Restaurante internacional en Plaza Juan Brugal (Km 1, vía Sosúa). Participante Restaurant Week RD.",
+      fr: "Restaurant international à Plaza Juan Brugal (Km 1, route de Sosúa). Participant Restaurant Week RD.",
+    },
+  },
+  "mi-bodegon-cabarete": {
+    description: {
+      es: "Restaurante argentino en Plaza Ocean Dream, Calle Principal de Cabarete. Participante Restaurant Week RD.",
+      fr: "Restaurant argentin à Plaza Ocean Dream, Calle Principal de Cabarete. Participant Restaurant Week RD.",
+    },
+  },
+  "rancho-catalina-puerto-plata": {
+    description: {
+      es: "Parrilla y carnes en El Cupey, Puerto Plata. Participante Restaurant Week RD.",
+      fr: "Grillades et viandes à El Cupey, Puerto Plata. Participant Restaurant Week RD.",
+    },
+  },
+  "ristorante-passatore-playa-dorada": {
+    description: {
+      es: "Pizza y pasta italiana en Playa Dorada Plaza. Participante Restaurant Week RD.",
+      fr: "Pizza et pâtes italiennes à Playa Dorada Plaza. Participant Restaurant Week RD.",
+    },
+  },
+  "sambalu-puerto-plata": {
+    description: {
+      es: "Restaurante internacional en Calle José Del Carmen Ariza. Participante Restaurant Week RD.",
+      fr: "Restaurant international sur Calle José Del Carmen Ariza. Participant Restaurant Week RD.",
+    },
+  },
+  "skina-puerto-plata": {
+    description: {
+      es: "Restaurante internacional en Separación esq. 12 de Julio. Participante Restaurant Week RD.",
+      fr: "Restaurant international à Separación / 12 de Julio. Participant Restaurant Week RD.",
+    },
+  },
+  "sun-club-costa-norte-sosua": {
+    description: {
+      es: "Beach club en Calle Bruno Philips, El Batey (alianza Veuve Clicquot). Participante Restaurant Week RD.",
+      fr: "Beach club sur Calle Bruno Philips, El Batey (partenariat Veuve Clicquot). Participant Restaurant Week RD.",
+    },
+  },
   "finca-papirucho": {
     description: {
       es: "El tramo más accesible del Río Soñador tierra adentro desde Sosúa — charcos (El Palo, La Cortina) más baños, restaurante y lockers en la finca. Entre semana hay menos gente. GPS a Finca Papirucho; el último tramo es de tierra con parches de cemento.",

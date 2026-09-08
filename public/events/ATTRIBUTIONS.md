@@ -20,6 +20,9 @@ Curated images under `public/events/` and `public/venues/`.
 | `sunset-cabarete-sessions-2026.jpg` | [Ticketplus — Sunset Cabarete Sessions](https://dominicana.myticketplus.com/events/sunset-cabarete-sessions) official event OG poster | Authentic Dec 5–6 Lux Beach Bar deep-house event art |
 | `puerto-plata-poker-experience-2026.png` | [CLSOP / torneos.poker — Puerto Plata Poker Experience](https://torneos.poker/evento/puerto-plata-poker-experience-ago-2026/) official festival flyer | Authentic Aug 28–Sep 6 Coral Reef Casino poker festival art |
 | `aventurate-rd-2026.jpg` | [Aventúrate RD](https://feriaaventuraterd.com/) official 2026 promo (dates + Hotel Marien) | Authentic fair promo — Sep 1–3, Hotel Marien Puerto Plata |
+| `restaurant-week-puerto-plata-2026-calendar.jpg` | [Restaurant Week RD](https://www.restaurantweek.com.do/) official 2026 regional calendar art (light) | Authentic RW art — Puerto Plata + Jarabacoa week Sep 21–27 (filename bump after replacing black map promo) |
+| `super-mega-urban-fest-2026-11-04.jpg` | Anfiteatro Puerto Plata / Super Mega Urban Fest flyer (FB event + venue promo) | Authentic concert flyer — Nov 4 from 3 PM, La Puntilla |
+| `masters-surf-reunion-10-2026.png` | [@MastersSurfReunionRD](https://www.instagram.com/p/Dc3tjbbpXK7/) official Masters Surf Reunion #10 promo | Authentic event art — Nov 6–9 2026, Playa Encuentro Cabarete |
 | `la-casita-papi-sand-dining.jpg` | Google Maps — La Casita de Papi vibe photo (twilight tables on Cabarete Central Beach) | Event card; replaces generic Restaurant Guru daytime tables |
 | `venues/la-casita-de-papi-awning.jpg` | Google Maps — La Casita de Papi place photo with Papi awning | Venue hero showing the actual casita (filename bump) |
 | `venues/lax-cabarete-bar.jpg` | Google Maps — OJO CLUB / LAX Cabarete night bar | Venue place shot of the two-story beach bar; Sunset Sessions keeps the dedicated deck photo |
