@@ -49,7 +49,8 @@ Curated images under `public/events/` and `public/venues/`.
 | `sosua-pedro-clisante-food-nights.jpg` | [Unsplash](https://unsplash.com/photos/assorted-meat-on-a-wooden-board-yiR9GQC8Ttk) (`photo-1555939594`) — Unsplash License | Grill / street-food feast |
 | `venues/el-batey-pedro-clisante-strip.jpg` | YouTube still — [Avenida Pedro Clisante. Sosúa, Dominican Republic](https://www.youtube.com/watch?v=LCuOD7uG_R0) | Daytime walkable Pedro Clisante café/bar strip (filename bump — was Plaza García / Entrada El Batey) |
 | `el-batey-weekend-nightlife-clisante.jpg` | [Sosúa News — Friday night on Pedro Clisante](https://www.sosuanews.com/index.php?id=4452&article=1) — `05-20_clisante_2.jpg` | Night strip action (Premium Disco patio, Presidente tables) — replaces the shared salsa-social clone |
-| `ojo-latin-night-thursday.jpg` | POP curated `MerengueBachataNight.JPG` | Latin dance night (not LAX sunset) |
+| `ojo-latin-night-ojo-booth.png` | POP on-site photo — Ojo Club DJ booth with ojo Club logo / Red Bull neon | Thursday Latin Night action (filename bump) |
+| `lax-reggae-friday-crowd.png` | POP on-site photo — DJ overlooking packed LAX Cabarete dance floor | Friday Reggae Night crowd energy (filename bump) |
 | `ojo-weekend-dj-parties.jpg` | [Unsplash](https://unsplash.com/photos/cxOitA8mP78) (`photo-1682289385881`) — Unsplash License | DJ booth / club party action (was shared LAX reggae deck) |
 | `voyvoy-monday-night-terrace.jpg` | [Google Maps — Voy Voy Bar Restaurant](https://www.google.com/maps/place/Voy+Voy+Bar+Restaurant/@19.7502161,-70.4066784,17z) visitor photo | Night terrace cocktails and string lights on Cabarete Bay — Monday live listing (not the interior reused as Ocean One) |
 | `venues/voyvoy-cabarete-bar.jpg` | TripAdvisor — Voyvoy Cabarete bar/dining interior | Venue place shot of the actual bar |
@@ -107,7 +108,8 @@ Curated images under `public/events/` and `public/venues/`.
 | `venues/ground-zero-disco-lounge.jpg` | [Google Maps — Ground Zero Disco](https://www.google.com/maps/search/Ground+Zero+Disco+Cabarete) visitor photo | Branded lounge interior with GZ logo wall |
 | `groundzero-viernes-locos.jpg` | [@groundzero_disco](https://www.instagram.com/groundzero_disco/p/DbclfDnuf2U/) — Viernes Locos flyer | Official Friday whisky half-price party promo |
 | `groundzero-party-rojo-2026-08-01.jpg` | [@groundzero_disco](https://www.instagram.com/groundzero_disco/p/DbTqSiPPq35/) — Party Rojo flyer | Official Aug 1 2026 red-theme night flyer |
-| `blue-ice-saturday-gogo.jpg` | [@blueice_pianobar](https://www.instagram.com/blueice_pianobar/p/Cn7pItKJQMD/) — Every Saturdays Gogo Dance flyer | Official Saturday gogo dance promo |
+| `blue-ice-saturday-lounge.png` | POP on-site photo — Blue Ice lounge interior (Blue Ice neon, Buddha circle) | Saturday gogo / piano-bar event action (filename bump) |
+| `venues/blue-ice-pianobar-sosua-facade.jpg` | POP on-site photo — blue ice PIANO BAR storefront on Calle Dr. Rosen | Venue place shot (event keeps lounge interior) |
 | `cabarete-pilates-reformer.jpg` | [Unsplash](https://unsplash.com/photos/woman-does-pilates-exercise-on-a-reformer-machine--j3ARb-gTBo) (`photo-1754257320311`) — Unsplash License | Reformer studio action (replaces Rafaella logo) |
 | `gym-sov-zumba-fitness.jpg` | [Wikimedia Commons — US Army Zumba class](https://commons.wikimedia.org/wiki/File:US_Army_52862_Zumba_adds_Latin_dance_to_fitness_routine.jpg) — Brittany Carlson (USAG Stuttgart), public domain | Generic Zumba class action for GYM SOV Tue/Thu listing |
 | `venues/gym-sov-sosua-ocean-village.webp` | POP curated `zumbavenue.webp` — GYM SOV / Sosúa Ocean Village | Venue place photo |
@@ -203,3 +205,19 @@ Curated images under `public/events/` and `public/venues/`.
 | `venues/cacique-moncion-palapa.jpg` | Google Maps visitor photo — Disco Restaurant Cacique palapa dining hall | Venue place shot (El Blachy keeps the patio still) |
 | `nonas-grill-kitchen-entrance.jpg` | POP-supplied entrance photo — woman and child walking past the wooden NONAS sign (editor-provided, not scraped) | Daily dining event hero; filename bump so it does not share the garden patio |
 | `venues/nonas-grill-kitchen-garden.jpg` | POP-supplied garden patio — NOMA'S Grill Kitchen sign, swing table, bougainvillea, palapas (editor-provided, not scraped) | Venue location hero |
+| `venues/aguaji-sosua.jpg` | [Google Maps — Aguají Restaurant by Chef Tita](https://www.google.com/maps/place/Aguaj%C3%AD+Restaurant+by+Chef+Tita/@19.7691248,-70.5168106,17z) visitor photo | Ocean-terrace dining at The Ocean Club Costa Norte |
+| `venues/baia-lounge-sosua.jpg` | En Primeur / Pearl listing rehost — The Ocean Club Costa Norte beachfront campus at dusk | Resort place shot for Baia Lounge on Calle Bruno Philip |
+| `venues/bliss-cabarete.jpg` | [Google Maps — Bliss Cabarete](https://www.google.com/maps/place/Bliss/@19.7645862,-70.4291017,17z) visitor photo | Covered patio dining room at the new Callejón Máximo location |
+| `venues/casita-azul-puerto-plata.jpg` | [PuertoPlataDR — La Casita Azul](https://puertoplatadr.com/restaurants/la-casita-azul/) place photo (facade crop) | Victorian blue facade / Bar & Grill sign on Calle Beller |
+| `venues/la-isabela-colonial-puerto-plata.jpg` | [PuertoPlataDR — La Isabela Restaurant](https://puertoplatadr.com/restaurants/la-isabela-restaurant/) place photo | Historic-district Victorian dining room |
+| `venues/la-lola-malecon.jpg` | En Primeur / Pearl listing rehost — Lalola Beach Club | Malecón beach-club dining place shot |
+| `venues/latinwok-puerto-plata.jpg` | [En Primeur — LatinWok Cabarete](https://www.enprimeurclub.com/restaurants/latinwok-cabarete) place photo | Beachfront sand dining with Latin Wok sign on Cabarete Bay |
+| `venues/mauros-puerto-plata.jpg` | Sluurpy / Mauro’s Puerto Plata listing photo | Interior dining room at Plaza Juan Brugal |
+| `venues/mi-bodegon-cabarete.jpg` | [Google Maps — Mi Bodegón](https://www.google.com/maps/place/Mi+Bodeg%C3%B3n/@19.7509018,-70.4147976,17z) visitor photo | Argentine bodegón interior at Plaza Ocean Dream |
+| `venues/rancho-catalina-puerto-plata.jpg` | [TripAdvisor — La Catalina](https://www.tripadvisor.com/) / Sluurpy listing photo (`photo9jpg`) | Ranch dining place shot in El Cupey |
+| `venues/ristorante-passatore-playa-dorada.jpg` | [TripAdvisor — Ristorante Passatore](https://www.tripadvisor.com/) patio photo (`restaurant.jpg`) | Outdoor pergola dining at Playa Dorada Plaza |
+| `venues/sambalu-puerto-plata.jpg` | [PuertoPlataDR — Sambalú Restaurant](https://puertoplatadr.com/restaurants/sambalu-restaurant/) place photo | Historic-center Caribbean dining room / terrace |
+| `venues/skina-puerto-plata.jpg` | [Puerto Plata Noticias — La Skina](https://puertoplatanoticias.com/restaurante-la-skina-premiado-el-mejor-sancocho/) place photo | Exterior Skina Bar & Restaurant wall sign |
+| `venues/casa-balcon-puerto-plata.jpg` | POP-supplied — balcony lunch overlooking Independence Park gazebo | Venue place shot (compressed JPEG from editor PNG) |
+| `venues/casa-caribe-puerto-plata.jpg` | POP-supplied — night entrance with yellow Casa Caribe / Caribbean Food sign | Venue place shot on Luis Ginebra |
+| `venues/sun-club-costa-norte-sosua.jpg` | POP-supplied — Ocean Club Sun Club pool deck (yellow-stripe loungers / cabanas) | Venue place shot at The Ocean Club Costa Norte |

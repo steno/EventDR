@@ -478,6 +478,8 @@ export type Dictionary = {
     streetViewError: string;
     website: string;
     instagram: string;
+    /** Short chip on venue pages during Restaurant Week. */
+    restaurantWeekParticipant: string;
     startingFrom: string;
     startingFromPlaceholder: string;
     startingFromRequired: string;
@@ -1063,6 +1065,7 @@ export const en: Dictionary = {
     streetViewError: "Couldn't load the area preview.",
     website: "Website",
     instagram: "Instagram",
+    restaurantWeekParticipant: "Restaurant Week RD",
     startingFrom: "Where are you starting from?",
     startingFromPlaceholder: "Hotel, address, or neighborhood…",
     startingFromRequired: "Enter a starting place or use your location.",

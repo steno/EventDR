@@ -74,9 +74,36 @@ describe("filterByVenueSlug", () => {
     const catalog = getFallbackEvents("en");
     const elParq = filterByVenueSlug(catalog, "el-parq-cabarete");
     assert.ok(elParq.length > 0 && elParq.length < 10);
-    assert.ok(elParq.every((event) => event.venueSlug === "el-parq-cabarete"));
+    assert.ok(
+      elParq.every(
+        (event) =>
+          event.venueSlug === "el-parq-cabarete" ||
+          (event.participants ?? []).some(
+            (name) => matchVenueSlug(name) === "el-parq-cabarete",
+          ),
+      ),
+    );
     assert.equal(
       elParq.some((event) => event.id.includes("letrero")),
+      false,
+    );
+  });
+
+  it("surfaces Restaurant Week on participant venue schedules", () => {
+    const catalog = getFallbackEvents("en");
+    const forAguaji = filterByVenueSlug(catalog, "aguaji-sosua");
+    assert.ok(
+      forAguaji.some((event) => event.id === "restaurant-week-puerto-plata-2026"),
+    );
+    const forBliss = filterByVenueSlug(catalog, "bliss-cabarete");
+    assert.ok(
+      forBliss.some((event) => event.id === "restaurant-week-puerto-plata-2026"),
+    );
+    // Unrelated venue should not pick it up via participants.
+    assert.equal(
+      filterByVenueSlug(catalog, "el-parq-cabarete").some(
+        (e) => e.id === "restaurant-week-puerto-plata-2026",
+      ),
       false,
     );
   });

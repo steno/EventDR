@@ -5,7 +5,7 @@ import { attachTicketUrls } from "@/lib/event-tickets";
 import { attachEventPhones } from "@/lib/event-phone";
 import { localDateISO, materializeEventDates } from "@/lib/event-dates";
 import { sortEventsForDisplay } from "@/lib/event-sort";
-import { attachCoords, attachVenueSlugs, normalizeEventCoordsList } from "@/lib/geo";
+import { attachCoords, attachVenueSlugs, filterByVenueSlug, normalizeEventCoordsList } from "@/lib/geo";
 import { applyCuratedEventPatches } from "@/lib/curated-events";
 import { filterRemovedSeedEvents } from "@/lib/removed-seeds";
 import { localizeEventsForDisplay } from "@/lib/localized-text";
@@ -71,7 +71,7 @@ function applyScopeFilters(events: Event[], filter: PublicEventsFilter): Event[]
   let result = attachVenueSlugs(filterRemovedSeedEvents(events));
 
   if (filter.venueSlug) {
-    result = result.filter((event) => event.venueSlug === filter.venueSlug);
+    result = filterByVenueSlug(result, filter.venueSlug);
   }
   if (filter.city) {
     result = result.filter((event) => eventMatchesCity(event, filter.city!));
@@ -154,7 +154,7 @@ const getCachedPublicEvents = unstable_cache(
       when: (when || undefined) as Exclude<TimeRange, "all"> | undefined,
       includePast: includePast === "1",
     }),
-  ["public-events-v14"],
+  ["public-events-v15"],
   { revalidate: LISTING_REVALIDATE_SECONDS, tags: ["events"] },
 );
 

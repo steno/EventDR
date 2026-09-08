@@ -94,6 +94,8 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "disco-club-brugal": "disco-club-brugal.jpg",
   "parada-tipica-el-choco": "parada-tipica-el-choco.jpg",
   "blue-jacktar-playa-dorada": "blue-jacktar-playa-dorada.jpg",
+  // Filename bump — Calle Dr. Rosen storefront with blue ice PIANO BAR sign.
+  "blue-ice-pianobar-sosua": "blue-ice-pianobar-sosua-facade.jpg",
   "playa-dorada-golf": "playa-dorada-golf.jpg",
   "playa-encuentro": "playa-encuentro.jpg",
   "playa-los-charamicos": "playa-los-charamicos.jpg",
@@ -144,6 +146,23 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "jamao-al-norte": "jamao-al-norte.jpg",
   // Filename bump — yellow-steps entrance (homepage interior stays on live sports).
   "flip-flop-sports-bar-sosua": "flip-flop-sports-bar-sosua-yellow-steps.jpg",
+  // Restaurant Week 2026 participants — curated place shots.
+  "aguaji-sosua": "aguaji-sosua.jpg",
+  "baia-lounge-sosua": "baia-lounge-sosua.jpg",
+  "bliss-cabarete": "bliss-cabarete.jpg",
+  "casa-balcon-puerto-plata": "casa-balcon-puerto-plata.jpg",
+  "casa-caribe-puerto-plata": "casa-caribe-puerto-plata.jpg",
+  "casita-azul-puerto-plata": "casita-azul-puerto-plata.jpg",
+  "la-isabela-colonial-puerto-plata": "la-isabela-colonial-puerto-plata.jpg",
+  "la-lola-malecon": "la-lola-malecon.jpg",
+  "latinwok-puerto-plata": "latinwok-puerto-plata.jpg",
+  "mauros-puerto-plata": "mauros-puerto-plata.jpg",
+  "mi-bodegon-cabarete": "mi-bodegon-cabarete.jpg",
+  "rancho-catalina-puerto-plata": "rancho-catalina-puerto-plata.jpg",
+  "ristorante-passatore-playa-dorada": "ristorante-passatore-playa-dorada.jpg",
+  "sambalu-puerto-plata": "sambalu-puerto-plata.jpg",
+  "skina-puerto-plata": "skina-puerto-plata.jpg",
+  "sun-club-costa-norte-sosua": "sun-club-costa-norte-sosua.jpg",
 };
 
 /** Cache-busted URL for general venue thumbnails / JSON-LD. */

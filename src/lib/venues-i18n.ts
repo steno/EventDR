@@ -643,98 +643,98 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
   },
   "aguaji-sosua": {
     description: {
-      es: "Alta cocina dominicana en El Batey (Calle Bruno Philips) — platos criollos contemporáneos. Participante de Restaurant Week RD.",
-      fr: "Alta cocina dominicaine à El Batey (Calle Bruno Philips) — plats créoles contemporains. Participant Restaurant Week RD.",
+      es: "Alta cocina dominicana de la Chef Tita en The Ocean Club (Luxury Collection), Calle Bruno Philip No. 5 — menús degustación con vistas a la bahía. Cena vie–dom 6–10 PM; reserva esencial.",
+      fr: "Alta cocina dominicaine de la Chef Tita au The Ocean Club (Luxury Collection), Calle Bruno Philip n° 5 — menus dégustation avec vue sur la baie. Dîner ven–dim 18 h–22 h ; réservation indispensable.",
     },
   },
   "baia-lounge-sosua": {
     description: {
-      es: "Lounge-restaurante internacional en Calle Bruno Philips, El Batey. Participante de Restaurant Week RD.",
-      fr: "Lounge-restaurant international sur Calle Bruno Philips, El Batey. Participant Restaurant Week RD.",
+      es: "Lounge-restaurante internacional todo el día en The Ocean Club Costa Norte — mariscos mediterráneos, sushi, pizza al horno y cócteles al atardecer en Calle Bruno Philip.",
+      fr: "Lounge-restaurant international toute la journée au The Ocean Club Costa Norte — fruits de mer méditerranéens, sushi, pizza au feu de bois et cocktails au coucher du soleil sur Calle Bruno Philip.",
     },
   },
   "bliss-cabarete": {
     description: {
-      es: "Restaurante italo-mediterráneo de cena en La Ciénaga / Callejón Máximo, Cabarete — pasta casera y pescado local. Cena lun–sáb; participante Restaurant Week RD.",
-      fr: "Restaurant italo-méditerranéen le soir à La Ciénaga / Callejón Máximo, Cabarete — pâtes maison et poisson local. Dîner lun–sam ; participant Restaurant Week RD.",
+      es: "Cena italo-mediterránea en Callejón Máximo, La Ciénaga — pasta casera, pescado local y carnes Angus. Cena lun–sáb 6:00–10:30 PM; cerrado domingo.",
+      fr: "Dîner italo-méditerranéen sur Callejón Máximo, La Ciénaga — pâtes maison, poisson local et steaks Angus. Dîner lun–sam 18 h–22 h 30 ; fermé le dimanche.",
     },
   },
   "casa-balcon-puerto-plata": {
     description: {
-      es: "Cocina internacional en Plaza Paseo del Parque (Calle Separación). Participante Restaurant Week RD.",
-      fr: "Cuisine internationale à Plaza Paseo del Parque (Calle Separación). Participant Restaurant Week RD.",
+      es: "Cocina internacional en un balcón con vista a Plaza Independencia — cócteles y menús con vistas al gazebo en el centro de Puerto Plata.",
+      fr: "Cuisine internationale sur un balcon avec vue sur Plaza Independencia — cocktails et menus face au kiosque du centre de Puerto Plata.",
     },
   },
   "casa-caribe-puerto-plata": {
     description: {
-      es: "Restaurante internacional en Ave. Luis Ginebra, centro de Puerto Plata. Participante Restaurant Week RD.",
-      fr: "Restaurant international sur Ave. Luis Ginebra, centre de Puerto Plata. Participant Restaurant Week RD.",
+      es: "Cocina caribeña en Avenida Luis Ginebra — entrada nocturna con el letrero amarillo Casa Caribe; platos sentados en el centro.",
+      fr: "Cuisine caribéenne sur Avenida Luis Ginebra — entrée de nuit avec l’enseigne jaune Casa Caribe ; repas assis en centre-ville.",
     },
   },
   "casita-azul-puerto-plata": {
     description: {
-      es: "Restaurante internacional en Calle Beller / Plaza Independencia. Participante Restaurant Week RD.",
-      fr: "Restaurant international sur Calle Beller / Plaza Independencia. Participant Restaurant Week RD.",
+      es: "Fusión caribeña en una casa victoriana de 1879 en Calle Beller #40 frente a Plaza Independencia — mariscos, carnes y vistas al parque.",
+      fr: "Fusion caribéenne dans une maison victorienne de 1879 au Calle Beller n° 40 face à Plaza Independencia — fruits de mer, viandes et vue sur le parc.",
     },
   },
   "la-isabela-colonial-puerto-plata": {
     description: {
-      es: "Restaurante internacional cerca de Prof. Juan Bosch y Eugenio Deschamps. Participante Restaurant Week RD.",
-      fr: "Restaurant international près de Prof. Juan Bosch et Eugenio Deschamps. Participant Restaurant Week RD.",
+      es: "Fusión caribeña en una casa victoriana del centro histórico — piano en vivo, mariscos y platos creativos de la isla.",
+      fr: "Fusion caribéenne dans une maison victorienne du centre historique — piano live, fruits de mer et assiettes créatives de l’île.",
     },
   },
   "la-lola-malecon": {
     description: {
-      es: "Beach club en el Malecón de Puerto Plata — cocina internacional frente al mar. Participante Restaurant Week RD.",
-      fr: "Beach club sur le Malecón de Puerto Plata — cuisine internationale face à la mer. Participant Restaurant Week RD.",
+      es: "Beach club al aire libre en Avenida Gregorio Luperón (Malecón) — cocina caribeña-mediterránea con vista al Atlántico de desayuno a noche.",
+      fr: "Beach club en plein air sur Avenida Gregorio Luperón (Malecón) — cuisine caribéenne-méditerranéenne avec vue sur l’Atlantique du petit-déjeuner au soir.",
     },
   },
   "latinwok-puerto-plata": {
     description: {
-      es: "Fusión latina-asiática en Ave. Luis Ginebra (Plaza 1). Participante Restaurant Week RD.",
-      fr: "Fusion latino-asiatique sur Ave. Luis Ginebra (Plaza 1). Participant Restaurant Week RD.",
+      es: "Cocina latino-asiática frente al mar en Cabarete Bay — wok, sushi, ceviche y mesas en la arena bajo faroles.",
+      fr: "Cuisine latino-asiatique en front de mer sur Cabarete Bay — wok, sushi, ceviche et tables sur le sable sous lanternes.",
     },
   },
   "mauros-puerto-plata": {
     description: {
-      es: "Restaurante internacional en Plaza Juan Brugal (Km 1, vía Sosúa). Participante Restaurant Week RD.",
-      fr: "Restaurant international à Plaza Juan Brugal (Km 1, route de Sosúa). Participant Restaurant Week RD.",
+      es: "Cocina de inspiración italiana en Plaza Juan Brugal / Av. Circunvalación Sur (Carretera Luperón Km 1, local 7) — pizza, pasta y cenas en el anillo sur de la ciudad, no hacia Playa Dorada.",
+      fr: "Cuisine d’inspiration italienne à Plaza Juan Brugal / Av. Circunvalación Sur (Carretera Luperón Km 1, local 7) — pizza, pâtes et dîners sur la ceinture sud de la ville, pas vers Playa Dorada.",
     },
   },
   "mi-bodegon-cabarete": {
     description: {
-      es: "Restaurante argentino en Plaza Ocean Dream, Calle Principal de Cabarete. Participante Restaurant Week RD.",
-      fr: "Restaurant argentin à Plaza Ocean Dream, Calle Principal de Cabarete. Participant Restaurant Week RD.",
+      es: "Bodegón argentino en Plaza Ocean Dream (Carretera Principal de Cabarete) — parrilla, empanadas, milanesas y vinos argentinos. Lun–sáb 11:30 AM–11:00 PM; cerrado domingo.",
+      fr: "Bodegón argentin à Plaza Ocean Dream (Carretera Principal de Cabarete) — grillades, empanadas, milanesas et vins argentins. Lun–sam 11 h 30–23 h ; fermé le dimanche.",
     },
   },
   "rancho-catalina-puerto-plata": {
     description: {
-      es: "Parrilla y carnes en El Cupey, Puerto Plata. Participante Restaurant Week RD.",
-      fr: "Grillades et viandes à El Cupey, Puerto Plata. Participant Restaurant Week RD.",
+      es: "Rancho gastronómico en El Cupey — parrilla, productos locales, vistas a la montaña y ambiente familiar al aire libre. Reserva recomendada los domingos.",
+      fr: "Ranch gastronomique à El Cupey — grillades, produits locaux, vue montagne et ambiance familiale en plein air. Réservation conseillée le dimanche.",
     },
   },
   "ristorante-passatore-playa-dorada": {
     description: {
-      es: "Pizza y pasta italiana en Playa Dorada Plaza. Participante Restaurant Week RD.",
-      fr: "Pizza et pâtes italiennes à Playa Dorada Plaza. Participant Restaurant Week RD.",
+      es: "Italiano con patio en Playa Dorada Plaza — pasta artesanal, pizza al horno, mariscos y comedor bajo pérgola en el complejo.",
+      fr: "Italien avec patio à Playa Dorada Plaza — pâtes artisanales, pizza au feu de bois, fruits de mer et salle sous pergola dans le complexe.",
     },
   },
   "sambalu-puerto-plata": {
     description: {
-      es: "Restaurante internacional en Calle José Del Carmen Ariza. Participante Restaurant Week RD.",
-      fr: "Restaurant international sur Calle José Del Carmen Ariza. Participant Restaurant Week RD.",
+      es: "Restaurante caribeño en José del Carmen Ariza #35 (esq. Duarte) — dos niveles con terraza hacia la catedral en el centro histórico.",
+      fr: "Restaurant caribéen au José del Carmen Ariza n° 35 (angle Duarte) — deux niveaux avec terrasse vue cathédrale dans le centre historique.",
     },
   },
   "skina-puerto-plata": {
     description: {
-      es: "Restaurante internacional en Separación esq. 12 de Julio. Participante Restaurant Week RD.",
-      fr: "Restaurant international à Separación / 12 de Julio. Participant Restaurant Week RD.",
+      es: "Cocina dominicana y caribeña en Separación esq. 12 de Julio — patio rústico en el centro histórico, conocido por el sancocho.",
+      fr: "Cuisine dominicaine et caribéenne à Separación / 12 de Julio — patio rustique du centre historique, réputé pour le sancocho.",
     },
   },
   "sun-club-costa-norte-sosua": {
     description: {
-      es: "Beach club en Calle Bruno Philips, El Batey (alianza Veuve Clicquot). Participante Restaurant Week RD.",
-      fr: "Beach club sur Calle Bruno Philips, El Batey (partenariat Veuve Clicquot). Participant Restaurant Week RD.",
+      es: "Beach club Veuve Clicquot en The Ocean Club Costa Norte — loungers a rayas amarillas, cabañas y mariscos a la parrilla en la terraza de la piscina. Calle Bruno Philip.",
+      fr: "Beach club Veuve Clicquot au The Ocean Club Costa Norte — transats rayés jaunes, cabanas et fruits de mer au charbon sur le deck de la piscine. Calle Bruno Philip.",
     },
   },
   "finca-papirucho": {

@@ -809,4 +809,132 @@ export const VENUE_TIP_COPY: Record<
       fr: "La criolla assise d'El Batey derrière Super Pola — venez pour une table au jardin, pas un crawl Pedro Clisante. Les soirs concert avec des groupes comme Braho sont annoncés ; appelez avant de compter sur un live.",
     },
   },
+  "aguaji-sosua": {
+    body: "Chef Tita's tasting room at The Ocean Club — book Fri–Sun dinner and dress for resort fine dining, not a walk-in Pedro Clisante table. Pricey; the bay terrace is the point.",
+    localized: {
+      en: "Chef Tita's tasting room at The Ocean Club — book Fri–Sun dinner and dress for resort fine dining, not a walk-in Pedro Clisante table. Pricey; the bay terrace is the point.",
+      es: "La sala de degustación de la Chef Tita en The Ocean Club — reserva cena vie–dom y viste fine dining de resort, no mesa walk-in en Pedro Clisante. Caro; la terraza a la bahía es el punto.",
+      fr: "La salle dégustation de la Chef Tita au The Ocean Club — réservez ven–dim et habillez-vous fine dining resort, pas une table walk-in Pedro Clisante. Cher ; la terrasse baie est le but.",
+    },
+  },
+  "baia-lounge-sosua": {
+    body: "Ocean Club's all-day international room — useful for sushi or a sunset drink without leaving the resort gate. Not the Chef Tita tasting experience next door.",
+    localized: {
+      en: "Ocean Club's all-day international room — useful for sushi or a sunset drink without leaving the resort gate. Not the Chef Tita tasting experience next door.",
+      es: "El salón internacional todo el día del Ocean Club — útil para sushi o un trago al atardecer sin salir del resort. No es la degustación de la Chef Tita al lado.",
+      fr: "La salle internationale toute la journée de l’Ocean Club — utile pour sushi ou un verre au coucher du soleil sans quitter le resort. Pas la dégustation Chef Tita à côté.",
+    },
+  },
+  "bliss-cabarete": {
+    body: "Cabarete's Italian dinner send on Callejón Máximo (La Ciénaga) — homemade pasta and a white-tablecloth patio. Closed Sundays; this is not a beach-bar walk-up.",
+    localized: {
+      en: "Cabarete's Italian dinner send on Callejón Máximo (La Ciénaga) — homemade pasta and a white-tablecloth patio. Closed Sundays; this is not a beach-bar walk-up.",
+      es: "El envío italiano de cena en Cabarete en Callejón Máximo (La Ciénaga) — pasta casera y patio de mantel blanco. Cerrado domingo; no es un beach bar walk-up.",
+      fr: "L’envoi dîner italien de Cabarete sur Callejón Máximo (La Ciénaga) — pâtes maison et patio nappe blanche. Fermé dimanche ; pas un beach bar walk-up.",
+    },
+  },
+  "casa-balcon-puerto-plata": {
+    body: "Balcony tables overlooking Independence Park's gazebo — come for the plaza view and a long lunch, not a quick street snack. Small room; book if you want the rail.",
+    localized: {
+      en: "Balcony tables overlooking Independence Park's gazebo — come for the plaza view and a long lunch, not a quick street snack. Small room; book if you want the rail.",
+      es: "Mesas en el balcón con vista al gazebo de Plaza Independencia — ven por la vista y un almuerzo largo, no por un snack rápido de calle. Espacio chico; reserva si quieres la baranda.",
+      fr: "Tables sur le balcon face au kiosque de Plaza Independencia — venez pour la vue et un long déjeuner, pas un snack de rue. Petit espace ; réservez pour la rambarde.",
+    },
+  },
+  "casa-caribe-puerto-plata": {
+    body: "Yellow-door Caribbean kitchen on Luis Ginebra — night signage makes it easy to spot. Sit-down plates in town, not Malecón beach energy. Call ahead on Restaurant Week nights.",
+    localized: {
+      en: "Yellow-door Caribbean kitchen on Luis Ginebra — night signage makes it easy to spot. Sit-down plates in town, not Malecón beach energy. Call ahead on Restaurant Week nights.",
+      es: "Cocina caribeña de puerta amarilla en Luis Ginebra — el letrero nocturno se ve fácil. Platos sentados en la ciudad, no energía de playa del Malecón. Llama en noches de Restaurant Week.",
+      fr: "Cuisine caribéenne à porte jaune sur Luis Ginebra — l’enseigne de nuit se repère facilement. Repas assis en ville, pas l’énergie plage du Malecón. Appelez les soirs Restaurant Week.",
+    },
+  },
+  "casita-azul-puerto-plata": {
+    body: "The Victorian blue house on Beller facing Independence Park — plaza views and fusion plates, not a quick coffee stop. Book if you want a window table toward the park.",
+    localized: {
+      en: "The Victorian blue house on Beller facing Independence Park — plaza views and fusion plates, not a quick coffee stop. Book if you want a window table toward the park.",
+      es: "La casa victoriana azul en Beller frente a Plaza Independencia — vistas al parque y fusión, no un café rápido. Reserva si quieres mesa a la ventana hacia el parque.",
+      fr: "La maison victorienne bleue sur Beller face à Plaza Independencia — vue parc et assiettes fusion, pas un café rapide. Réservez pour une table fenêtre vers le parc.",
+    },
+  },
+  "la-isabela-colonial-puerto-plata": {
+    body: "Historic-center Victorian dining with piano nights — dress a step above beachwear. Come for atmosphere and seafood; it's not a budget comida criolla counter.",
+    localized: {
+      en: "Historic-center Victorian dining with piano nights — dress a step above beachwear. Come for atmosphere and seafood; it's not a budget comida criolla counter.",
+      es: "Cena victoriana en el centro histórico con noches de piano — viste un nivel arriba del beachwear. Ven por ambiente y mariscos; no es un mostrador de criolla barata.",
+      fr: "Dîner victorien du centre historique avec soirs piano — habillez-vous un cran au-dessus du beachwear. Venez pour l’ambiance et les fruits de mer ; pas un comptoir criolla budget.",
+    },
+  },
+  "la-lola-malecon": {
+    body: "Malecón beach-club tables with Atlantic air — easy for lunch or sunset drinks. Expect resort-casual noise, not a quiet tasting room.",
+    localized: {
+      en: "Malecón beach-club tables with Atlantic air — easy for lunch or sunset drinks. Expect resort-casual noise, not a quiet tasting room.",
+      es: "Mesas de beach club en el Malecón con aire atlántico — fácil para almuerzo o tragos al atardecer. Espera ruido resort-casual, no una sala de degustación quieta.",
+      fr: "Tables beach club sur le Malecón face à l’Atlantique — facile pour déjeuner ou verres au coucher du soleil. Ambiance resort-casual, pas une salle dégustation calme.",
+    },
+  },
+  "latinwok-puerto-plata": {
+    body: "Sand tables on Cabarete Bay under the Latin Wok lanterns — Asian-Latin plates with your feet near the water. This is the beach strip, not a Puerto Plata plaza storefront.",
+    localized: {
+      en: "Sand tables on Cabarete Bay under the Latin Wok lanterns — Asian-Latin plates with your feet near the water. This is the beach strip, not a Puerto Plata plaza storefront.",
+      es: "Mesas en la arena de Cabarete Bay bajo los faroles de Latin Wok — platos latino-asiáticos con los pies cerca del agua. Es la franja de playa, no un local de plaza en Puerto Plata.",
+      fr: "Tables sur le sable de Cabarete Bay sous les lanternes Latin Wok — assiettes latino-asiatiques les pieds près de l’eau. C’est la bande de plage, pas une boutique de plaza à Puerto Plata.",
+    },
+  },
+  "mauros-puerto-plata": {
+    body: "Plaza Juan Brugal / Circunvalación Sur Italian send — pizza and pasta for a sit-down night in town. Pin the south ring (near Manolo Tavárez), not the Playa Dorada highway.",
+    localized: {
+      en: "Plaza Juan Brugal / Circunvalación Sur Italian send — pizza and pasta for a sit-down night in town. Pin the south ring (near Manolo Tavárez), not the Playa Dorada highway.",
+      es: "Envío italiano en Plaza Juan Brugal / Circunvalación Sur — pizza y pasta para una noche sentada en la ciudad. Clava el anillo sur (cerca de Manolo Tavárez), no la vía a Playa Dorada.",
+      fr: "Envoi italien Plaza Juan Brugal / Circunvalación Sur — pizza et pâtes pour un dîner assis en ville. Épinglez la ceinture sud (près de Manolo Tavárez), pas la route Playa Dorada.",
+    },
+  },
+  "mi-bodegon-cabarete": {
+    body: "Cabarete's Argentine bodegón at Plaza Ocean Dream — steaks and Malbec energy on the main road. Closed Sundays; reserve if you want a quiet table on Saturday.",
+    localized: {
+      en: "Cabarete's Argentine bodegón at Plaza Ocean Dream — steaks and Malbec energy on the main road. Closed Sundays; reserve if you want a quiet table on Saturday.",
+      es: "El bodegón argentino de Cabarete en Plaza Ocean Dream — steaks y energía Malbec en la vía principal. Cerrado domingo; reserva si quieres mesa tranquila el sábado.",
+      fr: "Le bodegón argentin de Cabarete à Plaza Ocean Dream — steaks et énergie Malbec sur la route principale. Fermé dimanche ; réservez pour une table calme le samedi.",
+    },
+  },
+  "rancho-catalina-puerto-plata": {
+    body: "El Cupey ranch day — parrilla, mountain air, and a family estate vibe. Drive inland; Sundays fill early, so book before you climb the hill.",
+    localized: {
+      en: "El Cupey ranch day — parrilla, mountain air, and a family estate vibe. Drive inland; Sundays fill early, so book before you climb the hill.",
+      es: "Día de rancho en El Cupey — parrilla, aire de montaña y vibe de finca familiar. Maneja tierra adentro; los domingos se llenan temprano, reserva antes de subir.",
+      fr: "Journée ranch à El Cupey — parrilla, air de montagne et vibe domaine familial. Roulez vers l’intérieur ; les dimanches se remplissent tôt, réservez avant de monter.",
+    },
+  },
+  "ristorante-passatore-playa-dorada": {
+    body: "Italian patio inside Playa Dorada Plaza — pasta and pizza for resort guests and locals who want a pergola table. Mall parking; not beach-sand dining.",
+    localized: {
+      en: "Italian patio inside Playa Dorada Plaza — pasta and pizza for resort guests and locals who want a pergola table. Mall parking; not beach-sand dining.",
+      es: "Patio italiano dentro de Playa Dorada Plaza — pasta y pizza para huéspedes del complejo y locales que quieren mesa bajo pérgola. Parking del mall; no es mesa en la arena.",
+      fr: "Patio italien dans Playa Dorada Plaza — pâtes et pizza pour hôtes du complexe et locaux qui veulent une table sous pergola. Parking du mall ; pas de table sur le sable.",
+    },
+  },
+  "sambalu-puerto-plata": {
+    body: "Caribbean plates on Ariza with a cathedral-view terrace — centro nightlife-adjacent, not a beach club. Climb to the upper level if you came for the view.",
+    localized: {
+      en: "Caribbean plates on Ariza with a cathedral-view terrace — centro nightlife-adjacent, not a beach club. Climb to the upper level if you came for the view.",
+      es: "Platos caribeños en Ariza con terraza a la catedral — pegado a la noche del centro, no un beach club. Sube al nivel de arriba si viniste por la vista.",
+      fr: "Assiettes caribéennes sur Ariza avec terrasse vue cathédrale — collé à la nuit du centre, pas un beach club. Montez à l’étage si vous venez pour la vue.",
+    },
+  },
+  "skina-puerto-plata": {
+    body: "Separación corner for Dominican plates and a patio that feels like a pocket garden — locals send people here for sancocho. Expect a neighborhood table, not white-glove service.",
+    localized: {
+      en: "Separación corner for Dominican plates and a patio that feels like a pocket garden — locals send people here for sancocho. Expect a neighborhood table, not white-glove service.",
+      es: "Esquina Separación para platos dominicanos y un patio tipo jardín de bolsillo — los locales mandan gente aquí por el sancocho. Espera mesa de barrio, no servicio de guante blanco.",
+      fr: "Coin Separación pour assiettes dominicaines et un patio jardin de poche — les locaux y envoient pour le sancocho. Table de quartier, pas service gants blancs.",
+    },
+  },
+  "sun-club-costa-norte-sosua": {
+    body: "Ocean Club's yellow-stripe pool club — cabanas and charcoal seafood on the deck. Resort access rules apply; this is not a public Pedro Clisante bar.",
+    localized: {
+      en: "Ocean Club's yellow-stripe pool club — cabanas and charcoal seafood on the deck. Resort access rules apply; this is not a public Pedro Clisante bar.",
+      es: "El club de piscina a rayas amarillas del Ocean Club — cabañas y mariscos a la parrilla en la terraza. Aplican reglas de acceso del resort; no es un bar público de Pedro Clisante.",
+      fr: "Le club piscine rayé jaune de l’Ocean Club — cabanas et fruits de mer au charbon sur le deck. Accès selon règles du resort ; pas un bar public Pedro Clisante.",
+    },
+  },
 };

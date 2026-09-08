@@ -35,6 +35,28 @@ export function prepareSeedEvent(event: Event): Event {
   return normalizeEventCoords(event);
 }
 
+/** True when the event is hosted at the venue, or lists it as a participant. */
+export function eventMatchesVenueSlug(
+  event: Event,
+  venueSlug: string,
+): boolean {
+  const target = venueSlug.trim();
+  if (!target) return false;
+  if (event.venueSlug === target) return true;
+  if (
+    !event.venueSlug &&
+    (matchVenueSlug(event.venue) === target ||
+      matchVenueSlug(event.location) === target)
+  ) {
+    return true;
+  }
+  return (event.participants ?? []).some(
+    (name) => matchVenueSlug(name) === target,
+  );
+}
+
 export function filterByVenueSlug(events: Event[], venueSlug: string): Event[] {
-  return attachVenueSlugs(events).filter((e) => e.venueSlug === venueSlug);
+  return attachVenueSlugs(events).filter((e) =>
+    eventMatchesVenueSlug(e, venueSlug),
+  );
 }

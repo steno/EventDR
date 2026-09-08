@@ -43,6 +43,10 @@ import { NearbyTonight, PocketPlaceHint } from "@/components/NearbyTonight";
 import type { NearbyTonightResult } from "@/lib/nearby-events";
 import { getPocketForVenueSlug } from "@/lib/walkable-pockets";
 import { filterByVenueSlug } from "@/lib/geo";
+import {
+  isRestaurantWeekParticipantVenue,
+  RESTAURANT_WEEK_2026_ID,
+} from "@/lib/restaurant-week";
 
 const SubmitEventSheet = dynamic(
   () =>
@@ -401,6 +405,18 @@ export function VenuePage({
                   <span className="mt-3 inline-flex w-fit items-center rounded-full bg-rose-50 px-3 py-1 text-xs font-bold uppercase tracking-wide text-rose-700 ring-1 ring-rose-200 dark:bg-rose-950/40 dark:text-rose-400 dark:ring-rose-900/60">
                     {dict.events.temporarilyClosed}
                   </span>
+                ) : null}
+
+                {isRestaurantWeekParticipantVenue(venue.slug, locale) ? (
+                  <IntentLink
+                    href={eventDetailPath(locale, RESTAURANT_WEEK_2026_ID)}
+                    onClick={() =>
+                      rememberReturnPath(listReturnTo, venue.name)
+                    }
+                    className="mt-3 inline-flex w-fit items-center rounded-full bg-amber-50 px-3 py-1 text-xs font-bold uppercase tracking-wide text-amber-900 ring-1 ring-amber-200 transition-colors hover:bg-amber-100 dark:bg-amber-950/50 dark:text-amber-200 dark:ring-amber-900/60 dark:hover:bg-amber-950/80"
+                  >
+                    {dict.venues.restaurantWeekParticipant}
+                  </IntentLink>
                 ) : null}
 
                 {venue.description ? (

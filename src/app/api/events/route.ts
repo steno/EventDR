@@ -13,7 +13,12 @@ import {
 import { getFallbackEvents, getFallbackForCategory } from "@/lib/fallback-events";
 import { getCommunityEvents } from "@/lib/community-store";
 import { fetchApprovedEvents } from "@/lib/firebase/events";
-import { attachCoords, attachVenueSlugs, normalizeEventCoordsList } from "@/lib/geo";
+import {
+  attachCoords,
+  attachVenueSlugs,
+  filterByVenueSlug,
+  normalizeEventCoordsList,
+} from "@/lib/geo";
 import { materializeEventDates } from "@/lib/event-dates";
 import { sortEventsForDisplay } from "@/lib/event-sort";
 import { isValidLocale } from "@/i18n/config";
@@ -131,7 +136,7 @@ export async function GET(request: NextRequest) {
   function applyScopeFilters(list: Event[]): Event[] {
     let result = attachVenueSlugs(filterRemovedSeedEvents(list));
     if (venueSlug) {
-      result = result.filter((e) => e.venueSlug === venueSlug);
+      result = filterByVenueSlug(result, venueSlug);
     }
     if (city) {
       result = result.filter((e) => eventMatchesCity(e, city));

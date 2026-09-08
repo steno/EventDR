@@ -1193,6 +1193,180 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
       { key: "live_music", sentiment: "positive" },
     ],
   }),
+  editorial({
+    venueSlug: "aguaji-sosua",
+    verdictKey: "reliable_visitor_pick",
+    crowdFit: ["visitor", "mixed"],
+    axes: { recommend: 4.6, atmosphere: 4.7, value: 3.2, practical: 3.8 },
+    themes: [
+      { key: "dominican_plates", sentiment: "positive" },
+      { key: "ocean_views", sentiment: "positive", audience: "visitor" },
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+    ],
+  }),
+  editorial({
+    venueSlug: "baia-lounge-sosua",
+    verdictKey: "strong_mixed_food_nightlife",
+    crowdFit: ["visitor", "family", "mixed"],
+    axes: { recommend: 4.2, atmosphere: 4.3, practical: 4.2, value: 3.6 },
+    themes: [
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+      { key: "sunset_views", sentiment: "positive", audience: "visitor" },
+      { key: "family_friendly", sentiment: "positive", audience: "family" },
+    ],
+  }),
+  editorial({
+    venueSlug: "bliss-cabarete",
+    verdictKey: "reliable_visitor_pick",
+    crowdFit: ["visitor", "mixed"],
+    axes: { recommend: 4.6, atmosphere: 4.5, value: 3.5, practical: 4.0 },
+    themes: [
+      { key: "attentive_service", sentiment: "positive" },
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+      { key: "easy_to_find", sentiment: "mixed" },
+    ],
+  }),
+  editorial({
+    venueSlug: "casa-balcon-puerto-plata",
+    verdictKey: "strong_mixed_food_nightlife",
+    crowdFit: ["visitor", "mixed", "nightlife"],
+    axes: { recommend: 4.0, atmosphere: 4.1, practical: 3.8 },
+    themes: [
+      { key: "easy_to_find", sentiment: "positive" },
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+    ],
+  }),
+  editorial({
+    venueSlug: "casa-caribe-puerto-plata",
+    verdictKey: "strong_local_food",
+    crowdFit: ["local", "visitor", "mixed"],
+    axes: { recommend: 4.0, atmosphere: 3.9, practical: 4.0 },
+    themes: [
+      { key: "easy_to_find", sentiment: "positive" },
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+    ],
+  }),
+  editorial({
+    venueSlug: "casita-azul-puerto-plata",
+    verdictKey: "reliable_visitor_pick",
+    crowdFit: ["visitor", "mixed", "family"],
+    axes: { recommend: 4.3, atmosphere: 4.5, value: 3.6, practical: 4.1 },
+    themes: [
+      { key: "photo_spot", sentiment: "positive", audience: "visitor" },
+      { key: "heritage_site", sentiment: "positive" },
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+    ],
+  }),
+  editorial({
+    venueSlug: "la-isabela-colonial-puerto-plata",
+    verdictKey: "solid_local_culture",
+    crowdFit: ["visitor", "mixed"],
+    axes: { recommend: 4.3, atmosphere: 4.5, value: 3.5, practical: 4.0 },
+    themes: [
+      { key: "live_music", sentiment: "positive" },
+      { key: "heritage_site", sentiment: "positive" },
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+    ],
+  }),
+  editorial({
+    venueSlug: "la-lola-malecon",
+    verdictKey: "strong_visitor_beach",
+    crowdFit: ["visitor", "mixed", "nightlife"],
+    axes: { recommend: 4.2, atmosphere: 4.4, practical: 4.1, value: 3.5 },
+    themes: [
+      { key: "beachfront", sentiment: "positive", audience: "visitor" },
+      { key: "ocean_views", sentiment: "positive", audience: "visitor" },
+      { key: "tourist_crowds", sentiment: "mixed", audience: "visitor" },
+    ],
+  }),
+  editorial({
+    venueSlug: "latinwok-puerto-plata",
+    verdictKey: "strong_visitor_beach",
+    crowdFit: ["visitor", "mixed"],
+    axes: { recommend: 4.2, atmosphere: 4.4, value: 3.7, practical: 4.0 },
+    themes: [
+      { key: "beachfront", sentiment: "positive", audience: "visitor" },
+      { key: "sunset_views", sentiment: "positive", audience: "visitor" },
+      { key: "tourist_crowds", sentiment: "mixed", audience: "visitor" },
+    ],
+  }),
+  editorial({
+    venueSlug: "mauros-puerto-plata",
+    verdictKey: "strong_local_food",
+    crowdFit: ["local", "visitor", "family", "mixed"],
+    axes: { recommend: 4.2, atmosphere: 4.0, value: 3.8, practical: 4.1 },
+    themes: [
+      { key: "easy_to_find", sentiment: "positive" },
+      { key: "family_friendly", sentiment: "positive", audience: "family" },
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+    ],
+  }),
+  editorial({
+    venueSlug: "mi-bodegon-cabarete",
+    verdictKey: "strong_mixed_food_nightlife",
+    crowdFit: ["visitor", "mixed"],
+    axes: { recommend: 4.4, atmosphere: 4.3, value: 3.6, practical: 4.1 },
+    themes: [
+      { key: "easy_to_find", sentiment: "positive" },
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+      { key: "attentive_service", sentiment: "positive" },
+    ],
+  }),
+  editorial({
+    venueSlug: "rancho-catalina-puerto-plata",
+    verdictKey: "solid_visitor_activity",
+    crowdFit: ["visitor", "family", "local", "mixed"],
+    axes: { recommend: 4.5, atmosphere: 4.6, value: 3.7, practical: 3.7 },
+    themes: [
+      { key: "countryside", sentiment: "positive" },
+      { key: "family_friendly", sentiment: "positive", audience: "family" },
+      { key: "busy_weekends", sentiment: "mixed" },
+    ],
+  }),
+  editorial({
+    venueSlug: "ristorante-passatore-playa-dorada",
+    verdictKey: "reliable_visitor_pick",
+    crowdFit: ["visitor", "family", "mixed"],
+    axes: { recommend: 4.4, atmosphere: 4.3, value: 3.6, practical: 4.3 },
+    themes: [
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+      { key: "easy_to_find", sentiment: "positive" },
+      { key: "family_friendly", sentiment: "positive", audience: "family" },
+    ],
+  }),
+  editorial({
+    venueSlug: "sambalu-puerto-plata",
+    verdictKey: "strong_mixed_food_nightlife",
+    crowdFit: ["visitor", "mixed", "nightlife"],
+    axes: { recommend: 4.2, atmosphere: 4.4, value: 3.5, practical: 4.0 },
+    themes: [
+      { key: "photo_spot", sentiment: "positive", audience: "visitor" },
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+      { key: "easy_to_find", sentiment: "positive" },
+    ],
+  }),
+  editorial({
+    venueSlug: "skina-puerto-plata",
+    verdictKey: "strong_local_food",
+    crowdFit: ["local", "family", "mixed", "visitor"],
+    axes: { recommend: 4.3, atmosphere: 4.2, value: 4.0, practical: 4.1 },
+    themes: [
+      { key: "dominican_plates", sentiment: "positive", audience: "local" },
+      { key: "family_friendly", sentiment: "positive", audience: "family" },
+      { key: "easy_to_find", sentiment: "positive" },
+    ],
+  }),
+  editorial({
+    venueSlug: "sun-club-costa-norte-sosua",
+    verdictKey: "strong_visitor_beach",
+    crowdFit: ["visitor", "mixed"],
+    axes: { recommend: 4.2, atmosphere: 4.5, value: 3.3, practical: 3.6 },
+    themes: [
+      { key: "beachfront", sentiment: "positive", audience: "visitor" },
+      { key: "ocean_views", sentiment: "positive", audience: "visitor" },
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+    ],
+  }),
 ];
 
 const bySlug = new Map(

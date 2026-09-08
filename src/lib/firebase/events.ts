@@ -10,6 +10,7 @@ import { sanitizeEventPlaceFields } from "@/lib/event-location";
 import { normalizeLineup } from "@/lib/event-lineup";
 import { applyCuratedEventPatch } from "@/lib/curated-events";
 import { resolveEventCoords } from "@/lib/event-coords";
+import { filterByVenueSlug } from "@/lib/geo";
 import { translateEventCopy } from "@/lib/translate-event";
 import { getVenueImageUrl } from "@/lib/venue-images";
 import { SEED_VENUES } from "@/lib/venues-seed";
@@ -386,7 +387,7 @@ export async function fetchApprovedEvents(options?: {
       events = events.filter((e) => eventInCategory(e, options.category!));
     }
     if (options?.venueSlug) {
-      events = events.filter((e) => e.venueSlug === options.venueSlug);
+      events = filterByVenueSlug(events, options.venueSlug);
     }
 
     return events;

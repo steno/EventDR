@@ -519,6 +519,7 @@ export const fr: Dictionary = {
     streetViewError: "Impossible de charger la vue du quartier.",
     website: "Site web",
     instagram: "Instagram",
+    restaurantWeekParticipant: "Restaurant Week RD",
     startingFrom: "D'où partez-vous ?",
     startingFromPlaceholder: "Hôtel, adresse ou quartier…",
     startingFromRequired: "Indiquez un départ ou utilisez votre position.",

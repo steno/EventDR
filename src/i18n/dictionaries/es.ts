@@ -519,6 +519,7 @@ export const es: Dictionary = {
     streetViewError: "No se pudo cargar la vista del entorno.",
     website: "Sitio web",
     instagram: "Instagram",
+    restaurantWeekParticipant: "Restaurant Week RD",
     startingFrom: "¿Desde dónde partes?",
     startingFromPlaceholder: "Hotel, dirección o barrio…",
     startingFromRequired: "Escribe un punto de partida o usa tu ubicación.",

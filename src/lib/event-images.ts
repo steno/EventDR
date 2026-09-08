@@ -13,7 +13,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   // Filename bump — dance floor under string lights (not the shared patio-crowd clone).
   "batey-salsa-weekly": "batey-salsa-social-dance.jpg",
   "sosua-volleyball-weekly": "sosua-volleyball-weekly.jpg",
-  "lax-reggae-friday": "lax-reggae-friday.jpg",
+  // Filename bump — DJ over packed dance floor (not the old deck still).
+  "lax-reggae-friday": "lax-reggae-friday-crowd.png",
   // Filename bump — stage + mics (not the Smiley's YouTube still / salsa clone).
   "batey-open-mic-weekly": "batey-open-mic-stage.jpg",
   "hard-rock-weekends": "hard-rock-weekends.jpg",
@@ -101,7 +102,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "sosua-pedro-clisante-food-nights": "sosua-pedro-clisante-food-nights.jpg",
   "natura-cabana-yoga-daily": "natura-cabana-yoga-daily.jpg",
   "north-coast-networking-saturday": "north-coast-networking-saturday.jpg",
-  "ojo-latin-night-thursday": "ojo-latin-night-thursday.jpg",
+  // Filename bump — Ojo Club booth night (not MerengueBachata still).
+  "ojo-latin-night-thursday": "ojo-latin-night-ojo-booth.png",
   "ojo-weekend-dj-parties": "ojo-weekend-dj-parties.jpg",
   "la-casita-papi-beach-dining": "la-casita-papi-sand-dining.jpg",
   "el-cocotazo-cafe-beach-dining": "el-cocotazo-cafe-beach-dining.jpg",
@@ -182,7 +184,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "groundzero-domingos-pal-pueblo": "groundzero-domingos-pal-pueblo.jpg",
   "groundzero-viernes-locos": "groundzero-viernes-locos.jpg",
   "groundzero-party-rojo-2026-08-01": "groundzero-party-rojo-2026-08-01.jpg",
-  "blue-ice-saturday-gogo": "blue-ice-saturday-gogo.jpg",
+  // Filename bump — lounge interior night (not the Saturday gogo flyer).
+  "blue-ice-saturday-gogo": "blue-ice-saturday-lounge.png",
   "silent-run-5k-2026-07-25": "silent-run-5k-2026-07-25.jpg",
   "victrola-sabado-bailable": "victrola-sabado-bailable.jpg",
   "victrola-ladies-night-friday": "victrola-ladies-night-friday.jpg",

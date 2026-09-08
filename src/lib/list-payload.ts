@@ -40,6 +40,7 @@ export function slimEventForList(event: Event): Event {
     slim.recurrenceDay = event.recurrenceDay;
   }
   if (event.recurrenceDays?.length) slim.recurrenceDays = event.recurrenceDays;
+  if (event.participants?.length) slim.participants = event.participants;
   if (event.localized?.title) {
     slim.localized = { title: event.localized.title, description: {} };
   }
