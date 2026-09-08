@@ -95,16 +95,18 @@ export function prioritizeOneTimeEvents(events: Event[]): Event[] {
 
 /**
  * Keep live/ending urgency, but don’t let evergreen museum/tour dailies bury
- * the only dated one-offs tonight (theater, concerts). Trending one-offs lead
- * that pin group. Used on home Today and category/city scoped lists.
+ * the only dated one-offs tonight (theater, concerts). Only pins one-offs that
+ * happen today — future fixtures keep normal schedule order. Trending one-offs
+ * lead that pin group. Used on home Today and category/city scoped lists.
  */
 export function pinTodayOneOffs(events: Event[], now: Date = new Date()): Event[] {
   if (events.length < 2) return events;
 
+  const today = localDateISO(now);
   const oneOffs: Event[] = [];
   const rest: Event[] = [];
   for (const event of events) {
-    if (isRecurringEvent(event)) {
+    if (isRecurringEvent(event) || !happensOnLocalDate(event, today)) {
       rest.push(event);
       continue;
     }

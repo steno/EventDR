@@ -182,4 +182,30 @@ describe("sortEventsForDisplay pinTodayOneOffs", () => {
     });
     assert.equal(withPin.map((e) => e.id).join(","), "tonight-play,museum-daily");
   });
+
+  it("does not pin a future one-off above today’s live daily", () => {
+    const nextWeek = event({
+      id: "next-week-show",
+      title: "Next Week Concert",
+      date: "2026-08-07",
+      time: "8:00 PM",
+      trending: true,
+    });
+    const museum = event({
+      id: "museum-daily",
+      title: "Museum Hours",
+      date: "2026-07-31",
+      time: "9:00 AM – 5:00 PM",
+      recurrence: "daily",
+    });
+
+    const sorted = sortEventsForDisplay([nextWeek, museum], {
+      now: afternoon,
+      oneTimeFirst: true,
+      pinTodayOneOffs: true,
+      recurringLast: true,
+    });
+    assert.equal(sorted[0]?.id, "museum-daily");
+    assert.equal(sorted[1]?.id, "next-week-show");
+  });
 });
