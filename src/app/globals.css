@@ -138,7 +138,8 @@ img.no-photo-filter {
 }
 
 /* Boot splash — opaque overlay; app shell paints underneath so Slow 3G
-   can decode images/fonts while the logo + spinner hold the first paint. */
+   can decode images/fonts while the logo + spinner hold the first paint.
+   pointer-events:none so taps reach SSR content while the overlay fades. */
 .app-boot-splash {
   position: fixed;
   inset: 0;
@@ -149,6 +150,7 @@ img.no-photo-filter {
   justify-content: center;
   gap: 1.25rem;
   background: #f6f3ee;
+  pointer-events: none;
   transition: opacity 0.2s ease, visibility 0.2s ease;
 }
 

@@ -17,8 +17,7 @@ const outfit = Outfit({
 
 /** Critical styles so the splash paints before the CSS bundle arrives. */
 const bootSplashCriticalCss = `
-html.boot-pending #app-boot-splash{pointer-events:auto}
-#app-boot-splash{position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.25rem;background:#f6f3ee;transition:opacity .2s ease,visibility .2s ease}
+#app-boot-splash{position:fixed;inset:0;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.25rem;background:#f6f3ee;pointer-events:none;transition:opacity .2s ease,visibility .2s ease}
 html.dark #app-boot-splash{background:#0a0a0a}
 #app-boot-splash img{width:7rem;height:auto;object-fit:contain}
 #app-boot-splash .boot-spinner{position:relative;width:1.75rem;height:1.75rem;color:#a3a3a3;opacity:0;animation:boot-spinner-show .01s linear .7s forwards}
@@ -38,9 +37,10 @@ html.boot-splash-done #app-boot-splash{opacity:0;visibility:hidden;pointer-event
  * Failsafe so a hung client never leaves the splash stuck.
  * Only toggles classes on <html> (suppressHydrationWarning) — never mutate
  * #app-boot-splash, or slow networks (3G) race hydration and throw mismatches.
- * Cap is short: SSR content is already painted under the overlay.
+ * Cap is short: SSR content is already painted under the overlay, and the
+ * splash uses pointer-events:none so it never blocks taps while visible.
  */
-const bootSplashFailsafe = `(function(){setTimeout(function(){var root=document.documentElement;if(root.classList.contains("boot-splash-done")){root.classList.remove("boot-pending");return}root.classList.add("boot-splash-done");root.classList.remove("boot-pending")},1400)})()`;
+const bootSplashFailsafe = `(function(){setTimeout(function(){var root=document.documentElement;if(root.classList.contains("boot-splash-done")){root.classList.remove("boot-pending");return}root.classList.add("boot-splash-done");root.classList.remove("boot-pending")},1000)})()`;
 
 export default function RootLayout({
   children,
@@ -63,6 +63,13 @@ export default function RootLayout({
         <link
           rel="preconnect"
           href="https://firebasestorage.googleapis.com"
+          crossOrigin=""
+        />
+        {/* Venue/cruise Leaflet tiles (OSM France a/b/c) — warm one subdomain. */}
+        <link rel="dns-prefetch" href="https://tile.openstreetmap.fr" />
+        <link
+          rel="preconnect"
+          href="https://a.tile.openstreetmap.fr"
           crossOrigin=""
         />
         <Script id="boot-splash-failsafe" strategy="beforeInteractive">

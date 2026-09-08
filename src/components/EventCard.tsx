@@ -12,6 +12,7 @@ import { useLiveStatusDisplay } from "@/hooks/useLiveStatusDisplay";
 import type { TimeRange } from "@/lib/filters";
 import type { EventListView } from "@/lib/event-list-view";
 import type { EventWithVenueSiblings } from "@/lib/venue-recurring-siblings";
+import { getEventCardObjectPosition } from "@/lib/event-images";
 
 interface EventCardProps {
   event: EventWithVenueSiblings;
@@ -122,7 +123,7 @@ const EventCardComponent = ({
             emoji={emoji}
             gradient={category?.gradient ?? "from-neutral-200 to-neutral-300"}
             sizes="(max-width: 640px) 50vw, 240px"
-            imageClassName="object-cover object-top sm:object-center card-media-zoom"
+            imageClassName={`object-cover card-media-zoom ${getEventCardObjectPosition(event.id)}`}
             frameClassName="aspect-[4/3] w-full"
           />
           {event.trending && !liveStatusLabel && liveStatus !== "ended" && (

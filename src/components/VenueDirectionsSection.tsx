@@ -19,6 +19,7 @@ import { useGeolocation } from "@/hooks/useGeolocation";
 import { MapReveal } from "@/components/MapReveal";
 import { StreetViewModal } from "@/components/StreetViewModal";
 import { canUseInAppStreetView } from "@/lib/google-maps-js";
+import { osmTilePreviewUrl } from "@/lib/maps";
 import { resetInputZoom } from "@/lib/reset-input-zoom";
 
 const EventInlineMap = dynamic(
@@ -208,6 +209,11 @@ interface VenueMapPanelProps {
   streetViewOpen?: boolean;
   /** Overlay “See the area” on the map (hide when a sibling button already exists). */
   overlayStreetView?: boolean;
+  /**
+   * Show Street View inside MapReveal’s pre-load CTAs.
+   * Set false when a sibling footer already offers Street View.
+   */
+  streetViewInReveal?: boolean;
   /** Exit expanded map / directions (same chrome as Street View). */
   onDismiss?: () => void;
   dismissTitle?: string;
@@ -226,6 +232,7 @@ export function VenueMapPanel({
   onStreetViewChange,
   streetViewOpen: streetViewOpenProp,
   overlayStreetView = false,
+  streetViewInReveal = true,
   onDismiss,
   dismissTitle,
   attention = false,
@@ -233,6 +240,7 @@ export function VenueMapPanel({
 }: VenueMapPanelProps) {
   const { destination, origin, route, busy } = directions;
   const mapOpen = forceReveal || Boolean(origin || route);
+  const previewUrl = osmTilePreviewUrl(destination.lat, destination.lng);
   const [uncontrolledStreetView, setUncontrolledStreetView] = useState(false);
   const streetViewControlled = streetViewOpenProp !== undefined;
   const streetViewOpen = streetViewControlled
@@ -296,12 +304,13 @@ export function VenueMapPanel({
       <div className="relative min-h-0 flex-1">
         <MapReveal
           label={dict.venues.showMap}
-          secondary={streetViewControl}
-          forceReveal={expanded}
+          secondary={streetViewInReveal ? streetViewControl : undefined}
+          forceReveal={mapOpen}
           onReveal={onReveal}
           attention={attention && !forceReveal && !streetViewOpen}
           onAttentionEnd={onAttentionEnd}
-          className={expanded ? "h-full w-full" : "w-full"}
+          previewUrl={previewUrl}
+          className="h-full w-full"
         >
           <div className="h-full w-full">
             <EventInlineMap

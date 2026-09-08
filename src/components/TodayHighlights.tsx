@@ -25,6 +25,7 @@ import {
   getTodayHighlightEvents,
   HOME_TODAY_LIMIT,
 } from "@/lib/home-layout";
+import { getEventCardObjectPosition } from "@/lib/event-images";
 
 interface TodayHighlightsProps {
   events: Event[];
@@ -133,7 +134,7 @@ function TodayHighlightCard({
               alt=""
               sizes="(max-width: 640px) 88vw, (max-width: 1024px) 50vw, 33vw"
               priority={false}
-              className="object-cover object-top sm:object-center card-media-zoom"
+              className={`object-cover card-media-zoom ${getEventCardObjectPosition(event.id)}`}
             />
           </div>
         ) : (

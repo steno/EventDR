@@ -338,10 +338,12 @@ export function VenuePage({
                     venue={venue}
                     dict={dict}
                     directions={directions}
-                    forceReveal
+                    forceReveal={plannerOpen}
+                    onReveal={openDirectionsMode}
                     streetViewOpen={areaViewOpen}
                     onStreetViewChange={setAreaViewOpen}
                     overlayStreetView={false}
+                    streetViewInReveal={false}
                     onDismiss={
                       plannerOpen ? () => setPlannerOpen(false) : undefined
                     }

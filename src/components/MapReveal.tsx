@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 
 interface MapRevealProps {
   label: string;
@@ -14,6 +14,8 @@ interface MapRevealProps {
   /** Brief pulse on the Show map control (e.g. deep-linked from an event). */
   attention?: boolean;
   onAttentionEnd?: () => void;
+  /** Optional muted static tile behind the CTA (no Leaflet). */
+  previewUrl?: string | null;
   className?: string;
 }
 
@@ -29,10 +31,17 @@ export function MapReveal({
   onReveal,
   attention = false,
   onAttentionEnd,
+  previewUrl = null,
   className = "",
 }: MapRevealProps) {
   const [revealed, setRevealed] = useState(forceReveal);
   const showMap = revealed || forceReveal;
+
+  // Once the map has been needed (directions / deep-link), keep the chunk warm
+  // even if the parent clears forceReveal on dismiss.
+  useEffect(() => {
+    if (forceReveal) setRevealed(true);
+  }, [forceReveal]);
 
   if (showMap) {
     return className ? (
@@ -44,7 +53,17 @@ export function MapReveal({
 
   return (
     <div className={`relative isolate ${className}`}>
-      <div className="flex flex-col items-stretch gap-2 p-4">
+      {previewUrl ? (
+        // eslint-disable-next-line @next/next/no-img-element -- single OSM preview tile, not a responsive asset
+        <img
+          src={previewUrl}
+          alt=""
+          aria-hidden
+          decoding="async"
+          className="absolute inset-0 h-full w-full object-cover opacity-50 saturate-50"
+        />
+      ) : null}
+      <div className="relative flex h-full min-h-[8rem] flex-col items-stretch justify-end gap-2 bg-gradient-to-t from-black/35 via-black/10 to-transparent p-4">
         <button
           type="button"
           onClick={() => {

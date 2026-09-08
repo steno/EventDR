@@ -254,7 +254,7 @@ const EVENT_IMAGE_PREFIXES: { prefix: string; file: string }[] = [
   { prefix: "el-carey-wc2026-", file: "el-carey-wc2026.jpg" },
 ];
 
-/** Tailwind object-position for detail heroes when the focal point isn't center. */
+/** Tailwind object-position for detail heroes / cards when the focal point isn't center. */
 const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   // Short mobile heroes keep the sun; desktop centers the sunset composition.
   "lax-sunset-daily": "object-top lg:object-center",
@@ -273,6 +273,8 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "cigar-town-ron-humos": "object-center lg:object-left",
   // Guitar flyer — keep soundhole/strings in a wide desktop crop.
   "cigar-town-noche-bohemia-2026-09-12": "object-center lg:object-left",
+  // Portrait flyer — horse + flag sit mid-right; avoid the white header band on mobile cards.
+  "todos-somos-luperon-2026-09-08": "object-[78%_40%] sm:object-center",
 };
 
 function curatedEventImageFile(eventId: string): string | undefined {
@@ -299,6 +301,14 @@ export function getEventOgImageUrl(eventId: string): string | undefined {
 export function getEventHeroObjectPosition(eventId: string): string {
   const resolvedId = EVENT_IMAGE_ALIASES[eventId] ?? eventId;
   return EVENT_HERO_OBJECT_POSITION[resolvedId] ?? "object-center";
+}
+
+/** Home/list cards default to top crop; curated events reuse hero focal points. */
+export function getEventCardObjectPosition(eventId: string): string {
+  const resolvedId = EVENT_IMAGE_ALIASES[eventId] ?? eventId;
+  return (
+    EVENT_HERO_OBJECT_POSITION[resolvedId] ?? "object-top sm:object-center"
+  );
 }
 
 function storedHeroIsDisplayable(url: string | undefined): boolean {

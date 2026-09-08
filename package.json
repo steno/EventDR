@@ -6,7 +6,8 @@
   },
   "scripts": {
     "dev": "next dev --hostname 0.0.0.0",
-    "build": "node scripts/generate-icons.mjs && node scripts/fetch-venue-images.mjs && node scripts/sync-event-images.mjs && node scripts/optimize-event-images.mjs && node scripts/write-app-version.mjs && next build",
+    "build": "node scripts/generate-icons.mjs && node scripts/fetch-venue-images.mjs && node scripts/sync-event-images.mjs && node scripts/optimize-event-images.mjs && node scripts/optimize-venue-images.mjs && node scripts/write-app-version.mjs && next build",
+    "optimize:venues": "node scripts/optimize-venue-images.mjs",
     "start": "next start",
     "lint": "eslint",
     "test": "tsx --test src/lib/*.test.ts",

@@ -74,34 +74,31 @@ export function CruiseLoopView({
 
         <section className="mt-5 overflow-hidden rounded-2xl border border-neutral-200 bg-neutral-100 dark:border-neutral-800 dark:bg-neutral-900">
           <div className="relative h-[min(22rem,70dvh)] w-full sm:h-[28rem]">
-            {osmEmbedUrl ? (
+            {mapStops.length > 0 ? (
+              <CruiseLoopLeaflet
+                stops={mapStops}
+                route={route}
+                pinCopy={{
+                  fromShip: copy.fromTheShip,
+                  viewVenue: dict.detail.viewVenue,
+                  viewEvent: dict.detail.viewEvent,
+                  close: dict.detail.close,
+                }}
+                returnTo={returnTo}
+                returnTitle={title}
+              />
+            ) : osmEmbedUrl ? (
               <iframe
                 title={title}
                 src={osmEmbedUrl}
                 className="h-full w-full border-0"
                 loading="lazy"
               />
-            ) : mapStops.length === 0 ? (
+            ) : (
               <div className="flex h-full items-center justify-center px-4 text-center text-sm text-neutral-500">
                 {copy.routeUnavailable}
               </div>
-            ) : null}
-            {mapStops.length > 0 ? (
-              <div className="pointer-events-none absolute inset-0 [&_.leaflet-container]:pointer-events-auto [&_.cruise-loop-pin-card]:pointer-events-auto">
-                <CruiseLoopLeaflet
-                  stops={mapStops}
-                  route={route}
-                  pinCopy={{
-                    fromShip: copy.fromTheShip,
-                    viewVenue: dict.detail.viewVenue,
-                    viewEvent: dict.detail.viewEvent,
-                    close: dict.detail.close,
-                  }}
-                  returnTo={returnTo}
-                  returnTitle={title}
-                />
-              </div>
-            ) : null}
+            )}
           </div>
         </section>
         {!route && mapStops.length > 0 ? (

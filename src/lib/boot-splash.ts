@@ -36,6 +36,9 @@ function scheduleQuietClose() {
 export function openBootExpectationWindow() {
   if (typeof window === "undefined" || expectationsClosed) return;
   if (maxTimer) return;
+  // Pages that never call expectBootPart (venues, cruise, etc.) should dismiss
+  // after the quiet window — not wait the full EXPECT_MAX_MS on an empty set.
+  scheduleQuietClose();
   maxTimer = setTimeout(() => {
     closeBootExpectations();
   }, EXPECT_MAX_MS);
