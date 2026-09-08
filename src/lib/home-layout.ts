@@ -557,7 +557,7 @@ export interface HomeDiscoverLayout {
   comingUpEvents: Event[];
   /** IDs to hide from Our picks (active today carousel + hero). */
   picksExcludeIds: string[];
-  /** Hero only — for the today grid. */
+  /** Kept for callers; home Today no longer hides the hero listing. */
   heroExcludeIds: string[];
 }
 
@@ -606,22 +606,23 @@ export function getHomeDiscoverLayout(
     picksExcludeIds.push(heroEvent.id);
   }
 
-  // Coming up owns future one-offs; exclude only today carousel + hero.
-  const sharedExclude = new Set<string>(
+  // Coming up owns future one-offs; skip today’s visible carousel + hero photo.
+  const comingUpExclude = new Set<string>(
     todayEvents.slice(0, HOME_TODAY_LIMIT).map((e) => e.id),
   );
-  if (heroEvent) sharedExclude.add(heroEvent.id);
+  if (heroEvent) comingUpExclude.add(heroEvent.id);
 
   const comingUpEvents = getComingUpHighlightEvents(events, {
     ...options,
-    excludeIds: [...sharedExclude],
+    excludeIds: [...comingUpExclude],
   });
 
-  // Recently added: also skip what’s already in Coming up so concerts aren’t repeated.
-  const newExclude = new Set(sharedExclude);
-  for (const event of comingUpEvents.slice(0, HOME_COMING_UP_LIMIT)) {
-    newExclude.add(event.id);
-  }
+  // Recently added: newest first. Allow overlap with Today/hero so a same-day
+  // seed (e.g. tonight’s civic play) still leads this rail. Only skip Coming up
+  // head to avoid repeating the same future concerts twice.
+  const newExclude = new Set(
+    comingUpEvents.slice(0, HOME_COMING_UP_LIMIT).map((e) => e.id),
+  );
 
   const newEvents = getNewHighlightEvents(events, {
     ...options,
@@ -634,7 +635,9 @@ export function getHomeDiscoverLayout(
     newEvents,
     comingUpEvents,
     picksExcludeIds,
-    heroExcludeIds: heroEvent ? [heroEvent.id] : EMPTY_EVENT_IDS,
+    // Keep Tonight’s one-off in the Happening today cards even when it is also
+    // the hero photo — the photo plane is not a substitute for a listing card.
+    heroExcludeIds: EMPTY_EVENT_IDS,
   };
 }
 

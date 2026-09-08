@@ -2,8 +2,11 @@ import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import {
   getComingUpHighlightEvents,
+  getHomeDiscoverLayout,
   getNewHighlightEvents,
   getTodayHighlightEvents,
+  HOME_NEW_LIMIT,
+  HOME_TODAY_LIMIT,
   seededShuffle,
 } from "./home-layout";
 import type { Event } from "./types";
@@ -369,5 +372,55 @@ describe("getTodayHighlightEvents peer shuffle", () => {
     }).map((e) => e.id);
 
     assert.equal(ids[0], "tonight-play");
+  });
+});
+
+describe("getHomeDiscoverLayout same-day seed", () => {
+  it("keeps tonight’s new one-off on Today and Recently added", () => {
+    const tonight = event({
+      id: "todos-somos-luperon-2026-09-08",
+      title: "Todos Somos Luperón",
+      date: "2026-09-08",
+      time: "7:30 PM",
+      category: "culture",
+      categories: ["performances"],
+      trending: true,
+      createdAt: "2026-09-08T12:00:00.000Z",
+      venueSlug: "plaza-independencia",
+      imageUrl: "/events/todos-somos-luperon-2026-09-08.jpg",
+    });
+    const daily = event({
+      id: "museum-daily",
+      title: "Museum Hours",
+      date: "2026-09-08",
+      time: "9:00 AM – 5:00 PM",
+      recurrence: "daily",
+      venueSlug: "museo-ambar",
+      imageUrl: "/events/museum.jpg",
+    });
+    const olderNew = event({
+      id: "older-new",
+      title: "Older New",
+      date: "2026-09-12",
+      time: "8:00 PM",
+      createdAt: "2026-09-07T12:00:00.000Z",
+      venueSlug: "cigar-town-pop",
+      imageUrl: "/events/older.jpg",
+    });
+
+    const layout = getHomeDiscoverLayout([daily, olderNew, tonight], {
+      now: new Date("2026-09-08T16:00:00.000Z"),
+      shuffleSeed: "layout-same-day",
+    });
+
+    assert.equal(
+      layout.todayEvents.slice(0, HOME_TODAY_LIMIT)[0]?.id,
+      "todos-somos-luperon-2026-09-08",
+    );
+    assert.equal(layout.heroExcludeIds.length, 0);
+    assert.equal(
+      layout.newEvents.slice(0, HOME_NEW_LIMIT)[0]?.id,
+      "todos-somos-luperon-2026-09-08",
+    );
   });
 });
