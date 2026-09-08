@@ -1,8 +1,13 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { EventImage } from "@/components/EventImage";
+import { HorizontalScrollEdgeFades } from "@/components/HorizontalScrollEdgeFades";
 import { IntentLink } from "@/components/IntentLink";
+import {
+  SNAP_RAIL_PEEK_CLASS,
+  useHorizontalScrollHints,
+} from "@/hooks/useHorizontalScrollHints";
 import type { Venue } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
@@ -153,36 +158,14 @@ function AudienceSlider({
 }) {
   const hint = audienceHint(audience, dict, areaName);
   const scrollRef = useRef<HTMLDivElement>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(venues.length > 1);
+  const {
+    activeIndex,
+    canScrollRight,
+    onScroll: syncScrollHints,
+    scrollToIndex,
+  } = useHorizontalScrollHints(scrollRef, venues.length);
   // Once a slide has loaded, keep its image mounted so scroll-back doesn't flash.
   const [loadedThrough, setLoadedThrough] = useState(0);
-
-  const syncScrollHints = useCallback(() => {
-    const el = scrollRef.current;
-    if (!el || venues.length === 0) return;
-    const maxScroll = el.scrollWidth - el.clientWidth;
-    const left = el.scrollLeft;
-    setCanScrollLeft(left > 4);
-    setCanScrollRight(left < maxScroll - 4);
-
-    // Prefer slide width over full track when cards peek (~88%).
-    const slide = el.querySelector<HTMLElement>("[data-venue-slide]");
-    const slideWidth = slide?.offsetWidth ?? el.clientWidth;
-    const gap = 12; // gap-3
-    const index = Math.round(left / Math.max(slideWidth + gap, 1));
-    setActiveIndex(Math.min(Math.max(index, 0), venues.length - 1));
-  }, [venues.length]);
-
-  useEffect(() => {
-    syncScrollHints();
-    const el = scrollRef.current;
-    if (!el) return;
-    const onResize = () => syncScrollHints();
-    window.addEventListener("resize", onResize);
-    return () => window.removeEventListener("resize", onResize);
-  }, [syncScrollHints, venues]);
 
   useEffect(() => {
     if (!mediaEnabled) return;
@@ -192,15 +175,6 @@ function AudienceSlider({
       Math.max(prev, Math.min(activeIndex + ahead, venues.length - 1)),
     );
   }, [mediaEnabled, activeIndex, venues.length, wide]);
-
-  const scrollToIndex = useCallback((index: number) => {
-    const el = scrollRef.current;
-    if (!el) return;
-    const slide = el.querySelector<HTMLElement>("[data-venue-slide]");
-    const slideWidth = slide?.offsetWidth ?? el.clientWidth;
-    const gap = 12;
-    el.scrollTo({ left: index * (slideWidth + gap), behavior: "smooth" });
-  }, []);
 
   return (
     <article className="min-w-0">
@@ -223,11 +197,11 @@ function AudienceSlider({
           {venues.map((venue, index) => (
             <div
               key={venue.slug}
-              data-venue-slide
+              data-snap-slide
               className={
                 wide
-                  ? "w-[88%] shrink-0 snap-start sm:w-[calc((100%-0.75rem)/2)] lg:w-[calc((100%-1.5rem)/3)]"
-                  : "w-[88%] shrink-0 snap-start sm:w-[90%]"
+                  ? `${SNAP_RAIL_PEEK_CLASS} shrink-0 snap-start sm:w-[calc((100%-0.75rem)/2)] lg:w-[calc((100%-1.5rem)/3)]`
+                  : `${SNAP_RAIL_PEEK_CLASS} shrink-0 snap-start sm:w-[90%]`
               }
             >
               <VenueSlideCard
@@ -242,19 +216,7 @@ function AudienceSlider({
           ))}
         </div>
 
-        {/* Edge fades — scroll hint; only while more content exists */}
-        {canScrollLeft && (
-          <div
-            className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-neutral-50 to-transparent dark:from-black sm:w-14"
-            aria-hidden
-          />
-        )}
-        {canScrollRight && (
-          <div
-            className="pointer-events-none absolute inset-y-0 right-0 z-10 w-14 bg-gradient-to-l from-neutral-50 to-transparent dark:from-black sm:w-16"
-            aria-hidden
-          />
-        )}
+        <HorizontalScrollEdgeFades canScrollRight={canScrollRight} />
 
         {venues.length > 1 && (
           <div

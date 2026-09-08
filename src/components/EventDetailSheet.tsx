@@ -92,7 +92,10 @@ export function EventDetailSheet({
   nearbyTonight = null,
   venueOtherNights = [],
 }: EventDetailSheetProps) {
-  const [shareMsg, setShareMsg] = useState<string | null>(null);
+  const [actionFeedback, setActionFeedback] = useState<{
+    message: string;
+    source: "share" | "remind";
+  } | null>(null);
   const [openAction, setOpenAction] = useState<ActionMenu | null>(null);
   const [showActionsCoach, setShowActionsCoach] = useState(false);
   const [showSaveCelebration, setShowSaveCelebration] = useState(false);
@@ -123,7 +126,7 @@ export function EventDetailSheet({
   useEffect(() => {
     const resetTimer = window.setTimeout(() => {
       setOpenAction(null);
-      setShareMsg(null);
+      setActionFeedback(null);
       setShowActionsCoach(false);
       setShowSaveCelebration(false);
       setShowPushPrompt(false);
@@ -327,9 +330,23 @@ export function EventDetailSheet({
   const iconActionActiveClass =
     "bg-gradient-to-br from-orange-500 to-rose-600 text-white";
 
+  function handleActionFeedback(
+    message: string,
+    source: "share" | "remind",
+    durationMs = 5000,
+  ) {
+    setActionFeedback({ message, source });
+    window.setTimeout(() => {
+      setActionFeedback((current) =>
+        current?.message === message && current.source === source
+          ? null
+          : current,
+      );
+    }, durationMs);
+  }
+
   function handleShareFeedback(message: string, durationMs = 5000) {
-    setShareMsg(message);
-    setTimeout(() => setShareMsg(null), durationMs);
+    handleActionFeedback(message, "share", durationMs);
   }
 
   function dismissActionsCoach() {
@@ -368,22 +385,43 @@ export function EventDetailSheet({
 
   async function handleSetReminder(offset: ReminderOffset) {
     if (!event) return;
+
+    // Ask for notification permission in this click turn so Safari keeps the
+    // user-gesture and actually shows the system prompt.
+    if (
+      eventReminders.supported &&
+      typeof Notification !== "undefined" &&
+      Notification.permission === "default"
+    ) {
+      const permission = await Notification.requestPermission();
+      if (permission !== "granted") {
+        handleActionFeedback(dict.detail.remindNeedPermission, "remind", 4500);
+        return;
+      }
+    } else if (
+      typeof Notification !== "undefined" &&
+      Notification.permission === "denied"
+    ) {
+      handleActionFeedback(dict.detail.remindNeedPermission, "remind", 4500);
+      return;
+    }
+
     const result = await eventReminders.setReminder(event, offset);
     if (result.ok) {
       if (!isSaved) onToggleSave(event);
-      handleShareFeedback(dict.detail.remindSet, 3500);
+      handleActionFeedback(dict.detail.remindSet, "remind", 3500);
       setOpenAction(null);
       return;
     }
     if (result.error === "permission") {
-      handleShareFeedback(dict.detail.remindNeedPermission, 4500);
+      handleActionFeedback(dict.detail.remindNeedPermission, "remind", 4500);
       return;
     }
     if (result.error === "unsupported") {
-      handleShareFeedback(dict.detail.remindUnsupported, 4500);
+      handleActionFeedback(dict.detail.remindUnsupported, "remind", 4500);
       return;
     }
-    handleShareFeedback(dict.detail.remindFailed, 4500);
+    handleActionFeedback(dict.detail.remindFailed, "remind", 4500);
   }
 
   async function handleCancelReminder() {
@@ -393,7 +431,7 @@ export function EventDetailSheet({
       setOpenAction(null);
       return;
     }
-    handleShareFeedback(dict.detail.remindFailed, 4500);
+    handleActionFeedback(dict.detail.remindFailed, "remind", 4500);
   }
 
   function handleViewVenue() {
@@ -460,7 +498,8 @@ export function EventDetailSheet({
           remindLoading={
             Boolean(event && eventReminders.loadingEventId === event.id)
           }
-          shareMsg={shareMsg}
+          actionMsg={actionFeedback?.message ?? null}
+          actionMsgSource={actionFeedback?.source ?? null}
           shareOpen={shareOpen}
           calendarOpen={calendarOpen}
           remindOpen={remindOpen}
@@ -477,6 +516,9 @@ export function EventDetailSheet({
           iconActionActiveClass={iconActionActiveClass}
           onToggleAction={toggleAction}
           onShareFeedback={handleShareFeedback}
+          onRemindFeedback={(message, durationMs) =>
+            handleActionFeedback(message, "remind", durationMs)
+          }
           onDismissActionsCoach={dismissActionsCoach}
           onSave={handleSave}
           onSetReminder={handleSetReminder}

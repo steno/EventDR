@@ -76,9 +76,9 @@ export function EventCardMeta({
   });
   if (compact) {
     return (
-      <div className={`space-y-1.5 text-sm font-medium text-neutral-500 dark:text-neutral-400 ${className}`}>
-        <span className="inline-flex flex-wrap items-center gap-x-2 gap-y-1">
-          <span className="inline-flex items-center gap-1.5">
+      <div className={`space-y-1 text-sm font-medium text-neutral-500 dark:text-neutral-400 ${className}`}>
+        <span className="inline-flex flex-wrap items-center gap-x-2 gap-y-0.5">
+          <span className="inline-flex items-center gap-1.5 leading-none">
             <Calendar className="h-3.5 w-3.5 shrink-0" aria-hidden />
             {dateLabel}
           </span>
@@ -91,7 +91,7 @@ export function EventCardMeta({
           )}
         </span>
         {(timeLabel.display || recurrenceLabel) && (
-          <div className="flex min-w-0 flex-wrap items-center gap-x-1.5 gap-y-1">
+          <div className="flex min-w-0 flex-wrap items-center gap-x-1.5 gap-y-0.5">
             {timeLabel.display && (
               <span
                 className="inline-flex shrink-0 items-center gap-1 text-sm font-medium tabular-nums leading-none text-neutral-500 dark:text-neutral-400"

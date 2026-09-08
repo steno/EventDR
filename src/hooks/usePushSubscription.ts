@@ -51,7 +51,14 @@ export function usePushSubscription(locale: Locale) {
         throw new Error("push-unavailable");
       }
 
-      const registration = await navigator.serviceWorker.ready;
+      const registration = await Promise.race([
+        navigator.serviceWorker.ready,
+        new Promise<null>((resolve) => {
+          window.setTimeout(() => resolve(null), 8000);
+        }),
+      ]);
+      if (!registration) throw new Error("sw-unavailable");
+
       const subscription =
         (await registration.pushManager.getSubscription()) ??
         (await registration.pushManager.subscribe({

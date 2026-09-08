@@ -37,7 +37,8 @@ export interface EventDetailActionsProps {
   canRemind: boolean;
   remindSupported: boolean;
   remindLoading: boolean;
-  shareMsg: string | null;
+  actionMsg: string | null;
+  actionMsgSource: "share" | "remind" | null;
   shareOpen: boolean;
   calendarOpen: boolean;
   remindOpen: boolean;
@@ -54,6 +55,7 @@ export interface EventDetailActionsProps {
   iconActionActiveClass: string;
   onToggleAction: (action: ActionMenu) => void;
   onShareFeedback: (message: string, durationMs?: number) => void;
+  onRemindFeedback: (message: string, durationMs?: number) => void;
   onDismissActionsCoach: () => void;
   onSave: () => void;
   onSetReminder: (offset: ReminderOffset) => void;
@@ -77,7 +79,8 @@ export function EventDetailActions({
   canRemind,
   remindSupported,
   remindLoading,
-  shareMsg,
+  actionMsg,
+  actionMsgSource,
   shareOpen,
   calendarOpen,
   remindOpen,
@@ -94,6 +97,7 @@ export function EventDetailActions({
   iconActionActiveClass,
   onToggleAction,
   onShareFeedback,
+  onRemindFeedback,
   onDismissActionsCoach,
   onSave,
   onSetReminder,
@@ -105,6 +109,10 @@ export function EventDetailActions({
   onSetPushAfterCalendar,
 }: EventDetailActionsProps) {
   const showRemindAction = canRemind || isReminded;
+  const shareFeedbackActive = Boolean(actionMsg && actionMsgSource === "share");
+  const remindFeedbackActive = Boolean(
+    actionMsg && actionMsgSource === "remind",
+  );
 
   return (
     <>
@@ -116,13 +124,13 @@ export function EventDetailActions({
             : "relative isolate mt-5 border-t border-neutral-100 pt-4 dark:border-neutral-800"
         }
       >
-        {shareMsg && (
+        {actionMsg && (
           <p
             className="relative z-0 mb-2 text-center text-xs font-semibold text-orange-600 dark:text-orange-400"
             role="status"
             aria-live="polite"
           >
-            {shareMsg}
+            {actionMsg}
           </p>
         )}
         {showSaveCelebration ? (
@@ -323,18 +331,30 @@ export function EventDetailActions({
               onClick={() => {
                 onDismissActionsCoach();
                 if (!remindSupported) {
-                  onShareFeedback(dict.detail.remindUnsupported, 4500);
+                  onRemindFeedback(dict.detail.remindUnsupported, 4500);
                   return;
                 }
                 onToggleAction("remind");
               }}
               className={`${iconActionClass} ${
-                remindOpen || isReminded
+                remindOpen || isReminded || remindFeedbackActive
                   ? iconActionActiveClass
                   : iconActionIdleClass
               }`}
-              aria-label={isReminded ? dict.detail.remindOn : dict.detail.remind}
-              title={isReminded ? dict.detail.remindOn : dict.detail.remind}
+              aria-label={
+                remindFeedbackActive
+                  ? actionMsg!
+                  : isReminded
+                    ? dict.detail.remindOn
+                    : dict.detail.remind
+              }
+              title={
+                remindFeedbackActive
+                  ? actionMsg!
+                  : isReminded
+                    ? dict.detail.remindOn
+                    : dict.detail.remind
+              }
               aria-expanded={remindOpen}
               aria-pressed={isReminded}
             >
@@ -366,10 +386,14 @@ export function EventDetailActions({
               onToggleAction("share");
             }}
             className={`${iconActionClass} ${
-              shareOpen || shareMsg ? iconActionActiveClass : iconActionIdleClass
+              shareOpen || shareFeedbackActive
+                ? iconActionActiveClass
+                : iconActionIdleClass
             }`}
-            aria-label={shareMsg ?? dict.detail.share}
-            title={shareMsg ?? dict.detail.share}
+            aria-label={
+              shareFeedbackActive ? actionMsg! : dict.detail.share
+            }
+            title={shareFeedbackActive ? actionMsg! : dict.detail.share}
             aria-expanded={shareOpen}
             aria-pressed={shareOpen}
           >

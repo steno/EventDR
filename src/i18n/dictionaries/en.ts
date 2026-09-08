@@ -743,7 +743,7 @@ export const en: Dictionary = {
     remindCancel: "Cancel reminder",
     remindSet: "Reminder set!",
     remindTooLate: "This event is too soon to remind.",
-    remindNeedPermission: "Allow notifications to get reminders",
+    remindNeedPermission: "Notifications blocked — allow them via the lock icon in the address bar",
     remindUnsupported: "Reminders need a browser that supports notifications",
     remindFailed: "Couldn’t set reminder — try again",
     community: "Shared by the community",
@@ -880,7 +880,7 @@ export const en: Dictionary = {
     dataDeletion: "Data deletion",
   },
   alerts: {
-    title: "Know before you go",
+    title: "Before you go",
     closure: "Closed",
     coming: "Coming",
     watch: "Heads-up",

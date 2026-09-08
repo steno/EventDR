@@ -288,7 +288,7 @@ export function EventList({
         </div>
         <div
           className={
-            listView === "cards" ? `${CARD_GRID_CLASS} pt-3` : "space-y-3 pt-3"
+            listView === "cards" ? `${CARD_GRID_CLASS} pt-3` : "space-y-2.5 pt-3"
           }
         >
           {[...Array(listView === "cards" ? 4 : 3)].map((_, i) => (
@@ -395,7 +395,7 @@ export function EventList({
             className={
               listView === "cards"
                 ? `${CARD_GRID_CLASS} pt-3`
-                : "space-y-3 pt-3"
+                : "space-y-2.5 pt-3"
             }
           >
             {visibleEvents.map((event) => (

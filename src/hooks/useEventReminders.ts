@@ -46,65 +46,103 @@ function decodeVapidKey(value: string): Uint8Array<ArrayBuffer> {
   return bytes;
 }
 
-async function ensurePushSubscription(locale: Locale): Promise<{
-  endpoint: string;
-  keys: { p256dh: string; auth: string };
-} | null> {
+type PushSubscribeResult =
+  | {
+      ok: true;
+      subscription: {
+        endpoint: string;
+        keys: { p256dh: string; auth: string };
+      };
+    }
+  | { ok: false; error: "unsupported" | "permission" | "failed" };
+
+async function ensurePushSubscription(
+  locale: Locale,
+): Promise<PushSubscribeResult> {
   if (
     !("serviceWorker" in navigator) ||
     !("PushManager" in window) ||
     !("Notification" in window)
   ) {
-    return null;
+    return { ok: false, error: "unsupported" };
   }
 
-  const permission =
-    Notification.permission === "granted"
-      ? "granted"
-      : await Notification.requestPermission();
-  if (permission !== "granted") return null;
-
-  const keyResponse = await fetch("/api/push/vapid-key");
-  const keyData = (await keyResponse.json()) as {
-    configured?: boolean;
-    publicKey?: string;
-  };
-  if (!keyResponse.ok || !keyData.configured || !keyData.publicKey) {
-    return null;
+  // Prefer permission already granted in the click handler (Safari user-gesture).
+  let permission = Notification.permission;
+  if (permission === "default") {
+    permission = await Notification.requestPermission();
+  }
+  if (permission !== "granted") {
+    return { ok: false, error: "permission" };
   }
 
-  const registration = await navigator.serviceWorker.ready;
-  const subscription =
-    (await registration.pushManager.getSubscription()) ??
-    (await registration.pushManager.subscribe({
-      userVisibleOnly: true,
-      applicationServerKey: decodeVapidKey(keyData.publicKey),
-    }));
+  try {
+    // Fail fast before waiting on a missing service worker.
+    const keyResponse = await fetch("/api/push/vapid-key");
+    const keyData = (await keyResponse.json()) as {
+      configured?: boolean;
+      publicKey?: string;
+    };
+    if (!keyResponse.ok || !keyData.configured || !keyData.publicKey) {
+      return { ok: false, error: "failed" };
+    }
 
-  const serialized = subscription.toJSON();
-  if (!serialized.endpoint || !serialized.keys?.p256dh || !serialized.keys?.auth) {
-    return null;
-  }
+    // Local `next dev` used to skip SW registration; wait with a timeout so the
+    // UI doesn't hang forever if registration is still settling.
+    const registration = await Promise.race([
+      navigator.serviceWorker.ready,
+      new Promise<null>((resolve) => {
+        window.setTimeout(() => resolve(null), 8000);
+      }),
+    ]);
+    if (!registration) {
+      return { ok: false, error: "unsupported" };
+    }
 
-  await fetch("/api/push/subscribe", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
+    const subscription =
+      (await registration.pushManager.getSubscription()) ??
+      (await registration.pushManager.subscribe({
+        userVisibleOnly: true,
+        applicationServerKey: decodeVapidKey(keyData.publicKey),
+      }));
+
+    const serialized = subscription.toJSON();
+    if (
+      !serialized.endpoint ||
+      !serialized.keys?.p256dh ||
+      !serialized.keys?.auth
+    ) {
+      return { ok: false, error: "failed" };
+    }
+
+    const subscribeResponse = await fetch("/api/push/subscribe", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        subscription: {
+          endpoint: serialized.endpoint,
+          keys: serialized.keys,
+        },
+        locale,
+      }),
+    });
+    if (!subscribeResponse.ok) {
+      return { ok: false, error: "failed" };
+    }
+
+    return {
+      ok: true,
       subscription: {
         endpoint: serialized.endpoint,
-        keys: serialized.keys,
+        keys: {
+          p256dh: serialized.keys.p256dh,
+          auth: serialized.keys.auth,
+        },
       },
-      locale,
-    }),
-  });
-
-  return {
-    endpoint: serialized.endpoint,
-    keys: {
-      p256dh: serialized.keys.p256dh,
-      auth: serialized.keys.auth,
-    },
-  };
+    };
+  } catch {
+    return { ok: false, error: "failed" };
+  }
 }
 
 export function useEventReminders(locale: Locale) {
@@ -171,8 +209,8 @@ export function useEventReminders(locale: Locale) {
       if (!supported) return { ok: false, error: "unsupported" };
       setLoadingEventId(event.id);
       try {
-        const subscription = await ensurePushSubscription(locale);
-        if (!subscription) return { ok: false, error: "permission" };
+        const push = await ensurePushSubscription(locale);
+        if (!push.ok) return { ok: false, error: push.error };
 
         const eventDate = resolveRemindableDate(event) ?? event.date;
 
@@ -188,7 +226,7 @@ export function useEventReminders(locale: Locale) {
             offset,
             locale,
             url: eventDetailPath(locale, event.id),
-            subscription,
+            subscription: push.subscription,
           }),
         });
 
@@ -227,8 +265,8 @@ export function useEventReminders(locale: Locale) {
       if (!supported) return { ok: false, error: "unsupported" };
       setLoadingEventId(eventId);
       try {
-        const subscription = await ensurePushSubscription(locale);
-        if (!subscription) {
+        const push = await ensurePushSubscription(locale);
+        if (!push.ok) {
           // Still clear local state if permission was revoked.
           const next = { ...readStore() };
           delete next[eventId];
@@ -243,7 +281,7 @@ export function useEventReminders(locale: Locale) {
           body: JSON.stringify({
             action: "cancel",
             eventId,
-            subscription,
+            subscription: push.subscription,
           }),
         });
         if (!response.ok) return { ok: false, error: "failed" };

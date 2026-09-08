@@ -14,7 +14,7 @@ export const LIST_SCROLL_PAD_TARGET = 3;
 
 /** Approximate card/list row heights for silent scroll padding. */
 const CARD_SLOT_MIN_HEIGHT = "14rem";
-const LIST_SLOT_MIN_HEIGHT = "5.5rem";
+const LIST_SLOT_MIN_HEIGHT = "4.75rem";
 
 /** Span leftover last-row columns, or the full next row. */
 export type GridFillSpan = number | "full";
@@ -178,7 +178,7 @@ export function EventCardPlaceholder({
       type="button"
       onClick={onClick}
       className="
-        group relative flex w-full items-center gap-3.5 rounded-2xl px-4 py-[1.125rem]
+        group relative flex w-full items-center gap-3 rounded-2xl px-3.5 py-2.5
         border border-dashed border-neutral-300 bg-neutral-50
         transition-colors touch-manipulation
         hover:border-orange-400 hover:bg-orange-50/70
@@ -189,7 +189,7 @@ export function EventCardPlaceholder({
     >
       <span
         className="
-          flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full
+          flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full
           border border-neutral-300 bg-white text-neutral-600
           transition-colors
           group-hover:border-orange-400 group-hover:text-orange-600

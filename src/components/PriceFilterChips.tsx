@@ -7,16 +7,18 @@ interface PriceFilterChipsProps {
   value: PriceFilter;
   onChange: (price: PriceFilter) => void;
   dict: Dictionary;
+  className?: string;
 }
 
 export function PriceFilterChips({
   value,
   onChange,
   dict,
+  className = "",
 }: PriceFilterChipsProps) {
   return (
     <div
-      className="-mx-1 overflow-x-auto px-1 pt-2 scrollbar-hide"
+      className={`overflow-x-auto scrollbar-hide ${className}`.trim()}
       role="group"
       aria-label={dict.price.ariaLabel}
     >

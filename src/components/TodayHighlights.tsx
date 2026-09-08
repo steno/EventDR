@@ -1,12 +1,17 @@
 "use client";
 
-import { memo, useEffect, useMemo, useState } from "react";
+import { memo, useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { ChevronRight, CircleAlert, Calendar, Clock } from "lucide-react";
 import { EventImage } from "@/components/EventImage";
 import { EventStatusBadge } from "@/components/EventStatusBadge";
 import { HomeAlerts } from "@/components/HomeAlerts";
+import { HorizontalScrollEdgeFades } from "@/components/HorizontalScrollEdgeFades";
 import { IntentLink, warmRoutesIdle } from "@/components/IntentLink";
+import {
+  SNAP_RAIL_PEEK_CLASS,
+  useHorizontalScrollHints,
+} from "@/hooks/useHorizontalScrollHints";
 import { useLiveStatusDisplay } from "@/hooks/useLiveStatusDisplay";
 import type { HomeAlert } from "@/lib/alerts";
 import type { Event } from "@/lib/types";
@@ -126,7 +131,7 @@ function TodayHighlightCard({
             <EventImage
               src={event.imageUrl}
               alt=""
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              sizes="(max-width: 640px) 88vw, (max-width: 1024px) 50vw, 33vw"
               priority={false}
               className="object-cover object-top sm:object-center card-media-zoom"
             />
@@ -229,6 +234,7 @@ const TodayHighlightsComponent = ({
   showDate = false,
 }: TodayHighlightsProps) => {
   const router = useRouter();
+  const railRef = useRef<HTMLDivElement>(null);
   const [pendingId, setPendingId] = useState<string | null>(null);
   const [alertsOpen, setAlertsOpen] = useState(false);
   const excludeSet = useMemo(() => new Set(excludeEventIds), [excludeEventIds]);
@@ -239,6 +245,11 @@ const TodayHighlightsComponent = ({
   const visibleEvents = todayEvents.slice(0, limit);
   const hasMore = todayEvents.length > limit;
   const allTodayHref = seeAllHref ?? `/${locale}/when/today`;
+  const sectionLabel = title ?? dict.events.happeningToday;
+  const {
+    canScrollRight,
+    onScroll: onRailScroll,
+  } = useHorizontalScrollHints(railRef, visibleEvents.length);
 
   const highlightHrefs = useMemo(
     () => visibleEvents.map((event) => eventDetailPath(locale, event.id)),
@@ -258,7 +269,7 @@ const TodayHighlightsComponent = ({
       <div className="mb-3 flex flex-wrap items-center justify-between gap-x-3 gap-y-2 px-1">
         <div className="flex min-w-0 flex-wrap items-center gap-2">
           <h2 className="text-section font-extrabold text-neutral-950 dark:text-neutral-100">
-            {title ?? dict.events.happeningToday}
+            {sectionLabel}
           </h2>
           {alerts.length > 0 && (
             <button
@@ -289,23 +300,42 @@ const TodayHighlightsComponent = ({
       </div>
 
       {visibleEvents.length > 0 && (
-        <div className="grid grid-cols-1 items-stretch gap-2.5 sm:grid-cols-2 sm:gap-3 lg:grid-cols-3">
-          {visibleEvents.map((event) => (
-            <TodayHighlightCard
-              key={event.id}
-              event={event}
-              locale={locale}
-              dict={dict}
-              returnTo={returnTo}
-              returnTitle={returnTitle}
-              pending={pendingId === event.id}
-              dimmed={pendingId != null && pendingId !== event.id}
-              onNavigate={() => setPendingId(event.id)}
-              note={notes?.[event.id]}
-              listTimeRange={listTimeRange}
-              showDate={showDate}
-            />
-          ))}
+        <div className="relative">
+          <div
+            ref={railRef}
+            onScroll={onRailScroll}
+            className="flex snap-x snap-mandatory gap-3 overflow-x-auto pb-0.5 scrollbar-hide sm:grid sm:grid-cols-2 sm:items-stretch sm:gap-3 sm:overflow-visible sm:pb-0 sm:snap-none lg:grid-cols-3"
+            aria-label={sectionLabel}
+          >
+            {visibleEvents.map((event) => (
+              <div
+                key={event.id}
+                data-snap-slide
+                className={
+                  visibleEvents.length === 1
+                    ? "w-full shrink-0 snap-start sm:w-auto sm:min-w-0 sm:shrink"
+                    : `${SNAP_RAIL_PEEK_CLASS} shrink-0 snap-start sm:w-auto sm:min-w-0 sm:shrink`
+                }
+              >
+                <TodayHighlightCard
+                  event={event}
+                  locale={locale}
+                  dict={dict}
+                  returnTo={returnTo}
+                  returnTitle={returnTitle}
+                  pending={pendingId === event.id}
+                  dimmed={pendingId != null && pendingId !== event.id}
+                  onNavigate={() => setPendingId(event.id)}
+                  note={notes?.[event.id]}
+                  listTimeRange={listTimeRange}
+                  showDate={showDate}
+                />
+              </div>
+            ))}
+          </div>
+          <div className="sm:hidden">
+            <HorizontalScrollEdgeFades canScrollRight={canScrollRight} />
+          </div>
         </div>
       )}
 

@@ -53,3 +53,6 @@ next-env.d.ts
 
 # Local Netlify folder
 .netlify
+
+# Local-only push/reminder store for `next dev` without Firebase
+.data/

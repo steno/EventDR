@@ -314,32 +314,36 @@ export function FilteredEventList({
         <>
           <ListScrollAnchor anchorRef={scrollAnchorRef} className="mt-4" />
           <StickyListFilters>
-            {locationPicker ? (
-              <div className="pb-1.5">{locationPicker}</div>
-            ) : null}
             {showTimeFilter ? (
               <TimeFilter
                 value={timeRange}
                 onChange={setTimeRange}
                 dict={dict}
                 sticky={false}
-                price={showPriceFilter ? priceFilter : undefined}
-                onPriceChange={showPriceFilter ? setPriceFilter : undefined}
                 trailing={viewToggle}
               />
-            ) : showPriceFilter ? (
-              <div className="flex min-w-0 flex-1 items-center justify-between gap-2">
-                <div className="min-w-0 flex-1">
+            ) : viewToggle ? (
+              <div className="flex justify-end pb-1">{viewToggle}</div>
+            ) : null}
+
+            {locationPicker || showPriceFilter ? (
+              <div
+                className={`flex min-w-0 items-center gap-2 ${
+                  showTimeFilter || viewToggle ? "pt-2" : ""
+                }`}
+              >
+                {locationPicker ? (
+                  <div className="min-w-0 shrink-0">{locationPicker}</div>
+                ) : null}
+                {showPriceFilter ? (
                   <PriceFilterChips
                     value={priceFilter}
                     onChange={setPriceFilter}
                     dict={dict}
+                    className="min-w-0 flex-1"
                   />
-                </div>
-                {viewToggle}
+                ) : null}
               </div>
-            ) : viewToggle ? (
-              <div className="flex justify-end">{viewToggle}</div>
             ) : null}
           </StickyListFilters>
         </>
@@ -416,7 +420,7 @@ export function FilteredEventList({
             className={
               view === "cards"
                 ? CARD_GRID_CLASS
-                : "space-y-3.5"
+                : "space-y-2.5"
             }
           >
             {visibleEvents.map((event) => (

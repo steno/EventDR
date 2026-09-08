@@ -193,7 +193,7 @@ export const fr: Dictionary = {
     remindCancel: "Annuler le rappel",
     remindSet: "Rappel programmé !",
     remindTooLate: "Cet événement est trop proche pour un rappel.",
-    remindNeedPermission: "Autorisez les notifications pour les rappels",
+    remindNeedPermission: "Notifications bloquées — autorisez-les via le cadenas dans la barre d’adresse",
     remindUnsupported: "Les rappels nécessitent un navigateur compatible",
     remindFailed: "Impossible de créer le rappel — réessayez",
     community: "Partagé par la communauté",
@@ -330,7 +330,7 @@ export const fr: Dictionary = {
     dataDeletion: "Suppression des données",
   },
   alerts: {
-    title: "À savoir avant d’y aller",
+    title: "Avant d’y aller",
     closure: "Fermé",
     coming: "À venir",
     watch: "Info",

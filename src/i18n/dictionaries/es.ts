@@ -193,7 +193,7 @@ export const es: Dictionary = {
     remindCancel: "Cancelar recordatorio",
     remindSet: "¡Recordatorio listo!",
     remindTooLate: "Este evento es demasiado pronto para recordarte.",
-    remindNeedPermission: "Permite notificaciones para recibir recordatorios",
+    remindNeedPermission: "Notificaciones bloqueadas — actívalas con el candado en la barra de direcciones",
     remindUnsupported: "Los recordatorios necesitan un navegador con notificaciones",
     remindFailed: "No se pudo crear el recordatorio — inténtalo de nuevo",
     community: "Compartido por la comunidad",

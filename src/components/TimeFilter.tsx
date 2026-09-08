@@ -17,10 +17,10 @@ interface TimeFilterProps {
   className?: string;
   /** Stick under the list header (or viewport top on home). */
   sticky?: boolean;
-  /** Optional Gratis/Pago toggles (own row on mobile) — ANDed with the time tab. */
+  /** Optional Gratis/Pago toggles (own row) — ANDed with the time tab. */
   price?: PriceFilter;
   onPriceChange?: (price: PriceFilter) => void;
-  /** Right-side control on the price row (e.g. list/cards toggle). */
+  /** Right-side control on the time-tabs row (e.g. list/cards toggle). */
   trailing?: ReactNode;
 }
 
@@ -35,7 +35,6 @@ export function TimeFilter({
   trailing,
 }: TimeFilterProps) {
   const showPrice = price != null && Boolean(onPriceChange);
-  const showTrailingRow = showPrice || Boolean(trailing);
 
   return (
     <div
@@ -48,13 +47,7 @@ export function TimeFilter({
         ${className}
       `}
     >
-      <div
-        className={
-          showTrailingRow
-            ? "flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between sm:gap-3"
-            : ""
-        }
-      >
+      <div className="flex items-end gap-2">
         <div className="-mx-1 min-w-0 flex-1 overflow-x-auto px-1 scrollbar-hide">
           <div
             className="flex min-w-max gap-0 border-b border-neutral-200 dark:border-neutral-800"
@@ -100,46 +93,45 @@ export function TimeFilter({
             })}
           </div>
         </div>
-        {showTrailingRow ? (
-          <div className="flex shrink-0 items-center justify-end gap-2 sm:pb-2">
-            {showPrice ? (
-              <div
-                className="flex min-w-0 flex-1 items-center gap-2 sm:flex-initial"
-                role="group"
-                aria-label={dict.price.ariaLabel}
-              >
-                {PRICE_FILTERS.map((option) => {
-                  const selected = price === option;
-                  return (
-                    <button
-                      key={option}
-                      type="button"
-                      aria-pressed={selected}
-                      onClick={() => onPriceChange?.(selected ? "all" : option)}
-                      className={`
-                        inline-flex items-center rounded-full border px-3 py-1
-                        text-sm font-bold tracking-tight
-                        transition-[color,background-color,border-color,transform]
-                        touch-manipulation active:scale-[0.98]
-                        focus-visible:outline focus-visible:outline-2
-                        focus-visible:outline-offset-2 focus-visible:outline-orange-500
-                        ${
-                          selected
-                            ? "border-orange-500/60 bg-orange-500/12 text-orange-700 dark:border-orange-400/50 dark:bg-orange-400/15 dark:text-orange-300"
-                            : "border-neutral-200 bg-white text-neutral-600 hover:border-orange-300 hover:text-orange-700 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-300 dark:hover:border-orange-800 dark:hover:text-orange-300"
-                        }
-                      `}
-                    >
-                      {dict.price[option]}
-                    </button>
-                  );
-                })}
-              </div>
-            ) : null}
-            {trailing}
-          </div>
+        {trailing ? (
+          <div className="shrink-0 pb-2">{trailing}</div>
         ) : null}
       </div>
+
+      {showPrice ? (
+        <div
+          className="flex min-w-0 items-center gap-2 pt-2"
+          role="group"
+          aria-label={dict.price.ariaLabel}
+        >
+          {PRICE_FILTERS.map((option) => {
+            const selected = price === option;
+            return (
+              <button
+                key={option}
+                type="button"
+                aria-pressed={selected}
+                onClick={() => onPriceChange?.(selected ? "all" : option)}
+                className={`
+                  inline-flex items-center rounded-full border px-3 py-1
+                  text-sm font-bold tracking-tight
+                  transition-[color,background-color,border-color,transform]
+                  touch-manipulation active:scale-[0.98]
+                  focus-visible:outline focus-visible:outline-2
+                  focus-visible:outline-offset-2 focus-visible:outline-orange-500
+                  ${
+                    selected
+                      ? "border-orange-500/60 bg-orange-500/12 text-orange-700 dark:border-orange-400/50 dark:bg-orange-400/15 dark:text-orange-300"
+                      : "border-neutral-200 bg-white text-neutral-600 hover:border-orange-300 hover:text-orange-700 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-300 dark:hover:border-orange-800 dark:hover:text-orange-300"
+                  }
+                `}
+              >
+                {dict.price[option]}
+              </button>
+            );
+          })}
+        </div>
+      ) : null}
     </div>
   );
 }

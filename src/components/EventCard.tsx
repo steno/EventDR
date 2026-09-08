@@ -157,7 +157,7 @@ const EventCardComponent = ({
   return (
     <article
       className={`
-        group relative w-full rounded-2xl bg-white dark:bg-neutral-900 px-4 py-[1.125rem]
+        group relative w-full rounded-2xl bg-white dark:bg-neutral-900 px-3.5 py-2.5
         border border-neutral-200 dark:border-neutral-800
         shadow-[0_2px_12px_-4px_rgba(0,0,0,0.08)] dark:shadow-[0_2px_12px_-4px_rgba(0,0,0,0.3)]
         hover:border-orange-300 hover:shadow-[0_8px_24px_-8px_rgba(251,146,60,0.25)] 
@@ -173,25 +173,25 @@ const EventCardComponent = ({
         className="absolute inset-0 z-0 rounded-2xl touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
         aria-label={event.title}
       />
-      <div className="relative z-[1] flex gap-3.5 text-left pointer-events-none">
+      <div className="relative z-[1] flex gap-3 text-left pointer-events-none">
         <EventCardMedia
           event={event}
           emoji={emoji}
           gradient={category?.gradient ?? "from-neutral-200 to-neutral-300"}
-          sizes="68px"
+          sizes="56px"
           imageClassName="object-cover"
-          frameClassName="flex-shrink-0 self-start h-[4.25rem] w-[4.25rem] rounded-xl shadow-sm"
-          emojiClassName="text-[28px]"
+          frameClassName="flex-shrink-0 self-start h-14 w-14 rounded-xl shadow-sm"
+          emojiClassName="text-2xl"
         />
 
-        <div className="flex-1 min-w-0 pt-0.5">
-          <div className={`flex items-start gap-2.5 ${compact ? "mb-1.5" : "mb-2"}`}>
-            <h3 className="font-sans text-lg font-bold leading-snug text-neutral-950 dark:text-white line-clamp-3 sm:line-clamp-2 flex-1 sm:text-xl">
+        <div className="flex-1 min-w-0">
+          <div className={`flex items-start gap-2 ${compact ? "mb-1" : "mb-2"}`}>
+            <h3 className="font-sans text-base font-bold leading-snug text-neutral-950 dark:text-white line-clamp-2 flex-1 sm:text-lg">
               {event.title}
             </h3>
             {event.trending && !liveStatusLabel && liveStatus !== "ended" && (
-              <span className="flex-shrink-0 inline-flex items-center gap-0.5 rounded-full bg-orange-50 dark:bg-orange-950/50 px-2.5 py-1 text-xs font-bold uppercase tracking-wide text-orange-600">
-                <Flame className="h-3.5 w-3.5" />
+              <span className="flex-shrink-0 inline-flex items-center gap-0.5 rounded-full bg-orange-50 dark:bg-orange-950/50 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-orange-600">
+                <Flame className="h-3 w-3" />
                 {dict.events.hot}
               </span>
             )}
@@ -212,14 +212,14 @@ const EventCardComponent = ({
             liveStatusLabel={liveStatusLabel}
           />
           {note ? (
-            <p className="mt-1.5 text-xs font-semibold text-orange-700 dark:text-orange-300">
+            <p className="mt-1 text-xs font-semibold text-orange-700 dark:text-orange-300">
               {note}
             </p>
           ) : null}
         </div>
       </div>
       {!compact && event.phone && (
-        <div className="relative z-[2] mt-4 pl-[4.875rem] pointer-events-auto">
+        <div className="relative z-[2] mt-4 pl-[4.25rem] pointer-events-auto">
           <EventCallLink phone={event.phone} label={dict.detail.call} />
         </div>
       )}

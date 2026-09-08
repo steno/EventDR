@@ -171,7 +171,7 @@ export function CityLocationPicker({
   return (
     <div
       ref={rootRef}
-      className={isHero ? "relative inline-flex shrink-0 align-baseline" : "relative w-full"}
+      className={isHero ? "relative inline-flex shrink-0 align-baseline" : "relative max-w-full shrink-0"}
     >
       <button
         ref={buttonRef}
@@ -194,9 +194,9 @@ export function CityLocationPicker({
               focus-visible:outline-offset-2 focus-visible:outline-orange-400
             `
             : `
-              inline-flex max-w-full items-center gap-1.5
+              inline-flex max-w-[min(100%,12.5rem)] items-center gap-1.5
               rounded-lg border border-orange-500/50 bg-orange-500/12
-              px-3 py-1 text-section font-extrabold text-orange-700
+              px-3 py-1 text-base font-extrabold text-orange-700
               shadow-sm transition-[color,background-color,border-color,transform]
               touch-manipulation active:scale-[0.98]
               hover:border-orange-500/80 hover:bg-orange-500/18

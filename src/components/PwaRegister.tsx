@@ -31,21 +31,7 @@ export function PwaRegister() {
       return;
     }
 
-    if (process.env.NODE_ENV !== "production") {
-      const cleanupDevPwa = async () => {
-        const registrations = await navigator.serviceWorker.getRegistrations();
-        await Promise.all(
-          registrations.map((registration) => registration.unregister()),
-        );
-        if ("caches" in window) {
-          const keys = await caches.keys();
-          await Promise.all(keys.map((key) => caches.delete(key)));
-        }
-      };
-
-      void cleanupDevPwa().catch(() => {});
-      return;
-    }
+    const isDev = process.env.NODE_ENV !== "production";
 
     // Capture at load: first SW claim must not reload (that caused P → page → P).
     const hadControllerOnLoad = Boolean(navigator.serviceWorker.controller);
@@ -61,7 +47,8 @@ export function PwaRegister() {
 
     const onControllerChange = () => {
       // Fresh install / post-purge claim: HTML is already network-fresh.
-      if (!hadControllerOnLoad) return;
+      // Skip reload thrash in local development.
+      if (!hadControllerOnLoad || isDev) return;
       reloadForUpdate();
     };
 
@@ -81,13 +68,15 @@ export function PwaRegister() {
 
     const settle = async () => {
       try {
+        // Needed for web push reminders in both prod and `next dev`.
+        // SW fetch handler already bypasses caching for HTML/JS.
         const reg = await navigator.serviceWorker.register(
           `/sw.js?v=${PWA_VERSION}`,
         );
         await reg.update().catch(() => {});
 
-        // Activate a waiting update, then reload under the splash.
-        if (reg.waiting && hadControllerOnLoad) {
+        // Activate a waiting update, then reload under the splash (prod only).
+        if (!isDev && reg.waiting && hadControllerOnLoad) {
           reg.waiting.postMessage({ type: "SKIP_WAITING" });
           return;
         }
@@ -99,9 +88,11 @@ export function PwaRegister() {
           ]);
         }
 
-        interval = setInterval(() => {
-          reg.update().catch(() => {});
-        }, 15 * 60 * 1000);
+        if (!isDev) {
+          interval = setInterval(() => {
+            reg.update().catch(() => {});
+          }, 15 * 60 * 1000);
+        }
       } catch (error) {
         console.error("SW registration failed:", error);
       }

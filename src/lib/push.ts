@@ -4,6 +4,12 @@ import {
   reminderDocId,
   type ReminderOffset,
 } from "./event-reminders";
+import {
+  canUseLocalPushStore,
+  deleteLocalEventReminder,
+  saveLocalSubscription,
+  upsertLocalEventReminder,
+} from "./push-local-store";
 
 export function isPushConfigured(): boolean {
   return Boolean(
@@ -35,7 +41,9 @@ export async function saveSubscription(sub: {
   lat?: number;
   lng?: number;
 }): Promise<boolean> {
-  if (!isFirebaseConfigured()) return false;
+  if (!isFirebaseConfigured()) {
+    return canUseLocalPushStore() ? saveLocalSubscription(sub) : false;
+  }
   const db = getFirestoreDb();
   if (!db) return false;
 
@@ -128,7 +136,9 @@ export async function upsertEventReminder(
     createdAt?: string;
   },
 ): Promise<boolean> {
-  if (!isFirebaseConfigured()) return false;
+  if (!isFirebaseConfigured()) {
+    return canUseLocalPushStore() ? upsertLocalEventReminder(reminder) : false;
+  }
   const db = getFirestoreDb();
   if (!db) return false;
 
@@ -153,7 +163,11 @@ export async function deleteEventReminder(
   endpoint: string,
   eventId: string,
 ): Promise<boolean> {
-  if (!isFirebaseConfigured()) return false;
+  if (!isFirebaseConfigured()) {
+    return canUseLocalPushStore()
+      ? deleteLocalEventReminder(endpoint, eventId)
+      : false;
+  }
   const db = getFirestoreDb();
   if (!db) return false;
 
