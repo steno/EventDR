@@ -229,6 +229,7 @@ export function EventList({
     const sorted = sortEventsForDisplay(result, {
       recurringLast: true,
       oneTimeFirst: ourPicks,
+      pinTodayOneOffs: ourPicks,
     });
     if (timeRange !== "weekend") return sorted;
     return pinSpecialEvents(sorted, { placement: "weekend-list" });

@@ -146,3 +146,40 @@ describe("sortEventsForDisplay temporarilyClosed", () => {
     assert.equal(sorted.map((e) => e.id).join(","), "live-concert,teleferico-puerto-plata-daily");
   });
 });
+
+describe("sortEventsForDisplay pinTodayOneOffs", () => {
+  /** Friday Jul 31, 2026 16:00 America/Santo_Domingo — museum still live, show upcoming. */
+  const afternoon = new Date("2026-07-31T20:00:00.000Z");
+
+  it("pins tonight’s one-off above a live evergreen daily", () => {
+    const tonight = event({
+      id: "tonight-play",
+      title: "Civic Play Tonight",
+      date: "2026-07-31",
+      time: "7:30 PM",
+      trending: true,
+    });
+    const museum = event({
+      id: "museum-daily",
+      title: "Museum Hours",
+      date: "2026-07-31",
+      time: "9:00 AM – 5:00 PM",
+      recurrence: "daily",
+    });
+
+    const withoutPin = sortEventsForDisplay([museum, tonight], {
+      now: afternoon,
+      oneTimeFirst: true,
+      recurringLast: true,
+    });
+    assert.equal(withoutPin[0]?.id, "museum-daily");
+
+    const withPin = sortEventsForDisplay([museum, tonight], {
+      now: afternoon,
+      oneTimeFirst: true,
+      pinTodayOneOffs: true,
+      recurringLast: true,
+    });
+    assert.equal(withPin.map((e) => e.id).join(","), "tonight-play,museum-daily");
+  });
+});

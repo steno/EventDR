@@ -121,6 +121,7 @@ async function loadPublicEvents(filter: PublicEventsFilter): Promise<Event[]> {
   events = sortEventsForDisplay(events, {
     recurringLast: true,
     oneTimeFirst: Boolean(category),
+    pinTodayOneOffs: Boolean(category),
     discoveryMode: Boolean(category),
     preferPrimaryCategory: category,
   });
@@ -179,6 +180,7 @@ export async function getPublicEvents(
   return sortEventsForDisplay(attachEventImages(applyScopeFilters(events, filter)), {
     recurringLast: true,
     oneTimeFirst: Boolean(filter.category),
+    pinTodayOneOffs: Boolean(filter.category),
     discoveryMode: Boolean(filter.category),
     preferPrimaryCategory: filter.category,
   });

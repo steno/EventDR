@@ -49,6 +49,7 @@ export function VenueEventList({
       upcoming: sortEventsForDisplay(up, {
         recurringLast: true,
         oneTimeFirst: true,
+        pinTodayOneOffs: true,
       }),
       // Newest past shows first.
       past: sortEventsForDisplay(ended).reverse(),

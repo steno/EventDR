@@ -233,6 +233,7 @@ export function FilteredEventList({
     const sorted = sortEventsForDisplay(combined, {
       recurringLast: true,
       oneTimeFirst: true,
+      pinTodayOneOffs: true,
       discoveryMode: Boolean(categoryId) && activeRange === "all",
       preferPrimaryCategory: categoryId,
     });

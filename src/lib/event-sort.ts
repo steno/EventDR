@@ -36,6 +36,11 @@ export interface SortEventsForDisplayOptions {
    */
   oneTimeFirst?: boolean;
   /**
+   * After status/time sort: float live/upcoming one-offs above evergreen
+   * dailies so rare same-day shows aren’t buried under open museums/tours.
+   */
+  pinTodayOneOffs?: boolean;
+  /**
    * Category "All" browse: keep live urgency first, then float non-recurring
    * dated events above the evergreen recurring catalog (closed-today museums, etc.).
    */
@@ -86,6 +91,41 @@ export function prioritizeOneTimeEvents(events: Event[]): Event[] {
     if (kindDiff !== 0) return kindDiff;
     return (order.get(a.id) ?? 0) - (order.get(b.id) ?? 0);
   });
+}
+
+/**
+ * Keep live/ending urgency, but don’t let evergreen museum/tour dailies bury
+ * the only dated one-offs tonight (theater, concerts). Trending one-offs lead
+ * that pin group. Used on home Today and category/city scoped lists.
+ */
+export function pinTodayOneOffs(events: Event[], now: Date = new Date()): Event[] {
+  if (events.length < 2) return events;
+
+  const oneOffs: Event[] = [];
+  const rest: Event[] = [];
+  for (const event of events) {
+    if (isRecurringEvent(event)) {
+      rest.push(event);
+      continue;
+    }
+    const status = getEventLiveStatus(event, now);
+    if (
+      status === "live" ||
+      status === "ending" ||
+      status === "upcoming"
+    ) {
+      oneOffs.push(event);
+    } else {
+      rest.push(event);
+    }
+  }
+
+  if (oneOffs.length === 0) return events;
+
+  oneOffs.sort(
+    (a, b) => Number(Boolean(b.trending)) - Number(Boolean(a.trending)),
+  );
+  return [...oneOffs, ...rest];
 }
 
 function oneTimeKindRank(event: Event): number {
@@ -149,6 +189,7 @@ export function sortEventsForDisplay(
   const now = options.now ?? new Date();
   const recurringLast = options.recurringLast === true;
   const oneTimeFirst = options.oneTimeFirst === true;
+  const shouldPinTodayOneOffs = options.pinTodayOneOffs === true;
   const discoveryMode = options.discoveryMode === true;
   const preferPrimary = options.preferPrimaryCategory;
 
@@ -226,5 +267,6 @@ export function sortEventsForDisplay(
     return a.event.title.localeCompare(b.event.title);
   });
 
-  return keyed.map((row) => row.event);
+  const sorted = keyed.map((row) => row.event);
+  return shouldPinTodayOneOffs ? pinTodayOneOffs(sorted, now) : sorted;
 }
