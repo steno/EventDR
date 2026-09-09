@@ -109,6 +109,7 @@ const NIGHT_CATEGORIES = new Set<EventCategory>(["parties", "dance"]);
 /** Typical stay — not the attraction’s opening hours. */
 const VISIT_MINUTES_BY_SLUG: Record<string, number> = {
   "fortaleza-san-felipe": 30,
+  "faro-puerto-plata": 20,
   "letrero-puerto-plata": 15,
   "taino-bay": 90,
   "amber-cove": 90,
@@ -182,10 +183,11 @@ export const CRUISE_ITINERARIES: readonly CruiseItinerary[] = [
   {
     id: "taino-walk",
     port: "taino-bay",
-    typicalMinutes: 180,
+    typicalMinutes: 200,
     taxiMinutes: 0,
     stopSlugs: [
       "fortaleza-san-felipe",
+      "faro-puerto-plata",
       "letrero-puerto-plata",
       "calle-sombrillas",
       "museo-ambar",

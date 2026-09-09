@@ -680,6 +680,24 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: AT,
   },
   {
+    eventId: "faro-puerto-plata-daily",
+    seriesKey: "faro-puerto-plata:daily",
+    body: "The yellow landmark everyone photographs from the park — climb the spiral for the cruise-port panorama, then loop the fort and letters.",
+    localized: {
+      es: "El hito amarillo que todos fotografían desde el parque — sube la espiral para el panorama del puerto de cruceros y cierra con la fortaleza y las letras.",
+      fr: "Le landmark jaune que tout le monde photographie depuis le parc — montez la spirale pour le panorama du port de croisière, puis bouclez fort et lettres.",
+    },
+    priceFeel: "free",
+    priceNote: "Free park landmark — no ticket",
+    priceNoteLocalized: {
+      es: "Hito del parque gratis — sin boleta",
+      fr: "Landmark du parc gratuit — pas de billet",
+    },
+    attribution: "POP research · venue listing",
+    researchNotes: "1879 cast-iron Faro in La Puntilla Park.",
+    updatedAt: AT,
+  },
+  {
     eventId: "sosua-jewish-museum-hours",
     seriesKey: "sosua-jewish-museum:weekdays",
     body: "Worth an hour if you want history mixed into a beach trip — compact, not a big-attraction time sink.",

@@ -359,6 +359,12 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Lettres verticales PUERTO PLATA sur le malecón près de La Puntilla — parador photo gratuit avec vue sur l'Atlantique, à deux pas de Fortaleza San Felipe et de l'Anfiteatro La Puntilla.",
     },
   },
+  "faro-puerto-plata": {
+    description: {
+      es: "Faro histórico de hierro fundido de 24 metros en el Parque La Puntilla (1879) — torre amarilla de celosía con escalera de caracol hasta vistas panorámicas del Atlántico y la ciudad, a pasos de la Fortaleza San Felipe y el muelle de cruceros.",
+      fr: "Phare historique en fonte de 24 mètres dans le parc La Puntilla (1879) — tour jaune en treillis avec escalier en colimaçon jusqu'à des vues panoramiques sur l'Atlantique et la ville, à deux pas de Fortaleza San Felipe et du quai de croisière.",
+    },
+  },
   "fun-city": {
     description: {
       es: "El parque de go-karts más grande de República Dominicana en la Carretera 5 — Fun City Puerto Plata con Cyclone, Sprint 500, Grand Prix y autos chocadores, además de un parque infantil cerca de Playa Dorada.",

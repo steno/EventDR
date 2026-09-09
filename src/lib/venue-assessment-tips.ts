@@ -393,6 +393,14 @@ export const VENUE_TIP_COPY: Record<
       fr: "Lettres du malecón à La Puntilla — carte postale gratuite ; l'heure dorée bat l'éclat de midi sur les faces argentées.",
     },
   },
+  "faro-puerto-plata": {
+    body: "Yellow 1879 cast-iron lighthouse in La Puntilla — free climb for port and city views; pair with the fort and Malecón letters on a cruise-day walk.",
+    localized: {
+      en: "Yellow 1879 cast-iron lighthouse in La Puntilla — free climb for port and city views; pair with the fort and Malecón letters on a cruise-day walk.",
+      es: "Faro amarillo de hierro fundido de 1879 en La Puntilla — subida gratis con vistas al puerto y la ciudad; combínalo con la fortaleza y las letras del malecón.",
+      fr: "Phare jaune en fonte de 1879 à La Puntilla — montée gratuite pour les vues port et ville ; à combiner avec le fort et les lettres du malecón.",
+    },
+  },
   "fun-city": {
     body: "Highway 5 go-kart adrenaline near Playa Dorada — kids and speed between beach days, not a cultural outing.",
     localized: {

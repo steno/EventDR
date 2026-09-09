@@ -61,6 +61,7 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "paseo-dona-blanca": "paseo-dona-blanca.jpg",
   "calle-sombrillas": "calle-sombrillas.jpg",
   "letrero-puerto-plata": "letrero-puerto-plata.jpg",
+  "faro-puerto-plata": "faro-puerto-plata-park.jpg",
   "fun-city": "fun-city.jpg",
   "monkeyland-puerto-plata": "monkeyland-puerto-plata.jpg",
   "coconut-cove": "coconut-cove.jpg",

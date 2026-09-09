@@ -677,6 +677,23 @@
     "imageEmoji": "📸"
   },
   {
+    "id": "faro-puerto-plata-daily",
+    "title": "Faro de Puerto Plata — Historic Lighthouse",
+    "description": "Climb the 1879 cast-iron lighthouse in La Puntilla Park — a 24-meter yellow lattice tower with a spiral stair to panoramic views of the Atlantic, the city, and Taino Bay cruise port. Free park landmark next to Fortaleza San Felipe, the Malecón letters, and Anfiteatro La Puntilla; best light early morning or late afternoon.",
+    "date": "2026-01-01",
+    "time": "8:00 AM - 6:00 PM",
+    "location": "Puerto Plata",
+    "address": "Parque La Puntilla, west end of the Malecón",
+    "venue": "Faro de Puerto Plata",
+    "venueSlug": "faro-puerto-plata",
+    "category": "culture",
+    "format": "physical",
+    "recurrence": "daily",
+    "isFree": true,
+    "sourceUrl": "https://puertoplatadr.com/tours/la-puntilla/",
+    "imageEmoji": "🗼"
+  },
+  {
     "id": "plaza-independencia-daily",
     "title": "Independence Park — Victorian Downtown Square",
     "description": "Puerto Plata's Parque Central (Plaza Independencia) — shaded benches, Victorian façades, and cathedral views in the historic center. Free to stroll anytime; start a downtown walk here toward Paseo de Doña Blanca, Calle de las Sombrillas, and Casa de la Cultura.",

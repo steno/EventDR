@@ -192,6 +192,11 @@ const PLACE_SEARCH_ALIASES: Record<string, string[]> = {
     "Parador Fotográfico Puerto Plata",
     "Parador Turístico Puerto Plata letras",
   ],
+  "faro-puerto-plata": [
+    "Faro de Puerto Plata",
+    "Puerto Plata Lighthouse",
+    "Faro La Puntilla Puerto Plata",
+  ],
   "el-batey-sosua": [
     "El Batey Sosua Dominican Republic",
     "Pedro Clisante Sosua",

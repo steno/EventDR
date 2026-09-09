@@ -677,6 +677,23 @@
     "imageEmoji": "📸"
   },
   {
+    "id": "faro-puerto-plata-daily",
+    "title": "Faro de Puerto Plata — Faro histórico",
+    "description": "Sube el faro de hierro fundido de 1879 en el Parque La Puntilla — torre amarilla de 24 metros con escalera de caracol hasta vistas panorámicas del Atlántico, la ciudad y el puerto de cruceros Taino Bay. Hito gratuito junto a la Fortaleza San Felipe, las letras del malecón y el Anfiteatro La Puntilla; mejor luz temprano o al atardecer.",
+    "date": "2026-01-01",
+    "time": "8:00 AM - 6:00 PM",
+    "location": "Puerto Plata",
+    "address": "Parque La Puntilla, extremo oeste del malecón",
+    "venue": "Faro de Puerto Plata",
+    "venueSlug": "faro-puerto-plata",
+    "category": "culture",
+    "format": "physical",
+    "recurrence": "daily",
+    "isFree": true,
+    "sourceUrl": "https://puertoplatadr.com/tours/la-puntilla/",
+    "imageEmoji": "🗼"
+  },
+  {
     "id": "plaza-independencia-daily",
     "title": "Parque Independencia — Plaza del centro histórico",
     "description": "El Parque Central de Puerto Plata (Plaza Independencia) — bancas bajo la sombra, fachadas victorianas y vista a la catedral en el centro histórico. Gratis para pasear; empieza aquí un recorrido hacia el Paseo de Doña Blanca, la Calle de las Sombrillas y la Casa de la Cultura.",

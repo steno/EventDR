@@ -475,7 +475,7 @@ describe("itineraryTimeFit", () => {
   });
 
   it("marks a long loop tight, then too late, as the window shrinks", () => {
-    assert.equal(itineraryTimeFit(walk, 170), "tight");
+    assert.equal(itineraryTimeFit(walk, 190), "tight");
     assert.equal(itineraryTimeFit(walk, 100), "too-late");
     assert.equal(itineraryTimeFit(walk, 0), "too-late");
   });

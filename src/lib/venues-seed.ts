@@ -620,6 +620,17 @@ export const SEED_VENUES: Venue[] = [
       "https://ayuntamientopuertoplata.gob.do/ayuntamiento-de-puerto-plata-concluye-instalacion-del-parador-turistico-en-el-malecon/",
   },
   {
+    slug: "faro-puerto-plata",
+    name: "Faro de Puerto Plata",
+    city: "Puerto Plata",
+    description:
+      "Historic 24-meter cast-iron lighthouse in La Puntilla Park (1879) — yellow lattice tower with a spiral stair to panoramic Atlantic and city views, steps from Fortaleza San Felipe and the cruise pier.",
+    lat: 19.8039,
+    lng: -70.6955,
+    emoji: "🗼",
+    website: "https://puertoplatadr.com/tours/la-puntilla/",
+  },
+  {
     slug: "fun-city",
     name: "Fun City Action Park",
     city: "Puerto Plata",
@@ -1593,6 +1604,11 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
   {
     pattern: /r[ií]o\s+martinico|martinico|r[ií]o\s+azul(\s+sos[uú]a)?|madre\s+vieja/i,
     slug: "rio-martinico",
+  },
+  {
+    pattern:
+      /faro(\s+de)?\s+puerto\s+plata|puerto\s+plata\s+lighthouse|lighthouse\s+(of\s+)?puerto\s+plata/i,
+    slug: "faro-puerto-plata",
   },
   {
     pattern: /27\s*charcos|damajagua/i,

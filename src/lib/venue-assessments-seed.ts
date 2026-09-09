@@ -574,6 +574,18 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     ],
   }),
   editorial({
+    venueSlug: "faro-puerto-plata",
+    verdictKey: "solid_local_culture",
+    crowdFit: ["local", "visitor", "family", "mixed"],
+    axes: { recommend: 4.5, atmosphere: 4.6, value: 4.9, practical: 4.3 },
+    themes: [
+      { key: "heritage_site", sentiment: "positive", audience: "visitor" },
+      { key: "ocean_views", sentiment: "positive" },
+      { key: "photo_spot", sentiment: "positive", audience: "visitor" },
+      { key: "free_access", sentiment: "positive" },
+    ],
+  }),
+  editorial({
     venueSlug: "fun-city",
     verdictKey: "solid_visitor_activity",
     crowdFit: ["visitor", "family"],
