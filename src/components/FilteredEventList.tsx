@@ -37,7 +37,7 @@ import { EventViewToggle } from "@/components/EventViewToggle";
 import { useEventListView } from "@/hooks/useEventListView";
 import { useListTimeRange } from "@/hooks/useListTimeRange";
 import { fillTemplate } from "@/lib/seo";
-import { CARD_GRID_CLASS } from "@/lib/page-shell";
+import { CARD_GRID_CLASS, SECTION_TITLE_CLASS } from "@/lib/page-shell";
 import type { EventListView } from "@/lib/event-list-view";
 
 const UNBOUNDED = Number.POSITIVE_INFINITY;
@@ -361,7 +361,7 @@ export function FilteredEventList({
       {(sectionTitle || showToggleInTitle) && (
         <div className="mb-3 flex items-center justify-between gap-2">
           {sectionTitle ? (
-            <h2 className="min-w-0 font-sans text-section font-extrabold text-neutral-950 dark:text-neutral-100">
+            <h2 className={`min-w-0 font-sans ${SECTION_TITLE_CLASS}`}>
               {sectionTitle}
             </h2>
           ) : (

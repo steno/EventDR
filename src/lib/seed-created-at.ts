@@ -23,6 +23,7 @@ export const SEED_CREATED_AT: Readonly<Record<string, string>> = {
   "taino-bay-village-daily": "2026-09-06T12:00:00.000Z",
   "amber-cove-village-daily": "2026-09-06T12:00:00.000Z",
   "cheers-mandarin-mondays": "2026-09-07T12:00:00.000Z",
+  "cheers-fire-ice-thursdays": "2026-09-09T12:00:00.000Z",
   "cigar-town-noche-bohemia-2026-09-12": "2026-09-07T12:00:00.000Z",
   "cigar-town-la-pena-thursdays": "2026-09-07T12:00:00.000Z",
   "cigar-town-ron-humos": "2026-09-07T12:00:00.000Z",

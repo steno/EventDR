@@ -6,7 +6,7 @@ import { CruiseLoopShare } from "@/components/CruiseLoopShare";
 import { IntentLink } from "@/components/IntentLink";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { CruiseStopLink, LoopMapStop } from "@/lib/cruise";
-import { PAGE_SHELL_DETAIL_CLASS } from "@/lib/page-shell";
+import { PAGE_SHELL_DETAIL_CLASS, SECTION_TITLE_CLASS } from "@/lib/page-shell";
 import { fillTemplate } from "@/lib/seo";
 import type { LatLngTuple } from "@/lib/routing";
 
@@ -115,7 +115,7 @@ export function CruiseLoopView({
 
         {legs.length > 0 ? (
           <section className="mt-8">
-            <h2 className="text-section font-extrabold text-neutral-950 dark:text-neutral-100">
+            <h2 className={SECTION_TITLE_CLASS}>
               {copy.routeTitle}
             </h2>
             <ol className="mt-3 space-y-1">
@@ -133,7 +133,7 @@ export function CruiseLoopView({
 
         {stops.length > 0 ? (
           <section className="mt-8 mb-4">
-            <h2 className="text-section font-extrabold text-neutral-950 dark:text-neutral-100">
+            <h2 className={SECTION_TITLE_CLASS}>
               {copy.stopsTitle}
             </h2>
             <ol className="mt-3 space-y-0.5">

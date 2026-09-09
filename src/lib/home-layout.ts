@@ -388,15 +388,13 @@ export function getNewHighlightEvents(
 export interface ComingUpHighlightOptions extends TodayHighlightOptions {
   /** Skip events already featured in hero / today / recently added. */
   excludeIds?: readonly string[];
-  /** Visible grid cap (default {@link HOME_COMING_UP_LIMIT}). */
-  limit?: number;
   /** Max days ahead the event may start (default {@link HOME_COMING_UP_HORIZON_DAYS}). */
   horizonDays?: number;
 }
 
 /**
  * Future one-offs / multi-day fixtures for home “Coming up” — no recurring
- * evergreens. Prefer concerts/shows (trending, ticketed, imaged), then soonest.
+ * evergreens. Soonest start date first (then title).
  */
 export function getComingUpHighlightEvents(
   events: Event[],
@@ -404,7 +402,6 @@ export function getComingUpHighlightEvents(
 ): Event[] {
   const now = options.now ?? new Date();
   const exclude = new Set(options.excludeIds ?? []);
-  const limit = options.limit ?? HOME_COMING_UP_LIMIT;
   const horizonDays = options.horizonDays ?? HOME_COMING_UP_HORIZON_DAYS;
   const today = localDateISO(now);
   const horizonEnd = addDaysISO(today, horizonDays);
@@ -420,40 +417,12 @@ export function getComingUpHighlightEvents(
   if (pool.length === 0) return [];
 
   pool.sort((a, b) => {
-    const scoreDiff = comingUpSpotlightScore(b) - comingUpSpotlightScore(a);
-    if (scoreDiff !== 0) return scoreDiff;
     const dateDiff = a.date.localeCompare(b.date);
     if (dateDiff !== 0) return dateDiff;
     return a.title.localeCompare(b.title);
   });
 
-  const carouselHead = pickDiverseCarouselHead(pool, limit);
-  const headIds = new Set(carouselHead.map((e) => e.id));
-  const tail = pool.filter((e) => !headIds.has(e.id));
-  return [...carouselHead, ...tail];
-}
-
-/** Boost destination shows so patronales don’t bury concerts further out. */
-function comingUpSpotlightScore(event: Event): number {
-  let score = 0;
-  if (event.trending) score += 100;
-  const cats = new Set<string>([
-    event.category,
-    ...(event.categories ?? []),
-  ]);
-  if (
-    cats.has("concert") ||
-    cats.has("music") ||
-    cats.has("parties") ||
-    cats.has("festivals") ||
-    cats.has("sports")
-  ) {
-    score += 40;
-  }
-  if (event.ticketUrl?.trim()) score += 25;
-  if (event.imageUrl?.trim()) score += 20;
-  if (event.lineup?.length) score += 10;
-  return score;
+  return pool;
 }
 
 /**

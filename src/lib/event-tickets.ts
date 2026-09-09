@@ -214,6 +214,7 @@ export const CURATED_FREE_EVENTS = new Set<string>([
   "sosua-beach-live-weekends",
   "cheers-weekly-live",
   "cheers-mandarin-mondays",
+  "cheers-fire-ice-thursdays",
   "cigar-town-la-pena-thursdays",
   "cigar-town-ron-humos",
   "cigar-town-noche-bohemia-2026-09-12",

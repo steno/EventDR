@@ -262,6 +262,24 @@ export const SEED_EVENT_OPINIONS_BASE: EventOpinion[] = [
     updatedAt: AT,
   },
   {
+    eventId: "cheers-fire-ice-thursdays",
+    seriesKey: "cheers-bar-sosua:weekly:4",
+    body: "Thursday pizza-and-beer special at the Pedro Clisante pub — medium pepperoni plus a small Presidente or Bohemia, dine-in only.",
+    localized: {
+      es: "Especial de jueves pizza y cerveza en el pub de Pedro Clisante — mediana de pepperoni más una pequeña Presidente o Bohemia, solo para comer en el local.",
+      fr: "Spécial jeudi pizza et bière au pub de Pedro Clisante — pepperoni moyenne plus une petite Presidente ou Bohemia, sur place uniquement.",
+    },
+    priceFeel: "budget",
+    priceNote: "Combo RD$500 (medium pepperoni + small beer); extra toppings RD$50; no cover",
+    priceNoteLocalized: {
+      es: "Combo RD$500 (mediana pepperoni + cerveza pequeña); toppings extras RD$50; sin cover",
+      fr: "Combo RD$500 (pepperoni moyenne + petite bière) ; garnitures +RD$50 ; pas de cover",
+    },
+    attribution: "POP research · venue flyer",
+    researchNotes: "Cheers Fire & Ice Thursdays combo pricing from community flyer.",
+    updatedAt: AT,
+  },
+  {
     eventId: "groundzero-domingos-pal-pueblo",
     seriesKey: "ground-zero-disco:weekly:0",
     body: "Plan a ride — this is a real Dominican club night, not a tourist beach crawl. Watch for whisky promos.",

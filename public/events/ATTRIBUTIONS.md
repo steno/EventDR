@@ -63,6 +63,7 @@ Curated images under `public/events/` and `public/venues/`.
 | `venues/malecon-puerto-plata-promenade.jpg` | POP photo — daytime Malecón promenade with Capilla San Felipe / red-and-white landmark | Venue place shot (replaces night concert stage that read as Puntilla) |
 | `cheers-weekly-live.jpg` | YouTube still — [Cheers Restaurant & Bar in Sosua](https://www.youtube.com/watch?v=dSZsIuyrFgw) | Live music at Cheers |
 | `cheers-mandarin-mondays-menu.jpg` | POP editor-provided — China Grill @ Cheers Mandarin Mondays flyer | Authentic weekly NY-style Chinese takeout night art (Pedro Clisante; filename bump after replacing social-caption crop) |
+| `cheers-fire-ice-thursdays.jpg` | POP editor-provided — Cheers Fire & Ice Thursdays flyer | Authentic weekly pizza + beer combo night art (Pedro Clisante; RD$500 medium pepperoni + small beer) |
 | `venues/cheers-bar-sosua-dining.jpg` | [Google Maps — Cheers Sosua Bar](https://www.google.com/maps/place/Cheers+Sosua+Bar/@19.7678473,-70.5103493,17z) visitor photo | Daytime dining room, live-edge tables, and bar (not the weekly live-music still) |
 | `chill-and-grill-bingo-terrace.jpg` | POP curated terrace crowd at Chill & Grill (World Cup calendar patio) | Bingo listing action (not the shared dining-room still) |
 | `venues/castaways-sosua-dining.jpg` | [Sosúa Digital TV — Chill & Grill opening](https://sosuadigitaltv.com/sosua-robustece-su-oferta-gastronomica-con-la-apertura-de-chill-grill-bar-eatery/) — venue interior dining/bar | Casa Linda Chill & Grill / former Castaways dining room |

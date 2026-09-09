@@ -6,7 +6,11 @@ import {
   walkMinutesFromMeters,
 } from "@/lib/distance";
 import { resolveEventCoords } from "@/lib/event-coords";
-import { APP_TIMEZONE, localDateISO } from "@/lib/event-dates";
+import {
+  APP_TIMEZONE,
+  localDateISO,
+  weekdayFromISO,
+} from "@/lib/event-dates";
 import { venueDetailPath } from "@/lib/event-navigation";
 import {
   happensOnLocalDate,
@@ -65,7 +69,18 @@ export const CRUISE_PORTS: Record<CruisePortSlug, CruisePort> = {
 
 export const CRUISE_PORT_SLUGS: CruisePortSlug[] = ["taino-bay", "amber-cove"];
 
+/**
+ * All-aboard choices for Taino Bay + Amber Cove.
+ * Published sail times at both ports cluster on the hour from 14:00–19:00
+ * (Celebrity Beyond ~14:00, NCL Luna ~15:00, Prima ~16:00, MSC/Carnival ~17:00,
+ * Vista/Princess ~18:00, Virgin Resilient Lady ~19:00). All-aboard is usually
+ * 30–60 minutes before sail — so this list spans 13:00–18:30.
+ */
 export const ALL_ABOARD_PRESETS = [
+  13 * 60,
+  13 * 60 + 30,
+  14 * 60,
+  14 * 60 + 30,
   15 * 60,
   15 * 60 + 30,
   16 * 60,
@@ -73,9 +88,148 @@ export const ALL_ABOARD_PRESETS = [
   17 * 60,
   17 * 60 + 30,
   18 * 60,
+  18 * 60 + 30,
 ] as const;
 
 export const DEFAULT_ALL_ABOARD_MINUTES = CRUISE_PORTS["taino-bay"].defaultAllAboardMinutes;
+
+/**
+ * Recurring Puerto Plata calls (2026 schedules). All-aboard is sail − 30 min —
+ * the usual cruise-card gap; leave buffers still pad the walk/taxi back to the pier.
+ * Weekdays are 0=Sun … 6=Sat in America/Santo_Domingo.
+ */
+export type TypicalCruiseCall = {
+  id: string;
+  port: CruisePortSlug;
+  weekdays: readonly number[];
+  ship: string;
+  sailMinutes: number;
+  allAboardMinutes: number;
+};
+
+const AA = (sailHour: number, sailMin = 0) => sailHour * 60 + sailMin - 30;
+
+export const TYPICAL_CRUISE_CALLS: readonly TypicalCruiseCall[] = [
+  // Taino Bay — MSC / NCL / Celebrity / Virgin / RCI
+  {
+    id: "taino-ncl-luna",
+    port: "taino-bay",
+    weekdays: [1],
+    ship: "Norwegian Luna",
+    sailMinutes: 15 * 60,
+    allAboardMinutes: AA(15),
+  },
+  {
+    id: "taino-msc-world-america",
+    port: "taino-bay",
+    weekdays: [1],
+    ship: "MSC World America",
+    sailMinutes: 17 * 60,
+    allAboardMinutes: AA(17),
+  },
+  {
+    id: "taino-celebrity-beyond",
+    port: "taino-bay",
+    weekdays: [2],
+    ship: "Celebrity Beyond",
+    sailMinutes: 14 * 60,
+    allAboardMinutes: AA(14),
+  },
+  {
+    id: "taino-ncl-prima",
+    port: "taino-bay",
+    weekdays: [2],
+    ship: "Norwegian Prima",
+    sailMinutes: 16 * 60,
+    allAboardMinutes: AA(16),
+  },
+  {
+    id: "taino-independence",
+    port: "taino-bay",
+    weekdays: [3],
+    ship: "Independence of the Seas",
+    sailMinutes: 16 * 60,
+    allAboardMinutes: AA(16),
+  },
+  {
+    id: "taino-resilient-lady",
+    port: "taino-bay",
+    weekdays: [3],
+    ship: "Resilient Lady",
+    sailMinutes: 19 * 60,
+    allAboardMinutes: AA(19),
+  },
+  {
+    id: "taino-oasis",
+    port: "taino-bay",
+    weekdays: [4],
+    ship: "Oasis of the Seas",
+    sailMinutes: 15 * 60,
+    allAboardMinutes: AA(15),
+  },
+  // Amber Cove — Carnival Corporation brands (typical Excel / Princess windows)
+  {
+    id: "amber-carnival-afternoon",
+    port: "amber-cove",
+    weekdays: [1, 2, 3, 4],
+    ship: "Carnival (~5 PM sail)",
+    sailMinutes: 17 * 60,
+    allAboardMinutes: AA(17),
+  },
+  {
+    id: "amber-vista-early",
+    port: "amber-cove",
+    weekdays: [4, 5],
+    ship: "Carnival Vista (~3 PM)",
+    sailMinutes: 15 * 60,
+    allAboardMinutes: AA(15),
+  },
+  {
+    id: "amber-princess-late",
+    port: "amber-cove",
+    weekdays: [3, 4],
+    ship: "Princess / Vista (~6 PM)",
+    sailMinutes: 18 * 60,
+    allAboardMinutes: AA(18),
+  },
+];
+
+/** Ships that usually call this port on this local weekday (0=Sun … 6=Sat). */
+export function typicalCruiseCallsForWeekday(
+  port: CruisePortSlug,
+  weekday: number,
+): TypicalCruiseCall[] {
+  if (!Number.isFinite(weekday)) return [];
+  return TYPICAL_CRUISE_CALLS.filter(
+    (call) => call.port === port && call.weekdays.includes(weekday),
+  );
+}
+
+/** Ships that usually call this port on this local calendar day. */
+export function typicalCruiseCallsForPort(
+  port: CruisePortSlug,
+  now: Date = new Date(),
+): TypicalCruiseCall[] {
+  return typicalCruiseCallsForWeekday(port, weekdayFromISO(localDateISO(now)));
+}
+
+/**
+ * Day-aware all-aboard default: among today's typical calls, prefer the sail
+ * closest to 17:00 (the modal Puerto Plata window); else the port static default.
+ */
+export function defaultAllAboardForPort(
+  port: CruisePortSlug,
+  now: Date = new Date(),
+): number {
+  const today = typicalCruiseCallsForPort(port, now);
+  if (today.length === 0) return CRUISE_PORTS[port].defaultAllAboardMinutes;
+  const target = 17 * 60;
+  return today.reduce((best, call) =>
+    Math.abs(call.sailMinutes - target) < Math.abs(best.sailMinutes - target)
+      ? call
+      : best,
+  ).allAboardMinutes;
+}
 
 const ROAD_FACTOR = 1.35;
 const WALK_MAX_MINUTES = 18;
@@ -238,11 +392,12 @@ export function cruisePath(
   locale: Locale,
   port: CruisePortSlug,
   allAboardMinutes?: number,
+  now: Date = new Date(),
 ): string {
   const base = `/${locale}/cruise/${port}`;
   if (
     allAboardMinutes == null ||
-    allAboardMinutes === DEFAULT_ALL_ABOARD_MINUTES
+    allAboardMinutes === defaultAllAboardForPort(port, now)
   ) {
     return base;
   }
@@ -267,11 +422,12 @@ export function cruiseLoopPath(
   port: CruisePortSlug,
   loopId: CruiseItineraryId,
   allAboardMinutes?: number,
+  now: Date = new Date(),
 ): string {
   const base = `/${locale}/cruise/${port}/${loopId}`;
   if (
     allAboardMinutes == null ||
-    allAboardMinutes === DEFAULT_ALL_ABOARD_MINUTES
+    allAboardMinutes === defaultAllAboardForPort(port, now)
   ) {
     return base;
   }

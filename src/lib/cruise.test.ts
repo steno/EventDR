@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import {
+  ALL_ABOARD_PRESETS,
   CRUISE_PORTS,
   CRUISE_PORT_SLUGS,
   cruiseDayPhase,
@@ -8,6 +9,7 @@ import {
   cruisePath,
   cruiseTravelFromPort,
   cruiseVenueAllowlist,
+  defaultAllAboardForPort,
   formatAllAboardParam,
   formatClockMinutes,
   formatRemainingDuration,
@@ -20,6 +22,7 @@ import {
   loopWaypoints,
   parseAllAboardMinutes,
   rankCruiseEvents,
+  typicalCruiseCallsForWeekday,
   visibleCruiseEvents,
 } from "./cruise";
 import { SEED_VENUES } from "./venues-seed";
@@ -59,6 +62,53 @@ describe("cruise port heroes", () => {
     for (const slug of CRUISE_PORT_SLUGS) {
       assert.equal(CRUISE_PORTS[slug].imageSrc, `/cruise/${slug}.jpg`);
     }
+  });
+});
+
+describe("ALL_ABOARD_PRESETS", () => {
+  it("covers Puerto Plata sail windows from early Celebrity to late Virgin", () => {
+    assert.equal(ALL_ABOARD_PRESETS[0], 13 * 60);
+    assert.equal(ALL_ABOARD_PRESETS.at(-1), 18 * 60 + 30);
+    // Half-hour steps so guests can match cruise-card all-aboard, not only sail hour.
+    for (let i = 1; i < ALL_ABOARD_PRESETS.length; i++) {
+      assert.equal(ALL_ABOARD_PRESETS[i]! - ALL_ABOARD_PRESETS[i - 1]!, 30);
+    }
+    // Default (16:30) stays a selectable option for the common 17:00 sail.
+    assert.ok(ALL_ABOARD_PRESETS.includes(CRUISE_PORTS["taino-bay"].defaultAllAboardMinutes));
+    assert.ok(ALL_ABOARD_PRESETS.includes(CRUISE_PORTS["amber-cove"].defaultAllAboardMinutes));
+  });
+});
+
+describe("typicalCruiseCallsForWeekday", () => {
+  it("lists Monday Taino regulars and prefers MSC’s 16:30 default", () => {
+    const monday = typicalCruiseCallsForWeekday("taino-bay", 1);
+    assert.ok(monday.some((call) => call.ship === "Norwegian Luna"));
+    assert.ok(monday.some((call) => call.ship === "MSC World America"));
+    // Monday noon AST
+    const mon = new Date("2026-09-07T16:00:00.000Z");
+    assert.equal(defaultAllAboardForPort("taino-bay", mon), 16 * 60 + 30);
+  });
+
+  it("lists Tuesday early Celebrity and NCL Prima at Taino Bay", () => {
+    const tuesday = typicalCruiseCallsForWeekday("taino-bay", 2);
+    assert.equal(
+      tuesday.find((call) => call.ship === "Celebrity Beyond")?.allAboardMinutes,
+      13 * 60 + 30,
+    );
+    assert.equal(
+      tuesday.find((call) => call.ship === "Norwegian Prima")?.allAboardMinutes,
+      15 * 60 + 30,
+    );
+    // Prefer Prima (16:00 sail) over Beyond (14:00) as closer to 17:00.
+    const tue = new Date("2026-09-08T16:00:00.000Z");
+    assert.equal(defaultAllAboardForPort("taino-bay", tue), 15 * 60 + 30);
+  });
+
+  it("offers Amber Cove Carnival afternoon window on weekdays", () => {
+    const wednesday = typicalCruiseCallsForWeekday("amber-cove", 3);
+    assert.ok(wednesday.some((call) => call.allAboardMinutes === 16 * 60 + 30));
+    const wed = new Date("2026-09-09T16:00:00.000Z");
+    assert.equal(defaultAllAboardForPort("amber-cove", wed), 16 * 60 + 30);
   });
 });
 

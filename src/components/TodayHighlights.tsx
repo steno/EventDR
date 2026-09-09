@@ -26,6 +26,7 @@ import {
   HOME_TODAY_LIMIT,
 } from "@/lib/home-layout";
 import { getEventCardObjectPosition } from "@/lib/event-images";
+import { SECTION_TITLE_CLASS } from "@/lib/page-shell";
 
 interface TodayHighlightsProps {
   events: Event[];
@@ -269,7 +270,7 @@ const TodayHighlightsComponent = ({
     <section className="mb-6">
       <div className="mb-3 flex flex-wrap items-center justify-between gap-x-3 gap-y-2 px-1">
         <div className="flex min-w-0 flex-wrap items-center gap-2">
-          <h2 className="text-section font-extrabold text-neutral-950 dark:text-neutral-100">
+          <h2 className={SECTION_TITLE_CLASS}>
             {sectionLabel}
           </h2>
           {alerts.length > 0 && (

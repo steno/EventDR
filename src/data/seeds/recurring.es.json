@@ -290,6 +290,26 @@
     "imageEmoji": "🥡"
   },
   {
+    "id": "cheers-fire-ice-thursdays",
+    "title": "Fire & Ice Thursdays en Cheers",
+    "description": "Todos los jueves de 4:00 a 9:00 PM en Cheers Bar & Grill, Pedro Clisante — pizza mediana de pepperoni más una cerveza pequeña Presidente o Bohemia por RD$500. Solo para comer en el local; toppings extras RD$50 c/u. Pizza flameante, cerveza bien fría, mismo vibe de pub en Sosúa.",
+    "date": "2026-01-01",
+    "time": "4:00 PM – 9:00 PM",
+    "location": "Sosúa",
+    "venue": "Cheers Bar & Grill",
+    "venueSlug": "cheers-bar-sosua",
+    "address": "Calle Pedro Clisante (junto a Club Residential)",
+    "category": "food-drinks",
+    "format": "physical",
+    "recurrence": "weekly",
+    "recurrenceDay": 4,
+    "phone": "+1809404822463",
+    "isFree": false,
+    "admissionPrice": "RD$500",
+    "sourceType": "community",
+    "imageEmoji": "🍕"
+  },
+  {
     "id": "cigar-town-la-pena-thursdays",
     "title": "La Peña en Cigar Town",
     "description": "Todos los jueves — El Ritual de los Jueves en Cigar Town Pop, Av. Luis Ginebra No. 56, Puerto Plata. Paquete Brugal Extra Viejo: 1 botella + acompañante, 4 cigarros de tu elección y 10% de descuento. Confirma hora y precio del paquete por Instagram @cigartownpop.",

@@ -290,6 +290,26 @@
     "imageEmoji": "🥡"
   },
   {
+    "id": "cheers-fire-ice-thursdays",
+    "title": "Fire & Ice Thursdays au Cheers",
+    "description": "Tous les jeudis de 16 h à 21 h au Cheers Bar & Grill sur Pedro Clisante — pizza pepperoni moyenne plus une petite bière Presidente ou Bohemia pour RD$500. Sur place uniquement ; garnitures en plus RD$50 chacune. Pizza bien chaude, bière glacée, même ambiance pub à Sosúa.",
+    "date": "2026-01-01",
+    "time": "16 h – 21 h",
+    "location": "Sosúa",
+    "venue": "Cheers Bar & Grill",
+    "venueSlug": "cheers-bar-sosua",
+    "address": "Calle Pedro Clisante (à côté du Club Residential)",
+    "category": "food-drinks",
+    "format": "physical",
+    "recurrence": "weekly",
+    "recurrenceDay": 4,
+    "phone": "+1809404822463",
+    "isFree": false,
+    "admissionPrice": "RD$500",
+    "sourceType": "community",
+    "imageEmoji": "🍕"
+  },
+  {
     "id": "cigar-town-la-pena-thursdays",
     "title": "La Peña au Cigar Town",
     "description": "Tous les jeudis — El Ritual de los Jueves chez Cigar Town Pop, Av. Luis Ginebra n° 56, Puerto Plata. Forfait Brugal Extra Viejo : 1 bouteille + accompagnement, 4 cigares au choix et 10 % de réduction. Confirmez l'heure et le prix du forfait via Instagram @cigartownpop.",

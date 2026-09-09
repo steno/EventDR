@@ -1,10 +1,10 @@
 /**
  * Shared layout width tokens.
  *
- * Listing shells are fluid up to a soft ~1440px ceiling (Airbnb-ish density
- * without infinite stretch on ultrawide). Card grids use auto-fill so columns
- * grow inside that shell without a single tile ballooning full-width. Detail
- * pages stay narrower for readable prose.
+ * Shells are fluid up to a soft ~1440px ceiling (Airbnb-ish density without
+ * infinite stretch on ultrawide). Card grids use auto-fill so columns grow
+ * inside that shell without a single tile ballooning full-width. Listing and
+ * detail pages share the same max width so desktop columns line up.
  */
 
 /** Soft desktop ceiling — wide enough for dense grids, not billboard-wide. */
@@ -26,8 +26,19 @@ export const PAGE_SHELL_CLASS = `relative mx-auto w-full ${PAGE_MAX_WIDTH_CLASS}
 /** Footer / bottom-nav width (callers add gutters). */
 export const PAGE_WIDTH_CLASS = `mx-auto w-full ${PAGE_MAX_WIDTH_CLASS}`;
 
-/** Event/venue detail — readable split width, no outer framed panel. */
-export const PAGE_SHELL_DETAIL_CLASS = `relative mx-auto w-full max-w-6xl ${PAGE_GUTTER_CLASS}`;
+/** Event/venue/cruise detail — same desktop width as home, no outer framed panel. */
+export const PAGE_SHELL_DETAIL_CLASS = `relative mx-auto w-full ${PAGE_MAX_WIDTH_CLASS} ${PAGE_GUTTER_CLASS}`;
+
+/**
+ * Section-title text fill (orange→rose→fuchsia).
+ * Light: deeper ink stops so the wash doesn’t neon on cream.
+ * Dark: softer 300s (same as hero place select) for contrast on black.
+ */
+export const BRAND_GRADIENT_TEXT_CLASS =
+  "bg-gradient-to-r from-orange-700 via-rose-700 to-fuchsia-800 bg-clip-text text-transparent dark:from-orange-300 dark:via-rose-300 dark:to-fuchsia-300";
+
+/** Listing section titles — Happening today, Trending, Our picks, etc. */
+export const SECTION_TITLE_CLASS = `text-section font-extrabold lg:text-[1.9rem] lg:leading-[1.15] ${BRAND_GRADIENT_TEXT_CLASS}`;
 
 /**
  * Event/venue detail photo height.

@@ -51,7 +51,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`boot-pending ${outfit.variable}`}
+      className={`boot-pending dark ${outfit.variable}`}
     >
       <head>
         <ThemeScript />

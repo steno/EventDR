@@ -42,11 +42,22 @@ describe("seed createdAt for home New", () => {
       layout.comingUpEvents.some((e) => e.id === "super-mega-urban-fest-2026-11-04"),
       "expected Super Mega Urban Fest in Coming up",
     );
-    // Dated one-offs should not also sit in Recently added.
+    // Visible Coming up head is chronological; near-term dates lead, so a Nov
+    // fest may sit past HOME_COMING_UP_LIMIT and still appear in Recently added.
+    const comingUpHead = new Set(
+      layout.comingUpEvents.slice(0, 6).map((e) => e.id),
+    );
+    for (let i = 1; i < layout.comingUpEvents.length; i++) {
+      assert.ok(
+        layout.comingUpEvents[i - 1]!.date <= layout.comingUpEvents[i]!.date,
+        "Coming up should be chronological",
+      );
+    }
     assert.ok(
       !layout.newEvents
         .slice(0, 6)
-        .some((e) => e.id === "super-mega-urban-fest-2026-11-04"),
+        .some((e) => comingUpHead.has(e.id)),
+      "visible Coming up head should not repeat in Recently added",
     );
   });
 

@@ -39,7 +39,7 @@ import { EventViewToggle } from "./EventViewToggle";
 import { SearchEmptyState } from "./SearchEmptyState";
 import { TimeFilter } from "./TimeFilter";
 import { ListScrollAnchor } from "./StickyListFilters";
-import { CARD_GRID_CLASS } from "@/lib/page-shell";
+import { CARD_GRID_CLASS, SECTION_TITLE_CLASS } from "@/lib/page-shell";
 import { useEventListView } from "@/hooks/useEventListView";
 
 const EMPTY_EVENTS: Event[] = [];
@@ -332,7 +332,7 @@ export function EventList({
     <div className="space-y-4">
       <div className="flex items-start justify-between gap-2">
         <div className="min-w-0">
-          <h2 className="text-section font-extrabold text-neutral-900 dark:text-neutral-100">
+          <h2 className={SECTION_TITLE_CLASS}>
             {isSearching
               ? dict.search.activeTitle
               : ourPicks && !category

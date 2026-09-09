@@ -89,8 +89,8 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
   },
   "cheers-bar-sosua": {
     description: {
-      es: "Pub deportivo de expats en la Calle Pedro Clisante — bandas de rock y blues, deportes en pantalla grande, comida de pub, Mandarin Mondays (takeout chino desde las 3 PM) y música en vivo semanal.",
-      fr: "Pub sportif expat sur la Calle Pedro Clisante — groupes rock et blues, sports sur grand écran, cuisine de pub, Mandarin Mondays (takeout chinois dès 15 h) et musique live chaque semaine.",
+      es: "Pub deportivo de expats en la Calle Pedro Clisante — bandas de rock y blues, deportes en pantalla grande, comida de pub, Mandarin Mondays (takeout chino desde las 3 PM), Fire & Ice Thursdays (pizza y cerveza) y música en vivo semanal.",
+      fr: "Pub sportif expat sur la Calle Pedro Clisante — groupes rock et blues, sports sur grand écran, cuisine de pub, Mandarin Mondays (takeout chinois dès 15 h), Fire & Ice Thursdays (pizza et bière) et musique live chaque semaine.",
     },
   },
   "sosua-jewish-museum": {

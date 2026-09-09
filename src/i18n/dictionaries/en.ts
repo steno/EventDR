@@ -332,6 +332,8 @@ export type Dictionary = {
     allAboard: string;
     allAboardHelp: string;
     allAboardHint: string;
+    /** Quick picks from the weekly Puerto Plata call pattern. */
+    allAboardTypical: string;
     leaveBy: string;
     leaveByNow: string;
     minutesLeft: string;
@@ -908,7 +910,9 @@ export const en: Dictionary = {
       "Ships have left Amber Cove — no more ship-day loops. Here’s tonight around Cofresí, Maimón, and the North Coast.",
     allAboard: "Back on ship by",
     allAboardHelp: "When do you need to be back on the ship?",
-    allAboardHint: "Ships call this all-aboard — check the time on your cruise card.",
+    allAboardHint:
+      "Ships call this all-aboard — check the time on your cruise card, or tap your ship if it’s listed.",
+    allAboardTypical: "Typical today",
     leaveBy: "Be back at the pier by {time}",
     leaveByNow: "Head back to the ship now",
     minutesLeft: "{duration} until you should leave",

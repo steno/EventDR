@@ -55,6 +55,7 @@ import {
   cruiseDayPhase,
   cruisePath,
   CRUISE_PORTS,
+  defaultAllAboardForPort,
   isCruisePortSlug,
   parseAllAboardMinutes,
   type CruisePortSlug,
@@ -159,7 +160,12 @@ function HomeApp({
     initialCruisePort,
   );
   const [allAboardMinutes, setAllAboardMinutes] = useState(() =>
-    parseAllAboardMinutes(initialAllAboardParam),
+    parseAllAboardMinutes(
+      initialAllAboardParam,
+      initialCruisePort
+        ? defaultAllAboardForPort(initialCruisePort)
+        : undefined,
+    ),
   );
   const [cruiseSailed, setCruiseSailed] = useState(false);
 
@@ -219,9 +225,12 @@ function HomeApp({
       setCityQuery(readCity());
       const cruise = readCruise();
       setCruisePort(cruise.port);
-      if (cruise.port && cruise.aboard) {
-        setAllAboardMinutes(parseAllAboardMinutes(cruise.aboard));
-      }
+      if (!cruise.port) return;
+      setAllAboardMinutes(
+        cruise.aboard
+          ? parseAllAboardMinutes(cruise.aboard)
+          : defaultAllAboardForPort(cruise.port),
+      );
     };
 
     syncFromUrl();
@@ -353,9 +362,21 @@ function HomeApp({
       setCruiseEntryOpen(false);
       // Shore day has no search field, so a query typed on home must not survive.
       setSearchQuery("");
-      setCruisePortUrl(port);
+      if (cruisePort) {
+        // Already on a shore day — keep the guest’s all-aboard when swapping ports.
+        setCruisePortUrl(port);
+        return;
+      }
+      const minutes = defaultAllAboardForPort(port);
+      setAllAboardMinutes(minutes);
+      setCruisePort(port);
+      window.history.replaceState(
+        window.history.state ?? null,
+        "",
+        cruisePath(locale, port, minutes),
+      );
     },
-    [setCruisePortUrl],
+    [cruisePort, locale, setCruisePortUrl],
   );
 
   const setCruiseAllAboard = useCallback(

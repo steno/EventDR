@@ -359,7 +359,9 @@ export const fr: Dictionary = {
       "Les navires ont quitté Amber Cove — plus de boucles du jour de croisière. Voici ce soir autour de Cofresí, Maimón et de la Côte Nord.",
     allAboard: "Retour à bord",
     allAboardHelp: "À quelle heure devez-vous être de retour à bord ?",
-    allAboardHint: "Le navire l’appelle all-aboard — vérifiez l’heure sur votre carte de croisière.",
+    allAboardHint:
+      "Le navire l’appelle all-aboard — vérifiez l’heure sur votre carte de croisière, ou touchez votre navire s’il est listé.",
+    allAboardTypical: "Typique aujourd’hui",
     leaveBy: "Soyez de retour au quai à {time}",
     leaveByNow: "Rentrez maintenant au navire",
     minutesLeft: "{duration} avant de devoir partir",

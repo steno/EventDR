@@ -37,9 +37,11 @@ import {
   minutesUntil,
   rankCruiseEvents,
   resolveItineraryStops,
+  typicalCruiseCallsForWeekday,
   visibleCruiseEvents,
 } from "@/lib/cruise";
-import { CARD_GRID_CLASS } from "@/lib/page-shell";
+import { localDateISO, weekdayFromISO } from "@/lib/event-dates";
+import { CARD_GRID_CLASS, SECTION_TITLE_CLASS } from "@/lib/page-shell";
 import { fillTemplate } from "@/lib/seo";
 import type { Event, Venue } from "@/lib/types";
 
@@ -88,6 +90,11 @@ export function CruiseDiscover({
     ? cruiseDayPhase(portMeta, allAboardMinutes, now)
     : "open";
   const sailed = phase === "sailed";
+  const weekday = weekdayFromISO(localDateISO(now));
+  const typicalCalls = useMemo(
+    () => typicalCruiseCallsForWeekday(port, weekday),
+    [port, weekday],
+  );
   const loopsClosed = clockReady && (sailed || remaining <= 0);
   const clockLine = !clockReady
     ? staticLeave
@@ -242,6 +249,49 @@ export function CruiseDiscover({
                     </option>
                   ))}
                 </select>
+                {typicalCalls.length > 0 ? (
+                  <div className="mt-2.5">
+                    <span className="text-xs font-bold uppercase tracking-wide text-neutral-500 dark:text-neutral-400">
+                      {copy.allAboardTypical}
+                    </span>
+                    <div
+                      className="mt-1.5 flex flex-wrap gap-1.5"
+                      role="group"
+                      aria-label={copy.allAboardTypical}
+                    >
+                      {typicalCalls.map((call) => {
+                        const selected =
+                          call.allAboardMinutes === allAboardMinutes;
+                        return (
+                          <button
+                            key={call.id}
+                            type="button"
+                            aria-pressed={selected}
+                            onClick={() =>
+                              onAllAboardChange(call.allAboardMinutes)
+                            }
+                            className={
+                              selected
+                                ? "rounded-lg bg-orange-500 px-2.5 py-1.5 text-left text-xs font-bold text-white shadow-sm"
+                                : "rounded-lg bg-neutral-100 px-2.5 py-1.5 text-left text-xs font-bold text-neutral-800 ring-1 ring-neutral-200 transition-colors hover:bg-neutral-200/80 dark:bg-neutral-900 dark:text-neutral-100 dark:ring-neutral-700 dark:hover:bg-neutral-800"
+                            }
+                          >
+                            <span className="block leading-snug">{call.ship}</span>
+                            <span
+                              className={
+                                selected
+                                  ? "mt-0.5 block font-semibold text-white/90"
+                                  : "mt-0.5 block font-semibold text-neutral-500 dark:text-neutral-400"
+                              }
+                            >
+                              {formatClockMinutes(call.allAboardMinutes, locale)}
+                            </span>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                ) : null}
               </label>
             ) : null}
 
@@ -275,7 +325,7 @@ export function CruiseDiscover({
             className="cruise-port-swap min-w-0"
           >
             <div className="flex h-full flex-col justify-center rounded-2xl border border-neutral-200 bg-white px-4 py-5 shadow-sm dark:border-neutral-800 dark:bg-neutral-950 sm:px-5">
-              <h2 className="text-section font-extrabold text-neutral-950 dark:text-neutral-100">
+              <h2 className={SECTION_TITLE_CLASS}>
                 {sailed ? copy.sailedLoopsTitle : copy.leaveNowLoopsTitle}
               </h2>
               <p className="mt-2 text-sm leading-snug text-neutral-600 dark:text-neutral-400">
@@ -293,7 +343,7 @@ export function CruiseDiscover({
           </section>
         ) : loops.length > 0 ? (
           <section key={`loops-${port}`} className="cruise-port-swap min-w-0">
-            <h2 className="mb-3 text-section font-extrabold text-neutral-950 dark:text-neutral-100">
+            <h2 className={`mb-3 ${SECTION_TITLE_CLASS}`}>
               {copy.itinerariesTitle}
             </h2>
             <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
@@ -341,7 +391,7 @@ export function CruiseDiscover({
 
         {!sailed && moreFits.length > 0 ? (
           <section>
-            <h2 className="mb-3 text-section font-extrabold text-neutral-950 dark:text-neutral-100">
+            <h2 className={`mb-3 ${SECTION_TITLE_CLASS}`}>
               {copy.moreFits}
             </h2>
             <div className={CARD_GRID_CLASS}>

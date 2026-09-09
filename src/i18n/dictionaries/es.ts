@@ -359,7 +359,9 @@ export const es: Dictionary = {
       "Los barcos ya zarparon de Amber Cove — no hay más rutas del día de crucero. Aquí está esta noche cerca de Cofresí, Maimón y la Costa Norte.",
     allAboard: "De vuelta al barco",
     allAboardHelp: "¿A qué hora debes estar de vuelta a bordo?",
-    allAboardHint: "En el barco lo llaman all-aboard — mira la hora en tu tarjeta del crucero.",
+    allAboardHint:
+      "En el barco lo llaman all-aboard — mira la hora en tu tarjeta del crucero, o toca tu barco si aparece en la lista.",
+    allAboardTypical: "Típico hoy",
     leaveBy: "Regresa al muelle a las {time}",
     leaveByNow: "Vuelve al barco ahora",
     minutesLeft: "{duration} para salir hacia el barco",

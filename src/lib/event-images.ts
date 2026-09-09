@@ -28,6 +28,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "cheers-weekly-live": "cheers-weekly-live.jpg",
   // Filename bump — cleaner flyer crop (social caption chrome removed).
   "cheers-mandarin-mondays": "cheers-mandarin-mondays-menu.jpg",
+  "cheers-fire-ice-thursdays": "cheers-fire-ice-thursdays.jpg",
   "cigar-town-la-pena-thursdays": "cigar-town-la-pena-thursdays.jpg",
   "cigar-town-ron-humos": "cigar-town-ron-humos.jpg",
   // Filename bump — live bar with hanging Cadillac (entrance stays on the venue).
@@ -270,6 +271,8 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "el-carey-weekend-nightlife": "object-center lg:object-left",
   // Portrait flyer — keep Mandarin Mondays branding in a wide desktop crop.
   "cheers-mandarin-mondays": "object-center lg:object-left",
+  // Portrait Fire & Ice flyer — keep pizza/beer split centered.
+  "cheers-fire-ice-thursdays": "object-center",
   // Keep rum glass + cigar in a wide desktop crop.
   "cigar-town-la-pena-thursdays": "object-center lg:object-left",
   "cigar-town-ron-humos": "object-center lg:object-left",

@@ -138,11 +138,11 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "cheers-bar-sosua": {
-    body: "Strip sports-pub energy — rock/blues covers, Mandarin Mondays Chinese takeout from 3 PM, and screens. Come for a familiar hangout, not a destination concert.",
+    body: "Strip sports-pub energy — rock/blues covers, Mandarin Mondays takeout, Fire & Ice Thursdays pizza-and-beer, and screens. Come for a familiar hangout, not a destination concert.",
     localized: {
-      en: "Strip sports-pub energy — rock/blues covers, Mandarin Mondays Chinese takeout from 3 PM, and screens. Come for a familiar hangout, not a destination concert.",
-      es: "Energía de sports pub en la franja — covers rock/blues, Mandarin Mondays (takeout chino desde las 3 PM) y pantallas. Ven por un hangout familiar, no por concierto destino.",
-      fr: "Énergie sports pub sur la strip — reprises rock/blues, Mandarin Mondays (takeout chinois dès 15 h) et écrans. Spot familière, pas concert destination.",
+      en: "Strip sports-pub energy — rock/blues covers, Mandarin Mondays takeout, Fire & Ice Thursdays pizza-and-beer, and screens. Come for a familiar hangout, not a destination concert.",
+      es: "Energía de sports pub en la franja — covers rock/blues, Mandarin Mondays, Fire & Ice Thursdays (pizza y cerveza) y pantallas. Ven por un hangout familiar, no por concierto destino.",
+      fr: "Énergie sports pub sur la strip — reprises rock/blues, Mandarin Mondays, Fire & Ice Thursdays (pizza et bière) et écrans. Spot familière, pas concert destination.",
     },
   },
   "ground-zero-disco": {

@@ -23,6 +23,7 @@ import {
   type VenueAudienceFilter,
 } from "@/lib/home-layout";
 import { fillTemplate } from "@/lib/seo";
+import { SECTION_TITLE_CLASS } from "@/lib/page-shell";
 
 interface VenueAudienceCardsProps {
   locale: Locale;
@@ -179,7 +180,7 @@ function AudienceSlider({
   return (
     <article className="min-w-0">
       <header className="mb-3 px-0.5">
-        <h2 className="text-section font-extrabold tracking-tight text-neutral-950 dark:text-neutral-50">
+        <h2 className={`${SECTION_TITLE_CLASS} tracking-tight`}>
           {title ?? dict.venues[audience]}
         </h2>
         <p className="mt-0.5 text-copy text-neutral-600 dark:text-neutral-400">

@@ -82,7 +82,7 @@ describe("getComingUpHighlightEvents", () => {
     assert.deepEqual(ids, ["soon-concert", "later-fest"]);
   });
 
-  it("prefers a trending concert further out over a nearer low-signal one-off", () => {
+  it("orders soonest first regardless of spotlight signals", () => {
     const patronales = event({
       id: "small-patronales",
       title: "Local Patronales",
@@ -102,12 +102,14 @@ describe("getComingUpHighlightEvents", () => {
       imageUrl: "/events/urban.jpg",
       venueSlug: "anfiteatro-la-puntilla",
     });
-    const ids = getComingUpHighlightEvents([patronales, urban], {
+    const ids = getComingUpHighlightEvents([urban, patronales], {
       now: new Date("2026-09-08T03:30:00.000Z"),
       horizonDays: 90,
-      limit: 1,
     }).map((e) => e.id);
-    assert.equal(ids[0], "super-mega-urban-fest-2026-11-04");
+    assert.deepEqual(ids, [
+      "small-patronales",
+      "super-mega-urban-fest-2026-11-04",
+    ]);
   });
 
   it("excludes ids already shown elsewhere", () => {

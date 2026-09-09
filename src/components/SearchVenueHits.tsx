@@ -5,6 +5,7 @@ import { EventImage } from "@/components/EventImage";
 import { IntentLink } from "@/components/IntentLink";
 import type { Venue } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
+import { SECTION_TITLE_CLASS } from "@/lib/page-shell";
 
 interface SearchVenueHitsProps {
   venues: Venue[];
@@ -18,7 +19,7 @@ export function SearchVenueHits({ venues, locale, title }: SearchVenueHitsProps)
 
   return (
     <section className="mb-6" aria-label={title}>
-      <h2 className="mb-3 text-section font-extrabold tracking-tight text-neutral-900 dark:text-neutral-100">
+      <h2 className={`mb-3 ${SECTION_TITLE_CLASS} tracking-tight`}>
         {title}
       </h2>
       <ul className="space-y-2">
