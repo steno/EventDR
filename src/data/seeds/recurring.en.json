@@ -694,6 +694,23 @@
     "imageEmoji": "🗼"
   },
   {
+    "id": "cuartel-bomberos-puerto-plata-daily",
+    "title": "Cuartel de Bomberos — Historic Firehouse",
+    "description": "Stop by Puerto Plata's iconic 1930 municipal firehouse on the Malecón — twin towers, red-and-white façade, and an active station where visitors are typically welcome to see the trucks and meet local firefighters. A staple stop on guided city walking tours and highlights excursions; free to view from outside, and a quick interior peek when crews are free. Pair with Plaza Independencia, Calle de las Sombrillas, and the waterfront walk toward La Puntilla.",
+    "date": "2026-01-01",
+    "time": "8:00 AM - 6:00 PM",
+    "location": "Puerto Plata",
+    "address": "Av. Gral. Gregorio Luperón (Malecón) & Av. Sánchez",
+    "venue": "Cuartel de Bomberos de Puerto Plata",
+    "venueSlug": "cuartel-bomberos-puerto-plata",
+    "category": "culture",
+    "format": "physical",
+    "recurrence": "daily",
+    "isFree": true,
+    "sourceUrl": "https://puertoplatadr.com/tours/fire-department/",
+    "imageEmoji": "🚒"
+  },
+  {
     "id": "plaza-independencia-daily",
     "title": "Independence Park — Victorian Downtown Square",
     "description": "Puerto Plata's Parque Central (Plaza Independencia) — shaded benches, Victorian façades, and cathedral views in the historic center. Free to stroll anytime; start a downtown walk here toward Paseo de Doña Blanca, Calle de las Sombrillas, and Casa de la Cultura.",

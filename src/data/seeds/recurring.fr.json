@@ -694,6 +694,23 @@
     "imageEmoji": "🗼"
   },
   {
+    "id": "cuartel-bomberos-puerto-plata-daily",
+    "title": "Cuartel de Bomberos — Caserne historique",
+    "description": "Arrêtez-vous à l'iconique caserne de pompiers municipaux de 1930 sur le malecón — tours jumelles, façade blanc et rouge, et station active. Les visiteurs sont généralement bienvenus pour voir les camions et rencontrer les pompiers ; étape classique des visites à pied et excursions en ville. C'est toujours une station en service — respectez le personnel et le matériel.",
+    "date": "2026-01-01",
+    "time": "8:00 AM - 6:00 PM",
+    "location": "Puerto Plata",
+    "address": "Av. Gral. Gregorio Luperón (Malecón), coin Av. Sánchez",
+    "venue": "Cuartel de Bomberos de Puerto Plata",
+    "venueSlug": "cuartel-bomberos-puerto-plata",
+    "category": "culture",
+    "format": "physical",
+    "recurrence": "daily",
+    "isFree": true,
+    "sourceUrl": "https://puertoplatadr.com/tours/fire-department/",
+    "imageEmoji": "🚒"
+  },
+  {
     "id": "plaza-independencia-daily",
     "title": "Parc de l'Indépendance — Place du centre historique",
     "description": "Le Parque Central de Puerto Plata (Plaza Independencia) — bancs à l'ombre, façades victoriennes et vue sur la cathédrale au cœur du centre historique. Gratuit pour se promener ; démarrez ici une balade vers le Paseo de Doña Blanca, la Calle de las Sombrillas et la Casa de la Cultura.",

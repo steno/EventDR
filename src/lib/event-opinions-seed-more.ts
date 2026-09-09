@@ -698,6 +698,25 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: AT,
   },
   {
+    eventId: "cuartel-bomberos-puerto-plata-daily",
+    seriesKey: "cuartel-bomberos-puerto-plata:daily",
+    body: "Classic Malecón photo stop on city walks — twin towers and trucks if the bay doors are open; still a working station, so keep it brief and polite.",
+    localized: {
+      es: "Parada foto clásica del malecón en tours por la ciudad — torres gemelas y camiones si las puertas están abiertas; estación en servicio, sé breve y amable.",
+      fr: "Stop photo classique du malecón en visite ville — tours jumelles et camions si les portes sont ouvertes ; station en service, restez bref et poli.",
+    },
+    priceFeel: "free",
+    priceNote: "Free exterior visit — no ticket; tip optional if crew shows the bay",
+    priceNoteLocalized: {
+      es: "Visita exterior gratis — sin boleta; propina opcional si el personal muestra el garaje",
+      fr: "Visite extérieure gratuite — pas de billet ; pourboire optionnel si l'équipe montre le garage",
+    },
+    attribution: "POP research · PuertoPlataDR fire-department guide",
+    researchNotes:
+      "1930 cuartel on Av. Luperón; common guided-tour stop; active station.",
+    updatedAt: AT,
+  },
+  {
     eventId: "sosua-jewish-museum-hours",
     seriesKey: "sosua-jewish-museum:weekdays",
     body: "Worth an hour if you want history mixed into a beach trip — compact, not a big-attraction time sink.",

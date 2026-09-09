@@ -24,8 +24,8 @@ describe("seed createdAt for home New", () => {
       "every Recently added card should have createdAt",
     );
     assert.ok(
-      layout.newEvents.some((e) => e.id === "faro-puerto-plata-daily"),
-      "expected Faro daily in Recently added when SEED_CREATED_AT is set",
+      layout.newEvents.some((e) => e.id === "cuartel-bomberos-puerto-plata-daily"),
+      "expected Cuartel Bomberos daily in Recently added when SEED_CREATED_AT is set",
     );
   });
 

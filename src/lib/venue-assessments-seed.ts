@@ -586,6 +586,18 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     ],
   }),
   editorial({
+    venueSlug: "cuartel-bomberos-puerto-plata",
+    verdictKey: "solid_local_culture",
+    crowdFit: ["local", "visitor", "family", "mixed"],
+    axes: { recommend: 4.3, atmosphere: 4.4, value: 4.9, practical: 4.2 },
+    themes: [
+      { key: "heritage_site", sentiment: "positive", audience: "visitor" },
+      { key: "photo_spot", sentiment: "positive", audience: "visitor" },
+      { key: "free_access", sentiment: "positive" },
+      { key: "easy_to_find", sentiment: "positive" },
+    ],
+  }),
+  editorial({
     venueSlug: "fun-city",
     verdictKey: "solid_visitor_activity",
     crowdFit: ["visitor", "family"],

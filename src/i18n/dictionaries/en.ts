@@ -653,7 +653,7 @@ export const en: Dictionary = {
     happeningToday: "Happening today",
     seeAllToday: "See all today",
     recentlyAdded: "Recently added",
-    comingUp: "Coming up",
+    comingUp: "On the horizon",
     viewAllEvents: "View all events",
     viewMode: "Event layout",
     viewList: "List",

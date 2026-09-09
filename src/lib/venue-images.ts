@@ -62,6 +62,7 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "calle-sombrillas": "calle-sombrillas.jpg",
   "letrero-puerto-plata": "letrero-puerto-plata.jpg",
   "faro-puerto-plata": "faro-puerto-plata-park.jpg",
+  "cuartel-bomberos-puerto-plata": "cuartel-bomberos-puerto-plata.jpg",
   "fun-city": "fun-city.jpg",
   "monkeyland-puerto-plata": "monkeyland-puerto-plata.jpg",
   "coconut-cove": "coconut-cove.jpg",

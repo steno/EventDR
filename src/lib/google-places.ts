@@ -197,6 +197,11 @@ const PLACE_SEARCH_ALIASES: Record<string, string[]> = {
     "Puerto Plata Lighthouse",
     "Faro La Puntilla Puerto Plata",
   ],
+  "cuartel-bomberos-puerto-plata": [
+    "Cuartel de Bomberos Puerto Plata",
+    "Cuerpo de Bomberos Puerto Plata",
+    "Bomberos Municipales Puerto Plata Malecón",
+  ],
   "el-batey-sosua": [
     "El Batey Sosua Dominican Republic",
     "Pedro Clisante Sosua",

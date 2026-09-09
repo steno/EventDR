@@ -401,6 +401,14 @@ export const VENUE_TIP_COPY: Record<
       fr: "Phare jaune en fonte de 1879 à La Puntilla — montée gratuite pour les vues port et ville ; à combiner avec le fort et les lettres du malecón.",
     },
   },
+  "cuartel-bomberos-puerto-plata": {
+    body: "1930 Malecón firehouse — free façade and apparatus stop on walking tours; active station, so ask before photos inside and keep clear of gear.",
+    localized: {
+      en: "1930 Malecón firehouse — free façade and apparatus stop on walking tours; active station, so ask before photos inside and keep clear of gear.",
+      es: "Cuartel de 1930 en el malecón — parada gratis de fachada y camiones en tours a pie; estación activa, pide permiso antes de fotos adentro y no toques el equipo.",
+      fr: "Caserne de 1930 sur le malecón — arrêt gratuit façade et camions en visite à pied ; station active, demandez avant les photos à l'intérieur et restez loin du matériel.",
+    },
+  },
   "fun-city": {
     body: "Highway 5 go-kart adrenaline near Playa Dorada — kids and speed between beach days, not a cultural outing.",
     localized: {

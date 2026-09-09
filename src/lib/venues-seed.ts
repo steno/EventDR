@@ -631,6 +631,18 @@ export const SEED_VENUES: Venue[] = [
     website: "https://puertoplatadr.com/tours/la-puntilla/",
   },
   {
+    slug: "cuartel-bomberos-puerto-plata",
+    name: "Cuartel de Bomberos de Puerto Plata",
+    city: "Puerto Plata",
+    description:
+      "Historic 1930 municipal firehouse on the Malecón — twin towers, red-and-white façade, and an active station visitors can stop by to see the trucks and meet local firefighters; a staple of guided city walking tours.",
+    lat: 19.7982,
+    lng: -70.6905,
+    emoji: "🚒",
+    website: "https://puertoplatadr.com/tours/fire-department/",
+    phone: "+18095862312",
+  },
+  {
     slug: "fun-city",
     name: "Fun City Action Park",
     city: "Puerto Plata",
@@ -1609,6 +1621,11 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
     pattern:
       /faro(\s+de)?\s+puerto\s+plata|puerto\s+plata\s+lighthouse|lighthouse\s+(of\s+)?puerto\s+plata/i,
     slug: "faro-puerto-plata",
+  },
+  {
+    pattern:
+      /cuartel(\s+de)?\s+bomberos|cuerpo\s+de\s+bomberos|fire\s+(department|station|house)|bomberos(\s+(de|municipales))?\s+puerto\s+plata/i,
+    slug: "cuartel-bomberos-puerto-plata",
   },
   {
     pattern: /27\s*charcos|damajagua/i,

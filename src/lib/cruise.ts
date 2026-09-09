@@ -111,6 +111,7 @@ const VISIT_MINUTES_BY_SLUG: Record<string, number> = {
   "fortaleza-san-felipe": 30,
   "faro-puerto-plata": 20,
   "letrero-puerto-plata": 15,
+  "cuartel-bomberos-puerto-plata": 20,
   "taino-bay": 90,
   "amber-cove": 90,
   "malecon-puerto-plata": 45,
@@ -183,12 +184,13 @@ export const CRUISE_ITINERARIES: readonly CruiseItinerary[] = [
   {
     id: "taino-walk",
     port: "taino-bay",
-    typicalMinutes: 200,
+    typicalMinutes: 220,
     taxiMinutes: 0,
     stopSlugs: [
       "fortaleza-san-felipe",
       "faro-puerto-plata",
       "letrero-puerto-plata",
+      "cuartel-bomberos-puerto-plata",
       "calle-sombrillas",
       "museo-ambar",
     ],

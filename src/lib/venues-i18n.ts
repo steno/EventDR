@@ -365,6 +365,12 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Phare historique en fonte de 24 mètres dans le parc La Puntilla (1879) — tour jaune en treillis avec escalier en colimaçon jusqu'à des vues panoramiques sur l'Atlantique et la ville, à deux pas de Fortaleza San Felipe et du quai de croisière.",
     },
   },
+  "cuartel-bomberos-puerto-plata": {
+    description: {
+      es: "Cuartel de bomberos municipales de 1930 en el malecón — torres gemelas, fachada blanca y roja, y estación activa donde los visitantes suelen pasar a ver los camiones y saludar a los bomberos; parada habitual de tours a pie por la ciudad.",
+      fr: "Caserne de pompiers municipaux de 1930 sur le malecón — tours jumelles, façade blanc et rouge, et station active où les visiteurs peuvent s'arrêter pour voir les camions et rencontrer les pompiers ; étape classique des visites à pied de la ville.",
+    },
+  },
   "fun-city": {
     description: {
       es: "El parque de go-karts más grande de República Dominicana en la Carretera 5 — Fun City Puerto Plata con Cyclone, Sprint 500, Grand Prix y autos chocadores, además de un parque infantil cerca de Playa Dorada.",

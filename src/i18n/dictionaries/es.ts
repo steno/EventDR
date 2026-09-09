@@ -104,7 +104,7 @@ export const es: Dictionary = {
     happeningToday: "Hoy",
     seeAllToday: "Ver todo hoy",
     recentlyAdded: "Añadidos recientemente",
-    comingUp: "Próximamente",
+    comingUp: "En el horizonte",
     viewAllEvents: "Ver todos los eventos",
     viewMode: "Diseño de eventos",
     viewList: "Lista",
