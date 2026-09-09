@@ -12,6 +12,7 @@ import { localizeEventsForDisplay } from "@/lib/localized-text";
 import { getFallbackEvents, getFallbackForCategory } from "@/lib/fallback-events";
 import { getCommunityEvents } from "@/lib/community-store";
 import { fetchApprovedEvents } from "@/lib/firebase/events";
+import { attachSeedCreatedAt } from "@/lib/seed-created-at";
 import type { CitySlug } from "@/lib/cities";
 import { eventMatchesCity } from "@/lib/cities";
 import type { TimeRange } from "@/lib/filters";
@@ -128,6 +129,8 @@ async function loadPublicEvents(filter: PublicEventsFilter): Promise<Event[]> {
   // Curated patches may update localized copy — resolve locale after merging.
   events = applyCuratedEventPatches(events);
   events = localizeEventsForDisplay(events, locale);
+  // Fill missing createdAt for home “Recently added” (Firebase may omit it).
+  events = attachSeedCreatedAt(events);
   events = attachEventPhones(events);
   events = attachTicketUrls(events);
   events = attachEventImages(events);
@@ -155,7 +158,7 @@ const getCachedPublicEvents = unstable_cache(
       when: (when || undefined) as Exclude<TimeRange, "all"> | undefined,
       includePast: includePast === "1",
     }),
-  ["public-events-v16"],
+  ["public-events-v17"],
   { revalidate: LISTING_REVALIDATE_SECONDS, tags: ["events"] },
 );
 

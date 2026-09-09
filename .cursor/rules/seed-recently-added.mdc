@@ -1,0 +1,15 @@
+---
+description: New seed events must get SEED_CREATED_AT for home Recently added
+globs: src/data/seeds/**/*.json,src/lib/seed-created-at.ts,src/lib/venues-seed.ts,src/lib/fallback-events.ts,src/lib/recurring-events.ts
+alwaysApply: false
+---
+
+# Seed → home Recently added
+
+When adding any **new** event seed id (`fallback.*.json` or `recurring.*.json`):
+
+1. Add the same `id` to `SEED_CREATED_AT` in `src/lib/seed-created-at.ts`
+2. Use commit-day noon UTC, e.g. `"2026-09-09T12:00:00.000Z"`
+3. Without this, the event page can work while home **Recently added** omits it (`getNewHighlightEvents` requires `createdAt` within 14 days)
+
+Also wire images, attributions, and curated `isFree`/tickets as usual.

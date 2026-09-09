@@ -16,12 +16,16 @@ describe("seed createdAt for home New", () => {
   it("surfaces recent seeds in getHomeDiscoverLayout.newEvents", () => {
     const events = getFallbackEvents("en");
     const layout = getHomeDiscoverLayout(events, {
-      now: new Date("2026-09-08T03:30:00.000Z"),
+      now: new Date("2026-09-09T18:00:00.000Z"),
     });
     assert.ok(layout.newEvents.length > 0, "expected Recently added highlights");
     assert.ok(
       layout.newEvents.every((e) => e.createdAt),
       "every Recently added card should have createdAt",
+    );
+    assert.ok(
+      layout.newEvents.some((e) => e.id === "faro-puerto-plata-daily"),
+      "expected Faro daily in Recently added when SEED_CREATED_AT is set",
     );
   });
 

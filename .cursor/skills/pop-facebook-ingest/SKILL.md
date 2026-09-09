@@ -91,6 +91,7 @@ For each **new** event:
    - When introducing a **new venue**, always add both venue seed + venue image
    - Policy: `public/events/ATTRIBUTIONS.md`
 7. **POP expert opinion (when possible):** if the venue has Google Places reviews, prefer a unique seed opinion in `event-opinions-seed.ts` / `event-opinions-seed-more.ts`, or let server ingest draft one via Places + OpenAI (`eventOpinionDrafts`, never auto-published). Skip rather than inventing a generic blurb.
+8. **Home Recently added (required):** add the new event `id` to `SEED_CREATED_AT` in `src/lib/seed-created-at.ts` (commit-day noon UTC). Without it, the event will not show on the home “Recently added” rail.
 
 Do **not** commit unless the user asks.
 

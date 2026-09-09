@@ -13,3 +13,5 @@ Seasonal packs that still live as TypeScript (merged in the fallback loader):
 - `src/lib/atleticos-summer-league-2026.ts` / `asa-survival-series-2026.ts` (already flattened into `fallback.*.json`; keep TS only if regenerating)
 
 **Ingest rule:** add new North Coast one-offs to all three `fallback.*.json` files with the same `id`. Put recurring schedules in `recurring.*.json`. Do not grow the loaders with inline event literals.
+
+**Home “Recently added”:** every new seed `id` (recurring or one-off) must also get a `SEED_CREATED_AT` entry in `src/lib/seed-created-at.ts` (commit-day noon UTC). Without it, the listing will not appear on the home Recently added rail.
