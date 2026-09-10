@@ -7,6 +7,7 @@ import { localizeVenue, localizeVenues } from "@/lib/venues-i18n";
 import { attachVenueImage, attachVenueImages } from "@/lib/venue-images";
 import { getSeedVenue, SEED_VENUES } from "@/lib/venues-seed";
 import { VENUES_REVALIDATE_SECONDS } from "@/lib/http-cache";
+import { filterRemovedVenues, isRemovedVenueSlug } from "@/lib/removed-venues";
 import type { Venue } from "@/lib/types";
 
 /** Seed venues are canonical; Firebase may add community-only venues.
@@ -50,7 +51,9 @@ export function mergeVenueLists(seed: Venue[], remote: Venue[]): Venue[] {
     }
     bySlug.set(venue.slug, overlayPlacesMeta(existing, venue));
   }
-  return [...bySlug.values()].sort((a, b) => a.name.localeCompare(b.name));
+  return filterRemovedVenues([...bySlug.values()]).sort((a, b) =>
+    a.name.localeCompare(b.name),
+  );
 }
 
 async function loadVenueBySlug(
@@ -77,7 +80,7 @@ async function loadVenueBySlug(
       // keep seed
     }
   }
-  if (!venue) return undefined;
+  if (!venue || isRemovedVenueSlug(venue.slug)) return undefined;
   venue = applyActiveEditorialClosureToVenue(venue, localDateISO(new Date()));
   const typedLocale = locale ? (locale as Locale) : undefined;
   const localized = typedLocale ? localizeVenue(venue, typedLocale) : venue;
@@ -86,7 +89,7 @@ async function loadVenueBySlug(
 
 const getCachedVenueBySlug = unstable_cache(
   loadVenueBySlug,
-  ["venue-by-slug-v4"],
+  ["venue-by-slug-v5"],
   { revalidate: VENUES_REVALIDATE_SECONDS, tags: ["venues"] },
 );
 
@@ -96,6 +99,7 @@ export async function getVenueBySlug(
   slug: string,
   locale?: Locale,
 ): Promise<Venue | undefined> {
+  if (isRemovedVenueSlug(slug)) return undefined;
   const venue = await getCachedVenueBySlug(slug, locale ?? "");
   return venue ? attachVenueImage(venue) : undefined;
 }
@@ -127,7 +131,7 @@ async function loadVenues(locale: string): Promise<Venue[]> {
 
 const getCachedVenues = unstable_cache(
   loadVenues,
-  ["venues-list-v4"],
+  ["venues-list-v5"],
   { revalidate: VENUES_REVALIDATE_SECONDS, tags: ["venues"] },
 );
 

@@ -6,6 +6,7 @@ import { CRUISE_ITINERARIES } from "@/lib/cruise";
 import { WHEN_SLUGS } from "@/lib/time-seo";
 import { getPublicEvents } from "@/lib/public-events";
 import { fetchVenues } from "@/lib/firebase/events";
+import { isRemovedVenueSlug } from "@/lib/removed-venues";
 import { SEED_VENUES } from "@/lib/venues-seed";
 import {
   absoluteUrl,
@@ -49,7 +50,7 @@ async function getAllVenueSlugs(): Promise<string[]> {
     // Firebase may be unavailable at build time.
   }
 
-  return [...slugs];
+  return [...slugs].filter((slug) => !isRemovedVenueSlug(slug));
 }
 
 function pushLocalized(

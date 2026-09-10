@@ -1,6 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 import { checkCronSecret } from "@/lib/ops-auth";
-import { deleteExpiredEvents, isFirebaseConfigured } from "@/lib/firebase/events";
+import {
+  deleteExpiredEvents,
+  deleteRemovedVenues,
+  isFirebaseConfigured,
+} from "@/lib/firebase/events";
 
 export const dynamic = "force-dynamic";
 
@@ -13,12 +17,17 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Firebase not configured" }, { status: 503 });
   }
 
-  const result = await deleteExpiredEvents();
+  const [expired, venues] = await Promise.all([
+    deleteExpiredEvents(),
+    deleteRemovedVenues(),
+  ]);
 
   return NextResponse.json({
     success: true,
-    deleted: result.deleted,
-    errors: result.errors,
-    message: `Cleaned up ${result.deleted} expired events`,
+    deleted: expired.deleted,
+    errors: expired.errors,
+    venuesDeleted: venues.deleted,
+    venueErrors: venues.errors,
+    message: `Cleaned up ${expired.deleted} expired events and ${venues.deleted} dumped venue(s)`,
   });
 }

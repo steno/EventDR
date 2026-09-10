@@ -2,9 +2,8 @@ import type { Config } from "@netlify/functions";
 
 export default async () => {
   try {
-    const { deleteExpiredEvents, isFirebaseConfigured } = await import(
-      "../../src/lib/firebase/events"
-    );
+    const { deleteExpiredEvents, deleteRemovedVenues, isFirebaseConfigured } =
+      await import("../../src/lib/firebase/events");
 
     if (!isFirebaseConfigured()) {
       console.log("Firebase not configured, skipping cleanup");
@@ -14,18 +13,25 @@ export default async () => {
       };
     }
 
-    console.log("Running scheduled cleanup of expired events...");
-    const result = await deleteExpiredEvents();
+    console.log("Running scheduled cleanup of expired events and dumped venues...");
+    const [expired, venues] = await Promise.all([
+      deleteExpiredEvents(),
+      deleteRemovedVenues(),
+    ]);
 
-    console.log(`Cleanup complete: ${result.deleted} deleted, ${result.errors} errors`);
+    console.log(
+      `Cleanup complete: ${expired.deleted} events deleted, ${expired.errors} event errors, ${venues.deleted} venues deleted, ${venues.errors} venue errors`,
+    );
 
     return {
       statusCode: 200,
       body: JSON.stringify({
         success: true,
-        deleted: result.deleted,
-        errors: result.errors,
-        message: `Cleaned up ${result.deleted} expired events`,
+        deleted: expired.deleted,
+        errors: expired.errors,
+        venuesDeleted: venues.deleted,
+        venueErrors: venues.errors,
+        message: `Cleaned up ${expired.deleted} expired events and ${venues.deleted} dumped venue(s)`,
       }),
     };
   } catch (error) {

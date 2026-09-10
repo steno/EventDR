@@ -1,0 +1,34 @@
+name: Admin delete venue
+
+on:
+  workflow_dispatch:
+    inputs:
+      venue_slug:
+        description: Firestore venue slug to delete (must be on the removed-venue list)
+        required: true
+        type: string
+
+jobs:
+  delete:
+    runs-on: ubuntu-latest
+    steps:
+      - name: DELETE /api/admin/venue
+        env:
+          SITE_URL: https://pop-event.com
+          CRON_SECRET: ${{ secrets.CRON_SECRET }}
+          VENUE_SLUG: ${{ inputs.venue_slug }}
+        run: |
+          if [ -z "$CRON_SECRET" ]; then
+            echo "CRON_SECRET secret not set"
+            exit 1
+          fi
+          res=$(curl -sS -w "\n%{http_code}" -X DELETE \
+            -H "Authorization: Bearer ${CRON_SECRET}" \
+            "${SITE_URL}/api/admin/venue?slug=${VENUE_SLUG}")
+          http=$(echo "$res" | tail -n1)
+          body=$(echo "$res" | sed '$d')
+          echo "HTTP ${http}"
+          echo "$body"
+          if [ "$http" -lt 200 ] || [ "$http" -ge 300 ]; then
+            exit 22
+          fi

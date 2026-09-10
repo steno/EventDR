@@ -19,3 +19,17 @@ export function revalidatePublicEvents(): void {
     })
     .catch(() => {});
 }
+
+/** Bust venue list/detail caches after a venue write. */
+export function revalidateVenues(): void {
+  void import("next/cache")
+    .then(({ revalidateTag, revalidatePath }) => {
+      try {
+        revalidateTag("venues", { expire: 0 });
+        revalidatePath("/", "layout");
+      } catch {
+        // No Next cache scope (Netlify scheduled functions, seed scripts).
+      }
+    })
+    .catch(() => {});
+}

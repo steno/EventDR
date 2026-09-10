@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import {
   decidePlacesVenueLink,
+  looksLikeRealVenueName,
   venueNamesAreCompatible,
 } from "./ingest-venue";
 
@@ -82,5 +83,18 @@ describe("decidePlacesVenueLink", () => {
       "Ocean World",
     );
     assert.deepEqual(decision, { action: "skip", reason: "seed-mismatch" });
+  });
+});
+
+describe("looksLikeRealVenueName", () => {
+  it("rejects city and Cabarete area labels used as fake venues", () => {
+    assert.equal(looksLikeRealVenueName("Cabarete"), false);
+    assert.equal(looksLikeRealVenueName("Cabarete Bay"), false);
+    assert.equal(looksLikeRealVenueName("Cabarete Beach"), false);
+  });
+
+  it("keeps named businesses", () => {
+    assert.equal(looksLikeRealVenueName("LAX Cabarete"), true);
+    assert.equal(looksLikeRealVenueName("Voy Voy Cabarete"), true);
   });
 });

@@ -2,6 +2,7 @@ import type { Event, Venue } from "@/lib/types";
 import { getSeedVenue, matchVenueSlug } from "@/lib/venues-seed";
 import { findPlaceLocation } from "@/lib/google-places";
 import { upsertVenue } from "@/lib/firebase/events";
+import { isRemovedVenueSlug } from "@/lib/removed-venues";
 
 function slugifyVenue(text: string): string {
   return text
@@ -13,12 +14,12 @@ function slugifyVenue(text: string): string {
     .slice(0, 48);
 }
 
-function looksLikeRealVenueName(name: string): boolean {
+export function looksLikeRealVenueName(name: string): boolean {
   const t = name.trim();
   if (t.length < 4 || t.length > 80) return false;
-  // Skip bare city / municipality labels used as venue.
+  // Skip bare city / municipality / area labels used as venue.
   if (
-    /^(cabarete|sos[uú]a|puerto\s*plata|san\s*felipe(\s*de\s*puerto\s*plata)?|costambar|playa\s*dorada|imbert|guananico|north\s*coast)$/i.test(
+    /^(cabarete|sos[uú]a|puerto\s*plata|san\s*felipe(\s*de\s*puerto\s*plata)?|costambar|playa\s*dorada|imbert|guananico|north\s*coast|cabarete\s*(bay|beach))$/i.test(
       t,
     )
   ) {
@@ -157,6 +158,10 @@ export function decidePlacesVenueLink(
  * 2) Else Places geocode → seed rematch or similarity-gated stub
  */
 export async function resolveEventVenue(event: Event): Promise<Event> {
+  if (isRemovedVenueSlug(event.venueSlug)) {
+    event = { ...event, venueSlug: undefined };
+  }
+
   if (event.venueSlug && getSeedVenue(event.venueSlug)) {
     const seed = getSeedVenue(event.venueSlug)!;
     return {
@@ -190,6 +195,10 @@ export async function resolveEventVenue(event: Event): Promise<Event> {
     return event;
   }
 
+  if (isRemovedVenueSlug(slugifyVenue(hint))) {
+    return event;
+  }
+
   // Lightweight dynamic venue from Places (when configured).
   const place = await findPlaceLocation(hint, event.location);
   if (!place) return event;
@@ -213,7 +222,7 @@ export async function resolveEventVenue(event: Event): Promise<Event> {
   }
 
   const slug = slugifyVenue(hint);
-  if (!slug) return event;
+  if (!slug || isRemovedVenueSlug(slug)) return event;
 
   const venue: Venue = {
     slug,

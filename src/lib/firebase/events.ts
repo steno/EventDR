@@ -14,9 +14,16 @@ import { filterByVenueSlug } from "@/lib/geo";
 import { translateEventCopy } from "@/lib/translate-event";
 import { getVenueImageUrl } from "@/lib/venue-images";
 import { SEED_VENUES } from "@/lib/venues-seed";
+import {
+  isRemovedVenueSlug,
+  REMOVED_VENUE_SLUGS,
+} from "@/lib/removed-venues";
 import { findNearDuplicate, mergeIngestIntoExisting } from "@/lib/ingest-dedupe";
 import { getFirestoreDb, isFirebaseConfigured } from "./admin";
-import { revalidatePublicEvents } from "@/lib/revalidate-public-events";
+import {
+  revalidatePublicEvents,
+  revalidateVenues,
+} from "@/lib/revalidate-public-events";
 
 /** Process-local cache — cuts repeat full-collection reads on Netlify instances. */
 const APPROVED_EVENTS_CACHE_TTL_MS = 12 * 60 * 1000;
@@ -709,6 +716,7 @@ export async function fetchVenueBySlug(slug: string): Promise<Venue | null> {
 
 /** Upsert a single venue (ingest-created or seed sync of one row). */
 export async function upsertVenue(venue: Venue): Promise<boolean> {
+  if (isRemovedVenueSlug(venue.slug)) return false;
   const db = getFirestoreDb();
   if (!db) return false;
 
@@ -746,11 +754,55 @@ export async function upsertVenue(venue: Venue): Promise<boolean> {
         },
         { merge: true },
       );
+    revalidateVenues();
     return true;
   } catch (err) {
     console.error("upsertVenue:", err);
     return false;
   }
+}
+
+/** Delete a Firestore venue doc (ingest stubs, not seed). */
+export async function deleteVenue(slug: string): Promise<boolean> {
+  const trimmed = slug.trim();
+  if (!trimmed) return false;
+  const db = getFirestoreDb();
+  if (!db) return false;
+
+  try {
+    await db.collection("venues").doc(trimmed).delete();
+    revalidateVenues();
+    return true;
+  } catch (err) {
+    console.error("deleteVenue:", err);
+    return false;
+  }
+}
+
+/** Drop dumped ingest-stub venue docs from Firestore. */
+export async function deleteRemovedVenues(): Promise<{
+  deleted: number;
+  errors: number;
+}> {
+  const db = getFirestoreDb();
+  if (!db) return { deleted: 0, errors: 0 };
+
+  let deleted = 0;
+  let errors = 0;
+  for (const slug of REMOVED_VENUE_SLUGS) {
+    try {
+      const ref = db.collection("venues").doc(slug);
+      const doc = await ref.get();
+      if (!doc.exists) continue;
+      await ref.delete();
+      deleted++;
+    } catch (err) {
+      console.error(`Failed to delete venue ${slug}:`, err);
+      errors++;
+    }
+  }
+  if (deleted > 0) revalidateVenues();
+  return { deleted, errors };
 }
 
 /** Persist a resolved Google place_id without rewriting other venue fields. */
