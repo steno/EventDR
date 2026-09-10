@@ -1,7 +1,12 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import { getEventOgImageUrl } from "./event-images";
-import { buildEventMetadata, canonicalMediaUrl } from "./seo";
+import { getDictionary } from "@/i18n/dictionaries";
+import {
+  buildEventBreadcrumbItems,
+  buildEventMetadata,
+  canonicalMediaUrl,
+} from "./seo";
 import type { Event } from "./types";
 
 const dewry: Event = {
@@ -64,6 +69,38 @@ describe("buildEventMetadata", () => {
     const image = images[0];
     assert.ok(image && typeof image === "object" && "url" in image);
     assert.equal(String(image.url), "https://pop-event.com/events/custom-upload.jpg");
+  });
+});
+
+describe("buildEventBreadcrumbItems", () => {
+  it("inserts city and category hubs when the event is in a home zone", () => {
+    const dict = getDictionary("en");
+    assert.deepEqual(buildEventBreadcrumbItems(dewry, "en", dict), [
+      { name: dict.seo.siteName, path: "/en" },
+      { name: "Puerto Plata", path: "/en/city/puerto-plata" },
+      { name: dict.categories.concert, path: "/en/city/puerto-plata/category/concert" },
+      {
+        name: dewry.title,
+        path: "/en/event/dewry-luciano-zona-acapella-2026-08-23",
+      },
+    ]);
+  });
+
+  it("skips the city crumb when the listing is outside home zones", () => {
+    const dict = getDictionary("en");
+    const items = buildEventBreadcrumbItems(
+      { ...dewry, location: "Santo Domingo" },
+      "en",
+      dict,
+    );
+    assert.deepEqual(
+      items.map((item) => item.path),
+      [
+        "/en",
+        "/en/category/concert",
+        "/en/event/dewry-luciano-zona-acapella-2026-08-23",
+      ],
+    );
   });
 });
 

@@ -3,7 +3,7 @@ import type { Locale } from "@/i18n/config";
 import { defaultLocale, locales } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { CityMeta } from "@/lib/cities";
-import { getCitySeo } from "@/lib/cities";
+import { eventCitySlug, getCityMeta, getCityName, getCitySeo } from "@/lib/cities";
 import { getCategorySeo } from "@/lib/category-seo";
 import { getCityCategorySeo } from "@/lib/city-category-seo";
 import { getWhenSeo, type WhenSlug } from "@/lib/time-seo";
@@ -697,6 +697,38 @@ export function buildWebSiteJsonLd(locale: Locale, dict: Dictionary) {
       url: absoluteUrl(localePath(locale)),
     },
   };
+}
+
+/** Home → city (when known) → category → event title. */
+export function buildEventBreadcrumbItems(
+  event: Event,
+  locale: Locale,
+  dict: Dictionary,
+): Array<{ name: string; path: string }> {
+  const items: Array<{ name: string; path: string }> = [
+    { name: dict.seo.siteName, path: localePath(locale) },
+  ];
+  const citySlug = eventCitySlug(event);
+  if (citySlug) {
+    const city = getCityMeta(citySlug);
+    if (city) {
+      items.push({
+        name: getCityName(city, locale),
+        path: localePath(locale, `/city/${citySlug}`),
+      });
+    }
+  }
+  items.push({
+    name: dict.categories[event.category],
+    path: citySlug
+      ? localePath(locale, `/city/${citySlug}/category/${event.category}`)
+      : localePath(locale, `/category/${event.category}`),
+  });
+  items.push({
+    name: event.title,
+    path: localePath(locale, `/event/${event.id}`),
+  });
+  return items;
 }
 
 export function buildBreadcrumbJsonLd(

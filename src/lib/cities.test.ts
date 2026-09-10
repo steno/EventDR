@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { countEventsByCity, venueMatchesCity } from "./cities";
+import { countEventsByCity, eventCitySlug, venueMatchesCity } from "./cities";
 import type { Event } from "./types";
 
 function event(partial: Partial<Event> & Pick<Event, "id" | "location">): Event {
@@ -167,6 +167,37 @@ describe("venueMatchesCity", () => {
     assert.equal(
       venueMatchesCity({ city: "Sosúa", name: "Bar 39" }, "sosua"),
       true,
+    );
+  });
+});
+
+describe("eventCitySlug", () => {
+  it("returns the unique home zone from location", () => {
+    assert.equal(eventCitySlug(event({ id: "cab", location: "Cabarete" })), "cabarete");
+    assert.equal(
+      eventCitySlug(event({ id: "pp", location: "Puerto Plata" })),
+      "puerto-plata",
+    );
+    assert.equal(eventCitySlug(event({ id: "sos", location: "Sosúa" })), "sosua");
+  });
+
+  it("keeps Cabarete when the address names Sosúa municipality", () => {
+    assert.equal(
+      eventCitySlug(
+        event({
+          id: "lax",
+          location: "Cabarete",
+          address: "Sosúa municipality",
+        }),
+      ),
+      "cabarete",
+    );
+  });
+
+  it("returns null outside the North Coast home zones", () => {
+    assert.equal(
+      eventCitySlug(event({ id: "sd", location: "Santo Domingo" })),
+      null,
     );
   });
 });

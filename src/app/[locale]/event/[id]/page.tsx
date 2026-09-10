@@ -19,9 +19,9 @@ import { getVenueAssessment } from "@/lib/venue-assessments";
 import { matchVenueSlug } from "@/lib/venues-seed";
 import {
   buildBreadcrumbJsonLd,
+  buildEventBreadcrumbItems,
   buildEventJsonLd,
   buildEventMetadata,
-  localePath,
 } from "@/lib/seo";
 
 // ISR: cache event detail HTML; back-nav uses sessionStorage, not ?from=.
@@ -86,10 +86,9 @@ export default async function Page({
       <JsonLd
         data={[
           buildEventJsonLd(event, locale, shareUrl),
-          buildBreadcrumbJsonLd([
-            { name: dict.seo.siteName, path: localePath(locale) },
-            { name: event.title, path: localePath(locale, `/event/${event.id}`) },
-          ]),
+          buildBreadcrumbJsonLd(
+            buildEventBreadcrumbItems(event, locale, dict),
+          ),
         ]}
       />
       <EventPage

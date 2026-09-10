@@ -20,6 +20,7 @@ import type { Locale } from "@/i18n/config";
 import type { EventLiveStatus } from "@/lib/event-status";
 import { getDirectionsUrl } from "@/lib/maps";
 import { IntentLink } from "@/components/IntentLink";
+import { EventCategoryLinks } from "@/components/EventCategoryLinks";
 import { EventStatusBadge } from "@/components/EventStatusBadge";
 import { EventOpinionBlock } from "@/components/EventOpinionBlock";
 import { formatEventPlace } from "@/lib/event-location";
@@ -279,6 +280,17 @@ export function EventDetailContent({
           </div>
         )}
       </div>
+
+      <nav aria-label={dict.browse.ariaLabel}>
+        <EventCategoryLinks
+          event={event}
+          locale={locale}
+          dict={dict}
+          className={standalone ? "mt-3" : "mt-4"}
+          returnTo={returnPath}
+          returnTitle={event.title}
+        />
+      </nav>
 
       <p
         className={

@@ -1,18 +1,22 @@
 import { IntentLink } from "@/components/IntentLink";
 import { getCategoryMeta } from "@/lib/categories";
 import { getEventCategoryList } from "@/lib/categorize";
+import { eventCitySlug } from "@/lib/cities";
 import { categoryPath } from "@/lib/event-navigation";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import type { Event } from "@/lib/types";
 
 interface EventCategoryLinksProps {
-  event: Pick<Event, "category" | "categories">;
+  event: Pick<Event, "category" | "categories" | "location" | "venue" | "address">;
   locale: Locale;
   dict: Dictionary;
   className?: string;
   /** Set false when rendered inside another link (event cards). */
   linkable?: boolean;
+  /** Store back-nav to this event when a category pill is tapped. */
+  returnTo?: string | null;
+  returnTitle?: string | null;
 }
 
 function categoryChipClass(index: number, linkable: boolean): string {
@@ -34,9 +38,12 @@ export function EventCategoryLinks({
   dict,
   className = "",
   linkable = true,
+  returnTo,
+  returnTitle,
 }: EventCategoryLinksProps) {
   const ids = getEventCategoryList(event);
   if (ids.length === 0) return null;
+  const citySlug = eventCitySlug(event);
 
   return (
     <div className={`flex flex-wrap gap-1.5 ${className}`}>
@@ -61,7 +68,13 @@ export function EventCategoryLinks({
         }
 
         return (
-          <IntentLink key={id} href={categoryPath(locale, id)} className={chipClass}>
+          <IntentLink
+            key={id}
+            href={categoryPath(locale, id, citySlug)}
+            className={chipClass}
+            returnTo={returnTo}
+            returnTitle={returnTitle}
+          >
             {content}
           </IntentLink>
         );

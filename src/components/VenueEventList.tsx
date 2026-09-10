@@ -128,6 +128,7 @@ export function VenueEventList({
         defaultTimeRange="all"
         view="list"
         scrollOnFilterChange={false}
+        addEventCta="inline"
         hideTimeFilter={tab === "past"}
         hidePriceFilter
         clusterVenueRecurring={false}

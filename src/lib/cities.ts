@@ -325,7 +325,10 @@ function cityFromLocationField(location: string | undefined): CitySlug | null {
   return hits.length === 1 ? hits[0].slug : null;
 }
 
-export function eventMatchesCity(event: Event, slug: CitySlug): boolean {
+export function eventMatchesCity(
+  event: Pick<Event, "location" | "venue" | "address">,
+  slug: CitySlug,
+): boolean {
   const city = getCityMeta(slug);
   if (!city) return false;
 
@@ -339,6 +342,16 @@ export function eventMatchesCity(event: Event, slug: CitySlug): boolean {
   return city.matchers.some((matcher) =>
     haystack.includes(normalizeLocation(matcher)),
   );
+}
+
+/** Home-zone slug when the listing maps to exactly one North Coast city. */
+export function eventCitySlug(
+  event: Pick<Event, "location" | "venue" | "address">,
+): CitySlug | null {
+  for (const slug of CITY_SLUGS) {
+    if (eventMatchesCity(event, slug)) return slug;
+  }
+  return null;
 }
 
 /** Match a venue to a home city using `city` (and name as a weak fallback). */

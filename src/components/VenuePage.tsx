@@ -515,7 +515,7 @@ export function VenuePage({
                   dict={dict}
                   returnTo={listReturnTo}
                   returnTitle={venue.name}
-                  className="mt-6"
+                  className="mt-4"
                 />
               ) : null}
             </div>
