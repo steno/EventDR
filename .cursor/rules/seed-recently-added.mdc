@@ -1,15 +1,36 @@
 ---
-description: New seed events must get SEED_CREATED_AT for home Recently added
-globs: src/data/seeds/**/*.json,src/lib/seed-created-at.ts,src/lib/venues-seed.ts,src/lib/fallback-events.ts,src/lib/recurring-events.ts
+description: New seeds require SEED_CREATED_AT, venue tip/assessment, and event opinion
+globs: src/data/seeds/**/*.json,src/lib/seed-created-at.ts,src/lib/venues-seed.ts,src/lib/venues-i18n.ts,src/lib/fallback-events.ts,src/lib/recurring-events.ts,src/lib/venue-assessment-tips.ts,src/lib/venue-assessments-seed.ts,src/lib/event-opinions-seed.ts,src/lib/event-opinions-seed-more.ts
 alwaysApply: false
 ---
 
-# Seed → home Recently added
+# Seed completeness (home + editorial)
 
-When adding any **new** event seed id (`fallback.*.json` or `recurring.*.json`):
+When adding any **new** event seed id (`fallback.*.json` or `recurring.*.json`), finish **all** of the following before calling the work done. Incomplete seeds are not shippable.
 
-1. Add the same `id` to `SEED_CREATED_AT` in `src/lib/seed-created-at.ts`
+## 1. Home Recently added (required)
+
+1. Add the same event `id` to `SEED_CREATED_AT` in `src/lib/seed-created-at.ts`
 2. Use commit-day noon UTC, e.g. `"2026-09-09T12:00:00.000Z"`
 3. Without this, the event page can work while home **Recently added** omits it (`getNewHighlightEvents` requires `createdAt` within 14 days)
 
-Also wire images, attributions, and curated `isFree`/tickets as usual.
+## 2. Event POP opinion (required)
+
+1. Add a unique seed opinion for the new event `id` in `src/lib/event-opinions-seed.ts` or `src/lib/event-opinions-seed-more.ts`
+2. Copy must be specific (contrast + tradeoff or practical send), EN body plus ES/FR `localized`, with `priceFeel` / `priceNote` when useful
+3. Do **not** ship a generic recycled blurb. Prefer Google Places / official research; if evidence is thin, write a cautious specific tip from verified schedule/venue facts — do not leave the event without an opinion
+4. Server ingest drafts (`eventOpinionDrafts`) are a backup for live crawls, **not** a substitute for seeding opinions on new seed events in-repo
+
+## 3. New venue tip + assessment (required when the venue is new)
+
+When introducing a **new** `venueSlug` (or first time that slug gets a seeded listing):
+
+1. Unique tip in `VENUE_TIP_COPY` (`src/lib/venue-assessment-tips.ts`) — EN `body` + ES/FR `localized`
+2. Matching `editorial({ venueSlug: ... })` entry in `SEED_VENUE_ASSESSMENTS` (`src/lib/venue-assessments-seed.ts`) — `editorial()` throws if the tip body is missing
+3. Wire venue seed / i18n / image / attributions as usual
+
+When only adding events at an **existing** venue, refresh the tip if the new nights meaningfully change the guest send; otherwise leave the existing tip.
+
+## 4. Also wire as usual
+
+Images, attributions, curated `isFree` / tickets / phone maps, and EN/ES/FR seed parity.

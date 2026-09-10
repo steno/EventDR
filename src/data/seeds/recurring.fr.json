@@ -1046,31 +1046,32 @@
     "format": "physical",
     "recurrence": "weekly",
     "recurrenceDay": 1,
-    "sourceUrl": "https://www.facebook.com/profile.php?id=100089059716413",
+    "sourceUrl": "https://www.instagram.com/diaynocherestaurantelcarey/p/DdCf7L1mwx3/",
     "imageEmoji": "🎤"
   },
   {
     "id": "el-carey-weekend-nightlife",
-    "title": "Nightlife du week-end au El Carey",
-    "description": "Soirées du week-end au El Carey Día y Noche sur la plage de Costambar — sports sur grand écran, DJ, boissons fraîches et ambiance locale au bord de l'eau.",
+    "title": "Soirée DJ au El Carey",
+    "description": "Jeudi et dimanche DJ live au El Carey Día y Noche sur la plage de Costambar — boissons fraîches, foule locale et l'Atlantique à deux pas du sable. Début à 18 h.",
     "date": "2026-01-01",
-    "time": "8:00 PM – 2:00 AM",
+    "time": "6:00 PM",
     "location": "Costambar",
     "venue": "El Carey Día y Noche",
     "venueSlug": "el-carey-puerto-plata",
     "address": "Calle Reina Isabel, Costambar",
     "category": "parties",
     "categories": [
-      "food-drinks"
+      "food-drinks",
+      "music"
     ],
     "format": "physical",
     "recurrence": "weekly",
     "recurrenceDays": [
-      5,
-      6
+      0,
+      4
     ],
-    "sourceUrl": "https://www.facebook.com/profile.php?id=100089059716413",
-    "imageEmoji": "🪩"
+    "sourceUrl": "https://www.instagram.com/diaynocherestaurantelcarey/p/DdCf7L1mwx3/",
+    "imageEmoji": "🎧"
   },
   {
     "id": "brugal-corporate-tours",
@@ -2377,6 +2378,100 @@
     "phone": "+18296798389",
     "sourceType": "community",
     "sourceUrl": "https://www.facebook.com/photo/?fbid=1716968790433509&set=g.479060124104851",
+    "imageEmoji": "🎤"
+  },
+  {
+    "id": "el-carey-bohemian-wednesday",
+    "title": "Nuit bohème au El Carey",
+    "description": "Tous les mercredis nuit bohème / cigares au El Carey Día y Noche à Costambar — cognac, cigares et patio face à la mer. Début à 18 h.",
+    "date": "2026-01-01",
+    "time": "6:00 PM",
+    "location": "Costambar",
+    "venue": "El Carey Día y Noche",
+    "venueSlug": "el-carey-puerto-plata",
+    "address": "Calle Reina Isabel, Costambar",
+    "category": "food-drinks",
+    "categories": [
+      "music"
+    ],
+    "format": "physical",
+    "recurrence": "weekly",
+    "recurrenceDay": 3,
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/diaynocherestaurantelcarey/p/DdCf7L1mwx3/",
+    "imageEmoji": "🚬"
+  },
+  {
+    "id": "el-carey-sabado-de-son",
+    "title": "Sábado de Son au El Carey",
+    "description": "Tous les samedis Sábado de Son au El Carey Día y Noche à Costambar — son live, danse et énergie face à la mer. Début à 18 h.",
+    "date": "2026-01-01",
+    "time": "6:00 PM",
+    "location": "Costambar",
+    "venue": "El Carey Día y Noche",
+    "venueSlug": "el-carey-puerto-plata",
+    "address": "Calle Reina Isabel, Costambar",
+    "category": "music",
+    "categories": [
+      "dance",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "recurrence": "weekly",
+    "recurrenceDay": 6,
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/diaynocherestaurantelcarey/p/DdCf7L1mwx3/",
+    "imageEmoji": "🥁"
+  },
+  {
+    "id": "tasty-food-park-karaoke-wednesday",
+    "title": "Karaoké au Tasty Food Park",
+    "description": "Tous les mercredis karaoké au Tasty Food Park (Av. 27 de Febrero, Puerto Plata) — micro avec DJ Koky dès 18 h. Plats du food court et boissons sous les guirlandes.",
+    "date": "2026-01-01",
+    "time": "6:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Tasty Food Park",
+    "venueSlug": "tasty-food-park-puerto-plata",
+    "address": "Av. 27 de Febrero, Puerto Plata 57000",
+    "lat": 19.7922089,
+    "lng": -70.6867634,
+    "category": "performances",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "recurrence": "weekly",
+    "recurrenceDay": 3,
+    "phone": "+18092042939",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/p/DdCb0pmiAVA/",
+    "imageEmoji": "🎤"
+  },
+  {
+    "id": "hard-rock-karaoke-wednesday",
+    "title": "Karaoké Night au Hard Rock Cafe",
+    "description": "Tous les mercredis karaoké au Hard Rock Cafe Puerto Plata (Calle Duarte, Sosúa) — dès 19 h, sans cover, prix pour la meilleure voix. Cuisine, boissons et promos sur la plus grande scène du centre. WhatsApp +1 849-505-7778.",
+    "date": "2026-01-01",
+    "time": "7:00 PM",
+    "location": "Sosúa",
+    "venue": "Hard Rock Cafe Puerto Plata",
+    "venueSlug": "hard-rock-sosua",
+    "address": "Calle Duarte 7, Sosúa",
+    "lat": 19.7634107,
+    "lng": -70.5162309,
+    "category": "performances",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "recurrence": "weekly",
+    "recurrenceDay": 3,
+    "isFree": true,
+    "phone": "+18495057778",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/p/DbnyReiOybQ/",
     "imageEmoji": "🎤"
   }
 ]

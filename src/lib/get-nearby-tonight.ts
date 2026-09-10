@@ -13,7 +13,7 @@ import { getPublicEvents } from "@/lib/public-events";
 import { filterRemovedSeedEvents } from "@/lib/removed-seeds";
 import type { Event, Venue } from "@/lib/types";
 import {
-  findVenueRecurringSiblings,
+  findVenueOtherNights,
   type VenueSiblingNight,
 } from "@/lib/venue-recurring-siblings";
 
@@ -67,14 +67,14 @@ export async function getNearbyTonightForEvent(
   return findNearbyForEventDetail(event, pool);
 }
 
-/** Other recurring nights/programs at the same venue for event detail. */
+/** Other upcoming events at the same venue for event detail ("Also at"). */
 export async function getVenueOtherNightsForEvent(
   event: Event,
   locale: Locale,
 ): Promise<VenueSiblingNight[]> {
   const pool = await getNearbyEventPool(locale);
   const dict = getDictionary(locale);
-  return findVenueRecurringSiblings(event, pool, locale, dict);
+  return findVenueOtherNights(event, pool, locale, dict);
 }
 
 /**

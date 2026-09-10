@@ -26,11 +26,11 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "hard-rock-sosua": {
-    body: "Calle Duarte's biggest, easiest guest send for a billed show — loud and tourist-friendly, not an underground local disco.",
+    body: "Calle Duarte's biggest, easiest guest send for a billed show — loud and tourist-friendly. Wednesdays are free karaoke from 7 PM; weekends are the ticketed stage, not an underground local disco.",
     localized: {
-      en: "Calle Duarte's biggest, easiest guest send for a billed show — loud and tourist-friendly, not an underground local disco.",
-      es: "El envío más fácil en Calle Duarte para un show con cartel — fuerte y turístico, no una disco local underground.",
-      fr: "L'envoi le plus simple sur Calle Duarte pour un show annoncé — fort et visitor-friendly, pas une disco locale underground.",
+      en: "Calle Duarte's biggest, easiest guest send for a billed show — loud and tourist-friendly. Wednesdays are free karaoke from 7 PM; weekends are the ticketed stage, not an underground local disco.",
+      es: "El envío más fácil en Calle Duarte para un show con cartel — fuerte y turístico. Los miércoles karaoke gratis desde las 7 PM; el fin de semana es escenario con boleta, no una disco local underground.",
+      fr: "L'envoi le plus simple sur Calle Duarte pour un show annoncé — fort et visitor-friendly. Mercredi karaoke gratuit dès 19 h ; le week-end c'est la scène billetée, pas une disco locale underground.",
     },
   },
   "liquid-blue-cabarete": {
@@ -314,11 +314,11 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "el-carey-puerto-plata": {
-    body: "Costambar day-and-night spot west of town — sports screens and beach-club energy; plan a ride, it's not downtown Puerto Plata.",
+    body: "Costambar beach west of town — weekly nights from karaoke to Son and DJ sets; plan a ride, it's not downtown Puerto Plata.",
     localized: {
-      en: "Costambar day-and-night spot west of town — sports screens and beach-club energy; plan a ride, it's not downtown Puerto Plata.",
-      es: "Spot día-y-noche en Costambar al oeste del centro — pantallas de deportes y energía beach club; planea transporte.",
-      fr: "Spot jour-et-nuit à Costambar à l'ouest du centre — écrans sport et énergie beach club ; prévoyez un trajet.",
+      en: "Costambar beach west of town — weekly nights from karaoke to Son and DJ sets; plan a ride, it's not downtown Puerto Plata.",
+      es: "Playa Costambar al oeste del centro — noches semanales de karaoke a Son y DJ; planea transporte, no es el downtown de Puerto Plata.",
+      fr: "Plage Costambar à l'ouest du centre — soirs de la semaine du karaoké au Son et DJ ; prévoyez un trajet, ce n'est pas le downtown de Puerto Plata.",
     },
   },
   "hotel-ocean-winds": {
@@ -895,6 +895,30 @@ export const VENUE_TIP_COPY: Record<
       en: "Sand tables on Cabarete Bay under the Latin Wok lanterns — Asian-Latin plates with your feet near the water. This is the beach strip, not a Puerto Plata plaza storefront.",
       es: "Mesas en la arena de Cabarete Bay bajo los faroles de Latin Wok — platos latino-asiáticos con los pies cerca del agua. Es la franja de playa, no un local de plaza en Puerto Plata.",
       fr: "Tables sur le sable de Cabarete Bay sous les lanternes Latin Wok — assiettes latino-asiatiques les pieds près de l’eau. C’est la bande de plage, pas une boutique de plaza à Puerto Plata.",
+    },
+  },
+  "latinwok-plaza-uno": {
+    body: "Plaza 1 on Av. Luis Ginebra — Latin-Asian kitchen for ramen nights and wok plates in town. Closed Wednesdays; reserve for guest collabs like El Ramero Solitario.",
+    localized: {
+      en: "Plaza 1 on Av. Luis Ginebra — Latin-Asian kitchen for ramen nights and wok plates in town. Closed Wednesdays; reserve for guest collabs like El Ramero Solitario.",
+      es: "Plaza 1 en Av. Luis Ginebra — cocina latino-asiática para noches de ramen y wok en la ciudad. Cerrado miércoles; reserva para collabs como El Ramero Solitario.",
+      fr: "Plaza 1 sur Av. Luis Ginebra — cuisine latino-asiatique pour soirées ramen et wok en ville. Fermé mercredi ; réservez pour les collabs comme El Ramero Solitario.",
+    },
+  },
+  "desarrollo-fitness-cabarete": {
+    body: "Local Cabarete run/fitness organizer — Instagram and WhatsApp are the real front desk. Race morning meeting points change; confirm before you pin a gym door.",
+    localized: {
+      en: "Local Cabarete run/fitness organizer — Instagram and WhatsApp are the real front desk. Race morning meeting points change; confirm before you pin a gym door.",
+      es: "Organizador local de running/fitness en Cabarete — Instagram y WhatsApp son la recepción real. El punto de salida puede cambiar; confirma antes de clavar un gym.",
+      fr: "Orga local running/fitness à Cabarete — Instagram et WhatsApp sont le vrai guichet. Le point de départ peut bouger ; confirmez avant d’épingler une salle.",
+    },
+  },
+  "tasty-food-park-puerto-plata": {
+    body: "Open-air food court on Av. 27 de Febrero — multi-vendor plates under the arch; Wednesday karaoke with DJ Koky from 6 PM, not a beachfront Cabarete park.",
+    localized: {
+      en: "Open-air food court on Av. 27 de Febrero — multi-vendor plates under the arch; Wednesday karaoke with DJ Koky from 6 PM, not a beachfront Cabarete park.",
+      es: "Food court al aire libre en Av. 27 de Febrero — puestos bajo el arco; karaoke los miércoles con DJ Koky desde las 6 PM, no un food park de playa en Cabarete.",
+      fr: "Food court en plein air sur Av. 27 de Febrero — stands sous l'arche ; karaoké le mercredi avec DJ Koky dès 18 h, pas un park plage à Cabarete.",
     },
   },
   "mauros-puerto-plata": {

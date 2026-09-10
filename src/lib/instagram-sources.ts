@@ -62,6 +62,11 @@ export const INSTAGRAM_ACCOUNTS = [
     areas: ["Sosúa"],
   },
   {
+    handle: "gy_fitness_sosua",
+    label: "GY Fitness Sosúa",
+    areas: ["Sosúa"],
+  },
+  {
     handle: "sosuaevents",
     label: "Sosúa Events",
     areas: ["Sosúa"],
@@ -160,8 +165,23 @@ export const INSTAGRAM_ACCOUNTS = [
     areas: ["Puerto Plata"],
   },
   {
-    handle: "voyvoycabarete",
+    handle: "voyvoybar",
     label: "VOYVOY Cabarete",
+    areas: ["Cabarete"],
+  },
+  {
+    handle: "tastyfoodpark",
+    label: "Tasty Food Park",
+    areas: ["Puerto Plata"],
+  },
+  {
+    handle: "diaynocherestaurantelcarey",
+    label: "El Carey Día y Noche",
+    areas: ["Costambar", "Puerto Plata"],
+  },
+  {
+    handle: "desarrollo_fitness_cabarete",
+    label: "Desarrollo Fitness Cabarete",
     areas: ["Cabarete"],
   },
   {

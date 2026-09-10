@@ -5,6 +5,7 @@ import type { Event } from "@/lib/types";
 import {
   clusterRecurringVenueEvents,
   eventsAfterVenueClustering,
+  findVenueOtherNights,
   findVenueRecurringSiblings,
 } from "./venue-recurring-siblings";
 import { getRecurringEvents } from "./recurring-events";
@@ -115,6 +116,58 @@ describe("clusterRecurringVenueEvents", () => {
     assert.equal(clustered.length, 2);
     assert.equal(clustered[0]?.venueSiblings, undefined);
     assert.equal(clustered[1]?.venueSiblings, undefined);
+  });
+});
+
+describe("findVenueOtherNights", () => {
+  it("includes recurring siblings and upcoming one-offs at the same venue", () => {
+    const karaoke = event({
+      id: "hard-rock-karaoke-wednesday",
+      title: "Karaoke Night",
+      venueSlug: "hard-rock-sosua",
+      recurrence: "weekly",
+      recurrenceDay: 3,
+      date: "2026-09-16",
+    });
+    const weekends = event({
+      id: "hard-rock-weekends",
+      title: "Live Shows",
+      venueSlug: "hard-rock-sosua",
+      recurrence: "weekly",
+      recurrenceDays: [5, 6],
+      date: "2026-09-12",
+    });
+    const neon = event({
+      id: "sosua-neon-partyrun-2026-10-24",
+      title: "Neon Partyrun",
+      venueSlug: "hard-rock-sosua",
+      date: "2026-10-24",
+      category: "sports",
+    });
+    const past = event({
+      id: "past-one-off",
+      title: "Past Show",
+      venueSlug: "hard-rock-sosua",
+      date: "2026-01-01",
+      category: "concert",
+    });
+    const elsewhere = event({
+      id: "other-venue",
+      title: "Elsewhere",
+      venueSlug: "lax-cabarete",
+      date: "2026-10-24",
+    });
+
+    const siblings = findVenueOtherNights(
+      karaoke,
+      [karaoke, weekends, neon, past, elsewhere],
+      "en",
+      dict,
+    );
+    assert.deepEqual(
+      siblings.map((s) => s.id),
+      ["sosua-neon-partyrun-2026-10-24", "hard-rock-weekends"],
+    );
   });
 });
 

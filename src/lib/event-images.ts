@@ -96,6 +96,18 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "anfiteatro-la-puntilla-weekday-bowl.jpg",
   "el-carey-karaoke-mujeres-monday": "el-carey-karaoke-mujeres-monday.jpg",
   "el-carey-weekend-nightlife": "el-carey-weekend-nightlife-lanterns.jpg",
+  "el-carey-bohemian-wednesday": "el-carey-bohemian-wednesday.jpg",
+  "el-carey-sabado-de-son": "el-carey-sabado-de-son.jpg",
+  "tasty-food-park-karaoke-wednesday": "tasty-food-park-karaoke-wednesday.jpg",
+  "ernesto-betances-rancho-catalina-2026-09-13":
+    "ernesto-betances-rancho-catalina-2026-09-13.jpg",
+  "el-cuarteto-del-swing-zona-acapella-2026-09-13":
+    "el-cuarteto-del-swing-zona-acapella-2026-09-13.jpg",
+  "cabarete-run-festival-5k-2026-11-08": "cabarete-run-festival-5k-2026-11-08.jpg",
+  "latinwok-ramen-party-2026-09-17": "latinwok-ramen-party-2026-09-17.jpg",
+  "hard-rock-karaoke-wednesday": "hard-rock-karaoke-wednesday.jpg",
+  "sosua-neon-partyrun-2026-10-24": "sosua-neon-partyrun-2026-10-24.jpg",
+  "hard-rock-casa-mickey-2026-09-26": "hard-rock-casa-mickey-2026-09-26.jpg",
   "sosua-jewish-museum-hours": "sosua-jewish-museum-hours.jpg",
   "sosua-diving-adventures-daily": "sosua-diving-adventures-daily.jpg",
   // Filename bump — Pedro Clisante night strip (not the shared salsa-social shot).
@@ -121,7 +133,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "lax-headline-concerts": "lax-headline-concerts.jpg",
   "voyvoy-monday-live-music": "voyvoy-monday-night-terrace.jpg",
   // Filename bumps — unique heroes (sync used to clone Monday dining onto Sat/Sun).
-  "voyvoy-saturday-session": "voyvoy-saturday-session-band.jpg",
+  "voyvoy-saturday-session": "voyvoy-saturday-session-flyer.jpg",
   "voyvoy-sunday-open-mic": "voyvoy-sunday-open-mic-closeup.jpg",
   "womens-reconnection-kite-camp-2026": "womens-reconnection-kite-camp-2026.jpg",
   "kite-beach-wind-culture": "kite-beach-wind-culture.jpg",

@@ -86,7 +86,7 @@ async function loadVenueBySlug(
 
 const getCachedVenueBySlug = unstable_cache(
   loadVenueBySlug,
-  ["venue-by-slug"],
+  ["venue-by-slug-v4"],
   { revalidate: VENUES_REVALIDATE_SECONDS, tags: ["venues"] },
 );
 
@@ -127,7 +127,7 @@ async function loadVenues(locale: string): Promise<Venue[]> {
 
 const getCachedVenues = unstable_cache(
   loadVenues,
-  ["venues-list"],
+  ["venues-list-v4"],
   { revalidate: VENUES_REVALIDATE_SECONDS, tags: ["venues"] },
 );
 

@@ -97,27 +97,39 @@ export function VenuePage({
     setEvents(filterByVenueSlug(incoming, venue.slug));
   }
 
-  function loadEvents() {
+  /** Soft refresh merges by id so a stale API/CDN payload cannot shrink SSR. */
+  function mergeVenueEvents(incoming: Event[]) {
+    const next = filterByVenueSlug(incoming, venue.slug);
+    setEvents((prev) => {
+      if (next.length === 0) return prev;
+      const byId = new Map(prev.map((event) => [event.id, event]));
+      for (const event of next) byId.set(event.id, event);
+      return Array.from(byId.values());
+    });
+  }
+
+  function loadEvents(mode: "replace" | "merge" = "replace") {
     return fetch(
       `/api/events?locale=${locale}&venue=${venue.slug}&includePast=1`,
     )
       .then((r) => r.json())
       .then((d: { events?: Event[] }) => {
-        applyVenueEvents(d.events ?? []);
+        if (mode === "merge") mergeVenueEvents(d.events ?? []);
+        else applyVenueEvents(d.events ?? []);
       })
       .catch(() => {
-        if (initialEvents.length === 0) setEvents([]);
+        if (mode === "replace" && initialEvents.length === 0) setEvents([]);
       });
   }
 
   const refreshEvents = useCallback(() => {
     setLoading(true);
-    loadEvents().finally(() => setLoading(false));
+    loadEvents("replace").finally(() => setLoading(false));
     // eslint-disable-next-line react-hooks/exhaustive-deps -- venue.slug / locale drive URL
   }, [locale, venue.slug]);
 
   const softRefreshEvents = useCallback(() => {
-    void loadEvents();
+    void loadEvents("merge");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [locale, venue.slug]);
 

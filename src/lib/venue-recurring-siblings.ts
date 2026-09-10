@@ -1,5 +1,6 @@
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
+import { isPastOneOffEvent } from "@/lib/event-dates";
 import { getEventImageUrl } from "@/lib/event-images";
 import { isRecurringEvent } from "@/lib/event-status";
 import { formatRecurrenceLabel } from "@/lib/recurrence-label";
@@ -95,6 +96,44 @@ export function findVenueRecurringSiblings(
         venueKey(candidate) === slug,
     )
     .sort((a, b) => {
+      const dateCmp = (a.date ?? "").localeCompare(b.date ?? "");
+      if (dateCmp !== 0) return dateCmp;
+      return a.title.localeCompare(b.title);
+    })
+    .map((candidate) => ({
+      id: candidate.id,
+      title: candidate.title,
+      label: siblingLabel(candidate, locale, dict),
+      date: candidate.date,
+      time: candidate.time,
+      imageUrl: siblingHeroUrl(candidate),
+    }));
+}
+
+/**
+ * All other upcoming listings at the same venue for event detail "Also at".
+ * Includes recurring programs and dated one-offs (not only sibling nights).
+ */
+export function findVenueOtherNights(
+  event: Event,
+  pool: Event[],
+  locale: Locale,
+  dict: Dictionary,
+): VenueSiblingNight[] {
+  const slug = venueKey(event);
+  if (!slug) return [];
+
+  return pool
+    .filter(
+      (candidate) =>
+        candidate.id !== event.id &&
+        venueKey(candidate) === slug &&
+        !isPastOneOffEvent(candidate),
+    )
+    .sort((a, b) => {
+      const aRecurring = isRecurringEvent(a) ? 1 : 0;
+      const bRecurring = isRecurringEvent(b) ? 1 : 0;
+      if (aRecurring !== bRecurring) return aRecurring - bRecurring;
       const dateCmp = (a.date ?? "").localeCompare(b.date ?? "");
       if (dateCmp !== 0) return dateCmp;
       return a.title.localeCompare(b.title);

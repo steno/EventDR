@@ -76,7 +76,7 @@ export const SEED_VENUES: Venue[] = [
     name: "Hard Rock Cafe Puerto Plata",
     city: "Sosúa",
     description:
-      "Two-story downtown stage on Calle Duarte — touring acts, local rock bands, and tribute shows on the North Coast's biggest live-music floor.",
+      "Two-story downtown stage on Calle Duarte — touring acts, Wednesday karaoke from 7 PM (no cover), family shows, and tribute nights on the North Coast's biggest live-music floor. Sep–Oct hours: closed Monday; Tue–Fri 4:00 PM–12:00 AM; Sat 12:00 PM–12:00 AM; Sun 12:00 PM–11:00 PM. Rock Shop tickets / WhatsApp +1 849-505-7778.",
     lat: 19.7634107,
     lng: -70.5162309,
     emoji: "🎸",
@@ -280,10 +280,11 @@ export const SEED_VENUES: Venue[] = [
     name: "VOYVOY Cabarete",
     city: "Cabarete",
     description:
-      "Beachfront restaurant and nightlife spot on Cabarete Bay — open mic jams, DJ sessions, and weekend dance parties with bay views.",
+      "Beachfront restaurant and nightlife spot on Cabarete Bay — open mic jams, Saturday Sessions, and bay views. Hours: Sun/Tue/Thu/Fri 7:30 AM–11:00 PM; Mon 7:30 AM–1:00 AM; Sat 7:30 AM–3:00 AM; Wed 7:30 AM–7:00 PM.",
     lat: 19.7502161,
     lng: -70.4066784,
     emoji: "🎤",
+    instagram: "voyvoybar",
     phone: "+18095710805",
   },
   {
@@ -419,11 +420,12 @@ export const SEED_VENUES: Venue[] = [
     name: "El Carey Día y Noche",
     city: "Costambar",
     description:
-      "Day-and-night spot on Costambar beach (Calle Reina Isabel) with live sports on a giant screen, drinks, and local nightlife.",
+      "Day-and-night beachfront on Costambar (Calle Reina Isabel) — seafood, giant-screen sports, and a weekly night lineup: Mon karaoke Mujeres Empoderadas; Tue taco special; Wed Bohemian/cigar night; Thu DJ; Fri karaoke; Sat Sábado de Son; Sun DJ. Instagram @diaynocherestaurantelcarey.",
     lat: 19.8145247,
     lng: -70.7150884,
     emoji: "⚽",
     website: "https://www.facebook.com/profile.php?id=100089059716413",
+    instagram: "diaynocherestaurantelcarey",
     phone: "+18494404199",
   },
   {
@@ -1475,6 +1477,22 @@ export const SEED_VENUES: Venue[] = [
     phone: "+18095748621",
   },
   {
+    slug: "latinwok-plaza-uno",
+    name: "Latin Wok Plaza Uno",
+    city: "Puerto Plata",
+    description:
+      "Latin-Asian kitchen at Plaza 1 on Av. Luis Ginebra — wok, sushi, ramen, and teppanyaki in Puerto Plata centro. Mon 5:00–11:00 PM; Tue/Thu–Sun 12:00–11:00 PM; closed Wednesday.",
+    lat: 19.7879774,
+    lng: -70.6764488,
+    emoji: "🍜",
+    instagram: "latinwokrd",
+    phone: "+18092612020",
+    website: "https://www.instagram.com/latinwokrd/",
+    googleRating: 4.3,
+    googleReviewCount: 84,
+    googleRatingFetchedAt: "2026-09-10T00:00:00.000Z",
+  },
+  {
     slug: "mauros-puerto-plata",
     name: "Mauro’s",
     city: "Puerto Plata",
@@ -1500,6 +1518,34 @@ export const SEED_VENUES: Venue[] = [
     phone: "+18099649916",
     googleRating: 4.6,
     googleRatingFetchedAt: "2026-09-07T00:00:00.000Z",
+  },
+  {
+    slug: "desarrollo-fitness-cabarete",
+    name: "Desarrollo Fitness Cabarete",
+    city: "Cabarete",
+    description:
+      "Cabarete fitness community and race organizer behind the Cabarete Run Festival — training updates and race registration via Instagram and WhatsApp. Confirm start-line meeting point with organizers before race morning.",
+    lat: 19.7503643,
+    lng: -70.406125,
+    emoji: "🏃",
+    instagram: "desarrollo_fitness_cabarete",
+    website: "https://www.instagram.com/desarrollo_fitness_cabarete/",
+    phone: "+18097696199",
+  },
+  {
+    slug: "tasty-food-park-puerto-plata",
+    name: "Tasty Food Park",
+    city: "Puerto Plata",
+    description:
+      "Outdoor food court on Av. 27 de Febrero — multi-vendor plates, drinks, and Wednesday karaoke with DJ Koky from 6:00 PM. Open daily 4:00 PM–12:00 AM.",
+    lat: 19.7922089,
+    lng: -70.6867634,
+    emoji: "🍔",
+    instagram: "tastyfoodpark",
+    phone: "+18092042939",
+    googleRating: 4.4,
+    googleReviewCount: 183,
+    googleRatingFetchedAt: "2026-09-10T00:00:00.000Z",
   },
   {
     slug: "rancho-catalina-puerto-plata",
@@ -1718,6 +1764,14 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
     slug: "zona-acapella-club",
   },
   {
+    pattern: /desarrollo\s*fitness(\s*cabarete)?/i,
+    slug: "desarrollo-fitness-cabarete",
+  },
+  {
+    pattern: /tasty\s*food\s*park/i,
+    slug: "tasty-food-park-puerto-plata",
+  },
+  {
     pattern:
       /pop\s*cinemas|cinemas?\s*pop|playa\s*dorada\s*(mall|cinema|cine)/i,
     slug: "pop-cinemas-playa-dorada",
@@ -1743,6 +1797,10 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
     slug: "la-isabela-colonial-puerto-plata",
   },
   { pattern: /la\s*lola|lalola\s*beach/i, slug: "la-lola-malecon" },
+  {
+    pattern: /latin\s*wok\s*(plaza\s*(uno|1)|puerto\s*plata)|latinwok\s*(plaza|centro)|plaza\s*(uno|1).*latin\s*wok/i,
+    slug: "latinwok-plaza-uno",
+  },
   {
     pattern: /latin\s*wok|latinwok|latino\s*wok/i,
     slug: "latinwok-puerto-plata",

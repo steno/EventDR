@@ -1315,6 +1315,39 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     ],
   }),
   editorial({
+    venueSlug: "latinwok-plaza-uno",
+    verdictKey: "strong_mixed_food_nightlife",
+    crowdFit: ["local", "visitor", "mixed"],
+    axes: { recommend: 4.2, atmosphere: 4.1, value: 3.6, practical: 4.2 },
+    themes: [
+      { key: "easy_to_find", sentiment: "positive" },
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+      { key: "busy_weekends", sentiment: "mixed" },
+    ],
+  }),
+  editorial({
+    venueSlug: "desarrollo-fitness-cabarete",
+    verdictKey: "solid_visitor_activity",
+    crowdFit: ["local", "visitor", "mixed"],
+    axes: { recommend: 4.0, atmosphere: 3.8, value: 3.9, practical: 3.7 },
+    themes: [
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+      { key: "easy_to_find", sentiment: "mixed" },
+      { key: "family_friendly", sentiment: "positive", audience: "family" },
+    ],
+  }),
+  editorial({
+    venueSlug: "tasty-food-park-puerto-plata",
+    verdictKey: "strong_local_food",
+    crowdFit: ["local", "family", "mixed", "visitor"],
+    axes: { recommend: 4.3, atmosphere: 4.2, value: 4.0, practical: 4.1 },
+    themes: [
+      { key: "family_friendly", sentiment: "positive", audience: "family" },
+      { key: "easy_to_find", sentiment: "positive" },
+      { key: "karaoke", sentiment: "positive" },
+    ],
+  }),
+  editorial({
     venueSlug: "mauros-puerto-plata",
     verdictKey: "strong_local_food",
     crowdFit: ["local", "visitor", "family", "mixed"],

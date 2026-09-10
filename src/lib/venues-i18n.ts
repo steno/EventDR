@@ -47,8 +47,8 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
   },
   "hard-rock-sosua": {
     description: {
-      es: "Escenario de dos pisos en el centro sobre la Calle Duarte — giras, bandas de rock locales y tributos en la mayor sala de música en vivo de la Costa Norte.",
-      fr: "Scène sur deux étages en centre-ville sur la Calle Duarte — tournées, groupes de rock locaux et hommages sur la plus grande scène live de la Côte Nord.",
+      es: "Escenario de dos pisos en el centro sobre la Calle Duarte — giras, karaoke los miércoles desde las 7 PM (sin cover), shows familiares y tributos en la mayor sala de música en vivo de la Costa Norte. Horarios sep–oct: cerrado lunes; mar–vie 4:00 PM–12:00 AM; sáb 12:00 MD–12:00 AM; dom 12:00 MD–11:00 PM. Boletas Rock Shop / WhatsApp +1 849-505-7778.",
+      fr: "Scène sur deux étages en centre-ville sur la Calle Duarte — tournées, karaoke le mercredi dès 19 h (sans cover), spectacles familiaux et hommages sur la plus grande scène live de la Côte Nord. Horaires sep–oct : fermé lundi ; mar–ven 16 h–minuit ; sam 12 h–minuit ; dim 12 h–23 h. Billets Rock Shop / WhatsApp +1 849-505-7778.",
     },
   },
   "castaways-sosua": {
@@ -175,8 +175,8 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
   },
   "voyvoy-cabarete": {
     description: {
-      es: "Restaurante frente al mar y punto de vida nocturna en la bahía de Cabarete — jams de open mic, sesiones de DJ y fiestas de baile los fines de semana con vistas a la bahía.",
-      fr: "Restaurant en bord de mer et spot de nuit sur la baie de Cabarete — jams open mic, sets DJ et soirées danse le week-end avec vue sur la baie.",
+      es: "Restaurante frente al mar y vida nocturna en la bahía de Cabarete — open mic, Saturday Sessions y vistas a la bahía. Horario: dom/mar/jue/vie 7:30 AM–11:00 PM; lun 7:30 AM–1:00 AM; sáb 7:30 AM–3:00 AM; mié 7:30 AM–7:00 PM.",
+      fr: "Restaurant en bord de mer et spot de nuit sur la baie de Cabarete — open mic, Saturday Sessions et vue baie. Horaires : dim/mar/jeu/ven 7 h 30–23 h ; lun 7 h 30–1 h ; sam 7 h 30–3 h ; mer 7 h 30–19 h.",
     },
   },
   "aura-beach-club-cabarete": {
@@ -247,8 +247,8 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
   },
   "el-carey-puerto-plata": {
     description: {
-      es: "Lugar de día y noche en la playa de Costambar (Calle Reina Isabel) con deportes en vivo en pantalla gigante, tragos y vida nocturna local.",
-      fr: "Spot jour et nuit sur la plage de Costambar (Calle Reina Isabel) avec sports en direct sur écran géant, boissons et vie nocturne locale.",
+      es: "Beachfront de día y noche en Costambar (Calle Reina Isabel) — mariscos, deportes en pantalla gigante y cartelera semanal: lun karaoke Mujeres Empoderadas; mar especial de tacos; mié noche bohemia/cigarros; jue DJ; vie karaoke; sáb Sábado de Son; dom DJ. Instagram @diaynocherestaurantelcarey.",
+      fr: "Spot jour et nuit sur la plage de Costambar (Calle Reina Isabel) — fruits de mer, sports sur écran géant et programmation : lun karaoké Mujeres Empoderadas ; mar spécial tacos ; mer nuit bohème/cigares ; jeu DJ ; ven karaoké ; sam Sábado de Son ; dim DJ. Instagram @diaynocherestaurantelcarey.",
     },
   },
   "playa-costambar": {
@@ -707,6 +707,12 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Cuisine latino-asiatique en front de mer sur Cabarete Bay — wok, sushi, ceviche et tables sur le sable sous lanternes.",
     },
   },
+  "latinwok-plaza-uno": {
+    description: {
+      es: "Cocina latino-asiática en Plaza 1, Av. Luis Ginebra — wok, sushi, ramen y teppanyaki en el centro de Puerto Plata. Lun 5:00–11:00 PM; mar/jue–dom 12:00–11:00 PM; cerrado miércoles.",
+      fr: "Cuisine latino-asiatique à Plaza 1, Av. Luis Ginebra — wok, sushi, ramen et teppanyaki au centre de Puerto Plata. Lun 17 h–23 h ; mar/jeu–dim 12 h–23 h ; fermé mercredi.",
+    },
+  },
   "mauros-puerto-plata": {
     description: {
       es: "Cocina de inspiración italiana en Plaza Juan Brugal / Av. Circunvalación Sur (Carretera Luperón Km 1, local 7) — pizza, pasta y cenas en el anillo sur de la ciudad, no hacia Playa Dorada.",
@@ -717,6 +723,18 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
     description: {
       es: "Bodegón argentino en Plaza Ocean Dream (Carretera Principal de Cabarete) — parrilla, empanadas, milanesas y vinos argentinos. Lun–sáb 11:30 AM–11:00 PM; cerrado domingo.",
       fr: "Bodegón argentin à Plaza Ocean Dream (Carretera Principal de Cabarete) — grillades, empanadas, milanesas et vins argentins. Lun–sam 11 h 30–23 h ; fermé le dimanche.",
+    },
+  },
+  "desarrollo-fitness-cabarete": {
+    description: {
+      es: "Comunidad fitness de Cabarete y organizador del Cabarete Run Festival — entrenamientos e inscripciones por Instagram y WhatsApp. Confirma el punto de salida con los organizadores antes de la mañana de carrera.",
+      fr: "Communauté fitness de Cabarete et organisateur du Cabarete Run Festival — entraînements et inscriptions via Instagram et WhatsApp. Confirmez le point de départ avec les orga avant le matin de course.",
+    },
+  },
+  "tasty-food-park-puerto-plata": {
+    description: {
+      es: "Food court al aire libre en Av. 27 de Febrero — puestos varios, tragos y karaoke los miércoles con DJ Koky desde las 6:00 PM. Abre diario 4:00 PM–12:00 AM.",
+      fr: "Food court en plein air sur Av. 27 de Febrero — stands variés, boissons et karaoké le mercredi avec DJ Koky dès 18 h. Ouvert tous les jours 16 h–minuit.",
     },
   },
   "rancho-catalina-puerto-plata": {

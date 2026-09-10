@@ -41,7 +41,58 @@ type CuratedPatch = Partial<
 /** Stable id patches (preferred over title key). */
 const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
   "el-carey-weekend-nightlife": {
-    categories: ["food-drinks"],
+    categories: ["food-drinks", "music"],
+    isFree: true,
+  },
+  "el-carey-bohemian-wednesday": {
+    isFree: true,
+  },
+  "el-carey-sabado-de-son": {
+    isFree: true,
+  },
+  "tasty-food-park-karaoke-wednesday": {
+    isFree: true,
+    phone: "+18092042939",
+    venueSlug: "tasty-food-park-puerto-plata",
+  },
+  "ernesto-betances-rancho-catalina-2026-09-13": {
+    isFree: true,
+    phone: "+18097813737",
+    venueSlug: "rancho-catalina-puerto-plata",
+  },
+  "el-cuarteto-del-swing-zona-acapella-2026-09-13": {
+    isFree: true,
+    phone: "+18297260344",
+    venueSlug: "zona-acapella-club",
+  },
+  "cabarete-run-festival-5k-2026-11-08": {
+    isFree: false,
+    admissionPrice: "RD$1,500",
+    phone: "+18097696199",
+    venueSlug: "desarrollo-fitness-cabarete",
+    ticketUrl: "https://forms.gle/WTX9u3D2C1XWVZDk8",
+    sourceUrl: "https://www.instagram.com/desarrollo_fitness_cabarete/",
+  },
+  "sosua-neon-partyrun-2026-10-24": {
+    isFree: false,
+    admissionPrice: "RD$2,000",
+    phone: "+18495057778",
+    venueSlug: "hard-rock-sosua",
+  },
+  "hard-rock-casa-mickey-2026-09-26": {
+    callForPricing: true,
+    phone: "+18495057778",
+    venueSlug: "hard-rock-sosua",
+  },
+  "hard-rock-karaoke-wednesday": {
+    isFree: true,
+    phone: "+18495057778",
+    venueSlug: "hard-rock-sosua",
+  },
+  "latinwok-ramen-party-2026-09-17": {
+    isFree: true,
+    phone: "+18092612020",
+    venueSlug: "latinwok-plaza-uno",
   },
   "nonas-grill-kitchen-daily": {
     categories: [],

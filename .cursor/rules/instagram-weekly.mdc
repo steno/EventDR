@@ -17,7 +17,8 @@ Use skill **`pop-instagram-ingest`** for the full workflow. This rule provides s
 5. Dedupe against fallback, recurring, and curated seeds plus the live/moderation data.
 6. Preserve the canonical Instagram URL and organizer handle; cross-check ambiguous flyers.
 7. Add matching EN/ES/FR entries for every verified new seed. Pull event/venue images from Google Maps, official sites, or ticket OG — **not** from Instagram posts, Reels, or Stories.
-8. Use Instagram read-only: never like, follow, comment, message, share, save, or publish.
-9. Stop for login checkpoints, CAPTCHA, passkeys, account confirmation, or rate limits and ask the user to take over.
+8. Complete seed editorial before done: `SEED_CREATED_AT`, unique POP event opinion, and tip + assessment for any **new** venue (`.cursor/rules/seed-recently-added.mdc`).
+9. Use Instagram read-only: never like, follow, comment, message, share, save, or publish.
+10. Stop for login checkpoints, CAPTCHA, passkeys, account confirmation, or rate limits and ask the user to take over.
 
 The GitHub ingest Action only performs public-profile and web-search discovery. Logged-in Instagram coverage requires a Cursor browser session and cannot be assumed to have run unattended.

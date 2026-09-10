@@ -222,6 +222,10 @@ const FACEBOOK_SEED_EVENT_IDS_BASE = [
   "ocean-winds-karaoke-nights",
   "atlantico-fc-vs-delfines-2026-08-22",
   "dewry-luciano-zona-acapella-2026-08-23",
+  "el-cuarteto-del-swing-zona-acapella-2026-09-13",
+  "ernesto-betances-rancho-catalina-2026-09-13",
+  "cabarete-run-festival-5k-2026-11-08",
+  "latinwok-ramen-party-2026-09-17",
   "pop-cinemas-week-2026-08-20",
   "petit-francois-friday-karaoke",
   "guananico-san-miguel-patronales-2026",
@@ -229,6 +233,9 @@ const FACEBOOK_SEED_EVENT_IDS_BASE = [
   "love-does-cocktails-solidarity-2026-09-04",
   "chill-and-grill-sunday-bingo",
   "chill-and-grill-saturday-karaoke",
+  "hard-rock-karaoke-wednesday",
+  "sosua-neon-partyrun-2026-10-24",
+  "hard-rock-casa-mickey-2026-09-26",
 ] as const;
 
 /** Curated event ids discovered from monitored Facebook groups (see fallback-events). */

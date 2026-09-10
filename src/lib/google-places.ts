@@ -132,6 +132,21 @@ const PLACE_SEARCH_ALIASES: Record<string, string[]> = {
     "Acapella Club Malecón Puerto Plata",
     "Zona Acapella Cuarto de Milla",
   ],
+  "tasty-food-park-puerto-plata": [
+    "Tasty Food Park Puerto Plata",
+    "Tasty Food Park Av. 27 de Febrero",
+    "TastyFoodPark Puerto Plata",
+  ],
+  "latinwok-plaza-uno": [
+    "Latin Wok Plaza Uno Puerto Plata",
+    "Latinwok Plaza 1 Luis Ginebra",
+    "Latin Wok Av. Luis Ginebra Puerto Plata",
+  ],
+  "desarrollo-fitness-cabarete": [
+    "Desarrollo Fitness Cabarete",
+    "Desarrollo Fitness Cabarete Run Festival",
+    "@desarrollo_fitness_cabarete",
+  ],
   "pop-cinemas-playa-dorada": [
     "POP Cinemas Playa Dorada",
     "Pop Cinemas Playa Dorada Mall",

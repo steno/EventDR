@@ -871,21 +871,22 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   {
     eventId: "el-carey-weekend-nightlife",
     seriesKey: "el-carey-puerto-plata:weekly",
-    body: "Plan a ride — it sits west of the city center, not downtown Puerto Plata.",
+    body: "Thu/Sun DJ nights on Costambar sand — plan a ride west of town; louder than weekday dining, quieter than a Malecón club crawl.",
     localized: {
-      es: "Planea transporte — queda al oeste del centro, no en el downtown de Puerto Plata.",
-      fr: "Prévoyez un trajet — c'est à l'ouest du centre, pas dans le downtown de Puerto Plata.",
+      es: "DJ jueves/domingo en la arena de Costambar — planea transporte al oeste del centro; más fuerte que cenar entre semana, más suave que un crawl del Malecón.",
+      fr: "DJ jeu/dim sur le sable de Costambar — prévoyez un trajet à l'ouest du centre ; plus fort qu'un dîner en semaine, plus soft qu'un crawl Malecón.",
     },
     priceFeel: "moderate",
     priceNote:
-      "Beach-club drinks and food — moderate local/tourist mix; entry varies by night",
+      "Beach-club drinks and food — moderate local/tourist mix; usually no cover",
     priceNoteLocalized: {
-      es: "Tragos y comida de beach club — mezcla local/turista moderada; entrada varía según la noche",
-      fr: "Verres et food beach club — mix local/touriste modéré ; entrée variable selon la soirée",
+      es: "Tragos y comida de beach club — mezcla local/turista moderada; suele ser sin cover",
+      fr: "Verres et food beach club — mix local/touriste modéré ; souvent sans cover",
     },
-    attribution: "POP research · venue listing",
-    researchNotes: "El Carey Costambar seed.",
-    updatedAt: AT,
+    attribution: "POP research · @diaynocherestaurantelcarey schedule",
+    researchNotes:
+      "IG weekly schedule Sep 2026: Thu/Sun DJ en vivo. Venue phone +1 849-440-4199.",
+    updatedAt: "2026-09-10T15:00:00.000Z",
   },
   {
     eventId: "anfiteatro-la-puntilla-concerts",
@@ -1704,5 +1705,222 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     researchNotes:
       "Places to Go RD: “Comida Criolla con Historia”, C. Maria Monte No.16 El Batey, (809) 571-1529. Sosua Digital TV: family/gastro tourism + billed Grupo Braho Mother's Day concert. Seed: behind Super Pola, daily 11 AM–10 PM. Restaurant Guru lists 3.5/172 (aggregator, not cited as Google).",
     updatedAt: "2026-09-03T17:30:00.000Z",
+  },
+  {
+    eventId: "el-carey-karaoke-mujeres-monday",
+    seriesKey: "el-carey-puerto-plata:weekly:1",
+    body: "Sunset karaoke from 6 PM — happier-hour energy than the weekend DJ nights; still Costambar, so budget a ride.",
+    localized: {
+      es: "Karaoke al atardecer desde las 6 PM — más happy-hour que las noches de DJ del fin; sigue siendo Costambar, planea transporte.",
+      fr: "Karaoké au coucher du soleil dès 18 h — plus happy hour que les soirs DJ du week-end ; toujours Costambar, prévoyez un trajet.",
+    },
+    priceFeel: "moderate",
+    priceNote: "No cover typical — drinks at beach-club rates; happy-hour prices on selected cocktails",
+    priceNoteLocalized: {
+      es: "Sin cover en general — tragos a tarifa beach club; happy hour en cócteles seleccionados",
+      fr: "Pas de cover en général — verres au tarif beach club ; happy hour sur cocktails sélectionnés",
+    },
+    attribution: "POP research · El Carey Mujeres Empoderadas flyer",
+    researchNotes: "Recurring Mon 6 PM Patio de Don Ramón seed + IG schedule.",
+    updatedAt: "2026-09-10T15:00:00.000Z",
+  },
+  {
+    eventId: "el-carey-bohemian-wednesday",
+    seriesKey: "el-carey-puerto-plata:weekly:3",
+    body: "Cigar-and-cognac Wednesday — softer than Son Saturday; come for patio pace, not a dance floor.",
+    localized: {
+      es: "Miércoles de cigarro y cognac — más suave que el Son del sábado; ven por ritmo de patio, no pista de baile.",
+      fr: "Mercredi cognac et cigare — plus soft que le Son du samedi ; venez pour le patio, pas une piste de danse.",
+    },
+    priceFeel: "moderate",
+    priceNote: "No cover — spend is drinks and cigars at beachfront rates",
+    priceNoteLocalized: {
+      es: "Sin cover — el gasto va en tragos y cigarros a tarifa frente al mar",
+      fr: "Pas de cover — le budget part en verres et cigares au tarif front de mer",
+    },
+    attribution: "POP research · El Carey Bohemian Night flyer",
+    researchNotes: "IG flyer todos los miércoles + weekly schedule Sep 2026.",
+    updatedAt: "2026-09-10T15:00:00.000Z",
+  },
+  {
+    eventId: "el-carey-sabado-de-son",
+    seriesKey: "el-carey-puerto-plata:weekly:6",
+    body: "Live son and dancing on the Costambar sand — dress for movement; louder and later than Bohemian Wednesday.",
+    localized: {
+      es: "Son en vivo y baile en la arena de Costambar — vístete para moverte; más fuerte y tarde que el Bohemian del miércoles.",
+      fr: "Son live et danse sur le sable de Costambar — habillez-vous pour bouger ; plus fort et plus tard que le Bohemian du mercredi.",
+    },
+    priceFeel: "moderate",
+    priceNote: "No cover typical — beach-club drinks and dinner drive the bill",
+    priceNoteLocalized: {
+      es: "Sin cover en general — tragos y cena de beach club mandan la cuenta",
+      fr: "Pas de cover en général — verres et dîner beach club font l'addition",
+    },
+    attribution: "POP research · El Carey Sábado de Son flyer",
+    researchNotes: "IG flyer + schedule: Sábado de Son every Saturday from 6 PM.",
+    updatedAt: "2026-09-10T15:00:00.000Z",
+  },
+  {
+    eventId: "tasty-food-park-karaoke-wednesday",
+    seriesKey: "tasty-food-park-puerto-plata:weekly:3",
+    body: "Mic night with DJ Koky from 6 PM — food-court energy under the lights, not a Cabarete beach stage; grab a vendor plate before the queue.",
+    localized: {
+      es: "Noche de micrófono con DJ Koky desde las 6 PM — energía de food court bajo las luces, no un escenario de playa en Cabarete; pide en un puesto antes de la fila.",
+      fr: "Soirée micro avec DJ Koky dès 18 h — énergie food court sous les guirlandes, pas une scène plage à Cabarete ; prenez un plat avant la file.",
+    },
+    priceFeel: "budget",
+    priceNote:
+      "No cover — pay per vendor; Google ~DOP 500–1,000 per person reported; WhatsApp +1 809-204-2939",
+    priceNoteLocalized: {
+      es: "Sin cover — pagas por puesto; Google reporta ~DOP 500–1,000 por persona; WhatsApp +1 809-204-2939",
+      fr: "Pas de cover — vous payez par stand ; Google indique ~DOP 500–1 000 par personne ; WhatsApp +1 809-204-2939",
+    },
+    attribution: "POP research · @tastyfoodpark + Google 4.4",
+    ratingCite: "Google 4.4",
+    googleRating: 4.4,
+    googleReviewCount: 183,
+    researchNotes:
+      "IG: karaoke todos los miércoles 6 PM DJ Koky. Maps: Av. 27 de Febrero, 4.4/183, opens 4 PM.",
+    updatedAt: "2026-09-10T15:00:00.000Z",
+  },
+  {
+    eventId: "ernesto-betances-rancho-catalina-2026-09-13",
+    body: "Afternoon ranch set at 2:30 PM — no cover, but Sunday tables fill; reserve if you want a meal with the music.",
+    localized: {
+      es: "Set de tarde a las 2:30 PM en el rancho — sin cover, pero los domingos se llena; reserva si quieres comer con la música.",
+      fr: "Set d'après-midi à 14 h 30 au ranch — pas de cover, mais les dimanches se remplissent ; réservez pour manger avec la musique.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "No cover — pay for ranch dining; Google 4.7 from 1,500+ reviews; +1 809-781-3737",
+    priceNoteLocalized: {
+      es: "Sin cover — pagas la comida del rancho; Google 4.7 de 1,500+ reseñas; +1 809-781-3737",
+      fr: "Pas de cover — vous payez le repas ranch ; Google 4,7 sur 1 500+ avis ; +1 809-781-3737",
+    },
+    attribution: "POP research · @rancholacatalina flyer + Google 4.7",
+    ratingCite: "Google 4.7",
+    googleRating: 4.7,
+    googleReviewCount: 1541,
+    researchNotes:
+      "IG Sep 10 2026: Ernesto Betances 2:30 PM no cover, Sep 13. Venue seed El Cupey.",
+    updatedAt: "2026-09-10T15:00:00.000Z",
+  },
+  {
+    eventId: "el-cuarteto-del-swing-zona-acapella-2026-09-13",
+    body: "18+ Malecón típico — free door like Dewry Luciano nights; no start time on the flyer, so arrive early and budget nightclub drinks.",
+    localized: {
+      es: "Típico 18+ del Malecón — entrada gratis como las noches de Dewry Luciano; el flyer no trae hora, llega temprano y presupuesta tragos de discoteca.",
+      fr: "Típico 18+ du Malecón — entrée gratuite comme les soirs Dewry Luciano ; pas d'heure sur l'affiche, arrivez tôt et budgétez des verres club.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "Free entry and parking; Google ~RD$500–1,000 per person on drinks/food; WhatsApp +1 829-726-0344",
+    priceNoteLocalized: {
+      es: "Entrada y parqueo gratis; Google ~RD$500–1,000 por persona en tragos/comida; WhatsApp +1 829-726-0344",
+      fr: "Entrée et parking gratuits ; Google ~RD$500–1 000 par personne en verres/repas ; WhatsApp +1 829-726-0344",
+    },
+    attribution: "POP research · @acapella.pop flyer",
+    researchNotes:
+      "IG Sep 8 2026: Domingo 13 Sept El Cuarteto del Swing, entrada/parqueo gratis, 18+.",
+    updatedAt: "2026-09-10T15:00:00.000Z",
+  },
+  {
+    eventId: "cabarete-run-festival-5k-2026-11-08",
+    body: "Inaugural 6 AM start — register on the Google Form by Oct 26; kit and route details still thin, so WhatsApp organizers before race week.",
+    localized: {
+      es: "Salida inaugural a las 6 AM — inscríbete en el formulario de Google antes del 26 de oct; kit y ruta aún incompletos, WhatsApp a los organizadores antes de la semana de carrera.",
+      fr: "Départ inaugural à 6 h — inscrivez-vous sur le formulaire Google avant le 26 oct. ; kit et parcours encore flous, WhatsApp les orga avant la semaine de course.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "RD$1,500 via forms.gle — inquiries +1 809-769-6199 or +1 849-281-4137 · @desarrollo_fitness_cabarete",
+    priceNoteLocalized: {
+      es: "RD$1,500 vía forms.gle — consultas +1 809-769-6199 o +1 849-281-4137 · @desarrollo_fitness_cabarete",
+      fr: "RD$1,500 via forms.gle — infos +1 809-769-6199 ou +1 849-281-4137 · @desarrollo_fitness_cabarete",
+    },
+    attribution: "POP research · Desarrollo Fitness flyer",
+    researchNotes:
+      "Flyer + Form: Dom 8 Nov 2026 6 AM, deadline Lun 26 Oct, RD$1,500, forms.gle/WTX9u3D2C1XWVZDk8, two WhatsApp lines.",
+    updatedAt: "2026-09-10T15:00:00.000Z",
+  },
+  {
+    eventId: "latinwok-ramen-party-2026-09-17",
+    body: "Guest ramen collab with limited seats — reserve ahead; Plaza Uno in town, not the Cabarete beach Latin Wok.",
+    localized: {
+      es: "Collab de ramen con cupos limitados — reserva con tiempo; Plaza Uno en la ciudad, no el Latin Wok de playa en Cabarete.",
+      fr: "Collab ramen places limitées — réservez à l'avance ; Plaza Uno en ville, pas le Latin Wok plage à Cabarete.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "No cover — pay for ramen/plates; reserve +1 809-261-2020; Google 4.3 from 84 reviews",
+    priceNoteLocalized: {
+      es: "Sin cover — pagas ramen/platos; reserva +1 809-261-2020; Google 4.3 de 84 reseñas",
+      fr: "Pas de cover — vous payez ramen/plats ; réservez +1 809-261-2020 ; Google 4,3 sur 84 avis",
+    },
+    attribution: "POP research · @latinwokrd flyer + Google 4.3",
+    ratingCite: "Google 4.3",
+    googleRating: 4.3,
+    googleReviewCount: 84,
+    researchNotes:
+      "IG Sep 10 2026: Jueves 17 Sept 6–11 PM El Ramero Solitario, Plaza 1 Luis Ginebra. Maps phone (809) 261-2020.",
+    updatedAt: "2026-09-10T15:00:00.000Z",
+  },
+  {
+    eventId: "hard-rock-karaoke-wednesday",
+    seriesKey: "hard-rock-sosua:weekly:3",
+    body: "Free mic night on Calle Duarte from 7 PM — prizes for best voice, tourist-friendly stage, not a quiet dinner.",
+    localized: {
+      es: "Noche de micrófono gratis en Calle Duarte desde las 7 PM — premios a la mejor voz, escenario turístico, no cena quieta.",
+      fr: "Soirée micro gratuite sur Calle Duarte dès 19 h — prix pour la meilleure voix, scène visitor-friendly, pas un dîner calme.",
+    },
+    priceFeel: "budget",
+    priceNote:
+      "No cover — budget Hard Rock food and drinks; WhatsApp +1 849-505-7778",
+    priceNoteLocalized: {
+      es: "Sin cover — presupuesta comida y tragos Hard Rock; WhatsApp +1 849-505-7778",
+      fr: "Pas de cover — budget nourriture et boissons Hard Rock ; WhatsApp +1 849-505-7778",
+    },
+    attribution: "POP research · @hardrockcafepuertoplata",
+    researchNotes:
+      "IG Aug 4 2026: Todos los miércoles desde las 7 PM, no cover, premios a la mejor voz.",
+    updatedAt: "2026-09-10T16:00:00.000Z",
+  },
+  {
+    eventId: "sosua-neon-partyrun-2026-10-24",
+    body: "Evening neon run that ends in a Hard Rock after-party — register 4 PM, start 6:30 PM from Calle Duarte; bring glow and race shoes, not a morning 5K mindset.",
+    localized: {
+      es: "Carrera neon de tarde que termina en after-party en Hard Rock — registro 4 PM, salida 6:30 PM desde Calle Duarte; trae glow y zapatillas, no mentalidad de 5K matutino.",
+      fr: "Course néon en soirée qui finit en after-party Hard Rock — inscription 16 h, départ 18 h 30 depuis Calle Duarte ; glow et baskets, pas un mindset 5K du matin.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "RD$2,000 includes shirt/medal/snacks/party — WhatsApp +1 849-505-7778 · @gy_fitness_sosua",
+    priceNoteLocalized: {
+      es: "RD$2,000 incluye camiseta/medalla/picadera/fiesta — WhatsApp +1 849-505-7778 · @gy_fitness_sosua",
+      fr: "RD$2,000 inclut t-shirt/médaille/snacks/fête — WhatsApp +1 849-505-7778 · @gy_fitness_sosua",
+    },
+    attribution: "POP research · @gy_fitness_sosua × Hard Rock",
+    researchNotes:
+      "IG Sep 9 2026: Sábado 24 oct, registro 4 PM, salida 6:30 PM, punto Hard Rock, RD$2,000, WA 849-505-7778.",
+    updatedAt: "2026-09-10T16:00:00.000Z",
+  },
+  {
+    eventId: "hard-rock-casa-mickey-2026-09-26",
+    body: "Daytime character weekend at Hard Rock — Sat 3 PM / Sun 1 PM; reserve first, then confirm ticket price on WhatsApp before you promise the kids.",
+    localized: {
+      es: "Fin de semana diurno de personajes en Hard Rock — sáb 3 PM / dom 1 PM; reserva primero y confirma el precio por WhatsApp antes de prometerles a los niños.",
+      fr: "Week-end personnages en journée au Hard Rock — sam 15 h / dim 13 h ; réservez d'abord et confirmez le tarif WhatsApp avant de promettre aux enfants.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "Price not on flyer — reserve WhatsApp +1 849-505-7778 (similar Hard Rock family shows have been ticketed)",
+    priceNoteLocalized: {
+      es: "Precio no en el flyer — reserva WhatsApp +1 849-505-7778 (shows familiares similares en Hard Rock han sido con boleta)",
+      fr: "Tarif absent du flyer — réservez WhatsApp +1 849-505-7778 (des shows familiaux similaires Hard Rock étaient billetés)",
+    },
+    attribution: "POP research · @downtownsosua7 × Hard Rock",
+    researchNotes:
+      "IG Aug 30 2026: Sáb 26 Sep 3 PM, Dom 27 Sep 1 PM, Hard Rock, reserva 849-505-7778. No price on flyer.",
+    updatedAt: "2026-09-10T16:00:00.000Z",
   },
 ];

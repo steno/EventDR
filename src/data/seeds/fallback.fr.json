@@ -17,9 +17,9 @@
   {
     "id": "voyvoy-saturday-session",
     "title": "Saturday Session à VOYVOY",
-    "description": "Soirée danse le samedi à VOYVOY avec DJs invités — reggaeton, club, sans cover. Un incontournable de Cabarete pour locaux et visiteurs.",
+    "description": "Saturday Session à VOYVOY Cabarete — DJs invités, ambiance dance club face à la baie, sans cover dès 21 h. Ouvert le samedi jusqu'à 3 h.",
     "date": "2026-07-11",
-    "time": "9:00 PM – 2:00 AM",
+    "time": "9:00 PM – 3:00 AM",
     "location": "Cabarete",
     "venue": "VOYVOY Cabarete",
     "venueSlug": "voyvoy-cabarete",
@@ -27,6 +27,9 @@
     "format": "physical",
     "recurrence": "weekly",
     "recurrenceDay": 6,
+    "isFree": true,
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/voyvoybar/",
     "imageEmoji": "🪩"
   },
   {
@@ -1445,5 +1448,167 @@
     "isFree": true,
     "phone": "+18092618661",
     "imageEmoji": "🎭"
+  },
+  {
+    "id": "ernesto-betances-rancho-catalina-2026-09-13",
+    "title": "Ernesto Betances en live au Rancho La Catalina",
+    "description": "Musique live avec Ernesto Betances au Rancho La Catalina, El Cupey — dimanche 13 septembre, 14 h 30. Après-midi ranch et gastronomie ; pas de cover.",
+    "date": "2026-09-13",
+    "time": "2:30 PM",
+    "location": "Puerto Plata",
+    "venue": "Rancho La Catalina",
+    "venueSlug": "rancho-catalina-puerto-plata",
+    "address": "El Cupey, Puerto Plata",
+    "lat": 19.7371866,
+    "lng": -70.7253286,
+    "category": "music",
+    "categories": [
+      "food-drinks",
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "phone": "+18097813737",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/p/DdHDeVQPShC/",
+    "lineup": [
+      "Ernesto Betances"
+    ],
+    "imageEmoji": "🎸"
+  },
+  {
+    "id": "el-cuarteto-del-swing-zona-acapella-2026-09-13",
+    "title": "El Cuarteto del Swing — Zona Acapella Club",
+    "description": "Típico live avec El Cuarteto del Swing au Zona Acapella Club, Malecón de Puerto Plata (Cuarto de Milla) — dimanche 13 septembre, 18+. Entrée et parking gratuits. WhatsApp +1 829 726 0344 · @acapella.pop.",
+    "date": "2026-09-13",
+    "location": "Puerto Plata",
+    "venue": "Zona Acapella Club",
+    "venueSlug": "zona-acapella-club",
+    "address": "Cuarto de Milla, Av. Gral. Gregorio Luperón, Puerto Plata",
+    "lat": 19.791341,
+    "lng": -70.674021,
+    "category": "concert",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "phone": "+18297260344",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/p/DdDR56LsyCj/",
+    "lineup": [
+      "El Cuarteto del Swing"
+    ],
+    "imageEmoji": "🪗"
+  },
+  {
+    "id": "cabarete-run-festival-5k-2026-11-08",
+    "title": "Cabarete Run Festival 5K",
+    "description": "Cabarete Run Festival 5K inaugural présenté par Desarrollo Fitness — dimanche 8 novembre 2026, 6 h. Édition limitée du premier grand rendez-vous runners à Cabarete. Inscription RD$1,500 (clôture lun 26 octobre) via formulaire Google. Infos WhatsApp +1 809 769 6199 ou +1 849 281 4137 · @desarrollo_fitness_cabarete.",
+    "date": "2026-11-08",
+    "time": "6:00 AM",
+    "location": "Cabarete",
+    "venue": "Desarrollo Fitness Cabarete",
+    "venueSlug": "desarrollo-fitness-cabarete",
+    "address": "Cabarete, Puerto Plata",
+    "lat": 19.7503643,
+    "lng": -70.406125,
+    "category": "sports",
+    "categories": [
+      "health-wellness",
+      "festivals"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": false,
+    "admissionPrice": "RD$1,500",
+    "phone": "+18097696199",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/desarrollo_fitness_cabarete/",
+    "ticketUrl": "https://forms.gle/WTX9u3D2C1XWVZDk8",
+    "imageEmoji": "🏃"
+  },
+  {
+    "id": "latinwok-ramen-party-2026-09-17",
+    "title": "Ramen Party avec El Ramero Solitario",
+    "description": "Ramen Party au Latin Wok Plaza Uno (Av. Luis Ginebra, Plaza 1), Puerto Plata — jeudi 17 septembre, 18 h–23 h. Collab avec El Ramero Solitario ; places limitées, réservez à l'avance. Appelez +1 809 261 2020 · @latinwokrd.",
+    "date": "2026-09-17",
+    "time": "6:00 PM – 11:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Latin Wok Plaza Uno",
+    "venueSlug": "latinwok-plaza-uno",
+    "address": "Plaza 1, Av. Luis Ginebra, Puerto Plata 57000",
+    "lat": 19.7879774,
+    "lng": -70.6764488,
+    "category": "food-drinks",
+    "categories": [
+      "festivals"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "phone": "+18092612020",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/p/DdHF8b-ReBH/",
+    "lineup": [
+      "El Ramero Solitario"
+    ],
+    "imageEmoji": "🍜"
+  },
+  {
+    "id": "sosua-neon-partyrun-2026-10-24",
+    "title": "Sosúa Neon Partyrun 2026",
+    "description": "Sosúa Neon Partyrun présenté par GY Fitness avec venue partner Hard Rock Cafe Puerto Plata — samedi 24 octobre 2026. Inscription 16 h, départ 18 h 30 depuis Hard Rock Cafe (Calle Duarte). Inclut hydratation, snacks, t-shirt, médaille, dossard et after-party avec live band. Inscription RD$2,000 — WhatsApp +1 849-505-7778 · @gy_fitness_sosua.",
+    "date": "2026-10-24",
+    "time": "Inscription 16 h · Départ 18 h 30",
+    "location": "Sosúa",
+    "venue": "Hard Rock Cafe Puerto Plata",
+    "venueSlug": "hard-rock-sosua",
+    "address": "Calle Duarte 7, Sosúa",
+    "lat": 19.7634107,
+    "lng": -70.5162309,
+    "category": "sports",
+    "categories": [
+      "festivals",
+      "music",
+      "health-wellness"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": false,
+    "admissionPrice": "RD$2,000",
+    "phone": "+18495057778",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/p/DdE4xFBx_NS/",
+    "imageEmoji": "🏃"
+  },
+  {
+    "id": "hard-rock-casa-mickey-2026-09-26",
+    "title": "La Casa de Mickey Mouse — Family Fun Fest",
+    "description": "Family Fun Fest « La Casa de Mickey Mouse » au Hard Rock Cafe Puerto Plata, Sosúa — samedi 26 septembre 2026 à 15 h et dimanche 27 à 13 h. Shows, animation, peinture faciale et personnages. Réservez via WhatsApp +1 849-505-7778.",
+    "date": "2026-09-26",
+    "endDate": "2026-09-27",
+    "time": "Sam 15 h · Dim 13 h",
+    "location": "Sosúa",
+    "venue": "Hard Rock Cafe Puerto Plata",
+    "venueSlug": "hard-rock-sosua",
+    "address": "Calle Duarte 7, Sosúa",
+    "lat": 19.7634107,
+    "lng": -70.5162309,
+    "category": "family",
+    "categories": [
+      "festivals",
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18495057778",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/p/DcrPAJkp8m9/",
+    "imageEmoji": "🏠"
   }
 ]

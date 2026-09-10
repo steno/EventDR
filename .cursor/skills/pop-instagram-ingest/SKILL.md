@@ -26,8 +26,9 @@ Instagram ingest:
 - [ ] 5. Verify dates, venue, admission, and source
 - [ ] 6. Dedupe against seeds and live/moderation data
 - [ ] 7. Add EN/ES/FR seeds and authentic images (not from Instagram)
-- [ ] 8. Confirm or trigger API ingest
-- [ ] 9. Report candidates, additions, skips, and blockers
+- [ ] 8. SEED_CREATED_AT + POP opinion; new venues get tip + assessment
+- [ ] 9. Confirm or trigger API ingest
+- [ ] 10. Report candidates, additions, skips, and blockers
 ```
 
 ## 1. Scope and safety
@@ -107,8 +108,12 @@ For each new event:
 6. Source authentic event and venue images from Google Maps/Places, the official website, or the ticket page — **not** from the Instagram post, Stories, or Reels (login walls and expiring CDNs). Update image maps and `public/events/ATTRIBUTIONS.md`; never substitute generic stock for a named event or venue. See the policy in `public/events/ATTRIBUTIONS.md`.
 7. Add a new venue and venue image only when required and supported by reliable location information.
 8. Add the new event `id` to `SEED_CREATED_AT` in `src/lib/seed-created-at.ts` (commit-day noon UTC) so it appears on home **Recently added**.
+9. **POP event opinion (required):** add a unique opinion for the new event `id` in `event-opinions-seed.ts` or `event-opinions-seed-more.ts` (EN body + ES/FR). Specific contrast/tradeoff — no generic blurbs. Ingest drafts are not a substitute for in-repo seed opinions.
+10. **New venue tip + assessment (required when the venue is new):** add `VENUE_TIP_COPY` in `venue-assessment-tips.ts` and matching `editorial()` in `venue-assessments-seed.ts`. See `.cursor/rules/seed-recently-added.mdc`.
 
 If an Instagram post lacks enough detail, leave it in the report as a candidate instead of seeding it.
+
+Do not mark seeding complete until steps 8–10 are done for every added event (and tip/assessment for every new venue).
 
 Do not commit unless the user or the active automation explicitly asks.
 

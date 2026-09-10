@@ -218,9 +218,22 @@ Curated images under `public/events/` and `public/venues/`.
 | `venues/la-isabela-colonial-puerto-plata.jpg` | [PuertoPlataDR — La Isabela Restaurant](https://puertoplatadr.com/restaurants/la-isabela-restaurant/) place photo | Historic-district Victorian dining room |
 | `venues/la-lola-malecon.jpg` | En Primeur / Pearl listing rehost — Lalola Beach Club | Malecón beach-club dining place shot |
 | `venues/latinwok-puerto-plata.jpg` | [En Primeur — LatinWok Cabarete](https://www.enprimeurclub.com/restaurants/latinwok-cabarete) place photo | Beachfront sand dining with Latin Wok sign on Cabarete Bay |
+| `venues/latinwok-plaza-uno.jpg` | POP-supplied Latin Wok Plaza Uno storefront (Av. Luis Ginebra) | Venue place shot — fork/knife entrance, Latin–Asian Cuisine sign |
 | `venues/mauros-puerto-plata.jpg` | Sluurpy / Mauro’s Puerto Plata listing photo | Interior dining room at Plaza Juan Brugal |
 | `venues/mi-bodegon-cabarete.jpg` | [Google Maps — Mi Bodegón](https://www.google.com/maps/place/Mi+Bodeg%C3%B3n/@19.7509018,-70.4147976,17z) visitor photo | Argentine bodegón interior at Plaza Ocean Dream |
+| `venues/tasty-food-park-puerto-plata.jpg` | POP-supplied Tasty Food Park entrance arch (Av. 27 de Febrero) | Venue place shot |
 | `venues/rancho-catalina-puerto-plata.jpg` | [TripAdvisor — La Catalina](https://www.tripadvisor.com/) / Sluurpy listing photo (`photo9jpg`) | Ranch dining place shot in El Cupey |
+| `el-carey-bohemian-wednesday.jpg` | POP-supplied El Carey Bohemian Night flyer | Wednesday cigar / Bohemian night |
+| `el-carey-sabado-de-son.jpg` | POP-supplied El Carey Sábado de Son flyer | Saturday son night |
+| `tasty-food-park-karaoke-wednesday.jpg` | POP-supplied Tasty Food Park karaoke flyer | Wednesday karaoke with DJ Koky |
+| `ernesto-betances-rancho-catalina-2026-09-13.jpg` | POP-supplied Rancho La Catalina live-music flyer | Ernesto Betances 13 Sep afternoon set |
+| `el-cuarteto-del-swing-zona-acapella-2026-09-13.jpg` | POP-supplied Zona Acapella Club flyer | El Cuarteto del Swing 13 Sep |
+| `latinwok-ramen-party-2026-09-17.jpg` | POP-supplied Latin Wok × El Ramero Solitario Ramen Party flyer | Authentic 17 Sep Plaza Uno ramen night flyer |
+| `cabarete-run-festival-5k-2026-11-08.jpg` | POP-supplied Cabarete Run Festival 5K flyer (Desarrollo Fitness) | Authentic 8 Nov 2026 race flyer |
+| `hard-rock-karaoke-wednesday.jpg` | POP-supplied Hard Rock Cafe Puerto Plata karaoke flyer | Wednesday karaoke from 7 PM |
+| `sosua-neon-partyrun-2026-10-24.jpg` | POP-supplied Sosúa Neon Partyrun flyer (GY Fitness × Hard Rock) | Authentic 24 Oct 2026 race/party flyer |
+| `hard-rock-casa-mickey-2026-09-26.jpg` | POP-supplied La Casa de Mickey Mouse Family Fun Fest flyer | 26–27 Sep 2026 Hard Rock family shows |
+| `voyvoy-saturday-session-flyer.jpg` | POP-supplied VOYVOY Saturday Session Story flyer | Saturday Session hero (filename bump) |
 | `venues/ristorante-passatore-playa-dorada.jpg` | [TripAdvisor — Ristorante Passatore](https://www.tripadvisor.com/) patio photo (`restaurant.jpg`) | Outdoor pergola dining at Playa Dorada Plaza |
 | `venues/sambalu-puerto-plata.jpg` | [PuertoPlataDR — Sambalú Restaurant](https://puertoplatadr.com/restaurants/sambalu-restaurant/) place photo | Historic-center Caribbean dining room / terrace |
 | `venues/skina-puerto-plata.jpg` | [Puerto Plata Noticias — La Skina](https://puertoplatanoticias.com/restaurante-la-skina-premiado-el-mejor-sancocho/) place photo | Exterior Skina Bar & Restaurant wall sign |
