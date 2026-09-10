@@ -1,9 +1,13 @@
 "use client";
 
+import { useState } from "react";
 import { MapPin } from "lucide-react";
+import { EventCardPlaceholder } from "@/components/EventCardPlaceholder";
 import { EventImage } from "@/components/EventImage";
 import { EventViewToggle } from "@/components/EventViewToggle";
 import { IntentLink } from "@/components/IntentLink";
+import { StickyListFilters } from "@/components/StickyListFilters";
+import { SubmitEventSheet } from "@/components/SubmitEventSheet";
 import { useEventListView } from "@/hooks/useEventListView";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
@@ -15,7 +19,6 @@ import {
   type VenueDirectoryEntry,
   type VenueDirectoryGroup,
 } from "@/lib/venues-directory";
-import { StickyListFilters } from "@/components/StickyListFilters";
 import { fillTemplate } from "@/lib/seo";
 import { CARD_GRID_CLASS, SECTION_TITLE_CLASS } from "@/lib/page-shell";
 
@@ -271,47 +274,70 @@ function VenueGroupList({
 /** A–Z venue index with list/card layouts and letter jump strips. */
 export function VenueDirectory({ locale, dict, groups }: VenueDirectoryProps) {
   const { view, setView } = useEventListView();
+  const [submitOpen, setSubmitOpen] = useState(false);
   const returnTo = `/${locale}/venues`;
   const returnTitle = dict.venues.directory.title;
 
   if (groups.length === 0) return null;
 
   return (
-    <div className="space-y-6">
-      <StickyListFilters className="mb-0">
-        <div className="flex flex-col gap-2.5 sm:flex-row sm:items-center sm:justify-between sm:gap-3">
-          <LetterJumpNav groups={groups} dict={dict} className="sm:flex-1" />
-          <div className="flex justify-end">
-            <EventViewToggle value={view} onChange={setView} dict={dict} />
+    <>
+      <div className="space-y-6">
+        <StickyListFilters className="mb-0">
+          <div className="flex flex-col gap-2.5 sm:flex-row sm:items-center sm:justify-between sm:gap-3">
+            <LetterJumpNav groups={groups} dict={dict} className="sm:flex-1" />
+            <div className="flex justify-end">
+              <EventViewToggle value={view} onChange={setView} dict={dict} />
+            </div>
           </div>
-        </div>
-      </StickyListFilters>
+        </StickyListFilters>
 
-      {groups.map((group) => (
-        <section
-          key={group.id}
-          id={`venues-${group.id}`}
-          aria-labelledby={`venues-${group.id}-heading`}
-          className="scroll-mt-[calc(var(--sticky-list-header-height,3.5rem)+5.5rem)]"
-        >
-          <h2
-            id={`venues-${group.id}-heading`}
-            className={`${SECTION_TITLE_CLASS} tracking-tight`}
+        {groups.map((group) => (
+          <section
+            key={group.id}
+            id={`venues-${group.id}`}
+            aria-labelledby={`venues-${group.id}-heading`}
+            className="scroll-mt-[calc(var(--sticky-list-header-height,3.5rem)+5.5rem)]"
           >
-            {group.label}
-          </h2>
-          <VenueGroupList
-            entries={group.entries}
-            locale={locale}
-            dict={dict}
-            view={view}
-            returnTo={returnTo}
-            returnTitle={returnTitle}
-          />
-        </section>
-      ))}
+            <h2
+              id={`venues-${group.id}-heading`}
+              className={`${SECTION_TITLE_CLASS} tracking-tight`}
+            >
+              {group.label}
+            </h2>
+            <VenueGroupList
+              entries={group.entries}
+              locale={locale}
+              dict={dict}
+              view={view}
+              returnTo={returnTo}
+              returnTitle={returnTitle}
+            />
+          </section>
+        ))}
 
-      <LetterJumpNav groups={groups} dict={dict} className="pt-2" />
-    </div>
+        <div className={view === "cards" ? undefined : "max-w-sm"}>
+          <EventCardPlaceholder
+            title={dict.events.yourEventHereTitle}
+            label={dict.events.yourEventHereGeneric}
+            onClick={() => setSubmitOpen(true)}
+            view={view}
+            fillSpan={view === "cards" ? "full" : undefined}
+          />
+        </div>
+
+        <LetterJumpNav groups={groups} dict={dict} className="pt-2" />
+      </div>
+
+      <SubmitEventSheet
+        open={submitOpen}
+        onClose={() => setSubmitOpen(false)}
+        dict={dict}
+        locale={locale}
+        onSubmitted={() => {
+          setSubmitOpen(false);
+        }}
+      />
+    </>
   );
 }
