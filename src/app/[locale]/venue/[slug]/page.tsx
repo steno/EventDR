@@ -66,6 +66,10 @@ export default async function Page({
           buildLocalBusinessJsonLd(venue, locale),
           buildBreadcrumbJsonLd([
             { name: dict.seo.siteName, path: localePath(locale) },
+            {
+              name: dict.venues.directory.title,
+              path: localePath(locale, "/venues"),
+            },
             { name: venue.name, path: localePath(locale, `/venue/${venue.slug}`) },
           ]),
         ]}

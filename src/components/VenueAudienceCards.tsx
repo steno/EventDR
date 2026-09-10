@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import { ChevronRight } from "lucide-react";
 import { EventImage } from "@/components/EventImage";
 import { HorizontalScrollEdgeFades } from "@/components/HorizontalScrollEdgeFades";
 import { IntentLink } from "@/components/IntentLink";
@@ -143,6 +144,7 @@ function AudienceSlider({
   wide,
   returnTo,
   returnTitle,
+  nestUnderSection,
 }: {
   audience: VenueAudienceFilter;
   venues: Venue[];
@@ -156,6 +158,8 @@ function AudienceSlider({
   wide?: boolean;
   returnTo?: string;
   returnTitle?: string | null;
+  /** When true, demote the slider title under a parent “Venues” heading. */
+  nestUnderSection?: boolean;
 }) {
   const hint = audienceHint(audience, dict, areaName);
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -180,9 +184,15 @@ function AudienceSlider({
   return (
     <article className="min-w-0">
       <header className="mb-3 px-0.5">
-        <h2 className={`${SECTION_TITLE_CLASS} tracking-tight`}>
+        <h3
+          className={
+            nestUnderSection
+              ? "text-base font-bold tracking-tight text-neutral-900 dark:text-neutral-100"
+              : `${SECTION_TITLE_CLASS} tracking-tight`
+          }
+        >
           {title ?? dict.venues[audience]}
-        </h2>
+        </h3>
         <p className="mt-0.5 text-copy text-neutral-600 dark:text-neutral-400">
           {hint}
         </p>
@@ -337,6 +347,8 @@ export function VenueAudienceCards({
   if (sections.length === 0) return null;
 
   const wide = sections.length === 1;
+  const showSeeAll = !allowedSlugs;
+  const venuesHref = `/${locale}/venues`;
 
   return (
     <section
@@ -344,6 +356,18 @@ export function VenueAudienceCards({
       className="mb-6 sm:mb-8"
       aria-label={dict.venues.title}
     >
+      {showSeeAll ? (
+        <div className="mb-3 flex flex-wrap items-center justify-between gap-x-3 gap-y-2 px-1">
+          <h2 className={SECTION_TITLE_CLASS}>{dict.venues.title}</h2>
+          <IntentLink
+            href={venuesHref}
+            className="inline-flex items-center gap-0.5 rounded-full bg-orange-50 dark:bg-orange-950/50 px-2.5 py-1 text-sm font-bold text-orange-600 hover:bg-orange-100 dark:hover:bg-orange-950/70 transition-colors touch-manipulation"
+          >
+            {dict.venues.directory.seeAll}
+            <ChevronRight className="h-3.5 w-3.5" aria-hidden />
+          </IntentLink>
+        </div>
+      ) : null}
       <div
         className={
           wide ? "min-w-0" : "grid grid-cols-1 gap-7 sm:grid-cols-2 sm:gap-5"
@@ -362,6 +386,7 @@ export function VenueAudienceCards({
             wide={wide}
             returnTo={returnTo}
             returnTitle={returnTitle}
+            nestUnderSection={showSeeAll}
           />
         ))}
       </div>

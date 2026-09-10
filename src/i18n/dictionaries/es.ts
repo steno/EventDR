@@ -96,6 +96,7 @@ export const es: Dictionary = {
     yourEventHereTitle: "¿Tu evento aquí?",
     yourEventHere: "Agrega tu evento de {category}",
     yourEventHereGeneric: "Agrega tu evento",
+    yourEventHereAtVenue: "Agrega tu evento en {venue}",
     hot: "Top",
     nearMe: "Cerca de mí",
     nearMeOn: "Ordenado por distancia",
@@ -103,6 +104,7 @@ export const es: Dictionary = {
     ourPicks: "Nuestras selecciones",
     happeningToday: "Hoy",
     seeAllToday: "Ver todo hoy",
+    todaysSpecials: "Especiales de hoy",
     recentlyAdded: "Añadidos recientemente",
     comingUp: "En el horizonte",
     viewAllEvents: "Ver todos los eventos",
@@ -322,6 +324,7 @@ export const es: Dictionary = {
     builtWith: "Hecho con ❤️ por",
     partners: "Para hoteles y socios",
     cruise: "Día de crucero",
+    venues: "Lugares",
     support: "Apoyar POP",
     follow: "Seguir POP Events",
     legal: "Legal",
@@ -507,6 +510,19 @@ export const es: Dictionary = {
     localHintIn: "Donde salen los dominicanos en {area}",
     visitorHint: "Beach bars, resorts y clásicos para visitantes",
     visitorHintIn: "Beach bars, resorts y clásicos para visitantes en {area}",
+    directory: {
+      title: "Lugares",
+      metaTitle:
+        "Lugares en la Costa Norte RD | Puerto Plata, Sosúa y Cabarete | POP Eventos",
+      metaDescription:
+        "Explora bares, playas, clubs, resorts y espacios culturales con eventos en Puerto Plata, Sosúa y Cabarete — con próximas noches y tips locales de POP Eventos.",
+      intro:
+        "Lugares de la A a la Z en la Costa Norte — abre uno para ver agenda, tips y cómo llegar.",
+      seeAll: "Ver todos los lugares",
+      letterNav: "Ir a la letra",
+      upcomingOne: "{count} evento próximo",
+      upcomingMany: "{count} eventos próximos",
+    },
     eventsAt: "Próximos eventos",
     upcomingTab: "Próximos",
     pastTab: "Pasados",

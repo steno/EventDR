@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
+import { EventCardPlaceholder } from "@/components/EventCardPlaceholder";
 import { FilteredEventList } from "@/components/FilteredEventList";
 import { warmRoutesIdle } from "@/components/IntentLink";
 import type { Event } from "@/lib/types";
@@ -10,6 +11,7 @@ import type { Locale } from "@/i18n/config";
 import { isPastOneOffEvent } from "@/lib/event-dates";
 import { eventDetailPath } from "@/lib/event-navigation";
 import { sortEventsForDisplay } from "@/lib/event-sort";
+import { fillTemplate } from "@/lib/seo";
 
 interface VenueEventListProps {
   events: Event[];
@@ -22,6 +24,10 @@ interface VenueEventListProps {
   /** Title for back label when `returnTo` is a venue/event detail path. */
   returnTitle?: string | null;
   initialExpanded?: boolean;
+  /** Opens the submit sheet — always shown under the schedule. */
+  onAddEvent?: () => void;
+  /** Prefers venue-scoped CTA copy when set. */
+  venueName?: string;
 }
 
 type VenueScheduleTab = "upcoming" | "past";
@@ -37,6 +43,8 @@ export function VenueEventList({
   returnTo,
   returnTitle = null,
   initialExpanded,
+  onAddEvent,
+  venueName,
 }: VenueEventListProps) {
   const { upcoming, past } = useMemo(() => {
     const up: Event[] = [];
@@ -69,6 +77,9 @@ export function VenueEventList({
     tab === "past" ? dict.venues.noPastEvents : emptyMessage;
   const activeTitle =
     tab === "past" ? dict.venues.pastEvents : sectionTitle ?? dict.venues.eventsAt;
+  const addEventLabel = venueName
+    ? fillTemplate(dict.events.yourEventHereAtVenue, { venue: venueName })
+    : dict.events.yourEventHereGeneric;
 
   const router = useRouter();
   useEffect(() => {
@@ -128,11 +139,21 @@ export function VenueEventList({
         defaultTimeRange="all"
         view="list"
         scrollOnFilterChange={false}
-        addEventCta="button"
         hideTimeFilter={tab === "past"}
         hidePriceFilter
         clusterVenueRecurring={false}
       />
+
+      {onAddEvent ? (
+        <div className="mt-4 max-w-sm">
+          <EventCardPlaceholder
+            title={dict.events.yourEventHereTitle}
+            label={addEventLabel}
+            onClick={onAddEvent}
+            view="list"
+          />
+        </div>
+      ) : null}
     </div>
   );
 }

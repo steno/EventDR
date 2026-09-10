@@ -120,6 +120,13 @@ describe("resolveListingBackLabel", () => {
     assert.equal(resolveBackLabel("en", "/en/city/sosua", dict), "Sosúa");
   });
 
+  it("names the venues directory for A–Z index returns", () => {
+    assert.equal(
+      resolveBackLabel("en", "/en/venues", dict),
+      dict.venues.directory.title,
+    );
+  });
+
   it("names the cruise port and loop for shore-day returns", () => {
     assert.equal(
       resolveBackLabel("en", "/en/cruise/amber-cove", dict),

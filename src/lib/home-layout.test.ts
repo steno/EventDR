@@ -378,7 +378,7 @@ describe("getTodayHighlightEvents peer shuffle", () => {
 });
 
 describe("getHomeDiscoverLayout same-day seed", () => {
-  it("keeps tonight’s new one-off on Today and Recently added", () => {
+  it("puts tonight’s new one-off on Today’s specials and Recently added", () => {
     const tonight = event({
       id: "todos-somos-luperon-2026-09-08",
       title: "Todos Somos Luperón",
@@ -416,13 +416,46 @@ describe("getHomeDiscoverLayout same-day seed", () => {
     });
 
     assert.equal(
-      layout.todayEvents.slice(0, HOME_TODAY_LIMIT)[0]?.id,
+      layout.specialEvents.slice(0, HOME_TODAY_LIMIT)[0]?.id,
       "todos-somos-luperon-2026-09-08",
     );
+    assert.ok(
+      !layout.todayEvents.some((e) => e.id === "todos-somos-luperon-2026-09-08"),
+      "one-off should leave Happening today",
+    );
+    assert.equal(layout.todayEvents[0]?.id, "museum-daily");
     assert.equal(layout.heroExcludeIds.length, 0);
     assert.equal(
       layout.newEvents.slice(0, HOME_NEW_LIMIT)[0]?.id,
       "todos-somos-luperon-2026-09-08",
     );
+  });
+
+  it("hides Today’s specials when only recurring nights run", () => {
+    const daily = event({
+      id: "museum-daily",
+      title: "Museum Hours",
+      date: "2026-09-08",
+      time: "9:00 AM – 5:00 PM",
+      recurrence: "daily",
+      venueSlug: "museo-ambar",
+    });
+    const weekly = event({
+      id: "karaoke-tue",
+      title: "Karaoke",
+      date: "2026-09-08",
+      time: "8:00 PM",
+      recurrence: "weekly",
+      recurrenceDay: 2,
+      venueSlug: "hard-rock-sosua",
+    });
+
+    const layout = getHomeDiscoverLayout([daily, weekly], {
+      now: new Date("2026-09-08T16:00:00.000Z"),
+      shuffleSeed: "no-specials",
+    });
+
+    assert.equal(layout.specialEvents.length, 0);
+    assert.ok(layout.todayEvents.length >= 1);
   });
 });

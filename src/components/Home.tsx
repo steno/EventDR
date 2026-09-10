@@ -689,6 +689,19 @@ function HomeApp({
 
               {!isSearching && !cruisePort && (
                 <TodayHighlights
+                  events={discoverLayout.specialEvents}
+                  locale={locale}
+                  dict={dict}
+                  prefiltered
+                  title={dict.events.todaysSpecials}
+                  hideSeeAll
+                  listTimeRange="today"
+                  returnTo={homePath}
+                />
+              )}
+
+              {!isSearching && !cruisePort && (
+                <TodayHighlights
                   events={discoverLayout.todayEvents}
                   locale={locale}
                   dict={dict}
@@ -702,19 +715,6 @@ function HomeApp({
 
               {!isSearching && !cruisePort && (
                 <TodayHighlights
-                  events={discoverLayout.newEvents}
-                  locale={locale}
-                  dict={dict}
-                  prefiltered
-                  title={dict.events.recentlyAdded}
-                  hideSeeAll
-                  listTimeRange="all"
-                  returnTo={homePath}
-                />
-              )}
-
-              {!isSearching && !cruisePort && (
-                <TodayHighlights
                   events={discoverLayout.comingUpEvents}
                   locale={locale}
                   dict={dict}
@@ -723,6 +723,19 @@ function HomeApp({
                   hideSeeAll
                   listTimeRange="all"
                   showDate
+                  returnTo={homePath}
+                />
+              )}
+
+              {!isSearching && !cruisePort && (
+                <TodayHighlights
+                  events={discoverLayout.newEvents}
+                  locale={locale}
+                  dict={dict}
+                  prefiltered
+                  title={dict.events.recentlyAdded}
+                  hideSeeAll
+                  listTimeRange="all"
                   returnTo={homePath}
                 />
               )}

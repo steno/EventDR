@@ -335,6 +335,10 @@ export function resolveReturnPageTitle(
     if (venue) return venue.name;
   }
 
+  if (segments[0] === "venues") {
+    return dict.venues.directory.title;
+  }
+
   if (segments[0] === "cruise") {
     const loopId = segments[2];
     if (loopId && loopId in dict.cruise.loops) {

@@ -63,11 +63,16 @@ export function CategoryGrid({
     () => orderedIds.map((id) => categoryPath(locale, id, citySlug)),
     [orderedIds, citySlug, locale],
   );
+  const venuesHref = `/${locale}/venues`;
 
   // Mobile has no hover — warm visible category routes after first paint so
   // the first tap overlaps with an in-flight RSC fetch.
   useEffect(() => {
-    const hrefs = [allEventsHref.split("?")[0]!, ...categoryHrefs];
+    const hrefs = [
+      allEventsHref.split("?")[0]!,
+      venuesHref,
+      ...categoryHrefs,
+    ];
     const idle =
       typeof window !== "undefined" && "requestIdleCallback" in window
         ? window.requestIdleCallback.bind(window)
@@ -83,7 +88,7 @@ export function CategoryGrid({
       }
     }) as number;
     return () => cancel(id);
-  }, [allEventsHref, categoryHrefs, router]);
+  }, [allEventsHref, categoryHrefs, venuesHref, router]);
 
   return (
     <section aria-label={label}>
@@ -124,6 +129,19 @@ export function CategoryGrid({
                   </IntentLink>
                 );
               })}
+              <IntentLink
+                href={`/${locale}/venues`}
+                onClick={() => onCategorySelect?.()}
+                className={`${CATEGORY_PILL_BASE} ${CATEGORY_PILL_IDLE}`}
+                aria-label={dict.venues.directory.title}
+              >
+                <span className="text-[48px] leading-none select-none" aria-hidden>
+                  📍
+                </span>
+                <span className="line-clamp-2 w-full">
+                  {dict.venues.directory.title}
+                </span>
+              </IntentLink>
             </div>
           </div>
         </div>

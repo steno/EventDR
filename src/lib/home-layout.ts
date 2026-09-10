@@ -18,6 +18,9 @@ export { prioritizeOneTimeEvents } from "@/lib/event-sort";
 /** Max cards in the home "Happening today" section (desktop 3×2). */
 export const HOME_TODAY_LIMIT = 6;
 
+/** Max cards in the home "Today's specials" section (dated one-offs starting today). */
+export const HOME_SPECIALS_LIMIT = 6;
+
 /** Max cards in the home "Recently added" section. */
 export const HOME_NEW_LIMIT = 6;
 
@@ -426,19 +429,78 @@ export function getComingUpHighlightEvents(
 }
 
 /**
- * Events happening today: one-time before multi-day/recurring, then the same
- * status/time order as lists, with live/upcoming peers rotated and venue
- * diversity in the visible grid head.
+ * Dated one-off that starts on the local calendar day (including overnight
+ * parties whose `endDate` is the next morning). Recurring and multi-day
+ * festivals that started earlier stay in Happening today.
  */
-export function getTodayHighlightEvents(
+export function isTodayOnlySpecial(
+  event: Event,
+  today: string = localDateISO(),
+): boolean {
+  if (isRecurringEvent(event)) return false;
+  return event.date?.trim() === today;
+}
+
+/**
+ * Home “Today’s specials”: non-recurring events that start today and are still
+ * active. Empty most mornings with only weekly nights — callers should hide
+ * the section when the list is empty.
+ */
+export function getTodaySpecialEvents(
   events: Event[],
   options: TodayHighlightOptions = {},
 ): Event[] {
   const now = options.now ?? new Date();
-  const daySeed = localDateISO(now);
+  const today = localDateISO(now);
   const filtered = events.filter(
-    (e) => happensOnLocalDate(e, daySeed) && isEventActiveToday(e, now),
+    (e) => isTodayOnlySpecial(e, today) && isEventActiveToday(e, now),
   );
+  if (filtered.length === 0) return [];
+
+  const sorted = sortEventsForDisplay(filtered, {
+    oneTimeFirst: true,
+    now,
+  });
+  const rotated = shuffleHighlightPeers(
+    sorted,
+    resolveHighlightShuffleSeed(now, options.shuffleSeed, "today-specials"),
+    now,
+  );
+  // Trending one-offs lead; all items are already today-only.
+  const spotlighted = pinTodayOneOffs(rotated, now);
+  const carouselHead = pickDiverseCarouselHead(
+    spotlighted,
+    HOME_SPECIALS_LIMIT,
+  );
+  const headIds = new Set(carouselHead.map((e) => e.id));
+  const tail = spotlighted.filter((e) => !headIds.has(e.id));
+  return [...carouselHead, ...tail];
+}
+
+/**
+ * Events happening today: one-time before multi-day/recurring, then the same
+ * status/time order as lists, with live/upcoming peers rotated and venue
+ * diversity in the visible grid head.
+ *
+ * Home discover splits dated “starts today” one-offs into
+ * {@link getTodaySpecialEvents}; pass `excludeTodaySpecials` there so this
+ * rail stays weekly nights / ongoing multi-day.
+ */
+export function getTodayHighlightEvents(
+  events: Event[],
+  options: TodayHighlightOptions & { excludeTodaySpecials?: boolean } = {},
+): Event[] {
+  const now = options.now ?? new Date();
+  const daySeed = localDateISO(now);
+  const filtered = events.filter((e) => {
+    if (!happensOnLocalDate(e, daySeed) || !isEventActiveToday(e, now)) {
+      return false;
+    }
+    if (options.excludeTodaySpecials && isTodayOnlySpecial(e, daySeed)) {
+      return false;
+    }
+    return true;
+  });
   const sorted = sortEventsForDisplay(filtered, {
     recurringLast: true,
     oneTimeFirst: true,
@@ -487,6 +549,11 @@ export function getHomeHeroEvent(
 
 export interface HomeDiscoverLayout {
   heroEvent: Event | null;
+  /**
+   * Dated one-offs that start today (empty when none). Shown above Happening
+   * today when non-empty.
+   */
+  specialEvents: Event[];
   /** Today highlights already sorted (full list, not sliced). */
   todayEvents: Event[];
   /** Recently added highlights (by `createdAt`, newest first). */
@@ -500,7 +567,8 @@ export interface HomeDiscoverLayout {
 }
 
 /**
- * One filter+sort pass for home hero, today, recently added, coming up, and picks.
+ * One filter+sort pass for home hero, today’s specials, today, recently added,
+ * coming up, and picks.
  */
 export function getHomeDiscoverLayout(
   events: Event[],
@@ -509,6 +577,7 @@ export function getHomeDiscoverLayout(
   if (events.length === 0) {
     return {
       heroEvent: null,
+      specialEvents: [],
       todayEvents: [],
       newEvents: [],
       comingUpEvents: [],
@@ -517,23 +586,34 @@ export function getHomeDiscoverLayout(
     };
   }
 
-  const todayEvents = getTodayHighlightEvents(events, options);
+  const specialEvents = getTodaySpecialEvents(events, options);
+  const todayEvents = getTodayHighlightEvents(events, {
+    ...options,
+    excludeTodaySpecials: true,
+  });
   const specialHero = findActiveSpecialEvent(events, {
     placement: "home-hero",
     now: options.now,
   });
+  const specialWithImage = specialEvents.find((e) =>
+    Boolean(e.imageUrl?.trim()),
+  );
   const todayWithImage = todayEvents.find((e) => Boolean(e.imageUrl?.trim()));
   const anyWithImage = events.find((e) => Boolean(e.imageUrl?.trim()));
   const heroEvent =
     specialHero ??
+    specialWithImage ??
     todayWithImage ??
     anyWithImage ??
+    specialEvents[0] ??
     todayEvents[0] ??
     events[0] ??
     null;
 
-  const picksExcludeIds = todayEvents
-    .slice(0, HOME_TODAY_LIMIT)
+  const picksExcludeIds = [
+    ...specialEvents.slice(0, HOME_SPECIALS_LIMIT),
+    ...todayEvents.slice(0, HOME_TODAY_LIMIT),
+  ]
     .filter((e) => {
       const status = getEventLiveStatus(e, options.now);
       return status === "live" || status === "upcoming";
@@ -544,10 +624,11 @@ export function getHomeDiscoverLayout(
     picksExcludeIds.push(heroEvent.id);
   }
 
-  // Coming up owns future one-offs; skip today’s visible carousel + hero photo.
-  const comingUpExclude = new Set<string>(
-    todayEvents.slice(0, HOME_TODAY_LIMIT).map((e) => e.id),
-  );
+  // Coming up owns future one-offs; skip today’s visible carousels + hero photo.
+  const comingUpExclude = new Set<string>([
+    ...specialEvents.slice(0, HOME_SPECIALS_LIMIT).map((e) => e.id),
+    ...todayEvents.slice(0, HOME_TODAY_LIMIT).map((e) => e.id),
+  ]);
   if (heroEvent) comingUpExclude.add(heroEvent.id);
 
   const comingUpEvents = getComingUpHighlightEvents(events, {
@@ -555,9 +636,9 @@ export function getHomeDiscoverLayout(
     excludeIds: [...comingUpExclude],
   });
 
-  // Recently added: newest first. Allow overlap with Today/hero so a same-day
-  // seed (e.g. tonight’s civic play) still leads this rail. Only skip Coming up
-  // head to avoid repeating the same future concerts twice.
+  // Recently added: newest first. Allow overlap with Today’s specials / Today /
+  // hero so a same-day seed still leads this rail. Only skip Coming up head to
+  // avoid repeating the same future concerts twice.
   const newExclude = new Set(
     comingUpEvents.slice(0, HOME_COMING_UP_LIMIT).map((e) => e.id),
   );
@@ -569,12 +650,13 @@ export function getHomeDiscoverLayout(
 
   return {
     heroEvent,
+    specialEvents,
     todayEvents,
     newEvents,
     comingUpEvents,
     picksExcludeIds,
-    // Keep Tonight’s one-off in the Happening today cards even when it is also
-    // the hero photo — the photo plane is not a substitute for a listing card.
+    // Keep Tonight’s one-off in Today’s specials even when it is also the hero
+    // photo — the photo plane is not a substitute for a listing card.
     heroExcludeIds: EMPTY_EVENT_IDS,
   };
 }

@@ -60,6 +60,13 @@ export function SiteFooter({
         >
           {dict.time.weekend}
         </Link>
+        <Link
+          href={`/${locale}/venues`}
+          prefetch={false}
+          className="hover:text-neutral-800 dark:hover:text-neutral-200 transition-colors"
+        >
+          {dict.footer.venues}
+        </Link>
         {showCruiseLink ? (
           <Link
             href={cruisePath(locale, "taino-bay")}

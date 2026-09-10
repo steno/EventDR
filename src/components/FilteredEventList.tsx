@@ -295,11 +295,12 @@ export function FilteredEventList({
     Boolean(onAddEvent) && addEventCta === "button";
 
   const addEventLabelResolved =
-    categoryId
+    addEventLabel ??
+    (categoryId
       ? fillTemplate(dict.events.yourEventHere, {
           category: dict.categories[categoryId],
         })
-      : dict.events.yourEventHereGeneric;
+      : dict.events.yourEventHereGeneric);
 
   const addEventInlineCard = showInlineAddCta ? (
     <div className={`${view === "cards" ? "mt-3" : "mt-3 max-w-sm"}`}>

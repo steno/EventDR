@@ -78,6 +78,8 @@ export type Dictionary = {
     yourEventHere: string;
     /** Short-list CTA subline when browsing all events (no category scope). */
     yourEventHereGeneric: string;
+    /** Venue schedule CTA — `{venue}` is the place name. */
+    yourEventHereAtVenue: string;
     hot: string;
     nearMe: string;
     nearMeOn: string;
@@ -85,6 +87,8 @@ export type Dictionary = {
     ourPicks: string;
     happeningToday: string;
     seeAllToday: string;
+    /** Home section: dated one-offs that start today (hidden when empty). */
+    todaysSpecials: string;
     /** Home section: recently added listings. */
     recentlyAdded: string;
     /** Home section: future one-offs / concerts ahead. */
@@ -297,6 +301,7 @@ export type Dictionary = {
     builtWith: string;
     partners: string;
     cruise: string;
+    venues: string;
     support: string;
     follow: string;
     legal: string;
@@ -468,6 +473,18 @@ export type Dictionary = {
     visitorHint: string;
     /** City-scoped visitor favorites subtitle — `{area}` is the city name. */
     visitorHintIn: string;
+    /** Hub page at `/venues` — full North Coast venue directory. */
+    directory: {
+      title: string;
+      metaTitle: string;
+      metaDescription: string;
+      intro: string;
+      seeAll: string;
+      /** Accessibility label for the A–Z jump strip. */
+      letterNav: string;
+      upcomingOne: string;
+      upcomingMany: string;
+    };
     eventsAt: string;
     upcomingTab: string;
     pastTab: string;
@@ -647,6 +664,7 @@ export const en: Dictionary = {
     yourEventHereTitle: "Your event here?",
     yourEventHere: "Add your {category} event",
     yourEventHereGeneric: "Add your event",
+    yourEventHereAtVenue: "Add your event at {venue}",
     hot: "Hot",
     nearMe: "Near me",
     nearMeOn: "Sorted by distance",
@@ -654,6 +672,7 @@ export const en: Dictionary = {
     ourPicks: "Our picks",
     happeningToday: "Happening today",
     seeAllToday: "See all today",
+    todaysSpecials: "Today's specials",
     recentlyAdded: "Recently added",
     comingUp: "On the horizon",
     viewAllEvents: "View all events",
@@ -873,6 +892,7 @@ export const en: Dictionary = {
     builtWith: "Built with ❤️ by",
     partners: "For hotels & partners",
     cruise: "Cruise day",
+    venues: "Venues",
     support: "Support POP",
     follow: "Follow POP Events",
     legal: "Legal",
@@ -1058,6 +1078,19 @@ export const en: Dictionary = {
     localHintIn: "Where Dominicans go out in {area}",
     visitorHint: "Beach bars, resorts, and classic visitor spots",
     visitorHintIn: "Beach bars, resorts, and classic visitor spots in {area}",
+    directory: {
+      title: "Venues",
+      metaTitle:
+        "Venues on the North Coast DR | Puerto Plata, Sosúa & Cabarete | POP Events",
+      metaDescription:
+        "Browse bars, beaches, clubs, resorts, and cultural spots hosting events in Puerto Plata, Sosúa, and Cabarete — with upcoming nights and local tips from POP Events.",
+      intro:
+        "A–Z places that host nights out on the North Coast — open a venue for schedule, tips, and how to get there.",
+      seeAll: "See all venues",
+      letterNav: "Jump to letter",
+      upcomingOne: "{count} upcoming event",
+      upcomingMany: "{count} upcoming events",
+    },
     eventsAt: "Upcoming events",
     upcomingTab: "Upcoming",
     pastTab: "Past",

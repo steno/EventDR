@@ -96,6 +96,7 @@ export const fr: Dictionary = {
     yourEventHereTitle: "Votre événement ici ?",
     yourEventHere: "Ajoutez votre événement {category}",
     yourEventHereGeneric: "Ajoutez votre événement",
+    yourEventHereAtVenue: "Ajoutez votre événement à {venue}",
     hot: "Top",
     nearMe: "Près de moi",
     nearMeOn: "Trié par distance",
@@ -103,6 +104,7 @@ export const fr: Dictionary = {
     ourPicks: "Nos sélections",
     happeningToday: "Aujourd'hui",
     seeAllToday: "Tout voir aujourd'hui",
+    todaysSpecials: "Spéciaux du jour",
     recentlyAdded: "Ajoutés récemment",
     comingUp: "À l'horizon",
     viewAllEvents: "Voir tous les événements",
@@ -322,6 +324,7 @@ export const fr: Dictionary = {
     builtWith: "Fait avec ❤️ par",
     partners: "Pour hôtels et partenaires",
     cruise: "Journée croisière",
+    venues: "Lieux",
     support: "Soutenir POP",
     follow: "Suivre POP Events",
     legal: "Mentions légales",
@@ -507,6 +510,19 @@ export const fr: Dictionary = {
     localHintIn: "Là où sortent les Dominicains à {area}",
     visitorHint: "Beach bars, resorts et classiques pour visiteurs",
     visitorHintIn: "Beach bars, resorts et classiques pour visiteurs à {area}",
+    directory: {
+      title: "Lieux",
+      metaTitle:
+        "Lieux sur la côte nord RD | Puerto Plata, Sosúa et Cabarete | POP Events",
+      metaDescription:
+        "Parcourez bars, plages, clubs, resorts et lieux culturels qui accueillent des événements à Puerto Plata, Sosúa et Cabarete — avec les prochaines soirées et conseils locaux de POP Events.",
+      intro:
+        "Lieux de A à Z sur la côte nord — ouvrez un lieu pour l’agenda, les conseils et le trajet.",
+      seeAll: "Voir tous les lieux",
+      letterNav: "Aller à la lettre",
+      upcomingOne: "{count} événement à venir",
+      upcomingMany: "{count} événements à venir",
+    },
     eventsAt: "Événements à venir",
     upcomingTab: "À venir",
     pastTab: "Passés",

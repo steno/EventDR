@@ -94,6 +94,12 @@ export async function getSitemapEntries(): Promise<SitemapEntry[]> {
     priority: 0.95,
   });
 
+  pushLocalized(entries, "/venues", {
+    lastModified: listingLastModified,
+    changeFrequency: "daily",
+    priority: 0.85,
+  });
+
   for (const categoryId of CATEGORY_IDS) {
     pushLocalized(entries, `/category/${categoryId}`, {
       lastModified: listingLastModified,

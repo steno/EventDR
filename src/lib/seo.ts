@@ -345,6 +345,75 @@ export function buildVenueMetadata(
   };
 }
 
+export function buildVenuesDirectoryMetadata(
+  locale: Locale,
+  dict: Dictionary,
+): Metadata {
+  const path = "/venues";
+  const title = dict.venues.directory.metaTitle;
+  const description = dict.venues.directory.metaDescription;
+  const alternates = buildAlternates(locale, path);
+
+  return {
+    title,
+    description,
+    alternates,
+    openGraph: defaultOpenGraph(locale, {
+      title,
+      description,
+      url: alternates.canonical,
+    }),
+    twitter: defaultTwitter({ title, description }),
+  };
+}
+
+export function buildVenueItemListJsonLd(
+  venues: Venue[],
+  listName: string,
+  locale: Locale,
+  listPath: string,
+): Record<string, unknown> {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: listName,
+    url: absoluteUrl(listPath),
+    numberOfItems: venues.length,
+    itemListElement: venues.map((venue, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      url: absoluteUrl(localePath(locale, `/venue/${venue.slug}`)),
+      name: venue.name,
+    })),
+  };
+}
+
+export function buildVenuesDirectoryJsonLd(
+  locale: Locale,
+  dict: Dictionary,
+  venues: Venue[],
+): Record<string, unknown>[] {
+  const path = localePath(locale, "/venues");
+  return [
+    buildCollectionPageJsonLd(
+      dict.venues.directory.metaTitle,
+      dict.venues.directory.metaDescription,
+      locale,
+      path,
+    ),
+    buildVenueItemListJsonLd(
+      venues,
+      dict.venues.directory.title,
+      locale,
+      path,
+    ),
+    buildBreadcrumbJsonLd([
+      { name: dict.seo.siteName, path: localePath(locale) },
+      { name: dict.venues.directory.title, path },
+    ]),
+  ];
+}
+
 export function buildEventMetadata(
   locale: Locale,
   event: Event,
