@@ -1923,4 +1923,24 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "IG Aug 30 2026: Sáb 26 Sep 3 PM, Dom 27 Sep 1 PM, Hard Rock, reserva 849-505-7778. No price on flyer.",
     updatedAt: "2026-09-10T16:00:00.000Z",
   },
+  {
+    eventId: "el-choco-cave-tour-swimming-daily",
+    seriesKey: "parque-nacional-el-choco:daily",
+    body: "Hire the guide at Callejón de la Loma for the cave swim — this is wet limestone and helmets, not a beach lagoon day; morning beats heat and slippery rock.",
+    localized: {
+      es: "Contrata el guía en Callejón de la Loma para nadar en las cuevas — es caliza mojada y casco, no un día de laguna de playa; la mañana gana al calor y a la roca resbalosa.",
+      fr: "Prenez le guide à Callejón de la Loma pour nager dans les grottes — calcaire mouillé et casque, pas une journée lagune plage ; le matin bat la chaleur et la roche glissante.",
+    },
+    priceFeel: "varies",
+    priceNote:
+      "Park entry small + guide often ~US$15–25 all-in at the gate; hotel excursions run higher — cash, water shoes",
+    priceNoteLocalized: {
+      es: "Entrada pequeña + guía suele ~US$15–25 todo en la puerta; excursiones de hotel salen más — efectivo, zapatos de agua",
+      fr: "Entrée légère + guide souvent ~US$15–25 tout compris à la porte ; excursions hôtel plus chères — cash, chaussures d'eau",
+    },
+    attribution: "POP research · dominicanrepublic365.com + visitor reports",
+    researchNotes:
+      "Daily ~8 AM–5 PM; Cuevas del Choco swimming highlight; guide recommended at Callejón de la Loma; ~2–3 hr; phone +1 809-984-9823.",
+    updatedAt: "2026-09-10T19:00:00.000Z",
+  },
 ];

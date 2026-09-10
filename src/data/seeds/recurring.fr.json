@@ -534,6 +534,24 @@
     "imageEmoji": "💧"
   },
   {
+    "id": "el-choco-cave-tour-swimming-daily",
+    "title": "Cuevas del Choco — Tour et baignade",
+    "description": "Visite guidée et baignade en eau douce dans le Parc national El Choco, à l'intérieur des terres depuis Cabarete — bassins souterrains, lagune et sentiers. Ouvert tous les jours ~8 h–17 h ; prenez un guide à l'entrée Callejón de la Loma. Chaussures d'eau et cash ; ~2–3 h.",
+    "date": "2026-01-01",
+    "time": "8:00 AM - 5:00 PM",
+    "location": "Cabarete",
+    "venue": "Parque Nacional El Choco",
+    "venueSlug": "parque-nacional-el-choco",
+    "address": "Callejón de la Loma, Cabarete",
+    "category": "adventure",
+    "format": "physical",
+    "recurrence": "daily",
+    "phone": "+18099849823",
+    "callForPricing": true,
+    "sourceUrl": "https://dominicanrepublic365.com/attractions/el-choco-national-park",
+    "imageEmoji": "🏞️"
+  },
+  {
     "id": "taino-bay-village-daily",
     "title": "Journée au village Taino Bay",
     "description": "Village réservé aux passagers de croisière au quai — lazy river et piscines gratuits, boutiques, bars et spectacles quand un navire est là. Monkey Island en supplément. Pas un day pass public. Fortaleza et le Malecón sont à pied si vous sortez des portes.",

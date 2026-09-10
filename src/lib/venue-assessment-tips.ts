@@ -809,6 +809,14 @@ export const VENUE_TIP_COPY: Record<
       fr: "À l'intérieur des terres depuis Cabarete — réservez Jamao Ecotours pour le kayak de 5 km avec déjeuner ; n'arrivez pas en location de plage. Pickup au Parque Central ; confirmez les week-ends.",
     },
   },
+  "parque-nacional-el-choco": {
+    body: "Cuevas del Choco inland from Cabarete — hire a guide at Callejón de la Loma for the cave swim; water shoes and a morning start beat midday heat and slippery rock.",
+    localized: {
+      en: "Cuevas del Choco inland from Cabarete — hire a guide at Callejón de la Loma for the cave swim; water shoes and a morning start beat midday heat and slippery rock.",
+      es: "Cuevas del Choco tierra adentro desde Cabarete — contrata guía en Callejón de la Loma para nadar en las cuevas; zapatos de agua y mañana ganan al calor y a la roca resbalosa.",
+      fr: "Cuevas del Choco à l'intérieur depuis Cabarete — prenez un guide à Callejón de la Loma pour nager dans les grottes ; chaussures d'eau et matin battent la chaleur et la roche glissante.",
+    },
+  },
   "flip-flop-sports-bar-sosua": {
     body: "Beach-entrance sports bar at the yellow steps — come for the TVs and wings, not a Pedro Clisante disco crawl. Game days fill up; weekdays are the easy walk-in.",
     localized: {

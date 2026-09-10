@@ -60,6 +60,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "ocean-winds-karaoke-nights": "ocean-winds-karaoke-amados.jpg",
   "ocean-world-daily": "ocean-world-daily.jpg",
   "charcos-damajagua-daily": "charcos-damajagua-daily.jpeg",
+  "el-choco-cave-tour-swimming-daily": "el-choco-cave-tour-swimming-daily.jpg",
   "taino-bay-village-daily": "taino-bay-village-daily.jpg",
   "amber-cove-village-daily": "amber-cove-village-daily.jpg",
   // Filename bump — Wikimedia ramparts + visitors (not the 524px aerial clone).

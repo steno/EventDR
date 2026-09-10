@@ -1196,6 +1196,17 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     ],
   }),
   editorial({
+    venueSlug: "parque-nacional-el-choco",
+    verdictKey: "solid_visitor_activity",
+    crowdFit: ["visitor", "family", "mixed"],
+    axes: { recommend: 4.4, atmosphere: 4.6, practical: 3.7, reliability: 4.0 },
+    themes: [
+      { key: "adventure_park", sentiment: "positive", audience: "visitor" },
+      { key: "countryside", sentiment: "positive" },
+      { key: "family_friendly", sentiment: "positive", audience: "family" },
+    ],
+  }),
+  editorial({
     venueSlug: "flip-flop-sports-bar-sosua",
     verdictKey: "strong_mixed_food_nightlife",
     crowdFit: ["visitor", "mixed", "local"],
