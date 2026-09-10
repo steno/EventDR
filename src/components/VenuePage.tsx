@@ -21,7 +21,6 @@ import {
 import { VenueAssessmentBlock } from "@/components/VenueAssessmentBlock";
 import { EventImage } from "@/components/EventImage";
 import { IntentLink } from "@/components/IntentLink";
-import { SubmitEventSheet } from "@/components/SubmitEventSheet";
 import { lastHomePath } from "@/lib/cities";
 import { isPastOneOffEvent } from "@/lib/event-dates";
 import {
@@ -88,7 +87,6 @@ export function VenuePage({
   const [loading, setLoading] = useState(() => initialEvents.length === 0);
   const [plannerOpen, setPlannerOpen] = useState(false);
   const [areaViewOpen, setAreaViewOpen] = useState(false);
-  const [submitOpen, setSubmitOpen] = useState(false);
   const placeCardRef = useRef<HTMLElement>(null);
   const mapSectionRef = useRef<HTMLDivElement>(null);
   const stickyMapRef = useRef<HTMLDivElement>(null);
@@ -507,8 +505,6 @@ export function VenuePage({
                   returnTo={listReturnTo}
                   returnTitle={venue.name}
                   initialExpanded={initialExpanded}
-                  onAddEvent={() => setSubmitOpen(true)}
-                  venueName={venue.name}
                 />
               </div>
 
@@ -526,20 +522,6 @@ export function VenuePage({
           </div>
         </div>
       </main>
-
-      <SubmitEventSheet
-        open={submitOpen}
-        onClose={() => setSubmitOpen(false)}
-        dict={dict}
-        locale={locale}
-        defaults={{
-          venue: venue.name,
-          location: venue.city,
-        }}
-        onSubmitted={() => {
-          softRefreshEvents();
-        }}
-      />
     </>
   );
 }
