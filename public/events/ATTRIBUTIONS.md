@@ -240,3 +240,5 @@ Curated images under `public/events/` and `public/venues/`.
 | `venues/casa-balcon-puerto-plata.jpg` | POP-supplied — balcony lunch overlooking Independence Park gazebo | Venue place shot (compressed JPEG from editor PNG) |
 | `venues/casa-caribe-puerto-plata.jpg` | POP-supplied — night entrance with yellow Casa Caribe / Caribbean Food sign | Venue place shot on Luis Ginebra |
 | `venues/sun-club-costa-norte-sosua.jpg` | POP-supplied — Ocean Club Sun Club pool deck (yellow-stripe loungers / cabanas) | Venue place shot at The Ocean Club Costa Norte |
+| `venues/desarrollo-fitness-cabarete-gym.jpg` | POP-supplied — Desarrollo Fitness Cabarete thatched training palapa / gym mats | Venue place shot (editor-provided, not scraped) |
+| `venues/parque-nacional-el-choco-cave.jpg` | POP-supplied — Cuevas del Choco lagoon swim inside Parque Nacional El Choco | Venue place shot (editor-provided, not scraped) |

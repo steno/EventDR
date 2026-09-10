@@ -116,6 +116,10 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "santa-fe-sov": "santa-fe-sov-pools.jpg",
   "restaurant-maria-sov": "restaurant-maria-sov-terrace.jpg",
   "zen-fitness-cabarete": "zen-fitness-cabarete.jpg",
+  // Filename bump — thatched training palapa / gym mats (editor-provided).
+  "desarrollo-fitness-cabarete": "desarrollo-fitness-cabarete-gym.jpg",
+  // Filename bump — Cuevas del Choco lagoon swim (editor-provided).
+  "parque-nacional-el-choco": "parque-nacional-el-choco-cave.jpg",
   // Filename bump — Maps palapa dining hall (not El Blachy’s patio still).
   "cacique-moncion": "cacique-moncion-palapa.jpg",
   "gran-ventana-beach-resort": "gran-ventana-beach-resort.jpg",

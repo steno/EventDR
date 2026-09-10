@@ -147,6 +147,161 @@ describe("sortEventsForDisplay temporarilyClosed", () => {
   });
 });
 
+describe("sortEventsForDisplay weekly vs daily", () => {
+  it("ranks a future weekly night above a closed-today daily in discoveryMode", () => {
+    const museum = event({
+      id: "museum-daily",
+      title: "La Confluencia Ethnographic Museum",
+      date: "2026-07-31",
+      time: "9:00 AM – 5:00 PM",
+      recurrence: "daily",
+    });
+    const fridayReggae = event({
+      id: "lax-friday-reggae",
+      title: "Friday Reggae Night",
+      date: "2026-08-07",
+      time: "10:00 PM",
+      recurrence: "weekly",
+      recurrenceDay: 5,
+    });
+
+    const sorted = sortEventsForDisplay([museum, fridayReggae], {
+      now: NOW,
+      discoveryMode: true,
+      oneTimeFirst: true,
+      recurringLast: true,
+    });
+    assert.equal(
+      sorted.map((e) => e.id).join(","),
+      "lax-friday-reggae,museum-daily",
+    );
+  });
+
+  it("ranks today’s untimed Thursday-only night above a live daily", () => {
+    /** Thursday afternoon — rum tour still open, La Peña has no clock time. */
+    const afternoon = new Date("2026-07-31T20:00:00.000Z");
+    const laPena = event({
+      id: "cigar-town-la-pena-thursdays",
+      title: "La Peña at Cigar Town",
+      date: "2026-07-31",
+      recurrence: "weekly",
+      recurrenceDay: 4,
+    });
+    const rumTour = event({
+      id: "brugal-daily",
+      title: "Brugal Rum Tour",
+      date: "2026-07-31",
+      time: "8:00 AM - 5:00 PM",
+      recurrence: "daily",
+    });
+
+    const sorted = sortEventsForDisplay([rumTour, laPena], {
+      now: afternoon,
+      discoveryMode: true,
+      oneTimeFirst: true,
+      pinTodayOneOffs: true,
+      recurringLast: true,
+    });
+    assert.equal(
+      sorted.map((e) => e.id).join(","),
+      "cigar-town-la-pena-thursdays,brugal-daily",
+    );
+  });
+
+  it("ranks weekly before daily within the same future day when oneTimeFirst", () => {
+    const dailyTour = event({
+      id: "snorkel-daily",
+      title: "Daily Snorkel Tour",
+      date: "2026-08-07",
+      time: "7:00 PM",
+      recurrence: "daily",
+    });
+    const weeklyNight = event({
+      id: "thursday-jazz",
+      title: "Thursday Jazz",
+      date: "2026-08-07",
+      time: "7:00 PM",
+      recurrence: "weekly",
+      recurrenceDay: 4,
+    });
+
+    const byKind = sortEventsForDisplay([dailyTour, weeklyNight], {
+      now: NOW,
+      oneTimeFirst: true,
+      recurringLast: true,
+    });
+    assert.equal(byKind.map((e) => e.id).join(","), "thursday-jazz,snorkel-daily");
+
+    // Earlier start still wins over kind.
+    const morningDaily = event({
+      ...dailyTour,
+      time: "10:00 AM",
+    });
+    const byTime = sortEventsForDisplay([morningDaily, weeklyNight], {
+      now: NOW,
+      oneTimeFirst: true,
+      recurringLast: true,
+    });
+    assert.equal(byTime.map((e) => e.id).join(","), "snorkel-daily,thursday-jazz");
+  });
+
+  it("pins tonight’s weekly night above a live evergreen daily", () => {
+    const afternoon = new Date("2026-07-31T20:00:00.000Z");
+    const weekly = event({
+      id: "friday-reggae",
+      title: "Friday Reggae",
+      date: "2026-07-31",
+      time: "10:00 PM",
+      recurrence: "weekly",
+      recurrenceDay: 5,
+      trending: true,
+    });
+    const museum = event({
+      id: "museum-daily",
+      title: "Museum Hours",
+      date: "2026-07-31",
+      time: "9:00 AM – 5:00 PM",
+      recurrence: "daily",
+    });
+
+    const sorted = sortEventsForDisplay([museum, weekly], {
+      now: afternoon,
+      oneTimeFirst: true,
+      pinTodayOneOffs: true,
+      recurringLast: true,
+    });
+    assert.equal(sorted.map((e) => e.id).join(","), "friday-reggae,museum-daily");
+  });
+
+  it("treats near-daily weekly (5+ days) like everyday, not scarce", () => {
+    const happyHour = event({
+      id: "happy-hour-near-daily",
+      title: "Happy Hour",
+      date: "2026-08-07",
+      time: "5:00 PM",
+      recurrence: "weekly",
+      recurrenceDays: [0, 1, 2, 3, 4, 5, 6],
+    });
+    const oneOff = event({
+      id: "vigil-one-off",
+      title: "Huelga-Velada Pacífica",
+      date: "2026-08-07",
+      time: "6:30 PM",
+    });
+
+    const sorted = sortEventsForDisplay([happyHour, oneOff], {
+      now: NOW,
+      discoveryMode: true,
+      oneTimeFirst: true,
+      recurringLast: true,
+    });
+    assert.equal(
+      sorted.map((e) => e.id).join(","),
+      "vigil-one-off,happy-hour-near-daily",
+    );
+  });
+});
+
 describe("sortEventsForDisplay pinTodayOneOffs", () => {
   /** Friday Jul 31, 2026 16:00 America/Santo_Domingo — museum still live, show upcoming. */
   const afternoon = new Date("2026-07-31T20:00:00.000Z");

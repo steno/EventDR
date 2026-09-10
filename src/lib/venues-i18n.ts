@@ -133,8 +133,8 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Parc national El Choco",
     },
     description: {
-      es: "Parque kárstico tierra adentro desde Cabarete — lagunas, bosque subtropical y tours en bote por cuevas con lagos subterráneos.",
-      fr: "Parc karstique à l'intérieur des terres depuis Cabarete — lagunes, forêt subtropicale et visites en bateau dans des grottes aux lacs souterrains.",
+      es: "Parque kárstico tierra adentro desde Cabarete — Cuevas del Choco con piscinas subterráneas, lagunas y senderos. Abierto ~8:00 AM–5:00 PM; contrata guía en la entrada de Callejón de la Loma para las cuevas.",
+      fr: "Parc karstique à l'intérieur des terres depuis Cabarete — Cuevas del Choco avec bassins souterrains, lagunes et sentiers. Ouvert ~8 h–17 h ; prenez un guide à l'entrée Callejón de la Loma pour les grottes.",
     },
   },
   "jamao-al-norte": {

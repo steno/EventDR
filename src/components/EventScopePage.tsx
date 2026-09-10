@@ -303,16 +303,25 @@ export function EventScopePage({
     : regionScope;
 
   const relatedCategoryLinks = useMemo(() => {
-    if (!softNav) return relatedCategoryLinksProp;
-    const scopeForCounts = selection.citySlug
-      ? filterCatalogForScope(catalog, { citySlug: selection.citySlug })
-      : catalog;
-    return categoryNavLinks(
-      locale,
-      dict.categories,
-      selection.citySlug ?? null,
-      scopeForCounts,
-    );
+    const venuesLink = {
+      href: `/${locale}/venues`,
+      label: dict.venues.directory.title,
+      emoji: "📍",
+    };
+    const base = (() => {
+      if (!softNav) return relatedCategoryLinksProp ?? [];
+      const scopeForCounts = selection.citySlug
+        ? filterCatalogForScope(catalog, { citySlug: selection.citySlug })
+        : catalog;
+      return categoryNavLinks(
+        locale,
+        dict.categories,
+        selection.citySlug ?? null,
+        scopeForCounts,
+      );
+    })();
+    if (base.some((link) => link.href === venuesLink.href)) return base;
+    return [...base, venuesLink];
   }, [
     softNav,
     relatedCategoryLinksProp,
@@ -320,6 +329,7 @@ export function EventScopePage({
     selection.citySlug,
     locale,
     dict.categories,
+    dict.venues.directory.title,
   ]);
 
   const relatedCategoryActiveHref = softNav

@@ -1,5 +1,5 @@
 import type { Event } from "./types";
-import { compareEventsBySchedule, eventStartTimeMinutes, localDateISO } from "./event-dates";
+import { eventStartTimeMinutes, localDateISO } from "./event-dates";
 import {
   getEventLiveStatus,
   happensOnLocalDate,
@@ -32,17 +32,18 @@ export interface SortEventsForDisplayOptions {
   recurringLast?: boolean;
   /**
    * Within the same status tier, prefer one-time fixtures, then multi-day,
-   * then recurring — after time/schedule (does not float future one-offs above live/today).
+   * then weekly/weekend nights, then weekdays, then daily — after time/schedule
+   * (does not float future one-offs above live/today).
    */
   oneTimeFirst?: boolean;
   /**
-   * After status/time sort: float live/upcoming one-offs above evergreen
-   * dailies so rare same-day shows aren’t buried under open museums/tours.
+   * After status/time sort: float today’s one-offs and scarce weekly nights
+   * (incl. untimed “Happening today”) above evergreen dailies.
    */
   pinTodayOneOffs?: boolean;
   /**
-   * Category "All" browse: keep live urgency first, then float non-recurring
-   * dated events above the evergreen recurring catalog (closed-today museums, etc.).
+   * Category "All" browse: today’s Thu-only / scarce nights first, then future
+   * dated fixtures, then the evergreen daily catalog (even when “Happening now”).
    */
   discoveryMode?: boolean;
   /**
@@ -55,32 +56,69 @@ export interface SortEventsForDisplayOptions {
 }
 
 /**
- * Lower = higher in discovery lists.
- * 0 real urgency — live / ending soon, or a one-off still upcoming today
- * 1 dated non-recurring still relevant (future one-offs, multi-day, etc.)
- * 2 evergreen recurring catalog (incl. “opens later today” / closed-today dailies)
+ * How often a recurring series runs. Lower = scarcer = higher in lists.
+ * 0 ≈ once/twice a week (weekly night, weekends)
+ * 1 ≈ several weekdays
+ * 2 ≈ everyday / near-daily
  */
-function discoveryBand(tier: number, recurring: boolean): number {
-  if (tier === LIST_TIER.live || tier === LIST_TIER.endingSoon) {
-    return 0;
-  }
-  if (tier === LIST_TIER.upcomingToday && !recurring) {
-    return 0;
-  }
+function recurringFrequencyRank(
+  event: Pick<Event, "recurrence" | "recurrenceDay" | "recurrenceDays">,
+): number {
+  const recurrence = event.recurrence;
+  if (!recurrence) return 0;
+  if (recurrence === "daily") return 2;
+  if (recurrence === "weekdays") return 1;
+  if (recurrence === "weekends") return 0;
+
+  const dayCount =
+    event.recurrenceDays && event.recurrenceDays.length > 0
+      ? event.recurrenceDays.length
+      : 1;
+  if (dayCount >= 5) return 2;
+  if (dayCount >= 3) return 1;
+  return 0;
+}
+
+/** Weekly/weekend nights — scarce enough to rank like dated fixtures. */
+function isScarceRecurring(event: Event): boolean {
+  return isRecurringEvent(event) && recurringFrequencyRank(event) === 0;
+}
+
+/**
+ * Lower = higher in discovery lists (category “All”).
+ * 0 today’s scarce nights — Thu-only / one-offs still on today (any live status)
+ * 1 future dated one-offs and scarce weekly (don’t bury under museum hours)
+ * 2 evergreen daily/weekday catalog — even “Happening now” open hours
+ */
+function discoveryBand(tier: number, event: Event): number {
+  const scarce = !isRecurringEvent(event) || isScarceRecurring(event);
+  const todayActive =
+    tier === LIST_TIER.live ||
+    tier === LIST_TIER.endingSoon ||
+    tier === LIST_TIER.upcomingToday ||
+    tier === LIST_TIER.activeTodayUnknown;
+
+  // Thursday-only (and other scarce) beats open museums/tours on that day.
+  if (todayActive && scarce) return 0;
+
   if (
-    !recurring &&
-    tier !== LIST_TIER.endedToday &&
-    tier !== LIST_TIER.temporarilyClosed &&
-    tier !== LIST_TIER.past
+    tier === LIST_TIER.endedToday ||
+    tier === LIST_TIER.temporarilyClosed ||
+    tier === LIST_TIER.past ||
+    tier === LIST_TIER.closedToday
   ) {
-    return 1;
+    return 2;
   }
+
+  // Future one-offs / weekly nights above the evergreen daily wall.
+  if (scarce) return 1;
+
   return 2;
 }
 
 /**
- * One-time fixtures before multi-day festivals, then recurring —
- * preserves prior status/time order within each kind.
+ * One-time fixtures before multi-day festivals, then weekly nights, then
+ * weekdays, then daily — preserves prior status/time order within each kind.
  * Prefer `sortEventsForDisplay({ oneTimeFirst: true })` so status tiers stay primary.
  */
 export function prioritizeOneTimeEvents(events: Event[]): Event[] {
@@ -94,46 +132,60 @@ export function prioritizeOneTimeEvents(events: Event[]): Event[] {
 }
 
 /**
- * Keep live/ending urgency, but don’t let evergreen museum/tour dailies bury
- * the only dated one-offs tonight (theater, concerts). Only pins one-offs that
- * happen today — future fixtures keep normal schedule order. Trending one-offs
- * lead that pin group. Used on home Today and category/city scoped lists.
+ * Float today’s one-offs and scarce weekly nights above evergreen dailies
+ * (including untimed “Happening today” series like La Peña). Used on home
+ * Today and category/city lists.
  */
 export function pinTodayOneOffs(events: Event[], now: Date = new Date()): Event[] {
   if (events.length < 2) return events;
 
   const today = localDateISO(now);
-  const oneOffs: Event[] = [];
+  const pinned: Event[] = [];
   const rest: Event[] = [];
   for (const event of events) {
-    if (isRecurringEvent(event) || !happensOnLocalDate(event, today)) {
+    const everydayRecurring =
+      isRecurringEvent(event) && !isScarceRecurring(event);
+    if (everydayRecurring || !happensOnLocalDate(event, today)) {
       rest.push(event);
       continue;
     }
     const status = getEventLiveStatus(event, now);
+    // Untimed weekly nights are "unknown" — still pin them; only drop finished.
     if (
-      status === "live" ||
-      status === "ending" ||
-      status === "upcoming"
+      status === "ended" ||
+      status === "closedToday" ||
+      status === "temporarilyClosed"
     ) {
-      oneOffs.push(event);
-    } else {
       rest.push(event);
+      continue;
     }
+    pinned.push(event);
   }
 
-  if (oneOffs.length === 0) return events;
+  if (pinned.length === 0) return events;
 
-  oneOffs.sort(
-    (a, b) => Number(Boolean(b.trending)) - Number(Boolean(a.trending)),
-  );
-  return [...oneOffs, ...rest];
+  pinned.sort((a, b) => {
+    const trend =
+      Number(Boolean(b.trending)) - Number(Boolean(a.trending));
+    if (trend !== 0) return trend;
+    const kindDiff = oneTimeKindRank(a) - oneTimeKindRank(b);
+    if (kindDiff !== 0) return kindDiff;
+    return (
+      eventStartTimeMinutes(a.time) - eventStartTimeMinutes(b.time)
+    );
+  });
+  return [...pinned, ...rest];
 }
 
+/**
+ * Lower = higher when `oneTimeFirst` is on.
+ * 0 one-time · 1 multi-day · 2 weekly/weekend · 3 weekdays · 4 daily
+ */
 function oneTimeKindRank(event: Event): number {
-  if (isRecurringEvent(event)) return 2;
-  if (isMultiDayEvent(event)) return 1;
-  return 0;
+  if (!isRecurringEvent(event)) {
+    return isMultiDayEvent(event) ? 1 : 0;
+  }
+  return 2 + recurringFrequencyRank(event);
 }
 
 function eventEndTimeMinutes(time: string | undefined): number {
@@ -202,7 +254,7 @@ export function sortEventsForDisplay(
     return {
       event,
       tier,
-      band: discoveryMode ? discoveryBand(tier, recurring) : 0,
+      band: discoveryMode ? discoveryBand(tier, event) : 0,
       start: eventStartTimeMinutes(event.time),
       end: eventEndTimeMinutes(event.time),
       hasRange: hasExplicitTimeRange(event.time),
@@ -256,8 +308,11 @@ export function sortEventsForDisplay(
     }
 
     if (tier === LIST_TIER.future || tier === LIST_TIER.past) {
-      const scheduleDiff = compareEventsBySchedule(a.event, b.event);
-      if (scheduleDiff !== 0) return scheduleDiff;
+      // Date + start only — leave title/trending for after oneTimeFirst kind.
+      const dateDiff = a.event.date.localeCompare(b.event.date);
+      if (dateDiff !== 0) return dateDiff;
+      const timeDiff = a.start - b.start;
+      if (timeDiff !== 0) return timeDiff;
     }
 
     // After schedule/time within the same tier — never across live vs future.

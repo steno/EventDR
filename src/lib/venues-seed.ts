@@ -944,12 +944,13 @@ export const SEED_VENUES: Venue[] = [
     name: "Parque Nacional El Choco",
     city: "Cabarete",
     description:
-      "Protected karst park just inland from Cabarete — freshwater lagoons, subtropical forest, and guided cave boat tours through underground lakes (Cuevas del Choco).",
+      "Protected karst park just inland from Cabarete — Cuevas del Choco underground pools, freshwater lagoons, and subtropical forest trails. Open daily ~8:00 AM–5:00 PM; hire a guide at the Callejón de la Loma entrance for the caves.",
     lat: 19.7227201,
     lng: -70.4319982,
     emoji: "🏞️",
     website:
-      "https://es.godominicanrepublic.com/destinos/cabarete",
+      "https://dominicanrepublic365.com/attractions/el-choco-national-park",
+    phone: "+18099849823",
   },
   {
     slug: "jamao-al-norte",
