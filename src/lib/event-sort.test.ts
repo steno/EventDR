@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { sortEventsForDisplay } from "./event-sort";
+import { pinTodayOneOffs, sortEventsForDisplay } from "./event-sort";
 import type { Event } from "./types";
 
 /** Friday Jul 31, 2026 22:00 America/Santo_Domingo (UTC−4). */
@@ -362,5 +362,32 @@ describe("sortEventsForDisplay pinTodayOneOffs", () => {
     });
     assert.equal(sorted[0]?.id, "museum-daily");
     assert.equal(sorted[1]?.id, "next-week-show");
+  });
+
+  it("keeps relative order among same-kind pinned peers", () => {
+    const late = event({
+      id: "late",
+      title: "Late",
+      date: "2026-07-31",
+      time: "12:00 PM – 8:00 PM",
+    });
+    const early = event({
+      id: "early",
+      title: "Early",
+      date: "2026-07-31",
+      time: "10:00 AM – 6:00 PM",
+    });
+    const mid = event({
+      id: "mid",
+      title: "Mid",
+      date: "2026-07-31",
+      time: "11:00 AM – 7:00 PM",
+    });
+
+    const pinned = pinTodayOneOffs([late, early, mid], afternoon);
+    assert.deepEqual(
+      pinned.map((entry) => entry.id),
+      ["late", "early", "mid"],
+    );
   });
 });

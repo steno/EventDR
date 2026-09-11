@@ -164,15 +164,12 @@ export function pinTodayOneOffs(events: Event[], now: Date = new Date()): Event[
 
   if (pinned.length === 0) return events;
 
+  // Trending / kind only — leave schedule and peer-shuffle order intact.
   pinned.sort((a, b) => {
     const trend =
       Number(Boolean(b.trending)) - Number(Boolean(a.trending));
     if (trend !== 0) return trend;
-    const kindDiff = oneTimeKindRank(a) - oneTimeKindRank(b);
-    if (kindDiff !== 0) return kindDiff;
-    return (
-      eventStartTimeMinutes(a.time) - eventStartTimeMinutes(b.time)
-    );
+    return oneTimeKindRank(a) - oneTimeKindRank(b);
   });
   return [...pinned, ...rest];
 }
