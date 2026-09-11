@@ -282,21 +282,22 @@ export const SEED_EVENT_OPINIONS_BASE: EventOpinion[] = [
   {
     eventId: "groundzero-domingos-pal-pueblo",
     seriesKey: "ground-zero-disco:weekly:0",
-    body: "Plan a ride — this is a real Dominican club night, not a tourist beach crawl. Watch for whisky promos.",
+    body: "Plan a ride — this is a real Dominican club night, not a tourist beach crawl. Watch for whisky promos and hookah tables.",
     localized: {
-      es: "Planea transporte — es una noche de disco dominicana de verdad, no un crawl de playa turista. Ojo a las promos de whisky.",
-      fr: "Prévoyez un trajet — vraie nuit club dominicaine, pas un crawl plage touriste. Repérez les promos whisky.",
+      es: "Planea transporte — es una noche de disco dominicana de verdad, no un crawl de playa turista. Ojo a las promos de whisky y mesas de hookah.",
+      fr: "Prévoyez un trajet — vraie nuit club dominicaine, pas un crawl plage touriste. Repérez les promos whisky et les tables chicha.",
     },
     priceFeel: "moderate",
     priceNote:
-      "Local club night — entry/promos vary (whisky deals common); call ahead; cheaper than beach VIP tables",
+      "Local club night — entry/promos vary (whisky + hookah deals common); call ahead; cheaper than beach VIP tables",
     priceNoteLocalized: {
-      es: "Noche de disco local — entrada/promos varían (whisky en oferta frecuente); llama antes; más barato que mesas VIP de playa",
-      fr: "Nuit club locale — entrée/promos variables (whisky en promo fréquent) ; appelez ; moins cher que tables VIP plage",
+      es: "Noche de disco local — entrada/promos varían (whisky + hookah frecuentes); llama antes; más barato que mesas VIP de playa",
+      fr: "Nuit club locale — entrée/promos variables (whisky + chicha fréquents) ; appelez ; moins cher que tables VIP plage",
     },
     attribution: "POP research · venue + Instagram listing",
-    researchNotes: "callForPricing on seed; whisky half-price promo in listing.",
-    updatedAt: AT,
+    researchNotes:
+      "Refreshed Sep 2026 Domingos de Hookah flyer (DJ Melo/Panda, whisky offers); same weekly Sunday series id.",
+    updatedAt: "2026-09-11T21:00:00.000Z",
   },
   {
     eventId: "el-colibri-karaoke-battle-2026",

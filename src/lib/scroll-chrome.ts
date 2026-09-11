@@ -3,6 +3,8 @@
  * always show near the top or bottom. Desktop / reduced-motion: always on.
  */
 
+import { LG_MEDIA_QUERY } from "@/lib/breakpoints";
+
 /** Tailwind classes for sliding header / bottom nav on / off screen. */
 export const SCROLL_CHROME_TRANSITION_CLASS =
   "transition-transform duration-200 ease-out motion-reduce:transition-none";
@@ -10,7 +12,6 @@ export const SCROLL_CHROME_TRANSITION_CLASS =
 const TOP_SHOW_PX = 48;
 const BOTTOM_SHOW_PX = 120;
 const DIR_DELTA_PX = 8;
-const LG_QUERY = "(min-width: 1024px)";
 const REDUCE_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
 
 let visible = true;
@@ -22,7 +23,7 @@ let programmaticDepth = 0;
 const listeners = new Set<() => void>();
 
 function isDesktop(): boolean {
-  return window.matchMedia(LG_QUERY).matches;
+  return window.matchMedia(LG_MEDIA_QUERY).matches;
 }
 
 function prefersReducedMotion(): boolean {
@@ -90,7 +91,7 @@ export function subscribeScrollChrome(onStoreChange: () => void): () => void {
     lastScrollY = window.scrollY;
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onMediaChange);
-    window.matchMedia(LG_QUERY).addEventListener("change", onMediaChange);
+    window.matchMedia(LG_MEDIA_QUERY).addEventListener("change", onMediaChange);
     window
       .matchMedia(REDUCE_MOTION_QUERY)
       .addEventListener("change", onMediaChange);
@@ -102,7 +103,9 @@ export function subscribeScrollChrome(onStoreChange: () => void): () => void {
     if (listenerCount === 0) {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onMediaChange);
-      window.matchMedia(LG_QUERY).removeEventListener("change", onMediaChange);
+      window
+        .matchMedia(LG_MEDIA_QUERY)
+        .removeEventListener("change", onMediaChange);
       window
         .matchMedia(REDUCE_MOTION_QUERY)
         .removeEventListener("change", onMediaChange);

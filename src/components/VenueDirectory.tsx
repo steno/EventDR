@@ -187,7 +187,7 @@ function VenueCard({
           <EventImage
             src={venue.imageUrl}
             alt=""
-            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 220px"
+            sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, 220px"
             className="object-cover object-top sm:object-center card-media-zoom"
           />
         ) : (

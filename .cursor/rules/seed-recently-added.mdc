@@ -31,6 +31,8 @@ When introducing a **new** `venueSlug` (or first time that slug gets a seeded li
 
 When only adding events at an **existing** venue, refresh the tip if the new nights meaningfully change the guest send; otherwise leave the existing tip.
 
-## 4. Also wire as usual
+## 4. Images (required with new seeds)
 
-Images, attributions, curated `isFree` / tickets / phone maps, and EN/ES/FR seed parity.
+1. **If the user attaches flyer / event images with the request, use those.** Copy into `public/events/` (and `popevent-images/` when used), wire `EVENT_IMAGE_FILES` in `src/lib/event-images.ts`, update `scripts/sync-event-images.mjs` if needed, and note them in `public/events/ATTRIBUTIONS.md` as POP-supplied / editor-provided. Do **not** skip attached assets in favor of venue fallback, Maps scraping, or Instagram CDN pulls.
+2. When no image is attached, source authentic heroes from Google Maps/Places, official sites, ticket OG, press, Wikimedia, or a POP photo of *this* place — **not** by scraping Instagram/Facebook (see `public/events/ATTRIBUTIONS.md`). Venue lounge fallback is OK only when no event-specific asset exists.
+3. Also wire attributions, curated `isFree` / tickets / phone maps, and EN/ES/FR seed parity.

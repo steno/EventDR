@@ -105,7 +105,7 @@ For each new event:
 3. Do not put one-off seeds in the thin loaders under `src/lib/`.
 4. Preserve the canonical post/Reel URL as `sourceUrl`; add `ticketUrl`, `admissionPrice`, `isFree`, `callForPricing`, and `phone` when verified.
 5. Follow existing date, time, category, venue, and localization conventions.
-6. Source authentic event and venue images from Google Maps/Places, the official website, or the ticket page — **not** from the Instagram post, Stories, or Reels (login walls and expiring CDNs). Update image maps and `public/events/ATTRIBUTIONS.md`; never substitute generic stock for a named event or venue. See the policy in `public/events/ATTRIBUTIONS.md`.
+6. Source authentic event and venue images from Google Maps/Places, the official website, or the ticket page — **not** from Instagram CDN scrapes of posts, Stories, or Reels. **Exception:** when the user attaches flyer/event images in the chat, treat those as POP-supplied and wire them as heroes immediately (copy + `event-images` + attributions). Update image maps and `public/events/ATTRIBUTIONS.md`; never substitute generic stock for a named event or venue. See the policy in `public/events/ATTRIBUTIONS.md`.
 7. Add a new venue and venue image only when required and supported by reliable location information.
 8. Add the new event `id` to `SEED_CREATED_AT` in `src/lib/seed-created-at.ts` (commit-day noon UTC) so it appears on home **Recently added**.
 9. **POP event opinion (required):** add a unique opinion for the new event `id` in `event-opinions-seed.ts` or `event-opinions-seed-more.ts` (EN body + ES/FR). Specific contrast/tradeoff — no generic blurbs. Ingest drafts are not a substitute for in-repo seed opinions.

@@ -138,6 +138,11 @@ const FILE_TO_EVENT_ID = {
   "sunset-cabarete-sessions-2026.jpg": "sunset-cabarete-sessions-2026",
   "la-chabola-wednesday-open-mic-pizza-live.jpg": "la-chabola-wednesday-open-mic",
   "groundzero-domingos-pal-pueblo.jpg": "groundzero-domingos-pal-pueblo",
+  "groundzero-domingos-de-hookah.jpg": "groundzero-domingos-pal-pueblo",
+  "groundzero-sabados-latinos.jpg": "groundzero-sabados-latinos",
+  "groundzero-jueves-de-frias.jpg": "groundzero-jueves-de-frias",
+  "groundzero-golden-night-2026-09-25.jpg": "groundzero-golden-night-2026-09-25",
+  "groundzero-tivigunz-2026-10-04.jpg": "groundzero-tivigunz-2026-10-04",
 
   // --- Original curated venue / attraction photos ---
   "LAXSunsetSessions.JPG": "lax-sunset-daily",

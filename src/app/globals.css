@@ -19,6 +19,13 @@
   --font-sans: var(--font-outfit), system-ui, -apple-system, sans-serif;
   --font-display: var(--font-outfit), system-ui, sans-serif;
 
+  /*
+   * Desktop shell (two-column detail, hide bottom nav, brand header).
+   * Default Tailwind lg is 64rem/1024px — too late vs Instagram-style
+   * mid-width desktop. Keep in sync with LG_MIN_WIDTH_PX in breakpoints.ts.
+   */
+  --breakpoint-lg: 48rem;
+
   /* Type ladder — Outfit for UI and display (GT Eesti / GetYourGuide-like).
      display: heroes only · title: page H1 · section: list/sheet H2 */
   --text-display: 2rem;

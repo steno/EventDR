@@ -310,7 +310,7 @@ export function VenuePage({
                         src={heroImageUrl}
                         alt=""
                         priority
-                        sizes="(max-width: 1024px) 100vw, 50vw"
+                        sizes="(max-width: 768px) 100vw, 50vw"
                         className={`h-full w-full object-cover ${heroObjectPosition} transition-transform duration-500 ease-out group-hover/event:scale-[1.03]`}
                       />
                       <span
@@ -326,7 +326,7 @@ export function VenuePage({
                       src={heroImageUrl}
                       alt=""
                       priority
-                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      sizes="(max-width: 768px) 100vw, 50vw"
                       className={`h-full w-full object-cover ${heroObjectPosition}`}
                     />
                   )

@@ -201,8 +201,13 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "sunset-cabarete-sessions-2026": "sunset-cabarete-sessions-2026.jpg",
   // Filename bump — pizza + live band night (not the branded FB pizza cover).
   "la-chabola-wednesday-open-mic": "la-chabola-wednesday-open-mic-pizza-live.jpg",
-  "groundzero-domingos-pal-pueblo": "groundzero-domingos-pal-pueblo.jpg",
+  // Filename bump — Domingos de Hookah flyer (rebrand of Pal Pueblo Sunday).
+  "groundzero-domingos-pal-pueblo": "groundzero-domingos-de-hookah.jpg",
   "groundzero-viernes-locos": "groundzero-viernes-locos.jpg",
+  "groundzero-sabados-latinos": "groundzero-sabados-latinos.jpg",
+  "groundzero-jueves-de-frias": "groundzero-jueves-de-frias.jpg",
+  "groundzero-golden-night-2026-09-25": "groundzero-golden-night-2026-09-25.jpg",
+  "groundzero-tivigunz-2026-10-04": "groundzero-tivigunz-2026-10-04.jpg",
   "groundzero-party-rojo-2026-08-01": "groundzero-party-rojo-2026-08-01.jpg",
   // Filename bump — lounge interior night (not the Saturday gogo flyer).
   "blue-ice-saturday-gogo": "blue-ice-saturday-lounge.png",

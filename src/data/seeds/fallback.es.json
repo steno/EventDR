@@ -57,8 +57,8 @@
   },
   {
     "id": "groundzero-domingos-pal-pueblo",
-    "title": "Domingos Pal Pueblo en Ground Zero",
-    "description": "Fiesta dominical en Ground Zero Discoteca — reggaetón, dembow, baile típico y urbano con DJs toda la noche, whisky a mitad de precio y hookah. En la carretera Puerto Plata–Sosúa frente al aeropuerto. Reserva mesa: 849-465-1313.",
+    "title": "Domingos de Hookah en Ground Zero",
+    "description": "Domingos de Hookah en Ground Zero Discoteca — ofertas de whisky, hookah y mezcla en vivo con DJ Melo y DJ Panda en la fiesta del pueblo más grande de la Zona Norte. En la carretera Puerto Plata–Sosúa frente al aeropuerto. Reserva mesa: 849-465-1313.",
     "date": "2026-07-19",
     "time": "9:00 PM – 4:00 AM",
     "location": "Sosúa",
@@ -78,7 +78,8 @@
     "phone": "+18494651313",
     "callForPricing": true,
     "trending": true,
-    "sourceUrl": "https://www.instagram.com/groundzero_disco/p/DayWu9phE9R/",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/p/Dcwq3hSsvqF/",
     "imageEmoji": "🪩"
   },
   {
@@ -106,6 +107,119 @@
     "sourceType": "instagram",
     "sourceUrl": "https://www.instagram.com/groundzero_disco/p/DbclfDnuf2U/",
     "imageEmoji": "🪩"
+  },
+  {
+    "id": "groundzero-sabados-latinos",
+    "title": "Sábados Latinos en Ground Zero",
+    "description": "Sábados Latinos en Ground Zero Discoteca — reguetón, bachata y dembow con mezcla en vivo de DJ Melo y DJ Panda, show de gogós y show sorpresa. En la carretera Puerto Plata–Sosúa frente al aeropuerto. Reserva mesa: 849-465-1313.",
+    "date": "2026-09-13",
+    "location": "Sosúa",
+    "venue": "Ground Zero Discoteca",
+    "venueSlug": "ground-zero-disco",
+    "address": "Km 18, Carretera Puerto Plata–Sosúa, frente al Aeropuerto Gregorio Luperón",
+    "lat": 19.76,
+    "lng": -70.565,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "recurrence": "weekly",
+    "recurrenceDay": 6,
+    "phone": "+18494651313",
+    "callForPricing": true,
+    "trending": true,
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/p/Dc5X4Tau-R5/",
+    "imageEmoji": "🪩"
+  },
+  {
+    "id": "groundzero-jueves-de-frias",
+    "title": "Jueves de Frías en Ground Zero",
+    "description": "Jueves de Frías en Ground Zero Discoteca — Presidente, Modelo, Heineken y Corona con ambiente de pista hasta tarde en la carretera Puerto Plata–Sosúa frente al aeropuerto. Info y reservas: 849-465-1313.",
+    "date": "2026-09-11",
+    "location": "Sosúa",
+    "venue": "Ground Zero Discoteca",
+    "venueSlug": "ground-zero-disco",
+    "address": "Km 18, Carretera Puerto Plata–Sosúa, frente al Aeropuerto Gregorio Luperón",
+    "lat": 19.76,
+    "lng": -70.565,
+    "category": "parties",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "recurrence": "weekly",
+    "recurrenceDay": 4,
+    "phone": "+18494651313",
+    "callForPricing": true,
+    "trending": true,
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/p/Dc00ACvOqW8/",
+    "imageEmoji": "🍺"
+  },
+  {
+    "id": "groundzero-golden-night-2026-09-25",
+    "title": "Golden Night — Afriken Bmixx en Ground Zero",
+    "description": "Golden Night en Ground Zero Discoteca — viernes 25 sep. con Afriken Bmixx, DJ Chriss, DJ Adonny y animador Sovage. Presentado por Chocolate Production y SMARC Cigars. Apertura 9:00 PM; entrada RD$1,000. En la carretera Puerto Plata–Sosúa frente al aeropuerto. RSV: 829-346-3636.",
+    "date": "2026-09-25",
+    "time": "9:00 PM",
+    "location": "Sosúa",
+    "venue": "Ground Zero Discoteca",
+    "venueSlug": "ground-zero-disco",
+    "address": "Km 18, Carretera Puerto Plata–Sosúa, frente al Aeropuerto Gregorio Luperón",
+    "lat": 19.76,
+    "lng": -70.565,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "isFree": false,
+    "admissionPrice": "RD$1,000",
+    "phone": "+18293463636",
+    "trending": true,
+    "lineup": [
+      "Afriken Bmixx",
+      "DJ Chriss",
+      "DJ Adonny",
+      "Sovage"
+    ],
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/p/DctdsVcOtm-/",
+    "imageEmoji": "🟡"
+  },
+  {
+    "id": "groundzero-tivigunz-2026-10-04",
+    "title": "Tivigunz en vivo en Ground Zero",
+    "description": "Tivigunz en vivo por primera vez en Ground Zero Discoteca — domingo 4 oct. desde las 10:00 PM. Organizado por Motocross con Viral Sosúa. Pre-venta RD$800 / puerta RD$1,000; combo Old Parr + hookah RD$5,000 hasta las 11:00 PM. En la carretera Puerto Plata–Sosúa frente al aeropuerto. Reserva: 829-964-9790.",
+    "date": "2026-10-04",
+    "time": "10:00 PM",
+    "location": "Sosúa",
+    "venue": "Ground Zero Discoteca",
+    "venueSlug": "ground-zero-disco",
+    "address": "Km 18, Carretera Puerto Plata–Sosúa, frente al Aeropuerto Gregorio Luperón",
+    "lat": 19.76,
+    "lng": -70.565,
+    "category": "concert",
+    "categories": [
+      "music",
+      "parties"
+    ],
+    "format": "physical",
+    "isFree": false,
+    "admissionPrice": "RD$800–1,000",
+    "phone": "+18299649790",
+    "trending": true,
+    "lineup": [
+      "Tivigunz"
+    ],
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/p/Dc5N13XjnNd/",
+    "imageEmoji": "🎤"
   },
   {
     "id": "groundzero-party-rojo-2026-08-01",

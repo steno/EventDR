@@ -1987,4 +1987,81 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "Saturday schedule from venue promo: Dinner · DJ · Dance; DJ from 8 PM, dance floor from 10 PM until 1 AM. Maps 19.7504244,-70.4056606; phone +1 829 702-2312; Cabarete Bay Beach 5; Mediterranean beachfront; IG @driftercabarete; Google ~394 reviews (spend DOP 500–3,000). Heroes: editor pavilion + lobster deck photos (no flyer).",
     updatedAt: "2026-09-11T17:30:00.000Z",
   },
+  {
+    eventId: "groundzero-sabados-latinos",
+    seriesKey: "ground-zero-disco:weekly:6",
+    body: "Saturday is the big Latin floor night here — go-go and surprise sets, not a quiet dinner stop. Book a table if your group wants a base away from the crush.",
+    localized: {
+      es: "El sábado es la gran noche latina aquí — gogós y show sorpresa, no una parada de cena tranquila. Reserva mesa si tu grupo quiere base lejos del gentío.",
+      fr: "Le samedi est la grande nuit latine ici — go-gos et set surprise, pas un stop dîner calme. Réservez une table si votre groupe veut une base hors de la foule.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "Cover not published on the flyer — call 849-465-1313; expect local discoteca drink prices, not beach-club VIP",
+    priceNoteLocalized: {
+      es: "Cover no publicado en el flyer — llama 849-465-1313; espera precios de disco local, no VIP de beach club",
+      fr: "Cover non publié sur le flyer — appelez 849-465-1313 ; tarifs discothèque locale, pas VIP beach club",
+    },
+    attribution: "POP research · @groundzero_disco Sábados Latinos flyer",
+    researchNotes:
+      "Sep 4 2026 IG post Dc5X4Tau-R5 — weekly Saturdays, DJ Melo & DJ Panda, go-go + surprise show; reserve 849-465-1313.",
+    updatedAt: "2026-09-11T21:00:00.000Z",
+  },
+  {
+    eventId: "groundzero-jueves-de-frias",
+    seriesKey: "ground-zero-disco:weekly:4",
+    body: "Thursday is the beer-first warm-up before the weekend crush — cold bottles, still a highway club, so plan the ride home.",
+    localized: {
+      es: "El jueves es el warm-up de cerveza antes del gentío del fin de semana — botellas frías, sigue siendo disco de carretera, así que planea el regreso.",
+      fr: "Le jeudi est l’échauffement bière avant la foule du week-end — bouteilles froides, toujours un club sur la route, donc prévoyez le retour.",
+    },
+    priceFeel: "budget",
+    priceNote:
+      "Beer promo night (Presidente/Modelo/Heineken/Corona) — cover not on flyer; call 849-465-1313",
+    priceNoteLocalized: {
+      es: "Noche de promo de cerveza (Presidente/Modelo/Heineken/Corona) — cover no en flyer; llama 849-465-1313",
+      fr: "Soirée promo bière (Presidente/Modelo/Heineken/Corona) — cover absent du flyer ; appelez 849-465-1313",
+    },
+    attribution: "POP research · @groundzero_disco Jueves de Frías flyer",
+    researchNotes:
+      "Sep 3 2026 IG post Dc00ACvOqW8 — weekly Thursdays; beer brands listed; no cover published.",
+    updatedAt: "2026-09-11T21:00:00.000Z",
+  },
+  {
+    eventId: "groundzero-golden-night-2026-09-25",
+    body: "A billed Friday guest night — Afriken Bmixx plus house DJs — so expect a denser floor than a normal Viernes Locos whisky promo.",
+    localized: {
+      es: "Viernes con artista anunciado — Afriken Bmixx más DJs de casa — espera pista más densa que un Viernes Locos normal de whisky.",
+      fr: "Vendredi avec artiste annoncé — Afriken Bmixx plus DJs maison — attendez-vous à une piste plus dense qu’un Viernes Locos whisky habituel.",
+    },
+    priceFeel: "moderate",
+    priceNote: "Entry RD$1,000 (flyer); RSV 829-346-3636 · 829-523-0252 · 809-814-9588",
+    priceNoteLocalized: {
+      es: "Entrada RD$1,000 (flyer); RSV 829-346-3636 · 829-523-0252 · 809-814-9588",
+      fr: "Entrée RD$1,000 (flyer) ; RSV 829-346-3636 · 829-523-0252 · 809-814-9588",
+    },
+    attribution: "POP research · @groundzero_disco Golden Night flyer",
+    researchNotes:
+      "Aug 31 2026 IG post DctdsVcOtm- — Fri Sep 25 9 PM; Afriken Bmixx, DJ Chriss, DJ Adonny, Sovage; Chocolate Production + SMARC.",
+    updatedAt: "2026-09-11T21:00:00.000Z",
+  },
+  {
+    eventId: "groundzero-tivigunz-2026-10-04",
+    body: "First-time Tivigunz at Ground Zero — treat it as a ticketed urban show, not the usual Domingos hookah night; arrive early if you want the Old Parr + hookah combo before 11.",
+    localized: {
+      es: "Primera vez de Tivigunz en Ground Zero — trátalo como show urbano con boleto, no el Domingos de hookah de siempre; llega temprano si quieres el combo Old Parr + hookah antes de las 11.",
+      fr: "Première de Tivigunz à Ground Zero — traitez-le comme un show urbain billeté, pas le dimanche hookah habituel ; arrivez tôt pour le combo Old Parr + chicha avant 23 h.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "Pre-sale RD$800 / door RD$1,000; Old Parr + hookah RD$5,000 until 11 PM; Motocross 829-964-9790 · Viral Sosúa 829-804-5200",
+    priceNoteLocalized: {
+      es: "Pre-venta RD$800 / puerta RD$1,000; Old Parr + hookah RD$5,000 hasta las 11 PM; Motocross 829-964-9790 · Viral Sosúa 829-804-5200",
+      fr: "Prévente RD$800 / porte RD$1,000 ; Old Parr + chicha RD$5,000 jusqu’à 23 h ; Motocross 829-964-9790 · Viral Sosúa 829-804-5200",
+    },
+    attribution: "POP research · @groundzero_disco Tivigunz flyer",
+    researchNotes:
+      "Sep 4 2026 IG post Dc5N13XjnNd — Sun Oct 4 from 10 PM; Motocross + Viral Sosúa; flyer pricing.",
+    updatedAt: "2026-09-11T21:00:00.000Z",
+  },
 ];

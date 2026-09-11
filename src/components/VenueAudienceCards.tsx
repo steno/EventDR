@@ -63,8 +63,8 @@ function VenueSlideCard({
   returnTitle?: string | null;
 }) {
   const sizes = wide
-    ? "(max-width: 640px) 88vw, (max-width: 1024px) 50vw, 33vw"
-    : "(max-width: 640px) 88vw, (max-width: 1024px) 45vw, 32vw";
+    ? "(max-width: 640px) 88vw, (max-width: 768px) 50vw, 33vw"
+    : "(max-width: 640px) 88vw, (max-width: 768px) 45vw, 32vw";
 
   return (
     <IntentLink

@@ -28,6 +28,7 @@ import { VenueAudienceCards } from "@/components/VenueAudienceCards";
 import { TodayHighlights } from "@/components/TodayHighlights";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
 import { getHomeAlerts } from "@/lib/alerts";
+import { LG_MEDIA_QUERY } from "@/lib/breakpoints";
 import {
   StickyListHeader,
   stickyBackControlClassName,
@@ -478,7 +479,7 @@ function HomeApp({
 
   useEffect(() => {
     if (!mobileSearchOpen) return;
-    if (window.matchMedia("(min-width: 1024px)").matches) return;
+    if (window.matchMedia(LG_MEDIA_QUERY).matches) return;
     const frame = window.requestAnimationFrame(() => {
       mobileSearchRef.current?.focus();
     });
@@ -736,6 +737,7 @@ function HomeApp({
                   title={dict.events.recentlyAdded}
                   hideSeeAll
                   listTimeRange="all"
+                  showDate
                   returnTo={homePath}
                 />
               )}

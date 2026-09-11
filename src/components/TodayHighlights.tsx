@@ -54,7 +54,7 @@ interface TodayHighlightsProps {
   hideSeeAll?: boolean;
   /** Live-status label context for cards (default today). */
   listTimeRange?: TimeRange;
-  /** Show calendar date on cards (useful for Coming up / non-today grids). */
+  /** Show calendar date on cards (Coming up + Recently added). */
   showDate?: boolean;
 }
 
@@ -133,7 +133,7 @@ function TodayHighlightCard({
             <EventImage
               src={event.imageUrl}
               alt=""
-              sizes="(max-width: 640px) 88vw, (max-width: 1024px) 50vw, 33vw"
+              sizes="(max-width: 640px) 88vw, (max-width: 768px) 50vw, 33vw"
               priority={false}
               className={`object-cover card-media-zoom ${getEventCardObjectPosition(event.id)}`}
             />

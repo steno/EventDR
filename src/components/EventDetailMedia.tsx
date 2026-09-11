@@ -40,7 +40,7 @@ export function EventDetailMedia({
       : "";
   const imageSizes =
     variant === "standalone"
-      ? "(max-width: 640px) 100vw, (max-width: 1024px) 48rem, 64rem"
+      ? "(max-width: 640px) 100vw, (max-width: 768px) 48rem, 64rem"
       : "(max-width: 672px) 100vw, 672px";
   const venueLabel = event.venue
     ? `${dict.detail.viewVenue}: ${event.venue}`

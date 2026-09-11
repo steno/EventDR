@@ -110,9 +110,14 @@ Curated images under `public/events/` and `public/venues/`.
 | `puerto-plata-beach-soccer-2026.jpg` / `venues/playa-los-charamicos.jpg` | [Unsplash](https://unsplash.com/photos/photo-1543746746-46047c4f4bb0) (`photo-1543746746`) — Unsplash License | Soccer on sand with palms (replaces grass-pitch stock) |
 | `la-chabola-wednesday-open-mic-pizza-live.jpg` | POP-supplied — pizza table with live band and Presidente napkins at La Chabola | Wednesday open mic night action (filename bump; bar interior stays on the venue) |
 | `venues/la-chabola-bar.jpg` | [Google Maps — La Chabola](https://www.google.com/maps/place/La+Chabola/@19.7508,-70.408,17z) visitor photo | Tiki bar interior with chalkboard (pizza stays on the event) |
-| `groundzero-domingos-pal-pueblo.jpg` | [@groundzero_disco](https://www.instagram.com/groundzero_disco/p/DayWu9phE9R/) — Domingos Pal Pueblo flyer | Official Sunday party promo (lounge interior stays on the venue) |
+| `groundzero-domingos-de-hookah.jpg` | POP-supplied — [@groundzero_disco](https://www.instagram.com/p/Dcwq3hSsvqF/) Domingos de Hookah flyer | Sunday hookah / whisky party promo (filename bump; lounge interior stays on the venue) |
+| `groundzero-domingos-pal-pueblo.jpg` | [@groundzero_disco](https://www.instagram.com/groundzero_disco/p/DayWu9phE9R/) — prior Domingos Pal Pueblo flyer | Superseded by Domingos de Hookah asset |
 | `venues/ground-zero-disco-lounge.jpg` | [Google Maps — Ground Zero Disco](https://www.google.com/maps/search/Ground+Zero+Disco+Cabarete) visitor photo | Branded lounge interior with GZ logo wall |
 | `groundzero-viernes-locos.jpg` | [@groundzero_disco](https://www.instagram.com/groundzero_disco/p/DbclfDnuf2U/) — Viernes Locos flyer | Official Friday whisky half-price party promo |
+| `groundzero-sabados-latinos.jpg` | POP-supplied — [@groundzero_disco](https://www.instagram.com/p/Dc5X4Tau-R5/) Sábados Latinos flyer | Saturday Latin party promo |
+| `groundzero-jueves-de-frias.jpg` | POP-supplied — [@groundzero_disco](https://www.instagram.com/p/Dc00ACvOqW8/) Jueves de Frías flyer | Thursday cold-beer night promo |
+| `groundzero-golden-night-2026-09-25.jpg` | POP-supplied — [@groundzero_disco](https://www.instagram.com/p/DctdsVcOtm-/) Golden Night flyer | Sep 25 Afriken Bmixx guest night |
+| `groundzero-tivigunz-2026-10-04.jpg` | POP-supplied — [@groundzero_disco](https://www.instagram.com/p/Dc5N13XjnNd/) Tivigunz flyer | Oct 4 Tivigunz live night |
 | `groundzero-party-rojo-2026-08-01.jpg` | [@groundzero_disco](https://www.instagram.com/groundzero_disco/p/DbTqSiPPq35/) — Party Rojo flyer | Official Aug 1 2026 red-theme night flyer |
 | `blue-ice-saturday-lounge.png` | POP on-site photo — Blue Ice lounge interior (Blue Ice neon, Buddha circle) | Saturday gogo / piano-bar event action (filename bump) |
 | `venues/blue-ice-pianobar-sosua-facade.jpg` | POP on-site photo — blue ice PIANO BAR storefront on Calle Dr. Rosen | Venue place shot (event keeps lounge interior) |
