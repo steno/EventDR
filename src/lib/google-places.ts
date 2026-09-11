@@ -212,6 +212,11 @@ const PLACE_SEARCH_ALIASES: Record<string, string[]> = {
     "Puerto Plata Lighthouse",
     "Faro La Puntilla Puerto Plata",
   ],
+  "grecialandia": [
+    "Grecialandia Puerto Plata",
+    "Residencia Grecia El Cupey",
+    "Grecialandia El Pueblo Griego en el Caribe",
+  ],
   "cuartel-bomberos-puerto-plata": [
     "Cuartel de Bomberos Puerto Plata",
     "Cuerpo de Bomberos Puerto Plata",

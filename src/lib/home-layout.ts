@@ -144,6 +144,7 @@ export const VENUE_AUDIENCE_POOLS: Record<
     "teleferico-puerto-plata",
     "cayo-arena",
     "fun-city",
+    "grecialandia",
     "monkeyland-puerto-plata",
     "coconut-cove",
     "freestyle-catamaran",

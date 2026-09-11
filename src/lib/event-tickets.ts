@@ -96,6 +96,8 @@ export const CURATED_TICKET_URLS: Record<string, string> = {
     "https://www.granventanahotel.com/es/paquetes/day-pass/",
   "cofresi-palm-day-pass":
     "https://www.resortpass.com/hotels/cofresi-palm-beach-spa-resort",
+  "grecialandia-daily":
+    "https://widgets.bokun.io/online-sales/d5bb2f64-ceeb-4e89-bf71-3bacdc759680/experience/932046",
 };
 
 /**

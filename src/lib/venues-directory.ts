@@ -51,10 +51,15 @@ function sortAlpha(a: VenueDirectoryEntry, b: VenueDirectoryEntry): number {
   return a.venue.slug.localeCompare(b.venue.slug);
 }
 
+function hasVenueImage(venue: Venue): boolean {
+  return Boolean(venue.imageUrl?.trim());
+}
+
 /**
  * A–Z venue directory for `/venues`.
- * Only letters that have at least one venue appear as sections;
- * the jump row still shows the full alphabet with empty letters disabled.
+ * Venues without a photo are omitted; only letters that still have at least
+ * one venue appear as sections. The jump row still shows the full alphabet
+ * with empty letters disabled.
  */
 export function buildVenueDirectory(
   venues: Venue[],
@@ -64,6 +69,7 @@ export function buildVenueDirectory(
   const buckets = new Map<string, VenueDirectoryEntry[]>();
 
   for (const venue of venues) {
+    if (!hasVenueImage(venue)) continue;
     const id = venueSortLetter(venue.name);
     const list = buckets.get(id) ?? [];
     list.push({
@@ -95,6 +101,11 @@ export function buildVenueDirectory(
   }
 
   return groups;
+}
+
+/** Flatten directory groups in display order for JSON-LD. */
+export function venuesFromDirectory(groups: VenueDirectoryGroup[]): Venue[] {
+  return groups.flatMap((group) => group.entries.map((entry) => entry.venue));
 }
 
 /** Full A–Z (+ `#` when needed) for the jump strip. */

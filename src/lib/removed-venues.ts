@@ -2,7 +2,8 @@
  * Ingest stub / out-of-scope venue pages — hide and delete from Firestore.
  * Cabarete Bay / Beach are area labels, not venues; Rafaella's Studio was a
  * weak Places snap ("Cabarete fitness"); Caleton Beach Club is Cap Cana
- * (East Coast), not North Coast; others never got a listing.
+ * (East Coast), not North Coast; `grecialand` was a truncated ingest stub
+ * (canonical seed is `grecialandia`); others never got a listing.
  */
 export const REMOVED_VENUE_SLUGS = new Set([
   "cafe-del-mar",
@@ -11,6 +12,7 @@ export const REMOVED_VENUE_SLUGS = new Set([
   "rafaella-s-studio",
   "cabarete-surf-school",
   "caleton-beach-club",
+  "grecialand",
 ]);
 
 export function isRemovedVenueSlug(

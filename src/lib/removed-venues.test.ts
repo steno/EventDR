@@ -16,6 +16,7 @@ describe("removed venues", () => {
         "cabarete-surf-school",
         "cafe-del-mar",
         "caleton-beach-club",
+        "grecialand",
         "rafaella-s-studio",
       ],
     );
@@ -25,11 +26,17 @@ describe("removed venues", () => {
     assert.equal(isRemovedVenueSlug("caleton-beach-club"), true);
   });
 
+  it("dumps the truncated Grecialand ingest stub (canonical is grecialandia)", () => {
+    assert.equal(isRemovedVenueSlug("grecialand"), true);
+    assert.equal(isRemovedVenueSlug("grecialandia"), false);
+  });
+
   it("filters dumped slugs from venue lists", () => {
     const kept = filterRemovedVenues([
       { slug: "lax-cabarete" },
       { slug: "cafe-del-mar" },
       { slug: "caleton-beach-club" },
+      { slug: "grecialand" },
     ]);
     assert.deepEqual(
       kept.map((venue) => venue.slug),

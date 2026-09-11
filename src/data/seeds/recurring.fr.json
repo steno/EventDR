@@ -806,6 +806,32 @@
     "imageEmoji": "🏎️"
   },
   {
+    "id": "grecialandia-daily",
+    "title": "Grecialandia — Expérience journée au village grec",
+    "description": "Visite journée à Grecialandia, Residencia Grecia (Sabana del Corozo, El Cupey), Puerto Plata — rues de village grec blanc et bleu, terrasses panoramiques, piscines, musique et boisson de bienvenue. Ouvert tous les jours 10 h–19 h. Forfaits dès US$25 sans repas ou US$35–45 avec déjeuner ; enfants 0–5 gratuits, moins de 12 à moitié prix. Réservez en ligne — l'accès à la porte est limité. ~10 minutes du centre de Puerto Plata. Tél. +1 849 460-6644 · @grecialandia.",
+    "date": "2026-01-01",
+    "time": "10:00 AM - 7:00 PM",
+    "location": "Puerto Plata",
+    "address": "Carretera Principal, Residencia Grecia, Sabana del Corozo, El Cupey, Puerto Plata 57000",
+    "venue": "Grecialandia",
+    "venueSlug": "grecialandia",
+    "lat": 19.7779525,
+    "lng": -70.7457056,
+    "category": "culture",
+    "categories": [
+      "food-drinks",
+      "adventure"
+    ],
+    "format": "physical",
+    "recurrence": "daily",
+    "trending": true,
+    "admissionPrice": "from US$25",
+    "phone": "+18494606644",
+    "ticketUrl": "https://widgets.bokun.io/online-sales/d5bb2f64-ceeb-4e89-bf71-3bacdc759680/experience/932046",
+    "sourceUrl": "https://www.grecialandia.com/",
+    "imageEmoji": "🏛️"
+  },
+  {
     "id": "monkeyland-puerto-plata-daily",
     "title": "Monkeyland Puerto Plata — Safari et Singes",
     "description": "Excursion d'une demi-journée dans les collines d'Imbert — camion safari découvert, nourrissez des singes écureuils avec un plateau de fruits, promenade botanique avec plantes médicinales, dégustation de café et cacao bio, puis visite d'une maison de campagne traditionnelle. Prise en charge à l'hôtel depuis Puerto Plata, Sosúa, Cabarete et Playa Dorada ; réservez via Runners Adventures ou excursions croisière (~4,5 h).",

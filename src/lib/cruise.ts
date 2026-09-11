@@ -294,6 +294,7 @@ const VISIT_MINUTES_BY_SLUG: Record<string, number> = {
   "crazy-lobster-maimon": 75,
   "paella-pop-el-pueblito": 60,
   "fun-city": 90,
+  "grecialandia": 150,
   "playa-dorada-golf": 120,
   "blue-jacktar-playa-dorada": 60,
   "senor-rock-playa-dorada": 60,

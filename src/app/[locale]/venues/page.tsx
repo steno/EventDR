@@ -12,7 +12,10 @@ import {
   buildVenuesDirectoryMetadata,
 } from "@/lib/seo";
 import { getVenues } from "@/lib/venues";
-import { buildVenueDirectory } from "@/lib/venues-directory";
+import {
+  buildVenueDirectory,
+  venuesFromDirectory,
+} from "@/lib/venues-directory";
 
 export const revalidate = 120;
 
@@ -46,10 +49,13 @@ export default async function Page({
     getPublicEvents({ locale }),
   ]);
   const groups = buildVenueDirectory(venues, events);
+  const directoryVenues = venuesFromDirectory(groups);
 
   return (
     <>
-      <JsonLd data={buildVenuesDirectoryJsonLd(locale, dict, venues)} />
+      <JsonLd
+        data={buildVenuesDirectoryJsonLd(locale, dict, directoryVenues)}
+      />
       <main className="relative bg-background pb-6 dark:bg-transparent">
         <div className={PAGE_SHELL_CLASS}>
           <StickyListHeader

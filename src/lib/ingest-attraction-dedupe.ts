@@ -23,6 +23,7 @@ const SEEDED_ATTRACTION_PATTERNS: RegExp[] = [
   /\bfreestyle\s+catamaran\b/i,
   /\bmonkey\s*land\b|\bmonkeyland\b/i,
   /\bfun\s*city\b|\bgo[\s-]?karts?\b/i,
+  /\bgrecialandia\b|\bgrecia\s*landia\b|\bresidencia\s+grecia\b/i,
   /\bbrugal\b/i,
   /\bdel\s+oro\b|\bchocolate\s+factory\b/i,
   /\bhacienda\s+cufa\b/i,

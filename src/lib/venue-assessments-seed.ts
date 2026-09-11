@@ -609,6 +609,24 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     ],
   }),
   editorial({
+    venueSlug: "grecialandia",
+    verdictKey: "solid_visitor_activity",
+    crowdFit: ["visitor", "family"],
+    axes: {
+      recommend: 3.9,
+      atmosphere: 4.4,
+      practical: 3.7,
+      reliability: 3.8,
+      value: 3.9,
+    },
+    themes: [
+      { key: "photo_spot", sentiment: "positive", audience: "visitor" },
+      { key: "family_friendly", sentiment: "positive", audience: "family" },
+      { key: "ocean_views", sentiment: "positive" },
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+    ],
+  }),
+  editorial({
     venueSlug: "monkeyland-puerto-plata",
     verdictKey: "solid_visitor_activity",
     crowdFit: ["visitor", "family"],

@@ -77,6 +77,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "faro-puerto-plata-daily": "faro-puerto-plata-spiral.jpg",
   "cuartel-bomberos-puerto-plata-daily": "cuartel-bomberos-puerto-plata-trucks.jpg",
   "fun-city-daily": "fun-city-daily.jpeg",
+  "grecialandia-daily": "grecialandia-entrance.jpg",
   "monkeyland-puerto-plata-daily": "monkeyland-puerto-plata-daily.jpeg",
   "coconut-cove-ocean-zipline-daily": "coconut-cove-ocean-zipline-daily.jpg",
   "brugal-rum-center-weekdays": "brugal-rum-center-weekdays.jpg",

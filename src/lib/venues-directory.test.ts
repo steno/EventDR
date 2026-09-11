@@ -5,6 +5,7 @@ import {
   countUpcomingByVenueSlug,
   venueDirectoryLetters,
   venueSortLetter,
+  venuesFromDirectory,
 } from "./venues-directory";
 import type { Event, Venue } from "./types";
 
@@ -67,6 +68,7 @@ describe("buildVenueDirectory", () => {
         slug: "quiet-spot",
         name: "Quiet Spot",
         city: "Cabarete",
+        imageUrl: "/venues/quiet-spot.jpg",
       }),
       venue({
         slug: "lax-cabarete",
@@ -78,10 +80,17 @@ describe("buildVenueDirectory", () => {
         slug: "d-classico-sosua",
         name: "D Classico",
         city: "Sosúa",
+        imageUrl: "/venues/d-classico.jpg",
       }),
       venue({
         slug: "number-spot",
         name: "9 Waves",
+        city: "Cabarete",
+        imageUrl: "/venues/number-spot.jpg",
+      }),
+      venue({
+        slug: "no-photo",
+        name: "No Photo Bar",
         city: "Cabarete",
       }),
     ];
@@ -98,6 +107,11 @@ describe("buildVenueDirectory", () => {
     const l = groups.find((group) => group.id === "L");
     assert.equal(l?.entries[0]?.venue.slug, "lax-cabarete");
     assert.equal(l?.entries[0]?.upcomingCount, 1);
+
+    assert.deepEqual(
+      venuesFromDirectory(groups).map((entry) => entry.slug),
+      ["d-classico-sosua", "lax-cabarete", "quiet-spot", "number-spot"],
+    );
 
     assert.deepEqual(venueDirectoryLetters(groups).slice(-1), ["#"]);
     assert.equal(venueDirectoryLetters(groups).length, 27);

@@ -325,6 +325,12 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     isFree: false,
     admissionPrice: "from RD$200",
   },
+  "grecialandia-daily": {
+    isFree: false,
+    admissionPrice: "from US$25",
+    ticketUrl:
+      "https://widgets.bokun.io/online-sales/d5bb2f64-ceeb-4e89-bf71-3bacdc759680/experience/932046",
+  },
   "cayo-arena-tours-daily": {
     isFree: false,
     admissionPrice: "from US$55",

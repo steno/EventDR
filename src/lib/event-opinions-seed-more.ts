@@ -1943,4 +1943,27 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "Daily ~8 AM–5 PM; Cuevas del Choco swimming highlight; guide recommended at Callejón de la Loma; ~2–3 hr; phone +1 809-984-9823.",
     updatedAt: "2026-09-10T19:00:00.000Z",
   },
+  {
+    eventId: "grecialandia-daily",
+    seriesKey: "grecialandia:daily",
+    body: "Half-day Greek village photo stop inland from centro — book the lunch package if you're making the taxi ride; bring cash for extras like donkey photos.",
+    localized: {
+      es: "Parada foto de media jornada en aldea griega tierra adentro del centro — reserva el paquete con almuerzo si vas en taxi; lleva efectivo para extras como foto con burro.",
+      fr: "Stop photo demi-journée dans un village grec à l'intérieur depuis le centro — réservez le forfait déjeuner si vous prenez un taxi ; cash pour extras (photo âne).",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "From US$25 entry without food; US$35–45 with lunch packages; kids 0–5 free, under 12 half price — book grecialandia.com / Bokun; Google 3.9 from 243 reviews",
+    priceNoteLocalized: {
+      es: "Desde US$25 entrada sin comida; US$35–45 con paquetes de almuerzo; niños 0–5 gratis, menores de 12 a mitad — reserva grecialandia.com / Bokun; Google 3.9 de 243 reseñas",
+      fr: "Dès US$25 entrée sans repas ; US$35–45 avec forfaits déjeuner ; enfants 0–5 gratuits, moins de 12 à moitié — réservez grecialandia.com / Bokun ; Google 3,9 sur 243 avis",
+    },
+    attribution: "POP research · grecialandia.com + Google 3.9",
+    ratingCite: "Google 3.9",
+    googleRating: 3.9,
+    googleReviewCount: 243,
+    researchNotes:
+      "Open daily 10am–7pm; Residencia Grecia / Sabana del Corozo El Cupey; packages US$25/35/45; phone +1 849-460-6644; IG @grecialandia; Maps 19.7779525,-70.7457056.",
+    updatedAt: "2026-09-11T15:30:00.000Z",
+  },
 ];

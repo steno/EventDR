@@ -377,6 +377,12 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Le plus grand parc de go-karts de République dominicaine sur la Highway 5 — Fun City Puerto Plata avec Cyclone, Sprint 500, Grand Prix et autos tamponneuses, plus une aire de jeux près de Playa Dorada.",
     },
   },
+  "grecialandia": {
+    description: {
+      es: "Aldea temática greco-caribeña en Residencia Grecia, Sabana del Corozo, El Cupey — calles cicládicas blanco y azul, terrazas panorámicas, piscinas y paquetes de día con música, bebida de bienvenida y almuerzo opcional, a ~10 minutos del centro de Puerto Plata.",
+      fr: "Village thématique gréco-caribéen à Residencia Grecia, Sabana del Corozo, El Cupey — rues cycladiques blanc et bleu, terrasses panoramiques, piscines et forfaits journée avec musique, boisson de bienvenue et déjeuner optionnel, à ~10 minutes du centre de Puerto Plata.",
+    },
+  },
   "monkeyland-puerto-plata": {
     description: {
       es: "Santuario en la jungla de las colinas de Imbert — alimenta monos ardilla, pasea por senderos botánicos y visita una casa de campo tradicional en tours en camión safari con recogida en hotel.",

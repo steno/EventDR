@@ -165,6 +165,11 @@ export const INSTAGRAM_ACCOUNTS = [
     areas: ["Puerto Plata"],
   },
   {
+    handle: "grecialandia",
+    label: "Grecialandia",
+    areas: ["Puerto Plata"],
+  },
+  {
     handle: "voyvoybar",
     label: "VOYVOY Cabarete",
     areas: ["Cabarete"],

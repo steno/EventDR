@@ -658,6 +658,19 @@ export const SEED_VENUES: Venue[] = [
     phone: "+18096970794",
   },
   {
+    slug: "grecialandia",
+    name: "Grecialandia",
+    city: "Puerto Plata",
+    description:
+      "Greek-Caribbean themed village at Residencia Grecia in Sabana del Corozo, El Cupey — white-and-blue Cycladic streets, panoramic terraces, pools, and day packages with music, welcome drink, and optional lunch ~10 minutes from Puerto Plata centro.",
+    lat: 19.7779525,
+    lng: -70.7457056,
+    emoji: "🏛️",
+    instagram: "grecialandia",
+    website: "https://www.grecialandia.com/",
+    phone: "+18494606644",
+  },
+  {
     slug: "monkeyland-puerto-plata",
     name: "Monkeyland Puerto Plata",
     city: "Imbert",
@@ -1668,6 +1681,11 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
     pattern:
       /faro(\s+de)?\s+puerto\s+plata|puerto\s+plata\s+lighthouse|lighthouse\s+(of\s+)?puerto\s+plata/i,
     slug: "faro-puerto-plata",
+  },
+  {
+    pattern:
+      /grecialand(ia)?|grecia\s*landia|residencia\s+grecia|residencial\s+grecialandia|pueblo\s+griego(\s+en\s+el\s+caribe)?/i,
+    slug: "grecialandia",
   },
   {
     pattern:

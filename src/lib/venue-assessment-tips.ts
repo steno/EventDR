@@ -417,6 +417,14 @@ export const VENUE_TIP_COPY: Record<
       fr: "Adrénaline karting sur la route 5 près de Playa Dorada — enfants et vitesse entre deux plages, pas une sortie culturelle.",
     },
   },
+  "grecialandia": {
+    body: "Santorini-style photo village in the El Cupey hills — book a day package for pools and lunch; it's a themed half-day inland, not a beach club.",
+    localized: {
+      en: "Santorini-style photo village in the El Cupey hills — book a day package for pools and lunch; it's a themed half-day inland, not a beach club.",
+      es: "Aldea foto estilo Santorini en las colinas de El Cupey — reserva un paquete de día con piscinas y almuerzo; es media jornada temática tierra adentro, no un club de playa.",
+      fr: "Village photo style Santorin dans les collines d'El Cupey — réservez un forfait journée piscines et déjeuner ; demi-journée thématique à l'intérieur, pas un beach club.",
+    },
+  },
   "monkeyland-puerto-plata": {
     body: "Imbert hills monkey sanctuary — feed-and-stroll day trip inland; bring insect awareness, it's jungle humidity not beach breeze.",
     localized: {

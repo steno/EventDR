@@ -291,6 +291,8 @@ const KEYWORDS: KeywordMap = {
     { term: "historic center", weight: 2 },
     { term: "centro histórico", weight: 2 },
     { term: "centro historico", weight: 2 },
+    { term: "grecialandia", weight: 2 },
+    { term: "residencia grecia", weight: 2 },
     { term: "culturel", weight: 2 },
     { term: "culturelle", weight: 2 },
     "culture",
