@@ -425,6 +425,14 @@ export const VENUE_TIP_COPY: Record<
       fr: "Village photo style Santorin dans les collines d'El Cupey — réservez un forfait journée piscines et déjeuner ; demi-journée thématique à l'intérieur, pas un beach club.",
     },
   },
+  "drifter-cabarete": {
+    body: "Mediterranean beachfront on Cabarete Bay — come for sunset cocktails and dinner on the sand; Saturdays run dinner into DJ and dance, not a walk-up beach bar.",
+    localized: {
+      en: "Mediterranean beachfront on Cabarete Bay — come for sunset cocktails and dinner on the sand; Saturdays run dinner into DJ and dance, not a walk-up beach bar.",
+      es: "Mediterráneo frente al mar en la bahía de Cabarete — ven por cócteles al atardecer y cena en la arena; los sábados pasan de cena a DJ y baile, no es un beach bar walk-up.",
+      fr: "Méditerranéen océanfront sur la baie de Cabarete — venez pour cocktails au sunset et dîner sur le sable ; les samedis passent du dîner au DJ et à la danse, pas un beach bar walk-up.",
+    },
+  },
   "monkeyland-puerto-plata": {
     body: "Imbert hills monkey sanctuary — feed-and-stroll day trip inland; bring insect awareness, it's jungle humidity not beach breeze.",
     localized: {
@@ -570,11 +578,11 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "santa-fe-sov": {
-    body: "Oceanfront fortress-and-ship day club — the pass is consumable at Santa Maria restaurant; don’t confuse it with Restaurant Maria or Laguna SOV’s kids park.",
+    body: "Oceanfront fortress-and-ship day club — from 12 Oct 2026 the pass is a non-consumable door fee and you can bring food and drinks; don’t confuse it with Restaurant Maria or Laguna SOV’s kids park.",
     localized: {
-      en: "Oceanfront fortress-and-ship day club — the pass is consumable at Santa Maria restaurant; don’t confuse it with Restaurant Maria or Laguna SOV’s kids park.",
-      es: "Club de día frente al mar con fortaleza y barco — el pase es consumible en el restaurante Santa Maria; no lo confundas con Restaurant Maria ni con el parque infantil de Laguna SOV.",
-      fr: "Club day océanfront forteresse-et-bateau — le pass est consommable au restaurant Santa Maria ; ne le confondez pas avec Restaurant Maria ni le parc enfants Laguna SOV.",
+      en: "Oceanfront fortress-and-ship day club — from 12 Oct 2026 the pass is a non-consumable door fee and you can bring food and drinks; don’t confuse it with Restaurant Maria or Laguna SOV’s kids park.",
+      es: "Club de día frente al mar con fortaleza y barco — desde el 12 oct 2026 el pase es tarifa de puerta no consumible y puedes traer comida y bebidas; no lo confundas con Restaurant Maria ni con el parque infantil de Laguna SOV.",
+      fr: "Club day océanfront forteresse-et-bateau — à partir du 12 oct. 2026 le pass est un droit d’entrée non consommable et vous pouvez apporter nourriture et boissons ; ne le confondez pas avec Restaurant Maria ni le parc enfants Laguna SOV.",
     },
   },
   "restaurant-maria-sov": {

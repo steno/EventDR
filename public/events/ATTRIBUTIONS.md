@@ -108,7 +108,7 @@ Curated images under `public/events/` and `public/venues/`.
 | `puerto-plata-golf-classic-2026.jpg` / `venues/playa-dorada-golf.jpg` | [Unsplash](https://unsplash.com/photos/photo-1535131749006-b7f58c99034b) (`photo-1535131749006`) — Unsplash License | Tropical golf fairway for Ashonorte Golf Classic |
 | `cac-games-surf-playa-encuentro-2026.jpg` / `venues/playa-encuentro.jpg` | [Unsplash](https://unsplash.com/photos/photo-1502680390469-be75c86b636f) (`photo-1502680390469`) — Unsplash License | Surf action for CAC Games Playa Encuentro |
 | `puerto-plata-beach-soccer-2026.jpg` / `venues/playa-los-charamicos.jpg` | [Unsplash](https://unsplash.com/photos/photo-1543746746-46047c4f4bb0) (`photo-1543746746`) — Unsplash License | Soccer on sand with palms (replaces grass-pitch stock) |
-| `la-chabola-wednesday-open-mic.jpg` | [La Chabola Facebook](https://www.facebook.com/chabolacabaretee) — branded pizza cover | Wednesday open mic food hero (bar interior stays on the venue) |
+| `la-chabola-wednesday-open-mic-pizza-live.jpg` | POP-supplied — pizza table with live band and Presidente napkins at La Chabola | Wednesday open mic night action (filename bump; bar interior stays on the venue) |
 | `venues/la-chabola-bar.jpg` | [Google Maps — La Chabola](https://www.google.com/maps/place/La+Chabola/@19.7508,-70.408,17z) visitor photo | Tiki bar interior with chalkboard (pizza stays on the event) |
 | `groundzero-domingos-pal-pueblo.jpg` | [@groundzero_disco](https://www.instagram.com/groundzero_disco/p/DayWu9phE9R/) — Domingos Pal Pueblo flyer | Official Sunday party promo (lounge interior stays on the venue) |
 | `venues/ground-zero-disco-lounge.jpg` | [Google Maps — Ground Zero Disco](https://www.google.com/maps/search/Ground+Zero+Disco+Cabarete) visitor photo | Branded lounge interior with GZ logo wall |
@@ -245,3 +245,5 @@ Curated images under `public/events/` and `public/venues/`.
 | `venues/grecialandia-village.jpg` | POP-supplied — Grecialandia white-and-blue Greek village courtyard with blue dome | Venue place shot (editor-provided, not scraped) |
 | `grecialandia-entrance.jpg` | POP-supplied — Residencia Grecia / Grecialandia entrance gate (El Cupey) | Daily village day-pass experience (editor-provided, not scraped) |
 | `el-choco-cave-tour-swimming-daily.jpg` | Same POP Cuevas del Choco lagoon swim (shared with venue place shot) | Daily tour & swimming listing hero |
+| `drifter-sunset-into-the-night.jpg` | POP-supplied — Drifter Cabarete lobster platter on the beach deck | Saturday dinner · DJ · dance listing hero (editor-provided) |
+| `venues/drifter-cabarete-sunset.jpg` | POP-supplied — Drifter Cabarete beachfront pavilion at sunset | Venue place shot (editor-provided, not scraped) |

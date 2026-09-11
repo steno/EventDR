@@ -26,6 +26,7 @@ const FILE_TO_EVENT_ID = {
   "anfiteatro-la-puntilla-mitur-concert.jpg": "anfiteatro-la-puntilla-mitur-concert",
   "anfiteatro-la-puntilla-weekday-bowl.jpg": "anfiteatro-la-puntilla-weekday-bowl",
   "voyvoy-saturday-session-band.jpg": "voyvoy-saturday-session-band",
+  "drifter-sunset-into-the-night.jpg": "drifter-sunset-into-the-night",
   "voyvoy-sunday-open-mic-closeup.jpg": "voyvoy-sunday-open-mic-closeup",
   "voyvoy-monday-night-terrace.jpg": "voyvoy-monday-live-music",
   "hard-rock-billed-concerts.jpg": "hard-rock-billed-concerts",
@@ -135,7 +136,7 @@ const FILE_TO_EVENT_ID = {
   "guananico-san-miguel-patronales-2026.jpg":
     "guananico-san-miguel-patronales-2026",
   "sunset-cabarete-sessions-2026.jpg": "sunset-cabarete-sessions-2026",
-  "la-chabola-wednesday-open-mic.jpg": "la-chabola-wednesday-open-mic",
+  "la-chabola-wednesday-open-mic-pizza-live.jpg": "la-chabola-wednesday-open-mic",
   "groundzero-domingos-pal-pueblo.jpg": "groundzero-domingos-pal-pueblo",
 
   // --- Original curated venue / attraction photos ---
@@ -268,6 +269,7 @@ const FILE_TO_VENUE_SLUG = {
   "el-batey-pedro-clisante-strip.jpg": "el-batey-pedro-clisante-strip",
   // Authentic Voyvoy bar interior; Sat/Sun use dedicated event heroes (see FILE_TO_EVENT_ID).
   "voyvoy-cabarete-bar.jpg": "voyvoy-cabarete-bar",
+  "drifter-cabarete-sunset.jpg": "drifter-cabarete-sunset",
   // Filename bump — daytime dining room (not the weekly live-music still).
   "cheers-bar-sosua-dining.jpg": "cheers-bar-sosua-dining",
   // Dining/bar interior — distinct filename so browsers don't keep the old concert-stock URL.

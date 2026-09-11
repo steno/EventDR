@@ -671,6 +671,19 @@ export const SEED_VENUES: Venue[] = [
     phone: "+18494606644",
   },
   {
+    slug: "drifter-cabarete",
+    name: "Drifter Cabarete",
+    city: "Cabarete",
+    description:
+      "Beachfront Mediterranean dining with Caribbean touches on Cabarete Bay — sunset cocktails, barefoot deck tables, and Saturday dinner-to-dance nights. Open daily; reserve for peak evenings.",
+    lat: 19.7504244,
+    lng: -70.4056606,
+    emoji: "🌅",
+    instagram: "driftercabarete",
+    website: "https://driftercabarete.com/",
+    phone: "+18297022312",
+  },
+  {
     slug: "monkeyland-puerto-plata",
     name: "Monkeyland Puerto Plata",
     city: "Imbert",
@@ -1040,7 +1053,7 @@ export const SEED_VENUES: Venue[] = [
     name: "Santa Fe",
     city: "Sosúa",
     description:
-      "Oceanfront recreation club in Sosúa Ocean Village — colonial fortress, pools, waterfalls, and the Santa Maria ship restaurant. Day pass is consumable; not Restaurant Maria.",
+      "Oceanfront recreation club in Sosúa Ocean Village — colonial fortress, pools, waterfalls, and the Santa Maria ship restaurant. From 12 Oct 2026 the day pass is non-consumable (outside food and drinks allowed); not Restaurant Maria.",
     lat: 19.7803548,
     lng: -70.505895,
     emoji: "🏰",
@@ -1899,6 +1912,10 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
     pattern:
       /flip\s*flops?(\s*sports?\s*bar)?|yellow\s*steps|the\s*yellow\s*steps/i,
     slug: "flip-flop-sports-bar-sosua",
+  },
+  {
+    pattern: /drifter(\s*(cabarete|lounge|bar(\s*(and|&)\s*restaurant)?))?/i,
+    slug: "drifter-cabarete",
   },
 ];
 

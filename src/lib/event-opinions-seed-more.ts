@@ -1174,21 +1174,22 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   {
     eventId: "santa-fe-sov-day-pass",
     seriesKey: "santa-fe-sov:daily",
-    body: "Buy the day pass for the oceanfront fortress, pools, and Santa Maria ship restaurant — weekday and weekend rates differ, and this is not Restaurant Maria.",
+    body: "Buy the day pass for the oceanfront fortress, pools, and Santa Maria ship restaurant — from 12 Oct the fee is a door price (not a food credit) and you can bring your own food and drinks. This is not Restaurant Maria.",
     localized: {
-      es: "Compra el day pass por la fortaleza frente al mar, piscinas y el restaurante-barco Santa Maria — tarifas de semana y fin de semana difieren, y no es Restaurant Maria.",
-      fr: "Achetez le day pass pour la forteresse océanfront, les piscines et le restaurant-bateau Santa Maria — tarifs semaine et week-end diffèrent, et ce n'est pas Restaurant Maria.",
+      es: "Compra el day pass por la fortaleza frente al mar, piscinas y el restaurante-barco Santa Maria — desde el 12 oct la tarifa es de puerta (no es crédito de comida) y puedes traer comida y bebidas. No es Restaurant Maria.",
+      fr: "Achetez le day pass pour la forteresse océanfront, les piscines et le restaurant-bateau Santa Maria — à partir du 12 oct. le tarif est un droit d’entrée (ce n’est plus un crédit resto) et vous pouvez apporter nourriture et boissons. Ce n’est pas Restaurant Maria.",
     },
     priceFeel: "upscale",
-    priceNote: "Consumable day pass — weekday vs weekend rates change; buy at pasadia.santafe.do rather than locking a door price",
+    priceNote:
+      "From 12 Oct 2026: non-consumable — weekdays adults RD$1,000 / kids RD$800; weekends & holidays adults RD$1,200 / kids RD$1,000; BYO food and drinks. Until 11 Oct the pass stays consumable — buy at pasadia.santafe.do",
     priceNoteLocalized: {
-      es: "Day pass consumible — tarifas entre semana vs fin de semana cambian; compra en pasadia.santafe.do en vez de fijar un precio de puerta",
-      fr: "Day pass consommable — tarifs semaine vs week-end changent ; achetez sur pasadia.santafe.do plutôt que de figer un prix porte",
+      es: "Desde el 12 oct 2026: no consumible — entre semana adultos RD$1,000 / niños RD$800; fines de semana y feriados adultos RD$1,200 / niños RD$1,000; puedes traer comida y bebidas. Hasta el 11 oct el pase sigue consumible — compra en pasadia.santafe.do",
+      fr: "À partir du 12 oct. 2026 : non consommable — semaine adultes RD$1,000 / enfants RD$800 ; week-ends et fériés adultes RD$1,200 / enfants RD$1,000 ; nourriture et boissons perso OK. Jusqu’au 11 oct. le pass reste consommable — achetez sur pasadia.santafe.do",
     },
-    attribution: "POP research · santafe.do + pasadia.santafe.do",
+    attribution: "POP research · santafe.do + @santafesov Oct 2026 rates",
     researchNotes:
-      "Hours Mon–Fri 10–7, Sat/Sun/holidays 11–9; Santa Maria restaurant is inside Santa Fe; ticket URL pasadia.santafe.do; published rates conflict across pages so callForPricing.",
-    updatedAt: "2026-08-17T15:10:00.000Z",
+      "Official @santafesov announcement: from 12 Oct 2026 daily 10–7; non-consumable weekdays RD$1000/800, weekends & holidays RD$1200/1000; BYO food and drinks. Until 11 Oct pasadia.santafe.do still lists Mon–Fri 10–7, Sat/Sun/holidays 11–9, consumable. Ticket URL pasadia.santafe.do.",
+    updatedAt: "2026-09-11T16:00:00.000Z",
   },
   {
     eventId: "restaurant-maria-day-pass",
@@ -1965,5 +1966,25 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     researchNotes:
       "Open daily 10am–7pm; Residencia Grecia / Sabana del Corozo El Cupey; packages US$25/35/45; phone +1 849-460-6644; IG @grecialandia; Maps 19.7779525,-70.7457056.",
     updatedAt: "2026-09-11T15:30:00.000Z",
+  },
+  {
+    eventId: "drifter-sunset-into-the-night",
+    seriesKey: "drifter-cabarete:weekly:6",
+    body: "Book a Saturday table if you want dinner before the floor opens — Mediterranean on the bay, then DJ from 8 and dancing from 10; this is not a walk-up LAX reggae night.",
+    localized: {
+      es: "Reserva mesa el sábado si quieres cenar antes de que abra la pista — mediterráneo en la bahía, luego DJ desde las 8 y baile desde las 10; no es la reggae night walk-up de LAX.",
+      fr: "Réservez une table le samedi si vous voulez dîner avant l’ouverture de la piste — méditerranéen sur la baie, puis DJ dès 20 h et danse dès 22 h ; ce n’est pas la reggae night walk-up de LAX.",
+    },
+    priceFeel: "upscale",
+    priceNote:
+      "No published cover on the flyer — spend is dinner and cocktails (Google DOP 500–3,000); reserve +1 829 702-2312",
+    priceNoteLocalized: {
+      es: "Sin cover publicado en el flyer — el gasto es cena y cócteles (Google DOP 500–3,000); reserva +1 829 702-2312",
+      fr: "Pas de cover publié sur le flyer — le budget part en dîner et cocktails (Google DOP 500–3 000) ; réservez +1 829 702-2312",
+    },
+    attribution: "POP research · driftercabarete.com + Google Maps + editor venue photos",
+    researchNotes:
+      "Saturday schedule from venue promo: Dinner · DJ · Dance; DJ from 8 PM, dance floor from 10 PM until 1 AM. Maps 19.7504244,-70.4056606; phone +1 829 702-2312; Cabarete Bay Beach 5; Mediterranean beachfront; IG @driftercabarete; Google ~394 reviews (spend DOP 500–3,000). Heroes: editor pavilion + lobster deck photos (no flyer).",
+    updatedAt: "2026-09-11T17:30:00.000Z",
   },
 ];

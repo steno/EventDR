@@ -31,6 +31,7 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "d-classico-sosua": "d-classico-sosua-daytime.jpg",
   // Filename bump — authentic Voyvoy bar interior (not shared dining URL with all nights).
   "voyvoy-cabarete": "voyvoy-cabarete-bar.jpg",
+  "drifter-cabarete": "drifter-cabarete-sunset.jpg",
   "aura-beach-club-cabarete": "aura-beach-club-cabarete.jpg",
   // Filename bump after replacing a generic Restaurant Guru table shot.
   "la-casita-de-papi": "la-casita-de-papi-awning.jpg",

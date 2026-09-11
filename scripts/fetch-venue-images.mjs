@@ -246,7 +246,7 @@ const VENUE_SOURCES = [
   // atleticos-pp-vs-* → popevent-images/athleticosPOP.png via sync-event-images.mjs
   // parque-jose-briceno → popevent-images/baseballpark.png
   // --- Jul 2026 Facebook/Instagram ingest seeds ---
-  // la-chabola-wednesday-open-mic.jpg — branded pizza cover from facebook.com/chabolacabaretee
+  // la-chabola-wednesday-open-mic-pizza-live.jpg — POP editor pizza + live band night
   // (committed under popevent-images/). Venue is la-chabola-bar.jpg (tiki interior).
   // Do not remote-refresh or copy the pizza onto the venue slug.
   // groundzero-domingos-pal-pueblo.jpg is the official Domingos Pal Pueblo flyer

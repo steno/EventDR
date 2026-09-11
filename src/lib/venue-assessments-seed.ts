@@ -627,6 +627,23 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     ],
   }),
   editorial({
+    venueSlug: "drifter-cabarete",
+    verdictKey: "strong_visitor_nightlife",
+    crowdFit: ["visitor", "mixed", "nightlife"],
+    axes: {
+      recommend: 4.3,
+      atmosphere: 4.6,
+      practical: 4.0,
+      value: 3.6,
+    },
+    themes: [
+      { key: "beachfront", sentiment: "positive", audience: "visitor" },
+      { key: "sunset_views", sentiment: "positive" },
+      { key: "dance_floor", sentiment: "positive", audience: "nightlife" },
+      { key: "busy_weekends", sentiment: "mixed" },
+    ],
+  }),
+  editorial({
     venueSlug: "monkeyland-puerto-plata",
     verdictKey: "solid_visitor_activity",
     crowdFit: ["visitor", "family"],

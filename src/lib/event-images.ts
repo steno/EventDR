@@ -110,6 +110,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "hard-rock-karaoke-wednesday": "hard-rock-karaoke-wednesday.jpg",
   "sosua-neon-partyrun-2026-10-24": "sosua-neon-partyrun-2026-10-24.jpg",
   "hard-rock-casa-mickey-2026-09-26": "hard-rock-casa-mickey-2026-09-26.jpg",
+  "drifter-sunset-into-the-night": "drifter-sunset-into-the-night.jpg",
   "sosua-jewish-museum-hours": "sosua-jewish-museum-hours.jpg",
   "sosua-diving-adventures-daily": "sosua-diving-adventures-daily.jpg",
   // Filename bump — Pedro Clisante night strip (not the shared salsa-social shot).
@@ -198,7 +199,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "super-mega-urban-fest-2026-11-04": "super-mega-urban-fest-2026-11-04.jpg",
   "masters-surf-reunion-10-2026": "masters-surf-reunion-10-2026.png",
   "sunset-cabarete-sessions-2026": "sunset-cabarete-sessions-2026.jpg",
-  "la-chabola-wednesday-open-mic": "la-chabola-wednesday-open-mic.jpg",
+  // Filename bump — pizza + live band night (not the branded FB pizza cover).
+  "la-chabola-wednesday-open-mic": "la-chabola-wednesday-open-mic-pizza-live.jpg",
   "groundzero-domingos-pal-pueblo": "groundzero-domingos-pal-pueblo.jpg",
   "groundzero-viernes-locos": "groundzero-viernes-locos.jpg",
   "groundzero-party-rojo-2026-08-01": "groundzero-party-rojo-2026-08-01.jpg",

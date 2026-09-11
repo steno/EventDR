@@ -343,7 +343,10 @@
     "category": "food-drinks",
     "format": "physical",
     "recurrence": "weekly",
-    "recurrenceDays": [1, 3],
+    "recurrenceDays": [
+      1,
+      3
+    ],
     "callForPricing": true,
     "sourceType": "instagram",
     "sourceUrl": "https://www.instagram.com/cigartownpop/p/DcyjYAYxcI3/",
@@ -1742,7 +1745,10 @@
     "venueSlug": "malecon-puerto-plata",
     "address": "Av. Gregorio Luperón (Malecón)",
     "category": "culture",
-    "categories": ["festivals", "music"],
+    "categories": [
+      "festivals",
+      "music"
+    ],
     "format": "physical",
     "recurrence": "weekly",
     "recurrenceDay": 0,
@@ -1761,7 +1767,9 @@
     "venueSlug": "casa-de-la-cultura",
     "address": "Frente al Parque Central, Calle Separación",
     "category": "culture",
-    "categories": ["performances"],
+    "categories": [
+      "performances"
+    ],
     "format": "physical",
     "recurrence": "weekly",
     "recurrenceDay": 6,
@@ -1780,7 +1788,10 @@
     "venueSlug": "anfiteatro-la-puntilla",
     "address": "Desvío a La Puntilla",
     "category": "culture",
-    "categories": ["performances", "concert"],
+    "categories": [
+      "performances",
+      "concert"
+    ],
     "format": "physical",
     "recurrence": "weekdays",
     "isFree": true,
@@ -1806,7 +1817,14 @@
     ],
     "format": "physical",
     "recurrence": "weekly",
-    "recurrenceDays": [0, 2, 3, 4, 5, 6],
+    "recurrenceDays": [
+      0,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
     "callForPricing": true,
     "sourceUrl": "https://www.instagram.com/meclaorooftop/",
     "imageEmoji": "🎶"
@@ -1974,7 +1992,7 @@
   {
     "id": "santa-fe-sov-day-pass",
     "title": "Day pass Santa Fe",
-    "description": "Club recreativo frente al mar dentro de Sosúa Ocean Village — fortaleza colonial, piscinas, cascadas y el restaurante-barco Santa Maria (mexicana/asiática/dominicana). Lunes a viernes 10:00 AM–7:00 PM; fines de semana y feriados 11:00 AM–9:00 PM. Las tarifas de day pass son consumibles en restaurante/bar y cambian entre semana y fin de semana — compra en pasadia.santafe.do. No es Restaurant Maria.",
+    "description": "Club recreativo frente al mar dentro de Sosúa Ocean Village — fortaleza colonial, piscinas, cascadas y el restaurante-barco Santa Maria (mexicana/asiática/dominicana). Hasta el 11 oct 2026: lunes a viernes 10:00 AM–7:00 PM; fines de semana y feriados 11:00 AM–9:00 PM; el day pass es consumible en restaurante/bar. Desde el 12 oct 2026: todos los días 10:00 AM–7:00 PM; tarifas no consumibles (entre semana adultos RD$1,000 / niños RD$800; fines de semana y feriados adultos RD$1,200 / niños RD$1,000); puedes traer comida y bebidas. Compra en pasadia.santafe.do. No es Restaurant Maria.",
     "date": "2026-01-01",
     "time": "10:00 AM – 7:00 PM",
     "location": "Sosúa",
@@ -2071,7 +2089,14 @@
     "category": "food-drinks",
     "format": "physical",
     "recurrence": "weekly",
-    "recurrenceDays": [0, 1, 3, 4, 5, 6],
+    "recurrenceDays": [
+      0,
+      1,
+      3,
+      4,
+      5,
+      6
+    ],
     "phone": "+18099707627",
     "sourceUrl": "https://www.google.com/maps/place/Los+Tres+Cocos/@19.8070375,-70.7270156,17z",
     "imageEmoji": "🌴"
@@ -2217,7 +2242,10 @@
     "category": "food-drinks",
     "format": "physical",
     "recurrence": "weekly",
-    "recurrenceDays": [3, 4],
+    "recurrenceDays": [
+      3,
+      4
+    ],
     "phone": "+18095719727",
     "sourceUrl": "https://velerobeach.com/introducing-the-new-sushi-menu-at-sunset-grill/",
     "imageEmoji": "🍣"
@@ -2333,7 +2361,15 @@
     "category": "food-drinks",
     "format": "physical",
     "recurrence": "weekly",
-    "recurrenceDays": [0, 1, 2, 3, 4, 5, 6],
+    "recurrenceDays": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
     "phone": "+18298178147",
     "sourceUrl": "https://flipflop360.com/",
     "imageEmoji": "🍹"
@@ -2391,7 +2427,9 @@
     "lat": 19.7643646,
     "lng": -70.4890209,
     "category": "food-drinks",
-    "categories": ["culture"],
+    "categories": [
+      "culture"
+    ],
     "format": "physical",
     "recurrence": "weekly",
     "recurrenceDay": 0,
@@ -2414,7 +2452,9 @@
     "lat": 19.7643646,
     "lng": -70.4890209,
     "category": "music",
-    "categories": ["performances"],
+    "categories": [
+      "performances"
+    ],
     "format": "physical",
     "recurrence": "weekly",
     "recurrenceDay": 6,
@@ -2517,5 +2557,31 @@
     "sourceType": "instagram",
     "sourceUrl": "https://www.instagram.com/p/DbnyReiOybQ/",
     "imageEmoji": "🎤"
+  },
+  {
+    "id": "drifter-sunset-into-the-night",
+    "title": "Drifter Sunset Into the Night",
+    "description": "Todos los sábados en Drifter Cabarete — cena frente al mar, DJ desde las 8:00 PM, pista desde las 10:00 PM hasta la 1:00 AM. Sabores mediterráneos junto al océano con cócteles al atardecer en la bahía de Cabarete. Reserva +1 829 702-2312 / driftercabarete.com.",
+    "date": "2026-01-01",
+    "time": "8:00 PM – 1:00 AM",
+    "location": "Cabarete",
+    "venue": "Drifter Cabarete",
+    "venueSlug": "drifter-cabarete",
+    "address": "Cabarete Bay Beach 5, Cabarete 57000",
+    "lat": 19.7504244,
+    "lng": -70.4056606,
+    "category": "parties",
+    "categories": [
+      "food-drinks",
+      "music"
+    ],
+    "format": "physical",
+    "recurrence": "weekly",
+    "recurrenceDay": 6,
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18297022312",
+    "sourceUrl": "https://driftercabarete.com/",
+    "imageEmoji": "🌅"
   }
 ]

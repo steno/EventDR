@@ -383,6 +383,12 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Village thématique gréco-caribéen à Residencia Grecia, Sabana del Corozo, El Cupey — rues cycladiques blanc et bleu, terrasses panoramiques, piscines et forfaits journée avec musique, boisson de bienvenue et déjeuner optionnel, à ~10 minutes du centre de Puerto Plata.",
     },
   },
+  "drifter-cabarete": {
+    description: {
+      es: "Cocina mediterránea frente al mar con toques caribeños en la bahía de Cabarete — cócteles al atardecer, mesas barefoot en la terraza y sábados de cena a baile. Abierto todos los días; reserva en noches punta.",
+      fr: "Gastronomie méditerranéenne océanfront avec touches caribéennes sur la baie de Cabarete — cocktails au coucher du soleil, tables pieds nus sur la terrasse et samedis dîner-danse. Ouvert tous les jours ; réservez les soirs de pointe.",
+    },
+  },
   "monkeyland-puerto-plata": {
     description: {
       es: "Santuario en la jungla de las colinas de Imbert — alimenta monos ardilla, pasea por senderos botánicos y visita una casa de campo tradicional en tours en camión safari con recogida en hotel.",
@@ -571,8 +577,8 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
   },
   "santa-fe-sov": {
     description: {
-      es: "Club recreativo frente al mar en Sosúa Ocean Village — fortaleza colonial, piscinas, cascadas y el restaurante-barco Santa Maria. El day pass es consumible; no es Restaurant Maria.",
-      fr: "Club océanfront dans Sosúa Ocean Village — forteresse coloniale, piscines, cascades et le restaurant-bateau Santa Maria. Le day pass est consommable ; ce n'est pas Restaurant Maria.",
+      es: "Club recreativo frente al mar en Sosúa Ocean Village — fortaleza colonial, piscinas, cascadas y el restaurante-barco Santa Maria. Desde el 12 oct 2026 el day pass no es consumible (puedes traer comida y bebidas); no es Restaurant Maria.",
+      fr: "Club océanfront dans Sosúa Ocean Village — forteresse coloniale, piscines, cascades et le restaurant-bateau Santa Maria. À partir du 12 oct. 2026 le day pass n’est plus consommable (nourriture et boissons personnelles autorisées) ; ce n’est pas Restaurant Maria.",
     },
   },
   "restaurant-maria-sov": {
