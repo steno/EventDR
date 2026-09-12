@@ -4,7 +4,9 @@ import { memo, useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { ChevronRight, CircleAlert, Calendar, Clock } from "lucide-react";
 import { EventImage } from "@/components/EventImage";
+import { EventCardPlaceholder } from "@/components/EventCardPlaceholder";
 import { EventStatusBadge } from "@/components/EventStatusBadge";
+import { FeatureSpecialModal } from "@/components/FeatureSpecialModal";
 import { HomeAlerts } from "@/components/HomeAlerts";
 import { HorizontalScrollEdgeFades } from "@/components/HorizontalScrollEdgeFades";
 import { IntentLink, warmRoutesIdle } from "@/components/IntentLink";
@@ -56,6 +58,11 @@ interface TodayHighlightsProps {
   listTimeRange?: TimeRange;
   /** Show calendar date on cards (Coming up + Recently added). */
   showDate?: boolean;
+  /**
+   * When exactly one highlight is shown, fill remaining columns with a paid
+   * “feature your event” promo (mailto for pricing) — used on Today's specials.
+   */
+  featurePromo?: boolean;
 }
 
 function TodayHighlightCard({
@@ -70,6 +77,7 @@ function TodayHighlightCard({
   note,
   listTimeRange,
   showDate,
+  layout = "grid",
 }: {
   event: Event;
   locale: Locale;
@@ -82,6 +90,8 @@ function TodayHighlightCard({
   note?: string;
   listTimeRange?: TimeRange;
   showDate?: boolean;
+  /** Pair = 2-up row; grid = 3-up tile. */
+  layout?: "pair" | "grid";
 }) {
   const href = eventDetailPath(locale, event.id);
   const liveDisplay = useLiveStatusDisplay(event, dict, {
@@ -107,6 +117,10 @@ function TodayHighlightCard({
         : timeLabel.full !== timeLabel.display
           ? timeLabel.full
           : undefined;
+  const imageSizes =
+    layout === "pair"
+      ? "(max-width: 640px) 88vw, 50vw"
+      : "(max-width: 640px) 88vw, (max-width: 1024px) 50vw, 33vw";
 
   return (
     <article
@@ -133,7 +147,7 @@ function TodayHighlightCard({
             <EventImage
               src={event.imageUrl}
               alt=""
-              sizes="(max-width: 640px) 88vw, (max-width: 768px) 50vw, 33vw"
+              sizes={imageSizes}
               priority={false}
               className={`object-cover card-media-zoom ${getEventCardObjectPosition(event.id)}`}
             />
@@ -234,24 +248,40 @@ const TodayHighlightsComponent = ({
   hideSeeAll = false,
   listTimeRange = "today",
   showDate = false,
+  featurePromo = false,
 }: TodayHighlightsProps) => {
   const router = useRouter();
   const railRef = useRef<HTMLDivElement>(null);
   const [pendingId, setPendingId] = useState<string | null>(null);
   const [alertsOpen, setAlertsOpen] = useState(false);
+  const [featureOpen, setFeatureOpen] = useState(false);
   const excludeSet = useMemo(() => new Set(excludeEventIds), [excludeEventIds]);
   const todayEvents = useMemo(() => {
     const base = prefiltered ? events : getTodayHighlightEvents(events);
     return base.filter((event) => !excludeSet.has(event.id));
   }, [events, excludeSet, prefiltered]);
   const visibleEvents = todayEvents.slice(0, limit);
+  const count = visibleEvents.length;
+  const showFeaturePromo = count === 1 && featurePromo;
   const hasMore = todayEvents.length > limit;
   const allTodayHref = seeAllHref ?? `/${locale}/when/today`;
   const sectionLabel = title ?? dict.events.happeningToday;
+  // Lone special + promo: 2-up on sm, 1 + span-2 on lg so the ad fills the row.
+  const gridColsClass = showFeaturePromo
+    ? "sm:grid-cols-2 lg:grid-cols-3"
+    : count <= 1
+      ? "sm:grid-cols-2 lg:grid-cols-3"
+      : count === 2
+        ? "sm:grid-cols-2"
+        : "sm:grid-cols-2 lg:grid-cols-3";
+  const cardLayout = !showFeaturePromo && count === 2 ? "pair" : "grid";
   const {
     canScrollRight,
     onScroll: onRailScroll,
-  } = useHorizontalScrollHints(railRef, visibleEvents.length);
+  } = useHorizontalScrollHints(
+    railRef,
+    showFeaturePromo ? 2 : count,
+  );
 
   const highlightHrefs = useMemo(
     () => visibleEvents.map((event) => eventDetailPath(locale, event.id)),
@@ -264,7 +294,7 @@ const TodayHighlightsComponent = ({
     return warmRoutesIdle(router, highlightHrefs, HOME_TODAY_LIMIT);
   }, [highlightHrefs, router]);
 
-  if (visibleEvents.length === 0 && alerts.length === 0) return null;
+  if (count === 0 && alerts.length === 0) return null;
 
   return (
     <section className="mb-6">
@@ -301,12 +331,12 @@ const TodayHighlightsComponent = ({
         )}
       </div>
 
-      {visibleEvents.length > 0 && (
+      {count > 0 && (
         <div className="relative">
           <div
             ref={railRef}
             onScroll={onRailScroll}
-            className="flex snap-x snap-mandatory gap-3 overflow-x-auto pb-0.5 scrollbar-hide sm:grid sm:grid-cols-2 sm:items-stretch sm:gap-3 sm:overflow-visible sm:pb-0 sm:snap-none lg:grid-cols-3"
+            className={`flex snap-x snap-mandatory gap-3 overflow-x-auto pb-0.5 scrollbar-hide sm:grid sm:items-stretch sm:gap-3 sm:overflow-visible sm:pb-0 sm:snap-none ${gridColsClass}`}
             aria-label={sectionLabel}
           >
             {visibleEvents.map((event) => (
@@ -314,7 +344,7 @@ const TodayHighlightsComponent = ({
                 key={event.id}
                 data-snap-slide
                 className={
-                  visibleEvents.length === 1
+                  count === 1 && !showFeaturePromo
                     ? "w-full shrink-0 snap-start sm:w-auto sm:min-w-0 sm:shrink"
                     : `${SNAP_RAIL_PEEK_CLASS} shrink-0 snap-start sm:w-auto sm:min-w-0 sm:shrink`
                 }
@@ -331,15 +361,35 @@ const TodayHighlightsComponent = ({
                   note={notes?.[event.id]}
                   listTimeRange={listTimeRange}
                   showDate={showDate}
+                  layout={cardLayout}
                 />
               </div>
             ))}
+            {showFeaturePromo ? (
+              <div
+                data-snap-slide
+                className={`${SNAP_RAIL_PEEK_CLASS} shrink-0 snap-start sm:col-span-1 sm:w-auto sm:min-w-0 sm:shrink lg:col-span-2`}
+              >
+                <EventCardPlaceholder
+                  title={dict.events.featureSpecialTitle}
+                  label={dict.events.featureSpecialLabel}
+                  onClick={() => setFeatureOpen(true)}
+                  stretch
+                />
+              </div>
+            ) : null}
           </div>
           <div className="sm:hidden">
             <HorizontalScrollEdgeFades canScrollRight={canScrollRight} />
           </div>
         </div>
       )}
+
+      <FeatureSpecialModal
+        open={featureOpen}
+        onClose={() => setFeatureOpen(false)}
+        dict={dict}
+      />
 
       <HomeAlerts
         open={alertsOpen}

@@ -164,7 +164,8 @@ const FILE_TO_EVENT_ID = {
   "lax-headline-concerts.jpg": "lax-headline-concerts",
   "CremoSalsaFriday.jpg": "cremo-salsa-friday",
   "victrola-sabado-bailable.jpg": "victrola-sabado-bailable",
-  "victrola-ladies-night-friday.jpg": "victrola-ladies-night-friday",
+  "victrola-jueves-social.jpg": "victrola-jueves-social",
+  "victrola-mojitos-friday.jpg": "victrola-mojitos-friday",
   "cigar-town-acustico-humos-2026-08-14.jpg":
     "cigar-town-acustico-humos-2026-08-14",
   "cigar-town-acustico-humos.jpg": "cigar-town-acustico-humos",

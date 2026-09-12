@@ -372,7 +372,7 @@ export function instagramSearchQueries(): string[] {
     `site:instagram.com (${touristInfo}) evento OR actividad OR fiesta`,
     `site:instagram.com (${institutional}) foro OR feria OR congreso OR "rueda de negocios"`,
     `site:instagram.com victrolart OR cigartownpop OR paradaelchoco OR kitestreetpop 2026`,
-    `site:instagram.com "Ladies Night" OR "Sábado Bailable" OR Acústico Puerto Plata`,
+    `site:instagram.com "Mojitos" OR "Jueves Social" OR "Sábado Bailable" OR Acústico Puerto Plata`,
     
     // Business & institutional
     `site:instagram.com foro empresarial OR "rueda de negocios" Puerto Plata`,

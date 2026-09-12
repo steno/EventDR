@@ -430,22 +430,42 @@ export const SEED_EVENT_OPINIONS_BASE: EventOpinion[] = [
     updatedAt: "2026-08-02T22:40:00.000Z",
   },
   {
-    eventId: "victrola-ladies-night-friday",
-    seriesKey: "victrola-037:weekly:5",
-    body: "Early Malecón window (7–9 PM) with free sangria — better for a mellow start than the late Saturday dance floor.",
+    eventId: "victrola-jueves-social",
+    seriesKey: "victrola-037:weekly:4",
+    body: "Built for a table of four — you buy the meat board, they pour four sangrias. Better as a shared dinner plan than a solo drink stop.",
     localized: {
-      es: "Ventana temprana en el Malecón (7–9 PM) con sangría gratis — mejor para arrancar suave que la pista tardía del sábado.",
-      fr: "Créneau Malecón tôt (19–21 h) avec sangria offerte — mieux pour démarrer soft que la piste tardive du samedi.",
+      es: "Pensado para mesa de cuatro — tú pagas la tabla de carnes, ellos ponen cuatro sangrías. Mejor como plan de cena compartida que como parada de un solo trago.",
+      fr: "Conçu pour une table de quatre — tu paies la planche de viandes, ils offrent quatre sangrias. Mieux en dîner partagé qu’en pause solo.",
     },
     priceFeel: "moderate",
-    priceNote: "Free sangria promo — other drinks/food at Malecón café prices",
+    priceNote: "Tabla for 4 + 4 sangrias included — confirm board price at the café; other drinks extra",
     priceNoteLocalized: {
-      es: "Promo de sangría gratis — resto de tragos/comida a precio de café del Malecón",
-      fr: "Promo sangria offerte — autres boissons/repas au tarif café Malecón",
+      es: "Tabla para 4 + 4 sangrías incluidas — confirma el precio de la tabla en el café; otros tragos aparte",
+      fr: "Planche pour 4 + 4 sangrias incluses — confirme le prix de la planche au café ; autres boissons en plus",
     },
-    attribution: "POP research · @victrolart + local tip",
-    researchNotes: "Ladies Night flyer: Lisbeth Naar, free sangria, 7–9 PM; friend-confirmed still active.",
-    updatedAt: "2026-08-02T22:40:00.000Z",
+    attribution: "POP research · @victrolart Sep 2026",
+    researchNotes:
+      "IG @victrolart /p/Dbq5Z0suuoy — Jueves Social: 4 sangrías gratis con tabla de carnes para 4. Replaces old Friday free-sangria Ladies Night messaging; sangria promo now sits on Thursday.",
+    updatedAt: "2026-09-12T21:30:00.000Z",
+  },
+  {
+    eventId: "victrola-mojitos-friday",
+    seriesKey: "victrola-037:weekly:5",
+    body: "Early Malecón happy hour (6:30–8:30 PM) with 2x1 mojitos and Café Meclao' live — softer kickoff than Saturday’s 10 PM dance floor.",
+    localized: {
+      es: "Happy hour temprano en el Malecón (6:30–8:30 PM) con mojitos 2x1 y Café Meclao' en vivo — arranque más suave que la pista de las 10 PM del sábado.",
+      fr: "Happy hour tôt sur le Malecón (18 h 30–20 h 30) avec mojitos 2 pour 1 et Café Meclao' live — démarrage plus soft que la piste à 22 h le samedi.",
+    },
+    priceFeel: "moderate",
+    priceNote: "2x1 mojitos 6:30–8:30 PM only — other drinks/food at Malecón café prices",
+    priceNoteLocalized: {
+      es: "Mojitos 2x1 solo de 6:30 a 8:30 PM — resto de tragos/comida a precio de café del Malecón",
+      fr: "Mojitos 2 pour 1 uniquement de 18 h 30 à 20 h 30 — autres boissons/repas au tarif café Malecón",
+    },
+    attribution: "POP research · @victrolart Sep 2026",
+    researchNotes:
+      "IG @victrolart /p/Db84Z-oBiNK — Viernes: música en vivo Café Meclao', mojitos 2x1 6:30–8:30 PM. Replaces Ladies Night / free sangria Friday.",
+    updatedAt: "2026-09-12T21:30:00.000Z",
   },
   {
     eventId: "chill-and-grill-bingo-2026-08-03",

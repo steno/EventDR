@@ -80,6 +80,17 @@ export type Dictionary = {
     yourEventHereGeneric: string;
     /** Venue schedule CTA — `{venue}` is the place name. */
     yourEventHereAtVenue: string;
+    /**
+     * Home Today's specials gap-fill: paid featured placement (not free submit).
+     */
+    featureSpecialTitle: string;
+    featureSpecialLabel: string;
+    featureSpecialEyebrow: string;
+    featureSpecialModalTitle: string;
+    featureSpecialModalBody: string;
+    featureSpecialModalCta: string;
+    /** Prefill for WhatsApp featured-placement inquiry. */
+    featureSpecialWhatsAppMessage: string;
     hot: string;
     nearMe: string;
     nearMeOn: string;
@@ -673,6 +684,15 @@ export const en: Dictionary = {
     yourEventHere: "Add your {category} event",
     yourEventHereGeneric: "Add your event",
     yourEventHereAtVenue: "Add your event at {venue}",
+    featureSpecialTitle: "Your event here?",
+    featureSpecialLabel: "Featured placement — learn more",
+    featureSpecialEyebrow: "Featured on POP",
+    featureSpecialModalTitle: "This special space could be yours",
+    featureSpecialModalBody:
+      "Today's specials is prime home real estate — the first thing visitors see when there's a one-off night worth spotlighting. Book a featured slot for your show, venue, or brand and land in front of North Coast locals and travelers.",
+    featureSpecialModalCta: "Contact us on WhatsApp",
+    featureSpecialWhatsAppMessage:
+      "Hi POP Events — I'd like to feature my event in Today's specials (or another featured spot).\n\nEvent name:\nDate:\nVenue / city:\nLinks:\n\nPlease send pricing and availability. Thanks!",
     hot: "Hot",
     nearMe: "Near me",
     nearMeOn: "Sorted by distance",

@@ -97,6 +97,15 @@ export const es: Dictionary = {
     yourEventHere: "Agrega tu evento de {category}",
     yourEventHereGeneric: "Agrega tu evento",
     yourEventHereAtVenue: "Agrega tu evento en {venue}",
+    featureSpecialTitle: "¿Tu evento aquí?",
+    featureSpecialLabel: "Espacio destacado — más info",
+    featureSpecialEyebrow: "Destacado en POP",
+    featureSpecialModalTitle: "Este espacio especial puede ser tuyo",
+    featureSpecialModalBody:
+      "Especiales de hoy es el lugar más visible del home: lo primero que ven cuando hay una noche puntual que vale la pena. Reserva un espacio destacado para tu show, local o marca y llega a locales y viajeros de la costa norte.",
+    featureSpecialModalCta: "Escríbenos por WhatsApp",
+    featureSpecialWhatsAppMessage:
+      "Hola POP Events — me gustaría destacar mi evento en Especiales de hoy (u otro espacio destacado).\n\nNombre del evento:\nFecha:\nLugar / ciudad:\nEnlaces:\n\nPor favor envíen precios y disponibilidad. ¡Gracias!",
     hot: "Top",
     nearMe: "Cerca de mí",
     nearMeOn: "Ordenado por distancia",

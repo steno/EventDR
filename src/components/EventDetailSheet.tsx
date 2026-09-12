@@ -549,7 +549,7 @@ export function EventDetailSheet({
 
   if (standalone) {
     return (
-      <article className="mt-0 w-full overflow-hidden rounded-2xl bg-white shadow-md ring-1 ring-neutral-200/60 dark:bg-neutral-900 dark:ring-neutral-800 lg:grid lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-stretch">
+      <article className="mt-0 w-full overflow-hidden rounded-2xl bg-white shadow-md ring-1 ring-neutral-200/60 dark:bg-neutral-900 dark:ring-neutral-800 lg:grid lg:grid-cols-[minmax(0,1.3fr)_minmax(0,0.7fr)] lg:items-stretch">
         <div className={`relative ${DETAIL_HERO_PHOTO_HEIGHT_CLASS}`}>
           {showHero ? (
             <div className="h-full lg:absolute lg:inset-0">

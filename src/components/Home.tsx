@@ -707,6 +707,7 @@ function HomeApp({
                   hideSeeAll
                   listTimeRange="today"
                   returnTo={homePath}
+                  featurePromo
                 />
               )}
 

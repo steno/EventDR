@@ -446,7 +446,8 @@ export function isTodayOnlySpecial(
 /**
  * Home “Today’s specials”: non-recurring events that start today and are still
  * active. Empty most mornings with only weekly nights — callers should hide
- * the section when the list is empty.
+ * the section when the list is empty. A single special can sit beside an
+ * add-event promo so the desktop row doesn’t look sparse.
  */
 export function getTodaySpecialEvents(
   events: Event[],

@@ -410,11 +410,34 @@
     "imageEmoji": "💃"
   },
   {
-    "id": "victrola-ladies-night-friday",
-    "title": "Ladies Night à Victrola 037",
-    "description": "Tous les vendredis à Victrola 037 Arte Café sur le Malecón de Puerto Plata — musique live avec Lisbeth Naar, sangria offerte et ambiance Ladies Night de 19 h à 21 h. Avec Kite Street POP et Café Meclao.",
+    "id": "victrola-jueves-social",
+    "title": "Jueves Social à Victrola 037",
+    "description": "Tous les jeudis à Victrola 037 Arte Café sur le Malecón de Puerto Plata — une planche de viandes pour 4, et 4 sangrias offertes. Soirée de table partagée : réunis ton groupe, trinque et lance la conversation face à la mer.",
     "date": "2026-01-01",
-    "time": "7:00 PM – 9:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Victrola 037 Arte Café",
+    "venueSlug": "victrola-037",
+    "address": "Av. Gral. Gregorio Luperón esq. Padre Castellanos, Puerto Plata 57000",
+    "lat": 19.7995463,
+    "lng": -70.6909467,
+    "category": "food-drinks",
+    "categories": [
+      "parties"
+    ],
+    "format": "physical",
+    "recurrence": "weekly",
+    "recurrenceDay": 4,
+    "callForPricing": true,
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/p/Dbq5Z0suuoy/",
+    "imageEmoji": "🍷"
+  },
+  {
+    "id": "victrola-mojitos-friday",
+    "title": "Vendredi mojitos à Victrola 037",
+    "description": "Tous les vendredis à Victrola 037 Arte Café sur le Malecón de Puerto Plata — musique live avec Café Meclao' et mojitos 2 pour 1 de 18 h 30 à 20 h 30. Réunis ton équipe et démarre le week-end face à la mer.",
+    "date": "2026-01-01",
+    "time": "6:30 PM – 8:30 PM",
     "location": "Puerto Plata",
     "venue": "Victrola 037 Arte Café",
     "venueSlug": "victrola-037",
@@ -424,18 +447,18 @@
     "category": "parties",
     "categories": [
       "music",
-      "dance"
+      "food-drinks"
     ],
     "format": "physical",
     "recurrence": "weekly",
     "recurrenceDay": 5,
-    "isFree": true,
+    "callForPricing": true,
     "lineup": [
-      "Lisbeth Naar"
+      "Café Meclao'"
     ],
     "sourceType": "instagram",
-    "sourceUrl": "https://www.instagram.com/victrolart/p/DSaXy7KDu-y/",
-    "imageEmoji": "🍷"
+    "sourceUrl": "https://www.instagram.com/p/Db84Z-oBiNK/",
+    "imageEmoji": "🍹"
   },
   {
     "id": "cremo-bohemian-wednesday",

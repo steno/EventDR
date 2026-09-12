@@ -213,7 +213,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "blue-ice-saturday-gogo": "blue-ice-saturday-lounge.png",
   "silent-run-5k-2026-07-25": "silent-run-5k-2026-07-25.jpg",
   "victrola-sabado-bailable": "victrola-sabado-bailable.jpg",
-  "victrola-ladies-night-friday": "victrola-ladies-night-friday.jpg",
+  "victrola-jueves-social": "victrola-jueves-social.jpg",
+  "victrola-mojitos-friday": "victrola-mojitos-friday.jpg",
   "cigar-town-acustico-humos-2026-08-14":
     "cigar-town-acustico-humos-2026-08-14.jpg",
   "cigar-town-acustico-humos-2026-08-28": "cigar-town-acustico-humos.jpg",

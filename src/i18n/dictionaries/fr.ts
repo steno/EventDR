@@ -97,6 +97,15 @@ export const fr: Dictionary = {
     yourEventHere: "Ajoutez votre événement {category}",
     yourEventHereGeneric: "Ajoutez votre événement",
     yourEventHereAtVenue: "Ajoutez votre événement à {venue}",
+    featureSpecialTitle: "Votre événement ici ?",
+    featureSpecialLabel: "Emplacement en vedette — en savoir plus",
+    featureSpecialEyebrow: "En vedette sur POP",
+    featureSpecialModalTitle: "Cet espace spécial peut être le vôtre",
+    featureSpecialModalBody:
+      "Spéciaux du jour est l'emplacement premium de l'accueil — ce que les visiteurs voient en premier quand une soirée ponctuelle mérite la lumière. Réservez un créneau pour votre show, lieu ou marque et touchez locaux et voyageurs de la côte nord.",
+    featureSpecialModalCta: "Contactez-nous sur WhatsApp",
+    featureSpecialWhatsAppMessage:
+      "Bonjour POP Events — je souhaite mettre mon événement en avant dans Spéciaux du jour (ou un autre emplacement featured).\n\nNom de l'événement :\nDate :\nLieu / ville :\nLiens :\n\nMerci de m'envoyer les tarifs et disponibilités.",
     hot: "Top",
     nearMe: "Près de moi",
     nearMeOn: "Trié par distance",

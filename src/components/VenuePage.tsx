@@ -277,7 +277,7 @@ export function VenuePage({
             variant="detail"
           />
 
-          <div className="lg:grid lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-start lg:gap-6">
+          <div className="lg:grid lg:grid-cols-[minmax(0,1.3fr)_minmax(0,0.7fr)] lg:items-start lg:gap-6">
             {/* Place card: photo + map + directions (left column on desktop) */}
             <article
               ref={placeCardRef}

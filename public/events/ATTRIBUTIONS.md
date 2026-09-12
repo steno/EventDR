@@ -252,3 +252,5 @@ Curated images under `public/events/` and `public/venues/`.
 | `el-choco-cave-tour-swimming-daily.jpg` | Same POP Cuevas del Choco lagoon swim (shared with venue place shot) | Daily tour & swimming listing hero |
 | `drifter-sunset-into-the-night.jpg` | POP-supplied — Drifter Cabarete lobster platter on the beach deck | Saturday dinner · DJ · dance listing hero (editor-provided) |
 | `venues/drifter-cabarete-sunset.jpg` | POP-supplied — Drifter Cabarete beachfront pavilion at sunset | Venue place shot (editor-provided, not scraped) |
+| `victrola-jueves-social.jpg` | POP-supplied — Victrola 037 Arte Café Jueves Social flyer (tabla + 4 sangrías) | Weekly Thursday social promo (editor-provided) |
+| `victrola-mojitos-friday.jpg` | POP-supplied — Victrola 037 Arte Café Viernes mojitos 2x1 / Café Meclao' flyer | Weekly Friday live + 2x1 mojitos (editor-provided; replaces Ladies Night) |

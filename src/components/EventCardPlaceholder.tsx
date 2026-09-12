@@ -22,9 +22,18 @@ export type GridFillSpan = number | "full";
 interface EventCardPlaceholderProps {
   title: string;
   label: string;
-  onClick: () => void;
+  onClick?: () => void;
+  /** Prefer for mailto / external — renders an anchor instead of a button. */
+  href?: string;
   view?: EventListView;
   fillSpan?: GridFillSpan;
+  /** Default list cards use 4/3; home highlight rails use 16/10 → 3/2. */
+  mediaAspectClass?: string;
+  /**
+   * Fill the grid cell height (match a neighbor highlight card) instead of a
+   * fixed aspect box — used for featured-placement promos.
+   */
+  stretch?: boolean;
 }
 
 const PLACEHOLDER_TILE_CLASS = `
@@ -119,57 +128,114 @@ export function EventListMoreTile({
   return <div className="pt-1 text-center">{pill}</div>;
 }
 
-/** Inviting “add your event” tile — one per short list, never duplicated. */
+/** Inviting “add your event” / feature promo tile — one per short list. */
 export function EventCardPlaceholder({
   title,
   label,
   onClick,
+  href,
   view = "cards",
   fillSpan,
+  mediaAspectClass = "aspect-[4/3]",
+  stretch = false,
 }: EventCardPlaceholderProps) {
   if (view === "cards") {
     const spanning = fillSpan === "full" || (typeof fillSpan === "number" && fillSpan > 1);
+    const className = spanning
+      ? `${PLACEHOLDER_TILE_CLASS} w-full ${fillSpan === "full" ? CARD_GRID_FULL_ROW_CLASS : ""}`
+      : `${PLACEHOLDER_TILE_CLASS} w-full`;
+    const body = (
+      <div
+        className={
+          stretch || spanning
+            ? "flex min-h-[10rem] w-full flex-1 flex-col items-center justify-center gap-3 px-6 py-8 sm:min-h-0"
+            : `flex ${mediaAspectClass} w-full flex-col items-center justify-center gap-3 px-4`
+        }
+      >
+        <span
+          className="
+            flex h-11 w-11 items-center justify-center rounded-full
+            border border-neutral-300 bg-white text-neutral-600
+            transition-colors
+            group-hover:border-orange-400 group-hover:text-orange-600
+            dark:border-neutral-600 dark:bg-neutral-800 dark:text-neutral-300
+            dark:group-hover:border-orange-500/70 dark:group-hover:text-orange-400
+          "
+          aria-hidden
+        >
+          <Plus className="h-5 w-5" strokeWidth={2.25} />
+        </span>
+        <span className="text-center">
+          <span className="block text-base font-bold leading-snug text-neutral-700 dark:text-neutral-200 sm:text-lg">
+            {title}
+          </span>
+          <span className="mt-1 block max-w-sm text-xs font-medium leading-snug text-neutral-500 dark:text-neutral-400 sm:text-sm">
+            {label}
+          </span>
+        </span>
+      </div>
+    );
+
+    if (href) {
+      return (
+        <a
+          href={href}
+          className={className}
+          style={fillSpanStyle(fillSpan)}
+        >
+          {body}
+        </a>
+      );
+    }
+
     return (
       <button
         type="button"
         onClick={onClick}
-        className={
-          spanning
-            ? `${PLACEHOLDER_TILE_CLASS} ${fillSpan === "full" ? CARD_GRID_FULL_ROW_CLASS : "w-full"}`
-            : PLACEHOLDER_TILE_CLASS
-        }
+        className={className}
         style={fillSpanStyle(fillSpan)}
       >
-        <div
-          className={
-            spanning
-              ? "flex min-h-[6.75rem] w-full flex-1 flex-col items-center justify-center gap-3 px-4"
-              : "flex aspect-[4/3] w-full flex-col items-center justify-center gap-3 px-4"
-          }
-        >
-          <span
-            className="
-              flex h-11 w-11 items-center justify-center rounded-full
-              border border-neutral-300 bg-white text-neutral-600
-              transition-colors
-              group-hover:border-orange-400 group-hover:text-orange-600
-              dark:border-neutral-600 dark:bg-neutral-800 dark:text-neutral-300
-              dark:group-hover:border-orange-500/70 dark:group-hover:text-orange-400
-            "
-            aria-hidden
-          >
-            <Plus className="h-5 w-5" strokeWidth={2.25} />
-          </span>
-          <span className="text-center">
-            <span className="block text-base font-bold leading-snug text-neutral-700 dark:text-neutral-200">
-              {title}
-            </span>
-            <span className="mt-1 block text-xs font-medium leading-snug text-neutral-500 dark:text-neutral-400">
-              {label}
-            </span>
-          </span>
-        </div>
+        {body}
       </button>
+    );
+  }
+
+  if (href) {
+    return (
+      <a
+        href={href}
+        className="
+          group relative flex w-full items-center gap-3 rounded-2xl px-3.5 py-2.5
+          border border-dashed border-neutral-300 bg-neutral-50
+          transition-colors touch-manipulation
+          hover:border-orange-400 hover:bg-orange-50/70
+          focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500
+          dark:border-neutral-600 dark:bg-neutral-900/60
+          dark:hover:border-orange-500/60 dark:hover:bg-orange-950/30
+        "
+      >
+        <span
+          className="
+            flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full
+            border border-neutral-300 bg-white text-neutral-600
+            transition-colors
+            group-hover:border-orange-400 group-hover:text-orange-600
+            dark:border-neutral-600 dark:bg-neutral-800 dark:text-neutral-300
+            dark:group-hover:border-orange-500/70 dark:group-hover:text-orange-400
+          "
+          aria-hidden
+        >
+          <Plus className="h-5 w-5" strokeWidth={2.25} />
+        </span>
+        <span className="min-w-0 text-left">
+          <span className="block text-sm font-bold text-neutral-700 dark:text-neutral-200">
+            {title}
+          </span>
+          <span className="mt-0.5 block text-xs font-medium text-neutral-500 dark:text-neutral-400">
+            {label}
+          </span>
+        </span>
+      </a>
     );
   }
 
