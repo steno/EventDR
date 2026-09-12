@@ -1,6 +1,13 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import Link from "next/link";
 import { Building2 } from "lucide-react";
 import type { Event } from "@/lib/types";
@@ -13,23 +20,30 @@ import {
   type RelatedCategoryLink,
 } from "@/components/CityCategoryLinks";
 import { CityLocationPicker } from "@/components/CityLocationPicker";
+import { CityPhotoHero } from "@/components/CityPhotoHero";
 import { SubmitEventSheet } from "@/components/SubmitEventSheet";
 import { StickyListHeader } from "@/components/StickyListHeader";
 import { categoryNavLinks, resolveListingBackLabel } from "@/lib/event-navigation";
 import {
+  getCityMeta,
   lastHomePath,
+  NORTH_COAST_HERO_IMAGE,
   writeHomeArea,
   type CitySlug,
 } from "@/lib/cities";
+import { getCategoryHeroImage } from "@/lib/category-heroes";
+import { findActiveSpecialEvent } from "@/lib/special-events";
 import { PAGE_SHELL_CLASS } from "@/lib/page-shell";
 import { getOnboardingCopy } from "@/lib/onboarding";
 import { useForegroundRefresh } from "@/hooks/useForegroundRefresh";
 import {
   cityCountsForSelection,
   filterCatalogForScope,
+  normalizeScopeSelection,
   parseScopeListingPath,
   resolveScopeListingChrome,
   scopeListingPath,
+  selectionFromPathname,
   type ScopeListingSelection,
 } from "@/lib/scope-listing";
 import { signalNavDone } from "@/lib/nav-feedback";
@@ -79,11 +93,11 @@ function selectionFromProps(
   categoryId: Event["category"] | undefined,
   regionScope: boolean,
 ): ScopeListingSelection {
-  return {
+  return normalizeScopeSelection({
     citySlug,
     categoryId,
-    regionScope: regionScope || (!citySlug && !categoryId),
-  };
+    regionScope,
+  });
 }
 
 export function EventScopePage({
@@ -115,9 +129,13 @@ export function EventScopePage({
 }: EventScopePageProps) {
   const softNav = Boolean(catalogEvents && !fixedTimeRange);
 
-  const [selection, setSelection] = useState<ScopeListingSelection>(() =>
-    selectionFromProps(citySlug, categoryId, regionScope),
-  );
+  const [selection, setSelection] = useState<ScopeListingSelection>(() => {
+    const fromProps = selectionFromProps(citySlug, categoryId, regionScope);
+    // Soft-nav pushState leaves Next props on the first hard-nav category.
+    // After detail→back the URL still has the last pill — prefer it.
+    if (!softNav || typeof window === "undefined") return fromProps;
+    return selectionFromPathname(window.location.pathname, locale, fromProps);
+  });
   const [catalog, setCatalog] = useState<Event[]>(
     () => catalogEvents ?? initialEvents,
   );
@@ -129,13 +147,49 @@ export function EventScopePage({
   catalogFetchUrlRef.current = catalogFetchUrl ?? fetchUrl;
   fetchUrlRef.current = fetchUrl;
 
+  // Recover soft-nav category before paint when Next remounts with stale props
+  // (history.back from an event keeps the soft-nav URL, not the RSC category).
+  useLayoutEffect(() => {
+    if (!softNav) return;
+    const fromProps = selectionFromProps(citySlug, categoryId, regionScope);
+    setSelection(
+      selectionFromPathname(window.location.pathname, locale, fromProps),
+    );
+    // Mount / softNav only — URL wins over the first hard-nav RSC props.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [softNav, locale]);
+
   // Sync from RSC when a real route transition remounts/replaces props
   // (e.g. home → category, or when-page entry). Soft-nav updates selection
-  // locally without waiting on this.
+  // locally without waiting on this — and must not wipe a newer URL scope.
   useEffect(() => {
-    setSelection(selectionFromProps(citySlug, categoryId, regionScope));
+    const fromProps = selectionFromProps(citySlug, categoryId, regionScope);
     setCatalog(catalogEvents ?? initialEvents);
-  }, [citySlug, categoryId, regionScope, catalogEvents, initialEvents]);
+    if (!softNav) {
+      setSelection(fromProps);
+      return;
+    }
+    const fromUrl = selectionFromPathname(
+      window.location.pathname,
+      locale,
+      fromProps,
+    );
+    if (
+      scopeListingPath(locale, fromUrl) !== scopeListingPath(locale, fromProps)
+    ) {
+      setSelection(fromUrl);
+      return;
+    }
+    setSelection(fromProps);
+  }, [
+    citySlug,
+    categoryId,
+    regionScope,
+    catalogEvents,
+    initialEvents,
+    softNav,
+    locale,
+  ]);
 
   const softRefreshEvents = useCallback(() => {
     const url = softNav ? catalogFetchUrlRef.current : fetchUrlRef.current;
@@ -197,7 +251,7 @@ export function EventScopePage({
     const onPopState = () => {
       const parsed = parseScopeListingPath(window.location.pathname, locale);
       if (!parsed) return;
-      setSelection(parsed);
+      setSelection(normalizeScopeSelection(parsed));
     };
 
     window.addEventListener("popstate", onPopState);
@@ -241,13 +295,7 @@ export function EventScopePage({
         const url = new URL(href, window.location.origin);
         const parsed = parseScopeListingPath(url.pathname, locale);
         if (!parsed) return false;
-        applySoftSelection({
-          citySlug: parsed.citySlug,
-          categoryId: parsed.categoryId,
-          regionScope:
-            Boolean(parsed.regionScope) ||
-            (!parsed.citySlug && !parsed.categoryId),
-        });
+        applySoftSelection(normalizeScopeSelection(parsed));
         return true;
       } catch {
         return false;
@@ -305,14 +353,13 @@ export function EventScopePage({
     };
     const base = (() => {
       if (!softNav) return relatedCategoryLinksProp ?? [];
-      const scopeForCounts = selection.citySlug
-        ? filterCatalogForScope(catalog, { citySlug: selection.citySlug })
-        : catalog;
+      // Order by region-wide counts so switching area does not reshuffle
+      // pills under a selected category (hrefs still update per city).
       return categoryNavLinks(
         locale,
         dict.categories,
         selection.citySlug ?? null,
-        scopeForCounts,
+        catalog,
       );
     })();
     if (base.some((link) => link.href === venuesLink.href)) return base;
@@ -345,9 +392,34 @@ export function EventScopePage({
         : null,
     [catalog, activeCategoryId],
   );
+  const city = activeCitySlug ? getCityMeta(activeCitySlug) : undefined;
+  const specialHeroEvent = useMemo(() => {
+    if (activeCitySlug) {
+      return findActiveSpecialEvent(events, {
+        placement: "city-hero",
+        citySlug: activeCitySlug,
+      });
+    }
+    if (activeRegionScope || fixedTimeRange) {
+      return findActiveSpecialEvent(events, { placement: "home-hero" });
+    }
+    return null;
+  }, [events, activeCitySlug, activeRegionScope, fixedTimeRange]);
+
+  const scopeHeroImage =
+    specialHeroEvent?.imageUrl?.trim() ||
+    getCategoryHeroImage(activeCategoryId) ||
+    city?.heroImage ||
+    (activeCategoryId || fixedTimeRange || activeRegionScope
+      ? NORTH_COAST_HERO_IMAGE
+      : undefined);
   const showLocationPicker = Boolean(
     activeCitySlug || activeCategoryId || fixedTimeRange || activeRegionScope,
   );
+  const headerEmojiClassName =
+    chrome.emojiClassName ??
+    emojiClassNameProp ??
+    "bg-white dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-800";
   const [backHref, setBackHref] = useState(
     chrome.backHref ?? backHrefProp ?? `/${locale}`,
   );
@@ -373,6 +445,8 @@ export function EventScopePage({
   const onboardingCopy = getOnboardingCopy(locale);
   const title = chrome.title;
   const intro = chrome.intro;
+  const eyebrow = chrome.eyebrow;
+  const emoji = chrome.emoji;
   const returnTo = chrome.returnTo;
   const submitDefaults = chrome.submitDefaults ?? submitDefaultsProp;
 
@@ -391,16 +465,58 @@ export function EventScopePage({
             dict={dict}
             backHref={backHref}
             backLabel={backLabel}
+            flushBottom={Boolean(scopeHeroImage)}
             variant="compact"
           />
 
-          <div className="sr-only">
-            <h1>{title}</h1>
-            {intro ? <p>{intro}</p> : null}
-          </div>
+          {scopeHeroImage ? (
+            <CityPhotoHero
+              key={activeCitySlug ?? "north-coast"}
+              title={title}
+              eyebrow={eyebrow}
+              subtitle={intro}
+              imageUrl={scopeHeroImage}
+              featuredEvent={specialHeroEvent}
+              locale={locale}
+              dict={dict}
+              returnTo={returnTo}
+            />
+          ) : (
+            <>
+              {showLocationPicker ? (
+                <div className="sr-only sm:hidden">
+                  <h1>{title}</h1>
+                  {intro ? <p>{intro}</p> : null}
+                </div>
+              ) : null}
+              <div
+                className={
+                  showLocationPicker ? "mb-6 hidden sm:block" : "mb-6"
+                }
+              >
+                <div className="flex items-start gap-4">
+                  <div
+                    className={`flex h-16 w-16 items-center justify-center rounded-2xl text-3xl shadow-sm ${headerEmojiClassName}`}
+                  >
+                    {emoji}
+                  </div>
+                  <div>
+                    <h1 className="text-title font-extrabold text-neutral-900 dark:text-neutral-100">
+                      {title}
+                    </h1>
+                    <p className="text-copy-meta text-neutral-500 dark:text-neutral-400">
+                      {eyebrow}
+                    </p>
+                  </div>
+                </div>
+                <p className="text-copy-lead mt-6">{intro}</p>
+              </div>
+            </>
+          )}
 
+          {/* Mobile: place switcher replaces the photo hero (hidden sm+). */}
           {showLocationPicker ? (
-            <div className="mb-4 mt-1 w-full text-[1.5rem] font-extrabold leading-none">
+            <div className="mb-4 mt-1 w-full text-[1.5rem] font-extrabold leading-none sm:hidden">
               <CityLocationPicker
                 variant="hero"
                 photoOverlay={false}
@@ -419,7 +535,9 @@ export function EventScopePage({
               label={relatedCategoryLinksLabel}
               links={relatedCategoryLinks}
               activeHref={relatedCategoryActiveHref}
+              activeCategoryId={activeCategoryId}
               allLink={{
+                id: "all",
                 href: scopeListingPath(locale, {
                   citySlug: activeCitySlug,
                   regionScope: !activeCitySlug,
@@ -446,6 +564,20 @@ export function EventScopePage({
             addEventLabel={addEventLabel}
             categoryId={activeCategoryId}
             persistTimeRange
+            locationPicker={
+              showLocationPicker ? (
+                <div className="hidden sm:block">
+                  <CityLocationPicker
+                    locale={locale}
+                    dict={dict}
+                    currentSlug={activeCitySlug ?? null}
+                    categoryId={activeCategoryId}
+                    onSelect={softNav ? onSoftCitySelect : undefined}
+                    counts={cityCounts}
+                  />
+                </div>
+              ) : undefined
+            }
           />
           {fixedTimeRange === "weekend" ? (
             <aside className="mb-8 mt-6 overflow-hidden rounded-3xl border border-orange-200 bg-orange-50 p-5 dark:border-orange-900/60 dark:bg-orange-950/30">

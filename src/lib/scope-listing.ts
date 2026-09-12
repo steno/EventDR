@@ -29,6 +29,33 @@ export type ScopeListingSelection = {
   regionScope?: boolean;
 };
 
+/** Normalize regionScope so city/category and bare region stay consistent. */
+export function normalizeScopeSelection(
+  selection: ScopeListingSelection,
+): ScopeListingSelection {
+  return {
+    citySlug: selection.citySlug,
+    categoryId: selection.categoryId,
+    regionScope:
+      Boolean(selection.regionScope) ||
+      (!selection.citySlug && !selection.categoryId),
+  };
+}
+
+/**
+ * Prefer the address bar after soft-nav + detail back — Next RSC props can
+ * still reflect the first hard-nav category while the URL shows the last pill.
+ */
+export function selectionFromPathname(
+  pathname: string,
+  locale: Locale,
+  fallback: ScopeListingSelection,
+): ScopeListingSelection {
+  const parsed = parseScopeListingPath(pathname, locale);
+  if (!parsed) return normalizeScopeSelection(fallback);
+  return normalizeScopeSelection(parsed);
+}
+
 /** Paths where chip/city swaps should stay instant (no full-page spinner). */
 export function isListingSoftPath(pathname: string): boolean {
   return /\/(en|es|fr)\/(category|city|events|when|cruise)(\/|$)/.test(pathname);

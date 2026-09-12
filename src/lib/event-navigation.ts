@@ -65,7 +65,7 @@ export function categoryNavLinks(
   citySlug?: CitySlug | null,
   /** When set, pills are ordered by how many of these events match each category. */
   events?: CategoryCountable[],
-): { href: string; label: string; emoji: string }[] {
+): { id: EventCategory; href: string; label: string; emoji: string }[] {
   const ids =
     events && events.length > 0
       ? sortCategoryIdsByEventCount(events)
@@ -73,6 +73,7 @@ export function categoryNavLinks(
   return ids.map((id) => {
     const meta = getCategoryMeta(id, labels);
     return {
+      id,
       href: categoryPath(locale, id, citySlug),
       label: labels[id],
       emoji: meta?.emoji ?? "📅",

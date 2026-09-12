@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import type { ReactNode } from "react";
 import { usePathname } from "next/navigation";
 import type { Event } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
@@ -101,6 +102,8 @@ interface FilteredEventListProps {
    * hide the weekly grid.
    */
   persistTimeRange?: boolean;
+  /** Optional area chip in the sticky filter bar (desktop scope pages). */
+  locationPicker?: ReactNode;
 }
 
 export function FilteredEventList({
@@ -127,6 +130,7 @@ export function FilteredEventList({
   hidePriceFilter = false,
   clusterVenueRecurring = true,
   persistTimeRange = false,
+  locationPicker,
 }: FilteredEventListProps) {
   const pathname = usePathname();
   const { view: preferredView, setView } = useEventListView();
@@ -283,7 +287,9 @@ export function FilteredEventList({
 
   const showTimeFilter = !fixedTimeRange && !hideTimeFilter;
   const showPriceFilter = !hidePriceFilter && !hideTimeFilter;
-  const showStickyFilters = showTimeFilter || showPriceFilter;
+  const showStickyFilters = Boolean(
+    locationPicker || showTimeFilter || showPriceFilter,
+  );
 
   /** Text link only when no card CTA is used (e.g. venue Past). */
   const showFooterAddButton =
@@ -328,12 +334,15 @@ export function FilteredEventList({
               />
             ) : null}
 
-            {showPriceFilter || viewToggle ? (
+            {locationPicker || showPriceFilter || viewToggle ? (
               <div
                 className={`flex min-w-0 items-center gap-2 ${
                   showTimeFilter ? "pt-2" : ""
                 }`}
               >
+                {locationPicker ? (
+                  <div className="min-w-0 shrink-0">{locationPicker}</div>
+                ) : null}
                 {showPriceFilter ? (
                   <PriceFilterChips
                     value={priceFilter}

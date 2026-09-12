@@ -48,6 +48,18 @@ import type { Event, Venue } from "@/lib/types";
 const CRUISE_HIGHLIGHT_LIMIT = 6;
 const PORT_EASE = "cubic-bezier(0.16, 1, 0.3, 1)";
 
+/** Soft elevated panel — warm wash in dark so cruise cards don’t feel clinical. */
+const CRUISE_PANEL_CLASS =
+  "rounded-3xl border border-orange-200/45 bg-gradient-to-br from-white via-[#fffaf6] to-orange-50/50 shadow-[0_12px_32px_-18px_rgba(244,63,94,0.16)] dark:border-white/10 dark:from-[#1c1917] dark:via-[#171412] dark:to-[#201610] dark:shadow-[0_20px_48px_-24px_rgba(0,0,0,0.7),0_0_40px_-20px_rgba(249,115,22,0.28),inset_0_1px_0_0_rgba(255,255,255,0.07)]";
+
+const CRUISE_PANEL_PAD_CLASS = "px-4 py-4 sm:px-5";
+const CRUISE_GLOW_BLOB_CLASS =
+  "pointer-events-none absolute -right-10 -top-12 h-40 w-40 rounded-full bg-gradient-to-br from-orange-300/35 via-rose-300/20 to-transparent blur-3xl dark:from-orange-400/35 dark:via-rose-400/18 dark:opacity-90";
+const CRUISE_CLOCK_CHIP_CLASS =
+  "mt-4 inline-flex max-w-full items-start gap-2 rounded-2xl bg-gradient-to-r from-amber-50 via-orange-50 to-rose-50/80 px-3.5 py-2.5 text-sm font-bold leading-snug text-orange-950 ring-1 ring-orange-200/60 dark:from-amber-400/18 dark:via-orange-400/14 dark:to-rose-400/10 dark:text-orange-50 dark:ring-orange-300/20";
+const CRUISE_PRIMARY_BTN_CLASS =
+  "inline-flex items-center justify-center rounded-2xl bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-4 py-2.5 text-sm font-bold text-white shadow-sm shadow-rose-500/30 transition-[transform,filter] active:scale-[0.98]";
+
 interface CruiseDiscoverProps {
   locale: Locale;
   dict: Dictionary;
@@ -157,21 +169,24 @@ export function CruiseDiscover({
   return (
     <div className="flex flex-col gap-6">
       <div className="flex flex-col gap-6 lg:grid lg:grid-cols-[minmax(18rem,0.9fr)_minmax(0,1.1fr)] lg:items-start lg:gap-8">
-        <section className="rounded-2xl border border-neutral-200 bg-white px-4 py-4 shadow-sm dark:border-neutral-800 dark:bg-neutral-950 sm:px-5 lg:px-5 lg:py-5">
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-orange-600 dark:text-orange-400">
+        <section
+          className={`${CRUISE_PANEL_CLASS} ${CRUISE_PANEL_PAD_CLASS} relative overflow-hidden lg:px-5 lg:py-5`}
+        >
+          <div aria-hidden className={CRUISE_GLOW_BLOB_CLASS} />
+          <p className="relative text-xs font-bold uppercase tracking-[0.18em] text-orange-600 dark:text-orange-300">
             {panelEyebrow}
           </p>
 
           <div
             ref={portTablistRef}
-            className="relative mt-3 flex rounded-xl bg-neutral-100 p-1 ring-1 ring-neutral-200 dark:bg-neutral-900 dark:ring-neutral-700"
+            className="relative mt-3 flex rounded-2xl bg-orange-50/90 p-1 ring-1 ring-orange-200/60 dark:bg-white/[0.06] dark:ring-white/12"
             role="tablist"
             aria-label={copy.portLabel}
           >
             <span
               key={portFlash}
               aria-hidden
-              className={`pointer-events-none absolute top-1 bottom-1 rounded-lg bg-white shadow-[0_1px_3px_rgba(0,0,0,0.12),0_0_0_1px_rgba(249,115,22,0.35)] dark:bg-neutral-100 ${
+              className={`pointer-events-none absolute top-1 bottom-1 rounded-xl bg-white shadow-[0_1px_3px_rgba(0,0,0,0.12),0_0_0_1px_rgba(249,115,22,0.28)] dark:bg-gradient-to-r dark:from-orange-500 dark:via-rose-500 dark:to-fuchsia-500 dark:shadow-[0_6px_18px_-6px_rgba(244,63,94,0.6)] ${
                 portThumb.width > 0 ? "cruise-port-thumb opacity-100" : "opacity-0"
               }`}
               style={{
@@ -190,9 +205,9 @@ export function CruiseDiscover({
                   role="tab"
                   aria-selected={selected}
                   onClick={() => selectPort(slug)}
-                  className={`relative z-10 flex-1 rounded-lg px-3 py-2.5 text-sm font-bold touch-manipulation transition-[color,transform] duration-200 ease-out active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 ${
+                  className={`relative z-10 flex-1 rounded-xl px-3 py-2.5 text-sm font-bold touch-manipulation transition-[color,transform] duration-200 ease-out active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 ${
                     selected
-                      ? "text-neutral-950 dark:text-neutral-950"
+                      ? "text-neutral-950 dark:text-white"
                       : "text-neutral-500 hover:text-neutral-800 dark:text-neutral-400 dark:hover:text-neutral-200"
                   }`}
                 >
@@ -204,7 +219,7 @@ export function CruiseDiscover({
 
           <p
             key={`hint-${port}`}
-            className="cruise-port-swap mt-2 text-sm font-semibold leading-snug text-orange-700 dark:text-orange-300"
+            className="cruise-port-swap relative mt-2 text-sm font-semibold leading-snug text-orange-700 dark:text-orange-300"
             aria-live="polite"
           >
             {portLabel}
@@ -214,7 +229,7 @@ export function CruiseDiscover({
             </span>
           </p>
 
-          <div key={`form-${port}`} className="cruise-port-swap">
+          <div key={`form-${port}`} className="cruise-port-swap relative">
             {!sailed ? (
               <label className="mt-4 block">
                 <span className="text-xs font-bold uppercase tracking-wide text-neutral-500 dark:text-neutral-400">
@@ -227,7 +242,7 @@ export function CruiseDiscover({
                   {copy.allAboardHint}
                 </span>
                 <select
-                  className="mt-1.5 w-full rounded-xl border-0 bg-neutral-100 px-3 py-2.5 text-sm font-bold text-neutral-950 outline-none ring-1 ring-neutral-200 focus:ring-2 focus:ring-orange-400 dark:bg-neutral-900 dark:text-white dark:ring-neutral-700"
+                  className="mt-1.5 w-full rounded-2xl border-0 bg-white/95 px-3.5 py-3 text-sm font-bold text-neutral-950 outline-none ring-1 ring-orange-200/60 focus:ring-2 focus:ring-orange-400 dark:bg-white/[0.08] dark:text-white dark:ring-white/12 dark:focus:ring-orange-400/70"
                   aria-label={copy.allAboardHelp}
                   aria-describedby="cruise-all-aboard-hint"
                   value={formatAllAboardParam(allAboardMinutes)}
@@ -272,8 +287,8 @@ export function CruiseDiscover({
                             }
                             className={
                               selected
-                                ? "rounded-lg bg-orange-500 px-2.5 py-1.5 text-left text-xs font-bold text-white shadow-sm"
-                                : "rounded-lg bg-neutral-100 px-2.5 py-1.5 text-left text-xs font-bold text-neutral-800 ring-1 ring-neutral-200 transition-colors hover:bg-neutral-200/80 dark:bg-neutral-900 dark:text-neutral-100 dark:ring-neutral-700 dark:hover:bg-neutral-800"
+                                ? "rounded-xl bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-2.5 py-1.5 text-left text-xs font-bold text-white shadow-sm shadow-rose-500/25"
+                                : "rounded-xl bg-white/90 px-2.5 py-1.5 text-left text-xs font-bold text-neutral-800 ring-1 ring-orange-200/55 transition-colors hover:bg-orange-50 dark:bg-white/[0.06] dark:text-neutral-100 dark:ring-white/10 dark:hover:bg-white/10"
                             }
                           >
                             <span className="block leading-snug">{call.ship}</span>
@@ -295,7 +310,7 @@ export function CruiseDiscover({
               </label>
             ) : null}
 
-            <p className="mt-4 inline-flex max-w-full items-start gap-2 rounded-xl bg-orange-50 px-3 py-2 text-sm font-bold leading-snug text-orange-950 ring-1 ring-orange-200/80 dark:bg-orange-950/40 dark:text-orange-100 dark:ring-orange-500/30">
+            <p className={CRUISE_CLOCK_CHIP_CLASS}>
               <Clock
                 className="mt-0.5 h-4 w-4 shrink-0 text-orange-500 dark:text-orange-300"
                 aria-hidden
@@ -311,7 +326,7 @@ export function CruiseDiscover({
             {sailed ? (
               <a
                 href={`/${locale}?city=puerto-plata`}
-                className="mt-4 inline-flex w-full items-center justify-center rounded-xl bg-neutral-900 px-4 py-2.5 text-sm font-bold text-white shadow-sm dark:bg-neutral-100 dark:text-neutral-950"
+                className={`mt-4 w-full ${CRUISE_PRIMARY_BTN_CLASS}`}
               >
                 {copy.exit}
               </a>
@@ -324,17 +339,29 @@ export function CruiseDiscover({
             key={`loops-closed-${port}-${sailed ? "sailed" : "leave"}`}
             className="cruise-port-swap min-w-0"
           >
-            <div className="flex h-full flex-col justify-center rounded-2xl border border-neutral-200 bg-white px-4 py-5 shadow-sm dark:border-neutral-800 dark:bg-neutral-950 sm:px-5">
-              <h2 className={SECTION_TITLE_CLASS}>
+            <div
+              className={`${CRUISE_PANEL_CLASS} ${CRUISE_PANEL_PAD_CLASS} relative flex h-full flex-col justify-center overflow-hidden py-5`}
+            >
+              <div
+                aria-hidden
+                className="pointer-events-none absolute -left-8 -top-10 h-36 w-36 rounded-full bg-gradient-to-br from-rose-300/25 via-orange-300/20 to-transparent blur-3xl dark:from-rose-400/22 dark:via-orange-400/18"
+              />
+              <div className="relative mb-3 flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-orange-400/20 via-rose-400/15 to-fuchsia-400/10 ring-1 ring-orange-300/30 dark:from-orange-400/25 dark:via-rose-400/20 dark:to-fuchsia-400/15 dark:ring-orange-300/25">
+                <Clock
+                  className="h-5 w-5 text-orange-600 dark:text-orange-300"
+                  aria-hidden
+                />
+              </div>
+              <h2 className={`relative ${SECTION_TITLE_CLASS}`}>
                 {sailed ? copy.sailedLoopsTitle : copy.leaveNowLoopsTitle}
               </h2>
-              <p className="mt-2 text-sm leading-snug text-neutral-600 dark:text-neutral-400">
+              <p className="relative mt-2 text-sm leading-relaxed text-neutral-600 dark:text-neutral-300">
                 {sailed ? copy.sailedLoopsBody : copy.leaveNowLoopsBody}
               </p>
               {sailed ? (
                 <a
                   href={`/${locale}?city=puerto-plata`}
-                  className="mt-4 inline-flex w-full items-center justify-center rounded-xl bg-neutral-900 px-4 py-2.5 text-sm font-bold text-white shadow-sm dark:bg-neutral-100 dark:text-neutral-950 sm:w-auto"
+                  className={`relative mt-4 w-full sm:w-auto ${CRUISE_PRIMARY_BTN_CLASS}`}
                 >
                   {copy.exit}
                 </a>
@@ -483,8 +510,18 @@ function ItineraryCard({
         : null;
 
   return (
-    <article className="rounded-2xl border border-neutral-200 bg-white p-4 shadow-sm dark:border-neutral-800 dark:bg-neutral-950">
-      <div className="flex items-start justify-between gap-2">
+    <article
+      className={`${CRUISE_PANEL_CLASS} relative overflow-hidden p-4 transition-[transform,box-shadow] duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_16px_36px_-18px_rgba(244,63,94,0.28)] dark:hover:shadow-[0_20px_44px_-20px_rgba(244,63,94,0.35)]`}
+    >
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-orange-400/50 to-transparent dark:via-orange-300/40"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -right-8 top-0 h-24 w-24 rounded-full bg-gradient-to-br from-orange-400/20 via-rose-400/10 to-transparent blur-2xl dark:from-orange-400/25 dark:via-rose-500/15"
+      />
+      <div className="relative flex items-start justify-between gap-2">
         <h3 className="font-sans text-lg font-extrabold tracking-tight text-neutral-950 dark:text-neutral-50">
           <IntentLink
             href={loopHref}
@@ -493,19 +530,19 @@ function ItineraryCard({
             {copy.title}
           </IntentLink>
         </h3>
-        <span className="shrink-0 rounded-full bg-orange-50 px-2 py-0.5 text-xs font-bold text-orange-700 dark:bg-orange-950/50 dark:text-orange-300">
+        <span className="shrink-0 rounded-full bg-gradient-to-r from-orange-50 to-rose-50 px-2.5 py-0.5 text-xs font-bold text-orange-700 ring-1 ring-orange-200/70 dark:from-orange-500/20 dark:to-rose-500/15 dark:text-orange-200 dark:ring-orange-400/25">
           {fillTemplate(dict.cruise.itineraryMinutes, { minutes: String(minutes) })}
         </span>
       </div>
-      <p className="mt-1 text-sm leading-snug text-neutral-600 dark:text-neutral-400">
+      <p className="relative mt-1 text-sm leading-snug text-neutral-600 dark:text-neutral-300">
         {copy.body}
       </p>
       {fitLabel ? (
-        <p className="mt-2 text-xs font-bold text-amber-800 dark:text-amber-200">
+        <p className="relative mt-2 text-xs font-bold text-amber-800 dark:text-amber-200">
           {fitLabel}
         </p>
       ) : null}
-      <ol className="mt-3 space-y-0.5">
+      <ol className="relative mt-3 space-y-0.5">
         {stops.map((stop, index) => (
           <li key={stop.slug}>
             <IntentLink
@@ -514,7 +551,7 @@ function ItineraryCard({
               returnTitle={returnTitle}
               className="flex min-h-11 items-center gap-2 rounded-lg px-1 py-1.5 text-sm font-semibold text-orange-700 touch-manipulation active:bg-orange-50 dark:text-orange-300 dark:active:bg-orange-950/40"
             >
-              <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-orange-50 text-[11px] font-bold text-orange-700 dark:bg-orange-950/50 dark:text-orange-300">
+              <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-orange-100 to-rose-100 text-[11px] font-bold text-orange-700 dark:from-orange-500/25 dark:to-rose-500/20 dark:text-orange-200">
                 {index + 1}
               </span>
               <span className="min-w-0 flex-1 truncate underline decoration-orange-300 underline-offset-[3px] dark:decoration-orange-700">
@@ -530,7 +567,7 @@ function ItineraryCard({
       </ol>
       <IntentLink
         href={loopHref}
-        className="mt-3 flex min-h-11 items-center justify-center gap-1 rounded-xl bg-orange-50 px-3 text-sm font-bold text-orange-800 touch-manipulation active:bg-orange-100 dark:bg-orange-950/40 dark:text-orange-200 dark:active:bg-orange-950/70"
+        className="relative mt-3 flex min-h-11 items-center justify-center gap-1 rounded-2xl bg-gradient-to-r from-orange-50 via-rose-50 to-orange-50 px-3 text-sm font-bold text-orange-800 ring-1 ring-orange-200/60 touch-manipulation transition-[filter,transform] active:scale-[0.98] active:bg-orange-100 dark:from-orange-500/22 dark:via-rose-500/16 dark:to-fuchsia-500/12 dark:text-orange-50 dark:ring-orange-300/25 dark:active:brightness-110"
       >
         {dict.cruise.viewRoute}
         <ChevronRight className="h-4 w-4" aria-hidden />

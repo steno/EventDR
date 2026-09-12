@@ -5,8 +5,10 @@ import {
   filterCatalogForScope,
   isDetailNavPath,
   isListingSoftPath,
+  normalizeScopeSelection,
   parseScopeListingPath,
   scopeListingPath,
+  selectionFromPathname,
   shouldSkipNavOverlay,
 } from "./scope-listing";
 import type { Event } from "./types";
@@ -61,6 +63,25 @@ describe("scope-listing", () => {
     assert.equal(
       scopeListingPath("en", { citySlug: "cabarete", categoryId: "parties" }),
       "/en/city/cabarete/category/parties",
+    );
+  });
+
+  it("prefers pathname over stale RSC props after soft-nav", () => {
+    const fromProps = normalizeScopeSelection({
+      categoryId: "music",
+      regionScope: true,
+    });
+    assert.deepEqual(
+      selectionFromPathname("/en/category/parties", "en", fromProps),
+      {
+        citySlug: undefined,
+        categoryId: "parties",
+        regionScope: true,
+      },
+    );
+    assert.deepEqual(
+      selectionFromPathname("/en/event/some-event", "en", fromProps),
+      fromProps,
     );
   });
 

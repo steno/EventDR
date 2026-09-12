@@ -10,11 +10,14 @@ import {
 } from "@/components/category-scroller-styles";
 import { useCategoryAutoStepScroll } from "@/hooks/useCategoryAutoStepScroll";
 import { scrollBehaviorPreference } from "@/lib/list-scroll";
+import type { EventCategory } from "@/lib/types";
 
 export type RelatedCategoryLink = {
   href: string;
   label: string;
   emoji?: string;
+  /** Stable identity — keeps DOM/scroll when only the area in `href` changes. */
+  id?: EventCategory | "all";
 };
 
 interface CityCategoryLinksProps {
@@ -22,6 +25,11 @@ interface CityCategoryLinksProps {
   links: RelatedCategoryLink[];
   /** Highlights the selected category pill. */
   activeHref?: string;
+  /**
+   * Selected category id. Prefer this over parsing `activeHref` so area
+   * soft-nav does not re-trigger active-pill scroll.
+   */
+  activeCategoryId?: EventCategory;
   /** Leading “All Events” pill — active when no category href matches. */
   allLink?: RelatedCategoryLink;
   /**
@@ -35,17 +43,30 @@ export function CityCategoryLinks({
   label,
   links,
   activeHref,
+  activeCategoryId,
   allLink,
   onSoftNavigate,
 }: CityCategoryLinksProps) {
   const activeRef = useRef<HTMLAnchorElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const prevActiveKeyRef = useRef<string | null>(null);
   const pillCount = links.length + (allLink ? 1 : 0);
   useCategoryAutoStepScroll(scrollRef, pillCount);
+
+  const activeKey =
+    activeCategoryId ??
+    (activeHref
+      ? (links.find((link) => link.href === activeHref)?.id ?? activeHref)
+      : "all");
 
   useEffect(() => {
     const active = activeRef.current;
     if (!active) return;
+
+    // Only recenter when the selected category changes — not when area soft-nav
+    // rewrites the same pill's href (that remount jump used to yank the rail).
+    if (prevActiveKeyRef.current === activeKey) return;
+    prevActiveKeyRef.current = activeKey;
 
     // Keep the active pill in view on the mobile slider without jumping the page.
     active.scrollIntoView({
@@ -53,11 +74,13 @@ export function CityCategoryLinks({
       inline: "nearest",
       block: "nearest",
     });
-  }, [activeHref]);
+  }, [activeKey]);
 
   if (links.length === 0) return null;
 
-  const hasActiveCategory = links.some((link) => link.href === activeHref);
+  const hasActiveCategory = activeCategoryId
+    ? links.some((link) => link.id === activeCategoryId)
+    : links.some((link) => link.href === activeHref);
   const allIsActive = Boolean(allLink) && !hasActiveCategory;
 
   const renderPill = (
@@ -67,7 +90,7 @@ export function CityCategoryLinks({
   ) => {
     return (
       <IntentLink
-        key={link.href}
+        key={link.id ?? link.href}
         ref={ref}
         href={link.href}
         scroll={false}
@@ -98,7 +121,7 @@ export function CityCategoryLinks({
   };
 
   return (
-    <nav aria-label={label} className="mb-6">
+    <nav aria-label={label} data-category-nav className="mb-6">
       <p className="mb-2.5 text-base font-semibold text-neutral-700 dark:text-neutral-300">
         {label}
       </p>
@@ -108,13 +131,15 @@ export function CityCategoryLinks({
             <div className="flex w-max gap-3 px-0.5 py-1">
               {allLink
                 ? renderPill(
-                    allLink,
+                    { ...allLink, id: allLink.id ?? "all" },
                     allIsActive,
                     allIsActive ? activeRef : undefined,
                   )
                 : null}
               {links.map((link) => {
-                const active = activeHref === link.href;
+                const active = activeCategoryId
+                  ? link.id === activeCategoryId
+                  : activeHref === link.href;
                 return renderPill(
                   link,
                   active,
