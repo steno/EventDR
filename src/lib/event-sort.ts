@@ -13,14 +13,15 @@ import {
 
 /**
  * Lower rank = higher in the list.
- * Live first, then ending soon, then not-yet-started; ended-today sink last.
+ * Live first, then ending soon, then not-yet-started / happening today,
+ * then closed-for-the-day; ended-today sink last.
  */
 const LIST_TIER = {
   live: 0,
   endingSoon: 1,
   upcomingToday: 2,
-  closedToday: 3,
-  activeTodayUnknown: 4,
+  activeTodayUnknown: 3,
+  closedToday: 4,
   future: 5,
   endedToday: 6,
   temporarilyClosed: 7,
@@ -230,7 +231,7 @@ function isActiveToday(event: Event, now: Date): boolean {
   );
 }
 
-/** Status-aware list order: live, then ending soon, then starts soon; ended today last. */
+/** Status-aware list order: live, ending soon, happening today, then closed-for-the-day. */
 export function sortEventsForDisplay(
   events: Event[],
   options: SortEventsForDisplayOptions = {},

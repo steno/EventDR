@@ -125,6 +125,73 @@ describe("sortEventsForDisplay discoveryMode", () => {
   });
 });
 
+describe("sortEventsForDisplay happening today vs closed", () => {
+  it("ranks untimed happening-today above closed-for-the-day", () => {
+    /** Friday Jul 31, 2026 16:00 AST — morning hours over, evening untimed still today. */
+    const afternoon = new Date("2026-07-31T20:00:00.000Z");
+    const closedMorning = event({
+      id: "morning-tour",
+      title: "Morning Plantation Tour",
+      date: "2026-07-31",
+      time: "8:00 AM – 12:00 PM",
+      recurrence: "daily",
+    });
+    const happeningToday = event({
+      id: "la-pena",
+      title: "La Peña at Cigar Town",
+      date: "2026-07-31",
+      recurrence: "weekly",
+      recurrenceDay: 5,
+    });
+
+    const sorted = sortEventsForDisplay([closedMorning, happeningToday], {
+      now: afternoon,
+      oneTimeFirst: true,
+      recurringLast: true,
+    });
+    assert.equal(sorted.map((e) => e.id).join(","), "la-pena,morning-tour");
+  });
+
+  it("still ranks live, then happening today, then closed, then future", () => {
+    const afternoon = new Date("2026-07-31T20:00:00.000Z");
+    const liveShow = event({
+      id: "live-concert",
+      title: "Live Concert",
+      date: "2026-07-31",
+      time: "3:00 PM – 11:00 PM",
+    });
+    const happeningToday = event({
+      id: "la-pena",
+      title: "La Peña at Cigar Town",
+      date: "2026-07-31",
+      recurrence: "weekly",
+      recurrenceDay: 5,
+    });
+    const closedMorning = event({
+      id: "morning-tour",
+      title: "Morning Plantation Tour",
+      date: "2026-07-31",
+      time: "8:00 AM – 12:00 PM",
+      recurrence: "daily",
+    });
+    const nextWeek = event({
+      id: "next-week-show",
+      title: "Next Week Concert",
+      date: "2026-08-07",
+      time: "8:00 PM",
+    });
+
+    const sorted = sortEventsForDisplay(
+      [nextWeek, closedMorning, happeningToday, liveShow],
+      { now: afternoon, oneTimeFirst: true, recurringLast: true },
+    );
+    assert.equal(
+      sorted.map((e) => e.id).join(","),
+      "live-concert,la-pena,morning-tour,next-week-show",
+    );
+  });
+});
+
 describe("sortEventsForDisplay temporarilyClosed", () => {
   it("ranks a closed daily attraction below a live peer during listed hours", () => {
     const closed = event({

@@ -69,10 +69,8 @@ function fallbackLiveStatusDisplay(
     return { status: "ending", label: dict.events.endsSoon };
   }
   if (status === "live") {
-    // Prefer Happening now only when we have a real clock window.
-    if (!parseEventTimeWindow(event.time)) {
-      return { status: "unknown", label: dict.events.happeningToday };
-    }
+    // No clock window → don't invent "Happening today" / "Happening now".
+    if (!parseEventTimeWindow(event.time)) return null;
     return { status: "live", label: dict.events.eventStarted };
   }
   return null;
@@ -128,13 +126,12 @@ export function resolveLiveStatusDisplay(
 
   if (!happensOnLocalDate(event, today)) return null;
 
-  // Untimed / free-text hours: on the calendar today, not "live right now".
-  if (status === "unknown") {
-    if (options?.listTimeRange === "today") return null;
-    return { status: "unknown", label: dict.events.happeningToday };
-  }
+  // Untimed / free-text hours ("By reservation", missing clocks): date already
+  // says today — don't invent a live-feeling "Happening today" chip.
+  if (status === "unknown") return null;
 
   // Same calendar day, doors still hours away — don't cry "starts soon" at 12:30 AM.
+  // Timed events still get a calm "Happening today" until doors are soon.
   if (status === "upcoming" && !isStartingSoon(event, now)) {
     if (options?.listTimeRange === "today") return null;
     return { status: "unknown", label: dict.events.happeningToday };

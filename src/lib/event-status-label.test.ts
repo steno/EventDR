@@ -47,6 +47,31 @@ describe("resolveLiveStatusDisplay starts soon", () => {
   });
 });
 
+describe("resolveLiveStatusDisplay untimed", () => {
+  /** Sat Sep 12, 2026 19:27 America/Santo_Domingo. */
+  const evening = new Date("2026-09-12T23:27:00.000Z");
+  const byReservation = {
+    date: "2026-09-12",
+    time: "By reservation",
+    recurrence: "daily" as const,
+  };
+
+  it("does not say happening today for by-reservation with no clock hours", () => {
+    const display = resolveLiveStatusDisplay(byReservation, dict, evening);
+    assert.equal(display, null);
+  });
+
+  it("still says happening today for a timed event later the same day", () => {
+    const eveningShow = {
+      date: "2026-09-12",
+      time: "10:00 PM–1:00 AM",
+      recurrence: "weekly" as const,
+    };
+    const display = resolveLiveStatusDisplay(eveningShow, dict, evening);
+    assert.equal(display?.label, dict.events.happeningToday);
+  });
+});
+
 describe("resolveLiveStatusDisplay temporarily closed", () => {
   /** Sat Aug 29, 2026 12:30 — inside 8:30 AM–5:00 PM hours. */
   const midday = new Date("2026-08-29T16:30:00.000Z");
