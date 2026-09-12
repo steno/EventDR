@@ -459,3 +459,49 @@ describe("getHomeDiscoverLayout same-day seed", () => {
     assert.ok(layout.todayEvents.length >= 1);
   });
 });
+
+describe("getHomeDiscoverLayout hero background", () => {
+  it("skips typography-heavy flyers for a day-stable scene photo", () => {
+    const flyer = event({
+      id: "cigar-town-noche-bohemia-2026-09-12",
+      title: "Noche Bohemia",
+      date: "2026-09-12",
+      time: "8:00 PM",
+      category: "music",
+      imageUrl: "/events/cigar-town-noche-bohemia-2026-09-12.jpg",
+    });
+    const beach = event({
+      id: "lax-sunset-daily",
+      title: "Sunset Sessions",
+      date: "2026-09-12",
+      time: "6:00 PM",
+      recurrence: "daily",
+      imageUrl: "/events/lax-sunset-daily.jpg",
+    });
+    const street = event({
+      id: "calle-sombrillas-daily",
+      title: "Calle Sombrillas",
+      date: "2026-09-12",
+      time: "All day",
+      recurrence: "daily",
+      imageUrl: "/events/calle-sombrillas-umbrella-walk.jpg",
+    });
+
+    const now = new Date("2026-09-12T16:00:00.000Z");
+    const layoutA = getHomeDiscoverLayout([flyer, beach, street], {
+      now,
+      shuffleSeed: "hero-bg",
+    });
+    const layoutB = getHomeDiscoverLayout([flyer, beach, street], {
+      now,
+      shuffleSeed: "hero-bg",
+    });
+
+    assert.ok(layoutA.heroEvent);
+    assert.notEqual(
+      layoutA.heroEvent?.id,
+      "cigar-town-noche-bohemia-2026-09-12",
+    );
+    assert.equal(layoutA.heroEvent?.id, layoutB.heroEvent?.id);
+  });
+});

@@ -330,6 +330,97 @@ export function getEventHeroObjectPosition(eventId: string): string {
   return EVENT_HERO_OBJECT_POSITION[resolvedId] ?? "object-center";
 }
 
+/**
+ * Typography-heavy curated assets — fine on event cards, bad as the home
+ * Discover photo plane (they fight the H1). Prefer place / scene shots instead.
+ * Filename tokens `flyer` / `schedule` / `menu` / `poster` are also rejected.
+ */
+const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
+  "atlantico-fc-vs-delfines-2026-08-22.jpg",
+  "aventurate-rd-2026.jpg",
+  "cabarete-run-festival-5k-2026-11-08.jpg",
+  "cheers-fire-ice-thursdays.jpg",
+  "chill-and-grill-saturday-karaoke.jpg",
+  "chill-and-grill-sunday-bingo.jpg",
+  "cigar-town-acustico-humos-2026-08-14.jpg",
+  "cigar-town-acustico-humos.jpg",
+  "cigar-town-la-pena-thursdays.jpg",
+  "cigar-town-noche-bohemia-2026-09-12.jpg",
+  "cigar-town-ron-humos.jpg",
+  "congreso-damas-adn-2026.jpg",
+  "dewry-luciano-zona-acapella-2026-08-23.jpg",
+  "el-carey-bohemian-wednesday.jpg",
+  "el-carey-sabado-de-son.jpg",
+  "el-carey-wc2026.jpg",
+  "el-cuarteto-del-swing-zona-acapella-2026-09-13.jpg",
+  "ernesto-betances-rancho-catalina-2026-09-13.jpg",
+  "groundzero-domingos-de-hookah.jpg",
+  "groundzero-domingos-pal-pueblo.jpg",
+  "groundzero-golden-night-2026-09-25.jpg",
+  "groundzero-jueves-de-frias.jpg",
+  "groundzero-party-rojo-2026-08-01.jpg",
+  "groundzero-sabados-latinos.jpg",
+  "groundzero-tivigunz-2026-10-04.jpg",
+  "groundzero-viernes-locos.jpg",
+  "guananico-san-miguel-patronales-2026.jpg",
+  "hard-rock-casa-mickey-2026-09-26.jpg",
+  "hard-rock-karaoke-wednesday.jpg",
+  "imbert-mercedes-patronales-2026.jpg",
+  "latinwok-ramen-party-2026-09-17.jpg",
+  "lena-dardelet-aura-beach-club-2026-07-24.png",
+  "los-event-trilogy-2026-09-03.jpg",
+  "love-does-bocadillos-course-2026.jpg",
+  "love-does-cocktails-solidarity-2026-09-04.jpg",
+  "masters-surf-reunion-10-2026.png",
+  "petit-francois-friday-karaoke.jpg",
+  "puerto-plata-poker-experience-2026.png",
+  "restaurant-week-puerto-plata-2026-calendar.jpg",
+  "rumble-in-paradise-13.png",
+  "sosua-10k-road-race-2026.jpg",
+  "sosua-neon-partyrun-2026-10-24.jpg",
+  "sunset-cabarete-sessions-2026.jpg",
+  "sunset-night-party-playa-encuentro-2026-07-25.jpg",
+  "super-mega-urban-fest-2026-11-04.jpg",
+  "tasty-food-park-karaoke-wednesday.jpg",
+  "todos-somos-luperon-2026-09-08.jpg",
+  "victrola-jueves-social.jpg",
+  "victrola-mojitos-friday.jpg",
+  "victrola-sabado-bailable.jpg",
+]);
+
+const HOME_HERO_FILE_TOKEN_RE =
+  /(?:^|[-_])(flyer|schedule|menu|poster)(?:[-_.]|$)/i;
+
+function homeHeroImageFileName(
+  eventId: string,
+  imageUrl?: string | null,
+): string | undefined {
+  const curated = curatedEventImageFile(eventId);
+  if (curated) return curated;
+  const raw = imageUrl?.trim();
+  if (!raw) return undefined;
+  try {
+    const path = raw.startsWith("/")
+      ? raw.split("?")[0]
+      : new URL(raw).pathname;
+    return path.split("/").pop() || undefined;
+  } catch {
+    return raw.split("?")[0]?.split("/").pop() || undefined;
+  }
+}
+
+/** True when the event photo is a place/scene shot safe behind home hero type. */
+export function isHomeHeroBackgroundSuitable(
+  eventId: string,
+  imageUrl?: string | null,
+): boolean {
+  const file = homeHeroImageFileName(eventId, imageUrl);
+  if (!file) return false;
+  if (HOME_HERO_FILE_TOKEN_RE.test(file)) return false;
+  if (HOME_HERO_TYPOGRAPHY_HEAVY_FILES.has(file)) return false;
+  return true;
+}
+
 /** Home/list cards default to top crop; curated events reuse hero focal points. */
 export function getEventCardObjectPosition(eventId: string): string {
   const resolvedId = EVENT_IMAGE_ALIASES[eventId] ?? eventId;

@@ -10,6 +10,7 @@ import {
   isRecurringEvent,
 } from "@/lib/event-status";
 import type { TimeRange } from "@/lib/filters";
+import { isHomeHeroBackgroundSuitable } from "@/lib/event-images";
 import { findActiveSpecialEvent } from "@/lib/special-events";
 
 /** Re-export for callers that import discovery helpers from home-layout. */
@@ -540,8 +541,9 @@ export function getTodayHighlightExcludeIds(
 }
 
 /**
- * Featured photo for the home hero: prefer an imaged "today" highlight,
- * then any imaged event, then the first today event.
+ * Featured photo for the home hero: day-stable random among scene/place
+ * event images (skips typography-heavy flyers). Editorial `home-hero`
+ * specials still win when their art is background-safe.
  */
 export function getHomeHeroEvent(
   events: Event[],
@@ -550,7 +552,52 @@ export function getHomeHeroEvent(
   return getHomeDiscoverLayout(events, options).heroEvent;
 }
 
+function eventHasImage(event: Event): boolean {
+  return Boolean(event.imageUrl?.trim());
+}
+
+function pickHomeHeroBackgroundEvent(
+  events: Event[],
+  options: TodayHighlightOptions,
+): Event | null {
+  const now = options.now ?? new Date();
+  const specialHero = findActiveSpecialEvent(events, {
+    placement: "home-hero",
+    now,
+  });
+  if (
+    specialHero &&
+    eventHasImage(specialHero) &&
+    isHomeHeroBackgroundSuitable(specialHero.id, specialHero.imageUrl)
+  ) {
+    return specialHero;
+  }
+
+  const suitable = events.filter(
+    (event) =>
+      eventHasImage(event) &&
+      isHomeHeroBackgroundSuitable(event.id, event.imageUrl),
+  );
+  const pool =
+    suitable.length > 0 ? suitable : events.filter(eventHasImage);
+  if (pool.length === 0) {
+    return (
+      specialHero ??
+      events.find(eventHasImage) ??
+      events[0] ??
+      null
+    );
+  }
+
+  const day = localDateISO(now);
+  const seed = hashSeed(
+    `home-hero-bg:${options.shuffleSeed ?? "home"}:${day}`,
+  );
+  return seededShuffle(pool, seed)[0] ?? null;
+}
+
 export interface HomeDiscoverLayout {
+  /** Atmospheric photo for the Discover hero (day-stable; skips flyer art). */
   heroEvent: Event | null;
   /**
    * Dated one-offs that start today (empty when none). Shown above Happening
@@ -594,24 +641,7 @@ export function getHomeDiscoverLayout(
     ...options,
     excludeTodaySpecials: true,
   });
-  const specialHero = findActiveSpecialEvent(events, {
-    placement: "home-hero",
-    now: options.now,
-  });
-  const specialWithImage = specialEvents.find((e) =>
-    Boolean(e.imageUrl?.trim()),
-  );
-  const todayWithImage = todayEvents.find((e) => Boolean(e.imageUrl?.trim()));
-  const anyWithImage = events.find((e) => Boolean(e.imageUrl?.trim()));
-  const heroEvent =
-    specialHero ??
-    specialWithImage ??
-    todayWithImage ??
-    anyWithImage ??
-    specialEvents[0] ??
-    todayEvents[0] ??
-    events[0] ??
-    null;
+  const heroEvent = pickHomeHeroBackgroundEvent(events, options);
 
   const picksExcludeIds = [
     ...specialEvents.slice(0, HOME_SPECIALS_LIMIT),
@@ -623,16 +653,12 @@ export function getHomeDiscoverLayout(
     })
     .map((e) => e.id);
 
-  if (heroEvent && !picksExcludeIds.includes(heroEvent.id)) {
-    picksExcludeIds.push(heroEvent.id);
-  }
-
-  // Coming up owns future one-offs; skip today’s visible carousels + hero photo.
+  // Coming up owns future one-offs; skip today’s visible carousels.
+  // Atmospheric hero BG is day-random and must not hide that listing elsewhere.
   const comingUpExclude = new Set<string>([
     ...specialEvents.slice(0, HOME_SPECIALS_LIMIT).map((e) => e.id),
     ...todayEvents.slice(0, HOME_TODAY_LIMIT).map((e) => e.id),
   ]);
-  if (heroEvent) comingUpExclude.add(heroEvent.id);
 
   const comingUpEvents = getComingUpHighlightEvents(events, {
     ...options,
