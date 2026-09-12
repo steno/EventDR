@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useLayoutEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { usePathname } from "next/navigation";
 import type { Event } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
@@ -18,10 +18,9 @@ import { sortEventsForDisplay } from "@/lib/event-sort";
 import { LIST_PAGE_SIZE, SCOPE_LIST_LIMIT } from "@/lib/home-layout";
 import { pinSpecialEvents } from "@/lib/special-events";
 import { cardGridRowRemainder, fillCardGridPage } from "@/lib/card-grid";
-import { scrollToListTop } from "@/lib/list-scroll";
 import { clusterRecurringVenueEvents } from "@/lib/venue-recurring-siblings";
 import { useCardGridColumns } from "@/hooks/useCardGridColumns";
-import { StickyListFilters, ListScrollAnchor } from "@/components/StickyListFilters";
+import { StickyListFilters } from "@/components/StickyListFilters";
 import { TimeFilter } from "@/components/TimeFilter";
 import { PriceFilterChips } from "@/components/PriceFilterChips";
 import { EventCard } from "@/components/EventCard";
@@ -76,12 +75,6 @@ interface FilteredEventListProps {
    */
   view?: EventListView;
   /**
-   * When true (default), changing time tabs or Free/Tickets pills scrolls so
-   * list items start under the sticky header + filter bar (scrolls up or down).
-   * Disable on venue pages — hero/details sit above the list and the jump feels wrong.
-   */
-  scrollOnFilterChange?: boolean;
-  /**
    * How to invite event submissions on short/empty lists.
    * - pad: scroll-pad CTA for category/home lists (default)
    * - inline: one Host card, no spacer, no footer link — for venue pages
@@ -124,7 +117,6 @@ export function FilteredEventList({
   locationPicker,
   categoryId,
   view: lockedView,
-  scrollOnFilterChange = true,
   addEventCta = "pad",
   hideTimeFilter = false,
   hidePriceFilter = false,
@@ -152,13 +144,6 @@ export function FilteredEventList({
   );
   const skipVisibleReset = useRef(true);
   const ignoreNextVisibleReset = useRef(false);
-  /** Last filters we scrolled for — skip mount / Strict Mode remount (same values). */
-  const scrolledFiltersRef = useRef<{
-    time: FilterTimeRange;
-    price: PriceFilter;
-  } | null>(null);
-  const skipScrollForUrlWhen = useRef(false);
-  const scrollAnchorRef = useRef<HTMLDivElement>(null);
   const [gridRef, columns] = useCardGridColumns(view === "cards");
 
   useEffect(() => {
@@ -171,7 +156,6 @@ export function FilteredEventList({
       if (when && isFilterTimeRange(when) && !fixedTimeRange) {
         // Don't collapse the page when landing with ?when= + ?all=1 together.
         ignoreNextVisibleReset.current = true;
-        skipScrollForUrlWhen.current = true;
         setTimeRange(when);
         params.delete("when");
         dirty = true;
@@ -202,29 +186,6 @@ export function FilteredEventList({
     }
     setVisibleCount(limit);
   }, [timeRange, priceFilter, limit]);
-
-  useLayoutEffect(() => {
-    if (!scrollOnFilterChange) return;
-    // Only scroll when the user changes time/price filters — not on mount,
-    // city-chip navigations, or React Strict Mode's double invoke.
-    if (scrolledFiltersRef.current === null) {
-      scrolledFiltersRef.current = { time: timeRange, price: priceFilter };
-      return;
-    }
-    const prev = scrolledFiltersRef.current;
-    if (prev.time === timeRange && prev.price === priceFilter) return;
-    const timeChanged = prev.time !== timeRange;
-    scrolledFiltersRef.current = { time: timeRange, price: priceFilter };
-    // URL ?when= applies the time chip without a scroll jump.
-    if (timeChanged && skipScrollForUrlWhen.current) {
-      skipScrollForUrlWhen.current = false;
-      return;
-    }
-    // Always reset to list top under sticky header + filter bar (scroll up or down).
-    // Pass the filter-bar anchor — not category pills — so deep scrolls don't jump
-    // to "What are you into?" when switching time tabs or Free/Tickets pills.
-    scrollToListTop(scrollAnchorRef.current);
-  }, [timeRange, priceFilter, scrollOnFilterChange]);
 
   // SSR/API payloads are already materialized — filter/sort only.
   const activeRange = fixedTimeRange ?? timeRange;
@@ -321,42 +282,39 @@ export function FilteredEventList({
   return (
     <>
       {showStickyFilters ? (
-        <>
-          <ListScrollAnchor anchorRef={scrollAnchorRef} className="mt-4" />
-          <StickyListFilters>
-            {showTimeFilter ? (
-              <TimeFilter
-                value={timeRange}
-                onChange={setTimeRange}
-                dict={dict}
-                sticky={false}
-                trailing={viewToggle}
-              />
-            ) : viewToggle ? (
-              <div className="flex justify-end pb-1">{viewToggle}</div>
-            ) : null}
+        <StickyListFilters className="mt-4">
+          {showTimeFilter ? (
+            <TimeFilter
+              value={timeRange}
+              onChange={setTimeRange}
+              dict={dict}
+              sticky={false}
+              trailing={viewToggle}
+            />
+          ) : viewToggle ? (
+            <div className="flex justify-end pb-1">{viewToggle}</div>
+          ) : null}
 
-            {locationPicker || showPriceFilter ? (
-              <div
-                className={`flex min-w-0 items-center gap-2 ${
-                  showTimeFilter || viewToggle ? "pt-2" : ""
-                }`}
-              >
-                {locationPicker ? (
-                  <div className="min-w-0 shrink-0">{locationPicker}</div>
-                ) : null}
-                {showPriceFilter ? (
-                  <PriceFilterChips
-                    value={priceFilter}
-                    onChange={setPriceFilter}
-                    dict={dict}
-                    className="min-w-0 flex-1"
-                  />
-                ) : null}
-              </div>
-            ) : null}
-          </StickyListFilters>
-        </>
+          {locationPicker || showPriceFilter ? (
+            <div
+              className={`flex min-w-0 items-center gap-2 ${
+                showTimeFilter || viewToggle ? "pt-2" : ""
+              }`}
+            >
+              {locationPicker ? (
+                <div className="min-w-0 shrink-0">{locationPicker}</div>
+              ) : null}
+              {showPriceFilter ? (
+                <PriceFilterChips
+                  value={priceFilter}
+                  onChange={setPriceFilter}
+                  dict={dict}
+                  className="min-w-0 flex-1"
+                />
+              ) : null}
+            </div>
+          ) : null}
+        </StickyListFilters>
       ) : null}
 
       {(sectionTitle || showToggleInTitle) && (

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useLayoutEffect, useRef, type Ref } from "react";
+import { useEffect, useRef, type Ref } from "react";
 import { IntentLink } from "@/components/IntentLink";
 import {
   CATEGORY_PILL_ACTIVE,
@@ -8,10 +8,8 @@ import {
   CATEGORY_PILL_IDLE,
   CATEGORY_SCROLLER_BAR,
 } from "@/components/category-scroller-styles";
-import {
-  scrollBehaviorPreference,
-  scrollToListTop,
-} from "@/lib/list-scroll";
+import { useCategoryAutoStepScroll } from "@/hooks/useCategoryAutoStepScroll";
+import { scrollBehaviorPreference } from "@/lib/list-scroll";
 
 export type RelatedCategoryLink = {
   href: string;
@@ -41,7 +39,9 @@ export function CityCategoryLinks({
   onSoftNavigate,
 }: CityCategoryLinksProps) {
   const activeRef = useRef<HTMLAnchorElement>(null);
-  const scrolledHrefRef = useRef<string | null>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const pillCount = links.length + (allLink ? 1 : 0);
+  useCategoryAutoStepScroll(scrollRef, pillCount);
 
   useEffect(() => {
     const active = activeRef.current;
@@ -53,56 +53,6 @@ export function CityCategoryLinks({
       inline: "nearest",
       block: "nearest",
     });
-  }, [activeHref]);
-
-  // Category landing: let the hero sit, then nudge down to the pills.
-  // Cancel if the visitor already scrolled (or a pill/tab already parked).
-  useEffect(() => {
-    if (!activeHref) return;
-    if (typeof window === "undefined") return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      return;
-    }
-
-    const startY = window.scrollY;
-    const userMovedPx = 24;
-    if (startY > userMovedPx) return;
-
-    let cancelled = false;
-    const onScroll = () => {
-      if (Math.abs(window.scrollY - startY) >= userMovedPx) {
-        cancelled = true;
-      }
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-
-    const timeoutId = window.setTimeout(() => {
-      window.removeEventListener("scroll", onScroll);
-      if (cancelled) return;
-      if (Math.abs(window.scrollY - startY) >= userMovedPx) return;
-      scrollToListTop(undefined, { onlyScrollDown: true });
-    }, 5000);
-
-    return () => {
-      cancelled = true;
-      window.clearTimeout(timeoutId);
-      window.removeEventListener("scroll", onScroll);
-    };
-    // Landing only — pill clicks park immediately via the layout effect below.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  // Same park as All/Today/Tomorrow/Weekend: after the user picks a pill,
-  // tuck list chrome under the sticky header (only scroll down).
-  useLayoutEffect(() => {
-    const key = activeHref ?? "";
-    if (scrolledHrefRef.current === null) {
-      scrolledHrefRef.current = key;
-      return;
-    }
-    if (scrolledHrefRef.current === key) return;
-    scrolledHrefRef.current = key;
-    scrollToListTop(undefined, { onlyScrollDown: true });
   }, [activeHref]);
 
   if (links.length === 0) return null;
@@ -148,17 +98,13 @@ export function CityCategoryLinks({
   };
 
   return (
-    <nav
-      aria-label={label}
-      className="mb-6"
-      data-list-scroll-anchor
-    >
+    <nav aria-label={label} className="mb-6">
       <p className="mb-2.5 text-base font-semibold text-neutral-700 dark:text-neutral-300">
         {label}
       </p>
       <div className={CATEGORY_SCROLLER_BAR}>
         <div className="relative min-w-0 flex-1 overflow-hidden">
-          <div className="overflow-x-auto scrollbar-hide">
+          <div ref={scrollRef} className="overflow-x-auto scrollbar-hide">
             <div className="flex w-max gap-3 px-0.5 py-1">
               {allLink
                 ? renderPill(

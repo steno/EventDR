@@ -1,9 +1,11 @@
 "use client";
 
-import { useEffect, useMemo } from "react";
+import type { ReactNode } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { IntentLink } from "@/components/IntentLink";
 import { getCategoryDefs } from "@/lib/categories";
+import { useCategoryAutoStepScroll } from "@/hooks/useCategoryAutoStepScroll";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import type { CitySlug } from "@/lib/cities";
@@ -29,6 +31,8 @@ interface CategoryGridProps {
   events?: Pick<Event, "category" | "categories">[];
   /** Fires when the user commits to a category (before navigation). */
   onCategorySelect?: () => void;
+  /** Mobile-only control beside the section title (e.g. cruise pill). */
+  headerAction?: ReactNode;
 }
 
 export function CategoryGrid({
@@ -37,8 +41,10 @@ export function CategoryGrid({
   citySlug = null,
   events,
   onCategorySelect,
+  headerAction,
 }: CategoryGridProps) {
   const router = useRouter();
+  const scrollRef = useRef<HTMLDivElement>(null);
   const defsById = useMemo(
     () => new Map(getCategoryDefs().map((def) => [def.id, def])),
     [],
@@ -64,6 +70,9 @@ export function CategoryGrid({
     [orderedIds, citySlug, locale],
   );
   const venuesHref = `/${locale}/venues`;
+  // All Events + categories + Venues
+  const pillCount = categories.length + 2;
+  useCategoryAutoStepScroll(scrollRef, pillCount);
 
   // Mobile has no hover — warm visible category routes after first paint so
   // the first tap overlaps with an in-flight RSC fetch.
@@ -92,12 +101,17 @@ export function CategoryGrid({
 
   return (
     <section aria-label={label}>
-      <p className="mb-2.5 text-base font-semibold text-neutral-700 dark:text-neutral-300">
-        {label}
-      </p>
+      <div className="mb-2.5 flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
+        <p className="min-w-0 text-base font-semibold text-neutral-700 dark:text-neutral-300">
+          {label}
+        </p>
+        {headerAction ? (
+          <div className="contents sm:hidden">{headerAction}</div>
+        ) : null}
+      </div>
       <div className={CATEGORY_SCROLLER_BAR}>
         <div className="relative min-w-0 flex-1 overflow-hidden">
-          <div className="overflow-x-auto scrollbar-hide">
+          <div ref={scrollRef} className="overflow-x-auto scrollbar-hide">
             <div className="flex w-max gap-3 px-0.5 py-1">
               <IntentLink
                 href={allEventsHref}

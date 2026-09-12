@@ -684,6 +684,15 @@ function HomeApp({
                     dict={dict}
                     citySlug={selectedCity}
                     events={scopedEvents}
+                    headerAction={
+                      <CruiseShipEntry
+                        dict={dict}
+                        locale={locale}
+                        open={cruiseEntryOpen}
+                        onOpenChange={setCruiseEntryOpen}
+                        onSelectPort={enterCruise}
+                      />
+                    }
                   />
                 </div>
               )}

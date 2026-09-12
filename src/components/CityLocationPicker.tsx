@@ -171,7 +171,11 @@ export function CityLocationPicker({
   return (
     <div
       ref={rootRef}
-      className={isHero ? "relative inline-flex shrink-0 align-baseline" : "relative max-w-full shrink-0"}
+      className={
+        isHero
+          ? "relative block w-full sm:inline-flex sm:w-auto sm:shrink-0 sm:align-baseline"
+          : "relative max-w-full shrink-0"
+      }
     >
       <button
         ref={buttonRef}
@@ -184,10 +188,10 @@ export function CityLocationPicker({
         className={
           isHero
             ? `
-              relative isolate inline-flex shrink-0 items-center gap-1
-              whitespace-nowrap rounded-lg px-1.5 py-0.5 text-left text-[1em]
-              font-extrabold leading-none sm:px-2
-              ring-2 ring-white/80 sm:ring-0
+              relative isolate inline-flex w-full items-center justify-between gap-1
+              whitespace-nowrap rounded-lg px-2 py-1.5 text-left text-[1em]
+              font-extrabold leading-none
+              ring-2 ring-orange-500/45 sm:w-auto sm:justify-start sm:px-2 sm:py-0.5 sm:ring-0
               touch-manipulation transition-[filter,transform]
               active:scale-[0.98] hover:brightness-110
               focus-visible:outline focus-visible:outline-2
@@ -211,7 +215,7 @@ export function CityLocationPicker({
         <span
           className={
             isHero
-              ? "relative z-10 whitespace-nowrap text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.4)] sm:bg-gradient-to-r sm:from-orange-300 sm:via-rose-300 sm:to-fuchsia-300 sm:bg-clip-text sm:text-transparent sm:[text-shadow:none]"
+              ? "relative z-10 truncate bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 bg-clip-text text-transparent sm:whitespace-nowrap sm:from-orange-300 sm:via-rose-300 sm:to-fuchsia-300"
               : "truncate"
           }
         >
@@ -222,7 +226,7 @@ export function CityLocationPicker({
             open ? "rotate-180" : ""
           } ${
             isHero
-              ? "relative z-10 h-[0.7em] w-[0.7em] text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.45)] sm:text-orange-300"
+              ? "relative z-10 h-[0.7em] w-[0.7em] text-orange-500 sm:text-orange-300 sm:drop-shadow-[0_1px_2px_rgba(0,0,0,0.45)]"
               : "h-4 w-4 opacity-80"
           }`}
           strokeWidth={isHero ? 3 : 2.5}
@@ -238,7 +242,11 @@ export function CityLocationPicker({
             absolute top-full z-50 mt-2 overflow-hidden rounded-xl
             bg-white/95 py-1 shadow-lg ring-1 ring-neutral-200/80 backdrop-blur
             dark:bg-neutral-900/95 dark:ring-neutral-700/80
-            ${isHero ? "min-w-[16rem] max-w-[calc(100vw-2rem)]" : "left-0 min-w-[14rem]"}
+            ${
+              isHero
+                ? "left-0 right-0 w-full sm:left-auto sm:right-auto sm:w-auto sm:min-w-[16rem] sm:max-w-[calc(100vw-2rem)]"
+                : "left-0 min-w-[14rem]"
+            }
           `}
         >
           <ul

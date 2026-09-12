@@ -32,7 +32,14 @@ export function CruiseShipEntry({
   const panelId = useId();
 
   return (
-    <div className={isHero ? "mt-3" : undefined}>
+    <div
+      className={
+        isHero
+          ? // Mobile: sit beside category title; open panel wraps full-width. sm+: under photo tagline.
+            "contents sm:mt-3 sm:block"
+          : undefined
+      }
+    >
       <button
         type="button"
         aria-expanded={open}
@@ -40,7 +47,7 @@ export function CruiseShipEntry({
         onClick={() => onOpenChange(!open)}
         className={
           isHero
-            ? "inline-flex items-center gap-2 rounded-full bg-white/18 px-3.5 py-1.5 text-sm font-bold text-white shadow-sm ring-1 ring-white/35 backdrop-blur-sm transition-[transform,background-color] touch-manipulation hover:bg-white/26 active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400"
+            ? "inline-flex shrink-0 items-center gap-1.5 rounded-full border border-sky-200 bg-sky-50 px-2.5 py-1.5 text-xs font-bold text-sky-900 transition-[transform,background-color,border-color] touch-manipulation hover:border-sky-300 hover:bg-sky-100/80 active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400 dark:border-sky-800 dark:bg-sky-950/50 dark:text-sky-100 dark:hover:bg-sky-950/80 sm:gap-2 sm:border-transparent sm:bg-white/18 sm:px-3.5 sm:text-sm sm:text-white sm:shadow-sm sm:ring-1 sm:ring-white/35 sm:backdrop-blur-sm sm:hover:bg-white/26 sm:dark:border-transparent sm:dark:bg-white/18 sm:dark:text-white sm:dark:hover:bg-white/26"
             : "flex min-h-14 w-full items-center gap-3 rounded-2xl border border-sky-200 bg-sky-50 px-4 text-left font-bold text-sky-900 transition-transform active:scale-[0.98] dark:border-sky-900/70 dark:bg-sky-950/40 dark:text-sky-100"
         }
       >
@@ -51,11 +58,18 @@ export function CruiseShipEntry({
         {copy.shipPill}
       </button>
       {open ? (
-        <div id={panelId} className={isHero ? "mt-3 max-w-lg" : "mt-2.5"}>
+        <div
+          id={panelId}
+          className={
+            isHero
+              ? "mt-2 w-full basis-full sm:mt-3 sm:max-w-lg"
+              : "mt-2.5"
+          }
+        >
           <p
             className={
               isHero
-                ? "mb-2 text-xs font-bold uppercase tracking-[0.14em] text-white/80 [text-shadow:0_1px_2px_rgba(0,0,0,0.45)]"
+                ? "mb-2 text-xs font-bold uppercase tracking-[0.14em] text-neutral-500 dark:text-neutral-400 sm:text-white/80 sm:[text-shadow:0_1px_2px_rgba(0,0,0,0.45)] sm:dark:text-white/80"
                 : "mb-2 text-sm font-semibold text-neutral-500 dark:text-neutral-400"
             }
           >
@@ -82,14 +96,14 @@ export function CruiseShipEntry({
                 }}
                 className={
                   isHero
-                    ? "block rounded-2xl bg-white/16 px-3.5 py-3 text-left no-underline ring-1 ring-white/25 backdrop-blur-sm transition-colors touch-manipulation hover:bg-white/24 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400"
+                    ? "block rounded-2xl border border-neutral-200 bg-white px-3.5 py-3 text-left no-underline transition-colors touch-manipulation hover:border-orange-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-400 dark:border-neutral-700 dark:bg-neutral-800 sm:border-transparent sm:bg-white/16 sm:ring-1 sm:ring-white/25 sm:backdrop-blur-sm sm:hover:bg-white/24 sm:dark:border-transparent sm:dark:bg-white/16"
                     : "block rounded-2xl border border-neutral-200 bg-white px-3.5 py-3 text-left no-underline transition-[border-color,transform] hover:border-orange-300 active:scale-[0.98] dark:border-neutral-700 dark:bg-neutral-800"
                 }
               >
                 <span
                   className={
                     isHero
-                      ? "block text-sm font-extrabold text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.4)]"
+                      ? "block text-sm font-extrabold text-neutral-900 dark:text-neutral-50 sm:text-white sm:[text-shadow:0_1px_2px_rgba(0,0,0,0.4)] sm:dark:text-white"
                       : "block text-sm font-extrabold text-neutral-900 dark:text-neutral-50"
                   }
                 >
@@ -98,7 +112,7 @@ export function CruiseShipEntry({
                 <span
                   className={
                     isHero
-                      ? "mt-0.5 block text-xs font-medium text-white/80"
+                      ? "mt-0.5 block text-xs font-medium text-neutral-500 dark:text-neutral-400 sm:text-white/80 sm:dark:text-white/80"
                       : "mt-0.5 block text-xs font-medium text-neutral-500 dark:text-neutral-400"
                   }
                 >

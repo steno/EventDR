@@ -50,22 +50,23 @@ export function PhotoHero({
   const eventsPrefix = isRegion ? dict.hero.events : dict.cities.eventsIn;
 
   return (
-    <header className="relative -mx-5 mb-5 sm:-mx-6 lg:mx-0">
-      <div className="absolute inset-0 overflow-hidden sm:rounded-2xl">
+    <header className="relative mb-5 sm:-mx-6 lg:mx-0">
+      {/* Photo plane — sm+ only; mobile keeps a full-width area select. */}
+      <div className="absolute inset-0 hidden overflow-hidden sm:block sm:rounded-2xl">
         {imageUrl ? (
           <div className="absolute inset-0">
-                <EventImage
-                  key={imageUrl}
-                  src={imageUrl}
-                  alt=""
-                  priority
-                  sizes="100vw"
-                  className={
-                    imageSrc
-                      ? "object-cover object-[center_40%]"
-                      : "object-cover"
-                  }
-                />
+            <EventImage
+              key={imageUrl}
+              src={imageUrl}
+              alt=""
+              priority
+              sizes="100vw"
+              className={
+                imageSrc
+                  ? "object-cover object-[center_40%]"
+                  : "object-cover"
+              }
+            />
           </div>
         ) : (
           <div
@@ -92,18 +93,18 @@ export function PhotoHero({
         />
       </div>
 
-      <div className="relative z-10 flex min-h-[15.5rem] flex-col justify-end gap-3 px-4 pb-5 pt-10 sm:min-h-[12.5rem] sm:px-6 sm:pb-5 sm:pt-8">
+      <div className="relative z-10 flex flex-col justify-end gap-3 pb-1 pt-0.5 sm:min-h-[12.5rem] sm:px-6 sm:pb-5 sm:pt-8">
         <div className="@container min-w-0">
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-white/80 [text-shadow:0_1px_2px_rgba(0,0,0,0.45)]">
+          <p className="hidden text-xs font-bold uppercase tracking-[0.18em] text-white/80 [text-shadow:0_1px_2px_rgba(0,0,0,0.45)] sm:block">
             {dict.seo.siteName}
           </p>
-          <h1 className="mt-1 flex max-w-full flex-nowrap items-baseline gap-x-1.5 whitespace-nowrap font-extrabold leading-none [font-size:min(2.35rem,7.22cqi)] sm:gap-x-2 sm:text-[clamp(1.625rem,4.5vw,2.75rem)] sm:leading-[1.05]">
-            <span className="shrink-0 text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.4)]">
+          <h1 className="mt-0 flex w-full max-w-full flex-nowrap items-baseline gap-x-1.5 whitespace-nowrap text-[1.5rem] font-extrabold leading-none sm:mt-1 sm:w-auto sm:gap-x-2 sm:text-[clamp(1.625rem,4.5vw,2.75rem)] sm:leading-[1.05]">
+            <span className="hidden shrink-0 text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.4)] sm:inline">
               {eventsPrefix}{" "}
             </span>
-            <span className="shrink-0">
+            <span className="min-w-0 flex-1 sm:flex-none sm:shrink-0">
               {locationPicker ?? (
-                <span className="bg-gradient-to-r from-orange-300 via-rose-300 to-fuchsia-300 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 bg-clip-text text-transparent sm:from-orange-300 sm:via-rose-300 sm:to-fuchsia-300">
                   {heroPlace}
                 </span>
               )}
@@ -111,11 +112,14 @@ export function PhotoHero({
           </h1>
           <h2
             key={tagline}
-            className="cruise-port-swap mt-2 max-w-xl text-copy font-medium text-white/90 [text-shadow:0_1px_2px_rgba(0,0,0,0.4)]"
+            className="cruise-port-swap mt-2 hidden max-w-xl text-copy font-medium text-white/90 [text-shadow:0_1px_2px_rgba(0,0,0,0.4)] sm:block"
           >
             {tagline}
           </h2>
-          {afterTagline}
+          {/* Desktop photo hero only — mobile cruise sits beside category title. */}
+          {afterTagline ? (
+            <div className="hidden sm:block">{afterTagline}</div>
+          ) : null}
         </div>
       </div>
     </header>

@@ -252,9 +252,9 @@ export function StickyListHeader({
         isDetail
           ? "py-2 mb-2"
           : hideBrand
-            ? `pt-2 pb-2 ${flushBottom ? "mb-0" : "mb-6"}`
+            ? `pt-2 pb-2 ${flushBottom ? "mb-6 sm:mb-0" : "mb-6"}`
             : // Mobile list chrome is compact (no logo); keep a little top pad.
-              `pt-2 pb-2 lg:pt-0 ${flushBottom ? "mb-0" : "mb-6"}`
+              `pt-2 pb-2 lg:pt-0 ${flushBottom ? "mb-6 sm:mb-0" : "mb-6"}`
       }`}
     >
       {hideBrand ? (

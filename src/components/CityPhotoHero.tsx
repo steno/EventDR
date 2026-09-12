@@ -36,8 +36,16 @@ export function CityPhotoHero({
       : null;
 
   return (
-    <header className="relative -mx-5 mb-5 overflow-hidden sm:-mx-6 sm:rounded-2xl lg:mx-0">
-      <div className="relative min-h-[15.5rem] sm:min-h-[12.5rem]">
+    <header className="relative mb-0 sm:-mx-6 sm:mb-5 lg:mx-0">
+      {/* Mobile: collapsed — no visual space; keep title/copy for SEO + AT. */}
+      <div className="sr-only sm:hidden">
+        {eyebrow ? <p>{eyebrow}</p> : null}
+        <h1>{title}</h1>
+        {subtitle ? <p>{subtitle}</p> : null}
+      </div>
+
+      {/* Desktop: full photo hero */}
+      <div className="relative hidden min-h-[12.5rem] overflow-hidden sm:block sm:rounded-2xl">
         {resolvedImage ? (
           <div className="absolute inset-0">
             <EventImage
@@ -72,7 +80,7 @@ export function CityPhotoHero({
           aria-hidden
         />
 
-        <div className="relative z-10 flex min-h-[15.5rem] flex-col justify-end gap-3 px-4 pb-5 pt-10 sm:min-h-[12.5rem] sm:px-6 sm:pb-5 sm:pt-8">
+        <div className="relative z-10 flex min-h-[12.5rem] flex-col justify-end gap-3 px-6 pb-5 pt-8">
           <div className="min-w-0">
             {eyebrow ? (
               <p className="text-xs font-bold uppercase tracking-[0.18em] text-white/80 [text-shadow:0_1px_2px_rgba(0,0,0,0.45)]">
