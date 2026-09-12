@@ -39,7 +39,7 @@ export function BottomNav({
         fixed bottom-0 inset-x-0 z-40 lg:hidden
         border-t border-neutral-200/80 bg-white/95 backdrop-blur-xl
         dark:border-neutral-800 dark:bg-neutral-950/95
-        pb-[max(env(safe-area-inset-bottom),0.375rem)]
+        pb-[max(env(safe-area-inset-bottom),0.25rem)]
         ${SCROLL_CHROME_TRANSITION_CLASS}
         ${chromeVisible ? "" : "translate-y-full pointer-events-none"}
       `}
@@ -47,7 +47,7 @@ export function BottomNav({
       aria-hidden={chromeVisible ? undefined : true}
     >
       <div
-        className={`${PAGE_WIDTH_CLASS} grid grid-cols-2 items-center px-6 pt-2 pb-2.5`}
+        className={`${PAGE_WIDTH_CLASS} grid grid-cols-2 items-center px-6 pt-1 pb-1`}
       >
         {items.map(({ id, label, badge }) => {
           const isActive = active === id;
@@ -60,17 +60,17 @@ export function BottomNav({
               onClick={() => onChange(id)}
               aria-current={isActive ? "page" : undefined}
               className="
-                group relative flex flex-col items-center gap-1 py-1
+                group relative flex flex-col items-center gap-0.5 py-0.5
                 touch-manipulation transition-colors
                 focus-visible:outline focus-visible:outline-2
                 focus-visible:outline-offset-2 focus-visible:outline-orange-500
               "
             >
-              <span className="relative flex h-12 w-12 items-center justify-center">
+              <span className="relative flex h-9 w-9 items-center justify-center">
                 {isSubmit ? (
                   <span
                     className={`
-                      flex h-7 w-7 items-center justify-center rounded-full
+                      flex h-5 w-5 items-center justify-center rounded-full
                       transition-[background-color,box-shadow,transform] duration-200
                       group-active:scale-95
                       ${
@@ -80,12 +80,12 @@ export function BottomNav({
                       }
                     `}
                   >
-                    <Plus className="h-3.5 w-3.5 stroke-[2.5]" aria-hidden />
+                    <Plus className="h-3 w-3 stroke-[2.5]" aria-hidden />
                   </span>
                 ) : (
                   <Heart
                     className={`
-                      h-9 w-9 transition-colors duration-200
+                      h-4 w-4 transition-colors duration-200
                       ${
                         isActive
                           ? "fill-rose-500 stroke-rose-500 text-rose-500 dark:fill-rose-400 dark:stroke-rose-400"
@@ -97,7 +97,7 @@ export function BottomNav({
                 )}
 
                 {badge !== undefined && badge > 0 ? (
-                  <span className="absolute right-0 top-2.5 flex h-[18px] min-w-[18px] items-center justify-center rounded-full bg-orange-500 px-1 text-[10px] font-bold leading-none text-white ring-2 ring-white dark:ring-neutral-950">
+                  <span className="absolute -right-1 -top-0.5 flex h-[16px] min-w-[16px] items-center justify-center rounded-full bg-orange-500 px-1 text-[9px] font-bold leading-none text-white ring-2 ring-white dark:ring-neutral-950">
                     {badge}
                   </span>
                 ) : null}
@@ -105,7 +105,7 @@ export function BottomNav({
 
               <span
                 className={`
-                  text-xs font-bold leading-none tracking-wide
+                  text-[11px] font-bold leading-none tracking-wide
                   transition-colors duration-200
                   ${
                     isSubmit

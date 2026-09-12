@@ -57,7 +57,7 @@ export function SupportNudge({ locale, dict }: SupportNudgeProps) {
         SCROLL_CHROME_TRANSITION_CLASS,
         onHome
           ? chromeVisible
-            ? "bottom-[calc(4.25rem+env(safe-area-inset-bottom))] lg:bottom-6"
+            ? "bottom-[calc(3.5rem+env(safe-area-inset-bottom))] lg:bottom-6"
             : "bottom-[max(1rem,env(safe-area-inset-bottom))] lg:bottom-6"
           : "bottom-[max(1rem,env(safe-area-inset-bottom))]",
       ].join(" ")}

@@ -25,7 +25,7 @@ export function AppFooter({ locale, dict }: AppFooterProps) {
       showCruiseLink={!onCruisePage}
       className={[
         padForBottomNav
-          ? "pb-[calc(6.75rem+env(safe-area-inset-bottom))] lg:pb-8"
+          ? "pb-[calc(4.5rem+env(safe-area-inset-bottom))] lg:pb-8"
           : "pb-6",
         hideForPrint ? "print:hidden" : "",
       ]

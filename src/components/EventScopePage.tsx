@@ -13,19 +13,14 @@ import {
   type RelatedCategoryLink,
 } from "@/components/CityCategoryLinks";
 import { CityLocationPicker } from "@/components/CityLocationPicker";
-import { CityPhotoHero } from "@/components/CityPhotoHero";
 import { SubmitEventSheet } from "@/components/SubmitEventSheet";
 import { StickyListHeader } from "@/components/StickyListHeader";
 import { categoryNavLinks, resolveListingBackLabel } from "@/lib/event-navigation";
 import {
-  getCityMeta,
   lastHomePath,
-  NORTH_COAST_HERO_IMAGE,
   writeHomeArea,
   type CitySlug,
 } from "@/lib/cities";
-import { getCategoryHeroImage } from "@/lib/category-heroes";
-import { findActiveSpecialEvent } from "@/lib/special-events";
 import { PAGE_SHELL_CLASS } from "@/lib/page-shell";
 import { getOnboardingCopy } from "@/lib/onboarding";
 import { useForegroundRefresh } from "@/hooks/useForegroundRefresh";
@@ -350,34 +345,9 @@ export function EventScopePage({
         : null,
     [catalog, activeCategoryId],
   );
-  const city = activeCitySlug ? getCityMeta(activeCitySlug) : undefined;
-  const specialHeroEvent = useMemo(() => {
-    if (activeCitySlug) {
-      return findActiveSpecialEvent(events, {
-        placement: "city-hero",
-        citySlug: activeCitySlug,
-      });
-    }
-    if (activeRegionScope || fixedTimeRange) {
-      return findActiveSpecialEvent(events, { placement: "home-hero" });
-    }
-    return null;
-  }, [events, activeCitySlug, activeRegionScope, fixedTimeRange]);
-
-  const scopeHeroImage =
-    specialHeroEvent?.imageUrl?.trim() ||
-    getCategoryHeroImage(activeCategoryId) ||
-    city?.heroImage ||
-    (activeCategoryId || fixedTimeRange || activeRegionScope
-      ? NORTH_COAST_HERO_IMAGE
-      : undefined);
   const showLocationPicker = Boolean(
     activeCitySlug || activeCategoryId || fixedTimeRange || activeRegionScope,
   );
-  const headerEmojiClassName =
-    chrome.emojiClassName ??
-    emojiClassNameProp ??
-    "bg-white dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-800";
   const [backHref, setBackHref] = useState(
     chrome.backHref ?? backHrefProp ?? `/${locale}`,
   );
@@ -403,8 +373,6 @@ export function EventScopePage({
   const onboardingCopy = getOnboardingCopy(locale);
   const title = chrome.title;
   const intro = chrome.intro;
-  const eyebrow = chrome.eyebrow;
-  const emoji = chrome.emoji;
   const returnTo = chrome.returnTo;
   const submitDefaults = chrome.submitDefaults ?? submitDefaultsProp;
 
@@ -423,43 +391,28 @@ export function EventScopePage({
             dict={dict}
             backHref={backHref}
             backLabel={backLabel}
-            flushBottom={Boolean(scopeHeroImage)}
             variant="compact"
           />
 
-          {scopeHeroImage ? (
-            <CityPhotoHero
-              key={activeCitySlug ?? "north-coast"}
-              title={title}
-              eyebrow={eyebrow}
-              subtitle={intro}
-              imageUrl={scopeHeroImage}
-              featuredEvent={specialHeroEvent}
-              locale={locale}
-              dict={dict}
-              returnTo={returnTo}
-            />
-          ) : (
-            <>
-              <div className="flex items-start gap-4 mb-6">
-                <div
-                  className={`flex h-16 w-16 items-center justify-center rounded-2xl text-3xl shadow-sm ${headerEmojiClassName}`}
-                >
-                  {emoji}
-                </div>
-                <div>
-                  <h1 className="text-title font-extrabold text-neutral-900 dark:text-neutral-100">
-                    {title}
-                  </h1>
-                  <p className="text-copy-meta text-neutral-500 dark:text-neutral-400">
-                    {eyebrow}
-                  </p>
-                </div>
-              </div>
+          <div className="sr-only">
+            <h1>{title}</h1>
+            {intro ? <p>{intro}</p> : null}
+          </div>
 
-              <p className="text-copy-lead mb-6">{intro}</p>
-            </>
-          )}
+          {showLocationPicker ? (
+            <div className="mb-4 mt-1 w-full text-[1.5rem] font-extrabold leading-none">
+              <CityLocationPicker
+                variant="hero"
+                photoOverlay={false}
+                locale={locale}
+                dict={dict}
+                currentSlug={activeCitySlug ?? null}
+                categoryId={activeCategoryId}
+                onSelect={softNav ? onSoftCitySelect : undefined}
+                counts={cityCounts}
+              />
+            </div>
+          ) : null}
 
           {relatedCategoryLinks && relatedCategoryLinksLabel ? (
             <CityCategoryLinks
@@ -493,18 +446,6 @@ export function EventScopePage({
             addEventLabel={addEventLabel}
             categoryId={activeCategoryId}
             persistTimeRange
-            locationPicker={
-              showLocationPicker ? (
-                <CityLocationPicker
-                  locale={locale}
-                  dict={dict}
-                  currentSlug={activeCitySlug ?? null}
-                  categoryId={activeCategoryId}
-                  onSelect={softNav ? onSoftCitySelect : undefined}
-                  counts={cityCounts}
-                />
-              ) : undefined
-            }
           />
           {fixedTimeRange === "weekend" ? (
             <aside className="mb-8 mt-6 overflow-hidden rounded-3xl border border-orange-200 bg-orange-50 p-5 dark:border-orange-900/60 dark:bg-orange-950/30">

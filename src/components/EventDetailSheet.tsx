@@ -324,7 +324,7 @@ export function EventDetailSheet({
     : dict.detail.paidAdmissionUnknown;
 
   const iconActionClass =
-    "flex h-10 w-full items-center justify-center rounded-xl touch-manipulation transition-colors active:scale-[0.98]";
+    "flex min-h-10 w-full flex-col items-center justify-center gap-0.5 rounded-xl px-1 py-1.5 touch-manipulation transition-colors active:scale-[0.98]";
   const iconActionIdleClass =
     "bg-neutral-100/90 text-neutral-500 hover:bg-neutral-200/80 hover:text-neutral-800 dark:bg-neutral-800/80 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-100";
   const iconActionActiveClass =

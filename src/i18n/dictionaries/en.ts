@@ -162,10 +162,18 @@ export type Dictionary = {
     calendarApple: string;
     calendarOutlook: string;
     calendarDownload: string;
+    /** Short label under the event-detail action icon. */
+    actionCalendar: string;
     share: string;
+    /** Short label under the event-detail action icon. */
+    actionShare: string;
     save: string;
     saved: string;
+    /** Short label under the event-detail action icon. */
+    actionSave: string;
     remind: string;
+    /** Short label under the event-detail action icon. */
+    actionRemind: string;
     remindOn: string;
     remindVia: string;
     remindDayBefore: string;
@@ -747,10 +755,14 @@ export const en: Dictionary = {
     calendarApple: "Apple",
     calendarOutlook: "Outlook",
     calendarDownload: "Download",
+    actionCalendar: "Calendar",
     share: "Share",
+    actionShare: "Share",
     save: "Save",
     saved: "Saved",
+    actionSave: "Save",
     remind: "Remind me",
+    actionRemind: "Reminder",
     remindOn: "Reminder set",
     remindVia: "Remind me",
     remindDayBefore: "Day before",

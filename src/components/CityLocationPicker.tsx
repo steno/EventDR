@@ -40,6 +40,11 @@ interface CityLocationPickerProps {
    * `chip` is the listing-page filter control.
    */
   variant?: "chip" | "hero";
+  /**
+   * Hero only: when true (default), desktop uses light photo-overlay colors.
+   * Set false on pages without a photo hero so the mobile home look stays.
+   */
+  photoOverlay?: boolean;
   /** Home hero only: opens cruise-day port choice (not a city). */
   onCruiseIntent?: () => void;
   /** Active cruise port — shown as the closed-button label. */
@@ -62,11 +67,13 @@ export function CityLocationPicker({
   onSelect,
   counts = null,
   variant = "chip",
+  photoOverlay = true,
   onCruiseIntent,
   cruisePort = null,
   onSelectCruise,
 }: CityLocationPickerProps) {
   const isHero = variant === "hero";
+  const heroOnPhoto = isHero && photoOverlay;
   const router = useRouter();
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
@@ -117,7 +124,7 @@ export function CityLocationPicker({
   // Keep the hero menu right-aligned to the trigger, but shift it in if a
   // short label (Sosúa) would otherwise hang off the left edge of the screen.
   useLayoutEffect(() => {
-    if (!open || !isHero) return;
+    if (!open || !heroOnPhoto) return;
     const list = listRef.current;
     const button = buttonRef.current;
     if (!list || !button) return;
@@ -146,7 +153,7 @@ export function CityLocationPicker({
       window.removeEventListener("resize", place);
       window.removeEventListener("scroll", place, true);
     };
-  }, [open, isHero]);
+  }, [open, heroOnPhoto]);
 
   function goTo(slug: CitySlug | null) {
     setOpen(false);
@@ -172,9 +179,11 @@ export function CityLocationPicker({
     <div
       ref={rootRef}
       className={
-        isHero
+        heroOnPhoto
           ? "relative block w-full sm:inline-flex sm:w-auto sm:shrink-0 sm:align-baseline"
-          : "relative max-w-full shrink-0"
+          : isHero
+            ? "relative block w-full"
+            : "relative max-w-full shrink-0"
       }
     >
       <button
@@ -191,11 +200,12 @@ export function CityLocationPicker({
               relative isolate inline-flex w-full items-center justify-between gap-1
               whitespace-nowrap rounded-lg px-2 py-1.5 text-left text-[1em]
               font-extrabold leading-none
-              ring-2 ring-orange-500/45 sm:w-auto sm:justify-start sm:px-2 sm:py-0.5 sm:ring-0
+              ring-2 ring-orange-500/45
               touch-manipulation transition-[filter,transform]
               active:scale-[0.98] hover:brightness-110
               focus-visible:outline focus-visible:outline-2
               focus-visible:outline-offset-2 focus-visible:outline-orange-400
+              ${heroOnPhoto ? "sm:w-auto sm:justify-start sm:px-2 sm:py-0.5 sm:ring-0" : ""}
             `
             : `
               inline-flex max-w-[min(100%,12.5rem)] items-center gap-1.5
@@ -215,7 +225,11 @@ export function CityLocationPicker({
         <span
           className={
             isHero
-              ? "relative z-10 truncate bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 bg-clip-text text-transparent sm:whitespace-nowrap sm:from-orange-300 sm:via-rose-300 sm:to-fuchsia-300"
+              ? `relative z-10 truncate bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 bg-clip-text text-transparent${
+                  heroOnPhoto
+                    ? " sm:whitespace-nowrap sm:from-orange-300 sm:via-rose-300 sm:to-fuchsia-300"
+                    : ""
+                }`
               : "truncate"
           }
         >
@@ -226,7 +240,11 @@ export function CityLocationPicker({
             open ? "rotate-180" : ""
           } ${
             isHero
-              ? "relative z-10 h-[0.7em] w-[0.7em] text-orange-500 sm:text-orange-300 sm:drop-shadow-[0_1px_2px_rgba(0,0,0,0.45)]"
+              ? `relative z-10 h-[0.7em] w-[0.7em] text-orange-500${
+                  heroOnPhoto
+                    ? " sm:text-orange-300 sm:drop-shadow-[0_1px_2px_rgba(0,0,0,0.45)]"
+                    : ""
+                }`
               : "h-4 w-4 opacity-80"
           }`}
           strokeWidth={isHero ? 3 : 2.5}
@@ -244,7 +262,9 @@ export function CityLocationPicker({
             dark:bg-neutral-900/95 dark:ring-neutral-700/80
             ${
               isHero
-                ? "left-0 right-0 w-full sm:left-auto sm:right-auto sm:w-auto sm:min-w-[16rem] sm:max-w-[calc(100vw-2rem)]"
+                ? heroOnPhoto
+                  ? "left-0 right-0 w-full sm:left-auto sm:right-auto sm:w-auto sm:min-w-[16rem] sm:max-w-[calc(100vw-2rem)]"
+                  : "left-0 right-0 w-full"
                 : "left-0 min-w-[14rem]"
             }
           `}

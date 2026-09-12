@@ -127,6 +127,7 @@ export function VenueEventList({
         initialExpanded={initialExpanded || tab === "past"}
         defaultTimeRange="all"
         view="list"
+        scrollOnFilterChange={false}
         addEventCta="inline"
         hideTimeFilter={tab === "past"}
         hidePriceFilter

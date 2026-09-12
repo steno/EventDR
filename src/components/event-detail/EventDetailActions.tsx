@@ -372,6 +372,9 @@ export function EventDetailActions({
                 className={`h-4 w-4 ${isReminded ? "fill-current" : ""}`}
                 aria-hidden
               />
+              <span className="max-w-full truncate text-[10px] font-semibold leading-none tracking-tight">
+                {dict.detail.actionRemind}
+              </span>
             </button>
           ) : null}
           {showCalendarAction ? (
@@ -387,6 +390,9 @@ export function EventDetailActions({
               aria-pressed={calendarOpen}
             >
               <CalendarPlus className="h-4 w-4" aria-hidden />
+              <span className="max-w-full truncate text-[10px] font-semibold leading-none tracking-tight">
+                {dict.detail.actionCalendar}
+              </span>
             </button>
           ) : null}
           <button
@@ -408,6 +414,9 @@ export function EventDetailActions({
             aria-pressed={shareOpen}
           >
             <Forward className="h-4 w-4" aria-hidden />
+            <span className="max-w-full truncate text-[10px] font-semibold leading-none tracking-tight">
+              {dict.detail.actionShare}
+            </span>
           </button>
           <button
             type="button"
@@ -423,6 +432,9 @@ export function EventDetailActions({
               className={`h-4 w-4 ${isSaved ? "fill-current" : ""}`}
               aria-hidden
             />
+            <span className="max-w-full truncate text-[10px] font-semibold leading-none tracking-tight">
+              {isSaved ? dict.detail.saved : dict.detail.actionSave}
+            </span>
           </button>
         </div>
       </div>
