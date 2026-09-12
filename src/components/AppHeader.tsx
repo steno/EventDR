@@ -82,13 +82,14 @@ export function AppHeader({
             type="button"
             className={`
               flex h-9 w-9 shrink-0 items-center justify-center rounded-full
-              bg-white/85 shadow-sm ring-1 backdrop-blur dark:bg-neutral-800/85
+              bg-white/80 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.7)] ring-1 backdrop-blur-xl
+              dark:bg-white/[0.07] dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1)]
               transition-colors active:scale-95 touch-manipulation lg:hidden
               focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500
               ${
                 searchToggle.open
-                  ? "text-orange-600 ring-orange-300/80 hover:text-orange-700 dark:text-orange-400 dark:ring-orange-700/70 dark:hover:text-orange-300"
-                  : "text-neutral-600 ring-neutral-200/70 hover:text-neutral-900 dark:text-neutral-300 dark:ring-neutral-700/70 dark:hover:text-neutral-100"
+                  ? "text-orange-600 ring-orange-400/70 hover:text-orange-700 dark:text-orange-300 dark:ring-orange-300/50 dark:hover:text-orange-200"
+                  : "text-neutral-500 ring-neutral-200/70 hover:text-neutral-900 dark:text-neutral-300 dark:ring-white/12 dark:hover:text-neutral-100"
               }
             `}
             aria-label={searchToggle.open ? dict.search.close : dict.search.open}
