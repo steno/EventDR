@@ -5,11 +5,16 @@ import Link from "next/link";
 import { Mail } from "lucide-react";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
+import { BRAND_GRADIENT_TEXT_CLASS } from "@/lib/page-shell";
 
 interface NewsletterSignupProps {
   locale: Locale;
   dict: Dictionary;
 }
+
+/** Soft elevated panel — same warm wash as cruise day cards. */
+const NEWSLETTER_PANEL_CLASS =
+  "relative mb-8 overflow-hidden rounded-3xl border border-orange-200/45 bg-gradient-to-br from-white via-[#fffaf6] to-orange-50/50 p-5 shadow-[0_12px_32px_-18px_rgba(244,63,94,0.16)] sm:p-6 dark:border-white/10 dark:from-[#1c1917] dark:via-[#171412] dark:to-[#201610] dark:shadow-[0_20px_48px_-24px_rgba(0,0,0,0.7),0_0_40px_-20px_rgba(249,115,22,0.28),inset_0_1px_0_0_rgba(255,255,255,0.07)] print:hidden";
 
 export function NewsletterSignup({ locale, dict }: NewsletterSignupProps) {
   const [email, setEmail] = useState("");
@@ -38,26 +43,34 @@ export function NewsletterSignup({ locale, dict }: NewsletterSignupProps) {
 
   return (
     <section
-      className="mb-8 rounded-3xl border border-neutral-200/90 bg-neutral-50 p-5 sm:p-6 dark:border-neutral-800 dark:bg-neutral-950 print:hidden"
+      className={NEWSLETTER_PANEL_CLASS}
       aria-labelledby="newsletter-heading"
     >
-      <div className="flex items-start gap-3">
-        <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-orange-500/10 text-orange-600 dark:text-orange-400">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -right-10 -top-12 h-40 w-40 rounded-full bg-gradient-to-br from-orange-300/35 via-rose-300/20 to-transparent blur-3xl dark:from-orange-400/35 dark:via-rose-400/18"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-orange-400/50 to-transparent dark:via-orange-300/40"
+      />
+      <div className="relative flex items-start gap-3">
+        <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-orange-400/20 via-rose-400/15 to-fuchsia-400/10 text-orange-600 ring-1 ring-orange-300/30 dark:from-orange-400/25 dark:via-rose-400/20 dark:to-fuchsia-400/15 dark:text-orange-300 dark:ring-orange-300/25">
           <Mail className="h-5 w-5" aria-hidden />
         </span>
         <div className="min-w-0 flex-1">
           <h2
             id="newsletter-heading"
-            className="text-title font-extrabold tracking-tight text-neutral-950 dark:text-neutral-50"
+            className={`text-title font-extrabold tracking-tight ${BRAND_GRADIENT_TEXT_CLASS}`}
           >
             {copy.title}
           </h2>
-          <p className="mt-1 max-w-xl text-copy text-neutral-600 dark:text-neutral-400">
+          <p className="mt-1 max-w-xl text-copy text-neutral-600 dark:text-neutral-300">
             {copy.body}
           </p>
           {status === "success" ? (
             <p
-              className="mt-4 rounded-2xl bg-emerald-500/15 px-4 py-3 text-sm font-bold text-emerald-800 dark:text-emerald-300"
+              className="mt-4 rounded-2xl bg-emerald-500/15 px-4 py-3 text-sm font-bold text-emerald-800 ring-1 ring-emerald-400/25 dark:text-emerald-300"
               role="status"
             >
               {copy.success}
@@ -86,12 +99,12 @@ export function NewsletterSignup({ locale, dict }: NewsletterSignupProps) {
                   value={email}
                   onChange={(event) => setEmail(event.target.value)}
                   placeholder={copy.placeholder}
-                  className="min-h-12 min-w-0 flex-1 rounded-2xl border border-neutral-200 bg-white px-4 text-base font-medium text-neutral-950 placeholder:text-neutral-400 focus:border-orange-400 focus:outline-none dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-50 dark:placeholder:text-neutral-500"
+                  className="min-h-12 min-w-0 flex-1 rounded-2xl border-0 bg-white/95 px-4 text-base font-medium text-neutral-950 outline-none ring-1 ring-orange-200/60 placeholder:text-neutral-400 focus:ring-2 focus:ring-orange-400 dark:bg-white/[0.08] dark:text-neutral-50 dark:ring-white/12 dark:placeholder:text-neutral-500 dark:focus:ring-orange-400/70"
                 />
                 <button
                   type="submit"
                   disabled={status === "loading"}
-                  className="min-h-12 rounded-2xl bg-orange-500 px-5 text-sm font-bold text-white disabled:opacity-60 hover:bg-orange-600"
+                  className="min-h-12 rounded-2xl bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-5 text-sm font-bold text-white shadow-sm shadow-rose-500/30 transition-[transform,filter] active:scale-[0.98] disabled:opacity-60"
                 >
                   {status === "loading" ? "…" : copy.button}
                 </button>
@@ -104,7 +117,7 @@ export function NewsletterSignup({ locale, dict }: NewsletterSignupProps) {
                     {copy.privacy}{" "}
                     <Link
                       href={`/${locale}/privacy`}
-                      className="underline decoration-neutral-300 underline-offset-2 hover:text-neutral-800 dark:hover:text-neutral-200"
+                      className="underline decoration-orange-300/70 underline-offset-2 hover:text-orange-700 dark:decoration-orange-700 dark:hover:text-orange-200"
                     >
                       {copy.privacyLink}
                     </Link>

@@ -38,6 +38,7 @@ import {
   rankCruiseEvents,
   resolveItineraryStops,
   typicalCruiseCallsForWeekday,
+  viableItinerariesForPort,
   visibleCruiseEvents,
 } from "@/lib/cruise";
 import { localDateISO, weekdayFromISO } from "@/lib/event-dates";
@@ -107,7 +108,14 @@ export function CruiseDiscover({
     () => typicalCruiseCallsForWeekday(port, weekday),
     [port, weekday],
   );
-  const loopsClosed = clockReady && (sailed || remaining <= 0);
+  /** Hide routes once head-back starts, or when none still fit the remaining window. */
+  const loops = useMemo(() => itinerariesForPort(port), [port]);
+  const viableLoops = useMemo(() => {
+    if (!clockReady) return loops;
+    return viableItinerariesForPort(port, remaining);
+  }, [clockReady, loops, port, remaining]);
+  const loopsClosed =
+    clockReady && (sailed || remaining <= 15 || viableLoops.length === 0);
   const clockLine = !clockReady
     ? staticLeave
     : sailed
@@ -126,7 +134,6 @@ export function CruiseDiscover({
   const visible = useMemo(() => visibleCruiseEvents(ranked), [ranked]);
   const highlightEvents = visible.slice(0, CRUISE_HIGHLIGHT_LIMIT);
   const moreFits = visible.slice(CRUISE_HIGHLIGHT_LIMIT);
-  const loops = useMemo(() => itinerariesForPort(port), [port]);
   const allowSlugs = useMemo(() => cruiseVenueAllowlist(port), [port]);
   const panelEyebrow = sailed ? copy.sailedEyebrow : copy.eyebrow;
   const venuesHeading = sailed ? copy.venuesTitleSailed : copy.venuesTitle;
@@ -318,7 +325,7 @@ export function CruiseDiscover({
               <span>{clockLine}</span>
             </p>
 
-            {phase === "open" ? (
+            {phase === "open" && !loopsClosed ? (
               <p className="mt-3 text-sm font-medium text-neutral-600 dark:text-neutral-300">
                 {port === "taino-bay" ? copy.taxiTipTaino : copy.taxiTipAmber}
               </p>
@@ -368,13 +375,13 @@ export function CruiseDiscover({
               ) : null}
             </div>
           </section>
-        ) : loops.length > 0 ? (
+        ) : viableLoops.length > 0 ? (
           <section key={`loops-${port}`} className="cruise-port-swap min-w-0">
             <h2 className={`mb-3 ${SECTION_TITLE_CLASS}`}>
               {copy.itinerariesTitle}
             </h2>
             <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
-              {loops.map((loop) => (
+              {viableLoops.map((loop) => (
                 <ItineraryCard
                   key={loop.id}
                   itinerary={loop}
@@ -450,7 +457,7 @@ export function CruiseDiscover({
           returnTitle={panelEyebrow}
         />
 
-        {phase === "open" ? (
+        {phase === "open" && !loopsClosed ? (
           <aside className="rounded-2xl border border-amber-200/80 bg-amber-50 px-4 py-4 dark:border-amber-500/30 dark:bg-amber-950/30">
             <h2 className="text-sm font-extrabold text-amber-950 dark:text-amber-100">
               {copy.skipTitle}

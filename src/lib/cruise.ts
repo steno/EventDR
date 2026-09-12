@@ -915,6 +915,16 @@ export function itineraryTimeFit(
   return "too-late";
 }
 
+/** Loops that still fit (or are tight) before leave-by — drop too-late ones. */
+export function viableItinerariesForPort(
+  port: CruisePortSlug,
+  remainingMinutes: number,
+): CruiseItinerary[] {
+  return itinerariesForPort(port).filter(
+    (loop) => itineraryTimeFit(loop, remainingMinutes) !== "too-late",
+  );
+}
+
 /** Venue slugs that belong on this port’s “near here” rail — not a taxi into Centro. */
 export function cruiseVenueAllowlist(port: CruisePortSlug): string[] {
   const slugs = new Set<string>();

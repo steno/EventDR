@@ -23,6 +23,7 @@ import {
   parseAllAboardMinutes,
   rankCruiseEvents,
   typicalCruiseCallsForWeekday,
+  viableItinerariesForPort,
   visibleCruiseEvents,
 } from "./cruise";
 import { SEED_VENUES } from "./venues-seed";
@@ -534,6 +535,22 @@ describe("itineraryTimeFit", () => {
     assert.equal(itineraryTimeFit(centro, 210), "fits");
     assert.equal(itineraryTimeFit(centro, 190), "tight");
     assert.equal(itineraryTimeFit(centro, 120), "too-late");
+  });
+});
+
+describe("viableItinerariesForPort", () => {
+  it("drops Amber loops that need more time than remains before leave-by", () => {
+    const open = viableItinerariesForPort("amber-cove", 4 * 60);
+    assert.equal(open.length, 2);
+    assert.ok(open.some((loop) => loop.id === "amber-local"));
+
+    const late = viableItinerariesForPort("amber-cove", 33);
+    assert.equal(late.length, 0);
+  });
+
+  it("keeps a tight Taino culture loop when the window is short but workable", () => {
+    const ids = viableItinerariesForPort("taino-bay", 110).map((loop) => loop.id);
+    assert.deepEqual(ids, ["taino-culture"]);
   });
 });
 
