@@ -35,6 +35,18 @@ describe("matchVenueSlug", () => {
     assert.equal(matchVenueSlug("Amber Cove"), "amber-cove");
     assert.equal(matchVenueSlug("Puerto Amber Cove"), "amber-cove");
   });
+
+  it("maps Parque de Béisbol José Briceño aliases to the seed stadium", () => {
+    assert.equal(matchVenueSlug("Parque José Briceño"), "parque-jose-briceno");
+    assert.equal(
+      matchVenueSlug("Parque de Béisbol José Briceño"),
+      "parque-jose-briceno",
+    );
+    assert.equal(
+      matchVenueSlug("Parque de Beisbol Jose Briceno Puerto Plata"),
+      "parque-jose-briceno",
+    );
+  });
 });
 
 describe("filterByVenueSlug", () => {
@@ -70,6 +82,21 @@ describe("filterByVenueSlug", () => {
     );
   });
 
+  it("rewrites the José Briceño ingest stub slug onto the canonical stadium", () => {
+    const catalog = [
+      stubEvent({
+        id: "stub-game",
+        title: "Atléticos home game",
+        venueSlug: "parque-de-beisbol-jose-briceno",
+        location: "Puerto Plata",
+        date: "2026-08-28",
+      }),
+    ];
+    const atStadium = filterByVenueSlug(catalog, "parque-jose-briceno");
+    assert.equal(atStadium.length, 1);
+    assert.equal(atStadium[0]!.venueSlug, "parque-jose-briceno");
+  });
+
   it("does not attach El Parq to the live North Coast fallback catalog", () => {
     const catalog = getFallbackEvents("en");
     const elParq = filterByVenueSlug(catalog, "el-parq-cabarete");
@@ -86,6 +113,18 @@ describe("filterByVenueSlug", () => {
     assert.equal(
       elParq.some((event) => event.id.includes("letrero")),
       false,
+    );
+  });
+
+  it("keeps past Atléticos home games for the stadium Past tab", () => {
+    const catalog = getFallbackEvents("en");
+    const atStadium = filterByVenueSlug(catalog, "parque-jose-briceno");
+    assert.ok(
+      atStadium.some((e) => e.id === "atleticos-pp-vs-arroceros-2026-08-22"),
+      "expected past Atléticos home game in fallback catalog",
+    );
+    assert.ok(
+      atStadium.every((e) => e.venueSlug === "parque-jose-briceno"),
     );
   });
 

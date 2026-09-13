@@ -1,4 +1,4 @@
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import type { Metadata } from "next";
 import { VenuePage } from "@/components/VenuePage";
 import { JsonLd } from "@/components/JsonLd";
@@ -7,6 +7,7 @@ import { getVenueAssessment } from "@/lib/venue-assessments";
 import { getNearbyTonightForVenue } from "@/lib/get-nearby-tonight";
 import { filterByVenueSlug } from "@/lib/geo";
 import { getPublicEvents } from "@/lib/public-events";
+import { resolveVenueSlugRedirect } from "@/lib/removed-venues";
 import { isValidLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import {
@@ -29,6 +30,11 @@ export async function generateMetadata({
   const { locale, slug } = await params;
   if (!isValidLocale(locale)) return {};
 
+  const redirectSlug = resolveVenueSlugRedirect(slug);
+  if (redirectSlug) {
+    return {};
+  }
+
   const venue = await getVenueBySlug(slug, locale);
   if (!venue) return {};
 
@@ -43,6 +49,11 @@ export default async function Page({
 }) {
   const { locale, slug } = await params;
   if (!isValidLocale(locale)) notFound();
+
+  const redirectSlug = resolveVenueSlugRedirect(slug);
+  if (redirectSlug) {
+    permanentRedirect(localePath(locale, `/venue/${redirectSlug}`));
+  }
 
   const venue = await getVenueBySlug(slug, locale);
   if (!venue) notFound();

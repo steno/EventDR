@@ -1647,6 +1647,11 @@ export const SEED_VENUES: Venue[] = [
 const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
   {
     pattern:
+      /parque(\s+de(\s+b[eé]isbol)?)?\s+jos[eé]\s+brice[nñ]o|estadio(\s+de(\s+b[eé]isbol)?)?\s+jos[eé]\s+brice[nñ]o|jos[eé]\s+brice[nñ]o/i,
+    slug: "parque-jose-briceno",
+  },
+  {
+    pattern:
       /ta[ií]no\s*bay|port\s*ta[ií]no|puerto\s*ta[ií]no\s*bay/i,
     slug: "taino-bay",
   },

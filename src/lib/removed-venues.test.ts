@@ -1,9 +1,11 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import {
+  canonicalizeVenueSlug,
   filterRemovedVenues,
   isRemovedVenueSlug,
   REMOVED_VENUE_SLUGS,
+  resolveVenueSlugRedirect,
 } from "./removed-venues";
 
 describe("removed venues", () => {
@@ -17,6 +19,7 @@ describe("removed venues", () => {
         "cafe-del-mar",
         "caleton-beach-club",
         "grecialand",
+        "parque-de-beisbol-jose-briceno",
         "rafaella-s-studio",
       ],
     );
@@ -31,12 +34,26 @@ describe("removed venues", () => {
     assert.equal(isRemovedVenueSlug("grecialandia"), false);
   });
 
+  it("dumps the Parque de Béisbol José Briceño ingest stub", () => {
+    assert.equal(isRemovedVenueSlug("parque-de-beisbol-jose-briceno"), true);
+    assert.equal(
+      resolveVenueSlugRedirect("parque-de-beisbol-jose-briceno"),
+      "parque-jose-briceno",
+    );
+    assert.equal(
+      canonicalizeVenueSlug("parque-de-beisbol-jose-briceno"),
+      "parque-jose-briceno",
+    );
+    assert.equal(isRemovedVenueSlug("parque-jose-briceno"), false);
+  });
+
   it("filters dumped slugs from venue lists", () => {
     const kept = filterRemovedVenues([
       { slug: "lax-cabarete" },
       { slug: "cafe-del-mar" },
       { slug: "caleton-beach-club" },
       { slug: "grecialand" },
+      { slug: "parque-de-beisbol-jose-briceno" },
     ]);
     assert.deepEqual(
       kept.map((venue) => venue.slug),

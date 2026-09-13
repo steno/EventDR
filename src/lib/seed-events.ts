@@ -1,5 +1,6 @@
 import { getFallbackEventById, getFallbackEvents } from "@/lib/fallback-events";
 import { enrichEventLocalizedFromFallback } from "@/lib/fallback-localized";
+import { isPastOneOffEvent } from "@/lib/event-dates";
 import { prepareSeedEvent } from "@/lib/geo";
 import type { Event } from "@/lib/types";
 
@@ -14,7 +15,11 @@ export type SeedEventResolution = {
  * for display (recurring or non-expired one-offs). Expired ids are skipped, not errors.
  */
 export function resolveSeedEvents(ids: readonly string[]): SeedEventResolution {
-  const activeIds = new Set(getFallbackEvents("en").map((event) => event.id));
+  const activeIds = new Set(
+    getFallbackEvents("en")
+      .filter((event) => !isPastOneOffEvent(event))
+      .map((event) => event.id),
+  );
   const events: Event[] = [];
   const missing: string[] = [];
   const skippedExpired: string[] = [];

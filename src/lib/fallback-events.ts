@@ -30,6 +30,11 @@ function getFallbackBase(locale: Locale): Event[] {
   return FALLBACK_BY_LOCALE[locale] ?? FALLBACK_BY_LOCALE.en;
 }
 
+/**
+ * Full seed catalog with recurring dates materialized.
+ * Keeps ended one-offs so venue Past tabs / includePast APIs can show them;
+ * callers that want live-only lists rematerialize without includePastOneOffs.
+ */
 export function getFallbackEvents(locale: Locale = "en"): Event[] {
   const merged = [
     ...getRecurringEvents(locale),
@@ -37,9 +42,9 @@ export function getFallbackEvents(locale: Locale = "en"): Event[] {
     ...getWorldCupEvents(locale),
   ];
   return attachSeedCreatedAt(
-    materializeEventDates(filterRemovedSeedEvents(merged)).map(
-      withResolvedCategories,
-    ),
+    materializeEventDates(filterRemovedSeedEvents(merged), new Date(), {
+      includePastOneOffs: true,
+    }).map(withResolvedCategories),
   );
 }
 

@@ -1,4 +1,5 @@
 import type { Event } from "./types";
+import { canonicalizeVenueSlug } from "./removed-venues";
 import { matchVenueSlug } from "./venues-seed";
 import { NORTH_COAST_CENTER, resolveEventCoords } from "./event-coords";
 
@@ -14,7 +15,12 @@ export function attachCoords(events: Event[]): Event[] {
 
 export function attachVenueSlugs(events: Event[]): Event[] {
   return events.map((e) => {
-    if (e.venueSlug) return e;
+    if (e.venueSlug) {
+      const canonical = canonicalizeVenueSlug(e.venueSlug);
+      return canonical && canonical !== e.venueSlug
+        ? { ...e, venueSlug: canonical }
+        : e;
+    }
     const slug = matchVenueSlug(e.venue) ?? matchVenueSlug(e.location);
     return slug ? { ...e, venueSlug: slug } : e;
   });
