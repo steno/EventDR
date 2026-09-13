@@ -549,8 +549,10 @@ export function EventDetailSheet({
 
   if (standalone) {
     return (
-      <article className="mt-0 w-full overflow-hidden rounded-2xl bg-white shadow-md ring-1 ring-neutral-200/60 dark:bg-neutral-900 dark:ring-neutral-800 lg:grid lg:grid-cols-[minmax(0,1.3fr)_minmax(0,0.7fr)] lg:items-stretch">
-        <div className={`relative ${DETAIL_HERO_PHOTO_HEIGHT_CLASS}`}>
+      <article className="mt-0 w-full overflow-hidden rounded-2xl bg-white shadow-md ring-1 ring-neutral-200/60 dark:bg-neutral-900 dark:ring-neutral-800 lg:grid lg:grid-cols-[minmax(0,1.3fr)_minmax(0,0.7fr)] lg:items-start lg:overflow-visible">
+        <div
+          className={`relative overflow-hidden lg:sticky lg:top-[calc(var(--sticky-list-header-height,_0px)+0.75rem)] lg:self-start lg:rounded-l-2xl ${DETAIL_HERO_PHOTO_HEIGHT_CLASS}`}
+        >
           {showHero ? (
             <div className="h-full lg:absolute lg:inset-0">
               <EventDetailMedia
@@ -577,7 +579,7 @@ export function EventDetailSheet({
             </div>
           )}
         </div>
-        <div className="flex min-w-0 flex-col">
+        <div className="flex min-w-0 flex-col overflow-hidden lg:rounded-r-2xl">
           <div className="flex-1 px-4 pt-3 pb-4 sm:px-5 lg:px-5 lg:pt-4 lg:pb-5">
             {contentSection}
           </div>

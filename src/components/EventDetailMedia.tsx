@@ -53,14 +53,14 @@ export function EventDetailMedia({
       sizes={imageSizes}
       className={`h-full w-full object-cover transition-transform duration-500 ease-out ${
         venueHref ? "group-hover/venue:scale-[1.03]" : ""
-      } ${getEventHeroObjectPosition(event.id)}`}
+      } ${getEventHeroObjectPosition(event.id)} lg:object-contain lg:object-top`}
       priority={priority}
     />
   );
 
   return (
     <div
-      className={`relative isolate z-0 w-full shrink-0 overflow-hidden bg-neutral-100 dark:bg-neutral-800 ${heightClass} ${roundedClass}`}
+      className={`relative isolate z-0 w-full shrink-0 overflow-hidden bg-neutral-100 dark:bg-neutral-800 lg:bg-transparent lg:bg-gradient-to-br lg:from-orange-50/85 lg:via-rose-50/70 lg:to-fuchsia-50/55 lg:dark:from-orange-950/50 lg:dark:via-rose-950/38 lg:dark:to-fuchsia-950/28 ${heightClass} ${roundedClass}`}
     >
       {venueHref ? (
         <IntentLink

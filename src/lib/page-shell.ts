@@ -45,12 +45,12 @@ export const SECTION_TITLE_CLASS = `text-section font-extrabold lg:text-[1.9rem]
  * Mobile: half of `min(68dvh, 36rem)` minus the 2.75rem action row (matches
  * venue place-card photo so detail photos line up).
  * Desktop: fill the remaining viewport under the sticky header (same as
- * venue place-card), so short copy does not leave a stubby hero.
+ * venue place-card) and stick while longer detail copy scrolls beside it.
  */
 export const DETAIL_HERO_PHOTO_HEIGHT_MOBILE_CLASS =
   "h-[calc((min(68dvh,36rem)-2.75rem)/2)]";
 
-export const DETAIL_HERO_PHOTO_HEIGHT_CLASS = `${DETAIL_HERO_PHOTO_HEIGHT_MOBILE_CLASS} lg:h-auto lg:min-h-[calc(100dvh-var(--sticky-list-header-height,_0px)-1.5rem)]`;
+export const DETAIL_HERO_PHOTO_HEIGHT_CLASS = `${DETAIL_HERO_PHOTO_HEIGHT_MOBILE_CLASS} lg:h-[calc(100dvh-var(--sticky-list-header-height,_0px)-1.5rem)]`;
 
 /**
  * Card discovery grids — elastic columns: 2 on narrow phones, then as many
