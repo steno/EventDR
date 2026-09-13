@@ -319,6 +319,7 @@ export type Dictionary = {
   };
   footer: {
     tagline: string;
+    blurb: string;
     builtWith: string;
     partners: string;
     cruise: string;
@@ -330,6 +331,9 @@ export type Dictionary = {
     dataDisclaimer: string;
     dataSources: string;
     dataDeletion: string;
+    navPlaces: string;
+    navWhen: string;
+    navMore: string;
   };
   alerts: {
     title: string;
@@ -924,6 +928,8 @@ export const en: Dictionary = {
   },
   footer: {
     tagline: "POP Events · North Coast Dominican Republic",
+    blurb:
+      "Live music, beach nights, and local gatherings across Puerto Plata, Sosúa, and Cabarete.",
     builtWith: "Built with ❤️ by",
     partners: "For hotels & partners",
     cruise: "Cruise day",
@@ -935,6 +941,9 @@ export const en: Dictionary = {
     dataDisclaimer: "Data disclaimer",
     dataSources: "Data sources",
     dataDeletion: "Data deletion",
+    navPlaces: "Explore",
+    navWhen: "When",
+    navMore: "More",
   },
   alerts: {
     title: "Before you go",

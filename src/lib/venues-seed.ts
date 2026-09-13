@@ -280,10 +280,10 @@ export const SEED_VENUES: Venue[] = [
     name: "VOYVOY Cabarete",
     city: "Cabarete",
     description:
-      "Beachfront restaurant and nightlife spot on Cabarete Bay — open mic jams, Saturday Sessions, and bay views. Hours: Sun/Tue/Thu/Fri 7:30 AM–11:00 PM; Mon 7:30 AM–1:00 AM; Sat 7:30 AM–3:00 AM; Wed 7:30 AM–7:00 PM.",
+      "Beachfront restaurant and nightlife spot on Cabarete Bay — Monday live music, Saturday Sessions, and bay views. Hours: Sun/Tue/Thu/Fri 7:30 AM–11:00 PM; Mon 7:30 AM–1:00 AM; Sat 7:30 AM–3:00 AM; Wed 7:30 AM–7:00 PM.",
     lat: 19.7502161,
     lng: -70.4066784,
-    emoji: "🎤",
+    emoji: "🪩",
     instagram: "voyvoybar",
     phone: "+18095710805",
   },

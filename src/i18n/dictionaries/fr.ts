@@ -335,6 +335,8 @@ export const fr: Dictionary = {
   },
   footer: {
     tagline: "POP Events · Côte Nord République dominicaine",
+    blurb:
+      "Musique live, soirées plage et rendez-vous locaux à Puerto Plata, Sosúa et Cabarete.",
     builtWith: "Fait avec ❤️ par",
     partners: "Pour hôtels et partenaires",
     cruise: "Journée croisière",
@@ -346,6 +348,9 @@ export const fr: Dictionary = {
     dataDisclaimer: "Avertissement sur les données",
     dataSources: "Sources des données",
     dataDeletion: "Suppression des données",
+    navPlaces: "Explorer",
+    navWhen: "Quand",
+    navMore: "Plus",
   },
   alerts: {
     title: "Avant d’y aller",

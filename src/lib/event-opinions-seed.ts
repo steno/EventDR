@@ -79,30 +79,12 @@ export const SEED_EVENT_OPINIONS_BASE: EventOpinion[] = [
     updatedAt: AT,
   },
   {
-    eventId: "voyvoy-sunday-open-mic",
-    seriesKey: "voyvoy-cabarete:weekly:0",
-    body: "Good pick for live music without a late-night commitment — quieter and more dinner-friendly than Saturday's Session.",
-    localized: {
-      es: "Buena opción si quieres música en vivo sin comprometerte a una noche larga — más tranquilo y apto para cenar que el Saturday Session.",
-      fr: "Bon choix pour du live sans s'engager pour une nuit tardive — plus calme et compatible dîner que le Saturday Session du samedi.",
-    },
-    priceFeel: "moderate",
-    priceNote: "No cover typical — budget for dinner/drinks at beach-bar rates",
-    priceNoteLocalized: {
-      es: "Sin cover en general — reserva presupuesto para cena/tragos a tarifa de beach bar",
-      fr: "Pas de cover en général — prévoyez dîner/boissons au tarif beach bar",
-    },
-    attribution: "POP research · Cabarete nightlife guides",
-    researchNotes: "Bayfront restaurant pricing; open mic typically no cover.",
-    updatedAt: AT,
-  },
-  {
     eventId: "voyvoy-saturday-session",
     seriesKey: "voyvoy-cabarete:weekly:6",
-    body: "Louder and later than the Sunday jam — expect a standing crowd once it fills, and come ready to dance, not for a quiet meal.",
+    body: "Louder and later than Monday live — expect a standing crowd once it fills, and come ready to dance, not for a quiet meal.",
     localized: {
-      es: "Más ruidoso y tarde que el jam del domingo — espera público de pie cuando se llena; ven a bailar, no a cenar tranquilo.",
-      fr: "Plus fort et plus tard que le jam du dimanche — attendez-vous à une foule debout une fois plein ; venez danser, pas pour un dîner calme.",
+      es: "Más ruidoso y tarde que la música en vivo del lunes — espera público de pie cuando se llena; ven a bailar, no a cenar tranquilo.",
+      fr: "Plus fort et plus tard que le live du lundi — attendez-vous à une foule debout une fois plein ; venez danser, pas pour un dîner calme.",
     },
     priceFeel: "moderate",
     priceNote: "No cover — spend is drinks; bayfront prices, not local-colmadón cheap",

@@ -54,79 +54,79 @@ export function NewsletterSignup({ locale, dict }: NewsletterSignupProps) {
         aria-hidden
         className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-orange-400/50 to-transparent dark:via-orange-300/40"
       />
-      <div className="relative flex items-start gap-3">
-        <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-orange-400/20 via-rose-400/15 to-fuchsia-400/10 text-orange-600 ring-1 ring-orange-300/30 dark:from-orange-400/25 dark:via-rose-400/20 dark:to-fuchsia-400/15 dark:text-orange-300 dark:ring-orange-300/25">
-          <Mail className="h-5 w-5" aria-hidden />
-        </span>
-        <div className="min-w-0 flex-1">
+      <div className="relative">
+        <div className="flex items-center gap-2.5">
+          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-orange-400/20 via-rose-400/15 to-fuchsia-400/10 text-orange-600 ring-1 ring-orange-300/30 dark:from-orange-400/25 dark:via-rose-400/20 dark:to-fuchsia-400/15 dark:text-orange-300 dark:ring-orange-300/25">
+            <Mail className="h-4 w-4" aria-hidden />
+          </span>
           <h2
             id="newsletter-heading"
-            className={`text-title font-extrabold tracking-tight ${BRAND_GRADIENT_TEXT_CLASS}`}
+            className={`min-w-0 text-title font-extrabold tracking-tight ${BRAND_GRADIENT_TEXT_CLASS}`}
           >
             {copy.title}
           </h2>
-          <p className="mt-1 max-w-xl text-copy text-neutral-600 dark:text-neutral-300">
-            {copy.body}
-          </p>
-          {status === "success" ? (
-            <p
-              className="mt-4 rounded-2xl bg-emerald-500/15 px-4 py-3 text-sm font-bold text-emerald-800 ring-1 ring-emerald-400/25 dark:text-emerald-300"
-              role="status"
-            >
-              {copy.success}
-            </p>
-          ) : (
-            <form onSubmit={submit} action="#" method="post" className="mt-4 max-w-xl">
-              <input
-                type="text"
-                value={company}
-                onChange={(event) => setCompany(event.target.value)}
-                tabIndex={-1}
-                autoComplete="off"
-                className="hidden"
-                aria-hidden
-              />
-              <div className="flex flex-col gap-2 sm:flex-row">
-                <label className="sr-only" htmlFor="weekend-newsletter-email">
-                  Email
-                </label>
-                <input
-                  id="weekend-newsletter-email"
-                  type="email"
-                  required
-                  autoComplete="email"
-                  inputMode="email"
-                  value={email}
-                  onChange={(event) => setEmail(event.target.value)}
-                  placeholder={copy.placeholder}
-                  className="min-h-12 min-w-0 flex-1 rounded-2xl border-0 bg-white/95 px-4 text-base font-medium text-neutral-950 outline-none ring-1 ring-orange-200/60 placeholder:text-neutral-400 focus:ring-2 focus:ring-orange-400 dark:bg-white/[0.08] dark:text-neutral-50 dark:ring-white/12 dark:placeholder:text-neutral-500 dark:focus:ring-orange-400/70"
-                />
-                <button
-                  type="submit"
-                  disabled={status === "loading"}
-                  className="min-h-12 rounded-2xl bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-5 text-sm font-bold text-white shadow-sm shadow-rose-500/30 transition-[transform,filter] active:scale-[0.98] disabled:opacity-60"
-                >
-                  {status === "loading" ? "…" : copy.button}
-                </button>
-              </div>
-              <p className="mt-2 text-xs font-medium text-neutral-500 dark:text-neutral-400">
-                {status === "error" ? (
-                  copy.error
-                ) : (
-                  <>
-                    {copy.privacy}{" "}
-                    <Link
-                      href={`/${locale}/privacy`}
-                      className="underline decoration-orange-300/70 underline-offset-2 hover:text-orange-700 dark:decoration-orange-700 dark:hover:text-orange-200"
-                    >
-                      {copy.privacyLink}
-                    </Link>
-                  </>
-                )}
-              </p>
-            </form>
-          )}
         </div>
+        <p className="mt-1.5 max-w-xl text-copy text-neutral-600 dark:text-neutral-300">
+          {copy.body}
+        </p>
+        {status === "success" ? (
+          <p
+            className="mt-4 rounded-2xl bg-emerald-500/15 px-4 py-3 text-sm font-bold text-emerald-800 ring-1 ring-emerald-400/25 dark:text-emerald-300"
+            role="status"
+          >
+            {copy.success}
+          </p>
+        ) : (
+          <form onSubmit={submit} action="#" method="post" className="mt-4 max-w-xl">
+            <input
+              type="text"
+              value={company}
+              onChange={(event) => setCompany(event.target.value)}
+              tabIndex={-1}
+              autoComplete="off"
+              className="hidden"
+              aria-hidden
+            />
+            <div className="flex flex-col gap-2 sm:flex-row">
+              <label className="sr-only" htmlFor="weekend-newsletter-email">
+                Email
+              </label>
+              <input
+                id="weekend-newsletter-email"
+                type="email"
+                required
+                autoComplete="email"
+                inputMode="email"
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
+                placeholder={copy.placeholder}
+                className="min-h-12 min-w-0 flex-1 rounded-2xl border-0 bg-white/95 px-4 text-base font-medium text-neutral-950 outline-none ring-1 ring-orange-200/60 placeholder:text-neutral-400 focus:ring-2 focus:ring-orange-400 dark:bg-white/[0.08] dark:text-neutral-50 dark:ring-white/12 dark:placeholder:text-neutral-500 dark:focus:ring-orange-400/70"
+              />
+              <button
+                type="submit"
+                disabled={status === "loading"}
+                className="min-h-12 rounded-2xl bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-5 text-sm font-bold text-white shadow-sm shadow-rose-500/30 transition-[transform,filter] active:scale-[0.98] disabled:opacity-60"
+              >
+                {status === "loading" ? "…" : copy.button}
+              </button>
+            </div>
+            <p className="mt-2 text-xs font-medium text-neutral-500 dark:text-neutral-400">
+              {status === "error" ? (
+                copy.error
+              ) : (
+                <>
+                  {copy.privacy}{" "}
+                  <Link
+                    href={`/${locale}/privacy`}
+                    className="underline decoration-orange-300/70 underline-offset-2 hover:text-orange-700 dark:decoration-orange-700 dark:hover:text-orange-200"
+                  >
+                    {copy.privacyLink}
+                  </Link>
+                </>
+              )}
+            </p>
+          </form>
+        )}
       </div>
     </section>
   );

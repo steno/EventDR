@@ -335,6 +335,8 @@ export const es: Dictionary = {
   },
   footer: {
     tagline: "POP Eventos · Costa Norte República Dominicana",
+    blurb:
+      "Música en vivo, noches de playa y planes locales en Puerto Plata, Sosúa y Cabarete.",
     builtWith: "Hecho con ❤️ por",
     partners: "Para hoteles y socios",
     cruise: "Día de crucero",
@@ -346,6 +348,9 @@ export const es: Dictionary = {
     dataDisclaimer: "Aviso de datos",
     dataSources: "Fuentes de datos",
     dataDeletion: "Eliminación de datos",
+    navPlaces: "Explorar",
+    navWhen: "Cuándo",
+    navMore: "Más",
   },
   alerts: {
     title: "Antes de ir",

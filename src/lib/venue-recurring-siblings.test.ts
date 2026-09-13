@@ -25,13 +25,13 @@ function event(partial: Partial<Event> & Pick<Event, "id" | "title">): Event {
 
 describe("clusterRecurringVenueEvents", () => {
   it("keeps the first night and attaches sibling labels", () => {
-    const sunday = event({
-      id: "voyvoy-sunday-open-mic",
-      title: "VOYVOY Sunday Open Mic",
+    const saturday = event({
+      id: "voyvoy-saturday-session",
+      title: "VOYVOY Saturday Session",
       venueSlug: "voyvoy-cabarete",
       recurrence: "weekly",
-      recurrenceDay: 0,
-      date: "2026-08-30",
+      recurrenceDay: 6,
+      date: "2026-08-29",
     });
     const monday = event({
       id: "voyvoy-monday-live-music",
@@ -50,13 +50,13 @@ describe("clusterRecurringVenueEvents", () => {
     });
 
     const clustered = clusterRecurringVenueEvents(
-      [sunday, monday, other],
+      [saturday, monday, other],
       "en",
       dict,
     );
 
     assert.equal(clustered.length, 2);
-    assert.equal(clustered[0]?.id, "voyvoy-sunday-open-mic");
+    assert.equal(clustered[0]?.id, "voyvoy-saturday-session");
     assert.deepEqual(
       clustered[0]?.venueSiblings?.map((s) => s.id),
       ["voyvoy-monday-live-music"],
@@ -66,12 +66,12 @@ describe("clusterRecurringVenueEvents", () => {
   });
 
   it("counts clustered rows, not every sibling night", () => {
-    const sunday = event({
-      id: "voyvoy-sunday-open-mic",
-      title: "VOYVOY Sunday Open Mic",
+    const saturday = event({
+      id: "voyvoy-saturday-session",
+      title: "VOYVOY Saturday Session",
       venueSlug: "voyvoy-cabarete",
       recurrence: "weekly",
-      recurrenceDay: 0,
+      recurrenceDay: 6,
     });
     const monday = event({
       id: "voyvoy-monday-live-music",
@@ -86,10 +86,10 @@ describe("clusterRecurringVenueEvents", () => {
       venueSlug: "kite-beach",
     });
 
-    const visible = eventsAfterVenueClustering([sunday, monday, oneOff]);
+    const visible = eventsAfterVenueClustering([saturday, monday, oneOff]);
     assert.deepEqual(
       visible.map((item) => item.id),
-      ["voyvoy-sunday-open-mic", "festival"],
+      ["voyvoy-saturday-session", "festival"],
     );
   });
 

@@ -27,7 +27,6 @@ const FILE_TO_EVENT_ID = {
   "anfiteatro-la-puntilla-weekday-bowl.jpg": "anfiteatro-la-puntilla-weekday-bowl",
   "voyvoy-saturday-session-band.jpg": "voyvoy-saturday-session-band",
   "drifter-sunset-into-the-night.jpg": "drifter-sunset-into-the-night",
-  "voyvoy-sunday-open-mic-closeup.jpg": "voyvoy-sunday-open-mic-closeup",
   "voyvoy-monday-night-terrace.jpg": "voyvoy-monday-live-music",
   "hard-rock-billed-concerts.jpg": "hard-rock-billed-concerts",
   "sosua-jewish-museum-hours.jpg": "sosua-jewish-museum-hours",
@@ -221,7 +220,7 @@ const FILE_TO_EVENT_ID = {
 const SAME_VENUE_COPIES = [
   // El Batey salsa vs weekend nightlife now have distinct heroes.
   // Ojo / open mic / LAX headlines use dedicated assets (not salsa social or sunset).
-  // Voy Voy: do NOT clone Monday dining onto Sat/Sun — unique band / mic heroes.
+  // Voy Voy: do NOT clone Monday dining onto Saturday — unique band / flyer heroes.
   // Del Oro Sat listing reuses the weekday tour-counter hero via event-images.ts.
   ["vivonte-cigar-factory-weekdays.jpg", "vivonte-cigar-factory-saturday"],
   ["asa-surviaval.jpeg", "ingest-asa-survival-series-cdf-vs-dracos-game-1"],
@@ -273,7 +272,7 @@ const FILE_TO_VENUE_SLUG = {
   // El Batey venue card is the walkable Pedro Clisante restaurant-and-bar strip —
   // not Plaza García / Entrada, not the nightlife event shot.
   "el-batey-pedro-clisante-strip.jpg": "el-batey-pedro-clisante-strip",
-  // Authentic Voyvoy bar interior; Sat/Sun use dedicated event heroes (see FILE_TO_EVENT_ID).
+  // Authentic Voyvoy bar interior; Saturday uses dedicated event heroes (see FILE_TO_EVENT_ID).
   "voyvoy-cabarete-bar.jpg": "voyvoy-cabarete-bar",
   "drifter-cabarete-sunset.jpg": "drifter-cabarete-sunset",
   // Filename bump — daytime dining room (not the weekly live-music still).

@@ -175,8 +175,8 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
   },
   "voyvoy-cabarete": {
     description: {
-      es: "Restaurante frente al mar y vida nocturna en la bahía de Cabarete — open mic, Saturday Sessions y vistas a la bahía. Horario: dom/mar/jue/vie 7:30 AM–11:00 PM; lun 7:30 AM–1:00 AM; sáb 7:30 AM–3:00 AM; mié 7:30 AM–7:00 PM.",
-      fr: "Restaurant en bord de mer et spot de nuit sur la baie de Cabarete — open mic, Saturday Sessions et vue baie. Horaires : dim/mar/jeu/ven 7 h 30–23 h ; lun 7 h 30–1 h ; sam 7 h 30–3 h ; mer 7 h 30–19 h.",
+      es: "Restaurante frente al mar y vida nocturna en la bahía de Cabarete — música en vivo los lunes, Saturday Sessions y vistas a la bahía. Horario: dom/mar/jue/vie 7:30 AM–11:00 PM; lun 7:30 AM–1:00 AM; sáb 7:30 AM–3:00 AM; mié 7:30 AM–7:00 PM.",
+      fr: "Restaurant en bord de mer et spot de nuit sur la baie de Cabarete — live le lundi, Saturday Sessions et vue baie. Horaires : dim/mar/jeu/ven 7 h 30–23 h ; lun 7 h 30–1 h ; sam 7 h 30–3 h ; mer 7 h 30–19 h.",
     },
   },
   "aura-beach-club-cabarete": {

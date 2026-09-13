@@ -3,7 +3,6 @@ import { SEED_VENUES, matchVenueSlug } from "./venues-seed";
 
 /** Event-specific phones when the venue is missing or differs from the host. */
 const EVENT_PHONE_BY_ID: Record<string, string> = {
-  "voyvoy-sunday-open-mic": "+18095710805",
   "voyvoy-saturday-session": "+18095710805",
   "la-chabola-wednesday-open-mic": "+18095435860",
   "groundzero-domingos-pal-pueblo": "+18494651313",

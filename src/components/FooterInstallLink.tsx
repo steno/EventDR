@@ -7,6 +7,7 @@ import { usePwaInstall } from "@/hooks/usePwaInstall";
 
 interface FooterInstallLinkProps {
   dict: Dictionary;
+  className?: string;
 }
 
 interface Step {
@@ -15,7 +16,10 @@ interface Step {
   text: string;
 }
 
-export function FooterInstallLink({ dict }: FooterInstallLinkProps) {
+export function FooterInstallLink({
+  dict,
+  className = "hover:text-neutral-800 dark:hover:text-neutral-200 transition-colors",
+}: FooterInstallLinkProps) {
   const { canShowInstall, canNativePrompt, isIOS, isStandalone, promptInstall } =
     usePwaInstall();
   const [showGuide, setShowGuide] = useState(false);
@@ -61,11 +65,7 @@ export function FooterInstallLink({ dict }: FooterInstallLinkProps) {
 
   return (
     <>
-      <button
-        type="button"
-        onClick={handleClick}
-        className="hover:text-neutral-800 dark:hover:text-neutral-200 transition-colors"
-      >
+      <button type="button" onClick={handleClick} className={className}>
         {dict.install.menuLabel}
       </button>
 

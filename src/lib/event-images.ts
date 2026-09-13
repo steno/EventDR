@@ -142,7 +142,6 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "voyvoy-monday-live-music": "voyvoy-monday-night-terrace.jpg",
   // Filename bumps — unique heroes (sync used to clone Monday dining onto Sat/Sun).
   "voyvoy-saturday-session": "voyvoy-saturday-session-flyer.jpg",
-  "voyvoy-sunday-open-mic": "voyvoy-sunday-open-mic-closeup.jpg",
   "womens-reconnection-kite-camp-2026": "womens-reconnection-kite-camp-2026.jpg",
   "kite-beach-wind-culture": "kite-beach-wind-culture.jpg",
   "north-coast-tech-meetup": "north-coast-tech-meetup.jpg",

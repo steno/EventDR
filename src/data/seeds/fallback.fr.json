@@ -1,20 +1,5 @@
 [
   {
-    "id": "voyvoy-sunday-open-mic",
-    "title": "Open mic & jam du dimanche à VOYVOY",
-    "description": "Musique live, open mic et jam à VOYVOY, Cabarete. Lester Grant lance la soirée — apportez un instrument ou empruntez-en un. Ambiance détendue pour boire et dîner.",
-    "date": "2026-07-05",
-    "time": "5:00 PM – 11:00 PM",
-    "location": "Cabarete",
-    "venue": "VOYVOY Cabarete",
-    "venueSlug": "voyvoy-cabarete",
-    "category": "performances",
-    "format": "physical",
-    "recurrence": "weekly",
-    "recurrenceDay": 0,
-    "imageEmoji": "🎤"
-  },
-  {
     "id": "voyvoy-saturday-session",
     "title": "Saturday Session à VOYVOY",
     "description": "Saturday Session à VOYVOY Cabarete — DJs invités, ambiance dance club face à la baie, sans cover dès 21 h. Ouvert le samedi jusqu'à 3 h.",

@@ -201,7 +201,6 @@ export function facebookGroupSearchQueries(): string[] {
 }
 
 const FACEBOOK_SEED_EVENT_IDS_BASE = [
-  "voyvoy-sunday-open-mic",
   "voyvoy-saturday-session",
   "la-chabola-wednesday-open-mic",
   "groundzero-domingos-pal-pueblo",
