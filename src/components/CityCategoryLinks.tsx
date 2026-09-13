@@ -9,7 +9,9 @@ import {
   CATEGORY_SCROLLER_BAR,
 } from "@/components/category-scroller-styles";
 import { useCategoryAutoStepScroll } from "@/hooks/useCategoryAutoStepScroll";
-import { scrollBehaviorPreference } from "@/lib/list-scroll";
+import {
+  scrollToListTop,
+} from "@/lib/list-scroll";
 import type { EventCategory } from "@/lib/types";
 
 export type RelatedCategoryLink = {
@@ -39,6 +41,38 @@ interface CityCategoryLinksProps {
   onSoftNavigate?: (href: string) => boolean;
 }
 
+type RailScrollResult = "pending" | "done";
+
+/** Center `pill` in the horizontal scroller without scrolling the page. */
+function scrollActivePillIntoRail(
+  scroller: HTMLElement,
+  pill: HTMLElement,
+  behavior: ScrollBehavior,
+): RailScrollResult {
+  // Rail not measured yet (common on hard-nav from home before first layout).
+  if (scroller.clientWidth <= 0 || pill.offsetWidth <= 0) return "pending";
+
+  const max = Math.max(0, scroller.scrollWidth - scroller.clientWidth);
+  const pillRect = pill.getBoundingClientRect();
+  const scrollerRect = scroller.getBoundingClientRect();
+  const outside =
+    pillRect.right > scrollerRect.right + 4 ||
+    pillRect.left < scrollerRect.left - 4;
+
+  // scrollWidth can lag one frame behind pill geometry on hard-nav from home.
+  if (max <= 0) return outside ? "pending" : "done";
+
+  const pillOffset = pillRect.left - scrollerRect.left + scroller.scrollLeft;
+  const nextLeft = Math.max(
+    0,
+    Math.min(pillOffset - (scroller.clientWidth - pill.offsetWidth) / 2, max),
+  );
+  if (Math.abs(scroller.scrollLeft - nextLeft) >= 2) {
+    scroller.scrollTo({ left: nextLeft, behavior });
+  }
+  return "done";
+}
+
 export function CityCategoryLinks({
   label,
   links,
@@ -49,6 +83,7 @@ export function CityCategoryLinks({
 }: CityCategoryLinksProps) {
   const activeRef = useRef<HTMLAnchorElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const navRef = useRef<HTMLElement>(null);
   const prevActiveKeyRef = useRef<string | null>(null);
   const pillCount = links.length + (allLink ? 1 : 0);
   useCategoryAutoStepScroll(scrollRef, pillCount);
@@ -58,23 +93,73 @@ export function CityCategoryLinks({
     (activeHref
       ? (links.find((link) => link.href === activeHref)?.id ?? activeHref)
       : "all");
+  const hasSelectedCategory = Boolean(activeCategoryId ?? activeHref);
 
+  // Keep the active pill in the rail. Hard-nav from home (late pills that were
+  // off-screen in the home slider) often runs before overflow is measured —
+  // retry until layout is ready. Soft-nav already has a warm layout.
   useEffect(() => {
-    const active = activeRef.current;
-    if (!active) return;
-
-    // Only recenter when the selected category changes — not when area soft-nav
-    // rewrites the same pill's href (that remount jump used to yank the rail).
     if (prevActiveKeyRef.current === activeKey) return;
-    prevActiveKeyRef.current = activeKey;
 
-    // Keep the active pill in view on the mobile slider without jumping the page.
-    active.scrollIntoView({
-      behavior: scrollBehaviorPreference(),
-      inline: "nearest",
-      block: "nearest",
-    });
+    let cancelled = false;
+    let rafId = 0;
+    let tries = 0;
+
+    const attempt = () => {
+      if (cancelled) return false;
+      const active = activeRef.current;
+      const scroller = scrollRef.current;
+      if (!active || !scroller) return false;
+      // Instant on land so a following hero/park scroll can't cancel a smooth slide.
+      const result = scrollActivePillIntoRail(scroller, active, "auto");
+      if (result === "done") {
+        prevActiveKeyRef.current = activeKey;
+        return true;
+      }
+      return false;
+    };
+
+    const tick = () => {
+      if (cancelled) return;
+      if (attempt()) return;
+      if (tries++ < 30) rafId = requestAnimationFrame(tick);
+    };
+
+    tick();
+
+    // After land-park / hero layout, force one more center for late pills.
+    const settleId = window.setTimeout(() => {
+      if (cancelled) return;
+      const active = activeRef.current;
+      const scroller = scrollRef.current;
+      if (!active || !scroller) return;
+      scrollActivePillIntoRail(scroller, active, "auto");
+      prevActiveKeyRef.current = activeKey;
+    }, 200);
+
+    return () => {
+      cancelled = true;
+      cancelAnimationFrame(rafId);
+      window.clearTimeout(settleId);
+    };
   }, [activeKey]);
+
+  // Home → category: skip the hero and park the icon row under the sticky
+  // header so the active pill stays on screen. onlyScrollDown avoids yanking
+  // up after detail→back scroll restoration mid-list.
+  useEffect(() => {
+    if (!hasSelectedCategory) return;
+
+    const timeoutId = window.setTimeout(() => {
+      const nav = navRef.current;
+      if (!nav) return;
+      scrollToListTop(nav, { onlyScrollDown: true });
+    }, 150);
+
+    return () => window.clearTimeout(timeoutId);
+    // Landing only — soft category swaps keep the rail in place.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   if (links.length === 0) return null;
 
@@ -121,7 +206,7 @@ export function CityCategoryLinks({
   };
 
   return (
-    <nav aria-label={label} data-category-nav className="mb-6">
+    <nav ref={navRef} aria-label={label} data-category-nav className="mb-6">
       <p className="mb-2.5 text-base font-semibold text-neutral-700 dark:text-neutral-300">
         {label}
       </p>

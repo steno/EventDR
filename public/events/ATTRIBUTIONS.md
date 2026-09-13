@@ -226,7 +226,7 @@ Curated images under `public/events/` and `public/venues/`.
 | `venues/mauros-puerto-plata.jpg` | Sluurpy / Mauro’s Puerto Plata listing photo | Interior dining room at Plaza Juan Brugal |
 | `venues/mi-bodegon-cabarete.jpg` | [Google Maps — Mi Bodegón](https://www.google.com/maps/place/Mi+Bodeg%C3%B3n/@19.7509018,-70.4147976,17z) visitor photo | Argentine bodegón interior at Plaza Ocean Dream |
 | `venues/tasty-food-park-puerto-plata.jpg` | POP-supplied Tasty Food Park entrance arch (Av. 27 de Febrero) | Venue place shot |
-| `venues/rancho-catalina-puerto-plata.jpg` | [TripAdvisor — La Catalina](https://www.tripadvisor.com/) / Sluurpy listing photo (`photo9jpg`) | Ranch dining place shot in El Cupey |
+| `venues/rancho-catalina-puerto-plata.jpg` | POP-supplied Rancho La Catalina terrace / valley view | Ranch dining place shot in El Cupey |
 | `el-carey-bohemian-wednesday.jpg` | POP-supplied El Carey Bohemian Night flyer | Wednesday cigar / Bohemian night |
 | `el-carey-sabado-de-son.jpg` | POP-supplied El Carey Sábado de Son flyer | Saturday son night |
 | `tasty-food-park-karaoke-wednesday.jpg` | POP-supplied Tasty Food Park karaoke flyer | Wednesday karaoke with DJ Koky |
