@@ -50,8 +50,10 @@ const EVENT_PHONE_BY_ID: Record<string, string> = {
   "sosua-neon-partyrun-2026-10-24": "+18495057778",
   "hard-rock-casa-mickey-2026-09-26": "+18495057778",
   "hard-rock-karaoke-wednesday": "+18495057778",
+  "hard-rock-rising-segunda-ronda-2026-09-16": "+18495057778",
   "latinwok-ramen-party-2026-09-17": "+18092612020",
   "tasty-food-park-karaoke-wednesday": "+18092042939",
+  "tasty-food-park-show-de-magia-2026-09-13": "+18092042939",
   "pop-cinemas-week-2026-08-20": "+18093201400",
   "petit-francois-friday-karaoke": "+18294922910",
   // Pablito Guzmán / Cabarete Classic organizer line (long-published)

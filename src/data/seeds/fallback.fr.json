@@ -1724,5 +1724,55 @@
     "sourceType": "instagram",
     "sourceUrl": "https://www.instagram.com/p/DcrPAJkp8m9/",
     "imageEmoji": "🏠"
+  },
+  {
+    "id": "tasty-food-park-show-de-magia-2026-09-13",
+    "title": "Spectacle de magie au Tasty Food Park",
+    "description": "Spectacle de magie au Tasty Food Park, Av. 27 de Febrero, Puerto Plata — dimanche 13 septembre 2026 à 19 h. Plats du food court et boissons sous les guirlandes. Confirmez cover et tables via Instagram @tastyfoodpark ou WhatsApp +1 809-204-2939.",
+    "date": "2026-09-13",
+    "time": "7:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Tasty Food Park",
+    "venueSlug": "tasty-food-park-puerto-plata",
+    "address": "Av. 27 de Febrero, Puerto Plata 57000",
+    "lat": 19.7922089,
+    "lng": -70.6867634,
+    "category": "performances",
+    "categories": [
+      "family",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18092042939",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/p/DdNiin9De2O/",
+    "imageEmoji": "🎩"
+  },
+  {
+    "id": "hard-rock-rising-segunda-ronda-2026-09-16",
+    "title": "Hard Rock Rising — Segunda Ronda",
+    "description": "Hard Rock Rising Global Live Music Challenge — Segunda Ronda au Hard Rock Cafe Puerto Plata, Sosúa — mercredi 16 septembre 2026 à 20 h. Powered by Coca-Cola. Soirée compétition live sur Calle Duarte ; confirmez billets et cover via WhatsApp +1 849-505-7778.",
+    "date": "2026-09-16",
+    "time": "8:00 PM",
+    "location": "Sosúa",
+    "venue": "Hard Rock Cafe Puerto Plata",
+    "venueSlug": "hard-rock-sosua",
+    "address": "Calle Duarte 7, Sosúa",
+    "lat": 19.7634107,
+    "lng": -70.5162309,
+    "category": "music",
+    "categories": [
+      "performances",
+      "festivals"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18495057778",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/p/DdO4DKoxoRk/",
+    "imageEmoji": "🎸"
   }
 ]

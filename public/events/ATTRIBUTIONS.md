@@ -254,3 +254,6 @@ Curated images under `public/events/` and `public/venues/`.
 | `venues/drifter-cabarete-sunset.jpg` | POP-supplied — Drifter Cabarete beachfront pavilion at sunset | Venue place shot (editor-provided, not scraped) |
 | `victrola-jueves-social.jpg` | POP-supplied — Victrola 037 Arte Café Jueves Social flyer (tabla + 4 sangrías) | Weekly Thursday social promo (editor-provided) |
 | `victrola-mojitos-friday.jpg` | POP-supplied — Victrola 037 Arte Café Viernes mojitos 2x1 / Café Meclao' flyer | Weekly Friday live + 2x1 mojitos (editor-provided; replaces Ladies Night) |
+| `tasty-food-park-show-de-magia-2026-09-13.jpg` | POP-supplied — Tasty Food Park Show de Magia flyer ([IG](https://www.instagram.com/p/DdNiin9De2O/)) | Magic show Sun 13 Sep 2026 7 PM (editor-provided) |
+| `cigar-town-domingo-de-matine.jpg` | POP-supplied — Cigar Town Domingo de Matiné promo ([reel](https://www.instagram.com/reel/DdNgA2tsgGt/)) | Weekly Sunday coffee/drinks or 2 beers + 10% off (editor-provided) |
+| `hard-rock-rising-segunda-ronda-2026-09-16.jpg` | POP-supplied — Hard Rock Rising Global Live Music Challenge Segunda Ronda flyer ([IG](https://www.instagram.com/p/DdO4DKoxoRk/)) | Competition night Wed 16 Sep 2026 8 PM (editor-provided) |

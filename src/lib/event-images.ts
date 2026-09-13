@@ -101,6 +101,9 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "el-carey-bohemian-wednesday": "el-carey-bohemian-wednesday.jpg",
   "el-carey-sabado-de-son": "el-carey-sabado-de-son.jpg",
   "tasty-food-park-karaoke-wednesday": "tasty-food-park-karaoke-wednesday.jpg",
+  "tasty-food-park-show-de-magia-2026-09-13":
+    "tasty-food-park-show-de-magia-2026-09-13.jpg",
+  "cigar-town-domingo-de-matine": "cigar-town-domingo-de-matine.jpg",
   "ernesto-betances-rancho-catalina-2026-09-13":
     "ernesto-betances-rancho-catalina-2026-09-13.jpg",
   "el-cuarteto-del-swing-zona-acapella-2026-09-13":
@@ -110,6 +113,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "hard-rock-karaoke-wednesday": "hard-rock-karaoke-wednesday.jpg",
   "sosua-neon-partyrun-2026-10-24": "sosua-neon-partyrun-2026-10-24.jpg",
   "hard-rock-casa-mickey-2026-09-26": "hard-rock-casa-mickey-2026-09-26.jpg",
+  "hard-rock-rising-segunda-ronda-2026-09-16":
+    "hard-rock-rising-segunda-ronda-2026-09-16.jpg",
   "drifter-sunset-into-the-night": "drifter-sunset-into-the-night.jpg",
   "sosua-jewish-museum-hours": "sosua-jewish-museum-hours.jpg",
   "sosua-diving-adventures-daily": "sosua-diving-adventures-daily.jpg",
@@ -344,6 +349,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "chill-and-grill-sunday-bingo.jpg",
   "cigar-town-acustico-humos-2026-08-14.jpg",
   "cigar-town-acustico-humos.jpg",
+  "cigar-town-domingo-de-matine.jpg",
   "cigar-town-la-pena-thursdays.jpg",
   "cigar-town-noche-bohemia-2026-09-12.jpg",
   "cigar-town-ron-humos.jpg",
@@ -365,6 +371,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "guananico-san-miguel-patronales-2026.jpg",
   "hard-rock-casa-mickey-2026-09-26.jpg",
   "hard-rock-karaoke-wednesday.jpg",
+  "hard-rock-rising-segunda-ronda-2026-09-16.jpg",
   "imbert-mercedes-patronales-2026.jpg",
   "latinwok-ramen-party-2026-09-17.jpg",
   "lena-dardelet-aura-beach-club-2026-07-24.png",
@@ -382,6 +389,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "sunset-night-party-playa-encuentro-2026-07-25.jpg",
   "super-mega-urban-fest-2026-11-04.jpg",
   "tasty-food-park-karaoke-wednesday.jpg",
+  "tasty-food-park-show-de-magia-2026-09-13.jpg",
   "todos-somos-luperon-2026-09-08.jpg",
   "victrola-jueves-social.jpg",
   "victrola-mojitos-friday.jpg",

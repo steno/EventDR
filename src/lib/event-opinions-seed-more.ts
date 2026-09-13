@@ -2064,4 +2064,62 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "Sep 4 2026 IG post Dc5N13XjnNd — Sun Oct 4 from 10 PM; Motocross + Viral Sosúa; flyer pricing.",
     updatedAt: "2026-09-11T21:00:00.000Z",
   },
+  {
+    eventId: "tasty-food-park-show-de-magia-2026-09-13",
+    body: "One-off Sunday magic set at 7 PM — food-court tables under the lights, not a theater seat; grab a vendor plate before showtime and confirm cover on WhatsApp.",
+    localized: {
+      es: "Show de magia único el domingo a las 7 PM — mesas de food court bajo las luces, no butaca de teatro; pide en un puesto antes del show y confirma cover por WhatsApp.",
+      fr: "Spectacle de magie unique dimanche à 19 h — tables food court sous les guirlandes, pas un siège de théâtre ; prenez un plat avant le show et confirmez le cover WhatsApp.",
+    },
+    priceFeel: "budget",
+    priceNote:
+      "Cover not on flyer — budget vendor plates/drinks; WhatsApp +1 809-204-2939",
+    priceNoteLocalized: {
+      es: "Cover no en el flyer — presupuesta platos/tragos del food court; WhatsApp +1 809-204-2939",
+      fr: "Cover absent du flyer — budget plats/verres food court ; WhatsApp +1 809-204-2939",
+    },
+    attribution: "POP research · @tastyfoodpark Show de Magia flyer",
+    researchNotes:
+      "Editor-supplied flyer + IG https://www.instagram.com/p/DdNiin9De2O/ — Domingo 13, 7:00 PM, Tasty Food Park. No cover/admission on art.",
+    updatedAt: "2026-09-13T15:00:00.000Z",
+  },
+  {
+    eventId: "cigar-town-domingo-de-matine",
+    seriesKey: "cigar-town-pop:weekly:0",
+    body: "Sunday daytime lounge promo — 10% off on café+2 drinks or 2 beers; quieter than Thursday La Peña bottle nights, still cigar-lounge spend.",
+    localized: {
+      es: "Promo de lounge diurna los domingo — 10% off en café+2 tragos o 2 cervezas; más quieto que La Peña de jueves con botella, igual gasto de lounge.",
+      fr: "Promo lounge en journée le dimanche — 10 % off sur café+2 verres ou 2 bières ; plus calme que La Peña du jeudi en bouteille, toujours budget lounge.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "Flyer promo with 10% off — no published RD$ package price or start time; ask @cigartownpop",
+    priceNoteLocalized: {
+      es: "Promo del flyer con 10% off — sin precio RD$ ni hora publicados; pregunta en @cigartownpop",
+      fr: "Promo de l'affiche avec 10 % off — pas de prix RD$ ni d'heure publiés ; demandez à @cigartownpop",
+    },
+    attribution: "POP research · @cigartownpop Domingo de Matiné",
+    researchNotes:
+      "Editor-supplied flyer + reel https://www.instagram.com/reel/DdNgA2tsgGt/ — Todos los domingos; 1 café + 2 tragos o 2 cervezas con 10% off; Av. Luis Ginebra 56. No start time or base price.",
+    updatedAt: "2026-09-13T15:00:00.000Z",
+  },
+  {
+    eventId: "hard-rock-rising-segunda-ronda-2026-09-16",
+    body: "Competition stage night at 8 PM — live Rising round, not karaoke Wednesday; confirm door price on WhatsApp before you treat it as a free hang.",
+    localized: {
+      es: "Noche de competencia a las 8 PM — ronda Rising en vivo, no el karaoke de miércoles; confirma cover por WhatsApp antes de tratarlo como plan gratis.",
+      fr: "Soirée compétition à 20 h — tour Rising live, pas le karaoké du mercredi ; confirmez le cover WhatsApp avant de le traiter comme une soirée gratuite.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "Ticket/cover not on flyer — WhatsApp +1 849-505-7778; budget Hard Rock food and drinks either way",
+    priceNoteLocalized: {
+      es: "Boleto/cover no en el flyer — WhatsApp +1 849-505-7778; presupuesta comida y tragos Hard Rock de todos modos",
+      fr: "Billet/cover absent du flyer — WhatsApp +1 849-505-7778 ; budget nourriture et boissons Hard Rock dans tous les cas",
+    },
+    attribution: "POP research · Hard Rock Rising × Coca-Cola flyer",
+    researchNotes:
+      "Editor-supplied flyer + IG https://www.instagram.com/p/DdO4DKoxoRk/ — Sep 16 8 PM Segunda Ronda, Hard Rock Rising Global Live Music Challenge powered by Coca-Cola. Venue assumed Hard Rock Cafe Puerto Plata (Sosúa) from series context; no price on art.",
+    updatedAt: "2026-09-13T15:00:00.000Z",
+  },
 ];

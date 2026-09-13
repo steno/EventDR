@@ -37,6 +37,7 @@ import { useSavedEvents } from "@/hooks/useSavedEvents";
 import {
   getHomeDiscoverLayout,
   HOME_SEARCH_LIMIT,
+  HOME_SPECIALS_LIMIT,
 } from "@/lib/home-layout";
 import { searchVenues } from "@/lib/filters";
 import { PAGE_SHELL_CLASS } from "@/lib/page-shell";
@@ -704,7 +705,9 @@ function HomeApp({
                   dict={dict}
                   prefiltered
                   title={dict.events.todaysSpecials}
-                  hideSeeAll
+                  limit={HOME_SPECIALS_LIMIT}
+                  seeAllHref={seeAllTodayHref}
+                  seeAllLabel={dict.events.seeAllSpecials}
                   listTimeRange="today"
                   returnTo={homePath}
                   featurePromo

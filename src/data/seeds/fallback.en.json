@@ -1726,5 +1726,55 @@
     "sourceType": "instagram",
     "sourceUrl": "https://www.instagram.com/p/DcrPAJkp8m9/",
     "imageEmoji": "🏠"
+  },
+  {
+    "id": "tasty-food-park-show-de-magia-2026-09-13",
+    "title": "Magic Show at Tasty Food Park",
+    "description": "Magic show at Tasty Food Park on Av. 27 de Febrero, Puerto Plata — Sunday 13 September 2026 at 7:00 PM. Food-court plates and drinks under the lights. Confirm cover and seating via Instagram @tastyfoodpark or WhatsApp +1 809-204-2939.",
+    "date": "2026-09-13",
+    "time": "7:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Tasty Food Park",
+    "venueSlug": "tasty-food-park-puerto-plata",
+    "address": "Av. 27 de Febrero, Puerto Plata 57000",
+    "lat": 19.7922089,
+    "lng": -70.6867634,
+    "category": "performances",
+    "categories": [
+      "family",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18092042939",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/p/DdNiin9De2O/",
+    "imageEmoji": "🎩"
+  },
+  {
+    "id": "hard-rock-rising-segunda-ronda-2026-09-16",
+    "title": "Hard Rock Rising — Segunda Ronda",
+    "description": "Hard Rock Rising Global Live Music Challenge — Segunda Ronda at Hard Rock Cafe Puerto Plata, Sosúa — Wednesday 16 September 2026 at 8:00 PM. Powered by Coca-Cola. Live competition night on Calle Duarte; confirm tickets and cover via WhatsApp +1 849-505-7778.",
+    "date": "2026-09-16",
+    "time": "8:00 PM",
+    "location": "Sosúa",
+    "venue": "Hard Rock Cafe Puerto Plata",
+    "venueSlug": "hard-rock-sosua",
+    "address": "Calle Duarte 7, Sosúa",
+    "lat": 19.7634107,
+    "lng": -70.5162309,
+    "category": "music",
+    "categories": [
+      "performances",
+      "festivals"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18495057778",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/p/DdO4DKoxoRk/",
+    "imageEmoji": "🎸"
   }
 ]

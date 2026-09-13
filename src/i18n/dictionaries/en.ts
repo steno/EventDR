@@ -98,6 +98,8 @@ export type Dictionary = {
     ourPicks: string;
     happeningToday: string;
     seeAllToday: string;
+    /** Home “Today’s specials” see-all when more than the visible row. */
+    seeAllSpecials: string;
     /** Home section: dated one-offs that start today (hidden when empty). */
     todaysSpecials: string;
     /** Home section: recently added listings. */
@@ -700,6 +702,7 @@ export const en: Dictionary = {
     ourPicks: "Our picks",
     happeningToday: "Happening today",
     seeAllToday: "See all today",
+    seeAllSpecials: "See all specials",
     todaysSpecials: "Today's specials",
     recentlyAdded: "Recently added",
     comingUp: "On the horizon",

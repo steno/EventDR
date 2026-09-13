@@ -113,6 +113,7 @@ export const es: Dictionary = {
     ourPicks: "Nuestras selecciones",
     happeningToday: "Hoy",
     seeAllToday: "Ver todo hoy",
+    seeAllSpecials: "Ver todos los especiales",
     todaysSpecials: "Especiales de hoy",
     recentlyAdded: "Añadidos recientemente",
     comingUp: "En el horizonte",
