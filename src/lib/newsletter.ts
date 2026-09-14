@@ -107,7 +107,7 @@ export async function sendWelcomeEmail(
   return resendSend({
     to: email,
     subject: WELCOME_SUBJECT[locale],
-    html: wrapEmailHtml(body.html),
+    html: wrapEmailHtml(body.html, home),
     text: body.text,
     headers: {
       "List-Unsubscribe": `<${unsub}>`,
@@ -181,16 +181,22 @@ export function buildWeekendNewsletter(
 ${inner}
 <p style="margin:24px 0 0"><a href="${weekend}" style="display:inline-block;background:#f97316;color:#fff;font-weight:700;text-decoration:none;padding:12px 18px;border-radius:999px">${escapeHtml(browse[locale])}</a></p>
 <p style="color:#737373;font-size:12px;margin:28px 0 0"><a href="${unsub}" style="color:#737373">Unsubscribe</a></p>`,
+    newsletterUrl(`/${locale}`),
   );
 
   return { subject: digest.weekendLabel, html, text };
 }
 
-function wrapEmailHtml(inner: string): string {
-  return `<!DOCTYPE html><html><body style="margin:0;padding:24px;background:#fafafa;font-family:ui-sans-serif,system-ui,-apple-system,sans-serif;color:#0a0a0a">
+/** Hosted mark for HTML email (absolute URL; email clients ignore relative paths). */
+export const NEWSLETTER_LOGO_URL = `${SITE_URL}/poplogo-safe.png`;
+
+function wrapEmailHtml(inner: string, homeUrl: string = SITE_URL): string {
+  const logo = `<a href="${homeUrl}" style="text-decoration:none"><img src="${NEWSLETTER_LOGO_URL}" width="92" height="83" alt="POP Events" style="display:block;border:0;outline:none;margin:0 0 20px;height:auto;max-width:92px" /></a>`;
+  // Match site light-mode `--background` (`globals.css`); email clients need hex.
+  return `<!DOCTYPE html><html><body style="margin:0;padding:24px;background:#f6f3ee;font-family:ui-sans-serif,system-ui,-apple-system,sans-serif;color:#0a0a0a">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td align="center">
-<table role="presentation" width="560" cellpadding="0" cellspacing="0" style="max-width:560px;width:100%;background:#fff;border-radius:16px;padding:28px;border:1px solid #f5f5f5">
-<tr><td>${inner}</td></tr>
+<table role="presentation" width="560" cellpadding="0" cellspacing="0" style="max-width:560px;width:100%;background:#fff;border-radius:16px;padding:28px;border:1px solid #ebe6df">
+<tr><td>${logo}${inner}</td></tr>
 </table></td></tr></table></body></html>`;
 }
 
