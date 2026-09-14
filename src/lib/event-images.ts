@@ -97,6 +97,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   // Filename bump — POP-supplied Mujeres Empoderadas flyer refresh (PWA caches old path).
   "el-carey-karaoke-mujeres-monday": "el-carey-karaoke-mujeres-monday-2026.jpg",
   "classic-cars-puerto-plata-daily": "classic-cars-puerto-plata-daily.jpg",
+  "spotland-sabado-retro-familiar-2026-09-19":
+    "spotland-sabado-retro-familiar-2026-09-19.jpg",
   "el-carey-weekend-nightlife": "el-carey-weekend-nightlife-lanterns.jpg",
   "el-carey-bohemian-wednesday": "el-carey-bohemian-wednesday.jpg",
   "el-carey-sabado-de-son": "el-carey-sabado-de-son.jpg",
@@ -420,6 +422,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "cigar-town-karaoke-ladies-night-2026-09-19.jpg",
   "aura-beach-club-lunes-especiales.jpg",
   "aura-beach-club-miercoles-margaritas.jpg",
+  "spotland-sabado-retro-familiar-2026-09-19.jpg",
   "los-event-trilogy-2026-09-03.jpg",
   "love-does-bocadillos-course-2026.jpg",
   "love-does-cocktails-solidarity-2026-09-04.jpg",

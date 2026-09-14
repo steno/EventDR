@@ -1058,11 +1058,11 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "spotland-puerto-plata": {
-    body: "Outdoor fun-food-photo park on Av. Luis Ginebra — kids playground energy under shade sails, not a nightlife deck. Open Thu–Mon 2–10 PM; closed Tue–Wed — check @spotlandrd before you pin the strip.",
+    body: "Outdoor fun-food-photo park on Av. Luis Ginebra — kids playground energy under shade sails, not a nightlife deck. Open Thu–Mon 2–10 PM (closed Tue–Wed); themed family Saturdays like Retro ’80s when billed — check @spotlandrd before you pin the strip.",
     localized: {
-      en: "Outdoor fun-food-photo park on Av. Luis Ginebra — kids playground energy under shade sails, not a nightlife deck. Open Thu–Mon 2–10 PM; closed Tue–Wed — check @spotlandrd before you pin the strip.",
-      es: "Parque outdoor de diversión, comida y fotos en Av. Luis Ginebra — energía de juegos bajo toldos, no una terraza de nightlife. Abierto jue–lun 2–10 PM; cerrado mar–mié — mira @spotlandrd antes de clavar la avenida.",
-      fr: "Parc outdoor fun-food-photos sur Av. Luis Ginebra — énergie playground sous voiles d’ombre, pas une terrasse nightlife. Ouvert jeu–lun 14 h–22 h ; fermé mar–mer — vérifiez @spotlandrd avant d’épingler l’avenue.",
+      en: "Outdoor fun-food-photo park on Av. Luis Ginebra — kids playground energy under shade sails, not a nightlife deck. Open Thu–Mon 2–10 PM (closed Tue–Wed); themed family Saturdays like Retro ’80s when billed — check @spotlandrd before you pin the strip.",
+      es: "Parque outdoor de diversión, comida y fotos en Av. Luis Ginebra — energía de juegos bajo toldos, no una terraza de nightlife. Abierto jue–lun 2–10 PM (cerrado mar–mié); sábados familiares temáticos como Retro 80s cuando hay cartel — mira @spotlandrd antes de clavar la avenida.",
+      fr: "Parc outdoor fun-food-photos sur Av. Luis Ginebra — énergie playground sous voiles d’ombre, pas une terrasse nightlife. Ouvert jeu–lun 14 h–22 h (fermé mar–mer) ; samedis familiaux thématiques genre Retro 80s quand annoncé — vérifiez @spotlandrd avant d’épingler l’avenue.",
     },
   },
   "classic-cars-dominicana": {

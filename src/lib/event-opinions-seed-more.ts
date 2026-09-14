@@ -2346,4 +2346,24 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "IG bio: exclusive classic-car tours PP, events/weddings/photo; (809) 769-8732. Blog: ~3 hr, slots 8/10/2/4, reservation-only. TripAdvisor AttractionProductReview-g147288-d25984973.",
     updatedAt: "2026-09-14T12:00:00.000Z",
   },
+  {
+    eventId: "spotland-sabado-retro-familiar-2026-09-19",
+    seriesKey: "spotland-puerto-plata:2026-09-19",
+    body: "Family ’80s dress-up Saturday on Luis Ginebra — bring neon for the kids RD$150 promo and plan on inflatables plus retro playlist, not a late disco crawl; adult cover still confirm on @spotlandrd.",
+    localized: {
+      es: "Sábado familiar de vestuario 80s en Luis Ginebra — trae neón para la promo kids RD$150 y cuenta con brinca-brincas más playlist retro, no un crawl disco tarde; el cover de adultos confírmalo en @spotlandrd.",
+      fr: "Samedi familial déguisé années 80 sur Luis Ginebra — amenez du néon pour la promo kids RD$150 et comptez gonflables + playlist rétro, pas un crawl disco tardif ; confirmez le cover adultes sur @spotlandrd.",
+    },
+    priceFeel: "budget",
+    priceNote:
+      "Kids RD$150 in ’80s dress — adult cover not on flyer; confirm via @spotlandrd",
+    priceNoteLocalized: {
+      es: "Niños RD$150 con vestuario 80s — cover adultos no está en el flyer; confirma con @spotlandrd",
+      fr: "Enfants RD$150 en tenue 80s — cover adultes absent de l’affiche ; confirmez via @spotlandrd",
+    },
+    attribution: "POP research · @spotlandrd Sábado Retro Familiar",
+    researchNotes:
+      "Editor flyer + Story: Sat 19 Sep 2026 2–10 PM; ’80s dress; music/food/cocktails/games/inflatables; kids RD$150 with 80s flow; Av. Luis Ginebra Spot Land.",
+    updatedAt: "2026-09-14T12:00:00.000Z",
+  },
 ];

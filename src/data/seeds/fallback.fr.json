@@ -2033,5 +2033,31 @@
     "sourceType": "instagram",
     "sourceUrl": "https://www.instagram.com/cigartownpop/",
     "imageEmoji": "🎤"
+  },
+  {
+    "id": "spotland-sabado-retro-familiar-2026-09-19",
+    "title": "Sábado Retro Familiar à Spot Land",
+    "description": "Journée Retro Familiale à Spot Land, Av. Luis Ginebra, Puerto Plata — samedi 19 septembre 2026, 14 h–22 h. Dress code années 80 / rétro (néon, denim, vestes rocker bienvenues), musique rétro pour chanter et danser, food et cocktails, jeux et structures gonflables. Superpromo kids : les enfants en flow 80s entrent à RD$150. Confirmez le cover adultes et les tables via Instagram @spotlandrd.",
+    "date": "2026-09-19",
+    "time": "2:00 PM – 10:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Spot Land",
+    "venueSlug": "spotland-puerto-plata",
+    "address": "Av. Luis Ginebra, Puerto Plata",
+    "lat": 19.7912,
+    "lng": -70.6812,
+    "category": "parties",
+    "categories": [
+      "family",
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "admissionPrice": "Enfants RD$150 (tenue 80s)",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/spotlandrd/",
+    "imageEmoji": "🕺"
   }
 ]
