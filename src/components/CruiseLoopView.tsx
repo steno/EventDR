@@ -53,126 +53,133 @@ export function CruiseLoopView({
           </IntentLink>
         </header>
 
-        <p className="mt-3 text-xs font-bold uppercase tracking-[0.18em] text-orange-600 dark:text-orange-400">
-          {copy.eyebrow} · {portName}
-        </p>
-        <div className="mt-2 flex items-start justify-between gap-3">
-          <h1 className="font-sans text-display font-extrabold tracking-tight text-neutral-950 dark:text-neutral-50">
-            {title}
-          </h1>
-          <span className="mt-1 shrink-0 rounded-full bg-orange-50 px-2.5 py-1 text-xs font-bold text-orange-700 dark:bg-orange-950/50 dark:text-orange-300">
-            {fillTemplate(copy.itineraryMinutes, { minutes: String(minutes) })}
-          </span>
-        </div>
-        <p className="mt-2 max-w-xl text-copy-lead text-neutral-600 dark:text-neutral-300">
-          {body}
-        </p>
+        {/* Mobile: title → map → list. Desktop: sticky map left, list right. */}
+        <div className="mt-3 flex flex-col gap-6 lg:grid lg:grid-cols-[minmax(18rem,0.9fr)_minmax(0,1.1fr)] lg:items-start lg:gap-8">
+          <div className="min-w-0 lg:col-start-2 lg:row-start-1">
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-orange-600 dark:text-orange-400">
+              {copy.eyebrow} · {portName}
+            </p>
+            <div className="mt-2 flex items-start justify-between gap-3">
+              <h1 className="font-sans text-display font-extrabold tracking-tight text-neutral-950 dark:text-neutral-50">
+                {title}
+              </h1>
+              <span className="mt-1 shrink-0 rounded-full bg-orange-50 px-2.5 py-1 text-xs font-bold text-orange-700 dark:bg-orange-950/50 dark:text-orange-300">
+                {fillTemplate(copy.itineraryMinutes, {
+                  minutes: String(minutes),
+                })}
+              </span>
+            </div>
+            <p className="mt-2 max-w-xl text-copy-lead text-neutral-600 dark:text-neutral-300">
+              {body}
+            </p>
 
-        <section className="mt-5 overflow-hidden rounded-2xl border border-neutral-200 bg-neutral-100 dark:border-neutral-800 dark:bg-neutral-900">
-          <div className="relative h-[min(22rem,70dvh)] w-full sm:h-[28rem]">
-            {mapStops.length > 0 ? (
-              <CruiseLoopLeaflet
-                stops={mapStops}
-                route={route}
-                pinCopy={{
-                  fromShip: copy.fromTheShip,
-                  viewVenue: dict.detail.viewVenue,
-                  viewEvent: dict.detail.viewEvent,
-                  close: dict.detail.close,
-                }}
-                returnTo={returnTo}
-                returnTitle={title}
-              />
-            ) : osmEmbedUrl ? (
-              <iframe
-                title={title}
-                src={osmEmbedUrl}
-                className="h-full w-full border-0"
-                loading="lazy"
-              />
-            ) : (
-              <div className="flex h-full items-center justify-center px-4 text-center text-sm text-neutral-500">
+            {!route && mapStops.length > 0 ? (
+              <p className="mt-2 text-sm text-neutral-500 dark:text-neutral-400">
                 {copy.routeUnavailable}
-              </div>
-            )}
+              </p>
+            ) : null}
           </div>
-        </section>
-        {!route && mapStops.length > 0 ? (
-          <p className="mt-2 text-sm text-neutral-500 dark:text-neutral-400">
-            {copy.routeUnavailable}
-          </p>
-        ) : null}
 
-        <div className="mt-4">
-          <CruiseLoopShare
-            title={title}
-            url={shareUrl}
-            shareLabel={copy.shareLoop}
-            copyLabel={copy.copyLink}
-            copiedLabel={copy.linkCopied}
-          />
-        </div>
-
-        {legs.length > 0 ? (
-          <section className="mt-8">
-            <h2 className={SECTION_TITLE_CLASS}>
-              {copy.routeTitle}
-            </h2>
-            <ol className="mt-3 space-y-1">
-              {legs.map((leg) => (
-                <li
-                  key={leg}
-                  className="rounded-xl bg-neutral-50 px-3 py-2.5 text-sm font-semibold text-neutral-800 dark:bg-neutral-900 dark:text-neutral-100"
-                >
-                  {leg}
-                </li>
-              ))}
-            </ol>
-          </section>
-        ) : null}
-
-        {stops.length > 0 ? (
-          <section className="mt-8 mb-4">
-            <h2 className={SECTION_TITLE_CLASS}>
-              {copy.stopsTitle}
-            </h2>
-            <ol className="mt-3 space-y-0.5">
-              <li className="flex min-h-11 items-center gap-2 rounded-lg px-1 py-1.5 text-sm font-semibold text-neutral-600 dark:text-neutral-300">
-                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-blue-50 text-[11px] font-bold text-blue-700 dark:bg-blue-950/50 dark:text-blue-300">
-                  S
-                </span>
-                {copy.fromTheShip}
-              </li>
-              {stops.map((stop, index) => (
-                <li key={stop.slug}>
-                  <IntentLink
-                    href={stop.href}
+          <div className="flex flex-col gap-3 lg:sticky lg:top-4 lg:col-start-1 lg:row-span-2 lg:row-start-1 lg:self-start">
+            <section className="overflow-hidden rounded-2xl border border-neutral-200 bg-neutral-100 dark:border-neutral-800 dark:bg-neutral-900">
+              <div className="relative h-[min(22rem,70dvh)] w-full sm:h-[28rem] lg:h-[min(32rem,calc(100dvh-6rem))]">
+                {mapStops.length > 0 ? (
+                  <CruiseLoopLeaflet
+                    stops={mapStops}
+                    route={route}
+                    pinCopy={{
+                      fromShip: copy.fromTheShip,
+                      viewVenue: dict.detail.viewVenue,
+                      viewEvent: dict.detail.viewEvent,
+                      close: dict.detail.close,
+                    }}
                     returnTo={returnTo}
                     returnTitle={title}
-                    className="flex min-h-11 items-center gap-2 rounded-lg px-1 py-1.5 text-sm font-semibold text-orange-700 touch-manipulation active:bg-orange-50 dark:text-orange-300 dark:active:bg-orange-950/40"
-                  >
-                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-orange-50 text-[11px] font-bold text-orange-700 dark:bg-orange-950/50 dark:text-orange-300">
-                      {index + 1}
-                    </span>
-                    <span className="min-w-0 flex-1 truncate underline decoration-orange-300 underline-offset-[3px] dark:decoration-orange-700">
-                      {stop.name}
-                    </span>
-                    <ChevronRight
-                      className="h-4 w-4 shrink-0 text-orange-500 dark:text-orange-400"
-                      aria-hidden
-                    />
-                  </IntentLink>
-                </li>
-              ))}
-              <li className="flex min-h-11 items-center gap-2 rounded-lg px-1 py-1.5 text-sm font-semibold text-neutral-600 dark:text-neutral-300">
-                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-blue-50 text-[11px] font-bold text-blue-700 dark:bg-blue-950/50 dark:text-blue-300">
-                  S
-                </span>
-                {copy.backToTheShip}
-              </li>
-            </ol>
-          </section>
-        ) : null}
+                  />
+                ) : osmEmbedUrl ? (
+                  <iframe
+                    title={title}
+                    src={osmEmbedUrl}
+                    className="h-full w-full border-0"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div className="flex h-full items-center justify-center px-4 text-center text-sm text-neutral-500">
+                    {copy.routeUnavailable}
+                  </div>
+                )}
+              </div>
+            </section>
+            <CruiseLoopShare
+              title={title}
+              url={shareUrl}
+              shareLabel={copy.shareLoop}
+              copyLabel={copy.copyLink}
+              copiedLabel={copy.linkCopied}
+            />
+          </div>
+
+          {(legs.length > 0 || stops.length > 0) && (
+            <div className="min-w-0 lg:col-start-2 lg:row-start-2">
+              {legs.length > 0 ? (
+                <section>
+                  <h2 className={SECTION_TITLE_CLASS}>{copy.routeTitle}</h2>
+                  <ol className="mt-3 space-y-1">
+                    {legs.map((leg) => (
+                      <li
+                        key={leg}
+                        className="rounded-xl bg-neutral-50 px-3 py-2.5 text-sm font-semibold text-neutral-800 dark:bg-neutral-900 dark:text-neutral-100"
+                      >
+                        {leg}
+                      </li>
+                    ))}
+                  </ol>
+                </section>
+              ) : null}
+
+              {stops.length > 0 ? (
+                <section className={legs.length > 0 ? "mt-8 mb-4" : "mb-4"}>
+                  <h2 className={SECTION_TITLE_CLASS}>{copy.stopsTitle}</h2>
+                  <ol className="mt-3 space-y-0.5">
+                    <li className="flex min-h-11 items-center gap-2 rounded-lg px-1 py-1.5 text-sm font-semibold text-neutral-600 dark:text-neutral-300">
+                      <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-blue-50 text-[11px] font-bold text-blue-700 dark:bg-blue-950/50 dark:text-blue-300">
+                        S
+                      </span>
+                      {copy.fromTheShip}
+                    </li>
+                    {stops.map((stop, index) => (
+                      <li key={stop.slug}>
+                        <IntentLink
+                          href={stop.href}
+                          returnTo={returnTo}
+                          returnTitle={title}
+                          className="flex min-h-11 items-center gap-2 rounded-lg px-1 py-1.5 text-sm font-semibold text-orange-700 touch-manipulation active:bg-orange-50 dark:text-orange-300 dark:active:bg-orange-950/40"
+                        >
+                          <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-orange-50 text-[11px] font-bold text-orange-700 dark:bg-orange-950/50 dark:text-orange-300">
+                            {index + 1}
+                          </span>
+                          <span className="min-w-0 flex-1 truncate underline decoration-orange-300 underline-offset-[3px] dark:decoration-orange-700">
+                            {stop.name}
+                          </span>
+                          <ChevronRight
+                            className="h-4 w-4 shrink-0 text-orange-500 dark:text-orange-400"
+                            aria-hidden
+                          />
+                        </IntentLink>
+                      </li>
+                    ))}
+                    <li className="flex min-h-11 items-center gap-2 rounded-lg px-1 py-1.5 text-sm font-semibold text-neutral-600 dark:text-neutral-300">
+                      <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-blue-50 text-[11px] font-bold text-blue-700 dark:bg-blue-950/50 dark:text-blue-300">
+                        S
+                      </span>
+                      {copy.backToTheShip}
+                    </li>
+                  </ol>
+                </section>
+              ) : null}
+            </div>
+          )}
+        </div>
       </div>
     </main>
   );
