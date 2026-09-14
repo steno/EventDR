@@ -168,7 +168,9 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "mauros-puerto-plata": "mauros-puerto-plata.jpg",
   "mi-bodegon-cabarete": "mi-bodegon-cabarete.jpg",
   "tasty-food-park-puerto-plata": "tasty-food-park-puerto-plata.jpg",
-  "rancho-catalina-puerto-plata": "rancho-catalina-puerto-plata.jpg",
+  // Filename bump — next/image + PWA cache the immutable /venues/* path;
+  // in-place replace of rancho-catalina-puerto-plata.jpg never reached detail heroes.
+  "rancho-catalina-puerto-plata": "rancho-catalina-puerto-plata-terrace.jpg",
   "ristorante-passatore-playa-dorada": "ristorante-passatore-playa-dorada.jpg",
   "sambalu-puerto-plata": "sambalu-puerto-plata.jpg",
   "skina-puerto-plata": "skina-puerto-plata.jpg",

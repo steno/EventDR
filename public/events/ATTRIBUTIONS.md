@@ -226,11 +226,11 @@ Curated images under `public/events/` and `public/venues/`.
 | `venues/mauros-puerto-plata.jpg` | Sluurpy / Mauro’s Puerto Plata listing photo | Interior dining room at Plaza Juan Brugal |
 | `venues/mi-bodegon-cabarete.jpg` | [Google Maps — Mi Bodegón](https://www.google.com/maps/place/Mi+Bodeg%C3%B3n/@19.7509018,-70.4147976,17z) visitor photo | Argentine bodegón interior at Plaza Ocean Dream |
 | `venues/tasty-food-park-puerto-plata.jpg` | POP-supplied Tasty Food Park entrance arch (Av. 27 de Febrero) | Venue place shot |
-| `venues/rancho-catalina-puerto-plata.jpg` | POP-supplied Rancho La Catalina terrace / valley view | Ranch dining place shot in El Cupey |
+| `venues/rancho-catalina-puerto-plata-terrace.jpg` | POP-supplied Rancho La Catalina terrace / valley view | Ranch dining place shot in El Cupey (filename bump for PWA/CDN) |
 | `el-carey-bohemian-wednesday.jpg` | POP-supplied El Carey Bohemian Night flyer | Wednesday cigar / Bohemian night |
 | `el-carey-sabado-de-son.jpg` | POP-supplied El Carey Sábado de Son flyer | Saturday son night |
 | `tasty-food-park-karaoke-wednesday.jpg` | POP-supplied Tasty Food Park karaoke flyer | Wednesday karaoke with DJ Koky |
-| `ernesto-betances-rancho-catalina-2026-09-13.jpg` | POP-supplied Rancho La Catalina live-music flyer | Ernesto Betances 13 Sep afternoon set |
+| `ernesto-betances-rancho-catalina-terrace.jpg` | POP-supplied Rancho La Catalina terrace / valley view | Ernesto Betances listing hero (filename bump; flyer kept as `ernesto-betances-rancho-catalina-2026-09-13.jpg`) |
 | `el-cuarteto-del-swing-zona-acapella-2026-09-13.jpg` | POP-supplied Zona Acapella Club flyer | El Cuarteto del Swing 13 Sep |
 | `latinwok-ramen-party-2026-09-17.jpg` | POP-supplied Latin Wok × El Ramero Solitario Ramen Party flyer | Authentic 17 Sep Plaza Uno ramen night flyer |
 | `cabarete-run-festival-5k-2026-11-08.jpg` | POP-supplied Cabarete Run Festival 5K flyer (Desarrollo Fitness) | Authentic 8 Nov 2026 race flyer |

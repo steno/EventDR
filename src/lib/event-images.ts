@@ -104,8 +104,10 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "tasty-food-park-show-de-magia-2026-09-13":
     "tasty-food-park-show-de-magia-2026-09-13.jpg",
   "cigar-town-domingo-de-matine": "cigar-town-domingo-de-matine.jpg",
+  // Filename bump — PWA detail heroes strip ?v=, so the flyer filename stayed cached;
+  // terrace place shot is the listing hero (flyer stays in public/events for reference).
   "ernesto-betances-rancho-catalina-2026-09-13":
-    "ernesto-betances-rancho-catalina-2026-09-13.jpg",
+    "ernesto-betances-rancho-catalina-terrace.jpg",
   "el-cuarteto-del-swing-zona-acapella-2026-09-13":
     "el-cuarteto-del-swing-zona-acapella-2026-09-13.jpg",
   "cabarete-run-festival-5k-2026-11-08": "cabarete-run-festival-5k-2026-11-08.jpg",
@@ -306,6 +308,8 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "cigar-town-noche-bohemia-2026-09-12": "object-center lg:object-left",
   // Portrait flyer — horse + flag sit mid-right; avoid the white header band on mobile cards.
   "todos-somos-luperon-2026-09-08": "object-[78%_40%] sm:object-center",
+  // Square terrace — keep the valley/ocean view, not the palapa rafters.
+  "ernesto-betances-rancho-catalina-2026-09-13": "object-center",
 };
 
 function curatedEventImageFile(eventId: string): string | undefined {
@@ -358,7 +362,6 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "el-carey-sabado-de-son.jpg",
   "el-carey-wc2026.jpg",
   "el-cuarteto-del-swing-zona-acapella-2026-09-13.jpg",
-  "ernesto-betances-rancho-catalina-2026-09-13.jpg",
   "groundzero-domingos-de-hookah.jpg",
   "groundzero-domingos-pal-pueblo.jpg",
   "groundzero-golden-night-2026-09-25.jpg",
