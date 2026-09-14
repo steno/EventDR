@@ -867,6 +867,18 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Terrasse restaurant et musique live au Calle Principal n° 3, Cofresí — soirées típico et fêtes à côté d’Ocean World. Instagram @oceanworldterrace.",
     },
   },
+  "spotland-puerto-plata": {
+    description: {
+      es: "Parque de diversión, comida y fotos en Av. Luis Ginebra — juegos al aire libre, toldos y plan familiar. Abierto jue–lun 2:00 PM–10:00 PM; cerrado mar–mié. Instagram @spotlandrd.",
+      fr: "Aire de jeux fun, food et photos sur Av. Luis Ginebra — structures outdoor, voiles d’ombre et sortie famille. Ouvert jeu–lun 14 h–22 h ; fermé mar–mer. Instagram @spotlandrd.",
+    },
+  },
+  "classic-cars-dominicana": {
+    description: {
+      es: "Tours privados en autos clásicos por Puerto Plata — convertibles restaurados, paradas para fotos y pickup hotel/crucero con reserva. Instagram @classiccarsrd · (809) 769-8732.",
+      fr: "Tours privés en voitures classiques à Puerto Plata — convertibles restaurées, stops photo et pickup hôtel/croisière sur réservation. Instagram @classiccarsrd · (809) 769-8732.",
+    },
+  },
 };
 
 export function localizeVenue(venue: Venue, locale: Locale): Venue {

@@ -2631,5 +2631,31 @@
     "sourceType": "instagram",
     "sourceUrl": "https://www.instagram.com/auracabarete/",
     "imageEmoji": "🍸"
+  },
+  {
+    "id": "classic-cars-puerto-plata-daily",
+    "title": "Visite privée de Puerto Plata en voiture classique",
+    "description": "Visites privées quotidiennes en convertibles vintage restaurées avec Classic Cars Dominicana — stops photo autour de Puerto Plata, pickup hôtel ou croisière sur réservation. Créneaux typiques ~8 h, 10 h, 14 h et 16 h (~3 h). Réservez via Instagram @classiccarsrd ou au (809) 769-8732 ; page TripAdvisor pour avis et options de réservation.",
+    "date": "2026-01-01",
+    "time": "8:00 AM – 4:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Classic Cars Dominicana",
+    "venueSlug": "classic-cars-dominicana",
+    "address": "Puerto Plata (pickup hôtel / croisière)",
+    "lat": 19.8048,
+    "lng": -70.6945,
+    "category": "adventure",
+    "categories": [
+      "culture"
+    ],
+    "format": "physical",
+    "recurrence": "daily",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18097698732",
+    "ticketUrl": "https://www.tripadvisor.com/AttractionProductReview-g147288-d25984973-Private_Tour_of_Puerto_Plata_by_Classic_Car-Dominican_Republic.html",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/classiccarsrd/",
+    "imageEmoji": "🚗"
   }
 ]

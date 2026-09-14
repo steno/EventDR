@@ -2326,4 +2326,24 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "Editor flyer — every Wednesday; 2x1 Margarita Clásicas Tiscaz; live music; WA +1 809/829-787-0140 listed on promo (venue site uses 829). No clock time on art.",
     updatedAt: "2026-09-14T12:00:00.000Z",
   },
+  {
+    eventId: "classic-cars-puerto-plata-daily",
+    seriesKey: "classic-cars-dominicana:daily",
+    body: "Book the convertible for photo stops and a private driver-guide — this is a reserved sightseeing ride, not a hop-on Malecón taxi; DM @classiccarsrd before cruise day fills the fleet.",
+    localized: {
+      es: "Reserva el convertible para fotos y guía-conductor privado — es un tour con cita, no un taxi hop-on del Malecón; escribe a @classiccarsrd antes de que el día de crucero llene la flota.",
+      fr: "Réservez le convertible pour stops photo et chauffeur-guide privé — visite sur réservation, pas un taxi hop-on du Malecón ; DM @classiccarsrd avant que le jour croisière remplisse la flotte.",
+    },
+    priceFeel: "premium",
+    priceNote:
+      "Call for pricing — private tour; confirm group rate via IG @classiccarsrd or (809) 769-8732",
+    priceNoteLocalized: {
+      es: "Consultar precio — tour privado; confirma tarifa de grupo por IG @classiccarsrd o (809) 769-8732",
+      fr: "Prix sur demande — visite privée ; confirmez le tarif groupe via IG @classiccarsrd ou (809) 769-8732",
+    },
+    attribution: "POP research · @classiccarsrd + TripAdvisor product",
+    researchNotes:
+      "IG bio: exclusive classic-car tours PP, events/weddings/photo; (809) 769-8732. Blog: ~3 hr, slots 8/10/2/4, reservation-only. TripAdvisor AttractionProductReview-g147288-d25984973.",
+    updatedAt: "2026-09-14T12:00:00.000Z",
+  },
 ];

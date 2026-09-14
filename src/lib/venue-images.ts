@@ -180,6 +180,9 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "ambar-lounge-pop": "ambar-lounge-pop-lounge.jpg",
   "luna-lounge-lcb": "luna-lounge-lcb-facade.jpg",
   "ivan-garcia-teatro-escuela": "ivan-garcia-teatro-escuela-facade.jpg",
+  "spotland-puerto-plata": "spotland-puerto-plata-entrance.jpg",
+  // Filename bump — POP-supplied Calle de las Sombrillas classic-car line (not the coastal convoy event hero).
+  "classic-cars-dominicana": "classic-cars-dominicana-umbrella-street.jpg",
 };
 
 /** Cache-busted URL for general venue thumbnails / JSON-LD. */
@@ -198,6 +201,8 @@ export function getVenueHeroImageUrl(slug: string): string | undefined {
 const VENUE_HERO_OBJECT_POSITION: Record<string, string> = {
   // Balcony lunch overlooking the park — keep the table/view at the top of the crop.
   "casa-balcon-puerto-plata": "object-top",
+  // Keep the SPOTLAND sign in frame on the entrance crop (mobile + desktop).
+  "spotland-puerto-plata": "object-top",
 };
 
 export function getVenueHeroObjectPosition(slug: string): string {

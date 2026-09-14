@@ -1716,10 +1716,44 @@ export const SEED_VENUES: Venue[] = [
     instagram: "oceanworldterrace",
     phone: "+18098159682",
   },
+  {
+    slug: "spotland-puerto-plata",
+    name: "Spot Land",
+    city: "Puerto Plata",
+    description:
+      "Fun, food, and photo playground on Av. Luis Ginebra — outdoor play structures, sun sails, and family hangouts. Open Thu–Mon 2:00 PM–10:00 PM; closed Tue–Wed. Instagram @spotlandrd.",
+    lat: 19.7912,
+    lng: -70.6812,
+    emoji: "🎠",
+    instagram: "spotlandrd",
+    website: "https://www.instagram.com/spotlandrd/",
+  },
+  {
+    slug: "classic-cars-dominicana",
+    name: "Classic Cars Dominicana",
+    city: "Puerto Plata",
+    description:
+      "Private vintage-car sightseeing tours around Puerto Plata — restored convertibles, photo stops, and hotel/cruise pickup by reservation. Instagram @classiccarsrd · (809) 769-8732.",
+    lat: 19.8048,
+    lng: -70.6945,
+    emoji: "🚗",
+    instagram: "classiccarsrd",
+    website:
+      "https://www.tripadvisor.com/AttractionProductReview-g147288-d25984973-Private_Tour_of_Puerto_Plata_by_Classic_Car-Dominican_Republic.html",
+    phone: "+18097698732",
+  },
 ];
 
 /** Extra name fragments → seed slug (checked before fuzzy name includes). */
 const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
+  {
+    pattern: /spot\s*land|spotland/i,
+    slug: "spotland-puerto-plata",
+  },
+  {
+    pattern: /classic\s*cars?\s*(dominicana|rd|puerto\s*plata)?/i,
+    slug: "classic-cars-dominicana",
+  },
   {
     pattern:
       /parque(\s+de(\s+b[eé]isbol)?)?\s+jos[eé]\s+brice[nñ]o|estadio(\s+de(\s+b[eé]isbol)?)?\s+jos[eé]\s+brice[nñ]o|jos[eé]\s+brice[nñ]o/i,

@@ -94,7 +94,9 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "anfiteatro-la-puntilla-concerts": "anfiteatro-la-puntilla-mitur-concert.jpg",
   "anfiteatro-la-puntilla-weekday-culture":
     "anfiteatro-la-puntilla-weekday-bowl.jpg",
-  "el-carey-karaoke-mujeres-monday": "el-carey-karaoke-mujeres-monday.jpg",
+  // Filename bump — POP-supplied Mujeres Empoderadas flyer refresh (PWA caches old path).
+  "el-carey-karaoke-mujeres-monday": "el-carey-karaoke-mujeres-monday-2026.jpg",
+  "classic-cars-puerto-plata-daily": "classic-cars-puerto-plata-daily.jpg",
   "el-carey-weekend-nightlife": "el-carey-weekend-nightlife-lanterns.jpg",
   "el-carey-bohemian-wednesday": "el-carey-bohemian-wednesday.jpg",
   "el-carey-sabado-de-son": "el-carey-sabado-de-son.jpg",
@@ -447,6 +449,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "el-colibri-karaoke-battle-2026.jpg",
   "ocean-winds-karaoke-amados.jpg",
   "el-carey-karaoke-mujeres-monday.jpg",
+  "el-carey-karaoke-mujeres-monday-2026.jpg",
   "el-parq-karaoke-thursday.jpg",
   "atleticos-pp-vs-capitanes-2026-07-11.jpg",
   "atleticos-pp-vs-mangueros-2026-07-17.jpg",
@@ -491,6 +494,7 @@ const HOME_HERO_SCENE_FILES = new Set([
   "cayo-arena-tours-daily.jpeg",
   "charco-los-militares-daily.jpg",
   "charcos-damajagua-daily.jpeg",
+  "classic-cars-puerto-plata-daily.jpg",
   "cheers-weekly-live.jpg",
   "chill-and-grill-bingo-terrace.jpg",
   "coconut-cove-ocean-zipline-daily.jpg",

@@ -1057,4 +1057,20 @@ export const VENUE_TIP_COPY: Record<
       fr: "Terrasse à Cofresí, Calle Principal n° 3 — soirées típico et fêtes à côté d’Ocean World, pas la file des dauphins. RD$300 pour l’entrée les soirs à l’affiche ; réservez table via WhatsApp.",
     },
   },
+  "spotland-puerto-plata": {
+    body: "Outdoor fun-food-photo park on Av. Luis Ginebra — kids playground energy under shade sails, not a nightlife deck. Open Thu–Mon 2–10 PM; closed Tue–Wed — check @spotlandrd before you pin the strip.",
+    localized: {
+      en: "Outdoor fun-food-photo park on Av. Luis Ginebra — kids playground energy under shade sails, not a nightlife deck. Open Thu–Mon 2–10 PM; closed Tue–Wed — check @spotlandrd before you pin the strip.",
+      es: "Parque outdoor de diversión, comida y fotos en Av. Luis Ginebra — energía de juegos bajo toldos, no una terraza de nightlife. Abierto jue–lun 2–10 PM; cerrado mar–mié — mira @spotlandrd antes de clavar la avenida.",
+      fr: "Parc outdoor fun-food-photos sur Av. Luis Ginebra — énergie playground sous voiles d’ombre, pas une terrasse nightlife. Ouvert jeu–lun 14 h–22 h ; fermé mar–mer — vérifiez @spotlandrd avant d’épingler l’avenue.",
+    },
+  },
+  "classic-cars-dominicana": {
+    body: "Reservation-only vintage convertible tours — book the private ride for photo stops and pickup, not a walk-up Malecón rental. DM @classiccarsrd or call (809) 769-8732 before cruise day.",
+    localized: {
+      en: "Reservation-only vintage convertible tours — book the private ride for photo stops and pickup, not a walk-up Malecón rental. DM @classiccarsrd or call (809) 769-8732 before cruise day.",
+      es: "Tours en convertible clásico solo con reserva — agenda el ride privado para fotos y pickup, no un alquiler walk-up del Malecón. DM @classiccarsrd o llama al (809) 769-8732 antes del día de crucero.",
+      fr: "Visites en convertible vintage sur réservation seulement — réservez le trajet privé pour photos et pickup, pas une location walk-up du Malecón. DM @classiccarsrd ou (809) 769-8732 avant le jour croisière.",
+    },
+  },
 };

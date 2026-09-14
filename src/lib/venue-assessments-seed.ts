@@ -1546,6 +1546,28 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
       { key: "easy_to_find", sentiment: "positive" },
     ],
   }),
+  editorial({
+    venueSlug: "spotland-puerto-plata",
+    verdictKey: "solid_visitor_activity",
+    crowdFit: ["family", "visitor", "local", "mixed"],
+    axes: { recommend: 4.1, atmosphere: 4.3, value: 4.0, practical: 4.0 },
+    themes: [
+      { key: "family_friendly", sentiment: "positive", audience: "family" },
+      { key: "adventure_park", sentiment: "positive", audience: "family" },
+      { key: "easy_to_find", sentiment: "positive" },
+    ],
+  }),
+  editorial({
+    venueSlug: "classic-cars-dominicana",
+    verdictKey: "solid_visitor_activity",
+    crowdFit: ["visitor", "family", "mixed"],
+    axes: { recommend: 4.4, atmosphere: 4.5, practical: 4.0, reliability: 4.1 },
+    themes: [
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+      { key: "family_friendly", sentiment: "positive", audience: "family" },
+      { key: "easy_to_find", sentiment: "mixed" },
+    ],
+  }),
 ];
 
 const bySlug = new Map(

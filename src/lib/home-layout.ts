@@ -145,6 +145,8 @@ export const VENUE_AUDIENCE_POOLS: Record<
     "cayo-arena",
     "fun-city",
     "grecialandia",
+    "spotland-puerto-plata",
+    "classic-cars-dominicana",
     "drifter-cabarete",
     "monkeyland-puerto-plata",
     "coconut-cove",
