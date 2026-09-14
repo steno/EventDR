@@ -1,7 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { useEffect, useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { IntentLink } from "@/components/IntentLink";
 import { getCategoryDefs } from "@/lib/categories";
@@ -13,7 +13,9 @@ import type { Event } from "@/lib/types";
 import {
   CATEGORY_PILL_ACTIVE,
   CATEGORY_PILL_BASE,
+  CATEGORY_PILL_DIMMED,
   CATEGORY_PILL_IDLE,
+  CATEGORY_PILL_PENDING,
   CATEGORY_SCROLLER_BAR,
 } from "@/components/category-scroller-styles";
 import {
@@ -72,6 +74,7 @@ export function CategoryGrid({
   const venuesHref = `/${locale}/venues`;
   // All Events + categories + Venues
   const pillCount = categories.length + 2;
+  const [pendingHref, setPendingHref] = useState<string | null>(null);
   useCategoryAutoStepScroll(scrollRef, pillCount);
 
   // Mobile has no hover — warm visible category routes after first paint so
@@ -115,8 +118,18 @@ export function CategoryGrid({
             <div className="flex w-max gap-3 px-0.5 py-1">
               <IntentLink
                 href={allEventsHref}
-                onClick={() => onCategorySelect?.()}
-                className={`${CATEGORY_PILL_BASE} ${CATEGORY_PILL_ACTIVE}`}
+                onClick={() => {
+                  setPendingHref(allEventsHref);
+                  onCategorySelect?.();
+                }}
+                aria-busy={pendingHref === allEventsHref || undefined}
+                className={`${CATEGORY_PILL_BASE} ${CATEGORY_PILL_ACTIVE}${
+                  pendingHref === allEventsHref ? ` ${CATEGORY_PILL_PENDING}` : ""
+                }${
+                  pendingHref != null && pendingHref !== allEventsHref
+                    ? ` ${CATEGORY_PILL_DIMMED}`
+                    : ""
+                }`}
                 aria-label={allEventsLabel}
                 aria-current="page"
               >
@@ -127,13 +140,21 @@ export function CategoryGrid({
               </IntentLink>
               {categories.map((cat) => {
                 const href = categoryPath(locale, cat.id, citySlug);
+                const pending = pendingHref === href;
+                const dimmed = pendingHref != null && pendingHref !== href;
 
                 return (
                   <IntentLink
                     key={cat.id}
                     href={href}
-                    onClick={() => onCategorySelect?.()}
-                    className={`${CATEGORY_PILL_BASE} ${CATEGORY_PILL_IDLE}`}
+                    onClick={() => {
+                      setPendingHref(href);
+                      onCategorySelect?.();
+                    }}
+                    aria-busy={pending || undefined}
+                    className={`${CATEGORY_PILL_BASE} ${CATEGORY_PILL_IDLE}${
+                      pending ? ` ${CATEGORY_PILL_PENDING}` : ""
+                    }${dimmed ? ` ${CATEGORY_PILL_DIMMED}` : ""}`}
                     aria-label={cat.label}
                   >
                     <span className="text-[48px] leading-none select-none" aria-hidden>
@@ -144,9 +165,19 @@ export function CategoryGrid({
                 );
               })}
               <IntentLink
-                href={`/${locale}/venues`}
-                onClick={() => onCategorySelect?.()}
-                className={`${CATEGORY_PILL_BASE} ${CATEGORY_PILL_IDLE}`}
+                href={venuesHref}
+                onClick={() => {
+                  setPendingHref(venuesHref);
+                  onCategorySelect?.();
+                }}
+                aria-busy={pendingHref === venuesHref || undefined}
+                className={`${CATEGORY_PILL_BASE} ${CATEGORY_PILL_IDLE}${
+                  pendingHref === venuesHref ? ` ${CATEGORY_PILL_PENDING}` : ""
+                }${
+                  pendingHref != null && pendingHref !== venuesHref
+                    ? ` ${CATEGORY_PILL_DIMMED}`
+                    : ""
+                }`}
                 aria-label={dict.venues.directory.title}
               >
                 <span className="text-[48px] leading-none select-none" aria-hidden>

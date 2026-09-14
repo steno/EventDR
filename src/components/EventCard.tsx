@@ -26,6 +26,12 @@ interface EventCardProps {
   view?: EventListView;
   /** Extra guest hint (e.g. cruise walk/taxi + visit time). */
   note?: string;
+  /** Tap-to-navigate busy state (orange ring until the detail page mounts). */
+  pending?: boolean;
+  /** Soften sibling cards while another is pending. */
+  dimmed?: boolean;
+  /** Fired on navigate so the parent can set `pending`. */
+  onNavigate?: () => void;
 }
 
 function EventCardMedia({
@@ -83,6 +89,9 @@ const EventCardComponent = ({
   listTimeRange,
   view = "cards",
   note,
+  pending = false,
+  dimmed = false,
+  onNavigate,
 }: EventCardProps) => {
   const category = getCategoryMeta(event.category, dict.categories);
   const emoji = event.imageEmoji ?? category?.emoji ?? "📅";
@@ -94,8 +103,20 @@ const EventCardComponent = ({
   const isCards = view === "cards";
 
   function handleNavigate() {
+    onNavigate?.();
     rememberReturnPath(returnTo, returnTitle);
   }
+
+  // Overlay IntentLink owns :active — style the article via :has(a:active).
+  const idleChrome = `
+    hover:border-orange-300 hover:shadow-[0_8px_24px_-8px_rgba(251,146,60,0.25)]
+    dark:hover:border-orange-800 dark:hover:shadow-[0_8px_24px_-8px_rgba(251,146,60,0.3)]
+    has-[a:active]:scale-[0.99] has-[a:active]:border-orange-400
+    dark:has-[a:active]:border-orange-500
+  `;
+  const pendingChrome =
+    "scale-[0.985] border-orange-400 shadow-[0_12px_32px_-16px_rgba(251,146,60,0.45)] ring-2 ring-orange-500/80 dark:border-orange-500 dark:ring-orange-400/70";
+  const dimmedChrome = "opacity-45";
 
   if (isCards) {
     return (
@@ -105,11 +126,17 @@ const EventCardComponent = ({
           bg-white dark:bg-neutral-900
           border border-neutral-200 dark:border-neutral-800
           shadow-[0_2px_12px_-4px_rgba(0,0,0,0.08)] dark:shadow-[0_2px_12px_-4px_rgba(0,0,0,0.3)]
-          hover:border-orange-300 hover:shadow-[0_8px_24px_-8px_rgba(251,146,60,0.25)]
-          dark:hover:border-orange-800 dark:hover:shadow-[0_8px_24px_-8px_rgba(251,146,60,0.3)]
-          active:scale-[0.99] transition-[border-color,box-shadow,opacity,transform] duration-500 ease-out cursor-pointer
-          ${isEndedToday ? "opacity-60" : ""}
+          transition-[border-color,box-shadow,opacity,transform] duration-300 ease-out cursor-pointer
+          ${
+            pending
+              ? pendingChrome
+              : dimmed
+                ? dimmedChrome
+                : idleChrome
+          }
+          ${isEndedToday && !pending ? "opacity-60" : ""}
         `}
+        aria-busy={pending || undefined}
       >
         <IntentLink
           href={href}
@@ -126,6 +153,12 @@ const EventCardComponent = ({
             imageClassName={`object-cover card-media-zoom ${getEventCardObjectPosition(event.id)}`}
             frameClassName="aspect-[4/3] w-full"
           />
+          {pending ? (
+            <div
+              className="pointer-events-none absolute inset-0 bg-orange-500/10"
+              aria-hidden
+            />
+          ) : null}
           {event.trending && !liveStatusLabel && liveStatus !== "ended" && (
             <span className="pointer-events-none absolute right-2 top-2 z-[3] inline-flex items-center gap-0.5 rounded-full bg-black/55 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-orange-300 backdrop-blur-sm">
               <Flame className="h-3 w-3" aria-hidden />
@@ -161,12 +194,18 @@ const EventCardComponent = ({
         group relative w-full rounded-2xl bg-white dark:bg-neutral-900 px-3.5 py-2.5
         border border-neutral-200 dark:border-neutral-800
         shadow-[0_2px_12px_-4px_rgba(0,0,0,0.08)] dark:shadow-[0_2px_12px_-4px_rgba(0,0,0,0.3)]
-        hover:border-orange-300 hover:shadow-[0_8px_24px_-8px_rgba(251,146,60,0.25)] 
-        dark:hover:border-orange-800 dark:hover:shadow-[0_8px_24px_-8px_rgba(251,146,60,0.3)]
-        active:scale-[0.99] transition-all duration-200
+        transition-[border-color,box-shadow,opacity,transform] duration-200
         cursor-pointer
-        ${isEndedToday ? "opacity-60" : ""}
+        ${
+          pending
+            ? pendingChrome
+            : dimmed
+              ? dimmedChrome
+              : idleChrome
+        }
+        ${isEndedToday && !pending ? "opacity-60" : ""}
       `}
+      aria-busy={pending || undefined}
     >
       <IntentLink
         href={href}

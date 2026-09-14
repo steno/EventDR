@@ -109,6 +109,7 @@ export function EventList({
   const initialCap = limit ?? LIST_PAGE_SIZE;
   const step = pageSize ?? limit ?? LIST_PAGE_SIZE;
   const [visibleCount, setVisibleCount] = useState(initialCap);
+  const [pendingId, setPendingId] = useState<string | null>(null);
   const onEventsLoadedRef = useRef(onEventsLoaded);
   const scrollAnchorRef = useRef<HTMLDivElement>(null);
   const scrolledTimeRangeRef = useRef<FilterTimeRange | null>(null);
@@ -409,6 +410,9 @@ export function EventList({
                 returnTo={listReturnTo}
                 listTimeRange={timeRange}
                 view={listView}
+                pending={pendingId === event.id}
+                dimmed={pendingId != null && pendingId !== event.id}
+                onNavigate={() => setPendingId(event.id)}
               />
             ))}
             {showEndTeaser ? (

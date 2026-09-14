@@ -161,6 +161,7 @@ export function FilteredEventList({
   const skipScrollForUrlWhen = useRef(false);
   const scrollAnchorRef = useRef<HTMLDivElement>(null);
   const [gridRef, columns] = useCardGridColumns(view === "cards");
+  const [pendingId, setPendingId] = useState<string | null>(null);
 
   useEffect(() => {
     const applyListingParams = () => {
@@ -446,6 +447,9 @@ export function FilteredEventList({
                 returnTitle={returnTitle}
                 listTimeRange={fixedTimeRange ?? timeRange}
                 view={view}
+                pending={pendingId === event.id}
+                dimmed={pendingId != null && pendingId !== event.id}
+                onNavigate={() => setPendingId(event.id)}
               />
             ))}
             {showEndTeaser ? (

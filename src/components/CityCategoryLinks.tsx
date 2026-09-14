@@ -1,11 +1,13 @@
 "use client";
 
-import { useEffect, useRef, type Ref } from "react";
+import { useEffect, useRef, useState, type Ref } from "react";
 import { IntentLink } from "@/components/IntentLink";
 import {
   CATEGORY_PILL_ACTIVE,
   CATEGORY_PILL_BASE,
+  CATEGORY_PILL_DIMMED,
   CATEGORY_PILL_IDLE,
+  CATEGORY_PILL_PENDING,
   CATEGORY_SCROLLER_BAR,
 } from "@/components/category-scroller-styles";
 import { useCategoryAutoStepScroll } from "@/hooks/useCategoryAutoStepScroll";
@@ -85,6 +87,7 @@ export function CityCategoryLinks({
   const scrollRef = useRef<HTMLDivElement>(null);
   const navRef = useRef<HTMLElement>(null);
   const prevActiveKeyRef = useRef<string | null>(null);
+  const [pendingHref, setPendingHref] = useState<string | null>(null);
   const pillCount = links.length + (allLink ? 1 : 0);
   useCategoryAutoStepScroll(scrollRef, pillCount);
 
@@ -173,6 +176,8 @@ export function CityCategoryLinks({
     active: boolean,
     ref?: Ref<HTMLAnchorElement>,
   ) => {
+    const pending = pendingHref === link.href;
+    const dimmed = pendingHref != null && pendingHref !== link.href;
     return (
       <IntentLink
         key={link.id ?? link.href}
@@ -181,9 +186,13 @@ export function CityCategoryLinks({
         scroll={false}
         data-soft-nav={onSoftNavigate ? "1" : undefined}
         aria-current={active ? "page" : undefined}
+        aria-busy={pending || undefined}
         aria-label={link.label}
-        className={`${CATEGORY_PILL_BASE} ${active ? CATEGORY_PILL_ACTIVE : CATEGORY_PILL_IDLE}`}
+        className={`${CATEGORY_PILL_BASE} ${active ? CATEGORY_PILL_ACTIVE : CATEGORY_PILL_IDLE}${
+          pending ? ` ${CATEGORY_PILL_PENDING}` : ""
+        }${dimmed ? ` ${CATEGORY_PILL_DIMMED}` : ""}`}
         onClick={(event) => {
+          setPendingHref(link.href);
           if (!onSoftNavigate) return;
           if (event.defaultPrevented) return;
           if (event.button !== 0) return;
@@ -192,6 +201,8 @@ export function CityCategoryLinks({
           }
           if (onSoftNavigate(link.href)) {
             event.preventDefault();
+            // Soft scope swap is instant — drop busy chrome after paint.
+            requestAnimationFrame(() => setPendingHref(null));
           }
         }}
       >

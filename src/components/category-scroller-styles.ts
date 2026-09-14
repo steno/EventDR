@@ -4,7 +4,8 @@ export const CATEGORY_PILL_BASE = `
   flex flex-col items-center justify-center gap-1.5
   h-[7rem] w-[7.25rem] shrink-0 rounded-3xl
   px-2 py-2 text-sm font-bold leading-tight text-center
-  transition-all active:scale-[0.95] touch-manipulation
+  transition-[transform,box-shadow,opacity,filter,background-color,border-color,color] duration-200
+  active:scale-[0.95] touch-manipulation
   shadow-[0_2px_8px_rgba(15,23,42,0.08)]
 `;
 
@@ -22,6 +23,15 @@ export const CATEGORY_PILL_IDLE = `
   dark:hover:bg-orange-950/30 dark:hover:text-orange-400 dark:hover:border-orange-800/50
   border border-neutral-200/50 dark:border-neutral-700/50
 `;
+
+/** Pressed pill waiting on RSC / soft-nav settle. */
+export const CATEGORY_PILL_PENDING = `
+  scale-[0.95] ring-2 ring-orange-500/80 shadow-[0_10px_24px_-12px_rgba(251,146,60,0.5)]
+  dark:ring-orange-400/70
+`;
+
+/** Sibling pills while another is pending. */
+export const CATEGORY_PILL_DIMMED = `opacity-45`;
 
 export const CATEGORY_SCROLLER_BAR = `
   relative flex items-center gap-1.5

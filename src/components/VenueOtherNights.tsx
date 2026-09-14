@@ -76,13 +76,18 @@ export function VenueOtherNights({
             <IntentLink
               key={sibling.id}
               href={href}
+              aria-busy={pending || undefined}
               onClick={() => {
                 setPendingId(sibling.id);
                 rememberReturnPath(returnTo, returnTitle);
               }}
-              className={`snap-start shrink-0 w-[12.5rem] rounded-2xl border border-neutral-200 bg-white p-3 transition-[opacity,transform] dark:border-neutral-800 dark:bg-neutral-900 ${
-                pending ? "scale-[0.98] opacity-90" : ""
-              } ${dimmed ? "opacity-50" : ""}`}
+              className={`group relative snap-start shrink-0 w-[12.5rem] overflow-hidden rounded-2xl bg-white p-3 shadow-[0_2px_12px_-6px_rgba(0,0,0,0.12)] transition-[box-shadow,transform,opacity,ring] duration-300 touch-manipulation dark:bg-neutral-900 ${
+                pending
+                  ? "scale-[0.985] ring-2 ring-orange-500/80 dark:ring-orange-400/70"
+                  : dimmed
+                    ? "opacity-45 ring-1 ring-neutral-200/90 dark:ring-neutral-800"
+                    : "ring-1 ring-neutral-200/90 dark:ring-neutral-800 hover:shadow-[0_8px_24px_-10px_rgba(251,146,60,0.28)] hover:ring-orange-300/70 dark:hover:ring-orange-800/60 active:scale-[0.99]"
+              }`}
             >
               <div className="relative mb-2.5 aspect-[4/3] overflow-hidden rounded-xl bg-neutral-100 dark:bg-neutral-800">
                 {sibling.imageUrl ? (
@@ -97,6 +102,12 @@ export function VenueOtherNights({
                     📅
                   </div>
                 )}
+                {pending ? (
+                  <div
+                    className="pointer-events-none absolute inset-0 bg-orange-500/10"
+                    aria-hidden
+                  />
+                ) : null}
               </div>
               <p className="line-clamp-2 text-base font-bold leading-snug text-neutral-950 dark:text-white">
                 {sibling.title}

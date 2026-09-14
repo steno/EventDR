@@ -1,6 +1,6 @@
 "use client";
 
-import { useLayoutEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from "react";
 import Link from "next/link";
 import { ArrowLeft, House } from "lucide-react";
 import { AppHeader } from "@/components/AppHeader";
@@ -10,7 +10,7 @@ import { useScrollChromeVisible } from "@/hooks/useScrollChrome";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { clearHomeArea } from "@/lib/cities";
-import { signalNavPending } from "@/lib/nav-feedback";
+import { NAV_DONE_EVENT, signalNavPending } from "@/lib/nav-feedback";
 import { fillTemplate } from "@/lib/seo";
 import { PAGE_GUTTER_BLEED_CLASS } from "@/lib/page-shell";
 import { SCROLL_CHROME_TRANSITION_CLASS } from "@/lib/scroll-chrome";
@@ -109,6 +109,17 @@ export function StickyListHeader({
   const [homePending, setHomePending] = useState(false);
   const homeHref = `/${locale}`;
 
+  // Soft exits (cruise leaveCruise) call signalNavDone without unmounting —
+  // clear the orange busy chrome then. Real RSC backs keep pending until unmount.
+  useEffect(() => {
+    const onDone = () => {
+      setPending(false);
+      setHomePending(false);
+    };
+    window.addEventListener(NAV_DONE_EVENT, onDone);
+    return () => window.removeEventListener(NAV_DONE_EVENT, onDone);
+  }, []);
+
   useLayoutEffect(() => {
     const el = rootRef.current;
     if (!el) return;
@@ -177,8 +188,6 @@ export function StickyListHeader({
             setHomePending(true);
             signalNavPending("soft");
             onHome();
-            // Instant client exit — clear busy on next frame.
-            requestAnimationFrame(() => setHomePending(false));
           }}
           className={className}
         >
@@ -217,7 +226,6 @@ export function StickyListHeader({
           onClick={() => {
             beginBack();
             onBack();
-            requestAnimationFrame(() => setPending(false));
           }}
           className={className}
         >
