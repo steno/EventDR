@@ -30,7 +30,11 @@ describe("coerceEventCategory", () => {
       date: "2026-09-13",
       location: "Puerto Plata",
       category: "performances",
-      categories: ["family", "food-drinks"],
+      // Legacy hub tag — coerce/drop path under test (not a real EventCategory).
+      categories: ["family", "food-drinks"] as unknown as (
+        | "music"
+        | "food-drinks"
+      )[],
       format: "physical" as const,
     });
     assert.equal(resolved.category, "performances");

@@ -2334,7 +2334,7 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       es: "Reserva el convertible para fotos y guía-conductor privado — es un tour con cita, no un taxi hop-on del Malecón; escribe a @classiccarsrd antes de que el día de crucero llene la flota.",
       fr: "Réservez le convertible pour stops photo et chauffeur-guide privé — visite sur réservation, pas un taxi hop-on du Malecón ; DM @classiccarsrd avant que le jour croisière remplisse la flotte.",
     },
-    priceFeel: "premium",
+    priceFeel: "upscale",
     priceNote:
       "Call for pricing — private tour; confirm group rate via IG @classiccarsrd or (809) 769-8732",
     priceNoteLocalized: {
