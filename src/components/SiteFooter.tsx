@@ -14,6 +14,11 @@ interface SiteFooterProps {
   className?: string;
   /** Hide when the guest is already on a cruise-day page. */
   showCruiseLink?: boolean;
+  /**
+   * On browse/detail pages, drop the brand + Explore/When columns below `lg`
+   * but keep partners, support, install, and legal reachable.
+   */
+  compactOnMobile?: boolean;
 }
 
 const linkClass =
@@ -60,17 +65,21 @@ export function SiteFooter({
   locale,
   className = "pb-6",
   showCruiseLink = true,
+  compactOnMobile = false,
 }: SiteFooterProps) {
   const homeHref = `/${locale}`;
+  const compactMobileClass = compactOnMobile ? "max-lg:hidden" : "";
 
   return (
     <footer
-      className={`border-t border-orange-200/50 bg-gradient-to-b from-orange-50/80 via-rose-50/30 to-white pt-6 sm:pt-8 lg:pt-10 dark:border-orange-500/15 dark:from-orange-950/40 dark:via-rose-950/20 dark:to-neutral-950 ${className}`}
+      className={`border-t border-orange-200/50 bg-gradient-to-b from-orange-50/80 via-rose-50/30 to-white pt-6 sm:pt-8 lg:pt-10 dark:border-orange-500/15 dark:from-orange-950/40 dark:via-rose-950/20 dark:to-neutral-950 ${compactOnMobile ? "max-lg:pt-4" : ""} ${className}`}
     >
       <div className={`${PAGE_WIDTH_CLASS} ${PAGE_GUTTER_CLASS}`}>
-        <div className="flex flex-col gap-6 sm:gap-8 lg:flex-row lg:items-start lg:justify-between lg:gap-16">
+        <div
+          className={`flex flex-col gap-6 sm:gap-8 lg:flex-row lg:items-start lg:justify-between lg:gap-16 ${compactMobileClass}`}
+        >
           {/* Brand — logo + social share a row on phones */}
-          <div className="grid max-w-sm grid-cols-[1fr_auto] items-center gap-x-3 gap-y-2.5 sm:block sm:shrink-0">
+          <div className="grid max-w-md grid-cols-[1fr_auto] items-center gap-x-3 gap-y-2.5 sm:block sm:shrink-0">
             <Link
               href={homeHref}
               prefetch={false}
@@ -212,11 +221,71 @@ export function SiteFooter({
           </div>
         </div>
 
-        <div className="mt-6 border-t border-neutral-200/80 pt-3.5 sm:mt-8 sm:pt-5 lg:mt-10 dark:border-white/10">
-          <div className="flex flex-col gap-2.5 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+        {/* Compact mobile strip — partners / support / legal stay reachable */}
+        {compactOnMobile ? (
+          <div className="flex flex-col gap-3 lg:hidden">
+            <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
+              <nav
+                aria-label={dict.footer.follow}
+                className="flex items-center gap-1.5"
+              >
+                {BRAND_SOCIAL_LINKS.map((link) => (
+                  <a
+                    key={link.id}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={link.label}
+                    title={link.label}
+                    className="
+                      inline-flex h-8 w-8 items-center justify-center rounded-full
+                      text-neutral-500 ring-1 ring-neutral-200/80
+                      transition-[color,background-color]
+                      hover:bg-orange-50 hover:text-orange-600 hover:ring-orange-300/70
+                      dark:text-neutral-400 dark:ring-white/12
+                      dark:hover:bg-orange-500/10 dark:hover:text-orange-300 dark:hover:ring-orange-400/40
+                      focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500
+                    "
+                  >
+                    <SocialIcon id={link.id} />
+                  </a>
+                ))}
+              </nav>
+              <nav
+                aria-label={dict.footer.navMore}
+                className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1"
+              >
+                <Link
+                  href={`/${locale}/for-partners`}
+                  prefetch={false}
+                  className={linkClass}
+                >
+                  {dict.footer.partners}
+                </Link>
+                <Link
+                  href={`/${locale}/support`}
+                  prefetch={false}
+                  className={linkClass}
+                >
+                  {dict.footer.support}
+                </Link>
+                <FooterInstallLink dict={dict} className={linkClass} />
+              </nav>
+            </div>
+          </div>
+        ) : null}
+
+        <div
+          className={`border-t border-neutral-200/80 pt-3.5 sm:pt-5 dark:border-white/10 ${
+            compactOnMobile
+              ? "mt-4 lg:mt-10"
+              : "mt-6 sm:mt-8 lg:mt-10"
+          }`}
+        >
+          <div className="flex flex-col items-center gap-2.5 text-center sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:text-left">
             <nav
               aria-label={dict.footer.legal}
-              className="flex flex-wrap gap-x-3 gap-y-1 text-[11px] font-medium text-neutral-400 sm:gap-x-4 sm:text-xs dark:text-neutral-500"
+              className="flex flex-wrap justify-center gap-x-3 gap-y-1 text-[11px] font-medium text-neutral-400 sm:justify-start sm:gap-x-4 sm:text-xs dark:text-neutral-500"
             >
               <Link
                 href={`/${locale}/privacy`}
