@@ -46,7 +46,7 @@ const FILE_TO_EVENT_ID = {
   "cofresi-beach-sunset-walk.jpg": "cofresi-beach-sunset-walk",
   "crazy-lobster-beach-dining.jpg": "crazy-lobster-beach-dining",
   "don-limon.jpeg": "don-limon-beach-dining",
-  "los-tres-cocos-coconut-shrimp.jpg": "los-tres-cocos-coconut-shrimp",
+  "los-tres-cocos-garden-dining.jpg": "los-tres-cocos-dinner",
   "ocean-winds-karaoke-amados.jpg": "ocean-winds-karaoke-amados",
   "kite-beach-wind-culture.jpg": "kite-beach-wind-culture",
   "d-classico-merengue-bar.jpg": "d-classico-merengue-bar",
@@ -268,7 +268,8 @@ const FILE_TO_VENUE_SLUG = {
   "cofresi-palm-beach-spa.jpg": "cofresi-palm-beach-spa",
   "crazy-lobster-maimon.jpg": "crazy-lobster-maimon",
   "don-limon-venue.jpeg": "don-limon-cofresi",
-  "los-tres-cocos-dinner.jpg": "los-tres-cocos-cofresi",
+  // Filename bump — POP on-site entrance sign crop (garden dining stays on the event).
+  "los-tres-cocos-cofresi-entrance-sign.jpg": "los-tres-cocos-cofresi",
   "hotel-ocean-winds-facade.jpg": "hotel-ocean-winds-facade",
   // Filename bump after replacing a tiny shared dolphin-jump JPEG.
   "ocean-world-park.jpg": "ocean-world-park",

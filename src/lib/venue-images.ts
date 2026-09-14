@@ -131,7 +131,8 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "iberostar-waves-costa-dorada": "iberostar-waves-costa-dorada.jpg",
   "playa-cofresi": "playa-cofresi-beach.jpg",
   "don-limon-cofresi": "don-limon-cofresi.jpeg",
-  "los-tres-cocos-cofresi": "los-tres-cocos-cofresi.jpg",
+  // Filename bump — POP on-site entrance sign crop (garden dining stays on the event).
+  "los-tres-cocos-cofresi": "los-tres-cocos-cofresi-entrance-sign.jpg",
   "crazy-lobster-maimon": "crazy-lobster-maimon.jpg",
   // Filename bump — Costambar hotel facade (karaoke uses Amado’s night patio).
   "hotel-ocean-winds": "hotel-ocean-winds-facade.jpg",

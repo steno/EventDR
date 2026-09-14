@@ -160,7 +160,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "cofresi-beach-sunset-walk": "cofresi-beach-sunset-walk.jpg",
   "crazy-lobster-beach-dining": "crazy-lobster-beach-dining.jpg",
   "don-limon-beach-dining": "don-limon-beach-dining.jpeg",
-  "los-tres-cocos-dinner": "los-tres-cocos-coconut-shrimp.jpg",
+  // Filename bump — POP on-site garden dining room (entrance sign stays on the venue).
+  "los-tres-cocos-dinner": "los-tres-cocos-garden-dining.jpg",
   "liquid-blue-watersports-daily": "liquid-blue-watersports-daily.jpg",
   "lax-headline-concerts": "lax-headline-concerts.jpg",
   "voyvoy-monday-live-music": "voyvoy-monday-night-terrace.jpg",
@@ -551,7 +552,7 @@ const HOME_HERO_SCENE_FILES = new Set([
   "letrero-puerto-plata-daily.jpg",
   "liquid-blue-sunrise-yoga.jpg",
   "liquid-blue-watersports-daily.jpg",
-  "los-tres-cocos-coconut-shrimp.jpg",
+  "los-tres-cocos-garden-dining.jpg",
   "macorix-house-of-rum-cellar.jpg",
   "malecon-kiosks-daily.jpg",
   "malecon-morning-wellness-walk.jpg",

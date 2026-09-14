@@ -286,8 +286,8 @@ const VENUE_SOURCES = [
   // Do not remote-refresh the TripAdvisor shack onto the event.
   // don-limon.jpeg — POP-supplied event photo (logo wall).
   // don-limon-venue.jpeg — POP-supplied beach-bar venue hero. Do not remote-refresh.
-  // los-tres-cocos-coconut-shrimp.jpg — Maps plated dinner. Dining room stays on the venue.
-  // Do not remote-refresh the shared garden-dining still onto the event.
+  // los-tres-cocos-garden-dining.jpg — POP on-site garden dining room.
+  // Venue is los-tres-cocos-cofresi-entrance-sign.jpg (entrance sign). Do not remote-refresh.
   // ocean-winds-karaoke-amados.jpg — Maps night patio at Amado’s.
   // Do not remote-refresh the shared daytime pool still.
   // Calle de las Sombrillas walk — TripAdvisor visitor photo looking down

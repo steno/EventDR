@@ -169,8 +169,8 @@ Curated images under `public/events/` and `public/venues/`.
 | `venues/crazy-lobster-maimon.jpg` | [TripAdvisor — Crazy Lobster Bar And Grill](https://www.tripadvisor.com/Restaurant_Review-g1189048-d23790781-Reviews-Crazy_Lobster_Bar_And_Grill-Maimon_Puerto_Plata_Province_Dominican_Republic.html) — “View of restaurante” | Beach-hut exterior at Playa Los Cocos, Maimón |
 | `don-limon-beach-dining.jpeg` | POP-supplied `don-limon.jpeg` — guests at the Don Limón logo wall | Event hero (branded bar, not the dining-room place shot) |
 | `venues/don-limon-cofresi.jpeg` | POP-supplied `don-limon-venue.jpeg` — grill, bar stools, and Cofresí beach beyond | Venue hero (open-air beach bar, replaces empty dining-room shot) |
-| `los-tres-cocos-coconut-shrimp.jpg` | Google Maps visitor photo — coconut shrimp dinner at Los Tres Cocos | Dinner action (garden dining room stays on the venue) |
-| `venues/los-tres-cocos-cofresi.jpg` | [Google Maps — Los Tres Cocos](https://www.google.com/maps/place/Los+Tres+Cocos/@19.8070375,-70.7270156,17z) visitor place photo | Tropical garden dining room, La Roka Cofresí |
+| `los-tres-cocos-garden-dining.jpg` | POP on-site photo — thatched garden dining room at Los Tres Cocos (editor-provided, all rights owned) | Dinner atmosphere (entrance sign stays on the venue; filename bump after replacing Maps coconut-shrimp plate) |
+| `venues/los-tres-cocos-cofresi-entrance-sign.jpg` | POP on-site photo — Los Tres Cocos Restaurant entrance sign at night, La Roka Cofresí (editor-provided, all rights owned) | Venue place shot (filename bump after tighter sign crop) |
 | `ocean-winds-karaoke-amados.jpg` | Google Maps visitor photo — Amado’s night patio at Hotel Ocean Winds | Saturday karaoke action (not the shared pool still) |
 | `venues/hotel-ocean-winds-facade.jpg` | Google Maps visitor photo — Hotel Ocean Winds Costambar street facade | Venue place shot |
 | `atlantico-fc-vs-delfines-2026-08-22.jpg` | POP-supplied `jornada1.jpg` — Atlántico FC jornada 1 flyer vs Delfines del Este | Authentic matchday graphic for Sat 22 Aug 2026 at Estadio Leonel Plácido |
