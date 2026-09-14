@@ -217,25 +217,25 @@ const CATEGORY_SEO: Record<EventCategory, Record<Locale, CategorySeoCopy>> = {
   },
   business: {
     en: {
-      title: "Networking & Coworking Events in Cabarete & North Coast DR | POP Events",
+      title: "Business & Networking Events on the North Coast DR | POP Events",
       description:
-        "Startup meetups, coworking events, remote worker gatherings, and business workshops in Cabarete, Sosúa, and Puerto Plata.",
+        "Verified business workshops, trade fairs, and entrepreneur events in Cabarete, Sosúa, and Puerto Plata.",
       intro:
-        "Cowork Cabarete meetups, expat networking, and entrepreneur events for the North Coast community.",
+        "Industry gatherings and founder events across Puerto Plata’s North Coast — listed when we can verify them.",
     },
     es: {
-      title: "Networking y coworking en Cabarete y la Costa Norte RD | POP Eventos",
+      title: "Eventos de negocios en la Costa Norte RD | POP Eventos",
       description:
-        "Meetups de startups, eventos de coworking, nómadas digitales y talleres de negocios en Cabarete, Sosúa y Puerto Plata.",
+        "Talleres, ferias y eventos de emprendedores verificados en Cabarete, Sosúa y Puerto Plata.",
       intro:
-        "Encuentros en Cowork Cabarete, networking de expats y eventos para emprendedores en la Costa Norte.",
+        "Encuentros de industria y eventos para emprendedores en la Costa Norte — solo cuando podemos verificarlos.",
     },
     fr: {
-      title: "Networking et coworking à Cabarete et Côte Nord RD | POP Events",
+      title: "Événements business sur la Côte Nord RD | POP Events",
       description:
-        "Meetups startups, événements coworking, nomades digitaux et ateliers business à Cabarete, Sosúa et Puerto Plata.",
+        "Ateliers, salons et événements entrepreneurs vérifiés à Cabarete, Sosúa et Puerto Plata.",
       intro:
-        "Rencontres à Cowork Cabarete, networking expats et événements entrepreneurs sur la Côte Nord.",
+        "Rassemblements professionnels et événements fondateurs sur la Côte Nord — listés seulement quand vérifiés.",
     },
   },
   culture: {

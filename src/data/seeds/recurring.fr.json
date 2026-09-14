@@ -59,20 +59,6 @@
     "imageEmoji": "🧘"
   },
   {
-    "id": "cowork-weekdays",
-    "title": "Cowork Cabarete — bureau ouvert",
-    "description": "Nomades et entrepreneurs en semaine — networking informel au bar après 16 h.",
-    "date": "2026-01-01",
-    "time": "9:00 AM – 6:00 PM",
-    "location": "Cabarete",
-    "venue": "Cowork Cabarete",
-    "venueSlug": "cowork-cabarete",
-    "category": "business",
-    "format": "physical",
-    "recurrence": "weekdays",
-    "imageEmoji": "💼"
-  },
-  {
     "id": "batey-salsa-weekly",
     "title": "Soirée salsa à El Batey",
     "description": "Cours débutant puis danse sociale jusqu'à tard. Pas besoin de partenaire.",
@@ -1290,22 +1276,6 @@
     "imageEmoji": "🧘"
   },
   {
-    "id": "north-coast-networking-saturday",
-    "title": "Networking du samedi sur la Côte Nord",
-    "description": "Networking informel d'expats et d'entrepreneurs au marché du samedi de Sea Horse Ranch — fondateurs, nomades digitaux et locaux entre Cabarete et Sosúa.",
-    "date": "2026-01-01",
-    "time": "10:00 AM – 1:00 PM",
-    "location": "Cabarete-Sosúa",
-    "venue": "Sea Horse Ranch Tennis Club Lawn",
-    "venueSlug": "sea-horse-ranch",
-    "category": "business",
-    "format": "physical",
-    "recurrence": "weekly",
-    "recurrenceDay": 6,
-    "sourceUrl": "https://sea-horse-ranch.com/saturday-market-sea-horse-ranch/",
-    "imageEmoji": "💼"
-  },
-  {
     "id": "ojo-latin-night-thursday",
     "title": "Soirée latine à Ojo Club",
     "description": "Soirée latine le jeudi à Ojo Club au-dessus de LAX Cabarete — salsa, bachata et merengue sur la terrasse avec vue mer.",
@@ -1417,21 +1387,6 @@
     "recurrence": "daily",
     "sourceUrl": "https://www.godominicanrepublic.com/things-to-do/cabarete-kiteboarding",
     "imageEmoji": "🏄"
-  },
-  {
-    "id": "north-coast-tech-meetup",
-    "title": "Meetup tech et startups Côte Nord",
-    "description": "Nomades digitaux et fondateurs au Cowork Cabarete — talks tech informels et networking le mercredi après 16 h.",
-    "date": "2026-01-01",
-    "time": "4:00 PM – 7:00 PM",
-    "location": "Cabarete",
-    "venue": "Cowork Cabarete",
-    "venueSlug": "cowork-cabarete",
-    "category": "business",
-    "format": "physical",
-    "recurrence": "weekly",
-    "recurrenceDay": 3,
-    "imageEmoji": "💻"
   },
   {
     "id": "paella-pop-el-pueblito",

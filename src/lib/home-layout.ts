@@ -130,7 +130,6 @@ export const VENUE_AUDIENCE_POOLS: Record<
     "castaways-sosua",
     "playa-sosua",
     "sosua-diving-center",
-    "cowork-cabarete",
     "sea-horse-ranch",
     "big-lees-beach-bar",
     "pingui-bar",

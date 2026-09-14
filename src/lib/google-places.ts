@@ -73,9 +73,36 @@ function asciiFold(value: string): string {
 
 /** Extra Text Search queries when the seed name alone misses Google. */
 const PLACE_SEARCH_ALIASES: Record<string, string[]> = {
-  "cowork-cabarete": [
-    "Blue Coworking Cabarete",
-    "Blue Coworking Cabarete Dominican Republic",
+  "lokuras-pop": [
+    "Lokura's Pop Bar Café Puerto Plata",
+    "Lokuras Pop Puerto Plata",
+    "Lokura's Pop Profesor Juan Bosch",
+    "Lokuras Bar Caffe Puerto Plata",
+  ],
+  "nova-salud-bienestar": [
+    "Nova Salud Bienestar Puerto Plata",
+    "Centro Nova Salud Margarita Mears",
+    "NOVA Salud y Bienestar Puerto Plata",
+  ],
+  "camara-comercio-puerto-plata": [
+    "Cámara de Comercio Puerto Plata Beller",
+    "Camara de Comercio y Produccion Puerto Plata",
+    "Salón Fernando Cueto Cámara Puerto Plata",
+  ],
+  "luna-lounge-lcb": [
+    "Luna Lounge LCB Puerto Plata",
+    "Luna Disco Bar Luis Ginebra",
+    "Luna Lounge Av Luis Ginebra 42",
+  ],
+  "ivan-garcia-teatro-escuela": [
+    "Iván García Teatro Escuela Puerto Plata",
+    "Teatro Escuela Ivan Garcia Juan Bosch",
+    "IGTE Puerto Plata",
+  ],
+  "ocean-world-terrace": [
+    "Ocean World Terrace Cofresi",
+    "Ocean World Terrace Puerto Plata",
+    "Oceanworldterrace Calle Principal Cofresi",
   ],
   "pingui-bar": [
     "Pingui Bar El Pueblito Puerto Plata",

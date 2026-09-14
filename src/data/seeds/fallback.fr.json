@@ -1759,5 +1759,200 @@
     "sourceType": "instagram",
     "sourceUrl": "https://www.instagram.com/p/DdO4DKoxoRk/",
     "imageEmoji": "🎸"
+  },
+  {
+    "id": "lokuras-pop-percusion-latina-2026-09-20",
+    "title": "Percusión Latina — Somos Salsa chez Lokura's Pop",
+    "description": "Percusión Latina — Somos Salsa en live à Lokura's Pop Bar Café, Calle Profesor Juan Bosch n° 11 (près de la Junta Central Electoral), Puerto Plata — dimanche 20 septembre 2026 dès 18 h. Clave, salsa, picadera et verres ; mojitos 2x1 de 19 h à 21 h. Confirmez le cover via Instagram @lokuraspop.",
+    "date": "2026-09-20",
+    "time": "6:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Lokura's Pop Bar Café",
+    "venueSlug": "lokuras-pop",
+    "address": "Calle Profesor Juan Bosch #11, près de la Junta Central Electoral, Puerto Plata 57000",
+    "lat": 19.79875,
+    "lng": -70.69395,
+    "category": "music",
+    "categories": [
+      "performances",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/lokuraspop/",
+    "lineup": [
+      "Percusión Latina — Somos Salsa"
+    ],
+    "imageEmoji": "🥁"
+  },
+  {
+    "id": "nova-detras-de-la-mascara-2026-10-16",
+    "title": "Detrás de la Máscara — Comprendre le narcissisme",
+    "description": "Conférence de psychologie Detrás de la Máscara — comprendre le narcissisme, avec les psychologues cliniques Ana María Rivera et Felipe Acosta au Centro Nova Salud y Bienestar, Calle Margarita Mears n° 6, Puerto Plata — jeudi 16 octobre 2026 à 17 h. Récits, témoignages et outils concrets ; RD$1 000 ; places limitées. Réservez via WhatsApp 809-280-0077. Organisateur @novapuertoplata.",
+    "date": "2026-10-16",
+    "time": "5:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Centro Nova Salud y Bienestar",
+    "venueSlug": "nova-salud-bienestar",
+    "address": "Calle Margarita Mears #6, Puerto Plata 57000",
+    "lat": 19.7965,
+    "lng": -70.6948,
+    "category": "health-wellness",
+    "categories": [
+      "culture"
+    ],
+    "format": "physical",
+    "trending": true,
+    "admissionPrice": "RD$1,000",
+    "phone": "+18092800077",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/p/DdE8EPrusX4/",
+    "lineup": [
+      "Ana María Rivera",
+      "Felipe Acosta"
+    ],
+    "imageEmoji": "🎭"
+  },
+  {
+    "id": "camara-empresas-codigo-penal-2026-09-16",
+    "title": "Conversatorio — Entreprises et Code pénal",
+    "description": "Panel Chambre de commerce Conversatorio : Entreprises et Code pénal au Salón de Eventos Fernando Cueto, Cámara de Comercio y Producción de Puerto Plata (Calle Beller n° 17) — mercredi 16 septembre 2026 à 15 h. Intervenants José Serrata (droit pénal), Ana María Frías (conseil immobilier / avocate) et Rey A. Fernández Liranzo (droit administratif / justice constitutionnelle). Confirmez l'entrée via @camarapuertoplata.",
+    "date": "2026-09-16",
+    "time": "3:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Cámara de Comercio Puerto Plata",
+    "venueSlug": "camara-comercio-puerto-plata",
+    "address": "Calle Beller No. 17, Salón de Eventos Fernando Cueto, Puerto Plata 57000",
+    "lat": 19.7975,
+    "lng": -70.6932,
+    "category": "business",
+    "categories": [
+      "culture"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18095862390",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/p/DdE4D7OONB0/",
+    "lineup": [
+      "José Serrata",
+      "Ana María Frías",
+      "Rey A. Fernández Liranzo"
+    ],
+    "imageEmoji": "⚖️"
+  },
+  {
+    "id": "luna-lounge-noche-de-exitos-2026-09-19",
+    "title": "Noche de Éxitos — Guegue La Yanta & Narciso",
+    "description": "Noche de Éxitos au Luna Lounge LCB (Luna Disco Bar), Av. Luis Ginebra n° 42 près du Restaurante Odisea, Puerto Plata — samedi 19 septembre 2026 dès 23 h avec Guegue La Yanta et Narciso. Confirmez le cover via Instagram @lunaloungelcb.",
+    "date": "2026-09-19",
+    "time": "11:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Luna Lounge LCB",
+    "venueSlug": "luna-lounge-lcb",
+    "address": "Av. Luis Ginebra #42 (near Restaurante Odisea), Puerto Plata 57000",
+    "lat": 19.792,
+    "lng": -70.6815,
+    "category": "parties",
+    "categories": [
+      "music",
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/lunaloungelcb/",
+    "lineup": [
+      "Guegue La Yanta",
+      "Narciso"
+    ],
+    "imageEmoji": "🌙"
+  },
+  {
+    "id": "ivan-garcia-clases-actuacion-ninos-2026",
+    "title": "Cours de théâtre pour enfants — Iván García Teatro-Escuela",
+    "description": "Cours de théâtre pour enfants de 5 à 10 ans à Iván García Teatro-Escuela, Calle Profesor Juan Bosch n° 72, Puerto Plata — du 18 septembre au 12 décembre 2026. Agir, créer, imaginer avec l’école IGTE. Confirmez horaires et tarifs via Instagram @teatroivangarcia ou teatroivangarcia.blogspot.com. Info : +1 809-261-7393.",
+    "date": "2026-09-18",
+    "endDate": "2026-12-12",
+    "location": "Puerto Plata",
+    "venue": "Iván García Teatro-Escuela",
+    "venueSlug": "ivan-garcia-teatro-escuela",
+    "address": "Calle Profesor Juan Bosch #72, Puerto Plata 57000",
+    "lat": 19.7979,
+    "lng": -70.6928,
+    "category": "culture",
+    "categories": [
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18092617393",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/teatroivangarcia/",
+    "imageEmoji": "🎭"
+  },
+  {
+    "id": "ocean-world-terrace-la-fiera-tipica-2026-09-18",
+    "title": "La Fiera Típica à Ocean World Terrace",
+    "description": "Típico live avec La Fiera Típica à Ocean World Terrace, Calle Principal n° 3, Cofresí — vendredi 18 septembre 2026 dès 20 h. Entrée RD$300 ; réservation de table gratuite. WhatsApp +1 809-815-9682. Instagram @oceanworldterrace.",
+    "date": "2026-09-18",
+    "time": "8:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Ocean World Terrace",
+    "venueSlug": "ocean-world-terrace",
+    "address": "Calle Principal #3, Cofresí, Puerto Plata",
+    "lat": 19.8261,
+    "lng": -70.7312,
+    "category": "music",
+    "categories": [
+      "performances",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "admissionPrice": "RD$300",
+    "phone": "+18098159682",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/oceanworldterrace/",
+    "lineup": [
+      "La Fiera Típica"
+    ],
+    "imageEmoji": "🪗"
+  },
+  {
+    "id": "rio-sonador-cierre-del-verano-2026-09-20",
+    "title": "Cierre del Verano — El Rubio Acordeón & Nacho Estrella",
+    "description": "Cierre del Verano au bord de la rivière avec El Rubio Acordeón et Nacho Estrella — dimanche 20 septembre 2026 dès 10 h autour de Río Sonador / Yásica Arriba (point exact flou sur l’affiche ; confirmez avant d’y aller). Ouverture Ronny Manuel ; animation DJ Gordy & El Chivato ; musique DJ Chris. Zone VIP avec meubles ; pas de boissons externes. Info/réservations 829-463-9793. Promo via @noticia_gurabocityrd.",
+    "date": "2026-09-20",
+    "time": "10:00 AM",
+    "location": "Sosúa",
+    "address": "Río Sonador area, Yásica Arriba (confirm meeting point)",
+    "lat": 19.5955,
+    "lng": -70.5365,
+    "category": "music",
+    "categories": [
+      "festivals",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18294639793",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/noticia_gurabocityrd/",
+    "lineup": [
+      "Ronny Manuel",
+      "El Rubio Acordeón",
+      "Nacho Estrella",
+      "DJ Gordy",
+      "El Chivato",
+      "DJ Chris"
+    ],
+    "imageEmoji": "🏞️"
   }
 ]

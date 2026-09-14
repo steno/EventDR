@@ -42,6 +42,14 @@ export const REMOVED_SEED_EVENT_IDS = new Set([
   "ingest-expo-amaprosan-2026",
   // Pop Urbano 037 podcast brand — not a verified North Coast dated event.
   "piscinazo-pop-urbano-037-2026-08-02",
+  // Demo community seed — no source URL; invents a Tue/Thu meetup (Sea Horse has courts only).
+  "community-pickleball-cabarete",
+  // Invented meetup — sourceUrl is only the Saturday Market page (already seeded as sea-horse-saturday-market).
+  "north-coast-networking-saturday",
+  // Invented Wednesday meetup at Cowork Cabarete — no sourceUrl / no verified Caribbean Tech series.
+  "north-coast-tech-meetup",
+  // Unverified cowork desk listing — venue itself dumped (DR365 Blue Coworking not corroborated).
+  "cowork-weekdays",
 ]);
 
 export function filterRemovedSeedEvents(events: Event[]): Event[] {

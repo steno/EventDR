@@ -265,14 +265,6 @@ export const VENUE_TIP_COPY: Record<
       fr: "Rituel de quartier au Callejón — pizza, verres abordables, vrais résidents. Petite salle ; venez tôt pour une place.",
     },
   },
-  "cowork-cabarete": {
-    body: "Remote-worker hive by day, informal bar chat after 4 — bring headphones; it's a desk product, not free café seating.",
-    localized: {
-      en: "Remote-worker hive by day, informal bar chat after 4 — bring headphones; it's a desk product, not free café seating.",
-      es: "Colmena de remotos de día, charla informal en barra después de las 4 — lleva audífonos; es producto de escritorio, no café gratis.",
-      fr: "Ruche remote le jour, bar informel après 16 h — casque conseillé ; c'est un desk payant, pas une place café gratuite.",
-    },
-  },
   "sea-horse-ranch": {
     body: "Saturday market and community lawn on the Cabarete–Sosúa corridor — daytime, family-friendly, more picnic than party.",
     localized: {
@@ -999,6 +991,54 @@ export const VENUE_TIP_COPY: Record<
       en: "Ocean Club's yellow-stripe pool club — cabanas and charcoal seafood on the deck. Resort access rules apply; this is not a public Pedro Clisante bar.",
       es: "El club de piscina a rayas amarillas del Ocean Club — cabañas y mariscos a la parrilla en la terraza. Aplican reglas de acceso del resort; no es un bar público de Pedro Clisante.",
       fr: "Le club piscine rayé jaune de l’Ocean Club — cabanas et fruits de mer au charbon sur le deck. Accès selon règles du resort ; pas un bar public Pedro Clisante.",
+    },
+  },
+  "lokuras-pop": {
+    body: "Historic-center café-bar on Profesor Juan Bosch #11 by the JCE — live salsa in a small downtown room, not a Malecón sunset deck. Pin the colonial grid, not Costambar.",
+    localized: {
+      en: "Historic-center café-bar on Profesor Juan Bosch #11 by the JCE — live salsa in a small downtown room, not a Malecón sunset deck. Pin the colonial grid, not Costambar.",
+      es: "Café-bar del centro histórico en Profesor Juan Bosch #11 junto a la JCE — salsa en vivo en un local chico downtown, no una terraza de atardecer en el Malecón. Clava la cuadrícula colonial, no Costambar.",
+      fr: "Café-bar du centre historique au 11 Profesor Juan Bosch, près de la JCE — salsa live dans une petite salle downtown, pas une terrasse sunset du Malecón. Épinglez la grille coloniale, pas Costambar.",
+    },
+  },
+  "nova-salud-bienestar": {
+    body: "Victorian-style centro clinic on Margarita Mears #6 (Mon–Fri 8 AM–5 PM on the door) — psychology talks here, not a spa day pass. WhatsApp seats before you walk the colonial grid.",
+    localized: {
+      en: "Victorian-style centro clinic on Margarita Mears #6 (Mon–Fri 8 AM–5 PM on the door) — psychology talks here, not a spa day pass. WhatsApp seats before you walk the colonial grid.",
+      es: "Clínica estilo victoriano en Margarita Mears #6 (lun–vie 8 AM–5 PM en la puerta) — charlas de psicología aquí, no un day pass de spa. Reserva cupo por WhatsApp antes de llegar al centro histórico.",
+      fr: "Clinique style victorien au 6 Margarita Mears (lun–ven 8 h–17 h sur la porte) — conférences de psychologie ici, pas un day pass spa. Réservez via WhatsApp avant de marcher la grille coloniale.",
+    },
+  },
+  "camara-comercio-puerto-plata": {
+    body: "Chamber building at Beller No. 17 (Salón Fernando Cueto behind the beige facade) — business panels for members and locals, not a tourist nightlife stop. Confirm time and entry before you pin centro.",
+    localized: {
+      en: "Chamber building at Beller No. 17 (Salón Fernando Cueto behind the beige facade) — business panels for members and locals, not a tourist nightlife stop. Confirm time and entry before you pin centro.",
+      es: "Edificio de la Cámara en Beller No. 17 (Salón Fernando Cueto detrás de la fachada beige) — paneles empresariales para socios y locales, no un stop de nightlife turístico. Confirma hora y entrada antes de clavar el centro.",
+      fr: "Bâtiment de la Chambre au 17 Beller (Salón Fernando Cueto derrière la façade beige) — panels business pour membres et locaux, pas un stop nightlife touristique. Confirmez horaire et entrée avant d’épingler le centre.",
+    },
+  },
+  "luna-lounge-lcb": {
+    body: "Late disco-lounge on Luis Ginebra #42 by Odisea — hit after 11 for billed nights, not a Malecón sunset deck. Confirm cover on @lunaloungelcb before you pin the strip.",
+    localized: {
+      en: "Late disco-lounge on Luis Ginebra #42 by Odisea — hit after 11 for billed nights, not a Malecón sunset deck. Confirm cover on @lunaloungelcb before you pin the strip.",
+      es: "Disco-lounge tarde en Luis Ginebra #42 junto a Odisea — llega después de las 11 para noches con cartel, no una terraza de atardecer en el Malecón. Confirma cover en @lunaloungelcb antes de clavar la avenida.",
+      fr: "Disco-lounge tardif au 42 Luis Ginebra près d’Odisea — après 23 h pour les soirées à l’affiche, pas une terrasse sunset du Malecón. Confirmez le cover sur @lunaloungelcb avant d’épingler l’avenue.",
+    },
+  },
+  "ivan-garcia-teatro-escuela": {
+    body: "Turquoise Victorian teatro-escuela on Juan Bosch #72 — kids workshops and stage works in centro, not a beach day. Message @teatroivangarcia for class slots before you walk the colonial grid.",
+    localized: {
+      en: "Turquoise Victorian teatro-escuela on Juan Bosch #72 — kids workshops and stage works in centro, not a beach day. Message @teatroivangarcia for class slots before you walk the colonial grid.",
+      es: "Teatro-escuela victoriano turquesa en Juan Bosch #72 — talleres infantiles y obras en el centro, no un día de playa. Escribe a @teatroivangarcia por cupos antes de llegar a la cuadrícula colonial.",
+      fr: "Teatro-escuela victorien turquoise au 72 Juan Bosch — ateliers enfants et pièces en centre-ville, pas une journée plage. Écrivez @teatroivangarcia pour les places avant de marcher la grille coloniale.",
+    },
+  },
+  "ocean-world-terrace": {
+    body: "Cofresí terrace at Calle Principal #3 — típico and party nights beside Ocean World, not the dolphin park ticket line. RD$300 covers entry on billed nights; WhatsApp tables ahead.",
+    localized: {
+      en: "Cofresí terrace at Calle Principal #3 — típico and party nights beside Ocean World, not the dolphin park ticket line. RD$300 covers entry on billed nights; WhatsApp tables ahead.",
+      es: "Terraza en Cofresí, Calle Principal #3 — noches típicas y fiestas junto a Ocean World, no la fila de delfines. RD$300 cubre entrada en noches con cartel; reserva mesa por WhatsApp.",
+      fr: "Terrasse à Cofresí, Calle Principal n° 3 — soirées típico et fêtes à côté d’Ocean World, pas la file des dauphins. RD$300 pour l’entrée les soirs à l’affiche ; réservez table via WhatsApp.",
     },
   },
 };

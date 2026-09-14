@@ -5,26 +5,7 @@ import { withResolvedCategories } from "./categorize";
 import { parseImageDataUrl } from "./image-data-url";
 import { normalizeAdmissionPrice } from "./event-tickets";
 
-const SEED_COMMUNITY: Event[] = [
-  {
-    id: "community-pickleball-cabarete",
-    title: "Cabarete Pickleball Meetup",
-    description:
-      "Expat-run pickleball every Tuesday and Thursday. Paddles available to borrow. WhatsApp group for rain updates.",
-    date: "2026-07-07",
-    time: "4:00 PM",
-    location: "Cabarete",
-    venue: "Cabarete Sports Club",
-    venueSlug: "sea-horse-ranch",
-    category: "sports",
-    format: "physical",
-    communitySubmitted: true,
-    trending: true,
-    recurrence: "weekly",
-    recurrenceDays: [2, 4],
-    imageEmoji: "🏓",
-  },
-];
+const SEED_COMMUNITY: Event[] = [];
 
 const store: Event[] = [...SEED_COMMUNITY];
 

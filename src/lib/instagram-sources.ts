@@ -123,6 +123,46 @@ export const INSTAGRAM_ACCOUNTS = [
     areas: ["Puerto Plata"],
   },
   {
+    handle: "ambarloungepop",
+    label: "Ámbar Lounge POP",
+    areas: ["Puerto Plata"],
+  },
+  {
+    handle: "lokuraspop",
+    label: "Lokura's Pop Bar Café",
+    areas: ["Puerto Plata"],
+  },
+  {
+    handle: "eventospop037",
+    label: "Eventos Pop 037 (Puerto Plata agenda)",
+    areas: ["Puerto Plata"],
+  },
+  {
+    handle: "novapuertoplata",
+    label: "NOVA Salud y Bienestar",
+    areas: ["Puerto Plata"],
+  },
+  {
+    handle: "spotlandrd",
+    label: "Spot Land Puerto Plata",
+    areas: ["Puerto Plata"],
+  },
+  {
+    handle: "lunaloungelcb",
+    label: "Luna Lounge LCB",
+    areas: ["Puerto Plata"],
+  },
+  {
+    handle: "teatroivangarcia",
+    label: "Iván García Teatro-Escuela",
+    areas: ["Puerto Plata"],
+  },
+  {
+    handle: "oceanworldterrace",
+    label: "Ocean World Terrace",
+    areas: ["Puerto Plata"],
+  },
+  {
     handle: "paradaelchoco",
     label: "Parada Típica El Choco",
     areas: ["Sosúa", "Cabarete"],
@@ -314,7 +354,10 @@ export function instagramSearchQueries(): string[] {
   const localVenues = [
     "onnosbar", "shakabardr", "groundzero_disco", "blueice_pianobar",
     "driftercabarete", "nonasgrillkitchen", "hardrockcafepuertoplata",
-    "djblueeventos", "victrolart", "cigartownpop", "paradaelchoco",
+    "djblueeventos", "victrolart", "cigartownpop", "ambarloungepop", "lokuraspop",
+    "eventospop037",
+    "novapuertoplata", "spotlandrd", "lunaloungelcb", "teatroivangarcia",
+    "oceanworldterrace", "paradaelchoco",
     "kitestreetpop", "meclaorooftop", "kviarcasinos",
     "lagunasov", "santafesov", "donlimon02", "lostrescocosrd", "lovedoesrd",
   ].join(" OR ");
@@ -371,7 +414,7 @@ export function instagramSearchQueries(): string[] {
     `site:instagram.com (${culturalVenues}) concierto OR festival OR presentación`,
     `site:instagram.com (${touristInfo}) evento OR actividad OR fiesta`,
     `site:instagram.com (${institutional}) foro OR feria OR congreso OR "rueda de negocios"`,
-    `site:instagram.com victrolart OR cigartownpop OR paradaelchoco OR kitestreetpop 2026`,
+    `site:instagram.com victrolart OR cigartownpop OR ambarloungepop OR lokuraspop OR eventospop037 OR novapuertoplata OR spotlandrd OR lunaloungelcb OR teatroivangarcia OR oceanworldterrace OR paradaelchoco OR kitestreetpop 2026`,
     `site:instagram.com "Mojitos" OR "Jueves Social" OR "Sábado Bailable" OR Acústico Puerto Plata`,
     
     // Business & institutional

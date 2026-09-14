@@ -203,12 +203,6 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Amphithéâtre en bord de mer à La Puntilla — concerts en plein air, défilés de carnaval et spectacles culturels face à l'Atlantique.",
     },
   },
-  "cowork-cabarete": {
-    description: {
-      es: "Espacio para trabajadores remotos con meetups de startups y charlas tech.",
-      fr: "Espace pour nomades digitaux avec meetups startups et talks tech.",
-    },
-  },
   "ocean-world": {
     description: {
       es: "Parque de aventura marina en Cofresí — nado con delfines, encuentros con leones marinos y tiburones, snorkel y laguna con toboganes. Ocean World Puerto Plata (a veces buscado como Sea World).",
@@ -829,6 +823,42 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
     description: {
       es: "Camp de fitness y wellness frente al mar en Zen Cabarete en Kite Beach (antes eXtreme) — gym tiki barefoot, loft de yoga con vista al océano, comida de la granja a la mesa, y campamentos de pérdida de peso y fitness todo el año.",
       fr: "Camp fitness et wellness en bord de mer à Zen Cabarete sur Kite Beach (ex-eXtreme) — gym tiki pieds nus, loft yoga vue océan, repas de la ferme à la table, et camps perte de poids / fitness toute l'année.",
+    },
+  },
+  "lokuras-pop": {
+    description: {
+      es: "Café-bar del centro en Calle Profesor Juan Bosch #11, cerca de la Junta Central Electoral y Calle 30 de Marzo — salsa en vivo, picadera, cócteles y ambiente downtown. Instagram @lokuraspop.",
+      fr: "Café-bar du centre sur Calle Profesor Juan Bosch n° 11, près de la Junta Central Electoral et Calle 30 de Marzo — salsa live, picadera, cocktails et hang downtown. Instagram @lokuraspop.",
+    },
+  },
+  "nova-salud-bienestar": {
+    description: {
+      es: "Centro de salud y bienestar en Calle Margarita Mears #6 en el centro de Puerto Plata — charlas de psicología, talleres y programas de bienestar. Horario en puerta lun–vie 8:00 AM–5:00 PM. Instagram @novapuertoplata.",
+      fr: "Centre santé et bien-être au 6 Calle Margarita Mears, centre de Puerto Plata — conférences de psychologie, ateliers et programmes wellness. Horaires sur la porte lun–ven 8 h–17 h. Instagram @novapuertoplata.",
+    },
+  },
+  "camara-comercio-puerto-plata": {
+    description: {
+      es: "Cámara de Comercio y Producción de Puerto Plata en Calle Beller No. 17 — el Salón de Eventos Fernando Cueto acoge paneles empresariales, talleres y foros de socios. Instagram @camarapuertoplata.",
+      fr: "Chambre de commerce et de production de Puerto Plata, Calle Beller n° 17 — le Salón de Eventos Fernando Cueto accueille panels business, ateliers et forums membres. Instagram @camarapuertoplata.",
+    },
+  },
+  "luna-lounge-lcb": {
+    description: {
+      es: "Lounge y disco bar en Av. Luis Ginebra #42 cerca del Restaurante Odisea — noches en vivo y fiestas en el centro de Puerto Plata. Instagram @lunaloungelcb.",
+      fr: "Lounge et disco bar sur Av. Luis Ginebra n° 42 près du Restaurante Odisea — soirées live et fêtes dans le centre de Puerto Plata. Instagram @lunaloungelcb.",
+    },
+  },
+  "ivan-garcia-teatro-escuela": {
+    description: {
+      es: "Teatro-escuela victoriano en Calle Profesor Juan Bosch #72 en el centro histórico — clases de actuación para niños y jóvenes, obras y programación cultural. Instagram @teatroivangarcia · teatroivangarcia.blogspot.com.",
+      fr: "Teatro-escuela victorien au 72 Calle Profesor Juan Bosch, centre historique — cours de théâtre pour enfants et jeunes, pièces et programmation culturelle. Instagram @teatroivangarcia · teatroivangarcia.blogspot.com.",
+    },
+  },
+  "ocean-world-terrace": {
+    description: {
+      es: "Terraza restaurante y música en vivo en Calle Principal #3, Cofresí — noches típicas y fiestas junto a Ocean World. Instagram @oceanworldterrace.",
+      fr: "Terrasse restaurant et musique live au Calle Principal n° 3, Cofresí — soirées típico et fêtes à côté d’Ocean World. Instagram @oceanworldterrace.",
     },
   },
 };

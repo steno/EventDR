@@ -39,7 +39,6 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "el-cocotazo-cafe": "el-cocotazo-cafe-deck.jpg",
   // Filename bump — distinct stage/arch place shot (not shared with concert heroes).
   "anfiteatro-la-puntilla": "anfiteatro-la-puntilla-stage.jpg",
-  "cowork-cabarete": "cowork-cabarete.jpg",
   "ocean-world": "ocean-world-park.jpg",
   // Filename bump — Tennis Club patio (Saturday Market flyer stays off the venue).
   "sea-horse-ranch": "sea-horse-ranch-tennis-club.jpg",
@@ -175,6 +174,11 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "sambalu-puerto-plata": "sambalu-puerto-plata.jpg",
   "skina-puerto-plata": "skina-puerto-plata.jpg",
   "sun-club-costa-norte-sosua": "sun-club-costa-norte-sosua.jpg",
+  "lokuras-pop": "lokuras-pop-interior.jpg",
+  "nova-salud-bienestar": "nova-salud-bienestar-facade.jpg",
+  "camara-comercio-puerto-plata": "camara-comercio-puerto-plata-facade.jpg",
+  "luna-lounge-lcb": "luna-lounge-lcb-facade.jpg",
+  "ivan-garcia-teatro-escuela": "ivan-garcia-teatro-escuela-facade.jpg",
 };
 
 /** Cache-busted URL for general venue thumbnails / JSON-LD. */

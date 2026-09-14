@@ -59,20 +59,6 @@
     "imageEmoji": "🧘"
   },
   {
-    "id": "cowork-weekdays",
-    "title": "Cowork Cabarete Open Desk & Coffee",
-    "description": "Remote workers and founders coworking weekdays — informal networking at the bar after 4 PM.",
-    "date": "2026-01-01",
-    "time": "9:00 AM – 6:00 PM",
-    "location": "Cabarete",
-    "venue": "Cowork Cabarete",
-    "venueSlug": "cowork-cabarete",
-    "category": "business",
-    "format": "physical",
-    "recurrence": "weekdays",
-    "imageEmoji": "💼"
-  },
-  {
     "id": "batey-salsa-weekly",
     "title": "El Batey Salsa Social",
     "description": "Weekly salsa night — beginner class then social dancing until late. No partner needed.",
@@ -1290,22 +1276,6 @@
     "imageEmoji": "🧘"
   },
   {
-    "id": "north-coast-networking-saturday",
-    "title": "North Coast Saturday Networking",
-    "description": "Informal expat and entrepreneur networking at the Sea Horse Ranch Saturday Market — founders, remote workers, and locals mingle over artisan food and coffee between Cabarete and Sosúa.",
-    "date": "2026-01-01",
-    "time": "10:00 AM – 1:00 PM",
-    "location": "Cabarete-Sosúa",
-    "venue": "Sea Horse Ranch Tennis Club Lawn",
-    "venueSlug": "sea-horse-ranch",
-    "category": "business",
-    "format": "physical",
-    "recurrence": "weekly",
-    "recurrenceDay": 6,
-    "sourceUrl": "https://sea-horse-ranch.com/saturday-market-sea-horse-ranch/",
-    "imageEmoji": "💼"
-  },
-  {
     "id": "ojo-latin-night-thursday",
     "title": "Ojo Club Latin Night",
     "description": "Thursday Latin Night at Ojo Club above LAX Cabarete — salsa, bachata, and merengue on the rooftop terrace with ocean views. One of Cabarete's best dance nights.",
@@ -1417,21 +1387,6 @@
     "recurrence": "daily",
     "sourceUrl": "https://www.godominicanrepublic.com/things-to-do/cabarete-kiteboarding",
     "imageEmoji": "🏄"
-  },
-  {
-    "id": "north-coast-tech-meetup",
-    "title": "North Coast Tech & Startup Meetup",
-    "description": "Remote workers and founders gather at Cowork Cabarete for informal tech talks and networking — weekday desks by day, community meetups and Caribbean Tech discussions after 4 PM.",
-    "date": "2026-01-01",
-    "time": "4:00 PM – 7:00 PM",
-    "location": "Cabarete",
-    "venue": "Cowork Cabarete",
-    "venueSlug": "cowork-cabarete",
-    "category": "business",
-    "format": "physical",
-    "recurrence": "weekly",
-    "recurrenceDay": 3,
-    "imageEmoji": "💻"
   },
   {
     "id": "paella-pop-el-pueblito",

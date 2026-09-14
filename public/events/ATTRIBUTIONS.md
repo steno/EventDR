@@ -256,3 +256,15 @@ Curated images under `public/events/` and `public/venues/`.
 | `tasty-food-park-show-de-magia-2026-09-13.jpg` | POP-supplied — Tasty Food Park Show de Magia flyer ([IG](https://www.instagram.com/p/DdNiin9De2O/)) | Magic show Sun 13 Sep 2026 7 PM (editor-provided) |
 | `cigar-town-domingo-de-matine.jpg` | POP-supplied — Cigar Town Domingo de Matiné promo ([reel](https://www.instagram.com/reel/DdNgA2tsgGt/)) | Weekly Sunday coffee/drinks or 2 beers + 10% off (editor-provided) |
 | `hard-rock-rising-segunda-ronda-2026-09-16.jpg` | POP-supplied — Hard Rock Rising Global Live Music Challenge Segunda Ronda flyer ([IG](https://www.instagram.com/p/DdO4DKoxoRk/)) | Competition night Wed 16 Sep 2026 8 PM (editor-provided) |
+| `lokuras-pop-percusion-latina-2026-09-20.jpg` | POP-supplied — Lokura's Pop Percusión Latina Somos Salsa flyer ([IG](https://www.instagram.com/lokuraspop/)) | Live salsa Sun 20 Sep 2026 from 6 PM (editor-provided) |
+| `venues/lokuras-pop-interior.jpg` | POP-supplied — Lokura's Pop Bar Café interior (yellow lounge / wooden bar) | Venue place shot (editor-provided, not scraped) |
+| `nova-detras-de-la-mascara-2026-10-16.jpg` | POP-supplied — NOVA Salud Detrás de la Máscara flyer ([IG](https://www.instagram.com/p/DdE8EPrusX4/)) | Psychology talk Thu 16 Oct 2026 5 PM (editor-provided) |
+| `venues/nova-salud-bienestar-facade.jpg` | POP-supplied — Centro NOVA Salud y Bienestar facade (Margarita Mears) | Venue place shot (editor-provided, not scraped) |
+| `camara-empresas-codigo-penal-2026-09-16.jpg` | POP-supplied — Cámara Conversatorio Empresas y Código Penal flyer ([IG](https://www.instagram.com/p/DdE4D7OONB0/)) | Business panel Tue 16 Sep 2026 3 PM (editor-provided) |
+| `venues/camara-comercio-puerto-plata-facade.jpg` | POP-supplied — Cámara de Comercio facade (Calle Beller No. 17) | Venue place shot (editor-provided, not scraped) |
+| `luna-lounge-noche-de-exitos-2026-09-19.jpg` | POP-supplied — Luna Lounge Noche de Éxitos flyer ([IG](https://www.instagram.com/lunaloungelcb/)) | Guegue + Narciso Sat 19 Sep 2026 from 11 PM (editor-provided) |
+| `venues/luna-lounge-lcb-facade.jpg` | POP-supplied — Luna Lounge LCB night facade (Luis Ginebra) | Venue place shot (editor-provided, not scraped) |
+| `ivan-garcia-clases-actuacion-ninos-2026.jpg` | POP-supplied — Iván García Teatro-Escuela kids acting flyer ([IG](https://www.instagram.com/teatroivangarcia/)) | Classes ages 5–10, Sep 18–Dec 12 2026 (editor-provided) |
+| `venues/ivan-garcia-teatro-escuela-facade.jpg` | POP-supplied — Iván García Teatro-Escuela turquoise facade | Venue place shot (editor-provided, not scraped) |
+| `ocean-world-terrace-la-fiera-tipica-2026-09-18.jpg` | POP-supplied — Ocean World Terrace La Fiera Típica flyer ([IG](https://www.instagram.com/oceanworldterrace/)) | Live típico Fri 18 Sep 2026 from 8 PM, RD$300 (editor-provided) |
+| `rio-sonador-cierre-del-verano-2026-09-20.jpg` | POP-supplied — Cierre del Verano Río Sonador flyer ([IG](https://www.instagram.com/noticia_gurabocityrd/)) | El Rubio + Nacho Estrella Sun 20 Sep 2026 from 10 AM; venue pin omitted (editor-provided) |

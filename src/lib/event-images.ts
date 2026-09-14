@@ -9,7 +9,6 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "malecon-kiosks-daily": "malecon-kiosks-daily.jpg",
   "kite-beach-daily": "kite-beach-daily.jpg",
   "liquid-blue-sunrise-yoga": "liquid-blue-sunrise-yoga.jpg",
-  "cowork-weekdays": "cowork-weekdays.jpg",
   // Filename bump — dance floor under string lights (not the shared patio-crowd clone).
   "batey-salsa-weekly": "batey-salsa-social-dance.jpg",
   "sosua-volleyball-weekly": "sosua-volleyball-weekly.jpg",
@@ -38,7 +37,6 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "cremo-karaoke-saturday": "cremo-karaoke-saturday.jpg",
   "big-lees-weekend-music": "big-lees-weekend-music.jpg",
   "sea-horse-saturday-market": "sea-horse-saturday-market-tents.jpg",
-  "community-pickleball-cabarete": "community-pickleball-cabarete.jpg",
   "ingest-make-authentic-espadrilles-in-puerto-plata":
     "ingest-make-authentic-espadrilles-in-puerto-plata.jpg",
   "ingest-18th-annual-cabarete-butterfly-effect":
@@ -117,6 +115,20 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "hard-rock-casa-mickey-2026-09-26": "hard-rock-casa-mickey-2026-09-26.jpg",
   "hard-rock-rising-segunda-ronda-2026-09-16":
     "hard-rock-rising-segunda-ronda-2026-09-16.jpg",
+  "lokuras-pop-percusion-latina-2026-09-20":
+    "lokuras-pop-percusion-latina-2026-09-20.jpg",
+  "nova-detras-de-la-mascara-2026-10-16":
+    "nova-detras-de-la-mascara-2026-10-16.jpg",
+  "camara-empresas-codigo-penal-2026-09-16":
+    "camara-empresas-codigo-penal-2026-09-16.jpg",
+  "luna-lounge-noche-de-exitos-2026-09-19":
+    "luna-lounge-noche-de-exitos-2026-09-19.jpg",
+  "ivan-garcia-clases-actuacion-ninos-2026":
+    "ivan-garcia-clases-actuacion-ninos-2026.jpg",
+  "ocean-world-terrace-la-fiera-tipica-2026-09-18":
+    "ocean-world-terrace-la-fiera-tipica-2026-09-18.jpg",
+  "rio-sonador-cierre-del-verano-2026-09-20":
+    "rio-sonador-cierre-del-verano-2026-09-20.jpg",
   "drifter-sunset-into-the-night": "drifter-sunset-into-the-night.jpg",
   "sosua-jewish-museum-hours": "sosua-jewish-museum-hours.jpg",
   "sosua-diving-adventures-daily": "sosua-diving-adventures-daily.jpg",
@@ -126,7 +138,6 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "d-classico-merengue-nights": "d-classico-merengue-bar.jpg",
   "sosua-pedro-clisante-food-nights": "sosua-pedro-clisante-food-nights.jpg",
   "natura-cabana-yoga-daily": "natura-cabana-yoga-daily.jpg",
-  "north-coast-networking-saturday": "north-coast-networking-saturday.jpg",
   // Filename bump — Ojo Club booth night (not MerengueBachata still).
   "ojo-latin-night-thursday": "ojo-latin-night-ojo-booth.png",
   "ojo-weekend-dj-parties": "ojo-weekend-dj-parties.jpg",
@@ -146,7 +157,6 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "voyvoy-saturday-session": "voyvoy-saturday-session-flyer.jpg",
   "womens-reconnection-kite-camp-2026": "womens-reconnection-kite-camp-2026.jpg",
   "kite-beach-wind-culture": "kite-beach-wind-culture.jpg",
-  "north-coast-tech-meetup": "north-coast-tech-meetup.jpg",
   "puerto-plata-carnaval-2026": "puerto-plata-carnaval-2026.jpg",
   "malecon-morning-wellness-walk": "malecon-morning-wellness-walk.jpg",
   // Filename bump — guests at the bar (empty dining room stays on the venue).
@@ -310,6 +320,14 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "todos-somos-luperon-2026-09-08": "object-[78%_40%] sm:object-center",
   // Square terrace — keep the valley/ocean view, not the palapa rafters.
   "ernesto-betances-rancho-catalina-2026-09-13": "object-center",
+  // Portrait salsa flyer — keep the percussion trio in a wide crop.
+  "lokuras-pop-percusion-latina-2026-09-20": "object-center",
+  "nova-detras-de-la-mascara-2026-10-16": "object-center",
+  "camara-empresas-codigo-penal-2026-09-16": "object-center",
+  "luna-lounge-noche-de-exitos-2026-09-19": "object-center",
+  "ivan-garcia-clases-actuacion-ninos-2026": "object-center",
+  "ocean-world-terrace-la-fiera-tipica-2026-09-18": "object-center",
+  "rio-sonador-cierre-del-verano-2026-09-20": "object-center",
 };
 
 function curatedEventImageFile(eventId: string): string | undefined {
@@ -377,6 +395,13 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "imbert-mercedes-patronales-2026.jpg",
   "latinwok-ramen-party-2026-09-17.jpg",
   "lena-dardelet-aura-beach-club-2026-07-24.png",
+  "lokuras-pop-percusion-latina-2026-09-20.jpg",
+  "nova-detras-de-la-mascara-2026-10-16.jpg",
+  "camara-empresas-codigo-penal-2026-09-16.jpg",
+  "luna-lounge-noche-de-exitos-2026-09-19.jpg",
+  "ivan-garcia-clases-actuacion-ninos-2026.jpg",
+  "ocean-world-terrace-la-fiera-tipica-2026-09-18.jpg",
+  "rio-sonador-cierre-del-verano-2026-09-20.jpg",
   "los-event-trilogy-2026-09-03.jpg",
   "love-does-bocadillos-course-2026.jpg",
   "love-does-cocktails-solidarity-2026-09-04.jpg",

@@ -337,17 +337,6 @@ export const SEED_VENUES: Venue[] = [
       "https://es.godominicanrepublic.com/que-hacer/anfiteatro-la-puntilla",
   },
   {
-    slug: "cowork-cabarete",
-    name: "Cowork Cabarete",
-    city: "Cabarete",
-    description: "Remote worker hub hosting startup meetups and tech talks.",
-    lat: 19.7485,
-    lng: -70.41,
-    emoji: "💼",
-    phone: "+18095710808",
-    website: "https://www.bluecoworking.com",
-  },
-  {
     slug: "ocean-world",
     name: "Ocean World Adventure Park",
     city: "Puerto Plata",
@@ -1641,6 +1630,79 @@ export const SEED_VENUES: Venue[] = [
     instagram: "leclub_costanorte",
     phone: "+18098956000",
   },
+  {
+    slug: "lokuras-pop",
+    name: "Lokura's Pop Bar Café",
+    city: "Puerto Plata",
+    description:
+      "Centro café-bar on Calle Profesor Juan Bosch #11, near the Junta Central Electoral and Calle 30 de Marzo — live salsa, picadera, cocktails, and downtown hangouts. Instagram @lokuraspop.",
+    lat: 19.79875,
+    lng: -70.69395,
+    emoji: "🥁",
+    instagram: "lokuraspop",
+    website: "https://lokuras-bar-caffe.negocio.site/",
+  },
+  {
+    slug: "nova-salud-bienestar",
+    name: "Centro Nova Salud y Bienestar",
+    city: "Puerto Plata",
+    description:
+      "Health and wellness center on Calle Margarita Mears #6 in Puerto Plata centro — psychology talks, workshops, and wellbeing programs. Door hours Mon–Fri 8:00 AM–5:00 PM. Instagram @novapuertoplata.",
+    lat: 19.7965,
+    lng: -70.6948,
+    emoji: "💚",
+    instagram: "novapuertoplata",
+    phone: "+18092800077",
+  },
+  {
+    slug: "camara-comercio-puerto-plata",
+    name: "Cámara de Comercio Puerto Plata",
+    city: "Puerto Plata",
+    description:
+      "Chamber of Commerce and Production of Puerto Plata on Calle Beller No. 17 — Salón de Eventos Fernando Cueto hosts business panels, workshops, and member forums. Instagram @camarapuertoplata.",
+    lat: 19.7975,
+    lng: -70.6932,
+    emoji: "🏛️",
+    instagram: "camarapuertoplata",
+    website: "https://camarapuertoplata.org/",
+    phone: "+18095862390",
+  },
+  {
+    slug: "luna-lounge-lcb",
+    name: "Luna Lounge LCB",
+    city: "Puerto Plata",
+    description:
+      "Nightlife lounge and disco bar on Av. Luis Ginebra #42 near Restaurante Odisea — late live bills and party nights in Puerto Plata centro. Instagram @lunaloungelcb.",
+    lat: 19.7920,
+    lng: -70.6815,
+    emoji: "🌙",
+    instagram: "lunaloungelcb",
+  },
+  {
+    slug: "ivan-garcia-teatro-escuela",
+    name: "Iván García Teatro-Escuela",
+    city: "Puerto Plata",
+    description:
+      "Victorian teatro-escuela on Calle Profesor Juan Bosch #72 in the historic center — kids and youth acting classes, stage works, and cultural programming. Instagram @teatroivangarcia · teatroivangarcia.blogspot.com.",
+    lat: 19.7979,
+    lng: -70.6928,
+    emoji: "🎭",
+    instagram: "teatroivangarcia",
+    website: "https://teatroivangarcia.blogspot.com/",
+    phone: "+18092617393",
+  },
+  {
+    slug: "ocean-world-terrace",
+    name: "Ocean World Terrace",
+    city: "Puerto Plata",
+    description:
+      "Terrace restaurant and live-music spot at Calle Principal #3, Cofresí — típico nights and parties beside Ocean World. Instagram @oceanworldterrace.",
+    lat: 19.8261,
+    lng: -70.7312,
+    emoji: "🪗",
+    instagram: "oceanworldterrace",
+    phone: "+18098159682",
+  },
 ];
 
 /** Extra name fragments → seed slug (checked before fuzzy name includes). */
@@ -1729,6 +1791,34 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
   {
     pattern: /cigar\s*town(\s*pop)?/i,
     slug: "cigar-town-pop",
+  },
+  {
+    pattern:
+      /lokura'?s?\s*(pop|bar|caf[eé])|lokuras\s*pop|lokuraspop/i,
+    slug: "lokuras-pop",
+  },
+  {
+    pattern:
+      /nova\s*(salud|bienestar)|centro\s*nova|novapuertoplata/i,
+    slug: "nova-salud-bienestar",
+  },
+  {
+    pattern:
+      /c[aá]mara\s*(de\s*)?(comercio|producci[oó]n)|camarapuertoplata|sal[oó]n\s*(de\s*)?eventos\s*fernando\s*cueto/i,
+    slug: "camara-comercio-puerto-plata",
+  },
+  {
+    pattern: /luna\s*(lounge|disco)|lunaloungelcb/i,
+    slug: "luna-lounge-lcb",
+  },
+  {
+    pattern:
+      /iv[aá]n\s*garc[ií]a|teatro\s*escuela\s*iv[aá]n|teatroivangarcia|igte/i,
+    slug: "ivan-garcia-teatro-escuela",
+  },
+  {
+    pattern: /ocean\s*world\s*terrace|oceanworldterrace/i,
+    slug: "ocean-world-terrace",
   },
   {
     pattern: /cacique(\s+monci[oó]n)?|disco\s+restaurant\s+cacique|restaurante\s+cacique/i,

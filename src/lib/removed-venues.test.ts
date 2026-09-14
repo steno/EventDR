@@ -18,6 +18,7 @@ describe("removed venues", () => {
         "cabarete-surf-school",
         "cafe-del-mar",
         "caleton-beach-club",
+        "cowork-cabarete",
         "grecialand",
         "parque-de-beisbol-jose-briceno",
         "rafaella-s-studio",

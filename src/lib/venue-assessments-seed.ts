@@ -398,17 +398,6 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     ],
   }),
   editorial({
-    venueSlug: "cowork-cabarete",
-    verdictKey: "reliable_visitor_pick",
-    crowdFit: ["visitor", "mixed"],
-    axes: { recommend: 4.1, practical: 4.3, reliability: 4.2 },
-    themes: [
-      { key: "cowork_space", sentiment: "positive", audience: "visitor" },
-      { key: "easy_to_find", sentiment: "positive" },
-      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
-    ],
-  }),
-  editorial({
     venueSlug: "sea-horse-ranch",
     verdictKey: "reliable_visitor_pick",
     crowdFit: ["visitor", "family", "mixed"],
@@ -1468,6 +1457,71 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
       { key: "beachfront", sentiment: "positive", audience: "visitor" },
       { key: "ocean_views", sentiment: "positive", audience: "visitor" },
       { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+    ],
+  }),
+  editorial({
+    venueSlug: "lokuras-pop",
+    verdictKey: "local_favorite_night",
+    crowdFit: ["local", "nightlife", "mixed", "visitor"],
+    axes: { recommend: 4.2, atmosphere: 4.3, value: 4.0, practical: 4.1 },
+    themes: [
+      { key: "live_music", sentiment: "positive" },
+      { key: "dance_floor", sentiment: "positive", audience: "nightlife" },
+      { key: "easy_to_find", sentiment: "positive" },
+    ],
+  }),
+  editorial({
+    venueSlug: "nova-salud-bienestar",
+    verdictKey: "solid_local_culture",
+    crowdFit: ["local", "mixed", "visitor"],
+    axes: { recommend: 4.1, atmosphere: 3.9, value: 3.8, practical: 4.2 },
+    themes: [
+      { key: "workshop", sentiment: "positive" },
+      { key: "easy_to_find", sentiment: "positive" },
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+    ],
+  }),
+  editorial({
+    venueSlug: "camara-comercio-puerto-plata",
+    verdictKey: "solid_local_culture",
+    crowdFit: ["local", "mixed"],
+    axes: { recommend: 4.0, atmosphere: 3.6, value: 4.0, practical: 4.3 },
+    themes: [
+      { key: "workshop", sentiment: "positive" },
+      { key: "easy_to_find", sentiment: "positive" },
+    ],
+  }),
+  editorial({
+    venueSlug: "luna-lounge-lcb",
+    verdictKey: "strong_local_nightlife",
+    crowdFit: ["local", "nightlife", "mixed"],
+    axes: { recommend: 4.1, atmosphere: 4.2, value: 3.8, practical: 4.0 },
+    themes: [
+      { key: "live_music", sentiment: "positive" },
+      { key: "dance_floor", sentiment: "positive", audience: "nightlife" },
+      { key: "easy_to_find", sentiment: "positive" },
+    ],
+  }),
+  editorial({
+    venueSlug: "ivan-garcia-teatro-escuela",
+    verdictKey: "solid_local_culture",
+    crowdFit: ["local", "family", "mixed", "visitor"],
+    axes: { recommend: 4.3, atmosphere: 4.1, value: 4.0, practical: 4.2 },
+    themes: [
+      { key: "workshop", sentiment: "positive", audience: "family" },
+      { key: "easy_to_find", sentiment: "positive" },
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+    ],
+  }),
+  editorial({
+    venueSlug: "ocean-world-terrace",
+    verdictKey: "strong_mixed_food_nightlife",
+    crowdFit: ["local", "nightlife", "mixed", "visitor"],
+    axes: { recommend: 4.2, atmosphere: 4.3, value: 4.0, practical: 4.0 },
+    themes: [
+      { key: "live_music", sentiment: "positive" },
+      { key: "dominican_plates", sentiment: "positive", audience: "local" },
+      { key: "easy_to_find", sentiment: "positive" },
     ],
   }),
 ];

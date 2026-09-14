@@ -5,7 +5,8 @@
  * (East Coast), not North Coast; `grecialand` was a truncated ingest stub
  * (canonical seed is `grecialandia`); `parque-de-beisbol-jose-briceno` is a
  * Places ingest stub for the same stadium as seed `parque-jose-briceno`;
- * others never got a listing.
+ * `cowork-cabarete` was an unverified “Blue Coworking” listing with no live
+ * Maps/IG/site presence; others never got a listing.
  */
 export const REMOVED_VENUE_SLUGS = new Set([
   "cafe-del-mar",
@@ -16,6 +17,8 @@ export const REMOVED_VENUE_SLUGS = new Set([
   "caleton-beach-club",
   "grecialand",
   "parque-de-beisbol-jose-briceno",
+  // DR365 “Blue Coworking Cabarete” — no Maps place; IG 404; site 500; Co-Cabarete permanently closed.
+  "cowork-cabarete",
 ]);
 
 /** Stub / alias slugs → canonical seed slug (301 on venue pages). */

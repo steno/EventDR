@@ -1761,5 +1761,200 @@
     "sourceType": "instagram",
     "sourceUrl": "https://www.instagram.com/p/DdO4DKoxoRk/",
     "imageEmoji": "🎸"
+  },
+  {
+    "id": "lokuras-pop-percusion-latina-2026-09-20",
+    "title": "Percusión Latina — Somos Salsa en Lokura's Pop",
+    "description": "Percusión Latina — Somos Salsa en vivo en Lokura's Pop Bar Café, Calle Profesor Juan Bosch #11 (cerca de la Junta Central Electoral), Puerto Plata — domingo 20 de septiembre 2026 desde las 6:00 PM. Clave, salsa, picadera y tragos; mojitos 2x1 de 7:00 a 9:00 PM. Confirma cover por Instagram @lokuraspop.",
+    "date": "2026-09-20",
+    "time": "6:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Lokura's Pop Bar Café",
+    "venueSlug": "lokuras-pop",
+    "address": "Calle Profesor Juan Bosch #11, cerca de la Junta Central Electoral, Puerto Plata 57000",
+    "lat": 19.79875,
+    "lng": -70.69395,
+    "category": "music",
+    "categories": [
+      "performances",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/lokuraspop/",
+    "lineup": [
+      "Percusión Latina — Somos Salsa"
+    ],
+    "imageEmoji": "🥁"
+  },
+  {
+    "id": "nova-detras-de-la-mascara-2026-10-16",
+    "title": "Detrás de la Máscara — Comprendiendo el narcisismo",
+    "description": "Charla de psicología Detrás de la Máscara — comprendiendo el narcisismo desde la psicología, con las psicólogas/psicólogos clínicos Ana María Rivera y Felipe Acosta en Centro Nova Salud y Bienestar, Calle Margarita Mears #6, Puerto Plata — jueves 16 de octubre 2026 a las 5:00 PM. Historias, testimonios y herramientas prácticas; RD$1,000; cupo limitado. Reserva por WhatsApp 809-280-0077. Organizador @novapuertoplata.",
+    "date": "2026-10-16",
+    "time": "5:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Centro Nova Salud y Bienestar",
+    "venueSlug": "nova-salud-bienestar",
+    "address": "Calle Margarita Mears #6, Puerto Plata 57000",
+    "lat": 19.7965,
+    "lng": -70.6948,
+    "category": "health-wellness",
+    "categories": [
+      "culture"
+    ],
+    "format": "physical",
+    "trending": true,
+    "admissionPrice": "RD$1,000",
+    "phone": "+18092800077",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/p/DdE8EPrusX4/",
+    "lineup": [
+      "Ana María Rivera",
+      "Felipe Acosta"
+    ],
+    "imageEmoji": "🎭"
+  },
+  {
+    "id": "camara-empresas-codigo-penal-2026-09-16",
+    "title": "Conversatorio — Empresas y Código Penal",
+    "description": "Conversatorio Empresas y Código Penal de la Cámara de Comercio y Producción de Puerto Plata en el Salón de Eventos Fernando Cueto (Calle Beller No. 17) — miércoles 16 de septiembre 2026 a las 3:00 PM. Exponentes José Serrata (derecho penal), Ana María Frías (asesora inmobiliaria y abogada) y Rey A. Fernández Liranzo (derecho administrativo y justicia constitucional). Confirma admisión con @camarapuertoplata.",
+    "date": "2026-09-16",
+    "time": "3:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Cámara de Comercio Puerto Plata",
+    "venueSlug": "camara-comercio-puerto-plata",
+    "address": "Calle Beller No. 17, Salón de Eventos Fernando Cueto, Puerto Plata 57000",
+    "lat": 19.7975,
+    "lng": -70.6932,
+    "category": "business",
+    "categories": [
+      "culture"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18095862390",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/p/DdE4D7OONB0/",
+    "lineup": [
+      "José Serrata",
+      "Ana María Frías",
+      "Rey A. Fernández Liranzo"
+    ],
+    "imageEmoji": "⚖️"
+  },
+  {
+    "id": "luna-lounge-noche-de-exitos-2026-09-19",
+    "title": "Noche de Éxitos — Guegue La Yanta & Narciso",
+    "description": "Noche de Éxitos en Luna Lounge LCB (Luna Disco Bar), Av. Luis Ginebra #42 cerca del Restaurante Odisea, Puerto Plata — sábado 19 de septiembre 2026 desde las 11:00 PM con Guegue La Yanta y Narciso. Confirma cover por Instagram @lunaloungelcb.",
+    "date": "2026-09-19",
+    "time": "11:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Luna Lounge LCB",
+    "venueSlug": "luna-lounge-lcb",
+    "address": "Av. Luis Ginebra #42 (near Restaurante Odisea), Puerto Plata 57000",
+    "lat": 19.792,
+    "lng": -70.6815,
+    "category": "parties",
+    "categories": [
+      "music",
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/lunaloungelcb/",
+    "lineup": [
+      "Guegue La Yanta",
+      "Narciso"
+    ],
+    "imageEmoji": "🌙"
+  },
+  {
+    "id": "ivan-garcia-clases-actuacion-ninos-2026",
+    "title": "Clases de actuación para niños — Iván García Teatro-Escuela",
+    "description": "Clases de actuación para niños de 5 a 10 años en Iván García Teatro-Escuela, Calle Profesor Juan Bosch #72, Puerto Plata — del 18 de septiembre al 12 de diciembre 2026. Actúa, crea e imagina con la escuela IGTE. Confirma horario y tarifas por Instagram @teatroivangarcia o teatroivangarcia.blogspot.com. Info: +1 809-261-7393.",
+    "date": "2026-09-18",
+    "endDate": "2026-12-12",
+    "location": "Puerto Plata",
+    "venue": "Iván García Teatro-Escuela",
+    "venueSlug": "ivan-garcia-teatro-escuela",
+    "address": "Calle Profesor Juan Bosch #72, Puerto Plata 57000",
+    "lat": 19.7979,
+    "lng": -70.6928,
+    "category": "culture",
+    "categories": [
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18092617393",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/teatroivangarcia/",
+    "imageEmoji": "🎭"
+  },
+  {
+    "id": "ocean-world-terrace-la-fiera-tipica-2026-09-18",
+    "title": "La Fiera Típica en Ocean World Terrace",
+    "description": "Típico en vivo con La Fiera Típica en Ocean World Terrace, Calle Principal #3, Cofresí — viernes 18 de septiembre 2026 desde las 8:00 PM. Entrada RD$300; reservación de mesa gratis. WhatsApp +1 809-815-9682. Instagram @oceanworldterrace.",
+    "date": "2026-09-18",
+    "time": "8:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Ocean World Terrace",
+    "venueSlug": "ocean-world-terrace",
+    "address": "Calle Principal #3, Cofresí, Puerto Plata",
+    "lat": 19.8261,
+    "lng": -70.7312,
+    "category": "music",
+    "categories": [
+      "performances",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "admissionPrice": "RD$300",
+    "phone": "+18098159682",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/oceanworldterrace/",
+    "lineup": [
+      "La Fiera Típica"
+    ],
+    "imageEmoji": "🪗"
+  },
+  {
+    "id": "rio-sonador-cierre-del-verano-2026-09-20",
+    "title": "Cierre del Verano — El Rubio Acordeón & Nacho Estrella",
+    "description": "Cierre del Verano junto al río con El Rubio Acordeón y Nacho Estrella — domingo 20 de septiembre 2026 desde las 10:00 AM en la zona de Río Sonador / Yásica Arriba (punto exacto poco claro en el flyer; confirma antes de ir). Apertura Ronny Manuel; animación DJ Gordy y El Chivato; música DJ Chris. Área VIP con muebles; no entrada de bebidas. Info/reservas 829-463-9793. Promo vía @noticia_gurabocityrd.",
+    "date": "2026-09-20",
+    "time": "10:00 AM",
+    "location": "Sosúa",
+    "address": "Río Sonador area, Yásica Arriba (confirm meeting point)",
+    "lat": 19.5955,
+    "lng": -70.5365,
+    "category": "music",
+    "categories": [
+      "festivals",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18294639793",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/noticia_gurabocityrd/",
+    "lineup": [
+      "Ronny Manuel",
+      "El Rubio Acordeón",
+      "Nacho Estrella",
+      "DJ Gordy",
+      "El Chivato",
+      "DJ Chris"
+    ],
+    "imageEmoji": "🏞️"
   }
 ]

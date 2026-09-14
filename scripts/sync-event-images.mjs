@@ -147,7 +147,6 @@ const FILE_TO_EVENT_ID = {
   "LAXSunsetSessions.JPG": "lax-sunset-daily",
   "MaleconFodKiosks.JPG": "malecon-kiosks-daily",
   "KiteBeachWindSession.JPG": "kite-beach-daily",
-  "CoworkCabarete.JPG": "cowork-weekdays",
   "ElBateySalsaSocial.JPG": "batey-salsa-weekly",
   "batey-salsa-social-dance.jpg": "batey-salsa-social-dance",
   "el-batey-weekend-nightlife-clisante.jpg": "el-batey-weekend-nightlife-clisante",
@@ -165,6 +164,20 @@ const FILE_TO_EVENT_ID = {
   "victrola-sabado-bailable.jpg": "victrola-sabado-bailable",
   "victrola-jueves-social.jpg": "victrola-jueves-social",
   "victrola-mojitos-friday.jpg": "victrola-mojitos-friday",
+  "lokuras-pop-percusion-latina-2026-09-20.jpg":
+    "lokuras-pop-percusion-latina-2026-09-20",
+  "nova-detras-de-la-mascara-2026-10-16.jpg":
+    "nova-detras-de-la-mascara-2026-10-16",
+  "camara-empresas-codigo-penal-2026-09-16.jpg":
+    "camara-empresas-codigo-penal-2026-09-16",
+  "luna-lounge-noche-de-exitos-2026-09-19.jpg":
+    "luna-lounge-noche-de-exitos-2026-09-19",
+  "ivan-garcia-clases-actuacion-ninos-2026.jpg":
+    "ivan-garcia-clases-actuacion-ninos-2026",
+  "ocean-world-terrace-la-fiera-tipica-2026-09-18.jpg":
+    "ocean-world-terrace-la-fiera-tipica-2026-09-18",
+  "rio-sonador-cierre-del-verano-2026-09-20.jpg":
+    "rio-sonador-cierre-del-verano-2026-09-20",
   "cigar-town-acustico-humos-2026-08-14.jpg":
     "cigar-town-acustico-humos-2026-08-14",
   "cigar-town-acustico-humos.jpg": "cigar-town-acustico-humos",
@@ -172,7 +185,6 @@ const FILE_TO_EVENT_ID = {
   "CremoBohemianWednesday.jpg": "cremo-bohemian-wednesday",
   "CremoKaraokeSaturday.jpg": "cremo-karaoke-saturday",
   "BigLeesWeekendMusic.jpg": "big-lees-weekend-music",
-  "CabaretePickleBallMeet.JPG": "community-pickleball-cabarete",
   "espadrillas.jpeg": "ingest-make-authentic-espadrilles-in-puerto-plata",
   "ingest-el-blachy.jpg": "ingest-el-blachy",
   "ingest-nacho-estrella-nd-eventos.jpg": "ingest-nacho-estrella-nd-eventos",
@@ -192,8 +204,6 @@ const FILE_TO_EVENT_ID = {
   "funcity.jpeg": "fun-city-daily",
   "monkeyland.jpeg": "monkeyland-puerto-plata-daily",
   "outback-safari.jpeg": "outback-safari-daily",
-  "NorthCoastStartupMeet.JPG": "north-coast-networking-saturday",
-  "CarribeanTechTalks.JPG": "north-coast-tech-meetup",
   "PlayaDoradaSummerFest.JPG": "puerto-plata-carnaval-2026",
   "love-does-bocadillos-course-2026.jpg": "love-does-bocadillos-course-2026",
   "love-does-cocktails-solidarity-2026-09-04.jpg":
@@ -348,6 +358,13 @@ const FILE_TO_VENUE_SLUG = {
   // Filename bump — yellow-steps entrance (live-sports listing keeps the homepage still).
   "flip-flop-sports-bar-sosua-yellow-steps.jpg":
     "flip-flop-sports-bar-sosua-yellow-steps",
+  "lokuras-pop-interior.jpg": "lokuras-pop-interior",
+  "nova-salud-bienestar-facade.jpg": "nova-salud-bienestar-facade",
+  "camara-comercio-puerto-plata-facade.jpg":
+    "camara-comercio-puerto-plata-facade",
+  "luna-lounge-lcb-facade.jpg": "luna-lounge-lcb-facade",
+  "ivan-garcia-teatro-escuela-facade.jpg":
+    "ivan-garcia-teatro-escuela-facade",
 };
 
 if (!existsSync(sourceDir)) {

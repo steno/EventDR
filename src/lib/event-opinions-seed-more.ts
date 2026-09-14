@@ -143,25 +143,6 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: AT,
   },
   {
-    eventId: "cowork-weekdays",
-    seriesKey: "cowork-cabarete:weekdays",
-    body: "More productive hangout than nightlife — bring headphones for daytime focus.",
-    localized: {
-      es: "Más hangout productivo que nightlife — lleva audífonos para enfocarte de día.",
-      fr: "Plus hangout productif que nightlife — prévoyez un casque pour vous concentrer le jour.",
-    },
-    priceFeel: "moderate",
-    priceNote:
-      "Day-pass / membership desk fees — coffee and wifi are the product, not free café seating",
-    priceNoteLocalized: {
-      es: "Tarifa de day-pass / membresía — café y wifi son el producto, no asiento gratis de café",
-      fr: "Day-pass / adhésion — café et wifi sont le produit, pas une place café gratuite",
-    },
-    attribution: "POP research · venue listing",
-    researchNotes: "Cowork Cabarete seed.",
-    updatedAt: AT,
-  },
-  {
     eventId: "batey-salsa-weekly",
     seriesKey: "el-batey-sosua:weekly:3",
     body: "No partner or experience needed — the beginner class up front makes this the easiest salsa floor to join cold.",
@@ -368,10 +349,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   {
     eventId: "sea-horse-saturday-market",
     seriesKey: "sea-horse-ranch:weekly:6",
-    body: "More picnic than party — check ahead, since a networking meetup sometimes overlaps the same lawn.",
+    body: "More picnic than party — stroll the lawn, then buy stall-by-stall for coffee and snacks.",
     localized: {
-      es: "Más picnic que fiesta — confirma antes, porque un evento de networking a veces comparte el mismo césped.",
-      fr: "Plus pique-nique que fête — vérifiez avant, un événement networking partage parfois la même pelouse.",
+      es: "Más picnic que fiesta — pasea el césped y compra puesto por puesto café y snacks.",
+      fr: "Plus pique-nique que fête — promenez-vous sur la pelouse, puis achetez café et snacks stand par stand.",
     },
     priceFeel: "budget",
     priceNote:
@@ -2121,5 +2102,132 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     researchNotes:
       "Editor-supplied flyer + IG https://www.instagram.com/p/DdO4DKoxoRk/ — Sep 16 8 PM Segunda Ronda, Hard Rock Rising Global Live Music Challenge powered by Coca-Cola. Venue assumed Hard Rock Cafe Puerto Plata (Sosúa) from series context; no price on art.",
     updatedAt: "2026-09-13T15:00:00.000Z",
+  },
+  {
+    eventId: "lokuras-pop-percusion-latina-2026-09-20",
+    body: "Dance-first in a compact centro room — skip if you want a waterfront table; sit by 6 before the 2x1 window fills the bar.",
+    localized: {
+      es: "Noche de baile en un local chico del centro — sáltalo si quieres mesa frente al mar; siéntate cerca de las 6 antes de que el 2x1 llene la barra.",
+      fr: "Soirée dance-first dans une petite salle du centre — skip si vous voulez une table front de mer ; asseyez-vous vers 18 h avant que le 2x1 ne remplisse le bar.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "No cover on the flyer — budget picadera and drinks; 2x1 mojitos 7–9 PM is the known deal",
+    priceNoteLocalized: {
+      es: "Sin cover en el flyer — presupuesta picadera y tragos; el 2x1 de mojitos de 7 a 9 PM es la promo conocida",
+      fr: "Pas de cover sur l'affiche — budget picadera et verres ; le 2x1 mojitos de 19 h à 21 h est l'offre connue",
+    },
+    attribution: "POP research · @lokuraspop",
+    researchNotes:
+      "Editor-supplied flyer + IG https://www.instagram.com/lokuraspop/ — Sunday 20 Sep 2026 from 6 PM, Percusión Latina Somos Salsa; Calle Profesor Juan Bosch #11 near JCE; 2x1 mojitos 7–9 PM. No cover or phone published.",
+    updatedAt: "2026-09-14T12:00:00.000Z",
+  },
+  {
+    eventId: "nova-detras-de-la-mascara-2026-10-16",
+    body: "Sit-down psychology talk in a centro wellness room — skip if you want nightlife; WhatsApp the RD$1,000 seat before Oct 16 fills the cupo.",
+    localized: {
+      es: "Charla de psicología sentada en un centro de bienestar — sáltala si buscas nightlife; reserva el cupo de RD$1,000 por WhatsApp antes del 16 de octubre.",
+      fr: "Conférence de psychologie assise dans une salle wellness du centre — skip si vous voulez la nightlife ; réservez la place RD$1 000 via WhatsApp avant le 16 octobre.",
+    },
+    priceFeel: "moderate",
+    priceNote: "RD$1,000 investment — limited seats; reserve WhatsApp 809-280-0077",
+    priceNoteLocalized: {
+      es: "Inversión RD$1,000 — cupo limitado; reserva WhatsApp 809-280-0077",
+      fr: "Investissement RD$1 000 — places limitées ; réservez WhatsApp 809-280-0077",
+    },
+    attribution: "POP research · @novapuertoplata / @eventospop037",
+    researchNotes:
+      "Editor-supplied flyer + IG https://www.instagram.com/p/DdE8EPrusX4/ — Thu 16 Oct 2026 5 PM, Ana María Rivera + Felipe Acosta; Margarita Mears #6; RD$1,000; WA 809-280-0077.",
+    updatedAt: "2026-09-14T12:00:00.000Z",
+  },
+  {
+    eventId: "camara-empresas-codigo-penal-2026-09-16",
+    body: "Afternoon chamber panel on Beller — skip if you want a beach day; confirm entry with @camarapuertoplata before pinning centro at 3 PM.",
+    localized: {
+      es: "Panel de tarde en la Cámara sobre Beller — sáltalo si prefieres playa; confirma entrada con @camarapuertoplata antes de clavar el centro a las 3 PM.",
+      fr: "Panel d’après-midi à la Chambre sur Beller — skip si vous voulez la plage ; confirmez l’entrée via @camarapuertoplata avant d’épingler le centre à 15 h.",
+    },
+    priceFeel: "varies",
+    priceNote: "Admission not on the flyer — confirm with the chamber",
+    priceNoteLocalized: {
+      es: "Admisión no publicada en el flyer — confirma con la Cámara",
+      fr: "Entrée non publiée sur l’affiche — confirmez auprès de la Chambre",
+    },
+    attribution: "POP research · @camarapuertoplata / @eventospop037",
+    researchNotes:
+      "IG https://www.instagram.com/p/DdE4D7OONB0/ + editor flyer — Wed 16 Sep 2026 3 PM, Salón Fernando Cueto / Beller 17; speakers Serrata, Frías, Fernández Liranzo. No price on flyer. Venue facade POP-supplied.",
+    updatedAt: "2026-09-14T12:00:00.000Z",
+  },
+  {
+    eventId: "luna-lounge-noche-de-exitos-2026-09-19",
+    body: "Late billed night on Luis Ginebra — skip if you want an early dinner; doors energy after 11 with Guegue + Narciso, confirm cover on @lunaloungelcb.",
+    localized: {
+      es: "Noche tarde con cartel en Luis Ginebra — sáltala si quieres cena temprana; la energía arranca después de las 11 con Guegue + Narciso, confirma cover en @lunaloungelcb.",
+      fr: "Soirée tardive à l’affiche sur Luis Ginebra — skip si vous voulez un dîner tôt ; l’énergie démarre après 23 h avec Guegue + Narciso, confirmez le cover sur @lunaloungelcb.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover not on the flyer — confirm with Luna Lounge",
+    priceNoteLocalized: {
+      es: "Cover no publicado en el flyer — confirma con Luna Lounge",
+      fr: "Cover non publié sur l’affiche — confirmez auprès de Luna Lounge",
+    },
+    attribution: "POP research · @lunaloungelcb",
+    researchNotes:
+      "Editor flyer + caption — Sat 19 Sep 2026 from 11 PM, Guegue La Yanta & Narciso; Av. Luis Ginebra #42 near Odisea. Venue facade POP-supplied.",
+    updatedAt: "2026-09-14T12:00:00.000Z",
+  },
+  {
+    eventId: "ivan-garcia-clases-actuacion-ninos-2026",
+    body: "Multi-week kids acting lab in a turquoise Victorian — skip if you want a one-night show; message IGTE for ages 5–10 slots before Sep 18.",
+    localized: {
+      es: "Laboratorio de actuación infantil de varias semanas en una casa victoriana turquesa — sáltalo si buscas una sola función; escribe a IGTE por cupos de 5–10 años antes del 18 de septiembre.",
+      fr: "Lab théâtre enfants sur plusieurs semaines dans une maison victorienne turquoise — skip si vous voulez une seule représentation ; écrivez à IGTE pour les places 5–10 ans avant le 18 septembre.",
+    },
+    priceFeel: "varies",
+    priceNote: "Fees not on the flyer — ask @teatroivangarcia or +1 809-261-7393",
+    priceNoteLocalized: {
+      es: "Tarifas no publicadas en el flyer — consulta @teatroivangarcia o +1 809-261-7393",
+      fr: "Tarifs non publiés sur l’affiche — demandez @teatroivangarcia ou +1 809-261-7393",
+    },
+    attribution: "POP research · @teatroivangarcia",
+    researchNotes:
+      "Editor flyer + facade — Sep 18–Dec 12 2026 kids 5–10 acting; Juan Bosch #72; blog teatroivangarcia.blogspot.com; phone 809-261-7393.",
+    updatedAt: "2026-09-14T12:00:00.000Z",
+  },
+  {
+    eventId: "ocean-world-terrace-la-fiera-tipica-2026-09-18",
+    body: "RD$300 típico night on the Cofresí terrace — skip the dolphin queue; WhatsApp a free table and arrive for 8 PM accordion energy.",
+    localized: {
+      es: "Noche típica a RD$300 en la terraza de Cofresí — sáltate la fila de delfines; reserva mesa gratis por WhatsApp y llega a las 8 PM por el acordeón.",
+      fr: "Soirée típico à RD$300 sur la terrasse de Cofresí — skip la file des dauphins ; réservez une table gratuite via WhatsApp et arrivez pour 20 h l’accordéon.",
+    },
+    priceFeel: "budget",
+    priceNote: "RD$300 entry; free table reservations via WhatsApp 809-815-9682",
+    priceNoteLocalized: {
+      es: "Entrada RD$300; mesa gratis por WhatsApp 809-815-9682",
+      fr: "Entrée RD$300 ; table gratuite via WhatsApp 809-815-9682",
+    },
+    attribution: "POP research · @oceanworldterrace",
+    researchNotes:
+      "Editor flyer + IG caption — Fri 18 Sep 2026 from 8 PM, La Fiera Típica; Calle Principal #3 Cofresí; RD$300; WA 809-815-9682.",
+    updatedAt: "2026-09-14T12:00:00.000Z",
+  },
+  {
+    eventId: "rio-sonador-cierre-del-verano-2026-09-20",
+    body: "All-day riverside típico bill from 10 AM — skip if you need a pinned venue; call 829-463-9793 for the exact Yásica Arriba meeting point before you drive dirt roads.",
+    localized: {
+      es: "Jornada típica junto al río desde las 10 AM — sáltala si necesitas un venue clavado; llama al 829-463-9793 por el punto exacto en Yásica Arriba antes de tomar caminos de tierra.",
+      fr: "Journée típico au bord de la rivière dès 10 h — skip si vous avez besoin d’un lieu précis ; appelez le 829-463-9793 pour le point exact à Yásica Arriba avant les pistes.",
+    },
+    priceFeel: "varies",
+    priceNote: "Price/meeting point not clear on the flyer — confirm 829-463-9793",
+    priceNoteLocalized: {
+      es: "Precio/punto de encuentro poco claros en el flyer — confirma 829-463-9793",
+      fr: "Prix/point de rendez-vous flous sur l’affiche — confirmez 829-463-9793",
+    },
+    attribution: "POP research · @noticia_gurabocityrd",
+    researchNotes:
+      "Editor flyer + caption — Sun 20 Sep 2026 from 10 AM; El Rubio Acordeón + Nacho Estrella; Río Sonador / Yásica Arriba; NO venueSlug (meeting point unclear). VIP furniture; no outside drinks. Phone 829-463-9793.",
+    updatedAt: "2026-09-14T12:00:00.000Z",
   },
 ];
