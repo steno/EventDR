@@ -29,6 +29,7 @@ import {
   lastHomePath,
   NORTH_COAST_HERO_IMAGE,
   writeHomeArea,
+  getCityName,
   type CitySlug,
 } from "@/lib/cities";
 import { getCategoryHeroImage } from "@/lib/category-heroes";
@@ -394,6 +395,11 @@ export function EventScopePage({
     [catalog, activeCategoryId],
   );
   const city = activeCitySlug ? getCityMeta(activeCitySlug) : undefined;
+  const areaLabel = city
+    ? getCityName(city, locale)
+    : activeRegionScope
+      ? dict.region.name
+      : null;
   const specialHeroEvent = useMemo(() => {
     if (activeCitySlug) {
       return findActiveSpecialEvent(events, {
@@ -572,6 +578,7 @@ export function EventScopePage({
             onAddEvent={() => setSubmitOpen(true)}
             addEventLabel={addEventLabel}
             categoryId={activeCategoryId}
+            areaLabel={areaLabel}
             persistTimeRange
             locationPicker={
               showLocationPicker ? (

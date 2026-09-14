@@ -10,7 +10,7 @@ import {
   DEFAULT_PRICE_FILTER,
   filterByTimeAndPrice,
   isFilterTimeRange,
-  suggestOtherFilterTimeRange,
+  listOtherMatchingFilterTimeRanges,
   type FilterTimeRange,
   type PriceFilter,
   type TimeRange,
@@ -32,7 +32,10 @@ import {
   EventListMoreTile,
   LIST_SCROLL_PAD_TARGET,
 } from "@/components/EventCardPlaceholder";
-import { SearchEmptyState } from "@/components/SearchEmptyState";
+import {
+  SearchEmptyState,
+  nothingHereTitle,
+} from "@/components/SearchEmptyState";
 import { AddEventButton } from "@/components/AddEventButton";
 import { EventViewToggle } from "@/components/EventViewToggle";
 import { useEventListView } from "@/hooks/useEventListView";
@@ -69,6 +72,8 @@ interface FilteredEventListProps {
   pageSize?: number;
   /** When set, the short-list CTA subline uses “Add your {category} event”. */
   categoryId?: Event["category"];
+  /** Area name for empty-state copy (“No X in Cabarete today?”). */
+  areaLabel?: string | null;
   /**
    * Locked layout (hides the cards/list toggle). Venue schedules pass `"list"`.
    * Omit to follow the visitor’s saved preference (cards by default).
@@ -123,6 +128,7 @@ export function FilteredEventList({
   limit = SCOPE_LIST_LIMIT,
   pageSize = LIST_PAGE_SIZE,
   categoryId,
+  areaLabel = null,
   view: lockedView,
   scrollOnFilterChange = true,
   addEventCta = "pad",
@@ -279,11 +285,16 @@ export function FilteredEventList({
   );
   const fillSpan = view === "cards" ? leftover || "full" : undefined;
 
-  const suggestedRange = suggestOtherFilterTimeRange(activeRange, (range) =>
-    filterByTimeAndPrice(events, range, priceFilter).length > 0,
-  );
-  const suggestedTabLabel = dict.time[suggestedRange];
-  const tryTabLabel = dict.search.tryTabHint.replace("{tab}", suggestedTabLabel);
+  const daySuggestions = !fixedTimeRange
+    ? listOtherMatchingFilterTimeRanges(
+        activeRange,
+        (range) => filterByTimeAndPrice(events, range, priceFilter).length > 0,
+      ).map((range) => ({
+        range,
+        label: dict.time[range],
+        onSelect: () => setTimeRange(range),
+      }))
+    : [];
   const tryPriceLabel = dict.price.showAll;
 
   const showTimeFilter = !fixedTimeRange && !hideTimeFilter;
@@ -390,28 +401,20 @@ export function FilteredEventList({
       ) : filtered.length === 0 ? (
         <>
           <SearchEmptyState
-            title={dict.search.noResults}
+            title={nothingHereTitle(dict, activeRange, {
+              category: categoryId ? dict.categories[categoryId] : null,
+              area: areaLabel,
+            })}
             hint={
-              priceFilter !== "all"
-                ? tryPriceLabel
-                : fixedTimeRange
-                  ? dict.search.noResultsHint
-                  : tryTabLabel
+              fixedTimeRange
+                ? dict.search.noResultsHint
+                : dict.events.emptyHint
             }
-            gameLabels={dict.search.game}
-            actionLabel={
-              priceFilter !== "all"
-                ? tryPriceLabel
-                : fixedTimeRange
-                  ? undefined
-                  : tryTabLabel
-            }
+            suggestionsHeading={dict.search.tryTheseDays}
+            suggestions={daySuggestions}
+            actionLabel={priceFilter !== "all" ? tryPriceLabel : undefined}
             onAction={
-              priceFilter !== "all"
-                ? () => setPriceFilter("all")
-                : fixedTimeRange
-                  ? undefined
-                  : () => setTimeRange(suggestedRange)
+              priceFilter !== "all" ? () => setPriceFilter("all") : undefined
             }
           />
           {showPadCta ? (

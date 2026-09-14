@@ -5,6 +5,7 @@ import {
   searchVenues,
   textMatchesSearchQuery,
   filterByPrice,
+  listOtherMatchingFilterTimeRanges,
 } from "./filters";
 
 describe("textMatchesSearchQuery", () => {
@@ -132,5 +133,20 @@ describe("filterByPrice", () => {
   it("treats restaurant dining as free entry (no cover / no ticket)", () => {
     const hits = filterByPrice(priced, "free");
     assert.ok(hits.some((e) => e.id === "la-casita-papi-beach-dining"));
+  });
+});
+
+describe("listOtherMatchingFilterTimeRanges", () => {
+  it("returns other tabs that still have matches, in chip order", () => {
+    const ranges = listOtherMatchingFilterTimeRanges(
+      "tomorrow",
+      (range) => range === "today" || range === "weekend",
+    );
+    assert.deepEqual(ranges, ["today", "weekend"]);
+  });
+
+  it("returns an empty list when nothing else matches", () => {
+    const ranges = listOtherMatchingFilterTimeRanges("all", () => false);
+    assert.deepEqual(ranges, []);
   });
 });

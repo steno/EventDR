@@ -149,15 +149,32 @@ export type Dictionary = {
     close: string;
     noResults: string;
     noResultsHint: string;
-    tryTabHint: string;
+    /** Empty list with no category/area/day context. */
+    nothingHere: string;
+    /** Empty list for a day tab only — `{when}` from emptyWhen. */
+    nothingHereWhen: string;
+    /** Empty list with area only. */
+    nothingInArea: string;
+    /** Empty list with area + day. */
+    nothingInAreaWhen: string;
+    /** Empty list with category only. */
+    noCategory: string;
+    /** Empty list with category + day. */
+    noCategoryWhen: string;
+    /** Empty list with category + area. */
+    noCategoryInArea: string;
+    /** Empty list with category + area + day — e.g. “No Performances in Cabarete today?” */
+    noCategoryInAreaWhen: string;
+    /** Lowercase day phrases plugged into empty titles. */
+    emptyWhen: {
+      today: string;
+      tomorrow: string;
+      weekend: string;
+    };
+    /** Heading above alternate day suggestion cards. */
+    tryTheseDays: string;
     activeTitle: string;
     places: string;
-    game: {
-      score: string;
-      play: string;
-      restart: string;
-      tapToRestart: string;
-    };
   };
   time: Record<TimeRange, string>;
   nav: {
@@ -752,15 +769,22 @@ export const en: Dictionary = {
     close: "Close search",
     noResults: "Nothing turned up.",
     noResultsHint: "Try another place, or clear your search.",
-    tryTabHint: "Show {tab}",
+    nothingHere: "Nothing here?",
+    nothingHereWhen: "Nothing here {when}?",
+    nothingInArea: "Nothing in {area}?",
+    nothingInAreaWhen: "Nothing in {area} {when}?",
+    noCategory: "No {category} right now?",
+    noCategoryWhen: "No {category} {when}?",
+    noCategoryInArea: "No {category} in {area}?",
+    noCategoryInAreaWhen: "No {category} in {area} {when}?",
+    emptyWhen: {
+      today: "today",
+      tomorrow: "tomorrow",
+      weekend: "this weekend",
+    },
+    tryTheseDays: "Try these days",
     activeTitle: "Search results",
     places: "Places",
-    game: {
-      score: "Score",
-      play: "Play",
-      restart: "Restart",
-      tapToRestart: "Tap to restart",
-    },
   },
   time: {
     all: "All",

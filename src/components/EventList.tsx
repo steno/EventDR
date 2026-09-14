@@ -8,8 +8,8 @@ import type { TimeRange, FilterTimeRange } from "@/lib/filters";
 import {
   filterByTimeRange,
   isFilterTimeRange,
+  listOtherMatchingFilterTimeRanges,
   searchEvents,
-  suggestOtherFilterTimeRange,
 } from "@/lib/filters";
 import {
   EMPTY_EVENT_IDS,
@@ -18,7 +18,7 @@ import {
 import { sortEventsForDisplay } from "@/lib/event-sort";
 import { pinSpecialEvents } from "@/lib/special-events";
 import { categoryPath } from "@/lib/event-navigation";
-import { eventMatchesCity, type CitySlug } from "@/lib/cities";
+import { eventMatchesCity, getCityMeta, getCityName, type CitySlug } from "@/lib/cities";
 import { expectBootPart, readyBootPart } from "@/lib/boot-splash";
 import { scrollToListTop } from "@/lib/list-scroll";
 import { fillTemplate } from "@/lib/seo";
@@ -36,7 +36,7 @@ import {
 } from "./EventCardPlaceholder";
 import { EventListError } from "./EventListError";
 import { EventViewToggle } from "./EventViewToggle";
-import { SearchEmptyState } from "./SearchEmptyState";
+import { SearchEmptyState, nothingHereTitle } from "./SearchEmptyState";
 import { TimeFilter } from "./TimeFilter";
 import { ListScrollAnchor } from "./StickyListFilters";
 import { CARD_GRID_CLASS, SECTION_TITLE_CLASS } from "@/lib/page-shell";
@@ -309,21 +309,27 @@ export function EventList({
   const activeRange: FilterTimeRange = isFilterTimeRange(timeRange)
     ? timeRange
     : "today";
-  const suggestedRange = suggestOtherFilterTimeRange(activeRange, (range) => {
-    let pool = filterByTimeRange(events, range);
-    if (citySlug) {
-      pool = pool.filter((e) => eventMatchesCity(e, citySlug));
-    }
-    if (excludeEventIds.length > 0) {
-      const excluded = new Set(excludeEventIds);
-      pool = pool.filter((e) => !excluded.has(e.id));
-    }
-    return searchEvents(pool, searchQuery).length > 0;
-  });
-  const suggestedTabLabel = dict.time[suggestedRange];
-  const tryTabLabel = dict.search.tryTabHint.replace("{tab}", suggestedTabLabel);
   const canSuggestTimeTab =
     showTimeFilter && Boolean(onTimeRangeChange) && !isSearching;
+  const daySuggestions = canSuggestTimeTab
+    ? listOtherMatchingFilterTimeRanges(activeRange, (range) => {
+        let pool = filterByTimeRange(events, range);
+        if (citySlug) {
+          pool = pool.filter((e) => eventMatchesCity(e, citySlug));
+        }
+        if (excludeEventIds.length > 0) {
+          const excluded = new Set(excludeEventIds);
+          pool = pool.filter((e) => !excluded.has(e.id));
+        }
+        return searchEvents(pool, searchQuery).length > 0;
+      }).map((range) => ({
+        range,
+        label: dict.time[range],
+        onSelect: () => onTimeRangeChange?.(range),
+      }))
+    : [];
+  const areaCity = citySlug ? getCityMeta(citySlug) : null;
+  const areaLabel = areaCity ? getCityName(areaCity, locale) : null;
   const viewToggle = (
     <EventViewToggle value={listView} onChange={setView} dict={dict} />
   );
@@ -371,15 +377,16 @@ export function EventList({
           <SearchEmptyState
             title={dict.search.noResults}
             hint={dict.search.noResultsHint}
-            gameLabels={dict.search.game}
           />
         ) : canSuggestTimeTab ? (
           <SearchEmptyState
-            title={dict.search.noResults}
-            hint={tryTabLabel}
-            gameLabels={dict.search.game}
-            actionLabel={tryTabLabel}
-            onAction={() => onTimeRangeChange?.(suggestedRange)}
+            title={nothingHereTitle(dict, activeRange, {
+              category: category ? dict.categories[category] : null,
+              area: areaLabel,
+            })}
+            hint={dict.events.emptyHint}
+            suggestionsHeading={dict.search.tryTheseDays}
+            suggestions={daySuggestions}
           />
         ) : (
           <div className="text-center py-12">
