@@ -89,6 +89,11 @@ const PLACE_SEARCH_ALIASES: Record<string, string[]> = {
     "Camara de Comercio y Produccion Puerto Plata",
     "Salón Fernando Cueto Cámara Puerto Plata",
   ],
+  "ambar-lounge-pop": [
+    "Ambar Lounge POP Puerto Plata",
+    "Ámbar Lounge Luis Ginebra",
+    "Ambar Lounge Av Luis Ginebra 45",
+  ],
   "luna-lounge-lcb": [
     "Luna Lounge LCB Puerto Plata",
     "Luna Disco Bar Luis Ginebra",

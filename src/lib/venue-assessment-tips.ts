@@ -17,6 +17,14 @@ export const VENUE_TIP_COPY: Record<
       fr: "Le reggae du vendredi et l'énergie tardive sur la baie expliquent pourquoi on y envoie encore les visiteurs — pas un dîner calme ; le resto est inégal.",
     },
   },
+  "aura-beach-club-cabarete": {
+    body: "Calle Principal beach club facing Cabarete Bay — hit Monday 4–7 PM for 2x1 margarita/gin, Wednesday for margaritas and live music; reserve WhatsApp +1 829-787-0140, not a walk-up kiosk bar.",
+    localized: {
+      en: "Calle Principal beach club facing Cabarete Bay — hit Monday 4–7 PM for 2x1 margarita/gin, Wednesday for margaritas and live music; reserve WhatsApp +1 829-787-0140, not a walk-up kiosk bar.",
+      es: "Beach club en Calle Principal frente a la bahía de Cabarete — lunes 4–7 PM por 2x1 margarita/gin, miércoles por margaritas y live; reserva WhatsApp +1 829-787-0140, no es un kiosk walk-up.",
+      fr: "Beach club sur Calle Principal face à la baie de Cabarete — lundi 16 h–19 h pour 2x1 margarita/gin, mercredi pour margaritas et live ; réservez WhatsApp +1 829-787-0140, pas un kiosk walk-up.",
+    },
+  },
   "kite-beach": {
     body: "On a wind day this is the North Coast's outdoor sports stadium — spectacular to watch for free, pricey once you rent gear or book a lesson.",
     localized: {
@@ -290,11 +298,11 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "cigar-town-pop": {
-    body: "Intimate downtown cigar lounge on Luis Ginebra (open Mon–Sun) — Ron & Humos Mon/Wed, La Peña Thursdays with Brugal, and Saturday Sessions like Noche Bohemia. Confirm hours on @cigartownpop.",
+    body: "Intimate downtown cigar lounge on Luis Ginebra (open Mon–Sun) — Ron & Humos Mon/Wed, La Peña Thursdays with Brugal, and Saturday nights from Sessions to Karaoke Ladies Night. Confirm hours on @cigartownpop.",
     localized: {
-      en: "Intimate downtown cigar lounge on Luis Ginebra (open Mon–Sun) — Ron & Humos Mon/Wed, La Peña Thursdays with Brugal, and Saturday Sessions like Noche Bohemia. Confirm hours on @cigartownpop.",
-      es: "Lounge íntimo de cigarros downtown en Luis Ginebra (lun–dom) — Ron & Humos lun/mié, La Peña los jueves con Brugal y Sessions de sábado como Noche Bohemia. Confirma horarios en @cigartownpop.",
-      fr: "Lounge à cigares intimiste downtown sur Luis Ginebra (lun–dim) — Ron & Humos lun/mer, La Peña le jeudi avec Brugal et Sessions du samedi comme Noche Bohemia. Confirmez les horaires sur @cigartownpop.",
+      en: "Intimate downtown cigar lounge on Luis Ginebra (open Mon–Sun) — Ron & Humos Mon/Wed, La Peña Thursdays with Brugal, and Saturday nights from Sessions to Karaoke Ladies Night. Confirm hours on @cigartownpop.",
+      es: "Lounge íntimo de cigarros downtown en Luis Ginebra (lun–dom) — Ron & Humos lun/mié, La Peña los jueves con Brugal y sábados de Sessions a Karaoke Ladies Night. Confirma horarios en @cigartownpop.",
+      fr: "Lounge à cigares intimiste downtown sur Luis Ginebra (lun–dim) — Ron & Humos lun/mer, La Peña le jeudi avec Brugal et samedis de Sessions au Karaoke Ladies Night. Confirmez les horaires sur @cigartownpop.",
     },
   },
   "big-lees-beach-bar": {
@@ -1015,6 +1023,14 @@ export const VENUE_TIP_COPY: Record<
       en: "Chamber building at Beller No. 17 (Salón Fernando Cueto behind the beige facade) — business panels for members and locals, not a tourist nightlife stop. Confirm time and entry before you pin centro.",
       es: "Edificio de la Cámara en Beller No. 17 (Salón Fernando Cueto detrás de la fachada beige) — paneles empresariales para socios y locales, no un stop de nightlife turístico. Confirma hora y entrada antes de clavar el centro.",
       fr: "Bâtiment de la Chambre au 17 Beller (Salón Fernando Cueto derrière la façade beige) — panels business pour membres et locaux, pas un stop nightlife touristique. Confirmez horaire et entrée avant d’épingler le centre.",
+    },
+  },
+  "ambar-lounge-pop": {
+    body: "Rooftop lounge on Luis Ginebra 45-a — invitation-first party nights (DM @ambarloungepop), not a walk-in Malecón deck. Closed Tuesdays; call (809) 781-8677 before you pin the strip.",
+    localized: {
+      en: "Rooftop lounge on Luis Ginebra 45-a — invitation-first party nights (DM @ambarloungepop), not a walk-in Malecón deck. Closed Tuesdays; call (809) 781-8677 before you pin the strip.",
+      es: "Lounge rooftop en Luis Ginebra 45-a — noches con invitación primero (DM @ambarloungepop), no una terraza walk-in del Malecón. Cerrado martes; llama al (809) 781-8677 antes de clavar la avenida.",
+      fr: "Lounge rooftop au 45-a Luis Ginebra — soirées sur invitation d’abord (DM @ambarloungepop), pas une terrasse walk-in du Malecón. Fermé mardi ; appelez le (809) 781-8677 avant d’épingler l’avenue.",
     },
   },
   "luna-lounge-lcb": {

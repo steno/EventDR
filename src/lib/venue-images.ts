@@ -32,7 +32,7 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   // Filename bump — authentic Voyvoy bar interior (not shared dining URL with all nights).
   "voyvoy-cabarete": "voyvoy-cabarete-bar.jpg",
   "drifter-cabarete": "drifter-cabarete-sunset.jpg",
-  "aura-beach-club-cabarete": "aura-beach-club-cabarete.jpg",
+  "aura-beach-club-cabarete": "aura-beach-club-cabarete-entrance.jpg",
   // Filename bump after replacing a generic Restaurant Guru table shot.
   "la-casita-de-papi": "la-casita-de-papi-awning.jpg",
   // Filename bump — empty kite-beach deck (couple dining stays on the event).
@@ -177,6 +177,7 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "lokuras-pop": "lokuras-pop-interior.jpg",
   "nova-salud-bienestar": "nova-salud-bienestar-facade.jpg",
   "camara-comercio-puerto-plata": "camara-comercio-puerto-plata-facade.jpg",
+  "ambar-lounge-pop": "ambar-lounge-pop-lounge.jpg",
   "luna-lounge-lcb": "luna-lounge-lcb-facade.jpg",
   "ivan-garcia-teatro-escuela": "ivan-garcia-teatro-escuela-facade.jpg",
 };

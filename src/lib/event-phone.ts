@@ -53,6 +53,7 @@ const EVENT_PHONE_BY_ID: Record<string, string> = {
   "tasty-food-park-karaoke-wednesday": "+18092042939",
   "tasty-food-park-show-de-magia-2026-09-13": "+18092042939",
   "pop-cinemas-week-2026-08-20": "+18093201400",
+  "pop-cinemas-week-2026-09-11": "+18093201400",
   "petit-francois-friday-karaoke": "+18294922910",
   // Pablito Guzmán / Cabarete Classic organizer line (long-published)
   "cabarete-classic-2026": "+18098766003",

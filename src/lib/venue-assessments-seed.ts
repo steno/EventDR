@@ -55,6 +55,17 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     ],
   }),
   editorial({
+    venueSlug: "aura-beach-club-cabarete",
+    verdictKey: "strong_visitor_nightlife",
+    crowdFit: ["visitor", "nightlife", "mixed"],
+    axes: { recommend: 4.2, atmosphere: 4.4, value: 3.9, practical: 4.0 },
+    themes: [
+      { key: "beachfront", sentiment: "positive", audience: "visitor" },
+      { key: "sunset_views", sentiment: "positive", audience: "visitor" },
+      { key: "live_music", sentiment: "positive" },
+    ],
+  }),
+  editorial({
     venueSlug: "kite-beach",
     verdictKey: "solid_visitor_activity",
     crowdFit: ["visitor", "mixed"],
@@ -1488,6 +1499,17 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     axes: { recommend: 4.0, atmosphere: 3.6, value: 4.0, practical: 4.3 },
     themes: [
       { key: "workshop", sentiment: "positive" },
+      { key: "easy_to_find", sentiment: "positive" },
+    ],
+  }),
+  editorial({
+    venueSlug: "ambar-lounge-pop",
+    verdictKey: "strong_local_nightlife",
+    crowdFit: ["local", "nightlife", "mixed"],
+    axes: { recommend: 4.2, atmosphere: 4.4, value: 3.7, practical: 3.8 },
+    themes: [
+      { key: "dance_floor", sentiment: "positive", audience: "nightlife" },
+      { key: "live_music", sentiment: "positive" },
       { key: "easy_to_find", sentiment: "positive" },
     ],
   }),

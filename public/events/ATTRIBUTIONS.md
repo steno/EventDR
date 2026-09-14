@@ -16,6 +16,9 @@ Curated images under `public/events/` and `public/venues/`.
 | `lena-dardelet-aura-beach-club-2026-07-24.png` | [tix.do](https://tix.do/event/PororoyLenaDardeletdeaquipallaencabarete-1) — official "Pororó × Lena Dardelet — De Aquí Pa'llá" tour cover (1080×1080) | Authentic event flyer for the Aura Beach Club Cabarete show |
 | `sunset-night-party-playa-encuentro-2026-07-25.jpg` | [tix.do](https://tix.do/event/SUNSETNIGTHPARTYONEEVENTTWOEXPERIENCES-1) — official Sunset Night Party cover (1080×1080) | Authentic SONIK Productions flyer for Bonsai Poke / Playa Encuentro Jul 25 |
 | `venues/aura-beach-club-cabarete.jpg` | POP curated `aurabeach.jpg` — Aura Beach Club Cabarete | Venue place photo |
+| `venues/aura-beach-club-cabarete-entrance.jpg` | POP-supplied — Aura Beach Club illuminated entrance stairs (Calle Principal) | Venue place shot filename bump (editor-provided) |
+| `aura-beach-club-lunes-especiales.jpg` | POP-supplied — Lunes Especiales Margaritas & Gin Tonic flyer ([@auracabarete](https://www.instagram.com/auracabarete/)) | Weekly Monday 4–7 PM 2x1 promo (editor-provided) |
+| `aura-beach-club-miercoles-margaritas.jpg` | POP-supplied — Miércoles de Margaritas flyer ([@auracabarete](https://www.instagram.com/auracabarete/)) | Weekly Wednesday 2x1 margaritas + live music (editor-provided) |
 | `sosua-10k-road-race-2026.jpg` | [Sea Horse Ranch — Sosúa 10K Road Race](https://sea-horse-ranch.com/sosua-10k-road-race/) — official ADSS / Sea Horse 11º Sosúa 10K flyer | Authentic race flyer with date, distances, and sdctickets.do registration |
 | `sunset-cabarete-sessions-2026.jpg` | [Ticketplus — Sunset Cabarete Sessions](https://dominicana.myticketplus.com/events/sunset-cabarete-sessions) official event OG poster | Authentic Dec 5–6 Lux Beach Bar deep-house event art |
 | `puerto-plata-poker-experience-2026.png` | [CLSOP / torneos.poker — Puerto Plata Poker Experience](https://torneos.poker/evento/puerto-plata-poker-experience-ago-2026/) official festival flyer | Authentic Aug 28–Sep 6 Coral Reef Casino poker festival art |
@@ -175,6 +178,7 @@ Curated images under `public/events/` and `public/venues/`.
 | `dewry-luciano-zona-acapella-2026-08-23.jpg` | POP-supplied `dewryluciano.jpg` — Zona Acapella Club Domingo Típico flyer | Authentic 23 Aug Dewry Luciano accordion-night flyer |
 | `venues/zona-acapella-club.jpg` | [Google Maps — Zona Acapella Club](https://www.google.com/maps/place/?q=place_id:ChIJMRMD8EvusY4RcIGbv5r8m6U) visitor photo | Outdoor terrace table (Presidente, tostones) under the club gazebo lights |
 | `pop-cinemas-week-2026-08-20.jpg` | POP-supplied `pop-cinemas.jpg` — weekly cartelera 20–26 Aug | Official POP Cinemas Playa Dorada Mall billboard |
+| `pop-cinemas-week-2026-09-11-mall.jpg` | Same Maps visitor place shot as `venues/pop-cinemas-playa-dorada.jpg` (mall entrance); filename bump after schedule-collage cache | Week hero is the cinema place shot — film list lives in description + lineup text |
 | `venues/pop-cinemas-playa-dorada.jpg` | [Google Maps — Pop Cinemas](https://www.google.com/maps/place/Pop+Cinemas/@19.7698587,-70.6423406,17z) visitor photo | POP CINEMAS mall entrance with “Vive la diferencia” signage |
 | `petit-francois-friday-karaoke.jpg` | POP-supplied `petitfrancois.jpg` — Friday karaoke flyer | Official Le Petit François karaoke night graphic |
 | `costambar-beach-fitness.png` / `venues/playa-costambar.png` | Organizer-supplied Costambar Fitness class photo (beach session left of El Carey) | Authentic Costambar Beach Fitness group on the sand |
@@ -268,3 +272,6 @@ Curated images under `public/events/` and `public/venues/`.
 | `venues/ivan-garcia-teatro-escuela-facade.jpg` | POP-supplied — Iván García Teatro-Escuela turquoise facade | Venue place shot (editor-provided, not scraped) |
 | `ocean-world-terrace-la-fiera-tipica-2026-09-18.jpg` | POP-supplied — Ocean World Terrace La Fiera Típica flyer ([IG](https://www.instagram.com/oceanworldterrace/)) | Live típico Fri 18 Sep 2026 from 8 PM, RD$300 (editor-provided) |
 | `rio-sonador-cierre-del-verano-2026-09-20.jpg` | POP-supplied — Cierre del Verano Río Sonador flyer ([IG](https://www.instagram.com/noticia_gurabocityrd/)) | El Rubio + Nacho Estrella Sun 20 Sep 2026 from 10 AM; venue pin omitted (editor-provided) |
+| `ambar-lounge-reggaeton-2026-09-17.jpg` | POP-supplied — Ambar Lounge Reggaeton flyer (Ramon x Raul, 17 Sep) ([IG](https://www.instagram.com/ambarloungepop/)) | Invitation-only Thu 17 Sep 2026 (editor-provided) |
+| `venues/ambar-lounge-pop-lounge.jpg` | POP-supplied — Ambar Lounge POP rooftop lounge night crowd | Venue place shot (editor-provided, not scraped) |
+| `cigar-town-karaoke-ladies-night-2026-09-19.jpg` | POP-supplied — Cigar Town Karaoke Saturday / Ladies Night flyer ([IG](https://www.instagram.com/cigartownpop/)) | Karaoke Sat 19 Sep 2026 (editor-provided) |

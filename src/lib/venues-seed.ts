@@ -292,7 +292,7 @@ export const SEED_VENUES: Venue[] = [
     name: "Aura Beach Club Cabarete",
     city: "Cabarete",
     description:
-      "Beachfront club on Calle Principal — daytime lounging and nighttime live shows facing Cabarete Bay.",
+      "Beachfront club on Calle Principal — daytime lounging, Monday 2x1 margarita/gin hours, Wednesday margarita nights with live music, and nighttime shows facing Cabarete Bay. WhatsApp +1 829-787-0140 · Instagram @auracabarete.",
     lat: 19.7500769,
     lng: -70.4070417,
     emoji: "🌴",
@@ -1090,7 +1090,7 @@ export const SEED_VENUES: Venue[] = [
     name: "Cigar Town Pop",
     city: "Puerto Plata",
     description:
-      "Cigar lounge on Av. Luis Ginebra No. 56 — premium puros, whisky, open Mon–Sun; Ron & Humos Mon/Wed, Thursday La Peña with Brugal, and Cigar Town Sessions live nights (Eddy Almonte & Café Meclao) in downtown Puerto Plata.",
+      "Cigar lounge on Av. Luis Ginebra No. 56 — premium puros, whisky, open Mon–Sun; Ron & Humos Mon/Wed, Thursday La Peña with Brugal, Cigar Town Sessions live nights, and Karaoke Saturday / Ladies Night in downtown Puerto Plata.",
     lat: 19.7915,
     lng: -70.6805,
     emoji: "🚬",
@@ -1668,6 +1668,19 @@ export const SEED_VENUES: Venue[] = [
     phone: "+18095862390",
   },
   {
+    slug: "ambar-lounge-pop",
+    name: "Ambar Lounge POP",
+    city: "Puerto Plata",
+    description:
+      "Rooftop lounge bar on Av. Luis Ginebra 45-a — cocktails, invitation-only party nights, and late downtown energy. Open Mon/Wed–Sun from 5:00 PM (closed Tue). Reservations (809) 781-8677 · Instagram @ambarloungepop.",
+    lat: 19.7918,
+    lng: -70.6810,
+    emoji: "🍸",
+    instagram: "ambarloungepop",
+    website: "https://www.facebook.com/p/Ambar-Lounge-POP-100087903711781/",
+    phone: "+18097818677",
+  },
+  {
     slug: "luna-lounge-lcb",
     name: "Luna Lounge LCB",
     city: "Puerto Plata",
@@ -1733,6 +1746,11 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
   {
     pattern: /jamao(\s+al\s+norte)?|jamao\s*ecotours|yasica\s+river|r[ií]o\s+jamao/i,
     slug: "jamao-al-norte",
+  },
+  {
+    pattern:
+      /aura\s*beach\s*club|auracabarete|aura\s*beach\s*club\s*experience/i,
+    slug: "aura-beach-club-cabarete",
   },
   {
     pattern:
@@ -1806,6 +1824,11 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
     pattern:
       /c[aá]mara\s*(de\s*)?(comercio|producci[oó]n)|camarapuertoplata|sal[oó]n\s*(de\s*)?eventos\s*fernando\s*cueto/i,
     slug: "camara-comercio-puerto-plata",
+  },
+  {
+    pattern:
+      /[aá]mbar\s*lounge(\s*pop)?|ambarloungepop/i,
+    slug: "ambar-lounge-pop",
   },
   {
     pattern: /luna\s*(lounge|disco)|lunaloungelcb/i,

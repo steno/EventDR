@@ -18,6 +18,8 @@ For Instagram—the primary source for many DR event flyers—run skill `pop-ins
 
 **Editorial (required with every new seed):** add a unique POP event opinion (`event-opinions-seed.ts` / `event-opinions-seed-more.ts`). For any **new** venue, also add tip + assessment (`venue-assessment-tips.ts` + `venue-assessments-seed.ts`). Rule: `.cursor/rules/seed-recently-added.mdc`.
 
+**POP Cinemas cartelera:** one seed per week (`pop-cinemas-week-YYYY-MM-DD`, Thursday start), never per film/showtime. List films in `description` + `lineup` text; use the venue place shot as hero (not a schedule collage). Rule: `.cursor/rules/pop-cinemas-weekly.mdc`.
+
 ## Weekly content pipeline (marketing)
 
 | When | Automation | Agent |

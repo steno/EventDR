@@ -489,6 +489,12 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     phone: "+18093201400",
     venueSlug: "pop-cinemas-playa-dorada",
   },
+  "pop-cinemas-week-2026-09-11": {
+    isFree: false,
+    admissionPrice: "RD$300",
+    phone: "+18093201400",
+    venueSlug: "pop-cinemas-playa-dorada",
+  },
   "petit-francois-friday-karaoke": {
     isFree: true,
     phone: "+18294922910",

@@ -1293,6 +1293,37 @@
     "description": "Programme de la semaine à POP Cinemas, Playa Dorada Mall (20–26 août), tout en espagnol, RD$300 par personne tous les jours : Paw Patrol: Dino Movie 17 h 45 ; El Final de la Calle Oak 19 h 15 ; L.O.S. Rechazados 2: Operación Libertad 19 h 30 ; Spider-Man: No Way Home 19 h 45 ; premières Relajadas y Peligrosas 21 h 15 et La Noche del Demonio 21 h 30. Snacks et billets : cinemaspop.com.do · 809-320-1400."
   },
   {
+    "id": "pop-cinemas-week-2026-09-11",
+    "title": "POP Cinemas — semaine du 11 au 17 sep.",
+    "description": "Programme de la semaine à POP Cinemas, Playa Dorada Mall (11–17 sep.), audio espagnol, RD$300 par personne. Films : Rebelión en la granja (Animal Farm) tous les jours 17 h 45 ; Rápido y Furioso 25e anniversaire tous les jours 19 h 45 ; Spider-Man ; Código: Venganza ; horreur tardive La Sombra del Exorcista (confirmez la séance tardive — jusqu’à ~21 h 45). Snacks et billets : cinemaspop.com.do · 809-320-1400.",
+    "date": "2026-09-11",
+    "endDate": "2026-09-17",
+    "time": "5:45 PM – 9:45 PM",
+    "location": "Playa Dorada",
+    "venue": "POP Cinemas",
+    "venueSlug": "pop-cinemas-playa-dorada",
+    "address": "Calle Principal Playa Dorada 538, Playa Dorada Shopping Centre",
+    "lat": 19.769859,
+    "lng": -70.642341,
+    "category": "culture",
+    "categories": [
+      "performances"
+    ],
+    "format": "physical",
+    "admissionPrice": "RD$300",
+    "phone": "+18093201400",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/cinemaspop/",
+    "imageEmoji": "🎬",
+    "lineup": [
+      "Rebelión en la granja (Animal Farm) · 17 h 45",
+      "Rápido y Furioso 25e anniversaire · 19 h 45",
+      "Spider-Man",
+      "Código: Venganza",
+      "La Sombra del Exorcista (tard)"
+    ]
+  },
+  {
     "id": "petit-francois-friday-karaoke",
     "date": "2026-08-21",
     "time": "8:00 PM – 2:00 AM",
@@ -1952,5 +1983,55 @@
       "DJ Chris"
     ],
     "imageEmoji": "🏞️"
+  },
+  {
+    "id": "ambar-lounge-reggaeton-2026-09-17",
+    "title": "Reggaeton à Ambar Lounge — Ramon x Raul",
+    "description": "Soirée Reggaeton sur invitation seulement avec Ramon x Raul à Ambar Lounge POP, Av. Luis Ginebra 45-a, Puerto Plata — jeudi 17 septembre 2026. Accès exclusif sur invitation ; demandez l’entrée via DM Instagram @ambarloungepop ou appelez le (809) 781-8677. Lounge ouvert dès 17 h (fermé mardi).",
+    "date": "2026-09-17",
+    "location": "Puerto Plata",
+    "venue": "Ambar Lounge POP",
+    "venueSlug": "ambar-lounge-pop",
+    "address": "Av. Luis Ginebra 45-a, Puerto Plata 57000",
+    "lat": 19.7918,
+    "lng": -70.681,
+    "category": "parties",
+    "categories": [
+      "music",
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18097818677",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/ambarloungepop/",
+    "lineup": [
+      "Ramon x Raul"
+    ],
+    "imageEmoji": "🔥"
+  },
+  {
+    "id": "cigar-town-karaoke-ladies-night-2026-09-19",
+    "title": "Karaoke Saturday — Ladies Night au Cigar Town",
+    "description": "Karaoke Saturday / Ladies Night chez Cigar Town Pop, Av. Luis Ginebra n° 56, Puerto Plata — samedi 19 septembre 2026. Chantez juste ou pas, verre en main et zéro honte. Confirmez l’heure et le cover via Instagram @cigartownpop.",
+    "date": "2026-09-19",
+    "location": "Puerto Plata",
+    "venue": "Cigar Town Pop",
+    "venueSlug": "cigar-town-pop",
+    "address": "Avenida Luis Ginebra No. 56, Puerto Plata",
+    "lat": 19.7915,
+    "lng": -70.6805,
+    "category": "parties",
+    "categories": [
+      "music",
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/cigartownpop/",
+    "imageEmoji": "🎤"
   }
 ]

@@ -181,8 +181,8 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
   },
   "aura-beach-club-cabarete": {
     description: {
-      es: "Beach club frente al mar en Calle Principal — relax de día y shows en vivo de noche con vista a la bahía de Cabarete.",
-      fr: "Beach club en bord de mer sur Calle Principal — détente le jour et concerts live le soir face à la baie de Cabarete.",
+      es: "Beach club frente al mar en Calle Principal — relax de día, lunes 2x1 de margarita/gin, miércoles de margaritas con música en vivo y shows de noche con vista a la bahía de Cabarete. WhatsApp +1 829-787-0140 · Instagram @auracabarete.",
+      fr: "Beach club en bord de mer sur Calle Principal — détente le jour, lundis 2x1 margarita/gin, mercredis margaritas avec musique live et concerts le soir face à la baie de Cabarete. WhatsApp +1 829-787-0140 · Instagram @auracabarete.",
     },
   },
   "la-casita-de-papi": {
@@ -535,8 +535,8 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
   },
   "cigar-town-pop": {
     description: {
-      es: "Lounge de cigarros en Av. Luis Ginebra No. 56 — puros premium, whisky, abierto lun–dom; Ron & Humos lun/mié, La Peña los jueves con Brugal y Cigar Town Sessions en vivo (Eddy Almonte & Café Meclao) en el centro de Puerto Plata.",
-      fr: "Lounge à cigares sur l'Av. Luis Ginebra n° 56 — puros premium, whisky, ouvert lun–dim ; Ron & Humos lun/mer, La Peña le jeudi avec Brugal et Cigar Town Sessions live (Eddy Almonte & Café Meclao) au centre de Puerto Plata.",
+      es: "Lounge de cigarros en Av. Luis Ginebra No. 56 — puros premium, whisky, abierto lun–dom; Ron & Humos lun/mié, La Peña los jueves con Brugal, Cigar Town Sessions en vivo y Karaoke Saturday / Ladies Night en el centro de Puerto Plata.",
+      fr: "Lounge à cigares sur l'Av. Luis Ginebra n° 56 — puros premium, whisky, ouvert lun–dim ; Ron & Humos lun/mer, La Peña le jeudi avec Brugal, Cigar Town Sessions live et Karaoke Saturday / Ladies Night au centre de Puerto Plata.",
     },
   },
   "gran-ventana-beach-resort": {
@@ -841,6 +841,12 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
     description: {
       es: "Cámara de Comercio y Producción de Puerto Plata en Calle Beller No. 17 — el Salón de Eventos Fernando Cueto acoge paneles empresariales, talleres y foros de socios. Instagram @camarapuertoplata.",
       fr: "Chambre de commerce et de production de Puerto Plata, Calle Beller n° 17 — le Salón de Eventos Fernando Cueto accueille panels business, ateliers et forums membres. Instagram @camarapuertoplata.",
+    },
+  },
+  "ambar-lounge-pop": {
+    description: {
+      es: "Lounge bar rooftop en Av. Luis Ginebra 45-a — cócteles, noches con invitación y energía tarde en el centro. Abierto lun/mié–dom desde las 5:00 PM (cerrado mar). Reservas (809) 781-8677 · Instagram @ambarloungepop.",
+      fr: "Lounge bar rooftop sur Av. Luis Ginebra 45-a — cocktails, soirées sur invitation et énergie tardive downtown. Ouvert lun/mer–dim dès 17 h (fermé mar). Réservations (809) 781-8677 · Instagram @ambarloungepop.",
     },
   },
   "luna-lounge-lcb": {

@@ -133,6 +133,16 @@ export const INSTAGRAM_ACCOUNTS = [
     areas: ["Puerto Plata"],
   },
   {
+    handle: "cinemaspop",
+    label: "POP Cinemas (Playa Dorada Mall)",
+    areas: ["Playa Dorada", "Puerto Plata"],
+  },
+  {
+    handle: "auracabarete",
+    label: "Aura Beach Club Cabarete",
+    areas: ["Cabarete"],
+  },
+  {
     handle: "eventospop037",
     label: "Eventos Pop 037 (Puerto Plata agenda)",
     areas: ["Puerto Plata"],
@@ -355,7 +365,7 @@ export function instagramSearchQueries(): string[] {
     "onnosbar", "shakabardr", "groundzero_disco", "blueice_pianobar",
     "driftercabarete", "nonasgrillkitchen", "hardrockcafepuertoplata",
     "djblueeventos", "victrolart", "cigartownpop", "ambarloungepop", "lokuraspop",
-    "eventospop037",
+    "cinemaspop", "auracabarete", "eventospop037",
     "novapuertoplata", "spotlandrd", "lunaloungelcb", "teatroivangarcia",
     "oceanworldterrace", "paradaelchoco",
     "kitestreetpop", "meclaorooftop", "kviarcasinos",
@@ -414,7 +424,7 @@ export function instagramSearchQueries(): string[] {
     `site:instagram.com (${culturalVenues}) concierto OR festival OR presentación`,
     `site:instagram.com (${touristInfo}) evento OR actividad OR fiesta`,
     `site:instagram.com (${institutional}) foro OR feria OR congreso OR "rueda de negocios"`,
-    `site:instagram.com victrolart OR cigartownpop OR ambarloungepop OR lokuraspop OR eventospop037 OR novapuertoplata OR spotlandrd OR lunaloungelcb OR teatroivangarcia OR oceanworldterrace OR paradaelchoco OR kitestreetpop 2026`,
+    `site:instagram.com victrolart OR cigartownpop OR ambarloungepop OR lokuraspop OR cinemaspop OR auracabarete OR eventospop037 OR novapuertoplata OR spotlandrd OR lunaloungelcb OR teatroivangarcia OR oceanworldterrace OR paradaelchoco OR kitestreetpop 2026`,
     `site:instagram.com "Mojitos" OR "Jueves Social" OR "Sábado Bailable" OR Acústico Puerto Plata`,
     
     // Business & institutional

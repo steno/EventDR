@@ -136,6 +136,7 @@ export const CURATED_ADMISSION_PRICES: Record<string, string> = {
   "puerto-plata-golf-classic-2026": "US$210",
   "sosua-10k-road-race-2026": "RD$500",
   "pop-cinemas-week-2026-08-20": "RD$300",
+  "pop-cinemas-week-2026-09-11": "RD$300",
   "love-does-cocktails-solidarity-2026-09-04": "RD$2,000",
   "sunset-cabarete-sessions-2026": "from US$16",
   "puerto-plata-poker-experience-2026": "Main Event US$900 buy-in",
@@ -165,6 +166,7 @@ export const CURATED_CALL_FOR_PRICING = new Set<string>([
   "el-parq-latin-friday",
   "batey-salsa-weekly",
   "atlantico-fc-vs-delfines-2026-08-22",
+  "ambar-lounge-reggaeton-2026-09-17",
 ]);
 
 /**
@@ -207,6 +209,8 @@ export const CURATED_FREE_EVENTS = new Set<string>([
   "ocean-winds-karaoke-nights",
   "petit-francois-friday-karaoke",
   "chill-and-grill-saturday-karaoke",
+  "aura-beach-club-lunes-especiales",
+  "aura-beach-club-miercoles-margaritas",
   "dewry-luciano-zona-acapella-2026-08-23",
   "ernesto-betances-rancho-catalina-2026-09-13",
   "el-cuarteto-del-swing-zona-acapella-2026-09-13",
@@ -230,6 +234,7 @@ export const CURATED_FREE_EVENTS = new Set<string>([
   "cigar-town-la-pena-thursdays",
   "cigar-town-ron-humos",
   "cigar-town-noche-bohemia-2026-09-12",
+  "cigar-town-karaoke-ladies-night-2026-09-19",
   "senor-rock-live-nightly",
   "cremo-salsa-friday",
   "cremo-bohemian-wednesday",

@@ -1295,6 +1295,37 @@
     "imageEmoji": "🎬"
   },
   {
+    "id": "pop-cinemas-week-2026-09-11",
+    "title": "POP Cinemas — Week of Sep 11–17",
+    "description": "Weekly cartelera at POP Cinemas in Playa Dorada Mall (Sep 11–17), Spanish audio, RD$300 per person. Films: Rebelión en la granja (Animal Farm) daily 5:45 PM; Rápido y Furioso 25th anniversary daily 7:45 PM; Spider-Man; Código: Venganza; late horror La Sombra del Exorcista (confirm late slot — shows run into ~9:45 PM). Snacks and tickets: cinemaspop.com.do · 809-320-1400.",
+    "date": "2026-09-11",
+    "endDate": "2026-09-17",
+    "time": "5:45 PM – 9:45 PM",
+    "location": "Playa Dorada",
+    "venue": "POP Cinemas",
+    "venueSlug": "pop-cinemas-playa-dorada",
+    "address": "Calle Principal Playa Dorada 538, Playa Dorada Shopping Centre",
+    "lat": 19.769859,
+    "lng": -70.642341,
+    "category": "culture",
+    "categories": [
+      "performances"
+    ],
+    "format": "physical",
+    "admissionPrice": "RD$300",
+    "phone": "+18093201400",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/cinemaspop/",
+    "imageEmoji": "🎬",
+    "lineup": [
+      "Rebelión en la granja (Animal Farm) · 5:45 PM",
+      "Rápido y Furioso 25th anniversary · 7:45 PM",
+      "Spider-Man",
+      "Código: Venganza",
+      "La Sombra del Exorcista (late)"
+    ]
+  },
+  {
     "id": "petit-francois-friday-karaoke",
     "title": "Le Petit François Friday Karaoke",
     "description": "Every Friday karaoke beach party at Le Petit François, El Pueblito / Playa Chaparral, with DJ Leandro from 8:00 PM. Limoncello shots 2-for-1 this week. No cover — pay for food and drinks. Reservations +1 829 492 2910.",
@@ -1954,5 +1985,55 @@
       "DJ Chris"
     ],
     "imageEmoji": "🏞️"
+  },
+  {
+    "id": "ambar-lounge-reggaeton-2026-09-17",
+    "title": "Reggaeton at Ambar Lounge — Ramon x Raul",
+    "description": "Invitation-only Reggaeton night with Ramon x Raul at Ambar Lounge POP, Av. Luis Ginebra 45-a, Puerto Plata — Thursday 17 September 2026. Exclusive access with invitation; request entry via Instagram DM @ambarloungepop or call (809) 781-8677. Lounge open from 5:00 PM (closed Tuesdays).",
+    "date": "2026-09-17",
+    "location": "Puerto Plata",
+    "venue": "Ambar Lounge POP",
+    "venueSlug": "ambar-lounge-pop",
+    "address": "Av. Luis Ginebra 45-a, Puerto Plata 57000",
+    "lat": 19.7918,
+    "lng": -70.681,
+    "category": "parties",
+    "categories": [
+      "music",
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18097818677",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/ambarloungepop/",
+    "lineup": [
+      "Ramon x Raul"
+    ],
+    "imageEmoji": "🔥"
+  },
+  {
+    "id": "cigar-town-karaoke-ladies-night-2026-09-19",
+    "title": "Karaoke Saturday — Ladies Night at Cigar Town",
+    "description": "Karaoke Saturday / Ladies Night at Cigar Town Pop, Av. Luis Ginebra No. 56, Puerto Plata — Saturday 19 September 2026. Sing in tune or not, drinks in hand, zero shame. Confirm start time and any cover via Instagram @cigartownpop.",
+    "date": "2026-09-19",
+    "location": "Puerto Plata",
+    "venue": "Cigar Town Pop",
+    "venueSlug": "cigar-town-pop",
+    "address": "Avenida Luis Ginebra No. 56, Puerto Plata",
+    "lat": 19.7915,
+    "lng": -70.6805,
+    "category": "parties",
+    "categories": [
+      "music",
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/cigartownpop/",
+    "imageEmoji": "🎤"
   }
 ]

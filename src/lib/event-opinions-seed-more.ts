@@ -1338,6 +1338,24 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: "2026-08-21T16:00:00.000Z",
   },
   {
+    eventId: "pop-cinemas-week-2026-09-11",
+    body: "Spanish-audio mall cinema week — Animal Farm early, Fast & Furious mid-evening; confirm Spider-Man / Código / late horror slots on cinemaspop.com.do. Bring a sweater for the AC.",
+    localized: {
+      es: "Semana de cine en el mall con audio en español — Animal Farm temprano, Rápido y Furioso a media noche; confirma Spider-Man / Código / terror tarde en cinemaspop.com.do. Lleva suéter por el aire.",
+      fr: "Semaine cinéma mall en version espagnole — Animal Farm tôt, Fast & Furious en soirée ; confirmez Spider-Man / Código / horreur tardive sur cinemaspop.com.do. Prenez un pull pour la clim.",
+    },
+    priceFeel: "budget",
+    priceNote: "RD$300 per person every day; snacks extra — cinemaspop.com.do / 809-320-1400",
+    priceNoteLocalized: {
+      es: "RD$300 por persona todos los días; snacks aparte — cinemaspop.com.do / 809-320-1400",
+      fr: "RD$300 par personne tous les jours ; snacks en plus — cinemaspop.com.do / 809-320-1400",
+    },
+    attribution: "POP research · @cinemaspop Sep 11–17 cartelera",
+    researchNotes:
+      "Editor screenshot / IG @cinemaspop — week Thu 11–Wed 17 Sep 2026. Timed: Rebelión en la granja 5:45 PM, Rápido y Furioso 25th 7:45 PM (Español). Also Spider-Man, Código: Venganza, La Sombra del Exorcista (late ~to 9:45 PM). RD$300. Do not invent missing times.",
+    updatedAt: "2026-09-14T12:00:00.000Z",
+  },
+  {
     eventId: "petit-francois-friday-karaoke",
     seriesKey: "le-petit-francois:weekly:5",
     body: "Karaoke from 8 PM with DJ Leandro — Google’s midnight close is the kitchen; the beach party is listed until 2 AM on the official site.",
@@ -2228,6 +2246,84 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     attribution: "POP research · @noticia_gurabocityrd",
     researchNotes:
       "Editor flyer + caption — Sun 20 Sep 2026 from 10 AM; El Rubio Acordeón + Nacho Estrella; Río Sonador / Yásica Arriba; NO venueSlug (meeting point unclear). VIP furniture; no outside drinks. Phone 829-463-9793.",
+    updatedAt: "2026-09-14T12:00:00.000Z",
+  },
+  {
+    eventId: "ambar-lounge-reggaeton-2026-09-17",
+    body: "Invitation-first reggaeton on Luis Ginebra — skip walk-up expectations; DM @ambarloungepop or call (809) 781-8677 before Thursday, and don’t confuse it with the airport Sala Ambar.",
+    localized: {
+      es: "Reggaeton con invitación primero en Luis Ginebra — no esperes entrada walk-up; escribe a @ambarloungepop o llama al (809) 781-8677 antes del jueves, y no lo confundas con la Sala Ambar del aeropuerto.",
+      fr: "Reggaeton sur invitation d’abord sur Luis Ginebra — pas d’entrée walk-up ; DM @ambarloungepop ou appelez le (809) 781-8677 avant jeudi, et ne confondez pas avec la Sala Ambar de l’aéroport.",
+    },
+    priceFeel: "varies",
+    priceNote:
+      "Invitation / cover not published — request access via DM or (809) 781-8677",
+    priceNoteLocalized: {
+      es: "Invitación / cover no publicados — pide acceso por DM o (809) 781-8677",
+      fr: "Invitation / cover non publiés — demandez l’accès via DM ou (809) 781-8677",
+    },
+    attribution: "POP research · @ambarloungepop",
+    researchNotes:
+      "Editor flyer + IG caption — Thu 17 Sep 2026 Reggaeton with Ramon x Raul; acceso exclusivo con invitación; Av. Luis Ginebra 45-a; phone (809) 781-8677; closed Tue. Venue lounge photo POP-supplied.",
+    updatedAt: "2026-09-14T12:00:00.000Z",
+  },
+  {
+    eventId: "cigar-town-karaoke-ladies-night-2026-09-19",
+    body: "Mic-and-drinks Saturday at the cigar lounge — louder and sillier than Noche Bohemia; go for Ladies Night energy, not a quiet puro tasting.",
+    localized: {
+      es: "Sábado de micrófono y tragos en el cigar lounge — más fuerte y divertido que Noche Bohemia; ve por energía Ladies Night, no por una cata quieta de puros.",
+      fr: "Samedi micro-et-verres au cigar lounge — plus fort et plus fun que Noche Bohemia ; venez pour l’énergie Ladies Night, pas une dégustation de puros tranquille.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "No cover or start time on the flyer — confirm with @cigartownpop",
+    priceNoteLocalized: {
+      es: "Sin cover ni hora en el flyer — confirma con @cigartownpop",
+      fr: "Pas de cover ni d’heure sur l’affiche — confirmez avec @cigartownpop",
+    },
+    attribution: "POP research · @cigartownpop",
+    researchNotes:
+      "Editor flyer + caption — Sat 19 Sep 2026 Karaoke Saturday / Ladies Night; Av. Luis Ginebra 56; no start time or price published.",
+    updatedAt: "2026-09-14T12:00:00.000Z",
+  },
+  {
+    eventId: "aura-beach-club-lunes-especiales",
+    seriesKey: "aura-beach-club-cabarete:weekly:1",
+    body: "Early-week 2x1 window on Calle Principal sand — come 4–7 PM for margarita/gin deals, not a late dance night; WhatsApp a table before sunset fills the bay seats.",
+    localized: {
+      es: "Ventana 2x1 de inicio de semana en la arena de Calle Principal — ven de 4 a 7 PM por margarita/gin, no por noche de baile tarde; reserva mesa por WhatsApp antes de que el atardecer llene la bahía.",
+      fr: "Fenêtre 2x1 en début de semaine sur le sable de Calle Principal — venez 16 h–19 h pour margarita/gin, pas une soirée dance tardive ; WhatsApp une table avant que le sunset remplisse la baie.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "2x1 margaritas (Tiscaz) and gin tonics (Gibson’s) 4–7 PM — no cover on flyer; reserve +1 829-787-0140",
+    priceNoteLocalized: {
+      es: "2x1 margaritas (Tiscaz) y gin tonics (Gibson’s) 4–7 PM — sin cover en el flyer; reserva +1 829-787-0140",
+      fr: "2x1 margaritas (Tiscaz) et gin tonics (Gibson’s) 16 h–19 h — pas de cover sur l’affiche ; réservez +1 829-787-0140",
+    },
+    attribution: "POP research · @auracabarete Lunes Especiales",
+    researchNotes:
+      "Editor flyer — every Monday 4–7 PM; 2x1 Margaritas & Gin Tonic; Tiscaz + Gibson’s; Aura Beach Club Cabarete Calle Principal. WA/DM for tables.",
+    updatedAt: "2026-09-14T12:00:00.000Z",
+  },
+  {
+    eventId: "aura-beach-club-miercoles-margaritas",
+    seriesKey: "aura-beach-club-cabarete:weekly:3",
+    body: "Wednesday margarita night with live music on Cabarete Bay — louder and later than the Monday 4–7 happy hour; start time not on the flyer, so confirm before you pin Calle Principal.",
+    localized: {
+      es: "Miércoles de margaritas con música en vivo en la bahía de Cabarete — más tarde y fuerte que el happy hour del lunes 4–7; la hora no está en el flyer, confirma antes de clavar Calle Principal.",
+      fr: "Mercredi margaritas avec musique live sur la baie de Cabarete — plus tard et plus fort que le happy hour lundi 16 h–19 h ; l’heure n’est pas sur l’affiche, confirmez avant d’épingler Calle Principal.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "2x1 classic Tiscaz margaritas — no cover or start time on flyer; WhatsApp +1 829-787-0140",
+    priceNoteLocalized: {
+      es: "2x1 margaritas clásicas Tiscaz — sin cover ni hora en el flyer; WhatsApp +1 829-787-0140",
+      fr: "2x1 margaritas classiques Tiscaz — pas de cover ni d’heure sur l’affiche ; WhatsApp +1 829-787-0140",
+    },
+    attribution: "POP research · @auracabarete Miércoles de Margaritas",
+    researchNotes:
+      "Editor flyer — every Wednesday; 2x1 Margarita Clásicas Tiscaz; live music; WA +1 809/829-787-0140 listed on promo (venue site uses 829). No clock time on art.",
     updatedAt: "2026-09-14T12:00:00.000Z",
   },
 ];

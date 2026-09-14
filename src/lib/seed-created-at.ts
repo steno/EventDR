@@ -62,6 +62,11 @@ export const SEED_CREATED_AT: Readonly<Record<string, string>> = {
   "ivan-garcia-clases-actuacion-ninos-2026": "2026-09-14T12:00:00.000Z",
   "ocean-world-terrace-la-fiera-tipica-2026-09-18": "2026-09-14T12:00:00.000Z",
   "rio-sonador-cierre-del-verano-2026-09-20": "2026-09-14T12:00:00.000Z",
+  "ambar-lounge-reggaeton-2026-09-17": "2026-09-14T12:00:00.000Z",
+  "cigar-town-karaoke-ladies-night-2026-09-19": "2026-09-14T12:00:00.000Z",
+  "pop-cinemas-week-2026-09-11": "2026-09-14T12:00:00.000Z",
+  "aura-beach-club-lunes-especiales": "2026-09-14T12:00:00.000Z",
+  "aura-beach-club-miercoles-margaritas": "2026-09-14T12:00:00.000Z",
 };
 
 /** Fill missing `createdAt` from {@link SEED_CREATED_AT} (does not overwrite). */

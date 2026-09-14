@@ -277,6 +277,7 @@ const VISIT_MINUTES_BY_SLUG: Record<string, number> = {
   "lokuras-pop": 60,
   "nova-salud-bienestar": 45,
   "camara-comercio-puerto-plata": 40,
+  "ambar-lounge-pop": 40,
   "luna-lounge-lcb": 45,
   "ivan-garcia-teatro-escuela": 35,
   "ocean-world-terrace": 75,

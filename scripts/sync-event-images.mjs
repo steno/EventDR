@@ -76,6 +76,8 @@ const FILE_TO_EVENT_ID = {
   "dewry-luciano-zona-acapella-2026-08-23.jpg":
     "dewry-luciano-zona-acapella-2026-08-23",
   "pop-cinemas-week-2026-08-20.jpg": "pop-cinemas-week-2026-08-20",
+  "pop-cinemas-week-2026-09-11.jpg": "pop-cinemas-week-2026-09-11",
+  "pop-cinemas-week-2026-09-11-mall.jpg": "pop-cinemas-week-2026-09-11-mall",
   "petit-francois-friday-karaoke.jpg": "petit-francois-friday-karaoke",
   "chill-and-grill-sunday-bingo.jpg": "chill-and-grill-sunday-bingo",
   "chill-and-grill-saturday-karaoke.jpg": "chill-and-grill-saturday-karaoke",
@@ -178,6 +180,12 @@ const FILE_TO_EVENT_ID = {
     "ocean-world-terrace-la-fiera-tipica-2026-09-18",
   "rio-sonador-cierre-del-verano-2026-09-20.jpg":
     "rio-sonador-cierre-del-verano-2026-09-20",
+  "ambar-lounge-reggaeton-2026-09-17.jpg": "ambar-lounge-reggaeton-2026-09-17",
+  "cigar-town-karaoke-ladies-night-2026-09-19.jpg":
+    "cigar-town-karaoke-ladies-night-2026-09-19",
+  "aura-beach-club-lunes-especiales.jpg": "aura-beach-club-lunes-especiales",
+  "aura-beach-club-miercoles-margaritas.jpg":
+    "aura-beach-club-miercoles-margaritas",
   "cigar-town-acustico-humos-2026-08-14.jpg":
     "cigar-town-acustico-humos-2026-08-14",
   "cigar-town-acustico-humos.jpg": "cigar-town-acustico-humos",
@@ -365,6 +373,8 @@ const FILE_TO_VENUE_SLUG = {
   "luna-lounge-lcb-facade.jpg": "luna-lounge-lcb-facade",
   "ivan-garcia-teatro-escuela-facade.jpg":
     "ivan-garcia-teatro-escuela-facade",
+  "ambar-lounge-pop-lounge.jpg": "ambar-lounge-pop-lounge",
+  "aura-beach-club-cabarete-entrance.jpg": "aura-beach-club-cabarete-entrance",
 };
 
 if (!existsSync(sourceDir)) {

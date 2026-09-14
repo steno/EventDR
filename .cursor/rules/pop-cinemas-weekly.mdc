@@ -1,0 +1,29 @@
+---
+description: POP Cinemas weekly cartelera — one week listing, never per-film events
+globs: src/data/seeds/fallback.*.json,src/lib/seed-created-at.ts,src/lib/event-images.ts,src/lib/event-opinions-seed*.ts,src/lib/curated-events.ts,src/lib/event-tickets.ts,src/lib/event-phone.ts,public/events/ATTRIBUTIONS.md
+alwaysApply: false
+---
+
+# POP Cinemas weekly billboard
+
+When the user shares a POP Cinemas / @cinemaspop / cinemaspop.com.do schedule (flyer, Story, screenshot, or site dump):
+
+## Do
+
+1. **One event per week**, not one event per film or per showtime.
+2. Id pattern: `pop-cinemas-week-YYYY-MM-DD` where the date is the **Thursday** that starts the cartelera week (Thu–Wed), matching `pop-cinemas-week-2026-08-20` and `pop-cinemas-week-2026-09-11`.
+3. Set `date` + `endDate` to that Thu–Wed range; `time` spans the earliest–latest published daily slot.
+4. Put the full weekly list in **text**: `description` (EN/ES/FR) with title + showtime + language when known, **and** a `lineup` array of film titles (include times in the label when known). Note RD$300 and `cinemaspop.com.do` / `809-320-1400`.
+5. Reuse venue `pop-cinemas-playa-dorada` (Playa Dorada Mall). Prefer the **venue place shot** as the event hero — not a schedule collage/screenshot. Wire `SEED_CREATED_AT`, opinion, `CURATED_EVENT_DETAILS` / admission `RD$300`, phone `+18093201400`, attributions.
+6. If a schedule flyer/screenshot is kept for reference, mark it typography-heavy and do **not** use it as the event/home hero. Place-shot heroes may stay on the venue image path.
+7. Spotlight already collapses `pop-cinemas-week-*` via `spotlightSeriesKeyFromId` — keep the dated id suffix.
+
+## Do not
+
+- Create separate seed events for each movie or each daily screening.
+- Invent showtimes — only list times visible on the source; say “confirm on cinemaspop.com.do” when a title has no time.
+- Use the weekly schedule screenshot/collage as the event hero when the films can be listed in text (`description` + `lineup`). Treat attached schedules as **source** for the text list.
+
+## Upcoming weeks
+
+Each new cartelera week = a **new** seed id (new Thursday). Leave prior weeks in seeds; do not overwrite an old week’s description with the new bill. Refresh the venue tip only if pricing/hours change.

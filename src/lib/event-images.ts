@@ -129,6 +129,13 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "ocean-world-terrace-la-fiera-tipica-2026-09-18.jpg",
   "rio-sonador-cierre-del-verano-2026-09-20":
     "rio-sonador-cierre-del-verano-2026-09-20.jpg",
+  "ambar-lounge-reggaeton-2026-09-17":
+    "ambar-lounge-reggaeton-2026-09-17.jpg",
+  "cigar-town-karaoke-ladies-night-2026-09-19":
+    "cigar-town-karaoke-ladies-night-2026-09-19.jpg",
+  "aura-beach-club-lunes-especiales": "aura-beach-club-lunes-especiales.jpg",
+  "aura-beach-club-miercoles-margaritas":
+    "aura-beach-club-miercoles-margaritas.jpg",
   "drifter-sunset-into-the-night": "drifter-sunset-into-the-night.jpg",
   "sosua-jewish-museum-hours": "sosua-jewish-museum-hours.jpg",
   "sosua-diving-adventures-daily": "sosua-diving-adventures-daily.jpg",
@@ -252,6 +259,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "dewry-luciano-zona-acapella-2026-08-23":
     "dewry-luciano-zona-acapella-2026-08-23.jpg",
   "pop-cinemas-week-2026-08-20": "pop-cinemas-week-2026-08-20.jpg",
+  "pop-cinemas-week-2026-09-11": "pop-cinemas-week-2026-09-11-mall.jpg",
   "petit-francois-friday-karaoke": "petit-francois-friday-karaoke.jpg",
   "costambar-beach-fitness": "costambar-beach-fitness.png",
   "love-does-bocadillos-course-2026": "love-does-bocadillos-course-2026.jpg",
@@ -328,6 +336,10 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "ivan-garcia-clases-actuacion-ninos-2026": "object-center",
   "ocean-world-terrace-la-fiera-tipica-2026-09-18": "object-center",
   "rio-sonador-cierre-del-verano-2026-09-20": "object-center",
+  "ambar-lounge-reggaeton-2026-09-17": "object-center",
+  "cigar-town-karaoke-ladies-night-2026-09-19": "object-center lg:object-left",
+  "aura-beach-club-lunes-especiales": "object-center",
+  "aura-beach-club-miercoles-margaritas": "object-center",
 };
 
 function curatedEventImageFile(eventId: string): string | undefined {
@@ -402,11 +414,16 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "ivan-garcia-clases-actuacion-ninos-2026.jpg",
   "ocean-world-terrace-la-fiera-tipica-2026-09-18.jpg",
   "rio-sonador-cierre-del-verano-2026-09-20.jpg",
+  "ambar-lounge-reggaeton-2026-09-17.jpg",
+  "cigar-town-karaoke-ladies-night-2026-09-19.jpg",
+  "aura-beach-club-lunes-especiales.jpg",
+  "aura-beach-club-miercoles-margaritas.jpg",
   "los-event-trilogy-2026-09-03.jpg",
   "love-does-bocadillos-course-2026.jpg",
   "love-does-cocktails-solidarity-2026-09-04.jpg",
   "masters-surf-reunion-10-2026.png",
   "petit-francois-friday-karaoke.jpg",
+  "pop-cinemas-week-2026-08-20.jpg",
   "puerto-plata-poker-experience-2026.png",
   "restaurant-week-puerto-plata-2026-calendar.jpg",
   "rumble-in-paradise-13.png",
@@ -546,6 +563,7 @@ const HOME_HERO_SCENE_FILES = new Set([
   "paseo-dona-blanca-pink-walk.jpg",
   "plaza-independencia-daily.jpg",
   "plaza-independencia-weekend-culture.jpg",
+  "pop-cinemas-week-2026-09-11-mall.jpg",
   "rio-martinico-sosua.jpg",
   "rio-sonador-finca-papirucho.jpg",
   "rum-legacy-museum-daily.jpg",

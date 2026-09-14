@@ -2581,5 +2581,55 @@
     "phone": "+18297022312",
     "sourceUrl": "https://driftercabarete.com/",
     "imageEmoji": "🌅"
+  },
+  {
+    "id": "aura-beach-club-lunes-especiales",
+    "title": "Lunes Especiales — Margaritas & Gin Tonic en Aura",
+    "description": "Todos los lunes de 4:00 a 7:00 PM en Aura Beach Club, Calle Principal, Cabarete — 2x1 en margaritas (Tiscaz Tequila) y 2x1 en gin tonics (Gibson’s London Gin). Buena música y vibra de bahía; reserva mesa por WhatsApp +1 829-787-0140 o DM de Instagram @auracabarete.",
+    "date": "2026-01-01",
+    "time": "4:00 PM – 7:00 PM",
+    "location": "Cabarete",
+    "venue": "Aura Beach Club Cabarete",
+    "venueSlug": "aura-beach-club-cabarete",
+    "address": "Calle Principal, Cabarete 57000",
+    "lat": 19.7500769,
+    "lng": -70.4070417,
+    "category": "food-drinks",
+    "categories": [
+      "parties"
+    ],
+    "format": "physical",
+    "recurrence": "weekly",
+    "recurrenceDay": 1,
+    "trending": true,
+    "phone": "+18297870140",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/auracabarete/",
+    "imageEmoji": "🍹"
+  },
+  {
+    "id": "aura-beach-club-miercoles-margaritas",
+    "title": "Miércoles de Margaritas en Aura Beach Club",
+    "description": "Todos los miércoles en Aura Beach Club, Calle Principal, Cabarete — 2x1 en margaritas clásicas con Tiscaz Tequila, margaritas especiales, música en vivo y buenas vibes toda la noche. Reserva por WhatsApp +1 829-787-0140 o DM de Instagram @auracabarete. Confirma la hora con el club.",
+    "date": "2026-01-01",
+    "location": "Cabarete",
+    "venue": "Aura Beach Club Cabarete",
+    "venueSlug": "aura-beach-club-cabarete",
+    "address": "Calle Principal, Cabarete 57000",
+    "lat": 19.7500769,
+    "lng": -70.4070417,
+    "category": "food-drinks",
+    "categories": [
+      "music",
+      "parties"
+    ],
+    "format": "physical",
+    "recurrence": "weekly",
+    "recurrenceDay": 3,
+    "trending": true,
+    "phone": "+18297870140",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/auracabarete/",
+    "imageEmoji": "🍸"
   }
 ]
