@@ -357,9 +357,9 @@ export function getEventHeroObjectPosition(eventId: string): string {
 }
 
 /**
- * Typography-heavy curated assets — fine on event cards, bad as the home
- * Discover photo plane (they fight the H1). Prefer place / scene shots instead.
- * Filename tokens `flyer` / `schedule` / `menu` / `poster` are also rejected.
+ * Typography-heavy curated assets — fine on event cards, never behind hero type.
+ * Also rejected by filename tokens `flyer` / `schedule` / `menu` / `poster`.
+ * New flyer art must land here (or stay off {@link HOME_HERO_SCENE_FILES}).
  */
 const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "atlantico-fc-vs-delfines-2026-08-22.jpg",
@@ -421,6 +421,155 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "victrola-jueves-social.jpg",
   "victrola-mojitos-friday.jpg",
   "victrola-sabado-bailable.jpg",
+  // Promo graphic with baked-in SABADOS / ESPECIAL SANTO LIBRE type.
+  "sancocho-sabados-pingui.jpg",
+  "cabarete-classic-2026.jpg",
+  "inicio-del-campamento-pp-2026.jpg",
+  "cremo-bohemian-wednesday.jpg",
+  "cremo-karaoke-saturday.jpg",
+  "el-colibri-karaoke-battle-2026.jpg",
+  "ocean-winds-karaoke-amados.jpg",
+  "el-carey-karaoke-mujeres-monday.jpg",
+  "el-parq-karaoke-thursday.jpg",
+  "atleticos-pp-vs-capitanes-2026-07-11.jpg",
+  "atleticos-pp-vs-mangueros-2026-07-17.jpg",
+  "atleticos-pp-vs-mineros-2026-07-31.jpg",
+  "atleticos-pp-vs-granjeros-2026-08-02.jpg",
+  "atleticos-pp-vs-bravos-2026-08-07.jpg",
+  "atleticos-pp-vs-reales-2026-08-09.jpg",
+  "atleticos-pp-vs-arroceros-2026-08-22.jpg",
+  "atleticos-pp-vs-capitanes-2026-08-28.jpg",
+  "ingest-asa-survival-series-cdf-vs-dracos-game-1.jpeg",
+  "ingest-asa-survival-series-cdf-vs-dracos-game-2.jpeg",
+  "ingest-asa-survival-series-cdf-vs-dracos-game-3.jpeg",
+  "ingest-asa-survival-series-cdf-vs-dracos-game-4.jpeg",
+  "ingest-asa-survival-series-cdf-vs-dracos-game-5.jpeg",
+  "ingest-make-authentic-espadrilles-in-puerto-plata.jpg",
+  "ingest-18th-annual-cabarete-butterfly-effect.jpg",
+  "ingest-el-blachy.jpg",
+  "ingest-nacho-estrella-nd-eventos.jpg",
+  "puerto-plata-golf-classic-2026.jpg",
+  "puerto-plata-beach-soccer-2026.jpg",
+  "puerto-plata-poker-experience-2026.jpg",
+]);
+
+/**
+ * Opt-in place/scene photos safe behind Discover / city hero type.
+ * Default deny — flyers and promo graphics must not appear here.
+ */
+const HOME_HERO_SCENE_FILES = new Set([
+  "amber-cove-village-daily.jpg",
+  "anfiteatro-la-puntilla-mitur-concert.jpg",
+  "anfiteatro-la-puntilla-weekday-bowl.jpg",
+  "batey-open-mic-stage.jpg",
+  "batey-salsa-social-dance.jpg",
+  "big-lees-weekend-music.jpg",
+  "brugal-corporate-tours.jpg",
+  "brugal-rum-center-weekdays.jpg",
+  "cabarete-pilates-reformer.jpg",
+  "calle-sombrillas-umbrella-walk.jpg",
+  "casa-de-la-cultura-gallery-opening.jpg",
+  "casa-de-la-cultura-saturday-keyboard.jpg",
+  "castaways-classic-rock-wednesday.jpg",
+  "cayo-arena-tours-daily.jpeg",
+  "charco-los-militares-daily.jpg",
+  "charcos-damajagua-daily.jpeg",
+  "cheers-weekly-live.jpg",
+  "chill-and-grill-bingo-terrace.jpg",
+  "coconut-cove-ocean-zipline-daily.jpg",
+  "cofresi-beach-sunset-walk.jpg",
+  "cofresi-palm-day-pass.jpg",
+  "costambar-beach-fitness.png",
+  "crazy-lobster-beach-dining.jpg",
+  "cremo-salsa-friday.jpg",
+  "cuartel-bomberos-puerto-plata-trucks.jpg",
+  "d-classico-merengue-bar.jpg",
+  "del-oro-chocolate-factory-tour.jpg",
+  "don-limon-beach-dining.jpeg",
+  "drifter-sunset-into-the-night.jpg",
+  "el-batey-weekend-nightlife-clisante.jpg",
+  "el-carey-weekend-nightlife-lanterns.jpg",
+  "el-choco-cave-tour-swimming-daily.jpg",
+  "el-cocotazo-cafe-beach-dining.jpg",
+  "el-parq-latin-friday.jpg",
+  "el-parq-saturday-night.jpg",
+  "ernesto-betances-rancho-catalina-terrace.jpg",
+  "faro-puerto-plata-spiral.jpg",
+  "feria-artesanal-verano-2026.jpg",
+  "finish-line-live-band.jpg",
+  "flip-flop-live-sports-bar-tvs.jpg",
+  "flip-flop-taco-tuesday.jpg",
+  "flip-flop-wing-wednesday.jpg",
+  "fortaleza-san-felipe-ramparts.jpg",
+  "freestyle-catamaran-daily.jpg",
+  "fun-city-daily.jpeg",
+  "gran-ventana-day-pass.jpg",
+  "grecialandia-entrance.jpg",
+  "gregorio-luperon-museum.jpg",
+  "gym-sov-zumba-fitness.jpg",
+  "hacienda-cufa-cacao-tour.jpg",
+  "handmade-pina-colada-experience.webp",
+  "hard-rock-billed-concerts.jpg",
+  "hard-rock-weekends.jpg",
+  "hms-valeria-domingo-table.jpg",
+  "hms-valeria-spanish-saturday-guests.jpg",
+  "iberostar-costa-dorada-day-pass.jpg",
+  "ingest-hidden-river-kayak-adventure.jpg",
+  "kite-beach-daily.jpg",
+  "kite-beach-wind-culture.jpg",
+  "la-casita-papi-sand-dining.jpg",
+  "la-chabola-wednesday-open-mic-pizza-live.jpg",
+  "la-confluencia-museum-daily.jpg",
+  "la-rejoya-trek.jpg",
+  "lax-headline-concerts.jpg",
+  "lax-reggae-friday-crowd.png",
+  "lax-sunset-daily.jpg",
+  "letrero-puerto-plata-daily.jpg",
+  "liquid-blue-sunrise-yoga.jpg",
+  "liquid-blue-watersports-daily.jpg",
+  "los-tres-cocos-coconut-shrimp.jpg",
+  "macorix-house-of-rum-cellar.jpg",
+  "malecon-kiosks-daily.jpg",
+  "malecon-morning-wellness-walk.jpg",
+  "monkeyland-puerto-plata-daily.jpeg",
+  "museo-ambar-weekdays.jpeg",
+  "natura-cabana-saturday-dining.jpg",
+  "natura-cabana-yoga-daily.jpg",
+  "nonas-grill-kitchen-entrance.jpg",
+  "ocean-world-daily.jpg",
+  "ojo-latin-night-ojo-booth.png",
+  "ojo-weekend-dj-parties.jpg",
+  "outback-safari-daily.jpeg",
+  "paella-pop-el-pueblito.jpg",
+  "paella-pop-green-one.jpg",
+  "parada-tipica-el-choco-tuesday-live.jpg",
+  "paseo-dona-blanca-pink-walk.jpg",
+  "plaza-independencia-daily.jpg",
+  "plaza-independencia-weekend-culture.jpg",
+  "rio-martinico-sosua.jpg",
+  "rio-sonador-finca-papirucho.jpg",
+  "rum-legacy-museum-daily.jpg",
+  "rumble-in-paradise-12.jpg",
+  "sea-horse-saturday-market-tents.jpg",
+  "senor-rock-cadillac-bar.jpg",
+  "smileys-saturday-live.jpg",
+  "sosua-beach-live-bay.jpg",
+  "sosua-diving-adventures-daily.jpg",
+  "sosua-jewish-museum-hours.jpg",
+  "sosua-pedro-clisante-food-nights.jpg",
+  "sosua-volleyball-weekly.jpg",
+  "sunset-grill-velero-beachfront-dining.jpg",
+  "sunset-grill-velero-sushi-nights.jpg",
+  "sunset-laughter-club-cabarete.jpg",
+  "tabacalera-cremo-factory-tour.jpg",
+  "tabacalera-cremo-rolling-experience.jpg",
+  "taino-bay-village-daily.jpg",
+  "teleferico-puerto-plata-daily.jpeg",
+  "vivonte-cigar-factory-weekdays.jpg",
+  "voramar-friday-live.jpg",
+  "voyvoy-monday-night-terrace.jpg",
+  "waterfront-playa-alicia-friday-jazz.jpg",
+  "waterfront-playa-alicia-sunset-dining.jpg",
 ]);
 
 const HOME_HERO_FILE_TOKEN_RE =
@@ -444,7 +593,10 @@ function homeHeroImageFileName(
   }
 }
 
-/** True when the event photo is a place/scene shot safe behind home hero type. */
+/**
+ * True when the event photo is a place/scene shot safe behind hero type.
+ * Opt-in allowlist — promo graphics with baked-in text are never suitable.
+ */
 export function isHomeHeroBackgroundSuitable(
   eventId: string,
   imageUrl?: string | null,
@@ -453,7 +605,7 @@ export function isHomeHeroBackgroundSuitable(
   if (!file) return false;
   if (HOME_HERO_FILE_TOKEN_RE.test(file)) return false;
   if (HOME_HERO_TYPOGRAPHY_HEAVY_FILES.has(file)) return false;
-  return true;
+  return HOME_HERO_SCENE_FILES.has(file);
 }
 
 /** Home/list cards default to top crop; curated events reuse hero focal points. */

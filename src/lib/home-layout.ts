@@ -577,22 +577,14 @@ function pickHomeHeroBackgroundEvent(
       eventHasImage(event) &&
       isHomeHeroBackgroundSuitable(event.id, event.imageUrl),
   );
-  const pool =
-    suitable.length > 0 ? suitable : events.filter(eventHasImage);
-  if (pool.length === 0) {
-    return (
-      specialHero ??
-      events.find(eventHasImage) ??
-      events[0] ??
-      null
-    );
-  }
+  // Never fall back to flyer/promo art — city/coast photos handle empty pools.
+  if (suitable.length === 0) return null;
 
   const day = localDateISO(now);
   const seed = hashSeed(
     `home-hero-bg:${options.shuffleSeed ?? "home"}:${day}`,
   );
-  return seededShuffle(pool, seed)[0] ?? null;
+  return seededShuffle(suitable, seed)[0] ?? null;
 }
 
 export interface HomeDiscoverLayout {

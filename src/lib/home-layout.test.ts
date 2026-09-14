@@ -504,4 +504,21 @@ describe("getHomeDiscoverLayout hero background", () => {
     );
     assert.equal(layoutA.heroEvent?.id, layoutB.heroEvent?.id);
   });
+
+  it("never uses promo graphics with baked-in type as the hero", () => {
+    const sancocho = event({
+      id: "sancocho-sabados-pingui",
+      title: "Sancocho Sábados",
+      date: "2026-09-14",
+      time: "12:00 PM",
+      category: "food-drinks",
+      imageUrl: "/events/sancocho-sabados-pingui.jpg",
+    });
+    const now = new Date("2026-09-14T16:00:00.000Z");
+    const layout = getHomeDiscoverLayout([sancocho], {
+      now,
+      shuffleSeed: "hero-sancocho",
+    });
+    assert.equal(layout.heroEvent, null);
+  });
 });

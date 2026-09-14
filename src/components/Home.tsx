@@ -47,6 +47,7 @@ import {
   getCityMeta,
   getCityName,
   homePathWithArea,
+  NORTH_COAST_HERO_IMAGE,
   parseHomeCityParam,
   readHomeArea,
   writeHomeArea,
@@ -451,7 +452,11 @@ function HomeApp({
     : undefined;
   const heroImageSrc = cruisePort
     ? CRUISE_PORTS[cruisePort].imageSrc
-    : undefined;
+    : discoverLayout.heroEvent
+      ? undefined
+      : (selectedCity
+          ? getCityMeta(selectedCity)?.heroImage
+          : undefined) ?? NORTH_COAST_HERO_IMAGE;
 
   // Both ports are Puerto Plata, so back out to that area instead of bare home
   // (the header's home icon already covers a fresh start).

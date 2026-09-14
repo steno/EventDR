@@ -32,6 +32,7 @@ import {
   type CitySlug,
 } from "@/lib/cities";
 import { getCategoryHeroImage } from "@/lib/category-heroes";
+import { isHomeHeroBackgroundSuitable } from "@/lib/event-images";
 import { findActiveSpecialEvent } from "@/lib/special-events";
 import { PAGE_SHELL_CLASS } from "@/lib/page-shell";
 import { getOnboardingCopy } from "@/lib/onboarding";
@@ -406,8 +407,16 @@ export function EventScopePage({
     return null;
   }, [events, activeCitySlug, activeRegionScope, fixedTimeRange]);
 
+  const specialHeroImage =
+    specialHeroEvent &&
+    isHomeHeroBackgroundSuitable(
+      specialHeroEvent.id,
+      specialHeroEvent.imageUrl,
+    )
+      ? specialHeroEvent.imageUrl?.trim()
+      : undefined;
   const scopeHeroImage =
-    specialHeroEvent?.imageUrl?.trim() ||
+    specialHeroImage ||
     getCategoryHeroImage(activeCategoryId) ||
     city?.heroImage ||
     (activeCategoryId || fixedTimeRange || activeRegionScope
@@ -476,7 +485,7 @@ export function EventScopePage({
               eyebrow={eyebrow}
               subtitle={intro}
               imageUrl={scopeHeroImage}
-              featuredEvent={specialHeroEvent}
+              featuredEvent={specialHeroImage ? specialHeroEvent : null}
               locale={locale}
               dict={dict}
               returnTo={returnTo}
