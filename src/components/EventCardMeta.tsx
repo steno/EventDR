@@ -40,7 +40,7 @@ function RecurrencePill({ label, compact }: { label: string; compact?: boolean }
   return (
     <span
       className={`inline-flex items-center rounded-full bg-neutral-100 dark:bg-neutral-800 font-bold leading-none text-neutral-700 dark:text-neutral-200 ${
-        compact ? "px-1.5 py-0.5 text-xs" : "px-2.5 py-1 text-sm"
+        compact ? "px-2 py-1 text-xs" : "px-2.5 py-1 text-sm"
       }`}
     >
       {label}
@@ -76,30 +76,28 @@ export function EventCardMeta({
   });
   if (compact) {
     return (
-      <div className={`space-y-1 text-sm font-medium text-neutral-500 dark:text-neutral-400 ${className}`}>
-        <span className="inline-flex flex-wrap items-center gap-x-2 gap-y-0.5">
-          <span className="inline-flex items-center gap-1.5 leading-none">
+      <div
+        className={`space-y-1.5 text-sm font-medium leading-snug text-neutral-600 dark:text-neutral-300 ${className}`}
+      >
+        <span className="inline-flex flex-wrap items-center gap-x-2 gap-y-1">
+          <span className="inline-flex items-center gap-1.5">
             <Calendar className="h-3.5 w-3.5 shrink-0" aria-hidden />
             {dateLabel}
           </span>
           {badgeLabel && badgeStatus && (
-            <EventStatusBadge
-              label={badgeLabel}
-              status={badgeStatus}
-              className="py-0.5"
-            />
+            <EventStatusBadge label={badgeLabel} status={badgeStatus} />
           )}
         </span>
         {(timeLabel.display || recurrenceLabel) && (
-          <div className="flex min-w-0 flex-wrap items-center gap-x-1.5 gap-y-0.5">
+          <div className="flex min-w-0 flex-wrap items-center gap-x-2 gap-y-1">
             {timeLabel.display && (
               <span
-                className="inline-flex shrink-0 items-center gap-1 text-sm font-medium tabular-nums leading-none text-neutral-500 dark:text-neutral-400"
+                className="inline-flex shrink-0 items-center gap-1.5 tabular-nums"
                 title={
                   timeLabel.full !== timeLabel.display ? timeLabel.full : undefined
                 }
               >
-                <Clock className="h-3 w-3 shrink-0" aria-hidden />
+                <Clock className="h-3.5 w-3.5 shrink-0" aria-hidden />
                 <span className="whitespace-nowrap">{timeLabel.display}</span>
               </span>
             )}

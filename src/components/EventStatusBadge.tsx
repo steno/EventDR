@@ -14,8 +14,8 @@ export function EventStatusBadge({ label, status, className = "" }: EventStatusB
   return (
     <span
       className={`
-        inline-flex shrink-0 items-center rounded-full px-2.5 py-1
-        text-xs font-bold tracking-wide
+        inline-flex shrink-0 items-center rounded-full px-2.5 py-1.5
+        text-xs font-bold leading-none tracking-wide
         ${colors} ${className}
       `}
     >
