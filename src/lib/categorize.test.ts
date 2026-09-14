@@ -1,12 +1,46 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import {
+  coerceEventCategory,
   eventInCategory,
   inferSecondaryCategories,
   resolveSecondaryCategories,
   withResolvedCategories,
 } from "./categorize";
 import { getFallbackEventById } from "./fallback-events";
+
+describe("coerceEventCategory", () => {
+  it("maps legacy family primaries onto a known secondary hub", () => {
+    assert.equal(
+      coerceEventCategory({
+        title: "La Casa de Mickey Mouse — Family Fun Fest",
+        description: "Family Fun Fest at Hard Rock Cafe",
+        category: "family",
+        categories: ["festivals", "performances"],
+      }),
+      "festivals",
+    );
+  });
+
+  it("drops unknown secondary tags while keeping a valid primary", () => {
+    const resolved = withResolvedCategories({
+      id: "tasty-food-park-show-de-magia-2026-09-13",
+      title: "Magic Show at Tasty Food Park",
+      description: "Magic show at the food court",
+      date: "2026-09-13",
+      location: "Puerto Plata",
+      category: "performances",
+      categories: ["family", "food-drinks"],
+      format: "physical" as const,
+    });
+    assert.equal(resolved.category, "performances");
+    assert.equal(resolved.categories?.includes("food-drinks"), true);
+    assert.equal(
+      (resolved.categories as string[] | undefined)?.includes("family"),
+      false,
+    );
+  });
+});
 
 describe("inferSecondaryCategories — business trade fairs", () => {
   it("tags EN business-fair copy under business", () => {

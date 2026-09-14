@@ -8,6 +8,7 @@ import { getCategorySeo } from "@/lib/category-seo";
 import { getCityCategorySeo } from "@/lib/city-category-seo";
 import { getWhenSeo, type WhenSlug } from "@/lib/time-seo";
 import type { Event, EventCategory, Venue } from "@/lib/types";
+import { coerceEventCategory } from "@/lib/categorize";
 import { formatEventPlace } from "@/lib/event-location";
 import { parseEventTimeWindow } from "@/lib/event-status";
 import { getEventOgImageUrl } from "@/lib/event-images";
@@ -718,11 +719,13 @@ export function buildEventBreadcrumbItems(
       });
     }
   }
+  // Coerce unknown/legacy category ids so ListItem.name is never blank for GSC.
+  const category = coerceEventCategory(event);
   items.push({
-    name: dict.categories[event.category],
+    name: dict.categories[category],
     path: citySlug
-      ? localePath(locale, `/city/${citySlug}/category/${event.category}`)
-      : localePath(locale, `/category/${event.category}`),
+      ? localePath(locale, `/city/${citySlug}/category/${category}`)
+      : localePath(locale, `/category/${category}`),
   });
   items.push({
     name: event.title,
@@ -734,10 +737,19 @@ export function buildEventBreadcrumbItems(
 export function buildBreadcrumbJsonLd(
   items: Array<{ name: string; path: string }>,
 ) {
+  // Google requires name or item.name on every ListItem; drop blank crumbs
+  // (JSON.stringify would also omit undefined names and trigger GSC errors).
+  const crumbs = items
+    .map((item) => ({
+      name: typeof item.name === "string" ? item.name.trim() : "",
+      path: item.path,
+    }))
+    .filter((item) => item.name.length > 0);
+
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    itemListElement: items.map((item, index) => ({
+    itemListElement: crumbs.map((item, index) => ({
       "@type": "ListItem",
       position: index + 1,
       name: item.name,

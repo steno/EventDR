@@ -528,15 +528,53 @@ export function resolveSecondaryCategories(event: {
   return [...new Set([...explicit, ...inferred])];
 }
 
+function isKnownEventCategory(value: string): value is EventCategory {
+  return (CATEGORY_IDS as string[]).includes(value);
+}
+
+/**
+ * Coerce a primary category that is missing from the nav taxonomy (e.g. legacy
+ * "family" seeds) onto a known id so hubs, filters, and breadcrumb labels work.
+ */
+export function coerceEventCategory(event: {
+  title: string;
+  description: string;
+  category: string;
+  categories?: string[];
+}): EventCategory {
+  if (isKnownEventCategory(event.category)) return event.category;
+  const fromSecondary = event.categories?.find(isKnownEventCategory);
+  if (fromSecondary) return fromSecondary;
+  return inferCategory(`${event.title} ${event.description}`);
+}
+
 /** Fill secondary categories when omitted; merges curated tags with inference. */
 export function withResolvedCategories<T extends Event>(event: T): T {
-  const secondary = resolveSecondaryCategories(event);
+  const category = coerceEventCategory(event);
+  const knownSecondary =
+    event.categories?.filter(
+      (value): value is EventCategory =>
+        isKnownEventCategory(value) && value !== category,
+    ) ?? [];
+
+  const unchanged =
+    category === event.category &&
+    knownSecondary.length === (event.categories?.length ?? 0) &&
+    knownSecondary.every((value, index) => value === event.categories?.[index]);
+
+  const base = unchanged
+    ? event
+    : ({ ...event, category, categories: knownSecondary } as T);
+
+  const secondary = resolveSecondaryCategories(base);
   if (secondary.length === 0) {
-    if (!event.categories?.length) return event;
-    const { categories: _removed, ...rest } = event;
+    if (!base.categories?.length) {
+      return category === event.category ? base : ({ ...base, category } as T);
+    }
+    const { categories: _removed, ...rest } = base;
     return rest as T;
   }
-  return { ...event, categories: secondary };
+  return { ...base, categories: secondary };
 }
 
 export function eventInCategory(

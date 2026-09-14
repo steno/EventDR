@@ -1699,9 +1699,8 @@
     "address": "Calle Duarte 7, Sosúa",
     "lat": 19.7634107,
     "lng": -70.5162309,
-    "category": "family",
+    "category": "festivals",
     "categories": [
-      "festivals",
       "performances"
     ],
     "format": "physical",
@@ -1726,7 +1725,6 @@
     "lng": -70.6867634,
     "category": "performances",
     "categories": [
-      "family",
       "food-drinks"
     ],
     "format": "physical",

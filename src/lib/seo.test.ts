@@ -4,6 +4,7 @@ import { getEventOgImageUrl } from "./event-images";
 import { getDictionary } from "@/i18n/dictionaries";
 import {
   buildEventBreadcrumbItems,
+  buildBreadcrumbJsonLd,
   buildEventMetadata,
   canonicalMediaUrl,
 } from "./seo";
@@ -101,6 +102,55 @@ describe("buildEventBreadcrumbItems", () => {
         "/en/event/dewry-luciano-zona-acapella-2026-08-23",
       ],
     );
+  });
+
+  it("coerces unknown primary categories onto a labeled hub for Google breadcrumbs", () => {
+    const dict = getDictionary("en");
+    const items = buildEventBreadcrumbItems(
+      {
+        ...dewry,
+        id: "hard-rock-casa-mickey-2026-09-26",
+        title: "La Casa de Mickey Mouse — Family Fun Fest",
+        location: "Sosúa",
+        category: "family" as Event["category"],
+        categories: ["festivals", "performances"],
+      },
+      "en",
+      dict,
+    );
+    assert.deepEqual(items[2], {
+      name: dict.categories.festivals,
+      path: "/en/city/sosua/category/festivals",
+    });
+    const jsonLd = buildBreadcrumbJsonLd(items);
+    for (const el of jsonLd.itemListElement as Array<Record<string, unknown>>) {
+      assert.equal(typeof el.name, "string");
+      assert.ok(String(el.name).length > 0);
+    }
+  });
+});
+
+describe("buildBreadcrumbJsonLd", () => {
+  it("omits ListItems with blank names so GSC does not flag itemListElement", () => {
+    const jsonLd = buildBreadcrumbJsonLd([
+      { name: "POP Events", path: "/en" },
+      { name: "   ", path: "/en/category/family" },
+      { name: "Show", path: "/en/event/x" },
+    ]);
+    assert.deepEqual(jsonLd.itemListElement, [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "POP Events",
+        item: "https://pop-event.com/en",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Show",
+        item: "https://pop-event.com/en/event/x",
+      },
+    ]);
   });
 });
 
