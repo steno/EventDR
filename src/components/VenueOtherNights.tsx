@@ -55,7 +55,7 @@ export function VenueOtherNights({
         <div className="min-w-0">
           <h2
             id="venue-other-nights-heading"
-            className="font-sans text-base font-extrabold text-neutral-950 dark:text-white sm:text-lg"
+            className="font-sans text-lg font-extrabold text-neutral-950 dark:text-white sm:text-xl"
           >
             {heading}
           </h2>
@@ -80,16 +80,16 @@ export function VenueOtherNights({
                 setPendingId(sibling.id);
                 rememberReturnPath(returnTo, returnTitle);
               }}
-              className={`snap-start shrink-0 w-[11.5rem] rounded-2xl border border-neutral-200 bg-white p-2.5 transition-[opacity,transform] dark:border-neutral-800 dark:bg-neutral-900 ${
+              className={`snap-start shrink-0 w-[12.5rem] rounded-2xl border border-neutral-200 bg-white p-3 transition-[opacity,transform] dark:border-neutral-800 dark:bg-neutral-900 ${
                 pending ? "scale-[0.98] opacity-90" : ""
               } ${dimmed ? "opacity-50" : ""}`}
             >
-              <div className="relative mb-2 aspect-[4/3] overflow-hidden rounded-xl bg-neutral-100 dark:bg-neutral-800">
+              <div className="relative mb-2.5 aspect-[4/3] overflow-hidden rounded-xl bg-neutral-100 dark:bg-neutral-800">
                 {sibling.imageUrl ? (
                   <EventImage
                     src={sibling.imageUrl}
                     alt={sibling.title}
-                    sizes="184px"
+                    sizes="200px"
                     className="object-cover"
                   />
                 ) : (
@@ -98,14 +98,14 @@ export function VenueOtherNights({
                   </div>
                 )}
               </div>
-              <p className="line-clamp-2 text-sm font-bold leading-snug text-neutral-950 dark:text-white">
+              <p className="line-clamp-2 text-base font-bold leading-snug text-neutral-950 dark:text-white">
                 {sibling.title}
               </p>
-              <p className="mt-1 text-xs font-bold text-neutral-600 dark:text-neutral-300">
+              <p className="mt-1.5 text-sm font-bold text-neutral-700 dark:text-neutral-200">
                 {sibling.label}
               </p>
               {(dateLabel || timeLabel.display) && (
-                <p className="mt-0.5 truncate text-xs font-medium text-neutral-500 dark:text-neutral-400">
+                <p className="mt-1 truncate text-sm font-medium text-neutral-600 dark:text-neutral-300">
                   {[dateLabel, timeLabel.display].filter(Boolean).join(" · ")}
                 </p>
               )}

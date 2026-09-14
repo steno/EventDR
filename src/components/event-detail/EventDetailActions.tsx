@@ -369,10 +369,11 @@ export function EventDetailActions({
               aria-pressed={isReminded}
             >
               <Bell
-                className={`h-4 w-4 ${isReminded ? "fill-current" : ""}`}
+                className={`h-6 w-6 ${isReminded ? "fill-current" : ""}`}
+                strokeWidth={2.25}
                 aria-hidden
               />
-              <span className="max-w-full truncate text-[10px] font-semibold leading-none tracking-tight">
+              <span className="max-w-full truncate text-sm font-bold leading-none tracking-tight">
                 {dict.detail.actionRemind}
               </span>
             </button>
@@ -389,8 +390,8 @@ export function EventDetailActions({
               aria-expanded={calendarOpen}
               aria-pressed={calendarOpen}
             >
-              <CalendarPlus className="h-4 w-4" aria-hidden />
-              <span className="max-w-full truncate text-[10px] font-semibold leading-none tracking-tight">
+              <CalendarPlus className="h-6 w-6" strokeWidth={2.25} aria-hidden />
+              <span className="max-w-full truncate text-sm font-bold leading-none tracking-tight">
                 {dict.detail.actionCalendar}
               </span>
             </button>
@@ -413,8 +414,8 @@ export function EventDetailActions({
             aria-expanded={shareOpen}
             aria-pressed={shareOpen}
           >
-            <Forward className="h-4 w-4" aria-hidden />
-            <span className="max-w-full truncate text-[10px] font-semibold leading-none tracking-tight">
+            <Forward className="h-6 w-6" strokeWidth={2.25} aria-hidden />
+            <span className="max-w-full truncate text-sm font-bold leading-none tracking-tight">
               {dict.detail.actionShare}
             </span>
           </button>
@@ -429,10 +430,11 @@ export function EventDetailActions({
             aria-pressed={isSaved}
           >
             <Heart
-              className={`h-4 w-4 ${isSaved ? "fill-current" : ""}`}
+              className={`h-6 w-6 ${isSaved ? "fill-current" : ""}`}
+              strokeWidth={2.25}
               aria-hidden
             />
-            <span className="max-w-full truncate text-[10px] font-semibold leading-none tracking-tight">
+            <span className="max-w-full truncate text-sm font-bold leading-none tracking-tight">
               {isSaved ? dict.detail.saved : dict.detail.actionSave}
             </span>
           </button>

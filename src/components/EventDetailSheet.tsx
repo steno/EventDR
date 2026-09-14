@@ -324,11 +324,11 @@ export function EventDetailSheet({
     : dict.detail.paidAdmissionUnknown;
 
   const iconActionClass =
-    "flex min-h-10 w-full flex-col items-center justify-center gap-0.5 rounded-xl px-1 py-1.5 touch-manipulation transition-colors active:scale-[0.98]";
+    "flex min-h-14 w-full flex-col items-center justify-center gap-1.5 rounded-2xl px-1.5 py-3 touch-manipulation transition-colors active:scale-[0.98]";
   const iconActionIdleClass =
-    "bg-neutral-100/90 text-neutral-500 hover:bg-neutral-200/80 hover:text-neutral-800 dark:bg-neutral-800/80 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-100";
+    "bg-neutral-100 text-neutral-800 ring-1 ring-neutral-200/80 hover:bg-neutral-200/90 hover:text-neutral-950 dark:bg-neutral-800 dark:text-neutral-50 dark:ring-white/10 dark:hover:bg-neutral-700 dark:hover:text-white";
   const iconActionActiveClass =
-    "bg-gradient-to-br from-orange-500 to-rose-600 text-white";
+    "bg-gradient-to-br from-orange-500 to-rose-600 text-white ring-1 ring-orange-400/40";
 
   function handleActionFeedback(
     message: string,
