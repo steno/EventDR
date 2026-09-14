@@ -359,7 +359,7 @@ export function VenuePage({
                     onDismiss={
                       plannerOpen ? () => setPlannerOpen(false) : undefined
                     }
-                    dismissTitle={dict.venues.getDirections}
+                    dismissTitle={dict.venues.showMap}
                     className="h-full"
                   />
                 </div>

@@ -286,6 +286,14 @@ button, a {
   display: none;
 }
 
+/*
+ * Click-to-load map preview — light, warm, readable (matches revealed OSM tiles).
+ */
+.map-reveal-tile {
+  opacity: 1;
+  filter: saturate(1.08) contrast(1.04) brightness(1.03);
+}
+
 /* Inline event map — zoom +/- pinned top-right */
 .event-inline-map {
   isolation: isolate;

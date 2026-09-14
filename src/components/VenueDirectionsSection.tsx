@@ -289,7 +289,7 @@ export function VenueMapPanel({
       {showDismissChrome ? (
         <div className="flex shrink-0 items-center justify-between gap-3 border-b border-neutral-100 bg-white px-3 py-2.5 dark:border-neutral-800 dark:bg-neutral-900">
           <p className="min-w-0 truncate text-sm font-bold text-neutral-900 dark:text-neutral-100">
-            {dismissTitle ?? dict.venues.getDirections}
+            {dismissTitle ?? dict.venues.showMap}
           </p>
           <button
             type="button"
