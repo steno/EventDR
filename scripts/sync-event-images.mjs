@@ -184,7 +184,7 @@ const FILE_TO_EVENT_ID = {
   "cigar-town-karaoke-ladies-night-2026-09-19.jpg":
     "cigar-town-karaoke-ladies-night-2026-09-19",
   "cigar-town-martes-sensorial.jpg": "cigar-town-martes-sensorial",
-  "voyvoy-saturday-session-flyer.jpg": "voyvoy-saturday-session-flyer",
+  "voyvoy-saturday-session-bay.jpg": "voyvoy-saturday-session-bay",
   "aura-beach-club-lunes-especiales.jpg": "aura-beach-club-lunes-especiales",
   "aura-beach-club-miercoles-margaritas.jpg":
     "aura-beach-club-miercoles-margaritas",

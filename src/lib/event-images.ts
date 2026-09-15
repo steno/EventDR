@@ -171,8 +171,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "liquid-blue-watersports-daily": "liquid-blue-watersports-daily.jpg",
   "lax-headline-concerts": "lax-headline-concerts.jpg",
   "voyvoy-monday-live-music": "voyvoy-monday-night-terrace.jpg",
-  // Filename bumps — unique heroes (sync used to clone Monday dining onto Sat/Sun).
-  "voyvoy-saturday-session": "voyvoy-saturday-session-flyer.jpg",
+  // Filename bump — teal bay Story art (old DJ flyer was flyer.jpg; next/image caches by path).
+  "voyvoy-saturday-session": "voyvoy-saturday-session-bay.jpg",
   "womens-reconnection-kite-camp-2026": "womens-reconnection-kite-camp-2026.jpg",
   "kite-beach-wind-culture": "kite-beach-wind-culture.jpg",
   "puerto-plata-carnaval-2026": "puerto-plata-carnaval-2026.jpg",
@@ -402,7 +402,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "cigar-town-martes-sensorial.jpg",
   "cigar-town-noche-bohemia-2026-09-12.jpg",
   "cigar-town-ron-humos.jpg",
-  "voyvoy-saturday-session-flyer.jpg",
+  "voyvoy-saturday-session-bay.jpg",
   "congreso-damas-adn-2026.jpg",
   "dewry-luciano-zona-acapella-2026-08-23.jpg",
   "el-carey-bohemian-wednesday.jpg",
