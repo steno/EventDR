@@ -10,7 +10,6 @@ import {
   CATEGORY_PILL_PENDING,
   CATEGORY_SCROLLER_BAR,
 } from "@/components/category-scroller-styles";
-import { useCategoryAutoStepScroll } from "@/hooks/useCategoryAutoStepScroll";
 import {
   scrollToListTop,
 } from "@/lib/list-scroll";
@@ -45,6 +44,10 @@ interface CityCategoryLinksProps {
 
 type RailScrollResult = "pending" | "done";
 
+function prefersReducedMotion(): boolean {
+  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}
+
 /** Center `pill` in the horizontal scroller without scrolling the page. */
 function scrollActivePillIntoRail(
   scroller: HTMLElement,
@@ -75,6 +78,10 @@ function scrollActivePillIntoRail(
   return "done";
 }
 
+function pillKey(link: RelatedCategoryLink): string {
+  return link.id ?? link.href;
+}
+
 export function CityCategoryLinks({
   label,
   links,
@@ -87,9 +94,9 @@ export function CityCategoryLinks({
   const scrollRef = useRef<HTMLDivElement>(null);
   const navRef = useRef<HTMLElement>(null);
   const prevActiveKeyRef = useRef<string | null>(null);
-  const [pendingHref, setPendingHref] = useState<string | null>(null);
-  const pillCount = links.length + (allLink ? 1 : 0);
-  useCategoryAutoStepScroll(scrollRef, pillCount);
+  /** User soft-tap — highlight in place, then smooth-slide to center. */
+  const softTapKeyRef = useRef<string | null>(null);
+  const [pendingKey, setPendingKey] = useState<string | null>(null);
 
   const activeKey =
     activeCategoryId ??
@@ -98,28 +105,64 @@ export function CityCategoryLinks({
       : "all");
   const hasSelectedCategory = Boolean(activeCategoryId ?? activeHref);
 
+  const clearPending = () => {
+    softTapKeyRef.current = null;
+    setPendingKey(null);
+  };
+
   // Keep the active pill in the rail. Hard-nav from home (late pills that were
   // off-screen in the home slider) often runs before overflow is measured —
-  // retry until layout is ready. Soft-nav already has a warm layout.
+  // retry until layout is ready. Soft-nav already has a warm layout: paint the
+  // press highlight first, then smooth-slide the tapped pill to center.
   useEffect(() => {
     if (prevActiveKeyRef.current === activeKey) return;
 
     let cancelled = false;
     let rafId = 0;
     let tries = 0;
+    let settleId = 0;
+    let clearId = 0;
+    let scrollEndTarget: HTMLElement | null = null;
+    let centered = false;
+
+    const softTapKey = softTapKeyRef.current;
+    const isSoftTap = softTapKey != null && softTapKey === String(activeKey);
+    const behavior: ScrollBehavior =
+      isSoftTap && !prefersReducedMotion() ? "smooth" : "auto";
+
+    const finishSoftTap = () => {
+      if (cancelled) return;
+      if (scrollEndTarget) {
+        scrollEndTarget.removeEventListener("scrollend", finishSoftTap);
+        scrollEndTarget = null;
+      }
+      if (clearId) window.clearTimeout(clearId);
+      clearPending();
+      prevActiveKeyRef.current = activeKey;
+    };
 
     const attempt = () => {
-      if (cancelled) return false;
+      if (cancelled || centered) return false;
       const active = activeRef.current;
       const scroller = scrollRef.current;
       if (!active || !scroller) return false;
-      // Instant on land so a following hero/park scroll can't cancel a smooth slide.
-      const result = scrollActivePillIntoRail(scroller, active, "auto");
-      if (result === "done") {
+      const result = scrollActivePillIntoRail(scroller, active, behavior);
+      if (result !== "done") return false;
+      centered = true;
+
+      if (isSoftTap) {
+        // Keep press chrome through the slide; clear when motion settles.
+        if (behavior === "smooth") {
+          scrollEndTarget = scroller;
+          scroller.addEventListener("scrollend", finishSoftTap);
+          clearId = window.setTimeout(finishSoftTap, 450);
+        } else {
+          finishSoftTap();
+        }
+      } else {
         prevActiveKeyRef.current = activeKey;
-        return true;
       }
-      return false;
+      return true;
     };
 
     const tick = () => {
@@ -128,22 +171,37 @@ export function CityCategoryLinks({
       if (tries++ < 30) rafId = requestAnimationFrame(tick);
     };
 
-    tick();
-
-    // After land-park / hero layout, force one more center for late pills.
-    const settleId = window.setTimeout(() => {
-      if (cancelled) return;
-      const active = activeRef.current;
-      const scroller = scrollRef.current;
-      if (!active || !scroller) return;
-      scrollActivePillIntoRail(scroller, active, "auto");
-      prevActiveKeyRef.current = activeKey;
-    }, 200);
+    if (isSoftTap) {
+      // Two frames: commit pending styles, then start the slide.
+      rafId = requestAnimationFrame(() => {
+        rafId = requestAnimationFrame(tick);
+      });
+      // Failsafe if layout never reports ready.
+      settleId = window.setTimeout(() => {
+        if (cancelled || centered) return;
+        if (!attempt()) finishSoftTap();
+      }, 500);
+    } else {
+      tick();
+      // After land-park / hero layout, force one more center for late pills.
+      settleId = window.setTimeout(() => {
+        if (cancelled) return;
+        const active = activeRef.current;
+        const scroller = scrollRef.current;
+        if (!active || !scroller) return;
+        scrollActivePillIntoRail(scroller, active, "auto");
+        prevActiveKeyRef.current = activeKey;
+      }, 200);
+    }
 
     return () => {
       cancelled = true;
       cancelAnimationFrame(rafId);
       window.clearTimeout(settleId);
+      window.clearTimeout(clearId);
+      if (scrollEndTarget) {
+        scrollEndTarget.removeEventListener("scrollend", finishSoftTap);
+      }
     };
   }, [activeKey]);
 
@@ -176,11 +234,14 @@ export function CityCategoryLinks({
     active: boolean,
     ref?: Ref<HTMLAnchorElement>,
   ) => {
-    const pending = pendingHref === link.href;
-    const dimmed = pendingHref != null && pendingHref !== link.href;
+    const key = pillKey(link);
+    const pending = pendingKey === key;
+    // Soft-nav: skip sibling dim — opacity bounce makes idle borders flash.
+    const dimmed =
+      !onSoftNavigate && pendingKey != null && pendingKey !== key;
     return (
       <IntentLink
-        key={link.id ?? link.href}
+        key={key}
         ref={ref}
         href={link.href}
         scroll={false}
@@ -192,7 +253,8 @@ export function CityCategoryLinks({
           pending ? ` ${CATEGORY_PILL_PENDING}` : ""
         }${dimmed ? ` ${CATEGORY_PILL_DIMMED}` : ""}`}
         onClick={(event) => {
-          setPendingHref(link.href);
+          const keyNow = pillKey(link);
+          setPendingKey(keyNow);
           if (!onSoftNavigate) return;
           if (event.defaultPrevented) return;
           if (event.button !== 0) return;
@@ -201,8 +263,14 @@ export function CityCategoryLinks({
           }
           if (onSoftNavigate(link.href)) {
             event.preventDefault();
-            // Soft scope swap is instant — drop busy chrome after paint.
-            requestAnimationFrame(() => setPendingHref(null));
+            // Drop focus so a focus ring can't flash on a neighbor after the rail moves.
+            event.currentTarget.blur();
+            if (keyNow === String(activeKey)) {
+              // Already selected — no slide; drop busy chrome next paint.
+              requestAnimationFrame(clearPending);
+              return;
+            }
+            softTapKeyRef.current = keyNow;
           }
         }}
       >

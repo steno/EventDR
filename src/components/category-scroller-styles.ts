@@ -3,14 +3,18 @@
 export const CATEGORY_PILL_BASE = `
   flex flex-col items-center justify-center gap-1.5
   h-[7rem] w-[7.25rem] shrink-0 rounded-3xl
+  box-border border border-transparent
   px-2 py-2 text-sm font-bold leading-tight text-center
-  transition-[transform,box-shadow,opacity,filter,background-color,border-color,color] duration-200
+  transition-[transform,opacity,filter,background-color,color] duration-200
   active:scale-[0.95] touch-manipulation
+  outline-none focus:outline-none
+  [-webkit-tap-highlight-color:transparent]
   shadow-[0_2px_8px_rgba(15,23,42,0.08)]
 `;
 
 export const CATEGORY_PILL_ACTIVE = `
   bg-gradient-to-br from-orange-400 via-orange-500 to-orange-600 text-white
+  border-transparent
   hover:from-orange-500 hover:via-orange-600 hover:to-orange-700
   dark:from-orange-500 dark:via-orange-600 dark:to-orange-700
   dark:hover:from-orange-400 dark:hover:via-orange-500 dark:hover:to-orange-600
@@ -18,16 +22,16 @@ export const CATEGORY_PILL_ACTIVE = `
 
 export const CATEGORY_PILL_IDLE = `
   bg-white text-neutral-800
-  hover:bg-orange-50 hover:text-orange-600 hover:border-orange-200
-  dark:bg-neutral-800 dark:text-neutral-100
-  dark:hover:bg-orange-950/30 dark:hover:text-orange-400 dark:hover:border-orange-800/50
-  border border-neutral-200/50 dark:border-neutral-700/50
+  border-neutral-200/50
+  hover:bg-orange-50 hover:text-orange-600
+  dark:bg-neutral-800 dark:text-neutral-100 dark:border-neutral-700/50
+  dark:hover:bg-orange-950/30 dark:hover:text-orange-400
 `;
 
-/** Pressed pill waiting on RSC / soft-nav settle. */
+/** Pressed pill waiting on RSC / soft-nav settle. Inset ring — no outer yellow flash. */
 export const CATEGORY_PILL_PENDING = `
-  scale-[0.95] ring-2 ring-orange-500/80 shadow-[0_10px_24px_-12px_rgba(251,146,60,0.5)]
-  dark:ring-orange-400/70
+  scale-[0.95] ring-2 ring-inset ring-orange-500/70
+  dark:ring-orange-300/60
 `;
 
 /** Sibling pills while another is pending. */
