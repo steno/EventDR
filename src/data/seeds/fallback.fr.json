@@ -1904,7 +1904,7 @@
   {
     "id": "ivan-garcia-clases-actuacion-ninos-2026",
     "title": "Cours de théâtre pour enfants — Iván García Teatro-Escuela",
-    "description": "Cours de théâtre pour enfants de 5 à 10 ans à Iván García Teatro-Escuela, Calle Profesor Juan Bosch n° 72, Puerto Plata — du 18 septembre au 12 décembre 2026. Agir, créer, imaginer avec l’école IGTE. Confirmez horaires et tarifs via Instagram @teatroivangarcia ou teatroivangarcia.blogspot.com. Info : +1 809-261-7393.",
+    "description": "Cours de théâtre pour enfants de 5 à 10 ans à Iván García Teatro-Escuela, Calle Profesor Juan Bosch n° 72, Puerto Plata — du 18 septembre au 12 décembre 2026. La Sala Iván García est temporairement fermée pour entretien ; confirmez horaires et tarifs via Instagram @teatroivangarcia ou teatroivangarcia.blogspot.com avant de vous inscrire. Info : +1 809-261-7393.",
     "date": "2026-09-18",
     "endDate": "2026-12-12",
     "location": "Puerto Plata",
@@ -2058,5 +2058,57 @@
     "sourceType": "instagram",
     "sourceUrl": "https://www.instagram.com/spotlandrd/",
     "imageEmoji": "🕺"
+  },
+  {
+    "id": "cisco-vengo-social-heartz-aura-2026-09-25",
+    "title": "C.I.S.C.O — Vengo x Social Heartz à Aura",
+    "description": "C.I.S.C.O pour Vengo x Social Heartz à Aura Beach Club, Calle Principal, Cabarete — vendredi 25 septembre 2026. Confirmez portes, cover et heure du set via Instagram @auracabarete ou WhatsApp +1 829-787-0140.",
+    "date": "2026-09-25",
+    "location": "Cabarete",
+    "venue": "Aura Beach Club Cabarete",
+    "venueSlug": "aura-beach-club-cabarete",
+    "address": "Calle Principal, Cabarete 57000",
+    "lat": 19.7500769,
+    "lng": -70.4070417,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18297870140",
+    "lineup": [
+      "C.I.S.C.O",
+      "Vengo x Social Heartz"
+    ],
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/auracabarete/",
+    "imageEmoji": "🎧"
+  },
+  {
+    "id": "ocean-world-terrace-singing-talent-2026-09-16",
+    "title": "Soirée talents chant à Ocean World Terrace",
+    "description": "Soirée talents chant à Ocean World Terrace, Calle Principal n° 3, Cofresí — mercredi 16 septembre 2026. Le public présent choisit les gagnants. Prix : 1er RD$5 000 ; 2e certificat de journée Ocean World (valable pour 2) ; 3e une caisse de bière. Places limitées — confirmez portes et cover via Instagram @oceanworldterrace ou WhatsApp +1 809-815-9682.",
+    "date": "2026-09-16",
+    "location": "Puerto Plata",
+    "venue": "Terraza Ocean World",
+    "venueSlug": "ocean-world",
+    "address": "Calle Principal #3, Cofresí, Puerto Plata",
+    "lat": 19.826313,
+    "lng": -70.732062,
+    "category": "performances",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18098159682",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/oceanworldterrace/",
+    "imageEmoji": "🎤"
   }
 ]

@@ -181,8 +181,8 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
   },
   "aura-beach-club-cabarete": {
     description: {
-      es: "Beach club frente al mar en Calle Principal — relax de día, lunes 2x1 de margarita/gin, miércoles de margaritas con música en vivo y shows de noche con vista a la bahía de Cabarete. WhatsApp +1 829-787-0140 · Instagram @auracabarete.",
-      fr: "Beach club en bord de mer sur Calle Principal — détente le jour, lundis 2x1 margarita/gin, mercredis margaritas avec musique live et concerts le soir face à la baie de Cabarete. WhatsApp +1 829-787-0140 · Instagram @auracabarete.",
+      es: "Beach club frente al mar en Calle Principal — relax de día, lunes 2x1 de margarita/gin, miércoles de margaritas más Latin Flow Dance desde las 9 PM y shows de noche con vista a la bahía de Cabarete. WhatsApp +1 829-787-0140 · Instagram @auracabarete.",
+      fr: "Beach club en bord de mer sur Calle Principal — détente le jour, lundis 2x1 margarita/gin, mercredis margaritas plus Latin Flow Dance dès 21 h et concerts le soir face à la baie de Cabarete. WhatsApp +1 829-787-0140 · Instagram @auracabarete.",
     },
   },
   "la-casita-de-papi": {
@@ -857,8 +857,8 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
   },
   "ivan-garcia-teatro-escuela": {
     description: {
-      es: "Teatro-escuela victoriano en Calle Profesor Juan Bosch #72 en el centro histórico — clases de actuación para niños y jóvenes, obras y programación cultural. Instagram @teatroivangarcia · teatroivangarcia.blogspot.com.",
-      fr: "Teatro-escuela victorien au 72 Calle Profesor Juan Bosch, centre historique — cours de théâtre pour enfants et jeunes, pièces et programmation culturelle. Instagram @teatroivangarcia · teatroivangarcia.blogspot.com.",
+      es: "Teatro-escuela victoriano en Calle Profesor Juan Bosch #72 en el centro histórico — clases de actuación para niños y jóvenes, obras y programación cultural. Cerrado temporalmente por mantenimiento (Sala Iván García); confirma reapertura por Instagram @teatroivangarcia · teatroivangarcia.blogspot.com.",
+      fr: "Teatro-escuela victorien au 72 Calle Profesor Juan Bosch, centre historique — cours de théâtre pour enfants et jeunes, pièces et programmation culturelle. Fermé temporairement pour entretien (Sala Iván García) ; confirmez la réouverture via Instagram @teatroivangarcia · teatroivangarcia.blogspot.com.",
     },
   },
   "spotland-puerto-plata": {

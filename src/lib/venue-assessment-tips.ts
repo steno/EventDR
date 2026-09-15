@@ -18,11 +18,11 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "aura-beach-club-cabarete": {
-    body: "Calle Principal beach club facing Cabarete Bay — hit Monday 4–7 PM for 2x1 margarita/gin, Wednesday for margaritas and live music; reserve WhatsApp +1 829-787-0140, not a walk-up kiosk bar.",
+    body: "Calle Principal beach club facing Cabarete Bay — Monday 4–7 PM 2x1 margarita/gin, Wednesday margaritas plus Latin Flow Dance from 9 PM with Flow Dance; reserve WhatsApp +1 829-787-0140, not a walk-up kiosk bar.",
     localized: {
-      en: "Calle Principal beach club facing Cabarete Bay — hit Monday 4–7 PM for 2x1 margarita/gin, Wednesday for margaritas and live music; reserve WhatsApp +1 829-787-0140, not a walk-up kiosk bar.",
-      es: "Beach club en Calle Principal frente a la bahía de Cabarete — lunes 4–7 PM por 2x1 margarita/gin, miércoles por margaritas y live; reserva WhatsApp +1 829-787-0140, no es un kiosk walk-up.",
-      fr: "Beach club sur Calle Principal face à la baie de Cabarete — lundi 16 h–19 h pour 2x1 margarita/gin, mercredi pour margaritas et live ; réservez WhatsApp +1 829-787-0140, pas un kiosk walk-up.",
+      en: "Calle Principal beach club facing Cabarete Bay — Monday 4–7 PM 2x1 margarita/gin, Wednesday margaritas plus Latin Flow Dance from 9 PM with Flow Dance; reserve WhatsApp +1 829-787-0140, not a walk-up kiosk bar.",
+      es: "Beach club en Calle Principal frente a la bahía de Cabarete — lunes 4–7 PM por 2x1 margarita/gin, miércoles margaritas más Latin Flow Dance desde las 9 PM con Flow Dance; reserva WhatsApp +1 829-787-0140, no es un kiosk walk-up.",
+      fr: "Beach club sur Calle Principal face à la baie de Cabarete — lundi 16 h–19 h pour 2x1 margarita/gin, mercredi margaritas puis Latin Flow Dance dès 21 h avec Flow Dance ; réservez WhatsApp +1 829-787-0140, pas un kiosk walk-up.",
     },
   },
   "kite-beach": {
@@ -1042,11 +1042,11 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "ivan-garcia-teatro-escuela": {
-    body: "Turquoise Victorian teatro-escuela on Juan Bosch #72 — kids workshops and stage works in centro, not a beach day. Message @teatroivangarcia for class slots before you walk the colonial grid.",
+    body: "Sala Iván García is temporarily closed for maintenance — don’t walk Juan Bosch #72 for a class or show until @teatroivangarcia confirms reopen; the turquoise Victorian stays the landmark when it returns.",
     localized: {
-      en: "Turquoise Victorian teatro-escuela on Juan Bosch #72 — kids workshops and stage works in centro, not a beach day. Message @teatroivangarcia for class slots before you walk the colonial grid.",
-      es: "Teatro-escuela victoriano turquesa en Juan Bosch #72 — talleres infantiles y obras en el centro, no un día de playa. Escribe a @teatroivangarcia por cupos antes de llegar a la cuadrícula colonial.",
-      fr: "Teatro-escuela victorien turquoise au 72 Juan Bosch — ateliers enfants et pièces en centre-ville, pas une journée plage. Écrivez @teatroivangarcia pour les places avant de marcher la grille coloniale.",
+      en: "Sala Iván García is temporarily closed for maintenance — don’t walk Juan Bosch #72 for a class or show until @teatroivangarcia confirms reopen; the turquoise Victorian stays the landmark when it returns.",
+      es: "La Sala Iván García está cerrada temporalmente por mantenimiento — no vayas a Juan Bosch #72 por clase u obra hasta que @teatroivangarcia confirme la reapertura; la victoriana turquesa sigue siendo el referente cuando vuelva.",
+      fr: "La Sala Iván García est temporairement fermée pour entretien — n’allez pas au 72 Juan Bosch pour un cours ou une pièce tant que @teatroivangarcia n’a pas confirmé la réouverture ; la victorienne turquoise reste le repère quand elle revient.",
     },
   },
   "spotland-puerto-plata": {

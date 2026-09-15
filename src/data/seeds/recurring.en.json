@@ -2633,6 +2633,36 @@
     "imageEmoji": "🍸"
   },
   {
+    "id": "aura-latin-flow-dance-wednesday",
+    "title": "Latin Flow Dance Night at Aura Beach Club",
+    "description": "Every Wednesday from 9:00 PM at Aura Beach Club on Calle Principal, Cabarete — Latin Night with Fraimy & Yanluis from Flow Dance. Salsa, bachata, and dance-floor energy on Cabarete Bay. Confirm cover via Instagram @auracabarete or WhatsApp +1 829-787-0140.",
+    "date": "2026-01-01",
+    "time": "9:00 PM",
+    "location": "Cabarete",
+    "venue": "Aura Beach Club Cabarete",
+    "venueSlug": "aura-beach-club-cabarete",
+    "address": "Calle Principal, Cabarete 57000",
+    "lat": 19.7500769,
+    "lng": -70.4070417,
+    "category": "dance",
+    "categories": [
+      "parties",
+      "music"
+    ],
+    "format": "physical",
+    "recurrence": "weekly",
+    "recurrenceDay": 3,
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18297870140",
+    "lineup": [
+      "Fraimy & Yanluis (Flow Dance)"
+    ],
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/auracabarete/",
+    "imageEmoji": "💃"
+  },
+  {
     "id": "classic-cars-puerto-plata-daily",
     "title": "Private Tour of Puerto Plata by Classic Car",
     "description": "Daily private sightseeing in restored vintage convertibles with Classic Cars Dominicana — photo stops around Puerto Plata, hotel or cruise pickup by reservation. Typical slots ~8 AM, 10 AM, 2 PM, and 4 PM (~3 hours). Book via Instagram @classiccarsrd or phone (809) 769-8732; TripAdvisor product page for reviews and booking options.",

@@ -19,6 +19,9 @@ Curated images under `public/events/` and `public/venues/`.
 | `venues/aura-beach-club-cabarete-entrance.jpg` | POP-supplied — Aura Beach Club illuminated entrance stairs (Calle Principal) | Venue place shot filename bump (editor-provided) |
 | `aura-beach-club-lunes-especiales.jpg` | POP-supplied — Lunes Especiales Margaritas & Gin Tonic flyer ([@auracabarete](https://www.instagram.com/auracabarete/)) | Weekly Monday 4–7 PM 2x1 promo (editor-provided) |
 | `aura-beach-club-miercoles-margaritas.jpg` | POP-supplied — Miércoles de Margaritas flyer ([@auracabarete](https://www.instagram.com/auracabarete/)) | Weekly Wednesday 2x1 margaritas + live music (editor-provided) |
+| `aura-latin-flow-dance-wednesday.jpg` | POP-supplied — Latin Night / Flow Dance flyer ([@auracabarete](https://www.instagram.com/auracabarete/)) | Weekly Wednesday Latin Flow Dance from 9 PM (editor-provided) |
+| `cisco-vengo-social-heartz-aura-2026-09-25.jpg` | POP-supplied — C.I.S.C.O next-dates flyer (Vengo x Social Heartz at Aura Cabarete 25.09) | One-off Fri Sep 25 2026 (editor-provided) |
+| `ocean-world-terrace-singing-talent-2026-09-16.jpg` | POP-supplied — Ocean World Terrace night celebration scene (Cofresí) | Singing talent night Wed 16 Sep 2026 (editor-provided); venue slug `ocean-world` |
 | `sosua-10k-road-race-2026.jpg` | [Sea Horse Ranch — Sosúa 10K Road Race](https://sea-horse-ranch.com/sosua-10k-road-race/) — official ADSS / Sea Horse 11º Sosúa 10K flyer | Authentic race flyer with date, distances, and sdctickets.do registration |
 | `sunset-cabarete-sessions-2026.jpg` | [Ticketplus — Sunset Cabarete Sessions](https://dominicana.myticketplus.com/events/sunset-cabarete-sessions) official event OG poster | Authentic Dec 5–6 Lux Beach Bar deep-house event art |
 | `puerto-plata-poker-experience-2026.png` | [CLSOP / torneos.poker — Puerto Plata Poker Experience](https://torneos.poker/evento/puerto-plata-poker-experience-ago-2026/) official festival flyer | Authentic Aug 28–Sep 6 Coral Reef Casino poker festival art |
@@ -205,7 +208,7 @@ Curated images under `public/events/` and `public/venues/`.
 | `flip-flop-live-sports-bar-tvs.jpg` | POP-supplied interior: bar stools, graffiti front, and NFL on the TVs | Live sports listing (yellow-steps entrance stays on the venue) |
 | `venues/flip-flop-sports-bar-sosua-yellow-steps.jpg` | POP-supplied photo of the Yellow Steps entrance (Flip Flop O'Clock Sports Bar, Sosúa Beach) | Venue place shot |
 | `flip-flop-wing-wednesday.jpg` | [Flip Flop Sports Bar](https://flipflop360.com/) official gallery — baskets of garlic-parm and glazed wings with fries and Presidente | Wing Wednesday action (not the yellow-steps place shot) |
-| `flip-flop-taco-tuesday.jpg` | [Flip Flop Sports Bar](https://flipflop360.com/) official gallery — taco bowl with Valentina and drink menu | Taco Tuesday action |
+| `flip-flop-taco-tuesday.jpg` | POP-supplied — Flip Flop Taco Tuesday taco-salad bowl (editor-provided) | Weekly Taco Tuesday food hero |
 | `flip-flop-monday-happy-hour.jpg` | [Flip Flop Sports Bar](https://flipflop360.com/) official gallery — Presidente/Corona lineup on the bar | Monday happy-hour drinks (superseded on listings by the schedule flyer) |
 | `flip-flop-happy-hour-schedule.jpg` | Flip Flop Sports Bar official happy-hour flyer (Mon all day / Tue–Fri 2–5 PM / Sat–Sun 1–3:30 PM) | Daily happy-hour listing |
 | `chill-and-grill-sunday-bingo.jpg` | Chill & Grill Bar & Eatery official bingo flyer — Sunday 7:30 PM, free cards, Casa Linda Phase 7–9 | Weekly Sunday bingo listing |

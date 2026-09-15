@@ -292,7 +292,7 @@ export const SEED_VENUES: Venue[] = [
     name: "Aura Beach Club Cabarete",
     city: "Cabarete",
     description:
-      "Beachfront club on Calle Principal — daytime lounging, Monday 2x1 margarita/gin hours, Wednesday margarita nights with live music, and nighttime shows facing Cabarete Bay. WhatsApp +1 829-787-0140 · Instagram @auracabarete.",
+      "Beachfront club on Calle Principal — daytime lounging, Monday 2x1 margarita/gin hours, Wednesday margarita nights plus Latin Flow Dance from 9 PM, and nighttime shows facing Cabarete Bay. WhatsApp +1 829-787-0140 · Instagram @auracabarete.",
     lat: 19.7500769,
     lng: -70.4070417,
     emoji: "🌴",
@@ -1696,7 +1696,7 @@ export const SEED_VENUES: Venue[] = [
     name: "Iván García Teatro-Escuela",
     city: "Puerto Plata",
     description:
-      "Victorian teatro-escuela on Calle Profesor Juan Bosch #72 in the historic center — kids and youth acting classes, stage works, and cultural programming. Instagram @teatroivangarcia · teatroivangarcia.blogspot.com.",
+      "Victorian teatro-escuela on Calle Profesor Juan Bosch #72 in the historic center — kids and youth acting classes, stage works, and cultural programming. Temporarily closed for maintenance (Sala Iván García); confirm reopen via Instagram @teatroivangarcia · teatroivangarcia.blogspot.com.",
     lat: 19.7979,
     lng: -70.6928,
     emoji: "🎭",

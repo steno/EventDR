@@ -67,6 +67,9 @@ export const SEED_CREATED_AT: Readonly<Record<string, string>> = {
   "pop-cinemas-week-2026-09-11": "2026-09-14T12:00:00.000Z",
   "aura-beach-club-lunes-especiales": "2026-09-14T12:00:00.000Z",
   "aura-beach-club-miercoles-margaritas": "2026-09-14T12:00:00.000Z",
+  "aura-latin-flow-dance-wednesday": "2026-09-15T12:00:00.000Z",
+  "cisco-vengo-social-heartz-aura-2026-09-25": "2026-09-15T12:00:00.000Z",
+  "ocean-world-terrace-singing-talent-2026-09-16": "2026-09-15T12:00:00.000Z",
   "classic-cars-puerto-plata-daily": "2026-09-14T12:00:00.000Z",
   "spotland-sabado-retro-familiar-2026-09-19": "2026-09-14T12:00:00.000Z",
 };

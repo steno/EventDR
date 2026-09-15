@@ -99,6 +99,23 @@ export const EDITORIAL_ALERTS: readonly EditorialAlert[] = [
     },
   },
   {
+    id: "ivan-garcia-teatro-mantenimiento-2026",
+    kind: "closure",
+    from: "2026-09-15",
+    citySlugs: ["puerto-plata"],
+    href: { type: "venue", slug: "ivan-garcia-teatro-escuela" },
+    title: {
+      en: "Sala Iván García closed for maintenance",
+      es: "Sala Iván García cerrada por mantenimiento",
+      fr: "Sala Iván García fermée pour entretien",
+    },
+    summary: {
+      en: "The teatro-escuela is temporarily closed for maintenance. Check @teatroivangarcia before you plan a visit or kids class.",
+      es: "El teatro-escuela está cerrado temporalmente por mantenimiento. Confirma en @teatroivangarcia antes de planear una visita o clase infantil.",
+      fr: "Le teatro-escuela est temporairement fermé pour entretien. Vérifiez @teatroivangarcia avant une visite ou un cours enfants.",
+    },
+  },
+  {
     id: "dr-jazz-festival-2026",
     kind: "coming",
     until: "2026-11-15",

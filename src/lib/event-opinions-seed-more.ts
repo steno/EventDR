@@ -2196,21 +2196,21 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "ivan-garcia-clases-actuacion-ninos-2026",
-    body: "Multi-week kids acting lab in a turquoise Victorian — skip if you want a one-night show; message IGTE for ages 5–10 slots before Sep 18.",
+    body: "Sala Iván García is closed for maintenance — don’t enroll the Sep–Dec kids lab until @teatroivangarcia confirms reopen; the turquoise Victorian stays the landmark when classes return.",
     localized: {
-      es: "Laboratorio de actuación infantil de varias semanas en una casa victoriana turquesa — sáltalo si buscas una sola función; escribe a IGTE por cupos de 5–10 años antes del 18 de septiembre.",
-      fr: "Lab théâtre enfants sur plusieurs semaines dans une maison victorienne turquoise — skip si vous voulez une seule représentation ; écrivez à IGTE pour les places 5–10 ans avant le 18 septembre.",
+      es: "La Sala Iván García está cerrada por mantenimiento — no inscribas el lab infantil sep–dic hasta que @teatroivangarcia confirme la reapertura; la victoriana turquesa sigue siendo el referente cuando vuelvan las clases.",
+      fr: "La Sala Iván García est fermée pour entretien — n’inscrivez pas le lab enfants sep–déc tant que @teatroivangarcia n’a pas confirmé la réouverture ; la victorienne turquoise reste le repère quand les cours reviennent.",
     },
     priceFeel: "varies",
-    priceNote: "Fees not on the flyer — ask @teatroivangarcia or +1 809-261-7393",
+    priceNote: "Fees not on the flyer — ask @teatroivangarcia or +1 809-261-7393 after reopen",
     priceNoteLocalized: {
-      es: "Tarifas no publicadas en el flyer — consulta @teatroivangarcia o +1 809-261-7393",
-      fr: "Tarifs non publiés sur l’affiche — demandez @teatroivangarcia ou +1 809-261-7393",
+      es: "Tarifas no publicadas en el flyer — consulta @teatroivangarcia o +1 809-261-7393 tras la reapertura",
+      fr: "Tarifs non publiés sur l’affiche — demandez @teatroivangarcia ou +1 809-261-7393 après réouverture",
     },
     attribution: "POP research · @teatroivangarcia",
     researchNotes:
-      "Editor flyer + facade — Sep 18–Dec 12 2026 kids 5–10 acting; Juan Bosch #72; blog teatroivangarcia.blogspot.com; phone 809-261-7393.",
-    updatedAt: "2026-09-14T12:00:00.000Z",
+      "Editor flyer + facade — Sep 18–Dec 12 2026 kids 5–10 acting; Juan Bosch #72. Sep 15 2026 IGTE notice: Sala temporarily closed for maintenance.",
+    updatedAt: "2026-09-15T12:00:00.000Z",
   },
   {
     eventId: "ocean-world-terrace-la-fiera-tipica-2026-09-18",
@@ -2365,5 +2365,64 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     researchNotes:
       "Editor flyer + Story: Sat 19 Sep 2026 2–10 PM; ’80s dress; music/food/cocktails/games/inflatables; kids RD$150 with 80s flow; Av. Luis Ginebra Spot Land.",
     updatedAt: "2026-09-14T12:00:00.000Z",
+  },
+  {
+    eventId: "aura-latin-flow-dance-wednesday",
+    seriesKey: "aura-beach-club-cabarete:latin-flow:weekly:3",
+    body: "Wednesday late Latin floor with Flow Dance hosts from 9 PM — come to move, not for the earlier 2x1 margarita window; shoes you can dance in beat a dinner reservation.",
+    localized: {
+      es: "Pista latina tarde los miércoles con hosts de Flow Dance desde las 9 PM — ven a bailar, no por la ventana 2x1 de margaritas; zapatos para moverte pesan más que una reserva de cena.",
+      fr: "Piste latine tardive le mercredi avec les hosts Flow Dance dès 21 h — venez danser, pas pour la fenêtre 2x1 margaritas ; chaussures à danser avant une résa dîner.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "Cover not on flyer — confirm with @auracabarete / WhatsApp +1 829-787-0140; budget beach-club drinks",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — confirma con @auracabarete / WhatsApp +1 829-787-0140; presupuesta drinks de beach club",
+      fr: "Cover absent de l’affiche — confirmez via @auracabarete / WhatsApp +1 829-787-0140 ; budget boissons beach club",
+    },
+    attribution: "POP research · @auracabarete Latin Night / Flow Dance",
+    researchNotes:
+      "Editor flyers — every Wednesday from 9 PM; Fraimy & Yanluis from Flow Dance; Aura Beach Club Cabarete; Latin Night branding.",
+    updatedAt: "2026-09-15T12:00:00.000Z",
+  },
+  {
+    eventId: "cisco-vengo-social-heartz-aura-2026-09-25",
+    seriesKey: "aura-beach-club-cabarete:2026-09-25",
+    body: "One Friday guest set on Calle Principal sand — pin doors and cover with Aura before you cross-town from Sosúa; no clock time on the C.I.S.C.O dates flyer.",
+    localized: {
+      es: "Un set invitado de viernes en la arena de Calle Principal — confirma puertas y cover con Aura antes de cruzar desde Sosúa; el flyer de fechas C.I.S.C.O no trae hora.",
+      fr: "Un set invité du vendredi sur le sable de Calle Principal — confirmez portes et cover avec Aura avant de traverser depuis Sosúa ; l’affiche des dates C.I.S.C.O n’a pas d’heure.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "Cover and doors not published — confirm @auracabarete / WhatsApp +1 829-787-0140",
+    priceNoteLocalized: {
+      es: "Cover y puertas no publicados — confirma @auracabarete / WhatsApp +1 829-787-0140",
+      fr: "Cover et portes non publiés — confirmez @auracabarete / WhatsApp +1 829-787-0140",
+    },
+    attribution: "POP research · C.I.S.C.O next-dates flyer + @auracabarete",
+    researchNotes:
+      "Editor flyer: 25.09 Vengo x Social Heartz at Aura, Cabarete on C.I.S.C.O tour dates. No doors/cover/time on art.",
+    updatedAt: "2026-09-15T12:00:00.000Z",
+  },
+  {
+    eventId: "ocean-world-terrace-singing-talent-2026-09-16",
+    body: "Wed night singing contest on the Cofresí terrace — audience crowns the winners; limited seats beat showing up late. Cash RD$5,000 / day-pass for two / beer case — not the dolphin park ticket queue.",
+    localized: {
+      es: "Concurso de canto el miércoles en la terraza de Cofresí — el público elige ganadores; el cupo limitado gana a llegar tarde. Premios RD$5,000 / pasadía para dos / caja de cerveza — no es la fila de delfines.",
+      fr: "Concours de chant le mercredi sur la terrasse de Cofresí — le public couronne les gagnants ; places limitées avant d’arriver tard. Prix RD$5 000 / journée pour deux / caisse de bière — pas la file des dauphins.",
+    },
+    priceFeel: "varies",
+    priceNote:
+      "Cover/doors not published — confirm @oceanworldterrace / WhatsApp 809-815-9682; limited capacity",
+    priceNoteLocalized: {
+      es: "Cover/puertas no publicados — confirma @oceanworldterrace / WhatsApp 809-815-9682; cupo limitado",
+      fr: "Cover/portes non publiés — confirmez @oceanworldterrace / WhatsApp 809-815-9682 ; places limitées",
+    },
+    attribution: "POP research · Terraza Ocean World & Casino · @oceanworldterrace",
+    researchNotes:
+      "Editor-supplied terrace scene + Spanish listing — Wed 16 Sep 2026 singing talent night; audience vote; prizes RD$5,000 / Ocean World day pass for 2 / beer case; limited capacity; venue slug ocean-world; no clock time or cover on source.",
+    updatedAt: "2026-09-15T12:00:00.000Z",
   },
 ];

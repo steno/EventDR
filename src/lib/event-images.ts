@@ -140,6 +140,11 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "aura-beach-club-lunes-especiales": "aura-beach-club-lunes-especiales.jpg",
   "aura-beach-club-miercoles-margaritas":
     "aura-beach-club-miercoles-margaritas.jpg",
+  "aura-latin-flow-dance-wednesday": "aura-latin-flow-dance-wednesday.jpg",
+  "cisco-vengo-social-heartz-aura-2026-09-25":
+    "cisco-vengo-social-heartz-aura-2026-09-25.jpg",
+  "ocean-world-terrace-singing-talent-2026-09-16":
+    "ocean-world-terrace-singing-talent-2026-09-16.jpg",
   "drifter-sunset-into-the-night": "drifter-sunset-into-the-night.jpg",
   "sosua-jewish-museum-hours": "sosua-jewish-museum-hours.jpg",
   "sosua-diving-adventures-daily": "sosua-diving-adventures-daily.jpg",
@@ -345,6 +350,9 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "cigar-town-karaoke-ladies-night-2026-09-19": "object-center lg:object-left",
   "aura-beach-club-lunes-especiales": "object-center",
   "aura-beach-club-miercoles-margaritas": "object-center",
+  "aura-latin-flow-dance-wednesday": "object-center",
+  "cisco-vengo-social-heartz-aura-2026-09-25": "object-center",
+  "ocean-world-terrace-singing-talent-2026-09-16": "object-center",
 };
 
 function curatedEventImageFile(eventId: string): string | undefined {
@@ -423,6 +431,8 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "cigar-town-karaoke-ladies-night-2026-09-19.jpg",
   "aura-beach-club-lunes-especiales.jpg",
   "aura-beach-club-miercoles-margaritas.jpg",
+  "aura-latin-flow-dance-wednesday.jpg",
+  "cisco-vengo-social-heartz-aura-2026-09-25.jpg",
   "spotland-sabado-retro-familiar-2026-09-19.jpg",
   "los-event-trilogy-2026-09-03.jpg",
   "love-does-bocadillos-course-2026.jpg",
@@ -562,6 +572,7 @@ const HOME_HERO_SCENE_FILES = new Set([
   "natura-cabana-yoga-daily.jpg",
   "nonas-grill-kitchen-entrance.jpg",
   "ocean-world-daily.jpg",
+  "ocean-world-terrace-singing-talent-2026-09-16.jpg",
   "ojo-latin-night-ojo-booth.png",
   "ojo-weekend-dj-parties.jpg",
   "outback-safari-daily.jpeg",
