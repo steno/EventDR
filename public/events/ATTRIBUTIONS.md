@@ -270,7 +270,7 @@ Curated images under `public/events/` and `public/venues/`.
 | `venues/luna-lounge-lcb-facade.jpg` | POP-supplied — Luna Lounge LCB night facade (Luis Ginebra) | Venue place shot (editor-provided, not scraped) |
 | `ivan-garcia-clases-actuacion-ninos-2026.jpg` | POP-supplied — Iván García Teatro-Escuela kids acting flyer ([IG](https://www.instagram.com/teatroivangarcia/)) | Classes ages 5–10, Sep 18–Dec 12 2026 (editor-provided) |
 | `venues/ivan-garcia-teatro-escuela-facade.jpg` | POP-supplied — Iván García Teatro-Escuela turquoise facade | Venue place shot (editor-provided, not scraped) |
-| `ocean-world-terrace-la-fiera-tipica-2026-09-18.jpg` | POP-supplied — Ocean World Terrace La Fiera Típica flyer ([IG](https://www.instagram.com/oceanworldterrace/)) | Live típico Fri 18 Sep 2026 from 8 PM, RD$300 (editor-provided) |
+| `ocean-world-terrace-la-fiera-tipica-2026-09-18.jpg` | POP-supplied — Terraza Ocean World & Casino La Fiera Típica flyer ([IG](https://www.instagram.com/oceanworldterrace/)) | Live típico Fri 18 Sep 2026 from 8 PM, RD$300 (editor-provided); venue slug `ocean-world` |
 | `rio-sonador-cierre-del-verano-2026-09-20.jpg` | POP-supplied — Cierre del Verano Río Sonador flyer ([IG](https://www.instagram.com/noticia_gurabocityrd/)) | El Rubio + Nacho Estrella Sun 20 Sep 2026 from 10 AM; venue pin omitted (editor-provided) |
 | `ambar-lounge-reggaeton-2026-09-17.jpg` | POP-supplied — Ambar Lounge Reggaeton flyer (Ramon x Raul, 17 Sep) ([IG](https://www.instagram.com/ambarloungepop/)) | Invitation-only Thu 17 Sep 2026 (editor-provided) |
 | `venues/ambar-lounge-pop-lounge.jpg` | POP-supplied — Ambar Lounge POP rooftop lounge night crowd | Venue place shot (editor-provided, not scraped) |

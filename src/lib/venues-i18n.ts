@@ -861,12 +861,6 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Teatro-escuela victorien au 72 Calle Profesor Juan Bosch, centre historique — cours de théâtre pour enfants et jeunes, pièces et programmation culturelle. Instagram @teatroivangarcia · teatroivangarcia.blogspot.com.",
     },
   },
-  "ocean-world-terrace": {
-    description: {
-      es: "Terraza restaurante y música en vivo en Calle Principal #3, Cofresí — noches típicas y fiestas junto a Ocean World. Instagram @oceanworldterrace.",
-      fr: "Terrasse restaurant et musique live au Calle Principal n° 3, Cofresí — soirées típico et fêtes à côté d’Ocean World. Instagram @oceanworldterrace.",
-    },
-  },
   "spotland-puerto-plata": {
     description: {
       es: "Parque de diversión, comida y fotos en Av. Luis Ginebra — juegos al aire libre, toldos y plan familiar. Abierto jue–lun 2:00 PM–10:00 PM; cerrado mar–mié. Instagram @spotlandrd.",

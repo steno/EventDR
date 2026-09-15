@@ -2225,9 +2225,9 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       es: "Entrada RD$300; mesa gratis por WhatsApp 809-815-9682",
       fr: "Entrée RD$300 ; table gratuite via WhatsApp 809-815-9682",
     },
-    attribution: "POP research · @oceanworldterrace",
+    attribution: "POP research · Terraza Ocean World & Casino · @oceanworldterrace",
     researchNotes:
-      "Editor flyer + IG caption — Fri 18 Sep 2026 from 8 PM, La Fiera Típica; Calle Principal #3 Cofresí; RD$300; WA 809-815-9682.",
+      "Editor flyer + IG caption — Fri 18 Sep 2026 from 8 PM, La Fiera Típica at Terraza Ocean World & Casino (venue slug ocean-world); Calle Principal #3 Cofresí; RD$300; WA 809-815-9682.",
     updatedAt: "2026-09-14T12:00:00.000Z",
   },
   {

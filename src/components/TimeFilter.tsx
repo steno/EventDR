@@ -67,7 +67,7 @@ export function TimeFilter({
                     onChange(range);
                   }}
                   className={`
-                    relative -mb-px flex-shrink-0 px-3 py-2.5 text-base font-bold tracking-tight
+                    relative -mb-px flex-shrink-0 px-2.5 py-2.5 text-base font-bold tracking-tight
                     transition-colors touch-manipulation sm:px-3.5
                     ${
                       selected
@@ -80,7 +80,7 @@ export function TimeFilter({
                   <span
                     aria-hidden
                     className={`
-                      absolute inset-x-2 bottom-0 h-0.5 rounded-full transition-opacity
+                      absolute inset-x-1.5 bottom-0 h-0.5 rounded-full transition-opacity sm:inset-x-2
                       ${
                         selected
                           ? "bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 opacity-100"

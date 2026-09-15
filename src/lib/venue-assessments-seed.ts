@@ -1536,17 +1536,6 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     ],
   }),
   editorial({
-    venueSlug: "ocean-world-terrace",
-    verdictKey: "strong_mixed_food_nightlife",
-    crowdFit: ["local", "nightlife", "mixed", "visitor"],
-    axes: { recommend: 4.2, atmosphere: 4.3, value: 4.0, practical: 4.0 },
-    themes: [
-      { key: "live_music", sentiment: "positive" },
-      { key: "dominican_plates", sentiment: "positive", audience: "local" },
-      { key: "easy_to_find", sentiment: "positive" },
-    ],
-  }),
-  editorial({
     venueSlug: "spotland-puerto-plata",
     verdictKey: "solid_visitor_activity",
     crowdFit: ["family", "visitor", "local", "mixed"],

@@ -174,7 +174,7 @@ export const INSTAGRAM_ACCOUNTS = [
   },
   {
     handle: "oceanworldterrace",
-    label: "Ocean World Terrace",
+    label: "Terraza Ocean World & Casino",
     areas: ["Puerto Plata"],
   },
   {

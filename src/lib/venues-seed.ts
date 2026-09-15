@@ -1705,18 +1705,6 @@ export const SEED_VENUES: Venue[] = [
     phone: "+18092617393",
   },
   {
-    slug: "ocean-world-terrace",
-    name: "Ocean World Terrace",
-    city: "Puerto Plata",
-    description:
-      "Terrace restaurant and live-music spot at Calle Principal #3, Cofresí — típico nights and parties beside Ocean World. Instagram @oceanworldterrace.",
-    lat: 19.8261,
-    lng: -70.7312,
-    emoji: "🪗",
-    instagram: "oceanworldterrace",
-    phone: "+18098159682",
-  },
-  {
     slug: "spotland-puerto-plata",
     name: "Spot Land",
     city: "Puerto Plata",
@@ -1833,7 +1821,8 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
     slug: "cayo-arena",
   },
   {
-    pattern: /ocean\s*world/i,
+    pattern:
+      /ocean\s*world(\s*(terrace|terraza|&?\s*casino))?|oceanworldterrace|terraza\s*ocean\s*world/i,
     slug: "ocean-world",
   },
   {
@@ -1872,10 +1861,6 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
     pattern:
       /iv[aá]n\s*garc[ií]a|teatro\s*escuela\s*iv[aá]n|teatroivangarcia|igte/i,
     slug: "ivan-garcia-teatro-escuela",
-  },
-  {
-    pattern: /ocean\s*world\s*terrace|oceanworldterrace/i,
-    slug: "ocean-world-terrace",
   },
   {
     pattern: /cacique(\s+monci[oó]n)?|disco\s+restaurant\s+cacique|restaurante\s+cacique/i,

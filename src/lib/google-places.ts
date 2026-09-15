@@ -104,11 +104,6 @@ const PLACE_SEARCH_ALIASES: Record<string, string[]> = {
     "Teatro Escuela Ivan Garcia Juan Bosch",
     "IGTE Puerto Plata",
   ],
-  "ocean-world-terrace": [
-    "Ocean World Terrace Cofresi",
-    "Ocean World Terrace Puerto Plata",
-    "Oceanworldterrace Calle Principal Cofresi",
-  ],
   "pingui-bar": [
     "Pingui Bar El Pueblito Puerto Plata",
     "Pingui Bar Restaurant Playa El Pueblito Puerto Plata",

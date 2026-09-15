@@ -98,11 +98,11 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "ocean-world": {
-    body: "The Cofresí day-ticket park guests book for dolphins and kids — plan a full half-day and a ride; it's not a quick beach stop.",
+    body: "Cofresí's Ocean World complex — day tickets for dolphins and kids, plus Terraza & Casino nights on the marina after the park. Plan a ride; típico bills use the terrace, not the dolphin queue.",
     localized: {
-      en: "The Cofresí day-ticket park guests book for dolphins and kids — plan a full half-day and a ride; it's not a quick beach stop.",
-      es: "El parque de día en Cofresí que reservan por delfines y niños — planea media jornada y transporte; no es una parada rápida de playa.",
-      fr: "Le parc journée à Cofresí qu'on réserve pour dauphins et enfants — comptez une demi-journée et un trajet ; pas un stop plage rapide.",
+      en: "Cofresí's Ocean World complex — day tickets for dolphins and kids, plus Terraza & Casino nights on the marina after the park. Plan a ride; típico bills use the terrace, not the dolphin queue.",
+      es: "El complejo Ocean World en Cofresí — tickets de día por delfines y niños, y noches de Terraza y Casino en la marina cuando cierra el parque. Planea transporte; el típico es en la terraza, no en la fila de delfines.",
+      fr: "Le complexe Ocean World à Cofresí — billets journée dauphins et enfants, plus soirées Terraza & Casino sur la marina après le parc. Prévoyez un trajet ; le típico est sur la terrasse, pas dans la file des dauphins.",
     },
   },
   "la-casita-de-papi": {
@@ -1047,14 +1047,6 @@ export const VENUE_TIP_COPY: Record<
       en: "Turquoise Victorian teatro-escuela on Juan Bosch #72 — kids workshops and stage works in centro, not a beach day. Message @teatroivangarcia for class slots before you walk the colonial grid.",
       es: "Teatro-escuela victoriano turquesa en Juan Bosch #72 — talleres infantiles y obras en el centro, no un día de playa. Escribe a @teatroivangarcia por cupos antes de llegar a la cuadrícula colonial.",
       fr: "Teatro-escuela victorien turquoise au 72 Juan Bosch — ateliers enfants et pièces en centre-ville, pas une journée plage. Écrivez @teatroivangarcia pour les places avant de marcher la grille coloniale.",
-    },
-  },
-  "ocean-world-terrace": {
-    body: "Cofresí terrace at Calle Principal #3 — típico and party nights beside Ocean World, not the dolphin park ticket line. RD$300 covers entry on billed nights; WhatsApp tables ahead.",
-    localized: {
-      en: "Cofresí terrace at Calle Principal #3 — típico and party nights beside Ocean World, not the dolphin park ticket line. RD$300 covers entry on billed nights; WhatsApp tables ahead.",
-      es: "Terraza en Cofresí, Calle Principal #3 — noches típicas y fiestas junto a Ocean World, no la fila de delfines. RD$300 cubre entrada en noches con cartel; reserva mesa por WhatsApp.",
-      fr: "Terrasse à Cofresí, Calle Principal n° 3 — soirées típico et fêtes à côté d’Ocean World, pas la file des dauphins. RD$300 pour l’entrée les soirs à l’affiche ; réservez table via WhatsApp.",
     },
   },
   "spotland-puerto-plata": {

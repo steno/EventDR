@@ -280,7 +280,6 @@ const VISIT_MINUTES_BY_SLUG: Record<string, number> = {
   "ambar-lounge-pop": 40,
   "luna-lounge-lcb": 45,
   "ivan-garcia-teatro-escuela": 35,
-  "ocean-world-terrace": 75,
   "rum-legacy-museum": 45,
   "la-confluencia-museum": 40,
   "gregorio-luperon-museum": 40,
