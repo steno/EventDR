@@ -244,7 +244,8 @@ Curated images under `public/events/` and `public/venues/`.
 | `hard-rock-karaoke-wednesday.jpg` | POP-supplied Hard Rock Cafe Puerto Plata karaoke flyer | Wednesday karaoke from 7 PM |
 | `sosua-neon-partyrun-2026-10-24.jpg` | POP-supplied Sosúa Neon Partyrun flyer (GY Fitness × Hard Rock) | Authentic 24 Oct 2026 race/party flyer |
 | `hard-rock-casa-mickey-2026-09-26.jpg` | POP-supplied La Casa de Mickey Mouse Family Fun Fest flyer | 26–27 Sep 2026 Hard Rock family shows |
-| `voyvoy-saturday-session-flyer.jpg` | POP-supplied VOYVOY Saturday Session Story flyer | Saturday Session hero (filename bump) |
+| `voyvoy-saturday-session-flyer.jpg` | POP-supplied VOYVOY Saturday Session Story flyer (teal bay text art) | Saturday Session hero (filename bump) |
+| `cigar-town-martes-sensorial.jpg` | POP-supplied Cigar Town Martes Sensorial Story flyer | Weekly Tuesday café–chocolate–cigar night |
 | `venues/ristorante-passatore-playa-dorada.jpg` | [TripAdvisor — Ristorante Passatore](https://www.tripadvisor.com/) patio photo (`restaurant.jpg`) | Outdoor pergola dining at Playa Dorada Plaza |
 | `venues/sambalu-puerto-plata.jpg` | [PuertoPlataDR — Sambalú Restaurant](https://puertoplatadr.com/restaurants/sambalu-restaurant/) place photo | Historic-center Caribbean dining room / terrace |
 | `venues/skina-puerto-plata.jpg` | [Puerto Plata Noticias — La Skina](https://puertoplatanoticias.com/restaurante-la-skina-premiado-el-mejor-sancocho/) place photo | Exterior Skina Bar & Restaurant wall sign |

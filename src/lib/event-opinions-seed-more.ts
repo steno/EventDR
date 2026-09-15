@@ -2287,6 +2287,26 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: "2026-09-14T12:00:00.000Z",
   },
   {
+    eventId: "cigar-town-martes-sensorial",
+    seriesKey: "cigar-town-pop:weekly:2",
+    body: "Tuesday café–chocolate–cigar tasting at the lounge — quieter and more seated than La Peña bottle nights; go for the trio, not a dance floor.",
+    localized: {
+      es: "Cata de martes café–chocolate–cigarro en el lounge — más quieto y sentado que La Peña con botella; ve por el trío, no por pista de baile.",
+      fr: "Dégustation mardi café–chocolat–cigare au lounge — plus calme et assise que La Peña en bouteille ; venez pour le trio, pas une piste de danse.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "Flyer names café, chocolate, and cigar — no published RD$ package price or start time; ask @cigartownpop",
+    priceNoteLocalized: {
+      es: "El flyer nombra café, chocolate y cigarro — sin precio RD$ ni hora publicados; pregunta en @cigartownpop",
+      fr: "L’affiche nomme café, chocolat et cigare — pas de prix RD$ ni d’heure publiés ; demandez à @cigartownpop",
+    },
+    attribution: "POP research · @cigartownpop Martes Sensorial",
+    researchNotes:
+      "Editor-supplied Story flyer — Todos los martes; Tres placeres. Una experiencia: café | chocolate | cigarro; Cigar Town Pop, Av. Luis Ginebra 56. No start time or package price on art.",
+    updatedAt: "2026-09-15T12:00:00.000Z",
+  },
+  {
     eventId: "aura-beach-club-lunes-especiales",
     seriesKey: "aura-beach-club-cabarete:weekly:1",
     body: "Early-week 2x1 window on Calle Principal sand — come 4–7 PM for margarita/gin deals, not a late dance night; WhatsApp a table before sunset fills the bay seats.",

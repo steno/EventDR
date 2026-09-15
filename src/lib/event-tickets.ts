@@ -233,6 +233,7 @@ export const CURATED_FREE_EVENTS = new Set<string>([
   "cheers-fire-ice-thursdays",
   "cigar-town-la-pena-thursdays",
   "cigar-town-ron-humos",
+  "cigar-town-martes-sensorial",
   "cigar-town-noche-bohemia-2026-09-12",
   "cigar-town-karaoke-ladies-night-2026-09-19",
   "senor-rock-live-nightly",

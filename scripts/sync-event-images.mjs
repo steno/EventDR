@@ -183,6 +183,8 @@ const FILE_TO_EVENT_ID = {
   "ambar-lounge-reggaeton-2026-09-17.jpg": "ambar-lounge-reggaeton-2026-09-17",
   "cigar-town-karaoke-ladies-night-2026-09-19.jpg":
     "cigar-town-karaoke-ladies-night-2026-09-19",
+  "cigar-town-martes-sensorial.jpg": "cigar-town-martes-sensorial",
+  "voyvoy-saturday-session-flyer.jpg": "voyvoy-saturday-session-flyer",
   "aura-beach-club-lunes-especiales.jpg": "aura-beach-club-lunes-especiales",
   "aura-beach-club-miercoles-margaritas.jpg":
     "aura-beach-club-miercoles-margaritas",

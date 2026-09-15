@@ -30,6 +30,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "cheers-fire-ice-thursdays": "cheers-fire-ice-thursdays.jpg",
   "cigar-town-la-pena-thursdays": "cigar-town-la-pena-thursdays.jpg",
   "cigar-town-ron-humos": "cigar-town-ron-humos.jpg",
+  "cigar-town-martes-sensorial": "cigar-town-martes-sensorial.jpg",
   // Filename bump — live bar with hanging Cadillac (entrance stays on the venue).
   "senor-rock-live-nightly": "senor-rock-cadillac-bar.jpg",
   "cremo-salsa-friday": "cremo-salsa-friday.jpg",
@@ -332,6 +333,7 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   // Keep rum glass + cigar in a wide desktop crop.
   "cigar-town-la-pena-thursdays": "object-center lg:object-left",
   "cigar-town-ron-humos": "object-center lg:object-left",
+  "cigar-town-martes-sensorial": "object-center lg:object-left",
   // Guitar flyer — keep soundhole/strings in a wide desktop crop.
   "cigar-town-noche-bohemia-2026-09-12": "object-center lg:object-left",
   // Portrait flyer — horse + flag sit mid-right; avoid the white header band on mobile cards.
@@ -397,8 +399,10 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "cigar-town-acustico-humos.jpg",
   "cigar-town-domingo-de-matine.jpg",
   "cigar-town-la-pena-thursdays.jpg",
+  "cigar-town-martes-sensorial.jpg",
   "cigar-town-noche-bohemia-2026-09-12.jpg",
   "cigar-town-ron-humos.jpg",
+  "voyvoy-saturday-session-flyer.jpg",
   "congreso-damas-adn-2026.jpg",
   "dewry-luciano-zona-acapella-2026-08-23.jpg",
   "el-carey-bohemian-wednesday.jpg",

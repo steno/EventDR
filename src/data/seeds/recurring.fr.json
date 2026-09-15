@@ -359,6 +359,26 @@
     "imageEmoji": "☕"
   },
   {
+    "id": "cigar-town-martes-sensorial",
+    "title": "Martes Sensorial au Cigar Town",
+    "description": "Tous les mardis — Martes Sensorial chez Cigar Town Pop, Av. Luis Ginebra n° 56, Puerto Plata. Trois plaisirs, une expérience : café, chocolat et cigare. Confirmez l'heure et le prix du forfait via Instagram @cigartownpop.",
+    "date": "2026-01-01",
+    "location": "Puerto Plata",
+    "venue": "Cigar Town Pop",
+    "venueSlug": "cigar-town-pop",
+    "address": "Avenida Luis Ginebra No. 56, Puerto Plata",
+    "lat": 19.7915,
+    "lng": -70.6805,
+    "category": "food-drinks",
+    "format": "physical",
+    "recurrence": "weekly",
+    "recurrenceDay": 2,
+    "callForPricing": true,
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/cigartownpop/",
+    "imageEmoji": "☕"
+  },
+  {
     "id": "senor-rock-live-nightly",
     "title": "Groupes live au Señor Rock",
     "description": "Musique live chaque soir au Señor Rock, Playa Dorada Plaza — groupes locaux rock, reprises et classiques caribéens, dîner et cocktails.",

@@ -298,11 +298,11 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "cigar-town-pop": {
-    body: "Intimate downtown cigar lounge on Luis Ginebra (open Mon–Sun) — Ron & Humos Mon/Wed, La Peña Thursdays with Brugal, and Saturday nights from Sessions to Karaoke Ladies Night. Confirm hours on @cigartownpop.",
+    body: "Intimate downtown cigar lounge on Luis Ginebra (open Mon–Sun) — Ron & Humos Mon/Wed, Martes Sensorial (café–chocolate–cigar) Tuesdays, La Peña Thursdays with Brugal, Domingo de Matiné, and Saturday nights from Sessions to Karaoke. Confirm hours on @cigartownpop.",
     localized: {
-      en: "Intimate downtown cigar lounge on Luis Ginebra (open Mon–Sun) — Ron & Humos Mon/Wed, La Peña Thursdays with Brugal, and Saturday nights from Sessions to Karaoke Ladies Night. Confirm hours on @cigartownpop.",
-      es: "Lounge íntimo de cigarros downtown en Luis Ginebra (lun–dom) — Ron & Humos lun/mié, La Peña los jueves con Brugal y sábados de Sessions a Karaoke Ladies Night. Confirma horarios en @cigartownpop.",
-      fr: "Lounge à cigares intimiste downtown sur Luis Ginebra (lun–dim) — Ron & Humos lun/mer, La Peña le jeudi avec Brugal et samedis de Sessions au Karaoke Ladies Night. Confirmez les horaires sur @cigartownpop.",
+      en: "Intimate downtown cigar lounge on Luis Ginebra (open Mon–Sun) — Ron & Humos Mon/Wed, Martes Sensorial (café–chocolate–cigar) Tuesdays, La Peña Thursdays with Brugal, Domingo de Matiné, and Saturday nights from Sessions to Karaoke. Confirm hours on @cigartownpop.",
+      es: "Lounge íntimo de cigarros downtown en Luis Ginebra (lun–dom) — Ron & Humos lun/mié, Martes Sensorial (café–chocolate–cigarro) los martes, La Peña los jueves con Brugal, Domingo de Matiné y sábados de Sessions a Karaoke. Confirma horarios en @cigartownpop.",
+      fr: "Lounge à cigares intimiste downtown sur Luis Ginebra (lun–dim) — Ron & Humos lun/mer, Martes Sensorial (café–chocolat–cigare) le mardi, La Peña le jeudi avec Brugal, Domingo de Matiné et samedis de Sessions au Karaoke. Confirmez les horaires sur @cigartownpop.",
     },
   },
   "big-lees-beach-bar": {
