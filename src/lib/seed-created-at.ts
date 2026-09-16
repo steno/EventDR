@@ -63,6 +63,9 @@ export const SEED_CREATED_AT: Readonly<Record<string, string>> = {
   "ocean-world-terrace-la-fiera-tipica-2026-09-18": "2026-09-14T12:00:00.000Z",
   "rio-sonador-cierre-del-verano-2026-09-20": "2026-09-14T12:00:00.000Z",
   "ambar-lounge-reggaeton-2026-09-17": "2026-09-14T12:00:00.000Z",
+  "ambar-lounge-miercoles-rooftop": "2026-09-16T12:00:00.000Z",
+  "ambar-lounge-bandoleras-2026-09-18": "2026-09-16T12:00:00.000Z",
+  "ambar-lounge-adrian-tineo-2026-09-19": "2026-09-16T12:00:00.000Z",
   "cigar-town-karaoke-ladies-night-2026-09-19": "2026-09-14T12:00:00.000Z",
   "pop-cinemas-week-2026-09-11": "2026-09-14T12:00:00.000Z",
   "aura-beach-club-lunes-especiales": "2026-09-14T12:00:00.000Z",
@@ -75,6 +78,7 @@ export const SEED_CREATED_AT: Readonly<Record<string, string>> = {
   "spotland-sabado-retro-familiar-2026-09-19": "2026-09-14T12:00:00.000Z",
   "trolley-party-saturday": "2026-09-15T12:00:00.000Z",
   "iss-pta-parents-night-out-2026-09-17": "2026-09-16T12:00:00.000Z",
+  "hard-rock-catrinas-halloween-2026-10-31": "2026-09-16T12:00:00.000Z",
   "natura-market-moto-2026-09-19": "2026-09-16T12:00:00.000Z",
 };
 

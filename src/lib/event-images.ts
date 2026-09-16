@@ -122,7 +122,9 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "hard-rock-rising-segunda-ronda-2026-09-16":
     "hard-rock-rising-segunda-ronda-2026-09-16.jpg",
   "iss-pta-parents-night-out-2026-09-17":
-    "iss-pta-parents-night-out-2026-09-17.jpg",
+    "iss-pta-parents-night-out-flyer.jpg",
+  "hard-rock-catrinas-halloween-2026-10-31":
+    "hard-rock-catrinas-halloween-2026-10-31.jpg",
   "natura-market-moto-2026-09-19": "natura-market-moto-2026-09-19.jpg",
   "lokuras-pop-percusion-latina-2026-09-20":
     "lokuras-pop-percusion-latina-2026-09-20.jpg",
@@ -140,6 +142,11 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "rio-sonador-cierre-del-verano-2026-09-20.jpg",
   "ambar-lounge-reggaeton-2026-09-17":
     "ambar-lounge-reggaeton-2026-09-17.jpg",
+  "ambar-lounge-miercoles-rooftop": "ambar-lounge-miercoles-rooftop.jpg",
+  "ambar-lounge-bandoleras-2026-09-18":
+    "ambar-lounge-bandoleras-2026-09-18.jpg",
+  "ambar-lounge-adrian-tineo-2026-09-19":
+    "ambar-lounge-adrian-tineo-2026-09-19.jpg",
   "cigar-town-karaoke-ladies-night-2026-09-19":
     "cigar-town-karaoke-ladies-night-2026-09-19.jpg",
   "aura-beach-club-lunes-especiales": "aura-beach-club-lunes-especiales.jpg",
@@ -425,6 +432,8 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "hard-rock-casa-mickey-2026-09-26.jpg",
   "hard-rock-karaoke-wednesday.jpg",
   "hard-rock-rising-segunda-ronda-2026-09-16.jpg",
+  "hard-rock-catrinas-halloween-2026-10-31.jpg",
+  "iss-pta-parents-night-out-flyer.jpg",
   "imbert-mercedes-patronales-2026.jpg",
   "latinwok-ramen-party-2026-09-17.jpg",
   "lena-dardelet-aura-beach-club-2026-07-24.png",
@@ -437,6 +446,9 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "ocean-world-terrace-singing-talent-2026-09-16.jpg",
   "rio-sonador-cierre-del-verano-2026-09-20.jpg",
   "ambar-lounge-reggaeton-2026-09-17.jpg",
+  "ambar-lounge-miercoles-rooftop.jpg",
+  "ambar-lounge-bandoleras-2026-09-18.jpg",
+  "ambar-lounge-adrian-tineo-2026-09-19.jpg",
   "cigar-town-karaoke-ladies-night-2026-09-19.jpg",
   "aura-beach-club-lunes-especiales.jpg",
   "aura-beach-club-miercoles-margaritas.jpg",
@@ -557,7 +569,6 @@ const HOME_HERO_SCENE_FILES = new Set([
   "handmade-pina-colada-experience.webp",
   "hard-rock-billed-concerts.jpg",
   "hard-rock-weekends.jpg",
-  "iss-pta-parents-night-out-2026-09-17.jpg",
   "hms-valeria-domingo-table.jpg",
   "hms-valeria-spanish-saturday-guests.jpg",
   "iberostar-costa-dorada-day-pass.jpg",

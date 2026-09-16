@@ -138,6 +138,7 @@ export const CURATED_ADMISSION_PRICES: Record<string, string> = {
   "pop-cinemas-week-2026-08-20": "RD$300",
   "pop-cinemas-week-2026-09-11": "RD$300",
   "love-does-cocktails-solidarity-2026-09-04": "RD$2,000",
+  "hard-rock-catrinas-halloween-2026-10-31": "RD$1,000",
   "sunset-cabarete-sessions-2026": "from US$16",
   "puerto-plata-poker-experience-2026": "Main Event US$900 buy-in",
   "los-event-trilogy-2026-09-03": "from US$875",
@@ -167,6 +168,9 @@ export const CURATED_CALL_FOR_PRICING = new Set<string>([
   "batey-salsa-weekly",
   "atlantico-fc-vs-delfines-2026-08-22",
   "ambar-lounge-reggaeton-2026-09-17",
+  "ambar-lounge-miercoles-rooftop",
+  "ambar-lounge-bandoleras-2026-09-18",
+  "ambar-lounge-adrian-tineo-2026-09-19",
 ]);
 
 /**

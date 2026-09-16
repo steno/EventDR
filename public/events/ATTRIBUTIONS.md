@@ -264,7 +264,8 @@ Curated images under `public/events/` and `public/venues/`.
 | `tasty-food-park-show-de-magia-2026-09-13.jpg` | POP-supplied — Tasty Food Park Show de Magia flyer ([IG](https://www.instagram.com/p/DdNiin9De2O/)) | Magic show Sun 13 Sep 2026 7 PM (editor-provided) |
 | `cigar-town-domingo-de-matine.jpg` | POP-supplied — Cigar Town Domingo de Matiné promo ([reel](https://www.instagram.com/reel/DdNgA2tsgGt/)) | Weekly Sunday coffee/drinks or 2 beers + 10% off (editor-provided) |
 | `hard-rock-rising-segunda-ronda-2026-09-16.jpg` | POP-supplied — Hard Rock Rising Global Live Music Challenge Segunda Ronda flyer ([IG](https://www.instagram.com/p/DdO4DKoxoRk/)) | Competition night Wed 16 Sep 2026 8 PM (editor-provided) |
-| `iss-pta-parents-night-out-2026-09-17.jpg` | Same as `venues/hard-rock-sosua.jpg` place shot (not IG flyer) | ISS PTA Parents’ Night Out Thu 17 Sep 2026 — venue hero |
+| `iss-pta-parents-night-out-flyer.jpg` | POP-supplied — ISS PTA Back to School Parents’ Night Out invite flyer | Thu 17 Sep 2026 Hard Rock Sosúa (editor-provided; filename bump) |
+| `hard-rock-catrinas-halloween-2026-10-31.jpg` | POP-supplied — Catrinas / The Haunted House Halloween Party flyer | Fri 31 Oct 2026 Hard Rock Puerto Plata (editor-provided) |
 | `natura-market-moto-2026-09-19.jpg` | POP-supplied — Special Natura Market Master of the Ocean Edition flyer ([naturacabana.com](https://naturacabana.com/es/event/natura-market-in-cabarete-special/)) | Playa Encuentro market Sat–Sun 19–20 Sep 2026 (editor-provided) |
 | `lokuras-pop-percusion-latina-2026-09-20.jpg` | POP-supplied — Lokura's Pop Percusión Latina Somos Salsa flyer ([IG](https://www.instagram.com/lokuraspop/)) | Live salsa Sun 20 Sep 2026 from 6 PM (editor-provided) |
 | `venues/lokuras-pop-interior.jpg` | POP-supplied — Lokura's Pop Bar Café interior (yellow lounge / wooden bar) | Venue place shot (editor-provided, not scraped) |
@@ -279,6 +280,9 @@ Curated images under `public/events/` and `public/venues/`.
 | `ocean-world-terrace-la-fiera-tipica-2026-09-18.jpg` | POP-supplied — Terraza Ocean World & Casino La Fiera Típica flyer ([IG](https://www.instagram.com/oceanworldterrace/)) | Live típico Fri 18 Sep 2026 from 8 PM, RD$300 (editor-provided); venue slug `ocean-world` |
 | `rio-sonador-cierre-del-verano-2026-09-20.jpg` | POP-supplied — Cierre del Verano Río Sonador flyer ([IG](https://www.instagram.com/noticia_gurabocityrd/)) | El Rubio + Nacho Estrella Sun 20 Sep 2026 from 10 AM; venue pin omitted (editor-provided) |
 | `ambar-lounge-reggaeton-2026-09-17.jpg` | POP-supplied — Ambar Lounge Reggaeton flyer (Ramon x Raul, 17 Sep) ([IG](https://www.instagram.com/ambarloungepop/)) | Invitation-only Thu 17 Sep 2026 (editor-provided) |
+| `ambar-lounge-miercoles-rooftop.jpg` | POP-supplied — Miércoles de Rooftop / Mojitos 3x2 flyer ([IG](https://www.instagram.com/ambarloungepop/)) | Weekly Wednesday rooftop promo (editor-provided) |
+| `ambar-lounge-bandoleras-2026-09-18.jpg` | POP-supplied — Bandoleras Fridays / Carlos Rivera flyer ([IG](https://www.instagram.com/ambarloungepop/)) | Fri 18 Sep 2026 (editor-provided) |
+| `ambar-lounge-adrian-tineo-2026-09-19.jpg` | POP-supplied — Adrián Tineo live flyer ([IG](https://www.instagram.com/ambarloungepop/)) | Sat 19 Sep 2026 (editor-provided) |
 | `venues/ambar-lounge-pop-lounge.jpg` | POP-supplied — Ambar Lounge POP rooftop lounge night crowd | Venue place shot (editor-provided, not scraped) |
 | `cigar-town-karaoke-ladies-night-2026-09-19.jpg` | POP-supplied — Cigar Town Karaoke Saturday / Ladies Night flyer ([IG](https://www.instagram.com/cigartownpop/)) | Karaoke Sat 19 Sep 2026 (editor-provided) |
 | `el-carey-karaoke-mujeres-monday-2026.jpg` | POP-supplied — El Carey Mujeres Empoderadas Monday karaoke flyer refresh ([@diaynocherestaurantelcarey](https://www.instagram.com/diaynocherestaurantelcarey/)) | Weekly Mon sunset karaoke hero (filename bump; editor-provided) |

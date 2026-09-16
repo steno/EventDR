@@ -2268,6 +2268,64 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: "2026-09-14T12:00:00.000Z",
   },
   {
+    eventId: "ambar-lounge-miercoles-rooftop",
+    seriesKey: "ambar-lounge-pop:weekly:3",
+    body: "Midweek rooftop deal night — go for Mojitos 3x2, not a headline DJ bill; still confirm doors with @ambarloungepop before you assume walk-in on Luis Ginebra.",
+    localized: {
+      es: "Noche de promo midweek en el rooftop — ve por los Mojitos 3x2, no por un DJ de cartel; igual confirma puertas con @ambarloungepop antes de asumir walk-in en Luis Ginebra.",
+      fr: "Soirée promo midweek sur le rooftop — venez pour les Mojitos 3x2, pas un DJ à l’affiche ; confirmez quand même les portes avec @ambarloungepop avant de compter sur le walk-in sur Luis Ginebra.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "Mojitos 3x2 on Wednesdays — cover / other drinks confirm with the lounge",
+    priceNoteLocalized: {
+      es: "Mojitos 3x2 los miércoles — cover / otros tragos confirma con el lounge",
+      fr: "Mojitos 3x2 le mercredi — cover / autres verres à confirmer avec le lounge",
+    },
+    attribution: "POP research · @ambarloungepop",
+    researchNotes:
+      "Editor flyer — Miércoles de Rooftop / Mojitos 3x2; weekly Wed; Av. Luis Ginebra 45-a; phone (809) 781-8677; closed Tue.",
+    updatedAt: "2026-09-16T12:00:00.000Z",
+  },
+  {
+    eventId: "ambar-lounge-bandoleras-2026-09-18",
+    body: "Ladies-forward Friday with Carlos Rivera — free drinks for women until 11 PM is the hook; confirm cover and doors with @ambarloungepop before you pin Luis Ginebra.",
+    localized: {
+      es: "Viernes orientado a chicas con Carlos Rivera — tragos gratis para mujeres hasta las 11 PM es el gancho; confirma cover y puertas con @ambarloungepop antes de clavar Luis Ginebra.",
+      fr: "Vendredi orienté dames avec Carlos Rivera — verres gratuits pour les femmes jusqu’à 23 h est l’accroche ; confirmez cover et portes avec @ambarloungepop avant d’épingler Luis Ginebra.",
+    },
+    priceFeel: "varies",
+    priceNote:
+      "Free drinks for ladies until 11 PM — other cover/pricing confirm with lounge",
+    priceNoteLocalized: {
+      es: "Tragos gratis para chicas hasta las 11 PM — cover/otros precios confirma con el lounge",
+      fr: "Verres gratuits pour les dames jusqu’à 23 h — cover/autres prix à confirmer avec le lounge",
+    },
+    attribution: "POP research · @ambarloungepop",
+    researchNotes:
+      "Editor flyer — Fri 18 Sep 2026 Bandoleras Fridays / Carlos Rivera; free drinks ladies until 11 PM; Av. Luis Ginebra 45-a; (809) 781-8677.",
+    updatedAt: "2026-09-16T12:00:00.000Z",
+  },
+  {
+    eventId: "ambar-lounge-adrian-tineo-2026-09-19",
+    body: "Saturday live set with Adrián Tineo on the Luis Ginebra rooftop — billed artist night, not the Wednesday mojito promo; DM @ambarloungepop for doors before you walk up.",
+    localized: {
+      es: "Set en vivo el sábado con Adrián Tineo en el rooftop de Luis Ginebra — noche con artista en cartel, no la promo de mojitos del miércoles; DM @ambarloungepop para puertas antes de llegar walk-up.",
+      fr: "Set live le samedi avec Adrián Tineo sur le rooftop Luis Ginebra — soirée artiste à l’affiche, pas la promo mojitos du mercredi ; DM @ambarloungepop pour les portes avant d’arriver walk-up.",
+    },
+    priceFeel: "varies",
+    priceNote:
+      "Cover / set time not on the flyer — confirm via @ambarloungepop or (809) 781-8677",
+    priceNoteLocalized: {
+      es: "Cover / hora del set no en el flyer — confirma con @ambarloungepop o (809) 781-8677",
+      fr: "Cover / heure du set absents de l’affiche — confirmez via @ambarloungepop ou (809) 781-8677",
+    },
+    attribution: "POP research · @ambarloungepop",
+    researchNotes:
+      "Editor flyer — Sat 19 Sep 2026 Adrián Tineo live; Av. Luis Ginebra 45-a; phone (809) 781-8677; closed Tue.",
+    updatedAt: "2026-09-16T12:00:00.000Z",
+  },
+  {
     eventId: "cigar-town-karaoke-ladies-night-2026-09-19",
     body: "Mic-and-drinks Saturday at the cigar lounge — louder and sillier than Noche Bohemia; go for Ladies Night energy, not a quiet puro tasting.",
     localized: {
@@ -2467,10 +2525,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "iss-pta-parents-night-out-2026-09-17",
-    body: "School-parent game night at Hard Rock, not a tourist concert — bingo, poker from 6:30, and dominoes; RSVP on @iss.pta before you assume walk-up seats.",
+    body: "Parents-only game night at Hard Rock — bingo, friendly poker, and dominoes; RSVP on @iss.pta before you treat it like a walk-up tourist show.",
     localized: {
-      es: "Noche de juegos de padres ISS en Hard Rock, no un concierto turístico — bingo, póker desde las 6:30 y dominó; confirma cupo en @iss.pta antes de asumir entrada libre.",
-      fr: "Soirée jeux parents ISS au Hard Rock, pas un concert touristique — bingo, poker dès 18 h 30 et dominos ; confirmez sur @iss.pta avant d’assumer une place walk-up.",
+      es: "Noche de juegos solo para padres en Hard Rock — bingo, póker amistoso y dominó; confirma en @iss.pta antes de tratarlo como show turístico sin cupo.",
+      fr: "Soirée jeux réservée aux parents au Hard Rock — bingo, poker amical et dominos ; confirmez sur @iss.pta avant d’y aller comme un show touristique sans réservation.",
     },
     priceFeel: "varies",
     priceNote:
@@ -2481,8 +2539,26 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     },
     attribution: "POP research · @iss.pta × Hard Rock Cafe Puerto Plata",
     researchNotes:
-      "IG https://www.instagram.com/p/Dc_emGfEVsC/ — collab @iss.pta × @hardrockcafepuertoplata; Thu 17 Sep 2026 6 PM Hard Rock Sosúa; Bingo / Poker Tournament from 6:30 PM / Dominoes; spots limited, signup link in @iss.pta bio. Carousel lists per-game fees (bingo cards, poker buy-in/re-buy); exact amounts not copied into seed — call for pricing.",
-    updatedAt: "2026-09-16T12:00:00.000Z",
+      "Editor flyer + IG https://www.instagram.com/p/Dc_emGfEVsC/ — Thu 17 Sep 2026 6 PM Hard Rock Sosúa; Parents only; Bingo / Friendly poker / Dominoes; signup @iss.pta bio.",
+    updatedAt: "2026-09-16T17:00:00.000Z",
+  },
+  {
+    eventId: "hard-rock-catrinas-halloween-2026-10-31",
+    body: "Halloween costume night at Hard Rock with Catrina glam and podium prizes — pre-sale WhatsApp seat beats door scramble on Oct 31.",
+    localized: {
+      es: "Noche de disfraces de Halloween en Hard Rock con glam catrina y premios al podio — la preventa por WhatsApp gana a la fila de puertas el 31 oct.",
+      fr: "Soirée costumes Halloween au Hard Rock avec glam Catrina et prix podium — la prévente WhatsApp bat la file aux portes le 31 oct.",
+    },
+    priceFeel: "moderate",
+    priceNote: "Pre-sale RD$1,000 — WhatsApp +1 849-505-7778; doors 8:00 PM",
+    priceNoteLocalized: {
+      es: "Preventa RD$1,000 — WhatsApp +1 849-505-7778; puertas 8:00 PM",
+      fr: "Prévente RD$1 000 — WhatsApp +1 849-505-7778 ; portes 20 h",
+    },
+    attribution: "POP research · Hard Rock Cafe Puerto Plata Catrinas flyer",
+    researchNotes:
+      "Editor flyer: The Haunted House Halloween Party Catrinas, Octubre 31, doors 8 PM, pre-sale RD$1,000, prizes 1.2.3, register 849-505-7778, venue partner Hard Rock Puerto Plata (Sosúa Calle Duarte).",
+    updatedAt: "2026-09-16T17:00:00.000Z",
   },
   {
     eventId: "natura-market-moto-2026-09-19",

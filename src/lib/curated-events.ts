@@ -94,6 +94,12 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     phone: "+18495057778",
     venueSlug: "hard-rock-sosua",
   },
+  "hard-rock-catrinas-halloween-2026-10-31": {
+    isFree: false,
+    admissionPrice: "RD$1,000",
+    phone: "+18495057778",
+    venueSlug: "hard-rock-sosua",
+  },
   "natura-market-moto-2026-09-19": {
     isFree: true,
     phone: "+18492147010",

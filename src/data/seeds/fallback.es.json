@@ -2014,6 +2014,60 @@
     "imageEmoji": "🔥"
   },
   {
+    "id": "ambar-lounge-bandoleras-2026-09-18",
+    "title": "Bandoleras Fridays — Carlos Rivera",
+    "description": "Bandoleras Fridays con Carlos Rivera en Ambar Lounge POP, Av. Luis Ginebra 45-a, Puerto Plata — viernes 18 de septiembre 2026. Free drinks for ladies hasta las 11:00 PM. Confirma puertas y cover por Instagram @ambarloungepop o al (809) 781-8677.",
+    "date": "2026-09-18",
+    "location": "Puerto Plata",
+    "venue": "Ambar Lounge POP",
+    "venueSlug": "ambar-lounge-pop",
+    "address": "Av. Luis Ginebra 45-a, Puerto Plata 57000",
+    "lat": 19.7918,
+    "lng": -70.681,
+    "category": "parties",
+    "categories": [
+      "music",
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18097818677",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/ambarloungepop/",
+    "lineup": [
+      "Carlos Rivera"
+    ],
+    "imageEmoji": "💃"
+  },
+  {
+    "id": "ambar-lounge-adrian-tineo-2026-09-19",
+    "title": "Adrián Tineo en Ambar Lounge",
+    "description": "Adrián Tineo en vivo en Ambar Lounge POP, Av. Luis Ginebra 45-a, Puerto Plata — sábado 19 de septiembre 2026. Confirma puertas, hora y cover por Instagram @ambarloungepop o al (809) 781-8677. Lounge abierto desde las 5:00 PM (cerrado martes).",
+    "date": "2026-09-19",
+    "location": "Puerto Plata",
+    "venue": "Ambar Lounge POP",
+    "venueSlug": "ambar-lounge-pop",
+    "address": "Av. Luis Ginebra 45-a, Puerto Plata 57000",
+    "lat": 19.7918,
+    "lng": -70.681,
+    "category": "parties",
+    "categories": [
+      "music",
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18097818677",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/ambarloungepop/",
+    "lineup": [
+      "Adrián Tineo"
+    ],
+    "imageEmoji": "🎧"
+  },
+  {
     "id": "cigar-town-karaoke-ladies-night-2026-09-19",
     "title": "Karaoke Saturday — Ladies Night en Cigar Town",
     "description": "Karaoke Saturday / Ladies Night en Cigar Town Pop, Av. Luis Ginebra No. 56, Puerto Plata — sábado 19 de septiembre 2026. Canta afinado o no, tragos en mano y cero vergüenza. Confirma hora y cover por Instagram @cigartownpop.",
@@ -2116,7 +2170,7 @@
   {
     "id": "iss-pta-parents-night-out-2026-09-17",
     "title": "Back to School Parents’ Night Out",
-    "description": "Noche de padres Back to School del PTA de ISS en Hard Rock Cafe Puerto Plata, Sosúa — jueves 17 de septiembre 2026 desde las 6:00 PM. Bingo, torneo de póker (desde las 6:30 PM) y dominó para padres del International School of Sosúa. Cupos limitados — inscríbete por Instagram @iss.pta (link en bio). Tarifas de juegos en el registro del PTA; WhatsApp del venue +1 849-505-7778.",
+    "description": "Noche de padres Back to School del PTA de ISS en Hard Rock Cafe Puerto Plata, Sosúa — jueves 17 de septiembre 2026 desde las 6:00 PM. Solo padres: bingo, torneo amistoso de póker y dominó. Cupos limitados — inscríbete por Instagram @iss.pta (link en bio). Tarifas de juegos en el registro del PTA; WhatsApp del venue +1 849-505-7778.",
     "date": "2026-09-17",
     "time": "6:00 PM",
     "location": "Sosúa",
@@ -2138,10 +2192,37 @@
     "sourceUrl": "https://www.instagram.com/p/Dc_emGfEVsC/",
     "lineup": [
       "Bingo",
-      "Torneo de póker (desde las 6:30 PM)",
-      "Dominó"
+      "Torneo amistoso de póker",
+      "Dominó",
+      "Solo padres"
     ],
     "imageEmoji": "♠️"
+  },
+  {
+    "id": "hard-rock-catrinas-halloween-2026-10-31",
+    "title": "Catrinas — The Haunted House Halloween Party",
+    "description": "The Haunted House Halloween Party — Catrinas en Hard Rock Cafe Puerto Plata, Sosúa — viernes 31 de octubre 2026. Puertas 8:00 PM. Noche de disfraces con premios al 1.º, 2.º y 3.º lugar. Preventa RD$1,000 — inscríbete por WhatsApp +1 849-505-7778.",
+    "date": "2026-10-31",
+    "time": "8:00 PM",
+    "location": "Sosúa",
+    "venue": "Hard Rock Cafe Puerto Plata",
+    "venueSlug": "hard-rock-sosua",
+    "address": "Calle Duarte 7, Sosúa",
+    "lat": 19.7634107,
+    "lng": -70.5162309,
+    "category": "festivals",
+    "categories": [
+      "music",
+      "festivals"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": false,
+    "admissionPrice": "RD$1,000",
+    "phone": "+18495057778",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/hardrockcafepuertoplata/",
+    "imageEmoji": "🎃"
   },
   {
     "id": "natura-market-moto-2026-09-19",

@@ -50,6 +50,7 @@ const EVENT_PHONE_BY_ID: Record<string, string> = {
   "hard-rock-karaoke-wednesday": "+18495057778",
   "hard-rock-rising-segunda-ronda-2026-09-16": "+18495057778",
   "iss-pta-parents-night-out-2026-09-17": "+18495057778",
+  "hard-rock-catrinas-halloween-2026-10-31": "+18495057778",
   "natura-market-moto-2026-09-19": "+18492147010",
   "latinwok-ramen-party-2026-09-17": "+18092612020",
   "tasty-food-park-karaoke-wednesday": "+18092042939",

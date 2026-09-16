@@ -181,6 +181,11 @@ const FILE_TO_EVENT_ID = {
   "rio-sonador-cierre-del-verano-2026-09-20.jpg":
     "rio-sonador-cierre-del-verano-2026-09-20",
   "ambar-lounge-reggaeton-2026-09-17.jpg": "ambar-lounge-reggaeton-2026-09-17",
+  "ambar-lounge-miercoles-rooftop.jpg": "ambar-lounge-miercoles-rooftop",
+  "ambar-lounge-bandoleras-2026-09-18.jpg":
+    "ambar-lounge-bandoleras-2026-09-18",
+  "ambar-lounge-adrian-tineo-2026-09-19.jpg":
+    "ambar-lounge-adrian-tineo-2026-09-19",
   "cigar-town-karaoke-ladies-night-2026-09-19.jpg":
     "cigar-town-karaoke-ladies-night-2026-09-19",
   "cigar-town-martes-sensorial.jpg": "cigar-town-martes-sensorial",
