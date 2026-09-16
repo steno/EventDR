@@ -94,6 +94,11 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     phone: "+18495057778",
     venueSlug: "hard-rock-sosua",
   },
+  "natura-market-moto-2026-09-19": {
+    isFree: true,
+    phone: "+18492147010",
+    venueSlug: "playa-encuentro",
+  },
   "latinwok-ramen-party-2026-09-17": {
     isFree: true,
     phone: "+18092612020",

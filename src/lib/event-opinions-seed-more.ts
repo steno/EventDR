@@ -2484,4 +2484,23 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "IG https://www.instagram.com/p/Dc_emGfEVsC/ — collab @iss.pta × @hardrockcafepuertoplata; Thu 17 Sep 2026 6 PM Hard Rock Sosúa; Bingo / Poker Tournament from 6:30 PM / Dominoes; spots limited, signup link in @iss.pta bio. Carousel lists per-game fees (bingo cards, poker buy-in/re-buy); exact amounts not copied into seed — call for pricing.",
     updatedAt: "2026-09-16T12:00:00.000Z",
   },
+  {
+    eventId: "natura-market-moto-2026-09-19",
+    body: "Daytime artisan market on the Encuentro sand during MOTO week — not the hotel’s usual first-Sunday Natura Market, and not a Kite Beach contest day. Come for crafts and lunch, not the competition heat.",
+    localized: {
+      es: "Mercado artesanal de día en la arena de Encuentro durante la semana MOTO — no es el Natura Market del primer domingo en el hotel, ni un día de competencia en Kite Beach. Ven por crafts y almuerzo, no por el heat.",
+      fr: "Marché artisanal de jour sur le sable d’Encuentro pendant la semaine MOTO — pas le Natura Market du premier dimanche à l’hôtel, ni une journée de contest à Kite Beach. Venez pour crafts et déjeuner, pas pour le heat.",
+    },
+    priceFeel: "free",
+    priceNote:
+      "Free to stroll — pay stall-by-stall for goods and food; Natura Cabana +1 849-214-7010",
+    priceNoteLocalized: {
+      es: "Pasear es gratis — pagas puesto por puesto comida y productos; Natura Cabana +1 849-214-7010",
+      fr: "Promenade gratuite — vous payez stand par stand nourriture et produits ; Natura Cabana +1 849-214-7010",
+    },
+    attribution: "POP research · Natura Cabana × Master of the Ocean flyer",
+    researchNotes:
+      "Editor flyer + naturacabana.com/es/event/natura-market-in-cabarete-special/ + FB group post: Special Natura Market Master of the Ocean Edition, Sept 19–20 2026, 10:30 AM–3:00 PM at Playa Encuentro (user/FB). Site template still lists Natura Cabana hotel address for the regular market series; this edition is seeded at playa-encuentro per flyer/partner context. Phone +18492147010.",
+    updatedAt: "2026-09-16T12:00:00.000Z",
+  },
 ];

@@ -123,6 +123,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "hard-rock-rising-segunda-ronda-2026-09-16.jpg",
   "iss-pta-parents-night-out-2026-09-17":
     "iss-pta-parents-night-out-2026-09-17.jpg",
+  "natura-market-moto-2026-09-19": "natura-market-moto-2026-09-19.jpg",
   "lokuras-pop-percusion-latina-2026-09-20":
     "lokuras-pop-percusion-latina-2026-09-20.jpg",
   "nova-detras-de-la-mascara-2026-10-16":
@@ -445,6 +446,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "love-does-bocadillos-course-2026.jpg",
   "love-does-cocktails-solidarity-2026-09-04.jpg",
   "masters-surf-reunion-10-2026.png",
+  "natura-market-moto-2026-09-19.jpg",
   "petit-francois-friday-karaoke.jpg",
   "pop-cinemas-week-2026-08-20.jpg",
   "puerto-plata-poker-experience-2026.png",

@@ -2142,5 +2142,37 @@
       "Dominoes"
     ],
     "imageEmoji": "♠️"
+  },
+  {
+    "id": "natura-market-moto-2026-09-19",
+    "title": "Special Natura Market — Master of the Ocean Edition",
+    "description": "Special Natura Market (Master of the Ocean Edition) at Playa Encuentro, Cabarete — Saturday–Sunday 19–20 September 2026, 10:30 AM–3:00 PM. Art, local goods, food, and community stalls hosted with Natura Cabana during Master of the Ocean week. Free beachside stroll; shop and eat stall-by-stall. Info Natura Cabana +1 849-214-7010 · naturacabana.com.",
+    "date": "2026-09-19",
+    "endDate": "2026-09-20",
+    "time": "10:30 AM – 3:00 PM",
+    "location": "Cabarete",
+    "venue": "Playa Encuentro",
+    "venueSlug": "playa-encuentro",
+    "address": "Playa Encuentro, Cabarete",
+    "lat": 19.7834465,
+    "lng": -70.4516521,
+    "category": "festivals",
+    "categories": [
+      "food-drinks",
+      "culture"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "phone": "+18492147010",
+    "sourceType": "website",
+    "sourceUrl": "https://naturacabana.com/es/event/natura-market-in-cabarete-special/",
+    "lineup": [
+      "Art",
+      "Local goods",
+      "Food",
+      "Community"
+    ],
+    "imageEmoji": "🛍️"
   }
 ]

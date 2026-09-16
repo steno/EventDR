@@ -184,6 +184,7 @@ export const CURATED_FREE_EVENTS = new Set<string>([
   "costambar-beach-fitness",
   "el-colibri-karaoke-battle-2026",
   "feria-artesanal-verano-2026",
+  "natura-market-moto-2026-09-19",
   "imbert-mercedes-patronales-2026",
   "guananico-san-miguel-patronales-2026",
   // Restaurant / dining nights — free to enter; pay for what you order
