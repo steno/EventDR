@@ -1610,6 +1610,34 @@
     "imageEmoji": "🎸"
   },
   {
+    "id": "duo-maryem-rancho-catalina-2026-09-20",
+    "title": "Dúo Maryem en vivo en Rancho La Catalina",
+    "description": "Música en vivo con Dúo Maryem en Rancho La Catalina, El Cupey — domingo 20 de septiembre, 2:30 PM. Tarde de gastronomía y ambiente de rancho; sin cover.",
+    "date": "2026-09-20",
+    "time": "2:30 PM",
+    "location": "Puerto Plata",
+    "venue": "Rancho La Catalina",
+    "venueSlug": "rancho-catalina-puerto-plata",
+    "address": "El Cupey, Puerto Plata",
+    "lat": 19.7371866,
+    "lng": -70.7253286,
+    "category": "music",
+    "categories": [
+      "food-drinks",
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "phone": "+18097813737",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/p/DdUevS3TdVA/",
+    "lineup": [
+      "Dúo Maryem"
+    ],
+    "imageEmoji": "🎸"
+  },
+  {
     "id": "el-cuarteto-del-swing-zona-acapella-2026-09-13",
     "title": "El Cuarteto del Swing — Zona Acapella Club",
     "description": "Típico en vivo con El Cuarteto del Swing en Zona Acapella Club, Malecón de Puerto Plata (Cuarto de Milla) — domingo 13 de septiembre, 18+. Entrada y parqueo gratis. WhatsApp +1 829 726 0344 · @acapella.pop.",
@@ -1958,11 +1986,12 @@
   {
     "id": "rio-sonador-cierre-del-verano-2026-09-20",
     "title": "Cierre del Verano — El Rubio Acordeón & Nacho Estrella",
-    "description": "Cierre del Verano junto al río con El Rubio Acordeón y Nacho Estrella — domingo 20 de septiembre 2026 desde las 10:00 AM en la zona de Río Sonador / Yásica Arriba (punto exacto poco claro en el flyer; confirma antes de ir). Apertura Ronny Manuel; animación DJ Gordy y El Chivato; música DJ Chris. Área VIP con muebles; no entrada de bebidas. Info/reservas 829-463-9793. Promo vía @noticia_gurabocityrd.",
+    "description": "Cierre del Verano junto al río en Hacienda Doña Mariana (La Puntilla), Río Sonador — domingo 20 de septiembre 2026 desde las 10:00 AM. Cartel: El Rubio Acordeón y Nacho Estrella; apertura Ronny Manuel; animación DJ Gordy y El Chivato; música DJ Chris. Área VIP con muebles; no entrada de bebidas. Info/reservas 829-463-9793. Promo vía @noticia_gurabocityrd / @haciendadonamariana.",
     "date": "2026-09-20",
     "time": "10:00 AM",
     "location": "Sosúa",
-    "address": "Río Sonador area, Yásica Arriba (confirm meeting point)",
+    "venue": "Hacienda Doña Mariana",
+    "address": "La Puntilla – Hacienda Doña Mariana, Río Sonador (zona Yásica Arriba)",
     "lat": 19.5955,
     "lng": -70.5365,
     "category": "music",
@@ -1975,7 +2004,7 @@
     "callForPricing": true,
     "phone": "+18294639793",
     "sourceType": "instagram",
-    "sourceUrl": "https://www.instagram.com/noticia_gurabocityrd/",
+    "sourceUrl": "https://www.instagram.com/reel/DdHlhSphRAo/",
     "lineup": [
       "Ronny Manuel",
       "El Rubio Acordeón",
@@ -2145,8 +2174,8 @@
   },
   {
     "id": "ocean-world-terrace-singing-talent-2026-09-16",
-    "title": "Noche de talentos del canto en Ocean World Terrace",
-    "description": "Noche de talentos del canto en Ocean World Terrace, Calle Principal #3, Cofresí — miércoles 16 de septiembre 2026. El público presente escoge a los ganadores. Premios: 1er lugar RD$5,000; 2do certificado de pasadía Ocean World (válido para 2 personas); 3ro una caja de cerveza. Cupo limitado — confirma puertas y cover por Instagram @oceanworldterrace o WhatsApp +1 809-815-9682.",
+    "title": "Noche de karaoke — encuentro de talentos en Ocean World Terrace",
+    "description": "Un encuentro de talentos — noche de karaoke en Ocean World Terrace, Calle Principal #3, Cofresí — miércoles 16 de septiembre 2026. Confirma puertas y cover por Instagram @oceanworldterrace o llama al +1 809-291-2400.",
     "date": "2026-09-16",
     "location": "Puerto Plata",
     "venue": "Terraza Ocean World",
@@ -2162,7 +2191,7 @@
     "format": "physical",
     "trending": true,
     "callForPricing": true,
-    "phone": "+18098159682",
+    "phone": "+18092912400",
     "sourceType": "instagram",
     "sourceUrl": "https://www.instagram.com/oceanworldterrace/",
     "imageEmoji": "🎤"

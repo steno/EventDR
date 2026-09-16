@@ -218,6 +218,7 @@ export const CURATED_FREE_EVENTS = new Set<string>([
   "aura-beach-club-miercoles-margaritas",
   "dewry-luciano-zona-acapella-2026-08-23",
   "ernesto-betances-rancho-catalina-2026-09-13",
+  "duo-maryem-rancho-catalina-2026-09-20",
   "el-cuarteto-del-swing-zona-acapella-2026-09-13",
   "latinwok-ramen-party-2026-09-17",
   "cremo-karaoke-saturday",

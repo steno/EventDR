@@ -60,6 +60,11 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     phone: "+18097813737",
     venueSlug: "rancho-catalina-puerto-plata",
   },
+  "duo-maryem-rancho-catalina-2026-09-20": {
+    isFree: true,
+    phone: "+18097813737",
+    venueSlug: "rancho-catalina-puerto-plata",
+  },
   "el-cuarteto-del-swing-zona-acapella-2026-09-13": {
     isFree: true,
     phone: "+18297260344",

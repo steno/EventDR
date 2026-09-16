@@ -1806,6 +1806,28 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: "2026-09-10T15:00:00.000Z",
   },
   {
+    eventId: "duo-maryem-rancho-catalina-2026-09-20",
+    body: "Same Sunday ranch slot as Betances week — Dúo Maryem at 2:30 PM with no cover; book a table if you want lunch with the set, not standing room only.",
+    localized: {
+      es: "Misma franja dominical del rancho que la semana de Betances — Dúo Maryem a las 2:30 PM sin cover; reserva mesa si quieres almorzar con el set, no solo de pie.",
+      fr: "Même créneau dimanche au ranch que la semaine Betances — Dúo Maryem à 14 h 30 sans cover ; réservez une table pour déjeuner avec le set, pas juste debout.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "No cover — pay for ranch dining; Google 4.7 from 1,500+ reviews; +1 809-781-3737",
+    priceNoteLocalized: {
+      es: "Sin cover — pagas la comida del rancho; Google 4.7 de 1,500+ reseñas; +1 809-781-3737",
+      fr: "Pas de cover — vous payez le repas ranch ; Google 4,7 sur 1 500+ avis ; +1 809-781-3737",
+    },
+    attribution: "POP research · @rancholacatalina flyer + Google 4.7",
+    ratingCite: "Google 4.7",
+    googleRating: 4.7,
+    googleReviewCount: 1541,
+    researchNotes:
+      "IG Sep 15 2026 @rancholacatalina p/DdUevS3TdVA: Dúo Maryem Sep 20 2:30 PM no cover. Venue seed El Cupey.",
+    updatedAt: "2026-09-16T15:00:00.000Z",
+  },
+  {
     eventId: "el-cuarteto-del-swing-zona-acapella-2026-09-13",
     body: "18+ Malecón típico — free door like Dewry Luciano nights; no start time on the flyer, so arrive early and budget nightclub drinks.",
     localized: {
@@ -2232,21 +2254,22 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "rio-sonador-cierre-del-verano-2026-09-20",
-    body: "All-day riverside típico bill from 10 AM — skip if you need a pinned venue; call 829-463-9793 for the exact Yásica Arriba meeting point before you drive dirt roads.",
+    body: "Named host now: Hacienda Doña Mariana (La Puntilla) on Río Sonador from 10 AM — still call 829-463-9793 for dirt-road directions and cover before you commit the drive.",
     localized: {
-      es: "Jornada típica junto al río desde las 10 AM — sáltala si necesitas un venue clavado; llama al 829-463-9793 por el punto exacto en Yásica Arriba antes de tomar caminos de tierra.",
-      fr: "Journée típico au bord de la rivière dès 10 h — skip si vous avez besoin d’un lieu précis ; appelez le 829-463-9793 pour le point exact à Yásica Arriba avant les pistes.",
+      es: "Anfitrión ahora nombrado: Hacienda Doña Mariana (La Puntilla) en Río Sonador desde las 10 AM — igual llama al 829-463-9793 por direcciones de tierra y cover antes de comprometer el viaje.",
+      fr: "Hôte nommé maintenant : Hacienda Doña Mariana (La Puntilla) sur le Río Sonador dès 10 h — appelez quand même le 829-463-9793 pour les pistes et le cover avant de vous engager.",
     },
     priceFeel: "varies",
-    priceNote: "Price/meeting point not clear on the flyer — confirm 829-463-9793",
+    priceNote:
+      "Cover not on the reel — confirm 829-463-9793; VIP furniture / no outside drinks",
     priceNoteLocalized: {
-      es: "Precio/punto de encuentro poco claros en el flyer — confirma 829-463-9793",
-      fr: "Prix/point de rendez-vous flous sur l’affiche — confirmez 829-463-9793",
+      es: "Cover no está en el reel — confirma 829-463-9793; VIP con muebles / no bebidas de afuera",
+      fr: "Cover absent du reel — confirmez 829-463-9793 ; VIP meublé / pas de boissons externes",
     },
-    attribution: "POP research · @noticia_gurabocityrd",
+    attribution: "POP research · @noticia_gurabocityrd reel + flyer",
     researchNotes:
-      "Editor flyer + caption — Sun 20 Sep 2026 from 10 AM; El Rubio Acordeón + Nacho Estrella; Río Sonador / Yásica Arriba; NO venueSlug (meeting point unclear). VIP furniture; no outside drinks. Phone 829-463-9793.",
-    updatedAt: "2026-09-14T12:00:00.000Z",
+      "IG reel DdHlhSphRAo — Sun 20 Sep 2026 Hacienda Doña Mariana – La Puntilla, Río Sonador; @elrubioacordeonoficial @nachoestrella_ @ronnymanuelofficial; tagged @haciendadonamariana. Flyer still has 10 AM, DJs, VIP, phone 829-463-9793. Not Puerto Plata Anfiteatro La Puntilla.",
+    updatedAt: "2026-09-16T15:20:00.000Z",
   },
   {
     eventId: "ambar-lounge-reggaeton-2026-09-17",
@@ -2506,22 +2529,22 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "ocean-world-terrace-singing-talent-2026-09-16",
-    body: "Wed night singing contest on the Cofresí terrace — audience crowns the winners; limited seats beat showing up late. Cash RD$5,000 / day-pass for two / beer case — not the dolphin park ticket queue.",
+    body: "Cofresí terrace karaoke tonight — not the dolphin park ticket line; call +1 809-291-2400 or @oceanworldterrace before you treat it like a free open mic.",
     localized: {
-      es: "Concurso de canto el miércoles en la terraza de Cofresí — el público elige ganadores; el cupo limitado gana a llegar tarde. Premios RD$5,000 / pasadía para dos / caja de cerveza — no es la fila de delfines.",
-      fr: "Concours de chant le mercredi sur la terrasse de Cofresí — le public couronne les gagnants ; places limitées avant d’arriver tard. Prix RD$5 000 / journée pour deux / caisse de bière — pas la file des dauphins.",
+      es: "Karaoke esta noche en la terraza de Cofresí — no es la fila de delfines; llama al +1 809-291-2400 o @oceanworldterrace antes de tratarlo como open mic gratis.",
+      fr: "Karaoke ce soir sur la terrasse de Cofresí — pas la file des dauphins ; appelez le +1 809-291-2400 ou @oceanworldterrace avant d’y aller comme un open mic gratuit.",
     },
     priceFeel: "varies",
     priceNote:
-      "Cover/doors not published — confirm @oceanworldterrace / WhatsApp 809-815-9682; limited capacity",
+      "Cover/doors not on the flyer — confirm @oceanworldterrace / +1 809-291-2400",
     priceNoteLocalized: {
-      es: "Cover/puertas no publicados — confirma @oceanworldterrace / WhatsApp 809-815-9682; cupo limitado",
-      fr: "Cover/portes non publiés — confirmez @oceanworldterrace / WhatsApp 809-815-9682 ; places limitées",
+      es: "Cover/puertas no están en el flyer — confirma @oceanworldterrace / +1 809-291-2400",
+      fr: "Cover/portes absents de l’affiche — confirmez @oceanworldterrace / +1 809-291-2400",
     },
-    attribution: "POP research · Terraza Ocean World & Casino · @oceanworldterrace",
+    attribution: "POP research · Terraza Ocean World karaoke flyer · @oceanworldterrace",
     researchNotes:
-      "Editor-supplied terrace scene + Spanish listing — Wed 16 Sep 2026 singing talent night; audience vote; prizes RD$5,000 / Ocean World day pass for 2 / beer case; limited capacity; venue slug ocean-world; no clock time or cover on source.",
-    updatedAt: "2026-09-15T12:00:00.000Z",
+      "Editor-supplied karaoke flyer — Wed 16 Sep 2026 Un encuentro de talentos / Noche de Karaoke; Calle Principal #3 Cofresí; info 809.291.2400; venue slug ocean-world; no cover/time on art.",
+    updatedAt: "2026-09-16T15:00:00.000Z",
   },
   {
     eventId: "iss-pta-parents-night-out-2026-09-17",
