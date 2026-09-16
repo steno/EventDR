@@ -19,22 +19,26 @@ export function useHorizontalScrollHints(
   gapPx = 12,
 ) {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
 
   const sync = useCallback(() => {
     const el = scrollRef.current;
     if (!el || itemCount === 0) {
+      setCanScrollLeft(false);
       setCanScrollRight(false);
       return;
     }
     const maxScroll = el.scrollWidth - el.clientWidth;
     if (maxScroll <= EDGE_PX) {
+      setCanScrollLeft(false);
       setCanScrollRight(false);
       setActiveIndex(0);
       return;
     }
 
     const left = el.scrollLeft;
+    setCanScrollLeft(left > EDGE_PX);
     setCanScrollRight(left < maxScroll - EDGE_PX);
 
     const slide = el.querySelector<HTMLElement>(slideSelector);
@@ -74,6 +78,7 @@ export function useHorizontalScrollHints(
 
   return {
     activeIndex,
+    canScrollLeft,
     canScrollRight,
     onScroll: sync,
     scrollToIndex,

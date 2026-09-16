@@ -2,7 +2,7 @@
 
 import { memo, useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import { ChevronRight, CircleAlert, Calendar, Clock } from "lucide-react";
+import { ChevronLeft, ChevronRight, CircleAlert, Calendar, Clock } from "lucide-react";
 import { EventImage } from "@/components/EventImage";
 import { EventCardPlaceholder } from "@/components/EventCardPlaceholder";
 import { EventStatusBadge } from "@/components/EventStatusBadge";
@@ -76,6 +76,12 @@ interface TodayHighlightsProps {
    * usual multi-column grid (`sm:contents` unwraps each pair).
    */
   mobilePairSlides?: boolean;
+  /**
+   * Mobile story rail (36:49 — ~1/4 shorter than 9:16) — used for Today's
+   * specials so every area home gets the same tall flyer cards (not landscape
+   * 16:10 when count ≠ 2).
+   */
+  storyCards?: boolean;
 }
 
 function TodayHighlightCard({
@@ -103,8 +109,8 @@ function TodayHighlightCard({
   note?: string;
   listTimeRange?: TimeRange;
   showDate?: boolean;
-  /** Pair = 2-up row; grid = 3-up tile. */
-  layout?: "pair" | "grid";
+  /** Pair = 2-up row; story = 36:49 specials; grid = 3-up tile. */
+  layout?: "pair" | "story" | "grid";
 }) {
   const href = eventDetailPath(locale, event.id);
   const liveDisplay = useLiveStatusDisplay(event, dict, {
@@ -133,7 +139,9 @@ function TodayHighlightCard({
   const imageSizes =
     layout === "pair"
       ? "(max-width: 640px) 44vw, 50vw"
-      : "(max-width: 640px) 88vw, (max-width: 1024px) 50vw, 33vw";
+      : layout === "story"
+        ? "(max-width: 640px) 72vw, (max-width: 1024px) 50vw, 33vw"
+        : "(max-width: 640px) 88vw, (max-width: 1024px) 50vw, 33vw";
   const titleClass =
     layout === "pair"
       ? "line-clamp-2 font-sans text-base font-extrabold leading-snug tracking-[0.01em] text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.55)] sm:text-2xl"
@@ -143,7 +151,17 @@ function TodayHighlightCard({
       ? "inline-flex min-w-0 max-w-full flex-wrap items-center gap-x-1.5 gap-y-0.5 text-xs font-medium text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.45)] sm:gap-x-2 sm:gap-y-1 sm:text-base"
       : "inline-flex min-w-0 max-w-full flex-wrap items-center gap-x-2 gap-y-1 text-sm font-medium text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.45)] sm:text-base";
   const overlayPad =
-    layout === "pair" ? "gap-1 p-2.5 sm:gap-1.5 sm:p-5" : "gap-1.5 p-4 sm:p-5";
+    layout === "pair"
+      ? "gap-1 p-2.5 sm:gap-1.5 sm:p-5"
+      : layout === "story"
+        ? "gap-1.5 p-3.5 sm:p-5"
+        : "gap-1.5 p-4 sm:p-5";
+  const mediaAspectClass =
+    layout === "pair"
+      ? "aspect-[4/5] sm:aspect-[3/2]"
+      : layout === "story"
+        ? "aspect-[36/49] sm:aspect-[3/2]"
+        : "aspect-[16/10] sm:aspect-[3/2]";
 
   return (
     <article
@@ -162,9 +180,7 @@ function TodayHighlightCard({
           onNavigate();
           rememberReturnPath(returnTo ?? `/${locale}`, returnTitle);
         }}
-        className={`relative block w-full overflow-hidden touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 rounded-2xl sm:aspect-[3/2] ${
-          layout === "pair" ? "aspect-[4/5]" : "aspect-[16/10]"
-        }`}
+        className={`relative block w-full overflow-hidden touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 rounded-2xl ${mediaAspectClass}`}
         aria-label={event.title}
       >
         {event.imageUrl ? (
@@ -275,6 +291,7 @@ const TodayHighlightsComponent = ({
   showDate = false,
   featurePromo = false,
   mobilePairSlides = false,
+  storyCards = false,
 }: TodayHighlightsProps) => {
   const router = useRouter();
   const railRef = useRef<HTMLDivElement>(null);
@@ -289,7 +306,8 @@ const TodayHighlightsComponent = ({
   const visibleEvents = todayEvents.slice(0, limit);
   const count = visibleEvents.length;
   const showFeaturePromo = count === 1 && featurePromo;
-  const usePairSlides = mobilePairSlides && !showFeaturePromo && count >= 2;
+  const usePairSlides =
+    !storyCards && mobilePairSlides && !showFeaturePromo && count >= 2;
   const pairSlides = useMemo(
     () => (usePairSlides ? chunkPairs(visibleEvents) : null),
     [usePairSlides, visibleEvents],
@@ -298,23 +316,47 @@ const TodayHighlightsComponent = ({
   const allTodayHref = seeAllHref ?? `/${locale}/when/today`;
   const sectionLabel = title ?? dict.events.happeningToday;
   // Lone special + promo: 2-up on sm, 1 + span-2 on lg so the ad fills the row.
+  // Story specials with ≤3 cards: exact columns so we never leave an empty cell.
   const gridColsClass = showFeaturePromo
     ? "sm:grid-cols-2 lg:grid-cols-3"
-    : count <= 1
-      ? "sm:grid-cols-2 lg:grid-cols-3"
-      : count === 2
+    : storyCards && count === 1
+      ? "sm:grid-cols-1"
+      : storyCards && count === 2
         ? "sm:grid-cols-2"
-        : "sm:grid-cols-2 lg:grid-cols-3";
-  const cardLayout =
-    usePairSlides || (!showFeaturePromo && count === 2) ? "pair" : "grid";
+        : storyCards && count === 3
+          ? "sm:grid-cols-3"
+          : count <= 1
+            ? "sm:grid-cols-2 lg:grid-cols-3"
+            : count === 2
+              ? "sm:grid-cols-2"
+              : "sm:grid-cols-2 lg:grid-cols-3";
+  const cardLayout: "pair" | "story" | "grid" = storyCards
+    ? "story"
+    : usePairSlides || (!showFeaturePromo && count === 2)
+      ? "pair"
+      : "grid";
+  /**
+   * Story specials with 4+: keep a single row (max 3 visible) and scroll —
+   * wrapping leaves an empty second row on desktop.
+   */
+  const desktopScrollRail = storyCards && !showFeaturePromo && count > 3;
+  /** Story specials: ~72% width so 36:49 stays readable with a next-card peek. */
+  const peekClass = storyCards
+    ? desktopScrollRail
+      ? "w-[72%] sm:w-[calc((100%-0.75rem)/2)] lg:w-[calc((100%-1.5rem)/3)]"
+      : "w-[72%]"
+    : SNAP_RAIL_PEEK_CLASS;
   const railItemCount = showFeaturePromo
     ? 2
     : pairSlides
       ? pairSlides.length
       : count;
   const {
+    activeIndex,
+    canScrollLeft,
     canScrollRight,
     onScroll: onRailScroll,
+    scrollToIndex,
   } = useHorizontalScrollHints(railRef, railItemCount);
 
   const highlightHrefs = useMemo(
@@ -329,6 +371,9 @@ const TodayHighlightsComponent = ({
   }, [highlightHrefs, router]);
 
   if (count === 0 && alerts.length === 0) return null;
+
+  const showScrollArrows =
+    desktopScrollRail && (canScrollLeft || canScrollRight);
 
   return (
     <section className="mb-6">
@@ -354,15 +399,41 @@ const TodayHighlightsComponent = ({
             </button>
           )}
         </div>
-        {hasMore && !hideSeeAll && (
-          <IntentLink
-            href={allTodayHref}
-            className="inline-flex items-center gap-0.5 rounded-full bg-orange-50 dark:bg-orange-950/50 px-2.5 py-1 text-sm font-bold text-orange-600 hover:bg-orange-100 dark:hover:bg-orange-950/70 transition-colors touch-manipulation"
-          >
-            {seeAllLabel ?? dict.events.seeAllToday}
-            <ChevronRight className="h-3.5 w-3.5" aria-hidden />
-          </IntentLink>
-        )}
+        <div className="flex shrink-0 items-center gap-2">
+          {showScrollArrows ? (
+            <div className="hidden items-center gap-1 sm:flex">
+              <button
+                type="button"
+                onClick={() => scrollToIndex(Math.max(activeIndex - 1, 0))}
+                disabled={!canScrollLeft}
+                aria-label={dict.events.scrollSpecialsPrev}
+                className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-neutral-100 text-neutral-700 ring-1 ring-black/5 transition-colors touch-manipulation hover:bg-orange-50 hover:text-orange-600 disabled:pointer-events-none disabled:opacity-35 dark:bg-neutral-900 dark:text-neutral-200 dark:ring-white/10 dark:hover:bg-orange-950/50 dark:hover:text-orange-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
+              >
+                <ChevronLeft className="h-4 w-4" aria-hidden />
+              </button>
+              <button
+                type="button"
+                onClick={() =>
+                  scrollToIndex(Math.min(activeIndex + 1, railItemCount - 1))
+                }
+                disabled={!canScrollRight}
+                aria-label={dict.events.scrollSpecialsNext}
+                className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-neutral-100 text-neutral-700 ring-1 ring-black/5 transition-colors touch-manipulation hover:bg-orange-50 hover:text-orange-600 disabled:pointer-events-none disabled:opacity-35 dark:bg-neutral-900 dark:text-neutral-200 dark:ring-white/10 dark:hover:bg-orange-950/50 dark:hover:text-orange-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
+              >
+                <ChevronRight className="h-4 w-4" aria-hidden />
+              </button>
+            </div>
+          ) : null}
+          {hasMore && !hideSeeAll && (
+            <IntentLink
+              href={allTodayHref}
+              className="inline-flex items-center gap-0.5 rounded-full bg-orange-50 dark:bg-orange-950/50 px-2.5 py-1 text-sm font-bold text-orange-600 hover:bg-orange-100 dark:hover:bg-orange-950/70 transition-colors touch-manipulation"
+            >
+              {seeAllLabel ?? dict.events.seeAllToday}
+              <ChevronRight className="h-3.5 w-3.5" aria-hidden />
+            </IntentLink>
+          )}
+        </div>
       </div>
 
       {count > 0 && (
@@ -370,7 +441,11 @@ const TodayHighlightsComponent = ({
           <div
             ref={railRef}
             onScroll={onRailScroll}
-            className={`flex snap-x snap-mandatory gap-3 overflow-x-auto pb-0.5 scrollbar-hide sm:grid sm:items-stretch sm:gap-3 sm:overflow-visible sm:pb-0 sm:snap-none ${gridColsClass}`}
+            className={
+              desktopScrollRail
+                ? "flex snap-x snap-mandatory gap-3 overflow-x-auto pb-0.5 scrollbar-hide"
+                : `flex snap-x snap-mandatory gap-3 overflow-x-auto pb-0.5 scrollbar-hide sm:grid sm:items-stretch sm:gap-3 sm:overflow-visible sm:pb-0 sm:snap-none ${gridColsClass}`
+            }
             aria-label={sectionLabel}
           >
             {pairSlides
@@ -378,7 +453,7 @@ const TodayHighlightsComponent = ({
                   <div
                     key={pair.map((event) => event.id).join(":")}
                     data-snap-slide
-                    className={`${SNAP_RAIL_PEEK_CLASS} grid shrink-0 snap-start grid-cols-2 gap-2 sm:contents`}
+                    className={`${peekClass} grid shrink-0 snap-start grid-cols-2 gap-2 sm:contents`}
                   >
                     {pair.map((event) => (
                       <div
@@ -412,9 +487,11 @@ const TodayHighlightsComponent = ({
                     key={event.id}
                     data-snap-slide
                     className={
-                      count === 1 && !showFeaturePromo
+                      count === 1 && !showFeaturePromo && !storyCards
                         ? "w-full shrink-0 snap-start sm:w-auto sm:min-w-0 sm:shrink"
-                        : `${SNAP_RAIL_PEEK_CLASS} shrink-0 snap-start sm:w-auto sm:min-w-0 sm:shrink`
+                        : desktopScrollRail
+                          ? `${peekClass} shrink-0 snap-start`
+                          : `${peekClass} shrink-0 snap-start sm:w-auto sm:min-w-0 sm:shrink`
                     }
                   >
                     <TodayHighlightCard
@@ -436,7 +513,7 @@ const TodayHighlightsComponent = ({
             {showFeaturePromo ? (
               <div
                 data-snap-slide
-                className={`${SNAP_RAIL_PEEK_CLASS} shrink-0 snap-start sm:col-span-1 sm:w-auto sm:min-w-0 sm:shrink lg:col-span-2`}
+                className={`${peekClass} shrink-0 snap-start sm:col-span-1 sm:w-auto sm:min-w-0 sm:shrink lg:col-span-2`}
               >
                 <EventCardPlaceholder
                   title={dict.events.featureSpecialTitle}
@@ -447,7 +524,7 @@ const TodayHighlightsComponent = ({
               </div>
             ) : null}
           </div>
-          <div className="sm:hidden">
+          <div className={desktopScrollRail ? undefined : "sm:hidden"}>
             <HorizontalScrollEdgeFades canScrollRight={canScrollRight} />
           </div>
         </div>

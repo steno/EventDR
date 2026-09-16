@@ -36,7 +36,7 @@ export function EventCardSkeleton({
       aria-hidden="true"
     >
       <div className="flex gap-3">
-        <div className="h-14 w-14 flex-shrink-0 rounded-xl bg-neutral-200 dark:bg-neutral-800" />
+        <div className="h-28 w-28 flex-shrink-0 rounded-xl bg-neutral-200 dark:bg-neutral-800" />
 
         <div className="min-w-0 flex-1">
           <div className="mb-1 h-4 w-3/4 rounded bg-neutral-200 dark:bg-neutral-800" />

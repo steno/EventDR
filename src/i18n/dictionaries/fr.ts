@@ -115,6 +115,8 @@ export const fr: Dictionary = {
     seeAllToday: "Tout voir aujourd'hui",
     seeAllSpecials: "Voir tous les spéciaux",
     todaysSpecials: "Spéciaux du jour",
+    scrollSpecialsPrev: "Spéciaux précédents",
+    scrollSpecialsNext: "Spéciaux suivants",
     thisWeekend: "Ce week-end",
     seeAllWeekend: "Tout voir ce week-end",
     recentlyAdded: "Ajoutés récemment",

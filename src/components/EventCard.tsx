@@ -218,10 +218,10 @@ const EventCardComponent = ({
           event={event}
           emoji={emoji}
           gradient={category?.gradient ?? "from-neutral-200 to-neutral-300"}
-          sizes="56px"
+          sizes="112px"
           imageClassName="object-cover"
-          frameClassName="flex-shrink-0 self-start h-14 w-14 rounded-xl shadow-sm"
-          emojiClassName="text-2xl"
+          frameClassName="flex-shrink-0 self-start h-28 w-28 rounded-xl shadow-sm"
+          emojiClassName="text-4xl"
         />
 
         <div className="flex-1 min-w-0">

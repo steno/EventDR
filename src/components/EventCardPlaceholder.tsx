@@ -14,7 +14,7 @@ export const LIST_SCROLL_PAD_TARGET = 3;
 
 /** Approximate card/list row heights for silent scroll padding. */
 const CARD_SLOT_MIN_HEIGHT = "14rem";
-const LIST_SLOT_MIN_HEIGHT = "4.75rem";
+const LIST_SLOT_MIN_HEIGHT = "8.5rem";
 
 /** Span leftover last-row columns, or the full next row. */
 export type GridFillSpan = number | "full";

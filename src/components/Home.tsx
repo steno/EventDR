@@ -720,6 +720,7 @@ function HomeApp({
                   listTimeRange="today"
                   returnTo={homePath}
                   featurePromo
+                  storyCards
                 />
               )}
 
