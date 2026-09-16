@@ -149,7 +149,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "cisco-vengo-social-heartz-aura-2026-09-25":
     "cisco-vengo-social-heartz-aura-2026-09-25.jpg",
   "ocean-world-terrace-singing-talent-2026-09-16":
-    "ocean-world-terrace-singing-talent-cast.jpg",
+    "ocean-world-terrace-singing-talent-2026-09-16.jpg",
   "drifter-sunset-into-the-night": "drifter-sunset-into-the-night.jpg",
   "sosua-jewish-museum-hours": "sosua-jewish-museum-hours.jpg",
   "sosua-diving-adventures-daily": "sosua-diving-adventures-daily.jpg",
@@ -434,7 +434,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "luna-lounge-noche-de-exitos-2026-09-19.jpg",
   "ivan-garcia-clases-actuacion-ninos-2026.jpg",
   "ocean-world-terrace-la-fiera-tipica-2026-09-18.jpg",
-  "ocean-world-terrace-singing-talent-cast.jpg",
+  "ocean-world-terrace-singing-talent-2026-09-16.jpg",
   "rio-sonador-cierre-del-verano-2026-09-20.jpg",
   "ambar-lounge-reggaeton-2026-09-17.jpg",
   "cigar-town-karaoke-ladies-night-2026-09-19.jpg",

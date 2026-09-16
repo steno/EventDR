@@ -191,7 +191,7 @@ const FILE_TO_EVENT_ID = {
   "aura-latin-flow-dance-wednesday.jpg": "aura-latin-flow-dance-wednesday",
   "cisco-vengo-social-heartz-aura-2026-09-25.jpg":
     "cisco-vengo-social-heartz-aura-2026-09-25",
-  "ocean-world-terrace-singing-talent-cast.jpg":
+  "ocean-world-terrace-singing-talent-2026-09-16.jpg":
     "ocean-world-terrace-singing-talent-2026-09-16",
   "cigar-town-acustico-humos-2026-08-14.jpg":
     "cigar-town-acustico-humos-2026-08-14",
