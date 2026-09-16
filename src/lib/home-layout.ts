@@ -9,7 +9,7 @@ import {
   isEventActiveToday,
   isRecurringEvent,
 } from "@/lib/event-status";
-import type { TimeRange } from "@/lib/filters";
+import { filterByTimeRange, type TimeRange } from "@/lib/filters";
 import { isHomeHeroBackgroundSuitable } from "@/lib/event-images";
 import { findActiveSpecialEvent } from "@/lib/special-events";
 
@@ -21,6 +21,9 @@ export const HOME_TODAY_LIMIT = 6;
 
 /** Max cards in the home "Today's specials" section (dated one-offs starting today). */
 export const HOME_SPECIALS_LIMIT = 6;
+
+/** Max cards in the home "This weekend" section (mobile 2-up slides). */
+export const HOME_WEEKEND_LIMIT = 6;
 
 /** Max cards in the home "Recently added" section. */
 export const HOME_NEW_LIMIT = 6;
@@ -400,6 +403,51 @@ export interface ComingUpHighlightOptions extends TodayHighlightOptions {
   horizonDays?: number;
 }
 
+export interface WeekendHighlightOptions extends TodayHighlightOptions {
+  /** Skip events already featured in today’s carousels. */
+  excludeIds?: readonly string[];
+  /** Visible grid / slide cap (default {@link HOME_WEEKEND_LIMIT}). */
+  limit?: number;
+}
+
+/**
+ * Fri–Sun (and Sat–Sun midweek) one-offs for home “This weekend”.
+ * Recurring weekly/weekend/daily series stay in Happening today / lists —
+ * this rail is dated specials only. Pass today’s carousel ids via
+ * `excludeIds` to avoid repeats.
+ */
+export function getWeekendHighlightEvents(
+  events: Event[],
+  options: WeekendHighlightOptions = {},
+): Event[] {
+  const now = options.now ?? new Date();
+  const exclude = new Set(options.excludeIds ?? []);
+  const limit = options.limit ?? HOME_WEEKEND_LIMIT;
+
+  const matched = filterByTimeRange(events, "weekend", now).filter(
+    (event) =>
+      !exclude.has(event.id) &&
+      !event.temporarilyClosed &&
+      !isRecurringEvent(event),
+  );
+  if (matched.length === 0) return [];
+
+  const sorted = sortEventsForDisplay(matched, {
+    oneTimeFirst: true,
+    now,
+  });
+  const rotated = shuffleHighlightPeers(
+    sorted,
+    resolveHighlightShuffleSeed(now, options.shuffleSeed, "weekend-highlights"),
+    now,
+  );
+  const spotlighted = pinTodayOneOffs(rotated, now);
+  const carouselHead = pickDiverseCarouselHead(spotlighted, limit);
+  const headIds = new Set(carouselHead.map((e) => e.id));
+  const tail = spotlighted.filter((e) => !headIds.has(e.id));
+  return [...carouselHead, ...tail];
+}
+
 /**
  * Future one-offs / multi-day fixtures for home “Coming up” — no recurring
  * evergreens. Soonest start date first (then title).
@@ -600,6 +648,8 @@ export interface HomeDiscoverLayout {
   specialEvents: Event[];
   /** Today highlights already sorted (full list, not sliced). */
   todayEvents: Event[];
+  /** Weekend highlights (Fri–Sun), excluding today’s visible carousels. */
+  weekendEvents: Event[];
   /** Recently added highlights (by `createdAt`, newest first). */
   newEvents: Event[];
   /** Future one-offs / multi-day fixtures (soonest first). */
@@ -611,8 +661,8 @@ export interface HomeDiscoverLayout {
 }
 
 /**
- * One filter+sort pass for home hero, today’s specials, today, recently added,
- * coming up, and picks.
+ * One filter+sort pass for home hero, today’s specials, today, weekend,
+ * recently added, coming up, and picks.
  */
 export function getHomeDiscoverLayout(
   events: Event[],
@@ -623,6 +673,7 @@ export function getHomeDiscoverLayout(
       heroEvent: null,
       specialEvents: [],
       todayEvents: [],
+      weekendEvents: [],
       newEvents: [],
       comingUpEvents: [],
       picksExcludeIds: EMPTY_EVENT_IDS,
@@ -637,9 +688,20 @@ export function getHomeDiscoverLayout(
   });
   const heroEvent = pickHomeHeroBackgroundEvent(events, options);
 
+  const todayVisibleIds = [
+    ...specialEvents.slice(0, HOME_SPECIALS_LIMIT).map((e) => e.id),
+    ...todayEvents.slice(0, HOME_TODAY_LIMIT).map((e) => e.id),
+  ];
+
+  const weekendEvents = getWeekendHighlightEvents(events, {
+    ...options,
+    excludeIds: todayVisibleIds,
+  });
+
   const picksExcludeIds = [
     ...specialEvents.slice(0, HOME_SPECIALS_LIMIT),
     ...todayEvents.slice(0, HOME_TODAY_LIMIT),
+    ...weekendEvents.slice(0, HOME_WEEKEND_LIMIT),
   ]
     .filter((e) => {
       const status = getEventLiveStatus(e, options.now);
@@ -647,11 +709,11 @@ export function getHomeDiscoverLayout(
     })
     .map((e) => e.id);
 
-  // Coming up owns future one-offs; skip today’s visible carousels.
+  // Coming up owns future one-offs; skip today’s + weekend visible carousels.
   // Atmospheric hero BG is day-random and must not hide that listing elsewhere.
   const comingUpExclude = new Set<string>([
-    ...specialEvents.slice(0, HOME_SPECIALS_LIMIT).map((e) => e.id),
-    ...todayEvents.slice(0, HOME_TODAY_LIMIT).map((e) => e.id),
+    ...todayVisibleIds,
+    ...weekendEvents.slice(0, HOME_WEEKEND_LIMIT).map((e) => e.id),
   ]);
 
   const comingUpEvents = getComingUpHighlightEvents(events, {
@@ -675,6 +737,7 @@ export function getHomeDiscoverLayout(
     heroEvent,
     specialEvents,
     todayEvents,
+    weekendEvents,
     newEvents,
     comingUpEvents,
     picksExcludeIds,

@@ -102,6 +102,10 @@ export type Dictionary = {
     seeAllSpecials: string;
     /** Home section: dated one-offs that start today (hidden when empty). */
     todaysSpecials: string;
+    /** Home section: Fri–Sun highlights after Happening today. */
+    thisWeekend: string;
+    /** Home “This weekend” see-all when more than the visible slides. */
+    seeAllWeekend: string;
     /** Home section: recently added listings. */
     recentlyAdded: string;
     /** Home section: future one-offs / concerts ahead. */
@@ -725,6 +729,8 @@ export const en: Dictionary = {
     seeAllToday: "See all today",
     seeAllSpecials: "See all specials",
     todaysSpecials: "Today's specials",
+    thisWeekend: "This weekend",
+    seeAllWeekend: "See all weekend",
     recentlyAdded: "Recently added",
     comingUp: "On the horizon",
     viewAllEvents: "View all events",

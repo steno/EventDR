@@ -38,6 +38,7 @@ import {
   getHomeDiscoverLayout,
   HOME_SEARCH_LIMIT,
   HOME_SPECIALS_LIMIT,
+  HOME_WEEKEND_LIMIT,
 } from "@/lib/home-layout";
 import { searchVenues } from "@/lib/filters";
 import { PAGE_SHELL_CLASS } from "@/lib/page-shell";
@@ -428,6 +429,9 @@ function HomeApp({
   const seeAllTodayHref = selectedCity
     ? `/${locale}/city/${selectedCity}`
     : `/${locale}/when/today`;
+  const seeAllWeekendHref = selectedCity
+    ? `/${locale}/city/${selectedCity}?when=weekend`
+    : `/${locale}/when/weekend`;
 
   const heroPlaceName = (() => {
     if (cruisePort) {
@@ -734,6 +738,23 @@ function HomeApp({
 
               {!isSearching && !cruisePort && (
                 <TodayHighlights
+                  events={discoverLayout.weekendEvents}
+                  locale={locale}
+                  dict={dict}
+                  prefiltered
+                  title={dict.events.thisWeekend}
+                  limit={HOME_WEEKEND_LIMIT}
+                  seeAllHref={seeAllWeekendHref}
+                  seeAllLabel={dict.events.seeAllWeekend}
+                  listTimeRange="weekend"
+                  showDate
+                  mobilePairSlides
+                  returnTo={homePath}
+                />
+              )}
+
+              {!isSearching && !cruisePort && (
+                <TodayHighlights
                   events={discoverLayout.comingUpEvents}
                   locale={locale}
                   dict={dict}
@@ -756,6 +777,7 @@ function HomeApp({
                   hideSeeAll
                   listTimeRange="all"
                   showDate
+                  mobilePairSlides
                   returnTo={homePath}
                 />
               )}

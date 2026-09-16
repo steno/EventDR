@@ -5,14 +5,19 @@ import {
   getHomeDiscoverLayout,
   getNewHighlightEvents,
   getTodayHighlightEvents,
+  getWeekendHighlightEvents,
   HOME_NEW_LIMIT,
   HOME_TODAY_LIMIT,
+  HOME_WEEKEND_LIMIT,
   seededShuffle,
 } from "./home-layout";
 import type { Event } from "./types";
 
 /** Tuesday Aug 25, 2026 14:00 America/Santo_Domingo (UTC−4). */
 const AFTERNOON = new Date("2026-08-25T18:00:00.000Z");
+
+/** Friday Sep 11, 2026 15:00 AST (UTC−4). */
+const FRIDAY = new Date("2026-09-11T19:00:00.000Z");
 
 function event(
   partial: Partial<Event> & Pick<Event, "id" | "title" | "date" | "time">,
@@ -374,6 +379,147 @@ describe("getTodayHighlightEvents peer shuffle", () => {
     }).map((e) => e.id);
 
     assert.equal(ids[0], "tonight-play");
+  });
+});
+
+describe("getWeekendHighlightEvents", () => {
+  it("keeps Fri–Sun one-offs only — skips recurring weekend series", () => {
+    const fridayShow = event({
+      id: "friday-show",
+      title: "Friday Show",
+      date: "2026-09-11",
+      time: "9:00 PM",
+      venueSlug: "venue-a",
+    });
+    const saturdayMarket = event({
+      id: "saturday-market",
+      title: "Saturday Market",
+      date: "2026-09-12",
+      time: "9:00 AM",
+      venueSlug: "venue-b",
+    });
+    const tuesdayOnly = event({
+      id: "tuesday-karaoke",
+      title: "Tuesday Karaoke",
+      date: "2026-09-08",
+      time: "8:00 PM",
+      recurrence: "weekly",
+      recurrenceDay: 2,
+      venueSlug: "venue-c",
+    });
+    const weekendNights = event({
+      id: "weekend-dj",
+      title: "Weekend DJ",
+      date: "2026-09-12",
+      time: "10:00 PM",
+      recurrence: "weekends",
+      venueSlug: "venue-d",
+    });
+    const weeklyFriday = event({
+      id: "lax-reggae-friday",
+      title: "Reggae Friday",
+      date: "2026-09-11",
+      time: "6:00 PM",
+      recurrence: "weekly",
+      recurrenceDay: 5,
+      venueSlug: "lax-cabarete",
+    });
+
+    const ids = getWeekendHighlightEvents(
+      [tuesdayOnly, weekendNights, saturdayMarket, fridayShow, weeklyFriday],
+      { now: FRIDAY, shuffleSeed: "weekend-basic" },
+    ).map((e) => e.id);
+
+    assert.ok(ids.includes("friday-show"));
+    assert.ok(ids.includes("saturday-market"));
+    assert.ok(!ids.includes("weekend-dj"));
+    assert.ok(!ids.includes("lax-reggae-friday"));
+    assert.ok(!ids.includes("tuesday-karaoke"));
+  });
+
+  it("honors excludeIds so today’s carousel is not repeated", () => {
+    const fridayShow = event({
+      id: "friday-show",
+      title: "Friday Show",
+      date: "2026-09-11",
+      time: "9:00 PM",
+      venueSlug: "venue-a",
+    });
+    const saturdayMarket = event({
+      id: "saturday-market",
+      title: "Saturday Market",
+      date: "2026-09-12",
+      time: "9:00 AM",
+      venueSlug: "venue-b",
+    });
+
+    const ids = getWeekendHighlightEvents([fridayShow, saturdayMarket], {
+      now: FRIDAY,
+      excludeIds: ["friday-show"],
+      shuffleSeed: "weekend-exclude",
+    }).map((e) => e.id);
+
+    assert.deepEqual(ids, ["saturday-market"]);
+  });
+});
+
+describe("getHomeDiscoverLayout weekend rail", () => {
+  it("places weekend after today and skips today’s visible ids", () => {
+    const fridayNight = event({
+      id: "lax-reggae-friday",
+      title: "Reggae Friday",
+      date: "2026-09-11",
+      time: "6:00 PM – 10:00 PM",
+      recurrence: "weekly",
+      recurrenceDay: 5,
+      venueSlug: "lax-cabarete",
+      imageUrl: "/events/lax.jpg",
+    });
+    const saturdayConcert = event({
+      id: "saturday-concert",
+      title: "Saturday Concert",
+      date: "2026-09-12",
+      time: "8:00 PM",
+      category: "concert",
+      venueSlug: "anfiteatro-la-puntilla",
+      imageUrl: "/events/concert.jpg",
+    });
+    const laterFest = event({
+      id: "later-fest",
+      title: "Later Fest",
+      date: "2026-09-20",
+      time: "4:00 PM",
+      category: "festivals",
+      venueSlug: "venue-fest",
+    });
+
+    const layout = getHomeDiscoverLayout(
+      [laterFest, saturdayConcert, fridayNight],
+      { now: FRIDAY, shuffleSeed: "layout-weekend" },
+    );
+
+    assert.ok(
+      layout.todayEvents.some((e) => e.id === "lax-reggae-friday"),
+      "Friday series belongs in Happening today",
+    );
+    assert.ok(
+      !layout.weekendEvents
+        .slice(0, HOME_WEEKEND_LIMIT)
+        .some((e) => e.id === "lax-reggae-friday"),
+      "today’s visible Friday night should not repeat in This weekend",
+    );
+    assert.ok(
+      layout.weekendEvents.some((e) => e.id === "saturday-concert"),
+      "Saturday should surface in This weekend",
+    );
+    assert.ok(
+      !layout.comingUpEvents.some((e) => e.id === "saturday-concert"),
+      "weekend head should not also lead Coming up",
+    );
+    assert.ok(
+      layout.comingUpEvents.some((e) => e.id === "later-fest"),
+      "further-out one-offs stay in Coming up",
+    );
   });
 });
 

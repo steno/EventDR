@@ -30,6 +30,14 @@ import {
 import { getEventCardObjectPosition } from "@/lib/event-images";
 import { SECTION_TITLE_CLASS } from "@/lib/page-shell";
 
+function chunkPairs<T>(items: T[]): T[][] {
+  const slides: T[][] = [];
+  for (let i = 0; i < items.length; i += 2) {
+    slides.push(items.slice(i, i + 2));
+  }
+  return slides;
+}
+
 interface TodayHighlightsProps {
   events: Event[];
   locale: Locale;
@@ -63,6 +71,11 @@ interface TodayHighlightsProps {
    * “feature your event” promo (mailto for pricing) — used on Today's specials.
    */
   featurePromo?: boolean;
+  /**
+   * Mobile snap rail: two cards side-by-side per slide. Desktop keeps the
+   * usual multi-column grid (`sm:contents` unwraps each pair).
+   */
+  mobilePairSlides?: boolean;
 }
 
 function TodayHighlightCard({
@@ -119,8 +132,18 @@ function TodayHighlightCard({
           : undefined;
   const imageSizes =
     layout === "pair"
-      ? "(max-width: 640px) 88vw, 50vw"
+      ? "(max-width: 640px) 44vw, 50vw"
       : "(max-width: 640px) 88vw, (max-width: 1024px) 50vw, 33vw";
+  const titleClass =
+    layout === "pair"
+      ? "line-clamp-2 font-sans text-base font-extrabold leading-snug tracking-[0.01em] text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.55)] sm:text-2xl"
+      : "line-clamp-2 font-sans text-xl font-extrabold leading-snug tracking-[0.01em] text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.55)] sm:text-2xl";
+  const metaClass =
+    layout === "pair"
+      ? "inline-flex min-w-0 max-w-full flex-wrap items-center gap-x-1.5 gap-y-0.5 text-xs font-medium text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.45)] sm:gap-x-2 sm:gap-y-1 sm:text-base"
+      : "inline-flex min-w-0 max-w-full flex-wrap items-center gap-x-2 gap-y-1 text-sm font-medium text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.45)] sm:text-base";
+  const overlayPad =
+    layout === "pair" ? "gap-1 p-2.5 sm:gap-1.5 sm:p-5" : "gap-1.5 p-4 sm:p-5";
 
   return (
     <article
@@ -139,7 +162,9 @@ function TodayHighlightCard({
           onNavigate();
           rememberReturnPath(returnTo ?? `/${locale}`, returnTitle);
         }}
-        className="relative block aspect-[16/10] w-full overflow-hidden touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 rounded-2xl sm:aspect-[3/2]"
+        className={`relative block w-full overflow-hidden touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 rounded-2xl sm:aspect-[3/2] ${
+          layout === "pair" ? "aspect-[4/5]" : "aspect-[16/10]"
+        }`}
         aria-label={event.title}
       >
         {event.imageUrl ? (
@@ -184,7 +209,7 @@ function TodayHighlightCard({
           />
         ) : null}
 
-        <div className="absolute inset-x-0 bottom-0 flex flex-col gap-1.5 p-4 sm:p-5">
+        <div className={`absolute inset-x-0 bottom-0 flex flex-col ${overlayPad}`}>
           {liveStatusLabel && liveStatus && (
             <EventStatusBadge
               label={liveStatusLabel}
@@ -192,12 +217,12 @@ function TodayHighlightCard({
               className="w-fit"
             />
           )}
-          <h3 className="line-clamp-2 font-sans text-xl font-extrabold leading-snug tracking-[0.01em] text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.55)] sm:text-2xl">
+          <h3 className={titleClass}>
             {event.title}
           </h3>
           {(dateLabel || timeLabel.display) && (
             <p
-              className="inline-flex min-w-0 max-w-full flex-wrap items-center gap-x-2 gap-y-1 text-sm font-medium text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.45)] sm:text-base"
+              className={metaClass}
               title={metaTitle}
             >
               {dateLabel ? (
@@ -249,6 +274,7 @@ const TodayHighlightsComponent = ({
   listTimeRange = "today",
   showDate = false,
   featurePromo = false,
+  mobilePairSlides = false,
 }: TodayHighlightsProps) => {
   const router = useRouter();
   const railRef = useRef<HTMLDivElement>(null);
@@ -263,6 +289,11 @@ const TodayHighlightsComponent = ({
   const visibleEvents = todayEvents.slice(0, limit);
   const count = visibleEvents.length;
   const showFeaturePromo = count === 1 && featurePromo;
+  const usePairSlides = mobilePairSlides && !showFeaturePromo && count >= 2;
+  const pairSlides = useMemo(
+    () => (usePairSlides ? chunkPairs(visibleEvents) : null),
+    [usePairSlides, visibleEvents],
+  );
   const hasMore = todayEvents.length > limit;
   const allTodayHref = seeAllHref ?? `/${locale}/when/today`;
   const sectionLabel = title ?? dict.events.happeningToday;
@@ -274,14 +305,17 @@ const TodayHighlightsComponent = ({
       : count === 2
         ? "sm:grid-cols-2"
         : "sm:grid-cols-2 lg:grid-cols-3";
-  const cardLayout = !showFeaturePromo && count === 2 ? "pair" : "grid";
+  const cardLayout =
+    usePairSlides || (!showFeaturePromo && count === 2) ? "pair" : "grid";
+  const railItemCount = showFeaturePromo
+    ? 2
+    : pairSlides
+      ? pairSlides.length
+      : count;
   const {
     canScrollRight,
     onScroll: onRailScroll,
-  } = useHorizontalScrollHints(
-    railRef,
-    showFeaturePromo ? 2 : count,
-  );
+  } = useHorizontalScrollHints(railRef, railItemCount);
 
   const highlightHrefs = useMemo(
     () => visibleEvents.map((event) => eventDetailPath(locale, event.id)),
@@ -339,32 +373,66 @@ const TodayHighlightsComponent = ({
             className={`flex snap-x snap-mandatory gap-3 overflow-x-auto pb-0.5 scrollbar-hide sm:grid sm:items-stretch sm:gap-3 sm:overflow-visible sm:pb-0 sm:snap-none ${gridColsClass}`}
             aria-label={sectionLabel}
           >
-            {visibleEvents.map((event) => (
-              <div
-                key={event.id}
-                data-snap-slide
-                className={
-                  count === 1 && !showFeaturePromo
-                    ? "w-full shrink-0 snap-start sm:w-auto sm:min-w-0 sm:shrink"
-                    : `${SNAP_RAIL_PEEK_CLASS} shrink-0 snap-start sm:w-auto sm:min-w-0 sm:shrink`
-                }
-              >
-                <TodayHighlightCard
-                  event={event}
-                  locale={locale}
-                  dict={dict}
-                  returnTo={returnTo}
-                  returnTitle={returnTitle}
-                  pending={pendingId === event.id}
-                  dimmed={pendingId != null && pendingId !== event.id}
-                  onNavigate={() => setPendingId(event.id)}
-                  note={notes?.[event.id]}
-                  listTimeRange={listTimeRange}
-                  showDate={showDate}
-                  layout={cardLayout}
-                />
-              </div>
-            ))}
+            {pairSlides
+              ? pairSlides.map((pair) => (
+                  <div
+                    key={pair.map((event) => event.id).join(":")}
+                    data-snap-slide
+                    className={`${SNAP_RAIL_PEEK_CLASS} grid shrink-0 snap-start grid-cols-2 gap-2 sm:contents`}
+                  >
+                    {pair.map((event) => (
+                      <div
+                        key={event.id}
+                        className={
+                          pair.length === 1
+                            ? "min-w-0 col-span-2 sm:col-span-1 sm:w-auto sm:min-w-0 sm:shrink"
+                            : "min-w-0 sm:w-auto sm:min-w-0 sm:shrink"
+                        }
+                      >
+                        <TodayHighlightCard
+                          event={event}
+                          locale={locale}
+                          dict={dict}
+                          returnTo={returnTo}
+                          returnTitle={returnTitle}
+                          pending={pendingId === event.id}
+                          dimmed={pendingId != null && pendingId !== event.id}
+                          onNavigate={() => setPendingId(event.id)}
+                          note={notes?.[event.id]}
+                          listTimeRange={listTimeRange}
+                          showDate={showDate}
+                          layout={cardLayout}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                ))
+              : visibleEvents.map((event) => (
+                  <div
+                    key={event.id}
+                    data-snap-slide
+                    className={
+                      count === 1 && !showFeaturePromo
+                        ? "w-full shrink-0 snap-start sm:w-auto sm:min-w-0 sm:shrink"
+                        : `${SNAP_RAIL_PEEK_CLASS} shrink-0 snap-start sm:w-auto sm:min-w-0 sm:shrink`
+                    }
+                  >
+                    <TodayHighlightCard
+                      event={event}
+                      locale={locale}
+                      dict={dict}
+                      returnTo={returnTo}
+                      returnTitle={returnTitle}
+                      pending={pendingId === event.id}
+                      dimmed={pendingId != null && pendingId !== event.id}
+                      onNavigate={() => setPendingId(event.id)}
+                      note={notes?.[event.id]}
+                      listTimeRange={listTimeRange}
+                      showDate={showDate}
+                      layout={cardLayout}
+                    />
+                  </div>
+                ))}
             {showFeaturePromo ? (
               <div
                 data-snap-slide
