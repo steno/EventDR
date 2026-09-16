@@ -529,22 +529,6 @@ export function EventScopePage({
             </>
           )}
 
-          {/* Mobile: place switcher replaces the photo hero (hidden sm+). */}
-          {showLocationPicker ? (
-            <div className="mb-4 mt-1 w-full text-[1.5rem] font-extrabold leading-none sm:hidden">
-              <CityLocationPicker
-                variant="hero"
-                photoOverlay={false}
-                locale={locale}
-                dict={dict}
-                currentSlug={activeCitySlug ?? null}
-                categoryId={activeCategoryId}
-                onSelect={softNav ? onSoftCitySelect : undefined}
-                counts={cityCounts}
-              />
-            </div>
-          ) : null}
-
           {relatedCategoryLinks && relatedCategoryLinksLabel ? (
             <CityCategoryLinks
               label={relatedCategoryLinksLabel}
@@ -565,7 +549,6 @@ export function EventScopePage({
           ) : null}
 
           <FilteredEventList
-            key={returnTo}
             events={events}
             loading={loading}
             dict={dict}
@@ -580,6 +563,22 @@ export function EventScopePage({
             categoryId={activeCategoryId}
             areaLabel={areaLabel}
             persistTimeRange
+            stickyLead={
+              showLocationPicker ? (
+                <div className="w-full text-[1.5rem] font-extrabold leading-none sm:hidden">
+                  <CityLocationPicker
+                    variant="hero"
+                    photoOverlay={false}
+                    locale={locale}
+                    dict={dict}
+                    currentSlug={activeCitySlug ?? null}
+                    categoryId={activeCategoryId}
+                    onSelect={softNav ? onSoftCitySelect : undefined}
+                    counts={cityCounts}
+                  />
+                </div>
+              ) : undefined
+            }
             locationPicker={
               showLocationPicker ? (
                 <div className="hidden sm:block">

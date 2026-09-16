@@ -22,7 +22,9 @@ import { cardGridRowRemainder, fillCardGridPage } from "@/lib/card-grid";
 import { scrollToListTop } from "@/lib/list-scroll";
 import { clusterRecurringVenueEvents } from "@/lib/venue-recurring-siblings";
 import { useCardGridColumns } from "@/hooks/useCardGridColumns";
+import { useStickyStuckSelector } from "@/hooks/useStickyStuck";
 import { StickyListFilters, ListScrollAnchor } from "@/components/StickyListFilters";
+import { stickyBackControlClassName } from "@/components/StickyListHeader";
 import { TimeFilter } from "@/components/TimeFilter";
 import { PriceFilterChips } from "@/components/PriceFilterChips";
 import { EventCard } from "@/components/EventCard";
@@ -43,6 +45,7 @@ import { useListTimeRange } from "@/hooks/useListTimeRange";
 import { fillTemplate } from "@/lib/seo";
 import { CARD_GRID_CLASS, SECTION_TITLE_CLASS } from "@/lib/page-shell";
 import type { EventListView } from "@/lib/event-list-view";
+import { ArrowLeft } from "lucide-react";
 
 const UNBOUNDED = Number.POSITIVE_INFINITY;
 
@@ -107,6 +110,11 @@ interface FilteredEventListProps {
    * hide the weekly grid.
    */
   persistTimeRange?: boolean;
+  /**
+   * Optional lead control above the time tabs inside the sticky filter bar
+   * (e.g. mobile area select on category pages).
+   */
+  stickyLead?: ReactNode;
   /** Optional area chip in the sticky filter bar (desktop scope pages). */
   locationPicker?: ReactNode;
 }
@@ -136,6 +144,7 @@ export function FilteredEventList({
   hidePriceFilter = false,
   clusterVenueRecurring = true,
   persistTimeRange = false,
+  stickyLead,
   locationPicker,
 }: FilteredEventListProps) {
   const pathname = usePathname();
@@ -163,11 +172,22 @@ export function FilteredEventList({
   const scrolledFiltersRef = useRef<{
     time: FilterTimeRange;
     price: PriceFilter;
+    area: string | null;
   } | null>(null);
   const skipScrollForUrlWhen = useRef(false);
   const scrollAnchorRef = useRef<HTMLDivElement>(null);
   const [gridRef, columns] = useCardGridColumns(view === "cards");
   const [pendingId, setPendingId] = useState<string | null>(null);
+  const stickyCategoryLabel = categoryId ? dict.categories[categoryId] : null;
+  // Track category pills, not the filter-bar park line — time tabs park the
+  // list under sticky chrome but pills stay away, so the back cue must remain.
+  const categoryPillsAway = useStickyStuckSelector(
+    stickyCategoryLabel ? "[data-category-nav]" : null,
+  );
+  const showStickyCategoryHint = Boolean(
+    stickyCategoryLabel && categoryPillsAway,
+  );
+  const areaKey = areaLabel ?? null;
 
   useEffect(() => {
     const applyListingParams = () => {
@@ -209,30 +229,48 @@ export function FilteredEventList({
       return;
     }
     setVisibleCount(limit);
-  }, [timeRange, priceFilter, limit]);
+  }, [timeRange, priceFilter, areaKey, categoryId, limit]);
+
+  useEffect(() => {
+    setPendingId(null);
+  }, [areaKey, categoryId, returnTo]);
 
   useLayoutEffect(() => {
     if (!scrollOnFilterChange) return;
-    // Only scroll when the user changes time/price filters — not on mount,
-    // city-chip navigations, or React Strict Mode's double invoke.
+    // Only scroll when the user changes time/price/area — not on mount
+    // or React Strict Mode's double invoke.
     if (scrolledFiltersRef.current === null) {
-      scrolledFiltersRef.current = { time: timeRange, price: priceFilter };
+      scrolledFiltersRef.current = {
+        time: timeRange,
+        price: priceFilter,
+        area: areaKey,
+      };
       return;
     }
     const prev = scrolledFiltersRef.current;
-    if (prev.time === timeRange && prev.price === priceFilter) return;
+    if (
+      prev.time === timeRange &&
+      prev.price === priceFilter &&
+      prev.area === areaKey
+    ) {
+      return;
+    }
     const timeChanged = prev.time !== timeRange;
-    scrolledFiltersRef.current = { time: timeRange, price: priceFilter };
+    scrolledFiltersRef.current = {
+      time: timeRange,
+      price: priceFilter,
+      area: areaKey,
+    };
     // URL ?when= applies the time chip without a scroll jump.
     if (timeChanged && skipScrollForUrlWhen.current) {
       skipScrollForUrlWhen.current = false;
       return;
     }
-    // Always reset to list top under sticky header + filter bar (scroll up or down).
-    // Pass the filter-bar anchor — not category pills — so deep scrolls don't jump
-    // to "What are you into?" when switching time tabs or Free/Tickets pills.
+    // Park under sticky header + filter bar (same as time tabs) — never the
+    // page hero. Pass the filter-bar anchor so deep scrolls don't jump up to
+    // category pills when switching time, price, or area.
     scrollToListTop(scrollAnchorRef.current);
-  }, [timeRange, priceFilter, scrollOnFilterChange]);
+  }, [timeRange, priceFilter, areaKey, scrollOnFilterChange]);
 
   // SSR/API payloads are already materialized — filter/sort only.
   const activeRange = fixedTimeRange ?? timeRange;
@@ -300,7 +338,7 @@ export function FilteredEventList({
   const showTimeFilter = !fixedTimeRange && !hideTimeFilter;
   const showPriceFilter = !hidePriceFilter && !hideTimeFilter;
   const showStickyFilters = Boolean(
-    locationPicker || showTimeFilter || showPriceFilter,
+    stickyLead || locationPicker || showTimeFilter || showPriceFilter,
   );
 
   /** Text link only when no card CTA is used (e.g. venue Past). */
@@ -335,8 +373,45 @@ export function FilteredEventList({
     <>
       {showStickyFilters ? (
         <>
-          <ListScrollAnchor anchorRef={scrollAnchorRef} className="mt-4" />
+          <ListScrollAnchor
+            anchorRef={scrollAnchorRef}
+            className={stickyLead ? "mt-2" : "mt-4"}
+          />
           <StickyListFilters>
+            {showStickyCategoryHint && stickyCategoryLabel ? (
+              <div
+                className={
+                  stickyLead || showTimeFilter || locationPicker || showPriceFilter || viewToggle
+                    ? "pb-1"
+                    : ""
+                }
+              >
+                <button
+                  type="button"
+                  className={`${stickyBackControlClassName} min-h-0 py-1.5`}
+                  aria-label={stickyCategoryLabel}
+                  onClick={() => {
+                    const nav = document.querySelector<HTMLElement>(
+                      "[data-category-nav]",
+                    );
+                    scrollToListTop(nav ?? scrollAnchorRef.current);
+                  }}
+                >
+                  <ArrowLeft
+                    className="h-[1.125rem] w-[1.125rem] shrink-0"
+                    aria-hidden
+                  />
+                  <span className="min-w-0 truncate">{stickyCategoryLabel}</span>
+                </button>
+              </div>
+            ) : null}
+
+            {stickyLead ? (
+              <div className={showTimeFilter || locationPicker || showPriceFilter || viewToggle ? "pb-2.5" : ""}>
+                {stickyLead}
+              </div>
+            ) : null}
+
             {showTimeFilter ? (
               <TimeFilter
                 value={timeRange}

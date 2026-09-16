@@ -285,7 +285,7 @@ export function CityCategoryLinks({
   };
 
   return (
-    <nav ref={navRef} aria-label={label} data-category-nav className="mb-6">
+    <nav ref={navRef} aria-label={label} data-category-nav className="mb-4">
       <p className="mb-2.5 text-base font-semibold text-neutral-700 dark:text-neutral-300">
         {label}
       </p>

@@ -8,7 +8,7 @@ type StickyListFiltersProps = {
   className?: string;
 };
 
-/** Location picker + time tabs stick together under StickyListHeader (or viewport top on home). */
+/** Area select + time tabs (+ price/view) stick together under StickyListHeader. */
 export function StickyListFilters({
   children,
   className = "",
