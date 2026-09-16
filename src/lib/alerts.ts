@@ -99,6 +99,23 @@ export const EDITORIAL_ALERTS: readonly EditorialAlert[] = [
     },
   },
   {
+    id: "voyvoy-cabarete-closed-2026-10",
+    kind: "closure",
+    from: "2026-09-16",
+    until: "2026-10-05",
+    href: { type: "venue", slug: "voyvoy-cabarete" },
+    title: {
+      en: "VOYVOY Cabarete is closed",
+      es: "VOYVOY Cabarete está cerrado",
+      fr: "VOYVOY Cabarete est fermé",
+    },
+    summary: {
+      en: "Bayfront bar shut until 6 October 2026. Monday live and Saturday Session resume after they reopen — don’t plan a Cabarete bay night here before then.",
+      es: "Bar frente a la bahía cerrado hasta el 6 de octubre 2026. El live de lunes y Saturday Session vuelven cuando reabran — no planees una noche en la bahía aquí antes.",
+      fr: "Bar front de baie fermé jusqu’au 6 octobre 2026. Live du lundi et Saturday Session reprennent après la réouverture — ne prévoyez pas une soirée baie ici avant.",
+    },
+  },
+  {
     id: "ivan-garcia-teatro-mantenimiento-2026",
     kind: "closure",
     from: "2026-09-15",

@@ -62,6 +62,11 @@ export const INSTAGRAM_ACCOUNTS = [
     areas: ["Sosúa"],
   },
   {
+    handle: "iss.pta",
+    label: "ISS PTA (International School of Sosúa)",
+    areas: ["Sosúa"],
+  },
+  {
     handle: "gy_fitness_sosua",
     label: "GY Fitness Sosúa",
     areas: ["Sosúa"],
@@ -379,7 +384,7 @@ export function instagramSearchQueries(): string[] {
     "novapuertoplata", "spotlandrd", "classiccarsrd", "trolleycitytours", "lunaloungelcb", "teatroivangarcia",
     "oceanworldterrace", "paradaelchoco",
     "kitestreetpop", "meclaorooftop", "kviarcasinos",
-    "lagunasov", "santafesov", "donlimon02", "lostrescocosrd", "lovedoesrd",
+    "lagunasov", "santafesov", "donlimon02", "lostrescocosrd", "lovedoesrd", "iss.pta",
   ].join(" OR ");
 
   const culturalVenues = [

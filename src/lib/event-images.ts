@@ -121,6 +121,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "hard-rock-casa-mickey-2026-09-26": "hard-rock-casa-mickey-2026-09-26.jpg",
   "hard-rock-rising-segunda-ronda-2026-09-16":
     "hard-rock-rising-segunda-ronda-2026-09-16.jpg",
+  "iss-pta-parents-night-out-2026-09-17":
+    "iss-pta-parents-night-out-2026-09-17.jpg",
   "lokuras-pop-percusion-latina-2026-09-20":
     "lokuras-pop-percusion-latina-2026-09-20.jpg",
   "nova-detras-de-la-mascara-2026-10-16":
@@ -552,6 +554,7 @@ const HOME_HERO_SCENE_FILES = new Set([
   "handmade-pina-colada-experience.webp",
   "hard-rock-billed-concerts.jpg",
   "hard-rock-weekends.jpg",
+  "iss-pta-parents-night-out-2026-09-17.jpg",
   "hms-valeria-domingo-table.jpg",
   "hms-valeria-spanish-saturday-guests.jpg",
   "iberostar-costa-dorada-day-pass.jpg",

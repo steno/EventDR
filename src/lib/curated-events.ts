@@ -89,6 +89,11 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     phone: "+18495057778",
     venueSlug: "hard-rock-sosua",
   },
+  "iss-pta-parents-night-out-2026-09-17": {
+    callForPricing: true,
+    phone: "+18495057778",
+    venueSlug: "hard-rock-sosua",
+  },
   "latinwok-ramen-party-2026-09-17": {
     isFree: true,
     phone: "+18092612020",

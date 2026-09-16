@@ -39,7 +39,7 @@ describe("getHomeAlerts", () => {
     assert.equal(alerts[2]?.external, true);
   });
 
-  it("drops Iberostar after the refurb window and promotes Anfiteatro", () => {
+  it("drops Iberostar and VOYVOY after their windows; Iván García still closed", () => {
     const alerts = getHomeAlerts({
       locale: "en",
       dict: dict,
@@ -47,9 +47,10 @@ describe("getHomeAlerts", () => {
     });
     const ids = alerts.map((a) => a.id);
     assert.ok(ids.includes("teleferico-rebuild-2026"));
+    assert.ok(ids.includes("ivan-garcia-teatro-mantenimiento-2026"));
     assert.ok(ids.includes("dr-jazz-festival-2026"));
-    assert.ok(ids.includes("anfiteatro-la-puntilla-renovation"));
     assert.ok(!ids.includes("iberostar-costa-dorada-refurb-2026"));
+    assert.ok(!ids.includes("voyvoy-cabarete-closed-2026-10"));
   });
 
   it("resolves internal vs official-site hrefs", () => {
@@ -109,5 +110,54 @@ describe("applyActiveEditorialClosure", () => {
     assert.equal(venue.temporarilyClosed, true);
     const reopen = applyActiveEditorialClosureToVenue(venueInput, "2026-10-27");
     assert.equal(reopen.temporarilyClosed, undefined);
+  });
+
+  it("marks VOYVOY closed through 5 Oct and clears on reopen day 6 Oct", () => {
+    const venueInput: { slug: string; temporarilyClosed?: boolean } = {
+      slug: "voyvoy-cabarete",
+    };
+    const closed = applyActiveEditorialClosureToVenue(venueInput, "2026-09-16");
+    assert.equal(closed.temporarilyClosed, true);
+    const lastClosed = applyActiveEditorialClosureToVenue(venueInput, "2026-10-05");
+    assert.equal(lastClosed.temporarilyClosed, true);
+    const reopen = applyActiveEditorialClosureToVenue(venueInput, "2026-10-06");
+    assert.equal(reopen.temporarilyClosed, undefined);
+  });
+
+  it("marks VOYVOY Monday live closed while the bar is shut", () => {
+    const event = {
+      id: "voyvoy-monday-live-music",
+      venueSlug: "voyvoy-cabarete",
+    };
+    assert.equal(
+      applyActiveEditorialClosure(event, "2026-09-20").temporarilyClosed,
+      true,
+    );
+    assert.equal(
+      applyActiveEditorialClosure(event, "2026-10-06").temporarilyClosed,
+      undefined,
+    );
+  });
+});
+
+describe("VOYVOY closure on Cabarete home", () => {
+  it("surfaces the VOYVOY notice on Cabarete during the closed window", () => {
+    const alerts = getHomeAlerts({
+      locale: "en",
+      dict,
+      citySlug: "cabarete",
+      now: new Date("2026-09-16T16:00:00.000Z"),
+    });
+    assert.ok(alerts.some((a) => a.id === "voyvoy-cabarete-closed-2026-10"));
+  });
+
+  it("drops the VOYVOY notice on 6 October when they reopen", () => {
+    const alerts = getHomeAlerts({
+      locale: "en",
+      dict,
+      citySlug: "cabarete",
+      now: new Date("2026-10-06T16:00:00.000Z"),
+    });
+    assert.ok(!alerts.some((a) => a.id === "voyvoy-cabarete-closed-2026-10"));
   });
 });

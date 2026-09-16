@@ -2465,4 +2465,23 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "Editor-supplied terrace scene + Spanish listing — Wed 16 Sep 2026 singing talent night; audience vote; prizes RD$5,000 / Ocean World day pass for 2 / beer case; limited capacity; venue slug ocean-world; no clock time or cover on source.",
     updatedAt: "2026-09-15T12:00:00.000Z",
   },
+  {
+    eventId: "iss-pta-parents-night-out-2026-09-17",
+    body: "School-parent game night at Hard Rock, not a tourist concert — bingo, poker from 6:30, and dominoes; RSVP on @iss.pta before you assume walk-up seats.",
+    localized: {
+      es: "Noche de juegos de padres ISS en Hard Rock, no un concierto turístico — bingo, póker desde las 6:30 y dominó; confirma cupo en @iss.pta antes de asumir entrada libre.",
+      fr: "Soirée jeux parents ISS au Hard Rock, pas un concert touristique — bingo, poker dès 18 h 30 et dominos ; confirmez sur @iss.pta avant d’assumer une place walk-up.",
+    },
+    priceFeel: "varies",
+    priceNote:
+      "Game fees on the ISS PTA signup (@iss.pta bio) — not a single Hard Rock door price; budget food and drinks either way",
+    priceNoteLocalized: {
+      es: "Tarifas de juegos en el registro del PTA ISS (@iss.pta bio) — no es un solo cover de Hard Rock; presupuesta comida y tragos de todos modos",
+      fr: "Tarifs des jeux sur l’inscription PTA ISS (@iss.pta bio) — pas un seul cover Hard Rock ; budget nourriture et boissons dans tous les cas",
+    },
+    attribution: "POP research · @iss.pta × Hard Rock Cafe Puerto Plata",
+    researchNotes:
+      "IG https://www.instagram.com/p/Dc_emGfEVsC/ — collab @iss.pta × @hardrockcafepuertoplata; Thu 17 Sep 2026 6 PM Hard Rock Sosúa; Bingo / Poker Tournament from 6:30 PM / Dominoes; spots limited, signup link in @iss.pta bio. Carousel lists per-game fees (bingo cards, poker buy-in/re-buy); exact amounts not copied into seed — call for pricing.",
+    updatedAt: "2026-09-16T12:00:00.000Z",
+  },
 ];

@@ -2110,5 +2110,35 @@
     "sourceType": "instagram",
     "sourceUrl": "https://www.instagram.com/oceanworldterrace/",
     "imageEmoji": "🎤"
+  },
+  {
+    "id": "iss-pta-parents-night-out-2026-09-17",
+    "title": "Back to School Parents’ Night Out",
+    "description": "Soirée parents Back to School du PTA ISS au Hard Rock Cafe Puerto Plata, Sosúa — jeudi 17 septembre 2026 dès 18 h. Bingo, tournoi de poker (dès 18 h 30) et dominos pour les parents de l’International School of Sosúa. Places limitées — inscrivez-vous via Instagram @iss.pta (lien en bio). Tarifs des jeux sur l’inscription PTA ; WhatsApp du lieu +1 849-505-7778.",
+    "date": "2026-09-17",
+    "time": "6:00 PM",
+    "location": "Sosúa",
+    "venue": "Hard Rock Cafe Puerto Plata",
+    "venueSlug": "hard-rock-sosua",
+    "address": "Calle Duarte 7, Sosúa",
+    "lat": 19.7634107,
+    "lng": -70.5162309,
+    "category": "festivals",
+    "categories": [
+      "food-drinks",
+      "festivals"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18495057778",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/p/Dc_emGfEVsC/",
+    "lineup": [
+      "Bingo",
+      "Tournoi de poker (dès 18 h 30)",
+      "Dominos"
+    ],
+    "imageEmoji": "♠️"
   }
 ]

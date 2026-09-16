@@ -264,6 +264,7 @@ Curated images under `public/events/` and `public/venues/`.
 | `tasty-food-park-show-de-magia-2026-09-13.jpg` | POP-supplied — Tasty Food Park Show de Magia flyer ([IG](https://www.instagram.com/p/DdNiin9De2O/)) | Magic show Sun 13 Sep 2026 7 PM (editor-provided) |
 | `cigar-town-domingo-de-matine.jpg` | POP-supplied — Cigar Town Domingo de Matiné promo ([reel](https://www.instagram.com/reel/DdNgA2tsgGt/)) | Weekly Sunday coffee/drinks or 2 beers + 10% off (editor-provided) |
 | `hard-rock-rising-segunda-ronda-2026-09-16.jpg` | POP-supplied — Hard Rock Rising Global Live Music Challenge Segunda Ronda flyer ([IG](https://www.instagram.com/p/DdO4DKoxoRk/)) | Competition night Wed 16 Sep 2026 8 PM (editor-provided) |
+| `iss-pta-parents-night-out-2026-09-17.jpg` | Same as `venues/hard-rock-sosua.jpg` place shot (not IG flyer) | ISS PTA Parents’ Night Out Thu 17 Sep 2026 — venue hero |
 | `lokuras-pop-percusion-latina-2026-09-20.jpg` | POP-supplied — Lokura's Pop Percusión Latina Somos Salsa flyer ([IG](https://www.instagram.com/lokuraspop/)) | Live salsa Sun 20 Sep 2026 from 6 PM (editor-provided) |
 | `venues/lokuras-pop-interior.jpg` | POP-supplied — Lokura's Pop Bar Café interior (yellow lounge / wooden bar) | Venue place shot (editor-provided, not scraped) |
 | `nova-detras-de-la-mascara-2026-10-16.jpg` | POP-supplied — NOVA Salud Detrás de la Máscara flyer ([IG](https://www.instagram.com/p/DdE8EPrusX4/)) | Psychology talk Thu 16 Oct 2026 5 PM (editor-provided) |
