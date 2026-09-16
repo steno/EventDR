@@ -2707,5 +2707,32 @@
     "sourceType": "instagram",
     "sourceUrl": "https://www.instagram.com/classiccarsrd/",
     "imageEmoji": "🚗"
+  },
+  {
+    "id": "trolley-party-saturday",
+    "title": "Trolley Party City Tour",
+    "description": "Themed weekend trolley party for a public evening out with TrolleyCity Tours POP — open-air mural bus, music, and bar-hop energy around Puerto Plata (Victrola / Umbrella Street / Macorix / Kite Street style stops when billed). Public nights heavily prioritize Saturdays; private Puerto Plata / Sosúa charters book separately. Confirm pickup and price via Instagram @trolleycitytours or (809) 769-8732.",
+    "date": "2026-01-01",
+    "time": "Evening (by reservation)",
+    "location": "Puerto Plata",
+    "venue": "TrolleyCity Tours POP",
+    "venueSlug": "trolley-city-tours",
+    "address": "Puerto Plata / Sosúa (pickup by reservation)",
+    "lat": 19.7995463,
+    "lng": -70.6909467,
+    "category": "parties",
+    "categories": [
+      "adventure",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "recurrence": "weekly",
+    "recurrenceDay": 6,
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18097698732",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/trolleycitytours/",
+    "imageEmoji": "🚎"
   }
 ]

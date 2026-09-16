@@ -873,6 +873,12 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Tours privés en voitures classiques à Puerto Plata — convertibles restaurées, stops photo et pickup hôtel/croisière sur réservation. Instagram @classiccarsrd · (809) 769-8732.",
     },
   },
+  "trolley-city-tours": {
+    description: {
+      es: "Trolley party mural para Puerto Plata y Sosúa — las salidas públicas de noche son trolley parties temáticos de fin de semana (priorizan los sábados); charters privados aparte. Instagram @trolleycitytours · (809) 769-8732.",
+      fr: "Trolley party mural pour Puerto Plata et Sosúa — les sorties publiques du soir sont des trolley parties thématiques du week-end (priorité samedi) ; charters privés à part. Instagram @trolleycitytours · (809) 769-8732.",
+    },
+  },
 };
 
 export function localizeVenue(venue: Venue, locale: Locale): Venue {

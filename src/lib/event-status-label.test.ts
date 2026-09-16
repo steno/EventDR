@@ -50,6 +50,8 @@ describe("resolveLiveStatusDisplay starts soon", () => {
 describe("resolveLiveStatusDisplay untimed", () => {
   /** Sat Sep 12, 2026 19:27 America/Santo_Domingo. */
   const evening = new Date("2026-09-12T23:27:00.000Z");
+  /** Tue Sep 15, 2026 11:14 America/Santo_Domingo. */
+  const tuesdayNoon = new Date("2026-09-15T15:14:00.000Z");
   const byReservation = {
     date: "2026-09-12",
     time: "By reservation",
@@ -59,6 +61,34 @@ describe("resolveLiveStatusDisplay untimed", () => {
   it("does not say happening today for by-reservation with no clock hours", () => {
     const display = resolveLiveStatusDisplay(byReservation, dict, evening);
     assert.equal(display, null);
+  });
+
+  it("says happening today for missing-time weekly series on that weekday", () => {
+    const martesSensorial = {
+      date: "2026-09-15",
+      recurrence: "weekly" as const,
+    };
+    const display = resolveLiveStatusDisplay(
+      martesSensorial,
+      dict,
+      tuesdayNoon,
+    );
+    assert.equal(display?.status, "unknown");
+    assert.equal(display?.label, dict.events.happeningToday);
+  });
+
+  it("keeps happening today for missing-time events on the Today list", () => {
+    const martesSensorial = {
+      date: "2026-09-15",
+      recurrence: "weekly" as const,
+    };
+    const display = resolveLiveStatusDisplay(
+      martesSensorial,
+      dict,
+      tuesdayNoon,
+      { listTimeRange: "today" },
+    );
+    assert.equal(display?.label, dict.events.happeningToday);
   });
 
   it("still says happening today for a timed event later the same day", () => {

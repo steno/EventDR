@@ -1557,6 +1557,17 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
       { key: "easy_to_find", sentiment: "mixed" },
     ],
   }),
+  editorial({
+    venueSlug: "trolley-city-tours",
+    verdictKey: "strong_visitor_nightlife",
+    crowdFit: ["visitor", "nightlife", "mixed"],
+    axes: { recommend: 4.3, atmosphere: 4.5, practical: 3.8, reliability: 4.0 },
+    themes: [
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+      { key: "busy_weekends", sentiment: "mixed" },
+      { key: "easy_to_find", sentiment: "mixed" },
+    ],
+  }),
 ];
 
 const bySlug = new Map(

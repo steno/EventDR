@@ -184,6 +184,8 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "spotland-puerto-plata": "spotland-puerto-plata-entrance.jpg",
   // Filename bump — POP-supplied Calle de las Sombrillas classic-car line (not the coastal convoy event hero).
   "classic-cars-dominicana": "classic-cars-dominicana-umbrella-street.jpg",
+  // POP-supplied mural party trolley with riders (flyer stays on the daily listing).
+  "trolley-city-tours": "trolley-city-tours-party-bus.jpg",
 };
 
 /** Cache-busted URL for general venue thumbnails / JSON-LD. */

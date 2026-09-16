@@ -1065,4 +1065,12 @@ export const VENUE_TIP_COPY: Record<
       fr: "Visites en convertible vintage sur réservation seulement — réservez le trajet privé pour photos et pickup, pas une location walk-up du Malecón. DM @classiccarsrd ou (809) 769-8732 avant le jour croisière.",
     },
   },
+  "trolley-city-tours": {
+    body: "Public evening outings are themed weekend trolley parties with Saturday nights prioritized — not a daily hop-on; book the mural bus (or a private charter) via @trolleycitytours / (809) 769-8732, and expect Victrola / Kite Street–style stops when billed.",
+    localized: {
+      en: "Public evening outings are themed weekend trolley parties with Saturday nights prioritized — not a daily hop-on; book the mural bus (or a private charter) via @trolleycitytours / (809) 769-8732, and expect Victrola / Kite Street–style stops when billed.",
+      es: "Las salidas públicas de noche son trolley parties temáticos de fin de semana con prioridad el sábado — no es hop-on diario; reserva el bus mural (o charter privado) con @trolleycitytours / (809) 769-8732, y espera paradas tipo Victrola / Kite Street cuando haya cartel.",
+      fr: "Les sorties publiques du soir sont des trolley parties thématiques du week-end avec priorité samedi — pas un hop-on quotidien ; réservez le bus mural (ou charter privé) via @trolleycitytours / (809) 769-8732, et attendez des arrêts type Victrola / Kite Street selon l’affiche.",
+    },
+  },
 };

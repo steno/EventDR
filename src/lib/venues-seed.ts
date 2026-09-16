@@ -1730,6 +1730,19 @@ export const SEED_VENUES: Venue[] = [
       "https://www.tripadvisor.com/AttractionProductReview-g147288-d25984973-Private_Tour_of_Puerto_Plata_by_Classic_Car-Dominican_Republic.html",
     phone: "+18097698732",
   },
+  {
+    slug: "trolley-city-tours",
+    name: "TrolleyCity Tours POP",
+    city: "Puerto Plata",
+    description:
+      "Mural party trolley for Puerto Plata and Sosúa — public evening outings are themed weekend trolley parties (Saturday nights prioritized); private charters book separately. Instagram @trolleycitytours · (809) 769-8732.",
+    lat: 19.7995463,
+    lng: -70.6909467,
+    emoji: "🚎",
+    instagram: "trolleycitytours",
+    website: "https://www.instagram.com/trolleycitytours/",
+    phone: "+18097698732",
+  },
 ];
 
 /** Extra name fragments → seed slug (checked before fuzzy name includes). */
@@ -1741,6 +1754,11 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
   {
     pattern: /classic\s*cars?\s*(dominicana|rd|puerto\s*plata)?/i,
     slug: "classic-cars-dominicana",
+  },
+  {
+    pattern:
+      /trolley\s*(city\s*)?(tours?|pop)|trolley\s*pop\s*city|trolleycitytours|party\s*bus\s*(pop|trolley)/i,
+    slug: "trolley-city-tours",
   },
   {
     pattern:

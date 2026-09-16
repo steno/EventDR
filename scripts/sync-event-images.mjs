@@ -239,6 +239,7 @@ const FILE_TO_EVENT_ID = {
   "flip-flop-wing-wednesday.jpg": "flip-flop-wing-wednesday",
   "flip-flop-taco-tuesday.jpg": "flip-flop-taco-tuesday",
   "flip-flop-monday-happy-hour.jpg": "flip-flop-monday-happy-hour",
+  "trolley-party-saturday.jpg": "trolley-party-saturday",
 };
 
 /** Same venue, same photo — copy after primary sync. */
@@ -383,6 +384,7 @@ const FILE_TO_VENUE_SLUG = {
     "ivan-garcia-teatro-escuela-facade",
   "ambar-lounge-pop-lounge.jpg": "ambar-lounge-pop-lounge",
   "aura-beach-club-cabarete-entrance.jpg": "aura-beach-club-cabarete-entrance",
+  "trolley-city-tours-party-bus.jpg": "trolley-city-tours-party-bus",
 };
 
 if (!existsSync(sourceDir)) {

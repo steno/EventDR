@@ -2367,6 +2367,26 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: "2026-09-14T12:00:00.000Z",
   },
   {
+    eventId: "trolley-party-saturday",
+    seriesKey: "trolley-city-tours:weekly:6",
+    body: "Pin Saturday for the public evening trolley party — themed weekend outing on the mural bus, not a daily hop-on; book ahead via @trolleycitytours / (809) 769-8732 (same line as Classic Cars).",
+    localized: {
+      es: "Anota el sábado para el trolley party público de noche — salida de fin de semana en el bus mural, no un hop-on diario; reserva con @trolleycitytours / (809) 769-8732 (misma línea que Classic Cars).",
+      fr: "Bloquez le samedi pour le trolley party public du soir — sortie week-end sur le bus mural, pas un hop-on quotidien ; réservez via @trolleycitytours / (809) 769-8732 (même ligne que Classic Cars).",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "Call for pricing — Saturday public party; private charters separately via IG @trolleycitytours or (809) 769-8732",
+    priceNoteLocalized: {
+      es: "Consultar precio — party público del sábado; charters privados aparte por IG @trolleycitytours o (809) 769-8732",
+      fr: "Prix sur demande — party public du samedi ; charters privés à part via IG @trolleycitytours ou (809) 769-8732",
+    },
+    attribution: "POP research · @trolleycitytours",
+    researchNotes:
+      "IG @trolleycitytours: public evening outings are themed weekend events prioritizing Saturday nights. Flyer: Trolley PARTY sábado with Victrola 037 + Kite Street Pop. Bio: Rutas Puerto Plata | Sosúa | Privado; (809) 769-8732 (same as @classiccarsrd).",
+    updatedAt: "2026-09-15T12:00:00.000Z",
+  },
+  {
     eventId: "spotland-sabado-retro-familiar-2026-09-19",
     seriesKey: "spotland-puerto-plata:2026-09-19",
     body: "Family ’80s dress-up Saturday on Luis Ginebra — bring neon for the kids RD$150 promo and plan on inflatables plus retro playlist, not a late disco crawl; adult cover still confirm on @spotlandrd.",

@@ -44,6 +44,17 @@ export function formatEventLiveStatusLabel(
   }
 }
 
+/**
+ * Free-text "hours" that are not a real same-day session window
+ * (appointment / on-request). Missing time is different — weekly flyer
+ * seeds often omit clocks but still run that calendar day.
+ */
+function isOnRequestHoursLabel(time?: string): boolean {
+  const raw = time?.trim();
+  if (!raw) return false;
+  return /by\s+reservation|on\s+request|appointment\s+only/i.test(raw);
+}
+
 /** Label when status is unknown but the event is still active today. */
 function fallbackLiveStatusDisplay(
   event: EventLiveFields,
@@ -69,7 +80,7 @@ function fallbackLiveStatusDisplay(
     return { status: "ending", label: dict.events.endsSoon };
   }
   if (status === "live") {
-    // No clock window → don't invent "Happening today" / "Happening now".
+    // No clock window → don't invent "Happening now".
     if (!parseEventTimeWindow(event.time)) return null;
     return { status: "live", label: dict.events.eventStarted };
   }
@@ -126,9 +137,13 @@ export function resolveLiveStatusDisplay(
 
   if (!happensOnLocalDate(event, today)) return null;
 
-  // Untimed / free-text hours ("By reservation", missing clocks): date already
-  // says today — don't invent a live-feeling "Happening today" chip.
-  if (status === "unknown") return null;
+  // Untimed / missing clocks: calm "Happening today" (not "Happening now").
+  // Skip on-request labels. On the Today list, timed upcoming omits the chip
+  // because the time line is enough — untimed has no time line, so keep the chip.
+  if (status === "unknown") {
+    if (isOnRequestHoursLabel(event.time)) return null;
+    return { status: "unknown", label: dict.events.happeningToday };
+  }
 
   // Same calendar day, doors still hours away — don't cry "starts soon" at 12:30 AM.
   // Timed events still get a calm "Happening today" until doors are soon.
