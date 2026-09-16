@@ -235,7 +235,7 @@ const FILE_TO_EVENT_ID = {
   "rio-sonador-finca-papirucho.jpg": "rio-sonador-finca-papirucho",
   "sunset-grill-velero-beachfront-dining.jpg":
     "sunset-grill-velero-beachfront-dining",
-  "sunset-grill-velero-sushi-nights.jpg":
+  "sunset-grill-velero-sushi-nights-patio.jpg":
     "sunset-grill-velero-sushi-nights",
   "charco-los-militares-daily.jpg": "charco-los-militares-daily",
   "la-rejoya-trek.jpg": "la-rejoya-trek",

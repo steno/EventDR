@@ -294,8 +294,9 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "rio-sonador-finca-papirucho": "rio-sonador-finca-papirucho.jpg",
   "sunset-grill-velero-beachfront-dining":
     "sunset-grill-velero-beachfront-dining.jpg",
+  // Filename bump — patio dusk (PWA strips ?v=; old sushi-plate URL stayed cached).
   "sunset-grill-velero-sushi-nights":
-    "sunset-grill-velero-sushi-nights.jpg",
+    "sunset-grill-velero-sushi-nights-patio.jpg",
   "charco-los-militares-daily": "charco-los-militares-daily.jpg",
   "la-rejoya-trek": "la-rejoya-trek.jpg",
   "rio-martinico-sosua": "rio-martinico-sosua.jpg",
@@ -618,7 +619,7 @@ const HOME_HERO_SCENE_FILES = new Set([
   "sosua-pedro-clisante-food-nights.jpg",
   "sosua-volleyball-weekly.jpg",
   "sunset-grill-velero-beachfront-dining.jpg",
-  "sunset-grill-velero-sushi-nights.jpg",
+  "sunset-grill-velero-sushi-nights-patio.jpg",
   "sunset-laughter-club-cabarete.jpg",
   "tabacalera-cremo-factory-tour.jpg",
   "tabacalera-cremo-rolling-experience.jpg",
