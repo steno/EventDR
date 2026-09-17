@@ -299,7 +299,7 @@ describe("sortEventsForDisplay weekly vs daily", () => {
     });
     assert.equal(byKind.map((e) => e.id).join(","), "thursday-jazz,snorkel-daily");
 
-    // Earlier start still wins over kind.
+    // Kind beats earlier start within the same status tier.
     const morningDaily = event({
       ...dailyTour,
       time: "10:00 AM",
@@ -309,7 +309,34 @@ describe("sortEventsForDisplay weekly vs daily", () => {
       oneTimeFirst: true,
       recurringLast: true,
     });
-    assert.equal(byTime.map((e) => e.id).join(","), "snorkel-daily,thursday-jazz");
+    assert.equal(byTime.map((e) => e.id).join(","), "thursday-jazz,snorkel-daily");
+  });
+
+  it("ranks all weekend one-offs before weekend dailies even when the daily is earlier", () => {
+    /** Saturday morning — both in future tier relative to Friday NOW. */
+    const saturdayDaily = event({
+      id: "museum-sat",
+      title: "Museum Saturday Hours",
+      date: "2026-08-01",
+      time: "9:00 AM – 5:00 PM",
+      recurrence: "daily",
+    });
+    const sundayConcert = event({
+      id: "sunday-concert",
+      title: "Sunday Concert",
+      date: "2026-08-02",
+      time: "8:00 PM",
+    });
+
+    const sorted = sortEventsForDisplay([saturdayDaily, sundayConcert], {
+      now: NOW,
+      oneTimeFirst: true,
+      recurringLast: true,
+    });
+    assert.equal(
+      sorted.map((e) => e.id).join(","),
+      "sunday-concert,museum-sat",
+    );
   });
 
   it("pins tonight’s weekly night above a live evergreen daily", () => {
@@ -394,6 +421,7 @@ describe("sortEventsForDisplay pinTodayOneOffs", () => {
       oneTimeFirst: true,
       recurringLast: true,
     });
+    // Live daily still beats upcoming one-off (status tier stays primary).
     assert.equal(withoutPin[0]?.id, "museum-daily");
 
     const withPin = sortEventsForDisplay([museum, tonight], {

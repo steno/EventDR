@@ -33,8 +33,8 @@ export interface SortEventsForDisplayOptions {
   recurringLast?: boolean;
   /**
    * Within the same status tier, prefer one-time fixtures, then multi-day,
-   * then weekly/weekend nights, then weekdays, then daily — after time/schedule
-   * (does not float future one-offs above live/today).
+   * then weekly/weekend nights, then weekdays, then daily — before clock time
+   * / date (does not float future one-offs above live/today status).
    */
   oneTimeFirst?: boolean;
   /**
@@ -284,6 +284,10 @@ export function sortEventsForDisplay(
       if (recurrenceDiff !== 0) return recurrenceDiff;
     }
 
+    // Kind before clock/date within the same status tier (Today / Weekend tabs).
+    // Never across tiers — a live daily still beats an upcoming one-off.
+    if (oneTimeFirst && a.kind !== b.kind) return a.kind - b.kind;
+
     const tier = a.tier;
     if (tier === LIST_TIER.endingSoon) {
       const endDiff = a.end - b.end;
@@ -306,15 +310,11 @@ export function sortEventsForDisplay(
     }
 
     if (tier === LIST_TIER.future || tier === LIST_TIER.past) {
-      // Date + start only — leave title/trending for after oneTimeFirst kind.
       const dateDiff = a.event.date.localeCompare(b.event.date);
       if (dateDiff !== 0) return dateDiff;
       const timeDiff = a.start - b.start;
       if (timeDiff !== 0) return timeDiff;
     }
-
-    // After schedule/time within the same tier — never across live vs future.
-    if (oneTimeFirst && a.kind !== b.kind) return a.kind - b.kind;
 
     if (a.event.trending && !b.event.trending) return -1;
     if (!a.event.trending && b.event.trending) return 1;
