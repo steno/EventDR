@@ -146,6 +146,53 @@ describe("pickTodaySpotlights", () => {
     );
   });
 
+  it("prefers today's specials over a live multi-day festival", () => {
+    const picked = pickTodaySpotlights(
+      [
+        event({
+          id: "patronales",
+          title: "Imbert Fiestas Patronales",
+          date: "2026-08-16",
+          endDate: "2026-08-24",
+          time: "10:00 AM – 11:00 PM",
+          location: "Imbert",
+          category: "festivals",
+          trending: true,
+        }),
+        event({
+          id: "ramen",
+          title: "Ramen party",
+          date: "2026-08-20",
+          time: "6:00 PM",
+          location: "Puerto Plata",
+          category: "food-drinks",
+        }),
+        event({
+          id: "concert",
+          title: "Live at Aura",
+          date: "2026-08-20",
+          time: "8:00 PM",
+          location: "Cabarete",
+          category: "concert",
+        }),
+        event({
+          id: "party",
+          title: "Reggaeton night",
+          date: "2026-08-20",
+          time: "10:00 PM",
+          location: "Puerto Plata",
+          category: "parties",
+        }),
+      ],
+      3,
+      NOW,
+    );
+    assert.deepEqual(
+      picked.map((item) => item.id),
+      ["ramen", "concert", "party"],
+    );
+  });
+
   it("pins a featured today event first as the cover", () => {
     const picked = pickTodaySpotlights(
       [

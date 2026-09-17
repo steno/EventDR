@@ -2,7 +2,11 @@ import type { Locale } from "@/i18n/config";
 import { CITIES, eventMatchesCity, type CitySlug } from "@/lib/cities";
 import { localDateISO, weekdayFromISO } from "@/lib/event-dates";
 import { formatEventPlace } from "@/lib/event-location";
-import { getEventLiveStatus, isRecurringEvent } from "@/lib/event-status";
+import {
+  getEventLiveStatus,
+  isRecurringEvent,
+  isTodayOnlySpecial,
+} from "@/lib/event-status";
 import {
   defaultMetaImageUrl,
   isAllowedMetaImageUrl,
@@ -96,12 +100,17 @@ function resolveCity(event: Event): CitySlug | "other" {
   return "other";
 }
 
-/** Lower = preferred. One-offs fill first; daily only fills leftover slots. */
-function spotlightRecurrenceTier(event: Event): number {
-  if (!isRecurringEvent(event)) return 0;
-  if (event.recurrence === "weekly" || event.recurrence === "weekends") return 1;
-  if (event.recurrence === "weekdays") return 2;
-  return 3;
+/**
+ * Lower = preferred. Home “Today’s specials” (dated one-offs that start today)
+ * fill first so the daily post matches that rail, then other one-offs
+ * (multi-day festivals), then weekly nights. Daily listings fill last.
+ */
+function spotlightRecurrenceTier(event: Event, today: string): number {
+  if (isTodayOnlySpecial(event, today)) return 0;
+  if (!isRecurringEvent(event)) return 1;
+  if (event.recurrence === "weekly" || event.recurrence === "weekends") return 2;
+  if (event.recurrence === "weekdays") return 3;
+  return 4;
 }
 
 function spotlightScore(
@@ -120,13 +129,14 @@ function spotlightScore(
   return score;
 }
 
-/** Prefer one-offs over daily, then weekly nights, with category and city variety. */
+/** Prefer today’s specials, then other one-offs, then weekly nights, with variety. */
 export function pickTodaySpotlights(
   events: Event[],
   limit = TODAY_SPOTLIGHT_LIMIT,
   now = new Date(),
   options: SpotlightPickOptions = {},
 ): Event[] {
+  const today = localDateISO(now);
   const excludeIds = new Set(
     [...(options.excludeIds ?? [])].filter((id) => id.length > 0),
   );
@@ -162,7 +172,8 @@ export function pickTodaySpotlights(
     );
     while (picked.length < limit && remaining.length) {
       remaining.sort((a, b) => {
-        const tier = spotlightRecurrenceTier(a) - spotlightRecurrenceTier(b);
+        const tier =
+          spotlightRecurrenceTier(a, today) - spotlightRecurrenceTier(b, today);
         if (tier !== 0) return tier;
         return (
           spotlightScore(b, usedCategories, usedCities, now) -
