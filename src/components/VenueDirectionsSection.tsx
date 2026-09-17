@@ -419,30 +419,27 @@ export const VenueDirectionsForm = forwardRef<
             className="min-w-0 flex-1 rounded-2xl border border-neutral-200 bg-white px-4 py-3 text-base leading-normal text-neutral-900 placeholder:text-neutral-400 outline-none transition focus:border-orange-300 focus:ring-2 focus:ring-orange-400/30 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-100 dark:placeholder:text-neutral-500 dark:focus:border-orange-500/50 sm:text-sm"
           />
           <button
-            type="button"
-            onClick={handleUseMyLocation}
-            disabled={busy}
-            className="inline-flex shrink-0 items-center justify-center gap-1.5 rounded-2xl border border-neutral-200 bg-white px-3.5 py-3 text-sm font-semibold text-neutral-800 touch-manipulation transition active:scale-[0.98] disabled:opacity-60 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-100"
-            aria-label={dict.venues.useMyLocation}
-            title={dict.venues.useMyLocation}
-          >
-            <LocateFixed className="h-4 w-4" aria-hidden />
-            <span className="hidden sm:inline">{dict.venues.useMyLocation}</span>
-          </button>
-        </div>
-
-        <div className="flex flex-wrap items-center gap-2">
-          <button
             type="submit"
             disabled={busy}
             className={
               emphasizeSubmit
-                ? "inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-5 py-3 text-sm font-bold text-white shadow-sm touch-manipulation transition-[transform,box-shadow,background-color,color,border-color] active:scale-[0.98] disabled:opacity-60"
-                : "inline-flex items-center justify-center gap-2 rounded-2xl border border-neutral-200 bg-white px-5 py-3 text-sm font-semibold text-neutral-700 shadow-none touch-manipulation transition-[transform,box-shadow,background-color,color,border-color] active:scale-[0.98] disabled:opacity-60 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-200"
+                ? "inline-flex aspect-square shrink-0 items-center justify-center self-stretch rounded-2xl bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-3.5 text-white shadow-sm touch-manipulation transition-[transform,box-shadow,background-color,color,border-color] active:scale-[0.98] disabled:opacity-60"
+                : "inline-flex aspect-square shrink-0 items-center justify-center self-stretch rounded-2xl border border-neutral-200 bg-white px-3.5 text-neutral-800 touch-manipulation transition-[transform,box-shadow,background-color,color,border-color] active:scale-[0.98] disabled:opacity-60 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-100"
             }
+            aria-label={busy ? dict.venues.routeLoading : dict.venues.getDirections}
+            title={busy ? dict.venues.routeLoading : dict.venues.getDirections}
           >
             <Navigation className="h-4 w-4" aria-hidden />
-            {busy ? dict.venues.routeLoading : dict.venues.getDirections}
+          </button>
+          <button
+            type="button"
+            onClick={handleUseMyLocation}
+            disabled={busy}
+            className="inline-flex aspect-square shrink-0 items-center justify-center self-stretch rounded-2xl border border-neutral-200 bg-white px-3.5 text-neutral-800 touch-manipulation transition active:scale-[0.98] disabled:opacity-60 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-100"
+            aria-label={dict.venues.useMyLocation}
+            title={dict.venues.useMyLocation}
+          >
+            <LocateFixed className="h-4 w-4" aria-hidden />
           </button>
         </div>
 
