@@ -1,6 +1,7 @@
 import { memo } from "react";
 import { Flame } from "lucide-react";
 import { EventImage } from "@/components/EventImage";
+import { ImageStoryEnlarge } from "@/components/ImageStoryEnlarge";
 import { EventCardMeta } from "@/components/EventCardMeta";
 import { IntentLink } from "@/components/IntentLink";
 import { getCategoryMeta } from "@/lib/categories";
@@ -32,6 +33,8 @@ interface EventCardProps {
   dimmed?: boolean;
   /** Fired on navigate so the parent can set `pending`. */
   onNavigate?: () => void;
+  /** Story enlarge control on card images (off on category grids). */
+  showEnlarge?: boolean;
 }
 
 function EventCardMedia({
@@ -42,6 +45,9 @@ function EventCardMedia({
   imageClassName,
   frameClassName,
   emojiClassName,
+  enlargeLabel,
+  closeLabel,
+  showEnlarge = true,
 }: {
   event: EventWithVenueSiblings;
   emoji: string;
@@ -50,6 +56,9 @@ function EventCardMedia({
   imageClassName: string;
   frameClassName: string;
   emojiClassName?: string;
+  enlargeLabel: string;
+  closeLabel: string;
+  showEnlarge?: boolean;
 }) {
   const frame = `
     relative overflow-hidden pointer-events-none
@@ -73,8 +82,16 @@ function EventCardMedia({
   );
 
   return (
-    <div className={frame} aria-hidden>
+    <div className={frame} aria-hidden={!event.imageUrl || undefined}>
       {media}
+      {event.imageUrl && showEnlarge ? (
+        <ImageStoryEnlarge
+          src={event.imageUrl}
+          alt={event.title}
+          enlargeLabel={enlargeLabel}
+          closeLabel={closeLabel}
+        />
+      ) : null}
     </div>
   );
 }
@@ -92,6 +109,7 @@ const EventCardComponent = ({
   pending = false,
   dimmed = false,
   onNavigate,
+  showEnlarge = true,
 }: EventCardProps) => {
   const category = getCategoryMeta(event.category, dict.categories);
   const emoji = event.imageEmoji ?? category?.emoji ?? "📅";
@@ -152,6 +170,9 @@ const EventCardComponent = ({
             sizes="(max-width: 640px) 50vw, 240px"
             imageClassName={`object-cover card-media-zoom ${getEventCardObjectPosition(event.id)}`}
             frameClassName="aspect-[4/3] w-full"
+            enlargeLabel={dict.detail.enlargeImage}
+            closeLabel={dict.detail.close}
+            showEnlarge={showEnlarge}
           />
           {pending ? (
             <div
@@ -222,6 +243,9 @@ const EventCardComponent = ({
           imageClassName="object-cover"
           frameClassName="flex-shrink-0 self-start h-28 w-28 rounded-xl shadow-sm"
           emojiClassName="text-4xl"
+          enlargeLabel={dict.detail.enlargeImage}
+          closeLabel={dict.detail.close}
+          showEnlarge={false}
         />
 
         <div className="flex-1 min-w-0">

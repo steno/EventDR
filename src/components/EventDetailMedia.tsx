@@ -4,6 +4,7 @@ import { Building2, X } from "lucide-react";
 import type { Event } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { EventImage } from "@/components/EventImage";
+import { ImageStoryEnlarge } from "@/components/ImageStoryEnlarge";
 import { IntentLink } from "@/components/IntentLink";
 import { getEventHeroObjectPosition } from "@/lib/event-images";
 import { DETAIL_HERO_PHOTO_HEIGHT_MOBILE_CLASS } from "@/lib/page-shell";
@@ -81,6 +82,13 @@ export function EventDetailMedia({
       ) : (
         photo
       )}
+      <ImageStoryEnlarge
+        src={event.imageUrl}
+        alt={event.title}
+        enlargeLabel={dict.detail.enlargeImage}
+        closeLabel={dict.detail.close}
+        className="bottom-3 right-3"
+      />
       {onClose && (
         <button
           type="button"

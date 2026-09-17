@@ -226,6 +226,7 @@ export const es: Dictionary = {
     remindFailed: "No se pudo crear el recordatorio — inténtalo de nuevo",
     community: "Compartido por la comunidad",
     viewVenue: "Ver lugar",
+    enlargeImage: "Ampliar imagen",
     viewEvent: "Ver evento",
     buyTickets: "Comprar entradas",
     freeAdmission: "Entrada gratis",

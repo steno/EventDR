@@ -20,6 +20,7 @@ import {
 } from "@/components/VenueDirectionsSection";
 import { VenueAssessmentBlock } from "@/components/VenueAssessmentBlock";
 import { EventImage } from "@/components/EventImage";
+import { ImageStoryEnlarge } from "@/components/ImageStoryEnlarge";
 import { IntentLink } from "@/components/IntentLink";
 import { lastHomePath } from "@/lib/cities";
 import { isPastOneOffEvent } from "@/lib/event-dates";
@@ -337,6 +338,15 @@ export function VenuePage({
                     </span>
                   </div>
                 )}
+                {heroImageUrl ? (
+                  <ImageStoryEnlarge
+                    src={heroImageUrl}
+                    alt={venue.name}
+                    enlargeLabel={dict.detail.enlargeImage}
+                    closeLabel={dict.detail.close}
+                    className="bottom-3 right-3"
+                  />
+                ) : null}
               </div>
               <div
                 ref={mapSectionRef}

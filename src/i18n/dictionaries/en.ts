@@ -229,6 +229,8 @@ export type Dictionary = {
     remindFailed: string;
     community: string;
     viewVenue: string;
+    /** Mobile: open event image in full-bleed story viewer. */
+    enlargeImage: string;
     viewEvent: string;
     buyTickets: string;
     freeAdmission: string;
@@ -843,6 +845,7 @@ export const en: Dictionary = {
     remindFailed: "Couldn’t set reminder — try again",
     community: "Shared by the community",
     viewVenue: "View venue",
+    enlargeImage: "Enlarge image",
     viewEvent: "View event",
     buyTickets: "Buy tickets",
     freeAdmission: "Free admission",

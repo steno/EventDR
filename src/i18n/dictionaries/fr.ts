@@ -226,6 +226,7 @@ export const fr: Dictionary = {
     remindFailed: "Impossible de créer le rappel — réessayez",
     community: "Partagé par la communauté",
     viewVenue: "Voir le lieu",
+    enlargeImage: "Agrandir l'image",
     viewEvent: "Voir l'événement",
     buyTickets: "Acheter des billets",
     freeAdmission: "Entrée gratuite",
