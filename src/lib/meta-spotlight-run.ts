@@ -12,13 +12,19 @@ import {
   type MetaGraphError,
   type MetaPostConfig,
 } from "@/lib/meta-post";
-import { buildTodayMetaPost } from "@/lib/meta-spotlight";
+import {
+  buildTodayMetaPost,
+  sameSpotlightEventSet,
+  spotlightPickOptionsForSource,
+  type SpotlightChannel,
+} from "@/lib/meta-spotlight";
 import { localDateISO } from "@/lib/event-dates";
 import {
   claimTodaySpotlightLock,
   finishTodaySpotlightLock,
-  readTodaySpotlightLock,
-  spotlightExclusions,
+  mergeSpotlightExclusions,
+  readSpotlightLocks,
+  type SpotlightLockRecord,
 } from "@/lib/meta-spotlight-lock";
 import { nextSpotlightWork } from "@/lib/meta-spotlight-steps";
 
@@ -36,7 +42,7 @@ export type TodaySpotlightProgress = {
 export type TodaySpotlightStepResult = {
   success: boolean;
   done: boolean;
-  reused?: boolean;
+  skipped?: boolean;
   inProgress?: boolean;
   phase?: string;
   eventIds: string[];
@@ -79,15 +85,23 @@ export async function runTodaySpotlightStep(input: {
   wantInstagram: boolean;
   force?: boolean;
   featureEventId?: string;
+  channel?: SpotlightChannel;
   progress?: TodaySpotlightProgress;
 }): Promise<{ status: number; body: TodaySpotlightStepResult }> {
-  const lock = await readTodaySpotlightLock();
-  const exclusions = spotlightExclusions(lock, localDateISO(), {
+  const channel = input.channel ?? "today";
+  const today = localDateISO();
+  const locks = await readSpotlightLocks();
+  const own: SpotlightLockRecord | null =
+    channel === "today-specials" ? locks.specials : locks.today;
+  const other =
+    channel === "today-specials" ? locks.today : locks.specials;
+  const exclusions = mergeSpotlightExclusions(own, [other], today, {
     force: input.force,
   });
   const built = await buildTodayMetaPost(input.locale, undefined, {
     ...exclusions,
     featureEventId: input.featureEventId,
+    ...spotlightPickOptionsForSource(channel),
   });
   if (!built.ok) {
     return {
@@ -102,6 +116,24 @@ export async function runTodaySpotlightStep(input: {
   }
 
   const eventIds = built.post.events.map((event) => event.id);
+  if (
+    channel === "today" &&
+    other?.date === today &&
+    sameSpotlightEventSet(eventIds, other.eventIds)
+  ) {
+    return {
+      status: 200,
+      body: {
+        success: true,
+        done: true,
+        skipped: true,
+        phase: "skipped-duplicate",
+        eventIds,
+        error: "Scheduled spotlight matches today's specials post",
+      },
+    };
+  }
+
   const claimed = await claimTodaySpotlightLock({
     locale: input.locale,
     eventIds,
@@ -112,6 +144,7 @@ export async function runTodaySpotlightStep(input: {
     force: input.force,
     facebook: input.wantFacebook,
     instagram: input.wantInstagram,
+    channel,
   });
 
   if (claimed.action === "reuse") {
@@ -191,6 +224,7 @@ export async function runTodaySpotlightStep(input: {
       instagramParentId: patch.instagramParentId ?? job.instagramParentId,
       failed: patch.failed,
       complete: patch.complete,
+      channel,
     });
   };
 

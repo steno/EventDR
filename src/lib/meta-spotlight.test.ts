@@ -2,8 +2,11 @@ import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import {
   buildTodaySpotlightCaption,
+  otherSpotlightChannel,
   pickTodaySpotlights,
+  sameSpotlightEventSet,
   spotlightCaptionIntro,
+  spotlightPickOptionsForSource,
   spotlightRepeatKey,
   spotlightSeriesKeyFromId,
   toAbsoluteMetaImageUrl,
@@ -146,51 +149,119 @@ describe("pickTodaySpotlights", () => {
     );
   });
 
-  it("prefers today's specials over a live multi-day festival", () => {
-    const picked = pickTodaySpotlights(
-      [
-        event({
-          id: "patronales",
-          title: "Imbert Fiestas Patronales",
-          date: "2026-08-16",
-          endDate: "2026-08-24",
-          time: "10:00 AM – 11:00 PM",
-          location: "Imbert",
-          category: "festivals",
-          trending: true,
-        }),
-        event({
-          id: "ramen",
-          title: "Ramen party",
-          date: "2026-08-20",
-          time: "6:00 PM",
-          location: "Puerto Plata",
-          category: "food-drinks",
-        }),
-        event({
-          id: "concert",
-          title: "Live at Aura",
-          date: "2026-08-20",
-          time: "8:00 PM",
-          location: "Cabarete",
-          category: "concert",
-        }),
-        event({
-          id: "party",
-          title: "Reggaeton night",
-          date: "2026-08-20",
-          time: "10:00 PM",
-          location: "Puerto Plata",
-          category: "parties",
-        }),
-      ],
-      3,
-      NOW,
-    );
+  it("manual specials pool is only dated one-offs that start today", () => {
+    const pool = [
+      event({
+        id: "patronales",
+        title: "Imbert Fiestas Patronales",
+        date: "2026-08-16",
+        endDate: "2026-08-24",
+        time: "10:00 AM – 11:00 PM",
+        location: "Imbert",
+        category: "festivals",
+        trending: true,
+      }),
+      event({
+        id: "ramen",
+        title: "Ramen party",
+        date: "2026-08-20",
+        time: "6:00 PM",
+        location: "Puerto Plata",
+        category: "food-drinks",
+      }),
+      event({
+        id: "concert",
+        title: "Live at Aura",
+        date: "2026-08-20",
+        time: "8:00 PM",
+        location: "Cabarete",
+        category: "concert",
+      }),
+      event({
+        id: "party",
+        title: "Reggaeton night",
+        date: "2026-08-20",
+        time: "10:00 PM",
+        location: "Puerto Plata",
+        category: "parties",
+      }),
+      event({
+        id: "weekly",
+        title: "Reggae night",
+        date: "2026-08-20",
+        time: "9:00 PM",
+        location: "Cabarete",
+        category: "music",
+        recurrence: "weekly",
+      }),
+    ];
     assert.deepEqual(
-      picked.map((item) => item.id),
+      pickTodaySpotlights(pool, 3, NOW, { onlyTodaySpecials: true }).map(
+        (item) => item.id,
+      ),
       ["ramen", "concert", "party"],
     );
+  });
+
+  it("scheduled 13:00 pool never overlaps a manual specials pick", () => {
+    const pool = [
+      event({
+        id: "patronales",
+        title: "Imbert Fiestas Patronales",
+        date: "2026-08-16",
+        endDate: "2026-08-24",
+        time: "10:00 AM – 11:00 PM",
+        location: "Imbert",
+        category: "festivals",
+        trending: true,
+      }),
+      event({
+        id: "ramen",
+        title: "Ramen party",
+        date: "2026-08-20",
+        time: "6:00 PM",
+        location: "Puerto Plata",
+        category: "food-drinks",
+      }),
+      event({
+        id: "concert",
+        title: "Live at Aura",
+        date: "2026-08-20",
+        time: "8:00 PM",
+        location: "Cabarete",
+        category: "concert",
+      }),
+      event({
+        id: "party",
+        title: "Reggaeton night",
+        date: "2026-08-20",
+        time: "10:00 PM",
+        location: "Puerto Plata",
+        category: "parties",
+      }),
+      event({
+        id: "weekly",
+        title: "Reggae night",
+        date: "2026-08-20",
+        time: "9:00 PM",
+        location: "Cabarete",
+        category: "music",
+        recurrence: "weekly",
+      }),
+    ];
+    const specials = pickTodaySpotlights(pool, 3, NOW, {
+      onlyTodaySpecials: true,
+    });
+    const scheduled = pickTodaySpotlights(pool, 3, NOW, {
+      excludeTodaySpecials: true,
+    });
+    const specialIds = new Set(specials.map((item) => item.id));
+    assert.equal(specialIds.has("ramen"), true);
+    assert.equal(
+      scheduled.some((item) => specialIds.has(item.id)),
+      false,
+    );
+    assert.equal(scheduled[0]?.id, "patronales");
   });
 
   it("pins a featured today event first as the cover", () => {
@@ -309,6 +380,28 @@ describe("pickTodaySpotlights", () => {
       picked.map((item) => item.id),
       ["fresh", "recent"],
     );
+  });
+});
+
+describe("spotlight channels", () => {
+  it("maps scheduled vs specials pick flags", () => {
+    assert.deepEqual(spotlightPickOptionsForSource("today"), {
+      excludeTodaySpecials: true,
+    });
+    assert.deepEqual(spotlightPickOptionsForSource("today-specials"), {
+      onlyTodaySpecials: true,
+    });
+    assert.equal(otherSpotlightChannel("today"), "today-specials");
+    assert.equal(otherSpotlightChannel("today-specials"), "today");
+  });
+
+  it("detects the same event set regardless of order", () => {
+    assert.equal(
+      sameSpotlightEventSet(["a", "b", "c"], ["c", "a", "b"]),
+      true,
+    );
+    assert.equal(sameSpotlightEventSet(["a", "b"], ["a", "c"]), false);
+    assert.equal(sameSpotlightEventSet([], []), false);
   });
 });
 

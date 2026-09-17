@@ -1,6 +1,10 @@
 import { localDateISO } from "@/lib/event-dates";
 import { getFirestoreDb, isFirebaseConfigured } from "@/lib/firebase/admin";
-import { spotlightSeriesKeyFromId } from "@/lib/meta-spotlight";
+import {
+  isSpotlightChannel,
+  spotlightSeriesKeyFromId,
+  type SpotlightChannel,
+} from "@/lib/meta-spotlight";
 import type { DocumentData } from "firebase-admin/firestore";
 
 /** Lease so two overlapping `next` steps cannot both hit Graph. */
@@ -8,7 +12,10 @@ export const SPOTLIGHT_STEP_LEASE_MS = 60 * 1000;
 export const SPOTLIGHT_LOCK_STALE_MS = SPOTLIGHT_STEP_LEASE_MS;
 
 const COLLECTION = "ops";
-const DOC_ID = "metaDailySpotlight";
+const LOCK_DOCS: Record<SpotlightChannel, string> = {
+  today: "metaDailySpotlight",
+  "today-specials": "metaTodaySpecialsSpotlight",
+};
 
 export const SPOTLIGHT_HISTORY_DAYS = 7;
 export const SPOTLIGHT_ID_COOLDOWN_DAYS = 7;
@@ -23,7 +30,7 @@ export type SpotlightHistoryDay = {
 export type SpotlightLockRecord = {
   date: string;
   locale: string;
-  source: "today";
+  source: SpotlightChannel;
   status: "in_progress" | "complete" | "failed";
   eventIds: string[];
   repeatKeys?: string[];
@@ -134,6 +141,36 @@ export function spotlightExclusions(
   };
 }
 
+/**
+ * Own-channel history plus the other channel’s event ids (including same-day).
+ * Venue keys stay per-channel so a specials post at a lounge does not block
+ * that venue’s weekly night on the 13:00 UTC post.
+ */
+export function mergeSpotlightExclusions(
+  own:
+    | Pick<SpotlightLockRecord, "date" | "eventIds" | "repeatKeys" | "recent">
+    | null,
+  others: Array<
+    | Pick<SpotlightLockRecord, "date" | "eventIds" | "repeatKeys" | "recent">
+    | null
+    | undefined
+  >,
+  today: string,
+  options: { force?: boolean } = {},
+): { excludeIds: string[]; excludeKeys: string[] } {
+  const base = spotlightExclusions(own, today, options);
+  const excludeIds = new Set(base.excludeIds);
+  for (const other of others) {
+    if (!other) continue;
+    const fromOther = spotlightExclusions(other, today, options);
+    for (const id of fromOther.excludeIds) excludeIds.add(id);
+    if (other.date === today) {
+      for (const id of other.eventIds) excludeIds.add(id);
+    }
+  }
+  return { excludeIds: [...excludeIds], excludeKeys: base.excludeKeys };
+}
+
 function stringList(value: unknown): string[] | undefined {
   if (!Array.isArray(value)) return undefined;
   const items = value.filter(
@@ -190,7 +227,7 @@ export function lockRecordForWrite(
 
 function asLockRecord(data: DocumentData | undefined) {
   if (!data) return null;
-  if (data.source !== "today") return null;
+  if (!isSpotlightChannel(data.source)) return null;
   if (typeof data.date !== "string" || typeof data.locale !== "string") {
     return null;
   }
@@ -204,7 +241,7 @@ function asLockRecord(data: DocumentData | undefined) {
   return {
     date: data.date,
     locale: data.locale,
-    source: "today" as const,
+    source: data.source,
     status: data.status,
     eventIds: stringList(data.eventIds) ?? [],
     repeatKeys: stringList(data.repeatKeys),
@@ -228,17 +265,30 @@ function asLockRecord(data: DocumentData | undefined) {
   } satisfies SpotlightLockRecord;
 }
 
-export async function readTodaySpotlightLock(): Promise<SpotlightLockRecord | null> {
+export async function readTodaySpotlightLock(
+  channel: SpotlightChannel = "today",
+): Promise<SpotlightLockRecord | null> {
   if (!isFirebaseConfigured()) return null;
   const db = getFirestoreDb();
   if (!db) return null;
   try {
-    const snap = await db.collection(COLLECTION).doc(DOC_ID).get();
+    const snap = await db.collection(COLLECTION).doc(LOCK_DOCS[channel]).get();
     return asLockRecord(snap.data());
   } catch (error) {
     console.error("readTodaySpotlightLock failed", error);
     return null;
   }
+}
+
+export async function readSpotlightLocks(): Promise<{
+  today: SpotlightLockRecord | null;
+  specials: SpotlightLockRecord | null;
+}> {
+  const [today, specials] = await Promise.all([
+    readTodaySpotlightLock("today"),
+    readTodaySpotlightLock("today-specials"),
+  ]);
+  return { today, specials };
 }
 
 export async function claimTodaySpotlightLock(input: {
@@ -251,6 +301,7 @@ export async function claimTodaySpotlightLock(input: {
   force?: boolean;
   facebook?: boolean;
   instagram?: boolean;
+  channel?: SpotlightChannel;
 }): Promise<
   | { ok: true; action: "proceed" | "resume"; record: SpotlightLockRecord }
   | { ok: true; action: "reuse"; record: SpotlightLockRecord }
@@ -263,7 +314,8 @@ export async function claimTodaySpotlightLock(input: {
 
   const today = localDateISO();
   const now = Date.now();
-  const ref = db.collection(COLLECTION).doc(DOC_ID);
+  const channel = input.channel ?? "today";
+  const ref = db.collection(COLLECTION).doc(LOCK_DOCS[channel]);
 
   try {
     return await db.runTransaction(async (tx) => {
@@ -288,7 +340,7 @@ export async function claimTodaySpotlightLock(input: {
       const record: SpotlightLockRecord = {
         date: today,
         locale: input.locale,
-        source: "today",
+        source: channel,
         status: "in_progress",
         eventIds: keep?.eventIds.length ? keep.eventIds : input.eventIds,
         repeatKeys: keep?.repeatKeys ?? input.repeatKeys,
@@ -330,12 +382,14 @@ export async function finishTodaySpotlightLock(input: {
   instagramParentId?: string;
   failed?: boolean;
   complete?: boolean;
+  channel?: SpotlightChannel;
 }): Promise<void> {
   if (!isFirebaseConfigured()) return;
   const db = getFirestoreDb();
   if (!db) return;
   const now = Date.now();
-  const ref = db.collection(COLLECTION).doc(DOC_ID);
+  const channel = input.channel ?? "today";
+  const ref = db.collection(COLLECTION).doc(LOCK_DOCS[channel]);
   try {
     const snap = await ref.get();
     const existing = asLockRecord(snap.data());
@@ -348,7 +402,7 @@ export async function finishTodaySpotlightLock(input: {
       lockRecordForWrite({
         date: localDateISO(),
         locale: input.locale,
-        source: "today",
+        source: channel,
         status: input.failed ? "failed" : complete ? "complete" : "in_progress",
         eventIds: input.eventIds.length ? input.eventIds : existing?.eventIds ?? [],
         repeatKeys: input.repeatKeys ?? existing?.repeatKeys,
