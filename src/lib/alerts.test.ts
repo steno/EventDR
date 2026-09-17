@@ -125,10 +125,11 @@ describe("applyActiveEditorialClosure", () => {
   });
 
   it("marks VOYVOY Monday live closed while the bar is shut", () => {
-    const event = {
-      id: "voyvoy-monday-live-music",
-      venueSlug: "voyvoy-cabarete",
-    };
+    const event: { id: string; venueSlug: string; temporarilyClosed?: boolean } =
+      {
+        id: "voyvoy-monday-live-music",
+        venueSlug: "voyvoy-cabarete",
+      };
     assert.equal(
       applyActiveEditorialClosure(event, "2026-09-20").temporarilyClosed,
       true,

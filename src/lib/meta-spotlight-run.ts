@@ -42,6 +42,7 @@ export type TodaySpotlightProgress = {
 export type TodaySpotlightStepResult = {
   success: boolean;
   done: boolean;
+  reused?: boolean;
   skipped?: boolean;
   inProgress?: boolean;
   phase?: string;
