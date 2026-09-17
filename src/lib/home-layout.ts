@@ -8,6 +8,7 @@ import {
   isEndingSoon,
   isEventActiveToday,
   isRecurringEvent,
+  isTodayOnlySpecial,
 } from "@/lib/event-status";
 import { filterByTimeRange, type TimeRange } from "@/lib/filters";
 import { isHomeHeroBackgroundSuitable } from "@/lib/event-images";
@@ -15,6 +16,7 @@ import { findActiveSpecialEvent } from "@/lib/special-events";
 
 /** Re-export for callers that import discovery helpers from home-layout. */
 export { prioritizeOneTimeEvents } from "@/lib/event-sort";
+export { isTodayOnlySpecial } from "@/lib/event-status";
 
 /** Max cards in the home "Happening today" section (desktop 3×2). */
 export const HOME_TODAY_LIMIT = 6;
@@ -479,19 +481,6 @@ export function getComingUpHighlightEvents(
   });
 
   return pool;
-}
-
-/**
- * Dated one-off that starts on the local calendar day (including overnight
- * parties whose `endDate` is the next morning). Recurring and multi-day
- * festivals that started earlier stay in Happening today.
- */
-export function isTodayOnlySpecial(
-  event: Event,
-  today: string = localDateISO(),
-): boolean {
-  if (isRecurringEvent(event)) return false;
-  return event.date?.trim() === today;
 }
 
 /**

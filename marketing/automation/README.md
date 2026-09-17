@@ -65,7 +65,7 @@ curl -sS "https://pop-event.com/api/cron/meta-post" -H "Authorization: Bearer $C
 # Live Graph inspect (uses quota): append ?inspect=1
 ```
 
-Daily top 3 (also GitHub Action `daily-today-spotlight.yml` at ~9:00 AST). Live publish is a loop of short Graph steps — do not fire a single POST and wait for both networks:
+Daily happening-today post (GitHub Action `daily-today-spotlight.yml` at 13:00 UTC / ~9:00 AST). This job never posts home **Today’s specials** — those use a separate lock and `TODAY_SPECIALS=true`. Live publish is a loop of short Graph steps — do not fire a single POST and wait for both networks:
 
 ```bash
 curl -sS -X POST "https://pop-event.com/api/cron/meta-post" \
@@ -74,6 +74,7 @@ curl -sS -X POST "https://pop-event.com/api/cron/meta-post" \
   -d '{"source":"today","locale":"en","dryRun":true}'
 
 SITE_URL=https://pop-event.com CRON_SECRET=$CRON_SECRET node scripts/run-today-spotlight.mjs
+TODAY_SPECIALS=true SITE_URL=https://pop-event.com CRON_SECRET=$CRON_SECRET node scripts/run-today-spotlight.mjs
 ```
 
 Dry run, then live weekend post (uses `public/cities/cabarete.jpg` unless `imageUrl` is set to another `https://pop-event.com/...` file):

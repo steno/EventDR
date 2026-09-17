@@ -2,7 +2,11 @@ import type { Locale } from "@/i18n/config";
 import { CITIES, eventMatchesCity, type CitySlug } from "@/lib/cities";
 import { localDateISO, weekdayFromISO } from "@/lib/event-dates";
 import { formatEventPlace } from "@/lib/event-location";
-import { getEventLiveStatus, isRecurringEvent } from "@/lib/event-status";
+import {
+  getEventLiveStatus,
+  isRecurringEvent,
+  isTodayOnlySpecial,
+} from "@/lib/event-status";
 import {
   defaultMetaImageUrl,
   isAllowedMetaImageUrl,
@@ -13,6 +17,19 @@ import { SITE_URL } from "@/lib/site-url";
 import type { Event } from "@/lib/types";
 
 export const TODAY_SPOTLIGHT_LIMIT = 3;
+
+/** Scheduled 13:00 UTC post vs a manual “today’s specials” post. */
+export type SpotlightChannel = "today" | "today-specials";
+
+export function otherSpotlightChannel(
+  channel: SpotlightChannel,
+): SpotlightChannel {
+  return channel === "today" ? "today-specials" : "today";
+}
+
+export function isSpotlightChannel(value: unknown): value is SpotlightChannel {
+  return value === "today" || value === "today-specials";
+}
 
 const SKIP_STATUSES = new Set([
   "ended",
@@ -62,7 +79,24 @@ export type SpotlightPickOptions = {
   excludeKeys?: Iterable<string>;
   /** Pin this event first (cover image) when it is happening today. */
   featureEventId?: string;
+  /** Manual specials post: only dated one-offs that start today. */
+  onlyTodaySpecials?: boolean;
+  /** 13:00 UTC scheduled post: never the home “Today’s specials” pool. */
+  excludeTodaySpecials?: boolean;
 };
+
+export function spotlightPickOptionsForSource(
+  source: SpotlightChannel,
+): Pick<SpotlightPickOptions, "onlyTodaySpecials" | "excludeTodaySpecials"> {
+  if (source === "today-specials") return { onlyTodaySpecials: true };
+  return { excludeTodaySpecials: true };
+}
+
+export function sameSpotlightEventSet(a: string[], b: string[]): boolean {
+  if (!a.length || a.length !== b.length) return false;
+  const other = new Set(b);
+  return a.every((id) => other.has(id));
+}
 
 function siteOrigin(origin = SITE_URL): string {
   return origin.replace(/\/$/, "");
@@ -127,6 +161,7 @@ export function pickTodaySpotlights(
   now = new Date(),
   options: SpotlightPickOptions = {},
 ): Event[] {
+  const today = localDateISO(now);
   const excludeIds = new Set(
     [...(options.excludeIds ?? [])].filter((id) => id.length > 0),
   );
@@ -135,7 +170,11 @@ export function pickTodaySpotlights(
   );
   const open = events.filter((event) => {
     const status = getEventLiveStatus(event, now);
-    return !SKIP_STATUSES.has(status);
+    if (SKIP_STATUSES.has(status)) return false;
+    const special = isTodayOnlySpecial(event, today);
+    if (options.onlyTodaySpecials) return special;
+    if (options.excludeTodaySpecials) return !special;
+    return true;
   });
   const isRecent = (event: Event) =>
     excludeIds.has(event.id) || excludeKeys.has(spotlightRepeatKey(event));
@@ -339,7 +378,10 @@ export async function buildTodayMetaPost(
   options: SpotlightPickOptions = {},
 ): Promise<{ ok: true; post: TodayMetaPost } | { ok: false; error: string }> {
   const today = await getPublicEvents({ locale, when: "today" });
-  const picked = pickTodaySpotlights(today, TODAY_SPOTLIGHT_LIMIT, new Date(), options);
+  const picked = pickTodaySpotlights(today, TODAY_SPOTLIGHT_LIMIT, new Date(), {
+    excludeTodaySpecials: !options.onlyTodaySpecials,
+    ...options,
+  });
   if (!picked.length) {
     return { ok: false, error: "No today events to spotlight" };
   }

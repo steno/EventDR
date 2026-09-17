@@ -12,6 +12,7 @@
  *   FACEBOOK_ONLY=true    Skip Instagram
  *   FORCE=true            Ignore today's lock and start over
  *   FEATURE_EVENT_ID=...  Pin this event first (cover image)
+ *   TODAY_SPECIALS=true   Manual home “Today’s specials” post (not the 13:00 UTC job)
  */
 
 const SITE_URL = (process.env.SITE_URL || "https://pop-event.com").replace(
@@ -24,6 +25,10 @@ const INSTAGRAM_ONLY = process.env.INSTAGRAM_ONLY === "true";
 const FACEBOOK_ONLY = process.env.FACEBOOK_ONLY === "true";
 const FORCE = process.env.FORCE === "true";
 const FEATURE_EVENT_ID = process.env.FEATURE_EVENT_ID?.trim() || "";
+const TODAY_SPECIALS =
+  process.env.TODAY_SPECIALS === "true" ||
+  process.env.SOURCE === "today-specials";
+const SPOTLIGHT_SOURCE = TODAY_SPECIALS ? "today-specials" : "today";
 const MAX_STEPS = 30;
 const WAIT_MS = 4_000;
 
@@ -151,7 +156,7 @@ async function main() {
   }
 
   const payload = {
-    source: "today",
+    source: SPOTLIGHT_SOURCE,
     locale: "en",
     dryRun: DRY_RUN,
     force: FORCE || undefined,
@@ -161,11 +166,19 @@ async function main() {
   };
 
   if (DRY_RUN) {
-    console.log("Dry run — building today's spotlight without publishing.");
+    console.log(
+      TODAY_SPECIALS
+        ? "Dry run — building today's specials spotlight without publishing."
+        : "Dry run — building the 13:00 UTC today spotlight without publishing.",
+    );
     const { http, json, text } = await post(payload);
     console.log(json ? JSON.stringify(json, null, 2) : text);
     if (http === 422) {
-      console.log("No today events to spotlight.");
+      console.log(
+        SPOTLIGHT_SOURCE === "today-specials"
+          ? "No today specials to spotlight."
+          : "No today events to spotlight.",
+      );
       process.exit(0);
     }
     if (http >= 200 && http < 300 && json?.success) {
@@ -212,7 +225,11 @@ async function main() {
     }
 
     if (http === 422) {
-      console.log("No today events to spotlight.");
+      console.log(
+        SPOTLIGHT_SOURCE === "today-specials"
+          ? "No today specials to spotlight."
+          : "No today events to spotlight.",
+      );
       process.exit(0);
     }
     if (http === 401) {
@@ -244,6 +261,12 @@ async function main() {
       }
       console.error(body.error || `Today spotlight failed with HTTP ${http}.`);
       process.exit(1);
+    }
+    if (body.skipped) {
+      console.log(
+        "Skipping: this channel would post the same events as the other spotlight.",
+      );
+      process.exit(0);
     }
     if (body.reused || body.done) {
       if (body.reused) {

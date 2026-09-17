@@ -3,7 +3,11 @@ import { checkCronSecret } from "@/lib/ops-auth";
 import { isValidLocale, type Locale } from "@/i18n/config";
 import { buildPartnerDigest } from "@/lib/partner-digest";
 import { SITE_URL } from "@/lib/site-url";
-import { buildTodayMetaPost } from "@/lib/meta-spotlight";
+import {
+  buildTodayMetaPost,
+  isSpotlightChannel,
+  spotlightPickOptionsForSource,
+} from "@/lib/meta-spotlight";
 import {
   inspectMetaAccounts,
   isMetaRateLimitError,
@@ -14,8 +18,8 @@ import {
   type MetaPublishInput,
 } from "@/lib/meta-post";
 import {
-  readTodaySpotlightLock,
-  spotlightExclusions,
+  mergeSpotlightExclusions,
+  readSpotlightLocks,
 } from "@/lib/meta-spotlight-lock";
 import { localDateISO } from "@/lib/event-dates";
 import {
@@ -47,8 +51,12 @@ export async function GET(request: NextRequest) {
   if (!parsed.ok) return notConfigured(parsed.missing);
 
   if (request.nextUrl.searchParams.get("lock") === "1") {
-    const lock = await readTodaySpotlightLock();
-    return NextResponse.json({ ready: true, lock });
+    const locks = await readSpotlightLocks();
+    return NextResponse.json({
+      ready: true,
+      lock: locks.today,
+      specialsLock: locks.specials,
+    });
   }
 
   const inspectLive = request.nextUrl.searchParams.get("inspect") === "1";
@@ -85,7 +93,7 @@ export async function GET(request: NextRequest) {
 
 type PostBody = Partial<MetaPublishInput> &
   TodaySpotlightProgress & {
-    source?: "weekend" | "today";
+    source?: "weekend" | "today" | "today-specials";
     locale?: string;
     force?: boolean;
     featureEventId?: string;
@@ -108,22 +116,21 @@ export async function POST(request: NextRequest) {
   const localeParam = body.locale ?? "en";
   const locale: Locale = isValidLocale(localeParam) ? localeParam : "en";
 
-  if (body.source === "today") {
+  if (isSpotlightChannel(body.source)) {
+    const channel = body.source;
     if (body.dryRun) {
       let built: Awaited<ReturnType<typeof buildTodayMetaPost>>;
       try {
-        built = await buildTodayMetaPost(
-          locale,
-          undefined,
-          {
-            ...spotlightExclusions(
-              await readTodaySpotlightLock(),
-              localDateISO(),
-              { force: body.force },
-            ),
-            featureEventId: body.featureEventId,
-          },
-        );
+        const locks = await readSpotlightLocks();
+        const own = channel === "today-specials" ? locks.specials : locks.today;
+        const other = channel === "today-specials" ? locks.today : locks.specials;
+        built = await buildTodayMetaPost(locale, undefined, {
+          ...mergeSpotlightExclusions(own, [other], localDateISO(), {
+            force: body.force,
+          }),
+          featureEventId: body.featureEventId,
+          ...spotlightPickOptionsForSource(channel),
+        });
       } catch (error) {
         console.error("buildTodayMetaPost failed", error);
         return NextResponse.json(
@@ -159,6 +166,7 @@ export async function POST(request: NextRequest) {
         wantInstagram: body.instagram !== false,
         force: body.force,
         featureEventId: body.featureEventId,
+        channel,
         progress: {
           facebookId: body.facebookId,
           instagramId: body.instagramId,

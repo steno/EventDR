@@ -3,6 +3,7 @@ import { describe, it } from "node:test";
 import {
   decideSpotlightLockAction,
   lockRecordForWrite,
+  mergeSpotlightExclusions,
   rollSpotlightHistory,
   spotlightExclusions,
   SPOTLIGHT_STEP_LEASE_MS,
@@ -220,5 +221,30 @@ describe("spotlightExclusions", () => {
     assert.equal(excludeKeys.includes("venue:week"), false);
     assert.equal(excludeIds.includes("old-id"), false);
     assert.equal(excludeKeys.includes("venue:old"), false);
+  });
+});
+
+describe("mergeSpotlightExclusions", () => {
+  it("adds the other channel's same-day event ids without its venue keys", () => {
+    const scheduled = lock({
+      date: "2026-08-26",
+      eventIds: ["patronales"],
+      repeatKeys: ["venue:imbert"],
+    });
+    const specials = lock({
+      date: "2026-08-26",
+      source: "today-specials",
+      eventIds: ["ramen", "concert"],
+      repeatKeys: ["venue:latin-wok"],
+    });
+    const { excludeIds, excludeKeys } = mergeSpotlightExclusions(
+      scheduled,
+      [specials],
+      "2026-08-26",
+    );
+    assert.equal(excludeIds.includes("ramen"), true);
+    assert.equal(excludeIds.includes("concert"), true);
+    assert.equal(excludeKeys.includes("venue:latin-wok"), false);
+    assert.equal(excludeKeys.includes("venue:imbert"), false);
   });
 });

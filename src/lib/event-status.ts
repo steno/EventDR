@@ -97,6 +97,19 @@ export function isRecurringEvent(
   return Boolean(event.recurrence);
 }
 
+/**
+ * Dated one-off that starts on the local calendar day (including overnight
+ * parties whose `endDate` is the next morning). Recurring and multi-day
+ * festivals that started earlier are not specials.
+ */
+export function isTodayOnlySpecial(
+  event: Pick<Event, "date" | "recurrence">,
+  today: string = localDateISO(),
+): boolean {
+  if (isRecurringEvent(event)) return false;
+  return event.date?.trim() === today;
+}
+
 /** Multi-day span or recurring series still has future occurrences after today. */
 export function eventContinuesBeyondToday(
   event: EventLiveFields,
