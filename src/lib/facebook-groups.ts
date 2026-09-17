@@ -222,6 +222,8 @@ const FACEBOOK_SEED_EVENT_IDS_BASE = [
   "atlantico-fc-vs-delfines-2026-08-22",
   "dewry-luciano-zona-acapella-2026-08-23",
   "el-cuarteto-del-swing-zona-acapella-2026-09-13",
+  "los-caballitos-zona-acapella-2026-09-20",
+  "banda-modelo-vinoteca-2026-09-26",
   "ernesto-betances-rancho-catalina-2026-09-13",
   "cabarete-run-festival-5k-2026-11-08",
   "latinwok-ramen-party-2026-09-17",

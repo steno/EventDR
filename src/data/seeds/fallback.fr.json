@@ -2337,5 +2337,59 @@
       "Allison Sade"
     ],
     "imageEmoji": "🎤"
+  },
+  {
+    "id": "los-caballitos-zona-acapella-2026-09-20",
+    "title": "Los Caballitos de Mao — Domingo Típico",
+    "description": "Domingo Típico avec Los Caballitos de Mao au Zona Acapella Club, Malecón de Puerto Plata (Cuarto de Milla) — dimanche 20 septembre. Entrée et parking gratuits. WhatsApp +1 829 726 0344 · @acapella.pop.",
+    "date": "2026-09-20",
+    "location": "Puerto Plata",
+    "venue": "Zona Acapella Club",
+    "venueSlug": "zona-acapella-club",
+    "address": "Cuarto de Milla, Av. Gral. Gregorio Luperón, Puerto Plata",
+    "lat": 19.791341,
+    "lng": -70.674021,
+    "category": "concert",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "phone": "+18297260344",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/p/DdXrhbYsny_/",
+    "lineup": [
+      "Los Caballitos de Mao"
+    ],
+    "imageEmoji": "🪗"
+  },
+  {
+    "id": "banda-modelo-vinoteca-2026-09-26",
+    "title": "Banda Modelo — Vinoteca Wine House",
+    "description": "Banda Modelo en live à Vinoteca Wine House (Hotel Marien / Costa Dorada) — samedi 26 septembre, 22 h. Entrée gratuite. Bonne musique, bon vin · @vinotecamarienpp.",
+    "date": "2026-09-26",
+    "time": "10:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Vinoteca Wine House",
+    "venueSlug": "vinoteca-wine-house",
+    "address": "Carretera Luperón Km 4.5, Hotel Marien, Costa Dorada, Puerto Plata",
+    "lat": 19.7774246,
+    "lng": -70.6591856,
+    "category": "concert",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/vinotecamarienpp/",
+    "lineup": [
+      "Banda Modelo"
+    ],
+    "imageEmoji": "🍷"
   }
 ]

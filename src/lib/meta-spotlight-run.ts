@@ -96,13 +96,21 @@ export async function runTodaySpotlightStep(input: {
     channel === "today-specials" ? locks.specials : locks.today;
   const other =
     channel === "today-specials" ? locks.today : locks.specials;
+  const specialsAlreadyPosted =
+    channel === "today" &&
+    Boolean(
+      locks.specials &&
+        locks.specials.date === today &&
+        locks.specials.status !== "failed" &&
+        locks.specials.eventIds.length > 0,
+    );
   const exclusions = mergeSpotlightExclusions(own, [other], today, {
     force: input.force,
   });
   const built = await buildTodayMetaPost(input.locale, undefined, {
     ...exclusions,
     featureEventId: input.featureEventId,
-    ...spotlightPickOptionsForSource(channel),
+    ...spotlightPickOptionsForSource(channel, { specialsAlreadyPosted }),
   });
   if (!built.ok) {
     return {

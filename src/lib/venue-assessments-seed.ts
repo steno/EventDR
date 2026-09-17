@@ -1122,6 +1122,17 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     ],
   }),
   editorial({
+    venueSlug: "vinoteca-wine-house",
+    verdictKey: "reliable_visitor_pick",
+    crowdFit: ["visitor", "mixed", "nightlife"],
+    axes: { recommend: 4.0, atmosphere: 4.2, value: 3.7, practical: 3.9 },
+    themes: [
+      { key: "live_music", sentiment: "positive" },
+      { key: "attentive_service", sentiment: "positive" },
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+    ],
+  }),
+  editorial({
     venueSlug: "pop-cinemas-playa-dorada",
     verdictKey: "solid_visitor_activity",
     crowdFit: ["family", "visitor", "mixed"],

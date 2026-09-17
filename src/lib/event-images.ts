@@ -114,6 +114,9 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "ernesto-betances-rancho-catalina-terrace.jpg",
   "el-cuarteto-del-swing-zona-acapella-2026-09-13":
     "el-cuarteto-del-swing-zona-acapella-2026-09-13.jpg",
+  "los-caballitos-zona-acapella-2026-09-20":
+    "los-caballitos-zona-acapella-2026-09-20.jpg",
+  "banda-modelo-vinoteca-2026-09-26": "banda-modelo-vinoteca-2026-09-26.jpg",
   "cabarete-run-festival-5k-2026-11-08": "cabarete-run-festival-5k-2026-11-08.jpg",
   "latinwok-ramen-party-2026-09-17": "latinwok-ramen-party-2026-09-17.jpg",
   "hard-rock-karaoke-wednesday": "hard-rock-karaoke-wednesday.jpg",
@@ -426,6 +429,8 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "el-carey-sabado-de-son.jpg",
   "el-carey-wc2026.jpg",
   "el-cuarteto-del-swing-zona-acapella-2026-09-13.jpg",
+  "los-caballitos-zona-acapella-2026-09-20.jpg",
+  "banda-modelo-vinoteca-2026-09-26.jpg",
   "groundzero-domingos-de-hookah.jpg",
   "groundzero-domingos-pal-pueblo.jpg",
   "groundzero-golden-night-2026-09-25.jpg",

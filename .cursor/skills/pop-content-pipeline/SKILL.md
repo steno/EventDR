@@ -17,7 +17,7 @@ End-to-end: **ingest → moderate → social → partner digest**.
 |-----|------|
 | **Sunday ~12:00 AST** | Ingest (GitHub Action) + this pipeline |
 | **Friday ~9:00 AST** | Partner digest + social repost |
-| **Daily ~4:00 AST** | GitHub `daily-today-spotlight.yml` — happening-today to FB + IG (never today’s specials) |
+| **Daily ~4:00 AST** | GitHub `daily-today-spotlight.yml` — today to FB + IG (prefers specials unless already posted) |
 
 ## Sunday workflow
 

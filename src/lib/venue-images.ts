@@ -138,6 +138,7 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "hotel-ocean-winds": "hotel-ocean-winds-facade.jpg",
   "estadio-leonel-placido": "estadio-leonel-placido.jpg",
   "zona-acapella-club": "zona-acapella-club.jpg",
+  "vinoteca-wine-house": "vinoteca-wine-house.jpg",
   "pop-cinemas-playa-dorada": "pop-cinemas-playa-dorada.jpg",
   // Filename bump — daytime bistro with the Le Petit François sign (not the tall tiki-torch dinner).
   "le-petit-francois": "le-petit-francois-bistro.jpg",

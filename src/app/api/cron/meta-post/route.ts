@@ -122,14 +122,23 @@ export async function POST(request: NextRequest) {
       let built: Awaited<ReturnType<typeof buildTodayMetaPost>>;
       try {
         const locks = await readSpotlightLocks();
+        const today = localDateISO();
         const own = channel === "today-specials" ? locks.specials : locks.today;
         const other = channel === "today-specials" ? locks.today : locks.specials;
+        const specialsAlreadyPosted =
+          channel === "today" &&
+          Boolean(
+            locks.specials &&
+              locks.specials.date === today &&
+              locks.specials.status !== "failed" &&
+              locks.specials.eventIds.length > 0,
+          );
         built = await buildTodayMetaPost(locale, undefined, {
-          ...mergeSpotlightExclusions(own, [other], localDateISO(), {
+          ...mergeSpotlightExclusions(own, [other], today, {
             force: body.force,
           }),
           featureEventId: body.featureEventId,
-          ...spotlightPickOptionsForSource(channel),
+          ...spotlightPickOptionsForSource(channel, { specialsAlreadyPosted }),
         });
       } catch (error) {
         console.error("buildTodayMetaPost failed", error);

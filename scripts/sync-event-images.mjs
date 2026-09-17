@@ -75,6 +75,9 @@ const FILE_TO_EVENT_ID = {
     "atlantico-fc-vs-delfines-2026-08-22",
   "dewry-luciano-zona-acapella-2026-08-23.jpg":
     "dewry-luciano-zona-acapella-2026-08-23",
+  "los-caballitos-zona-acapella-2026-09-20.jpg":
+    "los-caballitos-zona-acapella-2026-09-20",
+  "banda-modelo-vinoteca-2026-09-26.jpg": "banda-modelo-vinoteca-2026-09-26",
   "pop-cinemas-week-2026-08-20.jpg": "pop-cinemas-week-2026-08-20",
   "pop-cinemas-week-2026-09-11.jpg": "pop-cinemas-week-2026-09-11",
   "pop-cinemas-week-2026-09-11-mall.jpg": "pop-cinemas-week-2026-09-11-mall",
@@ -366,6 +369,7 @@ const FILE_TO_VENUE_SLUG = {
   "playa-sosua-shore.jpg": "playa-sosua-shore",
   "estadio-leonel-placido.jpg": "estadio-leonel-placido",
   "zona-acapella-club.jpg": "zona-acapella-club",
+  "vinoteca-wine-house.jpg": "vinoteca-wine-house",
   "pop-cinemas-playa-dorada.jpg": "pop-cinemas-playa-dorada",
   // Filename bump — daytime bistro + sign (not the tall tiki-torch dinner).
   "le-petit-francois-bistro.jpg": "le-petit-francois-bistro",

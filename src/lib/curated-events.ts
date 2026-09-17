@@ -70,6 +70,16 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     phone: "+18297260344",
     venueSlug: "zona-acapella-club",
   },
+  "los-caballitos-zona-acapella-2026-09-20": {
+    isFree: true,
+    phone: "+18297260344",
+    venueSlug: "zona-acapella-club",
+  },
+  "banda-modelo-vinoteca-2026-09-26": {
+    isFree: true,
+    venueSlug: "vinoteca-wine-house",
+    sourceUrl: "https://www.instagram.com/vinotecamarienpp/",
+  },
   "cabarete-run-festival-5k-2026-11-08": {
     isFree: false,
     admissionPrice: "RD$1,500",

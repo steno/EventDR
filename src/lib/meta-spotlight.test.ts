@@ -203,7 +203,61 @@ describe("pickTodaySpotlights", () => {
     );
   });
 
-  it("scheduled 13:00 pool never overlaps a manual specials pick", () => {
+  it("scheduled pool prefers today’s specials before multi-day festivals", () => {
+    const pool = [
+      event({
+        id: "patronales",
+        title: "Imbert Fiestas Patronales",
+        date: "2026-08-16",
+        endDate: "2026-08-24",
+        time: "10:00 AM – 11:00 PM",
+        location: "Imbert",
+        category: "festivals",
+        trending: true,
+      }),
+      event({
+        id: "ramen",
+        title: "Ramen party",
+        date: "2026-08-20",
+        time: "6:00 PM",
+        location: "Puerto Plata",
+        category: "food-drinks",
+      }),
+      event({
+        id: "concert",
+        title: "Live at Aura",
+        date: "2026-08-20",
+        time: "8:00 PM",
+        location: "Cabarete",
+        category: "concert",
+      }),
+      event({
+        id: "party",
+        title: "Reggaeton night",
+        date: "2026-08-20",
+        time: "10:00 PM",
+        location: "Puerto Plata",
+        category: "parties",
+      }),
+      event({
+        id: "weekly",
+        title: "Reggae night",
+        date: "2026-08-20",
+        time: "9:00 PM",
+        location: "Cabarete",
+        category: "music",
+        recurrence: "weekly",
+      }),
+    ];
+    assert.deepEqual(
+      pickTodaySpotlights(pool, 3, NOW, { preferTodaySpecials: true }).map(
+        (item) => item.id,
+      ),
+      ["ramen", "concert", "party"],
+    );
+  });
+
+  it("after specials posted, scheduled pool skips the specials set", () => {
     const pool = [
       event({
         id: "patronales",
@@ -386,8 +440,12 @@ describe("pickTodaySpotlights", () => {
 describe("spotlight channels", () => {
   it("maps scheduled vs specials pick flags", () => {
     assert.deepEqual(spotlightPickOptionsForSource("today"), {
-      excludeTodaySpecials: true,
+      preferTodaySpecials: true,
     });
+    assert.deepEqual(
+      spotlightPickOptionsForSource("today", { specialsAlreadyPosted: true }),
+      { excludeTodaySpecials: true },
+    );
     assert.deepEqual(spotlightPickOptionsForSource("today-specials"), {
       onlyTodaySpecials: true,
     });

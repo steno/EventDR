@@ -2640,4 +2640,42 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "Editor flyer: Allison Sade LIVE MUSIC, Jueves 17, 8:00 PM, @allisonsadeofficial; venue Aura Cabarete per user. No cover on art.",
     updatedAt: "2026-09-16T12:00:00.000Z",
   },
+  {
+    eventId: "los-caballitos-zona-acapella-2026-09-20",
+    body: "Another free Malecón Domingo Típico — accordion night with Los Caballitos de Mao; no start time on the flyer, so arrive early and budget nightclub drinks like the Cuarteto Sunday.",
+    localized: {
+      es: "Otro Domingo Típico gratis en el Malecón — acordeón con Los Caballitos de Mao; el flyer no trae hora, llega temprano y presupuesta tragos de discoteca como el domingo del Cuarteto.",
+      fr: "Encore un Domingo Típico gratuit sur le Malecón — accordéon avec Los Caballitos de Mao ; pas d'heure sur l'affiche, arrivez tôt et budgétez des verres club comme le dimanche Cuarteto.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "Free entry and parking; WhatsApp +1 829-726-0344 · drinks/food at nightclub prices",
+    priceNoteLocalized: {
+      es: "Entrada y parqueo gratis; WhatsApp +1 829-726-0344 · tragos/comida a precios de discoteca",
+      fr: "Entrée et parking gratuits ; WhatsApp +1 829-726-0344 · verres/repas tarif club",
+    },
+    attribution: "POP research · @acapella.pop flyer",
+    researchNotes:
+      "IG https://www.instagram.com/p/DdXrhbYsny_/ — Dom 20 Sep Los Caballitos de Mao / @los.caballitosal2x1, Cuarto de Milla Malecón, entrada + parqueo gratis. No start time on flyer.",
+    updatedAt: "2026-09-17T15:00:00.000Z",
+  },
+  {
+    eventId: "banda-modelo-vinoteca-2026-09-26",
+    body: "Free 10 PM band night at Hotel Marien's wine lounge — same Costa Dorada complex as Kviar, but this is Vinoteca bottles and lounge tables, not the casino disco.",
+    localized: {
+      es: "Noche de banda gratis a las 10 PM en la vinoteca del Hotel Marien — mismo complejo de Costa Dorada que Kviar, pero aquí son botellas y mesas de lounge, no el disco-casino.",
+      fr: "Soirée groupe gratuite à 22 h au lounge à vins de l'Hotel Marien — même complexe Costa Dorada que Kviar, mais ici bouteilles et tables lounge, pas le disco-casino.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "Free entry · wine-bar tabs; Carretera Luperón / Hotel Marien · @vinotecamarienpp",
+    priceNoteLocalized: {
+      es: "Entrada gratis · cuenta de vinoteca; Carretera Luperón / Hotel Marien · @vinotecamarienpp",
+      fr: "Entrée gratuite · addition bar à vins ; Carretera Luperón / Hotel Marien · @vinotecamarienpp",
+    },
+    attribution: "POP research · @vinotecamarienpp flyer",
+    researchNotes:
+      "Editor flyer: Banda Modelo, Sáb 26 Sep 10 PM, Vinoteca wine house, Carretera Luperon (Hotel Marien), totalmente gratis. Profile https://www.instagram.com/vinotecamarienpp/",
+    updatedAt: "2026-09-17T15:00:00.000Z",
+  },
 ];

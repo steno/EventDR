@@ -2,8 +2,8 @@ name: Daily today spotlight
 
 on:
   schedule:
-    # Every day 08:00 UTC (~4:00 AST). Happening-today only — never the
-    # manual “today’s specials” post (TODAY_SPECIALS=true).
+    # Every day 08:00 UTC (~4:00 AST). Prefers today’s specials when that
+    # channel has not posted yet; never uses TODAY_SPECIALS=true itself.
     - cron: "0 8 * * *"
   workflow_dispatch:
     inputs:
@@ -53,13 +53,13 @@ jobs:
           fi
           echo "::endgroup::"
       
-      - name: Post happening-today top 3 to Facebook + Instagram
+      - name: Post today’s top 3 to Facebook + Instagram
         env:
           SITE_URL: https://pop-event.com
           CRON_SECRET: ${{ secrets.CRON_SECRET }}
           DRY_RUN: ${{ github.event.inputs.dry_run == 'true' && 'true' || 'false' }}
           INSTAGRAM_ONLY: ${{ github.event.inputs.instagram_only == 'true' && 'true' || 'false' }}
-          # Never the manual “today’s specials” channel.
+          # Scheduled channel — prefers specials when specialsLock is empty.
           TODAY_SPECIALS: "false"
         run: |
           if [ -z "$CRON_SECRET" ]; then

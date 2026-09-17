@@ -641,6 +641,12 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Boîte du Malecón à Cuarto de Milla / Playa Acapulco — típico, merengue et nuits dansantes sur l'Av. Gregorio Luperón.",
     },
   },
+  "vinoteca-wine-house": {
+    description: {
+      es: "Vinoteca y lounge en Hotel Marien / Be Live Collection Marien, Costa Dorada — vinos por copa, bandas en vivo y un salón más tranquilo que el casino del hotel. Abierto ~6:00 PM–2:00 AM.",
+      fr: "Bar à vins et lounge à l'Hotel Marien / Be Live Collection Marien, Costa Dorada — vins au verre, groupes live et une salle plus calme que le casino de l'hôtel. Ouvert ~18 h–2 h.",
+    },
+  },
   "pop-cinemas-playa-dorada": {
     description: {
       es: "Cine en Playa Dorada Mall — cartelera semanal en español, snacks y el único cine de la Costa Norte. Entrada RD$300; info 809-320-1400.",

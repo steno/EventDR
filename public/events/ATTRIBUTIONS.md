@@ -241,6 +241,9 @@ Curated images under `public/events/` and `public/venues/`.
 | `tasty-food-park-karaoke-wednesday.jpg` | POP-supplied Tasty Food Park karaoke flyer | Wednesday karaoke with DJ Koky |
 | `ernesto-betances-rancho-catalina-terrace.jpg` | POP-supplied Rancho La Catalina terrace / valley view | Ernesto Betances listing hero (filename bump; flyer kept as `ernesto-betances-rancho-catalina-2026-09-13.jpg`) |
 | `el-cuarteto-del-swing-zona-acapella-2026-09-13.jpg` | POP-supplied Zona Acapella Club flyer | El Cuarteto del Swing 13 Sep |
+| `los-caballitos-zona-acapella-2026-09-20.jpg` | POP-supplied Zona Acapella Club Domingo Típico flyer ([IG](https://www.instagram.com/p/DdXrhbYsny_/)) | Los Caballitos de Mao Sun 20 Sep 2026 (editor-provided) |
+| `banda-modelo-vinoteca-2026-09-26.jpg` | POP-supplied Vinoteca Wine House Banda Modelo flyer ([@vinotecamarienpp](https://www.instagram.com/vinotecamarienpp/)) | Sat 26 Sep 2026 10 PM free (editor-provided) |
+| `venues/vinoteca-wine-house.jpg` | POP-supplied Vinoteca Wine House lounge interior | Venue place shot at Hotel Marien / Costa Dorada (editor-provided, not scraped) |
 | `latinwok-ramen-party-2026-09-17.jpg` | POP-supplied Latin Wok × El Ramero Solitario Ramen Party flyer | Authentic 17 Sep Plaza Uno ramen night flyer |
 | `cabarete-run-festival-5k-2026-11-08.jpg` | POP-supplied Cabarete Run Festival 5K flyer (Desarrollo Fitness) | Authentic 8 Nov 2026 race flyer |
 | `hard-rock-karaoke-wednesday.jpg` | POP-supplied Hard Rock Cafe Puerto Plata karaoke flyer | Wednesday karaoke from 7 PM |

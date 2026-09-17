@@ -44,6 +44,7 @@ const EVENT_PHONE_BY_ID: Record<string, string> = {
   "atlantico-fc-vs-delfines-2026-08-22": "+18496323133",
   "dewry-luciano-zona-acapella-2026-08-23": "+18297260344",
   "el-cuarteto-del-swing-zona-acapella-2026-09-13": "+18297260344",
+  "los-caballitos-zona-acapella-2026-09-20": "+18297260344",
   "ernesto-betances-rancho-catalina-2026-09-13": "+18097813737",
   "duo-maryem-rancho-catalina-2026-09-20": "+18097813737",
   "cabarete-run-festival-5k-2026-11-08": "+18097696199",

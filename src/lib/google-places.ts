@@ -159,6 +159,11 @@ const PLACE_SEARCH_ALIASES: Record<string, string[]> = {
     "Acapella Club Malecón Puerto Plata",
     "Zona Acapella Cuarto de Milla",
   ],
+  "vinoteca-wine-house": [
+    "Vinoteca Wine House Puerto Plata",
+    "La Vinoteca Hotel Marien Costa Dorada",
+    "Vinoteca Marien Puerto Plata",
+  ],
   "tasty-food-park-puerto-plata": [
     "Tasty Food Park Puerto Plata",
     "Tasty Food Park Av. 27 de Febrero",

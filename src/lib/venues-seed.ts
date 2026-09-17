@@ -1134,6 +1134,18 @@ export const SEED_VENUES: Venue[] = [
     instagram: "kviarcasinos",
   },
   {
+    slug: "vinoteca-wine-house",
+    name: "Vinoteca Wine House",
+    city: "Puerto Plata",
+    description:
+      "Wine bar and lounge at Hotel Marien / Be Live Collection Marien on Costa Dorada — bottles by the glass, live bands, and a quieter room than the hotel casino next door. Open evenings ~6:00 PM–2:00 AM.",
+    lat: 19.7774246,
+    lng: -70.6591856,
+    emoji: "🍷",
+    instagram: "vinotecamarienpp",
+    phone: "+18093201515",
+  },
+  {
     slug: "iberostar-waves-costa-dorada",
     name: "Iberostar Waves Costa Dorada",
     city: "Puerto Plata",
@@ -1949,6 +1961,11 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
     pattern:
       /zona\s*acapella|acapella\s*club|ona\s*acapella/i,
     slug: "zona-acapella-club",
+  },
+  {
+    pattern:
+      /vinoteca(\s*wine\s*house)?|la\s*vinoteca|vinoteca\s*marien/i,
+    slug: "vinoteca-wine-house",
   },
   {
     pattern: /desarrollo\s*fitness(\s*cabarete)?/i,

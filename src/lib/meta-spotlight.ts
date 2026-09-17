@@ -81,15 +81,28 @@ export type SpotlightPickOptions = {
   featureEventId?: string;
   /** Manual specials post: only dated one-offs that start today. */
   onlyTodaySpecials?: boolean;
-  /** 08:00 UTC scheduled post: never the home “Today’s specials” pool. */
+  /**
+   * Scheduled post after a specials run: skip the home “Today’s specials”
+   * pool so the two posts stay distinct.
+   */
   excludeTodaySpecials?: boolean;
+  /**
+   * Scheduled post before a specials run: fill with dated one-offs first,
+   * then multi-day / weekly leftovers.
+   */
+  preferTodaySpecials?: boolean;
 };
 
 export function spotlightPickOptionsForSource(
   source: SpotlightChannel,
-): Pick<SpotlightPickOptions, "onlyTodaySpecials" | "excludeTodaySpecials"> {
+  options: { specialsAlreadyPosted?: boolean } = {},
+): Pick<
+  SpotlightPickOptions,
+  "onlyTodaySpecials" | "excludeTodaySpecials" | "preferTodaySpecials"
+> {
   if (source === "today-specials") return { onlyTodaySpecials: true };
-  return { excludeTodaySpecials: true };
+  if (options.specialsAlreadyPosted) return { excludeTodaySpecials: true };
+  return { preferTodaySpecials: true };
 }
 
 export function sameSpotlightEventSet(a: string[], b: string[]): boolean {
@@ -216,8 +229,16 @@ export function pickTodaySpotlights(
     }
   };
 
-  takeFrom(fresh);
-  takeFrom(reused);
+  if (options.preferTodaySpecials && !options.onlyTodaySpecials) {
+    const isSpecial = (event: Event) => isTodayOnlySpecial(event, today);
+    takeFrom(fresh.filter(isSpecial));
+    takeFrom(fresh.filter((event) => !isSpecial(event)));
+    takeFrom(reused.filter(isSpecial));
+    takeFrom(reused.filter((event) => !isSpecial(event)));
+  } else {
+    takeFrom(fresh);
+    takeFrom(reused);
+  }
   return picked;
 }
 
@@ -378,10 +399,12 @@ export async function buildTodayMetaPost(
   options: SpotlightPickOptions = {},
 ): Promise<{ ok: true; post: TodayMetaPost } | { ok: false; error: string }> {
   const today = await getPublicEvents({ locale, when: "today" });
-  const picked = pickTodaySpotlights(today, TODAY_SPOTLIGHT_LIMIT, new Date(), {
-    excludeTodaySpecials: !options.onlyTodaySpecials,
-    ...options,
-  });
+  const picked = pickTodaySpotlights(
+    today,
+    TODAY_SPOTLIGHT_LIMIT,
+    new Date(),
+    options,
+  );
   if (!picked.length) {
     return { ok: false, error: "No today events to spotlight" };
   }

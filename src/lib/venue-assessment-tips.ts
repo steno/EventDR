@@ -753,6 +753,14 @@ export const VENUE_TIP_COPY: Record<
       fr: "Salle típico du Malecón avec terrasse mer — les dimanches accordéon sont gratuits à l'entrée, mais les verres sont tarif club et c'est 18+.",
     },
   },
+  "vinoteca-wine-house": {
+    body: "Hotel Marien wine lounge on Costa Dorada — same complex as Kviar, but this is bottles and live bands, not the casino disco; free door nights still mean wine-bar tabs.",
+    localized: {
+      en: "Hotel Marien wine lounge on Costa Dorada — same complex as Kviar, but this is bottles and live bands, not the casino disco; free door nights still mean wine-bar tabs.",
+      es: "Vinoteca del Hotel Marien en Costa Dorada — mismo complejo que Kviar, pero aquí son botellas y bandas en vivo, no el disco-casino; entrada gratis sigue siendo cuenta de vinoteca.",
+      fr: "Lounge à vins de l'Hotel Marien à Costa Dorada — même complexe que Kviar, mais ici ce sont bouteilles et groupes live, pas le disco-casino ; entrée gratuite = addition bar à vins.",
+    },
+  },
   "pop-cinemas-playa-dorada": {
     body: "The North Coast's only cinema — Spanish dubs, mall AC that runs cold, and RD$300 at the door; bring a sweater and skip English-subtitle assumptions.",
     localized: {
