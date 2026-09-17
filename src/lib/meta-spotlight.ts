@@ -18,7 +18,7 @@ import type { Event } from "@/lib/types";
 
 export const TODAY_SPOTLIGHT_LIMIT = 3;
 
-/** Scheduled 13:00 UTC post vs a manual “today’s specials” post. */
+/** Scheduled 08:00 UTC post vs a manual “today’s specials” post. */
 export type SpotlightChannel = "today" | "today-specials";
 
 export function otherSpotlightChannel(
@@ -81,7 +81,7 @@ export type SpotlightPickOptions = {
   featureEventId?: string;
   /** Manual specials post: only dated one-offs that start today. */
   onlyTodaySpecials?: boolean;
-  /** 13:00 UTC scheduled post: never the home “Today’s specials” pool. */
+  /** 08:00 UTC scheduled post: never the home “Today’s specials” pool. */
   excludeTodaySpecials?: boolean;
 };
 

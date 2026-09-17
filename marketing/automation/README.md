@@ -65,7 +65,7 @@ curl -sS "https://pop-event.com/api/cron/meta-post" -H "Authorization: Bearer $C
 # Live Graph inspect (uses quota): append ?inspect=1
 ```
 
-Daily happening-today post (GitHub Action `daily-today-spotlight.yml` at 13:00 UTC / ~9:00 AST). This job never posts home **Today’s specials** — those use a separate lock and `TODAY_SPECIALS=true`. Live publish is a loop of short Graph steps — do not fire a single POST and wait for both networks:
+Daily happening-today post (GitHub Action `daily-today-spotlight.yml` at 08:00 UTC / ~4:00 AST). This job never posts home **Today’s specials** — those use a separate lock and `TODAY_SPECIALS=true`. Live publish is a loop of short Graph steps — do not fire a single POST and wait for both networks:
 
 ```bash
 curl -sS -X POST "https://pop-event.com/api/cron/meta-post" \

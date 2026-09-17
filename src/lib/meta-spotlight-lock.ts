@@ -144,7 +144,7 @@ export function spotlightExclusions(
 /**
  * Own-channel history plus the other channel’s event ids (including same-day).
  * Venue keys stay per-channel so a specials post at a lounge does not block
- * that venue’s weekly night on the 13:00 UTC post.
+ * that venue’s weekly night on the 08:00 UTC post.
  */
 export function mergeSpotlightExclusions(
   own:

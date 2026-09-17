@@ -44,9 +44,9 @@ Pick trending events first, then variety across cities/categories.
 
 ## Recurring publish
 
-GitHub Action `daily-today-spotlight.yml` posts **happening today** (not home Today’s specials) to Facebook (album) and Instagram (photo/carousel) every day ~9:00 AST / 13:00 UTC. The Action loops short Graph steps so Netlify’s ~26s timeout cannot abort the job.
+GitHub Action `daily-today-spotlight.yml` posts **happening today** (not home Today’s specials) to Facebook (album) and Instagram (photo/carousel) every day ~4:00 AST / 08:00 UTC. The Action loops short Graph steps so Netlify’s ~26s timeout cannot abort the job.
 
-In chat: **spotlight today’s specials** (manual specials rail) or **spotlight the top 3 today** (same pool as the 13:00 UTC job). Live post: `node scripts/run-today-spotlight.mjs` with `SITE_URL` and `CRON_SECRET`. Specials: `TODAY_SPECIALS=true`. Do not fire one `POST /api/cron/meta-post` with `source: today` and wait for both networks. The 13:00 UTC job never publishes the same events as a specials run.
+In chat: **spotlight today’s specials** (manual specials rail) or **spotlight the top 3 today** (same pool as the 08:00 UTC job). Live post: `node scripts/run-today-spotlight.mjs` with `SITE_URL` and `CRON_SECRET`. Specials: `TODAY_SPECIALS=true`. Do not fire one `POST /api/cron/meta-post` with `source: today` and wait for both networks. The 08:00 UTC job never publishes the same events as a specials run.
 
 ### 3. City-specific post
 

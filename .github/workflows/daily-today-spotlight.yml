@@ -2,9 +2,9 @@ name: Daily today spotlight
 
 on:
   schedule:
-    # Every day 13:00 UTC (~9:00 AST). Happening-today only — never the
+    # Every day 08:00 UTC (~4:00 AST). Happening-today only — never the
     # manual “today’s specials” post (TODAY_SPECIALS=true).
-    - cron: "0 13 * * *"
+    - cron: "0 8 * * *"
   workflow_dispatch:
     inputs:
       dry_run:

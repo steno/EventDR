@@ -25,7 +25,7 @@ For Instagram—the primary source for many DR event flyers—run skill `pop-ins
 | When | Automation | Agent |
 |------|------------|-------|
 | Sun ~12:00 AST | `weekly-event-ingest.yml` | Skills `pop-instagram-ingest`, `pop-facebook-ingest`, then `pop-content-pipeline` |
-| Daily ~9:00 AST | `daily-today-spotlight.yml` → Facebook + Instagram happening-today (never today’s specials) | **spotlight today’s specials** for the manual specials post; **spotlight the top 3 today** matches the 13:00 UTC job |
+| Daily ~4:00 AST | `daily-today-spotlight.yml` → Facebook + Instagram happening-today (never today’s specials) | **spotlight today’s specials** for the manual specials post; **spotlight the top 3 today** matches the 08:00 UTC job |
 | Fri ~9:00 AST | `weekly-marketing-digest.yml` → artifact `weekend-marketing-digests` | Skills `pop-social-weekly`, `pop-weekend-b2b-digest` |
 
 Partner digest API: `GET /api/cron/partner-digest` with `Authorization: Bearer CRON_SECRET` (formats: `json`, `markdown`, `whatsapp`; locales: `en`, `es`, `fr`).
