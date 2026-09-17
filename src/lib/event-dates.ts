@@ -272,16 +272,8 @@ export function materializeEventDates(
   });
 }
 
-/** True when a one-off's calendar end is before today (APP_TIMEZONE). */
-export function isPastOneOffEvent(
-  event: Pick<Event, "date" | "endDate" | "recurrence">,
-  now: Date = new Date(),
-): boolean {
-  if (event.recurrence) return false;
-  const endDay = eventEndDayISO(event);
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(endDay)) return false;
-  return localDateISO(now) > endDay;
-}
+/** True when a one-off has ended — same clock rules as live badges / home specials. */
+export { isPastOneOffEvent } from "./event-status";
 
 export function eventMatchesRecurrence(
   event: {

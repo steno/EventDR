@@ -21,6 +21,7 @@ Curated images under `public/events/` and `public/venues/`.
 | `aura-beach-club-miercoles-margaritas.jpg` | POP-supplied — Miércoles de Margaritas flyer ([@auracabarete](https://www.instagram.com/auracabarete/)) | Weekly Wednesday 2x1 margaritas + live music (editor-provided) |
 | `aura-latin-flow-dance-wednesday.jpg` | POP-supplied — Latin Night / Flow Dance flyer ([@auracabarete](https://www.instagram.com/auracabarete/)) | Weekly Wednesday Latin Flow Dance from 9 PM (editor-provided) |
 | `cisco-vengo-social-heartz-aura-2026-09-25.jpg` | POP-supplied — C.I.S.C.O next-dates flyer (Vengo x Social Heartz at Aura Cabarete 25.09) | One-off Fri Sep 25 2026 (editor-provided) |
+| `allison-sade-aura-2026-09-17.jpg` | POP-supplied — Allison Sade Live Music flyer ([@allisonsadeofficial](https://www.instagram.com/allisonsadeofficial/) × Aura Cabarete) | Thu 17 Sep 2026 8:00 PM (editor-provided) |
 | `ocean-world-terrace-karaoke-encuentro-2026-09-16.jpg` | POP-supplied — Un encuentro de talentos / Noche de Karaoke flyer ([@oceanworldterrace](https://www.instagram.com/oceanworldterrace/)) | Karaoke talent night Wed 16 Sep 2026 (editor-provided; filename bump); venue slug `ocean-world` |
 | `duo-maryem-rancho-catalina-2026-09-20.jpg` | POP-supplied — Dúo Maryem live flyer ([@rancholacatalina](https://www.instagram.com/p/DdUevS3TdVA/)) | Live music Sun 20 Sep 2026 2:30 PM no cover (editor-provided) |
 | `sosua-10k-road-race-2026.jpg` | [Sea Horse Ranch — Sosúa 10K Road Race](https://sea-horse-ranch.com/sosua-10k-road-race/) — official ADSS / Sea Horse 11º Sosúa 10K flyer | Authentic race flyer with date, distances, and sdctickets.do registration |
@@ -284,6 +285,7 @@ Curated images under `public/events/` and `public/venues/`.
 | `ambar-lounge-miercoles-rooftop.jpg` | POP-supplied — Miércoles de Rooftop / Mojitos 3x2 flyer ([IG](https://www.instagram.com/ambarloungepop/)) | Weekly Wednesday rooftop promo (editor-provided) |
 | `ambar-lounge-bandoleras-2026-09-18.jpg` | POP-supplied — Bandoleras Fridays / Carlos Rivera flyer ([IG](https://www.instagram.com/ambarloungepop/)) | Fri 18 Sep 2026 (editor-provided) |
 | `ambar-lounge-adrian-tineo-2026-09-19.jpg` | POP-supplied — Adrián Tineo live flyer ([IG](https://www.instagram.com/ambarloungepop/)) | Sat 19 Sep 2026 (editor-provided) |
+| `meclao-retro-party-2026-09-19.jpg` | POP-supplied — RETRO Party / Camilo Taveraz flyer ([IG](https://www.instagram.com/p/DdXjTwGpYGm/)) | Sat 19 Sep 2026 Mecla'o Rooftop; ’80s–’90s dress code (editor-provided) |
 | `venues/ambar-lounge-pop-lounge.jpg` | POP-supplied — Ambar Lounge POP rooftop lounge night crowd | Venue place shot (editor-provided, not scraped) |
 | `cigar-town-karaoke-ladies-night-2026-09-19.jpg` | POP-supplied — Cigar Town Karaoke Saturday / Ladies Night flyer ([IG](https://www.instagram.com/cigartownpop/)) | Karaoke Sat 19 Sep 2026 (editor-provided) |
 | `el-carey-karaoke-mujeres-monday-2026.jpg` | POP-supplied — El Carey Mujeres Empoderadas Monday karaoke flyer refresh ([@diaynocherestaurantelcarey](https://www.instagram.com/diaynocherestaurantelcarey/)) | Weekly Mon sunset karaoke hero (filename bump; editor-provided) |

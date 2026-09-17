@@ -72,8 +72,8 @@ interface TodayHighlightsProps {
    */
   featurePromo?: boolean;
   /**
-   * Mobile snap rail: two cards side-by-side per slide. Desktop keeps the
-   * usual multi-column grid (`sm:contents` unwraps each pair).
+   * Mobile snap rail: two cards side-by-side per slide. From `sm` the
+   * multi-column grid unwraps each pair (`sm:contents`).
    */
   mobilePairSlides?: boolean;
   /**
@@ -315,21 +315,19 @@ const TodayHighlightsComponent = ({
   const hasMore = todayEvents.length > limit;
   const allTodayHref = seeAllHref ?? `/${locale}/when/today`;
   const sectionLabel = title ?? dict.events.happeningToday;
-  // Lone special + promo: 2-up on sm, 1 + span-2 on lg so the ad fills the row.
-  // Story specials with ≤3 cards: exact columns so we never leave an empty cell.
+  // Phones: snap peek rail. From sm: 2-col (fits ~768 without ballooning).
+  // From xl: 3-col. Never force 3 cols in the mid band — that was the ugly crush.
   const gridColsClass = showFeaturePromo
-    ? "sm:grid-cols-2 lg:grid-cols-3"
+    ? "sm:grid-cols-2 xl:grid-cols-3"
     : storyCards && count === 1
       ? "sm:grid-cols-1"
       : storyCards && count === 2
         ? "sm:grid-cols-2"
         : storyCards && count === 3
-          ? "sm:grid-cols-3"
-          : count <= 1
-            ? "sm:grid-cols-2 lg:grid-cols-3"
-            : count === 2
-              ? "sm:grid-cols-2"
-              : "sm:grid-cols-2 lg:grid-cols-3";
+          ? "sm:grid-cols-2 xl:grid-cols-3"
+          : count === 2
+            ? "sm:grid-cols-2"
+            : "sm:grid-cols-2 xl:grid-cols-3";
   const cardLayout: "pair" | "story" | "grid" = storyCards
     ? "story"
     : usePairSlides || (!showFeaturePromo && count === 2)
@@ -340,10 +338,10 @@ const TodayHighlightsComponent = ({
    * wrapping leaves an empty second row on desktop.
    */
   const desktopScrollRail = storyCards && !showFeaturePromo && count > 3;
-  /** Story specials: ~72% width so 36:49 stays readable with a next-card peek. */
+  /** Story specials: phone peek ~72%; mid = 2-up; xl = 3-up on the scroll rail. */
   const peekClass = storyCards
     ? desktopScrollRail
-      ? "w-[72%] sm:w-[calc((100%-0.75rem)/2)] lg:w-[calc((100%-1.5rem)/3)]"
+      ? "w-[72%] sm:w-[calc((100%-0.75rem)/2)] xl:w-[calc((100%-1.5rem)/3)]"
       : "w-[72%]"
     : SNAP_RAIL_PEEK_CLASS;
   const railItemCount = showFeaturePromo
@@ -513,7 +511,7 @@ const TodayHighlightsComponent = ({
             {showFeaturePromo ? (
               <div
                 data-snap-slide
-                className={`${peekClass} shrink-0 snap-start sm:col-span-1 sm:w-auto sm:min-w-0 sm:shrink lg:col-span-2`}
+                className={`${peekClass} shrink-0 snap-start sm:col-span-1 sm:w-auto sm:min-w-0 sm:shrink xl:col-span-2`}
               >
                 <EventCardPlaceholder
                   title={dict.events.featureSpecialTitle}

@@ -1789,7 +1789,7 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
   },
   {
     pattern:
-      /aura\s*beach\s*club|auracabarete|aura\s*beach\s*club\s*experience/i,
+      /\baura(\s*beach\s*club(\s*experience)?)?\b|auracabarete/i,
     slug: "aura-beach-club-cabarete",
   },
   {

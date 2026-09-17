@@ -198,16 +198,34 @@ export function filterByTimeRange<
   return matched;
 }
 
+function escapeRegExp(value: string): string {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+/**
+ * Token match that rejects mid-word hits (`aura` must not match `restaurant`).
+ * Boundaries are any non-letter/digit (Unicode-aware), so `Aura Beach` and `Aura,`
+ * still match.
+ */
+function haystackHasToken(hay: string, token: string): boolean {
+  if (!token) return true;
+  const re = new RegExp(
+    `(^|[^\\p{L}\\p{N}])${escapeRegExp(token)}(?=[^\\p{L}\\p{N}]|$)`,
+    "iu",
+  );
+  return re.test(hay);
+}
+
 /**
  * Match a free-text search against a haystack.
- * Supports exact substring, space-stripped brands (cabarete fitness → cabaretefitness),
+ * Supports word-boundary tokens, space-stripped brands (cabarete fitness → cabaretefitness),
  * and multi-word AND (all tokens must appear somewhere).
  */
 export function textMatchesSearchQuery(haystack: string, query: string): boolean {
   const q = query.trim().toLowerCase();
   if (!q) return true;
   const hay = haystack.toLowerCase();
-  if (hay.includes(q)) return true;
+  if (haystackHasToken(hay, q)) return true;
 
   const compactQ = q.replace(/\s+/g, "");
   if (compactQ.length >= 6 && hay.replace(/\s+/g, "").includes(compactQ)) {
@@ -216,7 +234,7 @@ export function textMatchesSearchQuery(haystack: string, query: string): boolean
 
   const tokens = q.split(/\s+/).filter(Boolean);
   if (tokens.length > 1) {
-    return tokens.every((token) => hay.includes(token));
+    return tokens.every((token) => haystackHasToken(hay, token));
   }
   return false;
 }
@@ -268,7 +286,7 @@ export function searchVenues<
   const q = query.trim().toLowerCase();
   if (!q) return items;
   const aliasSlug = matchVenueSlug(q);
-  return items.filter((v) => {
+  const hits = items.filter((v) => {
     if (aliasSlug && v.slug === aliasSlug) return true;
 
     const haystack = [
@@ -279,5 +297,16 @@ export function searchVenues<
     ].join("\n");
 
     return textMatchesSearchQuery(haystack, q);
+  });
+
+  // Prefer alias / name / slug hits so description noise ("restaurant") cannot bury the place.
+  return hits.sort((a, b) => {
+    const score = (v: (typeof hits)[number]) => {
+      if (aliasSlug && v.slug === aliasSlug) return 0;
+      if (textMatchesSearchQuery(v.name, q)) return 1;
+      if (textMatchesSearchQuery(v.slug.replace(/-/g, " "), q)) return 2;
+      return 3;
+    };
+    return score(a) - score(b);
   });
 }

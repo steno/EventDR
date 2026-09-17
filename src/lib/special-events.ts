@@ -1,6 +1,7 @@
 import type { Event } from "@/lib/types";
 import type { CitySlug } from "@/lib/cities";
 import { localDateISO } from "@/lib/event-dates";
+import { hasEventEndedForToday } from "@/lib/event-status";
 import { SPECIAL_EVENTS_LOCAL } from "@/lib/special-events.local";
 
 /**
@@ -68,10 +69,10 @@ export function specialUntilDate(
 }
 
 /**
- * Active through `until` inclusive (app timezone calendar day).
- * Overnight parties: set `until` to the start date so the special clears at
- * local midnight after the night — or to the morning-after date if you want
- * it to linger through the early hours.
+ * Active through `until` inclusive (app timezone calendar day), and clears at
+ * the same clock cutoff as home specials / venue Past once that day ends.
+ * Overnight parties: set `until` to the start date so the special clears when
+ * the night ends — or to the morning-after date if you want it to linger.
  */
 export function isSpecialMarkActive(
   mark: SpecialEventMark,
@@ -81,7 +82,11 @@ export function isSpecialMarkActive(
   const today = localDateISO(now);
   const until = specialUntilDate(mark, event);
   if (!until) return false;
-  return today <= until;
+  if (today > until) return false;
+  if (today < until) return true;
+  // On the final day, match live-status end (not midnight).
+  if (event) return !hasEventEndedForToday(event, now);
+  return true;
 }
 
 export type SpecialLookupOptions = {

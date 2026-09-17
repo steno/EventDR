@@ -211,7 +211,7 @@ function AudienceSlider({
               data-snap-slide
               className={
                 wide
-                  ? `${SNAP_RAIL_PEEK_CLASS} shrink-0 snap-start sm:w-[calc((100%-0.75rem)/2)] lg:w-[calc((100%-1.5rem)/3)]`
+                  ? `${SNAP_RAIL_PEEK_CLASS} shrink-0 snap-start sm:w-[calc((100%-0.75rem)/2)] xl:w-[calc((100%-1.5rem)/3)]`
                   : `${SNAP_RAIL_PEEK_CLASS} shrink-0 snap-start sm:w-[90%]`
               }
             >

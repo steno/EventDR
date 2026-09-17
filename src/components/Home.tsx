@@ -517,11 +517,16 @@ function HomeApp({
   }
 
   const isSearching = searchQuery.trim().length > 0;
-  const listSearchQuery = isSearching ? deferredSearchQuery : "";
+  // Fall back to live query while deferred catches up — empty deferred would
+  // otherwise show the full venue catalog as "Places" and skip event filtering.
+  const activeSearchQuery = (
+    deferredSearchQuery.trim() || searchQuery
+  ).trim();
+  const listSearchQuery = isSearching ? activeSearchQuery : "";
   const venueHits = useMemo(() => {
-    if (!isSearching) return [];
-    return searchVenues(venues, deferredSearchQuery).slice(0, 6);
-  }, [isSearching, venues, deferredSearchQuery]);
+    if (!isSearching || !activeSearchQuery) return [];
+    return searchVenues(venues, activeSearchQuery).slice(0, 6);
+  }, [isSearching, venues, activeSearchQuery]);
 
   return (
     <>

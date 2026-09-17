@@ -186,6 +186,7 @@ const FILE_TO_EVENT_ID = {
     "ambar-lounge-bandoleras-2026-09-18",
   "ambar-lounge-adrian-tineo-2026-09-19.jpg":
     "ambar-lounge-adrian-tineo-2026-09-19",
+  "meclao-retro-party-2026-09-19.jpg": "meclao-retro-party-2026-09-19",
   "cigar-town-karaoke-ladies-night-2026-09-19.jpg":
     "cigar-town-karaoke-ladies-night-2026-09-19",
   "cigar-town-martes-sensorial.jpg": "cigar-town-martes-sensorial",
@@ -196,6 +197,7 @@ const FILE_TO_EVENT_ID = {
   "aura-latin-flow-dance-wednesday.jpg": "aura-latin-flow-dance-wednesday",
   "cisco-vengo-social-heartz-aura-2026-09-25.jpg":
     "cisco-vengo-social-heartz-aura-2026-09-25",
+  "allison-sade-aura-2026-09-17.jpg": "allison-sade-aura-2026-09-17",
   "ocean-world-terrace-karaoke-encuentro-2026-09-16.jpg":
     "ocean-world-terrace-singing-talent-2026-09-16",
   "duo-maryem-rancho-catalina-2026-09-20.jpg":

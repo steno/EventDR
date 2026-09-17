@@ -28,6 +28,14 @@ describe("textMatchesSearchQuery", () => {
       true,
     );
   });
+
+  it("does not match aura inside restaurant", () => {
+    assert.equal(textMatchesSearchQuery("Restaurant Maria", "aura"), false);
+    assert.equal(
+      textMatchesSearchQuery("Aura Beach Club Cabarete", "aura"),
+      true,
+    );
+  });
 });
 
 describe("searchVenues", () => {
@@ -45,12 +53,30 @@ describe("searchVenues", () => {
       city: "Cabarete",
       description: "Beach club",
     },
+    {
+      slug: "aura-beach-club-cabarete",
+      name: "Aura Beach Club Cabarete",
+      city: "Cabarete",
+      description: "Beachfront club on Calle Principal",
+    },
+    {
+      slug: "restaurant-maria-sov",
+      name: "Restaurant Maria",
+      city: "Sosúa",
+      description: "Oceanfront gourmet restaurant",
+    },
   ];
 
   it("finds Zen Fitness via cabarete fitness alias", () => {
     const hits = searchVenues(venues, "cabarete fitness");
     assert.equal(hits.length, 1);
     assert.equal(hits[0]?.slug, "zen-fitness-cabarete");
+  });
+
+  it("ranks Aura first for aura and skips restaurant false positives", () => {
+    const hits = searchVenues(venues, "aura");
+    assert.equal(hits.length, 1);
+    assert.equal(hits[0]?.slug, "aura-beach-club-cabarete");
   });
 });
 
@@ -73,12 +99,34 @@ describe("searchEvents", () => {
       venue: "LAX Cabarete",
       venueSlug: "lax-cabarete",
     },
+    {
+      id: "allison-sade-aura-2026-09-17",
+      title: "Allison Sade Live at Aura",
+      description: "Live music at Aura Beach Club",
+      location: "Cabarete",
+      venue: "Aura Beach Club Cabarete",
+      venueSlug: "aura-beach-club-cabarete",
+    },
+    {
+      id: "restaurant-maria-day-pass",
+      title: "Restaurant Maria Day Pass",
+      description: "Oceanfront gourmet restaurant day pass",
+      location: "Sosúa",
+      venue: "Restaurant Maria",
+      venueSlug: "restaurant-maria-sov",
+    },
   ];
 
   it("finds a Zen Fitness event for cabarete fitness", () => {
     const hits = searchEvents(events, "cabarete fitness");
     assert.equal(hits.length, 1);
     assert.equal(hits[0]?.id, "zen-fitness-morning-flow");
+  });
+
+  it("finds Allison Sade for aura without restaurant false positives", () => {
+    const hits = searchEvents(events, "aura");
+    assert.equal(hits.length, 1);
+    assert.equal(hits[0]?.id, "allison-sade-aura-2026-09-17");
   });
 });
 

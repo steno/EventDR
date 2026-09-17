@@ -8,8 +8,9 @@ import {
 } from "./card-grid";
 
 describe("countCardGridColumns", () => {
-  it("stays at 2 columns below the sm breakpoint", () => {
+  it("stays at 2 columns below the xl breakpoint", () => {
     assert.equal(countCardGridColumns(800, 390), CARD_GRID_MOBILE_COLUMNS);
+    assert.equal(countCardGridColumns(900, 1024), CARD_GRID_MOBILE_COLUMNS);
   });
 
   it("fits 5 tracks in the ~1440px listing shell", () => {

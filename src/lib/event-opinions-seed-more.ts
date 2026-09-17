@@ -2602,4 +2602,42 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "Editor flyer + naturacabana.com/es/event/natura-market-in-cabarete-special/ + FB group post: Special Natura Market Master of the Ocean Edition, Sept 19–20 2026, 10:30 AM–3:00 PM at Playa Encuentro (user/FB). Site template still lists Natura Cabana hotel address for the regular market series; this edition is seeded at playa-encuentro per flyer/partner context. Phone +18492147010.",
     updatedAt: "2026-09-16T12:00:00.000Z",
   },
+  {
+    eventId: "meclao-retro-party-2026-09-19",
+    body: "Themed ’80s–’90s dress-up night with Camilo Taveraz — not the usual open live-music listing; call 829-374-7028 for a table before you assume walk-up on Luis Ginebra.",
+    localized: {
+      es: "Noche temática años 80–90 con Camilo Taveraz — no es el listing habitual de música en vivo; llama al 829-374-7028 por mesa antes de asumir entrada libre en Luis Ginebra.",
+      fr: "Soirée thématique années 80–90 avec Camilo Taveraz — pas le listing live habituel ; appelez le 829-374-7028 pour une table avant d’assumer l’entrée libre sur Luis Ginebra.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "Cover not posted — reserve 829-374-7028; weekend rooftop spend typically DOP 500–1,000",
+    priceNoteLocalized: {
+      es: "Cover no publicado — reserva 829-374-7028; gasto típico de rooftop fin de semana DOP 500–1,000",
+      fr: "Cover non publié — réservez 829-374-7028 ; budget rooftop week-end typique DOP 500–1 000",
+    },
+    attribution: "POP research · @meclaorooftop RETRO Party post",
+    researchNotes:
+      "IG https://www.instagram.com/p/DdXjTwGpYGm/ — Sáb 19 Sep 2026 RETRO Party, Camilo Taveraz, dress code años 80–90, Luis Ginebra No. 49, reservas 829-374-7028. No start time or cover on flyer/caption.",
+    updatedAt: "2026-09-16T12:00:00.000Z",
+  },
+  {
+    eventId: "allison-sade-aura-2026-09-17",
+    body: "Named Thursday 8 PM set on Calle Principal sand — not the weekly Wednesday margarita/Latin Flow promo; pin cover with Aura WhatsApp before you treat it like a free open-mic.",
+    localized: {
+      es: "Set con nombre el jueves a las 8 PM en la arena de Calle Principal — no es el promo semanal de margaritas/Latin Flow del miércoles; confirma cover con WhatsApp de Aura antes de tratarlo como open mic gratis.",
+      fr: "Set nommé jeudi à 20 h sur le sable de Calle Principal — pas la promo hebdo margaritas/Latin Flow du mercredi ; confirmez le cover via WhatsApp Aura avant de le traiter comme open mic gratuit.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "Cover not on flyer — confirm @auracabarete / WhatsApp +1 829-787-0140; budget beach-club drinks",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — confirma @auracabarete / WhatsApp +1 829-787-0140; presupuesta drinks de beach club",
+      fr: "Cover absent de l’affiche — confirmez @auracabarete / WhatsApp +1 829-787-0140 ; budget boissons beach club",
+    },
+    attribution: "POP research · @auracabarete × @allisonsadeofficial flyer",
+    researchNotes:
+      "Editor flyer: Allison Sade LIVE MUSIC, Jueves 17, 8:00 PM, @allisonsadeofficial; venue Aura Cabarete per user. No cover on art.",
+    updatedAt: "2026-09-16T12:00:00.000Z",
+  },
 ];

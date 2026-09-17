@@ -393,6 +393,20 @@ export function hasEventEndedForToday(
   return getEventLiveStatus(event, now) === "ended";
 }
 
+/**
+ * One-off listings that belong on a venue Past tab (and should leave home
+ * specials / upcoming rails). Matches {@link getEventLiveStatus} `"ended"` —
+ * same clock cutoff as home “Today’s specials”, not calendar midnight.
+ * Recurring nights stay upcoming (`closedToday` ≠ past).
+ */
+export function isPastOneOffEvent(
+  event: EventLiveFields & { recurrence?: Event["recurrence"] | string },
+  now: Date = new Date(),
+): boolean {
+  if (event.recurrence) return false;
+  return getEventLiveStatus(event, now) === "ended";
+}
+
 export function isEventActiveToday(
   event: EventLiveFields,
   now: Date = new Date(),

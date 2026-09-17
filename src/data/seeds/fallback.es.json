@@ -2284,5 +2284,60 @@
       "Comunidad"
     ],
     "imageEmoji": "🛍️"
+  },
+  {
+    "id": "meclao-retro-party-2026-09-19",
+    "title": "RETRO Party con Camilo Taveraz",
+    "description": "RETRO Party en Mecla'o Rooftop Lounge, Av. Luis Ginebra No. 49, Puerto Plata — sábado 19 de septiembre 2026 con Camilo Taveraz. Dress code: años 80–90. Reservas: 829-374-7028. Confirma puertas y cover por Instagram @meclaorooftop.",
+    "date": "2026-09-19",
+    "location": "Puerto Plata",
+    "venue": "Mecla'o Rooftop Lounge",
+    "venueSlug": "meclao-rooftop",
+    "address": "Av. Luis Ginebra No. 49, Puerto Plata 57000",
+    "lat": 19.788312,
+    "lng": -70.677453,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18293747028",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/p/DdXjTwGpYGm/",
+    "lineup": [
+      "Camilo Taveraz"
+    ],
+    "imageEmoji": "💿"
+  },
+  {
+    "id": "allison-sade-aura-2026-09-17",
+    "title": "Allison Sade en vivo en Aura",
+    "description": "Allison Sade en vivo en Aura Beach Club, Calle Principal, Cabarete — jueves 17 de septiembre 2026 a las 8:00 PM. Confirma cover y mesas por Instagram @auracabarete o WhatsApp +1 829-787-0140 · @allisonsadeofficial.",
+    "date": "2026-09-17",
+    "time": "8:00 PM",
+    "location": "Cabarete",
+    "venue": "Aura Beach Club Cabarete",
+    "venueSlug": "aura-beach-club-cabarete",
+    "address": "Calle Principal, Cabarete 57000",
+    "lat": 19.7500769,
+    "lng": -70.4070417,
+    "category": "concert",
+    "categories": [
+      "music",
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18297870140",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/auracabarete/",
+    "lineup": [
+      "Allison Sade"
+    ],
+    "imageEmoji": "🎤"
   }
 ]

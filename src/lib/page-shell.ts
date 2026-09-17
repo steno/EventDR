@@ -53,15 +53,16 @@ export const DETAIL_HERO_PHOTO_HEIGHT_MOBILE_CLASS =
 export const DETAIL_HERO_PHOTO_HEIGHT_CLASS = `${DETAIL_HERO_PHOTO_HEIGHT_MOBILE_CLASS} lg:h-[calc(100dvh-var(--sticky-list-header-height,_0px)-1.5rem)]`;
 
 /**
- * Card discovery grids — elastic columns: 2 on narrow phones, then as many
- * ~220px tiles as fit. Underscore in `1fr` keeps the arbitrary value valid in
- * Tailwind; `auto-fill` keeps empty tracks so sparse lists (e.g. one saved
- * event) stay tile-sized instead of stretching billboard-wide.
+ * Card discovery grids — elastic columns: 2 on phones / mid-width, then as
+ * many ~220px tiles as fit from `xl` (1280px). Underscore in `1fr` keeps the
+ * arbitrary value valid in Tailwind; `auto-fill` keeps empty tracks so sparse
+ * lists (e.g. one saved event) stay tile-sized instead of stretching
+ * billboard-wide.
  * Truncated lists fill leftover cells with extra events (`fillCardGridPage`);
  * “More events” is a full-width bar on the next row (`col-span-full`).
  */
 export const CARD_GRID_CLASS =
-  "grid grid-cols-2 items-stretch gap-2 sm:grid-cols-[repeat(auto-fill,minmax(220px,_1fr))] sm:gap-3";
+  "grid grid-cols-2 items-stretch gap-2 xl:grid-cols-[repeat(auto-fill,minmax(220px,_1fr))] xl:gap-3";
 
 /** Full-row control under a complete card grid (More events). */
 export const CARD_GRID_FULL_ROW_CLASS = "col-span-full w-full";

@@ -147,6 +147,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "ambar-lounge-bandoleras-2026-09-18.jpg",
   "ambar-lounge-adrian-tineo-2026-09-19":
     "ambar-lounge-adrian-tineo-2026-09-19.jpg",
+  "meclao-retro-party-2026-09-19": "meclao-retro-party-2026-09-19.jpg",
   "cigar-town-karaoke-ladies-night-2026-09-19":
     "cigar-town-karaoke-ladies-night-2026-09-19.jpg",
   "aura-beach-club-lunes-especiales": "aura-beach-club-lunes-especiales.jpg",
@@ -155,6 +156,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "aura-latin-flow-dance-wednesday": "aura-latin-flow-dance-wednesday.jpg",
   "cisco-vengo-social-heartz-aura-2026-09-25":
     "cisco-vengo-social-heartz-aura-2026-09-25.jpg",
+  "allison-sade-aura-2026-09-17": "allison-sade-aura-2026-09-17.jpg",
   "ocean-world-terrace-singing-talent-2026-09-16":
     "ocean-world-terrace-karaoke-encuentro-2026-09-16.jpg",
   "duo-maryem-rancho-catalina-2026-09-20":
@@ -454,11 +456,13 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "ambar-lounge-miercoles-rooftop.jpg",
   "ambar-lounge-bandoleras-2026-09-18.jpg",
   "ambar-lounge-adrian-tineo-2026-09-19.jpg",
+  "meclao-retro-party-2026-09-19.jpg",
   "cigar-town-karaoke-ladies-night-2026-09-19.jpg",
   "aura-beach-club-lunes-especiales.jpg",
   "aura-beach-club-miercoles-margaritas.jpg",
   "aura-latin-flow-dance-wednesday.jpg",
   "cisco-vengo-social-heartz-aura-2026-09-25.jpg",
+  "allison-sade-aura-2026-09-17.jpg",
   "spotland-sabado-retro-familiar-2026-09-19.jpg",
   "los-event-trilogy-2026-09-03.jpg",
   "love-does-bocadillos-course-2026.jpg",
