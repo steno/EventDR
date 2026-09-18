@@ -190,6 +190,10 @@ const FILE_TO_EVENT_ID = {
   "ambar-lounge-adrian-tineo-2026-09-19.jpg":
     "ambar-lounge-adrian-tineo-2026-09-19",
   "meclao-retro-party-2026-09-19.jpg": "meclao-retro-party-2026-09-19",
+  "meclao-house-friday-2026-09-18.jpg": "meclao-house-friday-2026-09-18",
+  "aura-disco-dj-melvin-2026-09-19.jpg": "aura-disco-dj-melvin-2026-09-19",
+  "cabarete-standup-vol-2-2026-10-24.jpg":
+    "cabarete-standup-vol-2-2026-10-24",
   "cigar-town-karaoke-ladies-night-2026-09-19.jpg":
     "cigar-town-karaoke-ladies-night-2026-09-19",
   "cigar-town-martes-sensorial.jpg": "cigar-town-martes-sensorial",

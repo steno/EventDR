@@ -158,6 +158,16 @@ export const INSTAGRAM_ACCOUNTS = [
     areas: ["Cabarete"],
   },
   {
+    handle: "cabaretestandup",
+    label: "Cabarete Stand Up",
+    areas: ["Cabarete"],
+  },
+  {
+    handle: "hotelvillataina",
+    label: "Hotel Villa Taina",
+    areas: ["Cabarete"],
+  },
+  {
     handle: "eventospop037",
     label: "Eventos Pop 037 (Puerto Plata agenda)",
     areas: ["Puerto Plata"],
@@ -390,7 +400,7 @@ export function instagramSearchQueries(): string[] {
     "onnosbar", "shakabardr", "groundzero_disco", "blueice_pianobar",
     "driftercabarete", "nonasgrillkitchen", "hardrockcafepuertoplata",
     "djblueeventos", "victrolart", "cigartownpop", "ambarloungepop", "lokuraspop",
-    "cinemaspop", "auracabarete", "eventospop037",
+    "cinemaspop", "auracabarete", "cabaretestandup", "hotelvillataina", "eventospop037",
     "novapuertoplata", "spotlandrd", "classiccarsrd", "trolleycitytours", "lunaloungelcb", "teatroivangarcia",
     "oceanworldterrace", "paradaelchoco",
     "kitestreetpop", "meclaorooftop", "kviarcasinos", "acapella.pop", "vinotecamarienpp",

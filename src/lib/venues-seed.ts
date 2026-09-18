@@ -301,6 +301,19 @@ export const SEED_VENUES: Venue[] = [
     phone: "+18297870140",
   },
   {
+    slug: "hotel-villa-taina",
+    name: "Hotel Villa Taina",
+    city: "Cabarete",
+    description:
+      "Beachfront boutique hotel at Calle Principal #1 in the center of Cabarete — rooms on the sand, hotel restaurant, and occasional ticketed comedy nights. Phone +1 809-571-0722 · villataina.com.",
+    lat: 19.74984,
+    lng: -70.40995,
+    emoji: "🏨",
+    website: "https://www.villataina.com/",
+    instagram: "hotelvillataina",
+    phone: "+18095710722",
+  },
+  {
     slug: "la-casita-de-papi",
     name: "La Casita de Papi",
     city: "Cabarete",
@@ -1803,6 +1816,10 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
     pattern:
       /\baura(\s*beach\s*club(\s*experience)?)?\b|auracabarete/i,
     slug: "aura-beach-club-cabarete",
+  },
+  {
+    pattern: /villa\s*ta[ií]na|hotelvillataina/i,
+    slug: "hotel-villa-taina",
   },
   {
     pattern:

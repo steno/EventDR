@@ -151,6 +151,10 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "ambar-lounge-adrian-tineo-2026-09-19":
     "ambar-lounge-adrian-tineo-2026-09-19.jpg",
   "meclao-retro-party-2026-09-19": "meclao-retro-party-2026-09-19.jpg",
+  "meclao-house-friday-2026-09-18": "meclao-house-friday-2026-09-18.jpg",
+  "aura-disco-dj-melvin-2026-09-19": "aura-disco-dj-melvin-2026-09-19.jpg",
+  "cabarete-standup-vol-2-2026-10-24":
+    "cabarete-standup-vol-2-2026-10-24.jpg",
   "cigar-town-karaoke-ladies-night-2026-09-19":
     "cigar-town-karaoke-ladies-night-2026-09-19.jpg",
   "aura-beach-club-lunes-especiales": "aura-beach-club-lunes-especiales.jpg",
@@ -462,6 +466,9 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "ambar-lounge-bandoleras-2026-09-18.jpg",
   "ambar-lounge-adrian-tineo-2026-09-19.jpg",
   "meclao-retro-party-2026-09-19.jpg",
+  "meclao-house-friday-2026-09-18.jpg",
+  "aura-disco-dj-melvin-2026-09-19.jpg",
+  "cabarete-standup-vol-2-2026-10-24.jpg",
   "cigar-town-karaoke-ladies-night-2026-09-19.jpg",
   "aura-beach-club-lunes-especiales.jpg",
   "aura-beach-club-miercoles-margaritas.jpg",

@@ -2393,5 +2393,90 @@
       "Banda Modelo"
     ],
     "imageEmoji": "🍷"
+  },
+  {
+    "id": "meclao-house-friday-2026-09-18",
+    "title": "House Friday con DJ Choco",
+    "description": "House Friday en Mecla'o Rooftop Lounge, Av. Luis Ginebra No. 49, Puerto Plata — viernes 18 de septiembre 2026 con DJ Choco. Reservas: 829-374-7028. Confirma puertas y cover por Instagram @meclaorooftop · @ch.17x.",
+    "date": "2026-09-18",
+    "location": "Puerto Plata",
+    "venue": "Mecla'o Rooftop Lounge",
+    "venueSlug": "meclao-rooftop",
+    "address": "Av. Luis Ginebra No. 49, Puerto Plata 57000",
+    "lat": 19.788312,
+    "lng": -70.677453,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18293747028",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/p/DdZi0Osp5t5/",
+    "lineup": [
+      "DJ Choco"
+    ],
+    "imageEmoji": "🎧"
+  },
+  {
+    "id": "aura-disco-dj-melvin-2026-09-19",
+    "title": "Aura Disco con DJ Melvin",
+    "description": "Aura Disco con DJ Melvin en Aura Beach Club, Calle Principal, Cabarete — sábado 19 de septiembre 2026, 11:30 PM–3:00 AM. Confirma cover y mesas por Instagram @auracabarete o WhatsApp +1 829-787-0140.",
+    "date": "2026-09-19",
+    "time": "11:30 PM – 3:00 AM",
+    "location": "Cabarete",
+    "venue": "Aura Beach Club Cabarete",
+    "venueSlug": "aura-beach-club-cabarete",
+    "address": "Calle Principal, Cabarete 57000",
+    "lat": 19.7500769,
+    "lng": -70.4070417,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18297870140",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/p/DdZyjTkRZfY/",
+    "lineup": [
+      "DJ Melvin"
+    ],
+    "imageEmoji": "🪩"
+  },
+  {
+    "id": "cabarete-standup-vol-2-2026-10-24",
+    "title": "Cabarete Stand Up Vol. 2",
+    "description": "Cabarete Stand Up Vol. 2 en Hotel Villa Taina, Calle Principal #1, Cabarete — sábado 24 de octubre 2026 a las 7:00 PM. Host Laura Nanita con Harú, Elias Serulle y Starlyn. Cover RD$600; entradas en cabaretestandup.com. Hotel +1 809-571-0722.",
+    "date": "2026-10-24",
+    "time": "7:00 PM",
+    "location": "Cabarete",
+    "venue": "Hotel Villa Taina",
+    "venueSlug": "hotel-villa-taina",
+    "address": "Calle Principal #1, Cabarete 57000",
+    "lat": 19.74984,
+    "lng": -70.40995,
+    "category": "performances",
+    "categories": [
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "admissionPrice": "RD$600",
+    "phone": "+18095710722",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.cabaretestandup.com/",
+    "lineup": [
+      "Laura Nanita",
+      "Harú",
+      "Elias Serulle",
+      "Starlyn"
+    ],
+    "imageEmoji": "🎭"
   }
 ]

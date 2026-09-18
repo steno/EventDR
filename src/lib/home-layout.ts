@@ -124,6 +124,7 @@ export const VENUE_AUDIENCE_POOLS: Record<
     "lax-cabarete",
     "kite-beach",
     "voyvoy-cabarete",
+    "hotel-villa-taina",
     "natura-cabana",
     "hard-rock-sosua",
     "liquid-blue-cabarete",

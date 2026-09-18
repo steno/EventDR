@@ -66,6 +66,17 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     ],
   }),
   editorial({
+    venueSlug: "hotel-villa-taina",
+    verdictKey: "reliable_visitor_pick",
+    crowdFit: ["visitor", "mixed"],
+    axes: { recommend: 4.3, atmosphere: 4.2, value: 3.8, practical: 4.2 },
+    themes: [
+      { key: "beachfront", sentiment: "positive", audience: "visitor" },
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+      { key: "easy_to_find", sentiment: "positive" },
+    ],
+  }),
+  editorial({
     venueSlug: "kite-beach",
     verdictKey: "solid_visitor_activity",
     crowdFit: ["visitor", "mixed"],

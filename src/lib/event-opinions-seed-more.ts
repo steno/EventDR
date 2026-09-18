@@ -2678,4 +2678,60 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "Editor flyer: Banda Modelo, Sáb 26 Sep 10 PM, Vinoteca wine house, Carretera Luperon (Hotel Marien), totalmente gratis. Profile https://www.instagram.com/vinotecamarienpp/",
     updatedAt: "2026-09-17T15:00:00.000Z",
   },
+  {
+    eventId: "meclao-house-friday-2026-09-18",
+    body: "Named House Friday with DJ Choco on Luis Ginebra — not Saturday’s RETRO ’80s–’90s dress-up with Camilo Taveraz. Cover isn’t on the flyer; call 829-374-7028 for a table.",
+    localized: {
+      es: "House Friday con nombre y DJ Choco en Luis Ginebra — no es el RETRO de vestimenta años 80–90 del sábado con Camilo Taveraz. El flyer no trae cover; llama al 829-374-7028 por mesa.",
+      fr: "House Friday nommé avec DJ Choco sur Luis Ginebra — pas le RETRO dress-code années 80–90 du samedi avec Camilo Taveraz. Pas de cover sur l’affiche ; appelez le 829-374-7028 pour une table.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "Cover not posted — reserve 829-374-7028; weekend rooftop spend typically DOP 500–1,000",
+    priceNoteLocalized: {
+      es: "Cover no publicado — reserva 829-374-7028; gasto típico de rooftop fin de semana DOP 500–1,000",
+      fr: "Cover non publié — réservez 829-374-7028 ; budget rooftop week-end typique DOP 500–1 000",
+    },
+    attribution: "POP research · @meclaorooftop House Friday post",
+    researchNotes:
+      "IG https://www.instagram.com/p/DdZi0Osp5t5/ — Vie 18 Sep 2026 House Friday, DJ Choco (@ch.17x), MECLAO Rooftop, reservas 829-374-7028. No start time or cover on flyer/caption.",
+    updatedAt: "2026-09-18T12:00:00.000Z",
+  },
+  {
+    eventId: "aura-disco-dj-melvin-2026-09-19",
+    body: "Late Saturday disco with DJ Melvin 11:30 PM–3 AM on Calle Principal sand — not Monday 2x1 hours or Wednesday Latin Flow. Cover isn’t on the flyer; pin tables on Aura WhatsApp.",
+    localized: {
+      es: "Disco tarde el sábado con DJ Melvin de 11:30 PM a 3 AM en la arena de Calle Principal — no es el 2x1 del lunes ni el Latin Flow del miércoles. El flyer no trae cover; confirma mesas por WhatsApp de Aura.",
+      fr: "Disco tardif samedi avec DJ Melvin de 23 h 30 à 3 h sur le sable de Calle Principal — pas les 2x1 du lundi ni le Latin Flow du mercredi. Pas de cover sur l’affiche ; confirmez les tables via WhatsApp Aura.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "Cover not on flyer — confirm @auracabarete / WhatsApp +1 829-787-0140; budget beach-club drinks",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — confirma @auracabarete / WhatsApp +1 829-787-0140; presupuesta drinks de beach club",
+      fr: "Cover absent de l’affiche — confirmez @auracabarete / WhatsApp +1 829-787-0140 ; budget boissons beach club",
+    },
+    attribution: "POP research · @auracabarete Aura Disco flyer",
+    researchNotes:
+      "Editor flyer + IG https://www.instagram.com/p/DdZyjTkRZfY/ — Saturday 19 Sep 2026, DJ Melvin, Aura Disco, 11:30 till 3:00 AM. No cover on art.",
+    updatedAt: "2026-09-18T12:00:00.000Z",
+  },
+  {
+    eventId: "cabarete-standup-vol-2-2026-10-24",
+    body: "Ticketed 7 PM comedy at Hotel Villa Taina — not a beach-club DJ night. RD$600 cover via cabaretestandup.com; this October bill follows the free Aug 15 Cabarete Comedy Night at the same hotel.",
+    localized: {
+      es: "Comedia con boleta a las 7 PM en Hotel Villa Taina — no es una noche de DJ de beach club. Cover RD$600 en cabaretestandup.com; este cartel de octubre sigue a la Cabarete Comedy Night gratis del 15 de agosto en el mismo hotel.",
+      fr: "Stand-up billeté à 19 h à l’Hotel Villa Taina — pas une soirée DJ de beach club. Cover RD$600 sur cabaretestandup.com ; cette affiche d’octobre suit la Cabarete Comedy Night gratuite du 15 août dans le même hôtel.",
+    },
+    priceFeel: "moderate",
+    priceNote: "Cover RD$600 · tickets cabaretestandup.com · hotel +1 809-571-0722",
+    priceNoteLocalized: {
+      es: "Cover RD$600 · entradas cabaretestandup.com · hotel +1 809-571-0722",
+      fr: "Cover RD$600 · billets cabaretestandup.com · hôtel +1 809-571-0722",
+    },
+    attribution: "POP research · cabaretestandup.com + Villa Taina flyer",
+    researchNotes:
+      "Editor flyer: Cabarete Stand Up Vol. 2, 24 de octubre 7 PM, cover RD$600, host Laura Nanita, Harú, Elias Serulle, Starlyn, Hotel Villa Taina, entradas www.cabaretestandup.com. Venue Calle Principal #1, +1 809-571-0722, villataina.com. Press covered Vol. 1 as free Cabarete Comedy Night 15 Aug 2026 at the same hotel. Roof work on the hotel is listed 28 Sep–13 Oct 2026 — this show is after that window.",
+    updatedAt: "2026-09-18T12:00:00.000Z",
+  },
 ];

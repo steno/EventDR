@@ -115,6 +115,12 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     phone: "+18495057778",
     venueSlug: "hard-rock-sosua",
   },
+  "cabarete-standup-vol-2-2026-10-24": {
+    isFree: false,
+    admissionPrice: "RD$600",
+    phone: "+18095710722",
+    venueSlug: "hotel-villa-taina",
+  },
   "natura-market-moto-2026-09-19": {
     isFree: true,
     phone: "+18492147010",

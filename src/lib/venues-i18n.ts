@@ -185,6 +185,12 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Beach club en bord de mer sur Calle Principal — détente le jour, lundis 2x1 margarita/gin, mercredis margaritas plus Latin Flow Dance dès 21 h et concerts le soir face à la baie de Cabarete. WhatsApp +1 829-787-0140 · Instagram @auracabarete.",
     },
   },
+  "hotel-villa-taina": {
+    description: {
+      es: "Hotel boutique frente al mar en Calle Principal #1, centro de Cabarete — habitaciones sobre la arena, restaurante del hotel y noches de comedia con boleta de vez en cuando. Tel. +1 809-571-0722 · villataina.com.",
+      fr: "Hôtel boutique en bord de mer au Calle Principal n° 1, centre de Cabarete — chambres sur le sable, restaurant de l’hôtel et soirées stand-up billetées de temps à autre. Tél. +1 809-571-0722 · villataina.com.",
+    },
+  },
   "la-casita-de-papi": {
     description: {
       es: "Icónico restaurante de mariscos frente al mar en la playa central de Cabarete — paella, pescado a la parrilla y cenas al atardecer bajo palmeras desde los años 90.",

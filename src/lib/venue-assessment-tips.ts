@@ -25,6 +25,14 @@ export const VENUE_TIP_COPY: Record<
       fr: "Beach club sur Calle Principal face à la baie de Cabarete — lundi 16 h–19 h pour 2x1 margarita/gin, mercredi margaritas puis Latin Flow Dance dès 21 h avec Flow Dance ; réservez WhatsApp +1 829-787-0140, pas un kiosk walk-up.",
     },
   },
+  "hotel-villa-taina": {
+    body: "Calle Principal #1 boutique on the sand — ticketed comedy and hotel restaurant, not a walk-up club like Aura or LAX a few doors east. Book the show separately at cabaretestandup.com.",
+    localized: {
+      en: "Calle Principal #1 boutique on the sand — ticketed comedy and hotel restaurant, not a walk-up club like Aura or LAX a few doors east. Book the show separately at cabaretestandup.com.",
+      es: "Boutique en Calle Principal #1 sobre la arena — comedia con boleta y restaurante del hotel, no un club walk-up como Aura o LAX unas puertas al este. Reserva el show aparte en cabaretestandup.com.",
+      fr: "Boutique au Calle Principal n° 1 sur le sable — stand-up billeté et resto d’hôtel, pas un club walk-up comme Aura ou LAX quelques portes à l’est. Réservez le show à part sur cabaretestandup.com.",
+    },
+  },
   "kite-beach": {
     body: "On a wind day this is the North Coast's outdoor sports stadium — spectacular to watch for free, pricey once you rent gear or book a lesson.",
     localized: {
