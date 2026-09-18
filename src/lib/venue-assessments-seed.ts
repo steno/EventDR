@@ -1579,6 +1579,17 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
       { key: "easy_to_find", sentiment: "mixed" },
     ],
   }),
+  editorial({
+    venueSlug: "hotel-villa-taina",
+    verdictKey: "reliable_visitor_pick",
+    crowdFit: ["visitor", "mixed", "family"],
+    axes: { recommend: 4.4, atmosphere: 4.5, practical: 4.2, value: 3.8 },
+    themes: [
+      { key: "beachfront", sentiment: "positive", audience: "visitor" },
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+      { key: "easy_to_find", sentiment: "positive" },
+    ],
+  }),
 ];
 
 const bySlug = new Map(

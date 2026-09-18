@@ -1755,6 +1755,19 @@ export const SEED_VENUES: Venue[] = [
     website: "https://www.instagram.com/trolleycitytours/",
     phone: "+18097698732",
   },
+  {
+    slug: "hotel-villa-taina",
+    name: "Hotel Villa Taina",
+    city: "Cabarete",
+    description:
+      "Boutique beachfront hotel in the center of Cabarete Bay — ocean-view rooms, Serenade dining on the sand, Water Club, and billed comedy nights. Calle Principal 1. Instagram @hotelvillataina · +1 809-571-0722.",
+    lat: 19.7495,
+    lng: -70.409579,
+    emoji: "🏨",
+    website: "https://villataina.com/",
+    instagram: "hotelvillataina",
+    phone: "+18095710722",
+  },
 ];
 
 /** Extra name fragments → seed slug (checked before fuzzy name includes). */
@@ -1771,6 +1784,10 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
     pattern:
       /trolley\s*(city\s*)?(tours?|pop)|trolley\s*pop\s*city|trolleycitytours|party\s*bus\s*(pop|trolley)/i,
     slug: "trolley-city-tours",
+  },
+  {
+    pattern: /villa\s*ta[ií]na|hotelvillataina/i,
+    slug: "hotel-villa-taina",
   },
   {
     pattern:

@@ -99,6 +99,11 @@ const PLACE_SEARCH_ALIASES: Record<string, string[]> = {
     "Luna Disco Bar Luis Ginebra",
     "Luna Lounge Av Luis Ginebra 42",
   ],
+  "hotel-villa-taina": [
+    "Hotel Villa Taina Cabarete",
+    "Villa Taina Cabarete Beach",
+    "Villa Taina Calle Principal Cabarete",
+  ],
   "ivan-garcia-teatro-escuela": [
     "Iván García Teatro Escuela Puerto Plata",
     "Teatro Escuela Ivan Garcia Juan Bosch",

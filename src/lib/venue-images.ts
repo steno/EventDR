@@ -187,6 +187,7 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "classic-cars-dominicana": "classic-cars-dominicana-umbrella-street.jpg",
   // POP-supplied mural party trolley with riders (flyer stays on the daily listing).
   "trolley-city-tours": "trolley-city-tours-party-bus.jpg",
+  "hotel-villa-taina": "hotel-villa-taina-pool.jpg",
 };
 
 /** Cache-busted URL for general venue thumbnails / JSON-LD. */

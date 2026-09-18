@@ -78,6 +78,10 @@ const FILE_TO_EVENT_ID = {
   "los-caballitos-zona-acapella-2026-09-20.jpg":
     "los-caballitos-zona-acapella-2026-09-20",
   "banda-modelo-vinoteca-2026-09-26.jpg": "banda-modelo-vinoteca-2026-09-26",
+  "aura-disco-dj-melvin-2026-09-19.jpg": "aura-disco-dj-melvin-2026-09-19",
+  "meclao-house-friday-2026-09-18.jpg": "meclao-house-friday-2026-09-18",
+  "cabarete-stand-up-vol-2-2026-10-24.jpg":
+    "cabarete-stand-up-vol-2-2026-10-24",
   "pop-cinemas-week-2026-08-20.jpg": "pop-cinemas-week-2026-08-20",
   "pop-cinemas-week-2026-09-11.jpg": "pop-cinemas-week-2026-09-11",
   "pop-cinemas-week-2026-09-11-mall.jpg": "pop-cinemas-week-2026-09-11-mall",
@@ -398,6 +402,7 @@ const FILE_TO_VENUE_SLUG = {
   "ambar-lounge-pop-lounge.jpg": "ambar-lounge-pop-lounge",
   "aura-beach-club-cabarete-entrance.jpg": "aura-beach-club-cabarete-entrance",
   "trolley-city-tours-party-bus.jpg": "trolley-city-tours-party-bus",
+  "hotel-villa-taina-pool.jpg": "hotel-villa-taina-pool",
 };
 
 if (!existsSync(sourceDir)) {

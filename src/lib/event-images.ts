@@ -160,6 +160,10 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "cisco-vengo-social-heartz-aura-2026-09-25":
     "cisco-vengo-social-heartz-aura-2026-09-25.jpg",
   "allison-sade-aura-2026-09-17": "allison-sade-aura-2026-09-17.jpg",
+  "aura-disco-dj-melvin-2026-09-19": "aura-disco-dj-melvin-2026-09-19.jpg",
+  "meclao-house-friday-2026-09-18": "meclao-house-friday-2026-09-18.jpg",
+  "cabarete-stand-up-vol-2-2026-10-24":
+    "cabarete-stand-up-vol-2-2026-10-24.jpg",
   "ocean-world-terrace-singing-talent-2026-09-16":
     "ocean-world-terrace-karaoke-encuentro-2026-09-16.jpg",
   "duo-maryem-rancho-catalina-2026-09-20":
@@ -373,6 +377,9 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "aura-beach-club-miercoles-margaritas": "object-center",
   "aura-latin-flow-dance-wednesday": "object-center",
   "cisco-vengo-social-heartz-aura-2026-09-25": "object-center",
+  "aura-disco-dj-melvin-2026-09-19": "object-center",
+  "meclao-house-friday-2026-09-18": "object-center",
+  "cabarete-stand-up-vol-2-2026-10-24": "object-center",
   "ocean-world-terrace-singing-talent-2026-09-16": "object-center",
   "duo-maryem-rancho-catalina-2026-09-20": "object-center",
 };
@@ -468,6 +475,9 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "aura-latin-flow-dance-wednesday.jpg",
   "cisco-vengo-social-heartz-aura-2026-09-25.jpg",
   "allison-sade-aura-2026-09-17.jpg",
+  "aura-disco-dj-melvin-2026-09-19.jpg",
+  "meclao-house-friday-2026-09-18.jpg",
+  "cabarete-stand-up-vol-2-2026-10-24.jpg",
   "spotland-sabado-retro-familiar-2026-09-19.jpg",
   "los-event-trilogy-2026-09-03.jpg",
   "love-does-bocadillos-course-2026.jpg",

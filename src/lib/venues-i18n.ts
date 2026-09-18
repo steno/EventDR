@@ -885,6 +885,12 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Trolley party mural pour Puerto Plata et Sosúa — les sorties publiques du soir sont des trolley parties thématiques du week-end (priorité samedi) ; charters privés à part. Instagram @trolleycitytours · (809) 769-8732.",
     },
   },
+  "hotel-villa-taina": {
+    description: {
+      es: "Hotel boutique frente al mar en el centro de la bahía de Cabarete — habitaciones con vista al océano, cena en Serenade sobre la arena, Water Club y noches de comedia con cartel. Calle Principal 1. Instagram @hotelvillataina · +1 809-571-0722.",
+      fr: "Hôtel boutique en bord de mer au centre de la baie de Cabarete — chambres vue océan, dîner Serenade sur le sable, Water Club et soirées comedy à l’affiche. Calle Principal 1. Instagram @hotelvillataina · +1 809-571-0722.",
+    },
+  },
 };
 
 export function localizeVenue(venue: Venue, locale: Locale): Venue {

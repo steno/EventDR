@@ -289,6 +289,7 @@ const VISIT_MINUTES_BY_SLUG: Record<string, number> = {
   "anfiteatro-la-puntilla": 75,
   "victrola-037": 50,
   "meclao-rooftop": 60,
+  "hotel-villa-taina": 90,
   "cremo-cigar-bar": 45,
   "disco-club-brugal": 45,
   "brugal-rum-center": 45,

@@ -20,6 +20,7 @@ const TICKET_HOSTS = [
   "forms.gle",
   "docs.google.com",
   "boletu.com",
+  "cabaretestandup.com",
   "local-experiences.iberostar.com",
   "granventanahotel.com",
   "resortpass.com",
@@ -36,6 +37,7 @@ export const CURATED_TICKET_URLS: Record<string, string> = {
   "silent-run-5k-2026-07-25": "https://boletu.com/event/silent-run-5k",
   "cabarete-run-festival-5k-2026-11-08":
     "https://forms.gle/WTX9u3D2C1XWVZDk8",
+  "cabarete-stand-up-vol-2-2026-10-24": "https://www.cabaretestandup.com/",
   "atleticos-pp-vs-capitanes-2026-07-11":
     "https://todotickets.do/events/3-atleticos-vs-capitanes-de-salcedo-11-de-julio",
   "atleticos-pp-vs-mangueros-2026-07-17":
@@ -107,6 +109,7 @@ export const CURATED_TICKET_URLS: Record<string, string> = {
 export const CURATED_ADMISSION_PRICES: Record<string, string> = {
   // Concerts & ticketed shows
   "lil-naay-2026-07-17": "RD$700",
+  "cabarete-stand-up-vol-2-2026-10-24": "RD$600",
 
   // Museums & historic sites (door price)
   "museo-ambar-weekdays": "RD$250",
@@ -171,6 +174,8 @@ export const CURATED_CALL_FOR_PRICING = new Set<string>([
   "ambar-lounge-miercoles-rooftop",
   "ambar-lounge-bandoleras-2026-09-18",
   "ambar-lounge-adrian-tineo-2026-09-19",
+  "aura-disco-dj-melvin-2026-09-19",
+  "meclao-house-friday-2026-09-18",
 ]);
 
 /**

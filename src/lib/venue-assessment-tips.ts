@@ -1081,4 +1081,12 @@ export const VENUE_TIP_COPY: Record<
       fr: "Les sorties publiques du soir sont des trolley parties thématiques du week-end avec priorité samedi — pas un hop-on quotidien ; réservez le bus mural (ou charter privé) via @trolleycitytours / (809) 769-8732, et attendez des arrêts type Victrola / Kite Street selon l’affiche.",
     },
   },
+  "hotel-villa-taina": {
+    body: "Beachfront boutique in the exact center of Cabarete Bay — comedy nights and Serenade dining on the sand, not a quiet all-inclusive day pass. Book the show or a room; the walk-up beach bars are next door on Calle Principal.",
+    localized: {
+      en: "Beachfront boutique in the exact center of Cabarete Bay — comedy nights and Serenade dining on the sand, not a quiet all-inclusive day pass. Book the show or a room; the walk-up beach bars are next door on Calle Principal.",
+      es: "Boutique frente al mar en el centro exacto de la bahía de Cabarete — noches de comedia y cena en Serenade sobre la arena, no un day pass todo incluido tranquilo. Reserva el show o una habitación; los bares walk-up están al lado en Calle Principal.",
+      fr: "Boutique en bord de mer au centre exact de la baie de Cabarete — soirées comedy et dîner Serenade sur le sable, pas un day pass all-inclusive calme. Réservez le show ou une chambre ; les bars walk-up sont à côté sur Calle Principal.",
+    },
+  },
 };
