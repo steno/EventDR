@@ -69,6 +69,31 @@ export function buildEventShareText(event: Event, locale: Locale = "en"): string
   return `${event.title}\n${when}${event.time ? ` · ${event.time}` : ""}\n${formatEventPlace(event)}${lineup}\n\n${event.description}`;
 }
 
+/** Short caption only — no body copy / third-party links that steal WhatsApp's preview. */
+export function buildEventShareCaption(
+  event: Event,
+  locale: Locale = "en",
+): string {
+  const when = formatEventDateRange(event.date, locale, {
+    endDate: event.endDate,
+    short: true,
+  });
+  return `${event.title}\n${when}${event.time ? ` · ${event.time}` : ""}\n${formatEventPlace(event)}`;
+}
+
+/**
+ * WhatsApp previews the first http(s) URL in the message and is picky about
+ * long text ahead of the link. Put the canonical POP URL first, then a short
+ * caption (Facebook's sharer only gets `u=`, so it never hit this).
+ */
+export function buildWhatsAppShareMessage(
+  event: Event,
+  locale: Locale = "en",
+): string {
+  const url = getCanonicalEventShareUrl(event, locale);
+  return `${url}\n\n${buildEventShareCaption(event, locale)}`;
+}
+
 export function canUseNativeShare(): boolean {
   return (
     typeof navigator !== "undefined" &&
@@ -236,7 +261,7 @@ export function getShareUrl(
 
   switch (platform) {
     case "whatsapp":
-      return `https://wa.me/?text=${encodeURIComponent(`${text}\n\n${url}`)}`;
+      return `https://wa.me/?text=${encodeURIComponent(buildWhatsAppShareMessage(event, locale))}`;
     case "facebook":
       return getFacebookShareUrl(event, locale);
     case "x":
@@ -257,15 +282,19 @@ export async function shareEventNative(
 ): Promise<"shared" | "cancelled" | "failed"> {
   if (!canUseNativeShare()) return "failed";
 
-  const text = buildEventShareText(event, locale);
-  const url = getEventShareUrl(event, locale);
+  // Prefer the public origin so system shares (WhatsApp, etc.) scrape production OG.
+  const url = getCanonicalEventShareUrl(event, locale);
+  const caption = buildEventShareCaption(event, locale);
   const payload: ShareData = {
     title: event.title,
-    text: `${text}\n\n${url}`,
+    text: caption,
   };
   // iOS Safari may navigate to `url` after the sheet closes — skip when already on the event page.
   if (!isViewingShareUrl(url)) {
     payload.url = url;
+  } else {
+    // URL must still appear in the message (first) so WhatsApp can preview it.
+    payload.text = `${url}\n\n${caption}`;
   }
 
   try {
@@ -281,7 +310,7 @@ export async function copyEventLink(
   event: Event,
   locale: Locale,
 ): Promise<boolean> {
-  return copyText(getEventShareUrl(event, locale));
+  return copyText(getCanonicalEventShareUrl(event, locale));
 }
 
 export async function shareViaPlatform(
