@@ -39,6 +39,7 @@ function coverSizeForViewport(
 
 /**
  * Mobile-only square control → full-bleed story viewer.
+ * Use on event and venue detail heroes only — not list or home cards.
  * Image fills the screen; slide/pan to see the rest. Light tap (or Escape) closes.
  */
 export function ImageStoryEnlarge({
