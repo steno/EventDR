@@ -27,11 +27,16 @@ function venueCoords(slug: string): EventCoords | null {
   return { lat: venue.lat, lng: venue.lng };
 }
 
-/** Resolve map pin coordinates — seed venue first, then explicit event coords, then city fallback. */
+/** Resolve map pin coordinates — explicit event coords first, then seed venue, then city. */
 export function resolveEventCoords(
   event: Pick<Event, "lat" | "lng" | "venueSlug" | "venue" | "location" | "format">,
 ): EventCoords | null {
   if (event.format === "digital") return null;
+
+  // Hosted-away nights (organizer venue ≠ dance floor) set lat/lng on the event.
+  if (event.lat != null && event.lng != null) {
+    return { lat: event.lat, lng: event.lng };
+  }
 
   if (event.venueSlug) {
     const coords = venueCoords(event.venueSlug);
@@ -43,11 +48,6 @@ export function resolveEventCoords(
   if (slug) {
     const coords = venueCoords(slug);
     if (coords) return coords;
-  }
-
-  // Trust stored pins (e.g. Places-geocoded ingest venues not yet in seed).
-  if (event.lat != null && event.lng != null) {
-    return { lat: event.lat, lng: event.lng };
   }
 
   const loc = event.location.toLowerCase();

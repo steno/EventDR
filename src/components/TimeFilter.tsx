@@ -41,7 +41,7 @@ export function TimeFilter({
       className={`
         ${
           sticky
-            ? `sticky top-[calc(var(--sticky-list-header-height,0px)-1px)] z-10 mb-4 ${PAGE_GUTTER_BLEED_CLASS} border-b border-neutral-200/60 bg-background/95 pb-2 pt-px backdrop-blur-sm dark:border-neutral-800/60 dark:bg-neutral-950/95 transition-[top] duration-200 ease-out motion-reduce:transition-none`
+            ? `sticky top-[calc(var(--sticky-list-header-height,0px)-1px)] z-10 mb-4 md:mb-3 ${PAGE_GUTTER_BLEED_CLASS} border-b border-neutral-200/60 bg-background/95 pb-2 pt-px backdrop-blur-sm md:pb-1.5 dark:border-neutral-800/60 dark:bg-neutral-950/95 transition-[top] duration-200 ease-out motion-reduce:transition-none`
             : ""
         }
         ${className}
@@ -68,7 +68,7 @@ export function TimeFilter({
                   }}
                   className={`
                     relative -mb-px flex-shrink-0 px-2.5 py-2.5 text-base font-bold tracking-tight
-                    transition-colors touch-manipulation sm:px-3.5
+                    transition-colors touch-manipulation sm:px-3.5 md:py-1.5
                     ${
                       selected
                         ? "text-neutral-950 dark:text-neutral-50"
@@ -100,7 +100,7 @@ export function TimeFilter({
 
       {showPrice ? (
         <div
-          className="flex min-w-0 items-center gap-2 pt-2"
+          className="flex min-w-0 items-center gap-2 pt-2 md:pt-1.5"
           role="group"
           aria-label={dict.price.ariaLabel}
         >

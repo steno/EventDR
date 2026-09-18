@@ -116,11 +116,11 @@ export const SEED_EVENT_OPINIONS_BASE: EventOpinion[] = [
   },
   {
     eventId: "el-parq-latin-friday",
-    seriesKey: "el-parq-cabarete:weekly:5",
-    body: "Wear shoes you can dance in — this is a dance-first, local-leaning crowd, not a VIP bottle-table scene.",
+    seriesKey: "ninafrika-dance-school-cabarete:weekly:5",
+    body: "Call or WhatsApp first (+1 849-854-9692) — then wear shoes you can dance in. Ninafrika runs learn + social bachata/salsa/merengue at the food park, not a VIP bottle-table scene.",
     localized: {
-      es: "Usa zapatos para bailar — es un público más local y de baile, no una escena de mesa VIP.",
-      fr: "Portez des chaussures à danser — public plutôt local, dance-first, pas une scène de table VIP.",
+      es: "Llama o WhatsApp primero (+1 849-854-9692) — luego usa zapatos para bailar. Ninafrika mezcla clase y social de bachata/salsa/merengue en el food park, no una escena de mesa VIP.",
+      fr: "Appelez ou WhatsApp d'abord (+1 849-854-9692) — puis portez des chaussures à danser. Ninafrika mélange apprentissage et social bachata/salsa/merengue au food park, pas une scène de table VIP.",
     },
     priceFeel: "budget",
     priceNote: "Food-stall night out — far cheaper than resort clubs",
@@ -128,8 +128,8 @@ export const SEED_EVENT_OPINIONS_BASE: EventOpinion[] = [
       es: "Noche de puestos — mucho más barato que clubes de resort",
       fr: "Soirée food stalls — bien moins cher que les clubs de resort",
     },
-    attribution: "POP research · venue + listing",
-    researchNotes: "Foodpark Latin night.",
+    attribution: "POP research · El Parq FB schedule + Ninafrika flyer",
+    researchNotes: "El Parq weekly schedule (Feb 2026) + POP-supplied Noche Latina flyer. Venue page is the dance school; pin stays at El Parq.",
     updatedAt: AT,
   },
   {

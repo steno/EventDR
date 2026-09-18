@@ -87,6 +87,12 @@ export const FACEBOOK_EVENT_PAGES: readonly {
     areas: ["Cabarete"],
   },
   {
+    slug: "elparqcabarete",
+    url: "https://www.facebook.com/elparqcabarete",
+    label: "El Parq Cabarete",
+    areas: ["Cabarete"],
+  },
+  {
     slug: "driftercabarete",
     url: "https://www.facebook.com/Driftercabarete",
     label: "Drifter Cabarete",

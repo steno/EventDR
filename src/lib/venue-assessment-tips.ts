@@ -81,6 +81,14 @@ export const VENUE_TIP_COPY: Record<
       fr: "Soirée food park en plein air près d'Encuentro — cash pour les stands, foule casual, plus résidents que navette resort.",
     },
   },
+  "ninafrika-dance-school-cabarete": {
+    body: "Call or WhatsApp first (+1 849-854-9692) — times and rooftop vs food-park nights change; don't show up cold.",
+    localized: {
+      en: "Call or WhatsApp first (+1 849-854-9692) — times and rooftop vs food-park nights change; don't show up cold.",
+      es: "Llama o WhatsApp primero (+1 849-854-9692) — horarios y terraza vs food park cambian; no llegues sin avisar.",
+      fr: "Appelez ou WhatsApp d'abord (+1 849-854-9692) — horaires et rooftop vs food park changent ; n'y allez pas à l'aveugle.",
+    },
+  },
   "d-classico-sosua": {
     body: "Pedro Clisante merengue/bachata when you want a crowded local floor — go late; this is dance-first, not dinner-first.",
     localized: {

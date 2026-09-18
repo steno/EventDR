@@ -40,6 +40,30 @@ type CuratedPatch = Partial<
 
 /** Stable id patches (preferred over title key). */
 const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
+  "el-parq-latin-friday": {
+    title: "Noche Latina by Ninafrika Dance School",
+    venue: "Ninafrika Dance School at El Parq Foodpark",
+    venueSlug: "ninafrika-dance-school-cabarete",
+    phone: "+18498549692",
+    lat: 19.7739371,
+    lng: -70.4446512,
+    sourceUrl:
+      "https://www.facebook.com/elparqcabarete/posts/-our-weekly-schedule-karaoke-thursday-with-francesca-every-week-starting-at-730p/122262237740173757/",
+    description:
+      "Every Friday from 7 PM at Encuentro Food Park (El Parq) — Noche Latina by Ninafrika Dance School Cabarete. Learn and social-dance bachata, salsa, and merengue among the open-air stalls. Call or WhatsApp first to confirm: +1 849-854-9692. Web: ninafrikadance.com · Instagram @ninafrikadance / @ninafrika_kameroruskova.",
+    localized: {
+      title: {
+        en: "Noche Latina by Ninafrika Dance School",
+        es: "Noche Latina by Ninafrika Dance School",
+        fr: "Noche Latina by Ninafrika Dance School",
+      },
+      description: {
+        en: "Every Friday from 7 PM at Encuentro Food Park (El Parq) — Noche Latina by Ninafrika Dance School Cabarete. Learn and social-dance bachata, salsa, and merengue among the open-air stalls. Call or WhatsApp first to confirm: +1 849-854-9692. Web: ninafrikadance.com · Instagram @ninafrikadance / @ninafrika_kameroruskova.",
+        es: "Todos los viernes desde las 7 PM en Encuentro Food Park (El Parq) — Noche Latina de Ninafrika Dance School Cabarete. Aprende y baila bachata, salsa y merengue entre los puestos al aire libre. Llama o WhatsApp primero para confirmar: +1 849-854-9692. Web: ninafrikadance.com · Instagram @ninafrikadance / @ninafrika_kameroruskova.",
+        fr: "Tous les vendredis dès 19 h à Encuentro Food Park (El Parq) — Noche Latina de Ninafrika Dance School Cabarete. Apprenez et dansez bachata, salsa et merengue parmi les stands en plein air. Appelez ou WhatsApp d'abord pour confirmer : +1 849-854-9692. Site : ninafrikadance.com · Instagram @ninafrikadance / @ninafrika_kameroruskova.",
+      },
+    },
+  },
   "el-carey-weekend-nightlife": {
     categories: ["food-drinks", "music"],
     isFree: true,

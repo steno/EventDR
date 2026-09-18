@@ -1,7 +1,10 @@
 /**
- * North Coast Instagram accounts monitored for event discovery.
- * Profiles are scraped best-effort (login walls often block); site: search
- * queries still surface public posts via web search.
+ * North Coast Instagram accounts for discovery.
+ *
+ * Cron / public scrape (`ingest-social`) often hits login walls and returns
+ * little from profile URLs — web-search queries are the real automated fallback.
+ * Rich coverage (posts, Reels, Stories) needs a logged-in Cursor browser run of
+ * skill `pop-instagram-ingest` / rule `instagram-weekly`.
  */
 
 /**
@@ -44,6 +47,16 @@ export const INSTAGRAM_ACCOUNTS = [
   {
     handle: "cabaretejazz",
     label: "Cabarete Jazz Festival",
+    areas: ["Cabarete"],
+  },
+  {
+    handle: "ninafrikadance",
+    label: "Ninafrika Dance School Cabarete",
+    areas: ["Cabarete"],
+  },
+  {
+    handle: "ninafrika_kameroruskova",
+    label: "Ninafrika (Kamero Ruskova) — shows / workshops",
     areas: ["Cabarete"],
   },
   {

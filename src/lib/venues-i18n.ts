@@ -117,8 +117,18 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
   },
   "el-parq-cabarete": {
     description: {
-      es: "Food park al aire libre cerca de Encuentro — puestos de comida callejera, mesas comunes, karaoke de Shaka Bar los jueves (7:30–9:30 PM), Noche Latina de Ninafrika Dance los viernes desde las 7 PM y bandas en vivo los sábados.",
-      fr: "Food park en plein air près d'Encuentro — stands de street food, tables partagées, karaoké de Shaka Bar le jeudi (19 h 30–21 h 30), Noche Latina de Ninafrika Dance le vendredi dès 19 h et groupes live le samedi.",
+      es: "Food park al aire libre cerca de Encuentro — puestos de comida callejera, mesas comunes, karaoke de Shaka Bar los jueves (7:30–9:30 PM), Noche Latina de Ninafrika Dance School Cabarete los viernes desde las 7 PM y bandas en vivo los sábados.",
+      fr: "Food park en plein air près d'Encuentro — stands de street food, tables partagées, karaoké de Shaka Bar le jeudi (19 h 30–21 h 30), Noche Latina de Ninafrika Dance School Cabarete le vendredi dès 19 h et groupes live le samedi.",
+    },
+  },
+  "ninafrika-dance-school-cabarete": {
+    name: {
+      es: "Ninafrika Dance School",
+      fr: "Ninafrika Dance School",
+    },
+    description: {
+      es: "Escuela de baile latino en Cabarete dirigida por Ninafrika — bachata, salsa, merengue, danza africana y más. Clases a menudo en la terraza de Ojo Club (LAX); Noche Latina los viernes en El Parq / Encuentro Food Park. Llama o escribe por WhatsApp primero para confirmar horario y lugar: +1 849-854-9692. Web: ninafrikadance.com. Instagram: @ninafrikadance (escuela) y @ninafrika_kameroruskova.",
+      fr: "École de danse latine à Cabarete dirigée par Ninafrika — bachata, salsa, merengue, danse africaine et plus. Cours souvent sur le rooftop d'Ojo Club (LAX) ; Noche Latina le vendredi à El Parq / Encuentro Food Park. Appelez ou WhatsApp d'abord pour confirmer horaires et lieu : +1 849-854-9692. Site : ninafrikadance.com. Instagram : @ninafrikadance (école) et @ninafrika_kameroruskova.",
     },
   },
   "parada-tipica-el-choco": {

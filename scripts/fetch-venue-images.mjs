@@ -215,11 +215,7 @@ const VENUE_SOURCES = [
     eventId: "el-parq-karaoke-thursday",
     url: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=1800&q=85",
   },
-  {
-    // Latin dance for El Parq Friday night.
-    eventId: "el-parq-latin-friday",
-    url: "https://images.unsplash.com/photo-1547153760-18fc86324498?w=1800&q=85",
-  },
+  // el-parq-latin-friday — POP-supplied Ninafrika Noche Latina flyer (see public/events/).
   // --- North Coast sports seeds (Jul–Aug 2026) ---
   {
     // Tropical golf fairway for Puerto Plata Golf Classic / Playa Dorada Golf.

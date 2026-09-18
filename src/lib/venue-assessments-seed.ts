@@ -143,6 +143,17 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     ],
   }),
   editorial({
+    venueSlug: "ninafrika-dance-school-cabarete",
+    verdictKey: "solid_visitor_activity",
+    crowdFit: ["visitor", "mixed", "local"],
+    axes: { recommend: 4.3, atmosphere: 4.4, practical: 4.0, value: 4.1 },
+    themes: [
+      { key: "dance_floor", sentiment: "positive", audience: "nightlife" },
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+      { key: "easy_to_find", sentiment: "mixed" },
+    ],
+  }),
+  editorial({
     venueSlug: "d-classico-sosua",
     verdictKey: "strong_local_nightlife",
     crowdFit: ["local", "nightlife"],

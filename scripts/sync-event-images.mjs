@@ -131,7 +131,7 @@ const FILE_TO_EVENT_ID = {
   "el-parq-saturday-night.jpg": "el-parq-saturday-night",
   "plaza-independencia-weekend-culture.jpg": "plaza-independencia-weekend-culture",
   "el-parq-karaoke-thursday.jpg": "el-parq-karaoke-thursday",
-  "el-parq-latin-friday.jpg": "el-parq-latin-friday",
+  "el-parq-latin-friday-poster.png": "el-parq-latin-friday",
   "ElChocoTuesdayLive.jpg": "parada-tipica-el-choco-tuesday-live",
   "puerto-plata-golf-classic-2026.jpg": "puerto-plata-golf-classic-2026",
   "cac-games-surf-playa-encuentro-2026.jpg": "cac-games-surf-playa-encuentro-2026",

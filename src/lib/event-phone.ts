@@ -13,6 +13,7 @@ const EVENT_PHONE_BY_ID: Record<string, string> = {
   "groundzero-tivigunz-2026-10-04": "+18299649790",
   "groundzero-party-rojo-2026-08-01": "+18494651313",
   "blue-ice-saturday-gogo": "+18297977856",
+  "el-parq-latin-friday": "+18498549692",
   "rumble-in-paradise-12": "+18298172884",
   "rumble-in-paradise-13": "+18298172884",
   "cabarete-pilates-reformer": "+18094605777",

@@ -68,7 +68,7 @@ async function loadEventById(
 
 const getCachedEventById = unstable_cache(
   async (id: string, locale: Locale, _dayKey: string) => loadEventById(id, locale),
-  ["event-by-id-v9"],
+  ["event-by-id-v10"],
   { revalidate: EVENT_REVALIDATE_SECONDS, tags: ["events"] },
 );
 
@@ -78,9 +78,13 @@ export async function getEventById(
 ): Promise<Event | null> {
   const event = await getCachedEventById(id, locale, localDateISO());
   if (!event) return null;
-  // Re-attach curated heroes outside the cache so filename bumps show up
-  // without waiting for EVENT_REVALIDATE_SECONDS.
-  const [withImage] = attachEventImages([event]);
+  // Re-apply curated patches + heroes outside the cache so venue/copy/image
+  // bumps show without waiting for EVENT_REVALIDATE_SECONDS.
+  const [patched] = applyCuratedEventPatches([event]);
+  const [localized] = localizeEventsForDisplay([patched], locale);
+  const [withPhone] = attachEventPhones([localized]);
+  const withAdmission = withAdmissionMetadata(withPhone);
+  const [withImage] = attachEventImages([withAdmission]);
   if (!withImage.recurrence) return withImage;
   // Refresh occurrence date outside the data cache (same day-boundary issue as lists).
   const [materialized] = materializeEventDates([withImage]);

@@ -375,76 +375,98 @@ export function FilteredEventList({
         <>
           <ListScrollAnchor
             anchorRef={scrollAnchorRef}
-            className={stickyLead ? "mt-2" : "mt-4"}
+            className={stickyLead ? "mt-2 md:mt-1" : "mt-4 md:mt-2"}
           />
           <StickyListFilters>
-            {showStickyCategoryHint && stickyCategoryLabel ? (
-              <div
-                className={
-                  stickyLead || showTimeFilter || locationPicker || showPriceFilter || viewToggle
-                    ? "pb-1"
-                    : ""
-                }
-              >
-                <button
-                  type="button"
-                  className={`${stickyBackControlClassName} min-h-0 py-1.5`}
-                  aria-label={stickyCategoryLabel}
-                  onClick={() => {
-                    const nav = document.querySelector<HTMLElement>(
-                      "[data-category-nav]",
-                    );
-                    scrollToListTop(nav ?? scrollAnchorRef.current);
-                  }}
+            {/*
+              Mobile: category hint → (optional city lead) → tabs → chips.
+              Desktop: category + tabs + chips share one compact row.
+            */}
+            <div className="md:flex md:items-end md:gap-3">
+              {showStickyCategoryHint && stickyCategoryLabel ? (
+                <div
+                  className={
+                    stickyLead ||
+                    showTimeFilter ||
+                    locationPicker ||
+                    showPriceFilter ||
+                    viewToggle
+                      ? "pb-1 md:pb-0.5 md:shrink-0"
+                      : "md:shrink-0"
+                  }
                 >
-                  <ArrowLeft
-                    className="h-[1.125rem] w-[1.125rem] shrink-0"
-                    aria-hidden
-                  />
-                  <span className="min-w-0 truncate">{stickyCategoryLabel}</span>
-                </button>
-              </div>
-            ) : null}
+                  <button
+                    type="button"
+                    className={`${stickyBackControlClassName} !min-h-0 py-1.5 md:py-1`}
+                    aria-label={stickyCategoryLabel}
+                    onClick={() => {
+                      const nav = document.querySelector<HTMLElement>(
+                        "[data-category-nav]",
+                      );
+                      scrollToListTop(nav ?? scrollAnchorRef.current);
+                    }}
+                  >
+                    <ArrowLeft
+                      className="h-[1.125rem] w-[1.125rem] shrink-0"
+                      aria-hidden
+                    />
+                    <span className="min-w-0 truncate">
+                      {stickyCategoryLabel}
+                    </span>
+                  </button>
+                </div>
+              ) : null}
 
-            {stickyLead ? (
-              <div className={showTimeFilter || locationPicker || showPriceFilter || viewToggle ? "pb-2.5" : ""}>
-                {stickyLead}
-              </div>
-            ) : null}
+              {stickyLead ? (
+                <div
+                  className={`sm:hidden ${
+                    showTimeFilter ||
+                    locationPicker ||
+                    showPriceFilter ||
+                    viewToggle
+                      ? "pb-2.5"
+                      : ""
+                  }`}
+                >
+                  {stickyLead}
+                </div>
+              ) : null}
 
-            {showTimeFilter ? (
-              <TimeFilter
-                value={timeRange}
-                onChange={setTimeRange}
-                dict={dict}
-                sticky={false}
-              />
-            ) : null}
+              {showTimeFilter ? (
+                <TimeFilter
+                  value={timeRange}
+                  onChange={setTimeRange}
+                  dict={dict}
+                  sticky={false}
+                  className="md:min-w-0 md:flex-1"
+                />
+              ) : null}
 
-            {locationPicker || showPriceFilter || viewToggle ? (
-              <div
-                className={`flex min-w-0 items-center gap-2 ${
-                  showTimeFilter ? "pt-2" : ""
-                }`}
-              >
-                {locationPicker ? (
-                  <div className="min-w-0 shrink-0">{locationPicker}</div>
-                ) : null}
-                {showPriceFilter ? (
-                  <PriceFilterChips
-                    value={priceFilter}
-                    onChange={setPriceFilter}
-                    dict={dict}
-                    className="min-w-0 flex-1"
-                  />
-                ) : (
-                  <div className="min-w-0 flex-1" />
-                )}
-                {viewToggle ? (
-                  <div className="shrink-0">{viewToggle}</div>
-                ) : null}
-              </div>
-            ) : null}
+              {locationPicker || showPriceFilter || viewToggle ? (
+                <div
+                  className={`flex min-w-0 items-center gap-2 md:shrink-0 md:pb-0.5 ${
+                    showTimeFilter ? "pt-2 md:pt-0" : ""
+                  }`}
+                >
+                  {locationPicker ? (
+                    <div className="min-w-0 shrink-0">{locationPicker}</div>
+                  ) : null}
+                  {showPriceFilter ? (
+                    <PriceFilterChips
+                      value={priceFilter}
+                      onChange={setPriceFilter}
+                      dict={dict}
+                      className="min-w-0 flex-1 md:flex-none"
+                    />
+                  ) : (
+                    <div className="min-w-0 flex-1 md:hidden" />
+                  )}
+                  {viewToggle ? (
+                    <div className="shrink-0">{viewToggle}</div>
+                  ) : null}
+                </div>
+              ) : null}
+            </div>
           </StickyListFilters>
         </>
       ) : null}

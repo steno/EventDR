@@ -201,10 +201,23 @@ export const SEED_VENUES: Venue[] = [
     name: "El Parq Foodpark",
     city: "Cabarete",
     description:
-      "Open-air food park near Encuentro — street-food vendors, communal tables, Shaka Bar Thursday karaoke (7:30–9:30 PM), Ninafrika Dance Friday Noche Latina from 7 PM, and live bands on Saturdays.",
+      "Open-air food park near Encuentro — street-food vendors, communal tables, Shaka Bar Thursday karaoke (7:30–9:30 PM), Ninafrika Dance School Cabarete Friday Noche Latina from 7 PM, and live bands on Saturdays.",
     lat: 19.7739371,
     lng: -70.4446512,
     emoji: "🍔",
+  },
+  {
+    slug: "ninafrika-dance-school-cabarete",
+    name: "Ninafrika Dance School",
+    city: "Cabarete",
+    description:
+      "Cabarete Latin dance school led by Ninafrika — bachata, salsa, merengue, African dance and more. Classes often on the Ojo Club (LAX) rooftop; Friday Noche Latina at El Parq / Encuentro Food Park. Call or WhatsApp first to confirm class times and location: +1 849-854-9692. Website: ninafrikadance.com. Instagram: @ninafrikadance (school) and @ninafrika_kameroruskova.",
+    lat: 19.7503643,
+    lng: -70.406125,
+    emoji: "💃",
+    instagram: "ninafrikadance",
+    website: "https://ninafrikadance.com",
+    phone: "+18498549692",
   },
   {
     slug: "parada-tipica-el-choco",

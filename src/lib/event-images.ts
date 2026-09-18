@@ -223,7 +223,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   // Filename bump — Cabarete foodpark night (not Wikimedia Tulum).
   "el-parq-live-bands-saturday": "el-parq-saturday-night.jpg",
   "el-parq-karaoke-thursday": "el-parq-karaoke-thursday.jpg",
-  "el-parq-latin-friday": "el-parq-latin-friday.jpg",
+  // Filename bump — POP-supplied Ninafrika Noche Latina flyer (not Unsplash dancing stock).
+  "el-parq-latin-friday": "el-parq-latin-friday-poster.png",
   "parada-tipica-el-choco-tuesday-live": "parada-tipica-el-choco-tuesday-live.jpg",
   "atleticos-pp-vs-capitanes-2026-07-11": "atleticos-pp-vs-capitanes-2026-07-11.jpg",
   "atleticos-pp-vs-mangueros-2026-07-17": "atleticos-pp-vs-mangueros-2026-07-17.jpg",
@@ -435,6 +436,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "el-carey-bohemian-wednesday.jpg",
   "el-carey-sabado-de-son.jpg",
   "el-carey-wc2026.jpg",
+  "el-parq-latin-friday-poster.png",
   "el-cuarteto-del-swing-zona-acapella-2026-09-13.jpg",
   "los-caballitos-zona-acapella-2026-09-20.jpg",
   "banda-modelo-vinoteca-2026-09-26.jpg",
@@ -573,7 +575,6 @@ const HOME_HERO_SCENE_FILES = new Set([
   "el-carey-weekend-nightlife-lanterns.jpg",
   "el-choco-cave-tour-swimming-daily.jpg",
   "el-cocotazo-cafe-beach-dining.jpg",
-  "el-parq-latin-friday.jpg",
   "el-parq-saturday-night.jpg",
   "ernesto-betances-rancho-catalina-terrace.jpg",
   "faro-puerto-plata-spiral.jpg",

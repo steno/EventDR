@@ -94,6 +94,7 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "rincon-caliente-guananico": "rincon-caliente-guananico.jpg",
   // Filename bump — this Cabarete foodpark (not Wikimedia Tulum).
   "el-parq-cabarete": "el-parq-cabarete-foodpark.jpg",
+  "ninafrika-dance-school-cabarete": "ninafrika-dance-school-cabarete-beach.jpg",
   "disco-club-brugal": "disco-club-brugal.jpg",
   "parada-tipica-el-choco": "parada-tipica-el-choco.jpg",
   "blue-jacktar-playa-dorada": "blue-jacktar-playa-dorada.jpg",
