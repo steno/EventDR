@@ -269,8 +269,8 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
   },
   "el-colibri-hotel": {
     description: {
-      es: "Hotel boutique tropical en el centro de Sosúa — bar junto a la piscina, karaoke los jueves y vida nocturna local.",
-      fr: "Hôtel boutique tropical au centre de Sosúa — bar au bord de la piscine, karaoké le jeudi et vie nocturne locale.",
+      es: "Hotel boutique tropical en el centro de Sosúa — bar junto a la piscina, karaoke los jueves, Atrévete Ladies Night los sábados y vida nocturna local.",
+      fr: "Hôtel boutique tropical au centre de Sosúa — bar au bord de la piscine, karaoké le jeudi, Atrévete Ladies Night le samedi et vie nocturne locale.",
     },
   },
   "taino-bay": {

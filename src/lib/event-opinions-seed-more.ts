@@ -2773,4 +2773,23 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "Editor-supplied volleyball flyer + cronograma + IG @geek_fest_rd: Sun 20 Sep 2026 Polideportivo Puerto Plata; doors 10 AM; cosplay runway 2:50 PM; mini voleibol 3:30 PM same-day signup; close ~4 PM. No entry price published. Venue slug estadio-leonel-placido (polideportivo complex).",
     updatedAt: "2026-09-19T12:00:00.000Z",
   },
+  {
+    eventId: "festival-presidente-2026-10-03",
+    body: "Big-brand Presidente stop on the Malecón amphitheater — expect ticketed urban/salsa energy, not a free Mitur culture night; confirm doors and pricing before you pin La Puntilla for Oct 3.",
+    localized: {
+      es: "Parada de marca Presidente en el anfiteatro del Malecón — espera energía urbana/salsa con boleta, no una noche cultural Mitur gratis; confirma puertas y precios antes de clavar La Puntilla el 3 de oct.",
+      fr: "Étape de marque Presidente à l’amphithéâtre du Malecón — attendez une énergie urbaine/salsa billetée, pas une soirée culturelle Mitur gratuite ; confirmez portes et prix avant d’épingler La Puntilla le 3 oct.",
+    },
+    priceFeel: "varies",
+    priceNote:
+      "Tickets/doors not on the city promo flyer — confirm closer to Oct 3; amphitheater +1 809-227-0103",
+    priceNoteLocalized: {
+      es: "Boletas/puertas no en el flyer de promoción — confirma cerca del 3 de oct.; anfiteatro +1 809-227-0103",
+      fr: "Billets/portes absents de l’affiche promo — confirmez près du 3 oct. ; amphithéâtre +1 809-227-0103",
+    },
+    attribution: "POP research · city Festival Presidente promo flyer",
+    researchNotes:
+      "Editor-supplied flyer + Entérate Pop city promo: Sat 3 Oct 2026 Tercera Parada Festival Presidente at Anfiteatro Puerto Plata / La Puntilla; lineup El Lápiz, Chiquito Team Band, Shadow Blow, El Blachy, DJ Joe; urban/salsa/other rhythms. No start time or ticket price on art.",
+    updatedAt: "2026-09-19T12:00:00.000Z",
+  },
 ];

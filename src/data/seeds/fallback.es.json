@@ -2549,5 +2549,37 @@
       "4:00 PM — Cierre de evento"
     ],
     "imageEmoji": "🏐"
+  },
+  {
+    "id": "festival-presidente-2026-10-03",
+    "title": "Festival Presidente 2026 — Tercera Parada Puerto Plata",
+    "description": "Tercera parada del Festival Presidente 2026 en el Anfiteatro La Puntilla, Puerto Plata — sábado 3 de octubre. Cartel: El Lápiz, Chiquito Team Band, Shadow Blow, El Blachy y DJ Joe — música urbana, salsa y otros ritmos en el escenario del Malecón frente al Atlántico, junto a la Fortaleza San Felipe. Boletas y horario no aparecen en el flyer de promoción en la ciudad — confirma precios cerca de la fecha.",
+    "date": "2026-10-03",
+    "time": "Noche — confirma puertas",
+    "location": "Puerto Plata",
+    "venue": "Anfiteatro La Puntilla",
+    "venueSlug": "anfiteatro-la-puntilla",
+    "address": "La Puntilla, Malecón / Fortaleza San Felipe, Puerto Plata",
+    "lat": 19.803611,
+    "lng": -70.694722,
+    "category": "concert",
+    "categories": [
+      "music",
+      "festivals"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": false,
+    "callForPricing": true,
+    "phone": "+18092270103",
+    "sourceType": "flyer",
+    "lineup": [
+      "El Lápiz",
+      "Chiquito Team Band",
+      "Shadow Blow",
+      "El Blachy",
+      "DJ Joe"
+    ],
+    "imageEmoji": "🎤"
   }
 ]

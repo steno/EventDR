@@ -30,6 +30,7 @@ Curated images under `public/events/` and `public/venues/`.
 | `aventurate-rd-2026.jpg` | [Aventúrate RD](https://feriaaventuraterd.com/) official 2026 promo (dates + Hotel Marien) | Authentic fair promo — Sep 1–3, Hotel Marien Puerto Plata |
 | `todos-somos-luperon-2026-09-08.jpg` | Casa Museo General Gregorio Luperón / Teatro Escuela Ivan García — Semana Luperoniana 2026 flyer (editor-provided) | Authentic obra teatral flyer — Sep 8 Plaza Independencia, Puerto Plata |
 | `restaurant-week-puerto-plata-2026-calendar.jpg` | [Restaurant Week RD](https://www.restaurantweek.com.do/) official 2026 regional calendar art (light) | Authentic RW art — Puerto Plata + Jarabacoa week Sep 21–27 (filename bump after replacing black map promo) |
+| `restaurant-week-2026/logos/*.png` | POP-supplied participant logo collage (editor crop) — Restaurant Week Puerto Plata 2026 | Home logo wall; sponsor collage cell omitted; Café Yaroa + Holiday Inn link to event (no venue seed yet) |
 | `super-mega-urban-fest-2026-11-04.jpg` | Anfiteatro Puerto Plata / Super Mega Urban Fest flyer (FB event + venue promo) | Authentic concert flyer — Nov 4 from 3 PM, La Puntilla |
 | `masters-surf-reunion-10-2026.png` | [@MastersSurfReunionRD](https://www.instagram.com/p/Dc3tjbbpXK7/) official Masters Surf Reunion #10 promo | Authentic event art — Nov 6–9 2026, Playa Encuentro Cabarete |
 | `la-casita-papi-sand-dining.jpg` | Google Maps — La Casita de Papi vibe photo (twilight tables on Cabarete Central Beach) | Event card; replaces generic Restaurant Guru daytime tables |
@@ -304,4 +305,6 @@ Curated images under `public/events/` and `public/venues/`.
 | `cabarete-stand-up-vol-2-2026-10-24.jpg` | POP-supplied — Cabarete Stand Up Vol. 2 flyer ([IG](https://www.instagram.com/p/DdZyjTkRZfY/)) | Sat 24 Oct 2026 7:00 PM Hotel Villa Taina; RD$600 (editor-provided) |
 | `hard-rock-the-king-mj-2026-09-19.jpg` | POP-supplied — THE KING Michael Jackson tribute flyer ([@jmj.productions_](https://www.instagram.com/jmj.productions_/)) | Sat 19 Sep 2026 Hard Rock Cafe Puerto Plata; cover RD$1,300 (editor-provided) |
 | `geek-fest-rd-2026-09-20.jpg` | POP-supplied — Geek Fest RD mini volleyball / GEE FEST flyer ([@geek_fest_rd](https://www.instagram.com/geek_fest_rd/)) | Sun 20 Sep 2026 Polideportivo Puerto Plata (editor-provided) |
+| `festival-presidente-2026-10-03.jpg` | POP-supplied — Festival Presidente 2026 Tercera Parada Puerto Plata flyer (Entérate Pop / Presidente city promo) | Sat 3 Oct 2026 Anfiteatro La Puntilla (editor-provided) |
+| `el-colibri-atrevete-saturdays.jpg` | POP-supplied — Atrévete Saturdays Ladies Night flyer (El Colibri Hotel Sosúa) | Weekly Saturday Ladies Night with DJ Blue (editor-provided) |
 | `venues/hotel-villa-taina-pool.jpg` | [villataina.com](https://villataina.com/) official PROPERTY_1 courtyard/pool aerial | Venue place shot — Hotel Villa Taina Cabarete courtyard pool |

@@ -142,6 +142,15 @@ img.no-photo-filter {
   .group:hover .card-media-zoom {
     transform: scale(1.05);
   }
+
+  .rw-logo-zoom {
+    transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform;
+  }
+
+  .group:hover .rw-logo-zoom {
+    transform: scale(1.45);
+  }
 }
 
 /* Boot splash — opaque overlay; app shell paints underneath so Slow 3G

@@ -338,11 +338,11 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "el-colibri-hotel": {
-    body: "Poolside Thursday karaoke battles with real prize money — fun if you want to sing or watch; skip if you need a quiet early night.",
+    body: "Downtown Sosúa boutique pool bar — Thursday karaoke prize nights and Saturday Atrévete Ladies Night with DJ Blue; skip if you need a quiet early wind-down.",
     localized: {
-      en: "Poolside Thursday karaoke battles with real prize money — fun if you want to sing or watch; skip if you need a quiet early night.",
-      es: "Karaoke battle del jueves junto a la piscina con premios reales — divertido si cantas o miras; sáltalo si quieres noche quieta.",
-      fr: "Karaoke battle du jeudi au bord de la piscine avec vrais prix — fun pour chanter ou regarder ; skip pour une nuit calme.",
+      en: "Downtown Sosúa boutique pool bar — Thursday karaoke prize nights and Saturday Atrévete Ladies Night with DJ Blue; skip if you need a quiet early wind-down.",
+      es: "Bar boutique junto a la piscina en el centro de Sosúa — karaoke con premios los jueves y Atrévete Ladies Night los sábados con DJ Blue; sáltalo si quieres noche quieta temprana.",
+      fr: "Bar boutique au bord de la piscine au centre de Sosúa — karaoke avec prix le jeudi et Atrévete Ladies Night le samedi avec DJ Blue ; skip pour une soirée calme et tôt.",
     },
   },
   "museo-ambar": {

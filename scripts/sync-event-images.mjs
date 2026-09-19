@@ -84,6 +84,8 @@ const FILE_TO_EVENT_ID = {
     "cabarete-stand-up-vol-2-2026-10-24",
   "hard-rock-the-king-mj-2026-09-19.jpg": "hard-rock-the-king-mj-2026-09-19",
   "geek-fest-rd-2026-09-20.jpg": "geek-fest-rd-2026-09-20",
+  "festival-presidente-2026-10-03.jpg": "festival-presidente-2026-10-03",
+  "el-colibri-atrevete-saturdays.jpg": "el-colibri-atrevete-saturdays",
   "pop-cinemas-week-2026-08-20.jpg": "pop-cinemas-week-2026-08-20",
   "pop-cinemas-week-2026-09-11.jpg": "pop-cinemas-week-2026-09-11",
   "pop-cinemas-week-2026-09-11-mall.jpg": "pop-cinemas-week-2026-09-11-mall",

@@ -1,11 +1,30 @@
 import type { Locale } from "@/i18n/config";
 import { CITIES, type CitySlug, eventMatchesCity } from "@/lib/cities";
 import { formatEventPlace } from "@/lib/event-location";
+import { sortEventsForDisplay } from "@/lib/event-sort";
 import { formatEventDateRange } from "@/lib/format-date";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getPublicEvents } from "@/lib/public-events";
 import { SITE_URL } from "@/lib/site-url";
 import type { Event, EventCategory } from "@/lib/types";
+
+/**
+ * Weekend newsletter + partner digest order: dated one-offs and scarce
+ * nights before evergreen daily/weekday listings — before trending, clock
+ * time, or “open now” museum hours.
+ */
+export function sortEventsForWeekendDigest(
+  events: Event[],
+  now?: Date,
+): Event[] {
+  return sortEventsForDisplay(events, {
+    now,
+    recurringLast: true,
+    oneTimeFirst: true,
+    pinTodayOneOffs: true,
+    discoveryMode: true,
+  });
+}
 
 export type PartnerDigestEvent = {
   id: string;
@@ -159,10 +178,8 @@ function buildSocialDrafts(events: PartnerDigestEvent[], locale: Locale): string
 
   const dict = getDictionary(locale);
   const weekendLink = withUtm(`/${locale}/when/weekend`);
-  const highlights = events
-    .filter((e) => e.trending)
-    .concat(events.filter((e) => !e.trending))
-    .slice(0, 5);
+  // `events` is already one-off-first from buildPartnerDigest.
+  const highlights = events.slice(0, 5);
 
   const drafts: string[] = [];
 
@@ -217,7 +234,7 @@ function buildSocialDrafts(events: PartnerDigestEvent[], locale: Locale): string
 
 export async function buildPartnerDigest(locale: Locale): Promise<PartnerDigest> {
   const raw = await getPublicEvents({ locale, when: "weekend" });
-  const events = raw.map((e) => toDigestEvent(e, locale));
+  const events = sortEventsForWeekendDigest(raw).map((e) => toDigestEvent(e, locale));
   const eventsByCity = groupByCity(events);
   const { markdown, whatsapp } = formatMarkdown(events, locale);
 

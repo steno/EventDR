@@ -457,7 +457,7 @@ export const SEED_VENUES: Venue[] = [
     name: "El Colibri Hotel",
     city: "Sosúa",
     description:
-      "Boutique tropical hotel in downtown Sosúa — poolside bar, Thursday karaoke, and local nightlife.",
+      "Boutique tropical hotel in downtown Sosúa — poolside bar, Thursday karaoke, Saturday Atrévete Ladies Night, and local nightlife.",
     lat: 19.7709496,
     lng: -70.5081792,
     emoji: "🎤",

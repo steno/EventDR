@@ -22,6 +22,8 @@ const EVENT_PHONE_BY_ID: Record<string, string> = {
   "love-does-cocktails-solidarity-2026-09-04": "+18095713826",
   "sancocho-sabados-pingui": "+18096682051",
   "el-colibri-karaoke-battle-2026": "+18099709433",
+  "el-colibri-atrevete-saturdays": "+18099709433",
+  "festival-presidente-2026-10-03": "+18092270103",
   "ocean-winds-karaoke-nights": "+18495915588",
   "puerto-plata-golf-classic-2026": "+18093204262",
   "sosua-10k-road-race-2026": "+18095712100",

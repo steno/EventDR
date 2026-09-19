@@ -300,6 +300,26 @@ export const SEED_EVENT_OPINIONS_BASE: EventOpinion[] = [
     updatedAt: AT,
   },
   {
+    eventId: "el-colibri-atrevete-saturdays",
+    seriesKey: "el-colibri-hotel:weekly:6",
+    body: "Saturday Ladies Night energy with DJ Blue and a cash outfit contest — come for 2x1 drinks 9 PM–midnight, not a quiet poolside dinner.",
+    localized: {
+      es: "Energía Ladies Night de sábado con DJ Blue y concurso de outfit en efectivo — ven por 2x1 de 9 PM a medianoche, no por una cena quieta junto a la piscina.",
+      fr: "Énergie Ladies Night du samedi avec DJ Blue et concours d’outfit en cash — venez pour le 2x1 de 21 h à minuit, pas un dîner calme au bord de la piscine.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "Free entry on the flyer — welcome drink for ladies; 2x1 9 PM–12 AM; 50% Margarita/one-topping pizza; RSVP WA +1 917-523-7259",
+    priceNoteLocalized: {
+      es: "Entrada gratis en el flyer — trago de bienvenida para damas; 2x1 9 PM–12 AM; 50% pizza Margarita/un topping; RSVP WA +1 917-523-7259",
+      fr: "Entrée gratuite sur l’affiche — verre de bienvenue pour les dames ; 2x1 21 h–minuit ; 50 % pizza Margarita/une garniture ; RSVP WA +1 917-523-7259",
+    },
+    attribution: "POP research · El Colibri Atrévete flyer",
+    researchNotes:
+      "Editor-supplied flyer — every Saturday Ladies Night; DJ Blue; Best Outfit Lady $2,500 crowd vote; welcome drink; 2x1 9 PM–12 AM; 50% Margarita & one-topping pizza; WA 917-523-7259.",
+    updatedAt: "2026-09-19T12:00:00.000Z",
+  },
+  {
     eventId: "natura-cabana-saturday-live",
     seriesKey: "natura-cabana:weekly:6",
     body: "Boutique-resort calm, not Cabarete strip volume — a strong pick if you want an earlier wind-down.",

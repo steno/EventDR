@@ -113,6 +113,19 @@ export type Dictionary = {
     recentlyAdded: string;
     /** Home section: future one-offs / concerts ahead. */
     comingUp: string;
+    /** Time-boxed Restaurant Week home promo (logo wall). */
+    restaurantWeek: {
+      eyebrow: string;
+      title: string;
+      dates: string;
+      priceLine: string;
+      cta: string;
+      filterLabel: string;
+      filterAll: string;
+      emptyArea: string;
+      openVenue: string;
+      openEvent: string;
+    };
     viewAllEvents: string;
     /** Accessibility label for the cards/list layout control. */
     viewMode: string;
@@ -740,6 +753,18 @@ export const en: Dictionary = {
     seeAllWeekend: "See all weekend",
     recentlyAdded: "Recently added",
     comingUp: "On the horizon",
+    restaurantWeek: {
+      eyebrow: "Dining this week",
+      title: "Restaurant Week Puerto Plata",
+      dates: "Sep 21–27",
+      priceLine: "2 courses RD$1,595 · 3 courses RD$1,995 (+ tax)",
+      cta: "Explore the week",
+      filterLabel: "Filter restaurants by area",
+      filterAll: "All areas",
+      emptyArea: "No participating restaurants in this area.",
+      openVenue: "Open {name}",
+      openEvent: "See {name} on Restaurant Week",
+    },
     viewAllEvents: "View all events",
     viewMode: "Event layout",
     viewList: "List",

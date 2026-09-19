@@ -2763,5 +2763,35 @@
     "sourceType": "flyer",
     "sourceUrl": "https://www.instagram.com/ambarloungepop/",
     "imageEmoji": "🍹"
+  },
+  {
+    "id": "el-colibri-atrevete-saturdays",
+    "title": "Atrévete Saturdays Ladies Night — El Colibri",
+    "description": "Ladies Night todos los sábados en El Colibri Hotel, Sosúa — Atrévete Saturdays con DJ Blue. Trago de bienvenida gratis para damas, 2x1 en tragos de 9:00 PM a 12:00 AM, 50% de descuento en pizza Margarita y de un topping, y concurso Best Outfit Lady ($2,500 en efectivo — decide el público). RSVP WhatsApp +1 917-523-7259.",
+    "date": "2026-01-01",
+    "time": "9:00 PM – 12:00 AM",
+    "location": "Sosúa",
+    "venue": "El Colibri Hotel",
+    "venueSlug": "el-colibri-hotel",
+    "address": "141 Pedro Clisante, Sosúa 57600",
+    "lat": 19.7709496,
+    "lng": -70.5081792,
+    "category": "parties",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "recurrence": "weekly",
+    "recurrenceDay": 6,
+    "trending": true,
+    "isFree": true,
+    "phone": "+18099709433",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.elcolibriresort.com/",
+    "lineup": [
+      "DJ Blue"
+    ],
+    "imageEmoji": "💃"
   }
 ]

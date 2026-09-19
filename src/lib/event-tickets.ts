@@ -178,6 +178,7 @@ export const CURATED_CALL_FOR_PRICING = new Set<string>([
   "aura-disco-dj-melvin-2026-09-19",
   "meclao-house-friday-2026-09-18",
   "geek-fest-rd-2026-09-20",
+  "festival-presidente-2026-10-03",
 ]);
 
 /**
@@ -194,6 +195,7 @@ export const CURATED_FREE_EVENTS = new Set<string>([
   "malecon-morning-wellness-walk",
   "costambar-beach-fitness",
   "el-colibri-karaoke-battle-2026",
+  "el-colibri-atrevete-saturdays",
   "feria-artesanal-verano-2026",
   "natura-market-moto-2026-09-19",
   "imbert-mercedes-patronales-2026",

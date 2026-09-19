@@ -27,6 +27,7 @@ import { EventCard } from "@/components/EventCard";
 import { VenueAudienceCards } from "@/components/VenueAudienceCards";
 import { TodayHighlights } from "@/components/TodayHighlights";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
+import { RestaurantWeekPromo } from "@/components/RestaurantWeekPromo";
 import { getHomeAlerts } from "@/lib/alerts";
 import { LG_MEDIA_QUERY } from "@/lib/breakpoints";
 import {
@@ -754,6 +755,15 @@ function HomeApp({
                   listTimeRange="weekend"
                   showDate
                   mobilePairSlides
+                  returnTo={homePath}
+                />
+              )}
+
+              {!isSearching && !cruisePort && (
+                <RestaurantWeekPromo
+                  locale={locale}
+                  dict={dict}
+                  citySlug={selectedCity}
                   returnTo={homePath}
                 />
               )}

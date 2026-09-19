@@ -79,5 +79,6 @@ Fridays, Action **Weekly marketing digest** uploads `weekend-en.md`, `weekend-es
 ## Rules
 
 - Do not add events not in the digest
+- Digest order prefers one-off / one-time events before recurring dailies
 - Prefer ES for Dominican hotels, EN for international chains, FR for Quebec-facing agents
 - Keep emails under 15 events per city (digest already caps at 12)
