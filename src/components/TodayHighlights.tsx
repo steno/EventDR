@@ -42,7 +42,11 @@ interface TodayHighlightsProps {
   events: Event[];
   locale: Locale;
   dict: Dictionary;
-  limit?: number;
+  /**
+   * Visible card cap. Pass `null` to show every event (Today's specials).
+   * Default: {@link HOME_TODAY_LIMIT}.
+   */
+  limit?: number | null;
   /** Skip events already featured elsewhere on the home page (e.g. photo hero). */
   excludeEventIds?: string[];
   /** Override “See all today” destination (e.g. city page when a zone is picked). */
@@ -303,7 +307,8 @@ const TodayHighlightsComponent = ({
     const base = prefiltered ? events : getTodayHighlightEvents(events);
     return base.filter((event) => !excludeSet.has(event.id));
   }, [events, excludeSet, prefiltered]);
-  const visibleEvents = todayEvents.slice(0, limit);
+  const visibleEvents =
+    limit == null ? todayEvents : todayEvents.slice(0, limit);
   const count = visibleEvents.length;
   const showFeaturePromo = count === 1 && featurePromo;
   const usePairSlides =
@@ -312,7 +317,7 @@ const TodayHighlightsComponent = ({
     () => (usePairSlides ? chunkPairs(visibleEvents) : null),
     [usePairSlides, visibleEvents],
   );
-  const hasMore = todayEvents.length > limit;
+  const hasMore = limit != null && todayEvents.length > limit;
   const allTodayHref = seeAllHref ?? `/${locale}/when/today`;
   const sectionLabel = title ?? dict.events.happeningToday;
   // Phones: snap peek rail. From sm: 2-col (fits ~768 without ballooning).
@@ -365,8 +370,12 @@ const TodayHighlightsComponent = ({
   // Prebuild detail RSC payloads while the user is still on home — mobile has
   // no hover, so intent-only prefetch is too late for the first tap.
   useEffect(() => {
-    return warmRoutesIdle(router, highlightHrefs, HOME_TODAY_LIMIT);
-  }, [highlightHrefs, router]);
+    return warmRoutesIdle(
+      router,
+      highlightHrefs,
+      limit == null ? highlightHrefs.length : Math.min(limit, highlightHrefs.length),
+    );
+  }, [highlightHrefs, limit, router]);
 
   if (count === 0 && alerts.length === 0) return null;
 

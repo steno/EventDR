@@ -380,6 +380,47 @@ describe("getTodayHighlightEvents peer shuffle", () => {
 
     assert.equal(ids[0], "tonight-play");
   });
+
+  it("pins newer one-offs ahead of older one-offs in Happening today", () => {
+    const older = event({
+      id: "older-one-off",
+      title: "Older One-off",
+      date: "2026-08-20",
+      endDate: "2026-08-25",
+      time: "10:00 AM – 6:00 PM",
+      trending: true,
+      createdAt: "2026-08-01T12:00:00.000Z",
+      venueSlug: "venue-old",
+    });
+    const newer = event({
+      id: "newer-one-off",
+      title: "Newer One-off",
+      date: "2026-08-20",
+      endDate: "2026-08-25",
+      time: "11:00 AM – 7:00 PM",
+      trending: true,
+      createdAt: "2026-08-25T12:00:00.000Z",
+      venueSlug: "venue-new",
+    });
+    const weekly = event({
+      id: "weekly-night",
+      title: "Weekly Night",
+      date: "2026-08-25",
+      time: "8:00 PM",
+      recurrence: "weekly",
+      recurrenceDay: 2,
+      venueSlug: "venue-weekly",
+    });
+
+    const ids = getTodayHighlightEvents([weekly, older, newer], {
+      now: AFTERNOON,
+      shuffleSeed: "fresh-one-offs",
+      excludeTodaySpecials: true,
+    }).map((e) => e.id);
+
+    assert.ok(ids.indexOf("newer-one-off") < ids.indexOf("older-one-off"));
+    assert.ok(ids.indexOf("newer-one-off") < ids.indexOf("weekly-night"));
+  });
 });
 
 describe("getWeekendHighlightEvents", () => {
@@ -574,6 +615,52 @@ describe("getHomeDiscoverLayout same-day seed", () => {
     assert.equal(
       layout.newEvents.slice(0, HOME_NEW_LIMIT)[0]?.id,
       "todos-somos-luperon-2026-09-08",
+    );
+  });
+
+  it("leads Today’s specials with the newest createdAt one-off and keeps every special", () => {
+    const older = event({
+      id: "older-special",
+      title: "Older Special",
+      date: "2026-09-19",
+      time: "7:00 PM",
+      trending: true,
+      createdAt: "2026-09-10T12:00:00.000Z",
+      venueSlug: "venue-a",
+    });
+    const newer = event({
+      id: "newer-special",
+      title: "Newer Special",
+      date: "2026-09-19",
+      time: "8:00 PM",
+      trending: true,
+      createdAt: "2026-09-19T12:00:00.000Z",
+      venueSlug: "venue-b",
+    });
+    const extras = Array.from({ length: 7 }, (_, i) =>
+      event({
+        id: `extra-special-${i}`,
+        title: `Extra ${i}`,
+        date: "2026-09-19",
+        time: "6:00 PM",
+        trending: true,
+        createdAt: `2026-09-1${i}T12:00:00.000Z`,
+        venueSlug: `venue-extra-${i}`,
+      }),
+    );
+
+    const layout = getHomeDiscoverLayout([older, ...extras, newer], {
+      now: new Date("2026-09-19T16:00:00.000Z"),
+      shuffleSeed: "specials-fresh",
+    });
+
+    assert.equal(layout.specialEvents[0]?.id, "newer-special");
+    assert.ok(
+      layout.specialEvents.length >= 9,
+      "Today’s specials should not cap at 6",
+    );
+    assert.ok(
+      layout.specialEvents.every((e) => e.date === "2026-09-19"),
     );
   });
 

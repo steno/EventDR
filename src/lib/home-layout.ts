@@ -21,8 +21,11 @@ export { isTodayOnlySpecial } from "@/lib/event-status";
 /** Max cards in the home "Happening today" section (desktop 3×2). */
 export const HOME_TODAY_LIMIT = 6;
 
-/** Max cards in the home "Today's specials" section (dated one-offs starting today). */
-export const HOME_SPECIALS_LIMIT = 6;
+/**
+ * @deprecated Today's specials show every active dated one-off (no home cap).
+ * Kept so older imports resolve; prefer omitting `limit` / passing `null`.
+ */
+export const HOME_SPECIALS_LIMIT = Number.POSITIVE_INFINITY;
 
 /** Max cards in the home "This weekend" section (mobile 2-up slides). */
 export const HOME_WEEKEND_LIMIT = 6;
@@ -490,6 +493,10 @@ export function getComingUpHighlightEvents(
  * active. Empty most mornings with only weekly nights — callers should hide
  * the section when the list is empty. A single special can sit beside an
  * add-event promo so the desktop row doesn’t look sparse.
+ *
+ * No display cap — every active special is returned. Order prefers status,
+ * then trending / one-time kind / newest `createdAt` via {@link pinTodayOneOffs}
+ * (no peer shuffle, so fresh seeds stay ahead of older same-day listings).
  */
 export function getTodaySpecialEvents(
   events: Event[],
@@ -506,20 +513,8 @@ export function getTodaySpecialEvents(
     oneTimeFirst: true,
     now,
   });
-  const rotated = shuffleHighlightPeers(
-    sorted,
-    resolveHighlightShuffleSeed(now, options.shuffleSeed, "today-specials"),
-    now,
-  );
-  // Trending one-offs lead; all items are already today-only.
-  const spotlighted = pinTodayOneOffs(rotated, now);
-  const carouselHead = pickDiverseCarouselHead(
-    spotlighted,
-    HOME_SPECIALS_LIMIT,
-  );
-  const headIds = new Set(carouselHead.map((e) => e.id));
-  const tail = spotlighted.filter((e) => !headIds.has(e.id));
-  return [...carouselHead, ...tail];
+  // Skip peer shuffle — rotation was burying newly seeded one-offs.
+  return pinTodayOneOffs(sorted, now);
 }
 
 /**
@@ -680,7 +675,7 @@ export function getHomeDiscoverLayout(
   const heroEvent = pickHomeHeroBackgroundEvent(events, options);
 
   const todayVisibleIds = [
-    ...specialEvents.slice(0, HOME_SPECIALS_LIMIT).map((e) => e.id),
+    ...specialEvents.map((e) => e.id),
     ...todayEvents.slice(0, HOME_TODAY_LIMIT).map((e) => e.id),
   ];
 
@@ -690,7 +685,7 @@ export function getHomeDiscoverLayout(
   });
 
   const picksExcludeIds = [
-    ...specialEvents.slice(0, HOME_SPECIALS_LIMIT),
+    ...specialEvents,
     ...todayEvents.slice(0, HOME_TODAY_LIMIT),
     ...weekendEvents.slice(0, HOME_WEEKEND_LIMIT),
   ]

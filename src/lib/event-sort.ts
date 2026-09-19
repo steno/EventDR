@@ -165,14 +165,28 @@ export function pinTodayOneOffs(events: Event[], now: Date = new Date()): Event[
 
   if (pinned.length === 0) return events;
 
-  // Trending / kind only — leave schedule and peer-shuffle order intact.
+  // Trending → one-time kind → newest createdAt (fresh seeds beat stale peers).
+  // Equal keys keep prior status/shuffle order (stable sort).
   pinned.sort((a, b) => {
     const trend =
       Number(Boolean(b.trending)) - Number(Boolean(a.trending));
     if (trend !== 0) return trend;
-    return oneTimeKindRank(a) - oneTimeKindRank(b);
+    const kind = oneTimeKindRank(a) - oneTimeKindRank(b);
+    if (kind !== 0) return kind;
+    return createdAtDesc(a, b);
   });
   return [...pinned, ...rest];
+}
+
+/** Newer `createdAt` first; missing timestamps sink among same-kind peers. */
+function createdAtDesc(a: Event, b: Event): number {
+  const aMs = a.createdAt ? Date.parse(a.createdAt) : Number.NaN;
+  const bMs = b.createdAt ? Date.parse(b.createdAt) : Number.NaN;
+  const aOk = Number.isFinite(aMs);
+  const bOk = Number.isFinite(bMs);
+  if (aOk && bOk && aMs !== bMs) return bMs - aMs;
+  if (aOk !== bOk) return aOk ? -1 : 1;
+  return 0;
 }
 
 /**

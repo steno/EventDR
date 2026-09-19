@@ -485,4 +485,36 @@ describe("sortEventsForDisplay pinTodayOneOffs", () => {
       ["late", "early", "mid"],
     );
   });
+
+  it("pins newer createdAt one-offs ahead of older same-kind peers", () => {
+    const older = event({
+      id: "older-show",
+      title: "Older Show",
+      date: "2026-07-31",
+      time: "8:00 PM",
+      trending: true,
+      createdAt: "2026-07-20T12:00:00.000Z",
+    });
+    const newer = event({
+      id: "newer-show",
+      title: "Newer Show",
+      date: "2026-07-31",
+      time: "9:00 PM",
+      trending: true,
+      createdAt: "2026-07-31T12:00:00.000Z",
+    });
+    const daily = event({
+      id: "museum-daily",
+      title: "Museum",
+      date: "2026-07-31",
+      time: "9:00 AM – 5:00 PM",
+      recurrence: "daily",
+    });
+
+    const pinned = pinTodayOneOffs([daily, older, newer], afternoon);
+    assert.deepEqual(
+      pinned.map((entry) => entry.id),
+      ["newer-show", "older-show", "museum-daily"],
+    );
+  });
 });
