@@ -82,6 +82,8 @@ const FILE_TO_EVENT_ID = {
   "meclao-house-friday-2026-09-18.jpg": "meclao-house-friday-2026-09-18",
   "cabarete-stand-up-vol-2-2026-10-24.jpg":
     "cabarete-stand-up-vol-2-2026-10-24",
+  "hard-rock-the-king-mj-2026-09-19.jpg": "hard-rock-the-king-mj-2026-09-19",
+  "geek-fest-rd-2026-09-20.jpg": "geek-fest-rd-2026-09-20",
   "pop-cinemas-week-2026-08-20.jpg": "pop-cinemas-week-2026-08-20",
   "pop-cinemas-week-2026-09-11.jpg": "pop-cinemas-week-2026-09-11",
   "pop-cinemas-week-2026-09-11-mall.jpg": "pop-cinemas-week-2026-09-11-mall",

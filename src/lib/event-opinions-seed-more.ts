@@ -2735,4 +2735,42 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "IG https://www.instagram.com/p/DdZyjTkRZfY/ + cabaretestandup.com: Vol. 2, 24 Oct 2026 7:00 PM, Hotel Villa Taina, host Laura Nanita, Harú, Elías Serulle, Starlyn. RD$600 includes table seat; F&B extra; not for kids; Live Cabarete Events. Distinct from free 15 Aug 2026 Cabarete Comedy Night (Dulcita Lieggi / different lineup).",
     updatedAt: "2026-09-18T12:00:00.000Z",
   },
+  {
+    eventId: "hard-rock-the-king-mj-2026-09-19",
+    body: "Billed MJ tribute night on the Hard Rock floor — RD$1,300 cover is the door price, not drinks; confirm showtime with JMJ before you pin Calle Duarte.",
+    localized: {
+      es: "Noche tributo a MJ en el piso de Hard Rock — RD$1,300 es el cover de puerta, no los tragos; confirma la hora con JMJ antes de clavar Calle Duarte.",
+      fr: "Soirée hommage MJ sur la scène Hard Rock — RD$1,300 c’est le cover d’entrée, pas les verres ; confirmez l’heure avec JMJ avant d’épingler Calle Duarte.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "Cover RD$1,300 on the JMJ flyer — WhatsApp Hard Rock +1 849-505-7778; budget food and drinks on top",
+    priceNoteLocalized: {
+      es: "Cover RD$1,300 en el flyer de JMJ — WhatsApp Hard Rock +1 849-505-7778; presupuesta comida y tragos aparte",
+      fr: "Cover RD$1,300 sur l’affiche JMJ — WhatsApp Hard Rock +1 849-505-7778 ; budget nourriture et boissons en plus",
+    },
+    attribution: "POP research · @jmj.productions_ × Hard Rock Cafe Puerto Plata",
+    researchNotes:
+      "Editor-supplied flyer + IG @jmj.productions_: THE KING Michael Jackson, 19 Sep, Hard Rock Cafe Puerto Plata venue partner, cover RD$1,300. No start time on art.",
+    updatedAt: "2026-09-19T12:00:00.000Z",
+  },
+  {
+    eventId: "geek-fest-rd-2026-09-20",
+    body: "Full-day geek/games block at the polideportivo — not an Atlántico FC match, and the mini volleyball tourney is same-day signup at 3:30 PM, not a separate ticket. Confirm any door fee with @geek_fest_rd before you bring a team.",
+    localized: {
+      es: "Bloque geek/juegos de día completo en el polideportivo — no es un partido de Atlántico FC, y el mini torneo de voleibol es inscripción el mismo día a las 3:30 PM, no un boleto aparte. Confirma cualquier fee con @geek_fest_rd antes de armar equipo.",
+      fr: "Bloc geek/jeux journée complète au polideportivo — pas un match Atlántico FC, et le mini tournoi de volleyball s’inscrit le jour même à 15 h 30, pas un billet séparé. Confirmez tout droit d’entrée avec @geek_fest_rd avant d’amener une équipe.",
+    },
+    priceFeel: "varies",
+    priceNote:
+      "Admission not on the flyer — volleyball signup same day; confirm with @geek_fest_rd",
+    priceNoteLocalized: {
+      es: "Admisión no en el flyer — inscripción de voleibol el mismo día; confirma con @geek_fest_rd",
+      fr: "Entrée absente de l’affiche — inscription volleyball le jour même ; confirmez avec @geek_fest_rd",
+    },
+    attribution: "POP research · @geek_fest_rd",
+    researchNotes:
+      "Editor-supplied volleyball flyer + cronograma + IG @geek_fest_rd: Sun 20 Sep 2026 Polideportivo Puerto Plata; doors 10 AM; cosplay runway 2:50 PM; mini voleibol 3:30 PM same-day signup; close ~4 PM. No entry price published. Venue slug estadio-leonel-placido (polideportivo complex).",
+    updatedAt: "2026-09-19T12:00:00.000Z",
+  },
 ];

@@ -302,4 +302,6 @@ Curated images under `public/events/` and `public/venues/`.
 | `aura-disco-dj-melvin-2026-09-19.jpg` | POP-supplied — Aura Disco / DJ Melvin flyer ([IG](https://www.instagram.com/p/DdZi0Osp5t5/)) | Sat 19 Sep 2026 11:30 PM–3:00 AM Aura Beach Club (editor-provided) |
 | `meclao-house-friday-2026-09-18.jpg` | POP-supplied — House Friday / DJ Choco flyer ([IG](https://www.instagram.com/p/DdZi0Osp5t5/)) | Fri 18 Sep 2026 Mecla'o Rooftop (editor-provided) |
 | `cabarete-stand-up-vol-2-2026-10-24.jpg` | POP-supplied — Cabarete Stand Up Vol. 2 flyer ([IG](https://www.instagram.com/p/DdZyjTkRZfY/)) | Sat 24 Oct 2026 7:00 PM Hotel Villa Taina; RD$600 (editor-provided) |
+| `hard-rock-the-king-mj-2026-09-19.jpg` | POP-supplied — THE KING Michael Jackson tribute flyer ([@jmj.productions_](https://www.instagram.com/jmj.productions_/)) | Sat 19 Sep 2026 Hard Rock Cafe Puerto Plata; cover RD$1,300 (editor-provided) |
+| `geek-fest-rd-2026-09-20.jpg` | POP-supplied — Geek Fest RD mini volleyball / GEE FEST flyer ([@geek_fest_rd](https://www.instagram.com/geek_fest_rd/)) | Sun 20 Sep 2026 Polideportivo Puerto Plata (editor-provided) |
 | `venues/hotel-villa-taina-pool.jpg` | [villataina.com](https://villataina.com/) official PROPERTY_1 courtyard/pool aerial | Venue place shot — Hotel Villa Taina Cabarete courtyard pool |

@@ -2480,5 +2480,74 @@
       "Starlyn"
     ],
     "imageEmoji": "🎤"
+  },
+  {
+    "id": "hard-rock-the-king-mj-2026-09-19",
+    "title": "THE KING — Michael Jackson Tribute",
+    "description": "JMJ Productions presents THE KING — a Michael Jackson tribute night at Hard Rock Cafe Puerto Plata, Sosúa — Saturday 19 September 2026. Cover RD$1,300. Confirm doors and seating via WhatsApp +1 849-505-7778 or Instagram @jmj.productions_.",
+    "date": "2026-09-19",
+    "location": "Sosúa",
+    "venue": "Hard Rock Cafe Puerto Plata",
+    "venueSlug": "hard-rock-sosua",
+    "address": "Calle Duarte 7, Sosúa",
+    "lat": 19.7634107,
+    "lng": -70.5162309,
+    "category": "performances",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": false,
+    "admissionPrice": "RD$1,300",
+    "phone": "+18495057778",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/jmj.productions_/",
+    "lineup": [
+      "THE KING — Michael Jackson tribute (JMJ Productions)"
+    ],
+    "imageEmoji": "🕺"
+  },
+  {
+    "id": "geek-fest-rd-2026-09-20",
+    "title": "Geek Fest RD",
+    "description": "Geek Fest RD at Polideportivo Puerto Plata (Calle Hugo Kunhardt) — Sunday 20 September 2026, doors 10:00 AM to about 4:00 PM. Anime/geek games day with cosplay runway and a mini volleyball tournament (same-day team signup). Confirm entry and any fees via Instagram @geek_fest_rd.",
+    "date": "2026-09-20",
+    "time": "10:00 AM – 4:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Polideportivo Puerto Plata",
+    "venueSlug": "estadio-leonel-placido",
+    "address": "Calle Hugo Kunhardt, Puerto Plata",
+    "lat": 19.792117,
+    "lng": -70.681193,
+    "category": "festivals",
+    "categories": [
+      "sports",
+      "culture"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/geek_fest_rd/",
+    "lineup": [
+      "10:00 AM — Doors open",
+      "10:30 AM — Opening",
+      "10:40 AM — Presentación de águila púrpura",
+      "10:50 AM — Sack races",
+      "11:20 AM — Llega a tu destino",
+      "11:50 AM — Colas locas",
+      "12:00 PM — Break",
+      "12:30 PM — Pañuelo",
+      "12:50 PM — Egg race",
+      "1:20 PM — Capitán dice",
+      "1:40 PM — Dinámica Manga este podcast",
+      "2:30 PM — Red light / green light",
+      "2:50 PM — Cosplay runway",
+      "3:30 PM — Mini volleyball tournament (same-day signup)",
+      "4:00 PM — Closing"
+    ],
+    "imageEmoji": "🏐"
   }
 ]

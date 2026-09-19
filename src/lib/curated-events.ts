@@ -139,6 +139,16 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     phone: "+18495057778",
     venueSlug: "hard-rock-sosua",
   },
+  "hard-rock-the-king-mj-2026-09-19": {
+    isFree: false,
+    admissionPrice: "RD$1,300",
+    phone: "+18495057778",
+    venueSlug: "hard-rock-sosua",
+  },
+  "geek-fest-rd-2026-09-20": {
+    callForPricing: true,
+    venueSlug: "estadio-leonel-placido",
+  },
   "natura-market-moto-2026-09-19": {
     isFree: true,
     phone: "+18492147010",

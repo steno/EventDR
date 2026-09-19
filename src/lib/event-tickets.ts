@@ -142,6 +142,7 @@ export const CURATED_ADMISSION_PRICES: Record<string, string> = {
   "pop-cinemas-week-2026-09-11": "RD$300",
   "love-does-cocktails-solidarity-2026-09-04": "RD$2,000",
   "hard-rock-catrinas-halloween-2026-10-31": "RD$1,000",
+  "hard-rock-the-king-mj-2026-09-19": "RD$1,300",
   "sunset-cabarete-sessions-2026": "from US$16",
   "puerto-plata-poker-experience-2026": "Main Event US$900 buy-in",
   "los-event-trilogy-2026-09-03": "from US$875",
@@ -176,6 +177,7 @@ export const CURATED_CALL_FOR_PRICING = new Set<string>([
   "ambar-lounge-adrian-tineo-2026-09-19",
   "aura-disco-dj-melvin-2026-09-19",
   "meclao-house-friday-2026-09-18",
+  "geek-fest-rd-2026-09-20",
 ]);
 
 /**

@@ -164,6 +164,9 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "meclao-house-friday-2026-09-18": "meclao-house-friday-2026-09-18.jpg",
   "cabarete-stand-up-vol-2-2026-10-24":
     "cabarete-stand-up-vol-2-2026-10-24.jpg",
+  "hard-rock-the-king-mj-2026-09-19":
+    "hard-rock-the-king-mj-2026-09-19.jpg",
+  "geek-fest-rd-2026-09-20": "geek-fest-rd-2026-09-20.jpg",
   "ocean-world-terrace-singing-talent-2026-09-16":
     "ocean-world-terrace-karaoke-encuentro-2026-09-16.jpg",
   "duo-maryem-rancho-catalina-2026-09-20":
@@ -480,6 +483,8 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "aura-disco-dj-melvin-2026-09-19.jpg",
   "meclao-house-friday-2026-09-18.jpg",
   "cabarete-stand-up-vol-2-2026-10-24.jpg",
+  "hard-rock-the-king-mj-2026-09-19.jpg",
+  "geek-fest-rd-2026-09-20.jpg",
   "spotland-sabado-retro-familiar-2026-09-19.jpg",
   "los-event-trilogy-2026-09-03.jpg",
   "love-does-bocadillos-course-2026.jpg",
