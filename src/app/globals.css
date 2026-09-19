@@ -82,6 +82,11 @@ img.no-photo-filter {
   filter: none;
 }
 
+/* Logo tiles: keep white grounds pure under the dark-mode photo grade. */
+.dark img.no-photo-filter {
+  filter: none;
+}
+
 .street-view-panorama {
   color-scheme: light;
 }
@@ -144,12 +149,13 @@ img.no-photo-filter {
   }
 
   .rw-logo-zoom {
+    transform: scale(1.2);
     transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
     will-change: transform;
   }
 
   .group:hover .rw-logo-zoom {
-    transform: scale(1.45);
+    transform: scale(1.5);
   }
 }
 

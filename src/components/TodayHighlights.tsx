@@ -81,6 +81,11 @@ interface TodayHighlightsProps {
    */
   mobilePairSlides?: boolean;
   /**
+   * When pair slides leave an odd leftover card, fill the empty half with an
+   * “add your event” CTA (also fills a missing desktop grid cell when needed).
+   */
+  onAddEvent?: () => void;
+  /**
    * Mobile story rail (36:49 — ~1/4 shorter than 9:16) — used for Today's
    * specials so every area home gets the same tall flyer cards (not landscape
    * 16:10 when count ≠ 2).
@@ -296,6 +301,7 @@ const TodayHighlightsComponent = ({
   featurePromo = false,
   mobilePairSlides = false,
   storyCards = false,
+  onAddEvent,
 }: TodayHighlightsProps) => {
   const router = useRouter();
   const railRef = useRef<HTMLDivElement>(null);
@@ -317,6 +323,13 @@ const TodayHighlightsComponent = ({
     () => (usePairSlides ? chunkPairs(visibleEvents) : null),
     [usePairSlides, visibleEvents],
   );
+  /** Odd leftover on a 2-up slide — pad with add-event instead of stretching. */
+  const padOddPair = Boolean(onAddEvent) && usePairSlides && count % 2 === 1;
+  /**
+   * Odd counts that already fill an xl 3-col row (3, 9, …) should not show the
+   * filler on xl — only on the 2-up mobile/sm pair layout.
+   */
+  const pairFillHideOnXl = padOddPair && count % 3 === 0;
   const hasMore = limit != null && todayEvents.length > limit;
   const allTodayHref = seeAllHref ?? `/${locale}/when/today`;
   const sectionLabel = title ?? dict.events.happeningToday;
@@ -465,11 +478,7 @@ const TodayHighlightsComponent = ({
                     {pair.map((event) => (
                       <div
                         key={event.id}
-                        className={
-                          pair.length === 1
-                            ? "min-w-0 col-span-2 sm:col-span-1 sm:w-auto sm:min-w-0 sm:shrink"
-                            : "min-w-0 sm:w-auto sm:min-w-0 sm:shrink"
-                        }
+                        className="min-w-0 sm:w-auto sm:min-w-0 sm:shrink"
                       >
                         <TodayHighlightCard
                           event={event}
@@ -487,6 +496,20 @@ const TodayHighlightsComponent = ({
                         />
                       </div>
                     ))}
+                    {padOddPair && pair.length === 1 && onAddEvent ? (
+                      <div
+                        className={`min-w-0 sm:w-auto sm:min-w-0 sm:shrink ${
+                          pairFillHideOnXl ? "xl:hidden" : ""
+                        }`}
+                      >
+                        <EventCardPlaceholder
+                          title={dict.events.yourEventHereTitle}
+                          label={dict.events.yourEventHereGeneric}
+                          onClick={onAddEvent}
+                          mediaAspectClass="aspect-[4/5] sm:aspect-[3/2]"
+                        />
+                      </div>
+                    ) : null}
                   </div>
                 ))
               : visibleEvents.map((event) => (

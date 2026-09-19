@@ -755,6 +755,7 @@ function HomeApp({
                   listTimeRange="weekend"
                   showDate
                   mobilePairSlides
+                  onAddEvent={() => setSubmitOpen(true)}
                   returnTo={homePath}
                 />
               )}
@@ -793,6 +794,7 @@ function HomeApp({
                   listTimeRange="all"
                   showDate
                   mobilePairSlides
+                  onAddEvent={() => setSubmitOpen(true)}
                   returnTo={homePath}
                 />
               )}

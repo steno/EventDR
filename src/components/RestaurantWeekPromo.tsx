@@ -156,7 +156,7 @@ export function RestaurantWeekPromo({
           {copy.emptyArea}
         </p>
       ) : (
-        <ul className="grid grid-cols-3 gap-2 sm:grid-cols-4 sm:gap-2.5 lg:grid-cols-5">
+        <ul className="grid grid-cols-2 gap-2 sm:grid-cols-4 sm:gap-2.5 lg:grid-cols-5">
           {participants.map((participant) => {
             const href = participantHref(
               participant,
@@ -180,24 +180,24 @@ export function RestaurantWeekPromo({
                       : fillVenueLabel(copy.openEvent, participant.name)
                   }
                   className={`
-                    group flex h-[4.5rem] items-center justify-center overflow-hidden
-                    rounded-xl border bg-white px-2.5 py-2
+                    group flex h-[5rem] items-center justify-center overflow-hidden
+                    rounded-xl border bg-white px-1.5 py-1.5
                     touch-manipulation
                     transition-[border-color,box-shadow,opacity,transform]
                     duration-300 ease-out
                     focus-visible:outline focus-visible:outline-2
                     focus-visible:outline-offset-2 focus-visible:outline-orange-500
-                    sm:h-[5.25rem] sm:px-3
+                    sm:h-[5.5rem] sm:px-2 sm:py-2
                     ${pending ? LOGO_TILE_PENDING : LOGO_TILE_IDLE}
                     ${dimmed ? "opacity-45" : ""}
                   `}
                 >
-                  <span className="relative h-full w-full overflow-hidden">
+                  <span className="relative h-full w-full overflow-hidden bg-white">
                     <EventImage
                       src={participant.logoSrc}
                       alt=""
-                      sizes="(max-width: 640px) 30vw, (max-width: 1024px) 20vw, 140px"
-                      className="object-contain object-center rw-logo-zoom"
+                      sizes="(max-width: 640px) 45vw, (max-width: 1024px) 22vw, 140px"
+                      className="object-contain object-center no-photo-filter rw-logo-zoom"
                     />
                   </span>
                 </IntentLink>
