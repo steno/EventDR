@@ -2792,4 +2792,24 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "Editor-supplied flyer + Entérate Pop city promo: Sat 3 Oct 2026 Tercera Parada Festival Presidente at Anfiteatro Puerto Plata / La Puntilla; lineup El Lápiz, Chiquito Team Band, Shadow Blow, El Blachy, DJ Joe; urban/salsa/other rhythms. No start time or ticket price on art.",
     updatedAt: "2026-09-19T12:00:00.000Z",
   },
+  {
+    eventId: "atleticos-pp-vs-reales-2026-09-19",
+    body: "Circuit Norte-Central final Game 2 at José Briceño — not a regular-season Friday; Atléticos lead 1–0 after Friday’s 13–3 in Santiago, so this can clinch at home. Buy at the gate; there is no todotickets playoff page.",
+    localized: {
+      es: "Final del Circuito Norte-Central, juego 2 en José Briceño — no es un viernes de temporada regular; Atléticos van 1–0 tras el 13–3 del viernes en Santiago, así que pueden cerrar en casa. Compra en taquilla; no hay página de playoffs en todotickets.",
+      fr: "Finale Circuit Norte-Central, match 2 à José Briceño — pas un vendredi de saison régulière ; les Atléticos mènent 1–0 après le 13–3 vendredi à Santiago, donc ils peuvent clôturer à domicile. Billets au guichet ; pas de page playoffs todotickets.",
+    },
+    priceFeel: "budget",
+    priceNote:
+      "Tickets at the stadium gate only — confirm price at boletería; first pitch 6:00 PM",
+    priceNoteLocalized: {
+      es: "Solo boletos en taquilla del estadio — confirma precio en boletería; primera bola 6:00 PM",
+      fr: "Billets uniquement au guichet du stade — confirmez le prix à la billetterie ; première balle 18 h",
+    },
+    attribution:
+      "POP research · MyStats Liga Nacional de Béisbol de Verano + CostaverdeDR",
+    researchNotes:
+      "User + Google search friday night baseball puerto plata; MyStats schedule https://www.mystatsonline.com/ballsports/visitor/league/schedule_scores/schedule.aspx?IDLeague=71710; CostaverdeDR: Sat 19 Sep 2026 6 PM José Briceño Game 2 after Atléticos 13–3 Game 1 in Santiago; gate tickets, no todotickets playoff page.",
+    updatedAt: "2026-09-19T12:00:00.000Z",
+  },
 ];

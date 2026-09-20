@@ -514,6 +514,23 @@
     "imageEmoji": "⚾"
   },
   {
+    "id": "atleticos-pp-vs-reales-2026-09-19",
+    "date": "2026-09-19",
+    "time": "6:00 PM",
+    "location": "Puerto Plata",
+    "address": "Av. Hermanas Mirabal, Puerto Plata",
+    "venue": "Parque José Briceño",
+    "venueSlug": "parque-jose-briceno",
+    "lat": 19.7827778,
+    "lng": -70.6713889,
+    "category": "sports",
+    "format": "physical",
+    "sourceUrl": "https://www.mystatsonline.com/ballsports/visitor/league/schedule_scores/schedule.aspx?IDLeague=71710",
+    "imageEmoji": "⚾",
+    "title": "Atléticos de Puerto Plata vs Reales de Santiago — Circuit Final Game 2",
+    "description": "Circuit Norte-Central final Game 2 at Parque José Briceño — Atléticos de Puerto Plata host Reales de Santiago (best-of-three; Atléticos lead 1–0 after Friday’s 13–3 win in Santiago). Liga Nacional de Béisbol de Verano playoffs; tickets at the stadium gate (no todotickets playoff page). First pitch 6:00 PM."
+  },
+  {
     "id": "ingest-asa-survival-series-cdf-vs-dracos-game-1",
     "title": "ASA Survival Series: CDF vs Dracos VIP Game 1 Pass",
     "description": "Al Sena Athletics Survival Series basketball — Club Deportivo Fantastico (CDF) vs Dracos. VIP Game 1 of five Saturday nights (Jul 18 – Aug 15): reserved seating, meal voucher, and drinks. Tickets on Eventbrite.",

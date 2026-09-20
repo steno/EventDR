@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { ChevronDown, ChevronUp } from "lucide-react";
 import { IntentLink } from "@/components/IntentLink";
 import { EventImage } from "@/components/EventImage";
 import type { CitySlug } from "@/lib/cities";
@@ -17,10 +18,14 @@ import {
   type RestaurantWeekLogoParticipant,
 } from "@/lib/restaurant-week";
 import { SECTION_TITLE_CLASS } from "@/lib/page-shell";
+import { fillTemplate } from "@/lib/seo";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 
 const AREA_ORDER: CitySlug[] = ["puerto-plata", "sosua", "cabarete"];
+
+/** Mobile teaser: 2×3 before “Show all”. Desktop always shows the full grid. */
+const MOBILE_TEASER_LIMIT = 6;
 
 const LOGO_TILE_IDLE = `
   border-neutral-200/90 bg-white
@@ -75,10 +80,15 @@ export function RestaurantWeekPromo({
   const copy = dict.events.restaurantWeek;
   const [area, setArea] = useState<CitySlug | null>(citySlug);
   const [pendingId, setPendingId] = useState<string | null>(null);
+  const [expanded, setExpanded] = useState(false);
 
   useEffect(() => {
     setArea(citySlug);
   }, [citySlug]);
+
+  useEffect(() => {
+    setExpanded(false);
+  }, [area]);
 
   const active = isRestaurantWeekPromoActive(locale);
   const participants = useMemo(
@@ -90,6 +100,8 @@ export function RestaurantWeekPromo({
 
   const eventHref = eventDetailPath(locale, RESTAURANT_WEEK_2026_ID);
   const emptyFiltered = participants.length === 0;
+  const hiddenCount = Math.max(0, participants.length - MOBILE_TEASER_LIMIT);
+  const showMobileToggle = hiddenCount > 0;
 
   return (
     <section
@@ -156,62 +168,102 @@ export function RestaurantWeekPromo({
           {copy.emptyArea}
         </p>
       ) : (
-        <ul className="grid grid-cols-2 gap-2 sm:grid-cols-4 sm:gap-2.5 lg:grid-cols-5">
-          {participants.map((participant) => {
-            const href = participantHref(
-              participant,
-              locale,
-              returnTo,
-              returnTitle,
-            );
-            const pending = pendingId === participant.id;
-            const dimmed = pendingId != null && pendingId !== participant.id;
-            return (
-              <li key={participant.id}>
-                <IntentLink
-                  href={href}
-                  returnTo={returnTo}
-                  returnTitle={returnTitle}
-                  onClick={() => setPendingId(participant.id)}
-                  aria-busy={pending || undefined}
-                  aria-label={
-                    participant.venueSlug
-                      ? fillVenueLabel(copy.openVenue, participant.name)
-                      : fillVenueLabel(copy.openEvent, participant.name)
-                  }
-                  className={`
-                    group flex h-[5rem] items-center justify-center overflow-hidden
-                    rounded-xl border bg-white px-1.5 py-1.5
-                    touch-manipulation
-                    transition-[border-color,box-shadow,opacity,transform]
-                    duration-300 ease-out
-                    focus-visible:outline focus-visible:outline-2
-                    focus-visible:outline-offset-2 focus-visible:outline-orange-500
-                    sm:h-[5.5rem] sm:px-2 sm:py-2
-                    ${pending ? LOGO_TILE_PENDING : LOGO_TILE_IDLE}
-                    ${dimmed ? "opacity-45" : ""}
-                  `}
+        <>
+          <ul className="grid grid-cols-2 gap-2 sm:grid-cols-4 sm:gap-2.5 lg:grid-cols-5">
+            {participants.map((participant, index) => {
+              const href = participantHref(
+                participant,
+                locale,
+                returnTo,
+                returnTitle,
+              );
+              const pending = pendingId === participant.id;
+              const dimmed = pendingId != null && pendingId !== participant.id;
+              const mobileCollapsed =
+                !expanded && index >= MOBILE_TEASER_LIMIT;
+              return (
+                <li
+                  key={participant.id}
+                  className={mobileCollapsed ? "max-sm:hidden" : undefined}
                 >
-                  <span className="relative h-full w-full overflow-hidden bg-white">
-                    <EventImage
-                      src={participant.logoSrc}
-                      alt=""
-                      sizes="(max-width: 640px) 45vw, (max-width: 1024px) 22vw, 140px"
-                      className="object-contain object-center no-photo-filter rw-logo-zoom"
-                    />
-                  </span>
-                </IntentLink>
-              </li>
-            );
-          })}
-        </ul>
+                  <IntentLink
+                    href={href}
+                    returnTo={returnTo}
+                    returnTitle={returnTitle}
+                    onClick={() => setPendingId(participant.id)}
+                    aria-busy={pending || undefined}
+                    aria-label={
+                      participant.venueSlug
+                        ? fillTemplate(copy.openVenue, {
+                            name: participant.name,
+                          })
+                        : fillTemplate(copy.openEvent, {
+                            name: participant.name,
+                          })
+                    }
+                    className={`
+                      group flex h-[5rem] items-center justify-center overflow-hidden
+                      rounded-xl border bg-white px-1.5 py-1.5
+                      touch-manipulation
+                      transition-[border-color,box-shadow,opacity,transform]
+                      duration-300 ease-out
+                      focus-visible:outline focus-visible:outline-2
+                      focus-visible:outline-offset-2 focus-visible:outline-orange-500
+                      sm:h-[5.5rem] sm:px-2 sm:py-2
+                      ${pending ? LOGO_TILE_PENDING : LOGO_TILE_IDLE}
+                      ${dimmed ? "opacity-45" : ""}
+                    `}
+                  >
+                    <span className="relative h-full w-full overflow-hidden bg-white">
+                      <EventImage
+                        src={participant.logoSrc}
+                        alt=""
+                        sizes="(max-width: 640px) 45vw, (max-width: 1024px) 22vw, 140px"
+                        className="object-contain object-center no-photo-filter rw-logo-zoom"
+                      />
+                    </span>
+                  </IntentLink>
+                </li>
+              );
+            })}
+          </ul>
+
+          {showMobileToggle ? (
+            <div className="mt-3 flex justify-center sm:hidden">
+              <button
+                type="button"
+                onClick={() => setExpanded((open) => !open)}
+                aria-expanded={expanded}
+                className="
+                  inline-flex min-h-11 items-center gap-1.5 rounded-full
+                  border border-neutral-200 bg-white px-4 py-2
+                  text-sm font-semibold text-neutral-800
+                  touch-manipulation transition-colors active:scale-[0.98]
+                  hover:border-orange-300 hover:text-orange-700
+                  dark:border-neutral-700 dark:bg-neutral-950 dark:text-neutral-100
+                  dark:hover:border-orange-600 dark:hover:text-orange-300
+                "
+              >
+                {expanded ? (
+                  <>
+                    {copy.showLess}
+                    <ChevronUp className="h-4 w-4" aria-hidden />
+                  </>
+                ) : (
+                  <>
+                    {fillTemplate(copy.showMore, {
+                      count: String(hiddenCount),
+                    })}
+                    <ChevronDown className="h-4 w-4" aria-hidden />
+                  </>
+                )}
+              </button>
+            </div>
+          ) : null}
+        </>
       )}
     </section>
   );
-}
-
-function fillVenueLabel(template: string, name: string): string {
-  return template.replace("{name}", name);
 }
 
 function AreaChip({

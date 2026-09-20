@@ -610,11 +610,11 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "parque-jose-briceno": {
-    body: "Home of the Atléticos on game nights — baseball atmosphere for locals; check the schedule before you treat it as a tourist stop.",
+    body: "Home of the Atléticos on game and playoff nights — packed local baseball at José Briceño; confirm tonight’s first pitch before you treat it as a tourist stop.",
     localized: {
-      en: "Home of the Atléticos on game nights — baseball atmosphere for locals; check the schedule before you treat it as a tourist stop.",
-      es: "Casa de los Atléticos en noches de juego — atmósfera de béisbol local; mira el calendario antes de tratarlo como parada turística.",
-      fr: "Maison des Atléticos les soirs de match — ambiance baseball locale ; vérifiez le calendrier avant d'en faire un stop touristique.",
+      en: "Home of the Atléticos on game and playoff nights — packed local baseball at José Briceño; confirm tonight’s first pitch before you treat it as a tourist stop.",
+      es: "Casa de los Atléticos en noches de juego y playoffs — béisbol local lleno en José Briceño; confirma la primera bola antes de tratarlo como parada turística.",
+      fr: "Maison des Atléticos les soirs de match et de playoffs — baseball local bondé à José Briceño ; confirmez la première balle avant d’en faire un stop touristique.",
     },
   },
   "club-deportivo-fantastico": {

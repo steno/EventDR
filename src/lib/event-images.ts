@@ -239,6 +239,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "atleticos-pp-vs-reales-2026-08-09": "atleticos-pp-vs-reales-2026-08-09.jpg",
   "atleticos-pp-vs-arroceros-2026-08-22": "atleticos-pp-vs-arroceros-2026-08-22.jpg",
   "atleticos-pp-vs-capitanes-2026-08-28": "atleticos-pp-vs-capitanes-2026-08-28.jpg",
+  "atleticos-pp-vs-reales-2026-09-19": "atleticos-pp-vs-reales-2026-09-19.jpg",
   "ingest-asa-survival-series-cdf-vs-dracos-game-1":
     "ingest-asa-survival-series-cdf-vs-dracos-game-1.jpeg",
   "ingest-asa-survival-series-cdf-vs-dracos-game-2":
@@ -531,6 +532,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "atleticos-pp-vs-reales-2026-08-09.jpg",
   "atleticos-pp-vs-arroceros-2026-08-22.jpg",
   "atleticos-pp-vs-capitanes-2026-08-28.jpg",
+  "atleticos-pp-vs-reales-2026-09-19.jpg",
   "ingest-asa-survival-series-cdf-vs-dracos-game-1.jpeg",
   "ingest-asa-survival-series-cdf-vs-dracos-game-2.jpeg",
   "ingest-asa-survival-series-cdf-vs-dracos-game-3.jpeg",

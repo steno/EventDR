@@ -125,6 +125,9 @@ export type Dictionary = {
       emptyArea: string;
       openVenue: string;
       openEvent: string;
+      /** Mobile teaser — `{count}` is how many logos are still hidden. */
+      showMore: string;
+      showLess: string;
     };
     viewAllEvents: string;
     /** Accessibility label for the cards/list layout control. */
@@ -749,7 +752,7 @@ export const en: Dictionary = {
     todaysSpecials: "Today's specials",
     scrollSpecialsPrev: "Previous specials",
     scrollSpecialsNext: "Next specials",
-    thisWeekend: "This weekend",
+    thisWeekend: "The weekend",
     seeAllWeekend: "See all weekend",
     recentlyAdded: "Recently added",
     comingUp: "On the horizon",
@@ -764,6 +767,8 @@ export const en: Dictionary = {
       emptyArea: "No participating restaurants in this area.",
       openVenue: "Open {name}",
       openEvent: "See {name} on Restaurant Week",
+      showMore: "+{count} more",
+      showLess: "Show less",
     },
     viewAllEvents: "View all events",
     viewMode: "Event layout",
