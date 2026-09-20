@@ -31,6 +31,10 @@ import {
   venueDetailPath,
 } from "@/lib/event-navigation";
 import { resolveParticipantLinks } from "@/lib/event-participants";
+import {
+  RESTAURANT_WEEK_2026_ID,
+} from "@/lib/restaurant-week";
+import { RestaurantWeekParticipantLogos } from "@/components/RestaurantWeekParticipantLogos";
 import { NearbyTonight, PocketPlaceHint } from "@/components/NearbyTonight";
 import { VenueOtherNights } from "@/components/VenueOtherNights";
 import type { NearbyTonightResult } from "@/lib/nearby-events";
@@ -103,6 +107,9 @@ export function EventDetailContent({
     [event.participants, event.title, locale, returnPath],
   );
   const hasParticipants = participantLinks.length > 0;
+  const useRestaurantWeekLogos =
+    event.id === RESTAURANT_WEEK_2026_ID &&
+    hasParticipants;
   /** Multi-venue lists are the destination — don't dump users into city-level Maps. */
   const placeIsLinked = isPhysical && Boolean(venueSlug || !hasParticipants);
 
@@ -212,40 +219,53 @@ export function EventDetailContent({
           </div>
         )}
         {hasParticipants && (
-          <div className="pl-[1.875rem]">
+          <div className={useRestaurantWeekLogos ? undefined : "pl-[1.875rem]"}>
             <div className="mb-1.5 flex items-center gap-1.5 text-neutral-500">
               <UtensilsCrossed className="h-3.5 w-3.5 flex-shrink-0" />
               <span className="text-[0.65rem] font-bold uppercase tracking-wide">
                 {dict.detail.participants}
               </span>
             </div>
-            <ul className="flex flex-wrap gap-1">
-              {participantLinks.map(({ name, href }) => (
-                <li key={name}>
-                  {href ? (
-                    <IntentLink
-                      href={href}
-                      onClick={() => {
-                        rememberReturnPath(returnPath, event.title);
-                      }}
-                      className="inline-flex rounded-md bg-neutral-100 px-2 py-0.5 text-xs font-medium text-orange-800 touch-manipulation transition-colors hover:bg-orange-50 hover:text-orange-700 dark:bg-neutral-800 dark:text-orange-300 dark:hover:bg-neutral-700 dark:hover:text-orange-200"
-                    >
-                      {name}
-                    </IntentLink>
-                  ) : (
-                    <span className="inline-flex rounded-md bg-neutral-100 px-2 py-0.5 text-xs font-medium text-neutral-700 dark:bg-neutral-800 dark:text-neutral-300">
-                      {name}
-                    </span>
-                  )}
-                </li>
-              ))}
-            </ul>
+            {useRestaurantWeekLogos ? (
+              <RestaurantWeekParticipantLogos
+                locale={locale}
+                returnTo={returnPath}
+                returnTitle={event.title}
+                openVenueLabel={dict.events.restaurantWeek.openVenue}
+                openEventLabel={dict.events.restaurantWeek.openEvent}
+                filterLabel={dict.events.restaurantWeek.filterLabel}
+                filterAll={dict.events.restaurantWeek.filterAll}
+                emptyArea={dict.events.restaurantWeek.emptyArea}
+              />
+            ) : (
+              <ul className="flex flex-wrap gap-1">
+                {participantLinks.map(({ name, href }) => (
+                  <li key={name}>
+                    {href ? (
+                      <IntentLink
+                        href={href}
+                        onClick={() => {
+                          rememberReturnPath(returnPath, event.title);
+                        }}
+                        className="inline-flex rounded-md bg-neutral-100 px-2 py-0.5 text-xs font-medium text-orange-800 touch-manipulation transition-colors hover:bg-orange-50 hover:text-orange-700 dark:bg-neutral-800 dark:text-orange-300 dark:hover:bg-neutral-700 dark:hover:text-orange-200"
+                      >
+                        {name}
+                      </IntentLink>
+                    ) : (
+                      <span className="inline-flex rounded-md bg-neutral-100 px-2 py-0.5 text-xs font-medium text-neutral-700 dark:bg-neutral-800 dark:text-neutral-300">
+                        {name}
+                      </span>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            )}
             {event.sourceUrl ? (
               <a
                 href={event.sourceUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-1.5 inline-block text-xs font-semibold text-orange-700 dark:text-orange-400 touch-manipulation"
+                className="mt-2 inline-block text-xs font-semibold text-orange-700 dark:text-orange-400 touch-manipulation"
               >
                 {dict.detail.participantsDirectory}
               </a>

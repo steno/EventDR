@@ -6,6 +6,10 @@ import { matchVenueSlug } from "@/lib/venues-seed";
 
 export const RESTAURANT_WEEK_2026_ID = "restaurant-week-puerto-plata-2026";
 
+/** Food & Drinks mobile teaser — official campaign art. */
+export const RESTAURANT_WEEK_TEASER_IMAGE =
+  "/events/restaurant-week-puerto-plata-2026-teaser.jpg";
+
 const LOGO_DIR = "/events/restaurant-week-2026/logos";
 
 /**

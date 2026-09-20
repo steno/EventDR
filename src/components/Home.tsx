@@ -764,8 +764,8 @@ function HomeApp({
                 <RestaurantWeekPromo
                   locale={locale}
                   dict={dict}
-                  citySlug={selectedCity}
                   returnTo={homePath}
+                  variant="home"
                 />
               )}
 

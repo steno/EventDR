@@ -21,6 +21,7 @@ import {
 } from "@/components/CityCategoryLinks";
 import { CityLocationPicker } from "@/components/CityLocationPicker";
 import { CityPhotoHero } from "@/components/CityPhotoHero";
+import { RestaurantWeekPromo } from "@/components/RestaurantWeekPromo";
 import { SubmitEventSheet } from "@/components/SubmitEventSheet";
 import { StickyListHeader } from "@/components/StickyListHeader";
 import { categoryNavLinks, resolveListingBackLabel } from "@/lib/event-navigation";
@@ -34,6 +35,11 @@ import {
 } from "@/lib/cities";
 import { getCategoryHeroImage } from "@/lib/category-heroes";
 import { isHomeHeroBackgroundSuitable } from "@/lib/event-images";
+import { getFallbackEventById } from "@/lib/fallback-events";
+import {
+  isRestaurantWeekPromoActive,
+  RESTAURANT_WEEK_2026_ID,
+} from "@/lib/restaurant-week";
 import { findActiveSpecialEvent } from "@/lib/special-events";
 import { PAGE_SHELL_CLASS } from "@/lib/page-shell";
 import { getOnboardingCopy } from "@/lib/onboarding";
@@ -401,6 +407,19 @@ export function EventScopePage({
       ? dict.region.name
       : null;
   const specialHeroEvent = useMemo(() => {
+    // Food & Drinks: pin Restaurant Week calendar art while the campaign is live
+    // (calendar is typography-heavy, so we bypass the scene-hero allowlist).
+    if (
+      activeCategoryId === "food-drinks" &&
+      isRestaurantWeekPromoActive(locale)
+    ) {
+      const fromList = events.find(
+        (event) => event.id === RESTAURANT_WEEK_2026_ID,
+      );
+      const fromSeed = getFallbackEventById(RESTAURANT_WEEK_2026_ID, locale);
+      const rw = fromList ?? fromSeed;
+      if (rw?.imageUrl?.trim()) return rw;
+    }
     if (activeCitySlug) {
       return findActiveSpecialEvent(events, {
         placement: "city-hero",
@@ -411,14 +430,26 @@ export function EventScopePage({
       return findActiveSpecialEvent(events, { placement: "home-hero" });
     }
     return null;
-  }, [events, activeCitySlug, activeRegionScope, fixedTimeRange]);
+  }, [
+    events,
+    activeCitySlug,
+    activeRegionScope,
+    fixedTimeRange,
+    activeCategoryId,
+    locale,
+  ]);
+
+  const restaurantWeekHero =
+    activeCategoryId === "food-drinks" &&
+    specialHeroEvent?.id === RESTAURANT_WEEK_2026_ID;
 
   const specialHeroImage =
     specialHeroEvent &&
-    isHomeHeroBackgroundSuitable(
-      specialHeroEvent.id,
-      specialHeroEvent.imageUrl,
-    )
+    (restaurantWeekHero ||
+      isHomeHeroBackgroundSuitable(
+        specialHeroEvent.id,
+        specialHeroEvent.imageUrl,
+      ))
       ? specialHeroEvent.imageUrl?.trim()
       : undefined;
   const scopeHeroImage =
@@ -428,6 +459,9 @@ export function EventScopePage({
     (activeCategoryId || fixedTimeRange || activeRegionScope
       ? NORTH_COAST_HERO_IMAGE
       : undefined);
+  const showRestaurantWeekStrip =
+    activeCategoryId === "food-drinks" &&
+    isRestaurantWeekPromoActive(locale);
   const showLocationPicker = Boolean(
     activeCitySlug || activeCategoryId || fixedTimeRange || activeRegionScope,
   );
@@ -488,8 +522,16 @@ export function EventScopePage({
             <CityPhotoHero
               key={activeCitySlug ?? "north-coast"}
               title={title}
-              eyebrow={eyebrow}
-              subtitle={intro}
+              eyebrow={
+                restaurantWeekHero
+                  ? dict.events.restaurantWeek.eyebrow
+                  : eyebrow
+              }
+              subtitle={
+                restaurantWeekHero
+                  ? `${dict.events.restaurantWeek.dates} · ${dict.events.restaurantWeek.priceLine}`
+                  : intro
+              }
               imageUrl={scopeHeroImage}
               featuredEvent={specialHeroImage ? specialHeroEvent : null}
               locale={locale}
@@ -563,6 +605,16 @@ export function EventScopePage({
             categoryId={activeCategoryId}
             areaLabel={areaLabel}
             persistTimeRange
+            listLead={
+              showRestaurantWeekStrip ? (
+                <RestaurantWeekPromo
+                  locale={locale}
+                  dict={dict}
+                  returnTo={returnTo}
+                  variant="compact"
+                />
+              ) : undefined
+            }
             stickyLead={
               showLocationPicker ? (
                 <div className="w-full text-[1.5rem] font-extrabold leading-none sm:hidden">

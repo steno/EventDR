@@ -503,6 +503,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "pop-cinemas-week-2026-08-20.jpg",
   "puerto-plata-poker-experience-2026.png",
   "restaurant-week-puerto-plata-2026-calendar.jpg",
+  "restaurant-week-puerto-plata-2026-teaser.jpg",
   "rumble-in-paradise-13.png",
   "sosua-10k-road-race-2026.jpg",
   "sosua-neon-partyrun-2026-10-24.jpg",

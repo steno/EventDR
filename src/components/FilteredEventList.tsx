@@ -117,6 +117,11 @@ interface FilteredEventListProps {
   stickyLead?: ReactNode;
   /** Optional area chip in the sticky filter bar (desktop scope pages). */
   locationPicker?: ReactNode;
+  /**
+   * Full-width block after the sticky tabs/chips and before the event grid
+   * (e.g. Restaurant Week teaser on Food & Drinks).
+   */
+  listLead?: ReactNode;
 }
 
 export function FilteredEventList({
@@ -146,6 +151,7 @@ export function FilteredEventList({
   persistTimeRange = false,
   stickyLead,
   locationPicker,
+  listLead,
 }: FilteredEventListProps) {
   const pathname = usePathname();
   const { view: preferredView, setView } = useEventListView();
@@ -470,6 +476,8 @@ export function FilteredEventList({
           </StickyListFilters>
         </>
       ) : null}
+
+      {listLead}
 
       {(sectionTitle || showToggleInTitle) && (
         <div className="mb-3 flex items-center justify-between gap-2">

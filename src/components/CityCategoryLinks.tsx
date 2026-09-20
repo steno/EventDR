@@ -205,16 +205,19 @@ export function CityCategoryLinks({
     };
   }, [activeKey]);
 
-  // Home → category: skip the hero and park the icon row under the sticky
-  // header so the active pill stays on screen. onlyScrollDown avoids yanking
-  // up after detail→back scroll restoration mid-list.
+  // Home → category: park campaign content (or the icon row) under the sticky
+  // header. Prefer `[data-category-landing-anchor]` when present so strips like
+  // Restaurant Week aren’t scrolled past. onlyScrollDown avoids yanking up
+  // after detail→back scroll restoration mid-list.
   useEffect(() => {
     if (!hasSelectedCategory) return;
 
     const timeoutId = window.setTimeout(() => {
-      const nav = navRef.current;
-      if (!nav) return;
-      scrollToListTop(nav, { onlyScrollDown: true });
+      const landing =
+        document.querySelector<HTMLElement>("[data-category-landing-anchor]") ??
+        navRef.current;
+      if (!landing) return;
+      scrollToListTop(landing, { onlyScrollDown: true });
     }, 150);
 
     return () => window.clearTimeout(timeoutId);
