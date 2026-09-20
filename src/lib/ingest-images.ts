@@ -7,6 +7,7 @@ import * as cheerio from "cheerio";
 import { getEventImageUrl } from "@/lib/event-images";
 import { getVenueImageUrl } from "@/lib/venue-images";
 import { uploadEventImageBytes } from "@/lib/firebase/images";
+import { isOptimizableImageSrc } from "@/lib/optimizable-image";
 import { imageSearch } from "@/lib/scrape";
 import { SITE_URL } from "@/lib/site-url";
 import {
@@ -242,8 +243,13 @@ async function pickValidatedUploadedImage(
     );
     if (uploaded.ok) return uploaded.url;
 
-    // Storage unavailable — keep validated remote URL (better than no image).
-    if (uploaded.reason === "storage_unavailable") return candidate;
+    // Storage unavailable — only keep remotes next/image + CSP can serve.
+    if (
+      uploaded.reason === "storage_unavailable" &&
+      isOptimizableImageSrc(candidate)
+    ) {
+      return candidate;
+    }
   }
   return undefined;
 }
@@ -345,7 +351,10 @@ export async function attachIngestImages(events: Event[]): Promise<Event[]> {
           if (uploaded.ok) {
             return { id: event.id, imageUrl: uploaded.url };
           }
-          if (uploaded.reason === "storage_unavailable") {
+          if (
+            uploaded.reason === "storage_unavailable" &&
+            isOptimizableImageSrc(event.imageUrl.trim())
+          ) {
             return { id: event.id, imageUrl: event.imageUrl.trim() };
           }
         }

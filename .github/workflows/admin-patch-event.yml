@@ -1,0 +1,42 @@
+name: Admin patch event
+
+on:
+  workflow_dispatch:
+    inputs:
+      event_id:
+        description: Firestore event id to patch
+        required: true
+        type: string
+      image_url:
+        description: New imageUrl (local /events/... path or Firebase Storage URL)
+        required: true
+        type: string
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: PATCH /api/admin/event
+        env:
+          SITE_URL: https://pop-event.com
+          CRON_SECRET: ${{ secrets.CRON_SECRET }}
+          EVENT_ID: ${{ inputs.event_id }}
+          IMAGE_URL: ${{ inputs.image_url }}
+        run: |
+          if [ -z "$CRON_SECRET" ]; then
+            echo "CRON_SECRET secret not set"
+            exit 1
+          fi
+          body=$(jq -n --arg imageUrl "$IMAGE_URL" '{imageUrl: $imageUrl}')
+          res=$(curl -sS -w "\n%{http_code}" -X PATCH \
+            -H "Authorization: Bearer ${CRON_SECRET}" \
+            -H "Content-Type: application/json" \
+            -d "$body" \
+            "${SITE_URL}/api/admin/event?id=${EVENT_ID}")
+          http=$(echo "$res" | tail -n1)
+          body_out=$(echo "$res" | sed '$d')
+          echo "HTTP ${http}"
+          echo "$body_out"
+          if [ "$http" -lt 200 ] || [ "$http" -ge 300 ]; then
+            exit 22
+          fi

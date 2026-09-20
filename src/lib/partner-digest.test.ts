@@ -8,8 +8,10 @@ const FRIDAY = new Date("2026-07-31T18:00:00.000Z");
 
 function event(partial: Partial<Event> & Pick<Event, "id" | "title" | "date">): Event {
   return {
+    description: "",
+    location: "Puerto Plata",
     category: "culture",
-    source: "seed",
+    format: "physical",
     ...partial,
   };
 }
