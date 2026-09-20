@@ -1,5 +1,6 @@
 /** Maps seed event ids to image files under /public/events (synced from popevent-images). */
 import { getAppVersion } from "./app-version";
+import { isOptimizableImageSrc } from "./optimizable-image";
 import { getVenueImageUrl } from "./venue-images";
 
 const EVENT_IMAGE_FILES: Record<string, string> = {
@@ -334,6 +335,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
 const EVENT_IMAGE_ALIASES: Record<string, string> = {
   "ingest-1783371784615-0-18th-annual-cabarete-butterfly-effect":
     "ingest-18th-annual-cabarete-butterfly-effect",
+  // Firestore still holds a Veronika/GYG remote; CSP + next/image block it.
+  "ingest-deep-caves-tour": "el-choco-cave-tour-swimming-daily",
   "museo-ambar-saturday": "museo-ambar-weekdays",
   "gym-sov-zumba-lift-thursday": "gym-sov-zumba-tuesday",
   "flip-flop-weekday-happy-hour": "flip-flop-monday-happy-hour",
@@ -714,22 +717,9 @@ export function getEventCardObjectPosition(eventId: string): string {
 function storedHeroIsDisplayable(url: string | undefined): boolean {
   const stored = url?.trim();
   if (!stored) return false;
-  // OTA thumbs hotlink-block and aren't on the next/image allowlist —
-  // they render as an empty hero. Keep other remotes and local paths.
-  try {
-    const host = new URL(stored).hostname.toLowerCase();
-    if (
-      host === "cdn.getyourguide.com" ||
-      host.endsWith(".getyourguide.com") ||
-      host.endsWith(".viator.com") ||
-      host.endsWith(".civitatis.com")
-    ) {
-      return false;
-    }
-  } catch {
-    return stored.startsWith("/");
-  }
-  return true;
+  // Heroes must be next/image + CSP-safe. Random OTA/operator remotes
+  // (GetYourGuide, Veronika, etc.) render as empty <img> under img-src.
+  return isOptimizableImageSrc(stored);
 }
 
 export function attachEventImage<
