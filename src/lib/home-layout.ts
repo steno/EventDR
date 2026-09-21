@@ -770,6 +770,60 @@ export function getFeaturedVenues(
   ).slice(0, limit);
 }
 
+/**
+ * Events that must be in the first home HTML so rails paint without the full
+ * catalog. Client hydrates the rest via `/api/events`.
+ */
+export function collectHomeBootstrapEvents(
+  events: Event[],
+  options: TodayHighlightOptions = {},
+): Event[] {
+  if (events.length === 0) return [];
+
+  const layout = getHomeDiscoverLayout(events, options);
+  const byId = new Map<string, Event>();
+  const add = (list: Event[]) => {
+    for (const event of list) byId.set(event.id, event);
+  };
+
+  if (layout.heroEvent) byId.set(layout.heroEvent.id, layout.heroEvent);
+  add(layout.specialEvents);
+  add(layout.todayEvents.slice(0, HOME_TODAY_LIMIT));
+  add(layout.weekendEvents.slice(0, HOME_WEEKEND_LIMIT));
+  add(layout.comingUpEvents.slice(0, HOME_COMING_UP_LIMIT));
+  add(layout.newEvents.slice(0, HOME_NEW_LIMIT));
+
+  return [...byId.values()];
+}
+
+/**
+ * Venues needed for home first paint (audience sliders + closed featured).
+ * Full directory arrives via `/api/venues` after hydrate.
+ */
+export function collectHomeBootstrapVenues(venues: Venue[]): Venue[] {
+  if (venues.length === 0) return [];
+
+  const poolSlugs = new Set<string>([
+    ...VENUE_AUDIENCE_POOLS.local,
+    ...VENUE_AUDIENCE_POOLS.visitor,
+  ]);
+  const bySlug = new Map<string, Venue>();
+
+  for (const audience of VENUE_AUDIENCE_FILTERS) {
+    for (const venue of getFeaturedVenues(venues, audience, HOME_VENUE_LIMIT)) {
+      bySlug.set(venue.slug, venue);
+    }
+  }
+
+  for (const venue of venues) {
+    if (venue.temporarilyClosed && poolSlugs.has(venue.slug)) {
+      bySlug.set(venue.slug, venue);
+    }
+  }
+
+  return [...bySlug.values()];
+}
+
 /** Full listing page for the active home time filter (one-shot expand via ?all=1). */
 export function homeViewAllPath(
   locale: string,

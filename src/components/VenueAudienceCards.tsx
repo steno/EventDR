@@ -275,7 +275,10 @@ export function VenueAudienceCards({
   const [mediaEnabled, setMediaEnabled] = useState(false);
 
   useEffect(() => {
-    if (initialVenues?.length) return;
+    if (initialVenues?.length) {
+      setVenues(initialVenues);
+      return;
+    }
     fetch(`/api/venues?locale=${locale}`)
       .then((r) => r.json())
       .then((d: { venues?: Venue[] }) => setVenues(d.venues ?? []))

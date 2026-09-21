@@ -10,6 +10,10 @@ import {
   buildOrganizationJsonLd,
   buildWebSiteJsonLd,
 } from "@/lib/seo";
+import {
+  collectHomeBootstrapEvents,
+  collectHomeBootstrapVenues,
+} from "@/lib/home-layout";
 import { slimVenuesForList } from "@/lib/list-payload";
 import { getPublicEvents } from "@/lib/public-events";
 import { getVenues } from "@/lib/venues";
@@ -48,12 +52,14 @@ export default async function Page({
         : null;
 
   const dict = getDictionary(locale);
-  const [venues, initialEvents] = await Promise.all([
+  const [venues, catalogEvents] = await Promise.all([
     getVenues(locale),
     getPublicEvents({ locale }),
   ]);
-  // Events are already list-slimmed by getPublicEvents; venues still need Places dumps stripped.
+  // First HTML only needs rail events + slider venues; client hydrates the rest.
   const listVenues = slimVenuesForList(venues);
+  const initialEvents = collectHomeBootstrapEvents(catalogEvents);
+  const initialVenues = collectHomeBootstrapVenues(listVenues);
   return (
     <>
       <JsonLd
@@ -67,8 +73,9 @@ export default async function Page({
       <Home
         locale={locale}
         dict={dict}
-        initialVenues={listVenues}
+        initialVenues={initialVenues}
         initialEvents={initialEvents}
+        hydrateFullCatalog
         initialCityParam={initialCityParam}
       />
     </>

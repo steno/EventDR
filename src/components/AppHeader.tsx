@@ -63,10 +63,10 @@ export function AppHeader({
         }}
       >
         <Image
-          src="/pop-home-logo.png"
+          src="/pop-home-logo.webp"
           alt={dict.seo.siteName}
-          width={184}
-          height={184}
+          width={192}
+          height={192}
           // Splash already preloads + fetchPriority=high this asset; skip competing priority.
           className="h-14 w-auto object-contain sm:h-20 no-photo-filter"
         />

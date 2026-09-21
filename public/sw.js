@@ -1,6 +1,7 @@
-const CACHE_NAME = "eventdr-v19";
+const CACHE_NAME = "eventdr-v20";
 const STATIC_ASSETS = [
   "/manifest.webmanifest",
+  "/pop-home-logo.webp",
   "/pop-home-logo.png",
   "/icons/icon-192.png",
   "/icons/icon-512.png",

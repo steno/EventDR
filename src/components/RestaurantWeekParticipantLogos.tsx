@@ -43,7 +43,6 @@ interface RestaurantWeekParticipantLogosProps {
   openVenueLabel: string;
   openEventLabel: string;
   filterLabel: string;
-  filterAll: string;
   emptyArea: string;
 }
 
@@ -68,10 +67,9 @@ export function RestaurantWeekParticipantLogos({
   openVenueLabel,
   openEventLabel,
   filterLabel,
-  filterAll,
   emptyArea,
 }: RestaurantWeekParticipantLogosProps) {
-  const [area, setArea] = useState<CitySlug | null>(null);
+  const [area, setArea] = useState<CitySlug>("puerto-plata");
   const [pendingId, setPendingId] = useState<string | null>(null);
   const participants = useMemo(
     () => getRestaurantWeekLogoParticipants(area),
@@ -87,11 +85,6 @@ export function RestaurantWeekParticipantLogos({
         role="tablist"
         aria-label={filterLabel}
       >
-        <AreaChip
-          selected={area === null}
-          onSelect={() => setArea(null)}
-          label={filterAll}
-        />
         {AREA_ORDER.map((slug) => {
           const city = getCityMeta(slug);
           if (!city) return null;

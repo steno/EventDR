@@ -218,6 +218,9 @@ export function EventDetailContent({
             </span>
           </div>
         )}
+        {useRestaurantWeekLogos ? (
+          <p className="text-copy">{event.description}</p>
+        ) : null}
         {hasParticipants && (
           <div className={useRestaurantWeekLogos ? undefined : "pl-[1.875rem]"}>
             <div className="mb-1.5 flex items-center gap-1.5 text-neutral-500">
@@ -234,7 +237,6 @@ export function EventDetailContent({
                 openVenueLabel={dict.events.restaurantWeek.openVenue}
                 openEventLabel={dict.events.restaurantWeek.openEvent}
                 filterLabel={dict.events.restaurantWeek.filterLabel}
-                filterAll={dict.events.restaurantWeek.filterAll}
                 emptyArea={dict.events.restaurantWeek.emptyArea}
               />
             ) : (
@@ -312,15 +314,17 @@ export function EventDetailContent({
         />
       </nav>
 
-      <p
-        className={
-          standalone
-            ? "mt-3 text-copy leading-[1.35]"
-            : "mt-5 text-copy"
-        }
-      >
-        {event.description}
-      </p>
+      {!useRestaurantWeekLogos ? (
+        <p
+          className={
+            standalone
+              ? "mt-3 text-copy leading-[1.35]"
+              : "mt-5 text-copy"
+          }
+        >
+          {event.description}
+        </p>
+      ) : null}
 
       {eventOpinion ? (
         <EventOpinionBlock

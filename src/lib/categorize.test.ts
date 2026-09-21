@@ -314,3 +314,64 @@ describe("dining listings do not inherit Music from house-band copy", () => {
     }
   });
 });
+
+describe("típico / typique adjective vs music genre", () => {
+  it("does not treat Horarios típicos / Créneaux typiques as Music", () => {
+    assert.equal(
+      inferSecondaryCategories(
+        "Horarios típicos ~8 AM, 10 AM, 2 PM y 4 PM",
+        "adventure",
+      ).includes("music"),
+      false,
+    );
+    assert.equal(
+      inferSecondaryCategories(
+        "Créneaux typiques ~8 h, 10 h, 14 h et 16 h",
+        "adventure",
+      ).includes("music"),
+      false,
+    );
+    assert.equal(
+      inferSecondaryCategories(
+        "Horario típico 4–8 PM. Gasto típico DOP 500.",
+        "culture",
+      ).includes("music"),
+      false,
+    );
+  });
+
+  it("still tags real típico genre phrases as Music", () => {
+    assert.ok(
+      inferSecondaryCategories(
+        "Live típico with La Fiera Típica on the Cofresí terrace",
+        "parties",
+      ).includes("music"),
+    );
+    assert.ok(
+      inferSecondaryCategories(
+        "Accordion típico with Dewry Luciano at Zona Acapella",
+        "parties",
+      ).includes("music"),
+    );
+    assert.ok(
+      inferSecondaryCategories(
+        "Street food with música típica on the malecón",
+        "parties",
+      ).includes("music"),
+    );
+  });
+
+  it("keeps classic-cars tour off Music across locales", () => {
+    for (const locale of ["en", "es", "fr"] as const) {
+      const event = getFallbackEventById(
+        "classic-cars-puerto-plata-daily",
+        locale,
+      );
+      assert.ok(event, locale);
+      const resolved = withResolvedCategories(event);
+      assert.equal(eventInCategory(resolved, "adventure"), true, locale);
+      assert.equal(eventInCategory(resolved, "culture"), true, locale);
+      assert.equal(eventInCategory(resolved, "music"), false, locale);
+    }
+  });
+});

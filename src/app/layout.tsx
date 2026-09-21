@@ -57,7 +57,12 @@ export default function RootLayout({
         <ThemeScript />
         <PwaInstallCapture />
         <style dangerouslySetInnerHTML={{ __html: bootSplashCriticalCss }} />
-        <link rel="preload" href="/pop-home-logo.png" as="image" />
+        <link
+          rel="preload"
+          href="/pop-home-logo.webp"
+          as="image"
+          type="image/webp"
+        />
         {/* Ingested / uploaded event media — warm DNS+TLS before first remote thumb. */}
         <link rel="dns-prefetch" href="https://firebasestorage.googleapis.com" />
         <link
@@ -87,14 +92,17 @@ export default function RootLayout({
           suppressHydrationWarning
         >
           {/* eslint-disable-next-line @next/next/no-img-element -- must load before Next/Image hydrates */}
-          <img
-            src="/pop-home-logo.png"
-            alt=""
-            width={120}
-            height={120}
-            decoding="sync"
-            fetchPriority="high"
-          />
+          <picture>
+            <source srcSet="/pop-home-logo.webp" type="image/webp" />
+            <img
+              src="/pop-home-logo.png"
+              alt=""
+              width={120}
+              height={120}
+              decoding="sync"
+              fetchPriority="high"
+            />
+          </picture>
           <span className="sr-only">Loading</span>
           {/* Pure CSS spinner — no JS required (critical on Slow 3G before React) */}
           <div className="boot-spinner" aria-hidden>

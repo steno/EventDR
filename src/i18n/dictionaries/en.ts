@@ -121,7 +121,6 @@ export type Dictionary = {
       priceLine: string;
       cta: string;
       filterLabel: string;
-      filterAll: string;
       emptyArea: string;
       openVenue: string;
       openEvent: string;
@@ -763,7 +762,6 @@ export const en: Dictionary = {
       priceLine: "2 courses RD$1,595 · 3 courses RD$1,995 (+ tax)",
       cta: "Explore the week",
       filterLabel: "Filter restaurants by area",
-      filterAll: "All areas",
       emptyArea: "No participating restaurants in this area.",
       openVenue: "Open {name}",
       openEvent: "See {name} on Restaurant Week",

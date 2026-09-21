@@ -67,10 +67,10 @@ export default async function Page({
           />
 
           <div className="mb-5">
-            <h1 className="text-title font-extrabold tracking-tight text-neutral-900 dark:text-neutral-100">
+            <h1 className="text-display font-extrabold tracking-tight text-neutral-900 dark:text-neutral-100">
               {dict.venues.directory.title}
             </h1>
-            <p className="mt-1 max-w-2xl text-sm font-medium text-neutral-500 dark:text-neutral-400 sm:text-base">
+            <p className="mt-1.5 max-w-2xl text-base font-medium text-neutral-500 dark:text-neutral-400 sm:text-lg">
               {dict.venues.directory.intro}
             </p>
           </div>

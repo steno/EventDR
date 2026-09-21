@@ -59,7 +59,7 @@ function LetterJumpNav({
           return (
             <span
               key={letter}
-              className="inline-flex h-8 min-w-8 items-center justify-center px-1 text-xs font-bold text-neutral-300 dark:text-neutral-700"
+              className="inline-flex h-9 min-w-9 items-center justify-center px-1 text-sm font-bold text-neutral-300 dark:text-neutral-700"
               aria-hidden
             >
               {letter}
@@ -71,8 +71,8 @@ function LetterJumpNav({
             key={letter}
             href={`#${venueDirectorySectionId(letter)}`}
             className="
-              inline-flex h-8 min-w-8 items-center justify-center rounded-md px-1
-              text-xs font-bold text-neutral-600 transition-colors touch-manipulation
+              inline-flex h-9 min-w-9 items-center justify-center rounded-md px-1
+              text-sm font-bold text-neutral-600 transition-colors touch-manipulation
               hover:bg-orange-50 hover:text-orange-700
               dark:text-neutral-300 dark:hover:bg-orange-950/40 dark:hover:text-orange-300
             "
@@ -129,20 +129,20 @@ function VenueListRow({
         )}
       </div>
       <div className="min-w-0 flex-1">
-        <p className="truncate text-base font-bold text-neutral-900 dark:text-neutral-100">
+        <p className="truncate text-lg font-bold text-neutral-900 dark:text-neutral-100">
           {venue.name}
         </p>
-        <p className="mt-0.5 flex items-center gap-1 text-xs font-medium text-neutral-500 dark:text-neutral-400">
-          <MapPin className="h-3.5 w-3.5 shrink-0" aria-hidden />
+        <p className="mt-0.5 flex items-center gap-1 text-sm font-medium text-neutral-500 dark:text-neutral-400">
+          <MapPin className="h-4 w-4 shrink-0" aria-hidden />
           <span className="truncate">{venue.city}</span>
         </p>
         {venue.description ? (
-          <p className="mt-1 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400">
+          <p className="mt-1 line-clamp-2 text-base text-neutral-600 dark:text-neutral-400">
             {venue.description}
           </p>
         ) : null}
         {upcomingCount > 0 ? (
-          <p className="mt-1 text-xs font-semibold text-orange-600 dark:text-orange-400">
+          <p className="mt-1 text-sm font-semibold text-orange-600 dark:text-orange-400">
             {upcomingLabel(dict, upcomingCount)}
           </p>
         ) : null}
@@ -200,19 +200,19 @@ function VenueCard({
         )}
       </div>
       <div className="flex flex-1 flex-col gap-1 px-3 py-2.5 sm:px-3.5 sm:py-3">
-        <h3 className="font-sans text-sm font-semibold leading-snug tracking-tight text-neutral-950 dark:text-neutral-50 sm:text-base">
+        <h3 className="font-sans text-base font-semibold leading-snug tracking-tight text-neutral-950 dark:text-neutral-50 sm:text-lg">
           {venue.name}
         </h3>
-        <p className="text-xs font-semibold text-orange-600 dark:text-orange-400">
+        <p className="text-sm font-semibold text-orange-600 dark:text-orange-400">
           {venue.city}
         </p>
         {venue.description ? (
-          <p className="mt-0.5 line-clamp-2 text-xs text-neutral-600 dark:text-neutral-400 sm:text-sm">
+          <p className="mt-0.5 line-clamp-2 text-sm text-neutral-600 dark:text-neutral-400 sm:text-base">
             {venue.description}
           </p>
         ) : null}
         {upcomingCount > 0 ? (
-          <p className="mt-auto pt-1 text-xs font-semibold text-orange-600 dark:text-orange-400">
+          <p className="mt-auto pt-1 text-sm font-semibold text-orange-600 dark:text-orange-400">
             {upcomingLabel(dict, upcomingCount)}
           </p>
         ) : null}

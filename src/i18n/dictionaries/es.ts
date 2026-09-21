@@ -128,7 +128,6 @@ export const es: Dictionary = {
       priceLine: "2 tiempos RD$1,595 · 3 tiempos RD$1,995 (+ imp.)",
       cta: "Ver la semana",
       filterLabel: "Filtrar restaurantes por zona",
-      filterAll: "Todas las zonas",
       emptyArea: "No hay restaurantes participantes en esta zona.",
       openVenue: "Abrir {name}",
       openEvent: "Ver {name} en Restaurant Week",

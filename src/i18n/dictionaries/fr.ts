@@ -128,7 +128,6 @@ export const fr: Dictionary = {
       priceLine: "2 plats RD$1 595 · 3 plats RD$1 995 (+ taxes)",
       cta: "Voir la semaine",
       filterLabel: "Filtrer les restaurants par zone",
-      filterAll: "Toutes les zones",
       emptyArea: "Aucun restaurant participant dans cette zone.",
       openVenue: "Ouvrir {name}",
       openEvent: "Voir {name} sur Restaurant Week",

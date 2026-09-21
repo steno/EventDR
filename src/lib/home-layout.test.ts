@@ -1,6 +1,8 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import {
+  collectHomeBootstrapEvents,
+  collectHomeBootstrapVenues,
   getComingUpHighlightEvents,
   getHomeDiscoverLayout,
   getNewHighlightEvents,
@@ -11,7 +13,7 @@ import {
   HOME_WEEKEND_LIMIT,
   seededShuffle,
 } from "./home-layout";
-import type { Event } from "./types";
+import type { Event, Venue } from "./types";
 
 /** Tuesday Aug 25, 2026 14:00 America/Santo_Domingo (UTC−4). */
 const AFTERNOON = new Date("2026-08-25T18:00:00.000Z");
@@ -753,5 +755,62 @@ describe("getHomeDiscoverLayout hero background", () => {
       shuffleSeed: "hero-sancocho",
     });
     assert.equal(layout.heroEvent, null);
+  });
+});
+
+describe("collectHomeBootstrapEvents", () => {
+  it("keeps rail events and drops the rest of the catalog", () => {
+    const today = "2026-08-25";
+    const special = event({
+      id: "special-1",
+      title: "Special tonight",
+      date: today,
+      time: "20:00",
+      createdAt: "2026-08-20T12:00:00.000Z",
+    });
+    const filler = Array.from({ length: 40 }, (_, i) =>
+      event({
+        id: `filler-${i}`,
+        title: `Filler ${i}`,
+        date: "2026-10-01",
+        time: "19:00",
+        createdAt: "2026-01-01T12:00:00.000Z",
+      }),
+    );
+    const bootstrap = collectHomeBootstrapEvents([special, ...filler], {
+      now: AFTERNOON,
+    });
+    assert.ok(bootstrap.some((e) => e.id === "special-1"));
+    assert.ok(bootstrap.length < 40);
+    assert.ok(bootstrap.length >= 1);
+  });
+});
+
+describe("collectHomeBootstrapVenues", () => {
+  it("returns featured audience venues only", () => {
+    const venues: Venue[] = [
+      {
+        slug: "ground-zero-disco",
+        name: "Ground Zero",
+        city: "Sosúa",
+        description: "Nightclub",
+        lat: 19.8,
+        lng: -70.5,
+      },
+      {
+        slug: "not-in-any-pool",
+        name: "Other",
+        city: "Sosúa",
+        description: "Skip me",
+        lat: 19.8,
+        lng: -70.5,
+      },
+    ];
+    const bootstrap = collectHomeBootstrapVenues(venues);
+    assert.ok(bootstrap.some((v) => v.slug === "ground-zero-disco"));
+    assert.equal(
+      bootstrap.some((v) => v.slug === "not-in-any-pool"),
+      false,
+    );
   });
 });

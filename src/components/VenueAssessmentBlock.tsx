@@ -63,7 +63,7 @@ export function VenueAssessmentBlock({
         <div className="relative mt-0.5 h-10 w-10 shrink-0 overflow-hidden rounded-full bg-gradient-to-br from-orange-500 via-rose-500 to-fuchsia-500 p-[2px] shadow-sm shadow-rose-500/25">
           <div className="flex h-full w-full items-center justify-center overflow-hidden rounded-full bg-white dark:bg-neutral-950">
             <Image
-              src="/pop-home-logo.png"
+              src="/pop-home-logo.webp"
               alt=""
               width={36}
               height={36}

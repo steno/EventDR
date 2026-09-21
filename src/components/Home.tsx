@@ -15,19 +15,12 @@ import { useRouter } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { AppHeader } from "@/components/AppHeader";
 import { PhotoHero } from "@/components/PhotoHero";
-import { CruiseDiscover } from "@/components/CruiseDiscover";
 import { CruiseShipEntry } from "@/components/CruiseShipEntry";
 import { CategoryGrid } from "@/components/CategoryGrid";
 import { CityLocationPicker } from "@/components/CityLocationPicker";
 import { EventList } from "@/components/EventList";
 import { SearchBar } from "@/components/SearchBar";
-import { SearchVenueHits } from "@/components/SearchVenueHits";
 import { BottomNav } from "@/components/BottomNav";
-import { EventCard } from "@/components/EventCard";
-import { VenueAudienceCards } from "@/components/VenueAudienceCards";
-import { TodayHighlights } from "@/components/TodayHighlights";
-import { NewsletterSignup } from "@/components/NewsletterSignup";
-import { RestaurantWeekPromo } from "@/components/RestaurantWeekPromo";
 import { getHomeAlerts } from "@/lib/alerts";
 import { LG_MEDIA_QUERY } from "@/lib/breakpoints";
 import {
@@ -92,6 +85,34 @@ const InstallBanner = dynamic(
   { ssr: false },
 );
 
+const TodayHighlights = dynamic(() =>
+  import("@/components/TodayHighlights").then((m) => m.TodayHighlights),
+);
+
+const VenueAudienceCards = dynamic(() =>
+  import("@/components/VenueAudienceCards").then((m) => m.VenueAudienceCards),
+);
+
+const NewsletterSignup = dynamic(() =>
+  import("@/components/NewsletterSignup").then((m) => m.NewsletterSignup),
+);
+
+const RestaurantWeekPromo = dynamic(() =>
+  import("@/components/RestaurantWeekPromo").then((m) => m.RestaurantWeekPromo),
+);
+
+const CruiseDiscover = dynamic(() =>
+  import("@/components/CruiseDiscover").then((m) => m.CruiseDiscover),
+);
+
+const SearchVenueHits = dynamic(() =>
+  import("@/components/SearchVenueHits").then((m) => m.SearchVenueHits),
+);
+
+const EventCard = dynamic(() =>
+  import("@/components/EventCard").then((m) => m.EventCard),
+);
+
 
 interface HomeProps {
   locale: Locale;
@@ -99,6 +120,11 @@ interface HomeProps {
   initialVenues?: Venue[];
   /** SSR event catalog so home skips a duplicate client Firestore fetch. */
   initialEvents?: Event[];
+  /**
+   * SSR only shipped rail/slider rows — still soft-fetch `/api/events` +
+   * `/api/venues` after paint for search, saved, and city filters.
+   */
+  hydrateFullCatalog?: boolean;
   /**
    * `?city=` from the server request — keeps first HTML useful without
    * `useSearchParams` (which would blank the page behind Suspense until JS).
@@ -120,6 +146,7 @@ export function Home({
   dict,
   initialVenues,
   initialEvents = [],
+  hydrateFullCatalog = false,
   initialCityParam = null,
   initialCruisePort = null,
   initialAllAboardParam = null,
@@ -130,6 +157,7 @@ export function Home({
       dict={dict}
       initialVenues={initialVenues}
       initialEvents={initialEvents}
+      hydrateFullCatalog={hydrateFullCatalog}
       cityQuery={initialCityParam}
       initialCruisePort={initialCruisePort}
       initialAllAboardParam={initialAllAboardParam}
@@ -142,6 +170,7 @@ function HomeApp({
   dict,
   initialVenues,
   initialEvents = [],
+  hydrateFullCatalog = false,
   cityQuery: cityQueryProp,
   initialCruisePort = null,
   initialAllAboardParam = null,
@@ -191,14 +220,24 @@ function HomeApp({
   useEffect(() => {
     if (initialVenues?.length) {
       setVenues(initialVenues);
-      return;
     }
-    if (venues.length > 0) return;
+    if (!hydrateFullCatalog) {
+      if (initialVenues?.length) return;
+      if (venues.length > 0) return;
+    }
+    let cancelled = false;
     fetch(`/api/venues?locale=${locale}`)
       .then((r) => r.json())
-      .then((d: { venues?: Venue[] }) => setVenues(d.venues ?? []))
+      .then((d: { venues?: Venue[] }) => {
+        if (!cancelled) setVenues(d.venues ?? []);
+      })
       .catch(() => {});
-  }, [initialVenues, locale, venues.length]);
+    return () => {
+      cancelled = true;
+    };
+    // venues.length only gates the non-hydrate empty case on first mount.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [initialVenues, locale, hydrateFullCatalog]);
   /**
    * Local area override — wins over URL city.
    * Used for session restore on bare `/[locale]` and for chip clicks so we can
@@ -803,7 +842,7 @@ function HomeApp({
                 <VenueAudienceCards
                   locale={locale}
                   dict={dict}
-                  initialVenues={initialVenues}
+                  initialVenues={venues}
                   citySlug={selectedCity}
                 />
               )}
@@ -891,6 +930,7 @@ function HomeApp({
             limit={HOME_SEARCH_LIMIT}
             silent={tab !== "discover" || !isSearching}
             initialEvents={initialEvents}
+            hydrateFullCatalog={hydrateFullCatalog}
           />
         </div>
       </main>

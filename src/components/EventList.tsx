@@ -75,6 +75,11 @@ interface EventListProps {
   silent?: boolean;
   /** SSR catalog — skips the mount fetch when non-empty (saves Firestore reads). */
   initialEvents?: Event[];
+  /**
+   * When true with a non-empty `initialEvents`, seed the UI from SSR then still
+   * fetch `/api/events` (home bootstrap rails vs full catalog).
+   */
+  hydrateFullCatalog?: boolean;
 }
 
 export function EventList({
@@ -97,6 +102,7 @@ export function EventList({
   onAddEvent,
   silent = false,
   initialEvents = EMPTY_EVENTS,
+  hydrateFullCatalog = false,
 }: EventListProps) {
   const listReturnTo =
     returnTo ?? (category ? categoryPath(locale, category) : `/${locale}`);
@@ -113,7 +119,10 @@ export function EventList({
   const onEventsLoadedRef = useRef(onEventsLoaded);
   const scrollAnchorRef = useRef<HTMLDivElement>(null);
   const scrolledTimeRangeRef = useRef<FilterTimeRange | null>(null);
-  const skipMountFetch = useRef(initialEvents.length > 0);
+  // Bootstrap-only SSR still needs a background catalog fetch for search/saved.
+  const skipMountFetch = useRef(
+    initialEvents.length > 0 && !hydrateFullCatalog,
+  );
   const { view: listView, setView } = useEventListView();
   const [gridRef, columns] = useCardGridColumns(listView === "cards");
 
@@ -205,7 +214,18 @@ export function EventList({
       readyBootPart("events");
       return;
     }
+    if (hydrateFullCatalog && initialEvents.length > 0) {
+      // First paint from SSR rails; soft-fetch full catalog without a skeleton flash.
+      setEvents(initialEvents);
+      onEventsLoadedRef.current?.(initialEvents);
+      setLoading(false);
+      readyBootPart("events");
+      void fetchEvents({ showLoading: false });
+      return;
+    }
     void fetchEvents({ showLoading: true });
+    // initialEvents / hydrateFullCatalog are mount-time SSR inputs only.
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- avoid re-fetch on prop identity churn
   }, [fetchEvents, refreshKey]);
 
   const softRefresh = useCallback(() => {

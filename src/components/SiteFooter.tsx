@@ -87,10 +87,10 @@ export function SiteFooter({
               className="inline-block shrink-0 justify-self-start focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
             >
               <Image
-                src="/pop-home-logo.png"
+                src="/pop-home-logo.webp"
                 alt={dict.seo.siteName}
-                width={148}
-                height={148}
+                width={192}
+                height={192}
                 className="h-10 w-auto object-contain no-photo-filter sm:h-11 lg:h-12"
               />
             </Link>

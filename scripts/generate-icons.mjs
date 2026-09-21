@@ -14,10 +14,18 @@ const headerLogoOut = join(root, "public", "pop-home-logo.png");
 const whiteBackground = { r: 255, g: 255, b: 255, alpha: 1 };
 const transparentBackground = { r: 0, g: 0, b: 0, alpha: 0 };
 
-/** Header mark from pop-home-logo.jpeg with black keyed to transparency. */
+/**
+ * Header / splash mark from pop-home-logo.jpeg with black keyed to transparency.
+ * 192px covers 7rem splash + header (h-14→h-20) at 2–3× DPR without the old
+ * 368px RGBA PNG (~110 KB) that dominated mobile LCP.
+ */
 async function writeHeaderLogo() {
+  const headerLogoWebpOut = join(root, "public", "pop-home-logo.webp");
   const raw = await sharp(jpegLogoPath)
-    .resize(368, 368, { fit: "contain", background: { r: 0, g: 0, b: 0, alpha: 1 } })
+    .resize(192, 192, {
+      fit: "contain",
+      background: { r: 0, g: 0, b: 0, alpha: 1 },
+    })
     .ensureAlpha()
     .raw()
     .toBuffer({ resolveWithObject: true });
@@ -33,12 +41,24 @@ async function writeHeaderLogo() {
     }
   }
 
-  await sharp(data, {
+  const rgba = {
     raw: { width: info.width, height: info.height, channels: 4 },
-  })
-    .png()
+  };
+
+  await sharp(data, rgba)
+    .png({
+      compressionLevel: 9,
+      palette: true,
+      quality: 80,
+      effort: 10,
+    })
     .toFile(headerLogoOut);
   console.log(`wrote ${headerLogoOut.replace(root + "/", "")}`);
+
+  await sharp(data, rgba)
+    .webp({ quality: 82, alphaQuality: 80, effort: 6 })
+    .toFile(headerLogoWebpOut);
+  console.log(`wrote ${headerLogoWebpOut.replace(root + "/", "")}`);
 }
 
 /** Scale popevent-images/favicon.png to a square icon. */
