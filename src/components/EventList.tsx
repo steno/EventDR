@@ -440,7 +440,6 @@ export function EventList({
                 pending={pendingId === event.id}
                 dimmed={pendingId != null && pendingId !== event.id}
                 onNavigate={() => setPendingId(event.id)}
-                showEnlarge={!category}
               />
             ))}
             {showEndTeaser ? (
