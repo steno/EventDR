@@ -850,11 +850,11 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "flip-flop-sports-bar-sosua": {
-    body: "Beach-entrance sports bar at the yellow steps — come for the TVs and wings, not a Pedro Clisante disco crawl. Game days fill up; weekdays are the easy walk-in.",
+    body: "Beach-entrance sports bar at the yellow steps — NFL Sundays and big games fill the screens; come for TVs and wings, not a Pedro Clisante disco crawl. Weekdays are the easy walk-in.",
     localized: {
-      en: "Beach-entrance sports bar at the yellow steps — come for the TVs and wings, not a Pedro Clisante disco crawl. Game days fill up; weekdays are the easy walk-in.",
-      es: "Sports bar en la entrada de la playa junto a las gradas amarillas — ven por las pantallas y las alitas, no por un crawl de disco en Pedro Clisante. Los días de partido se llenan; entre semana es fácil entrar.",
-      fr: "Sports bar à l'entrée de la plage, aux marches jaunes — venez pour les écrans et les ailes, pas un crawl disco Pedro Clisante. Les jours de match se remplissent ; en semaine c'est plus facile.",
+      en: "Beach-entrance sports bar at the yellow steps — NFL Sundays and big games fill the screens; come for TVs and wings, not a Pedro Clisante disco crawl. Weekdays are the easy walk-in.",
+      es: "Sports bar en la entrada de la playa junto a las gradas amarillas — los domingos de NFL y los partidos grandes llenan las pantallas; ven por las pantallas y las alitas, no por un crawl de disco en Pedro Clisante. Entre semana es fácil entrar.",
+      fr: "Sports bar à l'entrée de la plage, aux marches jaunes — les dimanches NFL et les gros matchs remplissent les écrans ; venez pour les TVs et les ailes, pas un crawl disco Pedro Clisante. En semaine c'est plus facile.",
     },
   },
   "nonas-grill-kitchen": {

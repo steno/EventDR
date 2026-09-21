@@ -10,9 +10,6 @@ import {
   CATEGORY_PILL_PENDING,
   CATEGORY_SCROLLER_BAR,
 } from "@/components/category-scroller-styles";
-import {
-  scrollToListTop,
-} from "@/lib/list-scroll";
 import type { EventCategory } from "@/lib/types";
 
 export type RelatedCategoryLink = {
@@ -92,7 +89,6 @@ export function CityCategoryLinks({
 }: CityCategoryLinksProps) {
   const activeRef = useRef<HTMLAnchorElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
-  const navRef = useRef<HTMLElement>(null);
   const prevActiveKeyRef = useRef<string | null>(null);
   /** User soft-tap — highlight in place, then smooth-slide to center. */
   const softTapKeyRef = useRef<string | null>(null);
@@ -103,7 +99,6 @@ export function CityCategoryLinks({
     (activeHref
       ? (links.find((link) => link.href === activeHref)?.id ?? activeHref)
       : "all");
-  const hasSelectedCategory = Boolean(activeCategoryId ?? activeHref);
 
   const clearPending = () => {
     softTapKeyRef.current = null;
@@ -205,26 +200,6 @@ export function CityCategoryLinks({
     };
   }, [activeKey]);
 
-  // Home → category: park campaign content (or the icon row) under the sticky
-  // header. Prefer `[data-category-landing-anchor]` when present so strips like
-  // Restaurant Week aren’t scrolled past. onlyScrollDown avoids yanking up
-  // after detail→back scroll restoration mid-list.
-  useEffect(() => {
-    if (!hasSelectedCategory) return;
-
-    const timeoutId = window.setTimeout(() => {
-      const landing =
-        document.querySelector<HTMLElement>("[data-category-landing-anchor]") ??
-        navRef.current;
-      if (!landing) return;
-      scrollToListTop(landing, { onlyScrollDown: true });
-    }, 150);
-
-    return () => window.clearTimeout(timeoutId);
-    // Landing only — soft category swaps keep the rail in place.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   if (links.length === 0) return null;
 
   const hasActiveCategory = activeCategoryId
@@ -288,7 +263,7 @@ export function CityCategoryLinks({
   };
 
   return (
-    <nav ref={navRef} aria-label={label} data-category-nav className="mb-4">
+    <nav aria-label={label} data-category-nav className="mb-4">
       <p className="mb-2.5 text-base font-semibold text-neutral-700 dark:text-neutral-300">
         {label}
       </p>

@@ -116,7 +116,6 @@ export function RestaurantWeekPromo({
     <section
       className="mb-3 w-full sm:hidden"
       aria-labelledby={headingId}
-      data-category-landing-anchor=""
     >
       <IntentLink
         href={eventHref}

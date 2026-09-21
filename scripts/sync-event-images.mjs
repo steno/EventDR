@@ -93,6 +93,7 @@ const FILE_TO_EVENT_ID = {
   "chill-and-grill-sunday-bingo.jpg": "chill-and-grill-sunday-bingo",
   "chill-and-grill-saturday-karaoke.jpg": "chill-and-grill-saturday-karaoke",
   "flip-flop-happy-hour-schedule.jpg": "flip-flop-happy-hour-schedule",
+  "flip-flop-nfl-sunday.jpg": "flip-flop-nfl-sunday",
   "costambar-beach-fitness.png": "costambar-beach-fitness",
   // Atléticos summer league — authentic Atléticos pitcher (athleticosPOP.png); copies below.
   "athleticosPOP.png": "atleticos-pp-vs-mangueros-2026-07-17",
@@ -259,6 +260,7 @@ const FILE_TO_EVENT_ID = {
   "flip-flop-wing-wednesday.jpg": "flip-flop-wing-wednesday",
   "flip-flop-taco-tuesday.jpg": "flip-flop-taco-tuesday",
   "flip-flop-monday-happy-hour.jpg": "flip-flop-monday-happy-hour",
+  "flip-flop-nfl-sunday.jpg": "flip-flop-nfl-sunday",
   "trolley-party-saturday.jpg": "trolley-party-saturday",
 };
 

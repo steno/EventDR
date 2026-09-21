@@ -216,6 +216,7 @@ Curated images under `public/events/` and `public/venues/`.
 | `flip-flop-taco-tuesday.jpg` | POP-supplied — Flip Flop Taco Tuesday taco-salad bowl (editor-provided) | Weekly Taco Tuesday food hero |
 | `flip-flop-monday-happy-hour.jpg` | [Flip Flop Sports Bar](https://flipflop360.com/) official gallery — Presidente/Corona lineup on the bar | Monday happy-hour drinks (superseded on listings by the schedule flyer) |
 | `flip-flop-happy-hour-schedule.jpg` | Flip Flop Sports Bar official happy-hour flyer (Mon all day / Tue–Fri 2–5 PM / Sat–Sun 1–3:30 PM) | Daily happy-hour listing |
+| `flip-flop-nfl-sunday.jpg` | POP-supplied / editor-provided — Flip Flop Sports Bar NFL Sunday flyer (“Sundays is for NFL / All games live”) | Weekly NFL Sunday listing |
 | `chill-and-grill-sunday-bingo.jpg` | Chill & Grill Bar & Eatery official bingo flyer — Sunday 7:30 PM, free cards, Casa Linda Phase 7–9 | Weekly Sunday bingo listing |
 | `chill-and-grill-saturday-karaoke.jpg` | Chill & Grill Bar & Eatery official karaoke flyer — Saturday 7:30 PM, Casa Linda Phase 7–9 | Weekly Saturday karaoke listing |
 | `cigar-town-acustico-humos.jpg` | POP-supplied Cigar Town Sessions flyer (Acústico & Humos — Eddy Almonte & Café Meclao; no date on art) | Series flyer for the Aug 28 night; dateless so it can reuse for later sessions |

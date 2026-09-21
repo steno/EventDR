@@ -214,6 +214,7 @@ describe("findVenueRecurringSiblings", () => {
       siblings.map((s) => s.id).sort(),
       [
         "flip-flop-monday-happy-hour",
+        "flip-flop-nfl-sunday",
         "flip-flop-taco-tuesday",
         "flip-flop-wing-wednesday",
       ],

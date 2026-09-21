@@ -1668,6 +1668,25 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: "2026-08-26T15:30:00.000Z",
   },
   {
+    eventId: "flip-flop-nfl-sunday",
+    seriesKey: "flip-flop-sports-bar-sosua:weekly:0",
+    body: "Sunday NFL slate at the yellow steps — claim a screen seat early for the early kickoffs; wings and Presidente, not a Pedro Clisante night out.",
+    localized: {
+      es: "Cartelera de NFL del domingo en las gradas amarillas — llega temprano por asiento frente a pantallas para los primeros kickoffs; alitas y Presidente, no una noche en Pedro Clisante.",
+      fr: "Grille NFL du dimanche aux marches jaunes — arrivez tôt pour une place face aux écrans dès les premiers coups d'envoi ; ailes et Presidente, pas une soirée Pedro Clisante.",
+    },
+    priceFeel: "moderate",
+    priceNote: "No cover — pay for wings, beers, and food; all NFL games live",
+    priceNoteLocalized: {
+      es: "Sin cover — pagas alitas, cervezas y comida; todos los partidos de NFL en vivo",
+      fr: "Pas de cover — vous payez ailes, bières et nourriture ; tous les matchs NFL en direct",
+    },
+    attribution: "POP research · Flip Flop NFL Sunday flyer",
+    researchNotes:
+      "Venue flyer: SUNDAYS IS FOR NFL / ALL GAMES LIVE / Good Food, Cold Beer, Great Vibes. Yellow Steps Sosúa. Phone +1 829-817-8147.",
+    updatedAt: "2026-09-21T16:00:00.000Z",
+  },
+  {
     eventId: "los-event-trilogy-2026-09-03",
     body: "This is a booked NYC-group takeover, not a walk-up Cofresí night — buy the package or the US$200 party pass; the public beach next door is not the guest list.",
     localized: {

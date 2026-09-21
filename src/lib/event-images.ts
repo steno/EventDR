@@ -325,6 +325,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "flip-flop-wing-wednesday": "flip-flop-wing-wednesday.jpg",
   "flip-flop-taco-tuesday": "flip-flop-taco-tuesday.jpg",
   "flip-flop-monday-happy-hour": "flip-flop-happy-hour-schedule.jpg",
+  "flip-flop-nfl-sunday": "flip-flop-nfl-sunday.jpg",
   "chill-and-grill-sunday-bingo": "chill-and-grill-sunday-bingo.jpg",
   "chill-and-grill-saturday-karaoke": "chill-and-grill-saturday-karaoke.jpg",
   // Filename bump — woman at the NONAS entrance (garden patio stays on the venue).
@@ -432,6 +433,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "cheers-fire-ice-thursdays.jpg",
   "chill-and-grill-saturday-karaoke.jpg",
   "chill-and-grill-sunday-bingo.jpg",
+  "flip-flop-nfl-sunday.jpg",
   "cigar-town-acustico-humos-2026-08-14.jpg",
   "cigar-town-acustico-humos.jpg",
   "cigar-town-domingo-de-matine.jpg",

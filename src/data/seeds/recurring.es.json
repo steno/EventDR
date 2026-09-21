@@ -2436,6 +2436,29 @@
     "imageEmoji": "🍗"
   },
   {
+    "id": "flip-flop-nfl-sunday",
+    "title": "NFL Sunday en Flip Flop",
+    "description": "Los domingos son de NFL en Flip Flop Sports Bar junto a las gradas amarillas de Playa Sosúa — todos los partidos en vivo, alitas, cervezas frías y vibra de game day. Same game, different paradise. Abre 8:00 AM–10:00 PM; WhatsApp +1 829-817-8147.",
+    "date": "2026-01-01",
+    "time": "desde el primer kickoff",
+    "location": "Sosúa",
+    "venue": "Flip Flop Sports Bar",
+    "venueSlug": "flip-flop-sports-bar-sosua",
+    "address": "Calle Duarte 2, entrada de Playa Sosúa",
+    "lat": 19.7622,
+    "lng": -70.5166,
+    "category": "sports",
+    "categories": [
+      "food-drinks"
+    ],
+    "format": "physical",
+    "recurrence": "weekly",
+    "recurrenceDay": 0,
+    "phone": "+18298178147",
+    "sourceUrl": "https://flipflop360.com/",
+    "imageEmoji": "🏈"
+  },
+  {
     "id": "chill-and-grill-sunday-bingo",
     "title": "Bingo del domingo en Chill & Grill",
     "description": "Bingo los domingos en Chill & Grill Bar & Eatery en Casa Linda — 7:30 PM, cartones gratis, premios para los ganadores. Noche de vecindario en Phase 7–9, Carretera El Choco; come y bebe en el bar. WhatsApp +1 829-679-8389.",

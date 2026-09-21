@@ -267,6 +267,7 @@ export const CURATED_FREE_EVENTS = new Set<string>([
   "flip-flop-monday-happy-hour",
   "flip-flop-taco-tuesday",
   "flip-flop-wing-wednesday",
+  "flip-flop-nfl-sunday",
   "taino-bay-village-daily",
   "amber-cove-village-daily",
 ]);
