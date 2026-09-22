@@ -2818,32 +2818,6 @@
     "imageEmoji": "💃"
   },
   {
-    "id": "natura-cabana-sunset-sounds-thursday",
-    "title": "Sunset & Sounds en SunBar (Natura Cabana)",
-    "description": "Todos los jueves 6:00–9:00 PM en SunBar, Natura Cabana, Paseo del Sol #5, Perla Marina — DJs en vivo, happy hour extendido y atardecer sobre el Atlántico. Invitados distintos cada semana; confirma en naturacabana.com o +1 849-214-7010.",
-    "date": "2026-01-01",
-    "time": "6:00 PM – 9:00 PM",
-    "location": "Sosúa",
-    "venue": "Natura Cabana",
-    "venueSlug": "natura-cabana",
-    "address": "Paseo del Sol #5, Perla Marina",
-    "lat": 19.7833499,
-    "lng": -70.4621124,
-    "category": "music",
-    "categories": [
-      "music",
-      "food-drinks"
-    ],
-    "format": "physical",
-    "recurrence": "weekly",
-    "recurrenceDay": 4,
-    "callForPricing": true,
-    "phone": "+18492147010",
-    "sourceType": "flyer",
-    "sourceUrl": "https://naturacabana.com/event/events-sunset-and-sounds-cabarete/",
-    "imageEmoji": "🌅"
-  },
-  {
     "id": "serenade-dominican-night-villa-taina-weekly",
     "title": "Noche Dominicana Serenade en Villa Taina",
     "description": "Todos los lunes 7:00–9:30 PM en Serenade sobre la arena, Hotel Villa Taina, Calle Principal 1, Cabarete — buffet dominicano ilimitado con música latina en vivo. Adultos RD$952; menores de 12 mitad de precio; impuestos y servicio no incluidos. Menú a la carta si no quieres buffet. Reservas +1 809-571-0722 · @hotelvillataina.",

@@ -50,6 +50,8 @@ export const REMOVED_SEED_EVENT_IDS = new Set([
   "north-coast-tech-meetup",
   // Unverified cowork desk listing — venue itself dumped (DR365 Blue Coworking not corroborated).
   "cowork-weekdays",
+  // Duplicate of natura-sunbar-special-sunset-sounds-2026-09-24 (same flyer / Thu night).
+  "natura-cabana-sunset-sounds-thursday",
 ]);
 
 export function filterRemovedSeedEvents(events: Event[]): Event[] {

@@ -99,7 +99,6 @@ export const SEED_CREATED_AT: Readonly<Record<string, string>> = {
   "natura-sunbar-special-sunset-sounds-2026-09-24": "2026-09-22T12:00:00.000Z",
   "kaovanny-natura-cabana-2026-09-26": "2026-09-22T12:00:00.000Z",
   "sosua-coastal-pickleball-open-2026-10-24": "2026-09-22T12:00:00.000Z",
-  "natura-cabana-sunset-sounds-thursday": "2026-09-22T12:00:00.000Z",
   "serenade-dominican-night-villa-taina-weekly": "2026-09-22T12:00:00.000Z",
   "serenade-mongolian-night-villa-taina-weekly": "2026-09-22T12:00:00.000Z",
   "serenade-bbq-night-villa-taina-weekly": "2026-09-22T12:00:00.000Z",

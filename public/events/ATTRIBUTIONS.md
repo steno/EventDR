@@ -23,7 +23,6 @@ Curated images under `public/events/` and `public/venues/`.
 | `cisco-vengo-social-heartz-aura-2026-09-25.jpg` | POP-supplied — Vengo x Social Heartz flyer (C.I.S.C.O, OILY, local support at Aura Cabarete 25.09) | One-off Fri Sep 25 2026 (editor-provided) |
 | `el-cuarteto-terrible-zona-acapella-2026-09-27.jpg` | POP-supplied — Domingo Típico / El Cuarteto Terrible ([@acapella.pop](https://www.instagram.com/acapella.pop/)) | Sun 27 Sep 2026 free entry (editor-provided) |
 | `natura-sunbar-special-sunset-sounds-2026-09-24.jpg` | POP-supplied — SunBar Special Sunset & Sounds (DJ Taïf, Kriuslack) | Thu 24 Sep 2026 Natura Cabana (editor-provided) |
-| `natura-cabana-sunset-sounds-thursday.jpg` | POP-supplied — SunBar Sunset & Sounds series art | Weekly Thu 6–9 PM SunBar / Natura Cabana (editor-provided) |
 | `kaovanny-natura-cabana-2026-09-26.jpg` | POP-supplied — Kaovanny Afro Soul live music flyer | Sat 26 Sep 2026 7–9:30 PM Natura Cabana (editor-provided) |
 | `sosua-coastal-pickleball-open-2026-10-24.jpg` | POP-supplied — Sosúa Coastal Pickleball Open (Terramar Pickleball Club) | Oct 24–25 2026 tournament (editor-provided) |
 | `serenade-dominican-night-villa-taina-weekly.jpg` | POP-supplied — Serenade Dominican Night buffet flyer | Weekly Mon 7–9:30 PM Villa Taina (editor-provided) |

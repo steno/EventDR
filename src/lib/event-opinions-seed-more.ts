@@ -2886,25 +2886,6 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: "2026-09-22T12:00:00.000Z",
   },
   {
-    eventId: "natura-cabana-sunset-sounds-thursday",
-    seriesKey: "natura-cabana:weekly:4",
-    body: "Weekly Perla Marina sunset DJ night at SunBar — softer than Saturday billed live music at the restaurant; guest names rotate, so check naturacabana.com before you taxi from Cabarete centro.",
-    localized: {
-      es: "Noche semanal de DJ al atardecer en SunBar — más suave que la música en vivo del sábado en el restaurante; los invitados rotan, mira naturacabana.com antes del taxi desde el centro de Cabarete.",
-      fr: "Soirée DJ sunset hebdo au SunBar — plus douce que le live du samedi au restaurant ; invités rotatifs, vérifiez naturacabana.com avant le taxi depuis le centre Cabarete.",
-    },
-    priceFeel: "moderate",
-    priceNote: "Happy hour/cocktails — no weekly cover listed; +1 849-214-7010",
-    priceNoteLocalized: {
-      es: "Happy hour/cócteles — sin cover semanal publicado; +1 849-214-7010",
-      fr: "Happy hour/cocktails — pas de cover hebdo publié ; +1 849-214-7010",
-    },
-    attribution: "POP research · naturacabana.com Sunset & Sounds series",
-    researchNotes:
-      "Recurring Thu 6–9 PM SunBar Natura Cabana Perla Marina; editor flyer for Sep 24 special with Taïf/Kriuslack confirms series.",
-    updatedAt: "2026-09-22T12:00:00.000Z",
-  },
-  {
     eventId: "kaovanny-natura-cabana-2026-09-26",
     body: "Named Afro Soul set on the Saturday live-music slot — book a table like the flyer says; this is dinner-show pacing at Natura, not a late disco run into Cabarete.",
     localized: {

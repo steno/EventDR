@@ -126,8 +126,6 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "kaovanny-natura-cabana-2026-09-26": "kaovanny-natura-cabana-2026-09-26.jpg",
   "sosua-coastal-pickleball-open-2026-10-24":
     "sosua-coastal-pickleball-open-2026-10-24.jpg",
-  "natura-cabana-sunset-sounds-thursday":
-    "natura-cabana-sunset-sounds-thursday.jpg",
   "serenade-dominican-night-villa-taina-weekly":
     "serenade-dominican-night-villa-taina-weekly.jpg",
   "serenade-mongolian-night-villa-taina-weekly":
@@ -505,7 +503,6 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "cisco-vengo-social-heartz-aura-2026-09-25.jpg",
   "el-cuarteto-terrible-zona-acapella-2026-09-27.jpg",
   "natura-sunbar-special-sunset-sounds-2026-09-24.jpg",
-  "natura-cabana-sunset-sounds-thursday.jpg",
   "kaovanny-natura-cabana-2026-09-26.jpg",
   "sosua-coastal-pickleball-open-2026-10-24.jpg",
   "serenade-dominican-night-villa-taina-weekly.jpg",

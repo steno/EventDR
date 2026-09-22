@@ -68,7 +68,6 @@ const EVENT_PHONE_BY_ID: Record<string, string> = {
   "el-cuarteto-terrible-zona-acapella-2026-09-27": "+18297260344",
   "natura-sunbar-special-sunset-sounds-2026-09-24": "+18492147010",
   "kaovanny-natura-cabana-2026-09-26": "+18492147010",
-  "natura-cabana-sunset-sounds-thursday": "+18492147010",
   "sosua-coastal-pickleball-open-2026-10-24": "+18092233974",
   "serenade-dominican-night-villa-taina-weekly": "+18095710722",
   "serenade-mongolian-night-villa-taina-weekly": "+18095710722",

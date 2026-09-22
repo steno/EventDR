@@ -213,8 +213,6 @@ const FILE_TO_EVENT_ID = {
     "el-cuarteto-terrible-zona-acapella-2026-09-27",
   "natura-sunbar-special-sunset-sounds-2026-09-24.jpg":
     "natura-sunbar-special-sunset-sounds-2026-09-24",
-  "natura-cabana-sunset-sounds-thursday.jpg":
-    "natura-cabana-sunset-sounds-thursday",
   "kaovanny-natura-cabana-2026-09-26.jpg": "kaovanny-natura-cabana-2026-09-26",
   "sosua-coastal-pickleball-open-2026-10-24.jpg":
     "sosua-coastal-pickleball-open-2026-10-24",

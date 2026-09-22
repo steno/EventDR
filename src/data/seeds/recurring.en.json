@@ -2818,32 +2818,6 @@
     "imageEmoji": "💃"
   },
   {
-    "id": "natura-cabana-sunset-sounds-thursday",
-    "title": "Sunset & Sounds at SunBar (Natura Cabana)",
-    "description": "Every Thursday 6:00–9:00 PM at SunBar, Natura Cabana, Paseo del Sol #5, Perla Marina — live DJ sets, extended happy hour, and sunset over the Atlantic. Featured guests vary weekly; confirm who's on via naturacabana.com or +1 849-214-7010.",
-    "date": "2026-01-01",
-    "time": "6:00 PM – 9:00 PM",
-    "location": "Sosúa",
-    "venue": "Natura Cabana",
-    "venueSlug": "natura-cabana",
-    "address": "Paseo del Sol #5, Perla Marina",
-    "lat": 19.7833499,
-    "lng": -70.4621124,
-    "category": "music",
-    "categories": [
-      "music",
-      "food-drinks"
-    ],
-    "format": "physical",
-    "recurrence": "weekly",
-    "recurrenceDay": 4,
-    "callForPricing": true,
-    "phone": "+18492147010",
-    "sourceType": "flyer",
-    "sourceUrl": "https://naturacabana.com/event/events-sunset-and-sounds-cabarete/",
-    "imageEmoji": "🌅"
-  },
-  {
     "id": "serenade-dominican-night-villa-taina-weekly",
     "title": "Serenade Dominican Night at Villa Taina",
     "description": "Every Monday 7:00–9:30 PM at Serenade on the sand, Hotel Villa Taina, Calle Principal 1, Cabarete — all-you-can-eat Dominican buffet with live Latin music. Adults RD$952; kids under 12 half price; taxes and service not included. À la carte menu available if you skip the buffet. Reserve +1 809-571-0722 · @hotelvillataina.",
