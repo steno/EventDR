@@ -405,7 +405,7 @@ export function FilteredEventList({
                 >
                   <button
                     type="button"
-                    className={`${stickyBackControlClassName} !min-h-0 py-1.5 md:py-1`}
+                    className={`${stickyBackControlClassName} !min-h-0 py-1.5 md:min-w-max md:max-w-none md:py-1`}
                     aria-label={stickyCategoryLabel}
                     onClick={() => {
                       const nav = document.querySelector<HTMLElement>(
@@ -418,7 +418,7 @@ export function FilteredEventList({
                       className="h-[1.125rem] w-[1.125rem] shrink-0"
                       aria-hidden
                     />
-                    <span className="min-w-0 truncate">
+                    <span className="min-w-0 truncate md:overflow-visible md:whitespace-nowrap">
                       {stickyCategoryLabel}
                     </span>
                   </button>

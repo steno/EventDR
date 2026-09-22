@@ -111,12 +111,6 @@ const VENUE_SOURCES = [
   // chill-and-grill-bingo-terrace.jpg — terrace crowd at Chill & Grill.
   // Do not remote-refresh the shared dining-room still.
   {
-    // Official Casa Linda Castaways outdoor clubhouse dining (pre-rebrand era photo).
-    // Authentic patio string-lights vibe — not opening PR group or generic pub-band stock.
-    eventId: "castaways-classic-rock-wednesday",
-    url: "https://casalindaclub.com/wp-content/uploads/2024/07/Castaways-Restaurant.jpg",
-  },
-  {
     // Boxer walkout to the ring — replaces Rumble in Paradise fight poster.
     eventId: "rumble-in-paradise-12",
     url: "https://images.unsplash.com/photo-1552072092-7f9b8d63efcb?w=1800&q=85",
@@ -210,11 +204,7 @@ const VENUE_SOURCES = [
     eventId: "disco-club-brugal",
     url: "https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=1800&q=85",
   },
-  {
-    // Club/party lights for El Parq Thursday karaoke.
-    eventId: "el-parq-karaoke-thursday",
-    url: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=1800&q=85",
-  },
+  // el-parq-karaoke-thursday — POP-supplied Shaka Bar Karaoke Night flyer (see public/events/).
   // el-parq-latin-friday — POP-supplied Ninafrika Noche Latina flyer (see public/events/).
   // --- North Coast sports seeds (Jul–Aug 2026) ---
   {

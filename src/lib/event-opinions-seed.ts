@@ -190,24 +190,6 @@ export const SEED_EVENT_OPINIONS_BASE: EventOpinion[] = [
     updatedAt: AT,
   },
   {
-    eventId: "castaways-classic-rock-wednesday",
-    seriesKey: "castaways-sosua:weekly:3",
-    body: "Low-drama expat clubhouse crowd — skip it if you want dembow or a fashion scene.",
-    localized: {
-      es: "Público de clubhouse expat, sin drama — sáltalo si buscas dembow o escena fashion.",
-      fr: "Public clubhouse expat, sans drame — à éviter si vous cherchez du dembow ou une scène fashion.",
-    },
-    priceFeel: "moderate",
-    priceNote: "Pub menu night — wings and drinks at expat-bar prices, not a cover charge scene",
-    priceNoteLocalized: {
-      es: "Noche de menú pub — alitas y tragos a precio de bar expat, sin vibe de cover",
-      fr: "Soirée menu pub — wings et verres au tarif bar expat, pas de cover type club",
-    },
-    attribution: "POP research · venue listing",
-    researchNotes: "Chill & Grill (formerly Castaway's) clubhouse/eatery pricing.",
-    updatedAt: AT,
-  },
-  {
     eventId: "cheers-weekly-live",
     seriesKey: "cheers-bar-sosua:weekly",
     body: "A familiar bar-band night, not a destination concert — steady regulars, sports on the screens.",

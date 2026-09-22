@@ -244,7 +244,6 @@ export const CURATED_FREE_EVENTS = new Set<string>([
   // Bar live music / jam — typically no cover (pay for drinks)
   "lax-sunset-daily",
   "lax-reggae-friday",
-  "castaways-classic-rock-wednesday",
   "voramar-friday-live",
   "smileys-saturday-live",
   "finish-line-live-wednesday",

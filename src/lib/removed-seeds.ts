@@ -52,6 +52,8 @@ export const REMOVED_SEED_EVENT_IDS = new Set([
   "cowork-weekdays",
   // Duplicate of natura-sunbar-special-sunset-sounds-2026-09-24 (same flyer / Thu night).
   "natura-cabana-sunset-sounds-thursday",
+  // Unverified weekly — no source URL; Chill & Grill bingo/karaoke stay seeded.
+  "castaways-classic-rock-wednesday",
 ]);
 
 export function filterRemovedSeedEvents(events: Event[]): Event[] {

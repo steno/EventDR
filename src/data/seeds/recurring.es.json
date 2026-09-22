@@ -163,22 +163,6 @@
     "imageEmoji": "🎤"
   },
   {
-    "id": "castaways-classic-rock-wednesday",
-    "title": "Noche de rock clásico en Chill & Grill",
-    "description": "Rock clásico y covers en Chill & Grill, Casa Linda — ambiente expat con alitas y escenario de clubhouse cada miércoles.",
-    "date": "2026-01-01",
-    "time": "6:00 PM – 9:00 PM",
-    "location": "Sosúa",
-    "venue": "Chill & Grill Bar & Eatery",
-    "venueSlug": "castaways-sosua",
-    "address": "Residencial Casa Linda, Carretera El Choco",
-    "category": "music",
-    "format": "physical",
-    "recurrence": "weekly",
-    "recurrenceDay": 3,
-    "imageEmoji": "🎸"
-  },
-  {
     "id": "voramar-friday-live",
     "title": "BBQ y música en vivo en Hotel Voramar",
     "description": "Viernes junto a la piscina en Hotel Voramar — noches alternas de BBQ y bandas en vivo de rock y pop con ambiente germano-caribeño.",
