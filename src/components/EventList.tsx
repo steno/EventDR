@@ -41,6 +41,7 @@ import { TimeFilter } from "./TimeFilter";
 import { ListScrollAnchor } from "./StickyListFilters";
 import { CARD_GRID_CLASS, SECTION_TITLE_CLASS } from "@/lib/page-shell";
 import { useEventListView } from "@/hooks/useEventListView";
+import { NETWORK_ONLY_FETCH } from "@/lib/pwa-refresh";
 
 const EMPTY_EVENTS: Event[] = [];
 
@@ -165,9 +166,7 @@ export function EventList({
         // with a city, still prefer client filter so allEvents stays complete.
         if (bypassCache) params.set("refresh", "true");
 
-        const res = await fetch(`/api/events?${params}`, {
-          cache: bypassCache ? "no-store" : "default",
-        });
+        const res = await fetch(`/api/events?${params}`, NETWORK_ONLY_FETCH);
         
         if (!res.ok) {
           throw new Error(`HTTP error! status: ${res.status}`);

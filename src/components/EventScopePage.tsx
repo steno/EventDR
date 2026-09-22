@@ -49,6 +49,7 @@ import {
   type ScopeListingSelection,
 } from "@/lib/scope-listing";
 import { signalNavDone } from "@/lib/nav-feedback";
+import { NETWORK_ONLY_FETCH } from "@/lib/pwa-refresh";
 
 interface EventScopePageProps {
   locale: Locale;
@@ -195,7 +196,7 @@ export function EventScopePage({
 
   const softRefreshEvents = useCallback(() => {
     const url = softNav ? catalogFetchUrlRef.current : fetchUrlRef.current;
-    fetch(url)
+    fetch(url, NETWORK_ONLY_FETCH)
       .then((response) => response.json())
       .then((data: { events?: Event[] }) => {
         setCatalog(data.events ?? []);
@@ -210,7 +211,7 @@ export function EventScopePage({
       if (catalogEvents && catalogEvents.length > 0) return;
       let cancelled = false;
       setLoading(true);
-      fetch(catalogFetchUrlRef.current)
+      fetch(catalogFetchUrlRef.current, NETWORK_ONLY_FETCH)
         .then((response) => response.json())
         .then((data: { events?: Event[] }) => {
           if (!cancelled) setCatalog(data.events ?? []);
@@ -228,7 +229,7 @@ export function EventScopePage({
 
     let cancelled = false;
     setLoading(true);
-    fetch(fetchUrl)
+    fetch(fetchUrl, NETWORK_ONLY_FETCH)
       .then((response) => response.json())
       .then((data: { events?: Event[] }) => {
         if (!cancelled) setCatalog(data.events ?? []);

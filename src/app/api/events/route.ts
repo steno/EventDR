@@ -37,6 +37,7 @@ import { filterRemovedSeedEvents } from "@/lib/removed-seeds";
 import { localizeEventsForDisplay } from "@/lib/localized-text";
 import { slimEventsForList } from "@/lib/list-payload";
 import { eventsApiHeaders } from "@/lib/http-cache";
+import { attachSeedCreatedAt } from "@/lib/seed-created-at";
 
 // Render at origin; Cache-Control below lets the CDN hold non-empty catalogs.
 export const dynamic = "force-dynamic";
@@ -161,6 +162,7 @@ export async function GET(request: NextRequest) {
     events = attachEventPhones(events);
     events = attachTicketUrls(events);
     events = attachEventImages(events);
+    events = attachSeedCreatedAt(events);
     return slimEventsForList(events);
   }
 

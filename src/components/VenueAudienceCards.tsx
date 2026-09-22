@@ -25,6 +25,7 @@ import {
 } from "@/lib/home-layout";
 import { fillTemplate } from "@/lib/seo";
 import { SECTION_TITLE_CLASS } from "@/lib/page-shell";
+import { NETWORK_ONLY_FETCH } from "@/lib/pwa-refresh";
 
 interface VenueAudienceCardsProps {
   locale: Locale;
@@ -279,7 +280,7 @@ export function VenueAudienceCards({
       setVenues(initialVenues);
       return;
     }
-    fetch(`/api/venues?locale=${locale}`)
+    fetch(`/api/venues?locale=${locale}`, NETWORK_ONLY_FETCH)
       .then((r) => r.json())
       .then((d: { venues?: Venue[] }) => setVenues(d.venues ?? []))
       .catch(() => {});

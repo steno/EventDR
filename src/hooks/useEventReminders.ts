@@ -9,6 +9,7 @@ import {
   resolveRemindableDate,
 } from "@/lib/event-reminders";
 import { eventDetailPath } from "@/lib/event-navigation";
+import { pwaScriptUrl } from "@/lib/pwa-refresh";
 
 const STORAGE_KEY = "eventdr-reminders";
 
@@ -100,7 +101,7 @@ async function getServiceWorkerRegistration(): Promise<ServiceWorkerRegistration
     const existing = await navigator.serviceWorker.getRegistration();
     if (!existing) {
       // Remind flow can race PwaRegister — register here if needed.
-      await navigator.serviceWorker.register("/sw.js");
+      await navigator.serviceWorker.register(pwaScriptUrl());
     }
   } catch {
     return null;

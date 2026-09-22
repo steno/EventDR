@@ -1,12 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import {
-  showBootSplashForReload,
-} from "@/lib/boot-splash";
-
-// Keep in sync with CACHE_NAME in public/sw.js (eventdr-v19 → "19").
-const PWA_VERSION = "19";
+import { pwaScriptUrl, reloadCurrentPage, stripPwaReloadParamFromLocation } from "@/lib/pwa-refresh";
 
 function waitForWorkerState(
   worker: ServiceWorker,
@@ -27,6 +22,7 @@ function waitForWorkerState(
 /** Registers the service worker; updates reload under the boot splash when needed. */
 export function PwaRegister() {
   useEffect(() => {
+    stripPwaReloadParamFromLocation();
     if (!("serviceWorker" in navigator)) {
       return;
     }
@@ -41,8 +37,7 @@ export function PwaRegister() {
     const reloadForUpdate = () => {
       if (refreshing) return;
       refreshing = true;
-      showBootSplashForReload();
-      window.location.reload();
+      reloadCurrentPage();
     };
 
     const onControllerChange = () => {
@@ -69,10 +64,8 @@ export function PwaRegister() {
     const settle = async () => {
       try {
         // Needed for web push reminders in both prod and `next dev`.
-        // SW fetch handler already bypasses caching for HTML/JS.
-        const reg = await navigator.serviceWorker.register(
-          `/sw.js?v=${PWA_VERSION}`,
-        );
+        // SW fetch handler skips /api and /sw.js; HTML/RSC use cache: no-store.
+        const reg = await navigator.serviceWorker.register(pwaScriptUrl());
         await reg.update().catch(() => {});
 
         // Activate a waiting update, then reload under the splash (prod only).

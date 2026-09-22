@@ -2,12 +2,14 @@
 
 import { useCallback, useEffect, useRef } from "react";
 import { appVersionNeedsRefresh } from "@/lib/app-version-shared";
+import { cacheBustingReloadHref, purgeClientCaches } from "@/lib/pwa-refresh";
 import { showBootSplashForReload } from "@/lib/boot-splash";
 
 const VERSION_KEY = "popevents-app-version";
 
 async function fetchRemoteVersion(): Promise<string | null> {
-  const sources = ["/app-version.json", "/api/app-version"];
+  // Prefer /api — older SWs intercepted /app-version.json and could freeze the stamp.
+  const sources = ["/api/app-version", "/app-version.json"];
   for (const url of sources) {
     try {
       const response = await fetch(url, { cache: "no-store" });
@@ -27,12 +29,9 @@ async function purgeCachesAndReload(version: string) {
     const registrations = await navigator.serviceWorker.getRegistrations();
     await Promise.all(registrations.map((registration) => registration.unregister()));
   }
-  if ("caches" in window) {
-    const keys = await caches.keys();
-    await Promise.all(keys.map((key) => caches.delete(key)));
-  }
+  await purgeClientCaches();
   localStorage.setItem(VERSION_KEY, version);
-  window.location.reload();
+  window.location.replace(cacheBustingReloadHref(window.location.href));
 }
 
 /** Silently refreshes when a new deploy stamp is detected (stuck PWA tabs). */

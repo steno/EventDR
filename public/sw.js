@@ -1,4 +1,4 @@
-const CACHE_NAME = "eventdr-v20";
+const CACHE_NAME = "eventdr-v21";
 const STATIC_ASSETS = [
   "/manifest.webmanifest",
   "/pop-home-logo.webp",
@@ -8,10 +8,47 @@ const STATIC_ASSETS = [
   "/icons/icon-512-maskable.png",
 ];
 
-function isStaticAsset(pathname) {
+function isBypassPath(pathname) {
+  return (
+    pathname.startsWith("/api/") ||
+    pathname === "/sw.js" ||
+    pathname === "/app-version.json"
+  );
+}
+
+function isPrecacheable(pathname) {
   return (
     pathname === "/manifest.webmanifest" ||
-    pathname.startsWith("/icons/")
+    pathname.startsWith("/icons/") ||
+    pathname === "/pop-home-logo.webp" ||
+    pathname === "/pop-home-logo.png"
+  );
+}
+
+function mustRevalidate(request, url) {
+  if (request.mode === "navigate") return true;
+  const accept = request.headers.get("accept") || "";
+  if (accept.includes("text/html")) return true;
+  if (url.searchParams.has("_rsc")) return true;
+  const rsc = request.headers.get("rsc");
+  if (rsc === "1") return true;
+  if (request.headers.get("next-router-prefetch")) return true;
+  if (request.headers.get("next-router-segment-prefetch")) return true;
+  if (url.pathname.startsWith("/_next/data/")) return true;
+  return false;
+}
+
+function cacheFirst(request) {
+  return caches.match(request).then(
+    (cached) =>
+      cached ??
+      fetch(request).then((response) => {
+        if (response.ok) {
+          const clone = response.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(request, clone));
+        }
+        return response;
+      }),
   );
 }
 
@@ -42,26 +79,21 @@ self.addEventListener("fetch", (event) => {
 
   const url = new URL(event.request.url);
   if (url.origin !== self.location.origin) return;
-  if (url.pathname.startsWith("/api/")) return;
+  // Let the browser honor no-store on the worker script, version stamp, and APIs.
+  if (isBypassPath(url.pathname)) return;
 
-  if (isStaticAsset(url.pathname)) {
-    event.respondWith(
-      caches.match(event.request).then(
-        (cached) =>
-          cached ??
-          fetch(event.request).then((response) => {
-            if (response.ok) {
-              const clone = response.clone();
-              caches.open(CACHE_NAME).then((cache) => cache.put(event.request, clone));
-            }
-            return response;
-          }),
-      ),
-    );
+  if (isPrecacheable(url.pathname)) {
+    event.respondWith(cacheFirst(event.request));
     return;
   }
 
-  // Never serve cached HTML or JS — always hit the network.
+  // Home HTML / RSC used to ride default HTTP cache. Safari standalone then
+  // kept a days-old catalog even after reload(). Always hit the network.
+  if (mustRevalidate(event.request, url)) {
+    event.respondWith(fetch(event.request, { cache: "no-store" }));
+    return;
+  }
+
   event.respondWith(fetch(event.request));
 });
 

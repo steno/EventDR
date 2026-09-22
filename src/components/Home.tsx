@@ -67,6 +67,7 @@ import {
 } from "@/lib/onboarding";
 import { fillTemplate } from "@/lib/seo";
 import { signalNavDone } from "@/lib/nav-feedback";
+import { NETWORK_ONLY_FETCH } from "@/lib/pwa-refresh";
 
 const SubmitEventSheet = dynamic(
   () =>
@@ -226,7 +227,7 @@ function HomeApp({
       if (venues.length > 0) return;
     }
     let cancelled = false;
-    fetch(`/api/venues?locale=${locale}`)
+    fetch(`/api/venues?locale=${locale}`, NETWORK_ONLY_FETCH)
       .then((r) => r.json())
       .then((d: { venues?: Venue[] }) => {
         if (!cancelled) setVenues(d.venues ?? []);

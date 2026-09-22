@@ -13,13 +13,16 @@ export const EVENT_DETAIL_CACHE_CONTROL =
 export const VENUES_CACHE_CONTROL =
   "public, max-age=120, s-maxage=300, stale-while-revalidate=600";
 
-/** Listing HTML — short CDN TTL aligned with page `revalidate = 120`. */
+/**
+ * Listing HTML — CDN may hold ~1 min (SWR 5 min). Browsers / installed PWAs
+ * must revalidate: Safari standalone otherwise keeps start_url HTML for days.
+ */
 export const LISTING_HTML_CACHE_CONTROL =
-  "public, s-maxage=60, stale-while-revalidate=300";
+  "public, max-age=0, s-maxage=60, stale-while-revalidate=300";
 
-/** JSON catalogs — browser 30s, CDN 60s, SWR 5 min. */
+/** JSON catalogs — browser revalidates; CDN 60s, SWR 5 min. */
 export const EVENTS_API_CACHE_CONTROL =
-  "public, max-age=30, s-maxage=60, stale-while-revalidate=300";
+  "public, max-age=0, s-maxage=60, stale-while-revalidate=300";
 
 export const NO_STORE_CACHE_CONTROL =
   "no-store, max-age=0, must-revalidate";

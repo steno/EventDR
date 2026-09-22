@@ -1,4 +1,4 @@
-import { showBootSplashForReload } from "@/lib/boot-splash";
+export { reloadCurrentPage } from "@/lib/pwa-refresh";
 
 /** Damped visual travel as a fraction of finger movement. */
 export const PULL_RESISTANCE = 0.5;
@@ -93,13 +93,3 @@ export function isBootSplashBlocking(): boolean {
   );
 }
 
-/** Cover the UI with the boot splash, then hard-reload the current page. */
-export function reloadCurrentPage(): void {
-  showBootSplashForReload();
-  const go = () => {
-    window.location.reload();
-  };
-  requestAnimationFrame(() => {
-    requestAnimationFrame(go);
-  });
-}

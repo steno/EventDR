@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { EVENTS_API_NETLIFY_VARY } from "./src/lib/http-cache";
+import { EVENTS_API_NETLIFY_VARY, LISTING_HTML_CACHE_CONTROL } from "./src/lib/http-cache";
 import { REMOTE_IMAGE_PATTERNS } from "./src/lib/optimizable-image";
 
 const projectRoot = path.dirname(fileURLToPath(import.meta.url));
@@ -63,7 +63,7 @@ const nextConfig: NextConfig = {
     const assetCache = "public, max-age=31536000, immutable";
     const iconCache = "public, max-age=3600, stale-while-revalidate=86400";
     const noStore = "no-store, max-age=0, must-revalidate";
-    const listingHtml = "public, s-maxage=60, stale-while-revalidate=300";
+    const listingHtml = LISTING_HTML_CACHE_CONTROL;
 
     // Baseline browser hardening + CSP allowlisting for GA, Maps, OSM routing, Firebase Storage.
     const csp = [
