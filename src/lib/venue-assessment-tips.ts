@@ -1050,11 +1050,11 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "luna-lounge-lcb": {
-    body: "Late disco-lounge on Luis Ginebra #42 by Odisea — hit after 11 for billed nights, not a Malecón sunset deck. Confirm cover on @lunaloungelcb before you pin the strip.",
+    body: "Late disco-lounge on Luis Ginebra #42 by Odisea — Thursday karaoke with DJ Koky is earlier in the week than the billed 11 PM party nights; confirm cover on @lunaloungelcb before you pin the strip.",
     localized: {
-      en: "Late disco-lounge on Luis Ginebra #42 by Odisea — hit after 11 for billed nights, not a Malecón sunset deck. Confirm cover on @lunaloungelcb before you pin the strip.",
-      es: "Disco-lounge tarde en Luis Ginebra #42 junto a Odisea — llega después de las 11 para noches con cartel, no una terraza de atardecer en el Malecón. Confirma cover en @lunaloungelcb antes de clavar la avenida.",
-      fr: "Disco-lounge tardif au 42 Luis Ginebra près d’Odisea — après 23 h pour les soirées à l’affiche, pas une terrasse sunset du Malecón. Confirmez le cover sur @lunaloungelcb avant d’épingler l’avenue.",
+      en: "Late disco-lounge on Luis Ginebra #42 by Odisea — Thursday karaoke with DJ Koky is earlier in the week than the billed 11 PM party nights; confirm cover on @lunaloungelcb before you pin the strip.",
+      es: "Disco-lounge tarde en Luis Ginebra #42 junto a Odisea — el karaoke de jueves con DJ Koky es más temprano que las fiestas con cartel a las 11 PM; confirma cover en @lunaloungelcb antes de clavar la avenida.",
+      fr: "Disco-lounge tardif au 42 Luis Ginebra près d’Odisea — le karaoké du jeudi avec DJ Koky est plus tôt que les soirées à l’affiche à 23 h ; confirmez le cover sur @lunaloungelcb avant d’épingler l’avenue.",
     },
   },
   "ivan-garcia-teatro-escuela": {
@@ -1090,11 +1090,19 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "hotel-villa-taina": {
-    body: "Beachfront boutique in the exact center of Cabarete Bay — comedy nights and Serenade dining on the sand, not a quiet all-inclusive day pass. Book the show or a room; the walk-up beach bars are next door on Calle Principal.",
+    body: "Beachfront boutique in the exact center of Cabarete Bay — Serenade buffet nights (Mon Dominican, Wed Mongolian, Fri BBQ) on the sand plus billed comedy; not a quiet all-inclusive day pass. Book dinner or a room; walk-up beach bars are next door on Calle Principal.",
     localized: {
-      en: "Beachfront boutique in the exact center of Cabarete Bay — comedy nights and Serenade dining on the sand, not a quiet all-inclusive day pass. Book the show or a room; the walk-up beach bars are next door on Calle Principal.",
-      es: "Boutique frente al mar en el centro exacto de la bahía de Cabarete — noches de comedia y cena en Serenade sobre la arena, no un day pass todo incluido tranquilo. Reserva el show o una habitación; los bares walk-up están al lado en Calle Principal.",
-      fr: "Boutique en bord de mer au centre exact de la baie de Cabarete — soirées comedy et dîner Serenade sur le sable, pas un day pass all-inclusive calme. Réservez le show ou une chambre ; les bars walk-up sont à côté sur Calle Principal.",
+      en: "Beachfront boutique in the exact center of Cabarete Bay — Serenade buffet nights (Mon Dominican, Wed Mongolian, Fri BBQ) on the sand plus billed comedy; not a quiet all-inclusive day pass. Book dinner or a room; walk-up beach bars are next door on Calle Principal.",
+      es: "Boutique frente al mar en el centro exacto de la bahía de Cabarete — noches de buffet Serenade (lun dominicana, mié mongola, vie BBQ) sobre la arena más comedia con cartel; no un day pass todo incluido tranquilo. Reserva cena o habitación; los bares walk-up están al lado en Calle Principal.",
+      fr: "Boutique en bord de mer au centre exact de la baie de Cabarete — soirées buffet Serenade (lun dominicaine, mer mongole, ven BBQ) sur le sable plus comedy à l’affiche ; pas un day pass all-inclusive calme. Réservez dîner ou chambre ; les bars walk-up sont à côté sur Calle Principal.",
+    },
+  },
+  "terramar-pickleball-club": {
+    body: "Community courts between Cabarete and Sosúa — register on svterramar.pickleplanner.com for opens and cash-prize weekends, not a hotel gym drop-in. WhatsApp +1 809-223-3974 before you haul paddles without a division slot.",
+    localized: {
+      en: "Community courts between Cabarete and Sosúa — register on svterramar.pickleplanner.com for opens and cash-prize weekends, not a hotel gym drop-in. WhatsApp +1 809-223-3974 before you haul paddles without a division slot.",
+      es: "Canchas comunitarias entre Cabarete y Sosúa — inscríbete en svterramar.pickleplanner.com para opens y fines de semana con premio, no es gym de hotel walk-in. WhatsApp +1 809-223-3974 antes de llegar sin división.",
+      fr: "Terrains communautaires entre Cabarete et Sosúa — inscrivez-vous sur svterramar.pickleplanner.com pour les opens et week-ends à prix cash, pas une salle d’hôtel en walk-in. WhatsApp +1 809-223-3974 avant d’arriver sans division.",
     },
   },
 };

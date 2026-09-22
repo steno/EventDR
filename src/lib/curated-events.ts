@@ -560,6 +560,32 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     phone: "+18093201400",
     venueSlug: "pop-cinemas-playa-dorada",
   },
+  "pop-cinemas-week-2026-09-17": {
+    isFree: false,
+    admissionPrice: "RD$300",
+    phone: "+18093201400",
+    venueSlug: "pop-cinemas-playa-dorada",
+  },
+  "el-cuarteto-terrible-zona-acapella-2026-09-27": {
+    isFree: true,
+    phone: "+18297260344",
+    venueSlug: "zona-acapella-club",
+  },
+  "natura-sunbar-special-sunset-sounds-2026-09-24": {
+    phone: "+18492147010",
+    venueSlug: "natura-cabana",
+  },
+  "kaovanny-natura-cabana-2026-09-26": {
+    phone: "+18492147010",
+    venueSlug: "natura-cabana",
+  },
+  "sosua-coastal-pickleball-open-2026-10-24": {
+    isFree: false,
+    admissionPrice: "RD$2,000",
+    phone: "+18092233974",
+    ticketUrl: "https://svterramar.pickleplanner.com/",
+    venueSlug: "terramar-pickleball-club",
+  },
   "petit-francois-friday-karaoke": {
     isFree: true,
     phone: "+18294922910",

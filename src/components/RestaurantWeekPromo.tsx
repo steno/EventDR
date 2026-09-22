@@ -16,11 +16,6 @@ interface RestaurantWeekPromoProps {
   dict: Dictionary;
   returnTo?: string;
   returnTitle?: string | null;
-  /**
-   * `home` — slim horizontal campaign nudge after weekend rail.
-   * `compact` — Food & Drinks full-width teaser under list tabs (mobile).
-   */
-  variant?: "home" | "compact";
 }
 
 const CARD_CHROME = `
@@ -38,110 +33,49 @@ const CARD_CHROME = `
 `;
 
 /**
- * Restaurant Week campaign teaser.
- * Logo finder lives on the event page; home stays a slim nudge only.
+ * Restaurant Week campaign teaser on home only.
+ * Logo finder lives on the event page.
  */
 export function RestaurantWeekPromo({
   locale,
   dict,
   returnTo,
   returnTitle,
-  variant = "compact",
 }: RestaurantWeekPromoProps) {
   const copy = dict.events.restaurantWeek;
 
   if (!isRestaurantWeekPromoActive(locale)) return null;
 
   const eventHref = eventDetailPath(locale, RESTAURANT_WEEK_2026_ID);
-  const headingId =
-    variant === "home"
-      ? "restaurant-week-home-heading"
-      : "restaurant-week-heading";
-
-  if (variant === "home") {
-    return (
-      <section
-        className="mb-8 sm:mb-10"
-        aria-labelledby={headingId}
-      >
-        <IntentLink
-          href={eventHref}
-          returnTo={returnTo}
-          returnTitle={returnTitle}
-          className={`${CARD_CHROME} flex w-full items-stretch gap-3 p-2.5 sm:gap-3.5 sm:p-3`}
-        >
-          <div className="relative h-[4.75rem] w-[4.75rem] shrink-0 overflow-hidden rounded-xl bg-[#f7f4ec] sm:h-[5.25rem] sm:w-[5.25rem]">
-            <EventImage
-              src={RESTAURANT_WEEK_TEASER_IMAGE}
-              alt=""
-              sizes="84px"
-              className="object-cover object-center no-photo-filter"
-            />
-          </div>
-          <div className="flex min-w-0 flex-1 flex-col justify-center gap-0.5 py-0.5">
-            <p className="text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-neutral-500 dark:text-neutral-400">
-              {copy.eyebrow}
-            </p>
-            <h2
-              id={headingId}
-              className="truncate text-base font-extrabold leading-snug text-neutral-900 dark:text-neutral-50 sm:text-lg"
-            >
-              {copy.title}
-            </h2>
-            <p className="line-clamp-2 text-sm leading-snug text-neutral-600 dark:text-neutral-300">
-              <span className="font-medium text-neutral-800 dark:text-neutral-100">
-                {copy.dates}
-              </span>
-              <span className="text-neutral-400 dark:text-neutral-500">
-                {" · "}
-              </span>
-              {copy.priceLine}
-            </p>
-            <span className="mt-0.5 text-sm font-semibold text-orange-700 dark:text-orange-400">
-              {copy.cta}
-              <span
-                aria-hidden
-                className="ml-1 inline-block transition-transform group-hover:translate-x-0.5"
-              >
-                →
-              </span>
-            </span>
-          </div>
-        </IntentLink>
-      </section>
-    );
-  }
+  const headingId = "restaurant-week-home-heading";
 
   return (
-    <section
-      className="mb-3 w-full sm:hidden"
-      aria-labelledby={headingId}
-    >
+    <section className="mb-8 sm:mb-10" aria-labelledby={headingId}>
       <IntentLink
         href={eventHref}
         returnTo={returnTo}
         returnTitle={returnTitle}
-        className={`${CARD_CHROME} flex w-full flex-col`}
+        className={`${CARD_CHROME} flex w-full items-stretch gap-3 p-2.5 sm:gap-3.5 sm:p-3`}
       >
-        <div className="relative aspect-[6/5] w-full overflow-hidden bg-[#f7f4ec]">
+        <div className="relative h-[4.75rem] w-[4.75rem] shrink-0 overflow-hidden rounded-xl bg-[#f7f4ec] sm:h-[5.25rem] sm:w-[5.25rem]">
           <EventImage
             src={RESTAURANT_WEEK_TEASER_IMAGE}
             alt=""
-            sizes="(max-width: 640px) 100vw, 480px"
+            sizes="84px"
             className="object-cover object-center no-photo-filter"
           />
         </div>
-        <div className="flex flex-col gap-1.5 px-3.5 py-3">
+        <div className="flex min-w-0 flex-1 flex-col justify-center gap-0.5 py-0.5">
           <p className="text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-neutral-500 dark:text-neutral-400">
             {copy.eyebrow}
           </p>
           <h2
             id={headingId}
-            className="text-lg font-extrabold leading-tight text-neutral-900 dark:text-neutral-50"
+            className="truncate text-base font-extrabold leading-snug text-neutral-900 dark:text-neutral-50 sm:text-lg"
           >
             {copy.title}
           </h2>
-          <p className="text-sm leading-snug text-neutral-600 dark:text-neutral-300">
+          <p className="line-clamp-2 text-sm leading-snug text-neutral-600 dark:text-neutral-300">
             <span className="font-medium text-neutral-800 dark:text-neutral-100">
               {copy.dates}
             </span>

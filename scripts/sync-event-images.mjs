@@ -209,6 +209,22 @@ const FILE_TO_EVENT_ID = {
   "aura-latin-flow-dance-wednesday.jpg": "aura-latin-flow-dance-wednesday",
   "cisco-vengo-social-heartz-aura-2026-09-25.jpg":
     "cisco-vengo-social-heartz-aura-2026-09-25",
+  "el-cuarteto-terrible-zona-acapella-2026-09-27.jpg":
+    "el-cuarteto-terrible-zona-acapella-2026-09-27",
+  "natura-sunbar-special-sunset-sounds-2026-09-24.jpg":
+    "natura-sunbar-special-sunset-sounds-2026-09-24",
+  "natura-cabana-sunset-sounds-thursday.jpg":
+    "natura-cabana-sunset-sounds-thursday",
+  "kaovanny-natura-cabana-2026-09-26.jpg": "kaovanny-natura-cabana-2026-09-26",
+  "sosua-coastal-pickleball-open-2026-10-24.jpg":
+    "sosua-coastal-pickleball-open-2026-10-24",
+  "serenade-dominican-night-villa-taina-weekly.jpg":
+    "serenade-dominican-night-villa-taina-weekly",
+  "serenade-mongolian-night-villa-taina-weekly.jpg":
+    "serenade-mongolian-night-villa-taina-weekly",
+  "serenade-bbq-night-villa-taina-weekly.jpg":
+    "serenade-bbq-night-villa-taina-weekly",
+  "luna-lounge-jueves-karaoke-weekly.jpg": "luna-lounge-jueves-karaoke-weekly",
   "allison-sade-aura-2026-09-17.jpg": "allison-sade-aura-2026-09-17",
   "ocean-world-terrace-karaoke-encuentro-2026-09-16.jpg":
     "ocean-world-terrace-singing-talent-2026-09-16",

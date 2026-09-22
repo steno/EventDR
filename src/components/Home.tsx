@@ -804,7 +804,6 @@ function HomeApp({
                   locale={locale}
                   dict={dict}
                   returnTo={homePath}
-                  variant="home"
                 />
               )}
 

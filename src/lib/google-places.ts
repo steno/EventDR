@@ -104,6 +104,11 @@ const PLACE_SEARCH_ALIASES: Record<string, string[]> = {
     "Villa Taina Cabarete Beach",
     "Villa Taina Calle Principal Cabarete",
   ],
+  "terramar-pickleball-club": [
+    "Terramar Pickleball Club Sosua",
+    "SV Terramar Pickleball",
+    "Terramar Pickleball Club Cabarete",
+  ],
   "ivan-garcia-teatro-escuela": [
     "Iván García Teatro Escuela Puerto Plata",
     "Teatro Escuela Ivan Garcia Juan Bosch",

@@ -2529,10 +2529,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   {
     eventId: "cisco-vengo-social-heartz-aura-2026-09-25",
     seriesKey: "aura-beach-club-cabarete:2026-09-25",
-    body: "One Friday guest set on Calle Principal sand — pin doors and cover with Aura before you cross-town from Sosúa; no clock time on the C.I.S.C.O dates flyer.",
+    body: "Vengo x Social Heartz stacks C.I.S.C.O and OILY with local openers — still no doors time on the flyer, so confirm with Aura before you cross-town from Sosúa for a sand-floor party.",
     localized: {
-      es: "Un set invitado de viernes en la arena de Calle Principal — confirma puertas y cover con Aura antes de cruzar desde Sosúa; el flyer de fechas C.I.S.C.O no trae hora.",
-      fr: "Un set invité du vendredi sur le sable de Calle Principal — confirmez portes et cover avec Aura avant de traverser depuis Sosúa ; l’affiche des dates C.I.S.C.O n’a pas d’heure.",
+      es: "Vengo x Social Heartz apila C.I.S.C.O y OILY con apertura local — sigue sin hora de puertas en el flyer; confirma con Aura antes de cruzar desde Sosúa por una fiesta en la arena.",
+      fr: "Vengo x Social Heartz enchaîne C.I.S.C.O et OILY avec des openers locaux — toujours pas d’heure de portes sur l’affiche ; confirmez avec Aura avant de traverser depuis Sosúa pour une fête sur le sable.",
     },
     priceFeel: "moderate",
     priceNote:
@@ -2541,10 +2541,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       es: "Cover y puertas no publicados — confirma @auracabarete / WhatsApp +1 829-787-0140",
       fr: "Cover et portes non publiés — confirmez @auracabarete / WhatsApp +1 829-787-0140",
     },
-    attribution: "POP research · C.I.S.C.O next-dates flyer + @auracabarete",
+    attribution: "POP research · Vengo x Social Heartz flyer + @auracabarete",
     researchNotes:
-      "Editor flyer: 25.09 Vengo x Social Heartz at Aura, Cabarete on C.I.S.C.O tour dates. No doors/cover/time on art.",
-    updatedAt: "2026-09-15T12:00:00.000Z",
+      "Editor flyer Fri 25 Sep 2026 Aura Cabarete: C.I.S.C.O, OILY, Valentin Rodriguez, Nissa Gomez; Vengo x Social Heartz. No doors/cover/time on art.",
+    updatedAt: "2026-09-22T12:00:00.000Z",
   },
   {
     eventId: "ocean-world-terrace-singing-talent-2026-09-16",
@@ -2830,5 +2830,190 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     researchNotes:
       "User + Google search friday night baseball puerto plata; MyStats schedule https://www.mystatsonline.com/ballsports/visitor/league/schedule_scores/schedule.aspx?IDLeague=71710; CostaverdeDR: Sat 19 Sep 2026 6 PM José Briceño Game 2 after Atléticos 13–3 Game 1 in Santiago; gate tickets, no todotickets playoff page.",
     updatedAt: "2026-09-19T12:00:00.000Z",
+  },
+  {
+    eventId: "pop-cinemas-week-2026-09-17",
+    body: "Three Spanish prints only this week — Animal Farm early, Practical Magic sequel mid, Beekeeper late; same RD$300 and the usual mall AC freeze.",
+    localized: {
+      es: "Solo tres películas en español esta semana — Animal Farm temprano, secuela de Hechizo de Amor al medio, Beekeeper tarde; mismos RD$300 y el congelador de aire del mall.",
+      fr: "Trois films espagnols seulement cette semaine — Animal Farm tôt, suite de Practical Magic au milieu, Beekeeper tard ; mêmes RD$300 et clim de mall glaciale.",
+    },
+    priceFeel: "budget",
+    priceNote: "RD$300 per person daily — cinemaspop.com.do / 809-320-1400",
+    priceNoteLocalized: {
+      es: "RD$300 por persona al día — cinemaspop.com.do / 809-320-1400",
+      fr: "RD$300 par personne par jour — cinemaspop.com.do / 809-320-1400",
+    },
+    attribution: "POP research · @cinemaspop Sep 17–23 cartelera",
+    researchNotes:
+      "Editor flyer Sep 17–23 2026: Rebelión en la Granja 5:45 PM, Hechizo de Amor 7:30 PM, Código: Venganza 9:30 PM, Español, RD$300.",
+    updatedAt: "2026-09-22T12:00:00.000Z",
+  },
+  {
+    eventId: "el-cuarteto-terrible-zona-acapella-2026-09-27",
+    body: "Free típico on the Malecón the Sunday after Los Caballitos — same free parking story, but El Cuarteto Terrible is a different accordion energy; arrive early for a sea-view table.",
+    localized: {
+      es: "Típico gratis en el Malecón el domingo después de Los Caballitos — mismo parqueo gratis, pero El Cuarteto Terrible es otra energía de acordeón; llega temprano por mesa con vista al mar.",
+      fr: "Típico gratuit sur le Malecón le dimanche après Los Caballitos — même parking gratuit, mais El Cuarteto Terrible est une autre énergie d’accordéon ; arrivez tôt pour une table vue mer.",
+    },
+    priceFeel: "free",
+    priceNote: "Free entry and parking — budget drinks/food on site",
+    priceNoteLocalized: {
+      es: "Entrada y parqueo gratis — presupuesta tragos/comida en el club",
+      fr: "Entrée et parking gratuits — budget boissons/repas sur place",
+    },
+    attribution: "POP research · @acapella.pop Domingo Típico flyer",
+    researchNotes:
+      "Editor flyer + IG: Sun 27 Sep 2026 El Cuarteto Terrible, Zona Acapella, entrada/parqueo gratis, WhatsApp 829-726-0344.",
+    updatedAt: "2026-09-22T12:00:00.000Z",
+  },
+  {
+    eventId: "natura-sunbar-special-sunset-sounds-2026-09-24",
+    body: "SunBar sunset stack with DJ Taïf plus a fire show — Perla Marina midweek, not Cabarete strip noise; happy hour is the draw if you skip dinner at the main restaurant.",
+    localized: {
+      es: "Atardecer en SunBar con DJ Taïf y show de fuego — Perla Marina entre semana, no el ruido de la strip de Cabarete; el happy hour es el gancho si saltas la cena del restaurante principal.",
+      fr: "Sunset au SunBar avec DJ Taïf et show de feu — Perla Marina en semaine, pas le bruit de la strip Cabarete ; le happy hour vaut le détour si vous sautez le dîner au restaurant principal.",
+    },
+    priceFeel: "moderate",
+    priceNote: "No cover on flyer — cocktails/happy hour; +1 849-214-7010",
+    priceNoteLocalized: {
+      es: "Sin cover en el flyer — cócteles/happy hour; +1 849-214-7010",
+      fr: "Pas de cover sur l’affiche — cocktails/happy hour ; +1 849-214-7010",
+    },
+    attribution: "POP research · Natura SunBar Sunset & Sounds flyer",
+    researchNotes:
+      "Editor flyer Thu 24 Sep 2026 6–9 PM SunBar Natura Cabana: DJ Taïf, Kriuslack fire show, extended happy hour.",
+    updatedAt: "2026-09-22T12:00:00.000Z",
+  },
+  {
+    eventId: "natura-cabana-sunset-sounds-thursday",
+    seriesKey: "natura-cabana:weekly:4",
+    body: "Weekly Perla Marina sunset DJ night at SunBar — softer than Saturday billed live music at the restaurant; guest names rotate, so check naturacabana.com before you taxi from Cabarete centro.",
+    localized: {
+      es: "Noche semanal de DJ al atardecer en SunBar — más suave que la música en vivo del sábado en el restaurante; los invitados rotan, mira naturacabana.com antes del taxi desde el centro de Cabarete.",
+      fr: "Soirée DJ sunset hebdo au SunBar — plus douce que le live du samedi au restaurant ; invités rotatifs, vérifiez naturacabana.com avant le taxi depuis le centre Cabarete.",
+    },
+    priceFeel: "moderate",
+    priceNote: "Happy hour/cocktails — no weekly cover listed; +1 849-214-7010",
+    priceNoteLocalized: {
+      es: "Happy hour/cócteles — sin cover semanal publicado; +1 849-214-7010",
+      fr: "Happy hour/cocktails — pas de cover hebdo publié ; +1 849-214-7010",
+    },
+    attribution: "POP research · naturacabana.com Sunset & Sounds series",
+    researchNotes:
+      "Recurring Thu 6–9 PM SunBar Natura Cabana Perla Marina; editor flyer for Sep 24 special with Taïf/Kriuslack confirms series.",
+    updatedAt: "2026-09-22T12:00:00.000Z",
+  },
+  {
+    eventId: "kaovanny-natura-cabana-2026-09-26",
+    body: "Named Afro Soul set on the Saturday live-music slot — book a table like the flyer says; this is dinner-show pacing at Natura, not a late disco run into Cabarete.",
+    localized: {
+      es: "Set de Afro Soul con nombre en el slot de sábado — reserva mesa como dice el flyer; es ritmo cena-show en Natura, no disco tarde hacia Cabarete.",
+      fr: "Set Afro Soul affiché sur le créneau live du samedi — réservez une table comme sur l’affiche ; rythme dîner-show à Natura, pas une disco tardive vers Cabarete.",
+    },
+    priceFeel: "moderate",
+    priceNote: "No cover listed — budget dinner/drinks; +1 849-214-7010",
+    priceNoteLocalized: {
+      es: "Sin cover publicado — presupuesta cena/tragos; +1 849-214-7010",
+      fr: "Pas de cover publié — budget dîner/boissons ; +1 849-214-7010",
+    },
+    attribution: "POP research · Natura Saturday live flyer (Kaovanny)",
+    researchNotes:
+      "Editor flyer Sat 26 Sep 2026 7–9:30 PM live music Kaovanny Afro Soul, book your table; Natura Cabana beach restaurant.",
+    updatedAt: "2026-09-22T12:00:00.000Z",
+  },
+  {
+    eventId: "sosua-coastal-pickleball-open-2026-10-24",
+    body: "Cash-prize weekend with capped divisions — register before Oct 17 on pickleplanner, not a casual drop-in at Sea Horse Ranch tennis.",
+    localized: {
+      es: "Fin de semana con premios en efectivo y divisiones limitadas — inscríbete antes del 17 oct en pickleplanner, no es drop-in casual en el tenis de Sea Horse Ranch.",
+      fr: "Week-end à prix cash avec divisions plafonnées — inscrivez-vous avant le 17 oct sur pickleplanner, pas un drop-in casual au tennis de Sea Horse Ranch.",
+    },
+    priceFeel: "moderate",
+    priceNote: "RD$2,000 first category (+ RD$500 each extra) — svterramar.pickleplanner.com",
+    priceNoteLocalized: {
+      es: "RD$2,000 primera categoría (+ RD$500 cada extra) — svterramar.pickleplanner.com",
+      fr: "RD$2 000 première catégorie (+ RD$500 chaque extra) — svterramar.pickleplanner.com",
+    },
+    attribution: "POP research · Terramar Pickleball Open flyer",
+    researchNotes:
+      "Editor flyer Oct 24–25 2026 Terramar Pickleball Club; divisions C/B/A, 45+, mixed; RR to finals; reg closes Oct 17; RD$2000 +500; WhatsApp 809-223-3974.",
+    updatedAt: "2026-09-22T12:00:00.000Z",
+  },
+  {
+    eventId: "serenade-dominican-night-villa-taina-weekly",
+    seriesKey: "hotel-villa-taina:weekly:1",
+    body: "Monday buffet on Cabarete sand — RD$952 is the adult buffet line, not drinks, and kids half under 12; taxes/service still hit the check.",
+    localized: {
+      es: "Buffet de lunes sobre la arena de Cabarete — RD$952 es la línea adulto del buffet, no tragos, y menores mitad bajo 12; impuestos/servicio siguen en la cuenta.",
+      fr: "Buffet du lundi sur le sable de Cabarete — RD$952 c’est la ligne adulte buffet, pas les verres, et enfants moitié prix sous 12 ans ; taxes/service s’ajoutent.",
+    },
+    priceFeel: "moderate",
+    priceNote: "Adults RD$952 buffet; kids under 12 half; +1 809-571-0722",
+    priceNoteLocalized: {
+      es: "Adultos RD$952 buffet; menores mitad; +1 809-571-0722",
+      fr: "Adultes RD$952 buffet ; enfants moitié prix ; +1 809-571-0722",
+    },
+    attribution: "POP research · Serenade Dominican Night flyer + Villa Taina story",
+    researchNotes:
+      "Editor flyer Mon 7–9:30 PM all-you-can-eat Dominican buffet RD$952, kids under 12 half, taxes/service extra; Serenade x Villa Taina weekly board confirms Mon/Wed/Fri themed nights.",
+    updatedAt: "2026-09-22T12:00:00.000Z",
+  },
+  {
+    eventId: "serenade-mongolian-night-villa-taina-weekly",
+    seriesKey: "hotel-villa-taina:weekly:3",
+    body: "Wednesday themed buffet at Serenade — confirm the Mongolian night price with the hotel; it is the midweek counterpart to Monday Dominican and Friday BBQ on the same beach deck.",
+    localized: {
+      es: "Buffet temático de miércoles en Serenade — confirma el precio de la noche mongola con el hotel; es la contraparte de mitad de semana al dominicano del lunes y BBQ del viernes en la misma terraza.",
+      fr: "Buffet thématique du mercredi à Serenade — confirmez le tarif de la nuit mongole avec l’hôtel ; c’est le pendant milieu de semaine du dominicain du lundi et du BBQ du vendredi sur la même terrasse.",
+    },
+    priceFeel: "varies",
+    priceNote: "Buffet price not on story art — +1 809-571-0722 / @hotelvillataina",
+    priceNoteLocalized: {
+      es: "Precio del buffet no está en el arte — +1 809-571-0722 / @hotelvillataina",
+      fr: "Tarif buffet absent de l’affiche — +1 809-571-0722 / @hotelvillataina",
+    },
+    attribution: "POP research · Villa Taina Serenade weekly story",
+    researchNotes:
+      "Editor story Serenade x Villa Taina: Wed Mongolian Night 7–9:30 PM; pricing not on collage; Mon Dominican flyer shows RD$952 buffet reference.",
+    updatedAt: "2026-09-22T12:00:00.000Z",
+  },
+  {
+    eventId: "serenade-bbq-night-villa-taina-weekly",
+    seriesKey: "hotel-villa-taina:weekly:5",
+    body: "Friday BBQ buffet on the bay — end-of-week Serenade night before the late Aura disco crowd; reserve a sand table early in high season.",
+    localized: {
+      es: "Buffet BBQ de viernes en la bahía — noche Serenade de fin de semana antes de la multitud disco de Aura; reserva mesa en la arena temprano en temporada alta.",
+      fr: "Buffet BBQ du vendredi sur la baie — soirée Serenade de fin de semaine avant la foule disco d’Aura ; réservez une table sur le sable tôt en haute saison.",
+    },
+    priceFeel: "varies",
+    priceNote: "Buffet price not on story art — +1 809-571-0722 / @hotelvillataina",
+    priceNoteLocalized: {
+      es: "Precio del buffet no está en el arte — +1 809-571-0722 / @hotelvillataina",
+      fr: "Tarif buffet absent de l’affiche — +1 809-571-0722 / @hotelvillataina",
+    },
+    attribution: "POP research · Villa Taina Serenade weekly story",
+    researchNotes:
+      "Editor story Fri BBQ Night 7–9:30 PM Serenade on sand, Hotel Villa Taina Calle Principal 1.",
+    updatedAt: "2026-09-22T12:00:00.000Z",
+  },
+  {
+    eventId: "luna-lounge-jueves-karaoke-weekly",
+    seriesKey: "luna-lounge-lcb:weekly:4",
+    body: "Thursday karaoke behind Plaza Amapola — earlier-week sing-along with DJ Koky, not the late Noche de Éxitos bill; confirm cover on @lunaloungelcb.",
+    localized: {
+      es: "Karaoke de jueves detrás de Plaza Amapola — sing-along más temprano en la semana con DJ Koky, no la cartelera tardía de Noche de Éxitos; confirma cover en @lunaloungelcb.",
+      fr: "Karaoké du jeudi derrière Plaza Amapola — sing-along plus tôt dans la semaine avec DJ Koky, pas la soirée tardive Noche de Éxitos ; confirmez le cover sur @lunaloungelcb.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover/time not on flyer — @lunaloungelcb",
+    priceNoteLocalized: {
+      es: "Cover/hora no en el flyer — @lunaloungelcb",
+      fr: "Cover/heure absents de l’affiche — @lunaloungelcb",
+    },
+    attribution: "POP research · Luna Disco Bar Jueves de Karaoke flyer",
+    researchNotes:
+      "Editor flyer Jueves de Karaoke, Luis Ginebra #42 behind Plaza Amapola, DJ Koky; Luna Disco Bar branding.",
+    updatedAt: "2026-09-22T12:00:00.000Z",
   },
 ];

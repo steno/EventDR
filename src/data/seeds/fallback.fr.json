@@ -2161,8 +2161,8 @@
   },
   {
     "id": "cisco-vengo-social-heartz-aura-2026-09-25",
-    "title": "C.I.S.C.O — Vengo x Social Heartz à Aura",
-    "description": "C.I.S.C.O pour Vengo x Social Heartz à Aura Beach Club, Calle Principal, Cabarete — vendredi 25 septembre 2026. Confirmez portes, cover et heure du set via Instagram @auracabarete ou WhatsApp +1 829-787-0140.",
+    "title": "C.I.S.C.O & OILY — Vengo x Social Heartz à Aura",
+    "description": "Vengo x Social Heartz à Aura Beach Club, Calle Principal, Cabarete — vendredi 25 septembre 2026. Musique par C.I.S.C.O et OILY avec Valentin Rodriguez et Nissa Gomez en support local. Confirmez portes, cover et horaires via Instagram @auracabarete ou WhatsApp +1 829-787-0140.",
     "date": "2026-09-25",
     "location": "Cabarete",
     "venue": "Aura Beach Club Cabarete",
@@ -2181,9 +2181,12 @@
     "phone": "+18297870140",
     "lineup": [
       "C.I.S.C.O",
+      "OILY",
+      "Valentin Rodriguez",
+      "Nissa Gomez",
       "Vengo x Social Heartz"
     ],
-    "sourceType": "instagram",
+    "sourceType": "flyer",
     "sourceUrl": "https://www.instagram.com/auracabarete/",
     "imageEmoji": "🎧"
   },
@@ -2596,5 +2599,152 @@
       "DJ Joe"
     ],
     "imageEmoji": "🎤"
+  },
+  {
+    "id": "pop-cinemas-week-2026-09-17",
+    "title": "POP Cinemas — Semaine du 17 au 23 sept.",
+    "description": "Cartelera hebdomadaire au POP Cinemas, Playa Dorada Mall (17–23 sept.), version espagnole, RD$300 par personne chaque jour : Rebelión en la Granja 17 h 45 ; Hechizo de Amor: La Magia Continúa 19 h 30 ; Código: Venganza 21 h 30. Snacks et billets : cinemaspop.com.do · 809-320-1400.",
+    "date": "2026-09-17",
+    "endDate": "2026-09-23",
+    "time": "5:45 PM – 9:30 PM",
+    "location": "Playa Dorada",
+    "venue": "POP Cinemas",
+    "venueSlug": "pop-cinemas-playa-dorada",
+    "address": "Calle Principal Playa Dorada 538, Playa Dorada Shopping Centre",
+    "lat": 19.769859,
+    "lng": -70.642341,
+    "category": "culture",
+    "categories": [
+      "performances"
+    ],
+    "format": "physical",
+    "admissionPrice": "RD$300",
+    "phone": "+18093201400",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/cinemaspop/",
+    "imageEmoji": "🎬",
+    "lineup": [
+      "Rebelión en la Granja (Animal Farm) · 17 h 45",
+      "Hechizo de Amor: La Magia Continúa · 19 h 30",
+      "Código: Venganza · 21 h 30"
+    ]
+  },
+  {
+    "id": "el-cuarteto-terrible-zona-acapella-2026-09-27",
+    "title": "El Cuarteto Terrible — Domingo Típico",
+    "description": "Domingo Típico avec El Cuarteto Terrible au Zona Acapella Club, Malecón de Puerto Plata (Cuarto de Milla) — dimanche 27 septembre 2026. Entrée et parking gratuits. WhatsApp +1 829 726 0344 · @acapella.pop.",
+    "date": "2026-09-27",
+    "location": "Puerto Plata",
+    "venue": "Zona Acapella Club",
+    "venueSlug": "zona-acapella-club",
+    "address": "Cuarto de Milla, Av. Gral. Gregorio Luperón, Puerto Plata",
+    "lat": 19.791341,
+    "lng": -70.674021,
+    "category": "concert",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "phone": "+18297260344",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/acapella.pop/",
+    "lineup": [
+      "El Cuarteto Terrible"
+    ],
+    "imageEmoji": "🪗"
+  },
+  {
+    "id": "natura-sunbar-special-sunset-sounds-2026-09-24",
+    "title": "Sunset & Sounds spécial — DJ Taïf & feu",
+    "description": "SunBar à Natura Cabana, Paseo del Sol #5, Perla Marina — jeudi 24 septembre 2026, 18 h–21 h. DJ Taïf, show de feu Kriuslack (@kriuslack), cocktails et happy hour prolongé. +1 849-214-7010 · naturacabana.com.",
+    "date": "2026-09-24",
+    "time": "6:00 PM – 9:00 PM",
+    "location": "Sosúa",
+    "venue": "Natura Cabana",
+    "venueSlug": "natura-cabana",
+    "address": "Paseo del Sol #5, Perla Marina",
+    "lat": 19.7833499,
+    "lng": -70.4621124,
+    "category": "music",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18492147010",
+    "sourceType": "flyer",
+    "sourceUrl": "https://naturacabana.com/event/events-sunset-and-sounds-cabarete/",
+    "lineup": [
+      "DJ Taïf",
+      "Show de feu Kriuslack"
+    ],
+    "imageEmoji": "🌅"
+  },
+  {
+    "id": "kaovanny-natura-cabana-2026-09-26",
+    "title": "Kaovanny — Afro Soul live à Natura Cabana",
+    "description": "Set Afro Soul live avec Kaovanny au restaurant en bord de mer de Natura Cabana, Paseo del Sol #5, Perla Marina — samedi 26 septembre 2026, 19 h–21 h 30. Réservez une table ; dîner et boissons. +1 849-214-7010 · naturacabana.com.",
+    "date": "2026-09-26",
+    "time": "7:00 PM – 9:30 PM",
+    "location": "Sosúa",
+    "venue": "Natura Cabana",
+    "venueSlug": "natura-cabana",
+    "address": "Paseo del Sol #5, Perla Marina",
+    "lat": 19.7833499,
+    "lng": -70.4621124,
+    "category": "concert",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18492147010",
+    "sourceType": "flyer",
+    "sourceUrl": "https://naturacabana.com/events/category/live-music/",
+    "lineup": [
+      "Kaovanny"
+    ],
+    "imageEmoji": "🎤"
+  },
+  {
+    "id": "sosua-coastal-pickleball-open-2026-10-24",
+    "title": "Sosúa Coastal Pickleball Open",
+    "description": "Tournoi de pickleball sur deux jours au Terramar Pickleball Club (Cabarete/Sosúa) — samedi–dimanche 24–25 octobre 2026 avec prix en cash. Divisions C/B/A, 45+ et mixtes ; round-robin jusqu’aux finales. Inscription RD$2 000 (+ RD$500 par catégorie extra), clôture 17 octobre. svterramar.pickleplanner.com · WhatsApp +1 809-223-3974.",
+    "date": "2026-10-24",
+    "endDate": "2026-10-25",
+    "time": "8:00 AM",
+    "location": "Sosúa",
+    "venue": "Terramar Pickleball Club",
+    "venueSlug": "terramar-pickleball-club",
+    "address": "Cabarete / Sosúa, Puerto Plata",
+    "lat": 19.7755,
+    "lng": -70.478,
+    "category": "sports",
+    "categories": [
+      "sports",
+      "festivals"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": false,
+    "admissionPrice": "RD$2,000",
+    "phone": "+18092233974",
+    "ticketUrl": "https://svterramar.pickleplanner.com/",
+    "sourceType": "flyer",
+    "sourceUrl": "https://svterramar.pickleplanner.com/",
+    "lineup": [
+      "Doubles C/B/A",
+      "Doubles 45+",
+      "Doubles mixtes",
+      "Prix en cash"
+    ],
+    "imageEmoji": "🏓"
   }
 ]

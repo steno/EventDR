@@ -1781,6 +1781,18 @@ export const SEED_VENUES: Venue[] = [
     instagram: "hotelvillataina",
     phone: "+18095710722",
   },
+  {
+    slug: "terramar-pickleball-club",
+    name: "Terramar Pickleball Club",
+    city: "Sosúa",
+    description:
+      "Community pickleball club serving Cabarete and Sosúa — open play, leagues, and cash-prize tournaments. Register via svterramar.pickleplanner.com · WhatsApp +1 809-223-3974.",
+    lat: 19.7755,
+    lng: -70.478,
+    emoji: "🏓",
+    phone: "+18092233974",
+    website: "https://svterramar.pickleplanner.com/",
+  },
 ];
 
 /** Extra name fragments → seed slug (checked before fuzzy name includes). */
@@ -2062,6 +2074,10 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
     // Local/expat name for Sea Horse Ranch Tennis Club (pickleball / courts).
     pattern: /cabarete\s*sports?\s*club/i,
     slug: "sea-horse-ranch",
+  },
+  {
+    pattern: /terramar\s*pickleball|sv\s*terramar/i,
+    slug: "terramar-pickleball-club",
   },
   {
     pattern:

@@ -94,6 +94,16 @@ export const SEED_CREATED_AT: Readonly<Record<string, string>> = {
   "el-colibri-atrevete-saturdays": "2026-09-19T12:00:00.000Z",
   "atleticos-pp-vs-reales-2026-09-19": "2026-09-19T12:00:00.000Z",
   "flip-flop-nfl-sunday": "2026-09-21T12:00:00.000Z",
+  "pop-cinemas-week-2026-09-17": "2026-09-22T12:00:00.000Z",
+  "el-cuarteto-terrible-zona-acapella-2026-09-27": "2026-09-22T12:00:00.000Z",
+  "natura-sunbar-special-sunset-sounds-2026-09-24": "2026-09-22T12:00:00.000Z",
+  "kaovanny-natura-cabana-2026-09-26": "2026-09-22T12:00:00.000Z",
+  "sosua-coastal-pickleball-open-2026-10-24": "2026-09-22T12:00:00.000Z",
+  "natura-cabana-sunset-sounds-thursday": "2026-09-22T12:00:00.000Z",
+  "serenade-dominican-night-villa-taina-weekly": "2026-09-22T12:00:00.000Z",
+  "serenade-mongolian-night-villa-taina-weekly": "2026-09-22T12:00:00.000Z",
+  "serenade-bbq-night-villa-taina-weekly": "2026-09-22T12:00:00.000Z",
+  "luna-lounge-jueves-karaoke-weekly": "2026-09-22T12:00:00.000Z",
 };
 
 /** Fill missing `createdAt` from {@link SEED_CREATED_AT} (does not overwrite). */

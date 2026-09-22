@@ -118,8 +118,7 @@ interface FilteredEventListProps {
   /** Optional area chip in the sticky filter bar (desktop scope pages). */
   locationPicker?: ReactNode;
   /**
-   * Full-width block after the sticky tabs/chips and before the event grid
-   * (e.g. Restaurant Week teaser on Food & Drinks).
+   * Full-width block after the sticky tabs/chips and before the event grid.
    */
   listLead?: ReactNode;
 }

@@ -901,6 +901,12 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Hôtel boutique en bord de mer au centre de la baie de Cabarete — chambres vue océan, dîner Serenade sur le sable, Water Club et soirées comedy à l’affiche. Calle Principal 1. Instagram @hotelvillataina · +1 809-571-0722.",
     },
   },
+  "terramar-pickleball-club": {
+    description: {
+      es: "Club comunitario de pickleball entre Cabarete y Sosúa — juego abierto, ligas y torneos con premios. Inscripción en svterramar.pickleplanner.com · WhatsApp +1 809-223-3974.",
+      fr: "Club communautaire de pickleball entre Cabarete et Sosúa — jeu libre, ligues et tournois avec prix. Inscription sur svterramar.pickleplanner.com · WhatsApp +1 809-223-3974.",
+    },
+  },
 };
 
 export function localizeVenue(venue: Venue, locale: Locale): Venue {

@@ -20,7 +20,17 @@ Curated images under `public/events/` and `public/venues/`.
 | `aura-beach-club-lunes-especiales.jpg` | POP-supplied — Lunes Especiales Margaritas & Gin Tonic flyer ([@auracabarete](https://www.instagram.com/auracabarete/)) | Weekly Monday 4–7 PM 2x1 promo (editor-provided) |
 | `aura-beach-club-miercoles-margaritas.jpg` | POP-supplied — Miércoles de Margaritas flyer ([@auracabarete](https://www.instagram.com/auracabarete/)) | Weekly Wednesday 2x1 margaritas + live music (editor-provided) |
 | `aura-latin-flow-dance-wednesday.jpg` | POP-supplied — Latin Night / Flow Dance flyer ([@auracabarete](https://www.instagram.com/auracabarete/)) | Weekly Wednesday Latin Flow Dance from 9 PM (editor-provided) |
-| `cisco-vengo-social-heartz-aura-2026-09-25.jpg` | POP-supplied — C.I.S.C.O next-dates flyer (Vengo x Social Heartz at Aura Cabarete 25.09) | One-off Fri Sep 25 2026 (editor-provided) |
+| `cisco-vengo-social-heartz-aura-2026-09-25.jpg` | POP-supplied — Vengo x Social Heartz flyer (C.I.S.C.O, OILY, local support at Aura Cabarete 25.09) | One-off Fri Sep 25 2026 (editor-provided) |
+| `el-cuarteto-terrible-zona-acapella-2026-09-27.jpg` | POP-supplied — Domingo Típico / El Cuarteto Terrible ([@acapella.pop](https://www.instagram.com/acapella.pop/)) | Sun 27 Sep 2026 free entry (editor-provided) |
+| `natura-sunbar-special-sunset-sounds-2026-09-24.jpg` | POP-supplied — SunBar Special Sunset & Sounds (DJ Taïf, Kriuslack) | Thu 24 Sep 2026 Natura Cabana (editor-provided) |
+| `natura-cabana-sunset-sounds-thursday.jpg` | POP-supplied — SunBar Sunset & Sounds series art | Weekly Thu 6–9 PM SunBar / Natura Cabana (editor-provided) |
+| `kaovanny-natura-cabana-2026-09-26.jpg` | POP-supplied — Kaovanny Afro Soul live music flyer | Sat 26 Sep 2026 7–9:30 PM Natura Cabana (editor-provided) |
+| `sosua-coastal-pickleball-open-2026-10-24.jpg` | POP-supplied — Sosúa Coastal Pickleball Open (Terramar Pickleball Club) | Oct 24–25 2026 tournament (editor-provided) |
+| `serenade-dominican-night-villa-taina-weekly.jpg` | POP-supplied — Serenade Dominican Night buffet flyer | Weekly Mon 7–9:30 PM Villa Taina (editor-provided) |
+| `serenade-mongolian-night-villa-taina-weekly.jpg` | POP-supplied — Serenade × Villa Taina weekly story (Mongolian night) | Weekly Wed themed buffet (editor-provided) |
+| `serenade-bbq-night-villa-taina-weekly.jpg` | POP-supplied — Serenade × Villa Taina weekly story (BBQ night) | Weekly Fri themed buffet (editor-provided) |
+| `luna-lounge-jueves-karaoke-weekly.jpg` | POP-supplied — Jueves de Karaoke / DJ Koky (Luna Disco Bar) | Weekly Thu karaoke Luis Ginebra #42 (editor-provided) |
+| `venues/terramar-pickleball-club.jpg` | POP-supplied — Terramar Pickleball Club profile/cover | Venue hero (editor-provided) |
 | `allison-sade-aura-2026-09-17.jpg` | POP-supplied — Allison Sade Live Music flyer ([@allisonsadeofficial](https://www.instagram.com/allisonsadeofficial/) × Aura Cabarete) | Thu 17 Sep 2026 8:00 PM (editor-provided) |
 | `ocean-world-terrace-karaoke-encuentro-2026-09-16.jpg` | POP-supplied — Un encuentro de talentos / Noche de Karaoke flyer ([@oceanworldterrace](https://www.instagram.com/oceanworldterrace/)) | Karaoke talent night Wed 16 Sep 2026 (editor-provided; filename bump); venue slug `ocean-world` |
 | `duo-maryem-rancho-catalina-2026-09-20.jpg` | POP-supplied — Dúo Maryem live flyer ([@rancholacatalina](https://www.instagram.com/p/DdUevS3TdVA/)) | Live music Sun 20 Sep 2026 2:30 PM no cover (editor-provided) |

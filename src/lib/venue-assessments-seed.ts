@@ -1601,6 +1601,17 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
       { key: "easy_to_find", sentiment: "positive" },
     ],
   }),
+  editorial({
+    venueSlug: "terramar-pickleball-club",
+    verdictKey: "reliable_visitor_pick",
+    crowdFit: ["visitor", "mixed", "family"],
+    axes: { recommend: 4.2, atmosphere: 4.0, practical: 3.9, value: 4.1 },
+    themes: [
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+      { key: "busy_weekends", sentiment: "mixed" },
+      { key: "easy_to_find", sentiment: "mixed" },
+    ],
+  }),
 ];
 
 const bySlug = new Map(

@@ -119,6 +119,22 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "el-cuarteto-del-swing-zona-acapella-2026-09-13.jpg",
   "los-caballitos-zona-acapella-2026-09-20":
     "los-caballitos-zona-acapella-2026-09-20.jpg",
+  "el-cuarteto-terrible-zona-acapella-2026-09-27":
+    "el-cuarteto-terrible-zona-acapella-2026-09-27.jpg",
+  "natura-sunbar-special-sunset-sounds-2026-09-24":
+    "natura-sunbar-special-sunset-sounds-2026-09-24.jpg",
+  "kaovanny-natura-cabana-2026-09-26": "kaovanny-natura-cabana-2026-09-26.jpg",
+  "sosua-coastal-pickleball-open-2026-10-24":
+    "sosua-coastal-pickleball-open-2026-10-24.jpg",
+  "natura-cabana-sunset-sounds-thursday":
+    "natura-cabana-sunset-sounds-thursday.jpg",
+  "serenade-dominican-night-villa-taina-weekly":
+    "serenade-dominican-night-villa-taina-weekly.jpg",
+  "serenade-mongolian-night-villa-taina-weekly":
+    "serenade-mongolian-night-villa-taina-weekly.jpg",
+  "serenade-bbq-night-villa-taina-weekly":
+    "serenade-bbq-night-villa-taina-weekly.jpg",
+  "luna-lounge-jueves-karaoke-weekly": "luna-lounge-jueves-karaoke-weekly.jpg",
   "banda-modelo-vinoteca-2026-09-26": "banda-modelo-vinoteca-2026-09-26.jpg",
   "cabarete-run-festival-5k-2026-11-08": "cabarete-run-festival-5k-2026-11-08.jpg",
   "latinwok-ramen-party-2026-09-17": "latinwok-ramen-party-2026-09-17.jpg",
@@ -487,6 +503,15 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "aura-beach-club-miercoles-margaritas.jpg",
   "aura-latin-flow-dance-wednesday.jpg",
   "cisco-vengo-social-heartz-aura-2026-09-25.jpg",
+  "el-cuarteto-terrible-zona-acapella-2026-09-27.jpg",
+  "natura-sunbar-special-sunset-sounds-2026-09-24.jpg",
+  "natura-cabana-sunset-sounds-thursday.jpg",
+  "kaovanny-natura-cabana-2026-09-26.jpg",
+  "sosua-coastal-pickleball-open-2026-10-24.jpg",
+  "serenade-dominican-night-villa-taina-weekly.jpg",
+  "serenade-mongolian-night-villa-taina-weekly.jpg",
+  "serenade-bbq-night-villa-taina-weekly.jpg",
+  "luna-lounge-jueves-karaoke-weekly.jpg",
   "allison-sade-aura-2026-09-17.jpg",
   "aura-disco-dj-melvin-2026-09-19.jpg",
   "meclao-house-friday-2026-09-18.jpg",
