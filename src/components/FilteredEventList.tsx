@@ -43,7 +43,7 @@ import { EventViewToggle } from "@/components/EventViewToggle";
 import { useEventListView } from "@/hooks/useEventListView";
 import { useListTimeRange } from "@/hooks/useListTimeRange";
 import { fillTemplate } from "@/lib/seo";
-import { CARD_GRID_CLASS, SECTION_TITLE_CLASS } from "@/lib/page-shell";
+import { CARD_GRID_CLASS, LIST_PARK_FILL_CLASS, SECTION_TITLE_CLASS } from "@/lib/page-shell";
 import type { EventListView } from "@/lib/event-list-view";
 import { ArrowLeft } from "lucide-react";
 
@@ -85,6 +85,7 @@ interface FilteredEventListProps {
   /**
    * When true (default), changing time tabs or Free/Tickets pills scrolls so
    * list items start under the sticky header + filter bar (scrolls up or down).
+   * Area/city swaps do not scroll — soft-nav should leave the picker in place.
    * Disable on venue pages — hero/details sit above the list and the jump feels wrong.
    */
   scrollOnFilterChange?: boolean;
@@ -242,8 +243,9 @@ export function FilteredEventList({
 
   useLayoutEffect(() => {
     if (!scrollOnFilterChange) return;
-    // Only scroll when the user changes time/price/area — not on mount
-    // or React Strict Mode's double invoke.
+    // Only scroll when the user changes time/price — not on mount
+    // or React Strict Mode's double invoke. Area (city) swaps soft-nav the
+    // same category page; scrolling there yanks desktop away from the picker.
     if (scrolledFiltersRef.current === null) {
       scrolledFiltersRef.current = {
         time: timeRange,
@@ -261,6 +263,7 @@ export function FilteredEventList({
       return;
     }
     const timeChanged = prev.time !== timeRange;
+    const priceChanged = prev.price !== priceFilter;
     scrolledFiltersRef.current = {
       time: timeRange,
       price: priceFilter,
@@ -271,9 +274,9 @@ export function FilteredEventList({
       skipScrollForUrlWhen.current = false;
       return;
     }
-    // Park under sticky header + filter bar (same as time tabs) — never the
-    // page hero. Pass the filter-bar anchor so deep scrolls don't jump up to
-    // category pills when switching time, price, or area.
+    // Area-only change: keep scroll where it is (sticky picker stays put).
+    if (!timeChanged && !priceChanged) return;
+    // Park under sticky header + filter bar — never the page hero.
     scrollToListTop(scrollAnchorRef.current);
   }, [timeRange, priceFilter, areaKey, scrollOnFilterChange]);
 
@@ -493,112 +496,124 @@ export function FilteredEventList({
         </div>
       )}
 
-      {loading ? (
-        <p className="text-copy text-neutral-500 dark:text-neutral-400">{dict.events.loading}</p>
-      ) : events.length === 0 ? (
-        <>
-          <p className="text-copy text-neutral-600 dark:text-neutral-400">
-            {emptyMessage}
+      <div
+        className={
+          scrollOnFilterChange && showStickyFilters
+            ? LIST_PARK_FILL_CLASS
+            : undefined
+        }
+      >
+        {loading ? (
+          <p className="text-copy text-neutral-500 dark:text-neutral-400">
+            {dict.events.loading}
           </p>
-          {addEventInlineCard}
-        </>
-      ) : filtered.length === 0 ? (
-        <>
-          <SearchEmptyState
-            title={nothingHereTitle(dict, activeRange, {
-              category: categoryId ? dict.categories[categoryId] : null,
-              area: areaLabel,
-            })}
-            hint={
-              fixedTimeRange
-                ? dict.search.noResultsHint
-                : dict.events.emptyHint
-            }
-            suggestionsHeading={dict.search.tryTheseDays}
-            suggestions={daySuggestions}
-            actionLabel={priceFilter !== "all" ? tryPriceLabel : undefined}
-            onAction={
-              priceFilter !== "all" ? () => setPriceFilter("all") : undefined
-            }
-          />
-          {showPadCta ? (
-            <div className={view === "cards" ? `mt-3 ${CARD_GRID_CLASS}` : "mt-3"}>
-              <EventListScrollPads
-                count={0}
-                title={dict.events.yourEventHereTitle}
-                label={addEventLabelResolved}
-                onAddEvent={onAddEvent}
-                view={view}
-                fillSpan={view === "cards" ? "full" : undefined}
-              />
-            </div>
-          ) : null}
-        </>
-      ) : (
-        <>
-          <div
-            ref={view === "cards" ? gridRef : undefined}
-            className={
-              view === "cards"
-                ? CARD_GRID_CLASS
-                : "space-y-2.5"
-            }
-          >
-            {visibleEvents.map((event) => (
-              <EventCard
-                key={event.id}
-                event={event}
-                dict={dict}
-                locale={locale}
-                returnTo={returnTo}
-                returnTitle={returnTitle}
-                listTimeRange={fixedTimeRange ?? timeRange}
-                view={view}
-                pending={pendingId === event.id}
-                dimmed={pendingId != null && pendingId !== event.id}
-                onNavigate={() => setPendingId(event.id)}
-                showEnlarge={!categoryId}
-              />
-            ))}
-            {showEndTeaser ? (
-              <EventCardPlaceholder
-                title={dict.events.yourEventHereTitle}
-                label={addEventLabelResolved}
-                onClick={onAddEvent!}
-                view={view}
-                fillSpan={fillSpan}
-              />
-            ) : null}
+        ) : events.length === 0 ? (
+          <>
+            <p className="text-copy text-neutral-600 dark:text-neutral-400">
+              {emptyMessage}
+            </p>
+            {addEventInlineCard}
+          </>
+        ) : filtered.length === 0 ? (
+          <>
+            <SearchEmptyState
+              title={nothingHereTitle(dict, activeRange, {
+                category: categoryId ? dict.categories[categoryId] : null,
+                area: areaLabel,
+              })}
+              hint={
+                fixedTimeRange
+                  ? dict.search.noResultsHint
+                  : dict.events.emptyHint
+              }
+              suggestionsHeading={dict.search.tryTheseDays}
+              suggestions={daySuggestions}
+              actionLabel={priceFilter !== "all" ? tryPriceLabel : undefined}
+              onAction={
+                priceFilter !== "all" ? () => setPriceFilter("all") : undefined
+              }
+            />
             {showPadCta ? (
-              <EventListScrollPads
-                count={displayEvents.length}
-                title={dict.events.yourEventHereTitle}
-                label={addEventLabelResolved}
-                onAddEvent={onAddEvent}
-                view={view}
-                fillSpan={fillSpan}
-              />
+              <div
+                className={view === "cards" ? `mt-3 ${CARD_GRID_CLASS}` : "mt-3"}
+              >
+                <EventListScrollPads
+                  count={0}
+                  title={dict.events.yourEventHereTitle}
+                  label={addEventLabelResolved}
+                  onAddEvent={onAddEvent}
+                  view={view}
+                  fillSpan={view === "cards" ? "full" : undefined}
+                />
+              </div>
             ) : null}
-            {hasMore ? (
-              <EventListMoreTile
-                label={dict.events.moreEvents}
-                view={view}
-                onClick={() =>
-                  setVisibleCount((count) => {
-                    if (!Number.isFinite(count)) return count;
-                    const shown =
-                      view === "cards"
-                        ? fillCardGridPage(count, displayEvents.length, columns)
-                        : count;
-                    return shown + pageSize;
-                  })
-                }
-              />
-            ) : null}
-          </div>
-          {addEventInlineCard}
-        </>
-      )}
+          </>
+        ) : (
+          <>
+            <div
+              ref={view === "cards" ? gridRef : undefined}
+              className={view === "cards" ? CARD_GRID_CLASS : "space-y-2.5"}
+            >
+              {visibleEvents.map((event) => (
+                <EventCard
+                  key={event.id}
+                  event={event}
+                  dict={dict}
+                  locale={locale}
+                  returnTo={returnTo}
+                  returnTitle={returnTitle}
+                  listTimeRange={fixedTimeRange ?? timeRange}
+                  view={view}
+                  pending={pendingId === event.id}
+                  dimmed={pendingId != null && pendingId !== event.id}
+                  onNavigate={() => setPendingId(event.id)}
+                  showEnlarge={!categoryId}
+                />
+              ))}
+              {showEndTeaser ? (
+                <EventCardPlaceholder
+                  title={dict.events.yourEventHereTitle}
+                  label={addEventLabelResolved}
+                  onClick={onAddEvent!}
+                  view={view}
+                  fillSpan={fillSpan}
+                />
+              ) : null}
+              {showPadCta ? (
+                <EventListScrollPads
+                  count={displayEvents.length}
+                  title={dict.events.yourEventHereTitle}
+                  label={addEventLabelResolved}
+                  onAddEvent={onAddEvent}
+                  view={view}
+                  fillSpan={fillSpan}
+                />
+              ) : null}
+              {hasMore ? (
+                <EventListMoreTile
+                  label={dict.events.moreEvents}
+                  view={view}
+                  onClick={() =>
+                    setVisibleCount((count) => {
+                      if (!Number.isFinite(count)) return count;
+                      const shown =
+                        view === "cards"
+                          ? fillCardGridPage(
+                              count,
+                              displayEvents.length,
+                              columns,
+                            )
+                          : count;
+                      return shown + pageSize;
+                    })
+                  }
+                />
+              ) : null}
+            </div>
+            {addEventInlineCard}
+          </>
+        )}
+      </div>
 
       {showFooterAddButton ? (
         <AddEventButton dict={dict} onClick={onAddEvent!} label={addEventLabel} />

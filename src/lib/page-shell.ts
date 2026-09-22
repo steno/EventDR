@@ -64,5 +64,14 @@ export const DETAIL_HERO_PHOTO_HEIGHT_CLASS = `${DETAIL_HERO_PHOTO_HEIGHT_MOBILE
 export const CARD_GRID_CLASS =
   "grid grid-cols-2 items-stretch gap-2 xl:grid-cols-[repeat(auto-fill,minmax(220px,_1fr))] xl:gap-3";
 
+/**
+ * List body under sticky header + time tabs. Keeps document tall enough that
+ * `scrollToListTop` can park filters at the same Y on every time tab — short
+ * desktop tabs used to clamp to different maxScroll positions.
+ * 5.5rem ≈ sticky filter bar (tabs + chips).
+ */
+export const LIST_PARK_FILL_CLASS =
+  "min-h-[calc(100dvh-var(--sticky-list-header-height,3.5rem)-5.5rem)]";
+
 /** Full-row control under a complete card grid (More events). */
 export const CARD_GRID_FULL_ROW_CLASS = "col-span-full w-full";
