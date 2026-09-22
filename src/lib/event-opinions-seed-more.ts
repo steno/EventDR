@@ -2997,4 +2997,42 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "Editor flyer Jueves de Karaoke, Luis Ginebra #42 behind Plaza Amapola, DJ Koky; Luna Disco Bar branding.",
     updatedAt: "2026-09-22T12:00:00.000Z",
   },
+  {
+    eventId: "hard-rock-rising-final-local-2026-09-23",
+    body: "Audience-vote local final at 8 PM — Allison vs Tierra Fertil on the Rising stage, not karaoke Wednesday; WhatsApp the door before you treat it as a free hang.",
+    localized: {
+      es: "Final local con voto del público a las 8 PM — Allison vs Tierra Fertil en el escenario Rising, no el karaoke de miércoles; confirma cover por WhatsApp antes de tratarlo como plan gratis.",
+      fr: "Finale locale au vote du public à 20 h — Allison vs Tierra Fertil sur la scène Rising, pas le karaoké du mercredi ; confirmez le cover WhatsApp avant de le traiter comme une soirée gratuite.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "Ticket/cover not on flyer — WhatsApp +1 849-505-7778; budget Hard Rock food and drinks either way",
+    priceNoteLocalized: {
+      es: "Boleto/cover no en el flyer — WhatsApp +1 849-505-7778; presupuesta comida y tragos Hard Rock de todos modos",
+      fr: "Billet/cover absent du flyer — WhatsApp +1 849-505-7778 ; budget nourriture et boissons Hard Rock dans tous les cas",
+    },
+    attribution: "POP research · Hard Rock Rising × Coca-Cola final flyer",
+    researchNotes:
+      "Editor-supplied flyer + IG caption @hardrockcafepuertoplata — Wed 23 Sep 2026 from 8 PM local final Allison vs Tierra Fertil, Hard Rock Rising Global Live Music Challenge powered by Coca-Cola. No price on art.",
+    updatedAt: "2026-09-22T12:00:00.000Z",
+  },
+  {
+    eventId: "ojo-equinoccio-neon-party-2026-09-25",
+    body: "Billed neon night with DJ OPG on Cabarete Bay — sharper than the usual weekend Ojo set; reserve early and confirm start time on the club lines.",
+    localized: {
+      es: "Noche neón con DJ OPG en bahía Cabarete — más marcada que el set de fin de semana habitual de Ojo; reserva temprano y confirma la hora en las líneas del club.",
+      fr: "Soirée néon avec DJ OPG sur la baie de Cabarete — plus marquée que le set week-end habituel d'Ojo ; réservez tôt et confirmez l'heure sur les lignes du club.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "Cover/start time not on flyer — reserve +1 829-745-8811 / +1 829-745-8812",
+    priceNoteLocalized: {
+      es: "Cover/hora no en el flyer — reserva +1 829-745-8811 / +1 829-745-8812",
+      fr: "Cover/heure absents de l'affiche — réservez +1 829-745-8811 / +1 829-745-8812",
+    },
+    attribution: "POP research · Ojo Club UNC Equinoccio flyer",
+    researchNotes:
+      "Editor-supplied flyer + IG caption @ojoclubcabarete — Fri 25 Sep 2026 Equinoccio See You in the Future Neon Party, DJ OPG, Ron Barceló RD, Playa Cabarete. Reservations 829-745-8811 / 829-745-8812. No start time or cover on art.",
+    updatedAt: "2026-09-22T12:00:00.000Z",
+  },
 ];

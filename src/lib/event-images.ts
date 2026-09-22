@@ -140,6 +140,10 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "hard-rock-casa-mickey-2026-09-26": "hard-rock-casa-mickey-2026-09-26.jpg",
   "hard-rock-rising-segunda-ronda-2026-09-16":
     "hard-rock-rising-segunda-ronda-2026-09-16.jpg",
+  "hard-rock-rising-final-local-2026-09-23":
+    "hard-rock-rising-final-local-2026-09-23.jpg",
+  "ojo-equinoccio-neon-party-2026-09-25":
+    "ojo-equinoccio-neon-party-2026-09-25.jpg",
   "iss-pta-parents-night-out-2026-09-17":
     "iss-pta-parents-night-out-flyer.jpg",
   "hard-rock-catrinas-halloween-2026-10-31":
@@ -478,6 +482,8 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "hard-rock-casa-mickey-2026-09-26.jpg",
   "hard-rock-karaoke-wednesday.jpg",
   "hard-rock-rising-segunda-ronda-2026-09-16.jpg",
+  "hard-rock-rising-final-local-2026-09-23.jpg",
+  "ojo-equinoccio-neon-party-2026-09-25.jpg",
   "hard-rock-catrinas-halloween-2026-10-31.jpg",
   "iss-pta-parents-night-out-flyer.jpg",
   "imbert-mercedes-patronales-2026.jpg",

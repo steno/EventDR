@@ -2748,5 +2748,60 @@
       "Premios en efectivo"
     ],
     "imageEmoji": "🏓"
+  },
+  {
+    "id": "hard-rock-rising-final-local-2026-09-23",
+    "title": "Hard Rock Rising — Final local: Allison vs Tierra Fertil",
+    "description": "Hard Rock Rising Global Live Music Challenge — final local en Hard Rock Cafe Puerto Plata, Sosúa — miércoles 23 de septiembre 2026 desde las 8:00 PM. Allison vs Tierra Fertil; el público decide el ganador. Powered by Coca-Cola. Confirma boletos y cover por WhatsApp +1 849-505-7778.",
+    "date": "2026-09-23",
+    "time": "8:00 PM",
+    "location": "Sosúa",
+    "venue": "Hard Rock Cafe Puerto Plata",
+    "venueSlug": "hard-rock-sosua",
+    "address": "Calle Duarte 7, Sosúa",
+    "lat": 19.7634107,
+    "lng": -70.5162309,
+    "category": "music",
+    "categories": [
+      "performances",
+      "festivals"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18495057778",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/hardrockcafepuertoplata/",
+    "lineup": [
+      "Allison",
+      "Tierra Fertil"
+    ],
+    "imageEmoji": "🎸"
+  },
+  {
+    "id": "ojo-equinoccio-neon-party-2026-09-25",
+    "title": "UNC Equinoccio Neon Party — DJ OPG en Ojo Club",
+    "description": "UNC Equinoccio: See You in the Future — Neon Party en Ojo Club, Playa Cabarete (LAX Cabarete) — viernes 25 de septiembre 2026 con DJ OPG. Primera vez en Ojo Club; Ron Barceló RD. Reservaciones +1 829-745-8811 / +1 829-745-8812. Confirma hora de inicio y cover al reservar.",
+    "date": "2026-09-25",
+    "location": "Cabarete",
+    "venue": "Ojo Club at LAX Cabarete",
+    "venueSlug": "lax-cabarete",
+    "lat": 19.7503643,
+    "lng": -70.406125,
+    "category": "parties",
+    "categories": [
+      "parties",
+      "music"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18297458811",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/ojoclubcabarete/",
+    "lineup": [
+      "DJ OPG"
+    ],
+    "imageEmoji": "🪩"
   }
 ]

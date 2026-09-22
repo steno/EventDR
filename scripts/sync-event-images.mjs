@@ -223,6 +223,10 @@ const FILE_TO_EVENT_ID = {
   "serenade-bbq-night-villa-taina-weekly.jpg":
     "serenade-bbq-night-villa-taina-weekly",
   "luna-lounge-jueves-karaoke-weekly.jpg": "luna-lounge-jueves-karaoke-weekly",
+  "hard-rock-rising-final-local-2026-09-23.jpg":
+    "hard-rock-rising-final-local-2026-09-23",
+  "ojo-equinoccio-neon-party-2026-09-25.jpg":
+    "ojo-equinoccio-neon-party-2026-09-25",
   "allison-sade-aura-2026-09-17.jpg": "allison-sade-aura-2026-09-17",
   "ocean-world-terrace-karaoke-encuentro-2026-09-16.jpg":
     "ocean-world-terrace-singing-talent-2026-09-16",
