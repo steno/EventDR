@@ -121,3 +121,17 @@ describe("resolveLiveStatusDisplay temporarily closed", () => {
     assert.notEqual(display?.label, dict.events.happeningNow);
   });
 });
+
+describe("resolveLiveStatusDisplay sold out", () => {
+  const beforeDoors = new Date("2026-09-26T14:00:00.000Z");
+  const workshop = {
+    date: "2026-09-26",
+    soldOut: true,
+  };
+
+  it("says sold out instead of a live/upcoming badge", () => {
+    const display = resolveLiveStatusDisplay(workshop, dict, beforeDoors);
+    assert.equal(display?.status, "soldOut");
+    assert.equal(display?.label, dict.events.soldOut);
+  });
+});

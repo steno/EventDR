@@ -233,6 +233,8 @@ const FILE_TO_EVENT_ID = {
   "cigar-town-eddy-almonte-2026-09-26.jpg": "cigar-town-eddy-almonte-2026-09-26",
   "joaquin-sanchez-rancho-catalina-2026-09-27.jpg":
     "joaquin-sanchez-rancho-catalina-2026-09-27",
+  "hard-rock-descubre-sosua-2026-09-26.jpg":
+    "hard-rock-descubre-sosua-2026-09-26",
   "allison-sade-aura-2026-09-17.jpg": "allison-sade-aura-2026-09-17",
   "ocean-world-terrace-karaoke-encuentro-2026-09-16.jpg":
     "ocean-world-terrace-singing-talent-2026-09-16",

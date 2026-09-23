@@ -155,6 +155,7 @@ function docToEvent(id: string, data: DocumentData): Event {
     lat: (data.lat as number | null) ?? undefined,
     lng: (data.lng as number | null) ?? undefined,
     temporarilyClosed: data.temporarilyClosed === true ? true : undefined,
+    soldOut: data.soldOut === true ? true : undefined,
     communitySubmitted:
       data.sourceType === "community" ||
       data.sourceType === "instagram" ||
@@ -267,6 +268,7 @@ function eventToFirestore(
     lat: event.lat ?? null,
     lng: event.lng ?? null,
     temporarilyClosed: event.temporarilyClosed === true ? true : null,
+    soldOut: event.soldOut === true ? true : null,
     status,
     createdAt: FieldValue.serverTimestamp(),
   };

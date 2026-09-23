@@ -151,6 +151,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "cigar-town-eddy-almonte-2026-09-26": "cigar-town-eddy-almonte-2026-09-26.jpg",
   "joaquin-sanchez-rancho-catalina-2026-09-27":
     "joaquin-sanchez-rancho-catalina-2026-09-27.jpg",
+  "hard-rock-descubre-sosua-2026-09-26":
+    "hard-rock-descubre-sosua-2026-09-26.jpg",
   "iss-pta-parents-night-out-2026-09-17":
     "iss-pta-parents-night-out-flyer.jpg",
   "hard-rock-catrinas-halloween-2026-10-31":
@@ -425,6 +427,7 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "la-lola-noche-de-nenas-blanco-2026-09-25": "object-center",
   "cigar-town-eddy-almonte-2026-09-26": "object-center lg:object-left",
   "joaquin-sanchez-rancho-catalina-2026-09-27": "object-center",
+  "hard-rock-descubre-sosua-2026-09-26": "object-center",
 };
 
 function curatedEventImageFile(eventId: string): string | undefined {
@@ -516,6 +519,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "la-lola-noche-de-nenas-blanco-2026-09-25.jpg",
   "cigar-town-eddy-almonte-2026-09-26.jpg",
   "joaquin-sanchez-rancho-catalina-2026-09-27.jpg",
+  "hard-rock-descubre-sosua-2026-09-26.jpg",
   "duo-maryem-rancho-catalina-2026-09-20.jpg",
   "rio-sonador-cierre-del-verano-2026-09-20.jpg",
   "ambar-lounge-reggaeton-2026-09-17.jpg",

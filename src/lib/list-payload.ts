@@ -23,6 +23,7 @@ export function slimEventForList(event: Event): Event {
   if (event.phone) slim.phone = event.phone;
   if (event.categories?.length) slim.categories = event.categories;
   if (event.temporarilyClosed) slim.temporarilyClosed = true;
+  if (event.soldOut) slim.soldOut = true;
   if (event.trending) slim.trending = true;
   if (event.ticketUrl) slim.ticketUrl = event.ticketUrl;
   if (event.isFree) slim.isFree = true;

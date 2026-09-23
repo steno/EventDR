@@ -62,10 +62,14 @@ export function EventCardMeta({
   // event is "Happening now" while the venue is shut.
   const badgeStatus: EventLiveStatus | null = event.temporarilyClosed
     ? "temporarilyClosed"
-    : liveStatus;
+    : event.soldOut
+      ? "soldOut"
+      : liveStatus;
   const badgeLabel = event.temporarilyClosed
     ? dict.events.temporarilyClosed
-    : liveStatusLabel;
+    : event.soldOut
+      ? dict.events.soldOut
+      : liveStatusLabel;
   const dateLabel = formatEventDateRange(event.date, locale, {
     endDate: event.endDate,
     short: true,

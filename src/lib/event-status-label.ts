@@ -37,6 +37,8 @@ export function formatEventLiveStatusLabel(
       return dict.events.closedForToday;
     case "temporarilyClosed":
       return dict.events.temporarilyClosed;
+    case "soldOut":
+      return dict.events.soldOut;
     case "ended":
       return dict.events.eventEnded;
     default:
@@ -97,6 +99,12 @@ export function resolveLiveStatusDisplay(
     return {
       status: "temporarilyClosed",
       label: dict.events.temporarilyClosed,
+    };
+  }
+  if (event.soldOut) {
+    return {
+      status: "soldOut",
+      label: dict.events.soldOut,
     };
   }
 
@@ -185,6 +193,8 @@ export function eventStatusBadgeClass(status: EventLiveStatus): string {
     case "closedToday":
       return "bg-violet-50 text-violet-800 dark:bg-violet-500/25 dark:text-violet-200 dark:ring-1 dark:ring-violet-400/35";
     case "temporarilyClosed":
+      return "bg-rose-50 text-rose-800 dark:bg-rose-500/25 dark:text-rose-200 dark:ring-1 dark:ring-rose-400/35";
+    case "soldOut":
       return "bg-rose-50 text-rose-800 dark:bg-rose-500/25 dark:text-rose-200 dark:ring-1 dark:ring-rose-400/35";
     case "ended":
       return "bg-neutral-100 text-neutral-600 dark:bg-neutral-700/80 dark:text-neutral-200 dark:ring-1 dark:ring-white/15";

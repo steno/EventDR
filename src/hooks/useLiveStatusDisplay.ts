@@ -14,7 +14,7 @@ import { useLiveClockMs } from "@/hooks/useLiveClock";
 export function useLiveStatusDisplay(
   event: Pick<
     Event,
-    "date" | "endDate" | "time" | "recurrence" | "temporarilyClosed"
+    "date" | "endDate" | "time" | "recurrence" | "temporarilyClosed" | "soldOut"
   >,
   dict: Dictionary,
   options?: LiveStatusDisplayOptions,
@@ -35,6 +35,7 @@ export function useLiveStatusDisplay(
     event.time,
     event.recurrence,
     event.temporarilyClosed,
+    event.soldOut,
     listTimeRange,
     nowMs,
   ]);

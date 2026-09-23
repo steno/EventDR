@@ -3036,4 +3036,23 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "Editor flyer + IG caption — Sun 27 Sep 2026 2:30 PM Joaquín Sánchez El Rey de la Bohemia, no cover, El Cupey; romantic afternoon set.",
     updatedAt: "2026-09-23T12:00:00.000Z",
   },
+  {
+    eventId: "hard-rock-descubre-sosua-2026-09-26",
+    body: "MITUR-backed host meetup at Hard Rock Sosúa — sold out for Descubre Sosúa / El Nuevo Norte; don’t send walk-ups expecting open registration after 9:30 AM.",
+    localized: {
+      es: "Encuentro de anfitriones con apoyo MITUR en Hard Rock Sosúa — agotado para Descubre Sosúa / El Nuevo Norte; no mandes walk-ups esperando registro abierto después de las 9:30 AM.",
+      fr: "Rencontre hôtes soutenue par le MITUR au Hard Rock Sosúa — complet pour Descubre Sosúa / El Nuevo Norte ; n’envoyez pas de walk-ups en espérant une inscription ouverte après 9 h 30.",
+    },
+    priceFeel: "varies",
+    priceNote: "Sold out — @clubanfitrioneszonanorterd",
+    priceNoteLocalized: {
+      es: "Agotado — @clubanfitrioneszonanorterd",
+      fr: "Complet — @clubanfitrioneszonanorterd",
+    },
+    attribution:
+      "POP research · Club Anfitriones Zona Norte · @clubanfitrioneszonanorterd",
+    researchNotes:
+      "Editor flyer + IG caption — Sat 26 Sep 2026 Rumbo a Descubre Sosúa El Nuevo Norte at Hard Rock Cafe Sosúa; registro 9:30 AM, inicio 10:00 AM; MITUR support; Airbnb Community; sold out per editor.",
+    updatedAt: "2026-09-23T12:00:00.000Z",
+  },
 ];

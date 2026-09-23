@@ -2955,5 +2955,34 @@
       "Joaquín Sánchez"
     ],
     "imageEmoji": "🎸"
+  },
+  {
+    "id": "hard-rock-descubre-sosua-2026-09-26",
+    "title": "Descubre Sosúa 2026 — Rencontre hôtes au Hard Rock",
+    "description": "Rumbo a Descubre Sosúa: El Nuevo Norte — invitation spéciale hôtes au Hard Rock Cafe Puerto Plata, Calle Duarte 7, Sosúa — samedi 26 septembre 2026. Inscription dès 9 h 30 ; début 10 h. Avec le soutien du Ministère du Tourisme (MITUR) : régulation de l’hébergement temporaire, actualités du secteur et networking entre hôtes, leaders et alliés. Complet. Organisé par Club Anfitriones Zona Norte (@clubanfitrioneszonanorterd) avec Airbnb Community. WhatsApp du lieu +1 849-505-7778.",
+    "date": "2026-09-26",
+    "time": "10:00 AM",
+    "location": "Sosúa",
+    "venue": "Hard Rock Cafe Puerto Plata",
+    "venueSlug": "hard-rock-sosua",
+    "address": "Calle Duarte 7, Sosúa",
+    "lat": 19.7634107,
+    "lng": -70.5162309,
+    "category": "business",
+    "categories": [
+      "culture"
+    ],
+    "format": "physical",
+    "trending": true,
+    "soldOut": true,
+    "phone": "+18495057778",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/clubanfitrioneszonanorterd/",
+    "lineup": [
+      "Ministerio de Turismo (MITUR)",
+      "Club Anfitriones Zona Norte",
+      "Airbnb Community"
+    ],
+    "imageEmoji": "🌴"
   }
 ]

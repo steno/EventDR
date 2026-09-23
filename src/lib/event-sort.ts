@@ -24,8 +24,9 @@ const LIST_TIER = {
   closedToday: 4,
   future: 5,
   endedToday: 6,
-  temporarilyClosed: 7,
-  past: 8,
+  soldOut: 7,
+  temporarilyClosed: 8,
+  past: 9,
 } as const;
 
 export interface SortEventsForDisplayOptions {
@@ -104,6 +105,7 @@ function discoveryBand(tier: number, event: Event): number {
 
   if (
     tier === LIST_TIER.endedToday ||
+    tier === LIST_TIER.soldOut ||
     tier === LIST_TIER.temporarilyClosed ||
     tier === LIST_TIER.past ||
     tier === LIST_TIER.closedToday
@@ -155,6 +157,7 @@ export function pinTodayOneOffs(events: Event[], now: Date = new Date()): Event[
     if (
       status === "ended" ||
       status === "closedToday" ||
+      status === "soldOut" ||
       status === "temporarilyClosed"
     ) {
       rest.push(event);
@@ -218,6 +221,7 @@ function listTier(event: Event, now: Date): number {
   const onToday = happensOnLocalDate(event, today);
 
   if (event.temporarilyClosed) return LIST_TIER.temporarilyClosed;
+  if (event.soldOut) return LIST_TIER.soldOut;
 
   if (onToday && hasEventEndedForToday(event, now)) {
     return LIST_TIER.endedToday;

@@ -295,10 +295,14 @@ export function EventDetailSheet({
     : null;
   const liveStatus = event.temporarilyClosed
     ? ("temporarilyClosed" as const)
-    : liveDisplay?.status ?? null;
+    : event.soldOut
+      ? ("soldOut" as const)
+      : liveDisplay?.status ?? null;
   const liveStatusLabel = event.temporarilyClosed
     ? dict.events.temporarilyClosed
-    : liveDisplay?.label ?? null;
+    : event.soldOut
+      ? dict.events.soldOut
+      : liveDisplay?.label ?? null;
   const timeLabel = formatEventTimeForList(event.time, {
     recurrence: event.recurrence,
     allDayLabel: dict.events.allDay,

@@ -187,6 +187,8 @@ export interface Event {
   categories?: EventCategory[];
   /** Show a "Temporarily closed" tag on cards while the venue/event is paused. */
   temporarilyClosed?: boolean;
+  /** Show a "Sold out" tag when tickets/spots are gone but the listing stays visible. */
+  soldOut?: boolean;
   format: EventFormat;
   trending?: boolean;
   sourceUrl?: string;
