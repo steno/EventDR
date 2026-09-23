@@ -35,7 +35,7 @@ Curated images under `public/events/` and `public/venues/`.
 | `la-lola-dj-one-d-feriado-2026-09-24.jpg` | POP-supplied — El weekend arranca el jueves / DJ ONE D flyer ([@lalolabeachclub](https://www.instagram.com/lalolabeachclub/)) | Thu 24 Sep 2026 Mercedes feriado, free shots (editor-provided) |
 | `aura-halloween-party-2026-10-31.jpg` | POP-supplied — Aura Halloween Party flyer ([@auracabarete](https://www.instagram.com/auracabarete/)) | Sat 31 Oct 2026 costume contest RD$20k/10k/5k (editor-provided) |
 | `la-lola-noche-de-nenas-blanco-2026-09-25.jpg` | POP-supplied — Todas de Blanco / Noche de Nenas flyer ([@lalolabeachclub](https://www.instagram.com/lalolabeachclub/)) | Fri 25 Sep 2026 open bar for women until 9:30 PM (editor-provided) |
-| `cigar-town-eddy-lamb-2026-09-26.jpg` | POP-supplied — Eddy Lamb live flyer ([@cigartownpop](https://www.instagram.com/cigartownpop/)) | Sat 26 Sep 2026 8:00 PM Cigar Town (editor-provided; artist ID from editor) |
+| `cigar-town-eddy-almonte-2026-09-26.jpg` | POP-supplied — Eddy Almonte live flyer ([@cigartownpop](https://www.instagram.com/cigartownpop/)) | Sat 26 Sep 2026 8:00 PM Cigar Town (editor-provided; artist ID from editor) |
 | `joaquin-sanchez-rancho-catalina-2026-09-27.jpg` | POP-supplied — Joaquín Sánchez Música en Vivo flyer ([@rancholacatalina](https://www.instagram.com/rancholacatalina/)) | Sun 27 Sep 2026 2:30 PM no cover (editor-provided) |
 | `venues/terramar-pickleball-club.jpg` | POP-supplied — Terramar Pickleball Club profile/cover | Venue hero (editor-provided) |
 | `allison-sade-aura-2026-09-17.jpg` | POP-supplied — Allison Sade Live Music flyer ([@allisonsadeofficial](https://www.instagram.com/allisonsadeofficial/) × Aura Cabarete) | Thu 17 Sep 2026 8:00 PM (editor-provided) |

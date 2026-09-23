@@ -148,7 +148,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "aura-halloween-party-2026-10-31": "aura-halloween-party-2026-10-31.jpg",
   "la-lola-noche-de-nenas-blanco-2026-09-25":
     "la-lola-noche-de-nenas-blanco-2026-09-25.jpg",
-  "cigar-town-eddy-lamb-2026-09-26": "cigar-town-eddy-lamb-2026-09-26.jpg",
+  "cigar-town-eddy-almonte-2026-09-26": "cigar-town-eddy-almonte-2026-09-26.jpg",
   "joaquin-sanchez-rancho-catalina-2026-09-27":
     "joaquin-sanchez-rancho-catalina-2026-09-27.jpg",
   "iss-pta-parents-night-out-2026-09-17":
@@ -423,7 +423,7 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "la-lola-dj-one-d-feriado-2026-09-24": "object-center",
   "aura-halloween-party-2026-10-31": "object-center",
   "la-lola-noche-de-nenas-blanco-2026-09-25": "object-center",
-  "cigar-town-eddy-lamb-2026-09-26": "object-center lg:object-left",
+  "cigar-town-eddy-almonte-2026-09-26": "object-center lg:object-left",
   "joaquin-sanchez-rancho-catalina-2026-09-27": "object-center",
 };
 
@@ -514,7 +514,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "la-lola-dj-one-d-feriado-2026-09-24.jpg",
   "aura-halloween-party-2026-10-31.jpg",
   "la-lola-noche-de-nenas-blanco-2026-09-25.jpg",
-  "cigar-town-eddy-lamb-2026-09-26.jpg",
+  "cigar-town-eddy-almonte-2026-09-26.jpg",
   "joaquin-sanchez-rancho-catalina-2026-09-27.jpg",
   "duo-maryem-rancho-catalina-2026-09-20.jpg",
   "rio-sonador-cierre-del-verano-2026-09-20.jpg",

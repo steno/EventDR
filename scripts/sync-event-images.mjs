@@ -230,7 +230,7 @@ const FILE_TO_EVENT_ID = {
   "aura-halloween-party-2026-10-31.jpg": "aura-halloween-party-2026-10-31",
   "la-lola-noche-de-nenas-blanco-2026-09-25.jpg":
     "la-lola-noche-de-nenas-blanco-2026-09-25",
-  "cigar-town-eddy-lamb-2026-09-26.jpg": "cigar-town-eddy-lamb-2026-09-26",
+  "cigar-town-eddy-almonte-2026-09-26.jpg": "cigar-town-eddy-almonte-2026-09-26",
   "joaquin-sanchez-rancho-catalina-2026-09-27.jpg":
     "joaquin-sanchez-rancho-catalina-2026-09-27",
   "allison-sade-aura-2026-09-17.jpg": "allison-sade-aura-2026-09-17",
