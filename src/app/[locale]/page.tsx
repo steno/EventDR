@@ -6,9 +6,8 @@ import { JsonLd } from "@/components/JsonLd";
 import { isValidLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import {
+  buildBrandJsonLd,
   buildHomeMetadata,
-  buildOrganizationJsonLd,
-  buildWebSiteJsonLd,
 } from "@/lib/seo";
 import {
   collectHomeBootstrapEvents,
@@ -62,12 +61,7 @@ export default async function Page({
   const initialVenues = collectHomeBootstrapVenues(listVenues);
   return (
     <>
-      <JsonLd
-        data={[
-          buildOrganizationJsonLd(locale, dict),
-          buildWebSiteJsonLd(locale, dict),
-        ]}
-      />
+      <JsonLd data={buildBrandJsonLd(locale, dict)} />
       <HomeBootExpect />
       {/* No Suspense/null fallback — Home must be in the first HTML for Slow 3G. */}
       <Home

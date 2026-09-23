@@ -19,6 +19,8 @@ import { SITE_URL } from "@/lib/site-url";
 
 export const SITE_NAME = "POP Events";
 export const DEFAULT_OG_IMAGE = "/og-image.jpg";
+/** Square mark in the header — not the wide social card. */
+const BRAND_LOGO_PATH = "/pop-home-logo.png";
 
 const OG_LOCALE: Record<Locale, string> = {
   en: "en_US",
@@ -674,13 +676,31 @@ export function buildOrganizationJsonLd(locale: Locale, dict: Dictionary) {
     name: SITE_NAME,
     alternateName: "POP Eventos",
     url,
-    logo: absoluteUrl(DEFAULT_OG_IMAGE),
+    logo: {
+      "@type": "ImageObject",
+      url: absoluteUrl(BRAND_LOGO_PATH),
+      width: 192,
+      height: 192,
+    },
+    slogan: dict.hero.regionTagline,
     description: dict.meta.description,
     sameAs: [...BRAND_SOCIAL_SAME_AS],
     areaServed: {
       "@type": "AdministrativeArea",
       name: "Puerto Plata Province, Dominican Republic",
     },
+  };
+}
+
+/** One JSON-LD object. A top-level array makes some brand scrapers throw. */
+export function buildBrandJsonLd(locale: Locale, dict: Dictionary) {
+  const organization = buildOrganizationJsonLd(locale, dict);
+  const website = buildWebSiteJsonLd(locale, dict);
+  const { "@context": _orgContext, ...orgNode } = organization;
+  const { "@context": _siteContext, ...siteNode } = website;
+  return {
+    "@context": "https://schema.org",
+    "@graph": [orgNode, siteNode],
   };
 }
 

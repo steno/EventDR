@@ -3,6 +3,7 @@ import { describe, it } from "node:test";
 import { getEventOgImageUrl } from "./event-images";
 import { getDictionary } from "@/i18n/dictionaries";
 import {
+  buildBrandJsonLd,
   buildEventBreadcrumbItems,
   buildBreadcrumbJsonLd,
   buildEventMetadata,
@@ -70,6 +71,25 @@ describe("buildEventMetadata", () => {
     const image = images[0];
     assert.ok(image && typeof image === "object" && "url" in image);
     assert.equal(String(image.url), "https://pop-event.com/events/custom-upload.jpg");
+  });
+});
+
+describe("buildBrandJsonLd", () => {
+  it("publishes a slogan and overview in one graph", () => {
+    const dict = getDictionary("en");
+    const graph = buildBrandJsonLd("en", dict);
+    assert.equal(graph["@context"], "https://schema.org");
+    assert.equal("@type" in graph, false);
+    const nodes = graph["@graph"];
+    const org = nodes.find((node) => node["@type"] === "Organization");
+    const site = nodes.find((node) => node["@type"] === "WebSite");
+    assert.ok(org);
+    assert.ok(site);
+    assert.equal(org.slogan, dict.hero.regionTagline);
+    assert.equal(org.description, dict.meta.description);
+    assert.equal(site.description, dict.meta.description);
+    assert.equal(org.logo.url, "https://pop-event.com/pop-home-logo.png");
+    assert.equal(org.logo.width, 192);
   });
 });
 

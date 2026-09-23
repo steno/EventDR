@@ -14,8 +14,7 @@ import { slimVenuesForList } from "@/lib/list-payload";
 import { getPublicEvents } from "@/lib/public-events";
 import {
   buildCruiseMetadata,
-  buildOrganizationJsonLd,
-  buildWebSiteJsonLd,
+  buildBrandJsonLd,
 } from "@/lib/seo";
 import { getVenues } from "@/lib/venues";
 
@@ -67,12 +66,7 @@ export default async function Page({
 
   return (
     <>
-      <JsonLd
-        data={[
-          buildOrganizationJsonLd(locale, dict),
-          buildWebSiteJsonLd(locale, dict),
-        ]}
-      />
+      <JsonLd data={buildBrandJsonLd(locale, dict)} />
       <HomeBootExpect />
       <Home
         locale={locale}
