@@ -3012,9 +3012,9 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       es: "Cover no está en el flyer — @cigartownpop",
       fr: "Cover absent de l’affiche — @cigartownpop",
     },
-    attribution: "POP research · Cigar Town Pop · editor ID Eddy Almonte",
+    attribution: "POP research · Cigar Town Pop · Eddy Almonte (@eddyalmb)",
     researchNotes:
-      "Editor flyer SÁBADO 26 SEP @ 8:00 PM CIGAR TOWN; bald resonator guitarist identified by editor as Eddy Almonte (not named on art).",
+      "Editor flyer SÁBADO 26 SEP @ 8:00 PM CIGAR TOWN; bald resonator guitarist corrected to Eddy Almonte (@eddyalmb), matching prior Cigar Town Sessions listings.",
     updatedAt: "2026-09-23T12:00:00.000Z",
   },
   {
