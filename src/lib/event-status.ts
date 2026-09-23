@@ -334,7 +334,7 @@ export function getEventLiveStatus(
   now: Date = new Date(),
 ): EventLiveStatus {
   if (event.temporarilyClosed) return "temporarilyClosed";
-  if (event.soldOut) return "soldOut";
+  // soldOut is a badge only — keep calendar live/upcoming/ended for list sort.
 
   const start = eventStartISO(event);
   const end = eventEndISO(event);

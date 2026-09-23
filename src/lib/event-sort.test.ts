@@ -214,6 +214,37 @@ describe("sortEventsForDisplay temporarilyClosed", () => {
   });
 });
 
+describe("sortEventsForDisplay soldOut", () => {
+  it("keeps a sold-out future one-off with other upcoming peers (badge only)", () => {
+    const soldOut = event({
+      id: "descubre-meetup",
+      title: "Descubre Sosúa Meetup",
+      date: "2026-08-02",
+      time: "10:00 AM",
+      soldOut: true,
+      trending: true,
+    });
+    const other = event({
+      id: "next-week-show",
+      title: "Next Week Show",
+      date: "2026-08-03",
+      time: "8:00 PM",
+    });
+    const past = event({
+      id: "yesterday",
+      title: "Yesterday",
+      date: "2026-07-30",
+      time: "8:00 PM",
+    });
+
+    const sorted = sortEventsForDisplay([past, other, soldOut], { now: NOW });
+    assert.equal(
+      sorted.map((e) => e.id).join(","),
+      "descubre-meetup,next-week-show,yesterday",
+    );
+  });
+});
+
 describe("sortEventsForDisplay weekly vs daily", () => {
   it("ranks a future weekly night above a closed-today daily in discoveryMode", () => {
     const museum = event({
