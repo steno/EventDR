@@ -2984,5 +2984,75 @@
       "Airbnb Community"
     ],
     "imageEmoji": "🌴"
+  },
+  {
+    "id": "trolley-descubre-sosua-2026-09-26",
+    "title": "Descubre Sosúa en Grande — Trolley City Tours",
+    "description": "Boucle trolley spéciale Descubre Sosúa en communauté avec TrolleyCity Tours POP et Club Anfitriones Zona Norte — samedi 26 septembre 2026, 16 h–18 h. Itinéraire : tour de Sosúa, arrêt panneau Sosúa, bière artisanale, un bar du centre et clôture au Hard Rock Cafe Sosúa. Avec le soutien du MITUR. Places limitées — confirmez via Instagram @clubanfitrioneszonanorterd ou @trolleycitytours / (809) 769-8732.",
+    "date": "2026-09-26",
+    "time": "4:00 PM – 6:00 PM",
+    "location": "Sosúa",
+    "venue": "TrolleyCity Tours POP",
+    "venueSlug": "trolley-city-tours",
+    "address": "Parcours Sosúa — fin au Hard Rock Cafe, Calle Duarte 7",
+    "lat": 19.7634107,
+    "lng": -70.5162309,
+    "category": "adventure",
+    "categories": [
+      "parties",
+      "culture"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18097698732",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/clubanfitrioneszonanorterd/",
+    "lineup": [
+      "TrolleyCity Tours POP",
+      "Club Anfitriones Zona Norte",
+      "Ministerio de Turismo (MITUR)"
+    ],
+    "imageEmoji": "🚎"
+  },
+  {
+    "id": "eat-street-market-ocean-one-2026-09-27",
+    "title": "Eat Street Market Vol. 4 à Ocean One",
+    "description": "Eat Street Market Vol. 4 présenté par The Honey Company à Ocean One, Calle Los Pinos #2, Cabarete — dimanche 27 septembre 2026 dès 16 h. Bonnes vibes et stands food avec DJ Kinue. Stands : Healthy Station (Arata), Beef Tallow & Sea Salt (Keto Crypto), Air Fried Empanadas (Dominicated), La Pizza (Le Cose di Elsa), Italian Cuisine (Alimentos El Terrón), Cakes & Puddings (The English Pantry), Authentic Filipino Food (Lumpia Empire), English Oven Bakes (Pepperpot), Cookies & Brownies (Sweet Tooth Fairy), Surfside Snacks (Loco Bebé), Ice Cream (Helado Sin Reglas), Dominican Cacao (Finca Silvester). Entrée libre ; payez stand par stand. Confirmez via Instagram @thehoneyco ou +1 809-340-5994 · thehoneyco.com.",
+    "date": "2026-09-27",
+    "time": "4:00 PM",
+    "location": "Cabarete",
+    "venue": "Ocean One Cabarete",
+    "venueSlug": "ocean-one-cabarete",
+    "address": "Calle Los Pinos #2, Cabarete",
+    "lat": 19.7495899,
+    "lng": -70.4120254,
+    "category": "food-drinks",
+    "categories": [
+      "festivals",
+      "music"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "phone": "+18093405994",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/thehoneyco/",
+    "lineup": [
+      "DJ Kinue",
+      "Healthy Station by Arata",
+      "Beef Tallow & Sea Salt by Keto Crypto",
+      "Air Fried Empanadas by Dominicated",
+      "La Pizza by Le Cose di Elsa",
+      "Italian Cuisine by Alimentos El Terrón",
+      "Cakes & Puddings by The English Pantry",
+      "Authentic Filipino Food by Lumpia Empire",
+      "English Oven Bakes by Pepperpot",
+      "Cookies & Brownies by Sweet Tooth Fairy",
+      "Surfside Snacks by Loco Bebé",
+      "Ice Cream by Helado Sin Reglas",
+      "Dominican Cacao by Finca Silvester"
+    ],
+    "imageEmoji": "🍯"
   }
 ]

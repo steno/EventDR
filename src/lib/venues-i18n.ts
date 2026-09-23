@@ -41,8 +41,8 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
   },
   "sosua-food-market": {
     description: {
-      es: "Food court al aire libre con varios puestos en Calle Anacaona y Calle Pablo Neruda, Sosúa centro — platos casuales, tragos y noches de DJ cuando hay cartel bajo el arco verde. Diario 4:00 PM–12:00 AM.",
-      fr: "Food court en plein air multi-vendeurs à Calle Anacaona et Calle Pablo Neruda, Sosúa centre — assiettes casual, boissons et soirées DJ quand annoncé sous l’arche verte. Tous les jours 16 h–minuit.",
+      es: "Food court al aire libre con varios puestos en Calle Anacaona y Calle Pablo Neruda, Sosúa centro — platos casuales, tragos, playground para niños y noches de DJ cuando hay cartel bajo el arco verde. Diario 4:00 PM–12:00 AM.",
+      fr: "Food court en plein air multi-vendeurs à Calle Anacaona et Calle Pablo Neruda, Sosúa centre — assiettes casual, boissons, aire de jeux pour enfants et soirées DJ quand annoncé sous l’arche verte. Tous les jours 16 h–minuit.",
     },
   },
   "nonas-grill-kitchen": {

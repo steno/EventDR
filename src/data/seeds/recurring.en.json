@@ -2696,5 +2696,27 @@
     "sourceType": "instagram",
     "sourceUrl": "https://www.instagram.com/oceanworldterrace/",
     "imageEmoji": "🎤"
+  },
+  {
+    "id": "sosua-food-market-daily",
+    "title": "Sosúa Food Market — Daily Food Court & Playground",
+    "description": "Open-air multi-vendor food court at Calle Anacaona & Calle Pablo Neruda in central Sosúa — casual plates, drinks, striped-umbrella patio seating, and a kids playground on site. Open daily 4:00 PM–12:00 AM. Free to stroll; pay per stall. DJ and billed nights when posted — follow @sosuafoodmarket.",
+    "date": "2026-01-01",
+    "time": "4:00 PM – 12:00 AM",
+    "location": "Sosúa",
+    "venue": "Sosúa Food Market",
+    "venueSlug": "sosua-food-market",
+    "address": "Calle Anacaona & Calle Pablo Neruda, Sosúa 57000",
+    "lat": 19.7670539,
+    "lng": -70.5096794,
+    "category": "food-drinks",
+    "format": "physical",
+    "recurrence": "daily",
+    "trending": true,
+    "isFree": true,
+    "instagram": "sosuafoodmarket",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/sosuafoodmarket/",
+    "imageEmoji": "🍔"
   }
 ]

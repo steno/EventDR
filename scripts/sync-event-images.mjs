@@ -180,7 +180,7 @@ const FILE_TO_EVENT_ID = {
     "camara-empresas-codigo-penal-2026-09-16",
   "luna-lounge-noche-de-exitos-2026-09-19.jpg":
     "luna-lounge-noche-de-exitos-2026-09-19",
-  "ivan-garcia-clases-actuacion-ninos-2026.jpg":
+  "ivan-garcia-clases-actuacion-ninos-2026-stage.jpg":
     "ivan-garcia-clases-actuacion-ninos-2026",
   "ocean-world-terrace-la-fiera-tipica-2026-09-18.jpg":
     "ocean-world-terrace-la-fiera-tipica-2026-09-18",
@@ -223,6 +223,7 @@ const FILE_TO_EVENT_ID = {
     "ojo-equinoccio-neon-party-2026-09-25",
   "sosua-food-market-dj-one-d-2026-09-25.jpg":
     "sosua-food-market-dj-one-d-2026-09-25",
+  "sosua-food-market-daily-patio.jpg": "sosua-food-market-daily",
   "ocean-world-terrace-karaoke-wednesday.jpg":
     "ocean-world-terrace-karaoke-wednesday",
   "la-lola-dj-one-d-feriado-2026-09-24.jpg":
@@ -235,6 +236,9 @@ const FILE_TO_EVENT_ID = {
     "joaquin-sanchez-rancho-catalina-2026-09-27",
   "hard-rock-descubre-sosua-2026-09-26.jpg":
     "hard-rock-descubre-sosua-2026-09-26",
+  "trolley-descubre-sosua-2026-09-26.jpg": "trolley-descubre-sosua-2026-09-26",
+  "eat-street-market-ocean-one-2026-09-27.jpg":
+    "eat-street-market-ocean-one-2026-09-27",
   "allison-sade-aura-2026-09-17.jpg": "allison-sade-aura-2026-09-17",
   "ocean-world-terrace-karaoke-encuentro-2026-09-16.jpg":
     "ocean-world-terrace-singing-talent-2026-09-16",

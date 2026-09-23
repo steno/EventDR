@@ -64,7 +64,7 @@ export const SEED_VENUES: Venue[] = [
     name: "Sosúa Food Market",
     city: "Sosúa",
     description:
-      "Open-air multi-vendor food court at Calle Anacaona & Calle Pablo Neruda in central Sosúa — casual plates, drinks, and billed DJ nights under the green arch. Daily 4:00 PM–12:00 AM.",
+      "Open-air multi-vendor food court at Calle Anacaona & Calle Pablo Neruda in central Sosúa — casual plates, drinks, kids playground, and billed DJ nights under the green arch. Daily 4:00 PM–12:00 AM.",
     lat: 19.7670539,
     lng: -70.5096794,
     emoji: "🍔",

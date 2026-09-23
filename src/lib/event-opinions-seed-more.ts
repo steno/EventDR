@@ -2923,6 +2923,26 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: "2026-09-23T12:00:00.000Z",
   },
   {
+    eventId: "sosua-food-market-daily",
+    seriesKey: "sosua-food-market:daily",
+    body: "Central Sosúa food-court hang from 4 PM — multi-vendor plates, turf patio, and a kids playground on site, not the Pedro Clisante bar crawl or the beach vendor strip. Free to stroll; pay per stall; DJ nights are separate when billed.",
+    localized: {
+      es: "Food court del centro de Sosúa desde las 4 PM — puestos varios, patio de césped y playground para niños en el mismo sitio, no el bar-hop de Pedro Clisante ni la franja de vendedores de la playa. Entrada libre; pagas en cada puesto; las noches de DJ son aparte cuando hay cartel.",
+      fr: "Food court du centre de Sosúa dès 16 h — stands, patio gazon et aire de jeux enfants sur place, pas le bar-hop Pedro Clisante ni la bande vendeurs plage. Entrée libre ; payez aux stands ; les soirs DJ sont à part quand annoncés.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "Free admission — pay per stall; billed DJ nights may add cover (@sosuafoodmarket)",
+    priceNoteLocalized: {
+      es: "Entrada libre — pagas en cada puesto; las noches de DJ con cartel pueden tener cover (@sosuafoodmarket)",
+      fr: "Entrée libre — payez aux stands ; les soirs DJ annoncés peuvent avoir un cover (@sosuafoodmarket)",
+    },
+    attribution: "POP research · Sosúa Food Market · @sosuafoodmarket",
+    researchNotes:
+      "Editor: daily open-air food court with playground; hours 4 PM–12 AM; IG @sosuafoodmarket. Patio scene photo supplied for daily listing; DJ ONE D Sep 25 remains a separate billed night.",
+    updatedAt: "2026-09-23T12:00:00.000Z",
+  },
+  {
     eventId: "ocean-world-terrace-karaoke-wednesday",
     seriesKey: "ocean-world:weekly:3",
     body: "Cofresí terrace karaoke every Wednesday from 8 PM — cash prizes when billed, not the dolphin park ticket line; call +1 809-291-2400 or @oceanworldterrace before you treat it like a free open mic.",
@@ -3053,6 +3073,45 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "POP research · Club Anfitriones Zona Norte · @clubanfitrioneszonanorterd",
     researchNotes:
       "Editor flyer + IG caption — Sat 26 Sep 2026 Rumbo a Descubre Sosúa El Nuevo Norte at Hard Rock Cafe Sosúa; registro 9:30 AM, inicio 10:00 AM; MITUR support; Airbnb Community; sold out per editor.",
+    updatedAt: "2026-09-23T12:00:00.000Z",
+  },
+  {
+    eventId: "trolley-descubre-sosua-2026-09-26",
+    body: "Afternoon Descubre Sosúa mural-bus loop with Anfitriones — sign photo, craft beer, downtown bar, Hard Rock close; limited seats so confirm on @clubanfitrioneszonanorterd / @trolleycitytours before you treat it like the free Saturday party.",
+    localized: {
+      es: "Loop de tarde Descubre Sosúa en el bus mural con Anfitriones — letrero, cerveza artesanal, bar en el centro, cierre Hard Rock; cupos limitados, confirma en @clubanfitrioneszonanorterd / @trolleycitytours antes de tratarlo como el party gratis del sábado.",
+      fr: "Boucle d’après-midi Descubre Sosúa sur le bus mural avec Anfitriones — panneau, bière artisanale, bar du centre, fin Hard Rock ; places limitées, confirmez sur @clubanfitrioneszonanorterd / @trolleycitytours avant d’y aller comme le party gratuit du samedi.",
+    },
+    priceFeel: "varies",
+    priceNote:
+      "Limited seats — confirm @clubanfitrioneszonanorterd / @trolleycitytours / (809) 769-8732",
+    priceNoteLocalized: {
+      es: "Cupos limitados — confirma @clubanfitrioneszonanorterd / @trolleycitytours / (809) 769-8732",
+      fr: "Places limitées — confirmez @clubanfitrioneszonanorterd / @trolleycitytours / (809) 769-8732",
+    },
+    attribution:
+      "POP research · Club Anfitriones × TrolleyCity Tours · MITUR",
+    researchNotes:
+      "Editor flyer + IG caption @clubanfitrioneszonanorterd — Sat 26 Sep 2026 4–6 PM Cerramos en grande / recorrido especial Sosúa; route: vuelta, letrero, cerveza artesanal, bar centro, cierre Hard Rock; MITUR + Trolley City Tours; limited seats.",
+    updatedAt: "2026-09-23T12:00:00.000Z",
+  },
+  {
+    eventId: "eat-street-market-ocean-one-2026-09-27",
+    body: "Sunday 4 PM Honey Company food-market afternoon at Ocean One — DJ Kinue plus a long stall list (empanadas, pizza, Filipino, cacao, ice cream); free to stroll, pay stall-by-stall, not a ticketed nightclub set.",
+    localized: {
+      es: "Domingo 4 PM de food market Honey Company en Ocean One — DJ Kinue más una lista larga de puestos (empanadas, pizza, filipino, cacao, helado); pasear es gratis, pagas puesto por puesto, no es set de discoteca con boleto.",
+      fr: "Dimanche 16 h food market Honey Company à Ocean One — DJ Kinue plus une longue liste de stands (empanadas, pizza, philippin, cacao, glace) ; promenade libre, payez stand par stand, pas un set club billeté.",
+    },
+    priceFeel: "free",
+    priceNote:
+      "Free to stroll — pay stall-by-stall; @thehoneyco / +1 809-340-5994",
+    priceNoteLocalized: {
+      es: "Pasear es gratis — pagas puesto por puesto; @thehoneyco / +1 809-340-5994",
+      fr: "Promenade gratuite — payez stand par stand ; @thehoneyco / +1 809-340-5994",
+    },
+    attribution: "POP research · The Honey Company · @thehoneyco",
+    researchNotes:
+      "Editor flyer + IG post Eat Street Vol. 4 — Sun 27 Sep 2026 4 PM Ocean One Calle Los Pinos #2; DJ Kinue; 12 vendor stations named on art; thehoneyco.com / 809-340-5994.",
     updatedAt: "2026-09-23T12:00:00.000Z",
   },
 ];

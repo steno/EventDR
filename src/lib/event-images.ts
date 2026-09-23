@@ -141,6 +141,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "ojo-equinoccio-neon-party-2026-09-25.jpg",
   "sosua-food-market-dj-one-d-2026-09-25":
     "sosua-food-market-dj-one-d-2026-09-25.jpg",
+  "sosua-food-market-daily": "sosua-food-market-daily-patio.jpg",
   "ocean-world-terrace-karaoke-wednesday":
     "ocean-world-terrace-karaoke-wednesday.jpg",
   "la-lola-dj-one-d-feriado-2026-09-24":
@@ -153,6 +154,9 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "joaquin-sanchez-rancho-catalina-2026-09-27.jpg",
   "hard-rock-descubre-sosua-2026-09-26":
     "hard-rock-descubre-sosua-2026-09-26.jpg",
+  "trolley-descubre-sosua-2026-09-26": "trolley-descubre-sosua-2026-09-26.jpg",
+  "eat-street-market-ocean-one-2026-09-27":
+    "eat-street-market-ocean-one-2026-09-27.jpg",
   "iss-pta-parents-night-out-2026-09-17":
     "iss-pta-parents-night-out-flyer.jpg",
   "hard-rock-catrinas-halloween-2026-10-31":
@@ -167,7 +171,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "luna-lounge-noche-de-exitos-2026-09-19":
     "luna-lounge-noche-de-exitos-2026-09-19.jpg",
   "ivan-garcia-clases-actuacion-ninos-2026":
-    "ivan-garcia-clases-actuacion-ninos-2026.jpg",
+    "ivan-garcia-clases-actuacion-ninos-2026-stage.jpg",
   "ocean-world-terrace-la-fiera-tipica-2026-09-18":
     "ocean-world-terrace-la-fiera-tipica-2026-09-18.jpg",
   "rio-sonador-cierre-del-verano-2026-09-20":
@@ -373,6 +377,8 @@ const EVENT_IMAGE_PREFIXES: { prefix: string; file: string }[] = [
 
 /** Tailwind object-position for detail heroes / cards when the focal point isn't center. */
 const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
+  // Flyer faces / name tags sit high — keep top of art in the short detail hero.
+  "festival-presidente-2026-10-03": "object-top",
   // Short mobile heroes keep the sun; desktop centers the sunset composition.
   "lax-sunset-daily": "object-top lg:object-center",
   // Portrait entrance — keep the walkers in a wide crop.
@@ -419,15 +425,19 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "ocean-world-terrace-singing-talent-2026-09-16": "object-center",
   "duo-maryem-rancho-catalina-2026-09-20": "object-center",
   // Flyer faces sit low — default mobile object-top crops them; keep center on all breakpoints.
-  "hard-rock-rising-final-local-2026-09-23": "object-center",
-  "sosua-food-market-dj-one-d-2026-09-25": "object-center",
+  "hard-rock-rising-final-local-2026-09-23": "object-left",
+  "sosua-food-market-dj-one-d-2026-09-25": "object-top",
+  "sosua-food-market-daily": "object-center",
   "ocean-world-terrace-karaoke-wednesday": "object-center",
   "la-lola-dj-one-d-feriado-2026-09-24": "object-center",
   "aura-halloween-party-2026-10-31": "object-center",
   "la-lola-noche-de-nenas-blanco-2026-09-25": "object-center",
-  "cigar-town-eddy-almonte-2026-09-26": "object-center lg:object-left",
-  "joaquin-sanchez-rancho-catalina-2026-09-27": "object-center",
+  // Guitar portrait — keep face in wide Coming up / list crops.
+  "cigar-town-eddy-almonte-2026-09-26": "object-top lg:object-left",
+  "joaquin-sanchez-rancho-catalina-2026-09-27": "object-top",
   "hard-rock-descubre-sosua-2026-09-26": "object-center",
+  "trolley-descubre-sosua-2026-09-26": "object-center",
+  "eat-street-market-ocean-one-2026-09-27": "object-top",
 };
 
 function curatedEventImageFile(eventId: string): string | undefined {
@@ -509,7 +519,6 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "nova-detras-de-la-mascara-2026-10-16.jpg",
   "camara-empresas-codigo-penal-2026-09-16.jpg",
   "luna-lounge-noche-de-exitos-2026-09-19.jpg",
-  "ivan-garcia-clases-actuacion-ninos-2026.jpg",
   "ocean-world-terrace-la-fiera-tipica-2026-09-18.jpg",
   "ocean-world-terrace-karaoke-encuentro-2026-09-16.jpg",
   "ocean-world-terrace-karaoke-wednesday.jpg",
@@ -520,6 +529,8 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "cigar-town-eddy-almonte-2026-09-26.jpg",
   "joaquin-sanchez-rancho-catalina-2026-09-27.jpg",
   "hard-rock-descubre-sosua-2026-09-26.jpg",
+  "trolley-descubre-sosua-2026-09-26.jpg",
+  "eat-street-market-ocean-one-2026-09-27.jpg",
   "duo-maryem-rancho-catalina-2026-09-20.jpg",
   "rio-sonador-cierre-del-verano-2026-09-20.jpg",
   "ambar-lounge-reggaeton-2026-09-17.jpg",
@@ -667,6 +678,7 @@ const HOME_HERO_SCENE_FILES = new Set([
   "hms-valeria-spanish-saturday-guests.jpg",
   "iberostar-costa-dorada-day-pass.jpg",
   "ingest-hidden-river-kayak-adventure.jpg",
+  "ivan-garcia-clases-actuacion-ninos-2026-stage.jpg",
   "kite-beach-daily.jpg",
   "kite-beach-wind-culture.jpg",
   "la-casita-papi-sand-dining.jpg",
@@ -708,6 +720,7 @@ const HOME_HERO_SCENE_FILES = new Set([
   "smileys-saturday-live.jpg",
   "sosua-beach-live-bay.jpg",
   "sosua-diving-adventures-daily.jpg",
+  "sosua-food-market-daily-patio.jpg",
   "sosua-jewish-museum-hours.jpg",
   "sosua-pedro-clisante-food-nights.jpg",
   "sosua-volleyball-weekly.jpg",
@@ -764,9 +777,13 @@ export function isHomeHeroBackgroundSuitable(
 /** Home/list cards default to top crop; curated events reuse hero focal points. */
 export function getEventCardObjectPosition(eventId: string): string {
   const resolvedId = EVENT_IMAGE_ALIASES[eventId] ?? eventId;
-  return (
-    EVENT_HERO_OBJECT_POSITION[resolvedId] ?? "object-top sm:object-center"
-  );
+  const curated = EVENT_HERO_OBJECT_POSITION[resolvedId];
+  // `object-center` is fine for tall detail heroes but clips faces in wide
+  // list/Coming-up cards — keep the top-biased card default instead.
+  if (!curated || curated === "object-center") {
+    return "object-top";
+  }
+  return curated;
 }
 
 function storedHeroIsDisplayable(url: string | undefined): boolean {

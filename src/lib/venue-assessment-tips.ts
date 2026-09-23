@@ -1098,11 +1098,11 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "sosua-food-market": {
-    body: "Open-air food court at Anacaona & Pablo Neruda in central Sosúa — multi-vendor plates from 4 PM under the green arch, not Pedro Clisante bar-hop or the beach vendor plaza. Friday DJ sets when billed; cash for stalls.",
+    body: "Open-air food court at Anacaona & Pablo Neruda in central Sosúa — multi-vendor plates from 4 PM, turf patio, and a kids playground on site under the green arch, not Pedro Clisante bar-hop or the beach vendor plaza. Free to stroll; cash for stalls; Friday DJ sets when billed.",
     localized: {
-      en: "Open-air food court at Anacaona & Pablo Neruda in central Sosúa — multi-vendor plates from 4 PM under the green arch, not Pedro Clisante bar-hop or the beach vendor plaza. Friday DJ sets when billed; cash for stalls.",
-      es: "Food court al aire libre en Anacaona y Pablo Neruda, Sosúa centro — puestos varios desde las 4 PM bajo el arco verde, no es bar-hop de Pedro Clisante ni la plaza de vendedores de la playa. DJ los viernes cuando hay cartel; efectivo en los puestos.",
-      fr: "Food court en plein air à Anacaona & Pablo Neruda, Sosúa centre — stands dès 16 h sous l’arche verte, pas le bar-hop Pedro Clisante ni la place vendeurs plage. Sets DJ le vendredi quand annoncé ; cash aux stands.",
+      en: "Open-air food court at Anacaona & Pablo Neruda in central Sosúa — multi-vendor plates from 4 PM, turf patio, and a kids playground on site under the green arch, not Pedro Clisante bar-hop or the beach vendor plaza. Free to stroll; cash for stalls; Friday DJ sets when billed.",
+      es: "Food court al aire libre en Anacaona y Pablo Neruda, Sosúa centro — puestos varios desde las 4 PM, patio de césped y playground para niños bajo el arco verde, no es bar-hop de Pedro Clisante ni la plaza de vendedores de la playa. Entrada libre; efectivo en los puestos; DJ los viernes cuando hay cartel.",
+      fr: "Food court en plein air à Anacaona & Pablo Neruda, Sosúa centre — stands dès 16 h, patio gazon et aire de jeux enfants sous l’arche verte, pas le bar-hop Pedro Clisante ni la place vendeurs plage. Entrée libre ; cash aux stands ; sets DJ le vendredi quand annoncé.",
     },
   },
 };

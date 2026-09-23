@@ -200,6 +200,7 @@ export const CURATED_FREE_EVENTS = new Set<string>([
   "el-colibri-atrevete-saturdays",
   "feria-artesanal-verano-2026",
   "natura-market-moto-2026-09-19",
+  "eat-street-market-ocean-one-2026-09-27",
   "imbert-mercedes-patronales-2026",
   "guananico-san-miguel-patronales-2026",
   // Restaurant / dining nights — free to enter; pay for what you order
@@ -208,6 +209,7 @@ export const CURATED_FREE_EVENTS = new Set<string>([
   "crazy-lobster-beach-dining",
   "don-limon-beach-dining",
   "los-tres-cocos-dinner",
+  "sosua-food-market-daily",
   "hms-valeria-spanish-saturday",
   "hms-valeria-domingo-dominicano",
   "sancocho-sabados-pingui",

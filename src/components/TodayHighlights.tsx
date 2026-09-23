@@ -71,8 +71,9 @@ interface TodayHighlightsProps {
   /** Show calendar date on cards (Coming up + Recently added). */
   showDate?: boolean;
   /**
-   * When exactly one highlight is shown, fill remaining columns with a paid
-   * “feature your event” promo (mailto for pricing) — used on Today's specials.
+   * When exactly one highlight is shown, pair it with a paid “feature your
+   * event” promo on `sm+` (two equal cards). Mobile keeps a single event card.
+   * Used on Today's specials.
    */
   featurePromo?: boolean;
   /**
@@ -335,8 +336,9 @@ const TodayHighlightsComponent = ({
   const sectionLabel = title ?? dict.events.happeningToday;
   // Phones: snap peek rail. From sm: 2-col (fits ~768 without ballooning).
   // From xl: 3-col. Never force 3 cols in the mid band — that was the ugly crush.
+  // One special + feature promo: equal 2-up from sm (promo is hidden on phones).
   const gridColsClass = showFeaturePromo
-    ? "sm:grid-cols-2 xl:grid-cols-3"
+    ? "sm:grid-cols-2"
     : storyCards && count === 1
       ? "sm:grid-cols-1"
       : storyCards && count === 2
@@ -362,11 +364,10 @@ const TodayHighlightsComponent = ({
       ? "w-[72%] sm:w-[calc((100%-0.75rem)/2)] xl:w-[calc((100%-1.5rem)/3)]"
       : "w-[72%]"
     : SNAP_RAIL_PEEK_CLASS;
-  const railItemCount = showFeaturePromo
-    ? 2
-    : pairSlides
-      ? pairSlides.length
-      : count;
+  // Promo is desktop-only — mobile rail is just the one event card.
+  const railItemCount = pairSlides
+    ? pairSlides.length
+    : count;
   const {
     activeIndex,
     canScrollLeft,
@@ -517,7 +518,7 @@ const TodayHighlightsComponent = ({
                     key={event.id}
                     data-snap-slide
                     className={
-                      count === 1 && !showFeaturePromo && !storyCards
+                      count === 1
                         ? "w-full shrink-0 snap-start sm:w-auto sm:min-w-0 sm:shrink"
                         : desktopScrollRail
                           ? `${peekClass} shrink-0 snap-start`
@@ -543,7 +544,7 @@ const TodayHighlightsComponent = ({
             {showFeaturePromo ? (
               <div
                 data-snap-slide
-                className={`${peekClass} shrink-0 snap-start sm:col-span-1 sm:w-auto sm:min-w-0 sm:shrink xl:col-span-2`}
+                className="hidden min-w-0 sm:block sm:w-auto sm:min-w-0 sm:shrink"
               >
                 <EventCardPlaceholder
                   title={dict.events.featureSpecialTitle}
