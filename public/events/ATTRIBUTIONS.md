@@ -29,6 +29,14 @@ Curated images under `public/events/` and `public/venues/`.
 | `serenade-mongolian-night-villa-taina-weekly.jpg` | POP-supplied — Serenade × Villa Taina weekly story (Mongolian night) | Weekly Wed themed buffet (editor-provided) |
 | `serenade-bbq-night-villa-taina-weekly.jpg` | POP-supplied — Serenade × Villa Taina weekly story (BBQ night) | Weekly Fri themed buffet (editor-provided) |
 | `luna-lounge-jueves-karaoke-weekly.jpg` | POP-supplied — Jueves de Karaoke / DJ Koky (Luna Disco Bar) | Weekly Thu karaoke Luis Ginebra #42 (editor-provided) |
+| `sosua-food-market-dj-one-d-2026-09-25.jpg` | POP-supplied — Live Session DJ ONE D flyer ([@sosuafoodmarket](https://www.instagram.com/sosuafoodmarket/)) | Fri 25 Sep 2026 from 6 PM (editor-provided) |
+| `ocean-world-terrace-karaoke-wednesday.jpg` | POP-supplied — Miércoles de Karaoke flyer ([@oceanworldterrace](https://www.instagram.com/oceanworldterrace/)) | Weekly Wed karaoke from 8 PM, cash prizes (editor-provided); venue slug `ocean-world` |
+| `venues/sosua-food-market-entrance.jpg` | POP-supplied — Sosúa Food Market green-arch entrance (Anacaona & Pablo Neruda) | Venue place shot (editor-provided) |
+| `la-lola-dj-one-d-feriado-2026-09-24.jpg` | POP-supplied — El weekend arranca el jueves / DJ ONE D flyer ([@lalolabeachclub](https://www.instagram.com/lalolabeachclub/)) | Thu 24 Sep 2026 Mercedes feriado, free shots (editor-provided) |
+| `aura-halloween-party-2026-10-31.jpg` | POP-supplied — Aura Halloween Party flyer ([@auracabarete](https://www.instagram.com/auracabarete/)) | Sat 31 Oct 2026 costume contest RD$20k/10k/5k (editor-provided) |
+| `la-lola-noche-de-nenas-blanco-2026-09-25.jpg` | POP-supplied — Todas de Blanco / Noche de Nenas flyer ([@lalolabeachclub](https://www.instagram.com/lalolabeachclub/)) | Fri 25 Sep 2026 open bar for women until 9:30 PM (editor-provided) |
+| `cigar-town-eddy-lamb-2026-09-26.jpg` | POP-supplied — Eddy Lamb live flyer ([@cigartownpop](https://www.instagram.com/cigartownpop/)) | Sat 26 Sep 2026 8:00 PM Cigar Town (editor-provided; artist ID from editor) |
+| `joaquin-sanchez-rancho-catalina-2026-09-27.jpg` | POP-supplied — Joaquín Sánchez Música en Vivo flyer ([@rancholacatalina](https://www.instagram.com/rancholacatalina/)) | Sun 27 Sep 2026 2:30 PM no cover (editor-provided) |
 | `venues/terramar-pickleball-club.jpg` | POP-supplied — Terramar Pickleball Club profile/cover | Venue hero (editor-provided) |
 | `allison-sade-aura-2026-09-17.jpg` | POP-supplied — Allison Sade Live Music flyer ([@allisonsadeofficial](https://www.instagram.com/allisonsadeofficial/) × Aura Cabarete) | Thu 17 Sep 2026 8:00 PM (editor-provided) |
 | `ocean-world-terrace-karaoke-encuentro-2026-09-16.jpg` | POP-supplied — Un encuentro de talentos / Noche de Karaoke flyer ([@oceanworldterrace](https://www.instagram.com/oceanworldterrace/)) | Karaoke talent night Wed 16 Sep 2026 (editor-provided; filename bump); venue slug `ocean-world` |

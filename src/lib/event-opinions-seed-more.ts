@@ -2904,4 +2904,136 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "Editor-supplied flyer + IG caption @ojoclubcabarete — Fri 25 Sep 2026 Equinoccio See You in the Future Neon Party, DJ OPG, Ron Barceló RD, Playa Cabarete. Reservations 829-745-8811 / 829-745-8812. No start time or cover on art.",
     updatedAt: "2026-09-22T12:00:00.000Z",
   },
+  {
+    eventId: "sosua-food-market-dj-one-d-2026-09-25",
+    body: "Friday 6 PM DJ set in Sosúa's newer central food court — plates under the green arch at Anacaona & Pablo Neruda, not a Pedro Clisante disco; confirm cover on @sosuafoodmarket before you treat it as free.",
+    localized: {
+      es: "Set de DJ el viernes a las 6 PM en el food court nuevo del centro de Sosúa — platos bajo el arco verde en Anacaona y Pablo Neruda, no un disco de Pedro Clisante; confirma cover en @sosuafoodmarket antes de tratarlo como gratis.",
+      fr: "Set DJ vendredi 18 h dans le nouveau food court du centre de Sosúa — assiettes sous l’arche verte à Anacaona & Pablo Neruda, pas une disco Pedro Clisante ; confirmez le cover sur @sosuafoodmarket avant d’y aller comme gratuit.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover not on flyer — @sosuafoodmarket",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — @sosuafoodmarket",
+      fr: "Cover absent de l’affiche — @sosuafoodmarket",
+    },
+    attribution: "POP research · Sosúa Food Market · @sosuafoodmarket",
+    researchNotes:
+      "Editor flyer + IG caption — Fri 25 Sep 2026 from 6 PM Live Session DJ ONE D (@one.d12) at Sosúa Food Market; Calle Anacaona & Pablo Neruda; venue opens 4 PM–12 AM; no cover on art.",
+    updatedAt: "2026-09-23T12:00:00.000Z",
+  },
+  {
+    eventId: "ocean-world-terrace-karaoke-wednesday",
+    seriesKey: "ocean-world:weekly:3",
+    body: "Cofresí terrace karaoke every Wednesday from 8 PM — cash prizes when billed, not the dolphin park ticket line; call +1 809-291-2400 or @oceanworldterrace before you treat it like a free open mic.",
+    localized: {
+      es: "Karaoke en la terraza de Cofresí todos los miércoles desde las 8 PM — premios en efectivo cuando hay cartel, no la fila de delfines; llama al +1 809-291-2400 o @oceanworldterrace antes de tratarlo como open mic gratis.",
+      fr: "Karaoké sur la terrasse de Cofresí tous les mercredis dès 20 h — prix cash quand annoncé, pas la file des dauphins ; appelez le +1 809-291-2400 ou @oceanworldterrace avant d’y aller comme un open mic gratuit.",
+    },
+    priceFeel: "varies",
+    priceNote:
+      "Cover not on flyer — confirm @oceanworldterrace / +1 809-291-2400",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — confirma @oceanworldterrace / +1 809-291-2400",
+      fr: "Cover absent de l’affiche — confirmez @oceanworldterrace / +1 809-291-2400",
+    },
+    attribution: "POP research · Terraza Ocean World · @oceanworldterrace",
+    researchNotes:
+      "Editor flyer + IG caption — weekly Miércoles de Karaoke from 8 PM, cash prizes; Calle Principal #3 Cofresí; venue slug ocean-world; info 809-291-2400.",
+    updatedAt: "2026-09-23T12:00:00.000Z",
+  },
+  {
+    eventId: "la-lola-dj-one-d-feriado-2026-09-24",
+    body: "Mercedes feriado Thursday on the Malecón — DJ ONE D and free shots at La Lola’s patio, not a Cabarete beach club night; confirm start time on @lalolabeachclub / +1 849-517-5705.",
+    localized: {
+      es: "Jueves feriado de Mercedes en el Malecón — DJ ONE D y shots gratis en el patio de La Lola, no una noche de beach club en Cabarete; confirma hora en @lalolabeachclub / +1 849-517-5705.",
+      fr: "Jeudi férié Mercedes sur le Malecón — DJ ONE D et shots gratuits sur le patio de La Lola, pas une soirée beach club à Cabarete ; confirmez l’heure sur @lalolabeachclub / +1 849-517-5705.",
+    },
+    priceFeel: "varies",
+    priceNote:
+      "Free shots billed; cover/start time not on flyer — @lalolabeachclub / +1 849-517-5705",
+    priceNoteLocalized: {
+      es: "Shots gratis anunciados; cover/hora no en el flyer — @lalolabeachclub / +1 849-517-5705",
+      fr: "Shots gratuits annoncés ; cover/heure absents de l’affiche — @lalolabeachclub / +1 849-517-5705",
+    },
+    attribution: "POP research · La Lola Beach Club · @lalolabeachclub",
+    researchNotes:
+      "Editor flyer + IG caption — Thu 24 Sep 2026 Día de las Mercedes feriado, DJ ONE D, shots gratis, el weekend arranca el jueves; Malecón Puerto Plata; no start time/cover on art.",
+    updatedAt: "2026-09-23T12:00:00.000Z",
+  },
+  {
+    eventId: "aura-halloween-party-2026-10-31",
+    body: "Cabarete Bay costume night with a RD$20k top prize — sharper than Aura’s usual Wednesday margarita floor; dress to impress and confirm cover on @auracabarete before Oct 31.",
+    localized: {
+      es: "Noche de disfraces en bahía Cabarete con premio top de RD$20k — más marcada que el piso de margaritas de miércoles en Aura; dress to impress y confirma cover en @auracabarete antes del 31 oct.",
+      fr: "Soirée costumes sur la baie de Cabarete avec prix top RD$20k — plus marquée que le floor margaritas du mercredi à Aura ; dress to impress et confirmez le cover sur @auracabarete avant le 31 oct.",
+    },
+    priceFeel: "varies",
+    priceNote:
+      "Costume prizes RD$20,000 / RD$10,000 / RD$5,000 — cover/doors confirm @auracabarete / +1 829-787-0140",
+    priceNoteLocalized: {
+      es: "Premios disfraz RD$20,000 / RD$10,000 / RD$5,000 — cover/puertas confirma @auracabarete / +1 829-787-0140",
+      fr: "Prix costumes RD$20 000 / RD$10 000 / RD$5 000 — cover/portes confirmez @auracabarete / +1 829-787-0140",
+    },
+    attribution: "POP research · Aura Beach Club Halloween · @auracabarete",
+    researchNotes:
+      "Editor flyer + IG caption — Sat 31 Oct 2026 Halloween Party, dress to impress, prizes 20k/10k/5k DOP, live show, cocktails, DJ sets; Calle Principal Cabarete; no cover/time on art.",
+    updatedAt: "2026-09-23T12:00:00.000Z",
+  },
+  {
+    eventId: "la-lola-noche-de-nenas-blanco-2026-09-25",
+    body: "White-dress Friday on the Malecón — open bar for women until 9:30 PM at La Lola, not a Cabarete club night; RSVP +1 849-517-5705 before you assume free entry.",
+    localized: {
+      es: "Viernes de blanco en el Malecón — open bar para las nenas hasta las 9:30 PM en La Lola, no una noche de club en Cabarete; RSVP +1 849-517-5705 antes de asumir entrada gratis.",
+      fr: "Vendredi en blanc sur le Malecón — open bar pour les filles jusqu’à 21 h 30 à La Lola, pas une soirée club à Cabarete ; RSVP +1 849-517-5705 avant d’assumer l’entrée libre.",
+    },
+    priceFeel: "varies",
+    priceNote:
+      "Open bar for women until 9:30 PM — cover/RSVP +1 849-517-5705 / @lalolabeachclub",
+    priceNoteLocalized: {
+      es: "Open bar para las nenas hasta las 9:30 PM — cover/RSVP +1 849-517-5705 / @lalolabeachclub",
+      fr: "Open bar pour les filles jusqu’à 21 h 30 — cover/RSVP +1 849-517-5705 / @lalolabeachclub",
+    },
+    attribution: "POP research · La Lola Beach Club · @lalolabeachclub",
+    researchNotes:
+      "Editor flyer + IG caption — Fri 25 Sep 2026 Todas de Blanco Noche de Nenas, open bar hasta 9:30 PM para las nenas, DJ en vivo, regalos, fotos, Corona; RSVP 849-517-5705.",
+    updatedAt: "2026-09-23T12:00:00.000Z",
+  },
+  {
+    eventId: "cigar-town-eddy-lamb-2026-09-26",
+    body: "Saturday 8 PM cigar-lounge set downtown — Eddy Lamb on resonator at Cigar Town, not karaoke ladies night; confirm cover on @cigartownpop before you treat it as free.",
+    localized: {
+      es: "Set de lounge sábado a las 8 PM en el centro — Eddy Lamb con resonator en Cigar Town, no es karaoke ladies night; confirma cover en @cigartownpop antes de tratarlo como gratis.",
+      fr: "Set lounge samedi 20 h en centre-ville — Eddy Lamb au resonator à Cigar Town, pas le karaoke ladies night ; confirmez le cover sur @cigartownpop avant d’y aller comme gratuit.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover not on flyer — @cigartownpop",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — @cigartownpop",
+      fr: "Cover absent de l’affiche — @cigartownpop",
+    },
+    attribution: "POP research · Cigar Town Pop · editor ID Eddy Lamb",
+    researchNotes:
+      "Editor flyer SÁBADO 26 SEP @ 8:00 PM CIGAR TOWN; bald resonator guitarist identified by editor as Eddy Lamb (not named on art).",
+    updatedAt: "2026-09-23T12:00:00.000Z",
+  },
+  {
+    eventId: "joaquin-sanchez-rancho-catalina-2026-09-27",
+    body: "Sunday 2:30 PM ranch bohemia with Joaquín Sánchez — no cover like Maryem week; book a table if you want lunch with the set, not standing room only.",
+    localized: {
+      es: "Domingo 2:30 PM de bohemia en el rancho con Joaquín Sánchez — sin cover como la semana de Maryem; reserva mesa si quieres almorzar con el set, no solo de pie.",
+      fr: "Dimanche 14 h 30 de bohème au ranch avec Joaquín Sánchez — pas de cover comme la semaine Maryem ; réservez une table pour déjeuner avec le set, pas juste debout.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "No cover — pay for ranch dining; +1 809-781-3737 / @rancholacatalina",
+    priceNoteLocalized: {
+      es: "Sin cover — pagas la comida del rancho; +1 809-781-3737 / @rancholacatalina",
+      fr: "Pas de cover — vous payez le repas ranch ; +1 809-781-3737 / @rancholacatalina",
+    },
+    attribution: "POP research · @rancholacatalina · Joaquín Sánchez flyer",
+    researchNotes:
+      "Editor flyer + IG caption — Sun 27 Sep 2026 2:30 PM Joaquín Sánchez El Rey de la Bohemia, no cover, El Cupey; romantic afternoon set.",
+    updatedAt: "2026-09-23T12:00:00.000Z",
+  },
 ];

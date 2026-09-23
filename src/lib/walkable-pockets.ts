@@ -67,6 +67,7 @@ export const WALKABLE_POCKETS: readonly WalkablePocket[] = [
       "love-does-sosua",
       "waterfront-playa-alicia",
       "flip-flop-sports-bar-sosua",
+      "sosua-food-market",
     ],
   },
   {

@@ -221,6 +221,18 @@ const FILE_TO_EVENT_ID = {
     "hard-rock-rising-final-local-2026-09-23",
   "ojo-equinoccio-neon-party-2026-09-25.jpg":
     "ojo-equinoccio-neon-party-2026-09-25",
+  "sosua-food-market-dj-one-d-2026-09-25.jpg":
+    "sosua-food-market-dj-one-d-2026-09-25",
+  "ocean-world-terrace-karaoke-wednesday.jpg":
+    "ocean-world-terrace-karaoke-wednesday",
+  "la-lola-dj-one-d-feriado-2026-09-24.jpg":
+    "la-lola-dj-one-d-feriado-2026-09-24",
+  "aura-halloween-party-2026-10-31.jpg": "aura-halloween-party-2026-10-31",
+  "la-lola-noche-de-nenas-blanco-2026-09-25.jpg":
+    "la-lola-noche-de-nenas-blanco-2026-09-25",
+  "cigar-town-eddy-lamb-2026-09-26.jpg": "cigar-town-eddy-lamb-2026-09-26",
+  "joaquin-sanchez-rancho-catalina-2026-09-27.jpg":
+    "joaquin-sanchez-rancho-catalina-2026-09-27",
   "allison-sade-aura-2026-09-17.jpg": "allison-sade-aura-2026-09-17",
   "ocean-world-terrace-karaoke-encuentro-2026-09-16.jpg":
     "ocean-world-terrace-singing-talent-2026-09-16",
@@ -422,6 +434,7 @@ const FILE_TO_VENUE_SLUG = {
   "aura-beach-club-cabarete-entrance.jpg": "aura-beach-club-cabarete-entrance",
   "trolley-city-tours-party-bus.jpg": "trolley-city-tours-party-bus",
   "hotel-villa-taina-pool.jpg": "hotel-villa-taina-pool",
+  "sosua-food-market-entrance.jpg": "sosua-food-market-entrance",
 };
 
 if (!existsSync(sourceDir)) {

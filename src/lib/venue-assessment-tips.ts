@@ -106,11 +106,11 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "ocean-world": {
-    body: "Cofresí's Ocean World complex — day tickets for dolphins and kids, plus Terraza & Casino nights on the marina after the park. Plan a ride; típico bills use the terrace, not the dolphin queue.",
+    body: "Cofresí's Ocean World complex — day tickets for dolphins and kids, plus Terraza & Casino nights on the marina after the park. Wednesday karaoke from 8 PM with cash prizes when billed; típico bills use the terrace, not the dolphin queue.",
     localized: {
-      en: "Cofresí's Ocean World complex — day tickets for dolphins and kids, plus Terraza & Casino nights on the marina after the park. Plan a ride; típico bills use the terrace, not the dolphin queue.",
-      es: "El complejo Ocean World en Cofresí — tickets de día por delfines y niños, y noches de Terraza y Casino en la marina cuando cierra el parque. Planea transporte; el típico es en la terraza, no en la fila de delfines.",
-      fr: "Le complexe Ocean World à Cofresí — billets journée dauphins et enfants, plus soirées Terraza & Casino sur la marina après le parc. Prévoyez un trajet ; le típico est sur la terrasse, pas dans la file des dauphins.",
+      en: "Cofresí's Ocean World complex — day tickets for dolphins and kids, plus Terraza & Casino nights on the marina after the park. Wednesday karaoke from 8 PM with cash prizes when billed; típico bills use the terrace, not the dolphin queue.",
+      es: "El complejo Ocean World en Cofresí — tickets de día por delfines y niños, y noches de Terraza y Casino en la marina cuando cierra el parque. Karaoke los miércoles desde las 8 PM con premios en efectivo cuando hay cartel; el típico es en la terraza, no en la fila de delfines.",
+      fr: "Le complexe Ocean World à Cofresí — billets journée dauphins et enfants, plus soirées Terraza & Casino sur la marina après le parc. Karaoké le mercredi dès 20 h avec prix cash quand annoncé ; le típico est sur la terrasse, pas dans la file des dauphins.",
     },
   },
   "la-casita-de-papi": {
@@ -1095,6 +1095,14 @@ export const VENUE_TIP_COPY: Record<
       en: "Community courts between Cabarete and Sosúa — register on svterramar.pickleplanner.com for opens and cash-prize weekends, not a hotel gym drop-in. WhatsApp +1 809-223-3974 before you haul paddles without a division slot.",
       es: "Canchas comunitarias entre Cabarete y Sosúa — inscríbete en svterramar.pickleplanner.com para opens y fines de semana con premio, no es gym de hotel walk-in. WhatsApp +1 809-223-3974 antes de llegar sin división.",
       fr: "Terrains communautaires entre Cabarete et Sosúa — inscrivez-vous sur svterramar.pickleplanner.com pour les opens et week-ends à prix cash, pas une salle d’hôtel en walk-in. WhatsApp +1 809-223-3974 avant d’arriver sans division.",
+    },
+  },
+  "sosua-food-market": {
+    body: "Open-air food court at Anacaona & Pablo Neruda in central Sosúa — multi-vendor plates from 4 PM under the green arch, not Pedro Clisante bar-hop or the beach vendor plaza. Friday DJ sets when billed; cash for stalls.",
+    localized: {
+      en: "Open-air food court at Anacaona & Pablo Neruda in central Sosúa — multi-vendor plates from 4 PM under the green arch, not Pedro Clisante bar-hop or the beach vendor plaza. Friday DJ sets when billed; cash for stalls.",
+      es: "Food court al aire libre en Anacaona y Pablo Neruda, Sosúa centro — puestos varios desde las 4 PM bajo el arco verde, no es bar-hop de Pedro Clisante ni la plaza de vendedores de la playa. DJ los viernes cuando hay cartel; efectivo en los puestos.",
+      fr: "Food court en plein air à Anacaona & Pablo Neruda, Sosúa centre — stands dès 16 h sous l’arche verte, pas le bar-hop Pedro Clisante ni la place vendeurs plage. Sets DJ le vendredi quand annoncé ; cash aux stands.",
     },
   },
 };

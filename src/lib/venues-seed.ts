@@ -60,6 +60,20 @@ export const SEED_VENUES: Venue[] = [
     emoji: "🎤",
   },
   {
+    slug: "sosua-food-market",
+    name: "Sosúa Food Market",
+    city: "Sosúa",
+    description:
+      "Open-air multi-vendor food court at Calle Anacaona & Calle Pablo Neruda in central Sosúa — casual plates, drinks, and billed DJ nights under the green arch. Daily 4:00 PM–12:00 AM.",
+    lat: 19.7670539,
+    lng: -70.5096794,
+    emoji: "🍔",
+    instagram: "sosuafoodmarket",
+    googleRating: 4.8,
+    googleReviewCount: 15,
+    googleRatingFetchedAt: "2026-09-23T00:00:00.000Z",
+  },
+  {
     slug: "nonas-grill-kitchen",
     name: "Nona's Grill & Kitchen",
     city: "Sosúa",
@@ -1884,6 +1898,11 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
     pattern:
       /ocean\s*world(\s*(terrace|terraza|&?\s*casino))?|oceanworldterrace|terraza\s*ocean\s*world/i,
     slug: "ocean-world",
+  },
+  {
+    pattern:
+      /sos[uú]a\s*food\s*market|sosuafoodmarket/i,
+    slug: "sosua-food-market",
   },
   {
     pattern: /victrola\s*037|la\s*victrola/i,

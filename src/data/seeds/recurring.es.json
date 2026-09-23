@@ -2670,5 +2670,31 @@
     "sourceType": "flyer",
     "sourceUrl": "https://www.instagram.com/lunaloungelcb/",
     "imageEmoji": "🎤"
+  },
+  {
+    "id": "ocean-world-terrace-karaoke-wednesday",
+    "title": "Miércoles de Karaoke en Terraza Ocean World",
+    "description": "Karaoke todos los miércoles en Terraza Ocean World y Casino, Calle Principal #3, Cofresí — desde las 8:00 PM. Canta con amigos; premios en efectivo cuando hay cartel. Confirma cover por Instagram @oceanworldterrace o llama al +1 809-291-2400. Nightlife de la terraza después del parque — no la fila de delfines.",
+    "date": "2026-01-01",
+    "time": "8:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Terraza Ocean World",
+    "venueSlug": "ocean-world",
+    "address": "Calle Principal #3, Cofresí, Puerto Plata",
+    "lat": 19.826313,
+    "lng": -70.732062,
+    "category": "performances",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "recurrence": "weekly",
+    "recurrenceDay": 3,
+    "callForPricing": true,
+    "phone": "+18092912400",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/oceanworldterrace/",
+    "imageEmoji": "🎤"
   }
 ]

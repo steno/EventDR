@@ -1601,6 +1601,17 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
       { key: "easy_to_find", sentiment: "mixed" },
     ],
   }),
+  editorial({
+    venueSlug: "sosua-food-market",
+    verdictKey: "strong_local_food",
+    crowdFit: ["local", "mixed", "visitor", "family"],
+    axes: { recommend: 4.4, atmosphere: 4.3, value: 4.0, practical: 4.2 },
+    themes: [
+      { key: "food_park_vibe", sentiment: "positive" },
+      { key: "easy_to_find", sentiment: "positive" },
+      { key: "family_friendly", sentiment: "positive", audience: "family" },
+    ],
+  }),
 ];
 
 const bySlug = new Map(

@@ -229,6 +229,7 @@ export const CURATED_FREE_EVENTS = new Set<string>([
   "dewry-luciano-zona-acapella-2026-08-23",
   "ernesto-betances-rancho-catalina-2026-09-13",
   "duo-maryem-rancho-catalina-2026-09-20",
+  "joaquin-sanchez-rancho-catalina-2026-09-27",
   "el-cuarteto-del-swing-zona-acapella-2026-09-13",
   "los-caballitos-zona-acapella-2026-09-20",
   "banda-modelo-vinoteca-2026-09-26",

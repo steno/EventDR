@@ -2789,5 +2789,173 @@
       "DJ OPG"
     ],
     "imageEmoji": "🪩"
+  },
+  {
+    "id": "sosua-food-market-dj-one-d-2026-09-25",
+    "title": "Live DJ Session with DJ ONE D at Sosúa Food Market",
+    "description": "Live DJ session with DJ ONE D (@one.d12) at Sosúa Food Market, Calle Anacaona & Calle Pablo Neruda, Sosúa — Friday 25 September 2026 from 6:00 PM. Open-air food-court plates and drinks under the green arch; good music, laid-back crowd. Confirm cover via Instagram @sosuafoodmarket.",
+    "date": "2026-09-25",
+    "time": "6:00 PM",
+    "location": "Sosúa",
+    "venue": "Sosúa Food Market",
+    "venueSlug": "sosua-food-market",
+    "address": "Calle Anacaona & Calle Pablo Neruda, Sosúa 57000",
+    "lat": 19.7670539,
+    "lng": -70.5096794,
+    "category": "music",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/sosuafoodmarket/",
+    "lineup": [
+      "DJ ONE D"
+    ],
+    "imageEmoji": "🎧"
+  },
+  {
+    "id": "la-lola-dj-one-d-feriado-2026-09-24",
+    "title": "Weekend Starts Thursday — DJ ONE D at La Lola",
+    "description": "Holiday Thursday kickoff at La Lola Beach Club on Avenida Gregorio Luperón (Malecón), Puerto Plata — Thursday 24 September 2026 (Día de las Mercedes feriado). DJ ONE D, free shots, beach-club patio. Confirm start time and cover via Instagram @lalolabeachclub or call +1 849-517-5705.",
+    "date": "2026-09-24",
+    "location": "Puerto Plata",
+    "venue": "La Lola Beach Club",
+    "venueSlug": "la-lola-malecon",
+    "address": "Avenida Gregorio Luperón, Malecón, Puerto Plata",
+    "lat": 19.7969,
+    "lng": -70.68725,
+    "category": "parties",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18495175705",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/lalolabeachclub/",
+    "lineup": [
+      "DJ ONE D"
+    ],
+    "imageEmoji": "🎧"
+  },
+  {
+    "id": "aura-halloween-party-2026-10-31",
+    "title": "Halloween Party at Aura Beach Club",
+    "description": "Halloween Party at Aura Beach Club, Calle Principal, Cabarete — Saturday 31 October 2026. Live show, special cocktails, DJ sets, and spooky surprises. Dress to impress — costume contest prizes RD$20,000 / RD$10,000 / RD$5,000. Confirm doors and cover via Instagram @auracabarete or WhatsApp +1 829-787-0140.",
+    "date": "2026-10-31",
+    "location": "Cabarete",
+    "venue": "Aura Beach Club Cabarete",
+    "venueSlug": "aura-beach-club-cabarete",
+    "address": "Calle Principal, Cabarete 57000",
+    "lat": 19.7500769,
+    "lng": -70.4070417,
+    "category": "festivals",
+    "categories": [
+      "music",
+      "parties"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18297870140",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/auracabarete/",
+    "lineup": [
+      "Live show",
+      "DJ sets",
+      "Costume contest"
+    ],
+    "imageEmoji": "🎃"
+  },
+  {
+    "id": "la-lola-noche-de-nenas-blanco-2026-09-25",
+    "title": "Todas de Blanco — Noche de Nenas at La Lola",
+    "description": "White-dress girls' night at La Lola Beach Club on Avenida Gregorio Luperón (Malecón), Puerto Plata — Friday 25 September 2026. Live DJ, gifts, photos, Corona; open bar for women until 9:30 PM. RSVP +1 849-517-5705 · Instagram @lalolabeachclub.",
+    "date": "2026-09-25",
+    "location": "Puerto Plata",
+    "venue": "La Lola Beach Club",
+    "venueSlug": "la-lola-malecon",
+    "address": "Avenida Gregorio Luperón, Malecón, Puerto Plata",
+    "lat": 19.7969,
+    "lng": -70.68725,
+    "category": "parties",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18495175705",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/lalolabeachclub/",
+    "lineup": [
+      "Live DJ",
+      "Open bar for women until 9:30 PM",
+      "Gifts",
+      "Photos"
+    ],
+    "imageEmoji": "🤍"
+  },
+  {
+    "id": "cigar-town-eddy-lamb-2026-09-26",
+    "title": "Eddy Lamb Live at Cigar Town",
+    "description": "Live music with Eddy Lamb at Cigar Town Pop, Av. Luis Ginebra No. 56, Puerto Plata — Saturday 26 September 2026 at 8:00 PM. Lounge set with cigar and whisky energy downtown. Confirm cover via Instagram @cigartownpop.",
+    "date": "2026-09-26",
+    "time": "8:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Cigar Town Pop",
+    "venueSlug": "cigar-town-pop",
+    "address": "Avenida Luis Ginebra No. 56, Puerto Plata",
+    "lat": 19.7915,
+    "lng": -70.6805,
+    "category": "music",
+    "categories": [
+      "performances",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/cigartownpop/",
+    "lineup": [
+      "Eddy Lamb"
+    ],
+    "imageEmoji": "🎸"
+  },
+  {
+    "id": "joaquin-sanchez-rancho-catalina-2026-09-27",
+    "title": "Joaquín Sánchez — El Rey de la Bohemia at Rancho La Catalina",
+    "description": "Live music with Joaquín Sánchez, El Rey de la Bohemia, at Rancho La Catalina in El Cupey — Sunday 27 September 2026 at 2:30 PM. Afternoon ranch dining filled with romanticism; no cover. Call +1 809-781-3737 · Instagram @rancholacatalina.",
+    "date": "2026-09-27",
+    "time": "2:30 PM",
+    "location": "Puerto Plata",
+    "venue": "Rancho La Catalina",
+    "venueSlug": "rancho-catalina-puerto-plata",
+    "address": "El Cupey, Puerto Plata",
+    "lat": 19.7371866,
+    "lng": -70.7253286,
+    "category": "music",
+    "categories": [
+      "food-drinks",
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "phone": "+18097813737",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/rancholacatalina/",
+    "lineup": [
+      "Joaquín Sánchez"
+    ],
+    "imageEmoji": "🎸"
   }
 ]
