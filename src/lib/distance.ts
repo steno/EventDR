@@ -30,6 +30,21 @@ export function haversineMeters(a: LatLng, b: LatLng): number {
   return 2 * EARTH_RADIUS_M * Math.asin(Math.min(1, Math.sqrt(h)));
 }
 
+/**
+ * Initial compass bearing from `a` to `b` in degrees (0 = north, clockwise).
+ * Used to aim Street View at a venue pin from the nearest panorama.
+ */
+export function bearingDegrees(a: LatLng, b: LatLng): number {
+  const lat1 = toRad(a.lat);
+  const lat2 = toRad(b.lat);
+  const dLng = toRad(b.lng - a.lng);
+  const y = Math.sin(dLng) * Math.cos(lat2);
+  const x =
+    Math.cos(lat1) * Math.sin(lat2) -
+    Math.sin(lat1) * Math.cos(lat2) * Math.cos(dLng);
+  return ((Math.atan2(y, x) * 180) / Math.PI + 360) % 360;
+}
+
 /** Guest-facing walk ETA — never claim 0 minutes for a distinct pin. */
 export function walkMinutesFromMeters(meters: number): number {
   if (!Number.isFinite(meters) || meters <= 0) return 1;

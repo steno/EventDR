@@ -21,6 +21,7 @@ import { StreetViewModal } from "@/components/StreetViewModal";
 import { canUseInAppStreetView } from "@/lib/google-maps-js";
 import { osmTilePreviewUrl } from "@/lib/maps";
 import { resetInputZoom } from "@/lib/reset-input-zoom";
+import { useStreetViewAvailable } from "@/hooks/useStreetViewAvailable";
 
 const EventInlineMap = dynamic(
   () => import("@/components/EventInlineMap").then((m) => m.EventInlineMap),
@@ -214,6 +215,11 @@ interface VenueMapPanelProps {
    * Set false when a sibling footer already offers Street View.
    */
   streetViewInReveal?: boolean;
+  /**
+   * When set, use this coverage result instead of probing again
+   * (e.g. parent already called useStreetViewAvailable).
+   */
+  streetViewAvailable?: boolean;
   /** Exit expanded map / directions (same chrome as Street View). */
   onDismiss?: () => void;
   dismissTitle?: string;
@@ -233,6 +239,7 @@ export function VenueMapPanel({
   streetViewOpen: streetViewOpenProp,
   overlayStreetView = false,
   streetViewInReveal = true,
+  streetViewAvailable: streetViewAvailableProp,
   onDismiss,
   dismissTitle,
   attention = false,
@@ -241,6 +248,13 @@ export function VenueMapPanel({
   const { destination, origin, route, busy } = directions;
   const mapOpen = forceReveal || Boolean(origin || route);
   const previewUrl = osmTilePreviewUrl(destination.lat, destination.lng);
+  const probedStreetViewAvailable = useStreetViewAvailable(
+    destination.lat,
+    destination.lng,
+    streetViewAvailableProp === undefined,
+  );
+  const streetViewAvailable =
+    streetViewAvailableProp ?? probedStreetViewAvailable;
   const [uncontrolledStreetView, setUncontrolledStreetView] = useState(false);
   const streetViewControlled = streetViewOpenProp !== undefined;
   const streetViewOpen = streetViewControlled
@@ -261,6 +275,11 @@ export function VenueMapPanel({
     if (busy) setStreetViewOpen(false);
   }, [busy, setStreetViewOpen]);
 
+  // Coverage probe finished negative — close any open area view.
+  useEffect(() => {
+    if (!streetViewAvailable && streetViewOpen) setStreetViewOpen(false);
+  }, [streetViewAvailable, streetViewOpen, setStreetViewOpen]);
+
   const openStreetView = useCallback(() => {
     setStreetViewOpen(true);
   }, [setStreetViewOpen]);
@@ -268,7 +287,7 @@ export function VenueMapPanel({
   const expanded = mapOpen || streetViewOpen;
   const showDismissChrome = Boolean(onDismiss) && mapOpen && !streetViewOpen;
   const streetViewControl =
-    !streetViewOpen ? (
+    streetViewAvailable && !streetViewOpen ? (
       <button
         type="button"
         onClick={openStreetView}
@@ -330,7 +349,7 @@ export function VenueMapPanel({
         ) : null}
       </div>
       <StreetViewModal
-        open={streetViewOpen}
+        open={streetViewOpen && streetViewAvailable}
         onClose={() => setStreetViewOpen(false)}
         lat={destination.lat}
         lng={destination.lng}

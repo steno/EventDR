@@ -22,6 +22,7 @@ import { VenueAssessmentBlock } from "@/components/VenueAssessmentBlock";
 import { EventImage } from "@/components/EventImage";
 import { ImageStoryEnlarge } from "@/components/ImageStoryEnlarge";
 import { IntentLink } from "@/components/IntentLink";
+import { useStreetViewAvailable } from "@/hooks/useStreetViewAvailable";
 import { lastHomePath } from "@/lib/cities";
 import { isPastOneOffEvent } from "@/lib/event-dates";
 import {
@@ -88,6 +89,7 @@ export function VenuePage({
   const [loading, setLoading] = useState(() => initialEvents.length === 0);
   const [plannerOpen, setPlannerOpen] = useState(false);
   const [areaViewOpen, setAreaViewOpen] = useState(false);
+  const streetViewAvailable = useStreetViewAvailable(venue.lat, venue.lng);
   const placeCardRef = useRef<HTMLElement>(null);
   const mapSectionRef = useRef<HTMLDivElement>(null);
   const stickyMapRef = useRef<HTMLDivElement>(null);
@@ -364,6 +366,7 @@ export function VenuePage({
                     onReveal={openDirectionsMode}
                     streetViewOpen={areaViewOpen}
                     onStreetViewChange={setAreaViewOpen}
+                    streetViewAvailable={streetViewAvailable}
                     overlayStreetView={false}
                     streetViewInReveal={false}
                     onDismiss={
@@ -385,21 +388,31 @@ export function VenuePage({
                   />
                 </div>
               ) : mapTakesPhotoSpace ? null : (
-                <div className="grid grid-cols-2 border-t border-neutral-200/80 dark:border-neutral-800">
+                <div
+                  className={`border-t border-neutral-200/80 dark:border-neutral-800 ${
+                    streetViewAvailable ? "grid grid-cols-2" : "grid grid-cols-1"
+                  }`}
+                >
                   <button
                     type="button"
                     onClick={openDirectionsMode}
-                    className="flex min-h-11 items-center justify-center border-r border-neutral-200/80 px-3 py-3 text-sm font-semibold text-neutral-800 touch-manipulation dark:border-neutral-800 dark:text-neutral-100"
+                    className={`flex min-h-11 items-center justify-center px-3 py-3 text-sm font-semibold text-neutral-800 touch-manipulation dark:text-neutral-100 ${
+                      streetViewAvailable
+                        ? "border-r border-neutral-200/80 dark:border-neutral-800"
+                        : ""
+                    }`}
                   >
                     {dict.venues.getDirections}
                   </button>
-                  <button
-                    type="button"
-                    onClick={() => setAreaViewOpen(true)}
-                    className="flex min-h-11 items-center justify-center px-3 py-3 text-sm font-semibold text-neutral-800 touch-manipulation dark:text-neutral-100"
-                  >
-                    {dict.venues.streetView}
-                  </button>
+                  {streetViewAvailable ? (
+                    <button
+                      type="button"
+                      onClick={() => setAreaViewOpen(true)}
+                      className="flex min-h-11 items-center justify-center px-3 py-3 text-sm font-semibold text-neutral-800 touch-manipulation dark:text-neutral-100"
+                    >
+                      {dict.venues.streetView}
+                    </button>
+                  ) : null}
                 </div>
               )}
             </article>

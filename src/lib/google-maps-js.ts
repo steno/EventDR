@@ -1,5 +1,7 @@
 /** Browser Maps JS loader for Street View (referrer-restricted key). */
 
+import { haversineMeters } from "@/lib/distance";
+
 const SCRIPT_ID = "google-maps-js-api";
 const BLOCKED_STORAGE_KEY = "pop-gmaps-js-blocked";
 
@@ -12,6 +14,7 @@ type LatLngLike = { lat: () => number; lng: () => number };
 
 type GoogleMapsApi = {
   maps: {
+    importLibrary?: (name: string) => Promise<Record<string, unknown>>;
     StreetViewPanorama: new (
       el: HTMLElement,
       opts: Record<string, unknown>,
@@ -29,7 +32,9 @@ type GoogleMapsApi = {
         },
         callback: (
           data: {
-            location?: { latLng?: LatLngLike };
+            location?: { latLng?: LatLngLike; pano?: string };
+            /** Road-network edges — empty for isolated photospheres. */
+            links?: unknown[];
           } | null,
           status: string,
         ) => void,
@@ -97,6 +102,34 @@ export function canUseInAppStreetView(): boolean {
   return Boolean(getGoogleMapsBrowserKey()) && !isGoogleMapsJsBlocked();
 }
 
+/**
+ * With `loading=async`, Street View classes aren't constructors until
+ * `importLibrary("streetView")` finishes (or the legacy library loads).
+ */
+async function ensureStreetViewLibrary(google: GoogleMapsApi): Promise<void> {
+  const usable = () => {
+    try {
+      // Placeholder stubs throw; a real constructor returns an instance.
+      return Boolean(new google.maps.StreetViewService());
+    } catch {
+      return false;
+    }
+  };
+
+  if (usable()) return;
+
+  if (typeof google.maps.importLibrary === "function") {
+    await google.maps.importLibrary("streetView");
+    if (usable()) return;
+  }
+
+  for (let i = 0; i < 40; i++) {
+    await new Promise((r) => setTimeout(r, 50));
+    if (usable()) return;
+  }
+  throw new Error("Street View library failed to load");
+}
+
 /** Load the Maps JavaScript API once (Street View uses this). */
 export function loadGoogleMapsJs(): Promise<GoogleMapsApi> {
   if (typeof window === "undefined") {
@@ -107,7 +140,8 @@ export function loadGoogleMapsJs(): Promise<GoogleMapsApi> {
   if (isGoogleMapsJsBlocked()) {
     return Promise.reject(new Error("Google Maps JS is unavailable"));
   }
-  if (window.google?.maps?.StreetViewPanorama) {
+
+  if (window.google?.maps && usableStreetViewService(window.google)) {
     return Promise.resolve(window.google);
   }
   if (loadPromise) return loadPromise;
@@ -117,55 +151,90 @@ export function loadGoogleMapsJs(): Promise<GoogleMapsApi> {
     return Promise.reject(new Error("NEXT_PUBLIC_GOOGLE_MAPS_API_KEY is not set"));
   }
 
-  loadPromise = new Promise((resolve, reject) => {
-    const fail = (message: string) => {
-      loadPromise = null;
-      markGoogleMapsJsBlocked(message);
-      reject(new Error(message));
-    };
+  const bootstrap = (): Promise<GoogleMapsApi> =>
+    new Promise((resolve, reject) => {
+      const fail = (message: string) => {
+        reject(new Error(message));
+      };
 
-    const existing = document.getElementById(SCRIPT_ID);
-    if (existing) {
-      existing.addEventListener("load", () => {
-        if (isGoogleMapsJsBlocked()) {
-          fail("Google Maps JS is unavailable");
-          return;
-        }
-        if (window.google) resolve(window.google);
-        else fail("Google Maps failed to load");
-      });
-      existing.addEventListener("error", () => fail("Google Maps failed to load"));
-      return;
-    }
-
-    const script = document.createElement("script");
-    script.id = SCRIPT_ID;
-    script.async = true;
-    script.defer = true;
-    // loading=async is required by Google's JS API bootstrap (script.async alone is not enough).
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${encodeURIComponent(key)}&v=weekly&loading=async`;
-    script.onload = () => {
-      // Auth failures often fire right after load.
-      window.setTimeout(() => {
+      const done = () => {
         if (isGoogleMapsJsBlocked()) {
           fail("Google Maps JS is unavailable");
           return;
         }
         if (window.google?.maps) resolve(window.google);
         else fail("Google Maps failed to load");
-      }, 0);
-    };
-    script.onerror = () => fail("Google Maps failed to load");
-    document.head.appendChild(script);
-  });
+      };
+
+      if (window.google?.maps) {
+        done();
+        return;
+      }
+
+      const existing = document.getElementById(SCRIPT_ID);
+      if (existing) {
+        existing.addEventListener("load", done);
+        existing.addEventListener("error", () =>
+          fail("Google Maps failed to load"),
+        );
+        // Script may already be loaded (complete) without firing again.
+        if (
+          (existing as HTMLScriptElement).dataset.loaded === "1" ||
+          window.google?.maps
+        ) {
+          done();
+        }
+        return;
+      }
+
+      const script = document.createElement("script");
+      script.id = SCRIPT_ID;
+      script.async = true;
+      script.defer = true;
+      // loading=async is required by Google's JS API bootstrap (script.async alone is not enough).
+      script.src = `https://maps.googleapis.com/maps/api/js?key=${encodeURIComponent(key)}&v=weekly&loading=async`;
+      script.onload = () => {
+        script.dataset.loaded = "1";
+        // Auth failures often fire right after load.
+        window.setTimeout(done, 0);
+      };
+      script.onerror = () => fail("Google Maps failed to load");
+      document.head.appendChild(script);
+    });
+
+  loadPromise = bootstrap()
+    .then(async (google) => {
+      await ensureStreetViewLibrary(google);
+      return google;
+    })
+    .catch((err) => {
+      loadPromise = null;
+      const message = err instanceof Error ? err.message : String(err);
+      if (
+        message.includes("unavailable") ||
+        message.includes("failed to load") ||
+        message.includes("not set")
+      ) {
+        markGoogleMapsJsBlocked(message);
+      }
+      throw err instanceof Error ? err : new Error(message);
+    });
 
   return loadPromise;
 }
 
+function usableStreetViewService(google: GoogleMapsApi): boolean {
+  try {
+    return Boolean(new google.maps.StreetViewService());
+  } catch {
+    return false;
+  }
+}
+
 const coverageCache = new Map<string, boolean>();
 
-function coverageKey(lat: number, lng: number): string {
-  return `${lat.toFixed(5)},${lng.toFixed(5)}`;
+function coverageKey(lat: number, lng: number, radius: number): string {
+  return `${lat.toFixed(5)},${lng.toFixed(5)},${radius}`;
 }
 
 const API_HARD_FAIL = new Set([
@@ -174,19 +243,23 @@ const API_HARD_FAIL = new Set([
   "UNKNOWN_ERROR",
 ]);
 
+/** Search radius + max pin→pano distance (m). Keeps highway shots off resort pins. */
+export const STREET_VIEW_NEAR_RADIUS_M = 100;
+
 /**
- * True when Google has a Street View panorama near the pin.
+ * True when Google has a Street View panorama near the pin
+ * (outdoor preferred, any source as fallback), within `radius` meters.
  * Results are cached per ~1 m coordinate bucket for the session.
  * Returns false immediately when Maps JS is billing/auth blocked.
  */
 export async function hasStreetViewCoverage(
   lat: number,
   lng: number,
-  radius = 150,
+  radius = STREET_VIEW_NEAR_RADIUS_M,
 ): Promise<boolean> {
   if (!canUseInAppStreetView()) return false;
 
-  const key = coverageKey(lat, lng);
+  const key = coverageKey(lat, lng, radius);
   const cached = coverageCache.get(key);
   if (cached != null) return cached;
 
@@ -196,7 +269,11 @@ export async function hasStreetViewCoverage(
     const outdoor = google.maps.StreetViewSource?.OUTDOOR;
 
     const tryPanorama = (source?: string) =>
-      new Promise<{ ok: boolean; hardFail: boolean }>((resolve) => {
+      new Promise<{
+        ok: boolean;
+        hardFail: boolean;
+        latLng?: { lat: () => number; lng: () => number };
+      }>((resolve) => {
         service.getPanorama(
           {
             location: { lat, lng },
@@ -208,11 +285,12 @@ export async function hasStreetViewCoverage(
               resolve({ ok: false, hardFail: true });
               return;
             }
+            const statusOk =
+              status === "OK" || status === google.maps.StreetViewStatus?.OK;
             resolve({
-              ok:
-                status === google.maps.StreetViewStatus.OK &&
-                Boolean(data?.location?.latLng),
+              ok: statusOk && Boolean(data?.location?.latLng),
               hardFail: false,
+              latLng: data?.location?.latLng,
             });
           },
         );
@@ -220,7 +298,7 @@ export async function hasStreetViewCoverage(
 
     let result = outdoor
       ? await tryPanorama(outdoor)
-      : { ok: false, hardFail: false };
+      : { ok: false as const, hardFail: false as const };
     if (!result.ok && !result.hardFail) {
       result = await tryPanorama();
     }
@@ -229,10 +307,20 @@ export async function hasStreetViewCoverage(
       coverageCache.set(key, false);
       return false;
     }
-    coverageCache.set(key, result.ok);
-    return result.ok;
+
+    let ok = Boolean(result.ok && result.latLng);
+    if (ok && result.latLng) {
+      const dist = haversineMeters(
+        { lat, lng },
+        { lat: result.latLng.lat(), lng: result.latLng.lng() },
+      );
+      ok = dist <= radius;
+    }
+
+    coverageCache.set(key, ok);
+    return ok;
   } catch {
-    coverageCache.set(key, false);
+    // Transient load errors — don't poison the session cache.
     return false;
   }
 }

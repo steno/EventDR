@@ -394,8 +394,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Playa Dorada",
     description:
       "Bar & grill in Playa Dorada Plaza with nightly live bands — rock, pop covers, and Caribbean classics with dinner and drinks.",
-    lat: 19.7694757,
-    lng: -70.6430326,
+    lat: 19.7692888,
+    lng: -70.6427188,
     emoji: "🎸",
   },
   {

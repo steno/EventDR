@@ -218,8 +218,8 @@ describe("findNearbyTonight", () => {
       time: "7:00 PM – 11:00 PM",
       venueSlug: "senor-rock-playa-dorada",
       location: "Puerto Plata",
-      lat: 19.7694757,
-      lng: -70.6430326,
+      lat: 19.7692888,
+      lng: -70.6427188,
       category: "music",
     });
     const funCity = event({

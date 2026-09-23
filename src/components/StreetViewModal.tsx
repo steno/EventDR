@@ -1,9 +1,11 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { X } from "lucide-react";
 import type { Dictionary } from "@/i18n/dictionaries";
+import { bearingDegrees, haversineMeters } from "@/lib/distance";
 import {
+  STREET_VIEW_NEAR_RADIUS_M,
   canUseInAppStreetView,
   loadGoogleMapsJs,
   markGoogleMapsJsBlocked,
@@ -22,44 +24,103 @@ interface StreetViewModalProps {
    * `dialog` is a full-viewport sheet (legacy / other surfaces).
    */
   variant?: "inline" | "dialog";
-  /** Skip Maps JS and show the iframe embed (key missing / previously blocked). */
+  /** @deprecated Kept for callers; embed is always used for imagery. */
   forceEmbed?: boolean;
 }
 
-type StreetViewPanoramaHandle = {
-  setVisible: (v: boolean) => void;
-  getStatus?: () => string;
-  addListener?: (event: string, handler: () => void) => { remove: () => void };
-};
+type ViewStatus = "loading" | "ready" | "unavailable" | "error";
 
-type ViewStatus = "loading" | "ready" | "unavailable" | "error" | "embed";
+type EmbedCamera = { lat: number; lng: number; heading: number };
 
-function StreetViewEmbed({
-  lat,
-  lng,
-  dict,
-}: {
-  lat: number;
-  lng: number;
-  dict: Dictionary;
-}) {
-  const embedUrl = getStreetViewEmbedUrl({ lat, lng });
+/**
+ * Resolve a Street View camera near the pin, aimed at the venue.
+ * Heading 0 looks north (ocean on the North Coast) — always aim at the pin.
+ */
+async function resolveStreetViewCamera(
+  lat: number,
+  lng: number,
+): Promise<EmbedCamera | "unavailable" | "blocked" | "error"> {
+  if (!canUseInAppStreetView()) {
+    // No Maps JS — fall back to pin-based embed (Google picks nearest).
+    return { lat, lng, heading: 0 };
+  }
 
-  return (
-    <div className="absolute inset-0 z-10 flex flex-col bg-neutral-200 dark:bg-neutral-800">
-      <iframe
-        title={dict.venues.streetView}
-        src={embedUrl}
-        className="h-full w-full flex-1 border-0 bg-neutral-200 dark:bg-neutral-800"
-        allow="accelerometer; gyroscope; fullscreen"
-        loading="eager"
-        referrerPolicy="no-referrer-when-downgrade"
-      />
-    </div>
-  );
+  try {
+    const google = await loadGoogleMapsJs();
+    const service = new google.maps.StreetViewService();
+    const outdoor = google.maps.StreetViewSource?.OUTDOOR;
+    const radius = STREET_VIEW_NEAR_RADIUS_M;
+
+    const tryPanorama = (source?: string) =>
+      new Promise<{
+        ok: boolean;
+        hardFail: boolean;
+        latLng?: { lat: () => number; lng: () => number };
+      }>((resolve) => {
+        service.getPanorama(
+          {
+            location: { lat, lng },
+            radius,
+            ...(source ? { source } : {}),
+          },
+          (data, svStatus) => {
+            if (
+              svStatus === "REQUEST_DENIED" ||
+              svStatus === "OVER_QUERY_LIMIT"
+            ) {
+              resolve({ ok: false, hardFail: true });
+              return;
+            }
+            if (
+              (svStatus === "OK" ||
+                svStatus === google.maps.StreetViewStatus?.OK) &&
+              data?.location?.latLng
+            ) {
+              resolve({
+                ok: true,
+                hardFail: false,
+                latLng: data.location.latLng,
+              });
+              return;
+            }
+            resolve({ ok: false, hardFail: false });
+          },
+        );
+      });
+
+    let result = outdoor
+      ? await tryPanorama(outdoor)
+      : { ok: false as const, hardFail: false as const };
+    if (!result.ok && !result.hardFail) {
+      result = await tryPanorama();
+    }
+
+    if (result.hardFail) {
+      markGoogleMapsJsBlocked("StreetViewPanorama");
+      return "blocked";
+    }
+
+    if (!result.ok || !result.latLng) {
+      return "unavailable";
+    }
+
+    const pano = {
+      lat: result.latLng.lat(),
+      lng: result.latLng.lng(),
+    };
+    const dist = haversineMeters(pano, { lat, lng });
+    if (dist > radius) return "unavailable";
+
+    // Aim at the venue (heading 0 = north → ocean on the North Coast).
+    const heading = Math.round(bearingDegrees(pano, { lat, lng }));
+    return { ...pano, heading };
+  } catch {
+    markGoogleMapsJsBlocked("StreetViewModal");
+    return "error";
+  }
 }
 
-/** In-app Google Street View panorama (Maps JavaScript API), with iframe embed safety net. */
+/** Street View in the venue map frame — iframe embed aimed at the pin. */
 export function StreetViewModal({
   open,
   onClose,
@@ -68,153 +129,47 @@ export function StreetViewModal({
   title,
   dict,
   variant = "inline",
-  forceEmbed = false,
 }: StreetViewModalProps) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [status, setStatus] = useState<ViewStatus>(
-    forceEmbed || !canUseInAppStreetView() ? "embed" : "loading",
-  );
+  const [status, setStatus] = useState<ViewStatus>("loading");
+  const [camera, setCamera] = useState<EmbedCamera | null>(null);
   const inline = variant === "inline";
 
   useEffect(() => {
     if (!open) return;
 
-    if (forceEmbed || !canUseInAppStreetView()) {
-      setStatus("embed");
-      return;
-    }
-
     setStatus("loading");
+    setCamera(null);
     let cancelled = false;
-    let panorama: StreetViewPanoramaHandle | null = null;
-    let statusListener: { remove: () => void } | null = null;
-    let resizeObserver: ResizeObserver | null = null;
 
-    void loadGoogleMapsJs()
-      .then(async (google) => {
-        // Wait for layout so the WebGL canvas gets a real size (avoids black pano).
-        await new Promise<void>((resolve) => {
-          requestAnimationFrame(() => requestAnimationFrame(() => resolve()));
-        });
-        if (cancelled || !containerRef.current) return;
-        if (!canUseInAppStreetView()) {
-          setStatus("embed");
-          return;
-        }
-
-        const service = new google.maps.StreetViewService();
-        const outdoor = google.maps.StreetViewSource?.OUTDOOR;
-
-        const tryPanorama = (source?: string) =>
-          new Promise<{
-            ok: boolean;
-            hardFail: boolean;
-            latLng?: { lat: () => number; lng: () => number };
-          }>((resolve) => {
-            service.getPanorama(
-              {
-                location: { lat, lng },
-                radius: 150,
-                ...(source ? { source } : {}),
-              },
-              (data, svStatus) => {
-                if (
-                  svStatus === "REQUEST_DENIED" ||
-                  svStatus === "OVER_QUERY_LIMIT"
-                ) {
-                  resolve({ ok: false, hardFail: true });
-                  return;
-                }
-                if (
-                  svStatus === google.maps.StreetViewStatus.OK &&
-                  data?.location?.latLng
-                ) {
-                  resolve({ ok: true, hardFail: false, latLng: data.location.latLng });
-                  return;
-                }
-                resolve({ ok: false, hardFail: false });
-              },
-            );
-          });
-
-        let result = outdoor
-          ? await tryPanorama(outdoor)
-          : { ok: false as const, hardFail: false as const };
-        if (!result.ok && !result.hardFail) {
-          result = await tryPanorama();
-        }
-        if (cancelled || !containerRef.current) return;
-
-        if (result.hardFail) {
-          markGoogleMapsJsBlocked("StreetViewPanorama");
-          setStatus("embed");
-          return;
-        }
-
-        if (!result.ok || !result.latLng) {
-          // No panorama near the pin — still show the embed (Google picks nearest).
-          setStatus("embed");
-          return;
-        }
-
-        panorama = new google.maps.StreetViewPanorama(containerRef.current, {
-          position: result.latLng,
-          pov: { heading: 0, pitch: 0 },
-          zoom: 1,
-          addressControl: true,
-          fullscreenControl: true,
-          motionTracking: false,
-          enableCloseButton: false,
-        }) as StreetViewPanoramaHandle;
-
-        if (cancelled) {
-          panorama.setVisible(false);
-          panorama = null;
-          return;
-        }
-
-        statusListener =
-          panorama.addListener?.("status_changed", () => {
-            if (cancelled) return;
-            const panoStatus = panorama?.getStatus?.();
-            if (panoStatus && panoStatus !== google.maps.StreetViewStatus.OK) {
-              setStatus("embed");
-            }
-          }) ?? null;
-
-        const resize = () => {
-          google.maps.event?.trigger?.(panorama, "resize");
-        };
-        requestAnimationFrame(resize);
-        if (typeof ResizeObserver !== "undefined" && containerRef.current) {
-          resizeObserver = new ResizeObserver(() => {
-            if (!cancelled) resize();
-          });
-          resizeObserver.observe(containerRef.current);
-        }
-
+    void resolveStreetViewCamera(lat, lng).then((result) => {
+      if (cancelled) return;
+      if (result === "unavailable") {
+        setStatus("unavailable");
+        return;
+      }
+      if (result === "blocked" || result === "error") {
+        // Maps JS blocked — still try a pin embed so the frame isn't empty.
+        setCamera({ lat, lng, heading: 0 });
         setStatus("ready");
-      })
-      .catch(() => {
-        if (!cancelled) {
-          markGoogleMapsJsBlocked("StreetViewModal");
-          setStatus("embed");
-        }
-      });
+        return;
+      }
+      setCamera(result);
+      setStatus("ready");
+    });
 
     return () => {
       cancelled = true;
-      resizeObserver?.disconnect();
-      resizeObserver = null;
-      statusListener?.remove();
-      statusListener = null;
-      panorama?.setVisible(false);
-      panorama = null;
-      if (containerRef.current) containerRef.current.innerHTML = "";
     };
-  }, [open, lat, lng, forceEmbed]);
+  }, [open, lat, lng]);
 
   if (!open) return null;
+
+  const embedUrl = camera
+    ? getStreetViewEmbedUrl(
+        { lat: camera.lat, lng: camera.lng },
+        camera.heading,
+      )
+    : null;
 
   const chrome = (
     <div
@@ -249,22 +204,21 @@ export function StreetViewModal({
       </div>
 
       <div className="relative min-h-0 flex-1 bg-neutral-200 dark:bg-neutral-800">
-        {status === "loading" || status === "ready" ? (
-          <div
-            ref={containerRef}
-            className="street-view-panorama absolute inset-0"
-            style={{ colorScheme: "light" }}
-          />
-        ) : null}
-
         {status === "loading" ? (
           <div className="absolute inset-0 flex items-center justify-center text-sm font-semibold text-neutral-600 dark:text-neutral-300">
             {dict.venues.streetViewLoading}
           </div>
         ) : null}
 
-        {status === "embed" ? (
-          <StreetViewEmbed lat={lat} lng={lng} dict={dict} />
+        {status === "ready" && embedUrl ? (
+          <iframe
+            title={dict.venues.streetView}
+            src={embedUrl}
+            className="absolute inset-0 h-full w-full border-0 bg-neutral-200 dark:bg-neutral-800"
+            allow="accelerometer; gyroscope; fullscreen"
+            loading="eager"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
         ) : null}
 
         {status === "unavailable" || status === "error" ? (
