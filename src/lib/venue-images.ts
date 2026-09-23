@@ -73,7 +73,7 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "hacienda-cufa": "hacienda-cufa.jpg",
   "tabacalera-cremo": "tabacalera-cremo.jpg",
   "vivonte-cigar-factory": "vivonte-cigar-factory.jpg",
-  "freestyle-catamaran": "freestyle-catamaran.jpg",
+
   "outback-adventures": "outback-adventures.jpg",
   "hms-valeria": "hms-valeria.jpg",
   "rum-legacy-museum": "rum-legacy-museum.jpg",

@@ -471,15 +471,8 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
   "casa-de-la-cultura-exhibitions": {
     isFree: true,
   },
-  "casa-de-la-cultura-saturday-stage": {
-    isFree: true,
-  },
-  "ayuntamiento-pp-sunday-malecon": {
-    isFree: true,
-  },
-  "anfiteatro-la-puntilla-weekday-culture": {
-    isFree: true,
-  },
+
+
   "ingest-make-authentic-espadrilles-in-puerto-plata": {
     isFree: false,
     admissionPrice: "from €99.90",
@@ -489,13 +482,7 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
   "kite-beach-daily": {
     isFree: true,
   },
-  "malecon-kiosks-daily": {
-    isFree: true,
-  },
-  "sosua-pedro-clisante-food-nights": {
-    // Open street strip — free to walk; pay only for what you order.
-    isFree: true,
-  },
+
   "la-casita-papi-beach-dining": {
     // Free entry — order food/drinks to dine; not a ticketed show.
     isFree: true,
@@ -618,31 +605,7 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     callForPricing: true,
     phone: "+18495057778",
   },
-  "anfiteatro-la-puntilla-concerts": {
-    address: "Desvío a La Puntilla",
-    location: "Puerto Plata",
-    venue: "Anfiteatro La Puntilla",
-    venueSlug: "anfiteatro-la-puntilla",
-    isFree: false,
-    callForPricing: true,
-    description:
-      "Outdoor concerts, cultural shows, and carnival troupes at Anfiteatro La Puntilla on the Atlantic — weekend performances on Puerto Plata's Malecón waterfront stage overlooking Fortaleza San Felipe. Admission varies by show (many municipal/Mitur concerts are free; billed artists sell tickets separately). Lineups announced per show.",
-    localized: {
-      description: {
-        en: "Outdoor concerts, cultural shows, and carnival troupes at Anfiteatro La Puntilla on the Atlantic — weekend performances on Puerto Plata's Malecón waterfront stage overlooking Fortaleza San Felipe. Admission varies by show (many municipal/Mitur concerts are free; billed artists sell tickets separately). Lineups announced per show.",
-        es: "Conciertos al aire libre, espectáculos culturales y comparsas en el Anfiteatro La Puntilla frente al Atlántico — funciones de fin de semana en el malecón de Puerto Plata con vista a la Fortaleza San Felipe. La entrada varía según el espectáculo (muchos conciertos municipales/Mitur son gratis; artistas de carteleras venden boletas aparte). Cartelera anunciada por función.",
-        fr: "Concerts en plein air, spectacles culturels et carnaval au Anfiteatro La Puntilla face à l'Atlantique — week-ends sur le malecón de Puerto Plata avec vue sur Fortaleza San Felipe. Tarif selon le spectacle (beaucoup de concerts municipaux/Mitur sont gratuits ; les têtes d'affiche vendent des billets à part). Programmation annoncée par concert.",
-      },
-    },
-  },
-  "lax-headline-concerts": {
-    address: "Cabarete Beach",
-    location: "Cabarete",
-    venue: "LAX Cabarete",
-    venueSlug: "lax-cabarete",
-    isFree: false,
-    callForPricing: true,
-  },
+
   "kite-beach-wind-culture": {
     address: "Carretera 5, Kite Beach",
     location: "Cabarete",
@@ -667,24 +630,7 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     address: "Imbert hills",
     location: "Imbert",
   },
-  "freestyle-catamaran-daily": {
-    address: "Playa Dorada Beach",
-    location: "Puerto Plata",
-    venue: "Freestyle Catamaran",
-    venueSlug: "freestyle-catamaran",
-    phone: "+18095861239",
-    // Open-bar/lunch copy must not keep a stale Food & Drinks tag from Firebase.
-    categories: [],
-    description:
-      "Full-day catamaran from Playa Dorada to Sosúa Bay — two snorkeling stops on the north coast reef, lunch and open bar onboard, and a fun crew keeping the music going. Free hotel pickup from Playa Dorada, Costa Dorada, Sosúa, and Cabarete; confirm your pickup time when you book (~8 hours).",
-    localized: {
-      description: {
-        en: "Full-day catamaran from Playa Dorada to Sosúa Bay — two snorkeling stops on the north coast reef, lunch and open bar onboard, and a fun crew keeping the music going. Free hotel pickup from Playa Dorada, Costa Dorada, Sosúa, and Cabarete; confirm your pickup time when you book (~8 hours).",
-        es: "Día completo en catamarán desde Playa Dorada hasta la bahía de Sosúa — dos paradas de snorkel en el arrecife de la costa norte, almuerzo y barra libre a bordo, y tripulación animada. Recogida gratuita en hoteles de Playa Dorada, Costa Dorada, Sosúa y Cabarete; confirma tu hora al reservar (~8 horas).",
-        fr: "Journée en catamaran de Playa Dorada à la baie de Sosúa — deux arrêts snorkeling sur le récif de la côte nord, déjeuner et open bar à bord, équipage festif. Prise en charge gratuite aux hôtels de Playa Dorada, Costa Dorada, Sosúa et Cabarete ; confirmez l'heure à la réservation (~8 h).",
-      },
-    },
-  },
+
   "rio-sonador-finca-papirucho": {
     // River day with on-site restaurant amenities — not a food listing.
     categories: [],

@@ -879,20 +879,6 @@
     "imageEmoji": "🎭"
   },
   {
-    "id": "malecon-morning-wellness-walk",
-    "title": "Caminata matutina de wellness en el Malecón",
-    "description": "Caminantes y corredores temprano en el Malecón de Puerto Plata — brisa marina, grupos de estiramiento y ritual diario de bienestar en el paseo marítimo.",
-    "date": "2026-01-01",
-    "time": "6:00 AM – 8:00 AM",
-    "location": "Puerto Plata",
-    "venue": "Malecón de Puerto Plata",
-    "venueSlug": "malecon-puerto-plata",
-    "category": "health-wellness",
-    "format": "physical",
-    "recurrence": "daily",
-    "imageEmoji": "🚶"
-  },
-  {
     "id": "sancocho-sabados-pingui",
     "title": "Sancocho Sábados en Pingüi",
     "description": "¡Los sábados tienen sabor a tradición! Disfruta de nuestro sancocho frente al mar en Playa El Pueblito en Pingüi Bar. Reúne a tus amigos y familiares para compartir una tarde de comida dominicana con vista al océano (12–4 PM).",

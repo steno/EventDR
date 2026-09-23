@@ -769,18 +769,6 @@ export const SEED_VENUES: Venue[] = [
     phone: "+18095865257",
   },
   {
-    slug: "freestyle-catamaran",
-    name: "Freestyle Catamaran",
-    city: "Puerto Plata",
-    description:
-      "Catamaran cruises departing Playa Dorada for Sosúa Bay — two snorkeling stops, lunch, drinks, and live music on deck. Hotel pickup included.",
-    lat: 19.7786014,
-    lng: -70.6703871,
-    emoji: "⛵",
-    website: "https://freestylecatamarans.com/",
-    phone: "+18095861239",
-  },
-  {
     slug: "outback-adventures",
     name: "Outback Adventures",
     city: "Puerto Plata",

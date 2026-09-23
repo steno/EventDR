@@ -27,7 +27,8 @@ export const REMOVED_SEED_EVENT_IDS = new Set([
   "paella-pop-el-pueblito",
   // Duplicate of sea-horse-saturday-market (same venue, day, hours, official page).
   "sea-horse-saturday-artisan-fair",
-  // Duplicate of anfiteatro-la-puntilla-concerts (same venue, weekends, source URL).
+  // Duplicate of former anfiteatro-la-puntilla-concerts (same venue, weekends, source URL).
+  // Both that series and this id are retired — Anfiteatro shows are billed one-offs only.
   "anfiteatro-cultural-performances",
   // Duplicate of cremo-salsa-friday (same venue, Friday 8–11 PM, source URL).
   "cremo-friday-salsa-dance",
@@ -54,6 +55,26 @@ export const REMOVED_SEED_EVENT_IDS = new Set([
   "natura-cabana-sunset-sounds-thursday",
   // Unverified weekly — no source URL; Chill & Grill bingo/karaoke stay seeded.
   "castaways-classic-rock-wednesday",
+  // Atmosphere placeholders — not verified recurring programs (venue/strip only).
+  "batey-salsa-weekly",
+  "batey-open-mic-weekly",
+  "el-batey-weekend-nightlife",
+  "sosua-pedro-clisante-food-nights",
+  // Anfiteatro has billed one-offs + renovation limits — no standing weekend/weekday series.
+  "anfiteatro-la-puntilla-concerts",
+  "anfiteatro-la-puntilla-weekday-culture",
+  // Invented Sunday municipal programming; sourceUrl is only the city homepage.
+  "ayuntamiento-pp-sunday-malecon",
+  // Malecón promenade ambience — stalls/walkers, not events.
+  "malecon-kiosks-daily",
+  "malecon-morning-wellness-walk",
+  // Arbitrary single-operator day tour among many interchangeable catamarans.
+  "freestyle-catamaran-daily",
+  // Calendar fiction — standing series / hours-as-event with no real program.
+  "lax-headline-concerts",
+  "casa-de-la-cultura-saturday-stage",
+  "sosua-beach-live-weekends",
+  "kviar-disco-casino-nights",
 ]);
 
 export function filterRemovedSeedEvents(events: Event[]): Event[] {

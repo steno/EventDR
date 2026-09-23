@@ -7,23 +7,19 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "rumble-in-paradise-12": "rumble-in-paradise-12.jpg",
   "rumble-in-paradise-13": "rumble-in-paradise-13.png",
   "lax-sunset-daily": "lax-sunset-daily.jpg",
-  "malecon-kiosks-daily": "malecon-kiosks-daily.jpg",
+
   "kite-beach-daily": "kite-beach-daily.jpg",
   "liquid-blue-sunrise-yoga": "liquid-blue-sunrise-yoga.jpg",
-  // Filename bump — dance floor under string lights (not the shared patio-crowd clone).
-  "batey-salsa-weekly": "batey-salsa-social-dance.jpg",
   "sosua-volleyball-weekly": "sosua-volleyball-weekly.jpg",
   // Filename bump — DJ over packed dance floor (not the old deck still).
   "lax-reggae-friday": "lax-reggae-friday-crowd.png",
-  // Filename bump — stage + mics (not the Smiley's YouTube still / salsa clone).
-  "batey-open-mic-weekly": "batey-open-mic-stage.jpg",
   "hard-rock-weekends": "hard-rock-weekends.jpg",
   "hard-rock-billed-concerts": "hard-rock-billed-concerts.jpg",
   "voramar-friday-live": "voramar-friday-live-poolside.jpg",
   "smileys-saturday-live": "smileys-saturday-live.jpg",
   // Filename bump — house-band live set (not the El Batey open-mic clone).
   "finish-line-live-wednesday": "finish-line-live-band.jpg",
-  "sosua-beach-live-weekends": "sosua-beach-live-bay.jpg",
+
   "cheers-weekly-live": "cheers-weekly-live.jpg",
   // Filename bump — cleaner flyer crop (social caption chrome removed).
   "cheers-mandarin-mondays": "cheers-mandarin-mondays-menu.jpg",
@@ -91,12 +87,11 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "tabacalera-cremo-rolling-experience": "tabacalera-cremo-rolling-experience.jpg",
   "vivonte-cigar-factory-weekdays": "vivonte-cigar-factory-weekdays.jpg",
   "vivonte-cigar-factory-saturday": "vivonte-cigar-factory-weekdays.jpg",
-  "freestyle-catamaran-daily": "freestyle-catamaran-daily.jpg",
+
   "outback-safari-daily": "outback-safari-daily.jpeg",
   // Filename bump — Mitur night concert in this seating bowl (not a generic waterfront stage).
-  "anfiteatro-la-puntilla-concerts": "anfiteatro-la-puntilla-mitur-concert.jpg",
-  "anfiteatro-la-puntilla-weekday-culture":
-    "anfiteatro-la-puntilla-weekday-bowl.jpg",
+
+
   // Filename bump — POP-supplied Mujeres Empoderadas flyer refresh (PWA caches old path).
   "el-carey-karaoke-mujeres-monday": "el-carey-karaoke-mujeres-monday-2026.jpg",
   "classic-cars-puerto-plata-daily": "classic-cars-puerto-plata-daily.jpg",
@@ -194,11 +189,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "drifter-sunset-into-the-night": "drifter-sunset-into-the-night.jpg",
   "sosua-jewish-museum-hours": "sosua-jewish-museum-hours.jpg",
   "sosua-diving-adventures-daily": "sosua-diving-adventures-daily.jpg",
-  // Filename bump — Pedro Clisante night strip (not the shared salsa-social shot).
-  "el-batey-weekend-nightlife": "el-batey-weekend-nightlife-clisante.jpg",
   // Filename bump — packed night bar (not the daytime Club 59 facade).
   "d-classico-merengue-nights": "d-classico-merengue-bar.jpg",
-  "sosua-pedro-clisante-food-nights": "sosua-pedro-clisante-food-nights.jpg",
   "natura-cabana-yoga-daily": "natura-cabana-yoga-daily.jpg",
   // Filename bump — Ojo Club booth night (not MerengueBachata still).
   "ojo-latin-night-thursday": "ojo-latin-night-ojo-booth.png",
@@ -214,14 +206,14 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   // Filename bump — POP on-site garden dining room (entrance sign stays on the venue).
   "los-tres-cocos-dinner": "los-tres-cocos-garden-dining.jpg",
   "liquid-blue-watersports-daily": "liquid-blue-watersports-daily.jpg",
-  "lax-headline-concerts": "lax-headline-concerts.jpg",
+
   "voyvoy-monday-live-music": "voyvoy-monday-night-terrace.jpg",
   // Filename bump — teal bay Story art (old DJ flyer was flyer.jpg; next/image caches by path).
   "voyvoy-saturday-session": "voyvoy-saturday-session-bay.jpg",
   "womens-reconnection-kite-camp-2026": "womens-reconnection-kite-camp-2026.jpg",
   "kite-beach-wind-culture": "kite-beach-wind-culture.jpg",
   "puerto-plata-carnaval-2026": "puerto-plata-carnaval-2026.jpg",
-  "malecon-morning-wellness-walk": "malecon-morning-wellness-walk.jpg",
+
   // Filename bump — guests at the bar (empty dining room stays on the venue).
   "hms-valeria-spanish-saturday": "hms-valeria-spanish-saturday-guests.jpg",
   // Filename bump — seated daytime table (Sunday lunch, not a food plate).
@@ -233,7 +225,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "macorix-house-of-rum": "macorix-house-of-rum-cellar.jpg",
   // Filename bump — gallery opening (peach facade stays on the venue).
   "casa-de-la-cultura-exhibitions": "casa-de-la-cultura-gallery-opening.jpg",
-  "casa-de-la-cultura-saturday-stage": "casa-de-la-cultura-saturday-keyboard.jpg",
+
   "paella-pop-el-pueblito": "paella-pop-el-pueblito.jpg",
   "paella-pop-green-one": "paella-pop-green-one.jpg",
   "lil-naay-2026-07-17": "lil-naay-2026-07-17.jpg",
@@ -412,6 +404,8 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "cabarete-stand-up-vol-2-2026-10-24": "object-center",
   "ocean-world-terrace-singing-talent-2026-09-16": "object-center",
   "duo-maryem-rancho-catalina-2026-09-20": "object-center",
+  // Flyer faces sit low — default mobile object-top crops them; keep center on all breakpoints.
+  "hard-rock-rising-final-local-2026-09-23": "object-center",
 };
 
 function curatedEventImageFile(eventId: string): string | undefined {

@@ -15,20 +15,6 @@
     "imageEmoji": "🎸"
   },
   {
-    "id": "malecon-kiosks-daily",
-    "title": "Kioscos nocturnos del Malecón",
-    "description": "Comida callejera, frío y música típica en el paseo marítimo cada tarde-noche.",
-    "date": "2026-01-01",
-    "time": "5:00 PM – 10:00 PM",
-    "location": "Puerto Plata",
-    "venue": "Malecón de Puerto Plata",
-    "venueSlug": "malecon-puerto-plata",
-    "category": "food-drinks",
-    "format": "physical",
-    "recurrence": "daily",
-    "imageEmoji": "🍔"
-  },
-  {
     "id": "kite-beach-daily",
     "title": "Sesión de viento en Kite Beach",
     "description": "Clases de kite, carreras y hangout en la playa cuando soplan los alisios — casi todos los días.",
@@ -57,21 +43,6 @@
     "recurrence": "daily",
     "sourceUrl": "https://www.lbcabarete.com/fitness-classes/",
     "imageEmoji": "🧘"
-  },
-  {
-    "id": "batey-salsa-weekly",
-    "title": "Social de salsa en El Batey",
-    "description": "Noche de salsa semanal — clase para principiantes y baile social hasta tarde.",
-    "date": "2026-01-01",
-    "time": "8:00 PM – 2:00 AM",
-    "location": "Sosúa",
-    "venue": "El Batey",
-    "venueSlug": "el-batey-sosua",
-    "category": "dance",
-    "format": "physical",
-    "recurrence": "weekly",
-    "recurrenceDay": 3,
-    "imageEmoji": "💃"
   },
   {
     "id": "sosua-volleyball-weekly",
@@ -103,21 +74,6 @@
     "recurrenceDay": 5,
     "trending": true,
     "imageEmoji": "🪩"
-  },
-  {
-    "id": "batey-open-mic-weekly",
-    "title": "Open mic en El Batey",
-    "description": "Cantantes, poetas y comediantes. Escena underground, público bilingüe.",
-    "date": "2026-01-01",
-    "time": "8:00 PM – 12:00 AM",
-    "location": "Sosúa",
-    "venue": "El Batey",
-    "venueSlug": "el-batey-sosua",
-    "category": "performances",
-    "format": "physical",
-    "recurrence": "weekly",
-    "recurrenceDay": 2,
-    "imageEmoji": "🎤"
   },
   {
     "id": "hard-rock-weekends",
@@ -209,20 +165,6 @@
     "recurrence": "weekly",
     "recurrenceDay": 3,
     "imageEmoji": "🍺"
-  },
-  {
-    "id": "sosua-beach-live-weekends",
-    "title": "Música en vivo en Playa Sosúa",
-    "description": "Noches de fin de semana en Playa Sosúa — sets informales y DJs en bares frente al mar, incluyendo Bar 39 y la franja de la bahía.",
-    "date": "2026-01-01",
-    "time": "6:00 PM – 10:00 PM",
-    "location": "Sosúa",
-    "venue": "Playa Sosúa",
-    "venueSlug": "playa-sosua",
-    "category": "music",
-    "format": "physical",
-    "recurrence": "weekends",
-    "imageEmoji": "🌴"
   },
   {
     "id": "cheers-weekly-live",
@@ -1057,22 +999,6 @@
     "imageEmoji": "🍂"
   },
   {
-    "id": "freestyle-catamaran-daily",
-    "title": "Freestyle Catamaran — Snorkel y navegación",
-    "description": "Día completo en catamarán desde Playa Dorada hasta la bahía de Sosúa — dos paradas de snorkel en el arrecife de la costa norte, almuerzo y barra libre a bordo, y tripulación animada. Recogida gratuita en hoteles de Playa Dorada, Costa Dorada, Sosúa y Cabarete; confirma tu hora al reservar (~8 horas).",
-    "date": "2026-01-01",
-    "time": "8:00 AM - 4:00 PM",
-    "location": "Puerto Plata",
-    "address": "Playa Dorada Beach",
-    "venue": "Freestyle Catamaran",
-    "venueSlug": "freestyle-catamaran",
-    "category": "adventure",
-    "format": "physical",
-    "recurrence": "daily",
-    "sourceUrl": "https://freestylecatamarans.com/reservation/",
-    "imageEmoji": "⛵"
-  },
-  {
     "id": "outback-safari-daily",
     "title": "Outback Safari — Campo y cultura",
     "description": "Día todo incluido en camiones safari descubiertos — pueblos rurales, degustación de café y cacao, visita a una escuela local y bodyboard en una playa escondida. Recogida gratuita en hoteles de Puerto Plata, Sosúa y Cabarete; confirma el punto de encuentro el día anterior (~8 horas). Una aventura cultural clásica de Puerto Plata.",
@@ -1087,27 +1013,6 @@
     "recurrence": "daily",
     "sourceUrl": "https://www.sightseeing.com/packages/outback-safari-adventure-tour-from-puerto-plata/",
     "imageEmoji": "🛻"
-  },
-  {
-    "id": "anfiteatro-la-puntilla-concerts",
-    "title": "Conciertos en el Anfiteatro La Puntilla",
-    "description": "Conciertos al aire libre, espectáculos culturales y comparsas en el Anfiteatro La Puntilla frente al Atlántico — funciones de fin de semana en el malecón de Puerto Plata con vista a la Fortaleza San Felipe. La entrada varía según el espectáculo (muchos conciertos municipales/Mitur son gratis; artistas de carteleras venden boletas aparte). Cartelera anunciada por función.",
-    "date": "2026-01-01",
-    "time": "7:00 PM – 10:00 PM",
-    "location": "Puerto Plata",
-    "venue": "Anfiteatro La Puntilla",
-    "venueSlug": "anfiteatro-la-puntilla",
-    "address": "Desvío a La Puntilla",
-    "category": "concert",
-    "categories": [
-      "performances",
-      "culture"
-    ],
-    "format": "physical",
-    "recurrence": "weekends",
-    "callForPricing": true,
-    "sourceUrl": "https://es.godominicanrepublic.com/que-hacer/anfiteatro-la-puntilla",
-    "imageEmoji": "🎵"
   },
   {
     "id": "el-carey-karaoke-mujeres-monday",
@@ -1206,25 +1111,6 @@
     "imageEmoji": "🤿"
   },
   {
-    "id": "el-batey-weekend-nightlife",
-    "title": "Vida nocturna de fin de semana en El Batey",
-    "description": "Fiestas viernes y sábado en Pedro Clisante, El Batey — DJs, baile y la escena de clubs más intensa del centro de Sosúa hasta la madrugada.",
-    "date": "2026-01-01",
-    "time": "9:00 PM – 3:00 AM",
-    "location": "Sosúa",
-    "venue": "El Batey",
-    "venueSlug": "el-batey-sosua",
-    "address": "Calle Pedro Clisante",
-    "category": "parties",
-    "format": "physical",
-    "recurrence": "weekly",
-    "recurrenceDays": [
-      5,
-      6
-    ],
-    "imageEmoji": "🪩"
-  },
-  {
     "id": "d-classico-merengue-nights",
     "title": "Noches de merengue y bachata en D-Classico",
     "description": "Merengue y bachata en D-Classico, El Batey — ritmos dominicanos, DJs en vivo y uno de los locales nocturnos más auténticos de Sosúa.",
@@ -1247,21 +1133,6 @@
       6
     ],
     "imageEmoji": "💃"
-  },
-  {
-    "id": "sosua-pedro-clisante-food-nights",
-    "title": "Comida callejera y cenas en Pedro Clisante",
-    "description": "Noches en Calle Pedro Clisante, El Batey — restaurantes al aire libre, parrillas callejeras y cenas de pueblo playero cuando la calle se cierra al tráfico.",
-    "date": "2026-01-01",
-    "time": "6:00 PM – 11:00 PM",
-    "location": "Sosúa",
-    "venue": "Calle Pedro Clisante",
-    "venueSlug": "el-batey-sosua",
-    "category": "food-drinks",
-    "format": "physical",
-    "recurrence": "daily",
-    "sourceUrl": "https://www.godominicanrepublic.com/things-to-do/sosua-nightlife",
-    "imageEmoji": "🍽️"
   },
   {
     "id": "natura-cabana-yoga-daily",
@@ -1346,21 +1217,6 @@
     "trending": true,
     "sourceUrl": "https://www.lbcabarete.com/",
     "imageEmoji": "🏄"
-  },
-  {
-    "id": "lax-headline-concerts",
-    "title": "Conciertos frente al mar en LAX Cabarete",
-    "description": "Bandas en vivo y artistas invitados en la terraza de LAX — conciertos al aire libre en la bahía de Cabarete con vistas al atardecer.",
-    "date": "2026-01-01",
-    "time": "7:00 PM – 11:00 PM",
-    "location": "Cabarete",
-    "venue": "LAX Cabarete",
-    "venueSlug": "lax-cabarete",
-    "category": "concert",
-    "format": "physical",
-    "recurrence": "weekends",
-    "sourceUrl": "https://www.facebook.com/laxcabarete",
-    "imageEmoji": "🎵"
   },
   {
     "id": "voyvoy-monday-live-music",
@@ -1740,70 +1596,6 @@
     "imageEmoji": "💃"
   },
   {
-    "id": "ayuntamiento-pp-sunday-malecon",
-    "title": "Domingo en el Malecón con el Ayuntamiento",
-    "description": "Tarde familiar de domingo en el Malecón de Puerto Plata — pop-ups culturales municipales, música folclórica y paseos frente al mar con el Ayuntamiento y Mitur. Programación pública gratis; busca las carpas cerca del letrero PUERTO PLATA y el Anfiteatro La Puntilla. Horario típico 4–8 PM.",
-    "date": "2026-01-01",
-    "time": "4:00 PM – 8:00 PM",
-    "location": "Puerto Plata",
-    "venue": "Malecón Puerto Plata",
-    "venueSlug": "malecon-puerto-plata",
-    "address": "Av. Gregorio Luperón (Malecón)",
-    "category": "culture",
-    "categories": [
-      "festivals",
-      "music"
-    ],
-    "format": "physical",
-    "recurrence": "weekly",
-    "recurrenceDay": 0,
-    "isFree": true,
-    "sourceUrl": "https://ayuntamientopuertoplata.gob.do/",
-    "imageEmoji": "🌊"
-  },
-  {
-    "id": "casa-de-la-cultura-saturday-stage",
-    "title": "Sábado en escena — Casa de la Cultura",
-    "description": "Programación cultural de sábado en la Casa de la Cultura Eduardo Brito frente al Parque Central — recitales estudiantiles, poesía, danza folclórica y tertulias que amplían el horario de exposiciones entre semana. Entrada gratis; consulta la cartelera en Calle Separación.",
-    "date": "2026-01-01",
-    "time": "4:00 PM – 8:00 PM",
-    "location": "Puerto Plata",
-    "venue": "Casa de la Cultura Eduardo Brito",
-    "venueSlug": "casa-de-la-cultura",
-    "address": "Frente al Parque Central, Calle Separación",
-    "category": "culture",
-    "categories": [
-      "performances"
-    ],
-    "format": "physical",
-    "recurrence": "weekly",
-    "recurrenceDay": 6,
-    "isFree": true,
-    "sourceUrl": "https://depuertoplata.com/historia-de-puerto-plata/casa-de-la-cultura-puerto-plata/",
-    "imageEmoji": "🎭"
-  },
-  {
-    "id": "anfiteatro-la-puntilla-weekday-culture",
-    "title": "Cultura entre semana — Anfiteatro La Puntilla",
-    "description": "Presentaciones culturales municipales y de Mitur entre semana en el Anfiteatro La Puntilla — muestras escolares, ballet folclórico y recitales comunitarios en el escenario frente al Atlántico, entre los conciertos de fin de semana. Muchos cupos de entre semana son gratis; confirma el programa del día en taquilla.",
-    "date": "2026-01-01",
-    "time": "5:00 PM – 8:00 PM",
-    "location": "Puerto Plata",
-    "venue": "Anfiteatro La Puntilla",
-    "venueSlug": "anfiteatro-la-puntilla",
-    "address": "Desvío a La Puntilla",
-    "category": "culture",
-    "categories": [
-      "performances",
-      "concert"
-    ],
-    "format": "physical",
-    "recurrence": "weekdays",
-    "isFree": true,
-    "sourceUrl": "https://es.godominicanrepublic.com/que-hacer/anfiteatro-la-puntilla",
-    "imageEmoji": "🌅"
-  },
-  {
     "id": "meclao-rooftop-live-nights",
     "title": "Música en vivo en Mecla'o Rooftop",
     "description": "Rooftop en Av. Luis Ginebra con música en vivo, cócteles y vista de la ciudad. Martes–jueves y domingo 6:00 PM–2:00 AM; viernes–sábado 6:00 PM–4:00 AM. Cerrado los lunes. Gasto típico DOP 500–1,000.",
@@ -1856,30 +1648,6 @@
     "phone": "+18092911000",
     "sourceUrl": "http://www.oceanworld.net/eng/ocean-world-nightlife/2-terraza-ocean-world",
     "imageEmoji": "🌃"
-  },
-  {
-    "id": "kviar-disco-casino-nights",
-    "title": "Kviar Show Disco & Casino",
-    "description": "Mesas de casino, DJs y baile hasta tarde en Kviar Grand Oasis Marien, Costa Dorada. Horario oficial todos los días 2:00 PM–4:00 AM. Llama al +1 809 320 1632.",
-    "date": "2026-01-01",
-    "time": "2:00 PM – 4:00 AM",
-    "location": "Puerto Plata",
-    "venue": "Kviar Show Disco & Casino",
-    "venueSlug": "kviar-costa-dorada",
-    "address": "Carretera Luperón Km. 4.5, Complejo turístico Costa Dorada, Puerto Plata",
-    "lat": 19.776438,
-    "lng": -70.659688,
-    "category": "parties",
-    "categories": [
-      "dance",
-      "music"
-    ],
-    "format": "physical",
-    "recurrence": "daily",
-    "callForPricing": true,
-    "phone": "+18093201632",
-    "sourceUrl": "https://kviar.do/nuestros-casinos/",
-    "imageEmoji": "🎰"
   },
   {
     "id": "iberostar-costa-dorada-day-pass",

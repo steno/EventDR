@@ -861,20 +861,6 @@
     "imageEmoji": "🎭"
   },
   {
-    "id": "malecon-morning-wellness-walk",
-    "title": "Marche wellness matinale sur le Malecón",
-    "description": "Marcheurs et joggeurs tôt le matin sur le Malecón de Puerto Plata — brise marine, groupes d'étirement et rituel de bienêtre quotidien sur la promenade.",
-    "date": "2026-01-01",
-    "time": "6:00 AM – 8:00 AM",
-    "location": "Puerto Plata",
-    "venue": "Malecón de Puerto Plata",
-    "venueSlug": "malecon-puerto-plata",
-    "category": "health-wellness",
-    "format": "physical",
-    "recurrence": "daily",
-    "imageEmoji": "🚶"
-  },
-  {
     "id": "ingest-18th-annual-cabarete-butterfly-effect",
     "title": "18e Cabarete Butterfly Effect",
     "description": "Festival femmes et sports nautiques sur cinq jours à Cabarete (7–11 juil.) : SUP, yoga, nettoyage de plage, croisière catamaran et paddle sur la rivière. Programme et inscription sur le site officiel.",

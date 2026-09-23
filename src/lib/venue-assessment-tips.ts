@@ -58,11 +58,11 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "malecon-puerto-plata": {
-    body: "Puerto Plata's free evening default — stalls, beer, and a waterfront walk. Not a reservation restaurant; bring cash and patience on busy nights.",
+    body: "Puerto Plata's waterfront promenade — walk, photo stops, and the odd municipal bill. Not a standing Sunday festival; check dated listings before you plan around it.",
     localized: {
-      en: "Puerto Plata's free evening default — stalls, beer, and a waterfront walk. Not a reservation restaurant; bring cash and patience on busy nights.",
-      es: "El default gratis de la tarde en Puerto Plata — puestos, cerveza y paseo. No es restaurante con reserva; lleva efectivo y paciencia cuando hay gente.",
-      fr: "Le défaut gratuit du soir à Puerto Plata — stands, bière, promenade. Pas un resto sur réservation ; cash et patience les soirs bondés.",
+      en: "Puerto Plata's waterfront promenade — walk, photo stops, and the odd municipal bill. Not a standing Sunday festival; check dated listings before you plan around it.",
+      es: "El paseo marítimo de Puerto Plata — caminar, fotos y el cartel municipal ocasional. No es un festival fijo de domingo; mira listados fechados antes de planear.",
+      fr: "La promenade de Puerto Plata — marche, photos et l'affiche municipale occasionnelle. Pas un festival du dimanche fixe ; vérifiez les dates avant de planifier.",
     },
   },
   "parada-tipica-el-choco": {
@@ -170,11 +170,11 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "anfiteatro-la-puntilla": {
-    body: "Outdoor Atlantic stage nights when there's a bill — bring a layer; wind off the water is real after dark.",
+    body: "Atlantic stage when a show is billed — renovation has limited programming; confirm the listing before you go, and bring a layer after dark.",
     localized: {
-      en: "Outdoor Atlantic stage nights when there's a bill — bring a layer; wind off the water is real after dark.",
-      es: "Noches outdoor frente al Atlántico cuando hay cartel — lleva una capa; el viento del mar de noche es real.",
-      fr: "Nuits outdoor face à l'Atlantique quand il y a une affiche — prenez une couche ; le vent marin est réel après la tombée du jour.",
+      en: "Atlantic stage when a show is billed — renovation has limited programming; confirm the listing before you go, and bring a layer after dark.",
+      es: "Escenario frente al Atlántico cuando hay cartel — la renovación limita la programación; confirma el evento antes de ir, y lleva una capa de noche.",
+      fr: "Scène face à l'Atlantique quand un show est annoncé — rénovation = programmation limitée ; confirmez la date avant d'y aller, et prenez une couche le soir.",
     },
   },
   "blue-jacktar-playa-dorada": {
@@ -226,11 +226,11 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "el-batey-sosua": {
-    body: "Sosúa's downtown core — beach and cafés by day, Pedro Clisante's bilingual salsa socials and open mics after dark. Scrappier than the beach resorts; come to walk it and join in, not for VIP bottle service.",
+    body: "Sosúa's downtown core — beach and cafés by day, Pedro Clisante bars and live-music pubs after dark. Scrappier than the beach resorts; come to walk the strip and pick a spot, not for VIP bottle service.",
     localized: {
-      en: "Sosúa's downtown core — beach and cafés by day, Pedro Clisante's bilingual salsa socials and open mics after dark. Scrappier than the beach resorts; come to walk it and join in, not for VIP bottle service.",
-      es: "El centro de Sosúa — playa y cafés de día, y las sociales de salsa y open mics bilingües de Pedro Clisante de noche. Más crudo que los resorts de playa; ven a recorrerlo y sumarte, no por VIP.",
-      fr: "Le centre de Sosúa — plage et cafés en journée, puis les soirées salsa et open mics bilingues de Pedro Clisante le soir. Plus brut que les resorts de plage ; venez le parcourir et participer, pas pour le VIP.",
+      en: "Sosúa's downtown core — beach and cafés by day, Pedro Clisante bars and live-music pubs after dark. Scrappier than the beach resorts; come to walk the strip and pick a spot, not for VIP bottle service.",
+      es: "El centro de Sosúa — playa y cafés de día, bares y pubs con música en vivo en Pedro Clisante de noche. Más crudo que los resorts de playa; ven a recorrer la franja y elegir un lugar, no por VIP.",
+      fr: "Le centre de Sosúa — plage et cafés en journée, bars et pubs live sur Pedro Clisante le soir. Plus brut que les resorts de plage ; venez parcourir la strip et choisir un spot, pas pour le VIP.",
     },
   },
   "hotel-voramar-sosua": {
@@ -495,14 +495,6 @@ export const VENUE_TIP_COPY: Record<
       en: "Seed-to-cigar education one block from Central Park — quieter cousin to the bigger factory tours; good if you want the story without a long circuit.",
       es: "Educación de semilla a cigarro a una cuadra del Parque Central — primo más quieto de los tours grandes; bueno si quieres la historia sin circuito largo.",
       fr: "Éducation graine-à-cigare à un pâté du Parque Central — cousin plus calme des grands tours ; bon pour l'histoire sans long circuit.",
-    },
-  },
-  "freestyle-catamaran": {
-    body: "Playa Dorada–Sosúa Bay snorkel day with lunch on deck — classic cruise-guest product; book ahead, it's a half-day not a sunset drink.",
-    localized: {
-      en: "Playa Dorada–Sosúa Bay snorkel day with lunch on deck — classic cruise-guest product; book ahead, it's a half-day not a sunset drink.",
-      es: "Día de snorkel Playa Dorada–bahía Sosúa con almuerzo en cubierta — producto clásico de crucero; reserva, es media jornada no un trago de atardecer.",
-      fr: "Journée snorkel Playa Dorada–baie de Sosúa avec déjeuner sur le pont — produit croisière classique ; réservez, demi-journée pas un verre sunset.",
     },
   },
   "outback-adventures": {

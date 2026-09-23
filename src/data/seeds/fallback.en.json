@@ -880,20 +880,6 @@
     "imageEmoji": "🎭"
   },
   {
-    "id": "malecon-morning-wellness-walk",
-    "title": "Malecón Morning Wellness Walk",
-    "description": "Early-morning walkers and joggers along Puerto Plata's Malecón — ocean breezes, stretching groups, and a daily wellness ritual on the waterfront promenade from La Puntilla to the city center.",
-    "date": "2026-01-01",
-    "time": "6:00 AM – 8:00 AM",
-    "location": "Puerto Plata",
-    "venue": "Malecón de Puerto Plata",
-    "venueSlug": "malecon-puerto-plata",
-    "category": "health-wellness",
-    "format": "physical",
-    "recurrence": "daily",
-    "imageEmoji": "🚶"
-  },
-  {
     "id": "cabarete-pilates-reformer",
     "title": "Pilates Reformer Group Class",
     "description": "Group Pilates Reformer sessions in Cabarete with Rafaella Cirillo (Tue & Thu 9 AM). Studio address shared when you book — DM or WhatsApp +1 809 460 5777. Discount code RC-pilates for first class.",

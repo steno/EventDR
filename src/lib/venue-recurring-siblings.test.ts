@@ -173,17 +173,19 @@ describe("findVenueOtherNights", () => {
 
 describe("findVenueRecurringSiblings", () => {
   it("returns other recurring nights at the same venue", () => {
-    const weekday = event({
-      id: "anfiteatro-la-puntilla-weekday-culture",
-      title: "Weekday Culture",
-      venueSlug: "anfiteatro-la-puntilla",
-      recurrence: "weekdays",
+    const monday = event({
+      id: "cheers-mandarin-mondays",
+      title: "Mandarin Mondays",
+      venueSlug: "cheers-bar-sosua",
+      recurrence: "weekly",
+      recurrenceDay: 1,
     });
-    const weekends = event({
-      id: "anfiteatro-la-puntilla-concerts",
-      title: "Concerts",
-      venueSlug: "anfiteatro-la-puntilla",
-      recurrence: "weekends",
+    const friday = event({
+      id: "cheers-weekly-live",
+      title: "Cheers Live Music",
+      venueSlug: "cheers-bar-sosua",
+      recurrence: "weekly",
+      recurrenceDay: 5,
     });
     const elsewhere = event({
       id: "other",
@@ -193,14 +195,13 @@ describe("findVenueRecurringSiblings", () => {
     });
 
     const siblings = findVenueRecurringSiblings(
-      weekday,
-      [weekday, weekends, elsewhere],
+      monday,
+      [monday, friday, elsewhere],
       "en",
       dict,
     );
     assert.equal(siblings.length, 1);
-    assert.equal(siblings[0]?.id, "anfiteatro-la-puntilla-concerts");
-    assert.equal(siblings[0]?.label, "Weekends");
+    assert.equal(siblings[0]?.id, "cheers-weekly-live");
   });
 
   it("lists Flip Flop weekly specials as other nights", () => {

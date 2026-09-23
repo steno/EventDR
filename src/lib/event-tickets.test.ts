@@ -19,8 +19,8 @@ describe("isEventFree", () => {
   it("keeps open street food strips free when curated or explicit", () => {
     assert.equal(
       isEventFree({
-        id: "malecon-kiosks-daily",
-        title: "Malecón Evening Food Kiosks",
+        id: "malecon-kiosks-retired",
+        title: "Waterfront Street Food",
         description: "Street food along the waterfront.",
         category: "food-drinks",
         recurrence: "daily",
@@ -72,8 +72,8 @@ describe("isEventFree", () => {
   it("marks curated free open mics as free", () => {
     assert.equal(
       isEventFree({
-        id: "batey-open-mic-weekly",
-        title: "El Batey Open Mic",
+        id: "la-chabola-wednesday-open-mic",
+        title: "La Chabola Wednesday Open Mic",
         description: "Singers sign up at the door.",
         category: "performances",
         recurrence: "weekly",
@@ -95,10 +95,10 @@ describe("isEventFree", () => {
     );
     assert.equal(
       isEventFree({
-        id: "batey-salsa-weekly",
-        title: "El Batey Salsa Social",
-        description: "Beginner class then social dancing.",
-        category: "dance",
+        id: "d-classico-merengue-nights",
+        title: "D-Classico Merengue & Bachata Nights",
+        description: "Merengue and bachata dancing at D-Classico.",
+        category: "parties",
         recurrence: "weekly",
       }),
       false,

@@ -350,7 +350,7 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     themes: [
       { key: "easy_to_find", sentiment: "positive" },
       { key: "dominican_plates", sentiment: "positive" },
-      { key: "dance_floor", sentiment: "positive", audience: "nightlife" },
+      { key: "live_music", sentiment: "positive", audience: "nightlife" },
     ],
   }),
   editorial({
@@ -729,17 +729,6 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
       { key: "cigar_tour", sentiment: "positive", audience: "visitor" },
       { key: "easy_to_find", sentiment: "positive" },
       { key: "museum_visit", sentiment: "positive" },
-    ],
-  }),
-  editorial({
-    venueSlug: "freestyle-catamaran",
-    verdictKey: "solid_visitor_activity",
-    crowdFit: ["visitor", "family"],
-    axes: { recommend: 4.3, atmosphere: 4.4, practical: 4.0, reliability: 4.2 },
-    themes: [
-      { key: "boat_trip", sentiment: "positive", audience: "visitor" },
-      { key: "snorkeling", sentiment: "positive" },
-      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
     ],
   }),
   editorial({

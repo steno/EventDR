@@ -13,7 +13,7 @@ const TICKET_HOSTS = [
   "shop.oceanworld.net",
   "chukka.com",
   "rezdy.com",
-  "freestylecatamarans.com",
+
   "uepatickets.com",
   "viator.com",
   "getyourguide.com",
@@ -89,7 +89,7 @@ export const CURATED_TICKET_URLS: Record<string, string> = {
     "https://cremocigars.com/dr/cigar-rolling-experience/#book",
   "coconut-cove-ocean-zipline-daily":
     "https://chukka.com/dominican-republic/ocean-outpost-coconut-cove/321224",
-  "freestyle-catamaran-daily": "https://freestylecatamarans.com/reservation/",
+
   "outback-safari-daily":
     "https://www.sightseeing.com/packages/outback-safari-adventure-tour-from-puerto-plata/",
   "iberostar-costa-dorada-day-pass":
@@ -156,8 +156,8 @@ export const CURATED_ADMISSION_PRICES: Record<string, string> = {
 export const CURATED_CALL_FOR_PRICING = new Set<string>([
   "hard-rock-weekends",
   "hard-rock-billed-concerts",
-  "anfiteatro-la-puntilla-concerts",
-  "lax-headline-concerts",
+
+
   "womens-reconnection-kite-camp-2026",
   "cabarete-pilates-reformer",
   "love-does-bocadillos-course-2026",
@@ -170,10 +170,8 @@ export const CURATED_CALL_FOR_PRICING = new Set<string>([
   // Club / DJ / dance nights — cover or class fee often applies
   "ojo-weekend-dj-parties",
   "ojo-latin-night-thursday",
-  "el-batey-weekend-nightlife",
   "d-classico-merengue-nights",
   "el-parq-latin-friday",
-  "batey-salsa-weekly",
   "atlantico-fc-vs-delfines-2026-08-22",
   "ambar-lounge-reggaeton-2026-09-17",
   "ambar-lounge-miercoles-rooftop",
@@ -196,7 +194,7 @@ export const CURATED_FREE_EVENTS = new Set<string>([
   "voyvoy-saturday-session",
   "cabarete-classic-2026",
   "puerto-plata-carnaval-2026",
-  "malecon-morning-wellness-walk",
+
   "costambar-beach-fitness",
   "el-colibri-karaoke-battle-2026",
   "el-colibri-atrevete-saturdays",
@@ -216,7 +214,6 @@ export const CURATED_FREE_EVENTS = new Set<string>([
   "paella-pop-el-pueblito",
   "paella-pop-green-one",
   // Open mic / karaoke / pickup
-  "batey-open-mic-weekly",
   "la-chabola-wednesday-open-mic",
   "el-carey-karaoke-mujeres-monday",
   "el-carey-bohemian-wednesday",
@@ -247,7 +244,7 @@ export const CURATED_FREE_EVENTS = new Set<string>([
   "voramar-friday-live",
   "smileys-saturday-live",
   "finish-line-live-wednesday",
-  "sosua-beach-live-weekends",
+
   "cheers-weekly-live",
   "cheers-mandarin-mondays",
   "cheers-fire-ice-thursdays",

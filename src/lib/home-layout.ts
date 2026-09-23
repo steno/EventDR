@@ -161,7 +161,7 @@ export const VENUE_AUDIENCE_POOLS: Record<
     "drifter-cabarete",
     "monkeyland-puerto-plata",
     "coconut-cove",
-    "freestyle-catamaran",
+
     "outback-adventures",
     "hms-valeria",
     "waterfront-playa-alicia",

@@ -22,17 +22,16 @@ const forceSync =
  */
 const FILE_TO_EVENT_ID = {
   // --- Fetched / venue-accurate ({eventId}.jpg) ---
-  "malecon-morning-wellness-walk.jpg": "malecon-morning-wellness-walk",
+
   "anfiteatro-la-puntilla-mitur-concert.jpg": "anfiteatro-la-puntilla-mitur-concert",
-  "anfiteatro-la-puntilla-weekday-bowl.jpg": "anfiteatro-la-puntilla-weekday-bowl",
+
   "voyvoy-saturday-session-band.jpg": "voyvoy-saturday-session-band",
   "drifter-sunset-into-the-night.jpg": "drifter-sunset-into-the-night",
   "voyvoy-monday-night-terrace.jpg": "voyvoy-monday-live-music",
   "hard-rock-billed-concerts.jpg": "hard-rock-billed-concerts",
   "sosua-jewish-museum-hours.jpg": "sosua-jewish-museum-hours",
   "sosua-diving-adventures-daily.jpg": "sosua-diving-adventures-daily",
-  "sosua-pedro-clisante-food-nights.jpg": "sosua-pedro-clisante-food-nights",
-  "sosua-beach-live-bay.jpg": "sosua-beach-live-weekends",
+
   "smileys-saturday-live.jpg": "smileys-saturday-live",
   "finish-line-live-band.jpg": "finish-line-live-band",
   "liquid-blue-sunrise-yoga.jpg": "liquid-blue-sunrise-yoga",
@@ -54,7 +53,7 @@ const FILE_TO_EVENT_ID = {
   "ojo-weekend-dj-parties.jpg": "ojo-weekend-dj-parties",
   "el-carey-weekend-nightlife-lanterns.jpg": "el-carey-weekend-nightlife-lanterns",
   "coconut-cove-ocean-zipline-daily.jpg": "coconut-cove-ocean-zipline-daily",
-  "freestyle-catamaran-daily.jpg": "freestyle-catamaran-daily",
+
   "womens-reconnection-kite-camp-2026.jpg": "womens-reconnection-kite-camp-2026",
   "brugal-rum-center-weekdays.jpg": "brugal-rum-center-weekdays",
   "brugal-corporate-tours.jpg": "brugal-corporate-tours",
@@ -127,7 +126,7 @@ const FILE_TO_EVENT_ID = {
   "gregorio-luperon-museum.jpg": "gregorio-luperon-museum",
   "macorix-house-of-rum-cellar.jpg": "macorix-house-of-rum",
   "casa-de-la-cultura-gallery-opening.jpg": "casa-de-la-cultura-gallery-opening",
-  "casa-de-la-cultura-saturday-keyboard.jpg": "casa-de-la-cultura-saturday-keyboard",
+
 
   // --- Dominican-leaning venues / events (2026 curation) ---
   "cabarete-jazz-festival-2026.jpg": "cabarete-jazz-festival-2026",
@@ -159,11 +158,8 @@ const FILE_TO_EVENT_ID = {
 
   // --- Original curated venue / attraction photos ---
   "LAXSunsetSessions.JPG": "lax-sunset-daily",
-  "MaleconFodKiosks.JPG": "malecon-kiosks-daily",
+
   "KiteBeachWindSession.JPG": "kite-beach-daily",
-  "ElBateySalsaSocial.JPG": "batey-salsa-weekly",
-  "batey-salsa-social-dance.jpg": "batey-salsa-social-dance",
-  "el-batey-weekend-nightlife-clisante.jpg": "el-batey-weekend-nightlife-clisante",
   "SosuaBeachVolleyballPickup.JPG": "sosua-volleyball-weekly",
   "LAXFridayReggaeNight.JPG": "lax-reggae-friday",
   "HardRockWeekends.jpg": "hard-rock-weekends",
@@ -171,9 +167,7 @@ const FILE_TO_EVENT_ID = {
   "voramar-friday-live-poolside.jpg": "voramar-friday-live",
   "cheers-weekly-live.jpg": "cheers-weekly-live",
   "senor-rock-cadillac-bar.jpg": "senor-rock-cadillac-bar",
-  "batey-open-mic-weekly.jpg": "batey-open-mic-weekly",
-  "batey-open-mic-stage.jpg": "batey-open-mic-stage",
-  "lax-headline-concerts.jpg": "lax-headline-concerts",
+
   "CremoSalsaFriday.jpg": "cremo-salsa-friday",
   "victrola-sabado-bailable.jpg": "victrola-sabado-bailable",
   "victrola-jueves-social.jpg": "victrola-jueves-social",

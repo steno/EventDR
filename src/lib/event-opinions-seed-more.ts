@@ -89,41 +89,6 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: AT,
   },
   {
-    eventId: "malecon-kiosks-daily",
-    seriesKey: "malecon-puerto-plata:daily",
-    body: "Locals and visitors share the same promenade — treat it as stall-hopping, not a single restaurant reservation.",
-    localized: {
-      es: "Locales y visitantes comparten el mismo paseo — es más ir de puesto en puesto que una reserva de restaurante.",
-      fr: "Locaux et visiteurs partagent la même promenade — pensez puesto en puesto, pas une réservation resto unique.",
-    },
-    priceFeel: "budget",
-    priceNote: "Street-stall prices — cheap plates and Presidentes; cash-friendly",
-    priceNoteLocalized: {
-      es: "Precios de puesto — platos baratos y Presidentes; fácil en efectivo",
-      fr: "Prix de stands — plats pas chers et Presidentes ; cash friendly",
-    },
-    attribution: "POP research · venue listing",
-    researchNotes: "Malecón waterfront stalls seed description.",
-    updatedAt: AT,
-  },
-  {
-    eventId: "malecon-morning-wellness-walk",
-    body: "More resident routine than tourist attraction — bring water; there is no ticket booth.",
-    localized: {
-      es: "Más rutina de residentes que atracción turística — lleva agua; no hay boletería.",
-      fr: "Plus routine locale qu'attraction touristique — apportez de l'eau ; pas de billetterie.",
-    },
-    priceFeel: "free",
-    priceNote: "Free promenade — optional juice/coffee from nearby stalls",
-    priceNoteLocalized: {
-      es: "Paseo gratis — jugo/café opcional en puestos cercanos",
-      fr: "Promenade gratuite — jus/café optionnel aux stands proches",
-    },
-    attribution: "POP research · venue listing",
-    researchNotes: "Public malecón; free access. No seriesKey — shares daily key with kiosks.",
-    updatedAt: AT,
-  },
-  {
     eventId: "kite-beach-daily",
     seriesKey: "kite-beach:daily",
     body: "Spectating is free — getting on the water is a separate school/rental spend.",
@@ -140,43 +105,6 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     },
     attribution: "POP research · Cabarete kite scene",
     researchNotes: "Public beach + commercial kite schools.",
-    updatedAt: AT,
-  },
-  {
-    eventId: "batey-salsa-weekly",
-    seriesKey: "el-batey-sosua:weekly:3",
-    body: "No partner or experience needed — the beginner class up front makes this the easiest salsa floor to join cold.",
-    localized: {
-      es: "No necesitas pareja ni experiencia — la clase de principiantes al inicio la hace la pista de salsa más fácil para entrar sin saber.",
-      fr: "Pas besoin de partenaire ni d'expérience — le cours débutant en ouverture en fait la piste salsa la plus facile à rejoindre sans bagage.",
-    },
-    priceFeel: "budget",
-    priceNote:
-      "Local dance-night spend — class/cover if any is modest; drinks at downtown Sosúa rates",
-    priceNoteLocalized: {
-      es: "Gasto de noche de baile local — clase/cover si hay es modesto; tragos a tarifa del centro de Sosúa",
-      fr: "Budget soirée danse locale — cours/cover modestes s'il y en a ; verres au tarif centre Sosúa",
-    },
-    attribution: "POP research · venue listing",
-    researchNotes: "El Batey salsa social seed.",
-    updatedAt: AT,
-  },
-  {
-    eventId: "batey-open-mic-weekly",
-    seriesKey: "el-batey-sosua:weekly:2",
-    body: "Smaller and scrappier than Cabarete's beach stages — go to listen, not for a VIP table.",
-    localized: {
-      es: "Más chico y crudo que los escenarios de playa de Cabarete — ve a escuchar, no por mesa VIP.",
-      fr: "Plus petit et plus brut que les scènes plage de Cabarete — venez écouter, pas pour une table VIP.",
-    },
-    priceFeel: "budget",
-    priceNote: "Usually drink-to-stay — no big ticket; downtown bar prices",
-    priceNoteLocalized: {
-      es: "Suele ser consumición — sin boleto grande; precios de barra del centro",
-      fr: "En général consommation au bar — pas de gros billet ; tarifs centre-ville",
-    },
-    attribution: "POP research · venue listing",
-    researchNotes: "El Batey open mic seed.",
     updatedAt: AT,
   },
   {
@@ -775,25 +703,6 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: AT,
   },
   {
-    eventId: "freestyle-catamaran-daily",
-    seriesKey: "freestyle-catamaran:daily",
-    body: "Book ahead — this is a full half-day excursion with hotel pickup, not a quick sunset drink.",
-    localized: {
-      es: "Reserva antes — es una excursión de media jornada con pickup, no un trago rápido de atardecer.",
-      fr: "Réservez à l'avance — c'est une excursion d'une demi-journée avec pickup, pas un verre sunset rapide.",
-    },
-    priceFeel: "upscale",
-    priceNote:
-      "Full boat excursion pricing (often USD) — lunch/drinks usually bundled; confirm current rate when booking",
-    priceNoteLocalized: {
-      es: "Precio de excursión completa (a menudo USD) — almuerzo/tragos suelen incluidos; confirma tarifa al reservar",
-      fr: "Tarif excursion complète (souvent USD) — déjeuner/boissons souvent inclus ; confirmez à la réservation",
-    },
-    attribution: "POP research · venue listing",
-    researchNotes: "Freestyle Catamaran seed.",
-    updatedAt: AT,
-  },
-  {
     eventId: "outback-safari-daily",
     seriesKey: "outback-adventures:daily",
     body: "More cultural day trip than adrenaline park — bring sun protection for the open-air truck.",
@@ -868,25 +777,6 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     researchNotes:
       "IG weekly schedule Sep 2026: Thu/Sun DJ en vivo. Venue phone +1 849-440-4199.",
     updatedAt: "2026-09-10T15:00:00.000Z",
-  },
-  {
-    eventId: "anfiteatro-la-puntilla-concerts",
-    seriesKey: "anfiteatro-la-puntilla:weekends",
-    body: "Bring a layer — the wind off the water gets real after dark, and check whether the bill is ticketed.",
-    localized: {
-      es: "Lleva una capa — el viento del mar se siente fuerte de noche, y revisa si el cartel tiene boleto.",
-      fr: "Prenez une couche — le vent marin devient réel après la tombée du jour, et vérifiez si l'affiche est payante.",
-    },
-    priceFeel: "varies",
-    priceNote:
-      "Free civic events sometimes; big concerts are ticketed — check the bill",
-    priceNoteLocalized: {
-      es: "A veces eventos cívicos gratis; conciertos grandes con boleto — mira el cartel",
-      fr: "Parfois événements civiques gratuits ; gros concerts payants — vérifiez l'affiche",
-    },
-    attribution: "POP research · venue listing",
-    researchNotes: "Anfiteatro La Puntilla seed.",
-    updatedAt: AT,
   },
   {
     eventId: "natura-cabana-yoga-daily",
@@ -1029,27 +919,6 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     googleRating: 4.6,
     googleReviewCount: 31,
     researchNotes: "Official terrace open daily from 9am; nightlife after park hours. Phone +18092911000.",
-    updatedAt: "2026-08-17T13:00:00.000Z",
-  },
-  {
-    eventId: "kviar-disco-casino-nights",
-    seriesKey: "kviar-costa-dorada:daily",
-    body: "Resort-complex casino and disco until 4 AM — expect tourist-night spend, not a downtown cover-charge típico club.",
-    localized: {
-      es: "Casino y disco de complejo resort hasta las 4 AM — espera gasto de noche turística, no un típico de centro con cover.",
-      fr: "Casino et disco de complexe resort jusqu'à 4 h — budget nuit touristique, pas un típico du centre avec cover.",
-    },
-    priceFeel: "upscale",
-    priceNote: "Official hours 2:00 PM–4:00 AM daily at Be Live Marien — tables and disco; call +1 809 320 1632",
-    priceNoteLocalized: {
-      es: "Horario oficial 2:00 PM–4:00 AM diario en Be Live Marien — mesas y disco; llama al +1 809 320 1632",
-      fr: "Horaires officiels 14 h–4 h tous les jours au Be Live Marien — tables et disco ; +1 809 320 1632",
-    },
-    attribution: "POP research · kviar.do",
-    ratingCite: "Google 4.2",
-    googleRating: 4.2,
-    googleReviewCount: 716,
-    researchNotes: "Kviar Grand Oasis Marien, Costa Dorada Km 4.5 Luperon.",
     updatedAt: "2026-08-17T13:00:00.000Z",
   },
   {

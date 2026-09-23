@@ -184,7 +184,7 @@ const ingestLikeIds = [
   "rumble-in-paradise-13",
   "sancocho-sabados-pingui",
   "puerto-plata-carnaval-2026",
-  "malecon-morning-wellness-walk",
+
   "el-colibri-karaoke-battle-2026",
   "ingest-18th-annual-cabarete-butterfly-effect",
   "ingest-make-authentic-espadrilles-in-puerto-plata",

@@ -42,21 +42,14 @@ const VENUE_SOURCES = [
     eventId: "lil-naay-2026-07-17",
     url: "https://ticketing-uploads-1.ticketplus.global/images/thumbs/581ec07847c35f0eba3e89a5212268ae4acf0316.jpg?1782337171",
   },
-  {
-    eventId: "freestyle-catamaran-daily",
-    url: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/02/31/4e/48/freestyle-catamaran-tour.jpg?w=1200&h=-1&s=1",
-  },
+
   {
     eventId: "womens-reconnection-kite-camp-2026",
     url: "https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=1683911749456298",
   },
-  {
-    eventId: "malecon-morning-wellness-walk",
-    url: "https://images.prismic.io/prismic-rd-2/Z464MJbqstJ99p8j_puerto-plata-rconti-131_7870549d-e07a-da28-37eba65318d2c384.jpg?auto=format,compress",
-  },
-  // anfiteatro-la-puntilla concerts / weekday / venue — curated distinct heroes in
-  // popevent-images/ (Mitur night concert, goDR seating bowl, Wikimedia stage+arch).
-  // Do not remote-refresh over them (old remote was one daytime shot shared for all).
+
+  // Anfiteatro La Puntilla — venue hero only; standing concert/weekday culture
+  // series retired. Do not invent remote refreshes for removed seed ids.
   {
     eventId: "hard-rock-billed-concerts",
     url: "https://cafe.hardrock.com/puerto-plata/files/7036/RockHeader.jpg",
@@ -418,19 +411,11 @@ const localSources = [
     src: "FinishLineLiveWednesday.jpg",
     eventId: "finish-line-live-band",
   },
-  // ElBateySalsaSocial.JPG is a patio-crowd clone — do not stamp it onto
-  // salsa (uses SosuaSalsaSocial.JPG), open mic, or weekend nightlife.
-  {
-    src: "ElBateySalsaSocial.JPG",
-    eventId: "sosua-pedro-clisante-food-nights",
-  },
+  // ElBateySalsaSocial.JPG was a patio-crowd clone — retired with the
+  // sosua-pedro-clisante-food-nights / salsa / open-mic non-events.
   {
     src: "MerengueBachataNight.JPG",
     eventId: "ojo-latin-night-thursday",
-  },
-  {
-    src: "CabareteReggaeRootsNight.JPG",
-    eventId: "lax-headline-concerts",
   },
   // Real Parada Típica El Choco (Sosúa) party night — not Puerto Plata Malecón.
   {

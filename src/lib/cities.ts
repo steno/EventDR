@@ -127,34 +127,34 @@ export const CITIES: CityMeta[] = [
       "río azul",
       "rio azul",
     ],
-    topCategories: ["dance", "parties", "sports", "performances", "music"],
+    topCategories: ["parties", "sports", "music", "food-drinks"],
     seo: {
       en: {
         title: "Events in Sosúa | Things to Do This Weekend | POP Events",
         description:
-          "Find salsa socials, beach volleyball, nightlife at El Batey, expat meetups, and local events in Sosúa on the North Coast of the DR.",
+          "Find beach volleyball, Playa Sosúa live music, Hard Rock shows, Pedro Clisante bar nights, and local events in Sosúa on the North Coast of the DR.",
         intro:
-          "Beach days, salsa nights, and expat community events — discover what's on in Sosúa this week.",
+          "Beach days, live music, and expat hangouts — discover what's on in Sosúa this week.",
         heroTagline:
-          "Salsa socials, beach volleyball, El Batey nightlife, and expat meetups — events in Sosúa on the North Coast of the DR.",
+          "Beach volleyball, Hard Rock shows, Pedro Clisante bar nights, and local events — Sosúa on the North Coast of the DR.",
       },
       es: {
         title: "Eventos en Sosúa | Qué hacer este fin de semana | POP Eventos",
         description:
-          "Encuentra sociales de salsa, voleibol de playa, vida nocturna en El Batey, meetups de expats y eventos locales en Sosúa.",
+          "Encuentra voleibol de playa, música en vivo en Playa Sosúa, shows en Hard Rock, noches en Pedro Clisante y eventos locales en Sosúa.",
         intro:
-          "Playa, salsa y comunidad expat — descubre qué pasa en Sosúa esta semana.",
+          "Playa, música en vivo y hangouts expat — descubre qué pasa en Sosúa esta semana.",
         heroTagline:
-          "Sociales de salsa, voleibol de playa, vida nocturna en El Batey y meetups de expats — eventos en Sosúa, Costa Norte de RD.",
+          "Voleibol de playa, Hard Rock, noches en Pedro Clisante y eventos locales — Sosúa, Costa Norte de RD.",
       },
       fr: {
         title: "Événements à Sosúa | Que faire ce week-end | POP Events",
         description:
-          "Soirées salsa, beach volley, nightlife à El Batey, meetups expats et événements locaux à Sosúa sur la Côte Nord.",
+          "Beach volley, live à Playa Sosúa, concerts Hard Rock, soirées Pedro Clisante et événements locaux à Sosúa sur la Côte Nord.",
         intro:
-          "Plage, salsa et communauté expat — découvrez ce qui se passe à Sosúa cette semaine.",
+          "Plage, live music et hangouts expats — découvrez ce qui se passe à Sosúa cette semaine.",
         heroTagline:
-          "Soirées salsa, beach volley, nightlife à El Batey et meetups expats — événements à Sosúa sur la Côte Nord de RD.",
+          "Beach volley, Hard Rock, soirées Pedro Clisante et événements locaux — Sosúa sur la Côte Nord de RD.",
       },
     },
   },

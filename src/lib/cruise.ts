@@ -249,7 +249,7 @@ const SHIP_EXCURSION_SLUGS = new Set<string>([
   "cayo-arena",
   "monkeyland-puerto-plata",
   "coconut-cove",
-  "freestyle-catamaran",
+
   "outback-adventures",
   "hacienda-cufa",
   "jamao-al-norte",

@@ -273,9 +273,8 @@ describe("adventure tours do not inherit Food & Drinks from amenities", () => {
     }
   });
 
-  it("keeps Freestyle Catamaran and Río Soñador off food-drinks", () => {
+  it("keeps Río Soñador and Hidden River kayak off food-drinks", () => {
     for (const id of [
-      "freestyle-catamaran-daily",
       "rio-sonador-finca-papirucho",
       "ingest-hidden-river-kayak-adventure",
     ] as const) {
