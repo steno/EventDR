@@ -42,6 +42,7 @@ import { AddEventButton } from "@/components/AddEventButton";
 import { EventViewToggle } from "@/components/EventViewToggle";
 import { useEventListView } from "@/hooks/useEventListView";
 import { useListTimeRange } from "@/hooks/useListTimeRange";
+import { syncListTimeRangeForCategory } from "@/lib/list-time-range";
 import { fillTemplate } from "@/lib/seo";
 import { CARD_GRID_CLASS, LIST_PARK_FILL_CLASS, SECTION_TITLE_CLASS } from "@/lib/page-shell";
 import type { EventListView } from "@/lib/event-list-view";
@@ -106,9 +107,9 @@ interface FilteredEventListProps {
    */
   clusterVenueRecurring?: boolean;
   /**
-   * Keep All/Today/Tomorrow/Weekend across city and category swaps
-   * (sessionStorage). Off for venue schedules so a listing chip does not
-   * hide the weekly grid.
+   * Keep All/Today/Tomorrow/Weekend across city swaps (sessionStorage).
+   * Selecting a different category resets to All. Off for venue schedules so
+   * a listing chip does not hide the weekly grid.
    */
   persistTimeRange?: boolean;
   /**
@@ -194,6 +195,14 @@ export function FilteredEventList({
     stickyCategoryLabel && categoryPillsAway,
   );
   const areaKey = areaLabel ?? null;
+
+  // Keep the when-chip across city swaps; reset to All when category changes.
+  // layout effect runs before paint so hard-nav from another category does not
+  // flash the previous Today/Weekend tab.
+  useLayoutEffect(() => {
+    if (!persistWhenChip) return;
+    syncListTimeRangeForCategory(categoryId ?? "");
+  }, [persistWhenChip, categoryId]);
 
   useEffect(() => {
     const applyListingParams = () => {
