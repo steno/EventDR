@@ -222,6 +222,46 @@ describe("getNewHighlightEvents", () => {
 
     assert.deepEqual(ids, ["b"]);
   });
+
+  it("ties on createdAt by id, not localized title", () => {
+    const stamp = "2026-08-24T12:00:00.000Z";
+    const hardRockEn = event({
+      id: "hard-rock-descubre",
+      title: "Hard Rock Host Day — Descubre Sosúa",
+      date: "2026-08-28",
+      time: "9:30 AM",
+      createdAt: stamp,
+      imageUrl: "/events/a.jpg",
+      venueSlug: "hard-rock",
+    });
+    const trolleyEn = event({
+      id: "trolley-descubre",
+      title: "Descubre Sosúa en Grande — Trolley",
+      date: "2026-08-28",
+      time: "4:00 PM",
+      createdAt: stamp,
+      imageUrl: "/events/b.jpg",
+      venueSlug: "trolley",
+    });
+    const hardRockEs = event({
+      ...hardRockEn,
+      title: "Anfitriones en Hard Rock — Descubre Sosúa",
+    });
+    const trolleyEs = event({
+      ...trolleyEn,
+      title: "Descubre Sosúa en Grande — Trolley",
+    });
+
+    const enIds = getNewHighlightEvents([trolleyEn, hardRockEn], {
+      now: AFTERNOON,
+    }).map((e) => e.id);
+    const esIds = getNewHighlightEvents([trolleyEs, hardRockEs], {
+      now: AFTERNOON,
+    }).map((e) => e.id);
+
+    assert.deepEqual(enIds, ["hard-rock-descubre", "trolley-descubre"]);
+    assert.deepEqual(esIds, enIds);
+  });
 });
 
 describe("getTodayHighlightEvents peer shuffle", () => {

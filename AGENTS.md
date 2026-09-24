@@ -14,7 +14,7 @@ For Instagram—the primary source for many DR event flyers—run skill `pop-ins
 
 **Images (not Instagram/Facebook):** when seeding venues or events, pull place shots from Google Maps/Places, official sites, ticket OG, press, Wikimedia, or a POP photo of *this* place. Do not scrape IG/FB for heroes — use those networks only to discover events (`sourceUrl`). Policy: `public/events/ATTRIBUTIONS.md`.
 
-**Home “Recently added”:** when shipping any new seed event id (`fallback.*.json` or `recurring.*.json`), also add that id to `SEED_CREATED_AT` in `src/lib/seed-created-at.ts` (ISO noon UTC on the commit day). The home rail filters on `createdAt` within 14 days — missing this map entry means the event page works but Recently added stays empty for that listing.
+**Home “Recently added”:** when shipping any new seed event id (`fallback.*.json` or `recurring.*.json`), also add that id to `SEED_CREATED_AT` in `src/lib/seed-created-at.ts` (ISO noon UTC on the commit day; stagger hours for same-day batches when rail order matters — see `.cursor/rules/seed-recently-added.mdc`). The home rail filters on `createdAt` within 14 days — missing this map entry means the event page works but Recently added stays empty for that listing.
 
 **Editorial (required with every new seed):** add a unique POP event opinion (`event-opinions-seed.ts` / `event-opinions-seed-more.ts`). For any **new** venue, also add tip + assessment (`venue-assessment-tips.ts` + `venue-assessments-seed.ts`). Rule: `.cursor/rules/seed-recently-added.mdc`.
 

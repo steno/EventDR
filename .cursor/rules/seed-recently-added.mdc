@@ -11,8 +11,10 @@ When adding any **new** event seed id (`fallback.*.json` or `recurring.*.json`),
 ## 1. Home Recently added (required)
 
 1. Add the same event `id` to `SEED_CREATED_AT` in `src/lib/seed-created-at.ts`
-2. Use commit-day noon UTC, e.g. `"2026-09-09T12:00:00.000Z"`
-3. Without this, the event page can work while home **Recently added** omits it (`getNewHighlightEvents` requires `createdAt` within 14 days)
+2. Default: commit-day noon UTC, e.g. `"2026-09-09T12:00:00.000Z"`
+3. **Same-day batch order:** if several new ids share a commit day and you care which cards lead Recently added, stagger times (newest first) — e.g. `16:00`, `15:00`, `14:00`, `13:00` UTC — instead of identical noon. Ties break on event `id` (locale-stable), **not** title; localized titles must never be relied on for rail order
+4. Without `SEED_CREATED_AT`, the event page can work while home **Recently added** omits it (`getNewHighlightEvents` requires `createdAt` within 14 days)
+5. **Card titles for series / multi-day programs:** lead with what differs (venue or role), put the shared brand second — e.g. `Hard Rock Host Day — Descubre Sosúa`, not `Descubre Sosúa 2026 — Host Meetup…` — so truncated home cards stay distinguishable across EN/ES/FR
 
 ## 2. Event POP opinion (required)
 

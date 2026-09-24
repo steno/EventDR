@@ -391,10 +391,11 @@ export function getNewHighlightEvents(
   fresh.sort((a, b) => {
     const diff = createdAtMs(b) - createdAtMs(a);
     if (diff !== 0) return diff;
-    // Stable tie-break: prefer imaged, then title.
+    // Stable tie-break: prefer imaged, then id (not title — titles are
+    // localized, so localeCompare would reshuffle Recently added per language).
     const img = Number(Boolean(b.imageUrl?.trim())) - Number(Boolean(a.imageUrl?.trim()));
     if (img !== 0) return img;
-    return a.title.localeCompare(b.title);
+    return a.id.localeCompare(b.id);
   });
 
   const carouselHead = pickDiverseCarouselHead(fresh, limit);
