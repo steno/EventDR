@@ -199,6 +199,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "cisco-vengo-social-heartz-aura-2026-09-25.jpg",
   "allison-sade-aura-2026-09-17": "allison-sade-aura-2026-09-17.jpg",
   "aura-disco-dj-melvin-2026-09-19": "aura-disco-dj-melvin-2026-09-19.jpg",
+  "aura-disco-dj-christo-2026-09-26": "aura-disco-dj-christo-2026-09-26.jpg",
   "meclao-house-friday-2026-09-18": "meclao-house-friday-2026-09-18.jpg",
   "cabarete-stand-up-vol-2-2026-10-24":
     "cabarete-stand-up-vol-2-2026-10-24.jpg",
@@ -425,6 +426,7 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "aura-latin-flow-dance-wednesday": "object-center",
   "cisco-vengo-social-heartz-aura-2026-09-25": "object-center",
   "aura-disco-dj-melvin-2026-09-19": "object-center",
+  "aura-disco-dj-christo-2026-09-26": "object-center",
   "meclao-house-friday-2026-09-18": "object-center",
   "cabarete-stand-up-vol-2-2026-10-24": "object-center",
   "ocean-world-terrace-singing-talent-2026-09-16": "object-center",
@@ -564,6 +566,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "luna-lounge-jueves-karaoke-weekly.jpg",
   "allison-sade-aura-2026-09-17.jpg",
   "aura-disco-dj-melvin-2026-09-19.jpg",
+  "aura-disco-dj-christo-2026-09-26.jpg",
   "meclao-house-friday-2026-09-18.jpg",
   "cabarete-stand-up-vol-2-2026-10-24.jpg",
   "hard-rock-the-king-mj-2026-09-19.jpg",

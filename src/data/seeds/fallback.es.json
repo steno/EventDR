@@ -2429,6 +2429,34 @@
     "imageEmoji": "🪩"
   },
   {
+    "id": "aura-disco-dj-christo-2026-09-26",
+    "title": "Aura Disco con DJ Christo",
+    "description": "Aura Disco en Aura Beach Club, Calle Principal, Cabarete — sábado 26 de septiembre 2026 con DJ house Christo (@djchristoo), 11:30 PM–3:00 AM en Aura Rooftop. Confirma cover y mesas por Instagram @auracabarete o WhatsApp +1 829-787-0140.",
+    "date": "2026-09-26",
+    "time": "11:30 PM – 3:00 AM",
+    "location": "Cabarete",
+    "venue": "Aura Beach Club Cabarete",
+    "venueSlug": "aura-beach-club-cabarete",
+    "address": "Calle Principal, Cabarete 57000",
+    "lat": 19.7500769,
+    "lng": -70.4070417,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18297870140",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/auracabarete/",
+    "lineup": [
+      "DJ Christo"
+    ],
+    "imageEmoji": "🪩"
+  },
+  {
     "id": "meclao-house-friday-2026-09-18",
     "title": "House Friday con DJ Choco",
     "description": "House Friday en Mecla'o Rooftop Lounge, Av. Luis Ginebra No. 49, Puerto Plata — viernes 18 de septiembre 2026 con DJ Choco. Confirma puertas y cover por Instagram @meclaorooftop. Reservas: 829-374-7028.",

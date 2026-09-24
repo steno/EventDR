@@ -2586,6 +2586,25 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: "2026-09-18T12:00:00.000Z",
   },
   {
+    eventId: "aura-disco-dj-christo-2026-09-26",
+    body: "House-DJ Saturday after Melvin’s guest week — Christo from 11:30 PM on Aura Rooftop, not the Monday 2x1 hour or Wednesday Latin Flow; pin cover with Aura WhatsApp before you assume free beach-bar entry after midnight.",
+    localized: {
+      es: "Sábado con DJ house después de la semana de Melvin — Christo desde las 11:30 PM en Aura Rooftop, no es la hora 2x1 del lunes ni el Latin Flow del miércoles; confirma cover con WhatsApp de Aura antes de asumir entrada gratis de beach bar después de medianoche.",
+      fr: "Samedi DJ house après la semaine Melvin — Christo dès 23 h 30 sur l’Aura Rooftop, pas l’heure 2x1 du lundi ni le Latin Flow du mercredi ; confirmez le cover via WhatsApp Aura avant d’assumer une entrée beach-bar gratuite après minuit.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "Cover not on flyer — confirm @auracabarete / WhatsApp +1 829-787-0140; budget beach-club drinks until 3 AM",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — confirma @auracabarete / WhatsApp +1 829-787-0140; presupuesta drinks de beach club hasta las 3 AM",
+      fr: "Cover absent de l’affiche — confirmez @auracabarete / WhatsApp +1 829-787-0140 ; budget boissons beach club jusqu’à 3 h",
+    },
+    attribution: "POP research · @auracabarete Aura Disco / DJ Christo flyer",
+    researchNotes:
+      "Editor flyer + caption from @auracabarete — Aura Disco, Saturday 26, Live DJ Christo (@djchristoo) at the house, 11:30 PM–3:00 AM, Aura Rooftop. Caption frames Saturdays as recurring; seeded as dated night matching guest-DJ pattern. No cover on art.",
+    updatedAt: "2026-09-24T16:00:00.000Z",
+  },
+  {
     eventId: "meclao-house-friday-2026-09-18",
     body: "Billed house night with DJ Choco on the Luis Ginebra rooftop — not the generic live-music listing, and Saturday is already RETRO with Camilo Taveraz. Cover not posted; call 829-374-7028 for a table.",
     localized: {

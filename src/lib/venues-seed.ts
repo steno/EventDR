@@ -319,7 +319,7 @@ export const SEED_VENUES: Venue[] = [
     name: "Aura Beach Club Cabarete",
     city: "Cabarete",
     description:
-      "Beachfront club on Calle Principal — daytime lounging, Monday 2x1 margarita/gin hours, Wednesday margarita nights plus Latin Flow Dance from 9 PM, and nighttime shows facing Cabarete Bay. WhatsApp +1 829-787-0140 · Instagram @auracabarete.",
+      "Beachfront club on Calle Principal — daytime lounging, Monday 2x1 margarita/gin hours, Wednesday margarita nights plus Latin Flow Dance from 9 PM, Saturday Aura Disco from 11:30 PM, and nighttime shows facing Cabarete Bay. WhatsApp +1 829-787-0140 · Instagram @auracabarete.",
     lat: 19.7500769,
     lng: -70.4070417,
     emoji: "🌴",
