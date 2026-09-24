@@ -50,6 +50,10 @@ import {
 } from "@/lib/scope-listing";
 import { signalNavDone } from "@/lib/nav-feedback";
 import { NETWORK_ONLY_FETCH } from "@/lib/pwa-refresh";
+import {
+  resetListTimeRangeToAll,
+  syncListTimeRangeForCategory,
+} from "@/lib/list-time-range";
 
 interface EventScopePageProps {
   locale: Locale;
@@ -298,7 +302,11 @@ export function EventScopePage({
         const url = new URL(href, window.location.origin);
         const parsed = parseScopeListingPath(url.pathname, locale);
         if (!parsed) return false;
-        applySoftSelection(normalizeScopeSelection(parsed));
+        const next = normalizeScopeSelection(parsed);
+        // Reset in the click handler so soft-nav does not paint the previous
+        // category's time tab before FilteredEventList's layout sync.
+        syncListTimeRangeForCategory(next.categoryId ?? "");
+        applySoftSelection(next);
         return true;
       } catch {
         return false;
@@ -306,6 +314,13 @@ export function EventScopePage({
     },
     [applySoftSelection, locale],
   );
+
+  // When/"see all" pages hard-nav to categories. Always start those landings
+  // on All — even if the visitor picks the same category they filtered last.
+  const onWhenCategoryNavigate = useCallback((_href: string) => {
+    resetListTimeRangeToAll();
+    return false;
+  }, []);
 
   const chrome = useMemo(() => {
     if (!softNav) {
@@ -545,7 +560,13 @@ export function EventScopePage({
                 label: dict.browse.allEvents,
                 emoji: "📅",
               }}
-              onSoftNavigate={softNav ? onSoftCategoryNavigate : undefined}
+              onSoftNavigate={
+                softNav
+                  ? onSoftCategoryNavigate
+                  : fixedTimeRange
+                    ? onWhenCategoryNavigate
+                    : undefined
+              }
             />
           ) : null}
 
