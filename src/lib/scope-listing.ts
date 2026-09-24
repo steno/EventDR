@@ -222,12 +222,11 @@ export function resolveScopeListingChrome(
     }
 
     const categorySeo = getCategorySeo(locale, selection.categoryId);
-    const categoryPrefix = fillTemplate(dict.cities.lookingInWithCategory, {
+    const categoryPrefix = fillTemplate(dict.cities.lookingOnRegionWithCategory, {
       category: category.label,
     });
-    const regionArticle = locale === "en" ? "the" : "la";
     return {
-      title: `${categoryPrefix} ${regionArticle} ${dict.cities.regionName}`,
+      title: `${categoryPrefix} ${dict.cities.regionName}`,
       eyebrow: regionEyebrow,
       intro: categorySeo.intro,
       emoji: category.emoji,
@@ -251,7 +250,7 @@ export function resolveScopeListingChrome(
 
   const regionName = dict.cities.regionName;
   return {
-    title: fillTemplate(dict.browse.eventsInPlace, { place: regionName }),
+    title: fillTemplate(dict.browse.eventsOnRegion, { place: regionName }),
     eyebrow: regionEyebrow,
     intro: dict.browse.allCategoriesIntro,
     emoji: "📅",

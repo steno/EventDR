@@ -2961,9 +2961,9 @@
   {
     "id": "hard-rock-descubre-sosua-2026-09-26",
     "title": "Descubre Sosúa 2026 — Encuentro de anfitriones en Hard Rock",
-    "description": "Rumbo a Descubre Sosúa: El Nuevo Norte — invitación especial para anfitriones en Hard Rock Cafe Puerto Plata, Calle Duarte 7, Sosúa — sábado 26 de septiembre 2026. Registro desde las 9:30 AM; inicio 10:00 AM. Con el apoyo del Ministerio de Turismo (MITUR): regulación del hospedaje temporal, novedades del sector y networking entre anfitriones, líderes y aliados. Agotado. Organiza Club Anfitriones Zona Norte (@clubanfitrioneszonanorterd) con Airbnb Community. WhatsApp del local +1 849-505-7778.",
+    "description": "Rumbo a Descubre Sosúa: El Nuevo Norte — jornada especial para anfitriones en Hard Rock Cafe Puerto Plata, Calle Duarte 7, Sosúa — sábado 26 de septiembre 2026. 9:30 AM registro de participantes; 10:00 AM–4:00 PM jornada educativa, paneles y networking sobre regulación del hospedaje temporal, novedades del sector y alianzas estratégicas para el turismo sostenible. Por la tarde sigue el recorrido Trolley City Tours + MITUR (listado aparte, 4:00–6:00 PM); el domingo el cierre comunitario es en Waterfront Playa Alicia. Con apoyo de MITUR. Agotado. Organiza Club Anfitriones Zona Norte (@clubanfitrioneszonanorterd) con Airbnb Community. WhatsApp del local +1 849-505-7778.",
     "date": "2026-09-26",
-    "time": "10:00 AM",
+    "time": "9:30 AM – 4:00 PM",
     "location": "Sosúa",
     "venue": "Hard Rock Cafe Puerto Plata",
     "venueSlug": "hard-rock-sosua",
@@ -2981,6 +2981,8 @@
     "sourceType": "instagram",
     "sourceUrl": "https://www.instagram.com/clubanfitrioneszonanorterd/",
     "lineup": [
+      "9:30 AM — Registro de participantes",
+      "10:00 AM–4:00 PM — Jornada educativa, paneles y networking",
       "Ministerio de Turismo (MITUR)",
       "Club Anfitriones Zona Norte",
       "Airbnb Community"
@@ -2990,18 +2992,17 @@
   {
     "id": "trolley-descubre-sosua-2026-09-26",
     "title": "Descubre Sosúa en Grande — Trolley City Tours",
-    "description": "Recorrido especial Descubre Sosúa en comunidad con TrolleyCity Tours POP y Club Anfitriones Zona Norte — sábado 26 de septiembre 2026, 4:00–6:00 PM. Ruta: vuelta por Sosúa, parada en el letrero, cerveza artesanal, un bar en el centro y cierre en Hard Rock Cafe Sosúa. Con apoyo de MITUR. Cupos limitados — confirma por Instagram @clubanfitrioneszonanorterd o @trolleycitytours / (809) 769-8732.",
+    "description": "Recorrido especial Descubre Sosúa por Sosúa con Trolley City Tours y el MITUR — sábado 26 de septiembre 2026, 4:00–6:00 PM. Puntos clave y obras de renovación del municipio (después de la jornada educativa en Hard Rock). Organiza con Club Anfitriones Zona Norte. Cupos limitados — confirma por Instagram @clubanfitrioneszonanorterd o @trolleycitytours / (809) 769-8732.",
     "date": "2026-09-26",
     "time": "4:00 PM – 6:00 PM",
     "location": "Sosúa",
     "venue": "TrolleyCity Tours POP",
     "venueSlug": "trolley-city-tours",
-    "address": "Ruta Sosúa — cierra en Hard Rock Cafe, Calle Duarte 7",
+    "address": "Ruta Sosúa — puntos clave y obras de renovación",
     "lat": 19.7634107,
     "lng": -70.5162309,
     "category": "adventure",
     "categories": [
-      "parties",
       "culture"
     ],
     "format": "physical",
@@ -3016,6 +3017,34 @@
       "Ministerio de Turismo (MITUR)"
     ],
     "imageEmoji": "🚎"
+  },
+  {
+    "id": "waterfront-descubre-sosua-2026-09-27",
+    "title": "Descubre Sosúa 2026 — Encuentro comunitario en Waterfront",
+    "description": "Encuentro comunitario y cierre Descubre Sosúa en Waterfront Playa Alicia Restaurant, Sosúa — domingo 27 de septiembre 2026 desde las 11:00 AM. Espacio para compartir ideas, networking libre y seguir la conversación sobre el futuro del turismo familiar y el desarrollo económico en Sosúa. Continúa la jornada del sábado en Hard Rock y el recorrido MITUR en trolley. Organiza Club Anfitriones Zona Norte (@clubanfitrioneszonanorterd). WhatsApp del local +1 809-571-3024.",
+    "date": "2026-09-27",
+    "time": "11:00 AM",
+    "location": "Sosúa",
+    "venue": "Waterfront Playa Alicia",
+    "venueSlug": "waterfront-playa-alicia",
+    "address": "Playa Alicia, El Batey, Sosúa",
+    "lat": 19.7656127,
+    "lng": -70.5182562,
+    "category": "business",
+    "categories": [
+      "culture"
+    ],
+    "format": "physical",
+    "trending": true,
+    "phone": "+18095713024",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/clubanfitrioneszonanorterd/",
+    "lineup": [
+      "11:00 AM — Encuentro comunitario y cierre",
+      "Club Anfitriones Zona Norte",
+      "Waterfront Playa Alicia"
+    ],
+    "imageEmoji": "🌅"
   },
   {
     "id": "eat-street-market-ocean-one-2026-09-27",

@@ -47,6 +47,8 @@ export type Dictionary = {
     backTo: string;
     eventsIn: string;
     eventsInPlace: string;
+    /** Region listing H1 — matches home “Events on the {place}”. */
+    eventsOnRegion: string;
     noEvents: string;
     allCategories: string;
     allCategoriesIntro: string;
@@ -488,6 +490,8 @@ export type Dictionary = {
     lookingIn: string;
     /** When a category is selected: insert singular category label. */
     lookingInWithCategory: string;
+    /** Region category H1 — matches home “on the” (not city “in”). */
+    lookingOnRegionWithCategory: string;
     regionName: string;
     /** Accessibility label for the inline place dropdown. */
     chooseArea: string;
@@ -704,6 +708,7 @@ export const en: Dictionary = {
     backTo: "Back to {title}",
     eventsIn: "Upcoming events",
     eventsInPlace: "Events in {place}",
+    eventsOnRegion: "Events on the {place}",
     noEvents: "No events in this category yet.",
     allCategories: "All categories",
     allCategoriesIntro: "Find events by vibe — music, parties, sports, and more across the North Coast.",
@@ -1142,6 +1147,7 @@ export const en: Dictionary = {
     eventsIn: "Events in",
     lookingIn: "All Events in",
     lookingInWithCategory: "{category} Events in",
+    lookingOnRegionWithCategory: "{category} Events on the",
     regionName: "North Coast",
     chooseArea: "Choose area",
     eventCount: "{count}",

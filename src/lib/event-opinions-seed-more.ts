@@ -3058,10 +3058,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "hard-rock-descubre-sosua-2026-09-26",
-    body: "MITUR-backed host meetup at Hard Rock Sosúa — sold out for Descubre Sosúa / El Nuevo Norte; don’t send walk-ups expecting open registration after 9:30 AM.",
+    body: "MITUR-backed Descubre Sosúa host day at Hard Rock — 9:30 registration into a sold-out 10–4 panels day on lodging regulation; don’t send walk-ups, and point afternoon guests at the separate trolley listing.",
     localized: {
-      es: "Encuentro de anfitriones con apoyo MITUR en Hard Rock Sosúa — agotado para Descubre Sosúa / El Nuevo Norte; no mandes walk-ups esperando registro abierto después de las 9:30 AM.",
-      fr: "Rencontre hôtes soutenue par le MITUR au Hard Rock Sosúa — complet pour Descubre Sosúa / El Nuevo Norte ; n’envoyez pas de walk-ups en espérant une inscription ouverte après 9 h 30.",
+      es: "Jornada Descubre Sosúa con MITUR en Hard Rock — registro 9:30 y paneles 10–4 agotados sobre hospedaje temporal; no mandes walk-ups, y para la tarde apunta al listado del trolley aparte.",
+      fr: "Journée Descubre Sosúa soutenue par le MITUR au Hard Rock — inscription 9 h 30 puis panels 10–16 complets sur l’hébergement temporaire ; pas de walk-ups, et orientez l’après-midi vers la fiche trolley séparée.",
     },
     priceFeel: "varies",
     priceNote: "Sold out — @clubanfitrioneszonanorterd",
@@ -3072,15 +3072,15 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     attribution:
       "POP research · Club Anfitriones Zona Norte · @clubanfitrioneszonanorterd",
     researchNotes:
-      "Editor flyer + IG caption — Sat 26 Sep 2026 Rumbo a Descubre Sosúa El Nuevo Norte at Hard Rock Cafe Sosúa; registro 9:30 AM, inicio 10:00 AM; MITUR support; Airbnb Community; sold out per editor.",
+      "Editor schedule — Sat 26 Sep 2026 Hard Rock: 9:30 registro, 10:00–16:00 jornada educativa (hospedaje temporal, novedades, alianzas turismo sostenible); sold out; Sunday Waterfront closing separate.",
     updatedAt: "2026-09-23T12:00:00.000Z",
   },
   {
     eventId: "trolley-descubre-sosua-2026-09-26",
-    body: "Afternoon Descubre Sosúa mural-bus loop with Anfitriones — sign photo, craft beer, downtown bar, Hard Rock close; limited seats so confirm on @clubanfitrioneszonanorterd / @trolleycitytours before you treat it like the free Saturday party.",
+    body: "4–6 PM Descubre Sosúa MITUR loop for key points and renovation works — limited seats after the Hard Rock panels day; confirm @clubanfitrioneszonanorterd / @trolleycitytours before treating it as an open hop-on.",
     localized: {
-      es: "Loop de tarde Descubre Sosúa en el bus mural con Anfitriones — letrero, cerveza artesanal, bar en el centro, cierre Hard Rock; cupos limitados, confirma en @clubanfitrioneszonanorterd / @trolleycitytours antes de tratarlo como el party gratis del sábado.",
-      fr: "Boucle d’après-midi Descubre Sosúa sur le bus mural avec Anfitriones — panneau, bière artisanale, bar du centre, fin Hard Rock ; places limitées, confirmez sur @clubanfitrioneszonanorterd / @trolleycitytours avant d’y aller comme le party gratuit du samedi.",
+      es: "Loop Descubre Sosúa 4–6 PM con MITUR por puntos clave y obras de renovación — cupos limitados después de los paneles en Hard Rock; confirma @clubanfitrioneszonanorterd / @trolleycitytours antes de tratarlo como hop-on abierto.",
+      fr: "Boucle Descubre Sosúa 16–18 h avec le MITUR sur points clés et rénovations — places limitées après les panels Hard Rock ; confirmez @clubanfitrioneszonanorterd / @trolleycitytours avant d’y aller en hop-on libre.",
     },
     priceFeel: "varies",
     priceNote:
@@ -3092,7 +3092,26 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     attribution:
       "POP research · Club Anfitriones × TrolleyCity Tours · MITUR",
     researchNotes:
-      "Editor flyer + IG caption @clubanfitrioneszonanorterd — Sat 26 Sep 2026 4–6 PM Cerramos en grande / recorrido especial Sosúa; route: vuelta, letrero, cerveza artesanal, bar centro, cierre Hard Rock; MITUR + Trolley City Tours; limited seats.",
+      "Editor schedule — Sat 26 Sep 2026 4–6 PM recorrido especial Sosúa with Trolley City Tours + MITUR: puntos clave y obras de renovación del municipio.",
+    updatedAt: "2026-09-23T12:00:00.000Z",
+  },
+  {
+    eventId: "waterfront-descubre-sosua-2026-09-27",
+    body: "Sunday 11 AM Descubre Sosúa closing at Waterfront Playa Alicia — community networking on family tourism and Sosúa’s economy, not a Hard Rock encore; send people who missed Saturday’s sold-out panels here.",
+    localized: {
+      es: "Domingo 11 AM cierre Descubre Sosúa en Waterfront Playa Alicia — networking comunitario sobre turismo familiar y la economía de Sosúa, no es bis del Hard Rock; manda aquí a quien se perdió los paneles agotados del sábado.",
+      fr: "Dimanche 11 h clôture Descubre Sosúa au Waterfront Playa Alicia — networking communautaire sur le tourisme familial et l’économie de Sosúa, pas un bis du Hard Rock ; envoyez ici ceux qui ont raté les panels complets du samedi.",
+    },
+    priceFeel: "varies",
+    priceNote: "Confirm @clubanfitrioneszonanorterd",
+    priceNoteLocalized: {
+      es: "Confirma @clubanfitrioneszonanorterd",
+      fr: "Confirmez @clubanfitrioneszonanorterd",
+    },
+    attribution:
+      "POP research · Club Anfitriones Zona Norte · Waterfront Playa Alicia",
+    researchNotes:
+      "Editor schedule — Sun 27 Sep 2026 11:00 AM Encuentro Comunitario at Waterfront Playa Alicia Restaurant: ideas, networking libre, turismo familiar y desarrollo económico en Sosúa.",
     updatedAt: "2026-09-23T12:00:00.000Z",
   },
   {

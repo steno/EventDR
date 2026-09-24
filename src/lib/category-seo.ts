@@ -33,7 +33,7 @@ const CATEGORY_SEO: Record<EventCategory, Record<Locale, CategorySeoCopy>> = {
   },
   concert: {
     en: {
-      title: "Concerts & Live Shows in North Coast DR | POP Events",
+      title: "Concerts & Live Shows on the North Coast DR | POP Events",
       description:
         "Concerts, reggaeton shows, acoustic nights, and open-air performances in Puerto Plata, Sosúa, and Cabarete.",
       intro:
@@ -79,7 +79,7 @@ const CATEGORY_SEO: Record<EventCategory, Record<Locale, CategorySeoCopy>> = {
   },
   "food-drinks": {
     en: {
-      title: "Food & Drink Events in North Coast DR | POP Events",
+      title: "Food & Drink Events on the North Coast DR | POP Events",
       description:
         "Food festivals, brunch markets, wine tastings, and gastronomic fairs on the Malecón and across Puerto Plata, Sosúa, and Cabarete.",
       intro:
@@ -102,7 +102,7 @@ const CATEGORY_SEO: Record<EventCategory, Record<Locale, CategorySeoCopy>> = {
   },
   festivals: {
     en: {
-      title: "Festivals & Cultural Fairs in North Coast DR | POP Events",
+      title: "Festivals & Cultural Fairs on the North Coast DR | POP Events",
       description:
         "Carnival, beach festivals, artisan fairs, and summer fests in Puerto Plata, Sosúa, and Cabarete on the North Coast.",
       intro:
@@ -148,7 +148,7 @@ const CATEGORY_SEO: Record<EventCategory, Record<Locale, CategorySeoCopy>> = {
   },
   "health-wellness": {
     en: {
-      title: "Yoga & Wellness Events in Cabarete & North Coast DR | POP Events",
+      title: "Yoga & Wellness Events on the North Coast DR | POP Events",
       description:
         "Sunrise yoga on Kite Beach, wellness retreats, fitness bootcamps, and meditation events in Cabarete, Sosúa, and Puerto Plata.",
       intro:
@@ -171,7 +171,7 @@ const CATEGORY_SEO: Record<EventCategory, Record<Locale, CategorySeoCopy>> = {
   },
   performances: {
     en: {
-      title: "Comedy, Open Mic & Shows in North Coast DR | POP Events",
+      title: "Comedy, Open Mic & Shows on the North Coast DR | POP Events",
       description:
         "Stand-up comedy, open mic nights, theater, poetry slams, and live performances in Sosúa, Cabarete, and Puerto Plata.",
       intro:
@@ -194,7 +194,7 @@ const CATEGORY_SEO: Record<EventCategory, Record<Locale, CategorySeoCopy>> = {
   },
   sports: {
     en: {
-      title: "Sports & Kite Surf Events in Cabarete & North Coast DR | POP Events",
+      title: "Sports & Kite Surf Events on the North Coast DR | POP Events",
       description:
         "Kite surfing, wing foil, beach volleyball, pickup soccer, running races, and sports events in Cabarete, Sosúa, and Puerto Plata.",
       intro:
@@ -263,7 +263,7 @@ const CATEGORY_SEO: Record<EventCategory, Record<Locale, CategorySeoCopy>> = {
   },
   adventure: {
     en: {
-      title: "Adventure Tours & Excursions in North Coast DR | POP Events",
+      title: "Adventure Tours & Excursions on the North Coast DR | POP Events",
       description:
         "Damajagua waterfall tours, Cayo Arena boat trips, Ocean World, snorkeling, and adventure excursions from Puerto Plata to Cabarete.",
       intro:

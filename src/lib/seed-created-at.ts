@@ -115,6 +115,7 @@ export const SEED_CREATED_AT: Readonly<Record<string, string>> = {
   "joaquin-sanchez-rancho-catalina-2026-09-27": "2026-09-23T12:00:00.000Z",
   "hard-rock-descubre-sosua-2026-09-26": "2026-09-23T12:00:00.000Z",
   "trolley-descubre-sosua-2026-09-26": "2026-09-23T12:00:00.000Z",
+  "waterfront-descubre-sosua-2026-09-27": "2026-09-23T12:00:00.000Z",
   "eat-street-market-ocean-one-2026-09-27": "2026-09-23T12:00:00.000Z",
 };
 

@@ -30,7 +30,7 @@ export async function generateMetadata({
   if (!isValidLocale(locale)) return {};
 
   const dict = getDictionary(locale);
-  const title = fillTemplate(dict.browse.eventsInPlace, {
+  const title = fillTemplate(dict.browse.eventsOnRegion, {
     place: dict.cities.regionName,
   });
   const description = dict.browse.allCategoriesIntro;
@@ -60,7 +60,7 @@ export default async function Page({
   const dict = getDictionary(locale);
   const eventsPath = localePath(locale, "/events");
   const regionName = dict.cities.regionName;
-  const title = fillTemplate(dict.browse.eventsInPlace, { place: regionName });
+  const title = fillTemplate(dict.browse.eventsOnRegion, { place: regionName });
   const events = await getPublicEvents({ locale });
   const relatedCategoryLinks = categoryNavLinks(
     locale,

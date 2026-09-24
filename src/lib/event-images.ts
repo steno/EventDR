@@ -369,6 +369,9 @@ const EVENT_IMAGE_ALIASES: Record<string, string> = {
   "gym-sov-zumba-lift-thursday": "gym-sov-zumba-tuesday",
   "flip-flop-weekday-happy-hour": "flip-flop-monday-happy-hour",
   "flip-flop-weekend-happy-hour": "flip-flop-monday-happy-hour",
+  // Place shot for Sunday Descubre Sosúa closing (no separate flyer).
+  "waterfront-descubre-sosua-2026-09-27":
+    "waterfront-playa-alicia-sunset-dining",
 };
 
 const EVENT_IMAGE_PREFIXES: { prefix: string; file: string }[] = [

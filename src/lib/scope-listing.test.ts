@@ -7,10 +7,12 @@ import {
   isListingSoftPath,
   normalizeScopeSelection,
   parseScopeListingPath,
+  resolveScopeListingChrome,
   scopeListingPath,
   selectionFromPathname,
   shouldSkipNavOverlay,
 } from "./scope-listing";
+import { getDictionary } from "@/i18n/dictionaries";
 import type { Event } from "./types";
 
 function stubEvent(
@@ -172,5 +174,24 @@ describe("scope-listing", () => {
     });
     assert.equal(sportsCounts.cabarete, 2);
     assert.equal(sportsCounts.all, 2);
+  });
+
+  it("uses on-the wording for North Coast titles, in for cities", () => {
+    const dict = getDictionary("en");
+    assert.equal(
+      resolveScopeListingChrome("en", dict, { regionScope: true }).title,
+      "Events on the North Coast",
+    );
+    assert.equal(
+      resolveScopeListingChrome("en", dict, {
+        categoryId: "music",
+        regionScope: true,
+      }).title,
+      "Music Events on the North Coast",
+    );
+    assert.equal(
+      resolveScopeListingChrome("en", dict, { citySlug: "sosua" }).title,
+      "Events in Sosúa",
+    );
   });
 });
