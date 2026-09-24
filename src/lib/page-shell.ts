@@ -31,11 +31,11 @@ export const PAGE_SHELL_DETAIL_CLASS = `relative mx-auto w-full ${PAGE_MAX_WIDTH
 
 /**
  * Section-title text fill (orange→rose→fuchsia).
- * Light: deeper ink stops so the wash doesn’t neon on cream.
- * Dark: softer 300s (same as hero place select) for contrast on black.
+ * Same stops as the home place select so titles match the picker.
+ * Dark: softer 300s for contrast on black.
  */
 export const BRAND_GRADIENT_TEXT_CLASS =
-  "bg-gradient-to-r from-orange-700 via-rose-700 to-fuchsia-800 bg-clip-text text-transparent dark:from-orange-300 dark:via-rose-300 dark:to-fuchsia-300";
+  "bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 bg-clip-text text-transparent dark:from-orange-300 dark:via-rose-300 dark:to-fuchsia-300";
 
 /** Listing section titles — Happening today, Trending, Our picks, etc. */
 export const SECTION_TITLE_CLASS = `text-section font-extrabold lg:text-[1.9rem] lg:leading-[1.15] ${BRAND_GRADIENT_TEXT_CLASS}`;

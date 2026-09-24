@@ -53,6 +53,9 @@ function VenueSlideCard({
   wide,
   returnTo,
   returnTitle,
+  pending,
+  dimmed,
+  onNavigate,
 }: {
   venue: Venue;
   locale: Locale;
@@ -62,6 +65,9 @@ function VenueSlideCard({
   wide?: boolean;
   returnTo?: string;
   returnTitle?: string | null;
+  pending?: boolean;
+  dimmed?: boolean;
+  onNavigate?: () => void;
 }) {
   const sizes = wide
     ? "(max-width: 640px) 88vw, (max-width: 768px) 50vw, 33vw"
@@ -72,15 +78,24 @@ function VenueSlideCard({
       href={`/${locale}/venue/${venue.slug}`}
       returnTo={returnTo}
       returnTitle={returnTitle}
-      className="
+      onClick={() => onNavigate?.()}
+      aria-busy={pending || undefined}
+      className={`
         group flex h-full flex-col overflow-hidden rounded-2xl
-        border border-neutral-200/90 bg-white
+        border bg-white
         shadow-[0_8px_24px_-16px_rgba(0,0,0,0.22)]
-        transition-colors touch-manipulation
-        hover:border-orange-300/70 dark:border-neutral-800 dark:bg-neutral-950
-        dark:shadow-[0_8px_24px_-16px_rgba(0,0,0,0.6)] dark:hover:border-orange-700/50
+        touch-manipulation
+        transition-[border-color,box-shadow,opacity,transform] duration-300 ease-out
+        dark:bg-neutral-950 dark:shadow-[0_8px_24px_-16px_rgba(0,0,0,0.6)]
         focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500
-      "
+        ${
+          pending
+            ? "scale-[0.985] border-orange-400 shadow-[0_12px_32px_-16px_rgba(251,146,60,0.45)] ring-2 ring-orange-500/80 dark:border-orange-500 dark:ring-orange-400/70"
+            : dimmed
+              ? "opacity-45 border-neutral-200/90 dark:border-neutral-800"
+              : "border-neutral-200/90 hover:border-orange-300/70 active:scale-[0.99] active:border-orange-400 dark:border-neutral-800 dark:hover:border-orange-700/50 dark:active:border-orange-500"
+        }
+      `}
       aria-label={venue.name}
     >
       <div className="relative aspect-[2.4/1] w-full shrink-0 overflow-hidden bg-neutral-200 dark:bg-neutral-800">
@@ -102,17 +117,23 @@ function VenueSlideCard({
             {venue.emoji ?? "📍"}
           </span>
         )}
+        {pending ? (
+          <div
+            className="pointer-events-none absolute inset-0 bg-orange-500/10"
+            aria-hidden
+          />
+        ) : null}
       </div>
 
       <div className="flex flex-1 flex-col gap-1 px-3.5 py-3 sm:px-4 sm:py-3.5">
         <h3 className="font-sans text-base font-semibold leading-snug tracking-tight text-neutral-950 dark:text-neutral-50">
           {venue.name}
         </h3>
-        <p className="text-xs font-semibold text-orange-600 dark:text-orange-400">
+        <p className="hidden text-xs font-semibold text-orange-600 sm:block dark:text-orange-400">
           {venue.city}
         </p>
         {venue.description ? (
-          <p className="mt-1 line-clamp-3 text-copy text-neutral-600 dark:text-neutral-400">
+          <p className="mt-1 hidden line-clamp-3 text-copy text-neutral-600 sm:block dark:text-neutral-400">
             {venue.description}
           </p>
         ) : null}
@@ -172,6 +193,7 @@ function AudienceSlider({
   } = useHorizontalScrollHints(scrollRef, venues.length);
   // Once a slide has loaded, keep its image mounted so scroll-back doesn't flash.
   const [loadedThrough, setLoadedThrough] = useState(0);
+  const [pendingSlug, setPendingSlug] = useState<string | null>(null);
 
   useEffect(() => {
     if (!mediaEnabled) return;
@@ -223,6 +245,9 @@ function AudienceSlider({
                 wide={wide}
                 returnTo={returnTo}
                 returnTitle={returnTitle}
+                pending={pendingSlug === venue.slug}
+                dimmed={pendingSlug != null && pendingSlug !== venue.slug}
+                onNavigate={() => setPendingSlug(venue.slug)}
               />
             </div>
           ))}

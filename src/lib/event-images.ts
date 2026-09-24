@@ -155,6 +155,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "hard-rock-descubre-sosua-2026-09-26":
     "hard-rock-descubre-sosua-2026-09-26.jpg",
   "trolley-descubre-sosua-2026-09-26": "trolley-descubre-sosua-2026-09-26.jpg",
+  "waterfront-descubre-sosua-2026-09-27":
+    "waterfront-descubre-sosua-2026-09-27.jpg",
   "eat-street-market-ocean-one-2026-09-27":
     "eat-street-market-ocean-one-2026-09-27.jpg",
   "iss-pta-parents-night-out-2026-09-17":
@@ -369,9 +371,6 @@ const EVENT_IMAGE_ALIASES: Record<string, string> = {
   "gym-sov-zumba-lift-thursday": "gym-sov-zumba-tuesday",
   "flip-flop-weekday-happy-hour": "flip-flop-monday-happy-hour",
   "flip-flop-weekend-happy-hour": "flip-flop-monday-happy-hour",
-  // Place shot for Sunday Descubre Sosúa closing (no separate flyer).
-  "waterfront-descubre-sosua-2026-09-27":
-    "waterfront-playa-alicia-sunset-dining",
 };
 
 const EVENT_IMAGE_PREFIXES: { prefix: string; file: string }[] = [
@@ -440,6 +439,7 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "joaquin-sanchez-rancho-catalina-2026-09-27": "object-top",
   "hard-rock-descubre-sosua-2026-09-26": "object-center",
   "trolley-descubre-sosua-2026-09-26": "object-center",
+  "waterfront-descubre-sosua-2026-09-27": "object-center",
   "eat-street-market-ocean-one-2026-09-27": "object-top",
 };
 
@@ -533,6 +533,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "joaquin-sanchez-rancho-catalina-2026-09-27.jpg",
   "hard-rock-descubre-sosua-2026-09-26.jpg",
   "trolley-descubre-sosua-2026-09-26.jpg",
+  "waterfront-descubre-sosua-2026-09-27.jpg",
   "eat-street-market-ocean-one-2026-09-27.jpg",
   "duo-maryem-rancho-catalina-2026-09-20.jpg",
   "rio-sonador-cierre-del-verano-2026-09-20.jpg",

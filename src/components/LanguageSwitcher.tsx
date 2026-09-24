@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { locales, type Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
@@ -13,6 +14,7 @@ interface LanguageSwitcherProps {
 export function LanguageSwitcher({ locale, dict }: LanguageSwitcherProps) {
   const pathname = usePathname();
   const router = useRouter();
+  const [pendingLang, setPendingLang] = useState<Locale | null>(null);
 
   function switchLocale(target: Locale) {
     if (target === locale) return;
@@ -24,6 +26,7 @@ export function LanguageSwitcher({ locale, dict }: LanguageSwitcherProps) {
     const qs =
       typeof window !== "undefined" ? window.location.search.replace(/^\?/, "") : "";
     document.cookie = `eventdr-locale=${target};path=/;max-age=31536000`;
+    setPendingLang(target);
     signalNavPending("soft");
     router.push(qs ? `${newPath}?${qs}` : newPath);
   }
@@ -34,24 +37,37 @@ export function LanguageSwitcher({ locale, dict }: LanguageSwitcherProps) {
       role="group"
       aria-label={dict.lang.switchTo}
     >
-      {locales.map((lang) => (
-        <button
-          key={lang}
-          type="button"
-          onClick={() => switchLocale(lang)}
-          className={`
-            px-2.5 py-1 rounded-full text-xs font-bold tracking-wide transition-all
-            ${
-              locale === lang
-                ? "bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 text-white shadow-sm"
-                : "text-neutral-500 hover:text-neutral-800 dark:text-neutral-400 dark:hover:text-neutral-200"
-            }
-          `}
-          aria-current={locale === lang ? "true" : undefined}
-        >
-          {dict.lang[lang]}
-        </button>
-      ))}
+      {locales.map((lang) => {
+        const active = locale === lang;
+        const pending = pendingLang === lang;
+        const dimmed = pendingLang != null && pendingLang !== lang;
+        return (
+          <button
+            key={lang}
+            type="button"
+            onClick={() => switchLocale(lang)}
+            aria-busy={pending || undefined}
+            className={`
+              rounded-full px-2.5 py-1 text-xs font-bold tracking-wide
+              touch-manipulation
+              transition-[color,background-color,box-shadow,opacity,transform]
+              duration-200 ease-out
+              active:scale-[0.96]
+              ${
+                pending
+                  ? "scale-[0.96] bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 text-white shadow-sm ring-2 ring-orange-500/70 dark:ring-orange-400/60"
+                  : active
+                    ? "bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 text-white shadow-sm"
+                    : "text-neutral-500 hover:text-neutral-800 dark:text-neutral-400 dark:hover:text-neutral-200"
+              }
+              ${dimmed ? "opacity-45" : ""}
+            `}
+            aria-current={active ? "true" : undefined}
+          >
+            {dict.lang[lang]}
+          </button>
+        );
+      })}
     </div>
   );
 }
