@@ -71,6 +71,8 @@ const EVENT_PHONE_BY_ID: Record<string, string> = {
   "natura-sunbar-special-sunset-sounds-2026-09-24": "+18492147010",
   "kaovanny-natura-cabana-2026-09-26": "+18492147010",
   "sosua-coastal-pickleball-open-2026-10-24": "+18092233974",
+  "aldo-sax-casa-caribe-2026-09-24": "+18099594087",
+  "sovereign-sister-summit-2026-11-04": "+18097105824",
   "serenade-dominican-night-villa-taina-weekly": "+18095710722",
   "serenade-mongolian-night-villa-taina-weekly": "+18095710722",
   "serenade-bbq-night-villa-taina-weekly": "+18095710722",

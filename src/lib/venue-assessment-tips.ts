@@ -890,11 +890,19 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "casa-caribe-puerto-plata": {
-    body: "Yellow-door Caribbean kitchen on Luis Ginebra — night signage makes it easy to spot. Sit-down plates in town, not Malecón beach energy. Call ahead on Restaurant Week nights.",
+    body: "Yellow-door Caribbean kitchen on Luis Ginebra #52 — Thursday sax nights need a table early via @casacaribepop or ReservaYa. Sit-down plates and cocktails in town, not Malecón beach energy.",
     localized: {
-      en: "Yellow-door Caribbean kitchen on Luis Ginebra — night signage makes it easy to spot. Sit-down plates in town, not Malecón beach energy. Call ahead on Restaurant Week nights.",
-      es: "Cocina caribeña de puerta amarilla en Luis Ginebra — el letrero nocturno se ve fácil. Platos sentados en la ciudad, no energía de playa del Malecón. Llama en noches de Restaurant Week.",
-      fr: "Cuisine caribéenne à porte jaune sur Luis Ginebra — l’enseigne de nuit se repère facilement. Repas assis en ville, pas l’énergie plage du Malecón. Appelez les soirs Restaurant Week.",
+      en: "Yellow-door Caribbean kitchen on Luis Ginebra #52 — Thursday sax nights need a table early via @casacaribepop or ReservaYa. Sit-down plates and cocktails in town, not Malecón beach energy.",
+      es: "Cocina caribeña de puerta amarilla en Luis Ginebra #52 — las noches de sax del jueves piden mesa temprano por @casacaribepop o ReservaYa. Platos sentados y cócteles en la ciudad, no energía de playa del Malecón.",
+      fr: "Cuisine caribéenne à porte jaune sur Luis Ginebra n° 52 — les soirs sax du jeudi demandent une table tôt via @casacaribepop ou ReservaYa. Repas assis et cocktails en ville, pas l’énergie plage du Malecón.",
+    },
+  },
+  "project-paradise-cabarete": {
+    body: "Gated Costa Azul villa between Sosúa and Cabarete — private retreat energy with Paradise Studio on site, not a walk-in beach club. Confirm gate access and parking before you send guests.",
+    localized: {
+      en: "Gated Costa Azul villa between Sosúa and Cabarete — private retreat energy with Paradise Studio on site, not a walk-in beach club. Confirm gate access and parking before you send guests.",
+      es: "Villa cerrada en Costa Azul entre Sosúa y Cabarete — energía de retiro privado con Paradise Studio en el lugar, no un beach club de walk-in. Confirma acceso al portón y parking antes de mandar huéspedes.",
+      fr: "Villa sécurisée à Costa Azul entre Sosúa et Cabarete — énergie retraite privée avec Paradise Studio sur place, pas un beach club walk-in. Confirmez l’accès au portail et le parking avant d’envoyer des hôtes.",
     },
   },
   "casita-azul-puerto-plata": {

@@ -162,6 +162,7 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "bliss-cabarete": "bliss-cabarete.jpg",
   "casa-balcon-puerto-plata": "casa-balcon-puerto-plata.jpg",
   "casa-caribe-puerto-plata": "casa-caribe-puerto-plata.jpg",
+  "project-paradise-cabarete": "project-paradise-cabarete.jpg",
   "casita-azul-puerto-plata": "casita-azul-puerto-plata.jpg",
   "la-isabela-colonial-puerto-plata": "la-isabela-colonial-puerto-plata.jpg",
   "la-lola-malecon": "la-lola-malecon.jpg",

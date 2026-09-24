@@ -1462,12 +1462,24 @@ export const SEED_VENUES: Venue[] = [
     name: "Casa Caribe",
     city: "Puerto Plata",
     description:
-      "Caribbean kitchen on Avenida Luis Ginebra — night entrance with the yellow Casa Caribe sign; sit-down plates in Puerto Plata centro.",
+      "Caribbean kitchen on Avenida Luis Ginebra #52 (next to Iglesia Bíblica Sinaí) — night entrance with the yellow Casa Caribe sign; sit-down plates, cocktails, and live music nights in Puerto Plata centro. ReservaYa / Instagram @casacaribepop.",
     lat: 19.7948,
     lng: -70.6945,
     emoji: "🍽️",
     instagram: "casacaribepop",
     phone: "+18099594087",
+  },
+  {
+    slug: "project-paradise-cabarete",
+    name: "Project Paradise",
+    city: "Cabarete",
+    description:
+      "Private villa compound in Costa Azul (between Sosúa and Cabarete) — tropical gardens, pool, and Paradise Studio recording space; hosts retreats and curated wellness days. Gate access required — confirm before you go. projectparadisedr.com · +1 849-880-2080.",
+    lat: 19.7665008,
+    lng: -70.4335924,
+    emoji: "🌴",
+    website: "https://projectparadisedr.com/",
+    phone: "+18498802080",
   },
   {
     slug: "casita-azul-puerto-plata",
@@ -2044,6 +2056,11 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
   { pattern: /bliss\s*cabarete|^bliss$/i, slug: "bliss-cabarete" },
   { pattern: /casa\s*balc[oó]n/i, slug: "casa-balcon-puerto-plata" },
   { pattern: /casa\s*caribe/i, slug: "casa-caribe-puerto-plata" },
+  {
+    pattern:
+      /project\s*paradise|paradise\s*studio|casa\s*azul.*costa\s*azul|costa\s*azul\s*j\s*6/i,
+    slug: "project-paradise-cabarete",
+  },
   { pattern: /casita\s*azul/i, slug: "casita-azul-puerto-plata" },
   {
     pattern: /la\s*isabela\s*colonial|isabela\s*colonial/i,

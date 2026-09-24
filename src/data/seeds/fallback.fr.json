@@ -3083,5 +3083,70 @@
       "Dominican Cacao by Finca Silvester"
     ],
     "imageEmoji": "🍯"
+  },
+  {
+    "id": "aldo-sax-casa-caribe-2026-09-24",
+    "title": "Aldo Sax en live à Casa Caribe",
+    "description": "Musique live avec Aldo Sax à Casa Caribe, Av. Luis Ginebra n° 52 (à côté de Iglesia Bíblica Sinaí), Puerto Plata — jeudi 24 septembre 2026 à 19 h. Set saxophone avec assiettes caribéennes, cocktails et terrasse en plein air en centre-ville. Confirmez cover et tables via Instagram @casacaribepop, ReservaYa ou +1 809-959-4087.",
+    "date": "2026-09-24",
+    "time": "7:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Casa Caribe",
+    "venueSlug": "casa-caribe-puerto-plata",
+    "address": "Av. Luis Ginebra #52, Puerto Plata",
+    "lat": 19.7948,
+    "lng": -70.6945,
+    "category": "music",
+    "categories": [
+      "food-drinks",
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18099594087",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/casacaribepop/",
+    "lineup": [
+      "Aldo Sax"
+    ],
+    "imageEmoji": "🎷"
+  },
+  {
+    "id": "sovereign-sister-summit-2026-11-04",
+    "title": "Sovereign Sister Summit",
+    "description": "Sommet wellness d’une journée pour femmes à Project Paradise (Casa Azul), Costa Azul J6, Cabarete — mercredi 4 novembre 2026. Journée pour se connecter, apprendre, guérir, bouger et s’étendre avec des facilitatrices : sound healing, pilates/barre, danse, biohacks longévité et plus. Ouvert aux femmes qui voyagent ; hébergement, transport et repas à tarif réduit disponibles. Entrée générale RD$2,500 — billets sur SovereignSisterSummit26.netlify.app. Présenté par CG Wellness · +1 809-710-5824 · @courtneygracewellness / @ninafrikadance.",
+    "date": "2026-11-04",
+    "location": "Cabarete",
+    "venue": "Project Paradise",
+    "venueSlug": "project-paradise-cabarete",
+    "address": "Costa Azul J6, Cabarete",
+    "lat": 19.7665008,
+    "lng": -70.4335924,
+    "category": "health-wellness",
+    "categories": [
+      "culture",
+      "festivals"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": false,
+    "admissionPrice": "RD$2,500",
+    "phone": "+18097105824",
+    "ticketUrl": "https://sovereignsistersummit26.netlify.app/",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/ninafrikadance/",
+    "lineup": [
+      "Courtney Grace — Sound Healing",
+      "Dr. Donna Leverone — Biohacks for Longevity",
+      "Susie Collazo — The Digital Pause",
+      "Shannon Pereira — Mushroom Consciousness",
+      "Whitney Marshall — Music, Mental Health & Healing",
+      "Saafyr — Creating Radical Joy",
+      "Nadia Lotte — Diva Dance Devotion",
+      "Dena Pollock — Hottie Body Pilates",
+      "Goddess Arcana — Energetic Sovereignty"
+    ],
+    "imageEmoji": "💜"
   }
 ]

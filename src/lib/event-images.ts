@@ -159,6 +159,9 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "waterfront-descubre-sosua-2026-09-27.jpg",
   "eat-street-market-ocean-one-2026-09-27":
     "eat-street-market-ocean-one-2026-09-27.jpg",
+  "aldo-sax-casa-caribe-2026-09-24": "aldo-sax-casa-caribe-2026-09-24.jpg",
+  "sovereign-sister-summit-2026-11-04":
+    "sovereign-sister-summit-2026-11-04.jpg",
   "iss-pta-parents-night-out-2026-09-17":
     "iss-pta-parents-night-out-flyer.jpg",
   "hard-rock-catrinas-halloween-2026-10-31":
@@ -441,6 +444,8 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "trolley-descubre-sosua-2026-09-26": "object-center",
   "waterfront-descubre-sosua-2026-09-27": "object-center",
   "eat-street-market-ocean-one-2026-09-27": "object-top",
+  "aldo-sax-casa-caribe-2026-09-24": "object-top",
+  "sovereign-sister-summit-2026-11-04": "object-center",
 };
 
 function curatedEventImageFile(eventId: string): string | undefined {
@@ -535,6 +540,8 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "trolley-descubre-sosua-2026-09-26.jpg",
   "waterfront-descubre-sosua-2026-09-27.jpg",
   "eat-street-market-ocean-one-2026-09-27.jpg",
+  "aldo-sax-casa-caribe-2026-09-24.jpg",
+  "sovereign-sister-summit-2026-11-04.jpg",
   "duo-maryem-rancho-catalina-2026-09-20.jpg",
   "rio-sonador-cierre-del-verano-2026-09-20.jpg",
   "ambar-lounge-reggaeton-2026-09-17.jpg",

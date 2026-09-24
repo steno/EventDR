@@ -1324,7 +1324,19 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     axes: { recommend: 4.0, atmosphere: 3.9, practical: 4.0 },
     themes: [
       { key: "easy_to_find", sentiment: "positive" },
+      { key: "live_music", sentiment: "positive" },
       { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+    ],
+  }),
+  editorial({
+    venueSlug: "project-paradise-cabarete",
+    verdictKey: "reliable_visitor_pick",
+    crowdFit: ["visitor", "mixed"],
+    axes: { recommend: 4.2, atmosphere: 4.5, practical: 3.6, value: 3.5 },
+    themes: [
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+      { key: "photo_spot", sentiment: "positive", audience: "visitor" },
+      { key: "easy_to_find", sentiment: "mixed" },
     ],
   }),
   editorial({

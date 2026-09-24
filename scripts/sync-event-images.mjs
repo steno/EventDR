@@ -239,6 +239,9 @@ const FILE_TO_EVENT_ID = {
   "trolley-descubre-sosua-2026-09-26.jpg": "trolley-descubre-sosua-2026-09-26",
   "eat-street-market-ocean-one-2026-09-27.jpg":
     "eat-street-market-ocean-one-2026-09-27",
+  "aldo-sax-casa-caribe-2026-09-24.jpg": "aldo-sax-casa-caribe-2026-09-24",
+  "sovereign-sister-summit-2026-11-04.jpg":
+    "sovereign-sister-summit-2026-11-04",
   "allison-sade-aura-2026-09-17.jpg": "allison-sade-aura-2026-09-17",
   "ocean-world-terrace-karaoke-encuentro-2026-09-16.jpg":
     "ocean-world-terrace-singing-talent-2026-09-16",

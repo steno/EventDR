@@ -3133,4 +3133,43 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "Editor flyer + IG post Eat Street Vol. 4 — Sun 27 Sep 2026 4 PM Ocean One Calle Los Pinos #2; DJ Kinue; 12 vendor stations named on art; thehoneyco.com / 809-340-5994.",
     updatedAt: "2026-09-23T12:00:00.000Z",
   },
+  {
+    eventId: "aldo-sax-casa-caribe-2026-09-24",
+    body: "Thursday 7 PM sax dinner downtown — Aldo Sax at yellow-door Casa Caribe on Luis Ginebra, not a Malecón beach set; book a table early and expect to pay for plates/cocktails rather than a clear cover.",
+    localized: {
+      es: "Jueves 7 PM de sax y cena en el centro — Aldo Sax en Casa Caribe de puerta amarilla en Luis Ginebra, no es set de playa del Malecón; reserva mesa temprano y espera pagar platos/cócteles más que un cover claro.",
+      fr: "Jeudi 19 h sax et dîner en centre-ville — Aldo Sax chez Casa Caribe à porte jaune sur Luis Ginebra, pas un set plage du Malecón ; réservez tôt et prévoyez de payer assiettes/cocktails plutôt qu’un cover clair.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "Cover not on flyer — typical plates/drinks RD$1,000–2,500; @casacaribepop / ReservaYa / +1 809-959-4087",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — platos/tragos típicos RD$1,000–2,500; @casacaribepop / ReservaYa / +1 809-959-4087",
+      fr: "Cover absent de l’affiche — assiettes/verres typiques RD$1,000–2,500 ; @casacaribepop / ReservaYa / +1 809-959-4087",
+    },
+    attribution: "POP research · Casa Caribe · @casacaribepop · Aldo Sax flyer",
+    researchNotes:
+      "Editor flyer ESTE JUEVES | 7:00 P.M. Aldo Sax MÚSICA EN VIVO; venue Av. Luis Ginebra #52 next to Iglesia Bíblica Sinaí; ReservaYa / @casacaribepop / +1 809-959-4087; typical spend note RD$1,000–2,500.",
+    updatedAt: "2026-09-24T12:00:00.000Z",
+  },
+  {
+    eventId: "sovereign-sister-summit-2026-11-04",
+    body: "Wednesday Nov 4 women’s wellness day at gated Project Paradise in Costa Azul — RD$2,500 GA with sound healing, pilates, and dance workshops; buy tickets before you send walk-ups, and confirm gate access.",
+    localized: {
+      es: "Miércoles 4 nov día de bienestar para mujeres en Project Paradise cerrado en Costa Azul — RD$2,500 GA con sound healing, pilates y talleres de danza; compra boletos antes de mandar walk-ups y confirma acceso al portón.",
+      fr: "Mercredi 4 nov journée wellness femmes à Project Paradise sécurisé à Costa Azul — RD$2,500 GA avec sound healing, pilates et ateliers danse ; achetez les billets avant les walk-ups et confirmez l’accès au portail.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "GA RD$2,500 — SovereignSisterSummit26.netlify.app / +1 809-710-5824",
+    priceNoteLocalized: {
+      es: "GA RD$2,500 — SovereignSisterSummit26.netlify.app / +1 809-710-5824",
+      fr: "GA RD$2,500 — SovereignSisterSummit26.netlify.app / +1 809-710-5824",
+    },
+    attribution:
+      "POP research · CG Wellness · @ninafrikadance · Sovereign Sister Summit site",
+    researchNotes:
+      "Editor IG @ninafrikadance + flyer + ticket site — Wed 4 Nov 2026 Project Paradise / Casa Azul Costa Azul Cabarete; GA RD$2,500; facilitators listed on SovereignSisterSummit26.netlify.app; CG Wellness +1 809-710-5824.",
+    updatedAt: "2026-09-24T12:00:00.000Z",
+  },
 ];

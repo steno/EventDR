@@ -701,8 +701,14 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
   },
   "casa-caribe-puerto-plata": {
     description: {
-      es: "Cocina caribeña en Avenida Luis Ginebra — entrada nocturna con el letrero amarillo Casa Caribe; platos sentados en el centro.",
-      fr: "Cuisine caribéenne sur Avenida Luis Ginebra — entrée de nuit avec l’enseigne jaune Casa Caribe ; repas assis en centre-ville.",
+      es: "Cocina caribeña en Avenida Luis Ginebra #52 (junto a Iglesia Bíblica Sinaí) — entrada nocturna con el letrero amarillo Casa Caribe; platos sentados, cócteles y noches de música en vivo en el centro. ReservaYa / Instagram @casacaribepop.",
+      fr: "Cuisine caribéenne sur Avenida Luis Ginebra n° 52 (à côté de Iglesia Bíblica Sinaí) — entrée de nuit avec l’enseigne jaune Casa Caribe ; repas assis, cocktails et soirées live en centre-ville. ReservaYa / Instagram @casacaribepop.",
+    },
+  },
+  "project-paradise-cabarete": {
+    description: {
+      es: "Complejo de villa privada en Costa Azul (entre Sosúa y Cabarete) — jardines tropicales, piscina y Paradise Studio; acoge retiros y días de bienestar. Acceso por portón — confirma antes de ir. projectparadisedr.com · +1 849-880-2080.",
+      fr: "Complexe villa privée à Costa Azul (entre Sosúa et Cabarete) — jardins tropicaux, piscine et Paradise Studio ; accueille retraites et journées wellness. Accès par portail — confirmez avant d’y aller. projectparadisedr.com · +1 849-880-2080.",
     },
   },
   "casita-azul-puerto-plata": {

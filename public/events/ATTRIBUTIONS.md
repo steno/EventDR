@@ -335,3 +335,6 @@ Curated images under `public/events/` and `public/venues/`.
 | `venues/hotel-villa-taina-pool.jpg` | [villataina.com](https://villataina.com/) official PROPERTY_1 courtyard/pool aerial | Venue place shot — Hotel Villa Taina Cabarete courtyard pool |
 | `hard-rock-rising-final-local-2026-09-23.jpg` | POP-supplied — Hard Rock Rising Global Live Music Challenge local final flyer (Allison vs Tierra Fertil) ([@hardrockcafepuertoplata](https://www.instagram.com/hardrockcafepuertoplata/)) | Competition night Wed 23 Sep 2026 8 PM (editor-provided) |
 | `ojo-equinoccio-neon-party-2026-09-25.jpg` | POP-supplied — UNC Equinoccio See You in the Future Neon Party flyer ([@ojoclubcabarete](https://www.instagram.com/ojoclubcabarete/)) | Neon party Fri 25 Sep 2026 Ojo Club / DJ OPG (editor-provided) |
+| `aldo-sax-casa-caribe-2026-09-24.jpg` | POP-supplied — Aldo Sax Música en Vivo flyer (Casa Caribe) | Thu 24 Sep 2026 7:00 PM (editor-provided; typography-heavy) |
+| `sovereign-sister-summit-2026-11-04.jpg` | POP-supplied — Sovereign Sister Summit facilitator flyer | Wed 4 Nov 2026 Project Paradise Cabarete (editor-provided; typography-heavy) |
+| `venues/project-paradise-cabarete.jpg` | [projectparadisedr.com](https://projectparadisedr.com/) official compound pool place shot (`gallery-full/15_compound-pool-wide.jpg`) | Venue place shot — Project Paradise Costa Azul |

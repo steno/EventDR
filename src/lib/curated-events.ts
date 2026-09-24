@@ -573,6 +573,18 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     ticketUrl: "https://svterramar.pickleplanner.com/",
     venueSlug: "terramar-pickleball-club",
   },
+  "aldo-sax-casa-caribe-2026-09-24": {
+    callForPricing: true,
+    phone: "+18099594087",
+    venueSlug: "casa-caribe-puerto-plata",
+  },
+  "sovereign-sister-summit-2026-11-04": {
+    isFree: false,
+    admissionPrice: "RD$2,500",
+    phone: "+18097105824",
+    ticketUrl: "https://sovereignsistersummit26.netlify.app/",
+    venueSlug: "project-paradise-cabarete",
+  },
   "petit-francois-friday-karaoke": {
     isFree: true,
     phone: "+18294922910",
