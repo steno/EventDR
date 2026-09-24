@@ -178,6 +178,7 @@ export const CURATED_CALL_FOR_PRICING = new Set<string>([
   "ambar-lounge-bandoleras-2026-09-18",
   "ambar-lounge-adrian-tineo-2026-09-19",
   "aura-disco-dj-melvin-2026-09-19",
+  "aura-disco-dj-christo-2026-09-26",
   "meclao-house-friday-2026-09-18",
   "geek-fest-rd-2026-09-20",
   "festival-presidente-2026-10-03",

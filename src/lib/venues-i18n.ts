@@ -197,8 +197,8 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
   },
   "aura-beach-club-cabarete": {
     description: {
-      es: "Beach club frente al mar en Calle Principal — relax de día, lunes 2x1 de margarita/gin, miércoles de margaritas más Latin Flow Dance desde las 9 PM y shows de noche con vista a la bahía de Cabarete. WhatsApp +1 829-787-0140 · Instagram @auracabarete.",
-      fr: "Beach club en bord de mer sur Calle Principal — détente le jour, lundis 2x1 margarita/gin, mercredis margaritas plus Latin Flow Dance dès 21 h et concerts le soir face à la baie de Cabarete. WhatsApp +1 829-787-0140 · Instagram @auracabarete.",
+      es: "Beach club frente al mar en Calle Principal — relax de día, lunes 2x1 de margarita/gin, miércoles de margaritas más Latin Flow Dance desde las 9 PM, sábado Aura Disco desde las 11:30 PM y shows de noche con vista a la bahía de Cabarete. WhatsApp +1 829-787-0140 · Instagram @auracabarete.",
+      fr: "Beach club en bord de mer sur Calle Principal — détente le jour, lundis 2x1 margarita/gin, mercredis margaritas plus Latin Flow Dance dès 21 h, samedi Aura Disco dès 23 h 30 et concerts le soir face à la baie de Cabarete. WhatsApp +1 829-787-0140 · Instagram @auracabarete.",
     },
   },
   "la-casita-de-papi": {

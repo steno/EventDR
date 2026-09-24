@@ -78,6 +78,7 @@ const FILE_TO_EVENT_ID = {
     "los-caballitos-zona-acapella-2026-09-20",
   "banda-modelo-vinoteca-2026-09-26.jpg": "banda-modelo-vinoteca-2026-09-26",
   "aura-disco-dj-melvin-2026-09-19.jpg": "aura-disco-dj-melvin-2026-09-19",
+  "aura-disco-dj-christo-2026-09-26.jpg": "aura-disco-dj-christo-2026-09-26",
   "meclao-house-friday-2026-09-18.jpg": "meclao-house-friday-2026-09-18",
   "cabarete-stand-up-vol-2-2026-10-24.jpg":
     "cabarete-stand-up-vol-2-2026-10-24",
