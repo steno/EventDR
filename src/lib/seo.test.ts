@@ -7,6 +7,8 @@ import {
   buildEventBreadcrumbItems,
   buildBreadcrumbJsonLd,
   buildEventMetadata,
+  buildOrganizationJsonLd,
+  buildWebSiteJsonLd,
   canonicalMediaUrl,
 } from "./seo";
 import type { Event } from "./types";
@@ -81,8 +83,12 @@ describe("buildBrandJsonLd", () => {
     assert.equal(graph["@context"], "https://schema.org");
     assert.equal("@type" in graph, false);
     const nodes = graph["@graph"];
-    const org = nodes.find((node) => node["@type"] === "Organization");
-    const site = nodes.find((node) => node["@type"] === "WebSite");
+    const org = nodes.find((node) => node["@type"] === "Organization") as
+      | Omit<ReturnType<typeof buildOrganizationJsonLd>, "@context">
+      | undefined;
+    const site = nodes.find((node) => node["@type"] === "WebSite") as
+      | Omit<ReturnType<typeof buildWebSiteJsonLd>, "@context">
+      | undefined;
     assert.ok(org);
     assert.ok(site);
     assert.equal(org.slogan, dict.hero.regionTagline);
