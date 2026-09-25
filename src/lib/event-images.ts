@@ -201,7 +201,9 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "aura-disco-dj-melvin-2026-09-19": "aura-disco-dj-melvin-2026-09-19.jpg",
   "aura-disco-dj-christo-2026-09-26": "aura-disco-dj-christo-2026-09-26.jpg",
   "meclao-house-friday-2026-09-18": "meclao-house-friday-2026-09-18.jpg",
-  "meclao-house-friday-2026-09-25": "meclao-house-friday-2026-09-25.jpg",
+  // Filename bump — full Junier Lockward flyer (immutable CDN kept the caption-crop).
+  "meclao-house-friday-2026-09-25":
+    "meclao-house-friday-2026-09-25-lockward.jpg",
   "ambar-lounge-emil-roman-2026-09-26":
     "ambar-lounge-emil-roman-2026-09-26.jpg",
   "finely-mirador-inauguracion-2026-09-25":
@@ -576,7 +578,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "aura-disco-dj-melvin-2026-09-19.jpg",
   "aura-disco-dj-christo-2026-09-26.jpg",
   "meclao-house-friday-2026-09-18.jpg",
-  "meclao-house-friday-2026-09-25.jpg",
+  "meclao-house-friday-2026-09-25-lockward.jpg",
   "ambar-lounge-emil-roman-2026-09-26.jpg",
   "finely-mirador-inauguracion-2026-09-25.jpg",
   "cabarete-stand-up-vol-2-2026-10-24.jpg",
