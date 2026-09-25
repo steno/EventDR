@@ -1537,6 +1537,17 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     ],
   }),
   editorial({
+    venueSlug: "el-mirador-de-finely",
+    verdictKey: "solid_local_food",
+    crowdFit: ["local", "mixed", "visitor"],
+    axes: { recommend: 4.2, atmosphere: 4.5, value: 3.9, practical: 3.7 },
+    themes: [
+      { key: "sunset_views", sentiment: "positive", audience: "visitor" },
+      { key: "live_music", sentiment: "positive" },
+      { key: "easy_to_find", sentiment: "mixed" },
+    ],
+  }),
+  editorial({
     venueSlug: "luna-lounge-lcb",
     verdictKey: "strong_local_nightlife",
     crowdFit: ["local", "nightlife", "mixed"],

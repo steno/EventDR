@@ -94,6 +94,11 @@ const PLACE_SEARCH_ALIASES: Record<string, string[]> = {
     "Ámbar Lounge Luis Ginebra",
     "Ambar Lounge Av Luis Ginebra 45",
   ],
+  "el-mirador-de-finely": [
+    "El Mirador de Finely Puerto Plata",
+    "Finely Saludable Cerro Mar",
+    "Calle Esmeralda 53 Cerro Mar Puerto Plata",
+  ],
   "luna-lounge-lcb": [
     "Luna Lounge LCB Puerto Plata",
     "Luna Disco Bar Luis Ginebra",

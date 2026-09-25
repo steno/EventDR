@@ -666,11 +666,19 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "meclao-rooftop": {
-    body: "Luis Ginebra rooftop for live sets and a late cocktail crowd — skip Monday; this is not a quiet dinner terrace.",
+    body: "Luis Ginebra rooftop for billed House Fridays and late cocktail sets — skip Monday; reserve 829-374-7028, this is not a quiet dinner terrace.",
     localized: {
-      en: "Luis Ginebra rooftop for live sets and a late cocktail crowd — skip Monday; this is not a quiet dinner terrace.",
-      es: "Rooftop de Luis Ginebra para sets en vivo y cócteles tarde — sáltate el lunes; no es terraza de cena tranquila.",
-      fr: "Rooftop Luis Ginebra pour sets live et cocktails tardifs — passez le lundi ; pas une terrasse dîner calme.",
+      en: "Luis Ginebra rooftop for billed House Fridays and late cocktail sets — skip Monday; reserve 829-374-7028, this is not a quiet dinner terrace.",
+      es: "Rooftop de Luis Ginebra para House Fridays con cartel y sets de cócteles tarde — sáltate el lunes; reserva 829-374-7028, no es terraza de cena tranquila.",
+      fr: "Rooftop Luis Ginebra pour House Fridays à l’affiche et cocktails tardifs — passez le lundi ; réservez 829-374-7028, pas une terrasse dîner calme.",
+    },
+  },
+  "el-mirador-de-finely": {
+    body: "Cerro Mar hillside balcony kitchen — come for the sunset lookout and live nights, not a Luis Ginebra walk-in lounge; pin Calle Esmeralda 53 and confirm via @finelysaludable.",
+    localized: {
+      en: "Cerro Mar hillside balcony kitchen — come for the sunset lookout and live nights, not a Luis Ginebra walk-in lounge; pin Calle Esmeralda 53 and confirm via @finelysaludable.",
+      es: "Cocina-balcón en la ladera de Cerro Mar — ven por el mirador al atardecer y las noches en vivo, no un lounge walk-in de Luis Ginebra; clava Calle Esmeralda 53 y confirma por @finelysaludable.",
+      fr: "Cuisine-balcon sur la colline de Cerro Mar — venez pour le mirador sunset et les soirées live, pas un lounge walk-in de Luis Ginebra ; épinglez Calle Esmeralda 53 et confirmez via @finelysaludable.",
     },
   },
   "kviar-costa-dorada": {
