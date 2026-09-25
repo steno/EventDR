@@ -120,6 +120,8 @@ export const VENUE_AUDIENCE_POOLS: Record<
     "macorix-house-of-rum",
     "playa-los-charamicos",
     "meclao-rooftop",
+    "el-mirador-de-finely",
+    "ambar-lounge-pop",
     "kviar-costa-dorada",
     "don-limon-cofresi",
     "los-tres-cocos-cofresi",

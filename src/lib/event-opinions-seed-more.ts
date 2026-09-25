@@ -3191,4 +3191,61 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "Editor IG @ninafrikadance + flyer + ticket site — Wed 4 Nov 2026 Project Paradise / Casa Azul Costa Azul Cabarete; GA RD$2,500; facilitators listed on SovereignSisterSummit26.netlify.app; CG Wellness +1 809-710-5824.",
     updatedAt: "2026-09-24T12:00:00.000Z",
   },
+  {
+    eventId: "meclao-house-friday-2026-09-25",
+    body: "This week’s House Friday swaps DJ Choco for Junier Lockward on the same Luis Ginebra rooftop — still not the RETRO Saturday format, and cover isn’t posted; call 829-374-7028 for a table before you assume walk-in.",
+    localized: {
+      es: "El House Friday de esta semana cambia a DJ Choco por Junier Lockward en el mismo rooftop de Luis Ginebra — sigue sin ser el formato RETRO del sábado, y el cover no está publicado; llama al 829-374-7028 por mesa antes de asumir walk-in.",
+      fr: "Le House Friday de cette semaine remplace DJ Choco par Junier Lockward sur le même rooftop Luis Ginebra — ce n’est toujours pas le format RETRO du samedi, et le cover n’est pas affiché ; appelez le 829-374-7028 pour une table avant d’assumer le walk-in.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "Cover not posted — reserve 829-374-7028; weekend rooftop spend typically DOP 500–1,000",
+    priceNoteLocalized: {
+      es: "Cover no publicado — reserva 829-374-7028; gasto típico de rooftop fin de semana DOP 500–1,000",
+      fr: "Cover non publié — réservez 829-374-7028 ; budget rooftop week-end typique DOP 500–1 000",
+    },
+    attribution: "POP research · @meclaorooftop House Friday / Junier Lockward flyer",
+    researchNotes:
+      "Editor IG @meclaorooftop — House Friday, Vie 25 Sep, Junier Lockward (@jlockward), Mecla'o Rooftop Lounge, Luis Ginebra 49. Reservations 829-374-7028. No start time or cover on art. Distinct from House Friday 18 Sep (DJ Choco).",
+    updatedAt: "2026-09-25T15:00:00.000Z",
+  },
+  {
+    eventId: "ambar-lounge-emil-roman-2026-09-26",
+    body: "Saturday beats night with Emil Román on the Luis Ginebra rooftop — not Bandoleras Friday and not a free street set; RSVP (809) 781-8677 / @ambarloungepop before you treat it as walk-in after 5 PM.",
+    localized: {
+      es: "Noche de beats el sábado con Emil Román en el rooftop de Luis Ginebra — no es Bandoleras del viernes ni un set de calle gratis; RSVP (809) 781-8677 / @ambarloungepop antes de tratarlo como walk-in después de las 5 PM.",
+      fr: "Soirée beats le samedi avec Emil Román sur le rooftop Luis Ginebra — pas Bandoleras du vendredi ni un set de rue gratuit ; RSVP (809) 781-8677 / @ambarloungepop avant de le traiter comme walk-in après 17 h.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "Cover not on flyer — RSVP (809) 781-8677; budget downtown rooftop drinks",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — RSVP (809) 781-8677; presupuesta drinks de rooftop downtown",
+      fr: "Cover absent de l’affiche — RSVP (809) 781-8677 ; budget boissons rooftop downtown",
+    },
+    attribution: "POP research · @ambarloungepop Emil Román flyer",
+    researchNotes:
+      "Editor flyer + IG @ambarloungepop — Emil Román / @djemilroman, Sábado 26, Ambar Lounge, Av Luis Ginebra 45 segundo y tercer nivel, RSVP (809) 781-8677. No cover or start time on art.",
+    updatedAt: "2026-09-25T14:00:00.000Z",
+  },
+  {
+    eventId: "finely-mirador-inauguracion-2026-09-25",
+    body: "Cerro Mar kitchen debut with welcome drinks and tastings — pin Calle Esmeralda 53, not a Luis Ginebra rooftop crawl, and treat Lisbeth Naar / Café Meclao’ as restaurant live music, not a club door night.",
+    localized: {
+      es: "Debut de cocina en Cerro Mar con tragos de bienvenida y degustaciones — clava Calle Esmeralda 53, no un crawl de rooftops en Luis Ginebra, y trata a Lisbeth Naar / Café Meclao’ como música en vivo de restaurante, no una noche de puerta de club.",
+      fr: "Début de cuisine à Cerro Mar avec verres de bienvenue et dégustations — épinglez Calle Esmeralda 53, pas un crawl de rooftops Luis Ginebra, et voyez Lisbeth Naar / Café Meclao’ comme live de restaurant, pas une nuit de porte de club.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "Free entry per flyer — pay for food/drinks; confirm via @finelysaludable",
+    priceNoteLocalized: {
+      es: "Entrada gratis según el flyer — pagas comida/tragos; confirma por @finelysaludable",
+      fr: "Entrée gratuite selon l’affiche — payez nourriture/boissons ; confirmez via @finelysaludable",
+    },
+    attribution: "POP research · @finelysaludable Gran Inauguración flyer",
+    researchNotes:
+      "Editor flyer + IG @finelysaludable — Gran Inauguración / nueva cocina profesional, Vie 25 Sep, El Mirador de Finely, Lisbeth Naar y Café Meclao', tragos de bienvenida, degustaciones, ofertas especiales. Address from directory: Calle Esmeralda 53, Urb. Cerro Mar. No phone on art.",
+    updatedAt: "2026-09-25T16:00:00.000Z",
+  },
 ];

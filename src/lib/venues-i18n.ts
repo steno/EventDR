@@ -871,6 +871,12 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Lounge bar rooftop sur Av. Luis Ginebra 45-a — cocktails, soirées sur invitation et énergie tardive downtown. Ouvert lun/mer–dim dès 17 h (fermé mar). Réservations (809) 781-8677 · Instagram @ambarloungepop.",
     },
   },
+  "el-mirador-de-finely": {
+    description: {
+      es: "Restaurante y balcón en Urbanización Cerro Mar (Calle Esmeralda 53) — nueva cocina profesional, vistas al atardecer sobre el pueblo y el agua, y noches de música en vivo con cartel. Instagram @finelysaludable.",
+      fr: "Restaurant et balcon à Urbanización Cerro Mar (Calle Esmeralda 53) — nouvelle cuisine professionnelle, vues sunset sur la ville et l’eau, et soirées live à l’affiche. Instagram @finelysaludable.",
+    },
+  },
   "luna-lounge-lcb": {
     description: {
       es: "Lounge y disco bar en Av. Luis Ginebra #42 cerca del Restaurante Odisea — noches en vivo y fiestas en el centro de Puerto Plata. Instagram @lunaloungelcb.",

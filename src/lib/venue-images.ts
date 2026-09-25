@@ -183,6 +183,7 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "nova-salud-bienestar": "nova-salud-bienestar-facade.jpg",
   "camara-comercio-puerto-plata": "camara-comercio-puerto-plata-facade.jpg",
   "ambar-lounge-pop": "ambar-lounge-pop-lounge.jpg",
+  "el-mirador-de-finely": "el-mirador-de-finely-balcony.jpg",
   "luna-lounge-lcb": "luna-lounge-lcb-facade.jpg",
   "ivan-garcia-teatro-escuela": "ivan-garcia-teatro-escuela-facade.jpg",
   "spotland-puerto-plata": "spotland-puerto-plata-entrance.jpg",

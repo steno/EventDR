@@ -156,6 +156,11 @@ export const INSTAGRAM_ACCOUNTS = [
     areas: ["Puerto Plata"],
   },
   {
+    handle: "finelysaludable",
+    label: "El Mirador de Finely / Finely Saludable",
+    areas: ["Puerto Plata"],
+  },
+  {
     handle: "lokuraspop",
     label: "Lokura's Pop Bar Café",
     areas: ["Puerto Plata"],
@@ -421,7 +426,7 @@ export function instagramSearchQueries(): string[] {
     "auracabarete", "cabaretestandup", "hotelvillataina", "eventospop037",
     "novapuertoplata", "spotlandrd", "classiccarsrd", "trolleycitytours", "lunaloungelcb", "teatroivangarcia",
     "oceanworldterrace", "sosuafoodmarket", "paradaelchoco",
-    "kitestreetpop", "meclaorooftop", "kviarcasinos", "acapella.pop", "vinotecamarienpp",
+    "kitestreetpop", "meclaorooftop", "finelysaludable", "kviarcasinos", "acapella.pop", "vinotecamarienpp",
     "lagunasov", "santafesov", "donlimon02", "lostrescocosrd", "lovedoesrd", "iss.pta",
   ].join(" OR ");
 

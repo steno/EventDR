@@ -3178,5 +3178,86 @@
       "Goddess Arcana — Energetic Sovereignty"
     ],
     "imageEmoji": "💜"
+  },
+  {
+    "id": "meclao-house-friday-2026-09-25",
+    "title": "House Friday with Junier Lockward",
+    "description": "House Friday at Mecla'o Rooftop Lounge, Av. Luis Ginebra No. 49, Puerto Plata — Friday 25 September 2026 with Junier Lockward (@jlockward). Confirm doors and cover via Instagram @meclaorooftop. Reserve tables: 829-374-7028.",
+    "date": "2026-09-25",
+    "location": "Puerto Plata",
+    "venue": "Mecla'o Rooftop Lounge",
+    "venueSlug": "meclao-rooftop",
+    "address": "Av. Luis Ginebra No. 49, Puerto Plata 57000",
+    "lat": 19.788312,
+    "lng": -70.677453,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18293747028",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/meclaorooftop/",
+    "lineup": [
+      "Junier Lockward"
+    ],
+    "imageEmoji": "🎧"
+  },
+  {
+    "id": "ambar-lounge-emil-roman-2026-09-26",
+    "title": "Emil Román at Ambar Lounge",
+    "description": "Emil Román (@djemilroman) at Ambar Lounge POP, Av. Luis Ginebra No. 45, segundo y tercer nivel, Puerto Plata — Saturday 26 September 2026. Confirm doors, set time, and cover via Instagram @ambarloungepop or (809) 781-8677. Lounge open from 5:00 PM (closed Tuesdays).",
+    "date": "2026-09-26",
+    "location": "Puerto Plata",
+    "venue": "Ambar Lounge POP",
+    "venueSlug": "ambar-lounge-pop",
+    "address": "Av. Luis Ginebra No. 45, segundo y tercer nivel, Puerto Plata 57000",
+    "lat": 19.7918,
+    "lng": -70.681,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18097818677",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/ambarloungepop/",
+    "lineup": [
+      "Emil Román"
+    ],
+    "imageEmoji": "🎧"
+  },
+  {
+    "id": "finely-mirador-inauguracion-2026-09-25",
+    "title": "Grand Opening — El Mirador de Finely",
+    "description": "Grand opening of the new professional kitchen at El Mirador de Finely, Calle Esmeralda 53, Urbanización Cerro Mar, Puerto Plata — Friday 25 September 2026. Live music with Lisbeth Naar and Café Meclao'; welcome drinks, tastings, and special offers. Confirm hours via Instagram @finelysaludable.",
+    "date": "2026-09-25",
+    "location": "Puerto Plata",
+    "venue": "El Mirador de Finely",
+    "venueSlug": "el-mirador-de-finely",
+    "address": "Calle Esmeralda 53, Urbanización Cerro Mar, Puerto Plata 57000",
+    "lat": 19.7815,
+    "lng": -70.675,
+    "category": "food",
+    "categories": [
+      "music",
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/finelysaludable/",
+    "lineup": [
+      "Lisbeth Naar",
+      "Café Meclao'"
+    ],
+    "imageEmoji": "🍽️"
   }
 ]

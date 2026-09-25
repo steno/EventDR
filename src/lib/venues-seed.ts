@@ -1720,6 +1720,17 @@ export const SEED_VENUES: Venue[] = [
     phone: "+18097818677",
   },
   {
+    slug: "el-mirador-de-finely",
+    name: "El Mirador de Finely",
+    city: "Puerto Plata",
+    description:
+      "Hillside restaurant and outdoor balcony in Urbanización Cerro Mar (Calle Esmeralda 53) — new professional kitchen, sunset views over town and water, and billed live-music nights. Instagram @finelysaludable.",
+    lat: 19.7815,
+    lng: -70.675,
+    emoji: "🍽️",
+    instagram: "finelysaludable",
+  },
+  {
     slug: "luna-lounge-lcb",
     name: "Luna Lounge LCB",
     city: "Puerto Plata",
@@ -1943,6 +1954,11 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
     pattern:
       /[aá]mbar\s*lounge(\s*pop)?|ambarloungepop/i,
     slug: "ambar-lounge-pop",
+  },
+  {
+    pattern:
+      /el\s*mirador\s*de\s*finely|mirador\s*de\s*finely|finely\s*saludable|finelysaludable/i,
+    slug: "el-mirador-de-finely",
   },
   {
     pattern: /luna\s*(lounge|disco)|lunaloungelcb/i,

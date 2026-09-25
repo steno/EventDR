@@ -80,6 +80,10 @@ const FILE_TO_EVENT_ID = {
   "aura-disco-dj-melvin-2026-09-19.jpg": "aura-disco-dj-melvin-2026-09-19",
   "aura-disco-dj-christo-2026-09-26.jpg": "aura-disco-dj-christo-2026-09-26",
   "meclao-house-friday-2026-09-18.jpg": "meclao-house-friday-2026-09-18",
+  "meclao-house-friday-2026-09-25.jpg": "meclao-house-friday-2026-09-25",
+  "ambar-lounge-emil-roman-2026-09-26.jpg": "ambar-lounge-emil-roman-2026-09-26",
+  "finely-mirador-inauguracion-2026-09-25.jpg":
+    "finely-mirador-inauguracion-2026-09-25",
   "cabarete-stand-up-vol-2-2026-10-24.jpg":
     "cabarete-stand-up-vol-2-2026-10-24",
   "hard-rock-the-king-mj-2026-09-19.jpg": "hard-rock-the-king-mj-2026-09-19",
@@ -444,6 +448,7 @@ const FILE_TO_VENUE_SLUG = {
   "aura-beach-club-cabarete-entrance.jpg": "aura-beach-club-cabarete-entrance",
   "trolley-city-tours-party-bus.jpg": "trolley-city-tours-party-bus",
   "hotel-villa-taina-pool.jpg": "hotel-villa-taina-pool",
+  "el-mirador-de-finely-balcony.jpg": "el-mirador-de-finely-balcony",
   "sosua-food-market-entrance.jpg": "sosua-food-market-entrance",
 };
 
