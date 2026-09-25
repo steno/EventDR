@@ -82,6 +82,9 @@ const FILE_TO_EVENT_ID = {
   "meclao-house-friday-2026-09-18.jpg": "meclao-house-friday-2026-09-18",
   "meclao-house-friday-2026-09-25-lockward.jpg":
     "meclao-house-friday-2026-09-25",
+  "meclao-chris-plasencia-2026-09-26.jpg": "meclao-chris-plasencia-2026-09-26",
+  "la-lola-back-to-northside-2026-07-04.jpg":
+    "la-lola-back-to-northside-2026-07-04",
   "ambar-lounge-emil-roman-2026-09-26.jpg": "ambar-lounge-emil-roman-2026-09-26",
   "finely-mirador-inauguracion-2026-09-25.jpg":
     "finely-mirador-inauguracion-2026-09-25",

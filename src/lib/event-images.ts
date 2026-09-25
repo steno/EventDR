@@ -204,6 +204,10 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   // Filename bump — full Junier Lockward flyer (immutable CDN kept the caption-crop).
   "meclao-house-friday-2026-09-25":
     "meclao-house-friday-2026-09-25-lockward.jpg",
+  "meclao-chris-plasencia-2026-09-26":
+    "meclao-chris-plasencia-2026-09-26.jpg",
+  "la-lola-back-to-northside-2026-07-04":
+    "la-lola-back-to-northside-2026-07-04.jpg",
   "ambar-lounge-emil-roman-2026-09-26":
     "ambar-lounge-emil-roman-2026-09-26.jpg",
   "finely-mirador-inauguracion-2026-09-25":
@@ -436,6 +440,8 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "aura-disco-dj-christo-2026-09-26": "object-center",
   "meclao-house-friday-2026-09-18": "object-center",
   "meclao-house-friday-2026-09-25": "object-center",
+  "meclao-chris-plasencia-2026-09-26": "object-center",
+  "la-lola-back-to-northside-2026-07-04": "object-center",
   "ambar-lounge-emil-roman-2026-09-26": "object-center",
   "finely-mirador-inauguracion-2026-09-25": "object-center",
   "cabarete-stand-up-vol-2-2026-10-24": "object-center",
@@ -579,6 +585,8 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "aura-disco-dj-christo-2026-09-26.jpg",
   "meclao-house-friday-2026-09-18.jpg",
   "meclao-house-friday-2026-09-25-lockward.jpg",
+  "meclao-chris-plasencia-2026-09-26.jpg",
+  "la-lola-back-to-northside-2026-07-04.jpg",
   "ambar-lounge-emil-roman-2026-09-26.jpg",
   "finely-mirador-inauguracion-2026-09-25.jpg",
   "cabarete-stand-up-vol-2-2026-10-24.jpg",

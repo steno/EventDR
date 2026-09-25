@@ -3257,5 +3257,60 @@
       "Café Meclao'"
     ],
     "imageEmoji": "🍽️"
+  },
+  {
+    "id": "meclao-chris-plasencia-2026-09-26",
+    "title": "Chris Plasencia au Mecla'o Rooftop",
+    "description": "Beats by Chris Plasencia (@chrisplasencia_) au Mecla'o Rooftop Lounge, Av. Luis Ginebra n° 49, Puerto Plata — samedi 26 septembre 2026. Confirmez horaires et cover via Instagram @meclaorooftop. Réservations : 829-374-7028.",
+    "date": "2026-09-26",
+    "location": "Puerto Plata",
+    "venue": "Mecla'o Rooftop Lounge",
+    "venueSlug": "meclao-rooftop",
+    "address": "Av. Luis Ginebra No. 49, Puerto Plata 57000",
+    "lat": 19.788312,
+    "lng": -70.677453,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18293747028",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/meclaorooftop/",
+    "lineup": [
+      "Chris Plasencia"
+    ],
+    "imageEmoji": "🎧"
+  },
+  {
+    "id": "la-lola-back-to-northside-2026-07-04",
+    "title": "Back to Northside Vibes à La Lola",
+    "description": "Back to Northside Vibes au La Lola Beach Club sur Avenida Gregorio Luperón (Malecón), Puerto Plata — samedi 4 juillet 2026 dès 18 h. Soirée patio beach-club du crew North Side. RSVP (829) 874-0640 ; billets via TIX. Confirmez cover et ouverture avant d’y aller.",
+    "date": "2026-07-04",
+    "time": "6:00 PM",
+    "location": "Puerto Plata",
+    "venue": "La Lola Beach Club",
+    "venueSlug": "la-lola-malecon",
+    "address": "Avenida Gregorio Luperón, Malecón, Puerto Plata",
+    "lat": 19.7969,
+    "lng": -70.68725,
+    "category": "parties",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18298740640",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/lalolabeachclub/",
+    "lineup": [
+      "North Side"
+    ],
+    "imageEmoji": "🌊"
   }
 ]

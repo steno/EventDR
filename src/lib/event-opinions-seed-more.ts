@@ -3248,4 +3248,42 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "Editor flyer + IG @finelysaludable — Gran Inauguración / nueva cocina profesional, Vie 25 Sep, El Mirador de Finely, Lisbeth Naar y Café Meclao', tragos de bienvenida, degustaciones, ofertas especiales. Address from directory: Calle Esmeralda 53, Urb. Cerro Mar. No phone on art.",
     updatedAt: "2026-09-25T16:00:00.000Z",
   },
+  {
+    eventId: "meclao-chris-plasencia-2026-09-26",
+    body: "Saturday beats night with Chris Plasencia on the Luis Ginebra rooftop — not House Friday’s Lockward set and not Ambar next door; reserve 829-374-7028 before you assume a walk-in table.",
+    localized: {
+      es: "Noche de beats el sábado con Chris Plasencia en el rooftop de Luis Ginebra — no es el set de Lockward del House Friday ni Ambar al lado; reserva 829-374-7028 antes de asumir mesa walk-in.",
+      fr: "Soirée beats le samedi avec Chris Plasencia sur le rooftop Luis Ginebra — pas le set Lockward du House Friday ni Ambar à côté ; réservez 829-374-7028 avant d’assumer une table walk-in.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "Cover not posted — reserve 829-374-7028; weekend rooftop spend typically DOP 500–1,000",
+    priceNoteLocalized: {
+      es: "Cover no publicado — reserva 829-374-7028; gasto típico de rooftop fin de semana DOP 500–1,000",
+      fr: "Cover non publié — réservez 829-374-7028 ; budget rooftop week-end typique DOP 500–1 000",
+    },
+    attribution: "POP research · @meclaorooftop Chris Plasencia flyer",
+    researchNotes:
+      "Editor IG @meclaorooftop — Pa Que La Pases Bien / Chris Plasencia (@chrisplasencia_), Sab 26 Sep, Mecla'o Rooftop Lounge, Luis Ginebra 49. Reservations 829-374-7028. No start time or cover on art. Distinct from House Friday 25 Sep (Junier Lockward).",
+    updatedAt: "2026-09-25T17:00:00.000Z",
+  },
+  {
+    eventId: "la-lola-back-to-northside-2026-07-04",
+    body: "North Side crew takeover on the Malecón from 6:00 PM — patio beach-club vibes at La Lola, not a Cabarete club night; RSVP (829) 874-0640 / TIX before you treat entry as free.",
+    localized: {
+      es: "Toma del crew North Side en el Malecón desde las 6:00 PM — vibes de patio beach-club en La Lola, no una noche de club en Cabarete; RSVP (829) 874-0640 / TIX antes de tratar la entrada como gratis.",
+      fr: "Takeover du crew North Side sur le Malecón dès 18 h — vibes patio beach-club à La Lola, pas une soirée club à Cabarete ; RSVP (829) 874-0640 / TIX avant de traiter l’entrée comme gratuite.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "Tickets via TIX — RSVP (829) 874-0640; cover not printed on flyer",
+    priceNoteLocalized: {
+      es: "Boletas por TIX — RSVP (829) 874-0640; cover no está en el flyer",
+      fr: "Billets via TIX — RSVP (829) 874-0640 ; cover absent de l’affiche",
+    },
+    attribution: "POP research · North Side / La Lola Beach Club flyer",
+    researchNotes:
+      "Editor flyer — Back to Northside Vibes, Sábado 4 de Julio 6PM, Lalola Beach Club, RSVP (829) 874-0640, boletas en TIX. Sponsors Stoli / Brugal / Lifestyle Holidays / Red Bull. Distinct phone from venue desk +1 849-517-5705.",
+    updatedAt: "2026-09-25T16:30:00.000Z",
+  },
 ];
