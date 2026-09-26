@@ -169,15 +169,23 @@ function buildFacebookClipboardText(event: Event, locale: Locale): string {
 }
 
 /**
- * Instagram has no public web sharer (no `instagram.com/share?url=`).
- * Caption + URL is what the user pastes into a post, Story, or DM.
+ * Instagram has no public web sharer. The share button copies this URL
+ * (Link sticker) and, on mobile, opens `instagram-stories://share`.
  */
 export function buildInstagramClipboardText(
   event: Event,
   locale: Locale,
 ): string {
-  const canonicalUrl = getCanonicalEventShareUrl(event, locale);
-  return `${buildEventShareCaption(event, locale)}\n\n${canonicalUrl}`;
+  return getCanonicalEventShareUrl(event, locale);
+}
+
+export function getInstagramStoriesShareUrl(appId?: string): string {
+  const id =
+    appId?.trim() || process.env.NEXT_PUBLIC_FACEBOOK_APP_ID?.trim() || "";
+  if (id) {
+    return `instagram-stories://share?source_application=${encodeURIComponent(id)}`;
+  }
+  return "instagram-stories://share";
 }
 
 /**
@@ -241,57 +249,58 @@ export function openFacebookShare(event: Event, locale: Locale): void {
   void shareToFacebook(event, locale);
 }
 
+async function copyInstagramSharePayload(
+  url: string,
+  preview?: Blob | null,
+): Promise<boolean> {
+  if (preview && typeof ClipboardItem !== "undefined" && navigator.clipboard?.write) {
+    try {
+      const type = preview.type || "image/png";
+      await navigator.clipboard.write([
+        new ClipboardItem({
+          "text/plain": Promise.resolve(new Blob([url], { type: "text/plain" })),
+          [type]: Promise.resolve(preview),
+        }),
+      ]);
+      return true;
+    } catch {
+      // Fall through to URL-only copy (Link sticker still works).
+    }
+  }
+  return copyText(url);
+}
+
 /**
- * Instagram cannot prefill a post from a website. Copy caption + URL, then
- * open the app (mobile) or instagram.com (desktop) so the user can paste.
+ * Copy the event URL (and an optional Stories preview image). Caller shows
+ * "Link copied" and, on mobile, opens Instagram Stories.
  */
 export async function shareToInstagram(
   event: Event,
   locale: Locale,
+  preview?: Blob | null,
 ): Promise<"copied" | "failed"> {
   if (typeof window === "undefined") return "failed";
-  const copied = await copyText(buildInstagramClipboardText(event, locale));
+  const url = getCanonicalEventShareUrl(event, locale);
+  const copied = await copyInstagramSharePayload(url, preview);
   return copied ? "copied" : "failed";
 }
 
-/** Open the Instagram app after the user has acknowledged the clipboard copy. */
-export function openInstagramApp(): void {
-  if (typeof window === "undefined") return;
+/** Open Instagram's Stories composer (`instagram-stories://share`). */
+export function openInstagramStories(): void {
+  if (typeof window === "undefined" || !prefersMobileAppShare()) return;
 
-  // Desktop has no Instagram composer to deep-link; the clipboard copy is the share.
-  if (!prefersMobileAppShare()) return;
-
-  const deepLink = "instagram://app";
-  const fallback = "https://www.instagram.com/";
-
-  const startedAt = Date.now();
-  let fellBack = false;
-
-  const cleanup = () => {
-    document.removeEventListener("visibilitychange", onVisibility);
-    window.clearTimeout(timer);
-  };
-
-  const onVisibility = () => {
-    if (document.visibilityState === "hidden") cleanup();
-  };
-
-  document.addEventListener("visibilitychange", onVisibility);
-
+  const deepLink = getInstagramStoriesShareUrl();
   const link = document.createElement("a");
   link.href = deepLink;
   link.style.display = "none";
   document.body.appendChild(link);
   link.click();
   link.remove();
+}
 
-  const timer = window.setTimeout(() => {
-    cleanup();
-    if (!fellBack && Date.now() - startedAt < 2500) {
-      fellBack = true;
-      openExternalShare(fallback);
-    }
-  }, 750);
+/** @deprecated Use openInstagramStories */
+export function openInstagramApp(): void {
+  openInstagramStories();
 }
 
 function isViewingShareUrl(url: string): boolean {

@@ -4,6 +4,7 @@ import {
   buildEventShareCaption,
   buildInstagramClipboardText,
   buildWhatsAppShareMessage,
+  getInstagramStoriesShareUrl,
   getShareUrl,
   isExternalSharePlatform,
 } from "./share";
@@ -57,13 +58,18 @@ describe("instagram share", () => {
     assert.equal(isExternalSharePlatform("instagram"), true);
   });
 
-  it("copies a short caption plus the canonical event URL", () => {
-    const text = buildInstagramClipboardText(sample, "en");
-    assert.equal(text.includes(sample.title), true);
-    assert.equal(text.includes(sample.description), false);
-    assert.match(
-      text,
-      /https:\/\/pop-event\.com\/en\/event\/allison-sade-aura-2026-09-17$/,
+  it("copies only the canonical event URL for the Story Link sticker", () => {
+    assert.equal(
+      buildInstagramClipboardText(sample, "en"),
+      "https://pop-event.com/en/event/allison-sade-aura-2026-09-17",
+    );
+  });
+
+  it("builds the official Stories share scheme", () => {
+    assert.equal(getInstagramStoriesShareUrl(), "instagram-stories://share");
+    assert.equal(
+      getInstagramStoriesShareUrl("1234567890"),
+      "instagram-stories://share?source_application=1234567890",
     );
   });
 });

@@ -303,7 +303,6 @@ export type Dictionary = {
     linkCopied: string;
     facebookCopied: string;
     facebookCopyFailed: string;
-    instagramCopied: string;
     instagramCopyFailed: string;
   };
   submit: {
@@ -943,10 +942,8 @@ export const en: Dictionary = {
       "Event copied! Tap OK, then paste into your Facebook post.",
     facebookCopyFailed:
       "Could not copy automatically. Long-press to paste after Facebook opens.",
-    instagramCopied:
-      "Event copied! Tap OK, then paste into your Instagram post, Story, or DM.",
     instagramCopyFailed:
-      "Could not copy automatically. Long-press to paste after Instagram opens.",
+      "Could not copy the link. Paste it as a Link sticker in your Story.",
   },
   submit: {
     title: "Share an event",

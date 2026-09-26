@@ -1,6 +1,6 @@
 "use client";
 
-import { useSyncExternalStore, type ReactNode } from "react";
+import { useEffect, useRef, useSyncExternalStore, type ReactNode } from "react";
 import { Link2, Mail, Share2 } from "lucide-react";
 import { ActionSheet, ActionSheetTile } from "@/components/ActionSheet";
 import {
@@ -19,12 +19,13 @@ import {
   isExternalSharePlatform,
   openExternalShare,
   openFacebookApp,
-  openInstagramApp,
+  openInstagramStories,
   shareToFacebook,
   shareToInstagram,
   shareViaPlatform,
   type SharePlatform,
 } from "@/lib/share";
+import { buildInstagramStoryPreviewBlob } from "@/lib/instagram-story-card";
 
 interface ShareMenuProps {
   event: Event;
@@ -109,6 +110,11 @@ export function ShareMenu({
     () => canUseNativeShare(),
     () => false,
   );
+  const storyPreviewRef = useRef<Promise<Blob | null> | null>(null);
+
+  useEffect(() => {
+    storyPreviewRef.current = buildInstagramStoryPreviewBlob(event, locale);
+  }, [event, locale]);
 
   async function handlePlatform(platform: SharePlatform) {
     if (isExternalSharePlatform(platform)) {
@@ -129,19 +135,15 @@ export function ShareMenu({
         return;
       }
       if (platform === "instagram") {
-        const result = await shareToInstagram(event, locale);
+        const preview = (await storyPreviewRef.current) ?? null;
+        const result = await shareToInstagram(event, locale, preview);
         onClose();
         if (result === "copied") {
-          const msg = dict.detail.instagramCopied;
-          onFeedback(msg);
-          window.alert(msg);
-          openInstagramApp();
-        } else if (result === "failed") {
-          const msg = dict.detail.instagramCopyFailed;
-          onFeedback(msg);
-          window.alert(msg);
-          openInstagramApp();
+          onFeedback(dict.detail.linkCopied);
+        } else {
+          onFeedback(dict.detail.instagramCopyFailed);
         }
+        openInstagramStories();
         return;
       }
       const href = getShareUrl(platform, event, locale);
