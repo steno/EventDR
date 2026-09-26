@@ -8,6 +8,7 @@ export type SharePlatform =
   | "native"
   | "whatsapp"
   | "facebook"
+  | "instagram"
   | "x"
   | "telegram"
   | "email"
@@ -106,6 +107,7 @@ export function canUseNativeShare(): boolean {
 const EXTERNAL_SHARE_PLATFORMS = new Set<SharePlatform>([
   "whatsapp",
   "facebook",
+  "instagram",
   "x",
   "telegram",
   "email",
@@ -132,7 +134,7 @@ export function openExternalShare(url: string): boolean {
     return true;
   }
 
-  if (prefersMobileFacebookShare()) {
+  if (prefersMobileAppShare()) {
     link.target = "_blank";
     document.body.appendChild(link);
     link.click();
@@ -167,6 +169,18 @@ function buildFacebookClipboardText(event: Event, locale: Locale): string {
 }
 
 /**
+ * Instagram has no public web sharer (no `instagram.com/share?url=`).
+ * Caption + URL is what the user pastes into a post, Story, or DM.
+ */
+export function buildInstagramClipboardText(
+  event: Event,
+  locale: Locale,
+): string {
+  const canonicalUrl = getCanonicalEventShareUrl(event, locale);
+  return `${buildEventShareCaption(event, locale)}\n\n${canonicalUrl}`;
+}
+
+/**
  * Mobile: copy event details (FB app cannot prefill from localhost/LAN sharer URLs).
  * Caller should alert the user, then call openFacebookApp().
  * Desktop: standard sharer popup.
@@ -177,7 +191,7 @@ export async function shareToFacebook(
 ): Promise<"opened" | "copied" | "failed"> {
   if (typeof window === "undefined") return "failed";
 
-  if (prefersMobileFacebookShare()) {
+  if (prefersMobileAppShare()) {
     const copied = await copyText(buildFacebookClipboardText(event, locale));
     return copied ? "copied" : "failed";
   }
@@ -227,6 +241,59 @@ export function openFacebookShare(event: Event, locale: Locale): void {
   void shareToFacebook(event, locale);
 }
 
+/**
+ * Instagram cannot prefill a post from a website. Copy caption + URL, then
+ * open the app (mobile) or instagram.com (desktop) so the user can paste.
+ */
+export async function shareToInstagram(
+  event: Event,
+  locale: Locale,
+): Promise<"copied" | "failed"> {
+  if (typeof window === "undefined") return "failed";
+  const copied = await copyText(buildInstagramClipboardText(event, locale));
+  return copied ? "copied" : "failed";
+}
+
+/** Open the Instagram app after the user has acknowledged the clipboard copy. */
+export function openInstagramApp(): void {
+  if (typeof window === "undefined") return;
+
+  // Desktop has no Instagram composer to deep-link; the clipboard copy is the share.
+  if (!prefersMobileAppShare()) return;
+
+  const deepLink = "instagram://app";
+  const fallback = "https://www.instagram.com/";
+
+  const startedAt = Date.now();
+  let fellBack = false;
+
+  const cleanup = () => {
+    document.removeEventListener("visibilitychange", onVisibility);
+    window.clearTimeout(timer);
+  };
+
+  const onVisibility = () => {
+    if (document.visibilityState === "hidden") cleanup();
+  };
+
+  document.addEventListener("visibilitychange", onVisibility);
+
+  const link = document.createElement("a");
+  link.href = deepLink;
+  link.style.display = "none";
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+
+  const timer = window.setTimeout(() => {
+    cleanup();
+    if (!fellBack && Date.now() - startedAt < 2500) {
+      fellBack = true;
+      openExternalShare(fallback);
+    }
+  }, 750);
+}
+
 function isViewingShareUrl(url: string): boolean {
   if (typeof window === "undefined") return false;
   const current = window.location.href.split(/[?#]/)[0];
@@ -234,7 +301,7 @@ function isViewingShareUrl(url: string): boolean {
   return current === target;
 }
 
-function prefersMobileFacebookShare(): boolean {
+function prefersMobileAppShare(): boolean {
   return (
     typeof navigator !== "undefined" &&
     /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
@@ -244,7 +311,7 @@ function prefersMobileFacebookShare(): boolean {
 export function getFacebookShareUrl(event: Event, locale: Locale): string {
   const url = getCanonicalEventShareUrl(event, locale);
   const encodedUrl = encodeURIComponent(url);
-  if (prefersMobileFacebookShare()) {
+  if (prefersMobileAppShare()) {
     return getMobileFacebookSharerUrl(url);
   }
   const quote = encodeURIComponent(event.title);
@@ -264,6 +331,8 @@ export function getShareUrl(
       return `https://wa.me/?text=${encodeURIComponent(buildWhatsAppShareMessage(event, locale))}`;
     case "facebook":
       return getFacebookShareUrl(event, locale);
+    case "instagram":
+      return null;
     case "x":
       return `https://twitter.com/intent/tweet?text=${encodeURIComponent(event.title)}&url=${encodeURIComponent(url)}`;
     case "telegram":

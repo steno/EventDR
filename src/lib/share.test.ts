@@ -2,8 +2,10 @@ import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import {
   buildEventShareCaption,
+  buildInstagramClipboardText,
   buildWhatsAppShareMessage,
   getShareUrl,
+  isExternalSharePlatform,
 } from "./share";
 import type { Event } from "./types";
 
@@ -46,5 +48,22 @@ describe("buildEventShareCaption", () => {
     const caption = buildEventShareCaption(sample, "en");
     assert.equal(caption.includes(sample.description), false);
     assert.equal(caption.includes(sample.title), true);
+  });
+});
+
+describe("instagram share", () => {
+  it("has no web sharer URL", () => {
+    assert.equal(getShareUrl("instagram", sample, "en"), null);
+    assert.equal(isExternalSharePlatform("instagram"), true);
+  });
+
+  it("copies a short caption plus the canonical event URL", () => {
+    const text = buildInstagramClipboardText(sample, "en");
+    assert.equal(text.includes(sample.title), true);
+    assert.equal(text.includes(sample.description), false);
+    assert.match(
+      text,
+      /https:\/\/pop-event\.com\/en\/event\/allison-sade-aura-2026-09-17$/,
+    );
   });
 });

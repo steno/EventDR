@@ -5,6 +5,7 @@ import { Link2, Mail, Share2 } from "lucide-react";
 import { ActionSheet, ActionSheetTile } from "@/components/ActionSheet";
 import {
   FacebookIcon,
+  InstagramIcon,
   TelegramIcon,
   WhatsAppIcon,
   XIcon,
@@ -18,7 +19,9 @@ import {
   isExternalSharePlatform,
   openExternalShare,
   openFacebookApp,
+  openInstagramApp,
   shareToFacebook,
+  shareToInstagram,
   shareViaPlatform,
   type SharePlatform,
 } from "@/lib/share";
@@ -33,7 +36,12 @@ interface ShareMenuProps {
 
 const SOCIAL: {
   id: SharePlatform;
-  labelKey: "shareWhatsapp" | "shareFacebook" | "shareX" | "shareTelegram";
+  labelKey:
+    | "shareWhatsapp"
+    | "shareFacebook"
+    | "shareInstagram"
+    | "shareX"
+    | "shareTelegram";
   well: string;
   icon: ReactNode;
 }[] = [
@@ -48,6 +56,12 @@ const SOCIAL: {
     labelKey: "shareFacebook",
     well: "bg-[#1877F2] text-white",
     icon: <FacebookIcon className="h-5 w-5" />,
+  },
+  {
+    id: "instagram",
+    labelKey: "shareInstagram",
+    well: "bg-gradient-to-br from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] text-white",
+    icon: <InstagramIcon className="h-5 w-5" />,
   },
   {
     id: "x",
@@ -111,6 +125,22 @@ export function ShareMenu({
           onFeedback(msg);
           window.alert(msg);
           openFacebookApp();
+        }
+        return;
+      }
+      if (platform === "instagram") {
+        const result = await shareToInstagram(event, locale);
+        onClose();
+        if (result === "copied") {
+          const msg = dict.detail.instagramCopied;
+          onFeedback(msg);
+          window.alert(msg);
+          openInstagramApp();
+        } else if (result === "failed") {
+          const msg = dict.detail.instagramCopyFailed;
+          onFeedback(msg);
+          window.alert(msg);
+          openInstagramApp();
         }
         return;
       }

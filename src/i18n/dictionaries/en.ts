@@ -295,6 +295,7 @@ export type Dictionary = {
     shareMore: string;
     shareWhatsapp: string;
     shareFacebook: string;
+    shareInstagram: string;
     shareX: string;
     shareTelegram: string;
     shareEmail: string;
@@ -302,6 +303,8 @@ export type Dictionary = {
     linkCopied: string;
     facebookCopied: string;
     facebookCopyFailed: string;
+    instagramCopied: string;
+    instagramCopyFailed: string;
   };
   submit: {
     title: string;
@@ -930,6 +933,7 @@ export const en: Dictionary = {
     shareMore: "More",
     shareWhatsapp: "WhatsApp",
     shareFacebook: "Facebook",
+    shareInstagram: "Instagram",
     shareX: "X",
     shareTelegram: "Telegram",
     shareEmail: "Email",
@@ -939,6 +943,10 @@ export const en: Dictionary = {
       "Event copied! Tap OK, then paste into your Facebook post.",
     facebookCopyFailed:
       "Could not copy automatically. Long-press to paste after Facebook opens.",
+    instagramCopied:
+      "Event copied! Tap OK, then paste into your Instagram post, Story, or DM.",
+    instagramCopyFailed:
+      "Could not copy automatically. Long-press to paste after Instagram opens.",
   },
   submit: {
     title: "Share an event",
