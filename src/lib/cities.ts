@@ -66,6 +66,8 @@ export const CITIES: CityMeta[] = [
       "la isabela",
       "isabela",
       "el castillo",
+      "la javilla",
+      "javilla",
       "rincón caliente",
       "rincon caliente",
       "damajagua",

@@ -24,6 +24,7 @@ import { ImageStoryEnlarge } from "@/components/ImageStoryEnlarge";
 import { IntentLink } from "@/components/IntentLink";
 import { useStreetViewAvailable } from "@/hooks/useStreetViewAvailable";
 import { lastHomePath } from "@/lib/cities";
+import { hasMapCoords } from "@/lib/event-coords";
 import { isPastOneOffEvent } from "@/lib/event-dates";
 import {
   eventDetailPath,
@@ -90,6 +91,7 @@ export function VenuePage({
   const [plannerOpen, setPlannerOpen] = useState(false);
   const [areaViewOpen, setAreaViewOpen] = useState(false);
   const streetViewAvailable = useStreetViewAvailable(venue.lat, venue.lng);
+  const canShowMap = hasMapCoords(venue);
   const placeCardRef = useRef<HTMLElement>(null);
   const mapSectionRef = useRef<HTMLDivElement>(null);
   const stickyMapRef = useRef<HTMLDivElement>(null);
@@ -169,6 +171,7 @@ export function VenuePage({
   }, [locale]);
 
   function openDirectionsMode() {
+    if (!canShowMap) return;
     setPlannerOpen(true);
     // Same tap as the permission prompt so the browser will share GPS,
     // then the existing directions hook draws the driving route on the map.
@@ -285,11 +288,13 @@ export function VenuePage({
             <article
               ref={placeCardRef}
               className={`mt-1 grid h-[min(68dvh,36rem)] w-full overflow-hidden rounded-3xl bg-white shadow-2xl ring-1 ring-neutral-200/70 dark:bg-neutral-900 dark:ring-neutral-800 lg:sticky lg:top-[calc(var(--sticky-list-header-height,_0px)+0.75rem)] lg:mt-0 lg:h-[calc(100dvh-var(--sticky-list-header-height,_0px)-1.5rem)] lg:rounded-2xl lg:shadow-md ${
-                mapTakesPhotoSpace
-                  ? areaViewOpen && !plannerOpen
-                    ? "grid-rows-[minmax(0,1fr)]"
-                    : "grid-rows-[minmax(0,1fr)_auto]"
-                  : "grid-rows-[minmax(0,1fr)_minmax(0,1fr)_auto]"
+                !canShowMap
+                  ? "grid-rows-[minmax(0,1fr)]"
+                  : mapTakesPhotoSpace
+                    ? areaViewOpen && !plannerOpen
+                      ? "grid-rows-[minmax(0,1fr)]"
+                      : "grid-rows-[minmax(0,1fr)_auto]"
+                    : "grid-rows-[minmax(0,1fr)_minmax(0,1fr)_auto]"
               }`}
             >
               <div
@@ -352,7 +357,9 @@ export function VenuePage({
               </div>
               <div
                 ref={mapSectionRef}
-                className="min-h-0 [overflow-anchor:none]"
+                className={`min-h-0 [overflow-anchor:none] ${
+                  canShowMap ? "" : "hidden"
+                }`}
               >
                 <div
                   ref={stickyMapRef}
@@ -377,7 +384,7 @@ export function VenuePage({
                   />
                 </div>
               </div>
-              {plannerOpen ? (
+              {plannerOpen && canShowMap ? (
                 <div id="venue-directions" className="overflow-hidden">
                   <VenueDirectionsForm
                     ref={directionsFormRef}
@@ -387,7 +394,7 @@ export function VenuePage({
                     variant="embedded"
                   />
                 </div>
-              ) : mapTakesPhotoSpace ? null : (
+              ) : mapTakesPhotoSpace || !canShowMap ? null : (
                 <div
                   className={`border-t border-neutral-200/80 dark:border-neutral-800 ${
                     streetViewAvailable ? "grid grid-cols-2" : "grid grid-cols-1"
@@ -416,7 +423,6 @@ export function VenuePage({
                 </div>
               )}
             </article>
-
             <div className="min-w-0 lg:rounded-2xl lg:bg-white lg:px-5 lg:pt-4 lg:pb-6 lg:shadow-md lg:ring-1 lg:ring-neutral-200/60 dark:lg:bg-neutral-900 dark:lg:ring-neutral-800">
               {/* Identity + quick actions */}
               <header className="mt-4 lg:mt-0">

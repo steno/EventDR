@@ -46,6 +46,12 @@ Curated images under `public/events/` and `public/venues/`.
 | `feria-ganadera-el-cupey-2026-programa.jpg` | POP-supplied — Programa Oficial schedule poster ([@agppc](https://www.instagram.com/agppc/)) | In-app “Guarda el programa” lightbox (editor-provided) |
 | `templo-de-las-americas-daily.jpg` | POP-supplied — Templo de las Américas garden facade (La Isabela) | Daily culture visit hero; also `venues/templo-de-las-americas.jpg` (editor-provided) |
 | `venues/sosua-jewish-museum-facade.jpg` | POP-supplied — Museo Judío de Sosúa entrance with MUSEO lettering | Venue place shot filename bump (editor-provided); hours listing `sosua-jewish-museum-hours-facade.jpg` |
+| `venues/nueve-puerto-plata.jpg` | POP-supplied — Nueve Restaurante-Bar night entrance ([@nueve_rd](https://www.instagram.com/nueve_rd/)) | Venue place shot (editor-provided) |
+| `nueve-sabados-bailables.jpg` | POP-supplied — Sábados Bailables dance floor art ([@nueve_rd](https://www.instagram.com/nueve_rd/)) | Weekly Saturday dance night (editor-provided) |
+| `nueve-80s-90s-por-siempre-2026-10-10.jpg` | POP-supplied — 80s–90s Por Siempre flyer ([@nueve_rd](https://www.instagram.com/nueve_rd/) / [@thehost_rd](https://www.instagram.com/thehost_rd/)) | Sat 10 Oct 2026 theme night (editor-provided) |
+| `venues/grand-prix-puerto-plata.jpg` | POP-supplied — Grand Prix Smart Shop facade, La Javilla ([@grandprixrd](https://www.instagram.com/grandprixrd/)) | Venue place shot (editor-provided) |
+| `cheo-almonte-grand-prix-2026-09-25.jpg` | POP-supplied — Cheo Almonte Show en Vivo Gratis flyer ([@grandprixrd](https://www.instagram.com/grandprixrd/)) | Fri 25 Sep 2026 free live set (editor-provided) |
+| `grand-prix-sabado-bailable.jpg` | POP-supplied — Sábado Bailable DJ art ([@grandprixrd](https://www.instagram.com/grandprixrd/)) | Weekly Saturday dance night (editor-provided) |
 | `venues/terramar-pickleball-club.jpg` | POP-supplied — Terramar Pickleball Club profile/cover | Venue hero (editor-provided) |
 | `allison-sade-aura-2026-09-17.jpg` | POP-supplied — Allison Sade Live Music flyer ([@allisonsadeofficial](https://www.instagram.com/allisonsadeofficial/) × Aura Cabarete) | Thu 17 Sep 2026 8:00 PM (editor-provided) |
 | `ocean-world-terrace-karaoke-encuentro-2026-09-16.jpg` | POP-supplied — Un encuentro de talentos / Noche de Karaoke flyer ([@oceanworldterrace](https://www.instagram.com/oceanworldterrace/)) | Karaoke talent night Wed 16 Sep 2026 (editor-provided; filename bump); venue slug `ocean-world` |

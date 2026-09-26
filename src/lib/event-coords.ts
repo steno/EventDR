@@ -6,6 +6,17 @@ export interface EventCoords {
   lng: number;
 }
 
+/** True when both pin numbers are usable for Leaflet / Google Maps. */
+export function hasMapCoords(
+  coords: { lat?: number | null; lng?: number | null } | null | undefined,
+): coords is EventCoords {
+  return (
+    coords != null &&
+    Number.isFinite(coords.lat) &&
+    Number.isFinite(coords.lng)
+  );
+}
+
 const CITY_COORDS: Record<string, EventCoords> = {
   "puerto plata": { lat: 19.7976623, lng: -70.6932862 },
   sosúa: { lat: 19.7572211, lng: -70.5171504 },
@@ -23,7 +34,7 @@ export const NORTH_COAST_CENTER = CITY_COORDS["puerto plata"];
 
 function venueCoords(slug: string): EventCoords | null {
   const venue = getSeedVenue(slug);
-  if (!venue) return null;
+  if (!venue || !hasMapCoords(venue)) return null;
   return { lat: venue.lat, lng: venue.lng };
 }
 

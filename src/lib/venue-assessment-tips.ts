@@ -1065,6 +1065,22 @@ export const VENUE_TIP_COPY: Record<
       fr: "Rooftop au 45-a Luis Ginebra — mercredi Mojitos 3x2, Bandoleras le vendredi et soirées live à l’affiche ; DM @ambarloungepop ou appelez le (809) 781-8677 avant de compter sur le walk-in. Fermé mardi.",
     },
   },
+  "nueve-puerto-plata": {
+    body: "New Puerto Plata restaurant-bar for Saturday dance floors and theme nights — pin the Google Maps Nueve door before you Uber; not a Pedro Clisante Sosúa crawl.",
+    localized: {
+      en: "New Puerto Plata restaurant-bar for Saturday dance floors and theme nights — pin the Google Maps Nueve door before you Uber; not a Pedro Clisante Sosúa crawl.",
+      es: "Restaurante-bar nuevo en Puerto Plata para pista los sábados y noches temáticas — clava la puerta de Nueve en Google Maps antes del Uber; no es un crawl de Pedro Clisante en Sosúa.",
+      fr: "Nouveau restaurant-bar à Puerto Plata pour piste le samedi et soirées à thème — épinglez la porte Nueve sur Google Maps avant l’Uber ; pas un crawl Pedro Clisante à Sosúa.",
+    },
+  },
+  "grand-prix-puerto-plata": {
+    body: "La Javilla live-music bar by Bomba on Manolo Tavares — free billed sets and Saturday dance energy for locals; confirm doors on @grandprixrd before you treat it like a Malecón tourist stop.",
+    localized: {
+      en: "La Javilla live-music bar by Bomba on Manolo Tavares — free billed sets and Saturday dance energy for locals; confirm doors on @grandprixrd before you treat it like a Malecón tourist stop.",
+      es: "Bar de música en vivo en La Javilla junto a Bomba en Manolo Tavares — sets gratis con cartel y sábados bailables para locales; confirma puertas en @grandprixrd antes de tratarlo como stop turístico del Malecón.",
+      fr: "Bar live à La Javilla près de Bomba sur Manolo Tavares — sets gratuits à l’affiche et samedis dansants pour les locaux ; confirmez les portes sur @grandprixrd avant d’en faire un stop touristique du Malecón.",
+    },
+  },
   "luna-lounge-lcb": {
     body: "Late disco-lounge on Luis Ginebra #42 by Odisea — Thursday karaoke with DJ Koky is earlier in the week than the billed 11 PM party nights; confirm cover on @lunaloungelcb before you pin the strip.",
     localized: {

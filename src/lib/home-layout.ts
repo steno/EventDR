@@ -122,6 +122,8 @@ export const VENUE_AUDIENCE_POOLS: Record<
     "meclao-rooftop",
     "el-mirador-de-finely",
     "ambar-lounge-pop",
+    "nueve-puerto-plata",
+    "grand-prix-puerto-plata",
     "kviar-costa-dorada",
     "don-limon-cofresi",
     "los-tres-cocos-cofresi",

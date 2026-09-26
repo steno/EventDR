@@ -9,6 +9,7 @@ import {
   useMap,
 } from "react-leaflet";
 import L from "leaflet";
+import { MapPin } from "lucide-react";
 import type { EventCoords } from "@/lib/event-coords";
 import type { LatLngTuple } from "@/lib/routing";
 import {
@@ -154,6 +155,17 @@ export function EventInlineMap({
   origin = null,
   route = null,
 }: EventInlineMapProps) {
+  if (
+    !Number.isFinite(coords.lat) ||
+    !Number.isFinite(coords.lng)
+  ) {
+    return (
+      <div className="flex h-full w-full items-center justify-center bg-neutral-200 dark:bg-neutral-800">
+        <MapPin className="h-8 w-8 text-neutral-400" aria-hidden />
+      </div>
+    );
+  }
+
   return (
     <MapContainer
       center={[coords.lat, coords.lng]}

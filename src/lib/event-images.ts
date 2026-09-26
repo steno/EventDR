@@ -164,6 +164,12 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "sovereign-sister-summit-2026-11-04.jpg",
 
   "feria-ganadera-el-cupey-2026": "feria-ganadera-el-cupey-2026.jpg",
+  "nueve-sabados-bailables": "nueve-sabados-bailables.jpg",
+  "nueve-80s-90s-por-siempre-2026-10-10":
+    "nueve-80s-90s-por-siempre-2026-10-10.jpg",
+  "cheo-almonte-grand-prix-2026-09-25":
+    "cheo-almonte-grand-prix-2026-09-25.jpg",
+  "grand-prix-sabado-bailable": "grand-prix-sabado-bailable.jpg",
   "iss-pta-parents-night-out-2026-09-17":
     "iss-pta-parents-night-out-flyer.jpg",
   "hard-rock-catrinas-halloween-2026-10-31":
@@ -470,6 +476,10 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
 
   // DJ Flacome flyer — keep face + controller in Coming up / list crops.
   "feria-ganadera-el-cupey-2026": "object-center",
+  "nueve-sabados-bailables": "object-center",
+  "nueve-80s-90s-por-siempre-2026-10-10": "object-center",
+  "cheo-almonte-grand-prix-2026-09-25": "object-top",
+  "grand-prix-sabado-bailable": "object-center",
 };
 
 function curatedEventImageFile(eventId: string): string | undefined {
@@ -579,6 +589,10 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
 
   "feria-ganadera-el-cupey-2026.jpg",
   "feria-ganadera-el-cupey-2026-programa.jpg",
+  "nueve-sabados-bailables.jpg",
+  "nueve-80s-90s-por-siempre-2026-10-10.jpg",
+  "cheo-almonte-grand-prix-2026-09-25.jpg",
+  "grand-prix-sabado-bailable.jpg",
   "duo-maryem-rancho-catalina-2026-09-20.jpg",
   "rio-sonador-cierre-del-verano-2026-09-20.jpg",
   "ambar-lounge-reggaeton-2026-09-17.jpg",

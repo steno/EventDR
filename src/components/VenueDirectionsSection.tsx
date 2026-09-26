@@ -13,6 +13,7 @@ import { LocateFixed, MapPin, Navigation, X } from "lucide-react";
 import type { Venue } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { EventCoords } from "@/lib/event-coords";
+import { hasMapCoords } from "@/lib/event-coords";
 import type { LatLngTuple } from "@/lib/routing";
 import { fetchDrivingRoute, geocodePlace } from "@/lib/routing";
 import { useGeolocation } from "@/hooks/useGeolocation";
@@ -57,10 +58,16 @@ export function useVenueDirections(venue: Venue, dict: Dictionary) {
   const [error, setError] = useState<string | null>(null);
   const [pendingGeoRoute, setPendingGeoRoute] = useState(false);
 
-  const destination = { lat: venue.lat, lng: venue.lng };
+  const destination = hasMapCoords(venue)
+    ? { lat: venue.lat, lng: venue.lng }
+    : null;
 
   const applyRoute = useCallback(
     async (from: EventCoords, label: string) => {
+      if (!destination) {
+        setError(dict.venues.routeError);
+        return;
+      }
       setLoading(true);
       setError(null);
       setOrigin(from);
@@ -83,7 +90,7 @@ export function useVenueDirections(venue: Venue, dict: Dictionary) {
         setLoading(false);
       }
     },
-    [destination.lat, destination.lng, dict.venues.routeError],
+    [destination, dict.venues.routeError],
   );
 
   useEffect(() => {
@@ -247,11 +254,13 @@ export function VenueMapPanel({
 }: VenueMapPanelProps) {
   const { destination, origin, route, busy } = directions;
   const mapOpen = forceReveal || Boolean(origin || route);
-  const previewUrl = osmTilePreviewUrl(destination.lat, destination.lng);
+  const previewUrl = destination
+    ? osmTilePreviewUrl(destination.lat, destination.lng)
+    : undefined;
   const probedStreetViewAvailable = useStreetViewAvailable(
-    destination.lat,
-    destination.lng,
-    streetViewAvailableProp === undefined,
+    destination?.lat,
+    destination?.lng,
+    streetViewAvailableProp === undefined && Boolean(destination),
   );
   const streetViewAvailable =
     streetViewAvailableProp ?? probedStreetViewAvailable;
@@ -321,26 +330,35 @@ export function VenueMapPanel({
         </div>
       ) : null}
       <div className="relative min-h-0 flex-1">
-        <MapReveal
-          label={dict.venues.showMap}
-          secondary={streetViewInReveal ? streetViewControl : undefined}
-          forceReveal={mapOpen}
-          onReveal={onReveal}
-          attention={attention && !forceReveal && !streetViewOpen}
-          onAttentionEnd={onAttentionEnd}
-          previewUrl={previewUrl}
-          className="h-full w-full"
-        >
-          <div className="h-full w-full">
-            <EventInlineMap
-              coords={destination}
-              interactive
-              origin={origin}
-              route={route}
-            />
+        {destination ? (
+          <MapReveal
+            label={dict.venues.showMap}
+            secondary={streetViewInReveal ? streetViewControl : undefined}
+            forceReveal={mapOpen}
+            onReveal={onReveal}
+            attention={attention && !forceReveal && !streetViewOpen}
+            onAttentionEnd={onAttentionEnd}
+            previewUrl={previewUrl}
+            className="h-full w-full"
+          >
+            <div className="h-full w-full">
+              <EventInlineMap
+                coords={destination}
+                interactive
+                origin={origin}
+                route={route}
+              />
+            </div>
+          </MapReveal>
+        ) : (
+          <div className="flex h-full w-full flex-col items-center justify-center gap-2 bg-neutral-200 px-4 text-center dark:bg-neutral-800">
+            <MapPin className="h-8 w-8 text-neutral-400" aria-hidden />
+            <p className="text-sm font-medium text-neutral-600 dark:text-neutral-300">
+              {dict.venues.routeError}
+            </p>
           </div>
-        </MapReveal>
-        {mapOpen && overlayStreetView && streetViewControl ? (
+        )}
+        {destination && mapOpen && overlayStreetView && streetViewControl ? (
           <div className="absolute inset-x-0 bottom-0 z-[500] flex justify-center p-3 pointer-events-none">
             <div className="pointer-events-auto w-full sm:w-auto">
               {streetViewControl}
@@ -348,16 +366,18 @@ export function VenueMapPanel({
           </div>
         ) : null}
       </div>
-      <StreetViewModal
-        open={streetViewOpen && streetViewAvailable}
-        onClose={() => setStreetViewOpen(false)}
-        lat={destination.lat}
-        lng={destination.lng}
-        title={venue.name}
-        dict={dict}
-        variant="inline"
-        forceEmbed={forceStreetViewEmbed}
-      />
+      {destination ? (
+        <StreetViewModal
+          open={streetViewOpen && streetViewAvailable}
+          onClose={() => setStreetViewOpen(false)}
+          lat={destination.lat}
+          lng={destination.lng}
+          title={venue.name}
+          dict={dict}
+          variant="inline"
+          forceEmbed={forceStreetViewEmbed}
+        />
+      ) : null}
     </div>
   );
 }

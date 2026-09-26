@@ -1548,6 +1548,28 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     ],
   }),
   editorial({
+    venueSlug: "nueve-puerto-plata",
+    verdictKey: "strong_local_nightlife",
+    crowdFit: ["local", "nightlife", "mixed"],
+    axes: { recommend: 4.1, atmosphere: 4.3, value: 3.8, practical: 3.5 },
+    themes: [
+      { key: "dance_floor", sentiment: "positive", audience: "nightlife" },
+      { key: "live_music", sentiment: "positive" },
+      { key: "easy_to_find", sentiment: "mixed" },
+    ],
+  }),
+  editorial({
+    venueSlug: "grand-prix-puerto-plata",
+    verdictKey: "solid_local_nightlife",
+    crowdFit: ["local", "nightlife", "mixed"],
+    axes: { recommend: 4.0, atmosphere: 4.0, value: 4.2, practical: 3.9 },
+    themes: [
+      { key: "live_music", sentiment: "positive" },
+      { key: "dance_floor", sentiment: "positive", audience: "nightlife" },
+      { key: "easy_to_find", sentiment: "positive" },
+    ],
+  }),
+  editorial({
     venueSlug: "el-mirador-de-finely",
     verdictKey: "solid_local_food",
     crowdFit: ["local", "mixed", "visitor"],

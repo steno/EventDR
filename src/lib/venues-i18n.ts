@@ -881,6 +881,26 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Lounge bar rooftop sur Av. Luis Ginebra 45-a — cocktails, soirées sur invitation et énergie tardive downtown. Ouvert lun/mer–dim dès 17 h (fermé mar). Réservations (809) 781-8677 · Instagram @ambarloungepop.",
     },
   },
+  "nueve-puerto-plata": {
+    name: {
+      es: "Nueve Restaurante & Bar",
+      fr: "Nueve Restaurante & Bar",
+    },
+    description: {
+      es: "Restaurante-bar en Puerto Plata — Sábados Bailables y fiestas temáticas con cartel. Confirma dirección y puertas en Instagram @nueve_rd.",
+      fr: "Restaurant-bar à Puerto Plata — Sábados Bailables et soirées à thème à l’affiche. Confirmez adresse et portes sur Instagram @nueve_rd.",
+    },
+  },
+  "grand-prix-puerto-plata": {
+    name: {
+      es: "Grand Prix Smart Shop",
+      fr: "Grand Prix Smart Shop",
+    },
+    description: {
+      es: "Bar-restaurante y música en vivo en La Javilla (Edificio Grand Prix, junto a Bomba) — sets gratis, sábados bailables y patio casual en Av. Manolo Tavares Justo. Instagram @grandprixrd.",
+      fr: "Bar-restaurant et musique live à La Javilla (Edificio Grand Prix, à côté de Bomba) — sets gratuits, samedis dansants et patio casual sur Av. Manolo Tavares Justo. Instagram @grandprixrd.",
+    },
+  },
   "el-mirador-de-finely": {
     description: {
       es: "Restaurante y balcón en Urbanización Cerro Mar (Calle Esmeralda 53) — nueva cocina profesional, vistas al atardecer sobre el pueblo y el agua, y noches de música en vivo con cartel. Instagram @finelysaludable.",

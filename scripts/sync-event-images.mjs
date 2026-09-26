@@ -255,6 +255,12 @@ const FILE_TO_EVENT_ID = {
   "feria-ganadera-el-cupey-2026.jpg": "feria-ganadera-el-cupey-2026",
   "templo-de-las-americas-daily.jpg": "templo-de-las-americas-daily",
   "sosua-jewish-museum-hours-facade.jpg": "sosua-jewish-museum-hours",
+  "nueve-sabados-bailables.jpg": "nueve-sabados-bailables",
+  "nueve-80s-90s-por-siempre-2026-10-10.jpg":
+    "nueve-80s-90s-por-siempre-2026-10-10",
+  "cheo-almonte-grand-prix-2026-09-25.jpg":
+    "cheo-almonte-grand-prix-2026-09-25",
+  "grand-prix-sabado-bailable.jpg": "grand-prix-sabado-bailable",
   "allison-sade-aura-2026-09-17.jpg": "allison-sade-aura-2026-09-17",
   "ocean-world-terrace-karaoke-encuentro-2026-09-16.jpg":
     "ocean-world-terrace-singing-talent-2026-09-16",
@@ -460,6 +466,8 @@ const FILE_TO_VENUE_SLUG = {
   "sosua-food-market-entrance.jpg": "sosua-food-market-entrance",
   "sosua-jewish-museum-facade.jpg": "sosua-jewish-museum-facade",
   "templo-de-las-americas.jpg": "templo-de-las-americas",
+  "nueve-puerto-plata.jpg": "nueve-puerto-plata",
+  "grand-prix-puerto-plata.jpg": "grand-prix-puerto-plata",
 };
 
 if (!existsSync(sourceDir)) {

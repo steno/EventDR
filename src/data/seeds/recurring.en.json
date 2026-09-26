@@ -2736,5 +2736,54 @@
     "recurrence": "daily",
     "sourceUrl": "https://es.godominicanrepublic.com/que-hacer/templo-de-las-americas",
     "imageEmoji": "⛪"
+  },
+  {
+    "id": "nueve-sabados-bailables",
+    "title": "Sábados Bailables at Nueve",
+    "description": "Saturday dance nights at Nueve Restaurante & Bar in Puerto Plata — Sábados Bailables with a dance-floor crowd and DJ energy. Confirm doors and cover via Instagram @nueve_rd before you go.",
+    "date": "2026-01-01",
+    "time": "10:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Nueve Restaurante & Bar",
+    "venueSlug": "nueve-puerto-plata",
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "recurrence": "weekly",
+    "recurrenceDay": 6,
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/nueve_rd/",
+    "imageEmoji": "🪩"
+  },
+  {
+    "id": "grand-prix-sabado-bailable",
+    "title": "Sábado Bailable at Grand Prix",
+    "description": "Saturday dance night at Grand Prix Smart Shop in La Javilla, Puerto Plata — Sábado Bailable with DJ sets in the bar. Av. Manolo Tavares Justo esq. Presidente Caamaño #1 (Edificio Grand Prix, next to Bomba). Confirm doors via Instagram @grandprixrd.",
+    "date": "2026-01-01",
+    "time": "10:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Grand Prix Smart Shop",
+    "venueSlug": "grand-prix-puerto-plata",
+    "address": "Av. Manolo Tavares Justo esq. Presidente Caamaño #1, Edificio Grand Prix (Bomba Next), La Javilla, Puerto Plata",
+    "lat": 19.7911,
+    "lng": -70.6942,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "recurrence": "weekly",
+    "recurrenceDay": 6,
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/grandprixrd/",
+    "imageEmoji": "🎧"
   }
 ]

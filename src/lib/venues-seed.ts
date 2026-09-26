@@ -1731,6 +1731,28 @@ export const SEED_VENUES: Venue[] = [
     phone: "+18097818677",
   },
   {
+    slug: "nueve-puerto-plata",
+    name: "Nueve Restaurante & Bar",
+    city: "Puerto Plata",
+    description:
+      "Restaurant-bar nightlife spot in Puerto Plata — Saturday dance nights (Sábados Bailables) and billed theme parties. Confirm doors on Instagram @nueve_rd.",
+    lat: 19.7894175,
+    lng: -70.6788284,
+    emoji: "🪩",
+    instagram: "nueve_rd",
+  },
+  {
+    slug: "grand-prix-puerto-plata",
+    name: "Grand Prix Smart Shop",
+    city: "Puerto Plata",
+    description:
+      "Bar-restaurant and live-music spot in La Javilla (Edificio Grand Prix, next to Bomba) — free live sets, Saturday dance nights, and casual patio seating on Av. Manolo Tavares Justo. Instagram @grandprixrd.",
+    lat: 19.7911,
+    lng: -70.6942,
+    emoji: "🎸",
+    instagram: "grandprixrd",
+  },
+  {
     slug: "el-mirador-de-finely",
     name: "El Mirador de Finely",
     city: "Puerto Plata",
@@ -1965,6 +1987,15 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
     pattern:
       /[aá]mbar\s*lounge(\s*pop)?|ambarloungepop/i,
     slug: "ambar-lounge-pop",
+  },
+  {
+    pattern: /\bnueve\b|nueve_rd|nueve\s*restaurante/i,
+    slug: "nueve-puerto-plata",
+  },
+  {
+    pattern:
+      /grand\s*prix(\s*smart\s*shop)?|grandprixrd|edificio\s*grand\s*prix/i,
+    slug: "grand-prix-puerto-plata",
   },
   {
     pattern:

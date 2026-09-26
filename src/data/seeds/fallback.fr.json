@@ -3343,5 +3343,54 @@
       "Pedrito Reynoso"
     ],
     "imageEmoji": "🐄"
+  },
+  {
+    "id": "nueve-80s-90s-por-siempre-2026-10-10",
+    "title": "80s–90s Por Siempre à Nueve",
+    "description": "Soirée 80s–90s Por Siempre à Nueve Restaurante & Bar, Puerto Plata — samedi 10 octobre 2026. Tenue 80s ou 90s ; sets DJ nostalgie, danse et bonche local. Confirmez les portes via Instagram @nueve_rd / @thehost_rd.",
+    "date": "2026-10-10",
+    "time": "10:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Nueve Restaurante & Bar",
+    "venueSlug": "nueve-puerto-plata",
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/nueve_rd/",
+    "lineup": [
+      "80s–90s DJ sets"
+    ],
+    "imageEmoji": "📼"
+  },
+  {
+    "id": "cheo-almonte-grand-prix-2026-09-25",
+    "title": "Cheo Almonte en live au Grand Prix",
+    "description": "Show live gratuit avec Cheo Almonte (@cheoalmonterd) au Grand Prix Smart Shop, La Javilla, Puerto Plata — vendredi 25 septembre 2026. Av. Manolo Tavares Justo esq. Presidente Caamaño #1, Edificio Grand Prix (à côté de Bomba). Pas de cover sur le flyer ; confirmez les extras via Instagram @grandprixrd.",
+    "date": "2026-09-25",
+    "location": "Puerto Plata",
+    "venue": "Grand Prix Smart Shop",
+    "venueSlug": "grand-prix-puerto-plata",
+    "address": "Av. Manolo Tavares Justo esq. Presidente Caamaño #1, Edificio Grand Prix (Bomba Next), La Javilla, Puerto Plata",
+    "lat": 19.7911,
+    "lng": -70.6942,
+    "category": "music",
+    "categories": [
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/grandprixrd/",
+    "lineup": [
+      "Cheo Almonte"
+    ],
+    "imageEmoji": "🎸"
   }
 ]

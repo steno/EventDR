@@ -184,6 +184,8 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "nova-salud-bienestar": "nova-salud-bienestar-facade.jpg",
   "camara-comercio-puerto-plata": "camara-comercio-puerto-plata-facade.jpg",
   "ambar-lounge-pop": "ambar-lounge-pop-lounge.jpg",
+  "nueve-puerto-plata": "nueve-puerto-plata.jpg",
+  "grand-prix-puerto-plata": "grand-prix-puerto-plata.jpg",
   "el-mirador-de-finely": "el-mirador-de-finely-balcony.jpg",
   "luna-lounge-lcb": "luna-lounge-lcb-facade.jpg",
   "ivan-garcia-teatro-escuela": "ivan-garcia-teatro-escuela-facade.jpg",
@@ -214,6 +216,8 @@ const VENUE_HERO_OBJECT_POSITION: Record<string, string> = {
   "casa-balcon-puerto-plata": "object-top",
   // Keep the SPOTLAND sign in frame on the entrance crop (mobile + desktop).
   "spotland-puerto-plata": "object-top",
+  // Keep the NUEVE sign / entrance lights in the crop (mobile + desktop).
+  "nueve-puerto-plata": "object-top",
 };
 
 export function getVenueHeroObjectPosition(slug: string): string {

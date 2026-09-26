@@ -11,14 +11,20 @@ import { hasStreetViewCoverage } from "@/lib/google-maps-js";
  * Pass `enabled: false` when a parent already owns the probe.
  */
 export function useStreetViewAvailable(
-  lat: number,
-  lng: number,
+  lat: number | null | undefined,
+  lng: number | null | undefined,
   enabled = true,
 ): boolean {
   const [available, setAvailable] = useState(false);
 
   useEffect(() => {
-    if (!enabled) {
+    if (
+      !enabled ||
+      lat == null ||
+      lng == null ||
+      !Number.isFinite(lat) ||
+      !Number.isFinite(lng)
+    ) {
       setAvailable(false);
       return;
     }

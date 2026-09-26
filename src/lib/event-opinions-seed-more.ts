@@ -3325,4 +3325,79 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "GoDR templo-de-las-americas; Mapcarta 19.8882,-71.07656; park hours ~9–5; VisitDominican / Visitarepublica ~RD$120; temple commemorative church near archaeological park.",
     updatedAt: "2026-09-26T14:00:00.000Z",
   },
+  {
+    eventId: "nueve-sabados-bailables",
+    seriesKey: "nueve-puerto-plata:weekly:6",
+    body: "New Puerto Plata Saturday dance floor — confirm the door pin on @nueve_rd before you Uber; this is centro nightlife, not a Sosúa beach-bar crawl.",
+    localized: {
+      es: "Pista nueva de sábados en Puerto Plata — confirma el pin de la puerta en @nueve_rd antes del Uber; es nightlife de centro, no un crawl de beach bar en Sosúa.",
+      fr: "Nouvelle piste du samedi à Puerto Plata — confirmez l’épingle de porte sur @nueve_rd avant l’Uber ; nightlife de centre, pas un crawl beach bar à Sosúa.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover/doors confirm @nueve_rd — not printed on the Sábados Bailables art",
+    priceNoteLocalized: {
+      es: "Cover/puertas confirma @nueve_rd — no está en el arte de Sábados Bailables",
+      fr: "Cover/portes confirmez @nueve_rd — absent de l’art Sábados Bailables",
+    },
+    attribution: "POP research · @nueve_rd",
+    researchNotes:
+      "Editor IG assets — weekly Sábados Bailables at Nueve; venue @nueve_rd; address confirm on profile.",
+    updatedAt: "2026-09-26T16:00:00.000Z",
+  },
+  {
+    eventId: "nueve-80s-90s-por-siempre-2026-10-10",
+    body: "Theme-dress 80s/90s Saturday at Nueve — dust off the tire before Oct 10 and confirm doors on @nueve_rd / @thehost_rd.",
+    localized: {
+      es: "Sábado temático 80s/90s en Nueve — desempolva el tire antes del 10 oct y confirma puertas en @nueve_rd / @thehost_rd.",
+      fr: "Samedi thème 80s/90s à Nueve — dépoussiérez la tenue avant le 10 oct et confirmez les portes sur @nueve_rd / @thehost_rd.",
+    },
+    priceFeel: "varies",
+    priceNote:
+      "Dress 80s/90s — cover/doors confirm @nueve_rd / @thehost_rd",
+    priceNoteLocalized: {
+      es: "Tire 80s/90s — cover/puertas confirma @nueve_rd / @thehost_rd",
+      fr: "Tenue 80s/90s — cover/portes confirmez @nueve_rd / @thehost_rd",
+    },
+    attribution: "POP research · @nueve_rd · @thehost_rd",
+    researchNotes:
+      "Editor confirmation — Sat 10 Oct 2026 80s-90s POR SIEMPRE at Nueve; host IG @thehost_rd; dress code tire 80s/90s. Flyer art may show 18 Oct typography.",
+    updatedAt: "2026-09-26T18:00:00.000Z",
+  },
+  {
+    eventId: "cheo-almonte-grand-prix-2026-09-25",
+    body: "Free Friday live set in La Javilla — pin Grand Prix by Bomba on Manolo Tavares, not a Malecón tourist stage; flyer said gratis for Cheo Almonte.",
+    localized: {
+      es: "Set en vivo gratis el viernes en La Javilla — clava Grand Prix junto a Bomba en Manolo Tavares, no un escenario turístico del Malecón; el flyer decía gratis para Cheo Almonte.",
+      fr: "Set live gratuit le vendredi à La Javilla — épinglez Grand Prix près de Bomba sur Manolo Tavares, pas une scène touristique du Malecón ; le flyer disait gratis pour Cheo Almonte.",
+    },
+    priceFeel: "free",
+    priceNote: "No cover on flyer — confirm any extras @grandprixrd",
+    priceNoteLocalized: {
+      es: "Sin cover en el flyer — confirma extras @grandprixrd",
+      fr: "Pas de cover sur le flyer — confirmez extras @grandprixrd",
+    },
+    attribution: "POP research · @grandprixrd · @cheoalmonterd",
+    researchNotes:
+      "Editor flyer — Cheo Almonte Show en Vivo Gratis, Vie 25 Sep, Grand Prix Smart Shop La Javilla, Av Manolo Tavares Justo esq Presidente Caamaño #1.",
+    updatedAt: "2026-09-26T17:00:00.000Z",
+  },
+  {
+    eventId: "grand-prix-sabado-bailable",
+    seriesKey: "grand-prix-puerto-plata:weekly:6",
+    body: "La Javilla Saturday dance bar by Bomba — local DJ floor energy; confirm doors on @grandprixrd before you treat it like a Playa Dorada resort night.",
+    localized: {
+      es: "Bar de baile los sábados en La Javilla junto a Bomba — energía de pista local con DJ; confirma puertas en @grandprixrd antes de tratarlo como noche de resort en Playa Dorada.",
+      fr: "Bar dansant le samedi à La Javilla près de Bomba — énergie piste locale avec DJ ; confirmez les portes sur @grandprixrd avant d’en faire une soirée resort Playa Dorada.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover/doors confirm @grandprixrd",
+    priceNoteLocalized: {
+      es: "Cover/puertas confirma @grandprixrd",
+      fr: "Cover/portes confirmez @grandprixrd",
+    },
+    attribution: "POP research · @grandprixrd",
+    researchNotes:
+      "Editor Sábado Bailable DJ art for Grand Prix; weekly Saturday dance night.",
+    updatedAt: "2026-09-26T15:00:00.000Z",
+  },
 ];
