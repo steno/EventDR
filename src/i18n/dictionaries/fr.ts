@@ -299,6 +299,8 @@ export const fr: Dictionary = {
       "Événement copié ! Appuyez sur OK, puis collez dans votre publication Facebook.",
     facebookCopyFailed:
       "Copie impossible. Appui long pour coller une fois Facebook ouvert.",
+    instagramCopied:
+      "Lien copié — choisissez Instagram, puis ajoutez un sticker lien.",
     instagramCopyFailed:
       "Impossible de copier le lien. Collez-le en sticker lien dans votre story.",
   },
