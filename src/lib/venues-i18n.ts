@@ -105,6 +105,16 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Musée et synagogue honorant la colonie de réfugiés juifs de 1940 — photos, artefacts et films documentaires sur le patrimoine unique de Sosúa, près de Casa Marina.",
     },
   },
+  "templo-de-las-americas": {
+    name: {
+      es: "Templo de las Américas",
+      fr: "Templo de las Américas",
+    },
+    description: {
+      es: "Iglesia colonial de ladrillo y piedra en un jardín en La Isabela — levantada sobre el sitio de la primera iglesia católica del Nuevo Mundo en el siglo XVI, con brisa del Atlántico en la nave e imágenes de la Virgen. Cerca del Parque Nacional Histórico La Isabela / El Castillo.",
+      fr: "Église coloniale de brique et de pierre dans un jardin à La Isabela — bâtie sur le site de la première église catholique du Nouveau Monde au XVIe siècle, avec la brise atlantique dans la nef et des images de la Vierge. Près du Parque Nacional Histórico La Isabela / El Castillo.",
+    },
+  },
   "sosua-diving-center": {
     description: {
       es: "Centro de buceo PADI en La Puntilla — inmersiones en arrecife, snorkel y excursiones en bote por más de 12 sitios de la bahía de Sosúa con guías locales experimentados.",

@@ -398,6 +398,17 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     ],
   }),
   editorial({
+    venueSlug: "templo-de-las-americas",
+    verdictKey: "solid_local_culture",
+    crowdFit: ["visitor", "family", "mixed"],
+    axes: { recommend: 4.3, atmosphere: 4.5, reliability: 4.0, practical: 3.6 },
+    themes: [
+      { key: "heritage_site", sentiment: "positive", audience: "visitor" },
+      { key: "family_friendly", sentiment: "positive", audience: "family" },
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+    ],
+  }),
+  editorial({
     venueSlug: "sosua-diving-center",
     verdictKey: "solid_visitor_activity",
     crowdFit: ["visitor", "mixed"],

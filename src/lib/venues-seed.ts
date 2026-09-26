@@ -187,6 +187,17 @@ export const SEED_VENUES: Venue[] = [
     website: "https://www.sosuajewishmuseum.com/",
   },
   {
+    slug: "templo-de-las-americas",
+    name: "Templo de las Américas",
+    city: "Luperón",
+    description:
+      "Colonial brick-and-stone church in a garden at La Isabela — built over the site of the 16th-century first Catholic church in the New World, with Atlantic breeze through the nave and Marian imagery inside. Near Parque Nacional Histórico La Isabela / El Castillo.",
+    lat: 19.8882,
+    lng: -71.07656,
+    emoji: "⛪",
+    website: "https://es.godominicanrepublic.com/que-hacer/templo-de-las-americas",
+  },
+  {
     slug: "sosua-diving-center",
     name: "Sosua Diving Center",
     city: "Sosúa",
@@ -2082,6 +2093,12 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
     pattern: /la\s*isabela\s*colonial|isabela\s*colonial/i,
     slug: "la-isabela-colonial-puerto-plata",
   },
+  {
+    pattern:
+      /templo\s*(de\s*)?las?\s*am[eé]ricas|santuario\s*(de\s*)?jesucristo\s*evangelizador/i,
+    slug: "templo-de-las-americas",
+  },
+  { pattern: /museo\s*jud[ií]o|jewish\s*museum|sosua\s*jewish/i, slug: "sosua-jewish-museum" },
   { pattern: /la\s*lola|lalola\s*beach/i, slug: "la-lola-malecon" },
   {
     pattern: /latin\s*wok\s*(plaza\s*(uno|1)|puerto\s*plata)|latinwok\s*(plaza|centro)|plaza\s*(uno|1).*latin\s*wok/i,

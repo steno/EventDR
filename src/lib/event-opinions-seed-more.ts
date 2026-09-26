@@ -3305,4 +3305,24 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "Editor AGPPC flyers — 18ª Feria Ganadera Ecoturística El Cupey 25–27 Sep 2026; official program Fri–Sun; DJ Flacome promo art; nights Deury Luciano / Lisandro Díaz + Banda Modelo / Pedrito Reynoso.",
     updatedAt: "2026-09-26T12:00:00.000Z",
   },
+  {
+    eventId: "templo-de-las-americas-daily",
+    seriesKey: "templo-de-las-americas:daily",
+    body: "Worth the Luperón / La Isabela drive if you want first-settlement history with a quiet garden church — not a same-block Centro walk like Fortaleza or the Amber Museum.",
+    localized: {
+      es: "Vale el viaje a Luperón / La Isabela si quieres historia del primer asentamiento con una iglesia-jardín tranquila — no es un paseo del Centro como la Fortaleza o el Museo del Ámbar.",
+      fr: "Vaut le trajet Luperón / La Isabela si vous voulez l’histoire du premier peuplement avec une église-jardin calme — pas une balade du centre comme Fortaleza ou le musée de l’Ambre.",
+    },
+    priceFeel: "budget",
+    priceNote:
+      "~RD$120 historic-area gate fee reported — confirm hours/fee on site; GoDR lists the temple visit",
+    priceNoteLocalized: {
+      es: "~RD$120 de entrada a la zona histórica reportada — confirma horario/tarifa en sitio; GoDR lista la visita al templo",
+      fr: "~RD$120 d’entrée zone historique signalée — confirmez horaires/tarif sur place ; GoDR liste la visite du temple",
+    },
+    attribution: "POP research · GoDominicanRepublic · PuertoPlataDR La Isabela",
+    researchNotes:
+      "GoDR templo-de-las-americas; Mapcarta 19.8882,-71.07656; park hours ~9–5; VisitDominican / Visitarepublica ~RD$120; temple commemorative church near archaeological park.",
+    updatedAt: "2026-09-26T14:00:00.000Z",
+  },
 ];

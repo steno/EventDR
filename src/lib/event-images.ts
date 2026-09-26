@@ -224,7 +224,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "duo-maryem-rancho-catalina-2026-09-20":
     "duo-maryem-rancho-catalina-2026-09-20.jpg",
   "drifter-sunset-into-the-night": "drifter-sunset-into-the-night.jpg",
-  "sosua-jewish-museum-hours": "sosua-jewish-museum-hours.jpg",
+  "sosua-jewish-museum-hours": "sosua-jewish-museum-hours-facade.jpg",
+  "templo-de-las-americas-daily": "templo-de-las-americas-daily.jpg",
   "sosua-diving-adventures-daily": "sosua-diving-adventures-daily.jpg",
   // Filename bump — packed night bar (not the daytime Club 59 facade).
   "d-classico-merengue-nights": "d-classico-merengue-bar.jpg",
@@ -717,6 +718,7 @@ const HOME_HERO_SCENE_FILES = new Set([
   "flip-flop-taco-tuesday.jpg",
   "flip-flop-wing-wednesday.jpg",
   "fortaleza-san-felipe-ramparts.jpg",
+  "templo-de-las-americas-daily.jpg",
   "freestyle-catamaran-daily.jpg",
   "fun-city-daily.jpeg",
   "gran-ventana-day-pass.jpg",
@@ -774,7 +776,7 @@ const HOME_HERO_SCENE_FILES = new Set([
   "sosua-beach-live-bay.jpg",
   "sosua-diving-adventures-daily.jpg",
   "sosua-food-market-daily-patio.jpg",
-  "sosua-jewish-museum-hours.jpg",
+  "sosua-jewish-museum-hours-facade.jpg",
   "sosua-pedro-clisante-food-nights.jpg",
   "sosua-volleyball-weekly.jpg",
   "sunset-grill-velero-beachfront-dining.jpg",

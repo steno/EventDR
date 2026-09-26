@@ -345,6 +345,10 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     isFree: false,
     admissionPrice: "RD$100",
   },
+  "templo-de-las-americas-daily": {
+    isFree: false,
+    admissionPrice: "RD$120",
+  },
   "taino-bay-village-daily": {
     isFree: true,
   },

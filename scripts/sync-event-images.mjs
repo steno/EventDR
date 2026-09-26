@@ -253,6 +253,8 @@ const FILE_TO_EVENT_ID = {
     "sovereign-sister-summit-2026-11-04",
 
   "feria-ganadera-el-cupey-2026.jpg": "feria-ganadera-el-cupey-2026",
+  "templo-de-las-americas-daily.jpg": "templo-de-las-americas-daily",
+  "sosua-jewish-museum-hours-facade.jpg": "sosua-jewish-museum-hours",
   "allison-sade-aura-2026-09-17.jpg": "allison-sade-aura-2026-09-17",
   "ocean-world-terrace-karaoke-encuentro-2026-09-16.jpg":
     "ocean-world-terrace-singing-talent-2026-09-16",
@@ -456,6 +458,8 @@ const FILE_TO_VENUE_SLUG = {
   "hotel-villa-taina-pool.jpg": "hotel-villa-taina-pool",
   "el-mirador-de-finely-balcony.jpg": "el-mirador-de-finely-balcony",
   "sosua-food-market-entrance.jpg": "sosua-food-market-entrance",
+  "sosua-jewish-museum-facade.jpg": "sosua-jewish-museum-facade",
+  "templo-de-las-americas.jpg": "templo-de-las-americas",
 };
 
 if (!existsSync(sourceDir)) {

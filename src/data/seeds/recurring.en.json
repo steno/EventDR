@@ -2718,5 +2718,23 @@
     "sourceType": "instagram",
     "sourceUrl": "https://www.instagram.com/sosuafoodmarket/",
     "imageEmoji": "🍔"
+  },
+  {
+    "id": "templo-de-las-americas-daily",
+    "title": "Templo de las Américas — Visit Hours",
+    "description": "Colonial brick-and-stone church in a garden at La Isabela (Luperón) — built over the site of the 16th-century first Catholic church in the New World. Walk the nave among Marian imagery and feel the Atlantic breeze; pair with Parque Nacional Histórico La Isabela nearby. Typically open ~9:00 AM–5:00 PM; confirm hours and gate fee (~RD$120 for the historic area) before you drive west from Puerto Plata.",
+    "date": "2026-01-01",
+    "time": "9:00 AM – 5:00 PM",
+    "location": "Luperón",
+    "venue": "Templo de las Américas",
+    "venueSlug": "templo-de-las-americas",
+    "address": "La Isabela / El Castillo, Luperón, Puerto Plata",
+    "lat": 19.8882,
+    "lng": -71.07656,
+    "category": "culture",
+    "format": "physical",
+    "recurrence": "daily",
+    "sourceUrl": "https://es.godominicanrepublic.com/que-hacer/templo-de-las-americas",
+    "imageEmoji": "⛪"
   }
 ]

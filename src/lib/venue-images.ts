@@ -23,7 +23,8 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "playa-sosua": "playa-sosua-shore.jpg",
   "bar-39-sosua": "bar-39-sosua-beach.jpg",
   "cheers-bar-sosua": "cheers-bar-sosua-dining.jpg",
-  "sosua-jewish-museum": "sosua-jewish-museum.jpg",
+  "sosua-jewish-museum": "sosua-jewish-museum-facade.jpg",
+  "templo-de-las-americas": "templo-de-las-americas.jpg",
   "sosua-diving-center": "sosua-diving-center.jpg",
   // Filename bump — Maps reception palapa (not the Saturday dining cocktail).
   "natura-cabana": "natura-cabana-recepcion.jpg",

@@ -116,6 +116,7 @@ export const CURATED_ADMISSION_PRICES: Record<string, string> = {
   "museo-ambar-saturday": "RD$250",
   "sosua-jewish-museum-hours": "RD$100",
   "fortaleza-san-felipe-daily": "RD$100",
+  "templo-de-las-americas-daily": "RD$120",
   "gregorio-luperon-museum": "RD$50",
   "la-confluencia-museum-daily": "RD$200",
   "macorix-house-of-rum": "US$8",

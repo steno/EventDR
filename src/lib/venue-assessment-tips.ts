@@ -265,6 +265,14 @@ export const VENUE_TIP_COPY: Record<
       fr: "Une heure compacte pour l'histoire des réfugiés de 1940 près de Casa Marina — histoire dense, pas beach bar.",
     },
   },
+  "templo-de-las-americas": {
+    body: "Quiet garden church stop on a La Isabela / Luperón day trip — spiritual atmosphere and Atlantic breeze, not a downtown Puerto Plata walk-by.",
+    localized: {
+      en: "Quiet garden church stop on a La Isabela / Luperón day trip — spiritual atmosphere and Atlantic breeze, not a downtown Puerto Plata walk-by.",
+      es: "Parada tranquila de iglesia-jardín en un day trip a La Isabela / Luperón — atmósfera espiritual y brisa del Atlántico, no un paseo del centro de Puerto Plata.",
+      fr: "Arrêt calme d’église-jardin sur une journée La Isabela / Luperón — atmosphère spirituelle et brise atlantique, pas une balade du centre de Puerto Plata.",
+    },
+  },
   "sosua-diving-center": {
     body: "PADI boat days out of La Puntilla when you want reef time with a shop — book ahead; morning departures fill with hotel pickups.",
     localized: {

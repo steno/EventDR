@@ -147,6 +147,7 @@ export const VENUE_AUDIENCE_POOLS: Record<
     "pingui-bar",
     "el-colibri-hotel",
     "fortaleza-san-felipe",
+    "templo-de-las-americas",
     "taino-bay",
     "letrero-puerto-plata",
     "faro-puerto-plata",

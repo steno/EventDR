@@ -44,6 +44,8 @@ Curated images under `public/events/` and `public/venues/`.
 | `eat-street-market-ocean-one-2026-09-27.jpg` | POP-supplied — Eat Street Market Vol. 4 flyer ([@thehoneyco](https://www.instagram.com/thehoneyco/)) | Sun 27 Sep 2026 4 PM Ocean One Cabarete — DJ Kinue + vendor list (editor-provided) |
 | `feria-ganadera-el-cupey-2026.jpg` | POP-supplied — DJ Flacome / Tamo en Feria flyer ([@agppc](https://www.instagram.com/agppc/)) | 18ª Feria Ganadera El Cupey Sep 25–27 2026 hero (editor-provided) |
 | `feria-ganadera-el-cupey-2026-programa.jpg` | POP-supplied — Programa Oficial schedule poster ([@agppc](https://www.instagram.com/agppc/)) | In-app “Guarda el programa” lightbox (editor-provided) |
+| `templo-de-las-americas-daily.jpg` | POP-supplied — Templo de las Américas garden facade (La Isabela) | Daily culture visit hero; also `venues/templo-de-las-americas.jpg` (editor-provided) |
+| `venues/sosua-jewish-museum-facade.jpg` | POP-supplied — Museo Judío de Sosúa entrance with MUSEO lettering | Venue place shot filename bump (editor-provided); hours listing `sosua-jewish-museum-hours-facade.jpg` |
 | `venues/terramar-pickleball-club.jpg` | POP-supplied — Terramar Pickleball Club profile/cover | Venue hero (editor-provided) |
 | `allison-sade-aura-2026-09-17.jpg` | POP-supplied — Allison Sade Live Music flyer ([@allisonsadeofficial](https://www.instagram.com/allisonsadeofficial/) × Aura Cabarete) | Thu 17 Sep 2026 8:00 PM (editor-provided) |
 | `ocean-world-terrace-karaoke-encuentro-2026-09-16.jpg` | POP-supplied — Un encuentro de talentos / Noche de Karaoke flyer ([@oceanworldterrace](https://www.instagram.com/oceanworldterrace/)) | Karaoke talent night Wed 16 Sep 2026 (editor-provided; filename bump); venue slug `ocean-world` |
