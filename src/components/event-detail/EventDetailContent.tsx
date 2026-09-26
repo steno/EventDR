@@ -12,6 +12,7 @@ import {
   Users,
   BadgeCheck,
   CircleDollarSign,
+  ScrollText,
 } from "lucide-react";
 import { useMemo, useState } from "react";
 import type { Event, EventOpinion } from "@/lib/types";
@@ -23,6 +24,7 @@ import { IntentLink } from "@/components/IntentLink";
 import { EventCategoryLinks } from "@/components/EventCategoryLinks";
 import { EventStatusBadge } from "@/components/EventStatusBadge";
 import { EventOpinionBlock } from "@/components/EventOpinionBlock";
+import { ImageStoryEnlarge } from "@/components/ImageStoryEnlarge";
 import { formatEventPlace } from "@/lib/event-location";
 import { EventCallLink } from "@/components/EventCallLink";
 import {
@@ -41,6 +43,7 @@ import type { NearbyTonightResult } from "@/lib/nearby-events";
 import type { VenueSiblingNight } from "@/lib/venue-recurring-siblings";
 import type { WalkablePocket } from "@/lib/walkable-pockets";
 import type { ReactNode } from "react";
+import { getEventProgramImageUrl } from "@/lib/event-images";
 
 export interface EventDetailContentProps {
   event: Event;
@@ -112,6 +115,7 @@ export function EventDetailContent({
     hasParticipants;
   /** Multi-venue lists are the destination — don't dump users into city-level Maps. */
   const placeIsLinked = isPhysical && Boolean(venueSlug || !hasParticipants);
+  const programImageUrl = getEventProgramImageUrl(event.id);
 
   return (
     <>
@@ -274,7 +278,7 @@ export function EventDetailContent({
             ) : null}
           </div>
         )}
-        {(event.phone || ticketUrl) && (
+        {(event.phone || ticketUrl || programImageUrl) && (
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
             {event.phone && (
               <div className="group/phone flex items-center gap-2.5 text-copy-meta text-neutral-800 dark:text-neutral-200">
@@ -299,6 +303,24 @@ export function EventDetailContent({
                 </span>
               </a>
             )}
+            {programImageUrl ? (
+              <ImageStoryEnlarge
+                src={programImageUrl}
+                alt={`${event.title} — ${dict.detail.saveProgram}`}
+                enlargeLabel={dict.detail.saveProgram}
+                closeLabel={dict.detail.close}
+                fit="width"
+                className="group/program inline-flex items-center gap-2.5 text-copy-meta touch-manipulation"
+                trigger={
+                  <>
+                    <ScrollText className="h-[1.125rem] w-[1.125rem] shrink-0 text-amber-700 dark:text-amber-400 transition-colors group-hover/program:text-neutral-500" />
+                    <span className="font-semibold text-amber-800 dark:text-amber-400 transition-colors group-hover/program:text-neutral-700 dark:group-hover/program:text-neutral-300">
+                      {dict.detail.saveProgram}
+                    </span>
+                  </>
+                }
+              />
+            ) : null}
           </div>
         )}
       </div>

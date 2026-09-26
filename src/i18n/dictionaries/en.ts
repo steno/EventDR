@@ -251,6 +251,8 @@ export type Dictionary = {
     enlargeImage: string;
     viewEvent: string;
     buyTickets: string;
+    /** Open official program / schedule flyer in lightbox. */
+    saveProgram: string;
     freeAdmission: string;
     paidAdmission: string;
     paidAdmissionUnknown: string;
@@ -883,6 +885,7 @@ export const en: Dictionary = {
     enlargeImage: "Enlarge image",
     viewEvent: "View event",
     buyTickets: "Buy tickets",
+    saveProgram: "Save the program",
     freeAdmission: "Free admission",
     paidAdmission: "Admission: {price}",
     paidAdmissionUnknown: "Paid admission",

@@ -244,6 +244,7 @@ export const es: Dictionary = {
     enlargeImage: "Ampliar imagen",
     viewEvent: "Ver evento",
     buyTickets: "Comprar entradas",
+    saveProgram: "Guarda el programa",
     freeAdmission: "Entrada gratis",
     paidAdmission: "Entrada: {price}",
     paidAdmissionUnknown: "Entrada de pago",

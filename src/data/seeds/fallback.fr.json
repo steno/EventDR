@@ -3312,5 +3312,36 @@
       "North Side"
     ],
     "imageEmoji": "🌊"
+  },
+  {
+    "id": "feria-ganadera-el-cupey-2026",
+    "title": "18ª Feria Ganadera El Cupey",
+    "description": "18e Foire d’élevage et d’écotourisme El Cupey (A.G.P.P.C.) — 25–27 sept. 2026 à El Cupey, Puerto Plata. Trois jours en famille : élevage, activités enfants, bingo, grande vente aux enchères et musique live. Soirs phares : Deury Luciano (ven), Lisandro Díaz + Banda Modelo (sam), Pedrito Reynoso (dim), plus DJ Flacome / sets DJ de jour. Utilisez Voir le programme sur cette fiche pour l’horaire officiel heure par heure. Organisé par Asociación de Ganaderos Puerto Plata Central (@agppc).",
+    "date": "2026-09-25",
+    "endDate": "2026-09-27",
+    "time": "8:00 AM – 10:00 PM",
+    "location": "Puerto Plata",
+    "venue": "El Cupey",
+    "address": "El Cupey, Puerto Plata",
+    "lat": 19.7371866,
+    "lng": -70.7253286,
+    "category": "festivals",
+    "categories": [
+      "music",
+      "culture"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/agppc/",
+    "lineup": [
+      "DJ Flacome",
+      "Deury Luciano",
+      "Lisandro Díaz",
+      "Banda Modelo",
+      "Pedrito Reynoso"
+    ],
+    "imageEmoji": "🐄"
   }
 ]

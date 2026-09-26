@@ -3286,4 +3286,23 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "Editor flyer — Back to Northside Vibes, Sábado 4 de Julio 6PM, Lalola Beach Club, RSVP (829) 874-0640, boletas en TIX. Sponsors Stoli / Brugal / Lifestyle Holidays / Red Bull. Distinct phone from venue desk +1 849-517-5705.",
     updatedAt: "2026-09-25T16:30:00.000Z",
   },
+  {
+    eventId: "feria-ganadera-el-cupey-2026",
+    body: "Three-day El Cupey livestock fair — go for the Sunday auction/Paso Fino if you want the ranch climax, or Friday inauguration + Deury Luciano if you want the opening party; tap Guarda el programa for hour-by-hour, not the DJ flyer alone.",
+    localized: {
+      es: "Feria ganadera de tres días en El Cupey — ve el domingo a la subasta/Paso Fino si quieres el clímax ranchero, o el viernes inauguración + Deury Luciano si quieres la fiesta de apertura; usa Guarda el programa para el horario hora por hora, no solo el flyer del DJ.",
+      fr: "Foire d’élevage de trois jours à El Cupey — dimanche pour la vente/Paso Fino si vous voulez le climax ranch, ou vendredi inauguration + Deury Luciano pour la fête d’ouverture ; utilisez Voir le programme pour l’horaire heure par heure, pas seulement le flyer DJ.",
+    },
+    priceFeel: "free",
+    priceNote:
+      "Free fairgrounds hang — pay food, bingo, raffle; confirm any paid contests on @agppc",
+    priceNoteLocalized: {
+      es: "Feria de acceso libre — pagas comida, bingo, rifa; confirma concursos de pago en @agppc",
+      fr: "Accès libre à la foire — payez nourriture, bingo, tombola ; confirmez concours payants sur @agppc",
+    },
+    attribution: "POP research · A.G.P.P.C. · @agppc",
+    researchNotes:
+      "Editor AGPPC flyers — 18ª Feria Ganadera Ecoturística El Cupey 25–27 Sep 2026; official program Fri–Sun; DJ Flacome promo art; nights Deury Luciano / Lisandro Díaz + Banda Modelo / Pedrito Reynoso.",
+    updatedAt: "2026-09-26T12:00:00.000Z",
+  },
 ];

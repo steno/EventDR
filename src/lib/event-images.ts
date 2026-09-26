@@ -162,6 +162,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "aldo-sax-casa-caribe-2026-09-24": "aldo-sax-casa-caribe-2026-09-24.jpg",
   "sovereign-sister-summit-2026-11-04":
     "sovereign-sister-summit-2026-11-04.jpg",
+
+  "feria-ganadera-el-cupey-2026": "feria-ganadera-el-cupey-2026.jpg",
   "iss-pta-parents-night-out-2026-09-17":
     "iss-pta-parents-night-out-flyer.jpg",
   "hard-rock-catrinas-halloween-2026-10-31":
@@ -464,6 +466,9 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "eat-street-market-ocean-one-2026-09-27": "object-top",
   "aldo-sax-casa-caribe-2026-09-24": "object-top",
   "sovereign-sister-summit-2026-11-04": "object-center",
+
+  // DJ Flacome flyer — keep face + controller in Coming up / list crops.
+  "feria-ganadera-el-cupey-2026": "object-center",
 };
 
 function curatedEventImageFile(eventId: string): string | undefined {
@@ -476,6 +481,16 @@ function curatedEventImageFile(eventId: string): string | undefined {
 
 export function getEventImageUrl(eventId: string): string | undefined {
   const file = curatedEventImageFile(eventId);
+  return file ? `/events/${file}?v=${getAppVersion()}` : undefined;
+}
+
+/** Official program / schedule flyer for in-app lightbox (not the card hero). */
+const EVENT_PROGRAM_IMAGE_FILES: Record<string, string> = {
+  "feria-ganadera-el-cupey-2026": "feria-ganadera-el-cupey-2026-programa.jpg",
+};
+
+export function getEventProgramImageUrl(eventId: string): string | undefined {
+  const file = EVENT_PROGRAM_IMAGE_FILES[eventId];
   return file ? `/events/${file}?v=${getAppVersion()}` : undefined;
 }
 
@@ -560,6 +575,9 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "eat-street-market-ocean-one-2026-09-27.jpg",
   "aldo-sax-casa-caribe-2026-09-24.jpg",
   "sovereign-sister-summit-2026-11-04.jpg",
+
+  "feria-ganadera-el-cupey-2026.jpg",
+  "feria-ganadera-el-cupey-2026-programa.jpg",
   "duo-maryem-rancho-catalina-2026-09-20.jpg",
   "rio-sonador-cierre-del-verano-2026-09-20.jpg",
   "ambar-lounge-reggaeton-2026-09-17.jpg",

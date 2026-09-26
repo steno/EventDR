@@ -7,6 +7,7 @@ import {
   useState,
   type MouseEvent,
   type PointerEvent,
+  type ReactNode,
 } from "react";
 import { createPortal } from "react-dom";
 import { Maximize2 } from "lucide-react";
@@ -18,19 +19,33 @@ interface ImageStoryEnlargeProps {
   closeLabel: string;
   /** Extra classes for the trigger (positioning overrides). */
   className?: string;
+  /**
+   * Custom trigger contents (all breakpoints). When set, replaces the
+   * mobile-only maximize icon — use for CTAs like “Guarda el programa”.
+   */
+  trigger?: ReactNode;
+  /**
+   * `cover` fills the viewport (default hero enlarge).
+   * `width` fits image width so tall schedule flyers scroll vertically.
+   */
+  fit?: "cover" | "width";
 }
 
 const TAP_MOVE_PX = 10;
 
 type CoverSize = { width: number; height: number };
 
-function coverSizeForViewport(
+function sizeForViewport(
   naturalWidth: number,
   naturalHeight: number,
+  fit: "cover" | "width",
 ): CoverSize {
   const vw = window.visualViewport?.width ?? window.innerWidth;
   const vh = window.visualViewport?.height ?? window.innerHeight;
-  const scale = Math.max(vw / naturalWidth, vh / naturalHeight);
+  const scale =
+    fit === "width"
+      ? vw / naturalWidth
+      : Math.max(vw / naturalWidth, vh / naturalHeight);
   return {
     width: Math.ceil(naturalWidth * scale),
     height: Math.ceil(naturalHeight * scale),
@@ -38,8 +53,9 @@ function coverSizeForViewport(
 }
 
 /**
- * Mobile-only square control → full-bleed story viewer.
- * Image fills the screen; slide/pan to see the rest. Light tap (or Escape) closes.
+ * Full-bleed story viewer for event images.
+ * Default: mobile-only square maximize control.
+ * With `trigger`: inline CTA (all breakpoints) — e.g. save/view program flyer.
  */
 export function ImageStoryEnlarge({
   src,
@@ -47,6 +63,8 @@ export function ImageStoryEnlarge({
   enlargeLabel,
   closeLabel,
   className = "",
+  trigger,
+  fit = "cover",
 }: ImageStoryEnlargeProps) {
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
@@ -54,6 +72,7 @@ export function ImageStoryEnlarge({
   const titleId = useId();
   const scrollerRef = useRef<HTMLDivElement>(null);
   const tapRef = useRef({ x: 0, y: 0, moved: false });
+  const inlineTrigger = Boolean(trigger);
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect -- portal needs document
@@ -85,14 +104,14 @@ export function ImageStoryEnlarge({
     img.src = src;
     const apply = () => {
       if (!img.naturalWidth || !img.naturalHeight) return;
-      setCover(coverSizeForViewport(img.naturalWidth, img.naturalHeight));
+      setCover(sizeForViewport(img.naturalWidth, img.naturalHeight, fit));
     };
     if (img.complete) apply();
     else img.addEventListener("load", apply, { once: true });
 
     const onResize = () => {
       if (!img.naturalWidth || !img.naturalHeight) return;
-      setCover(coverSizeForViewport(img.naturalWidth, img.naturalHeight));
+      setCover(sizeForViewport(img.naturalWidth, img.naturalHeight, fit));
     };
     window.addEventListener("resize", onResize);
     window.visualViewport?.addEventListener("resize", onResize);
@@ -102,12 +121,17 @@ export function ImageStoryEnlarge({
       window.removeEventListener("resize", onResize);
       window.visualViewport?.removeEventListener("resize", onResize);
     };
-  }, [open, src]);
+  }, [open, src, fit]);
 
   useEffect(() => {
     if (!open || !cover) return;
     const scroller = scrollerRef.current;
     if (!scroller) return;
+    if (fit === "width") {
+      scroller.scrollLeft = 0;
+      scroller.scrollTop = 0;
+      return;
+    }
     scroller.scrollLeft = Math.max(
       0,
       (scroller.scrollWidth - scroller.clientWidth) / 2,
@@ -116,7 +140,7 @@ export function ImageStoryEnlarge({
       0,
       (scroller.scrollHeight - scroller.clientHeight) / 2,
     );
-  }, [open, cover]);
+  }, [open, cover, fit]);
 
   function openViewer(event: MouseEvent | PointerEvent) {
     event.preventDefault();
@@ -197,17 +221,23 @@ export function ImageStoryEnlarge({
         type="button"
         onClick={openViewer}
         onPointerDown={(event) => event.stopPropagation()}
-        className={`
+        className={
+          inlineTrigger
+            ? className
+            : `
           pointer-events-auto absolute bottom-2.5 right-2.5 z-[2]
           flex h-8 w-8 items-center justify-center rounded-md
           bg-black/55 text-white shadow-sm backdrop-blur-sm
           touch-manipulation transition-colors active:bg-black/75
           lg:hidden
           ${className}
-        `}
+        `
+        }
         aria-label={enlargeLabel}
       >
-        <Maximize2 className="h-3.5 w-3.5" strokeWidth={2.25} aria-hidden />
+        {trigger ?? (
+          <Maximize2 className="h-3.5 w-3.5" strokeWidth={2.25} aria-hidden />
+        )}
       </button>
       {viewer}
     </>

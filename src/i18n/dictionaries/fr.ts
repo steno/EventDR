@@ -244,6 +244,7 @@ export const fr: Dictionary = {
     enlargeImage: "Agrandir l'image",
     viewEvent: "Voir l'événement",
     buyTickets: "Acheter des billets",
+    saveProgram: "Voir le programme",
     freeAdmission: "Entrée gratuite",
     paidAdmission: "Entrée : {price}",
     paidAdmissionUnknown: "Entrée payante",
