@@ -8,6 +8,7 @@ export type SharePlatform =
   | "native"
   | "whatsapp"
   | "facebook"
+  | "instagram"
   | "x"
   | "telegram"
   | "email"
@@ -106,6 +107,7 @@ export function canUseNativeShare(): boolean {
 const EXTERNAL_SHARE_PLATFORMS = new Set<SharePlatform>([
   "whatsapp",
   "facebook",
+  "instagram",
   "x",
   "telegram",
   "email",
@@ -132,7 +134,7 @@ export function openExternalShare(url: string): boolean {
     return true;
   }
 
-  if (prefersMobileFacebookShare()) {
+  if (prefersMobileAppShare()) {
     link.target = "_blank";
     document.body.appendChild(link);
     link.click();
@@ -167,6 +169,26 @@ function buildFacebookClipboardText(event: Event, locale: Locale): string {
 }
 
 /**
+ * Instagram has no public web sharer. The share button copies this URL
+ * (Link sticker) and, on mobile, opens `instagram-stories://share`.
+ */
+export function buildInstagramClipboardText(
+  event: Event,
+  locale: Locale,
+): string {
+  return getCanonicalEventShareUrl(event, locale);
+}
+
+export function getInstagramStoriesShareUrl(appId?: string): string {
+  const id =
+    appId?.trim() || process.env.NEXT_PUBLIC_FACEBOOK_APP_ID?.trim() || "";
+  if (id) {
+    return `instagram-stories://share?source_application=${encodeURIComponent(id)}`;
+  }
+  return "instagram-stories://share";
+}
+
+/**
  * Mobile: copy event details (FB app cannot prefill from localhost/LAN sharer URLs).
  * Caller should alert the user, then call openFacebookApp().
  * Desktop: standard sharer popup.
@@ -177,7 +199,7 @@ export async function shareToFacebook(
 ): Promise<"opened" | "copied" | "failed"> {
   if (typeof window === "undefined") return "failed";
 
-  if (prefersMobileFacebookShare()) {
+  if (prefersMobileAppShare()) {
     const copied = await copyText(buildFacebookClipboardText(event, locale));
     return copied ? "copied" : "failed";
   }
@@ -227,6 +249,60 @@ export function openFacebookShare(event: Event, locale: Locale): void {
   void shareToFacebook(event, locale);
 }
 
+async function copyInstagramSharePayload(
+  url: string,
+  preview?: Blob | null,
+): Promise<boolean> {
+  if (preview && typeof ClipboardItem !== "undefined" && navigator.clipboard?.write) {
+    try {
+      const type = preview.type || "image/png";
+      await navigator.clipboard.write([
+        new ClipboardItem({
+          "text/plain": Promise.resolve(new Blob([url], { type: "text/plain" })),
+          [type]: Promise.resolve(preview),
+        }),
+      ]);
+      return true;
+    } catch {
+      // Fall through to URL-only copy (Link sticker still works).
+    }
+  }
+  return copyText(url);
+}
+
+/**
+ * Copy the event URL (and an optional Stories preview image). Caller shows
+ * "Link copied" and, on mobile, opens Instagram Stories.
+ */
+export async function shareToInstagram(
+  event: Event,
+  locale: Locale,
+  preview?: Blob | null,
+): Promise<"copied" | "failed"> {
+  if (typeof window === "undefined") return "failed";
+  const url = getCanonicalEventShareUrl(event, locale);
+  const copied = await copyInstagramSharePayload(url, preview);
+  return copied ? "copied" : "failed";
+}
+
+/** Open Instagram's Stories composer (`instagram-stories://share`). */
+export function openInstagramStories(): void {
+  if (typeof window === "undefined" || !prefersMobileAppShare()) return;
+
+  const deepLink = getInstagramStoriesShareUrl();
+  const link = document.createElement("a");
+  link.href = deepLink;
+  link.style.display = "none";
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+}
+
+/** @deprecated Use openInstagramStories */
+export function openInstagramApp(): void {
+  openInstagramStories();
+}
+
 function isViewingShareUrl(url: string): boolean {
   if (typeof window === "undefined") return false;
   const current = window.location.href.split(/[?#]/)[0];
@@ -234,7 +310,7 @@ function isViewingShareUrl(url: string): boolean {
   return current === target;
 }
 
-function prefersMobileFacebookShare(): boolean {
+function prefersMobileAppShare(): boolean {
   return (
     typeof navigator !== "undefined" &&
     /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
@@ -244,7 +320,7 @@ function prefersMobileFacebookShare(): boolean {
 export function getFacebookShareUrl(event: Event, locale: Locale): string {
   const url = getCanonicalEventShareUrl(event, locale);
   const encodedUrl = encodeURIComponent(url);
-  if (prefersMobileFacebookShare()) {
+  if (prefersMobileAppShare()) {
     return getMobileFacebookSharerUrl(url);
   }
   const quote = encodeURIComponent(event.title);
@@ -264,6 +340,8 @@ export function getShareUrl(
       return `https://wa.me/?text=${encodeURIComponent(buildWhatsAppShareMessage(event, locale))}`;
     case "facebook":
       return getFacebookShareUrl(event, locale);
+    case "instagram":
+      return null;
     case "x":
       return `https://twitter.com/intent/tweet?text=${encodeURIComponent(event.title)}&url=${encodeURIComponent(url)}`;
     case "telegram":

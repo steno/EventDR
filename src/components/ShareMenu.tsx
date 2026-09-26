@@ -1,10 +1,11 @@
 "use client";
 
-import { useSyncExternalStore, type ReactNode } from "react";
+import { useEffect, useRef, useSyncExternalStore, type ReactNode } from "react";
 import { Link2, Mail, Share2 } from "lucide-react";
 import { ActionSheet, ActionSheetTile } from "@/components/ActionSheet";
 import {
   FacebookIcon,
+  InstagramIcon,
   TelegramIcon,
   WhatsAppIcon,
   XIcon,
@@ -18,10 +19,13 @@ import {
   isExternalSharePlatform,
   openExternalShare,
   openFacebookApp,
+  openInstagramStories,
   shareToFacebook,
+  shareToInstagram,
   shareViaPlatform,
   type SharePlatform,
 } from "@/lib/share";
+import { buildInstagramStoryPreviewBlob } from "@/lib/instagram-story-card";
 
 interface ShareMenuProps {
   event: Event;
@@ -33,7 +37,12 @@ interface ShareMenuProps {
 
 const SOCIAL: {
   id: SharePlatform;
-  labelKey: "shareWhatsapp" | "shareFacebook" | "shareX" | "shareTelegram";
+  labelKey:
+    | "shareWhatsapp"
+    | "shareFacebook"
+    | "shareInstagram"
+    | "shareX"
+    | "shareTelegram";
   well: string;
   icon: ReactNode;
 }[] = [
@@ -48,6 +57,12 @@ const SOCIAL: {
     labelKey: "shareFacebook",
     well: "bg-[#1877F2] text-white",
     icon: <FacebookIcon className="h-5 w-5" />,
+  },
+  {
+    id: "instagram",
+    labelKey: "shareInstagram",
+    well: "bg-gradient-to-br from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] text-white",
+    icon: <InstagramIcon className="h-5 w-5" />,
   },
   {
     id: "x",
@@ -95,6 +110,11 @@ export function ShareMenu({
     () => canUseNativeShare(),
     () => false,
   );
+  const storyPreviewRef = useRef<Promise<Blob | null> | null>(null);
+
+  useEffect(() => {
+    storyPreviewRef.current = buildInstagramStoryPreviewBlob(event, locale);
+  }, [event, locale]);
 
   async function handlePlatform(platform: SharePlatform) {
     if (isExternalSharePlatform(platform)) {
@@ -112,6 +132,18 @@ export function ShareMenu({
           window.alert(msg);
           openFacebookApp();
         }
+        return;
+      }
+      if (platform === "instagram") {
+        const preview = (await storyPreviewRef.current) ?? null;
+        const result = await shareToInstagram(event, locale, preview);
+        onClose();
+        if (result === "copied") {
+          onFeedback(dict.detail.linkCopied);
+        } else {
+          onFeedback(dict.detail.instagramCopyFailed);
+        }
+        openInstagramStories();
         return;
       }
       const href = getShareUrl(platform, event, locale);

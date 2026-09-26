@@ -289,6 +289,7 @@ export const fr: Dictionary = {
     shareMore: "Plus",
     shareWhatsapp: "WhatsApp",
     shareFacebook: "Facebook",
+    shareInstagram: "Instagram",
     shareX: "X",
     shareTelegram: "Telegram",
     shareEmail: "E-mail",
@@ -298,6 +299,8 @@ export const fr: Dictionary = {
       "Événement copié ! Appuyez sur OK, puis collez dans votre publication Facebook.",
     facebookCopyFailed:
       "Copie impossible. Appui long pour coller une fois Facebook ouvert.",
+    instagramCopyFailed:
+      "Impossible de copier le lien. Collez-le en sticker lien dans votre story.",
   },
   submit: {
     title: "Partager un événement",
