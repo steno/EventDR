@@ -19,7 +19,6 @@ import {
   isExternalSharePlatform,
   openExternalShare,
   openFacebookApp,
-  openInstagramStories,
   shareToFacebook,
   shareToInstagram,
   shareViaPlatform,
@@ -138,12 +137,11 @@ export function ShareMenu({
         const preview = (await storyPreviewRef.current) ?? null;
         const result = await shareToInstagram(event, locale, preview);
         onClose();
-        if (result === "copied") {
-          onFeedback(dict.detail.linkCopied);
+        if (result === "shared" || result === "copied") {
+          onFeedback(dict.detail.instagramCopied);
         } else {
           onFeedback(dict.detail.instagramCopyFailed);
         }
-        openInstagramStories();
         return;
       }
       const href = getShareUrl(platform, event, locale);

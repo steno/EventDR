@@ -170,22 +170,13 @@ function buildFacebookClipboardText(event: Event, locale: Locale): string {
 
 /**
  * Instagram has no public web sharer. The share button copies this URL
- * (Link sticker) and, on mobile, opens `instagram-stories://share`.
+ * so the user can paste a Story Link sticker.
  */
 export function buildInstagramClipboardText(
   event: Event,
   locale: Locale,
 ): string {
   return getCanonicalEventShareUrl(event, locale);
-}
-
-export function getInstagramStoriesShareUrl(appId?: string): string {
-  const id =
-    appId?.trim() || process.env.NEXT_PUBLIC_FACEBOOK_APP_ID?.trim() || "";
-  if (id) {
-    return `instagram-stories://share?source_application=${encodeURIComponent(id)}`;
-  }
-  return "instagram-stories://share";
 }
 
 /**
@@ -249,58 +240,69 @@ export function openFacebookShare(event: Event, locale: Locale): void {
   void shareToFacebook(event, locale);
 }
 
-async function copyInstagramSharePayload(
-  url: string,
-  preview?: Blob | null,
-): Promise<boolean> {
-  if (preview && typeof ClipboardItem !== "undefined" && navigator.clipboard?.write) {
-    try {
-      const type = preview.type || "image/png";
-      await navigator.clipboard.write([
-        new ClipboardItem({
-          "text/plain": Promise.resolve(new Blob([url], { type: "text/plain" })),
-          [type]: Promise.resolve(preview),
-        }),
-      ]);
-      return true;
-    } catch {
-      // Fall through to URL-only copy (Link sticker still works).
-    }
-  }
-  return copyText(url);
+function previewToShareFile(preview: Blob): File {
+  return new File([preview], "pop-event-story.png", {
+    type: preview.type || "image/png",
+  });
+}
+
+export function canShareImageFile(file: File): boolean {
+  return (
+    typeof navigator !== "undefined" &&
+    typeof navigator.canShare === "function" &&
+    navigator.canShare({ files: [file] })
+  );
 }
 
 /**
- * Copy the event URL (and an optional Stories preview image). Caller shows
- * "Link copied" and, on mobile, opens Instagram Stories.
+ * Copy the event URL for a Story Link sticker. On iPhone/Android, also offer
+ * the page-preview image through the system share sheet (Instagram Stories
+ * accepts images that way).
+ *
+ * Do not use `instagram-stories://share` from the website — Instagram rejects
+ * it with "The app you shared from doesn't currently support sharing to Stories."
  */
 export async function shareToInstagram(
   event: Event,
   locale: Locale,
   preview?: Blob | null,
-): Promise<"copied" | "failed"> {
+): Promise<"shared" | "copied" | "failed"> {
   if (typeof window === "undefined") return "failed";
+
   const url = getCanonicalEventShareUrl(event, locale);
-  const copied = await copyInstagramSharePayload(url, preview);
+  const copied = await copyText(url);
+
+  if (preview) {
+    const file = previewToShareFile(preview);
+    if (canShareImageFile(file) && typeof navigator.share === "function") {
+      try {
+        await navigator.share({
+          files: [file],
+          title: event.title,
+          text: url,
+        });
+        return "shared";
+      } catch (err) {
+        if (err instanceof Error && err.name === "AbortError") {
+          return copied ? "copied" : "failed";
+        }
+      }
+    }
+  }
+
   return copied ? "copied" : "failed";
 }
 
-/** Open Instagram's Stories composer (`instagram-stories://share`). */
-export function openInstagramStories(): void {
+/** Open the Instagram app (not the Stories share API). */
+export function openInstagramApp(): void {
   if (typeof window === "undefined" || !prefersMobileAppShare()) return;
 
-  const deepLink = getInstagramStoriesShareUrl();
   const link = document.createElement("a");
-  link.href = deepLink;
+  link.href = "instagram://app";
   link.style.display = "none";
   document.body.appendChild(link);
   link.click();
   link.remove();
-}
-
-/** @deprecated Use openInstagramStories */
-export function openInstagramApp(): void {
-  openInstagramStories();
 }
 
 function isViewingShareUrl(url: string): boolean {

@@ -299,6 +299,8 @@ export const es: Dictionary = {
       "¡Evento copiado! Pulsa OK y pégalo en tu publicación de Facebook.",
     facebookCopyFailed:
       "No se pudo copiar automáticamente. Mantén pulsado para pegar cuando se abra Facebook.",
+    instagramCopied:
+      "Enlace copiado — elige Instagram y pega un sticker de enlace.",
     instagramCopyFailed:
       "No se pudo copiar el enlace. Pégalo como sticker de enlace en tu Historia.",
   },
