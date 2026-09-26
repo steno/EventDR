@@ -95,7 +95,7 @@ You can also trigger cleanup and notifications manually via secured API endpoint
 - **`GET /api/cron/meta-post`** — Confirm Meta env is set (add `?inspect=1` only when you need a live Graph token check)
 - **`POST /api/cron/meta-post`** — Publish to Facebook and/or Instagram (`dryRun`, `source: "today"` for the 08:00 UTC happening-today post, `source: "today-specials"` for a manual specials post, or `source: "weekend"`). Live today posts are stepped; use `scripts/run-today-spotlight.mjs` or the GitHub Action rather than a single curl.
 
-GitHub Action **Daily today spotlight** (`daily-today-spotlight.yml`) posts every day ~4:00 AST / 08:00 UTC. It prefers home **Today’s specials** when that channel has not posted yet; after a specials post it uses happening-today only. A dedicated specials post is still `TODAY_SPECIALS=true node scripts/run-today-spotlight.mjs`.
+GitHub Action **Daily today spotlight** (`daily-today-spotlight.yml`) posts every day ~4:00 AST / 08:00 UTC. It posts **all** home **Today’s specials** when that channel has not posted yet (up to 10 images); after a specials post it uses happening-today only (top 3). A dedicated specials post is still `TODAY_SPECIALS=true node scripts/run-today-spotlight.mjs`.
 
 Set `CRON_SECRET` in your environment variables to enable manual triggers (optional). Query-string `?secret=` is no longer accepted.
 

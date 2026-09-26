@@ -16,7 +16,10 @@ import { getPublicEvents } from "@/lib/public-events";
 import { SITE_URL } from "@/lib/site-url";
 import type { Event } from "@/lib/types";
 
+/** Default fill when few (or no) specials — mixed happening-today picks. */
 export const TODAY_SPOTLIGHT_LIMIT = 3;
+/** Instagram / Facebook album hard cap (Graph also slices to 10). */
+export const TODAY_SPOTLIGHT_MAX = 10;
 
 /** Scheduled 08:00 UTC post vs a manual “today’s specials” post. */
 export type SpotlightChannel = "today" | "today-specials";
@@ -103,6 +106,37 @@ export function spotlightPickOptionsForSource(
   if (source === "today-specials") return { onlyTodaySpecials: true };
   if (options.specialsAlreadyPosted) return { excludeTodaySpecials: true };
   return { preferTodaySpecials: true };
+}
+
+/**
+ * How many events to post. When specials are preferred (or the post is
+ * specials-only), take every dated one-off that starts today — up to the
+ * Meta carousel/album max — and still fill to at least {@link TODAY_SPOTLIGHT_LIMIT}
+ * with other happening-today events when preferring.
+ */
+export function spotlightLimitForOptions(
+  events: Event[],
+  options: SpotlightPickOptions = {},
+  now = new Date(),
+): number {
+  if (!options.preferTodaySpecials && !options.onlyTodaySpecials) {
+    return TODAY_SPOTLIGHT_LIMIT;
+  }
+  const today = localDateISO(now);
+  let specialCount = 0;
+  for (const event of events) {
+    const status = getEventLiveStatus(event, now);
+    if (SKIP_STATUSES.has(status)) continue;
+    if (!isTodayOnlySpecial(event, today)) continue;
+    specialCount += 1;
+  }
+  if (options.onlyTodaySpecials) {
+    return Math.min(TODAY_SPOTLIGHT_MAX, Math.max(specialCount, 1));
+  }
+  return Math.min(
+    TODAY_SPOTLIGHT_MAX,
+    Math.max(TODAY_SPOTLIGHT_LIMIT, specialCount),
+  );
 }
 
 export function sameSpotlightEventSet(a: string[], b: string[]): boolean {
@@ -276,7 +310,7 @@ const INTRO_TEMPLATES: Record<Locale, string[]> = {
   en: [
     "Today on the North Coast.",
     "{weekday} on the North Coast.",
-    "Three North Coast picks for {weekday}.",
+    "North Coast picks for {weekday}.",
     "What's on {weekday}.",
     "North Coast lineup — {weekday}.",
     "Don't miss these {weekday}.",
@@ -285,7 +319,7 @@ const INTRO_TEMPLATES: Record<Locale, string[]> = {
   es: [
     "Hoy en la Costa Norte.",
     "{weekday} en la Costa Norte.",
-    "Tres planes en la Costa Norte este {weekday}.",
+    "Planes en la Costa Norte este {weekday}.",
     "Qué hay {weekday}.",
     "Cartelera Costa Norte — {weekday}.",
     "No te pierdas esto {weekday}.",
@@ -294,7 +328,7 @@ const INTRO_TEMPLATES: Record<Locale, string[]> = {
   fr: [
     "Aujourd’hui sur la Côte Nord.",
     "{weekday} sur la Côte Nord.",
-    "Trois idées Côte Nord pour {weekday}.",
+    "Idées Côte Nord pour {weekday}.",
     "Au programme {weekday}.",
     "Line-up Côte Nord — {weekday}.",
     "À ne pas manquer {weekday}.",
@@ -398,13 +432,10 @@ export async function buildTodayMetaPost(
   origin = SITE_URL,
   options: SpotlightPickOptions = {},
 ): Promise<{ ok: true; post: TodayMetaPost } | { ok: false; error: string }> {
+  const now = new Date();
   const today = await getPublicEvents({ locale, when: "today" });
-  const picked = pickTodaySpotlights(
-    today,
-    TODAY_SPOTLIGHT_LIMIT,
-    new Date(),
-    options,
-  );
+  const limit = spotlightLimitForOptions(today, options, now);
+  const picked = pickTodaySpotlights(today, limit, now, options);
   if (!picked.length) {
     return { ok: false, error: "No today events to spotlight" };
   }

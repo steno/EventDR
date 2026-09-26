@@ -6,10 +6,13 @@ import {
   pickTodaySpotlights,
   sameSpotlightEventSet,
   spotlightCaptionIntro,
+  spotlightLimitForOptions,
   spotlightPickOptionsForSource,
   spotlightRepeatKey,
   spotlightSeriesKeyFromId,
   toAbsoluteMetaImageUrl,
+  TODAY_SPOTLIGHT_LIMIT,
+  TODAY_SPOTLIGHT_MAX,
 } from "./meta-spotlight";
 import type { Event } from "./types";
 
@@ -254,6 +257,123 @@ describe("pickTodaySpotlights", () => {
         (item) => item.id,
       ),
       ["ramen", "concert", "party"],
+    );
+  });
+
+  it("scheduled prefer takes every special when the limit allows", () => {
+    const pool = [
+      event({
+        id: "a",
+        title: "A",
+        date: "2026-08-20",
+        time: "1:00 PM",
+        location: "Sosúa",
+        category: "music",
+      }),
+      event({
+        id: "b",
+        title: "B",
+        date: "2026-08-20",
+        time: "2:00 PM",
+        location: "Cabarete",
+        category: "food-drinks",
+      }),
+      event({
+        id: "c",
+        title: "C",
+        date: "2026-08-20",
+        time: "3:00 PM",
+        location: "Puerto Plata",
+        category: "parties",
+      }),
+      event({
+        id: "d",
+        title: "D",
+        date: "2026-08-20",
+        time: "4:00 PM",
+        location: "Imbert",
+        category: "concert",
+      }),
+      event({
+        id: "e",
+        title: "E",
+        date: "2026-08-20",
+        time: "5:00 PM",
+        location: "Luperon",
+        category: "sports",
+      }),
+      event({
+        id: "weekly",
+        title: "Weekly",
+        date: "2026-08-20",
+        time: "9:00 PM",
+        location: "Cabarete",
+        category: "music",
+        recurrence: "weekly",
+      }),
+    ];
+    const limit = spotlightLimitForOptions(pool, { preferTodaySpecials: true }, NOW);
+    assert.equal(limit, 5);
+    const picked = pickTodaySpotlights(pool, limit, NOW, {
+      preferTodaySpecials: true,
+    }).map((item) => item.id);
+    assert.deepEqual(picked.sort(), ["a", "b", "c", "d", "e"]);
+    assert.equal(picked.includes("weekly"), false);
+  });
+
+  it("caps preferred specials at the Meta carousel max", () => {
+    const pool = Array.from({ length: TODAY_SPOTLIGHT_MAX + 3 }, (_, i) =>
+      event({
+        id: `special-${i}`,
+        title: `Special ${i}`,
+        date: "2026-08-20",
+        time: "8:00 PM",
+        location: i % 2 ? "Cabarete" : "Sosúa",
+        category: i % 2 ? "music" : "parties",
+      }),
+    );
+    assert.equal(
+      spotlightLimitForOptions(pool, { preferTodaySpecials: true }, NOW),
+      TODAY_SPOTLIGHT_MAX,
+    );
+    assert.equal(
+      spotlightLimitForOptions(pool, { onlyTodaySpecials: true }, NOW),
+      TODAY_SPOTLIGHT_MAX,
+    );
+  });
+
+  it("keeps a 3-slot floor when preferring specials but few exist", () => {
+    const pool = [
+      event({
+        id: "one",
+        title: "One special",
+        date: "2026-08-20",
+        time: "6:00 PM",
+        location: "Sosúa",
+        category: "food-drinks",
+      }),
+      event({
+        id: "weekly-a",
+        title: "Weekly A",
+        date: "2026-08-20",
+        time: "8:00 PM",
+        location: "Cabarete",
+        category: "music",
+        recurrence: "weekly",
+      }),
+      event({
+        id: "weekly-b",
+        title: "Weekly B",
+        date: "2026-08-20",
+        time: "9:00 PM",
+        location: "Puerto Plata",
+        category: "parties",
+        recurrence: "weekly",
+      }),
+    ];
+    assert.equal(
+      spotlightLimitForOptions(pool, { preferTodaySpecials: true }, NOW),
+      TODAY_SPOTLIGHT_LIMIT,
     );
   });
 
