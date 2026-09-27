@@ -212,7 +212,7 @@ const FILE_TO_EVENT_ID = {
   "aura-latin-flow-dance-wednesday.jpg": "aura-latin-flow-dance-wednesday",
   "cisco-vengo-social-heartz-aura-2026-09-25.jpg":
     "cisco-vengo-social-heartz-aura-2026-09-25",
-  "el-cuarteto-terrible-zona-acapella-2026-09-27.jpg":
+  "el-cuarteto-terrible-zona-acapella-2026-09-27-flyer.jpg":
     "el-cuarteto-terrible-zona-acapella-2026-09-27",
   "natura-sunbar-special-sunset-sounds-2026-09-24.jpg":
     "natura-sunbar-special-sunset-sounds-2026-09-24",

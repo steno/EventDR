@@ -113,8 +113,9 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "el-cuarteto-del-swing-zona-acapella-2026-09-13.jpg",
   "los-caballitos-zona-acapella-2026-09-20":
     "los-caballitos-zona-acapella-2026-09-20.jpg",
+  // Filename bump — refreshed Domingo Típico duo flyer (PWA caches old path).
   "el-cuarteto-terrible-zona-acapella-2026-09-27":
-    "el-cuarteto-terrible-zona-acapella-2026-09-27.jpg",
+    "el-cuarteto-terrible-zona-acapella-2026-09-27-flyer.jpg",
   "natura-sunbar-special-sunset-sounds-2026-09-24":
     "natura-sunbar-special-sunset-sounds-2026-09-24.jpg",
   "kaovanny-natura-cabana-2026-09-26": "kaovanny-natura-cabana-2026-09-26.jpg",
@@ -607,7 +608,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "aura-beach-club-miercoles-margaritas.jpg",
   "aura-latin-flow-dance-wednesday.jpg",
   "cisco-vengo-social-heartz-aura-2026-09-25.jpg",
-  "el-cuarteto-terrible-zona-acapella-2026-09-27.jpg",
+  "el-cuarteto-terrible-zona-acapella-2026-09-27-flyer.jpg",
   "natura-sunbar-special-sunset-sounds-2026-09-24.jpg",
   "kaovanny-natura-cabana-2026-09-26.jpg",
   "sosua-coastal-pickleball-open-2026-10-24.jpg",
