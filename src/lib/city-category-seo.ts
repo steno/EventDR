@@ -24,7 +24,7 @@ const CITY_CATEGORY_SEO: Partial<
           "From LAX sunset sessions to weekend dance floors — Cabarete nightlife starts here.",
       },
       es: {
-        title: "Vida nocturna en Cabarete | Fiestas y beach clubs | POP Eventos",
+        title: "Fiestas en Cabarete | Beach clubs | POP Eventos",
         description:
           "Vida nocturna en Cabarete — beach clubs, noches de reggae, fiestas con DJ y música en vivo en la bahía. Encuentra las fiestas de esta noche y el fin de semana en la Costa Norte.",
         intro:

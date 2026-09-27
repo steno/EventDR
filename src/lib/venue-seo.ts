@@ -16,132 +16,169 @@ export type VenueSeoCopy = {
 const VENUE_SEO: Record<string, Record<Locale, VenueSeoCopy>> = {
   "fun-city": {
     en: {
-      title: "Fun City Puerto Plata | Go-Kart Action Park | POP Events",
+      title: "Fun City Puerto Plata | Go-karts from RD$200 | POP Events",
       description:
-        "Fun City Action Park in Puerto Plata — the Dominican Republic's largest go-kart park on Highway 5 near Playa Dorada. Cyclone, Sprint 500, Grand Prix, bumper cars, and kids' tracks.",
+        "Open daily 10 AM–6 PM on Highway 5 near Playa Dorada. Go-karts from RD$200: Cyclone, Sprint 500, Grand Prix, bumper cars. Tel. 809-697-0794.",
       schemaType: "AmusementPark",
     },
     es: {
-      title: "Fun City Puerto Plata | Parque de go-karts | POP Eventos",
+      title: "Fun City Puerto Plata | Go-karts desde RD$200 | POP Eventos",
       description:
-        "Fun City Action Park en Puerto Plata — el parque de go-karts más grande de República Dominicana en la Carretera 5 cerca de Playa Dorada. Cyclone, Sprint 500, Grand Prix, autos chocadores y pistas infantiles.",
+        "Abierto todos los días 10 AM–6 PM en la Carretera 5, cerca de Playa Dorada. Go-karts desde RD$200: Cyclone, Sprint 500 y Grand Prix. Tel. 809-697-0794.",
       schemaType: "AmusementPark",
     },
     fr: {
-      title: "Fun City Puerto Plata | Parc de go-karts | POP Events",
+      title: "Fun City Puerto Plata | Karts dès RD$200 | POP Events",
       description:
-        "Fun City Action Park à Puerto Plata — le plus grand parc de go-karts de République dominicaine sur la Highway 5 près de Playa Dorada. Cyclone, Sprint 500, Grand Prix, autos tamponneuses et pistes enfants.",
+        "Ouvert tous les jours 10 h–18 h sur la Highway 5, près de Playa Dorada. Karts dès RD$200 : Cyclone, Sprint 500, Grand Prix. Tél. 809-697-0794.",
       schemaType: "AmusementPark",
+    },
+  },
+  "aura-beach-club-cabarete": {
+    en: {
+      title: "Aura Beach Club Cabarete | Hours & nights | POP Events",
+      description:
+        "Beach club on Calle Principal, Cabarete. Monday 2×1 margaritas, Wednesday Latin Flow from 9 PM, Saturday disco from 11:30 PM. WhatsApp +1 829-787-0140.",
+      schemaType: "NightClub",
+    },
+    es: {
+      title: "Aura Beach Club Cabarete | Horario y noches | POP Eventos",
+      description:
+        "Calle Principal, Cabarete. Lunes 2×1 margarita, miércoles Latin Flow 9 PM, sábado disco 11:30 PM. WhatsApp +1 829-787-0140.",
+      schemaType: "NightClub",
+    },
+    fr: {
+      title: "Aura Beach Club Cabarete | Horaires & nuits | POP Events",
+      description:
+        "Beach club sur Calle Principal, Cabarete. Lundi 2×1 margaritas, mercredi Latin Flow dès 21 h, samedi disco dès 23 h 30. WhatsApp +1 829-787-0140.",
+      schemaType: "NightClub",
+    },
+  },
+  "pop-cinemas-playa-dorada": {
+    en: {
+      title: "POP Cinemas Playa Dorada | Tickets RD$300 | POP Events",
+      description:
+        "North Coast’s only cinema, in Playa Dorada Mall. Tickets RD$300. Weekly films in Spanish — call 809-320-1400 or see cinemaspop.com.do.",
+      schemaType: "MovieTheater",
+    },
+    es: {
+      title: "POP Cinemas Playa Dorada | Cartelera RD$300 | POP Eventos",
+      description:
+        "El único cine de la Costa Norte, en Playa Dorada Mall. Entrada RD$300. Cartelera semanal en español — 809-320-1400 o cinemaspop.com.do.",
+      schemaType: "MovieTheater",
+    },
+    fr: {
+      title: "POP Cinemas Playa Dorada | Séances RD$300 | POP Events",
+      description:
+        "Seul cinéma de la Côte Nord, au Playa Dorada Mall. Places RD$300. Programme hebdo en espagnol — 809-320-1400 ou cinemaspop.com.do.",
+      schemaType: "MovieTheater",
     },
   },
   "coconut-cove": {
     en: {
-      title: "Chukka Coconut Cove | Ocean Zipline Puerto Plata | POP Events",
+      title: "Chukka Coconut Cove | Ocean zipline | POP Events",
       description:
-        "Chukka Ocean Outpost at Coconut Cove near Puerto Plata — 1,200-ft seaside zipline, ATV and dune buggy trails, private beach, and watersports in Bajo Hondo.",
+        "1,200-ft seaside zipline, ATV and buggy trails, and a private beach at Chukka Ocean Outpost, Bajo Hondo, Puerto Plata.",
       schemaType: ["TouristAttraction", "AmusementPark"],
       addressLocality: "Puerto Plata",
     },
     es: {
-      title: "Chukka Coconut Cove | Tirolesa océano Puerto Plata | POP Eventos",
+      title: "Chukka Coconut Cove | Tirolesa al mar | POP Eventos",
       description:
-        "Chukka Ocean Outpost en Coconut Cove cerca de Puerto Plata — tirolesa frente al mar de 1.200 pies, rutas en ATV y buggy, playa privada y deportes acuáticos en Bajo Hondo.",
+        "Tirolesa de 1.200 pies frente al mar, rutas en ATV y buggy, y playa privada en Chukka Ocean Outpost, Bajo Hondo, Puerto Plata.",
       schemaType: ["TouristAttraction", "AmusementPark"],
       addressLocality: "Puerto Plata",
     },
     fr: {
-      title: "Chukka Coconut Cove | Tyrolienne océan Puerto Plata | POP Events",
+      title: "Chukka Coconut Cove | Tyrolienne mer | POP Events",
       description:
-        "Chukka Ocean Outpost à Coconut Cove près de Puerto Plata — tyrolienne en bord de mer de 365 m, pistes ATV et buggy, plage privée et sports nautiques à Bajo Hondo.",
+        "Tyrolienne en bord de mer (365 m), pistes ATV et buggy, et plage privée au Chukka Ocean Outpost, Bajo Hondo, Puerto Plata.",
       schemaType: ["TouristAttraction", "AmusementPark"],
       addressLocality: "Puerto Plata",
     },
   },
   "museo-ambar": {
     en: {
-      title:
-        "Amber Museum Puerto Plata | Fossilized Resin & Dominican Amber | POP Events",
+      title: "Amber Museum Puerto Plata | Dominican amber | POP Events",
       description:
-        "Museo del Ámbar — Puerto Plata's amber museum of fossilized resin in a Victorian mansion. Dominican amber with lizards, insects, and prehistoric specimens in the historic center.",
+        "Dominican amber with lizards and insects in a Victorian mansion in Puerto Plata's historic center. Museo del Ámbar.",
       schemaType: "Museum",
     },
     es: {
-      title:
-        "Museo del Ámbar Puerto Plata | Ámbar y resina fosilizada | POP Eventos",
+      title: "Museo del Ámbar | Ámbar dominicano | POP Eventos",
       description:
-        "Museo del Ámbar en el centro histórico de Puerto Plata — museo de ámbar dominicano y resina fosilizada en una mansión victoriana, con lagartos, insectos y especímenes prehistóricos.",
+        "Ámbar dominicano con lagartos e insectos en una mansión victoriana del centro histórico de Puerto Plata.",
       schemaType: "Museum",
     },
     fr: {
-      title:
-        "Musée de l'Ambre Puerto Plata | Résine fossilisée | POP Events",
+      title: "Musée de l'Ambre Puerto Plata | Ambre fossile | POP Events",
       description:
-        "Museo del Ámbar — musée de l'ambre et de la résine fossilisée à Puerto Plata, dans un manoir victorien du centre historique. Ambre dominicain avec lézards, insectes et spécimens préhistoriques.",
+        "Ambre dominicain avec lézards et insectes, dans un manoir victorien du centre historique de Puerto Plata.",
       schemaType: "Museum",
     },
   },
   "ocean-world": {
     en: {
-      title: "Ocean World Puerto Plata | Marine Adventure Park | POP Events",
+      title: "Ocean World Puerto Plata | Dolphins & slides | POP Events",
       description:
-        "Ocean World Adventure Park in Cofresí, Puerto Plata — dolphin swims, sea lion and shark encounters, snorkeling, and water slides. Open daily; sometimes searched as Sea World Puerto Plata.",
+        "Dolphin swims, sea lions, sharks, snorkeling, and water slides in Cofresí. Open daily. Often searched as Sea World Puerto Plata.",
       schemaType: ["AmusementPark", "TouristAttraction"],
     },
     es: {
-      title: "Ocean World Puerto Plata | Parque marino de aventura | POP Eventos",
+      title: "Ocean World | Delfines y toboganes | POP Eventos",
       description:
-        "Ocean World Adventure Park en Cofresí, Puerto Plata — nado con delfines, encuentros con leones marinos y tiburones, snorkel y toboganes. Abierto todos los días; a veces buscado como Sea World Puerto Plata.",
+        "Nado con delfines, leones marinos, tiburones, snorkel y toboganes en Cofresí. Abierto todos los días. A veces buscado como Sea World.",
       schemaType: ["AmusementPark", "TouristAttraction"],
     },
     fr: {
-      title: "Ocean World Puerto Plata | Parc marin d'aventure | POP Events",
+      title: "Ocean World Cofresí | Dauphins et toboggans | POP Events",
       description:
-        "Ocean World Adventure Park à Cofresí, Puerto Plata — nage avec dauphins, otaries et requins, snorkeling et toboggans. Ouvert tous les jours ; parfois cherché comme Sea World Puerto Plata.",
+        "Nage avec dauphins, otaries et requins, snorkeling et toboggans à Cofresí. Ouvert tous les jours. Souvent cherché comme Sea World.",
       schemaType: ["AmusementPark", "TouristAttraction"],
     },
   },
   "don-limon-cofresi": {
     en: {
-      title: "Don Limón Cofresí | Cuban Beach Restaurant Puerto Plata | POP Events",
+      title: "Don Limón Cofresí | Cuban beach restaurant | POP Events",
       description:
-        "Don Limón on Playa Cofresí — family-run Cuban restaurant with sandwiches, grilled fish, paella, and cocktails. Open daily 11 AM–1 AM. Google 4.8 from 165 reviews.",
+        "Family-run Cuban spot on Playa Cofresí. Sandwiches, grilled fish, paella, cocktails. Open daily 11 AM–1 AM. Google 4.8 (165 reviews).",
       schemaType: "Restaurant",
       addressLocality: "Cofresí",
     },
     es: {
-      title: "Don Limón Cofresí | Restaurante cubano Puerto Plata | POP Eventos",
+      title: "Don Limón Cofresí | Restaurante cubano | POP Eventos",
       description:
-        "Don Limón en Playa Cofresí — restaurante cubano de familia con sándwiches, pescado a la parrilla, paella y cócteles. Abierto todos los días 11 AM–1 AM. Google 4.8 de 165 reseñas.",
+        "Cubano de familia en Playa Cofresí. Sándwiches, pescado a la parrilla, paella y cócteles. Abierto todos los días 11 AM–1 AM. Google 4.8 (165 reseñas).",
       schemaType: "Restaurant",
       addressLocality: "Cofresí",
     },
     fr: {
-      title: "Don Limón Cofresí | Restaurant cubain Puerto Plata | POP Events",
+      title: "Don Limón Cofresí | Restaurant cubain | POP Events",
       description:
-        "Don Limón sur Playa Cofresí — restaurant cubain familial, sandwiches, poisson grillé, paella et cocktails. Ouvert tous les jours 11 h–1 h. Google 4,8 sur 165 avis.",
+        "Restaurant cubain familial sur Playa Cofresí. Sandwiches, poisson grillé, paella, cocktails. Ouvert tous les jours 11 h–1 h. Google 4,8 (165 avis).",
       schemaType: "Restaurant",
       addressLocality: "Cofresí",
     },
   },
   "los-tres-cocos-cofresi": {
     en: {
-      title: "Los Tres Cocos Cofresí | Garden Dinner Puerto Plata | POP Events",
+      title: "Los Tres Cocos Cofresí | Garden dinner | POP Events",
       description:
-        "Los Tres Cocos in La Roka, Cofresí — Caribbean–European dinner with chef Micky. Wed–Mon 5–11 PM, closed Tuesday. Google 4.8 from 326 reviews.",
+        "Caribbean–European garden dinner in La Roka, Cofresí, with chef Micky. Wed–Mon 5–11 PM, closed Tuesday. Google 4.8 (326 reviews).",
       schemaType: "Restaurant",
       addressLocality: "Cofresí",
     },
     es: {
-      title: "Los Tres Cocos Cofresí | Cena en jardín Puerto Plata | POP Eventos",
+      title: "Los Tres Cocos Cofresí | Cena en jardín | POP Eventos",
       description:
-        "Los Tres Cocos en La Roka, Cofresí — cena caribeña–europea con el chef Micky. Mié–lun 5–11 PM, cerrado martes. Google 4.8 de 326 reseñas.",
+        "Cena caribeña–europea en jardín, La Roka, Cofresí, con el chef Micky. Mié–lun 5–11 PM, cerrado martes. Google 4.8 (326 reseñas).",
       schemaType: "Restaurant",
       addressLocality: "Cofresí",
     },
     fr: {
-      title: "Los Tres Cocos Cofresí | Dîner jardin Puerto Plata | POP Events",
+      title: "Los Tres Cocos Cofresí | Dîner au jardin | POP Events",
       description:
-        "Los Tres Cocos à La Roka, Cofresí — dîner caribéo-européen avec le chef Micky. Mer–lun 17 h–23 h, fermé mardi. Google 4,8 sur 326 avis.",
+        "Dîner caribéo-européen au jardin, La Roka, Cofresí, avec le chef Micky. Mer–lun 17 h–23 h, fermé mardi. Google 4,8 (326 avis).",
       schemaType: "Restaurant",
       addressLocality: "Cofresí",
     },

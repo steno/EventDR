@@ -6,7 +6,6 @@ import {
   CITY_SLUGS,
   getCityMeta,
   getCityName,
-  getCitySeo,
   isCitySlug,
 } from "@/lib/cities";
 import { categoryNavLinks } from "@/lib/event-navigation";
@@ -20,6 +19,7 @@ import {
 import {
   buildCityMetadata,
   buildListingPageJsonLd,
+  cityListingSeo,
   localePath,
 } from "@/lib/seo";
 
@@ -43,7 +43,9 @@ export async function generateMetadata({
   const city = getCityMeta(slug);
   if (!city) return {};
 
-  return buildCityMetadata(locale, city);
+  const catalog = await getPublicEvents({ locale });
+  const events = filterCatalogForScope(catalog, { citySlug: slug });
+  return buildCityMetadata(locale, city, events);
 }
 
 export default async function Page({
@@ -59,11 +61,11 @@ export default async function Page({
   if (!city) notFound();
 
   const dict = getDictionary(locale);
-  const citySeo = getCitySeo(city, locale);
   const cityName = getCityName(city, locale);
   const cityPath = localePath(locale, `/city/${slug}`);
   const catalog = await getPublicEvents({ locale });
   const events = filterCatalogForScope(catalog, { citySlug: slug });
+  const citySeo = cityListingSeo(locale, city, events);
   const relatedCategoryLinks = categoryNavLinks(
     locale,
     dict.categories,

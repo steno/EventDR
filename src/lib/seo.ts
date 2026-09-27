@@ -7,6 +7,15 @@ import { eventCitySlug, getCityMeta, getCityName, getCitySeo } from "@/lib/citie
 import { getCategorySeo } from "@/lib/category-seo";
 import { getCityCategorySeo } from "@/lib/city-category-seo";
 import { getWhenSeo, type WhenSlug } from "@/lib/time-seo";
+import { sortEventsForDisplay } from "@/lib/event-sort";
+import {
+  eventSearchDescription,
+  eventSearchTitle,
+  buildWhenSearchCopy,
+  buildListingSearchCopy,
+  buildUntunedVenueSearchCopy,
+  categorySearchTopic,
+} from "@/lib/search-snippets";
 import type { Event, EventCategory, Venue } from "@/lib/types";
 import { coerceEventCategory } from "@/lib/categorize";
 import { formatEventPlace } from "@/lib/event-location";
@@ -147,23 +156,51 @@ export function defaultTwitter(
   };
 }
 
+function snippetOrder(events: Event[]): Event[] {
+  if (events.length < 2) return events;
+  return sortEventsForDisplay(events, {
+    recurringLast: true,
+    oneTimeFirst: true,
+    pinTodayOneOffs: true,
+  });
+}
+
+function withLiveSnippet(
+  fallback: { title: string; description: string },
+  live: { title: string; description: string } | null,
+): { title: string; description: string } {
+  return {
+    title: live?.title ?? fallback.title,
+    description: live?.description ?? fallback.description,
+  };
+}
+
 export function buildHomeMetadata(
   locale: Locale,
   dict: Dictionary,
+  events: Event[] = [],
 ): Metadata {
   const alternates = buildAlternates(locale);
+  const { title, description } = withLiveSnippet(
+    dict.meta,
+    buildListingSearchCopy(locale, snippetOrder(events), {
+      kind: "home",
+      place: "Puerto Plata",
+      scope: "region",
+    }),
+  );
   return {
-    title: dict.meta.title,
-    description: dict.meta.description,
+    title,
+    description,
     alternates,
     openGraph: defaultOpenGraph(locale, {
-      title: dict.meta.title,
-      description: dict.meta.description,
+      title,
+      description,
       url: alternates.canonical,
     }),
     twitter: defaultTwitter({
-      title: dict.meta.title,
-      description: dict.meta.description,
+      title,
+      description,
     }),
   };
 }
@@ -225,12 +262,29 @@ export function buildCruiseLoopMetadata(
   };
 }
 
+export function categoryListingSeo(
+  locale: Locale,
+  categoryId: EventCategory,
+  events: Event[] = [],
+): { title: string; description: string } {
+  return withLiveSnippet(
+    getCategorySeo(locale, categoryId),
+    buildListingSearchCopy(locale, snippetOrder(events), {
+      kind: "category",
+      place: "Puerto Plata",
+      scope: "region",
+      topic: categorySearchTopic(locale, categoryId),
+    }),
+  );
+}
+
 export function buildCategoryMetadata(
   locale: Locale,
   categoryId: EventCategory,
+  events: Event[] = [],
 ): Metadata {
   const path = `/category/${categoryId}`;
-  const { title, description } = getCategorySeo(locale, categoryId);
+  const { title, description } = categoryListingSeo(locale, categoryId, events);
   const alternates = buildAlternates(locale, path);
 
   return {
@@ -246,9 +300,28 @@ export function buildCategoryMetadata(
   };
 }
 
-export function buildCityMetadata(locale: Locale, city: CityMeta): Metadata {
+export function cityListingSeo(
+  locale: Locale,
+  city: CityMeta,
+  events: Event[] = [],
+): { title: string; description: string } {
+  return withLiveSnippet(
+    getCitySeo(city, locale),
+    buildListingSearchCopy(locale, snippetOrder(events), {
+      kind: "city",
+      place: getCityName(city, locale),
+      scope: "city",
+    }),
+  );
+}
+
+export function buildCityMetadata(
+  locale: Locale,
+  city: CityMeta,
+  events: Event[] = [],
+): Metadata {
   const path = `/city/${city.slug}`;
-  const { title, description } = getCitySeo(city, locale);
+  const { title, description } = cityListingSeo(locale, city, events);
   const alternates = buildAlternates(locale, path);
 
   return {
@@ -264,9 +337,16 @@ export function buildCityMetadata(locale: Locale, city: CityMeta): Metadata {
   };
 }
 
-export function buildWhenMetadata(locale: Locale, slug: WhenSlug): Metadata {
+export function buildWhenMetadata(
+  locale: Locale,
+  slug: WhenSlug,
+  events: Event[] = [],
+): Metadata {
   const path = `/when/${slug}`;
-  const { title, description } = getWhenSeo(locale, slug);
+  const fallback = getWhenSeo(locale, slug);
+  const live = buildWhenSearchCopy(locale, slug, events);
+  const title = live?.title ?? fallback.title;
+  const description = live?.description ?? fallback.description;
   const alternates = buildAlternates(locale, path);
 
   return {
@@ -280,6 +360,24 @@ export function buildWhenMetadata(locale: Locale, slug: WhenSlug): Metadata {
     }),
     twitter: defaultTwitter({ title, description }),
   };
+}
+
+export function cityCategoryListingSeo(
+  locale: Locale,
+  city: CityMeta,
+  categoryId: EventCategory,
+  categoryLabel: string,
+  events: Event[] = [],
+): { title: string; description: string } {
+  return withLiveSnippet(
+    getCityCategorySeo(locale, city, categoryId, categoryLabel),
+    buildListingSearchCopy(locale, snippetOrder(events), {
+      kind: "category",
+      place: getCityName(city, locale),
+      scope: "city",
+      topic: categorySearchTopic(locale, categoryId),
+    }),
+  );
 }
 
 export function buildCityCategoryMetadata(
@@ -287,13 +385,15 @@ export function buildCityCategoryMetadata(
   city: CityMeta,
   categoryId: EventCategory,
   categoryLabel: string,
+  events: Event[] = [],
 ): Metadata {
   const path = `/city/${city.slug}/category/${categoryId}`;
-  const { title, description } = getCityCategorySeo(
+  const { title, description } = cityCategoryListingSeo(
     locale,
     city,
     categoryId,
     categoryLabel,
+    events,
   );
   const alternates = buildAlternates(locale, path);
 
@@ -314,14 +414,20 @@ export function buildVenueMetadata(
   locale: Locale,
   dict: Dictionary,
   venue: Venue,
+  events: Event[] = [],
 ): Metadata {
   const path = `/venue/${venue.slug}`;
   const tuned = getVenueSeo(venue.slug, locale);
+  const generated = tuned
+    ? null
+    : buildUntunedVenueSearchCopy(locale, venue, events);
   const title =
     tuned?.title ??
+    generated?.title ??
     fillTemplate(dict.seo.venueTitle, { venue: venue.name });
   const description =
     tuned?.description ??
+    generated?.description ??
     fillTemplate(dict.seo.venueDescription, {
       venue: venue.name,
       city: venue.city,
@@ -426,20 +532,23 @@ export function buildEventMetadata(
   const image = eventOpenGraphImage(event);
   const alternates = buildAlternates(locale, path);
 
+  const title = eventSearchTitle(event, locale);
+  const description = eventSearchDescription(event, locale);
+
   return {
-    title: `${event.title} | ${SITE_NAME}`,
-    description: event.description,
+    title,
+    description,
     alternates,
     openGraph: defaultOpenGraph(locale, {
-      title: event.title,
-      description: event.description,
+      title,
+      description,
       url: shareUrl,
       type: "website",
       images: [image],
     }),
     twitter: defaultTwitter({
-      title: event.title,
-      description: event.description,
+      title,
+      description,
       images: [image.url],
     }),
   };
@@ -838,18 +947,22 @@ export function buildListingPageJsonLd(
 export function buildLocalBusinessJsonLd(
   venue: Venue,
   locale: Locale,
+  events: Event[] = [],
 ): Record<string, unknown> {
   const url = absoluteUrl(localePath(locale, `/venue/${venue.slug}`));
   const tuned = getVenueSeo(venue.slug, locale);
   const schemaType = tuned?.schemaType ?? "LocalBusiness";
   const locality = tuned?.addressLocality ?? venue.city;
   const image = resolveImageUrl(venue.imageUrl ?? getVenueImageUrl(venue.slug));
+  const description =
+    tuned?.description ??
+    buildUntunedVenueSearchCopy(locale, venue, events).description;
 
   return {
     "@context": "https://schema.org",
     "@type": schemaType,
     name: venue.name,
-    description: tuned?.description ?? venue.description,
+    description,
     url,
     ...(image ? { image } : {}),
     address: {

@@ -49,6 +49,11 @@ import {
   type ScopeListingSelection,
 } from "@/lib/scope-listing";
 import { signalNavDone } from "@/lib/nav-feedback";
+import {
+  categoryListingSeo,
+  cityCategoryListingSeo,
+  cityListingSeo,
+} from "@/lib/seo";
 import { NETWORK_ONLY_FETCH } from "@/lib/pwa-refresh";
 import {
   resetListTimeRangeToAll,
@@ -481,11 +486,33 @@ export function EventScopePage({
   const returnTo = chrome.returnTo;
   const submitDefaults = chrome.submitDefaults ?? submitDefaultsProp;
 
-  // Keep the document title in sync during soft scope swaps (SEO pages set it on SSR).
+  const searchTitle = useMemo(() => {
+    if (!softNav) return null;
+    const categoryLabel = activeCategoryId
+      ? dict.categories[activeCategoryId]
+      : undefined;
+    if (activeCategoryId && city && categoryLabel) {
+      return cityCategoryListingSeo(
+        locale,
+        city,
+        activeCategoryId,
+        categoryLabel,
+        events,
+      ).title;
+    }
+    if (activeCategoryId) {
+      return categoryListingSeo(locale, activeCategoryId, events).title;
+    }
+    if (city) return cityListingSeo(locale, city, events).title;
+    return null;
+  }, [softNav, activeCategoryId, city, dict.categories, locale, events]);
+
+  // Soft city/category swaps use pushState, so Next never replaces <title>.
+  // Use the same search title a hard load would, not the on-page heading.
   useEffect(() => {
-    if (!softNav || typeof document === "undefined") return;
-    document.title = `${title} | POP Events`;
-  }, [softNav, title]);
+    if (!searchTitle || typeof document === "undefined") return;
+    document.title = searchTitle;
+  }, [searchTitle]);
 
   return (
     <>

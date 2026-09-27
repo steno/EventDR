@@ -500,9 +500,11 @@ export function getComingUpHighlightEvents(
  * the section when the list is empty. A single special can sit beside an
  * add-event promo so the desktop row doesn’t look sparse.
  *
- * No display cap — every active special is returned. Order prefers status,
- * then trending / one-time kind / newest `createdAt` via {@link pinTodayOneOffs}
- * (no peer shuffle, so fresh seeds stay ahead of older same-day listings).
+ * No display cap — every active special is returned. Order is status, then
+ * one-time kind, then sooner start time ({@link sortEventsForDisplay}) — not
+ * newest `createdAt`. Skip {@link pinTodayOneOffs}: that pin is for floating
+ * one-offs above dailies / recovering after shuffle, and it was putting a
+ * later-seeded 4 PM card ahead of an earlier 2:30 PM peer.
  */
 export function getTodaySpecialEvents(
   events: Event[],
@@ -515,12 +517,10 @@ export function getTodaySpecialEvents(
   );
   if (filtered.length === 0) return [];
 
-  const sorted = sortEventsForDisplay(filtered, {
+  return sortEventsForDisplay(filtered, {
     oneTimeFirst: true,
     now,
   });
-  // Skip peer shuffle — rotation was burying newly seeded one-offs.
-  return pinTodayOneOffs(sorted, now);
 }
 
 /**

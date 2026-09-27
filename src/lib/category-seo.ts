@@ -10,21 +10,21 @@ export type CategorySeoCopy = {
 const CATEGORY_SEO: Record<EventCategory, Record<Locale, CategorySeoCopy>> = {
   music: {
     en: {
-      title: "Live Music Events in Cabarete, Sosúa & Puerto Plata | POP Events",
+      title: "Live music in Puerto Plata | POP Events",
       description:
         "Find live music, DJs, merengue, bachata, and sunset sessions in Cabarete, Sosúa, and Puerto Plata on the North Coast of the Dominican Republic.",
       intro:
         "From reggae nights at LAX Cabarete to merengue on the Malecón — discover live music across the North Coast.",
     },
     es: {
-      title: "Música en vivo en Cabarete, Sosúa y Puerto Plata | POP Eventos",
+      title: "Música en vivo en Puerto Plata | POP Eventos",
       description:
         "Encuentra música en vivo, DJs, merengue, bachata y sesiones al atardecer en Cabarete, Sosúa y Puerto Plata en la Costa Norte de RD.",
       intro:
         "Desde noches de reggae en LAX Cabarete hasta merengue en el Malecón — descubre música en vivo en la Costa Norte.",
     },
     fr: {
-      title: "Musique live à Cabarete, Sosúa et Puerto Plata | POP Events",
+      title: "Musique live à Puerto Plata | POP Events",
       description:
         "Concerts, DJ sets, merengue, bachata et sessions au coucher du soleil à Cabarete, Sosúa et Puerto Plata sur la Côte Nord de RD.",
       intro:
@@ -33,21 +33,21 @@ const CATEGORY_SEO: Record<EventCategory, Record<Locale, CategorySeoCopy>> = {
   },
   concert: {
     en: {
-      title: "Concerts & Live Shows on the North Coast DR | POP Events",
+      title: "Concerts in Puerto Plata | POP Events",
       description:
         "Concerts, reggaeton shows, acoustic nights, and open-air performances in Puerto Plata, Sosúa, and Cabarete.",
       intro:
         "Outdoor concerts on the Malecón, beachfront shows, and headline acts across Puerto Plata, Sosúa, and Cabarete.",
     },
     es: {
-      title: "Conciertos en la Costa Norte RD | POP Eventos",
+      title: "Conciertos en Puerto Plata | POP Eventos",
       description:
         "Conciertos, shows de reggaetón, noches acústicas y espectáculos al aire libre en Puerto Plata, Sosúa y Cabarete.",
       intro:
         "Conciertos en el Malecón, shows frente al mar y artistas en vivo en Puerto Plata, Sosúa y Cabarete.",
     },
     fr: {
-      title: "Concerts sur la Côte Nord RD | POP Events",
+      title: "Concerts à Puerto Plata | POP Events",
       description:
         "Concerts, shows reggaeton, soirées acoustiques et spectacles en plein air à Puerto Plata, Sosúa et Cabarete.",
       intro:
@@ -56,21 +56,21 @@ const CATEGORY_SEO: Record<EventCategory, Record<Locale, CategorySeoCopy>> = {
   },
   parties: {
     en: {
-      title: "Parties & Nightlife in Cabarete, Sosúa & Puerto Plata | POP Events",
+      title: "Nightlife in Puerto Plata | POP Events",
       description:
         "Reggaeton parties, pool parties, ladies night, beach club events, and nightlife in Cabarete, Sosúa, and Puerto Plata.",
       intro:
         "Beach clubs, rooftop parties, and weekend nightlife across the North Coast — find your next night out.",
     },
     es: {
-      title: "Fiestas y vida nocturna en Cabarete, Sosúa y Puerto Plata | POP Eventos",
+      title: "Fiestas en Puerto Plata | POP Eventos",
       description:
         "Fiestas de reggaetón, pool parties, ladies night, beach clubs y vida nocturna en Cabarete, Sosúa y Puerto Plata.",
       intro:
         "Beach clubs, fiestas en azotea y vida nocturna de fin de semana en la Costa Norte.",
     },
     fr: {
-      title: "Fêtes et vie nocturne à Cabarete, Sosúa et Puerto Plata | POP Events",
+      title: "Fêtes à Puerto Plata | POP Events",
       description:
         "Soirées reggaeton, pool parties, ladies night, beach clubs et nightlife à Cabarete, Sosúa et Puerto Plata.",
       intro:
@@ -79,21 +79,21 @@ const CATEGORY_SEO: Record<EventCategory, Record<Locale, CategorySeoCopy>> = {
   },
   "food-drinks": {
     en: {
-      title: "Food & Drink Events on the North Coast DR | POP Events",
+      title: "Food and drink in Puerto Plata | POP Events",
       description:
         "Food festivals, brunch markets, wine tastings, and gastronomic fairs on the Malecón and across Puerto Plata, Sosúa, and Cabarete.",
       intro:
         "Tasting events, food trucks, and culinary gatherings from the Malecón to Cabarete Bay.",
     },
     es: {
-      title: "Eventos gastronómicos en la Costa Norte RD | POP Eventos",
+      title: "Comida y tragos en Puerto Plata | POP Eventos",
       description:
         "Festivales de comida, brunch, degustaciones y ferias gastronómicas en el Malecón, Puerto Plata, Sosúa y Cabarete.",
       intro:
         "Degustaciones, food trucks y encuentros culinarios desde el Malecón hasta la bahía de Cabarete.",
     },
     fr: {
-      title: "Événements food & drinks Côte Nord RD | POP Events",
+      title: "Food et drinks à Puerto Plata | POP Events",
       description:
         "Festivals gastronomiques, brunchs, dégustations et foires culinaires sur le Malecón, à Puerto Plata, Sosúa et Cabarete.",
       intro:
@@ -102,21 +102,21 @@ const CATEGORY_SEO: Record<EventCategory, Record<Locale, CategorySeoCopy>> = {
   },
   festivals: {
     en: {
-      title: "Festivals & Cultural Fairs on the North Coast DR | POP Events",
+      title: "Festivals in Puerto Plata | POP Events",
       description:
         "Carnival, beach festivals, artisan fairs, and summer fests in Puerto Plata, Sosúa, and Cabarete on the North Coast.",
       intro:
         "Seasonal festivals, cultural celebrations, and community fairs across the Puerto Plata region.",
     },
     es: {
-      title: "Festivales y ferias en la Costa Norte RD | POP Eventos",
+      title: "Festivales en Puerto Plata | POP Eventos",
       description:
         "Carnaval, festivales de playa, ferias artesanales y fiestas de verano en Puerto Plata, Sosúa y Cabarete.",
       intro:
         "Festivales de temporada, celebraciones culturales y ferias comunitarias en la región de Puerto Plata.",
     },
     fr: {
-      title: "Festivals et foires Côte Nord RD | POP Events",
+      title: "Festivals à Puerto Plata | POP Events",
       description:
         "Carnaval, festivals de plage, foires artisanales et fêtes d'été à Puerto Plata, Sosúa et Cabarete.",
       intro:
@@ -125,21 +125,21 @@ const CATEGORY_SEO: Record<EventCategory, Record<Locale, CategorySeoCopy>> = {
   },
   dance: {
     en: {
-      title: "Dance & Salsa Events in Sosúa, Cabarete & Puerto Plata | POP Events",
+      title: "Dance events in Puerto Plata | POP Events",
       description:
         "Bachata and salsa socials, dance classes, Latin workshops, and social dancing in Sosúa, Cabarete, and Puerto Plata.",
       intro:
         "Salsa nights at El Batey, bachata socials, and dance workshops across the North Coast.",
     },
     es: {
-      title: "Baile, salsa y bachata en Sosúa, Cabarete y Puerto Plata | POP Eventos",
+      title: "Baile en Puerto Plata | POP Eventos",
       description:
         "Sociales de bachata y salsa, clases de baile, talleres latinos y baile social en Sosúa, Cabarete y Puerto Plata.",
       intro:
         "Noches de salsa en El Batey, sociales de bachata y talleres de baile en la Costa Norte.",
     },
     fr: {
-      title: "Danse, salsa et bachata à Sosúa, Cabarete et Puerto Plata | POP Events",
+      title: "Danse à Puerto Plata | POP Events",
       description:
         "Soirées bachata et salsa, cours de danse, ateliers latins et danses sociales à Sosúa, Cabarete et Puerto Plata.",
       intro:
@@ -148,21 +148,21 @@ const CATEGORY_SEO: Record<EventCategory, Record<Locale, CategorySeoCopy>> = {
   },
   "health-wellness": {
     en: {
-      title: "Yoga & Wellness Events on the North Coast DR | POP Events",
+      title: "Yoga and wellness in Puerto Plata | POP Events",
       description:
         "Sunrise yoga on Kite Beach, wellness retreats, fitness bootcamps, and meditation events in Cabarete, Sosúa, and Puerto Plata.",
       intro:
         "Beach yoga, breathwork sessions, and wellness meetups from Kite Beach to downtown Sosúa.",
     },
     es: {
-      title: "Yoga y wellness en Cabarete y la Costa Norte RD | POP Eventos",
+      title: "Yoga y wellness en Puerto Plata | POP Eventos",
       description:
         "Yoga al amanecer en Kite Beach, retiros wellness, bootcamps y meditación en Cabarete, Sosúa y Puerto Plata.",
       intro:
         "Yoga en la playa, sesiones de breathwork y encuentros wellness desde Kite Beach hasta Sosúa.",
     },
     fr: {
-      title: "Yoga et wellness à Cabarete et Côte Nord RD | POP Events",
+      title: "Yoga et wellness à Puerto Plata | POP Events",
       description:
         "Yoga au lever du soleil à Kite Beach, retraites wellness, bootcamps et méditation à Cabarete, Sosúa et Puerto Plata.",
       intro:
@@ -171,21 +171,21 @@ const CATEGORY_SEO: Record<EventCategory, Record<Locale, CategorySeoCopy>> = {
   },
   performances: {
     en: {
-      title: "Comedy, Open Mic & Shows on the North Coast DR | POP Events",
+      title: "Comedy and shows in Puerto Plata | POP Events",
       description:
         "Stand-up comedy, open mic nights, theater, poetry slams, and live performances in Sosúa, Cabarete, and Puerto Plata.",
       intro:
         "Open mic at El Batey, comedy nights, and live performances across the North Coast.",
     },
     es: {
-      title: "Comedia, open mic y espectáculos en la Costa Norte RD | POP Eventos",
+      title: "Espectáculos en Puerto Plata | POP Eventos",
       description:
         "Stand-up comedy, open mic, teatro, poetry slam y shows en vivo en Sosúa, Cabarete y Puerto Plata.",
       intro:
         "Open mic en El Batey, noches de comedia y espectáculos en vivo en la Costa Norte.",
     },
     fr: {
-      title: "Comédie, open mic et spectacles Côte Nord RD | POP Events",
+      title: "Spectacles à Puerto Plata | POP Events",
       description:
         "Stand-up, open mic, théâtre, poetry slam et spectacles live à Sosúa, Cabarete et Puerto Plata.",
       intro:
@@ -194,21 +194,21 @@ const CATEGORY_SEO: Record<EventCategory, Record<Locale, CategorySeoCopy>> = {
   },
   sports: {
     en: {
-      title: "Sports & Kite Surf Events on the North Coast DR | POP Events",
+      title: "Sports and kite in Puerto Plata | POP Events",
       description:
         "Kite surfing, wing foil, beach volleyball, pickup soccer, running races, and sports events in Cabarete, Sosúa, and Puerto Plata.",
       intro:
         "World-class kite surf at Kite Beach, beach volleyball in Sosúa, and local sports leagues across the North Coast.",
     },
     es: {
-      title: "Deportes y kite surf en Cabarete y la Costa Norte RD | POP Eventos",
+      title: "Deportes y kite en Puerto Plata | POP Eventos",
       description:
         "Kite surf, wing foil, voleibol de playa, fútbol pickup, carreras y eventos deportivos en Cabarete, Sosúa y Puerto Plata.",
       intro:
         "Kite surf de clase mundial en Kite Beach, voleibol en Sosúa y ligas locales en la Costa Norte.",
     },
     fr: {
-      title: "Sports et kite surf à Cabarete et Côte Nord RD | POP Events",
+      title: "Sports et kite à Puerto Plata | POP Events",
       description:
         "Kite surf, wing foil, beach volley, football pickup, courses et événements sportifs à Cabarete, Sosúa et Puerto Plata.",
       intro:
@@ -217,21 +217,21 @@ const CATEGORY_SEO: Record<EventCategory, Record<Locale, CategorySeoCopy>> = {
   },
   business: {
     en: {
-      title: "Business & Networking Events on the North Coast DR | POP Events",
+      title: "Business events in Puerto Plata | POP Events",
       description:
         "Verified business workshops, trade fairs, and entrepreneur events in Cabarete, Sosúa, and Puerto Plata.",
       intro:
         "Industry gatherings and founder events across Puerto Plata’s North Coast — listed when we can verify them.",
     },
     es: {
-      title: "Eventos de negocios en la Costa Norte RD | POP Eventos",
+      title: "Negocios en Puerto Plata | POP Eventos",
       description:
         "Talleres, ferias y eventos de emprendedores verificados en Cabarete, Sosúa y Puerto Plata.",
       intro:
         "Encuentros de industria y eventos para emprendedores en la Costa Norte — solo cuando podemos verificarlos.",
     },
     fr: {
-      title: "Événements business sur la Côte Nord RD | POP Events",
+      title: "Business à Puerto Plata | POP Events",
       description:
         "Ateliers, salons et événements entrepreneurs vérifiés à Cabarete, Sosúa et Puerto Plata.",
       intro:
@@ -240,21 +240,21 @@ const CATEGORY_SEO: Record<EventCategory, Record<Locale, CategorySeoCopy>> = {
   },
   culture: {
     en: {
-      title: "Culture & Heritage Events in Puerto Plata | POP Events",
+      title: "Culture in Puerto Plata | POP Events",
       description:
         "Museum events, Fortaleza San Felipe tours, colonial heritage walks, and artisan fairs in Puerto Plata and the North Coast.",
       intro:
         "Museo del Ámbar, historic downtown walks, and cultural heritage events across Puerto Plata.",
     },
     es: {
-      title: "Cultura y patrimonio en Puerto Plata y Costa Norte RD | POP Eventos",
+      title: "Cultura en Puerto Plata | POP Eventos",
       description:
         "Eventos en museos, Fortaleza San Felipe, patrimonio colonial y ferias artesanales en Puerto Plata y la Costa Norte.",
       intro:
         "Museo del Ámbar, paseos por el centro histórico y eventos culturales en Puerto Plata.",
     },
     fr: {
-      title: "Culture et patrimoine à Puerto Plata et Côte Nord RD | POP Events",
+      title: "Culture à Puerto Plata | POP Events",
       description:
         "Événements musées, Fortaleza San Felipe, patrimoine colonial et foires artisanales à Puerto Plata et sur la Côte Nord.",
       intro:
@@ -263,21 +263,21 @@ const CATEGORY_SEO: Record<EventCategory, Record<Locale, CategorySeoCopy>> = {
   },
   adventure: {
     en: {
-      title: "Adventure Tours & Excursions on the North Coast DR | POP Events",
+      title: "Adventure tours in Puerto Plata | POP Events",
       description:
         "Damajagua waterfall tours, Cayo Arena boat trips, Ocean World, snorkeling, and adventure excursions from Puerto Plata to Cabarete.",
       intro:
         "Waterfall hikes, island day trips, and outdoor adventures across the North Coast of the Dominican Republic.",
     },
     es: {
-      title: "Aventura y excursiones en la Costa Norte RD | POP Eventos",
+      title: "Excursiones en Puerto Plata | POP Eventos",
       description:
         "Tour Damajagua, Cayo Arena, Ocean World, snorkel y excursiones de aventura desde Puerto Plata hasta Cabarete.",
       intro:
         "Cascadas, excursiones en bote e aventuras al aire libre en la Costa Norte de República Dominicana.",
     },
     fr: {
-      title: "Aventure et excursions Côte Nord RD | POP Events",
+      title: "Excursions à Puerto Plata | POP Events",
       description:
         "Damajagua, Cayo Arena, Ocean World, snorkeling et excursions d'aventure de Puerto Plata à Cabarete.",
       intro:

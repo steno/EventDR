@@ -3,7 +3,6 @@
 import type { ReactNode } from "react";
 import {
   FILTER_TIME_RANGES,
-  PRICE_FILTERS,
   type FilterTimeRange,
   type PriceFilter,
 } from "@/lib/filters";
@@ -14,6 +13,7 @@ import {
   SCROLL_CHROME_TRANSITION_CLASS,
   scrollChromeFilterSlideClass,
 } from "@/lib/scroll-chrome";
+import { PriceFilterChips } from "@/components/PriceFilterChips";
 
 interface TimeFilterProps {
   value: FilterTimeRange;
@@ -104,39 +104,13 @@ export function TimeFilter({
         ) : null}
       </div>
 
-      {showPrice ? (
-        <div
-          className="flex min-w-0 items-center gap-2 pt-2 md:pt-1.5"
-          role="group"
-          aria-label={dict.price.ariaLabel}
-        >
-          {PRICE_FILTERS.map((option) => {
-            const selected = price === option;
-            return (
-              <button
-                key={option}
-                type="button"
-                aria-pressed={selected}
-                onClick={() => onPriceChange?.(selected ? "all" : option)}
-                className={`
-                  inline-flex items-center rounded-full border px-3 py-1
-                  text-sm font-bold tracking-tight
-                  transition-[color,background-color,border-color,transform]
-                  touch-manipulation active:scale-[0.98]
-                  focus-visible:outline focus-visible:outline-2
-                  focus-visible:outline-offset-2 focus-visible:outline-orange-500
-                  ${
-                    selected
-                      ? "border-orange-500/60 bg-orange-500/12 text-orange-700 dark:border-orange-400/50 dark:bg-orange-400/15 dark:text-orange-300"
-                      : "border-neutral-200 bg-white text-neutral-600 hover:border-orange-300 hover:text-orange-700 dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-300 dark:hover:border-orange-800 dark:hover:text-orange-300"
-                  }
-                `}
-              >
-                {dict.price[option]}
-              </button>
-            );
-          })}
-        </div>
+      {showPrice && price != null && onPriceChange ? (
+        <PriceFilterChips
+          value={price}
+          onChange={onPriceChange}
+          dict={dict}
+          className="pt-2 md:pt-1.5"
+        />
       ) : null}
     </div>
   );

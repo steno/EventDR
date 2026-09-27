@@ -2,7 +2,7 @@ import type { Dictionary } from "./en";
 
 export const fr: Dictionary = {
   meta: {
-    title: "POP Events | Région de Puerto Plata · Côte Nord RD",
+    title: "Que faire à Puerto Plata, Sosúa et Cabarete | POP Events",
     description:
       "Découvrez les événements à Puerto Plata, Sosúa et Cabarete — concerts, fêtes, kite surf, yoga, festivals gastronomiques et activités locales sur la Côte Nord de RD.",
   },
@@ -243,6 +243,7 @@ export const fr: Dictionary = {
     viewVenue: "Voir le lieu",
     enlargeImage: "Agrandir l'image",
     viewEvent: "Voir l'événement",
+    endedNext: "C’est terminé — voir ce qu’il y a aujourd’hui",
     buyTickets: "Acheter des billets",
     saveProgram: "Voir le programme",
     freeAdmission: "Entrée gratuite",
@@ -566,9 +567,9 @@ export const fr: Dictionary = {
     directory: {
       title: "Lieux",
       metaTitle:
-        "Lieux sur la côte nord RD | Puerto Plata, Sosúa et Cabarete | POP Events",
+        "Lieux à Puerto Plata, Sosúa et Cabarete | POP Events",
       metaDescription:
-        "Parcourez bars, plages, clubs, resorts et lieux culturels qui accueillent des événements à Puerto Plata, Sosúa et Cabarete — avec les prochaines soirées et conseils locaux de POP Events.",
+        "Bars, plages, clubs et resorts avec des événements à Puerto Plata, Sosúa et Cabarete — prochaines soirées et conseils de POP Events.",
       intro:
         "Lieux de A à Z sur la côte nord — ouvrez un lieu pour l’agenda, les conseils et le trajet.",
       seeAll: "Voir tous les lieux",
@@ -583,6 +584,7 @@ export const fr: Dictionary = {
     noPastEvents: "Pas encore d'événements passés à ce lieu.",
     scheduleTabs: "Programme du lieu",
     noEvents: "Pas encore d'événements à ce lieu.",
+    staleSchedule: "Dernière date publiée : {dates}.",
     howToGetThere: "Voir comment s'y rendre",
     showMap: "Comment s'y rendre",
     streetView: "Voir le quartier",

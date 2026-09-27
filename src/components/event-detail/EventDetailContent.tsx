@@ -325,6 +325,15 @@ export function EventDetailContent({
         )}
       </div>
 
+      {liveStatus === "ended" ? (
+        <IntentLink
+          href={`/${locale}/when/today`}
+          className="mt-3 block rounded-2xl bg-orange-50 px-3.5 py-3 text-sm font-bold text-orange-950 ring-1 ring-orange-200 transition-colors hover:bg-orange-100 dark:bg-orange-950/40 dark:text-orange-100 dark:ring-orange-900/60"
+        >
+          {dict.detail.endedNext}
+        </IntentLink>
+      ) : null}
+
       <nav aria-label={dict.browse.ariaLabel}>
         <EventCategoryLinks
           event={event}

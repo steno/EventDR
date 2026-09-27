@@ -250,6 +250,8 @@ export type Dictionary = {
     /** Mobile: open event image in full-bleed story viewer. */
     enlargeImage: string;
     viewEvent: string;
+    /** Past one-off: send the visitor to today’s list. */
+    endedNext: string;
     buyTickets: string;
     /** Open official program / schedule flyer in lightbox. */
     saveProgram: string;
@@ -568,6 +570,8 @@ export type Dictionary = {
     noPastEvents: string;
     scheduleTabs: string;
     noEvents: string;
+    /** Shown when the only schedule on a venue page is already over. `{dates}` is the range. */
+    staleSchedule: string;
     howToGetThere: string;
     showMap: string;
     streetView: string;
@@ -646,7 +650,7 @@ export type Dictionary = {
 
 export const en: Dictionary = {
   meta: {
-    title: "POP Events | Puerto Plata region · North Coast DR",
+    title: "Things to do in Puerto Plata, Sosúa & Cabarete | POP Events",
     description:
       "Discover events in Puerto Plata, Sosúa, and Cabarete — concerts, parties, kite surf, yoga, food festivals, and local happenings on the North Coast of the Dominican Republic.",
   },
@@ -887,6 +891,7 @@ export const en: Dictionary = {
     viewVenue: "View venue",
     enlargeImage: "Enlarge image",
     viewEvent: "View event",
+    endedNext: "This one has ended — see what’s on today",
     buyTickets: "Buy tickets",
     saveProgram: "Save the program",
     freeAdmission: "Free admission",
@@ -1210,9 +1215,9 @@ export const en: Dictionary = {
     directory: {
       title: "Venues",
       metaTitle:
-        "Venues on the North Coast DR | Puerto Plata, Sosúa & Cabarete | POP Events",
+        "Venues in Puerto Plata, Sosúa & Cabarete | POP Events",
       metaDescription:
-        "Browse bars, beaches, clubs, resorts, and cultural spots hosting events in Puerto Plata, Sosúa, and Cabarete — with upcoming nights and local tips from POP Events.",
+        "Bars, beaches, clubs, and resorts with events in Puerto Plata, Sosúa, and Cabarete — upcoming nights and local tips from POP Events.",
       intro:
         "A–Z places that host nights out on the North Coast — open a venue for schedule, tips, and how to get there.",
       seeAll: "See all venues",
@@ -1227,6 +1232,7 @@ export const en: Dictionary = {
     noPastEvents: "No past events listed for this venue yet.",
     scheduleTabs: "Venue schedule",
     noEvents: "No upcoming events at this venue yet.",
+    staleSchedule: "Last listed: {dates}.",
     howToGetThere: "See how to get there",
     showMap: "How to get there",
     streetView: "See the area",

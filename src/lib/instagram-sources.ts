@@ -245,6 +245,11 @@ export const INSTAGRAM_ACCOUNTS = [
     label: "Puerto Plata Beach Soccer",
     areas: ["Sosúa", "Puerto Plata"],
   },
+  {
+    handle: "atleticosdepuertoplata",
+    label: "Atléticos de Puerto Plata",
+    areas: ["Puerto Plata"],
+  },
 
   // Active tourist / lifestyle venues
   {

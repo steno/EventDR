@@ -10,6 +10,24 @@ interface PriceFilterChipsProps {
   className?: string;
 }
 
+function ChipCloseIcon() {
+  return (
+    <svg
+      className="size-3.5 shrink-0 opacity-80"
+      viewBox="0 0 16 16"
+      fill="none"
+      aria-hidden
+    >
+      <path
+        d="M4 4l8 8M12 4l-8 8"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
 export function PriceFilterChips({
   value,
   onChange,
@@ -25,14 +43,16 @@ export function PriceFilterChips({
       <div className="flex min-w-max gap-2">
         {PRICE_FILTERS.map((price) => {
           const selected = value === price;
+          const label = dict.price[price];
           return (
             <button
               key={price}
               type="button"
               aria-pressed={selected}
+              aria-label={selected ? `${label}. ${dict.price.showAll}` : label}
               onClick={() => onChange(selected ? "all" : price)}
               className={`
-                inline-flex items-center rounded-full border px-3 py-1
+                inline-flex items-center gap-1.5 rounded-full border px-3 py-1
                 text-sm font-bold tracking-tight
                 transition-[color,background-color,border-color,transform]
                 touch-manipulation active:scale-[0.98]
@@ -45,7 +65,8 @@ export function PriceFilterChips({
                 }
               `}
             >
-              {dict.price[price]}
+              {label}
+              {selected ? <ChipCloseIcon /> : null}
             </button>
           );
         })}

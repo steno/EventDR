@@ -37,6 +37,8 @@ import {
 import { formatPhoneTel } from "@/lib/event-phone";
 import { navigateBackSoft, navigateSoft } from "@/lib/nav-feedback";
 import { PAGE_SHELL_DETAIL_CLASS } from "@/lib/page-shell";
+import { fillTemplate } from "@/lib/seo";
+import { buildVenueGlance } from "@/lib/venue-glance";
 import { isDetailNavPath } from "@/lib/scope-listing";
 import { scrollBelowStickyStack } from "@/lib/list-scroll";
 import {
@@ -151,6 +153,10 @@ export function VenuePage({
   useForegroundRefresh(softRefreshEvents);
 
   const listReturnTo = `/${locale}/venue/${venue.slug}`;
+  const glance = useMemo(
+    () => buildVenueGlance(events, locale),
+    [events, locale],
+  );
   const [returnTo, setReturnTo] = useState<string | null>(null);
   const [returnTitle, setReturnTitle] = useState<string | null>(null);
   const [fallbackHref, setFallbackHref] = useState(`/${locale}`);
@@ -432,6 +438,36 @@ export function VenuePage({
                 <h1 className="mt-1.5 text-title font-extrabold leading-snug text-neutral-900 dark:text-neutral-100 lg:text-display">
                   {venue.name}
                 </h1>
+                {glance ? (
+                  <div className="mt-3 rounded-2xl bg-neutral-100 px-3.5 py-3 dark:bg-neutral-800">
+                    <p className="text-sm font-bold text-neutral-900 dark:text-neutral-100">
+                      {glance.headline}
+                    </p>
+                    {glance.lines.length > 0 ? (
+                      <ul className="mt-1.5 space-y-0.5 text-sm font-medium text-neutral-700 dark:text-neutral-200">
+                        {glance.lines.map((line) => (
+                          <li key={line}>{line}</li>
+                        ))}
+                      </ul>
+                    ) : null}
+                    {glance.stale ? (
+                      <p className="mt-1.5 text-sm text-neutral-600 dark:text-neutral-300">
+                        {fillTemplate(dict.venues.staleSchedule, {
+                          dates: glance.datesLabel,
+                        })}
+                      </p>
+                    ) : null}
+                    <IntentLink
+                      href={eventDetailPath(locale, glance.eventId)}
+                      onClick={() =>
+                        rememberReturnPath(listReturnTo, venue.name)
+                      }
+                      className="mt-2 inline-flex text-sm font-bold text-orange-700 dark:text-orange-300"
+                    >
+                      {dict.detail.viewEvent}
+                    </IntentLink>
+                  </div>
+                ) : null}
                 {walkablePocket ? (
                   <PocketPlaceHint
                     pocket={walkablePocket}

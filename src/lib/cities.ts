@@ -82,7 +82,7 @@ export const CITIES: CityMeta[] = [
     topCategories: ["music", "culture", "adventure", "concert", "festivals", "food-drinks"],
     seo: {
       en: {
-        title: "Events in Puerto Plata | Things to Do This Weekend | POP Events",
+        title: "Things to do in Puerto Plata | POP Events",
         description:
           "Discover concerts, festivals, Malecón gatherings, Ocean World, Fun City go-karts, the Amber Museum, and local events in Puerto Plata on the North Coast of the Dominican Republic.",
         intro:
@@ -91,7 +91,7 @@ export const CITIES: CityMeta[] = [
           "Malecón concerts, Amber Museum culture, Damajagua tours, and waterfront nightlife — events in Puerto Plata, Dominican Republic.",
       },
       es: {
-        title: "Eventos en Puerto Plata | Qué hacer este fin de semana | POP Eventos",
+        title: "Qué hacer en Puerto Plata | POP Eventos",
         description:
           "Descubre conciertos, festivales, eventos en el Malecón, Ocean World, Fun City, el Museo del Ámbar y actividades locales en Puerto Plata en la Costa Norte de RD.",
         intro:
@@ -100,7 +100,7 @@ export const CITIES: CityMeta[] = [
           "Conciertos en el Malecón, cultura en el Museo del Ámbar, tours a Damajagua y vida nocturna frente al mar — eventos en Puerto Plata, República Dominicana.",
       },
       fr: {
-        title: "Événements à Puerto Plata | Que faire ce week-end | POP Events",
+        title: "Que faire à Puerto Plata | POP Events",
         description:
           "Concerts, festivals, Malecón, Ocean World, Fun City, musée de l'Ambre et événements locaux à Puerto Plata sur la Côte Nord de la République dominicaine.",
         intro:
@@ -137,7 +137,7 @@ export const CITIES: CityMeta[] = [
     topCategories: ["parties", "sports", "music", "food-drinks"],
     seo: {
       en: {
-        title: "Events in Sosúa | Things to Do This Weekend | POP Events",
+        title: "Things to do in Sosúa | POP Events",
         description:
           "Find beach volleyball, Playa Sosúa live music, Hard Rock shows, Pedro Clisante bar nights, and local events in Sosúa on the North Coast of the DR.",
         intro:
@@ -146,7 +146,7 @@ export const CITIES: CityMeta[] = [
           "Beach volleyball, Hard Rock shows, Pedro Clisante bar nights, and local events — Sosúa on the North Coast of the DR.",
       },
       es: {
-        title: "Eventos en Sosúa | Qué hacer este fin de semana | POP Eventos",
+        title: "Qué hacer en Sosúa | POP Eventos",
         description:
           "Encuentra voleibol de playa, música en vivo en Playa Sosúa, shows en Hard Rock, noches en Pedro Clisante y eventos locales en Sosúa.",
         intro:
@@ -155,7 +155,7 @@ export const CITIES: CityMeta[] = [
           "Voleibol de playa, Hard Rock, noches en Pedro Clisante y eventos locales — Sosúa, Costa Norte de RD.",
       },
       fr: {
-        title: "Événements à Sosúa | Que faire ce week-end | POP Events",
+        title: "Que faire à Sosúa | POP Events",
         description:
           "Beach volley, live à Playa Sosúa, concerts Hard Rock, soirées Pedro Clisante et événements locaux à Sosúa sur la Côte Nord.",
         intro:
@@ -178,7 +178,7 @@ export const CITIES: CityMeta[] = [
     topCategories: ["sports", "parties", "music", "health-wellness", "adventure"],
     seo: {
       en: {
-        title: "Events in Cabarete | Nightlife, Kite Surf & Live Music | POP Events",
+        title: "Things to do in Cabarete | POP Events",
         description:
           "Cabarete nightlife, live music, kite surf competitions, yoga on Kite Beach, reggae nights, and beach parties — the adventure hub of the North Coast DR.",
         intro:
@@ -187,7 +187,7 @@ export const CITIES: CityMeta[] = [
           "Kite Beach competitions, LAX live music, reggae nights, and beach parties — events in Cabarete, North Coast Dominican Republic.",
       },
       es: {
-        title: "Eventos en Cabarete | Vida nocturna, kite surf y música | POP Eventos",
+        title: "Qué hacer en Cabarete | POP Eventos",
         description:
           "Vida nocturna en Cabarete, música en vivo, competencias de kite surf, yoga en Kite Beach, noches de reggae y fiestas en la playa — el corazón de la Costa Norte.",
         intro:
@@ -196,7 +196,7 @@ export const CITIES: CityMeta[] = [
           "Competencias en Kite Beach, música en vivo en LAX, noches de reggae y fiestas en la playa — eventos en Cabarete, Costa Norte de RD.",
       },
       fr: {
-        title: "Événements à Cabarete | Nightlife, kite surf et musique live | POP Events",
+        title: "Que faire à Cabarete | POP Events",
         description:
           "Nightlife à Cabarete, musique live, compétitions kite surf, yoga à Kite Beach, soirées reggae et fêtes de plage — le cœur de la Côte Nord.",
         intro:

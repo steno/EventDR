@@ -2,7 +2,7 @@ import type { Dictionary } from "./en";
 
 export const es: Dictionary = {
   meta: {
-    title: "POP Eventos | Región de Puerto Plata · Costa Norte RD",
+    title: "Qué hacer en Puerto Plata, Sosúa y Cabarete | POP Eventos",
     description:
       "Descubre eventos en Puerto Plata, Sosúa y Cabarete — conciertos, fiestas, kite surf, yoga, festivales gastronómicos y planes locales en la Costa Norte de República Dominicana.",
   },
@@ -243,6 +243,7 @@ export const es: Dictionary = {
     viewVenue: "Ver lugar",
     enlargeImage: "Ampliar imagen",
     viewEvent: "Ver evento",
+    endedNext: "Esto ya pasó — mira qué hay hoy",
     buyTickets: "Comprar entradas",
     saveProgram: "Guarda el programa",
     freeAdmission: "Entrada gratis",
@@ -566,9 +567,9 @@ export const es: Dictionary = {
     directory: {
       title: "Lugares",
       metaTitle:
-        "Lugares en la Costa Norte RD | Puerto Plata, Sosúa y Cabarete | POP Eventos",
+        "Lugares en Puerto Plata, Sosúa y Cabarete | POP Eventos",
       metaDescription:
-        "Explora bares, playas, clubs, resorts y espacios culturales con eventos en Puerto Plata, Sosúa y Cabarete — con próximas noches y tips locales de POP Eventos.",
+        "Bares, playas, clubs y resorts con eventos en Puerto Plata, Sosúa y Cabarete — próximas noches y tips locales de POP Eventos.",
       intro:
         "Lugares de la A a la Z en la Costa Norte — abre uno para ver agenda, tips y cómo llegar.",
       seeAll: "Ver todos los lugares",
@@ -583,6 +584,7 @@ export const es: Dictionary = {
     noPastEvents: "Aún no hay eventos pasados en este lugar.",
     scheduleTabs: "Agenda del lugar",
     noEvents: "Aún no hay eventos en este lugar.",
+    staleSchedule: "Último publicado: {dates}.",
     howToGetThere: "Ver cómo llegar",
     showMap: "Cómo llegar",
     streetView: "Ver el entorno",

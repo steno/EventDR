@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { EventScopePage } from "@/components/EventScopePage";
 import { JsonLd } from "@/components/JsonLd";
 import { CATEGORY_IDS, getCategoryMeta } from "@/lib/categories";
-import { getCityCategorySeo } from "@/lib/city-category-seo";
 import { getCityMeta, getCityName, isCitySlug } from "@/lib/cities";
 import { categoryNavLinks } from "@/lib/event-navigation";
 import { isValidLocale } from "@/i18n/config";
@@ -16,6 +15,7 @@ import {
 import {
   buildCityCategoryMetadata,
   buildListingPageJsonLd,
+  cityCategoryListingSeo,
   localePath,
 } from "@/lib/seo";
 import type { EventCategory } from "@/lib/types";
@@ -40,7 +40,18 @@ export async function generateMetadata({
   const category = getCategoryMeta(id, dict.categories);
   if (!city || !category) return {};
 
-  return buildCityCategoryMetadata(locale, city, id as EventCategory, category.label);
+  const catalog = await getPublicEvents({ locale });
+  const events = filterCatalogForScope(catalog, {
+    citySlug: slug,
+    categoryId: id as EventCategory,
+  });
+  return buildCityCategoryMetadata(
+    locale,
+    city,
+    id as EventCategory,
+    category.label,
+    events,
+  );
 }
 
 export default async function Page({
@@ -62,7 +73,6 @@ export default async function Page({
 
   const cityName = getCityName(city, locale);
   const categoryId = id as EventCategory;
-  const seo = getCityCategorySeo(locale, city, categoryId, category.label);
   const pagePath = localePath(locale, `/city/${slug}/category/${id}`);
   const cityPath = localePath(locale, `/city/${slug}`);
   const catalog = await getPublicEvents({ locale });
@@ -70,6 +80,13 @@ export default async function Page({
     citySlug: slug,
     categoryId,
   });
+  const seo = cityCategoryListingSeo(
+    locale,
+    city,
+    categoryId,
+    category.label,
+    events,
+  );
   const cityEvents = filterCatalogForScope(catalog, { citySlug: slug });
   const relatedCategoryLinks = categoryNavLinks(
     locale,

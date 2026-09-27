@@ -39,7 +39,17 @@ export async function generateMetadata({
   if (!venue) return {};
 
   const dict = getDictionary(locale);
-  return buildVenueMetadata(locale, dict, venue);
+  const catalog = await getPublicEvents({
+    locale,
+    venueSlug: venue.slug,
+    includePast: true,
+  });
+  return buildVenueMetadata(
+    locale,
+    dict,
+    venue,
+    filterByVenueSlug(catalog, venue.slug),
+  );
 }
 
 export default async function Page({
@@ -74,7 +84,7 @@ export default async function Page({
     <>
       <JsonLd
         data={[
-          buildLocalBusinessJsonLd(venue, locale),
+          buildLocalBusinessJsonLd(venue, locale, events),
           buildBreadcrumbJsonLd([
             { name: dict.seo.siteName, path: localePath(locale) },
             {

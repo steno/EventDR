@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { Fragment, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import type { ReactNode } from "react";
 import { usePathname } from "next/navigation";
 import type { Event } from "@/lib/types";
@@ -21,6 +21,8 @@ import { pinSpecialEvents } from "@/lib/special-events";
 import { cardGridRowRemainder, fillCardGridPage } from "@/lib/card-grid";
 import { scrollToListTop } from "@/lib/list-scroll";
 import { clusterRecurringVenueEvents } from "@/lib/venue-recurring-siblings";
+import { eventsInWeekendOrder, weekendHeadingDate } from "@/lib/list-day-groups";
+import { formatEventDate } from "@/lib/format-date";
 import { useCardGridColumns } from "@/hooks/useCardGridColumns";
 import { StickyListFilters, ListScrollAnchor } from "@/components/StickyListFilters";
 import { stickyBackControlClassName } from "@/components/StickyListHeader";
@@ -297,13 +299,14 @@ export function FilteredEventList({
     return pinSpecialEvents(sorted, { placement: "weekend-list" });
   }, [events, activeRange, priceFilter, categoryId]);
 
-  const displayEvents = useMemo(
-    () =>
-      clusterVenueRecurring
-        ? clusterRecurringVenueEvents(filtered, locale, dict)
-        : filtered,
-    [filtered, clusterVenueRecurring, locale, dict],
-  );
+  const displayEvents = useMemo(() => {
+    const clustered = clusterVenueRecurring
+      ? clusterRecurringVenueEvents(filtered, locale, dict)
+      : filtered;
+    return activeRange === "weekend"
+      ? eventsInWeekendOrder(clustered)
+      : clustered;
+  }, [filtered, clusterVenueRecurring, locale, dict, activeRange]);
 
   const showPadCta = addEventCta === "pad";
   const showInlineAddCta = addEventCta === "inline" && Boolean(onAddEvent);
@@ -556,22 +559,39 @@ export function FilteredEventList({
               ref={view === "cards" ? gridRef : undefined}
               className={view === "cards" ? CARD_GRID_CLASS : "space-y-2.5"}
             >
-              {visibleEvents.map((event) => (
-                <EventCard
-                  key={event.id}
-                  event={event}
-                  dict={dict}
-                  locale={locale}
-                  returnTo={returnTo}
-                  returnTitle={returnTitle}
-                  listTimeRange={fixedTimeRange ?? timeRange}
-                  view={view}
-                  pending={pendingId === event.id}
-                  dimmed={pendingId != null && pendingId !== event.id}
-                  onNavigate={() => setPendingId(event.id)}
-                  showEnlarge={!categoryId}
-                />
-              ))}
+              {visibleEvents.map((event, index) => {
+                const headingDate =
+                  activeRange === "weekend" ? weekendHeadingDate(event) : event.date;
+                const previous = visibleEvents[index - 1];
+                const previousHeading =
+                  previous && activeRange === "weekend"
+                    ? weekendHeadingDate(previous)
+                    : previous?.date;
+                const showDay =
+                  activeRange === "weekend" && headingDate !== previousHeading;
+                return (
+                  <Fragment key={event.id}>
+                    {showDay ? (
+                      <h2 className="col-span-full pt-2 text-sm font-extrabold text-neutral-900 dark:text-neutral-100">
+                        {formatEventDate(headingDate, locale)}
+                      </h2>
+                    ) : null}
+                    <EventCard
+                      event={event}
+                      dict={dict}
+                      locale={locale}
+                      returnTo={returnTo}
+                      returnTitle={returnTitle}
+                      listTimeRange={fixedTimeRange ?? timeRange}
+                      view={view}
+                      pending={pendingId === event.id}
+                      dimmed={pendingId != null && pendingId !== event.id}
+                      onNavigate={() => setPendingId(event.id)}
+                      showEnlarge={!categoryId}
+                    />
+                  </Fragment>
+                );
+              })}
               {showEndTeaser ? (
                 <EventCardPlaceholder
                   title={dict.events.yourEventHereTitle}

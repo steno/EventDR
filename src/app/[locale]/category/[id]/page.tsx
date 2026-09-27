@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { EventScopePage } from "@/components/EventScopePage";
 import { JsonLd } from "@/components/JsonLd";
 import { CATEGORY_IDS, getCategoryMeta } from "@/lib/categories";
-import { getCategorySeo } from "@/lib/category-seo";
 import { categoryNavLinks } from "@/lib/event-navigation";
 import { isValidLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
@@ -15,6 +14,7 @@ import {
 import {
   buildCategoryMetadata,
   buildListingPageJsonLd,
+  categoryListingSeo,
   localePath,
 } from "@/lib/seo";
 import type { EventCategory } from "@/lib/types";
@@ -36,7 +36,12 @@ export async function generateMetadata({
   if (!isValidLocale(locale)) return {};
   if (!CATEGORY_IDS.includes(id as EventCategory)) return {};
 
-  return buildCategoryMetadata(locale, id as EventCategory);
+  const catalog = await getPublicEvents({ locale });
+  const events = filterCatalogForScope(catalog, {
+    categoryId: id as EventCategory,
+    regionScope: true,
+  });
+  return buildCategoryMetadata(locale, id as EventCategory, events);
 }
 
 export default async function Page({
@@ -50,7 +55,6 @@ export default async function Page({
 
   const dict = getDictionary(locale);
   const category = getCategoryMeta(id, dict.categories);
-  const categorySeo = getCategorySeo(locale, id as EventCategory);
   const categoryId = id as EventCategory;
   const pagePath = localePath(locale, `/category/${id}`);
   // One region catalog powers SSR + instant city/category soft-nav.
@@ -59,6 +63,7 @@ export default async function Page({
     categoryId,
     regionScope: true,
   });
+  const categorySeo = categoryListingSeo(locale, categoryId, events);
   const relatedCategoryLinks = categoryNavLinks(
     locale,
     dict.categories,

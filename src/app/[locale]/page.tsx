@@ -28,7 +28,8 @@ export async function generateMetadata({
   const { locale } = await params;
   if (!isValidLocale(locale)) return {};
   const dict = getDictionary(locale);
-  return buildHomeMetadata(locale, dict);
+  const events = await getPublicEvents({ locale });
+  return buildHomeMetadata(locale, dict, events);
 }
 
 export default async function Page({

@@ -181,6 +181,7 @@ Curated images under `public/events/` and `public/venues/`.
 | `venues/ocean-one-cabarete-pool.jpg` | [Google Maps — Ocean One](https://www.google.com/maps/place/Ocean+One/@19.7495899,-70.4120254,17z) visitor/listing photo (Remax Coralbay) | Condo courtyard pool and palapa — no longer Voy Voy’s interior |
 | `inicio-del-campamento-pp-2026.jpg` | [Unsplash](https://unsplash.com/photos/photo-1526232761682) (`photo-1526232761682`) — Unsplash License | Youth sports camp huddle (replaces podcast logo) |
 | `atleticos-pp-vs-mangueros-2026-07-17.jpg` (+ other Atléticos home/playoff games incl. `atleticos-pp-vs-reales-2026-09-19.jpg`) | POP curated `athleticosPOP.png` — Atléticos de Puerto Plata pitcher | Authentic team photo; replaces Unsplash stock for the full home slate |
+| `atleticos-pp-vs-mineros-2026-09-27.jpg` | POP-supplied / editor-provided — @atleticosdepuertoplata “It’s Game Day” Serie Final flyer | Official team promo art for Serie Final Game 2 vs Mineros (typography-heavy; not a home hero scene) |
 | `venues/parque-jose-briceno.jpg` | POP curated `baseballpark.png` — packed grandstand at Parque José Briceño | Authentic venue place photo |
 | `casa-de-la-cultura-gallery-opening.jpg` | POP-supplied gallery opening at Casa de la Cultura (Danilo de los Santos exhibition) | Exhibition action (peach facade stays on the venue) |
 | `casa-de-la-cultura-saturday-keyboard.jpg` | POP-supplied Saturday gallery set — keyboard / live performance | Saturday Stage action (peach facade stays on the venue) |
@@ -304,7 +305,7 @@ Curated images under `public/events/` and `public/venues/`.
 | `victrola-jueves-social.jpg` | POP-supplied — Victrola 037 Arte Café Jueves Social flyer (tabla + 4 sangrías) | Weekly Thursday social promo (editor-provided) |
 | `victrola-mojitos-friday.jpg` | POP-supplied — Victrola 037 Arte Café Viernes mojitos 2x1 / Café Meclao' flyer | Weekly Friday live + 2x1 mojitos (editor-provided; replaces Ladies Night) |
 | `tasty-food-park-show-de-magia-2026-09-13.jpg` | POP-supplied — Tasty Food Park Show de Magia flyer ([IG](https://www.instagram.com/p/DdNiin9De2O/)) | Magic show Sun 13 Sep 2026 7 PM (editor-provided) |
-| `cigar-town-domingo-de-matine.jpg` | POP-supplied — Cigar Town Domingo de Matiné promo ([reel](https://www.instagram.com/reel/DdNgA2tsgGt/)) | Weekly Sunday coffee/drinks or 2 beers + 10% off (editor-provided) |
+| `cigar-town-domingo-de-matine.jpg` | POP-supplied — Cigar Town Domingo de Matiné promo (@cigartownpop). Shortcode `DdNgA2tsgGt` is a Tasty Food Park Reel and must not be used here. | Weekly Sunday coffee/drinks or 2 beers + 10% off (editor-provided) |
 | `hard-rock-rising-segunda-ronda-2026-09-16.jpg` | POP-supplied — Hard Rock Rising Global Live Music Challenge Segunda Ronda flyer ([IG](https://www.instagram.com/p/DdO4DKoxoRk/)) | Competition night Wed 16 Sep 2026 8 PM (editor-provided) |
 | `iss-pta-parents-night-out-flyer.jpg` | POP-supplied — ISS PTA Back to School Parents’ Night Out invite flyer | Thu 17 Sep 2026 Hard Rock Sosúa (editor-provided; filename bump) |
 | `hard-rock-catrinas-halloween-2026-10-31.jpg` | POP-supplied — Catrinas / The Haunted House Halloween Party flyer | Fri 31 Oct 2026 Hard Rock Puerto Plata (editor-provided) |

@@ -43,6 +43,7 @@ export function slimEventForList(event: Event): Event {
   }
   if (event.recurrenceDays?.length) slim.recurrenceDays = event.recurrenceDays;
   if (event.participants?.length) slim.participants = event.participants;
+  if (event.lineup?.length) slim.lineup = event.lineup;
   if (event.localized?.title) {
     slim.localized = { title: event.localized.title, description: {} };
   }

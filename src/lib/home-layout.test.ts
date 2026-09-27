@@ -660,7 +660,7 @@ describe("getHomeDiscoverLayout same-day seed", () => {
     );
   });
 
-  it("leads Today’s specials with the newest createdAt one-off and keeps every special", () => {
+  it("orders Today’s specials by sooner start and keeps every special", () => {
     const older = event({
       id: "older-special",
       title: "Older Special",
@@ -670,9 +670,9 @@ describe("getHomeDiscoverLayout same-day seed", () => {
       createdAt: "2026-09-10T12:00:00.000Z",
       venueSlug: "venue-a",
     });
-    const newer = event({
-      id: "newer-special",
-      title: "Newer Special",
+    const newerLater = event({
+      id: "newer-later-special",
+      title: "Newer Later Special",
       date: "2026-09-19",
       time: "8:00 PM",
       trending: true,
@@ -691,12 +691,15 @@ describe("getHomeDiscoverLayout same-day seed", () => {
       }),
     );
 
-    const layout = getHomeDiscoverLayout([older, ...extras, newer], {
+    const layout = getHomeDiscoverLayout([older, ...extras, newerLater], {
       now: new Date("2026-09-19T16:00:00.000Z"),
       shuffleSeed: "specials-fresh",
     });
 
-    assert.equal(layout.specialEvents[0]?.id, "newer-special");
+    // 6 PM extras lead, then 7 PM, then 8 PM — not newest createdAt.
+    assert.equal(layout.specialEvents[0]?.time, "6:00 PM");
+    assert.equal(layout.specialEvents.at(-2)?.id, "older-special");
+    assert.equal(layout.specialEvents.at(-1)?.id, "newer-later-special");
     assert.ok(
       layout.specialEvents.length >= 9,
       "Today’s specials should not cap at 6",

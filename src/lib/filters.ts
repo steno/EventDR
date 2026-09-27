@@ -108,6 +108,14 @@ function getWeekendRangeISO(now: Date): { start: string; end: string } {
   return { start: saturday, end: sunday };
 }
 
+/** Friday–Sunday window used by the weekend list (includes the Friday before `start`). */
+export function getWeekendListingBounds(
+  now: Date = new Date(),
+): { start: string; end: string } {
+  const { start, end } = getWeekendRangeISO(now);
+  return { start: addDaysISO(start, -1), end };
+}
+
 function withDisplayDate<
   T extends { date: string; endDate?: string },
 >(item: T, dateIso: string): T {

@@ -2009,7 +2009,7 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     },
     attribution: "POP research · @cigartownpop Domingo de Matiné",
     researchNotes:
-      "Editor-supplied flyer + reel https://www.instagram.com/reel/DdNgA2tsgGt/ — Todos los domingos; 1 café + 2 tragos o 2 cervezas con 10% off; Av. Luis Ginebra 56. No start time or base price.",
+      "Editor-supplied flyer — Todos los domingos; 1 café + 2 tragos o 2 cervezas con 10% off; Av. Luis Ginebra 56. No start time or base price. A previously stored Reel belonged to Tasty Food Park and was removed.",
     updatedAt: "2026-09-13T15:00:00.000Z",
   },
   {
@@ -2718,6 +2718,26 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     researchNotes:
       "User + Google search friday night baseball puerto plata; MyStats schedule https://www.mystatsonline.com/ballsports/visitor/league/schedule_scores/schedule.aspx?IDLeague=71710; CostaverdeDR: Sat 19 Sep 2026 6 PM José Briceño Game 2 after Atléticos 13–3 Game 1 in Santiago; gate tickets, no todotickets playoff page.",
     updatedAt: "2026-09-19T12:00:00.000Z",
+  },
+  {
+    eventId: "atleticos-pp-vs-mineros-2026-09-27",
+    body: "Serie Final Game 2 at José Briceño — afternoon first pitch (4 PM), not the usual 6 PM slate; Mineros lead 1–0 after a 4–3 Game 1, so Atléticos need this home win to even the championship series. Buy at the gate; no todotickets playoff page.",
+    localized: {
+      es: "Serie Final, juego 2 en José Briceño — primera bola a las 4 PM, no el horario habitual de 6 PM; Mineros van 1–0 tras el 4–3 del juego 1, así que Atléticos necesitan este triunfo en casa para empatar. Compra en taquilla; no hay página de playoffs en todotickets.",
+      fr: "Serie Final, match 2 à José Briceño — première balle 16 h, pas le créneau habituel 18 h ; les Mineros mènent 1–0 après le 4–3 du match 1, donc les Atléticos ont besoin de cette victoire à domicile pour égaliser. Billets au guichet ; pas de page playoffs todotickets.",
+    },
+    priceFeel: "budget",
+    priceNote:
+      "Tickets at the stadium gate only — confirm price at boletería; first pitch 4:00 PM",
+    priceNoteLocalized: {
+      es: "Solo boletos en taquilla del estadio — confirma precio en boletería; primera bola 4:00 PM",
+      fr: "Billets uniquement au guichet du stade — confirmez le prix à la billetterie ; première balle 16 h",
+    },
+    attribution:
+      "POP research · @atleticosdepuertoplata Serie Final Game 2 announcement",
+    researchNotes:
+      "Editor-supplied IG Stories/post screenshots from @atleticosdepuertoplata: Domingo 27 Sep 2026, 4:00 PM, Estadio/Parque José Briceño, Serie Final Game 2 Atléticos vs Mineros de Bonao; Mineros lead 1–0 after Game 1 4–3; gate tickets, no todotickets playoff page.",
+    updatedAt: "2026-09-27T16:00:00.000Z",
   },
   {
     eventId: "pop-cinemas-week-2026-09-17",

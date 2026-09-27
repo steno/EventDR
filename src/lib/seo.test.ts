@@ -8,10 +8,17 @@ import {
   buildBreadcrumbJsonLd,
   buildEventMetadata,
   buildOrganizationJsonLd,
+  buildVenueMetadata,
   buildWebSiteJsonLd,
   canonicalMediaUrl,
 } from "./seo";
-import type { Event } from "./types";
+import { getVenueSeo } from "./venue-seo";
+import type { Event, Venue } from "./types";
+import { SEARCH_TITLE_MAX } from "./search-snippets";
+import { CITIES } from "./cities";
+import { CATEGORY_IDS } from "./categories";
+import { getCategorySeo } from "./category-seo";
+import { getCityCategorySeo } from "./city-category-seo";
 
 const dewry: Event = {
   id: "dewry-luciano-zona-acapella-2026-08-23",
@@ -177,6 +184,50 @@ describe("buildBreadcrumbJsonLd", () => {
         item: "https://pop-event.com/en/event/x",
       },
     ]);
+  });
+});
+
+describe("search titles stay inside a Google result", () => {
+  const locales = ["en", "es", "fr"] as const;
+
+  it("keeps a handwritten venue title when one exists", () => {
+    const venue: Venue = {
+      slug: "fun-city",
+      name: "Fun City",
+      city: "Puerto Plata",
+      description: "Go-karts.",
+      lat: 0,
+      lng: 0,
+    };
+    const meta = buildVenueMetadata("es", getDictionary("es"), venue, []);
+    assert.equal(meta.title, getVenueSeo("fun-city", "es")?.title);
+  });
+
+  it("fits home, city, category, directory, and city-category fallbacks", () => {
+    for (const locale of locales) {
+      const dict = getDictionary(locale);
+      assert.ok(dict.meta.title.length <= SEARCH_TITLE_MAX, dict.meta.title);
+      assert.ok(
+        dict.venues.directory.metaTitle.length <= SEARCH_TITLE_MAX,
+        dict.venues.directory.metaTitle,
+      );
+      assert.ok(
+        dict.venues.directory.metaDescription.length <= 155,
+        dict.venues.directory.metaDescription,
+      );
+      for (const city of CITIES) {
+        const seo = city.seo[locale];
+        assert.ok(seo.title.length <= SEARCH_TITLE_MAX, seo.title);
+        for (const id of CATEGORY_IDS) {
+          const combo = getCityCategorySeo(locale, city, id, dict.categories[id]);
+          assert.ok(combo.title.length <= SEARCH_TITLE_MAX, combo.title);
+        }
+      }
+      for (const id of CATEGORY_IDS) {
+        const seo = getCategorySeo(locale, id);
+        assert.ok(seo.title.length <= SEARCH_TITLE_MAX, seo.title);
+      }
+    }
   });
 });
 
