@@ -16,21 +16,21 @@ export type VenueSeoCopy = {
 const VENUE_SEO: Record<string, Record<Locale, VenueSeoCopy>> = {
   "fun-city": {
     en: {
-      title: "Fun City Puerto Plata | Go-karts from RD$200 | POP Events",
+      title: "Fun City Puerto Plata | Go-kart tickets RD$200 | POP Events",
       description:
-        "Open daily 10 AM–6 PM on Highway 5 near Playa Dorada. Go-karts from RD$200: Cyclone, Sprint 500, Grand Prix, bumper cars. Tel. 809-697-0794.",
+        "Go-kart park near Playa Dorada — tickets from RD$200. Open daily 10 AM–6 PM. Cyclone, Sprint 500, Grand Prix, bumper cars. Hwy 5. Tel. 809-697-0794.",
       schemaType: "AmusementPark",
     },
     es: {
       title: "Fun City Puerto Plata | Go-karts desde RD$200 | POP Eventos",
       description:
-        "Abierto todos los días 10 AM–6 PM en la Carretera 5, cerca de Playa Dorada. Go-karts desde RD$200: Cyclone, Sprint 500 y Grand Prix. Tel. 809-697-0794.",
+        "Parque de go-karts cerca de Playa Dorada. Tickets desde RD$200 — Cyclone, Sprint 500, Grand Prix. Carretera 5. Abierto 10 AM–6 PM. Tel. 809-697-0794.",
       schemaType: "AmusementPark",
     },
     fr: {
       title: "Fun City Puerto Plata | Karts dès RD$200 | POP Events",
       description:
-        "Ouvert tous les jours 10 h–18 h sur la Highway 5, près de Playa Dorada. Karts dès RD$200 : Cyclone, Sprint 500, Grand Prix. Tél. 809-697-0794.",
+        "Parc de karts près de Playa Dorada. Tickets dès RD$200 — Cyclone, Sprint 500, Grand Prix. Highway 5. Ouvert 10 h–18 h. Tél. 809-697-0794.",
       schemaType: "AmusementPark",
     },
   },
@@ -76,23 +76,23 @@ const VENUE_SEO: Record<string, Record<Locale, VenueSeoCopy>> = {
   },
   "coconut-cove": {
     en: {
-      title: "Chukka Coconut Cove | Ocean zipline | POP Events",
+      title: "Chukka Puerto Plata | Coconut Cove zipline | POP Events",
       description:
-        "1,200-ft seaside zipline, ATV and buggy trails, and a private beach at Chukka Ocean Outpost, Bajo Hondo, Puerto Plata.",
+        "Chukka adventure park in Puerto Plata — 1,200-ft ocean zipline, ATV & buggy at Coconut Cove, Bajo Hondo. Private beach.",
       schemaType: ["TouristAttraction", "AmusementPark"],
       addressLocality: "Puerto Plata",
     },
     es: {
-      title: "Chukka Coconut Cove | Tirolesa al mar | POP Eventos",
+      title: "Chukka Puerto Plata | Tirolesa Coconut Cove | POP Eventos",
       description:
-        "Tirolesa de 1.200 pies frente al mar, rutas en ATV y buggy, y playa privada en Chukka Ocean Outpost, Bajo Hondo, Puerto Plata.",
+        "Parque Chukka en Puerto Plata — tirolesa al mar de 1.200 pies, ATV y buggy en Coconut Cove, Bajo Hondo. Playa privada.",
       schemaType: ["TouristAttraction", "AmusementPark"],
       addressLocality: "Puerto Plata",
     },
     fr: {
-      title: "Chukka Coconut Cove | Tyrolienne mer | POP Events",
+      title: "Chukka Puerto Plata | Tyrolienne Coconut Cove | POP Events",
       description:
-        "Tyrolienne en bord de mer (365 m), pistes ATV et buggy, et plage privée au Chukka Ocean Outpost, Bajo Hondo, Puerto Plata.",
+        "Parc Chukka à Puerto Plata — tyrolienne mer 365 m, ATV et buggy à Coconut Cove, Bajo Hondo. Plage privée.",
       schemaType: ["TouristAttraction", "AmusementPark"],
       addressLocality: "Puerto Plata",
     },
@@ -181,6 +181,109 @@ const VENUE_SEO: Record<string, Record<Locale, VenueSeoCopy>> = {
         "Dîner caribéo-européen au jardin, La Roka, Cofresí, avec le chef Micky. Mer–lun 17 h–23 h, fermé mardi. Google 4,8 (326 avis).",
       schemaType: "Restaurant",
       addressLocality: "Cofresí",
+    },
+  },
+  "letrero-puerto-plata": {
+    en: {
+      title: "Letrero Puerto Plata | Free photo letters | POP Events",
+      description:
+        "Free Malecón photo letters near La Puntilla — iconic PUERTO PLATA sign with Atlantic views. Open daily; pair with Fortaleza San Felipe.",
+      schemaType: "TouristAttraction",
+    },
+    es: {
+      title: "Letrero Puerto Plata | Letras foto gratis | POP Eventos",
+      description:
+        "Letras foto gratis en el Malecón cerca de La Puntilla — el letrero PUERTO PLATA con vista al Atlántico. Todos los días; junto a San Felipe.",
+      schemaType: "TouristAttraction",
+    },
+    fr: {
+      title: "Letrero Puerto Plata | Lettres photo gratis | POP Events",
+      description:
+        "Lettres photo gratuites sur le Malecón près de La Puntilla — le panneau PUERTO PLATA vue Atlantique. Tous les jours ; près de San Felipe.",
+      schemaType: "TouristAttraction",
+    },
+  },
+  "rum-legacy-museum": {
+    en: {
+      title: "Rum Legacy Museum Puerto Plata | Free tour | POP Events",
+      description:
+        "Free rum museum in Puerto Plata historic center — audio tour and tasting on Calle Beller. Open daily 9:30 AM–4:30 PM. Tel. 809-261-8661.",
+      schemaType: "Museum",
+    },
+    es: {
+      title: "Rum Legacy Museum | Tour gratis Puerto Plata | POP Eventos",
+      description:
+        "Museo del ron gratis en el centro de Puerto Plata — tour audio y degustación en Calle Beller. Diario 9:30 AM–4:30 PM. Tel. 809-261-8661.",
+      schemaType: "Museum",
+    },
+    fr: {
+      title: "Rum Legacy Museum Puerto Plata | Visite libre | POP Events",
+      description:
+        "Musée du rhum gratuit au centre de Puerto Plata — visite audio et dégustation, Calle Beller. Tous les jours 9 h 30–16 h 30. Tél. 809-261-8661.",
+      schemaType: "Museum",
+    },
+  },
+  "santa-fe-sov": {
+    en: {
+      title: "Santa Fe Sosúa | Day pass & tickets | POP Events",
+      description:
+        "Sosúa Ocean Village day pass — pools, fortress, Santa Maria ship. Tickets at pasadia.santafe.do. Not Restaurant Maria.",
+      schemaType: ["TouristAttraction", "AmusementPark"],
+      addressLocality: "Sosúa",
+    },
+    es: {
+      title: "Santa Fe Sosúa | Day pass y tickets | POP Eventos",
+      description:
+        "Day pass en Sosúa Ocean Village — piscinas, fortaleza, barco Santa Maria. Tickets en pasadia.santafe.do. No es Restaurant Maria.",
+      schemaType: ["TouristAttraction", "AmusementPark"],
+      addressLocality: "Sosúa",
+    },
+    fr: {
+      title: "Santa Fe Sosúa | Day pass & billets | POP Events",
+      description:
+        "Day pass à Sosúa Ocean Village — piscines, forteresse, bateau Santa Maria. Billets sur pasadia.santafe.do. Pas Restaurant Maria.",
+      schemaType: ["TouristAttraction", "AmusementPark"],
+      addressLocality: "Sosúa",
+    },
+  },
+  "iberostar-waves-costa-dorada": {
+    en: {
+      title: "Iberostar Day Pass Puerto Plata | From US$65 | POP Events",
+      description:
+        "All-inclusive day pass — pools, beach, food & drinks from US$65. Costa Dorada, Puerto Plata. Closed 30 Aug–26 Oct 2026; book after 26 Oct.",
+      schemaType: "Resort",
+    },
+    es: {
+      title: "Day pass Iberostar Puerto Plata | Desde US$65 | POP Eventos",
+      description:
+        "Day pass all-inclusive — piscinas, playa, comida y bebidas desde US$65. Costa Dorada. Cerrado 30 ago–26 oct 2026; reserva desde el 27 oct.",
+      schemaType: "Resort",
+    },
+    fr: {
+      title: "Day pass Iberostar Puerto Plata | Dès 65 $ US | POP Events",
+      description:
+        "Day pass all-inclusive — piscines, plage, repas et boissons dès 65 $ US. Costa Dorada. Fermé 30 août–26 oct. 2026 ; réservez dès le 27 oct.",
+      schemaType: "Resort",
+    },
+  },
+  "teleferico-puerto-plata": {
+    en: {
+      title: "Puerto Plata Cable Car | Closed until ~2028 | POP Events",
+      description:
+        "Puerto Plata cable car (Teleférico) is closed for rebuild since June 2024. Reopening expected around 2028. Pico Isabel de Torres.",
+      schemaType: "TouristAttraction",
+    },
+    es: {
+      title: "Teleférico Puerto Plata | Cerrado hasta ~2028 | POP Eventos",
+      description:
+        "El teleférico / cable car de Puerto Plata está cerrado por reconstrucción desde junio 2024. Reapertura prevista hacia 2028.",
+      schemaType: "TouristAttraction",
+    },
+    fr: {
+      title: "Téléphérique Puerto Plata | Fermé vers 2028 | POP Events",
+      description:
+        "Le téléphérique (cable car) de Puerto Plata est fermé pour reconstruction depuis juin 2024. Réouverture prévue vers 2028.",
+      schemaType: "TouristAttraction",
     },
   },
 };
