@@ -41,7 +41,7 @@ export function BottomNav({
         dark:border-neutral-800 dark:bg-neutral-950/95
         pb-[max(env(safe-area-inset-bottom),0.25rem)]
         ${SCROLL_CHROME_TRANSITION_CLASS}
-        ${chromeVisible ? "" : "translate-y-full pointer-events-none"}
+        ${chromeVisible ? "translate-y-0" : "translate-y-full pointer-events-none"}
       `}
       aria-label="Main navigation"
       aria-hidden={chromeVisible ? undefined : true}

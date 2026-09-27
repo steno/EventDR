@@ -7,7 +7,17 @@ import { LG_MEDIA_QUERY } from "@/lib/breakpoints";
 
 /** Tailwind classes for sliding header / bottom nav on / off screen. */
 export const SCROLL_CHROME_TRANSITION_CLASS =
-  "transition-transform duration-200 ease-out motion-reduce:transition-none";
+  "transition-transform duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] motion-reduce:transition-none";
+
+/**
+ * When the page header tucks away, slide sticky filters up by the same distance
+ * so list cards cannot peek through the vacated band at the top of the viewport.
+ */
+export function scrollChromeFilterSlideClass(chromeVisible: boolean): string {
+  return chromeVisible
+    ? "translate-y-0"
+    : "translate-y-[calc(1px-var(--sticky-list-header-height,0px))]";
+}
 
 const TOP_SHOW_PX = 48;
 const BOTTOM_SHOW_PX = 120;

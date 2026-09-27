@@ -1,6 +1,6 @@
 import { beginProgrammaticScrollChrome } from "@/lib/scroll-chrome";
 
-/** Sticky list header height published by StickyListHeader (0 while chrome is hidden). */
+/** Sticky list header height published by StickyListHeader. */
 export function readStickyListHeaderHeight(): number {
   const raw = getComputedStyle(document.documentElement)
     .getPropertyValue("--sticky-list-header-height")

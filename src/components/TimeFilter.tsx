@@ -7,8 +7,13 @@ import {
   type FilterTimeRange,
   type PriceFilter,
 } from "@/lib/filters";
+import { useScrollChromeVisible } from "@/hooks/useScrollChrome";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { PAGE_GUTTER_BLEED_CLASS } from "@/lib/page-shell";
+import {
+  SCROLL_CHROME_TRANSITION_CLASS,
+  scrollChromeFilterSlideClass,
+} from "@/lib/scroll-chrome";
 
 interface TimeFilterProps {
   value: FilterTimeRange;
@@ -34,6 +39,7 @@ export function TimeFilter({
   onPriceChange,
   trailing,
 }: TimeFilterProps) {
+  const chromeVisible = useScrollChromeVisible();
   const showPrice = price != null && Boolean(onPriceChange);
 
   return (
@@ -41,7 +47,7 @@ export function TimeFilter({
       className={`
         ${
           sticky
-            ? `sticky top-[calc(var(--sticky-list-header-height,0px)-1px)] z-10 mb-4 md:mb-3 ${PAGE_GUTTER_BLEED_CLASS} border-b border-neutral-200/60 bg-background/95 pb-2 pt-px backdrop-blur-sm md:pb-1.5 dark:border-neutral-800/60 dark:bg-neutral-950/95 transition-[top] duration-200 ease-out motion-reduce:transition-none`
+            ? `sticky top-[calc(var(--sticky-list-header-height,0px)-1px)] z-10 mb-4 md:mb-3 ${PAGE_GUTTER_BLEED_CLASS} border-b border-neutral-200/60 bg-background/95 pb-2 pt-px backdrop-blur-sm md:pb-1.5 dark:border-neutral-800/60 dark:bg-neutral-950/95 ${SCROLL_CHROME_TRANSITION_CLASS} ${scrollChromeFilterSlideClass(chromeVisible)}`
             : ""
         }
         ${className}

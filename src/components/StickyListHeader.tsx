@@ -43,8 +43,9 @@ type StickyListHeaderProps = {
    *   (events, when, city, category, browse)
    * - detail: event/venue — always slim (home + back, no logo/weather)
    *
-   * Height is published via ResizeObserver into `--sticky-list-header-height`
-   * so scroll-to-list and sticky filters stay aligned when chrome shrinks.
+   * Height is always published via ResizeObserver into `--sticky-list-header-height`
+   * (even while hide-on-scroll translates the bar away) so sticky filters keep a
+   * stable `top` — only the header slides; the filter stack does not teleport.
    */
   variant?: "default" | "compact" | "detail";
   /**
@@ -124,16 +125,13 @@ export function StickyListHeader({
     const el = rootRef.current;
     if (!el) return;
 
+    // Always publish the real height — even while hide-on-scroll translates the
+    // bar off-screen. Snapping this var to 0 made sticky filters (top: var)
+    // teleport. Keep filters parked; only the header slides with transform.
     const publishHeight = () => {
-      if (!chromeVisible) {
-        document.documentElement.style.setProperty(
-          STICKY_HEADER_HEIGHT_VAR,
-          "0px",
-        );
-        return;
-      }
-      // Ceil so subpixel heights never leave a gap under the sticky header.
-      const height = Math.ceil(el.getBoundingClientRect().height);
+      // Layout size — ignores translate, so mid-slide ResizeObserver noise
+      // cannot nudge sticky filter `top`.
+      const height = el.offsetHeight;
       document.documentElement.style.setProperty(
         STICKY_HEADER_HEIGHT_VAR,
         `${height}px`,
@@ -148,7 +146,7 @@ export function StickyListHeader({
       observer.disconnect();
       document.documentElement.style.removeProperty(STICKY_HEADER_HEIGHT_VAR);
     };
-  }, [chromeVisible]);
+  }, []);
 
   const backIconClassName = isDetail
     ? "h-4 w-4 shrink-0"
@@ -254,8 +252,10 @@ export function StickyListHeader({
       data-sticky-list-header
       className={`sticky top-0 z-20 ${PAGE_GUTTER_BLEED_CLASS} bg-background/95 backdrop-blur-sm dark:bg-neutral-950/95 border-b border-neutral-200/60 dark:border-neutral-800/60 ${SCROLL_CHROME_TRANSITION_CLASS} ${
         chromeVisible
-          ? ""
-          : "-translate-y-full border-transparent pointer-events-none"
+          ? "translate-y-0"
+          : // Keep border while sliding — transparent border flashed a seam at the
+            // top of the viewport; full -translate-y carries the border off-screen.
+            "-translate-y-full pointer-events-none"
       } ${
         isDetail
           ? "py-2 mb-2"
@@ -264,6 +264,7 @@ export function StickyListHeader({
             : // Mobile list chrome is compact (no logo); keep a little top pad.
               `pt-2 pb-2 lg:pt-0 ${flushBottom ? "mb-6 sm:mb-0" : "mb-6 md:mb-4"}`
       }`}
+      aria-hidden={chromeVisible ? undefined : true}
     >
       {hideBrand ? (
         <CompactChromeRow
