@@ -438,7 +438,11 @@ export function isListedTodaySpecial(
   event: EventLiveFields,
   now: Date = new Date(),
 ): boolean {
-  if (!isTodayOnlySpecial(event, localDateISO(now))) return false;
+  // Inline the isTodayOnlySpecial checks — EventLiveFields.recurrence is
+  // `string | EventRecurrence` (ingest/filters), which is not assignable to
+  // Pick<Event, "recurrence"> without a cast.
+  if (event.recurrence) return false;
+  if (event.date?.trim() !== localDateISO(now)) return false;
   if (!isEventActiveToday(event, now)) return false;
   return !isEndingSoon(event, now);
 }

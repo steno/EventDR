@@ -5,9 +5,11 @@ import { SEED_VENUES } from "./venues-seed";
 
 describe("SEED_VENUES map pins", () => {
   it("requires a finite lat/lng on every seed venue (How to get there / Leaflet)", () => {
-    const missing = SEED_VENUES.filter((venue) => !hasMapCoords(venue)).map(
-      (venue) => venue.slug,
-    );
+    // Pass a plain pin object so the EventCoords type predicate does not
+    // narrow Venue to `never` on the failing branch.
+    const missing = SEED_VENUES.filter(
+      (venue) => !hasMapCoords({ lat: venue.lat, lng: venue.lng }),
+    ).map((venue) => venue.slug);
     assert.deepEqual(
       missing,
       [],

@@ -46,7 +46,7 @@ describe("matchesSeededAttraction", () => {
         event({
           id: "nightlife",
           title: "Sunset Beach Party Cabarete",
-          category: "nightlife",
+          category: "parties",
         }),
       ),
       false,
