@@ -65,7 +65,9 @@ import {
   hasSeenOnboarding,
   markOnboardingSeen,
 } from "@/lib/onboarding";
-import { fillTemplate } from "@/lib/seo";
+import { fillTemplate, cityListingSeo } from "@/lib/seo";
+import { buildListingSearchCopy } from "@/lib/search-snippets";
+import { filterCatalogForScope } from "@/lib/scope-listing";
 import { signalNavDone } from "@/lib/nav-feedback";
 import { NETWORK_ONLY_FETCH } from "@/lib/pwa-refresh";
 
@@ -363,6 +365,37 @@ function HomeApp({
 
   const { filterSaved, reconcileWithEvents, ready: savedReady } = useSavedEvents();
   const [eventsReady, setEventsReady] = useState(false);
+
+  // Area and port switches use replaceState, so Next never replaces <title>.
+  useEffect(() => {
+    if (typeof document === "undefined") return;
+    if (cruisePort) {
+      const portName =
+        cruisePort === "taino-bay"
+          ? dict.cruise.tainoBay
+          : dict.cruise.amberCove;
+      document.title = fillTemplate(dict.cruise.metaTitle, { port: portName });
+      return;
+    }
+    // Wait for the full catalog so a city count is not the first-paint rail slice.
+    if (!eventsReady) return;
+    if (selectedCity) {
+      const city = getCityMeta(selectedCity);
+      if (!city) return;
+      document.title = cityListingSeo(
+        locale,
+        city,
+        filterCatalogForScope(allEvents, { citySlug: selectedCity }),
+      ).title;
+      return;
+    }
+    const homeTitle = buildListingSearchCopy(locale, allEvents, {
+      kind: "home",
+      place: "Puerto Plata",
+      scope: "region",
+    })?.title;
+    if (homeTitle) document.title = homeTitle;
+  }, [cruisePort, dict.cruise, locale, allEvents, eventsReady, selectedCity]);
 
   const handleEventsLoaded = useCallback((events: Event[]) => {
     setAllEvents(events);

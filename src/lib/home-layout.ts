@@ -7,8 +7,8 @@ import {
   happensOnLocalDate,
   isEndingSoon,
   isEventActiveToday,
+  isListedTodaySpecial,
   isRecurringEvent,
-  isTodayOnlySpecial,
 } from "@/lib/event-status";
 import { filterByTimeRange, type TimeRange } from "@/lib/filters";
 import { isHomeHeroBackgroundSuitable } from "@/lib/event-images";
@@ -505,16 +505,16 @@ export function getComingUpHighlightEvents(
  * newest `createdAt`. Skip {@link pinTodayOneOffs}: that pin is for floating
  * one-offs above dailies / recovering after shuffle, and it was putting a
  * later-seeded 4 PM card ahead of an earlier 2:30 PM peer.
+ *
+ * Drops a one-off once it is in the “ends soon” window; Happening today
+ * keeps that card.
  */
 export function getTodaySpecialEvents(
   events: Event[],
   options: TodayHighlightOptions = {},
 ): Event[] {
   const now = options.now ?? new Date();
-  const today = localDateISO(now);
-  const filtered = events.filter(
-    (e) => isTodayOnlySpecial(e, today) && isEventActiveToday(e, now),
-  );
+  const filtered = events.filter((e) => isListedTodaySpecial(e, now));
   if (filtered.length === 0) return [];
 
   return sortEventsForDisplay(filtered, {
@@ -530,7 +530,8 @@ export function getTodaySpecialEvents(
  *
  * Home discover splits dated “starts today” one-offs into
  * {@link getTodaySpecialEvents}; pass `excludeTodaySpecials` there so this
- * rail stays weekly nights / ongoing multi-day.
+ * rail stays weekly nights / ongoing multi-day. One-offs already in the
+ * “ends soon” window stay here.
  */
 export function getTodayHighlightEvents(
   events: Event[],
@@ -542,7 +543,7 @@ export function getTodayHighlightEvents(
     if (!happensOnLocalDate(e, daySeed) || !isEventActiveToday(e, now)) {
       return false;
     }
-    if (options.excludeTodaySpecials && isTodayOnlySpecial(e, daySeed)) {
+    if (options.excludeTodaySpecials && isListedTodaySpecial(e, now)) {
       return false;
     }
     return true;

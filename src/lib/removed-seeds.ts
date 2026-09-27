@@ -41,6 +41,8 @@ export const REMOVED_SEED_EVENT_IDS = new Set([
   "flip-flop-weekend-happy-hour",
   // Ingest misfire: Expo Amaprosan is Parque Central de Santiago (Cibao), not POP.
   "ingest-expo-amaprosan-2026",
+  // OTA clone of el-choco-cave-tour-swimming-daily — dated one-off wrongly filled Today's specials.
+  "ingest-deep-caves-tour",
   // Pop Urbano 037 podcast brand — not a verified North Coast dated event.
   "piscinazo-pop-urbano-037-2026-08-02",
   // Demo community seed — no source URL; invents a Tue/Thu meetup (Sea Horse has courts only).

@@ -54,6 +54,7 @@ import {
   cityCategoryListingSeo,
   cityListingSeo,
 } from "@/lib/seo";
+import { buildListingSearchCopy } from "@/lib/search-snippets";
 import { NETWORK_ONLY_FETCH } from "@/lib/pwa-refresh";
 import {
   resetListTimeRangeToAll,
@@ -504,7 +505,14 @@ export function EventScopePage({
       return categoryListingSeo(locale, activeCategoryId, events).title;
     }
     if (city) return cityListingSeo(locale, city, events).title;
-    return null;
+    // Region /events (or All Events with no city) — same counted title as home.
+    return (
+      buildListingSearchCopy(locale, events, {
+        kind: "home",
+        place: "Puerto Plata",
+        scope: "region",
+      })?.title ?? null
+    );
   }, [softNav, activeCategoryId, city, dict.categories, locale, events]);
 
   // Soft city/category swaps use pushState, so Next never replaces <title>.

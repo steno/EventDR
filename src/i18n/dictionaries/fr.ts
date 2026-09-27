@@ -525,6 +525,8 @@ export const fr: Dictionary = {
     paid: "Billets",
     ariaLabel: "Entrée",
     showAll: "Voir toutes les entrées",
+    showFilters: "Afficher les filtres d’entrée",
+    hideFilters: "Masquer les filtres d’entrée",
   },
   lang: {
     en: "EN",

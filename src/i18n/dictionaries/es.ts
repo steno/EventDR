@@ -525,6 +525,8 @@ export const es: Dictionary = {
     paid: "Boletos",
     ariaLabel: "Entrada",
     showAll: "Ver todas las entradas",
+    showFilters: "Mostrar filtros de entrada",
+    hideFilters: "Ocultar filtros de entrada",
   },
   lang: {
     en: "EN",

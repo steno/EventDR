@@ -5,6 +5,8 @@ import { HomeBootExpect } from "@/components/HomeBootExpect";
 import { JsonLd } from "@/components/JsonLd";
 import { isValidLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
+import { getCityMeta, parseHomeCityParam } from "@/lib/cities";
+import { filterCatalogForScope } from "@/lib/scope-listing";
 import {
   buildBrandJsonLd,
   buildHomeMetadata,
@@ -22,13 +24,33 @@ export const revalidate = 120;
 
 export async function generateMetadata({
   params,
+  searchParams,
 }: {
   params: Promise<{ locale: string }>;
+  searchParams: Promise<{ city?: string | string[] }>;
 }): Promise<Metadata> {
   const { locale } = await params;
   if (!isValidLocale(locale)) return {};
+  const sp = await searchParams;
+  const cityRaw = sp.city;
+  const cityParam =
+    typeof cityRaw === "string"
+      ? cityRaw
+      : Array.isArray(cityRaw)
+        ? (cityRaw[0] ?? null)
+        : null;
   const dict = getDictionary(locale);
   const events = await getPublicEvents({ locale });
+  const citySlug = parseHomeCityParam(cityParam).city;
+  const city = citySlug ? getCityMeta(citySlug) : undefined;
+  if (city && citySlug) {
+    return buildHomeMetadata(
+      locale,
+      dict,
+      filterCatalogForScope(events, { citySlug }),
+      city,
+    );
+  }
   return buildHomeMetadata(locale, dict, events);
 }
 

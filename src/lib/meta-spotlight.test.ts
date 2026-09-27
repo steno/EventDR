@@ -206,6 +206,37 @@ describe("pickTodaySpotlights", () => {
     );
   });
 
+  it("drops a one-off from the specials pool once it is ending soon", () => {
+    const ending = new Date("2026-08-20T21:15:00.000Z");
+    const picked = pickTodaySpotlights(
+      [
+        event({
+          id: "winding-down",
+          title: "Afternoon set",
+          date: "2026-08-20",
+          time: "2:00 PM - 6:00 PM",
+          location: "Cabarete",
+          category: "music",
+        }),
+        event({
+          id: "tonight",
+          title: "Tonight show",
+          date: "2026-08-20",
+          time: "9:00 PM",
+          location: "Puerto Plata",
+          category: "concert",
+        }),
+      ],
+      3,
+      ending,
+      { onlyTodaySpecials: true },
+    );
+    assert.deepEqual(
+      picked.map((item) => item.id),
+      ["tonight"],
+    );
+  });
+
   it("scheduled pool prefers today’s specials before multi-day festivals", () => {
     const pool = [
       event({

@@ -7,10 +7,8 @@ import { isValidLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getPublicEvents } from "@/lib/public-events";
 import {
-  buildAlternates,
+  buildHomeMetadata,
   buildListingPageJsonLd,
-  defaultOpenGraph,
-  defaultTwitter,
   fillTemplate,
   localePath,
 } from "@/lib/seo";
@@ -30,23 +28,8 @@ export async function generateMetadata({
   if (!isValidLocale(locale)) return {};
 
   const dict = getDictionary(locale);
-  const title = fillTemplate(dict.browse.eventsOnRegion, {
-    place: dict.cities.regionName,
-  });
-  const description = dict.browse.allCategoriesIntro;
-  const alternates = buildAlternates(locale, "/events");
-
-  return {
-    title,
-    description,
-    alternates,
-    openGraph: defaultOpenGraph(locale, {
-      title,
-      description,
-      url: alternates.canonical,
-    }),
-    twitter: defaultTwitter({ title, description }),
-  };
+  const events = await getPublicEvents({ locale });
+  return buildHomeMetadata(locale, dict, events);
 }
 
 export default async function Page({
@@ -62,6 +45,7 @@ export default async function Page({
   const regionName = dict.cities.regionName;
   const title = fillTemplate(dict.browse.eventsOnRegion, { place: regionName });
   const events = await getPublicEvents({ locale });
+  const pageMeta = buildHomeMetadata(locale, dict, events);
   const relatedCategoryLinks = categoryNavLinks(
     locale,
     dict.categories,
@@ -77,8 +61,10 @@ export default async function Page({
           locale,
           eventsPath,
           {
-            title,
-            description: dict.browse.allCategoriesIntro,
+            title: String(pageMeta.title ?? title),
+            description: String(
+              pageMeta.description ?? dict.browse.allCategoriesIntro,
+            ),
           },
           title,
           events,

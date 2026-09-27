@@ -510,6 +510,10 @@ export type Dictionary = {
     paid: string;
     ariaLabel: string;
     showAll: string;
+    /** Opens the Free entry / Tickets chip row. */
+    showFilters: string;
+    /** Collapses the Free entry / Tickets chip row. */
+    hideFilters: string;
   };
   lang: {
     en: string;
@@ -1173,6 +1177,8 @@ export const en: Dictionary = {
     paid: "Tickets",
     ariaLabel: "Admission",
     showAll: "Show all admissions",
+    showFilters: "Show admission filters",
+    hideFilters: "Hide admission filters",
   },
   lang: {
     en: "EN",

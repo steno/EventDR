@@ -1,6 +1,6 @@
 "use client";
 
-import type { ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 import {
   FILTER_TIME_RANGES,
   type FilterTimeRange,
@@ -13,7 +13,11 @@ import {
   SCROLL_CHROME_TRANSITION_CLASS,
   scrollChromeFilterSlideClass,
 } from "@/lib/scroll-chrome";
-import { PriceFilterChips } from "@/components/PriceFilterChips";
+import {
+  PriceFilterActiveChip,
+  PriceFilterChips,
+  PriceFilterToggleButton,
+} from "@/components/PriceFilterChips";
 
 interface TimeFilterProps {
   value: FilterTimeRange;
@@ -22,11 +26,18 @@ interface TimeFilterProps {
   className?: string;
   /** Stick under the list header (or viewport top on home). */
   sticky?: boolean;
-  /** Optional Gratis/Pago toggles (own row) — ANDed with the time tab. */
+  /** Optional Gratis/Pago toggles — collapsed behind an icon on this row. */
   price?: PriceFilter;
   onPriceChange?: (price: PriceFilter) => void;
-  /** Right-side control on the time-tabs row (e.g. list/cards toggle). */
+  /**
+   * Always-visible control on the time-tabs row (e.g. list/cards when there
+   * is no admission filter panel).
+   */
   trailing?: ReactNode;
+  /**
+   * Controls that expand/collapse with Free entry / Tickets (e.g. list/cards).
+   */
+  panelExtra?: ReactNode;
 }
 
 export function TimeFilter({
@@ -38,9 +49,11 @@ export function TimeFilter({
   price,
   onPriceChange,
   trailing,
+  panelExtra,
 }: TimeFilterProps) {
   const chromeVisible = useScrollChromeVisible();
   const showPrice = price != null && Boolean(onPriceChange);
+  const [priceOpen, setPriceOpen] = useState(false);
 
   return (
     <div
@@ -99,18 +112,57 @@ export function TimeFilter({
             })}
           </div>
         </div>
-        {trailing ? (
-          <div className="shrink-0 pb-2">{trailing}</div>
+        {showPrice || trailing ? (
+          <div className="flex shrink-0 items-center gap-1.5 pb-2 md:pb-1.5">
+            {showPrice && price != null && onPriceChange ? (
+              <>
+                {price !== "all" && !priceOpen ? (
+                  <PriceFilterActiveChip
+                    value={price}
+                    onClear={() => onPriceChange("all")}
+                    dict={dict}
+                  />
+                ) : null}
+                <PriceFilterToggleButton
+                  open={priceOpen}
+                  active={price !== "all"}
+                  onClick={() => setPriceOpen((open) => !open)}
+                  dict={dict}
+                />
+              </>
+            ) : null}
+            {trailing}
+          </div>
         ) : null}
       </div>
 
       {showPrice && price != null && onPriceChange ? (
-        <PriceFilterChips
-          value={price}
-          onChange={onPriceChange}
-          dict={dict}
-          className="pt-2 md:pt-1.5"
-        />
+        <div
+          className={`grid transition-[grid-template-rows] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] motion-reduce:transition-none ${
+            priceOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+          }`}
+          aria-hidden={priceOpen ? undefined : true}
+          inert={priceOpen ? undefined : true}
+        >
+          <div className="min-h-0 overflow-hidden">
+            <div className="flex min-w-0 items-center gap-2 pt-2 md:pt-1.5">
+              <PriceFilterChips
+                value={price}
+                onChange={(next) => {
+                  onPriceChange(next);
+                  // Selecting a filter collapses the row; the active chip stays
+                  // on the time-tab line so admission state stays visible.
+                  if (next !== "all") setPriceOpen(false);
+                }}
+                dict={dict}
+                className="min-w-0 flex-1"
+              />
+              {panelExtra ? (
+                <div className="shrink-0">{panelExtra}</div>
+              ) : null}
+            </div>
+          </div>
+        </div>
       ) : null}
     </div>
   );

@@ -4,8 +4,8 @@ import { localDateISO, weekdayFromISO } from "@/lib/event-dates";
 import { formatEventPlace } from "@/lib/event-location";
 import {
   getEventLiveStatus,
+  isListedTodaySpecial,
   isRecurringEvent,
-  isTodayOnlySpecial,
 } from "@/lib/event-status";
 import {
   defaultMetaImageUrl,
@@ -122,12 +122,11 @@ export function spotlightLimitForOptions(
   if (!options.preferTodaySpecials && !options.onlyTodaySpecials) {
     return TODAY_SPOTLIGHT_LIMIT;
   }
-  const today = localDateISO(now);
   let specialCount = 0;
   for (const event of events) {
     const status = getEventLiveStatus(event, now);
     if (SKIP_STATUSES.has(status)) continue;
-    if (!isTodayOnlySpecial(event, today)) continue;
+    if (!isListedTodaySpecial(event, now)) continue;
     specialCount += 1;
   }
   if (options.onlyTodaySpecials) {
@@ -208,7 +207,7 @@ export function pickTodaySpotlights(
   now = new Date(),
   options: SpotlightPickOptions = {},
 ): Event[] {
-  const today = localDateISO(now);
+  const isSpecial = (event: Event) => isListedTodaySpecial(event, now);
   const excludeIds = new Set(
     [...(options.excludeIds ?? [])].filter((id) => id.length > 0),
   );
@@ -218,9 +217,8 @@ export function pickTodaySpotlights(
   const open = events.filter((event) => {
     const status = getEventLiveStatus(event, now);
     if (SKIP_STATUSES.has(status)) return false;
-    const special = isTodayOnlySpecial(event, today);
-    if (options.onlyTodaySpecials) return special;
-    if (options.excludeTodaySpecials) return !special;
+    if (options.onlyTodaySpecials) return isSpecial(event);
+    if (options.excludeTodaySpecials) return !isSpecial(event);
     return true;
   });
   const isRecent = (event: Event) =>
@@ -264,7 +262,6 @@ export function pickTodaySpotlights(
   };
 
   if (options.preferTodaySpecials && !options.onlyTodaySpecials) {
-    const isSpecial = (event: Event) => isTodayOnlySpecial(event, today);
     takeFrom(fresh.filter(isSpecial));
     takeFrom(fresh.filter((event) => !isSpecial(event)));
     takeFrom(reused.filter(isSpecial));

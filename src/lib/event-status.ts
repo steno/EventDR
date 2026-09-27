@@ -430,6 +430,19 @@ export function isEventActiveToday(
   return getEventLiveStatus(event, now) !== "ended";
 }
 
+/**
+ * Dated one-off still worth a Today’s specials slot.
+ * Leaves the rail once the show is in its final hour (“ends soon”) or has ended.
+ */
+export function isListedTodaySpecial(
+  event: EventLiveFields,
+  now: Date = new Date(),
+): boolean {
+  if (!isTodayOnlySpecial(event, localDateISO(now))) return false;
+  if (!isEventActiveToday(event, now)) return false;
+  return !isEndingSoon(event, now);
+}
+
 export function happensOnLocalDate(
   event: Pick<Event, "date" | "endDate">,
   dateISO: string = localDateISO(),

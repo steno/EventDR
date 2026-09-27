@@ -736,6 +736,29 @@ describe("getHomeDiscoverLayout same-day seed", () => {
     assert.equal(layout.specialEvents.length, 0);
     assert.ok(layout.todayEvents.length >= 1);
   });
+
+  it("moves a one-off out of Today’s specials once it is ending soon", () => {
+    const show = event({
+      id: "late-show",
+      title: "Late Show",
+      date: "2026-09-19",
+      time: "2:00 PM - 6:00 PM",
+    });
+    const midShow = getHomeDiscoverLayout([show], {
+      now: new Date("2026-09-19T19:00:00.000Z"),
+    });
+    assert.equal(midShow.specialEvents[0]?.id, "late-show");
+    assert.equal(
+      midShow.todayEvents.some((item) => item.id === "late-show"),
+      false,
+    );
+
+    const endingSoon = getHomeDiscoverLayout([show], {
+      now: new Date("2026-09-19T21:15:00.000Z"),
+    });
+    assert.equal(endingSoon.specialEvents.length, 0);
+    assert.ok(endingSoon.todayEvents.some((item) => item.id === "late-show"));
+  });
 });
 
 describe("getHomeDiscoverLayout hero background", () => {

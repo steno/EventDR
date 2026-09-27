@@ -179,15 +179,26 @@ export function buildHomeMetadata(
   locale: Locale,
   dict: Dictionary,
   events: Event[] = [],
+  city?: CityMeta | null,
 ): Metadata {
   const alternates = buildAlternates(locale);
   const { title, description } = withLiveSnippet(
-    dict.meta,
-    buildListingSearchCopy(locale, snippetOrder(events), {
-      kind: "home",
-      place: "Puerto Plata",
-      scope: "region",
-    }),
+    city ? getCitySeo(city, locale) : dict.meta,
+    buildListingSearchCopy(
+      locale,
+      snippetOrder(events),
+      city
+        ? {
+            kind: "city",
+            place: getCityName(city, locale),
+            scope: "city",
+          }
+        : {
+            kind: "home",
+            place: "Puerto Plata",
+            scope: "region",
+          },
+    ),
   );
   return {
     title,
