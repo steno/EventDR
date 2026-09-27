@@ -7,7 +7,7 @@ import { LG_MEDIA_QUERY } from "@/lib/breakpoints";
 
 /** Tailwind classes for sliding header / bottom nav on / off screen. */
 export const SCROLL_CHROME_TRANSITION_CLASS =
-  "transition-transform duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] motion-reduce:transition-none";
+  "transition-[transform,translate] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] motion-reduce:transition-none";
 
 /**
  * When the page header tucks away, slide sticky filters up by the same distance

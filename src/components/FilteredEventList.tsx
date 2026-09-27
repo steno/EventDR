@@ -22,7 +22,6 @@ import { cardGridRowRemainder, fillCardGridPage } from "@/lib/card-grid";
 import { scrollToListTop } from "@/lib/list-scroll";
 import { clusterRecurringVenueEvents } from "@/lib/venue-recurring-siblings";
 import { useCardGridColumns } from "@/hooks/useCardGridColumns";
-import { useStickyStuckSelector } from "@/hooks/useStickyStuck";
 import { StickyListFilters, ListScrollAnchor } from "@/components/StickyListFilters";
 import { stickyBackControlClassName } from "@/components/StickyListHeader";
 import { TimeFilter } from "@/components/TimeFilter";
@@ -186,14 +185,8 @@ export function FilteredEventList({
   const [gridRef, columns] = useCardGridColumns(view === "cards");
   const [pendingId, setPendingId] = useState<string | null>(null);
   const stickyCategoryLabel = categoryId ? dict.categories[categoryId] : null;
-  // Track category pills, not the filter-bar park line — time tabs park the
-  // list under sticky chrome but pills stay away, so the back cue must remain.
-  const categoryPillsAway = useStickyStuckSelector(
-    stickyCategoryLabel ? "[data-category-nav]" : null,
-  );
-  const showStickyCategoryHint = Boolean(
-    stickyCategoryLabel && categoryPillsAway,
-  );
+  // Always render the category back cue when scoped — mounting it only after
+  // pills scroll away snapped the sticky bar height and the control itself.
   const areaKey = areaLabel ?? null;
 
   // Keep the when-chip across city swaps; reset to All when category changes.
@@ -402,47 +395,35 @@ export function FilteredEventList({
             <div className="md:flex md:items-end md:gap-3">
               {stickyCategoryLabel ? (
                 <div
-                  className={`grid transition-[grid-template-rows] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] motion-reduce:transition-none ${
-                    showStickyCategoryHint
-                      ? "grid-rows-[1fr]"
-                      : "grid-rows-[0fr] md:hidden"
-                  }`}
+                  className={
+                    stickyLead ||
+                    showTimeFilter ||
+                    locationPicker ||
+                    showPriceFilter ||
+                    viewToggle
+                      ? "pb-1 md:pb-0.5 md:shrink-0"
+                      : "md:shrink-0"
+                  }
                 >
-                  <div className="min-h-0 overflow-hidden">
-                    <div
-                      className={
-                        stickyLead ||
-                        showTimeFilter ||
-                        locationPicker ||
-                        showPriceFilter ||
-                        viewToggle
-                          ? "pb-1 md:pb-0.5 md:shrink-0"
-                          : "md:shrink-0"
-                      }
-                      aria-hidden={showStickyCategoryHint ? undefined : true}
-                    >
-                      <button
-                        type="button"
-                        tabIndex={showStickyCategoryHint ? undefined : -1}
-                        className={`${stickyBackControlClassName} !min-h-0 py-1.5 md:min-w-max md:max-w-none md:py-1`}
-                        aria-label={stickyCategoryLabel}
-                        onClick={() => {
-                          const nav = document.querySelector<HTMLElement>(
-                            "[data-category-nav]",
-                          );
-                          scrollToListTop(nav ?? scrollAnchorRef.current);
-                        }}
-                      >
-                        <ArrowLeft
-                          className="h-[1.125rem] w-[1.125rem] shrink-0"
-                          aria-hidden
-                        />
-                        <span className="min-w-0 truncate md:overflow-visible md:whitespace-nowrap">
-                          {stickyCategoryLabel}
-                        </span>
-                      </button>
-                    </div>
-                  </div>
+                  <button
+                    type="button"
+                    className={`${stickyBackControlClassName} !min-h-0 py-1.5 md:min-w-max md:max-w-none md:py-1`}
+                    aria-label={stickyCategoryLabel}
+                    onClick={() => {
+                      const nav = document.querySelector<HTMLElement>(
+                        "[data-category-nav]",
+                      );
+                      scrollToListTop(nav ?? scrollAnchorRef.current);
+                    }}
+                  >
+                    <ArrowLeft
+                      className="h-[1.125rem] w-[1.125rem] shrink-0"
+                      aria-hidden
+                    />
+                    <span className="min-w-0 truncate md:overflow-visible md:whitespace-nowrap">
+                      {stickyCategoryLabel}
+                    </span>
+                  </button>
                 </div>
               ) : null}
 
