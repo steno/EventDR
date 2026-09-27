@@ -4,7 +4,7 @@ import { EventScopePage } from "@/components/EventScopePage";
 import { JsonLd } from "@/components/JsonLd";
 import { CATEGORY_IDS, getCategoryMeta } from "@/lib/categories";
 import { categoryNavLinks } from "@/lib/event-navigation";
-import { isValidLocale, locales } from "@/i18n/config";
+import { isValidLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getPublicEvents } from "@/lib/public-events";
 import {
@@ -19,13 +19,11 @@ import {
 } from "@/lib/seo";
 import type { EventCategory } from "@/lib/types";
 
+// ISR on first request, same as /venue/[slug]. Do not export
+// generateStaticParams — prebuilding 12×3 category pages (each embedding the
+// region catalog for soft-nav) SIGKILL'd Netlify's 8GB SSG worker after the
+// catalog-aware SEO metadata pass.
 export const revalidate = 120;
-
-export async function generateStaticParams() {
-  return locales.flatMap((locale) =>
-    CATEGORY_IDS.map((id) => ({ locale, id })),
-  );
-}
 
 export async function generateMetadata({
   params,

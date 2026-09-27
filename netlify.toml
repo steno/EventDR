@@ -1,5 +1,7 @@
 [build]
-  command = "npm run build"
+  # Clear .next so a restored Netlify Next cache + heavier catalog SEO SSG
+  # cannot balloon into a mid-generation SIGKILL (seen on e54924d at ~87/117).
+  command = "rm -rf .next && npm run build"
 
 [build.environment]
   # Node 22: firebase-admin >=14 and @netlify/plugin-nextjs require it.
