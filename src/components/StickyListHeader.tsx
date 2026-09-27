@@ -13,7 +13,10 @@ import { clearHomeArea } from "@/lib/cities";
 import { NAV_DONE_EVENT, signalNavPending } from "@/lib/nav-feedback";
 import { fillTemplate } from "@/lib/seo";
 import { PAGE_GUTTER_BLEED_CLASS } from "@/lib/page-shell";
-import { SCROLL_CHROME_TRANSITION_CLASS } from "@/lib/scroll-chrome";
+import {
+  SCROLL_CHROME_TRANSITION_CLASS,
+  syncScrollChromeDom,
+} from "@/lib/scroll-chrome";
 
 const STICKY_HEADER_HEIGHT_VAR = "--sticky-list-header-height";
 
@@ -109,6 +112,10 @@ export function StickyListHeader({
   const [pending, setPending] = useState(false);
   const [homePending, setHomePending] = useState(false);
   const homeHref = `/${locale}`;
+
+  useLayoutEffect(() => {
+    syncScrollChromeDom();
+  }, []);
 
   // Soft exits (cruise leaveCruise) call signalNavDone without unmounting —
   // clear the orange busy chrome then. Real RSC backs keep pending until unmount.
@@ -251,12 +258,6 @@ export function StickyListHeader({
       ref={rootRef}
       data-sticky-list-header
       className={`sticky top-0 z-20 ${PAGE_GUTTER_BLEED_CLASS} bg-background/95 backdrop-blur-sm dark:bg-neutral-950/95 border-b border-neutral-200/60 dark:border-neutral-800/60 ${SCROLL_CHROME_TRANSITION_CLASS} ${
-        chromeVisible
-          ? "translate-y-0"
-          : // Keep border while sliding — transparent border flashed a seam at the
-            // top of the viewport; full -translate-y carries the border off-screen.
-            "-translate-y-full pointer-events-none"
-      } ${
         isDetail
           ? "py-2 mb-2"
           : hideBrand

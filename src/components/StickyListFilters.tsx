@@ -1,11 +1,10 @@
 "use client";
 
-import type { ReactNode } from "react";
-import { useScrollChromeVisible } from "@/hooks/useScrollChrome";
+import { useLayoutEffect, type ReactNode } from "react";
 import { PAGE_GUTTER_BLEED_CLASS } from "@/lib/page-shell";
 import {
   SCROLL_CHROME_TRANSITION_CLASS,
-  scrollChromeFilterSlideClass,
+  syncScrollChromeDom,
 } from "@/lib/scroll-chrome";
 
 type StickyListFiltersProps = {
@@ -17,12 +16,15 @@ type StickyListFiltersProps = {
  * Area select + time tabs (+ price/view) stick together under StickyListHeader.
  * When hide-on-scroll tucks the header away, this bar eases up by the same
  * distance so event cards cannot show through the empty band at the top.
+ * Hide/show transform is owned by `scroll-chrome` (`data-chrome-hidden`).
  */
 export function StickyListFilters({
   children,
   className = "",
 }: StickyListFiltersProps) {
-  const chromeVisible = useScrollChromeVisible();
+  useLayoutEffect(() => {
+    syncScrollChromeDom();
+  }, []);
 
   return (
     <div
@@ -34,7 +36,6 @@ export function StickyListFilters({
         md:pb-1.5 md:pt-1.5
         dark:border-neutral-800/60 dark:bg-neutral-950/95
         ${SCROLL_CHROME_TRANSITION_CLASS}
-        ${scrollChromeFilterSlideClass(chromeVisible)}
         ${className}
       `}
     >

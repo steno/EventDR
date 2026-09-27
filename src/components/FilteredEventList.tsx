@@ -19,14 +19,13 @@ import { sortEventsForDisplay } from "@/lib/event-sort";
 import { LIST_PAGE_SIZE, SCOPE_LIST_LIMIT } from "@/lib/home-layout";
 import { pinSpecialEvents } from "@/lib/special-events";
 import { cardGridRowRemainder, fillCardGridPage } from "@/lib/card-grid";
-import { scrollToListTop } from "@/lib/list-scroll";
+import { scrollToListTop, scrollCategoryNavIntoView } from "@/lib/list-scroll";
 import { clusterRecurringVenueEvents } from "@/lib/venue-recurring-siblings";
 import { eventsInWeekendOrder, weekendHeadingDate } from "@/lib/list-day-groups";
 import { formatEventDate } from "@/lib/format-date";
 import { useCardGridColumns } from "@/hooks/useCardGridColumns";
 import { useStickyStuckSelector } from "@/hooks/useStickyStuck";
 import { StickyListFilters, ListScrollAnchor } from "@/components/StickyListFilters";
-import { stickyBackControlClassName } from "@/components/StickyListHeader";
 import { TimeFilter } from "@/components/TimeFilter";
 import { EventCard } from "@/components/EventCard";
 import {
@@ -46,10 +45,15 @@ import { useListTimeRange } from "@/hooks/useListTimeRange";
 import { syncListTimeRangeForCategory } from "@/lib/list-time-range";
 import { fillTemplate } from "@/lib/seo";
 import { CARD_GRID_CLASS, LIST_PARK_FILL_CLASS, SECTION_TITLE_CLASS } from "@/lib/page-shell";
+import { STICKY_FILTER_WIDTH_COLLAPSE_CLASS } from "@/lib/scroll-chrome";
 import type { EventListView } from "@/lib/event-list-view";
 import { ArrowLeft } from "lucide-react";
 
 const UNBOUNDED = Number.POSITIVE_INFINITY;
+
+/** Icon-only back cue width — opens from 0 so All/Today tabs slide right. */
+const CATEGORY_BACK_OPEN_WIDTH_CLASS = "max-w-9";
+
 
 /** Scope/venue lists show the full upcoming schedule; home Our picks matches that. */
 const DEFAULT_SCOPE_TIME_RANGE: FilterTimeRange = "all";
@@ -186,17 +190,51 @@ export function FilteredEventList({
   const scrollAnchorRef = useRef<HTMLDivElement>(null);
   const [gridRef, columns] = useCardGridColumns(view === "cards");
   const [pendingId, setPendingId] = useState<string | null>(null);
+  const [revealingCategoryNav, setRevealingCategoryNav] = useState(false);
   const stickyCategoryLabel = categoryId ? dict.categories[categoryId] : null;
   // Track category pills, not the filter-bar park line — time tabs park the
   // list under sticky chrome but pills stay away, so the back cue must remain.
-  // Keep the control mounted and collapse its row so sticky bar height does
-  // not snap when pills return into view.
+  // Icon-only width collapse: tabs stay left-aligned and slide when ← opens.
   const categoryPillsAway = useStickyStuckSelector(
     stickyCategoryLabel ? "[data-category-nav]" : null,
   );
+  // Keep ← open for the whole ease-back so collapsing it mid-scroll doesn't
+  // yank the time tabs while the pill row is blending in.
   const showStickyCategoryHint = Boolean(
-    stickyCategoryLabel && categoryPillsAway,
+    stickyCategoryLabel && (categoryPillsAway || revealingCategoryNav),
   );
+  const categoryBackAriaLabel = stickyCategoryLabel
+    ? fillTemplate(dict.browse.backTo, { title: stickyCategoryLabel })
+    : null;
+  const categoryBackCue = stickyCategoryLabel ? (
+    <div
+      className={`${STICKY_FILTER_WIDTH_COLLAPSE_CLASS} ${
+        showStickyCategoryHint
+          ? `${CATEGORY_BACK_OPEN_WIDTH_CLASS} opacity-100`
+          : "max-w-0 opacity-0"
+      }`}
+      aria-hidden={showStickyCategoryHint ? undefined : true}
+      inert={showStickyCategoryHint ? undefined : true}
+    >
+      <button
+        type="button"
+        className="inline-flex h-8 w-8 items-center justify-center rounded-lg text-neutral-500 transition-colors touch-manipulation hover:bg-neutral-100 hover:text-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:hover:text-neutral-200"
+        aria-label={categoryBackAriaLabel ?? stickyCategoryLabel}
+        title={categoryBackAriaLabel ?? stickyCategoryLabel}
+        onClick={() => {
+          const nav = document.querySelector<HTMLElement>(
+            "[data-category-nav]",
+          );
+          setRevealingCategoryNav(true);
+          scrollCategoryNavIntoView(nav, () => {
+            setRevealingCategoryNav(false);
+          });
+        }}
+      >
+        <ArrowLeft className="h-[1.125rem] w-[1.125rem]" aria-hidden />
+      </button>
+    </div>
+  ) : null;
   const areaKey = areaLabel ?? null;
 
   // Keep the when-chip across city swaps; reset to All when category changes.
@@ -400,71 +438,26 @@ export function FilteredEventList({
           />
           <StickyListFilters>
             {/*
-              Mobile: category hint → (optional city lead) → tabs → chips.
-              Desktop: category + tabs + chips share one compact row.
+              City lead stays above on mobile. Category ← opens from width 0 so
+              time tabs stay left-aligned and slide; header slide-down waits a
+              beat on back tap so chrome does not pop in.
             */}
-            <div className="md:flex md:items-end md:gap-3">
-              {stickyCategoryLabel ? (
-                <div
-                  className={`grid transition-[grid-template-rows] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] motion-reduce:transition-none ${
-                    showStickyCategoryHint
-                      ? "grid-rows-[1fr]"
-                      : "grid-rows-[0fr] md:hidden"
-                  }`}
-                >
-                  <div className="min-h-0 overflow-hidden">
-                    <div
-                      className={
-                        stickyLead ||
-                        showTimeFilter ||
-                        locationPicker ||
-                        showPriceFilter ||
-                        viewToggle
-                          ? "pb-1 md:pb-0.5 md:shrink-0"
-                          : "md:shrink-0"
-                      }
-                      aria-hidden={showStickyCategoryHint ? undefined : true}
-                    >
-                      <button
-                        type="button"
-                        tabIndex={showStickyCategoryHint ? undefined : -1}
-                        className={`${stickyBackControlClassName} !min-h-0 py-1.5 md:min-w-max md:max-w-none md:py-1`}
-                        aria-label={stickyCategoryLabel}
-                        onClick={() => {
-                          const nav = document.querySelector<HTMLElement>(
-                            "[data-category-nav]",
-                          );
-                          scrollToListTop(nav ?? scrollAnchorRef.current);
-                        }}
-                      >
-                        <ArrowLeft
-                          className="h-[1.125rem] w-[1.125rem] shrink-0"
-                          aria-hidden
-                        />
-                        <span className="min-w-0 truncate md:overflow-visible md:whitespace-nowrap">
-                          {stickyCategoryLabel}
-                        </span>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              ) : null}
+            {stickyLead ? (
+              <div
+                className={`sm:hidden ${
+                  showTimeFilter ||
+                  locationPicker ||
+                  showPriceFilter ||
+                  viewToggle
+                    ? "pb-2.5"
+                    : ""
+                }`}
+              >
+                {stickyLead}
+              </div>
+            ) : null}
 
-              {stickyLead ? (
-                <div
-                  className={`sm:hidden ${
-                    showTimeFilter ||
-                    locationPicker ||
-                    showPriceFilter ||
-                    viewToggle
-                      ? "pb-2.5"
-                      : ""
-                  }`}
-                >
-                  {stickyLead}
-                </div>
-              ) : null}
-
+            <div className="flex items-end gap-2 md:gap-3">
               {showTimeFilter ? (
                 <TimeFilter
                   key={categoryId ?? "all"}
@@ -472,20 +465,19 @@ export function FilteredEventList({
                   onChange={setTimeRange}
                   dict={dict}
                   sticky={false}
-                  className="md:min-w-0 md:flex-1"
+                  className="min-w-0 flex-1"
                   price={showPriceFilter ? priceFilter : undefined}
                   onPriceChange={showPriceFilter ? setPriceFilter : undefined}
                   panelExtra={showPriceFilter ? viewToggle : undefined}
                   trailing={!showPriceFilter ? viewToggle : undefined}
+                  leading={categoryBackCue}
                 />
-              ) : null}
+              ) : (
+                categoryBackCue
+              )}
 
               {locationPicker || (!showTimeFilter && viewToggle) ? (
-                <div
-                  className={`flex min-w-0 items-center gap-2 md:shrink-0 md:pb-0.5 ${
-                    showTimeFilter ? "pt-2 md:pt-0" : ""
-                  }`}
-                >
+                <div className="flex min-w-0 items-center gap-2 md:shrink-0 md:pb-0.5">
                   {locationPicker ? (
                     <div className="min-w-0 shrink-0">{locationPicker}</div>
                   ) : null}

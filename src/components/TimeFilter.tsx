@@ -6,12 +6,11 @@ import {
   type FilterTimeRange,
   type PriceFilter,
 } from "@/lib/filters";
-import { useScrollChromeVisible } from "@/hooks/useScrollChrome";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { PAGE_GUTTER_BLEED_CLASS } from "@/lib/page-shell";
 import {
   SCROLL_CHROME_TRANSITION_CLASS,
-  scrollChromeFilterSlideClass,
+  STICKY_FILTER_COLLAPSE_TRANSITION_CLASS,
 } from "@/lib/scroll-chrome";
 import {
   PriceFilterActiveChip,
@@ -29,6 +28,8 @@ interface TimeFilterProps {
   /** Optional Gratis/Pago toggles — collapsed behind an icon on this row. */
   price?: PriceFilter;
   onPriceChange?: (price: PriceFilter) => void;
+  /** Left of the time tabs (e.g. category back cue). */
+  leading?: ReactNode;
   /**
    * Always-visible control on the time-tabs row (e.g. list/cards when there
    * is no admission filter panel).
@@ -48,25 +49,29 @@ export function TimeFilter({
   sticky = true,
   price,
   onPriceChange,
+  leading,
   trailing,
   panelExtra,
 }: TimeFilterProps) {
-  const chromeVisible = useScrollChromeVisible();
   const showPrice = price != null && Boolean(onPriceChange);
   const [priceOpen, setPriceOpen] = useState(false);
 
   return (
     <div
+      data-sticky-list-filters={sticky ? "" : undefined}
       className={`
         ${
           sticky
-            ? `sticky top-[calc(var(--sticky-list-header-height,0px)-1px)] z-10 mb-4 md:mb-3 ${PAGE_GUTTER_BLEED_CLASS} border-b border-neutral-200/60 bg-background/95 pb-2 pt-px backdrop-blur-sm md:pb-1.5 dark:border-neutral-800/60 dark:bg-neutral-950/95 ${SCROLL_CHROME_TRANSITION_CLASS} ${scrollChromeFilterSlideClass(chromeVisible)}`
+            ? `sticky top-[calc(var(--sticky-list-header-height,0px)-1px)] z-10 mb-4 md:mb-3 ${PAGE_GUTTER_BLEED_CLASS} border-b border-neutral-200/60 bg-background/95 pb-2 pt-px backdrop-blur-sm md:pb-1.5 dark:border-neutral-800/60 dark:bg-neutral-950/95 ${SCROLL_CHROME_TRANSITION_CLASS}`
             : ""
         }
         ${className}
       `}
     >
       <div className="flex items-end gap-2">
+        {leading ? (
+          <div className="min-w-0 shrink-0 pb-2 md:pb-1.5">{leading}</div>
+        ) : null}
         <div className="-mx-1 min-w-0 flex-1 overflow-x-auto px-1 scrollbar-hide">
           <div
             className="flex min-w-max gap-0 border-b border-neutral-200 dark:border-neutral-800"
@@ -138,8 +143,10 @@ export function TimeFilter({
 
       {showPrice && price != null && onPriceChange ? (
         <div
-          className={`grid transition-[grid-template-rows] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] motion-reduce:transition-none ${
-            priceOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+          className={`grid ${STICKY_FILTER_COLLAPSE_TRANSITION_CLASS} ${
+            priceOpen
+              ? "grid-rows-[1fr] opacity-100"
+              : "grid-rows-[0fr] opacity-0"
           }`}
           aria-hidden={priceOpen ? undefined : true}
           inert={priceOpen ? undefined : true}

@@ -518,6 +518,53 @@ button, a {
   }
 }
 
+/*
+ * Sticky list header / filters / bottom nav — hide-on-scroll slide.
+ * Uses transform (not Tailwind translate) so the reveal interpolates on sticky
+ * elements when chrome comes back after the category back control.
+ */
+:root {
+  --scroll-chrome-ms: 360ms;
+  --scroll-chrome-ease: cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+[data-sticky-list-header],
+[data-sticky-list-filters],
+[data-scroll-chrome-nav] {
+  transform: translate3d(0, 0, 0);
+  transition: transform var(--scroll-chrome-ms) var(--scroll-chrome-ease);
+  will-change: transform;
+}
+
+[data-sticky-list-header][data-chrome-hidden],
+[data-scroll-chrome-nav][data-chrome-hidden="up"] {
+  transform: translate3d(0, -100%, 0);
+  pointer-events: none;
+}
+
+[data-scroll-chrome-nav][data-chrome-hidden="down"] {
+  transform: translate3d(0, 100%, 0);
+  pointer-events: none;
+}
+
+[data-sticky-list-filters][data-chrome-hidden] {
+  transform: translate3d(
+    0,
+    calc(1px - var(--sticky-list-header-height, 0px)),
+    0
+  );
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  [data-sticky-list-header],
+  [data-sticky-list-filters],
+  [data-scroll-chrome-nav] {
+    transition: none;
+  }
+}
+
+
 /* Soft “look here” pulse for deep-linked directions on venue pages.
    Uses inset ring + background so parent overflow:hidden can’t clip it. */
 @keyframes attention-pulse {
