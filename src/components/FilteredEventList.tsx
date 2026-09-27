@@ -47,11 +47,11 @@ import { fillTemplate } from "@/lib/seo";
 import { CARD_GRID_CLASS, LIST_PARK_FILL_CLASS, SECTION_TITLE_CLASS } from "@/lib/page-shell";
 import { STICKY_FILTER_WIDTH_COLLAPSE_CLASS } from "@/lib/scroll-chrome";
 import type { EventListView } from "@/lib/event-list-view";
-import { ArrowLeft } from "lucide-react";
+import { getCategoryMeta } from "@/lib/categories";
 
 const UNBOUNDED = Number.POSITIVE_INFINITY;
 
-/** Icon-only back cue width — opens from 0 so All/Today tabs slide right. */
+/** Emoji-only back cue width — opens from 0 so All/Today tabs slide right. */
 const CATEGORY_BACK_OPEN_WIDTH_CLASS = "max-w-9";
 
 
@@ -192,13 +192,16 @@ export function FilteredEventList({
   const [pendingId, setPendingId] = useState<string | null>(null);
   const [revealingCategoryNav, setRevealingCategoryNav] = useState(false);
   const stickyCategoryLabel = categoryId ? dict.categories[categoryId] : null;
+  const stickyCategoryEmoji = categoryId
+    ? getCategoryMeta(categoryId)?.emoji
+    : undefined;
   // Track category pills, not the filter-bar park line — time tabs park the
   // list under sticky chrome but pills stay away, so the back cue must remain.
-  // Icon-only width collapse: tabs stay left-aligned and slide when ← opens.
+  // Emoji-only width collapse: tabs stay left-aligned and slide when cue opens.
   const categoryPillsAway = useStickyStuckSelector(
     stickyCategoryLabel ? "[data-category-nav]" : null,
   );
-  // Keep ← open for the whole ease-back so collapsing it mid-scroll doesn't
+  // Keep cue open for the whole ease-back so collapsing it mid-scroll doesn't
   // yank the time tabs while the pill row is blending in.
   const showStickyCategoryHint = Boolean(
     stickyCategoryLabel && (categoryPillsAway || revealingCategoryNav),
@@ -206,7 +209,7 @@ export function FilteredEventList({
   const categoryBackAriaLabel = stickyCategoryLabel
     ? fillTemplate(dict.browse.backTo, { title: stickyCategoryLabel })
     : null;
-  const categoryBackCue = stickyCategoryLabel ? (
+  const categoryBackCue = stickyCategoryLabel && stickyCategoryEmoji ? (
     <div
       className={`${STICKY_FILTER_WIDTH_COLLAPSE_CLASS} ${
         showStickyCategoryHint
@@ -218,7 +221,7 @@ export function FilteredEventList({
     >
       <button
         type="button"
-        className="inline-flex h-8 w-8 items-center justify-center rounded-lg text-neutral-500 transition-colors touch-manipulation hover:bg-neutral-100 hover:text-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:hover:text-neutral-200"
+        className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-orange-500/6 text-orange-700 transition-colors touch-manipulation hover:bg-orange-500/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 dark:bg-orange-400/8 dark:text-orange-300 dark:hover:bg-orange-400/14"
         aria-label={categoryBackAriaLabel ?? stickyCategoryLabel}
         title={categoryBackAriaLabel ?? stickyCategoryLabel}
         onClick={() => {
@@ -231,7 +234,9 @@ export function FilteredEventList({
           });
         }}
       >
-        <ArrowLeft className="h-[1.125rem] w-[1.125rem]" aria-hidden />
+        <span className="text-2xl leading-none" aria-hidden>
+          {stickyCategoryEmoji}
+        </span>
       </button>
     </div>
   ) : null;

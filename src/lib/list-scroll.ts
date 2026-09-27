@@ -1,7 +1,4 @@
-import {
-  beginProgrammaticScrollLock,
-  revealScrollChromeThen,
-} from "@/lib/scroll-chrome";
+import { revealScrollChromeThen } from "@/lib/scroll-chrome";
 
 /** Sticky list header height published by StickyListHeader. */
 export function readStickyListHeaderHeight(): number {
@@ -194,8 +191,9 @@ export function scrollToListTop(
 
 /**
  * Bring the category pill row back under the sticky page header.
- * Eases the page scroll (no jump-to-park) while a fixed clone fades the
- * pills in over the sticky filter bar so they aren't masked mid-tween.
+ * Re-shows sticky chrome first (hide-on-scroll often has the header/filters
+ * tucked away — parking pills without that left a broken gap until a time
+ * tab forced a chrome reveal), then eases scroll into place.
  */
 export function scrollCategoryNavIntoView(
   nav?: HTMLElement | null,
@@ -208,78 +206,71 @@ export function scrollCategoryNavIntoView(
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   // Always ease a bit — instant writeScrollY was the “snap to top” feel.
   const durationMs = reduceMotion ? 220 : 520;
-  const endChrome = beginProgrammaticScrollLock();
 
-  let settled = false;
-  const finish = () => {
-    if (settled) return;
-    settled = true;
-    document
-      .querySelectorAll("[data-category-nav-clone]")
-      .forEach((el) => el.remove());
-    if (target) {
-      target.style.removeProperty("visibility");
-      target.removeAttribute("data-category-nav-revealing");
-    }
-    endChrome();
-    onSettled?.();
-  };
-
-  if (!target) {
-    // Don't yank to document top — stay put if there's no pill row.
-    finish();
-    return;
-  }
-
-  const headerHeight = readStickyListHeaderReserve();
-  const from = readScrollY();
-  const desired = Math.max(0, readDocumentTop(target) - headerHeight);
-  const maxScroll = Math.max(
-    0,
-    document.documentElement.scrollHeight - window.innerHeight,
-  );
-  const to = Math.min(desired, maxScroll);
-
-  if (Math.abs(to - from) < 8) {
-    finish();
-    return;
-  }
-
+  // Drop any leftover clone / hide styles from an interrupted prior reveal.
   document
-    .querySelectorAll("[data-category-reveal-fade]")
-    .forEach((el) => el.removeAttribute("data-category-reveal-fade"));
+    .querySelectorAll("[data-category-nav-clone]")
+    .forEach((el) => el.remove());
+  if (target) {
+    target.style.removeProperty("visibility");
+    target.style.removeProperty("opacity");
+    target.style.removeProperty("transform");
+    target.style.removeProperty("transition");
+    target.removeAttribute("data-category-nav-revealing");
+  }
 
-  const box = target.getBoundingClientRect();
-  const clone = target.cloneNode(true) as HTMLElement;
-  clone.removeAttribute("data-category-nav");
-  clone.setAttribute("data-category-nav-clone", "");
-  clone.setAttribute("aria-hidden", "true");
-  clone.style.position = "fixed";
-  clone.style.left = `${Math.round(box.left)}px`;
-  clone.style.width = `${Math.round(box.width)}px`;
-  clone.style.top = `${headerHeight}px`;
-  clone.style.zIndex = "20";
-  clone.style.margin = "0";
-  clone.style.pointerEvents = "none";
-  clone.style.boxSizing = "border-box";
-  clone.style.backgroundColor = "var(--background)";
-  clone.style.paddingBottom = "0.5rem";
-  clone.style.opacity = "0";
-  clone.style.transform = "translate3d(0, -0.65rem, 0)";
-  clone.style.transition = `opacity ${durationMs}ms cubic-bezier(0.32, 0.72, 0, 1), transform ${durationMs}ms cubic-bezier(0.32, 0.72, 0, 1)`;
+  revealScrollChromeThen((endChrome) => {
+    let settled = false;
+    const finish = () => {
+      if (settled) return;
+      settled = true;
+      document
+        .querySelectorAll("[data-category-nav-clone]")
+        .forEach((el) => el.remove());
+      if (target) {
+        target.style.removeProperty("visibility");
+        target.style.removeProperty("opacity");
+        target.style.removeProperty("transform");
+        target.style.removeProperty("transition");
+        target.removeAttribute("data-category-nav-revealing");
+      }
+      endChrome();
+      onSettled?.();
+    };
 
-  document.body.appendChild(clone);
-  target.style.visibility = "hidden";
-  target.setAttribute("data-category-nav-revealing", "true");
+    if (!target) {
+      finish();
+      return;
+    }
 
-  requestAnimationFrame(() => {
-    void clone.offsetHeight;
-    clone.style.opacity = "1";
-    clone.style.transform = "translate3d(0, 0, 0)";
+    // Measure only after chrome is visible so header height / park line match.
+    const headerHeight = readStickyListHeaderReserve();
+    const from = readScrollY();
+    const desired = Math.max(0, readDocumentTop(target) - headerHeight);
+    const maxScroll = Math.max(
+      0,
+      document.documentElement.scrollHeight - window.innerHeight,
+    );
+    const to = Math.min(desired, maxScroll);
+
+    if (Math.abs(to - from) < 8) {
+      finish();
+      return;
+    }
+
+    target.setAttribute("data-category-nav-revealing", "true");
+    if (!reduceMotion) {
+      target.style.transition = "none";
+      target.style.opacity = "0.2";
+      target.style.transform = "translate3d(0, -0.4rem, 0)";
+      void target.offsetHeight;
+      target.style.transition = `opacity ${durationMs}ms cubic-bezier(0.32, 0.72, 0, 1), transform ${durationMs}ms cubic-bezier(0.32, 0.72, 0, 1)`;
+      target.style.opacity = "1";
+      target.style.transform = "translate3d(0, 0, 0)";
+    }
+
+    animateWindowScrollTo(to, durationMs, finish);
   });
-
-  // Ease the page up with the pill fade — never jump scrollY in one frame.
-  animateWindowScrollTo(to, durationMs, finish);
 }
 
 /** Scroll so `el` sits just under the sticky list header. */
