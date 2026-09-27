@@ -843,9 +843,12 @@ export function homeViewAllPath(
       ? `/${locale}/city/${citySlug}?when=all&all=1`
       : undefined;
   }
-  if (timeRange === "today") return `/${locale}/when/today?all=1`;
-  if (timeRange === "tomorrow") return `/${locale}/when/tomorrow?all=1`;
-  if (timeRange === "weekend") return `/${locale}/when/weekend?all=1`;
+  const base = citySlug
+    ? `/${locale}/city/${citySlug}`
+    : `/${locale}/events`;
+  if (timeRange === "today") return `${base}?when=today&all=1`;
+  if (timeRange === "tomorrow") return `${base}?when=tomorrow&all=1`;
+  if (timeRange === "weekend") return `${base}?when=weekend&all=1`;
   return undefined;
 }
 

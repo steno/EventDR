@@ -499,12 +499,14 @@ function HomeApp({
   const savedExample =
     discoverLayout.heroEvent ?? discoverLayout.todayEvents[0] ?? scopedEvents[0];
 
+  // Catalog listings keep All/Today/Weekend tabs + filter chrome. /when/*
+  // hides those tabs (fixed range) — wrong for “see all” from home.
   const seeAllTodayHref = selectedCity
-    ? `/${locale}/city/${selectedCity}`
-    : `/${locale}/when/today`;
+    ? `/${locale}/city/${selectedCity}?when=today`
+    : `/${locale}/events?when=today`;
   const seeAllWeekendHref = selectedCity
     ? `/${locale}/city/${selectedCity}?when=weekend`
-    : `/${locale}/when/weekend`;
+    : `/${locale}/events?when=weekend`;
 
   const heroPlaceName = (() => {
     if (cruisePort) {
