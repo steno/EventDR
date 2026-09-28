@@ -1,6 +1,7 @@
 "use client";
 
 import { ChevronRight, Plus } from "lucide-react";
+import { IntentLink } from "@/components/IntentLink";
 import { CARD_GRID_FULL_ROW_CLASS } from "@/lib/page-shell";
 import type { EventListView } from "@/lib/event-list-view";
 import type { GridFillSpan } from "@/lib/card-grid";
