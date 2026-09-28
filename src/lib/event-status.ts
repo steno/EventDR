@@ -39,6 +39,80 @@ function currentMinutes(now: Date): number {
   return hours * 60 + minutes;
 }
 
+/** Sunday=0 … Saturday=6 in APP_TIMEZONE. */
+function localDayOfWeek(now: Date): number {
+  const weekday = new Intl.DateTimeFormat("en-US", {
+    timeZone: APP_TIMEZONE,
+    weekday: "short",
+  }).format(now);
+  const map: Record<string, number> = {
+    Sun: 0,
+    Mon: 1,
+    Tue: 2,
+    Wed: 3,
+    Thu: 4,
+    Fri: 5,
+    Sat: 6,
+  };
+  return map[weekday] ?? now.getUTCDay();
+}
+
+const WEEKDAY_TOKEN_TO_DOW: Record<string, number> = {
+  sun: 0,
+  dom: 0,
+  dim: 0,
+  mon: 1,
+  lun: 1,
+  tue: 2,
+  mar: 2, // ES martes / FR mardi
+  wed: 3,
+  mie: 3,
+  mié: 3,
+  mer: 3,
+  thu: 4,
+  jue: 4,
+  jeu: 4,
+  fri: 5,
+  vie: 5,
+  ven: 5,
+  sat: 6,
+  sab: 6,
+  sáb: 6,
+  sam: 6,
+};
+
+type DayLabeledSession = { dow: number; minutes: number };
+
+/**
+ * "Sat 5:30 PM · Sun 1:00 PM" style schedules — per-day starts, not a
+ * start→end range (which would falsely look overnight when Sun < Sat).
+ */
+function parseDayLabeledSessions(time: string): DayLabeledSession[] | null {
+  const re =
+    /\b(Sun|Mon|Tue|Wed|Thu|Fri|Sat|Dom|Lun|Mar|Mi[eé]|Jue|Vie|S[aá]b|Sam|Dim|Mer|Jeu|Ven)\b\.?\s+(\d{1,2})(?::(\d{2}))?\s*(AM|PM)/gi;
+  const sessions: DayLabeledSession[] = [];
+  for (const match of time.matchAll(re)) {
+    const dow = WEEKDAY_TOKEN_TO_DOW[match[1].toLowerCase()];
+    if (dow === undefined) continue;
+    let hours = Number(match[2]);
+    const minutes = Number(match[3] ?? "0");
+    const meridiem = match[4].toUpperCase();
+    if (hours < 1 || hours > 12 || minutes < 0 || minutes > 59) continue;
+    if (meridiem === "PM" && hours !== 12) hours += 12;
+    if (meridiem === "AM" && hours === 12) hours = 0;
+    sessions.push({ dow, minutes: hours * 60 + minutes });
+  }
+  return sessions.length >= 2 ? sessions : null;
+}
+
+function windowFromSessionStart(startMinutes: number): EventTimeWindow {
+  const end = startMinutes + DEFAULT_DURATION_MINUTES;
+  return {
+    start: startMinutes,
+    end: end >= 1440 ? end - 1440 : end,
+  };
+}
+
 /** True when `dateISO` falls inside the event's inclusive calendar span. */
 function dateInEventSpan(
   event: Pick<Event, "date" | "endDate">,
@@ -60,9 +134,30 @@ function eventEndISO(event: Pick<Event, "date" | "endDate">): string | null {
   return end || null;
 }
 
-/** Parse one or two clock times from free-text event.time fields. */
-export function parseEventTimeWindow(time?: string): EventTimeWindow | null {
+/**
+ * Parse one or two clock times from free-text event.time fields.
+ * Pass `now` for day-labeled multi-session strings (Sat X · Sun Y) so today's
+ * start is used with the default duration — not an overnight Sat→Sun span.
+ */
+export function parseEventTimeWindow(
+  time?: string,
+  now?: Date,
+): EventTimeWindow | null {
   if (!time) return null;
+
+  const daySessions = parseDayLabeledSessions(time);
+  if (daySessions) {
+    if (now) {
+      const todayDow = localDayOfWeek(now);
+      const today = daySessions.find((session) => session.dow === todayDow);
+      if (!today) return null;
+      return windowFromSessionStart(today.minutes);
+    }
+    // No date context (sort/SEO): one session length, never overnight.
+    const start = Math.min(...daySessions.map((session) => session.minutes));
+    return windowFromSessionStart(start);
+  }
+
   const matches = [...time.matchAll(/(\d{1,2})(?::(\d{2}))?\s*(AM|PM)/gi)];
   if (matches.length === 0) return null;
 
@@ -174,7 +269,7 @@ export function isStartingSoon(
   event: EventLiveFields,
   now: Date = new Date(),
 ): boolean {
-  const window = parseEventTimeWindow(event.time);
+  const window = parseEventTimeWindow(event.time, now);
   if (!window) return false;
   if (getEventLiveStatus(event, now) !== "upcoming") return false;
   if (!happensOnLocalDate(event, localDateISO(now))) return false;
@@ -188,7 +283,7 @@ export function isEndingSoon(
   event: Pick<Event, "date" | "endDate" | "time">,
   now: Date = new Date(),
 ): boolean {
-  const window = parseEventTimeWindow(event.time);
+  const window = parseEventTimeWindow(event.time, now);
   if (!window || !isMultiHourEvent(event.time)) return false;
   if (!isEventInProgress(event, now, window)) return false;
 
@@ -343,7 +438,7 @@ export function getEventLiveStatus(
   const today = localDateISO(now);
   if (end < today) {
     // Last night's overnight session may still be running past midnight.
-    const window = parseEventTimeWindow(event.time);
+    const window = parseEventTimeWindow(event.time, now);
     if (
       window &&
       window.end < window.start &&
@@ -366,7 +461,7 @@ export function getEventLiveStatus(
     return "ended";
   }
 
-  const window = parseEventTimeWindow(event.time);
+  const window = parseEventTimeWindow(event.time, now);
   if (!window) {
     // No parseable clock time (missing, free-text, "by reservation").
     // Stay on today's list until evening, but never claim "happening now".

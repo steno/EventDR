@@ -1816,10 +1816,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "hard-rock-casa-mickey-2026-09-26",
-    body: "Daytime character weekend at Hard Rock — Sat 3 PM / Sun 1 PM; reserve first, then confirm ticket price on WhatsApp before you promise the kids.",
+    body: "Family character weekend at Hard Rock — Sat 5:30 PM / Sun 1 PM; reserve first, then confirm ticket price on WhatsApp before you promise the kids.",
     localized: {
-      es: "Fin de semana diurno de personajes en Hard Rock — sáb 3 PM / dom 1 PM; reserva primero y confirma el precio por WhatsApp antes de prometerles a los niños.",
-      fr: "Week-end personnages en journée au Hard Rock — sam 15 h / dim 13 h ; réservez d'abord et confirmez le tarif WhatsApp avant de promettre aux enfants.",
+      es: "Fin de semana familiar de personajes en Hard Rock — sáb 5:30 PM / dom 1 PM; reserva primero y confirma el precio por WhatsApp antes de prometerles a los niños.",
+      fr: "Week-end personnages en famille au Hard Rock — sam 17 h 30 / dim 13 h ; réservez d'abord et confirmez le tarif WhatsApp avant de promettre aux enfants.",
     },
     priceFeel: "moderate",
     priceNote:
@@ -1828,10 +1828,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       es: "Precio no en el flyer — reserva WhatsApp +1 849-505-7778 (shows familiares similares en Hard Rock han sido con boleta)",
       fr: "Tarif absent du flyer — réservez WhatsApp +1 849-505-7778 (des shows familiaux similaires Hard Rock étaient billetés)",
     },
-    attribution: "POP research · @downtownsosua7 × Hard Rock",
+    attribution: "POP research · @produccionesgiank × Hard Rock",
     researchNotes:
-      "IG Aug 30 2026: Sáb 26 Sep 3 PM, Dom 27 Sep 1 PM, Hard Rock, reserva 849-505-7778. No price on flyer.",
-    updatedAt: "2026-09-10T16:00:00.000Z",
+      "Official IG @produccionesgiank: Sáb 26 Sep 5:30 PM, Dom 27 Sep 1:00 PM, Hard Rock Sosúa, boletas 849-505-7778. Earlier promo had Sat 3 PM — corrected to 5:30 PM.",
+    updatedAt: "2026-09-28T02:50:00.000Z",
   },
   {
     eventId: "el-choco-cave-tour-swimming-daily",
