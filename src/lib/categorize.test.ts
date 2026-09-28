@@ -258,18 +258,26 @@ describe("adventure tours do not inherit Food & Drinks from amenities", () => {
     );
   });
 
-  it("keeps an explicit food-drinks tag on an adventure day pass", () => {
+  it("keeps Iberostar day pass under adventure + food-drinks", () => {
+    const event = getFallbackEventById("iberostar-costa-dorada-day-pass", "en");
+    assert.ok(event);
+    assert.equal(event.category, "adventure");
+    const resolved = withResolvedCategories(event);
+    assert.equal(eventInCategory(resolved, "adventure"), true);
+    assert.equal(eventInCategory(resolved, "food-drinks"), true);
+  });
+
+  it("lists resort/spa day passes under food-drinks, not parties", () => {
     for (const id of [
-      "iberostar-costa-dorada-day-pass",
       "gran-ventana-day-pass",
       "cofresi-palm-day-pass",
     ] as const) {
       const event = getFallbackEventById(id, "en");
       assert.ok(event, id);
-      assert.equal(event.category, "adventure", id);
+      assert.equal(event.category, "food-drinks", id);
       const resolved = withResolvedCategories(event);
-      assert.equal(eventInCategory(resolved, "adventure"), true, id);
       assert.equal(eventInCategory(resolved, "food-drinks"), true, id);
+      assert.equal(eventInCategory(resolved, "parties"), false, id);
     }
   });
 
@@ -371,6 +379,76 @@ describe("típico / typique adjective vs music genre", () => {
       assert.equal(eventInCategory(resolved, "adventure"), true, locale);
       assert.equal(eventInCategory(resolved, "culture"), true, locale);
       assert.equal(eventInCategory(resolved, "music"), false, locale);
+    }
+  });
+});
+
+describe("parties keyword false positives", () => {
+  it("does not unlock Parties from bare disco / nightlife atmosphere copy", () => {
+    assert.equal(
+      inferSecondaryCategories(
+        "Neighborhood karaoke stage, not a Pedro Clisante disco",
+        "music",
+      ).includes("parties"),
+      false,
+    );
+    assert.equal(
+      inferSecondaryCategories(
+        "Evening terrace drinks; nightlife runs later",
+        "food-drinks",
+      ).includes("parties"),
+      false,
+    );
+  });
+
+  it("still unlocks Parties from strong club terms", () => {
+    assert.ok(
+      inferSecondaryCategories(
+        "Pool party and ladies night at the beach club",
+        "music",
+      ).includes("parties"),
+    );
+    assert.ok(
+      inferSecondaryCategories(
+        "Nightclub open until 4 AM with guest DJ",
+        "music",
+      ).includes("parties"),
+    );
+  });
+
+  it("keeps Terraza Ocean World evenings and Cofresí Palm day pass off Parties", () => {
+    for (const id of [
+      "terraza-ocean-world-evenings",
+      "cofresi-palm-day-pass",
+    ] as const) {
+      for (const locale of ["en", "es", "fr"] as const) {
+        const event = getFallbackEventById(id, locale);
+        assert.ok(event, `${id} ${locale}`);
+        const resolved = withResolvedCategories(event);
+        assert.equal(
+          eventInCategory(resolved, "parties"),
+          false,
+          `${id} ${locale}`,
+        );
+        assert.equal(
+          eventInCategory(resolved, "food-drinks"),
+          true,
+          `${id} ${locale}`,
+        );
+      }
+    }
+  });
+
+  it("does not pull karaoke performances into Parties from venue disco names", () => {
+    for (const id of [
+      "chill-and-grill-saturday-karaoke",
+      "luna-lounge-jueves-karaoke-weekly",
+      "ocean-world-terrace-karaoke-wednesday",
+    ] as const) {
+      const event = getFallbackEventById(id, "en");
+      assert.ok(event, id);
+      const resolved = withResolvedCategories(event);
+      assert.equal(eventInCategory(resolved, "parties"), false, id);
     }
   });
 });

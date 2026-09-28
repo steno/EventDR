@@ -129,9 +129,13 @@ const KEYWORDS: KeywordMap = {
     { term: "beach party", weight: 2 },
     { term: "ladies night", weight: 2 },
     { term: "afterparty", weight: 2 },
-    { term: "nightlife", weight: 2 },
     { term: "club scene", weight: 2 },
-    { term: "disco", weight: 2 },
+    { term: "disco night", weight: 2 },
+    { term: "disco party", weight: 2 },
+    // Weight 1: venue names (Disco Club, Luna Disco) and atmosphere
+    // copy ("nightlife runs later") must not unlock Parties alone.
+    "nightlife",
+    "disco",
     "party",
     "fiesta",
   ],
@@ -379,9 +383,14 @@ const CATEGORY_INFERENCE_BLOCKS: Partial<
    * Keep Food & Drinks for dining-first listings, or explicit tags
    * (day-pass buffets, etc.).
    */
-  adventure: ["sports", "food-drinks"],
+  adventure: ["sports", "food-drinks", "parties"],
   /** Game nights / socials with “tournament” in the copy stay off Sports. */
   parties: ["sports"],
+  /**
+   * Karaoke / open-mic copy often names a disco venue or says “nightlife”
+   * without being a club party. Keep Parties for explicit tags or stronger hits.
+   */
+  performances: ["parties"],
   /**
    * B2B / trade events often say “adventure tourism” without being an outing —
    * keep Adventure for activities attendees actually go on.

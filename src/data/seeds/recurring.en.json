@@ -851,7 +851,7 @@
     "address": "Carretera Maimón",
     "venue": "Brugal Rum Center",
     "venueSlug": "brugal-rum-center",
-    "category": "business",
+    "category": "culture",
     "categories": [
       "food-drinks"
     ],
@@ -1241,11 +1241,14 @@
     "location": "Cabarete",
     "venue": "Kite Beach",
     "venueSlug": "kite-beach",
-    "category": "culture",
+    "category": "sports",
     "format": "physical",
     "recurrence": "daily",
     "sourceUrl": "https://www.godominicanrepublic.com/things-to-do/cabarete-kiteboarding",
-    "imageEmoji": "🏄"
+    "imageEmoji": "🏄",
+    "categories": [
+      "culture"
+    ]
   },
   {
     "id": "paella-pop-el-pueblito",
@@ -1628,7 +1631,7 @@
   {
     "id": "terraza-ocean-world-evenings",
     "title": "Terraza Ocean World & Casino",
-    "description": "Evening terrace, drinks, and casino at the Ocean World marina in Cofresí — harbor views after the day park closes, snacks, screens, and a mixed local/visitor crowd. Terrace listed open daily from 9:00 AM; nightlife runs later.",
+    "description": "Evening terrace, drinks, and casino at the Ocean World marina in Cofresí — harbor views after the day park closes, snacks, screens, and a mixed local/visitor crowd. Terrace listed open daily from 9:00 AM; drinks and tables run into the late evening.",
     "date": "2026-01-01",
     "time": "6:00 PM – 2:00 AM",
     "location": "Puerto Plata",
@@ -1637,10 +1640,7 @@
     "address": "Calle Principal #3, Cofresí, Puerto Plata",
     "lat": 19.826313,
     "lng": -70.732062,
-    "category": "parties",
-    "categories": [
-      "food-drinks"
-    ],
+    "category": "food-drinks",
     "format": "physical",
     "recurrence": "daily",
     "callForPricing": true,
@@ -1683,10 +1683,7 @@
     "address": "Complejo Hotelero Playa Dorada s/n, Puerto Plata 57000",
     "lat": 19.7723664,
     "lng": -70.6402715,
-    "category": "adventure",
-    "categories": [
-      "food-drinks"
-    ],
+    "category": "food-drinks",
     "format": "physical",
     "recurrence": "daily",
     "phone": "+18093202111",
@@ -1697,7 +1694,7 @@
   {
     "id": "cofresi-palm-day-pass",
     "title": "Cofresí Palm Beach & Spa Day Pass",
-    "description": "All-inclusive daytime day pass at Cofresí Palm Beach & Spa Resort — pools, swim-up bars, Cofresí beach, and unlimited food and drinks (lunch at Casablanca and The Pearl). Day guest access 10:30 AM–5:30 PM. From US$106 on ResortPass. Does not include ICE Nightclub or Colosseum shows. 1 Paradise Drive, Playa Cofresí.",
+    "description": "All-inclusive daytime day pass at Cofresí Palm Beach & Spa Resort — pools, swim-up bars, Cofresí beach, and unlimited food and drinks (lunch at Casablanca and The Pearl). Day guest access 10:30 AM–5:30 PM. From US$106 on ResortPass. Does not include ICE Club or Colosseum show access. 1 Paradise Drive, Playa Cofresí.",
     "date": "2026-01-01",
     "time": "10:30 AM – 5:30 PM",
     "location": "Puerto Plata",
@@ -1706,9 +1703,9 @@
     "address": "1 Paradise Drive, Playa Cofresí, Puerto Plata 57000",
     "lat": 19.8187231,
     "lng": -70.7303509,
-    "category": "adventure",
+    "category": "food-drinks",
     "categories": [
-      "food-drinks"
+      "health-wellness"
     ],
     "format": "physical",
     "recurrence": "daily",
@@ -1773,9 +1770,9 @@
     "address": "Ocean Village Deluxe, Sosúa Ocean Village, Sosúa 57000",
     "lat": 19.7803548,
     "lng": -70.505895,
-    "category": "adventure",
+    "category": "food-drinks",
     "categories": [
-      "food-drinks"
+      "culture"
     ],
     "format": "physical",
     "recurrence": "daily",
@@ -2237,7 +2234,7 @@
   {
     "id": "chill-and-grill-saturday-karaoke",
     "title": "Karaoke Night at Chill & Grill",
-    "description": "Saturday karaoke at Chill & Grill Bar & Eatery in Casa Linda — 7:30 PM. Sing, win prizes, eat and drink. Neighborhood stage in Phase 7–9 on Carretera El Choco, not a Pedro Clisante disco. WhatsApp +1 829-679-8389.",
+    "description": "Saturday karaoke at Chill & Grill Bar & Eatery in Casa Linda — 7:30 PM. Sing, win prizes, eat and drink. Neighborhood stage in Phase 7–9 on Carretera El Choco, not a Pedro Clisante club crawl. WhatsApp +1 829-679-8389.",
     "date": "2026-01-01",
     "time": "7:30 PM",
     "location": "Sosúa",
@@ -2523,9 +2520,8 @@
     "address": "Av. Luis Ginebra 45-a, Puerto Plata 57000",
     "lat": 19.7918,
     "lng": -70.681,
-    "category": "parties",
+    "category": "food-drinks",
     "categories": [
-      "food-drinks",
       "music"
     ],
     "format": "physical",
@@ -2673,7 +2669,7 @@
   {
     "id": "ocean-world-terrace-karaoke-wednesday",
     "title": "Miércoles de Karaoke at Ocean World Terrace",
-    "description": "Every Wednesday karaoke at Terraza Ocean World & Casino, Calle Principal #3, Cofresí — from 8:00 PM. Sing with friends; cash prizes when billed. Confirm cover via Instagram @oceanworldterrace or call +1 809-291-2400. Terrace nightlife after the day park — not the dolphin ticket line.",
+    "description": "Every Wednesday karaoke at Terraza Ocean World & Casino, Calle Principal #3, Cofresí — from 8:00 PM. Sing with friends; cash prizes when billed. Confirm cover via Instagram @oceanworldterrace or call +1 809-291-2400. Terrace stays open after the day park — not the dolphin ticket line.",
     "date": "2026-01-01",
     "time": "8:00 PM",
     "location": "Puerto Plata",
