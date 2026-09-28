@@ -18,13 +18,16 @@ import {
 import { sortEventsForDisplay } from "@/lib/event-sort";
 import { LIST_PAGE_SIZE, SCOPE_LIST_LIMIT } from "@/lib/home-layout";
 import { pinSpecialEvents } from "@/lib/special-events";
-import { cardGridRowRemainder, fillCardGridPage } from "@/lib/card-grid";
+import {
+  cardGridDayGroupSpans,
+  cardGridRowRemainder,
+  fillCardGridPage,
+} from "@/lib/card-grid";
 import { scrollToListTop, scrollCategoryNavIntoView } from "@/lib/list-scroll";
 import { clusterRecurringVenueEvents } from "@/lib/venue-recurring-siblings";
 import { eventsInWeekendOrder, weekendHeadingDate } from "@/lib/list-day-groups";
 import { formatEventDate } from "@/lib/format-date";
 import { useCardGridColumns } from "@/hooks/useCardGridColumns";
-import { useStickyStuckSelector } from "@/hooks/useStickyStuck";
 import { StickyListFilters, ListScrollAnchor } from "@/components/StickyListFilters";
 import { TimeFilter } from "@/components/TimeFilter";
 import { EventCard } from "@/components/EventCard";
@@ -45,15 +48,13 @@ import { useListTimeRange } from "@/hooks/useListTimeRange";
 import { syncListTimeRangeForCategory } from "@/lib/list-time-range";
 import { fillTemplate } from "@/lib/seo";
 import { CARD_GRID_CLASS, LIST_PARK_FILL_CLASS, SECTION_TITLE_CLASS } from "@/lib/page-shell";
-import { STICKY_FILTER_WIDTH_COLLAPSE_CLASS } from "@/lib/scroll-chrome";
 import type { EventListView } from "@/lib/event-list-view";
-import { getCategoryMeta } from "@/lib/categories";
+import { ArrowLeft } from "lucide-react";
 
 const UNBOUNDED = Number.POSITIVE_INFINITY;
 
-/** Emoji-only back cue width — opens from 0 so All/Today tabs slide right. */
-const CATEGORY_BACK_OPEN_WIDTH_CLASS = "max-w-9";
-
+/** Cap sticky back-label width so All/Today/Weekend still fit on a phone. */
+const CATEGORY_BACK_MAX_CLASS = "max-w-[4.75rem] sm:max-w-[6.5rem]";
 
 /** Scope/venue lists show the full upcoming schedule; home Our picks matches that. */
 const DEFAULT_SCOPE_TIME_RANGE: FilterTimeRange = "all";
@@ -190,52 +191,32 @@ export function FilteredEventList({
   const scrollAnchorRef = useRef<HTMLDivElement>(null);
   const [gridRef, columns] = useCardGridColumns(view === "cards");
   const [pendingId, setPendingId] = useState<string | null>(null);
-  const [revealingCategoryNav, setRevealingCategoryNav] = useState(false);
   const stickyCategoryLabel = categoryId ? dict.categories[categoryId] : null;
-  const stickyCategoryEmoji = categoryId
-    ? getCategoryMeta(categoryId)?.emoji
-    : undefined;
-  // Track category pills, not the filter-bar park line — time tabs park the
-  // list under sticky chrome but pills stay away, so the back cue must remain.
-  // Emoji-only width collapse: tabs stay left-aligned and slide when cue opens.
-  const categoryPillsAway = useStickyStuckSelector(
-    stickyCategoryLabel ? "[data-category-nav]" : null,
-  );
-  // Keep cue open for the whole ease-back so collapsing it mid-scroll doesn't
-  // yank the time tabs while the pill row is blending in.
-  const showStickyCategoryHint = Boolean(
-    stickyCategoryLabel && (categoryPillsAway || revealingCategoryNav),
-  );
+  // Compact text back link — ← + truncated name. Always on when a category is
+  // selected (no slide). Truncation keeps the time tabs usable on a phone.
   const categoryBackAriaLabel = stickyCategoryLabel
     ? fillTemplate(dict.browse.backTo, { title: stickyCategoryLabel })
     : null;
-  const categoryBackCue = stickyCategoryLabel && stickyCategoryEmoji ? (
-    <div
-      className={`${STICKY_FILTER_WIDTH_COLLAPSE_CLASS} ${
-        showStickyCategoryHint
-          ? `${CATEGORY_BACK_OPEN_WIDTH_CLASS} opacity-100`
-          : "max-w-0 opacity-0"
-      }`}
-      aria-hidden={showStickyCategoryHint ? undefined : true}
-      inert={showStickyCategoryHint ? undefined : true}
-    >
+  const categoryBackCue = stickyCategoryLabel ? (
+    <div className={`min-w-0 shrink ${CATEGORY_BACK_MAX_CLASS}`}>
       <button
         type="button"
-        className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-orange-500/6 text-orange-700 transition-colors touch-manipulation hover:bg-orange-500/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 dark:bg-orange-400/8 dark:text-orange-300 dark:hover:bg-orange-400/14"
+        className="inline-flex h-8 max-w-full items-center gap-0.5 rounded-lg px-1 text-sm font-semibold tracking-tight text-neutral-500 transition-colors touch-manipulation hover:bg-neutral-100 hover:text-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:hover:text-neutral-200"
         aria-label={categoryBackAriaLabel ?? stickyCategoryLabel}
         title={categoryBackAriaLabel ?? stickyCategoryLabel}
         onClick={() => {
           const nav = document.querySelector<HTMLElement>(
             "[data-category-nav]",
           );
-          setRevealingCategoryNav(true);
-          scrollCategoryNavIntoView(nav, () => {
-            setRevealingCategoryNav(false);
-          });
+          scrollCategoryNavIntoView(nav);
         }}
       >
-        <span className="text-2xl leading-none" aria-hidden>
-          {stickyCategoryEmoji}
+        <ArrowLeft
+          className="h-3.5 w-3.5 shrink-0"
+          aria-hidden
+        />
+        <span className="min-w-0 truncate">
+          {stickyCategoryLabel}
         </span>
       </button>
     </div>
@@ -385,7 +366,33 @@ export function FilteredEventList({
     showEndTeaser ? visibleEvents.length : displayEvents.length,
     columns,
   );
-  const fillSpan = view === "cards" ? leftover || "full" : undefined;
+  // Weekend day headers restart each row; after last-of-day cards stretch
+  // flush, the add-event teaser always starts a fresh row.
+  const fillSpan =
+    view === "cards"
+      ? activeRange === "weekend"
+        ? "full"
+        : leftover || "full"
+      : undefined;
+
+  const weekendCardSpans = useMemo(() => {
+    if (activeRange !== "weekend" || view !== "cards") return null;
+    const listed = Number.isFinite(eventCap)
+      ? displayEvents.slice(0, eventCap)
+      : displayEvents;
+    const dayLengths: number[] = [];
+    let i = 0;
+    while (i < listed.length) {
+      const day = weekendHeadingDate(listed[i]);
+      let j = i + 1;
+      while (j < listed.length && weekendHeadingDate(listed[j]) === day) {
+        j++;
+      }
+      dayLengths.push(j - i);
+      i = j;
+    }
+    return cardGridDayGroupSpans(dayLengths, columns);
+  }, [activeRange, view, displayEvents, eventCap, columns]);
 
   const daySuggestions = !fixedTimeRange
     ? listOtherMatchingFilterTimeRanges(
@@ -600,6 +607,11 @@ export function FilteredEventList({
                       dimmed={pendingId != null && pendingId !== event.id}
                       onNavigate={() => setPendingId(event.id)}
                       showEnlarge={!categoryId}
+                      fillSpan={
+                        weekendCardSpans && weekendCardSpans[index] > 1
+                          ? weekendCardSpans[index]
+                          : undefined
+                      }
                     />
                   </Fragment>
                 );

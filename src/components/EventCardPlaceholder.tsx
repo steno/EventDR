@@ -1,9 +1,9 @@
 "use client";
 
 import { ChevronRight, Plus } from "lucide-react";
-import { IntentLink } from "@/components/IntentLink";
-import type { EventListView } from "@/lib/event-list-view";
 import { CARD_GRID_FULL_ROW_CLASS } from "@/lib/page-shell";
+import type { EventListView } from "@/lib/event-list-view";
+import type { GridFillSpan } from "@/lib/card-grid";
 
 /**
  * Minimum list “slots” so short tabs have enough document height for
@@ -16,8 +16,7 @@ export const LIST_SCROLL_PAD_TARGET = 3;
 const CARD_SLOT_MIN_HEIGHT = "14rem";
 const LIST_SLOT_MIN_HEIGHT = "8.5rem";
 
-/** Span leftover last-row columns, or the full next row. */
-export type GridFillSpan = number | "full";
+export type { GridFillSpan };
 
 interface EventCardPlaceholderProps {
   title: string;

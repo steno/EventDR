@@ -177,9 +177,38 @@ export function getEventLiveStatusLabel(
   return resolveLiveStatusDisplay(event, dict, now, options)?.label ?? null;
 }
 
-export function eventStatusBadgeClass(status: EventLiveStatus): string {
+/** Soft pastel on solid cards; opaque fills when the badge sits on photo media. */
+export type EventStatusBadgeSurface = "default" | "onMedia";
+
+export function eventStatusBadgeClass(
+  status: EventLiveStatus,
+  surface: EventStatusBadgeSurface = "default",
+): string {
+  if (surface === "onMedia") {
+    // Opaque shells — translucent dark-mode pastels wash out on busy flyers.
+    switch (status) {
+      case "live":
+        return "bg-orange-600 text-white shadow-[0_1px_2px_rgba(0,0,0,0.4)]";
+      case "ending":
+        return "bg-amber-400 text-neutral-950 shadow-[0_1px_2px_rgba(0,0,0,0.35)]";
+      case "upcoming":
+        return "bg-sky-600 text-white shadow-[0_1px_2px_rgba(0,0,0,0.4)]";
+      case "unknown":
+        return "bg-teal-600 text-white shadow-[0_1px_2px_rgba(0,0,0,0.4)]";
+      case "closedToday":
+        return "bg-violet-600 text-white shadow-[0_1px_2px_rgba(0,0,0,0.4)]";
+      case "temporarilyClosed":
+      case "soldOut":
+        return "bg-rose-600 text-white shadow-[0_1px_2px_rgba(0,0,0,0.4)]";
+      case "ended":
+        return "bg-neutral-800/90 text-neutral-100 shadow-[0_1px_2px_rgba(0,0,0,0.4)]";
+      default:
+        return "";
+    }
+  }
+
   // Soft pastel on light; tinted solid pills in dark so chips stay visible on
-  // dark cards and photo overlays (avoid near-black shells that disappear).
+  // dark cards (avoid near-black shells that disappear).
   switch (status) {
     case "live":
       return "bg-orange-50 text-orange-700 dark:bg-orange-500/25 dark:text-orange-200 dark:ring-1 dark:ring-orange-400/35";

@@ -14,6 +14,8 @@ import type { TimeRange } from "@/lib/filters";
 import type { EventListView } from "@/lib/event-list-view";
 import type { EventWithVenueSiblings } from "@/lib/venue-recurring-siblings";
 import { getEventCardObjectPosition } from "@/lib/event-images";
+import { CARD_GRID_FULL_ROW_CLASS } from "@/lib/page-shell";
+import type { GridFillSpan } from "@/lib/card-grid";
 
 interface EventCardProps {
   event: EventWithVenueSiblings;
@@ -35,6 +37,21 @@ interface EventCardProps {
   onNavigate?: () => void;
   /** Story enlarge control on card images (off on category grids). */
   showEnlarge?: boolean;
+  /**
+   * Stretch across leftover columns (Weekend day groups) so short final
+   * rows don't leave an empty grid cell.
+   */
+  fillSpan?: GridFillSpan;
+}
+
+function fillSpanStyle(
+  fillSpan: GridFillSpan | undefined,
+): { gridColumn: string } | undefined {
+  if (fillSpan === "full") return { gridColumn: "1 / -1" };
+  if (typeof fillSpan === "number" && fillSpan > 1) {
+    return { gridColumn: `span ${fillSpan}` };
+  }
+  return undefined;
 }
 
 function EventCardMedia({
@@ -110,6 +127,7 @@ const EventCardComponent = ({
   dimmed = false,
   onNavigate,
   showEnlarge = true,
+  fillSpan,
 }: EventCardProps) => {
   const category = getCategoryMeta(event.category, dict.categories);
   const emoji = event.imageEmoji ?? category?.emoji ?? "📅";
@@ -119,6 +137,8 @@ const EventCardComponent = ({
   const liveStatusLabel = liveDisplay?.label ?? null;
   const isEndedToday = liveStatus === "ended";
   const isCards = view === "cards";
+  const spanning =
+    fillSpan === "full" || (typeof fillSpan === "number" && fillSpan > 1);
 
   function handleNavigate() {
     onNavigate?.();
@@ -153,7 +173,9 @@ const EventCardComponent = ({
                 : idleChrome
           }
           ${isEndedToday && !pending ? "opacity-60" : ""}
+          ${fillSpan === "full" ? CARD_GRID_FULL_ROW_CLASS : ""}
         `}
+        style={fillSpanStyle(fillSpan)}
         aria-busy={pending || undefined}
       >
         <IntentLink
@@ -167,7 +189,11 @@ const EventCardComponent = ({
             event={event}
             emoji={emoji}
             gradient={category?.gradient ?? "from-neutral-200 to-neutral-300"}
-            sizes="(max-width: 640px) 50vw, 240px"
+            sizes={
+              spanning
+                ? "(max-width: 640px) 100vw, 480px"
+                : "(max-width: 640px) 50vw, 240px"
+            }
             imageClassName={`object-cover card-media-zoom ${getEventCardObjectPosition(event.id)}`}
             frameClassName="aspect-[4/3] w-full"
             enlargeLabel={dict.detail.enlargeImage}

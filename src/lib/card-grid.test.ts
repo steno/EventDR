@@ -2,6 +2,8 @@ import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import {
   CARD_GRID_MOBILE_COLUMNS,
+  cardGridDayGroupSpans,
+  cardGridLastItemSpan,
   cardGridRowRemainder,
   countCardGridColumns,
   fillCardGridPage,
@@ -26,6 +28,32 @@ describe("cardGridRowRemainder", () => {
   it("is 0 when the last row is already full", () => {
     assert.equal(cardGridRowRemainder(15, 5), 0);
     assert.equal(cardGridRowRemainder(12, 4), 0);
+  });
+});
+
+describe("cardGridLastItemSpan", () => {
+  it("stretches a lone card across a 2-column row", () => {
+    assert.equal(cardGridLastItemSpan(1, 2), 2);
+  });
+
+  it("stretches the 3rd card in a 2-column day group", () => {
+    assert.equal(cardGridLastItemSpan(3, 2), 2);
+  });
+
+  it("keeps a full row at span 1", () => {
+    assert.equal(cardGridLastItemSpan(4, 2), 1);
+    assert.equal(cardGridLastItemSpan(6, 3), 1);
+  });
+});
+
+describe("cardGridDayGroupSpans", () => {
+  it("fills holes when weekend day headers restart the grid", () => {
+    // Sat: 3 cards, Sun: 1 card — same as the Puerto Plata weekend hole.
+    assert.deepEqual(cardGridDayGroupSpans([3, 1], 2), [1, 1, 2, 2]);
+  });
+
+  it("leaves even day groups alone", () => {
+    assert.deepEqual(cardGridDayGroupSpans([2, 2], 2), [1, 1, 1, 1]);
   });
 });
 

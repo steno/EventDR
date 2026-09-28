@@ -68,13 +68,13 @@ export function TimeFilter({
         ${className}
       `}
     >
-      <div className="flex items-end gap-2">
+      <div className="flex items-center gap-1.5 border-b border-neutral-200 dark:border-neutral-800">
         {leading ? (
-          <div className="min-w-0 shrink-0 pb-2 md:pb-1.5">{leading}</div>
+          <div className="min-w-0 shrink-0">{leading}</div>
         ) : null}
-        <div className="-mx-1 min-w-0 flex-1 overflow-x-auto px-1 scrollbar-hide">
+        <div className="-mx-0.5 min-w-0 flex-1 overflow-x-auto px-0.5 scrollbar-hide">
           <div
-            className="flex min-w-max gap-0 border-b border-neutral-200 dark:border-neutral-800"
+            className="flex min-w-max gap-0 pr-1"
             role="tablist"
             aria-label={dict.submit.time}
           >
@@ -91,8 +91,8 @@ export function TimeFilter({
                     onChange(range);
                   }}
                   className={`
-                    relative -mb-px flex-shrink-0 px-2.5 py-2.5 text-base font-bold tracking-tight
-                    transition-colors touch-manipulation sm:px-3.5 md:py-1.5
+                    relative flex h-8 shrink-0 items-center px-2 text-sm font-semibold tracking-tight
+                    transition-colors touch-manipulation sm:px-2.5
                     ${
                       selected
                         ? "text-neutral-950 dark:text-neutral-50"
@@ -104,7 +104,7 @@ export function TimeFilter({
                   <span
                     aria-hidden
                     className={`
-                      absolute inset-x-1.5 bottom-0 h-0.5 rounded-full transition-opacity sm:inset-x-2
+                      absolute inset-x-1.5 bottom-0 h-0.5 rounded-full transition-opacity
                       ${
                         selected
                           ? "bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 opacity-100"
@@ -118,7 +118,7 @@ export function TimeFilter({
           </div>
         </div>
         {showPrice || trailing ? (
-          <div className="flex shrink-0 items-center gap-1.5 pb-2 md:pb-1.5">
+          <div className="flex h-8 shrink-0 items-center gap-1">
             {showPrice && price != null && onPriceChange ? (
               <>
                 {price !== "all" && !priceOpen ? (
