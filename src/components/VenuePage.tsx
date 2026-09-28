@@ -153,13 +153,14 @@ export function VenuePage({
   useForegroundRefresh(softRefreshEvents);
 
   const listReturnTo = `/${locale}/venue/${venue.slug}`;
-  const glance = useMemo(
-    () => buildVenueGlance(events, locale),
-    [events, locale],
-  );
   const [returnTo, setReturnTo] = useState<string | null>(null);
   const [returnTitle, setReturnTitle] = useState<string | null>(null);
   const [fallbackHref, setFallbackHref] = useState(`/${locale}`);
+  const returnEventId = eventIdFromPath(returnTo);
+  const glance = useMemo(
+    () => buildVenueGlance(events, locale, returnEventId),
+    [events, locale, returnEventId],
+  );
   const heroImageUrl =
     getVenueHeroImageUrl(venue.slug) ?? venue.imageUrl?.split("?")[0];
   const heroObjectPosition = getVenueHeroObjectPosition(venue.slug);
@@ -258,7 +259,6 @@ export function VenuePage({
   const walkablePocket =
     nearbyTonight?.pocket ?? getPocketForVenueSlug(venue.slug);
   const mapTakesPhotoSpace = areaViewOpen || plannerOpen;
-  const returnEventId = eventIdFromPath(returnTo);
   const photoEvent = useMemo(() => {
     if (returnEventId) {
       const match = events.find((event) => event.id === returnEventId);

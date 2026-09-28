@@ -65,14 +65,22 @@ function glanceFacts(
 
 /**
  * Hours, price, and a short lineup for the top of a venue page.
- * Prefers a current listing; falls back to the latest past one so a stale
- * cinema week still answers "what's showing" instead of a blank schedule.
+ * Prefers `preferredEventId` (the listing the visitor came from) when present,
+ * else a current listing; falls back to the latest past one so a stale cinema
+ * week still answers "what's showing" instead of a blank schedule.
  */
 export function buildVenueGlance(
   events: Event[],
   locale: Locale,
+  preferredEventId?: string | null,
 ): VenueGlance | null {
+  const preferred = preferredEventId?.trim();
   const ranked = [...events].sort((a, b) => {
+    if (preferred) {
+      const prefA = a.id === preferred ? 0 : 1;
+      const prefB = b.id === preferred ? 0 : 1;
+      if (prefA !== prefB) return prefA - prefB;
+    }
     const pastA = isPastOneOffEvent(a) ? 1 : 0;
     const pastB = isPastOneOffEvent(b) ? 1 : 0;
     if (pastA !== pastB) return pastA - pastB;

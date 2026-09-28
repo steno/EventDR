@@ -196,6 +196,36 @@ describe("buildVenueGlance", () => {
     assert.match(glance.headline, /RD\$300/);
     assert.ok(glance.lines.some((line) => line.includes("Rebelión")));
   });
+
+  it("prefers the event the visitor came from over another listing at the venue", () => {
+    const glance = buildVenueGlance(
+      [
+        event({
+          id: "aura-happy-hour",
+          title: "Aura Happy Hour",
+          date: "2026-09-27",
+          time: "4:00 PM – 7:00 PM",
+          isFree: true,
+          recurrence: "daily",
+          category: "food-drinks",
+        }),
+        event({
+          id: "aura-latin-flow",
+          title: "Latin Flow at Aura",
+          date: "2026-09-27",
+          time: "8:00 PM – 11:00 PM",
+          admissionPrice: "RD$500",
+          category: "music",
+        }),
+      ],
+      "en",
+      "aura-latin-flow",
+    );
+    assert.ok(glance);
+    assert.equal(glance.eventId, "aura-latin-flow");
+    assert.match(glance.headline, /8:00 PM/);
+    assert.match(glance.headline, /RD\$500/);
+  });
 });
 
 describe("eventsInCalendarOrder", () => {
