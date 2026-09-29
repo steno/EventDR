@@ -139,6 +139,33 @@ describe("applyActiveEditorialClosure", () => {
       undefined,
     );
   });
+
+  it("keeps Teleférico groundbreaking listable while the gondola rebuild stays closed", () => {
+    const ceremony: {
+      id: string;
+      venueSlug: string;
+      temporarilyClosed?: boolean;
+    } = {
+      id: "teleferico-inicio-obras-2026-10-03",
+      venueSlug: "teleferico-puerto-plata",
+    };
+    const daily: {
+      id: string;
+      venueSlug: string;
+      temporarilyClosed?: boolean;
+    } = {
+      id: "teleferico-puerto-plata-daily",
+      venueSlug: "teleferico-puerto-plata",
+    };
+    assert.equal(
+      applyActiveEditorialClosure(ceremony, "2026-09-29").temporarilyClosed,
+      undefined,
+    );
+    assert.equal(
+      applyActiveEditorialClosure(daily, "2026-09-29").temporarilyClosed,
+      true,
+    );
+  });
 });
 
 describe("VOYVOY closure on Cabarete home", () => {

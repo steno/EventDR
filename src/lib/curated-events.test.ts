@@ -44,6 +44,31 @@ describe("applyCuratedEventPatch editorial closures", () => {
     const patched = applyCuratedEventPatch(iberostar, after);
     assert.equal(patched.temporarilyClosed, undefined);
   });
+
+  it("lists Teleférico groundbreaking while the daily gondola stays closed", () => {
+    const now = new Date("2026-09-29T16:00:00.000Z");
+    const ceremony = applyCuratedEventPatch(
+      event({
+        id: "teleferico-inicio-obras-2026-10-03",
+        title: "Teleférico Groundbreaking",
+        date: "2026-10-03",
+        time: "10:00 AM",
+        venueSlug: "teleferico-puerto-plata",
+        recurrence: undefined,
+      }),
+      now,
+    );
+    const daily = applyCuratedEventPatch(
+      event({
+        id: "teleferico-puerto-plata-daily",
+        title: "Teleférico Puerto Plata — Cable Car",
+        venueSlug: "teleferico-puerto-plata",
+      }),
+      now,
+    );
+    assert.equal(ceremony.temporarilyClosed, undefined);
+    assert.equal(daily.temporarilyClosed, true);
+  });
 });
 
 describe("Santa Fe Oct 2026 day-pass rates", () => {

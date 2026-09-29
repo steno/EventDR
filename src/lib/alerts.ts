@@ -33,6 +33,11 @@ export type EditorialAlert = {
    * Needed when `href` points at an event page rather than the venue.
    */
   closesVenueSlugs?: string[];
+  /**
+   * Event ids at a closed venue that should still list (e.g. a civic
+   * groundbreaking while the attraction ride stays shut).
+   */
+  exceptEventIds?: string[];
   href: AlertHref;
   title: Record<Locale, string>;
   summary: Record<Locale, string>;
@@ -69,6 +74,7 @@ export const EDITORIAL_ALERTS: readonly EditorialAlert[] = [
     until: "2028-03-01",
     href: { type: "event", id: "teleferico-puerto-plata-daily" },
     closesVenueSlugs: ["teleferico-puerto-plata"],
+    exceptEventIds: ["teleferico-inicio-obras-2026-10-03"],
     title: {
       en: "Teleférico Puerto Plata is closed",
       es: "El Teleférico de Puerto Plata está cerrado",
@@ -187,6 +193,7 @@ export function eventHasActiveClosureAlert(
   today: string,
 ): boolean {
   for (const alert of activeClosureAlerts(today)) {
+    if (alert.exceptEventIds?.includes(event.id)) continue;
     if (alert.href.type === "event" && alert.href.id === event.id) return true;
     if (
       event.venueSlug &&
