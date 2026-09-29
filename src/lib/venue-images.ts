@@ -16,7 +16,8 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "hard-rock-sosua": "hard-rock-sosua.jpg",
   // Filename bump after replacing shared concert stock — next/image rejects ?v= on local paths.
   "castaways-sosua": "castaways-sosua-dining.jpg",
-  "hotel-voramar-sosua": "hotel-voramar-sosua.jpg",
+  // Filename bump — daytime pool / palapa place shot (editor-provided).
+  "hotel-voramar-sosua": "hotel-voramar-sosua-pool.jpg",
   "smileys-bar-sosua": "smileys-bar-sosua-daytime.jpg",
   "finish-line-sosua": "finish-line-sosua-bar.jpg",
   // Filename bump after replacing a shared Freestyle Catamaran shot.

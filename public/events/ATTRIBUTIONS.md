@@ -9,6 +9,7 @@ Curated images under `public/events/` and `public/venues/`.
 3. **Do not use Unsplash / generic stock** for branded teams, named venues, or local events (wrong jersey, wrong city, stock “vibe” shots).
 4. Prefer a reused **authentic** team/venue photo over a prettier stock stand-in. One photo per named venue; listings inherit it. No logos or flyers as venue heroes.
 5. Remote refresh via `scripts/fetch-venue-images.mjs` is best-effort and must not overwrite curated authentic assets.
+6. **Compress before commit** — editor-supplied JPEGs: max width **1200px**, mozjpeg ~**q82–85** (match `scripts/optimize-venue-images.mjs` / `sync-event-images.mjs` `writeDest`). Prefer shipping a lean file over relying on CI optimize alone. When replacing a curated asset, **bump the filename** (e.g. `-v2`, `-pool`, `-entrance`) and update `event-images.ts` / `venue-images.ts` + sync maps so caches/PWAs pick up the new path.
 
 | Asset | Source | Notes |
 |-------|--------|-------|
@@ -24,7 +25,7 @@ Curated images under `public/events/` and `public/venues/`.
 | `el-cuarteto-terrible-zona-acapella-2026-09-27-flyer.jpg` | POP-supplied — Domingo Típico / El Cuarteto Terrible duo flyer ([@acapella.pop](https://www.instagram.com/acapella.pop/)) | Sun 27 Sep 2026 free entry (editor refresh) |
 | `natura-sunbar-special-sunset-sounds-2026-09-24.jpg` | POP-supplied — SunBar Special Sunset & Sounds (DJ Taïf, Kriuslack) | Thu 24 Sep 2026 Natura Cabana (editor-provided) |
 | `kaovanny-natura-cabana-2026-09-26.jpg` | POP-supplied — Kaovanny Afro Soul live music flyer | Sat 26 Sep 2026 7–9:30 PM Natura Cabana (editor-provided) |
-| `vibes-night-live-voramar-2026-10-02.jpg` | POP-supplied — Vibes Night Live / Deja New flyer (Hotel Voramar) | Fri 2 Oct 2026 7:30 PM, 18+ (editor-provided) |
+| `vibes-night-live-voramar-2026-10-02-v2.jpg` | POP-supplied — Vibes Night Live / Deja New flyer (Hotel Voramar) | Fri 2 Oct 2026 7:30 PM, 18+ (editor-provided; filename bump) |
 | `kaovanny-agua-el-carey-2026-10-02.jpg` | POP-supplied — Kaovanny ‘La Caoba’ agua LIVE album release flyer | Fri 2 Oct 2026 6:30 PM El Carey Costambar (editor-provided) |
 | `chiche-almonte-zona-acapella-2026-10-04.jpg` | POP-supplied — Domingo Típico / Chiché Almonte flyer ([@acapella.pop](https://www.instagram.com/acapella.pop/)) | Sun 4 Oct 2026 free entry (editor-provided) |
 | `camara-almuerzo-codigo-penal-2026-10-22-v2.jpg` | POP-supplied — Cámara almuerzo conferencia Código Penal topic poster ([@camarapuertoplata](https://www.instagram.com/camarapuertoplata/)) | Thu 22 Oct 2026 Salón Lotus Blue JackTar (editor-provided; filename bump) |
@@ -218,6 +219,7 @@ Curated images under `public/events/` and `public/venues/`.
 | `venues/los-tres-cocos-cofresi-entrance-sign.jpg` | POP on-site photo — Los Tres Cocos Restaurant entrance sign at night, La Roka Cofresí (editor-provided, all rights owned) | Venue place shot (filename bump after tighter sign crop) |
 | `ocean-winds-karaoke-amados.jpg` | Google Maps visitor photo — Amado’s night patio at Hotel Ocean Winds | Saturday karaoke action (not the shared pool still) |
 | `voramar-friday-live-poolside.jpg` | POP on-site photo — Hotel Voramar poolside bar at night, Sosúa (editor-provided, all rights owned) | Friday live hero (filename bump after replacing older patio still) |
+| `venues/hotel-voramar-sosua-pool.jpg` | POP-supplied — Hotel Voramar daytime pool, palapa dining, Sosúa (editor-provided) | Venue place shot (filename bump; compressed ≤1200px / JPEG q82) |
 | `venues/hotel-ocean-winds-facade.jpg` | Google Maps visitor photo — Hotel Ocean Winds Costambar street facade | Venue place shot |
 | `atlantico-fc-vs-delfines-2026-08-22.jpg` | POP-supplied `jornada1.jpg` — Atlántico FC jornada 1 flyer vs Delfines del Este | Authentic matchday graphic for Sat 22 Aug 2026 at Estadio Leonel Plácido |
 | `venues/estadio-leonel-placido.jpg` | [Google Maps — Polideportivo / Estadio Leonel Plácido](https://www.google.com/maps/place/Polideportivo/@19.792117,-70.6811928,17z) visitor photo (Jose manuel Peralta, Aug 2022) | Outdoor football pitch at dusk with floodlights |
@@ -243,6 +245,8 @@ Curated images under `public/events/` and `public/venues/`.
 | `venues/finca-papirucho-glamping.jpg` | [Puerto Plata DR — Sonador River Yasica](https://puertoplatadr.com/tours/sonador-river-yasica/) — `glamping-sonador.jpg` | Night campsite at Finca Papirucho |
 | `sunset-grill-velero-beachfront-dining.jpg` / `venues/sunset-grill-velero.jpg` | Google Maps visitor photo of [Velero Sunset Grill restaurant](https://www.google.com/maps/place/Velero+Sunset+Grill+restaurant/@19.7522458,-70.4020882,17z) (Cabarete) | Beachfront terrace at Velero Beach Resort |
 | `sunset-grill-velero-sushi-nights-patio.jpg` | POP-supplied / editor-provided patio dusk shot of Sunset Grill at Velero (Cabarete) | Beachfront thatch patio at twilight — sushi nights hero (not the daytime beachfront dining shot; filename bump for CDN/PWA cache) |
+| `sunset-laughter-club-cabarete.jpg` | Prior Sunset Laughter Club listing hero | Legacy asset (superseded by v2 beach heart) |
+| `sunset-laughter-club-cabarete-v2.jpg` | POP-supplied / editor-provided — smiling guest in the Cabarete beach red heart at golden hour | Sunset Laughter Club listing (mozjpeg web compress; filename bump for cache) |
 | `charco-los-militares-daily.jpg` / `venues/charco-los-militares.jpg` | [Puerto Plata DR — Charco de los Militares](https://puertoplatadr.com/eco-tours/charco-de-los-militares/) — `charco-militares07.jpg` | Cascading Tubagua pools; guided eco hike from Tubagua Eco Lodge |
 | `la-rejoya-trek.jpg` / `venues/la-rejoya.jpg` | [Puerto Plata DR — La Rejoya](https://puertoplatadr.com/tours/la-rejoya/) — `la-rejoya-14.jpg` | Camú canyon waterfall trek near Juan de Nina |
 | `rio-martinico-sosua.jpg` / `venues/rio-martinico.jpg` | [Obal Ureña Sosa — Río Azul / Martinico](https://www.obalurenasosa.com/2024/04/rio-azul-o-rio-martinico-en-sosua.html) — field photo of the Madre Vieja stretch | Lesser-known Sosúa river day (Madre Vieja / Río Azul) |
@@ -251,7 +255,8 @@ Curated images under `public/events/` and `public/venues/`.
 | `flip-flop-live-sports-bar-tvs.jpg` | POP-supplied interior: bar stools, graffiti front, and NFL on the TVs | Live sports listing (yellow-steps entrance stays on the venue) |
 | `venues/flip-flop-sports-bar-sosua-yellow-steps.jpg` | POP-supplied photo of the Yellow Steps entrance (Flip Flop O'Clock Sports Bar, Sosúa Beach) | Venue place shot |
 | `flip-flop-wing-wednesday.jpg` | [Flip Flop Sports Bar](https://flipflop360.com/) official gallery — baskets of garlic-parm and glazed wings with fries and Presidente | Wing Wednesday action (not the yellow-steps place shot) |
-| `flip-flop-taco-tuesday.jpg` | POP-supplied — Flip Flop Taco Tuesday taco-salad bowl (editor-provided) | Weekly Taco Tuesday food hero |
+| `flip-flop-taco-tuesday.jpg` | POP-supplied — Flip Flop Taco Tuesday taco-salad bowl (editor-provided) | Legacy food hero (superseded by v2 flyer) |
+| `flip-flop-taco-tuesday-v2.jpg` | POP-supplied / editor-provided — Flip Flop Sports Bar Taco Tuesdays flyer (logo + delivery line + taco lineup) | Weekly Taco Tuesday listing |
 | `flip-flop-monday-happy-hour.jpg` | [Flip Flop Sports Bar](https://flipflop360.com/) official gallery — Presidente/Corona lineup on the bar | Monday happy-hour drinks (superseded on listings by the schedule flyer) |
 | `flip-flop-happy-hour-schedule.jpg` | Flip Flop Sports Bar official happy-hour flyer (Mon all day / Tue–Fri 2–5 PM / Sat–Sun 1–3:30 PM) | Daily happy-hour listing |
 | `flip-flop-nfl-sunday.jpg` | POP-supplied / editor-provided — Flip Flop Sports Bar NFL Sunday flyer (“Sundays is for NFL / All games live”) | Weekly NFL Sunday listing |

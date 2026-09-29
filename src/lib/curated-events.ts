@@ -288,6 +288,9 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     isFree: true,
     lat: 19.7166,
     lng: -70.9236,
+    // Firestore still has endDate 2026-09-29; force past so home rails drop it.
+    endDate: "2026-09-28",
+    trending: false,
   },
   "cabarete-classic-2026": {
     // Geocoders tag Cabarete under Sosúa municipality — keep zone unambiguous.

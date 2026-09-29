@@ -119,8 +119,9 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "natura-sunbar-special-sunset-sounds-2026-09-24":
     "natura-sunbar-special-sunset-sounds-2026-09-24.jpg",
   "kaovanny-natura-cabana-2026-09-26": "kaovanny-natura-cabana-2026-09-26.jpg",
+  // Filename bump — refreshed Vibes Night Live flyer (PWA caches old path).
   "vibes-night-live-voramar-2026-10-02":
-    "vibes-night-live-voramar-2026-10-02.jpg",
+    "vibes-night-live-voramar-2026-10-02-v2.jpg",
   "kaovanny-agua-el-carey-2026-10-02": "kaovanny-agua-el-carey-2026-10-02.jpg",
   "chiche-almonte-zona-acapella-2026-10-04":
     "chiche-almonte-zona-acapella-2026-10-04.jpg",
@@ -352,7 +353,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "sunset-night-party-playa-encuentro-2026-07-25":
     "sunset-night-party-playa-encuentro-2026-07-25.jpg",
   "los-event-trilogy-2026-09-03": "los-event-trilogy-2026-09-03.jpg",
-  "sunset-laughter-club-cabarete": "sunset-laughter-club-cabarete.jpg",
+  // Filename bump — Cabarete beach heart photo (cache bust vs prior flyer).
+  "sunset-laughter-club-cabarete": "sunset-laughter-club-cabarete-v2.jpg",
   "huelga-velada-maltrato-animal-torre-alta-2026-08-07":
     "huelga-velada-maltrato-animal-torre-alta-2026-08-07.jpg",
   "gym-sov-zumba-tuesday": "gym-sov-zumba-fitness.jpg",
@@ -387,7 +389,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "ingest-hidden-river-kayak-adventure.jpg",
   "flip-flop-live-sports-daily": "flip-flop-live-sports-bar-tvs.jpg",
   "flip-flop-wing-wednesday": "flip-flop-wing-wednesday.jpg",
-  "flip-flop-taco-tuesday": "flip-flop-taco-tuesday.jpg",
+  // Filename bump — official Taco Tuesdays flyer (cache bust vs taco-bowl hero).
+  "flip-flop-taco-tuesday": "flip-flop-taco-tuesday-v2.jpg",
   "flip-flop-monday-happy-hour": "flip-flop-happy-hour-schedule.jpg",
   "flip-flop-nfl-sunday": "flip-flop-nfl-sunday.jpg",
   "chill-and-grill-sunday-bingo": "chill-and-grill-sunday-bingo.jpg",
@@ -484,6 +487,8 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "eat-street-market-ocean-one-2026-09-27": "object-top",
   "aldo-sax-casa-caribe-2026-09-24": "object-top",
   "sovereign-sister-summit-2026-11-04": "object-center",
+  // Square beach heart — face sits mid/low; card default object-top keeps canopy and crops her under the title.
+  "sunset-laughter-club-cabarete": "object-[50%_52%]",
 
   // DJ Flacome flyer — keep face + controller in Coming up / list crops.
   "feria-ganadera-el-cupey-2026": "object-center",
@@ -543,6 +548,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "chill-and-grill-saturday-karaoke.jpg",
   "chill-and-grill-sunday-bingo.jpg",
   "flip-flop-nfl-sunday.jpg",
+  "flip-flop-taco-tuesday-v2.jpg",
   "cigar-town-acustico-humos-2026-08-14.jpg",
   "cigar-town-acustico-humos.jpg",
   "cigar-town-domingo-de-matine.jpg",
@@ -560,7 +566,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "el-cuarteto-del-swing-zona-acapella-2026-09-13.jpg",
   "los-caballitos-zona-acapella-2026-09-20.jpg",
   "chiche-almonte-zona-acapella-2026-10-04.jpg",
-  "vibes-night-live-voramar-2026-10-02.jpg",
+  "vibes-night-live-voramar-2026-10-02-v2.jpg",
   "kaovanny-agua-el-carey-2026-10-02.jpg",
   "camara-almuerzo-codigo-penal-2026-10-22-v2.jpg",
   "banda-modelo-vinoteca-2026-09-26.jpg",
@@ -624,7 +630,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "el-cuarteto-terrible-zona-acapella-2026-09-27-flyer.jpg",
   "natura-sunbar-special-sunset-sounds-2026-09-24.jpg",
   "kaovanny-natura-cabana-2026-09-26.jpg",
-  "vibes-night-live-voramar-2026-10-02.jpg",
+  "vibes-night-live-voramar-2026-10-02-v2.jpg",
   "kaovanny-agua-el-carey-2026-10-02.jpg",
   "chiche-almonte-zona-acapella-2026-10-04.jpg",
   "camara-almuerzo-codigo-penal-2026-10-22-v2.jpg",
@@ -750,7 +756,6 @@ const HOME_HERO_SCENE_FILES = new Set([
   "feria-artesanal-verano-2026.jpg",
   "finish-line-live-band.jpg",
   "flip-flop-live-sports-bar-tvs.jpg",
-  "flip-flop-taco-tuesday.jpg",
   "flip-flop-wing-wednesday.jpg",
   "fortaleza-san-felipe-ramparts.jpg",
   "templo-de-las-americas-daily.jpg",
@@ -816,7 +821,7 @@ const HOME_HERO_SCENE_FILES = new Set([
   "sosua-volleyball-weekly.jpg",
   "sunset-grill-velero-beachfront-dining.jpg",
   "sunset-grill-velero-sushi-nights-patio.jpg",
-  "sunset-laughter-club-cabarete.jpg",
+  "sunset-laughter-club-cabarete-v2.jpg",
   "tabacalera-cremo-factory-tour.jpg",
   "tabacalera-cremo-rolling-experience.jpg",
   "taino-bay-village-daily.jpg",

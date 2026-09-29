@@ -67,7 +67,7 @@ const FILE_TO_EVENT_ID = {
     "lena-dardelet-aura-beach-club-2026-07-24",
   "silent-run-5k-2026-07-25.jpg": "silent-run-5k-2026-07-25",
   "los-event-trilogy-2026-09-03.jpg": "los-event-trilogy-2026-09-03",
-  "sunset-laughter-club-cabarete.jpg": "sunset-laughter-club-cabarete",
+  "sunset-laughter-club-cabarete-v2.jpg": "sunset-laughter-club-cabarete",
   "congreso-damas-adn-2026.jpg": "congreso-damas-adn-2026",
   "master-of-the-ocean-2026.jpg": "master-of-the-ocean-2026",
   "atlantico-fc-vs-delfines-2026-08-22.jpg":
@@ -217,7 +217,7 @@ const FILE_TO_EVENT_ID = {
   "natura-sunbar-special-sunset-sounds-2026-09-24.jpg":
     "natura-sunbar-special-sunset-sounds-2026-09-24",
   "kaovanny-natura-cabana-2026-09-26.jpg": "kaovanny-natura-cabana-2026-09-26",
-  "vibes-night-live-voramar-2026-10-02.jpg":
+  "vibes-night-live-voramar-2026-10-02-v2.jpg":
     "vibes-night-live-voramar-2026-10-02",
   "kaovanny-agua-el-carey-2026-10-02.jpg": "kaovanny-agua-el-carey-2026-10-02",
   "chiche-almonte-zona-acapella-2026-10-04.jpg":
@@ -317,7 +317,7 @@ const FILE_TO_EVENT_ID = {
   "rio-martinico-sosua.jpg": "rio-martinico-sosua",
   "flip-flop-live-sports-bar-tvs.jpg": "flip-flop-live-sports-bar-tvs",
   "flip-flop-wing-wednesday.jpg": "flip-flop-wing-wednesday",
-  "flip-flop-taco-tuesday.jpg": "flip-flop-taco-tuesday",
+  "flip-flop-taco-tuesday-v2.jpg": "flip-flop-taco-tuesday",
   "flip-flop-monday-happy-hour.jpg": "flip-flop-monday-happy-hour",
   "flip-flop-nfl-sunday.jpg": "flip-flop-nfl-sunday",
   "trolley-party-saturday.jpg": "trolley-party-saturday",
@@ -467,6 +467,7 @@ const FILE_TO_VENUE_SLUG = {
     "ivan-garcia-teatro-escuela-facade",
   "ambar-lounge-pop-lounge.jpg": "ambar-lounge-pop-lounge",
   "aura-beach-club-cabarete-entrance.jpg": "aura-beach-club-cabarete-entrance",
+  "hotel-voramar-sosua-pool.jpg": "hotel-voramar-sosua-pool",
   "trolley-city-tours-party-bus.jpg": "trolley-city-tours-party-bus",
   "hotel-villa-taina-pool.jpg": "hotel-villa-taina-pool",
   "el-mirador-de-finely-balcony.jpg": "el-mirador-de-finely-balcony",
