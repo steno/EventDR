@@ -3474,6 +3474,24 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: "2026-09-29T13:00:00.000Z",
   },
   {
+    eventId: "teleferico-inicio-obras-2026-10-03",
+    body: "Civic groundbreaking at 10 AM — watch the obra kickoff, not a gondola ride; the cable car stays shut for the multi-year rebuild after this ceremony.",
+    localized: {
+      es: "Acto cívico de inicio de obras a las 10 AM — ve el arranque de la obra, no un viaje en góndola; el teleférico sigue cerrado por la reconstrucción de varios años después de la ceremonia.",
+      fr: "Cérémonie civique de lancement à 10 h — venez voir le coup d’envoi des travaux, pas une course en cabine ; le téléphérique reste fermé pour la reconstruction pluriannuelle après la cérémonie.",
+    },
+    priceFeel: "free",
+    priceNote: "Free civic ceremony — gondola not operating",
+    priceNoteLocalized: {
+      es: "Ceremonia cívica gratis — góndola no opera",
+      fr: "Cérémonie civique gratuite — cabine non en service",
+    },
+    attribution: "POP research · Teleférico inicio de obras invitation",
+    researchNotes:
+      "Editor invitation: Sat 3 Oct 2026 10:00 AM Acto de inicio de obras nuevo Teleférico de Puerto Plata; Presidencia, URBE, MITUR, IDAC; C. del Teleférico.",
+    updatedAt: "2026-09-29T17:00:00.000Z",
+  },
+  {
     eventId: "grand-prix-sabado-bailable",
     seriesKey: "grand-prix-puerto-plata:weekly:6",
     body: "La Javilla Saturday dance bar by Bomba — local DJ floor energy; confirm doors on @grandprixrd before you treat it like a Playa Dorada resort night.",

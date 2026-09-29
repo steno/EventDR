@@ -145,6 +145,7 @@ export const CURATED_ADMISSION_PRICES: Record<string, string> = {
   "el-cuarteto-terrible-zona-acapella-2026-09-27": "Free",
   "chiche-almonte-zona-acapella-2026-10-04": "Free",
   "camara-almuerzo-codigo-penal-2026-10-22": "RD$3,500",
+  "teleferico-inicio-obras-2026-10-03": "Free",
   "sosua-coastal-pickleball-open-2026-10-24": "RD$2,000",
   "serenade-dominican-night-villa-taina-weekly": "RD$952",
   "love-does-cocktails-solidarity-2026-09-04": "RD$2,000",

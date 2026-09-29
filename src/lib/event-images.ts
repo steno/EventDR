@@ -128,6 +128,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   // Filename bump — topic poster preferred over smaller logistics crop.
   "camara-almuerzo-codigo-penal-2026-10-22":
     "camara-almuerzo-codigo-penal-2026-10-22-v2.jpg",
+  "teleferico-inicio-obras-2026-10-03":
+    "teleferico-inicio-obras-2026-10-03.jpg",
   "sosua-coastal-pickleball-open-2026-10-24":
     "sosua-coastal-pickleball-open-2026-10-24.jpg",
   "serenade-dominican-night-villa-taina-weekly":
@@ -569,6 +571,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "vibes-night-live-voramar-2026-10-02-v2.jpg",
   "kaovanny-agua-el-carey-2026-10-02.jpg",
   "camara-almuerzo-codigo-penal-2026-10-22-v2.jpg",
+  "teleferico-inicio-obras-2026-10-03.jpg",
   "banda-modelo-vinoteca-2026-09-26.jpg",
   "groundzero-domingos-de-hookah.jpg",
   "groundzero-domingos-pal-pueblo.jpg",
@@ -634,6 +637,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "kaovanny-agua-el-carey-2026-10-02.jpg",
   "chiche-almonte-zona-acapella-2026-10-04.jpg",
   "camara-almuerzo-codigo-penal-2026-10-22-v2.jpg",
+  "teleferico-inicio-obras-2026-10-03.jpg",
   "sosua-coastal-pickleball-open-2026-10-24.jpg",
   "serenade-dominican-night-villa-taina-weekly.jpg",
   "serenade-mongolian-night-villa-taina-weekly-v2.jpg",

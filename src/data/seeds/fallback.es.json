@@ -3523,5 +3523,35 @@
       "Lic. Domingo Acevedo"
     ],
     "imageEmoji": "⚖️"
+  },
+  {
+    "id": "teleferico-inicio-obras-2026-10-03",
+    "title": "Inicio de obras — Nuevo Teleférico de Puerto Plata",
+    "description": "Acto oficial de inicio de obras del nuevo Teleférico de Puerto Plata (al Pico Isabel de Torres) — sábado 3 de octubre 2026 a las 10:00 a.m. en el Teleférico (C. del Teleférico). Invitación de la Presidencia / Ministerio de la Presidencia, URBE, Ministerio de Turismo e IDAC. Solo ceremonia — la góndola sigue cerrada por la reconstrucción de varios años. Evento cívico gratuito; confirma logística vía MITUR / telefericopuertoplata.com.",
+    "date": "2026-10-03",
+    "time": "10:00 AM",
+    "location": "Puerto Plata",
+    "venue": "Teleférico Puerto Plata",
+    "venueSlug": "teleferico-puerto-plata",
+    "address": "C. del Teleférico, Puerto Plata",
+    "lat": 19.7881298,
+    "lng": -70.7099725,
+    "category": "culture",
+    "categories": [
+      "festivals"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "phone": "+18099700501",
+    "sourceType": "flyer",
+    "sourceUrl": "https://telefericopuertoplata.com",
+    "lineup": [
+      "Presidencia / Ministerio de la Presidencia",
+      "URBE",
+      "Ministerio de Turismo",
+      "IDAC"
+    ],
+    "imageEmoji": "🚡"
   }
 ]

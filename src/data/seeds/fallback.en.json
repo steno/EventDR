@@ -3523,5 +3523,35 @@
       "Lic. Domingo Acevedo"
     ],
     "imageEmoji": "⚖️"
+  },
+  {
+    "id": "teleferico-inicio-obras-2026-10-03",
+    "title": "Teleférico Groundbreaking — New Cable Car Works",
+    "description": "Official groundbreaking / start-of-works ceremony for the new Teleférico de Puerto Plata (cable car to Pico Isabel de Torres) — Saturday 3 October 2026 at 10:00 AM at the Teleférico site (C. del Teleférico). Invitation from the Presidency / Ministerio de la Presidencia, URBE, Ministerio de Turismo, and IDAC. Ceremony only — the gondola remains closed for the multi-year rebuild. Free public civic event; confirm logistics via MITUR / telefericopuertoplata.com.",
+    "date": "2026-10-03",
+    "time": "10:00 AM",
+    "location": "Puerto Plata",
+    "venue": "Teleférico Puerto Plata",
+    "venueSlug": "teleferico-puerto-plata",
+    "address": "C. del Teleférico, Puerto Plata",
+    "lat": 19.7881298,
+    "lng": -70.7099725,
+    "category": "culture",
+    "categories": [
+      "festivals"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "phone": "+18099700501",
+    "sourceType": "flyer",
+    "sourceUrl": "https://telefericopuertoplata.com",
+    "lineup": [
+      "Presidencia / Ministerio de la Presidencia",
+      "URBE",
+      "Ministerio de Turismo",
+      "IDAC"
+    ],
+    "imageEmoji": "🚡"
   }
 ]

@@ -224,6 +224,8 @@ const FILE_TO_EVENT_ID = {
     "chiche-almonte-zona-acapella-2026-10-04",
   "camara-almuerzo-codigo-penal-2026-10-22-v2.jpg":
     "camara-almuerzo-codigo-penal-2026-10-22",
+  "teleferico-inicio-obras-2026-10-03.jpg":
+    "teleferico-inicio-obras-2026-10-03",
   "sosua-coastal-pickleball-open-2026-10-24.jpg":
     "sosua-coastal-pickleball-open-2026-10-24",
   "serenade-dominican-night-villa-taina-weekly.jpg":

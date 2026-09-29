@@ -74,6 +74,7 @@ const EVENT_PHONE_BY_ID: Record<string, string> = {
   "kaovanny-agua-el-carey-2026-10-02": "+18494404199",
   "chiche-almonte-zona-acapella-2026-10-04": "+18297260344",
   "camara-almuerzo-codigo-penal-2026-10-22": "+18095862390",
+  "teleferico-inicio-obras-2026-10-03": "+18099700501",
   "sosua-coastal-pickleball-open-2026-10-24": "+18092233974",
   "aldo-sax-casa-caribe-2026-09-24": "+18099594087",
   "sovereign-sister-summit-2026-11-04": "+18097105824",

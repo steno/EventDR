@@ -29,6 +29,7 @@ Curated images under `public/events/` and `public/venues/`.
 | `kaovanny-agua-el-carey-2026-10-02.jpg` | POP-supplied — Kaovanny ‘La Caoba’ agua LIVE album release flyer | Fri 2 Oct 2026 6:30 PM El Carey Costambar (editor-provided) |
 | `chiche-almonte-zona-acapella-2026-10-04.jpg` | POP-supplied — Domingo Típico / Chiché Almonte flyer ([@acapella.pop](https://www.instagram.com/acapella.pop/)) | Sun 4 Oct 2026 free entry (editor-provided) |
 | `camara-almuerzo-codigo-penal-2026-10-22-v2.jpg` | POP-supplied — Cámara almuerzo conferencia Código Penal topic poster ([@camarapuertoplata](https://www.instagram.com/camarapuertoplata/)) | Thu 22 Oct 2026 Salón Lotus Blue JackTar (editor-provided; filename bump) |
+| `teleferico-inicio-obras-2026-10-03.jpg` | POP-supplied — Acto de inicio de obras nuevo Teleférico invitation (Presidencia / URBE / MITUR / IDAC) | Sat 3 Oct 2026 10:00 AM Teleférico Puerto Plata (editor-provided; compressed) |
 | `sosua-coastal-pickleball-open-2026-10-24.jpg` | POP-supplied — Sosúa Coastal Pickleball Open (Terramar Pickleball Club) | Oct 24–25 2026 tournament (editor-provided) |
 | `serenade-dominican-night-villa-taina-weekly.jpg` | POP-supplied — Serenade Dominican Night buffet flyer | Weekly Mon 7–9:30 PM Villa Taina (editor-provided) |
 | `serenade-mongolian-night-villa-taina-weekly-v2.jpg` | POP-supplied — Villa Taina / Serenade Mongolian Night flyer (Wed grill + Josh Messer) | Weekly Wed themed buffet (editor-provided; filename bump for cache) |

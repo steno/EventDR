@@ -3521,5 +3521,35 @@
       "Lic. Domingo Acevedo"
     ],
     "imageEmoji": "⚖️"
+  },
+  {
+    "id": "teleferico-inicio-obras-2026-10-03",
+    "title": "Lancement des travaux — Nouveau téléphérique de Puerto Plata",
+    "description": "Cérémonie officielle de démarrage des travaux du nouveau Téléphérique de Puerto Plata (vers Pico Isabel de Torres) — samedi 3 octobre 2026 à 10 h 00 sur le site du Téléphérique (C. del Teleférico). Invitation de la Présidence / Ministerio de la Presidencia, URBE, Ministerio de Turismo et IDAC. Cérémonie uniquement — la cabine reste fermée pour la reconstruction pluriannuelle. Événement civique gratuit ; confirmez la logistique via MITUR / telefericopuertoplata.com.",
+    "date": "2026-10-03",
+    "time": "10:00 AM",
+    "location": "Puerto Plata",
+    "venue": "Teleférico Puerto Plata",
+    "venueSlug": "teleferico-puerto-plata",
+    "address": "C. del Teleférico, Puerto Plata",
+    "lat": 19.7881298,
+    "lng": -70.7099725,
+    "category": "culture",
+    "categories": [
+      "festivals"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "phone": "+18099700501",
+    "sourceType": "flyer",
+    "sourceUrl": "https://telefericopuertoplata.com",
+    "lineup": [
+      "Presidencia / Ministerio de la Presidencia",
+      "URBE",
+      "Ministerio de Turismo",
+      "IDAC"
+    ],
+    "imageEmoji": "🚡"
   }
 ]

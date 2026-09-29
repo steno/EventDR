@@ -595,6 +595,11 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     ticketUrl: "https://forms.gle/h9fBh4RsrVjXDUGG7",
     venueSlug: "blue-jacktar-playa-dorada",
   },
+  "teleferico-inicio-obras-2026-10-03": {
+    isFree: true,
+    phone: "+18099700501",
+    venueSlug: "teleferico-puerto-plata",
+  },
   "sosua-coastal-pickleball-open-2026-10-24": {
     isFree: false,
     admissionPrice: "RD$2,000",

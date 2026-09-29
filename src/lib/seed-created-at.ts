@@ -137,6 +137,7 @@ export const SEED_CREATED_AT: Readonly<Record<string, string>> = {
   "kaovanny-agua-el-carey-2026-10-02": "2026-09-29T15:00:00.000Z",
   "chiche-almonte-zona-acapella-2026-10-04": "2026-09-29T14:00:00.000Z",
   "camara-almuerzo-codigo-penal-2026-10-22": "2026-09-29T13:00:00.000Z",
+  "teleferico-inicio-obras-2026-10-03": "2026-09-29T17:00:00.000Z",
 };
 
 /** Fill missing `createdAt` from {@link SEED_CREATED_AT} (does not overwrite). */
