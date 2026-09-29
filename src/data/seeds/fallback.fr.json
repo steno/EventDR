@@ -1373,7 +1373,7 @@
     "title": "Fêtes traditionnelles de Guananico — San Miguel Arcángel",
     "description": "Fête patronale traditionnelle de San Miguel Arcángel à Rincón Caliente, Guananico — Puerto Plata intérieur et berceau du merengue típico. Facebook indique le cycle du dimanche 20 au mardi 29 septembre 2026 (fête de San Miguel). Soirée d'ouverture le dimanche 20 à 20 h avec Los Hermanos López, présentée par Al Toque Fast Food ; hôtes Rafael et Esperanza. Entrée gratuite.",
     "date": "2026-09-20",
-    "endDate": "2026-09-29",
+    "endDate": "2026-09-28",
     "time": "8:00 PM",
     "location": "Puerto Plata",
     "venue": "Rincón Caliente, Guananico",
@@ -1387,7 +1387,7 @@
       "music"
     ],
     "format": "physical",
-    "trending": true,
+    "trending": false,
     "isFree": true,
     "sourceUrl": "https://www.facebook.com/events/1964485960928143/",
     "imageEmoji": "🪗"
@@ -3409,5 +3409,117 @@
       "Cheo Almonte"
     ],
     "imageEmoji": "🎸"
+  },
+  {
+    "id": "vibes-night-live-voramar-2026-10-02",
+    "title": "Vibes Night Live — Deja New au Voramar",
+    "description": "Vibes Night Live à l’Hotel Voramar, Sosúa — vendredi 2 octobre 2026 dès 19 h 30 avec Deja New, BBQ et invités Cool Rock Blues. Food, friends and fun ; 18+ seulement. Confirmez cover et réservations auprès de l’hôtel (+1 809-571-3910).",
+    "date": "2026-10-02",
+    "time": "7:30 PM",
+    "location": "Sosúa",
+    "venue": "Hotel Voramar",
+    "venueSlug": "hotel-voramar-sosua",
+    "address": "Calle Alejo Martínez, Playa Chiquita",
+    "lat": 19.7767518,
+    "lng": -70.509873,
+    "category": "music",
+    "categories": [
+      "food-drinks",
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18095713910",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.hotelvoramar-sosua.com/en",
+    "lineup": [
+      "Deja New",
+      "Cool Rock Blues"
+    ],
+    "imageEmoji": "🎤"
+  },
+  {
+    "id": "kaovanny-agua-el-carey-2026-10-02",
+    "title": "Kaovanny ‘La Caoba’ — agua LIVE",
+    "description": "Soirée de sortie de l’album debut de Kaovanny ‘La Caoba’ — agua LIVE à El Carey Día y Noche, plage Costambar — vendredi 2 octobre 2026 dès le coucher du soleil à 18 h 30. Dîner et boissons sur le sable ; confirmez une table via @diaynocherestaurantelcarey ou +1 849-440-4199.",
+    "date": "2026-10-02",
+    "time": "6:30 PM",
+    "location": "Costambar",
+    "venue": "El Carey Día y Noche",
+    "venueSlug": "el-carey-puerto-plata",
+    "address": "Calle Reina Isabel, Costambar",
+    "lat": 19.8145247,
+    "lng": -70.7150884,
+    "category": "concert",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18494404199",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/diaynocherestaurantelcarey/",
+    "lineup": [
+      "Kaovanny ‘La Caoba’"
+    ],
+    "imageEmoji": "🎤"
+  },
+  {
+    "id": "chiche-almonte-zona-acapella-2026-10-04",
+    "title": "Chiché Almonte — Domingo Típico",
+    "description": "Domingo Típico avec Chiché Almonte au Zona Acapella Club sur le Malecón de Puerto Plata (Cuarto de Milla) — dimanche 4 octobre 2026. Entrée et parking gratuits. WhatsApp +1 829 726 0344 · @acapella.pop.",
+    "date": "2026-10-04",
+    "location": "Puerto Plata",
+    "venue": "Zona Acapella Club",
+    "venueSlug": "zona-acapella-club",
+    "address": "Cuarto de Milla, Av. Gral. Gregorio Luperón, Puerto Plata",
+    "lat": 19.791341,
+    "lng": -70.674021,
+    "category": "concert",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "phone": "+18297260344",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/acapella.pop/",
+    "lineup": [
+      "Chiché Almonte"
+    ],
+    "imageEmoji": "🪗"
+  },
+  {
+    "id": "camara-almuerzo-codigo-penal-2026-10-22",
+    "title": "Déjeuner-conférence — Nouveau code pénal et entreprises",
+    "description": "Déjeuner-conférence de la Chambre de commerce sur l’impact du nouveau code pénal sur le secteur des entreprises — risques, responsabilités et prévention — au Salón Lotus, Blue JackTar Playa Dorada. Jeudi 22 octobre 2026 : enregistrement 11 h 30, début 12 h 00. Intervenant Lic. Domingo Acevedo (CPA, avocat et auditeur forensique). Investissement RD$3,500 par personne (déjeuner inclus) ; places limitées. Inscription forms.gle/h9fBh4RsrVjXDUGG7 · @camarapuertoplata.",
+    "date": "2026-10-22",
+    "time": "11:30 AM – 2:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Blue JackTar Playa Dorada",
+    "venueSlug": "blue-jacktar-playa-dorada",
+    "address": "Salón Lotus, Blue JackTar, Playa Dorada",
+    "lat": 19.7703,
+    "lng": -70.6494,
+    "category": "business",
+    "categories": [
+      "culture"
+    ],
+    "format": "physical",
+    "trending": true,
+    "admissionPrice": "RD$3,500",
+    "ticketUrl": "https://forms.gle/h9fBh4RsrVjXDUGG7",
+    "phone": "+18095862390",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/camarapuertoplata/",
+    "lineup": [
+      "Lic. Domingo Acevedo"
+    ],
+    "imageEmoji": "⚖️"
   }
 ]

@@ -119,12 +119,21 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "natura-sunbar-special-sunset-sounds-2026-09-24":
     "natura-sunbar-special-sunset-sounds-2026-09-24.jpg",
   "kaovanny-natura-cabana-2026-09-26": "kaovanny-natura-cabana-2026-09-26.jpg",
+  "vibes-night-live-voramar-2026-10-02":
+    "vibes-night-live-voramar-2026-10-02.jpg",
+  "kaovanny-agua-el-carey-2026-10-02": "kaovanny-agua-el-carey-2026-10-02.jpg",
+  "chiche-almonte-zona-acapella-2026-10-04":
+    "chiche-almonte-zona-acapella-2026-10-04.jpg",
+  // Filename bump — topic poster preferred over smaller logistics crop.
+  "camara-almuerzo-codigo-penal-2026-10-22":
+    "camara-almuerzo-codigo-penal-2026-10-22-v2.jpg",
   "sosua-coastal-pickleball-open-2026-10-24":
     "sosua-coastal-pickleball-open-2026-10-24.jpg",
   "serenade-dominican-night-villa-taina-weekly":
     "serenade-dominican-night-villa-taina-weekly.jpg",
+  // Filename bump — official Villa Taina Mongolian Night flyer (Josh Messer / grill).
   "serenade-mongolian-night-villa-taina-weekly":
-    "serenade-mongolian-night-villa-taina-weekly.jpg",
+    "serenade-mongolian-night-villa-taina-weekly-v2.jpg",
   "serenade-bbq-night-villa-taina-weekly":
     "serenade-bbq-night-villa-taina-weekly.jpg",
   "luna-lounge-jueves-karaoke-weekly": "luna-lounge-jueves-karaoke-weekly.jpg",
@@ -550,6 +559,10 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "el-parq-latin-friday-poster.png",
   "el-cuarteto-del-swing-zona-acapella-2026-09-13.jpg",
   "los-caballitos-zona-acapella-2026-09-20.jpg",
+  "chiche-almonte-zona-acapella-2026-10-04.jpg",
+  "vibes-night-live-voramar-2026-10-02.jpg",
+  "kaovanny-agua-el-carey-2026-10-02.jpg",
+  "camara-almuerzo-codigo-penal-2026-10-22-v2.jpg",
   "banda-modelo-vinoteca-2026-09-26.jpg",
   "groundzero-domingos-de-hookah.jpg",
   "groundzero-domingos-pal-pueblo.jpg",
@@ -611,9 +624,13 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "el-cuarteto-terrible-zona-acapella-2026-09-27-flyer.jpg",
   "natura-sunbar-special-sunset-sounds-2026-09-24.jpg",
   "kaovanny-natura-cabana-2026-09-26.jpg",
+  "vibes-night-live-voramar-2026-10-02.jpg",
+  "kaovanny-agua-el-carey-2026-10-02.jpg",
+  "chiche-almonte-zona-acapella-2026-10-04.jpg",
+  "camara-almuerzo-codigo-penal-2026-10-22-v2.jpg",
   "sosua-coastal-pickleball-open-2026-10-24.jpg",
   "serenade-dominican-night-villa-taina-weekly.jpg",
-  "serenade-mongolian-night-villa-taina-weekly.jpg",
+  "serenade-mongolian-night-villa-taina-weekly-v2.jpg",
   "serenade-bbq-night-villa-taina-weekly.jpg",
   "luna-lounge-jueves-karaoke-weekly.jpg",
   "allison-sade-aura-2026-09-17.jpg",

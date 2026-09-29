@@ -3402,6 +3402,78 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: "2026-09-26T17:00:00.000Z",
   },
   {
+    eventId: "vibes-night-live-voramar-2026-10-02",
+    body: "Named Friday with Deja New + Cool Rock Blues on the Voramar poolside — 18+, BBQ included in the vibe; treat it as a billed night, not the anonymous weekly Friday seed.",
+    localized: {
+      es: "Viernes con nombre — Deja New + Cool Rock Blues en la piscina del Voramar — 18+, BBQ en el vibe; trátalo como noche cartelada, no el seed anónimo de viernes.",
+      fr: "Vendredi affiché — Deja New + Cool Rock Blues au bord de la piscine Voramar — 18+, BBQ dans le vibe ; traitez-le comme une soirée à l’affiche, pas le seed vendredi anonyme.",
+    },
+    priceFeel: "moderate",
+    priceNote: "Cover not on flyer — confirm with hotel +1 809-571-3910",
+    priceNoteLocalized: {
+      es: "Cover no publicado — confirma con el hotel +1 809-571-3910",
+      fr: "Cover non publié — confirmez auprès de l’hôtel +1 809-571-3910",
+    },
+    attribution: "POP research · Hotel Voramar Vibes Night Live flyer",
+    researchNotes:
+      "Editor flyer Fri 2 Oct 2026 7:30 PM Vibes Night Live, Deja New and BBQ, Cool Rock Blues, 18+ only, Hotel Voramar Sosúa.",
+    updatedAt: "2026-09-29T16:00:00.000Z",
+  },
+  {
+    eventId: "kaovanny-agua-el-carey-2026-10-02",
+    body: "Album-release sunset on Costambar sand — pin El Carey at 6:30 PM for Kaovanny ‘La Caoba’, not the Natura Afro Soul set from the week before; book a table before the wave crowd.",
+    localized: {
+      es: "Lanzamiento al atardecer en arena Costambar — clava El Carey a las 6:30 PM por Kaovanny ‘La Caoba’, no el set Afro Soul de Natura de la semana anterior; reserva mesa antes de la ola.",
+      fr: "Sortie d’album au coucher du soleil sur le sable Costambar — épinglez El Carey à 18 h 30 pour Kaovanny ‘La Caoba’, pas le set Afro Soul Natura de la semaine d’avant ; réservez une table avant la vague.",
+    },
+    priceFeel: "moderate",
+    priceNote: "No cover on flyer — budget dinner/drinks; +1 849-440-4199",
+    priceNoteLocalized: {
+      es: "Sin cover en el flyer — presupuesta cena/tragos; +1 849-440-4199",
+      fr: "Pas de cover sur l’affiche — budget dîner/boissons ; +1 849-440-4199",
+    },
+    attribution: "POP research · Kaovanny agua LIVE / El Carey flyer",
+    researchNotes:
+      "Editor flyer Fri 2 Oct 2026 sunset 6:30 PM Kaovanny La Caoba agua LIVE debut album, El Carey Restaurant Costambar.",
+    updatedAt: "2026-09-29T15:00:00.000Z",
+  },
+  {
+    eventId: "chiche-almonte-zona-acapella-2026-10-04",
+    body: "Next free Malecón Domingo Típico after El Cuarteto Terrible — Chiché Almonte accordion night; same free parking story, arrive early for a sea-view table.",
+    localized: {
+      es: "Siguiente Domingo Típico gratis en el Malecón después de El Cuarteto Terrible — noche de acordeón con Chiché Almonte; mismo parqueo gratis, llega temprano por mesa con vista al mar.",
+      fr: "Prochain Domingo Típico gratuit sur le Malecón après El Cuarteto Terrible — soirée accordéon avec Chiché Almonte ; même parking gratuit, arrivez tôt pour une table vue mer.",
+    },
+    priceFeel: "free",
+    priceNote: "Free entry and parking — budget drinks/food on site",
+    priceNoteLocalized: {
+      es: "Entrada y parqueo gratis — presupuesta tragos/comida en el club",
+      fr: "Entrée et parking gratuits — budget boissons/repas sur place",
+    },
+    attribution: "POP research · @acapella.pop Domingo Típico flyer",
+    researchNotes:
+      "Editor flyer + IG: Sun 4 Oct 2026 Chiché Almonte, Zona Acapella, entrada/parqueo gratis, WhatsApp 829-726-0344.",
+    updatedAt: "2026-09-29T14:00:00.000Z",
+  },
+  {
+    eventId: "camara-almuerzo-codigo-penal-2026-10-22",
+    body: "Paid chamber lunch at Blue JackTar — RD$3,500 with lunch for Domingo Acevedo on the new Penal Code; not the free September Beller panel, and not a beach day.",
+    localized: {
+      es: "Almuerzo de Cámara de pago en Blue JackTar — RD$3,500 con almuerzo por Domingo Acevedo sobre el nuevo Código Penal; no es el panel gratis de septiembre en Beller, ni un día de playa.",
+      fr: "Déjeuner payant de la Chambre au Blue JackTar — RD$3,500 avec déjeuner pour Domingo Acevedo sur le nouveau code pénal ; pas le panel gratuit de septembre sur Beller, ni une journée plage.",
+    },
+    priceFeel: "premium",
+    priceNote: "RD$3,500 includes lunch — register via Google Form; limited seats",
+    priceNoteLocalized: {
+      es: "RD$3,500 incluye almuerzo — inscríbete por el formulario; cupos limitados",
+      fr: "RD$3,500 inclut le déjeuner — inscription via le formulaire ; places limitées",
+    },
+    attribution: "POP research · @camarapuertoplata lunch conference flyer",
+    researchNotes:
+      "Editor topic poster + logistics: Thu 22 Oct 2026 Salón Lotus Blue JackTar, registro 11:30, inicio 12:00, Lic. Domingo Acevedo, RD$3500, forms.gle/h9fBh4RsrVjXDUGG7.",
+    updatedAt: "2026-09-29T13:00:00.000Z",
+  },
+  {
     eventId: "grand-prix-sabado-bailable",
     seriesKey: "grand-prix-puerto-plata:weekly:6",
     body: "La Javilla Saturday dance bar by Bomba — local DJ floor energy; confirm doors on @grandprixrd before you treat it like a Playa Dorada resort night.",

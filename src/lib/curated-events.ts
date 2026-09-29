@@ -570,6 +570,28 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     phone: "+18492147010",
     venueSlug: "natura-cabana",
   },
+  "vibes-night-live-voramar-2026-10-02": {
+    callForPricing: true,
+    phone: "+18095713910",
+    venueSlug: "hotel-voramar-sosua",
+  },
+  "kaovanny-agua-el-carey-2026-10-02": {
+    callForPricing: true,
+    phone: "+18494404199",
+    venueSlug: "el-carey-puerto-plata",
+  },
+  "chiche-almonte-zona-acapella-2026-10-04": {
+    isFree: true,
+    phone: "+18297260344",
+    venueSlug: "zona-acapella-club",
+  },
+  "camara-almuerzo-codigo-penal-2026-10-22": {
+    isFree: false,
+    admissionPrice: "RD$3,500",
+    phone: "+18095862390",
+    ticketUrl: "https://forms.gle/h9fBh4RsrVjXDUGG7",
+    venueSlug: "blue-jacktar-playa-dorada",
+  },
   "sosua-coastal-pickleball-open-2026-10-24": {
     isFree: false,
     admissionPrice: "RD$2,000",

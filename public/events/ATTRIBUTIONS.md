@@ -24,9 +24,13 @@ Curated images under `public/events/` and `public/venues/`.
 | `el-cuarteto-terrible-zona-acapella-2026-09-27-flyer.jpg` | POP-supplied — Domingo Típico / El Cuarteto Terrible duo flyer ([@acapella.pop](https://www.instagram.com/acapella.pop/)) | Sun 27 Sep 2026 free entry (editor refresh) |
 | `natura-sunbar-special-sunset-sounds-2026-09-24.jpg` | POP-supplied — SunBar Special Sunset & Sounds (DJ Taïf, Kriuslack) | Thu 24 Sep 2026 Natura Cabana (editor-provided) |
 | `kaovanny-natura-cabana-2026-09-26.jpg` | POP-supplied — Kaovanny Afro Soul live music flyer | Sat 26 Sep 2026 7–9:30 PM Natura Cabana (editor-provided) |
+| `vibes-night-live-voramar-2026-10-02.jpg` | POP-supplied — Vibes Night Live / Deja New flyer (Hotel Voramar) | Fri 2 Oct 2026 7:30 PM, 18+ (editor-provided) |
+| `kaovanny-agua-el-carey-2026-10-02.jpg` | POP-supplied — Kaovanny ‘La Caoba’ agua LIVE album release flyer | Fri 2 Oct 2026 6:30 PM El Carey Costambar (editor-provided) |
+| `chiche-almonte-zona-acapella-2026-10-04.jpg` | POP-supplied — Domingo Típico / Chiché Almonte flyer ([@acapella.pop](https://www.instagram.com/acapella.pop/)) | Sun 4 Oct 2026 free entry (editor-provided) |
+| `camara-almuerzo-codigo-penal-2026-10-22-v2.jpg` | POP-supplied — Cámara almuerzo conferencia Código Penal topic poster ([@camarapuertoplata](https://www.instagram.com/camarapuertoplata/)) | Thu 22 Oct 2026 Salón Lotus Blue JackTar (editor-provided; filename bump) |
 | `sosua-coastal-pickleball-open-2026-10-24.jpg` | POP-supplied — Sosúa Coastal Pickleball Open (Terramar Pickleball Club) | Oct 24–25 2026 tournament (editor-provided) |
 | `serenade-dominican-night-villa-taina-weekly.jpg` | POP-supplied — Serenade Dominican Night buffet flyer | Weekly Mon 7–9:30 PM Villa Taina (editor-provided) |
-| `serenade-mongolian-night-villa-taina-weekly.jpg` | POP-supplied — Serenade × Villa Taina weekly story (Mongolian night) | Weekly Wed themed buffet (editor-provided) |
+| `serenade-mongolian-night-villa-taina-weekly-v2.jpg` | POP-supplied — Villa Taina / Serenade Mongolian Night flyer (Wed grill + Josh Messer) | Weekly Wed themed buffet (editor-provided; filename bump for cache) |
 | `serenade-bbq-night-villa-taina-weekly.jpg` | POP-supplied — Serenade × Villa Taina weekly story (BBQ night) | Weekly Fri themed buffet (editor-provided) |
 | `luna-lounge-jueves-karaoke-weekly.jpg` | POP-supplied — Jueves de Karaoke / DJ Koky (Luna Disco Bar) | Weekly Thu karaoke Luis Ginebra #42 (editor-provided) |
 | `sosua-food-market-dj-one-d-2026-09-25.jpg` | POP-supplied — Live Session DJ ONE D flyer ([@sosuafoodmarket](https://www.instagram.com/sosuafoodmarket/)) | Fri 25 Sep 2026 from 6 PM (editor-provided) |

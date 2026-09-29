@@ -217,11 +217,18 @@ const FILE_TO_EVENT_ID = {
   "natura-sunbar-special-sunset-sounds-2026-09-24.jpg":
     "natura-sunbar-special-sunset-sounds-2026-09-24",
   "kaovanny-natura-cabana-2026-09-26.jpg": "kaovanny-natura-cabana-2026-09-26",
+  "vibes-night-live-voramar-2026-10-02.jpg":
+    "vibes-night-live-voramar-2026-10-02",
+  "kaovanny-agua-el-carey-2026-10-02.jpg": "kaovanny-agua-el-carey-2026-10-02",
+  "chiche-almonte-zona-acapella-2026-10-04.jpg":
+    "chiche-almonte-zona-acapella-2026-10-04",
+  "camara-almuerzo-codigo-penal-2026-10-22-v2.jpg":
+    "camara-almuerzo-codigo-penal-2026-10-22",
   "sosua-coastal-pickleball-open-2026-10-24.jpg":
     "sosua-coastal-pickleball-open-2026-10-24",
   "serenade-dominican-night-villa-taina-weekly.jpg":
     "serenade-dominican-night-villa-taina-weekly",
-  "serenade-mongolian-night-villa-taina-weekly.jpg":
+  "serenade-mongolian-night-villa-taina-weekly-v2.jpg":
     "serenade-mongolian-night-villa-taina-weekly",
   "serenade-bbq-night-villa-taina-weekly.jpg":
     "serenade-bbq-night-villa-taina-weekly",
