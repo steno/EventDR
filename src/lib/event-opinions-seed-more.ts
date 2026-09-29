@@ -3462,7 +3462,7 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       es: "Almuerzo de Cámara de pago en Blue JackTar — RD$3,500 con almuerzo por Domingo Acevedo sobre el nuevo Código Penal; no es el panel gratis de septiembre en Beller, ni un día de playa.",
       fr: "Déjeuner payant de la Chambre au Blue JackTar — RD$3,500 avec déjeuner pour Domingo Acevedo sur le nouveau code pénal ; pas le panel gratuit de septembre sur Beller, ni une journée plage.",
     },
-    priceFeel: "premium",
+    priceFeel: "upscale",
     priceNote: "RD$3,500 includes lunch — register via Google Form; limited seats",
     priceNoteLocalized: {
       es: "RD$3,500 incluye almuerzo — inscríbete por el formulario; cupos limitados",
