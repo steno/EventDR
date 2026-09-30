@@ -341,6 +341,16 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Parc central de Puerto Plata (Plaza Independencia) dans le centre historique — place ombragée, vue sur la cathédrale et lieu de rassemblement pour festivals et événements communautaires.",
     },
   },
+  "plaza-juan-brugal": {
+    name: {
+      es: "Plaza Juan Brugal",
+      fr: "Plaza Juan Brugal",
+    },
+    description: {
+      es: "Plaza comercial en Carretera Luperón (Circunvalación Sur / frente a Depósitos Ferreteros) — Licor Lab y otros locales; car shows y encuentros de fin de semana en el anillo sur, no Playa Dorada.",
+      fr: "Plaza commerciale sur Carretera Luperón (Circunvalación Sur / face à Depósitos Ferreteros) — Licor Lab et autres commerces ; car shows et rencontres du week-end sur la ceinture sud, pas Playa Dorada.",
+    },
+  },
   "plaza-sanchez-imbert": {
     name: {
       es: "Plaza Sánchez",
@@ -887,8 +897,8 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Nueve Restaurante & Bar",
     },
     description: {
-      es: "Restaurante-bar en Puerto Plata — Sábados Bailables y fiestas temáticas con cartel. Confirma dirección y puertas en Instagram @nueve_rd.",
-      fr: "Restaurant-bar à Puerto Plata — Sábados Bailables et soirées à thème à l’affiche. Confirmez adresse et portes sur Instagram @nueve_rd.",
+      es: "Restaurante-bar en Puerto Plata — bingo musical los viernes, Sábados Bailables y fiestas temáticas con cartel. Confirma dirección y puertas en Instagram @nueve_rd.",
+      fr: "Restaurant-bar à Puerto Plata — bingo musical le vendredi, Sábados Bailables et soirées à thème à l’affiche. Confirmez adresse et portes sur Instagram @nueve_rd.",
     },
   },
   "grand-prix-puerto-plata": {

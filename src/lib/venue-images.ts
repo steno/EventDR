@@ -91,6 +91,7 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   // Filename bump — Green One Playa Dorada resort (plated seafood stays on the event).
   "paella-pop-green-one": "paella-pop-green-one-resort.jpg",
   "plaza-independencia": "plaza-independencia.jpg",
+  "plaza-juan-brugal": "plaza-juan-brugal-licorlab.jpg",
   // Filename bump — plaza gazebo aerial (highway welcome sign stays on the patronales event).
   "plaza-sanchez-imbert": "plaza-sanchez-imbert-park.jpg",
   "rincon-caliente-guananico": "rincon-caliente-guananico.jpg",

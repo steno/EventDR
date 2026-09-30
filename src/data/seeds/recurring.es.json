@@ -1458,18 +1458,21 @@
   {
     "id": "natura-cabana-saturday-live",
     "title": "Música en vivo los sábados en Natura Cabana",
-    "description": "Música en vivo gratis los sábados en el restaurante frente al mar de Natura Cabana en Perla Marina (7–9:30 PM) — acústico, jazz y fusión caribeña con cena y tragos. Sin cover.",
+    "description": "Música en vivo los sábados en Natura Restaurant, Natura Cabana Boutique Hotel & Spa, Paseo del Sol 5, Cabarete — todos los sábados 7:00–9:30 PM con el océano de fondo. Acústico, jazz y fusión caribeña con cena y tragos. Sin cover; reserva mesa +1 849-214-7010 · naturacabana.com.",
     "date": "2026-01-01",
     "time": "7:00 PM – 9:30 PM",
-    "location": "Sosúa",
+    "location": "Cabarete",
     "venue": "Natura Cabana",
     "venueSlug": "natura-cabana",
-    "address": "Paseo del Sol #5, Perla Marina",
+    "address": "Paseo del Sol 5, Cabarete",
+    "lat": 19.7833499,
+    "lng": -70.4621124,
     "category": "music",
     "format": "physical",
     "recurrence": "weekly",
     "recurrenceDay": 6,
     "isFree": true,
+    "phone": "+18492147010",
     "sourceUrl": "https://naturacabana.com/event/live-music-cabarete-saturdays-natura-cabana/",
     "imageEmoji": "🎸"
   },
@@ -2593,7 +2596,7 @@
   {
     "id": "serenade-mongolian-night-villa-taina-weekly",
     "title": "Noche Mongoliana Serenade en Villa Taina",
-    "description": "Todos los miércoles 7:00–9:30 PM en Serenade sobre la arena, Hotel Villa Taina, Calle Principal 1, Cabarete — noche temática de buffet mongol con entretenimiento en vivo. Confirma precio y reserva +1 809-571-0722 · @hotelvillataina.",
+    "description": "Todos los miércoles desde las 7:00 PM en Serenade Restaurant, Bar & Lounge (Beach Lounge & New Bossa), Hotel Villa Taina, Calle Principal 1, Cabarete — buffet mongol all-you-can-grill con música en vivo de Josh Messer. Adultos RD$906; menores de 12 mitad de precio; impuestos y servicio no incluidos. Menú especial a la carta si no quieres buffet. Reserva mesa +1 809-571-0722 · @hotelvillataina.",
     "date": "2026-01-01",
     "time": "7:00 PM – 9:30 PM",
     "location": "Cabarete",
@@ -2610,10 +2613,13 @@
     "format": "physical",
     "recurrence": "weekly",
     "recurrenceDay": 3,
-    "callForPricing": true,
+    "admissionPrice": "RD$906",
     "phone": "+18095710722",
     "sourceType": "flyer",
     "sourceUrl": "https://www.instagram.com/hotelvillataina/",
+    "lineup": [
+      "Josh Messer"
+    ],
     "imageEmoji": "🥢"
   },
   {
@@ -2780,5 +2786,29 @@
     "sourceType": "instagram",
     "sourceUrl": "https://www.instagram.com/grandprixrd/",
     "imageEmoji": "🎧"
+  },
+  {
+    "id": "nueve-bingo-friday",
+    "title": "Nueve Bingo — Bingo musical los viernes",
+    "description": "Bingo musical los viernes en Nueve Restaurante & Bar, Puerto Plata — De Bingo con cartones de canciones latinas y premios (a ganar premios se ha dicho). Parte de la programación Semana Nueve. Confirma hora y cartón por Instagram @nueve_rd.",
+    "date": "2026-01-01",
+    "location": "Puerto Plata",
+    "venue": "Nueve Restaurante & Bar",
+    "venueSlug": "nueve-puerto-plata",
+    "lat": 19.7894175,
+    "lng": -70.6788284,
+    "category": "food-drinks",
+    "categories": [
+      "culture",
+      "music"
+    ],
+    "format": "physical",
+    "recurrence": "weekly",
+    "recurrenceDay": 5,
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/nueve_rd/",
+    "imageEmoji": "🎱"
   }
 ]

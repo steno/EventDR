@@ -385,6 +385,14 @@ export const VENUE_TIP_COPY: Record<
       fr: "Salon gratuit du centre face à la cathédrale — asseyez-vous, regardez, continuez ; débordements de fêtes les week-ends chargés.",
     },
   },
+  "plaza-juan-brugal": {
+    body: "South-ring commercial plaza on Carretera Luperón (by Depósitos Ferreteros) — Licor Lab car-show hang and local errands, not a Playa Dorada strip stop; pin Circunvalación Sur before you Uber.",
+    localized: {
+      en: "South-ring commercial plaza on Carretera Luperón (by Depósitos Ferreteros) — Licor Lab car-show hang and local errands, not a Playa Dorada strip stop; pin Circunvalación Sur before you Uber.",
+      es: "Plaza comercial del anillo sur en Carretera Luperón (frente a Depósitos Ferreteros) — hang de car show de Licor Lab y vueltas locales, no un stop de la franja hacia Playa Dorada; clava Circunvalación Sur antes del Uber.",
+      fr: "Plaza commerciale de la ceinture sud sur Carretera Luperón (face à Depósitos Ferreteros) — hang car show Licor Lab et courses locales, pas un stop vers Playa Dorada ; épinglez Circunvalación Sur avant l’Uber.",
+    },
+  },
   "paseo-dona-blanca": {
     body: "Pink photo alley between downtown stops — worth ten minutes, not an all-afternoon attraction.",
     localized: {
@@ -1066,11 +1074,11 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "nueve-puerto-plata": {
-    body: "New Puerto Plata restaurant-bar for Saturday dance floors and theme nights — pin the Google Maps Nueve door before you Uber; not a Pedro Clisante Sosúa crawl.",
+    body: "Puerto Plata restaurant-bar for Friday musical bingo, Saturday dance floors, and theme nights — pin the Google Maps Nueve door before you Uber; not a Pedro Clisante Sosúa crawl.",
     localized: {
-      en: "New Puerto Plata restaurant-bar for Saturday dance floors and theme nights — pin the Google Maps Nueve door before you Uber; not a Pedro Clisante Sosúa crawl.",
-      es: "Restaurante-bar nuevo en Puerto Plata para pista los sábados y noches temáticas — clava la puerta de Nueve en Google Maps antes del Uber; no es un crawl de Pedro Clisante en Sosúa.",
-      fr: "Nouveau restaurant-bar à Puerto Plata pour piste le samedi et soirées à thème — épinglez la porte Nueve sur Google Maps avant l’Uber ; pas un crawl Pedro Clisante à Sosúa.",
+      en: "Puerto Plata restaurant-bar for Friday musical bingo, Saturday dance floors, and theme nights — pin the Google Maps Nueve door before you Uber; not a Pedro Clisante Sosúa crawl.",
+      es: "Restaurante-bar en Puerto Plata para bingo musical los viernes, pista los sábados y noches temáticas — clava la puerta de Nueve en Google Maps antes del Uber; no es un crawl de Pedro Clisante en Sosúa.",
+      fr: "Restaurant-bar à Puerto Plata pour bingo musical le vendredi, piste le samedi et soirées à thème — épinglez la porte Nueve sur Google Maps avant l’Uber ; pas un crawl Pedro Clisante à Sosúa.",
     },
   },
   "grand-prix-puerto-plata": {

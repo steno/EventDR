@@ -2794,6 +2794,60 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: "2026-09-22T12:00:00.000Z",
   },
   {
+    eventId: "natura-sunbar-sunset-sounds-em-zayd-2026-10-01",
+    body: "Thursday SunBar sunset with guest DJ EM ZAYD and extended happy hour — Perla Marina / Cabarete ocean deck, not a Cabarete strip club night; come for cocktails at golden hour.",
+    localized: {
+      es: "Atardecer de jueves en SunBar con guest DJ EM ZAYD y happy hour extendido — terraza océano Perla Marina / Cabarete, no un club de la strip; ven por cócteles a la hora dorada.",
+      fr: "Sunset du jeudi au SunBar avec guest DJ EM ZAYD et happy hour prolongé — terrasse océan Perla Marina / Cabarete, pas un club de la strip ; venez pour les cocktails à l’heure dorée.",
+    },
+    priceFeel: "moderate",
+    priceNote: "No cover on flyer — cocktails/happy hour; +1 849-214-7010",
+    priceNoteLocalized: {
+      es: "Sin cover en el flyer — cócteles/happy hour; +1 849-214-7010",
+      fr: "Pas de cover sur l’affiche — cocktails/happy hour ; +1 849-214-7010",
+    },
+    attribution: "POP research · SunBar Sunset & Sounds EM ZAYD flyer",
+    researchNotes:
+      "Editor flyer + naturacabana.com: Thu 1 Oct 2026 6–9 PM SunBar Guest DJ EM ZAYD, special extended happy hour; weekly Thursday Sunset & Sounds series.",
+    updatedAt: "2026-09-30T12:00:00.000Z",
+  },
+  {
+    eventId: "natura-cabana-jazz-ensemble-2026-10-03",
+    body: "Named Jazz Ensemble on Natura’s Saturday 7–9:30 PM live slot — book a table like the flyer; dinner-show pace at the boutique restaurant, not a late Cabarete disco run.",
+    localized: {
+      es: "Jazz Ensemble con nombre en el slot de sábado 7–9:30 PM de Natura — reserva mesa como dice el flyer; ritmo cena-show en el restaurante boutique, no disco tarde hacia Cabarete.",
+      fr: "Jazz Ensemble affiché sur le créneau live du samedi 19 h–21 h 30 à Natura — réservez une table comme sur l’affiche ; rythme dîner-show au restaurant boutique, pas une disco tardive vers Cabarete.",
+    },
+    priceFeel: "moderate",
+    priceNote: "No cover listed — budget dinner/drinks; book +1 849-214-7010",
+    priceNoteLocalized: {
+      es: "Sin cover publicado — presupuesta cena/tragos; reserva +1 849-214-7010",
+      fr: "Pas de cover publié — budget dîner/boissons ; réservez +1 849-214-7010",
+    },
+    attribution: "POP research · Natura Live Jazz Ensemble flyer",
+    researchNotes:
+      "Editor flyer Sat 3 Oct 2026 7–9:30 PM Live Jazz Ensemble, book your table; naturacabana.com Saturday live music series at Paseo del Sol 5 Cabarete.",
+    updatedAt: "2026-09-30T12:00:00.000Z",
+  },
+  {
+    eventId: "natura-sunbar-sunset-sounds-hyper-2026-10-08",
+    body: "Thursday Sunset & Sounds with guest DJ HYPER at SunBar — same 6–9 PM ocean slot as other guest-DJ Thursdays; confirm the set on naturacabana.com before you treat it like a free beach hang.",
+    localized: {
+      es: "Sunset & Sounds de jueves con guest DJ HYPER en SunBar — mismo slot 6–9 PM frente al mar que otros jueves de guest DJ; confirma el set en naturacabana.com antes de tratarlo como hang gratis en la playa.",
+      fr: "Sunset & Sounds du jeudi avec guest DJ HYPER au SunBar — même créneau 18 h–21 h océan que les autres jeudis guest DJ ; confirmez le set sur naturacabana.com avant d’y aller comme un hang gratuit sur la plage.",
+    },
+    priceFeel: "moderate",
+    priceNote: "Cover not posted — cocktails/dinner spend; +1 849-214-7010",
+    priceNoteLocalized: {
+      es: "Cover no publicado — gasto de cócteles/cena; +1 849-214-7010",
+      fr: "Cover non publié — budget cocktails/dîner ; +1 849-214-7010",
+    },
+    attribution: "POP research · naturacabana.com Sunset and Sounds listing",
+    researchNotes:
+      "Official listing: Sunset and Sounds Cabarete (Guest DJ: HYPER) Oct 8 2026 6–9 PM Natura Cabana Paseo del Sol 5; every Thursday series. No dedicated flyer — venue place shot as hero.",
+    updatedAt: "2026-09-30T12:00:00.000Z",
+  },
+  {
     eventId: "kaovanny-natura-cabana-2026-09-26",
     body: "Named Afro Soul set on the Saturday live-music slot — book a table like the flyer says; this is dinner-show pacing at Natura, not a late disco run into Cabarete.",
     localized: {
@@ -2851,21 +2905,22 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   {
     eventId: "serenade-mongolian-night-villa-taina-weekly",
     seriesKey: "hotel-villa-taina:weekly:3",
-    body: "Wednesday themed buffet at Serenade — confirm the Mongolian night price with the hotel; it is the midweek counterpart to Monday Dominican and Friday BBQ on the same beach deck.",
+    body: "Wednesday all-you-can-grill Mongolian buffet at Serenade Beach Lounge with Josh Messer live — midweek counterpart to Monday Dominican and Friday BBQ; RD$906 adults, kids under 12 half price, taxes/service not included.",
     localized: {
-      es: "Buffet temático de miércoles en Serenade — confirma el precio de la noche mongola con el hotel; es la contraparte de mitad de semana al dominicano del lunes y BBQ del viernes en la misma terraza.",
-      fr: "Buffet thématique du mercredi à Serenade — confirmez le tarif de la nuit mongole avec l’hôtel ; c’est le pendant milieu de semaine du dominicain du lundi et du BBQ du vendredi sur la même terrasse.",
+      es: "Buffet mongol all-you-can-grill del miércoles en Serenade Beach Lounge con Josh Messer en vivo — contraparte de mitad de semana al dominicano del lunes y BBQ del viernes; RD$906 adultos, menores de 12 mitad de precio, impuestos/servicio no incluidos.",
+      fr: "Buffet mongol all-you-can-grill du mercredi à Serenade Beach Lounge avec Josh Messer en live — pendant milieu de semaine du dominicain du lundi et BBQ du vendredi ; RD$906 adultes, moins de 12 ans moitié prix, taxes/service non inclus.",
     },
-    priceFeel: "varies",
-    priceNote: "Buffet price not on story art — +1 809-571-0722 / @hotelvillataina",
+    priceFeel: "moderate",
+    priceNote:
+      "Adults RD$906; kids under 12 half price; taxes & service not included — +1 809-571-0722 / @hotelvillataina",
     priceNoteLocalized: {
-      es: "Precio del buffet no está en el arte — +1 809-571-0722 / @hotelvillataina",
-      fr: "Tarif buffet absent de l’affiche — +1 809-571-0722 / @hotelvillataina",
+      es: "Adultos RD$906; menores de 12 mitad de precio; impuestos y servicio no incluidos — +1 809-571-0722 / @hotelvillataina",
+      fr: "Adultes RD$906 ; moins de 12 ans moitié prix ; taxes et service non inclus — +1 809-571-0722 / @hotelvillataina",
     },
-    attribution: "POP research · Villa Taina Serenade weekly story",
+    attribution: "POP research · Villa Taina Serenade Mongolian Grill flyer",
     researchNotes:
-      "Editor story Serenade x Villa Taina: Wed Mongolian Night 7–9:30 PM; pricing not on collage; Mon Dominican flyer shows RD$952 buffet reference.",
-    updatedAt: "2026-09-22T12:00:00.000Z",
+      "Editor flyers: Wed Mongolian Grill / All You Can Grill from 7 PM, live music Josh Messer, Beach Lounge & New Bossa; companion art RD$906/person, kids under 12 half price, taxes/service not included, special menu if skipping buffet.",
+    updatedAt: "2026-09-30T12:00:00.000Z",
   },
   {
     eventId: "serenade-bbq-night-villa-taina-weekly",
@@ -2960,6 +3015,80 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     researchNotes:
       "Editor flyer + IG caption — Fri 25 Sep 2026 from 6 PM Live Session DJ ONE D (@one.d12) at Sosúa Food Market; Calle Anacaona & Pablo Neruda; venue opens 4 PM–12 AM; no cover on art.",
     updatedAt: "2026-09-23T12:00:00.000Z",
+  },
+  {
+    eventId: "sosua-food-market-dj-henry-2026-10-02",
+    body: "Friday 6 PM DJ Henry set in Sosúa's central food court — same Anacaona & Pablo Neruda patio as the ONE D night, not a Pedro Clisante disco; confirm cover on @sosuafoodmarket before you treat it as free.",
+    localized: {
+      es: "Set de DJ Henry el viernes a las 6 PM en el food court del centro de Sosúa — mismo patio Anacaona y Pablo Neruda que la noche de ONE D, no un disco de Pedro Clisante; confirma cover en @sosuafoodmarket antes de tratarlo como gratis.",
+      fr: "Set DJ Henry vendredi 18 h dans le food court du centre de Sosúa — même patio Anacaona & Pablo Neruda que la soirée ONE D, pas une disco Pedro Clisante ; confirmez le cover sur @sosuafoodmarket avant d’y aller comme gratuit.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover not on flyer — @sosuafoodmarket",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — @sosuafoodmarket",
+      fr: "Cover absent de l’affiche — @sosuafoodmarket",
+    },
+    attribution: "POP research · Sosúa Food Market · @sosuafoodmarket",
+    researchNotes:
+      "Editor flyer + IG/Threads caption — Fri 2 Oct 2026 from 6 PM Live Session DJ Henry (@djhenryjimenez) at Sosúa Food Market; Calle Anacaona & Pablo Neruda; no cover on art.",
+    updatedAt: "2026-09-30T12:00:00.000Z",
+  },
+  {
+    eventId: "natura-market-2026-10-04",
+    body: "First-Sunday monthly market on the Natura Cabana grounds in Cabarete — artisans, crafts, and food by the sea with Samu Ricci live/DJ this October, not the Encuentro sand MOTO special; free entry and leash-friendly dogs, pay stall-by-stall.",
+    localized: {
+      es: "Mercado mensual del primer domingo en Natura Cabana, Cabarete — artesanos, crafts y comida junto al mar con Samu Ricci en vivo/DJ este octubre, no la edición MOTO en la arena de Encuentro; entrada gratis y perros con correa, pagas puesto por puesto.",
+      fr: "Marché mensuel du premier dimanche à Natura Cabana, Cabarete — artisans, crafts et nourriture au bord de mer avec Samu Ricci live/DJ en octobre, pas l’édition MOTO sur le sable d’Encuentro ; entrée gratuite et chiens en laisse, payez stand par stand.",
+    },
+    priceFeel: "free",
+    priceNote:
+      "Free entry — pay stall-by-stall for goods and food; Natura Cabana +1 849-214-7010",
+    priceNoteLocalized: {
+      es: "Entrada gratis — pagas puesto por puesto comida y productos; Natura Cabana +1 849-214-7010",
+      fr: "Entrée gratuite — vous payez stand par stand nourriture et produits ; Natura Cabana +1 849-214-7010",
+    },
+    attribution: "POP research · Natura Market flyer + naturacabana.com listing",
+    researchNotes:
+      "Official listing: Natura Market in Cabarete – Natura Cabana, Oct 4 10:30 AM–3:00 PM, Paseo del Sol 5 Cabarete; every first Sunday monthly at the boutique hotel. Editor flyer adds Samu Ricci live/DJ, free entry, dogs on leash. Seeded as dated Oct 2026 first-Sunday (no monthly recurrence type).",
+    updatedAt: "2026-09-30T12:00:00.000Z",
+  },
+  {
+    eventId: "licor-lab-car-show-2026-10-10",
+    body: "Saturday afternoon car + Harley hang at Plaza Juan Brugal on Carretera Luperón — Licor Lab 2.0 with POP Sport / Cars Fans POP, not a Playa Dorada strip stop; free to stroll, pay food and drinks.",
+    localized: {
+      es: "Tarde de sábado de autos y Harley en Plaza Juan Brugal en Carretera Luperón — Licor Lab 2.0 con POP Sport / Cars Fans POP, no un stop de la franja a Playa Dorada; entrada libre, pagas comida y tragos.",
+      fr: "Après-midi samedi autos + Harley à Plaza Juan Brugal sur Carretera Luperón — Licor Lab 2.0 avec POP Sport / Cars Fans POP, pas un stop vers Playa Dorada ; entrée libre, payez nourriture et boissons.",
+    },
+    priceFeel: "free",
+    priceNote: "Free plaza hang — pay food & drinks; @licor_lab / @cars_fans_pop",
+    priceNoteLocalized: {
+      es: "Plaza libre — pagas comida y tragos; @licor_lab / @cars_fans_pop",
+      fr: "Plaza libre — payez nourriture et boissons ; @licor_lab / @cars_fans_pop",
+    },
+    attribution: "POP research · @cars_fans_pop · Licor Lab Car Show flyer",
+    researchNotes:
+      "Editor flyer + IG @cars_fans_pop: Sat 10 Oct 2026 from 3 PM Plaza Juan Brugal, Carretera Luperón frente Depósitos Ferreteros; exhibición de autos, Harley, food & drinks; collab POP Sport Classic Cars Club, Licor Lab, POP Bikers RD.",
+    updatedAt: "2026-09-30T12:00:00.000Z",
+  },
+  {
+    eventId: "nueve-bingo-friday",
+    seriesKey: "nueve-puerto-plata:weekly:5",
+    body: "Friday musical bingo at Nueve — Latin-song cartones and prizes from the Semana Nueve board, earlier and quieter than Sábados Bailables; confirm start and card fee on @nueve_rd.",
+    localized: {
+      es: "Bingo musical de viernes en Nueve — cartones de canciones latinas y premios del board Semana Nueve, más temprano y tranquilo que Sábados Bailables; confirma hora y cartón en @nueve_rd.",
+      fr: "Bingo musical du vendredi à Nueve — cartons de chansons latines et prix du board Semana Nueve, plus tôt et plus calme que Sábados Bailables ; confirmez l’heure et le carton sur @nueve_rd.",
+    },
+    priceFeel: "varies",
+    priceNote: "Start time / card fee not on Semana flyer — @nueve_rd",
+    priceNoteLocalized: {
+      es: "Hora / cartón no están en el flyer Semana — @nueve_rd",
+      fr: "Heure / carton absents du flyer Semaine — @nueve_rd",
+    },
+    attribution: "POP research · @nueve_rd Semana Nueve flyer",
+    researchNotes:
+      "Editor Semana Nueve board: Viernes De Bingo a ganar premios; musical bingo cartones photo. Weekly Fri at nueve-puerto-plata; no start time on art.",
+    updatedAt: "2026-09-30T12:00:00.000Z",
   },
   {
     eventId: "sosua-food-market-daily",

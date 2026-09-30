@@ -217,6 +217,15 @@ const FILE_TO_EVENT_ID = {
   "natura-sunbar-special-sunset-sounds-2026-09-24.jpg":
     "natura-sunbar-special-sunset-sounds-2026-09-24",
   "kaovanny-natura-cabana-2026-09-26.jpg": "kaovanny-natura-cabana-2026-09-26",
+  "natura-cabana-jazz-ensemble-2026-10-03.jpg":
+    "natura-cabana-jazz-ensemble-2026-10-03",
+  "natura-sunbar-sunset-sounds-em-zayd-2026-10-01.jpg":
+    "natura-sunbar-sunset-sounds-em-zayd-2026-10-01",
+  "natura-sunbar-sunset-sounds-hyper-2026-10-08.jpg":
+    "natura-sunbar-sunset-sounds-hyper-2026-10-08",
+  "natura-market-2026-10-04.jpg": "natura-market-2026-10-04",
+  "licor-lab-car-show-2026-10-10.jpg": "licor-lab-car-show-2026-10-10",
+  "nueve-bingo-friday.jpg": "nueve-bingo-friday",
   "vibes-night-live-voramar-2026-10-02-v2.jpg":
     "vibes-night-live-voramar-2026-10-02",
   "kaovanny-agua-el-carey-2026-10-02.jpg": "kaovanny-agua-el-carey-2026-10-02",
@@ -230,7 +239,7 @@ const FILE_TO_EVENT_ID = {
     "sosua-coastal-pickleball-open-2026-10-24",
   "serenade-dominican-night-villa-taina-weekly.jpg":
     "serenade-dominican-night-villa-taina-weekly",
-  "serenade-mongolian-night-villa-taina-weekly-v2.jpg":
+  "serenade-mongolian-night-villa-taina-weekly-v3.jpg":
     "serenade-mongolian-night-villa-taina-weekly",
   "serenade-bbq-night-villa-taina-weekly.jpg":
     "serenade-bbq-night-villa-taina-weekly",
@@ -241,6 +250,8 @@ const FILE_TO_EVENT_ID = {
     "ojo-equinoccio-neon-party-2026-09-25",
   "sosua-food-market-dj-one-d-2026-09-25.jpg":
     "sosua-food-market-dj-one-d-2026-09-25",
+  "sosua-food-market-dj-henry-2026-10-02.jpg":
+    "sosua-food-market-dj-henry-2026-10-02",
   "sosua-food-market-daily-patio.jpg": "sosua-food-market-daily",
   "ocean-world-terrace-karaoke-wednesday.jpg":
     "ocean-world-terrace-karaoke-wednesday",
@@ -394,6 +405,7 @@ const FILE_TO_VENUE_SLUG = {
   "paella-pop-el-pueblito-sign.jpg": "paella-pop-el-pueblito-sign",
   "paella-pop-green-one-resort.jpg": "paella-pop-green-one-resort",
   "plaza-independencia.jpg": "plaza-independencia",
+  "plaza-juan-brugal-licorlab.jpg": "plaza-juan-brugal",
   // Filename bump — plaza gazebo aerial (welcome sign stays on the patronales event).
   "plaza-sanchez-imbert-park.jpg": "plaza-sanchez-imbert-park",
   "rincon-caliente-guananico.jpg": "rincon-caliente-guananico",

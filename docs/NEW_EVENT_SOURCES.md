@@ -222,7 +222,7 @@ Based on this initial expansion, consider adding:
 | Looking for... | Check these accounts |
 |----------------|---------------------|
 | **Bachata/Merengue concerts** | `anfiteatropuertoplata`, `festivaldemerenguepuertoplata`, `luciano.vasquez.pp` |
-| **Weekly live music** | `voyvoycabarete`, `lachabola.cabarete`, `onnosbar`, `shakabardr` |
+| **Weekly live music** | `voyvoycabarete`, `lachabola.cabarete`, `onnosbar`, `shakabardr`; Natura Cabana calendar [naturacabana.com/events/](https://naturacabana.com/events/) (Sat live, Thu Sunset & Sounds) |
 | **DJ nights & dancing** | `groundzero_disco`, `blueice_pianobar`, `classicocabarete`, `laxcabarete` |
 | **Open mic / Karaoke** | `lachabola.cabarete`, `shakabardr`, `blueice_pianobar` |
 | **Beach parties** | `bahiabeachclub`, `kahunas_restaurant`, `driftercabarete` |
@@ -230,7 +230,7 @@ Based on this initial expansion, consider adding:
 | **Local Dominican festivals** | `ayuntamientodepuertoplata`, `luciano.vasquez.pp`, `clusterpuertoplata` |
 | **Carnaval events** | `ayuntamientodepuertoplata`, search `#carnavalpuertoplata` |
 | **Kitesurf/sports** | `eventoscabarete`, `sosuaevents`, `costanorterd` |
-| **Wellness/yoga** | `naturacabana`, search `yoga wellness Cabarete` |
+| **Wellness/yoga / Natura Market** | `naturacabana`, [naturacabana.com/events/](https://naturacabana.com/events/), search `yoga wellness Cabarete` |
 | **24/7 options** | `kahunas_restaurant` (open 24 hours) |
 
 ---

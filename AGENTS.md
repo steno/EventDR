@@ -12,6 +12,8 @@ For richer coverage (Discussion posts, login-gated groups), run the agent with r
 
 For Instagram—the primary source for many DR event flyers—run skill `pop-instagram-ingest` with rule `instagram-weekly` while logged into Instagram. It scans monitored posts, Reels, carousels, and Stories from `src/lib/instagram-sources.ts`. The GitHub Action only provides public-profile and web-search fallback coverage.
 
+**Natura Cabana calendar:** when refreshing or verifying Natura listings (Saturday live, Thursday Sunset & Sounds, Natura Market, SunBar specials), check [naturacabana.com/events/](https://naturacabana.com/events/) before inventing dates — guest DJs and themed Saturday nights are posted there.
+
 **Images (not Instagram/Facebook):** when seeding venues or events, pull place shots from Google Maps/Places, official sites, ticket OG, press, Wikimedia, or a POP photo of *this* place. Do not scrape IG/FB for heroes — use those networks only to discover events (`sourceUrl`). Policy: `public/events/ATTRIBUTIONS.md`.
 
 **Home “Recently added”:** when shipping any new seed event id (`fallback.*.json` or `recurring.*.json`), also add that id to `SEED_CREATED_AT` in `src/lib/seed-created-at.ts` (ISO noon UTC on the commit day; stagger hours for same-day batches when rail order matters — see `.cursor/rules/seed-recently-added.mdc`). The home rail filters on `createdAt` within 14 days — missing this map entry means the event page works but Recently added stays empty for that listing.

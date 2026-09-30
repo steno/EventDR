@@ -118,6 +118,12 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "el-cuarteto-terrible-zona-acapella-2026-09-27-flyer.jpg",
   "natura-sunbar-special-sunset-sounds-2026-09-24":
     "natura-sunbar-special-sunset-sounds-2026-09-24.jpg",
+  "natura-sunbar-sunset-sounds-em-zayd-2026-10-01":
+    "natura-sunbar-sunset-sounds-em-zayd-2026-10-01.jpg",
+  "natura-sunbar-sunset-sounds-hyper-2026-10-08":
+    "natura-sunbar-sunset-sounds-hyper-2026-10-08.jpg",
+  "natura-cabana-jazz-ensemble-2026-10-03":
+    "natura-cabana-jazz-ensemble-2026-10-03.jpg",
   "kaovanny-natura-cabana-2026-09-26": "kaovanny-natura-cabana-2026-09-26.jpg",
   // Filename bump — refreshed Vibes Night Live flyer (PWA caches old path).
   "vibes-night-live-voramar-2026-10-02":
@@ -136,7 +142,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "serenade-dominican-night-villa-taina-weekly.jpg",
   // Filename bump — official Villa Taina Mongolian Night flyer (Josh Messer / grill).
   "serenade-mongolian-night-villa-taina-weekly":
-    "serenade-mongolian-night-villa-taina-weekly-v2.jpg",
+    "serenade-mongolian-night-villa-taina-weekly-v3.jpg",
   "serenade-bbq-night-villa-taina-weekly":
     "serenade-bbq-night-villa-taina-weekly.jpg",
   "luna-lounge-jueves-karaoke-weekly": "luna-lounge-jueves-karaoke-weekly.jpg",
@@ -154,6 +160,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "ojo-equinoccio-neon-party-2026-09-25.jpg",
   "sosua-food-market-dj-one-d-2026-09-25":
     "sosua-food-market-dj-one-d-2026-09-25.jpg",
+  "sosua-food-market-dj-henry-2026-10-02":
+    "sosua-food-market-dj-henry-2026-10-02.jpg",
   "sosua-food-market-daily": "sosua-food-market-daily-patio.jpg",
   "ocean-world-terrace-karaoke-wednesday":
     "ocean-world-terrace-karaoke-wednesday.jpg",
@@ -188,6 +196,9 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "hard-rock-catrinas-halloween-2026-10-31":
     "hard-rock-catrinas-halloween-2026-10-31.jpg",
   "natura-market-moto-2026-09-19": "natura-market-moto-2026-09-19.jpg",
+  "natura-market-2026-10-04": "natura-market-2026-10-04.jpg",
+  "licor-lab-car-show-2026-10-10": "licor-lab-car-show-2026-10-10.jpg",
+  "nueve-bingo-friday": "nueve-bingo-friday.jpg",
   "lokuras-pop-percusion-latina-2026-09-20":
     "lokuras-pop-percusion-latina-2026-09-20.jpg",
   "nova-detras-de-la-mascara-2026-10-16":
@@ -475,6 +486,7 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   // Flyer faces sit low — default mobile object-top crops them; keep center on all breakpoints.
   "hard-rock-rising-final-local-2026-09-23": "object-left",
   "sosua-food-market-dj-one-d-2026-09-25": "object-top",
+  "sosua-food-market-dj-henry-2026-10-02": "object-center",
   "sosua-food-market-daily": "object-center",
   "ocean-world-terrace-karaoke-wednesday": "object-center",
   "la-lola-dj-one-d-feriado-2026-09-24": "object-center",
@@ -495,7 +507,9 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   // DJ Flacome flyer — keep face + controller in Coming up / list crops.
   "feria-ganadera-el-cupey-2026": "object-center",
   "nueve-sabados-bailables": "object-center",
+  "nueve-bingo-friday": "object-center",
   "nueve-80s-90s-por-siempre-2026-10-10": "object-center",
+  "licor-lab-car-show-2026-10-10": "object-center",
   "cheo-almonte-grand-prix-2026-09-25": "object-top",
   "grand-prix-sabado-bailable": "object-center",
 };
@@ -600,6 +614,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "ocean-world-terrace-karaoke-encuentro-2026-09-16.jpg",
   "ocean-world-terrace-karaoke-wednesday.jpg",
   "sosua-food-market-dj-one-d-2026-09-25.jpg",
+  "sosua-food-market-dj-henry-2026-10-02.jpg",
   "la-lola-dj-one-d-feriado-2026-09-24.jpg",
   "aura-halloween-party-2026-10-31.jpg",
   "la-lola-noche-de-nenas-blanco-2026-09-25.jpg",
@@ -615,6 +630,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "feria-ganadera-el-cupey-2026.jpg",
   "feria-ganadera-el-cupey-2026-programa.jpg",
   "nueve-sabados-bailables.jpg",
+  "nueve-bingo-friday.jpg",
   "nueve-80s-90s-por-siempre-2026-10-10.jpg",
   "cheo-almonte-grand-prix-2026-09-25.jpg",
   "grand-prix-sabado-bailable.jpg",
@@ -632,6 +648,8 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "cisco-vengo-social-heartz-aura-2026-09-25.jpg",
   "el-cuarteto-terrible-zona-acapella-2026-09-27-flyer.jpg",
   "natura-sunbar-special-sunset-sounds-2026-09-24.jpg",
+  "natura-sunbar-sunset-sounds-em-zayd-2026-10-01.jpg",
+  "natura-cabana-jazz-ensemble-2026-10-03.jpg",
   "kaovanny-natura-cabana-2026-09-26.jpg",
   "vibes-night-live-voramar-2026-10-02-v2.jpg",
   "kaovanny-agua-el-carey-2026-10-02.jpg",
@@ -640,7 +658,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "teleferico-inicio-obras-2026-10-03.jpg",
   "sosua-coastal-pickleball-open-2026-10-24.jpg",
   "serenade-dominican-night-villa-taina-weekly.jpg",
-  "serenade-mongolian-night-villa-taina-weekly-v2.jpg",
+  "serenade-mongolian-night-villa-taina-weekly-v3.jpg",
   "serenade-bbq-night-villa-taina-weekly.jpg",
   "luna-lounge-jueves-karaoke-weekly.jpg",
   "allison-sade-aura-2026-09-17.jpg",
@@ -663,6 +681,8 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "love-does-cocktails-solidarity-2026-09-04.jpg",
   "masters-surf-reunion-10-2026.png",
   "natura-market-moto-2026-09-19.jpg",
+  "natura-market-2026-10-04.jpg",
+  "licor-lab-car-show-2026-10-10.jpg",
   "petit-francois-friday-karaoke.jpg",
   "pop-cinemas-week-2026-08-20.jpg",
   "puerto-plata-poker-experience-2026.png",
@@ -797,6 +817,7 @@ const HOME_HERO_SCENE_FILES = new Set([
   "monkeyland-puerto-plata-daily.jpeg",
   "museo-ambar-weekdays.jpeg",
   "natura-cabana-saturday-dining.jpg",
+  "natura-sunbar-sunset-sounds-hyper-2026-10-08.jpg",
   "natura-cabana-yoga-daily.jpg",
   "nonas-grill-kitchen-entrance.jpg",
   "ocean-world-daily.jpg",

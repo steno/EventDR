@@ -3553,5 +3553,180 @@
       "IDAC"
     ],
     "imageEmoji": "🚡"
+  },
+  {
+    "id": "sosua-food-market-dj-henry-2026-10-02",
+    "title": "Live DJ Session con DJ Henry en Sosúa Food Market",
+    "description": "Live DJ session con DJ Henry (@djhenryjimenez) en Sosúa Food Market, Calle Anacaona y Calle Pablo Neruda, Sosúa — viernes 2 de octubre 2026 desde las 6:00 PM. Platos y tragos del food court al aire libre bajo el arco verde; buena música y ambiente relajado. Confirma cover por Instagram @sosuafoodmarket.",
+    "date": "2026-10-02",
+    "time": "6:00 PM",
+    "location": "Sosúa",
+    "venue": "Sosúa Food Market",
+    "venueSlug": "sosua-food-market",
+    "address": "Calle Anacaona & Calle Pablo Neruda, Sosúa 57000",
+    "lat": 19.7670539,
+    "lng": -70.5096794,
+    "category": "music",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/sosuafoodmarket/",
+    "lineup": [
+      "DJ Henry"
+    ],
+    "imageEmoji": "🎧"
+  },
+  {
+    "id": "natura-market-2026-10-04",
+    "title": "Natura Market en Cabarete — Natura Cabana",
+    "description": "Natura Market en Natura Cabana Boutique Hotel & Spa, Paseo del Sol 5, Cabarete — domingo 4 de octubre 2026 (primer domingo del mes), 10:30 AM–3:00 PM. Celebración mensual de artesanos locales, crafts, comida, comunidad y música junto al mar; esta edición con música en vivo y DJ set de Samu Ricci. Entrada gratis; perros bienvenidos con correa. Pagas puesto por puesto. Info +1 849-214-7010 · naturacabana.com.",
+    "date": "2026-10-04",
+    "time": "10:30 AM – 3:00 PM",
+    "location": "Cabarete",
+    "venue": "Natura Cabana",
+    "venueSlug": "natura-cabana",
+    "address": "Paseo del Sol 5, Cabarete",
+    "lat": 19.7833499,
+    "lng": -70.4621124,
+    "category": "festivals",
+    "categories": [
+      "food-drinks",
+      "culture"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "phone": "+18492147010",
+    "sourceType": "flyer",
+    "sourceUrl": "https://naturacabana.com/",
+    "lineup": [
+      "Samu Ricci",
+      "Artesanos locales",
+      "Crafts",
+      "Comida",
+      "Comunidad"
+    ],
+    "imageEmoji": "🛍️"
+  },
+  {
+    "id": "natura-sunbar-sunset-sounds-em-zayd-2026-10-01",
+    "title": "Sunset & Sounds — Guest DJ EM ZAYD en SunBar",
+    "description": "Sunset & Sounds en SunBar, Natura Cabana, Paseo del Sol 5, Cabarete — jueves 1 de octubre 2026, 6:00–9:00 PM. Guest DJ EM ZAYD, DJ en vivo, cócteles, vibes de océano y happy hour especial extendido. Serie semanal de jueves al atardecer; esta edición con EM ZAYD. +1 849-214-7010 · naturacabana.com.",
+    "date": "2026-10-01",
+    "time": "6:00 PM – 9:00 PM",
+    "location": "Cabarete",
+    "venue": "Natura Cabana",
+    "venueSlug": "natura-cabana",
+    "address": "Paseo del Sol 5, Cabarete",
+    "lat": 19.7833499,
+    "lng": -70.4621124,
+    "category": "music",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18492147010",
+    "sourceType": "flyer",
+    "sourceUrl": "https://naturacabana.com/event/events-sunset-and-sounds-cabarete/",
+    "lineup": [
+      "EM ZAYD"
+    ],
+    "imageEmoji": "🌅"
+  },
+  {
+    "id": "natura-cabana-jazz-ensemble-2026-10-03",
+    "title": "Live Jazz Ensemble en Natura Cabana",
+    "description": "Live Jazz Ensemble en Natura Restaurant, Natura Cabana Boutique Hotel & Spa, Paseo del Sol 5, Cabarete — sábado 3 de octubre 2026, 7:00–9:30 PM. Música, tragos y good vibes en la noche semanal de sábado. Reserva mesa +1 849-214-7010 · naturacabana.com.",
+    "date": "2026-10-03",
+    "time": "7:00 PM – 9:30 PM",
+    "location": "Cabarete",
+    "venue": "Natura Cabana",
+    "venueSlug": "natura-cabana",
+    "address": "Paseo del Sol 5, Cabarete",
+    "lat": 19.7833499,
+    "lng": -70.4621124,
+    "category": "music",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18492147010",
+    "sourceType": "flyer",
+    "sourceUrl": "https://naturacabana.com/event/live-music-cabarete-saturdays-natura-cabana/",
+    "lineup": [
+      "Live Jazz Ensemble"
+    ],
+    "imageEmoji": "🎷"
+  },
+  {
+    "id": "natura-sunbar-sunset-sounds-hyper-2026-10-08",
+    "title": "Sunset & Sounds — Guest DJ HYPER en SunBar",
+    "description": "Sunset & Sounds en SunBar, Natura Cabana, Paseo del Sol 5, Cabarete — jueves 8 de octubre 2026, 6:00–9:00 PM. Guest DJ HYPER en la serie semanal de jueves de música en vivo y atardecer junto al mar. Cócteles y vibes de océano. +1 849-214-7010 · naturacabana.com.",
+    "date": "2026-10-08",
+    "time": "6:00 PM – 9:00 PM",
+    "location": "Cabarete",
+    "venue": "Natura Cabana",
+    "venueSlug": "natura-cabana",
+    "address": "Paseo del Sol 5, Cabarete",
+    "lat": 19.7833499,
+    "lng": -70.4621124,
+    "category": "music",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18492147010",
+    "sourceType": "website",
+    "sourceUrl": "https://naturacabana.com/event/events-sunset-and-sounds-cabarete/",
+    "lineup": [
+      "HYPER"
+    ],
+    "imageEmoji": "🌅"
+  },
+  {
+    "id": "licor-lab-car-show-2026-10-10",
+    "title": "Car Show | Licor Lab 2.0 en Plaza Juan Brugal",
+    "description": "Car Show | Licor Lab 2.0 en Plaza Juan Brugal, Calle Carretera Luperón (frente a Depósitos Ferreteros), Puerto Plata — sábado 10 de octubre 2026 desde las 3:00 PM. Exhibición de autos, Harley-Davidson, food & drinks con POP Sport Classic Cars Club, Licor Lab, POP Bikers RD y Cars Fans POP. Entrada libre a la plaza; pagas comida y tragos. Instagram @licor_lab · @cars_fans_pop · @popsportclassiccarsclub.",
+    "date": "2026-10-10",
+    "time": "3:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Plaza Juan Brugal",
+    "venueSlug": "plaza-juan-brugal",
+    "address": "Calle Carretera Luperón, frente a Depósitos Ferreteros, Puerto Plata",
+    "lat": 19.78805,
+    "lng": -70.69455,
+    "category": "festivals",
+    "categories": [
+      "culture",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/cars_fans_pop/",
+    "lineup": [
+      "Exhibición de autos",
+      "Harley-Davidson",
+      "Food & drinks",
+      "POP Sport Classic Cars Club",
+      "Licor Lab",
+      "POP Bikers RD"
+    ],
+    "imageEmoji": "🚗"
   }
 ]

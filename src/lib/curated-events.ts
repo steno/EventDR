@@ -595,6 +595,35 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     ticketUrl: "https://forms.gle/h9fBh4RsrVjXDUGG7",
     venueSlug: "blue-jacktar-playa-dorada",
   },
+  "sosua-food-market-dj-henry-2026-10-02": {
+    callForPricing: true,
+    venueSlug: "sosua-food-market",
+  },
+  "natura-market-2026-10-04": {
+    isFree: true,
+    phone: "+18492147010",
+    venueSlug: "natura-cabana",
+  },
+  "natura-sunbar-sunset-sounds-em-zayd-2026-10-01": {
+    phone: "+18492147010",
+    venueSlug: "natura-cabana",
+  },
+  "natura-cabana-jazz-ensemble-2026-10-03": {
+    phone: "+18492147010",
+    venueSlug: "natura-cabana",
+  },
+  "natura-sunbar-sunset-sounds-hyper-2026-10-08": {
+    phone: "+18492147010",
+    venueSlug: "natura-cabana",
+  },
+  "licor-lab-car-show-2026-10-10": {
+    isFree: true,
+    venueSlug: "plaza-juan-brugal",
+  },
+  "nueve-bingo-friday": {
+    callForPricing: true,
+    venueSlug: "nueve-puerto-plata",
+  },
   "teleferico-inicio-obras-2026-10-03": {
     isFree: true,
     phone: "+18099700501",

@@ -562,6 +562,17 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     ],
   }),
   editorial({
+    venueSlug: "plaza-juan-brugal",
+    verdictKey: "solid_local_culture",
+    crowdFit: ["local", "mixed"],
+    axes: { recommend: 3.9, atmosphere: 3.8, value: 4.2, practical: 4.0 },
+    themes: [
+      { key: "easy_to_find", sentiment: "positive" },
+      { key: "free_access", sentiment: "positive" },
+      { key: "busy_weekends", sentiment: "mixed" },
+    ],
+  }),
+  editorial({
     venueSlug: "paseo-dona-blanca",
     googlePlaceId: "ChIJJSAjF67vsY4RVxVDPdQbhZQ",
     verdictKey: "popular_public_space",

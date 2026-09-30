@@ -24,6 +24,9 @@ Curated images under `public/events/` and `public/venues/`.
 | `cisco-vengo-social-heartz-aura-2026-09-25.jpg` | POP-supplied — Vengo x Social Heartz flyer (C.I.S.C.O, OILY, local support at Aura Cabarete 25.09) | One-off Fri Sep 25 2026 (editor-provided) |
 | `el-cuarteto-terrible-zona-acapella-2026-09-27-flyer.jpg` | POP-supplied — Domingo Típico / El Cuarteto Terrible duo flyer ([@acapella.pop](https://www.instagram.com/acapella.pop/)) | Sun 27 Sep 2026 free entry (editor refresh) |
 | `natura-sunbar-special-sunset-sounds-2026-09-24.jpg` | POP-supplied — SunBar Special Sunset & Sounds (DJ Taïf, Kriuslack) | Thu 24 Sep 2026 Natura Cabana (editor-provided) |
+| `natura-sunbar-sunset-sounds-em-zayd-2026-10-01.jpg` | POP-supplied — SunBar Sunset & Sounds Guest DJ EM ZAYD flyer | Thu 1 Oct 2026 6–9 PM Natura Cabana (editor-provided) |
+| `natura-cabana-jazz-ensemble-2026-10-03.jpg` | POP-supplied — Live Jazz Ensemble Saturday flyer | Sat 3 Oct 2026 7–9:30 PM Natura Cabana (editor-provided) |
+| `natura-sunbar-sunset-sounds-hyper-2026-10-08.jpg` | Natura Cabana reception place shot (no guest-DJ flyer; listing copy from naturacabana.com) | Thu 8 Oct 2026 6–9 PM Guest DJ HYPER |
 | `kaovanny-natura-cabana-2026-09-26.jpg` | POP-supplied — Kaovanny Afro Soul live music flyer | Sat 26 Sep 2026 7–9:30 PM Natura Cabana (editor-provided) |
 | `vibes-night-live-voramar-2026-10-02-v2.jpg` | POP-supplied — Vibes Night Live / Deja New flyer (Hotel Voramar) | Fri 2 Oct 2026 7:30 PM, 18+ (editor-provided; filename bump) |
 | `kaovanny-agua-el-carey-2026-10-02.jpg` | POP-supplied — Kaovanny ‘La Caoba’ agua LIVE album release flyer | Fri 2 Oct 2026 6:30 PM El Carey Costambar (editor-provided) |
@@ -32,7 +35,11 @@ Curated images under `public/events/` and `public/venues/`.
 | `teleferico-inicio-obras-2026-10-03.jpg` | POP-supplied — Acto de inicio de obras nuevo Teleférico invitation (Presidencia / URBE / MITUR / IDAC) | Sat 3 Oct 2026 10:00 AM Teleférico Puerto Plata (editor-provided; compressed) |
 | `sosua-coastal-pickleball-open-2026-10-24.jpg` | POP-supplied — Sosúa Coastal Pickleball Open (Terramar Pickleball Club) | Oct 24–25 2026 tournament (editor-provided) |
 | `serenade-dominican-night-villa-taina-weekly.jpg` | POP-supplied — Serenade Dominican Night buffet flyer | Weekly Mon 7–9:30 PM Villa Taina (editor-provided) |
-| `serenade-mongolian-night-villa-taina-weekly-v2.jpg` | POP-supplied — Villa Taina / Serenade Mongolian Night flyer (Wed grill + Josh Messer) | Weekly Wed themed buffet (editor-provided; filename bump for cache) |
+| `serenade-mongolian-night-villa-taina-weekly-v3.jpg` | POP-supplied — Serenade Mongolian Grill / All You Can Grill flyer (Wed + Josh Messer) | Weekly Wed themed buffet (editor-provided; filename bump for cache) |
+| `sosua-food-market-dj-henry-2026-10-02.jpg` | POP-supplied — Live Session DJ Henry flyer ([@sosuafoodmarket](https://www.instagram.com/sosuafoodmarket/)) | Fri 2 Oct 2026 from 6 PM (editor-provided) |
+| `licor-lab-car-show-2026-10-10.jpg` | POP-supplied — Car Show \| Licor Lab 2.0 flyer ([@cars_fans_pop](https://www.instagram.com/cars_fans_pop/)) | Sat 10 Oct 2026 from 3 PM Plaza Juan Brugal (editor-provided) |
+| `nueve-bingo-friday.jpg` | POP-supplied — Nueve Bingo cartones photo (brightened) | Weekly Fri musical bingo @nueve_rd (editor-provided) |
+| `natura-market-2026-10-04.jpg` | POP-supplied — Natura Market flyer (Samu Ricci) | Sun 4 Oct 2026 10:30 AM–3:00 PM first-Sunday monthly at Natura Cabana, Paseo del Sol 5 Cabarete (editor-provided) |
 | `serenade-bbq-night-villa-taina-weekly.jpg` | POP-supplied — Serenade × Villa Taina weekly story (BBQ night) | Weekly Fri themed buffet (editor-provided) |
 | `luna-lounge-jueves-karaoke-weekly.jpg` | POP-supplied — Jueves de Karaoke / DJ Koky (Luna Disco Bar) | Weekly Thu karaoke Luis Ginebra #42 (editor-provided) |
 | `sosua-food-market-dj-one-d-2026-09-25.jpg` | POP-supplied — Live Session DJ ONE D flyer ([@sosuafoodmarket](https://www.instagram.com/sosuafoodmarket/)) | Fri 25 Sep 2026 from 6 PM (editor-provided) |
@@ -280,6 +287,7 @@ Curated images under `public/events/` and `public/venues/`.
 | `venues/la-lola-malecon.jpg` | En Primeur / Pearl listing rehost — Lalola Beach Club | Malecón beach-club dining place shot |
 | `venues/latinwok-puerto-plata.jpg` | [En Primeur — LatinWok Cabarete](https://www.enprimeurclub.com/restaurants/latinwok-cabarete) place photo | Beachfront sand dining with Latin Wok sign on Cabarete Bay |
 | `venues/latinwok-plaza-uno.jpg` | POP-supplied Latin Wok Plaza Uno storefront (Av. Luis Ginebra) | Venue place shot — fork/knife entrance, Latin–Asian Cuisine sign |
+| `venues/plaza-juan-brugal-licorlab.jpg` | POP-supplied — Licor Lab storefront at Plaza Juan Brugal | Venue place shot (editor-provided) |
 | `venues/mauros-puerto-plata.jpg` | Sluurpy / Mauro’s Puerto Plata listing photo | Interior dining room at Plaza Juan Brugal |
 | `venues/mi-bodegon-cabarete.jpg` | [Google Maps — Mi Bodegón](https://www.google.com/maps/place/Mi+Bodeg%C3%B3n/@19.7509018,-70.4147976,17z) visitor photo | Argentine bodegón interior at Plaza Ocean Dream |
 | `venues/tasty-food-park-puerto-plata.jpg` | POP-supplied Tasty Food Park entrance arch (Av. 27 de Febrero) | Venue place shot |

@@ -590,6 +590,17 @@ export const SEED_VENUES: Venue[] = [
     phone: "+18095862526",
   },
   {
+    slug: "plaza-juan-brugal",
+    name: "Plaza Juan Brugal",
+    city: "Puerto Plata",
+    description:
+      "Commercial plaza on Carretera Luperón (Circunvalación Sur / frente a Depósitos Ferreteros) — Licor Lab and other locals; hosts billed car shows and weekend gatherings on the south ring, not Playa Dorada.",
+    lat: 19.78805,
+    lng: -70.69455,
+    emoji: "🚗",
+    instagram: "licor_lab",
+  },
+  {
     slug: "plaza-sanchez-imbert",
     name: "Plaza Sánchez",
     city: "Puerto Plata",
@@ -1735,7 +1746,7 @@ export const SEED_VENUES: Venue[] = [
     name: "Nueve Restaurante & Bar",
     city: "Puerto Plata",
     description:
-      "Restaurant-bar nightlife spot in Puerto Plata — Saturday dance nights (Sábados Bailables) and billed theme parties. Confirm doors on Instagram @nueve_rd.",
+      "Restaurant-bar nightlife spot in Puerto Plata — Friday musical bingo, Saturday dance nights (Sábados Bailables), and billed theme parties. Confirm doors on Instagram @nueve_rd.",
     lat: 19.7894175,
     lng: -70.6788284,
     emoji: "🪩",
@@ -2171,6 +2182,11 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
     pattern:
       /plaza\s+s[aá]nchez|parque\s+s[aá]nchez|imbert.*(mercedes|patronal)|mercedes.*imbert/i,
     slug: "plaza-sanchez-imbert",
+  },
+  {
+    pattern:
+      /plaza\s+(aida\s+y\s+)?juan\s+brugal|licor\s*lab|licorlab|cars_fans_pop/i,
+    slug: "plaza-juan-brugal",
   },
   {
     pattern:
