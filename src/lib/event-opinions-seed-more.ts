@@ -2198,6 +2198,25 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: "2026-09-16T12:00:00.000Z",
   },
   {
+    eventId: "ambar-lounge-bandoleras-2026-10-02",
+    body: "Weekly ladies Friday returns with Carlos Rivera — free drinks for women until 11 PM is still the hook; RSVP (809) 781-8677 / @ambarloungepop before you treat Luis Ginebra as walk-in.",
+    localized: {
+      es: "Vuelve el viernes de chicas con Carlos Rivera — tragos gratis para mujeres hasta las 11 PM sigue siendo el gancho; RSVP (809) 781-8677 / @ambarloungepop antes de tratar Luis Ginebra como walk-in.",
+      fr: "Le vendredi dames revient avec Carlos Rivera — verres gratuits pour les femmes jusqu’à 23 h reste l’accroche ; RSVP (809) 781-8677 / @ambarloungepop avant de traiter Luis Ginebra comme walk-in.",
+    },
+    priceFeel: "varies",
+    priceNote:
+      "Free drinks for ladies until 11 PM — other cover/pricing confirm with lounge",
+    priceNoteLocalized: {
+      es: "Tragos gratis para chicas hasta las 11 PM — cover/otros precios confirma con el lounge",
+      fr: "Verres gratuits pour les dames jusqu’à 23 h — cover/autres prix à confirmer avec le lounge",
+    },
+    attribution: "POP research · @ambarloungepop",
+    researchNotes:
+      "Editor flyer + IG caption @ambarloungepop — Vie 02 Oct Bandoleras Friday, beats by @djcarlosrivera_, free drinks ladies until 11 PM, RSVP 809-781-8677. Vocatus co-brand on art.",
+    updatedAt: "2026-09-30T22:00:00.000Z",
+  },
+  {
     eventId: "ambar-lounge-adrian-tineo-2026-09-19",
     body: "Saturday live set with Adrián Tineo on the Luis Ginebra rooftop — billed artist night, not the Wednesday mojito promo; DM @ambarloungepop for doors before you walk up.",
     localized: {

@@ -114,6 +114,7 @@ const FILE_TO_EVENT_ID = {
   // Kayak action shot only — venue place photo is jamao-al-norte.jpg.
   "ingest-hidden-river-kayak-adventure.jpg":
     "ingest-hidden-river-kayak-adventure",
+  "sea-horse-saturday-market-lawn-v2.jpg": "sea-horse-saturday-market-lawn-v2",
   "sea-horse-saturday-market-tents.jpg": "sea-horse-saturday-market-tents",
   "el-carey-wc2026.jpg": "el-carey-wc2026",
   "el-colibri-karaoke-battle-2026.jpg": "el-colibri-karaoke-battle-2026",
@@ -197,6 +198,8 @@ const FILE_TO_EVENT_ID = {
   "ambar-lounge-reggaeton-2026-09-17.jpg": "ambar-lounge-reggaeton-2026-09-17",
   "ambar-lounge-bandoleras-2026-09-18.jpg":
     "ambar-lounge-bandoleras-2026-09-18",
+  "ambar-lounge-bandoleras-2026-10-02.jpg":
+    "ambar-lounge-bandoleras-2026-10-02",
   "ambar-lounge-adrian-tineo-2026-09-19.jpg":
     "ambar-lounge-adrian-tineo-2026-09-19",
   "meclao-retro-party-2026-09-19.jpg": "meclao-retro-party-2026-09-19",

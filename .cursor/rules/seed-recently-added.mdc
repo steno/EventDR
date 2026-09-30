@@ -15,6 +15,10 @@ When adding any **new** event seed id (`fallback.*.json` or `recurring.*.json`),
 3. **Same-day batch order:** if several new ids share a commit day and you care which cards lead Recently added, stagger times (newest first) — e.g. `16:00`, `15:00`, `14:00`, `13:00` UTC — instead of identical noon. Ties break on event `id` (locale-stable), **not** title; localized titles must never be relied on for rail order
 4. Without `SEED_CREATED_AT`, the event page can work while home **Recently added** omits it (`getNewHighlightEvents` requires `createdAt` within 14 days)
 5. **Card titles for series / multi-day programs:** lead with what differs (venue or role), put the shared brand second — e.g. `Hard Rock Host Day — Descubre Sosúa`, not `Descubre Sosúa 2026 — Host Meetup…` — so truncated home cards stay distinguishable across EN/ES/FR
+6. **Titles must be catalog-unique (required):** `mergeUniqueEvents` in `src/lib/public-events.ts` dedupes by a normalized **title** key, not only by `id`. A new dated night that reuses the same EN/ES/FR title as an older seed (even a past one still in `fallback.*.json`) is **silently dropped** — event page may 404 from rails and **Recently added never shows it**. Before shipping:
+   - Grep existing seeds for the same/near-same title (all three locales)
+   - For repeat nights (Bandoleras, House Friday, karaoke series, etc.), make the title distinct — prefer **venue + series** or include the calendar day, e.g. `Ambar Lounge Bandoleras — Carlos Rivera`, not another bare `Bandoleras Fridays — Carlos Rivera`
+   - Distinct `id` alone is **not** enough
 
 ## 2. Event POP opinion (required)
 

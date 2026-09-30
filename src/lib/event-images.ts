@@ -33,7 +33,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "cremo-bohemian-wednesday": "cremo-bohemian-wednesday.jpg",
   "cremo-karaoke-saturday": "cremo-karaoke-saturday.jpg",
   "big-lees-weekend-music": "big-lees-weekend-music.jpg",
-  "sea-horse-saturday-market": "sea-horse-saturday-market-tents.jpg",
+  "sea-horse-saturday-market": "sea-horse-saturday-market-lawn-v2.jpg",
   "ingest-make-authentic-espadrilles-in-puerto-plata":
     "ingest-make-authentic-espadrilles-in-puerto-plata.jpg",
   "ingest-18th-annual-cabarete-butterfly-effect":
@@ -215,6 +215,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "ambar-lounge-reggaeton-2026-09-17.jpg",
   "ambar-lounge-bandoleras-2026-09-18":
     "ambar-lounge-bandoleras-2026-09-18.jpg",
+  "ambar-lounge-bandoleras-2026-10-02":
+    "ambar-lounge-bandoleras-2026-10-02.jpg",
   "ambar-lounge-adrian-tineo-2026-09-19":
     "ambar-lounge-adrian-tineo-2026-09-19.jpg",
   "meclao-retro-party-2026-09-19": "meclao-retro-party-2026-09-19.jpg",
@@ -633,6 +635,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "rio-sonador-cierre-del-verano-2026-09-20.jpg",
   "ambar-lounge-reggaeton-2026-09-17.jpg",
   "ambar-lounge-bandoleras-2026-09-18.jpg",
+  "ambar-lounge-bandoleras-2026-10-02.jpg",
   "ambar-lounge-adrian-tineo-2026-09-19.jpg",
   "meclao-retro-party-2026-09-19.jpg",
   "cigar-town-karaoke-ladies-night-2026-09-19.jpg",
@@ -828,6 +831,7 @@ const HOME_HERO_SCENE_FILES = new Set([
   "rio-sonador-finca-papirucho.jpg",
   "rum-legacy-museum-daily.jpg",
   "rumble-in-paradise-12.jpg",
+  "sea-horse-saturday-market-lawn-v2.jpg",
   "sea-horse-saturday-market-tents.jpg",
   "senor-rock-cadillac-bar.jpg",
   "smileys-saturday-live.jpg",

@@ -3676,5 +3676,32 @@
       "POP Bikers RD"
     ],
     "imageEmoji": "🚗"
+  },
+  {
+    "id": "ambar-lounge-bandoleras-2026-10-02",
+    "title": "Ambar Lounge Bandoleras — Carlos Rivera",
+    "description": "Bandoleras Fridays with Carlos Rivera at Ambar Lounge POP, Av. Luis Ginebra 45-a, Puerto Plata — Friday 2 October 2026. Free drinks for ladies until 11:00 PM. RSVP (809) 781-8677 or Instagram @ambarloungepop; confirm doors and cover before you walk up. Lounge open from 5:00 PM (closed Tuesdays).",
+    "date": "2026-10-02",
+    "location": "Puerto Plata",
+    "venue": "Ambar Lounge POP",
+    "venueSlug": "ambar-lounge-pop",
+    "address": "Av. Luis Ginebra 45-a, Puerto Plata 57000",
+    "lat": 19.7918,
+    "lng": -70.681,
+    "category": "parties",
+    "categories": [
+      "music",
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18097818677",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/ambarloungepop/",
+    "lineup": [
+      "Carlos Rivera"
+    ],
+    "imageEmoji": "💃"
   }
 ]
