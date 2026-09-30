@@ -423,7 +423,7 @@ describe("getTodayHighlightEvents peer shuffle", () => {
     assert.equal(ids[0], "tonight-play");
   });
 
-  it("pins newer one-offs ahead of older one-offs in Happening today", () => {
+  it("keeps one-offs above weeklies after pin, while live peers still rotate", () => {
     const older = event({
       id: "older-one-off",
       title: "Older One-off",
@@ -454,14 +454,32 @@ describe("getTodayHighlightEvents peer shuffle", () => {
       venueSlug: "venue-weekly",
     });
 
-    const ids = getTodayHighlightEvents([weekly, older, newer], {
+    const catalog = [weekly, older, newer];
+    const ids = getTodayHighlightEvents(catalog, {
       now: AFTERNOON,
       shuffleSeed: "fresh-one-offs",
       excludeTodaySpecials: true,
     }).map((e) => e.id);
 
-    assert.ok(ids.indexOf("newer-one-off") < ids.indexOf("older-one-off"));
     assert.ok(ids.indexOf("newer-one-off") < ids.indexOf("weekly-night"));
+    assert.ok(ids.indexOf("older-one-off") < ids.indexOf("weekly-night"));
+
+    const orders = new Set(
+      ["seed-a", "seed-b", "seed-c", "seed-d", "seed-e"].map((seed) =>
+        getTodayHighlightEvents(catalog, {
+          now: AFTERNOON,
+          shuffleSeed: seed,
+          excludeTodaySpecials: true,
+        })
+          .filter((e) => e.id !== "weekly-night")
+          .map((e) => e.id)
+          .join(","),
+      ),
+    );
+    assert.ok(
+      orders.size > 1,
+      "expected live one-off peers to rotate across seeds (createdAt must not freeze them)",
+    );
   });
 });
 

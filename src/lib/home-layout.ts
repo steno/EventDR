@@ -263,7 +263,7 @@ function pickDiverseCarouselHead(events: Event[], limit: number): Event[] {
 export interface TodayHighlightOptions {
   now?: Date;
   /**
-   * Override peer shuffle seed. Default: 2-hour bucket in APP_TIMEZONE so
+   * Override peer shuffle seed. Default: hour bucket in APP_TIMEZONE so
    * revisits feel fresh without reshuffling on every render/hydration.
    */
   shuffleSeed?: string | number;
@@ -339,8 +339,8 @@ function resolveHighlightShuffleSeed(
   if (typeof override === "number") return override >>> 0 || 1;
   if (typeof override === "string") return hashSeed(override);
   const day = localDateISO(now);
-  const bucket = Math.floor(localHour(now) / 2);
-  return hashSeed(`${prefix}:${day}:${bucket}`);
+  const hour = localHour(now);
+  return hashSeed(`${prefix}:${day}:${hour}`);
 }
 
 export interface NewHighlightOptions extends TodayHighlightOptions {
@@ -449,15 +449,17 @@ export function getWeekendHighlightEvents(
     oneTimeFirst: true,
     now,
   });
+  // Pin before shuffle so createdAt / trending preference does not undo peer
+  // rotation among same-status cards.
+  const spotlighted = pinTodayOneOffs(sorted, now);
   const rotated = shuffleHighlightPeers(
-    sorted,
+    spotlighted,
     resolveHighlightShuffleSeed(now, options.shuffleSeed, "weekend-highlights"),
     now,
   );
-  const spotlighted = pinTodayOneOffs(rotated, now);
-  const carouselHead = pickDiverseCarouselHead(spotlighted, limit);
+  const carouselHead = pickDiverseCarouselHead(rotated, limit);
   const headIds = new Set(carouselHead.map((e) => e.id));
-  const tail = spotlighted.filter((e) => !headIds.has(e.id));
+  const tail = rotated.filter((e) => !headIds.has(e.id));
   return [...carouselHead, ...tail];
 }
 
@@ -525,8 +527,9 @@ export function getTodaySpecialEvents(
 
 /**
  * Events happening today: one-time before multi-day/recurring, then the same
- * status/time order as lists, with live/upcoming peers rotated and venue
- * diversity in the visible grid head.
+ * status/time order as lists, pin scarce one-offs above evergreen dailies,
+ * then rotate live/upcoming peers (shuffle last so createdAt pin cannot freeze
+ * the home grid), with venue diversity in the visible head.
  *
  * Home discover splits dated “starts today” one-offs into
  * {@link getTodaySpecialEvents}; pass `excludeTodaySpecials` there so this
@@ -553,15 +556,18 @@ export function getTodayHighlightEvents(
     oneTimeFirst: true,
     now,
   });
+  // Pin one-offs / scarce weeklies above evergreen dailies first, then shuffle
+  // live/upcoming peers. Pinning after shuffle used to re-sort by createdAt and
+  // freeze the home “Happening today” order.
+  const spotlighted = pinTodayOneOffs(sorted, now);
   const rotated = shuffleHighlightPeers(
-    sorted,
+    spotlighted,
     resolveHighlightShuffleSeed(now, options.shuffleSeed),
     now,
   );
-  const spotlighted = pinTodayOneOffs(rotated, now);
-  const carouselHead = pickDiverseCarouselHead(spotlighted, HOME_TODAY_LIMIT);
+  const carouselHead = pickDiverseCarouselHead(rotated, HOME_TODAY_LIMIT);
   const headIds = new Set(carouselHead.map((e) => e.id));
-  const tail = spotlighted.filter((e) => !headIds.has(e.id));
+  const tail = rotated.filter((e) => !headIds.has(e.id));
   return [...carouselHead, ...tail];
 }
 
