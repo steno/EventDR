@@ -308,6 +308,7 @@ export function EventListScrollPads({
   onAddEvent,
   view = "cards",
   fillSpan,
+  hideCta = false,
 }: {
   count: number;
   title: string;
@@ -315,11 +316,13 @@ export function EventListScrollPads({
   onAddEvent?: () => void;
   view?: EventListView;
   fillSpan?: GridFillSpan;
+  /** Skip the CTA when a day-empty pad already covers the add-event slot. */
+  hideCta?: boolean;
 }) {
   const deficit = Math.max(0, LIST_SCROLL_PAD_TARGET - count);
   if (deficit === 0) return null;
 
-  const showCta = Boolean(onAddEvent);
+  const showCta = Boolean(onAddEvent) && !hideCta;
   const spacerSlots = showCta ? deficit - 1 : deficit;
 
   return (

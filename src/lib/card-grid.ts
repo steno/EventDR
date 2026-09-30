@@ -50,21 +50,48 @@ export function cardGridLastItemSpan(
 
 /**
  * Per-item column spans for day-grouped card grids (Weekend tab). Day
- * headers are `col-span-full`, so each day restarts the row — stretch the
- * last card of a short day instead of leaving a hole.
+ * headers are `col-span-full`, so each day restarts the row.
+ *
+ * Fill leftover cells only on the fixed 2-col (mobile / mid-width) grid —
+ * a 1- or 3-card day otherwise leaves an awkward half-empty row. From `xl`
+ * the shell uses `auto-fill` minmax tracks; stretching the last card there
+ * turns a lone Sunday into a billboard. Leave desktop tiles at span 1 and
+ * fill holes with “Your event here” pads instead (`cardGridDayGroupPadSpans`).
  */
 export function cardGridDayGroupSpans(
   dayLengths: number[],
   columns: number,
 ): number[] {
   const spans: number[] = [];
+  const fillHoles = columns <= CARD_GRID_MOBILE_COLUMNS;
   for (const length of dayLengths) {
-    const lastSpan = cardGridLastItemSpan(length, columns);
+    const lastSpan = fillHoles ? cardGridLastItemSpan(length, columns) : 1;
     for (let i = 0; i < length; i++) {
       spans.push(i === length - 1 ? lastSpan : 1);
     }
   }
   return spans;
+}
+
+/**
+ * Desktop weekend day empties → pad column spans keyed by the last event
+ * index of that day. Empty on the 2-col grid (events stretch instead).
+ */
+export function cardGridDayGroupPadSpans(
+  dayLengths: number[],
+  columns: number,
+): Map<number, number> {
+  const pads = new Map<number, number>();
+  if (columns <= CARD_GRID_MOBILE_COLUMNS) return pads;
+  let index = 0;
+  for (const length of dayLengths) {
+    if (length > 0) {
+      const empty = cardGridRowRemainder(length, columns);
+      if (empty > 0) pads.set(index + length - 1, empty);
+    }
+    index += length;
+  }
+  return pads;
 }
 
 /**

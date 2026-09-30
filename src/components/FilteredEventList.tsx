@@ -19,6 +19,7 @@ import { sortEventsForDisplay } from "@/lib/event-sort";
 import { LIST_PAGE_SIZE, SCOPE_LIST_LIMIT } from "@/lib/home-layout";
 import { pinSpecialEvents } from "@/lib/special-events";
 import {
+  cardGridDayGroupPadSpans,
   cardGridDayGroupSpans,
   cardGridRowRemainder,
   fillCardGridPage,
@@ -47,7 +48,7 @@ import { useEventListView } from "@/hooks/useEventListView";
 import { useListTimeRange } from "@/hooks/useListTimeRange";
 import { syncListTimeRangeForCategory } from "@/lib/list-time-range";
 import { fillTemplate } from "@/lib/seo";
-import { CARD_GRID_CLASS, LIST_PARK_FILL_CLASS, SECTION_TITLE_CLASS } from "@/lib/page-shell";
+import { CARD_GRID_CLASS, DAY_GROUP_TITLE_CLASS, LIST_PARK_FILL_CLASS, SECTION_TITLE_CLASS } from "@/lib/page-shell";
 import type { EventListView } from "@/lib/event-list-view";
 import { ArrowLeft } from "lucide-react";
 
@@ -357,24 +358,6 @@ export function FilteredEventList({
    * can sit on a complete row. The add-event teaser only appears once the
    * full list is already on screen.
    */
-  const showEndTeaser =
-    Boolean(onAddEvent) &&
-    addEventCta === "pad" &&
-    padDeficit === 0 &&
-    !hasMore;
-  const leftover = cardGridRowRemainder(
-    showEndTeaser ? visibleEvents.length : displayEvents.length,
-    columns,
-  );
-  // Weekend day headers restart each row; after last-of-day cards stretch
-  // flush, the add-event teaser always starts a fresh row.
-  const fillSpan =
-    view === "cards"
-      ? activeRange === "weekend"
-        ? "full"
-        : leftover || "full"
-      : undefined;
-
   const weekendCardSpans = useMemo(() => {
     if (activeRange !== "weekend" || view !== "cards") return null;
     const listed = Number.isFinite(eventCap)
@@ -391,8 +374,38 @@ export function FilteredEventList({
       dayLengths.push(j - i);
       i = j;
     }
-    return cardGridDayGroupSpans(dayLengths, columns);
+    return {
+      spans: cardGridDayGroupSpans(dayLengths, columns),
+      pads: cardGridDayGroupPadSpans(dayLengths, columns),
+    };
   }, [activeRange, view, displayEvents, eventCap, columns]);
+
+  const lastVisibleHadWeekendPad =
+    Boolean(onAddEvent) &&
+    addEventCta === "pad" &&
+    weekendCardSpans != null &&
+    visibleEvents.length > 0 &&
+    weekendCardSpans.pads.has(visibleEvents.length - 1);
+
+  const showEndTeaser =
+    Boolean(onAddEvent) &&
+    addEventCta === "pad" &&
+    padDeficit === 0 &&
+    !hasMore &&
+    !lastVisibleHadWeekendPad;
+  const leftover = cardGridRowRemainder(
+    showEndTeaser ? visibleEvents.length : displayEvents.length,
+    columns,
+  );
+  // Weekend day headers restart each row. Mobile stretches last-of-day event
+  // cards; desktop fills empties with “Your event here” pads. End teaser
+  // (when the last day is already full) starts a fresh row.
+  const fillSpan =
+    view === "cards"
+      ? activeRange === "weekend"
+        ? "full"
+        : leftover || "full"
+      : undefined;
 
   const daySuggestions = !fixedTimeRange
     ? listOtherMatchingFilterTimeRanges(
@@ -588,11 +601,14 @@ export function FilteredEventList({
                     : previous?.date;
                 const showDay =
                   activeRange === "weekend" && headingDate !== previousHeading;
+                const weekendPadSpan = weekendCardSpans?.pads.get(index);
                 return (
                   <Fragment key={event.id}>
                     {showDay ? (
-                      <h2 className="col-span-full pt-2 text-sm font-extrabold text-neutral-900 dark:text-neutral-100">
-                        {formatEventDate(headingDate, locale)}
+                      <h2 className="col-span-full pt-2">
+                        <span className={`inline-block font-sans ${DAY_GROUP_TITLE_CLASS}`}>
+                          {formatEventDate(headingDate, locale)}
+                        </span>
                       </h2>
                     ) : null}
                     <EventCard
@@ -608,11 +624,20 @@ export function FilteredEventList({
                       onNavigate={() => setPendingId(event.id)}
                       showEnlarge={!categoryId}
                       fillSpan={
-                        weekendCardSpans && weekendCardSpans[index] > 1
-                          ? weekendCardSpans[index]
+                        weekendCardSpans && weekendCardSpans.spans[index] > 1
+                          ? weekendCardSpans.spans[index]
                           : undefined
                       }
                     />
+                    {weekendPadSpan && onAddEvent && addEventCta === "pad" ? (
+                      <EventCardPlaceholder
+                        title={dict.events.yourEventHereTitle}
+                        label={addEventLabelResolved}
+                        onClick={onAddEvent}
+                        view={view}
+                        fillSpan={weekendPadSpan}
+                      />
+                    ) : null}
                   </Fragment>
                 );
               })}
@@ -633,6 +658,7 @@ export function FilteredEventList({
                   onAddEvent={onAddEvent}
                   view={view}
                   fillSpan={fillSpan}
+                  hideCta={lastVisibleHadWeekendPad}
                 />
               ) : null}
               {hasMore ? (

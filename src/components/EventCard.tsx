@@ -38,8 +38,8 @@ interface EventCardProps {
   /** Story enlarge control on card images (off on category grids). */
   showEnlarge?: boolean;
   /**
-   * Stretch across leftover columns (Weekend day groups) so short final
-   * rows don't leave an empty grid cell.
+   * Stretch across leftover columns on the 2-col grid (Weekend day groups /
+   * short final rows). Desktop auto-fill keeps span 1 so tiles stay compact.
    */
   fillSpan?: GridFillSpan;
 }

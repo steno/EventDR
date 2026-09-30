@@ -41,6 +41,12 @@ export const BRAND_GRADIENT_TEXT_CLASS =
 export const SECTION_TITLE_CLASS = `text-section font-extrabold lg:text-[1.9rem] lg:leading-[1.15] ${BRAND_GRADIENT_TEXT_CLASS}`;
 
 /**
+ * Weekend day separators — half the section-title scale, same gradient.
+ * Keep on an inline/fit-width element so bg-clip isn’t stretched across the row.
+ */
+export const DAY_GROUP_TITLE_CLASS = `text-[0.75rem] leading-tight font-extrabold lg:text-[0.95rem] lg:leading-[1.15] ${BRAND_GRADIENT_TEXT_CLASS}`;
+
+/**
  * Event/venue detail photo height.
  * Mobile: half of `min(68dvh, 36rem)` minus the 2.75rem action row (matches
  * venue place-card photo so detail photos line up).

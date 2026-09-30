@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import {
   CARD_GRID_MOBILE_COLUMNS,
+  cardGridDayGroupPadSpans,
   cardGridDayGroupSpans,
   cardGridLastItemSpan,
   cardGridRowRemainder,
@@ -47,13 +48,36 @@ describe("cardGridLastItemSpan", () => {
 });
 
 describe("cardGridDayGroupSpans", () => {
-  it("fills holes when weekend day headers restart the grid", () => {
+  it("fills holes on the 2-col mobile grid when day headers restart", () => {
     // Sat: 3 cards, Sun: 1 card — same as the Puerto Plata weekend hole.
     assert.deepEqual(cardGridDayGroupSpans([3, 1], 2), [1, 1, 2, 2]);
   });
 
   it("leaves even day groups alone", () => {
     assert.deepEqual(cardGridDayGroupSpans([2, 2], 2), [1, 1, 1, 1]);
+  });
+
+  it("keeps desktop auto-fill tiles at span 1 (no billboard stretch)", () => {
+    // Fri: 3 cards, Sun: 1 card in a 5-col shell — last cards must not span 3/5.
+    assert.deepEqual(cardGridDayGroupSpans([3, 1], 5), [1, 1, 1, 1]);
+    assert.deepEqual(cardGridDayGroupSpans([1], 5), [1]);
+  });
+});
+
+describe("cardGridDayGroupPadSpans", () => {
+  it("is empty on the 2-col grid (events stretch instead)", () => {
+    assert.equal(cardGridDayGroupPadSpans([3, 1], 2).size, 0);
+  });
+
+  it("maps last-of-day indices to leftover columns on desktop", () => {
+    const pads = cardGridDayGroupPadSpans([3, 1], 5);
+    assert.equal(pads.get(2), 2); // Fri: 3 events → 2 empty
+    assert.equal(pads.get(3), 4); // Sun: 1 event → 4 empty
+    assert.equal(pads.size, 2);
+  });
+
+  it("skips full days", () => {
+    assert.equal(cardGridDayGroupPadSpans([5, 5], 5).size, 0);
   });
 });
 
