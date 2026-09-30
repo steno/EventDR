@@ -68,7 +68,6 @@ const FILE_TO_EVENT_ID = {
   "silent-run-5k-2026-07-25.jpg": "silent-run-5k-2026-07-25",
   "los-event-trilogy-2026-09-03.jpg": "los-event-trilogy-2026-09-03",
   "sunset-laughter-club-cabarete-v2.jpg": "sunset-laughter-club-cabarete",
-  "congreso-damas-adn-2026.jpg": "congreso-damas-adn-2026",
   "master-of-the-ocean-2026.jpg": "master-of-the-ocean-2026",
   "atlantico-fc-vs-delfines-2026-08-22.jpg":
     "atlantico-fc-vs-delfines-2026-08-22",

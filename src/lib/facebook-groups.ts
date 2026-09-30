@@ -223,7 +223,6 @@ const FACEBOOK_SEED_EVENT_IDS_BASE = [
   "silent-run-5k-2026-07-25",
   "los-event-trilogy-2026-09-03",
   "sunset-laughter-club-cabarete",
-  "congreso-damas-adn-2026",
   "ocean-winds-karaoke-nights",
   "atlantico-fc-vs-delfines-2026-08-22",
   "dewry-luciano-zona-acapella-2026-08-23",

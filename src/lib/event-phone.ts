@@ -35,8 +35,6 @@ const EVENT_PHONE_BY_ID: Record<string, string> = {
   "feria-artesanal-verano-2026": "+18095862526",
   "puerto-plata-carnaval-2026": "+18095862526",
 
-  // Asociación Dominicana del Norte — Congreso de Damas registration desk
-  "congreso-damas-adn-2026": "+18095826688",
   "master-of-the-ocean-2026": "+18098564798",
   "terraza-ocean-world-evenings": "+18092911000",
   "ocean-world-terrace-singing-talent-2026-09-16": "+18092912400",

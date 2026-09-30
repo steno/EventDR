@@ -370,7 +370,6 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "huelga-velada-maltrato-animal-torre-alta-2026-08-07.jpg",
   "gym-sov-zumba-tuesday": "gym-sov-zumba-fitness.jpg",
   "handmade-pina-colada-experience": "handmade-pina-colada-experience.webp",
-  "congreso-damas-adn-2026": "congreso-damas-adn-2026.jpg",
   "master-of-the-ocean-2026": "master-of-the-ocean-2026.jpg",
   "atlantico-fc-vs-delfines-2026-08-22":
     "atlantico-fc-vs-delfines-2026-08-22.jpg",
@@ -571,7 +570,6 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "cigar-town-noche-bohemia-2026-09-12.jpg",
   "cigar-town-ron-humos.jpg",
   "voyvoy-saturday-session-bay.jpg",
-  "congreso-damas-adn-2026.jpg",
   "dewry-luciano-zona-acapella-2026-08-23.jpg",
   "el-carey-bohemian-wednesday.jpg",
   "el-carey-sabado-de-son.jpg",
