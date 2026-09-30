@@ -38,6 +38,28 @@ function chunkPairs<T>(items: T[]): T[][] {
   return slides;
 }
 
+/** Largest full-row count; if fewer cards than columns, show them all. */
+function fullRowCap(count: number, cols: number): number {
+  if (count <= 0 || cols <= 0) return 0;
+  if (count < cols) return count;
+  return Math.floor(count / cols) * cols;
+}
+
+/**
+ * Hide cards that would leave an incomplete desktop grid row. Mobile peek
+ * rails keep every card (`max-sm`).
+ */
+function desktopOverflowClass(
+  index: number,
+  smCap: number,
+  xlCap: number,
+): string {
+  if (index < smCap && index < xlCap) return "";
+  if (index < smCap && index >= xlCap) return "xl:hidden";
+  if (index < xlCap && index >= smCap) return "max-sm:block hidden xl:block";
+  return "max-sm:block hidden";
+}
+
 interface TodayHighlightsProps {
   events: Event[];
   locale: Locale;
@@ -78,18 +100,26 @@ interface TodayHighlightsProps {
   featurePromo?: boolean;
   /**
    * Mobile snap rail: two cards side-by-side per slide. From `sm` the
-   * multi-column grid unwraps each pair (`sm:contents`).
+   * multi-column grid unwraps each pair (`sm:contents`). Portrait aspect is
+   * kept on desktop with a denser grid so these rails stay distinct from
+   * landscape Coming up / Today. Use `denseDesktop` for a Shorts-style row
+   * (Recently added) vs a slightly roomier Weekend grid.
    */
   mobilePairSlides?: boolean;
+  /**
+   * Portrait pair rails only: pack 5 cards per row on `xl` (Weekend +
+   * Recently added) so one full dense row feeds the More link instead of
+   * wrapping into an incomplete second row.
+   */
+  denseDesktop?: boolean;
   /**
    * When pair slides leave an odd leftover card, fill the empty half with an
    * “add your event” CTA (also fills a missing desktop grid cell when needed).
    */
   onAddEvent?: () => void;
   /**
-   * Mobile story rail (36:49 — ~1/4 shorter than 9:16) — used for Today's
-   * specials so every area home gets the same tall flyer cards (not landscape
-   * 16:10 when count ≠ 2).
+   * Story rail (36:49 on phones, 2:3 on sm+) — used for Today's specials so
+   * every area home gets tall flyer cards, distinct from landscape rails.
    */
   storyCards?: boolean;
 }
@@ -148,29 +178,33 @@ function TodayHighlightCard({
           : undefined;
   const imageSizes =
     layout === "pair"
-      ? "(max-width: 640px) 44vw, 50vw"
+      ? "(max-width: 640px) 44vw, (max-width: 1280px) 33vw, 20vw"
       : layout === "story"
-        ? "(max-width: 640px) 72vw, (max-width: 1024px) 50vw, 33vw"
+        ? "(max-width: 640px) 72vw, (max-width: 1280px) 45vw, 28vw"
         : "(max-width: 640px) 88vw, (max-width: 1024px) 50vw, 33vw";
   const titleClass =
     layout === "pair"
-      ? "line-clamp-2 font-sans text-base font-extrabold leading-snug tracking-[0.01em] text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.55)] sm:text-2xl"
-      : "line-clamp-2 font-sans text-xl font-extrabold leading-snug tracking-[0.01em] text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.55)] sm:text-2xl";
+      ? "line-clamp-2 font-sans text-base font-extrabold leading-snug tracking-[0.01em] text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.55)] sm:text-lg xl:text-xl"
+      : layout === "story"
+        ? "line-clamp-2 font-sans text-xl font-extrabold leading-snug tracking-[0.01em] text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.55)] sm:text-xl xl:text-2xl"
+        : "line-clamp-2 font-sans text-xl font-extrabold leading-snug tracking-[0.01em] text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.55)] sm:text-2xl";
   const metaClass =
     layout === "pair"
-      ? "inline-flex min-w-0 max-w-full flex-wrap items-center gap-x-1.5 gap-y-0.5 text-xs font-medium text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.45)] sm:gap-x-2 sm:gap-y-1 sm:text-base"
+      ? "inline-flex min-w-0 max-w-full flex-wrap items-center gap-x-1.5 gap-y-0.5 text-xs font-medium text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.45)] sm:gap-x-1.5 sm:text-sm"
       : "inline-flex min-w-0 max-w-full flex-wrap items-center gap-x-2 gap-y-1 text-sm font-medium text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.45)] sm:text-base";
   const overlayPad =
     layout === "pair"
-      ? "gap-1 p-2.5 sm:gap-1.5 sm:p-5"
+      ? "gap-1 p-2.5 sm:gap-1 sm:p-3.5 xl:p-4"
       : layout === "story"
-        ? "gap-1.5 p-3.5 sm:p-5"
+        ? "gap-1.5 p-3.5 sm:p-4"
         : "gap-1.5 p-4 sm:p-5";
+  // Keep mobile aspect ratios on desktop so rails stay visually mixed
+  // (portrait Weekend / Recently added vs landscape Coming up / Today).
   const mediaAspectClass =
     layout === "pair"
-      ? "aspect-[4/5] sm:aspect-[3/2]"
+      ? "aspect-[4/5]"
       : layout === "story"
-        ? "aspect-[36/49] sm:aspect-[3/2]"
+        ? "aspect-[36/49] sm:aspect-[2/3]"
         : "aspect-[16/10] sm:aspect-[3/2]";
 
   return (
@@ -249,7 +283,11 @@ function TodayHighlightCard({
                   {dateLabel ? (
                     <span className="inline-flex min-w-0 items-center gap-1.5">
                       <Calendar
-                        className="h-3.5 w-3.5 shrink-0 sm:h-4 sm:w-4"
+                        className={
+                          layout === "pair"
+                            ? "h-3.5 w-3.5 shrink-0"
+                            : "h-3.5 w-3.5 shrink-0 sm:h-4 sm:w-4"
+                        }
                         aria-hidden
                       />
                       <span className="truncate">{dateLabel}</span>
@@ -258,7 +296,11 @@ function TodayHighlightCard({
                   {timeLabel.display ? (
                     <span className="inline-flex min-w-0 items-center gap-1.5">
                       <Clock
-                        className="h-3.5 w-3.5 shrink-0 sm:h-4 sm:w-4"
+                        className={
+                          layout === "pair"
+                            ? "h-3.5 w-3.5 shrink-0"
+                            : "h-3.5 w-3.5 shrink-0 sm:h-4 sm:w-4"
+                        }
                         aria-hidden
                       />
                       <span className="truncate">{timeLabel.display}</span>
@@ -307,6 +349,7 @@ const TodayHighlightsComponent = ({
   showDate = false,
   featurePromo = false,
   mobilePairSlides = false,
+  denseDesktop = false,
   storyCards = false,
   onAddEvent,
 }: TodayHighlightsProps) => {
@@ -330,46 +373,75 @@ const TodayHighlightsComponent = ({
     () => (usePairSlides ? chunkPairs(visibleEvents) : null),
     [usePairSlides, visibleEvents],
   );
-  /** Odd leftover on a 2-up slide — pad with add-event instead of stretching. */
+  /** Odd leftover on a 2-up slide — pad with add-event on mobile only. */
   const padOddPair = Boolean(onAddEvent) && usePairSlides && count % 2 === 1;
-  /**
-   * Odd counts that already fill an xl 3-col row (3, 9, …) should not show the
-   * filler on xl — only on the 2-up mobile/sm pair layout.
-   */
-  const pairFillHideOnXl = padOddPair && count % 3 === 0;
   const hasMore = limit != null && todayEvents.length > limit;
   const allTodayHref = seeAllHref ?? `/${locale}/when/today`;
   const sectionLabel = title ?? dict.events.happeningToday;
-  // Phones: snap peek rail. From sm: 2-col (fits ~768 without ballooning).
-  // From xl: 3-col. Never force 3 cols in the mid band — that was the ugly crush.
-  // One special + feature promo: equal 2-up from sm (promo is hidden on phones).
-  const gridColsClass = showFeaturePromo
-    ? "sm:grid-cols-2"
-    : storyCards && count === 1
-      ? "sm:grid-cols-1"
-      : storyCards && count === 2
-        ? "sm:grid-cols-2"
-        : storyCards && count === 3
-          ? "sm:grid-cols-2 xl:grid-cols-3"
-          : count === 2
-            ? "sm:grid-cols-2"
-            : "sm:grid-cols-2 xl:grid-cols-3";
   const cardLayout: "pair" | "story" | "grid" = storyCards
     ? "story"
     : usePairSlides || (!showFeaturePromo && count === 2)
       ? "pair"
       : "grid";
+  // Portrait rails (Weekend / Recently added): always use the dense track
+  // (3→5) so a short list stays compact — never stretch 2 cards to half-width.
+  // Landscape Coming up / Today stay 2→3. Story specials sit between.
+  // One special + feature promo: equal 2-up from sm (promo is hidden on phones).
+  const pairXlCols = denseDesktop ? 5 : 4;
+  const smCols =
+    showFeaturePromo || count === 1
+      ? showFeaturePromo
+        ? 2
+        : 1
+      : cardLayout === "pair"
+        ? 3
+        : storyCards
+          ? Math.min(count, 3)
+          : 2;
+  const xlCols =
+    showFeaturePromo || count === 1
+      ? showFeaturePromo
+        ? 2
+        : 1
+      : cardLayout === "pair"
+        ? pairXlCols
+        : storyCards
+          ? Math.min(count, 3)
+          : 3;
+  const gridColsClass = showFeaturePromo
+    ? "sm:grid-cols-2"
+    : cardLayout === "pair"
+      ? denseDesktop
+        ? "sm:grid-cols-3 xl:grid-cols-5"
+        : "sm:grid-cols-3 xl:grid-cols-4"
+      : storyCards && count === 1
+        ? "sm:grid-cols-1"
+        : storyCards && count === 2
+          ? "sm:grid-cols-2"
+          : storyCards && count === 3
+            ? "sm:grid-cols-3"
+            : count === 2
+              ? "sm:grid-cols-2"
+              : "sm:grid-cols-2 xl:grid-cols-3";
   /**
-   * Story specials with 4+: keep a single row (max 3 visible) and scroll —
+   * Story specials with 4+: keep a single row (max 4 visible) and scroll —
    * wrapping leaves an empty second row on desktop.
    */
   const desktopScrollRail = storyCards && !showFeaturePromo && count > 3;
-  /** Story specials: phone peek ~72%; mid = 2-up; xl = 3-up on the scroll rail. */
+  /** Story specials: phone peek ~72%; mid = 2-up; xl = 4-up on the scroll rail. */
   const peekClass = storyCards
     ? desktopScrollRail
-      ? "w-[72%] sm:w-[calc((100%-0.75rem)/2)] xl:w-[calc((100%-1.5rem)/3)]"
+      ? "w-[72%] sm:w-[calc((100%-0.75rem)/2)] xl:w-[calc((100%-2.25rem)/4)]"
       : "w-[72%]"
     : SNAP_RAIL_PEEK_CLASS;
+  // Never leave an incomplete desktop grid row — hide overflow, show More.
+  // Scroll rails and the single+promo layout already fill without gaps.
+  const smCap =
+    desktopScrollRail || showFeaturePromo ? count : fullRowCap(count, smCols);
+  const xlCap =
+    desktopScrollRail || showFeaturePromo ? count : fullRowCap(count, xlCols);
+  const truncatesDesktop = count > smCap || count > xlCap;
+  const showMoreLink = !hideSeeAll && (hasMore || truncatesDesktop);
   // Promo is desktop-only — mobile rail is just the one event card.
   const railItemCount = pairSlides
     ? pairSlides.length
@@ -451,7 +523,7 @@ const TodayHighlightsComponent = ({
               </button>
             </div>
           ) : null}
-          {hasMore && !hideSeeAll && (
+          {showMoreLink ? (
             <IntentLink
               href={allTodayHref}
               className="inline-flex items-center gap-0.5 rounded-full bg-orange-50 dark:bg-orange-950/50 px-2.5 py-1 text-sm font-bold text-orange-600 hover:bg-orange-100 dark:hover:bg-orange-950/70 transition-colors touch-manipulation"
@@ -459,7 +531,7 @@ const TodayHighlightsComponent = ({
               {seeAllLabel ?? dict.events.seeAllToday}
               <ChevronRight className="h-3.5 w-3.5" aria-hidden />
             </IntentLink>
-          )}
+          ) : null}
         </div>
       </div>
 
@@ -476,50 +548,49 @@ const TodayHighlightsComponent = ({
             aria-label={sectionLabel}
           >
             {pairSlides
-              ? pairSlides.map((pair) => (
+              ? pairSlides.map((pair, pairIndex) => (
                   <div
                     key={pair.map((event) => event.id).join(":")}
                     data-snap-slide
                     className={`${peekClass} grid shrink-0 snap-start grid-cols-2 gap-2 sm:contents`}
                   >
-                    {pair.map((event) => (
-                      <div
-                        key={event.id}
-                        className="min-w-0 sm:w-auto sm:min-w-0 sm:shrink"
-                      >
-                        <TodayHighlightCard
-                          event={event}
-                          locale={locale}
-                          dict={dict}
-                          returnTo={returnTo}
-                          returnTitle={returnTitle}
-                          pending={pendingId === event.id}
-                          dimmed={pendingId != null && pendingId !== event.id}
-                          onNavigate={() => setPendingId(event.id)}
-                          note={notes?.[event.id]}
-                          listTimeRange={listTimeRange}
-                          showDate={showDate}
-                          layout={cardLayout}
-                        />
-                      </div>
-                    ))}
+                    {pair.map((event, pairOffset) => {
+                      const index = pairIndex * 2 + pairOffset;
+                      return (
+                        <div
+                          key={event.id}
+                          className={`min-w-0 sm:w-auto sm:min-w-0 sm:shrink ${desktopOverflowClass(index, smCap, xlCap)}`}
+                        >
+                          <TodayHighlightCard
+                            event={event}
+                            locale={locale}
+                            dict={dict}
+                            returnTo={returnTo}
+                            returnTitle={returnTitle}
+                            pending={pendingId === event.id}
+                            dimmed={pendingId != null && pendingId !== event.id}
+                            onNavigate={() => setPendingId(event.id)}
+                            note={notes?.[event.id]}
+                            listTimeRange={listTimeRange}
+                            showDate={showDate}
+                            layout={cardLayout}
+                          />
+                        </div>
+                      );
+                    })}
                     {padOddPair && pair.length === 1 && onAddEvent ? (
-                      <div
-                        className={`min-w-0 sm:w-auto sm:min-w-0 sm:shrink ${
-                          pairFillHideOnXl ? "xl:hidden" : ""
-                        }`}
-                      >
+                      <div className="min-w-0 sm:hidden">
                         <EventCardPlaceholder
                           title={dict.events.yourEventHereTitle}
                           label={dict.events.yourEventHereGeneric}
                           onClick={onAddEvent}
-                          mediaAspectClass="aspect-[4/5] sm:aspect-[3/2]"
+                          mediaAspectClass="aspect-[4/5]"
                         />
                       </div>
                     ) : null}
                   </div>
                 ))
-              : visibleEvents.map((event) => (
+              : visibleEvents.map((event, index) => (
                   <div
                     key={event.id}
                     data-snap-slide
@@ -528,7 +599,7 @@ const TodayHighlightsComponent = ({
                         ? "w-full shrink-0 snap-start sm:w-auto sm:min-w-0 sm:shrink"
                         : desktopScrollRail
                           ? `${peekClass} shrink-0 snap-start`
-                          : `${peekClass} shrink-0 snap-start sm:w-auto sm:min-w-0 sm:shrink`
+                          : `${peekClass} shrink-0 snap-start sm:w-auto sm:min-w-0 sm:shrink ${desktopOverflowClass(index, smCap, xlCap)}`
                     }
                   >
                     <TodayHighlightCard

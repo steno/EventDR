@@ -28,6 +28,7 @@ import {
   stickyBackControlClassName,
 } from "@/components/StickyListHeader";
 import { useSavedEvents } from "@/hooks/useSavedEvents";
+import { pickHomeCategoryHeroImage } from "@/lib/category-heroes";
 import {
   getHomeDiscoverLayout,
   HOME_SEARCH_LIMIT,
@@ -41,7 +42,6 @@ import {
   getCityMeta,
   getCityName,
   homePathWithArea,
-  NORTH_COAST_HERO_IMAGE,
   parseHomeCityParam,
   readHomeArea,
   writeHomeArea,
@@ -529,13 +529,15 @@ function HomeApp({
         ? dict.cruise.amberCoveSailedTagline
         : dict.cruise.amberCoveTagline
     : undefined;
-  const heroImageSrc = cruisePort
-    ? CRUISE_PORTS[cruisePort].imageSrc
-    : discoverLayout.heroEvent
-      ? undefined
-      : (selectedCity
-          ? getCityMeta(selectedCity)?.heroImage
-          : undefined) ?? NORTH_COAST_HERO_IMAGE;
+  const heroImageSrc = useMemo(
+    () =>
+      cruisePort
+        ? CRUISE_PORTS[cruisePort].imageSrc
+        : pickHomeCategoryHeroImage({
+            seed: selectedCity ?? "north-coast",
+          }),
+    [cruisePort, selectedCity],
+  );
 
   // Both ports are Puerto Plata, so back out to that area instead of bare home
   // (the header's home icon already covers a fresh start).
@@ -720,10 +722,10 @@ function HomeApp({
                 <InstallBanner dict={dict} />
               ) : null}
               <PhotoHero
-                key={cruisePort ?? "home"}
+                key={cruisePort ?? heroImageSrc}
                 dict={dict}
                 locale={locale}
-                featuredEvent={cruisePort ? null : discoverLayout.heroEvent}
+                featuredEvent={null}
                 placeName={heroPlaceName}
                 citySlug={cruisePort ? null : selectedCity}
                 tagline={heroTagline}
@@ -830,6 +832,7 @@ function HomeApp({
                   listTimeRange="weekend"
                   showDate
                   mobilePairSlides
+                  denseDesktop
                   onAddEvent={() => setSubmitOpen(true)}
                   returnTo={homePath}
                 />
@@ -864,10 +867,16 @@ function HomeApp({
                   dict={dict}
                   prefiltered
                   title={dict.events.recentlyAdded}
-                  hideSeeAll
+                  seeAllHref={
+                    selectedCity
+                      ? `/${locale}/city/${selectedCity}`
+                      : `/${locale}/events`
+                  }
+                  seeAllLabel={dict.events.moreEvents}
                   listTimeRange="all"
                   showDate
                   mobilePairSlides
+                  denseDesktop
                   onAddEvent={() => setSubmitOpen(true)}
                   returnTo={homePath}
                 />

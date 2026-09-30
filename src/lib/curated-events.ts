@@ -612,10 +612,6 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     phone: "+18492147010",
     venueSlug: "natura-cabana",
   },
-  "natura-sunbar-sunset-sounds-hyper-2026-10-08": {
-    phone: "+18492147010",
-    venueSlug: "natura-cabana",
-  },
   "licor-lab-car-show-2026-10-10": {
     isFree: true,
     venueSlug: "plaza-juan-brugal",

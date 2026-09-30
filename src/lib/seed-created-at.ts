@@ -142,7 +142,6 @@ export const SEED_CREATED_AT: Readonly<Record<string, string>> = {
   "natura-market-2026-10-04": "2026-09-30T15:00:00.000Z",
   "natura-sunbar-sunset-sounds-em-zayd-2026-10-01": "2026-09-30T19:00:00.000Z",
   "natura-cabana-jazz-ensemble-2026-10-03": "2026-09-30T18:00:00.000Z",
-  "natura-sunbar-sunset-sounds-hyper-2026-10-08": "2026-09-30T17:00:00.000Z",
   "licor-lab-car-show-2026-10-10": "2026-09-30T21:00:00.000Z",
   "nueve-bingo-friday": "2026-09-30T20:00:00.000Z",
 };

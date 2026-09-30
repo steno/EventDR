@@ -55,6 +55,8 @@ export const REMOVED_SEED_EVENT_IDS = new Set([
   "cowork-weekdays",
   // Duplicate of natura-sunbar-special-sunset-sounds-2026-09-24 (same flyer / Thu night).
   "natura-cabana-sunset-sounds-thursday",
+  // Thin listing-only Guest DJ HYPER night — no flyer; drop until Natura posts art.
+  "natura-sunbar-sunset-sounds-hyper-2026-10-08",
   // Unverified weekly — no source URL; Chill & Grill bingo/karaoke stay seeded.
   "castaways-classic-rock-wednesday",
   // Atmosphere placeholders — not verified recurring programs (venue/strip only).

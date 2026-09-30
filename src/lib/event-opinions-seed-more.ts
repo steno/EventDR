@@ -2830,24 +2830,6 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: "2026-09-30T12:00:00.000Z",
   },
   {
-    eventId: "natura-sunbar-sunset-sounds-hyper-2026-10-08",
-    body: "Thursday Sunset & Sounds with guest DJ HYPER at SunBar — same 6–9 PM ocean slot as other guest-DJ Thursdays; confirm the set on naturacabana.com before you treat it like a free beach hang.",
-    localized: {
-      es: "Sunset & Sounds de jueves con guest DJ HYPER en SunBar — mismo slot 6–9 PM frente al mar que otros jueves de guest DJ; confirma el set en naturacabana.com antes de tratarlo como hang gratis en la playa.",
-      fr: "Sunset & Sounds du jeudi avec guest DJ HYPER au SunBar — même créneau 18 h–21 h océan que les autres jeudis guest DJ ; confirmez le set sur naturacabana.com avant d’y aller comme un hang gratuit sur la plage.",
-    },
-    priceFeel: "moderate",
-    priceNote: "Cover not posted — cocktails/dinner spend; +1 849-214-7010",
-    priceNoteLocalized: {
-      es: "Cover no publicado — gasto de cócteles/cena; +1 849-214-7010",
-      fr: "Cover non publié — budget cocktails/dîner ; +1 849-214-7010",
-    },
-    attribution: "POP research · naturacabana.com Sunset and Sounds listing",
-    researchNotes:
-      "Official listing: Sunset and Sounds Cabarete (Guest DJ: HYPER) Oct 8 2026 6–9 PM Natura Cabana Paseo del Sol 5; every Thursday series. No dedicated flyer — venue place shot as hero.",
-    updatedAt: "2026-09-30T12:00:00.000Z",
-  },
-  {
     eventId: "kaovanny-natura-cabana-2026-09-26",
     body: "Named Afro Soul set on the Saturday live-music slot — book a table like the flyer says; this is dinner-show pacing at Natura, not a late disco run into Cabarete.",
     localized: {

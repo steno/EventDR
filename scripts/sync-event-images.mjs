@@ -221,8 +221,6 @@ const FILE_TO_EVENT_ID = {
     "natura-cabana-jazz-ensemble-2026-10-03",
   "natura-sunbar-sunset-sounds-em-zayd-2026-10-01.jpg":
     "natura-sunbar-sunset-sounds-em-zayd-2026-10-01",
-  "natura-sunbar-sunset-sounds-hyper-2026-10-08.jpg":
-    "natura-sunbar-sunset-sounds-hyper-2026-10-08",
   "natura-market-2026-10-04.jpg": "natura-market-2026-10-04",
   "licor-lab-car-show-2026-10-10.jpg": "licor-lab-car-show-2026-10-10",
   "nueve-bingo-friday.jpg": "nueve-bingo-friday",

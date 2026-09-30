@@ -5,8 +5,9 @@
  * bottom nav, sticky brand header). Lower than Tailwind’s default 1024px so
  * mid-width windows keep the desktop layout (Instagram-like).
  *
- * Home discovery: 2-col from `sm`, 3-col from Tailwind `xl` (1280px) — mid
- * widths stay readable without a phone peek rail or a crushed 3-up grid.
+ * Home discovery: landscape rails 2-col from `sm`, 3-col from Tailwind `xl`
+ * (1280px). Portrait pair rails (Weekend / Recently added) use 3-col from `sm`
+ * and 4–5-col from `xl` so desktop keeps the mixed card formats.
  */
 
 /** Matches `--breakpoint-lg` (48rem at a 16px root). */

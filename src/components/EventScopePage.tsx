@@ -32,7 +32,6 @@ import {
   getCityName,
   type CitySlug,
 } from "@/lib/cities";
-import { getCategoryHeroImage } from "@/lib/category-heroes";
 import { isHomeHeroBackgroundSuitable } from "@/lib/event-images";
 import { findActiveSpecialEvent } from "@/lib/special-events";
 import { PAGE_SHELL_CLASS } from "@/lib/page-shell";
@@ -443,13 +442,14 @@ export function EventScopePage({
     )
       ? specialHeroEvent.imageUrl?.trim()
       : undefined;
-  const scopeHeroImage =
-    specialHeroImage ||
-    getCategoryHeroImage(activeCategoryId) ||
-    city?.heroImage ||
-    (activeCategoryId || fixedTimeRange || activeRegionScope
-      ? NORTH_COAST_HERO_IMAGE
-      : undefined);
+  // Category / city×category: compact H1 header (no photo). Metadata unchanged.
+  const scopeHeroImage = activeCategoryId
+    ? undefined
+    : specialHeroImage ||
+      city?.heroImage ||
+      (fixedTimeRange || activeRegionScope
+        ? NORTH_COAST_HERO_IMAGE
+        : undefined);
   const showLocationPicker = Boolean(
     activeCitySlug || activeCategoryId || fixedTimeRange || activeRegionScope,
   );

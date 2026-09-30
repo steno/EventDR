@@ -26,7 +26,6 @@ Curated images under `public/events/` and `public/venues/`.
 | `natura-sunbar-special-sunset-sounds-2026-09-24.jpg` | POP-supplied — SunBar Special Sunset & Sounds (DJ Taïf, Kriuslack) | Thu 24 Sep 2026 Natura Cabana (editor-provided) |
 | `natura-sunbar-sunset-sounds-em-zayd-2026-10-01.jpg` | POP-supplied — SunBar Sunset & Sounds Guest DJ EM ZAYD flyer | Thu 1 Oct 2026 6–9 PM Natura Cabana (editor-provided) |
 | `natura-cabana-jazz-ensemble-2026-10-03.jpg` | POP-supplied — Live Jazz Ensemble Saturday flyer | Sat 3 Oct 2026 7–9:30 PM Natura Cabana (editor-provided) |
-| `natura-sunbar-sunset-sounds-hyper-2026-10-08.jpg` | Natura Cabana reception place shot (no guest-DJ flyer; listing copy from naturacabana.com) | Thu 8 Oct 2026 6–9 PM Guest DJ HYPER |
 | `kaovanny-natura-cabana-2026-09-26.jpg` | POP-supplied — Kaovanny Afro Soul live music flyer | Sat 26 Sep 2026 7–9:30 PM Natura Cabana (editor-provided) |
 | `vibes-night-live-voramar-2026-10-02-v2.jpg` | POP-supplied — Vibes Night Live / Deja New flyer (Hotel Voramar) | Fri 2 Oct 2026 7:30 PM, 18+ (editor-provided; filename bump) |
 | `kaovanny-agua-el-carey-2026-10-02.jpg` | POP-supplied — Kaovanny ‘La Caoba’ agua LIVE album release flyer | Fri 2 Oct 2026 6:30 PM El Carey Costambar (editor-provided) |

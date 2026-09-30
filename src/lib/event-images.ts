@@ -120,8 +120,6 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "natura-sunbar-special-sunset-sounds-2026-09-24.jpg",
   "natura-sunbar-sunset-sounds-em-zayd-2026-10-01":
     "natura-sunbar-sunset-sounds-em-zayd-2026-10-01.jpg",
-  "natura-sunbar-sunset-sounds-hyper-2026-10-08":
-    "natura-sunbar-sunset-sounds-hyper-2026-10-08.jpg",
   "natura-cabana-jazz-ensemble-2026-10-03":
     "natura-cabana-jazz-ensemble-2026-10-03.jpg",
   "kaovanny-natura-cabana-2026-09-26": "kaovanny-natura-cabana-2026-09-26.jpg",
@@ -817,7 +815,6 @@ const HOME_HERO_SCENE_FILES = new Set([
   "monkeyland-puerto-plata-daily.jpeg",
   "museo-ambar-weekdays.jpeg",
   "natura-cabana-saturday-dining.jpg",
-  "natura-sunbar-sunset-sounds-hyper-2026-10-08.jpg",
   "natura-cabana-yoga-daily.jpg",
   "nonas-grill-kitchen-entrance.jpg",
   "ocean-world-daily.jpg",
