@@ -213,7 +213,6 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "rio-sonador-cierre-del-verano-2026-09-20.jpg",
   "ambar-lounge-reggaeton-2026-09-17":
     "ambar-lounge-reggaeton-2026-09-17.jpg",
-  "ambar-lounge-miercoles-rooftop": "ambar-lounge-miercoles-rooftop.jpg",
   "ambar-lounge-bandoleras-2026-09-18":
     "ambar-lounge-bandoleras-2026-09-18.jpg",
   "ambar-lounge-adrian-tineo-2026-09-19":
@@ -633,7 +632,6 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "duo-maryem-rancho-catalina-2026-09-20.jpg",
   "rio-sonador-cierre-del-verano-2026-09-20.jpg",
   "ambar-lounge-reggaeton-2026-09-17.jpg",
-  "ambar-lounge-miercoles-rooftop.jpg",
   "ambar-lounge-bandoleras-2026-09-18.jpg",
   "ambar-lounge-adrian-tineo-2026-09-19.jpg",
   "meclao-retro-party-2026-09-19.jpg",

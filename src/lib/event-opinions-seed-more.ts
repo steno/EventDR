@@ -2179,26 +2179,6 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: "2026-09-14T12:00:00.000Z",
   },
   {
-    eventId: "ambar-lounge-miercoles-rooftop",
-    seriesKey: "ambar-lounge-pop:weekly:3",
-    body: "Midweek rooftop deal night — go for Mojitos 3x2, not a headline DJ bill; still confirm doors with @ambarloungepop before you assume walk-in on Luis Ginebra.",
-    localized: {
-      es: "Noche de promo midweek en el rooftop — ve por los Mojitos 3x2, no por un DJ de cartel; igual confirma puertas con @ambarloungepop antes de asumir walk-in en Luis Ginebra.",
-      fr: "Soirée promo midweek sur le rooftop — venez pour les Mojitos 3x2, pas un DJ à l’affiche ; confirmez quand même les portes avec @ambarloungepop avant de compter sur le walk-in sur Luis Ginebra.",
-    },
-    priceFeel: "moderate",
-    priceNote:
-      "Mojitos 3x2 on Wednesdays — cover / other drinks confirm with the lounge",
-    priceNoteLocalized: {
-      es: "Mojitos 3x2 los miércoles — cover / otros tragos confirma con el lounge",
-      fr: "Mojitos 3x2 le mercredi — cover / autres verres à confirmer avec le lounge",
-    },
-    attribution: "POP research · @ambarloungepop",
-    researchNotes:
-      "Editor flyer — Miércoles de Rooftop / Mojitos 3x2; weekly Wed; Av. Luis Ginebra 45-a; phone (809) 781-8677; closed Tue.",
-    updatedAt: "2026-09-16T12:00:00.000Z",
-  },
-  {
     eventId: "ambar-lounge-bandoleras-2026-09-18",
     body: "Ladies-forward Friday with Carlos Rivera — free drinks for women until 11 PM is the hook; confirm cover and doors with @ambarloungepop before you pin Luis Ginebra.",
     localized: {

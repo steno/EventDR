@@ -63,7 +63,6 @@ export const SEED_CREATED_AT: Readonly<Record<string, string>> = {
   "ocean-world-terrace-la-fiera-tipica-2026-09-18": "2026-09-14T12:00:00.000Z",
   "rio-sonador-cierre-del-verano-2026-09-20": "2026-09-14T12:00:00.000Z",
   "ambar-lounge-reggaeton-2026-09-17": "2026-09-14T12:00:00.000Z",
-  "ambar-lounge-miercoles-rooftop": "2026-09-16T12:00:00.000Z",
   "ambar-lounge-bandoleras-2026-09-18": "2026-09-16T12:00:00.000Z",
   "ambar-lounge-adrian-tineo-2026-09-19": "2026-09-16T12:00:00.000Z",
   "cigar-town-karaoke-ladies-night-2026-09-19": "2026-09-14T12:00:00.000Z",

@@ -1066,11 +1066,11 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "ambar-lounge-pop": {
-    body: "Rooftop on Luis Ginebra 45-a — Wednesday Mojitos 3x2, Bandoleras Fridays, and billed live nights; DM @ambarloungepop or call (809) 781-8677 before you assume walk-in. Closed Tuesdays.",
+    body: "Rooftop on Luis Ginebra 45-a — Bandoleras Fridays and billed live nights; DM @ambarloungepop or call (809) 781-8677 before you assume walk-in. Closed Tuesdays.",
     localized: {
-      en: "Rooftop on Luis Ginebra 45-a — Wednesday Mojitos 3x2, Bandoleras Fridays, and billed live nights; DM @ambarloungepop or call (809) 781-8677 before you assume walk-in. Closed Tuesdays.",
-      es: "Rooftop en Luis Ginebra 45-a — miércoles Mojitos 3x2, Bandoleras los viernes y noches en vivo con cartel; DM @ambarloungepop o llama al (809) 781-8677 antes de asumir walk-in. Cerrado martes.",
-      fr: "Rooftop au 45-a Luis Ginebra — mercredi Mojitos 3x2, Bandoleras le vendredi et soirées live à l’affiche ; DM @ambarloungepop ou appelez le (809) 781-8677 avant de compter sur le walk-in. Fermé mardi.",
+      en: "Rooftop on Luis Ginebra 45-a — Bandoleras Fridays and billed live nights; DM @ambarloungepop or call (809) 781-8677 before you assume walk-in. Closed Tuesdays.",
+      es: "Rooftop en Luis Ginebra 45-a — Bandoleras los viernes y noches en vivo con cartel; DM @ambarloungepop o llama al (809) 781-8677 antes de asumir walk-in. Cerrado martes.",
+      fr: "Rooftop au 45-a Luis Ginebra — Bandoleras le vendredi et soirées live à l’affiche ; DM @ambarloungepop ou appelez le (809) 781-8677 avant de compter sur le walk-in. Fermé mardi.",
     },
   },
   "nueve-puerto-plata": {

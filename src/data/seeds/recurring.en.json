@@ -2513,31 +2513,6 @@
     "imageEmoji": "🚎"
   },
   {
-    "id": "ambar-lounge-miercoles-rooftop",
-    "title": "Miércoles de Rooftop — Mojitos 3x2",
-    "description": "Every Wednesday at Ambar Lounge POP, Av. Luis Ginebra 45-a, Puerto Plata — Miércoles de Rooftop with Mojitos 3x2. Confirm doors and cover via Instagram @ambarloungepop or (809) 781-8677. Lounge open from 5:00 PM (closed Tuesdays).",
-    "date": "2026-01-01",
-    "location": "Puerto Plata",
-    "venue": "Ambar Lounge POP",
-    "venueSlug": "ambar-lounge-pop",
-    "address": "Av. Luis Ginebra 45-a, Puerto Plata 57000",
-    "lat": 19.7918,
-    "lng": -70.681,
-    "category": "food-drinks",
-    "categories": [
-      "music"
-    ],
-    "format": "physical",
-    "recurrence": "weekly",
-    "recurrenceDay": 3,
-    "trending": true,
-    "callForPricing": true,
-    "phone": "+18097818677",
-    "sourceType": "flyer",
-    "sourceUrl": "https://www.instagram.com/ambarloungepop/",
-    "imageEmoji": "🍹"
-  },
-  {
     "id": "el-colibri-atrevete-saturdays",
     "title": "Atrévete Saturdays Ladies Night — El Colibri",
     "description": "Every Saturday Ladies Night at El Colibri Hotel, Sosúa — Atrévete Saturdays with DJ Blue. Complimentary welcome drink for ladies, 2x1 drinks 9:00 PM–12:00 AM, 50% off Margarita and one-topping pizzas, and a Best Outfit Lady Contest ($2,500 cash — crowd decides). RSVP WhatsApp +1 917-523-7259.",
