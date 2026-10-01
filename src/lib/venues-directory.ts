@@ -51,8 +51,38 @@ function sortAlpha(a: VenueDirectoryEntry, b: VenueDirectoryEntry): number {
   return a.venue.slug.localeCompare(b.venue.slug);
 }
 
+function sortByCityThenName(
+  a: VenueDirectoryEntry,
+  b: VenueDirectoryEntry,
+): number {
+  const byCity = a.venue.city.localeCompare(b.venue.city, undefined, {
+    sensitivity: "base",
+  });
+  if (byCity !== 0) return byCity;
+  return sortAlpha(a, b);
+}
+
 function hasVenueImage(venue: Venue): boolean {
   return Boolean(venue.imageUrl?.trim());
+}
+
+/**
+ * Editorial targeting list: venues with zero upcoming public events
+ * (same event set visitors see — caller passes getPublicEvents output).
+ * Includes venues without photos (unlike the public A–Z directory).
+ */
+export function listVenuesWithoutUpcoming(
+  venues: Venue[],
+  events: Pick<Event, "venueSlug" | "venue" | "location">[],
+): VenueDirectoryEntry[] {
+  const upcomingBySlug = countUpcomingByVenueSlug(events);
+  const empty: VenueDirectoryEntry[] = [];
+  for (const venue of venues) {
+    const upcomingCount = upcomingBySlug.get(venue.slug) ?? 0;
+    if (upcomingCount > 0) continue;
+    empty.push({ venue, upcomingCount: 0 });
+  }
+  return empty.sort(sortByCityThenName);
 }
 
 /**

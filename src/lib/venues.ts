@@ -140,3 +140,8 @@ const getCachedVenues = unstable_cache(
 export async function getVenues(locale?: Locale): Promise<Venue[]> {
   return attachVenueImages(await getCachedVenues(locale ?? ""));
 }
+
+/** Same as getVenues but skips Next data cache (CLI / scripts). */
+export async function getVenuesUncached(locale?: Locale): Promise<Venue[]> {
+  return attachVenueImages(await loadVenues(locale ?? ""));
+}

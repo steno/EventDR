@@ -3,6 +3,7 @@ import { describe, it } from "node:test";
 import {
   buildVenueDirectory,
   countUpcomingByVenueSlug,
+  listVenuesWithoutUpcoming,
   venueDirectoryLetters,
   venueSortLetter,
   venuesFromDirectory,
@@ -115,5 +116,45 @@ describe("buildVenueDirectory", () => {
 
     assert.deepEqual(venueDirectoryLetters(groups).slice(-1), ["#"]);
     assert.equal(venueDirectoryLetters(groups).length, 27);
+  });
+});
+
+describe("listVenuesWithoutUpcoming", () => {
+  it("keeps zero-upcoming venues including no-photo, sorted by city then name", () => {
+    const venues = [
+      venue({
+        slug: "lax-cabarete",
+        name: "LAX",
+        city: "Cabarete",
+        imageUrl: "/venues/lax.jpg",
+      }),
+      venue({
+        slug: "quiet-spot",
+        name: "Quiet Spot",
+        city: "Cabarete",
+        imageUrl: "/venues/quiet-spot.jpg",
+      }),
+      venue({
+        slug: "no-photo",
+        name: "No Photo Bar",
+        city: "Cabarete",
+      }),
+      venue({
+        slug: "d-classico-sosua",
+        name: "D Classico",
+        city: "Sosúa",
+        imageUrl: "/venues/d-classico.jpg",
+      }),
+    ];
+
+    const empty = listVenuesWithoutUpcoming(venues, [
+      event({ id: "1", title: "Reggae", venueSlug: "lax-cabarete" }),
+    ]);
+
+    assert.deepEqual(
+      empty.map((entry) => entry.venue.slug),
+      ["no-photo", "quiet-spot", "d-classico-sosua"],
+    );
+    assert.ok(empty.every((entry) => entry.upcomingCount === 0));
   });
 });

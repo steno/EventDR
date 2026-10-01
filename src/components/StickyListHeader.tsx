@@ -148,10 +148,21 @@ export function StickyListHeader({
     publishHeight();
     const observer = new ResizeObserver(publishHeight);
     observer.observe(el);
+    // Fresh navigations / Fast Refresh can miss the first layout pass.
+    const rafId = requestAnimationFrame(publishHeight);
 
     return () => {
+      cancelAnimationFrame(rafId);
       observer.disconnect();
-      document.documentElement.style.removeProperty(STICKY_HEADER_HEIGHT_VAR);
+      // Defer clear so Strict Mode / HMR remount can republish first.
+      // Only remove when no sticky list header remains mounted.
+      requestAnimationFrame(() => {
+        if (!document.querySelector("[data-sticky-list-header]")) {
+          document.documentElement.style.removeProperty(
+            STICKY_HEADER_HEIGHT_VAR,
+          );
+        }
+      });
     };
   }, []);
 

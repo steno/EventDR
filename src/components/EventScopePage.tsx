@@ -442,7 +442,7 @@ export function EventScopePage({
     )
       ? specialHeroEvent.imageUrl?.trim()
       : undefined;
-  // Category / city×category: compact H1 header (no photo). Metadata unchanged.
+  // Category / city×category: no photo hero — H1 stays in DOM (sr-only) for SEO.
   const scopeHeroImage = activeCategoryId
     ? undefined
     : specialHeroImage ||
@@ -453,10 +453,6 @@ export function EventScopePage({
   const showLocationPicker = Boolean(
     activeCitySlug || activeCategoryId || fixedTimeRange || activeRegionScope,
   );
-  const headerEmojiClassName =
-    chrome.emojiClassName ??
-    emojiClassNameProp ??
-    "bg-white dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-800";
   const [backHref, setBackHref] = useState(
     chrome.backHref ?? backHrefProp ?? `/${locale}`,
   );
@@ -483,7 +479,6 @@ export function EventScopePage({
   const title = chrome.title;
   const intro = chrome.intro;
   const eyebrow = chrome.eyebrow;
-  const emoji = chrome.emoji;
   const returnTo = chrome.returnTo;
   const submitDefaults = chrome.submitDefaults ?? submitDefaultsProp;
 
@@ -548,36 +543,12 @@ export function EventScopePage({
               returnTo={returnTo}
             />
           ) : (
-            <>
-              {showLocationPicker ? (
-                <div className="sr-only sm:hidden">
-                  <h1>{title}</h1>
-                  {intro ? <p>{intro}</p> : null}
-                </div>
-              ) : null}
-              <div
-                className={
-                  showLocationPicker ? "mb-6 hidden sm:block" : "mb-6"
-                }
-              >
-                <div className="flex items-start gap-4">
-                  <div
-                    className={`flex h-16 w-16 items-center justify-center rounded-2xl text-3xl shadow-sm ${headerEmojiClassName}`}
-                  >
-                    {emoji}
-                  </div>
-                  <div>
-                    <h1 className="text-title font-extrabold text-neutral-900 dark:text-neutral-100">
-                      {title}
-                    </h1>
-                    <p className="text-copy-meta text-neutral-500 dark:text-neutral-400">
-                      {eyebrow}
-                    </p>
-                  </div>
-                </div>
-                <p className="text-copy-lead mt-6">{intro}</p>
-              </div>
-            </>
+            /* Category (and other non-photo) scopes: keep H1/intro for SEO + AT, no visual header. */
+            <div className="sr-only">
+              {eyebrow ? <p>{eyebrow}</p> : null}
+              <h1>{title}</h1>
+              {intro ? <p>{intro}</p> : null}
+            </div>
           )}
 
           {relatedCategoryLinks && relatedCategoryLinksLabel ? (

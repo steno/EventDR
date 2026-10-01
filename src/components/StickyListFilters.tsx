@@ -30,7 +30,7 @@ export function StickyListFilters({
     <div
       data-sticky-list-filters
       className={`
-        sticky top-[calc(var(--sticky-list-header-height,0px)-1px)] z-10 mb-4 md:mb-3
+        sticky top-[calc(var(--sticky-list-header-height,3.5rem)-1px)] z-10 mb-4 md:mb-3
         ${PAGE_GUTTER_BLEED_CLASS}
         border-b border-neutral-200/60 bg-background/95 pb-2 pt-3 backdrop-blur-sm
         md:pb-1.5 md:pt-1.5

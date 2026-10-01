@@ -188,3 +188,17 @@ export async function getPublicEvents(
     preferPrimaryCategory: filter.category,
   });
 }
+
+/** Same visitor list as getPublicEvents, without Next data cache (CLI / scripts). */
+export async function getPublicEventsUncached(
+  filter: PublicEventsFilter,
+): Promise<Event[]> {
+  const events = await loadPublicEvents(filter);
+  return sortEventsForDisplay(attachEventImages(applyScopeFilters(events, filter)), {
+    recurringLast: true,
+    oneTimeFirst: Boolean(filter.category),
+    pinTodayOneOffs: Boolean(filter.category),
+    discoveryMode: Boolean(filter.category),
+    preferPrimaryCategory: filter.category,
+  });
+}
