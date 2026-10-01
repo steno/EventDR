@@ -82,6 +82,11 @@ const FILE_TO_EVENT_ID = {
   "meclao-house-friday-2026-09-25-lockward.jpg":
     "meclao-house-friday-2026-09-25",
   "meclao-chris-plasencia-2026-09-26.jpg": "meclao-chris-plasencia-2026-09-26",
+  "disco-club-on-fire-night-2026-10-01.jpg":
+    "disco-club-on-fire-night-2026-10-01",
+  "disco-club-la-mas-doll-2026-10-02.jpg": "disco-club-la-mas-doll-2026-10-02",
+  "meclao-sammy-bday-jhon-parra-2026-10-01.jpg":
+    "meclao-sammy-bday-jhon-parra-2026-10-01",
   "la-lola-back-to-northside-2026-07-04.jpg":
     "la-lola-back-to-northside-2026-07-04",
   "ambar-lounge-emil-roman-2026-09-26.jpg": "ambar-lounge-emil-roman-2026-09-26",
@@ -409,7 +414,8 @@ const FILE_TO_VENUE_SLUG = {
   "plaza-sanchez-imbert-park.jpg": "plaza-sanchez-imbert-park",
   "rincon-caliente-guananico.jpg": "rincon-caliente-guananico",
   "el-parq-cabarete-foodpark.jpg": "el-parq-cabarete-foodpark",
-  "disco-club-brugal.jpg": "disco-club-brugal",
+  // Filename bump — Latin Disco Club interior (disco ball / lit floor).
+  "disco-club-brugal-interior.jpg": "disco-club-brugal-interior",
   "natura-cabana-recepcion.jpg": "natura-cabana-recepcion",
   // Blue JackTar's decorated event space; keep the Jandy photo for its event card.
   "bjt-detail.jpg": "blue-jacktar-playa-dorada",
@@ -479,6 +485,9 @@ const FILE_TO_VENUE_SLUG = {
   "ivan-garcia-teatro-escuela-facade.jpg":
     "ivan-garcia-teatro-escuela-facade",
   "ambar-lounge-pop-lounge.jpg": "ambar-lounge-pop-lounge",
+  // Filename bump — dining terrace with floral arch + valley/ocean view.
+  "rancho-catalina-puerto-plata-terrace-dining.jpg":
+    "rancho-catalina-puerto-plata-terrace-dining",
   "aura-beach-club-cabarete-entrance.jpg": "aura-beach-club-cabarete-entrance",
   "hotel-voramar-sosua-pool.jpg": "hotel-voramar-sosua-pool",
   "trolley-city-tours-party-bus.jpg": "trolley-city-tours-party-bus",

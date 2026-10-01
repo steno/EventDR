@@ -192,11 +192,9 @@ const VENUE_SOURCES = [
   // el-parq-saturday-night.jpg — Maps visitor photo of this Cabarete foodpark.
   // Do not remote-refresh the Wikimedia Tulum stand-in.
 
-  {
-    // Indoor concert crowd/stage energy for Disco Club (Brugal depots hall).
-    eventId: "disco-club-brugal",
-    url: "https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=1800&q=85",
-  },
+  // disco-club-brugal-interior.jpg — POP-supplied Latin Disco Club interior (committed).
+  // Do not remote-refresh Unsplash concert stock for this venue.
+
   // el-parq-karaoke-thursday — POP-supplied Shaka Bar Karaoke Night flyer (see public/events/).
   // el-parq-latin-friday — POP-supplied Ninafrika Noche Latina flyer (see public/events/).
   // --- North Coast sports seeds (Jul–Aug 2026) ---

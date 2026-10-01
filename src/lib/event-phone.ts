@@ -85,6 +85,9 @@ const EVENT_PHONE_BY_ID: Record<string, string> = {
   "petit-francois-friday-karaoke": "+18294922910",
   // Pablito Guzmán / Cabarete Classic organizer line (long-published)
   "cabarete-classic-2026": "+18098766003",
+  "disco-club-on-fire-night-2026-10-01": "+18295639469",
+  "disco-club-la-mas-doll-2026-10-02": "+18295667071",
+  "meclao-sammy-bday-jhon-parra-2026-10-01": "+18293747028",
 };
 
 export function formatPhoneDisplay(phone: string): string {

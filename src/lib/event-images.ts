@@ -237,6 +237,12 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "meclao-house-friday-2026-09-25-lockward.jpg",
   "meclao-chris-plasencia-2026-09-26":
     "meclao-chris-plasencia-2026-09-26.jpg",
+  "disco-club-on-fire-night-2026-10-01":
+    "disco-club-on-fire-night-2026-10-01.jpg",
+  "disco-club-la-mas-doll-2026-10-02":
+    "disco-club-la-mas-doll-2026-10-02.jpg",
+  "meclao-sammy-bday-jhon-parra-2026-10-01":
+    "meclao-sammy-bday-jhon-parra-2026-10-01.jpg",
   "la-lola-back-to-northside-2026-07-04":
     "la-lola-back-to-northside-2026-07-04.jpg",
   "ambar-lounge-emil-roman-2026-09-26":
@@ -475,6 +481,9 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "meclao-house-friday-2026-09-18": "object-center",
   "meclao-house-friday-2026-09-25": "object-center",
   "meclao-chris-plasencia-2026-09-26": "object-center",
+  "disco-club-on-fire-night-2026-10-01": "object-center",
+  "disco-club-la-mas-doll-2026-10-02": "object-center",
+  "meclao-sammy-bday-jhon-parra-2026-10-01": "object-center",
   "la-lola-back-to-northside-2026-07-04": "object-center",
   "ambar-lounge-emil-roman-2026-09-26": "object-center",
   "finely-mirador-inauguracion-2026-09-25": "object-center",
@@ -664,6 +673,9 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "meclao-house-friday-2026-09-18.jpg",
   "meclao-house-friday-2026-09-25-lockward.jpg",
   "meclao-chris-plasencia-2026-09-26.jpg",
+  "disco-club-on-fire-night-2026-10-01.jpg",
+  "disco-club-la-mas-doll-2026-10-02.jpg",
+  "meclao-sammy-bday-jhon-parra-2026-10-01.jpg",
   "la-lola-back-to-northside-2026-07-04.jpg",
   "ambar-lounge-emil-roman-2026-09-26.jpg",
   "finely-mirador-inauguracion-2026-09-25.jpg",

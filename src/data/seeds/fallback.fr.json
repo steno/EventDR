@@ -232,13 +232,13 @@
   },
   {
     "id": "lil-naay-2026-07-17",
-    "title": "Lil Naay en live au Disco Club",
-    "description": "La star urbaine dominicaine Lil Naay en live au Disco Club (Depósitos de Brugal, Calle Duarte) — vendredi 17 juil., 20 h–23 h. Prévente RD$700 sur todotickets.do (frais de service inclus) ; entrée par billet QR électronique.",
+    "title": "Lil Naay en live au Latin Disco Club",
+    "description": "La star urbaine dominicaine Lil Naay en live au Latin Disco Club (Depósitos de Brugal, Calle Duarte) — vendredi 17 juil., 20 h–23 h. Prévente RD$700 sur todotickets.do (frais de service inclus) ; entrée par billet QR électronique.",
     "date": "2026-07-17",
     "time": "8:00 PM – 11:00 PM",
     "location": "Puerto Plata",
     "address": "Depósitos de Brugal, Calle Duarte",
-    "venue": "Disco Club",
+    "venue": "Latin Disco Club",
     "venueSlug": "disco-club-brugal",
     "lat": 19.7966,
     "lng": -70.6923,
@@ -3701,5 +3701,88 @@
       "Carlos Rivera"
     ],
     "imageEmoji": "💃"
+  },
+  {
+    "id": "disco-club-on-fire-night-2026-10-01",
+    "title": "Latin Disco Club On Fire Night — Gogo Dancers",
+    "description": "On Fire Night (Jueves de Strippers) au Latin Disco Club, Av. Manolo Tavarez Justo face aux dépôts de Brugal, Puerto Plata — jeudi 1 octobre 2026 avec gogo dancers. Réservez tables : 829-563-9469. Confirmez portes et cover via Instagram @latindiscoclubpp.",
+    "date": "2026-10-01",
+    "location": "Puerto Plata",
+    "venue": "Latin Disco Club",
+    "venueSlug": "disco-club-brugal",
+    "address": "Av. Manolo Tavarez Justo, frente a los depósitos de Brugal, Puerto Plata",
+    "lat": 19.7792778,
+    "lng": -70.6690061,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18295639469",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/latindiscoclubpp/",
+    "lineup": [
+      "Gogo dancers"
+    ],
+    "imageEmoji": "🔥"
+  },
+  {
+    "id": "disco-club-la-mas-doll-2026-10-02",
+    "title": "La Más Doll au Latin Disco Club",
+    "description": "La Más Doll (Bienvenida Oficial) au Latin Disco Club, Av. Manolo Tavarez Justo face aux dépôts de Brugal, Puerto Plata — vendredi 2 octobre 2026. Présenté par PC Entertainments et TRIVI Promotion. Entrée RD$600. Réservez : 829-566-7071. Confirmez portes via Instagram @latindiscoclubpp.",
+    "date": "2026-10-02",
+    "location": "Puerto Plata",
+    "venue": "Latin Disco Club",
+    "venueSlug": "disco-club-brugal",
+    "address": "Av. Manolo Tavarez Justo, frente a los depósitos de Brugal, Puerto Plata",
+    "lat": 19.7792778,
+    "lng": -70.6690061,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": false,
+    "admissionPrice": "RD$600",
+    "phone": "+18295667071",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/latindiscoclubpp/",
+    "lineup": [
+      "PC Entertainments",
+      "TRIVI Promotion"
+    ],
+    "imageEmoji": "💗"
+  },
+  {
+    "id": "meclao-sammy-bday-jhon-parra-2026-10-01",
+    "title": "Sammy B-Day — Jhon Parra au Mecla'o Rooftop",
+    "description": "Sammy B-Day au Mecla'o Rooftop Lounge, Av. Luis Ginebra n° 49, Puerto Plata — jeudi 1 octobre 2026 avec beats de Jhon Parra (@djhxnparra). No cover. Réservez tables : 829-374-7028. Confirmez portes via Instagram @meclaorooftop.",
+    "date": "2026-10-01",
+    "location": "Puerto Plata",
+    "venue": "Mecla'o Rooftop Lounge",
+    "venueSlug": "meclao-rooftop",
+    "address": "Av. Luis Ginebra No. 49, Puerto Plata 57000",
+    "lat": 19.788312,
+    "lng": -70.677453,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "phone": "+18293747028",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/meclaorooftop/",
+    "lineup": [
+      "Jhon Parra"
+    ],
+    "imageEmoji": "🎂"
   }
 ]

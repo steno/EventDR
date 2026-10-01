@@ -3620,4 +3620,58 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "Editor Sábado Bailable DJ art for Grand Prix; weekly Saturday dance night.",
     updatedAt: "2026-09-26T15:00:00.000Z",
   },
+  {
+    eventId: "disco-club-on-fire-night-2026-10-01",
+    body: "Thursday On Fire / Jueves de Strippers at Latin Disco Club by the Brugal depots — gogo-show energy on Manolo Tavarez Justo, not a Malecón beach club; reserve 829-563-9469 before you treat doors as walk-in.",
+    localized: {
+      es: "Jueves On Fire / Jueves de Strippers en Latin Disco Club frente a los depósitos Brugal — energía de show gogo en Manolo Tavarez Justo, no un beach club del Malecón; reserva 829-563-9469 antes de asumir entrada walk-in.",
+      fr: "Jeudi On Fire / Jueves de Strippers au Latin Disco Club face aux dépôts Brugal — énergie show gogo sur Manolo Tavarez Justo, pas un beach club du Malecón ; réservez 829-563-9469 avant d’assumer une entrée walk-in.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover not on flyer — reserve 829-563-9469; club night spend typical",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — reserva 829-563-9469; gasto típico de noche de club",
+      fr: "Cover absent de l’affiche — réservez 829-563-9469 ; budget soirée club typique",
+    },
+    attribution: "POP research · @latindiscoclubpp On Fire / Stripper Thursday posts",
+    researchNotes:
+      "Editor IG @latindiscoclubpp — On Fire Night flyer (Jue 01 Oct, gogo dancers) + text post for tradicional Jueves de Strippers. Address Av. Manolo Tavarez Justo frente a depósitos Brugal. Reservations 829-563-9469. No cover/start time on art.",
+    updatedAt: "2026-09-30T22:45:00.000Z",
+  },
+  {
+    eventId: "disco-club-la-mas-doll-2026-10-02",
+    body: "PC Entertainments / TRIVI pink-theme Friday at Latin Disco Club — RD$600 door night by the Brugal depots; reserve 829-566-7071, and don’t confuse it with Ambar Bandoleras on Luis Ginebra the same night.",
+    localized: {
+      es: "Viernes pink de PC Entertainments / TRIVI en Latin Disco Club — noche de puerta RD$600 frente a los depósitos Brugal; reserva 829-566-7071, y no lo confundas con Bandoleras de Ambar en Luis Ginebra la misma noche.",
+      fr: "Vendredi pink PC Entertainments / TRIVI au Latin Disco Club — soirée porte RD$600 face aux dépôts Brugal ; réservez 829-566-7071, et ne confondez pas avec Bandoleras d’Ambar sur Luis Ginebra la même nuit.",
+    },
+    priceFeel: "moderate",
+    priceNote: "Entrada RD$600 — reserve 829-566-7071",
+    priceNoteLocalized: {
+      es: "Entrada RD$600 — reserva 829-566-7071",
+      fr: "Entrée RD$600 — réservez 829-566-7071",
+    },
+    attribution: "POP research · PC Entertainments / @latindiscoclubpp La Más Doll flyer",
+    researchNotes:
+      "Editor IG @pcentertaiments / Latin Disco Club — La Más Doll Bienvenida Oficial, Vie 02 Oct, entrada RD$600, reservaciones 829-566-7071, Av. Manolo Tavarez Justo frente a depósitos Brugal. Promoters PC Entertainments + TRIVI.",
+    updatedAt: "2026-09-30T23:00:00.000Z",
+  },
+  {
+    eventId: "meclao-sammy-bday-jhon-parra-2026-10-01",
+    body: "Sammy B-Day on the Luis Ginebra rooftop with Jhon Parra — flyer says no cover; reserve 829-374-7028, and don’t mix it with Latin Disco Club’s Thursday On Fire night across town.",
+    localized: {
+      es: "Sammy B-Day en el rooftop de Luis Ginebra con Jhon Parra — el flyer dice no cover; reserva 829-374-7028, y no lo mezcles con el jueves On Fire de Latin Disco Club al otro lado de la ciudad.",
+      fr: "Sammy B-Day sur le rooftop Luis Ginebra avec Jhon Parra — l’affiche dit no cover ; réservez 829-374-7028, et ne le mélangez pas avec le jeudi On Fire du Latin Disco Club de l’autre côté de la ville.",
+    },
+    priceFeel: "moderate",
+    priceNote: "No cover on flyer — reserve 829-374-7028; pay drinks",
+    priceNoteLocalized: {
+      es: "No cover en el flyer — reserva 829-374-7028; pagas tragos",
+      fr: "No cover sur l’affiche — réservez 829-374-7028 ; payez les boissons",
+    },
+    attribution: "POP research · @meclaorooftop Sammy B-Day flyer",
+    researchNotes:
+      "Editor IG @meclaorooftop — Sammy B-Day, Jue 01 Oct, beats by Jhon Parra (@djhxnparra), Mecla'o Rooftop Lounge, Luis Ginebra 49. NO COVER. Reservations 829-374-7028. No start time on art.",
+    updatedAt: "2026-09-30T22:30:00.000Z",
+  },
 ];

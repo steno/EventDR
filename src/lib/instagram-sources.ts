@@ -116,6 +116,11 @@ export const INSTAGRAM_ACCOUNTS = [
     areas: ["Puerto Plata"],
   },
   {
+    handle: "latindiscoclubpp",
+    label: "Latin Disco Club",
+    areas: ["Puerto Plata"],
+  },
+  {
     handle: "acapella.pop",
     label: "Zona Acapella Club",
     areas: ["Puerto Plata"],
@@ -431,7 +436,7 @@ export function instagramSearchQueries(): string[] {
     "auracabarete", "cabaretestandup", "hotelvillataina", "eventospop037",
     "novapuertoplata", "spotlandrd", "classiccarsrd", "trolleycitytours", "lunaloungelcb", "teatroivangarcia",
     "oceanworldterrace", "sosuafoodmarket", "paradaelchoco",
-    "kitestreetpop", "meclaorooftop", "finelysaludable", "kviarcasinos", "acapella.pop", "vinotecamarienpp",
+    "kitestreetpop", "meclaorooftop", "latindiscoclubpp", "finelysaludable", "kviarcasinos", "acapella.pop", "vinotecamarienpp",
     "lagunasov", "santafesov", "donlimon02", "lostrescocosrd", "lovedoesrd", "iss.pta",
   ].join(" OR ");
 

@@ -523,8 +523,8 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
   },
   "disco-club-brugal": {
     description: {
-      es: "Discoteca y sala de conciertos en los Depósitos de Brugal, Calle Duarte — shows con entradas para artistas dominicanos en gira.",
-      fr: "Discothèque et salle de concert aux Depósitos de Brugal, Calle Duarte — spectacles avec billets pour artistes dominicains en tournée.",
+      es: "Latin Disco Club en Av. Manolo Tavarez Justo (frente a los depósitos de Brugal) — noches de club, shows de gogo y conciertos con boleto para artistas dominicanos.",
+      fr: "Latin Disco Club sur Av. Manolo Tavarez Justo (face aux dépôts Brugal) — soirées club, shows gogo et concerts billetés pour artistes dominicains.",
     },
   },
   "paella-pop-el-pueblito": {

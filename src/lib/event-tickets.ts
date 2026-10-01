@@ -110,6 +110,7 @@ export const CURATED_ADMISSION_PRICES: Record<string, string> = {
   // Concerts & ticketed shows
   "lil-naay-2026-07-17": "RD$700",
   "cabarete-stand-up-vol-2-2026-10-24": "RD$600",
+  "disco-club-la-mas-doll-2026-10-02": "RD$600",
 
   // Museums & historic sites (door price)
   "museo-ambar-weekdays": "RD$250",
@@ -188,6 +189,7 @@ export const CURATED_CALL_FOR_PRICING = new Set<string>([
   "meclao-house-friday-2026-09-18",
   "meclao-house-friday-2026-09-25",
   "meclao-chris-plasencia-2026-09-26",
+  "disco-club-on-fire-night-2026-10-01",
   "la-lola-back-to-northside-2026-07-04",
   "geek-fest-rd-2026-09-20",
   "festival-presidente-2026-10-03",
@@ -249,6 +251,7 @@ export const CURATED_FREE_EVENTS = new Set<string>([
   "banda-modelo-vinoteca-2026-09-26",
   "latinwok-ramen-party-2026-09-17",
   "finely-mirador-inauguracion-2026-09-25",
+  "meclao-sammy-bday-jhon-parra-2026-10-01",
   "cremo-karaoke-saturday",
   "big-lees-weekend-music",
   "el-parq-karaoke-thursday",

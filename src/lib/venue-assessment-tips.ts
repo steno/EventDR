@@ -634,11 +634,11 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "disco-club-brugal": {
-    body: "Ticketed nights at the rum-depot hall on Duarte — when a bill is up it's a real concert room; quiet otherwise, check the poster.",
+    body: "Latin Disco Club on Manolo Tavarez Justo by the Brugal depots — lit dance floor and late club nights when a flyer is up; reserve the number on that night’s poster.",
     localized: {
-      en: "Ticketed nights at the rum-depot hall on Duarte — when a bill is up it's a real concert room; quiet otherwise, check the poster.",
-      es: "Noches con boleto en el salón de depósitos Brugal en Duarte — con cartel es sala de concierto de verdad; si no, mira el póster.",
-      fr: "Soirées billet dans la salle des dépôts Brugal sur Duarte — avec affiche c'est une vraie salle de concert ; sinon, regardez le poster.",
+      en: "Latin Disco Club on Manolo Tavarez Justo by the Brugal depots — lit dance floor and late club nights when a flyer is up; reserve the number on that night’s poster.",
+      es: "Latin Disco Club en Manolo Tavarez Justo frente a los depósitos Brugal — pista iluminada y noches de club cuando hay flyer; reserva al número del póster de esa noche.",
+      fr: "Latin Disco Club sur Manolo Tavarez Justo face aux dépôts Brugal — piste éclairée et soirées club quand il y a une affiche ; réservez le numéro du flyer de cette nuit.",
     },
   },
   "paella-pop-el-pueblito": {

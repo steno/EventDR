@@ -98,7 +98,8 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   // Filename bump — this Cabarete foodpark (not Wikimedia Tulum).
   "el-parq-cabarete": "el-parq-cabarete-foodpark.jpg",
   "ninafrika-dance-school-cabarete": "ninafrika-dance-school-cabarete-beach.jpg",
-  "disco-club-brugal": "disco-club-brugal.jpg",
+  // Filename bump — Latin Disco Club interior (disco ball / lit floor; replaces Unsplash concert stock).
+  "disco-club-brugal": "disco-club-brugal-interior.jpg",
   "parada-tipica-el-choco": "parada-tipica-el-choco.jpg",
   "blue-jacktar-playa-dorada": "blue-jacktar-playa-dorada.jpg",
   // Filename bump — Calle Dr. Rosen storefront with blue ice PIANO BAR sign.
@@ -175,9 +176,9 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "mi-bodegon-cabarete": "mi-bodegon-cabarete.jpg",
   "tasty-food-park-puerto-plata": "tasty-food-park-puerto-plata.jpg",
   "sosua-food-market": "sosua-food-market-entrance.jpg",
-  // Filename bump — next/image + PWA cache the immutable /venues/* path;
-  // in-place replace of rancho-catalina-puerto-plata.jpg never reached detail heroes.
-  "rancho-catalina-puerto-plata": "rancho-catalina-puerto-plata-terrace.jpg",
+  // Filename bump — dining terrace with floral arch + valley/ocean view (editor-provided).
+  "rancho-catalina-puerto-plata":
+    "rancho-catalina-puerto-plata-terrace-dining.jpg",
   "ristorante-passatore-playa-dorada": "ristorante-passatore-playa-dorada.jpg",
   "sambalu-puerto-plata": "sambalu-puerto-plata.jpg",
   "skina-puerto-plata": "skina-puerto-plata.jpg",

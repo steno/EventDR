@@ -923,14 +923,15 @@ export const SEED_VENUES: Venue[] = [
   },
   {
     slug: "disco-club-brugal",
-    name: "Disco Club",
+    name: "Latin Disco Club",
     city: "Puerto Plata",
     description:
-      "Nightlife and concert hall at the Brugal rum depots on Calle Duarte — ticketed shows for touring Dominican artists.",
+      "Latin Disco Club nightlife at Av. Manolo Tavarez Justo (frente a los depósitos de Brugal) — club nights, gogo shows, and ticketed concerts for Dominican artists.",
     lat: 19.7792778,
     lng: -70.6690061,
     emoji: "🎤",
     website: "https://todotickets.do",
+    instagram: "latindiscoclubpp",
   },
   {
     slug: "paella-pop-el-pueblito",
@@ -2050,6 +2051,10 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
     pattern:
       /cofre[sś][ií]\s*palm(\s*beach)?(\s*(&|and)?\s*spa)?(\s*resort)?/i,
     slug: "cofresi-palm-beach-spa",
+  },
+  {
+    pattern: /latin\s*disco\s*club|disco\s*club(\s*brugal)?|latindiscoclubpp/i,
+    slug: "disco-club-brugal",
   },
   {
     pattern: /mecla['’]?o\s*rooftop|meclao\s*rooftop/i,

@@ -244,17 +244,17 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     ticketUrl: "https://todotickets.do/events/lil-naay",
     sourceUrl: "https://todotickets.do/events/lil-naay",
     time: "8:00 PM – 11:00 PM",
-    venue: "Disco Club",
+    venue: "Latin Disco Club",
     venueSlug: "disco-club-brugal",
     address: "Depósitos de Brugal, Calle Duarte",
     location: "Puerto Plata",
     description:
-      "Dominican urban star Lil Naay live at Disco Club (Depósitos de Brugal, Calle Duarte) — Friday Jul 17, 8–11 PM. Pre-sale RD$700 on todotickets.do (service included); electronic QR entry at the door.",
+      "Dominican urban star Lil Naay live at Latin Disco Club (Depósitos de Brugal, Calle Duarte) — Friday Jul 17, 8–11 PM. Pre-sale RD$700 on todotickets.do (service included); electronic QR entry at the door.",
     localized: {
       description: {
-        en: "Dominican urban star Lil Naay live at Disco Club (Depósitos de Brugal, Calle Duarte) — Friday Jul 17, 8–11 PM. Pre-sale RD$700 on todotickets.do (service included); electronic QR entry at the door.",
-        es: "El artista urbano dominicano Lil Naay en vivo en Disco Club (Depósitos de Brugal, Calle Duarte) — viernes 17 jul., 8–11 PM. Preventa RD$700 en todotickets.do (cargo por servicio incluido); ingreso con código QR electrónico.",
-        fr: "La star urbaine dominicaine Lil Naay en live au Disco Club (Depósitos de Brugal, Calle Duarte) — vendredi 17 juil., 20 h–23 h. Prévente RD$700 sur todotickets.do (frais de service inclus) ; entrée par billet QR électronique.",
+        en: "Dominican urban star Lil Naay live at Latin Disco Club (Depósitos de Brugal, Calle Duarte) — Friday Jul 17, 8–11 PM. Pre-sale RD$700 on todotickets.do (service included); electronic QR entry at the door.",
+        es: "El artista urbano dominicano Lil Naay en vivo en Latin Disco Club (Depósitos de Brugal, Calle Duarte) — viernes 17 jul., 8–11 PM. Preventa RD$700 en todotickets.do (cargo por servicio incluido); ingreso con código QR electrónico.",
+        fr: "La star urbaine dominicaine Lil Naay en live au Latin Disco Club (Depósitos de Brugal, Calle Duarte) — vendredi 17 juil., 20 h–23 h. Prévente RD$700 sur todotickets.do (frais de service inclus) ; entrée par billet QR électronique.",
       },
     },
   },

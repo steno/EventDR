@@ -232,13 +232,13 @@
   },
   {
     "id": "lil-naay-2026-07-17",
-    "title": "Lil Naay en vivo en Disco Club",
-    "description": "El artista urbano dominicano Lil Naay en vivo en Disco Club (Depósitos de Brugal, Calle Duarte) — viernes 17 jul., 8–11 PM. Preventa RD$700 en todotickets.do (cargo por servicio incluido); ingreso con código QR electrónico.",
+    "title": "Lil Naay en vivo en Latin Disco Club",
+    "description": "El artista urbano dominicano Lil Naay en vivo en Latin Disco Club (Depósitos de Brugal, Calle Duarte) — viernes 17 jul., 8–11 PM. Preventa RD$700 en todotickets.do (cargo por servicio incluido); ingreso con código QR electrónico.",
     "date": "2026-07-17",
     "time": "8:00 PM – 11:00 PM",
     "location": "Puerto Plata",
     "address": "Depósitos de Brugal, Calle Duarte",
-    "venue": "Disco Club",
+    "venue": "Latin Disco Club",
     "venueSlug": "disco-club-brugal",
     "lat": 19.7966,
     "lng": -70.6923,
@@ -3703,5 +3703,88 @@
       "Carlos Rivera"
     ],
     "imageEmoji": "💃"
+  },
+  {
+    "id": "disco-club-on-fire-night-2026-10-01",
+    "title": "Latin Disco Club On Fire Night — Gogo Dancers",
+    "description": "On Fire Night (Jueves de Strippers) en Latin Disco Club, Av. Manolo Tavarez Justo frente a los depósitos de Brugal, Puerto Plata — jueves 1 de octubre 2026 con gogo dancers. Reserva mesas: 829-563-9469. Confirma puertas y cover por Instagram @latindiscoclubpp.",
+    "date": "2026-10-01",
+    "location": "Puerto Plata",
+    "venue": "Latin Disco Club",
+    "venueSlug": "disco-club-brugal",
+    "address": "Av. Manolo Tavarez Justo, frente a los depósitos de Brugal, Puerto Plata",
+    "lat": 19.7792778,
+    "lng": -70.6690061,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18295639469",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/latindiscoclubpp/",
+    "lineup": [
+      "Gogo dancers"
+    ],
+    "imageEmoji": "🔥"
+  },
+  {
+    "id": "disco-club-la-mas-doll-2026-10-02",
+    "title": "La Más Doll en Latin Disco Club",
+    "description": "La Más Doll (Bienvenida Oficial) en Latin Disco Club, Av. Manolo Tavarez Justo frente a los depósitos de Brugal, Puerto Plata — viernes 2 de octubre 2026. Presenta PC Entertainments y TRIVI Promotion. Entrada RD$600. Reserva: 829-566-7071. Confirma puertas por Instagram @latindiscoclubpp.",
+    "date": "2026-10-02",
+    "location": "Puerto Plata",
+    "venue": "Latin Disco Club",
+    "venueSlug": "disco-club-brugal",
+    "address": "Av. Manolo Tavarez Justo, frente a los depósitos de Brugal, Puerto Plata",
+    "lat": 19.7792778,
+    "lng": -70.6690061,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": false,
+    "admissionPrice": "RD$600",
+    "phone": "+18295667071",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/latindiscoclubpp/",
+    "lineup": [
+      "PC Entertainments",
+      "TRIVI Promotion"
+    ],
+    "imageEmoji": "💗"
+  },
+  {
+    "id": "meclao-sammy-bday-jhon-parra-2026-10-01",
+    "title": "Sammy B-Day — Jhon Parra en Mecla'o Rooftop",
+    "description": "Sammy B-Day en Mecla'o Rooftop Lounge, Av. Luis Ginebra No. 49, Puerto Plata — jueves 1 de octubre 2026 con beats de Jhon Parra (@djhxnparra). No cover. Reserva mesas: 829-374-7028. Confirma puertas por Instagram @meclaorooftop.",
+    "date": "2026-10-01",
+    "location": "Puerto Plata",
+    "venue": "Mecla'o Rooftop Lounge",
+    "venueSlug": "meclao-rooftop",
+    "address": "Av. Luis Ginebra No. 49, Puerto Plata 57000",
+    "lat": 19.788312,
+    "lng": -70.677453,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "phone": "+18293747028",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/meclaorooftop/",
+    "lineup": [
+      "Jhon Parra"
+    ],
+    "imageEmoji": "🎂"
   }
 ]

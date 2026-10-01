@@ -1,0 +1,15 @@
+---
+description: POP Events detail URLs use singular /venue and /event (not plurals)
+alwaysApply: true
+---
+
+# Detail page URL paths (singular)
+
+When telling the user which localhost pages to check, or linking event/venue detail pages:
+
+- **Venue detail:** `/en/venue/{slug}` — never `/en/venues/{slug}`
+- **Event detail:** `/en/event/{id}` — never `/en/events/{id}`
+
+Same for `/es` and `/fr`.
+
+Listing/index routes stay plural (`/en/venues`, `/en/events`). Static asset folders (`public/venues/`, `public/events/`) are unrelated and keep their plural names.

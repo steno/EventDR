@@ -232,13 +232,13 @@
   },
   {
     "id": "lil-naay-2026-07-17",
-    "title": "Lil Naay — Live at Disco Club",
-    "description": "Dominican urban star Lil Naay live at Disco Club (Depósitos de Brugal, Calle Duarte) — Friday Jul 17, 8–11 PM. Pre-sale RD$700 on todotickets.do (service included); electronic QR entry at the door.",
+    "title": "Lil Naay — Live at Latin Disco Club",
+    "description": "Dominican urban star Lil Naay live at Latin Disco Club (Depósitos de Brugal, Calle Duarte) — Friday Jul 17, 8–11 PM. Pre-sale RD$700 on todotickets.do (service included); electronic QR entry at the door.",
     "date": "2026-07-17",
     "time": "8:00 PM – 11:00 PM",
     "location": "Puerto Plata",
     "address": "Depósitos de Brugal, Calle Duarte",
-    "venue": "Disco Club",
+    "venue": "Latin Disco Club",
     "venueSlug": "disco-club-brugal",
     "lat": 19.7966,
     "lng": -70.6923,
@@ -3703,5 +3703,88 @@
       "Carlos Rivera"
     ],
     "imageEmoji": "💃"
+  },
+  {
+    "id": "disco-club-on-fire-night-2026-10-01",
+    "title": "Latin Disco Club On Fire Night — Gogo Dancers",
+    "description": "On Fire Night (Jueves de Strippers) at Latin Disco Club, Av. Manolo Tavarez Justo frente a los depósitos de Brugal, Puerto Plata — Thursday 1 October 2026 with gogo dancers. Reserve tables: 829-563-9469. Confirm doors and cover via Instagram @latindiscoclubpp.",
+    "date": "2026-10-01",
+    "location": "Puerto Plata",
+    "venue": "Latin Disco Club",
+    "venueSlug": "disco-club-brugal",
+    "address": "Av. Manolo Tavarez Justo, frente a los depósitos de Brugal, Puerto Plata",
+    "lat": 19.7792778,
+    "lng": -70.6690061,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18295639469",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/latindiscoclubpp/",
+    "lineup": [
+      "Gogo dancers"
+    ],
+    "imageEmoji": "🔥"
+  },
+  {
+    "id": "disco-club-la-mas-doll-2026-10-02",
+    "title": "La Más Doll at Latin Disco Club",
+    "description": "La Más Doll (Bienvenida Oficial) at Latin Disco Club, Av. Manolo Tavarez Justo frente a los depósitos de Brugal, Puerto Plata — Friday 2 October 2026. Presented by PC Entertainments and TRIVI Promotion. Entrada RD$600. Reserve: 829-566-7071. Confirm doors via Instagram @latindiscoclubpp.",
+    "date": "2026-10-02",
+    "location": "Puerto Plata",
+    "venue": "Latin Disco Club",
+    "venueSlug": "disco-club-brugal",
+    "address": "Av. Manolo Tavarez Justo, frente a los depósitos de Brugal, Puerto Plata",
+    "lat": 19.7792778,
+    "lng": -70.6690061,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": false,
+    "admissionPrice": "RD$600",
+    "phone": "+18295667071",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/latindiscoclubpp/",
+    "lineup": [
+      "PC Entertainments",
+      "TRIVI Promotion"
+    ],
+    "imageEmoji": "💗"
+  },
+  {
+    "id": "meclao-sammy-bday-jhon-parra-2026-10-01",
+    "title": "Sammy B-Day — Jhon Parra at Mecla'o Rooftop",
+    "description": "Sammy B-Day at Mecla'o Rooftop Lounge, Av. Luis Ginebra No. 49, Puerto Plata — Thursday 1 October 2026 with beats by Jhon Parra (@djhxnparra). No cover. Reserve tables: 829-374-7028. Confirm doors via Instagram @meclaorooftop.",
+    "date": "2026-10-01",
+    "location": "Puerto Plata",
+    "venue": "Mecla'o Rooftop Lounge",
+    "venueSlug": "meclao-rooftop",
+    "address": "Av. Luis Ginebra No. 49, Puerto Plata 57000",
+    "lat": 19.788312,
+    "lng": -70.677453,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "phone": "+18293747028",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/meclaorooftop/",
+    "lineup": [
+      "Jhon Parra"
+    ],
+    "imageEmoji": "🎂"
   }
 ]

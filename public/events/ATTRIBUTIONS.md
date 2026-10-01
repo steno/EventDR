@@ -154,7 +154,11 @@ Curated images under `public/events/` and `public/venues/`.
 | `venues/natura-cabana-recepcion.jpg` | Google Maps visitor photo — thatched RECEPCION palapa | Natura Cabana place shot |
 | `el-parq-saturday-night.jpg` | Google Maps visitor photo — patrons at El Parq Foodpark Cabarete at night | Saturday live action at this Cabarete park (replaces Tulum Wikimedia) |
 | `venues/el-parq-cabarete-foodpark.jpg` | Google Maps visitor photo — picnic tables / stalls at El Parq Cabarete | This foodpark (replaces Tulum Wikimedia) |
-| `venues/disco-club-brugal.jpg` | [Unsplash](https://unsplash.com/photos/people-having-a-concert-photo-1540039155733) (`photo-1540039155733`) — Unsplash License | Indoor concert crowd / stage lights for Disco Club hall |
+| `venues/disco-club-brugal-interior.jpg` | POP-supplied — Latin Disco Club interior (disco ball, lit dance floor, lounge seating) | Venue place shot filename bump (replaces Unsplash concert stock) |
+| `disco-club-on-fire-night-2026-10-01.jpg` | POP-supplied — Latin Disco Club *On Fire Night* flyer (Thu 1 Oct 2026; gogo dancers) | Editor-provided; typography-heavy |
+| `disco-club-la-mas-doll-2026-10-02.jpg` | POP-supplied — PC Entertainments / TRIVI *La Más Doll* flyer at Latin Disco Club (Fri 2 Oct 2026) | Editor-provided; typography-heavy |
+| `meclao-sammy-bday-jhon-parra-2026-10-01.jpg` | POP-supplied — Mecla'o Rooftop *Sammy B-Day* / Jhon Parra flyer (Thu 1 Oct 2026; no cover) | Editor-provided; typography-heavy |
+| `venues/disco-club-brugal.jpg` | [Unsplash](https://unsplash.com/photos/people-having-a-concert-photo-1540039155733) (`photo-1540039155733`) — Unsplash License | Superseded by interior place shot |
 | `el-parq-karaoke-thursday-shaka.jpg` | POP-supplied — Shaka Bar Karaoke Night flyer (hosted by Francesca, every Thursday 7:30–9:30 PM at El Parq) | Weekly karaoke at El Parq / Encuentro (editor-provided; filename bump after replacing Unsplash stock) |
 | `el-parq-latin-friday-poster.png` | POP-supplied — Ninafrika Dance School *Noche Latina* flyer (Encuentro Food Park, Fridays 7 PM) | Event flyer filename bump (replaces Unsplash dancing stock) |
 | `venues/ninafrika-dance-school-cabarete-beach.jpg` | POP-supplied — Ninafrika Dance School / Cabarete beach class location (daytime palapa + terrace) | Venue place shot filename bump (replaces Ojo/LAX night fallback) |
@@ -291,7 +295,8 @@ Curated images under `public/events/` and `public/venues/`.
 | `venues/mauros-puerto-plata.jpg` | Sluurpy / Mauro’s Puerto Plata listing photo | Interior dining room at Plaza Juan Brugal |
 | `venues/mi-bodegon-cabarete.jpg` | [Google Maps — Mi Bodegón](https://www.google.com/maps/place/Mi+Bodeg%C3%B3n/@19.7509018,-70.4147976,17z) visitor photo | Argentine bodegón interior at Plaza Ocean Dream |
 | `venues/tasty-food-park-puerto-plata.jpg` | POP-supplied Tasty Food Park entrance arch (Av. 27 de Febrero) | Venue place shot |
-| `venues/rancho-catalina-puerto-plata-terrace.jpg` | POP-supplied Rancho La Catalina terrace / valley view | Ranch dining place shot in El Cupey (filename bump for PWA/CDN) |
+| `venues/rancho-catalina-puerto-plata-terrace-dining.jpg` | POP-supplied — Rancho La Catalina dining terrace (floral arch, valley/ocean view) | Venue place shot filename bump (editor-provided) |
+| `venues/rancho-catalina-puerto-plata-terrace.jpg` | POP-supplied Rancho La Catalina terrace / valley view | Superseded by terrace-dining place shot |
 | `el-carey-bohemian-wednesday.jpg` | POP-supplied El Carey Bohemian Night flyer | Wednesday cigar / Bohemian night |
 | `el-carey-sabado-de-son.jpg` | POP-supplied El Carey Sábado de Son flyer | Saturday son night |
 | `tasty-food-park-karaoke-wednesday.jpg` | POP-supplied Tasty Food Park karaoke flyer | Wednesday karaoke with DJ Koky |

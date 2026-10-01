@@ -77,7 +77,7 @@ export const FACEBOOK_EVENT_PAGES: readonly {
   {
     slug: "disco-club-brugal",
     url: "https://www.facebook.com/DiscoClubBrugal",
-    label: "Disco Club Brugal",
+    label: "Latin Disco Club",
     areas: ["Puerto Plata"],
   },
   {
