@@ -3694,4 +3694,64 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "Editor flyer: Francesca LIVE MUSIC, Jueves 1 Oct, 8 PM, aura Cabarete. No cover on art. Distinct from weekly El Parq/Shaka Thursday karaoke hosted by Francesca Crystals.",
     updatedAt: "2026-10-01T12:00:00.000Z",
   },
+  {
+    eventId: "casa-coco-summer-acoustics-ed-mahon-2026-10-03",
+    body: "Ed Mahon acoustic covers on Pedro Clisante at Casa Coco — dinner-table classic rock/country, not Smiley’s karaoke courtyard a few doors down; call +1 849-443-5678 for cover before you pin the strip.",
+    localized: {
+      es: "Covers acústicos de Ed Mahon en Pedro Clisante en Casa Coco — rock/country clásico de mesa, no el patio karaoke de Smiley’s unas puertas más allá; llama al +1 849-443-5678 por el cover antes de ir a la franja.",
+      fr: "Reprises acoustiques d’Ed Mahon sur Pedro Clisante chez Casa Coco — rock/country classique à table, pas la cour karaoké de Smiley’s quelques portes plus loin ; appelez +1 849-443-5678 pour le cover avant de viser le strip.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "Cover not on flyer — confirm Facebook event or +1 849-443-5678; budget dinner + drinks",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — confirma el evento de Facebook o +1 849-443-5678; presupuesta cena + tragos",
+      fr: "Cover absent de l’affiche — confirmez l’événement Facebook ou +1 849-443-5678 ; budget dîner + boissons",
+    },
+    attribution:
+      "POP research · CASA COCO Facebook event + editor flyer",
+    researchNotes:
+      "Facebook https://www.facebook.com/events/2622455568233693 — Sat 3 Oct 2026 7 PM, Pedro Clisante 3 Sosúa, Ed Mahon returning; flyer lists classic covers. Phone +1 849-443-5678. No cover price on art.",
+    updatedAt: "2026-10-01T16:00:00.000Z",
+  },
+  {
+    eventId: "atleticos-pp-vs-mineros-2026-10-03",
+    body: "Serie Final Game 4 at José Briceño — Saturday 6 PM home slate vs Mineros; pay Palco AA RD$200 / Palco A RD$300 at the gate, and don’t drive to Bonao for this one (Games 3 and 5 if needed stay there).",
+    localized: {
+      es: "Serie Final, juego 4 en José Briceño — sábado 6 PM en casa vs Mineros; paga Palco AA RD$200 / Palco A RD$300 en taquilla, y no vayas a Bonao para este (juegos 3 y 5 si hace falta quedan allá).",
+      fr: "Serie Final, match 4 à José Briceño — samedi 18 h à domicile vs Mineros ; payez Palco AA RD$200 / Palco A RD$300 au guichet, et n’allez pas à Bonao pour celui-ci (matchs 3 et 5 si besoin restent là-bas).",
+    },
+    priceFeel: "budget",
+    priceNote:
+      "Gate only — Palco A RD$300 / Palco AA RD$200; first pitch 6:00 PM",
+    priceNoteLocalized: {
+      es: "Solo taquilla — Palco A RD$300 / Palco AA RD$200; primera bola 6:00 PM",
+      fr: "Guichet seulement — Palco A RD$300 / Palco AA RD$200 ; première balle 18 h",
+    },
+    attribution:
+      "POP research · @atleticosdepuertoplata Serie Final schedule flyer",
+    researchNotes:
+      "Editor-supplied Serie Final 2026 flyer + IG schedule text: Game 4 Sat 3 Oct 6 PM José Briceño Mineros vs Atlético; Palco A RD$300 / AA RD$200 home tickets. Games 3/5 Bonao out of North Coast scope — not seeded.",
+    updatedAt: "2026-10-01T15:00:00.000Z",
+  },
+  {
+    eventId: "wingo-bogota-inauguration-2026-11-06",
+    body: "Airport ceremony for Wingo’s first Bogotá–POP flights — pin Gregorio Luperón terminal for 10:02–11:23 AM, not a beach day; book seats on wingo.com if you’re flying, and treat the Facebook invite as a free public send-off.",
+    localized: {
+      es: "Ceremonia en el aeropuerto por los primeros vuelos Bogotá–POP de Wingo — pin el terminal Gregorio Luperón 10:02–11:23 AM, no un día de playa; reserva asientos en wingo.com si vuelas, y trata el invite de Facebook como despedida pública gratis.",
+      fr: "Cérémonie aéroport pour les premiers vols Bogotá–POP de Wingo — épinglez le terminal Gregorio Luperón 10 h 02–11 h 23, pas une journée plage ; réservez sur wingo.com si vous volez, et traitez l’invite Facebook comme un départ public gratuit.",
+    },
+    priceFeel: "free",
+    priceNote:
+      "Free inauguration — flights from ~US$300 RT on wingo.com (seasonal Mon/Fri through 25 Jan 2027)",
+    priceNoteLocalized: {
+      es: "Inauguración gratis — vuelos desde ~US$300 ida y vuelta en wingo.com (temporada lun/vie hasta 25 ene 2027)",
+      fr: "Inauguration gratuite — vols dès ~US$300 A/R sur wingo.com (saison lun/ven jusqu’au 25 jan 2027)",
+    },
+    attribution:
+      "POP research · TMA Puerto Plata Facebook + noticias037 / Wingo route launch",
+    researchNotes:
+      "FB https://www.facebook.com/events/1591066336028829/ Fri 6 Nov 2026 10:02–11:23 AM POP airport; noticias037.net Wingo Bogotá–Puerto Plata from 6 Nov 2026 through 25 Jan 2027, Mon/Fri, from US$300 RT. User Aerodom promo flyer.",
+    updatedAt: "2026-10-01T14:00:00.000Z",
+  },
 ];

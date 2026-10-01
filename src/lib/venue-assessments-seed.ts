@@ -365,6 +365,17 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     ],
   }),
   editorial({
+    venueSlug: "casa-coco-sosua",
+    verdictKey: "local_favorite_night",
+    crowdFit: ["local", "mixed", "visitor"],
+    axes: { recommend: 4.1, atmosphere: 4.2, value: 4.0, practical: 4.1 },
+    themes: [
+      { key: "live_music", sentiment: "positive" },
+      { key: "dominican_plates", sentiment: "positive" },
+      { key: "expat_crowd", sentiment: "positive", audience: "visitor" },
+    ],
+  }),
+  editorial({
     venueSlug: "smileys-bar-sosua",
     verdictKey: "local_favorite_night",
     crowdFit: ["local", "mixed", "nightlife"],
@@ -1677,6 +1688,17 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
       { key: "food_park_vibe", sentiment: "positive" },
       { key: "easy_to_find", sentiment: "positive" },
       { key: "family_friendly", sentiment: "positive", audience: "family" },
+    ],
+  }),
+  editorial({
+    venueSlug: "gregorio-luperon-airport",
+    verdictKey: "solid_visitor_activity",
+    crowdFit: ["visitor", "mixed", "family"],
+    axes: { recommend: 4.0, atmosphere: 3.8, practical: 4.2, reliability: 4.1 },
+    themes: [
+      { key: "easy_to_find", sentiment: "positive" },
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+      { key: "tourist_crowds", sentiment: "mixed", audience: "visitor" },
     ],
   }),
 ];

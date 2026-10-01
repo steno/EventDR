@@ -4,6 +4,7 @@ import {
   ALL_ABOARD_PRESETS,
   CRUISE_PORTS,
   CRUISE_PORT_SLUGS,
+  DATED_CRUISE_CALLS,
   cruiseDayPhase,
   cruiseLoopPath,
   cruisePath,
@@ -23,6 +24,7 @@ import {
   parseAllAboardMinutes,
   rankCruiseEvents,
   typicalCruiseCallsForWeekday,
+  typicalCruiseCallsForPort,
   viableItinerariesForPort,
   visibleCruiseEvents,
 } from "./cruise";
@@ -70,9 +72,9 @@ describe("ALL_ABOARD_PRESETS", () => {
   it("covers Puerto Plata sail windows from early Celebrity to late Virgin", () => {
     assert.equal(ALL_ABOARD_PRESETS[0], 13 * 60);
     assert.equal(ALL_ABOARD_PRESETS.at(-1), 18 * 60 + 30);
-    // Half-hour steps so guests can match cruise-card all-aboard, not only sail hour.
+    // Quarter-hour steps so Disney :15 sails and half-hour cards both match.
     for (let i = 1; i < ALL_ABOARD_PRESETS.length; i++) {
-      assert.equal(ALL_ABOARD_PRESETS[i]! - ALL_ABOARD_PRESETS[i - 1]!, 30);
+      assert.equal(ALL_ABOARD_PRESETS[i]! - ALL_ABOARD_PRESETS[i - 1]!, 15);
     }
     // Default (16:30) stays a selectable option for the common 17:00 sail.
     assert.ok(ALL_ABOARD_PRESETS.includes(CRUISE_PORTS["taino-bay"].defaultAllAboardMinutes));
@@ -85,7 +87,7 @@ describe("typicalCruiseCallsForWeekday", () => {
     const monday = typicalCruiseCallsForWeekday("taino-bay", 1);
     assert.ok(monday.some((call) => call.ship === "Norwegian Luna"));
     assert.ok(monday.some((call) => call.ship === "MSC World America"));
-    // Monday noon AST
+    // Monday outside dated months (Sep) still uses weekday fallback
     const mon = new Date("2026-09-07T16:00:00.000Z");
     assert.equal(defaultAllAboardForPort("taino-bay", mon), 16 * 60 + 30);
   });
@@ -94,13 +96,13 @@ describe("typicalCruiseCallsForWeekday", () => {
     const tuesday = typicalCruiseCallsForWeekday("taino-bay", 2);
     assert.equal(
       tuesday.find((call) => call.ship === "Celebrity Beyond")?.allAboardMinutes,
-      13 * 60 + 30,
+      14 * 60,
     );
     assert.equal(
       tuesday.find((call) => call.ship === "Norwegian Prima")?.allAboardMinutes,
       15 * 60 + 30,
     );
-    // Prefer Prima (16:00 sail) over Beyond (14:00) as closer to 17:00.
+    // Prefer Prima (16:00 sail) over Beyond (14:30) as closer to 17:00.
     const tue = new Date("2026-09-08T16:00:00.000Z");
     assert.equal(defaultAllAboardForPort("taino-bay", tue), 15 * 60 + 30);
   });
@@ -110,6 +112,58 @@ describe("typicalCruiseCallsForWeekday", () => {
     assert.ok(wednesday.some((call) => call.allAboardMinutes === 16 * 60 + 30));
     const wed = new Date("2026-09-09T16:00:00.000Z");
     assert.equal(defaultAllAboardForPort("amber-cove", wed), 16 * 60 + 30);
+  });
+});
+
+describe("dated October 2026 MITUR schedule", () => {
+  it("loads 38 official calls (18 Amber / 20 Taino)", () => {
+    assert.equal(DATED_CRUISE_CALLS.length, 38);
+    assert.equal(
+      DATED_CRUISE_CALLS.filter((c) => c.port === "amber-cove").length,
+      18,
+    );
+    assert.equal(
+      DATED_CRUISE_CALLS.filter((c) => c.port === "taino-bay").length,
+      20,
+    );
+  });
+
+  it("uses MITUR ships for today instead of weekday guesses", () => {
+    // Thu 1 Oct 2026 noon AST
+    const oct1 = new Date("2026-10-01T16:00:00.000Z");
+    const amber = typicalCruiseCallsForPort("amber-cove", oct1);
+    const taino = typicalCruiseCallsForPort("taino-bay", oct1);
+    assert.deepEqual(
+      amber.map((c) => c.ship),
+      ["Caribbean Princess"],
+    );
+    assert.deepEqual(
+      taino.map((c) => c.ship),
+      ["Norwegian Luna"],
+    );
+    assert.equal(defaultAllAboardForPort("amber-cove", oct1), 16 * 60 + 30);
+    assert.equal(defaultAllAboardForPort("taino-bay", oct1), 17 * 60 + 30);
+  });
+
+  it("returns no ships on a dated empty day (no weekday invent)", () => {
+    // Fri 2 Oct 2026 — blank on the MITUR October calendar
+    const oct2 = new Date("2026-10-02T16:00:00.000Z");
+    assert.deepEqual(typicalCruiseCallsForPort("taino-bay", oct2), []);
+    assert.deepEqual(typicalCruiseCallsForPort("amber-cove", oct2), []);
+    assert.equal(
+      defaultAllAboardForPort("taino-bay", oct2),
+      CRUISE_PORTS["taino-bay"].defaultAllAboardMinutes,
+    );
+  });
+
+  it("matches Disney Dream’s :15 sail all-aboard on Oct 6", () => {
+    const oct6 = new Date("2026-10-06T16:00:00.000Z");
+    const taino = typicalCruiseCallsForPort("taino-bay", oct6);
+    assert.ok(taino.some((c) => c.ship === "Disney Dream"));
+    assert.equal(
+      taino.find((c) => c.ship === "Disney Dream")?.allAboardMinutes,
+      16 * 60 + 45,
+    );
   });
 });
 

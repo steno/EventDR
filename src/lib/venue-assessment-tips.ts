@@ -241,6 +241,14 @@ export const VENUE_TIP_COPY: Record<
       fr: "BBQ du vendredi au bord de la piscine près de Playa Chiquita — énergie boutique allemande ; early evening, pas un stop crawl Pedro Clisante.",
     },
   },
+  "casa-coco-sosua": {
+    body: "24/7 Pedro Clisante eatery with upstairs pool/foosball — acoustic nights like Ed Mahon are dinner-table shows, not Smiley’s karaoke courtyard next door.",
+    localized: {
+      en: "24/7 Pedro Clisante eatery with upstairs pool/foosball — acoustic nights like Ed Mahon are dinner-table shows, not Smiley’s karaoke courtyard next door.",
+      es: "Eatery 24/7 en Pedro Clisante con pool/foosball arriba — las noches acústicas tipo Ed Mahon son shows de mesa, no el patio karaoke de Smiley’s al lado.",
+      fr: "Eatery 24/7 sur Pedro Clisante avec pool/baby-foot à l’étage — les soirs acoustiques genre Ed Mahon sont des shows à table, pas la cour karaoké de Smiley’s à côté.",
+    },
+  },
   "smileys-bar-sosua": {
     body: "Open-air courtyard on Pedro Clisante — cover bands and karaoke culture, dive-bar friendly, not bottle-service.",
     localized: {
@@ -543,6 +551,14 @@ export const VENUE_TIP_COPY: Record<
       en: "Bilingual ethnographic gallery on Taíno–African–colonial threads — quiet culture hour for guests who want more than amber selfies.",
       es: "Galería etnográfica bilingüe sobre hilos taíno–africano–colonial — hora cultural quieta si quieres más que selfies de ámbar.",
       fr: "Galerie ethnographique bilingue sur les fils taïno–africain–colonial — heure culturelle calme au-delà des selfies ambre.",
+    },
+  },
+  "gregorio-luperon-airport": {
+    body: "POP airport on the Puerto Plata–Sosúa highway — treat inaugurations and first-flight days as terminal/ceremony stops, not a Sosúa beach crawl; confirm gate access before you pin rideshare.",
+    localized: {
+      en: "POP airport on the Puerto Plata–Sosúa highway — treat inaugurations and first-flight days as terminal/ceremony stops, not a Sosúa beach crawl; confirm gate access before you pin rideshare.",
+      es: "Aeropuerto POP en la carretera Puerto Plata–Sosúa — trata inauguraciones y primeros vuelos como parada de terminal/ceremonia, no un crawl de playa en Sosúa; confirma acceso antes de pedir rideshare.",
+      fr: "Aéroport POP sur la route Puerto Plata–Sosúa — traitez inaugurations et premiers vols comme arrêt terminal/cérémonie, pas un crawl plage à Sosúa ; confirmez l’accès avant de commander un rideshare.",
     },
   },
   "gregorio-luperon-museum": {

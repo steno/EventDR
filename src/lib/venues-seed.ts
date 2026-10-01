@@ -123,6 +123,18 @@ export const SEED_VENUES: Venue[] = [
     phone: "+18095713910",
   },
   {
+    slug: "casa-coco-sosua",
+    name: "CASA COCO 24/7 Eatery & Bar",
+    city: "Sosúa",
+    description:
+      "Open-air 24/7 eatery and bar at Pedro Clisante 3 in El Batey — family plates, live acoustic nights, upstairs games, and a steady Sosúa strip crowd.",
+    lat: 19.767004,
+    lng: -70.515405,
+    emoji: "🥥",
+    phone: "+18494435678",
+    website: "https://casacocotropicalvillas.com/en/overview",
+  },
+  {
     slug: "smileys-bar-sosua",
     name: "Smiley's Bar & Restaurant",
     city: "Sosúa",
@@ -908,6 +920,17 @@ export const SEED_VENUES: Venue[] = [
     lng: -70.6713889,
     emoji: "⚾",
     website: "https://todotickets.do",
+  },
+  {
+    slug: "gregorio-luperon-airport",
+    name: "Gregorio Luperón International Airport",
+    city: "Puerto Plata",
+    description:
+      "Puerto Plata’s international airport (POP / MDPP) on the highway between Puerto Plata and Sosúa — North Coast gateway for scheduled and charter flights, including seasonal Wingo Bogotá service.",
+    lat: 19.75778,
+    lng: -70.57,
+    emoji: "✈️",
+    website: "https://aerodom.com",
   },
   {
     slug: "club-deportivo-fantastico",
@@ -1882,6 +1905,16 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
     pattern:
       /parque(\s+de(\s+b[eé]isbol)?)?\s+jos[eé]\s+brice[nñ]o|estadio(\s+de(\s+b[eé]isbol)?)?\s+jos[eé]\s+brice[nñ]o|jos[eé]\s+brice[nñ]o/i,
     slug: "parque-jose-briceno",
+  },
+  {
+    pattern:
+      /casa\s*coco(\s*24\/?7)?|coco\s*24\/?7\s*(eatery|bar|restaurant)/i,
+    slug: "casa-coco-sosua",
+  },
+  {
+    pattern:
+      /gregorio\s+luper[oó]n\s+(international\s+)?airport|aeropuerto(\s+internacional)?\s+(gregorio\s+)?luper[oó]n|puerto\s+plata\s+(international\s+)?airport/i,
+    slug: "gregorio-luperon-airport",
   },
   {
     pattern:

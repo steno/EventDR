@@ -147,6 +147,8 @@ export const CURATED_ADMISSION_PRICES: Record<string, string> = {
   "chiche-almonte-zona-acapella-2026-10-04": "Free",
   "camara-almuerzo-codigo-penal-2026-10-22": "RD$3,500",
   "teleferico-inicio-obras-2026-10-03": "Free",
+  "wingo-bogota-inauguration-2026-11-06": "Free",
+  "atleticos-pp-vs-mineros-2026-10-03": "from RD$200",
   "sosua-coastal-pickleball-open-2026-10-24": "RD$2,000",
   "serenade-dominican-night-villa-taina-weekly": "RD$952",
   "serenade-mongolian-night-villa-taina-weekly": "RD$906",
@@ -193,6 +195,7 @@ export const CURATED_CALL_FOR_PRICING = new Set<string>([
   "la-lola-back-to-northside-2026-07-04",
   "geek-fest-rd-2026-09-20",
   "festival-presidente-2026-10-03",
+  "casa-coco-summer-acoustics-ed-mahon-2026-10-03",
 ]);
 
 /**
@@ -214,6 +217,8 @@ export const CURATED_FREE_EVENTS = new Set<string>([
   "natura-market-moto-2026-09-19",
   "natura-market-2026-10-04",
   "licor-lab-car-show-2026-10-10",
+  "teleferico-inicio-obras-2026-10-03",
+  "wingo-bogota-inauguration-2026-11-06",
   "eat-street-market-ocean-one-2026-09-27",
   "imbert-mercedes-patronales-2026",
   "guananico-san-miguel-patronales-2026",

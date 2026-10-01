@@ -242,6 +242,8 @@ const FACEBOOK_SEED_EVENT_IDS_BASE = [
   "hard-rock-karaoke-wednesday",
   "sosua-neon-partyrun-2026-10-24",
   "hard-rock-casa-mickey-2026-09-26",
+  "casa-coco-summer-acoustics-ed-mahon-2026-10-03",
+  "wingo-bogota-inauguration-2026-11-06",
 ] as const;
 
 /** Curated event ids discovered from monitored Facebook groups (see fallback-events). */

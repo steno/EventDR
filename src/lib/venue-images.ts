@@ -18,6 +18,7 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "castaways-sosua": "castaways-sosua-dining.jpg",
   // Filename bump — daytime pool / palapa place shot (editor-provided).
   "hotel-voramar-sosua": "hotel-voramar-sosua-pool.jpg",
+  "casa-coco-sosua": "casa-coco-sosua.jpg",
   "smileys-bar-sosua": "smileys-bar-sosua-daytime.jpg",
   "finish-line-sosua": "finish-line-sosua-bar.jpg",
   // Filename bump after replacing a shared Freestyle Catamaran shot.
@@ -85,6 +86,7 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "casa-de-la-cultura": "casa-de-la-cultura.jpg",
   "handmade-the-brand": "handmade-the-brand.jpeg",
   "parque-jose-briceno": "parque-jose-briceno.jpg",
+  "gregorio-luperon-airport": "gregorio-luperon-airport.jpg",
   "club-deportivo-fantastico": "club-deportivo-fantastico.jpeg",
   // Filename bump — El Pueblito rooftop sign (Unsplash pan stays on the event).
   "paella-pop-el-pueblito": "paella-pop-el-pueblito-sign.jpg",

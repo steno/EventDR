@@ -24,6 +24,7 @@ const EVENT_PHONE_BY_ID: Record<string, string> = {
   "el-colibri-karaoke-battle-2026": "+18099709433",
   "el-colibri-atrevete-saturdays": "+18099709433",
   "festival-presidente-2026-10-03": "+18092270103",
+  "casa-coco-summer-acoustics-ed-mahon-2026-10-03": "+18494435678",
   "ocean-winds-karaoke-nights": "+18495915588",
   "puerto-plata-golf-classic-2026": "+18093204262",
   "sosua-10k-road-race-2026": "+18095712100",

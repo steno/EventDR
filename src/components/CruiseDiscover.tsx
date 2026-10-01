@@ -37,11 +37,10 @@ import {
   minutesUntil,
   rankCruiseEvents,
   resolveItineraryStops,
-  typicalCruiseCallsForWeekday,
+  typicalCruiseCallsForPort,
   viableItinerariesForPort,
   visibleCruiseEvents,
 } from "@/lib/cruise";
-import { localDateISO, weekdayFromISO } from "@/lib/event-dates";
 import { CARD_GRID_CLASS, SECTION_TITLE_CLASS } from "@/lib/page-shell";
 import { fillTemplate } from "@/lib/seo";
 import type { Event, Venue } from "@/lib/types";
@@ -57,9 +56,15 @@ const CRUISE_PANEL_PAD_CLASS = "px-4 py-4 sm:px-5";
 const CRUISE_GLOW_BLOB_CLASS =
   "pointer-events-none absolute -right-10 -top-12 h-40 w-40 rounded-full bg-gradient-to-br from-orange-300/35 via-rose-300/20 to-transparent blur-3xl dark:from-orange-400/35 dark:via-rose-400/18 dark:opacity-90";
 const CRUISE_CLOCK_CHIP_CLASS =
-  "mt-4 inline-flex max-w-full items-start gap-2 rounded-2xl bg-gradient-to-r from-amber-50 via-orange-50 to-rose-50/80 px-3.5 py-2.5 text-sm font-bold leading-snug text-orange-950 ring-1 ring-orange-200/60 dark:from-amber-400/18 dark:via-orange-400/14 dark:to-rose-400/10 dark:text-orange-50 dark:ring-orange-300/20";
+  "mt-4 inline-flex max-w-full items-start gap-2.5 rounded-2xl bg-gradient-to-r from-amber-50 via-orange-50 to-rose-50/80 px-4 py-3 text-base font-bold leading-snug text-orange-950 ring-1 ring-orange-200/60 dark:from-amber-400/18 dark:via-orange-400/14 dark:to-rose-400/10 dark:text-orange-50 dark:ring-orange-300/20";
 const CRUISE_PRIMARY_BTN_CLASS =
-  "inline-flex items-center justify-center rounded-2xl bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-4 py-2.5 text-sm font-bold text-white shadow-sm shadow-rose-500/30 transition-[transform,filter] active:scale-[0.98]";
+  "inline-flex items-center justify-center rounded-2xl bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-4 py-3 text-base font-bold text-white shadow-sm shadow-rose-500/30 transition-[transform,filter] active:scale-[0.98]";
+const CRUISE_FIELD_LABEL_CLASS =
+  "text-sm font-bold uppercase tracking-wide text-neutral-600 dark:text-neutral-300";
+const CRUISE_SHIP_CHIP_BASE =
+  "rounded-xl px-3 py-2 text-left text-sm font-bold touch-manipulation";
+const CRUISE_SHIP_CHIP_SELECTED = `${CRUISE_SHIP_CHIP_BASE} bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 text-white shadow-sm shadow-rose-500/25`;
+const CRUISE_SHIP_CHIP_IDLE = `${CRUISE_SHIP_CHIP_BASE} bg-white/90 text-neutral-800 ring-1 ring-orange-200/55 transition-colors hover:bg-orange-50 dark:bg-white/[0.06] dark:text-neutral-100 dark:ring-white/10 dark:hover:bg-white/10`;
 
 interface CruiseDiscoverProps {
   locale: Locale;
@@ -103,10 +108,9 @@ export function CruiseDiscover({
     ? cruiseDayPhase(portMeta, allAboardMinutes, now)
     : "open";
   const sailed = phase === "sailed";
-  const weekday = weekdayFromISO(localDateISO(now));
   const typicalCalls = useMemo(
-    () => typicalCruiseCallsForWeekday(port, weekday),
-    [port, weekday],
+    () => typicalCruiseCallsForPort(port, now),
+    [port, now],
   );
   /** Hide routes once head-back starts, or when none still fit the remaining window. */
   const loops = useMemo(() => itinerariesForPort(port), [port]);
@@ -180,7 +184,7 @@ export function CruiseDiscover({
           className={`${CRUISE_PANEL_CLASS} ${CRUISE_PANEL_PAD_CLASS} relative overflow-hidden lg:px-5 lg:py-5`}
         >
           <div aria-hidden className={CRUISE_GLOW_BLOB_CLASS} />
-          <p className="relative text-xs font-bold uppercase tracking-[0.18em] text-orange-600 dark:text-orange-300">
+          <p className="relative text-sm font-bold uppercase tracking-[0.16em] text-orange-600 dark:text-orange-300">
             {panelEyebrow}
           </p>
 
@@ -212,7 +216,7 @@ export function CruiseDiscover({
                   role="tab"
                   aria-selected={selected}
                   onClick={() => selectPort(slug)}
-                  className={`relative z-10 flex-1 rounded-xl px-3 py-2.5 text-sm font-bold touch-manipulation transition-[color,transform] duration-200 ease-out active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 ${
+                  className={`relative z-10 flex-1 rounded-xl px-3 py-3 text-base font-bold touch-manipulation transition-[color,transform] duration-200 ease-out active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 ${
                     selected
                       ? "text-neutral-950 dark:text-white"
                       : "text-neutral-500 hover:text-neutral-800 dark:text-neutral-400 dark:hover:text-neutral-200"
@@ -226,7 +230,7 @@ export function CruiseDiscover({
 
           <p
             key={`hint-${port}`}
-            className="cruise-port-swap relative mt-2 text-sm font-semibold leading-snug text-orange-700 dark:text-orange-300"
+            className="cruise-port-swap relative mt-3 text-base font-semibold leading-snug text-orange-700 dark:text-orange-300"
             aria-live="polite"
           >
             {portLabel}
@@ -239,19 +243,10 @@ export function CruiseDiscover({
           <div key={`form-${port}`} className="cruise-port-swap relative">
             {!sailed ? (
               <label className="mt-4 block">
-                <span className="text-xs font-bold uppercase tracking-wide text-neutral-500 dark:text-neutral-400">
-                  {copy.allAboard}
-                </span>
-                <span
-                  id="cruise-all-aboard-hint"
-                  className="mt-1 block text-xs font-medium leading-snug text-neutral-500 dark:text-neutral-400"
-                >
-                  {copy.allAboardHint}
-                </span>
+                <span className={CRUISE_FIELD_LABEL_CLASS}>{copy.allAboard}</span>
                 <select
-                  className="mt-1.5 w-full rounded-2xl border-0 bg-white/95 px-3.5 py-3 text-sm font-bold text-neutral-950 outline-none ring-1 ring-orange-200/60 focus:ring-2 focus:ring-orange-400 dark:bg-white/[0.08] dark:text-white dark:ring-white/12 dark:focus:ring-orange-400/70"
+                  className="mt-2 w-full rounded-2xl border-0 bg-white/95 px-4 py-3.5 text-lg font-bold text-neutral-950 outline-none ring-1 ring-orange-200/60 focus:ring-2 focus:ring-orange-400 dark:bg-white/[0.08] dark:text-white dark:ring-white/12 dark:focus:ring-orange-400/70"
                   aria-label={copy.allAboardHelp}
-                  aria-describedby="cruise-all-aboard-hint"
                   value={formatAllAboardParam(allAboardMinutes)}
                   onChange={(event) => {
                     const next = ALL_ABOARD_PRESETS.find(
@@ -272,12 +267,12 @@ export function CruiseDiscover({
                   ))}
                 </select>
                 {typicalCalls.length > 0 ? (
-                  <div className="mt-2.5">
-                    <span className="text-xs font-bold uppercase tracking-wide text-neutral-500 dark:text-neutral-400">
+                  <div className="mt-3">
+                    <span className={CRUISE_FIELD_LABEL_CLASS}>
                       {copy.allAboardTypical}
                     </span>
                     <div
-                      className="mt-1.5 flex flex-wrap gap-1.5"
+                      className="mt-2 flex flex-wrap gap-2"
                       role="group"
                       aria-label={copy.allAboardTypical}
                     >
@@ -294,16 +289,16 @@ export function CruiseDiscover({
                             }
                             className={
                               selected
-                                ? "rounded-xl bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-2.5 py-1.5 text-left text-xs font-bold text-white shadow-sm shadow-rose-500/25"
-                                : "rounded-xl bg-white/90 px-2.5 py-1.5 text-left text-xs font-bold text-neutral-800 ring-1 ring-orange-200/55 transition-colors hover:bg-orange-50 dark:bg-white/[0.06] dark:text-neutral-100 dark:ring-white/10 dark:hover:bg-white/10"
+                                ? CRUISE_SHIP_CHIP_SELECTED
+                                : CRUISE_SHIP_CHIP_IDLE
                             }
                           >
                             <span className="block leading-snug">{call.ship}</span>
                             <span
                               className={
                                 selected
-                                  ? "mt-0.5 block font-semibold text-white/90"
-                                  : "mt-0.5 block font-semibold text-neutral-500 dark:text-neutral-400"
+                                  ? "mt-0.5 block text-sm font-semibold text-white/90"
+                                  : "mt-0.5 block text-sm font-semibold text-neutral-500 dark:text-neutral-400"
                               }
                             >
                               {formatClockMinutes(call.allAboardMinutes, locale)}
@@ -319,14 +314,14 @@ export function CruiseDiscover({
 
             <p className={CRUISE_CLOCK_CHIP_CLASS}>
               <Clock
-                className="mt-0.5 h-4 w-4 shrink-0 text-orange-500 dark:text-orange-300"
+                className="mt-0.5 h-5 w-5 shrink-0 text-orange-500 dark:text-orange-300"
                 aria-hidden
               />
               <span>{clockLine}</span>
             </p>
 
             {phase === "open" && !loopsClosed ? (
-              <p className="mt-3 text-sm font-medium text-neutral-600 dark:text-neutral-300">
+              <p className="mt-3 text-base font-medium leading-snug text-neutral-600 dark:text-neutral-300">
                 {port === "taino-bay" ? copy.taxiTipTaino : copy.taxiTipAmber}
               </p>
             ) : null}

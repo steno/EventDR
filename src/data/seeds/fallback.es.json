@@ -3814,5 +3814,82 @@
       "Francesca"
     ],
     "imageEmoji": "🎤"
+  },
+  {
+    "id": "casa-coco-summer-acoustics-ed-mahon-2026-10-03",
+    "date": "2026-10-03",
+    "time": "7:00 PM",
+    "location": "Sosúa",
+    "venue": "CASA COCO 24/7 Eatery & Bar",
+    "venueSlug": "casa-coco-sosua",
+    "address": "Pedro Clisante 3, Sosúa 57000",
+    "lat": 19.767004,
+    "lng": -70.515405,
+    "category": "concert",
+    "categories": [
+      "music",
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18494435678",
+    "sourceType": "facebook",
+    "sourceUrl": "https://www.facebook.com/events/2622455568233693",
+    "lineup": [
+      "Ed Mahon"
+    ],
+    "imageEmoji": "🎸",
+    "title": "Summer Acoustics con Ed Mahon en Casa Coco",
+    "description": "Summer Acoustics con Ed Mahon en CASA COCO 24/7 Eatery & Bar en Pedro Clisante, Sosúa — sábado 3 de octubre 2026 a las 7:00 PM. Covers de rock y country clásico (Trooper, Eagles, Elton John, Bob Seger y más) para un viaje por la memoria musical. Confirma cover en el evento de Facebook o llama al +1 849-443-5678."
+  },
+  {
+    "id": "atleticos-pp-vs-mineros-2026-10-03",
+    "date": "2026-10-03",
+    "time": "6:00 PM",
+    "location": "Puerto Plata",
+    "address": "Av. Hermanas Mirabal, Puerto Plata",
+    "venue": "Parque José Briceño",
+    "venueSlug": "parque-jose-briceno",
+    "lat": 19.7827778,
+    "lng": -70.6713889,
+    "category": "sports",
+    "format": "physical",
+    "trending": true,
+    "admissionPrice": "from RD$200",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/atleticosdepuertoplata/",
+    "imageEmoji": "⚾",
+    "title": "Atléticos de Puerto Plata vs Mineros de Bonao — Serie Final Juego 4",
+    "description": "Serie Final de la Liga Nacional de Béisbol de Verano, juego 4 en el Parque José Briceño — los Atléticos de Puerto Plata reciben a los Mineros de Bonao el sábado 3 de octubre 2026 (primera bola 6:00 PM). Boletos en taquilla: Palco A RD$300 / Palco AA RD$200 (sin página de playoffs en todotickets). El juego 3 es el viernes en Bonao; el juego 5 el domingo en Bonao solo si es necesario."
+  },
+  {
+    "id": "wingo-bogota-inauguration-2026-11-06",
+    "date": "2026-11-06",
+    "time": "10:02 AM – 11:23 AM",
+    "location": "Puerto Plata",
+    "venue": "Gregorio Luperón International Airport",
+    "venueSlug": "gregorio-luperon-airport",
+    "address": "Carretera Puerto Plata–Sosúa, Aeropuerto Internacional Gregorio Luperón (POP)",
+    "lat": 19.75778,
+    "lng": -70.57,
+    "category": "business",
+    "categories": [
+      "culture"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "ticketUrl": "https://www.wingo.com",
+    "sourceType": "facebook",
+    "sourceUrl": "https://www.facebook.com/events/1591066336028829/",
+    "lineup": [
+      "Wingo",
+      "AERODOM",
+      "TMA Puerto Plata"
+    ],
+    "imageEmoji": "✈️",
+    "title": "Inauguración ruta Wingo Bogotá — Aeropuerto Gregorio Luperón",
+    "description": "Inauguración pública de los vuelos directos Bogotá–Puerto Plata de Wingo en el Aeropuerto Internacional Gregorio Luperón — viernes 6 de noviembre 2026, 10:02 AM–11:23 AM. Organiza TMA Puerto Plata el primer servicio internacional de Wingo que conecta Puerto Plata y la costa norte con Bogotá. Vuelos de temporada lun/vie hasta el 25 de enero 2027; tiquetes desde unos US$300 ida y vuelta en wingo.com. Ceremonia gratuita — confirma logística en Facebook."
   }
 ]

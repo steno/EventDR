@@ -69,6 +69,12 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Hôtel boutique au bord de la piscine avec BBQ le vendredi et groupes rock et pop en live — tenu par des Allemands, à deux pas de Playa Chiquita.",
     },
   },
+  "casa-coco-sosua": {
+    description: {
+      es: "Eatery y bar 24/7 al aire libre en Pedro Clisante 3, El Batey — platos familiares, noches acústicas en vivo, juegos arriba y ambiente de la franja de Sosúa.",
+      fr: "Eatery et bar 24/7 en plein air au Pedro Clisante 3, El Batey — assiettes familiales, soirées acoustiques live, jeux à l’étage et ambiance du strip de Sosúa.",
+    },
+  },
   "smileys-bar-sosua": {
     description: {
       es: "Bar al aire libre en el patio de la Calle Pedro Clisante — música en vivo, karaoke y público expat los fines de semana.",
@@ -483,6 +489,12 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
     description: {
       es: "Galería etnográfica sobre el patrimonio taíno, africano y colonial — exposiciones bilingües y recorridos con QR en el centro histórico.",
       fr: "Galerie ethnographique retraçant l'héritage taïno, africain et colonial — expositions bilingues et visites guidées par QR dans le centre historique.",
+    },
+  },
+  "gregorio-luperon-airport": {
+    description: {
+      es: "Aeropuerto internacional de Puerto Plata (POP / MDPP) en la carretera entre Puerto Plata y Sosúa — puerta de la costa norte para vuelos regulares y chárter, incluida la ruta estacional Wingo a Bogotá.",
+      fr: "Aéroport international de Puerto Plata (POP / MDPP) sur la route entre Puerto Plata et Sosúa — porte d’entrée de la côte nord pour vols réguliers et charters, y compris la route saisonnière Wingo vers Bogotá.",
     },
   },
   "gregorio-luperon-museum": {

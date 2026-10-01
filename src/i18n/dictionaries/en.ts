@@ -1069,7 +1069,7 @@ export const en: Dictionary = {
     allAboardHelp: "When do you need to be back on the ship?",
     allAboardHint:
       "Ships call this all-aboard — check the time on your cruise card, or tap your ship if it’s listed.",
-    allAboardTypical: "Typical today",
+    allAboardTypical: "Ships today",
     leaveBy: "Be back at the pier by {time}",
     leaveByNow: "Head back to the ship now",
     minutesLeft: "{duration} until you should leave",

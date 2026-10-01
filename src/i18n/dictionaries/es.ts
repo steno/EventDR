@@ -417,7 +417,7 @@ export const es: Dictionary = {
     allAboardHelp: "¿A qué hora debes estar de vuelta a bordo?",
     allAboardHint:
       "En el barco lo llaman all-aboard — mira la hora en tu tarjeta del crucero, o toca tu barco si aparece en la lista.",
-    allAboardTypical: "Típico hoy",
+    allAboardTypical: "Barcos hoy",
     leaveBy: "Regresa al muelle a las {time}",
     leaveByNow: "Vuelve al barco ahora",
     minutesLeft: "{duration} para salir hacia el barco",

@@ -71,32 +71,46 @@ export const CRUISE_PORT_SLUGS: CruisePortSlug[] = ["taino-bay", "amber-cove"];
 
 /**
  * All-aboard choices for Taino Bay + Amber Cove.
- * Published sail times at both ports cluster on the hour from 14:00–19:00
- * (Celebrity Beyond ~14:00, NCL Luna ~15:00, Prima ~16:00, MSC/Carnival ~17:00,
- * Vista/Princess ~18:00, Virgin Resilient Lady ~19:00). All-aboard is usually
- * 30–60 minutes before sail — so this list spans 13:00–18:30.
+ * Published sail times at both ports cluster from ~14:30–19:00 (Celebrity Beyond
+ * ~14:30, NCL Luna ~15:00/18:00, Prima ~16:00, Disney Destiny ~16:15, MSC/Carnival
+ * ~17:00, Dream ~17:15, Vista/Princess ~18:00–18:30, Virgin/Getaway ~19:00).
+ * All-aboard is usually 30 minutes before sail — so this list spans 13:00–18:30.
+ * Quarter-hour steps cover Disney :15 sails as well as half-hour cruise cards.
  */
 export const ALL_ABOARD_PRESETS = [
   13 * 60,
+  13 * 60 + 15,
   13 * 60 + 30,
+  13 * 60 + 45,
   14 * 60,
+  14 * 60 + 15,
   14 * 60 + 30,
+  14 * 60 + 45,
   15 * 60,
+  15 * 60 + 15,
   15 * 60 + 30,
+  15 * 60 + 45,
   16 * 60,
+  16 * 60 + 15,
   16 * 60 + 30,
+  16 * 60 + 45,
   17 * 60,
+  17 * 60 + 15,
   17 * 60 + 30,
+  17 * 60 + 45,
   18 * 60,
+  18 * 60 + 15,
   18 * 60 + 30,
 ] as const;
 
 export const DEFAULT_ALL_ABOARD_MINUTES = CRUISE_PORTS["taino-bay"].defaultAllAboardMinutes;
 
 /**
- * Recurring Puerto Plata calls (2026 schedules). All-aboard is sail − 30 min —
- * the usual cruise-card gap; leave buffers still pad the walk/taxi back to the pier.
- * Weekdays are 0=Sun … 6=Sat in America/Santo_Domingo.
+ * Recurring Puerto Plata calls (fallback when no dated MITUR month is loaded).
+ * All-aboard is sail − 30 min — the usual cruise-card gap; leave buffers still
+ * pad the walk/taxi back to the pier. Weekdays are 0=Sun … 6=Sat in
+ * America/Santo_Domingo. Prefer {@link DATED_CRUISE_CALLS} for months we have
+ * an official Amber Cove / Taino Bay calendar.
  */
 export type TypicalCruiseCall = {
   id: string;
@@ -107,10 +121,106 @@ export type TypicalCruiseCall = {
   allAboardMinutes: number;
 };
 
+/** Official MITUR / port calendar row for a specific local date. */
+export type DatedCruiseCall = {
+  id: string;
+  date: string;
+  port: CruisePortSlug;
+  ship: string;
+  arriveMinutes: number;
+  sailMinutes: number;
+  allAboardMinutes: number;
+};
+
 const AA = (sailHour: number, sailMin = 0) => sailHour * 60 + sailMin - 30;
+const CLOCK = (hour: number, min = 0) => hour * 60 + min;
+
+function datedCall(
+  date: string,
+  port: CruisePortSlug,
+  ship: string,
+  arriveH: number,
+  arriveM: number,
+  sailH: number,
+  sailM = 0,
+): DatedCruiseCall {
+  const sailMinutes = CLOCK(sailH, sailM);
+  const slug = ship
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+  return {
+    id: `${port}-${date}-${slug}`,
+    date,
+    port,
+    ship,
+    arriveMinutes: CLOCK(arriveH, arriveM),
+    sailMinutes,
+    allAboardMinutes: sailMinutes - 30,
+  };
+}
+
+/**
+ * Official October 2026 Amber Cove (green) + Taino Bay (blue) arrivals from
+ * Ministerio de Turismo calendar (38 ships: 18 Amber / 20 Taino). Subject to
+ * change — when a later month calendar ships, add another dated block and
+ * extend {@link DATED_CRUISE_MONTHS}.
+ */
+export const DATED_CRUISE_CALLS: readonly DatedCruiseCall[] = [
+  // Week of Oct 1
+  datedCall("2026-10-01", "amber-cove", "Caribbean Princess", 8, 0, 17),
+  datedCall("2026-10-01", "taino-bay", "Norwegian Luna", 10, 0, 18),
+  // Week of Oct 4
+  datedCall("2026-10-05", "taino-bay", "Norwegian Luna", 7, 0, 15),
+  datedCall("2026-10-05", "taino-bay", "MSC World America", 9, 0, 17),
+  datedCall("2026-10-06", "amber-cove", "Carnival Mardi Gras", 8, 0, 17),
+  datedCall("2026-10-06", "taino-bay", "Disney Dream", 7, 45, 17, 15),
+  datedCall("2026-10-06", "taino-bay", "Norwegian Prima", 9, 0, 16),
+  datedCall("2026-10-08", "amber-cove", "Caribbean Princess", 9, 30, 18),
+  // Week of Oct 11
+  datedCall("2026-10-12", "taino-bay", "Norwegian Luna", 7, 0, 15),
+  datedCall("2026-10-13", "amber-cove", "Regal Princess", 8, 0, 18),
+  datedCall("2026-10-13", "amber-cove", "Carnival Vista", 10, 30, 18, 30),
+  datedCall("2026-10-13", "taino-bay", "Celebrity Beyond", 8, 0, 14, 30),
+  datedCall("2026-10-13", "taino-bay", "Adventure of the Seas", 8, 0, 17),
+  datedCall("2026-10-14", "amber-cove", "Carnival Magic", 8, 0, 17),
+  datedCall("2026-10-14", "amber-cove", "Carnival Mardi Gras", 8, 0, 17),
+  datedCall("2026-10-14", "taino-bay", "Resilient Lady", 10, 0, 19),
+  datedCall("2026-10-15", "amber-cove", "Caribbean Princess", 8, 0, 17),
+  datedCall("2026-10-15", "amber-cove", "Carnival Celebration", 8, 0, 17),
+  datedCall("2026-10-15", "taino-bay", "Norwegian Luna", 10, 0, 18),
+  // Week of Oct 18
+  datedCall("2026-10-19", "taino-bay", "Norwegian Luna", 7, 0, 15),
+  datedCall("2026-10-19", "taino-bay", "MSC World America", 9, 0, 17),
+  datedCall("2026-10-20", "taino-bay", "Norwegian Prima", 9, 0, 16),
+  datedCall("2026-10-21", "amber-cove", "Regal Princess", 8, 0, 18),
+  datedCall("2026-10-22", "amber-cove", "Carnival Vista", 9, 0, 18),
+  datedCall("2026-10-22", "amber-cove", "Carnival Celebration", 10, 0, 18),
+  datedCall("2026-10-22", "taino-bay", "Disney Destiny", 7, 45, 16, 15),
+  // Week of Oct 25
+  datedCall("2026-10-26", "amber-cove", "Caribbean Princess", 9, 0, 18),
+  datedCall("2026-10-26", "taino-bay", "Norwegian Luna", 7, 0, 15),
+  datedCall("2026-10-27", "amber-cove", "Eurodam", 8, 0, 17),
+  datedCall("2026-10-27", "amber-cove", "Carnival Vista", 10, 30, 18, 30),
+  datedCall("2026-10-27", "taino-bay", "Celebrity Beyond", 8, 0, 14, 30),
+  datedCall("2026-10-28", "amber-cove", "Carnival Magic", 8, 0, 17),
+  datedCall("2026-10-28", "amber-cove", "Carnival Mardi Gras", 8, 0, 17),
+  datedCall("2026-10-28", "taino-bay", "Resilient Lady", 10, 0, 19),
+  datedCall("2026-10-29", "amber-cove", "Carnival Celebration", 8, 0, 17),
+  datedCall("2026-10-30", "taino-bay", "Allure of the Seas", 9, 30, 17),
+  datedCall("2026-10-30", "taino-bay", "Norwegian Getaway", 10, 30, 19),
+  datedCall("2026-10-31", "taino-bay", "Oasis of the Seas", 9, 0, 15),
+];
+
+/** YYYY-MM prefixes with an official dated calendar loaded above. */
+const DATED_CRUISE_MONTHS = new Set(["2026-10"]);
+
+export function hasDatedCruiseSchedule(dateISO: string): boolean {
+  return DATED_CRUISE_MONTHS.has(dateISO.slice(0, 7));
+}
 
 export const TYPICAL_CRUISE_CALLS: readonly TypicalCruiseCall[] = [
-  // Taino Bay — MSC / NCL / Celebrity / Virgin / RCI
+  // Taino Bay — patterns from the Oct 2026 MITUR slate (fallback outside dated months)
   {
     id: "taino-ncl-luna",
     port: "taino-bay",
@@ -132,22 +242,14 @@ export const TYPICAL_CRUISE_CALLS: readonly TypicalCruiseCall[] = [
     port: "taino-bay",
     weekdays: [2],
     ship: "Celebrity Beyond",
-    sailMinutes: 14 * 60,
-    allAboardMinutes: AA(14),
+    sailMinutes: CLOCK(14, 30),
+    allAboardMinutes: AA(14, 30),
   },
   {
     id: "taino-ncl-prima",
     port: "taino-bay",
     weekdays: [2],
     ship: "Norwegian Prima",
-    sailMinutes: 16 * 60,
-    allAboardMinutes: AA(16),
-  },
-  {
-    id: "taino-independence",
-    port: "taino-bay",
-    weekdays: [3],
-    ship: "Independence of the Seas",
     sailMinutes: 16 * 60,
     allAboardMinutes: AA(16),
   },
@@ -160,39 +262,58 @@ export const TYPICAL_CRUISE_CALLS: readonly TypicalCruiseCall[] = [
     allAboardMinutes: AA(19),
   },
   {
-    id: "taino-oasis",
+    id: "taino-ncl-luna-thu",
     port: "taino-bay",
     weekdays: [4],
+    ship: "Norwegian Luna",
+    sailMinutes: 18 * 60,
+    allAboardMinutes: AA(18),
+  },
+  {
+    id: "taino-oasis",
+    port: "taino-bay",
+    weekdays: [6],
     ship: "Oasis of the Seas",
     sailMinutes: 15 * 60,
     allAboardMinutes: AA(15),
   },
-  // Amber Cove — Carnival Corporation brands (typical Excel / Princess windows)
+  // Amber Cove — Carnival / Princess afternoon windows
   {
     id: "amber-carnival-afternoon",
     port: "amber-cove",
-    weekdays: [1, 2, 3, 4],
+    weekdays: [2, 3, 4],
     ship: "Carnival (~5 PM sail)",
     sailMinutes: 17 * 60,
     allAboardMinutes: AA(17),
   },
   {
-    id: "amber-vista-early",
-    port: "amber-cove",
-    weekdays: [4, 5],
-    ship: "Carnival Vista (~3 PM)",
-    sailMinutes: 15 * 60,
-    allAboardMinutes: AA(15),
-  },
-  {
     id: "amber-princess-late",
     port: "amber-cove",
-    weekdays: [3, 4],
-    ship: "Princess / Vista (~6 PM)",
+    weekdays: [2, 3],
+    ship: "Princess (~6 PM)",
     sailMinutes: 18 * 60,
     allAboardMinutes: AA(18),
   },
+  {
+    id: "amber-vista-late",
+    port: "amber-cove",
+    weekdays: [2, 4],
+    ship: "Carnival Vista (~6:30 PM)",
+    sailMinutes: CLOCK(18, 30),
+    allAboardMinutes: AA(18, 30),
+  },
 ];
+
+function datedCallsAsTypical(calls: readonly DatedCruiseCall[]): TypicalCruiseCall[] {
+  return calls.map((call) => ({
+    id: call.id,
+    port: call.port,
+    weekdays: [weekdayFromISO(call.date)] as const,
+    ship: call.ship,
+    sailMinutes: call.sailMinutes,
+    allAboardMinutes: call.allAboardMinutes,
+  }));
+}
 
 /** Ships that usually call this port on this local weekday (0=Sun … 6=Sat). */
 export function typicalCruiseCallsForWeekday(
@@ -205,17 +326,27 @@ export function typicalCruiseCallsForWeekday(
   );
 }
 
-/** Ships that usually call this port on this local calendar day. */
+/**
+ * Ships calling this port on the local calendar day.
+ * When an official MITUR month is loaded ({@link DATED_CRUISE_CALLS}), use that
+ * slate only — empty means no ships that day (do not invent weekday regulars).
+ */
 export function typicalCruiseCallsForPort(
   port: CruisePortSlug,
   now: Date = new Date(),
 ): TypicalCruiseCall[] {
-  return typicalCruiseCallsForWeekday(port, weekdayFromISO(localDateISO(now)));
+  const date = localDateISO(now);
+  if (hasDatedCruiseSchedule(date)) {
+    return datedCallsAsTypical(
+      DATED_CRUISE_CALLS.filter((call) => call.port === port && call.date === date),
+    );
+  }
+  return typicalCruiseCallsForWeekday(port, weekdayFromISO(date));
 }
 
 /**
- * Day-aware all-aboard default: among today's typical calls, prefer the sail
- * closest to 17:00 (the modal Puerto Plata window); else the port static default.
+ * Day-aware all-aboard default: among today's calls, prefer the sail closest
+ * to 17:00 (the modal Puerto Plata window); else the port static default.
  */
 export function defaultAllAboardForPort(
   port: CruisePortSlug,

@@ -200,6 +200,11 @@ Curated images under `public/events/` and `public/venues/`.
 | `inicio-del-campamento-pp-2026.jpg` | [Unsplash](https://unsplash.com/photos/photo-1526232761682) (`photo-1526232761682`) — Unsplash License | Youth sports camp huddle (replaces podcast logo) |
 | `atleticos-pp-vs-mangueros-2026-07-17.jpg` (+ other Atléticos home/playoff games incl. `atleticos-pp-vs-reales-2026-09-19.jpg`) | POP curated `athleticosPOP.png` — Atléticos de Puerto Plata pitcher | Authentic team photo; replaces Unsplash stock for the full home slate |
 | `atleticos-pp-vs-mineros-2026-09-27.jpg` | POP-supplied / editor-provided — @atleticosdepuertoplata “It’s Game Day” Serie Final flyer | Official team promo art for Serie Final Game 2 vs Mineros (typography-heavy; not a home hero scene) |
+| `atleticos-pp-vs-mineros-2026-10-03.jpg` | POP-supplied / editor-provided — Atléticos Serie Final 2026 schedule flyer (Games 3–5) | Game 4 José Briceño home art (typography-heavy; not a home hero scene) |
+| `casa-coco-summer-acoustics-ed-mahon-2026-10-03.jpg` | POP-supplied / editor-provided — Casa Coco Summer Acoustics with Ed Mahon flyer | Sat 3 Oct 2026 7 PM Pedro Clisante (typography-heavy; not a home hero scene) |
+| `wingo-bogota-inauguration-2026-11-06.jpg` | POP-supplied / editor-provided — AERODOM / Wingo Puerto Plata–Bogotá route promo | Fri 6 Nov 2026 inauguration art (typography-heavy; not a home hero scene) |
+| `venues/casa-coco-sosua.jpg` | POP-supplied / editor-provided — Casa Coco 24/7 interior (welcome beam, yellow cushions) | Venue place photo |
+| `venues/gregorio-luperon-airport.jpg` | POP-supplied / editor-provided — Puerto Plata Airport AERODOM roadside plane monument | Venue place photo |
 | `venues/parque-jose-briceno.jpg` | POP curated `baseballpark.png` — packed grandstand at Parque José Briceño | Authentic venue place photo |
 | `casa-de-la-cultura-gallery-opening.jpg` | POP-supplied gallery opening at Casa de la Cultura (Danilo de los Santos exhibition) | Exhibition action (peach facade stays on the venue) |
 | `casa-de-la-cultura-saturday-keyboard.jpg` | POP-supplied Saturday gallery set — keyboard / live performance | Saturday Stage action (peach facade stays on the venue) |
