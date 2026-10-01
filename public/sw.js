@@ -1,4 +1,4 @@
-const CACHE_NAME = "eventdr-v21";
+const CACHE_NAME = "eventdr-v22";
 const STATIC_ASSETS = [
   "/manifest.webmanifest",
   "/pop-home-logo.webp",
@@ -56,13 +56,11 @@ self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => cache.addAll(STATIC_ASSETS)),
   );
-  self.skipWaiting();
-});
-
-self.addEventListener("message", (event) => {
-  if (event.data?.type === "SKIP_WAITING") {
-    self.skipWaiting();
-  }
+  // Do not take control of an open page from install. That fires
+  // controllerchange and the client navigates again — a second full load
+  // on TVs and PWAs. With no older worker, this one still activates
+  // immediately. An update waits until the app is closed, then controls
+  // the next open from the start.
 });
 
 self.addEventListener("activate", (event) => {
@@ -90,7 +88,10 @@ self.addEventListener("fetch", (event) => {
   // Home HTML / RSC used to ride default HTTP cache. Safari standalone then
   // kept a days-old catalog even after reload(). Always hit the network.
   if (mustRevalidate(event.request, url)) {
-    event.respondWith(fetch(event.request, { cache: "no-store" }));
+    // A copied request is same-origin, not mode "navigate". Passing the
+    // navigation request plus a cache override makes some TV WebViews
+    // commit the document twice.
+    event.respondWith(fetch(new Request(event.request, { cache: "no-store" })));
     return;
   }
 

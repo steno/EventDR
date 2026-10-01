@@ -4082,5 +4082,59 @@
       "Eulogio Badia"
     ],
     "imageEmoji": "🎭"
+  },
+  {
+    "id": "ocean-world-terrace-old-school-2026-10-17",
+    "title": "Ocean World Terrace Old School",
+    "description": "Sábado Old School en Ocean World Terrace, Cofresí — sábado 17 de octubre 2026. Shots de bienvenida, DJ en vivo, ambiente alusivo a la época y especiales de cervezas. Entrada gratis; ven con tu flow Old School. Confirma puertas por Instagram @oceanworldterrace o +1 809-291-2400. No es la fila de delfines del parque.",
+    "date": "2026-10-17",
+    "location": "Puerto Plata",
+    "venue": "Terraza Ocean World",
+    "venueSlug": "ocean-world",
+    "address": "Calle Principal #3, Cofresí, Puerto Plata",
+    "lat": 19.826313,
+    "lng": -70.732062,
+    "category": "parties",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "phone": "+18092912400",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/oceanworldterrace/",
+    "lineup": [
+      "DJ en vivo"
+    ],
+    "imageEmoji": "🎧"
+  },
+  {
+    "id": "ambar-lounge-gaby-luna-2026-10-03",
+    "title": "Gaby Luna en Ambar Lounge",
+    "description": "Beats by Gaby Luna (@djgabyluna) en Ambar Lounge POP, Av. Luis Ginebra No. 45, segundo y tercer nivel, Puerto Plata — sábado 3 de octubre 2026. RSVP (809) 781-8677 o Instagram @ambarloungepop; confirma puertas y cover antes de llegar walk-up. Lounge abierto desde las 5:00 PM (cerrado martes).",
+    "date": "2026-10-03",
+    "location": "Puerto Plata",
+    "venue": "Ambar Lounge POP",
+    "venueSlug": "ambar-lounge-pop",
+    "address": "Av. Luis Ginebra No. 45, segundo y tercer nivel, Puerto Plata 57000",
+    "lat": 19.7918,
+    "lng": -70.681,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18097818677",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/ambarloungepop/",
+    "lineup": [
+      "Gaby Luna"
+    ],
+    "imageEmoji": "🎧"
   }
 ]

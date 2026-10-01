@@ -29,6 +29,15 @@ describe("PWA cache version", () => {
     assert.match(sw, /pathname === "\/sw\.js"/);
     assert.match(sw, /cache: "no-store"/);
   });
+
+  it("does not take over an open page during install", () => {
+    const sw = readFileSync(join(repoRoot, "public/sw.js"), "utf8");
+    const install = sw.slice(
+      sw.indexOf('addEventListener("install"'),
+      sw.indexOf('addEventListener("activate"'),
+    );
+    assert.doesNotMatch(install, /skipWaiting/);
+  });
 });
 
 describe("cacheBustingReloadHref", () => {

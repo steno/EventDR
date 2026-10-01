@@ -172,6 +172,11 @@ export interface Event {
   id: string;
   title: string;
   description: string;
+  /**
+   * Compact searchable copy for list payloads (descriptions are stripped).
+   * Not rendered in cards — client search only.
+   */
+  searchText?: string;
   date: string;
   endDate?: string;
   time?: string;

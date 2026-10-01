@@ -4,6 +4,7 @@ import {
   searchEvents,
   searchVenues,
   textMatchesSearchQuery,
+  buildEventSearchText,
   filterByPrice,
   listOtherMatchingFilterTimeRanges,
 } from "./filters";
@@ -33,6 +34,23 @@ describe("textMatchesSearchQuery", () => {
     assert.equal(textMatchesSearchQuery("Restaurant Maria", "aura"), false);
     assert.equal(
       textMatchesSearchQuery("Aura Beach Club Cabarete", "aura"),
+      true,
+    );
+  });
+
+  it("folds accents so beisbol matches Béisbol", () => {
+    assert.equal(
+      textMatchesSearchQuery("Liga Nacional de Béisbol de Verano", "beisbol"),
+      true,
+    );
+  });
+
+  it("matches baseball as a synonym of béisbol", () => {
+    assert.equal(
+      textMatchesSearchQuery(
+        "Liga Nacional de Béisbol de Verano Serie Final Game 4",
+        "baseball",
+      ),
       true,
     );
   });
@@ -127,6 +145,87 @@ describe("searchEvents", () => {
     const hits = searchEvents(events, "aura");
     assert.equal(hits.length, 1);
     assert.equal(hits[0]?.id, "allison-sade-aura-2026-09-17");
+  });
+
+  it("finds Spanish béisbol copy when searching baseball", () => {
+    const sports = [
+      ...events,
+      {
+        id: "atleticos-pp-vs-mineros-2026-10-03",
+        title: "Atléticos de Puerto Plata vs Mineros de Bonao",
+        description:
+          "Liga Nacional de Béisbol de Verano Serie Final Game 4 at Parque José Briceño",
+        location: "Puerto Plata",
+        venue: "Parque José Briceño",
+        venueSlug: "parque-jose-briceno",
+        category: "sports",
+      },
+      {
+        id: "kite-jam",
+        title: "Kite Beach Jam",
+        description: "Afternoon freestyle session on Kite Beach",
+        location: "Cabarete",
+        venue: "Kite Beach",
+        category: "sports",
+      },
+    ];
+    const hits = searchEvents(sports, "baseball");
+    assert.equal(hits.length, 1);
+    assert.equal(hits[0]?.id, "atleticos-pp-vs-mineros-2026-10-03");
+  });
+
+  it("finds slimmed list events via searchText and baseball emoji", () => {
+    const slimmed = [
+      {
+        id: "atleticos-pp-vs-mineros-2026-10-03",
+        title: "José Briceño Serie Final Game 4 — Atléticos vs Mineros",
+        description: "",
+        searchText: buildEventSearchText({
+          title: "José Briceño Serie Final Game 4 — Atléticos vs Mineros",
+          description:
+            "Liga Nacional de Béisbol de Verano Serie Final Game 4 at Parque José Briceño",
+          imageEmoji: "⚾",
+        }),
+        location: "Puerto Plata",
+        venue: "Parque José Briceño",
+        venueSlug: "parque-jose-briceno",
+        category: "sports",
+        imageEmoji: "⚾",
+      },
+      {
+        id: "kite-jam",
+        title: "Kite Beach Jam",
+        description: "",
+        location: "Cabarete",
+        category: "sports",
+        imageEmoji: "🏄",
+      },
+    ];
+    const hits = searchEvents(slimmed, "baseball");
+    assert.equal(hits.length, 1);
+    assert.equal(hits[0]?.id, "atleticos-pp-vs-mineros-2026-10-03");
+  });
+
+  it("finds sports events for deportes via category aliases", () => {
+    const sports = [
+      {
+        id: "atleticos-pp-vs-mineros-2026-10-03",
+        title: "Atléticos de Puerto Plata vs Mineros de Bonao",
+        description: "Serie Final Game 4 at Parque José Briceño",
+        location: "Puerto Plata",
+        category: "sports",
+      },
+      {
+        id: "salsa-night",
+        title: "Salsa Night",
+        description: "Social dancing on the strip",
+        location: "Cabarete",
+        category: "dance",
+      },
+    ];
+    const hits = searchEvents(sports, "deportes");
+    assert.equal(hits.length, 1);
+    assert.equal(hits[0]?.id, "atleticos-pp-vs-mineros-2026-10-03");
   });
 });
 

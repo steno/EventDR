@@ -4082,5 +4082,59 @@
       "Eulogio Badia"
     ],
     "imageEmoji": "🎭"
+  },
+  {
+    "id": "ocean-world-terrace-old-school-2026-10-17",
+    "title": "Ocean World Terrace Old School",
+    "description": "Old School Saturday at Ocean World Terrace, Cofresí — Saturday 17 October 2026. Welcome shots, live DJ, era-themed atmosphere, and beer specials. Free entry; come in Old School flow. Confirm doors via Instagram @oceanworldterrace or +1 809-291-2400. Not the dolphin-park ticket line.",
+    "date": "2026-10-17",
+    "location": "Puerto Plata",
+    "venue": "Terraza Ocean World",
+    "venueSlug": "ocean-world",
+    "address": "Calle Principal #3, Cofresí, Puerto Plata",
+    "lat": 19.826313,
+    "lng": -70.732062,
+    "category": "parties",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "phone": "+18092912400",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/oceanworldterrace/",
+    "lineup": [
+      "DJ en vivo"
+    ],
+    "imageEmoji": "🎧"
+  },
+  {
+    "id": "ambar-lounge-gaby-luna-2026-10-03",
+    "title": "Gaby Luna at Ambar Lounge",
+    "description": "Beats by Gaby Luna (@djgabyluna) at Ambar Lounge POP, Av. Luis Ginebra No. 45, segundo y tercer nivel, Puerto Plata — Saturday 3 October 2026. RSVP (809) 781-8677 or Instagram @ambarloungepop; confirm doors and cover before you walk up. Lounge open from 5:00 PM (closed Tuesdays).",
+    "date": "2026-10-03",
+    "location": "Puerto Plata",
+    "venue": "Ambar Lounge POP",
+    "venueSlug": "ambar-lounge-pop",
+    "address": "Av. Luis Ginebra No. 45, segundo y tercer nivel, Puerto Plata 57000",
+    "lat": 19.7918,
+    "lng": -70.681,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18097818677",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/ambarloungepop/",
+    "lineup": [
+      "Gaby Luna"
+    ],
+    "imageEmoji": "🎧"
   }
 ]

@@ -3903,4 +3903,41 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "Editor flyer — Sat 24 Oct 2026 7:00 PM Eulogio Badia, gran reapertura Iván García Teatro-Escuela, IX Festival Nacional de Teatro S.D. 2026, Calle Prof. Juan Bosch #72, RSVP 809-261-7393. Closure alert until 2026-10-23.",
     updatedAt: "2026-10-01T21:30:00.000Z",
   },
+  {
+    eventId: "ambar-lounge-gaby-luna-2026-10-03",
+    body: "Saturday beats night with Gaby Luna on the Luis Ginebra rooftop — not Bandoleras Friday and not the free-entry Ocean World Old School; RSVP (809) 781-8677 / @ambarloungepop before you treat it as walk-in after 5 PM.",
+    localized: {
+      es: "Noche de beats el sábado con Gaby Luna en el rooftop de Luis Ginebra — no es Bandoleras del viernes ni el Old School gratis de Ocean World; RSVP (809) 781-8677 / @ambarloungepop antes de tratarlo como walk-in después de las 5 PM.",
+      fr: "Soirée beats le samedi avec Gaby Luna sur le rooftop Luis Ginebra — pas Bandoleras du vendredi ni l’Old School gratuit d’Ocean World ; RSVP (809) 781-8677 / @ambarloungepop avant de le traiter comme walk-in après 17 h.",
+    },
+    priceFeel: "varies",
+    priceNote:
+      "Cover / set time not on the flyer — confirm via @ambarloungepop or (809) 781-8677",
+    priceNoteLocalized: {
+      es: "Cover / hora del set no en el flyer — confirma con @ambarloungepop o (809) 781-8677",
+      fr: "Cover / heure du set absents de l’affiche — confirmez via @ambarloungepop ou (809) 781-8677",
+    },
+    attribution: "POP research · @ambarloungepop Gaby Luna flyer",
+    researchNotes:
+      "Editor flyer + IG @ambarloungepop — Sáb 03 Oct Gaby Luna / @djgabyluna, Ambar Lounge, Av Luis Ginebra 45 segundo y tercer nivel, RSVP (809) 781-8677. Vocatus co-brand on art. No cover or start time on flyer.",
+    updatedAt: "2026-10-01T23:00:00.000Z",
+  },
+  {
+    eventId: "ocean-world-terrace-old-school-2026-10-17",
+    body: "Cofresí terrace Old School Saturday — free entry with welcome shots and beer specials, not the dolphin park ticket line; pin @oceanworldterrace / +1 809-291-2400 before you treat it as a walk-up open mic.",
+    localized: {
+      es: "Sábado Old School en la terraza de Cofresí — entrada gratis con shots de bienvenida y especiales de cerveza, no la fila de delfines; pin @oceanworldterrace / +1 809-291-2400 antes de tratarlo como open mic walk-up.",
+      fr: "Samedi Old School sur la terrasse de Cofresí — entrée gratuite avec shots de bienvenue et spéciales bières, pas la file des dauphins ; pin @oceanworldterrace / +1 809-291-2400 avant d’y aller comme un open mic walk-up.",
+    },
+    priceFeel: "free",
+    priceNote: "Free entry — drinks/shots/beer specials pay as you go",
+    priceNoteLocalized: {
+      es: "Entrada gratis — tragos/shots/cervezas se pagan aparte",
+      fr: "Entrée gratuite — verres/shots/bières à payer à part",
+    },
+    attribution: "POP research · Terraza Ocean World · @oceanworldterrace",
+    researchNotes:
+      "Editor flyer + IG @oceanworldterrace — Sáb 17 Oct Old School, Ocean World Terrace, shots de bienvenida, DJ en vivo, ambiente alusivo, especiales de cervezas, Entrada gratis!",
+    updatedAt: "2026-10-01T22:30:00.000Z",
+  },
 ];

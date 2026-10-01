@@ -268,6 +268,10 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "la-lola-back-to-northside-2026-07-04.jpg",
   "ambar-lounge-emil-roman-2026-09-26":
     "ambar-lounge-emil-roman-2026-09-26.jpg",
+  "ambar-lounge-gaby-luna-2026-10-03":
+    "ambar-lounge-gaby-luna-2026-10-03.jpg",
+  "ocean-world-terrace-old-school-2026-10-17":
+    "ocean-world-terrace-old-school-2026-10-17.jpg",
   "finely-mirador-inauguracion-2026-09-25":
     "finely-mirador-inauguracion-2026-09-25.jpg",
   "cabarete-stand-up-vol-2-2026-10-24":
@@ -517,6 +521,8 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "ivan-garcia-eulogio-badia-2026-10-24": "object-center",
   "la-lola-back-to-northside-2026-07-04": "object-center",
   "ambar-lounge-emil-roman-2026-09-26": "object-center",
+  "ambar-lounge-gaby-luna-2026-10-03": "object-center",
+  "ocean-world-terrace-old-school-2026-10-17": "object-center",
   "finely-mirador-inauguracion-2026-09-25": "object-center",
   "cabarete-stand-up-vol-2-2026-10-24": "object-center",
   "ocean-world-terrace-singing-talent-2026-09-16": "object-center",
@@ -681,6 +687,8 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "ambar-lounge-reggaeton-2026-09-17.jpg",
   "ambar-lounge-bandoleras-2026-09-18.jpg",
   "ambar-lounge-bandoleras-2026-10-02.jpg",
+  "ambar-lounge-gaby-luna-2026-10-03.jpg",
+  "ocean-world-terrace-old-school-2026-10-17.jpg",
   "ambar-lounge-adrian-tineo-2026-09-19.jpg",
   "meclao-retro-party-2026-09-19.jpg",
   "cigar-town-karaoke-ladies-night-2026-09-19.jpg",

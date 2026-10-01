@@ -1,10 +1,13 @@
 import type { Event, Venue } from "@/lib/types";
+import { buildEventSearchText } from "@/lib/filters";
 
 /**
  * Strip heavy fields before serializing events into RSC/HTML or JSON list APIs.
  * List UIs only need card metadata — full descriptions belong on detail routes.
+ * Keeps a compact `searchText` so client search still matches description terms.
  */
 export function slimEventForList(event: Event): Event {
+  const searchText = buildEventSearchText(event);
   const slim: Event = {
     id: event.id,
     title: event.title,
@@ -14,6 +17,7 @@ export function slimEventForList(event: Event): Event {
     category: event.category,
     format: event.format,
   };
+  if (searchText) slim.searchText = searchText;
 
   if (event.endDate) slim.endDate = event.endDate;
   if (event.time) slim.time = event.time;

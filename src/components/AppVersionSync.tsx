@@ -1,8 +1,16 @@
 "use client";
 
 import { useCallback, useEffect, useRef } from "react";
-import { appVersionNeedsRefresh } from "@/lib/app-version-shared";
-import { cacheBustingReloadHref, purgeClientCaches } from "@/lib/pwa-refresh";
+import {
+  appVersionNeedsRefresh,
+  shouldHardReloadForVersion,
+  type NavigationLoadTiming,
+} from "@/lib/app-version-shared";
+import {
+  PWA_RELOAD_PARAM,
+  cacheBustingReloadHref,
+  purgeClientCaches,
+} from "@/lib/pwa-refresh";
 import { showBootSplashForReload } from "@/lib/boot-splash";
 
 const VERSION_KEY = "popevents-app-version";
@@ -23,6 +31,18 @@ async function fetchRemoteVersion(): Promise<string | null> {
   return null;
 }
 
+function readNavigationTiming(): NavigationLoadTiming | null {
+  const nav = performance.getEntriesByType("navigation")[0] as
+    | PerformanceNavigationTiming
+    | undefined;
+  if (!nav) return null;
+  return {
+    transferSize: nav.transferSize,
+    encodedBodySize: nav.encodedBodySize,
+    alreadyReloaded: nav.name.includes(`${PWA_RELOAD_PARAM}=`),
+  };
+}
+
 async function purgeCachesAndReload(version: string) {
   showBootSplashForReload();
   if ("serviceWorker" in navigator) {
@@ -38,22 +58,29 @@ async function purgeCachesAndReload(version: string) {
 export function AppVersionSync() {
   const reloading = useRef(false);
 
-  const checkVersion = useCallback(async () => {
+  const checkVersion = useCallback(async (persisted = false) => {
     if (reloading.current) return;
 
     const remote = await fetchRemoteVersion();
     if (!remote) return;
 
     const stored = localStorage.getItem(VERSION_KEY);
+    const restoredStalePage =
+      persisted && appVersionNeedsRefresh(stored, remote);
 
-    if (appVersionNeedsRefresh(stored, remote)) {
+    if (
+      restoredStalePage ||
+      shouldHardReloadForVersion(stored, remote, readNavigationTiming())
+    ) {
       reloading.current = true;
-      // Cover the UI before purge+reload so users don't see a half-updated shell.
+      // Cached or bfcache-restored document only. A network-fresh load
+      // already has this deploy; navigating again loads the page twice.
       await purgeCachesAndReload(remote);
       return;
     }
 
-    if (!stored) {
+    if (stored !== remote) {
+      if (stored) void purgeClientCaches();
       localStorage.setItem(VERSION_KEY, remote);
     }
   }, []);
@@ -71,7 +98,7 @@ export function AppVersionSync() {
 
     const onPageShow = (event: PageTransitionEvent) => {
       if (event.persisted) {
-        void checkVersion();
+        void checkVersion(true);
       }
     };
 

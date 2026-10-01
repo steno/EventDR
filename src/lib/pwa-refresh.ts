@@ -1,10 +1,10 @@
 import { showBootSplashForReload } from "@/lib/boot-splash";
 
 /**
- * Must match the suffix of CACHE_NAME in public/sw.js (`eventdr-v21` → `21`).
+ * Must match the suffix of CACHE_NAME in public/sw.js (`eventdr-v22` → `22`).
  * Bump both together so installed PWAs fetch a new script URL, not a cached worker.
  */
-export const PWA_VERSION = "21";
+export const PWA_VERSION = "22";
 
 export const PWA_CACHE_NAME = `eventdr-v${PWA_VERSION}`;
 

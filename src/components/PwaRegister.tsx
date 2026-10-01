@@ -1,25 +1,9 @@
 "use client";
 
 import { useEffect } from "react";
-import { pwaScriptUrl, reloadCurrentPage, stripPwaReloadParamFromLocation } from "@/lib/pwa-refresh";
+import { pwaScriptUrl, stripPwaReloadParamFromLocation } from "@/lib/pwa-refresh";
 
-function waitForWorkerState(
-  worker: ServiceWorker,
-  states: ServiceWorkerState[],
-): Promise<void> {
-  if (states.includes(worker.state)) return Promise.resolve();
-  return new Promise((resolve) => {
-    const onChange = () => {
-      if (states.includes(worker.state)) {
-        worker.removeEventListener("statechange", onChange);
-        resolve();
-      }
-    };
-    worker.addEventListener("statechange", onChange);
-  });
-}
-
-/** Registers the service worker; updates reload under the boot splash when needed. */
+/** Registers the service worker. Updates apply on the next cold open. */
 export function PwaRegister() {
   useEffect(() => {
     stripPwaReloadParamFromLocation();
@@ -28,24 +12,7 @@ export function PwaRegister() {
     }
 
     const isDev = process.env.NODE_ENV !== "production";
-
-    // Capture at load: first SW claim must not reload (that caused P → page → P).
-    const hadControllerOnLoad = Boolean(navigator.serviceWorker.controller);
-    let refreshing = false;
     let interval: ReturnType<typeof setInterval> | undefined;
-
-    const reloadForUpdate = () => {
-      if (refreshing) return;
-      refreshing = true;
-      reloadCurrentPage();
-    };
-
-    const onControllerChange = () => {
-      // Fresh install / post-purge claim: HTML is already network-fresh.
-      // Skip reload thrash in local development.
-      if (!hadControllerOnLoad || isDev) return;
-      reloadForUpdate();
-    };
 
     const onVisible = () => {
       if (document.visibilityState === "visible") {
@@ -55,33 +22,18 @@ export function PwaRegister() {
       }
     };
 
-    navigator.serviceWorker.addEventListener(
-      "controllerchange",
-      onControllerChange,
-    );
     document.addEventListener("visibilitychange", onVisible);
 
     const settle = async () => {
       try {
         // Needed for web push reminders in both prod and `next dev`.
-        // SW fetch handler skips /api and /sw.js; HTML/RSC use cache: no-store.
-        const reg = await navigator.serviceWorker.register(pwaScriptUrl());
-        await reg.update().catch(() => {});
-
-        // Activate a waiting update, then reload under the splash (prod only).
-        if (!isDev && reg.waiting && hadControllerOnLoad) {
-          reg.waiting.postMessage({ type: "SKIP_WAITING" });
-          return;
-        }
-
-        if (reg.installing) {
-          await waitForWorkerState(reg.installing, [
-            "activated",
-            "redundant",
-          ]);
-        }
+        // register() already checks for an update. Do not call skipWaiting
+        // or reload here — that claimed the page mid-boot and loaded it again.
+        await navigator.serviceWorker.register(pwaScriptUrl());
 
         if (!isDev) {
+          const reg = await navigator.serviceWorker.getRegistration();
+          if (!reg) return;
           interval = setInterval(() => {
             reg.update().catch(() => {});
           }, 15 * 60 * 1000);
@@ -94,10 +46,6 @@ export function PwaRegister() {
     void settle();
 
     return () => {
-      navigator.serviceWorker.removeEventListener(
-        "controllerchange",
-        onControllerChange,
-      );
       document.removeEventListener("visibilitychange", onVisible);
       if (interval) clearInterval(interval);
     };
