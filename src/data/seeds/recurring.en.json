@@ -2763,6 +2763,35 @@
     "imageEmoji": "🎧"
   },
   {
+    "id": "grand-prix-jueves-stripper-show",
+    "title": "Grand Prix Thursday — D'Goldy Stripper Show",
+    "description": "Weekly Thursday Show Stripper at Grand Prix Smart Shop in La Javilla, Puerto Plata — D'Goldy Stripper Show with music by DJ Ariel. Av. Manolo Tavarez Justo esq. Presidente Caamaño #1 (Edificio Grand Prix, next to Bomba Next). Confirm doors and cover via Instagram @grandprixrd.",
+    "date": "2026-01-01",
+    "location": "Puerto Plata",
+    "venue": "Grand Prix Smart Shop",
+    "venueSlug": "grand-prix-puerto-plata",
+    "address": "Av. Manolo Tavarez Justo esq. Presidente Caamaño #1, Edificio Grand Prix (Bomba Next), La Javilla, Puerto Plata",
+    "lat": 19.7911,
+    "lng": -70.6942,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "recurrence": "weekly",
+    "recurrenceDay": 4,
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/grandprixrd/",
+    "lineup": [
+      "DJ Ariel",
+      "D'Goldy Stripper Show"
+    ],
+    "imageEmoji": "🔥"
+  },
+  {
     "id": "nueve-bingo-friday",
     "title": "Nueve Bingo — Friday Musical Bingo",
     "description": "Friday musical bingo at Nueve Restaurante & Bar in Puerto Plata — De Bingo with Latin-song cartones and prizes (a ganar premios se ha dicho). Part of Semana Nueve weekly programming. Confirm start time and card fee via Instagram @nueve_rd.",

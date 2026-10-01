@@ -562,4 +562,54 @@ describe("findNearbyForEventDetail", () => {
     assert.equal(result.stripAhead, true);
     assert.equal(result.hits[0]?.event.id, "el-carey-karaoke-mujeres-monday");
   });
+
+  it("keeps same-venue siblings out of nearby (Also at owns those)", () => {
+    const liveNights = event({
+      id: "meclao-rooftop-live-nights",
+      title: "Mecla'o Rooftop Live Music",
+      date: "2026-10-01",
+      time: "6:00 PM – 2:00 AM",
+      location: "Puerto Plata",
+      venue: "Mecla'o Rooftop Lounge",
+      venueSlug: "meclao-rooftop",
+      lat: 19.788312,
+      lng: -70.677453,
+      category: "music",
+    });
+    const sammy = event({
+      id: "meclao-sammy-bday-jhon-parra-2026-10-01",
+      title: "Sammy B-Day — Beats by @djhxnparra at Mecla'o",
+      date: "2026-10-01",
+      location: "Puerto Plata",
+      venue: "Mecla'o Rooftop Lounge",
+      venueSlug: "meclao-rooftop",
+      lat: 19.788312,
+      lng: -70.677453,
+      category: "parties",
+    });
+    const cigar = event({
+      id: "la-pena-cigar-town",
+      title: "La Peña at Cigar Town",
+      date: "2026-10-01",
+      time: "8:00 PM",
+      location: "Puerto Plata",
+      venueSlug: "cigar-town-pop",
+      lat: 19.7915,
+      lng: -70.6805,
+      category: "music",
+    });
+
+    const result = findNearbyForEventDetail(
+      liveNights,
+      [liveNights, sammy, cigar],
+      { now: new Date("2026-10-01T20:00:00.000-04:00") },
+    );
+
+    assert.equal(
+      result.hits.some((h) => h.event.id === "meclao-sammy-bday-jhon-parra-2026-10-01"),
+      false,
+    );
+    assert.equal(result.hits[0]?.event.id, "la-pena-cigar-town");
+    assert.notEqual(result.hits[0]?.relation, "same-venue");
+  });
 });

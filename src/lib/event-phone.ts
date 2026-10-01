@@ -89,6 +89,11 @@ const EVENT_PHONE_BY_ID: Record<string, string> = {
   "disco-club-on-fire-night-2026-10-01": "+18295639469",
   "disco-club-la-mas-doll-2026-10-02": "+18295667071",
   "meclao-sammy-bday-jhon-parra-2026-10-01": "+18293747028",
+  "sarah-graciano-rancho-catalina-2026-10-04": "+18097813737",
+  "gypsy-bowls-last-bowl-call-2026-10-03": "+18299454543",
+  "iss-wizard-of-oz-2026-12-17": "+18095713271",
+  "twenty-disco-kiry-curu-2026-10-16": "+18297160160",
+  "ivan-garcia-eulogio-badia-2026-10-24": "+18092617393",
 };
 
 export function formatPhoneDisplay(phone: string): string {

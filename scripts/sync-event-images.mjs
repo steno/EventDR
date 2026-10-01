@@ -79,6 +79,7 @@ const FILE_TO_EVENT_ID = {
   "aura-disco-dj-melvin-2026-09-19.jpg": "aura-disco-dj-melvin-2026-09-19",
   "aura-disco-dj-christo-2026-09-26.jpg": "aura-disco-dj-christo-2026-09-26",
   "meclao-house-friday-2026-09-18.jpg": "meclao-house-friday-2026-09-18",
+  "meclao-rooftop-live-nights-lounge.jpg": "meclao-rooftop-live-nights",
   "meclao-house-friday-2026-09-25-lockward.jpg":
     "meclao-house-friday-2026-09-25",
   "meclao-chris-plasencia-2026-09-26.jpg": "meclao-chris-plasencia-2026-09-26",
@@ -87,6 +88,18 @@ const FILE_TO_EVENT_ID = {
   "disco-club-la-mas-doll-2026-10-02.jpg": "disco-club-la-mas-doll-2026-10-02",
   "meclao-sammy-bday-jhon-parra-2026-10-01.jpg":
     "meclao-sammy-bday-jhon-parra-2026-10-01",
+  "sarah-graciano-rancho-catalina-2026-10-04.jpg":
+    "sarah-graciano-rancho-catalina-2026-10-04",
+  "twenty-disco-friday-dj-tanque-2026-10-02.jpg":
+    "twenty-disco-friday-dj-tanque-2026-10-02",
+  "twenty-disco-glam-in-the-dark-2026-10-03.jpg":
+    "twenty-disco-glam-in-the-dark-2026-10-03",
+  "gypsy-bowls-last-bowl-call-2026-10-03.jpg":
+    "gypsy-bowls-last-bowl-call-2026-10-03",
+  "iss-wizard-of-oz-2026-12-17.jpg": "iss-wizard-of-oz-2026-12-17",
+  "twenty-disco-kiry-curu-2026-10-16.jpg": "twenty-disco-kiry-curu-2026-10-16",
+  "ivan-garcia-eulogio-badia-2026-10-24.jpg":
+    "ivan-garcia-eulogio-badia-2026-10-24",
   "la-lola-back-to-northside-2026-07-04.jpg":
     "la-lola-back-to-northside-2026-07-04",
   "ambar-lounge-emil-roman-2026-09-26.jpg": "ambar-lounge-emil-roman-2026-09-26",
@@ -153,6 +166,8 @@ const FILE_TO_EVENT_ID = {
   "ElChocoTuesdayLive.jpg": "parada-tipica-el-choco-tuesday-live",
   "puerto-plata-golf-classic-2026.jpg": "puerto-plata-golf-classic-2026",
   "cac-games-surf-playa-encuentro-2026.jpg": "cac-games-surf-playa-encuentro-2026",
+  "puerto-plata-beach-soccer-2026-aerial.jpg":
+    "puerto-plata-beach-soccer-2026",
   "puerto-plata-beach-soccer-2026.jpg": "puerto-plata-beach-soccer-2026",
   "sosua-10k-road-race-2026.jpg": "sosua-10k-road-race-2026",
   "puerto-plata-poker-experience-2026.jpg": "puerto-plata-poker-experience-2026",
@@ -285,6 +300,7 @@ const FILE_TO_EVENT_ID = {
   "cheo-almonte-grand-prix-2026-09-25.jpg":
     "cheo-almonte-grand-prix-2026-09-25",
   "grand-prix-sabado-bailable.jpg": "grand-prix-sabado-bailable",
+  "grand-prix-jueves-stripper-show.jpg": "grand-prix-jueves-stripper-show",
   "allison-sade-aura-2026-09-17.jpg": "allison-sade-aura-2026-09-17",
   "francesca-aura-2026-10-01.jpg": "francesca-aura-2026-10-01",
   "ocean-world-terrace-karaoke-encuentro-2026-09-16.jpg":
@@ -445,6 +461,7 @@ const FILE_TO_VENUE_SLUG = {
   "pingui-bar-tiki.jpg": "pingui-bar-tiki",
   "gran-ventana-beach-resort.jpg": "gran-ventana-beach-resort",
   // Filename bumps after replacing flyer / logo / park-aerial stand-ins.
+  "meclao-rooftop-exterior-dusk.jpg": "meclao-rooftop-exterior-dusk",
   "meclao-rooftop-lounge.jpg": "meclao-rooftop-lounge",
   "kviar-costa-dorada-floor.jpg": "kviar-costa-dorada-floor",
   "playa-cofresi-beach.jpg": "playa-cofresi-beach",

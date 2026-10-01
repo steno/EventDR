@@ -41,6 +41,14 @@ export const VENUE_TIP_COPY: Record<
       fr: "L'envoi le plus simple sur Calle Duarte pour un show annoncé — fort et visitor-friendly. Mercredi karaoke gratuit dès 19 h ; le week-end c'est la scène billetée, pas une disco locale underground.",
     },
   },
+  "international-school-sosua": {
+    body: "El Batey campus on La Mulata — pin the school gate for winter musicals and community shows, not Hard Rock on Duarte; tickets and doors drop on @issosuahurricanes.",
+    localized: {
+      en: "El Batey campus on La Mulata — pin the school gate for winter musicals and community shows, not Hard Rock on Duarte; tickets and doors drop on @issosuahurricanes.",
+      es: "Campus El Batey en La Mulata — pin la puerta del colegio para musicales de invierno y shows comunitarios, no Hard Rock en Duarte; boletas y puertas salen en @issosuahurricanes.",
+      fr: "Campus El Batey sur La Mulata — épinglez la porte de l’école pour comédies musicales d’hiver et spectacles communautaires, pas le Hard Rock sur Duarte ; billets et portes via @issosuahurricanes.",
+    },
+  },
   "liquid-blue-cabarete": {
     body: "If you want coaching on Kite Beach rather than DIY, this is the school locals and visitors both book — wind-dependent, so confirm before you go.",
     localized: {
@@ -103,6 +111,14 @@ export const VENUE_TIP_COPY: Record<
       en: "Bayfront when you want live music without committing to Ojo's late club push — Monday live is dinner-friendly; Saturday Session goes louder.",
       es: "Frente a la bahía si quieres live sin el club tarde de Ojo — el lunes es más apto para cenar; Saturday Session va más fuerte.",
       fr: "Front de baie si vous voulez du live sans le club tardif d'Ojo — le lundi convient au dîner ; Saturday Session plus fort.",
+    },
+  },
+  "gypsy-bowls-cabarete": {
+    body: "Daytime bowls on Carretera Principal — last Saturday before remodel is 3 Oct 2026; closed until they reopen 15 Oct, so don’t send brunch guests mid-renovation.",
+    localized: {
+      en: "Daytime bowls on Carretera Principal — last Saturday before remodel is 3 Oct 2026; closed until they reopen 15 Oct, so don’t send brunch guests mid-renovation.",
+      es: "Bowls de día en Carretera Principal — el último sábado antes del remodel es el 3 oct 2026; cerrado hasta reabrir el 15 oct, no mandes brunch a mitad de obra.",
+      fr: "Bowls de jour sur Carretera Principal — dernier samedi avant remodelage le 3 oct. 2026 ; fermé jusqu’à la réouverture le 15 oct., n’envoyez pas le brunch en plein travaux.",
     },
   },
   "ocean-world": {
@@ -657,6 +673,14 @@ export const VENUE_TIP_COPY: Record<
       fr: "Latin Disco Club sur Manolo Tavarez Justo face aux dépôts Brugal — piste éclairée et soirées club quand il y a une affiche ; réservez le numéro du flyer de cette nuit.",
     },
   },
+  "twenty-disco-lounge": {
+    body: "Mall disco inside Playa Dorada — lit bottle wall, neon lounge, and free-cover Friday energy when a flyer is up; pin the mall, not downtown Brugal club nights.",
+    localized: {
+      en: "Mall disco inside Playa Dorada — lit bottle wall, neon lounge, and free-cover Friday energy when a flyer is up; pin the mall, not downtown Brugal club nights.",
+      es: "Disco del mall en Playa Dorada — pared de botellas iluminada, lounge neón y viernes free cover cuando hay flyer; pin el mall, no las noches de club Brugal en el centro.",
+      fr: "Disco du mall à Playa Dorada — mur de bouteilles éclairé, lounge néon et vendredis free cover quand il y a une affiche ; épinglez le mall, pas les soirées club Brugal en ville.",
+    },
+  },
   "paella-pop-el-pueblito": {
     body: "Beachfront Spanish pans on El Pueblito — newer soft-open energy; go for the paella by the sand, not a late club night.",
     localized: {
@@ -1098,11 +1122,11 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "grand-prix-puerto-plata": {
-    body: "La Javilla live-music bar by Bomba on Manolo Tavares — free billed sets and Saturday dance energy for locals; confirm doors on @grandprixrd before you treat it like a Malecón tourist stop.",
+    body: "La Javilla bar by Bomba on Manolo Tavares — Thursday D'Goldy Stripper Show with DJ Ariel and Saturday Bailable for locals; confirm doors on @grandprixrd before you treat it like a Malecón tourist stop.",
     localized: {
-      en: "La Javilla live-music bar by Bomba on Manolo Tavares — free billed sets and Saturday dance energy for locals; confirm doors on @grandprixrd before you treat it like a Malecón tourist stop.",
-      es: "Bar de música en vivo en La Javilla junto a Bomba en Manolo Tavares — sets gratis con cartel y sábados bailables para locales; confirma puertas en @grandprixrd antes de tratarlo como stop turístico del Malecón.",
-      fr: "Bar live à La Javilla près de Bomba sur Manolo Tavares — sets gratuits à l’affiche et samedis dansants pour les locaux ; confirmez les portes sur @grandprixrd avant d’en faire un stop touristique du Malecón.",
+      en: "La Javilla bar by Bomba on Manolo Tavares — Thursday D'Goldy Stripper Show with DJ Ariel and Saturday Bailable for locals; confirm doors on @grandprixrd before you treat it like a Malecón tourist stop.",
+      es: "Bar en La Javilla junto a Bomba en Manolo Tavares — jueves Show Stripper D'Goldy con DJ Ariel y Sábado Bailable para locales; confirma puertas en @grandprixrd antes de tratarlo como stop turístico del Malecón.",
+      fr: "Bar à La Javilla près de Bomba sur Manolo Tavares — jeudi Show Stripper D'Goldy avec DJ Ariel et Sábado Bailable pour les locaux ; confirmez les portes sur @grandprixrd avant d’en faire un stop touristique du Malécón.",
     },
   },
   "luna-lounge-lcb": {
@@ -1114,11 +1138,11 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "ivan-garcia-teatro-escuela": {
-    body: "Sala Iván García is temporarily closed for maintenance — don’t walk Juan Bosch #72 for a class or show until @teatroivangarcia confirms reopen; the turquoise Victorian stays the landmark when it returns.",
+    body: "Sala Iván García reopens 24 October 2026 at 7:00 PM with Eulogio Badia — until then don’t walk Juan Bosch #72 for a class; RSVP 809-261-7393 / @teatroivangarcia for the gran reapertura.",
     localized: {
-      en: "Sala Iván García is temporarily closed for maintenance — don’t walk Juan Bosch #72 for a class or show until @teatroivangarcia confirms reopen; the turquoise Victorian stays the landmark when it returns.",
-      es: "La Sala Iván García está cerrada temporalmente por mantenimiento — no vayas a Juan Bosch #72 por clase u obra hasta que @teatroivangarcia confirme la reapertura; la victoriana turquesa sigue siendo el referente cuando vuelva.",
-      fr: "La Sala Iván García est temporairement fermée pour entretien — n’allez pas au 72 Juan Bosch pour un cours ou une pièce tant que @teatroivangarcia n’a pas confirmé la réouverture ; la victorienne turquoise reste le repère quand elle revient.",
+      en: "Sala Iván García reopens 24 October 2026 at 7:00 PM with Eulogio Badia — until then don’t walk Juan Bosch #72 for a class; RSVP 809-261-7393 / @teatroivangarcia for the gran reapertura.",
+      es: "La Sala Iván García reabre el 24 de octubre 2026 a las 7:00 PM con Eulogio Badia — hasta entonces no vayas a Juan Bosch #72 por clase; RSVP 809-261-7393 / @teatroivangarcia para la gran reapertura.",
+      fr: "La Sala Iván García rouvre le 24 octobre 2026 à 19 h avec Eulogio Badia — d’ici là n’allez pas au 72 Juan Bosch pour un cours ; RSVP 809-261-7393 / @teatroivangarcia pour la grande réouverture.",
     },
   },
   "spotland-puerto-plata": {

@@ -88,6 +88,17 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     ],
   }),
   editorial({
+    venueSlug: "international-school-sosua",
+    verdictKey: "solid_visitor_activity",
+    crowdFit: ["family", "visitor", "mixed"],
+    axes: { recommend: 4.0, atmosphere: 3.9, practical: 4.0 },
+    themes: [
+      { key: "family_friendly", sentiment: "positive", audience: "family" },
+      { key: "easy_to_find", sentiment: "positive" },
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+    ],
+  }),
+  editorial({
     venueSlug: "liquid-blue-cabarete",
     verdictKey: "solid_visitor_activity",
     crowdFit: ["visitor", "family"],
@@ -173,6 +184,17 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
       { key: "beachfront", sentiment: "positive", audience: "visitor" },
       { key: "live_music", sentiment: "positive" },
       { key: "busy_weekends", sentiment: "mixed" },
+    ],
+  }),
+  editorial({
+    venueSlug: "gypsy-bowls-cabarete",
+    verdictKey: "reliable_visitor_pick",
+    crowdFit: ["visitor", "family", "mixed"],
+    axes: { recommend: 4.1, atmosphere: 4.0, value: 3.8, practical: 4.2 },
+    themes: [
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+      { key: "easy_to_find", sentiment: "positive" },
+      { key: "daytime", sentiment: "positive" },
     ],
   }),
   editorial({
@@ -949,6 +971,17 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
       { key: "live_music", sentiment: "positive" },
       { key: "loud_late", sentiment: "mixed", audience: "nightlife" },
       { key: "dance_floor", sentiment: "positive", audience: "nightlife" },
+    ],
+  }),
+  editorial({
+    venueSlug: "twenty-disco-lounge",
+    verdictKey: "strong_local_nightlife",
+    crowdFit: ["local", "nightlife", "mixed"],
+    axes: { recommend: 4.0, atmosphere: 4.2, practical: 4.1 },
+    themes: [
+      { key: "dance_floor", sentiment: "positive", audience: "nightlife" },
+      { key: "loud_late", sentiment: "mixed", audience: "nightlife" },
+      { key: "easy_to_find", sentiment: "positive", audience: "visitor" },
     ],
   }),
   editorial({

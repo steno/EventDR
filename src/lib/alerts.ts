@@ -122,20 +122,40 @@ export const EDITORIAL_ALERTS: readonly EditorialAlert[] = [
     },
   },
   {
+    id: "gypsy-bowls-cabarete-remodel-2026-10",
+    kind: "closure",
+    from: "2026-10-04",
+    until: "2026-10-14",
+    href: { type: "venue", slug: "gypsy-bowls-cabarete" },
+    exceptEventIds: ["gypsy-bowls-last-bowl-call-2026-10-03"],
+    title: {
+      en: "Gypsy Bowls Cabarete closed for remodel",
+      es: "Gypsy Bowls Cabarete cerrado por remodelación",
+      fr: "Gypsy Bowls Cabarete fermé pour remodelage",
+    },
+    summary: {
+      en: "Last Bowl Call was 3 October. Patio bowls pause for a glow-up through 14 October — they’re back 15 October. Don’t send brunch guests mid-renovation.",
+      es: "Last Bowl Call fue el 3 de octubre. Los bowls del patio pausan por un glow-up hasta el 14 de octubre — vuelven el 15. No mandes brunch a mitad de obra.",
+      fr: "Last Bowl Call était le 3 octobre. Les bowls en patio font pause pour un glow-up jusqu’au 14 octobre — retour le 15. N’envoyez pas le brunch en plein travaux.",
+    },
+  },
+  {
     id: "ivan-garcia-teatro-mantenimiento-2026",
     kind: "closure",
     from: "2026-09-15",
+    until: "2026-10-23",
     citySlugs: ["puerto-plata"],
     href: { type: "venue", slug: "ivan-garcia-teatro-escuela" },
+    exceptEventIds: ["ivan-garcia-eulogio-badia-2026-10-24"],
     title: {
       en: "Sala Iván García closed for maintenance",
       es: "Sala Iván García cerrada por mantenimiento",
       fr: "Sala Iván García fermée pour entretien",
     },
     summary: {
-      en: "The teatro-escuela is temporarily closed for maintenance. Check @teatroivangarcia before you plan a visit or kids class.",
-      es: "El teatro-escuela está cerrado temporalmente por mantenimiento. Confirma en @teatroivangarcia antes de planear una visita o clase infantil.",
-      fr: "Le teatro-escuela est temporairement fermé pour entretien. Vérifiez @teatroivangarcia avant une visite ou un cours enfants.",
+      en: "Teatro-escuela shut through 23 October. Gran reapertura 24 October 7:00 PM with Eulogio Badia (IX Festival Nacional de Teatro) — don’t walk Juan Bosch #72 for a class before then.",
+      es: "Teatro-escuela cerrado hasta el 23 de octubre. Gran reapertura 24 de octubre 7:00 PM con Eulogio Badia (IX Festival Nacional de Teatro) — no vayas a Juan Bosch #72 por clase antes.",
+      fr: "Teatro-escuela fermé jusqu’au 23 octobre. Grande réouverture le 24 octobre à 19 h avec Eulogio Badia (IX Festival Nacional de Teatro) — n’allez pas au 72 Juan Bosch pour un cours avant.",
     },
   },
   {

@@ -99,6 +99,19 @@ export const SEED_VENUES: Venue[] = [
     phone: "+18495057778",
   },
   {
+    slug: "international-school-sosua",
+    name: "International School of Sosúa",
+    city: "Sosúa",
+    description:
+      "Private international school in El Batey (La Mulata #1) — campus performances, sports, and community winter musicals. Est. 1989 · issosua.com · Instagram @issosuahurricanes.",
+    lat: 19.765324,
+    lng: -70.499295,
+    emoji: "🎭",
+    instagram: "issosuahurricanes",
+    website: "https://www.issosua.com/",
+    phone: "+18095713271",
+  },
+  {
     slug: "castaways-sosua",
     name: "Chill & Grill Bar & Eatery",
     city: "Sosúa",
@@ -336,6 +349,18 @@ export const SEED_VENUES: Venue[] = [
     emoji: "🪩",
     instagram: "voyvoybar",
     phone: "+18095710805",
+  },
+  {
+    slug: "gypsy-bowls-cabarete",
+    name: "Gypsy Bowls Cabarete",
+    city: "Cabarete",
+    description:
+      "Healthy bowls, smoothies, and daytime patio on Carretera Principal — usually Mon–Sat 8:00 AM–5:00 PM. Closed for remodel after 3 October 2026; back 15 October.",
+    lat: 19.752326,
+    lng: -70.416217,
+    emoji: "🥣",
+    instagram: "gypsybowls",
+    phone: "+18299454543",
   },
   {
     slug: "aura-beach-club-cabarete",
@@ -956,6 +981,17 @@ export const SEED_VENUES: Venue[] = [
     emoji: "🎤",
     website: "https://todotickets.do",
     instagram: "latindiscoclubpp",
+  },
+  {
+    slug: "twenty-disco-lounge",
+    name: "Twenty Disco Lounge",
+    city: "Playa Dorada",
+    description:
+      "Disco and lounge inside Playa Dorada Mall — Friday nights, free-cover DJ sets, neon lounge energy, and a lit bottle bar for mall nightlife.",
+    lat: 19.769476,
+    lng: -70.643033,
+    emoji: "🪩",
+    instagram: "twenty_disco_lounge",
   },
   {
     slug: "paella-pop-el-pueblito",
@@ -1808,7 +1844,7 @@ export const SEED_VENUES: Venue[] = [
     name: "Iván García Teatro-Escuela",
     city: "Puerto Plata",
     description:
-      "Victorian teatro-escuela on Calle Profesor Juan Bosch #72 in the historic center — kids and youth acting classes, stage works, and cultural programming. Temporarily closed for maintenance (Sala Iván García); confirm reopen via Instagram @teatroivangarcia · teatroivangarcia.blogspot.com.",
+      "Victorian teatro-escuela on Calle Profesor Juan Bosch #72 in the historic center — kids and youth acting classes, stage works, and cultural programming. Closed for maintenance through 23 October 2026; gran reapertura 24 October with Eulogio Badia. Instagram @teatroivangarcia · teatroivangarcia.blogspot.com.",
     lat: 19.7979,
     lng: -70.6928,
     emoji: "🎭",
@@ -1942,6 +1978,15 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
     pattern:
       /\baura(\s*beach\s*club(\s*experience)?)?\b|auracabarete/i,
     slug: "aura-beach-club-cabarete",
+  },
+  {
+    pattern: /gypsy\s*bowls|gypsybowls/i,
+    slug: "gypsy-bowls-cabarete",
+  },
+  {
+    pattern:
+      /international\s*school\s*(of\s*)?sos[uú]a|issosua|iss\s*sos[uú]a|issosuahurricanes/i,
+    slug: "international-school-sosua",
   },
   {
     pattern:
@@ -2078,6 +2123,10 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
   {
     pattern: /latin\s*disco\s*club|disco\s*club(\s*brugal)?|latindiscoclubpp/i,
     slug: "disco-club-brugal",
+  },
+  {
+    pattern: /twenty\s*disco(\s*(&|and)?\s*lounge)?|twenty_disco_lounge/i,
+    slug: "twenty-disco-lounge",
   },
   {
     pattern: /mecla['’]?o\s*rooftop|meclao\s*rooftop/i,

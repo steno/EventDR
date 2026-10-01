@@ -149,7 +149,9 @@ function finalizeHits(
 
 /**
  * Find other physical events the guest can combine with `source` the same day —
- * same venue, same walkable pocket, or within a soft walk radius.
+ * same walkable pocket, or within a soft walk radius. Same-venue siblings are
+ * optional via {@link findNearbyTonight}'s `excludeSameVenue` (event detail
+ * turns that on so “Also at” owns the venue list).
  */
 export function findNearbyTonight(
   source: Event,
@@ -452,7 +454,9 @@ export function findNearbyOnStrip(
   };
 }
 
-/** Same-day neighbors first; if none, fall back to the walkable strip look-ahead. */
+/** Same-day neighbors first; if none, fall back to the walkable strip look-ahead.
+ * Same-venue siblings stay out — event detail already lists them under “Also at”.
+ */
 export function findNearbyForEventDetail(
   source: Event,
   pool: Event[],
@@ -461,7 +465,10 @@ export function findNearbyForEventDetail(
     maxResults?: number;
   },
 ): NearbyTonightResult {
-  const sameDay = findNearbyTonight(source, pool, options);
+  const sameDay = findNearbyTonight(source, pool, {
+    ...options,
+    excludeSameVenue: true,
+  });
   if (sameDay.hits.length > 0) return sameDay;
 
   const now = options?.now ?? new Date();

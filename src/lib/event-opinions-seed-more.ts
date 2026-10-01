@@ -2812,10 +2812,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "natura-cabana-jazz-ensemble-2026-10-03",
-    body: "Named Jazz Ensemble on Natura’s Saturday 7–9:30 PM live slot — book a table like the flyer; dinner-show pace at the boutique restaurant, not a late Cabarete disco run.",
+    body: "Sosua Jazz Collective on Natura’s Saturday 7–9:30 PM live slot — book a table like the flyer; dinner-show pace at the boutique restaurant, not a late Cabarete disco run.",
     localized: {
-      es: "Jazz Ensemble con nombre en el slot de sábado 7–9:30 PM de Natura — reserva mesa como dice el flyer; ritmo cena-show en el restaurante boutique, no disco tarde hacia Cabarete.",
-      fr: "Jazz Ensemble affiché sur le créneau live du samedi 19 h–21 h 30 à Natura — réservez une table comme sur l’affiche ; rythme dîner-show au restaurant boutique, pas une disco tardive vers Cabarete.",
+      es: "Sosua Jazz Collective en el slot de sábado 7–9:30 PM de Natura — reserva mesa como dice el flyer; ritmo cena-show en el restaurante boutique, no disco tarde hacia Cabarete.",
+      fr: "Sosua Jazz Collective sur le créneau live du samedi 19 h–21 h 30 à Natura — réservez une table comme sur l’affiche ; rythme dîner-show au restaurant boutique, pas une disco tardive vers Cabarete.",
     },
     priceFeel: "moderate",
     priceNote: "No cover listed — budget dinner/drinks; book +1 849-214-7010",
@@ -2823,10 +2823,11 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       es: "Sin cover publicado — presupuesta cena/tragos; reserva +1 849-214-7010",
       fr: "Pas de cover publié — budget dîner/boissons ; réservez +1 849-214-7010",
     },
-    attribution: "POP research · Natura Live Jazz Ensemble flyer",
+    attribution:
+      "POP research · Natura Live Jazz Ensemble flyer + @sosuajazzcollective",
     researchNotes:
-      "Editor flyer Sat 3 Oct 2026 7–9:30 PM Live Jazz Ensemble, book your table; naturacabana.com Saturday live music series at Paseo del Sol 5 Cabarete.",
-    updatedAt: "2026-09-30T12:00:00.000Z",
+      "Editor flyer Sat 3 Oct 2026 7–9:30 PM Live Jazz Ensemble at Natura; performers are Sosua Jazz Collective (Instagram https://www.instagram.com/sosuajazzcollective/); naturacabana.com Saturday live music series at Paseo del Sol 5 Cabarete.",
+    updatedAt: "2026-10-01T15:30:00.000Z",
   },
   {
     eventId: "kaovanny-natura-cabana-2026-09-26",
@@ -3621,6 +3622,25 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: "2026-09-26T15:00:00.000Z",
   },
   {
+    eventId: "grand-prix-jueves-stripper-show",
+    seriesKey: "grand-prix-puerto-plata:weekly:4",
+    body: "Thursday stripper night at Grand Prix in La Javilla with DJ Ariel — same Manolo Tavarez / Bomba pin as Saturday Bailable, not Latin Disco Club’s On Fire Thursday across town; confirm cover on @grandprixrd.",
+    localized: {
+      es: "Jueves de strippers en Grand Prix en La Javilla con DJ Ariel — el mismo pin Manolo Tavarez / Bomba que el Sábado Bailable, no el On Fire de Latin Disco Club al otro lado; confirma cover en @grandprixrd.",
+      fr: "Jeudi strippers au Grand Prix à La Javilla avec DJ Ariel — même pin Manolo Tavarez / Bomba que le Sábado Bailable, pas l’On Fire du Latin Disco Club de l’autre côté ; confirmez le cover sur @grandprixrd.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover/doors confirm @grandprixrd",
+    priceNoteLocalized: {
+      es: "Cover/puertas confirma @grandprixrd",
+      fr: "Cover/portes confirmez @grandprixrd",
+    },
+    attribution: "POP research · @grandprixrd D'Goldy Stripper Show flyer",
+    researchNotes:
+      "Editor flyer — weekly Thursday Show Stripper / D'Goldy Stripper Show, Music by DJ Ariel, Edificio Grand Prix La Javilla. User confirmed every Thursday.",
+    updatedAt: "2026-10-01T22:30:00.000Z",
+  },
+  {
     eventId: "disco-club-on-fire-night-2026-10-01",
     body: "Thursday On Fire / Jueves de Strippers at Latin Disco Club by the Brugal depots — gogo-show energy on Manolo Tavarez Justo, not a Malecón beach club; reserve 829-563-9469 before you treat doors as walk-in.",
     localized: {
@@ -3658,10 +3678,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "meclao-sammy-bday-jhon-parra-2026-10-01",
-    body: "Sammy B-Day on the Luis Ginebra rooftop with Jhon Parra — flyer says no cover; reserve 829-374-7028, and don’t mix it with Latin Disco Club’s Thursday On Fire night across town.",
+    body: "Sammy B-Day on the Luis Ginebra rooftop with beats by @djhxnparra — flyer says no cover; reserve 829-374-7028, and don’t mix it with Latin Disco Club’s Thursday On Fire night across town.",
     localized: {
-      es: "Sammy B-Day en el rooftop de Luis Ginebra con Jhon Parra — el flyer dice no cover; reserva 829-374-7028, y no lo mezcles con el jueves On Fire de Latin Disco Club al otro lado de la ciudad.",
-      fr: "Sammy B-Day sur le rooftop Luis Ginebra avec Jhon Parra — l’affiche dit no cover ; réservez 829-374-7028, et ne le mélangez pas avec le jeudi On Fire du Latin Disco Club de l’autre côté de la ville.",
+      es: "Sammy B-Day en el rooftop de Luis Ginebra con beats by @djhxnparra — el flyer dice no cover; reserva 829-374-7028, y no lo mezcles con el jueves On Fire de Latin Disco Club al otro lado de la ciudad.",
+      fr: "Sammy B-Day sur le rooftop Luis Ginebra avec beats by @djhxnparra — l’affiche dit no cover ; réservez 829-374-7028, et ne le mélangez pas avec le jeudi On Fire du Latin Disco Club de l’autre côté de la ville.",
     },
     priceFeel: "moderate",
     priceNote: "No cover on flyer — reserve 829-374-7028; pay drinks",
@@ -3671,8 +3691,8 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     },
     attribution: "POP research · @meclaorooftop Sammy B-Day flyer",
     researchNotes:
-      "Editor IG @meclaorooftop — Sammy B-Day, Jue 01 Oct, beats by Jhon Parra (@djhxnparra), Mecla'o Rooftop Lounge, Luis Ginebra 49. NO COVER. Reservations 829-374-7028. No start time on art.",
-    updatedAt: "2026-09-30T22:30:00.000Z",
+      "Editor IG @meclaorooftop — Sammy B-Day, Jue 01 Oct, Beats by @djhxnparra, Mecla'o Rooftop Lounge, Luis Ginebra 49. NO COVER. Reservations 829-374-7028. No start time on art.",
+    updatedAt: "2026-10-01T15:33:00.000Z",
   },
   {
     eventId: "francesca-aura-2026-10-01",
@@ -3753,5 +3773,134 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     researchNotes:
       "FB https://www.facebook.com/events/1591066336028829/ Fri 6 Nov 2026 10:02–11:23 AM POP airport; noticias037.net Wingo Bogotá–Puerto Plata from 6 Nov 2026 through 25 Jan 2027, Mon/Fri, from US$300 RT. User Aerodom promo flyer.",
     updatedAt: "2026-10-01T14:00:00.000Z",
+  },
+  {
+    eventId: "sarah-graciano-rancho-catalina-2026-10-04",
+    body: "Sunday 2:30 PM ranch live with Sarah Graciano — same no-cover El Cupey lunch slot as the recent Catalina Sundays; book a table if you want the set with the meal, not standing room only.",
+    localized: {
+      es: "Domingo 2:30 PM de live en el rancho con Sarah Graciano — el mismo slot sin cover de almuerzo en El Cupey que los domingos recientes de Catalina; reserva mesa si quieres el set con la comida, no solo de pie.",
+      fr: "Dimanche 14 h 30 live au ranch avec Sarah Graciano — même créneau déjeuner sans cover à El Cupey que les dimanches Catalina récents ; réservez une table pour le set avec le repas, pas juste debout.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "No cover — pay for ranch dining; +1 809-781-3737 / @rancholacatalina",
+    priceNoteLocalized: {
+      es: "Sin cover — pagas la comida del rancho; +1 809-781-3737 / @rancholacatalina",
+      fr: "Pas de cover — vous payez le repas ranch ; +1 809-781-3737 / @rancholacatalina",
+    },
+    attribution: "POP research · @rancholacatalina · Sarah Graciano flyer",
+    researchNotes:
+      "Editor flyer + IG @rancholacatalina caption — Sun 4 Oct 2026 2:30 PM Sarah Graciano Música en Vivo, no cover, El Cupey; afternoon music/food send.",
+    updatedAt: "2026-10-01T18:00:00.000Z",
+  },
+  {
+    eventId: "twenty-disco-friday-dj-tanque-2026-10-02",
+    body: "Playa Dorada Mall Friday with DJ Tanque and free cover — pin Twenty Disco Lounge inside the mall, not Latin Disco Club’s same-night La Más Doll RD$600 door across town.",
+    localized: {
+      es: "Viernes en Playa Dorada Mall con DJ Tanque y free cover — pin Twenty Disco Lounge dentro del mall, no la puerta RD$600 de La Más Doll en Latin Disco Club la misma noche al otro lado de la ciudad.",
+      fr: "Vendredi à Playa Dorada Mall avec DJ Tanque et free cover — épinglez Twenty Disco Lounge dans le mall, pas la porte RD$600 de La Más Doll au Latin Disco Club la même nuit de l’autre côté de la ville.",
+    },
+    priceFeel: "moderate",
+    priceNote: "Free cover on flyer — pay drinks; @twenty_disco_lounge",
+    priceNoteLocalized: {
+      es: "Free cover en el flyer — pagas tragos; @twenty_disco_lounge",
+      fr: "Free cover sur l’affiche — payez les boissons ; @twenty_disco_lounge",
+    },
+    attribution: "POP research · @twenty_disco_lounge It's Friday Night flyer",
+    researchNotes:
+      "Editor IG @twenty_disco_lounge — It's Friday Night, Vie 2 Oct 2026, Music by DJ Tanque (@djtanque__), FREE COVER, Playa Dorada Mall. Venue photos editor-supplied bar + neon lounge.",
+    updatedAt: "2026-10-01T17:00:00.000Z",
+  },
+  {
+    eventId: "twenty-disco-glam-in-the-dark-2026-10-03",
+    body: "Saturday concept night at Playa Dorada Mall — dress dark for GLAM In The Dark with Darvin Estrella, Gaby Luna, and Jhon Parra; cover isn’t on the flyer, so pin @twenty_disco_lounge before you treat it like Friday’s free-cover Tanque night.",
+    localized: {
+      es: "Noche concept el sábado en Playa Dorada Mall — viste de oscuro para GLAM In The Dark con Darvin Estrella, Gaby Luna y Jhon Parra; el cover no está en el flyer, así que pin @twenty_disco_lounge antes de tratarlo como el viernes free cover de Tanque.",
+      fr: "Soirée concept samedi à Playa Dorada Mall — habillez-vous en noir pour GLAM In The Dark avec Darvin Estrella, Gaby Luna et Jhon Parra ; le cover n’est pas sur l’affiche, donc épinglez @twenty_disco_lounge avant de la traiter comme le vendredi free cover de Tanque.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover not on flyer — confirm @twenty_disco_lounge; budget mall-disco drinks",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — confirma @twenty_disco_lounge; presupuesta tragos de disco del mall",
+      fr: "Cover absent de l’affiche — confirmez @twenty_disco_lounge ; budgétez les boissons disco du mall",
+    },
+    attribution:
+      "POP research · @twenty_disco_lounge / __ivn.ali GLAM In The Dark flyer",
+    researchNotes:
+      "Editor flyer + IG caption — Sat 3 Oct 2026 GLAM IN THE DARK, Dress dark shine bright, Music by Darvin Estrella · Gaby Luna · Jhon Parra, Playa Dorada Mall. Logos CDS Clouds Dream Society, Twenty Disco & Lounge, Awa Vibra. No cover/price on art.",
+    updatedAt: "2026-10-01T19:00:00.000Z",
+  },
+  {
+    eventId: "gypsy-bowls-last-bowl-call-2026-10-03",
+    body: "Last Saturday bowls before remodel — DJ Muir Head 8 AM–5 PM on Carretera Principal; after this day the patio is closed until 15 October, so don’t treat Gypsy like an open brunch stop mid-glow-up.",
+    localized: {
+      es: "Último sábado de bowls antes del remodel — DJ Muir Head 8 AM–5 PM en Carretera Principal; después de este día el patio cierra hasta el 15 de octubre, no trates Gypsy como brunch abierto a mitad del glow-up.",
+      fr: "Dernier samedi bowls avant remodelage — DJ Muir Head 8 h–17 h sur Carretera Principal ; après ce jour le patio est fermé jusqu’au 15 octobre, ne traitez pas Gypsy comme un brunch ouvert en plein glow-up.",
+    },
+    priceFeel: "moderate",
+    priceNote: "No cover on flyer — pay for bowls; closed 4–14 Oct, back 15 Oct · @gypsybowls",
+    priceNoteLocalized: {
+      es: "Sin cover en el flyer — pagas bowls; cerrado 4–14 oct, vuelve 15 oct · @gypsybowls",
+      fr: "Pas de cover sur l’affiche — payez les bowls ; fermé 4–14 oct., retour 15 oct. · @gypsybowls",
+    },
+    attribution: "POP research · @gypsybowls Last Bowl Call flyer",
+    researchNotes:
+      "Editor flyer + IG @gypsybowls — Sat 3 Oct 2026 8am–5pm Last Bowl Call, DJ Muir Head, special promos; closed for remodel after, back Oct 15.",
+    updatedAt: "2026-10-01T20:00:00.000Z",
+  },
+  {
+    eventId: "iss-wizard-of-oz-2026-12-17",
+    body: "December 17 6:30 PM Wizard of Oz on the ISS campus in El Batey — save-the-date only so far; pin La Mulata #1, not Hard Rock, and wait on @issosuahurricanes for tickets before you treat it like a walk-up.",
+    localized: {
+      es: "17 de diciembre 6:30 PM El Mago de Oz en el campus ISS en El Batey — por ahora solo save the date; pin La Mulata #1, no Hard Rock, y espera a @issosuahurricanes para boletas antes de tratarlo como walk-up.",
+      fr: "17 décembre 18 h 30 Le Magicien d’Oz sur le campus ISS à El Batey — pour l’instant save the date seulement ; épinglez La Mulata #1, pas le Hard Rock, et attendez @issosuahurricanes pour les billets avant un walk-up.",
+    },
+    priceFeel: "varies",
+    priceNote:
+      "Tickets TBA — confirm @issosuahurricanes / +1 809-571-3271 · issosua.com",
+    priceNoteLocalized: {
+      es: "Boletas por confirmar — @issosuahurricanes / +1 809-571-3271 · issosua.com",
+      fr: "Billets à confirmer — @issosuahurricanes / +1 809-571-3271 · issosua.com",
+    },
+    attribution: "POP research · @issosuahurricanes Wizard of Oz save-the-date",
+    researchNotes:
+      "Editor flyer + IG @issosuahurricanes — Wed 17 Dec 2026 6:30 PM ISS Winter Musical The Wizard of Oz at International School of Sosúa. More details coming soon.",
+    updatedAt: "2026-10-01T21:00:00.000Z",
+  },
+  {
+    eventId: "twenty-disco-kiry-curu-2026-10-16",
+    body: "Friday 16 Oct Kiry Curu at Playa Dorada Mall — preventa RD$600 via Santana Events; reserve 829-716-0160, and don’t mix it with Twenty’s free-cover Friday Tanque night earlier in the month.",
+    localized: {
+      es: "Viernes 16 oct Kiry Curu en Playa Dorada Mall — preventa RD$600 vía Santana Events; reserva 829-716-0160, y no lo mezcles con el viernes free cover de Tanque a principios de mes.",
+      fr: "Vendredi 16 oct. Kiry Curu à Playa Dorada Mall — prévente RD$600 via Santana Events ; réservez 829-716-0160, et ne confondez pas avec le vendredi free cover Tanque plus tôt dans le mois.",
+    },
+    priceFeel: "moderate",
+    priceNote: "Preventa RD$600 — reserve 829-716-0160 / @santana_events0",
+    priceNoteLocalized: {
+      es: "Preventa RD$600 — reserva 829-716-0160 / @santana_events0",
+      fr: "Prévente RD$600 — réservez 829-716-0160 / @santana_events0",
+    },
+    attribution: "POP research · @santana_events0 Kiry Curu flyer",
+    researchNotes:
+      "Editor flyer + IG @santana_events0 — Fri 16 Oct 2026 Kiry Curu live, Twenty Disco Lounge Playa Dorada Mall, preventa RD$600, reservaciones 829-716-0160.",
+    updatedAt: "2026-10-01T22:00:00.000Z",
+  },
+  {
+    eventId: "ivan-garcia-eulogio-badia-2026-10-24",
+    body: "Gran reapertura night — Eulogio Badia at 7:00 PM on Juan Bosch #72 for the IX Festival Nacional de Teatro; RSVP 809-261-7393, and don’t send guests during the maintenance window that runs through 23 October.",
+    localized: {
+      es: "Noche de gran reapertura — Eulogio Badia a las 7:00 PM en Juan Bosch #72 para el IX Festival Nacional de Teatro; RSVP 809-261-7393, y no mandes gente durante el mantenimiento que corre hasta el 23 de octubre.",
+      fr: "Soirée grande réouverture — Eulogio Badia à 19 h au 72 Juan Bosch pour le IX Festival Nacional de Teatro ; RSVP 809-261-7393, et n’envoyez pas de monde pendant la fenêtre d’entretien jusqu’au 23 octobre.",
+    },
+    priceFeel: "varies",
+    priceNote: "RSVP 809-261-7393 — confirm tickets/cover @teatroivangarcia",
+    priceNoteLocalized: {
+      es: "RSVP 809-261-7393 — confirma boletas/cover @teatroivangarcia",
+      fr: "RSVP 809-261-7393 — confirmez billets/cover @teatroivangarcia",
+    },
+    attribution: "POP research · @teatroivangarcia Eulogio Badia reapertura flyer",
+    researchNotes:
+      "Editor flyer — Sat 24 Oct 2026 7:00 PM Eulogio Badia, gran reapertura Iván García Teatro-Escuela, IX Festival Nacional de Teatro S.D. 2026, Calle Prof. Juan Bosch #72, RSVP 809-261-7393. Closure alert until 2026-10-23.",
+    updatedAt: "2026-10-01T21:30:00.000Z",
   },
 ];

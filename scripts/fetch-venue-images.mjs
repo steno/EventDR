@@ -233,7 +233,7 @@ const VENUE_SOURCES = [
     eventId: "master-of-the-ocean-2026",
     url: "https://static.wixstatic.com/media/c23fd5_ee7b6ee12742489abb13f57ecfdd8449~mv2.jpg",
   },
-  // meclao-rooftop-lounge.jpg — official @meclaorooftop lounge night (committed).
+  // meclao-rooftop-exterior-dusk.jpg — editor-supplied dusk exterior (committed).
   // kviar-costa-dorada-floor.jpg — official @kviarcasinos floor (committed).
   {
     eventId: "iberostar-costa-dorada-day-pass",

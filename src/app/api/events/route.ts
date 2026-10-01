@@ -38,6 +38,7 @@ import { localizeEventsForDisplay } from "@/lib/localized-text";
 import { slimEventsForList } from "@/lib/list-payload";
 import { eventsApiHeaders } from "@/lib/http-cache";
 import { attachSeedCreatedAt } from "@/lib/seed-created-at";
+import { eventListingDedupeKey } from "@/lib/event-listing-dedupe";
 
 // Render at origin; Cache-Control below lets the CDN hold non-empty catalogs.
 export const dynamic = "force-dynamic";
@@ -57,20 +58,12 @@ function isValidWhen(value: string): value is Exclude<TimeRange, "all"> {
   return value === "today" || value === "tomorrow" || value === "weekend";
 }
 
-function eventDedupeKey(event: Event): string {
-  return event.title
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/(^-|-$)/g, "")
-    .slice(0, 48);
-}
-
 function mergeUniqueEvents(base: Event[], extra: Event[]): Event[] {
   const seen = new Set(base.map((e) => e.id));
-  const seenTitles = new Set(base.map(eventDedupeKey));
+  const seenTitles = new Set(base.map(eventListingDedupeKey));
   const merged = [...base];
   for (const e of extra) {
-    const titleKey = eventDedupeKey(e);
+    const titleKey = eventListingDedupeKey(e);
     if (!seen.has(e.id) && !seenTitles.has(titleKey)) {
       merged.push(e);
       seen.add(e.id);

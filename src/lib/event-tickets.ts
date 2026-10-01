@@ -111,6 +111,7 @@ export const CURATED_ADMISSION_PRICES: Record<string, string> = {
   "lil-naay-2026-07-17": "RD$700",
   "cabarete-stand-up-vol-2-2026-10-24": "RD$600",
   "disco-club-la-mas-doll-2026-10-02": "RD$600",
+  "twenty-disco-kiry-curu-2026-10-16": "RD$600",
 
   // Museums & historic sites (door price)
   "museo-ambar-weekdays": "RD$250",
@@ -251,6 +252,9 @@ export const CURATED_FREE_EVENTS = new Set<string>([
   "ernesto-betances-rancho-catalina-2026-09-13",
   "duo-maryem-rancho-catalina-2026-09-20",
   "joaquin-sanchez-rancho-catalina-2026-09-27",
+  "sarah-graciano-rancho-catalina-2026-10-04",
+  "twenty-disco-friday-dj-tanque-2026-10-02",
+  "gypsy-bowls-last-bowl-call-2026-10-03",
   "el-cuarteto-del-swing-zona-acapella-2026-09-13",
   "los-caballitos-zona-acapella-2026-09-20",
   "banda-modelo-vinoteca-2026-09-26",

@@ -20,6 +20,7 @@ import { filterByTimeRange } from "@/lib/filters";
 import { eventInCategory, withResolvedCategories } from "@/lib/categorize";
 import { LISTING_REVALIDATE_SECONDS } from "@/lib/http-cache";
 import { slimEventsForList } from "@/lib/list-payload";
+import { eventListingDedupeKey } from "@/lib/event-listing-dedupe";
 import type { Event, EventCategory } from "@/lib/types";
 
 export type PublicEventsFilter = {
@@ -32,14 +33,6 @@ export type PublicEventsFilter = {
   includePast?: boolean;
 };
 
-function eventDedupeKey(event: Event): string {
-  return event.title
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/(^-|-$)/g, "")
-    .slice(0, 48);
-}
-
 function isLiveCatalogEvent(event: Event): boolean {
   return materializeEventDates([event]).length > 0;
 }
@@ -50,7 +43,7 @@ function mergeUniqueEvents(base: Event[], extra: Event[]): Event[] {
   const seenTitles = new Set<string>();
 
   for (const event of [...base, ...extra]) {
-    const titleKey = eventDedupeKey(event);
+    const titleKey = eventListingDedupeKey(event);
     const existingIndex = seenId.get(event.id);
     if (existingIndex !== undefined) {
       const existing = merged[existingIndex]!;

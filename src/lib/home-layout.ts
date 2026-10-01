@@ -85,6 +85,7 @@ export const VENUE_AUDIENCE_POOLS: Record<
   local: [
     "d-classico-sosua",
     "disco-club-brugal",
+    "twenty-disco-lounge",
     "anfiteatro-la-puntilla",
     "el-parq-cabarete",
     "parada-tipica-el-choco",
@@ -132,6 +133,7 @@ export const VENUE_AUDIENCE_POOLS: Record<
     "lax-cabarete",
     "kite-beach",
     "voyvoy-cabarete",
+    "gypsy-bowls-cabarete",
     "hotel-villa-taina",
     "natura-cabana",
     "hard-rock-sosua",

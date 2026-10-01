@@ -3619,8 +3619,8 @@
   },
   {
     "id": "natura-cabana-jazz-ensemble-2026-10-03",
-    "title": "Live Jazz Ensemble en Natura Cabana",
-    "description": "Live Jazz Ensemble en Natura Restaurant, Natura Cabana Boutique Hotel & Spa, Paseo del Sol 5, Cabarete — sábado 3 de octubre 2026, 7:00–9:30 PM. Música, tragos y good vibes en la noche semanal de sábado. Reserva mesa +1 849-214-7010 · naturacabana.com.",
+    "title": "Sosua Jazz Collective — jazz en vivo en Natura Cabana",
+    "description": "Sosua Jazz Collective (Live Jazz Ensemble) en Natura Restaurant, Natura Cabana Boutique Hotel & Spa, Paseo del Sol 5, Cabarete — sábado 3 de octubre 2026, 7:00–9:30 PM. Música, tragos y good vibes en la noche semanal de sábado de Natura. Reserva mesa +1 849-214-7010 · naturacabana.com · Instagram @sosuajazzcollective.",
     "date": "2026-10-03",
     "time": "7:00 PM – 9:30 PM",
     "location": "Cabarete",
@@ -3641,7 +3641,7 @@
     "sourceType": "flyer",
     "sourceUrl": "https://naturacabana.com/event/live-music-cabarete-saturdays-natura-cabana/",
     "lineup": [
-      "Live Jazz Ensemble"
+      "Sosua Jazz Collective"
     ],
     "imageEmoji": "🎷"
   },
@@ -3762,8 +3762,8 @@
   },
   {
     "id": "meclao-sammy-bday-jhon-parra-2026-10-01",
-    "title": "Sammy B-Day — Jhon Parra en Mecla'o Rooftop",
-    "description": "Sammy B-Day en Mecla'o Rooftop Lounge, Av. Luis Ginebra No. 49, Puerto Plata — jueves 1 de octubre 2026 con beats de Jhon Parra (@djhxnparra). No cover. Reserva mesas: 829-374-7028. Confirma puertas por Instagram @meclaorooftop.",
+    "title": "Sammy B-Day — Beats by @djhxnparra en Mecla'o",
+    "description": "Sammy B-Day en Mecla'o Rooftop Lounge, Av. Luis Ginebra No. 49, Puerto Plata — jueves 1 de octubre 2026. Beats by @djhxnparra. No cover. Reserva mesas: 829-374-7028. Confirma puertas por Instagram @meclaorooftop.",
     "date": "2026-10-01",
     "location": "Puerto Plata",
     "venue": "Mecla'o Rooftop Lounge",
@@ -3860,7 +3860,7 @@
     "sourceType": "flyer",
     "sourceUrl": "https://www.instagram.com/atleticosdepuertoplata/",
     "imageEmoji": "⚾",
-    "title": "Atléticos de Puerto Plata vs Mineros de Bonao — Serie Final Juego 4",
+    "title": "José Briceño Serie Final Juego 4 — Atléticos vs Mineros",
     "description": "Serie Final de la Liga Nacional de Béisbol de Verano, juego 4 en el Parque José Briceño — los Atléticos de Puerto Plata reciben a los Mineros de Bonao el sábado 3 de octubre 2026 (primera bola 6:00 PM). Boletos en taquilla: Palco A RD$300 / Palco AA RD$200 (sin página de playoffs en todotickets). El juego 3 es el viernes en Bonao; el juego 5 el domingo en Bonao solo si es necesario."
   },
   {
@@ -3891,5 +3891,196 @@
     "imageEmoji": "✈️",
     "title": "Inauguración ruta Wingo Bogotá — Aeropuerto Gregorio Luperón",
     "description": "Inauguración pública de los vuelos directos Bogotá–Puerto Plata de Wingo en el Aeropuerto Internacional Gregorio Luperón — viernes 6 de noviembre 2026, 10:02 AM–11:23 AM. Organiza TMA Puerto Plata el primer servicio internacional de Wingo que conecta Puerto Plata y la costa norte con Bogotá. Vuelos de temporada lun/vie hasta el 25 de enero 2027; tiquetes desde unos US$300 ida y vuelta en wingo.com. Ceremonia gratuita — confirma logística en Facebook."
+  },
+  {
+    "id": "sarah-graciano-rancho-catalina-2026-10-04",
+    "title": "Sarah Graciano en vivo en Rancho La Catalina",
+    "description": "Música en vivo con Sarah Graciano en Rancho La Catalina, El Cupey — domingo 4 de octubre 2026 a las 2:30 PM. Tarde de música, buena comida y ambiente de rancho; sin cover. Llama al +1 809-781-3737 · Instagram @rancholacatalina.",
+    "date": "2026-10-04",
+    "time": "2:30 PM",
+    "location": "Puerto Plata",
+    "venue": "Rancho La Catalina",
+    "venueSlug": "rancho-catalina-puerto-plata",
+    "address": "El Cupey, Puerto Plata",
+    "lat": 19.7371866,
+    "lng": -70.7253286,
+    "category": "music",
+    "categories": [
+      "food-drinks",
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "phone": "+18097813737",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/rancholacatalina/",
+    "lineup": [
+      "Sarah Graciano"
+    ],
+    "imageEmoji": "🎤"
+  },
+  {
+    "id": "twenty-disco-friday-dj-tanque-2026-10-02",
+    "title": "Twenty Disco Lounge viernes — DJ Tanque",
+    "description": "It's Friday Night en Twenty Disco & Lounge, Playa Dorada Mall, Puerto Plata — viernes 2 de octubre 2026. Música de DJ Tanque. Free cover. Confirma puertas por Instagram @twenty_disco_lounge.",
+    "date": "2026-10-02",
+    "location": "Playa Dorada",
+    "venue": "Twenty Disco Lounge",
+    "venueSlug": "twenty-disco-lounge",
+    "address": "Playa Dorada Mall, Puerto Plata",
+    "lat": 19.769476,
+    "lng": -70.643033,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/twenty_disco_lounge/",
+    "lineup": [
+      "DJ Tanque"
+    ],
+    "imageEmoji": "🪩"
+  },
+  {
+    "id": "twenty-disco-glam-in-the-dark-2026-10-03",
+    "title": "Twenty Disco — GLAM In The Dark",
+    "description": "GLAM In The Dark en Twenty Disco & Lounge, Playa Dorada Mall, Puerto Plata — sábado 3 de octubre 2026. Dress dark, shine bright. Música de Darvin Estrella, Gaby Luna y Jhon Parra. Con CDS Clouds Dream Society y Awa Vibra. Confirma cover y puertas por Instagram @twenty_disco_lounge.",
+    "date": "2026-10-03",
+    "location": "Playa Dorada",
+    "venue": "Twenty Disco Lounge",
+    "venueSlug": "twenty-disco-lounge",
+    "address": "Playa Dorada Mall, Puerto Plata",
+    "lat": 19.769476,
+    "lng": -70.643033,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/twenty_disco_lounge/",
+    "lineup": [
+      "Darvin Estrella",
+      "Gaby Luna",
+      "Jhon Parra"
+    ],
+    "imageEmoji": "🖤"
+  },
+  {
+    "id": "gypsy-bowls-last-bowl-call-2026-10-03",
+    "title": "Gypsy Bowls — Last Bowl Call con DJ Muir Head",
+    "description": "Last Bowl Call en Gypsy Bowls Cabarete, Carretera Principal — sábado 3 de octubre 2026, 8:00 AM–5:00 PM. Último sábado antes del remodel con DJ Muir Head, promos especiales y tus favoritos. El local cierra después de este día por un glow-up y reabre el 15 de octubre 2026. Instagram @gypsybowls.",
+    "date": "2026-10-03",
+    "time": "8:00 AM – 5:00 PM",
+    "location": "Cabarete",
+    "venue": "Gypsy Bowls Cabarete",
+    "venueSlug": "gypsy-bowls-cabarete",
+    "address": "Carretera Principal, Cabarete 57000",
+    "lat": 19.752326,
+    "lng": -70.416217,
+    "category": "food-drinks",
+    "categories": [
+      "music"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "phone": "+18299454543",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/gypsybowls/",
+    "lineup": [
+      "DJ Muir Head"
+    ],
+    "imageEmoji": "🥣"
+  },
+  {
+    "id": "iss-wizard-of-oz-2026-12-17",
+    "title": "Musical de invierno ISS — El Mago de Oz",
+    "description": "Musical de invierno ISS: El Mago de Oz en International School of Sosúa, La Mulata #1, El Batey — miércoles 17 de diciembre 2026 a las 6:30 PM. Save the date en campus; más detalles de boletas y puertas por Instagram @issosuahurricanes · issosua.com · +1 809-571-3271.",
+    "date": "2026-12-17",
+    "time": "6:30 PM",
+    "location": "Sosúa",
+    "venue": "International School of Sosúa",
+    "venueSlug": "international-school-sosua",
+    "address": "La Mulata #1, El Batey, Sosúa 57000",
+    "lat": 19.765324,
+    "lng": -70.499295,
+    "category": "performances",
+    "categories": [
+      "culture",
+      "music"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18095713271",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/issosuahurricanes/",
+    "lineup": [
+      "International School of Sosúa"
+    ],
+    "imageEmoji": "🌈"
+  },
+  {
+    "id": "twenty-disco-kiry-curu-2026-10-16",
+    "title": "Twenty Disco — Kiry Curu en vivo",
+    "description": "Santana Events presenta a Kiry Curu en vivo en Twenty Disco & Lounge, Playa Dorada Mall, Puerto Plata — viernes 16 de octubre 2026. Preventa RD$600. Reservaciones 829-716-0160 · Instagram @twenty_disco_lounge / @santana_events0.",
+    "date": "2026-10-16",
+    "location": "Playa Dorada",
+    "venue": "Twenty Disco Lounge",
+    "venueSlug": "twenty-disco-lounge",
+    "address": "Playa Dorada Mall, Puerto Plata",
+    "lat": 19.769476,
+    "lng": -70.643033,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "admissionPrice": "RD$600",
+    "phone": "+18297160160",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/santana_events0/",
+    "lineup": [
+      "Kiry Curu"
+    ],
+    "imageEmoji": "🎤"
+  },
+  {
+    "id": "ivan-garcia-eulogio-badia-2026-10-24",
+    "title": "Iván García gran reapertura — Eulogio Badia",
+    "description": "Gran reapertura de Iván García Teatro-Escuela con la obra Eulogio Badia, parte del IX Festival Nacional de Teatro S.D. 2026 — sábado 24 de octubre 2026 a las 7:00 PM, Calle Profesor Juan Bosch #72, Puerto Plata. RSVP 809-261-7393 · Instagram @teatroivangarcia.",
+    "date": "2026-10-24",
+    "time": "7:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Iván García Teatro-Escuela",
+    "venueSlug": "ivan-garcia-teatro-escuela",
+    "address": "Calle Profesor Juan Bosch #72, Puerto Plata",
+    "lat": 19.7979,
+    "lng": -70.6928,
+    "category": "performances",
+    "categories": [
+      "culture"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18092617393",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/teatroivangarcia/",
+    "lineup": [
+      "Eulogio Badia"
+    ],
+    "imageEmoji": "🎭"
   }
 ]

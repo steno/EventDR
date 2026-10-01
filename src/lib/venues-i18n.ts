@@ -57,6 +57,12 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Scène sur deux étages en centre-ville sur la Calle Duarte — tournées, karaoke le mercredi dès 19 h (sans cover), spectacles familiaux et hommages sur la plus grande scène live de la Côte Nord. Horaires sep–oct : fermé lundi ; mar–ven 16 h–minuit ; sam 12 h–minuit ; dim 12 h–23 h. Billets Rock Shop / WhatsApp +1 849-505-7778.",
     },
   },
+  "international-school-sosua": {
+    description: {
+      es: "Colegio internacional privado en El Batey (La Mulata #1) — obras de campus, deportes y musicales de invierno para la comunidad. Fundado 1989 · issosua.com · Instagram @issosuahurricanes.",
+      fr: "École internationale privée à El Batey (La Mulata #1) — spectacles campus, sports et comédies musicales d’hiver pour la communauté. Fondée en 1989 · issosua.com · Instagram @issosuahurricanes.",
+    },
+  },
   "castaways-sosua": {
     description: {
       es: "Bar y eatery comunitario de Casa Linda (antes Castaway's) — comida, especiales de tragos, eventos en vivo y noches sociales expat en la entrada Phase 7–9 de Carretera El Choco.",
@@ -209,6 +215,12 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
     description: {
       es: "Restaurante frente al mar y vida nocturna en la bahía de Cabarete — música en vivo los lunes, Saturday Sessions y vistas a la bahía. Horario: dom/mar/jue/vie 7:30 AM–11:00 PM; lun 7:30 AM–1:00 AM; sáb 7:30 AM–3:00 AM; mié 7:30 AM–7:00 PM.",
       fr: "Restaurant en bord de mer et spot de nuit sur la baie de Cabarete — live le lundi, Saturday Sessions et vue baie. Horaires : dim/mar/jeu/ven 7 h 30–23 h ; lun 7 h 30–1 h ; sam 7 h 30–3 h ; mer 7 h 30–19 h.",
+    },
+  },
+  "gypsy-bowls-cabarete": {
+    description: {
+      es: "Bowls saludables, smoothies y patio de día en Carretera Principal — normalmente lun–sáb 8:00 AM–5:00 PM. Cerrado por remodelación después del 3 de octubre 2026; vuelve el 15 de octubre.",
+      fr: "Bowls healthy, smoothies et patio de jour sur Carretera Principal — en général lun–sam 8 h–17 h. Fermé pour remodelage après le 3 octobre 2026 ; de retour le 15 octobre.",
     },
   },
   "aura-beach-club-cabarete": {
@@ -537,6 +549,12 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
     description: {
       es: "Latin Disco Club en Av. Manolo Tavarez Justo (frente a los depósitos de Brugal) — noches de club, shows de gogo y conciertos con boleto para artistas dominicanos.",
       fr: "Latin Disco Club sur Av. Manolo Tavarez Justo (face aux dépôts Brugal) — soirées club, shows gogo et concerts billetés pour artistes dominicains.",
+    },
+  },
+  "twenty-disco-lounge": {
+    description: {
+      es: "Disco y lounge dentro de Playa Dorada Mall — viernes, sets de DJ con free cover, energía de lounge neón y barra iluminada para nightlife del mall.",
+      fr: "Disco et lounge dans Playa Dorada Mall — vendredis, sets DJ free cover, énergie lounge néon et bar à bouteilles éclairé pour la nightlife du mall.",
     },
   },
   "paella-pop-el-pueblito": {
@@ -937,8 +955,8 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
   },
   "ivan-garcia-teatro-escuela": {
     description: {
-      es: "Teatro-escuela victoriano en Calle Profesor Juan Bosch #72 en el centro histórico — clases de actuación para niños y jóvenes, obras y programación cultural. Cerrado temporalmente por mantenimiento (Sala Iván García); confirma reapertura por Instagram @teatroivangarcia · teatroivangarcia.blogspot.com.",
-      fr: "Teatro-escuela victorien au 72 Calle Profesor Juan Bosch, centre historique — cours de théâtre pour enfants et jeunes, pièces et programmation culturelle. Fermé temporairement pour entretien (Sala Iván García) ; confirmez la réouverture via Instagram @teatroivangarcia · teatroivangarcia.blogspot.com.",
+      es: "Teatro-escuela victoriano en Calle Profesor Juan Bosch #72 en el centro histórico — clases de actuación para niños y jóvenes, obras y programación cultural. Cerrado por mantenimiento hasta el 23 de octubre 2026; gran reapertura el 24 de octubre con Eulogio Badia. Instagram @teatroivangarcia · teatroivangarcia.blogspot.com.",
+      fr: "Teatro-escuela victorien au 72 Calle Profesor Juan Bosch, centre historique — cours de théâtre pour enfants et jeunes, pièces et programmation culturelle. Fermé pour entretien jusqu’au 23 octobre 2026 ; grande réouverture le 24 octobre avec Eulogio Badia. Instagram @teatroivangarcia · teatroivangarcia.blogspot.com.",
     },
   },
   "spotland-puerto-plata": {

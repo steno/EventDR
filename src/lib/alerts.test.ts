@@ -39,7 +39,7 @@ describe("getHomeAlerts", () => {
     assert.equal(alerts[2]?.external, true);
   });
 
-  it("drops Iberostar and VOYVOY after their windows; Iván García still closed", () => {
+  it("drops Iberostar, VOYVOY, and Iván García after their windows", () => {
     const alerts = getHomeAlerts({
       locale: "en",
       dict: dict,
@@ -47,8 +47,8 @@ describe("getHomeAlerts", () => {
     });
     const ids = alerts.map((a) => a.id);
     assert.ok(ids.includes("teleferico-rebuild-2026"));
-    assert.ok(ids.includes("ivan-garcia-teatro-mantenimiento-2026"));
     assert.ok(ids.includes("dr-jazz-festival-2026"));
+    assert.ok(!ids.includes("ivan-garcia-teatro-mantenimiento-2026"));
     assert.ok(!ids.includes("iberostar-costa-dorada-refurb-2026"));
     assert.ok(!ids.includes("voyvoy-cabarete-closed-2026-10"));
   });
@@ -122,6 +122,58 @@ describe("applyActiveEditorialClosure", () => {
     assert.equal(lastClosed.temporarilyClosed, true);
     const reopen = applyActiveEditorialClosureToVenue(venueInput, "2026-10-06");
     assert.equal(reopen.temporarilyClosed, undefined);
+  });
+
+  it("marks Gypsy Bowls closed after Last Bowl Call through 14 Oct, open 15 Oct", () => {
+    const venueInput: { slug: string; temporarilyClosed?: boolean } = {
+      slug: "gypsy-bowls-cabarete",
+    };
+    assert.equal(
+      applyActiveEditorialClosureToVenue(venueInput, "2026-10-03").temporarilyClosed,
+      undefined,
+    );
+    assert.equal(
+      applyActiveEditorialClosureToVenue(venueInput, "2026-10-04").temporarilyClosed,
+      true,
+    );
+    assert.equal(
+      applyActiveEditorialClosureToVenue(venueInput, "2026-10-14").temporarilyClosed,
+      true,
+    );
+    assert.equal(
+      applyActiveEditorialClosureToVenue(venueInput, "2026-10-15").temporarilyClosed,
+      undefined,
+    );
+  });
+
+  it("marks Iván García closed through 23 Oct and open on reapertura day 24 Oct", () => {
+    const venueInput: { slug: string; temporarilyClosed?: boolean } = {
+      slug: "ivan-garcia-teatro-escuela",
+    };
+    assert.equal(
+      applyActiveEditorialClosureToVenue(venueInput, "2026-10-23").temporarilyClosed,
+      true,
+    );
+    assert.equal(
+      applyActiveEditorialClosureToVenue(venueInput, "2026-10-24").temporarilyClosed,
+      undefined,
+    );
+  });
+
+  it("keeps Last Bowl Call listable on event day while remodel closure is armed", () => {
+    const event: { id: string; venueSlug: string; temporarilyClosed?: boolean } =
+      {
+        id: "gypsy-bowls-last-bowl-call-2026-10-03",
+        venueSlug: "gypsy-bowls-cabarete",
+      };
+    assert.equal(
+      applyActiveEditorialClosure(event, "2026-10-03").temporarilyClosed,
+      undefined,
+    );
+    assert.equal(
+      applyActiveEditorialClosure(event, "2026-10-04").temporarilyClosed,
+      undefined,
+    );
   });
 
   it("marks VOYVOY Monday live closed while the bar is shut", () => {

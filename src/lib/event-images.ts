@@ -187,6 +187,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "cheo-almonte-grand-prix-2026-09-25":
     "cheo-almonte-grand-prix-2026-09-25.jpg",
   "grand-prix-sabado-bailable": "grand-prix-sabado-bailable.jpg",
+  "grand-prix-jueves-stripper-show": "grand-prix-jueves-stripper-show.jpg",
   "iss-pta-parents-night-out-2026-09-17":
     "iss-pta-parents-night-out-flyer.jpg",
   "hard-rock-catrinas-halloween-2026-10-31":
@@ -236,6 +237,9 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "aura-disco-dj-melvin-2026-09-19": "aura-disco-dj-melvin-2026-09-19.jpg",
   "aura-disco-dj-christo-2026-09-26": "aura-disco-dj-christo-2026-09-26.jpg",
   "meclao-house-friday-2026-09-18": "meclao-house-friday-2026-09-18.jpg",
+  // Filename bump — lounge night (women at tables) kept on the recurring live listing;
+  // venue hero is the dusk exterior.
+  "meclao-rooftop-live-nights": "meclao-rooftop-live-nights-lounge.jpg",
   // Filename bump — full Junier Lockward flyer (immutable CDN kept the caption-crop).
   "meclao-house-friday-2026-09-25":
     "meclao-house-friday-2026-09-25-lockward.jpg",
@@ -247,6 +251,19 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "disco-club-la-mas-doll-2026-10-02.jpg",
   "meclao-sammy-bday-jhon-parra-2026-10-01":
     "meclao-sammy-bday-jhon-parra-2026-10-01.jpg",
+  "sarah-graciano-rancho-catalina-2026-10-04":
+    "sarah-graciano-rancho-catalina-2026-10-04.jpg",
+  "twenty-disco-friday-dj-tanque-2026-10-02":
+    "twenty-disco-friday-dj-tanque-2026-10-02.jpg",
+  "twenty-disco-glam-in-the-dark-2026-10-03":
+    "twenty-disco-glam-in-the-dark-2026-10-03.jpg",
+  "gypsy-bowls-last-bowl-call-2026-10-03":
+    "gypsy-bowls-last-bowl-call-2026-10-03.jpg",
+  "iss-wizard-of-oz-2026-12-17": "iss-wizard-of-oz-2026-12-17.jpg",
+  "twenty-disco-kiry-curu-2026-10-16":
+    "twenty-disco-kiry-curu-2026-10-16.jpg",
+  "ivan-garcia-eulogio-badia-2026-10-24":
+    "ivan-garcia-eulogio-badia-2026-10-24.jpg",
   "la-lola-back-to-northside-2026-07-04":
     "la-lola-back-to-northside-2026-07-04.jpg",
   "ambar-lounge-emil-roman-2026-09-26":
@@ -340,7 +357,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "ingest-asa-survival-series-cdf-vs-dracos-game-5.jpeg",
   "puerto-plata-golf-classic-2026": "puerto-plata-golf-classic-2026.jpg",
   "cac-games-surf-playa-encuentro-2026": "cac-games-surf-playa-encuentro-2026.jpg",
-  "puerto-plata-beach-soccer-2026": "puerto-plata-beach-soccer-2026.jpg",
+  "puerto-plata-beach-soccer-2026":
+    "puerto-plata-beach-soccer-2026-aerial.jpg",
   "sosua-10k-road-race-2026": "sosua-10k-road-race-2026.jpg",
   "puerto-plata-poker-experience-2026": "puerto-plata-poker-experience-2026.jpg",
   "aventurate-rd-2026": "aventurate-rd-2026.jpg",
@@ -485,10 +503,18 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "aura-disco-dj-christo-2026-09-26": "object-center",
   "meclao-house-friday-2026-09-18": "object-center",
   "meclao-house-friday-2026-09-25": "object-center",
+  "meclao-rooftop-live-nights": "object-center",
   "meclao-chris-plasencia-2026-09-26": "object-center",
   "disco-club-on-fire-night-2026-10-01": "object-center",
   "disco-club-la-mas-doll-2026-10-02": "object-center",
   "meclao-sammy-bday-jhon-parra-2026-10-01": "object-center",
+  "sarah-graciano-rancho-catalina-2026-10-04": "object-center",
+  "twenty-disco-friday-dj-tanque-2026-10-02": "object-center",
+  "twenty-disco-glam-in-the-dark-2026-10-03": "object-center",
+  "gypsy-bowls-last-bowl-call-2026-10-03": "object-center",
+  "iss-wizard-of-oz-2026-12-17": "object-center",
+  "twenty-disco-kiry-curu-2026-10-16": "object-center",
+  "ivan-garcia-eulogio-badia-2026-10-24": "object-center",
   "la-lola-back-to-northside-2026-07-04": "object-center",
   "ambar-lounge-emil-roman-2026-09-26": "object-center",
   "finely-mirador-inauguracion-2026-09-25": "object-center",
@@ -522,8 +548,9 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "nueve-bingo-friday": "object-center",
   "nueve-80s-90s-por-siempre-2026-10-10": "object-center",
   "licor-lab-car-show-2026-10-10": "object-center",
-  "cheo-almonte-grand-prix-2026-09-25": "object-top",
   "grand-prix-sabado-bailable": "object-center",
+  "grand-prix-jueves-stripper-show": "object-center",
+  "cheo-almonte-grand-prix-2026-09-25": "object-top",
 };
 
 function curatedEventImageFile(eventId: string): string | undefined {
@@ -646,8 +673,9 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "nueve-sabados-bailables.jpg",
   "nueve-bingo-friday.jpg",
   "nueve-80s-90s-por-siempre-2026-10-10.jpg",
-  "cheo-almonte-grand-prix-2026-09-25.jpg",
   "grand-prix-sabado-bailable.jpg",
+  "grand-prix-jueves-stripper-show.jpg",
+  "cheo-almonte-grand-prix-2026-09-25.jpg",
   "duo-maryem-rancho-catalina-2026-09-20.jpg",
   "rio-sonador-cierre-del-verano-2026-09-20.jpg",
   "ambar-lounge-reggaeton-2026-09-17.jpg",
@@ -685,6 +713,13 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "disco-club-on-fire-night-2026-10-01.jpg",
   "disco-club-la-mas-doll-2026-10-02.jpg",
   "meclao-sammy-bday-jhon-parra-2026-10-01.jpg",
+  "sarah-graciano-rancho-catalina-2026-10-04.jpg",
+  "twenty-disco-friday-dj-tanque-2026-10-02.jpg",
+  "twenty-disco-glam-in-the-dark-2026-10-03.jpg",
+  "gypsy-bowls-last-bowl-call-2026-10-03.jpg",
+  "iss-wizard-of-oz-2026-12-17.jpg",
+  "twenty-disco-kiry-curu-2026-10-16.jpg",
+  "ivan-garcia-eulogio-badia-2026-10-24.jpg",
   "la-lola-back-to-northside-2026-07-04.jpg",
   "ambar-lounge-emil-roman-2026-09-26.jpg",
   "finely-mirador-inauguracion-2026-09-25.jpg",
@@ -748,7 +783,6 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "ingest-make-authentic-espadrilles-in-puerto-plata.jpg",
   "ingest-18th-annual-cabarete-butterfly-effect.jpg",
   "puerto-plata-golf-classic-2026.jpg",
-  "puerto-plata-beach-soccer-2026.jpg",
   "puerto-plata-poker-experience-2026.jpg",
 ]);
 
@@ -830,6 +864,7 @@ const HOME_HERO_SCENE_FILES = new Set([
   "macorix-house-of-rum-cellar.jpg",
   "malecon-kiosks-daily.jpg",
   "malecon-morning-wellness-walk.jpg",
+  "meclao-rooftop-live-nights-lounge.jpg",
   "monkeyland-puerto-plata-daily.jpeg",
   "museo-ambar-weekdays.jpeg",
   "natura-cabana-saturday-dining.jpg",
@@ -846,6 +881,7 @@ const HOME_HERO_SCENE_FILES = new Set([
   "plaza-independencia-daily.jpg",
   "plaza-independencia-weekend-culture.jpg",
   "pop-cinemas-week-2026-09-11-mall.jpg",
+  "puerto-plata-beach-soccer-2026-aerial.jpg",
   "rio-martinico-sosua.jpg",
   "rio-sonador-finca-papirucho.jpg",
   "rum-legacy-museum-daily.jpg",

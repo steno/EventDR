@@ -4,6 +4,7 @@ import { CATEGORY_IDS } from "./categories";
 import { getFallbackEvents, getFallbackForCategory } from "./fallback-events";
 import { eventInCategory } from "./categorize";
 import { getAppVersion } from "./app-version";
+import { eventListingDedupeKey } from "./event-listing-dedupe";
 
 interface CacheEntry {
   events: Event[];
@@ -91,20 +92,12 @@ export function getPoolEvents(
   return pool.filter((e) => eventInCategory(e, category));
 }
 
-function eventTitleKey(event: Event): string {
-  return event.title
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/(^-|-$)/g, "")
-    .slice(0, 48);
-}
-
 function dedupeEvents(events: Event[]): Event[] {
   const seenIds = new Set<string>();
   const seenTitles = new Set<string>();
   return events.filter((e) => {
     if (seenIds.has(e.id)) return false;
-    const titleKey = eventTitleKey(e);
+    const titleKey = eventListingDedupeKey(e);
     if (seenTitles.has(titleKey)) return false;
     seenIds.add(e.id);
     seenTitles.add(titleKey);

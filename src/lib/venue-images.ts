@@ -14,6 +14,7 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   // Filename bump — garden patio with NOMA'S sign (replaces entrance walk-by).
   "nonas-grill-kitchen": "nonas-grill-kitchen-garden.jpg",
   "hard-rock-sosua": "hard-rock-sosua.jpg",
+  "international-school-sosua": "international-school-sosua-entrance.jpg",
   // Filename bump after replacing shared concert stock — next/image rejects ?v= on local paths.
   "castaways-sosua": "castaways-sosua-dining.jpg",
   // Filename bump — daytime pool / palapa place shot (editor-provided).
@@ -34,6 +35,7 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "d-classico-sosua": "d-classico-sosua-daytime.jpg",
   // Filename bump — authentic Voyvoy bar interior (not shared dining URL with all nights).
   "voyvoy-cabarete": "voyvoy-cabarete-bar.jpg",
+  "gypsy-bowls-cabarete": "gypsy-bowls-cabarete-exterior.jpg",
   "drifter-cabarete": "drifter-cabarete-sunset.jpg",
   "aura-beach-club-cabarete": "aura-beach-club-cabarete-entrance.jpg",
   // Filename bump after replacing a generic Restaurant Guru table shot.
@@ -102,6 +104,7 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "ninafrika-dance-school-cabarete": "ninafrika-dance-school-cabarete-beach.jpg",
   // Filename bump — Latin Disco Club interior (disco ball / lit floor; replaces Unsplash concert stock).
   "disco-club-brugal": "disco-club-brugal-interior.jpg",
+  "twenty-disco-lounge": "twenty-disco-lounge-bar.jpg",
   "parada-tipica-el-choco": "parada-tipica-el-choco.jpg",
   "blue-jacktar-playa-dorada": "blue-jacktar-playa-dorada.jpg",
   // Filename bump — Calle Dr. Rosen storefront with blue ice PIANO BAR sign.
@@ -131,7 +134,8 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "gran-ventana-beach-resort": "gran-ventana-beach-resort.jpg",
   "cofresi-palm-beach-spa": "cofresi-palm-beach-spa.jpg",
   // Filename bumps after replacing flyer / logo / park-aerial stand-ins.
-  "meclao-rooftop": "meclao-rooftop-lounge.jpg",
+  // Filename bump — dusk exterior with MECLAO Rooftop Lounge sign (editor-provided).
+  "meclao-rooftop": "meclao-rooftop-exterior-dusk.jpg",
   "kviar-costa-dorada": "kviar-costa-dorada-floor.jpg",
   "iberostar-waves-costa-dorada": "iberostar-waves-costa-dorada.jpg",
   "playa-cofresi": "playa-cofresi-beach.jpg",

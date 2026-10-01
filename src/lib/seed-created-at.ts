@@ -131,6 +131,7 @@ export const SEED_CREATED_AT: Readonly<Record<string, string>> = {
   "cheo-almonte-grand-prix-2026-09-25": "2026-09-26T17:00:00.000Z",
   "nueve-sabados-bailables": "2026-09-26T16:00:00.000Z",
   "grand-prix-sabado-bailable": "2026-09-26T15:00:00.000Z",
+  "grand-prix-jueves-stripper-show": "2026-10-01T22:30:00.000Z",
   "atleticos-pp-vs-mineros-2026-09-27": "2026-09-27T16:00:00.000Z",
   "vibes-night-live-voramar-2026-10-02": "2026-09-29T16:00:00.000Z",
   "kaovanny-agua-el-carey-2026-10-02": "2026-09-29T15:00:00.000Z",
@@ -151,6 +152,13 @@ export const SEED_CREATED_AT: Readonly<Record<string, string>> = {
   "casa-coco-summer-acoustics-ed-mahon-2026-10-03": "2026-10-01T16:00:00.000Z",
   "atleticos-pp-vs-mineros-2026-10-03": "2026-10-01T15:00:00.000Z",
   "wingo-bogota-inauguration-2026-11-06": "2026-10-01T14:00:00.000Z",
+  "sarah-graciano-rancho-catalina-2026-10-04": "2026-10-01T18:00:00.000Z",
+  "twenty-disco-friday-dj-tanque-2026-10-02": "2026-10-01T17:00:00.000Z",
+  "twenty-disco-glam-in-the-dark-2026-10-03": "2026-10-01T19:00:00.000Z",
+  "gypsy-bowls-last-bowl-call-2026-10-03": "2026-10-01T20:00:00.000Z",
+  "iss-wizard-of-oz-2026-12-17": "2026-10-01T21:00:00.000Z",
+  "twenty-disco-kiry-curu-2026-10-16": "2026-10-01T22:00:00.000Z",
+  "ivan-garcia-eulogio-badia-2026-10-24": "2026-10-01T21:30:00.000Z",
 };
 
 /** Fill missing `createdAt` from {@link SEED_CREATED_AT} (does not overwrite). */
