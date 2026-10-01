@@ -23,7 +23,7 @@ interface PhotoHeroProps {
   imageSrc?: string | null;
   /** Replaces the static H1 place name — typically the city dropdown. */
   locationPicker?: ReactNode;
-  /** Shown under the tagline — e.g. cruise-day ship pill. */
+  /** Optional block under the tagline (unused on home — cruise lives with categories). */
   afterTagline?: ReactNode;
 }
 
@@ -116,7 +116,6 @@ export function PhotoHero({
           >
             {tagline}
           </h2>
-          {/* Desktop photo hero only — mobile cruise sits beside category title. */}
           {afterTagline ? (
             <div className="hidden sm:block">{afterTagline}</div>
           ) : null}

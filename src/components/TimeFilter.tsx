@@ -7,7 +7,7 @@ import {
   type PriceFilter,
 } from "@/lib/filters";
 import type { Dictionary } from "@/i18n/dictionaries";
-import { PAGE_GUTTER_BLEED_CLASS } from "@/lib/page-shell";
+import { PAGE_GUTTER_BLEED_CLASS, STICKY_CHROME_SURFACE_CLASS } from "@/lib/page-shell";
 import {
   SCROLL_CHROME_TRANSITION_CLASS,
   STICKY_FILTER_COLLAPSE_TRANSITION_CLASS,
@@ -62,7 +62,7 @@ export function TimeFilter({
       className={`
         ${
           sticky
-            ? `sticky top-[calc(var(--sticky-list-header-height,3.5rem)-1px)] z-10 mb-4 md:mb-3 ${PAGE_GUTTER_BLEED_CLASS} border-b border-neutral-200/60 bg-background/95 pb-2 pt-px backdrop-blur-sm md:pb-1.5 dark:border-neutral-800/60 dark:bg-neutral-950/95 ${SCROLL_CHROME_TRANSITION_CLASS}`
+            ? `sticky top-[calc(var(--sticky-list-header-height,3.5rem)-1px)] z-10 mb-4 md:mb-3 ${PAGE_GUTTER_BLEED_CLASS} ${STICKY_CHROME_SURFACE_CLASS} pb-2 pt-px md:pb-1.5 ${SCROLL_CHROME_TRANSITION_CLASS}`
             : ""
         }
         ${className}

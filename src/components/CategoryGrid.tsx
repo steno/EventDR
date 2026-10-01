@@ -33,7 +33,7 @@ interface CategoryGridProps {
   events?: Pick<Event, "category" | "categories">[];
   /** Fires when the user commits to a category (before navigation). */
   onCategorySelect?: () => void;
-  /** Mobile-only control beside the section title (e.g. cruise pill). */
+  /** Control beside the section title (e.g. cruise ship pill). */
   headerAction?: ReactNode;
 }
 
@@ -104,15 +104,13 @@ export function CategoryGrid({
 
   return (
     <section aria-label={label}>
-      <div className="mb-2.5 flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
-        <p className="min-w-0 text-base font-semibold text-neutral-700 dark:text-neutral-300">
+      <div className="mb-3 flex flex-wrap items-center gap-x-3 gap-y-2">
+        <p className="mr-auto min-w-0 text-base font-semibold text-neutral-700 dark:text-neutral-300">
           {label}
         </p>
-        {headerAction ? (
-          <div className="contents sm:hidden">{headerAction}</div>
-        ) : null}
+        {headerAction ? <div className="contents">{headerAction}</div> : null}
       </div>
-      <div className={CATEGORY_SCROLLER_BAR}>
+      <div className={`${CATEGORY_SCROLLER_BAR} mt-1`}>
         <div className="relative min-w-0 flex-1 overflow-hidden">
           <div ref={scrollRef} className="overflow-x-auto scrollbar-hide">
             <div className="flex w-max gap-3 px-0.5 py-1">

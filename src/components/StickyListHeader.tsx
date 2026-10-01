@@ -12,13 +12,75 @@ import type { Dictionary } from "@/i18n/dictionaries";
 import { clearHomeArea } from "@/lib/cities";
 import { NAV_DONE_EVENT, signalNavPending } from "@/lib/nav-feedback";
 import { fillTemplate } from "@/lib/seo";
-import { PAGE_GUTTER_BLEED_CLASS } from "@/lib/page-shell";
+import {
+  PAGE_GUTTER_BLEED_CLASS,
+  STICKY_CHROME_SURFACE_CLASS,
+} from "@/lib/page-shell";
 import {
   SCROLL_CHROME_TRANSITION_CLASS,
   syncScrollChromeDom,
 } from "@/lib/scroll-chrome";
 
 const STICKY_HEADER_HEIGHT_VAR = "--sticky-list-header-height";
+
+/**
+ * Sticky top chrome that publishes `--sticky-list-header-height` so
+ * StickyListFilters can park underneath (home AppHeader, list headers).
+ */
+export function StickyPageChrome({
+  children,
+  className = "",
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
+  const rootRef = useRef<HTMLDivElement>(null);
+  const chromeVisible = useScrollChromeVisible();
+
+  useLayoutEffect(() => {
+    syncScrollChromeDom();
+  }, []);
+
+  useLayoutEffect(() => {
+    const el = rootRef.current;
+    if (!el) return;
+
+    const publishHeight = () => {
+      document.documentElement.style.setProperty(
+        STICKY_HEADER_HEIGHT_VAR,
+        `${el.offsetHeight}px`,
+      );
+    };
+
+    publishHeight();
+    const observer = new ResizeObserver(publishHeight);
+    observer.observe(el);
+    const rafId = requestAnimationFrame(publishHeight);
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      observer.disconnect();
+      requestAnimationFrame(() => {
+        if (!document.querySelector("[data-sticky-list-header]")) {
+          document.documentElement.style.removeProperty(
+            STICKY_HEADER_HEIGHT_VAR,
+          );
+        }
+      });
+    };
+  }, []);
+
+  return (
+    <div
+      ref={rootRef}
+      data-sticky-list-header
+      className={`sticky top-0 z-20 ${PAGE_GUTTER_BLEED_CLASS} ${STICKY_CHROME_SURFACE_CLASS} ${SCROLL_CHROME_TRANSITION_CLASS} ${className}`}
+      aria-hidden={chromeVisible ? undefined : true}
+    >
+      {children}
+    </div>
+  );
+}
 
 const listBackControlClassName =
   "inline-flex max-w-full min-h-11 min-w-0 items-center gap-2 rounded-xl px-2 py-2.5 text-sm font-semibold text-neutral-500 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-neutral-200 active:bg-neutral-200/60 dark:active:bg-neutral-800/60 touch-manipulation";
@@ -268,7 +330,7 @@ export function StickyListHeader({
     <div
       ref={rootRef}
       data-sticky-list-header
-      className={`sticky top-0 z-20 ${PAGE_GUTTER_BLEED_CLASS} bg-background/95 backdrop-blur-sm dark:bg-neutral-950/95 border-b border-neutral-200/60 dark:border-neutral-800/60 ${SCROLL_CHROME_TRANSITION_CLASS} ${
+      className={`sticky top-0 z-20 ${PAGE_GUTTER_BLEED_CLASS} ${STICKY_CHROME_SURFACE_CLASS} ${SCROLL_CHROME_TRANSITION_CLASS} ${
         isDetail
           ? "py-2 mb-2"
           : hideBrand

@@ -21,14 +21,15 @@ import { CityLocationPicker } from "@/components/CityLocationPicker";
 import { EventList } from "@/components/EventList";
 import { SearchBar } from "@/components/SearchBar";
 import { BottomNav } from "@/components/BottomNav";
+import { StickyListFilters } from "@/components/StickyListFilters";
 import { getHomeAlerts } from "@/lib/alerts";
 import { LG_MEDIA_QUERY } from "@/lib/breakpoints";
 import {
   StickyListHeader,
+  StickyPageChrome,
   stickyBackControlClassName,
 } from "@/components/StickyListHeader";
 import { useSavedEvents } from "@/hooks/useSavedEvents";
-import { pickHomeCategoryHeroImage } from "@/lib/category-heroes";
 import {
   getHomeDiscoverLayout,
   HOME_SEARCH_LIMIT,
@@ -41,6 +42,7 @@ import {
   eventMatchesCity,
   getCityMeta,
   getCityName,
+  getHomeHeroTagline,
   homePathWithArea,
   parseHomeCityParam,
   readHomeArea,
@@ -528,16 +530,26 @@ function HomeApp({
       : cruiseSailed
         ? dict.cruise.amberCoveSailedTagline
         : dict.cruise.amberCoveTagline
-    : undefined;
-  const heroImageSrc = useMemo(
-    () =>
-      cruisePort
-        ? CRUISE_PORTS[cruisePort].imageSrc
-        : pickHomeCategoryHeroImage({
-            seed: selectedCity ?? "north-coast",
-          }),
-    [cruisePort, selectedCity],
-  );
+    : getHomeHeroTagline(locale, selectedCity, dict.hero.regionTagline);
+  const heroImageSrc = cruisePort
+    ? CRUISE_PORTS[cruisePort].imageSrc
+    : null;
+  const discoverHeading = (() => {
+    const isRegion = heroPlaceName === dict.cities.regionName;
+    const prefix = isRegion ? dict.hero.events : dict.cities.eventsIn;
+    return `${prefix} ${heroPlaceName}`.replace(/\s+/g, " ").trim();
+  })();
+
+  const areaPickerProps = {
+    locale,
+    dict,
+    currentSlug: cruisePort ? null : selectedCity,
+    cruisePort,
+    onSelect: setArea,
+    onSelectCruise: enterCruise,
+    counts: cityCounts,
+    onCruiseIntent: () => setCruiseEntryOpen(true),
+  } as const;
 
   // Both ports are Puerto Plata, so back out to that area instead of bare home
   // (the header's home icon already covers a fresh start).
@@ -622,7 +634,7 @@ function HomeApp({
               flushBottom
             />
           ) : (
-            <div>
+            <StickyPageChrome className="mb-4 md:mb-5">
               <AppHeader
                 locale={locale}
                 dict={dict}
@@ -713,7 +725,7 @@ function HomeApp({
                   </div>
                 </div>
               ) : null}
-            </div>
+            </StickyPageChrome>
           )}
 
           {tab === "discover" && (
@@ -721,40 +733,41 @@ function HomeApp({
               {cruisePort ? null : !cityPrimingOpen ? (
                 <InstallBanner dict={dict} />
               ) : null}
-              <PhotoHero
-                key={cruisePort ?? heroImageSrc}
-                dict={dict}
-                locale={locale}
-                featuredEvent={null}
-                placeName={heroPlaceName}
-                citySlug={cruisePort ? null : selectedCity}
-                tagline={heroTagline}
-                imageSrc={heroImageSrc}
-                locationPicker={
-                  <CityLocationPicker
-                    variant="hero"
-                    locale={locale}
-                    dict={dict}
-                    currentSlug={cruisePort ? null : selectedCity}
-                    cruisePort={cruisePort}
-                    onSelect={setArea}
-                    onSelectCruise={enterCruise}
-                    counts={cityCounts}
-                    onCruiseIntent={() => setCruiseEntryOpen(true)}
-                  />
-                }
-                afterTagline={
-                  cruisePort ? null : (
-                    <CruiseShipEntry
-                      dict={dict}
-                      locale={locale}
-                      open={cruiseEntryOpen}
-                      onOpenChange={setCruiseEntryOpen}
-                      onSelectPort={enterCruise}
+              {cruisePort ? (
+                <PhotoHero
+                  key={cruisePort}
+                  dict={dict}
+                  locale={locale}
+                  featuredEvent={null}
+                  placeName={heroPlaceName}
+                  citySlug={null}
+                  tagline={heroTagline}
+                  imageSrc={heroImageSrc}
+                  locationPicker={
+                    <CityLocationPicker
+                      variant="hero"
+                      {...areaPickerProps}
                     />
-                  )
-                }
-              />
+                  }
+                />
+              ) : (
+                <>
+                  <div className="sr-only">
+                    <h1>{discoverHeading}</h1>
+                    {heroTagline ? <p>{heroTagline}</p> : null}
+                  </div>
+                  {/* Mobile only — desktop area chip sits on the category title row. */}
+                  <StickyListFilters className="sm:hidden">
+                    <div className="w-full text-[1.5rem] font-extrabold leading-none">
+                      <CityLocationPicker
+                        variant="hero"
+                        photoOverlay={false}
+                        {...areaPickerProps}
+                      />
+                    </div>
+                  </StickyListFilters>
+                </>
+              )}
               {cruisePort ? (
                 <CruiseDiscover
                   locale={locale}
@@ -777,13 +790,19 @@ function HomeApp({
                     citySlug={selectedCity}
                     events={scopedEvents}
                     headerAction={
-                      <CruiseShipEntry
-                        dict={dict}
-                        locale={locale}
-                        open={cruiseEntryOpen}
-                        onOpenChange={setCruiseEntryOpen}
-                        onSelectPort={enterCruise}
-                      />
+                      <>
+                        <CruiseShipEntry
+                          variant="inline"
+                          dict={dict}
+                          locale={locale}
+                          open={cruiseEntryOpen}
+                          onOpenChange={setCruiseEntryOpen}
+                          onSelectPort={enterCruise}
+                        />
+                        <div className="hidden shrink-0 sm:block">
+                          <CityLocationPicker {...areaPickerProps} />
+                        </div>
+                      </>
                     }
                   />
                 </div>
@@ -803,6 +822,7 @@ function HomeApp({
                   returnTo={homePath}
                   featurePromo
                   storyCards
+                  onAddEvent={() => setSubmitOpen(true)}
                 />
               )}
 

@@ -387,47 +387,56 @@ const TodayHighlightsComponent = ({
   // (3→5) so a short list stays compact — never stretch 2 cards to half-width.
   // Landscape Coming up / Today stay 2→3. Story specials sit between.
   // One special + feature promo: equal 2-up from sm (promo is hidden on phones).
+  // Story specials: always reserve a 3-up track on desktop so 1–2 flyers stay
+  // tile-sized instead of stretching to half/full width.
   const pairXlCols = denseDesktop ? 5 : 4;
+  const storyDesktopCols = 3;
   const smCols =
-    showFeaturePromo || count === 1
-      ? showFeaturePromo
-        ? 2
-        : 1
-      : cardLayout === "pair"
-        ? 3
-        : storyCards
-          ? Math.min(count, 3)
-          : 2;
+    showFeaturePromo
+      ? 2
+      : storyCards
+        ? storyDesktopCols
+        : count === 1
+          ? 1
+          : cardLayout === "pair"
+            ? 3
+            : 2;
   const xlCols =
-    showFeaturePromo || count === 1
-      ? showFeaturePromo
-        ? 2
-        : 1
-      : cardLayout === "pair"
-        ? pairXlCols
-        : storyCards
-          ? Math.min(count, 3)
-          : 3;
+    showFeaturePromo
+      ? 2
+      : storyCards
+        ? storyDesktopCols
+        : count === 1
+          ? 1
+          : cardLayout === "pair"
+            ? pairXlCols
+            : 3;
   const gridColsClass = showFeaturePromo
     ? "sm:grid-cols-2"
     : cardLayout === "pair"
       ? denseDesktop
         ? "sm:grid-cols-3 xl:grid-cols-5"
         : "sm:grid-cols-3 xl:grid-cols-4"
-      : storyCards && count === 1
-        ? "sm:grid-cols-1"
-        : storyCards && count === 2
+      : storyCards
+        ? "sm:grid-cols-3"
+        : count === 2
           ? "sm:grid-cols-2"
-          : storyCards && count === 3
-            ? "sm:grid-cols-3"
-            : count === 2
-              ? "sm:grid-cols-2"
-              : "sm:grid-cols-2 xl:grid-cols-3";
+          : "sm:grid-cols-2 xl:grid-cols-3";
   /**
    * Story specials with 4+: keep a single row (max 4 visible) and scroll —
    * wrapping leaves an empty second row on desktop.
    */
   const desktopScrollRail = storyCards && !showFeaturePromo && count > 3;
+  /** Story specials on a 3-up desktop track — fill leftover cells with add-event. */
+  const storyAddPads =
+    storyCards &&
+    onAddEvent &&
+    !showFeaturePromo &&
+    !desktopScrollRail &&
+    count > 0 &&
+    count < storyDesktopCols
+      ? storyDesktopCols - count
+      : 0;
   /** Story specials: phone peek ~72%; mid = 2-up; xl = 4-up on the scroll rail. */
   const peekClass = storyCards
     ? desktopScrollRail
@@ -631,6 +640,19 @@ const TodayHighlightsComponent = ({
                 />
               </div>
             ) : null}
+            {Array.from({ length: storyAddPads }, (_, index) => (
+              <div
+                key={`add-special-${index}`}
+                className="hidden min-w-0 sm:block sm:w-auto sm:min-w-0 sm:shrink"
+              >
+                <EventCardPlaceholder
+                  title={dict.events.yourEventHereTitle}
+                  label={dict.events.yourEventHereGeneric}
+                  onClick={onAddEvent}
+                  mediaAspectClass="aspect-[2/3]"
+                />
+              </div>
+            ))}
           </div>
           <div className={desktopScrollRail ? undefined : "sm:hidden"}>
             <HorizontalScrollEdgeFades canScrollRight={canScrollRight} />

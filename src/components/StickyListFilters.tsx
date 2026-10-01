@@ -1,7 +1,7 @@
 "use client";
 
 import { useLayoutEffect, type ReactNode } from "react";
-import { PAGE_GUTTER_BLEED_CLASS } from "@/lib/page-shell";
+import { PAGE_GUTTER_BLEED_CLASS, STICKY_CHROME_SURFACE_CLASS } from "@/lib/page-shell";
 import {
   SCROLL_CHROME_TRANSITION_CLASS,
   syncScrollChromeDom,
@@ -10,6 +10,11 @@ import {
 type StickyListFiltersProps = {
   children: ReactNode;
   className?: string;
+  /**
+   * Stick under StickyListHeader (default). Set false on home discover where
+   * AppHeader scrolls away and the area chip should park at the viewport top.
+   */
+  belowListHeader?: boolean;
 };
 
 /**
@@ -21,6 +26,7 @@ type StickyListFiltersProps = {
 export function StickyListFilters({
   children,
   className = "",
+  belowListHeader = true,
 }: StickyListFiltersProps) {
   useLayoutEffect(() => {
     syncScrollChromeDom();
@@ -30,11 +36,16 @@ export function StickyListFilters({
     <div
       data-sticky-list-filters
       className={`
-        sticky top-[calc(var(--sticky-list-header-height,3.5rem)-1px)] z-10 mb-4 md:mb-3
+        sticky z-10 mb-4 md:mb-3
+        ${
+          belowListHeader
+            ? "top-[calc(var(--sticky-list-header-height,3.5rem)-1px)]"
+            : "top-0"
+        }
         ${PAGE_GUTTER_BLEED_CLASS}
-        border-b border-neutral-200/60 bg-background/95 pb-2 pt-3 backdrop-blur-sm
+        ${STICKY_CHROME_SURFACE_CLASS}
+        pb-2 pt-3
         md:pb-1.5 md:pt-1.5
-        dark:border-neutral-800/60 dark:bg-neutral-950/95
         ${SCROLL_CHROME_TRANSITION_CLASS}
         ${className}
       `}
