@@ -16,6 +16,7 @@ describe("removed venues", () => {
         "cabarete-bay",
         "cabarete-beach",
         "cabarete-surf-school",
+        "cacique-moncion",
         "cafe-del-mar",
         "caleton-beach-club",
         "cowork-cabarete",

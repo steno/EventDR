@@ -40,6 +40,24 @@ function groupByCity(
   return order.map((city) => ({ city, entries: byCity.get(city)! }));
 }
 
+/** Match VenuePage: handle, @handle, or full URL. */
+function venueInstagramUrl(instagram: string | undefined): string | null {
+  if (!instagram?.trim()) return null;
+  const raw = instagram.trim();
+  if (/^https?:\/\//i.test(raw)) return raw;
+  const handle = raw.replace(/^@/, "").replace(/^instagram\.com\//i, "");
+  return `https://instagram.com/${handle}`;
+}
+
+function venueInstagramHandle(instagram: string | undefined): string | null {
+  if (!instagram?.trim()) return null;
+  return instagram
+    .trim()
+    .replace(/^@/, "")
+    .replace(/^https?:\/\/(www\.)?instagram\.com\//i, "")
+    .replace(/\/$/, "");
+}
+
 export default async function Page({
   params,
 }: {
@@ -85,21 +103,36 @@ export default async function Page({
                   </span>
                 </h2>
                 <ul className="mt-2 divide-y divide-neutral-200 dark:divide-neutral-800">
-                  {entries.map(({ venue }) => (
-                    <li key={venue.slug}>
-                      <Link
-                        href={venueDetailPath(locale, venue.slug)}
-                        className="flex items-baseline justify-between gap-3 py-2.5 text-base touch-manipulation hover:text-orange-600 dark:hover:text-orange-400"
+                  {entries.map(({ venue }) => {
+                    const igUrl = venueInstagramUrl(venue.instagram);
+                    const igHandle = venueInstagramHandle(venue.instagram);
+                    return (
+                      <li
+                        key={venue.slug}
+                        className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1 py-2.5"
                       >
-                        <span className="font-semibold text-neutral-900 dark:text-neutral-100">
+                        <Link
+                          href={venueDetailPath(locale, venue.slug)}
+                          className="min-w-0 text-base font-semibold text-neutral-900 touch-manipulation hover:text-orange-600 dark:text-neutral-100 dark:hover:text-orange-400"
+                        >
                           {venue.name}
+                        </Link>
+                        <span className="flex shrink-0 items-baseline gap-3 font-mono text-sm text-neutral-400">
+                          {igUrl && igHandle ? (
+                            <a
+                              href={igUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-neutral-500 underline-offset-2 hover:text-orange-600 hover:underline dark:text-neutral-400 dark:hover:text-orange-400"
+                            >
+                              @{igHandle}
+                            </a>
+                          ) : null}
+                          <span>{venue.slug}</span>
                         </span>
-                        <span className="shrink-0 font-mono text-sm text-neutral-400">
-                          {venue.slug}
-                        </span>
-                      </Link>
-                    </li>
-                  ))}
+                      </li>
+                    );
+                  })}
                 </ul>
               </section>
             ))}

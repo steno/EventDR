@@ -63,17 +63,10 @@ export function normalizeEventVenueCopy(event: Event): Event {
   const seed = getSeedVenue(event.venueSlug);
   if (!seed) return event;
 
-  let description = event.description;
-  const wrongMoncion = /cacique\s+monci[oó]n/i;
-  if (wrongMoncion.test(description) && !seed.name.toLowerCase().includes("moncion")) {
-    description = description.replace(wrongMoncion, seed.name);
-  }
-
   return {
     ...event,
     venue: seed.name,
     location: seed.city,
-    description,
   };
 }
 

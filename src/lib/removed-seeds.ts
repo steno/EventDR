@@ -81,6 +81,9 @@ export const REMOVED_SEED_EVENT_IDS = new Set([
   "casa-de-la-cultura-saturday-stage",
   "sosua-beach-live-weekends",
   "kviar-disco-casino-nights",
+  // Wrongly geo-pinned to Disco Restaurant Cacique — venue dropped; kill the listings.
+  "ingest-el-blachy",
+  "ingest-nacho-estrella-nd-eventos",
 ]);
 
 export function filterRemovedSeedEvents(events: Event[]): Event[] {

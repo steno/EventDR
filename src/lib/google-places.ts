@@ -287,11 +287,6 @@ const PLACE_SEARCH_ALIASES: Record<string, string[]> = {
     "Paella POP Playa El Pueblito Puerto Plata",
     "Paella POP El Pueblito",
   ],
-  "cacique-moncion": [
-    "Disco Restaurant Cacique Puerto Plata",
-    "Cacique Moncion Puerto Plata",
-    "Restaurante Disco Cacique Puerto Plata",
-  ],
 };
 
 function buildPlaceQueries(

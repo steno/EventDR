@@ -9,6 +9,15 @@ import { listVenuesWithoutUpcoming } from "../src/lib/venues-directory";
 const locale = "en";
 const baseUrl = process.env.POP_LOCAL_URL?.trim() || "http://localhost:3000";
 
+/** Match VenuePage: handle, @handle, or full URL. */
+function venueInstagramUrl(instagram: string | undefined): string | null {
+  if (!instagram?.trim()) return null;
+  const raw = instagram.trim();
+  if (/^https?:\/\//i.test(raw)) return raw;
+  const handle = raw.replace(/^@/, "").replace(/^instagram\.com\//i, "");
+  return `https://instagram.com/${handle}`;
+}
+
 async function main() {
   const [venues, events] = await Promise.all([
     getVenuesUncached(locale),
@@ -29,8 +38,10 @@ async function main() {
       lastCity = venue.city;
     }
     const path = `/${locale}/venue/${venue.slug}`;
+    const igUrl = venueInstagramUrl(venue.instagram);
     console.log(`${venue.name} | ${venue.slug}`);
     console.log(`  ${baseUrl}${path}`);
+    if (igUrl) console.log(`  ${igUrl}`);
   }
 
   if (empty.length === 0) {

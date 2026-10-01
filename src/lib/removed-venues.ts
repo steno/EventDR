@@ -6,7 +6,8 @@
  * (canonical seed is `grecialandia`); `parque-de-beisbol-jose-briceno` is a
  * Places ingest stub for the same stadium as seed `parque-jose-briceno`;
  * `cowork-cabarete` was an unverified “Blue Coworking” listing with no live
- * Maps/IG/site presence; others never got a listing.
+ * Maps/IG/site presence; `cacique-moncion` (Disco Restaurant Cacique) was
+ * dropped from the North Coast catalog; others never got a listing.
  */
 export const REMOVED_VENUE_SLUGS = new Set([
   "cafe-del-mar",
@@ -21,6 +22,8 @@ export const REMOVED_VENUE_SLUGS = new Set([
   "cowork-cabarete",
   // Dropped with freestyle-catamaran-daily — one of many interchangeable snorkel boats.
   "freestyle-catamaran",
+  // Disco Restaurant Cacique — removed from North Coast catalog.
+  "cacique-moncion",
 ]);
 
 /** Stub / alias slugs → canonical seed slug (301 on venue pages). */

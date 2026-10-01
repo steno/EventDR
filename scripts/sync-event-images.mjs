@@ -298,8 +298,6 @@ const FILE_TO_EVENT_ID = {
   "CremoKaraokeSaturday.jpg": "cremo-karaoke-saturday",
   "BigLeesWeekendMusic.jpg": "big-lees-weekend-music",
   "espadrillas.jpeg": "ingest-make-authentic-espadrilles-in-puerto-plata",
-  "ingest-el-blachy.jpg": "ingest-el-blachy",
-  "ingest-nacho-estrella-nd-eventos.jpg": "ingest-nacho-estrella-nd-eventos",
   "feriaartesanal.jpg": "feria-artesanal-verano-2026",
   "ocean-world-daily.jpg": "ocean-world-daily",
   "Damajagua.jpeg": "charcos-damajagua-daily",
@@ -443,7 +441,6 @@ const FILE_TO_VENUE_SLUG = {
   "ocean-one-cabarete-pool.jpg": "ocean-one-cabarete",
   // Filename bump — official Lifestyle Tropical pool (Ocean World sign stays off this venue).
   "vip-beach-lifestyles-tropical.jpg": "vip-beach-lifestyles-tropical",
-  "cacique-moncion-palapa.jpg": "cacique-moncion-palapa",
   "pingui-bar-tiki.jpg": "pingui-bar-tiki",
   "gran-ventana-beach-resort.jpg": "gran-ventana-beach-resort",
   // Filename bumps after replacing flyer / logo / park-aerial stand-ins.

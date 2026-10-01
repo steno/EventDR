@@ -918,6 +918,7 @@ export const SEED_VENUES: Venue[] = [
     lat: 19.7934114,
     lng: -70.7072068,
     emoji: "🏀",
+    instagram: "alsenaathletics",
     website:
       "https://www.eventbrite.co/o/al-sena-athletics-121192087480",
   },
@@ -942,6 +943,7 @@ export const SEED_VENUES: Venue[] = [
     lat: 19.7742,
     lng: -70.6529,
     emoji: "🥘",
+    instagram: "paellas.pop",
     website:
       "https://sosuadigitaltv.com/paella-pop-celebra-su-soft-opening-en-playa-el-pueblito-y-consolida-una-historia-de-emprendimiento-nacida-con-apenas-50-euros/",
   },
@@ -954,6 +956,7 @@ export const SEED_VENUES: Venue[] = [
     lat: 19.7674958,
     lng: -70.6482428,
     emoji: "🥘",
+    instagram: "paellas.pop",
     website: "https://www.greenoneplayadorada.com/",
   },
   {
@@ -1048,6 +1051,7 @@ export const SEED_VENUES: Venue[] = [
     lat: 19.8184013,
     lng: -70.7283993,
     emoji: "🌴",
+    instagram: "lifestyleholidayshotels",
   },
   {
     slug: "gym-sov-sosua-ocean-village",
@@ -1111,17 +1115,6 @@ export const SEED_VENUES: Venue[] = [
     emoji: "🏋️",
     instagram: "extremefitnesscamps",
     website: "https://cabaretefitnesscamp.com/",
-  },
-  {
-    slug: "cacique-moncion",
-    name: "Disco Restaurant Cacique",
-    city: "Puerto Plata",
-    description:
-      "Disco-restaurant on the Monción road outside Puerto Plata — live típico, merengue, and bachata nights with local bands and a full Dominican menu.",
-    lat: 19.4603685,
-    lng: -71.1481517,
-    emoji: "🎶",
-    googlePlaceId: "ChIJlUlv1FSosY4R9XlZloLWhl0",
   },
   {
     slug: "cigar-town-pop",
@@ -1305,6 +1298,7 @@ export const SEED_VENUES: Venue[] = [
     emoji: "🎬",
     phone: "+18093201400",
     website: "https://www.cinemaspop.com.do",
+    instagram: "cinemaspop",
   },
   {
     slug: "le-petit-francois",
@@ -2022,10 +2016,6 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
     pattern:
       /iv[aá]n\s*garc[ií]a|teatro\s*escuela\s*iv[aá]n|teatroivangarcia|igte/i,
     slug: "ivan-garcia-teatro-escuela",
-  },
-  {
-    pattern: /cacique(\s+monci[oó]n)?|disco\s+restaurant\s+cacique|restaurante\s+cacique/i,
-    slug: "cacique-moncion",
   },
   {
     pattern: /ocean\s*winds|hotel\s*ocean\s*winds|amado['’]?s\s*restaurante/i,

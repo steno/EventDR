@@ -38,8 +38,6 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "ingest-make-authentic-espadrilles-in-puerto-plata.jpg",
   "ingest-18th-annual-cabarete-butterfly-effect":
     "ingest-18th-annual-cabarete-butterfly-effect.jpg",
-  "ingest-el-blachy": "ingest-el-blachy.jpg",
-  "ingest-nacho-estrella-nd-eventos": "ingest-nacho-estrella-nd-eventos.jpg",
   "cabarete-classic-2026": "cabarete-classic-2026.jpg",
   "cabarete-pilates-reformer": "cabarete-pilates-reformer.jpg",
   "sancocho-sabados-pingui": "sancocho-sabados-pingui.jpg",
@@ -738,8 +736,6 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "ingest-asa-survival-series-cdf-vs-dracos-game-5.jpeg",
   "ingest-make-authentic-espadrilles-in-puerto-plata.jpg",
   "ingest-18th-annual-cabarete-butterfly-effect.jpg",
-  "ingest-el-blachy.jpg",
-  "ingest-nacho-estrella-nd-eventos.jpg",
   "puerto-plata-golf-classic-2026.jpg",
   "puerto-plata-beach-soccer-2026.jpg",
   "puerto-plata-poker-experience-2026.jpg",
