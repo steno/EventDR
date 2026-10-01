@@ -66,6 +66,7 @@ Curated images under `public/events/` and `public/venues/`.
 | `grand-prix-sabado-bailable.jpg` | POP-supplied — Sábado Bailable DJ art ([@grandprixrd](https://www.instagram.com/grandprixrd/)) | Weekly Saturday dance night (editor-provided) |
 | `venues/terramar-pickleball-club.jpg` | POP-supplied — Terramar Pickleball Club profile/cover | Venue hero (editor-provided) |
 | `allison-sade-aura-2026-09-17.jpg` | POP-supplied — Allison Sade Live Music flyer ([@allisonsadeofficial](https://www.instagram.com/allisonsadeofficial/) × Aura Cabarete) | Thu 17 Sep 2026 8:00 PM (editor-provided) |
+| `francesca-aura-2026-10-01.jpg` | POP-supplied — Francesca Live Music flyer (Aura Cabarete) | Thu 1 Oct 2026 8:00 PM (editor-provided) |
 | `ocean-world-terrace-karaoke-encuentro-2026-09-16.jpg` | POP-supplied — Un encuentro de talentos / Noche de Karaoke flyer ([@oceanworldterrace](https://www.instagram.com/oceanworldterrace/)) | Karaoke talent night Wed 16 Sep 2026 (editor-provided; filename bump); venue slug `ocean-world` |
 | `duo-maryem-rancho-catalina-2026-09-20.jpg` | POP-supplied — Dúo Maryem live flyer ([@rancholacatalina](https://www.instagram.com/p/DdUevS3TdVA/)) | Live music Sun 20 Sep 2026 2:30 PM no cover (editor-provided) |
 | `sosua-10k-road-race-2026.jpg` | [Sea Horse Ranch — Sosúa 10K Road Race](https://sea-horse-ranch.com/sosua-10k-road-race/) — official ADSS / Sea Horse 11º Sosúa 10K flyer | Authentic race flyer with date, distances, and sdctickets.do registration |

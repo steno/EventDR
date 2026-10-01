@@ -3674,4 +3674,24 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "Editor IG @meclaorooftop — Sammy B-Day, Jue 01 Oct, beats by Jhon Parra (@djhxnparra), Mecla'o Rooftop Lounge, Luis Ginebra 49. NO COVER. Reservations 829-374-7028. No start time on art.",
     updatedAt: "2026-09-30T22:30:00.000Z",
   },
+  {
+    eventId: "francesca-aura-2026-10-01",
+    seriesKey: "aura-beach-club-cabarete:2026-10-01",
+    body: "Named Thursday 8 PM live set on Calle Principal sand — not El Parq’s Francesca karaoke at Shaka, and not Aura’s Wednesday margarita/Latin Flow; pin cover with Aura WhatsApp before you treat it like a free open-mic.",
+    localized: {
+      es: "Set en vivo con nombre el jueves a las 8 PM en la arena de Calle Principal — no es el karaoke de Francesca en Shaka/El Parq, ni el promo de margaritas/Latin Flow del miércoles en Aura; confirma cover con WhatsApp de Aura antes de tratarlo como open mic gratis.",
+      fr: "Set live nommé jeudi à 20 h sur le sable de Calle Principal — pas le karaoké Francesca à Shaka/El Parq, ni la promo margaritas/Latin Flow du mercredi chez Aura ; confirmez le cover via WhatsApp Aura avant de le traiter comme open mic gratuit.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "Cover not on flyer — confirm @auracabarete / WhatsApp +1 829-787-0140; budget beach-club drinks",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — confirma @auracabarete / WhatsApp +1 829-787-0140; presupuesta drinks de beach club",
+      fr: "Cover absent de l’affiche — confirmez @auracabarete / WhatsApp +1 829-787-0140 ; budget boissons beach club",
+    },
+    attribution: "POP research · Aura Cabarete Francesca live flyer",
+    researchNotes:
+      "Editor flyer: Francesca LIVE MUSIC, Jueves 1 Oct, 8 PM, aura Cabarete. No cover on art. Distinct from weekly El Parq/Shaka Thursday karaoke hosted by Francesca Crystals.",
+    updatedAt: "2026-10-01T12:00:00.000Z",
+  },
 ];

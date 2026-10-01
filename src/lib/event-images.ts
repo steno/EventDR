@@ -227,6 +227,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "cisco-vengo-social-heartz-aura-2026-09-25":
     "cisco-vengo-social-heartz-aura-2026-09-25.jpg",
   "allison-sade-aura-2026-09-17": "allison-sade-aura-2026-09-17.jpg",
+  "francesca-aura-2026-10-01": "francesca-aura-2026-10-01.jpg",
   "aura-disco-dj-melvin-2026-09-19": "aura-disco-dj-melvin-2026-09-19.jpg",
   "aura-disco-dj-christo-2026-09-26": "aura-disco-dj-christo-2026-09-26.jpg",
   "meclao-house-friday-2026-09-18": "meclao-house-friday-2026-09-18.jpg",
@@ -474,6 +475,7 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "aura-beach-club-miercoles-margaritas": "object-center",
   "aura-latin-flow-dance-wednesday": "object-center",
   "cisco-vengo-social-heartz-aura-2026-09-25": "object-center",
+  "francesca-aura-2026-10-01": "object-center",
   "aura-disco-dj-melvin-2026-09-19": "object-center",
   "aura-disco-dj-christo-2026-09-26": "object-center",
   "meclao-house-friday-2026-09-18": "object-center",
@@ -666,6 +668,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "serenade-bbq-night-villa-taina-weekly.jpg",
   "luna-lounge-jueves-karaoke-weekly.jpg",
   "allison-sade-aura-2026-09-17.jpg",
+  "francesca-aura-2026-10-01.jpg",
   "aura-disco-dj-melvin-2026-09-19.jpg",
   "aura-disco-dj-christo-2026-09-26.jpg",
   "meclao-house-friday-2026-09-18.jpg",
