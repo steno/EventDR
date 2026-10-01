@@ -370,7 +370,7 @@ Curated images under `public/events/` and `public/venues/`.
 | `ocean-world-terrace-old-school-2026-10-17.jpg` | POP-supplied — Ocean World Terrace Old School flyer ([IG](https://www.instagram.com/oceanworldterrace/)) | Sat 17 Oct 2026 free-entry Old School night (editor-provided; typography-heavy) |
 | `ambar-lounge-adrian-tineo-2026-09-19.jpg` | POP-supplied — Adrián Tineo live flyer ([IG](https://www.instagram.com/ambarloungepop/)) | Sat 19 Sep 2026 (editor-provided) |
 | `meclao-retro-party-2026-09-19.jpg` | POP-supplied — RETRO Party / Camilo Taveraz flyer ([IG](https://www.instagram.com/p/DdXjTwGpYGm/)) | Sat 19 Sep 2026 Mecla'o Rooftop; ’80s–’90s dress code (editor-provided) |
-| `venues/ambar-lounge-pop-lounge.jpg` | POP-supplied — Ambar Lounge POP rooftop lounge night crowd | Venue place shot (editor-provided, not scraped) |
+| `venues/ambar-lounge-pop-interior-v4.jpg` | POP-supplied — Ambar Lounge POP interior lounge floor with globe chandeliers | Venue place shot (editor-provided; filename bump) |
 | `cigar-town-karaoke-ladies-night-2026-09-19.jpg` | POP-supplied — Cigar Town Karaoke Saturday / Ladies Night flyer ([IG](https://www.instagram.com/cigartownpop/)) | Karaoke Sat 19 Sep 2026 (editor-provided) |
 | `el-carey-karaoke-mujeres-monday-2026.jpg` | POP-supplied — El Carey Mujeres Empoderadas Monday karaoke flyer refresh ([@diaynocherestaurantelcarey](https://www.instagram.com/diaynocherestaurantelcarey/)) | Weekly Mon sunset karaoke hero (filename bump; editor-provided) |
 | `venues/spotland-puerto-plata-entrance.jpg` | POP-supplied — Spot Land entrance gate / SPOTLAND sign on Av. Luis Ginebra ([@spotlandrd](https://www.instagram.com/spotlandrd/)) | Venue place shot (editor-provided, not scraped); hero uses `object-top` |

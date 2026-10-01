@@ -504,6 +504,8 @@ const FILE_TO_VENUE_SLUG = {
   "ivan-garcia-teatro-escuela-facade.jpg":
     "ivan-garcia-teatro-escuela-facade",
   "ambar-lounge-pop-lounge.jpg": "ambar-lounge-pop-lounge",
+  // Filename bump — editor interior lounge floor with globe chandeliers.
+  "ambar-lounge-pop-interior-v4.jpg": "ambar-lounge-pop-interior-v4",
   // Filename bump — dining terrace with floral arch + valley/ocean view.
   "rancho-catalina-puerto-plata-terrace-dining.jpg":
     "rancho-catalina-puerto-plata-terrace-dining",
