@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useId, useLayoutEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { useRouter } from "next/navigation";
 import { Anchor, Check, ChevronDown } from "lucide-react";
 import {
@@ -94,7 +95,6 @@ export function CityLocationPicker({
   const buttonRef = useRef<HTMLButtonElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
   const listId = useId();
-  const listCruisePorts = showCruisePorts && !onCruiseIntent;
 
   const options: AreaOption[] = [
     { slug: null, label: dict.cities.regionName, countKey: "all" },
@@ -127,9 +127,10 @@ export function CityLocationPicker({
     if (!open) return;
 
     function handlePointerDown(event: PointerEvent) {
-      if (rootRef.current && !rootRef.current.contains(event.target as Node)) {
-        setOpen(false);
-      }
+      const target = event.target as Node;
+      if (rootRef.current?.contains(target)) return;
+      if (listRef.current?.contains(target)) return;
+      setOpen(false);
     }
 
     function handleKeyDown(event: KeyboardEvent) {
@@ -147,10 +148,10 @@ export function CityLocationPicker({
     };
   }, [open]);
 
-  // Keep the hero menu right-aligned to the trigger, but shift it in if a
-  // short label (Sosúa) would otherwise hang off the left edge of the screen.
+  // Portal + fixed placement so the menu escapes PhotoHero / other z-index
+  // stacking contexts (cruise port tabs were painting through Puerto Plata).
   useLayoutEffect(() => {
-    if (!open || !heroOnPhoto) return;
+    if (!open) return;
     const list = listRef.current;
     const button = buttonRef.current;
     if (!list || !button) return;
@@ -160,16 +161,22 @@ export function CityLocationPicker({
     const gutter = 16;
     function place() {
       const btn = trigger.getBoundingClientRect();
-      const menuWidth = menu.offsetWidth;
+      const menuWidth = Math.max(menu.offsetWidth, heroOnPhoto ? 256 : 224);
       const maxLeft = window.innerWidth - gutter - menuWidth;
+      // Hero photo: right-align to the trigger. Chip / mobile: left-align.
+      const preferredLeft = heroOnPhoto ? btn.right - menuWidth : btn.left;
       const left = Math.min(
-        Math.max(btn.right - menuWidth, gutter),
+        Math.max(preferredLeft, gutter),
         Math.max(gutter, maxLeft),
       );
       menu.style.position = "fixed";
       menu.style.left = `${left}px`;
       menu.style.right = "auto";
       menu.style.top = `${btn.bottom + 8}px`;
+      menu.style.width = heroOnPhoto
+        ? `${Math.min(menuWidth, window.innerWidth - gutter * 2)}px`
+        : `${Math.max(menuWidth, btn.width)}px`;
+      menu.style.zIndex = "200";
     }
 
     place();
@@ -179,7 +186,7 @@ export function CityLocationPicker({
       window.removeEventListener("resize", place);
       window.removeEventListener("scroll", place, true);
     };
-  }, [open, heroOnPhoto]);
+  }, [open, heroOnPhoto, currentLabel, cruisePort]);
 
   function goTo(slug: CitySlug | null) {
     setOpen(false);
@@ -281,145 +288,141 @@ export function CityLocationPicker({
         />
       </button>
 
-      {open ? (
-        <div
-          ref={listRef}
-          className={`
-            absolute top-full z-50 mt-2 overflow-hidden rounded-xl
-            bg-white/95 py-1 shadow-lg ring-1 ring-neutral-200/80 backdrop-blur
-            dark:bg-neutral-900/95 dark:ring-neutral-700/80
-            ${
-              isHero
-                ? heroOnPhoto
-                  ? "left-0 right-0 w-full sm:left-auto sm:right-auto sm:w-auto sm:min-w-[16rem] sm:max-w-[calc(100vw-2rem)]"
-                  : "left-0 right-0 w-full"
-                : "left-0 min-w-[14rem]"
-            }
-          `}
-        >
-          <ul
-            id={listId}
-            role="listbox"
-            aria-label={dict.cities.chooseArea}
-          >
-          {options.map((option) => {
-            const selected = !cruisePort && currentSlug === option.slug;
-            const count = countLabel(dict, counts, option.countKey);
-            return (
-              <li key={option.slug ?? "north-coast"} role="presentation">
-                <button
-                  type="button"
-                  role="option"
-                  aria-selected={selected}
-                  aria-label={
-                    count ? `${option.label}, ${count}` : option.label
-                  }
-                  onClick={() => goTo(option.slug)}
-                  className={`
-                    flex w-full items-center justify-between gap-3
-                    px-4 py-3 text-left text-lg font-semibold tracking-tight
-                    sm:text-xl
-                    transition-colors touch-manipulation
-                    focus-visible:outline focus-visible:outline-2
-                    focus-visible:outline-offset-[-2px] focus-visible:outline-orange-500
-                    ${
-                      selected
-                        ? "bg-orange-500/12 text-orange-700 dark:bg-orange-400/15 dark:text-orange-300"
-                        : "text-neutral-700 hover:bg-neutral-100/90 dark:text-neutral-200 dark:hover:bg-neutral-800/90"
-                    }
-                  `}
-                >
-                  <span>{option.label}</span>
-                  <span className="flex items-center gap-2">
-                    {count ? (
-                      <span
-                        aria-hidden
-                        className="
-                          min-w-7 rounded-full bg-neutral-100 px-2 py-0.5
-                          text-center text-sm font-bold tabular-nums text-neutral-500
-                          dark:bg-neutral-800 dark:text-neutral-400
-                        "
-                      >
-                        {count}
-                      </span>
-                    ) : null}
-                    {selected ? (
-                      <Check className="h-5 w-5 shrink-0" aria-hidden />
-                    ) : null}
-                  </span>
-                </button>
-              </li>
-            );
-          })}
-          {onSelectCruise
-            ? CRUISE_PORT_SLUGS.map((slug, index) => {
-                const selected = cruisePort === slug;
-                const label =
-                  slug === "taino-bay"
-                    ? dict.cruise.tainoBay
-                    : dict.cruise.amberCove;
-                return (
-                  <li
-                    key={slug}
-                    role="presentation"
-                    className={
-                      index === 0
-                        ? "border-t border-neutral-200/80 dark:border-neutral-700/80"
-                        : undefined
-                    }
-                  >
-                    <button
-                      type="button"
-                      role="option"
-                      aria-selected={selected}
-                      onClick={() => {
-                        setOpen(false);
-                        if (slug !== cruisePort) onSelectCruise(slug);
-                      }}
-                      className={`
-                        flex w-full items-center justify-between gap-3
-                        px-4 py-3 text-left text-lg font-semibold tracking-tight
-                        sm:text-xl
-                        transition-colors touch-manipulation
-                        focus-visible:outline focus-visible:outline-2
-                        focus-visible:outline-offset-[-2px] focus-visible:outline-orange-500
-                        ${
-                          selected
-                            ? "bg-sky-500/12 text-sky-800 dark:bg-sky-400/15 dark:text-sky-200"
-                            : "text-sky-800 hover:bg-sky-50 dark:text-sky-200 dark:hover:bg-sky-950/40"
-                        }
-                      `}
-                    >
-                      <span className="flex items-center gap-2.5">
-                        <Anchor className="h-5 w-5 shrink-0" aria-hidden />
-                        {label}
-                      </span>
-                      {selected ? (
-                        <Check className="h-5 w-5 shrink-0" aria-hidden />
-                      ) : null}
-                    </button>
-                  </li>
-                );
-              })
-            : null}
-          </ul>
-          {!onSelectCruise && onCruiseIntent ? (
-            <div className="border-t border-neutral-200/80 dark:border-neutral-700/80">
-              <button
-                type="button"
-                onClick={() => {
-                  setOpen(false);
-                  onCruiseIntent();
-                }}
-                className="flex w-full items-center gap-2.5 px-4 py-3 text-left text-lg font-semibold tracking-tight text-sky-800 transition-colors touch-manipulation hover:bg-sky-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-orange-500 sm:text-xl dark:text-sky-200 dark:hover:bg-sky-950/40"
+      {open
+        ? createPortal(
+            <div
+              ref={listRef}
+              className="
+                overflow-hidden rounded-xl bg-white py-1 shadow-lg
+                ring-1 ring-neutral-200/80
+                dark:bg-neutral-900 dark:ring-neutral-700/80
+              "
+            >
+              <ul
+                id={listId}
+                role="listbox"
+                aria-label={dict.cities.chooseArea}
               >
-                <Anchor className="h-5 w-5 shrink-0" aria-hidden />
-                {dict.cruise.shipPill}
-              </button>
-            </div>
-          ) : null}
-        </div>
-      ) : null}
+                {options.map((option) => {
+                  const selected = !cruisePort && currentSlug === option.slug;
+                  const count = countLabel(dict, counts, option.countKey);
+                  return (
+                    <li key={option.slug ?? "north-coast"} role="presentation">
+                      <button
+                        type="button"
+                        role="option"
+                        aria-selected={selected}
+                        aria-label={
+                          count ? `${option.label}, ${count}` : option.label
+                        }
+                        onClick={() => goTo(option.slug)}
+                        className={`
+                          flex w-full items-center justify-between gap-3
+                          px-4 py-3 text-left text-lg font-semibold tracking-tight
+                          sm:text-xl
+                          transition-colors touch-manipulation
+                          focus-visible:outline focus-visible:outline-2
+                          focus-visible:outline-offset-[-2px] focus-visible:outline-orange-500
+                          ${
+                            selected
+                              ? "bg-orange-500/12 text-orange-700 dark:bg-orange-400/15 dark:text-orange-300"
+                              : "text-neutral-700 hover:bg-neutral-100/90 dark:text-neutral-200 dark:hover:bg-neutral-800/90"
+                          }
+                        `}
+                      >
+                        <span>{option.label}</span>
+                        <span className="flex items-center gap-2">
+                          {count ? (
+                            <span
+                              aria-hidden
+                              className="
+                                min-w-7 rounded-full bg-neutral-100 px-2 py-0.5
+                                text-center text-sm font-bold tabular-nums text-neutral-500
+                                dark:bg-neutral-800 dark:text-neutral-400
+                              "
+                            >
+                              {count}
+                            </span>
+                          ) : null}
+                          {selected ? (
+                            <Check className="h-5 w-5 shrink-0" aria-hidden />
+                          ) : null}
+                        </span>
+                      </button>
+                    </li>
+                  );
+                })}
+                {onSelectCruise && showCruisePorts
+                  ? CRUISE_PORT_SLUGS.map((slug, index) => {
+                      const selected = cruisePort === slug;
+                      const label =
+                        slug === "taino-bay"
+                          ? dict.cruise.tainoBay
+                          : dict.cruise.amberCove;
+                      return (
+                        <li
+                          key={slug}
+                          role="presentation"
+                          className={
+                            index === 0
+                              ? "border-t border-neutral-200/80 dark:border-neutral-700/80"
+                              : undefined
+                          }
+                        >
+                          <button
+                            type="button"
+                            role="option"
+                            aria-selected={selected}
+                            onClick={() => {
+                              setOpen(false);
+                              if (slug !== cruisePort) onSelectCruise(slug);
+                            }}
+                            className={`
+                              flex w-full items-center justify-between gap-3
+                              px-4 py-3 text-left text-lg font-semibold tracking-tight
+                              sm:text-xl
+                              transition-colors touch-manipulation
+                              focus-visible:outline focus-visible:outline-2
+                              focus-visible:outline-offset-[-2px] focus-visible:outline-orange-500
+                              ${
+                                selected
+                                  ? "bg-sky-500/12 text-sky-800 dark:bg-sky-400/15 dark:text-sky-200"
+                                  : "text-sky-800 hover:bg-sky-50 dark:text-sky-200 dark:hover:bg-sky-950/40"
+                              }
+                            `}
+                          >
+                            <span className="flex items-center gap-2.5">
+                              <Anchor className="h-5 w-5 shrink-0" aria-hidden />
+                              {label}
+                            </span>
+                            {selected ? (
+                              <Check className="h-5 w-5 shrink-0" aria-hidden />
+                            ) : null}
+                          </button>
+                        </li>
+                      );
+                    })
+                  : null}
+              </ul>
+              {!onSelectCruise && onCruiseIntent ? (
+                <div className="border-t border-neutral-200/80 dark:border-neutral-700/80">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setOpen(false);
+                      onCruiseIntent();
+                    }}
+                    className="flex w-full items-center gap-2.5 px-4 py-3 text-left text-lg font-semibold tracking-tight text-sky-800 transition-colors touch-manipulation hover:bg-sky-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-orange-500 sm:text-xl dark:text-sky-200 dark:hover:bg-sky-950/40"
+                  >
+                    <Anchor className="h-5 w-5 shrink-0" aria-hidden />
+                    {dict.cruise.shipPill}
+                  </button>
+                </div>
+              ) : null}
+            </div>,
+            document.body,
+          )
+        : null}
     </div>
   );
 }
