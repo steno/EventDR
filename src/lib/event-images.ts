@@ -556,6 +556,8 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "sovereign-sister-summit-2026-11-04": "object-center",
   // Square beach heart — face sits mid/low; card default object-top keeps canopy and crops her under the title.
   "sunset-laughter-club-cabarete": "object-[50%_52%]",
+  // Yoga duo sits mid/low under the thatch — object-top home cards keep roof and crop the practice.
+  "natura-cabana-yoga-daily": "object-[50%_58%]",
 
   // DJ Flacome flyer — keep face + controller in Coming up / list crops.
   "feria-ganadera-el-cupey-2026": "object-center",
