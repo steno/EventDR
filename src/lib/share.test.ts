@@ -26,7 +26,7 @@ describe("buildWhatsAppShareMessage", () => {
     const message = buildWhatsAppShareMessage(sample, "en");
     assert.match(
       message,
-      /^https:\/\/pop-event\.com\/en\/event\/allison-sade-aura-2026-09-17\n\n/,
+      /^https:\/\/pop-event\.com\/en\/event\/allison-sade-aura-2026-09-17\?wa=2\n\n/,
     );
     assert.doesNotMatch(message, /instagram\.com/);
     assert.equal(message.includes(sample.title), true);

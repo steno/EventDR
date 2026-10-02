@@ -4136,5 +4136,91 @@
       "Gaby Luna"
     ],
     "imageEmoji": "🎧"
+  },
+  {
+    "id": "meclao-galaxy-experience-carloxx-2026-10-03",
+    "title": "Mecla'o Galaxy Experience — Carloxx Rodriguez",
+    "description": "Galaxy Experience en Mecla'o Rooftop Lounge, Av. Luis Ginebra No. 49, Puerto Plata — sábado 3 de octubre 2026 con Carloxx Rodriguez (@dj.carlox). Una noche de música, energía y experiencia galáctica en el rooftop. Reserva mesas: 829-374-7028 · Instagram @meclaorooftop. Confirma cover y puertas antes de llegar walk-up.",
+    "date": "2026-10-03",
+    "location": "Puerto Plata",
+    "venue": "Mecla'o Rooftop Lounge",
+    "venueSlug": "meclao-rooftop",
+    "address": "Av. Luis Ginebra No. 49, Puerto Plata 57000",
+    "lat": 19.788312,
+    "lng": -70.677453,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18293747028",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/meclaorooftop/",
+    "lineup": [
+      "Carloxx Rodriguez"
+    ],
+    "imageEmoji": "🪐"
+  },
+  {
+    "id": "hard-rock-feria-empleos-2026-10-05",
+    "title": "Hard Rock Feria de Empleos — Únete a la Banda",
+    "description": "Feria de Empleos Hard Rock Cafe (Únete a la Banda) en Hard Rock Cafe Puerto Plata, El Batey Sosúa — lunes 5 de octubre 2026, 10:00 AM–4:00 PM (único día para aplicar). Vacantes para Sosúa y Puerto Plata: camarer@s, bartender, host, contadores y cocina. Ven con tus documentos y aplica en el local. Contacto (849) 505-7778 · Instagram @hardrockcafepuertoplata.",
+    "date": "2026-10-05",
+    "time": "10:00 AM – 4:00 PM",
+    "location": "Sosúa",
+    "venue": "Hard Rock Cafe Puerto Plata",
+    "venueSlug": "hard-rock-sosua",
+    "address": "Calle Duarte 7, Sosúa",
+    "lat": 19.7634107,
+    "lng": -70.5162309,
+    "category": "business",
+    "categories": [
+      "culture"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "phone": "+18495057778",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/hardrockcafepuertoplata/",
+    "lineup": [
+      "Camarer@s",
+      "Bartender",
+      "Host",
+      "Contadores",
+      "Cocina"
+    ],
+    "imageEmoji": "🎸"
+  },
+  {
+    "id": "twenty-disco-paradise-in-hell-2026-10-31",
+    "title": "Twenty Disco — Paradise In Hell",
+    "description": "Paradise In Hell, noche de Halloween en Twenty Disco & Lounge, Playa Dorada Mall, Puerto Plata — sábado 31 de octubre 2026. Presentado por Stylusion Events con Jhon Parra, Gaby Luna y Carlos Rivera. Se anima el disfraz. Confirma cover y puertas vía Instagram @twenty_disco_lounge.",
+    "date": "2026-10-31",
+    "location": "Playa Dorada",
+    "venue": "Twenty Disco Lounge",
+    "venueSlug": "twenty-disco-lounge",
+    "address": "Playa Dorada Mall, Puerto Plata",
+    "lat": 19.769476,
+    "lng": -70.643033,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/twenty_disco_lounge/",
+    "lineup": [
+      "Jhon Parra",
+      "Gaby Luna",
+      "Carlos Rivera"
+    ],
+    "imageEmoji": "🎃"
   }
 ]

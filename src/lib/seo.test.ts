@@ -50,16 +50,23 @@ describe("buildEventMetadata", () => {
     );
     const images = meta.openGraph?.images;
     assert.ok(Array.isArray(images));
-    const image = images[0];
-    assert.equal(typeof image, "object");
-    assert.ok(image && typeof image === "object" && "url" in image);
+    assert.equal(images.length, 2);
+    const landscape = images[0];
+    assert.equal(typeof landscape, "object");
+    assert.ok(landscape && typeof landscape === "object" && "url" in landscape);
     assert.equal(
-      String(image.url),
+      String(landscape.url),
       "https://pop-event.com/og/events/dewry-luciano-zona-acapella-2026-08-23.jpg",
     );
-    assert.equal("width" in image ? image.width : undefined, 1200);
-    assert.equal("height" in image ? image.height : undefined, 630);
-    assert.doesNotMatch(String(image.url), /\?/);
+    assert.equal("width" in landscape ? landscape.width : undefined, 1200);
+    assert.equal("height" in landscape ? landscape.height : undefined, 630);
+    assert.doesNotMatch(String(landscape.url), /\?/);
+    const flyer = images[1];
+    assert.ok(flyer && typeof flyer === "object" && "url" in flyer);
+    assert.equal(
+      String(flyer.url),
+      "https://pop-event.com/events/dewry-luciano-zona-acapella-2026-08-23.jpg",
+    );
     assert.deepEqual(meta.twitter?.images, [
       "https://pop-event.com/og/events/dewry-luciano-zona-acapella-2026-08-23.jpg",
     ]);
@@ -77,6 +84,7 @@ describe("buildEventMetadata", () => {
     );
     const images = meta.openGraph?.images;
     assert.ok(Array.isArray(images));
+    assert.equal(images.length, 1);
     const image = images[0];
     assert.ok(image && typeof image === "object" && "url" in image);
     assert.equal(String(image.url), "https://pop-event.com/events/custom-upload.jpg");

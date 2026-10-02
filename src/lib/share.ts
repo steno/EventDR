@@ -26,6 +26,17 @@ export function getCanonicalEventShareUrl(event: Event, locale: Locale): string 
   return `${SITE_URL}/${locale}/event/${event.id}`;
 }
 
+/**
+ * WhatsApp caches link previews by exact URL with no refresh API. Bump this
+ * when OG images change so new shares re-scrape instead of showing the favicon.
+ */
+export const WHATSAPP_SHARE_CACHE_BUST = "2";
+
+/** Canonical event URL with a WhatsApp-only cache-bust query. */
+export function getWhatsAppEventShareUrl(event: Event, locale: Locale): string {
+  return `${getCanonicalEventShareUrl(event, locale)}?wa=${WHATSAPP_SHARE_CACHE_BUST}`;
+}
+
 export function getEventShareUrl(event: Event, locale: Locale): string {
   return `${getShareBaseUrl()}/${locale}/event/${event.id}`;
 }
@@ -91,7 +102,7 @@ export function buildWhatsAppShareMessage(
   event: Event,
   locale: Locale = "en",
 ): string {
-  const url = getCanonicalEventShareUrl(event, locale);
+  const url = getWhatsAppEventShareUrl(event, locale);
   return `${url}\n\n${buildEventShareCaption(event, locale)}`;
 }
 
@@ -363,7 +374,8 @@ export async function shareEventNative(
   if (!canUseNativeShare()) return "failed";
 
   // Prefer the public origin so system shares (WhatsApp, etc.) scrape production OG.
-  const url = getCanonicalEventShareUrl(event, locale);
+  // Use the WhatsApp cache-bust URL — native share often routes to WhatsApp.
+  const url = getWhatsAppEventShareUrl(event, locale);
   const caption = buildEventShareCaption(event, locale);
   const payload: ShareData = {
     title: event.title,

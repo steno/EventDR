@@ -88,12 +88,17 @@ const FILE_TO_EVENT_ID = {
   "disco-club-la-mas-doll-2026-10-02.jpg": "disco-club-la-mas-doll-2026-10-02",
   "meclao-sammy-bday-jhon-parra-2026-10-01.jpg":
     "meclao-sammy-bday-jhon-parra-2026-10-01",
+  "meclao-galaxy-experience-carloxx-2026-10-03.jpg":
+    "meclao-galaxy-experience-carloxx-2026-10-03",
+  "hard-rock-feria-empleos-2026-10-05.jpg": "hard-rock-feria-empleos-2026-10-05",
   "sarah-graciano-rancho-catalina-2026-10-04.jpg":
     "sarah-graciano-rancho-catalina-2026-10-04",
   "twenty-disco-friday-dj-tanque-2026-10-02.jpg":
     "twenty-disco-friday-dj-tanque-2026-10-02",
   "twenty-disco-glam-in-the-dark-2026-10-03.jpg":
     "twenty-disco-glam-in-the-dark-2026-10-03",
+  "twenty-disco-paradise-in-hell-2026-10-31.jpg":
+    "twenty-disco-paradise-in-hell-2026-10-31",
   "gypsy-bowls-last-bowl-call-2026-10-03.jpg":
     "gypsy-bowls-last-bowl-call-2026-10-03",
   "iss-wizard-of-oz-2026-12-17.jpg": "iss-wizard-of-oz-2026-12-17",

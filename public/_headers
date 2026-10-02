@@ -16,10 +16,6 @@
 /events/*
   Cache-Control: public, max-age=31536000, immutable
 
-# Facebook OG crops — stable URL, shorter cache so new flyers replace old scrapes.
-/og/events/*
-  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
-
 /venues/*
   Cache-Control: public, max-age=31536000, immutable
 
@@ -46,6 +42,11 @@
 
 /*.svg
   Cache-Control: public, max-age=31536000, immutable
+
+# After /*.jpg so this wins for /og/events/*.jpg (Netlify last-match for Cache-Control).
+# Facebook OG crops — stable URL, shorter cache so new flyers replace old scrapes.
+/og/events/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
 
 /*.woff2
   Cache-Control: public, max-age=31536000, immutable

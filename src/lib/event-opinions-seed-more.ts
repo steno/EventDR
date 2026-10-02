@@ -3940,4 +3940,60 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "Editor flyer + IG @oceanworldterrace — Sáb 17 Oct Old School, Ocean World Terrace, shots de bienvenida, DJ en vivo, ambiente alusivo, especiales de cervezas, Entrada gratis!",
     updatedAt: "2026-10-01T22:30:00.000Z",
   },
+  {
+    eventId: "meclao-galaxy-experience-carloxx-2026-10-03",
+    body: "Saturday space-theme rooftop with Carloxx Rodriguez on Luis Ginebra — not Twenty’s GLAM In The Dark the same night at Playa Dorada Mall; reserve 829-374-7028, and pin cover with @meclaorooftop before you treat it like Sammy B-Day’s no-cover Thursday.",
+    localized: {
+      es: "Sábado tema espacial en el rooftop con Carloxx Rodriguez en Luis Ginebra — no es el GLAM In The Dark de Twenty la misma noche en Playa Dorada Mall; reserva 829-374-7028, y pin cover con @meclaorooftop antes de tratarlo como el Sammy B-Day sin cover del jueves.",
+      fr: "Samedi thème spatial sur le rooftop avec Carloxx Rodriguez sur Luis Ginebra — pas le GLAM In The Dark de Twenty la même nuit à Playa Dorada Mall ; réservez 829-374-7028, et épinglez le cover avec @meclaorooftop avant de le traiter comme le Sammy B-Day sans cover du jeudi.",
+    },
+    priceFeel: "varies",
+    priceNote:
+      "Cover not on flyer — reserve 829-374-7028 / @meclaorooftop; budget rooftop drinks",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — reserva 829-374-7028 / @meclaorooftop; presupuesta tragos de rooftop",
+      fr: "Cover absent de l’affiche — réservez 829-374-7028 / @meclaorooftop ; budget boissons rooftop",
+    },
+    attribution: "POP research · @meclaorooftop Galaxy Experience flyer",
+    researchNotes:
+      "Editor flyer + IG @meclaorooftop — Sáb 03 Oct Galaxy Experience, Carloxx Rodriguez / @dj.carlox, Mecla'o Rooftop Lounge, Luis Ginebra No. 49, reservaciones 829-374-7028. No cover or start time on art.",
+    updatedAt: "2026-10-02T16:00:00.000Z",
+  },
+  {
+    eventId: "hard-rock-feria-empleos-2026-10-05",
+    body: "One-day Hard Rock hiring fair in El Batey — Mon 10 AM–4 PM only; bring documents for Sosúa and Puerto Plata roles, and don’t treat it like a tourist show or the Oct 31 Catrinas party night.",
+    localized: {
+      es: "Feria de empleos Hard Rock de un solo día en El Batey — lun 10 AM–4 PM únicamente; lleva documentos para vacantes Sosúa y Puerto Plata, y no la trates como show turístico ni como la fiesta Catrinas del 31 oct.",
+      fr: "Foire à l’emploi Hard Rock d’un seul jour à El Batey — lun. 10 h–16 h uniquement ; apportez vos documents pour postes Sosúa et Puerto Plata, et ne la traitez pas comme un show touristique ni comme la soirée Catrinas du 31 oct.",
+    },
+    priceFeel: "free",
+    priceNote: "Free to apply — walk-in with documents; (849) 505-7778",
+    priceNoteLocalized: {
+      es: "Gratis para aplicar — walk-in con documentos; (849) 505-7778",
+      fr: "Gratuit pour postuler — walk-in avec documents ; (849) 505-7778",
+    },
+    attribution: "POP research · @hardrockcafepuertoplata Feria de Empleos flyer",
+    researchNotes:
+      "Editor flyer + IG @hardrockcafepuertoplata — Lunes 05 Oct 2026 10 AM–4 PM, Hard Rock El Batey Sosúa, único día para aplicar; vacantes camarer@s, bartender, host, contadores, cocina for Sosúa y Puerto Plata. Phone (849) 505-7778.",
+    updatedAt: "2026-10-02T15:00:00.000Z",
+  },
+  {
+    eventId: "twenty-disco-paradise-in-hell-2026-10-31",
+    body: "Halloween costume night at Playa Dorada Mall with Jhon Parra, Gaby Luna, and Carlos Rivera — not Hard Rock’s Catrinas the same date; cover isn’t on the flyer, so pin @twenty_disco_lounge before you treat it like the free-cover Friday Tanque nights.",
+    localized: {
+      es: "Noche de disfraces de Halloween en Playa Dorada Mall con Jhon Parra, Gaby Luna y Carlos Rivera — no es Catrinas de Hard Rock la misma fecha; el cover no está en el flyer, así que pin @twenty_disco_lounge antes de tratarlo como los viernes free cover de Tanque.",
+      fr: "Soirée costumes Halloween à Playa Dorada Mall avec Jhon Parra, Gaby Luna et Carlos Rivera — pas les Catrinas Hard Rock le même jour ; le cover n’est pas sur l’affiche, donc épinglez @twenty_disco_lounge avant de la traiter comme les vendredis free cover Tanque.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover not on flyer — confirm @twenty_disco_lounge; budget mall-disco drinks",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — confirma @twenty_disco_lounge; presupuesta tragos de disco del mall",
+      fr: "Cover absent de l’affiche — confirmez @twenty_disco_lounge ; budgétez les boissons disco du mall",
+    },
+    attribution:
+      "POP research · Stylusion Events × Twenty Disco Paradise In Hell flyer",
+    researchNotes:
+      "Editor flyer + IG caption — Sat 31 Oct Paradise In Hell, Jhon Parra · Gaby Luna · Carlos Rivera, Twenty Disco & Lounge, Playa Dorada Mall. Stylusion events branding. Caption said 'Hoy' but flyer date is SAT 31 OCT. No cover/price on art.",
+    updatedAt: "2026-10-02T14:00:00.000Z",
+  },
 ];

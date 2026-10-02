@@ -97,10 +97,13 @@ for (const file of readdirSync(eventsDir)) {
 
   // No mozjpeg: it always writes progressive JPEGs, which Facebook's crawler
   // often fails to decode. OG must be baseline 1200×630.
+  // Use cover (not contain): letterboxed square flyers are ~50% black bars and
+  // WhatsApp often drops them, falling back to the site favicon.
   await sharp(input)
     .rotate()
     .resize(OG_WIDTH, OG_HEIGHT, {
-      fit: "contain",
+      fit: "cover",
+      position: "centre",
       background: OG_BACKGROUND,
     })
     .jpeg({ quality: 84, progressive: false })

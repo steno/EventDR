@@ -272,6 +272,12 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "ambar-lounge-gaby-luna-2026-10-03.jpg",
   "ocean-world-terrace-old-school-2026-10-17":
     "ocean-world-terrace-old-school-2026-10-17.jpg",
+  "meclao-galaxy-experience-carloxx-2026-10-03":
+    "meclao-galaxy-experience-carloxx-2026-10-03.jpg",
+  "hard-rock-feria-empleos-2026-10-05":
+    "hard-rock-feria-empleos-2026-10-05.jpg",
+  "twenty-disco-paradise-in-hell-2026-10-31":
+    "twenty-disco-paradise-in-hell-2026-10-31.jpg",
   "finely-mirador-inauguracion-2026-09-25":
     "finely-mirador-inauguracion-2026-09-25.jpg",
   "cabarete-stand-up-vol-2-2026-10-24":
@@ -523,6 +529,9 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "ambar-lounge-emil-roman-2026-09-26": "object-center",
   "ambar-lounge-gaby-luna-2026-10-03": "object-center",
   "ocean-world-terrace-old-school-2026-10-17": "object-center",
+  "meclao-galaxy-experience-carloxx-2026-10-03": "object-center",
+  "hard-rock-feria-empleos-2026-10-05": "object-center",
+  "twenty-disco-paradise-in-hell-2026-10-31": "object-center",
   "finely-mirador-inauguracion-2026-09-25": "object-center",
   "cabarete-stand-up-vol-2-2026-10-24": "object-center",
   "ocean-world-terrace-singing-talent-2026-09-16": "object-center",
@@ -689,6 +698,9 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "ambar-lounge-bandoleras-2026-10-02.jpg",
   "ambar-lounge-gaby-luna-2026-10-03.jpg",
   "ocean-world-terrace-old-school-2026-10-17.jpg",
+  "meclao-galaxy-experience-carloxx-2026-10-03.jpg",
+  "hard-rock-feria-empleos-2026-10-05.jpg",
+  "twenty-disco-paradise-in-hell-2026-10-31.jpg",
   "ambar-lounge-adrian-tineo-2026-09-19.jpg",
   "meclao-retro-party-2026-09-19.jpg",
   "cigar-town-karaoke-ladies-night-2026-09-19.jpg",

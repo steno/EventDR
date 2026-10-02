@@ -20,7 +20,7 @@ import type { Event, EventCategory, Venue } from "@/lib/types";
 import { coerceEventCategory } from "@/lib/categorize";
 import { formatEventPlace } from "@/lib/event-location";
 import { parseEventTimeWindow } from "@/lib/event-status";
-import { getEventOgImageUrl } from "@/lib/event-images";
+import { getEventOgImageUrl, getEventImageUrl } from "@/lib/event-images";
 import { getVenueImageUrl } from "@/lib/venue-images";
 import { getVenueSeo } from "@/lib/venue-seo";
 import { BRAND_SOCIAL_SAME_AS } from "@/lib/brand-social";
@@ -97,40 +97,53 @@ function mimeFromImageUrl(url: string): string | undefined {
   return undefined;
 }
 
-function eventOpenGraphImage(event: Event): {
+type EventOgImage = {
   url: string;
   alt: string;
   width?: number;
   height?: number;
   type?: string;
-} {
+};
+
+/**
+ * Landscape OG first (Facebook), then the flyer last (WhatsApp uses the last
+ * og:image). Cover-fitted /og/events avoids black-bar letterboxing that WA drops.
+ */
+function eventOpenGraphImages(event: Event): EventOgImage[] {
+  const images: EventOgImage[] = [];
   const ogPath = getEventOgImageUrl(event.id);
   if (ogPath) {
-    return {
+    images.push({
       url: canonicalMediaUrl(ogPath) ?? absoluteUrl(ogPath),
       alt: event.title,
       width: 1200,
       height: 630,
       type: "image/jpeg",
-    };
+    });
   }
 
-  const fallback = canonicalMediaUrl(event.imageUrl);
-  if (fallback) {
-    return {
-      url: fallback,
+  const flyer =
+    canonicalMediaUrl(event.imageUrl) ??
+    canonicalMediaUrl(getEventImageUrl(event.id));
+  if (flyer && flyer !== images[0]?.url) {
+    images.push({
+      url: flyer,
       alt: event.title,
-      type: mimeFromImageUrl(fallback),
-    };
+      type: mimeFromImageUrl(flyer),
+    });
   }
 
-  return {
-    url: absoluteUrl(DEFAULT_OG_IMAGE),
-    alt: event.title,
-    width: 1200,
-    height: 630,
-    type: "image/jpeg",
-  };
+  if (images.length > 0) return images;
+
+  return [
+    {
+      url: absoluteUrl(DEFAULT_OG_IMAGE),
+      alt: event.title,
+      width: 1200,
+      height: 630,
+      type: "image/jpeg",
+    },
+  ];
 }
 
 export function defaultOpenGraph(
@@ -540,7 +553,7 @@ export function buildEventMetadata(
   shareUrl: string,
 ): Metadata {
   const path = `/event/${event.id}`;
-  const image = eventOpenGraphImage(event);
+  const images = eventOpenGraphImages(event);
   const alternates = buildAlternates(locale, path);
 
   const title = eventSearchTitle(event, locale);
@@ -555,12 +568,12 @@ export function buildEventMetadata(
       description,
       url: shareUrl,
       type: "website",
-      images: [image],
+      images,
     }),
     twitter: defaultTwitter({
       title,
       description,
-      images: [image.url],
+      images: [images[0].url],
     }),
   };
 }
@@ -737,7 +750,7 @@ function buildEventPerformers(
 }
 
 function buildEventImage(event: Event): string {
-  return eventOpenGraphImage(event).url;
+  return eventOpenGraphImages(event)[0].url;
 }
 
 export function buildEventJsonLd(
