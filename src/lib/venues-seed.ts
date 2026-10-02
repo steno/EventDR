@@ -677,7 +677,7 @@ export const SEED_VENUES: Venue[] = [
     name: "Calle de las Sombrillas",
     city: "Puerto Plata",
     description:
-      "178 multicolored umbrellas over Calle San Felipe in the historic center — free photo walk between artisan shops, cafés, and local vendors.",
+      "178 multicolored umbrellas over Calle San Felipe in the historic center — free photo walk between artisan shops, cafés, and local vendors. Not Kite Street (Calle Sánchez / Chichiguas).",
     lat: 19.7985582,
     lng: -70.6942833,
     emoji: "☂️",
@@ -1758,6 +1758,18 @@ export const SEED_VENUES: Venue[] = [
     website: "https://lokuras-bar-caffe.negocio.site/",
   },
   {
+    slug: "kite-street-pop",
+    name: "Kite Street POP",
+    city: "Puerto Plata",
+    description:
+      "Calle de las Chichiguas / Kite Street on Calle Sánchez in centro Puerto Plata — kite-hung pedestrian corridor with stalls, free dance classes, and night hangouts near Victrola 037. Not Calle de las Sombrillas (Umbrella Street). Instagram @kitestreetpop.",
+    lat: 19.799415,
+    lng: -70.69127,
+    emoji: "🪁",
+    instagram: "kitestreetpop",
+    phone: "+18097698732",
+  },
+  {
     slug: "nova-salud-bienestar",
     name: "Centro Nova Salud y Bienestar",
     city: "Puerto Plata",
@@ -2131,6 +2143,15 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
   {
     pattern: /mecla['’]?o\s*rooftop|meclao\s*rooftop/i,
     slug: "meclao-rooftop",
+  },
+  {
+    pattern: /calle\s*(de\s*las\s*)?sombrillas|umbrella\s*street/i,
+    slug: "calle-sombrillas",
+  },
+  {
+    pattern:
+      /kite\s*street(\s*pop)?|kitestreetpop|calle\s*(de\s*las\s*)?chichiguas/i,
+    slug: "kite-street-pop",
   },
   {
     pattern: /kviar|grand\s*oasis\s*marien/i,

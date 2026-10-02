@@ -257,7 +257,7 @@ const VENUE_SOURCES = [
   // santa-fe-sov-pools.jpg — Google Maps Santa Fe Recreational Complex pool/waterfall (committed).
   // restaurant-maria-sov-terrace.jpg — Google Maps Restaurant Maria ocean terrace (committed).
   // bar-39-sosua-beach.jpg — Wikimedia Playa Sosúa lounge strip geotagged at Bar 39.
-  // playa-sosua-shore.jpg — Wikimedia Sosúa Bay shoreline. Do not remote-refresh
+  // playa-sosua-aerial-bay.jpg — POP aerial of Sosúa Bay (editor; badge cropped). Do not remote-refresh.
   // a Freestyle Catamaran over either.
   // crazy-lobster-beach-dining.jpg — POP on-site table (grilled lobster).
   // Do not remote-refresh the TripAdvisor shack onto the event.

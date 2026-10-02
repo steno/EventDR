@@ -4220,5 +4220,59 @@
       "Carlos Rivera"
     ],
     "imageEmoji": "🎃"
+  },
+  {
+    "id": "meclao-house-friday-2026-10-02",
+    "title": "Mecla'o House Friday — Jhon Parra",
+    "description": "House Friday à Mecla'o Rooftop Lounge, Av. Luis Ginebra No. 49, Puerto Plata — vendredi 2 octobre 2026 avec Jhon Parra. 2 pour 1 sur cocktails, sangría et Cuba Libre jusqu’à 22 h. Réservez vos tables : 829-374-7028 · Instagram @meclaorooftop. Confirmez portes et cover avant d’arriver walk-up.",
+    "date": "2026-10-02",
+    "location": "Puerto Plata",
+    "venue": "Mecla'o Rooftop Lounge",
+    "venueSlug": "meclao-rooftop",
+    "address": "Av. Luis Ginebra No. 49, Puerto Plata 57000",
+    "lat": 19.788312,
+    "lng": -70.677453,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18293747028",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/meclaorooftop/",
+    "lineup": [
+      "Jhon Parra"
+    ],
+    "imageEmoji": "🎧"
+  },
+  {
+    "id": "kite-street-salsa-sabor-latino-2026-10-04",
+    "title": "Salsa gratuite à Kite Street — Sabor Latino",
+    "description": "Cours de salsa gratuit à Kite Street POP (Calle de las Chichiguas / Calle Sánchez), Puerto Plata — dimanche 4 octobre 2026 à 18 h avec Academia de Baile Sabor Latino. Débutants bienvenus ; pas de cover. Avec Victrola 037 Special. Confirmez via Instagram @kitestreetpop. Ce n’est pas Calle de las Sombrillas.",
+    "date": "2026-10-04",
+    "time": "6:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Kite Street POP",
+    "venueSlug": "kite-street-pop",
+    "address": "Calle Sánchez, Centro, Puerto Plata",
+    "lat": 19.799415,
+    "lng": -70.69127,
+    "category": "dance",
+    "categories": [
+      "music",
+      "culture"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/kitestreetpop/",
+    "lineup": [
+      "Academia de Baile Sabor Latino"
+    ],
+    "imageEmoji": "💃"
   }
 ]

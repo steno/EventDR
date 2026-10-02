@@ -4222,5 +4222,59 @@
       "Carlos Rivera"
     ],
     "imageEmoji": "🎃"
+  },
+  {
+    "id": "meclao-house-friday-2026-10-02",
+    "title": "Mecla'o House Friday — Jhon Parra",
+    "description": "House Friday at Mecla'o Rooftop Lounge, Av. Luis Ginebra No. 49, Puerto Plata — Friday 2 October 2026 with Jhon Parra. 2x1 on cocktails, sangría, and Cuba Libre until 10:00 PM. Reserve tables: 829-374-7028 · Instagram @meclaorooftop. Confirm doors and cover before you walk up.",
+    "date": "2026-10-02",
+    "location": "Puerto Plata",
+    "venue": "Mecla'o Rooftop Lounge",
+    "venueSlug": "meclao-rooftop",
+    "address": "Av. Luis Ginebra No. 49, Puerto Plata 57000",
+    "lat": 19.788312,
+    "lng": -70.677453,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18293747028",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/meclaorooftop/",
+    "lineup": [
+      "Jhon Parra"
+    ],
+    "imageEmoji": "🎧"
+  },
+  {
+    "id": "kite-street-salsa-sabor-latino-2026-10-04",
+    "title": "Kite Street Free Salsa — Sabor Latino",
+    "description": "Free salsa class at Kite Street POP (Calle de las Chichiguas / Calle Sánchez), Puerto Plata — Sunday 4 October 2026 at 6:00 PM with Academia de Baile Sabor Latino. Beginners welcome; no cover. Presented with Victrola 037 Special. Confirm via Instagram @kitestreetpop. Not Calle de las Sombrillas.",
+    "date": "2026-10-04",
+    "time": "6:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Kite Street POP",
+    "venueSlug": "kite-street-pop",
+    "address": "Calle Sánchez, Centro, Puerto Plata",
+    "lat": 19.799415,
+    "lng": -70.69127,
+    "category": "dance",
+    "categories": [
+      "music",
+      "culture"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/kitestreetpop/",
+    "lineup": [
+      "Academia de Baile Sabor Latino"
+    ],
+    "imageEmoji": "💃"
   }
 ]

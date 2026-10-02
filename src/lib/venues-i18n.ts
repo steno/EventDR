@@ -397,8 +397,8 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
   },
   "calle-sombrillas": {
     description: {
-      es: "178 sombrillas multicolores sobre la Calle San Felipe en el centro histórico — paseo fotográfico gratuito entre tiendas artesanales, cafés y vendedores locales.",
-      fr: "178 parapluies multicolores au-dessus de la Calle San Felipe dans le centre historique — balade photo gratuite entre boutiques artisanales, cafés et vendeurs locaux.",
+      es: "178 sombrillas multicolores sobre la Calle San Felipe en el centro histórico — paseo fotográfico gratuito entre tiendas artesanales, cafés y vendedores locales. No es Kite Street (Calle Sánchez / Chichiguas).",
+      fr: "178 parapluies multicolores au-dessus de la Calle San Felipe dans le centre historique — balade photo gratuite entre boutiques artisanales, cafés et vendeurs locaux. Ce n’est pas Kite Street (Calle Sánchez / Chichiguas).",
     },
   },
   "letrero-puerto-plata": {
@@ -591,6 +591,12 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
     description: {
       es: "Café-arte y restaurante en el Malecón de Puerto Plata — murales, cocina criolla, cócteles y punto de encuentro para experiencias frente al mar en Av. Gregorio Luperón esq. Padre Castellanos.",
       fr: "Café d'art et restaurant sur le Malecón de Puerto Plata — murals, cuisine créole, cocktails et point de rendez-vous pour des expériences en bord de mer à l'Av. Gregorio Luperón esq. Padre Castellanos.",
+    },
+  },
+  "kite-street-pop": {
+    description: {
+      es: "Calle de las Chichiguas / Kite Street en Calle Sánchez, centro Puerto Plata — corredor peatonal con cometas, puestos, clases de baile gratis y noches de calle cerca de Victrola 037. No es Calle de las Sombrillas. Instagram @kitestreetpop.",
+      fr: "Calle de las Chichiguas / Kite Street sur Calle Sánchez, centre Puerto Plata — corridor piéton avec cerfs-volants, stands, cours de danse gratuits et soirées de rue près de Victrola 037. Ce n’est pas Calle de las Sombrillas. Instagram @kitestreetpop.",
     },
   },
   "cigar-town-pop": {

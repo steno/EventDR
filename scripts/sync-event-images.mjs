@@ -90,6 +90,9 @@ const FILE_TO_EVENT_ID = {
     "meclao-sammy-bday-jhon-parra-2026-10-01",
   "meclao-galaxy-experience-carloxx-2026-10-03.jpg":
     "meclao-galaxy-experience-carloxx-2026-10-03",
+  "meclao-house-friday-2026-10-02.jpg": "meclao-house-friday-2026-10-02",
+  "kite-street-salsa-sabor-latino-2026-10-04.jpg":
+    "kite-street-salsa-sabor-latino-2026-10-04",
   "hard-rock-feria-empleos-2026-10-05.jpg": "hard-rock-feria-empleos-2026-10-05",
   "sarah-graciano-rancho-catalina-2026-10-04.jpg":
     "sarah-graciano-rancho-catalina-2026-10-04",
@@ -480,6 +483,10 @@ const FILE_TO_VENUE_SLUG = {
   // Filename bumps after replacing a shared Freestyle Catamaran stand-in.
   "bar-39-sosua-beach.jpg": "bar-39-sosua-beach",
   "playa-sosua-shore.jpg": "playa-sosua-shore",
+  // Filename bump — POP aerial of Sosúa Bay (editor-provided; carousel badge cropped).
+  "playa-sosua-aerial-bay.jpg": "playa-sosua",
+  "calle-sombrillas-umbrella-street-v2.jpg": "calle-sombrillas",
+  "kite-street-pop-chichiguas.jpg": "kite-street-pop",
   "estadio-leonel-placido.jpg": "estadio-leonel-placido",
   "zona-acapella-club.jpg": "zona-acapella-club",
   "vinoteca-wine-house.jpg": "vinoteca-wine-house",

@@ -22,8 +22,8 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "casa-coco-sosua": "casa-coco-sosua.jpg",
   "smileys-bar-sosua": "smileys-bar-sosua-daytime.jpg",
   "finish-line-sosua": "finish-line-sosua-bar.jpg",
-  // Filename bump after replacing a shared Freestyle Catamaran shot.
-  "playa-sosua": "playa-sosua-shore.jpg",
+  // Filename bump — POP aerial of Sosúa Bay (editor-provided; UI badge cropped).
+  "playa-sosua": "playa-sosua-aerial-bay.jpg",
   "bar-39-sosua": "bar-39-sosua-beach.jpg",
   "cheers-bar-sosua": "cheers-bar-sosua-dining.jpg",
   "sosua-jewish-museum": "sosua-jewish-museum-facade.jpg",
@@ -64,7 +64,9 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "teleferico-puerto-plata": "teleferico-puerto-plata.jpg",
   "cayo-arena": "cayo-arena.jpg",
   "paseo-dona-blanca": "paseo-dona-blanca.jpg",
-  "calle-sombrillas": "calle-sombrillas.jpg",
+  "calle-sombrillas": "calle-sombrillas-umbrella-street-v2.jpg",
+  // Filename bump — POP kite canopy on Calle Sánchez / Chichiguas.
+  "kite-street-pop": "kite-street-pop-chichiguas.jpg",
   "letrero-puerto-plata": "letrero-puerto-plata.jpg",
   "faro-puerto-plata": "faro-puerto-plata-park.jpg",
   "cuartel-bomberos-puerto-plata": "cuartel-bomberos-puerto-plata.jpg",

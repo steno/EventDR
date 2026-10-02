@@ -274,6 +274,9 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "ocean-world-terrace-old-school-2026-10-17.jpg",
   "meclao-galaxy-experience-carloxx-2026-10-03":
     "meclao-galaxy-experience-carloxx-2026-10-03.jpg",
+  "meclao-house-friday-2026-10-02": "meclao-house-friday-2026-10-02.jpg",
+  "kite-street-salsa-sabor-latino-2026-10-04":
+    "kite-street-salsa-sabor-latino-2026-10-04.jpg",
   "hard-rock-feria-empleos-2026-10-05":
     "hard-rock-feria-empleos-2026-10-05.jpg",
   "twenty-disco-paradise-in-hell-2026-10-31":
@@ -530,6 +533,8 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "ambar-lounge-gaby-luna-2026-10-03": "object-center",
   "ocean-world-terrace-old-school-2026-10-17": "object-center",
   "meclao-galaxy-experience-carloxx-2026-10-03": "object-center",
+  "meclao-house-friday-2026-10-02": "object-center",
+  "kite-street-salsa-sabor-latino-2026-10-04": "object-center",
   "hard-rock-feria-empleos-2026-10-05": "object-center",
   "twenty-disco-paradise-in-hell-2026-10-31": "object-center",
   "finely-mirador-inauguracion-2026-09-25": "object-center",
@@ -701,6 +706,8 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "ambar-lounge-gaby-luna-2026-10-03.jpg",
   "ocean-world-terrace-old-school-2026-10-17.jpg",
   "meclao-galaxy-experience-carloxx-2026-10-03.jpg",
+  "meclao-house-friday-2026-10-02.jpg",
+  "kite-street-salsa-sabor-latino-2026-10-04.jpg",
   "hard-rock-feria-empleos-2026-10-05.jpg",
   "twenty-disco-paradise-in-hell-2026-10-31.jpg",
   "ambar-lounge-adrian-tineo-2026-09-19.jpg",

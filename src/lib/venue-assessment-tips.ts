@@ -426,11 +426,11 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "calle-sombrillas": {
-    body: "Umbrella selfie street — free and colorful; go early or late if you want photos without the tour-group crush.",
+    body: "Umbrella selfie street on Calle San Felipe — free and colorful; go early or late if you want photos without the tour-group crush. Not Kite Street on Calle Sánchez.",
     localized: {
-      en: "Umbrella selfie street — free and colorful; go early or late if you want photos without the tour-group crush.",
-      es: "Calle selfie de paraguas — gratis y colorida; ve temprano o tarde si quieres fotos sin la presión de grupos.",
-      fr: "Rue selfie des parapluies — gratuite et colorée ; venez tôt ou tard pour des photos sans la foule des groupes.",
+      en: "Umbrella selfie street on Calle San Felipe — free and colorful; go early or late if you want photos without the tour-group crush. Not Kite Street on Calle Sánchez.",
+      es: "Calle selfie de paraguas en Calle San Felipe — gratis y colorida; ve temprano o tarde si quieres fotos sin la presión de grupos. No es Kite Street en Calle Sánchez.",
+      fr: "Rue selfie des parapluies sur Calle San Felipe — gratuite et colorée ; venez tôt ou tard pour des photos sans la foule des groupes. Ce n’est pas Kite Street sur Calle Sánchez.",
     },
   },
   "letrero-puerto-plata": {
@@ -1191,6 +1191,14 @@ export const VENUE_TIP_COPY: Record<
       en: "Open-air food court at Anacaona & Pablo Neruda in central Sosúa — multi-vendor plates from 4 PM, turf patio, and a kids playground on site under the green arch, not Pedro Clisante bar-hop or the beach vendor plaza. Free to stroll; cash for stalls; Friday DJ sets when billed.",
       es: "Food court al aire libre en Anacaona y Pablo Neruda, Sosúa centro — puestos varios desde las 4 PM, patio de césped y playground para niños bajo el arco verde, no es bar-hop de Pedro Clisante ni la plaza de vendedores de la playa. Entrada libre; efectivo en los puestos; DJ los viernes cuando hay cartel.",
       fr: "Food court en plein air à Anacaona & Pablo Neruda, Sosúa centre — stands dès 16 h, patio gazon et aire de jeux enfants sous l’arche verte, pas le bar-hop Pedro Clisante ni la place vendeurs plage. Entrée libre ; cash aux stands ; sets DJ le vendredi quand annoncé.",
+    },
+  },
+  "kite-street-pop": {
+    body: "Kite-hung Calle Sánchez corridor (Chichiguas) for free dance classes and stalls near Victrola — not Umbrella Street on San Felipe; check @kitestreetpop before you treat it as a daily hop-on.",
+    localized: {
+      en: "Kite-hung Calle Sánchez corridor (Chichiguas) for free dance classes and stalls near Victrola — not Umbrella Street on San Felipe; check @kitestreetpop before you treat it as a daily hop-on.",
+      es: "Corredor de cometas en Calle Sánchez (Chichiguas) para clases de baile gratis y puestos cerca de Victrola — no es Calle de las Sombrillas en San Felipe; confirma @kitestreetpop antes de tratarlo como hop-on diario.",
+      fr: "Corridor de cerfs-volants sur Calle Sánchez (Chichiguas) pour cours de danse gratuits et stands près de Victrola — pas Umbrella Street sur San Felipe ; vérifiez @kitestreetpop avant de le traiter comme un hop-on quotidien.",
     },
   },
 };

@@ -3996,4 +3996,42 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "Editor flyer + IG caption — Sat 31 Oct Paradise In Hell, Jhon Parra · Gaby Luna · Carlos Rivera, Twenty Disco & Lounge, Playa Dorada Mall. Stylusion events branding. Caption said 'Hoy' but flyer date is SAT 31 OCT. No cover/price on art.",
     updatedAt: "2026-10-02T14:00:00.000Z",
   },
+  {
+    eventId: "meclao-house-friday-2026-10-02",
+    body: "Tonight’s House Friday brings Jhon Parra to the Luis Ginebra rooftop with 2x1 cocktails, sangría, and Cuba Libre until 10 PM — not Galaxy Experience tomorrow and not Sammy B-Day’s no-cover Thursday; reserve 829-374-7028.",
+    localized: {
+      es: "El House Friday de hoy trae a Jhon Parra al rooftop de Luis Ginebra con 2x1 en coctelería, sangría y Cuba Libre hasta las 10 PM — no es Galaxy Experience de mañana ni el Sammy B-Day sin cover del jueves; reserva 829-374-7028.",
+      fr: "Le House Friday de ce soir amène Jhon Parra sur le rooftop Luis Ginebra avec 2 pour 1 cocktails, sangría et Cuba Libre jusqu’à 22 h — pas Galaxy Experience demain ni le Sammy B-Day sans cover du jeudi ; réservez 829-374-7028.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "2x1 cocktails / sangría / Cuba Libre until 10 PM — cover not posted; reserve 829-374-7028",
+    priceNoteLocalized: {
+      es: "2x1 coctelería / sangría / Cuba Libre hasta las 10 PM — cover no publicado; reserva 829-374-7028",
+      fr: "2 pour 1 cocktails / sangría / Cuba Libre jusqu’à 22 h — cover non publié ; réservez 829-374-7028",
+    },
+    attribution: "POP research · @meclaorooftop House Friday / Jhon Parra flyer",
+    researchNotes:
+      "Editor flyer + IG @meclaorooftop — Vie 02 Oct House Friday, Jhon Parra, Mecla'o Rooftop Lounge, 2x1 coctelería/sangría/Cuba Libre hasta 10 PM. Reservations 829-374-7028. No start time or cover on art.",
+    updatedAt: "2026-10-02T18:00:00.000Z",
+  },
+  {
+    eventId: "kite-street-salsa-sabor-latino-2026-10-04",
+    body: "Free Sunday 6 PM salsa class on Calle Sánchez Kite Street (Chichiguas) with Academia Sabor Latino — not Umbrella Street on San Felipe and not Victrola’s indoor café; beginners welcome, confirm @kitestreetpop before you treat it as drop-in every week.",
+    localized: {
+      es: "Clase de salsa gratis el domingo a las 6 PM en Kite Street / Calle Sánchez (Chichiguas) con Academia Sabor Latino — no es Calle de las Sombrillas en San Felipe ni el café interior de Victrola; principiantes bienvenidos, confirma @kitestreetpop antes de tratarlo como drop-in semanal.",
+      fr: "Cours de salsa gratuit dimanche à 18 h sur Kite Street / Calle Sánchez (Chichiguas) avec Academia Sabor Latino — pas Umbrella Street sur San Felipe ni le café intérieur Victrola ; débutants bienvenus, confirmez @kitestreetpop avant de le traiter comme un drop-in hebdo.",
+    },
+    priceFeel: "free",
+    priceNote: "Free class — no cover on flyer · @kitestreetpop",
+    priceNoteLocalized: {
+      es: "Clase gratis — sin cover en el flyer · @kitestreetpop",
+      fr: "Cours gratuit — pas de cover sur l’affiche · @kitestreetpop",
+    },
+    attribution:
+      "POP research · @kitestreetpop × Academia de Baile Sabor Latino",
+    researchNotes:
+      "Editor flyer + IG @kitestreetpop — Dom 4 Oct 2026 6:00 PM Clases Salsa GRATIS, Kite Street POP Puerto Plata, Academia de Baile Sabor Latino, Victrola 037 Special branding.",
+    updatedAt: "2026-10-02T17:00:00.000Z",
+  },
 ];

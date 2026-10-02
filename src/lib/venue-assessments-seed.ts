@@ -1724,6 +1724,17 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     ],
   }),
   editorial({
+    venueSlug: "kite-street-pop",
+    verdictKey: "solid_local_culture",
+    crowdFit: ["local", "mixed", "visitor"],
+    axes: { recommend: 4.2, atmosphere: 4.4, practical: 4.0, value: 4.5 },
+    themes: [
+      { key: "live_music", sentiment: "positive" },
+      { key: "easy_to_find", sentiment: "mixed" },
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+    ],
+  }),
+  editorial({
     venueSlug: "gregorio-luperon-airport",
     verdictKey: "solid_visitor_activity",
     crowdFit: ["visitor", "mixed", "family"],
