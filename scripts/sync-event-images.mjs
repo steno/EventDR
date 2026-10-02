@@ -313,6 +313,8 @@ const FILE_TO_EVENT_ID = {
     "cheo-almonte-grand-prix-2026-09-25",
   "grand-prix-sabado-bailable.jpg": "grand-prix-sabado-bailable",
   "grand-prix-jueves-stripper-show.jpg": "grand-prix-jueves-stripper-show",
+  "lizandro-diaz-grand-prix-2026-10-02.jpg":
+    "lizandro-diaz-grand-prix-2026-10-02",
   "allison-sade-aura-2026-09-17.jpg": "allison-sade-aura-2026-09-17",
   "francesca-aura-2026-10-01.jpg": "francesca-aura-2026-10-01",
   "ocean-world-terrace-karaoke-encuentro-2026-09-16.jpg":

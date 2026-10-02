@@ -257,6 +257,7 @@ export const CURATED_FREE_EVENTS = new Set<string>([
   "sarah-graciano-rancho-catalina-2026-10-04",
   "twenty-disco-friday-dj-tanque-2026-10-02",
   "gypsy-bowls-last-bowl-call-2026-10-03",
+  "lizandro-diaz-grand-prix-2026-10-02",
   "el-cuarteto-del-swing-zona-acapella-2026-09-13",
   "los-caballitos-zona-acapella-2026-09-20",
   "banda-modelo-vinoteca-2026-09-26",

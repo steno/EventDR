@@ -188,6 +188,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "cheo-almonte-grand-prix-2026-09-25.jpg",
   "grand-prix-sabado-bailable": "grand-prix-sabado-bailable.jpg",
   "grand-prix-jueves-stripper-show": "grand-prix-jueves-stripper-show.jpg",
+  "lizandro-diaz-grand-prix-2026-10-02":
+    "lizandro-diaz-grand-prix-2026-10-02.jpg",
   "iss-pta-parents-night-out-2026-09-17":
     "iss-pta-parents-night-out-flyer.jpg",
   "hard-rock-catrinas-halloween-2026-10-31":
@@ -572,6 +574,7 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "licor-lab-car-show-2026-10-10": "object-center",
   "grand-prix-sabado-bailable": "object-center",
   "grand-prix-jueves-stripper-show": "object-center",
+  "lizandro-diaz-grand-prix-2026-10-02": "object-center",
   "cheo-almonte-grand-prix-2026-09-25": "object-top",
 };
 
@@ -697,6 +700,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "nueve-80s-90s-por-siempre-2026-10-10.jpg",
   "grand-prix-sabado-bailable.jpg",
   "grand-prix-jueves-stripper-show.jpg",
+  "lizandro-diaz-grand-prix-2026-10-02.jpg",
   "cheo-almonte-grand-prix-2026-09-25.jpg",
   "duo-maryem-rancho-catalina-2026-09-20.jpg",
   "rio-sonador-cierre-del-verano-2026-09-20.jpg",

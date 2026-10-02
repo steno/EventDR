@@ -4034,4 +4034,22 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "Editor flyer + IG @kitestreetpop — Dom 4 Oct 2026 6:00 PM Clases Salsa GRATIS, Kite Street POP Puerto Plata, Academia de Baile Sabor Latino, Victrola 037 Special branding.",
     updatedAt: "2026-10-02T17:00:00.000Z",
   },
+  {
+    eventId: "lizandro-diaz-grand-prix-2026-10-02",
+    body: "Free Friday accordion live with Lizandro Díaz at Grand Prix in La Javilla — same Manolo Tavarez / Bomba pin as Thursday stripper and Saturday Bailable, not a Playa Dorada mall night; confirm doors on @grandprixrd.",
+    localized: {
+      es: "Viernes gratis de acordeón en vivo con Lizandro Díaz en Grand Prix en La Javilla — el mismo pin Manolo Tavarez / Bomba que el jueves stripper y el Sábado Bailable, no una noche de mall en Playa Dorada; confirma puertas en @grandprixrd.",
+      fr: "Vendredi gratuit d’accordéon live avec Lizandro Díaz au Grand Prix à La Javilla — même pin Manolo Tavarez / Bomba que le jeudi stripper et le Sábado Bailable, pas une soirée mall Playa Dorada ; confirmez les portes sur @grandprixrd.",
+    },
+    priceFeel: "free",
+    priceNote: "Free show on flyer — pay drinks; @grandprixrd",
+    priceNoteLocalized: {
+      es: "Show gratis en el flyer — pagas tragos; @grandprixrd",
+      fr: "Show gratuit sur l’affiche — payez les boissons ; @grandprixrd",
+    },
+    attribution: "POP research · @grandprixrd Lizandro Díaz flyer",
+    researchNotes:
+      "Editor flyer — Vie 2 Oct 2026 SHOW EN VIVO GRATIS Lizandro Díaz, Grand Prix Smart Shop, La Javilla Puerto Plata. No start time on art.",
+    updatedAt: "2026-10-02T19:00:00.000Z",
+  },
 ];

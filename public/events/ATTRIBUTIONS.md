@@ -65,6 +65,7 @@ Curated images under `public/events/` and `public/venues/`.
 | `cheo-almonte-grand-prix-2026-09-25.jpg` | POP-supplied — Cheo Almonte Show en Vivo Gratis flyer ([@grandprixrd](https://www.instagram.com/grandprixrd/)) | Fri 25 Sep 2026 free live set (editor-provided) |
 | `grand-prix-sabado-bailable.jpg` | POP-supplied — Sábado Bailable DJ art ([@grandprixrd](https://www.instagram.com/grandprixrd/)) | Weekly Saturday dance night (editor-provided) |
 | `grand-prix-jueves-stripper-show.jpg` | POP-supplied — Grand Prix *Show Stripper* / D'Goldy + DJ Ariel flyer ([@grandprixrd](https://www.instagram.com/grandprixrd/)) | Weekly Thursday stripper night (editor-provided; typography-heavy) |
+| `lizandro-diaz-grand-prix-2026-10-02.jpg` | POP-supplied — Grand Prix *Lizandro Díaz* free live show flyer ([@grandprixrd](https://www.instagram.com/grandprixrd/)) | Fri 2 Oct 2026 gratis (editor-provided; typography-heavy) |
 | `venues/terramar-pickleball-club.jpg` | POP-supplied — Terramar Pickleball Club profile/cover | Venue hero (editor-provided) |
 | `allison-sade-aura-2026-09-17.jpg` | POP-supplied — Allison Sade Live Music flyer ([@allisonsadeofficial](https://www.instagram.com/allisonsadeofficial/) × Aura Cabarete) | Thu 17 Sep 2026 8:00 PM (editor-provided) |
 | `francesca-aura-2026-10-01.jpg` | POP-supplied — Francesca Live Music flyer (Aura Cabarete) | Thu 1 Oct 2026 8:00 PM (editor-provided) |

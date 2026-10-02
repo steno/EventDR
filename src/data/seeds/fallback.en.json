@@ -4276,5 +4276,31 @@
       "Academia de Baile Sabor Latino"
     ],
     "imageEmoji": "💃"
+  },
+  {
+    "id": "lizandro-diaz-grand-prix-2026-10-02",
+    "title": "Lizandro Díaz Live at Grand Prix",
+    "description": "Free live show with Lizandro Díaz at Grand Prix Smart Shop in La Javilla, Puerto Plata — Friday 2 October 2026. Av. Manolo Tavarez Justo esq. Presidente Caamaño #1 (Edificio Grand Prix, next to Bomba Next). Confirm doors via Instagram @grandprixrd.",
+    "date": "2026-10-02",
+    "location": "Puerto Plata",
+    "venue": "Grand Prix Smart Shop",
+    "venueSlug": "grand-prix-puerto-plata",
+    "address": "Av. Manolo Tavarez Justo esq. Presidente Caamaño #1, Edificio Grand Prix (Bomba Next), La Javilla, Puerto Plata",
+    "lat": 19.7911,
+    "lng": -70.6942,
+    "category": "music",
+    "categories": [
+      "parties",
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/grandprixrd/",
+    "lineup": [
+      "Lizandro Díaz"
+    ],
+    "imageEmoji": "🪗"
   }
 ]
