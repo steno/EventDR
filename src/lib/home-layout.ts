@@ -18,8 +18,8 @@ import { findActiveSpecialEvent } from "@/lib/special-events";
 export { prioritizeOneTimeEvents } from "@/lib/event-sort";
 export { isTodayOnlySpecial } from "@/lib/event-status";
 
-/** Max cards in the home "Happening today" section (desktop 3×2). */
-export const HOME_TODAY_LIMIT = 6;
+/** Max cards in the home "Happening today" section (desktop 4×2). */
+export const HOME_TODAY_LIMIT = 8;
 
 /**
  * @deprecated Today's specials show every active dated one-off (no home cap).

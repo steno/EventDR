@@ -149,7 +149,7 @@ function TodayHighlightCard({
   note?: string;
   listTimeRange?: TimeRange;
   showDate?: boolean;
-  /** Pair = 2-up row; story = 36:49 specials; grid = 3-up tile. */
+  /** Pair = 2-up row; story = 36:49 specials; grid = 4-up tile. */
   layout?: "pair" | "story" | "grid";
 }) {
   const href = eventDetailPath(locale, event.id);
@@ -181,23 +181,25 @@ function TodayHighlightCard({
       ? "(max-width: 640px) 44vw, (max-width: 1280px) 33vw, 20vw"
       : layout === "story"
         ? "(max-width: 640px) 72vw, (max-width: 1280px) 45vw, 28vw"
-        : "(max-width: 640px) 88vw, (max-width: 1024px) 50vw, 33vw";
+        : "(max-width: 640px) 88vw, (max-width: 1024px) 50vw, 25vw";
   const titleClass =
     layout === "pair"
       ? "line-clamp-2 font-sans text-base font-extrabold leading-snug tracking-[0.01em] text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.55)] sm:text-lg xl:text-xl"
       : layout === "story"
         ? "line-clamp-2 font-sans text-xl font-extrabold leading-snug tracking-[0.01em] text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.55)] sm:text-xl xl:text-2xl"
-        : "line-clamp-2 font-sans text-xl font-extrabold leading-snug tracking-[0.01em] text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.55)] sm:text-2xl";
+        : "line-clamp-2 font-sans text-xl font-extrabold leading-snug tracking-[0.01em] text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.55)] sm:text-xl xl:text-lg";
   const metaClass =
     layout === "pair"
       ? "inline-flex min-w-0 max-w-full flex-wrap items-center gap-x-1.5 gap-y-0.5 text-xs font-medium text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.45)] sm:gap-x-1.5 sm:text-sm"
-      : "inline-flex min-w-0 max-w-full flex-wrap items-center gap-x-2 gap-y-1 text-sm font-medium text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.45)] sm:text-base";
+      : layout === "story"
+        ? "inline-flex min-w-0 max-w-full flex-wrap items-center gap-x-2 gap-y-1 text-sm font-medium text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.45)] sm:text-base"
+        : "inline-flex min-w-0 max-w-full flex-wrap items-center gap-x-1.5 gap-y-0.5 text-sm font-medium text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.45)] sm:text-sm";
   const overlayPad =
     layout === "pair"
       ? "gap-1 p-2.5 sm:gap-1 sm:p-3.5 xl:p-4"
       : layout === "story"
         ? "gap-1.5 p-3.5 sm:p-4"
-        : "gap-1.5 p-4 sm:p-5";
+        : "gap-1.5 p-4 sm:p-3.5 xl:p-4";
   // Keep mobile aspect ratios on desktop so rails stay visually mixed
   // (portrait Weekend / Recently added vs landscape Coming up / Today).
   const mediaAspectClass =
@@ -385,7 +387,7 @@ const TodayHighlightsComponent = ({
       : "grid";
   // Portrait rails (Weekend / Recently added): always use the dense track
   // (3→5) so a short list stays compact — never stretch 2 cards to half-width.
-  // Landscape Coming up / Today stay 2→3. Story specials sit between.
+  // Landscape Coming up / Today stay 2→4. Story specials sit between.
   // One special + feature promo: equal 2-up from sm (promo is hidden on phones).
   // Story specials: always reserve a 3-up track on desktop so 1–2 flyers stay
   // tile-sized instead of stretching to half/full width.
@@ -400,7 +402,11 @@ const TodayHighlightsComponent = ({
           ? 1
           : cardLayout === "pair"
             ? 3
-            : 2;
+            : count === 2
+              ? 2
+              : count === 3
+                ? 3
+                : 2;
   const xlCols =
     showFeaturePromo
       ? 2
@@ -410,7 +416,11 @@ const TodayHighlightsComponent = ({
           ? 1
           : cardLayout === "pair"
             ? pairXlCols
-            : 3;
+            : count === 2
+              ? 2
+              : count === 3
+                ? 3
+                : 4;
   const gridColsClass = showFeaturePromo
     ? "sm:grid-cols-2"
     : cardLayout === "pair"
@@ -421,7 +431,9 @@ const TodayHighlightsComponent = ({
         ? "sm:grid-cols-3"
         : count === 2
           ? "sm:grid-cols-2"
-          : "sm:grid-cols-2 xl:grid-cols-3";
+          : count === 3
+            ? "sm:grid-cols-3"
+            : "sm:grid-cols-2 xl:grid-cols-4";
   /**
    * Story specials with 4+: keep a single row (max 4 visible) and scroll —
    * wrapping leaves an empty second row on desktop.
