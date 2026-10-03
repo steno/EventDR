@@ -15,7 +15,8 @@ export function useLiveStatusDisplay(
   event: Pick<
     Event,
     "date" | "endDate" | "time" | "recurrence" | "temporarilyClosed" | "soldOut"
-  >,
+  > &
+    Partial<Pick<Event, "category" | "categories">>,
   dict: Dictionary,
   options?: LiveStatusDisplayOptions,
 ): LiveStatusDisplay | null {
@@ -36,6 +37,8 @@ export function useLiveStatusDisplay(
     event.recurrence,
     event.temporarilyClosed,
     event.soldOut,
+    event.category,
+    event.categories,
     listTimeRange,
     nowMs,
   ]);

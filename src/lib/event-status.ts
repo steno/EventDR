@@ -4,15 +4,12 @@ import { addDaysISO, APP_TIMEZONE, localDateISO } from "./event-dates";
 /** Fields used for live/ended status (recurrence may arrive as string from filters). */
 export type EventLiveFields = Pick<
   Event,
-  | "date"
-  | "endDate"
-  | "time"
-  | "temporarilyClosed"
-  | "soldOut"
-  | "category"
-  | "categories"
+  "date" | "endDate" | "time" | "temporarilyClosed" | "soldOut"
 > & {
   recurrence?: Event["recurrence"] | string;
+  /** Optional — used to keep untimed club nights past the daytime 9 PM cutoff. */
+  category?: Event["category"];
+  categories?: Event["categories"];
 };
 
 /**
