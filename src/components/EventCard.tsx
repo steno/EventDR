@@ -271,7 +271,7 @@ const EventCardComponent = ({
           emojiClassName="text-4xl"
           enlargeLabel={dict.detail.enlargeImage}
           closeLabel={dict.detail.close}
-          showEnlarge={false}
+          showEnlarge={showEnlarge}
         />
 
         <div className="flex-1 min-w-0">

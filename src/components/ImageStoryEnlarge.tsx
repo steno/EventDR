@@ -32,8 +32,88 @@ interface ImageStoryEnlargeProps {
 }
 
 const TAP_MOVE_PX = 10;
+/** Skip a flash of the spinner when the full image is already cached. */
+const SPINNER_DELAY_MS = 180;
+/** Wait until a card has actually stayed on screen before fetching its full file. */
+const PRELOAD_DWELL_MS = 400;
+
+type NetworkInfo = { saveData?: boolean; effectiveType?: string };
+
+const warmedEnlargeSrcs = new Set<string>();
+const queuedEnlargeSrcs = new Set<string>();
+const enlargePreloadQueue: string[] = [];
+let enlargePreloadsActive = 0;
+
+function shouldSkipEnlargePreload(): boolean {
+  const connection = (
+    navigator as Navigator & { connection?: NetworkInfo }
+  ).connection;
+  if (!connection) return false;
+  if (connection.saveData) return true;
+  return (
+    connection.effectiveType === "slow-2g" || connection.effectiveType === "2g"
+  );
+}
+
+function pumpEnlargePreload() {
+  if (enlargePreloadsActive > 0) return;
+  const src = enlargePreloadQueue.shift();
+  if (!src) return;
+  queuedEnlargeSrcs.delete(src);
+  if (warmedEnlargeSrcs.has(src)) {
+    pumpEnlargePreload();
+    return;
+  }
+  enlargePreloadsActive += 1;
+  const img = new window.Image();
+  const finish = () => {
+    warmedEnlargeSrcs.add(src);
+    enlargePreloadsActive -= 1;
+    pumpEnlargePreload();
+  };
+  img.onload = finish;
+  img.onerror = finish;
+  img.src = src;
+}
+
+/** One full image at a time, only for sources still waiting. */
+function warmEnlargeImage(src: string) {
+  if (!src || warmedEnlargeSrcs.has(src) || queuedEnlargeSrcs.has(src)) return;
+  if (shouldSkipEnlargePreload()) return;
+  queuedEnlargeSrcs.add(src);
+  enlargePreloadQueue.push(src);
+  pumpEnlargePreload();
+}
+
+function cancelEnlargeWarm(src: string) {
+  if (!queuedEnlargeSrcs.has(src)) return;
+  queuedEnlargeSrcs.delete(src);
+  const index = enlargePreloadQueue.indexOf(src);
+  if (index >= 0) enlargePreloadQueue.splice(index, 1);
+}
 
 type CoverSize = { width: number; height: number };
+
+function EnlargeSpinner() {
+  return (
+    <div
+      className="page-loading-spinner"
+      style={{ color: "#fff" }}
+      aria-hidden
+    >
+      {Array.from({ length: 12 }, (_, i) => (
+        <div
+          key={i}
+          className="page-loading-spinner__bar"
+          style={{
+            transform: `rotate(${i * 30}deg)`,
+            animationDelay: `${(-1.1 + i * 0.1).toFixed(1)}s`,
+          }}
+        />
+      ))}
+    </div>
+  );
+}
 
 function sizeForViewport(
   naturalWidth: number,
@@ -69,7 +149,11 @@ export function ImageStoryEnlarge({
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [cover, setCover] = useState<CoverSize | null>(null);
+  const [decoded, setDecoded] = useState(false);
+  const [failed, setFailed] = useState(false);
+  const [showSpinner, setShowSpinner] = useState(false);
   const titleId = useId();
+  const triggerRef = useRef<HTMLButtonElement>(null);
   const scrollerRef = useRef<HTMLDivElement>(null);
   const tapRef = useRef({ x: 0, y: 0, moved: false });
   const inlineTrigger = Boolean(trigger);
@@ -78,6 +162,43 @@ export function ImageStoryEnlarge({
     // eslint-disable-next-line react-hooks/set-state-in-effect -- portal needs document
     setMounted(true);
   }, []);
+
+  useEffect(() => {
+    const el = triggerRef.current;
+    if (!el) return;
+
+    let dwell = 0;
+    let idle = 0;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        window.clearTimeout(dwell);
+        if (idle) window.cancelIdleCallback?.(idle);
+        idle = 0;
+        if (!entry?.isIntersecting) {
+          cancelEnlargeWarm(src);
+          return;
+        }
+        // Flick-past cards never start a download. One file at a time so
+        // thumbnails keep the connection.
+        dwell = window.setTimeout(() => {
+          const start = () => warmEnlargeImage(src);
+          if (typeof window.requestIdleCallback === "function") {
+            idle = window.requestIdleCallback(start, { timeout: 1500 });
+          } else {
+            start();
+          }
+        }, PRELOAD_DWELL_MS);
+      },
+      { rootMargin: "80px" },
+    );
+    observer.observe(el);
+    return () => {
+      observer.disconnect();
+      window.clearTimeout(dwell);
+      if (idle) window.cancelIdleCallback?.(idle);
+      cancelEnlargeWarm(src);
+    };
+  }, [src]);
 
   useEffect(() => {
     if (!open) return;
@@ -97,17 +218,29 @@ export function ImageStoryEnlarge({
     if (!open) {
       // eslint-disable-next-line react-hooks/set-state-in-effect -- reset between opens
       setCover(null);
+      setDecoded(false);
+      setFailed(false);
       return;
     }
+
+    setDecoded(false);
+    setFailed(false);
 
     const img = new window.Image();
     img.src = src;
     const apply = () => {
       if (!img.naturalWidth || !img.naturalHeight) return;
       setCover(sizeForViewport(img.naturalWidth, img.naturalHeight, fit));
+      setDecoded(true);
     };
-    if (img.complete) apply();
-    else img.addEventListener("load", apply, { once: true });
+    const onError = () => setFailed(true);
+    if (img.complete) {
+      if (img.naturalWidth) apply();
+      else onError();
+    } else {
+      img.addEventListener("load", apply, { once: true });
+      img.addEventListener("error", onError, { once: true });
+    }
 
     const onResize = () => {
       if (!img.naturalWidth || !img.naturalHeight) return;
@@ -118,6 +251,7 @@ export function ImageStoryEnlarge({
 
     return () => {
       img.removeEventListener("load", apply);
+      img.removeEventListener("error", onError);
       window.removeEventListener("resize", onResize);
       window.visualViewport?.removeEventListener("resize", onResize);
     };
@@ -142,9 +276,23 @@ export function ImageStoryEnlarge({
     );
   }, [open, cover, fit]);
 
+  const waiting = open && !decoded && !failed;
+  useEffect(() => {
+    if (!waiting) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- hide as soon as the image is ready
+      setShowSpinner(false);
+      return;
+    }
+    const timer = window.setTimeout(() => setShowSpinner(true), SPINNER_DELAY_MS);
+    return () => window.clearTimeout(timer);
+  }, [waiting]);
+
   function openViewer(event: MouseEvent | PointerEvent) {
     event.preventDefault();
     event.stopPropagation();
+    setCover(null);
+    setDecoded(false);
+    setFailed(false);
     setOpen(true);
   }
 
@@ -176,11 +324,21 @@ export function ImageStoryEnlarge({
             role="dialog"
             aria-modal="true"
             aria-labelledby={titleId}
+            aria-busy={waiting || undefined}
             className="fixed inset-0 z-[100] bg-black"
           >
             <span id={titleId} className="sr-only">
               {alt}
             </span>
+            {showSpinner ? (
+              <div
+                className="pointer-events-none absolute inset-0 z-[1] flex items-center justify-center"
+                role="status"
+              >
+                <span className="sr-only">Loading</span>
+                <EnlargeSpinner />
+              </div>
+            ) : null}
             <button
               type="button"
               className="sr-only"
@@ -203,8 +361,10 @@ export function ImageStoryEnlarge({
                 width={cover?.width}
                 height={cover?.height}
                 className="pointer-events-none block max-w-none select-none"
+                onLoad={() => setDecoded(true)}
+                onError={() => setFailed(true)}
                 style={
-                  cover
+                  cover && decoded
                     ? { width: cover.width, height: cover.height }
                     : { minWidth: "100%", minHeight: "100%", opacity: 0 }
                 }
@@ -218,6 +378,7 @@ export function ImageStoryEnlarge({
   return (
     <>
       <button
+        ref={triggerRef}
         type="button"
         onClick={openViewer}
         onPointerDown={(event) => event.stopPropagation()}
