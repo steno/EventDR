@@ -2051,6 +2051,25 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: "2026-09-14T12:00:00.000Z",
   },
   {
+    eventId: "lokuras-pop-friday-karaoke",
+    seriesKey: "lokuras-pop:weekly:5",
+    body: "Friday mic night in a compact centro café-bar by the JCE — sing downtown, not on a Malecón deck; confirm start on @lokuraspop before you pin Juan Bosch #11.",
+    localized: {
+      es: "Noche de micrófono los viernes en un café-bar chico del centro junto a la JCE — canta downtown, no en una terraza del Malecón; confirma hora en @lokuraspop antes de clavar Juan Bosch #11.",
+      fr: "Soirée micro le vendredi dans un petit café-bar du centre près de la JCE — chantez downtown, pas sur une terrasse du Malecón ; confirmez l’heure sur @lokuraspop avant d’épingler Juan Bosch #11.",
+    },
+    priceFeel: "varies",
+    priceNote: "Start/cover not on flyer — confirm @lokuraspop; budget picadera and drinks",
+    priceNoteLocalized: {
+      es: "Hora/cover no en el flyer — confirma @lokuraspop; presupuesta picadera y tragos",
+      fr: "Heure/cover absents de l’affiche — confirmez @lokuraspop ; budget picadera et verres",
+    },
+    attribution: "POP research · @lokuraspop Noche de Karaoke flyer",
+    researchNotes:
+      "Editor flyer Noche de Karaoke / LOKURAS — recurring Friday at Lokura's Pop Bar Café, Calle Profesor Juan Bosch #11; no time or cover on art.",
+    updatedAt: "2026-10-03T12:00:00.000Z",
+  },
+  {
     eventId: "nova-detras-de-la-mascara-2026-10-16",
     body: "Sit-down psychology talk in a centro wellness room — skip if you want nightlife; WhatsApp the RD$1,000 seat before Oct 16 fills the cupo.",
     localized: {
@@ -3550,21 +3569,21 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "chiche-almonte-zona-acapella-2026-10-04",
-    body: "Next free Malecón Domingo Típico after El Cuarteto Terrible — Chiché Almonte accordion night; same free parking story, arrive early for a sea-view table.",
+    body: "Don’t plan this Domingo Típico — Zona Acapella (@acapella.pop) is closed until further notice, so Chiché Almonte on 4 Oct is off; recheck IG before any Malecón accordion night.",
     localized: {
-      es: "Siguiente Domingo Típico gratis en el Malecón después de El Cuarteto Terrible — noche de acordeón con Chiché Almonte; mismo parqueo gratis, llega temprano por mesa con vista al mar.",
-      fr: "Prochain Domingo Típico gratuit sur le Malecón après El Cuarteto Terrible — soirée accordéon avec Chiché Almonte ; même parking gratuit, arrivez tôt pour une table vue mer.",
+      es: "No planees este Domingo Típico — Zona Acapella (@acapella.pop) está cerrado hasta nuevo aviso, así que Chiché Almonte el 4 oct está cancelado; revisa IG antes de cualquier noche de acordeón en el Malecón.",
+      fr: "Ne comptez pas sur ce Domingo Típico — Zona Acapella (@acapella.pop) est fermé jusqu’à nouvel ordre, donc Chiché Almonte le 4 oct. est annulé ; vérifiez IG avant toute soirée accordéon sur le Malecón.",
     },
     priceFeel: "free",
-    priceNote: "Free entry and parking — budget drinks/food on site",
+    priceNote: "Venue closed — do not treat free entry as a plan",
     priceNoteLocalized: {
-      es: "Entrada y parqueo gratis — presupuesta tragos/comida en el club",
-      fr: "Entrée et parking gratuits — budget boissons/repas sur place",
+      es: "Local cerrado — no trates la entrada gratis como un plan",
+      fr: "Lieu fermé — ne traitez pas l’entrée gratuite comme un plan",
     },
     attribution: "POP research · @acapella.pop Domingo Típico flyer",
     researchNotes:
-      "Editor flyer + IG: Sun 4 Oct 2026 Chiché Almonte, Zona Acapella, entrada/parqueo gratis, WhatsApp 829-726-0344.",
-    updatedAt: "2026-09-29T14:00:00.000Z",
+      "Editor notice 2 Oct 2026: Acapella Pop / Zona Acapella closed until further notice — Oct 4 Chiché Almonte listing paused.",
+    updatedAt: "2026-10-02T12:00:00.000Z",
   },
   {
     eventId: "camara-almuerzo-codigo-penal-2026-10-22",
@@ -3831,6 +3850,25 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: "2026-10-01T19:00:00.000Z",
   },
   {
+    eventId: "twenty-disco-dj-flaco-mc-2026-10-04",
+    body: "Sunday mall disco with DJ Flaco MC — not Friday’s free-cover Tanque night; cover is at the door, and the Old Parr for five is the group hook, so don’t show up solo expecting a free bottle.",
+    localized: {
+      es: "Disco del mall el domingo con DJ Flaco MC — no es el viernes free cover de Tanque; el cover es en puerta, y el Old Parr para cinco es el gancho grupal, no llegues solo esperando botella gratis.",
+      fr: "Disco du mall le dimanche avec DJ Flaco MC — pas le vendredi free cover de Tanque ; cover à la porte, et l’Old Parr pour cinq est l’accroche de groupe, ne venez pas seul en espérant une bouteille gratuite.",
+    },
+    priceFeel: "varies",
+    priceNote:
+      "Cover at door (amount TBA) — Old Parr free for groups of 5; @twenty_disco_lounge",
+    priceNoteLocalized: {
+      es: "Cover en puerta (monto por confirmar) — Old Parr gratis para grupos de 5; @twenty_disco_lounge",
+      fr: "Cover à la porte (montant à confirmer) — Old Parr gratuit pour groupes de 5 ; @twenty_disco_lounge",
+    },
+    attribution: "POP research · @twenty_disco_lounge DJ Flaco MC flyer",
+    researchNotes:
+      "Editor flyer + IG @twenty_disco_lounge — Dom 4 Oct 2026 DJ FLACO MC / FLACOMC, OLD PARR GRATIS PARA GRUPO DE 5 PERSONAS, COVER IN DOOR, Playa Dorada Mall.",
+    updatedAt: "2026-10-03T13:00:00.000Z",
+  },
+  {
     eventId: "gypsy-bowls-last-bowl-call-2026-10-03",
     body: "Last Saturday bowls before remodel — DJ Muir Head 8 AM–5 PM on Carretera Principal; after this day the patio is closed until 15 October, so don’t treat Gypsy like an open brunch stop mid-glow-up.",
     localized: {
@@ -4033,6 +4071,24 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     researchNotes:
       "Editor flyer + IG @kitestreetpop — Dom 4 Oct 2026 6:00 PM Clases Salsa GRATIS, Kite Street POP Puerto Plata, Academia de Baile Sabor Latino, Victrola 037 Special branding.",
     updatedAt: "2026-10-02T17:00:00.000Z",
+  },
+  {
+    eventId: "feel-the-boom-marianna-kite-street-2026-10-16",
+    body: "Paid Friday cardio-dance night under the Chichiguas kites — RD$800 cover with Marianna Chiroldy, not the free Sunday salsa class; pin Calle Sánchez Kite Street, not Umbrella Street.",
+    localized: {
+      es: "Noche de cardio dance de pago el viernes bajo las chichiguas — cover RD$800 con Marianna Chiroldy, no la clase de salsa gratis del domingo; pin Calle Sánchez Kite Street, no Calle de las Sombrillas.",
+      fr: "Soirée cardio dance payante le vendredi sous les cerfs-volants — cover RD$800 avec Marianna Chiroldy, pas le cours de salsa gratuit du dimanche ; épinglez Calle Sánchez Kite Street, pas Umbrella Street.",
+    },
+    priceFeel: "moderate",
+    priceNote: "Cover RD$800 on flyer · @marianna_chiroldi / @kitestreetpop",
+    priceNoteLocalized: {
+      es: "Cover RD$800 en el flyer · @marianna_chiroldi / @kitestreetpop",
+      fr: "Cover RD$800 sur l’affiche · @marianna_chiroldi / @kitestreetpop",
+    },
+    attribution: "POP research · Feel the Boom / Marianna Chiroldy flyer",
+    researchNotes:
+      "Editor flyer VIE 16 OCT 7:00 PM KITE STREET RD$800 cover + bio slide @mannythetrainer / @marianna_chiroldi (caption said 17 Oct; flyer VIE 16 Oct wins).",
+    updatedAt: "2026-10-03T14:00:00.000Z",
   },
   {
     eventId: "lizandro-diaz-grand-prix-2026-10-02",

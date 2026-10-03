@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import {
   getEventLiveStatus,
+  isLikelyLateNightUntimedListing,
   parseEventTimeWindow,
 } from "./event-status";
 
@@ -61,5 +62,48 @@ describe("getEventLiveStatus day-labeled family shows", () => {
     /** Sat Sep 26, 2026 9:00 PM America/Santo_Domingo. */
     const satNight = new Date("2026-09-27T01:00:00.000Z");
     assert.equal(getEventLiveStatus(mickey, satNight), "closedToday");
+  });
+});
+
+describe("untimed listing cutoffs", () => {
+  /** Fri 2 Oct 2026, 9:32 PM America/Santo_Domingo. */
+  const fridayNight = new Date("2026-10-03T01:32:00.000Z");
+
+  it("classifies parties/music as late-night untimed", () => {
+    assert.equal(
+      isLikelyLateNightUntimedListing({ category: "parties" }),
+      true,
+    );
+    assert.equal(
+      isLikelyLateNightUntimedListing({
+        category: "food-drinks",
+        categories: ["music"],
+      }),
+      true,
+    );
+    assert.equal(
+      isLikelyLateNightUntimedListing({ category: "business" }),
+      false,
+    );
+  });
+
+  it("keeps untimed club nights listable after 9 PM", () => {
+    assert.equal(
+      getEventLiveStatus(
+        { date: "2026-10-02", category: "parties" },
+        fridayNight,
+      ),
+      "unknown",
+    );
+  });
+
+  it("ends untimed daytime listings after 9 PM", () => {
+    assert.equal(
+      getEventLiveStatus(
+        { date: "2026-10-02", category: "business" },
+        fridayNight,
+      ),
+      "ended",
+    );
   });
 });

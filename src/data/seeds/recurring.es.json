@@ -2814,5 +2814,31 @@
     "sourceType": "instagram",
     "sourceUrl": "https://www.instagram.com/nueve_rd/",
     "imageEmoji": "🎱"
+  },
+  {
+    "id": "lokuras-pop-friday-karaoke",
+    "title": "Noche de Karaoke en Lokura's Pop",
+    "description": "Karaoke los viernes en Lokura's Pop Bar Café, Calle Profesor Juan Bosch #11 cerca de la Junta Central Electoral, Puerto Plata — Noche de Karaoke en el café-bar del centro (no una terraza del Malecón). Confirma hora y cover por Instagram @lokuraspop.",
+    "date": "2026-01-01",
+    "location": "Puerto Plata",
+    "venue": "Lokura's Pop Bar Café",
+    "venueSlug": "lokuras-pop",
+    "address": "Calle Profesor Juan Bosch #11, cerca de la Junta Central Electoral, Puerto Plata 57000",
+    "lat": 19.79875,
+    "lng": -70.69395,
+    "category": "performances",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "recurrence": "weekly",
+    "recurrenceDay": 5,
+    "trending": true,
+    "callForPricing": true,
+    "instagram": "lokuraspop",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/lokuraspop/",
+    "imageEmoji": "🎤"
   }
 ]

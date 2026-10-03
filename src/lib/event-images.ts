@@ -200,6 +200,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "nueve-bingo-friday": "nueve-bingo-friday.jpg",
   "lokuras-pop-percusion-latina-2026-09-20":
     "lokuras-pop-percusion-latina-2026-09-20.jpg",
+  "lokuras-pop-friday-karaoke": "lokuras-pop-friday-karaoke-v2.jpg",
   "nova-detras-de-la-mascara-2026-10-16":
     "nova-detras-de-la-mascara-2026-10-16.jpg",
   "camara-empresas-codigo-penal-2026-09-16":
@@ -259,6 +260,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "twenty-disco-friday-dj-tanque-2026-10-02.jpg",
   "twenty-disco-glam-in-the-dark-2026-10-03":
     "twenty-disco-glam-in-the-dark-2026-10-03.jpg",
+  "twenty-disco-dj-flaco-mc-2026-10-04":
+    "twenty-disco-dj-flaco-mc-2026-10-04.jpg",
   "gypsy-bowls-last-bowl-call-2026-10-03":
     "gypsy-bowls-last-bowl-call-2026-10-03.jpg",
   "iss-wizard-of-oz-2026-12-17": "iss-wizard-of-oz-2026-12-17.jpg",
@@ -279,6 +282,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "meclao-house-friday-2026-10-02": "meclao-house-friday-2026-10-02.jpg",
   "kite-street-salsa-sabor-latino-2026-10-04":
     "kite-street-salsa-sabor-latino-2026-10-04.jpg",
+  "feel-the-boom-marianna-kite-street-2026-10-16":
+    "feel-the-boom-marianna-kite-street-2026-10-16.jpg",
   "hard-rock-feria-empleos-2026-10-05":
     "hard-rock-feria-empleos-2026-10-05.jpg",
   "twenty-disco-paradise-in-hell-2026-10-31":
@@ -499,6 +504,8 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "ernesto-betances-rancho-catalina-2026-09-13": "object-center",
   // Portrait salsa flyer — keep the percussion trio in a wide crop.
   "lokuras-pop-percusion-latina-2026-09-20": "object-center",
+  // Karaoke flyer — title sits high; keep NOCHE DE Karaoke in wide card crops.
+  "lokuras-pop-friday-karaoke": "object-top",
   "nova-detras-de-la-mascara-2026-10-16": "object-center",
   "camara-empresas-codigo-penal-2026-09-16": "object-center",
   "luna-lounge-noche-de-exitos-2026-09-19": "object-center",
@@ -526,6 +533,7 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "sarah-graciano-rancho-catalina-2026-10-04": "object-center",
   "twenty-disco-friday-dj-tanque-2026-10-02": "object-center",
   "twenty-disco-glam-in-the-dark-2026-10-03": "object-center",
+  "twenty-disco-dj-flaco-mc-2026-10-04": "object-top",
   "gypsy-bowls-last-bowl-call-2026-10-03": "object-center",
   "iss-wizard-of-oz-2026-12-17": "object-center",
   "twenty-disco-kiry-curu-2026-10-16": "object-center",
@@ -537,6 +545,7 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "meclao-galaxy-experience-carloxx-2026-10-03": "object-center",
   "meclao-house-friday-2026-10-02": "object-center",
   "kite-street-salsa-sabor-latino-2026-10-04": "object-center",
+  "feel-the-boom-marianna-kite-street-2026-10-16": "object-top",
   "hard-rock-feria-empleos-2026-10-05": "object-center",
   "twenty-disco-paradise-in-hell-2026-10-31": "object-center",
   "finely-mirador-inauguracion-2026-09-25": "object-center",
@@ -673,6 +682,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "latinwok-ramen-party-2026-09-17.jpg",
   "lena-dardelet-aura-beach-club-2026-07-24.png",
   "lokuras-pop-percusion-latina-2026-09-20.jpg",
+  "lokuras-pop-friday-karaoke-v2.jpg",
   "nova-detras-de-la-mascara-2026-10-16.jpg",
   "camara-empresas-codigo-penal-2026-09-16.jpg",
   "luna-lounge-noche-de-exitos-2026-09-19.jpg",
@@ -712,6 +722,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "meclao-galaxy-experience-carloxx-2026-10-03.jpg",
   "meclao-house-friday-2026-10-02.jpg",
   "kite-street-salsa-sabor-latino-2026-10-04.jpg",
+  "feel-the-boom-marianna-kite-street-2026-10-16.jpg",
   "hard-rock-feria-empleos-2026-10-05.jpg",
   "twenty-disco-paradise-in-hell-2026-10-31.jpg",
   "ambar-lounge-adrian-tineo-2026-09-19.jpg",
@@ -749,6 +760,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "sarah-graciano-rancho-catalina-2026-10-04.jpg",
   "twenty-disco-friday-dj-tanque-2026-10-02.jpg",
   "twenty-disco-glam-in-the-dark-2026-10-03.jpg",
+  "twenty-disco-dj-flaco-mc-2026-10-04.jpg",
   "gypsy-bowls-last-bowl-call-2026-10-03.jpg",
   "iss-wizard-of-oz-2026-12-17.jpg",
   "twenty-disco-kiry-curu-2026-10-16.jpg",

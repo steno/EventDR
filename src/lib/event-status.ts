@@ -1,13 +1,46 @@
-import type { Event } from "./types";
+import type { Event, EventCategory } from "./types";
 import { addDaysISO, APP_TIMEZONE, localDateISO } from "./event-dates";
 
 /** Fields used for live/ended status (recurrence may arrive as string from filters). */
 export type EventLiveFields = Pick<
   Event,
-  "date" | "endDate" | "time" | "temporarilyClosed" | "soldOut"
+  | "date"
+  | "endDate"
+  | "time"
+  | "temporarilyClosed"
+  | "soldOut"
+  | "category"
+  | "categories"
 > & {
   recurrence?: Event["recurrence"] | string;
 };
+
+/**
+ * Categories that usually mean evening/late club or stage nights when the
+ * listing has no clock time. Venue seeds rarely carry structured open/close
+ * hours yet — until they do, treat these as “expire at calendar midnight”
+ * instead of the daytime 9 PM cutoff.
+ */
+const LATE_NIGHT_UNTIMED_CATEGORIES = new Set<EventCategory>([
+  "parties",
+  "dance",
+  "music",
+  "concert",
+  "performances",
+]);
+
+/** True when a missing-time listing should stay listable past 9 PM. */
+export function isLikelyLateNightUntimedListing(
+  event: Pick<EventLiveFields, "category" | "categories">,
+): boolean {
+  if (event.category && LATE_NIGHT_UNTIMED_CATEGORIES.has(event.category)) {
+    return true;
+  }
+  for (const cat of event.categories ?? []) {
+    if (LATE_NIGHT_UNTIMED_CATEGORIES.has(cat)) return true;
+  }
+  return false;
+}
 
 /** Minutes from midnight (0–1439). */
 export type EventTimeWindow = { start: number; end: number };
@@ -464,7 +497,12 @@ export function getEventLiveStatus(
   const window = parseEventTimeWindow(event.time, now);
   if (!window) {
     // No parseable clock time (missing, free-text, "by reservation").
-    // Stay on today's list until evening, but never claim "happening now".
+    // Never claim "happening now". Daytime / business listings leave the
+    // home specials rail after 9 PM; club/stage nights without hours stay
+    // listable until the local calendar day rolls (specials also key on date).
+    if (isLikelyLateNightUntimedListing(event)) {
+      return "unknown";
+    }
     const nowMin = currentMinutes(now);
     const daytime = ALL_DAY_DEFAULT_WINDOW;
     if (nowMin > daytime.end) {

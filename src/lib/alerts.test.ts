@@ -241,3 +241,51 @@ describe("VOYVOY closure on Cabarete home", () => {
     assert.ok(!alerts.some((a) => a.id === "voyvoy-cabarete-closed-2026-10"));
   });
 });
+
+describe("Zona Acapella Club closure until further notice", () => {
+  it("marks the venue and Oct 4 Domingo Típico closed from 2 Oct", () => {
+    const venueInput: { slug: string; temporarilyClosed?: boolean } = {
+      slug: "zona-acapella-club",
+    };
+    assert.equal(
+      applyActiveEditorialClosureToVenue(venueInput, "2026-10-01").temporarilyClosed,
+      undefined,
+    );
+    assert.equal(
+      applyActiveEditorialClosureToVenue(venueInput, "2026-10-02").temporarilyClosed,
+      true,
+    );
+    assert.equal(
+      applyActiveEditorialClosureToVenue(venueInput, "2026-11-01").temporarilyClosed,
+      true,
+    );
+
+    const event: { id: string; venueSlug: string; temporarilyClosed?: boolean } =
+      {
+        id: "chiche-almonte-zona-acapella-2026-10-04",
+        venueSlug: "zona-acapella-club",
+      };
+    assert.equal(
+      applyActiveEditorialClosure(event, "2026-10-04").temporarilyClosed,
+      true,
+    );
+  });
+
+  it("surfaces on Puerto Plata home and stays off Cabarete", () => {
+    const pp = getHomeAlerts({
+      locale: "en",
+      dict,
+      citySlug: "puerto-plata",
+      now: new Date("2026-10-02T16:00:00.000Z"),
+    });
+    assert.ok(pp.some((a) => a.id === "zona-acapella-club-closed-2026-10"));
+
+    const cab = getHomeAlerts({
+      locale: "en",
+      dict,
+      citySlug: "cabarete",
+      now: new Date("2026-10-02T16:00:00.000Z"),
+    });
+    assert.ok(!cab.some((a) => a.id === "zona-acapella-club-closed-2026-10"));
+  });
+});

@@ -105,6 +105,23 @@ export const EDITORIAL_ALERTS: readonly EditorialAlert[] = [
     },
   },
   {
+    id: "zona-acapella-club-closed-2026-10",
+    kind: "closure",
+    from: "2026-10-02",
+    citySlugs: ["puerto-plata"],
+    href: { type: "venue", slug: "zona-acapella-club" },
+    title: {
+      en: "Zona Acapella Club is closed",
+      es: "Zona Acapella Club está cerrado",
+      fr: "Zona Acapella Club est fermé",
+    },
+    summary: {
+      en: "Malecón típico club shut until further notice — Sunday accordion nights are paused. Check @acapella.pop before you plan a Cuarto de Milla night.",
+      es: "Club de típico del Malecón cerrado hasta nuevo aviso — los domingos de acordeón están pausados. Revisa @acapella.pop antes de planear una noche en Cuarto de Milla.",
+      fr: "Club típico du Malecón fermé jusqu’à nouvel ordre — les dimanches accordéon sont en pause. Vérifiez @acapella.pop avant de prévoir une soirée à Cuarto de Milla.",
+    },
+  },
+  {
     id: "voyvoy-cabarete-closed-2026-10",
     kind: "closure",
     from: "2026-09-16",

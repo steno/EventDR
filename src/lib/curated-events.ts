@@ -79,6 +79,17 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     phone: "+18092042939",
     venueSlug: "tasty-food-park-puerto-plata",
   },
+  "lokuras-pop-friday-karaoke": {
+    callForPricing: true,
+    venueSlug: "lokuras-pop",
+    sourceUrl: "https://www.instagram.com/lokuraspop/",
+  },
+  "feel-the-boom-marianna-kite-street-2026-10-16": {
+    isFree: false,
+    admissionPrice: "RD$800",
+    venueSlug: "kite-street-pop",
+    sourceUrl: "https://www.instagram.com/kitestreetpop/",
+  },
   "ernesto-betances-rancho-catalina-2026-09-13": {
     isFree: true,
     phone: "+18097813737",

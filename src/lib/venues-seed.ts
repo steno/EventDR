@@ -1338,7 +1338,7 @@ export const SEED_VENUES: Venue[] = [
     name: "Zona Acapella Club",
     city: "Puerto Plata",
     description:
-      "Malecón nightclub at Cuarto de Milla / Playa Acapulco — típico, merengue, and late dance nights on Av. Gregorio Luperón.",
+      "Malecón nightclub at Cuarto de Milla / Playa Acapulco — típico, merengue, and late dance nights on Av. Gregorio Luperón. Closed until further notice; check @acapella.pop before visiting.",
     lat: 19.791341,
     lng: -70.674021,
     emoji: "🪗",
@@ -1750,7 +1750,7 @@ export const SEED_VENUES: Venue[] = [
     name: "Lokura's Pop Bar Café",
     city: "Puerto Plata",
     description:
-      "Centro café-bar on Calle Profesor Juan Bosch #11, near the Junta Central Electoral and Calle 30 de Marzo — live salsa, picadera, cocktails, and downtown hangouts. Instagram @lokuraspop.",
+      "Centro café-bar on Calle Profesor Juan Bosch #11, near the Junta Central Electoral and Calle 30 de Marzo — Friday karaoke, live salsa, picadera, cocktails, and downtown hangouts. Instagram @lokuraspop.",
     lat: 19.79875,
     lng: -70.69395,
     emoji: "🥁",

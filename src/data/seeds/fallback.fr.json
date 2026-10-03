@@ -3446,7 +3446,7 @@
   {
     "id": "chiche-almonte-zona-acapella-2026-10-04",
     "title": "Chiché Almonte — Domingo Típico",
-    "description": "Domingo Típico avec Chiché Almonte au Zona Acapella Club sur le Malecón de Puerto Plata (Cuarto de Milla) — dimanche 4 octobre 2026. Entrée et parking gratuits. WhatsApp +1 829 726 0344 · @acapella.pop.",
+    "description": "Domingo Típico avec Chiché Almonte était annoncé pour le dimanche 4 octobre 2026 au Zona Acapella Club sur le Malecón de Puerto Plata (Cuarto de Milla) — le lieu est fermé jusqu’à nouvel ordre, ne comptez pas sur cette soirée. Vérifiez @acapella.pop / WhatsApp +1 829 726 0344 avant d’y aller.",
     "date": "2026-10-04",
     "location": "Puerto Plata",
     "venue": "Zona Acapella Club",
@@ -4300,5 +4300,59 @@
       "Lizandro Díaz"
     ],
     "imageEmoji": "🪗"
+  },
+  {
+    "id": "twenty-disco-dj-flaco-mc-2026-10-04",
+    "title": "Twenty Disco — DJ Flaco MC",
+    "description": "Dimanche avec DJ Flaco MC au Twenty Disco & Lounge, Playa Dorada Mall, Puerto Plata — dimanche 4 octobre 2026. Old Parr gratuit pour groupes de 5 ; cover à la porte. Confirmez les portes via Instagram @twenty_disco_lounge.",
+    "date": "2026-10-04",
+    "location": "Playa Dorada",
+    "venue": "Twenty Disco Lounge",
+    "venueSlug": "twenty-disco-lounge",
+    "address": "Playa Dorada Mall, Puerto Plata",
+    "lat": 19.769476,
+    "lng": -70.643033,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/twenty_disco_lounge/",
+    "lineup": [
+      "DJ Flaco MC"
+    ],
+    "imageEmoji": "🪩"
+  },
+  {
+    "id": "feel-the-boom-marianna-kite-street-2026-10-16",
+    "title": "Feel the Boom — Marianna Chiroldy à Kite Street",
+    "description": "Feel the Boom cardio dance avec Marianna Chiroldy à Kite Street POP (Calle de las Chichiguas / Calle Sánchez), Puerto Plata — vendredi 16 octobre 2026 à 19 h. Cover RD$800. Soirée ruban rose sous les cerfs-volants — pas Calle de las Sombrillas. Instagram @marianna_chiroldi · @kitestreetpop.",
+    "date": "2026-10-16",
+    "time": "7:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Kite Street POP",
+    "venueSlug": "kite-street-pop",
+    "address": "Calle Sánchez, Centro, Puerto Plata",
+    "lat": 19.799415,
+    "lng": -70.69127,
+    "category": "dance",
+    "categories": [
+      "health-wellness",
+      "music"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": false,
+    "admissionPrice": "RD$800",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/kitestreetpop/",
+    "lineup": [
+      "Marianna Chiroldy"
+    ],
+    "imageEmoji": "💃"
   }
 ]

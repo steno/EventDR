@@ -93,6 +93,8 @@ const FILE_TO_EVENT_ID = {
   "meclao-house-friday-2026-10-02.jpg": "meclao-house-friday-2026-10-02",
   "kite-street-salsa-sabor-latino-2026-10-04.jpg":
     "kite-street-salsa-sabor-latino-2026-10-04",
+  "feel-the-boom-marianna-kite-street-2026-10-16.jpg":
+    "feel-the-boom-marianna-kite-street-2026-10-16",
   "hard-rock-feria-empleos-2026-10-05.jpg": "hard-rock-feria-empleos-2026-10-05",
   "sarah-graciano-rancho-catalina-2026-10-04.jpg":
     "sarah-graciano-rancho-catalina-2026-10-04",
@@ -100,6 +102,8 @@ const FILE_TO_EVENT_ID = {
     "twenty-disco-friday-dj-tanque-2026-10-02",
   "twenty-disco-glam-in-the-dark-2026-10-03.jpg":
     "twenty-disco-glam-in-the-dark-2026-10-03",
+  "twenty-disco-dj-flaco-mc-2026-10-04.jpg":
+    "twenty-disco-dj-flaco-mc-2026-10-04",
   "twenty-disco-paradise-in-hell-2026-10-31.jpg":
     "twenty-disco-paradise-in-hell-2026-10-31",
   "gypsy-bowls-last-bowl-call-2026-10-03.jpg":
@@ -211,6 +215,7 @@ const FILE_TO_EVENT_ID = {
   "victrola-mojitos-friday.jpg": "victrola-mojitos-friday",
   "lokuras-pop-percusion-latina-2026-09-20.jpg":
     "lokuras-pop-percusion-latina-2026-09-20",
+  "lokuras-pop-friday-karaoke-v2.jpg": "lokuras-pop-friday-karaoke",
   "nova-detras-de-la-mascara-2026-10-16.jpg":
     "nova-detras-de-la-mascara-2026-10-16",
   "camara-empresas-codigo-penal-2026-09-16.jpg":

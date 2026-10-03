@@ -810,11 +810,11 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "zona-acapella-club": {
-    body: "Malecón típico room with a sea-view terrace — Sunday accordion nights run free at the door, but drinks are nightclub prices and it is 18+.",
+    body: "Closed until further notice — don’t send anyone for Malecón Domingo Típico; when they reopen, Sunday accordion nights run free at the door (drinks nightclub-priced, 18+).",
     localized: {
-      en: "Malecón típico room with a sea-view terrace — Sunday accordion nights run free at the door, but drinks are nightclub prices and it is 18+.",
-      es: "Salón de típico del Malecón con terraza al mar — los domingos de acordeón entran gratis, pero los tragos son de discoteca y es 18+.",
-      fr: "Salle típico du Malecón avec terrasse mer — les dimanches accordéon sont gratuits à l'entrée, mais les verres sont tarif club et c'est 18+.",
+      en: "Closed until further notice — don’t send anyone for Malecón Domingo Típico; when they reopen, Sunday accordion nights run free at the door (drinks nightclub-priced, 18+).",
+      es: "Cerrado hasta nuevo aviso — no mandes a nadie al Domingo Típico del Malecón; cuando reabran, los domingos de acordeón entran gratis (tragos de discoteca, 18+).",
+      fr: "Fermé jusqu’à nouvel ordre — n’envoyez personne pour le Domingo Típico du Malecón ; à la réouverture, les dimanches accordéon sont gratuits à l’entrée (verres tarif club, 18+).",
     },
   },
   "vinoteca-wine-house": {
@@ -1082,11 +1082,11 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "lokuras-pop": {
-    body: "Historic-center café-bar on Profesor Juan Bosch #11 by the JCE — live salsa in a small downtown room, not a Malecón sunset deck. Pin the colonial grid, not Costambar.",
+    body: "Historic-center café-bar on Profesor Juan Bosch #11 by the JCE — Friday Noche de Karaoke and salsa nights in a small downtown room, not a Malecón sunset deck. Pin the colonial grid, not Costambar.",
     localized: {
-      en: "Historic-center café-bar on Profesor Juan Bosch #11 by the JCE — live salsa in a small downtown room, not a Malecón sunset deck. Pin the colonial grid, not Costambar.",
-      es: "Café-bar del centro histórico en Profesor Juan Bosch #11 junto a la JCE — salsa en vivo en un local chico downtown, no una terraza de atardecer en el Malecón. Clava la cuadrícula colonial, no Costambar.",
-      fr: "Café-bar du centre historique au 11 Profesor Juan Bosch, près de la JCE — salsa live dans une petite salle downtown, pas une terrasse sunset du Malecón. Épinglez la grille coloniale, pas Costambar.",
+      en: "Historic-center café-bar on Profesor Juan Bosch #11 by the JCE — Friday Noche de Karaoke and salsa nights in a small downtown room, not a Malecón sunset deck. Pin the colonial grid, not Costambar.",
+      es: "Café-bar del centro histórico en Profesor Juan Bosch #11 junto a la JCE — Noche de Karaoke los viernes y salsa en un local chico downtown, no una terraza de atardecer en el Malecón. Clava la cuadrícula colonial, no Costambar.",
+      fr: "Café-bar du centre historique au 11 Profesor Juan Bosch, près de la JCE — Noche de Karaoke le vendredi et salsa dans une petite salle downtown, pas une terrasse sunset du Malecón. Épinglez la grille coloniale, pas Costambar.",
     },
   },
   "nova-salud-bienestar": {

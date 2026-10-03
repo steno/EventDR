@@ -3448,7 +3448,7 @@
   {
     "id": "chiche-almonte-zona-acapella-2026-10-04",
     "title": "Chiché Almonte — Domingo Típico",
-    "description": "Domingo Típico con Chiché Almonte en Zona Acapella Club, Malecón de Puerto Plata (Cuarto de Milla) — domingo 4 de octubre 2026. Entrada y parqueo gratis. WhatsApp +1 829 726 0344 · @acapella.pop.",
+    "description": "Domingo Típico con Chiché Almonte estaba anunciado para el domingo 4 de octubre 2026 en Zona Acapella Club, Malecón de Puerto Plata (Cuarto de Milla) — el local está cerrado hasta nuevo aviso, no planees esta noche. Confirma en @acapella.pop / WhatsApp +1 829 726 0344 antes de ir.",
     "date": "2026-10-04",
     "location": "Puerto Plata",
     "venue": "Zona Acapella Club",
@@ -4302,5 +4302,59 @@
       "Lizandro Díaz"
     ],
     "imageEmoji": "🪗"
+  },
+  {
+    "id": "twenty-disco-dj-flaco-mc-2026-10-04",
+    "title": "Twenty Disco — DJ Flaco MC",
+    "description": "Domingo con DJ Flaco MC en Twenty Disco & Lounge, Playa Dorada Mall, Puerto Plata — domingo 4 de octubre 2026. Old Parr gratis para grupos de 5; cover en puerta. Confirma puertas por Instagram @twenty_disco_lounge.",
+    "date": "2026-10-04",
+    "location": "Playa Dorada",
+    "venue": "Twenty Disco Lounge",
+    "venueSlug": "twenty-disco-lounge",
+    "address": "Playa Dorada Mall, Puerto Plata",
+    "lat": 19.769476,
+    "lng": -70.643033,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/twenty_disco_lounge/",
+    "lineup": [
+      "DJ Flaco MC"
+    ],
+    "imageEmoji": "🪩"
+  },
+  {
+    "id": "feel-the-boom-marianna-kite-street-2026-10-16",
+    "title": "Feel the Boom — Marianna Chiroldy en Kite Street",
+    "description": "Feel the Boom cardio dance con Marianna Chiroldy en Kite Street POP (Calle de las Chichiguas / Calle Sánchez), Puerto Plata — viernes 16 de octubre 2026 a las 7:00 PM. Cover RD$800. Noche de lazo rosa bajo las chichiguas — no es Calle de las Sombrillas. Instagram @marianna_chiroldi · @kitestreetpop.",
+    "date": "2026-10-16",
+    "time": "7:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Kite Street POP",
+    "venueSlug": "kite-street-pop",
+    "address": "Calle Sánchez, Centro, Puerto Plata",
+    "lat": 19.799415,
+    "lng": -70.69127,
+    "category": "dance",
+    "categories": [
+      "health-wellness",
+      "music"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": false,
+    "admissionPrice": "RD$800",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/kitestreetpop/",
+    "lineup": [
+      "Marianna Chiroldy"
+    ],
+    "imageEmoji": "💃"
   }
 ]

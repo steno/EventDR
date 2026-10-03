@@ -703,8 +703,8 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
   },
   "zona-acapella-club": {
     description: {
-      es: "Discoteca del Malecón en Cuarto de Milla / Playa Acapulco — típico, merengue y noches de baile en la Av. Gregorio Luperón.",
-      fr: "Boîte du Malecón à Cuarto de Milla / Playa Acapulco — típico, merengue et nuits dansantes sur l'Av. Gregorio Luperón.",
+      es: "Discoteca del Malecón en Cuarto de Milla / Playa Acapulco — típico, merengue y noches de baile en la Av. Gregorio Luperón. Cerrado hasta nuevo aviso; confirma en @acapella.pop antes de ir.",
+      fr: "Boîte du Malecón à Cuarto de Milla / Playa Acapulco — típico, merengue et nuits dansantes sur l'Av. Gregorio Luperón. Fermé jusqu’à nouvel ordre ; vérifiez @acapella.pop avant d’y aller.",
     },
   },
   "vinoteca-wine-house": {
@@ -905,8 +905,8 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
   },
   "lokuras-pop": {
     description: {
-      es: "Café-bar del centro en Calle Profesor Juan Bosch #11, cerca de la Junta Central Electoral y Calle 30 de Marzo — salsa en vivo, picadera, cócteles y ambiente downtown. Instagram @lokuraspop.",
-      fr: "Café-bar du centre sur Calle Profesor Juan Bosch n° 11, près de la Junta Central Electoral et Calle 30 de Marzo — salsa live, picadera, cocktails et hang downtown. Instagram @lokuraspop.",
+      es: "Café-bar del centro en Calle Profesor Juan Bosch #11, cerca de la Junta Central Electoral y Calle 30 de Marzo — karaoke los viernes, salsa en vivo, picadera, cócteles y ambiente downtown. Instagram @lokuraspop.",
+      fr: "Café-bar du centre sur Calle Profesor Juan Bosch n° 11, près de la Junta Central Electoral et Calle 30 de Marzo — karaoké le vendredi, salsa live, picadera, cocktails et hang downtown. Instagram @lokuraspop.",
     },
   },
   "nova-salud-bienestar": {
