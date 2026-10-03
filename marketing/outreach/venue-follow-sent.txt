@@ -1,0 +1,24 @@
+2026-10-03T16:28:59Z	18495057778	Hard Rock Cafe Puerto Plata	not_on_whatsapp
+2026-10-03T16:34:38Z	18297458811	LAX Cabarete	sent
+2026-10-03T16:34:48Z	18492719573	Liquid Blue Cabarete	sent
+2026-10-03T16:34:55Z	18095711529	Nona's Grill & Kitchen	not_on_whatsapp
+2026-10-03T16:35:09Z	18095713271	International School of Sosúa	not_on_whatsapp
+2026-10-03T16:35:15Z	18296798389	Chill & Grill Bar & Eatery	sent
+2026-10-03T16:35:29Z	18095713910	Hotel Voramar	not_on_whatsapp
+2026-10-03T16:35:38Z	18494435678	CASA COCO 24/7 Eatery & Bar	sent
+2026-10-03T16:35:44Z	18298172884	Bar 39	sent
+2026-10-03T16:35:50Z	18094749220	Sosua Diving Center	sent
+2026-10-03T16:35:57Z	18492147010	Natura Cabana	sent
+2026-10-03T16:36:03Z	18498549692	Ninafrika Dance School	sent
+2026-10-03T16:36:09Z	18098042510	Parada Típica El Choco	sent
+2026-10-03T16:36:23Z	18093203800	Blue JackTar Playa Dorada	not_on_whatsapp
+2026-10-03T16:36:29Z	18494651313	Ground Zero Discoteca	sent
+2026-10-03T17:01:14Z	18097818677	Ambar Lounge POP	sent
+2026-10-03T17:01:35Z	18092911000	Ocean World Adventure Park	sent
+2026-10-03T17:01:57Z	18494404199	El Carey Día y Noche	sent
+2026-10-03T17:02:37Z	18094845636	Zona Acapella Club	sent
+2026-10-03T17:03:15Z	18097813737	Rancho La Catalina	sent
+2026-10-03T17:03:38Z	13059429440	Cremo Cigar Bar & Lounge	not_on_whatsapp
+2026-10-03T17:04:00Z	18495175705	La Lola Beach Club	sent
+2026-10-03T17:04:37Z	18095713024	Waterfront Playa Alicia	sent
+2026-10-03T17:06:06Z	18095711693	HMS Valeria Seafood Restaurant	sent
