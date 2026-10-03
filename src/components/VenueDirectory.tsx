@@ -21,6 +21,10 @@ import {
 } from "@/lib/venues-directory";
 import { fillTemplate } from "@/lib/seo";
 import { CARD_GRID_CLASS, SECTION_TITLE_CLASS } from "@/lib/page-shell";
+import {
+  getVenueCardObjectPosition,
+  getVenueHeroObjectPosition,
+} from "@/lib/venue-images";
 
 interface VenueDirectoryProps {
   locale: Locale;
@@ -117,7 +121,7 @@ function VenueListRow({
             src={venue.imageUrl}
             alt=""
             sizes="56px"
-            className="object-cover"
+            className={`object-cover ${getVenueHeroObjectPosition(venue.slug)}`}
           />
         ) : (
           <span
@@ -188,7 +192,7 @@ function VenueCard({
             src={venue.imageUrl}
             alt=""
             sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, 220px"
-            className="object-cover object-top sm:object-center card-media-zoom"
+            className={`object-cover ${getVenueCardObjectPosition(venue.slug)} card-media-zoom`}
           />
         ) : (
           <span

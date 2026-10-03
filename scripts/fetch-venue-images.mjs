@@ -256,7 +256,7 @@ const VENUE_SOURCES = [
   // laguna-sov-kids-park.jpg — Google Maps Laguna SOV kids water-park photo (committed).
   // santa-fe-sov-pools.jpg — Google Maps Santa Fe Recreational Complex pool/waterfall (committed).
   // restaurant-maria-sov-terrace.jpg — Google Maps Restaurant Maria ocean terrace (committed).
-  // bar-39-sosua-beach.jpg — Wikimedia Playa Sosúa lounge strip geotagged at Bar 39.
+  // bar-39-sosua-palapa.jpg — POP photo of the Bar 39 palapa and 39 sign. Do not remote-refresh.
   // playa-sosua-aerial-bay.jpg — POP aerial of Sosúa Bay (editor; badge cropped). Do not remote-refresh.
   // a Freestyle Catamaran over either.
   // crazy-lobster-beach-dining.jpg — POP on-site table (grilled lobster).

@@ -24,7 +24,8 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "finish-line-sosua": "finish-line-sosua-bar.jpg",
   // Filename bump — POP aerial of Sosúa Bay (editor-provided; UI badge cropped).
   "playa-sosua": "playa-sosua-aerial-bay.jpg",
-  "bar-39-sosua": "bar-39-sosua-beach.jpg",
+  // Filename bump — POP photo of the Bar 39 palapa and 39 sign (not the beach-strip stock).
+  "bar-39-sosua": "bar-39-sosua-palapa.jpg",
   "cheers-bar-sosua": "cheers-bar-sosua-dining.jpg",
   "sosua-jewish-museum": "sosua-jewish-museum-facade.jpg",
   "templo-de-las-americas": "templo-de-las-americas.jpg",
@@ -221,6 +222,8 @@ export function getVenueHeroImageUrl(slug: string): string | undefined {
 
 /** Tailwind object-position for venue heroes when the focal point isn't center. */
 const VENUE_HERO_OBJECT_POSITION: Record<string, string> = {
+  // Portrait palapa shot — keep the 39 sign in wide card crops.
+  "bar-39-sosua": "object-top",
   // Balcony lunch overlooking the park — keep the table/view at the top of the crop.
   "casa-balcon-puerto-plata": "object-top",
   // Keep the SPOTLAND sign in frame on the entrance crop (mobile + desktop).
@@ -231,6 +234,12 @@ const VENUE_HERO_OBJECT_POSITION: Record<string, string> = {
 
 export function getVenueHeroObjectPosition(slug: string): string {
   return VENUE_HERO_OBJECT_POSITION[slug] ?? "object-center";
+}
+
+/** Wide venue-card crop. Custom focal points stay put; the default is top on phones. */
+export function getVenueCardObjectPosition(slug: string): string {
+  const position = getVenueHeroObjectPosition(slug);
+  return position === "object-center" ? "object-top sm:object-center" : position;
 }
 
 export function attachVenueImage<T extends { slug: string; imageUrl?: string }>(

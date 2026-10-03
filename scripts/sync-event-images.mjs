@@ -487,8 +487,8 @@ const FILE_TO_VENUE_SLUG = {
   "laguna-sov-kids-park.jpg": "laguna-sov-kids-park",
   "santa-fe-sov-pools.jpg": "santa-fe-sov-pools",
   "restaurant-maria-sov-terrace.jpg": "restaurant-maria-sov-terrace",
-  // Filename bumps after replacing a shared Freestyle Catamaran stand-in.
-  "bar-39-sosua-beach.jpg": "bar-39-sosua-beach",
+  // Filename bump — POP photo of the Bar 39 palapa and 39 sign.
+  "bar-39-sosua-palapa.jpg": "bar-39-sosua-palapa",
   "playa-sosua-shore.jpg": "playa-sosua-shore",
   // Filename bump — POP aerial of Sosúa Bay (editor-provided; carousel badge cropped).
   "playa-sosua-aerial-bay.jpg": "playa-sosua",

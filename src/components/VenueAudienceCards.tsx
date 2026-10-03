@@ -26,6 +26,7 @@ import {
 import { fillTemplate } from "@/lib/seo";
 import { SECTION_TITLE_CLASS } from "@/lib/page-shell";
 import { NETWORK_ONLY_FETCH } from "@/lib/pwa-refresh";
+import { getVenueCardObjectPosition } from "@/lib/venue-images";
 
 interface VenueAudienceCardsProps {
   locale: Locale;
@@ -105,7 +106,7 @@ function VenueSlideCard({
             alt=""
             sizes={sizes}
             priority={false}
-            className="object-cover object-top sm:object-center card-media-zoom"
+            className={`object-cover ${getVenueCardObjectPosition(venue.slug)} card-media-zoom`}
           />
         ) : venue.imageUrl ? (
           <span className="block h-full w-full bg-neutral-200 dark:bg-neutral-800" aria-hidden />
