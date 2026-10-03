@@ -506,9 +506,8 @@ export function getComingUpHighlightEvents(
  *
  * No display cap — every active special is returned. Order is status, then
  * one-time kind, then sooner start time ({@link sortEventsForDisplay}) — not
- * newest `createdAt`. Skip {@link pinTodayOneOffs}: that pin is for floating
- * one-offs above dailies / recovering after shuffle, and it was putting a
- * later-seeded 4 PM card ahead of an earlier 2:30 PM peer.
+ * newest `createdAt`. Skip {@link pinTodayOneOffs}: that pin floats a later
+ * seed above an earlier start, which fights a “what’s next” scan.
  *
  * Drops a one-off once it is in the “ends soon” window; Happening today
  * keeps that card.
@@ -528,10 +527,10 @@ export function getTodaySpecialEvents(
 }
 
 /**
- * Events happening today: one-time before multi-day/recurring, then the same
- * status/time order as lists, pin scarce one-offs above evergreen dailies,
- * then rotate live/upcoming peers (shuffle last so createdAt pin cannot freeze
- * the home grid), with venue diversity in the visible head.
+ * Events happening today, in the same preference order as `/when/today`:
+ * status, then one-time before multi-day/recurring, then clock time, then
+ * {@link pinTodayOneOffs} (trending, scarce one-offs and weekly nights above
+ * evergreen dailies, newer `createdAt` among those peers).
  *
  * Home discover splits dated “starts today” one-offs into
  * {@link getTodaySpecialEvents}; pass `excludeTodaySpecials` there so this
@@ -553,24 +552,12 @@ export function getTodayHighlightEvents(
     }
     return true;
   });
-  const sorted = sortEventsForDisplay(filtered, {
+  return sortEventsForDisplay(filtered, {
     recurringLast: true,
     oneTimeFirst: true,
+    pinTodayOneOffs: true,
     now,
   });
-  // Pin one-offs / scarce weeklies above evergreen dailies first, then shuffle
-  // live/upcoming peers. Pinning after shuffle used to re-sort by createdAt and
-  // freeze the home “Happening today” order.
-  const spotlighted = pinTodayOneOffs(sorted, now);
-  const rotated = shuffleHighlightPeers(
-    spotlighted,
-    resolveHighlightShuffleSeed(now, options.shuffleSeed),
-    now,
-  );
-  const carouselHead = pickDiverseCarouselHead(rotated, HOME_TODAY_LIMIT);
-  const headIds = new Set(carouselHead.map((e) => e.id));
-  const tail = rotated.filter((e) => !headIds.has(e.id));
-  return [...carouselHead, ...tail];
 }
 
 /**

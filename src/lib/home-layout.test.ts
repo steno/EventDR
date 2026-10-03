@@ -264,7 +264,7 @@ describe("getNewHighlightEvents", () => {
   });
 });
 
-describe("getTodayHighlightEvents peer shuffle", () => {
+describe("getTodayHighlightEvents today-page preference", () => {
   const liveA = event({
     id: "live-a",
     title: "Live A",
@@ -298,32 +298,21 @@ describe("getTodayHighlightEvents peer shuffle", () => {
     venueSlug: "venue-d",
   });
 
-  it("keeps the same order for a given shuffle seed", () => {
-    const catalog = [liveA, liveB, liveC, upcoming];
-    const first = getTodayHighlightEvents(catalog, {
-      now: AFTERNOON,
-      shuffleSeed: "visit-a",
-    }).map((e) => e.id);
-    const second = getTodayHighlightEvents(catalog, {
-      now: AFTERNOON,
-      shuffleSeed: "visit-a",
-    }).map((e) => e.id);
-    assert.deepEqual(first, second);
-  });
-
-  it("can rotate live peers across different seeds", () => {
-    const catalog = [liveA, liveB, liveC];
-    const orders = new Set(
-      ["seed-1", "seed-2", "seed-3", "seed-4", "seed-5"].map((seed) =>
-        getTodayHighlightEvents(catalog, {
-          now: AFTERNOON,
-          shuffleSeed: seed,
-        })
-          .map((e) => e.id)
-          .join(","),
-      ),
+  it("keeps the today-page order regardless of shuffle seed", () => {
+    const catalog = [liveC, upcoming, liveA, liveB];
+    const orders = ["seed-1", "seed-2", "visit-a"].map((seed) =>
+      getTodayHighlightEvents(catalog, {
+        now: AFTERNOON,
+        shuffleSeed: seed,
+      })
+        .map((e) => e.id)
+        .join(","),
     );
-    assert.ok(orders.size > 1, "expected at least two distinct live orders");
+    assert.deepEqual(orders, [
+      "live-a,live-b,live-c,upcoming-show",
+      "live-a,live-b,live-c,upcoming-show",
+      "live-a,live-b,live-c,upcoming-show",
+    ]);
   });
 
   it("never lets upcoming outrank live peers", () => {
@@ -356,8 +345,7 @@ describe("getTodayHighlightEvents peer shuffle", () => {
       venueSlug: "open-venue",
     });
 
-    // General live ranks before endingSoon; ending must not jump into the
-    // shuffled live run.
+    // General live ranks before endingSoon, same as the today page.
     const ids = getTodayHighlightEvents([ending, stillLive], {
       now: nearClose,
       shuffleSeed: "ending-check",
@@ -423,7 +411,7 @@ describe("getTodayHighlightEvents peer shuffle", () => {
     assert.equal(ids[0], "tonight-play");
   });
 
-  it("keeps one-offs above weeklies after pin, while live peers still rotate", () => {
+  it("keeps newer one-offs above older peers and weeklies", () => {
     const older = event({
       id: "older-one-off",
       title: "Older One-off",
@@ -461,25 +449,18 @@ describe("getTodayHighlightEvents peer shuffle", () => {
       excludeTodaySpecials: true,
     }).map((e) => e.id);
 
-    assert.ok(ids.indexOf("newer-one-off") < ids.indexOf("weekly-night"));
-    assert.ok(ids.indexOf("older-one-off") < ids.indexOf("weekly-night"));
+    assert.deepEqual(ids, ["newer-one-off", "older-one-off", "weekly-night"]);
 
-    const orders = new Set(
-      ["seed-a", "seed-b", "seed-c", "seed-d", "seed-e"].map((seed) =>
-        getTodayHighlightEvents(catalog, {
-          now: AFTERNOON,
-          shuffleSeed: seed,
-          excludeTodaySpecials: true,
-        })
-          .filter((e) => e.id !== "weekly-night")
-          .map((e) => e.id)
-          .join(","),
-      ),
+    const orders = ["seed-a", "seed-b", "seed-c"].map((seed) =>
+      getTodayHighlightEvents(catalog, {
+        now: AFTERNOON,
+        shuffleSeed: seed,
+        excludeTodaySpecials: true,
+      })
+        .map((e) => e.id)
+        .join(","),
     );
-    assert.ok(
-      orders.size > 1,
-      "expected live one-off peers to rotate across seeds (createdAt must not freeze them)",
-    );
+    assert.deepEqual(orders, [ids.join(","), ids.join(","), ids.join(",")]);
   });
 });
 
