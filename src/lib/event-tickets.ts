@@ -179,6 +179,7 @@ export const CURATED_CALL_FOR_PRICING = new Set<string>([
   // Club / DJ / dance nights — cover or class fee often applies
   "ojo-weekend-dj-parties",
   "ojo-latin-night-thursday",
+  "ojo-pal-mambo-tuesday",
   "d-classico-merengue-nights",
   "el-parq-latin-friday",
   "atlantico-fc-vs-delfines-2026-08-22",

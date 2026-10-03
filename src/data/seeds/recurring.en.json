@@ -1150,19 +1150,44 @@
     "imageEmoji": "🧘"
   },
   {
-    "id": "ojo-latin-night-thursday",
-    "title": "Ojo Club Latin Night",
-    "description": "Thursday Latin Night at Ojo Club above LAX Cabarete — salsa, bachata, and merengue on the rooftop terrace with ocean views. One of Cabarete's best dance nights.",
+    "id": "ojo-pal-mambo-tuesday",
+    "title": "Pal Mambo Tuesdays — Ninafrika at Ojo",
+    "description": "Every Tuesday from 9 PM at Ojo Club, LAX Cabarete — Pal Mambo, presented by Ninafrika. Salsa, bachata, merengue, and kizomba with animation by the Ninafrika Dance Team. Cover is not printed on the flyer; confirm with Ninafrika (+1 849-854-9692) or Ojo (+1 829-745-8811). Instagram @ninafrikadance.",
     "date": "2026-01-01",
-    "time": "8:00 PM – 2:00 AM",
+    "time": "9:00 PM",
     "location": "Cabarete",
     "venue": "Ojo Club at LAX Cabarete",
     "venueSlug": "lax-cabarete",
     "category": "dance",
     "format": "physical",
     "recurrence": "weekly",
+    "recurrenceDay": 2,
+    "lineup": [
+      "Ninafrika Dance Team"
+    ],
+    "sourceUrl": "https://www.instagram.com/ninafrikadance/",
+    "imageEmoji": "💃"
+  },
+  {
+    "id": "ojo-latin-night-thursday",
+    "title": "Latin Thursdays — Ninafrika at Ojo",
+    "description": "Every Thursday from 9 PM at Ojo Club, LAX Cabarete — Latin Thursdays, presented by Ninafrika. DJ, live percussion, and animation by the Ninafrika team: salsa, bachata, merengue, and kizomba. Cover is not printed on the flyer; confirm with Ninafrika (+1 849-854-9692) or Ojo (+1 829-745-8811). Instagram @ninafrikadance.",
+    "date": "2026-01-01",
+    "time": "9:00 PM",
+    "location": "Cabarete",
+    "venue": "Ojo Club at LAX Cabarete",
+    "venueSlug": "lax-cabarete",
+    "category": "dance",
+    "categories": [
+      "music"
+    ],
+    "format": "physical",
+    "recurrence": "weekly",
     "recurrenceDay": 4,
-    "sourceUrl": "https://cabarete.com/cabarete-nightlife/",
+    "lineup": [
+      "Ninafrika Dance Team"
+    ],
+    "sourceUrl": "https://www.instagram.com/ninafrikadance/",
     "imageEmoji": "💃"
   },
   {
@@ -1495,7 +1520,7 @@
   {
     "id": "el-parq-latin-friday",
     "title": "Noche Latina by Ninafrika Dance School",
-    "description": "Every Friday from 7 PM at Encuentro Food Park (El Parq) — Noche Latina by Ninafrika Dance School Cabarete. Learn and social-dance bachata, salsa, and merengue among the open-air stalls. Call or WhatsApp first to confirm: +1 849-854-9692. Web: ninafrikadance.com · Instagram @ninafrikadance / @ninafrika_kameroruskova.",
+    "description": "Every Friday from 7 PM at Encuentro Food Park (El Parq) — Noche Latina by Ninafrika Dance School Cabarete. Learn and social-dance bachata, salsa, merengue, and kizomba among the open-air stalls. Call or WhatsApp first to confirm: +1 849-854-9692. Web: ninafrikadance.com · Instagram @ninafrikadance / @ninafrika_kameroruskova.",
     "date": "2026-01-01",
     "time": "7:00 PM",
     "location": "Cabarete",

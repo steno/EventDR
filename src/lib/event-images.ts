@@ -306,8 +306,9 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   // Filename bump — packed night bar (not the daytime Club 59 facade).
   "d-classico-merengue-nights": "d-classico-merengue-bar.jpg",
   "natura-cabana-yoga-daily": "natura-cabana-yoga-daily.jpg",
-  // Filename bump — Ojo Club booth night (not MerengueBachata still).
-  "ojo-latin-night-thursday": "ojo-latin-night-ojo-booth.png",
+  // Filename bump — Ninafrika Latin Thursdays flyer (was the Ojo booth photo).
+  "ojo-latin-night-thursday": "ojo-latin-thursdays-ninafrika.jpg",
+  "ojo-pal-mambo-tuesday": "ojo-pal-mambo-tuesday.jpg",
   "ojo-weekend-dj-parties": "ojo-weekend-dj-parties.jpg",
   "la-casita-papi-beach-dining": "la-casita-papi-sand-dining.jpg",
   "el-cocotazo-cafe-beach-dining": "el-cocotazo-cafe-beach-dining.jpg",
@@ -676,6 +677,8 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "hard-rock-rising-segunda-ronda-2026-09-16.jpg",
   "hard-rock-rising-final-local-2026-09-23.jpg",
   "ojo-equinoccio-neon-party-2026-09-25.jpg",
+  "ojo-latin-thursdays-ninafrika.jpg",
+  "ojo-pal-mambo-tuesday.jpg",
   "hard-rock-catrinas-halloween-2026-10-31.jpg",
   "iss-pta-parents-night-out-flyer.jpg",
   "imbert-mercedes-patronales-2026.jpg",
@@ -916,7 +919,6 @@ const HOME_HERO_SCENE_FILES = new Set([
   "natura-cabana-yoga-daily.jpg",
   "nonas-grill-kitchen-entrance.jpg",
   "ocean-world-daily.jpg",
-  "ojo-latin-night-ojo-booth.png",
   "ojo-weekend-dj-parties.jpg",
   "outback-safari-daily.jpeg",
   "paella-pop-el-pueblito.jpg",

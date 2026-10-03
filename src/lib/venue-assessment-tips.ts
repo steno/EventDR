@@ -10,11 +10,11 @@ export const VENUE_TIP_COPY: Record<
   }
 > = {
   "lax-cabarete": {
-    body: "Friday reggae and late bay energy are why visitors still get pointed here — just don't expect a quiet dinner; the food service is hit-or-miss.",
+    body: "Tuesday and Thursday are Ninafrika's Latin dance nights at Ojo from 9 PM; Friday is still the late reggae bay night. Don't expect a quiet dinner — the food service is hit-or-miss.",
     localized: {
-      en: "Friday reggae and late bay energy are why visitors still get pointed here — just don't expect a quiet dinner; the food service is hit-or-miss.",
-      es: "El reggae del viernes y la energía tarde en la bahía son por lo que aún mandan visitantes aquí — no esperes cena tranquila; la comida es irregular.",
-      fr: "Le reggae du vendredi et l'énergie tardive sur la baie expliquent pourquoi on y envoie encore les visiteurs — pas un dîner calme ; le resto est inégal.",
+      en: "Tuesday and Thursday are Ninafrika's Latin dance nights at Ojo from 9 PM; Friday is still the late reggae bay night. Don't expect a quiet dinner — the food service is hit-or-miss.",
+      es: "Martes y jueves son las noches latinas de Ninafrika en Ojo desde las 9 PM; el viernes sigue siendo el reggae tarde en la bahía. No esperes cena tranquila — la comida es irregular.",
+      fr: "Mardi et jeudi sont les nuits latines de Ninafrika à Ojo dès 21 h ; le vendredi reste le reggae tardif sur la baie. Pas un dîner calme — le resto est inégal.",
     },
   },
   "aura-beach-club-cabarete": {
@@ -90,11 +90,11 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "ninafrika-dance-school-cabarete": {
-    body: "Call or WhatsApp first (+1 849-854-9692) — times and rooftop vs food-park nights change; don't show up cold.",
+    body: "Bachata, salsa, merengue, and kizomba — Tuesday Pal Mambo and Thursday Latin nights are at Ojo from 9 PM; Friday Noche Latina is at El Parq from 7 PM. WhatsApp +1 849-854-9692 so you show up at the right room.",
     localized: {
-      en: "Call or WhatsApp first (+1 849-854-9692) — times and rooftop vs food-park nights change; don't show up cold.",
-      es: "Llama o WhatsApp primero (+1 849-854-9692) — horarios y terraza vs food park cambian; no llegues sin avisar.",
-      fr: "Appelez ou WhatsApp d'abord (+1 849-854-9692) — horaires et rooftop vs food park changent ; n'y allez pas à l'aveugle.",
+      en: "Bachata, salsa, merengue, and kizomba — Tuesday Pal Mambo and Thursday Latin nights are at Ojo from 9 PM; Friday Noche Latina is at El Parq from 7 PM. WhatsApp +1 849-854-9692 so you show up at the right room.",
+      es: "Bachata, salsa, merengue y kizomba — Pal Mambo del martes y Latin Thursdays son en Ojo desde las 9 PM; la Noche Latina del viernes es en El Parq desde las 7 PM. WhatsApp +1 849-854-9692 para llegar al salón correcto.",
+      fr: "Bachata, salsa, merengue et kizomba — Pal Mambo le mardi et Latin Thursdays sont à Ojo dès 21 h ; la Noche Latina du vendredi est à El Parq dès 19 h. WhatsApp +1 849-854-9692 pour arriver dans la bonne salle.",
     },
   },
   "d-classico-sosua": {

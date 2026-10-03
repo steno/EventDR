@@ -5,25 +5,48 @@ const AT = "2026-07-16T22:40:00.000Z";
 /** Additional researched recurring-night opinions (batch 2). */
 export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   {
-    eventId: "ojo-latin-night-thursday",
-    seriesKey: "lax-cabarete:weekly:4",
-    body: "Starts earlier and stays dance-first — shoes you can move in matter more than a dinner reservation.",
+    eventId: "ojo-pal-mambo-tuesday",
+    seriesKey: "lax-cabarete:weekly:2",
+    body: "Midweek dance night, not the food-park class — Ninafrika animates salsa, bachata, merengue, and kizomba at Ojo from 9 PM, a night before the Thursday percussion set.",
     localized: {
-      es: "Empieza más temprano y es más de baile — importa más el zapato para moverte que una reserva de cena.",
-      fr: "Commence plus tôt et reste dance-first — les chaussures à danser comptent plus qu'une réservation dîner.",
+      es: "Noche de baile entre semana, no la clase del food park — Ninafrika anima salsa, bachata, merengue y kizomba en Ojo desde las 9 PM, la víspera de la percusión del jueves.",
+      fr: "Soirée danse en semaine, pas le cours du food park — Ninafrika anime salsa, bachata, merengue et kizomba à Ojo dès 21 h, la veille des percussions du jeudi.",
     },
     priceFeel: "upscale",
     priceNote:
-      "Beach-club drink prices — entry often open; budget for cocktails, not a cheap colmado night",
+      "Beach-club drink prices — cover isn't printed; ask Ninafrika or Ojo before you go",
     priceNoteLocalized: {
-      es: "Precios de beach club — entrada suele libre; presupuesta cócteles, no noche de colmado",
-      fr: "Tarifs beach club — entrée souvent libre ; budget cocktails, pas soirée de quartier",
+      es: "Precios de beach club — el cover no está impreso; pregunta a Ninafrika u Ojo antes de ir",
+      fr: "Tarifs beach club — le cover n'est pas imprimé ; demandez à Ninafrika ou Ojo avant d'y aller",
     },
-    attribution: "POP research · Cabarete.com nightlife",
+    attribution: "POP research · Ninafrika Pal Mambo flyer",
     ratingCite: "Google 4.4",
     googleRating: 4.4,
-    researchNotes: "Cabarete.com: Thursday Latin Night at Ojo from ~8 PM.",
-    updatedAt: AT,
+    researchNotes:
+      "Editor flyer Oct 2026: Ninafrika presents Pal Mambo Tuesdays, 9 PM, LAX Ojo Club Cabarete — salsa, bachata, merengue; animation by Ninafrika Dance Team.",
+    updatedAt: "2026-10-03T17:00:00.000Z",
+  },
+  {
+    eventId: "ojo-latin-night-thursday",
+    seriesKey: "lax-cabarete:weekly:4",
+    body: "Ninafrika's Thursday floor at Ojo — DJ plus live percussion from 9 PM, not the Friday reggae night. Shoes you can turn in matter more than a dinner plan; cover isn't on the flyer.",
+    localized: {
+      es: "La pista del jueves de Ninafrika en Ojo — DJ y percusión en vivo desde las 9 PM, no la noche de reggae del viernes. Importan más los zapatos para girar que un plan de cena; el cover no sale en el flyer.",
+      fr: "Le jeudi de Ninafrika à Ojo — DJ et percussions live dès 21 h, pas la nuit reggae du vendredi. Des chaussures pour tourner comptent plus qu'un plan dîner ; le cover n'est pas sur le flyer.",
+    },
+    priceFeel: "upscale",
+    priceNote:
+      "Beach-club drink prices — cover isn't printed; ask Ninafrika or Ojo before you go",
+    priceNoteLocalized: {
+      es: "Precios de beach club — el cover no está impreso; pregunta a Ninafrika u Ojo antes de ir",
+      fr: "Tarifs beach club — le cover n'est pas imprimé ; demandez à Ninafrika ou Ojo avant d'y aller",
+    },
+    attribution: "POP research · Ninafrika Latin Thursdays flyer",
+    ratingCite: "Google 4.4",
+    googleRating: 4.4,
+    researchNotes:
+      "Editor flyer Oct 2026: Ninafrika presents Latin Thursdays, 9 PM, LAX Ojo Club Cabarete — DJ, live percussion, animation by the Ninafrika team; salsa, bachata, merengue and more.",
+    updatedAt: "2026-10-03T17:00:00.000Z",
   },
   {
     eventId: "ojo-weekend-dj-parties",

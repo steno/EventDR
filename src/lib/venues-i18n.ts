@@ -11,8 +11,8 @@ type VenueCopy = {
 export const VENUE_I18N: Record<string, VenueCopy> = {
   "lax-cabarete": {
     description: {
-      es: "Bar frente al mar y epicentro de música en vivo en la bahía de Cabarete. Noches de reggae, conciertos y sesiones al atardecer.",
-      fr: "Bar en bord de mer et haut lieu de la musique live sur la baie de Cabarete. Soirées reggae, concerts et sessions au coucher du soleil.",
+      es: "Bar frente al mar en la bahía de Cabarete, con Ojo Club arriba. Pal Mambo de Ninafrika los martes y Latin Thursdays desde las 9 PM, más reggae los viernes, conciertos y sesiones al atardecer.",
+      fr: "Bar en bord de mer sur la baie de Cabarete, avec Ojo Club à l'étage. Pal Mambo de Ninafrika le mardi et Latin Thursdays dès 21 h, plus reggae le vendredi, concerts et sessions au coucher du soleil.",
     },
   },
   "malecon-puerto-plata": {
@@ -155,8 +155,8 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Ninafrika Dance School",
     },
     description: {
-      es: "Escuela de baile latino en Cabarete dirigida por Ninafrika — bachata, salsa, merengue, danza africana y más. Clases a menudo en la terraza de Ojo Club (LAX); Noche Latina los viernes en El Parq / Encuentro Food Park. Llama o escribe por WhatsApp primero para confirmar horario y lugar: +1 849-854-9692. Web: ninafrikadance.com. Instagram: @ninafrikadance (escuela) y @ninafrika_kameroruskova.",
-      fr: "École de danse latine à Cabarete dirigée par Ninafrika — bachata, salsa, merengue, danse africaine et plus. Cours souvent sur le rooftop d'Ojo Club (LAX) ; Noche Latina le vendredi à El Parq / Encuentro Food Park. Appelez ou WhatsApp d'abord pour confirmer horaires et lieu : +1 849-854-9692. Site : ninafrikadance.com. Instagram : @ninafrikadance (école) et @ninafrika_kameroruskova.",
+      es: "Escuela de baile latino en Cabarete dirigida por Ninafrika — bachata, salsa, merengue y kizomba. Pal Mambo los martes y Latin Thursdays desde las 9 PM en Ojo Club (LAX Cabarete); Noche Latina los viernes desde las 7 PM en El Parq / Encuentro Food Park. Llama o WhatsApp primero para confirmar: +1 849-854-9692. Web: ninafrikadance.com. Instagram: @ninafrikadance (escuela) y @ninafrika_kameroruskova.",
+      fr: "École de danse latine à Cabarete dirigée par Ninafrika — bachata, salsa, merengue et kizomba. Pal Mambo le mardi et Latin Thursdays dès 21 h à Ojo Club (LAX Cabarete) ; Noche Latina le vendredi dès 19 h à El Parq / Encuentro Food Park. Appelez ou WhatsApp d'abord pour confirmer : +1 849-854-9692. Site : ninafrikadance.com. Instagram : @ninafrikadance (école) et @ninafrika_kameroruskova.",
     },
   },
   "parada-tipica-el-choco": {

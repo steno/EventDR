@@ -108,7 +108,9 @@ Curated images under `public/events/` and `public/venues/`.
 | `sosua-pedro-clisante-food-nights.jpg` | [Unsplash](https://unsplash.com/photos/assorted-meat-on-a-wooden-board-yiR9GQC8Ttk) (`photo-1555939594`) — Unsplash License | Grill / street-food feast |
 | `venues/el-batey-pedro-clisante-strip.jpg` | YouTube still — [Avenida Pedro Clisante. Sosúa, Dominican Republic](https://www.youtube.com/watch?v=LCuOD7uG_R0) | Daytime walkable Pedro Clisante café/bar strip (filename bump — was Plaza García / Entrada El Batey) |
 | `el-batey-weekend-nightlife-clisante.jpg` | [Sosúa News — Friday night on Pedro Clisante](https://www.sosuanews.com/index.php?id=4452&article=1) — `05-20_clisante_2.jpg` | Night strip action (Premium Disco patio, Presidente tables) — replaces the shared salsa-social clone |
-| `ojo-latin-night-ojo-booth.png` | POP on-site photo — Ojo Club DJ booth with ojo Club logo / Red Bull neon | Thursday Latin Night action (filename bump) |
+| `ojo-latin-night-ojo-booth.png` | POP on-site photo — Ojo Club DJ booth with ojo Club logo / Red Bull neon | Retired Thursday hero (replaced by Ninafrika flyer) |
+| `ojo-latin-thursdays-ninafrika.jpg` | POP-supplied — Ninafrika Latin Thursdays flyer (Ojo Club / LAX Cabarete) | Weekly Thursday 9 PM hero (editor-provided; typography-heavy; filename bump) |
+| `ojo-pal-mambo-tuesday.jpg` | POP-supplied — Ninafrika Pal Mambo Tuesdays flyer (Ojo Club / LAX Cabarete) | Weekly Tuesday 9 PM hero (editor-provided; typography-heavy) |
 | `lax-reggae-friday-crowd.png` | POP on-site photo — DJ overlooking packed LAX Cabarete dance floor | Friday Reggae Night crowd energy (filename bump) |
 | `ojo-weekend-dj-parties.jpg` | [Unsplash](https://unsplash.com/photos/cxOitA8mP78) (`photo-1682289385881`) — Unsplash License | DJ booth / club party action (was shared LAX reggae deck) |
 | `voyvoy-monday-night-terrace.jpg` | [Google Maps — Voy Voy Bar Restaurant](https://www.google.com/maps/place/Voy+Voy+Bar+Restaurant/@19.7502161,-70.4066784,17z) visitor photo | Night terrace cocktails and string lights on Cabarete Bay — Monday live listing (not the interior reused as Ocean One) |

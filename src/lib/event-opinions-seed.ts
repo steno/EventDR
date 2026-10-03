@@ -117,10 +117,10 @@ export const SEED_EVENT_OPINIONS_BASE: EventOpinion[] = [
   {
     eventId: "el-parq-latin-friday",
     seriesKey: "ninafrika-dance-school-cabarete:weekly:5",
-    body: "Call or WhatsApp first (+1 849-854-9692) — then wear shoes you can dance in. Ninafrika runs learn + social bachata/salsa/merengue at the food park, not a VIP bottle-table scene.",
+    body: "Call or WhatsApp first (+1 849-854-9692) — then wear shoes you can dance in. Ninafrika runs learn + social bachata, salsa, merengue, and kizomba at the food park, not a VIP bottle-table scene.",
     localized: {
-      es: "Llama o WhatsApp primero (+1 849-854-9692) — luego usa zapatos para bailar. Ninafrika mezcla clase y social de bachata/salsa/merengue en el food park, no una escena de mesa VIP.",
-      fr: "Appelez ou WhatsApp d'abord (+1 849-854-9692) — puis portez des chaussures à danser. Ninafrika mélange apprentissage et social bachata/salsa/merengue au food park, pas une scène de table VIP.",
+      es: "Llama o WhatsApp primero (+1 849-854-9692) — luego usa zapatos para bailar. Ninafrika mezcla clase y social de bachata, salsa, merengue y kizomba en el food park, no una escena de mesa VIP.",
+      fr: "Appelez ou WhatsApp d'abord (+1 849-854-9692) — puis portez des chaussures à danser. Ninafrika mélange apprentissage et social bachata, salsa, merengue et kizomba au food park, pas une scène de table VIP.",
     },
     priceFeel: "budget",
     priceNote: "Food-stall night out — far cheaper than resort clubs",

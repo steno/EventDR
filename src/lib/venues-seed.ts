@@ -7,7 +7,7 @@ export const SEED_VENUES: Venue[] = [
     name: "LAX Cabarete",
     city: "Cabarete",
     description:
-      "Beachfront bar and live music hub on Cabarete Bay. Reggae nights, concerts, and sunset sessions.",
+      "Beachfront bar on Cabarete Bay with Ojo Club upstairs. Ninafrika Pal Mambo on Tuesdays and Latin Thursdays from 9 PM, plus Friday reggae, concerts, and sunset sessions.",
     lat: 19.7503643,
     lng: -70.406125,
     emoji: "🎵",
@@ -261,7 +261,7 @@ export const SEED_VENUES: Venue[] = [
     name: "Ninafrika Dance School",
     city: "Cabarete",
     description:
-      "Cabarete Latin dance school led by Ninafrika — bachata, salsa, merengue, African dance and more. Classes often on the Ojo Club (LAX) rooftop; Friday Noche Latina at El Parq / Encuentro Food Park. Call or WhatsApp first to confirm class times and location: +1 849-854-9692. Website: ninafrikadance.com. Instagram: @ninafrikadance (school) and @ninafrika_kameroruskova.",
+      "Cabarete Latin dance school led by Ninafrika — bachata, salsa, merengue, and kizomba. Pal Mambo Tuesdays and Latin Thursdays from 9 PM at Ojo Club (LAX Cabarete); Friday Noche Latina from 7 PM at El Parq / Encuentro Food Park. Call or WhatsApp first to confirm: +1 849-854-9692. Website: ninafrikadance.com. Instagram: @ninafrikadance (school) and @ninafrika_kameroruskova.",
     lat: 19.7503643,
     lng: -70.406125,
     emoji: "💃",
