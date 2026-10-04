@@ -284,6 +284,14 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "kite-street-salsa-sabor-latino-2026-10-04.jpg",
   "feel-the-boom-marianna-kite-street-2026-10-16":
     "feel-the-boom-marianna-kite-street-2026-10-16.jpg",
+  "jennifer-nadal-pilates-anfiteatro-2026-10-24":
+    "jennifer-nadal-pilates-anfiteatro-2026-10-24.jpg",
+  "jump-fit-rosa-beard-over-club-2026-10-31":
+    "jump-fit-rosa-beard-over-club-2026-10-31.jpg",
+  "trillo-la-guaita-long-beach-2026-09-24":
+    "trillo-la-guaita-long-beach-2026-09-24.jpg",
+  "cruzmonty-manuel-cocco-birthday-cigar-town-2026-10-17":
+    "cruzmonty-manuel-cocco-birthday-cigar-town-2026-10-17.jpg",
   "hard-rock-feria-empleos-2026-10-05":
     "hard-rock-feria-empleos-2026-10-05.jpg",
   "twenty-disco-paradise-in-hell-2026-10-31":
@@ -728,6 +736,10 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "meclao-house-friday-2026-10-02.jpg",
   "kite-street-salsa-sabor-latino-2026-10-04.jpg",
   "feel-the-boom-marianna-kite-street-2026-10-16.jpg",
+  "jennifer-nadal-pilates-anfiteatro-2026-10-24.jpg",
+  "jump-fit-rosa-beard-over-club-2026-10-31.jpg",
+  "trillo-la-guaita-long-beach-2026-09-24.jpg",
+  "cruzmonty-manuel-cocco-birthday-cigar-town-2026-10-17.jpg",
   "hard-rock-feria-empleos-2026-10-05.jpg",
   "twenty-disco-paradise-in-hell-2026-10-31.jpg",
   "ambar-lounge-adrian-tineo-2026-09-19.jpg",

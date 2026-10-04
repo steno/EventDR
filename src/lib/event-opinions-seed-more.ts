@@ -4095,6 +4095,78 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: "2026-10-03T14:00:00.000Z",
   },
   {
+    eventId: "jennifer-nadal-pilates-anfiteatro-2026-10-24",
+    body: "Paid 7 AM oceanfront Pilates at La Puntilla — RD$800 with Jennifer Nadal’s costaCORE, not a free Malecón stretch; amphitheater nights are sparse in renovation, so treat the flyer date as the send.",
+    localized: {
+      es: "Pilates de pago a las 7 AM frente al mar en La Puntilla — RD$800 con costaCORE de Jennifer Nadal, no un estiramiento gratis del Malecón; las noches del anfiteatro son escasas en renovación, así que manda con la fecha del flyer.",
+      fr: "Pilates payant à 7 h face à l’océan à La Puntilla — RD$800 avec costaCORE de Jennifer Nadal, pas un étirement gratuit du Malecón ; les soirées de l’amphithéâtre sont rares en rénovation, donc envoyez avec la date du flyer.",
+    },
+    priceFeel: "moderate",
+    priceNote: "Cover RD$800 on flyer · @mannythetrainer / Jennifer Nadal",
+    priceNoteLocalized: {
+      es: "Cover RD$800 en el flyer · @mannythetrainer / Jennifer Nadal",
+      fr: "Cover RD$800 sur l’affiche · @mannythetrainer / Jennifer Nadal",
+    },
+    attribution: "POP research · Jennifer Nadal Pilates / costaCORE flyer",
+    researchNotes:
+      "Editor flyer SÁB 24 OCT 7:00 AM ANFITEATRO RD$800 + bio slide @mannythetrainer CONOCE A JENNIFER costaCORE, puntilla, 24 de octubre 2026.",
+    updatedAt: "2026-10-04T15:00:00.000Z",
+  },
+  {
+    eventId: "jump-fit-rosa-beard-over-club-2026-10-31",
+    body: "Steep RD$2,500 Jump Fit cover for Rosa Beard at Over Club on Halloween Saturday — not a free beach bootcamp; confirm the Over Beach Club pin and WhatsApp before you send, the Maps listing is still thin.",
+    localized: {
+      es: "Cover alto de RD$2,500 por Jump Fit con Rosa Beard en Over Club el sábado de Halloween — no es un bootcamp gratis en la playa; confirma el pin de Over Beach Club y WhatsApp antes de mandar, el listing en Maps aún está flojo.",
+      fr: "Cover élevé RD$2,500 pour Jump Fit avec Rosa Beard à Over Club le samedi d’Halloween — pas un bootcamp plage gratuit ; confirmez le pin Over Beach Club et WhatsApp avant d’envoyer, la fiche Maps est encore légère.",
+    },
+    priceFeel: "upscale",
+    priceNote: "Cover RD$2,500 on flyer · @mannythetrainer / Over Club",
+    priceNoteLocalized: {
+      es: "Cover RD$2,500 en el flyer · @mannythetrainer / Over Club",
+      fr: "Cover RD$2,500 sur l’affiche · @mannythetrainer / Over Club",
+    },
+    attribution: "POP research · Jump Fit / Rosa Beard flyer",
+    researchNotes:
+      "Editor flyer SAB 31 OCT 6:00 PM OVER CLUB RD$2,500.00 + bio slide @mannythetrainer CONOCE A ROSA ELIZABETH, 31 de octubre 2026, Over Club. Venue IG @over_beach_club · +1 829-696-1910.",
+    updatedAt: "2026-10-04T16:00:00.000Z",
+  },
+  {
+    eventId: "trillo-la-guaita-long-beach-2026-09-24",
+    body: "Free 5:30 AM trail meetup at Long Beach with Puerto Plata Korre a Mil — not a race bib day; bring something to share after La Guaita kilometers, and expect wind on the eastern Malecón.",
+    localized: {
+      es: "Encuentro gratis de trillo a las 5:30 AM en Long Beach con Puerto Plata Korre a Mil — no es día de dorsal; trae algo para compartir después de los kilómetros por La Guaita, y espera brisa en el Malecón este.",
+      fr: "Rendez-vous trail gratuit à 5 h 30 à Long Beach avec Puerto Plata Korre a Mil — pas un jour de dossard ; apportez quelque chose à partager après les kilomètres La Guaita, et attendez-vous au vent sur le Malecón est.",
+    },
+    priceFeel: "free",
+    priceNote: "Free open run · bring something to share · @ptoptakorreamil",
+    priceNoteLocalized: {
+      es: "Corrida abierta gratis · trae algo para compartir · @ptoptakorreamil",
+      fr: "Course ouverte gratuite · apportez quelque chose à partager · @ptoptakorreamil",
+    },
+    attribution: "POP research · Trillo en la Guaita flyer",
+    researchNotes:
+      "Editor flyer JUEVES 24 5:30 A.M. Long Beach meetup + IG @ptoptakorreamil caption Este jueves 24. Calendar: 24 Sep 2026 is Thursday (24 Oct 2026 is Saturday).",
+    updatedAt: "2026-10-04T14:00:00.000Z",
+  },
+  {
+    eventId: "cruzmonty-manuel-cocco-birthday-cigar-town-2026-10-17",
+    body: "Birthday bash with Cruzmonty at Cigar Town on Luis Ginebra — not karaoke ladies night; no start time or cover on the flyer, so confirm doors on @cigartownpop / @cruzmonty before you pin it.",
+    localized: {
+      es: "Birthday bash con Cruzmonty en Cigar Town en Luis Ginebra — no es karaoke ladies night; el flyer no trae hora ni cover, confirma puertas en @cigartownpop / @cruzmonty antes de clavarlo.",
+      fr: "Birthday bash avec Cruzmonty à Cigar Town sur Luis Ginebra — pas le karaoke ladies night ; l’affiche n’a ni heure ni cover, confirmez les portes sur @cigartownpop / @cruzmonty avant d’épingler.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover / doors not on flyer — @cigartownpop · @cruzmonty",
+    priceNoteLocalized: {
+      es: "Cover / puertas no están en el flyer — @cigartownpop · @cruzmonty",
+      fr: "Cover / portes absents de l’affiche — @cigartownpop · @cruzmonty",
+    },
+    attribution: "POP research · Cigar Town Pop · Cruzmonty / Manuel Cocco flyer",
+    researchNotes:
+      "Editor flyer SÁBADO 17 DE OCTUBRE CRUZMONTY MANUEL COCCO BIRTHDAY BASH; Av. Luis Ginebra No. 56; sponsors Campos / Cigar Town / Brugal. IG @cigartownpop caption Nos vemos este sábado 17 de octubre · @cruzmonty. No start time or cover on art.",
+    updatedAt: "2026-10-04T17:00:00.000Z",
+  },
+  {
     eventId: "lizandro-diaz-grand-prix-2026-10-02",
     body: "Free Friday accordion live with Lizandro Díaz at Grand Prix in La Javilla — same Manolo Tavarez / Bomba pin as Thursday stripper and Saturday Bailable, not a Playa Dorada mall night; confirm doors on @grandprixrd.",
     localized: {

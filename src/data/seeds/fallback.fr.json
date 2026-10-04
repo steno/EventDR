@@ -4349,5 +4349,109 @@
       "Marianna Chiroldy"
     ],
     "imageEmoji": "💃"
+  },
+  {
+    "id": "jennifer-nadal-pilates-anfiteatro-2026-10-24",
+    "title": "Pilates à l'Anfiteatro — Jennifer Nadal costaCORE",
+    "description": "Pilates du matin avec Jennifer Nadal (costaCORE) à l'Anfiteatro La Puntilla, Puerto Plata — samedi 24 octobre 2026 à 7 h. Cover RD$800. Cours face à l'océan ruban rose : Pilates, force et mobilité ; avec @mannythetrainer. Confirmez les portes sur le flyer — la programmation de l'amphithéâtre est limitée pendant la rénovation.",
+    "date": "2026-10-24",
+    "time": "7:00 AM",
+    "location": "Puerto Plata",
+    "venue": "Anfiteatro La Puntilla",
+    "venueSlug": "anfiteatro-la-puntilla",
+    "address": "La Puntilla, Puerto Plata",
+    "lat": 19.803611,
+    "lng": -70.694722,
+    "category": "health-wellness",
+    "categories": [
+      "sports"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": false,
+    "admissionPrice": "RD$800",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/mannythetrainer/",
+    "lineup": [
+      "Jennifer Nadal"
+    ],
+    "imageEmoji": "🧘"
+  },
+  {
+    "id": "jump-fit-rosa-beard-over-club-2026-10-31",
+    "title": "Jump Fit — Rosa Beard à Over Club",
+    "description": "Jump Fit avec Rosa Beard (Rosa Elizabeth) à Over Beach Club / Over Club, Puerto Plata — samedi 31 octobre 2026 à 18 h. Cover RD$2,500. Soirée jumping fitness ruban rose avec @mannythetrainer. Confirmez le pin et les portes sur @over_beach_club / @mannythetrainer avant d'y aller.",
+    "date": "2026-10-31",
+    "time": "6:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Over Beach Club",
+    "venueSlug": "over-beach-club",
+    "lat": 19.7875,
+    "lng": -70.6685,
+    "category": "health-wellness",
+    "categories": [
+      "sports"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": false,
+    "admissionPrice": "RD$2,500",
+    "phone": "+18296961910",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/mannythetrainer/",
+    "lineup": [
+      "Rosa Beard",
+      "Manny The Trainer"
+    ],
+    "imageEmoji": "🏋️"
+  },
+  {
+    "id": "trillo-la-guaita-long-beach-2026-09-24",
+    "title": "Trillo en la Guaita — rendez-vous Long Beach",
+    "description": "Trail run ouvert avec Puerto Plata Korre a Mil (@ptoptakorreamil) — jeudi 24 septembre 2026 à 5 h 30. Point de rendez-vous : Long Beach sur le Malecón de Puerto Plata, puis kilomètres nature à La Guaita. Activité ouverte et gratuite ; apportez quelque chose à partager après la course.",
+    "date": "2026-09-24",
+    "time": "5:30 AM",
+    "location": "Puerto Plata",
+    "venue": "Long Beach",
+    "venueSlug": "long-beach-puerto-plata",
+    "address": "Av. Gregorio Luperón (Malecón), Long Beach, Puerto Plata",
+    "lat": 19.7898289,
+    "lng": -70.6696224,
+    "category": "sports",
+    "categories": [
+      "health-wellness"
+    ],
+    "format": "physical",
+    "isFree": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/ptoptakorreamil/",
+    "imageEmoji": "🏃"
+  },
+  {
+    "id": "cruzmonty-manuel-cocco-birthday-cigar-town-2026-10-17",
+    "title": "Cruzmonty — Manuel Cocco Birthday Bash à Cigar Town",
+    "description": "Cruzmonty présente le Manuel Cocco Birthday Bash à Cigar Town Pop, Av. Luis Ginebra No. 56, Puerto Plata — samedi 17 octobre 2026. Soirée d’anniversaire au lounge cigares avec Campos et Brugal ; confirmez l’heure et le cover via Instagram @cigartownpop · @cruzmonty.",
+    "date": "2026-10-17",
+    "location": "Puerto Plata",
+    "venue": "Cigar Town Pop",
+    "venueSlug": "cigar-town-pop",
+    "address": "Avenida Luis Ginebra No. 56, Puerto Plata",
+    "lat": 19.7915,
+    "lng": -70.6805,
+    "category": "music",
+    "categories": [
+      "parties",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/cigartownpop/",
+    "lineup": [
+      "Cruzmonty",
+      "Manuel Cocco"
+    ],
+    "imageEmoji": "🥃"
   }
 ]

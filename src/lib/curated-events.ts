@@ -90,6 +90,29 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     venueSlug: "kite-street-pop",
     sourceUrl: "https://www.instagram.com/kitestreetpop/",
   },
+  "jennifer-nadal-pilates-anfiteatro-2026-10-24": {
+    isFree: false,
+    admissionPrice: "RD$800",
+    venueSlug: "anfiteatro-la-puntilla",
+    sourceUrl: "https://www.instagram.com/mannythetrainer/",
+  },
+  "jump-fit-rosa-beard-over-club-2026-10-31": {
+    isFree: false,
+    admissionPrice: "RD$2,500",
+    phone: "+18296961910",
+    venueSlug: "over-beach-club",
+    sourceUrl: "https://www.instagram.com/mannythetrainer/",
+  },
+  "trillo-la-guaita-long-beach-2026-09-24": {
+    isFree: true,
+    venueSlug: "long-beach-puerto-plata",
+    sourceUrl: "https://www.instagram.com/ptoptakorreamil/",
+  },
+  "cruzmonty-manuel-cocco-birthday-cigar-town-2026-10-17": {
+    callForPricing: true,
+    venueSlug: "cigar-town-pop",
+    sourceUrl: "https://www.instagram.com/cigartownpop/",
+  },
   "ernesto-betances-rancho-catalina-2026-09-13": {
     isFree: true,
     phone: "+18097813737",

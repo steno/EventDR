@@ -4351,5 +4351,109 @@
       "Marianna Chiroldy"
     ],
     "imageEmoji": "💃"
+  },
+  {
+    "id": "jennifer-nadal-pilates-anfiteatro-2026-10-24",
+    "title": "Anfiteatro Pilates — Jennifer Nadal costaCORE",
+    "description": "Morning Pilates with Jennifer Nadal (costaCORE) at Anfiteatro La Puntilla, Puerto Plata — Saturday 24 October 2026 at 7:00 AM. Cover RD$800. Oceanfront pink-ribbon class combining Pilates, strength, and mobility; organized with @mannythetrainer. Confirm doors on the flyer before you go — amphitheater programming is limited during renovation.",
+    "date": "2026-10-24",
+    "time": "7:00 AM",
+    "location": "Puerto Plata",
+    "venue": "Anfiteatro La Puntilla",
+    "venueSlug": "anfiteatro-la-puntilla",
+    "address": "La Puntilla, Puerto Plata",
+    "lat": 19.803611,
+    "lng": -70.694722,
+    "category": "health-wellness",
+    "categories": [
+      "sports"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": false,
+    "admissionPrice": "RD$800",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/mannythetrainer/",
+    "lineup": [
+      "Jennifer Nadal"
+    ],
+    "imageEmoji": "🧘"
+  },
+  {
+    "id": "jump-fit-rosa-beard-over-club-2026-10-31",
+    "title": "Jump Fit — Rosa Beard at Over Club",
+    "description": "Jump Fit with Rosa Beard (Rosa Elizabeth) at Over Beach Club / Over Club, Puerto Plata — Saturday 31 October 2026 at 6:00 PM. Cover RD$2,500. Pink-ribbon jumping fitness night with @mannythetrainer. Confirm the pin and doors on @over_beach_club / @mannythetrainer before you go.",
+    "date": "2026-10-31",
+    "time": "6:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Over Beach Club",
+    "venueSlug": "over-beach-club",
+    "lat": 19.7875,
+    "lng": -70.6685,
+    "category": "health-wellness",
+    "categories": [
+      "sports"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": false,
+    "admissionPrice": "RD$2,500",
+    "phone": "+18296961910",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/mannythetrainer/",
+    "lineup": [
+      "Rosa Beard",
+      "Manny The Trainer"
+    ],
+    "imageEmoji": "🏋️"
+  },
+  {
+    "id": "trillo-la-guaita-long-beach-2026-09-24",
+    "title": "Trillo en la Guaita — Long Beach meetup",
+    "description": "Open trail run with Puerto Plata Korre a Mil (@ptoptakorreamil) — Thursday 24 September 2026 at 5:30 AM. Meet at Long Beach on the Puerto Plata Malecón, then run La Guaita nature kilometers together. Free open activity; bring something to share after the run.",
+    "date": "2026-09-24",
+    "time": "5:30 AM",
+    "location": "Puerto Plata",
+    "venue": "Long Beach",
+    "venueSlug": "long-beach-puerto-plata",
+    "address": "Av. Gregorio Luperón (Malecón), Long Beach, Puerto Plata",
+    "lat": 19.7898289,
+    "lng": -70.6696224,
+    "category": "sports",
+    "categories": [
+      "health-wellness"
+    ],
+    "format": "physical",
+    "isFree": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/ptoptakorreamil/",
+    "imageEmoji": "🏃"
+  },
+  {
+    "id": "cruzmonty-manuel-cocco-birthday-cigar-town-2026-10-17",
+    "title": "Cruzmonty — Manuel Cocco Birthday Bash at Cigar Town",
+    "description": "Cruzmonty hosts the Manuel Cocco Birthday Bash at Cigar Town Pop, Av. Luis Ginebra No. 56, Puerto Plata — Saturday 17 October 2026. Cigar-lounge birthday night with Campos and Brugal; confirm start time and cover via Instagram @cigartownpop · @cruzmonty.",
+    "date": "2026-10-17",
+    "location": "Puerto Plata",
+    "venue": "Cigar Town Pop",
+    "venueSlug": "cigar-town-pop",
+    "address": "Avenida Luis Ginebra No. 56, Puerto Plata",
+    "lat": 19.7915,
+    "lng": -70.6805,
+    "category": "music",
+    "categories": [
+      "parties",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/cigartownpop/",
+    "lineup": [
+      "Cruzmonty",
+      "Manuel Cocco"
+    ],
+    "imageEmoji": "🥃"
   }
 ]

@@ -95,6 +95,14 @@ const FILE_TO_EVENT_ID = {
     "kite-street-salsa-sabor-latino-2026-10-04",
   "feel-the-boom-marianna-kite-street-2026-10-16.jpg":
     "feel-the-boom-marianna-kite-street-2026-10-16",
+  "jennifer-nadal-pilates-anfiteatro-2026-10-24.jpg":
+    "jennifer-nadal-pilates-anfiteatro-2026-10-24",
+  "jump-fit-rosa-beard-over-club-2026-10-31.jpg":
+    "jump-fit-rosa-beard-over-club-2026-10-31",
+  "trillo-la-guaita-long-beach-2026-09-24.jpg":
+    "trillo-la-guaita-long-beach-2026-09-24",
+  "cruzmonty-manuel-cocco-birthday-cigar-town-2026-10-17.jpg":
+    "cruzmonty-manuel-cocco-birthday-cigar-town-2026-10-17",
   "hard-rock-feria-empleos-2026-10-05.jpg": "hard-rock-feria-empleos-2026-10-05",
   "sarah-graciano-rancho-catalina-2026-10-04.jpg":
     "sarah-graciano-rancho-catalina-2026-10-04",
@@ -493,6 +501,7 @@ const FILE_TO_VENUE_SLUG = {
   "playa-sosua-aerial-bay.jpg": "playa-sosua",
   "calle-sombrillas-umbrella-street-v2.jpg": "calle-sombrillas",
   "kite-street-pop-chichiguas.jpg": "kite-street-pop",
+  "long-beach-puerto-plata.jpg": "long-beach-puerto-plata",
   "estadio-leonel-placido.jpg": "estadio-leonel-placido",
   "zona-acapella-club.jpg": "zona-acapella-club",
   "vinoteca-wine-house.jpg": "vinoteca-wine-house",

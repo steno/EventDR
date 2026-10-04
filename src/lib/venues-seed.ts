@@ -412,6 +412,29 @@ export const SEED_VENUES: Venue[] = [
       "https://es.godominicanrepublic.com/que-hacer/anfiteatro-la-puntilla",
   },
   {
+    slug: "long-beach-puerto-plata",
+    name: "Long Beach",
+    city: "Puerto Plata",
+    description:
+      "Busy urban beach on the eastern Malecón (Av. Gregorio Luperón) — local meeting point for walks, morning runs, swimming, and beach chairs with bars and restaurants nearby.",
+    lat: 19.7898289,
+    lng: -70.6696224,
+    emoji: "🏖️",
+    website: "https://puertoplatadr.com/beaches/longbeach-malecon/",
+  },
+  {
+    slug: "over-beach-club",
+    name: "Over Beach Club",
+    city: "Puerto Plata",
+    description:
+      "Atlantic-view restaurant and beach club in Puerto Plata (billed as Over Club on flyers) — fitness nights and oceanfront dining. Confirm the pin and hours on Instagram @over_beach_club before you go.",
+    lat: 19.7875,
+    lng: -70.6685,
+    emoji: "🌊",
+    instagram: "over_beach_club",
+    phone: "+18296961910",
+  },
+  {
     slug: "ocean-world",
     name: "Ocean World Adventure Park",
     city: "Puerto Plata",
@@ -2152,6 +2175,19 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
     pattern:
       /kite\s*street(\s*pop)?|kitestreetpop|calle\s*(de\s*las\s*)?chichiguas/i,
     slug: "kite-street-pop",
+  },
+  {
+    pattern:
+      /anfiteatro(\s*(la\s*)?puntilla|\s*puerto\s*plata)?|(la\s*)?puntilla/i,
+    slug: "anfiteatro-la-puntilla",
+  },
+  {
+    pattern: /long\s*beach|playa\s*long\s*beach/i,
+    slug: "long-beach-puerto-plata",
+  },
+  {
+    pattern: /over\s*(beach\s*)?club|over_beach_club/i,
+    slug: "over-beach-club",
   },
   {
     pattern: /kviar|grand\s*oasis\s*marien/i,

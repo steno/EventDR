@@ -247,6 +247,18 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Amphithéâtre en bord de mer à La Puntilla — concerts en plein air, défilés de carnaval et spectacles culturels face à l'Atlantique.",
     },
   },
+  "long-beach-puerto-plata": {
+    description: {
+      es: "Playa urbana concurrida en el Malecón este (Av. Gregorio Luperón) — punto de encuentro local para caminatas, corridas matutinas, baño y sillas de playa, con bares y restaurantes cerca.",
+      fr: "Plage urbaine animée sur le Malecón est (Av. Gregorio Luperón) — point de rendez-vous local pour marches, courses du matin, baignade et chaises de plage, avec bars et restaurants à proximité.",
+    },
+  },
+  "over-beach-club": {
+    description: {
+      es: "Restaurante y beach club con vista al Atlántico en Puerto Plata (Over Club en los flyers) — noches de fitness y comida frente al mar. Confirma el pin y el horario en Instagram @over_beach_club antes de ir.",
+      fr: "Restaurant et beach club avec vue sur l'Atlantique à Puerto Plata (Over Club sur les flyers) — soirées fitness et cuisine face à l'océan. Confirmez le pin et les horaires sur Instagram @over_beach_club avant d'y aller.",
+    },
+  },
   "ocean-world": {
     description: {
       es: "Parque de aventura marina en Cofresí — nado con delfines, encuentros con leones marinos y tiburones, snorkel y laguna con toboganes. Ocean World Puerto Plata (a veces buscado como Sea World).",

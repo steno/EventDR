@@ -112,6 +112,8 @@ export const CURATED_ADMISSION_PRICES: Record<string, string> = {
   "cabarete-stand-up-vol-2-2026-10-24": "RD$600",
   "disco-club-la-mas-doll-2026-10-02": "RD$600",
   "twenty-disco-kiry-curu-2026-10-16": "RD$600",
+  "jennifer-nadal-pilates-anfiteatro-2026-10-24": "RD$800",
+  "jump-fit-rosa-beard-over-club-2026-10-31": "RD$2,500",
 
   // Museums & historic sites (door price)
   "museo-ambar-weekdays": "RD$250",
@@ -187,6 +189,7 @@ export const CURATED_CALL_FOR_PRICING = new Set<string>([
   "ambar-lounge-bandoleras-2026-10-02",
   "ambar-lounge-adrian-tineo-2026-09-19",
   "ambar-lounge-emil-roman-2026-09-26",
+  "cruzmonty-manuel-cocco-birthday-cigar-town-2026-10-17",
   "ambar-lounge-gaby-luna-2026-10-03",
   "aura-disco-dj-melvin-2026-09-19",
   "aura-disco-dj-christo-2026-09-26",
@@ -213,6 +216,7 @@ export const CURATED_FREE_EVENTS = new Set<string>([
   "puerto-plata-carnaval-2026",
 
   "costambar-beach-fitness",
+  "trillo-la-guaita-long-beach-2026-09-24",
   "el-colibri-karaoke-battle-2026",
   "el-colibri-atrevete-saturdays",
   "feria-artesanal-verano-2026",

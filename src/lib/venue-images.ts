@@ -45,6 +45,7 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "el-cocotazo-cafe": "el-cocotazo-cafe-deck.jpg",
   // Filename bump — distinct stage/arch place shot (not shared with concert heroes).
   "anfiteatro-la-puntilla": "anfiteatro-la-puntilla-stage.jpg",
+  "long-beach-puerto-plata": "long-beach-puerto-plata.jpg",
   "ocean-world": "ocean-world-park.jpg",
   // Filename bump — Tennis Club patio (Saturday Market flyer stays off the venue).
   "sea-horse-ranch": "sea-horse-ranch-tennis-club.jpg",

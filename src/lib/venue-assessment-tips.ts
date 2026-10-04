@@ -186,11 +186,27 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "anfiteatro-la-puntilla": {
-    body: "Atlantic stage when a show is billed — renovation has limited programming; confirm the listing before you go, and bring a layer after dark.",
+    body: "Atlantic bowl at La Puntilla when a concert or morning class is billed — renovation still limits the calendar; confirm the listing, and bring a layer after dark.",
     localized: {
-      en: "Atlantic stage when a show is billed — renovation has limited programming; confirm the listing before you go, and bring a layer after dark.",
-      es: "Escenario frente al Atlántico cuando hay cartel — la renovación limita la programación; confirma el evento antes de ir, y lleva una capa de noche.",
-      fr: "Scène face à l'Atlantique quand un show est annoncé — rénovation = programmation limitée ; confirmez la date avant d'y aller, et prenez une couche le soir.",
+      en: "Atlantic bowl at La Puntilla when a concert or morning class is billed — renovation still limits the calendar; confirm the listing, and bring a layer after dark.",
+      es: "Bowl frente al Atlántico en La Puntilla cuando hay concierto o clase matutina — la renovación aún limita el calendario; confirma el cartel, y lleva una capa de noche.",
+      fr: "Bol face à l'Atlantique à La Puntilla quand un concert ou un cours du matin est annoncé — la rénovation limite encore le calendrier ; confirmez la date, et prenez une couche le soir.",
+    },
+  },
+  "long-beach-puerto-plata": {
+    body: "Eastern Malecón beach meet-up — expect wind and choppier Atlantic swells than resort coves; good for morning runs and local hangouts, not a calm snorkel bay.",
+    localized: {
+      en: "Eastern Malecón beach meet-up — expect wind and choppier Atlantic swells than resort coves; good for morning runs and local hangouts, not a calm snorkel bay.",
+      es: "Playa del Malecón este para quedar — espera brisa y oleaje atlántico más picado que las calas de resort; buena para corridas matutinas y ambiente local, no bahía calmada de snorkel.",
+      fr: "Plage du Malecón est pour se retrouver — vent et houle atlantique plus agitée que les criques de resort ; bien pour courses du matin et ambiance locale, pas une baie calme de snorkeling.",
+    },
+  },
+  "over-beach-club": {
+    body: "Newer Atlantic-view restaurant billed as Over Club on fitness flyers — pin and hours are still thin online; confirm @over_beach_club / WhatsApp before you send a paid night.",
+    localized: {
+      en: "Newer Atlantic-view restaurant billed as Over Club on fitness flyers — pin and hours are still thin online; confirm @over_beach_club / WhatsApp before you send a paid night.",
+      es: "Restaurante nuevo con vista al Atlántico (Over Club en los flyers de fitness) — el pin y el horario aún están flojos online; confirma @over_beach_club / WhatsApp antes de mandar una noche de pago.",
+      fr: "Nouveau restaurant vue Atlantique (Over Club sur les flyers fitness) — pin et horaires encore légers en ligne ; confirmez @over_beach_club / WhatsApp avant d'envoyer une soirée payante.",
     },
   },
   "blue-jacktar-playa-dorada": {

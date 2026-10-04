@@ -297,6 +297,28 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     ],
   }),
   editorial({
+    venueSlug: "long-beach-puerto-plata",
+    verdictKey: "solid_local_culture",
+    crowdFit: ["local", "visitor", "mixed", "family"],
+    axes: { recommend: 4.2, atmosphere: 4.3, practical: 4.1, value: 4.5 },
+    themes: [
+      { key: "ocean_views", sentiment: "positive" },
+      { key: "easy_to_find", sentiment: "positive" },
+      { key: "busy_weekends", sentiment: "mixed" },
+    ],
+  }),
+  editorial({
+    venueSlug: "over-beach-club",
+    verdictKey: "solid_visitor_activity",
+    crowdFit: ["local", "visitor", "mixed"],
+    axes: { recommend: 3.9, atmosphere: 4.2, practical: 3.6, value: 3.8 },
+    themes: [
+      { key: "ocean_views", sentiment: "positive" },
+      { key: "easy_to_find", sentiment: "mixed" },
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+    ],
+  }),
+  editorial({
     venueSlug: "blue-jacktar-playa-dorada",
     verdictKey: "reliable_visitor_pick",
     crowdFit: ["visitor", "mixed", "nightlife"],
