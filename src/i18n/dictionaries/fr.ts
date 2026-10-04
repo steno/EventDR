@@ -389,9 +389,13 @@ export const fr: Dictionary = {
   alerts: {
     title: "Avant d’y aller",
     closure: "Fermé",
+    temporary: "Fermeture temporaire",
+    repair: "Fermé pour travaux",
     coming: "À venir",
     watch: "Info",
     closedNotice: "Fermé temporairement — vérifiez avant de prévoir une visite.",
+    reopensOn: "Réouverture {date}",
+    reopensAround: "Réouverture prévue vers {date}",
   },
   cruise: {
     metaTitle: "Journée croisière à Puerto Plata depuis {port} | POP Events",

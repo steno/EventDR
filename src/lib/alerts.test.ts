@@ -5,6 +5,7 @@ import {
   applyActiveEditorialClosure,
   applyActiveEditorialClosureToVenue,
   EDITORIAL_ALERTS,
+  formatAlertReopensOn,
   getHomeAlerts,
   isAlertActive,
   resolveAlertHref,
@@ -24,6 +25,19 @@ describe("isAlertActive", () => {
   });
 });
 
+describe("formatAlertReopensOn", () => {
+  it("formats a calendar day and a year-only estimate", () => {
+    assert.equal(
+      formatAlertReopensOn("2026-10-27", "en", dict),
+      "Reopens Oct 27, 2026",
+    );
+    assert.equal(
+      formatAlertReopensOn("2028", "en", dict),
+      "Expected reopen around 2028",
+    );
+  });
+});
+
 describe("getHomeAlerts", () => {
   it("surfaces Teleférico, Iberostar, and Jazz on 29 Aug 2026", () => {
     const alerts = getHomeAlerts({
@@ -31,12 +45,16 @@ describe("getHomeAlerts", () => {
       dict: dict,
       now: TODAY,
     });
-    assert.equal(alerts.length, 3);
+    const ids = alerts.map((a) => a.id);
     assert.equal(alerts[0]?.id, "teleferico-rebuild-2026");
     assert.equal(alerts[0]?.kind, "closure");
+    assert.equal(alerts[0]?.closureStatus, "repair");
+    assert.equal(alerts[0]?.reopensLabel, "Expected reopen around 2028");
     assert.equal(alerts[1]?.id, "iberostar-costa-dorada-refurb-2026");
-    assert.equal(alerts[2]?.id, "dr-jazz-festival-2026");
-    assert.equal(alerts[2]?.external, true);
+    assert.equal(alerts[1]?.closureStatus, "temporary");
+    assert.equal(alerts[1]?.reopensLabel, "Reopens Oct 27, 2026");
+    assert.ok(ids.includes("dr-jazz-festival-2026"));
+    assert.equal(alerts.find((a) => a.id === "dr-jazz-festival-2026")?.external, true);
   });
 
   it("drops Iberostar, VOYVOY, and Iván García after their windows", () => {
@@ -112,15 +130,15 @@ describe("applyActiveEditorialClosure", () => {
     assert.equal(reopen.temporarilyClosed, undefined);
   });
 
-  it("marks VOYVOY closed through 5 Oct and clears on reopen day 6 Oct", () => {
+  it("marks VOYVOY closed through 8 Oct and clears on reopen day 9 Oct", () => {
     const venueInput: { slug: string; temporarilyClosed?: boolean } = {
       slug: "voyvoy-cabarete",
     };
     const closed = applyActiveEditorialClosureToVenue(venueInput, "2026-09-16");
     assert.equal(closed.temporarilyClosed, true);
-    const lastClosed = applyActiveEditorialClosureToVenue(venueInput, "2026-10-05");
+    const lastClosed = applyActiveEditorialClosureToVenue(venueInput, "2026-10-08");
     assert.equal(lastClosed.temporarilyClosed, true);
-    const reopen = applyActiveEditorialClosureToVenue(venueInput, "2026-10-06");
+    const reopen = applyActiveEditorialClosureToVenue(venueInput, "2026-10-09");
     assert.equal(reopen.temporarilyClosed, undefined);
   });
 
@@ -187,7 +205,7 @@ describe("applyActiveEditorialClosure", () => {
       true,
     );
     assert.equal(
-      applyActiveEditorialClosure(event, "2026-10-06").temporarilyClosed,
+      applyActiveEditorialClosure(event, "2026-10-09").temporarilyClosed,
       undefined,
     );
   });
@@ -231,14 +249,73 @@ describe("VOYVOY closure on Cabarete home", () => {
     assert.ok(alerts.some((a) => a.id === "voyvoy-cabarete-closed-2026-10"));
   });
 
-  it("drops the VOYVOY notice on 6 October when they reopen", () => {
+  it("stays off Puerto Plata home (Cabarete-scoped)", () => {
+    const alerts = getHomeAlerts({
+      locale: "en",
+      dict,
+      citySlug: "puerto-plata",
+      now: new Date("2026-09-16T16:00:00.000Z"),
+      limit: 20,
+    });
+    assert.ok(!alerts.some((a) => a.id === "voyvoy-cabarete-closed-2026-10"));
+  });
+
+  it("drops the VOYVOY notice on 9 October when they reopen", () => {
     const alerts = getHomeAlerts({
       locale: "en",
       dict,
       citySlug: "cabarete",
-      now: new Date("2026-10-06T16:00:00.000Z"),
+      now: new Date("2026-10-09T16:00:00.000Z"),
     });
     assert.ok(!alerts.some((a) => a.id === "voyvoy-cabarete-closed-2026-10"));
+  });
+
+  it("still shows VOYVOY closed on 8 October", () => {
+    const alerts = getHomeAlerts({
+      locale: "en",
+      dict,
+      citySlug: "cabarete",
+      now: new Date("2026-10-08T16:00:00.000Z"),
+    });
+    assert.ok(alerts.some((a) => a.id === "voyvoy-cabarete-closed-2026-10"));
+  });
+});
+
+describe("Oct 4 active closures in Before you go", () => {
+  it("includes VOYVOY + Gypsy on Cabarete and Iván García on Puerto Plata", () => {
+    const now = new Date("2026-10-04T16:00:00.000Z");
+    const cab = getHomeAlerts({
+      locale: "en",
+      dict,
+      citySlug: "cabarete",
+      now,
+    });
+    const cabIds = cab.map((a) => a.id);
+    assert.ok(cabIds.includes("voyvoy-cabarete-closed-2026-10"));
+    assert.ok(cabIds.includes("gypsy-bowls-cabarete-remodel-2026-10"));
+    assert.equal(
+      cab.find((a) => a.id === "voyvoy-cabarete-closed-2026-10")?.closureStatus,
+      "temporary",
+    );
+    assert.equal(
+      cab.find((a) => a.id === "gypsy-bowls-cabarete-remodel-2026-10")?.closureStatus,
+      "repair",
+    );
+
+    const pp = getHomeAlerts({
+      locale: "en",
+      dict,
+      citySlug: "puerto-plata",
+      now,
+    });
+    const ppIds = pp.map((a) => a.id);
+    assert.ok(ppIds.includes("ivan-garcia-teatro-mantenimiento-2026"));
+    assert.equal(
+      pp.find((a) => a.id === "ivan-garcia-teatro-mantenimiento-2026")?.closureStatus,
+      "repair",
+    );
+    assert.ok(!ppIds.includes("voyvoy-cabarete-closed-2026-10"));
+    assert.ok(!ppIds.includes("gypsy-bowls-cabarete-remodel-2026-10"));
   });
 });
 
@@ -263,6 +340,7 @@ describe("Atléticos Serie Final Game 3 Bonao continuation", () => {
       limit: 20,
     });
     assert.ok(pp.some((a) => a.id === alert.id));
+    assert.equal(pp[0]?.id, alert.id);
 
     const cab = getHomeAlerts({
       locale: "en",
@@ -272,6 +350,19 @@ describe("Atléticos Serie Final Game 3 Bonao continuation", () => {
       limit: 20,
     });
     assert.ok(!cab.some((a) => a.id === alert.id));
+  });
+
+  it("leaves the list after the until day", () => {
+    const alerts = getHomeAlerts({
+      locale: "en",
+      dict,
+      citySlug: "puerto-plata",
+      now: new Date("2026-10-05T16:00:00.000Z"),
+      limit: 20,
+    });
+    assert.ok(
+      !alerts.some((a) => a.id === "atleticos-serie-final-g3-bonao-2026-10-04"),
+    );
   });
 });
 
@@ -302,6 +393,29 @@ describe("Zona Acapella Club closure until further notice", () => {
       applyActiveEditorialClosure(event, "2026-10-04").temporarilyClosed,
       true,
     );
+  });
+
+  it("uses Closed badge, compact summary, and no reopen line", () => {
+    const editorial = EDITORIAL_ALERTS.find(
+      (a) => a.id === "zona-acapella-club-closed-2026-10",
+    );
+    assert.ok(editorial);
+    assert.equal(editorial.closureStatus, "closed");
+    assert.equal(editorial.reopensOn, undefined);
+    assert.ok(editorial.summary.en.length < 80);
+
+    const pp = getHomeAlerts({
+      locale: "en",
+      dict,
+      citySlug: "puerto-plata",
+      now: new Date("2026-10-02T16:00:00.000Z"),
+      limit: 20,
+    });
+    const alert = pp.find((a) => a.id === "zona-acapella-club-closed-2026-10");
+    assert.ok(alert);
+    assert.equal(alert.closureStatus, "closed");
+    assert.equal(alert.reopensLabel, undefined);
+    assert.equal(alert.summary, "Until further notice — check @acapella.pop.");
   });
 
   it("surfaces on Puerto Plata home and stays off Cabarete", () => {

@@ -389,9 +389,13 @@ export const es: Dictionary = {
   alerts: {
     title: "Antes de ir",
     closure: "Cerrado",
+    temporary: "Cierre temporal",
+    repair: "Cerrado por obras",
     coming: "Próximo",
     watch: "Aviso",
     closedNotice: "Cerrado temporalmente — confirma antes de planear la visita.",
+    reopensOn: "Reabre {date}",
+    reopensAround: "Reapertura prevista hacia {date}",
   },
   cruise: {
     metaTitle: "Día de crucero en Puerto Plata desde {port} | POP Eventos",

@@ -1,0 +1,42 @@
+---
+description: How to write Before you go (home) editorial alerts — closure badges and reopen copy
+globs: src/lib/alerts.ts,src/lib/alerts.test.ts,src/components/HomeAlerts.tsx
+alwaysApply: false
+---
+
+# Before you go alerts
+
+Home modal notices live in `EDITORIAL_ALERTS` (`src/lib/alerts.ts`). Closures are trip-planning facts, not blog posts.
+
+## Closure badges (`closureStatus`)
+
+Required on every `kind: "closure"` alert:
+
+| Status | Badge | Use when |
+|--------|--------|----------|
+| `closed` | Closed | Until further notice / no reopen date |
+| `temporary` | Temp closed | Known short pause (holiday, seasonal, soft close) |
+| `repair` | Closed for repair | Remodel, rebuild, maintenance, refurbishment |
+
+Auto venue closures (`temporarilyClosed` without an editorial card) use `temporary`.
+
+## Reopen date vs compact summary
+
+1. **Known reopen** → set `reopensOn` (`YYYY-MM-DD` or year `YYYY`). The modal shows a separate “Reopens …” / “Expected reopen around …” line. Keep `summary` to one short reason line — do **not** bury the reopen date only inside prose.
+2. **Unknown reopen** → omit `reopensOn`. Keep `summary` to **one compact line** (until further notice + how to check). No multi-sentence backstory.
+3. `until` is still the alert expiry day (last day the notice stays active); `reopensOn` is what guests see as the go-again day (often the day after `until`).
+
+## City scope
+
+- Day-trip / coast-wide closures (Teleférico, Iberostar day pass): omit `citySlugs`
+- Neighborhood bars/restaurants (VOYVOY, Gypsy Bowls): set `citySlugs` to that town so they don’t crowd other cities’ Before you go
+- North Coast home (`citySlug` null) still shows every active notice (up to `HOME_ALERTS_LIMIT`)
+
+## Sort + expiry
+
+- Order in the modal: same-day `watch` (Heads-up with `until` = today) → `closure` → other `watch` → `coming`
+- Alerts auto-drop when local today is after `until` (inclusive through `until`). Same-day watches should set `from` and `until` to that calendar day
+
+## Non-closures
+
+- `coming` / `watch` — no `closureStatus` / `reopensOn`. Summaries can be slightly longer when the tip needs a date or venue caveat.

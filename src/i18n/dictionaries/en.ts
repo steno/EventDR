@@ -389,9 +389,15 @@ export type Dictionary = {
   alerts: {
     title: string;
     closure: string;
+    temporary: string;
+    repair: string;
     coming: string;
     watch: string;
     closedNotice: string;
+    /** `{date}` = localized calendar day */
+    reopensOn: string;
+    /** `{date}` = year, e.g. 2028 */
+    reopensAround: string;
   };
   cruise: {
     metaTitle: string;
@@ -1041,9 +1047,13 @@ export const en: Dictionary = {
   alerts: {
     title: "Before you go",
     closure: "Closed",
+    temporary: "Temp closed",
+    repair: "Closed for repair",
     coming: "Coming",
     watch: "Heads-up",
     closedNotice: "Temporarily closed — check before you plan a visit.",
+    reopensOn: "Reopens {date}",
+    reopensAround: "Expected reopen around {date}",
   },
   cruise: {
     metaTitle: "Puerto Plata cruise day from {port} | POP Events",

@@ -1,10 +1,18 @@
 "use client";
 
 import { useEffect } from "react";
-import { Ban, CalendarClock, ChevronRight, CircleAlert, ExternalLink, X } from "lucide-react";
+import {
+  Ban,
+  CalendarClock,
+  ChevronRight,
+  CircleAlert,
+  ExternalLink,
+  Wrench,
+  X,
+} from "lucide-react";
 import { IntentLink } from "@/components/IntentLink";
 import type { Dictionary } from "@/i18n/dictionaries";
-import type { HomeAlert } from "@/lib/alerts";
+import type { ClosureStatus, HomeAlert } from "@/lib/alerts";
 import { rememberReturnPath } from "@/lib/event-navigation";
 import type { Locale } from "@/i18n/config";
 
@@ -22,6 +30,24 @@ const KIND_ICON = {
   coming: CalendarClock,
   watch: CircleAlert,
 } as const;
+
+function alertIcon(alert: HomeAlert) {
+  if (alert.kind === "closure" && alert.closureStatus === "repair") return Wrench;
+  if (alert.kind === "closure" && alert.closureStatus === "temporary") {
+    return CalendarClock;
+  }
+  return KIND_ICON[alert.kind];
+}
+
+function alertBadgeLabel(alert: HomeAlert, dict: Dictionary): string {
+  if (alert.kind === "closure") {
+    const status: ClosureStatus = alert.closureStatus ?? "closed";
+    if (status === "temporary") return dict.alerts.temporary;
+    if (status === "repair") return dict.alerts.repair;
+    return dict.alerts.closure;
+  }
+  return dict.alerts[alert.kind];
+}
 
 function kindClass(kind: HomeAlert["kind"]): string {
   if (kind === "closure") {
@@ -89,8 +115,8 @@ export function HomeAlerts({
         </div>
         <ul className="mt-4 divide-y divide-neutral-100 overflow-hidden rounded-2xl border border-neutral-200/90 dark:divide-neutral-800 dark:border-neutral-800">
           {alerts.map((alert) => {
-            const Icon = KIND_ICON[alert.kind];
-            const kindLabel = dict.alerts[alert.kind];
+            const Icon = alertIcon(alert);
+            const kindLabel = alertBadgeLabel(alert, dict);
             const className =
               "flex items-start gap-3 px-3.5 py-4 touch-manipulation transition-colors hover:bg-background/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500 dark:hover:bg-neutral-800/80";
             const body = (
@@ -108,6 +134,11 @@ export function HomeAlerts({
                   <span className="mt-1 block text-base leading-relaxed text-neutral-600 dark:text-neutral-400">
                     {alert.summary}
                   </span>
+                  {alert.reopensLabel ? (
+                    <span className="mt-1.5 block text-sm font-semibold leading-snug text-neutral-800 dark:text-neutral-200">
+                      {alert.reopensLabel}
+                    </span>
+                  ) : null}
                 </span>
                 {alert.external ? (
                   <ExternalLink

@@ -9,10 +9,21 @@ import { eventDetailPath, venueDetailPath } from "@/lib/event-navigation";
 import { VENUE_AUDIENCE_POOLS } from "@/lib/home-layout";
 import type { Venue } from "@/lib/types";
 
-/** Max operational notices on home — keep the catalog first. */
-export const HOME_ALERTS_LIMIT = 3;
+/**
+ * Max notices in the Before you go modal.
+ * Closures are the point of the sheet — keep room for every active window.
+ */
+export const HOME_ALERTS_LIMIT = 8;
 
 export type AlertKind = "closure" | "coming" | "watch";
+
+/**
+ * Closure badge for “Before you go”.
+ * - closed: until further notice / no reopen date
+ * - temporary: known short window (holiday, pause, seasonal)
+ * - repair: remodel, rebuild, maintenance, refurbishment
+ */
+export type ClosureStatus = "closed" | "temporary" | "repair";
 
 export type AlertHref =
   | { type: "event"; id: string }
@@ -38,6 +49,16 @@ export type EditorialAlert = {
    * groundbreaking while the attraction ride stays shut).
    */
   exceptEventIds?: string[];
+  /**
+   * Required when `kind` is `closure`. Drives the modal badge
+   * (Closed / Temp closed / Closed for repair).
+   */
+  closureStatus?: ClosureStatus;
+  /**
+   * Known reopen day (`YYYY-MM-DD`) or year (`YYYY`) when guests can go again.
+   * Shown as a separate “Reopens …” line. Omit when unknown — keep `summary` to one short line.
+   */
+  reopensOn?: string;
   href: AlertHref;
   title: Record<Locale, string>;
   summary: Record<Locale, string>;
@@ -46,32 +67,81 @@ export type EditorialAlert = {
 export type HomeAlert = {
   id: string;
   kind: AlertKind;
+  /** Inclusive last local day — used for same-day Heads-up sort. */
+  until?: string;
+  closureStatus?: ClosureStatus;
+  /** Localized reopen line, e.g. "Reopens Oct 27, 2026". */
+  reopensLabel?: string;
   href: string;
   external: boolean;
   title: string;
   summary: string;
 };
 
-const KIND_RANK: Record<AlertKind, number> = {
-  closure: 0,
-  coming: 1,
-  watch: 2,
-};
+/**
+ * Sort rank for the modal (lower first).
+ * Same-day Heads-ups beat closures; longer watches stay below closures.
+ */
+function alertSortRank(
+  alert: Pick<HomeAlert, "kind"> & { until?: string },
+  today: string,
+): number {
+  if (alert.kind === "watch" && alert.until === today) return 0;
+  if (alert.kind === "closure") return 1;
+  if (alert.kind === "watch") return 2;
+  return 3; // coming
+}
 
 const FEATURED_SLUGS = new Set<string>([
   ...VENUE_AUDIENCE_POOLS.visitor,
   ...VENUE_AUDIENCE_POOLS.local,
 ]);
 
+const REOPEN_DATE_LOCALES: Record<Locale, string> = {
+  en: "en-US",
+  es: "es-DO",
+  fr: "fr-FR",
+};
+
+/** Format `reopensOn` for the modal line (year-only or calendar day). */
+export function formatAlertReopensOn(
+  reopensOn: string,
+  locale: Locale,
+  dict: Dictionary,
+): string {
+  if (/^\d{4}$/.test(reopensOn)) {
+    return dict.alerts.reopensAround.replace("{date}", reopensOn);
+  }
+  const [y, m, d] = reopensOn.split("-").map(Number);
+  if (!y || !m || !d) {
+    return dict.alerts.reopensOn.replace("{date}", reopensOn);
+  }
+  const utc = new Date(Date.UTC(y, m - 1, d, 12));
+  const date = utc.toLocaleDateString(REOPEN_DATE_LOCALES[locale], {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+    timeZone: "UTC",
+  });
+  return dict.alerts.reopensOn.replace("{date}", date);
+}
+
 /**
  * Trip-planning notices — not a news blog. Closures and date watches that
  * visitors would otherwise discover too late (e.g. Teleférico rebuild).
+ *
+ * Closure copy rules (also in `.cursor/rules/before-you-go-alerts.mdc`):
+ * - Set `closureStatus` + put known reopen in `reopensOn`
+ * - `summary` = short reason only; reopen date belongs in `reopensOn`, not prose
+ * - No `reopensOn` → one compact line (until further notice)
  */
 export const EDITORIAL_ALERTS: readonly EditorialAlert[] = [
   {
     id: "teleferico-rebuild-2026",
     kind: "closure",
+    closureStatus: "repair",
     until: "2028-03-01",
+    reopensOn: "2028",
     href: { type: "event", id: "teleferico-puerto-plata-daily" },
     closesVenueSlugs: ["teleferico-puerto-plata"],
     exceptEventIds: ["teleferico-inicio-obras-2026-10-03"],
@@ -81,16 +151,18 @@ export const EDITORIAL_ALERTS: readonly EditorialAlert[] = [
       fr: "Le téléphérique de Puerto Plata est fermé",
     },
     summary: {
-      en: "Gondola shut since June 2024. Consorcio Doma won the rebuild in August 2026 (18–20 months of work). Reopening is expected around 2028.",
-      es: "Góndola cerrada desde junio 2024. El Consorcio Doma ganó la reconstrucción en agosto 2026 (18–20 meses de obra). Reapertura prevista hacia 2028.",
-      fr: "Cabine à l’arrêt depuis juin 2024. Le consortium Doma a remporté la reconstruction en août 2026 (18–20 mois de travaux). Réouverture prévue vers 2028.",
+      en: "Gondola shut for rebuild since June 2024.",
+      es: "Góndola cerrada por reconstrucción desde junio 2024.",
+      fr: "Cabine fermée pour reconstruction depuis juin 2024.",
     },
   },
   {
     id: "iberostar-costa-dorada-refurb-2026",
     kind: "closure",
+    closureStatus: "temporary",
     from: "2026-08-29",
     until: "2026-10-26",
+    reopensOn: "2026-10-27",
     href: { type: "event", id: "iberostar-costa-dorada-day-pass" },
     closesVenueSlugs: ["iberostar-waves-costa-dorada"],
     title: {
@@ -99,14 +171,15 @@ export const EDITORIAL_ALERTS: readonly EditorialAlert[] = [
       fr: "Day pass Iberostar Costa Dorada en pause",
     },
     summary: {
-      en: "Hotel closed 30 Aug–26 Oct 2026 for refurbishment. Book the all-inclusive day pass from 27 October.",
-      es: "Hotel cerrado del 30 ago al 26 oct 2026 por reformas. Reserva el day pass all-inclusive a partir del 27 de octubre.",
-      fr: "Hôtel fermé du 30 août au 26 oct. 2026 pour rénovation. Réservez le day pass all-inclusive à partir du 27 octobre.",
+      en: "Hotel closed for refurbishment (30 Aug–26 Oct).",
+      es: "Hotel cerrado por reformas (30 ago–26 oct).",
+      fr: "Hôtel fermé pour rénovation (30 août–26 oct.).",
     },
   },
   {
     id: "zona-acapella-club-closed-2026-10",
     kind: "closure",
+    closureStatus: "closed",
     from: "2026-10-02",
     citySlugs: ["puerto-plata"],
     href: { type: "venue", slug: "zona-acapella-club" },
@@ -116,9 +189,9 @@ export const EDITORIAL_ALERTS: readonly EditorialAlert[] = [
       fr: "Zona Acapella Club est fermé",
     },
     summary: {
-      en: "Malecón típico club shut until further notice — Sunday accordion nights are paused. Check @acapella.pop before you plan a Cuarto de Milla night.",
-      es: "Club de típico del Malecón cerrado hasta nuevo aviso — los domingos de acordeón están pausados. Revisa @acapella.pop antes de planear una noche en Cuarto de Milla.",
-      fr: "Club típico du Malecón fermé jusqu’à nouvel ordre — les dimanches accordéon sont en pause. Vérifiez @acapella.pop avant de prévoir une soirée à Cuarto de Milla.",
+      en: "Until further notice — check @acapella.pop.",
+      es: "Hasta nuevo aviso — revisa @acapella.pop.",
+      fr: "Jusqu’à nouvel ordre — vérifiez @acapella.pop.",
     },
   },
   {
@@ -142,8 +215,11 @@ export const EDITORIAL_ALERTS: readonly EditorialAlert[] = [
   {
     id: "voyvoy-cabarete-closed-2026-10",
     kind: "closure",
+    closureStatus: "temporary",
     from: "2026-09-16",
-    until: "2026-10-05",
+    until: "2026-10-08",
+    reopensOn: "2026-10-09",
+    citySlugs: ["cabarete"],
     href: { type: "venue", slug: "voyvoy-cabarete" },
     title: {
       en: "VOYVOY Cabarete is closed",
@@ -151,16 +227,19 @@ export const EDITORIAL_ALERTS: readonly EditorialAlert[] = [
       fr: "VOYVOY Cabarete est fermé",
     },
     summary: {
-      en: "Bayfront bar shut until 6 October 2026. Monday live and Saturday Session resume after they reopen — don’t plan a Cabarete bay night here before then.",
-      es: "Bar frente a la bahía cerrado hasta el 6 de octubre 2026. El live de lunes y Saturday Session vuelven cuando reabran — no planees una noche en la bahía aquí antes.",
-      fr: "Bar front de baie fermé jusqu’au 6 octobre 2026. Live du lundi et Saturday Session reprennent après la réouverture — ne prévoyez pas une soirée baie ici avant.",
+      en: "Bayfront bar pause — Monday live and Saturday Session wait.",
+      es: "Bar de la bahía en pausa — live de lunes y Saturday Session esperan.",
+      fr: "Bar front de baie en pause — live du lundi et Saturday Session attendent.",
     },
   },
   {
     id: "gypsy-bowls-cabarete-remodel-2026-10",
     kind: "closure",
+    closureStatus: "repair",
     from: "2026-10-04",
     until: "2026-10-14",
+    reopensOn: "2026-10-15",
+    citySlugs: ["cabarete"],
     href: { type: "venue", slug: "gypsy-bowls-cabarete" },
     exceptEventIds: ["gypsy-bowls-last-bowl-call-2026-10-03"],
     title: {
@@ -169,16 +248,18 @@ export const EDITORIAL_ALERTS: readonly EditorialAlert[] = [
       fr: "Gypsy Bowls Cabarete fermé pour remodelage",
     },
     summary: {
-      en: "Last Bowl Call was 3 October. Patio bowls pause for a glow-up through 14 October — they’re back 15 October. Don’t send brunch guests mid-renovation.",
-      es: "Last Bowl Call fue el 3 de octubre. Los bowls del patio pausan por un glow-up hasta el 14 de octubre — vuelven el 15. No mandes brunch a mitad de obra.",
-      fr: "Last Bowl Call était le 3 octobre. Les bowls en patio font pause pour un glow-up jusqu’au 14 octobre — retour le 15. N’envoyez pas le brunch en plein travaux.",
+      en: "Patio bowls paused for a glow-up after Last Bowl Call.",
+      es: "Bowls del patio pausados por un glow-up tras Last Bowl Call.",
+      fr: "Bowls en patio en pause pour un glow-up après Last Bowl Call.",
     },
   },
   {
     id: "ivan-garcia-teatro-mantenimiento-2026",
     kind: "closure",
+    closureStatus: "repair",
     from: "2026-09-15",
     until: "2026-10-23",
+    reopensOn: "2026-10-24",
     citySlugs: ["puerto-plata"],
     href: { type: "venue", slug: "ivan-garcia-teatro-escuela" },
     exceptEventIds: ["ivan-garcia-eulogio-badia-2026-10-24"],
@@ -188,9 +269,9 @@ export const EDITORIAL_ALERTS: readonly EditorialAlert[] = [
       fr: "Sala Iván García fermée pour entretien",
     },
     summary: {
-      en: "Teatro-escuela shut through 23 October. Gran reapertura 24 October 7:00 PM with Eulogio Badia (IX Festival Nacional de Teatro) — don’t walk Juan Bosch #72 for a class before then.",
-      es: "Teatro-escuela cerrado hasta el 23 de octubre. Gran reapertura 24 de octubre 7:00 PM con Eulogio Badia (IX Festival Nacional de Teatro) — no vayas a Juan Bosch #72 por clase antes.",
-      fr: "Teatro-escuela fermé jusqu’au 23 octobre. Grande réouverture le 24 octobre à 19 h avec Eulogio Badia (IX Festival Nacional de Teatro) — n’allez pas au 72 Juan Bosch pour un cours avant.",
+      en: "Teatro-escuela shut for maintenance on Juan Bosch #72.",
+      es: "Teatro-escuela cerrado por mantenimiento en Juan Bosch #72.",
+      fr: "Teatro-escuela fermé pour entretien au 72 Juan Bosch.",
     },
   },
   {
@@ -327,6 +408,7 @@ function autoClosureAlerts(
     out.push({
       id: `auto-closed-${venue.slug}`,
       kind: "closure",
+      closureStatus: "temporary",
       href: venueDetailPath(locale, venue.slug),
       external: false,
       title: venue.name,
@@ -334,6 +416,10 @@ function autoClosureAlerts(
     });
   }
   return out;
+}
+
+function compareHomeAlerts(a: HomeAlert, b: HomeAlert, today: string): number {
+  return alertSortRank(a, today) - alertSortRank(b, today);
 }
 
 export interface GetHomeAlertsOptions {
@@ -365,6 +451,11 @@ export function getHomeAlerts(options: GetHomeAlertsOptions): HomeAlert[] {
     editorial.push({
       id: alert.id,
       kind: alert.kind,
+      until: alert.until,
+      closureStatus: alert.closureStatus,
+      reopensLabel: alert.reopensOn
+        ? formatAlertReopensOn(alert.reopensOn, locale, dict)
+        : undefined,
       href: resolveAlertHref(alert.href, locale),
       external: alert.href.type === "url",
       title: alert.title[locale],
@@ -373,11 +464,9 @@ export function getHomeAlerts(options: GetHomeAlertsOptions): HomeAlert[] {
   }
 
   const auto = autoClosureAlerts(venues, locale, dict, citySlug, covered);
-  const merged = [...editorial, ...auto].sort((a, b) => {
-    const rank = KIND_RANK[a.kind] - KIND_RANK[b.kind];
-    if (rank !== 0) return rank;
-    return 0;
-  });
+  const merged = [...editorial, ...auto].sort((a, b) =>
+    compareHomeAlerts(a, b, today),
+  );
 
   return merged.slice(0, limit);
 }
