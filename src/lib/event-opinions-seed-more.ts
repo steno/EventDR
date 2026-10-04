@@ -3778,23 +3778,23 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "atleticos-pp-vs-mineros-2026-10-03",
-    body: "Serie Final Game 4 at José Briceño — Saturday 6 PM home slate vs Mineros; pay Palco AA RD$200 / Palco A RD$300 at the gate, and don’t drive to Bonao for this one (Games 3 and 5 if needed stay there).",
+    body: "Serie Final Game 4 at José Briceño is postponed by rain — don’t drive for Saturday’s 6 PM slot; wait for @atleticosdepuertoplata on the new date, then pay Palco AA RD$200 / Palco A RD$300 at the gate.",
     localized: {
-      es: "Serie Final, juego 4 en José Briceño — sábado 6 PM en casa vs Mineros; paga Palco AA RD$200 / Palco A RD$300 en taquilla, y no vayas a Bonao para este (juegos 3 y 5 si hace falta quedan allá).",
-      fr: "Serie Final, match 4 à José Briceño — samedi 18 h à domicile vs Mineros ; payez Palco AA RD$200 / Palco A RD$300 au guichet, et n’allez pas à Bonao pour celui-ci (matchs 3 et 5 si besoin restent là-bas).",
+      es: "Serie Final, juego 4 en José Briceño aplazado por lluvia — no vayas por el sábado a las 6 PM; espera a @atleticosdepuertoplata por la nueva fecha, luego paga Palco AA RD$200 / Palco A RD$300 en taquilla.",
+      fr: "Serie Final, match 4 à José Briceño reporté pour pluie — n’y allez pas pour le créneau samedi 18 h ; attendez @atleticosdepuertoplata pour la nouvelle date, puis payez Palco AA RD$200 / Palco A RD$300 au guichet.",
     },
     priceFeel: "budget",
     priceNote:
-      "Gate only — Palco A RD$300 / Palco AA RD$200; first pitch 6:00 PM",
+      "Gate only when it plays — Palco A RD$300 / Palco AA RD$200; new first pitch TBA",
     priceNoteLocalized: {
-      es: "Solo taquilla — Palco A RD$300 / Palco AA RD$200; primera bola 6:00 PM",
-      fr: "Guichet seulement — Palco A RD$300 / Palco AA RD$200 ; première balle 18 h",
+      es: "Solo taquilla cuando se juegue — Palco A RD$300 / Palco AA RD$200; nueva primera bola por anunciar",
+      fr: "Guichet seulement quand ça se joue — Palco A RD$300 / Palco AA RD$200 ; nouvelle première balle à venir",
     },
     attribution:
-      "POP research · @atleticosdepuertoplata Serie Final schedule flyer",
+      "POP research · @atleticosdepuertoplata rain postponement post 3 Oct 2026",
     researchNotes:
-      "Editor-supplied Serie Final 2026 flyer + IG schedule text: Game 4 Sat 3 Oct 6 PM José Briceño Mineros vs Atlético; Palco A RD$300 / AA RD$200 home tickets. Games 3/5 Bonao out of North Coast scope — not seeded.",
-    updatedAt: "2026-10-01T15:00:00.000Z",
+      "IG @atleticosdepuertoplata 3 Oct 2026: Juego pospuesto por lluvia / condiciones climáticas; nueva fecha y hora por anunciar. Original Game 4 was Sat 3 Oct 6 PM José Briceño. Soft listing hold date 2026-10-12 so it stays upcoming until makeup announced.",
+    updatedAt: "2026-10-03T20:50:00.000Z",
   },
   {
     eventId: "wingo-bogota-inauguration-2026-11-06",

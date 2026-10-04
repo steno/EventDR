@@ -122,6 +122,24 @@ export const EDITORIAL_ALERTS: readonly EditorialAlert[] = [
     },
   },
   {
+    id: "atleticos-serie-final-g4-postponed-2026-10",
+    kind: "watch",
+    from: "2026-10-03",
+    until: "2026-10-12",
+    citySlugs: ["puerto-plata"],
+    href: { type: "event", id: "atleticos-pp-vs-mineros-2026-10-03" },
+    title: {
+      en: "Atléticos Serie Final Game 4 postponed",
+      es: "Atléticos Serie Final juego 4 aplazado",
+      fr: "Atléticos Serie Final match 4 reporté",
+    },
+    summary: {
+      en: "Saturday’s José Briceño game vs Mineros was called for rain. New date TBA — follow @atleticosdepuertoplata before you head to the park.",
+      es: "El juego del sábado en José Briceño vs Mineros se suspendió por lluvia. Nueva fecha por anunciar — sigue @atleticosdepuertoplata antes de ir al estadio.",
+      fr: "Le match de samedi à José Briceño vs Mineros a été annulé pour pluie. Nouvelle date à venir — suivez @atleticosdepuertoplata avant d’aller au stade.",
+    },
+  },
+  {
     id: "voyvoy-cabarete-closed-2026-10",
     kind: "closure",
     from: "2026-09-16",

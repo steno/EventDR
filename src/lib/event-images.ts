@@ -234,7 +234,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "francesca-aura-2026-10-01": "francesca-aura-2026-10-01.jpg",
   "casa-coco-summer-acoustics-ed-mahon-2026-10-03":
     "casa-coco-summer-acoustics-ed-mahon-2026-10-03.jpg",
-  "atleticos-pp-vs-mineros-2026-10-03": "atleticos-pp-vs-mineros-2026-10-03.jpg",
+  "atleticos-pp-vs-mineros-2026-10-03":
+    "atleticos-pp-vs-mineros-2026-10-03-postponed.jpg",
   "wingo-bogota-inauguration-2026-11-06":
     "wingo-bogota-inauguration-2026-11-06.jpg",
   "aura-disco-dj-melvin-2026-09-19": "aura-disco-dj-melvin-2026-09-19.jpg",
@@ -632,6 +633,7 @@ export function getEventHeroObjectPosition(eventId: string): string {
 const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "atleticos-pp-vs-mineros-2026-09-27.jpg",
   "atleticos-pp-vs-mineros-2026-10-03.jpg",
+  "atleticos-pp-vs-mineros-2026-10-03-postponed.jpg",
   "casa-coco-summer-acoustics-ed-mahon-2026-10-03.jpg",
   "wingo-bogota-inauguration-2026-11-06.jpg",
   "atlantico-fc-vs-delfines-2026-08-22.jpg",

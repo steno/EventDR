@@ -242,6 +242,39 @@ describe("VOYVOY closure on Cabarete home", () => {
   });
 });
 
+describe("Atléticos Serie Final Game 4 rain postponement", () => {
+  it("keeps a Puerto Plata watch notice while the makeup is TBA", () => {
+    const alert = EDITORIAL_ALERTS.find(
+      (a) => a.id === "atleticos-serie-final-g4-postponed-2026-10",
+    );
+    assert.ok(alert);
+    assert.equal(alert.kind, "watch");
+    assert.deepEqual(alert.citySlugs, ["puerto-plata"]);
+    assert.equal(isAlertActive(alert, "2026-10-03"), true);
+    assert.equal(isAlertActive(alert, "2026-10-12"), true);
+    assert.equal(isAlertActive(alert, "2026-10-13"), false);
+
+    // Closures fill the default home cap — raise limit to assert city scoping.
+    const pp = getHomeAlerts({
+      locale: "en",
+      dict,
+      citySlug: "puerto-plata",
+      now: new Date("2026-10-04T00:00:00.000Z"),
+      limit: 20,
+    });
+    assert.ok(pp.some((a) => a.id === alert.id));
+
+    const cab = getHomeAlerts({
+      locale: "en",
+      dict,
+      citySlug: "cabarete",
+      now: new Date("2026-10-04T00:00:00.000Z"),
+      limit: 20,
+    });
+    assert.ok(!cab.some((a) => a.id === alert.id));
+  });
+});
+
 describe("Zona Acapella Club closure until further notice", () => {
   it("marks the venue and Oct 4 Domingo Típico closed from 2 Oct", () => {
     const venueInput: { slug: string; temporarilyClosed?: boolean } = {
