@@ -88,6 +88,7 @@ export function EventDetailMedia({
         enlargeLabel={dict.detail.enlargeImage}
         closeLabel={dict.detail.close}
         className="bottom-3 right-3"
+        showOnDesktop
       />
       {onClose && (
         <button

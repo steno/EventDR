@@ -358,6 +358,7 @@ export function VenuePage({
                     enlargeLabel={dict.detail.enlargeImage}
                     closeLabel={dict.detail.close}
                     className="bottom-3 right-3"
+                    showOnDesktop
                   />
                 ) : null}
               </div>

@@ -196,23 +196,23 @@ const CATEGORY_SEO: Record<EventCategory, Record<Locale, CategorySeoCopy>> = {
     en: {
       title: "Sports and kite in Puerto Plata | POP Events",
       description:
-        "Kite surfing, wing foil, beach volleyball, pickup soccer, running races, and sports events in Cabarete, Sosúa, and Puerto Plata.",
+        "Kite surfing, wing foil, pickup soccer, running races, and sports events in Cabarete, Sosúa, and Puerto Plata.",
       intro:
-        "World-class kite surf at Kite Beach, beach volleyball in Sosúa, and local sports leagues across the North Coast.",
+        "World-class kite surf at Kite Beach and local sports leagues across the North Coast.",
     },
     es: {
       title: "Deportes y kite en Puerto Plata | POP Eventos",
       description:
-        "Kite surf, wing foil, voleibol de playa, fútbol pickup, carreras y eventos deportivos en Cabarete, Sosúa y Puerto Plata.",
+        "Kite surf, wing foil, fútbol pickup, carreras y eventos deportivos en Cabarete, Sosúa y Puerto Plata.",
       intro:
-        "Kite surf de clase mundial en Kite Beach, voleibol en Sosúa y ligas locales en la Costa Norte.",
+        "Kite surf de clase mundial en Kite Beach y ligas locales en la Costa Norte.",
     },
     fr: {
       title: "Sports et kite à Puerto Plata | POP Events",
       description:
-        "Kite surf, wing foil, beach volley, football pickup, courses et événements sportifs à Cabarete, Sosúa et Puerto Plata.",
+        "Kite surf, wing foil, football pickup, courses et événements sportifs à Cabarete, Sosúa et Puerto Plata.",
       intro:
-        "Kite surf de classe mondiale à Kite Beach, beach volley à Sosúa et sports locaux sur la Côte Nord.",
+        "Kite surf de classe mondiale à Kite Beach et sports locaux sur la Côte Nord.",
     },
   },
   business: {

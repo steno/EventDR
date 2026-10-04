@@ -221,6 +221,7 @@ Curated images under `public/events/` and `public/venues/`.
 | `atleticos-pp-vs-mineros-2026-09-27.jpg` | POP-supplied / editor-provided — @atleticosdepuertoplata “It’s Game Day” Serie Final flyer | Official team promo art for Serie Final Game 2 vs Mineros (typography-heavy; not a home hero scene) |
 | `atleticos-pp-vs-mineros-2026-10-03.jpg` | POP-supplied / editor-provided — Atléticos Serie Final 2026 schedule flyer (Games 3–5) | Game 4 José Briceño home art (typography-heavy; not a home hero scene) |
 | `atleticos-pp-vs-mineros-2026-10-03-postponed.jpg` | POP-supplied / editor-provided — @atleticosdepuertoplata “Juego pospuesto por lluvia” Serie Final graphic | Rain postponement art for Game 4 (typography-heavy; not a home hero scene) |
+| `atleticos-pp-vs-mineros-2026-10-04-g3-continuation.jpg` | POP-supplied / editor-provided — Atléticos “Continuación del juego suspendido No. 3” Serie Final flyer | Game 3 resume Sun 4 Oct 2026 Bonao (typography-heavy; not a home hero scene) |
 | `casa-coco-summer-acoustics-ed-mahon-2026-10-03.jpg` | POP-supplied / editor-provided — Casa Coco Summer Acoustics with Ed Mahon flyer | Sat 3 Oct 2026 7 PM Pedro Clisante (typography-heavy; not a home hero scene) |
 | `wingo-bogota-inauguration-2026-11-06.jpg` | POP-supplied / editor-provided — AERODOM / Wingo Puerto Plata–Bogotá route promo | Fri 6 Nov 2026 inauguration art (typography-heavy; not a home hero scene) |
 | `venues/casa-coco-sosua.jpg` | POP-supplied / editor-provided — Casa Coco 24/7 interior (welcome beam, yellow cushions) | Venue place photo |

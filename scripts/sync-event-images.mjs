@@ -201,7 +201,6 @@ const FILE_TO_EVENT_ID = {
   "LAXSunsetSessions.JPG": "lax-sunset-daily",
 
   "KiteBeachWindSession.JPG": "kite-beach-daily",
-  "SosuaBeachVolleyballPickup.JPG": "sosua-volleyball-weekly",
   "LAXFridayReggaeNight.JPG": "lax-reggae-friday",
   "HardRockWeekends.jpg": "hard-rock-weekends",
   "VoramarFridayLive.jpg": "voramar-friday-live",

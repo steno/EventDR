@@ -45,21 +45,6 @@
     "imageEmoji": "🧘"
   },
   {
-    "id": "sosua-volleyball-weekly",
-    "title": "Volley-ball de plage à Sosúa",
-    "description": "Matchs informels chaque semaine sur le sable. Il suffit de se présenter.",
-    "date": "2026-01-01",
-    "time": "4:00 PM – 7:00 PM",
-    "location": "Sosúa",
-    "venue": "Playa Sosúa",
-    "venueSlug": "playa-sosua",
-    "category": "sports",
-    "format": "physical",
-    "recurrence": "weekly",
-    "recurrenceDay": 4,
-    "imageEmoji": "🏐"
-  },
-  {
     "id": "lax-reggae-friday",
     "title": "Reggae night au LAX (vendredi)",
     "description": "Reggae et roots chaque vendredi sur la baie — une fête hebdomadaire iconique.",

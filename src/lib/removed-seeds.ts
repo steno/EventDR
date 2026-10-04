@@ -19,6 +19,8 @@ export const REMOVED_SEED_EVENT_IDS = new Set([
   "startup-meetup",
   "cabarete-brunch-market",
   "sosua-beach-volleyball",
+  // Invented Thursday 4–7 PM pickup — no organizer, schedule, or source URL.
+  "sosua-volleyball-weekly",
   "sosua-beach-jam",
   "costambar-acoustic",
   "pp-sunday-futbol",

@@ -10,7 +10,6 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
 
   "kite-beach-daily": "kite-beach-daily.jpg",
   "liquid-blue-sunrise-yoga": "liquid-blue-sunrise-yoga.jpg",
-  "sosua-volleyball-weekly": "sosua-volleyball-weekly.jpg",
   // Filename bump — DJ over packed dance floor (not the old deck still).
   "lax-reggae-friday": "lax-reggae-friday-crowd.png",
   "hard-rock-weekends": "hard-rock-weekends.jpg",
@@ -235,7 +234,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "casa-coco-summer-acoustics-ed-mahon-2026-10-03":
     "casa-coco-summer-acoustics-ed-mahon-2026-10-03.jpg",
   "atleticos-pp-vs-mineros-2026-10-03":
-    "atleticos-pp-vs-mineros-2026-10-03-postponed.jpg",
+    "atleticos-pp-vs-mineros-2026-10-04-g3-continuation.jpg",
   "wingo-bogota-inauguration-2026-11-06":
     "wingo-bogota-inauguration-2026-11-06.jpg",
   "aura-disco-dj-melvin-2026-09-19": "aura-disco-dj-melvin-2026-09-19.jpg",
@@ -634,6 +633,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "atleticos-pp-vs-mineros-2026-09-27.jpg",
   "atleticos-pp-vs-mineros-2026-10-03.jpg",
   "atleticos-pp-vs-mineros-2026-10-03-postponed.jpg",
+  "atleticos-pp-vs-mineros-2026-10-04-g3-continuation.jpg",
   "casa-coco-summer-acoustics-ed-mahon-2026-10-03.jpg",
   "wingo-bogota-inauguration-2026-11-06.jpg",
   "atlantico-fc-vs-delfines-2026-08-22.jpg",
@@ -944,7 +944,6 @@ const HOME_HERO_SCENE_FILES = new Set([
   "sosua-food-market-daily-patio.jpg",
   "sosua-jewish-museum-hours-facade.jpg",
   "sosua-pedro-clisante-food-nights.jpg",
-  "sosua-volleyball-weekly.jpg",
   "sunset-grill-velero-beachfront-dining.jpg",
   "sunset-grill-velero-sushi-nights-patio.jpg",
   "sunset-laughter-club-cabarete-v2.jpg",

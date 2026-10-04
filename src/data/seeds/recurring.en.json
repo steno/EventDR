@@ -45,21 +45,6 @@
     "imageEmoji": "🧘"
   },
   {
-    "id": "sosua-volleyball-weekly",
-    "title": "Sosúa Beach Volleyball Pickup",
-    "description": "Locals and visitors mix teams on the sand every week. Just show up and jump in.",
-    "date": "2026-01-01",
-    "time": "4:00 PM – 7:00 PM",
-    "location": "Sosúa",
-    "venue": "Playa Sosúa",
-    "venueSlug": "playa-sosua",
-    "category": "sports",
-    "format": "physical",
-    "recurrence": "weekly",
-    "recurrenceDay": 4,
-    "imageEmoji": "🏐"
-  },
-  {
     "id": "lax-reggae-friday",
     "title": "LAX Friday Reggae Night",
     "description": "Reggae and roots every Friday on the bay — one of Cabarete's longest-running weekly parties.",

@@ -131,24 +131,6 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: AT,
   },
   {
-    eventId: "sosua-volleyball-weekly",
-    seriesKey: "playa-sosua:weekly:4",
-    body: "Just show up and join a team — no signup needed, drinks after are optional.",
-    localized: {
-      es: "Solo llega y suma a un equipo — no hace falta inscripción, los tragos después son opcionales.",
-      fr: "Il suffit de venir et de rejoindre une équipe — pas d'inscription, les verres après sont optionnels.",
-    },
-    priceFeel: "free",
-    priceNote: "Free to play — optional drinks from beach bars afterward",
-    priceNoteLocalized: {
-      es: "Gratis jugar — tragos opcionales en beach bars después",
-      fr: "Gratuit pour jouer — boissons optionnelles aux beach bars après",
-    },
-    attribution: "POP research · venue listing",
-    researchNotes: "Pickup volleyball seed.",
-    updatedAt: AT,
-  },
-  {
     eventId: "voramar-friday-live",
     seriesKey: "hotel-voramar-sosua:weekly:5",
     body: "Early-evening and guest-friendly — good if you're staying nearby, not a downtown Sosúa crawl stop.",
@@ -3778,23 +3760,22 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "atleticos-pp-vs-mineros-2026-10-03",
-    body: "Serie Final Game 4 at José Briceño is postponed by rain — don’t drive for Saturday’s 6 PM slot; wait for @atleticosdepuertoplata on the new date, then pay Palco AA RD$200 / Palco A RD$300 at the gate.",
+    body: "Serie Final Game 3 resumes Sunday 2 PM in Bonao — tied 3–3, bottom of the 9th at Estadio Municipal; don’t go to José Briceño for this one, and confirm gate pricing on site.",
     localized: {
-      es: "Serie Final, juego 4 en José Briceño aplazado por lluvia — no vayas por el sábado a las 6 PM; espera a @atleticosdepuertoplata por la nueva fecha, luego paga Palco AA RD$200 / Palco A RD$300 en taquilla.",
-      fr: "Serie Final, match 4 à José Briceño reporté pour pluie — n’y allez pas pour le créneau samedi 18 h ; attendez @atleticosdepuertoplata pour la nouvelle date, puis payez Palco AA RD$200 / Palco A RD$300 au guichet.",
+      es: "Serie Final, juego 3 se reanuda domingo 2 PM en Bonao — 3–3, parte baja del 9 en el Municipal; no vayas a José Briceño para este, y confirma precios en taquilla allá.",
+      fr: "Serie Final, match 3 reprend dimanche 14 h à Bonao — 3–3, bas de 9e au Municipal ; n’allez pas à José Briceño pour celui-ci, et confirmez les prix au guichet sur place.",
     },
     priceFeel: "budget",
-    priceNote:
-      "Gate only when it plays — Palco A RD$300 / Palco AA RD$200; new first pitch TBA",
+    priceNote: "Away gate in Bonao — confirm pricing on site; no José Briceño home tariffs",
     priceNoteLocalized: {
-      es: "Solo taquilla cuando se juegue — Palco A RD$300 / Palco AA RD$200; nueva primera bola por anunciar",
-      fr: "Guichet seulement quand ça se joue — Palco A RD$300 / Palco AA RD$200 ; nouvelle première balle à venir",
+      es: "Taquilla de visitante en Bonao — confirma precios allá; no son las tarifas de José Briceño",
+      fr: "Guichet extérieur à Bonao — confirmez les prix sur place ; pas les tarifs José Briceño",
     },
     attribution:
-      "POP research · @atleticosdepuertoplata rain postponement post 3 Oct 2026",
+      "POP research · Atléticos Game 3 continuation flyer 4 Oct 2026",
     researchNotes:
-      "IG @atleticosdepuertoplata 3 Oct 2026: Juego pospuesto por lluvia / condiciones climáticas; nueva fecha y hora por anunciar. Original Game 4 was Sat 3 Oct 6 PM José Briceño. Soft listing hold date 2026-10-12 so it stays upcoming until makeup announced.",
-    updatedAt: "2026-10-03T20:50:00.000Z",
+      "Editor flyer: Continuación del juego suspendido No. 3, Marcador 3-3, Parte Baja del 9, Domingo 4 Octubre 2:00 PM, Estadio Municipal de Bonao. Kept seed id atleticos-pp-vs-mineros-2026-10-03 live with no venueSlug (Bonao not in POP venue catalog).",
+    updatedAt: "2026-10-04T15:00:00.000Z",
   },
   {
     eventId: "wingo-bogota-inauguration-2026-11-06",

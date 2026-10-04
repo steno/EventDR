@@ -149,7 +149,6 @@ export const CURATED_ADMISSION_PRICES: Record<string, string> = {
   "camara-almuerzo-codigo-penal-2026-10-22": "RD$3,500",
   "teleferico-inicio-obras-2026-10-03": "Free",
   "wingo-bogota-inauguration-2026-11-06": "Free",
-  "atleticos-pp-vs-mineros-2026-10-03": "from RD$200",
   "sosua-coastal-pickleball-open-2026-10-24": "RD$2,000",
   "serenade-dominican-night-villa-taina-weekly": "RD$952",
   "serenade-mongolian-night-villa-taina-weekly": "RD$906",
@@ -268,7 +267,6 @@ export const CURATED_FREE_EVENTS = new Set<string>([
   "cremo-karaoke-saturday",
   "big-lees-weekend-music",
   "el-parq-karaoke-thursday",
-  "sosua-volleyball-weekly",
   "chill-and-grill-sunday-bingo",
   // Bar live music / jam — typically no cover (pay for drinks)
   "lax-sunset-daily",

@@ -25,6 +25,11 @@ interface ImageStoryEnlargeProps {
    */
   trigger?: ReactNode;
   /**
+   * Show the maximize icon on desktop too (default: mobile-only via `lg:hidden`).
+   * Used on venue/event detail heroes where enlarge remains useful on large screens.
+   */
+  showOnDesktop?: boolean;
+  /**
    * `cover` fills the viewport (default hero enlarge).
    * `width` fits image width so tall schedule flyers scroll vertically.
    */
@@ -134,7 +139,7 @@ function sizeForViewport(
 
 /**
  * Full-bleed story viewer for event images.
- * Default: mobile-only square maximize control.
+ * Default: mobile-only square maximize control (unless `showOnDesktop`).
  * With `trigger`: inline CTA (all breakpoints) — e.g. save/view program flyer.
  */
 export function ImageStoryEnlarge({
@@ -144,6 +149,7 @@ export function ImageStoryEnlarge({
   closeLabel,
   className = "",
   trigger,
+  showOnDesktop = false,
   fit = "cover",
 }: ImageStoryEnlargeProps) {
   const [open, setOpen] = useState(false);
@@ -389,8 +395,8 @@ export function ImageStoryEnlarge({
           pointer-events-auto absolute bottom-2.5 right-2.5 z-[2]
           flex h-8 w-8 items-center justify-center rounded-md
           bg-black/55 text-white shadow-sm backdrop-blur-sm
-          touch-manipulation transition-colors active:bg-black/75
-          lg:hidden
+          touch-manipulation transition-colors hover:bg-black/70 active:bg-black/75
+          ${showOnDesktop ? "" : "lg:hidden"}
           ${className}
         `
         }
