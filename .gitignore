@@ -56,3 +56,8 @@ next-env.d.ts
 
 # Local-only push/reminder store for `next dev` without Firebase
 .data/
+
+# Marketing outreach — personal IG exports and local scripts (keep venue CSV/queue in repo)
+marketing/outreach/__pycache__/
+marketing/outreach/ig-followers.txt
+marketing/outreach/instagram-export-*/
