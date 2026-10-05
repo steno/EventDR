@@ -3,10 +3,12 @@ import { describe, it } from "node:test";
 import {
   clipMetaCaption,
   createInstagramMediaContainers,
+  createInstagramReelContainer,
   defaultMetaImageUrl,
   instagramContainersFinished,
   instagramContainerFailure,
   isAllowedMetaImageUrl,
+  isAllowedMetaVideoUrl,
   isMetaRateLimitError,
   META_CAPTION_MAX,
   metaGraphRequest,
@@ -224,6 +226,37 @@ describe("meta-post", () => {
     if (!created.ok) return;
     assert.deepEqual(created.ids, ["ig-1", "ig-2"]);
     assert.deepEqual(paths, ["POST /ig-1/media", "POST /ig-1/media"]);
+  });
+
+  it("creates an Instagram Reel container with share_to_feed off", async () => {
+    assert.equal(
+      isAllowedMetaVideoUrl(
+        "https://firebasestorage.googleapis.com/v0/b/x/o/reel.mp4?alt=media&token=1",
+      ),
+      true,
+    );
+    let body = "";
+    const fetchImpl: typeof fetch = async (input, init) => {
+      body = String(init?.body ?? "");
+      return jsonResponse({ id: "reel-1" });
+    };
+    const created = await createInstagramReelContainer(
+      config,
+      {
+        videoUrl:
+          "https://firebasestorage.googleapis.com/v0/b/x/o/reel.mp4?alt=media&token=1",
+        caption: "Tonight at Ground Zero",
+        coverUrl: "https://pop-event.com/events/a.jpg",
+        shareToFeed: false,
+      },
+      fetchImpl,
+    );
+    assert.equal(created.ok, true);
+    if (!created.ok) return;
+    assert.equal(created.id, "reel-1");
+    assert.match(body, /media_type=REELS/);
+    assert.match(body, /share_to_feed=false/);
+    assert.match(body, /video_url=/);
   });
 
   it("treats only FINISHED Instagram containers as ready", () => {

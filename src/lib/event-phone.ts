@@ -12,6 +12,7 @@ const EVENT_PHONE_BY_ID: Record<string, string> = {
   "groundzero-golden-night-2026-09-25": "+18293463636",
   "groundzero-tivigunz-2026-10-04": "+18299649790",
   "groundzero-party-rojo-2026-08-01": "+18494651313",
+  "groundzero-halloween-2026-10-30": "+18494651313",
   "blue-ice-saturday-gogo": "+18297977856",
   "el-parq-latin-friday": "+18498549692",
   "rumble-in-paradise-12": "+18298172884",
@@ -94,6 +95,9 @@ const EVENT_PHONE_BY_ID: Record<string, string> = {
   "iss-wizard-of-oz-2026-12-17": "+18095713271",
   "twenty-disco-kiry-curu-2026-10-16": "+18297160160",
   "ivan-garcia-eulogio-badia-2026-10-24": "+18092617393",
+  "ivan-garcia-cafe-opera-codigo-clown-2026-10-31": "+18092617393",
+  "petit-francois-halloween-2026-10-30": "+18294922910",
+  "twenty-disco-luis-brown-2026-10-30": "+18295667071",
 };
 
 export function formatPhoneDisplay(phone: string): string {

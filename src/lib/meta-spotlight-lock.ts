@@ -36,11 +36,22 @@ export type SpotlightLockRecord = {
   repeatKeys?: string[];
   recent?: SpotlightHistoryDay[];
   caption?: string;
+  /** Per-event Instagram captions (parallel to eventIds). */
+  eventCaptions?: string[];
   imageUrls?: string[];
+  /** Parallel to eventIds — public MP4 URLs for Instagram Reels. */
+  videoUrls?: string[];
   link?: string;
   facebookId?: string;
+  /** Last published Instagram media id (legacy + convenience). */
   instagramId?: string;
+  /** All published Instagram media ids (one per event). */
+  instagramIds?: string[];
+  /** Event ids that already have an individual Instagram post today. */
+  instagramPostedEventIds?: string[];
+  /** Current in-flight Instagram container id (single-item array). */
   instagramChildIds?: string[];
+  /** @deprecated Carousel parent — unused for individual posts. */
   instagramParentId?: string;
   stepLockUntil?: number;
   startedAt: number;
@@ -48,6 +59,22 @@ export type SpotlightLockRecord = {
 };
 
 export type SpotlightLockDecision = "proceed" | "reuse" | "wait" | "resume";
+
+/** True when every picked event already has an Instagram post (or legacy carousel). */
+export function spotlightInstagramComplete(
+  record: Pick<
+    SpotlightLockRecord,
+    "eventIds" | "instagramId" | "instagramPostedEventIds"
+  >,
+): boolean {
+  const posted = record.instagramPostedEventIds ?? [];
+  if (record.eventIds.length > 0 && posted.length >= record.eventIds.length) {
+    return true;
+  }
+  // Legacy grouped carousel: one IG id covered the whole set.
+  if (record.instagramId && posted.length === 0) return true;
+  return false;
+}
 
 export function decideSpotlightLockAction(
   record: SpotlightLockRecord | null,
@@ -63,7 +90,7 @@ export function decideSpotlightLockAction(
   const wantFacebook = options.facebook !== false;
   const wantInstagram = options.instagram !== false;
   const facebookDone = !wantFacebook || Boolean(record.facebookId);
-  const instagramDone = !wantInstagram || Boolean(record.instagramId);
+  const instagramDone = !wantInstagram || spotlightInstagramComplete(record);
   if (facebookDone && instagramDone) {
     return options.force ? "proceed" : "reuse";
   }
@@ -145,6 +172,9 @@ export function spotlightExclusions(
  * Own-channel history plus the other channel’s event ids (including same-day).
  * Venue keys stay per-channel so a specials post at a lounge does not block
  * that venue’s weekly night on the 08:00 UTC post.
+ *
+ * Same-day ids from the other channel are hard-excluded so we never repeat
+ * the same event on Instagram/Facebook the same calendar day.
  */
 export function mergeSpotlightExclusions(
   own:
@@ -157,18 +187,30 @@ export function mergeSpotlightExclusions(
   >,
   today: string,
   options: { force?: boolean } = {},
-): { excludeIds: string[]; excludeKeys: string[] } {
+): {
+  excludeIds: string[];
+  excludeKeys: string[];
+  hardExcludeIds: string[];
+} {
   const base = spotlightExclusions(own, today, options);
   const excludeIds = new Set(base.excludeIds);
+  const hardExcludeIds = new Set<string>();
   for (const other of others) {
     if (!other) continue;
     const fromOther = spotlightExclusions(other, today, options);
     for (const id of fromOther.excludeIds) excludeIds.add(id);
     if (other.date === today) {
-      for (const id of other.eventIds) excludeIds.add(id);
+      for (const id of other.eventIds) {
+        excludeIds.add(id);
+        hardExcludeIds.add(id);
+      }
     }
   }
-  return { excludeIds: [...excludeIds], excludeKeys: base.excludeKeys };
+  return {
+    excludeIds: [...excludeIds],
+    excludeKeys: base.excludeKeys,
+    hardExcludeIds: [...hardExcludeIds],
+  };
 }
 
 function stringList(value: unknown): string[] | undefined {
@@ -209,13 +251,23 @@ export function lockRecordForWrite(
     ...(record.repeatKeys?.length ? { repeatKeys: record.repeatKeys } : {}),
     ...(record.recent?.length ? { recent: record.recent } : {}),
     ...(record.caption ? { caption: record.caption } : {}),
+    ...(record.eventCaptions?.length
+      ? { eventCaptions: record.eventCaptions }
+      : {}),
     ...(record.imageUrls?.length ? { imageUrls: record.imageUrls } : {}),
+    ...(record.videoUrls?.length ? { videoUrls: record.videoUrls } : {}),
     ...(record.link ? { link: record.link } : {}),
     ...(record.facebookId ? { facebookId: record.facebookId } : {}),
     ...(record.instagramId ? { instagramId: record.instagramId } : {}),
-    ...(record.instagramChildIds?.length
-      ? { instagramChildIds: record.instagramChildIds }
+    ...(record.instagramIds?.length
+      ? { instagramIds: record.instagramIds }
       : {}),
+    ...(record.instagramPostedEventIds?.length
+      ? { instagramPostedEventIds: record.instagramPostedEventIds }
+      : {}),
+    // Always write child ids (including []) so a finished publish clears the
+    // in-flight container under Firestore merge writes.
+    instagramChildIds: record.instagramChildIds ?? [],
     ...(record.instagramParentId
       ? { instagramParentId: record.instagramParentId }
       : {}),
@@ -247,12 +299,16 @@ function asLockRecord(data: DocumentData | undefined) {
     repeatKeys: stringList(data.repeatKeys),
     recent: historyDays(data.recent),
     caption: typeof data.caption === "string" ? data.caption : undefined,
+    eventCaptions: stringList(data.eventCaptions),
     imageUrls: stringList(data.imageUrls),
+    videoUrls: stringList(data.videoUrls),
     link: typeof data.link === "string" ? data.link : undefined,
     facebookId:
       typeof data.facebookId === "string" ? data.facebookId : undefined,
     instagramId:
       typeof data.instagramId === "string" ? data.instagramId : undefined,
+    instagramIds: stringList(data.instagramIds),
+    instagramPostedEventIds: stringList(data.instagramPostedEventIds),
     instagramChildIds: stringList(data.instagramChildIds),
     instagramParentId:
       typeof data.instagramParentId === "string"
@@ -296,7 +352,9 @@ export async function claimTodaySpotlightLock(input: {
   eventIds: string[];
   repeatKeys?: string[];
   caption?: string;
+  eventCaptions?: string[];
   imageUrls?: string[];
+  videoUrls?: string[];
   link?: string;
   force?: boolean;
   facebook?: boolean;
@@ -346,10 +404,14 @@ export async function claimTodaySpotlightLock(input: {
         repeatKeys: keep?.repeatKeys ?? input.repeatKeys,
         recent: recent.length ? recent : undefined,
         caption: keep?.caption ?? input.caption,
+        eventCaptions: keep?.eventCaptions ?? input.eventCaptions,
         imageUrls: keep?.imageUrls ?? input.imageUrls,
+        videoUrls: keep?.videoUrls ?? input.videoUrls,
         link: keep?.link ?? input.link,
         facebookId: keep?.facebookId,
         instagramId: keep?.instagramId,
+        instagramIds: keep?.instagramIds,
+        instagramPostedEventIds: keep?.instagramPostedEventIds,
         instagramChildIds: keep?.instagramChildIds,
         instagramParentId: keep?.instagramParentId,
         stepLockUntil: now + SPOTLIGHT_STEP_LEASE_MS,
@@ -374,10 +436,14 @@ export async function finishTodaySpotlightLock(input: {
   locale: string;
   repeatKeys?: string[];
   caption?: string;
+  eventCaptions?: string[];
   imageUrls?: string[];
+  videoUrls?: string[];
   link?: string;
   facebookId?: string;
   instagramId?: string;
+  instagramIds?: string[];
+  instagramPostedEventIds?: string[];
   instagramChildIds?: string[];
   instagramParentId?: string;
   failed?: boolean;
@@ -395,23 +461,41 @@ export async function finishTodaySpotlightLock(input: {
     const existing = asLockRecord(snap.data());
     const facebookId = input.facebookId ?? existing?.facebookId;
     const instagramId = input.instagramId ?? existing?.instagramId;
+    const instagramIds = input.instagramIds ?? existing?.instagramIds;
+    const instagramPostedEventIds =
+      input.instagramPostedEventIds ?? existing?.instagramPostedEventIds;
+    const eventIds = input.eventIds.length
+      ? input.eventIds
+      : existing?.eventIds ?? [];
     const complete =
       !input.failed &&
-      (input.complete === true || Boolean(facebookId && instagramId));
+      (input.complete === true ||
+        Boolean(
+          facebookId &&
+            spotlightInstagramComplete({
+              eventIds,
+              instagramId,
+              instagramPostedEventIds,
+            }),
+        ));
     await ref.set(
       lockRecordForWrite({
         date: localDateISO(),
         locale: input.locale,
         source: channel,
         status: input.failed ? "failed" : complete ? "complete" : "in_progress",
-        eventIds: input.eventIds.length ? input.eventIds : existing?.eventIds ?? [],
+        eventIds,
         repeatKeys: input.repeatKeys ?? existing?.repeatKeys,
         recent: existing?.recent,
         caption: input.caption ?? existing?.caption,
+        eventCaptions: input.eventCaptions ?? existing?.eventCaptions,
         imageUrls: input.imageUrls ?? existing?.imageUrls,
+        videoUrls: input.videoUrls ?? existing?.videoUrls,
         link: input.link ?? existing?.link,
         facebookId,
         instagramId,
+        instagramIds,
+        instagramPostedEventIds,
         instagramChildIds: input.instagramChildIds ?? existing?.instagramChildIds,
         instagramParentId: input.instagramParentId ?? existing?.instagramParentId,
         stepLockUntil: 0,

@@ -87,3 +87,79 @@ export async function uploadEventImage(
     parsed.extension,
   );
 }
+
+/** Temporary public MP4 for Instagram Reels (Meta fetches the URL). */
+export async function uploadSpotlightReelBytes(
+  eventId: string,
+  bytes: Buffer,
+  dateISO: string,
+): Promise<UploadEventImageResult> {
+  return uploadSpotlightAssetBytes(
+    eventId,
+    bytes,
+    dateISO,
+    "mp4",
+    "video/mp4",
+  );
+}
+
+/** Temporary public still (styled story card) used as the Reel source frame. */
+export async function uploadSpotlightStoryCardBytes(
+  eventId: string,
+  bytes: Buffer,
+  dateISO: string,
+): Promise<UploadEventImageResult> {
+  return uploadSpotlightAssetBytes(
+    eventId,
+    bytes,
+    dateISO,
+    "jpg",
+    "image/jpeg",
+  );
+}
+
+async function uploadSpotlightAssetBytes(
+  eventId: string,
+  bytes: Buffer,
+  dateISO: string,
+  extension: string,
+  contentType: string,
+): Promise<UploadEventImageResult> {
+  if (!bytes.length || !eventId.trim()) {
+    return { ok: false, reason: "invalid" };
+  }
+
+  const bucket = await resolveBucket();
+  if (!bucket) {
+    console.error(
+      "uploadSpotlightAsset: no Firebase Storage bucket found for project",
+      firebaseProjectId(),
+    );
+    return { ok: false, reason: "storage_unavailable" };
+  }
+
+  const safeId = eventId.replace(/[^a-zA-Z0-9._-]+/g, "-").slice(0, 120);
+  const fileName = `spotlight-reels/${dateISO}/${safeId}-${randomUUID().slice(0, 8)}.${extension}`;
+  const file = bucket.file(fileName);
+  const token = randomUUID();
+
+  try {
+    await file.save(bytes, {
+      contentType,
+      metadata: {
+        cacheControl: "public, max-age=86400",
+        metadata: {
+          firebaseStorageDownloadTokens: token,
+        },
+      },
+    });
+
+    return {
+      ok: true,
+      url: firebaseDownloadUrl(bucket.name, fileName, token),
+    };
+  } catch (error) {
+    console.error("Failed to upload spotlight asset:", error);
+    return { ok: false, reason: "upload_failed" };
+  }
+}

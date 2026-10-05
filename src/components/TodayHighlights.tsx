@@ -93,9 +93,9 @@ interface TodayHighlightsProps {
   /** Show calendar date on cards (Coming up + Recently added). */
   showDate?: boolean;
   /**
-   * When exactly one highlight is shown, pair it with a paid “feature your
-   * event” promo on `sm+` (two equal cards). Mobile keeps a single event card.
-   * Used on Today's specials.
+   * When exactly one highlight is shown, add a paid “feature your event”
+   * promo on `sm+` beside it on the story 3-up track (not a half-width
+   * stretch). Mobile keeps a single event card. Used on Today's specials.
    */
   featurePromo?: boolean;
   /**
@@ -180,7 +180,7 @@ function TodayHighlightCard({
     layout === "pair"
       ? "(max-width: 640px) 44vw, (max-width: 1280px) 33vw, 20vw"
       : layout === "story"
-        ? "(max-width: 640px) 72vw, (max-width: 1280px) 45vw, 28vw"
+        ? "(max-width: 640px) 72vw, (max-width: 1280px) 33vw, 28vw"
         : "(max-width: 640px) 88vw, (max-width: 1024px) 50vw, 25vw";
   const titleClass =
     layout === "pair"
@@ -388,42 +388,35 @@ const TodayHighlightsComponent = ({
   // Portrait rails (Weekend / Recently added): always use the dense track
   // (3→5) so a short list stays compact — never stretch 2 cards to half-width.
   // Landscape Coming up / Today stay 2→4. Story specials sit between.
-  // One special + feature promo: equal 2-up from sm (promo is hidden on phones).
-  // Story specials: always reserve a 3-up track on desktop so 1–2 flyers stay
-  // tile-sized instead of stretching to half/full width.
+  // Story specials: always reserve a 3-up track on desktop so 1–2 flyers
+  // (and the single-special feature promo) stay tile-sized — never half-width
+  // on desktop/TV. Promo is hidden on phones.
   const pairXlCols = denseDesktop ? 5 : 4;
   const storyDesktopCols = 3;
-  const smCols =
-    showFeaturePromo
-      ? 2
-      : storyCards
-        ? storyDesktopCols
-        : count === 1
-          ? 1
-          : cardLayout === "pair"
+  const smCols = storyCards
+    ? storyDesktopCols
+    : count === 1
+      ? 1
+      : cardLayout === "pair"
+        ? 3
+        : count === 2
+          ? 2
+          : count === 3
             ? 3
-            : count === 2
-              ? 2
-              : count === 3
-                ? 3
-                : 2;
-  const xlCols =
-    showFeaturePromo
-      ? 2
-      : storyCards
-        ? storyDesktopCols
-        : count === 1
-          ? 1
-          : cardLayout === "pair"
-            ? pairXlCols
-            : count === 2
-              ? 2
-              : count === 3
-                ? 3
-                : 4;
-  const gridColsClass = showFeaturePromo
-    ? "sm:grid-cols-2"
-    : cardLayout === "pair"
+            : 2;
+  const xlCols = storyCards
+    ? storyDesktopCols
+    : count === 1
+      ? 1
+      : cardLayout === "pair"
+        ? pairXlCols
+        : count === 2
+          ? 2
+          : count === 3
+            ? 3
+            : 4;
+  const gridColsClass =
+    cardLayout === "pair"
       ? denseDesktop
         ? "sm:grid-cols-3 xl:grid-cols-5"
         : "sm:grid-cols-3 xl:grid-cols-4"
@@ -439,15 +432,16 @@ const TodayHighlightsComponent = ({
    * wrapping leaves an empty second row on desktop.
    */
   const desktopScrollRail = storyCards && !showFeaturePromo && count > 3;
+  /** Event cards + optional feature-promo cell already on the story track. */
+  const storyOccupied = count + (showFeaturePromo ? 1 : 0);
   /** Story specials on a 3-up desktop track — fill leftover cells with add-event. */
   const storyAddPads =
     storyCards &&
     onAddEvent &&
-    !showFeaturePromo &&
     !desktopScrollRail &&
     count > 0 &&
-    count < storyDesktopCols
-      ? storyDesktopCols - count
+    storyOccupied < storyDesktopCols
+      ? storyDesktopCols - storyOccupied
       : 0;
   /** Story specials: phone peek ~72%; mid = 2-up; xl = 4-up on the scroll rail. */
   const peekClass = storyCards
@@ -648,7 +642,7 @@ const TodayHighlightsComponent = ({
                   title={dict.events.featureSpecialTitle}
                   label={dict.events.featureSpecialLabel}
                   onClick={() => setFeatureOpen(true)}
-                  stretch
+                  mediaAspectClass="aspect-[2/3]"
                 />
               </div>
             ) : null}

@@ -1,0 +1,8 @@
+2026-10-04T18:04:51Z	hardrockcafepuertoplata	Hard Rock Cafe Puerto Plata	sent
+2026-10-04T18:08:38Z	cigartownpop	Cigar Town Pop	sent
+2026-10-04T18:10:32Z	meclaorooftop	Mecla'o Rooftop Lounge	sent
+2026-10-05T14:01:35Z	auracabarete	Aura Beach Club Cabarete	sent
+2026-10-05T14:02:17Z	twenty_disco_lounge	Twenty Disco Lounge	sent
+2026-10-05T14:03:14Z	alsenaathletics	Club Deportivo Fantastico	sent
+2026-10-05T14:03:34Z	grandprixrd	Grand Prix Smart Shop	sent
+2026-10-05T14:03:57Z	hotel-villa-taina	hotelvillataina	sent

@@ -1,0 +1,74 @@
+blueice_pianobar	Blue Ice Piano Bar & Restaurant	blue-ice-pianobar-sosua	not_on_whatsapp	2026-10-05T14:04:21Z
+driftercabarete	Drifter Cabarete	drifter-cabarete	not_on_whatsapp	2026-10-05T14:04:21Z
+finelysaludable	El Mirador de Finely	el-mirador-de-finely	no-number	2026-10-05T14:04:21Z
+issosuahurricanes	International School of Sosúa	international-school-sosua	not_on_whatsapp	2026-10-05T14:04:21Z
+latindiscoclubpp	Latin Disco Club	disco-club-brugal	no-number	2026-10-05T14:04:21Z
+lokuraspop	Lokura's Pop Bar Café	lokuras-pop	no-number	2026-10-05T14:04:21Z
+lovedoesrd	Love Does Centro Para Mujeres	love-does-sosua	not_on_whatsapp	2026-10-05T14:04:21Z
+lunaloungelcb	Luna Lounge LCB	luna-lounge-lcb	no-number	2026-10-05T14:04:21Z
+nonasgrillkitchen	Nona's Grill & Kitchen	nonas-grill-kitchen	not_on_whatsapp	2026-10-05T14:04:21Z
+nueve_rd	Nueve Restaurante & Bar	nueve-puerto-plata	no-number	2026-10-05T14:04:21Z
+paellas.pop	Paella POP at Green One	paella-pop-green-one	no-number	2026-10-05T14:04:21Z
+paellas.pop	Paella POP Playa El Pueblito	paella-pop-el-pueblito	no-number	2026-10-05T14:04:21Z
+licor_lab	Plaza Juan Brugal	plaza-juan-brugal	no-number	2026-10-05T14:04:21Z
+sosuafoodmarket	Sosúa Food Market	sosua-food-market	no-number	2026-10-05T14:04:21Z
+spotlandrd	Spot Land	spotland-puerto-plata	no-number	2026-10-05T14:04:21Z
+tainobay_puertoplata	Taino Bay	taino-bay	no-number	2026-10-05T14:04:21Z
+victrolart	Victrola 037 Arte Café	victrola-037	no-number	2026-10-05T14:04:21Z
+lifestyleholidayshotels	VIP Beach Lifestyles Resort and Spa	vip-beach-lifestyles-resort	no-number	2026-10-05T14:04:21Z
+extremefitnesscamps	Zen Fitness Camps	zen-fitness-cabarete	no-number	2026-10-05T14:04:21Z
+aguaji.altacocina	Aguají	aguaji-sosua	not-sent	2026-10-05T14:04:21Z
+ambarloungepop	Ambar Lounge POP	ambar-lounge-pop	sent	2026-10-05T14:04:21Z
+ambercoveport	Amber Cove	amber-cove	not-sent	2026-10-05T14:04:21Z
+baialoungedr	Baia Lounge	baia-lounge-sosua	not-sent	2026-10-05T14:04:21Z
+blisscabarete	Bliss Cabarete	bliss-cabarete	not-sent	2026-10-05T14:04:21Z
+casabalconrd	Casa Balcón	casa-balcon-puerto-plata	not-sent	2026-10-05T14:04:21Z
+casacaribepop	Casa Caribe	casa-caribe-puerto-plata	sent	2026-10-05T14:04:21Z
+lacaditaazulpop	Casita Azul	casita-azul-puerto-plata	not-sent	2026-10-05T14:04:21Z
+novapuertoplata	Centro Nova Salud y Bienestar	nova-salud-bienestar	sent	2026-10-05T14:04:21Z
+classiccarsrd	Classic Cars Dominicana	classic-cars-dominicana	sent	2026-10-05T14:04:21Z
+camarapuertoplata	Cámara de Comercio Puerto Plata	camara-comercio-puerto-plata	not-sent	2026-10-05T14:04:21Z
+desarrollo_fitness_cabarete	Desarrollo Fitness Cabarete	desarrollo-fitness-cabarete	sent	2026-10-05T14:04:21Z
+donlimon02	Don Limón	don-limon-cofresi	sent	2026-10-05T14:04:21Z
+diaynocherestaurantelcarey	El Carey Día y Noche	el-carey-puerto-plata	sent	2026-10-05T14:04:21Z
+flipflopsportsbar	Flip Flop Sports Bar	flip-flop-sports-bar-sosua	sent	2026-10-05T14:04:21Z
+funcitypuertoplata	Fun City Action Park	fun-city	sent	2026-10-05T14:04:21Z
+granventanadr	Gran Ventana Beach Resort	gran-ventana-beach-resort	not-sent	2026-10-05T14:04:21Z
+grecialandia	Grecialandia	grecialandia	not-sent	2026-10-05T14:04:21Z
+groundzero_disco	Ground Zero Discoteca	ground-zero-disco	sent	2026-10-05T14:04:21Z
+gymsov	GYM SOV — Sosúa Ocean Village	gym-sov-sosua-ocean-village	not-sent	2026-10-05T14:04:21Z
+gypsybowls	Gypsy Bowls Cabarete	gypsy-bowls-cabarete	not-sent	2026-10-05T14:04:21Z
+teatroivangarcia	Iván García Teatro-Escuela	ivan-garcia-teatro-escuela	not-sent	2026-10-05T14:04:21Z
+jamaoecotours	Jamao al Norte	jamao-al-norte	not-sent	2026-10-05T14:04:21Z
+kitestreetpop	Kite Street POP	kite-street-pop	sent	2026-10-05T14:04:21Z
+kviarcasinos	Kviar Show Disco & Casino	kviar-costa-dorada	not-sent	2026-10-05T14:04:21Z
+laisabelapop	La Isabela Colonial	la-isabela-colonial-puerto-plata	not-sent	2026-10-05T14:04:21Z
+Lalolabeachclub	La Lola Beach Club	la-lola-malecon	sent	2026-10-05T14:04:21Z
+lagunasov	Laguna SOV	laguna-sov	not-sent	2026-10-05T14:04:21Z
+latinwokrd	Latin Wok	latinwok-puerto-plata	not-sent	2026-10-05T14:04:21Z
+latinwokrd	Latin Wok Plaza Uno	latinwok-plaza-uno	not-sent	2026-10-05T14:04:21Z
+laxcabarete	LAX Cabarete	lax-cabarete	sent	2026-10-05T14:04:21Z
+lepetitfrancois.rd	Le Petit François	le-petit-francois	sent	2026-10-05T14:04:21Z
+lbcabarete	Liquid Blue Cabarete	liquid-blue-cabarete	sent	2026-10-05T14:04:21Z
+lostrescocosrd	Los Tres Cocos	los-tres-cocos-cofresi	not-sent	2026-10-05T14:04:21Z
+maurospop	Mauro’s	mauros-puerto-plata	not-sent	2026-10-05T14:04:21Z
+mibodegoncabarete	Mi Bodegón Cabarete	mi-bodegon-cabarete	not-sent	2026-10-05T14:04:21Z
+ninafrikadance	Ninafrika Dance School	ninafrika-dance-school-cabarete	sent	2026-10-05T14:04:21Z
+oceanworldadventurepark	Ocean World Adventure Park	ocean-world	sent	2026-10-05T14:04:21Z
+paradaelchoco	Parada Típica El Choco	parada-tipica-el-choco	sent	2026-10-05T14:04:21Z
+ashonorte	Playa Dorada Golf Course	playa-dorada-golf	not-sent	2026-10-05T14:04:21Z
+puertoplatabeachsoccer	Playa Los Charamicos	playa-los-charamicos	not-sent	2026-10-05T14:04:21Z
+cinemaspop	POP Cinemas	pop-cinemas-playa-dorada	not-sent	2026-10-05T14:04:21Z
+rancholacatalina	Rancho La Catalina	rancho-catalina-puerto-plata	sent	2026-10-05T14:04:21Z
+ristorantepassatore	Ristorante Passatore	ristorante-passatore-playa-dorada	not-sent	2026-10-05T14:04:21Z
+Sambalu.rd	Sambalú Restaurant	sambalu-puerto-plata	not-sent	2026-10-05T14:04:21Z
+santafesov	Santa Fe	santa-fe-sov	not-sent	2026-10-05T14:04:21Z
+skinarestaurant	Skina	skina-puerto-plata	not-sent	2026-10-05T14:04:21Z
+leclub_costanorte	Sun Club Costa Norte	sun-club-costa-norte-sosua	not-sent	2026-10-05T14:04:21Z
+velerobeachresort	Sunset Grill at Velero	sunset-grill-velero	not-sent	2026-10-05T14:04:21Z
+tastyfoodpark	Tasty Food Park	tasty-food-park-puerto-plata	sent	2026-10-05T14:04:21Z
+trolleycitytours	TrolleyCity Tours POP	trolley-city-tours	sent	2026-10-05T14:04:21Z
+vinotecamarienpp	Vinoteca Wine House	vinoteca-wine-house	not-sent	2026-10-05T14:04:21Z
+voyvoybar	VOYVOY Cabarete	voyvoy-cabarete	sent	2026-10-05T14:04:21Z
+waterfrontplayaalicia	Waterfront Playa Alicia	waterfront-playa-alicia	sent	2026-10-05T14:04:21Z
+acapella.pop	Zona Acapella Club	zona-acapella-club	sent	2026-10-05T14:04:21Z

@@ -4455,5 +4455,111 @@
       "Manuel Cocco"
     ],
     "imageEmoji": "🥃"
+  },
+  {
+    "id": "petit-francois-halloween-2026-10-30",
+    "title": "Le Petit François — Noche de Halloween",
+    "description": "Noche de Halloween en Le Petit François, El Pueblito / Playa Chaparral, Puerto Plata — viernes 30 de octubre 2026. DJ, karaoke night, decoración especial y premio de RD$5,000 al mejor disfraz. Noche de beach bar frente al mar — no es Luis Brown en Twenty Disco el mismo viernes. Reservas +1 829 492 2910 · Instagram @lepetitfrancois.rd.",
+    "date": "2026-10-30",
+    "location": "Playa Dorada",
+    "venue": "Le Petit François",
+    "venueSlug": "le-petit-francois",
+    "address": "Playa Dorada G1, El Pueblito / Playa Chaparral, Puerto Plata",
+    "lat": 19.7734212,
+    "lng": -70.6517978,
+    "category": "parties",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "phone": "+18294922910",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/lepetitfrancois.rd/",
+    "lineup": [
+      "DJ",
+      "Karaoke"
+    ],
+    "imageEmoji": "🎃"
+  },
+  {
+    "id": "twenty-disco-luis-brown-2026-10-30",
+    "title": "Twenty Disco — Luis Brown",
+    "description": "PC Entertainments presenta a Luis Brown en Twenty Disco & Lounge, Playa Dorada Mall, Puerto Plata — viernes 30 de octubre 2026. Noche de disco en el mall — no es el Halloween karaoke de Le Petit François el mismo viernes, ni Paradise In Hell el sábado 31. Confirma cover y puertas vía Instagram @twenty_disco_lounge · 829-566-7071.",
+    "date": "2026-10-30",
+    "location": "Playa Dorada",
+    "venue": "Twenty Disco Lounge",
+    "venueSlug": "twenty-disco-lounge",
+    "address": "Playa Dorada Mall, Puerto Plata",
+    "lat": 19.769476,
+    "lng": -70.643033,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18295667071",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/twenty_disco_lounge/",
+    "lineup": [
+      "Luis Brown"
+    ],
+    "imageEmoji": "🎤"
+  },
+  {
+    "id": "groundzero-halloween-2026-10-30",
+    "title": "Ground Zero — Halloween Una Noche de Terror",
+    "description": "Halloween — Una Noche de Terror en Ground Zero Discoteca, Km 18 Carretera Puerto Plata–Sosúa frente al aeropuerto — viernes 30 de octubre 2026. Premio al mejor disfraz. Noche de disco en la carretera — no es el karaoke de playa de Le Petit François ni Luis Brown en Twenty Disco el mismo viernes, ni el Viernes Locos habitual de whisky a mitad de precio. Reserva WhatsApp 849-465-1313 · Instagram @groundzero_disco.",
+    "date": "2026-10-30",
+    "location": "Sosúa",
+    "venue": "Ground Zero Discoteca",
+    "venueSlug": "ground-zero-disco",
+    "address": "Km 18, Carretera Puerto Plata–Sosúa, frente al Aeropuerto Gregorio Luperón",
+    "lat": 19.76,
+    "lng": -70.565,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18494651313",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/groundzero_disco/",
+    "imageEmoji": "🎃"
+  },
+  {
+    "id": "ivan-garcia-cafe-opera-codigo-clown-2026-10-31",
+    "title": "Iván García — Café Ópera Código Clown",
+    "description": "Café Ópera Código Clown en Iván García Teatro-Escuela, Calle Profesor Juan Bosch #72, Puerto Plata — sábado 31 de octubre 2026 a las 7:30 PM. Noche de teatro-clown de Halloween — no es la reapertura Eulogio Badia del 24 de octubre, ni Paradise In Hell en Twenty Disco el mismo sábado. Confirma boletas vía 809-261-7393 · Instagram @teatroivangarcia.",
+    "date": "2026-10-31",
+    "time": "7:30 PM",
+    "location": "Puerto Plata",
+    "venue": "Iván García Teatro-Escuela",
+    "venueSlug": "ivan-garcia-teatro-escuela",
+    "address": "Calle Profesor Juan Bosch #72, Puerto Plata",
+    "lat": 19.7979,
+    "lng": -70.6928,
+    "category": "performances",
+    "categories": [
+      "culture"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18092617393",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/teatroivangarcia/",
+    "lineup": [
+      "Café Ópera Código Clown"
+    ],
+    "imageEmoji": "🎭"
   }
 ]

@@ -1,7 +1,6 @@
 import type { Locale } from "@/i18n/config";
 import {
-  createInstagramCarouselParent,
-  createInstagramMediaContainers,
+  createInstagramReelContainer,
   instagramContainerFailure,
   instagramContainersFinished,
   isMetaRateLimitError,
@@ -24,6 +23,7 @@ import {
   finishTodaySpotlightLock,
   mergeSpotlightExclusions,
   readSpotlightLocks,
+  spotlightInstagramComplete,
   type SpotlightLockRecord,
 } from "@/lib/meta-spotlight-lock";
 import { nextSpotlightWork } from "@/lib/meta-spotlight-steps";
@@ -31,10 +31,14 @@ import { nextSpotlightWork } from "@/lib/meta-spotlight-steps";
 export type TodaySpotlightProgress = {
   facebookId?: string;
   instagramId?: string;
+  instagramIds?: string[];
+  instagramPostedEventIds?: string[];
   instagramChildIds?: string[];
-  instagramParentId?: string;
   caption?: string;
+  eventCaptions?: string[];
   imageUrls?: string[];
+  /** Parallel to eventIds — public MP4 URLs for Instagram Reels. */
+  videoUrls?: string[];
   link?: string;
   eventIds?: string[];
 };
@@ -48,12 +52,15 @@ export type TodaySpotlightStepResult = {
   phase?: string;
   eventIds: string[];
   caption?: string;
+  eventCaptions?: string[];
   imageUrls?: string[];
+  videoUrls?: string[];
   link?: string;
   facebook?: { ok: true; id: string } | { ok: false; error: MetaGraphError };
   instagram?: { ok: true; id: string } | { ok: false; error: MetaGraphError };
+  instagramIds?: string[];
+  instagramPostedEventIds?: string[];
   instagramChildIds?: string[];
-  instagramParentId?: string;
   error?: string;
   rateLimited?: boolean;
 };
@@ -77,6 +84,22 @@ function graphFail(error: MetaGraphError): {
       rateLimited,
     },
   };
+}
+
+function nextUnpostedEventIndex(
+  eventIds: string[],
+  posted: string[],
+): number {
+  const done = new Set(posted);
+  return eventIds.findIndex((id) => !done.has(id));
+}
+
+function uniqueUrls(urls: string[]): string[] {
+  const out: string[] = [];
+  for (const url of urls) {
+    if (url && !out.includes(url)) out.push(url);
+  }
+  return out;
 }
 
 export async function runTodaySpotlightStep(input: {
@@ -148,7 +171,9 @@ export async function runTodaySpotlightStep(input: {
     eventIds,
     repeatKeys: built.post.repeatKeys,
     caption: built.post.caption,
+    eventCaptions: built.post.eventCaptions,
     imageUrls: built.post.imageUrls,
+    videoUrls: input.progress?.videoUrls,
     link: built.post.link,
     force: input.force,
     facebook: input.wantFacebook,
@@ -166,10 +191,14 @@ export async function runTodaySpotlightStep(input: {
         phase: "reuse",
         eventIds: claimed.record.eventIds,
         caption: claimed.record.caption,
+        eventCaptions: claimed.record.eventCaptions,
         imageUrls: claimed.record.imageUrls,
+        videoUrls: claimed.record.videoUrls,
         link: claimed.record.link,
         facebook: channelResult(claimed.record.facebookId),
         instagram: channelResult(claimed.record.instagramId),
+        instagramIds: claimed.record.instagramIds,
+        instagramPostedEventIds: claimed.record.instagramPostedEventIds,
       },
     };
   }
@@ -185,8 +214,10 @@ export async function runTodaySpotlightStep(input: {
         eventIds: claimed.record.eventIds,
         facebook: channelResult(claimed.record.facebookId),
         instagram: channelResult(claimed.record.instagramId),
+        instagramIds: claimed.record.instagramIds,
+        instagramPostedEventIds: claimed.record.instagramPostedEventIds,
         instagramChildIds: claimed.record.instagramChildIds,
-        instagramParentId: claimed.record.instagramParentId,
+        videoUrls: claimed.record.videoUrls,
       },
     };
   }
@@ -194,8 +225,15 @@ export async function runTodaySpotlightStep(input: {
   const record = claimed.action === "skip" ? undefined : claimed.record;
   const progress = input.progress ?? {};
   const caption = record?.caption ?? progress.caption ?? built.post.caption;
-  const imageUrls =
-    record?.imageUrls ?? progress.imageUrls ?? built.post.imageUrls;
+  const eventCaptions = progress.eventCaptions?.length
+    ? progress.eventCaptions
+    : (record?.eventCaptions ?? built.post.eventCaptions);
+  const imageUrls = progress.imageUrls?.length
+    ? progress.imageUrls
+    : (record?.imageUrls ?? built.post.imageUrls);
+  const videoUrls = progress.videoUrls?.length
+    ? progress.videoUrls
+    : (record?.videoUrls ?? []);
   const link = record?.link ?? progress.link ?? built.post.link;
   const jobEventIds = record?.eventIds.length
     ? record.eventIds
@@ -204,33 +242,49 @@ export async function runTodaySpotlightStep(input: {
       : eventIds;
   const job = {
     caption,
+    eventCaptions,
     imageUrls,
+    videoUrls,
     link,
     eventIds: jobEventIds,
     facebookId: record?.facebookId ?? progress.facebookId,
     instagramId: record?.instagramId ?? progress.instagramId,
+    instagramIds: record?.instagramIds ?? progress.instagramIds ?? [],
+    instagramPostedEventIds:
+      record?.instagramPostedEventIds ??
+      progress.instagramPostedEventIds ??
+      [],
     instagramChildIds: record?.instagramChildIds ?? progress.instagramChildIds,
-    instagramParentId: record?.instagramParentId ?? progress.instagramParentId,
   };
 
   const persist = async (patch: {
     facebookId?: string;
     instagramId?: string;
-    instagramChildIds?: string[];
-    instagramParentId?: string;
+    instagramIds?: string[];
+    instagramPostedEventIds?: string[];
+    instagramChildIds?: string[] | null;
+    videoUrls?: string[];
     failed?: boolean;
     complete?: boolean;
   }) => {
+    const nextChildIds =
+      patch.instagramChildIds === null
+        ? []
+        : (patch.instagramChildIds ?? job.instagramChildIds);
     await finishTodaySpotlightLock({
       locale: input.locale,
       eventIds: job.eventIds,
       caption: job.caption,
+      eventCaptions: job.eventCaptions,
       imageUrls: job.imageUrls,
+      videoUrls: patch.videoUrls ?? job.videoUrls,
       link: job.link,
       facebookId: patch.facebookId ?? job.facebookId,
       instagramId: patch.instagramId ?? job.instagramId,
-      instagramChildIds: patch.instagramChildIds ?? job.instagramChildIds,
-      instagramParentId: patch.instagramParentId ?? job.instagramParentId,
+      instagramIds: patch.instagramIds ?? job.instagramIds,
+      instagramPostedEventIds:
+        patch.instagramPostedEventIds ?? job.instagramPostedEventIds,
+      instagramChildIds: nextChildIds,
       failed: patch.failed,
       complete: patch.complete,
       channel,
@@ -248,7 +302,9 @@ export async function runTodaySpotlightStep(input: {
         phase: "prepared",
         eventIds: job.eventIds,
         caption: job.caption,
+        eventCaptions: job.eventCaptions,
         imageUrls: job.imageUrls,
+        videoUrls: job.videoUrls,
         link: job.link,
       },
     };
@@ -265,23 +321,21 @@ export async function runTodaySpotlightStep(input: {
   }
   const config = resolved.config;
 
-  const statusIds = [
-    ...(job.instagramChildIds ?? []),
-    ...(job.instagramParentId ? [job.instagramParentId] : []),
-  ];
-  let childrenFinished = false;
-  let parentFinished = false;
-  if (statusIds.length && !job.instagramId) {
-    const statuses = await readInstagramContainerStatuses(config, statusIds);
+  const creationId = job.instagramChildIds?.[0];
+  let creationFinished = false;
+  if (creationId && !spotlightInstagramComplete(job)) {
+    const statuses = await readInstagramContainerStatuses(config, [creationId]);
     if (!statuses.ok) {
       const fail = graphFail(statuses.error);
-      await persist({ failed: isMetaRateLimitError(statuses.error) ? false : true });
+      await persist({
+        failed: isMetaRateLimitError(statuses.error) ? false : true,
+      });
       return {
         status: fail.status,
         body: { ...fail.body, done: false, eventIds: job.eventIds },
       };
     }
-    const failed = instagramContainerFailure(statusIds, statuses.statuses);
+    const failed = instagramContainerFailure([creationId], statuses.statuses);
     if (failed) {
       await persist({ failed: true });
       return {
@@ -294,25 +348,20 @@ export async function runTodaySpotlightStep(input: {
         },
       };
     }
-    childrenFinished = instagramContainersFinished(
-      job.instagramChildIds ?? [],
+    creationFinished = instagramContainersFinished(
+      [creationId],
       statuses.statuses,
     );
-    parentFinished = job.instagramParentId
-      ? statuses.statuses[job.instagramParentId] === "FINISHED"
-      : false;
   }
 
   const step = nextSpotlightWork({
     wantFacebook: input.wantFacebook,
     wantInstagram: input.wantInstagram,
     facebookId: job.facebookId,
-    instagramId: job.instagramId,
-    instagramChildIds: job.instagramChildIds,
-    instagramParentId: job.instagramParentId,
-    imageCount: job.imageUrls.length,
-    childrenFinished,
-    parentFinished,
+    eventCount: job.eventIds.length,
+    instagramPostedCount: job.instagramPostedEventIds.length,
+    instagramCreationId: creationId,
+    creationFinished,
   });
 
   const base = (): TodaySpotlightStepResult => ({
@@ -321,12 +370,15 @@ export async function runTodaySpotlightStep(input: {
     inProgress: true,
     eventIds: job.eventIds,
     caption: job.caption,
+    eventCaptions: job.eventCaptions,
     imageUrls: job.imageUrls,
+    videoUrls: job.videoUrls,
     link: job.link,
     facebook: channelResult(job.facebookId),
     instagram: channelResult(job.instagramId),
+    instagramIds: job.instagramIds,
+    instagramPostedEventIds: job.instagramPostedEventIds,
     instagramChildIds: job.instagramChildIds,
-    instagramParentId: job.instagramParentId,
   });
 
   if (step === "done") {
@@ -345,7 +397,7 @@ export async function runTodaySpotlightStep(input: {
   if (step === "facebook") {
     const facebook = await publishFacebookAlbum(config, {
       caption: job.caption,
-      imageUrls: job.imageUrls,
+      imageUrls: uniqueUrls(job.imageUrls),
     });
     if (!facebook.ok) {
       const fail = graphFail(facebook.error);
@@ -361,7 +413,13 @@ export async function runTodaySpotlightStep(input: {
       };
     }
     job.facebookId = facebook.id;
-    const complete = !input.wantInstagram;
+    const complete =
+      !input.wantInstagram ||
+      spotlightInstagramComplete({
+        eventIds: job.eventIds,
+        instagramId: job.instagramId,
+        instagramPostedEventIds: job.instagramPostedEventIds,
+      });
     await persist({ facebookId: facebook.id, complete });
     return {
       status: 200,
@@ -375,11 +433,35 @@ export async function runTodaySpotlightStep(input: {
     };
   }
 
-  if (step === "instagram-children") {
-    const created = await createInstagramMediaContainers(config, {
-      imageUrls: job.imageUrls,
-      caption: job.caption,
-      carousel: job.imageUrls.length >= 2,
+  if (step === "instagram-create") {
+    const index = nextUnpostedEventIndex(
+      job.eventIds,
+      job.instagramPostedEventIds,
+    );
+    if (index < 0) {
+      await persist({ complete: true });
+      return {
+        status: 200,
+        body: { ...base(), done: true, inProgress: false, phase: "done" },
+      };
+    }
+    const videoUrl = job.videoUrls[index]?.trim();
+    const eventCaption = job.eventCaptions?.[index] ?? job.caption;
+    if (!videoUrl) {
+      return {
+        status: 200,
+        body: {
+          ...base(),
+          phase: "need-reel-video",
+          error: `Missing Reel video for event ${job.eventIds[index] ?? index}`,
+        },
+      };
+    }
+    const created = await createInstagramReelContainer(config, {
+      videoUrl,
+      caption: eventCaption,
+      // Video frame is the styled POP story card — don't override with the raw flyer.
+      shareToFeed: false,
     });
     if (!created.ok) {
       const fail = graphFail(created.error);
@@ -389,44 +471,21 @@ export async function runTodaySpotlightStep(input: {
         body: { ...fail.body, done: false, eventIds: job.eventIds },
       };
     }
-    job.instagramChildIds = created.ids;
-    await persist({ instagramChildIds: created.ids });
-    return {
-      status: 200,
-      body: {
-        ...base(),
-        instagramChildIds: created.ids,
-        phase: "instagram-children",
-      },
-    };
-  }
-
-  if (step === "instagram-parent") {
-    const parent = await createInstagramCarouselParent(config, {
-      childIds: job.instagramChildIds ?? [],
-      caption: job.caption,
+    job.instagramChildIds = [created.id];
+    await persist({
+      instagramChildIds: [created.id],
+      videoUrls: job.videoUrls,
     });
-    if (!parent.ok) {
-      const fail = graphFail(parent.error);
-      await persist({ failed: true });
-      return {
-        status: fail.status,
-        body: { ...fail.body, done: false, eventIds: job.eventIds },
-      };
-    }
-    job.instagramParentId = parent.id;
-    await persist({ instagramParentId: parent.id });
     return {
       status: 200,
       body: {
         ...base(),
-        instagramParentId: parent.id,
-        phase: "instagram-parent",
+        instagramChildIds: [created.id],
+        phase: "instagram-create",
       },
     };
   }
 
-  const creationId = job.instagramParentId ?? job.instagramChildIds?.[0];
   if (!creationId) {
     await persist({ failed: true });
     return {
@@ -453,15 +512,45 @@ export async function runTodaySpotlightStep(input: {
       },
     };
   }
-  await persist({ instagramId: instagram.id, complete: true });
+
+  const index = nextUnpostedEventIndex(
+    job.eventIds,
+    job.instagramPostedEventIds,
+  );
+  const postedEventId =
+    index >= 0 ? job.eventIds[index] : job.eventIds[job.eventIds.length - 1];
+  const nextPosted = postedEventId
+    ? [...job.instagramPostedEventIds, postedEventId]
+    : job.instagramPostedEventIds;
+  const nextIds = [...job.instagramIds, instagram.id];
+  job.instagramId = instagram.id;
+  job.instagramIds = nextIds;
+  job.instagramPostedEventIds = nextPosted;
+  job.instagramChildIds = [];
+
+  const complete = spotlightInstagramComplete({
+    eventIds: job.eventIds,
+    instagramId: job.instagramId,
+    instagramPostedEventIds: nextPosted,
+  });
+  await persist({
+    instagramId: instagram.id,
+    instagramIds: nextIds,
+    instagramPostedEventIds: nextPosted,
+    instagramChildIds: null,
+    complete,
+  });
   return {
     status: 200,
     body: {
       ...base(),
       instagram: { ok: true, id: instagram.id },
-      done: true,
-      inProgress: false,
-      phase: "instagram-publish",
+      instagramIds: nextIds,
+      instagramPostedEventIds: nextPosted,
+      instagramChildIds: [],
+      done: complete,
+      inProgress: !complete,
+      phase: complete ? "instagram-publish" : "instagram-next",
     },
   };
 }

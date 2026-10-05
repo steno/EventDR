@@ -114,12 +114,18 @@ const FILE_TO_EVENT_ID = {
     "twenty-disco-dj-flaco-mc-2026-10-04",
   "twenty-disco-paradise-in-hell-2026-10-31.jpg":
     "twenty-disco-paradise-in-hell-2026-10-31",
+  "petit-francois-halloween-2026-10-30.jpg":
+    "petit-francois-halloween-2026-10-30",
+  "twenty-disco-luis-brown-2026-10-30.jpg":
+    "twenty-disco-luis-brown-2026-10-30",
   "gypsy-bowls-last-bowl-call-2026-10-03.jpg":
     "gypsy-bowls-last-bowl-call-2026-10-03",
   "iss-wizard-of-oz-2026-12-17.jpg": "iss-wizard-of-oz-2026-12-17",
   "twenty-disco-kiry-curu-2026-10-16.jpg": "twenty-disco-kiry-curu-2026-10-16",
   "ivan-garcia-eulogio-badia-2026-10-24.jpg":
     "ivan-garcia-eulogio-badia-2026-10-24",
+  "ivan-garcia-cafe-opera-codigo-clown-2026-10-31.jpg":
+    "ivan-garcia-cafe-opera-codigo-clown-2026-10-31",
   "la-lola-back-to-northside-2026-07-04.jpg":
     "la-lola-back-to-northside-2026-07-04",
   "ambar-lounge-emil-roman-2026-09-26.jpg": "ambar-lounge-emil-roman-2026-09-26",
@@ -204,6 +210,7 @@ const FILE_TO_EVENT_ID = {
   "groundzero-jueves-de-frias.jpg": "groundzero-jueves-de-frias",
   "groundzero-golden-night-2026-09-25.jpg": "groundzero-golden-night-2026-09-25",
   "groundzero-tivigunz-2026-10-04.jpg": "groundzero-tivigunz-2026-10-04",
+  "groundzero-halloween-2026-10-30.jpg": "groundzero-halloween-2026-10-30",
 
   // --- Original curated venue / attraction photos ---
   "LAXSunsetSessions.JPG": "lax-sunset-daily",

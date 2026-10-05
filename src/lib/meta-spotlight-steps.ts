@@ -1,32 +1,33 @@
 export type SpotlightWorkStep =
   | "facebook"
-  | "instagram-children"
+  | "instagram-create"
   | "instagram-wait"
-  | "instagram-parent"
   | "instagram-publish"
   | "done";
 
+/**
+ * Facebook stays one album. Instagram posts one individual event at a time
+ * (no carousel): create → wait → publish, then repeat until every event is done.
+ */
 export function nextSpotlightWork(input: {
   wantFacebook: boolean;
   wantInstagram: boolean;
   facebookId?: string;
-  instagramId?: string;
-  instagramChildIds?: string[];
-  instagramParentId?: string;
-  imageCount: number;
-  childrenFinished: boolean;
-  parentFinished: boolean;
+  eventCount: number;
+  instagramPostedCount: number;
+  /** Container id for the event currently being published. */
+  instagramCreationId?: string;
+  creationFinished: boolean;
 }): SpotlightWorkStep {
   const facebookDone = !input.wantFacebook || Boolean(input.facebookId);
-  const instagramDone = !input.wantInstagram || Boolean(input.instagramId);
+  const instagramDone =
+    !input.wantInstagram ||
+    (input.eventCount > 0 &&
+      input.instagramPostedCount >= input.eventCount);
   if (facebookDone && instagramDone) return "done";
   if (!facebookDone) return "facebook";
 
-  const carousel = input.imageCount >= 2;
-  const childIds = input.instagramChildIds ?? [];
-  if (childIds.length === 0) return "instagram-children";
-  if (!input.childrenFinished) return "instagram-wait";
-  if (carousel && !input.instagramParentId) return "instagram-parent";
-  if (carousel && !input.parentFinished) return "instagram-wait";
+  if (!input.instagramCreationId) return "instagram-create";
+  if (!input.creationFinished) return "instagram-wait";
   return "instagram-publish";
 }

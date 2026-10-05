@@ -13,17 +13,22 @@ on:
         type: boolean
         default: false
       instagram_only:
-        description: 'Post to Instagram only (skip Facebook)'
+        description: '(Unused — job always posts Instagram Reels only)'
         required: false
         type: boolean
-        default: false
+        default: true
 
 jobs:
   post:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
+
+      - name: Install ffmpeg (still → Reel MP4)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
 
       - name: Check Meta configuration
         env:
@@ -53,13 +58,13 @@ jobs:
           fi
           echo "::endgroup::"
       
-      - name: Post today’s specials (or top 3) to Facebook + Instagram
+      - name: Publish today’s events as individual Instagram Reels
         env:
           SITE_URL: https://pop-event.com
           CRON_SECRET: ${{ secrets.CRON_SECRET }}
           DRY_RUN: ${{ github.event.inputs.dry_run == 'true' && 'true' || 'false' }}
-          INSTAGRAM_ONLY: ${{ github.event.inputs.instagram_only == 'true' && 'true' || 'false' }}
-          # Scheduled channel — prefers all specials when specialsLock is empty.
+          # Reels only — no Facebook album / IG feed posts.
+          INSTAGRAM_ONLY: "true"
           TODAY_SPECIALS: "false"
         run: |
           if [ -z "$CRON_SECRET" ]; then
@@ -67,8 +72,8 @@ jobs:
             exit 1
           fi
           if [ "$DRY_RUN" = "true" ]; then
-            echo "::notice::Running in DRY RUN mode - no posts will be published"
-          elif [ "$INSTAGRAM_ONLY" = "true" ]; then
-            echo "::notice::Posting to Instagram only — skipping Facebook"
+            echo "::notice::Running in DRY RUN mode - no Reels will be published"
+          else
+            echo "::notice::Publishing individual Instagram Reels (no feed posts, no Facebook)"
           fi
           node scripts/run-today-spotlight.mjs

@@ -683,6 +683,26 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     phone: "+18294922910",
     venueSlug: "le-petit-francois",
   },
+  "petit-francois-halloween-2026-10-30": {
+    isFree: true,
+    phone: "+18294922910",
+    venueSlug: "le-petit-francois",
+  },
+  "twenty-disco-luis-brown-2026-10-30": {
+    callForPricing: true,
+    phone: "+18295667071",
+    venueSlug: "twenty-disco-lounge",
+  },
+  "groundzero-halloween-2026-10-30": {
+    callForPricing: true,
+    phone: "+18494651313",
+    venueSlug: "ground-zero-disco",
+  },
+  "ivan-garcia-cafe-opera-codigo-clown-2026-10-31": {
+    callForPricing: true,
+    phone: "+18092617393",
+    venueSlug: "ivan-garcia-teatro-escuela",
+  },
   "hms-valeria-spanish-saturday": {
     isFree: true,
     phone: "+18095711693",

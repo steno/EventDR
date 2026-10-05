@@ -22,3 +22,33 @@
 2026-10-03T17:04:00Z	18495175705	La Lola Beach Club	sent
 2026-10-03T17:04:37Z	18095713024	Waterfront Playa Alicia	sent
 2026-10-03T17:06:06Z	18095711693	HMS Valeria Seafood Restaurant	sent
+2026-10-04T17:34:54Z	18298178147	Flip Flop Sports Bar	sent
+2026-10-04T17:35:56Z	18099709433	El Colibri Hotel	sent
+2026-10-04T17:36:33Z	19394089392	Handmade the Brand	sent
+2026-10-04T17:37:52Z	18092042939	Tasty Food Park	sent
+2026-10-04T17:39:15Z	18095710805	VOYVOY Cabarete	sent
+2026-10-04T17:44:31Z	18095713826	Love Does Centro Para Mujeres	not_on_whatsapp
+2026-10-04T17:45:33Z	18097698732	TrolleyCity Tours POP	sent
+2026-10-04T17:45:55Z	18095865257	Vivonté Cigar Factory	sent
+2026-10-04T17:46:19Z	18092721438	27 Charcos de Damajagua	sent
+2026-10-04T17:46:55Z	18297977856	Blue Ice Piano Bar & Restaurant	not_on_whatsapp
+2026-10-04T17:47:17Z	18099594087	Casa Caribe	sent
+2026-10-04T17:47:39Z	18092800077	Centro Nova Salud y Bienestar	sent
+2026-10-04T17:51:31Z	18097967176	Chukka Ocean Outpost — Coconut Cove	sent
+2026-10-04T17:52:09Z	18097496917	Crazy Lobster Bar & Grill	sent
+2026-10-04T17:52:44Z	18097696199	Desarrollo Fitness Cabarete	sent
+2026-10-04T17:53:05Z	18092157676	Don Limón	sent
+2026-10-04T17:53:29Z	18297022312	Drifter Cabarete	not_on_whatsapp
+2026-10-04T17:53:50Z	18096576116	El Cocotazo Cafe	sent
+2026-10-05T13:45:52Z	18096970794	Fun City Action Park	sent
+2026-10-05T13:47:50Z	18294922910	Le Petit François	sent
+2026-10-05T13:54:43Z	18297870140	Aura Beach Club Cabarete	not_on_whatsapp
+2026-10-05T13:56:51Z	18095710722	Hotel Villa Taina	not_on_whatsapp
+2026-10-05T13:57:01Z	18093201400	POP Cinemas	not_on_whatsapp
+2026-10-05T13:57:11Z	18093207715	Del Oro Chocolate Factory	not_on_whatsapp
+2026-10-05T13:57:20Z	18092611911	Fortaleza San Felipe	not_on_whatsapp
+2026-10-05T13:57:30Z	18095862848	Museo del Ámbar	not_on_whatsapp
+2026-10-05T13:57:40Z	18095719727	Sunset Grill at Velero	not_on_whatsapp
+2026-10-05T13:57:49Z	18099700501	Teleférico Puerto Plata	not_on_whatsapp
+2026-10-05T13:57:59Z	18297350272	Amber Cove	not_on_whatsapp
+2026-10-05T13:58:09Z	18099707777	Cofresí Palm Beach & Spa Resort	not_on_whatsapp

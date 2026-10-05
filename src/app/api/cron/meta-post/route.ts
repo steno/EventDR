@@ -26,6 +26,9 @@ import {
   runTodaySpotlightStep,
   type TodaySpotlightProgress,
 } from "@/lib/meta-spotlight-run";
+import { uploadSpotlightReelBytes, uploadSpotlightStoryCardBytes } from "@/lib/firebase/images";
+import { buildInstagramStoryCardPng } from "@/lib/instagram-story-card-server";
+import { getPublicEvents } from "@/lib/public-events";
 
 export const dynamic = "force-dynamic";
 export const maxDuration = 120;
@@ -98,12 +101,15 @@ type PostBody = Partial<MetaPublishInput> &
     force?: boolean;
     featureEventId?: string;
     step?: "next" | "all";
+    /** Upload a still-derived MP4 for Instagram Reels hosting. */
+    action?: "upload-reel" | "render-story-card";
+    eventId?: string;
+    /** Raw base64 (no data-url prefix) of an MP4. */
+    videoBase64?: string;
   };
 
 export async function POST(request: NextRequest) {
   if (!checkCronSecret(request)) return unauthorized();
-  const parsed = readMetaPostConfig();
-  if (!parsed.ok) return notConfigured(parsed.missing);
 
   let body: PostBody = {};
   try {
@@ -112,6 +118,85 @@ export async function POST(request: NextRequest) {
   } catch {
     return NextResponse.json({ error: "Invalid JSON" }, { status: 400 });
   }
+
+  if (body.action === "render-story-card") {
+    const eventId = body.eventId?.trim();
+    if (!eventId) {
+      return NextResponse.json({ error: "eventId is required" }, { status: 400 });
+    }
+    const localeParam = body.locale ?? "en";
+    const locale: Locale = isValidLocale(localeParam) ? localeParam : "en";
+    try {
+      const events = await getPublicEvents({ locale, when: "today" });
+      let event = events.find((item) => item.id === eventId);
+      if (!event) {
+        const all = await getPublicEvents({ locale });
+        event = all.find((item) => item.id === eventId);
+      }
+      if (!event) {
+        return NextResponse.json({ error: "Event not found" }, { status: 404 });
+      }
+      const jpeg = await buildInstagramStoryCardPng(event, locale);
+      const uploaded = await uploadSpotlightStoryCardBytes(
+        eventId,
+        jpeg,
+        localDateISO(),
+      );
+      if (!uploaded.ok) {
+        return NextResponse.json(
+          { error: `Story card upload failed: ${uploaded.reason}` },
+          { status: uploaded.reason === "storage_unavailable" ? 503 : 502 },
+        );
+      }
+      return NextResponse.json({ success: true, imageUrl: uploaded.url });
+    } catch (error) {
+      console.error("render-story-card failed", error);
+      return NextResponse.json(
+        {
+          error: error instanceof Error ? error.message : String(error),
+        },
+        { status: 500 },
+      );
+    }
+  }
+
+  if (body.action === "upload-reel") {
+    const eventId = body.eventId?.trim();
+    const videoBase64 = body.videoBase64?.trim();
+    if (!eventId || !videoBase64) {
+      return NextResponse.json(
+        { error: "eventId and videoBase64 are required" },
+        { status: 400 },
+      );
+    }
+    let bytes: Buffer;
+    try {
+      bytes = Buffer.from(videoBase64, "base64");
+    } catch {
+      return NextResponse.json({ error: "Invalid videoBase64" }, { status: 400 });
+    }
+    if (!bytes.length || bytes.length > 8_000_000) {
+      return NextResponse.json(
+        { error: "Reel video must be between 1 byte and 8MB" },
+        { status: 400 },
+      );
+    }
+    const uploaded = await uploadSpotlightReelBytes(
+      eventId,
+      bytes,
+      localDateISO(),
+    );
+    if (!uploaded.ok) {
+      return NextResponse.json(
+        { error: `Reel upload failed: ${uploaded.reason}` },
+        { status: uploaded.reason === "storage_unavailable" ? 503 : 502 },
+      );
+    }
+    return NextResponse.json({ success: true, videoUrl: uploaded.url });
+  }
+
+  const parsed = readMetaPostConfig();
+  if (!parsed.ok) return notConfigured(parsed.missing);
 
   const localeParam = body.locale ?? "en";
   const locale: Locale = isValidLocale(localeParam) ? localeParam : "en";
@@ -179,10 +264,13 @@ export async function POST(request: NextRequest) {
         progress: {
           facebookId: body.facebookId,
           instagramId: body.instagramId,
+          instagramIds: body.instagramIds,
+          instagramPostedEventIds: body.instagramPostedEventIds,
           instagramChildIds: body.instagramChildIds,
-          instagramParentId: body.instagramParentId,
           caption: body.caption,
+          eventCaptions: body.eventCaptions,
           imageUrls: body.imageUrls,
+          videoUrls: body.videoUrls,
           link: body.link,
           eventIds: body.eventIds,
         },

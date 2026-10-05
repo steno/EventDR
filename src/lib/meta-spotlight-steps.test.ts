@@ -8,9 +8,9 @@ describe("nextSpotlightWork", () => {
       nextSpotlightWork({
         wantFacebook: true,
         wantInstagram: true,
-        imageCount: 3,
-        childrenFinished: false,
-        parentFinished: false,
+        eventCount: 3,
+        instagramPostedCount: 0,
+        creationFinished: false,
       }),
       "facebook",
     );
@@ -22,33 +22,33 @@ describe("nextSpotlightWork", () => {
         wantFacebook: true,
         wantInstagram: true,
         facebookId: "fb",
-        imageCount: 3,
-        childrenFinished: false,
-        parentFinished: false,
+        eventCount: 3,
+        instagramPostedCount: 0,
+        creationFinished: false,
       }),
-      "instagram-children",
+      "instagram-create",
     );
     assert.equal(
       nextSpotlightWork({
         wantFacebook: false,
         wantInstagram: true,
-        imageCount: 1,
-        childrenFinished: false,
-        parentFinished: false,
+        eventCount: 1,
+        instagramPostedCount: 0,
+        creationFinished: false,
       }),
-      "instagram-children",
+      "instagram-create",
     );
   });
 
-  it("waits for carousel children, then creates the parent", () => {
+  it("creates, waits, then publishes one Instagram post at a time", () => {
     assert.equal(
       nextSpotlightWork({
         wantFacebook: false,
         wantInstagram: true,
-        instagramChildIds: ["a", "b", "c"],
-        imageCount: 3,
-        childrenFinished: false,
-        parentFinished: false,
+        eventCount: 3,
+        instagramPostedCount: 0,
+        instagramCreationId: "c1",
+        creationFinished: false,
       }),
       "instagram-wait",
     );
@@ -56,66 +56,37 @@ describe("nextSpotlightWork", () => {
       nextSpotlightWork({
         wantFacebook: false,
         wantInstagram: true,
-        instagramChildIds: ["a", "b", "c"],
-        imageCount: 3,
-        childrenFinished: true,
-        parentFinished: false,
-      }),
-      "instagram-parent",
-    );
-  });
-
-  it("publishes a single Instagram photo without a carousel parent", () => {
-    assert.equal(
-      nextSpotlightWork({
-        wantFacebook: false,
-        wantInstagram: true,
-        instagramChildIds: ["solo"],
-        imageCount: 1,
-        childrenFinished: true,
-        parentFinished: false,
+        eventCount: 3,
+        instagramPostedCount: 0,
+        instagramCreationId: "c1",
+        creationFinished: true,
       }),
       "instagram-publish",
     );
   });
 
-  it("waits for the carousel parent before publishing", () => {
+  it("starts the next event after one Instagram post is done", () => {
     assert.equal(
       nextSpotlightWork({
         wantFacebook: false,
         wantInstagram: true,
-        instagramChildIds: ["a", "b"],
-        instagramParentId: "parent",
-        imageCount: 2,
-        childrenFinished: true,
-        parentFinished: false,
+        eventCount: 3,
+        instagramPostedCount: 1,
+        creationFinished: false,
       }),
-      "instagram-wait",
-    );
-    assert.equal(
-      nextSpotlightWork({
-        wantFacebook: false,
-        wantInstagram: true,
-        instagramChildIds: ["a", "b"],
-        instagramParentId: "parent",
-        imageCount: 2,
-        childrenFinished: true,
-        parentFinished: true,
-      }),
-      "instagram-publish",
+      "instagram-create",
     );
   });
 
-  it("is done when requested channels have ids", () => {
+  it("is done when every event has an Instagram post", () => {
     assert.equal(
       nextSpotlightWork({
         wantFacebook: true,
         wantInstagram: true,
         facebookId: "fb",
-        instagramId: "ig",
-        imageCount: 3,
-        childrenFinished: true,
-        parentFinished: true,
+        eventCount: 3,
+        instagramPostedCount: 3,
+        creationFinished: true,
       }),
       "done",
     );
@@ -124,9 +95,9 @@ describe("nextSpotlightWork", () => {
         wantFacebook: true,
         wantInstagram: false,
         facebookId: "fb",
-        imageCount: 3,
-        childrenFinished: false,
-        parentFinished: false,
+        eventCount: 3,
+        instagramPostedCount: 0,
+        creationFinished: false,
       }),
       "done",
     );

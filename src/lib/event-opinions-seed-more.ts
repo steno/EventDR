@@ -4184,4 +4184,80 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "Editor flyer — Vie 2 Oct 2026 SHOW EN VIVO GRATIS Lizandro Díaz, Grand Prix Smart Shop, La Javilla Puerto Plata. No start time on art.",
     updatedAt: "2026-10-02T19:00:00.000Z",
   },
+  {
+    eventId: "petit-francois-halloween-2026-10-30",
+    body: "Halloween Friday at the El Pueblito beach bar with DJ, karaoke, and an RD$5,000 best-costume prize — not Twenty Disco’s Luis Brown the same night and not their weekly Limoncello karaoke Fridays; reserve +1 829 492 2910 if you want a table by the sea.",
+    localized: {
+      es: "Viernes de Halloween en el beach bar de El Pueblito con DJ, karaoke y premio de RD$5,000 al mejor disfraz — no es Luis Brown en Twenty Disco la misma noche ni el karaoke Limoncello semanal; reserva +1 829 492 2910 si quieres mesa frente al mar.",
+      fr: "Vendredi Halloween au beach bar d’El Pueblito avec DJ, karaoké et prix RD$5,000 pour le meilleur costume — pas Luis Brown au Twenty Disco la même nuit ni le karaoké Limoncello hebdo ; réservez +1 829 492 2910 pour une table face à la mer.",
+    },
+    priceFeel: "free",
+    priceNote:
+      "No cover on flyer — pay food/drinks; RD$5,000 costume prize; +1 829 492 2910",
+    priceNoteLocalized: {
+      es: "Sin cover en el flyer — pagas comida/tragos; premio disfraz RD$5,000; +1 829 492 2910",
+      fr: "Pas de cover sur l’affiche — payez nourriture/boissons ; prix costume RD$5,000 ; +1 829 492 2910",
+    },
+    attribution: "POP research · @lepetitfrancois.rd Halloween Night flyer",
+    researchNotes:
+      "Editor flyer + IG @lepetitfrancois.rd — Vie 30 Oct Halloween Night, DJ, Karaoke Night, Decoración Especial, Premio para el mejor disfraz $5,000. El Pueblito Puerto Plata. No cover/time on art.",
+    updatedAt: "2026-10-05T13:00:00.000Z",
+  },
+  {
+    eventId: "twenty-disco-luis-brown-2026-10-30",
+    body: "Friday Luis Brown live at Playa Dorada Mall — not Le Petit François Halloween karaoke the same date and not Paradise In Hell Saturday with Jhon Parra; cover isn’t on the flyer, so pin @twenty_disco_lounge or call 829-566-7071 before you treat it like free-cover Tanque Fridays.",
+    localized: {
+      es: "Viernes con Luis Brown en vivo en Playa Dorada Mall — no es el Halloween karaoke de Le Petit François la misma fecha ni Paradise In Hell el sábado con Jhon Parra; el cover no está en el flyer, así que pin @twenty_disco_lounge o llama 829-566-7071 antes de tratarlo como los viernes free cover de Tanque.",
+      fr: "Vendredi Luis Brown live à Playa Dorada Mall — pas le Halloween karaoké de Le Petit François le même jour ni Paradise In Hell samedi avec Jhon Parra ; le cover n’est pas sur l’affiche, donc épinglez @twenty_disco_lounge ou appelez 829-566-7071 avant de le traiter comme les vendredis free cover Tanque.",
+    },
+    priceFeel: "varies",
+    priceNote:
+      "Cover not on flyer — confirm @twenty_disco_lounge / 829-566-7071; budget mall-disco drinks",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — confirma @twenty_disco_lounge / 829-566-7071; presupuesta tragos de disco del mall",
+      fr: "Cover absent de l’affiche — confirmez @twenty_disco_lounge / 829-566-7071 ; budgétez les boissons disco du mall",
+    },
+    attribution:
+      "POP research · PC Entertainments × Twenty Disco Luis Brown flyer",
+    researchNotes:
+      "Editor flyer + IG @twenty_disco_lounge — Vie 30 Oct Luis Brown, PC Entertainments, Twenty Disco & Lounge Playa Dorada Mall. Caption phone 829-566-7071. No cover/price on art.",
+    updatedAt: "2026-10-05T14:00:00.000Z",
+  },
+  {
+    eventId: "groundzero-halloween-2026-10-30",
+    body: "Costume Halloween on the Puerto Plata–Sosúa highway opposite the airport — not Le Petit François beach karaoke or Twenty Disco Luis Brown the same Friday, and not regular Viernes Locos whisky half-price; cover isn’t on the flyer, so WhatsApp 849-465-1313 before you walk up.",
+    localized: {
+      es: "Halloween de disfraces en la carretera Puerto Plata–Sosúa frente al aeropuerto — no es el karaoke de playa de Le Petit François ni Luis Brown en Twenty Disco el mismo viernes, ni el Viernes Locos habitual de whisky a mitad de precio; el cover no está en el flyer, así que WhatsApp 849-465-1313 antes de llegar walk-up.",
+      fr: "Halloween costumes sur la route Puerto Plata–Sosúa face à l’aéroport — pas le karaoké plage de Le Petit François ni Luis Brown au Twenty Disco le même vendredi, ni le Viernes Locos whisky à moitié prix ; le cover n’est pas sur l’affiche, donc WhatsApp 849-465-1313 avant d’arriver walk-up.",
+    },
+    priceFeel: "varies",
+    priceNote:
+      "Cover not on flyer — WhatsApp 849-465-1313; prize for best costume",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — WhatsApp 849-465-1313; premio al mejor disfraz",
+      fr: "Cover absent de l’affiche — WhatsApp 849-465-1313 ; prix du meilleur costume",
+    },
+    attribution: "POP research · @groundzero_disco Halloween Una Noche de Terror flyer",
+    researchNotes:
+      "Editor flyer — Vie 30 Oct HALLOWEEN UNA NOCHE DE TERROR, Ground Zero Discoteca, Premio al mejor disfraz, WhatsApp 849 465 1313. No cover/time on art.",
+    updatedAt: "2026-10-05T15:00:00.000Z",
+  },
+  {
+    eventId: "ivan-garcia-cafe-opera-codigo-clown-2026-10-31",
+    body: "Halloween clown-theater at 7:30 PM on Juan Bosch #72 — not Eulogio Badia’s reapertura on the 24th and not Twenty Disco’s Paradise In Hell the same Saturday; ticket price isn’t on the flyer, so RSVP 809-261-7393 / @teatroivangarcia before you walk up.",
+    localized: {
+      es: "Teatro-clown de Halloween a las 7:30 PM en Juan Bosch #72 — no es la reapertura de Eulogio Badia del 24 ni Paradise In Hell en Twenty Disco el mismo sábado; el precio no está en el flyer, así que RSVP 809-261-7393 / @teatroivangarcia antes de llegar walk-up.",
+      fr: "Théâtre-clown d’Halloween à 19 h 30 au 72 Juan Bosch — pas la réouverture Eulogio Badia du 24 ni Paradise In Hell au Twenty Disco le même samedi ; le prix n’est pas sur l’affiche, donc RSVP 809-261-7393 / @teatroivangarcia avant d’arriver walk-up.",
+    },
+    priceFeel: "varies",
+    priceNote: "RSVP 809-261-7393 — confirm tickets @teatroivangarcia",
+    priceNoteLocalized: {
+      es: "RSVP 809-261-7393 — confirma boletas @teatroivangarcia",
+      fr: "RSVP 809-261-7393 — confirmez billets @teatroivangarcia",
+    },
+    attribution: "POP research · @teatroivangarcia Café Ópera Código Clown flyer",
+    researchNotes:
+      "Editor flyer — Sáb 31 Oct 7:30 PM Café Ópera Código Clown, Teatro Escuela Teatro Iván García, Puerto Plata. No ticket price on art.",
+    updatedAt: "2026-10-05T16:00:00.000Z",
+  },
 ];

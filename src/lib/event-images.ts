@@ -269,6 +269,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "twenty-disco-kiry-curu-2026-10-16.jpg",
   "ivan-garcia-eulogio-badia-2026-10-24":
     "ivan-garcia-eulogio-badia-2026-10-24.jpg",
+  "ivan-garcia-cafe-opera-codigo-clown-2026-10-31":
+    "ivan-garcia-cafe-opera-codigo-clown-2026-10-31.jpg",
   "la-lola-back-to-northside-2026-07-04":
     "la-lola-back-to-northside-2026-07-04.jpg",
   "ambar-lounge-emil-roman-2026-09-26":
@@ -296,6 +298,10 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "hard-rock-feria-empleos-2026-10-05.jpg",
   "twenty-disco-paradise-in-hell-2026-10-31":
     "twenty-disco-paradise-in-hell-2026-10-31.jpg",
+  "petit-francois-halloween-2026-10-30":
+    "petit-francois-halloween-2026-10-30.jpg",
+  "twenty-disco-luis-brown-2026-10-30":
+    "twenty-disco-luis-brown-2026-10-30.jpg",
   "finely-mirador-inauguracion-2026-09-25":
     "finely-mirador-inauguracion-2026-09-25.jpg",
   "cabarete-stand-up-vol-2-2026-10-24":
@@ -406,6 +412,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "groundzero-jueves-de-frias": "groundzero-jueves-de-frias.jpg",
   "groundzero-golden-night-2026-09-25": "groundzero-golden-night-2026-09-25.jpg",
   "groundzero-tivigunz-2026-10-04": "groundzero-tivigunz-2026-10-04.jpg",
+  "groundzero-halloween-2026-10-30": "groundzero-halloween-2026-10-30.jpg",
   "groundzero-party-rojo-2026-08-01": "groundzero-party-rojo-2026-08-01.jpg",
   // Filename bump — lounge interior night (not the Saturday gogo flyer).
   "blue-ice-saturday-gogo": "blue-ice-saturday-lounge.png",
@@ -547,6 +554,7 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "iss-wizard-of-oz-2026-12-17": "object-center",
   "twenty-disco-kiry-curu-2026-10-16": "object-center",
   "ivan-garcia-eulogio-badia-2026-10-24": "object-center",
+  "ivan-garcia-cafe-opera-codigo-clown-2026-10-31": "object-center",
   "la-lola-back-to-northside-2026-07-04": "object-center",
   "ambar-lounge-emil-roman-2026-09-26": "object-center",
   "ambar-lounge-gaby-luna-2026-10-03": "object-center",
@@ -557,6 +565,8 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "feel-the-boom-marianna-kite-street-2026-10-16": "object-top",
   "hard-rock-feria-empleos-2026-10-05": "object-center",
   "twenty-disco-paradise-in-hell-2026-10-31": "object-center",
+  "petit-francois-halloween-2026-10-30": "object-center",
+  "twenty-disco-luis-brown-2026-10-30": "object-center",
   "finely-mirador-inauguracion-2026-09-25": "object-center",
   "cabarete-stand-up-vol-2-2026-10-24": "object-center",
   "ocean-world-terrace-singing-talent-2026-09-16": "object-center",
@@ -679,6 +689,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "groundzero-jueves-de-frias.jpg",
   "groundzero-party-rojo-2026-08-01.jpg",
   "groundzero-sabados-latinos.jpg",
+  "groundzero-halloween-2026-10-30.jpg",
   "groundzero-tivigunz-2026-10-04.jpg",
   "groundzero-viernes-locos.jpg",
   "guananico-san-miguel-patronales-2026.jpg",
@@ -742,6 +753,8 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "cruzmonty-manuel-cocco-birthday-cigar-town-2026-10-17.jpg",
   "hard-rock-feria-empleos-2026-10-05.jpg",
   "twenty-disco-paradise-in-hell-2026-10-31.jpg",
+  "petit-francois-halloween-2026-10-30.jpg",
+  "twenty-disco-luis-brown-2026-10-30.jpg",
   "ambar-lounge-adrian-tineo-2026-09-19.jpg",
   "meclao-retro-party-2026-09-19.jpg",
   "cigar-town-karaoke-ladies-night-2026-09-19.jpg",
@@ -781,6 +794,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "gypsy-bowls-last-bowl-call-2026-10-03.jpg",
   "iss-wizard-of-oz-2026-12-17.jpg",
   "twenty-disco-kiry-curu-2026-10-16.jpg",
+  "ivan-garcia-cafe-opera-codigo-clown-2026-10-31.jpg",
   "ivan-garcia-eulogio-badia-2026-10-24.jpg",
   "la-lola-back-to-northside-2026-07-04.jpg",
   "ambar-lounge-emil-roman-2026-09-26.jpg",

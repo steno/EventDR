@@ -50,6 +50,41 @@ describe("decideSpotlightLockAction", () => {
     );
   });
 
+  it("reuses when every event already has an individual Instagram post", () => {
+    assert.equal(
+      decideSpotlightLockAction(
+        lock({
+          eventIds: ["a", "b"],
+          facebookId: "fb",
+          instagramId: "ig2",
+          instagramPostedEventIds: ["a", "b"],
+          instagramIds: ["ig1", "ig2"],
+        }),
+        "2026-08-21",
+      ),
+      "reuse",
+    );
+  });
+
+  it("resumes when some Instagram event posts are still missing", () => {
+    const now = 1_000_000;
+    assert.equal(
+      decideSpotlightLockAction(
+        lock({
+          eventIds: ["a", "b"],
+          facebookId: "fb",
+          instagramId: "ig1",
+          instagramPostedEventIds: ["a"],
+          instagramIds: ["ig1"],
+          stepLockUntil: now - 1,
+        }),
+        "2026-08-21",
+        now,
+      ),
+      "resume",
+    );
+  });
+
   it("reuses Facebook-only when Instagram was not requested", () => {
     assert.equal(
       decideSpotlightLockAction(
@@ -159,23 +194,30 @@ describe("lockRecordForWrite", () => {
     assert.deepEqual(doc.eventIds, ["a"]);
   });
 
-  it("keeps ids and carousel state that are present", () => {
+  it("keeps ids and in-flight Instagram container state that are present", () => {
     const doc = lockRecordForWrite(
       lock({
         facebookId: "fb",
         instagramId: "ig",
-        instagramChildIds: ["c1", "c2"],
-        instagramParentId: "p1",
+        instagramIds: ["ig"],
+        instagramPostedEventIds: ["a"],
+        instagramChildIds: ["c1"],
         caption: "Today on the North Coast.",
         stepLockUntil: 0,
       }),
     );
     assert.equal(doc.facebookId, "fb");
     assert.equal(doc.instagramId, "ig");
-    assert.deepEqual(doc.instagramChildIds, ["c1", "c2"]);
-    assert.equal(doc.instagramParentId, "p1");
+    assert.deepEqual(doc.instagramIds, ["ig"]);
+    assert.deepEqual(doc.instagramPostedEventIds, ["a"]);
+    assert.deepEqual(doc.instagramChildIds, ["c1"]);
     assert.equal(doc.caption, "Today on the North Coast.");
     assert.equal(doc.stepLockUntil, 0);
+  });
+
+  it("writes an empty Instagram child list so merge clears the container", () => {
+    const doc = lockRecordForWrite(lock({ instagramChildIds: [] }));
+    assert.deepEqual(doc.instagramChildIds, []);
   });
 });
 
@@ -237,13 +279,15 @@ describe("mergeSpotlightExclusions", () => {
       eventIds: ["ramen", "concert"],
       repeatKeys: ["venue:latin-wok"],
     });
-    const { excludeIds, excludeKeys } = mergeSpotlightExclusions(
+    const { excludeIds, excludeKeys, hardExcludeIds } = mergeSpotlightExclusions(
       scheduled,
       [specials],
       "2026-08-26",
     );
     assert.equal(excludeIds.includes("ramen"), true);
     assert.equal(excludeIds.includes("concert"), true);
+    assert.equal(hardExcludeIds.includes("ramen"), true);
+    assert.equal(hardExcludeIds.includes("concert"), true);
     assert.equal(excludeKeys.includes("venue:latin-wok"), false);
     assert.equal(excludeKeys.includes("venue:imbert"), false);
   });

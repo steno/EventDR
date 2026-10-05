@@ -50,7 +50,10 @@ export type TodaySpotlightEvent = {
 };
 
 export type TodayMetaPost = {
+  /** Facebook album caption listing every picked event. */
   caption: string;
+  /** One Instagram caption per event (parallel to `events`). */
+  eventCaptions: string[];
   link: string;
   imageUrl: string;
   imageUrls: string[];
@@ -80,6 +83,11 @@ export function spotlightRepeatKey(
 export type SpotlightPickOptions = {
   excludeIds?: Iterable<string>;
   excludeKeys?: Iterable<string>;
+  /**
+   * Never pick these ids — not even as fill. Used for same-day posts so an
+   * event already on Facebook/IG today is never repeated.
+   */
+  hardExcludeIds?: Iterable<string>;
   /** Pin this event first (cover image) when it is happening today. */
   featureEventId?: string;
   /** Manual specials post: only dated one-offs that start today. */
@@ -214,7 +222,11 @@ export function pickTodaySpotlights(
   const excludeKeys = new Set(
     [...(options.excludeKeys ?? [])].filter((key) => key.length > 0),
   );
+  const hardExcludeIds = new Set(
+    [...(options.hardExcludeIds ?? [])].filter((id) => id.length > 0),
+  );
   const open = events.filter((event) => {
+    if (hardExcludeIds.has(event.id)) return false;
     const status = getEventLiveStatus(event, now);
     if (SKIP_STATUSES.has(status)) return false;
     if (options.onlyTodaySpecials) return isSpecial(event);
@@ -231,7 +243,7 @@ export function pickTodaySpotlights(
   const usedCities = new Set<string>();
 
   const featuredId = options.featureEventId?.trim();
-  if (featuredId) {
+  if (featuredId && !hardExcludeIds.has(featuredId)) {
     const featured = open.find((event) => event.id === featuredId);
     if (featured) {
       picked.push(featured);
@@ -403,6 +415,29 @@ export function buildTodaySpotlightCaption(
   return lines.join("\n").trim();
 }
 
+/** One Instagram post per event — not a grouped carousel caption. */
+export function buildSingleEventSpotlightCaption(
+  event: TodaySpotlightEvent,
+  locale: Locale,
+  dateISO = localDateISO(),
+): string {
+  const bits = [displayTitle(event.title)];
+  const when = shortEventTime(event.time);
+  if (when) bits.push(when);
+  const place = shortPlace(event);
+  if (place) bits.push(place);
+  const lines = [
+    spotlightCaptionIntro(locale, dateISO),
+    "",
+    bits.join(" · "),
+    "",
+    `${MORE[locale]} ${displayUrl(event.url)}`,
+    "",
+    weekendMetaHashtags(),
+  ];
+  return lines.join("\n").trim();
+}
+
 function toSpotlightEvent(
   event: Event,
   locale: Locale,
@@ -438,10 +473,7 @@ export async function buildTodayMetaPost(
   }
 
   const events = picked.map((event) => toSpotlightEvent(event, locale, origin));
-  const imageUrls: string[] = [];
-  for (const event of events) {
-    if (!imageUrls.includes(event.imageUrl)) imageUrls.push(event.imageUrl);
-  }
+  const imageUrls = events.map((event) => event.imageUrl);
   const dateISO = localDateISO();
   const todayUrl = `${siteOrigin(origin)}/${locale}/when/today`;
 
@@ -449,6 +481,9 @@ export async function buildTodayMetaPost(
     ok: true,
     post: {
       caption: buildTodaySpotlightCaption(events, locale, todayUrl, dateISO),
+      eventCaptions: events.map((event) =>
+        buildSingleEventSpotlightCaption(event, locale, dateISO),
+      ),
       link: todayUrl,
       imageUrl: imageUrls[0] ?? defaultMetaImageUrl(origin),
       imageUrls,

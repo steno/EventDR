@@ -1,77 +1,21 @@
 import type { Locale } from "@/i18n/config";
 import type { Event } from "./types";
-import { formatEventPlace } from "./event-location";
-import { formatEventDateRange } from "./format-date";
+import {
+  CARD_H,
+  CARD_RADIUS,
+  CARD_W,
+  CARD_X,
+  CARD_Y,
+  IMAGE_H,
+  STORY_COLORS,
+  STORY_H,
+  STORY_W,
+  storyCardImageSrc,
+  storyCardMetaLine,
+  wrapTextLines,
+} from "./instagram-story-card-layout";
 
-const STORY_W = 1080;
-const STORY_H = 1920;
-const CARD_PAD = 72;
-const CARD_W = STORY_W - CARD_PAD * 2;
-const CARD_X = CARD_PAD;
-const CARD_Y = 300;
-const CARD_H = 1180;
-const CARD_RADIUS = 48;
-const IMAGE_H = 640;
-
-/** Same-origin (or /events|/og path) so the canvas is not tainted. */
-export function storyCardImageSrc(imageUrl?: string): string | null {
-  if (!imageUrl?.trim()) return null;
-  const raw = imageUrl.trim();
-  if (raw.startsWith("/")) return raw;
-  try {
-    const url = new URL(raw);
-    if (
-      url.pathname.startsWith("/events/") ||
-      url.pathname.startsWith("/og/") ||
-      url.pathname.startsWith("/venues/")
-    ) {
-      return `${url.pathname}${url.search}`;
-    }
-    if (typeof window !== "undefined" && url.origin === window.location.origin) {
-      return `${url.pathname}${url.search}`;
-    }
-  } catch {
-    return null;
-  }
-  return null;
-}
-
-export function wrapTextLines(
-  text: string,
-  maxCharsPerLine: number,
-  maxLines: number,
-): string[] {
-  const words = text.trim().split(/\s+/).filter(Boolean);
-  if (words.length === 0 || maxLines < 1) return [];
-
-  const lines: string[] = [];
-  let current = "";
-  for (const word of words) {
-    const next = current ? `${current} ${word}` : word;
-    if (next.length <= maxCharsPerLine) {
-      current = next;
-      continue;
-    }
-    if (current) lines.push(current);
-    current = word;
-    if (lines.length >= maxLines) {
-      current = "";
-      break;
-    }
-  }
-  if (current && lines.length < maxLines) lines.push(current);
-
-  if (lines.length === maxLines) {
-    const consumed = lines.join(" ");
-    const full = words.join(" ");
-    if (full.length > consumed.length) {
-      const last = lines[maxLines - 1] ?? "";
-      lines[maxLines - 1] =
-        last.length > 1 ? `${last.replace(/[.,;:–—-]?$/, "")}…` : "…";
-    }
-  }
-  return lines;
-}
+export { storyCardImageSrc, wrapTextLines } from "./instagram-story-card-layout";
 
 function loadImage(src: string): Promise<HTMLImageElement> {
   return new Promise((resolve, reject) => {
@@ -127,12 +71,12 @@ export async function buildInstagramStoryPreviewBlob(
   if (!ctx) return null;
 
   const bg = ctx.createLinearGradient(0, 0, STORY_W, STORY_H);
-  bg.addColorStop(0, "#f97316");
-  bg.addColorStop(1, "#be123c");
+  bg.addColorStop(0, STORY_COLORS.gradientFrom);
+  bg.addColorStop(1, STORY_COLORS.gradientTo);
   ctx.fillStyle = bg;
   ctx.fillRect(0, 0, STORY_W, STORY_H);
 
-  ctx.fillStyle = "rgba(255,255,255,0.92)";
+  ctx.fillStyle = STORY_COLORS.brand;
   ctx.font = "700 42px system-ui, sans-serif";
   ctx.textAlign = "center";
   ctx.fillText("POP Events", STORY_W / 2, 180);
@@ -142,7 +86,7 @@ export async function buildInstagramStoryPreviewBlob(
   ctx.shadowBlur = 36;
   ctx.shadowOffsetY = 18;
   roundedRect(ctx, CARD_X, CARD_Y, CARD_W, CARD_H, CARD_RADIUS);
-  ctx.fillStyle = "#fff7ed";
+  ctx.fillStyle = STORY_COLORS.card;
   ctx.fill();
   ctx.restore();
 
@@ -156,27 +100,21 @@ export async function buildInstagramStoryPreviewBlob(
       const img = await loadImage(imageSrc);
       drawCover(ctx, img, CARD_X, CARD_Y, CARD_W, IMAGE_H);
     } catch {
-      ctx.fillStyle = "#fed7aa";
+      ctx.fillStyle = STORY_COLORS.imageFallback;
       ctx.fillRect(CARD_X, CARD_Y, CARD_W, IMAGE_H);
     }
   } else {
-    ctx.fillStyle = "#fed7aa";
+    ctx.fillStyle = STORY_COLORS.imageFallback;
     ctx.fillRect(CARD_X, CARD_Y, CARD_W, IMAGE_H);
   }
 
-  ctx.fillStyle = "#fff7ed";
+  ctx.fillStyle = STORY_COLORS.card;
   ctx.fillRect(CARD_X, CARD_Y + IMAGE_H, CARD_W, CARD_H - IMAGE_H);
   ctx.restore();
 
-  const when = formatEventDateRange(event.date, locale, {
-    endDate: event.endDate,
-    short: true,
-  });
-  const meta = [when, event.time, formatEventPlace(event)]
-    .filter((part) => part && String(part).trim())
-    .join(" · ");
+  const meta = storyCardMetaLine(event, locale);
 
-  ctx.fillStyle = "#7c2d12";
+  ctx.fillStyle = STORY_COLORS.title;
   ctx.textAlign = "left";
   ctx.font = "800 52px system-ui, sans-serif";
   const titleLines = wrapTextLines(event.title, 28, 3);
@@ -187,7 +125,7 @@ export async function buildInstagramStoryPreviewBlob(
   }
 
   ctx.font = "600 36px system-ui, sans-serif";
-  ctx.fillStyle = "#9a3412";
+  ctx.fillStyle = STORY_COLORS.meta;
   const metaLines = wrapTextLines(meta, 36, 2);
   textY += 16;
   for (const line of metaLines) {
@@ -196,7 +134,7 @@ export async function buildInstagramStoryPreviewBlob(
   }
 
   ctx.font = "600 32px system-ui, sans-serif";
-  ctx.fillStyle = "#c2410c";
+  ctx.fillStyle = STORY_COLORS.site;
   ctx.fillText("pop-event.com", CARD_X + 48, CARD_Y + CARD_H - 48);
 
   return new Promise((resolve) => {

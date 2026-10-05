@@ -13,6 +13,14 @@ const ALLOWED_IMAGE_HOSTS = new Set([
   "popevent.netlify.app",
 ]);
 
+const ALLOWED_VIDEO_HOST_SUFFIXES = [
+  "firebasestorage.googleapis.com",
+  "firebasestorage.app",
+  "pop-event.com",
+  "www.pop-event.com",
+  "popevent.netlify.app",
+];
+
 export type MetaPostTarget = "facebook" | "instagram";
 
 export type MetaPostConfig = {
@@ -133,6 +141,29 @@ export function isAllowedMetaImageUrl(
     /* ignore */
   }
   return allowed.has(parsed.hostname.toLowerCase());
+}
+
+/** Instagram Reels video_url — Firebase Storage or site origin. */
+export function isAllowedMetaVideoUrl(
+  raw: string,
+  siteOrigin = SITE_URL,
+): boolean {
+  let parsed: URL;
+  try {
+    parsed = new URL(raw);
+  } catch {
+    return false;
+  }
+  if (parsed.protocol !== "https:") return false;
+  const host = parsed.hostname.toLowerCase();
+  try {
+    if (host === new URL(siteOrigin).hostname.toLowerCase()) return true;
+  } catch {
+    /* ignore */
+  }
+  return ALLOWED_VIDEO_HOST_SUFFIXES.some(
+    (suffix) => host === suffix || host.endsWith(`.${suffix}`),
+  );
 }
 
 export function clipMetaCaption(caption: string): string {
@@ -402,6 +433,57 @@ export async function createInstagramMediaContainers(
     return { ok: false, error: { message: "Instagram needs at least 1 image" } };
   }
   return { ok: true, ids };
+}
+
+/**
+ * Individual Instagram Reel (video). share_to_feed=false keeps it off the
+ * main feed — Reels tab only.
+ */
+export async function createInstagramReelContainer(
+  config: MetaPostConfig,
+  input: {
+    videoUrl: string;
+    caption: string;
+    coverUrl?: string;
+    shareToFeed?: boolean;
+  },
+  fetchImpl?: GraphFetch,
+): Promise<{ ok: true; id: string } | { ok: false; error: MetaGraphError }> {
+  if (!config.instagramAccountId) {
+    return {
+      ok: false,
+      error: { message: "META_INSTAGRAM_ACCOUNT_ID is not set" },
+    };
+  }
+  if (!isAllowedMetaVideoUrl(input.videoUrl)) {
+    return {
+      ok: false,
+      error: {
+        message:
+          "videoUrl must be HTTPS on Firebase Storage or pop-event.com (Meta fetches the file).",
+      },
+    };
+  }
+  const params: Record<string, string> = {
+    media_type: "REELS",
+    video_url: input.videoUrl,
+    caption: clipMetaCaption(input.caption),
+    share_to_feed: input.shareToFeed === true ? "true" : "false",
+  };
+  if (input.coverUrl && isAllowedMetaImageUrl(input.coverUrl)) {
+    params.cover_url = input.coverUrl;
+  }
+  const created = await metaGraphRequest<{ id?: string }>(
+    config,
+    `${config.instagramAccountId}/media`,
+    { method: "POST", params, fetchImpl },
+  );
+  if (!created.ok) return created;
+  const id = created.data.id;
+  if (!id) {
+    return { ok: false, error: { message: "Instagram Reel container missing id" } };
+  }
+  return { ok: true, id };
 }
 
 export async function readInstagramContainerStatuses(

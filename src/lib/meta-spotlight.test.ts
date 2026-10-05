@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import {
+  buildSingleEventSpotlightCaption,
   buildTodaySpotlightCaption,
   otherSpotlightChannel,
   pickTodaySpotlights,
@@ -586,6 +587,39 @@ describe("pickTodaySpotlights", () => {
       ["fresh", "recent"],
     );
   });
+
+  it("never fills with hard-excluded same-day events", () => {
+    const picked = pickTodaySpotlights(
+      [
+        event({
+          id: "already-posted",
+          title: "Special brunch",
+          date: "2026-08-20",
+          time: "11:00 AM",
+          location: "Sosúa",
+          category: "food-drinks",
+        }),
+        event({
+          id: "fresh",
+          title: "Open mic",
+          date: "2026-08-20",
+          time: "8:00 PM",
+          location: "Cabarete",
+          category: "music",
+        }),
+      ],
+      3,
+      NOW,
+      {
+        excludeIds: ["already-posted"],
+        hardExcludeIds: ["already-posted"],
+      },
+    );
+    assert.deepEqual(
+      picked.map((item) => item.id),
+      ["fresh"],
+    );
+  });
 });
 
 describe("spotlight channels", () => {
@@ -672,6 +706,28 @@ describe("buildTodaySpotlightCaption", () => {
       spotlightCaptionIntro("en", "2026-08-25"),
       spotlightCaptionIntro("en", "2026-08-26"),
     );
+  });
+});
+
+describe("buildSingleEventSpotlightCaption", () => {
+  it("captions one event with its detail URL", () => {
+    const caption = buildSingleEventSpotlightCaption(
+      {
+        id: "a",
+        title: "Viernes Locos",
+        time: "11:00 PM",
+        place: "Ground Zero, Sosúa",
+        url: "https://pop-event.com/en/event/a",
+        imageUrl: "https://pop-event.com/events/a.jpg",
+      },
+      "en",
+      "2026-08-20",
+    );
+    assert.match(caption, /What's on Thursday/);
+    assert.match(caption, /Viernes Locos · 11pm · Ground Zero/);
+    assert.doesNotMatch(caption, /•/);
+    assert.match(caption, /More at pop-event.com\/en\/event\/a/);
+    assert.match(caption, /#POPEvents/);
   });
 });
 
