@@ -63,6 +63,7 @@ const EVENT_PHONE_BY_ID: Record<string, string> = {
   "natura-market-moto-2026-09-19": "+18492147010",
   "natura-market-2026-10-04": "+18492147010",
   "natura-sunbar-sunset-sounds-em-zayd-2026-10-01": "+18492147010",
+  "natura-sunbar-sunset-sounds-hyper-2026-10-08": "+18492147010",
   "natura-cabana-jazz-ensemble-2026-10-03": "+18492147010",
   "latinwok-ramen-party-2026-09-17": "+18092612020",
   "tasty-food-park-karaoke-wednesday": "+18092042939",

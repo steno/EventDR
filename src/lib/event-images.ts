@@ -53,6 +53,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "festival-presidente-2026-10-03": "festival-presidente-2026-10-03.jpg",
   "ocean-winds-karaoke-nights": "ocean-winds-karaoke-amados.jpg",
   "ocean-world-daily": "ocean-world-daily.jpg",
+  "terraza-ocean-world-evenings": "terraza-ocean-world-evenings.jpg",
   "charcos-damajagua-daily": "charcos-damajagua-daily.jpeg",
   "el-choco-cave-tour-swimming-daily": "el-choco-cave-tour-swimming-daily.jpg",
   "taino-bay-village-daily": "taino-bay-village-daily.jpg",
@@ -117,6 +118,9 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "natura-sunbar-special-sunset-sounds-2026-09-24.jpg",
   "natura-sunbar-sunset-sounds-em-zayd-2026-10-01":
     "natura-sunbar-sunset-sounds-em-zayd-2026-10-01.jpg",
+  "natura-sunbar-sunset-sounds-hyper-2026-10-08":
+    "natura-sunbar-sunset-sounds-hyper-2026-10-08.jpg",
+  "disney-dream-taino-bay-2026-10-06": "disney-dream-taino-bay-2026-10-06.jpg",
   "natura-cabana-jazz-ensemble-2026-10-03":
     "natura-cabana-jazz-ensemble-2026-10-03.jpg",
   "kaovanny-natura-cabana-2026-09-26": "kaovanny-natura-cabana-2026-09-26.jpg",
@@ -635,6 +639,18 @@ const EVENT_GALLERY_SLIDES: Record<
   string,
   Array<{ file: string; venueSlug?: string; label?: string }>
 > = {
+  "terraza-ocean-world-evenings": [
+    {
+      file: "terraza-ocean-world-evenings.jpg",
+      venueSlug: "ocean-world",
+      label: "Sunset terrace",
+    },
+    {
+      file: "terraza-ocean-world-evenings-marina.jpg",
+      venueSlug: "ocean-world",
+      label: "Marina terrace setup",
+    },
+  ],
   "masters-surf-reunion-10-2026": [
     {
       file: "masters-surf-reunion-10-2026-fri-opening.jpg",
@@ -807,6 +823,8 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "el-cuarteto-terrible-zona-acapella-2026-09-27-flyer.jpg",
   "natura-sunbar-special-sunset-sounds-2026-09-24.jpg",
   "natura-sunbar-sunset-sounds-em-zayd-2026-10-01.jpg",
+  "natura-sunbar-sunset-sounds-hyper-2026-10-08.jpg",
+  "disney-dream-taino-bay-2026-10-06.jpg",
   "natura-cabana-jazz-ensemble-2026-10-03.jpg",
   "kaovanny-natura-cabana-2026-09-26.jpg",
   "vibes-night-live-voramar-2026-10-02-v2.jpg",
@@ -994,6 +1012,7 @@ const HOME_HERO_SCENE_FILES = new Set([
   "natura-cabana-yoga-daily.jpg",
   "nonas-grill-kitchen-entrance.jpg",
   "ocean-world-daily.jpg",
+  "terraza-ocean-world-evenings.jpg",
   "ojo-weekend-dj-parties.jpg",
   "outback-safari-daily.jpeg",
   "paella-pop-el-pueblito-pan-v2.jpg",

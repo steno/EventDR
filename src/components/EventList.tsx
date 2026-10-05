@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
-import type { Event, EventCategory } from "@/lib/types";
+import type { Event, EventCategory, Venue } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import type { TimeRange, FilterTimeRange } from "@/lib/filters";
@@ -37,10 +37,12 @@ import {
 import { EventListError } from "./EventListError";
 import { EventViewToggle } from "./EventViewToggle";
 import { SearchEmptyState, nothingHereTitle } from "./SearchEmptyState";
+import { SearchVenueHits } from "./SearchVenueHits";
 import { TimeFilter } from "./TimeFilter";
 import { ListScrollAnchor } from "./StickyListFilters";
 import { CARD_GRID_CLASS, SECTION_TITLE_CLASS } from "@/lib/page-shell";
 import { useEventListView } from "@/hooks/useEventListView";
+import type { EventListView } from "@/lib/event-list-view";
 import { NETWORK_ONLY_FETCH } from "@/lib/pwa-refresh";
 
 const EMPTY_EVENTS: Event[] = [];
@@ -81,6 +83,8 @@ interface EventListProps {
    * fetch `/api/events` (home bootstrap rails vs full catalog).
    */
   hydrateFullCatalog?: boolean;
+  /** Inset venue rows under the search heading (home search only). */
+  searchVenueHits?: Venue[];
 }
 
 export function EventList({
@@ -104,6 +108,7 @@ export function EventList({
   silent = false,
   initialEvents = EMPTY_EVENTS,
   hydrateFullCatalog = false,
+  searchVenueHits = [],
 }: EventListProps) {
   const listReturnTo =
     returnTo ?? (category ? categoryPath(locale, category) : `/${locale}`);
@@ -124,7 +129,21 @@ export function EventList({
   const skipMountFetch = useRef(
     initialEvents.length > 0 && !hydrateFullCatalog,
   );
-  const { view: listView, setView } = useEventListView();
+  const { view: preferredView, setView } = useEventListView();
+  const isSearching = searchQuery.trim().length > 0;
+  /** Search starts on compact list; browse keeps the stored cards/list preference. */
+  const [searchView, setSearchView] = useState<EventListView | null>(null);
+  useEffect(() => {
+    if (!isSearching) setSearchView(null);
+  }, [isSearching]);
+  const listView = isSearching ? (searchView ?? "list") : preferredView;
+  const setListView = useCallback(
+    (next: EventListView) => {
+      if (isSearching) setSearchView(next);
+      setView(next);
+    },
+    [isSearching, setView],
+  );
   const [gridRef, columns] = useCardGridColumns(listView === "cards");
 
   useEffect(() => {
@@ -260,7 +279,6 @@ export function EventList({
     [filtered, locale, dict],
   );
 
-  const isSearching = searchQuery.trim().length > 0;
   const eventCap =
     listView === "cards" && limit != null
       ? fillCardGridPage(visibleCount, displayEvents.length, columns)
@@ -301,13 +319,30 @@ export function EventList({
     return null;
   }
 
+  const searchVenueRows =
+    isSearching && searchVenueHits.length > 0 ? searchVenueHits : [];
+
   if (loading) {
     return (
       <div className="space-y-4">
-        <div className="flex items-center justify-between gap-2">
-          <div className="h-7 w-48 rounded bg-neutral-200 dark:bg-neutral-800 animate-pulse" />
-          <EventViewToggle value={listView} onChange={setView} dict={dict} />
+        <div className="flex items-start justify-between gap-2">
+          <div className="min-w-0">
+            {isSearching ? (
+              <h2 className={SECTION_TITLE_CLASS}>{dict.search.activeTitle}</h2>
+            ) : (
+              <div className="h-7 w-48 rounded bg-neutral-200 dark:bg-neutral-800 animate-pulse" />
+            )}
+          </div>
+          <EventViewToggle value={listView} onChange={setListView} dict={dict} />
         </div>
+        {searchVenueRows.length > 0 ? (
+          <SearchVenueHits
+            venues={searchVenueRows}
+            locale={locale}
+            title={dict.search.places}
+            embedded
+          />
+        ) : null}
         <div
           className={
             listView === "cards" ? `${CARD_GRID_CLASS} pt-3` : "space-y-2.5 pt-3"
@@ -350,9 +385,11 @@ export function EventList({
   const areaCity = citySlug ? getCityMeta(citySlug) : null;
   const areaLabel = areaCity ? getCityName(areaCity, locale) : null;
   const viewToggle = (
-    <EventViewToggle value={listView} onChange={setView} dict={dict} />
+    <EventViewToggle value={listView} onChange={setListView} dict={dict} />
   );
   const showToggleInHeading = !(showTimeFilter && onTimeRangeChange);
+  const hasSearchResults =
+    displayEvents.length > 0 || searchVenueRows.length > 0;
 
   return (
     <div className="space-y-4">
@@ -391,13 +428,13 @@ export function EventList({
         </>
       )}
 
-      {filtered.length === 0 ? (
-        isSearching ? (
-          <SearchEmptyState
-            title={dict.search.noResults}
-            hint={dict.search.noResultsHint}
-          />
-        ) : canSuggestTimeTab ? (
+      {isSearching && !hasSearchResults ? (
+        <SearchEmptyState
+          title={dict.search.noResults}
+          hint={dict.search.noResultsHint}
+        />
+      ) : filtered.length === 0 && !isSearching ? (
+        canSuggestTimeTab ? (
           <SearchEmptyState
             title={nothingHereTitle(dict, activeRange, {
               category: category ? dict.categories[category] : null,
@@ -417,8 +454,17 @@ export function EventList({
             </p>
           </div>
         )
-      ) : (
+      ) : hasSearchResults || filtered.length > 0 ? (
         <>
+          {searchVenueRows.length > 0 ? (
+            <SearchVenueHits
+              venues={searchVenueRows}
+              locale={locale}
+              title={dict.search.places}
+              embedded
+            />
+          ) : null}
+          {visibleEvents.length > 0 || showEndTeaser || hasMore ? (
           <div
             ref={listView === "cards" ? gridRef : undefined}
             className={
@@ -479,8 +525,9 @@ export function EventList({
               />
             ) : null}
           </div>
+          ) : null}
         </>
-      )}
+      ) : null}
     </div>
   );
 }

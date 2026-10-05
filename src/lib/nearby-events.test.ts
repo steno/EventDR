@@ -236,7 +236,7 @@ describe("findNearbyTonight", () => {
 
     const result = findNearbyTonight(
       blueJacktar,
-      [greenOne, senorRock, funCity],
+      [senorRock, funCity],
       { now: NOW },
     );
 

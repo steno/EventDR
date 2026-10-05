@@ -4566,5 +4566,61 @@
       "Café Ópera Código Clown"
     ],
     "imageEmoji": "🎭"
+  },
+  {
+    "id": "natura-sunbar-sunset-sounds-hyper-2026-10-08",
+    "title": "Sunset & Sounds — Guest DJ HYPER at SunBar",
+    "description": "Sunset & Sounds at SunBar, Natura Cabana, Paseo del Sol 5, Cabarete — Thursday 8 October 2026, 6:00–9:00 PM. Guest DJ HYPER (@hyper.dj), live DJ, cocktails, ocean vibes, and special extended happy hour. Weekly Thursday sunset series; this edition features HYPER. +1 849-214-7010 · naturacabana.com.",
+    "date": "2026-10-08",
+    "time": "6:00 PM – 9:00 PM",
+    "location": "Cabarete",
+    "venue": "Natura Cabana",
+    "venueSlug": "natura-cabana",
+    "address": "Paseo del Sol 5, Cabarete",
+    "lat": 19.7833499,
+    "lng": -70.4621124,
+    "category": "music",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18492147010",
+    "sourceType": "flyer",
+    "sourceUrl": "https://naturacabana.com/event/events-sunset-and-sounds-cabarete/",
+    "lineup": [
+      "HYPER"
+    ],
+    "imageEmoji": "🌅"
+  },
+  {
+    "id": "disney-dream-taino-bay-2026-10-06",
+    "title": "Disney Dream First Call at Taino Bay",
+    "description": "Puerto Plata’s first Disney Cruise Line call — Disney Dream arrives at Taino Bay on Tuesday 6 October 2026 (approx. 7:45 AM–5:15 PM). Destination milestone promoted by Puerto Plata Travel (“La magia llega por mar”). Cruise passengers use the pier village; the public can watch arrivals and sail-away from Fortaleza San Felipe and the Malecón. Confirm schedules on porttainobay.com — times subject to change.",
+    "date": "2026-10-06",
+    "time": "7:45 AM – 5:15 PM",
+    "location": "Puerto Plata",
+    "venue": "Taino Bay",
+    "venueSlug": "taino-bay",
+    "address": "Av. Antigua Vía Férrea, Muelle Turístico, Puerto Plata",
+    "lat": 19.8054,
+    "lng": -70.6965,
+    "category": "festivals",
+    "categories": [
+      "culture",
+      "adventure"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.porttainobay.com",
+    "lineup": [
+      "Disney Dream",
+      "Disney Cruise Line"
+    ],
+    "imageEmoji": "🚢"
   }
 ]

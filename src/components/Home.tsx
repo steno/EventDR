@@ -35,7 +35,7 @@ import {
   HOME_SEARCH_LIMIT,
   HOME_WEEKEND_LIMIT,
 } from "@/lib/home-layout";
-import { searchVenues } from "@/lib/filters";
+import { pickSearchVenueHits, searchEvents } from "@/lib/filters";
 import { PAGE_SHELL_CLASS } from "@/lib/page-shell";
 import {
   countEventsByCity,
@@ -108,10 +108,6 @@ const RestaurantWeekPromo = dynamic(() =>
 
 const CruiseDiscover = dynamic(() =>
   import("@/components/CruiseDiscover").then((m) => m.CruiseDiscover),
-);
-
-const SearchVenueHits = dynamic(() =>
-  import("@/components/SearchVenueHits").then((m) => m.SearchVenueHits),
 );
 
 const EventCard = dynamic(() =>
@@ -612,10 +608,18 @@ function HomeApp({
     deferredSearchQuery.trim() || searchQuery
   ).trim();
   const listSearchQuery = isSearching ? activeSearchQuery : "";
-  const venueHits = useMemo(() => {
+  const searchEventHitCount = useMemo(() => {
+    if (!isSearching || !activeSearchQuery) return 0;
+    return searchEvents(allEvents, activeSearchQuery).length;
+  }, [isSearching, allEvents, activeSearchQuery]);
+  const searchVenueHits = useMemo(() => {
     if (!isSearching || !activeSearchQuery) return [];
-    return searchVenues(venues, activeSearchQuery).slice(0, 6);
-  }, [isSearching, venues, activeSearchQuery]);
+    return pickSearchVenueHits(
+      venues,
+      activeSearchQuery,
+      searchEventHitCount,
+    );
+  }, [isSearching, venues, activeSearchQuery, searchEventHitCount]);
 
   return (
     <>
@@ -974,19 +978,12 @@ function HomeApp({
             </div>
           )}
 
-          {tab === "discover" && isSearching ? (
-            <SearchVenueHits
-              venues={venueHits}
-              locale={locale}
-              title={dict.search.places}
-            />
-          ) : null}
-
           {/* Keep catalog mounted across tabs so Saved can resolve before Discover remounts. */}
           <EventList
             locale={locale}
             dict={dict}
             searchQuery={listSearchQuery}
+            searchVenueHits={isSearching ? searchVenueHits : undefined}
             onEventsLoaded={handleEventsLoaded}
             refreshKey={refreshKey}
             onAddEvent={() => setSubmitOpen(true)}

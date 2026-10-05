@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 import {
+  pickSearchVenueHits,
   searchEvents,
   searchVenues,
   textMatchesSearchQuery,
@@ -52,6 +53,47 @@ describe("textMatchesSearchQuery", () => {
         "baseball",
       ),
       true,
+    );
+  });
+
+  it("matches terrace as a synonym of terraza", () => {
+    assert.equal(
+      textMatchesSearchQuery("Terraza Ocean World & Casino", "terrace"),
+      true,
+    );
+    assert.equal(
+      textMatchesSearchQuery("Ocean World Terrace Old School", "terraza"),
+      true,
+    );
+  });
+});
+
+describe("pickSearchVenueHits", () => {
+  const venues = [
+    {
+      slug: "grecialandia",
+      name: "Grecialandia",
+      city: "Puerto Plata",
+      description: "Panoramic terraces and pools",
+    },
+    {
+      slug: "ocean-world",
+      name: "Ocean World Adventure Park",
+      city: "Puerto Plata",
+      description: "Dolphins and marina terrace",
+    },
+  ];
+
+  it("caps venue rows when few events match", () => {
+    const hits = pickSearchVenueHits(venues, "terrace", 1);
+    assert.ok(hits.some((v) => v.slug === "grecialandia"));
+  });
+
+  it("drops description-only venues when many events match", () => {
+    const hits = pickSearchVenueHits(venues, "terrace", 5);
+    assert.equal(
+      hits.some((v) => v.slug === "grecialandia"),
+      false,
     );
   });
 });

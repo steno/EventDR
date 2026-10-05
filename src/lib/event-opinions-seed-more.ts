@@ -2835,6 +2835,43 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: "2026-09-30T12:00:00.000Z",
   },
   {
+    eventId: "natura-sunbar-sunset-sounds-hyper-2026-10-08",
+    body: "Thursday SunBar sunset with guest DJ HYPER and extended happy hour — Perla Marina / Cabarete ocean deck, not a Cabarete strip club night; come for cocktails at golden hour.",
+    localized: {
+      es: "Atardecer de jueves en SunBar con guest DJ HYPER y happy hour extendido — terraza océano Perla Marina / Cabarete, no un club de la strip; ven por cócteles a la hora dorada.",
+      fr: "Sunset du jeudi au SunBar avec guest DJ HYPER et happy hour prolongé — terrasse océan Perla Marina / Cabarete, pas un club de la strip ; venez pour les cocktails à l’heure dorée.",
+    },
+    priceFeel: "moderate",
+    priceNote: "No cover on flyer — cocktails/happy hour; +1 849-214-7010",
+    priceNoteLocalized: {
+      es: "Sin cover en el flyer — cócteles/happy hour; +1 849-214-7010",
+      fr: "Pas de cover sur l’affiche — cocktails/happy hour ; +1 849-214-7010",
+    },
+    attribution: "POP research · SunBar Sunset & Sounds HYPER flyer",
+    researchNotes:
+      "Editor flyer + naturacabana.com: Thu 8 Oct 2026 6–9 PM SunBar Guest DJ HYPER (@hyper.dj), special extended happy hour; weekly Thursday Sunset & Sounds series.",
+    updatedAt: "2026-10-05T18:00:00.000Z",
+  },
+  {
+    eventId: "disney-dream-taino-bay-2026-10-06",
+    body: "First Disney Cruise Line call at Taino Bay — watch arrival and sail-away from Fortaleza / Malecón if you’re shore-side; the pier village stays cruise-passenger only, so don’t plan a public day pass.",
+    localized: {
+      es: "Primera escala de Disney Cruise Line en Taíno Bay — mira la llegada y la zarpa desde Fortaleza / Malecón si estás en tierra; el pueblo del muelle sigue solo para pasajeros de crucero, no planifiques pase de día público.",
+      fr: "Première escale Disney Cruise Line à Taino Bay — regardez l’arrivée et le départ depuis Fortaleza / Malecón si vous êtes à terre ; le village du quai reste réservé aux passagers, ne comptez pas sur un day pass public.",
+    },
+    priceFeel: "free",
+    priceNote:
+      "Free to watch from Fortaleza/Malecón — pier village cruise passengers only",
+    priceNoteLocalized: {
+      es: "Gratis desde Fortaleza/Malecón — pueblo del muelle solo pasajeros de crucero",
+      fr: "Gratuit depuis Fortaleza/Malecón — village du quai réservé aux passagers",
+    },
+    attribution: "POP research · Puerto Plata Travel Disney Dream flyer + MITUR Oct 2026 slate",
+    researchNotes:
+      "Editor Puerto Plata Travel flyer: La magia llega por mar / primera visita Disney Dream 6 oct 2026 Taíno Bay; cruise.ts datedCall 7:45–17:15; post confirms first Disney Cruise Line visit tomorrow.",
+    updatedAt: "2026-10-05T19:00:00.000Z",
+  },
+  {
     eventId: "natura-cabana-jazz-ensemble-2026-10-03",
     body: "Sosua Jazz Collective on Natura’s Saturday 7–9:30 PM live slot — book a table like the flyer; dinner-show pace at the boutique restaurant, not a late Cabarete disco run.",
     localized: {

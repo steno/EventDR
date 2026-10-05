@@ -11,17 +11,33 @@ interface SearchVenueHitsProps {
   venues: Venue[];
   locale: Locale;
   title: string;
+  /** Inset under a single "Search results" heading (no second section title). */
+  embedded?: boolean;
 }
 
 /** Compact venue rows shown above event search results. */
-export function SearchVenueHits({ venues, locale, title }: SearchVenueHitsProps) {
+export function SearchVenueHits({
+  venues,
+  locale,
+  title,
+  embedded = false,
+}: SearchVenueHitsProps) {
   if (venues.length === 0) return null;
 
   return (
-    <section className="mb-6" aria-label={title}>
-      <h2 className={`mb-3 ${SECTION_TITLE_CLASS} tracking-tight`}>
-        {title}
-      </h2>
+    <section
+      className={embedded ? "pb-1" : "mb-6"}
+      aria-label={title}
+    >
+      {embedded ? (
+        <p className="mb-2 text-xs font-bold uppercase tracking-wide text-neutral-500 dark:text-neutral-400">
+          {title}
+        </p>
+      ) : (
+        <h2 className={`mb-3 ${SECTION_TITLE_CLASS} tracking-tight`}>
+          {title}
+        </h2>
+      )}
       <ul className="space-y-2">
         {venues.map((venue) => (
           <li key={venue.slug}>

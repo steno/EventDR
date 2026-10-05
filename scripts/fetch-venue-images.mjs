@@ -241,7 +241,7 @@ const VENUE_SOURCES = [
     url: "https://www.shop.oceanworld.net/wp-content/uploads/2017/03/dolphin-encounter-local.jpeg",
   },
   // ocean-world-park.jpg — Wikimedia visitor photo of the Cofresí park building.
-  // terraza-ocean-world-evenings inherits the venue place shot.
+  // terraza-ocean-world-evenings uses curated terrace shots (sunset + marina setup).
   // playa-cofresi-beach.jpg — Maps daytime public shore + Ocean World sign.
   // Event is cofresi-beach-sunset-walk.jpg (Maps sunset on this bay). Do not remote-refresh.
   // laguna-sov-kids-park.jpg — Google Maps Laguna SOV kids water-park photo (committed).

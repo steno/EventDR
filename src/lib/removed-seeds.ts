@@ -59,8 +59,6 @@ export const REMOVED_SEED_EVENT_IDS = new Set([
   "natura-cabana-sunset-sounds-thursday",
   // Generic weekly slot — prefer dated named-artist Saturday nights from Natura calendar.
   "natura-cabana-saturday-live",
-  // Thin listing-only Guest DJ HYPER night — no flyer; drop until Natura posts art.
-  "natura-sunbar-sunset-sounds-hyper-2026-10-08",
   // Removed per editor — Congreso de Damas ADN 2026 (Gran Ventana).
   "congreso-damas-adn-2026",
   // Unverified weekly — no source URL; Chill & Grill bingo/karaoke stay seeded.

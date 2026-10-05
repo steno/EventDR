@@ -647,6 +647,14 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     phone: "+18492147010",
     venueSlug: "natura-cabana",
   },
+  "natura-sunbar-sunset-sounds-hyper-2026-10-08": {
+    phone: "+18492147010",
+    venueSlug: "natura-cabana",
+  },
+  "disney-dream-taino-bay-2026-10-06": {
+    isFree: true,
+    venueSlug: "taino-bay",
+  },
   "natura-cabana-jazz-ensemble-2026-10-03": {
     phone: "+18492147010",
     venueSlug: "natura-cabana",

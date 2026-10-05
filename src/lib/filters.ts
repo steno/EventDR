@@ -249,6 +249,7 @@ const SEARCH_SYNONYM_GROUPS: readonly (readonly string[])[] = [
   ["workshop", "taller"],
   ["comedy", "comedia"],
   ["theater", "theatre", "teatro"],
+  ["terrace", "terraza", "terrasse"],
 ];
 
 /** Localized category labels so `deportes` finds `category: "sports"`. */
@@ -483,4 +484,34 @@ export function searchVenues<
     };
     return score(a) - score(b);
   });
+}
+
+const SEARCH_VENUE_DISPLAY_MAX = 4;
+const SEARCH_VENUE_DISPLAY_MAX_WITH_EVENTS = 2;
+/** When at least this many events match, drop description-only venue hits. */
+const SEARCH_VENUE_STRONG_EVENT_THRESHOLD = 3;
+
+/**
+ * Venue rows for home search — ranked like {@link searchVenues}, capped, and
+ * trimmed when many events already match (avoids "terraces" burying Terraza nights).
+ */
+export function pickSearchVenueHits<
+  T extends {
+    name: string;
+    city: string;
+    slug: string;
+    description?: string;
+  },
+>(venues: T[], query: string, eventHitCount: number): T[] {
+  const q = query.trim();
+  if (!q) return [];
+  const hits = searchVenues(venues, q);
+  if (eventHitCount < SEARCH_VENUE_STRONG_EVENT_THRESHOLD) {
+    return hits.slice(0, SEARCH_VENUE_DISPLAY_MAX);
+  }
+  const nameOrSlug = hits.filter((v) => {
+    const hay = [v.name, v.slug.replace(/-/g, " ")].join("\n");
+    return textMatchesSearchQuery(hay, q);
+  });
+  return nameOrSlug.slice(0, SEARCH_VENUE_DISPLAY_MAX_WITH_EVENTS);
 }

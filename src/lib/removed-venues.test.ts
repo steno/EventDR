@@ -22,8 +22,8 @@ describe("removed venues", () => {
         "cowork-cabarete",
         "freestyle-catamaran",
         "grecialand",
-        "parque-de-beisbol-jose-briceno",
         "paella-pop-green-one",
+        "parque-de-beisbol-jose-briceno",
         "rafaella-s-studio",
       ],
     );

@@ -275,6 +275,9 @@ const FILE_TO_EVENT_ID = {
     "natura-cabana-jazz-ensemble-2026-10-03",
   "natura-sunbar-sunset-sounds-em-zayd-2026-10-01.jpg":
     "natura-sunbar-sunset-sounds-em-zayd-2026-10-01",
+  "natura-sunbar-sunset-sounds-hyper-2026-10-08.jpg":
+    "natura-sunbar-sunset-sounds-hyper-2026-10-08",
+  "disney-dream-taino-bay-2026-10-06.jpg": "disney-dream-taino-bay-2026-10-06",
   "natura-market-2026-10-04.jpg": "natura-market-2026-10-04",
   "licor-lab-car-show-2026-10-10.jpg": "licor-lab-car-show-2026-10-10",
   "nueve-bingo-friday.jpg": "nueve-bingo-friday",
@@ -352,6 +355,8 @@ const FILE_TO_EVENT_ID = {
   "espadrillas.jpeg": "ingest-make-authentic-espadrilles-in-puerto-plata",
   "feriaartesanal.jpg": "feria-artesanal-verano-2026",
   "ocean-world-daily.jpg": "ocean-world-daily",
+  "terraza-ocean-world-evenings.jpg": "terraza-ocean-world-evenings",
+  "terraza-ocean-world-evenings-marina.jpg": "terraza-ocean-world-evenings",
   "Damajagua.jpeg": "charcos-damajagua-daily",
   // Filename bump — Wikimedia ramparts + visitors (not the tiny aerial clone).
   "fortaleza-san-felipe-ramparts.jpg": "fortaleza-san-felipe-ramparts",
