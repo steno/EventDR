@@ -1,4 +1,4 @@
-import type { EventCategory } from "@/lib/types";
+import type { AgeHint, EventCategory } from "@/lib/types";
 import type { TimeRange } from "@/lib/filters";
 
 export type AppTab = "discover" | "saved" | "submit";
@@ -259,6 +259,8 @@ export type Dictionary = {
     paidAdmission: string;
     paidAdmissionUnknown: string;
     admissionVaries: string;
+    /** Sparse age policy chip when the source states it. */
+    ageHint: Record<AgeHint, string>;
     call: string;
     close: string;
     shared: string;
@@ -908,6 +910,12 @@ export const en: Dictionary = {
     paidAdmission: "Admission: {price}",
     paidAdmissionUnknown: "Paid admission",
     admissionVaries: "Admission varies by show",
+    ageHint: {
+      "all-ages": "All ages",
+      family: "Family-friendly",
+      "18-plus": "18+",
+      "21-plus": "21+",
+    },
     call: "Call",
     close: "Close",
     shared: "Shared!",

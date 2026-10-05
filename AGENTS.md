@@ -18,7 +18,7 @@ For Instagram—the primary source for many DR event flyers—run skill `pop-ins
 
 **Home “Recently added”:** when shipping any new seed event id (`fallback.*.json` or `recurring.*.json`), also add that id to `SEED_CREATED_AT` in `src/lib/seed-created-at.ts` (ISO noon UTC on the commit day; stagger hours for same-day batches when rail order matters — see `.cursor/rules/seed-recently-added.mdc`). The home rail filters on `createdAt` within 14 days — missing this map entry means the event page works but Recently added stays empty for that listing.
 
-**Editorial (required with every new seed):** add a unique POP event opinion (`event-opinions-seed.ts` / `event-opinions-seed-more.ts`). For any **new** venue, also add tip + assessment (`venue-assessment-tips.ts` + `venue-assessments-seed.ts`). Rule: `.cursor/rules/seed-recently-added.mdc`.
+**Editorial (required with every new seed):** add a unique POP event opinion (`event-opinions-seed.ts` / `event-opinions-seed-more.ts`). For any **new** venue, also add tip + assessment (`venue-assessment-tips.ts` + `venue-assessments-seed.ts`). When the source explicitly states age policy (18+/21+, adults-only, kids pricing, family fest, etc.), set sparse `ageHint` on the event (same value EN/ES/FR); omit when unknown — never infer from nightlife or category. Rule: `.cursor/rules/seed-recently-added.mdc`.
 
 **POP Cinemas cartelera:** one seed per week (`pop-cinemas-week-YYYY-MM-DD`, Thursday start), never per film/showtime. List films in `description` + `lineup` text; use the venue place shot as hero (not a schedule collage). Rule: `.cursor/rules/pop-cinemas-weekly.mdc`.
 

@@ -1,4 +1,5 @@
 import type { Event } from "@/lib/types";
+import { normalizeAgeHint } from "@/lib/age-hint";
 
 export type DuplicateMatch = {
   id: string;
@@ -144,6 +145,7 @@ export function mergeIngestIntoExisting(
     isFree: incoming.isFree ?? existing.isFree,
     admissionPrice: incoming.admissionPrice ?? existing.admissionPrice,
     callForPricing: incoming.callForPricing ?? existing.callForPricing,
+    ageHint: normalizeAgeHint(incoming.ageHint) ?? existing.ageHint,
     sourceType: incoming.sourceType ?? existing.sourceType,
     lat: incoming.lat ?? existing.lat,
     lng: incoming.lng ?? existing.lng,

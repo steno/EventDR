@@ -250,6 +250,12 @@ export const es: Dictionary = {
     paidAdmission: "Entrada: {price}",
     paidAdmissionUnknown: "Entrada de pago",
     admissionVaries: "Entrada según el espectáculo",
+    ageHint: {
+      "all-ages": "Todas las edades",
+      family: "Familiar",
+      "18-plus": "18+",
+      "21-plus": "21+",
+    },
     call: "Llamar",
     close: "Cerrar",
     shared: "¡Compartido!",

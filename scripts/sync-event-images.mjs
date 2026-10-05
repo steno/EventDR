@@ -260,6 +260,16 @@ const FILE_TO_EVENT_ID = {
     "cigar-town-karaoke-ladies-night-2026-09-19",
   "cigar-town-martes-sensorial.jpg": "cigar-town-martes-sensorial",
   "voyvoy-saturday-session-bay.jpg": "voyvoy-saturday-session-bay",
+  "voyvoy-soft-reopening-sunset-2026-10-09.jpg":
+    "voyvoy-soft-reopening-sunset-2026-10-09",
+  "voyvoy-soft-reopening-saturday-2026-10-10.jpg":
+    "voyvoy-soft-reopening-saturday-2026-10-10",
+  "voyvoy-soft-reopening-sunday-2026-10-11.jpg":
+    "voyvoy-soft-reopening-sunday-2026-10-11",
+  "voyvoy-dominican-night-flow-dance-2026-10-27.jpg":
+    "voyvoy-dominican-night-flow-dance-2026-10-27",
+  "voyvoy-halloween-session-2026-10-31.jpg":
+    "voyvoy-halloween-session-2026-10-31",
   "aura-beach-club-lunes-especiales.jpg": "aura-beach-club-lunes-especiales",
   "aura-beach-club-miercoles-margaritas.jpg":
     "aura-beach-club-miercoles-margaritas",

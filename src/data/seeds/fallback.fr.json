@@ -1,23 +1,5 @@
 [
   {
-    "id": "voyvoy-saturday-session",
-    "title": "Saturday Session à VOYVOY",
-    "description": "Saturday Session à VOYVOY Cabarete — DJs invités, ambiance dance club face à la baie, sans cover dès 21 h. Ouvert le samedi jusqu'à 3 h.",
-    "date": "2026-07-11",
-    "time": "9:00 PM – 3:00 AM",
-    "location": "Cabarete",
-    "venue": "VOYVOY Cabarete",
-    "venueSlug": "voyvoy-cabarete",
-    "category": "parties",
-    "format": "physical",
-    "recurrence": "weekly",
-    "recurrenceDay": 6,
-    "isFree": true,
-    "sourceType": "instagram",
-    "sourceUrl": "https://www.instagram.com/voyvoybar/",
-    "imageEmoji": "🪩"
-  },
-  {
     "id": "la-chabola-wednesday-open-mic",
     "title": "Open mic du mercredi à La Chabola",
     "description": "Open mic le mercredi à La Chabola, Callejón de la Loma, Cabarete — musiciens locaux, pizza au four à pierre et ambiance de quartier. Montez sur scène ou écoutez ; de la fin d'après-midi jusqu'à la nuit.",
@@ -714,7 +696,8 @@
     "isFree": true,
     "phone": "+18095866125",
     "sourceUrl": "https://puertoplatadigital.com/deportes/puerto-plata-beach-soccer-regresa-con-su-segunda-edicion-del-21-al-23-de-agosto-en-sosua",
-    "imageEmoji": "⚽"
+    "imageEmoji": "⚽",
+    "ageHint": "family"
   },
   {
     "id": "sosua-10k-road-race-2026",
@@ -735,7 +718,8 @@
     "phone": "+18095712100",
     "sourceUrl": "https://sea-horse-ranch.com/sosua-10k-road-race/",
     "ticketUrl": "https://www.sdctickets.do/detail/479",
-    "imageEmoji": "🏃"
+    "imageEmoji": "🏃",
+    "ageHint": "family"
   },
   {
     "id": "puerto-plata-poker-experience-2026",
@@ -805,7 +789,8 @@
     "lineup": [
       "Acid Pauli"
     ],
-    "imageEmoji": "🎧"
+    "imageEmoji": "🎧",
+    "ageHint": "18-plus"
   },
   {
     "id": "womens-reconnection-kite-camp-2026",
@@ -1263,7 +1248,8 @@
     ],
     "imageEmoji": "🪗",
     "title": "Dewry Luciano — Domingo Típico",
-    "description": "Típico à l'accordéon avec Dewry Luciano au Zona Acapella Club, Malecón de Puerto Plata (Cuarto de Milla / Playa Acapulco) — dimanche 23 août, 18+. Entrée et parking gratuits. WhatsApp +1 829 726 0344 · @acapella.pop."
+    "description": "Típico à l'accordéon avec Dewry Luciano au Zona Acapella Club, Malecón de Puerto Plata (Cuarto de Milla / Playa Acapulco) — dimanche 23 août, 18+. Entrée et parking gratuits. WhatsApp +1 829 726 0344 · @acapella.pop.",
+    "ageHint": "18-plus"
   },
   {
     "id": "pop-cinemas-week-2026-08-20",
@@ -1661,7 +1647,8 @@
     "lineup": [
       "El Cuarteto del Swing"
     ],
-    "imageEmoji": "🪗"
+    "imageEmoji": "🪗",
+    "ageHint": "18-plus"
   },
   {
     "id": "cabarete-run-festival-5k-2026-11-08",
@@ -1767,7 +1754,8 @@
     "phone": "+18495057778",
     "sourceType": "instagram",
     "sourceUrl": "https://www.instagram.com/p/DcrPAJkp8m9/",
-    "imageEmoji": "🏠"
+    "imageEmoji": "🏠",
+    "ageHint": "family"
   },
   {
     "id": "tasty-food-park-show-de-magia-2026-09-13",
@@ -1952,7 +1940,8 @@
     "phone": "+18092617393",
     "sourceType": "instagram",
     "sourceUrl": "https://www.instagram.com/teatroivangarcia/",
-    "imageEmoji": "🎭"
+    "imageEmoji": "🎭",
+    "ageHint": "family"
   },
   {
     "id": "ocean-world-terrace-la-fiera-tipica-2026-09-18",
@@ -2141,7 +2130,8 @@
     "admissionPrice": "Enfants RD$150 (tenue 80s)",
     "sourceType": "instagram",
     "sourceUrl": "https://www.instagram.com/spotlandrd/",
-    "imageEmoji": "🕺"
+    "imageEmoji": "🕺",
+    "ageHint": "family"
   },
   {
     "id": "cisco-vengo-social-heartz-aura-2026-09-25",
@@ -2509,7 +2499,8 @@
       "Elías Serulle",
       "Starlyn"
     ],
-    "imageEmoji": "🎤"
+    "imageEmoji": "🎤",
+    "ageHint": "18-plus"
   },
   {
     "id": "hard-rock-the-king-mj-2026-09-19",
@@ -3340,7 +3331,8 @@
       "Banda Modelo",
       "Pedrito Reynoso"
     ],
-    "imageEmoji": "🐄"
+    "imageEmoji": "🐄",
+    "ageHint": "family"
   },
   {
     "id": "nueve-80s-90s-por-siempre-2026-10-10",
@@ -3418,7 +3410,8 @@
       "Deja New",
       "Cool Rock Blues"
     ],
-    "imageEmoji": "🎤"
+    "imageEmoji": "🎤",
+    "ageHint": "18-plus"
   },
   {
     "id": "kaovanny-agua-el-carey-2026-10-02",
@@ -4620,5 +4613,145 @@
       "Disney Cruise Line"
     ],
     "imageEmoji": "🚢"
+  },
+  {
+    "id": "voyvoy-soft-reopening-sunset-2026-10-09",
+    "title": "Soft reopening VOYVOY — Sunset Session",
+    "description": "Sunset Session soft reopening au VOYVOY Cabarete le vendredi 9 octobre 2026 dès 17 h — Luis De La Cruz aux platines, sans cover. Première soirée de retour face à la baie après la pause ; boissons et dîner comme d’habitude. Instagram @voyvoybar · +1 809-571-0805.",
+    "date": "2026-10-09",
+    "time": "5:00 PM – 11:00 PM",
+    "location": "Cabarete",
+    "venue": "VOYVOY Cabarete",
+    "venueSlug": "voyvoy-cabarete",
+    "lat": 19.7502161,
+    "lng": -70.4066784,
+    "category": "music",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "phone": "+18095710805",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/voyvoybar/",
+    "lineup": [
+      "Luis De La Cruz"
+    ],
+    "imageEmoji": "🌅"
+  },
+  {
+    "id": "voyvoy-soft-reopening-saturday-2026-10-10",
+    "title": "Soft reopening VOYVOY — Saturday Session",
+    "description": "Saturday Session soft reopening au VOYVOY Cabarete le samedi 10 octobre 2026 dès 21 h — Fabrizio Paolucci, Andrew Encarnación et Zeoxx, sans cover. Énergie dance club face à la baie pour le premier samedi de retour ; ouvert jusqu’à 3 h. Instagram @voyvoybar · +1 809-571-0805.",
+    "date": "2026-10-10",
+    "time": "9:00 PM – 3:00 AM",
+    "location": "Cabarete",
+    "venue": "VOYVOY Cabarete",
+    "venueSlug": "voyvoy-cabarete",
+    "lat": 19.7502161,
+    "lng": -70.4066784,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "phone": "+18095710805",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/voyvoybar/",
+    "lineup": [
+      "Fabrizio Paolucci",
+      "Andrew Encarnación",
+      "Zeoxx"
+    ],
+    "imageEmoji": "🪩"
+  },
+  {
+    "id": "voyvoy-soft-reopening-sunday-2026-10-11",
+    "title": "Soft reopening VOYVOY — Sunday Session",
+    "description": "Sunday Session soft reopening au VOYVOY Cabarete le dimanche 11 octobre 2026 dès 17 h — Luis De La Cruz, sans cover. Session après-midi–soirée face à la baie pour clôturer le week-end soft reopening. Instagram @voyvoybar · +1 809-571-0805.",
+    "date": "2026-10-11",
+    "time": "5:00 PM – 11:00 PM",
+    "location": "Cabarete",
+    "venue": "VOYVOY Cabarete",
+    "venueSlug": "voyvoy-cabarete",
+    "lat": 19.7502161,
+    "lng": -70.4066784,
+    "category": "music",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "phone": "+18095710805",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/voyvoybar/",
+    "lineup": [
+      "Luis De La Cruz"
+    ],
+    "imageEmoji": "🌴"
+  },
+  {
+    "id": "voyvoy-dominican-night-flow-dance-2026-10-27",
+    "title": "Dominican Night VOYVOY — Flow Dance",
+    "description": "Dominican Night au VOYVOY Cabarete le mardi 27 octobre 2026 dès 19 h — présenté par Flow Dance. Énergie merengue/bachata face à la baie ; confirmez le cover et les détails via Instagram @voyvoybar ou +1 809-571-0805.",
+    "date": "2026-10-27",
+    "time": "7:00 PM – 11:00 PM",
+    "location": "Cabarete",
+    "venue": "VOYVOY Cabarete",
+    "venueSlug": "voyvoy-cabarete",
+    "lat": 19.7502161,
+    "lng": -70.4066784,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18095710805",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/voyvoybar/",
+    "lineup": [
+      "Flow Dance"
+    ],
+    "imageEmoji": "🇩🇴"
+  },
+  {
+    "id": "voyvoy-halloween-session-2026-10-31",
+    "title": "Halloween Session au VOYVOY",
+    "description": "Halloween Session au VOYVOY Cabarete le samedi 31 octobre 2026, 21 h–3 h — Jordy Sánchez, Yorjan, Ale Álvarez et Eduardo Peña. Soirée dance face à la baie, costumes bienvenus ; confirmez le cover via Instagram @voyvoybar ou +1 809-571-0805.",
+    "date": "2026-10-31",
+    "time": "9:00 PM – 3:00 AM",
+    "location": "Cabarete",
+    "venue": "VOYVOY Cabarete",
+    "venueSlug": "voyvoy-cabarete",
+    "lat": 19.7502161,
+    "lng": -70.4066784,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18095710805",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/voyvoybar/",
+    "lineup": [
+      "Jordy Sánchez",
+      "Yorjan",
+      "Ale Álvarez",
+      "Eduardo Peña"
+    ],
+    "imageEmoji": "🎃"
   }
 ]

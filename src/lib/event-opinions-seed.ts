@@ -79,24 +79,6 @@ export const SEED_EVENT_OPINIONS_BASE: EventOpinion[] = [
     updatedAt: AT,
   },
   {
-    eventId: "voyvoy-saturday-session",
-    seriesKey: "voyvoy-cabarete:weekly:6",
-    body: "Louder and later than Monday live — expect a standing crowd once it fills, and come ready to dance, not for a quiet meal.",
-    localized: {
-      es: "Más ruidoso y tarde que la música en vivo del lunes — espera público de pie cuando se llena; ven a bailar, no a cenar tranquilo.",
-      fr: "Plus fort et plus tard que le live du lundi — attendez-vous à une foule debout une fois plein ; venez danser, pas pour un dîner calme.",
-    },
-    priceFeel: "moderate",
-    priceNote: "No cover — spend is drinks; bayfront prices, not local-colmadón cheap",
-    priceNoteLocalized: {
-      es: "Sin cover — el gasto es en tragos; precios de bahía, no de colmado local",
-      fr: "Sans cover — le budget part en boissons ; tarifs baie, pas prix de quartier",
-    },
-    attribution: "POP research · event listing",
-    researchNotes: "Seed: no cover Saturday session.",
-    updatedAt: AT,
-  },
-  {
     eventId: "el-parq-karaoke-thursday",
     seriesKey: "el-parq-cabarete:weekly:4",
     body: "Bring cash for the food stalls — this is a casual sing-along crowd, not a polished stage show.",

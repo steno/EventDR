@@ -1,5 +1,5 @@
 ---
-description: New seeds require SEED_CREATED_AT, venue tip/assessment, and event opinion
+description: New seeds require SEED_CREATED_AT, venue tip/assessment, event opinion, and ageHint when stated
 globs: src/data/seeds/**/*.json,src/lib/seed-created-at.ts,src/lib/venues-seed.ts,src/lib/venues-i18n.ts,src/lib/fallback-events.ts,src/lib/recurring-events.ts,src/lib/venue-assessment-tips.ts,src/lib/venue-assessments-seed.ts,src/lib/event-opinions-seed.ts,src/lib/event-opinions-seed-more.ts
 alwaysApply: false
 ---
@@ -45,3 +45,13 @@ When only adding events at an **existing** venue, refresh the tip if the new nig
 4. **Compress editor-supplied images before commit** — JPEG max width **1200px**, mozjpeg quality ~**82–85** (same defaults as `scripts/optimize-venue-images.mjs` / sync `writeDest`). Do not check in multi‑MB phone dumps. Prefer compressing locally over waiting for CI optimize.
 5. **Filename bump on replace** — when swapping a curated event or venue hero, change the filename (`-v2`, descriptive suffix) and update `event-images.ts` / `venue-images.ts` (+ sync maps + attributions). PWA/detail heroes strip query cache-busts, so a new path is required.
 6. Also wire attributions, curated `isFree` / tickets / phone maps, and EN/ES/FR seed parity.
+
+## 5. Age hint (when the source states it)
+
+Optional `ageHint` on the event (`"all-ages" | "family" | "18-plus" | "21-plus"`). Detail pages show a quiet chip next to admission when set; omit when unknown.
+
+1. **Set it** when the flyer/source explicitly states age policy: ID check, `18+` / `21+`, adults-only, kids pricing, family fest / kids club / playground, children’s race, “not for kids”, etc.
+2. **Omit it** when age is unclear — do **not** infer from nightlife, alcohol, category (`parties`), or venue `crowdFit`. Same venue can be family lunch one night and club the next.
+3. **Do not** tag from “family-run”, “family history”, or soft “friends and family” / “familiar” atmosphere alone.
+4. Set the **same** `ageHint` on EN/ES/FR seed rows for that `id` (locale copy may differ; the enum must match).
+5. Type + labels live in `src/lib/types.ts` (`AgeHint`) and `dict.detail.ageHint` (en/es/fr).

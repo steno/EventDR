@@ -210,6 +210,45 @@ describe("applyActiveEditorialClosure", () => {
     );
   });
 
+  it("keeps VOYVOY soft-reopen and later named nights listable during the pause", () => {
+    const softReopen: {
+      id: string;
+      venueSlug: string;
+      temporarilyClosed?: boolean;
+    } = {
+      id: "voyvoy-soft-reopening-sunset-2026-10-09",
+      venueSlug: "voyvoy-cabarete",
+    };
+    const halloween: {
+      id: string;
+      venueSlug: string;
+      temporarilyClosed?: boolean;
+    } = {
+      id: "voyvoy-halloween-session-2026-10-31",
+      venueSlug: "voyvoy-cabarete",
+    };
+    const monday: {
+      id: string;
+      venueSlug: string;
+      temporarilyClosed?: boolean;
+    } = {
+      id: "voyvoy-monday-live-music",
+      venueSlug: "voyvoy-cabarete",
+    };
+    assert.equal(
+      applyActiveEditorialClosure(softReopen, "2026-10-05").temporarilyClosed,
+      undefined,
+    );
+    assert.equal(
+      applyActiveEditorialClosure(halloween, "2026-10-05").temporarilyClosed,
+      undefined,
+    );
+    assert.equal(
+      applyActiveEditorialClosure(monday, "2026-10-05").temporarilyClosed,
+      true,
+    );
+  });
+
   it("keeps Teleférico groundbreaking listable while the gondola rebuild stays closed", () => {
     const ceremony: {
       id: string;

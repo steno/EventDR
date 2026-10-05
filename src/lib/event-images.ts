@@ -149,7 +149,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "cabarete-run-festival-5k-2026-11-08": "cabarete-run-festival-5k-2026-11-08.jpg",
   "latinwok-ramen-party-2026-09-17": "latinwok-ramen-party-2026-09-17.jpg",
   "hard-rock-karaoke-wednesday": "hard-rock-karaoke-wednesday.jpg",
-  "sosua-neon-partyrun-2026-10-24": "sosua-neon-partyrun-2026-10-24.jpg",
+  // Filename bump — finisher medal hero (PWA strips ?v=; old flyer path stayed cached).
+  "sosua-neon-partyrun-2026-10-24": "sosua-neon-partyrun-2026-10-24-medal.jpg",
   "hard-rock-casa-mickey-2026-09-26": "hard-rock-casa-mickey-2026-09-26.jpg",
   "hard-rock-rising-segunda-ronda-2026-09-16":
     "hard-rock-rising-segunda-ronda-2026-09-16.jpg",
@@ -341,8 +342,16 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "liquid-blue-watersports-daily": "liquid-blue-watersports-daily.jpg",
 
   "voyvoy-monday-live-music": "voyvoy-monday-night-terrace.jpg",
-  // Filename bump — teal bay Story art (old DJ flyer was flyer.jpg; next/image caches by path).
-  "voyvoy-saturday-session": "voyvoy-saturday-session-bay.jpg",
+  "voyvoy-soft-reopening-sunset-2026-10-09":
+    "voyvoy-soft-reopening-sunset-2026-10-09.jpg",
+  "voyvoy-soft-reopening-saturday-2026-10-10":
+    "voyvoy-soft-reopening-saturday-2026-10-10.jpg",
+  "voyvoy-soft-reopening-sunday-2026-10-11":
+    "voyvoy-soft-reopening-sunday-2026-10-11.jpg",
+  "voyvoy-dominican-night-flow-dance-2026-10-27":
+    "voyvoy-dominican-night-flow-dance-2026-10-27.jpg",
+  "voyvoy-halloween-session-2026-10-31":
+    "voyvoy-halloween-session-2026-10-31.jpg",
   "womens-reconnection-kite-camp-2026": "womens-reconnection-kite-camp-2026.jpg",
   "kite-beach-wind-culture": "kite-beach-wind-culture.jpg",
   "puerto-plata-carnaval-2026": "puerto-plata-carnaval-2026.jpg",
@@ -825,6 +834,11 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "natura-sunbar-sunset-sounds-em-zayd-2026-10-01.jpg",
   "natura-sunbar-sunset-sounds-hyper-2026-10-08.jpg",
   "disney-dream-taino-bay-2026-10-06.jpg",
+  "voyvoy-soft-reopening-sunset-2026-10-09.jpg",
+  "voyvoy-soft-reopening-saturday-2026-10-10.jpg",
+  "voyvoy-soft-reopening-sunday-2026-10-11.jpg",
+  "voyvoy-dominican-night-flow-dance-2026-10-27.jpg",
+  "voyvoy-halloween-session-2026-10-31.jpg",
   "natura-cabana-jazz-ensemble-2026-10-03.jpg",
   "kaovanny-natura-cabana-2026-09-26.jpg",
   "vibes-night-live-voramar-2026-10-02-v2.jpg",
@@ -884,7 +898,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "restaurant-week-puerto-plata-2026-teaser.jpg",
   "rumble-in-paradise-13.png",
   "sosua-10k-road-race-2026.jpg",
-  "sosua-neon-partyrun-2026-10-24.jpg",
+  "sosua-neon-partyrun-2026-10-24-medal.jpg",
   "sunset-cabarete-sessions-2026.jpg",
   "sunset-night-party-playa-encuentro-2026-07-25.jpg",
   "super-mega-urban-fest-2026-11-04.jpg",

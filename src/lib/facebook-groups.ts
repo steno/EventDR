@@ -207,7 +207,9 @@ export function facebookGroupSearchQueries(): string[] {
 }
 
 const FACEBOOK_SEED_EVENT_IDS_BASE = [
-  "voyvoy-saturday-session",
+  "voyvoy-soft-reopening-saturday-2026-10-10",
+  "voyvoy-halloween-session-2026-10-31",
+  "voyvoy-dominican-night-flow-dance-2026-10-27",
   "la-chabola-wednesday-open-mic",
   "groundzero-domingos-pal-pueblo",
   "groundzero-viernes-locos",

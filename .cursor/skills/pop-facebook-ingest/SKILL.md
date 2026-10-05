@@ -91,8 +91,9 @@ For each **new** event:
    - When introducing a **new venue**, always add both venue seed + venue image
    - Policy: `public/events/ATTRIBUTIONS.md`
 7. **POP event opinion (required):** add a unique seed opinion for the new event `id` in `event-opinions-seed.ts` / `event-opinions-seed-more.ts` (EN body + ES/FR). Prefer Google Places / official research; if evidence is thin, write a cautious specific tip from verified schedule/venue facts — never a generic blurb, and never skip. Server ingest drafts (`eventOpinionDrafts`) are a backup for live crawls, not a substitute for seeding opinions on new seed events.
-8. **New venue tip + assessment (required when the venue is new):** add unique tip copy in `venue-assessment-tips.ts` (`VENUE_TIP_COPY`) and matching `editorial()` in `venue-assessments-seed.ts`. Refresh an existing tip only when new nights change the guest send.
-9. **Home Recently added (required):** add the new event `id` to `SEED_CREATED_AT` in `src/lib/seed-created-at.ts` (commit-day noon UTC). Without it, the event will not show on the home “Recently added” rail.
+8. **Age hint (when stated):** if the source explicitly states age policy (`18+`, `21+`, adults-only, kids pricing, family fest, “not for kids”, etc.), set the same `ageHint` on EN/ES/FR seeds. Omit when unknown — never infer from nightlife or category. See `.cursor/rules/seed-recently-added.mdc` §5.
+9. **New venue tip + assessment (required when the venue is new):** add unique tip copy in `venue-assessment-tips.ts` (`VENUE_TIP_COPY`) and matching `editorial()` in `venue-assessments-seed.ts`. Refresh an existing tip only when new nights change the guest send.
+10. **Home Recently added (required):** add the new event `id` to `SEED_CREATED_AT` in `src/lib/seed-created-at.ts` (commit-day noon UTC). Without it, the event will not show on the home “Recently added” rail.
 
 Do not mark seeding complete until opinion + `SEED_CREATED_AT` (and tip/assessment for new venues) are done. Full checklist: `.cursor/rules/seed-recently-added.mdc`.
 

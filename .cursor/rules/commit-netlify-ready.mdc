@@ -1,0 +1,30 @@
+---
+description: Pre-commit / pre-push checks so Netlify builds stay green
+alwaysApply: true
+---
+
+# Commit / push — Netlify ready
+
+When the user asks to **commit** and/or **push** (only then — do not commit unprompted; prefer localhost verify first per user rules):
+
+## Before commit
+
+1. **Typecheck:** `npm run typecheck` (`tsc --noEmit`) must pass. Fix any failures — including test files (they are in `tsconfig` include).
+2. **Unit tests:** `npm test` must pass. Do not push with known red tests.
+3. **Production build when shipping to main / Netlify:** run `npm run build` (same as `netlify.toml`). Fix failures before push.
+4. Do **not** treat repo-wide `npm run lint` noise (pre-existing react-hooks set-state-in-effect, etc.) as a block unless Netlify/`next build` fails or the errors are in files you touched and are clearly regressions.
+
+## Do not commit build churn
+
+`npm run build` regenerates assets — leave these out of the commit unless the user explicitly wants them:
+
+- `public/app-version.json`
+- Regenerated `public/favicon.png`, `public/icons/*`, `src/app/icon.png` / favicon from `generate-icons.mjs`
+- Sync **alias** copies under `public/events/` / `public/venues/` created only by `sync-event-images.mjs` from `-v2` / renamed sources (Netlify recreates these)
+- Opportunistic `popevent-images/` fetches unrelated to the change set
+
+**Do commit** curated heroes you added under `public/events/` + matching `popevent-images/` sources, seed/JSON/TS wiring, attributions, and sync **map entries** for those new files.
+
+## Commit message
+
+Follow repo style: concise why-focused message; HEREDOC for `git commit -m`. Push only when the user asked to push.

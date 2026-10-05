@@ -2872,6 +2872,96 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: "2026-10-05T19:00:00.000Z",
   },
   {
+    eventId: "voyvoy-soft-reopening-sunset-2026-10-09",
+    body: "First night back on the bay after the pause — Sunset Session with Luis De La Cruz from 5 PM, no cover; come for golden-hour drinks, not the late Saturday dance push.",
+    localized: {
+      es: "Primera noche de vuelta frente a la bahía tras la pausa — Sunset Session con Luis De La Cruz desde las 5 PM, sin cover; ven por tragos a la hora dorada, no por el baile tarde del sábado.",
+      fr: "Première soirée de retour face à la baie après la pause — Sunset Session avec Luis De La Cruz dès 17 h, sans cover ; venez pour les verres à l’heure dorée, pas la danse tardive du samedi.",
+    },
+    priceFeel: "moderate",
+    priceNote: "No cover — spend is drinks/dinner; bayfront prices",
+    priceNoteLocalized: {
+      es: "Sin cover — el gasto es tragos/cena; precios de bahía",
+      fr: "Sans cover — le budget part en boissons/dîner ; tarifs baie",
+    },
+    attribution: "POP research · VOYVOY soft reopen Sunset Session flyer",
+    researchNotes:
+      "Editor flyers: Soft Reopening Sunset Session Fri 9 Oct 2026 5 PM Luis De La Cruz; no cover; venue reopensOn 2026-10-09 after closed until 2026-10-08.",
+    updatedAt: "2026-10-05T20:00:00.000Z",
+  },
+  {
+    eventId: "voyvoy-soft-reopening-saturday-2026-10-10",
+    body: "First Saturday Session back — Fabrizio Paolucci, Andrew Encarnación, and Zeoxx from 9 PM with no cover; expect the louder dance crowd, not a quiet dinner table.",
+    localized: {
+      es: "Primer Saturday Session de vuelta — Fabrizio Paolucci, Andrew Encarnación y Zeoxx desde las 9 PM sin cover; espera el público de baile más fuerte, no una mesa de cena tranquila.",
+      fr: "Premier Saturday Session de retour — Fabrizio Paolucci, Andrew Encarnación et Zeoxx dès 21 h sans cover ; attendez-vous à la foule dance plus forte, pas une table de dîner calme.",
+    },
+    priceFeel: "moderate",
+    priceNote: "No cover — spend is drinks; bayfront prices until 3 AM",
+    priceNoteLocalized: {
+      es: "Sin cover — el gasto es en tragos; precios de bahía hasta las 3 AM",
+      fr: "Sans cover — le budget part en boissons ; tarifs baie jusqu’à 3 h",
+    },
+    attribution: "POP research · VOYVOY soft reopen Saturday Session flyer",
+    researchNotes:
+      "Editor flyer: Soft Reopening Saturday Session Sat 10 Oct 2026 9 PM Fabrizio Paolucci, Andrew Encarnación, Zeoxx; no cover.",
+    updatedAt: "2026-10-05T22:00:00.000Z",
+  },
+  {
+    eventId: "voyvoy-soft-reopening-sunday-2026-10-11",
+    body: "Sunday soft-reopen close-out with Luis De La Cruz from 5 PM, no cover — afternoon bay session before the week resumes; lighter than Saturday’s 9 PM dance start.",
+    localized: {
+      es: "Cierre del soft reopen del domingo con Luis De La Cruz desde las 5 PM, sin cover — sesión de tarde frente a la bahía antes de que vuelva la semana; más ligera que el sábado a las 9 PM.",
+      fr: "Clôture soft reopen du dimanche avec Luis De La Cruz dès 17 h, sans cover — session d’après-midi face à la baie avant la reprise de la semaine ; plus légère que le samedi à 21 h.",
+    },
+    priceFeel: "moderate",
+    priceNote: "No cover — spend is drinks/dinner; bayfront prices",
+    priceNoteLocalized: {
+      es: "Sin cover — el gasto es tragos/cena; precios de bahía",
+      fr: "Sans cover — le budget part en boissons/dîner ; tarifs baie",
+    },
+    attribution: "POP research · VOYVOY soft reopen Sunday Session flyer",
+    researchNotes:
+      "Editor flyer: Soft Reopening Sunday Session Sun 11 Oct 2026 5 PM Luis De La Cruz; no cover.",
+    updatedAt: "2026-10-05T21:00:00.000Z",
+  },
+  {
+    eventId: "voyvoy-dominican-night-flow-dance-2026-10-27",
+    body: "Flow Dance takes over VOYVOY on a Tuesday — merengue/bachata social energy on the bay, earlier than Saturday Session; confirm whether there’s a cover before you promise free entry.",
+    localized: {
+      es: "Flow Dance se toma VOYVOY un martes — energía social merengue/bachata frente a la bahía, más temprano que Saturday Session; confirma si hay cover antes de prometer entrada gratis.",
+      fr: "Flow Dance prend VOYVOY un mardi — énergie sociale merengue/bachata face à la baie, plus tôt que Saturday Session ; confirmez s’il y a un cover avant de promettre l’entrée gratuite.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover not on flyer — confirm @voyvoybar / +1 809-571-0805",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — confirma @voyvoybar / +1 809-571-0805",
+      fr: "Cover absent de l’affiche — confirmez @voyvoybar / +1 809-571-0805",
+    },
+    attribution: "POP research · VOYVOY Dominican Night Flow Dance flyer",
+    researchNotes:
+      "Editor flyer: Dominican Night At Voy Voy hosted by Flow Dance Tue Oct 27 7:00 PM; no cover printed.",
+    updatedAt: "2026-10-05T23:00:00.000Z",
+  },
+  {
+    eventId: "voyvoy-halloween-session-2026-10-31",
+    body: "Costume Saturday on the bay with Jordy Sánchez, Yorjan, Ale Álvarez, and Eduardo Peña until 3 AM — treat it as the Halloween edition of Saturday Session, and confirm cover before you call it free.",
+    localized: {
+      es: "Sábado de disfraces frente a la bahía con Jordy Sánchez, Yorjan, Ale Álvarez y Eduardo Peña hasta las 3 AM — tómalo como la edición Halloween de Saturday Session y confirma cover antes de decir que es gratis.",
+      fr: "Samedi costumes face à la baie avec Jordy Sánchez, Yorjan, Ale Álvarez et Eduardo Peña jusqu’à 3 h — voyez-le comme l’édition Halloween de Saturday Session et confirmez le cover avant de dire que c’est gratuit.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover not on flyer — confirm @voyvoybar / +1 809-571-0805",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — confirma @voyvoybar / +1 809-571-0805",
+      fr: "Cover absent de l’affiche — confirmez @voyvoybar / +1 809-571-0805",
+    },
+    attribution: "POP research · VOYVOY Halloween Session flyer",
+    researchNotes:
+      "Editor flyer: Halloween Session at Voyvoy Oct 31 9 PM–3 AM; Jordy Sánchez, Yorjan, Ale Álvarez, Eduardo Peña; no cover printed. Generic weekly Saturday Session seed removed.",
+    updatedAt: "2026-10-05T23:30:00.000Z",
+  },
+  {
     eventId: "natura-cabana-jazz-ensemble-2026-10-03",
     body: "Sosua Jazz Collective on Natura’s Saturday 7–9:30 PM live slot — book a table like the flyer; dinner-show pace at the boutique restaurant, not a late Cabarete disco run.",
     localized: {

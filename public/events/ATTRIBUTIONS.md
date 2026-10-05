@@ -122,6 +122,11 @@ Curated images under `public/events/` and `public/venues/`.
 | `lax-reggae-friday-crowd.png` | POP on-site photo — DJ overlooking packed LAX Cabarete dance floor | Friday Reggae Night crowd energy (filename bump) |
 | `ojo-weekend-dj-parties.jpg` | [Unsplash](https://unsplash.com/photos/cxOitA8mP78) (`photo-1682289385881`) — Unsplash License | DJ booth / club party action (was shared LAX reggae deck) |
 | `voyvoy-monday-night-terrace.jpg` | [Google Maps — Voy Voy Bar Restaurant](https://www.google.com/maps/place/Voy+Voy+Bar+Restaurant/@19.7502161,-70.4066784,17z) visitor photo | Night terrace cocktails and string lights on Cabarete Bay — Monday live listing (not the interior reused as Ocean One) |
+| `voyvoy-soft-reopening-sunset-2026-10-09.jpg` | POP-supplied — VOYVOY Soft Reopening Sunset Session flyer (Luis De La Cruz) | Soft reopen Friday 9 Oct 2026 hero (typography-heavy) |
+| `voyvoy-soft-reopening-saturday-2026-10-10.jpg` | POP-supplied — VOYVOY Soft Reopening Saturday Session flyer (Fabrizio Paolucci / Andrew Encarnación / Zeoxx) | Soft reopen Saturday 10 Oct 2026 hero (typography-heavy) |
+| `voyvoy-soft-reopening-sunday-2026-10-11.jpg` | POP-supplied — VOYVOY Soft Reopening Sunday Session flyer (Luis De La Cruz) | Soft reopen Sunday 11 Oct 2026 hero (typography-heavy) |
+| `voyvoy-dominican-night-flow-dance-2026-10-27.jpg` | POP-supplied — Dominican Night at Voy Voy / Flow Dance flyer | Tue 27 Oct 2026 hero (typography-heavy) |
+| `voyvoy-halloween-session-2026-10-31.jpg` | POP-supplied — VOYVOY Halloween Session flyer | Sat 31 Oct 2026 hero (typography-heavy) |
 | `venues/voyvoy-cabarete-bar.jpg` | TripAdvisor — Voyvoy Cabarete bar/dining interior | Venue place shot of the actual bar |
 | `voyvoy-saturday-session-band.jpg` | [Unsplash](https://unsplash.com/photos/photo-1571330735066-03aaa9429d89) — Unsplash License | Live band / stage energy for Saturday dance session (filename bump — was cloned from Monday dining) |
 | `anfiteatro-la-puntilla-mitur-concert.jpg` | [Puerto Plata DR — La Puntilla](https://puertoplatadr.com/tours/la-puntilla/) — `concert-night-la-puntilla-1.jpg` | Night concert in this seating bowl (Mitur banners, circular stage) — filename bump after replacing a generic waterfront-stage stand-in |
@@ -347,7 +352,7 @@ Curated images under `public/events/` and `public/venues/`.
 | `latinwok-ramen-party-2026-09-17.jpg` | POP-supplied Latin Wok × El Ramero Solitario Ramen Party flyer | Authentic 17 Sep Plaza Uno ramen night flyer |
 | `cabarete-run-festival-5k-2026-11-08.jpg` | POP-supplied Cabarete Run Festival 5K flyer (Desarrollo Fitness) | Authentic 8 Nov 2026 race flyer |
 | `hard-rock-karaoke-wednesday.jpg` | POP-supplied Hard Rock Cafe Puerto Plata karaoke flyer | Wednesday karaoke from 7 PM |
-| `sosua-neon-partyrun-2026-10-24.jpg` | POP-supplied Sosúa Neon Partyrun flyer (GY Fitness × Hard Rock) | Authentic 24 Oct 2026 race/party flyer |
+| `sosua-neon-partyrun-2026-10-24-medal.jpg` | POP-supplied Sosúa Neon Partyrun 2026 finisher medal (neon night) | Authentic 24 Oct 2026 race/party medal hero (filename bump — cards + detail share this path) |
 | `hard-rock-casa-mickey-2026-09-26.jpg` | POP-supplied La Casa de Mickey Mouse Family Fun Fest flyer | 26–27 Sep 2026 Hard Rock family shows |
 | `voyvoy-saturday-session-bay.jpg` | POP-supplied VOYVOY Saturday Session Story (teal bay text art) | Saturday Session hero (filename bump; replaces flyer.jpg) |
 | `cigar-town-martes-sensorial.jpg` | POP-supplied Cigar Town Martes Sensorial Story flyer | Weekly Tuesday café–chocolate–cigar night |

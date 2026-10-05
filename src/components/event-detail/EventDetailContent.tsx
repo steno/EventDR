@@ -390,7 +390,8 @@ export function EventDetailContent({
       {(venueSlug ||
         showAdmissionVaries ||
         showFreeAdmission ||
-        showPaidAdmission) && (
+        showPaidAdmission ||
+        event.ageHint) && (
         <div
           className={`flex flex-wrap items-center gap-2 ${standalone ? "mt-3" : "mt-5"}`}
         >
@@ -439,6 +440,15 @@ export function EventDetailContent({
               {paidAdmissionLabel}
             </div>
           )}
+          {event.ageHint ? (
+            <div
+              className="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-neutral-50 px-4 py-2.5 text-sm font-bold text-neutral-700 dark:border-neutral-700 dark:bg-neutral-900/50 dark:text-neutral-200"
+              role="status"
+            >
+              <Users className="h-4 w-4 shrink-0 text-neutral-500 dark:text-neutral-400" aria-hidden />
+              {dict.detail.ageHint[event.ageHint]}
+            </div>
+          ) : null}
         </div>
       )}
 

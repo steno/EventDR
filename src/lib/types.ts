@@ -166,6 +166,12 @@ export type PriceFeel =
   | "upscale"
   | "varies";
 
+/**
+ * Sparse age policy when the source states it explicitly.
+ * Omit when unknown — never infer from category or venue vibe.
+ */
+export type AgeHint = "all-ages" | "family" | "18-plus" | "21-plus";
+
 export type EventRecurrence = "daily" | "weekly" | "weekdays" | "weekends";
 
 /** One detail-hero carousel frame; venueSlug drives the active “View venue” link. */
@@ -213,6 +219,11 @@ export interface Event {
   admissionPrice?: string;
   /** Pricing varies — show call-for-pricing CTA when a phone is available. */
   callForPricing?: boolean;
+  /**
+   * Guest-facing age policy when known (All ages / Family / 18+ / 21+).
+   * Omit when the source does not state it.
+   */
+  ageHint?: AgeHint;
   imageEmoji?: string;
   imageUrl?: string;
   /**

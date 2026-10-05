@@ -211,7 +211,9 @@ export const CURATED_CALL_FOR_PRICING = new Set<string>([
  */
 export const CURATED_FREE_EVENTS = new Set<string>([
   // Festivals & public
-  "voyvoy-saturday-session",
+  "voyvoy-soft-reopening-sunset-2026-10-09",
+  "voyvoy-soft-reopening-saturday-2026-10-10",
+  "voyvoy-soft-reopening-sunday-2026-10-11",
   "cabarete-classic-2026",
   "puerto-plata-carnaval-2026",
 

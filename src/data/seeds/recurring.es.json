@@ -745,7 +745,8 @@
     "recurrence": "weekends",
     "isFree": true,
     "sourceUrl": "https://adompretur.com/2026/07/14/artesanos-puerto-plata-lucen-y-venden-sus-piezas-en-plaza-independencia-esta-es-la-historia-de-esa-artesania-local/",
-    "imageEmoji": "🎶"
+    "imageEmoji": "🎶",
+    "ageHint": "family"
   },
   {
     "id": "fun-city-daily",
@@ -763,6 +764,7 @@
     ],
     "format": "physical",
     "recurrence": "daily",
+    "ageHint": "family",
     "trending": true,
     "sourceUrl": "https://www.instagram.com/funcitypuertoplata/",
     "imageEmoji": "🏎️"
@@ -791,7 +793,8 @@
     "phone": "+18494606644",
     "ticketUrl": "https://widgets.bokun.io/online-sales/d5bb2f64-ceeb-4e89-bf71-3bacdc759680/experience/932046",
     "sourceUrl": "https://www.grecialandia.com/",
-    "imageEmoji": "🏛️"
+    "imageEmoji": "🏛️",
+    "ageHint": "family"
   },
   {
     "id": "monkeyland-puerto-plata-daily",
@@ -1443,6 +1446,7 @@
     ],
     "format": "physical",
     "recurrence": "daily",
+    "ageHint": "18-plus",
     "isFree": false,
     "admissionPrice": "desde US$116",
     "ticketUrl": "https://www.byfood.com/experiences/the-pina-colada-experience-2073",
@@ -1645,7 +1649,8 @@
     "phone": "+18093201000",
     "ticketUrl": "https://local-experiences.iberostar.com/en/dominican-republic/puerto-plata/puerto-plata/iberostar-waves-costa-dorada/all-inclusive-day-pass",
     "sourceUrl": "https://local-experiences.iberostar.com/en/dominican-republic/puerto-plata/puerto-plata/iberostar-waves-costa-dorada/all-inclusive-day-pass",
-    "imageEmoji": "🏖️"
+    "imageEmoji": "🏖️",
+    "ageHint": "family"
   },
   {
     "id": "gran-ventana-day-pass",
@@ -1665,7 +1670,8 @@
     "phone": "+18093202111",
     "ticketUrl": "https://www.granventanahotel.com/es/paquetes/day-pass/",
     "sourceUrl": "https://www.granventanahotel.com/es/paquetes/day-pass/",
-    "imageEmoji": "🏖️"
+    "imageEmoji": "🏖️",
+    "ageHint": "family"
   },
   {
     "id": "cofresi-palm-day-pass",
@@ -1709,7 +1715,8 @@
     "format": "physical",
     "recurrence": "daily",
     "isFree": true,
-    "imageEmoji": "🌅"
+    "imageEmoji": "🌅",
+    "ageHint": "family"
   },
   {
     "id": "laguna-sov-day-park",
@@ -1729,6 +1736,7 @@
     ],
     "format": "physical",
     "recurrence": "daily",
+    "ageHint": "family",
     "admissionPrice": "RD$600–700",
     "phone": "+18299612269",
     "sourceUrl": "https://www.lagunasov.do/",
@@ -1756,7 +1764,8 @@
     "phone": "+18299612269",
     "ticketUrl": "https://pasadia.santafe.do/",
     "sourceUrl": "https://www.santafe.do/",
-    "imageEmoji": "🏰"
+    "imageEmoji": "🏰",
+    "ageHint": "family"
   },
   {
     "id": "restaurant-maria-day-pass",
@@ -2539,7 +2548,8 @@
     "phone": "+18095710722",
     "sourceType": "flyer",
     "sourceUrl": "https://www.instagram.com/hotelvillataina/",
-    "imageEmoji": "🍽️"
+    "imageEmoji": "🍽️",
+    "ageHint": "family"
   },
   {
     "id": "serenade-mongolian-night-villa-taina-weekly",
@@ -2568,7 +2578,8 @@
     "lineup": [
       "Josh Messer"
     ],
-    "imageEmoji": "🥢"
+    "imageEmoji": "🥢",
+    "ageHint": "family"
   },
   {
     "id": "serenade-bbq-night-villa-taina-weekly",
@@ -2666,7 +2677,8 @@
     "instagram": "sosuafoodmarket",
     "sourceType": "instagram",
     "sourceUrl": "https://www.instagram.com/sosuafoodmarket/",
-    "imageEmoji": "🍔"
+    "imageEmoji": "🍔",
+    "ageHint": "family"
   },
   {
     "id": "templo-de-las-americas-daily",

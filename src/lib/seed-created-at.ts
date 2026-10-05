@@ -182,6 +182,11 @@ export const SEED_CREATED_AT: Readonly<Record<string, string>> = {
   "paella-pop-el-pueblito": "2026-10-05T17:00:00.000Z",
   "disney-dream-taino-bay-2026-10-06": "2026-10-05T19:00:00.000Z",
   "natura-sunbar-sunset-sounds-hyper-2026-10-08": "2026-10-05T18:00:00.000Z",
+  "voyvoy-soft-reopening-saturday-2026-10-10": "2026-10-05T22:00:00.000Z",
+  "voyvoy-soft-reopening-sunday-2026-10-11": "2026-10-05T21:00:00.000Z",
+  "voyvoy-soft-reopening-sunset-2026-10-09": "2026-10-05T20:00:00.000Z",
+  "voyvoy-halloween-session-2026-10-31": "2026-10-05T23:30:00.000Z",
+  "voyvoy-dominican-night-flow-dance-2026-10-27": "2026-10-05T23:00:00.000Z",
 };
 
 /** Fill missing `createdAt` from {@link SEED_CREATED_AT} (does not overwrite). */

@@ -221,15 +221,22 @@ export const EDITORIAL_ALERTS: readonly EditorialAlert[] = [
     reopensOn: "2026-10-09",
     citySlugs: ["cabarete"],
     href: { type: "venue", slug: "voyvoy-cabarete" },
+    exceptEventIds: [
+      "voyvoy-soft-reopening-sunset-2026-10-09",
+      "voyvoy-soft-reopening-saturday-2026-10-10",
+      "voyvoy-soft-reopening-sunday-2026-10-11",
+      "voyvoy-dominican-night-flow-dance-2026-10-27",
+      "voyvoy-halloween-session-2026-10-31",
+    ],
     title: {
       en: "VOYVOY Cabarete is closed",
       es: "VOYVOY Cabarete está cerrado",
       fr: "VOYVOY Cabarete est fermé",
     },
     summary: {
-      en: "Bayfront bar pause — Monday live and Saturday Session wait.",
-      es: "Bar de la bahía en pausa — live de lunes y Saturday Session esperan.",
-      fr: "Bar front de baie en pause — live du lundi et Saturday Session attendent.",
+      en: "Bayfront bar pause — soft reopen Fri–Sun Oct 9–11 (Sunset / Saturday / Sunday Sessions).",
+      es: "Bar de la bahía en pausa — soft reopen vie–dom 9–11 oct (Sunset / Saturday / Sunday Sessions).",
+      fr: "Bar front de baie en pause — soft reopen ven–dim 9–11 oct (Sunset / Saturday / Sunday Sessions).",
     },
   },
   {

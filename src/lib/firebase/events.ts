@@ -19,6 +19,7 @@ import {
   REMOVED_VENUE_SLUGS,
 } from "@/lib/removed-venues";
 import { findNearDuplicate, mergeIngestIntoExisting } from "@/lib/ingest-dedupe";
+import { normalizeAgeHint } from "@/lib/age-hint";
 import { getFirestoreDb, isFirebaseConfigured } from "./admin";
 import {
   revalidatePublicEvents,
@@ -145,6 +146,7 @@ function docToEvent(id: string, data: DocumentData): Event {
         : data.callForPricing === false
           ? false
           : undefined,
+    ageHint: normalizeAgeHint(data.ageHint),
     imageEmoji: (data.imageEmoji as string | null) ?? undefined,
     imageUrl: (data.imageUrl as string | null) ?? undefined,
     lineup: normalizeLineup(data.lineup),
@@ -256,6 +258,7 @@ function eventToFirestore(
     isFree: event.isFree ?? null,
     admissionPrice: event.admissionPrice ?? null,
     callForPricing: event.callForPricing ?? null,
+    ageHint: event.ageHint ?? null,
     phone: event.phone ?? null,
     sourceType,
     imageEmoji: event.imageEmoji ?? "📌",
@@ -481,6 +484,9 @@ export async function patchEventFields(
   if ("isFree" in fields) update.isFree = fields.isFree ?? null;
   if ("admissionPrice" in fields) update.admissionPrice = fields.admissionPrice ?? null;
   if ("callForPricing" in fields) update.callForPricing = fields.callForPricing ?? null;
+  if ("ageHint" in fields) {
+    update.ageHint = normalizeAgeHint(fields.ageHint) ?? null;
+  }
   if ("address" in fields) update.address = fields.address ?? null;
   if ("location" in fields) update.location = fields.location ?? null;
   if ("endDate" in fields) update.endDate = fields.endDate ?? null;

@@ -106,11 +106,11 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "voyvoy-cabarete": {
-    body: "Bayfront when you want live music without committing to Ojo's late club push — Monday live is dinner-friendly; Saturday Session goes louder.",
+    body: "Bayfront when you want live music without committing to Ojo's late club push — Monday live is dinner-friendly; named Session nights go louder when billed.",
     localized: {
-      en: "Bayfront when you want live music without committing to Ojo's late club push — Monday live is dinner-friendly; Saturday Session goes louder.",
-      es: "Frente a la bahía si quieres live sin el club tarde de Ojo — el lunes es más apto para cenar; Saturday Session va más fuerte.",
-      fr: "Front de baie si vous voulez du live sans le club tardif d'Ojo — le lundi convient au dîner ; Saturday Session plus fort.",
+      en: "Bayfront when you want live music without committing to Ojo's late club push — Monday live is dinner-friendly; named Session nights go louder when billed.",
+      es: "Frente a la bahía si quieres live sin el club tarde de Ojo — el lunes es más apto para cenar; las Sessions con cartel van más fuertes cuando se anuncian.",
+      fr: "Front de baie si vous voulez du live sans le club tardif d'Ojo — le lundi convient au dîner ; les Sessions affichées sont plus fortes quand elles sont annoncées.",
     },
   },
   "gypsy-bowls-cabarete": {

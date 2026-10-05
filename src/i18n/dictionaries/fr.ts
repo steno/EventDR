@@ -250,6 +250,12 @@ export const fr: Dictionary = {
     paidAdmission: "Entrée : {price}",
     paidAdmissionUnknown: "Entrée payante",
     admissionVaries: "Tarif selon le spectacle",
+    ageHint: {
+      "all-ages": "Tous âges",
+      family: "Familles",
+      "18-plus": "18+",
+      "21-plus": "21+",
+    },
     call: "Appeler",
     close: "Fermer",
     shared: "Partagé !",
