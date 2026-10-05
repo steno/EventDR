@@ -1,6 +1,7 @@
 import { mkdirSync, readFileSync, writeFileSync } from "fs";
 import path from "path";
-import { reminderDocId, type ReminderOffset } from "@/lib/event-reminders";
+import type { ReminderOffset } from "@/lib/event-reminders";
+import { reminderDocId } from "@/lib/event-reminder-id";
 
 const DATA_DIR = path.join(process.cwd(), ".data");
 const SUBS_PATH = path.join(DATA_DIR, "push-subscriptions.json");

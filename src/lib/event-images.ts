@@ -356,8 +356,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "casa-de-la-cultura-exhibitions": "casa-de-la-cultura-gallery-opening.jpg",
 
   // Filename bump — POP-supplied paella pan (patio stays on the venue).
-  "paella-pop-el-pueblito": "paella-pop-el-pueblito-pan.jpg",
-  "paella-pop-green-one": "paella-pop-green-one.jpg",
+  "paella-pop-el-pueblito": "paella-pop-el-pueblito-pan-v2.jpg",
   "lil-naay-2026-07-17": "lil-naay-2026-07-17.jpg",
   "lena-dardelet-aura-beach-club-2026-07-24":
     "lena-dardelet-aura-beach-club-2026-07-24.jpg",
@@ -997,6 +996,7 @@ const HOME_HERO_SCENE_FILES = new Set([
   "ocean-world-daily.jpg",
   "ojo-weekend-dj-parties.jpg",
   "outback-safari-daily.jpeg",
+  "paella-pop-el-pueblito-pan-v2.jpg",
   "paella-pop-el-pueblito-pan.jpg",
   "paella-pop-el-pueblito.jpg",
   "paella-pop-green-one.jpg",

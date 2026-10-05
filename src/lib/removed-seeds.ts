@@ -25,8 +25,8 @@ export const REMOVED_SEED_EVENT_IDS = new Set([
   "costambar-acoustic",
   "pp-sunday-futbol",
   "party-puerto-plata-2026",
-  // Google Maps: temporarily closed after Jul 2026 soft opening — no verified hours yet.
-  "paella-pop-el-pueblito",
+  // Editor dump — Green One Playa Dorada kitchen retired; keep El Pueblito only.
+  "paella-pop-green-one",
   // Duplicate of sea-horse-saturday-market (same venue, day, hours, official page).
   "sea-horse-saturday-artisan-fair",
   // Duplicate of former anfiteatro-la-puntilla-concerts (same venue, weekends, source URL).

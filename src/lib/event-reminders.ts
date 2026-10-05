@@ -1,4 +1,3 @@
-import { createHash } from "node:crypto";
 import {
   addDaysISO,
   APP_TIMEZONE,
@@ -158,10 +157,6 @@ export function recommendedReminderOffset(
     if (timings.some((t) => t.offset === preferred)) return preferred;
   }
   return timings[0]?.offset ?? null;
-}
-
-export function reminderDocId(endpoint: string, eventId: string): string {
-  return createHash("sha256").update(`${endpoint}\0${eventId}`).digest("hex");
 }
 
 export function formatRemindAtLabel(

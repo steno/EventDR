@@ -1,8 +1,6 @@
 import type { Locale } from "@/i18n/config";
 import type { CitySlug } from "@/lib/cities";
-import { isPastOneOffEvent } from "@/lib/event-dates";
-import { getFallbackEventById } from "@/lib/fallback-events";
-import { matchVenueSlug } from "@/lib/venues-seed";
+import { isPastOneOffEvent } from "@/lib/event-status";
 
 export const RESTAURANT_WEEK_2026_ID = "restaurant-week-puerto-plata-2026";
 
@@ -170,29 +168,40 @@ export const RESTAURANT_WEEK_LOGO_PARTICIPANTS: readonly RestaurantWeekLogoParti
     },
   ] as const;
 
+/** Seed span for `restaurant-week-puerto-plata-2026` — kept here so client UI does not import the catalog. */
+const RESTAURANT_WEEK_SPAN = {
+  date: "2026-09-21",
+  endDate: "2026-09-27",
+} as const;
+
+const RESTAURANT_WEEK_VENUE_SLUGS = new Set(
+  RESTAURANT_WEEK_LOGO_PARTICIPANTS.flatMap((participant) =>
+    participant.venueSlug ? [participant.venueSlug] : [],
+  ),
+);
+
+function restaurantWeekHasEnded(now: Date): boolean {
+  return isPastOneOffEvent(RESTAURANT_WEEK_SPAN, now);
+}
+
 /**
- * True while Restaurant Week 2026 is still current and this venue is listed
- * as a participant on the seed event.
+ * True while Restaurant Week 2026 is still current and this venue is a linked participant.
  */
 export function isRestaurantWeekParticipantVenue(
   venueSlug: string,
-  locale: Locale = "en",
+  _locale: Locale = "en",
   now: Date = new Date(),
 ): boolean {
-  const event = getFallbackEventById(RESTAURANT_WEEK_2026_ID, locale);
-  if (!event?.participants?.length) return false;
-  if (isPastOneOffEvent(event, now)) return false;
-  return event.participants.some((name) => matchVenueSlug(name) === venueSlug);
+  if (restaurantWeekHasEnded(now)) return false;
+  return RESTAURANT_WEEK_VENUE_SLUGS.has(venueSlug);
 }
 
 /** Home promo + venue chips — hide once the week ends. */
 export function isRestaurantWeekPromoActive(
-  locale: Locale = "en",
+  _locale: Locale = "en",
   now: Date = new Date(),
 ): boolean {
-  const event = getFallbackEventById(RESTAURANT_WEEK_2026_ID, locale);
-  if (!event) return false;
-  return !isPastOneOffEvent(event, now);
+  return !restaurantWeekHasEnded(now);
 }
 
 export function getRestaurantWeekLogoParticipants(

@@ -698,19 +698,11 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "paella-pop-el-pueblito": {
-    body: "Beachfront Spanish pans on El Pueblito — newer soft-open energy; go for the paella by the sand, not a late club night.",
+    body: "Beachfront Spanish pans on El Pueblito — go for the paella under the sandy patio pergola, not a late club night.",
     localized: {
-      en: "Beachfront Spanish pans on El Pueblito — newer soft-open energy; go for the paella by the sand, not a late club night.",
-      es: "Paelleras españolas frente al mar en El Pueblito — energía de soft-open nuevo; ve por la paella en la arena, no por club tarde.",
-      fr: "Poêles espagnoles front de mer à El Pueblito — énergie soft-open récente ; venez pour la paella sur le sable, pas le club tardif.",
-    },
-  },
-  "paella-pop-green-one": {
-    body: "The working kitchen in Playa Dorada's golf clubhouse — daily reliable address for Spanish pans in a resort setting, distinct from the El Pueblito beach soft-open.",
-    localized: {
-      en: "The working kitchen in Playa Dorada's golf clubhouse — daily reliable address for Spanish pans in a resort setting, distinct from the El Pueblito beach soft-open.",
-      es: "La cocina que funciona en el clubhouse de golf de Playa Dorada — dirección diaria confiable para paelleras en resort, distinta del soft-open de El Pueblito.",
-      fr: "La cuisine qui tourne au clubhouse golf de Playa Dorada — adresse quotidienne fiable pour poêles en resort, distincte du soft-open El Pueblito.",
+      en: "Beachfront Spanish pans on El Pueblito — go for the paella under the sandy patio pergola, not a late club night.",
+      es: "Paelleras españolas frente al mar en El Pueblito — ve por la paella bajo la pérgola del patio de arena, no por club tarde.",
+      fr: "Poêles espagnoles front de mer à El Pueblito — venez pour la paella sous la pergola du patio de sable, pas le club tardif.",
     },
   },
   "playa-dorada-golf": {

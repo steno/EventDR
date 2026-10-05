@@ -1,9 +1,7 @@
 import webpush from "web-push";
 import { getFirestoreDb, isFirebaseConfigured, subscriptionDocId } from "./firebase/admin";
-import {
-  reminderDocId,
-  type ReminderOffset,
-} from "./event-reminders";
+import type { ReminderOffset } from "./event-reminders";
+import { reminderDocId } from "./event-reminder-id";
 import {
   canUseLocalPushStore,
   deleteLocalEventReminder,

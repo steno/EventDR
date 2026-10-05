@@ -151,14 +151,9 @@ const VENUE_SOURCES = [
     eventId: "macorix-house-of-rum",
     url: "https://puertoplatadr.com/wp-content/uploads/2025/04/A86A5227.jpg",
   },
-  // paella-pop-el-pueblito-pan.jpg — POP-supplied paella pan (editor-provided).
+  // paella-pop-el-pueblito-pan-v2.jpg — POP-supplied paella pan (editor-provided).
   // Venue is paella-pop-el-pueblito-patio.jpg. Do not remote-refresh or copy onto the venue.
-  {
-    // Plated Spanish seafood — distinct from Pueblito pan.
-    // Venue is paella-pop-green-one-resort.jpg. Do not copy the plate onto the venue slug.
-    eventId: "paella-pop-green-one",
-    url: "https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=1800&q=85",
-  },
+  // paella-pop-green-one — venue/event dumped; do not remote-refresh Unsplash plate.
   // casa-de-la-cultura-gallery-opening.jpg — POP-supplied exhibition opening.
   // casa-de-la-cultura-saturday-keyboard.jpg — POP-supplied keyboard set in the gallery.
   // Venue is the peach facade. Do not remote-refresh the depuertoplata building crop.

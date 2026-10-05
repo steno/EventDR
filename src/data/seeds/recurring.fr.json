@@ -1263,10 +1263,9 @@
   {
     "id": "paella-pop-el-pueblito",
     "title": "Paella POP — Playa El Pueblito",
-    "description": "Nouveau Paella POP en bord de mer par Laia et Nico à Playa El Pueblito — soft opening le 5 juillet 2026. Google Maps indique cet établissement comme fermé temporairement sans horaires réguliers ; dinez au Paella POP Green One Playa Dorada en attendant la réouverture.",
-    "date": "2026-07-05",
-    "endDate": "2026-07-05",
-    "time": "Soft opening",
+    "description": "Paella espagnole en bord de mer par Laia et Nico à Playa El Pueblito — poêles à la commande, patio de sable sous la pergola et l'enseigne Paellas POP sur la maison blanche. À combiner avec un après-midi à Long Beach à quelques minutes.",
+    "date": "2026-01-01",
+    "time": "12:00 PM – 10:00 PM",
     "location": "Puerto Plata",
     "venue": "Paella POP Playa El Pueblito",
     "venueSlug": "paella-pop-el-pueblito",
@@ -1275,23 +1274,8 @@
     "lng": -70.6529,
     "category": "food-drinks",
     "format": "physical",
-    "sourceUrl": "https://sosuadigitaltv.com/paella-pop-celebra-su-soft-opening-en-playa-el-pueblito-y-consolida-una-historia-de-emprendimiento-nacida-con-apenas-50-euros/",
-    "imageEmoji": "🥘"
-  },
-  {
-    "id": "paella-pop-green-one",
-    "title": "Paella POP à Green One Playa Dorada",
-    "description": "La cuisine originale de Paella POP au One Club de Green One Playa Dorada — paella traditionnelle et tapas espagnoles dans le clubhouse du resort de golf. À cinq minutes de Long Beach.",
-    "date": "2026-01-01",
-    "time": "12:00 PM – 10:00 PM",
-    "location": "Puerto Plata",
-    "venue": "One Club, Green One Playa Dorada",
-    "venueSlug": "paella-pop-green-one",
-    "address": "Playa Dorada",
-    "category": "food-drinks",
-    "format": "physical",
     "recurrence": "daily",
-    "sourceUrl": "https://www.greenoneplayadorada.com/",
+    "sourceUrl": "https://sosuadigitaltv.com/paella-pop-celebra-su-soft-opening-en-playa-el-pueblito-y-consolida-una-historia-de-emprendimiento-nacida-con-apenas-50-euros/",
     "imageEmoji": "🥘"
   },
   {

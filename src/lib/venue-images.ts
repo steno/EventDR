@@ -94,10 +94,8 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "parque-jose-briceno": "parque-jose-briceno.jpg",
   "gregorio-luperon-airport": "gregorio-luperon-airport.jpg",
   "club-deportivo-fantastico": "club-deportivo-fantastico.jpeg",
-  // Filename bump — sandy patio + Paellas POP sign (Unsplash pan stays on the event).
+  // Filename bump — sandy patio + Paellas POP sign (pan stays on the event).
   "paella-pop-el-pueblito": "paella-pop-el-pueblito-patio.jpg",
-  // Filename bump — Green One Playa Dorada resort (plated seafood stays on the event).
-  "paella-pop-green-one": "paella-pop-green-one-resort.jpg",
   "plaza-independencia": "plaza-independencia.jpg",
   "plaza-juan-brugal": "plaza-juan-brugal-licorlab.jpg",
   // Filename bump — plaza gazebo aerial (highway welcome sign stays on the patronales event).

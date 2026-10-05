@@ -168,6 +168,7 @@ const FILE_TO_EVENT_ID = {
   "cabarete-classic-2026.jpg": "cabarete-classic-2026",
 
   // --- 2026 crawl: food & culture ---
+  "paella-pop-el-pueblito-pan-v2.jpg": "paella-pop-el-pueblito",
   "paella-pop-el-pueblito-pan.jpg": "paella-pop-el-pueblito",
   "paella-pop-el-pueblito.jpg": "paella-pop-el-pueblito",
   "paella-pop-green-one.jpg": "paella-pop-green-one",

@@ -24,6 +24,8 @@ export const REMOVED_VENUE_SLUGS = new Set([
   "freestyle-catamaran",
   // Disco Restaurant Cacique — removed from North Coast catalog.
   "cacique-moncion",
+  // Editor dump — Paella POP Green One; keep El Pueblito beach kitchen only.
+  "paella-pop-green-one",
 ]);
 
 /** Stub / alias slugs → canonical seed slug (301 on venue pages). */

@@ -199,17 +199,16 @@ describe("findNearbyTonight", () => {
   });
 
   it("excludes hops beyond a comfortable walk even in the same pocket", () => {
-    const greenOne = event({
-      id: "paella",
-      title: "One Playa Dorada",
+    const blueJacktar = event({
+      id: "blue-jacktar",
+      title: "Blue JackTar",
       date: "2026-08-01",
-      time: "12:00 PM – 10:00 PM",
-      recurrence: "daily",
-      venueSlug: "paella-pop-green-one",
+      time: "8:00 PM – 11:00 PM",
+      venueSlug: "blue-jacktar-playa-dorada",
       location: "Puerto Plata",
-      lat: 19.7674958,
-      lng: -70.6482428,
-      category: "food-drinks",
+      lat: 19.7703,
+      lng: -70.6494,
+      category: "music",
     });
     const senorRock = event({
       id: "senor-rock",
@@ -236,7 +235,7 @@ describe("findNearbyTonight", () => {
     });
 
     const result = findNearbyTonight(
-      greenOne,
+      blueJacktar,
       [greenOne, senorRock, funCity],
       { now: NOW },
     );

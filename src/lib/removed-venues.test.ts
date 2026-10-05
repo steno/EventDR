@@ -23,6 +23,7 @@ describe("removed venues", () => {
         "freestyle-catamaran",
         "grecialand",
         "parque-de-beisbol-jose-briceno",
+        "paella-pop-green-one",
         "rafaella-s-studio",
       ],
     );

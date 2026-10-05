@@ -1263,10 +1263,9 @@
   {
     "id": "paella-pop-el-pueblito",
     "title": "Paella POP — Playa El Pueblito",
-    "description": "Nuevo Paella POP frente al mar de Laia y Nico en Playa El Pueblito — soft opening el 5 de julio de 2026. Google Maps muestra este local como cerrado temporalmente sin horario fijo; visita Paella POP en Green One Playa Dorada hasta que reabra Pueblito.",
-    "date": "2026-07-05",
-    "endDate": "2026-07-05",
-    "time": "Soft opening",
+    "description": "Paella española frente al mar de Laia y Nico en Playa El Pueblito — paelleras a pedido, patio de arena bajo la pérgola y el letrero Paellas POP en la casa blanca. Combínalo con una tarde en Long Beach a pocos minutos.",
+    "date": "2026-01-01",
+    "time": "12:00 PM – 10:00 PM",
     "location": "Puerto Plata",
     "venue": "Paella POP Playa El Pueblito",
     "venueSlug": "paella-pop-el-pueblito",
@@ -1275,23 +1274,8 @@
     "lng": -70.6529,
     "category": "food-drinks",
     "format": "physical",
-    "sourceUrl": "https://sosuadigitaltv.com/paella-pop-celebra-su-soft-opening-en-playa-el-pueblito-y-consolida-una-historia-de-emprendimiento-nacida-con-apenas-50-euros/",
-    "imageEmoji": "🥘"
-  },
-  {
-    "id": "paella-pop-green-one",
-    "title": "Paella POP en Green One Playa Dorada",
-    "description": "La cocina original de Paella POP en One Club dentro de Green One Playa Dorada — paella tradicional y tapas españolas en el clubhouse del resort de golf. A cinco minutos de Long Beach.",
-    "date": "2026-01-01",
-    "time": "12:00 PM – 10:00 PM",
-    "location": "Puerto Plata",
-    "venue": "One Club, Green One Playa Dorada",
-    "venueSlug": "paella-pop-green-one",
-    "address": "Playa Dorada",
-    "category": "food-drinks",
-    "format": "physical",
     "recurrence": "daily",
-    "sourceUrl": "https://www.greenoneplayadorada.com/",
+    "sourceUrl": "https://sosuadigitaltv.com/paella-pop-celebra-su-soft-opening-en-playa-el-pueblito-y-consolida-una-historia-de-emprendimiento-nacida-con-apenas-50-euros/",
     "imageEmoji": "🥘"
   },
   {

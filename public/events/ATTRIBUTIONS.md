@@ -134,12 +134,13 @@ Curated images under `public/events/` and `public/venues/`.
 | `venues/castaways-sosua-dining.jpg` | [Sosúa Digital TV — Chill & Grill opening](https://sosuadigitaltv.com/sosua-robustece-su-oferta-gastronomica-con-la-apertura-de-chill-grill-bar-eatery/) — venue interior dining/bar | Casa Linda Chill & Grill / former Castaways dining room |
 | `castaways-classic-rock-wednesday.jpg` | [Casa Linda Vacation Club — Castaways Restaurant](https://casalindaclub.com/casa-linda-vacation-club-onsite-amenities/) (`Castaways-Restaurant.jpg`) | Historical asset — listing removed (unverified weekly rock night after Chill & Grill rebrand) |
 | `chill-and-grill-terrace-crowd.jpg` | [@chillandgrilldr Instagram reel](https://www.instagram.com/chillandgrilldr/reel/DZlWtZGu7DY/) — terrace frame | Authentic Chill & Grill patio / big-screen terrace (reference asset) |
-| `paella-pop-el-pueblito-pan.jpg` | POP-supplied — paella pan with rosemary garnish (editor-provided; filename bump) | Event food hero (patio stays on the venue) |
+| `paella-pop-el-pueblito-pan-v2.jpg` | POP-supplied — paella pan with rosemary garnish (editor-provided; filename bump) | Event food hero (patio stays on the venue) |
+| `paella-pop-el-pueblito-pan.jpg` | POP-supplied — earlier pan crop | Superseded by pan-v2 — kept for sync reference |
 | `paella-pop-el-pueblito.jpg` | [Unsplash](https://unsplash.com/photos/cooked-food-on-black-ceramic-plate-H044GVfDs1I) (`photo-1512058564366`) — Unsplash License | Superseded by POP pan shot — kept for sync reference |
-| `venues/paella-pop-el-pueblito-patio.jpg` | POP-supplied — Paellas POP sandy patio + pergola at Playa El Pueblito (editor-provided; filename bump) | Venue place shot (Unsplash pan stays on the event) |
+| `venues/paella-pop-el-pueblito-patio.jpg` | POP-supplied — Paellas POP sandy patio + pergola at Playa El Pueblito (editor-provided; filename bump) | Venue place shot (pan stays on the event) |
 | `venues/paella-pop-el-pueblito-sign.jpg` | [Sosúa Digital TV — Paella POP soft opening](https://sosuadigitaltv.com/paella-pop-celebra-su-soft-opening-en-playa-el-pueblito-y-consolida-una-historia-de-emprendimiento-nacida-con-apenas-50-euros/) | Superseded by patio shot — kept for sync reference |
-| `paella-pop-green-one.jpg` | [Unsplash](https://unsplash.com/photos/photo-1476224203421) (`photo-1476224203421`) — Unsplash License | Plated Spanish seafood (resort stays on the venue) |
-| `venues/paella-pop-green-one-resort.jpg` | [Google Maps — Green One Playa Dorada](https://www.google.com/maps/search/Paella+POP+Green+One+Playa+Dorada) visitor photo | Aerial of the Green One golf-resort club where Paella POP cooks |
+| `paella-pop-green-one.jpg` | [Unsplash](https://unsplash.com/photos/photo-1476224203421) (`photo-1476224203421`) — Unsplash License | Historical — Green One listing dumped |
+| `venues/paella-pop-green-one-resort.jpg` | [Google Maps — Green One Playa Dorada](https://www.google.com/maps/search/Paella+POP+Green+One+Playa+Dorada) visitor photo | Historical — Green One venue dumped |
 | `lax-headline-concerts.jpg` | POP curated `CabareteReggaeRootsNight.JPG` | Beachfront concert (not sunset deck alias) |
 | `batey-open-mic-stage.jpg` | POP curated `ElBateyOpenMic.JPG` — performers at mics on a small bar stage | Tuesday open mic action (filename bump — was a Smiley's YouTube still) |
 | `batey-salsa-social-dance.jpg` | POP curated `SosuaSalsaSocial.JPG` — couples dancing under string lights | Wednesday salsa social (filename bump — was a patio-crowd clone shared with street food / weekend nightlife) |

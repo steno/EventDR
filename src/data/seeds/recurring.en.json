@@ -1263,10 +1263,9 @@
   {
     "id": "paella-pop-el-pueblito",
     "title": "Paella POP — Playa El Pueblito",
-    "description": "New beachfront Paella POP by Laia & Nico on Playa El Pueblito — soft opening July 5, 2026. Google Maps currently lists this location as temporarily closed with no regular hours yet; dine at Paella POP Green One Playa Dorada until the Pueblito spot reopens.",
-    "date": "2026-07-05",
-    "endDate": "2026-07-05",
-    "time": "Soft opening",
+    "description": "Beachfront Spanish paella by Laia & Nico on Playa El Pueblito — pans cooked to order, sand patio under the pergola, and the Paellas POP sign on the white house. Pair with a Long Beach afternoon a few minutes away.",
+    "date": "2026-01-01",
+    "time": "12:00 PM – 10:00 PM",
     "location": "Puerto Plata",
     "venue": "Paella POP Playa El Pueblito",
     "venueSlug": "paella-pop-el-pueblito",
@@ -1275,23 +1274,8 @@
     "lng": -70.6529,
     "category": "food-drinks",
     "format": "physical",
-    "sourceUrl": "https://sosuadigitaltv.com/paella-pop-celebra-su-soft-opening-en-playa-el-pueblito-y-consolida-una-historia-de-emprendimiento-nacida-con-apenas-50-euros/",
-    "imageEmoji": "🥘"
-  },
-  {
-    "id": "paella-pop-green-one",
-    "title": "Paella POP at Green One Playa Dorada",
-    "description": "The original Paella POP kitchen at One Club inside Green One Playa Dorada — traditional paella and Spanish small plates in the golf-resort clubhouse. Pair with a beach day at Long Beach, five minutes away.",
-    "date": "2026-01-01",
-    "time": "12:00 PM – 10:00 PM",
-    "location": "Puerto Plata",
-    "venue": "One Club, Green One Playa Dorada",
-    "venueSlug": "paella-pop-green-one",
-    "address": "Playa Dorada",
-    "category": "food-drinks",
-    "format": "physical",
     "recurrence": "daily",
-    "sourceUrl": "https://www.greenoneplayadorada.com/",
+    "sourceUrl": "https://sosuadigitaltv.com/paella-pop-celebra-su-soft-opening-en-playa-el-pueblito-y-consolida-una-historia-de-emprendimiento-nacida-con-apenas-50-euros/",
     "imageEmoji": "🥘"
   },
   {

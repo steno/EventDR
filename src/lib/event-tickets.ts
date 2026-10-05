@@ -240,7 +240,6 @@ export const CURATED_FREE_EVENTS = new Set<string>([
   "hms-valeria-domingo-dominicano",
   "sancocho-sabados-pingui",
   "paella-pop-el-pueblito",
-  "paella-pop-green-one",
   // Open mic / karaoke / pickup
   "la-chabola-wednesday-open-mic",
   "el-carey-karaoke-mujeres-monday",

@@ -571,14 +571,8 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
   },
   "paella-pop-el-pueblito": {
     description: {
-      es: "Paella española frente al mar de Laia y Nico en Playa El Pueblito — soft opening julio 2026 pero listado como cerrado temporalmente en Google Maps; horario oficial por confirmar. Paella POP sigue sirviendo diario en Green One Playa Dorada.",
-      fr: "Paella espagnole en bord de mer par Laia et Nico à Playa El Pueblito — soft opening juillet 2026 mais indiqué temporairement fermé sur Google Maps ; horaires officiels à confirmer. Paella POP sert toujours tous les jours à Green One Playa Dorada.",
-    },
-  },
-  "paella-pop-green-one": {
-    description: {
-      es: "Cocina original de Paella POP en One Club, Green One Playa Dorada — paella y platos españoles en el clubhouse del resort de golf.",
-      fr: "Cuisine originale de Paella POP au One Club, Green One Playa Dorada — paella et plats espagnols dans le clubhouse du resort de golf.",
+      es: "Paella española frente al mar de Laia y Nico en Playa El Pueblito — paelleras a pedido bajo la pérgola del patio de arena, con el letrero Paellas POP en la casa blanca.",
+      fr: "Paella espagnole en bord de mer par Laia et Nico à Playa El Pueblito — poêles à la commande sous la pergola du patio de sable, avec l'enseigne Paellas POP sur la maison blanche.",
     },
   },
   "playa-dorada-golf": {

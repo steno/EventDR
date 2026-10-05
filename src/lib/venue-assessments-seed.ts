@@ -1010,22 +1010,11 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     venueSlug: "paella-pop-el-pueblito",
     verdictKey: "strong_mixed_food_nightlife",
     crowdFit: ["visitor", "local", "mixed"],
-    axes: { recommend: 4.0, atmosphere: 4.2, value: 3.8, reliability: 3.2 },
+    axes: { recommend: 4.0, atmosphere: 4.2, value: 3.8, reliability: 3.8 },
     themes: [
       { key: "beachfront", sentiment: "positive" },
       { key: "dominican_plates", sentiment: "positive" },
       { key: "busy_weekends", sentiment: "mixed" },
-    ],
-  }),
-  editorial({
-    venueSlug: "paella-pop-green-one",
-    verdictKey: "strong_mixed_food_nightlife",
-    crowdFit: ["visitor", "mixed"],
-    axes: { recommend: 4.2, atmosphere: 4.1, value: 3.9, practical: 4.1 },
-    themes: [
-      { key: "dominican_plates", sentiment: "positive" },
-      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
-      { key: "easy_to_find", sentiment: "positive" },
     ],
   }),
   editorial({

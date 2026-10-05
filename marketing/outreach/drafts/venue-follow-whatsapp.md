@@ -168,7 +168,6 @@ No phone on file. An Instagram DM from an account they do not follow usually lan
 - Latin Disco Club — https://instagram.com/latindiscoclubpp
 - Twenty Disco Lounge — https://instagram.com/twenty_disco_lounge
 - Paella POP Playa El Pueblito — https://instagram.com/paellas.pop
-- Paella POP at Green One — https://instagram.com/paellas.pop
 - Victrola 037 Arte Café — https://instagram.com/victrolart
 - VIP Beach Lifestyles Resort and Spa — https://instagram.com/lifestyleholidayshotels
 - Zen Fitness Camps — https://instagram.com/extremefitnesscamps

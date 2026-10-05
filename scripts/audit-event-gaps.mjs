@@ -189,7 +189,6 @@ const ingestLikeIds = [
   "ingest-18th-annual-cabarete-butterfly-effect",
   "ingest-make-authentic-espadrilles-in-puerto-plata",
   "paella-pop-el-pueblito",
-  "paella-pop-green-one",
 ];
 
 const blocks = [

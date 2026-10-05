@@ -1021,25 +1021,13 @@ export const SEED_VENUES: Venue[] = [
     name: "Paella POP Playa El Pueblito",
     city: "Puerto Plata",
     description:
-      "Beachfront Spanish paella by Laia & Nico on Playa El Pueblito — soft-opened July 2026 but listed as temporarily closed on Google Maps; official hours TBA. Paella POP still serves daily at Green One Playa Dorada.",
+      "Beachfront Spanish paella by Laia & Nico on Playa El Pueblito — pans cooked to order under the sandy patio pergola, with the Paellas POP sign on the white house.",
     lat: 19.7742,
     lng: -70.6529,
     emoji: "🥘",
     instagram: "paellas.pop",
     website:
       "https://sosuadigitaltv.com/paella-pop-celebra-su-soft-opening-en-playa-el-pueblito-y-consolida-una-historia-de-emprendimiento-nacida-con-apenas-50-euros/",
-  },
-  {
-    slug: "paella-pop-green-one",
-    name: "Paella POP at Green One",
-    city: "Puerto Plata",
-    description:
-      "Original Paella POP kitchen at One Club, Green One Playa Dorada — paella and Spanish plates in the golf resort clubhouse.",
-    lat: 19.7674958,
-    lng: -70.6482428,
-    emoji: "🥘",
-    instagram: "paellas.pop",
-    website: "https://www.greenoneplayadorada.com/",
   },
   {
     slug: "playa-dorada-golf",

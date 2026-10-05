@@ -722,9 +722,6 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
   "paella-pop-el-pueblito": {
     isFree: true,
   },
-  "paella-pop-green-one": {
-    isFree: true,
-  },
   "hard-rock-weekends": {
     isFree: false,
     callForPricing: true,
