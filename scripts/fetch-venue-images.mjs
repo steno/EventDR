@@ -152,11 +152,8 @@ const VENUE_SOURCES = [
     url: "https://puertoplatadr.com/wp-content/uploads/2025/04/A86A5227.jpg",
   },
   {
-    // Soft-open / food focus — dedicated paella pan (not shared façade with Green One).
-    // Venue is paella-pop-el-pueblito-sign.jpg. Do not copy the pan onto the venue slug.
-    eventId: "paella-pop-el-pueblito",
-    url: "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=1800&q=85",
-  },
+  // paella-pop-el-pueblito-pan.jpg — POP-supplied paella pan (editor-provided).
+  // Venue is paella-pop-el-pueblito-patio.jpg. Do not remote-refresh or copy onto the venue.
   {
     // Plated Spanish seafood — distinct from Pueblito pan.
     // Venue is paella-pop-green-one-resort.jpg. Do not copy the plate onto the venue slug.

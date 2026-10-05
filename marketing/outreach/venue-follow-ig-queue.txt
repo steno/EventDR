@@ -1,7 +1,3 @@
-paellas.pop	Paella POP at Green One	paella-pop-green-one	no-number	2026-10-05T15:21:23Z
-paellas.pop	Paella POP Playa El Pueblito	paella-pop-el-pueblito	no-number	2026-10-05T15:21:23Z
-licor_lab	Plaza Juan Brugal	plaza-juan-brugal	no-number	2026-10-05T15:21:23Z
-sosuafoodmarket	Sosúa Food Market	sosua-food-market	no-number	2026-10-05T15:21:23Z
 spotlandrd	Spot Land	spotland-puerto-plata	no-number	2026-10-05T15:21:23Z
 tainobay_puertoplata	Taino Bay	taino-bay	no-number	2026-10-05T15:21:23Z
 victrolart	Victrola 037 Arte Café	victrola-037	no-number	2026-10-05T15:21:23Z

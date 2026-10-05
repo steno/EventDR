@@ -94,8 +94,8 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "parque-jose-briceno": "parque-jose-briceno.jpg",
   "gregorio-luperon-airport": "gregorio-luperon-airport.jpg",
   "club-deportivo-fantastico": "club-deportivo-fantastico.jpeg",
-  // Filename bump — El Pueblito rooftop sign (Unsplash pan stays on the event).
-  "paella-pop-el-pueblito": "paella-pop-el-pueblito-sign.jpg",
+  // Filename bump — sandy patio + Paellas POP sign (Unsplash pan stays on the event).
+  "paella-pop-el-pueblito": "paella-pop-el-pueblito-patio.jpg",
   // Filename bump — Green One Playa Dorada resort (plated seafood stays on the event).
   "paella-pop-green-one": "paella-pop-green-one-resort.jpg",
   "plaza-independencia": "plaza-independencia.jpg",
@@ -226,6 +226,8 @@ export function getVenueHeroImageUrl(slug: string): string | undefined {
 const VENUE_HERO_OBJECT_POSITION: Record<string, string> = {
   // Portrait palapa shot — keep the 39 sign in wide card crops.
   "bar-39-sosua": "object-top",
+  // Portrait patio — keep the Paellas POP sign in wide card crops.
+  "paella-pop-el-pueblito": "object-top",
   // Balcony lunch overlooking the park — keep the table/view at the top of the crop.
   "casa-balcon-puerto-plata": "object-top",
   // Keep the SPOTLAND sign in frame on the entrance crop (mobile + desktop).

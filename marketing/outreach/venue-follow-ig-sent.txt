@@ -16,3 +16,6 @@
 2026-10-05T16:06:49Z	lunaloungelcb	Luna Lounge LCB	sent
 2026-10-05T16:07:16Z	nonasgrillkitchen	Nona's Grill & Kitchen	sent
 2026-10-05T16:07:42Z	nueve_rd	Nueve Restaurante & Bar	sent
+2026-10-05T16:32:00Z	paellas.pop	Paella POP (Green One + El Pueblito)	sent
+2026-10-05T16:33:30Z	licor_lab	Plaza Juan Brugal	sent
+2026-10-05T16:45:00Z	sosuafoodmarket	Sosúa Food Market	sent

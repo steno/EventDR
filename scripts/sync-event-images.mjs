@@ -168,6 +168,7 @@ const FILE_TO_EVENT_ID = {
   "cabarete-classic-2026.jpg": "cabarete-classic-2026",
 
   // --- 2026 crawl: food & culture ---
+  "paella-pop-el-pueblito-pan.jpg": "paella-pop-el-pueblito",
   "paella-pop-el-pueblito.jpg": "paella-pop-el-pueblito",
   "paella-pop-green-one.jpg": "paella-pop-green-one",
   // Filename bump — guests at the bar (empty dining room stays on the venue).
@@ -454,6 +455,7 @@ const FILE_TO_VENUE_SLUG = {
   // Dining/bar interior — distinct filename so browsers don't keep the old concert-stock URL.
   "castaways-sosua-dining.jpg": "castaways-sosua-dining",
   // Filename bumps — place shots (food stills stay on the event listings).
+  "paella-pop-el-pueblito-patio.jpg": "paella-pop-el-pueblito-patio",
   "paella-pop-el-pueblito-sign.jpg": "paella-pop-el-pueblito-sign",
   "paella-pop-green-one-resort.jpg": "paella-pop-green-one-resort",
   "plaza-independencia.jpg": "plaza-independencia",
