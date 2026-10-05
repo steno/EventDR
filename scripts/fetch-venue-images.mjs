@@ -151,7 +151,6 @@ const VENUE_SOURCES = [
     eventId: "macorix-house-of-rum",
     url: "https://puertoplatadr.com/wp-content/uploads/2025/04/A86A5227.jpg",
   },
-  {
   // paella-pop-el-pueblito-pan.jpg — POP-supplied paella pan (editor-provided).
   // Venue is paella-pop-el-pueblito-patio.jpg. Do not remote-refresh or copy onto the venue.
   {
