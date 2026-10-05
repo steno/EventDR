@@ -18,11 +18,11 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "aura-beach-club-cabarete": {
-    body: "Calle Principal beach club facing Cabarete Bay — Monday 4–7 PM 2x1 margarita/gin, Wednesday margaritas plus Latin Flow Dance from 9 PM, and Saturday Aura Disco from 11:30 PM with house DJ Christo; reserve WhatsApp +1 829-787-0140, not a walk-up kiosk bar.",
+    body: "Calle Principal beach club facing Cabarete Bay — Wednesday Latin Flow Dance from 9 PM, and Saturday Aura Disco from 11:30 PM with house DJ Christo; reserve WhatsApp +1 829-787-0140, not a walk-up kiosk bar.",
     localized: {
-      en: "Calle Principal beach club facing Cabarete Bay — Monday 4–7 PM 2x1 margarita/gin, Wednesday margaritas plus Latin Flow Dance from 9 PM, and Saturday Aura Disco from 11:30 PM with house DJ Christo; reserve WhatsApp +1 829-787-0140, not a walk-up kiosk bar.",
-      es: "Beach club en Calle Principal frente a la bahía de Cabarete — lunes 4–7 PM por 2x1 margarita/gin, miércoles margaritas más Latin Flow Dance desde las 9 PM, y sábado Aura Disco desde las 11:30 PM con DJ house Christo; reserva WhatsApp +1 829-787-0140, no es un kiosk walk-up.",
-      fr: "Beach club sur Calle Principal face à la baie de Cabarete — lundi 16 h–19 h pour 2x1 margarita/gin, mercredi margaritas puis Latin Flow Dance dès 21 h, et samedi Aura Disco dès 23 h 30 avec le DJ house Christo ; réservez WhatsApp +1 829-787-0140, pas un kiosk walk-up.",
+      en: "Calle Principal beach club facing Cabarete Bay — Wednesday Latin Flow Dance from 9 PM, and Saturday Aura Disco from 11:30 PM with house DJ Christo; reserve WhatsApp +1 829-787-0140, not a walk-up kiosk bar.",
+      es: "Beach club en Calle Principal frente a la bahía de Cabarete — miércoles Latin Flow Dance desde las 9 PM, y sábado Aura Disco desde las 11:30 PM con DJ house Christo; reserva WhatsApp +1 829-787-0140, no es un kiosk walk-up.",
+      fr: "Beach club sur Calle Principal face à la baie de Cabarete — mercredi Latin Flow Dance dès 21 h, et samedi Aura Disco dès 23 h 30 avec le DJ house Christo ; réservez WhatsApp +1 829-787-0140, pas un kiosk walk-up.",
     },
   },
   "kite-beach": {
@@ -727,6 +727,14 @@ export const VENUE_TIP_COPY: Record<
       en: "When guests ask for a surf beach between Cabarete and Sosúa, this is the one we send people to — reef breaks, not the calm bay swim of Playa Sosúa.",
       es: "Cuando piden una playa de surf entre Cabarete y Sosúa, esta es a la que mandamos gente — breaks de arrecife, no el baño calmado de Playa Sosúa.",
       fr: "Quand on demande une plage de surf entre Cabarete et Sosúa, c'est ici qu'on envoie — reef breaks, pas la baignade calme de Playa Sosúa.",
+    },
+  },
+  "coconuts-playa-encuentro": {
+    body: "Encuentro patio HQ when MSR or beach parties bill Coconuts — Italian-Caribbean plates by day, sunset sets on the sand; not the Cabarete strip.",
+    localized: {
+      en: "Encuentro patio HQ when MSR or beach parties bill Coconuts — Italian-Caribbean plates by day, sunset sets on the sand; not the Cabarete strip.",
+      es: "HQ del patio en Encuentro cuando MSR o fiestas de playa anuncian Coconuts — platos italo-caribeños de día, sets al atardecer en la arena; no es la franja de Cabarete.",
+      fr: "QG patio à Encuentro quand MSR ou fêtes de plage affichent Coconuts — assiettes italo-caribéennes le jour, sets au coucher du soleil sur le sable ; pas la strip Cabarete.",
     },
   },
   "playa-los-charamicos": {

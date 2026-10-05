@@ -168,6 +168,14 @@ export type PriceFeel =
 
 export type EventRecurrence = "daily" | "weekly" | "weekdays" | "weekends";
 
+/** One detail-hero carousel frame; venueSlug drives the active “View venue” link. */
+export interface EventGallerySlide {
+  imageUrl: string;
+  venueSlug?: string;
+  /** Short a11y / caption label (e.g. "Friday opening"). */
+  label?: string;
+}
+
 export interface Event {
   id: string;
   title: string;
@@ -207,6 +215,11 @@ export interface Event {
   callForPricing?: boolean;
   imageEmoji?: string;
   imageUrl?: string;
+  /**
+   * Detail-page hero carousel slides (curated). Each slide may point at a
+   * different venue so the “View venue” link updates with the active image.
+   */
+  gallery?: EventGallerySlide[];
   /** Named performers when announced in the source. */
   lineup?: string[];
   /**

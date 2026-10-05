@@ -562,6 +562,7 @@ export function EventDetailSheet({
               <EventDetailMedia
                 event={event}
                 dict={dict}
+                locale={locale}
                 variant="standalone"
                 priority
                 venueHref={
@@ -645,6 +646,7 @@ export function EventDetailSheet({
             <EventDetailMedia
               event={event}
               dict={dict}
+              locale={locale}
               variant="sheet"
               onClose={requestClose}
               priority

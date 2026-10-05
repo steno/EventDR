@@ -593,6 +593,16 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Plage de surf phare de la côte nord entre Cabarete et Sosúa — vagues de récif pour tous niveaux et siège officiel du surf des Jeux CAC 2026.",
     },
   },
+  "coconuts-playa-encuentro": {
+    name: {
+      es: "Coconuts",
+      fr: "Coconuts",
+    },
+    description: {
+      es: "Restaurante y patio frente al mar en Playa Encuentro (corredor Hideaway Beach) — cocina italo-caribeña de día; heats MSR y fiestas al atardecer cuando el calendario lo anuncia en Coconuts.",
+      fr: "Restaurant et patio face à l’océan à Playa Encuentro (couloir Hideaway Beach) — cuisine italo-caribéenne le jour ; heats MSR et fêtes au coucher du soleil quand le calendrier affiche Coconuts.",
+    },
+  },
   "playa-los-charamicos": {
     description: {
       es: "Playa local de Sosúa al oeste de El Batey — sede del Puerto Plata Beach Soccer y jornadas deportivas familiares frente al mar.",

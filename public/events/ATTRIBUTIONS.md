@@ -80,7 +80,13 @@ Curated images under `public/events/` and `public/venues/`.
 | `restaurant-week-puerto-plata-2026-teaser.jpg` | [Restaurant Week RD](https://www.restaurantweek.com.do/) official 2026 “La buena gastronomía nos mueve” campaign art | Food & Drinks mobile teaser card (editor-provided) |
 | `restaurant-week-2026/logos/*.png` | POP-supplied participant logo collage (editor crop) — Restaurant Week Puerto Plata 2026 | Event-page Participating spots logo grid; sponsor collage cell omitted; Café Yaroa + Holiday Inn link to event (no venue seed yet) |
 | `super-mega-urban-fest-2026-11-04.jpg` | Anfiteatro Puerto Plata / Super Mega Urban Fest flyer (FB event + venue promo) | Authentic concert flyer — Nov 4 from 3 PM, La Puntilla |
-| `masters-surf-reunion-10-2026.png` | [@MastersSurfReunionRD](https://www.instagram.com/p/Dc3tjbbpXK7/) official Masters Surf Reunion #10 promo | Authentic event art — Nov 6–9 2026, Playa Encuentro Cabarete |
+| `masters-surf-reunion-10-2026.png` | [@MastersSurfReunionRD](https://www.instagram.com/p/Dc3tjbbpXK7/) official Masters Surf Reunion #10 promo | Superseded by `masters-surf-reunion-10-2026-badge.jpg` for card hero |
+| `masters-surf-reunion-10-2026-badge.jpg` | POP-supplied — Masters Surf Reunion #10 circular badge (editor-provided) | Event card / OG hero — Nov 6–9 2026, Playa Encuentro Cabarete |
+| `masters-surf-reunion-10-2026-fri-opening.jpg` | POP-supplied — editor-enhanced Fri Nov 6 itinerary panel (Natura Cabana opening) | Detail carousel slide; venue link Natura Cabana |
+| `masters-surf-reunion-10-2026-sat-day1.jpg` | POP-supplied — editor-enhanced Sat Nov 7 itinerary panel (Coconuts Day 1) | Detail carousel slide; venue link Coconuts |
+| `masters-surf-reunion-10-2026-sun-day2.jpg` | POP-supplied — editor-enhanced Sun Nov 8 itinerary panel (Coconuts Day 2 + 80s party) | Detail carousel slide; venue link Coconuts |
+| `masters-surf-reunion-10-2026-mon-finals.jpg` | POP-supplied — editor-enhanced Mon Nov 9 itinerary panel (Coconuts finals) | Detail carousel slide; venue link Coconuts |
+| `venues/coconuts-playa-encuentro.jpg` | POP-supplied — Coconuts Playa Encuentro exterior / neon sign (editor-provided) | Venue hero for Coconuts |
 | `la-casita-papi-sand-dining.jpg` | Google Maps — La Casita de Papi vibe photo (twilight tables on Cabarete Central Beach) | Event card; replaces generic Restaurant Guru daytime tables |
 | `venues/la-casita-de-papi-awning.jpg` | Google Maps — La Casita de Papi place photo with Papi awning | Venue hero showing the actual casita (filename bump) |
 | `venues/lax-cabarete-bar.jpg` | Google Maps — OJO CLUB / LAX Cabarete night bar | Venue place shot of the two-story beach bar; Sunset Sessions keeps the dedicated deck photo |

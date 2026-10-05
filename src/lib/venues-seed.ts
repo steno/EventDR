@@ -1066,6 +1066,18 @@ export const SEED_VENUES: Venue[] = [
     phone: "+18298934214",
   },
   {
+    slug: "coconuts-playa-encuentro",
+    name: "Coconuts",
+    city: "Cabarete",
+    description:
+      "Oceanfront restaurant and event patio at Playa Encuentro (Hideaway Beach corridor) — Italian-Caribbean dining by day, MSR heats and sunset parties when the beach calendar bills Coconuts.",
+    lat: 19.7825094,
+    lng: -70.4512699,
+    emoji: "🥥",
+    phone: "+18095710223",
+    website: "https://coconutsrestaurant.ola.click/products",
+  },
+  {
     slug: "playa-los-charamicos",
     name: "Playa Los Charamicos",
     city: "Sosúa",
@@ -1981,6 +1993,10 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
     pattern:
       /casa\s*coco(\s*24\/?7)?|coco\s*24\/?7\s*(eatery|bar|restaurant)/i,
     slug: "casa-coco-sosua",
+  },
+  {
+    pattern: /\bcoconuts\b/i,
+    slug: "coconuts-playa-encuentro",
   },
   {
     pattern:

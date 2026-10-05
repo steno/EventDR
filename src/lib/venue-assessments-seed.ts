@@ -1051,6 +1051,17 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     ],
   }),
   editorial({
+    venueSlug: "coconuts-playa-encuentro",
+    verdictKey: "reliable_visitor_pick",
+    crowdFit: ["visitor", "mixed"],
+    axes: { recommend: 4.3, atmosphere: 4.4, practical: 4.0 },
+    themes: [
+      { key: "beachfront", sentiment: "positive", audience: "visitor" },
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+      { key: "live_music", sentiment: "positive" },
+    ],
+  }),
+  editorial({
     venueSlug: "playa-los-charamicos",
     verdictKey: "popular_public_space",
     crowdFit: ["local", "family", "mixed"],

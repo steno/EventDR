@@ -1466,27 +1466,6 @@
     "imageEmoji": "🍍"
   },
   {
-    "id": "natura-cabana-saturday-live",
-    "title": "Música en vivo los sábados en Natura Cabana",
-    "description": "Música en vivo los sábados en Natura Restaurant, Natura Cabana Boutique Hotel & Spa, Paseo del Sol 5, Cabarete — todos los sábados 7:00–9:30 PM con el océano de fondo. Acústico, jazz y fusión caribeña con cena y tragos. Sin cover; reserva mesa +1 849-214-7010 · naturacabana.com.",
-    "date": "2026-01-01",
-    "time": "7:00 PM – 9:30 PM",
-    "location": "Cabarete",
-    "venue": "Natura Cabana",
-    "venueSlug": "natura-cabana",
-    "address": "Paseo del Sol 5, Cabarete",
-    "lat": 19.7833499,
-    "lng": -70.4621124,
-    "category": "music",
-    "format": "physical",
-    "recurrence": "weekly",
-    "recurrenceDay": 6,
-    "isFree": true,
-    "phone": "+18492147010",
-    "sourceUrl": "https://naturacabana.com/event/live-music-cabarete-saturdays-natura-cabana/",
-    "imageEmoji": "🎸"
-  },
-  {
     "id": "el-parq-karaoke-thursday",
     "title": "Karaoke de Shaka Bar los jueves en El Parq",
     "description": "Karaoke todos los jueves en Shaka Bar, dentro de El Parq Foodpark cerca de Encuentro, presentado por Francesca Crystals. Canta de 7:30 a 9:30 PM entre los puestos al aire libre y el público de Cabarete.",

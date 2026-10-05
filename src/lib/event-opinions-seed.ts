@@ -302,24 +302,6 @@ export const SEED_EVENT_OPINIONS_BASE: EventOpinion[] = [
     updatedAt: "2026-09-19T12:00:00.000Z",
   },
   {
-    eventId: "natura-cabana-saturday-live",
-    seriesKey: "natura-cabana:weekly:6",
-    body: "Boutique-resort calm, not Cabarete strip volume — a strong pick if you want an earlier wind-down.",
-    localized: {
-      es: "Calma de resort boutique, no el volumen de la franja de Cabarete — buena opción si quieres un cierre más temprano.",
-      fr: "Calme resort boutique, pas le volume de la strip Cabarete — bon choix pour une fin de soirée plus tôt.",
-    },
-    priceFeel: "upscale",
-    priceNote: "Boutique resort restaurant — expect higher dinner/drink tabs than town bars",
-    priceNoteLocalized: {
-      es: "Restaurante de resort boutique — espera cuenta más alta que bares del pueblo",
-      fr: "Restaurant de resort boutique — addition plus élevée que les bars en ville",
-    },
-    attribution: "POP research · venue site",
-    researchNotes: "Natura Cabana boutique eco-resort pricing.",
-    updatedAt: AT,
-  },
-  {
     eventId: "liquid-blue-sunrise-yoga",
     seriesKey: "liquid-blue-cabarete:daily",
     body: "The anti-nightlife start to the day — leave your party expectations at LAX and come just for the practice.",

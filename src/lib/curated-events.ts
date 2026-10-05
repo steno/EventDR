@@ -347,6 +347,11 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     isFree: true,
     phone: "+18298934214",
   },
+  "masters-surf-reunion-10-2026": {
+    venueSlug: "coconuts-playa-encuentro",
+    callForPricing: true,
+    phone: "+18095710223",
+  },
   "puerto-plata-beach-soccer-2026": {
     venueSlug: "playa-los-charamicos",
     isFree: true,

@@ -115,6 +115,7 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "blue-ice-pianobar-sosua": "blue-ice-pianobar-sosua-facade.jpg",
   "playa-dorada-golf": "playa-dorada-golf.jpg",
   "playa-encuentro": "playa-encuentro.jpg",
+  "coconuts-playa-encuentro": "coconuts-playa-encuentro.jpg",
   "playa-los-charamicos": "playa-los-charamicos.jpg",
   // Filename bump — tiki bar interior (branded pizza stays on Wednesday open mic).
   "la-chabola-cabarete": "la-chabola-bar.jpg",

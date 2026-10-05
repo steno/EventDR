@@ -2321,10 +2321,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   {
     eventId: "aura-beach-club-miercoles-margaritas",
     seriesKey: "aura-beach-club-cabarete:weekly:3",
-    body: "Wednesday margarita night with live music on Cabarete Bay — louder and later than the Monday 4–7 happy hour; start time not on the flyer, so confirm before you pin Calle Principal.",
+    body: "Wednesday margarita night with live music on Cabarete Bay — 2x1 Tiscaz classics and bay seats, not Saturday’s late Aura Disco; start time not on the flyer, so confirm before you pin Calle Principal.",
     localized: {
-      es: "Miércoles de margaritas con música en vivo en la bahía de Cabarete — más tarde y fuerte que el happy hour del lunes 4–7; la hora no está en el flyer, confirma antes de clavar Calle Principal.",
-      fr: "Mercredi margaritas avec musique live sur la baie de Cabarete — plus tard et plus fort que le happy hour lundi 16 h–19 h ; l’heure n’est pas sur l’affiche, confirmez avant d’épingler Calle Principal.",
+      es: "Miércoles de margaritas con música en vivo en la bahía de Cabarete — 2x1 clásicas Tiscaz y asientos en la bahía, no el Aura Disco tarde del sábado; la hora no está en el flyer, confirma antes de clavar Calle Principal.",
+      fr: "Mercredi margaritas avec musique live sur la baie de Cabarete — 2x1 classiques Tiscaz et places sur la baie, pas l’Aura Disco tardif du samedi ; l’heure n’est pas sur l’affiche, confirmez avant d’épingler Calle Principal.",
     },
     priceFeel: "moderate",
     priceNote:
@@ -4258,6 +4258,25 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     attribution: "POP research · @teatroivangarcia Café Ópera Código Clown flyer",
     researchNotes:
       "Editor flyer — Sáb 31 Oct 7:30 PM Café Ópera Código Clown, Teatro Escuela Teatro Iván García, Puerto Plata. No ticket price on art.",
+    updatedAt: "2026-10-05T16:00:00.000Z",
+  },
+  {
+    eventId: "masters-surf-reunion-10-2026",
+    body: "Four-day masters reunion on Encuentro sand — Fri opening at Natura Cabana, then heats and sunset parties at Coconuts; register via @MastersSurfReunionRD before slots go, this isn’t a casual beach hang.",
+    localized: {
+      es: "Reunión de masters de cuatro días en la arena de Encuentro — apertura el vie en Natura Cabana, luego heats y fiestas al atardecer en Coconuts; inscríbete vía @MastersSurfReunionRD antes de que se llenen los cupos, no es un hangout de playa casual.",
+      fr: "Réunion masters de quatre jours sur le sable d’Encuentro — ouverture ven à Natura Cabana, puis heats et fêtes au coucher du soleil chez Coconuts ; inscrivez-vous via @MastersSurfReunionRD avant que les places partent, ce n’est pas un hangout plage casual.",
+    },
+    priceFeel: "varies",
+    priceNote:
+      "Competitor slots via @MastersSurfReunionRD — US$13,000 prize pool; spectator hang at Coconuts",
+    priceNoteLocalized: {
+      es: "Cupos de competencia vía @MastersSurfReunionRD — US$13,000 en premios; público en Coconuts",
+      fr: "Places compétiteurs via @MastersSurfReunionRD — 13 000 US$ de prize money ; public chez Coconuts",
+    },
+    attribution: "POP research · @MastersSurfReunionRD #10 itinerary",
+    researchNotes:
+      "Editor itinerary flyer Nov 6–9 2026: Fri 5 PM Natura Cabana Perla Marina opening; Sat–Mon Coconuts Playa Encuentro heats/parties/awards. Venue seeded coconuts-playa-encuentro; gallery slides link Natura vs Coconuts.",
     updatedAt: "2026-10-05T16:00:00.000Z",
   },
 ];

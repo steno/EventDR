@@ -9,6 +9,7 @@ import {
   findVenueRecurringSiblings,
 } from "./venue-recurring-siblings";
 import { getRecurringEvents } from "./recurring-events";
+import { filterRemovedSeedEvents } from "./removed-seeds";
 
 const dict = getDictionary("en");
 
@@ -205,7 +206,7 @@ describe("findVenueRecurringSiblings", () => {
   });
 
   it("lists Flip Flop weekly specials as other nights", () => {
-    const pool = getRecurringEvents("en").filter(
+    const pool = filterRemovedSeedEvents(getRecurringEvents("en")).filter(
       (event) => event.venueSlug === "flip-flop-sports-bar-sosua",
     );
     const daily = pool.find((event) => event.id === "flip-flop-live-sports-daily");
@@ -214,7 +215,6 @@ describe("findVenueRecurringSiblings", () => {
     assert.deepEqual(
       siblings.map((s) => s.id).sort(),
       [
-        "flip-flop-monday-happy-hour",
         "flip-flop-nfl-sunday",
         "flip-flop-taco-tuesday",
         "flip-flop-wing-wednesday",

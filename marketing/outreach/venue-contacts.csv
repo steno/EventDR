@@ -38,13 +38,13 @@ Blue JackTar Playa Dorada,Puerto Plata,blue-jacktar-playa-dorada,+18093203800,,n
 Brugal Rum Center,Puerto Plata,brugal-rum-center,,,no-number,
 Calle de las Sombrillas,Puerto Plata,calle-sombrillas,,,no-number,
 Casa Balcón,Puerto Plata,casa-balcon-puerto-plata,+18093816676,casabalconrd,not-sent,queued
-Casa Caribe,Puerto Plata,casa-caribe-puerto-plata,+18099594087,casacaribepop,sent,queued
+Casa Caribe,Puerto Plata,casa-caribe-puerto-plata,+18099594087,casacaribepop,sent,skip_already_following
 CASA COCO 24/7 Eatery & Bar,Sosúa,casa-coco-sosua,+18494435678,,sent,
 Casa de la Cultura Eduardo Brito,Puerto Plata,casa-de-la-cultura,,,no-number,
 Casa Museo General Gregorio Luperón,Puerto Plata,gregorio-luperon-museum,+18092618661,,not-sent,
 Casita Azul,Puerto Plata,casita-azul-puerto-plata,+18095863718,lacaditaazulpop,not-sent,queued
 Cayo Arena,Puerto Plata,cayo-arena,+18295997444,,not-sent,
-Centro Nova Salud y Bienestar,Puerto Plata,nova-salud-bienestar,+18092800077,novapuertoplata,sent,queued
+Centro Nova Salud y Bienestar,Puerto Plata,nova-salud-bienestar,+18092800077,novapuertoplata,sent,skip_already_following
 Charco de los Militares,Puerto Plata,charco-los-militares,+18094139058,,not-sent,
 Cheers Bar & Grill,Sosúa,cheers-bar-sosua,+1809404822463,,not-sent,
 Chill & Grill Bar & Eatery,Sosúa,castaways-sosua,+18296798389,,sent,
@@ -58,7 +58,7 @@ Cámara de Comercio Puerto Plata,Puerto Plata,camara-comercio-puerto-plata,+1809
 D-Classico Merengue Bar,Sosúa,d-classico-sosua,,,no-number,
 Del Oro Chocolate Factory,Puerto Plata,del-oro-chocolate-factory,+18093207715,,not-sent,
 Desarrollo Fitness Cabarete,Cabarete,desarrollo-fitness-cabarete,+18097696199,desarrollo_fitness_cabarete,sent,queued
-Don Limón,Puerto Plata,don-limon-cofresi,+18092157676,donlimon02,sent,queued
+Don Limón,Puerto Plata,don-limon-cofresi,+18092157676,donlimon02,sent,skip_already_following
 El Batey,Sosúa,el-batey-sosua,,,no-number,
 El Carey Día y Noche,Costambar,el-carey-puerto-plata,+18494404199,diaynocherestaurantelcarey,sent,queued
 El Cocotazo Cafe,Cabarete,el-cocotazo-cafe,+18096576116,,sent,
@@ -111,7 +111,7 @@ Monkeyland Puerto Plata,Imbert,monkeyland-puerto-plata,+18295997444,,not-sent,
 Museo del Ámbar,Puerto Plata,museo-ambar,+18095862848,,not-sent,
 Museo Judío de Sosúa,Sosúa,sosua-jewish-museum,,,no-number,
 Natura Cabana,Sosúa,natura-cabana,+18492147010,,sent,
-Ninafrika Dance School,Cabarete,ninafrika-dance-school-cabarete,+18498549692,ninafrikadance,sent,queued
+Ninafrika Dance School,Cabarete,ninafrika-dance-school-cabarete,+18498549692,ninafrikadance,sent,skip_already_following
 Ocean One Cabarete,Cabarete,ocean-one-cabarete,,,no-number,
 Ocean World Adventure Park,Puerto Plata,ocean-world,+18092911000,oceanworldadventurepark,sent,queued
 Outback Adventures,Puerto Plata,outback-adventures,+18093202525,,not-sent,
@@ -153,6 +153,6 @@ The Finish Line,Sosúa,finish-line-sosua,,,no-number,
 TrolleyCity Tours POP,Puerto Plata,trolley-city-tours,+18097698732,trolleycitytours,sent,queued
 Vinoteca Wine House,Puerto Plata,vinoteca-wine-house,+18093201515,vinotecamarienpp,not-sent,queued
 Vivonté Cigar Factory,Puerto Plata,vivonte-cigar-factory,+18095865257,,sent,
-VOYVOY Cabarete,Cabarete,voyvoy-cabarete,+18095710805,voyvoybar,sent,queued
+VOYVOY Cabarete,Cabarete,voyvoy-cabarete,+18095710805,voyvoybar,sent,skip_already_following
 Waterfront Playa Alicia,Sosúa,waterfront-playa-alicia,+18095713024,waterfrontplayaalicia,sent,queued
-Zona Acapella Club,Puerto Plata,zona-acapella-club,+18094845636,acapella.pop,sent,queued
+Zona Acapella Club,Puerto Plata,zona-acapella-club,+18094845636,acapella.pop,sent,skip_already_following

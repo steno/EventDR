@@ -57,6 +57,8 @@ export const REMOVED_SEED_EVENT_IDS = new Set([
   "cowork-weekdays",
   // Duplicate of natura-sunbar-special-sunset-sounds-2026-09-24 (same flyer / Thu night).
   "natura-cabana-sunset-sounds-thursday",
+  // Generic weekly slot — prefer dated named-artist Saturday nights from Natura calendar.
+  "natura-cabana-saturday-live",
   // Thin listing-only Guest DJ HYPER night — no flyer; drop until Natura posts art.
   "natura-sunbar-sunset-sounds-hyper-2026-10-08",
   // Removed per editor — Congreso de Damas ADN 2026 (Gran Ventana).
@@ -86,6 +88,11 @@ export const REMOVED_SEED_EVENT_IDS = new Set([
   // Wrongly geo-pinned to Disco Restaurant Cacique — venue dropped; kill the listings.
   "ingest-el-blachy",
   "ingest-nacho-estrella-nd-eventos",
+  // Drink-special / happy-hour windows only — not a programmed event.
+  // Keep karaoke, live music, dance, food specials, and branded lounge packages.
+  "aura-beach-club-lunes-especiales",
+  "aura-beach-club-miercoles-margaritas",
+  "flip-flop-monday-happy-hour",
 ]);
 
 export function filterRemovedSeedEvents(events: Event[]): Event[] {

@@ -1534,16 +1534,16 @@
   {
     "id": "masters-surf-reunion-10-2026",
     "title": "Masters Surf Reunion 10",
-    "description": "10.ª edición del Masters Surf Reunion en Playa Encuentro, Cabarete — 6–9 de noviembre de 2026. Los masters se reencuentran por olas épicas, amigos de siempre y buen vibe todo el fin de semana; US$13,000 en premios y trofeos. Cupos limitados — inscríbete vía @MastersSurfReunionRD.",
+    "description": "10.ª edición del Masters Surf Reunion en Playa Encuentro, Cabarete — 6–9 de noviembre de 2026. Vie 5 PM apertura en Natura Cabana (Perla Marina); sáb–lun heats, mercado y fiestas en Coconuts sobre la arena de Encuentro. US$13,000 en premios y trofeos. Cupos limitados — inscríbete vía @MastersSurfReunionRD.",
     "date": "2026-11-06",
     "endDate": "2026-11-09",
     "time": "Ver programación",
     "location": "Cabarete",
-    "venue": "Playa Encuentro",
-    "venueSlug": "playa-encuentro",
+    "venue": "Coconuts",
+    "venueSlug": "coconuts-playa-encuentro",
     "address": "Playa Encuentro, Cabarete",
-    "lat": 19.7834465,
-    "lng": -70.4516521,
+    "lat": 19.7825094,
+    "lng": -70.4512699,
     "category": "sports",
     "categories": [
       "festivals"
@@ -1553,7 +1553,12 @@
     "isFree": false,
     "callForPricing": true,
     "sourceUrl": "https://www.instagram.com/p/Dc3tjbbpXK7/",
-    "imageEmoji": "🏄"
+    "imageEmoji": "🏄",
+    "participants": [
+      "Natura Cabana",
+      "Coconuts",
+      "Playa Encuentro"
+    ]
   },
   {
     "id": "todos-somos-luperon-2026-09-08",

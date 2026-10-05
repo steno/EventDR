@@ -180,6 +180,7 @@ export const VENUE_AUDIENCE_POOLS: Record<
     "rio-martinico",
     "playa-dorada-golf",
     "playa-encuentro",
+    "coconuts-playa-encuentro",
     "sosua-jewish-museum",
     "del-oro-chocolate-factory",
     "hacienda-cufa",

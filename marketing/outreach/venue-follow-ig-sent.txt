@@ -6,3 +6,13 @@
 2026-10-05T14:03:14Z	alsenaathletics	Club Deportivo Fantastico	sent
 2026-10-05T14:03:34Z	grandprixrd	Grand Prix Smart Shop	sent
 2026-10-05T14:03:57Z	hotel-villa-taina	hotelvillataina	sent
+2026-10-05T15:59:14Z	blueice_pianobar	Blue Ice Piano Bar & Restaurant	sent
+2026-10-05T15:59:35Z	driftercabarete	Drifter Cabarete	sent
+2026-10-05T16:00:05Z	finelysaludable	El Mirador de Finely	sent
+2026-10-05T16:00:28Z	issosuahurricanes	International School of Sosúa	sent
+2026-10-05T16:01:04Z	latindiscoclubpp	Latin Disco Club	sent
+2026-10-05T16:05:44Z	lokuraspop	Lokura's Pop Bar Café	sent
+2026-10-05T16:06:19Z	lovedoesrd	Love Does Centro Para Mujeres	sent
+2026-10-05T16:06:49Z	lunaloungelcb	Luna Lounge LCB	sent
+2026-10-05T16:07:16Z	nonasgrillkitchen	Nona's Grill & Kitchen	sent
+2026-10-05T16:07:42Z	nueve_rd	Nueve Restaurante & Bar	sent

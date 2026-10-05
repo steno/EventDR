@@ -119,6 +119,7 @@ export const WALKABLE_POCKETS: readonly WalkablePocket[] = [
     venueSlugs: [
       "kite-beach",
       "playa-encuentro",
+      "coconuts-playa-encuentro",
       "el-parq-cabarete",
       "el-cocotazo-cafe",
     ],

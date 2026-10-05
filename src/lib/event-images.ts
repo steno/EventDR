@@ -362,8 +362,6 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "lena-dardelet-aura-beach-club-2026-07-24.jpg",
   "cabarete-jazz-festival-2026": "cabarete-jazz-festival-2026.jpg",
   "jandy-ventura-legado-caballo-2026": "jandy-ventura-legado-caballo-2026.jpg",
-  // Filename bump — restaurant cocktail (not the shared resort-pool still).
-  "natura-cabana-saturday-live": "natura-cabana-saturday-dining.jpg",
   // Filename bump — Cabarete foodpark night (not Wikimedia Tulum).
   "el-parq-live-bands-saturday": "el-parq-saturday-night.jpg",
   "el-parq-karaoke-thursday": "el-parq-karaoke-thursday-shaka.jpg",
@@ -401,7 +399,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "restaurant-week-puerto-plata-2026":
     "restaurant-week-puerto-plata-2026-calendar.jpg",
   "super-mega-urban-fest-2026-11-04": "super-mega-urban-fest-2026-11-04.jpg",
-  "masters-surf-reunion-10-2026": "masters-surf-reunion-10-2026.png",
+  "masters-surf-reunion-10-2026": "masters-surf-reunion-10-2026-badge.jpg",
   "sunset-cabarete-sessions-2026": "sunset-cabarete-sessions-2026.jpg",
   // Filename bump — pizza + live band night (not the branded FB pizza cover).
   "la-chabola-wednesday-open-mic": "la-chabola-wednesday-open-mic-pizza-live.jpg",
@@ -629,6 +627,50 @@ export function getEventProgramImageUrl(eventId: string): string | undefined {
   return file ? `/events/${file}?v=${getAppVersion()}` : undefined;
 }
 
+/**
+ * Detail-page hero carousel. Card heroes stay on {@link EVENT_IMAGE_FILES};
+ * each slide may resolve a different venue for the “View venue” control.
+ */
+const EVENT_GALLERY_SLIDES: Record<
+  string,
+  Array<{ file: string; venueSlug?: string; label?: string }>
+> = {
+  "masters-surf-reunion-10-2026": [
+    {
+      file: "masters-surf-reunion-10-2026-fri-opening.jpg",
+      venueSlug: "natura-cabana",
+      label: "Friday opening — Natura Cabana",
+    },
+    {
+      file: "masters-surf-reunion-10-2026-sat-day1.jpg",
+      venueSlug: "coconuts-playa-encuentro",
+      label: "Saturday Day 1 — Coconuts",
+    },
+    {
+      file: "masters-surf-reunion-10-2026-sun-day2.jpg",
+      venueSlug: "coconuts-playa-encuentro",
+      label: "Sunday Day 2 — Coconuts",
+    },
+    {
+      file: "masters-surf-reunion-10-2026-mon-finals.jpg",
+      venueSlug: "coconuts-playa-encuentro",
+      label: "Monday finals — Coconuts",
+    },
+  ],
+};
+
+export function getEventGallerySlides(
+  eventId: string,
+): Array<{ imageUrl: string; venueSlug?: string; label?: string }> {
+  const slides = EVENT_GALLERY_SLIDES[eventId];
+  if (!slides?.length) return [];
+  return slides.map((slide) => ({
+    imageUrl: `/events/${slide.file}?v=${getAppVersion()}`,
+    venueSlug: slide.venueSlug,
+    label: slide.label,
+  }));
+}
+
 /** Facebook/WhatsApp OG file generated at build (1200×630 baseline JPEG, no query string). */
 export function getEventOgImageUrl(eventId: string): string | undefined {
   const file = curatedEventImageFile(eventId);
@@ -809,6 +851,11 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "love-does-bocadillos-course-2026.jpg",
   "love-does-cocktails-solidarity-2026-09-04.jpg",
   "masters-surf-reunion-10-2026.png",
+  "masters-surf-reunion-10-2026-badge.jpg",
+  "masters-surf-reunion-10-2026-fri-opening.jpg",
+  "masters-surf-reunion-10-2026-sat-day1.jpg",
+  "masters-surf-reunion-10-2026-sun-day2.jpg",
+  "masters-surf-reunion-10-2026-mon-finals.jpg",
   "natura-market-moto-2026-09-19.jpg",
   "natura-market-2026-10-04.jpg",
   "licor-lab-car-show-2026-10-10.jpg",
