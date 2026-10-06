@@ -345,12 +345,15 @@ describe("pickTodaySpotlights", () => {
       }),
     ];
     const limit = spotlightLimitForOptions(pool, { preferTodaySpecials: true }, NOW);
-    assert.equal(limit, 5);
+    assert.equal(limit, 8);
     const picked = pickTodaySpotlights(pool, limit, NOW, {
       preferTodaySpecials: true,
     }).map((item) => item.id);
-    assert.deepEqual(picked.sort(), ["a", "b", "c", "d", "e"]);
-    assert.equal(picked.includes("weekly"), false);
+    assert.deepEqual(
+      picked.filter((id) => id !== "weekly").sort(),
+      ["a", "b", "c", "d", "e"],
+    );
+    assert.equal(picked.at(-1), "weekly");
   });
 
   it("caps preferred specials at the Meta carousel max", () => {
@@ -374,7 +377,7 @@ describe("pickTodaySpotlights", () => {
     );
   });
 
-  it("keeps a 3-slot floor when preferring specials but few exist", () => {
+  it("adds happening-today after the specials", () => {
     const pool = [
       event({
         id: "one",
@@ -405,8 +408,13 @@ describe("pickTodaySpotlights", () => {
     ];
     assert.equal(
       spotlightLimitForOptions(pool, { preferTodaySpecials: true }, NOW),
-      TODAY_SPOTLIGHT_LIMIT,
+      4,
     );
+    const picked = pickTodaySpotlights(pool, 4, NOW, {
+      preferTodaySpecials: true,
+    }).map((item) => item.id);
+    assert.equal(picked[0], "one");
+    assert.deepEqual(picked.slice(1).sort(), ["weekly-a", "weekly-b"]);
   });
 
   it("after specials posted, scheduled pool skips the specials set", () => {

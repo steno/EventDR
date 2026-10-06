@@ -26,7 +26,7 @@ Instagram ingest:
 - [ ] 5. Verify dates, venue, admission, and source
 - [ ] 6. Dedupe against seeds and live/moderation data
 - [ ] 7. Add EN/ES/FR seeds and authentic images (not from Instagram)
-- [ ] 8. SEED_CREATED_AT + POP opinion; ageHint when source states policy; new venues get tip + assessment
+- [ ] 8. SEED_CREATED_AT + POP opinion; ageHint when stated or adult-entertainment bill; new venues get tip + assessment
 - [ ] 9. Confirm or trigger API ingest
 - [ ] 10. Report candidates, additions, skips, and blockers
 ```
@@ -109,7 +109,7 @@ For each new event:
 7. Add a new venue and venue image only when required and supported by reliable location information.
 8. Add the new event `id` to `SEED_CREATED_AT` in `src/lib/seed-created-at.ts` (commit-day noon UTC) so it appears on home **Recently added**.
 9. **POP event opinion (required):** add a unique opinion for the new event `id` in `event-opinions-seed.ts` or `event-opinions-seed-more.ts` (EN body + ES/FR). Specific contrast/tradeoff — no generic blurbs. Ingest drafts are not a substitute for in-repo seed opinions.
-10. **Age hint (when stated):** if the post/flyer explicitly states age policy (`18+`, `21+`, adults-only, kids pricing, family fest, “not for kids”, etc.), set the same `ageHint` on EN/ES/FR seeds. Omit when unknown — never infer from nightlife or category. See `.cursor/rules/seed-recently-added.mdc` §5.
+10. **Age hint (when known):** if the post/flyer explicitly states age policy (`18+`, `21+`, adults-only, kids pricing, family fest, “not for kids”, etc.), **or** the night is clearly adult-restricted (gogo / stripper / exotic dance, casino gambling), set the same `ageHint` on EN/ES/FR seeds. Omit when unknown — do not infer from generic nightlife or category alone. See `.cursor/rules/seed-recently-added.mdc` §5.
 11. **New venue tip + assessment (required when the venue is new):** add `VENUE_TIP_COPY` in `venue-assessment-tips.ts` and matching `editorial()` in `venue-assessments-seed.ts`. See `.cursor/rules/seed-recently-added.mdc`.
 
 If an Instagram post lacks enough detail, leave it in the report as a candidate instead of seeding it.

@@ -46,12 +46,13 @@ When only adding events at an **existing** venue, refresh the tip if the new nig
 5. **Filename bump on replace** — when swapping a curated event or venue hero, change the filename (`-v2`, descriptive suffix) and update `event-images.ts` / `venue-images.ts` (+ sync maps + attributions). PWA/detail heroes strip query cache-busts, so a new path is required.
 6. Also wire attributions, curated `isFree` / tickets / phone maps, and EN/ES/FR seed parity.
 
-## 5. Age hint (when the source states it)
+## 5. Age hint (when known)
 
 Optional `ageHint` on the event (`"all-ages" | "family" | "18-plus" | "21-plus"`). Detail pages show a quiet chip next to admission when set; omit when unknown.
 
 1. **Set it** when the flyer/source explicitly states age policy: ID check, `18+` / `21+`, adults-only, kids pricing, family fest / kids club / playground, children’s race, “not for kids”, etc.
-2. **Omit it** when age is unclear — do **not** infer from nightlife, alcohol, category (`parties`), or venue `crowdFit`. Same venue can be family lunch one night and club the next.
-3. **Do not** tag from “family-run”, “family history”, or soft “friends and family” / “familiar” atmosphere alone.
-4. Set the **same** `ageHint` on EN/ES/FR seed rows for that `id` (locale copy may differ; the enum must match).
-5. Type + labels live in `src/lib/types.ts` (`AgeHint`) and `dict.detail.ageHint` (en/es/fr).
+2. **Also set `18-plus`** when the billed night is clearly adult-restricted by activity — gogo / stripper / exotic-dance shows, “Jueves de Strippers”, gentlemen’s-club framing, **casino gambling / casino-floor nights** (poker series, tables, slots), or equivalent — even if the flyer never prints “18+”. That is policy-grade, not vibe guessing. Do **not** tag every event at a venue whose name merely includes “Casino” (e.g. terrace karaoke or típico at “Terraza Ocean World & Casino”) unless the bill is gambling or adult entertainment.
+3. **Omit it** when age is still unclear — do **not** infer from generic nightlife, alcohol, DJ/concert club nights, category (`parties`), or venue `crowdFit` alone. Same venue can be family lunch one night and club the next; a Bulin 47 concert is not automatically 18+ without a stated policy or adult-entertainment bill.
+4. **Do not** tag from “family-run”, “family history”, or soft “friends and family” / “familiar” atmosphere alone.
+5. Set the **same** `ageHint` on EN/ES/FR seed rows for that `id` (locale copy may differ; the enum must match).
+6. Type + labels live in `src/lib/types.ts` (`AgeHint`) and `dict.detail.ageHint` (en/es/fr).

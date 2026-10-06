@@ -66,6 +66,40 @@ describe("textMatchesSearchQuery", () => {
       true,
     );
   });
+
+  it("bridges English queries to Spanish/French title words via the lexicon", () => {
+    assert.equal(
+      textMatchesSearchQuery("Bazar de Otoño — Sosúa Emprende", "autumn bazar"),
+      true,
+    );
+    assert.equal(
+      textMatchesSearchQuery("Bazar de Otoño — Sosúa Emprende", "autumn bazaar"),
+      true,
+    );
+    assert.equal(
+      textMatchesSearchQuery("Festival de Primavera Cabarete", "spring festival"),
+      true,
+    );
+    assert.equal(
+      textMatchesSearchQuery("Concierto de Verano en la Playa", "summer concert"),
+      true,
+    );
+    assert.equal(
+      textMatchesSearchQuery("Mercado de Navidad Puerto Plata", "christmas market"),
+      true,
+    );
+    assert.equal(
+      textMatchesSearchQuery("Fête d'hiver à Sosúa", "winter party"),
+      true,
+    );
+  });
+
+  it("ignores function words in multi-token queries", () => {
+    assert.equal(
+      textMatchesSearchQuery("Autumn Bazaar Sosúa", "bazar de otoño"),
+      true,
+    );
+  });
 });
 
 describe("pickSearchVenueHits", () => {
@@ -187,6 +221,57 @@ describe("searchEvents", () => {
     const hits = searchEvents(events, "aura");
     assert.equal(hits.length, 1);
     assert.equal(hits[0]?.id, "allison-sade-aura-2026-09-17");
+  });
+
+  it("finds Spanish titles from English season + event-type queries", () => {
+    const market = [
+      ...events,
+      {
+        id: "sosua-emprende-bazar-otono-2026-10-17",
+        title: "Bazar de Otoño — Sosúa Emprende",
+        description: "Family day with crafts at Parque Las Flores.",
+        location: "Sosúa",
+        venue: "Parque Las Flores Sosúa",
+        venueSlug: "parque-las-flores-sosua",
+        category: "festivals" as const,
+      },
+      {
+        id: "primavera-cabarete",
+        title: "Festival de Primavera Cabarete",
+        description: "Spring arts weekend on the strip",
+        location: "Cabarete",
+        category: "festivals" as const,
+      },
+    ];
+    assert.equal(
+      searchEvents(market, "autumn bazaar")[0]?.id,
+      "sosua-emprende-bazar-otono-2026-10-17",
+    );
+    assert.equal(
+      searchEvents(market, "spring festival")[0]?.id,
+      "primavera-cabarete",
+    );
+  });
+
+  it("searches across localized titles when the active locale title differs", () => {
+    const rows = [
+      {
+        id: "winter-fair",
+        title: "Winter Fair",
+        description: "",
+        location: "Sosúa",
+        category: "festivals" as const,
+        localized: {
+          title: {
+            en: "Winter Fair",
+            es: "Feria de Invierno",
+            fr: "Foire d'hiver",
+          },
+        },
+      },
+    ];
+    assert.equal(searchEvents(rows, "feria invierno")[0]?.id, "winter-fair");
+    assert.equal(searchEvents(rows, "foire")[0]?.id, "winter-fair");
   });
 
   it("finds Spanish béisbol copy when searching baseball", () => {

@@ -392,6 +392,12 @@ export async function claimTodaySpotlightLock(input: {
       }
 
       const keep = action === "resume" ? existing : null;
+      // Nothing has reached Instagram yet — rebuild the pick so a failed
+      // Reel attempt cannot keep yesterday's photos on today's events.
+      const refreshUnposted =
+        keep != null &&
+        (keep.instagramPostedEventIds?.length ?? 0) === 0 &&
+        (keep.instagramChildIds?.length ?? 0) === 0;
       const recent =
         keep?.recent ??
         rollSpotlightHistory(existing, today, { force: input.force });
@@ -400,14 +406,24 @@ export async function claimTodaySpotlightLock(input: {
         locale: input.locale,
         source: channel,
         status: "in_progress",
-        eventIds: keep?.eventIds.length ? keep.eventIds : input.eventIds,
-        repeatKeys: keep?.repeatKeys ?? input.repeatKeys,
+        eventIds:
+          keep && !refreshUnposted && keep.eventIds.length
+            ? keep.eventIds
+            : input.eventIds,
+        repeatKeys:
+          keep && !refreshUnposted ? (keep.repeatKeys ?? input.repeatKeys) : input.repeatKeys,
         recent: recent.length ? recent : undefined,
-        caption: keep?.caption ?? input.caption,
-        eventCaptions: keep?.eventCaptions ?? input.eventCaptions,
-        imageUrls: keep?.imageUrls ?? input.imageUrls,
-        videoUrls: keep?.videoUrls ?? input.videoUrls,
-        link: keep?.link ?? input.link,
+        caption: keep && !refreshUnposted ? (keep.caption ?? input.caption) : input.caption,
+        eventCaptions:
+          keep && !refreshUnposted
+            ? (keep.eventCaptions ?? input.eventCaptions)
+            : input.eventCaptions,
+        imageUrls:
+          keep && !refreshUnposted
+            ? (keep.imageUrls ?? input.imageUrls)
+            : input.imageUrls,
+        videoUrls: refreshUnposted ? undefined : (keep?.videoUrls ?? input.videoUrls),
+        link: keep && !refreshUnposted ? (keep.link ?? input.link) : input.link,
         facebookId: keep?.facebookId,
         instagramId: keep?.instagramId,
         instagramIds: keep?.instagramIds,

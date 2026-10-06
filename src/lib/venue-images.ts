@@ -11,6 +11,8 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "liquid-blue-cabarete": "liquid-blue-cabarete-beach.jpg",
   // Filename bump — Pedro Clisante restaurant strip (not Plaza García / Entrada).
   "el-batey-sosua": "el-batey-pedro-clisante-strip.jpg",
+  // Filename bump — Parque Las Flores plaza / blue building place shot.
+  "parque-las-flores-sosua": "parque-las-flores-sosua-plaza.jpg",
   // Filename bump — garden patio with NOMA'S sign (replaces entrance walk-by).
   "nonas-grill-kitchen": "nonas-grill-kitchen-garden.jpg",
   "hard-rock-sosua": "hard-rock-sosua.jpg",
@@ -53,8 +55,8 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "senor-rock-playa-dorada": "senor-rock-playa-dorada-entrance.jpg",
   "cremo-cigar-bar": "cremo-cigar-bar.jpg",
   "big-lees-beach-bar": "big-lees-beach-bar.jpg",
-  // Filename bump — Maps tiki bar (not the Saturday sancocho flyer).
-  "pingui-bar": "pingui-bar-tiki.jpg",
+  // Filename bump — POP facade with Pingüi + Piña Colada signs (not Maps tiki; sancocho keeps flyer).
+  "pingui-bar": "pingui-bar-facade.jpg",
   "el-carey-puerto-plata": "el-carey-puerto-plata.webp",
   "el-colibri-hotel": "el-colibri-hotel.jpg",
   "taino-bay": "taino-bay-village.jpg",
@@ -226,6 +228,8 @@ const VENUE_HERO_OBJECT_POSITION: Record<string, string> = {
   "bar-39-sosua": "object-top",
   // Portrait patio — keep the Paellas POP sign in wide card crops.
   "paella-pop-el-pueblito": "object-top",
+  // Facade crop — keep circular Pingüi + Piña Colada signs in wide card crops.
+  "pingui-bar": "object-top",
   // Balcony lunch overlooking the park — keep the table/view at the top of the crop.
   "casa-balcon-puerto-plata": "object-top",
   // Keep the SPOTLAND sign in frame on the entrance crop (mobile + desktop).

@@ -98,8 +98,8 @@ export type SpotlightPickOptions = {
    */
   excludeTodaySpecials?: boolean;
   /**
-   * Scheduled post before a specials run: fill with dated one-offs first,
-   * then multi-day / weekly leftovers.
+   * Scheduled post: dated one-offs first, then happening-today
+   * (weekly / multi-day) after them.
    */
   preferTodaySpecials?: boolean;
 };
@@ -117,10 +117,10 @@ export function spotlightPickOptionsForSource(
 }
 
 /**
- * How many events to post. When specials are preferred (or the post is
- * specials-only), take every dated one-off that starts today — up to the
- * Meta carousel/album max — and still fill to at least {@link TODAY_SPOTLIGHT_LIMIT}
- * with other happening-today events when preferring.
+ * How many events to post. Specials-only takes every dated one-off that
+ * starts today. The scheduled post takes those specials first, then up to
+ * {@link TODAY_SPOTLIGHT_LIMIT} other happening-today events, capped at the
+ * Meta album max.
  */
 export function spotlightLimitForOptions(
   events: Event[],
@@ -142,7 +142,7 @@ export function spotlightLimitForOptions(
   }
   return Math.min(
     TODAY_SPOTLIGHT_MAX,
-    Math.max(TODAY_SPOTLIGHT_LIMIT, specialCount),
+    specialCount + TODAY_SPOTLIGHT_LIMIT,
   );
 }
 

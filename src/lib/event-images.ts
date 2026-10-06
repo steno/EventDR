@@ -56,7 +56,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "terraza-ocean-world-evenings": "terraza-ocean-world-evenings.jpg",
   "charcos-damajagua-daily": "charcos-damajagua-daily.jpeg",
   "el-choco-cave-tour-swimming-daily": "el-choco-cave-tour-swimming-daily.jpg",
-  "taino-bay-village-daily": "taino-bay-village-daily.jpg",
+  "taino-bay-village-daily": "taino-bay-village-daily-lazy-river.jpg",
   "amber-cove-village-daily": "amber-cove-village-daily.jpg",
   // Filename bump — Wikimedia ramparts + visitors (not the 524px aerial clone).
   "fortaleza-san-felipe-daily": "fortaleza-san-felipe-ramparts.jpg",
@@ -124,6 +124,11 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "natura-cabana-jazz-ensemble-2026-10-03":
     "natura-cabana-jazz-ensemble-2026-10-03.jpg",
   "kaovanny-natura-cabana-2026-09-26": "kaovanny-natura-cabana-2026-09-26.jpg",
+  // Reuse Natura Cabana Kaovanny flyer for the Nov 28 Agua Live Tour night.
+  "kaovanny-agua-natura-cabana-2026-11-28": "kaovanny-natura-cabana-2026-09-26.jpg",
+  "kaovanny-hard-rock-2026-11-20": "kaovanny-hard-rock-2026-11-20.jpg",
+  "elias-serulle-villa-taina-2026-10-24":
+    "elias-serulle-villa-taina-2026-10-24.jpg",
   // Filename bump — refreshed Vibes Night Live flyer (PWA caches old path).
   "vibes-night-live-voramar-2026-10-02":
     "vibes-night-live-voramar-2026-10-02-v2.jpg",
@@ -255,8 +260,21 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "meclao-chris-plasencia-2026-09-26.jpg",
   "disco-club-on-fire-night-2026-10-01":
     "disco-club-on-fire-night-2026-10-01.jpg",
+  "disco-club-gogo-dancers-2026-10-08":
+    "disco-club-gogo-dancers-2026-10-08.jpg",
+  "disco-club-nelson-bless-bachatera-2026-10-09":
+    "disco-club-nelson-bless-bachatera-2026-10-09.jpg",
   "disco-club-la-mas-doll-2026-10-02":
     "disco-club-la-mas-doll-2026-10-02.jpg",
+  "rancho-catalina-halloween-trick-or-treat-2026-10-23":
+    "rancho-catalina-halloween-trick-or-treat-2026-10-23.jpg",
+  "groundzero-bulin47-2026-11-06": "groundzero-bulin47-2026-11-06.jpg",
+  "somnia-06-after-dark-hard-rock-2026-11-06":
+    "somnia-06-after-dark-hard-rock-2026-11-06.jpg",
+  "parada-choco-banditalia-2026-10-06":
+    "parada-choco-banditalia-2026-10-06.jpg",
+  "sosua-emprende-bazar-otono-2026-10-17":
+    "sosua-emprende-bazar-otono-2026-10-17-v2.jpg",
   "meclao-sammy-bday-jhon-parra-2026-10-01":
     "meclao-sammy-bday-jhon-parra-2026-10-01.jpg",
   "sarah-graciano-rancho-catalina-2026-10-04":
@@ -757,6 +775,15 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "groundzero-party-rojo-2026-08-01.jpg",
   "groundzero-sabados-latinos.jpg",
   "groundzero-halloween-2026-10-30.jpg",
+  "groundzero-bulin47-2026-11-06.jpg",
+  "somnia-06-after-dark-hard-rock-2026-11-06.jpg",
+  "disco-club-gogo-dancers-2026-10-08.jpg",
+  "disco-club-nelson-bless-bachatera-2026-10-09.jpg",
+  "rancho-catalina-halloween-trick-or-treat-2026-10-23.jpg",
+  "parada-choco-banditalia-2026-10-06.jpg",
+  "sosua-emprende-bazar-otono-2026-10-17-v2.jpg",
+  "kaovanny-hard-rock-2026-11-20.jpg",
+  "kaovanny-natura-cabana-2026-09-26.jpg",
   "groundzero-tivigunz-2026-10-04.jpg",
   "groundzero-viernes-locos.jpg",
   "guananico-san-miguel-patronales-2026.jpg",
@@ -859,7 +886,13 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "meclao-house-friday-2026-09-25-lockward.jpg",
   "meclao-chris-plasencia-2026-09-26.jpg",
   "disco-club-on-fire-night-2026-10-01.jpg",
+  "disco-club-gogo-dancers-2026-10-08.jpg",
+  "disco-club-nelson-bless-bachatera-2026-10-09.jpg",
   "disco-club-la-mas-doll-2026-10-02.jpg",
+  "rancho-catalina-halloween-trick-or-treat-2026-10-23.jpg",
+  "groundzero-bulin47-2026-11-06.jpg",
+  "somnia-06-after-dark-hard-rock-2026-11-06.jpg",
+  "parada-choco-banditalia-2026-10-06.jpg",
   "meclao-sammy-bday-jhon-parra-2026-10-01.jpg",
   "sarah-graciano-rancho-catalina-2026-10-04.jpg",
   "twenty-disco-friday-dj-tanque-2026-10-02.jpg",
@@ -1057,7 +1090,8 @@ const HOME_HERO_SCENE_FILES = new Set([
   "sunset-laughter-club-cabarete-v2.jpg",
   "tabacalera-cremo-factory-tour.jpg",
   "tabacalera-cremo-rolling-experience.jpg",
-  "taino-bay-village-daily.jpg",
+  "taino-bay-village-daily-lazy-river.jpg",
+  "elias-serulle-villa-taina-2026-10-24.jpg",
   "teleferico-puerto-plata-daily.jpeg",
   "vivonte-cigar-factory-weekdays.jpg",
   "voramar-friday-live-poolside.jpg",

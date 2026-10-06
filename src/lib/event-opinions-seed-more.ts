@@ -4388,6 +4388,186 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: "2026-10-05T16:00:00.000Z",
   },
   {
+    eventId: "parada-choco-banditalia-2026-10-06",
+    body: "BandItalia on the Sosúa–Cabarete corridor aperitivo — free finger food at the table opposite Ocean Village; RSVP 809-804-2510 so you don’t lose the 5–7 PM window to a walk-up crowd.",
+    localized: {
+      es: "BandItalia en el aperitivo del corredor Sosúa–Cabarete — finger food gratis en la mesa frente a Ocean Village; RSVP 809-804-2510 para no perder la ventana 5–7 PM ante el walk-up.",
+      fr: "BandItalia à l’apéritivo du corridor Sosúa–Cabarete — finger food offert à table face à Ocean Village ; RSVP 809-804-2510 pour ne pas perdre la fenêtre 17 h–19 h face au walk-up.",
+    },
+    priceFeel: "moderate",
+    priceNote: "No cover — pay for Swiss-Italian dining; RSVP +1 809-804-2510",
+    priceNoteLocalized: {
+      es: "Sin cover — pagas la comida suizo-italiana; RSVP +1 809-804-2510",
+      fr: "Pas de cover — vous payez le repas suisse-italien ; RSVP +1 809-804-2510",
+    },
+    attribution: "POP research · @paradaelchoco BandItalia aperitivo flyer",
+    researchNotes:
+      "Editor flyer — Tue 6 Oct 2026 5–7 PM BandItalia International at Parada Choco / House of Music, Plaza Buen Gusto Sosúa–Cabarete opposite Ocean Village; free finger food; RSVP +1 809 804 2510. Better-quality brand flyer used as hero.",
+    updatedAt: "2026-10-06T13:00:00.000Z",
+  },
+  {
+    eventId: "disco-club-gogo-dancers-2026-10-08",
+    body: "Another Thursday gogo night at Latin Disco Club by the Brugal depots — Oct 8 flyer, not the Oct 1 On Fire date; cover isn’t printed, so confirm @latindiscoclubpp before you treat doors as walk-in.",
+    localized: {
+      es: "Otro jueves de gogo en Latin Disco Club frente a los depósitos Brugal — flyer del 8 oct, no la fecha On Fire del 1 oct; el cover no está impreso, confirma @latindiscoclubpp antes de asumir walk-in.",
+      fr: "Encore un jeudi gogo au Latin Disco Club face aux dépôts Brugal — affiche du 8 oct, pas la date On Fire du 1er oct ; le cover n’est pas imprimé, confirmez @latindiscoclubpp avant d’assumer walk-in.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover not on flyer — confirm @latindiscoclubpp",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — confirma @latindiscoclubpp",
+      fr: "Cover absent de l’affiche — confirmez @latindiscoclubpp",
+    },
+    attribution: "POP research · @latindiscoclubpp GOGO Dancers flyer",
+    researchNotes:
+      "Editor flyer — Jue 08 Oct GOGO Dancers at Latin Disco Club. No phone/cover/time on art.",
+    updatedAt: "2026-10-06T14:00:00.000Z",
+  },
+  {
+    eventId: "disco-club-nelson-bless-bachatera-2026-10-09",
+    body: "Free Friday bachata with Nelson Bless at Latin Disco Club by the Brugal depots — not the Thursday gogo/stripper series; doors say totally free, so budget drinks and reserve the info line if you want a table.",
+    localized: {
+      es: "Bachata gratis el viernes con Nelson Bless en Latin Disco Club frente a Brugal — no es la serie de gogo/strippers del jueves; la entrada dice totalmente gratis, presupuesta tragos y llama a la línea de info si quieres mesa.",
+      fr: "Bachata gratuite le vendredi avec Nelson Bless au Latin Disco Club face à Brugal — pas la série gogo/strippers du jeudi ; l’entrée dit totalement gratuite, budgétez les verres et appelez la ligne info pour une table.",
+    },
+    priceFeel: "budget",
+    priceNote: "Entrada totalmente gratis — drinks/tabs; info 829-563-9469",
+    priceNoteLocalized: {
+      es: "Entrada totalmente gratis — tragos/cuenta; info 829-563-9469",
+      fr: "Entrée totalement gratuite — verres/addition ; info 829-563-9469",
+    },
+    attribution: "POP research · Latin Disco Club Nelson Bless flyer",
+    researchNotes:
+      "Editor flyer — Vie 9 Oct Gran Fiesta Bachatera Nelson Bless, Latin Disco Club, Av. Circunvalación Sur frente depósitos Brugal, entrada totalmente gratis, info 829-563-9469. Not adult-entertainment bill — no ageHint.",
+    updatedAt: "2026-10-06T18:00:00.000Z",
+  },
+  {
+    eventId: "sosua-emprende-bazar-otono-2026-10-17",
+    body: "Two-day merchants’ bazaar in Parque Las Flores — crafts, food, inflatables, and face painting for a family afternoon; vendor booth fees aren’t your entry cost, so walk the park and spend at stalls you like.",
+    localized: {
+      es: "Bazar de comerciantes de dos días en Parque Las Flores — artesanías, comida, inflables y pinta caritas para una tarde en familia; el costo de carpa no es tu entrada, camina el parque y gasta en los puestos que te gusten.",
+      fr: "Bazar de commerçants sur deux jours au Parque Las Flores — artisanat, nourriture, structures gonflables et maquillage pour un après-midi famille ; le tarif stand n’est pas votre entrée, parcourez le parc et dépensez aux stands qui vous plaisent.",
+    },
+    priceFeel: "budget",
+    priceNote: "Public browsing free — pay for food/stalls; vendor booths separate",
+    priceNoteLocalized: {
+      es: "Recorrido público gratis — pagas comida/puestos; carpas de vendedores aparte",
+      fr: "Visite publique gratuite — payez nourriture/stands ; stands vendeurs à part",
+    },
+    attribution: "POP research · Asociación de Comerciantes Sosúa / Sosúa Emprende flyer",
+    researchNotes:
+      "Editor flyer + caption — Sáb 17–Dom 18 Oct 2026 9 AM–9 PM Parque Las Flores El Batey; family bazaar; ageHint family. Crowd place shot as event hero; plaza place shot on venue.",
+    updatedAt: "2026-10-06T19:00:00.000Z",
+  },
+  {
+    eventId: "elias-serulle-villa-taina-2026-10-24",
+    body: "Stand-up Vol. 2 at Hotel Villa Taina with HARÚ and STARLYN on the bill — buy via Bandsintown before you treat the beach hotel as a free Serenade dinner night.",
+    localized: {
+      es: "Stand-up Vol. 2 en Hotel Villa Taina con HARÚ y STARLYN en cartel — compra en Bandsintown antes de tratar el hotel de playa como una cena Serenade gratis.",
+      fr: "Stand-up Vol. 2 à l’Hotel Villa Taina avec HARÚ et STARLYN à l’affiche — achetez via Bandsintown avant de traiter l’hôtel plage comme un dîner Serenade gratuit.",
+    },
+    priceFeel: "varies",
+    priceNote: "Tickets via Bandsintown — confirm door; hotel +1 809-571-0722",
+    priceNoteLocalized: {
+      es: "Boletas vía Bandsintown — confirma puerta; hotel +1 809-571-0722",
+      fr: "Billets via Bandsintown — confirmez porte ; hôtel +1 809-571-0722",
+    },
+    attribution: "POP research · Bandsintown e/108921175",
+    researchNotes:
+      "Bandsintown — Sat Oct 24 2026 7 PM AST, Hotel Villa Taina Cabarete, comedy Vol. 2 HARÚ · ELÍAS · STARLYN. Portrait hero editor-supplied.",
+    updatedAt: "2026-10-06T20:00:00.000Z",
+  },
+  {
+    eventId: "kaovanny-hard-rock-2026-11-20",
+    body: "Kaovanny on the Hard Rock Sosúa stage at 8:30 PM — downtown El Batey concert energy, not Natura’s dinner-table Agua Tour a week later; confirm cover before you walk up.",
+    localized: {
+      es: "Kaovanny en el escenario Hard Rock Sosúa a las 8:30 PM — energía de concierto downtown El Batey, no el Agua Tour a mesa en Natura una semana después; confirma cover antes de llegar walk-up.",
+      fr: "Kaovanny sur la scène Hard Rock Sosúa à 20 h 30 — énergie concert downtown El Batey, pas l’Agua Tour à table à Natura une semaine plus tard ; confirmez le cover avant d’arriver walk-up.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover not on flyer — @hardrockcafepuertoplata / +1 849-505-7778",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — @hardrockcafepuertoplata / +1 849-505-7778",
+      fr: "Cover absent de l’affiche — @hardrockcafepuertoplata / +1 849-505-7778",
+    },
+    attribution: "POP research · Hard Rock Puerto Plata Kaovanny flyer",
+    researchNotes:
+      "Editor flyer — Fri Nov 20 2026 8:30 PM Kaovanny Live Music at Hard Rock Cafe Puerto Plata.",
+    updatedAt: "2026-10-06T21:00:00.000Z",
+  },
+  {
+    eventId: "kaovanny-agua-natura-cabana-2026-11-28",
+    body: "Agua Live Tour acoustic night with a 4-piece and Juan Guivín — book the Natura table like the Sep bill; dinner-show pacing, not Hard Rock’s Nov 20 concert stage.",
+    localized: {
+      es: "Noche acústica Agua Live Tour con banda de 4 y Juan Guivín — reserva mesa en Natura como el cartel de sep; ritmo cena-show, no el escenario de concierto del Hard Rock el 20 nov.",
+      fr: "Soirée acoustique Agua Live Tour avec un groupe de 4 et Juan Guivín — réservez la table Natura comme l’affiche de sep ; rythme dîner-show, pas la scène concert du Hard Rock le 20 nov.",
+    },
+    priceFeel: "moderate",
+    priceNote: "No cover listed — budget dinner/drinks; book +1 849-214-7010",
+    priceNoteLocalized: {
+      es: "Sin cover publicado — presupuesta cena/tragos; reserva +1 849-214-7010",
+      fr: "Pas de cover publié — budget dîner/boissons ; réservez +1 849-214-7010",
+    },
+    attribution: "POP research · Natura Cabana Kaovanny Agua Live Tour",
+    researchNotes:
+      "Editor details — Sat Nov 28 2026 7 PM Natura Cabana; Agua Live Tour; 4-piece + Juan Guivín; reuses Sep 26 Natura Kaovanny flyer hero.",
+    updatedAt: "2026-10-06T22:00:00.000Z",
+  },
+  {
+    eventId: "rancho-catalina-halloween-trick-or-treat-2026-10-23",
+    body: "Kids Halloween at the El Cupey ranch from 5 PM — trick-or-treat, cotton candy, magic show, and costume prizes; family afternoon, not Ground Zero’s Oct 30 club terror night.",
+    localized: {
+      es: "Halloween para niños en el rancho de El Cupey desde las 5 PM — trick-or-treat, algodón de azúcar, magia y premios de disfraz; tarde familiar, no la noche de terror de club del 30 oct en Ground Zero.",
+      fr: "Halloween enfants au ranch d’El Cupey dès 17 h — trick-or-treat, barbe à papa, magie et prix costumes ; après-midi famille, pas la nuit club terror du 30 oct au Ground Zero.",
+    },
+    priceFeel: "moderate",
+    priceNote: "No cover listed — budget ranch dining; +1 809-781-3737",
+    priceNoteLocalized: {
+      es: "Sin cover listado — presupuesta comida del rancho; +1 809-781-3737",
+      fr: "Pas de cover listé — budget repas ranch ; +1 809-781-3737",
+    },
+    attribution: "POP research · @rancholacatalina Halloween Trick or Treat",
+    researchNotes:
+      "Editor IG @rancholacatalina — Vie 23 Oct 5 PM Trick or Treat kids afternoon: costumes, popcorn, cotton candy, characters, surprises, magic show, top-3 costume prizes. AgeHint family.",
+    updatedAt: "2026-10-06T15:00:00.000Z",
+  },
+  {
+    eventId: "somnia-06-after-dark-hard-rock-2026-11-06",
+    body: "Somnia’s ticketed After Dark at Hard Rock El Batey — RD$1,000 first sale via the flyer sellers; same Friday as Ground Zero’s Bulin 47, so pick the downtown stage, not the airport-highway disco.",
+    localized: {
+      es: "After Dark con boleto de Somnia en Hard Rock El Batey — primera venta RD$1,000 con los vendedores del flyer; el mismo viernes que Bulin 47 en Ground Zero, así que elige el escenario downtown, no la disco de la carretera del aeropuerto.",
+      fr: "After Dark billeté de Somnia au Hard Rock El Batey — première vente RD$1,000 via les vendeurs de l’affiche ; le même vendredi que Bulin 47 au Ground Zero, donc choisissez la scène downtown, pas la disco de la route aéroport.",
+    },
+    priceFeel: "moderate",
+    priceNote: "First sale RD$1,000 — sellers on flyer; venue +1 849-505-7778",
+    priceNoteLocalized: {
+      es: "Primera venta RD$1,000 — vendedores en el flyer; venue +1 849-505-7778",
+      fr: "Première vente RD$1,000 — vendeurs sur l’affiche ; lieu +1 849-505-7778",
+    },
+    attribution: "POP research · Somnia Events 06 After Dark flyer",
+    researchNotes:
+      "Editor flyer — Nov 6 Somnia 06 After Dark at Hard Rock Sosúa Puerto Plata; first sale $1,000; sellers Bernard Pérez / Michelle Saiz / Mariana Ovalles / Juan De Lemos / Job Rojas / Sergio Jiménez / Guillermo Fernandez.",
+    updatedAt: "2026-10-06T16:00:00.000Z",
+  },
+  {
+    eventId: "groundzero-bulin47-2026-11-06",
+    body: "Bulin 47 live for Carla Peppel’s birthday at Ground Zero on the airport highway — not Somnia’s Hard Rock After Dark the same Friday; cover isn’t on the flyer, so WhatsApp 849-465-1313 before you walk up.",
+    localized: {
+      es: "Bulin 47 en vivo por el cumpleaños de Carla Peppel en Ground Zero en la carretera del aeropuerto — no es el After Dark de Somnia en Hard Rock el mismo viernes; el cover no está en el flyer, así que WhatsApp 849-465-1313 antes de llegar walk-up.",
+      fr: "Bulin 47 en live pour l’anniversaire de Carla Peppel au Ground Zero sur la route aéroport — pas l’After Dark de Somnia au Hard Rock le même vendredi ; le cover n’est pas sur l’affiche, donc WhatsApp 849-465-1313 avant d’arriver walk-up.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover not on flyer — WhatsApp 849-465-1313",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — WhatsApp 849-465-1313",
+      fr: "Cover absent de l’affiche — WhatsApp 849-465-1313",
+    },
+    attribution: "POP research · @groundzero_disco Bulin 47 flyer",
+    researchNotes:
+      "Editor flyer + IG @groundzero_disco — Vie 06 Nov Bulin 47 / Bun47 en vivo, cumpleaños Carla Peppel, reservas 849-465-1313. No cover/time on art.",
+    updatedAt: "2026-10-06T17:00:00.000Z",
+  },
+  {
     eventId: "masters-surf-reunion-10-2026",
     body: "Four-day masters reunion on Encuentro sand — Fri opening at Natura Cabana, then heats and sunset parties at Coconuts; register via @MastersSurfReunionRD before slots go, this isn’t a casual beach hang.",
     localized: {

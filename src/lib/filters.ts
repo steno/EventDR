@@ -9,6 +9,10 @@ import {
 } from "./event-dates";
 import { happensOnLocalDate, isEventActiveToday } from "./event-status";
 import { getSeedVenue, matchVenueSlug } from "./venues-seed";
+import {
+  SEARCH_STOPWORDS,
+  SEARCH_SYNONYM_GROUPS,
+} from "./search-lexicon";
 
 export type TimeRange = "all" | "today" | "tomorrow" | "weekend";
 
@@ -219,38 +223,72 @@ export function foldSearchText(value: string): string {
 }
 
 /**
- * Cross-language equivalents for common event terms.
- * Searching one form must find copy written in another (EN/ES/FR).
- * These are true synonyms — not whole-category expansions.
+ * Merge overlapping synonym groups (shared terms) into connected components
+ * so one lookup returns the full cross-language set.
  */
-const SEARCH_SYNONYM_GROUPS: readonly (readonly string[])[] = [
-  ["baseball", "beisbol"],
-  ["softball", "softbol"],
-  ["soccer", "football", "futbol"],
-  ["volleyball", "voleibol"],
-  ["basketball", "baloncesto"],
-  ["tennis", "tenis"],
-  ["triathlon", "triatlon"],
-  ["marathon", "maraton"],
-  ["kitesurf", "kitesurfing", "kiteboarding", "kiteboard"],
-  ["windsurf", "windsurfing"],
-  ["concert", "concierto"],
-  ["music", "musica", "musique"],
-  ["party", "parties", "fiesta", "fiestas"],
-  ["festival", "festivals", "feria"],
-  ["carnival", "carnaval"],
-  ["dance", "dancing", "baile"],
-  ["wellness", "bienestar"],
-  ["meditation", "meditacion"],
-  ["adventure", "aventura"],
-  ["excursion", "excursión", "excursions"],
-  ["culture", "cultura", "cultural"],
-  ["nightlife", "nocturna"],
-  ["workshop", "taller"],
-  ["comedy", "comedia"],
-  ["theater", "theatre", "teatro"],
-  ["terrace", "terraza", "terrasse"],
-];
+const SEARCH_SYNONYM_LOOKUP: ReadonlyMap<string, readonly string[]> = (() => {
+  const parent = new Map<string, string>();
+  const rank = new Map<string, number>();
+
+  const find = (x: string): string => {
+    let root = parent.get(x) ?? x;
+    while (parent.get(root) && parent.get(root) !== root) {
+      root = parent.get(root)!;
+    }
+    let cur = x;
+    while (cur !== root) {
+      const next = parent.get(cur) ?? cur;
+      parent.set(cur, root);
+      cur = next;
+    }
+    return root;
+  };
+
+  const union = (a: string, b: string) => {
+    const ra = find(a);
+    const rb = find(b);
+    if (ra === rb) return;
+    const rankA = rank.get(ra) ?? 0;
+    const rankB = rank.get(rb) ?? 0;
+    if (rankA < rankB) parent.set(ra, rb);
+    else if (rankA > rankB) parent.set(rb, ra);
+    else {
+      parent.set(rb, ra);
+      rank.set(ra, rankA + 1);
+    }
+  };
+
+  const allTerms: string[] = [];
+  for (const group of SEARCH_SYNONYM_GROUPS) {
+    const folded = [
+      ...new Set(group.map((term) => foldSearchText(term)).filter(Boolean)),
+    ];
+    if (folded.length === 0) continue;
+    for (const term of folded) {
+      if (!parent.has(term)) {
+        parent.set(term, term);
+        rank.set(term, 0);
+        allTerms.push(term);
+      }
+    }
+    for (let i = 1; i < folded.length; i++) union(folded[0]!, folded[i]!);
+  }
+
+  const clusters = new Map<string, string[]>();
+  for (const term of allTerms) {
+    const root = find(term);
+    const list = clusters.get(root) ?? [];
+    list.push(term);
+    clusters.set(root, list);
+  }
+
+  const map = new Map<string, readonly string[]>();
+  for (const members of clusters.values()) {
+    const unique = [...new Set(members)];
+    for (const term of unique) map.set(term, unique);
+  }
+  return map;
+})();
 
 /** Localized category labels so `deportes` finds `category: "sports"`. */
 const CATEGORY_SEARCH_ALIASES: Record<string, readonly string[]> = {
@@ -268,18 +306,62 @@ const CATEGORY_SEARCH_ALIASES: Record<string, readonly string[]> = {
   adventure: ["adventure", "aventura", "tour", "excursion"],
 };
 
-const SEARCH_SYNONYM_LOOKUP: ReadonlyMap<string, readonly string[]> = (() => {
-  const map = new Map<string, readonly string[]>();
-  for (const group of SEARCH_SYNONYM_GROUPS) {
-    const folded = [...new Set(group.map((term) => foldSearchText(term)))];
-    for (const term of folded) map.set(term, folded);
+/** Light plural / trailing-s strip so `bazars` still hits the `bazar` group. */
+function lexiconLookupKey(token: string): string {
+  const folded = foldSearchText(token);
+  if (SEARCH_SYNONYM_LOOKUP.has(folded)) return folded;
+  if (folded.length > 4 && folded.endsWith("s")) {
+    const singular = folded.slice(0, -1);
+    if (SEARCH_SYNONYM_LOOKUP.has(singular)) return singular;
   }
-  return map;
-})();
+  if (folded.length > 5 && folded.endsWith("es")) {
+    const singular = folded.slice(0, -2);
+    if (SEARCH_SYNONYM_LOOKUP.has(singular)) return singular;
+  }
+  return folded;
+}
 
 function searchTokenAlternatives(token: string): readonly string[] {
-  const folded = foldSearchText(token);
-  return SEARCH_SYNONYM_LOOKUP.get(folded) ?? [folded];
+  const key = lexiconLookupKey(token);
+  return SEARCH_SYNONYM_LOOKUP.get(key) ?? [foldSearchText(token)];
+}
+
+function tokenizeSearchText(folded: string): string[] {
+  return folded.split(/[^\p{L}\p{N}]+/u).filter(Boolean);
+}
+
+/**
+ * Append lexicon equivalents for every document token so English queries can
+ * hit Spanish/French titles without per-event aliases.
+ */
+export function expandSearchHaystack(haystack: string): string {
+  const folded = foldSearchText(haystack);
+  const extras: string[] = [];
+  for (const token of tokenizeSearchText(folded)) {
+    const alts = searchTokenAlternatives(token);
+    if (alts.length > 1) extras.push(...alts);
+  }
+  if (extras.length === 0) return folded;
+  return `${folded}\n${[...new Set(extras)].join(" ")}`;
+}
+
+function localizedSearchCopy(
+  localized:
+    | {
+        title?: Partial<Record<"en" | "es" | "fr", string>>;
+        description?: Partial<Record<"en" | "es" | "fr", string>>;
+      }
+    | undefined,
+): string[] {
+  if (!localized) return [];
+  const parts: string[] = [];
+  for (const map of [localized.title, localized.description]) {
+    if (!map) continue;
+    for (const value of Object.values(map)) {
+      if (value?.trim()) parts.push(value);
+    }
+  }
+  return parts;
 }
 
 /**
@@ -297,19 +379,24 @@ function haystackHasToken(hay: string, token: string): boolean {
 }
 
 function haystackHasTokenOrSynonym(hay: string, token: string): boolean {
-  return searchTokenAlternatives(token).some((alt) => haystackHasToken(hay, alt));
+  return searchTokenAlternatives(token).some((alt) => {
+    if (alt.includes(" ")) {
+      return foldSearchText(hay).includes(alt);
+    }
+    return haystackHasToken(hay, alt);
+  });
 }
 
 /**
  * Match a free-text search against a haystack.
- * Supports accent folding, cross-language synonyms (baseball ↔ béisbol),
+ * Supports accent folding, cross-language lexicon expansion (autumn ↔ otoño),
  * word-boundary tokens, space-stripped brands (cabarete fitness → cabaretefitness),
- * and multi-word AND (all tokens must appear somewhere).
+ * and multi-word AND (content tokens must appear; function words ignored).
  */
 export function textMatchesSearchQuery(haystack: string, query: string): boolean {
   const q = foldSearchText(query.trim());
   if (!q) return true;
-  const hay = foldSearchText(haystack);
+  const hay = expandSearchHaystack(haystack);
   if (haystackHasTokenOrSynonym(hay, q)) return true;
 
   const compactQ = q.replace(/\s+/g, "");
@@ -317,11 +404,15 @@ export function textMatchesSearchQuery(haystack: string, query: string): boolean
     return true;
   }
 
-  const tokens = q.split(/\s+/).filter(Boolean);
+  const tokens = q
+    .split(/\s+/)
+    .filter(Boolean)
+    .filter((token) => !SEARCH_STOPWORDS.has(token));
+  if (tokens.length === 0) return false;
   if (tokens.length > 1) {
     return tokens.every((token) => haystackHasTokenOrSynonym(hay, token));
   }
-  return false;
+  return haystackHasTokenOrSynonym(hay, tokens[0]!);
 }
 
 function categorySearchTerms(
@@ -368,9 +459,14 @@ export function buildEventSearchText(event: {
   lineup?: string[];
   participants?: string[];
   imageEmoji?: string;
+  localized?: {
+    title?: Partial<Record<"en" | "es" | "fr", string>>;
+    description?: Partial<Record<"en" | "es" | "fr", string>>;
+  };
 }): string {
   const raw = [
     event.description ?? "",
+    ...localizedSearchCopy(event.localized),
     ...(event.lineup ?? []),
     ...(event.participants ?? []),
   ]
@@ -384,11 +480,11 @@ export function buildEventSearchText(event: {
   const descFolded = foldSearchText(raw).replace(/\s+/g, " ").trim();
   if (descFolded) parts.push(descFolded.slice(0, 360));
 
-  for (const group of SEARCH_SYNONYM_GROUPS) {
-    const alts = [...new Set(group.map((term) => foldSearchText(term)))];
-    if (alts.some((term) => haystackHasToken(foldedHay, term))) {
-      parts.push(...alts);
-    }
+  // Lexicon-expand title + copy so slimmed cards stay cross-language searchable.
+  const expanded = expandSearchHaystack(foldedHay);
+  if (expanded !== foldedHay) {
+    const onlyExtras = expanded.slice(foldedHay.length).trim();
+    if (onlyExtras) parts.push(onlyExtras);
   }
 
   const emojiTerms = event.imageEmoji
@@ -414,6 +510,10 @@ export function searchEvents<
     categories?: string[];
     lineup?: string[];
     imageEmoji?: string;
+    localized?: {
+      title?: Partial<Record<"en" | "es" | "fr", string>>;
+      description?: Partial<Record<"en" | "es" | "fr", string>>;
+    };
   },
 >(items: T[], query: string): T[] {
   const q = query.trim().toLowerCase();
@@ -431,6 +531,7 @@ export function searchEvents<
       e.title,
       e.description,
       e.searchText ?? "",
+      ...localizedSearchCopy(e.localized),
       e.location,
       e.venue ?? "",
       e.address ?? "",

@@ -612,6 +612,22 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     phone: "+18492147010",
     venueSlug: "natura-cabana",
   },
+  "kaovanny-agua-natura-cabana-2026-11-28": {
+    callForPricing: true,
+    phone: "+18492147010",
+    venueSlug: "natura-cabana",
+  },
+  "kaovanny-hard-rock-2026-11-20": {
+    callForPricing: true,
+    phone: "+18495057778",
+    venueSlug: "hard-rock-sosua",
+  },
+  "elias-serulle-villa-taina-2026-10-24": {
+    callForPricing: true,
+    phone: "+18095710722",
+    ticketUrl: "https://www.bandsintown.com/e/108921175",
+    venueSlug: "hotel-villa-taina",
+  },
   "vibes-night-live-voramar-2026-10-02": {
     callForPricing: true,
     phone: "+18095713910",
@@ -710,6 +726,39 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     callForPricing: true,
     phone: "+18494651313",
     venueSlug: "ground-zero-disco",
+  },
+  "groundzero-bulin47-2026-11-06": {
+    callForPricing: true,
+    phone: "+18494651313",
+    venueSlug: "ground-zero-disco",
+  },
+  "somnia-06-after-dark-hard-rock-2026-11-06": {
+    admissionPrice: "RD$1,000",
+    phone: "+18495057778",
+    venueSlug: "hard-rock-sosua",
+  },
+  "disco-club-gogo-dancers-2026-10-08": {
+    callForPricing: true,
+    venueSlug: "disco-club-brugal",
+  },
+  "disco-club-nelson-bless-bachatera-2026-10-09": {
+    isFree: true,
+    phone: "+18295639469",
+    venueSlug: "disco-club-brugal",
+  },
+  "sosua-emprende-bazar-otono-2026-10-17": {
+    isFree: true,
+    venueSlug: "parque-las-flores-sosua",
+  },
+  "rancho-catalina-halloween-trick-or-treat-2026-10-23": {
+    isFree: true,
+    phone: "+18097813737",
+    venueSlug: "rancho-catalina-puerto-plata",
+  },
+  "parada-choco-banditalia-2026-10-06": {
+    isFree: true,
+    phone: "+18098042510",
+    venueSlug: "parada-tipica-el-choco",
   },
   "ivan-garcia-cafe-opera-codigo-clown-2026-10-31": {
     callForPricing: true,

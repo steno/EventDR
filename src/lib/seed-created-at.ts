@@ -187,6 +187,17 @@ export const SEED_CREATED_AT: Readonly<Record<string, string>> = {
   "voyvoy-soft-reopening-sunset-2026-10-09": "2026-10-05T20:00:00.000Z",
   "voyvoy-halloween-session-2026-10-31": "2026-10-05T23:30:00.000Z",
   "voyvoy-dominican-night-flow-dance-2026-10-27": "2026-10-05T23:00:00.000Z",
+  "groundzero-bulin47-2026-11-06": "2026-10-06T17:00:00.000Z",
+  "somnia-06-after-dark-hard-rock-2026-11-06": "2026-10-06T16:00:00.000Z",
+  "rancho-catalina-halloween-trick-or-treat-2026-10-23":
+    "2026-10-06T15:00:00.000Z",
+  "disco-club-gogo-dancers-2026-10-08": "2026-10-06T14:00:00.000Z",
+  "parada-choco-banditalia-2026-10-06": "2026-10-06T13:00:00.000Z",
+  "disco-club-nelson-bless-bachatera-2026-10-09": "2026-10-06T18:00:00.000Z",
+  "sosua-emprende-bazar-otono-2026-10-17": "2026-10-06T19:00:00.000Z",
+  "kaovanny-agua-natura-cabana-2026-11-28": "2026-10-06T22:00:00.000Z",
+  "kaovanny-hard-rock-2026-11-20": "2026-10-06T21:00:00.000Z",
+  "elias-serulle-villa-taina-2026-10-24": "2026-10-06T20:00:00.000Z",
 };
 
 /** Fill missing `createdAt` from {@link SEED_CREATED_AT} (does not overwrite). */

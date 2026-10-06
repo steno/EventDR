@@ -121,7 +121,7 @@ Meta shows this dialog (Insights call-load) when the **same app** bursts Graph c
 What the app now does:
 - Same-day spotlight is locked — a retry will reuse the existing post instead of publishing again
 - GET `/api/cron/meta-post` no longer calls Graph unless you add `?inspect=1`
-- Live today-spotlight builds still→MP4 Reels (ffmpeg in GitHub Action), uploads to Firebase, then runs short Graph steps (one Instagram Reel create/wait/publish **per event**, `share_to_feed=false`). No IG feed/carousel posts.
+- Live today-spotlight runs short Graph steps (one Instagram image post create/wait/publish **per event**). Order is today’s specials first, then happening-today. No Reels and no Firebase video upload.
 - Same-day event ids are hard-excluded across specials vs scheduled channels
 - Graph writes are paced, and rate-limit errors (code 4 / 17 / 32) retry with backoff
 

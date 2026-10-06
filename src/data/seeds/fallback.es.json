@@ -739,7 +739,8 @@
     "admissionPrice": "Main Event buy-in US$900",
     "sourceUrl": "https://www.clsop.com/",
     "ticketUrl": "https://www.clsop.com/",
-    "imageEmoji": "🃏"
+    "imageEmoji": "🃏",
+    "ageHint": "18-plus"
   },
   {
     "id": "aventurate-rd-2026",
@@ -2219,7 +2220,8 @@
       "Dominó",
       "Solo padres"
     ],
-    "imageEmoji": "♠️"
+    "imageEmoji": "♠️",
+    "ageHint": "18-plus"
   },
   {
     "id": "hard-rock-catrinas-halloween-2026-10-31",
@@ -3727,7 +3729,8 @@
     "lineup": [
       "Gogo dancers"
     ],
-    "imageEmoji": "🔥"
+    "imageEmoji": "🔥",
+    "ageHint": "18-plus"
   },
   {
     "id": "disco-club-la-mas-doll-2026-10-02",
@@ -4755,5 +4758,297 @@
       "Eduardo Peña"
     ],
     "imageEmoji": "🎃"
+  },
+  {
+    "id": "parada-choco-banditalia-2026-10-06",
+    "date": "2026-10-06",
+    "time": "5:00 PM – 7:00 PM",
+    "location": "Sosúa",
+    "venue": "Parada Típica El Choco",
+    "venueSlug": "parada-tipica-el-choco",
+    "address": "Carretera principal Sosúa–Cabarete (vis-à-vis Ocean Village / Plaza Buen Gusto)",
+    "lat": 19.7726199,
+    "lng": -70.4964466,
+    "category": "music",
+    "categories": [
+      "food-drinks",
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "phone": "+18098042510",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/paradaelchoco/",
+    "lineup": [
+      "BandItalia International"
+    ],
+    "imageEmoji": "🎵",
+    "title": "Aperitivo BandItalia en Parada Choco",
+    "description": "Aperitivo con BandItalia International en Parada Típica El Choco (restaurante suizo-italiano / House of Music), Plaza Buen Gusto en la carretera Sosúa–Cabarete frente a Ocean Village — martes 6 de octubre 2026, 5:00–7:00 PM. Finger food gratis en la mesa. RSVP +1 809-804-2510 · Instagram @paradaelchoco. Noche de invitado del martes en vivo — no es un club crawl de Cabarete."
+  },
+  {
+    "id": "disco-club-gogo-dancers-2026-10-08",
+    "date": "2026-10-08",
+    "location": "Puerto Plata",
+    "venue": "Latin Disco Club",
+    "venueSlug": "disco-club-brugal",
+    "address": "Av. Manolo Tavarez Justo, frente a los depósitos de Brugal, Puerto Plata",
+    "lat": 19.7792778,
+    "lng": -70.6690061,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/latindiscoclubpp/",
+    "lineup": [
+      "Gogo dancers"
+    ],
+    "imageEmoji": "🔥",
+    "title": "Latin Disco Club GOGO Dancers — 8 oct",
+    "description": "Noche GOGO Dancers en Latin Disco Club, Av. Manolo Tavarez Justo frente a los depósitos de Brugal, Puerto Plata — jueves 8 de octubre 2026. Energía de show gogo frente a Brugal — no es el jueves On Fire del 1 de oct, ni un beach club del Malecón. Confirma puertas y cover por Instagram @latindiscoclubpp.",
+    "ageHint": "18-plus"
+  },
+  {
+    "id": "rancho-catalina-halloween-trick-or-treat-2026-10-23",
+    "date": "2026-10-23",
+    "time": "5:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Rancho La Catalina",
+    "venueSlug": "rancho-catalina-puerto-plata",
+    "address": "El Cupey, Puerto Plata",
+    "lat": 19.7371866,
+    "lng": -70.7253286,
+    "category": "family",
+    "categories": [
+      "culture",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "ageHint": "family",
+    "phone": "+18097813737",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/rancholacatalina/",
+    "lineup": [
+      "Trick or Treat",
+      "Magic show",
+      "Costume prizes"
+    ],
+    "imageEmoji": "🎃",
+    "title": "Halloween Trick or Treat en Rancho La Catalina",
+    "description": "Tarde de Halloween Trick or Treat para niños en Rancho La Catalina, El Cupey — viernes 23 de octubre 2026 desde las 5:00 PM. Disfraces, palomitas, algodón de azúcar, personajes, sorpresas, show de magia y premios a los 3 mejores disfraces. Tarde familiar de rancho — no es el Halloween de club del 30 oct en Ground Zero. Llama +1 809-781-3737 · Instagram @rancholacatalina."
+  },
+  {
+    "id": "groundzero-bulin47-2026-11-06",
+    "date": "2026-11-06",
+    "location": "Sosúa",
+    "venue": "Ground Zero Discoteca",
+    "venueSlug": "ground-zero-disco",
+    "address": "Km 18, Carretera Puerto Plata–Sosúa, frente al Aeropuerto Gregorio Luperón",
+    "lat": 19.76,
+    "lng": -70.565,
+    "category": "concert",
+    "categories": [
+      "music",
+      "parties",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18494651313",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/groundzero_disco/",
+    "lineup": [
+      "Bulin 47"
+    ],
+    "imageEmoji": "🎤",
+    "title": "Bulin 47 en vivo en Ground Zero — Cumpleaños Carla Peppel",
+    "description": "Bulin 47 (Bun47) en vivo en Ground Zero Discoteca, Km 18 Carretera Puerto Plata–Sosúa frente al aeropuerto — viernes 6 de noviembre 2026. Cumpleaños de Carla Peppel (la jefa). Concierto de disco en carretera — no es el 06 After Dark de Somnia en Hard Rock el mismo viernes, ni el Viernes Locos habitual. Reserva WhatsApp 849-465-1313 · Instagram @groundzero_disco."
+  },
+  {
+    "id": "somnia-06-after-dark-hard-rock-2026-11-06",
+    "date": "2026-11-06",
+    "location": "Sosúa",
+    "venue": "Hard Rock Cafe Puerto Plata",
+    "venueSlug": "hard-rock-sosua",
+    "address": "Calle Duarte 7, Sosúa",
+    "lat": 19.7634107,
+    "lng": -70.5162309,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": false,
+    "admissionPrice": "RD$1,000",
+    "phone": "+18495057778",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/hardrockcafepuertoplata/",
+    "lineup": [
+      "Somnia Events"
+    ],
+    "imageEmoji": "🌑",
+    "title": "Somnia 06 After Dark en Hard Rock Sosúa",
+    "description": "06 After Dark de Somnia Events en Hard Rock Cafe Puerto Plata, Calle Duarte, El Batey Sosúa — viernes 6 de noviembre 2026. Primera venta RD$1,000 con vendedores listados (Bernard Pérez 809-258-7621, Michelle Saiz 809-870-2912, Mariana Ovalles 809-675-4150, Juan De Lemos 849-431-9862, Job Rojas 829-805-2964, Sergio Jiménez 829-451-5987, Guillermo Fernandez 829-790-6647). Noche con boleto en Hard Rock — no es el show de Bulin 47 en Ground Zero el mismo viernes. WhatsApp del venue +1 849-505-7778 · Instagram @hardrockcafepuertoplata."
+  },
+  {
+    "id": "disco-club-nelson-bless-bachatera-2026-10-09",
+    "date": "2026-10-09",
+    "location": "Puerto Plata",
+    "venue": "Latin Disco Club",
+    "venueSlug": "disco-club-brugal",
+    "address": "Avenida Circunvalación Sur, frente a los depósitos Brugal, Puerto Plata",
+    "lat": 19.7792778,
+    "lng": -70.6690061,
+    "category": "concert",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "phone": "+18295639469",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/latindiscoclubpp/",
+    "lineup": [
+      "Nelson Bless"
+    ],
+    "imageEmoji": "💃",
+    "title": "Latin Disco Club Gran Fiesta Bachatera — Nelson Bless",
+    "description": "Gran Fiesta Bachatera con Nelson Bless (el artista que representa a Puerto Plata) en Latin Disco Club, Avenida Circunvalación Sur frente a los depósitos Brugal, Puerto Plata — viernes 9 de octubre 2026. Entrada totalmente gratis. Noche de bachata gratis frente a Brugal — no es la serie de gogo de los jueves. Info 829-563-9469 · Instagram @latindiscoclubpp."
+  },
+  {
+    "id": "sosua-emprende-bazar-otono-2026-10-17",
+    "date": "2026-10-17",
+    "endDate": "2026-10-18",
+    "time": "9:00 AM – 9:00 PM",
+    "location": "Sosúa",
+    "venue": "Parque Las Flores",
+    "venueSlug": "parque-las-flores-sosua",
+    "address": "Parque Las Flores, El Batey, Sosúa",
+    "lat": 19.762835,
+    "lng": -70.516708,
+    "category": "festivals",
+    "categories": [
+      "culture",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "ageHint": "family",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/explore/tags/sosuaemprende/",
+    "lineup": [
+      "Artesanías",
+      "Ropa y Accesorios",
+      "Comida y Bebidas",
+      "Tecnología",
+      "Servicios Profesionales",
+      "Rifas",
+      "Inflables",
+      "Pinta caritas"
+    ],
+    "imageEmoji": "🍂",
+    "title": "Bazar de Otoño — Sosúa Emprende",
+    "description": "Bazar de Otoño — Sosúa Emprende en Parque Las Flores, El Batey, Sosúa — sábado 17 y domingo 18 de octubre 2026, 9:00 AM–9:00 PM. Organizado por la Asociación de Comerciantes del Municipio de Sosúa: emprendimiento, cultura y comunidad. Día en familia con artesanías, ropa, comida y bebidas, tecnología, servicios profesionales, rifas, inflables, pinta caritas, mesa de dibujo, juegos populares, dominó y ajedrez. Premios instantáneos por cada RD$1,000 gastados; gran rifa RD$8,000. Bazar de parque público — no es noche de club en Pedro Clisante. El costo de carpa para vendedores es aparte de la entrada libre al público."
+  },
+  {
+    "id": "elias-serulle-villa-taina-2026-10-24",
+    "date": "2026-10-24",
+    "time": "7:00 PM",
+    "location": "Cabarete",
+    "venue": "Hotel Villa Taina",
+    "venueSlug": "hotel-villa-taina",
+    "address": "Calle Principal 1, Cabarete",
+    "lat": 19.7495,
+    "lng": -70.409579,
+    "category": "performances",
+    "categories": [
+      "culture"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18095710722",
+    "ticketUrl": "https://www.bandsintown.com/e/108921175",
+    "sourceType": "other",
+    "sourceUrl": "https://www.bandsintown.com/e/108921175",
+    "lineup": [
+      "Elias Ahmed Serulle",
+      "HARÚ",
+      "STARLYN"
+    ],
+    "imageEmoji": "🎤",
+    "title": "Comedia Villa Taina — Elias Ahmed Serulle Vol. 2",
+    "description": "Stand-up con Elias Ahmed Serulle (Vol. 2 · HARÚ · ELÍAS · STARLYN) en Hotel Villa Taina, Calle Principal 1, Cabarete — sábado 24 de octubre 2026 a las 7:00 PM. Noche de comedia en el hotel de playa — no es Serenade ni Mongolian Night. Boletas en Bandsintown · hotel +1 809-571-0722 · Instagram @hotelvillataina."
+  },
+  {
+    "id": "kaovanny-hard-rock-2026-11-20",
+    "date": "2026-11-20",
+    "time": "8:30 PM",
+    "location": "Sosúa",
+    "venue": "Hard Rock Cafe Puerto Plata",
+    "venueSlug": "hard-rock-sosua",
+    "address": "Calle Duarte 7, Sosúa",
+    "lat": 19.7634107,
+    "lng": -70.5162309,
+    "category": "concert",
+    "categories": [
+      "music",
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18495057778",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/hardrockcafepuertoplata/",
+    "lineup": [
+      "Kaovanny"
+    ],
+    "imageEmoji": "🎤",
+    "title": "Hard Rock Puerto Plata — Kaovanny en vivo",
+    "description": "Kaovanny en concierto en Hard Rock Cafe Puerto Plata, Calle Duarte 7, El Batey Sosúa — viernes 20 de noviembre 2026 a las 8:30 PM. Música en vivo en el escenario downtown del Hard Rock — no es la noche Agua Tour en Natura Cabana el 28 de noviembre. Confirma cover y mesas por Instagram @hardrockcafepuertoplata · WhatsApp +1 849-505-7778."
+  },
+  {
+    "id": "kaovanny-agua-natura-cabana-2026-11-28",
+    "date": "2026-11-28",
+    "time": "7:00 PM",
+    "location": "Cabarete",
+    "venue": "Natura Cabana",
+    "venueSlug": "natura-cabana",
+    "address": "Paseo del Sol #5, Perla Marina / Calle Paseo del Sol, Cabarete",
+    "lat": 19.7833499,
+    "lng": -70.4621124,
+    "category": "concert",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18492147010",
+    "sourceType": "flyer",
+    "sourceUrl": "https://naturacabana.com/events/category/live-music/",
+    "lineup": [
+      "Kaovanny",
+      "Juan Guivín"
+    ],
+    "imageEmoji": "🎤",
+    "title": "Kaovanny Agua Live Tour en Natura Cabana",
+    "description": "Kaovanny Agua Live Tour — Afro Soul acústico íntimo con banda de 4 y Juan Guivín en Natura Cabana Boutique Hotel & Spa, Calle Paseo del Sol, Cabarete — sábado 28 de noviembre 2026 a las 7:00 PM. Reserva mesa para ritmo cena-show en el restaurante de playa — no es Kaovanny en Hard Rock el 20 de noviembre ni el cartel Afro Soul del 26 sep. +1 849-214-7010 · naturacabana.com."
   }
 ]

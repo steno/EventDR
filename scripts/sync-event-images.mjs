@@ -106,6 +106,21 @@ const FILE_TO_EVENT_ID = {
   "hard-rock-feria-empleos-2026-10-05.jpg": "hard-rock-feria-empleos-2026-10-05",
   "sarah-graciano-rancho-catalina-2026-10-04.jpg":
     "sarah-graciano-rancho-catalina-2026-10-04",
+  "disco-club-gogo-dancers-2026-10-08.jpg":
+    "disco-club-gogo-dancers-2026-10-08",
+  "disco-club-nelson-bless-bachatera-2026-10-09.jpg":
+    "disco-club-nelson-bless-bachatera-2026-10-09",
+  "rancho-catalina-halloween-trick-or-treat-2026-10-23.jpg":
+    "rancho-catalina-halloween-trick-or-treat-2026-10-23",
+  "groundzero-bulin47-2026-11-06.jpg": "groundzero-bulin47-2026-11-06",
+  "somnia-06-after-dark-hard-rock-2026-11-06.jpg":
+    "somnia-06-after-dark-hard-rock-2026-11-06",
+  "parada-choco-banditalia-2026-10-06.jpg":
+    "parada-choco-banditalia-2026-10-06",
+  "sosua-emprende-bazar-otono-2026-10-17.jpg":
+    "sosua-emprende-bazar-otono-2026-10-17",
+  "sosua-emprende-bazar-otono-2026-10-17-v2.jpg":
+    "sosua-emprende-bazar-otono-2026-10-17",
   "twenty-disco-friday-dj-tanque-2026-10-02.jpg":
     "twenty-disco-friday-dj-tanque-2026-10-02",
   "twenty-disco-glam-in-the-dark-2026-10-03.jpg":
@@ -281,6 +296,9 @@ const FILE_TO_EVENT_ID = {
   "natura-sunbar-special-sunset-sounds-2026-09-24.jpg":
     "natura-sunbar-special-sunset-sounds-2026-09-24",
   "kaovanny-natura-cabana-2026-09-26.jpg": "kaovanny-natura-cabana-2026-09-26",
+  "kaovanny-hard-rock-2026-11-20.jpg": "kaovanny-hard-rock-2026-11-20",
+  "elias-serulle-villa-taina-2026-10-24.jpg":
+    "elias-serulle-villa-taina-2026-10-24",
   "natura-cabana-jazz-ensemble-2026-10-03.jpg":
     "natura-cabana-jazz-ensemble-2026-10-03",
   "natura-sunbar-sunset-sounds-em-zayd-2026-10-01.jpg":
@@ -288,6 +306,7 @@ const FILE_TO_EVENT_ID = {
   "natura-sunbar-sunset-sounds-hyper-2026-10-08.jpg":
     "natura-sunbar-sunset-sounds-hyper-2026-10-08",
   "disney-dream-taino-bay-2026-10-06.jpg": "disney-dream-taino-bay-2026-10-06",
+  "taino-bay-village-daily-lazy-river.jpg": "taino-bay-village-daily",
   "natura-market-2026-10-04.jpg": "natura-market-2026-10-04",
   "licor-lab-car-show-2026-10-10.jpg": "licor-lab-car-show-2026-10-10",
   "nueve-bingo-friday.jpg": "nueve-bingo-friday",
@@ -463,6 +482,7 @@ const FILE_TO_VENUE_SLUG = {
   // El Batey venue card is the walkable Pedro Clisante restaurant-and-bar strip —
   // not Plaza García / Entrada, not the nightlife event shot.
   "el-batey-pedro-clisante-strip.jpg": "el-batey-pedro-clisante-strip",
+  "parque-las-flores-sosua-plaza.jpg": "parque-las-flores-sosua-plaza",
   // Authentic Voyvoy bar interior; Saturday uses dedicated event heroes (see FILE_TO_EVENT_ID).
   "voyvoy-cabarete-bar.jpg": "voyvoy-cabarete-bar",
   "drifter-cabarete-sunset.jpg": "drifter-cabarete-sunset",
@@ -509,6 +529,9 @@ const FILE_TO_VENUE_SLUG = {
   "ocean-one-cabarete-pool.jpg": "ocean-one-cabarete",
   // Filename bump — official Lifestyle Tropical pool (Ocean World sign stays off this venue).
   "vip-beach-lifestyles-tropical.jpg": "vip-beach-lifestyles-tropical",
+  // Filename bump — POP facade with Pingüi + Piña Colada signs (patio kept as alternate place shot).
+  "pingui-bar-facade.jpg": "pingui-bar-facade",
+  "pingui-bar-patio.jpg": "pingui-bar-patio",
   "pingui-bar-tiki.jpg": "pingui-bar-tiki",
   "gran-ventana-beach-resort.jpg": "gran-ventana-beach-resort",
   // Filename bumps after replacing flyer / logo / park-aerial stand-ins.

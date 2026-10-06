@@ -1,6 +1,6 @@
 import type { Locale } from "@/i18n/config";
 import {
-  createInstagramReelContainer,
+  createInstagramMediaContainers,
   instagramContainerFailure,
   instagramContainersFinished,
   isMetaRateLimitError,
@@ -37,7 +37,7 @@ export type TodaySpotlightProgress = {
   caption?: string;
   eventCaptions?: string[];
   imageUrls?: string[];
-  /** Parallel to eventIds — public MP4 URLs for Instagram Reels. */
+  /** @deprecated Reels path. Image posts use `imageUrls`. */
   videoUrls?: string[];
   link?: string;
   eventIds?: string[];
@@ -225,12 +225,16 @@ export async function runTodaySpotlightStep(input: {
   const record = claimed.action === "skip" ? undefined : claimed.record;
   const progress = input.progress ?? {};
   const caption = record?.caption ?? progress.caption ?? built.post.caption;
-  const eventCaptions = progress.eventCaptions?.length
-    ? progress.eventCaptions
-    : (record?.eventCaptions ?? built.post.eventCaptions);
-  const imageUrls = progress.imageUrls?.length
-    ? progress.imageUrls
-    : (record?.imageUrls ?? built.post.imageUrls);
+  const eventCaptions = record?.eventCaptions?.length
+    ? record.eventCaptions
+    : progress.eventCaptions?.length
+      ? progress.eventCaptions
+      : built.post.eventCaptions;
+  const imageUrls = record?.imageUrls?.length
+    ? record.imageUrls
+    : progress.imageUrls?.length
+      ? progress.imageUrls
+      : built.post.imageUrls;
   const videoUrls = progress.videoUrls?.length
     ? progress.videoUrls
     : (record?.videoUrls ?? []);
@@ -445,23 +449,24 @@ export async function runTodaySpotlightStep(input: {
         body: { ...base(), done: true, inProgress: false, phase: "done" },
       };
     }
-    const videoUrl = job.videoUrls[index]?.trim();
+    const imageUrl = job.imageUrls[index]?.trim();
     const eventCaption = job.eventCaptions?.[index] ?? job.caption;
-    if (!videoUrl) {
+    if (!imageUrl) {
+      await persist({ failed: true });
       return {
-        status: 200,
+        status: 502,
         body: {
-          ...base(),
-          phase: "need-reel-video",
-          error: `Missing Reel video for event ${job.eventIds[index] ?? index}`,
+          success: false,
+          done: false,
+          eventIds: job.eventIds,
+          error: `Missing image for event ${job.eventIds[index] ?? index}`,
         },
       };
     }
-    const created = await createInstagramReelContainer(config, {
-      videoUrl,
+    const created = await createInstagramMediaContainers(config, {
+      imageUrls: [imageUrl],
       caption: eventCaption,
-      // Video frame is the styled POP story card — don't override with the raw flyer.
-      shareToFeed: false,
+      carousel: false,
     });
     if (!created.ok) {
       const fail = graphFail(created.error);
@@ -471,16 +476,26 @@ export async function runTodaySpotlightStep(input: {
         body: { ...fail.body, done: false, eventIds: job.eventIds },
       };
     }
-    job.instagramChildIds = [created.id];
-    await persist({
-      instagramChildIds: [created.id],
-      videoUrls: job.videoUrls,
-    });
+    const creationId = created.ids[0];
+    if (!creationId) {
+      await persist({ failed: true });
+      return {
+        status: 502,
+        body: {
+          success: false,
+          done: false,
+          eventIds: job.eventIds,
+          error: "Instagram container missing id",
+        },
+      };
+    }
+    job.instagramChildIds = [creationId];
+    await persist({ instagramChildIds: [creationId] });
     return {
       status: 200,
       body: {
         ...base(),
-        instagramChildIds: [created.id],
+        instagramChildIds: [creationId],
         phase: "instagram-create",
       },
     };

@@ -39,6 +39,12 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Le centre-ville piéton de Sosúa — accès à la plage, la rue de restaurants et bars Pedro Clisante, boutiques et cafés en journée, puis soirées salsa et open mic à la tombée de la nuit.",
     },
   },
+  "parque-las-flores-sosua": {
+    description: {
+      es: "Parque y plaza central en El Batey Sosúa — glorieta, carpas de vendedores en bazares comunitarios y punto de partida de carreras y días familiares en el centro.",
+      fr: "Parc et place centrale à El Batey Sosúa — kiosque, tentes de vendeurs pour les bazars communautaires et point de départ des courses et journées famille au centre.",
+    },
+  },
   "sosua-food-market": {
     description: {
       es: "Food court al aire libre con varios puestos en Calle Anacaona y Calle Pablo Neruda, Sosúa centro — platos casuales, tragos, playground para niños y noches de DJ cuando hay cartel bajo el arco verde. Diario 4:00 PM–12:00 AM.",

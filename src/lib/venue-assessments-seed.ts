@@ -398,6 +398,17 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     ],
   }),
   editorial({
+    venueSlug: "parque-las-flores-sosua",
+    verdictKey: "popular_public_space",
+    crowdFit: ["local", "family", "visitor", "mixed"],
+    axes: { recommend: 4.3, atmosphere: 4.2, practical: 4.3 },
+    themes: [
+      { key: "family_friendly", sentiment: "positive", audience: "family" },
+      { key: "easy_to_find", sentiment: "positive" },
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+    ],
+  }),
+  editorial({
     venueSlug: "hotel-voramar-sosua",
     verdictKey: "reliable_visitor_pick",
     crowdFit: ["visitor", "mixed"],

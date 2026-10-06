@@ -1626,7 +1626,8 @@
     "callForPricing": true,
     "phone": "+18092911000",
     "sourceUrl": "http://www.oceanworld.net/eng/ocean-world-nightlife/2-terraza-ocean-world",
-    "imageEmoji": "🌃"
+    "imageEmoji": "🌃",
+    "ageHint": "18-plus"
   },
   {
     "id": "iberostar-costa-dorada-day-pass",

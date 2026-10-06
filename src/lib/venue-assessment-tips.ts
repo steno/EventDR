@@ -265,6 +265,14 @@ export const VENUE_TIP_COPY: Record<
       fr: "Le centre de Sosúa — plage et cafés en journée, bars et pubs live sur Pedro Clisante le soir. Plus brut que les resorts de plage ; venez parcourir la strip et choisir un spot, pas pour le VIP.",
     },
   },
+  "parque-las-flores-sosua": {
+    body: "El Batey’s central park for community bazaars and family days — gazebo, vendor tents, and kids activities when Sosúa Emprende or a race is billed; not a Pedro Clisante bar crawl.",
+    localized: {
+      en: "El Batey’s central park for community bazaars and family days — gazebo, vendor tents, and kids activities when Sosúa Emprende or a race is billed; not a Pedro Clisante bar crawl.",
+      es: "El parque central de El Batey para bazares comunitarios y días en familia — glorieta, carpas y actividades para niños cuando hay Sosúa Emprende o una carrera; no es un crawl de bares de Pedro Clisante.",
+      fr: "Le parc central d’El Batey pour bazars communautaires et journées famille — kiosque, tentes et activités enfants quand Sosúa Emprende ou une course est annoncée ; pas un crawl de bars Pedro Clisante.",
+    },
+  },
   "hotel-voramar-sosua": {
     body: "Friday BBQ poolside near Playa Chiquita — German-run boutique guest energy; early evening, not a Pedro Clisante crawl stop.",
     localized: {

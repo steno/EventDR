@@ -60,6 +60,16 @@ export const SEED_VENUES: Venue[] = [
     emoji: "🎤",
   },
   {
+    slug: "parque-las-flores-sosua",
+    name: "Parque Las Flores",
+    city: "Sosúa",
+    description:
+      "Central park and plaza in El Batey Sosúa — gazebo, vendor tents for community bazaars, and the start point for local races and family days on the downtown strip.",
+    lat: 19.762835,
+    lng: -70.516708,
+    emoji: "🌳",
+  },
+  {
     slug: "sosua-food-market",
     name: "Sosúa Food Market",
     city: "Sosúa",
@@ -1976,6 +1986,10 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
     pattern:
       /parque(\s+de(\s+b[eé]isbol)?)?\s+jos[eé]\s+brice[nñ]o|estadio(\s+de(\s+b[eé]isbol)?)?\s+jos[eé]\s+brice[nñ]o|jos[eé]\s+brice[nñ]o/i,
     slug: "parque-jose-briceno",
+  },
+  {
+    pattern: /parque\s+las\s+flores|las\s+flores(\s+park|\s+el\s+batey)?/i,
+    slug: "parque-las-flores-sosua",
   },
   {
     pattern:

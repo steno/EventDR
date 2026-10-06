@@ -2,8 +2,8 @@ name: Daily today spotlight
 
 on:
   schedule:
-    # Every day 08:00 UTC (~4:00 AST). Prefers all of today’s specials when that
-    # channel has not posted yet (up to 10); never uses TODAY_SPECIALS=true itself.
+    # Every day 08:00 UTC (~4:00 AST). Image posts: today’s specials first,
+    # then happening-today. Never uses TODAY_SPECIALS=true itself.
     - cron: "0 8 * * *"
   workflow_dispatch:
     inputs:
@@ -13,7 +13,7 @@ on:
         type: boolean
         default: false
       instagram_only:
-        description: '(Unused — job always posts Instagram Reels only)'
+        description: '(Unused — job always posts Instagram image posts only)'
         required: false
         type: boolean
         default: true
@@ -24,11 +24,6 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
-
-      - name: Install ffmpeg (still → Reel MP4)
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y ffmpeg
 
       - name: Check Meta configuration
         env:
@@ -58,12 +53,12 @@ jobs:
           fi
           echo "::endgroup::"
       
-      - name: Publish today’s events as individual Instagram Reels
+      - name: Publish today’s events as individual Instagram posts
         env:
           SITE_URL: https://pop-event.com
           CRON_SECRET: ${{ secrets.CRON_SECRET }}
           DRY_RUN: ${{ github.event.inputs.dry_run == 'true' && 'true' || 'false' }}
-          # Reels only — no Facebook album / IG feed posts.
+          # Image posts only — specials first, then happening-today. No Facebook.
           INSTAGRAM_ONLY: "true"
           TODAY_SPECIALS: "false"
         run: |
@@ -72,8 +67,8 @@ jobs:
             exit 1
           fi
           if [ "$DRY_RUN" = "true" ]; then
-            echo "::notice::Running in DRY RUN mode - no Reels will be published"
+            echo "::notice::Running in DRY RUN mode - no posts will be published"
           else
-            echo "::notice::Publishing individual Instagram Reels (no feed posts, no Facebook)"
+            echo "::notice::Publishing Instagram image posts (specials first, then happening today; no Facebook)"
           fi
           node scripts/run-today-spotlight.mjs
