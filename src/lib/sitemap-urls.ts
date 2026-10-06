@@ -171,6 +171,11 @@ export async function getSitemapEntries(): Promise<SitemapEntry[]> {
     priority: 0.6,
   });
 
+  pushLocalized(entries, "/sponsors", {
+    changeFrequency: "monthly",
+    priority: 0.5,
+  });
+
   pushLocalized(entries, "/privacy", {
     changeFrequency: "yearly",
     priority: 0.3,

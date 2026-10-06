@@ -215,6 +215,13 @@ export function SiteFooter({
                 >
                   {dict.footer.support}
                 </Link>
+                <Link
+                  href={`/${locale}/sponsors`}
+                  prefetch={false}
+                  className={linkClass}
+                >
+                  {dict.footer.sponsors}
+                </Link>
                 <FooterInstallLink dict={dict} className={linkClass} />
               </div>
             </nav>
@@ -268,6 +275,13 @@ export function SiteFooter({
                   className={linkClass}
                 >
                   {dict.footer.support}
+                </Link>
+                <Link
+                  href={`/${locale}/sponsors`}
+                  prefetch={false}
+                  className={linkClass}
+                >
+                  {dict.footer.sponsors}
                 </Link>
                 <FooterInstallLink dict={dict} className={linkClass} />
               </nav>

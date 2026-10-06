@@ -382,6 +382,7 @@ export const fr: Dictionary = {
     cruise: "Journée croisière",
     venues: "Lieux",
     support: "Soutenir POP",
+    sponsors: "Sponsors",
     follow: "Suivre POP Events",
     legal: "Mentions légales",
     privacy: "Confidentialité",

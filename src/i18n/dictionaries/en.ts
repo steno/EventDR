@@ -378,6 +378,7 @@ export type Dictionary = {
     cruise: string;
     venues: string;
     support: string;
+    sponsors: string;
     follow: string;
     legal: string;
     privacy: string;
@@ -1042,6 +1043,7 @@ export const en: Dictionary = {
     cruise: "Cruise day",
     venues: "Venues",
     support: "Support POP",
+    sponsors: "Sponsors",
     follow: "Follow POP Events",
     legal: "Legal",
     privacy: "Privacy",
@@ -1231,7 +1233,7 @@ export const en: Dictionary = {
   venues: {
     title: "Popular venues",
     local: "Local favorites",
-    visitor: "Visitor faves",
+    visitor: "Visitor favorites",
     localHint: "Where Dominicans go out on the North Coast",
     localHintIn: "Where Dominicans go out in {area}",
     visitorHint: "Beach bars, resorts, and classic visitor spots",

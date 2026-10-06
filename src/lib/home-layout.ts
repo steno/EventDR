@@ -64,7 +64,7 @@ export const SCOPE_LIST_LIMIT = HOME_PICKS_LIMIT;
 /** Max venue slides per audience slider on home. */
 export const HOME_VENUE_LIMIT = 6;
 
-/** Home audience sections — Local favorites vs Visitor faves. */
+/** Home audience sections — Local favorites vs Visitor favorites. */
 export type VenueAudienceFilter = "local" | "visitor";
 
 export const VENUE_AUDIENCE_FILTERS: readonly VenueAudienceFilter[] = [

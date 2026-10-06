@@ -12,18 +12,13 @@ import {
 import type { Venue } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
-import {
-  getCityMeta,
-  getCityName,
-  type CitySlug,
-} from "@/lib/cities";
+import type { CitySlug } from "@/lib/cities";
 import {
   getFeaturedVenues,
   HOME_VENUE_LIMIT,
   VENUE_AUDIENCE_FILTERS,
   type VenueAudienceFilter,
 } from "@/lib/home-layout";
-import { fillTemplate } from "@/lib/seo";
 import { SECTION_TITLE_CLASS } from "@/lib/page-shell";
 import { NETWORK_ONLY_FETCH } from "@/lib/pwa-refresh";
 import { getVenueCardObjectPosition } from "@/lib/venue-images";
@@ -51,7 +46,6 @@ function VenueSlideCard({
   venue,
   locale,
   loadImage,
-  wide,
   returnTo,
   returnTitle,
   pending,
@@ -62,17 +56,14 @@ function VenueSlideCard({
   locale: Locale;
   /** When false, keep the card chrome but skip the image request. */
   loadImage: boolean;
-  /** Full-width slider (one audience) vs half-column home pair. */
-  wide?: boolean;
   returnTo?: string;
   returnTitle?: string | null;
   pending?: boolean;
   dimmed?: boolean;
   onNavigate?: () => void;
 }) {
-  const sizes = wide
-    ? "(max-width: 640px) 88vw, (max-width: 768px) 50vw, 33vw"
-    : "(max-width: 640px) 88vw, (max-width: 768px) 45vw, 32vw";
+  const sizes =
+    "(max-width: 640px) 88vw, (max-width: 1280px) 50vw, 25vw";
 
   return (
     <IntentLink
@@ -81,26 +72,26 @@ function VenueSlideCard({
       returnTitle={returnTitle}
       onClick={() => onNavigate?.()}
       aria-busy={pending || undefined}
+      aria-label={venue.name}
       className={`
-        group flex h-full flex-col overflow-hidden rounded-2xl
-        border bg-white
-        shadow-[0_8px_24px_-16px_rgba(0,0,0,0.22)]
+        group relative block w-full overflow-hidden rounded-2xl
+        aspect-[36/49] bg-neutral-100
+        shadow-[0_8px_24px_-14px_rgba(0,0,0,0.18)] ring-1
         touch-manipulation
-        transition-[border-color,box-shadow,opacity,transform] duration-300 ease-out
-        dark:bg-neutral-950 dark:shadow-[0_8px_24px_-16px_rgba(0,0,0,0.6)]
+        transition-[box-shadow,transform,opacity,ring-color] duration-300 ease-out
         focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500
+        dark:bg-neutral-950 dark:shadow-[0_8px_24px_-14px_rgba(0,0,0,0.45)]
         ${
           pending
-            ? "scale-[0.985] border-orange-400 shadow-[0_12px_32px_-16px_rgba(251,146,60,0.45)] ring-2 ring-orange-500/80 dark:border-orange-500 dark:ring-orange-400/70"
+            ? "scale-[0.985] ring-2 ring-orange-500/80 shadow-[0_12px_32px_-16px_rgba(251,146,60,0.45)] dark:ring-orange-400/70"
             : dimmed
-              ? "opacity-45 border-neutral-200/90 dark:border-neutral-800"
-              : "border-neutral-200/90 hover:border-orange-300/70 active:scale-[0.99] active:border-orange-400 dark:border-neutral-800 dark:hover:border-orange-700/50 dark:active:border-orange-500"
+              ? "opacity-45 ring-black/5 dark:ring-white/10"
+              : "ring-black/5 hover:ring-orange-400/50 hover:shadow-[0_12px_32px_-16px_rgba(251,146,60,0.35)] active:scale-[0.99] dark:ring-white/10 dark:hover:ring-orange-600/50"
         }
       `}
-      aria-label={venue.name}
     >
-      <div className="relative aspect-[2.4/1] w-full shrink-0 overflow-hidden bg-neutral-200 dark:bg-neutral-800">
-        {venue.imageUrl && loadImage ? (
+      {venue.imageUrl && loadImage ? (
+        <div className="absolute inset-0">
           <EventImage
             src={venue.imageUrl}
             alt=""
@@ -108,52 +99,55 @@ function VenueSlideCard({
             priority={false}
             className={`object-cover ${getVenueCardObjectPosition(venue.slug)} card-media-zoom`}
           />
-        ) : venue.imageUrl ? (
-          <span className="block h-full w-full bg-neutral-200 dark:bg-neutral-800" aria-hidden />
-        ) : (
-          <span
-            className="flex h-full w-full items-center justify-center text-2xl"
-            aria-hidden
-          >
-            {venue.emoji ?? "📍"}
-          </span>
-        )}
-        {pending ? (
-          <div
-            className="pointer-events-none absolute inset-0 bg-orange-500/10"
-            aria-hidden
-          />
-        ) : null}
-      </div>
+        </div>
+      ) : venue.imageUrl ? (
+        <span
+          className="absolute inset-0 bg-neutral-200 dark:bg-neutral-800"
+          aria-hidden
+        />
+      ) : (
+        <span
+          className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-orange-500 via-rose-500 to-fuchsia-600 text-3xl"
+          aria-hidden
+        >
+          {venue.emoji ?? "📍"}
+        </span>
+      )}
 
-      <div className="flex flex-1 flex-col gap-1 px-3.5 py-3 sm:px-4 sm:py-3.5">
-        <h3 className="font-sans text-base font-semibold leading-snug tracking-tight text-neutral-950 dark:text-neutral-50">
+      <div
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-[58%] bg-gradient-to-t from-neutral-950/75 via-neutral-950/35 to-transparent dark:hidden"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-[32%] bg-gradient-to-t from-rose-700/25 to-transparent transition-opacity duration-300 group-hover:opacity-50 dark:hidden"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute inset-x-0 bottom-0 hidden h-[75%] bg-gradient-to-t from-black/80 via-black/45 to-transparent dark:block"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute inset-x-0 bottom-0 hidden h-[70%] bg-gradient-to-t from-orange-600/50 via-rose-500/30 to-transparent transition-opacity duration-300 group-hover:opacity-40 dark:block"
+        aria-hidden
+      />
+
+      {pending ? (
+        <div
+          className="pointer-events-none absolute inset-0 bg-orange-500/10"
+          aria-hidden
+        />
+      ) : null}
+
+      <div className="absolute inset-x-0 bottom-0 flex flex-col gap-1.5 p-3.5 sm:p-4">
+        <h3 className="line-clamp-2 font-sans text-xl font-extrabold leading-snug tracking-[0.01em] text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.55)]">
           {venue.name}
         </h3>
-        <p className="hidden text-xs font-semibold text-orange-600 sm:block dark:text-orange-400">
+        <p className="truncate text-sm font-medium text-white/90 [text-shadow:0_1px_2px_rgba(0,0,0,0.45)]">
           {venue.city}
         </p>
-        {venue.description ? (
-          <p className="mt-1 hidden line-clamp-3 text-copy text-neutral-600 sm:block dark:text-neutral-400">
-            {venue.description}
-          </p>
-        ) : null}
       </div>
     </IntentLink>
   );
-}
-
-function audienceHint(
-  audience: VenueAudienceFilter,
-  dict: Dictionary,
-  areaName: string | null,
-): string {
-  if (!areaName) {
-    return audience === "local" ? dict.venues.localHint : dict.venues.visitorHint;
-  }
-  const template =
-    audience === "local" ? dict.venues.localHintIn : dict.venues.visitorHintIn;
-  return fillTemplate(template, { area: areaName });
 }
 
 function AudienceSlider({
@@ -162,12 +156,11 @@ function AudienceSlider({
   locale,
   dict,
   mediaEnabled,
-  areaName,
   title,
-  wide,
   returnTo,
   returnTitle,
-  nestUnderSection,
+  seeAllHref,
+  seeAllLabel,
 }: {
   audience: VenueAudienceFilter;
   venues: Venue[];
@@ -175,16 +168,13 @@ function AudienceSlider({
   dict: Dictionary;
   /** Parent gates media until the section is near the viewport. */
   mediaEnabled: boolean;
-  areaName: string | null;
   title?: string;
-  /** One slider spanning the shell — show more cards as the viewport grows. */
-  wide?: boolean;
   returnTo?: string;
   returnTitle?: string | null;
-  /** When true, demote the slider title under a parent “Venues” heading. */
-  nestUnderSection?: boolean;
+  /** Optional “See all” link in the section header (usually Local favorites). */
+  seeAllHref?: string;
+  seeAllLabel?: string;
 }) {
-  const hint = audienceHint(audience, dict, areaName);
   const scrollRef = useRef<HTMLDivElement>(null);
   const {
     activeIndex,
@@ -198,28 +188,28 @@ function AudienceSlider({
 
   useEffect(() => {
     if (!mediaEnabled) return;
-    // Current + visible neighbors (horizontal carousels defeat native lazy otherwise).
-    const ahead = wide ? 3 : 1;
-    setLoadedThrough((prev) =>
-      Math.max(prev, Math.min(activeIndex + ahead, venues.length - 1)),
-    );
-  }, [mediaEnabled, activeIndex, venues.length, wide]);
+    // Rails are short (HOME_VENUE_LIMIT) and desktop shows 2–4 tiles — load all
+    // once the section is near the viewport so peek/off-screen cards aren’t grey.
+    setLoadedThrough(venues.length - 1);
+  }, [mediaEnabled, venues.length]);
+
+  const heading = title ?? dict.venues[audience];
 
   return (
     <article className="min-w-0">
       <header className="mb-3 px-0.5">
-        <h3
-          className={
-            nestUnderSection
-              ? "text-base font-bold tracking-tight text-neutral-900 dark:text-neutral-100"
-              : `${SECTION_TITLE_CLASS} tracking-tight`
-          }
-        >
-          {title ?? dict.venues[audience]}
-        </h3>
-        <p className="mt-0.5 text-copy text-neutral-600 dark:text-neutral-400">
-          {hint}
-        </p>
+        <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
+          <h2 className={`${SECTION_TITLE_CLASS} tracking-tight`}>{heading}</h2>
+          {seeAllHref ? (
+            <IntentLink
+              href={seeAllHref}
+              className="inline-flex items-center gap-0.5 rounded-full bg-orange-50 dark:bg-orange-950/50 px-2.5 py-1 text-sm font-bold text-orange-600 hover:bg-orange-100 dark:hover:bg-orange-950/70 transition-colors touch-manipulation"
+            >
+              {seeAllLabel ?? dict.venues.directory.seeAll}
+              <ChevronRight className="h-3.5 w-3.5" aria-hidden />
+            </IntentLink>
+          ) : null}
+        </div>
       </header>
 
       <div className="relative">
@@ -227,40 +217,42 @@ function AudienceSlider({
           ref={scrollRef}
           onScroll={syncScrollHints}
           className="flex snap-x snap-mandatory gap-3 overflow-x-auto pb-0.5 scrollbar-hide"
-          aria-label={dict.venues[audience]}
+          aria-label={heading}
         >
-          {venues.map((venue, index) => (
-            <div
-              key={venue.slug}
-              data-snap-slide
-              className={
-                wide
-                  ? `${SNAP_RAIL_PEEK_CLASS} shrink-0 snap-start sm:w-[calc((100%-0.75rem)/2)] xl:w-[calc((100%-1.5rem)/3)]`
-                  : `${SNAP_RAIL_PEEK_CLASS} shrink-0 snap-start sm:w-[90%]`
-              }
-            >
-              <VenueSlideCard
-                venue={venue}
-                locale={locale}
-                loadImage={mediaEnabled && index <= loadedThrough}
-                wide={wide}
-                returnTo={returnTo}
-                returnTitle={returnTitle}
-                pending={pendingSlug === venue.slug}
-                dimmed={pendingSlug != null && pendingSlug !== venue.slug}
-                onNavigate={() => setPendingSlug(venue.slug)}
-              />
-            </div>
-          ))}
+          {venues.map((venue, index) => {
+            const isLast = index === venues.length - 1;
+            return (
+              <div
+                key={venue.slug}
+                data-snap-slide
+                // Width track matches On the horizon (88% → 2-up → 4-up).
+                // Last slide snaps to the end so the rail can't scroll into empty space.
+                className={`${SNAP_RAIL_PEEK_CLASS} shrink-0 sm:w-[calc((100%-0.75rem)/2)] xl:w-[calc((100%-2.25rem)/4)] ${
+                  isLast ? "snap-end" : "snap-start"
+                }`}
+              >
+                <VenueSlideCard
+                  venue={venue}
+                  locale={locale}
+                  loadImage={mediaEnabled && index <= loadedThrough}
+                  returnTo={returnTo}
+                  returnTitle={returnTitle}
+                  pending={pendingSlug === venue.slug}
+                  dimmed={pendingSlug != null && pendingSlug !== venue.slug}
+                  onNavigate={() => setPendingSlug(venue.slug)}
+                />
+              </div>
+            );
+          })}
         </div>
 
         <HorizontalScrollEdgeFades canScrollRight={canScrollRight} />
 
-        {venues.length > 1 && (
+        {venues.length > 1 ? (
           <div
             className="mt-2.5 flex justify-center gap-1.5"
             role="tablist"
-            aria-label={dict.venues[audience]}
+            aria-label={heading}
           >
             {venues.map((venue, index) => (
               <button
@@ -278,7 +270,7 @@ function AudienceSlider({
               />
             ))}
           </div>
-        )}
+        ) : null}
       </div>
     </article>
   );
@@ -297,7 +289,7 @@ export function VenueAudienceCards({
   returnTitle,
 }: VenueAudienceCardsProps) {
   const [venues, setVenues] = useState<Venue[]>(initialVenues ?? []);
-  const sectionRef = useRef<HTMLElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
   // Skip venue image requests until the section is near the viewport (or idle).
   const [mediaEnabled, setMediaEnabled] = useState(false);
 
@@ -346,12 +338,6 @@ export function VenueAudienceCards({
     };
   }, []);
 
-  const areaName = useMemo(() => {
-    if (!citySlug) return null;
-    const city = getCityMeta(citySlug);
-    return city ? getCityName(city, locale) : null;
-  }, [citySlug, locale]);
-
   const sections = useMemo(
     () =>
       audiences
@@ -381,29 +367,9 @@ export function VenueAudienceCards({
   const venuesHref = `/${locale}/venues`;
 
   return (
-    <section
-      ref={sectionRef}
-      className="mb-6 sm:mb-8"
-      aria-label={dict.venues.title}
-    >
-      {showSeeAll ? (
-        <div className="mb-3 flex flex-wrap items-center justify-between gap-x-3 gap-y-2 px-1">
-          <h2 className={SECTION_TITLE_CLASS}>{dict.venues.title}</h2>
-          <IntentLink
-            href={venuesHref}
-            className="inline-flex items-center gap-0.5 rounded-full bg-orange-50 dark:bg-orange-950/50 px-2.5 py-1 text-sm font-bold text-orange-600 hover:bg-orange-100 dark:hover:bg-orange-950/70 transition-colors touch-manipulation"
-          >
-            {dict.venues.directory.seeAll}
-            <ChevronRight className="h-3.5 w-3.5" aria-hidden />
-          </IntentLink>
-        </div>
-      ) : null}
-      <div
-        className={
-          wide ? "min-w-0" : "grid grid-cols-1 gap-7 sm:grid-cols-2 sm:gap-5"
-        }
-      >
-        {sections.map(({ audience, venues: featured }) => (
+    <div ref={sectionRef} className="mb-6 sm:mb-8">
+      <div className={wide ? "min-w-0" : "grid grid-cols-1 gap-7"}>
+        {sections.map(({ audience, venues: featured }, index) => (
           <AudienceSlider
             key={`${audience}-${citySlug ?? "all"}`}
             audience={audience}
@@ -411,15 +377,13 @@ export function VenueAudienceCards({
             locale={locale}
             dict={dict}
             mediaEnabled={mediaEnabled}
-            areaName={areaName}
             title={audience === "visitor" ? visitorTitle : undefined}
-            wide={wide}
             returnTo={returnTo}
             returnTitle={returnTitle}
-            nestUnderSection={showSeeAll}
+            seeAllHref={showSeeAll && index === 0 ? venuesHref : undefined}
           />
         ))}
       </div>
-    </section>
+    </div>
   );
 }

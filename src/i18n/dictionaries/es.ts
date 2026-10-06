@@ -382,6 +382,7 @@ export const es: Dictionary = {
     cruise: "Día de crucero",
     venues: "Lugares",
     support: "Apoyar POP",
+    sponsors: "Patrocinadores",
     follow: "Seguir POP Events",
     legal: "Legal",
     privacy: "Privacidad",
