@@ -130,8 +130,12 @@ export function spotlightLimitForOptions(
   if (!options.preferTodaySpecials && !options.onlyTodaySpecials) {
     return TODAY_SPOTLIGHT_LIMIT;
   }
+  const hardExcludeIds = new Set(
+    [...(options.hardExcludeIds ?? [])].filter((id) => id.length > 0),
+  );
   let specialCount = 0;
   for (const event of events) {
+    if (hardExcludeIds.has(event.id)) continue;
     const status = getEventLiveStatus(event, now);
     if (SKIP_STATUSES.has(status)) continue;
     if (!isListedTodaySpecial(event, now)) continue;
