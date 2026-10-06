@@ -51,7 +51,6 @@ export const WALKABLE_POCKETS: readonly WalkablePocket[] = [
     venueSlugs: [
       "el-batey-sosua",
       "smileys-bar-sosua",
-      "cheers-bar-sosua",
       "finish-line-sosua",
       "hard-rock-sosua",
       "bar-39-sosua",

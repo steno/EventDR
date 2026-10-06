@@ -26,6 +26,8 @@ export const REMOVED_VENUE_SLUGS = new Set([
   "cacique-moncion",
   // Editor dump — Paella POP Green One; keep El Pueblito beach kitchen only.
   "paella-pop-green-one",
+  // Parked — SM stale since 2024; weekly nights unverified for 2026.
+  "cheers-bar-sosua",
 ]);
 
 /** Stub / alias slugs → canonical seed slug (301 on venue pages). */

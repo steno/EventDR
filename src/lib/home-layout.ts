@@ -111,7 +111,6 @@ export const VENUE_AUDIENCE_POOLS: Record<
     "faro-puerto-plata",
     "cuartel-bomberos-puerto-plata",
     "paella-pop-el-pueblito",
-    "cheers-bar-sosua",
     "smileys-bar-sosua",
     "finish-line-sosua",
     "flip-flop-sports-bar-sosua",

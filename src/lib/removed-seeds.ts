@@ -91,6 +91,10 @@ export const REMOVED_SEED_EVENT_IDS = new Set([
   "aura-beach-club-lunes-especiales",
   "aura-beach-club-miercoles-margaritas",
   "flip-flop-monday-happy-hour",
+  // Parked — venue SM stale since 2024; weekly specials unverified for 2026.
+  "cheers-weekly-live",
+  "cheers-mandarin-mondays",
+  "cheers-fire-ice-thursdays",
 ]);
 
 export function filterRemovedSeedEvents(events: Event[]): Event[] {

@@ -19,6 +19,7 @@ describe("removed venues", () => {
         "cacique-moncion",
         "cafe-del-mar",
         "caleton-beach-club",
+        "cheers-bar-sosua",
         "cowork-cabarete",
         "freestyle-catamaran",
         "grecialand",
