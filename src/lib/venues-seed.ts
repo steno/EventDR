@@ -1397,7 +1397,7 @@ export const SEED_VENUES: Venue[] = [
     name: "Le Petit François",
     city: "Playa Dorada",
     description:
-      "Beach bar and restaurant at El Pueblito / Playa Chaparral — French-Canadian-Dominican plates, Friday karaoke with DJ Leandro, and tables on the sand. Open daily from 8:30 AM.",
+      "Beach bar and restaurant at El Pueblito / Playa Chaparral — French-Canadian-Dominican plates, Friday karaoke with DJ Binbi, and tables on the sand. Open daily from 8:30 AM.",
     lat: 19.7734212,
     lng: -70.6517978,
     emoji: "🎤",
