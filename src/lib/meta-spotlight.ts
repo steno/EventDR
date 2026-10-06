@@ -442,6 +442,14 @@ export function buildSingleEventSpotlightCaption(
   return lines.join("\n").trim();
 }
 
+/** Public JPEG of the Share → Instagram card, cropped for a feed post. */
+export function spotlightShareImageUrl(
+  eventId: string,
+  origin = SITE_URL,
+): string {
+  return `${siteOrigin(origin)}/api/ig-card/${encodeURIComponent(eventId)}.jpg`;
+}
+
 function toSpotlightEvent(
   event: Event,
   locale: Locale,
@@ -457,9 +465,7 @@ function toSpotlightEvent(
       event.location ||
       ""),
     url: `${siteOrigin(origin)}/${locale}/event/${event.id}`,
-    imageUrl:
-      toAbsoluteMetaImageUrl(event.imageUrl, origin) ??
-      defaultMetaImageUrl(origin),
+    imageUrl: spotlightShareImageUrl(event.id, origin),
   };
 }
 

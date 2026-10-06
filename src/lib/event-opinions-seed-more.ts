@@ -4510,8 +4510,65 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     },
     attribution: "POP research · Natura Cabana Kaovanny Agua Live Tour",
     researchNotes:
-      "Editor details — Sat Nov 28 2026 7 PM Natura Cabana; Agua Live Tour; 4-piece + Juan Guivín; reuses Sep 26 Natura Kaovanny flyer hero.",
+      "Editor flyer — Sat Nov 28 2026 7 PM Natura Cabana; Agua Live Tour / Afro Soul; 4-piece + Juan Guivín; hero `kaovanny-agua-natura-cabana-2026-11-28.jpg`.",
     updatedAt: "2026-10-06T22:00:00.000Z",
+  },
+  {
+    eventId: "chiche-almonte-vinoteca-2026-10-17",
+    body: "Free 10 PM accordion night at Hotel Marien's wine lounge — Chiche Almonte, not Zona Acapella's típico bill; same Costa Dorada complex as Kviar but Vinoteca bottles and lounge tables, not the casino disco.",
+    localized: {
+      es: "Noche de acordeón gratis a las 10 PM en la vinoteca del Hotel Marien — Chiche Almonte, no el típico de Zona Acapella; mismo complejo Costa Dorada que Kviar, pero aquí botellas y mesas de lounge, no el disco-casino.",
+      fr: "Soirée accordéon gratuite à 22 h au lounge à vins de l'Hotel Marien — Chiche Almonte, pas le típico de Zona Acapella ; même complexe Costa Dorada que Kviar, mais ici bouteilles et tables lounge, pas le disco-casino.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "Free entry · wine-bar tabs; +1 849-451-1197 · @vinotecamarienpp",
+    priceNoteLocalized: {
+      es: "Entrada gratis · cuenta de vinoteca; +1 849-451-1197 · @vinotecamarienpp",
+      fr: "Entrée gratuite · addition bar à vins ; +1 849-451-1197 · @vinotecamarienpp",
+    },
+    attribution: "POP research · @vinotecamarienpp flyer",
+    researchNotes:
+      "Editor flyers — Sat 17 Oct 2026 from 10 PM, free entry, Vinoteca Wine House / Hotel Marien Costa Dorada; phone 849-451-1197. Hero uses prior Chiche Vinoteca layout (object-top).",
+    updatedAt: "2026-10-06T23:00:00.000Z",
+  },
+  {
+    eventId: "aura-cinema-abigail-2026-10-06",
+    body: "Beach-club Abigail screening Tuesday 8 PM on Calle Principal — Aura Cinema, not POP Cinemas Playa Dorada; cover and seats aren’t on the flyer, so pin @auracabarete before you treat it like a free open-air night.",
+    localized: {
+      es: "Proyección de Abigail martes 8 PM en Calle Principal — Aura Cinema, no POP Cinemas Playa Dorada; cover y asientos no están en el flyer, así que confirma @auracabarete antes de tratarlo como noche al aire libre gratis.",
+      fr: "Projection d’Abigail mardi 20 h sur Calle Principal — Aura Cinema, pas POP Cinemas Playa Dorada ; cover et places absents de l’affiche, confirmez @auracabarete avant de le traiter comme une soirée plein air gratuite.",
+    },
+    priceFeel: "varies",
+    priceNote:
+      "Cover not on flyer — confirm @auracabarete / WhatsApp +1 829-787-0140",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — confirma @auracabarete / WhatsApp +1 829-787-0140",
+      fr: "Cover absent de l’affiche — confirmez @auracabarete / WhatsApp +1 829-787-0140",
+    },
+    attribution: "POP research · @auracabarete Aura Cinema flyer",
+    researchNotes:
+      "Editor flyer — Aura Cinema, Martes 8 PM, película Abigail. No calendar date; seeded as Tue 6 Oct 2026 (upload day). Not a weekly recurring until series confirmed.",
+    updatedAt: "2026-10-06T23:30:00.000Z",
+  },
+  {
+    eventId: "mkni-after-party-villa-taina-2026-10-24",
+    body: "Official dance after Cabarete Stand Up Vol. 2 — MKNI on the decks at Villa Taina once the comedy ends; not the 7 PM RD$600 table show and not a Serenade buffet night.",
+    localized: {
+      es: "Baile oficial después de Cabarete Stand Up Vol. 2 — MKNI en las decks de Villa Taina cuando termina la comedia; no es el show de mesa RD$600 a las 7 PM ni una noche buffet Serenade.",
+      fr: "Danse officielle après Cabarete Stand Up Vol. 2 — MKNI aux platines de Villa Taina une fois la comédie finie ; pas le show table RD$600 à 19 h ni un buffet Serenade.",
+    },
+    priceFeel: "varies",
+    priceNote:
+      "Cover not on flyer — confirm @cabaretestandup / @hotelvillataina · +1 809-571-0722",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — confirma @cabaretestandup / @hotelvillataina · +1 809-571-0722",
+      fr: "Cover absent de l’affiche — confirmez @cabaretestandup / @hotelvillataina · +1 809-571-0722",
+    },
+    attribution: "POP research · @cabaretestandup MKNI after-party",
+    researchNotes:
+      "Editor IG @cabaretestandup — after party oficial with @davidmkni at @hotelvillataina after Stand Up; up to 20% stay discount. Date tied to Vol. 2 Sat 24 Oct 2026 (not upload day).",
+    updatedAt: "2026-10-06T23:45:00.000Z",
   },
   {
     eventId: "rancho-catalina-halloween-trick-or-treat-2026-10-23",

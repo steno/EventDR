@@ -277,6 +277,7 @@ export const CURATED_FREE_EVENTS = new Set<string>([
   "el-cuarteto-del-swing-zona-acapella-2026-09-13",
   "los-caballitos-zona-acapella-2026-09-20",
   "banda-modelo-vinoteca-2026-09-26",
+  "chiche-almonte-vinoteca-2026-10-17",
   "latinwok-ramen-party-2026-09-17",
   "finely-mirador-inauguracion-2026-09-25",
   "meclao-sammy-bday-jhon-parra-2026-10-01",

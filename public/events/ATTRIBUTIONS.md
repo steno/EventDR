@@ -29,6 +29,7 @@ Curated images under `public/events/` and `public/venues/`.
 | `disney-dream-taino-bay-2026-10-06.jpg` | POP-supplied — Puerto Plata Travel “La magia llega por mar” Disney Dream first visit flyer | Tue 6 Oct 2026 Taino Bay first Disney Cruise Line call (editor-provided) |
 | `natura-cabana-jazz-ensemble-2026-10-03.jpg` | POP-supplied — Live Jazz Ensemble Saturday flyer | Sat 3 Oct 2026 7–9:30 PM Natura Cabana; performers Sosua Jazz Collective (@sosuajazzcollective) |
 | `kaovanny-natura-cabana-2026-09-26.jpg` | POP-supplied — Kaovanny Afro Soul live music flyer | Sat 26 Sep 2026 7–9:30 PM Natura Cabana (editor-provided) |
+| `kaovanny-agua-natura-cabana-2026-11-28.jpg` | POP-supplied — Kaovanny Agua Live Tour / Afro Soul flyer (Sat Nov 28 2026 7 PM Natura Cabana; editor-provided) | Filename bump so PWA/detail heroes drop the Sep reuse |
 | `vibes-night-live-voramar-2026-10-02-v2.jpg` | POP-supplied — Vibes Night Live / Deja New flyer (Hotel Voramar) | Fri 2 Oct 2026 7:30 PM, 18+ (editor-provided; filename bump) |
 | `kaovanny-agua-el-carey-2026-10-02.jpg` | POP-supplied — Kaovanny ‘La Caoba’ agua LIVE album release flyer | Fri 2 Oct 2026 6:30 PM El Carey Costambar (editor-provided) |
 | `chiche-almonte-zona-acapella-2026-10-04.jpg` | POP-supplied — Domingo Típico / Chiché Almonte flyer ([@acapella.pop](https://www.instagram.com/acapella.pop/)) | Sun 4 Oct 2026 free entry (editor-provided) |
@@ -49,6 +50,7 @@ Curated images under `public/events/` and `public/venues/`.
 | `venues/sosua-food-market-entrance.jpg` | POP-supplied — Sosúa Food Market green-arch entrance (Anacaona & Pablo Neruda) | Venue place shot (editor-provided) |
 | `la-lola-dj-one-d-feriado-2026-09-24.jpg` | POP-supplied — El weekend arranca el jueves / DJ ONE D flyer ([@lalolabeachclub](https://www.instagram.com/lalolabeachclub/)) | Thu 24 Sep 2026 Mercedes feriado, free shots (editor-provided) |
 | `aura-halloween-party-2026-10-31.jpg` | POP-supplied — Aura Halloween Party flyer ([@auracabarete](https://www.instagram.com/auracabarete/)) | Sat 31 Oct 2026 costume contest RD$20k/10k/5k (editor-provided) |
+| `aura-cinema-abigail-2026-10-06.jpg` | POP-supplied — Aura Cinema / Abigail flyer ([@auracabarete](https://www.instagram.com/auracabarete/)) | Tue 6 Oct 2026 8 PM beach-club screening (editor-provided; no calendar date on art — seeded as that Tuesday) |
 | `la-lola-noche-de-nenas-blanco-2026-09-25.jpg` | POP-supplied — Todas de Blanco / Noche de Nenas flyer ([@lalolabeachclub](https://www.instagram.com/lalolabeachclub/)) | Fri 25 Sep 2026 open bar for women until 9:30 PM (editor-provided) |
 | `cigar-town-eddy-almonte-2026-09-26.jpg` | POP-supplied — Eddy Almonte live flyer ([@cigartownpop](https://www.instagram.com/cigartownpop/)) | Sat 26 Sep 2026 8:00 PM Cigar Town (editor-provided; artist ID from editor) |
 | `joaquin-sanchez-rancho-catalina-2026-09-27.jpg` | POP-supplied — Joaquín Sánchez Música en Vivo flyer ([@rancholacatalina](https://www.instagram.com/rancholacatalina/)) | Sun 27 Sep 2026 2:30 PM no cover (editor-provided) |
@@ -352,6 +354,7 @@ Curated images under `public/events/` and `public/venues/`.
 | `los-caballitos-zona-acapella-2026-09-20.jpg` | POP-supplied Zona Acapella Club Domingo Típico flyer ([IG](https://www.instagram.com/p/DdXrhbYsny_/)) | Los Caballitos de Mao Sun 20 Sep 2026 (editor-provided) |
 | `banda-modelo-vinoteca-2026-09-26.jpg` | POP-supplied Vinoteca Wine House Banda Modelo flyer ([@vinotecamarienpp](https://www.instagram.com/vinotecamarienpp/)) | Sat 26 Sep 2026 10 PM free (editor-provided) |
 | `venues/vinoteca-wine-house.jpg` | POP-supplied Vinoteca Wine House lounge interior | Venue place shot at Hotel Marien / Costa Dorada (editor-provided, not scraped) |
+| `chiche-almonte-vinoteca-2026-10-17.jpg` | POP-supplied Vinoteca Wine House Chiche Almonte flyer ([@vinotecamarienpp](https://www.instagram.com/vinotecamarienpp/); editor crop, object-top) | Sat 17 Oct 2026 10 PM free — date from Oct flyer; hero art from prior Chiche night layout |
 | `latinwok-ramen-party-2026-09-17.jpg` | POP-supplied Latin Wok × El Ramero Solitario Ramen Party flyer | Authentic 17 Sep Plaza Uno ramen night flyer |
 | `cabarete-run-festival-5k-2026-11-08.jpg` | POP-supplied Cabarete Run Festival 5K flyer (Desarrollo Fitness) | Authentic 8 Nov 2026 race flyer |
 | `hard-rock-karaoke-wednesday.jpg` | POP-supplied Hard Rock Cafe Puerto Plata karaoke flyer | Wednesday karaoke from 7 PM |
@@ -428,6 +431,7 @@ Curated images under `public/events/` and `public/venues/`.
 | `aura-disco-dj-christo-2026-09-26.jpg` | POP-supplied — Aura Disco / Live DJ Christo flyer ([@auracabarete](https://www.instagram.com/auracabarete/)) | Sat 26 Sep 2026 11:30 PM–3:00 AM Aura Rooftop / Aura Beach Club (editor-provided) |
 | `meclao-house-friday-2026-09-18.jpg` | POP-supplied — House Friday / DJ Choco flyer ([IG](https://www.instagram.com/p/DdZi0Osp5t5/)) | Fri 18 Sep 2026 Mecla'o Rooftop (editor-provided) |
 | `cabarete-stand-up-vol-2-2026-10-24.jpg` | POP-supplied — Cabarete Stand Up Vol. 2 flyer ([IG](https://www.instagram.com/p/DdZyjTkRZfY/)) | Sat 24 Oct 2026 7:00 PM Hotel Villa Taina; RD$600 (editor-provided) |
+| `mkni-after-party-villa-taina-2026-10-24.jpg` | POP-supplied — MKNI DJ set after-party flyer ([@cabaretestandup](https://www.instagram.com/cabaretestandup/) / @davidmkni) | Sat 24 Oct 2026 after Vol. 2 Stand Up at Hotel Villa Taina (editor-provided) |
 | `hard-rock-the-king-mj-2026-09-19.jpg` | POP-supplied — THE KING Michael Jackson tribute flyer ([@jmj.productions_](https://www.instagram.com/jmj.productions_/)) | Sat 19 Sep 2026 Hard Rock Cafe Puerto Plata; cover RD$1,300 (editor-provided) |
 | `geek-fest-rd-2026-09-20.jpg` | POP-supplied — Geek Fest RD mini volleyball / GEE FEST flyer ([@geek_fest_rd](https://www.instagram.com/geek_fest_rd/)) | Sun 20 Sep 2026 Polideportivo Puerto Plata (editor-provided) |
 | `festival-presidente-2026-10-03.jpg` | POP-supplied — Festival Presidente 2026 Tercera Parada Puerto Plata flyer (Entérate Pop / Presidente city promo) | Sat 3 Oct 2026 Anfiteatro La Puntilla (editor-provided) |

@@ -5050,5 +5050,87 @@
       "Juan Guivín"
     ],
     "imageEmoji": "🎤"
+  },
+  {
+    "id": "chiche-almonte-vinoteca-2026-10-17",
+    "title": "Chiche Almonte — Vinoteca Wine House",
+    "description": "Fiesta with accordionist Chiche Almonte at Vinoteca Wine House (Hotel Marien / Costa Dorada) — Saturday 17 October 2026 from 10:00 PM. Free entry. Good music, good wine · @vinotecamarienpp · +1 849-451-1197.",
+    "date": "2026-10-17",
+    "time": "10:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Vinoteca Wine House",
+    "venueSlug": "vinoteca-wine-house",
+    "address": "Carretera Luperón Km 4.5, Hotel Marien, Costa Dorada, Puerto Plata",
+    "lat": 19.7774246,
+    "lng": -70.6591856,
+    "category": "concert",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/vinotecamarienpp/",
+    "lineup": [
+      "Chiche Almonte"
+    ],
+    "imageEmoji": "🍷"
+  },
+  {
+    "id": "aura-cinema-abigail-2026-10-06",
+    "date": "2026-10-06",
+    "time": "8:00 PM",
+    "location": "Cabarete",
+    "venue": "Aura Beach Club Cabarete",
+    "venueSlug": "aura-beach-club-cabarete",
+    "address": "Calle Principal, Cabarete 57000",
+    "lat": 19.7500769,
+    "lng": -70.4070417,
+    "category": "culture",
+    "categories": [
+      "parties"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18297870140",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/auracabarete/",
+    "lineup": [
+      "Abigail"
+    ],
+    "imageEmoji": "🎬",
+    "title": "Aura Cinema — Abigail",
+    "description": "Aura Cinema at Aura Beach Club, Calle Principal, Cabarete — Tuesday 6 October 2026 at 8:00 PM screening Abigail. Beach-club movie night, not POP Cinemas Playa Dorada. Cover and seating not on the flyer — confirm via Instagram @auracabarete or WhatsApp +1 829-787-0140."
+  },
+  {
+    "id": "mkni-after-party-villa-taina-2026-10-24",
+    "date": "2026-10-24",
+    "time": "After the Stand Up",
+    "location": "Cabarete",
+    "venue": "Hotel Villa Taina",
+    "venueSlug": "hotel-villa-taina",
+    "address": "Calle Principal 1, Cabarete 57000",
+    "lat": 19.7495,
+    "lng": -70.409579,
+    "category": "parties",
+    "categories": [
+      "music"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18095710722",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/cabaretestandup/",
+    "lineup": [
+      "MKNI",
+      "David MKNI"
+    ],
+    "imageEmoji": "🪩",
+    "title": "MKNI After Party — Villa Taina",
+    "description": "Official Cabarete Stand Up Vol. 2 after-party with DJ set by MKNI (@davidmkni) at Hotel Villa Taina, Calle Principal, Cabarete — Saturday 24 October 2026, after the 7:00 PM Stand Up show. Laugh, then dance; stay overnight with up to 20% off via Villa Taina. Cover and doors not on the flyer — confirm @cabaretestandup / @hotelvillataina · +1 809-571-0722."
   }
 ]

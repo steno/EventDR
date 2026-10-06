@@ -94,6 +94,24 @@ function nextUnpostedEventIndex(
   return eventIds.findIndex((id) => !done.has(id));
 }
 
+async function warmSpotlightImage(
+  url: string,
+): Promise<{ ok: true } | { ok: false; error: string }> {
+  try {
+    const response = await fetch(url, { signal: AbortSignal.timeout(20_000) });
+    if (!response.ok) {
+      return { ok: false, error: `HTTP ${response.status}` };
+    }
+    await response.arrayBuffer();
+    return { ok: true };
+  } catch (error) {
+    return {
+      ok: false,
+      error: error instanceof Error ? error.message : String(error),
+    };
+  }
+}
+
 function uniqueUrls(urls: string[]): string[] {
   const out: string[] = [];
   for (const url of urls) {
@@ -457,6 +475,21 @@ export async function runTodaySpotlightStep(input: {
     }
     const imageUrl = job.imageUrls[index]?.trim();
     const eventCaption = job.eventCaptions?.[index] ?? job.caption;
+    if (imageUrl) {
+      const warmed = await warmSpotlightImage(imageUrl);
+      if (!warmed.ok) {
+        await persist({ failed: true });
+        return {
+          status: 502,
+          body: {
+            success: false,
+            done: false,
+            eventIds: job.eventIds,
+            error: `Share card unavailable for ${job.eventIds[index] ?? index}: ${warmed.error}`,
+          },
+        };
+      }
+    }
     if (!imageUrl) {
       await persist({ failed: true });
       return {

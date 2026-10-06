@@ -76,6 +76,10 @@ const FILE_TO_EVENT_ID = {
   "los-caballitos-zona-acapella-2026-09-20.jpg":
     "los-caballitos-zona-acapella-2026-09-20",
   "banda-modelo-vinoteca-2026-09-26.jpg": "banda-modelo-vinoteca-2026-09-26",
+  "chiche-almonte-vinoteca-2026-10-17.jpg": "chiche-almonte-vinoteca-2026-10-17",
+  "aura-cinema-abigail-2026-10-06.jpg": "aura-cinema-abigail-2026-10-06",
+  "mkni-after-party-villa-taina-2026-10-24.jpg":
+    "mkni-after-party-villa-taina-2026-10-24",
   "aura-disco-dj-melvin-2026-09-19.jpg": "aura-disco-dj-melvin-2026-09-19",
   "aura-disco-dj-christo-2026-09-26.jpg": "aura-disco-dj-christo-2026-09-26",
   "meclao-house-friday-2026-09-18.jpg": "meclao-house-friday-2026-09-18",
@@ -296,6 +300,7 @@ const FILE_TO_EVENT_ID = {
   "natura-sunbar-special-sunset-sounds-2026-09-24.jpg":
     "natura-sunbar-special-sunset-sounds-2026-09-24",
   "kaovanny-natura-cabana-2026-09-26.jpg": "kaovanny-natura-cabana-2026-09-26",
+  "kaovanny-agua-natura-cabana-2026-11-28.jpg": "kaovanny-agua-natura-cabana-2026-11-28",
   "kaovanny-hard-rock-2026-11-20.jpg": "kaovanny-hard-rock-2026-11-20",
   "elias-serulle-villa-taina-2026-10-24.jpg":
     "elias-serulle-villa-taina-2026-10-24",

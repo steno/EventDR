@@ -643,6 +643,24 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     phone: "+18297260344",
     venueSlug: "zona-acapella-club",
   },
+  "chiche-almonte-vinoteca-2026-10-17": {
+    isFree: true,
+    phone: "+18494511197",
+    venueSlug: "vinoteca-wine-house",
+    sourceUrl: "https://www.instagram.com/vinotecamarienpp/",
+  },
+  "aura-cinema-abigail-2026-10-06": {
+    callForPricing: true,
+    phone: "+18297870140",
+    venueSlug: "aura-beach-club-cabarete",
+    sourceUrl: "https://www.instagram.com/auracabarete/",
+  },
+  "mkni-after-party-villa-taina-2026-10-24": {
+    callForPricing: true,
+    phone: "+18095710722",
+    venueSlug: "hotel-villa-taina",
+    sourceUrl: "https://www.instagram.com/cabaretestandup/",
+  },
   "camara-almuerzo-codigo-penal-2026-10-22": {
     isFree: false,
     admissionPrice: "RD$3,500",

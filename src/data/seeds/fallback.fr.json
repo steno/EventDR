@@ -5048,5 +5048,87 @@
     "imageEmoji": "🎤",
     "title": "Kaovanny Agua Live Tour à Natura Cabana",
     "description": "Kaovanny Agua Live Tour — Afro Soul acoustique intime avec un groupe de 4 et Juan Guivín à Natura Cabana Boutique Hotel & Spa, Calle Paseo del Sol, Cabarete — samedi 28 novembre 2026 à 19 h. Réservez une table pour un rythme dîner-show au restaurant plage — pas Kaovanny au Hard Rock le 20 novembre ni l’affiche Afro Soul du 26 sep. +1 849-214-7010 · naturacabana.com."
+  },
+  {
+    "id": "chiche-almonte-vinoteca-2026-10-17",
+    "title": "Chiche Almonte — Vinoteca Wine House",
+    "description": "Fiesta avec l'accordéoniste Chiche Almonte à Vinoteca Wine House (Hotel Marien / Costa Dorada) — samedi 17 octobre 2026 dès 22 h. Entrée gratuite. Bonne musique, bon vin · @vinotecamarienpp · +1 849-451-1197.",
+    "date": "2026-10-17",
+    "time": "10:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Vinoteca Wine House",
+    "venueSlug": "vinoteca-wine-house",
+    "address": "Carretera Luperón Km 4.5, Hotel Marien, Costa Dorada, Puerto Plata",
+    "lat": 19.7774246,
+    "lng": -70.6591856,
+    "category": "concert",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/vinotecamarienpp/",
+    "lineup": [
+      "Chiche Almonte"
+    ],
+    "imageEmoji": "🍷"
+  },
+  {
+    "id": "aura-cinema-abigail-2026-10-06",
+    "date": "2026-10-06",
+    "time": "8:00 PM",
+    "location": "Cabarete",
+    "venue": "Aura Beach Club Cabarete",
+    "venueSlug": "aura-beach-club-cabarete",
+    "address": "Calle Principal, Cabarete 57000",
+    "lat": 19.7500769,
+    "lng": -70.4070417,
+    "category": "culture",
+    "categories": [
+      "parties"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18297870140",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/auracabarete/",
+    "lineup": [
+      "Abigail"
+    ],
+    "imageEmoji": "🎬",
+    "title": "Aura Cinema — Abigail",
+    "description": "Aura Cinema à Aura Beach Club, Calle Principal, Cabarete — mardi 6 octobre 2026 à 20 h, projection Abigail. Soirée cinéma beach club, pas POP Cinemas Playa Dorada. Cover et places absents de l’affiche — confirmez via Instagram @auracabarete ou WhatsApp +1 829-787-0140."
+  },
+  {
+    "id": "mkni-after-party-villa-taina-2026-10-24",
+    "date": "2026-10-24",
+    "time": "Après le Stand Up",
+    "location": "Cabarete",
+    "venue": "Hotel Villa Taina",
+    "venueSlug": "hotel-villa-taina",
+    "address": "Calle Principal 1, Cabarete 57000",
+    "lat": 19.7495,
+    "lng": -70.409579,
+    "category": "parties",
+    "categories": [
+      "music"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18095710722",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/cabaretestandup/",
+    "lineup": [
+      "MKNI",
+      "David MKNI"
+    ],
+    "imageEmoji": "🪩",
+    "title": "MKNI After Party — Villa Taina",
+    "description": "After-party officiel Cabarete Stand Up Vol. 2 avec DJ set de MKNI (@davidmkni) à l’Hotel Villa Taina, Calle Principal, Cabarete — samedi 24 octobre 2026, après le Stand Up à 19 h. Rire puis danser ; séjournez avec jusqu’à 20 % OFF via Villa Taina. Cover et portes absents de l’affiche — confirmez @cabaretestandup / @hotelvillataina · +1 809-571-0722."
   }
 ]

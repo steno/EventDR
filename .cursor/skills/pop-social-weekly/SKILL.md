@@ -44,7 +44,7 @@ Pick trending events first, then variety across cities/categories.
 
 ## Recurring publish
 
-GitHub Action `daily-today-spotlight.yml` publishes **individual Instagram image posts**: today’s specials first, then up to 3 happening-today events. Photos are the public event images already on pop-event.com. Same-day event ids are never repeated.
+GitHub Action `daily-today-spotlight.yml` publishes **individual Instagram image posts**: today’s specials first, then up to 3 happening-today events. Each photo is the detail-page Share → Instagram card (orange POP frame, event photo, title, time and place), served from `/api/ig-card/{id}.jpg`. Same-day event ids are never repeated.
 
 In chat: **spotlight today’s specials** (manual specials-only rail) or the scheduled job (specials first, then happening today). Live post: `node scripts/run-today-spotlight.mjs` with `SITE_URL` and `CRON_SECRET`. Specials only: `TODAY_SPECIALS=true`. Do not fire one `POST /api/cron/meta-post` with `source: today` and wait for both networks.
 

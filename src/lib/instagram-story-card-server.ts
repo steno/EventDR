@@ -182,6 +182,32 @@ export async function buildInstagramStoryCardPng(
     .toBuffer();
 }
 
+/**
+ * Feed photo (4:5). Instagram rejects the full 9:16 share card on a feed post.
+ * This keeps the same card — POP Events header, photo, title, meta — and
+ * drops the empty gradient below it.
+ */
+export const FEED_CARD_W = STORY_W;
+export const FEED_CARD_H = 1350;
+const FEED_CARD_TOP = CARD_Y + CARD_H - FEED_CARD_H;
+
+export async function buildInstagramFeedCardJpeg(
+  event: Event,
+  locale: Locale,
+  origin = SITE_URL,
+): Promise<Buffer> {
+  const story = await buildInstagramStoryCardPng(event, locale, origin);
+  return sharp(story)
+    .extract({
+      left: 0,
+      top: FEED_CARD_TOP,
+      width: FEED_CARD_W,
+      height: FEED_CARD_H,
+    })
+    .jpeg({ quality: 88, mozjpeg: true })
+    .toBuffer();
+}
+
 /** @deprecated Prefer buildInstagramStoryCardPng — kept name clarity for callers. */
 export async function buildInstagramStoryCardJpeg(
   event: Event,

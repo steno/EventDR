@@ -11,6 +11,7 @@ import {
   spotlightPickOptionsForSource,
   spotlightRepeatKey,
   spotlightSeriesKeyFromId,
+  spotlightShareImageUrl,
   toAbsoluteMetaImageUrl,
   TODAY_SPOTLIGHT_LIMIT,
   TODAY_SPOTLIGHT_MAX,
@@ -736,6 +737,15 @@ describe("buildSingleEventSpotlightCaption", () => {
     assert.doesNotMatch(caption, /•/);
     assert.match(caption, /More at pop-event.com\/en\/event\/a/);
     assert.match(caption, /#POPEvents/);
+  });
+});
+
+describe("spotlightShareImageUrl", () => {
+  it("points Meta at the share-card JPEG", () => {
+    assert.equal(
+      spotlightShareImageUrl("parada-choco-banditalia-2026-10-06"),
+      "https://pop-event.com/api/ig-card/parada-choco-banditalia-2026-10-06.jpg",
+    );
   });
 });
 

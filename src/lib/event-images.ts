@@ -124,8 +124,9 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "natura-cabana-jazz-ensemble-2026-10-03":
     "natura-cabana-jazz-ensemble-2026-10-03.jpg",
   "kaovanny-natura-cabana-2026-09-26": "kaovanny-natura-cabana-2026-09-26.jpg",
-  // Reuse Natura Cabana Kaovanny flyer for the Nov 28 Agua Live Tour night.
-  "kaovanny-agua-natura-cabana-2026-11-28": "kaovanny-natura-cabana-2026-09-26.jpg",
+  // Filename bump — Nov 28 Agua Live Tour flyer (was reusing Sep 26 Natura art).
+  "kaovanny-agua-natura-cabana-2026-11-28":
+    "kaovanny-agua-natura-cabana-2026-11-28.jpg",
   "kaovanny-hard-rock-2026-11-20": "kaovanny-hard-rock-2026-11-20.jpg",
   "elias-serulle-villa-taina-2026-10-24":
     "elias-serulle-villa-taina-2026-10-24.jpg",
@@ -151,6 +152,10 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "serenade-bbq-night-villa-taina-weekly.jpg",
   "luna-lounge-jueves-karaoke-weekly": "luna-lounge-jueves-karaoke-weekly.jpg",
   "banda-modelo-vinoteca-2026-09-26": "banda-modelo-vinoteca-2026-09-26.jpg",
+  "chiche-almonte-vinoteca-2026-10-17": "chiche-almonte-vinoteca-2026-10-17.jpg",
+  "aura-cinema-abigail-2026-10-06": "aura-cinema-abigail-2026-10-06.jpg",
+  "mkni-after-party-villa-taina-2026-10-24":
+    "mkni-after-party-villa-taina-2026-10-24.jpg",
   "cabarete-run-festival-5k-2026-11-08": "cabarete-run-festival-5k-2026-11-08.jpg",
   "latinwok-ramen-party-2026-09-17": "latinwok-ramen-party-2026-09-17.jpg",
   "hard-rock-karaoke-wednesday": "hard-rock-karaoke-wednesday.jpg",
@@ -633,6 +638,12 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "grand-prix-jueves-stripper-show": "object-center",
   "lizandro-diaz-grand-prix-2026-10-02": "object-center",
   "cheo-almonte-grand-prix-2026-09-25": "object-top",
+  // Tall Vinoteca flyer — keep Chiche + accordion in wide card crops.
+  "chiche-almonte-vinoteca-2026-10-17": "object-top",
+  // Tall Aura Cinema flyer — keep aura wordmark + ballerina silhouette in card crops.
+  "aura-cinema-abigail-2026-10-06": "object-top",
+  // Tall MKNI flyer — keep Costa Norte / DJ SET BY / face in card crops.
+  "mkni-after-party-villa-taina-2026-10-24": "object-top",
 };
 
 function curatedEventImageFile(eventId: string): string | undefined {
@@ -768,6 +779,9 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "camara-almuerzo-codigo-penal-2026-10-22-v2.jpg",
   "teleferico-inicio-obras-2026-10-03.jpg",
   "banda-modelo-vinoteca-2026-09-26.jpg",
+  "chiche-almonte-vinoteca-2026-10-17.jpg",
+  "aura-cinema-abigail-2026-10-06.jpg",
+  "mkni-after-party-villa-taina-2026-10-24.jpg",
   "groundzero-domingos-de-hookah.jpg",
   "groundzero-domingos-pal-pueblo.jpg",
   "groundzero-golden-night-2026-09-25.jpg",
@@ -868,6 +882,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "voyvoy-halloween-session-2026-10-31.jpg",
   "natura-cabana-jazz-ensemble-2026-10-03.jpg",
   "kaovanny-natura-cabana-2026-09-26.jpg",
+  "kaovanny-agua-natura-cabana-2026-11-28.jpg",
   "vibes-night-live-voramar-2026-10-02-v2.jpg",
   "kaovanny-agua-el-carey-2026-10-02.jpg",
   "chiche-almonte-zona-acapella-2026-10-04.jpg",
