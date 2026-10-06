@@ -100,6 +100,8 @@ type PostBody = Partial<MetaPublishInput> &
     locale?: string;
     force?: boolean;
     featureEventId?: string;
+    /** Event ids to skip for this run only. */
+    excludeEventIds?: string[];
     step?: "next" | "all";
     /** Upload a still-derived MP4 for Instagram Reels hosting. */
     action?: "upload-reel" | "render-story-card";
@@ -218,10 +220,15 @@ export async function POST(request: NextRequest) {
               locks.specials.status !== "failed" &&
               locks.specials.eventIds.length > 0,
           );
+        const exclusions = mergeSpotlightExclusions(own, [other], today, {
+          force: body.force,
+        });
+        const excludeEventIds = (body.excludeEventIds ?? [])
+          .map((id) => id.trim())
+          .filter((id) => id.length > 0);
         built = await buildTodayMetaPost(locale, undefined, {
-          ...mergeSpotlightExclusions(own, [other], today, {
-            force: body.force,
-          }),
+          ...exclusions,
+          hardExcludeIds: [...exclusions.hardExcludeIds, ...excludeEventIds],
           featureEventId: body.featureEventId,
           ...spotlightPickOptionsForSource(channel, { specialsAlreadyPosted }),
         });
@@ -260,6 +267,7 @@ export async function POST(request: NextRequest) {
         wantInstagram: body.instagram !== false,
         force: body.force,
         featureEventId: body.featureEventId,
+        excludeEventIds: body.excludeEventIds,
         channel,
         progress: {
           facebookId: body.facebookId,

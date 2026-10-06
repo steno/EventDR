@@ -27,6 +27,10 @@ const INSTAGRAM_ONLY = process.env.INSTAGRAM_ONLY === "true";
 const FACEBOOK_ONLY = process.env.FACEBOOK_ONLY === "true";
 const FORCE = process.env.FORCE === "true";
 const FEATURE_EVENT_ID = process.env.FEATURE_EVENT_ID?.trim() || "";
+const EXCLUDE_EVENT_IDS = (process.env.EXCLUDE_EVENT_IDS || "")
+  .split(",")
+  .map((id) => id.trim())
+  .filter((id) => id.length > 0);
 const TODAY_SPECIALS =
   process.env.TODAY_SPECIALS === "true" ||
   process.env.SOURCE === "today-specials";
@@ -90,6 +94,9 @@ async function main() {
     console.error("CRON_SECRET is not set.");
     process.exit(1);
   }
+  if (EXCLUDE_EVENT_IDS.length) {
+    console.log(`Skipping event ids: ${EXCLUDE_EVENT_IDS.join(", ")}`);
+  }
 
   const payload = {
     source: SPOTLIGHT_SOURCE,
@@ -97,6 +104,7 @@ async function main() {
     dryRun: DRY_RUN,
     force: FORCE || undefined,
     featureEventId: FEATURE_EVENT_ID || undefined,
+    excludeEventIds: EXCLUDE_EVENT_IDS.length ? EXCLUDE_EVENT_IDS : undefined,
     facebook: INSTAGRAM_ONLY ? false : undefined,
     instagram: FACEBOOK_ONLY ? false : undefined,
   };

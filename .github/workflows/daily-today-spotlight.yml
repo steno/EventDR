@@ -17,6 +17,11 @@ on:
         required: false
         type: boolean
         default: true
+      exclude_event_ids:
+        description: 'Comma-separated event ids to skip on this run'
+        required: false
+        type: string
+        default: ''
 
 jobs:
   post:
@@ -61,6 +66,7 @@ jobs:
           # Image posts only — specials first, then happening-today. No Facebook.
           INSTAGRAM_ONLY: "true"
           TODAY_SPECIALS: "false"
+          EXCLUDE_EVENT_IDS: ${{ github.event.inputs.exclude_event_ids }}
         run: |
           if [ -z "$CRON_SECRET" ]; then
             echo "::error::CRON_SECRET secret not set — add it in repo Settings → Secrets."

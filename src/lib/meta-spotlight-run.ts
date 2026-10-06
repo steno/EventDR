@@ -109,6 +109,8 @@ export async function runTodaySpotlightStep(input: {
   wantInstagram: boolean;
   force?: boolean;
   featureEventId?: string;
+  /** Never pick these ids on this run (still allows the rest of the day). */
+  excludeEventIds?: string[];
   channel?: SpotlightChannel;
   progress?: TodaySpotlightProgress;
 }): Promise<{ status: number; body: TodaySpotlightStepResult }> {
@@ -130,8 +132,12 @@ export async function runTodaySpotlightStep(input: {
   const exclusions = mergeSpotlightExclusions(own, [other], today, {
     force: input.force,
   });
+  const excludeEventIds = (input.excludeEventIds ?? [])
+    .map((id) => id.trim())
+    .filter((id) => id.length > 0);
   const built = await buildTodayMetaPost(input.locale, undefined, {
     ...exclusions,
+    hardExcludeIds: [...exclusions.hardExcludeIds, ...excludeEventIds],
     featureEventId: input.featureEventId,
     ...spotlightPickOptionsForSource(channel, { specialsAlreadyPosted }),
   });
