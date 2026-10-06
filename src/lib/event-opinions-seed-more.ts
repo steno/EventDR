@@ -1232,10 +1232,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   {
     eventId: "petit-francois-friday-karaoke",
     seriesKey: "le-petit-francois:weekly:5",
-    body: "Karaoke from 8 PM with DJ Leandro — Google’s midnight close is the kitchen; the beach party is listed until 2 AM on the official site.",
+    body: "Karaoke from 8 PM with DJ Binbi — Google’s midnight close is the kitchen; the beach party is listed until 2 AM on the official site.",
     localized: {
-      es: "Karaoke desde las 8 PM con DJ Leandro — el cierre de medianoche de Google es la cocina; la beach party está hasta las 2 AM en el sitio oficial.",
-      fr: "Karaoké dès 20 h avec DJ Leandro — la fermeture minuit Google est la cuisine ; la beach party va jusqu'à 2 h sur le site officiel.",
+      es: "Karaoke desde las 8 PM con DJ Binbi — el cierre de medianoche de Google es la cocina; la beach party está hasta las 2 AM en el sitio oficial.",
+      fr: "Karaoké dès 20 h avec DJ Binbi — la fermeture minuit Google est la cuisine ; la beach party va jusqu'à 2 h sur le site officiel.",
     },
     priceFeel: "moderate",
     priceNote:
@@ -1248,8 +1248,8 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     ratingCite: "Google 4.4",
     googleRating: 4.4,
     researchNotes:
-      "Official site: Friday karaoke with DJ Leandro from 8 PM. Spanish site 8 PM–2 AM. Google 4.4/869, phone +1 829-492-2910, El Pueblito / Playa Chaparral.",
-    updatedAt: "2026-08-21T16:00:00.000Z",
+      "Editor correction 2026-10-06: Friday karaoke DJ is DJ Binbi (not Leandro). Spanish site 8 PM–2 AM. Google 4.4/869, phone +1 829-492-2910, El Pueblito / Playa Chaparral.",
+    updatedAt: "2026-10-06T18:00:00.000Z",
   },
   {
     eventId: "waterfront-playa-alicia-sunset-dining",

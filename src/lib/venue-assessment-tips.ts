@@ -858,11 +858,11 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "le-petit-francois": {
-    body: "Beach tables at El Pueblito, not the Playa Dorada Mall food court — Friday karaoke with DJ Leandro from 8 PM; Google's midnight close is the restaurant, the party runs later.",
+    body: "Beach tables at El Pueblito, not the Playa Dorada Mall food court — Friday karaoke with DJ Binbi from 8 PM; Google's midnight close is the restaurant, the party runs later.",
     localized: {
-      en: "Beach tables at El Pueblito, not the Playa Dorada Mall food court — Friday karaoke with DJ Leandro from 8 PM; Google's midnight close is the restaurant, the party runs later.",
-      es: "Mesas en la arena de El Pueblito, no el food court del mall de Playa Dorada — karaoke los viernes con DJ Leandro desde las 8 PM; el cierre de medianoche de Google es el restaurante, la fiesta sigue.",
-      fr: "Tables sur le sable à El Pueblito, pas le food court du mall Playa Dorada — karaoké vendredi avec DJ Leandro dès 20 h ; la fermeture minuit Google est le resto, la fête continue.",
+      en: "Beach tables at El Pueblito, not the Playa Dorada Mall food court — Friday karaoke with DJ Binbi from 8 PM; Google's midnight close is the restaurant, the party runs later.",
+      es: "Mesas en la arena de El Pueblito, no el food court del mall de Playa Dorada — karaoke los viernes con DJ Binbi desde las 8 PM; el cierre de medianoche de Google es el restaurante, la fiesta sigue.",
+      fr: "Tables sur le sable à El Pueblito, pas le food court du mall Playa Dorada — karaoké vendredi avec DJ Binbi dès 20 h ; la fermeture minuit Google est le resto, la fête continue.",
     },
   },
   "waterfront-playa-alicia": {

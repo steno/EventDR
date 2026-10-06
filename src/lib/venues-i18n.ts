@@ -743,8 +743,8 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
   },
   "le-petit-francois": {
     description: {
-      es: "Bar-restaurante de playa en El Pueblito / Playa Chaparral — platos franco-canadienses-dominicanos, karaoke los viernes con DJ Leandro y mesas en la arena. Abierto todos los días desde las 8:30 AM.",
-      fr: "Bar-restaurant de plage à El Pueblito / Playa Chaparral — cuisine franco-canadienne-dominicaine, karaoké le vendredi avec DJ Leandro et tables sur le sable. Ouvert tous les jours dès 8 h 30.",
+      es: "Bar-restaurante de playa en El Pueblito / Playa Chaparral — platos franco-canadienses-dominicanos, karaoke los viernes con DJ Binbi y mesas en la arena. Abierto todos los días desde las 8:30 AM.",
+      fr: "Bar-restaurant de plage à El Pueblito / Playa Chaparral — cuisine franco-canadienne-dominicaine, karaoké le vendredi avec DJ Binbi et tables sur le sable. Ouvert tous les jours dès 8 h 30.",
     },
   },
   "waterfront-playa-alicia": {
