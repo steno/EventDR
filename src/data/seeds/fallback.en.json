@@ -5132,5 +5132,198 @@
     "imageEmoji": "🪩",
     "title": "MKNI After Party — Villa Taina",
     "description": "Official Cabarete Stand Up Vol. 2 after-party with DJ set by MKNI (@davidmkni) at Hotel Villa Taina, Calle Principal, Cabarete — Saturday 24 October 2026, after the 7:00 PM Stand Up show. Laugh, then dance; stay overnight with up to 20% off via Villa Taina. Cover and doors not on the flyer — confirm @cabaretestandup / @hotelvillataina · +1 809-571-0722."
+  },
+  {
+    "id": "waterfront-sosua-jazz-collective-2026-10-09",
+    "title": "Sosua Jazz Collective — Live Jazz at Waterfront",
+    "description": "Live Jazz by the sea with Sosua Jazz Collective at Waterfront Playa Alicia, El Batey — Friday 9 October 2026 at 7:00 PM on the Playa Alicia terrace. Dinner-show pacing over the bay; book a rail table via WhatsApp +1 809-571-3024 · Instagram @waterfrontplayaalicia · @sosuajazzcollective. Not Natura Cabana’s Saturday jazz night.",
+    "date": "2026-10-09",
+    "time": "7:00 PM",
+    "location": "Sosúa",
+    "venue": "Waterfront Playa Alicia",
+    "venueSlug": "waterfront-playa-alicia",
+    "address": "Calle Dr. Rosen, esq. Calle Sin Salida, El Batey",
+    "lat": 19.7656127,
+    "lng": -70.5182562,
+    "category": "music",
+    "categories": [
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18095713024",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/waterfrontplayaalicia/",
+    "lineup": [
+      "Sosua Jazz Collective"
+    ],
+    "imageEmoji": "🎷"
+  },
+  {
+    "id": "twenty-disco-aventura-edition-2026-10-10",
+    "title": "Twenty Disco Club Edition — Aventura",
+    "description": "Twenty Disco Club Edition — Aventura night at Twenty Disco & Lounge, Playa Dorada Mall, Puerto Plata — Saturday 10 October 2026. Music by Luna, Estrella, and Soky. Presented with Luna Pro Eventos and Brugal. Confirm cover and doors via Instagram @twenty_disco_lounge.",
+    "date": "2026-10-10",
+    "location": "Playa Dorada",
+    "venue": "Twenty Disco Lounge",
+    "venueSlug": "twenty-disco-lounge",
+    "address": "Playa Dorada Mall, Puerto Plata",
+    "lat": 19.769476,
+    "lng": -70.643033,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/twenty_disco_lounge/",
+    "lineup": [
+      "Luna",
+      "Estrella",
+      "Soky"
+    ],
+    "imageEmoji": "🪩"
+  },
+  {
+    "id": "emileni-francisco-rancho-catalina-2026-10-11",
+    "title": "Emileni Francisco Live at Rancho La Catalina",
+    "description": "Live music with Emileni Francisco at Rancho La Catalina in El Cupey — Sunday 11 October 2026 at 2:30 PM. Afternoon of music, food, and ranch atmosphere; no cover. Call +1 809-781-3737 · Instagram @rancholacatalina.",
+    "date": "2026-10-11",
+    "time": "2:30 PM",
+    "location": "Puerto Plata",
+    "venue": "Rancho La Catalina",
+    "venueSlug": "rancho-catalina-puerto-plata",
+    "address": "El Cupey, Puerto Plata",
+    "lat": 19.7371866,
+    "lng": -70.7253286,
+    "category": "music",
+    "categories": [
+      "food-drinks",
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "phone": "+18097813737",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/rancholacatalina/",
+    "lineup": [
+      "Emileni Francisco"
+    ],
+    "imageEmoji": "🎤"
+  },
+  {
+    "id": "kite-street-bachata-sabor-latino-2026-10-11",
+    "title": "Kite Street Free Bachata — Sabor Latino",
+    "description": "Free bachata class at Kite Street POP (Calle de las Chichiguas / Calle Sánchez), Puerto Plata — Sunday 11 October 2026 at 6:00 PM with Academia de Baile Sabor Latino. Beginners welcome; no cover. Presented with Victrola 037 Arte Café. Confirm via Instagram @kitestreetpop. Not Calle de las Sombrillas.",
+    "date": "2026-10-11",
+    "time": "6:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Kite Street POP",
+    "venueSlug": "kite-street-pop",
+    "address": "Calle Sánchez, Centro, Puerto Plata",
+    "lat": 19.799415,
+    "lng": -70.69127,
+    "category": "dance",
+    "categories": [
+      "music",
+      "culture"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/kitestreetpop/",
+    "lineup": [
+      "Academia de Baile Sabor Latino"
+    ],
+    "imageEmoji": "💃"
+  },
+  {
+    "id": "lizandro-diaz-luna-lounge-2026-10-11",
+    "title": "Lizandro Díaz — El 4tetazo at Luna Disco Bar",
+    "description": "El 4tetazo de Lizandro Díaz — pura típica live at Luna Disco Bar (Luna Lounge LCB), Av. Luis Ginebra #42 behind Plaza Amapola, Puerto Plata — Sunday 11 October 2026 from 8:00 PM. Buena música and ambiente seguro. Confirm cover via Instagram @lunaloungelcb. Not the Grand Prix Lizandro night.",
+    "date": "2026-10-11",
+    "time": "8:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Luna Lounge LCB",
+    "venueSlug": "luna-lounge-lcb",
+    "address": "Av. Luis Ginebra #42 (detrás de Plaza Amapola), Puerto Plata 57000",
+    "lat": 19.792,
+    "lng": -70.6815,
+    "category": "concert",
+    "categories": [
+      "music",
+      "parties"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/lunaloungelcb/",
+    "lineup": [
+      "Lizandro Díaz",
+      "El 4tetazo de Lizandro Díaz"
+    ],
+    "imageEmoji": "🪗"
+  },
+  {
+    "id": "ambar-lounge-bandoleras-2026-10-09",
+    "title": "Ambar Lounge Bandoleras — Jhon Parra",
+    "description": "Bandoleras Fridays with Jhon Parra (@djhxnparra) at Ambar Lounge POP, Av. Luis Ginebra No. 45, segundo y tercer nivel, Puerto Plata — Friday 9 October 2026. Free drinks for ladies until 11:00 PM. RSVP (809) 781-8677 or Instagram @ambarloungepop; confirm doors and cover before you walk up. Lounge open from 5:00 PM (closed Tuesdays).",
+    "date": "2026-10-09",
+    "location": "Puerto Plata",
+    "venue": "Ambar Lounge POP",
+    "venueSlug": "ambar-lounge-pop",
+    "address": "Av. Luis Ginebra No. 45, segundo y tercer nivel, Puerto Plata 57000",
+    "lat": 19.7918,
+    "lng": -70.681,
+    "category": "parties",
+    "categories": [
+      "music",
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18097818677",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/ambarloungepop/",
+    "lineup": [
+      "Jhon Parra"
+    ],
+    "imageEmoji": "💃"
+  },
+  {
+    "id": "disney-dream-taino-bay-2026-10-08",
+    "title": "Disney Dream Second Call at Taino Bay",
+    "description": "Puerto Plata welcomes Disney Dream again — second Disney Cruise Line call at Taino Bay on Thursday 8 October 2026 (approx. 7:45 AM–5:15 PM). Destination moment promoted by Puerto Plata Travel (“The magic arrives again”). Cruise passengers use the pier village; the public can watch arrivals and sail-away from Fortaleza San Felipe and the Malecón. Confirm schedules on porttainobay.com — times subject to change.",
+    "date": "2026-10-08",
+    "time": "7:45 AM – 5:15 PM",
+    "location": "Puerto Plata",
+    "venue": "Taino Bay",
+    "venueSlug": "taino-bay",
+    "address": "Av. Antigua Vía Férrea, Muelle Turístico, Puerto Plata",
+    "lat": 19.8054,
+    "lng": -70.6965,
+    "category": "festivals",
+    "categories": [
+      "culture",
+      "adventure"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.porttainobay.com",
+    "lineup": [
+      "Disney Dream",
+      "Disney Cruise Line"
+    ],
+    "imageEmoji": "🚢"
   }
 ]

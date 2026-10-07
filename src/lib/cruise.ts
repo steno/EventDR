@@ -162,7 +162,8 @@ function datedCall(
 
 /**
  * Official October 2026 Amber Cove (green) + Taino Bay (blue) arrivals from
- * Ministerio de Turismo calendar (38 ships: 18 Amber / 20 Taino). Subject to
+ * Ministerio de Turismo calendar (39 ships: 18 Amber / 21 Taino), plus the
+ * editor-confirmed Disney Dream second Taino Bay call on 8 Oct. Subject to
  * change — when a later month calendar ships, add another dated block and
  * extend {@link DATED_CRUISE_MONTHS}.
  */
@@ -177,6 +178,7 @@ export const DATED_CRUISE_CALLS: readonly DatedCruiseCall[] = [
   datedCall("2026-10-06", "taino-bay", "Disney Dream", 7, 45, 17, 15),
   datedCall("2026-10-06", "taino-bay", "Norwegian Prima", 9, 0, 16),
   datedCall("2026-10-08", "amber-cove", "Caribbean Princess", 9, 30, 18),
+  datedCall("2026-10-08", "taino-bay", "Disney Dream", 7, 45, 17, 15),
   // Week of Oct 11
   datedCall("2026-10-12", "taino-bay", "Norwegian Luna", 7, 0, 15),
   datedCall("2026-10-13", "amber-cove", "Regal Princess", 8, 0, 18),

@@ -2872,6 +2872,26 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: "2026-10-05T19:00:00.000Z",
   },
   {
+    eventId: "disney-dream-taino-bay-2026-10-08",
+    body: "Second Disney Dream call two days after the debut — same shore-side watch from Fortaleza / Malecón; pier village stays passenger-only, so don’t treat this as a public Taino Bay day pass.",
+    localized: {
+      es: "Segunda escala del Disney Dream dos días después del debut — misma vista desde Fortaleza / Malecón; el pueblo del muelle sigue solo para pasajeros, no lo trates como pase de día público en Taíno Bay.",
+      fr: "Deuxième escale du Disney Dream deux jours après les débuts — même vue depuis Fortaleza / Malecón ; le village du quai reste réservé aux passagers, ne le traitez pas comme un day pass public à Taino Bay.",
+    },
+    priceFeel: "free",
+    priceNote:
+      "Free to watch from Fortaleza/Malecón — pier village cruise passengers only",
+    priceNoteLocalized: {
+      es: "Gratis desde Fortaleza/Malecón — pueblo del muelle solo pasajeros de crucero",
+      fr: "Gratuit depuis Fortaleza/Malecón — village du quai réservé aux passagers",
+    },
+    attribution:
+      "POP research · Puerto Plata Travel Disney Dream second-visit flyer",
+    researchNotes:
+      "Editor Puerto Plata Travel flyer: The magic arrives again / second visit Disney Dream 8 Oct 2026 Taíno Bay; times mirrored from Oct 6 7:45–17:15 pending port confirmation.",
+    updatedAt: "2026-10-07T18:00:00.000Z",
+  },
+  {
     eventId: "voyvoy-soft-reopening-sunset-2026-10-09",
     body: "First night back on the bay after the pause — Sunset Session with Luis De La Cruz from 5 PM, no cover; come for golden-hour drinks, not the late Saturday dance push.",
     localized: {
@@ -4642,5 +4662,115 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     researchNotes:
       "Editor itinerary flyer Nov 6–9 2026: Fri 5 PM Natura Cabana Perla Marina opening; Sat–Mon Coconuts Playa Encuentro heats/parties/awards. Venue seeded coconuts-playa-encuentro; gallery slides link Natura vs Coconuts.",
     updatedAt: "2026-10-05T16:00:00.000Z",
+  },
+  {
+    eventId: "ambar-lounge-bandoleras-2026-10-09",
+    body: "Ladies Friday on Luis Ginebra with Jhon Parra — free drinks for women until 11 PM is the hook; RSVP (809) 781-8677 before you treat Ambar as walk-in, and don’t confuse it with Mecla’o’s same-street rooftop.",
+    localized: {
+      es: "Viernes de chicas en Luis Ginebra con Jhon Parra — tragos gratis para mujeres hasta las 11 PM es el gancho; RSVP (809) 781-8677 antes de tratar Ambar como walk-in, y no lo confundas con el rooftop de Mecla’o en la misma calle.",
+      fr: "Vendredi dames sur Luis Ginebra avec Jhon Parra — verres gratuits pour les femmes jusqu’à 23 h est l’accroche ; RSVP (809) 781-8677 avant de traiter Ambar comme walk-in, et ne confondez pas avec le rooftop Mecla’o dans la même rue.",
+    },
+    priceFeel: "varies",
+    priceNote:
+      "Free drinks for ladies until 11 PM — other cover/pricing confirm with lounge",
+    priceNoteLocalized: {
+      es: "Tragos gratis para chicas hasta las 11 PM — cover/otros precios confirma con el lounge",
+      fr: "Verres gratuits pour les dames jusqu’à 23 h — cover/autres prix à confirmer avec le lounge",
+    },
+    attribution: "POP research · @ambarloungepop",
+    researchNotes:
+      "Editor flyer + IG caption @ambarloungepop — Vie 9 Oct Bandoleras Friday, beats by @djhxnparra, free drinks ladies until 11 PM, RSVP 809-781-8677. Vocatus co-brand on Stories banner.",
+    updatedAt: "2026-10-07T17:00:00.000Z",
+  },
+  {
+    eventId: "waterfront-sosua-jazz-collective-2026-10-09",
+    body: "Named Sosua Jazz Collective on Waterfront’s Friday Playa Alicia rail at 7 PM — book the bay table; this is dinner-jazz in El Batey, not Natura Cabana’s Saturday ensemble slot.",
+    localized: {
+      es: "Sosua Jazz Collective nominado en la baranda del viernes de Waterfront en Playa Alicia a las 7 PM — reserva la mesa de bahía; es jazz-cena en El Batey, no el slot de sábado de Natura Cabana.",
+      fr: "Sosua Jazz Collective nommé sur la rambarde du vendredi au Waterfront Playa Alicia à 19 h — réservez la table baie ; c’est jazz-dîner à El Batey, pas le créneau samedi de Natura Cabana.",
+    },
+    priceFeel: "moderate",
+    priceNote: "Dinner + drinks — reserve +1 809-571-3024 / @waterfrontplayaalicia",
+    priceNoteLocalized: {
+      es: "Cena + tragos — reserva +1 809-571-3024 / @waterfrontplayaalicia",
+      fr: "Dîner + boissons — réservez +1 809-571-3024 / @waterfrontplayaalicia",
+    },
+    attribution: "POP research · Waterfront Live Jazz by the sea flyer",
+    researchNotes:
+      "Editor flyer — Live Jazz by the sea, Sosua Jazz Collective, WATERFRONT PLAYA ALICIA, Saturday 09 · 7:00 PM on art; Oct 9 2026 is Friday and Waterfront’s standing jazz night is Friday — seeded 2026-10-09 7 PM.",
+    updatedAt: "2026-10-07T12:00:00.000Z",
+  },
+  {
+    eventId: "twenty-disco-aventura-edition-2026-10-10",
+    body: "Aventura-themed Saturday inside Playa Dorada Mall with Luna / Estrella / Soky — pin Twenty Disco Lounge, not Latin Disco Club across town; cover isn’t on the flyer so check @twenty_disco_lounge before you dress for the mall.",
+    localized: {
+      es: "Sábado temático Aventura dentro de Playa Dorada Mall con Luna / Estrella / Soky — pin Twenty Disco Lounge, no Latin Disco Club al otro lado de la ciudad; el cover no está en el flyer, así que chequea @twenty_disco_lounge antes de vestirte para el mall.",
+      fr: "Samedi thématique Aventura dans Playa Dorada Mall avec Luna / Estrella / Soky — épinglez Twenty Disco Lounge, pas Latin Disco Club de l’autre côté de la ville ; le cover n’est pas sur l’affiche, donc vérifiez @twenty_disco_lounge avant de vous habiller pour le mall.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover not on flyer — @twenty_disco_lounge",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — @twenty_disco_lounge",
+      fr: "Cover absent de l’affiche — @twenty_disco_lounge",
+    },
+    attribution: "POP research · Twenty Disco Club Edition Aventura flyer",
+    researchNotes:
+      "Editor flyer — SÁBADO 10 TWENTY DISCO CLUB EDITION Aventura, LUNA / ESTRELLA / SOKY, Playa Dorada Mall Puerto Plata RD; Luna Pro Eventos + Brugal.",
+    updatedAt: "2026-10-07T13:00:00.000Z",
+  },
+  {
+    eventId: "emileni-francisco-rancho-catalina-2026-10-11",
+    body: "Sunday 2:30 PM ranch live with Emileni Francisco — same no-cover El Cupey lunch slot as the recent Catalina Sundays; book a table if you want the set with the meal, not standing room only.",
+    localized: {
+      es: "Domingo 2:30 PM en vivo en el rancho con Emileni Francisco — el mismo slot sin cover de almuerzo en El Cupey que los domingos recientes de Catalina; reserva mesa si quieres el set con la comida, no solo de pie.",
+      fr: "Dimanche 14 h 30 live au ranch avec Emileni Francisco — même créneau déjeuner sans cover à El Cupey que les dimanches Catalina récents ; réservez une table si vous voulez le set avec le repas, pas seulement debout.",
+    },
+    priceFeel: "moderate",
+    priceNote: "No cover — pay for ranch dining; +1 809-781-3737 / @rancholacatalina",
+    priceNoteLocalized: {
+      es: "Sin cover — paga la comida del rancho; +1 809-781-3737 / @rancholacatalina",
+      fr: "Pas de cover — payez le repas ranch ; +1 809-781-3737 / @rancholacatalina",
+    },
+    attribution: "POP research · @rancholacatalina · Emileni Francisco flyer",
+    researchNotes:
+      "Editor flyer — OCT. 11 Música en Vivo EMILENI FRANCISCO 2:30PM | NO COVER; RESTAURANT header cropped; matches Rancho La Catalina Sunday 2:30 series pattern.",
+    updatedAt: "2026-10-07T14:00:00.000Z",
+  },
+  {
+    eventId: "kite-street-bachata-sabor-latino-2026-10-11",
+    body: "Free Sunday 6 PM bachata on Calle Sánchez Kite Street with Academia Sabor Latino — same Chichiguas outdoor class format as the Oct 4 salsa night, not Umbrella Street and not Victrola’s indoor café.",
+    localized: {
+      es: "Bachata gratis el domingo a las 6 PM en Kite Street / Calle Sánchez con Academia Sabor Latino — el mismo formato de clase al aire libre en Chichiguas que la salsa del 4 oct, no Calle de las Sombrillas ni el café interior de Victrola.",
+      fr: "Bachata gratuite dimanche à 18 h sur Kite Street / Calle Sánchez avec Academia Sabor Latino — même format de cours outdoor Chichiguas que la salsa du 4 oct, pas Umbrella Street ni le café intérieur Victrola.",
+    },
+    priceFeel: "free",
+    priceNote: "Free class — no cover on flyer · @kitestreetpop",
+    priceNoteLocalized: {
+      es: "Clase gratis — sin cover en el flyer · @kitestreetpop",
+      fr: "Cours gratuit — pas de cover sur l’affiche · @kitestreetpop",
+    },
+    attribution:
+      "POP research · @kitestreetpop × Academia de Baile Sabor Latino",
+    researchNotes:
+      "Editor flyer — DOM 11 OCT 6:00 PM Clases de Bachata GRATIS, Kite Street Pop, Victrola 037 Arte Cafe + Academia de Baile Sabor Latino logos.",
+    updatedAt: "2026-10-07T15:00:00.000Z",
+  },
+  {
+    eventId: "lizandro-diaz-luna-lounge-2026-10-11",
+    body: "Sunday típica accordion night behind Plaza Amapola with El 4tetazo — not Lizandro’s free Grand Prix Friday in La Javilla; cover isn’t printed, so check @lunaloungelcb before you roll up at 8.",
+    localized: {
+      es: "Domingo de típica con acordeón detrás de Plaza Amapola con El 4tetazo — no es el viernes gratis de Lizandro en Grand Prix en La Javilla; el cover no está impreso, así que chequea @lunaloungelcb antes de llegar a las 8.",
+      fr: "Dimanche típica accordéon derrière Plaza Amapola avec El 4tetazo — pas le vendredi gratuit de Lizandro au Grand Prix à La Javilla ; le cover n’est pas imprimé, donc vérifiez @lunaloungelcb avant d’arriver à 20 h.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover not on flyer — @lunaloungelcb",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — @lunaloungelcb",
+      fr: "Cover absent de l’affiche — @lunaloungelcb",
+    },
+    attribution: "POP research · @lunaloungelcb Lizandro Díaz 4tetazo flyer",
+    researchNotes:
+      "Editor flyer + IG @lunaloungelcb — Dom 11 Oct desde 8 PM El 4tetazo de Lizandro Díaz, Luna Disco Bar, Av. Luis Ginebra #42 detrás Plaza Amapola; pura típica.",
+    updatedAt: "2026-10-07T16:00:00.000Z",
   },
 ];

@@ -97,6 +97,16 @@ const FILE_TO_EVENT_ID = {
   "meclao-house-friday-2026-10-02.jpg": "meclao-house-friday-2026-10-02",
   "kite-street-salsa-sabor-latino-2026-10-04.jpg":
     "kite-street-salsa-sabor-latino-2026-10-04",
+  "kite-street-bachata-sabor-latino-2026-10-11.jpg":
+    "kite-street-bachata-sabor-latino-2026-10-11",
+  "waterfront-sosua-jazz-collective-2026-10-09.jpg":
+    "waterfront-sosua-jazz-collective-2026-10-09",
+  "twenty-disco-aventura-edition-2026-10-10.jpg":
+    "twenty-disco-aventura-edition-2026-10-10",
+  "emileni-francisco-rancho-catalina-2026-10-11.jpg":
+    "emileni-francisco-rancho-catalina-2026-10-11",
+  "lizandro-diaz-luna-lounge-2026-10-11.jpg":
+    "lizandro-diaz-luna-lounge-2026-10-11",
   "feel-the-boom-marianna-kite-street-2026-10-16.jpg":
     "feel-the-boom-marianna-kite-street-2026-10-16",
   "jennifer-nadal-pilates-anfiteatro-2026-10-24.jpg":
@@ -268,6 +278,8 @@ const FILE_TO_EVENT_ID = {
     "ambar-lounge-bandoleras-2026-09-18",
   "ambar-lounge-bandoleras-2026-10-02.jpg":
     "ambar-lounge-bandoleras-2026-10-02",
+  "ambar-lounge-bandoleras-2026-10-09.jpg":
+    "ambar-lounge-bandoleras-2026-10-09",
   "ambar-lounge-gaby-luna-2026-10-03.jpg":
     "ambar-lounge-gaby-luna-2026-10-03",
   "ocean-world-terrace-old-school-2026-10-17.jpg":
@@ -311,6 +323,7 @@ const FILE_TO_EVENT_ID = {
   "natura-sunbar-sunset-sounds-hyper-2026-10-08.jpg":
     "natura-sunbar-sunset-sounds-hyper-2026-10-08",
   "disney-dream-taino-bay-2026-10-06.jpg": "disney-dream-taino-bay-2026-10-06",
+  "disney-dream-taino-bay-2026-10-08.jpg": "disney-dream-taino-bay-2026-10-08",
   "taino-bay-village-daily-lazy-river.jpg": "taino-bay-village-daily",
   "natura-market-2026-10-04.jpg": "natura-market-2026-10-04",
   "licor-lab-car-show-2026-10-10.jpg": "licor-lab-car-show-2026-10-10",

@@ -121,6 +121,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "natura-sunbar-sunset-sounds-hyper-2026-10-08":
     "natura-sunbar-sunset-sounds-hyper-2026-10-08.jpg",
   "disney-dream-taino-bay-2026-10-06": "disney-dream-taino-bay-2026-10-06.jpg",
+  "disney-dream-taino-bay-2026-10-08": "disney-dream-taino-bay-2026-10-08.jpg",
   "natura-cabana-jazz-ensemble-2026-10-03":
     "natura-cabana-jazz-ensemble-2026-10-03.jpg",
   "kaovanny-natura-cabana-2026-09-26": "kaovanny-natura-cabana-2026-09-26.jpg",
@@ -233,6 +234,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "ambar-lounge-bandoleras-2026-09-18.jpg",
   "ambar-lounge-bandoleras-2026-10-02":
     "ambar-lounge-bandoleras-2026-10-02.jpg",
+  "ambar-lounge-bandoleras-2026-10-09":
+    "ambar-lounge-bandoleras-2026-10-09.jpg",
   "ambar-lounge-adrian-tineo-2026-09-19":
     "ambar-lounge-adrian-tineo-2026-09-19.jpg",
   "meclao-retro-party-2026-09-19": "meclao-retro-party-2026-09-19.jpg",
@@ -312,6 +315,16 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "meclao-house-friday-2026-10-02": "meclao-house-friday-2026-10-02.jpg",
   "kite-street-salsa-sabor-latino-2026-10-04":
     "kite-street-salsa-sabor-latino-2026-10-04.jpg",
+  "kite-street-bachata-sabor-latino-2026-10-11":
+    "kite-street-bachata-sabor-latino-2026-10-11.jpg",
+  "waterfront-sosua-jazz-collective-2026-10-09":
+    "waterfront-sosua-jazz-collective-2026-10-09.jpg",
+  "twenty-disco-aventura-edition-2026-10-10":
+    "twenty-disco-aventura-edition-2026-10-10.jpg",
+  "emileni-francisco-rancho-catalina-2026-10-11":
+    "emileni-francisco-rancho-catalina-2026-10-11.jpg",
+  "lizandro-diaz-luna-lounge-2026-10-11":
+    "lizandro-diaz-luna-lounge-2026-10-11.jpg",
   "feel-the-boom-marianna-kite-street-2026-10-16":
     "feel-the-boom-marianna-kite-street-2026-10-16.jpg",
   "jennifer-nadal-pilates-anfiteatro-2026-10-24":
@@ -596,6 +609,11 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "meclao-galaxy-experience-carloxx-2026-10-03": "object-center",
   "meclao-house-friday-2026-10-02": "object-center",
   "kite-street-salsa-sabor-latino-2026-10-04": "object-center",
+  "kite-street-bachata-sabor-latino-2026-10-11": "object-center",
+  "waterfront-sosua-jazz-collective-2026-10-09": "object-center",
+  "twenty-disco-aventura-edition-2026-10-10": "object-center",
+  "emileni-francisco-rancho-catalina-2026-10-11": "object-center",
+  "lizandro-diaz-luna-lounge-2026-10-11": "object-center",
   "feel-the-boom-marianna-kite-street-2026-10-16": "object-top",
   "hard-rock-feria-empleos-2026-10-05": "object-center",
   "twenty-disco-paradise-in-hell-2026-10-31": "object-center",
@@ -849,11 +867,17 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "ambar-lounge-reggaeton-2026-09-17.jpg",
   "ambar-lounge-bandoleras-2026-09-18.jpg",
   "ambar-lounge-bandoleras-2026-10-02.jpg",
+  "ambar-lounge-bandoleras-2026-10-09.jpg",
   "ambar-lounge-gaby-luna-2026-10-03.jpg",
   "ocean-world-terrace-old-school-2026-10-17.jpg",
   "meclao-galaxy-experience-carloxx-2026-10-03.jpg",
   "meclao-house-friday-2026-10-02.jpg",
   "kite-street-salsa-sabor-latino-2026-10-04.jpg",
+  "kite-street-bachata-sabor-latino-2026-10-11.jpg",
+  "waterfront-sosua-jazz-collective-2026-10-09.jpg",
+  "twenty-disco-aventura-edition-2026-10-10.jpg",
+  "emileni-francisco-rancho-catalina-2026-10-11.jpg",
+  "lizandro-diaz-luna-lounge-2026-10-11.jpg",
   "feel-the-boom-marianna-kite-street-2026-10-16.jpg",
   "jennifer-nadal-pilates-anfiteatro-2026-10-24.jpg",
   "jump-fit-rosa-beard-over-club-2026-10-31.jpg",
@@ -875,6 +899,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "natura-sunbar-sunset-sounds-em-zayd-2026-10-01.jpg",
   "natura-sunbar-sunset-sounds-hyper-2026-10-08.jpg",
   "disney-dream-taino-bay-2026-10-06.jpg",
+  "disney-dream-taino-bay-2026-10-08.jpg",
   "voyvoy-soft-reopening-sunset-2026-10-09.jpg",
   "voyvoy-soft-reopening-saturday-2026-10-10.jpg",
   "voyvoy-soft-reopening-sunday-2026-10-11.jpg",

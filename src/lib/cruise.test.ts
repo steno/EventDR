@@ -116,15 +116,15 @@ describe("typicalCruiseCallsForWeekday", () => {
 });
 
 describe("dated October 2026 MITUR schedule", () => {
-  it("loads 38 official calls (18 Amber / 20 Taino)", () => {
-    assert.equal(DATED_CRUISE_CALLS.length, 38);
+  it("loads 39 official calls (18 Amber / 21 Taino)", () => {
+    assert.equal(DATED_CRUISE_CALLS.length, 39);
     assert.equal(
       DATED_CRUISE_CALLS.filter((c) => c.port === "amber-cove").length,
       18,
     );
     assert.equal(
       DATED_CRUISE_CALLS.filter((c) => c.port === "taino-bay").length,
-      20,
+      21,
     );
   });
 
@@ -159,6 +159,16 @@ describe("dated October 2026 MITUR schedule", () => {
   it("matches Disney Dream’s :15 sail all-aboard on Oct 6", () => {
     const oct6 = new Date("2026-10-06T16:00:00.000Z");
     const taino = typicalCruiseCallsForPort("taino-bay", oct6);
+    assert.ok(taino.some((c) => c.ship === "Disney Dream"));
+    assert.equal(
+      taino.find((c) => c.ship === "Disney Dream")?.allAboardMinutes,
+      16 * 60 + 45,
+    );
+  });
+
+  it("lists Disney Dream’s second Taino Bay call on Oct 8", () => {
+    const oct8 = new Date("2026-10-08T16:00:00.000Z");
+    const taino = typicalCruiseCallsForPort("taino-bay", oct8);
     assert.ok(taino.some((c) => c.ship === "Disney Dream"));
     assert.equal(
       taino.find((c) => c.ship === "Disney Dream")?.allAboardMinutes,
