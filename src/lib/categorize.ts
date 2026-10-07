@@ -26,7 +26,8 @@ const KEYWORDS: KeywordMap = {
     { term: "go-kart", weight: 2 },
     { term: "gokart", weight: 2 },
     { term: "go kart", weight: 2 },
-    { term: "grand prix", weight: 2 },
+    // Do not keyword "grand prix" — North Coast has Grand Prix Smart Shop (bar),
+    // and Fun City’s go-kart track is already covered by karting / go-kart terms.
     { term: "motorsport", weight: 2 },
     { term: "softball", weight: 2 },
     { term: "softbol", weight: 2 },
@@ -386,6 +387,12 @@ const CATEGORY_INFERENCE_BLOCKS: Partial<
   adventure: ["sports", "food-drinks", "parties"],
   /** Game nights / socials with “tournament” in the copy stay off Sports. */
   parties: ["sports"],
+  /**
+   * Live music / concerts that name a venue like Grand Prix Smart Shop must not
+   * pick up Sports from motorsport-ish wording in the copy.
+   */
+  concert: ["sports"],
+  music: ["sports"],
   /**
    * Karaoke / open-mic copy often names a disco venue or says “nightlife”
    * without being a club party. Keep Parties for explicit tags or stronger hits.

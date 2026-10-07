@@ -452,3 +452,49 @@ describe("parties keyword false positives", () => {
     }
   });
 });
+
+describe("Grand Prix venue name is not Sports", () => {
+  it("does not unlock Sports from Grand Prix Smart Shop / disambiguation copy", () => {
+    assert.equal(
+      inferSecondaryCategories(
+        "Pura típica at Luna Disco Bar. Not the Grand Prix Lizandro night.",
+        "concert",
+      ).includes("sports"),
+      false,
+    );
+    assert.equal(
+      inferSecondaryCategories(
+        "Free live show at Grand Prix Smart Shop in La Javilla",
+        "music",
+      ).includes("sports"),
+      false,
+    );
+  });
+
+  it("keeps Lizandro Luna Disco and Grand Prix nights off Sports across locales", () => {
+    for (const id of [
+      "lizandro-diaz-luna-lounge-2026-10-11",
+      "lizandro-diaz-grand-prix-2026-10-02",
+    ] as const) {
+      for (const locale of ["en", "es", "fr"] as const) {
+        const event = getFallbackEventById(id, locale);
+        assert.ok(event, `${id} ${locale}`);
+        const resolved = withResolvedCategories(event);
+        assert.equal(
+          eventInCategory(resolved, "sports"),
+          false,
+          `${id} ${locale}`,
+        );
+      }
+    }
+  });
+
+  it("still keeps Fun City go-karts under Sports", () => {
+    for (const locale of ["en", "es", "fr"] as const) {
+      const event = getFallbackEventById("fun-city-daily", locale);
+      assert.ok(event, locale);
+      const resolved = withResolvedCategories(event);
+      assert.equal(eventInCategory(resolved, "sports"), true, locale);
+    }
+  });
+});
