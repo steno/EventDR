@@ -8,6 +8,7 @@ import {
 } from "@/lib/filters";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { PAGE_GUTTER_BLEED_CLASS, STICKY_CHROME_SURFACE_CLASS } from "@/lib/page-shell";
+import { trackEvent } from "@/lib/analytics";
 import {
   SCROLL_CHROME_TRANSITION_CLASS,
   STICKY_FILTER_COLLAPSE_TRANSITION_CLASS,
@@ -88,6 +89,7 @@ export function TimeFilter({
                   aria-selected={selected}
                   onClick={() => {
                     if (range === value) return;
+                    trackEvent("select_time", { time_range: range });
                     onChange(range);
                   }}
                   className={`

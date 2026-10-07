@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Mail } from "lucide-react";
 import type { Locale } from "@/i18n/config";
 import type { PartnersCopy } from "@/lib/partners-copy";
+import { trackEvent } from "@/lib/analytics";
 
 interface PartnerDigestSignupProps {
   locale: Locale;
@@ -30,6 +31,7 @@ export function PartnerDigestSignup({
         body: JSON.stringify({ email, company, locale }),
       });
       if (!response.ok) throw new Error("subscribe-failed");
+      trackEvent("partner_signup", { locale });
       setStatus("success");
       setEmail("");
     } catch {

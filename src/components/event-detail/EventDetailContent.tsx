@@ -20,6 +20,7 @@ import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import type { EventLiveStatus } from "@/lib/event-status";
 import { getDirectionsUrl } from "@/lib/maps";
+import { trackEvent } from "@/lib/analytics";
 import { IntentLink } from "@/components/IntentLink";
 import { EventCategoryLinks } from "@/components/EventCategoryLinks";
 import { EventStatusBadge } from "@/components/EventStatusBadge";
@@ -193,6 +194,12 @@ export function EventDetailContent({
             href={getDirectionsUrl(event)}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() =>
+              trackEvent("get_directions", {
+                content_type: "event",
+                event_id: event.id,
+              })
+            }
             className="group/place flex items-start gap-2.5 text-copy-meta text-neutral-800 dark:text-neutral-200 touch-manipulation"
           >
             <MapPin className="mt-0.5 h-[1.125rem] w-[1.125rem] shrink-0 text-neutral-500 transition-colors group-hover/place:text-orange-600 dark:text-neutral-400" />
@@ -271,6 +278,9 @@ export function EventDetailContent({
                 href={event.sourceUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() =>
+                  trackEvent("click_source", { event_id: event.id })
+                }
                 className="mt-2 inline-block text-xs font-semibold text-orange-700 dark:text-orange-400 touch-manipulation"
               >
                 {dict.detail.participantsDirectory}
@@ -295,6 +305,9 @@ export function EventDetailContent({
                 href={ticketUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() =>
+                  trackEvent("click_ticket", { event_id: event.id })
+                }
                 className="group/tickets flex items-center gap-2.5 text-copy-meta touch-manipulation"
               >
                 <Ticket className="h-[1.125rem] w-[1.125rem] shrink-0 text-rose-600 dark:text-rose-400 transition-colors group-hover/tickets:text-neutral-500" />

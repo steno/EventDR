@@ -45,6 +45,7 @@ import { EventDetailContent } from "@/components/event-detail/EventDetailContent
 import { EventDetailActions } from "@/components/event-detail/EventDetailActions";
 import { DETAIL_HERO_PHOTO_HEIGHT_CLASS } from "@/lib/page-shell";
 import type { ReminderOffset } from "@/lib/event-reminders";
+import { trackEvent } from "@/lib/analytics";
 
 type ActionMenu = "share" | "calendar" | "remind";
 
@@ -118,6 +119,15 @@ export function EventDetailSheet({
   const eventReminders = useEventReminders(locale);
   const liveDisplay = useLiveStatusDisplay(event ?? EMPTY_STATUS_EVENT, dict);
   const eventId = event?.id;
+
+  useEffect(() => {
+    if (!event?.id) return;
+    trackEvent("view_event", {
+      event_id: event.id,
+      category: event.category,
+      city: event.location,
+    });
+  }, [event?.id, event?.category, event?.location]);
 
   const toggleAction = useCallback((action: ActionMenu) => {
     setOpenAction((current) => (current === action ? null : action));
@@ -363,6 +373,7 @@ export function EventDetailSheet({
     setOpenAction(null);
     dismissActionsCoach();
     const saving = !isSaved;
+    trackEvent(saving ? "save_event" : "unsave_event", { event_id: event.id });
     onToggleSave(event);
     if (saving && !hasSeenOnboarding("first-save-celebrated")) {
       markOnboardingSeen("first-save-celebrated");
@@ -412,6 +423,10 @@ export function EventDetailSheet({
 
     const result = await eventReminders.setReminder(event, offset);
     if (result.ok) {
+      trackEvent("set_reminder", {
+        event_id: event.id,
+        reminder_offset: offset,
+      });
       if (!isSaved) onToggleSave(event);
       handleActionFeedback(dict.detail.remindSet, "remind", 3500);
       setOpenAction(null);

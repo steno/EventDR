@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState, useSyncExternalStore } from "react";
+import { trackEvent } from "@/lib/analytics";
 
 export interface BeforeInstallPromptEvent extends Event {
   prompt: () => Promise<void>;
@@ -106,6 +107,9 @@ export function usePwaInstall() {
     try {
       await event.prompt();
       const { outcome } = await event.userChoice;
+      if (outcome === "accepted") {
+        trackEvent("install_app", { method: "prompt" });
+      }
       // Event is single-use either way.
       window.__POP_BIP__ = null;
       window.dispatchEvent(new Event("pop:beforeinstallprompt"));

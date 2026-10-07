@@ -194,6 +194,20 @@ function AudienceSlider({
   }, [mediaEnabled, venues.length]);
 
   const heading = title ?? dict.venues[audience];
+  const railKey = `${audience}:${venues.map((venue) => venue.slug).join("|")}`;
+
+  // snap-end on the last slide made some browsers open the rail at the end;
+  // pin scroll to the first card after layout.
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el || venues.length === 0) return;
+    el.scrollLeft = 0;
+    const id = requestAnimationFrame(() => {
+      el.scrollLeft = 0;
+      syncScrollHints();
+    });
+    return () => cancelAnimationFrame(id);
+  }, [railKey, venues.length, syncScrollHints]);
 
   return (
     <article className="min-w-0">
@@ -214,36 +228,41 @@ function AudienceSlider({
 
       <div className="relative">
         <div
+          key={railKey}
           ref={scrollRef}
           onScroll={syncScrollHints}
           className="flex snap-x snap-mandatory gap-3 overflow-x-auto pb-0.5 scrollbar-hide"
           aria-label={heading}
         >
-          {venues.map((venue, index) => {
-            const isLast = index === venues.length - 1;
-            return (
-              <div
-                key={venue.slug}
-                data-snap-slide
-                // Width track matches On the horizon (88% → 2-up → 4-up).
-                // Last slide snaps to the end so the rail can't scroll into empty space.
-                className={`${SNAP_RAIL_PEEK_CLASS} shrink-0 sm:w-[calc((100%-0.75rem)/2)] xl:w-[calc((100%-2.25rem)/4)] ${
-                  isLast ? "snap-end" : "snap-start"
-                }`}
-              >
-                <VenueSlideCard
-                  venue={venue}
-                  locale={locale}
-                  loadImage={mediaEnabled && index <= loadedThrough}
-                  returnTo={returnTo}
-                  returnTitle={returnTitle}
-                  pending={pendingSlug === venue.slug}
-                  dimmed={pendingSlug != null && pendingSlug !== venue.slug}
-                  onNavigate={() => setPendingSlug(venue.slug)}
-                />
-              </div>
-            );
-          })}
+          {venues.map((venue, index) => (
+            <div
+              key={venue.slug}
+              data-snap-slide
+              // Width track matches On the horizon (88% → 2-up → 4-up).
+              className={`${SNAP_RAIL_PEEK_CLASS} shrink-0 snap-start sm:w-[calc((100%-0.75rem)/2)] xl:w-[calc((100%-2.25rem)/4)]`}
+            >
+              <VenueSlideCard
+                venue={venue}
+                locale={locale}
+                loadImage={mediaEnabled && index <= loadedThrough}
+                returnTo={returnTo}
+                returnTitle={returnTitle}
+                pending={pendingSlug === venue.slug}
+                dimmed={pendingSlug != null && pendingSlug !== venue.slug}
+                onNavigate={() => setPendingSlug(venue.slug)}
+              />
+            </div>
+          ))}
+          {/*
+            Leftover width after one card so the last slide can snap-start flush
+            left — without snap-end (which opened some browsers on the last card).
+          */}
+          {venues.length > 1 ? (
+            <div
+              className="w-[12%] shrink-0 sm:w-[calc((100%+0.75rem)/2)] xl:w-[calc((300%+2.25rem)/4)]"
+              aria-hidden
+            />
+          ) : null}
         </div>
 
         <HorizontalScrollEdgeFades canScrollRight={canScrollRight} />

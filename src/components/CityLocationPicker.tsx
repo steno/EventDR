@@ -4,6 +4,7 @@ import { useEffect, useId, useLayoutEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { useRouter } from "next/navigation";
 import { Anchor, Check, ChevronDown } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
 import {
   CITIES,
   getCityName,
@@ -115,6 +116,7 @@ export function CityLocationPicker({
   function goToCruise(port: CruisePortSlug) {
     setOpen(false);
     if (port === cruisePort) return;
+    trackEvent("select_cruise", { port });
     if (onSelectCruise) {
       onSelectCruise(port);
       return;
@@ -193,6 +195,7 @@ export function CityLocationPicker({
     // On cruise, currentSlug is forced null — still leave shore-day when
     // picking North Coast (or any city) so non-cruise options navigate.
     if (!cruisePort && slug === currentSlug) return;
+    trackEvent("select_city", { city: slug ?? "north-coast" });
     writeHomeArea(slug);
     if (onSelect) {
       onSelect(slug);

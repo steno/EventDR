@@ -23,6 +23,7 @@ import { SearchBar } from "@/components/SearchBar";
 import { BottomNav } from "@/components/BottomNav";
 import { StickyListFilters } from "@/components/StickyListFilters";
 import { getHomeAlerts } from "@/lib/alerts";
+import { trackEvent } from "@/lib/analytics";
 import { LG_MEDIA_QUERY } from "@/lib/breakpoints";
 import {
   StickyListHeader,
@@ -181,6 +182,7 @@ function HomeApp({
   const [tab, setTab] = useState<AppTab>("discover");
   const [searchQuery, setSearchQuery] = useState("");
   const deferredSearchQuery = useDeferredValue(searchQuery);
+  const lastSearchTracked = useRef("");
   const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
   const mobileSearchRef = useRef<HTMLInputElement>(null);
   const mobileSearchPanelId = useId();
@@ -571,6 +573,17 @@ function HomeApp({
   useEffect(() => {
     if (searchQuery.trim().length > 0) setMobileSearchOpen(true);
   }, [searchQuery]);
+
+  useEffect(() => {
+    const term = deferredSearchQuery.trim();
+    if (term.length < 2) return;
+    const timer = window.setTimeout(() => {
+      if (lastSearchTracked.current === term) return;
+      lastSearchTracked.current = term;
+      trackEvent("search", { search_term: term });
+    }, 700);
+    return () => window.clearTimeout(timer);
+  }, [deferredSearchQuery]);
 
   useEffect(() => {
     if (!mobileSearchOpen) return;

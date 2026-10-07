@@ -6,6 +6,7 @@ import { Mail } from "lucide-react";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { BRAND_GRADIENT_TEXT_CLASS } from "@/lib/page-shell";
+import { trackEvent } from "@/lib/analytics";
 
 interface NewsletterSignupProps {
   locale: Locale;
@@ -34,6 +35,7 @@ export function NewsletterSignup({ locale, dict }: NewsletterSignupProps) {
         body: JSON.stringify({ email, company, locale }),
       });
       if (!response.ok) throw new Error("subscribe-failed");
+      trackEvent("newsletter_signup", { locale });
       setStatus("success");
       setEmail("");
     } catch {

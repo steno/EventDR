@@ -149,15 +149,31 @@ Some helpful custom reports to set up:
 
 ## What's Tracked
 
-The implementation automatically tracks:
+Page views are sent on every route, including client-side navigation. The app also sends named events for things people actually do. Emails, phone numbers, and other personal data are not included.
 
-- ✅ **Page views** on every page (including locale routes)
-- ✅ **Navigation** between pages (client-side routing)
-- ✅ **User engagement** (time on page, scroll depth)
-- ✅ **Traffic sources** (where users come from)
-- ✅ **User location** (country, city)
-- ✅ **Device info** (mobile, desktop, OS, browser)
-- ✅ **Performance** (page load times)
+**Mark these as key events** (Admin → Data display → Events → star). They show up on the Home card. Do this after the first real hits arrive, usually within a few minutes in Realtime and up to a day in the Events list:
+
+- `save_event`
+- `share`
+- `add_to_calendar`
+- `set_reminder`
+- `get_directions`
+- `click_ticket`
+- `click_call`
+- `newsletter_signup`
+- `partner_signup`
+- `submit_event`
+- `install_app`
+
+Leave these as ordinary events. They are useful in Reports → Engagement → Events, and marking them as key events would drown the Home card:
+
+- `view_event`, `view_venue`
+- `search`, `select_city`, `select_cruise`, `select_category`, `select_time`
+- `unsave_event`, `click_source`, `click_outbound`, `open_street_view`
+
+Also tracked automatically by GA4:
+
+- Traffic sources, country, device, and engagement time
 
 ## Privacy & Performance
 

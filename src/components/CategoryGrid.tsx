@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { IntentLink } from "@/components/IntentLink";
+import { trackEvent } from "@/lib/analytics";
 import { getCategoryDefs } from "@/lib/categories";
 import { useCategoryAutoStepScroll } from "@/hooks/useCategoryAutoStepScroll";
 import type { Dictionary } from "@/i18n/dictionaries";
@@ -117,6 +118,7 @@ export function CategoryGrid({
               <IntentLink
                 href={allEventsHref}
                 onClick={() => {
+                  trackEvent("select_category", { category: "all" });
                   setPendingHref(allEventsHref);
                   onCategorySelect?.();
                 }}
@@ -146,6 +148,7 @@ export function CategoryGrid({
                     key={cat.id}
                     href={href}
                     onClick={() => {
+                      trackEvent("select_category", { category: cat.id });
                       setPendingHref(href);
                       onCategorySelect?.();
                     }}
@@ -165,6 +168,7 @@ export function CategoryGrid({
               <IntentLink
                 href={venuesHref}
                 onClick={() => {
+                  trackEvent("select_category", { category: "venues" });
                   setPendingHref(venuesHref);
                   onCategorySelect?.();
                 }}

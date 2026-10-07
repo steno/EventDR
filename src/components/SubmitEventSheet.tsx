@@ -9,6 +9,7 @@ import { getSubmitValidationError, type SubmitAdmissionKind } from "@/lib/commun
 import { resetInputZoom } from "@/lib/reset-input-zoom";
 import { eventDetailPath } from "@/lib/event-navigation";
 import { getOnboardingCopy } from "@/lib/onboarding";
+import { trackEvent } from "@/lib/analytics";
 import { SubmitEventSuccess } from "@/components/submit-event/SubmitEventSuccess";
 import { SubmitEventFormSteps } from "@/components/submit-event/SubmitEventFormSteps";
 
@@ -151,6 +152,10 @@ export function SubmitEventSheet({
       }
 
       setSuccessMessage(data.message ?? dict.submit.success);
+      trackEvent("submit_event", {
+        event_id: data.event.id,
+        pending: Boolean(data.pending),
+      });
       setSuccess(true);
       setSubmittedEvent(data.event);
       setSubmittedPending(Boolean(data.pending));

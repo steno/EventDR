@@ -38,6 +38,7 @@ import { formatPhoneTel } from "@/lib/event-phone";
 import { navigateBackSoft, navigateSoft } from "@/lib/nav-feedback";
 import { PAGE_SHELL_DETAIL_CLASS } from "@/lib/page-shell";
 import { fillTemplate } from "@/lib/seo";
+import { trackEvent } from "@/lib/analytics";
 import { buildVenueGlance } from "@/lib/venue-glance";
 import { isDetailNavPath } from "@/lib/scope-listing";
 import { scrollBelowStickyStack } from "@/lib/list-scroll";
@@ -166,6 +167,10 @@ export function VenuePage({
   const heroObjectPosition = getVenueHeroObjectPosition(venue.slug);
 
   useEffect(() => {
+    trackEvent("view_venue", { venue_slug: venue.slug, city: venue.city });
+  }, [venue.slug, venue.city]);
+
+  useEffect(() => {
     const stored = takeReturnPath(locale);
     if (stored?.path) {
       setReturnTo(stored.path);
@@ -179,6 +184,10 @@ export function VenuePage({
 
   function openDirectionsMode() {
     if (!canShowMap) return;
+    trackEvent("get_directions", {
+      content_type: "venue",
+      venue_slug: venue.slug,
+    });
     setPlannerOpen(true);
     // Same tap as the permission prompt so the browser will share GPS,
     // then the existing directions hook draws the driving route on the map.
@@ -421,7 +430,10 @@ export function VenuePage({
                   {streetViewAvailable ? (
                     <button
                       type="button"
-                      onClick={() => setAreaViewOpen(true)}
+                      onClick={() => {
+                        trackEvent("open_street_view", { venue_slug: venue.slug });
+                        setAreaViewOpen(true);
+                      }}
                       className="flex min-h-11 items-center justify-center px-3 py-3 text-sm font-semibold text-neutral-800 touch-manipulation dark:text-neutral-100"
                     >
                       {dict.venues.streetView}
@@ -522,6 +534,12 @@ export function VenuePage({
                   {venue.phone ? (
                     <a
                       href={`tel:${formatPhoneTel(venue.phone)}`}
+                      onClick={() =>
+                        trackEvent("click_call", {
+                          content_type: "venue",
+                          venue_slug: venue.slug,
+                        })
+                      }
                       className={venueActionClass}
                     >
                       <Phone className="h-4 w-4" aria-hidden />
@@ -535,6 +553,13 @@ export function VenuePage({
                       href={websiteUrl}
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={() =>
+                        trackEvent("click_outbound", {
+                          content_type: "venue",
+                          link_type: "website",
+                          venue_slug: venue.slug,
+                        })
+                      }
                       className={venueActionClass}
                     >
                       <ExternalLink className="h-4 w-4" aria-hidden />
@@ -548,6 +573,13 @@ export function VenuePage({
                       href={instagramUrl}
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={() =>
+                        trackEvent("click_outbound", {
+                          content_type: "venue",
+                          link_type: "instagram",
+                          venue_slug: venue.slug,
+                        })
+                      }
                       className={venueActionClass}
                     >
                       <AtSign className="h-4 w-4" aria-hidden />

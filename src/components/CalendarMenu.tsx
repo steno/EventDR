@@ -15,6 +15,7 @@ import {
   isAppleCalendarAvailable,
   type CalendarProvider,
 } from "@/lib/calendar";
+import { trackEvent } from "@/lib/analytics";
 
 interface CalendarMenuProps {
   event: Event;
@@ -66,6 +67,7 @@ export function CalendarMenu({ event, dict, onClose }: CalendarMenuProps) {
   );
 
   async function handleProvider(provider: CalendarProvider) {
+    trackEvent("add_to_calendar", { method: provider, event_id: event.id });
     await addToCalendarProvider(event, provider);
     onClose();
   }

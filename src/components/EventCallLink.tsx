@@ -1,5 +1,7 @@
+import type { MouseEvent } from "react";
 import { Phone } from "lucide-react";
 import { formatPhoneDisplay, formatPhoneTel } from "@/lib/event-phone";
+import { trackEvent } from "@/lib/analytics";
 
 type EventCallLinkVariant = "compact" | "row";
 
@@ -10,6 +12,7 @@ interface EventCallLinkProps {
   /** Stop card/parent navigation when nested in a link. */
   stopPropagation?: boolean;
   className?: string;
+  contentType?: "event" | "venue";
 }
 
 export function EventCallLink({
@@ -18,15 +21,21 @@ export function EventCallLink({
   variant = "compact",
   stopPropagation = false,
   className = "",
+  contentType = "event",
 }: EventCallLinkProps) {
   const display = formatPhoneDisplay(phone);
   const tel = formatPhoneTel(phone);
+
+  function handleClick(event: MouseEvent<HTMLAnchorElement>) {
+    if (stopPropagation) event.stopPropagation();
+    trackEvent("click_call", { content_type: contentType });
+  }
 
   if (variant === "row") {
     return (
       <a
         href={`tel:${tel}`}
-        onClick={stopPropagation ? (e) => e.stopPropagation() : undefined}
+        onClick={handleClick}
         className={`
           font-semibold tabular-nums
           text-emerald-700 dark:text-emerald-400
@@ -44,7 +53,7 @@ export function EventCallLink({
   return (
     <a
       href={`tel:${tel}`}
-      onClick={stopPropagation ? (e) => e.stopPropagation() : undefined}
+      onClick={handleClick}
       className={`
         inline-flex items-center gap-2 rounded-full
         bg-emerald-50 dark:bg-emerald-950/40

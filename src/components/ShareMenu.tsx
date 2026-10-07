@@ -25,6 +25,7 @@ import {
   type SharePlatform,
 } from "@/lib/share";
 import { buildInstagramStoryPreviewBlob } from "@/lib/instagram-story-card";
+import { trackEvent } from "@/lib/analytics";
 
 interface ShareMenuProps {
   event: Event;
@@ -116,6 +117,11 @@ export function ShareMenu({
   }, [event, locale]);
 
   async function handlePlatform(platform: SharePlatform) {
+    trackEvent("share", {
+      method: platform,
+      content_type: "event",
+      event_id: event.id,
+    });
     if (isExternalSharePlatform(platform)) {
       if (platform === "facebook") {
         const result = await shareToFacebook(event, locale);
