@@ -697,10 +697,6 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     isFree: true,
     venueSlug: "taino-bay",
   },
-  "disney-dream-taino-bay-2026-10-08": {
-    isFree: true,
-    venueSlug: "taino-bay",
-  },
   "natura-cabana-jazz-ensemble-2026-10-03": {
     phone: "+18492147010",
     venueSlug: "natura-cabana",

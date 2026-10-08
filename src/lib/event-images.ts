@@ -119,7 +119,6 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "natura-sunbar-sunset-sounds-hyper-2026-10-08":
     "natura-sunbar-sunset-sounds-hyper-2026-10-08.jpg",
   "disney-dream-taino-bay-2026-10-06": "disney-dream-taino-bay-2026-10-06.jpg",
-  "disney-dream-taino-bay-2026-10-08": "disney-dream-taino-bay-2026-10-08.jpg",
   "natura-cabana-jazz-ensemble-2026-10-03":
     "natura-cabana-jazz-ensemble-2026-10-03.jpg",
   "kaovanny-natura-cabana-2026-09-26": "kaovanny-natura-cabana-2026-09-26.jpg",
@@ -917,7 +916,6 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "natura-sunbar-sunset-sounds-em-zayd-2026-10-01.jpg",
   "natura-sunbar-sunset-sounds-hyper-2026-10-08.jpg",
   "disney-dream-taino-bay-2026-10-06.jpg",
-  "disney-dream-taino-bay-2026-10-08.jpg",
   "voyvoy-soft-reopening-sunset-2026-10-09.jpg",
   "voyvoy-soft-reopening-saturday-2026-10-10.jpg",
   "voyvoy-soft-reopening-sunday-2026-10-11.jpg",

@@ -27,7 +27,7 @@ Curated images under `public/events/` and `public/venues/`.
 | `natura-sunbar-sunset-sounds-em-zayd-2026-10-01.jpg` | POP-supplied — SunBar Sunset & Sounds Guest DJ EM ZAYD flyer | Thu 1 Oct 2026 6–9 PM Natura Cabana (editor-provided) |
 | `natura-sunbar-sunset-sounds-hyper-2026-10-08.jpg` | POP-supplied — SunBar Sunset & Sounds Guest DJ HYPER flyer | Thu 8 Oct 2026 6–9 PM Natura Cabana; special extended happy hour (editor-provided) |
 | `disney-dream-taino-bay-2026-10-06.jpg` | POP-supplied — Puerto Plata Travel “La magia llega por mar” Disney Dream first visit flyer | Tue 6 Oct 2026 Taino Bay first Disney Cruise Line call (editor-provided) |
-| `disney-dream-taino-bay-2026-10-08.jpg` | POP-supplied — Puerto Plata Travel “The magic arrives again” Disney Dream second visit flyer | Thu 8 Oct 2026 Taino Bay second Disney Cruise Line call (editor-provided; typography-heavy) |
+| `disney-dream-taino-bay-2026-10-08.jpg` | _(unused)_ POP-supplied Puerto Plata Travel second-visit flyer — Oct 8 Dream call pulled; published slate is Caribbean Princess at Amber Cove; next Disney is Destiny 22 Oct at Taino Bay | Kept on disk only; no seed wiring |
 | `natura-cabana-jazz-ensemble-2026-10-03.jpg` | POP-supplied — Live Jazz Ensemble Saturday flyer | Sat 3 Oct 2026 7–9:30 PM Natura Cabana; performers Sosua Jazz Collective (@sosuajazzcollective) |
 | `kaovanny-natura-cabana-2026-09-26.jpg` | POP-supplied — Kaovanny Afro Soul live music flyer | Sat 26 Sep 2026 7–9:30 PM Natura Cabana (editor-provided) |
 | `kaovanny-agua-natura-cabana-2026-11-28.jpg` | POP-supplied — Kaovanny Agua Live Tour / Afro Soul flyer (Sat Nov 28 2026 7 PM Natura Cabana; editor-provided) | Filename bump so PWA/detail heroes drop the Sep reuse |

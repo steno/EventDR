@@ -330,7 +330,6 @@ const FILE_TO_EVENT_ID = {
   "natura-sunbar-sunset-sounds-hyper-2026-10-08.jpg":
     "natura-sunbar-sunset-sounds-hyper-2026-10-08",
   "disney-dream-taino-bay-2026-10-06.jpg": "disney-dream-taino-bay-2026-10-06",
-  "disney-dream-taino-bay-2026-10-08.jpg": "disney-dream-taino-bay-2026-10-08",
   "taino-bay-village-daily-lazy-river.jpg": "taino-bay-village-daily",
   "natura-market-2026-10-04.jpg": "natura-market-2026-10-04",
   "licor-lab-car-show-2026-10-10.jpg": "licor-lab-car-show-2026-10-10",

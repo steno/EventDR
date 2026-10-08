@@ -201,7 +201,6 @@ export const SEED_CREATED_AT: Readonly<Record<string, string>> = {
   "chiche-almonte-vinoteca-2026-10-17": "2026-10-06T23:00:00.000Z",
   "aura-cinema-abigail-2026-10-06": "2026-10-06T23:30:00.000Z",
   "mkni-after-party-villa-taina-2026-10-24": "2026-10-06T23:45:00.000Z",
-  "disney-dream-taino-bay-2026-10-08": "2026-10-07T18:00:00.000Z",
   "ambar-lounge-bandoleras-2026-10-09": "2026-10-07T17:00:00.000Z",
   "lizandro-diaz-luna-lounge-2026-10-11": "2026-10-07T16:00:00.000Z",
   "kite-street-bachata-sabor-latino-2026-10-11": "2026-10-07T15:00:00.000Z",

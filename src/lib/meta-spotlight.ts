@@ -21,7 +21,7 @@ export const TODAY_SPOTLIGHT_LIMIT = 3;
 /** Instagram / Facebook album hard cap (Graph also slices to 10). */
 export const TODAY_SPOTLIGHT_MAX = 10;
 
-/** Scheduled 08:00 UTC post vs a manual “today’s specials” post. */
+/** Mixed today post (specials first + happening-today) vs specials-only. */
 export type SpotlightChannel = "today" | "today-specials";
 
 export function otherSpotlightChannel(

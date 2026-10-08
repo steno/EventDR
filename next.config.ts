@@ -37,6 +37,10 @@ const nextConfig: NextConfig = {
   experimental: {
     cpus: 1,
   },
+  // Vendored Inter TTFs for /api/ig-card (sharp text fontfile on Netlify).
+  outputFileTracingIncludes: {
+    "/api/ig-card/[eventId]": ["./assets/fonts/**/*"],
+  },
   images: {
     // WebP only — AVIF encoding of unique venue heroes OOM-kills Netlify SSG.
     formats: ["image/webp"],

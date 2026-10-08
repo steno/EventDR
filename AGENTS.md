@@ -27,7 +27,7 @@ For Instagram—the primary source for many DR event flyers—run skill `pop-ins
 | When | Automation | Agent |
 |------|------------|-------|
 | Sun ~12:00 AST | `weekly-event-ingest.yml` | Skills `pop-instagram-ingest`, `pop-facebook-ingest`, then `pop-content-pipeline` |
-| Daily ~4:00 AST | `daily-today-spotlight.yml` → individual Instagram image posts (today’s specials first, then up to 3 happening-today, cap 10). Each image is the Share → Instagram card. Not Reels. | **spotlight today’s specials** is the manual specials-only rail (`TODAY_SPECIALS=true`). The 08:00 UTC job always posts specials first, then happening today. |
+| Manual only | `daily-today-spotlight.yml` (workflow_dispatch) or ask the agent — **Facebook album + Instagram image posts** (specials first, then up to 3 happening-today, cap 10). IG images are the Share → Instagram card. Not Reels. No daily cron. | **spotlight today’s specials** is the specials-only rail (`TODAY_SPECIALS=true`). Default both networks; do not set `INSTAGRAM_ONLY` unless asked. |
 | Fri ~9:00 AST | `weekly-marketing-digest.yml` → artifact `weekend-marketing-digests` | Skills `pop-social-weekly`, `pop-weekend-b2b-digest` |
 
 Partner digest API: `GET /api/cron/partner-digest` with `Authorization: Bearer CRON_SECRET` (formats: `json`, `markdown`, `whatsapp`; locales: `en`, `es`, `fr`).

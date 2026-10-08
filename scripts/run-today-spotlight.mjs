@@ -14,7 +14,7 @@
  *   FACEBOOK_ONLY=true    Skip Instagram
  *   FORCE=true            Ignore today's lock and start over
  *   FEATURE_EVENT_ID=...  Pin this event first (cover image)
- *   TODAY_SPECIALS=true   Manual home “Today’s specials” post (not the 08:00 UTC job)
+ *   TODAY_SPECIALS=true   Specials-only rail (skip happening-today fill)
  */
 
 const SITE_URL = (process.env.SITE_URL || "https://pop-event.com").replace(
@@ -113,7 +113,7 @@ async function main() {
     console.log(
       TODAY_SPECIALS
         ? "Dry run — building today's specials spotlight without publishing."
-        : "Dry run — building the 08:00 UTC today spotlight without publishing.",
+        : "Dry run — building today’s spotlight without publishing.",
     );
     const { http, json, text } = await post(payload);
     console.log(json ? JSON.stringify(json, null, 2) : text);

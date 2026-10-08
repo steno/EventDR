@@ -117,14 +117,14 @@ describe("typicalCruiseCallsForWeekday", () => {
 
 describe("dated October 2026 MITUR schedule", () => {
   it("loads 39 official calls (18 Amber / 21 Taino)", () => {
-    assert.equal(DATED_CRUISE_CALLS.length, 39);
+    assert.equal(DATED_CRUISE_CALLS.length, 38);
     assert.equal(
       DATED_CRUISE_CALLS.filter((c) => c.port === "amber-cove").length,
       18,
     );
     assert.equal(
       DATED_CRUISE_CALLS.filter((c) => c.port === "taino-bay").length,
-      21,
+      20,
     );
   });
 
@@ -166,13 +166,25 @@ describe("dated October 2026 MITUR schedule", () => {
     );
   });
 
-  it("lists Disney Dream’s second Taino Bay call on Oct 8", () => {
+  it("lists Caribbean Princess at Amber Cove on Oct 8, not Disney Dream", () => {
     const oct8 = new Date("2026-10-08T16:00:00.000Z");
+    const amber = typicalCruiseCallsForPort("amber-cove", oct8);
     const taino = typicalCruiseCallsForPort("taino-bay", oct8);
-    assert.ok(taino.some((c) => c.ship === "Disney Dream"));
+    assert.deepEqual(
+      amber.map((c) => c.ship),
+      ["Caribbean Princess"],
+    );
+    assert.equal(amber[0]?.allAboardMinutes, 17 * 60 + 30);
+    assert.deepEqual(taino, []);
+  });
+
+  it("lists Disney Destiny at Taino Bay on Oct 22", () => {
+    const oct22 = new Date("2026-10-22T16:00:00.000Z");
+    const taino = typicalCruiseCallsForPort("taino-bay", oct22);
+    assert.ok(taino.some((c) => c.ship === "Disney Destiny"));
     assert.equal(
-      taino.find((c) => c.ship === "Disney Dream")?.allAboardMinutes,
-      16 * 60 + 45,
+      taino.find((c) => c.ship === "Disney Destiny")?.allAboardMinutes,
+      15 * 60 + 45,
     );
   });
 });

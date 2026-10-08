@@ -2854,26 +2854,6 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: "2026-10-05T19:00:00.000Z",
   },
   {
-    eventId: "disney-dream-taino-bay-2026-10-08",
-    body: "Second Disney Dream call two days after the debut — same shore-side watch from Fortaleza / Malecón; pier village stays passenger-only, so don’t treat this as a public Taino Bay day pass.",
-    localized: {
-      es: "Segunda escala del Disney Dream dos días después del debut — misma vista desde Fortaleza / Malecón; el pueblo del muelle sigue solo para pasajeros, no lo trates como pase de día público en Taíno Bay.",
-      fr: "Deuxième escale du Disney Dream deux jours après les débuts — même vue depuis Fortaleza / Malecón ; le village du quai reste réservé aux passagers, ne le traitez pas comme un day pass public à Taino Bay.",
-    },
-    priceFeel: "free",
-    priceNote:
-      "Free to watch from Fortaleza/Malecón — pier village cruise passengers only",
-    priceNoteLocalized: {
-      es: "Gratis desde Fortaleza/Malecón — pueblo del muelle solo pasajeros de crucero",
-      fr: "Gratuit depuis Fortaleza/Malecón — village du quai réservé aux passagers",
-    },
-    attribution:
-      "POP research · Puerto Plata Travel Disney Dream second-visit flyer",
-    researchNotes:
-      "Editor Puerto Plata Travel flyer: The magic arrives again / second visit Disney Dream 8 Oct 2026 Taíno Bay; times mirrored from Oct 6 7:45–17:15 pending port confirmation.",
-    updatedAt: "2026-10-07T18:00:00.000Z",
-  },
-  {
     eventId: "voyvoy-soft-reopening-sunset-2026-10-09",
     body: "First night back on the bay after the pause — Sunset Session with Luis De La Cruz from 5 PM, no cover; come for golden-hour drinks, not the late Saturday dance push.",
     localized: {

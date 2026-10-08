@@ -1,10 +1,8 @@
 name: Daily today spotlight
 
 on:
-  schedule:
-    # Every day 08:00 UTC (~4:00 AST). Image posts: today’s specials first,
-    # then happening-today. Never uses TODAY_SPECIALS=true itself.
-    - cron: "0 8 * * *"
+  # Manual only — no cron. Run from Actions → workflow_dispatch, or
+  # `node scripts/run-today-spotlight.mjs` / ask the agent to spotlight.
   workflow_dispatch:
     inputs:
       dry_run:
@@ -13,10 +11,15 @@ on:
         type: boolean
         default: false
       instagram_only:
-        description: '(Unused — job always posts Instagram image posts only)'
+        description: 'Instagram only (skip Facebook album)'
         required: false
         type: boolean
-        default: true
+        default: false
+      facebook_only:
+        description: 'Facebook only (skip Instagram image posts)'
+        required: false
+        type: boolean
+        default: false
       exclude_event_ids:
         description: 'Comma-separated event ids to skip on this run'
         required: false
@@ -58,13 +61,14 @@ jobs:
           fi
           echo "::endgroup::"
       
-      - name: Publish today’s events as individual Instagram posts
+      - name: Publish today’s spotlight to Facebook and Instagram
         env:
           SITE_URL: https://pop-event.com
           CRON_SECRET: ${{ secrets.CRON_SECRET }}
           DRY_RUN: ${{ github.event.inputs.dry_run == 'true' && 'true' || 'false' }}
-          # Image posts only — specials first, then happening-today. No Facebook.
-          INSTAGRAM_ONLY: "true"
+          # Default: both networks. Optional single-network overrides via inputs.
+          INSTAGRAM_ONLY: ${{ github.event.inputs.instagram_only == 'true' && 'true' || 'false' }}
+          FACEBOOK_ONLY: ${{ github.event.inputs.facebook_only == 'true' && 'true' || 'false' }}
           TODAY_SPECIALS: "false"
           EXCLUDE_EVENT_IDS: ${{ github.event.inputs.exclude_event_ids }}
         run: |
@@ -74,7 +78,11 @@ jobs:
           fi
           if [ "$DRY_RUN" = "true" ]; then
             echo "::notice::Running in DRY RUN mode - no posts will be published"
+          elif [ "$INSTAGRAM_ONLY" = "true" ]; then
+            echo "::notice::Publishing Instagram image posts only (specials first, then happening today)"
+          elif [ "$FACEBOOK_ONLY" = "true" ]; then
+            echo "::notice::Publishing Facebook album only (specials first, then happening today)"
           else
-            echo "::notice::Publishing Instagram image posts (specials first, then happening today; no Facebook)"
+            echo "::notice::Publishing Facebook album + Instagram image posts (specials first, then happening today)"
           fi
           node scripts/run-today-spotlight.mjs

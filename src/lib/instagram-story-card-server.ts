@@ -1,3 +1,5 @@
+import { existsSync } from "node:fs";
+import path from "node:path";
 import sharp from "sharp";
 import type { Locale } from "@/i18n/config";
 import type { Event } from "./types";
@@ -16,7 +18,16 @@ import {
   wrapTextLines,
 } from "./instagram-story-card-layout";
 
-function escapeXml(value: string): string {
+/**
+ * Vendored Inter TTFs — Netlify/Linux has no usable system fonts for sharp SVG
+ * `<text>`, which rendered as tofu boxes on spotlight cards. sharp's `fontfile`
+ * path bypasses fontconfig discovery.
+ */
+const FONTS_DIR = path.join(process.cwd(), "assets", "fonts");
+const FONT_BOLD = path.join(FONTS_DIR, "Inter-Bold.ttf");
+const FONT_SEMIBOLD = path.join(FONTS_DIR, "Inter-SemiBold.ttf");
+
+function escapePango(value: string): string {
   return value
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
@@ -64,32 +75,102 @@ function roundedRectSvg(
   return Buffer.from(svg);
 }
 
-function textOverlaySvg(title: string, meta: string): Buffer {
-  const titleLines = wrapTextLines(title, 28, 3);
-  const metaLines = wrapTextLines(meta, 36, 2);
-  let y = IMAGE_H + 88;
-  const titleSpans = titleLines
-    .map((line) => {
-      const span = `<text x="48" y="${y}" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="52" font-weight="800" fill="${STORY_COLORS.title}">${escapeXml(line)}</text>`;
-      y += 64;
-      return span;
-    })
-    .join("\n");
+function resolveFont(file: string): string {
+  if (!existsSync(file)) {
+    throw new Error(`IG card font missing: ${file}`);
+  }
+  return file;
+}
+
+/** Pango size is 1024ths of a point; at 72dpi that ≈ CSS pixels. */
+async function renderTextLine(opts: {
+  text: string;
+  fontfile: string;
+  px: number;
+  color: string;
+  maxWidth: number;
+}): Promise<{ buffer: Buffer; width: number; height: number }> {
+  const size = Math.round(opts.px * 1024);
+  const { data, info } = await sharp({
+    text: {
+      text: `<span foreground="${opts.color}" size="${size}">${escapePango(opts.text)}</span>`,
+      font: "Inter",
+      fontfile: opts.fontfile,
+      width: opts.maxWidth,
+      rgba: true,
+      dpi: 72,
+      align: "left",
+    },
+  })
+    .png()
+    .toBuffer({ resolveWithObject: true });
+  return { buffer: data, width: info.width ?? 0, height: info.height ?? 0 };
+}
+
+type CompositeInput = { input: Buffer; top: number; left: number };
+
+async function cardTextComposites(title: string, meta: string): Promise<CompositeInput[]> {
+  const bold = resolveFont(FONT_BOLD);
+  const semibold = resolveFont(FONT_SEMIBOLD);
+  const textWidth = CARD_W - 96;
+  const layers: CompositeInput[] = [];
+
+  let y = IMAGE_H + 36;
+  for (const line of wrapTextLines(title, 28, 3)) {
+    const rendered = await renderTextLine({
+      text: line,
+      fontfile: bold,
+      px: 52,
+      color: STORY_COLORS.title,
+      maxWidth: textWidth,
+    });
+    layers.push({ input: rendered.buffer, top: y, left: 48 });
+    y += 64;
+  }
+
   y += 16;
-  const metaSpans = metaLines
-    .map((line) => {
-      const span = `<text x="48" y="${y}" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="36" font-weight="600" fill="${STORY_COLORS.meta}">${escapeXml(line)}</text>`;
-      y += 48;
-      return span;
-    })
-    .join("\n");
-  const siteY = CARD_H - 48;
-  const svg = `<svg width="${CARD_W}" height="${CARD_H}" xmlns="http://www.w3.org/2000/svg">
-  ${titleSpans}
-  ${metaSpans}
-  <text x="48" y="${siteY}" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="32" font-weight="600" fill="${STORY_COLORS.site}">pop-event.com</text>
-</svg>`;
-  return Buffer.from(svg);
+  for (const line of wrapTextLines(meta, 36, 2)) {
+    const rendered = await renderTextLine({
+      text: line,
+      fontfile: semibold,
+      px: 36,
+      color: STORY_COLORS.meta,
+      maxWidth: textWidth,
+    });
+    layers.push({ input: rendered.buffer, top: y, left: 48 });
+    y += 48;
+  }
+
+  const site = await renderTextLine({
+    text: "pop-event.com",
+    fontfile: semibold,
+    px: 32,
+    color: STORY_COLORS.site,
+    maxWidth: textWidth,
+  });
+  layers.push({
+    input: site.buffer,
+    top: CARD_H - 48 - site.height,
+    left: 48,
+  });
+
+  return layers;
+}
+
+async function brandTextComposite(): Promise<CompositeInput> {
+  const bold = resolveFont(FONT_BOLD);
+  const brand = await renderTextLine({
+    text: "POP Events",
+    fontfile: bold,
+    px: 42,
+    color: "#ffffff",
+    maxWidth: STORY_W - 120,
+  });
+  return {
+    input: brand.buffer,
+    top: 180 - brand.height,
+    left: Math.round((STORY_W - brand.width) / 2),
+  };
 }
 
 /**
@@ -130,6 +211,8 @@ export async function buildInstagramStoryCardPng(
     }
   }
 
+  const textLayers = await cardTextComposites(event.title, meta);
+
   const cardBase = await sharp({
     create: {
       width: CARD_W,
@@ -138,10 +221,7 @@ export async function buildInstagramStoryCardPng(
       background: STORY_COLORS.card,
     },
   })
-    .composite([
-      { input: hero, top: 0, left: 0 },
-      { input: textOverlaySvg(event.title, meta), top: 0, left: 0 },
-    ])
+    .composite([{ input: hero, top: 0, left: 0 }, ...textLayers])
     .png()
     .toBuffer();
 
@@ -170,11 +250,13 @@ export async function buildInstagramStoryCardPng(
     </linearGradient>
   </defs>
   <rect width="${STORY_W}" height="${STORY_H}" fill="url(#bg)"/>
-  <text x="${STORY_W / 2}" y="180" text-anchor="middle" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="42" font-weight="700" fill="${STORY_COLORS.brand}">POP Events</text>
 </svg>`);
+
+  const brand = await brandTextComposite();
 
   return sharp(background)
     .composite([
+      brand,
       { input: shadow, top: CARD_Y + 18, left: CARD_X },
       { input: roundedCard, top: CARD_Y, left: CARD_X },
     ])

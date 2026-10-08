@@ -171,7 +171,7 @@ export function spotlightExclusions(
 /**
  * Own-channel history plus the other channel’s event ids (including same-day).
  * Venue keys stay per-channel so a specials post at a lounge does not block
- * that venue’s weekly night on the 08:00 UTC post.
+ * that venue’s weekly night on the mixed “today” post.
  *
  * Same-day ids from the other channel are hard-excluded so we never repeat
  * the same event on Instagram/Facebook the same calendar day.
