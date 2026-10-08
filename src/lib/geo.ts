@@ -1,12 +1,34 @@
 import type { Event } from "./types";
 import { canonicalizeVenueSlug } from "./removed-venues";
-import { matchVenueSlug } from "./venues-seed";
-import { NORTH_COAST_CENTER, resolveEventCoords } from "./event-coords";
+import { getSeedVenue, matchVenueSlug } from "./venues-seed";
+import {
+  hasMapCoords,
+  NORTH_COAST_CENTER,
+  resolveEventCoords,
+} from "./event-coords";
 
 export { NORTH_COAST_CENTER, resolveEventCoords };
 
+/**
+ * Stamp canonical coordinates onto events. Seed venue pins win over stale
+ * Firestore lat/lng; curated hosted-away patches re-apply after this step.
+ */
 export function attachCoords(events: Event[]): Event[] {
   return events.map((e) => {
+    if (e.venueSlug) {
+      const venue = getSeedVenue(e.venueSlug);
+      if (venue && hasMapCoords(venue)) {
+        return { ...e, lat: venue.lat, lng: venue.lng };
+      }
+    }
+    const matched =
+      matchVenueSlug(e.venue) ?? matchVenueSlug(e.location);
+    if (matched) {
+      const venue = getSeedVenue(matched);
+      if (venue && hasMapCoords(venue)) {
+        return { ...e, lat: venue.lat, lng: venue.lng };
+      }
+    }
     const coords = resolveEventCoords(e);
     if (!coords) return e;
     return { ...e, lat: coords.lat, lng: coords.lng };

@@ -26,6 +26,9 @@ function compactFooterOnMobile(pathname: string, locale: Locale): boolean {
 
 export function AppFooter({ locale, dict }: AppFooterProps) {
   const pathname = usePathname();
+  // Full-bleed pitched map — no footer chrome under the canvas.
+  if (pathname === `/${locale}/map`) return null;
+
   const padForBottomNav = pathname === `/${locale}`;
   const compactOnMobile = compactFooterOnMobile(pathname, locale);
   const hideForPrint =

@@ -1,17 +1,23 @@
 "use client";
 
 import { useEffect, useState, type ReactNode } from "react";
+import Link from "next/link";
 import { MapPin } from "lucide-react";
 
 interface MapRevealProps {
   label: string;
   children: ReactNode;
-  /** Extra controls stacked under the primary reveal button (e.g. Street view). */
+  /** Extra controls stacked under the primary reveal button (e.g. Street View). */
   secondary?: ReactNode;
   /** Reveal automatically (e.g. once a route is ready). */
   forceReveal?: boolean;
   /** Called when the user taps Show map (not when force-revealed). */
   onReveal?: () => void;
+  /**
+   * When set, the primary CTA navigates here instead of revealing the inline
+   * map (venue → North Coast events map with this pin zoomed).
+   */
+  href?: string | null;
   /** Brief pulse on the Show map control (e.g. deep-linked from an event). */
   attention?: boolean;
   onAttentionEnd?: () => void;
@@ -26,7 +32,7 @@ const primaryCtaClass =
 /**
  * Click-to-load map shell: compact CTAs until the user asks for the map,
  * so Leaflet (and tile bursts) stay off the wire.
- * The whole preview (tile + pin) opens directions; secondary stays separate.
+ * With `href`, the primary CTA opens that URL; secondary stays separate.
  */
 export function MapReveal({
   label,
@@ -34,6 +40,7 @@ export function MapReveal({
   secondary,
   forceReveal = false,
   onReveal,
+  href = null,
   attention = false,
   onAttentionEnd,
   previewUrl = null,
@@ -60,6 +67,17 @@ export function MapReveal({
       <>{children}</>
     );
   }
+
+  const attentionClass = attention
+    ? `${primaryCtaClass} pointer-events-auto animate-attention-pulse`
+    : `${primaryCtaClass} pointer-events-auto`;
+
+  const primaryInner = (
+    <>
+      <MapPin className="h-4 w-4 shrink-0 opacity-95" aria-hidden />
+      {label}
+    </>
+  );
 
   return (
     <div
@@ -91,13 +109,22 @@ export function MapReveal({
         aria-hidden
       />
 
-      {/* Full-map hit target — pin + tile open directions */}
-      <button
-        type="button"
-        onClick={reveal}
-        aria-label={label}
-        className="absolute inset-0 z-[1] cursor-pointer touch-manipulation"
-      />
+      {/* Full-map hit target — pin + tile */}
+      {href ? (
+        <Link
+          href={href}
+          prefetch={false}
+          aria-label={label}
+          className="absolute inset-0 z-[1] cursor-pointer touch-manipulation"
+        />
+      ) : (
+        <button
+          type="button"
+          onClick={reveal}
+          aria-label={label}
+          className="absolute inset-0 z-[1] cursor-pointer touch-manipulation"
+        />
+      )}
 
       {/* Venue pin */}
       <div
@@ -113,25 +140,37 @@ export function MapReveal({
       </div>
 
       <div className="pointer-events-none relative z-[3] flex h-full min-h-[8rem] flex-col items-stretch justify-end gap-2 p-4">
-        <button
-          type="button"
-          onClick={reveal}
-          data-attention={attention ? "true" : undefined}
-          onAnimationEnd={(event) => {
-            if (!attention) return;
-            if (event.target !== event.currentTarget) return;
-            if (event.animationName !== "attention-pulse") return;
-            onAttentionEnd?.();
-          }}
-          className={
-            attention
-              ? `${primaryCtaClass} pointer-events-auto animate-attention-pulse`
-              : `${primaryCtaClass} pointer-events-auto`
-          }
-        >
-          <MapPin className="h-4 w-4 shrink-0 opacity-95" aria-hidden />
-          {label}
-        </button>
+        {href ? (
+          <Link
+            href={href}
+            prefetch={false}
+            data-attention={attention ? "true" : undefined}
+            onAnimationEnd={(event) => {
+              if (!attention) return;
+              if (event.target !== event.currentTarget) return;
+              if (event.animationName !== "attention-pulse") return;
+              onAttentionEnd?.();
+            }}
+            className={attentionClass}
+          >
+            {primaryInner}
+          </Link>
+        ) : (
+          <button
+            type="button"
+            onClick={reveal}
+            data-attention={attention ? "true" : undefined}
+            onAnimationEnd={(event) => {
+              if (!attention) return;
+              if (event.target !== event.currentTarget) return;
+              if (event.animationName !== "attention-pulse") return;
+              onAttentionEnd?.();
+            }}
+            className={attentionClass}
+          >
+            {primaryInner}
+          </button>
+        )}
         {secondary ? (
           <div className="map-reveal-secondary pointer-events-auto [&_button]:rounded-2xl [&_button]:border-neutral-200/90 [&_button]:bg-white/90 [&_button]:text-neutral-800 [&_button]:shadow-sm [&_button]:backdrop-blur-md [&_button]:hover:bg-white dark:[&_button]:border-neutral-600 dark:[&_button]:bg-neutral-900/85 dark:[&_button]:text-neutral-100 dark:[&_button]:hover:bg-neutral-900">
             {secondary}

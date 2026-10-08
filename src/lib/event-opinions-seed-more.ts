@@ -3720,6 +3720,24 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: "2026-09-29T15:00:00.000Z",
   },
   {
+    eventId: "zona-acapella-club-closed",
+    body: "Skip the Malecón típico pin for now — Zona Acapella is closed until further notice; watch @acapella.pop before any Cuarto de Milla accordion night.",
+    localized: {
+      es: "Salta el pin de típico del Malecón por ahora — Zona Acapella está cerrado hasta nuevo aviso; mira @acapella.pop antes de cualquier noche de acordeón en Cuarto de Milla.",
+      fr: "Ignorez l’épingle típico du Malecón pour l’instant — Zona Acapella est fermé jusqu’à nouvel ordre ; regardez @acapella.pop avant toute soirée accordéon à Cuarto de Milla.",
+    },
+    priceFeel: "free",
+    priceNote: "Venue closed — no door plan until reopen",
+    priceNoteLocalized: {
+      es: "Local cerrado — sin plan de puerta hasta reabrir",
+      fr: "Lieu fermé — pas de plan d’entrée avant réouverture",
+    },
+    attribution: "POP research · @acapella.pop closure notice",
+    researchNotes:
+      "Standing closed listing so the Malecón pin stays on the map with Closed status (same pattern as Teleférico).",
+    updatedAt: "2026-10-08T12:00:00.000Z",
+  },
+  {
     eventId: "chiche-almonte-zona-acapella-2026-10-04",
     body: "Don’t plan this Domingo Típico — Zona Acapella (@acapella.pop) is closed until further notice, so Chiché Almonte on 4 Oct is off; recheck IG before any Malecón accordion night.",
     localized: {

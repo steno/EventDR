@@ -211,11 +211,16 @@ interface VenueMapPanelProps {
   forceReveal?: boolean;
   /** User tapped Show map — open full map + directions. */
   onReveal?: () => void;
-  /** Street View ("See the area") opened or closed — parent can grow the map frame. */
+  /**
+   * Primary map-card CTA → North Coast events map (venue pin zoomed).
+   * When set, does not reveal the inline Leaflet map.
+   */
+  seeAreaHref?: string | null;
+  /** Street View opened or closed — parent can grow the map frame. */
   onStreetViewChange?: (open: boolean) => void;
   /** Controlled Street View; omit to keep it internal. */
   streetViewOpen?: boolean;
-  /** Overlay “See the area” on the map (hide when a sibling button already exists). */
+  /** Overlay Street View on the map (hide when a sibling button already exists). */
   overlayStreetView?: boolean;
   /**
    * Show Street View inside MapReveal’s pre-load CTAs.
@@ -242,6 +247,7 @@ export function VenueMapPanel({
   className = "h-[12rem] sm:h-[14rem]",
   forceReveal = false,
   onReveal,
+  seeAreaHref = null,
   onStreetViewChange,
   streetViewOpen: streetViewOpenProp,
   overlayStreetView = false,
@@ -333,6 +339,7 @@ export function VenueMapPanel({
         {destination ? (
           <MapReveal
             label={dict.venues.showMap}
+            href={seeAreaHref}
             secondary={streetViewInReveal ? streetViewControl : undefined}
             forceReveal={mapOpen}
             onReveal={onReveal}

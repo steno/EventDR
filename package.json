@@ -5,8 +5,8 @@
     "node": ">=22"
   },
   "scripts": {
-    "dev": "next dev --hostname 0.0.0.0",
-    "build": "node scripts/generate-icons.mjs && node scripts/fetch-venue-images.mjs && node scripts/sync-event-images.mjs && node scripts/optimize-event-images.mjs && node scripts/optimize-venue-images.mjs && node scripts/write-app-version.mjs && next build",
+    "dev": "node scripts/copy-maplibre-worker.mjs && next dev --hostname 0.0.0.0",
+    "build": "node scripts/copy-maplibre-worker.mjs && node scripts/generate-icons.mjs && node scripts/fetch-venue-images.mjs && node scripts/sync-event-images.mjs && node scripts/optimize-event-images.mjs && node scripts/optimize-venue-images.mjs && node scripts/write-app-version.mjs && next build",
     "optimize:venues": "node scripts/optimize-venue-images.mjs",
     "audit:venues-empty": "tsx scripts/audit-venues-without-upcoming.ts",
     "start": "next start",
@@ -20,6 +20,7 @@
     "firebase-admin": "^14.1.0",
     "leaflet": "^1.9.4",
     "lucide-react": "^1.23.0",
+    "maplibre-gl": "^6.13.0",
     "next": "16.2.9",
     "qrcode": "^1.5.4",
     "react": "19.2.4",
@@ -32,6 +33,7 @@
     "@netlify/plugin-nextjs": "^5.15.12",
     "@playwright/test": "^1.62.1",
     "@tailwindcss/postcss": "^4",
+    "@types/geojson": "^7946.0.16",
     "@types/leaflet": "^1.9.21",
     "@types/node": "^20",
     "@types/qrcode": "^1.5.6",

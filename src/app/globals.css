@@ -822,3 +822,125 @@ html.dark .pull-reload__spinner {
     opacity: 1;
   }
 }
+
+/* North Coast pitched map pins (MapLibre markers) */
+.north-coast-map-pin {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.4));
+  transform: translateY(0);
+  transition: transform 0.15s ease;
+}
+.north-coast-map-pin:hover,
+.north-coast-map-pin[data-selected="true"] {
+  transform: translateY(-3px) scale(1.08);
+  z-index: 2;
+}
+.north-coast-map-pin__dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 9999px;
+  border: 2.5px solid #fff;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.12);
+}
+.north-coast-map-pin--thumb {
+  width: 40px;
+  max-width: 40px;
+}
+.north-coast-map-pin__thumb {
+  display: block;
+  box-sizing: border-box;
+  width: 36px !important;
+  height: 36px !important;
+  min-width: 36px !important;
+  min-height: 36px !important;
+  max-width: 36px !important;
+  max-height: 36px !important;
+  overflow: hidden !important;
+  border-radius: 9999px;
+  border: 2.5px solid #fff;
+  background: #e5e5e5;
+  flex-shrink: 0;
+}
+.north-coast-map-pin__thumb img,
+.north-coast-map-pin img {
+  display: block !important;
+  box-sizing: border-box !important;
+  width: 36px !important;
+  height: 36px !important;
+  max-width: 36px !important;
+  max-height: 36px !important;
+  object-fit: cover !important;
+  pointer-events: none;
+}
+.north-coast-map-pin--thumb .north-coast-map-pin__thumb {
+  box-shadow: 0 0 0 2px currentColor;
+}
+.north-coast-map .maplibregl-marker {
+  width: auto !important;
+  height: auto !important;
+}
+.north-coast-map-pin__tip {
+  width: 0;
+  height: 0;
+  margin-top: -1px;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 8px solid #fff;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.2));
+}
+.north-coast-map-pin--thumb .north-coast-map-pin__tip {
+  border-left-width: 7px;
+  border-right-width: 7px;
+  border-top-width: 9px;
+}
+.north-coast-map-pin:not(.north-coast-map-pin--thumb) .north-coast-map-pin__tip {
+  display: none;
+}
+.north-coast-map-pin[data-selected="true"] .north-coast-map-pin__dot {
+  width: 22px;
+  height: 22px;
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.55);
+}
+.north-coast-map-pin[data-selected="true"] .north-coast-map-pin__thumb {
+  width: 40px !important;
+  height: 40px !important;
+  min-width: 40px !important;
+  min-height: 40px !important;
+  max-width: 40px !important;
+  max-height: 40px !important;
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.65);
+}
+.north-coast-map-pin[data-selected="true"] .north-coast-map-pin__thumb img {
+  width: 40px !important;
+  height: 40px !important;
+  max-width: 40px !important;
+  max-height: 40px !important;
+}
+.north-coast-map-pin__count {
+  position: absolute;
+  top: -4px;
+  right: -6px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  border-radius: 9999px;
+  background: #0a0a0a;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 18px;
+  text-align: center;
+  border: 1.5px solid #fff;
+}
+.north-coast-map .maplibregl-ctrl-group {
+  border-radius: 12px !important;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.18) !important;
+}
