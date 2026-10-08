@@ -377,6 +377,8 @@ export type Dictionary = {
     partners: string;
     cruise: string;
     venues: string;
+    /** Pitched North Coast events map. */
+    map: string;
     support: string;
     sponsors: string;
     follow: string;
@@ -388,6 +390,21 @@ export type Dictionary = {
     navPlaces: string;
     navWhen: string;
     navMore: string;
+  };
+  /** `/[locale]/map` — pitched 3D map with event pins. */
+  map: {
+    title: string;
+    subtitle: string;
+    pinCount: string;
+    empty: string;
+    pinSheetLabel: string;
+    eventHere: string;
+    eventsHere: string;
+    openCruise: string;
+    /** Tiny header caption under the map icon until first visit. */
+    newBadge: string;
+    metaTitle: string;
+    metaDescription: string;
   };
   alerts: {
     title: string;
@@ -1042,6 +1059,7 @@ export const en: Dictionary = {
     partners: "For hotels & partners",
     cruise: "Cruise day",
     venues: "Venues",
+    map: "Events map",
     support: "Support POP",
     sponsors: "Sponsors",
     follow: "Follow POP Events",
@@ -1053,6 +1071,20 @@ export const en: Dictionary = {
     navPlaces: "Explore",
     navWhen: "When",
     navMore: "More",
+  },
+  map: {
+    title: "North Coast map",
+    subtitle: "Tonight and this weekend on a pitched 3D map",
+    pinCount: "{count} spots",
+    empty: "No pinned events for this filter — try Weekend or another category.",
+    pinSheetLabel: "Events at this place",
+    eventHere: "{count} event here",
+    eventsHere: "{count} events here",
+    openCruise: "Cruise plan",
+    newBadge: "NEW",
+    metaTitle: "North Coast events map | POP Events",
+    metaDescription:
+      "3D map of Puerto Plata, Sosúa, and Cabarete with pins for tonight and this weekend — tap a pin for the event card and directions.",
   },
   alerts: {
     title: "Before you go",
@@ -1260,11 +1292,11 @@ export const en: Dictionary = {
     noEvents: "No upcoming events at this venue yet.",
     staleSchedule: "Last listed: {dates}.",
     howToGetThere: "See how to get there",
-    showMap: "How to get there",
-    streetView: "See the area",
-    streetViewLoading: "Loading the area…",
-    streetViewUnavailable: "A street preview isn't available at this spot.",
-    streetViewError: "Couldn't load the area preview.",
+    showMap: "See the area",
+    streetView: "Street View",
+    streetViewLoading: "Loading Street View…",
+    streetViewUnavailable: "Street View isn't available at this spot.",
+    streetViewError: "Couldn't load Street View.",
     website: "Website",
     instagram: "Instagram",
     restaurantWeekParticipant: "Restaurant Week RD",

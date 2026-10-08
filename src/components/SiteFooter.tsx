@@ -151,6 +151,15 @@ export function SiteFooter({
                     {dict.footer.venues}
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    href={`/${locale}/map`}
+                    prefetch={false}
+                    className={linkClass}
+                  >
+                    {dict.footer.map}
+                  </Link>
+                </li>
               </ul>
             </nav>
 

@@ -76,11 +76,13 @@ const nextConfig: NextConfig = {
       // React dev overlays need eval(); production never does.
       `script-src 'self' 'unsafe-inline'${process.env.NODE_ENV !== "production" ? " 'unsafe-eval'" : ""} https://www.googletagmanager.com https://maps.googleapis.com https://maps.gstatic.com`,
       "style-src 'self' 'unsafe-inline'",
-      "img-src 'self' data: blob: https://firebasestorage.googleapis.com https://*.googleusercontent.com https://maps.gstatic.com https://*.gstatic.com https://*.googleapis.com https://maps.googleapis.com https://*.ggpht.com https://*.google.com https://tile.openstreetmap.org https://*.tile.openstreetmap.org https://tile.openstreetmap.fr https://*.tile.openstreetmap.fr",
+      "img-src 'self' data: blob: https://firebasestorage.googleapis.com https://*.googleusercontent.com https://maps.gstatic.com https://*.gstatic.com https://*.googleapis.com https://maps.googleapis.com https://*.ggpht.com https://*.google.com https://tile.openstreetmap.org https://*.tile.openstreetmap.org https://tile.openstreetmap.fr https://*.tile.openstreetmap.fr https://tiles.openfreemap.org https://*.openfreemap.org",
       "font-src 'self' data:",
       // Street View imagery hits streetviewpixels-pa / ggpht — not only maps.googleapis.com.
-      "connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://firebasestorage.googleapis.com https://maps.googleapis.com https://*.googleapis.com https://maps.gstatic.com https://*.gstatic.com https://*.ggpht.com https://*.google.com https://nominatim.openstreetmap.org https://router.project-osrm.org",
-      "worker-src 'self' blob:",
+      // OpenFreeMap / MapLibre style + vector tiles for the North Coast pitched map.
+      "connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://firebasestorage.googleapis.com https://maps.googleapis.com https://*.googleapis.com https://maps.gstatic.com https://*.gstatic.com https://*.ggpht.com https://*.google.com https://nominatim.openstreetmap.org https://router.project-osrm.org https://tiles.openfreemap.org https://*.openfreemap.org https://cdn.jsdelivr.net",
+      "worker-src 'self' blob: https://cdn.jsdelivr.net",
+      "child-src 'self' blob: https://cdn.jsdelivr.net",
       "manifest-src 'self'",
       "media-src 'self' blob:",
       "frame-src https://www.google.com https://maps.google.com https://www.openstreetmap.org",

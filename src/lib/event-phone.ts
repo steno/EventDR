@@ -26,6 +26,7 @@ const EVENT_PHONE_BY_ID: Record<string, string> = {
   "festival-presidente-2026-10-03": "+18092270103",
   "casa-coco-summer-acoustics-ed-mahon-2026-10-03": "+18494435678",
   "ocean-winds-karaoke-nights": "+18495915588",
+  "zona-acapella-club-closed": "+18297260344",
   "puerto-plata-golf-classic-2026": "+18093204262",
   "sosua-10k-road-race-2026": "+18095712100",
   "cac-games-surf-playa-encuentro-2026": "+18298934214",

@@ -285,8 +285,9 @@ export const SEED_VENUES: Venue[] = [
     city: "Sosúa",
     description:
       "Roadside Swiss-Italian restaurant on the Sosúa–Cabarete corridor — Tuesday aperitivo with rotating live bands from 5:00 PM, free finger food, and a local/expat crowd opposite Ocean Village.",
-    lat: 19.7726199,
-    lng: -70.4964466,
+    // OSM amenity "El Choco" on Carretera Sosúa–Cabarete (opposite Ocean Village).
+    lat: 19.77269,
+    lng: -70.4967789,
     emoji: "🎵",
     phone: "+18098042510",
     instagram: "paradaelchoco",
@@ -531,8 +532,9 @@ export const SEED_VENUES: Venue[] = [
     city: "Costambar",
     description:
       "Boutique hotel on Calle Guayacanes in Costambar — Amado’s restaurant, pool, and Saturday karaoke nights. WhatsApp +1 849-591-5588.",
-    lat: 19.814951,
-    lng: -70.711963,
+    // Calle Guarocuya inland Costambar (south of Rey Fernando — not the beach spit).
+    lat: 19.81205,
+    lng: -70.71285,
     emoji: "🎤",
     website: "https://hoteloceanwinds.com/",
     phone: "+18495915588",
@@ -722,9 +724,10 @@ export const SEED_VENUES: Venue[] = [
     name: "Letrero de Puerto Plata",
     city: "Puerto Plata",
     description:
-      "Iconic vertical PUERTO PLATA letters on the Malecón near La Puntilla — free parador fotográfico with Atlantic views, steps from Fortaleza San Felipe and Anfiteatro La Puntilla.",
-    lat: 19.8032,
-    lng: -70.6938,
+      "Iconic vertical PUERTO PLATA letters on Av. Gregorio Luperón (Malecón) at the road bend below Anfiteatro La Puntilla — free parador fotográfico with Atlantic views, steps from Fortaleza San Felipe.",
+    // Roadside curve on Av. Luperón — prior pin sat in the amphitheater park.
+    lat: 19.80155,
+    lng: -70.69365,
     emoji: "📸",
     website:
       "https://ayuntamientopuertoplata.gob.do/ayuntamiento-de-puerto-plata-concluye-instalacion-del-parador-turistico-en-el-malecon/",
@@ -1299,8 +1302,9 @@ export const SEED_VENUES: Venue[] = [
     city: "Puerto Plata",
     description:
       "Public beach west of Puerto Plata city — sunset walks, snack shacks, and the shoreline beside Ocean World Marina.",
-    lat: 19.8235,
-    lng: -70.7285,
+    // On the sand beside Don Limón — not the bay north of the beach road.
+    lat: 19.8217,
+    lng: -70.7296,
     emoji: "🌅",
   },
   {
@@ -1914,9 +1918,10 @@ export const SEED_VENUES: Venue[] = [
     name: "Classic Cars Dominicana",
     city: "Puerto Plata",
     description:
-      "Private vintage-car sightseeing tours around Puerto Plata — restored convertibles, photo stops, and hotel/cruise pickup by reservation. Instagram @classiccarsrd · (809) 769-8732.",
-    lat: 19.8048,
-    lng: -70.6945,
+      "Private vintage-car sightseeing tours around Puerto Plata — restored convertibles, photo stops, and hotel/cruise pickup by reservation. Meetup / waterfront hub at Victrola 037 Arte Café (Malecón). Instagram @classiccarsrd · (809) 769-8732.",
+    // Same pin as Victrola 037 — previous coords sat offshore in the bay.
+    lat: 19.7995463,
+    lng: -70.6909467,
     emoji: "🚗",
     instagram: "classiccarsrd",
     website:

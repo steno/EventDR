@@ -1,15 +1,22 @@
 import { memo } from "react";
-import { Flame } from "lucide-react";
+import { Building2, Flame } from "lucide-react";
 import { EventImage } from "@/components/EventImage";
 import { ImageStoryEnlarge } from "@/components/ImageStoryEnlarge";
 import { EventCardMeta } from "@/components/EventCardMeta";
+import { EventStatusBadge } from "@/components/EventStatusBadge";
 import { IntentLink } from "@/components/IntentLink";
 import { getCategoryMeta } from "@/lib/categories";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
-import { eventDetailPath, rememberReturnPath } from "@/lib/event-navigation";
+import {
+  eventDetailPath,
+  rememberReturnPath,
+  resolveEventVenueSlug,
+  venueDetailPath,
+} from "@/lib/event-navigation";
 import { EventCallLink } from "@/components/EventCallLink";
 import { useLiveStatusDisplay } from "@/hooks/useLiveStatusDisplay";
+import type { EventLiveStatus } from "@/lib/event-status";
 import type { TimeRange } from "@/lib/filters";
 import type { EventListView } from "@/lib/event-list-view";
 import type { EventWithVenueSiblings } from "@/lib/venue-recurring-siblings";
@@ -38,6 +45,10 @@ interface EventCardProps {
   /** Story enlarge control on card images (off on category grids). */
   showEnlarge?: boolean;
   /**
+   * Image-only tile (map pin sheet) — hide title + meta; parent owns chrome.
+   */
+  mediaOnly?: boolean;
+  /**
    * Stretch across leftover columns on the 2-col grid (Weekend day groups /
    * short final rows). Desktop auto-fill keeps span 1 so tiles stay compact.
    */
@@ -65,6 +76,8 @@ function EventCardMedia({
   enlargeLabel,
   closeLabel,
   showEnlarge = true,
+  statusBadge = null,
+  venuePill = null,
 }: {
   event: EventWithVenueSiblings;
   emoji: string;
@@ -76,6 +89,8 @@ function EventCardMedia({
   enlargeLabel: string;
   closeLabel: string;
   showEnlarge?: boolean;
+  statusBadge?: { label: string; status: EventLiveStatus } | null;
+  venuePill?: { href: string; label: string; onNavigate: () => void } | null;
 }) {
   const frame = `
     relative overflow-hidden pointer-events-none
@@ -100,7 +115,8 @@ function EventCardMedia({
 
   return (
     <div className={frame} aria-hidden={!event.imageUrl || undefined}>
-      {media}
+      {/* Fill the aspect box so absolute badges anchor to the photo, not a collapsed frame. */}
+      <div className="absolute inset-0">{media}</div>
       {event.imageUrl && showEnlarge ? (
         <ImageStoryEnlarge
           src={event.imageUrl}
@@ -108,6 +124,33 @@ function EventCardMedia({
           enlargeLabel={enlargeLabel}
           closeLabel={closeLabel}
         />
+      ) : null}
+      {statusBadge || venuePill ? (
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 flex items-end justify-between gap-2 p-2">
+          <div className="min-w-0 shrink">
+            {statusBadge ? (
+              <EventStatusBadge
+                label={statusBadge.label}
+                status={statusBadge.status}
+                surface="onMedia"
+              />
+            ) : null}
+          </div>
+          {venuePill ? (
+            <IntentLink
+              href={venuePill.href}
+              onClick={(e) => {
+                e.stopPropagation();
+                venuePill.onNavigate();
+              }}
+              className="pointer-events-auto relative z-30 inline-flex max-w-[55%] shrink-0 items-center gap-1.5 rounded-full bg-black/65 px-2.5 py-1.5 text-[11px] font-bold text-white shadow-md backdrop-blur-sm transition-colors hover:bg-black/80 touch-manipulation"
+              aria-label={venuePill.label}
+            >
+              <Building2 className="h-3.5 w-3.5 shrink-0" aria-hidden />
+              <span className="truncate">{venuePill.label}</span>
+            </IntentLink>
+          ) : null}
+        </div>
       ) : null}
     </div>
   );
@@ -127,11 +170,13 @@ const EventCardComponent = ({
   dimmed = false,
   onNavigate,
   showEnlarge = true,
+  mediaOnly = false,
   fillSpan,
 }: EventCardProps) => {
   const category = getCategoryMeta(event.category, dict.categories);
   const emoji = event.imageEmoji ?? category?.emoji ?? "📅";
   const href = eventDetailPath(locale, event.id);
+  const venueSlug = resolveEventVenueSlug(event);
   const liveDisplay = useLiveStatusDisplay(event, dict, { listTimeRange });
   const liveStatus = liveDisplay?.status ?? null;
   const liveStatusLabel = liveDisplay?.label ?? null;
@@ -142,6 +187,10 @@ const EventCardComponent = ({
 
   function handleNavigate() {
     onNavigate?.();
+    rememberReturnPath(returnTo, returnTitle);
+  }
+
+  function handleVenueNavigate() {
     rememberReturnPath(returnTo, returnTitle);
   }
 
@@ -162,8 +211,11 @@ const EventCardComponent = ({
         className={`
           group relative flex h-full min-w-0 flex-col overflow-hidden rounded-2xl
           bg-white dark:bg-neutral-900
-          border border-neutral-200 dark:border-neutral-800
-          shadow-[0_2px_12px_-4px_rgba(0,0,0,0.08)] dark:shadow-[0_2px_12px_-4px_rgba(0,0,0,0.3)]
+          ${
+            mediaOnly
+              ? "border-0 shadow-none"
+              : "border border-neutral-200 dark:border-neutral-800 shadow-[0_2px_12px_-4px_rgba(0,0,0,0.08)] dark:shadow-[0_2px_12px_-4px_rgba(0,0,0,0.3)]"
+          }
           transition-[border-color,box-shadow,opacity,transform] duration-300 ease-out cursor-pointer
           ${
             pending
@@ -184,25 +236,43 @@ const EventCardComponent = ({
           className="absolute inset-0 z-0 rounded-2xl touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
           aria-label={event.title}
         />
-        <div className="relative pointer-events-none">
+        <div className="relative z-[1] pointer-events-none">
           <EventCardMedia
             event={event}
             emoji={emoji}
             gradient={category?.gradient ?? "from-neutral-200 to-neutral-300"}
             sizes={
-              spanning
-                ? "(max-width: 640px) 100vw, 480px"
-                : "(max-width: 640px) 50vw, 240px"
+              mediaOnly
+                ? "(max-width: 640px) 100vw, 360px"
+                : spanning
+                  ? "(max-width: 640px) 100vw, 480px"
+                  : "(max-width: 640px) 50vw, 240px"
             }
             imageClassName={`object-cover card-media-zoom ${getEventCardObjectPosition(event.id)}`}
-            frameClassName="aspect-[4/3] w-full"
+            frameClassName={
+              mediaOnly ? "aspect-[16/10] w-full sm:aspect-[4/3]" : "aspect-[4/3] w-full"
+            }
             enlargeLabel={dict.detail.enlargeImage}
             closeLabel={dict.detail.close}
             showEnlarge={showEnlarge}
+            statusBadge={
+              mediaOnly && liveStatusLabel && liveStatus
+                ? { label: liveStatusLabel, status: liveStatus }
+                : null
+            }
+            venuePill={
+              mediaOnly && venueSlug
+                ? {
+                    href: venueDetailPath(locale, venueSlug),
+                    label: dict.detail.viewVenue,
+                    onNavigate: handleVenueNavigate,
+                  }
+                : null
+            }
           />
           {pending ? (
             <div
-              className="pointer-events-none absolute inset-0 bg-orange-500/10"
+              className="pointer-events-none absolute inset-0 z-[2] bg-orange-500/10"
               aria-hidden
             />
           ) : null}
@@ -213,24 +283,26 @@ const EventCardComponent = ({
             </span>
           )}
         </div>
-        <div className="relative z-[1] flex flex-1 flex-col gap-2 p-2.5 pointer-events-none sm:p-3">
-          <h3 className="line-clamp-2 font-sans text-base font-bold leading-snug text-neutral-950 dark:text-white sm:text-lg">
-            {event.title}
-          </h3>
-          <EventCardMeta
-            event={event}
-            locale={locale}
-            dict={dict}
-            compact
-            liveStatus={liveStatus}
-            liveStatusLabel={liveStatusLabel}
-          />
-          {note ? (
-            <p className="text-xs font-semibold text-orange-700 dark:text-orange-300">
-              {note}
-            </p>
-          ) : null}
-        </div>
+        {mediaOnly ? null : (
+          <div className="relative z-[1] flex flex-1 flex-col gap-2 p-2.5 pointer-events-none sm:p-3">
+            <h3 className="line-clamp-2 font-sans text-base font-bold leading-snug text-neutral-950 dark:text-white sm:text-lg">
+              {event.title}
+            </h3>
+            <EventCardMeta
+              event={event}
+              locale={locale}
+              dict={dict}
+              compact
+              liveStatus={liveStatus}
+              liveStatusLabel={liveStatusLabel}
+            />
+            {note ? (
+              <p className="text-xs font-semibold text-orange-700 dark:text-orange-300">
+                {note}
+              </p>
+            ) : null}
+          </div>
+        )}
       </article>
     );
   }

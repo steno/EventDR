@@ -1,11 +1,13 @@
 "use client";
 
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import {
   AtSign,
   Calendar,
   ExternalLink,
+  MapPin,
   Phone,
 } from "lucide-react";
 import type { Event, Venue, VenueAssessment } from "@/lib/types";
@@ -55,6 +57,7 @@ import {
   isRestaurantWeekParticipantVenue,
   RESTAURANT_WEEK_2026_ID,
 } from "@/lib/restaurant-week";
+import { eventsMapPath } from "@/lib/map-style";
 
 interface VenuePageProps {
   venue: Venue;
@@ -309,7 +312,7 @@ export function VenuePage({
                     ? areaViewOpen && !plannerOpen
                       ? "grid-rows-[minmax(0,1fr)]"
                       : "grid-rows-[minmax(0,1fr)_auto]"
-                    : "grid-rows-[minmax(0,1fr)_minmax(0,1fr)_auto]"
+                    : "grid-rows-[minmax(0,1fr)_auto]"
               }`}
             >
               <div
@@ -337,7 +340,9 @@ export function VenuePage({
                         className={`h-full w-full object-cover ${heroObjectPosition} transition-transform duration-500 ease-out group-hover/event:scale-[1.03]`}
                       />
                       <span
-                        className="absolute bottom-3 left-3 z-10 inline-flex items-center gap-1.5 rounded-full bg-black/55 px-3 py-1.5 text-xs font-bold text-white backdrop-blur-sm transition-colors group-hover/event:bg-black/70"
+                        className={`absolute left-3 z-10 inline-flex items-center gap-1.5 rounded-full bg-black/55 px-3 py-1.5 text-xs font-bold text-white backdrop-blur-sm transition-colors group-hover/event:bg-black/70 ${
+                          canShowMap ? "bottom-[4.75rem]" : "bottom-3"
+                        }`}
                         aria-hidden
                       >
                         <Calendar className="h-3.5 w-3.5 shrink-0" />
@@ -366,15 +371,40 @@ export function VenuePage({
                     alt={venue.name}
                     enlargeLabel={dict.detail.enlargeImage}
                     closeLabel={dict.detail.close}
-                    className="bottom-3 right-3"
+                    className={
+                      canShowMap
+                        ? "!bottom-[4.75rem] right-3"
+                        : "bottom-3 right-3"
+                    }
                     showOnDesktop
                   />
+                ) : null}
+                {canShowMap ? (
+                  <>
+                    <div
+                      className="pointer-events-none absolute inset-x-0 bottom-0 z-[4] h-32 bg-gradient-to-t from-black/55 via-black/20 to-transparent"
+                      aria-hidden
+                    />
+                    <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[5] flex justify-center p-4">
+                      <Link
+                        href={eventsMapPath(locale, { venue: venue.slug })}
+                        prefetch={false}
+                        className="pointer-events-auto inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-4 py-2.5 text-sm font-bold text-white shadow-lg shadow-rose-500/25 touch-manipulation transition-[transform,filter] hover:brightness-105 active:scale-[0.98]"
+                      >
+                        <MapPin
+                          className="h-4 w-4 shrink-0 opacity-95"
+                          aria-hidden
+                        />
+                        {dict.venues.showMap}
+                      </Link>
+                    </div>
+                  </>
                 ) : null}
               </div>
               <div
                 ref={mapSectionRef}
                 className={`min-h-0 [overflow-anchor:none] ${
-                  canShowMap ? "" : "hidden"
+                  canShowMap && mapTakesPhotoSpace ? "" : "hidden"
                 }`}
               >
                 <div
@@ -387,6 +417,7 @@ export function VenuePage({
                     directions={directions}
                     forceReveal={plannerOpen}
                     onReveal={openDirectionsMode}
+                    seeAreaHref={eventsMapPath(locale, { venue: venue.slug })}
                     streetViewOpen={areaViewOpen}
                     onStreetViewChange={setAreaViewOpen}
                     streetViewAvailable={streetViewAvailable}
@@ -395,7 +426,7 @@ export function VenuePage({
                     onDismiss={
                       plannerOpen ? () => setPlannerOpen(false) : undefined
                     }
-                    dismissTitle={dict.venues.showMap}
+                    dismissTitle={dict.venues.getDirections}
                     className="h-full"
                   />
                 </div>

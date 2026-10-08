@@ -416,8 +416,8 @@ describe("findNearbyOnStrip", () => {
       time: "8:00 PM",
       venueSlug: "hotel-ocean-winds",
       location: "Costambar",
-      lat: 19.814951,
-      lng: -70.711963,
+      lat: 19.81205,
+      lng: -70.71285,
       category: "performances",
     });
 
@@ -439,8 +439,8 @@ describe("findNearbyOnStrip", () => {
       date: "2026-08-27",
       venueSlug: "playa-cofresi",
       location: "Cofresí",
-      lat: 19.8235,
-      lng: -70.7285,
+      lat: 19.8217,
+      lng: -70.7296,
     });
     const oceanWorld = event({
       id: "terraza-ocean-world-evenings",

@@ -412,6 +412,11 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     isFree: false,
     admissionPrice: "US$8",
   },
+  "zona-acapella-club-closed": {
+    isFree: true,
+    temporarilyClosed: true,
+    phone: "+18297260344",
+  },
   "teleferico-puerto-plata-daily": {
     isFree: null,
     admissionPrice: null,
@@ -570,6 +575,9 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
   "ocean-winds-karaoke-nights": {
     isFree: true,
     phone: "+18495915588",
+    // Keep pin on Calle Guarocuya even if Firestore still has the old beach coords.
+    lat: 19.81205,
+    lng: -70.71285,
   },
   "atlantico-fc-vs-delfines-2026-08-22": {
     callForPricing: true,

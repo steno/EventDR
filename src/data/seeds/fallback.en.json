@@ -775,8 +775,8 @@
     "location": "Cabarete",
     "venue": "Lux Beach Bar",
     "address": "Playa Cabarete, Cabarete",
-    "lat": 19.7515,
-    "lng": -70.4098,
+    "lat": 19.7502,
+    "lng": -70.4095,
     "category": "parties",
     "categories": [
       "music"
@@ -1193,8 +1193,8 @@
     "venue": "Hotel Ocean Winds",
     "venueSlug": "hotel-ocean-winds",
     "address": "Calle Guayacanes 79, Costambar",
-    "lat": 19.814951,
-    "lng": -70.711963,
+    "lat": 19.81205,
+    "lng": -70.71285,
     "category": "performances",
     "categories": [
       "music",
@@ -4769,8 +4769,8 @@
     "venue": "Parada Típica El Choco",
     "venueSlug": "parada-tipica-el-choco",
     "address": "Carretera principal Sosúa–Cabarete (vis-à-vis Ocean Village / Plaza Buen Gusto)",
-    "lat": 19.7726199,
-    "lng": -70.4964466,
+    "lat": 19.77269,
+    "lng": -70.4967789,
     "category": "music",
     "categories": [
       "food-drinks",
