@@ -71,6 +71,7 @@ const EVENT_PHONE_BY_ID: Record<string, string> = {
   "pop-cinemas-week-2026-08-20": "+18093201400",
   "pop-cinemas-week-2026-09-11": "+18093201400",
   "pop-cinemas-week-2026-09-17": "+18093201400",
+  "pop-cinemas-week-2026-10-08": "+18093201400",
   "el-cuarteto-terrible-zona-acapella-2026-09-27": "+18297260344",
   "natura-sunbar-special-sunset-sounds-2026-09-24": "+18492147010",
   "kaovanny-natura-cabana-2026-09-26": "+18492147010",
@@ -113,6 +114,8 @@ const EVENT_PHONE_BY_ID: Record<string, string> = {
   "twenty-disco-kiry-curu-2026-10-16": "+18297160160",
   "ivan-garcia-eulogio-badia-2026-10-24": "+18092617393",
   "ivan-garcia-cafe-opera-codigo-clown-2026-10-31": "+18092617393",
+  "ivan-garcia-tierra-de-paso-2026-10-15": "+18092617393",
+  "aura-after-dark-carlos-rivera-2026-10-10": "+18297870140",
   "petit-francois-halloween-2026-10-30": "+18294922910",
   "twenty-disco-luis-brown-2026-10-30": "+18295667071",
 };

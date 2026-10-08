@@ -1162,11 +1162,11 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "ivan-garcia-teatro-escuela": {
-    body: "Sala Iván García reopens 24 October 2026 at 7:00 PM with Eulogio Badia — until then don’t walk Juan Bosch #72 for a class; RSVP 809-261-7393 / @teatroivangarcia for the gran reapertura.",
+    body: "Regular classes stay paused through 23 October — catch Tierra de Paso with Carlota Carretero Thu 15 Oct (RD$500 / students RD$150) or the Eulogio Badia gran reapertura Sat 24 Oct at 7:00 PM; RSVP 809-261-7393 / @teatroivangarcia.",
     localized: {
-      en: "Sala Iván García reopens 24 October 2026 at 7:00 PM with Eulogio Badia — until then don’t walk Juan Bosch #72 for a class; RSVP 809-261-7393 / @teatroivangarcia for the gran reapertura.",
-      es: "La Sala Iván García reabre el 24 de octubre 2026 a las 7:00 PM con Eulogio Badia — hasta entonces no vayas a Juan Bosch #72 por clase; RSVP 809-261-7393 / @teatroivangarcia para la gran reapertura.",
-      fr: "La Sala Iván García rouvre le 24 octobre 2026 à 19 h avec Eulogio Badia — d’ici là n’allez pas au 72 Juan Bosch pour un cours ; RSVP 809-261-7393 / @teatroivangarcia pour la grande réouverture.",
+      en: "Regular classes stay paused through 23 October — catch Tierra de Paso with Carlota Carretero Thu 15 Oct (RD$500 / students RD$150) or the Eulogio Badia gran reapertura Sat 24 Oct at 7:00 PM; RSVP 809-261-7393 / @teatroivangarcia.",
+      es: "Las clases regulares siguen en pausa hasta el 23 de octubre — ve Tierra de Paso con Carlota Carretero el jue 15 oct (RD$500 / estudiantes RD$150) o la gran reapertura de Eulogio Badia el sáb 24 oct a las 7:00 PM; RSVP 809-261-7393 / @teatroivangarcia.",
+      fr: "Les cours réguliers restent en pause jusqu’au 23 octobre — voyez Tierra de Paso avec Carlota Carretero jeu 15 oct (RD$500 / étudiants RD$150) ou la grande réouverture Eulogio Badia sam 24 oct à 19 h ; RSVP 809-261-7393 / @teatroivangarcia.",
     },
   },
   "spotland-puerto-plata": {
@@ -1223,6 +1223,14 @@ export const VENUE_TIP_COPY: Record<
       en: "Kite-hung Calle Sánchez corridor (Chichiguas) for free dance classes and stalls near Victrola — not Umbrella Street on San Felipe; check @kitestreetpop before you treat it as a daily hop-on.",
       es: "Corredor de cometas en Calle Sánchez (Chichiguas) para clases de baile gratis y puestos cerca de Victrola — no es Calle de las Sombrillas en San Felipe; confirma @kitestreetpop antes de tratarlo como hop-on diario.",
       fr: "Corridor de cerfs-volants sur Calle Sánchez (Chichiguas) pour cours de danse gratuits et stands près de Victrola — pas Umbrella Street sur San Felipe ; vérifiez @kitestreetpop avant de le traiter comme un hop-on quotidien.",
+    },
+  },
+  "the-hideout-puerto-plata": {
+    body: "Second-level lounge at Luis Ginebra #56 — walk upstairs past Cigar Town Pop for Rock en Español Wednesdays and billed pop-ups (El Cuervo burgers when listed); sofa/neon patio energy, not the cigar lounge downstairs.",
+    localized: {
+      en: "Second-level lounge at Luis Ginebra #56 — walk upstairs past Cigar Town Pop for Rock en Español Wednesdays and billed pop-ups (El Cuervo burgers when listed); sofa/neon patio energy, not the cigar lounge downstairs.",
+      es: "Lounge en el segundo nivel de Luis Ginebra #56 — sube pasando Cigar Town Pop para Rock en Español los miércoles y pop-ups con cartel (hamburguesas El Cuervo cuando hay); vibe sofá/neón, no el lounge de cigarros de abajo.",
+      fr: "Lounge au 2e étage, Luis Ginebra n° 56 — montez en passant Cigar Town Pop pour Rock en Español le mercredi et les pop-ups annoncés (burgers El Cuervo quand listés) ; vibe canapé/néon, pas le lounge à cigares du rez-de-chaussée.",
     },
   },
 };

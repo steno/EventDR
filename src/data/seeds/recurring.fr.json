@@ -624,7 +624,10 @@
     "lat": 19.791341,
     "lng": -70.674021,
     "category": "nightlife",
-    "categories": ["music", "dance"],
+    "categories": [
+      "music",
+      "dance"
+    ],
     "format": "physical",
     "recurrence": "daily",
     "temporarilyClosed": true,
@@ -2849,5 +2852,28 @@
     "sourceType": "flyer",
     "sourceUrl": "https://www.instagram.com/lokuraspop/",
     "imageEmoji": "🎤"
+  },
+  {
+    "id": "hideout-miercoles-rock-en-espanol",
+    "title": "Miércoles de Rock en Español au The Hideout",
+    "description": "Mercredis Rock en Español au The Hideout, Av. Luis Ginebra n° 56 deuxième étage, Puerto Plata — rock hispanophone 80s/90s (Soda Stereo, Héroes del Silencio, Hombres G et plus). Même immeuble que Cigar Town Pop, lounge à l’étage. Confirmez les portes auprès du lieu.",
+    "date": "2026-01-01",
+    "location": "Puerto Plata",
+    "venue": "The Hideout",
+    "venueSlug": "the-hideout-puerto-plata",
+    "address": "Av. Luis Ginebra #56, Segundo Nivel, Puerto Plata",
+    "lat": 19.7915,
+    "lng": -70.6805,
+    "category": "parties",
+    "categories": [
+      "music"
+    ],
+    "format": "physical",
+    "recurrence": "weekly",
+    "recurrenceDay": 3,
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "imageEmoji": "🎸"
   }
 ]

@@ -208,6 +208,7 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "trolley-city-tours": "trolley-city-tours-party-bus.jpg",
   "hotel-villa-taina": "hotel-villa-taina-pool.jpg",
   "terramar-pickleball-club": "terramar-pickleball-club.jpg",
+  "the-hideout-puerto-plata": "the-hideout-puerto-plata.jpg",
 };
 
 /** Cache-busted URL for general venue thumbnails / JSON-LD. */

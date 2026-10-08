@@ -82,6 +82,11 @@ Curated images under `public/events/` and `public/venues/`.
 | `grand-prix-sabado-bailable.jpg` | POP-supplied — Sábado Bailable DJ art ([@grandprixrd](https://www.instagram.com/grandprixrd/)) | Weekly Saturday dance night (editor-provided) |
 | `grand-prix-jueves-stripper-show.jpg` | POP-supplied — Grand Prix *Show Stripper* / D'Goldy + DJ Ariel flyer ([@grandprixrd](https://www.instagram.com/grandprixrd/)) | Weekly Thursday stripper night (editor-provided; typography-heavy) |
 | `lizandro-diaz-grand-prix-2026-10-02.jpg` | POP-supplied — Grand Prix *Lizandro Díaz* free live show flyer ([@grandprixrd](https://www.instagram.com/grandprixrd/)) | Fri 2 Oct 2026 gratis (editor-provided; typography-heavy) |
+| `el-goldito-de-oro-grand-prix-2026-10-09.jpg` | POP-supplied — Grand Prix *El Goldito de Oro* flyer ([@grandprixrd](https://www.instagram.com/grandprixrd/)) | Fri 9 Oct 2026 live accordion night (editor-provided; typography-heavy) |
+| `fiesta-halloween-grand-prix-2026-10-30.jpg` | POP-supplied — Grand Prix *Fiesta Halloween* flyer ([@grandprixrd](https://www.instagram.com/grandprixrd/)) | Fri 30 Oct 2026 Halloween party (editor-provided; typography-heavy) |
+| `venues/the-hideout-puerto-plata.jpg` | POP-supplied — The Hideout neon sofa lounge (Av. Luis Ginebra #56 segundo nivel) | Venue place shot (editor-provided) |
+| `el-cuervo-hideout-popup-2026-10-16.jpg` | POP-supplied — El Cuervo Street Food *Pop Up en Puerto Plata* flyer ([@elcuervostreetfood](https://www.instagram.com/elcuervostreetfood/)) | Oct 16–18 2026 three-night pop-up (editor-provided; typography-heavy) |
+| `hideout-miercoles-rock-en-espanol.jpg` | POP-supplied — The Hideout *Miércoles de Rock en Español* flyer | Weekly Wednesday rock night (editor-provided; typography-heavy) |
 | `venues/terramar-pickleball-club.jpg` | POP-supplied — Terramar Pickleball Club profile/cover | Venue hero (editor-provided) |
 | `allison-sade-aura-2026-09-17.jpg` | POP-supplied — Allison Sade Live Music flyer ([@allisonsadeofficial](https://www.instagram.com/allisonsadeofficial/) × Aura Cabarete) | Thu 17 Sep 2026 8:00 PM (editor-provided) |
 | `francesca-aura-2026-10-01.jpg` | POP-supplied — Francesca Live Music flyer (Aura Cabarete) | Thu 1 Oct 2026 8:00 PM (editor-provided) |
@@ -300,6 +305,7 @@ Curated images under `public/events/` and `public/venues/`.
 | `venues/zona-acapella-club.jpg` | [Google Maps — Zona Acapella Club](https://www.google.com/maps/place/?q=place_id:ChIJMRMD8EvusY4RcIGbv5r8m6U) visitor photo | Outdoor terrace table (Presidente, tostones) under the club gazebo lights |
 | `pop-cinemas-week-2026-08-20.jpg` | POP-supplied `pop-cinemas.jpg` — weekly cartelera 20–26 Aug | Official POP Cinemas Playa Dorada Mall billboard |
 | `pop-cinemas-week-2026-09-11-mall.jpg` | Same Maps visitor place shot as `venues/pop-cinemas-playa-dorada.jpg` (mall entrance); filename bump after schedule-collage cache | Week hero is the cinema place shot — film list lives in description + lineup text |
+| `pop-cinemas-week-2026-10-08-mall.jpg` | Same Maps visitor place shot as `venues/pop-cinemas-playa-dorada.jpg` (mall entrance); filename bump for Oct 8–14 week | Week hero is the cinema place shot — *Grin: El juego de la ouija* listed in description + lineup (confirm showtimes on cinemaspop.com.do) |
 | `venues/pop-cinemas-playa-dorada.jpg` | [Google Maps — Pop Cinemas](https://www.google.com/maps/place/Pop+Cinemas/@19.7698587,-70.6423406,17z) visitor photo | POP CINEMAS mall entrance with “Vive la diferencia” signage |
 | `petit-francois-friday-karaoke.jpg` | POP-supplied `petitfrancois.jpg` — Friday karaoke flyer | Official Le Petit François karaoke night graphic |
 | `costambar-beach-fitness.png` / `venues/playa-costambar.png` | Organizer-supplied Costambar Fitness class photo (beach session left of El Carey) | Authentic Costambar Beach Fitness group on the sand |
@@ -385,7 +391,10 @@ Curated images under `public/events/` and `public/venues/`.
 | `venues/grecialandia-village.jpg` | POP-supplied — Grecialandia white-and-blue Greek village courtyard with blue dome | Venue place shot (editor-provided, not scraped) |
 | `grecialandia-entrance.jpg` | POP-supplied — Residencia Grecia / Grecialandia entrance gate (El Cupey) | Daily village day-pass experience (editor-provided, not scraped) |
 | `el-choco-cave-tour-swimming-daily.jpg` | Same POP Cuevas del Choco lagoon swim (shared with venue place shot) | Daily tour & swimming listing hero |
-| `drifter-sunset-into-the-night.jpg` | POP-supplied — Drifter Cabarete lobster platter on the beach deck | Saturday dinner · DJ · dance listing hero (editor-provided) |
+| `drifter-sunset-into-the-night.jpg` | POP-supplied — Drifter Cabarete lobster platter on the beach deck | Prior Saturday dinner · DJ · dance hero (superseded by flyer v2) |
+| `drifter-sunset-into-the-night-v2.jpg` | POP-supplied — Drifter *Sunset Into the Night* flyer ([@driftercabarete](https://www.instagram.com/driftercabarete/)) | Every Saturday dinner · DJ · dance (editor-provided; typography-heavy; filename bump) |
+| `aura-after-dark-carlos-rivera-2026-10-10.jpg` | POP-supplied — Aura After Dark *Live DJ Carlos Rivera* flyer ([@auracabarete](https://www.instagram.com/auracabarete/)) | Sat 10 Oct 2026 11:30 PM (editor-provided; typography-heavy) |
+| `ivan-garcia-tierra-de-paso-2026-10-15.jpg` | POP-supplied — Iván García Teatro-Escuela *Tierra de Paso* cropped art ([@teatroivangarcia](https://www.instagram.com/teatroivangarcia/)) | Thu 15 Oct 2026 7:00 PM Carlota Carretero (editor-provided cropped shot; full poster used for date/price only) |
 | `venues/drifter-cabarete-sunset.jpg` | POP-supplied — Drifter Cabarete beachfront pavilion at sunset | Venue place shot (editor-provided, not scraped) |
 | `victrola-jueves-social.jpg` | POP-supplied — Victrola 037 Arte Café Jueves Social flyer (tabla + 4 sangrías) | Weekly Thursday social promo (editor-provided) |
 | `victrola-mojitos-friday.jpg` | POP-supplied — Victrola 037 Arte Café Viernes mojitos 2x1 / Café Meclao' flyer | Weekly Friday live + 2x1 mojitos (editor-provided; replaces Ladies Night) |

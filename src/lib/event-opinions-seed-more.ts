@@ -1917,10 +1917,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       es: "Sin cover publicado en el flyer — el gasto es cena y cócteles (Google DOP 500–3,000); reserva +1 829 702-2312",
       fr: "Pas de cover publié sur le flyer — le budget part en dîner et cocktails (Google DOP 500–3 000) ; réservez +1 829 702-2312",
     },
-    attribution: "POP research · driftercabarete.com + Google Maps + editor venue photos",
+    attribution: "POP research · driftercabarete.com + editor Sunset Into the Night flyer",
     researchNotes:
-      "Saturday schedule from venue promo: Dinner · DJ · Dance; DJ from 8 PM, dance floor from 10 PM until 1 AM. Maps 19.7504244,-70.4056606; phone +1 829 702-2312; Cabarete Bay Beach 5; Mediterranean beachfront; IG @driftercabarete; Google ~394 reviews (spend DOP 500–3,000). Heroes: editor pavilion + lobster deck photos (no flyer).",
-    updatedAt: "2026-09-11T17:30:00.000Z",
+      "Saturday schedule from venue flyer: Dinner · DJ · Dance; DJ from 8 PM, dance floor from 10 PM until 1 AM. Maps 19.7504244,-70.4056606; phone +1 829 702-2312; Cabarete Bay Beach 5; Mediterranean beachfront; IG @driftercabarete; Google ~394 reviews (spend DOP 500–3,000). Hero: editor flyer v2 (typography-heavy).",
+    updatedAt: "2026-10-08T23:40:00.000Z",
   },
   {
     eventId: "groundzero-sabados-latinos",
@@ -4900,5 +4900,132 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     researchNotes:
       "Editor flyer + IG @kenleyevents — AMAREA ONE LAST ESCAPE Nov 7-8 Aura Beach Club Cabarete; Early Bird / Presale / Final Release tiers; weekend pass; dinner & beach brunch separate; Boletu; 809-980-3789.",
     updatedAt: "2026-10-08T17:00:00.000Z",
+  },
+  {
+    eventId: "el-goldito-de-oro-grand-prix-2026-10-09",
+    body: "Friday accordion night with El Goldito de Oro at Grand Prix in La Javilla — same Manolo Tavarez / Bomba pin as Lizandro last week, not a Playa Dorada mall set; cover not on the flyer so confirm @grandprixrd before you go.",
+    localized: {
+      es: "Viernes de acordeón con El Goldito de Oro en Grand Prix en La Javilla — el mismo pin Manolo Tavarez / Bomba que Lizandro la semana pasada, no un set de mall en Playa Dorada; el cover no viene en el flyer, confirma en @grandprixrd.",
+      fr: "Vendredi accordéon avec El Goldito de Oro au Grand Prix à La Javilla — même pin Manolo Tavarez / Bomba que Lizandro la semaine dernière, pas un set mall Playa Dorada ; le cover n’est pas sur l’affiche, confirmez sur @grandprixrd.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover not listed — confirm @grandprixrd; pay drinks",
+    priceNoteLocalized: {
+      es: "Cover no listado — confirma @grandprixrd; pagas tragos",
+      fr: "Cover non indiqué — confirmez @grandprixrd ; payez les boissons",
+    },
+    attribution: "POP research · @grandprixrd El Goldito de Oro flyer",
+    researchNotes:
+      "Editor flyer — Vie 9 Oct 2026 El Goldito de Oro, Grand Prix Smart Shop, La Javilla Puerto Plata. No start time or cover on art.",
+    updatedAt: "2026-10-08T22:00:00.000Z",
+  },
+  {
+    eventId: "fiesta-halloween-grand-prix-2026-10-30",
+    body: "Halloween Friday at Grand Prix in La Javilla — beer-mug and skeleton flyer energy at the Bomba Next pin, not Latin Disco by Brugal, Petit François beach karaoke, or Twenty Disco the same night; confirm cover on @grandprixrd.",
+    localized: {
+      es: "Viernes de Halloween en Grand Prix en La Javilla — vibe de jarras y esqueletos en el pin de Bomba Next, no Latin Disco frente a Brugal, karaoke de playa en Petit François ni Twenty Disco la misma noche; confirma cover en @grandprixrd.",
+      fr: "Vendredi Halloween au Grand Prix à La Javilla — vibe chopes et squelettes au pin Bomba Next, pas Latin Disco face à Brugal, karaoké plage Petit François ni Twenty Disco la même nuit ; confirmez le cover sur @grandprixrd.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover not listed — confirm @grandprixrd",
+    priceNoteLocalized: {
+      es: "Cover no listado — confirma @grandprixrd",
+      fr: "Cover non indiqué — confirmez @grandprixrd",
+    },
+    attribution: "POP research · @grandprixrd Fiesta Halloween flyer",
+    researchNotes:
+      "Editor flyer — Vie 30 Oct 2026 Fiesta Halloween Grand Prix, Bomba Next La Javilla, Puerto Plata. No start time or cover on art.",
+    updatedAt: "2026-10-08T21:00:00.000Z",
+  },
+  {
+    eventId: "pop-cinemas-week-2026-10-08",
+    body: "Mall cinema week led by Grin: El juego de la ouija — horror Ouija plot, same RD$300 daily; showtimes weren’t on the promo so check cinemaspop.com.do before you drive to Playa Dorada Mall, and bring a sweater for the AC.",
+    localized: {
+      es: "Semana de cine en el mall con Grin: El juego de la ouija — terror de Ouija, mismos RD$300 al día; los horarios no venían en el promo, mira cinemaspop.com.do antes de ir al mall de Playa Dorada, y lleva suéter por el aire.",
+      fr: "Semaine cinéma mall avec Grin: El juego de la ouija — horreur Ouija, mêmes RD$300 par jour ; horaires absents du promo, vérifiez cinemaspop.com.do avant Playa Dorada Mall, et prenez un pull pour la clim.",
+    },
+    priceFeel: "budget",
+    priceNote: "RD$300 per person daily — cinemaspop.com.do / 809-320-1400",
+    priceNoteLocalized: {
+      es: "RD$300 por persona al día — cinemaspop.com.do / 809-320-1400",
+      fr: "RD$300 par personne par jour — cinemaspop.com.do / 809-320-1400",
+    },
+    attribution: "POP research · @cinemaspoprd Grin promo",
+    researchNotes:
+      "Editor IG @cinemaspoprd + Grin poster — film now at POP Cinemas; no showtimes on promo. Week id Thu 8 Oct–Wed 14 Oct 2026; RD$300.",
+    updatedAt: "2026-10-08T20:30:00.000Z",
+  },
+  {
+    eventId: "el-cuervo-hideout-popup-2026-10-16",
+    body: "Three nights only of El Cuervo burgers upstairs at The Hideout on Luis Ginebra #56 — 6–11 PM Oct 16–18; climb to segundo nivel (not Cigar Town downstairs) and confirm the menu drop on @elcuervostreetfood.",
+    localized: {
+      es: "Solo tres noches de hamburguesas El Cuervo arriba en The Hideout en Luis Ginebra #56 — 6–11 PM del 16–18 oct; sube al segundo nivel (no Cigar Town abajo) y confirma el menú en @elcuervostreetfood.",
+      fr: "Trois soirs seulement de burgers El Cuervo à l’étage au The Hideout, Luis Ginebra n° 56 — 18 h–23 h du 16–18 oct ; montez au 2e (pas Cigar Town en bas) et confirmez le menu sur @elcuervostreetfood.",
+    },
+    priceFeel: "varies",
+    priceNote: "Menu prices on site — @elcuervostreetfood",
+    priceNoteLocalized: {
+      es: "Precios en el local — @elcuervostreetfood",
+      fr: "Prix sur place — @elcuervostreetfood",
+    },
+    attribution: "POP research · @elcuervostreetfood Hideout pop-up",
+    researchNotes:
+      "Editor IG @elcuervostreetfood + flyer — Solo Tres Noches 16–18 Oct 2026, 6–11 PM, The Hideout Av. Luis Ginebra #56 segundo nivel. Burgers / papas.",
+    updatedAt: "2026-10-08T23:30:00.000Z",
+  },
+  {
+    eventId: "hideout-miercoles-rock-en-espanol",
+    seriesKey: "the-hideout-puerto-plata:weekly:3",
+    body: "Weekly Wednesday Rock en Español upstairs at The Hideout — Soda Stereo / Héroes playlist energy on Luis Ginebra #56 segundo nivel, not Cigar Town’s Ron & Humos downstairs; cover/doors confirm at the lounge.",
+    localized: {
+      es: "Miércoles semanal de Rock en Español arriba en The Hideout — energía playlist Soda Stereo / Héroes en Luis Ginebra #56 segundo nivel, no el Ron & Humos de Cigar Town abajo; cover/puertas confirma en el lounge.",
+      fr: "Mercredi hebdo Rock en Español à l’étage au The Hideout — énergie playlist Soda Stereo / Héroes au 56 Luis Ginebra 2e étage, pas le Ron & Humos de Cigar Town en bas ; cover/portes à confirmer au lounge.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover/doors confirm at The Hideout",
+    priceNoteLocalized: {
+      es: "Cover/puertas confirma en The Hideout",
+      fr: "Cover/portes confirmez au The Hideout",
+    },
+    attribution: "POP research · The Hideout Rock en Español flyer",
+    researchNotes:
+      "Editor flyer Miércoles de Rock en Español, The Hideout, Av. Luis Ginebra #56. No start time or cover on art.",
+    updatedAt: "2026-10-08T23:00:00.000Z",
+  },
+  {
+    eventId: "aura-after-dark-carlos-rivera-2026-10-10",
+    body: "Late Aura After Dark with Carlos Rivera from 11:30 PM on Calle Principal — beach-club close of Saturday, not Twenty’s Aventura Edition at Playa Dorada Mall the same night; confirm cover/tables +1 829-787-0140 / @auracabarete.",
+    localized: {
+      es: "Aura After Dark tarde con Carlos Rivera desde las 11:30 PM en Calle Principal — cierre de beach club del sábado, no Aventura Edition en Twenty en Playa Dorada Mall la misma noche; confirma cover/mesas +1 829-787-0140 / @auracabarete.",
+      fr: "Aura After Dark tardif avec Carlos Rivera dès 23 h 30 sur Calle Principal — fin de soirée beach club le samedi, pas l’Aventura Edition de Twenty à Playa Dorada Mall la même nuit ; confirmez cover/tables +1 829-787-0140 / @auracabarete.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover not on flyer — confirm @auracabarete / +1 829-787-0140",
+    priceNoteLocalized: {
+      es: "Cover no en el flyer — confirma @auracabarete / +1 829-787-0140",
+      fr: "Cover absent de l’affiche — confirmez @auracabarete / +1 829-787-0140",
+    },
+    attribution: "POP research · @auracabarete Aura After Dark flyer",
+    researchNotes:
+      "Editor flyer — Sat 10 Oct 2026 11:30 PM Live DJ Carlos Rivera, Aura After Dark, Aura Beach Club Cabarete. No cover on art.",
+    updatedAt: "2026-10-08T23:50:00.000Z",
+  },
+  {
+    eventId: "ivan-garcia-tierra-de-paso-2026-10-15",
+    body: "One-person Indios adaptation with Carlota Carretero at 7:00 PM on Juan Bosch #72 — RD$500 general / RD$150 students; not the Eulogio Badia gran reapertura on the 24th, and RSVP 809-261-7393 even though regular classes are still paused.",
+    localized: {
+      es: "Adaptación unipersonal de Indios con Carlota Carretero a las 7:00 PM en Juan Bosch #72 — RD$500 general / RD$150 estudiantes; no es la gran reapertura de Eulogio Badia del 24, y RSVP 809-261-7393 aunque las clases regulares sigan en pausa.",
+      fr: "Adaptation unipersonnelle d’Indios avec Carlota Carretero à 19 h au 72 Juan Bosch — RD$500 général / RD$150 étudiants ; pas la grande réouverture Eulogio Badia du 24, et RSVP 809-261-7393 même si les cours réguliers sont encore en pause.",
+    },
+    priceFeel: "budget",
+    priceNote: "RD$500 general · RD$150 students — RSVP 809-261-7393",
+    priceNoteLocalized: {
+      es: "RD$500 general · RD$150 estudiantes — RSVP 809-261-7393",
+      fr: "RD$500 général · RD$150 étudiants — RSVP 809-261-7393",
+    },
+    attribution: "POP research · @teatroivangarcia Tierra de Paso flyer",
+    researchNotes:
+      "Editor cropped flyer + full poster info — Thu 15 Oct 2026 7:00 PM Tierra de Paso, Carlota Carretero, Sala Iván García, RD$500 / students RD$150. Cropped art used as event hero.",
+    updatedAt: "2026-10-08T23:45:00.000Z",
   },
 ];

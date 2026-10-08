@@ -45,7 +45,6 @@ export const SEED_CREATED_AT: Readonly<Record<string, string>> = {
   "hard-rock-casa-mickey-2026-09-26": "2026-09-10T12:00:00.000Z",
   "el-choco-cave-tour-swimming-daily": "2026-09-10T12:00:00.000Z",
   "grecialandia-daily": "2026-09-11T12:00:00.000Z",
-  "drifter-sunset-into-the-night": "2026-09-11T12:00:00.000Z",
   "groundzero-sabados-latinos": "2026-09-11T12:00:00.000Z",
   "groundzero-jueves-de-frias": "2026-09-11T12:00:00.000Z",
   "groundzero-golden-night-2026-09-25": "2026-09-11T12:00:00.000Z",
@@ -216,6 +215,14 @@ export const SEED_CREATED_AT: Readonly<Record<string, string>> = {
   "ambar-lounge-perreo-negro-2026-10-10": "2026-10-08T14:00:00.000Z",
   "disco-club-halloween-2026-10-30": "2026-10-08T13:00:00.000Z",
   "amarea-one-last-escape-2026-11-07": "2026-10-08T17:00:00.000Z",
+  "el-goldito-de-oro-grand-prix-2026-10-09": "2026-10-08T22:00:00.000Z",
+  "fiesta-halloween-grand-prix-2026-10-30": "2026-10-08T21:00:00.000Z",
+  "pop-cinemas-week-2026-10-08": "2026-10-08T20:30:00.000Z",
+  "el-cuervo-hideout-popup-2026-10-16": "2026-10-08T23:30:00.000Z",
+  "hideout-miercoles-rock-en-espanol": "2026-10-08T23:00:00.000Z",
+  "aura-after-dark-carlos-rivera-2026-10-10": "2026-10-08T23:50:00.000Z",
+  "ivan-garcia-tierra-de-paso-2026-10-15": "2026-10-08T23:45:00.000Z",
+  "drifter-sunset-into-the-night": "2026-10-08T23:40:00.000Z",
 };
 
 /** Fill missing `createdAt` from {@link SEED_CREATED_AT} (does not overwrite). */

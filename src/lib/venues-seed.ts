@@ -1897,7 +1897,7 @@ export const SEED_VENUES: Venue[] = [
     name: "Iván García Teatro-Escuela",
     city: "Puerto Plata",
     description:
-      "Victorian teatro-escuela on Calle Profesor Juan Bosch #72 in the historic center — kids and youth acting classes, stage works, and cultural programming. Closed for maintenance through 23 October 2026; gran reapertura 24 October with Eulogio Badia. Instagram @teatroivangarcia · teatroivangarcia.blogspot.com.",
+      "Victorian teatro-escuela on Calle Profesor Juan Bosch #72 in the historic center — kids and youth acting classes, stage works, and cultural programming. Regular classes paused for maintenance through 23 October 2026; billed nights include Tierra de Paso (15 Oct) and gran reapertura with Eulogio Badia (24 Oct). Instagram @teatroivangarcia · teatroivangarcia.blogspot.com.",
     lat: 19.7979,
     lng: -70.6928,
     emoji: "🎭",
@@ -1969,6 +1969,16 @@ export const SEED_VENUES: Venue[] = [
     emoji: "🏓",
     phone: "+18092233974",
     website: "https://svterramar.pickleplanner.com/",
+  },
+  {
+    slug: "the-hideout-puerto-plata",
+    name: "The Hideout",
+    city: "Puerto Plata",
+    description:
+      "Second-level lounge on Av. Luis Ginebra #56 (same building as Cigar Town Pop, upstairs) — neon patio sofa vibes, Miércoles de Rock en Español, and guest pop-ups like El Cuervo Street Food. Not the cigar lounge downstairs.",
+    lat: 19.7915,
+    lng: -70.6805,
+    emoji: "🎸",
   },
 ];
 
@@ -2142,6 +2152,10 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
     pattern:
       /grand\s*prix(\s*smart\s*shop)?|grandprixrd|edificio\s*grand\s*prix/i,
     slug: "grand-prix-puerto-plata",
+  },
+  {
+    pattern: /the\s*hideout|hideout\s*(puerto\s*plata|pop)?/i,
+    slug: "the-hideout-puerto-plata",
   },
   {
     pattern:

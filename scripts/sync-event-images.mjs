@@ -27,6 +27,11 @@ const FILE_TO_EVENT_ID = {
 
   "voyvoy-saturday-session-band.jpg": "voyvoy-saturday-session-band",
   "drifter-sunset-into-the-night.jpg": "drifter-sunset-into-the-night",
+  "drifter-sunset-into-the-night-v2.jpg": "drifter-sunset-into-the-night-v2",
+  "aura-after-dark-carlos-rivera-2026-10-10.jpg":
+    "aura-after-dark-carlos-rivera-2026-10-10",
+  "ivan-garcia-tierra-de-paso-2026-10-15.jpg":
+    "ivan-garcia-tierra-de-paso-2026-10-15",
   "voyvoy-monday-night-terrace.jpg": "voyvoy-monday-live-music",
   "sosua-jewish-museum-hours.jpg": "sosua-jewish-museum-hours",
   "sosua-diving-adventures-daily.jpg": "sosua-diving-adventures-daily",
@@ -394,6 +399,16 @@ const FILE_TO_EVENT_ID = {
   "grand-prix-jueves-stripper-show.jpg": "grand-prix-jueves-stripper-show",
   "lizandro-diaz-grand-prix-2026-10-02.jpg":
     "lizandro-diaz-grand-prix-2026-10-02",
+  "el-goldito-de-oro-grand-prix-2026-10-09.jpg":
+    "el-goldito-de-oro-grand-prix-2026-10-09",
+  "fiesta-halloween-grand-prix-2026-10-30.jpg":
+    "fiesta-halloween-grand-prix-2026-10-30",
+  "pop-cinemas-week-2026-10-08-mall.jpg":
+    "pop-cinemas-week-2026-10-08-mall",
+  "el-cuervo-hideout-popup-2026-10-16.jpg":
+    "el-cuervo-hideout-popup-2026-10-16",
+  "hideout-miercoles-rock-en-espanol.jpg":
+    "hideout-miercoles-rock-en-espanol",
   "allison-sade-aura-2026-09-17.jpg": "allison-sade-aura-2026-09-17",
   "francesca-aura-2026-10-01.jpg": "francesca-aura-2026-10-01",
   "ocean-world-terrace-karaoke-encuentro-2026-09-16.jpg":
@@ -620,6 +635,7 @@ const FILE_TO_VENUE_SLUG = {
   "templo-de-las-americas.jpg": "templo-de-las-americas",
   "nueve-puerto-plata.jpg": "nueve-puerto-plata",
   "grand-prix-puerto-plata.jpg": "grand-prix-puerto-plata",
+  "the-hideout-puerto-plata.jpg": "the-hideout-puerto-plata",
 };
 
 if (!existsSync(sourceDir)) {

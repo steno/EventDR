@@ -7,6 +7,7 @@ import {
   useState,
   useSyncExternalStore,
 } from "react";
+import { usePathname } from "next/navigation";
 import {
   PULL_ACTIVATE_PX,
   PULL_ARM_PX,
@@ -16,6 +17,7 @@ import {
   isBootSplashBlocking,
   isMostlyVertical,
   isPullArmed,
+  isPullGestureSuppressed,
   prefersPullToReload,
   reloadCurrentPage,
   shouldIgnorePullTarget,
@@ -69,7 +71,14 @@ function setShellPull(pullPx: number, animate: boolean) {
   shell.style.transform = pullPx > 0 ? `translateY(${pullPx}px)` : "";
 }
 
+/** Map is always at scroll-top; swipe-down belongs to the pin sheet / map pan. */
+function isMapPath(pathname: string | null): boolean {
+  if (!pathname) return false;
+  return /\/(en|es|fr)\/map(?:\/|$)/.test(pathname);
+}
+
 export function usePullToReload(enabled = true) {
+  const pathname = usePathname();
   const indicatorRef = useRef<HTMLDivElement>(null);
   const spinnerRef = useRef<HTMLDivElement>(null);
   const dragRef = useRef<DragState>(createIdleDrag());
@@ -82,7 +91,7 @@ export function usePullToReload(enabled = true) {
     () => false,
   );
 
-  const active = enabled && enabledByMedia;
+  const active = enabled && enabledByMedia && !isMapPath(pathname);
 
   const applyVisual = useCallback((pullPx: number, animate: boolean) => {
     pullRef.current = pullPx;
@@ -151,8 +160,13 @@ export function usePullToReload(enabled = true) {
     ) => {
       if (statusRef.current === "reloading") return;
       if (isBootSplashBlocking()) return;
+      if (isPullGestureSuppressed()) return;
       if (!canStartPull(window.scrollY)) return;
       if (shouldIgnorePullTarget(target)) return;
+      // Hit-test under the finger — capture targets can miss sheet/map overlays.
+      if (shouldIgnorePullTarget(document.elementFromPoint(clientX, clientY))) {
+        return;
+      }
       if (hasNestedScrollNotAtTop(target)) return;
 
       dragRef.current = {
@@ -174,6 +188,12 @@ export function usePullToReload(enabled = true) {
       const drag = dragRef.current;
       if (drag.pointerId !== pointerId) return;
       if (statusRef.current === "reloading") return;
+      if (isPullGestureSuppressed()) {
+        resetDrag();
+        document.documentElement.classList.remove("pull-reloading");
+        applyVisual(0, false);
+        return;
+      }
 
       const dx = clientX - drag.startX;
       const dy = clientY - drag.startY;
@@ -190,6 +210,11 @@ export function usePullToReload(enabled = true) {
           return;
         }
         if (!canStartPull(window.scrollY)) {
+          resetDrag();
+          return;
+        }
+        // Abort if the finger is over a sheet/map that owns swipe-down.
+        if (shouldIgnorePullTarget(document.elementFromPoint(clientX, clientY))) {
           resetDrag();
           return;
         }

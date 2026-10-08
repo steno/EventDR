@@ -5461,5 +5461,166 @@
       "AMAREA"
     ],
     "imageEmoji": "🌊"
+  },
+  {
+    "id": "el-goldito-de-oro-grand-prix-2026-10-09",
+    "title": "El Goldito de Oro at Grand Prix",
+    "description": "Live show with El Goldito de Oro (accordion) at Grand Prix Smart Shop in La Javilla, Puerto Plata — Friday 9 October 2026. Av. Manolo Tavarez Justo esq. Presidente Caamaño #1 (Edificio Grand Prix, next to Bomba Next). Confirm doors and cover via Instagram @grandprixrd.",
+    "date": "2026-10-09",
+    "location": "Puerto Plata",
+    "venue": "Grand Prix Smart Shop",
+    "venueSlug": "grand-prix-puerto-plata",
+    "address": "Av. Manolo Tavarez Justo esq. Presidente Caamaño #1, Edificio Grand Prix (Bomba Next), La Javilla, Puerto Plata",
+    "lat": 19.7911,
+    "lng": -70.6942,
+    "category": "music",
+    "categories": [
+      "parties",
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/grandprixrd/",
+    "lineup": [
+      "El Goldito de Oro"
+    ],
+    "imageEmoji": "🪗"
+  },
+  {
+    "id": "fiesta-halloween-grand-prix-2026-10-30",
+    "title": "Fiesta Halloween at Grand Prix",
+    "description": "Halloween party at Grand Prix Smart Shop in La Javilla, Puerto Plata — Friday 30 October 2026. Av. Manolo Tavarez Justo esq. Presidente Caamaño #1 (Edificio Grand Prix, next to Bomba Next / Bomba Next La Javilla). Not Latin Disco Club, Le Petit François, or Twenty Disco the same Friday. Confirm doors and cover via Instagram @grandprixrd.",
+    "date": "2026-10-30",
+    "location": "Puerto Plata",
+    "venue": "Grand Prix Smart Shop",
+    "venueSlug": "grand-prix-puerto-plata",
+    "address": "Av. Manolo Tavarez Justo esq. Presidente Caamaño #1, Edificio Grand Prix (Bomba Next), La Javilla, Puerto Plata",
+    "lat": 19.7911,
+    "lng": -70.6942,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/grandprixrd/",
+    "lineup": [
+      "Grand Prix Smart Shop"
+    ],
+    "imageEmoji": "🎃"
+  },
+  {
+    "id": "pop-cinemas-week-2026-10-08",
+    "title": "POP Cinemas — Week of Oct 8–14",
+    "description": "Weekly cartelera at POP Cinemas in Playa Dorada Mall (Oct 8–14), RD$300 per person every day. Now playing: Grin: El juego de la ouija — a crime they thought they’d buried, an ancient Ouija game, and a presence that threatens to reveal the truth. Confirm showtimes and other titles on cinemaspop.com.do · 809-320-1400.",
+    "date": "2026-10-08",
+    "endDate": "2026-10-14",
+    "location": "Playa Dorada",
+    "venue": "POP Cinemas",
+    "venueSlug": "pop-cinemas-playa-dorada",
+    "address": "Calle Principal Playa Dorada 538, Playa Dorada Shopping Centre",
+    "lat": 19.769859,
+    "lng": -70.642341,
+    "category": "culture",
+    "categories": [
+      "performances"
+    ],
+    "format": "physical",
+    "admissionPrice": "RD$300",
+    "phone": "+18093201400",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/cinemaspop/",
+    "imageEmoji": "🎬",
+    "lineup": [
+      "Grin: El juego de la ouija — confirm showtimes on cinemaspop.com.do"
+    ]
+  },
+  {
+    "id": "el-cuervo-hideout-popup-2026-10-16",
+    "title": "El Cuervo Street Food Pop-Up at The Hideout",
+    "description": "El Cuervo Street Food three-night pop-up at The Hideout, Av. Luis Ginebra #56 segundo nivel, Puerto Plata — Thursday 16 through Saturday 18 October 2026, 6:00–11:00 PM. Special-edition burgers and crispy fries upstairs (same building as Cigar Town Pop, not the cigar lounge downstairs). Instagram @elcuervostreetfood.",
+    "date": "2026-10-16",
+    "endDate": "2026-10-18",
+    "time": "6:00 PM – 11:00 PM",
+    "location": "Puerto Plata",
+    "venue": "The Hideout",
+    "venueSlug": "the-hideout-puerto-plata",
+    "address": "Av. Luis Ginebra #56, Segundo Nivel, Puerto Plata",
+    "lat": 19.7915,
+    "lng": -70.6805,
+    "category": "food-drinks",
+    "categories": [
+      "festivals"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/elcuervostreetfood/",
+    "lineup": [
+      "El Cuervo Street Food"
+    ],
+    "imageEmoji": "🍔"
+  },
+  {
+    "id": "aura-after-dark-carlos-rivera-2026-10-10",
+    "title": "Aura After Dark — Carlos Rivera",
+    "description": "Aura After Dark with live DJ Carlos Rivera at Aura Beach Club, Calle Principal, Cabarete — Saturday 10 October 2026 from 11:30 PM. Late beach-club set — not Twenty Disco’s Aventura Edition the same Saturday in Playa Dorada Mall. Confirm cover and tables via Instagram @auracabarete or WhatsApp +1 829-787-0140.",
+    "date": "2026-10-10",
+    "time": "11:30 PM",
+    "location": "Cabarete",
+    "venue": "Aura Beach Club Cabarete",
+    "venueSlug": "aura-beach-club-cabarete",
+    "address": "Calle Principal, Cabarete 57000",
+    "lat": 19.7500769,
+    "lng": -70.4070417,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18297870140",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/auracabarete/",
+    "lineup": [
+      "Carlos Rivera"
+    ],
+    "imageEmoji": "🎧"
+  },
+  {
+    "id": "ivan-garcia-tierra-de-paso-2026-10-15",
+    "title": "Tierra de Paso — Carlota Carretero",
+    "description": "Tierra de Paso, a one-person show by Carlota Carretero — free adaptation of Juan Bosch’s book Indios — at Sala Iván García Teatro-Escuela, Calle Profesor Juan Bosch #72, Puerto Plata — Thursday 15 October 2026 at 7:00 PM. General RD$500 · students RD$150. Billed night during the maintenance window ahead of the Eulogio Badia gran reapertura on 24 October. RSVP 809-261-7393 · Instagram @teatroivangarcia.",
+    "date": "2026-10-15",
+    "time": "7:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Iván García Teatro-Escuela",
+    "venueSlug": "ivan-garcia-teatro-escuela",
+    "address": "Calle Profesor Juan Bosch #72, Puerto Plata",
+    "lat": 19.7979,
+    "lng": -70.6928,
+    "category": "performances",
+    "categories": [
+      "culture"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": false,
+    "admissionPrice": "RD$500",
+    "phone": "+18092617393",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/teatroivangarcia/",
+    "lineup": [
+      "Carlota Carretero"
+    ],
+    "imageEmoji": "🎭"
   }
 ]

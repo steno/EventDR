@@ -7,6 +7,7 @@ import {
   dampPullDistance,
   isMostlyVertical,
   isPullArmed,
+  shouldIgnorePullTarget,
 } from "./pull-to-reload";
 
 describe("dampPullDistance", () => {
@@ -52,5 +53,26 @@ describe("canStartPull", () => {
     assert.equal(canStartPull(0), true);
     assert.equal(canStartPull(3), true);
     assert.equal(canStartPull(24), false);
+  });
+});
+
+describe("shouldIgnorePullTarget", () => {
+  it("returns false for non-elements", () => {
+    assert.equal(shouldIgnorePullTarget(null), false);
+  });
+
+  it("ignores map pin sheets / map canvas so swipe-down is not a reload", () => {
+    const ignored = {
+      closest: (sel: string) => {
+        assert.match(sel, /data-map-pin-sheet/);
+        assert.match(sel, /north-coast-map/);
+        assert.match(sel, /role='dialog'/);
+        return {};
+      },
+    } as unknown as Element;
+    assert.equal(shouldIgnorePullTarget(ignored), true);
+
+    const page = { closest: () => null } as unknown as Element;
+    assert.equal(shouldIgnorePullTarget(page), false);
   });
 });

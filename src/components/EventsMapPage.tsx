@@ -276,6 +276,12 @@ export function EventsMapPage({
     closeCardSwingNext();
   }
 
+  function clearPullGestureSuppress() {
+    document.documentElement.classList.remove("pull-gesture-suppress");
+  }
+
+  useEffect(() => () => clearPullGestureSuppress(), []);
+
   function onSheetPointerDown(e: ReactPointerEvent<HTMLDivElement>) {
     if (e.button !== 0) return;
     // Venue / chrome links handle their own taps — don't start a sheet drag.
@@ -283,6 +289,8 @@ export function EventsMapPage({
       return;
     }
     suppressSlideClickRef.current = false;
+    // Block page pull-to-reload for the duration of this card gesture.
+    document.documentElement.classList.add("pull-gesture-suppress");
     slideDragRef.current = {
       pointerId: e.pointerId,
       x: e.clientX,
@@ -304,6 +312,7 @@ export function EventsMapPage({
       // Horizontal only matters when a pin stacks multiple events.
       if (drag.axis === "x" && !sheetMulti) {
         slideDragRef.current = null;
+        clearPullGestureSuppress();
         return;
       }
     }
@@ -316,6 +325,7 @@ export function EventsMapPage({
     const drag = slideDragRef.current;
     if (!drag || drag.pointerId !== e.pointerId) return;
     slideDragRef.current = null;
+    clearPullGestureSuppress();
     if (e.currentTarget.hasPointerCapture(e.pointerId)) {
       e.currentTarget.releasePointerCapture(e.pointerId);
     }
@@ -463,7 +473,7 @@ export function EventsMapPage({
       </header>
 
       <div className="relative z-0 min-h-0 flex-1">
-        <div className="north-coast-map absolute inset-0">
+        <div className="north-coast-map absolute inset-0" data-pull-reload="ignore">
           <NorthCoastMapView
             pins={pins}
             focusedPinId={focusedPinId}
@@ -500,6 +510,8 @@ export function EventsMapPage({
         {openPin && sheetEvent ? (
           <div
             ref={sheetRef}
+            data-map-pin-sheet
+            data-pull-reload="ignore"
             className="animate-slide-up absolute inset-x-0 bottom-0 z-20 max-h-[min(85dvh,40rem)] overflow-y-auto overflow-x-hidden rounded-t-3xl border-t border-neutral-200 bg-white/98 p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] shadow-[0_-12px_40px_-12px_rgba(0,0,0,0.35)] backdrop-blur-xl dark:border-neutral-800 dark:bg-neutral-950/98 sm:inset-x-auto sm:bottom-4 sm:right-4 sm:w-[22rem] sm:rounded-3xl sm:border sm:pb-3"
             role="dialog"
             aria-label={dict.map.pinSheetLabel}
@@ -647,6 +659,8 @@ export function EventsMapPage({
         {venueOnlyOpen && openPin?.venueOnly ? (
           <div
             ref={sheetRef}
+            data-map-pin-sheet
+            data-pull-reload="ignore"
             className="animate-slide-up absolute inset-x-0 bottom-0 z-20 overflow-hidden rounded-t-3xl border-t border-neutral-200 bg-white/98 p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] shadow-[0_-12px_40px_-12px_rgba(0,0,0,0.35)] backdrop-blur-xl dark:border-neutral-800 dark:bg-neutral-950/98 sm:inset-x-auto sm:bottom-4 sm:right-4 sm:w-[22rem] sm:rounded-3xl sm:border sm:pb-3"
             role="dialog"
             aria-label={dict.map.venuePinSheetLabel}

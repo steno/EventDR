@@ -5461,5 +5461,166 @@
     "imageEmoji": "🌊",
     "title": "AMAREA: One Last Escape en Aura Beach Club",
     "description": "Kenley Events presenta AMAREA: One Last Escape en Aura Beach Club, Calle Principal, Cabarete — sábado 7 y domingo 8 de noviembre 2026. Dos noches de rooftop y un día junto al mar — el último fin de semana de Kenley en Cabarete del año. Early Bird: una noche RD$1,000 · ambas noches de rooftop RD$1,800 (presale una noche RD$1,500 / fin de semana RD$2,500; final release una noche RD$2,000). Tickets limitados por fase en Boletu. Cena y beach brunch son reservas aparte. Info y mesas 809-980-3789 · Instagram @kenleyevents / @auracabarete."
+  },
+  {
+    "id": "el-goldito-de-oro-grand-prix-2026-10-09",
+    "title": "El Goldito de Oro en Grand Prix",
+    "description": "Show en vivo con El Goldito de Oro (acordeón) en Grand Prix Smart Shop, La Javilla, Puerto Plata — viernes 9 de octubre 2026. Av. Manolo Tavarez Justo esq. Presidente Caamaño #1 (Edificio Grand Prix, junto a Bomba Next). Confirma puertas y cover por Instagram @grandprixrd.",
+    "date": "2026-10-09",
+    "location": "Puerto Plata",
+    "venue": "Grand Prix Smart Shop",
+    "venueSlug": "grand-prix-puerto-plata",
+    "address": "Av. Manolo Tavarez Justo esq. Presidente Caamaño #1, Edificio Grand Prix (Bomba Next), La Javilla, Puerto Plata",
+    "lat": 19.7911,
+    "lng": -70.6942,
+    "category": "music",
+    "categories": [
+      "parties",
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/grandprixrd/",
+    "lineup": [
+      "El Goldito de Oro"
+    ],
+    "imageEmoji": "🪗"
+  },
+  {
+    "id": "fiesta-halloween-grand-prix-2026-10-30",
+    "title": "Fiesta Halloween en Grand Prix",
+    "description": "Fiesta Halloween en Grand Prix Smart Shop, La Javilla, Puerto Plata — viernes 30 de octubre 2026. Av. Manolo Tavarez Justo esq. Presidente Caamaño #1 (Edificio Grand Prix, junto a Bomba Next / Bomba Next La Javilla). No es Latin Disco Club, Le Petit François ni Twenty Disco el mismo viernes. Confirma puertas y cover por Instagram @grandprixrd.",
+    "date": "2026-10-30",
+    "location": "Puerto Plata",
+    "venue": "Grand Prix Smart Shop",
+    "venueSlug": "grand-prix-puerto-plata",
+    "address": "Av. Manolo Tavarez Justo esq. Presidente Caamaño #1, Edificio Grand Prix (Bomba Next), La Javilla, Puerto Plata",
+    "lat": 19.7911,
+    "lng": -70.6942,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/grandprixrd/",
+    "lineup": [
+      "Grand Prix Smart Shop"
+    ],
+    "imageEmoji": "🎃"
+  },
+  {
+    "id": "pop-cinemas-week-2026-10-08",
+    "title": "POP Cinemas — Semana del 8–14 oct",
+    "description": "Cartelera semanal en POP Cinemas, Playa Dorada Mall (8–14 oct), RD$300 por persona todos los días. En cartelera: Grin: El juego de la ouija — un crimen que creían haber ocultado, un antiguo juego y una presencia que amenaza con revelar la verdad. Confirma horarios y otros títulos en cinemaspop.com.do · 809-320-1400.",
+    "date": "2026-10-08",
+    "endDate": "2026-10-14",
+    "location": "Playa Dorada",
+    "venue": "POP Cinemas",
+    "venueSlug": "pop-cinemas-playa-dorada",
+    "address": "Calle Principal Playa Dorada 538, Playa Dorada Shopping Centre",
+    "lat": 19.769859,
+    "lng": -70.642341,
+    "category": "culture",
+    "categories": [
+      "performances"
+    ],
+    "format": "physical",
+    "admissionPrice": "RD$300",
+    "phone": "+18093201400",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/cinemaspop/",
+    "imageEmoji": "🎬",
+    "lineup": [
+      "Grin: El juego de la ouija — confirma horarios en cinemaspop.com.do"
+    ]
+  },
+  {
+    "id": "el-cuervo-hideout-popup-2026-10-16",
+    "title": "Pop-up El Cuervo Street Food en The Hideout",
+    "description": "Pop-up de tres noches de El Cuervo Street Food en The Hideout, Av. Luis Ginebra #56 segundo nivel, Puerto Plata — jueves 16 al sábado 18 de octubre 2026, 6:00–11:00 PM. Hamburguesas edición especial y papas crujientes arriba (mismo edificio que Cigar Town Pop, no el lounge de cigarros de abajo). Instagram @elcuervostreetfood.",
+    "date": "2026-10-16",
+    "endDate": "2026-10-18",
+    "time": "6:00 PM – 11:00 PM",
+    "location": "Puerto Plata",
+    "venue": "The Hideout",
+    "venueSlug": "the-hideout-puerto-plata",
+    "address": "Av. Luis Ginebra #56, Segundo Nivel, Puerto Plata",
+    "lat": 19.7915,
+    "lng": -70.6805,
+    "category": "food-drinks",
+    "categories": [
+      "festivals"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/elcuervostreetfood/",
+    "lineup": [
+      "El Cuervo Street Food"
+    ],
+    "imageEmoji": "🍔"
+  },
+  {
+    "id": "aura-after-dark-carlos-rivera-2026-10-10",
+    "title": "Aura After Dark — Carlos Rivera",
+    "description": "Aura After Dark con DJ en vivo Carlos Rivera en Aura Beach Club, Calle Principal, Cabarete — sábado 10 de octubre 2026 desde las 11:30 PM. Set tarde en beach club — no es Aventura Edition en Twenty Disco el mismo sábado en Playa Dorada Mall. Confirma cover y mesas por Instagram @auracabarete o WhatsApp +1 829-787-0140.",
+    "date": "2026-10-10",
+    "time": "11:30 PM",
+    "location": "Cabarete",
+    "venue": "Aura Beach Club Cabarete",
+    "venueSlug": "aura-beach-club-cabarete",
+    "address": "Calle Principal, Cabarete 57000",
+    "lat": 19.7500769,
+    "lng": -70.4070417,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18297870140",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/auracabarete/",
+    "lineup": [
+      "Carlos Rivera"
+    ],
+    "imageEmoji": "🎧"
+  },
+  {
+    "id": "ivan-garcia-tierra-de-paso-2026-10-15",
+    "title": "Tierra de Paso — Carlota Carretero",
+    "description": "Tierra de Paso, actuación unipersonal de Carlota Carretero — adaptación libre del libro Indios de Juan Bosch — en la Sala Iván García Teatro-Escuela, Calle Profesor Juan Bosch #72, Puerto Plata — jueves 15 de octubre 2026 a las 7:00 PM. General RD$500 · estudiantes RD$150. Noche con cartel durante el mantenimiento, antes de la gran reapertura con Eulogio Badia el 24 de octubre. RSVP 809-261-7393 · Instagram @teatroivangarcia.",
+    "date": "2026-10-15",
+    "time": "7:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Iván García Teatro-Escuela",
+    "venueSlug": "ivan-garcia-teatro-escuela",
+    "address": "Calle Profesor Juan Bosch #72, Puerto Plata",
+    "lat": 19.7979,
+    "lng": -70.6928,
+    "category": "performances",
+    "categories": [
+      "culture"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": false,
+    "admissionPrice": "RD$500",
+    "phone": "+18092617393",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/teatroivangarcia/",
+    "lineup": [
+      "Carlota Carretero"
+    ],
+    "imageEmoji": "🎭"
   }
 ]

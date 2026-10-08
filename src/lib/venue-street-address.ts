@@ -16,6 +16,7 @@ export const VENUE_STREET_ADDRESS: Readonly<Record<string, string>> = {
   "charco-los-militares": "MCF3+P2, Tubagua",
   "cheers-bar-sosua": "Calle Pedro Clisante",
   "cigar-town-pop": "Avenida Luis Ginebra No. 56",
+  "the-hideout-puerto-plata": "Av. Luis Ginebra #56, Segundo Nivel",
   "classic-cars-dominicana": "Victrola 037 Arte Café",
   "club-deportivo-fantastico": "Calle 1ra",
   "coconut-cove": "Bajo Hondo, Coconut Cove",

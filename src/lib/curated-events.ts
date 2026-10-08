@@ -607,6 +607,12 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     phone: "+18093201400",
     venueSlug: "pop-cinemas-playa-dorada",
   },
+  "pop-cinemas-week-2026-10-08": {
+    isFree: false,
+    admissionPrice: "RD$300",
+    phone: "+18093201400",
+    venueSlug: "pop-cinemas-playa-dorada",
+  },
   "el-cuarteto-terrible-zona-acapella-2026-09-27": {
     isFree: true,
     phone: "+18297260344",
@@ -790,6 +796,17 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     callForPricing: true,
     phone: "+18092617393",
     venueSlug: "ivan-garcia-teatro-escuela",
+  },
+  "ivan-garcia-tierra-de-paso-2026-10-15": {
+    isFree: false,
+    admissionPrice: "RD$500",
+    phone: "+18092617393",
+    venueSlug: "ivan-garcia-teatro-escuela",
+  },
+  "aura-after-dark-carlos-rivera-2026-10-10": {
+    callForPricing: true,
+    phone: "+18297870140",
+    venueSlug: "aura-beach-club-cabarete",
   },
   "hms-valeria-spanish-saturday": {
     isFree: true,

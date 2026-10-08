@@ -1778,6 +1778,17 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
       { key: "tourist_crowds", sentiment: "mixed", audience: "visitor" },
     ],
   }),
+  editorial({
+    venueSlug: "the-hideout-puerto-plata",
+    verdictKey: "solid_local_nightlife",
+    crowdFit: ["local", "nightlife", "mixed"],
+    axes: { recommend: 4.0, atmosphere: 4.2, value: 3.9, practical: 3.8 },
+    themes: [
+      { key: "live_music", sentiment: "positive" },
+      { key: "loud_late", sentiment: "mixed", audience: "nightlife" },
+      { key: "easy_to_find", sentiment: "mixed" },
+    ],
+  }),
 ];
 
 const bySlug = new Map(

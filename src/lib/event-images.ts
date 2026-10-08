@@ -204,6 +204,14 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "grand-prix-jueves-stripper-show": "grand-prix-jueves-stripper-show.jpg",
   "lizandro-diaz-grand-prix-2026-10-02":
     "lizandro-diaz-grand-prix-2026-10-02.jpg",
+  "el-goldito-de-oro-grand-prix-2026-10-09":
+    "el-goldito-de-oro-grand-prix-2026-10-09.jpg",
+  "fiesta-halloween-grand-prix-2026-10-30":
+    "fiesta-halloween-grand-prix-2026-10-30.jpg",
+  "el-cuervo-hideout-popup-2026-10-16":
+    "el-cuervo-hideout-popup-2026-10-16.jpg",
+  "hideout-miercoles-rock-en-espanol":
+    "hideout-miercoles-rock-en-espanol.jpg",
   "iss-pta-parents-night-out-2026-09-17":
     "iss-pta-parents-night-out-flyer.jpg",
   "hard-rock-catrinas-halloween-2026-10-31":
@@ -365,7 +373,11 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "ocean-world-terrace-karaoke-encuentro-2026-09-16.jpg",
   "duo-maryem-rancho-catalina-2026-09-20":
     "duo-maryem-rancho-catalina-2026-09-20.jpg",
-  "drifter-sunset-into-the-night": "drifter-sunset-into-the-night.jpg",
+  "drifter-sunset-into-the-night": "drifter-sunset-into-the-night-v2.jpg",
+  "aura-after-dark-carlos-rivera-2026-10-10":
+    "aura-after-dark-carlos-rivera-2026-10-10.jpg",
+  "ivan-garcia-tierra-de-paso-2026-10-15":
+    "ivan-garcia-tierra-de-paso-2026-10-15.jpg",
   "sosua-jewish-museum-hours": "sosua-jewish-museum-hours-facade.jpg",
   "templo-de-las-americas-daily": "templo-de-las-americas-daily.jpg",
   "sosua-diving-adventures-daily": "sosua-diving-adventures-daily.jpg",
@@ -500,6 +512,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "dewry-luciano-zona-acapella-2026-08-23.jpg",
   "pop-cinemas-week-2026-08-20": "pop-cinemas-week-2026-08-20.jpg",
   "pop-cinemas-week-2026-09-11": "pop-cinemas-week-2026-09-11-mall.jpg",
+  "pop-cinemas-week-2026-10-08": "pop-cinemas-week-2026-10-08-mall.jpg",
   "petit-francois-friday-karaoke": "petit-francois-friday-karaoke.jpg",
   "costambar-beach-fitness": "costambar-beach-fitness.png",
   "love-does-bocadillos-course-2026": "love-does-bocadillos-course-2026.jpg",
@@ -613,6 +626,9 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "twenty-disco-kiry-curu-2026-10-16": "object-center",
   "ivan-garcia-eulogio-badia-2026-10-24": "object-center",
   "ivan-garcia-cafe-opera-codigo-clown-2026-10-31": "object-center",
+  "ivan-garcia-tierra-de-paso-2026-10-15": "object-center",
+  "aura-after-dark-carlos-rivera-2026-10-10": "object-center",
+  "drifter-sunset-into-the-night": "object-center",
   "la-lola-back-to-northside-2026-07-04": "object-center",
   "ambar-lounge-emil-roman-2026-09-26": "object-center",
   "ambar-lounge-gaby-luna-2026-10-03": "object-center",
@@ -672,6 +688,10 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "grand-prix-sabado-bailable": "object-center",
   "grand-prix-jueves-stripper-show": "object-center",
   "lizandro-diaz-grand-prix-2026-10-02": "object-center",
+  "el-goldito-de-oro-grand-prix-2026-10-09": "object-center",
+  "fiesta-halloween-grand-prix-2026-10-30": "object-center",
+  "el-cuervo-hideout-popup-2026-10-16": "object-center",
+  "hideout-miercoles-rock-en-espanol": "object-center",
   "cheo-almonte-grand-prix-2026-09-25": "object-top",
   // Tall Vinoteca flyer — keep Chiche + accordion in wide card crops.
   "chiche-almonte-vinoteca-2026-10-17": "object-top",
@@ -878,6 +898,10 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "grand-prix-sabado-bailable.jpg",
   "grand-prix-jueves-stripper-show.jpg",
   "lizandro-diaz-grand-prix-2026-10-02.jpg",
+  "el-goldito-de-oro-grand-prix-2026-10-09.jpg",
+  "fiesta-halloween-grand-prix-2026-10-30.jpg",
+  "el-cuervo-hideout-popup-2026-10-16.jpg",
+  "hideout-miercoles-rock-en-espanol.jpg",
   "cheo-almonte-grand-prix-2026-09-25.jpg",
   "duo-maryem-rancho-catalina-2026-09-20.jpg",
   "rio-sonador-cierre-del-verano-2026-09-20.jpg",
@@ -965,6 +989,9 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "twenty-disco-kiry-curu-2026-10-16.jpg",
   "ivan-garcia-cafe-opera-codigo-clown-2026-10-31.jpg",
   "ivan-garcia-eulogio-badia-2026-10-24.jpg",
+  "ivan-garcia-tierra-de-paso-2026-10-15.jpg",
+  "aura-after-dark-carlos-rivera-2026-10-10.jpg",
+  "drifter-sunset-into-the-night-v2.jpg",
   "la-lola-back-to-northside-2026-07-04.jpg",
   "ambar-lounge-emil-roman-2026-09-26.jpg",
   "finely-mirador-inauguracion-2026-09-25.jpg",
@@ -1069,7 +1096,6 @@ const HOME_HERO_SCENE_FILES = new Set([
   "d-classico-merengue-bar.jpg",
   "del-oro-chocolate-factory-tour.jpg",
   "don-limon-beach-dining.jpeg",
-  "drifter-sunset-into-the-night.jpg",
   "el-batey-weekend-nightlife-clisante.jpg",
   "el-carey-weekend-nightlife-lanterns.jpg",
   "el-choco-cave-tour-swimming-daily.jpg",
@@ -1131,6 +1157,7 @@ const HOME_HERO_SCENE_FILES = new Set([
   "plaza-independencia-daily.jpg",
   "plaza-independencia-weekend-culture.jpg",
   "pop-cinemas-week-2026-09-11-mall.jpg",
+  "pop-cinemas-week-2026-10-08-mall.jpg",
   "puerto-plata-beach-soccer-2026-aerial.jpg",
   "rio-martinico-sosua.jpg",
   "rio-sonador-finca-papirucho.jpg",

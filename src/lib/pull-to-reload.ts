@@ -50,18 +50,25 @@ export function subscribePullToReloadMedia(onChange: () => void): () => void {
   return () => media.removeEventListener("change", onChange);
 }
 
+/** Surfaces that own vertical gestures (map pins, dialogs) — never page reload. */
+const PULL_IGNORE_CLOSEST =
+  "input, textarea, select, [contenteditable='true'], [data-pull-reload='ignore'], [data-map-pin-sheet], .north-coast-map, [aria-modal='true'], [role='dialog'], .fixed.inset-0";
+
 export function shouldIgnorePullTarget(target: EventTarget | null): boolean {
-  if (!(target instanceof Element)) return false;
+  // Duck-type — `instanceof Element` is unavailable in node:test (no DOM).
   if (
-    target.closest(
-      "input, textarea, select, [contenteditable='true'], [data-pull-reload='ignore']",
-    )
+    !target ||
+    typeof (target as Element).closest !== "function"
   ) {
-    return true;
+    return false;
   }
-  if (target.closest('[aria-modal="true"], [role="dialog"]')) return true;
-  if (target.closest(".fixed.inset-0")) return true;
-  return false;
+  return Boolean((target as Element).closest(PULL_IGNORE_CLOSEST));
+}
+
+/** True while a local sheet/card gesture is claiming the finger. */
+export function isPullGestureSuppressed(): boolean {
+  if (typeof document === "undefined") return false;
+  return document.documentElement.classList.contains("pull-gesture-suppress");
 }
 
 export function hasNestedScrollNotAtTop(target: EventTarget | null): boolean {

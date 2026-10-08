@@ -269,16 +269,20 @@ export const EDITORIAL_ALERTS: readonly EditorialAlert[] = [
     reopensOn: "2026-10-24",
     citySlugs: ["puerto-plata"],
     href: { type: "venue", slug: "ivan-garcia-teatro-escuela" },
-    exceptEventIds: ["ivan-garcia-eulogio-badia-2026-10-24"],
+    exceptEventIds: [
+      "ivan-garcia-tierra-de-paso-2026-10-15",
+      "ivan-garcia-eulogio-badia-2026-10-24",
+      "ivan-garcia-cafe-opera-codigo-clown-2026-10-31",
+    ],
     title: {
       en: "Sala Iván García closed for maintenance",
       es: "Sala Iván García cerrada por mantenimiento",
       fr: "Sala Iván García fermée pour entretien",
     },
     summary: {
-      en: "Teatro-escuela shut for maintenance on Juan Bosch #72.",
-      es: "Teatro-escuela cerrado por mantenimiento en Juan Bosch #72.",
-      fr: "Teatro-escuela fermé pour entretien au 72 Juan Bosch.",
+      en: "Regular classes paused — billed shows may still run (e.g. Tierra de Paso Oct 15).",
+      es: "Clases regulares en pausa — pueden haber funciones con cartel (p. ej. Tierra de Paso 15 oct).",
+      fr: "Cours réguliers en pause — des spectacles à l’affiche peuvent avoir lieu (ex. Tierra de Paso 15 oct).",
     },
   },
   {
