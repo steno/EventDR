@@ -403,6 +403,10 @@ export type Dictionary = {
     openCruise: string;
     /** Tiny header caption under the map icon until first visit. */
     newBadge: string;
+    /** Sheet when `?venue=` opens a place with no upcoming event pins. */
+    venuePinSheetLabel: string;
+    venueNoEvents: string;
+    openVenue: string;
     metaTitle: string;
     metaDescription: string;
   };
@@ -1082,6 +1086,9 @@ export const en: Dictionary = {
     eventsHere: "{count} events here",
     openCruise: "Cruise plan",
     newBadge: "NEW",
+    venuePinSheetLabel: "This place",
+    venueNoEvents: "No upcoming events pinned here right now.",
+    openVenue: "Open venue",
     metaTitle: "North Coast events map | POP Events",
     metaDescription:
       "3D map of Puerto Plata, Sosúa, and Cabarete with pins for tonight and this weekend — tap a pin for the event card and directions.",

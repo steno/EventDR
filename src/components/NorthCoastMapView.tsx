@@ -132,7 +132,10 @@ function buildPinElement(pin: MapPin, active: boolean): HTMLButtonElement {
   btn.type = "button";
   btn.className = "north-coast-map-pin";
   btn.dataset.pinId = pin.id;
-  btn.setAttribute("aria-label", pin.events[0]?.title ?? "Event");
+  btn.setAttribute(
+    "aria-label",
+    pin.venueOnly?.name ?? pin.events[0]?.title ?? "Event",
+  );
   btn.style.color = pin.color;
   if (active) btn.dataset.selected = "true";
 

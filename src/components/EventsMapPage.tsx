@@ -21,19 +21,20 @@ import {
   filterMapEvents,
   nearestMapPin,
   SWING_NEXT_MAX_METERS,
+  withVenueDeepLinkPin,
 } from "@/lib/map-events";
 import {
   MAP_AREAS,
-  MAP_PIN_ZOOM,
   resolveDefaultMapZoom,
   type MapAreaId,
   type MapCameraTarget,
 } from "@/lib/map-style";
 import { CITIES, getCityName, type CitySlug } from "@/lib/cities";
 import { CRUISE_PORTS, cruisePath, type CruisePortSlug } from "@/lib/cruise";
-import { hasMapCoords } from "@/lib/event-coords";
-import { haversineMeters } from "@/lib/distance";
+import { venueDetailPath } from "@/lib/event-navigation";
 import { getSeedVenue } from "@/lib/venues-seed";
+import { getVenueImageUrl } from "@/lib/venue-images";
+import { localizeVenue } from "@/lib/venues-i18n";
 import type { Event } from "@/lib/types";
 import { PAGE_GUTTER_CLASS, PAGE_WIDTH_CLASS } from "@/lib/page-shell";
 
@@ -92,7 +93,21 @@ export function EventsMapPage({
     () => filterMapEvents(initialEvents, "all", "all"),
     [initialEvents],
   );
-  const pins = useMemo(() => buildMapPins(filtered), [filtered]);
+  const deepLinkVenue = useMemo(() => {
+    const slug = initialVenueSlug?.trim();
+    if (!slug) return null;
+    const seed = getSeedVenue(slug);
+    return seed ? localizeVenue(seed, locale) : null;
+  }, [initialVenueSlug, locale]);
+  const pins = useMemo(
+    () =>
+      withVenueDeepLinkPin(
+        buildMapPins(filtered),
+        deepLinkVenue,
+        deepLinkVenue ? getVenueImageUrl(deepLinkVenue.slug) : undefined,
+      ),
+    [filtered, deepLinkVenue],
+  );
   const openPin = pins.find((p) => p.id === openPinId) ?? null;
   const citySlug: CitySlug | null =
     area === "north-coast" ? null : area;
@@ -102,49 +117,28 @@ export function EventsMapPage({
     openPin?.events[
       Math.min(sheetEventIndex, Math.max(0, sheetEventCount - 1))
     ] ?? null;
+  const venueOnlyOpen = Boolean(openPin?.venueOnly && sheetEventCount === 0);
 
   useEffect(() => {
     setSheetEventIndex(0);
   }, [openPinId]);
 
-  // Venue page “See the area” → open that pin (or fly to the venue if no events).
+  // Venue page “See the area” → open that venue’s pin (event stack or venue-only).
   useEffect(() => {
     const slug = initialVenueSlug?.trim();
     if (!slug || venueDeepLinkDoneRef.current) return;
 
-    const bySlug = pins.find((pin) =>
-      pin.events.some((event) => event.venueSlug === slug),
+    const match = pins.find(
+      (pin) =>
+        pin.venueOnly?.slug === slug ||
+        pin.events.some((event) => event.venueSlug === slug),
     );
-    if (bySlug) {
-      venueDeepLinkDoneRef.current = true;
-      setFocusedPinId(bySlug.id);
-      setOpenPinId(bySlug.id);
-      setSwingVisitedIds([]);
-      return;
-    }
+    if (!match) return;
 
-    const venue = getSeedVenue(slug);
-    if (!venue || !hasMapCoords(venue)) return;
-
-    const byCoords = pins.find(
-      (pin) => haversineMeters(pin, venue) < 80,
-    );
-    if (byCoords) {
-      venueDeepLinkDoneRef.current = true;
-      setFocusedPinId(byCoords.id);
-      setOpenPinId(byCoords.id);
-      setSwingVisitedIds([]);
-      return;
-    }
-
-    // No upcoming pin — still land on the venue at street zoom.
     venueDeepLinkDoneRef.current = true;
-    setCameraFocus({
-      lat: venue.lat,
-      lng: venue.lng,
-      zoom: MAP_PIN_ZOOM,
-      key: Date.now(),
-    });
+    setFocusedPinId(match.id);
+    setOpenPinId(match.id);
+    setSwingVisitedIds([]);
   }, [initialVenueSlug, pins]);
 
   useLayoutEffect(() => {
@@ -481,6 +475,39 @@ export function EventsMapPage({
                 </div>
               ) : null}
             </div>
+          </div>
+        ) : null}
+
+        {venueOnlyOpen && openPin?.venueOnly ? (
+          <div
+            ref={sheetRef}
+            className="animate-slide-up absolute inset-x-0 bottom-0 z-20 overflow-hidden rounded-t-3xl border-t border-neutral-200 bg-white/98 p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] shadow-[0_-12px_40px_-12px_rgba(0,0,0,0.35)] backdrop-blur-xl dark:border-neutral-800 dark:bg-neutral-950/98 sm:inset-x-auto sm:bottom-4 sm:right-4 sm:w-[22rem] sm:rounded-3xl sm:border sm:pb-3"
+            role="dialog"
+            aria-label={dict.map.venuePinSheetLabel}
+          >
+            <div className="mb-2 flex items-center gap-2">
+              <p className="min-w-0 flex-1 truncate text-sm font-extrabold leading-none text-neutral-900 dark:text-neutral-50">
+                {openPin.venueOnly.name}
+              </p>
+              <button
+                type="button"
+                onClick={closeCardSwingNext}
+                aria-label={dict.detail.close}
+                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-neutral-100 text-neutral-800 ring-1 ring-neutral-300 transition-colors hover:bg-white hover:ring-orange-400 hover:text-orange-600 active:scale-95 dark:bg-neutral-800 dark:text-neutral-100 dark:ring-white/20 dark:hover:bg-neutral-700 dark:hover:ring-orange-400/70 dark:hover:text-orange-300"
+              >
+                <X className="h-4 w-4" strokeWidth={2.5} aria-hidden />
+              </button>
+            </div>
+            <p className="mb-3 text-sm text-neutral-600 dark:text-neutral-300">
+              {dict.map.venueNoEvents}
+            </p>
+            <Link
+              href={venueDetailPath(locale, openPin.venueOnly.slug)}
+              prefetch={false}
+              className="flex min-h-11 w-full items-center justify-center rounded-2xl bg-orange-500 px-4 text-sm font-bold text-white transition-colors hover:bg-orange-600"
+            >
+              {dict.map.openVenue}
+            </Link>
           </div>
         ) : null}
       </div>

@@ -1265,8 +1265,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Puerto Plata",
     description:
       "Wine bar and lounge at Hotel Marien / Be Live Collection Marien on Costa Dorada — bottles by the glass, live bands, and a quieter room than the hotel casino next door. Open evenings ~6:00 PM–2:00 AM.",
-    lat: 19.7774246,
-    lng: -70.6591856,
+    lat: 19.7768222,
+    lng: -70.6597699,
     emoji: "🍷",
     instagram: "vinotecamarienpp",
     phone: "+18093201515",

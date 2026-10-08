@@ -2,10 +2,13 @@ import { hasMapCoords, resolveEventCoords } from "@/lib/event-coords";
 import { eventInCategory } from "@/lib/categorize";
 import { haversineMeters } from "@/lib/distance";
 import { filterByTimeRange, type TimeRange } from "@/lib/filters";
-import type { Event, EventCategory } from "@/lib/types";
+import type { Event, EventCategory, Venue } from "@/lib/types";
 import { pinColorForCategory } from "@/lib/map-style";
 
 export type MapTimeFilter = Extract<TimeRange, "all" | "today" | "weekend">;
+
+/** Venue deep-link pin when the place has no upcoming event pins. */
+export const VENUE_ONLY_PIN_COLOR = "#ea580c";
 
 export type MapPin = {
   id: string;
@@ -16,6 +19,8 @@ export type MapPin = {
   events: Event[];
   /** First event image for the pin thumbnail (if any). */
   thumbUrl?: string;
+  /** Set when `?venue=` opens a place with no upcoming listings. */
+  venueOnly?: { slug: string; name: string };
 };
 
 function pinKey(lat: number, lng: number): string {
@@ -87,6 +92,51 @@ export function buildMapPins(events: Event[]): MapPin[] {
   }
 
   return [...groups.values()];
+}
+
+/** Stable id for a venue-only deep-link pin (no upcoming events). */
+export function venueOnlyPinId(slug: string): string {
+  return `venue:${slug}`;
+}
+
+export function buildVenueOnlyMapPin(
+  venue: Pick<Venue, "slug" | "name" | "lat" | "lng">,
+  thumbUrl?: string,
+): MapPin {
+  return {
+    id: venueOnlyPinId(venue.slug),
+    lat: venue.lat,
+    lng: venue.lng,
+    color: VENUE_ONLY_PIN_COLOR,
+    category: "parties",
+    events: [],
+    ...(thumbUrl ? { thumbUrl } : {}),
+    venueOnly: { slug: venue.slug, name: venue.name },
+  };
+}
+
+/**
+ * When “See the area” deep-links a venue with no upcoming event pin, append a
+ * venue marker so the map still shows a tip at the place (not a blank fly-to).
+ * Does not steal a nearby neighbor’s pin in dense complexes (e.g. Costa Dorada).
+ */
+export function withVenueDeepLinkPin(
+  pins: MapPin[],
+  venue: Pick<Venue, "slug" | "name" | "lat" | "lng"> | null | undefined,
+  thumbUrl?: string,
+): MapPin[] {
+  if (!venue || !hasMapCoords(venue)) return pins;
+  const slug = venue.slug;
+  if (
+    pins.some(
+      (pin) =>
+        pin.venueOnly?.slug === slug ||
+        pin.events.some((event) => event.venueSlug === slug),
+    )
+  ) {
+    return pins;
+  }
+  return [...pins, buildVenueOnlyMapPin(venue, thumbUrl)];
 }
 
 /** Max hop on card-close “swing next”; farther pins zoom back to overview. */

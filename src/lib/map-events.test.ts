@@ -6,6 +6,8 @@ import {
   filterMapEvents,
   nearestMapPin,
   slimEventsForMap,
+  venueOnlyPinId,
+  withVenueDeepLinkPin,
 } from "./map-events";
 import type { Event } from "./types";
 
@@ -206,5 +208,47 @@ describe("map-events", () => {
     const filtered = filterMapEvents([music, food], "today", "music");
     // Date-dependent; at least category filter applies when dates match.
     assert.ok(filtered.every((e) => e.category === "music" || e.categories?.includes("music")));
+  });
+
+  it("adds a venue-only pin when the deep-linked venue has no events", () => {
+    const neighbor = event({
+      id: "vino",
+      title: "Band night",
+      lat: 19.7768222,
+      lng: -70.6597699,
+      venueSlug: "vinoteca-wine-house",
+    });
+    const pins = buildMapPins([neighbor]);
+    const withVenue = withVenueDeepLinkPin(pins, {
+      slug: "kviar-costa-dorada",
+      name: "Kviar Show Disco & Casino",
+      lat: 19.776438,
+      lng: -70.659688,
+    }, "/venues/kviar.jpg");
+    assert.equal(withVenue.length, 2);
+    const venuePin = withVenue.find((p) => p.venueOnly?.slug === "kviar-costa-dorada");
+    assert.ok(venuePin);
+    assert.equal(venuePin?.id, venueOnlyPinId("kviar-costa-dorada"));
+    assert.equal(venuePin?.events.length, 0);
+    assert.equal(venuePin?.thumbUrl, "/venues/kviar.jpg");
+  });
+
+  it("does not duplicate when the venue already has an event pin", () => {
+    const listed = event({
+      id: "k1",
+      title: "Casino night",
+      lat: 19.776438,
+      lng: -70.659688,
+      venueSlug: "kviar-costa-dorada",
+    });
+    const pins = buildMapPins([listed]);
+    const withVenue = withVenueDeepLinkPin(pins, {
+      slug: "kviar-costa-dorada",
+      name: "Kviar Show Disco & Casino",
+      lat: 19.776438,
+      lng: -70.659688,
+    });
+    assert.equal(withVenue.length, 1);
+    assert.equal(withVenue[0]?.venueOnly, undefined);
   });
 });
