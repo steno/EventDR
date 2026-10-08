@@ -106,6 +106,8 @@ const FILE_TO_EVENT_ID = {
     "twenty-disco-friday-dj-yosma-2026-10-09",
   "meclao-reggaeton-dj-yosma-2026-10-09.jpg":
     "meclao-reggaeton-dj-yosma-2026-10-09",
+  "meclao-tulum-after-dark-sebastian-crozz-2026-10-10.jpg":
+    "meclao-tulum-after-dark-sebastian-crozz-2026-10-10",
   "ambar-lounge-perreo-negro-2026-10-10.jpg":
     "ambar-lounge-perreo-negro-2026-10-10",
   "disco-club-halloween-2026-10-30.jpg": "disco-club-halloween-2026-10-30",

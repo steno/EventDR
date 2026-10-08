@@ -4790,6 +4790,24 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: "2026-10-08T15:00:00.000Z",
   },
   {
+    eventId: "meclao-tulum-after-dark-sebastian-crozz-2026-10-10",
+    body: "Saturday Tulum After Dark with Sebastian Crozz on the Luis Ginebra 49 rooftop — not Ambar’s Perreo Negro with Yona Ramz the same night at No. 45, and not Twenty’s Aventura Edition at the mall; reserve 809-974-7098, cover isn’t on the flyer.",
+    localized: {
+      es: "Sábado Tulum After Dark con Sebastian Crozz en el rooftop de Luis Ginebra 49 — no es el Perreo Negro de Ambar con Yona Ramz la misma noche en el No. 45, ni la Aventura Edition de Twenty en el mall; reserva 809-974-7098, el cover no está en el flyer.",
+      fr: "Samedi Tulum After Dark avec Sebastian Crozz sur le rooftop Luis Ginebra 49 — pas le Perreo Negro d’Ambar avec Yona Ramz le même soir au n° 45, ni l’Aventura Edition de Twenty au mall ; réservez 809-974-7098, le cover n’est pas sur l’affiche.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover not on flyer — reservas 809-974-7098 / @meclaorooftop",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — reservas 809-974-7098 / @meclaorooftop",
+      fr: "Cover absent de l’affiche — résas 809-974-7098 / @meclaorooftop",
+    },
+    attribution: "POP research · @meclaorooftop Tulum After Dark flyer",
+    researchNotes:
+      "Editor flyer — SAB 10 OCT TULUM AFTER DARK, SEBASTIAN CROZZ, MECLAO Rooftop Lounge; flyer prints Luis Ginebra No. 45 but venue pin stays No. 49; reservas 809-974-7098; IG ME:CLAOROOPTOP / @meclaorooftop; LAES co-brand.",
+    updatedAt: "2026-10-08T18:00:00.000Z",
+  },
+  {
     eventId: "ambar-lounge-perreo-negro-2026-10-10",
     body: "Saturday Perreo Negro with Yona Ramz on Luis Ginebra 45 — not Bandoleras Friday with Jhon Parra the night before; RSVP 809-781-8677 before walk-up, cover isn’t on the flyer.",
     localized: {

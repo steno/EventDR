@@ -324,7 +324,7 @@ export function EventsMapPage({
     setSwingVisitedIds([]);
   }
 
-  /** Close the card; swing to a nearby pin (≤5 km) or zoom back to overview. */
+  /** Close the card; swing to a nearby pin (≤1 km) or zoom back to overview. */
   function closeCardSwingNext() {
     if (!openPinId) {
       clearPinSelection();

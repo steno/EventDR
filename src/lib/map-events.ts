@@ -140,7 +140,7 @@ export function withVenueDeepLinkPin(
 }
 
 /** Max hop on card-close “swing next”; farther pins zoom back to overview. */
-export const SWING_NEXT_MAX_METERS = 5_000;
+export const SWING_NEXT_MAX_METERS = 1_000;
 
 /**
  * Nearest other pin by ground distance (for card-close “swing next”).

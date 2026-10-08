@@ -131,8 +131,9 @@ describe("map-events", () => {
       event({
         id: "c",
         title: "C",
-        lat: 19.765,
-        lng: -70.52,
+        // ~620 m — inside the 1 km swing cap (old 5 km coords were ~1.2 km)
+        lat: 19.763,
+        lng: -70.515,
       }),
     ]);
     const from = pins.find((p) => p.events[0]?.id === "a")!;

@@ -100,6 +100,7 @@ const EVENT_PHONE_BY_ID: Record<string, string> = {
   "disco-club-la-mas-doll-2026-10-02": "+18295667071",
   "meclao-sammy-bday-jhon-parra-2026-10-01": "+18293747028",
   "meclao-reggaeton-dj-yosma-2026-10-09": "+18296747028",
+  "meclao-tulum-after-dark-sebastian-crozz-2026-10-10": "+18099747098",
   "ambar-lounge-perreo-negro-2026-10-10": "+18097818677",
   "amarea-one-last-escape-2026-11-07": "+18099803789",
   "sarah-graciano-rancho-catalina-2026-10-04": "+18097813737",

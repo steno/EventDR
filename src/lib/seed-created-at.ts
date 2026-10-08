@@ -210,6 +210,7 @@ export const SEED_CREATED_AT: Readonly<Record<string, string>> = {
   "zona-acapella-club-closed": "2026-10-08T12:00:00.000Z",
   "twenty-disco-friday-dj-yosma-2026-10-09": "2026-10-08T16:00:00.000Z",
   "meclao-reggaeton-dj-yosma-2026-10-09": "2026-10-08T15:00:00.000Z",
+  "meclao-tulum-after-dark-sebastian-crozz-2026-10-10": "2026-10-08T18:00:00.000Z",
   "ambar-lounge-perreo-negro-2026-10-10": "2026-10-08T14:00:00.000Z",
   "disco-club-halloween-2026-10-30": "2026-10-08T13:00:00.000Z",
   "amarea-one-last-escape-2026-11-07": "2026-10-08T17:00:00.000Z",

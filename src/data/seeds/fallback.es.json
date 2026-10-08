@@ -5352,6 +5352,33 @@
     "description": "Viernes de Reggaetón en Mecla'o Rooftop Lounge, Av. Luis Ginebra No. 49, Puerto Plata — viernes 9 de octubre 2026. DJ Yosma (@djyosma) — reggaetón toda la noche, dress code urbano. Rooftop en Luis Ginebra — no es el set gratis de Yosma en Twenty Disco en Playa Dorada Mall la misma noche. Reservas 829-674-7028 · Instagram @meclaorooftop. Confirma cover y puertas antes de llegar walk-up."
   },
   {
+    "id": "meclao-tulum-after-dark-sebastian-crozz-2026-10-10",
+    "date": "2026-10-10",
+    "location": "Puerto Plata",
+    "venue": "Mecla'o Rooftop Lounge",
+    "venueSlug": "meclao-rooftop",
+    "address": "Av. Luis Ginebra No. 49, Puerto Plata 57000",
+    "lat": 19.788312,
+    "lng": -70.677453,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18099747098",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/meclaorooftop/",
+    "lineup": [
+      "Sebastian Crozz"
+    ],
+    "imageEmoji": "🌴",
+    "title": "Mecla'o Tulum After Dark — Sebastian Crozz",
+    "description": "Tulum After Dark en Mecla'o Rooftop Lounge, Av. Luis Ginebra No. 49, Puerto Plata — sábado 10 de octubre 2026 con Sebastian Crozz. Noche de rooftop el sábado — no es el Perreo Negro de Ambar Lounge con Yona Ramz la misma noche en Luis Ginebra 45, ni la Aventura Edition de Twenty Disco en Playa Dorada Mall. Reservas 809-974-7098 · Instagram @meclaorooftop. Confirma cover y puertas antes de llegar walk-up."
+  },
+  {
     "id": "ambar-lounge-perreo-negro-2026-10-10",
     "date": "2026-10-10",
     "location": "Puerto Plata",
