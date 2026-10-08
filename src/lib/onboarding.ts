@@ -35,6 +35,43 @@ export function markOnboardingSeen(flag: OnboardingFlag): void {
   }
 }
 
+/**
+ * Keeps the city-priming overlay across locale navigations so home does not
+ * flash underneath while `[locale]` remounts. Also used to reopen the sheet
+ * immediately (no delayed open) after a language switch.
+ */
+const CITY_PRIMING_HOLD_KEY = "pop-city-priming-hold";
+
+export function holdCityPriming(): void {
+  try {
+    sessionStorage.setItem(CITY_PRIMING_HOLD_KEY, "1");
+  } catch {
+    /* private mode / disabled storage */
+  }
+  if (typeof document !== "undefined") {
+    document.documentElement.dataset.cityPriming = "1";
+  }
+}
+
+export function clearCityPrimingHold(): void {
+  try {
+    sessionStorage.removeItem(CITY_PRIMING_HOLD_KEY);
+  } catch {
+    /* private mode / disabled storage */
+  }
+  if (typeof document !== "undefined") {
+    delete document.documentElement.dataset.cityPriming;
+  }
+}
+
+export function isCityPrimingHeld(): boolean {
+  try {
+    return sessionStorage.getItem(CITY_PRIMING_HOLD_KEY) === "1";
+  } catch {
+    return false;
+  }
+}
+
 type OnboardingCopy = {
   city: {
     eyebrow: string;

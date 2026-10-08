@@ -49,6 +49,12 @@ interface EventCardProps {
    */
   mediaOnly?: boolean;
   /**
+   * Map pin sheet: tap the image (instead of opening detail) — venue pill still navigates.
+   */
+  onMediaActivate?: () => void;
+  /** `aria-expanded` when `onMediaActivate` toggles a parent sheet. */
+  mediaExpanded?: boolean;
+  /**
    * Stretch across leftover columns on the 2-col grid (Weekend day groups /
    * short final rows). Desktop auto-fill keeps span 1 so tiles stay compact.
    */
@@ -171,6 +177,8 @@ const EventCardComponent = ({
   onNavigate,
   showEnlarge = true,
   mediaOnly = false,
+  onMediaActivate,
+  mediaExpanded = false,
   fillSpan,
 }: EventCardProps) => {
   const category = getCategoryMeta(event.category, dict.categories);
@@ -184,6 +192,7 @@ const EventCardComponent = ({
   const isCards = view === "cards";
   const spanning =
     fillSpan === "full" || (typeof fillSpan === "number" && fillSpan > 1);
+  const activateMedia = mediaOnly && onMediaActivate != null;
 
   function handleNavigate() {
     onNavigate?.();
@@ -200,6 +209,8 @@ const EventCardComponent = ({
     dark:hover:border-orange-800 dark:hover:shadow-[0_8px_24px_-8px_rgba(251,146,60,0.3)]
     has-[a:active]:scale-[0.99] has-[a:active]:border-orange-400
     dark:has-[a:active]:border-orange-500
+    has-[button:active]:scale-[0.99] has-[button:active]:border-orange-400
+    dark:has-[button:active]:border-orange-500
   `;
   const pendingChrome =
     "scale-[0.985] border-orange-400 shadow-[0_12px_32px_-16px_rgba(251,146,60,0.45)] ring-2 ring-orange-500/80 dark:border-orange-500 dark:ring-orange-400/70";
@@ -230,12 +241,22 @@ const EventCardComponent = ({
         style={fillSpanStyle(fillSpan)}
         aria-busy={pending || undefined}
       >
-        <IntentLink
-          href={href}
-          onClick={handleNavigate}
-          className="absolute inset-0 z-0 rounded-2xl touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
-          aria-label={event.title}
-        />
+        {activateMedia ? (
+          <button
+            type="button"
+            onClick={onMediaActivate}
+            className="absolute inset-0 z-0 rounded-2xl touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
+            aria-label={event.title}
+            aria-expanded={mediaExpanded}
+          />
+        ) : (
+          <IntentLink
+            href={href}
+            onClick={handleNavigate}
+            className="absolute inset-0 z-0 rounded-2xl touch-manipulation focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500"
+            aria-label={event.title}
+          />
+        )}
         <div className="relative z-[1] pointer-events-none">
           <EventCardMedia
             event={event}

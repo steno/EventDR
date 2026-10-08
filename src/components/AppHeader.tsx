@@ -116,19 +116,26 @@ export function AppHeader({
           }
           title={dict.footer.map}
           aria-current={onMap ? "page" : undefined}
-          className={`relative ${headerIconClass} ${
-            onMap
-              ? "text-orange-600 ring-orange-400/70 dark:text-orange-300 dark:ring-orange-300/50"
-              : "text-neutral-500 ring-neutral-200/70 hover:text-neutral-900 dark:text-neutral-300 dark:ring-white/12 dark:hover:text-neutral-100"
-          }`}
+          className={`
+            relative flex h-9 w-9 shrink-0 items-center justify-center rounded-full
+            bg-gradient-to-br from-orange-500 via-rose-500 to-fuchsia-500
+            text-white shadow-sm ring-2
+            transition-[transform,box-shadow,ring-color] active:scale-95 touch-manipulation
+            focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500
+            ${
+              onMap
+                ? "ring-white/80 shadow-[0_0_0_3px_rgba(251,146,60,0.35)] dark:ring-white/50"
+                : "ring-orange-300/60 hover:shadow-[0_4px_14px_-2px_rgba(251,146,60,0.55)] dark:ring-orange-400/40"
+            }
+          `}
         >
-          <MapIcon className="h-4 w-4" aria-hidden />
+          <MapIcon className="h-4 w-4" strokeWidth={2.25} aria-hidden />
           {showMapNew ? (
             <span
-              className="pointer-events-none absolute left-1/2 top-full z-[1] mt-0.5 -translate-x-1/2 whitespace-nowrap rounded bg-orange-500 px-1 py-px text-[9px] font-black uppercase leading-none tracking-wide text-white shadow-sm dark:bg-orange-500"
+              className="pointer-events-none absolute -right-1 -top-1 z-[1] rounded bg-neutral-950 px-1 py-px text-[8px] font-black uppercase leading-none tracking-wide text-white shadow-sm ring-1 ring-white/80 dark:bg-white dark:text-neutral-950 dark:ring-neutral-900"
               aria-hidden
             >
-              {/* Fixed “NEW” — keep under the icon; localized words + iOS min font blew past it when overlaid. */}
+              {/* Fixed “NEW” — English stays short; localized words blew past the icon. */}
               NEW
             </span>
           ) : null}

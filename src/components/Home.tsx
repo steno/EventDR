@@ -18,6 +18,7 @@ import { PhotoHero } from "@/components/PhotoHero";
 import { CruiseShipEntry } from "@/components/CruiseShipEntry";
 import { CategoryGrid } from "@/components/CategoryGrid";
 import { CityLocationPicker } from "@/components/CityLocationPicker";
+import { CityPrimingSheet } from "@/components/CityPrimingSheet";
 import { EventList } from "@/components/EventList";
 import { SearchBar } from "@/components/SearchBar";
 import { BottomNav } from "@/components/BottomNav";
@@ -64,8 +65,11 @@ import type { Event, Venue } from "@/lib/types";
 import type { Locale } from "@/i18n/config";
 import type { AppTab, Dictionary } from "@/i18n/dictionaries";
 import {
+  clearCityPrimingHold,
   getOnboardingCopy,
   hasSeenOnboarding,
+  holdCityPriming,
+  isCityPrimingHeld,
   markOnboardingSeen,
 } from "@/lib/onboarding";
 import { fillTemplate, cityListingSeo } from "@/lib/seo";
@@ -77,12 +81,6 @@ import { NETWORK_ONLY_FETCH } from "@/lib/pwa-refresh";
 const SubmitEventSheet = dynamic(
   () =>
     import("@/components/SubmitEventSheet").then((m) => m.SubmitEventSheet),
-  { ssr: false },
-);
-
-const CityPrimingSheet = dynamic(
-  () =>
-    import("@/components/CityPrimingSheet").then((m) => m.CityPrimingSheet),
   { ssr: false },
 );
 
@@ -315,10 +313,24 @@ function HomeApp({
   const selectedCity = localArea?.areaChosen ? localArea.city : urlArea.city;
   const areaChosen = Boolean(localArea?.areaChosen) || urlArea.areaChosen;
 
-  useEffect(() => {
-    if (cruisePort || areaChosen || hasSeenOnboarding("city-primed")) return;
-    const timer = window.setTimeout(() => setCityPrimingOpen(true), 500);
-    return () => window.clearTimeout(timer);
+  // Open before paint — no delayed flash of home. A session hold (set when
+  // switching language in the sheet) restores the overlay across remounts.
+  useLayoutEffect(() => {
+    if (cruisePort) {
+      clearCityPrimingHold();
+      setCityPrimingOpen(false);
+      return;
+    }
+    const held = isCityPrimingHeld();
+    const needsPrime =
+      held || (!areaChosen && !hasSeenOnboarding("city-primed"));
+    if (needsPrime) {
+      if (held) holdCityPriming(); // re-apply html overlay for the remount gap
+      setCityPrimingOpen(true);
+      return;
+    }
+    clearCityPrimingHold();
+    setCityPrimingOpen(false);
   }, [areaChosen, cruisePort]);
 
   const setArea = useCallback(
@@ -435,6 +447,7 @@ function HomeApp({
   const enterCruise = useCallback(
     (port: CruisePortSlug) => {
       markOnboardingSeen("city-primed");
+      clearCityPrimingHold();
       setCityPrimingOpen(false);
       setCruiseEntryOpen(false);
       // Shore day has no search field, so a query typed on home must not survive.
@@ -1010,12 +1023,14 @@ function HomeApp({
         counts={cityCounts}
         onChoose={(city) => {
           markOnboardingSeen("city-primed");
+          clearCityPrimingHold();
           setCityPrimingOpen(false);
           setArea(city);
         }}
         onChooseCruise={enterCruise}
         onDismiss={() => {
           markOnboardingSeen("city-primed");
+          clearCityPrimingHold();
           setCityPrimingOpen(false);
         }}
       />

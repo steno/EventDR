@@ -10,12 +10,15 @@ import {
   useState,
   type PointerEvent as ReactPointerEvent,
 } from "react";
-import { ArrowLeft, ChevronLeft, ChevronRight, MapPin, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, House, MapPin, X } from "lucide-react";
 import { CityLocationPicker } from "@/components/CityLocationPicker";
 import { EventCard } from "@/components/EventCard";
+import { EventCardMeta } from "@/components/EventCardMeta";
 import { CruiseShipEntry } from "@/components/CruiseShipEntry";
+import { IntentLink } from "@/components/IntentLink";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
+import { useLiveStatusDisplay } from "@/hooks/useLiveStatusDisplay";
 import {
   buildMapPins,
   filterMapEvents,
@@ -29,14 +32,65 @@ import {
   type MapAreaId,
   type MapCameraTarget,
 } from "@/lib/map-style";
-import { CITIES, getCityName, type CitySlug } from "@/lib/cities";
+import {
+  CITIES,
+  getCityName,
+  readHomeArea,
+  writeHomeArea,
+  type CitySlug,
+} from "@/lib/cities";
+
+/** Home session area → map camera region. `null` when home has no choice yet. */
+function mapAreaFromHomeStorage(): MapAreaId | null {
+  const { city, areaChosen } = readHomeArea();
+  if (!areaChosen) return null;
+  return city ?? "north-coast";
+}
 import { CRUISE_PORTS, cruisePath, type CruisePortSlug } from "@/lib/cruise";
-import { venueDetailPath } from "@/lib/event-navigation";
+import {
+  eventDetailPath,
+  rememberReturnPath,
+  venueDetailPath,
+} from "@/lib/event-navigation";
 import { getSeedVenue } from "@/lib/venues-seed";
 import { getVenueImageUrl } from "@/lib/venue-images";
 import { localizeVenue } from "@/lib/venues-i18n";
 import type { Event } from "@/lib/types";
 import { PAGE_GUTTER_CLASS, PAGE_WIDTH_CLASS } from "@/lib/page-shell";
+
+function MapPinSheetDetails({
+  event,
+  locale,
+  dict,
+  returnTo,
+  returnTitle,
+}: {
+  event: Event;
+  locale: Locale;
+  dict: Dictionary;
+  returnTo: string;
+  returnTitle: string;
+}) {
+  const liveDisplay = useLiveStatusDisplay(event, dict);
+  return (
+    <div className="mt-3 space-y-3 border-t border-neutral-200/80 pt-3 dark:border-neutral-800">
+      <EventCardMeta
+        event={event}
+        locale={locale}
+        dict={dict}
+        liveStatus={liveDisplay?.status ?? null}
+        liveStatusLabel={liveDisplay?.label ?? null}
+      />
+      <IntentLink
+        href={eventDetailPath(locale, event.id)}
+        onClick={() => rememberReturnPath(returnTo, returnTitle)}
+        className="flex min-h-11 w-full items-center justify-center rounded-2xl bg-orange-500 px-4 text-sm font-bold text-white transition-colors hover:bg-orange-600 active:scale-[0.99] touch-manipulation"
+      >
+        {dict.detail.viewEvent}
+      </IntentLink>
+    </div>
+  );
+}
 
 const NorthCoastMapView = dynamic(
   () =>
@@ -73,19 +127,23 @@ export function EventsMapPage({
   const [cruiseEntryOpen, setCruiseEntryOpen] = useState(false);
   const [shipPort, setShipPort] = useState<CruisePortSlug | null>(null);
   const [cameraFocus, setCameraFocus] = useState<CameraFocus | null>(null);
+  const homeAreaAppliedRef = useRef(false);
   const [sheetInsetPx, setSheetInsetPx] = useState(0);
   /** Index into openPin.events when a pin hosts multiple listings. */
   const [sheetEventIndex, setSheetEventIndex] = useState(0);
+  /** Image tap expands meta under the flyer (map pans up via sheet inset). */
+  const [sheetExpanded, setSheetExpanded] = useState(false);
   /** Pins already shown in this close→swing chain (avoid A↔B loops). */
   const [swingVisitedIds, setSwingVisitedIds] = useState<string[]>([]);
   const sheetRef = useRef<HTMLDivElement>(null);
   const venueDeepLinkDoneRef = useRef(false);
-  /** Pointer drag for desktop + touch swipe between stacked pin events. */
+  /** Pointer drag: horizontal = multi-event flip; vertical = expand/collapse meta. */
   const slideDragRef = useRef<{
     pointerId: number;
     x: number;
     y: number;
     swiped: boolean;
+    axis: "x" | "y" | null;
   } | null>(null);
   const suppressSlideClickRef = useRef(false);
 
@@ -121,7 +179,25 @@ export function EventsMapPage({
 
   useEffect(() => {
     setSheetEventIndex(0);
+    setSheetExpanded(false);
   }, [openPinId]);
+
+  // Mirror home’s chosen city/region into the map picker + camera (skip venue deep-links).
+  useLayoutEffect(() => {
+    if (homeAreaAppliedRef.current) return;
+    if (initialVenueSlug?.trim()) return;
+    homeAreaAppliedRef.current = true;
+    const next = mapAreaFromHomeStorage();
+    if (!next) return;
+    setArea(next);
+    const target = MAP_AREAS[next];
+    setCameraFocus({
+      ...(next === "north-coast"
+        ? { ...target, zoom: resolveDefaultMapZoom() }
+        : target),
+      key: Date.now(),
+    });
+  }, [initialVenueSlug]);
 
   // Venue page “See the area” → open that venue’s pin (event stack or venue-only).
   useEffect(() => {
@@ -168,21 +244,31 @@ export function EventsMapPage({
       cancelAnimationFrame(raf);
       ro.disconnect();
     };
-  }, [openPin, sheetEventIndex]);
+  }, [openPin, sheetEventIndex, sheetExpanded]);
 
   function goSheetEvent(next: number) {
     if (!sheetMulti) return;
     setSheetEventIndex(Math.max(0, Math.min(sheetEventCount - 1, next)));
   }
 
+  function closePinSheet() {
+    setSheetExpanded(false);
+    closeCardSwingNext();
+  }
+
   function onSheetPointerDown(e: ReactPointerEvent<HTMLDivElement>) {
-    if (!sheetMulti || e.button !== 0) return;
+    if (e.button !== 0) return;
+    // Venue / chrome links handle their own taps — don't start a sheet drag.
+    if ((e.target as Element | null)?.closest?.("a[href], [data-sheet-swipe-ignore]")) {
+      return;
+    }
     suppressSlideClickRef.current = false;
     slideDragRef.current = {
       pointerId: e.pointerId,
       x: e.clientX,
       y: e.clientY,
       swiped: false,
+      axis: null,
     };
   }
 
@@ -191,7 +277,17 @@ export function EventsMapPage({
     if (!drag || drag.pointerId !== e.pointerId || drag.swiped) return;
     const dx = e.clientX - drag.x;
     const dy = e.clientY - drag.y;
-    if (Math.abs(dx) < 12 || Math.abs(dx) <= Math.abs(dy)) return;
+    if (Math.abs(dx) < 12 && Math.abs(dy) < 12) return;
+
+    if (!drag.axis) {
+      drag.axis = Math.abs(dx) > Math.abs(dy) ? "x" : "y";
+      // Horizontal only matters when a pin stacks multiple events.
+      if (drag.axis === "x" && !sheetMulti) {
+        slideDragRef.current = null;
+        return;
+      }
+    }
+
     drag.swiped = true;
     e.currentTarget.setPointerCapture(e.pointerId);
   }
@@ -205,6 +301,18 @@ export function EventsMapPage({
     }
     const dx = e.clientX - drag.x;
     const dy = e.clientY - drag.y;
+    const axis =
+      drag.axis ?? (Math.abs(dx) > Math.abs(dy) ? "x" : "y");
+
+    if (axis === "y") {
+      if (Math.abs(dy) < 40) return;
+      suppressSlideClickRef.current = true;
+      // Swipe up → meta; swipe down → collapse.
+      setSheetExpanded(dy < 0);
+      return;
+    }
+
+    if (!sheetMulti) return;
     if (Math.abs(dx) < 48 || Math.abs(dx) < Math.abs(dy)) return;
     suppressSlideClickRef.current = true;
     goSheetEvent(sheetEventIndex + (dx < 0 ? 1 : -1));
@@ -256,6 +364,8 @@ export function EventsMapPage({
 
   function handleAreaChange(next: MapAreaId) {
     setArea(next);
+    // Keep home ↔ map area in sync for the tab session.
+    writeHomeArea(next === "north-coast" ? null : next);
     setShipPort(null);
     setCruiseEntryOpen(false);
     clearPinSelection();
@@ -304,7 +414,7 @@ export function EventsMapPage({
             aria-label={dict.nav.home}
             className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-neutral-600 ring-1 ring-neutral-200/80 transition-colors hover:text-orange-600 dark:text-neutral-300 dark:ring-white/12 dark:hover:text-orange-300"
           >
-            <ArrowLeft className="h-4 w-4" aria-hidden />
+            <House className="h-4 w-4" aria-hidden />
           </Link>
 
           <div className="min-w-0 flex-1 text-[1.5rem] font-extrabold leading-none">
@@ -370,10 +480,39 @@ export function EventsMapPage({
         {openPin && sheetEvent ? (
           <div
             ref={sheetRef}
-            className="animate-slide-up absolute inset-x-0 bottom-0 z-20 overflow-hidden rounded-t-3xl border-t border-neutral-200 bg-white/98 p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] shadow-[0_-12px_40px_-12px_rgba(0,0,0,0.35)] backdrop-blur-xl dark:border-neutral-800 dark:bg-neutral-950/98 sm:inset-x-auto sm:bottom-4 sm:right-4 sm:w-[22rem] sm:rounded-3xl sm:border sm:pb-3"
+            className="animate-slide-up absolute inset-x-0 bottom-0 z-20 max-h-[min(85dvh,40rem)] overflow-y-auto overflow-x-hidden rounded-t-3xl border-t border-neutral-200 bg-white/98 p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] shadow-[0_-12px_40px_-12px_rgba(0,0,0,0.35)] backdrop-blur-xl dark:border-neutral-800 dark:bg-neutral-950/98 sm:inset-x-auto sm:bottom-4 sm:right-4 sm:w-[22rem] sm:rounded-3xl sm:border sm:pb-3"
             role="dialog"
             aria-label={dict.map.pinSheetLabel}
+            aria-expanded={sheetExpanded}
           >
+            <div className="mb-1.5 flex items-center gap-2">
+              <h2 className="min-w-0 flex-1 text-base font-extrabold leading-snug text-neutral-900 dark:text-neutral-50">
+                <button
+                  type="button"
+                  onClick={() => setSheetExpanded((open) => !open)}
+                  aria-expanded={sheetExpanded}
+                  className="line-clamp-2 w-full text-left touch-manipulation active:opacity-80"
+                >
+                  {sheetEvent.title}
+                </button>
+              </h2>
+              <button
+                type="button"
+                data-sheet-swipe-ignore
+                onClick={() => {
+                  if (sheetExpanded) {
+                    setSheetExpanded(false);
+                    return;
+                  }
+                  closePinSheet();
+                }}
+                aria-label={dict.detail.close}
+                className="flex h-9 w-9 shrink-0 items-center justify-center self-center rounded-full bg-neutral-100 text-neutral-800 ring-1 ring-neutral-300 transition-colors hover:bg-white hover:ring-orange-400 hover:text-orange-600 active:scale-95 dark:bg-neutral-800 dark:text-neutral-100 dark:ring-white/20 dark:hover:bg-neutral-700 dark:hover:ring-orange-400/70 dark:hover:text-orange-300"
+              >
+                <X className="h-4 w-4" strokeWidth={2.5} aria-hidden />
+              </button>
+            </div>
+
             <div className="mb-2 flex items-center gap-2">
               <p className="min-w-0 flex-1 text-[11px] font-bold uppercase tracking-wide text-orange-500">
                 {(sheetEventCount === 1
@@ -385,39 +524,54 @@ export function EventsMapPage({
                 </span>
               </p>
               {sheetMulti ? (
-                <div className="flex shrink-0 items-center gap-1">
-                  <button
-                    type="button"
-                    aria-label="Previous event"
-                    disabled={sheetEventIndex <= 0}
-                    onClick={() => goSheetEvent(sheetEventIndex - 1)}
-                    className="flex h-9 w-9 items-center justify-center rounded-full bg-neutral-100 text-neutral-800 ring-1 ring-neutral-200/90 transition-colors enabled:hover:bg-neutral-200 disabled:opacity-35 dark:bg-neutral-800 dark:text-neutral-100 dark:ring-white/12 dark:enabled:hover:bg-neutral-700"
-                  >
-                    <ChevronLeft className="h-5 w-5" aria-hidden />
-                  </button>
-                  <button
-                    type="button"
-                    aria-label="Next event"
-                    disabled={sheetEventIndex >= sheetEventCount - 1}
-                    onClick={() => goSheetEvent(sheetEventIndex + 1)}
-                    className="flex h-9 w-9 items-center justify-center rounded-full bg-neutral-100 text-neutral-800 ring-1 ring-neutral-200/90 transition-colors enabled:hover:bg-neutral-200 disabled:opacity-35 dark:bg-neutral-800 dark:text-neutral-100 dark:ring-white/12 dark:enabled:hover:bg-neutral-700"
-                  >
-                    <ChevronRight className="h-5 w-5" aria-hidden />
-                  </button>
+                <div className="flex shrink-0 items-center gap-1.5">
+                  <div className="flex items-center gap-1">
+                    <button
+                      type="button"
+                      data-sheet-swipe-ignore
+                      aria-label="Previous event"
+                      disabled={sheetEventIndex <= 0}
+                      onClick={() => goSheetEvent(sheetEventIndex - 1)}
+                      className="flex h-8 w-8 items-center justify-center rounded-full bg-neutral-100 text-neutral-800 ring-1 ring-neutral-200/90 transition-colors enabled:hover:bg-neutral-200 disabled:opacity-35 dark:bg-neutral-800 dark:text-neutral-100 dark:ring-white/12 dark:enabled:hover:bg-neutral-700"
+                    >
+                      <ChevronLeft className="h-4 w-4" aria-hidden />
+                    </button>
+                    <button
+                      type="button"
+                      data-sheet-swipe-ignore
+                      aria-label="Next event"
+                      disabled={sheetEventIndex >= sheetEventCount - 1}
+                      onClick={() => goSheetEvent(sheetEventIndex + 1)}
+                      className="flex h-8 w-8 items-center justify-center rounded-full bg-neutral-100 text-neutral-800 ring-1 ring-neutral-200/90 transition-colors enabled:hover:bg-neutral-200 disabled:opacity-35 dark:bg-neutral-800 dark:text-neutral-100 dark:ring-white/12 dark:enabled:hover:bg-neutral-700"
+                    >
+                      <ChevronRight className="h-4 w-4" aria-hidden />
+                    </button>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    {openPin.events.map((event, i) => (
+                      <button
+                        key={event.id}
+                        type="button"
+                        aria-label={`${i + 1}/${sheetEventCount}`}
+                        onClick={() => goSheetEvent(i)}
+                        className={`h-1.5 rounded-full transition-all ${
+                          i === sheetEventIndex
+                            ? "w-4 bg-orange-500"
+                            : "w-1.5 bg-neutral-300 dark:bg-neutral-600"
+                        }`}
+                      />
+                    ))}
+                  </div>
                 </div>
               ) : null}
-              <button
-                type="button"
-                onClick={closeCardSwingNext}
-                aria-label={dict.detail.close}
-                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-neutral-100 text-neutral-800 ring-1 ring-neutral-300 transition-colors hover:bg-white hover:ring-orange-400 hover:text-orange-600 active:scale-95 dark:bg-neutral-800 dark:text-neutral-100 dark:ring-white/20 dark:hover:bg-neutral-700 dark:hover:ring-orange-400/70 dark:hover:text-orange-300"
-              >
-                <X className="h-4 w-4" strokeWidth={2.5} aria-hidden />
-              </button>
             </div>
 
             <div
-              className={`overflow-hidden ${sheetMulti ? "cursor-grab active:cursor-grabbing select-none" : ""}`}
+              className={`overflow-hidden touch-none ${
+                sheetMulti
+                  ? "cursor-grab active:cursor-grabbing select-none"
+                  : "cursor-grab active:cursor-grabbing"
+              }`}
               onPointerDown={onSheetPointerDown}
               onPointerMove={onSheetPointerMove}
               onPointerUp={onSheetPointerEnd}
@@ -444,6 +598,10 @@ export function EventsMapPage({
                       view="cards"
                       compact
                       mediaOnly
+                      mediaExpanded={sheetExpanded}
+                      onMediaActivate={() =>
+                        setSheetExpanded((open) => !open)
+                      }
                       showEnlarge={false}
                       returnTo={`/${locale}/map`}
                       returnTitle={areaLabel(area)}
@@ -453,28 +611,15 @@ export function EventsMapPage({
               </div>
             </div>
 
-            <div className="mt-2 flex items-center gap-2">
-              <p className="min-w-0 flex-1 truncate text-base font-extrabold leading-snug text-neutral-900 dark:text-neutral-50">
-                {sheetEvent.title}
-              </p>
-              {sheetMulti ? (
-                <div className="flex items-center gap-1.5">
-                  {openPin.events.map((event, i) => (
-                    <button
-                      key={event.id}
-                      type="button"
-                      aria-label={`${i + 1}/${sheetEventCount}`}
-                      onClick={() => goSheetEvent(i)}
-                      className={`h-1.5 rounded-full transition-all ${
-                        i === sheetEventIndex
-                          ? "w-5 bg-orange-500"
-                          : "w-1.5 bg-neutral-300 dark:bg-neutral-600"
-                      }`}
-                    />
-                  ))}
-                </div>
-              ) : null}
-            </div>
+            {sheetExpanded ? (
+              <MapPinSheetDetails
+                event={sheetEvent}
+                locale={locale}
+                dict={dict}
+                returnTo={`/${locale}/map`}
+                returnTitle={areaLabel(area)}
+              />
+            ) : null}
           </div>
         ) : null}
 

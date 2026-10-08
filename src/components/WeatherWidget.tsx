@@ -221,11 +221,12 @@ export function WeatherWidget({ locale, dict }: WeatherWidgetProps) {
           if (!canHover || isMobile) setOpen((value) => !value);
         }}
         className="
-          flex h-9 items-center gap-1.5 rounded-full
-          bg-white/85 px-2.5 shadow-sm ring-1 ring-neutral-200/70 backdrop-blur
+          flex h-9 w-9 shrink-0 items-center justify-center gap-1.5 rounded-full
+          bg-white/85 shadow-sm ring-1 ring-neutral-200/70 backdrop-blur
           text-xs font-bold tracking-wide leading-none text-neutral-700
           transition-colors hover:text-neutral-900 active:scale-95
           dark:bg-neutral-800/85 dark:ring-neutral-700/70 dark:text-neutral-200 dark:hover:text-neutral-50
+          sm:w-auto sm:px-2.5
         "
         aria-label={dict.weather.ariaLabel}
         aria-expanded={open}
@@ -236,7 +237,10 @@ export function WeatherWidget({ locale, dict }: WeatherWidgetProps) {
         ) : (
           <WeatherIcon condition={currentCondition} className="h-4 w-4 text-neutral-500 dark:text-neutral-400" />
         )}
-        {triggerLabel && <span className="tabular-nums">{triggerLabel}</span>}
+        {/* Icon-only on narrow phones — temp lives in the popover; frees header room for search */}
+        {triggerLabel ? (
+          <span className="hidden tabular-nums sm:inline">{triggerLabel}</span>
+        ) : null}
       </button>
 
       {open && (

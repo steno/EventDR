@@ -1,13 +1,17 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MapPin, X } from "lucide-react";
 import { CruiseShipEntry } from "@/components/CruiseShipEntry";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import type { Locale } from "@/i18n/config";
-import type { Dictionary } from "@/i18n/dictionaries";
+import { getDictionary, type Dictionary } from "@/i18n/dictionaries";
 import { CITIES, getCityName, type CityEventCounts, type CitySlug } from "@/lib/cities";
 import type { CruisePortSlug } from "@/lib/cruise";
-import { getOnboardingCopy } from "@/lib/onboarding";
+import {
+  getOnboardingCopy,
+  holdCityPriming,
+} from "@/lib/onboarding";
 
 interface CityPrimingSheetProps {
   locale: Locale;
@@ -29,8 +33,16 @@ export function CityPrimingSheet({
   counts = null,
 }: CityPrimingSheetProps) {
   const [cruiseOpen, setCruiseOpen] = useState(false);
+  // Optimistic locale so copy flips instantly; home remount catches up under the hold overlay.
+  const [sheetLocale, setSheetLocale] = useState(locale);
+  const sheetDict = sheetLocale === locale ? dict : getDictionary(sheetLocale);
+
+  useEffect(() => {
+    setSheetLocale(locale);
+  }, [locale]);
+
   if (!open) return null;
-  const copy = getOnboardingCopy(locale).city;
+  const copy = getOnboardingCopy(sheetLocale).city;
 
   return (
     <div className="fixed inset-0 z-[80] flex items-end justify-center sm:items-center sm:p-4">
@@ -71,7 +83,23 @@ export function CityPrimingSheet({
           </button>
         </div>
 
-        <div className="mt-5 space-y-2.5">
+        {/* Language first — city labels are localized; fix locale before choosing area */}
+        <div className="mt-4 flex items-center justify-between gap-3 rounded-2xl border border-neutral-200/80 bg-neutral-50/80 px-3.5 py-2.5 dark:border-neutral-700/80 dark:bg-neutral-800/50">
+          <p className="text-sm font-semibold text-neutral-600 dark:text-neutral-300">
+            {sheetDict.lang.switchTo}
+          </p>
+          <LanguageSwitcher
+            locale={sheetLocale}
+            dict={sheetDict}
+            variant="expanded"
+            beforeNavigate={(target) => {
+              setSheetLocale(target);
+              holdCityPriming();
+            }}
+          />
+        </div>
+
+        <div className="mt-4 space-y-2.5">
           {!cruiseOpen ? (
             <>
               <button
@@ -92,7 +120,7 @@ export function CityPrimingSheet({
                       onClick={() => onChoose(city.slug)}
                       className="min-h-14 rounded-2xl border border-neutral-200 bg-white px-1.5 text-center text-sm font-bold text-neutral-800 transition-[border-color,transform] hover:border-orange-300 active:scale-[0.98] dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100"
                     >
-                      <span className="block">{getCityName(city, locale)}</span>
+                      <span className="block">{getCityName(city, sheetLocale)}</span>
                       {count != null ? (
                         <span className="mt-0.5 block text-xs font-semibold tabular-nums text-neutral-400 dark:text-neutral-500">
                           {count}
@@ -105,8 +133,8 @@ export function CityPrimingSheet({
             </>
           ) : null}
           <CruiseShipEntry
-            dict={dict}
-            locale={locale}
+            dict={sheetDict}
+            locale={sheetLocale}
             variant="sheet"
             open={cruiseOpen}
             onOpenChange={setCruiseOpen}
