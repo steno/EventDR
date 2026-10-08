@@ -319,6 +319,16 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "waterfront-sosua-jazz-collective-2026-10-09.jpg",
   "twenty-disco-aventura-edition-2026-10-10":
     "twenty-disco-aventura-edition-2026-10-10.jpg",
+  "twenty-disco-friday-dj-yosma-2026-10-09":
+    "twenty-disco-friday-dj-yosma-2026-10-09.jpg",
+  "meclao-reggaeton-dj-yosma-2026-10-09":
+    "meclao-reggaeton-dj-yosma-2026-10-09.jpg",
+  "ambar-lounge-perreo-negro-2026-10-10":
+    "ambar-lounge-perreo-negro-2026-10-10.jpg",
+  "disco-club-halloween-2026-10-30":
+    "disco-club-halloween-2026-10-30.jpg",
+  "amarea-one-last-escape-2026-11-07":
+    "amarea-one-last-escape-2026-11-07.jpg",
   "emileni-francisco-rancho-catalina-2026-10-11":
     "emileni-francisco-rancho-catalina-2026-10-11.jpg",
   "lizandro-diaz-luna-lounge-2026-10-11":
@@ -610,6 +620,11 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "kite-street-bachata-sabor-latino-2026-10-11": "object-center",
   "waterfront-sosua-jazz-collective-2026-10-09": "object-center",
   "twenty-disco-aventura-edition-2026-10-10": "object-center",
+  "twenty-disco-friday-dj-yosma-2026-10-09": "object-center",
+  "meclao-reggaeton-dj-yosma-2026-10-09": "object-center",
+  "ambar-lounge-perreo-negro-2026-10-10": "object-center",
+  "disco-club-halloween-2026-10-30": "object-center",
+  "amarea-one-last-escape-2026-11-07": "object-center",
   "emileni-francisco-rancho-catalina-2026-10-11": "object-center",
   "lizandro-diaz-luna-lounge-2026-10-11": "object-center",
   "feel-the-boom-marianna-kite-street-2026-10-16": "object-top",
@@ -874,6 +889,11 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "kite-street-bachata-sabor-latino-2026-10-11.jpg",
   "waterfront-sosua-jazz-collective-2026-10-09.jpg",
   "twenty-disco-aventura-edition-2026-10-10.jpg",
+  "twenty-disco-friday-dj-yosma-2026-10-09.jpg",
+  "meclao-reggaeton-dj-yosma-2026-10-09.jpg",
+  "ambar-lounge-perreo-negro-2026-10-10.jpg",
+  "disco-club-halloween-2026-10-30.jpg",
+  "amarea-one-last-escape-2026-11-07.jpg",
   "emileni-francisco-rancho-catalina-2026-10-11.jpg",
   "lizandro-diaz-luna-lounge-2026-10-11.jpg",
   "feel-the-boom-marianna-kite-street-2026-10-16.jpg",

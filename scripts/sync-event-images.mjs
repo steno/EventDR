@@ -102,6 +102,15 @@ const FILE_TO_EVENT_ID = {
     "waterfront-sosua-jazz-collective-2026-10-09",
   "twenty-disco-aventura-edition-2026-10-10.jpg":
     "twenty-disco-aventura-edition-2026-10-10",
+  "twenty-disco-friday-dj-yosma-2026-10-09.jpg":
+    "twenty-disco-friday-dj-yosma-2026-10-09",
+  "meclao-reggaeton-dj-yosma-2026-10-09.jpg":
+    "meclao-reggaeton-dj-yosma-2026-10-09",
+  "ambar-lounge-perreo-negro-2026-10-10.jpg":
+    "ambar-lounge-perreo-negro-2026-10-10",
+  "disco-club-halloween-2026-10-30.jpg": "disco-club-halloween-2026-10-30",
+  "amarea-one-last-escape-2026-11-07.jpg":
+    "amarea-one-last-escape-2026-11-07",
   "emileni-francisco-rancho-catalina-2026-10-11.jpg":
     "emileni-francisco-rancho-catalina-2026-10-11",
   "lizandro-diaz-luna-lounge-2026-10-11.jpg":

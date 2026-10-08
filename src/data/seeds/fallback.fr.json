@@ -5323,5 +5323,142 @@
     "imageEmoji": "🚢",
     "title": "Deuxième escale Disney Dream à Taino Bay",
     "description": "Puerto Plata accueille à nouveau le Disney Dream — deuxième escale Disney Cruise Line à Taino Bay le jeudi 8 octobre 2026 (env. 7 h 45–17 h 15). Moment destination promu par Puerto Plata Travel (« The magic arrives again »). Les passagers utilisent le village du quai ; le public peut voir l’arrivée et le départ depuis Fortaleza San Felipe et le Malecón. Confirmez les horaires sur porttainobay.com — sujets à changement."
+  },
+  {
+    "id": "twenty-disco-friday-dj-yosma-2026-10-09",
+    "date": "2026-10-09",
+    "location": "Playa Dorada",
+    "venue": "Twenty Disco Lounge",
+    "venueSlug": "twenty-disco-lounge",
+    "address": "Playa Dorada Mall, Puerto Plata",
+    "lat": 19.769476,
+    "lng": -70.643033,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/twenty_disco_lounge/",
+    "lineup": [
+      "DJ Yosma"
+    ],
+    "imageEmoji": "🪩",
+    "title": "Twenty Disco Lounge vendredi — DJ Yosma",
+    "description": "Friday Night au Twenty Disco & Lounge, Playa Dorada Mall, Puerto Plata — vendredi 9 octobre 2026. Beats by DJ Yosma. No cover. Disco du mall le vendredi — pas le reggaetón de Mecla'o la même nuit avec Yosma sur Luis Ginebra, ni l’Aventura Edition du Twenty le samedi 10. Confirmez les portes via Instagram @twenty_disco_lounge."
+  },
+  {
+    "id": "meclao-reggaeton-dj-yosma-2026-10-09",
+    "date": "2026-10-09",
+    "location": "Puerto Plata",
+    "venue": "Mecla'o Rooftop Lounge",
+    "venueSlug": "meclao-rooftop",
+    "address": "Av. Luis Ginebra No. 49, Puerto Plata 57000",
+    "lat": 19.788312,
+    "lng": -70.677453,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18296747028",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/meclaorooftop/",
+    "lineup": [
+      "DJ Yosma"
+    ],
+    "imageEmoji": "🔥",
+    "title": "Mecla'o Noche de Reggaetón — DJ Yosma",
+    "description": "Viernes de Reggaetón au Mecla'o Rooftop Lounge, Av. Luis Ginebra No. 49, Puerto Plata — vendredi 9 octobre 2026. DJ Yosma (@djyosma) — reggaetón toute la nuit, dress code urbano. Rooftop sur Luis Ginebra — pas le set gratis de Yosma au Twenty Disco à Playa Dorada Mall la même nuit. Réservations 829-674-7028 · Instagram @meclaorooftop. Confirmez cover et portes avant d’arriver walk-up."
+  },
+  {
+    "id": "ambar-lounge-perreo-negro-2026-10-10",
+    "date": "2026-10-10",
+    "location": "Puerto Plata",
+    "venue": "Ambar Lounge POP",
+    "venueSlug": "ambar-lounge-pop",
+    "address": "Av. Luis Ginebra No. 45, segundo y tercer nivel, Puerto Plata 57000",
+    "lat": 19.7918,
+    "lng": -70.681,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18097818677",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/ambarloungepop/",
+    "lineup": [
+      "Yona Ramz"
+    ],
+    "imageEmoji": "🖤",
+    "title": "Ambar Lounge Perreo Negro — Yona Ramz",
+    "description": "Perreo Negro à Ambar Lounge POP, Av. Luis Ginebra No. 45, segundo y tercer nivel, Puerto Plata — samedi 10 octobre 2026. Beats by Yona Ramz (@yonaramzmusic). Samedi perreo — pas Bandoleras Friday avec Jhon Parra le 9 octobre, ni l’Aventura Edition de Twenty Disco le même samedi. RSVP (809) 781-8677 · Instagram @ambarloungepop ; confirmez portes et cover avant d’arriver walk-up. Lounge ouvert dès 17 h (fermé mardi)."
+  },
+  {
+    "id": "disco-club-halloween-2026-10-30",
+    "date": "2026-10-30",
+    "location": "Puerto Plata",
+    "venue": "Latin Disco Club",
+    "venueSlug": "disco-club-brugal",
+    "address": "Avenida Circunvalación Sur, frente a los depósitos Brugal, Puerto Plata",
+    "lat": 19.7792778,
+    "lng": -70.6690061,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18295639469",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/latindiscoclubpp/",
+    "lineup": [
+      "Latin Disco Club"
+    ],
+    "imageEmoji": "🎃",
+    "title": "Latin Disco Club — Halloween Night Party",
+    "description": "Halloween Night Party au Latin Disco Club, Avenida Circunvalación Sur frente a los depósitos de Brugal, Puerto Plata — vendredi 30 octobre 2026. Prix pour les meilleurs costumes et surprises. Halloween club face aux dépôts Brugal — pas Una Noche de Terror de Ground Zero, le karaoké Le Petit François, ni Luis Brown au Twenty Disco le même vendredi. Info 809-402-9630 · WhatsApp/résas 829-563-9469 · Instagram @latindiscoclubpp. Confirmez cover et portes avant d’arriver walk-up."
+  },
+  {
+    "id": "amarea-one-last-escape-2026-11-07",
+    "date": "2026-11-07",
+    "endDate": "2026-11-08",
+    "location": "Cabarete",
+    "venue": "Aura Beach Club Cabarete",
+    "venueSlug": "aura-beach-club-cabarete",
+    "address": "Calle Principal, Cabarete 57000",
+    "lat": 19.7500769,
+    "lng": -70.4070417,
+    "category": "parties",
+    "categories": [
+      "music",
+      "festivals"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": false,
+    "admissionPrice": "from RD$1,000",
+    "phone": "+18099803789",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/kenleyevents/",
+    "lineup": [
+      "Kenley Events",
+      "AMAREA"
+    ],
+    "imageEmoji": "🌊",
+    "title": "AMAREA: One Last Escape à Aura Beach Club",
+    "description": "Kenley Events présente AMAREA: One Last Escape à Aura Beach Club, Calle Principal, Cabarete — samedi 7 et dimanche 8 novembre 2026. Deux nuits rooftop et une journée au bord de la mer — le dernier week-end Cabarete de Kenley de l’année. Early Bird : une nuit RD$1,000 · les deux nuits rooftop RD$1,800 (presale une nuit RD$1,500 / week-end RD$2,500 ; final release une nuit RD$2,000). Tickets limités par phase sur Boletu. Dîner et beach brunch en réservations séparées. Infos & tables 809-980-3789 · Instagram @kenleyevents / @auracabarete."
   }
 ]

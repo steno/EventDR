@@ -4773,4 +4773,95 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "Editor flyer + IG @lunaloungelcb — Dom 11 Oct desde 8 PM El 4tetazo de Lizandro Díaz, Luna Disco Bar, Av. Luis Ginebra #42 detrás Plaza Amapola; pura típica.",
     updatedAt: "2026-10-07T16:00:00.000Z",
   },
+  {
+    eventId: "twenty-disco-friday-dj-yosma-2026-10-09",
+    body: "Free-cover Friday inside Playa Dorada Mall with DJ Yosma — pin Twenty Disco Lounge, not Mecla'o's same-night Yosma reggaetón on Luis Ginebra; save Aventura Edition for Saturday if that's your mall crew.",
+    localized: {
+      es: "Viernes sin cover dentro de Playa Dorada Mall con DJ Yosma — pin Twenty Disco Lounge, no el reggaetón de Mecla'o la misma noche con Yosma en Luis Ginebra; guarda Aventura Edition para el sábado si ese es tu crew del mall.",
+      fr: "Vendredi sans cover dans Playa Dorada Mall avec DJ Yosma — épinglez Twenty Disco Lounge, pas le reggaetón de Mecla'o la même nuit avec Yosma sur Luis Ginebra ; gardez Aventura Edition pour samedi si c’est votre crew du mall.",
+    },
+    priceFeel: "free",
+    priceNote: "No cover on flyer — @twenty_disco_lounge",
+    priceNoteLocalized: {
+      es: "Sin cover en el flyer — @twenty_disco_lounge",
+      fr: "Pas de cover sur l’affiche — @twenty_disco_lounge",
+    },
+    attribution: "POP research · Twenty Disco Friday Night DJ Yosma flyer",
+    researchNotes:
+      "Editor flyer + IG @twenty_disco_lounge — VIE 09 OCT Friday Night, BEATS BY DJ YOSMA, NO COVER; caption Lo que pasa en Twenty.",
+    updatedAt: "2026-10-08T16:00:00.000Z",
+  },
+  {
+    eventId: "meclao-reggaeton-dj-yosma-2026-10-09",
+    body: "Rooftop reggaetón on Luis Ginebra 49 with Yosma — not the free-cover Twenty set at Playa Dorada Mall the same Friday; reserve 829-674-7028 if you want a table before the urbano crowd fills the terrace.",
+    localized: {
+      es: "Reggaetón en el rooftop de Luis Ginebra 49 con Yosma — no es el set sin cover de Twenty en Playa Dorada Mall el mismo viernes; reserva 829-674-7028 si quieres mesa antes de que el crowd urbano llene la terraza.",
+      fr: "Reggaetón sur le rooftop Luis Ginebra 49 avec Yosma — pas le set gratis de Twenty à Playa Dorada Mall le même vendredi ; réservez 829-674-7028 si vous voulez une table avant que le crowd urbano remplisse la terrasse.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover not on flyer — reservas 829-674-7028 / @meclaorooftop",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — reservas 829-674-7028 / @meclaorooftop",
+      fr: "Cover absent de l’affiche — résas 829-674-7028 / @meclaorooftop",
+    },
+    attribution: "POP research · @meclaorooftop Noche de Reggaetón flyer",
+    researchNotes:
+      "Editor flyer + IG @meclaorooftop — Vie 09 Oct DJ Yosma, reggaetón toda la noche, dress code URBANO, Reservas 829-674-7028; Av. Luis Ginebra No. 49.",
+    updatedAt: "2026-10-08T15:00:00.000Z",
+  },
+  {
+    eventId: "ambar-lounge-perreo-negro-2026-10-10",
+    body: "Saturday Perreo Negro with Yona Ramz on Luis Ginebra 45 — not Bandoleras Friday with Jhon Parra the night before; RSVP 809-781-8677 before walk-up, cover isn’t on the flyer.",
+    localized: {
+      es: "Sábado Perreo Negro con Yona Ramz en Luis Ginebra 45 — no es Bandoleras Friday con Jhon Parra la noche anterior; RSVP 809-781-8677 antes de walk-up, el cover no está en el flyer.",
+      fr: "Samedi Perreo Negro avec Yona Ramz sur Luis Ginebra 45 — pas Bandoleras Friday avec Jhon Parra la veille ; RSVP 809-781-8677 avant walk-up, le cover n’est pas sur l’affiche.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover not on flyer — RSVP (809) 781-8677 / @ambarloungepop",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — RSVP (809) 781-8677 / @ambarloungepop",
+      fr: "Cover absent de l’affiche — RSVP (809) 781-8677 / @ambarloungepop",
+    },
+    attribution: "POP research · @ambarloungepop Perreo Negro flyer",
+    researchNotes:
+      "Editor flyer + IG @ambarloungepop — SÁB 10 OCT PERREO NEGRO, BEATS BY YONA RAMZ; caption este sábado / @yonaramzmusic; RSVP 809-781-8677; Vocatus co-brand.",
+    updatedAt: "2026-10-08T14:00:00.000Z",
+  },
+  {
+    eventId: "disco-club-halloween-2026-10-30",
+    body: "Costume-contest Halloween at Latin Disco Club by the Brugal depots — not Ground Zero’s terror night, Petit François karaoke, or Twenty’s Luis Brown the same Friday; confirm cover on 829-563-9469 before you dress up.",
+    localized: {
+      es: "Halloween con concurso de disfraces en Latin Disco Club frente a los depósitos Brugal — no es la noche de terror de Ground Zero, el karaoke de Petit François, ni Luis Brown en Twenty el mismo viernes; confirma cover al 829-563-9469 antes de disfrazarte.",
+      fr: "Halloween concours de costumes au Latin Disco Club face aux dépôts Brugal — pas la nuit terreur de Ground Zero, le karaoké Petit François, ni Luis Brown au Twenty le même vendredi ; confirmez le cover au 829-563-9469 avant de vous déguiser.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover not on flyer — 829-563-9469 / @latindiscoclubpp",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — 829-563-9469 / @latindiscoclubpp",
+      fr: "Cover absent de l’affiche — 829-563-9469 / @latindiscoclubpp",
+    },
+    attribution: "POP research · @latindiscoclubpp Halloween Night Party flyer",
+    researchNotes:
+      "Editor flyer + IG @latindiscoclubpp — Vie 30 Oct Halloween Night Party, premios mejores disfraces; Circunvalación Sur frente depósitos Brugal; info 809-402-9630 / caption 829-563-9469.",
+    updatedAt: "2026-10-08T13:00:00.000Z",
+  },
+  {
+    eventId: "amarea-one-last-escape-2026-11-07",
+    body: "Kenley’s last Cabarete weekend of the year — one listing for both rooftop nights at Aura; Early Bird one night RD$1,000 or both RD$1,800 on Boletu, and call 809-980-3789 if you want dinner/brunch tables (not in the party ticket).",
+    localized: {
+      es: "El último fin de semana de Kenley en Cabarete del año — un listing para ambas noches de rooftop en Aura; Early Bird una noche RD$1,000 o ambas RD$1,800 en Boletu, y llama al 809-980-3789 si quieres mesas de cena/brunch (no van en el ticket de party).",
+      fr: "Le dernier week-end Cabarete de Kenley de l’année — une fiche pour les deux nuits rooftop à Aura ; Early Bird une nuit RD$1,000 ou les deux RD$1,800 sur Boletu, et appelez le 809-980-3789 pour les tables dîner/brunch (hors ticket party).",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "Early Bird from RD$1,000 one night / RD$1,800 weekend — Boletu · tables 809-980-3789",
+    priceNoteLocalized: {
+      es: "Early Bird desde RD$1,000 una noche / RD$1,800 weekend — Boletu · mesas 809-980-3789",
+      fr: "Early Bird dès RD$1,000 une nuit / RD$1,800 week-end — Boletu · tables 809-980-3789",
+    },
+    attribution: "POP research · @kenleyevents AMAREA One Last Escape flyer",
+    researchNotes:
+      "Editor flyer + IG @kenleyevents — AMAREA ONE LAST ESCAPE Nov 7-8 Aura Beach Club Cabarete; Early Bird / Presale / Final Release tiers; weekend pass; dinner & beach brunch separate; Boletu; 809-980-3789.",
+    updatedAt: "2026-10-08T17:00:00.000Z",
+  },
 ];

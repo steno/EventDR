@@ -114,6 +114,7 @@ export const CURATED_ADMISSION_PRICES: Record<string, string> = {
   "twenty-disco-kiry-curu-2026-10-16": "RD$600",
   "jennifer-nadal-pilates-anfiteatro-2026-10-24": "RD$800",
   "jump-fit-rosa-beard-over-club-2026-10-31": "RD$2,500",
+  "amarea-one-last-escape-2026-11-07": "from RD$1,000",
 
   // Museums & historic sites (door price)
   "museo-ambar-weekdays": "RD$250",
@@ -189,6 +190,9 @@ export const CURATED_CALL_FOR_PRICING = new Set<string>([
   "ambar-lounge-emil-roman-2026-09-26",
   "cruzmonty-manuel-cocco-birthday-cigar-town-2026-10-17",
   "ambar-lounge-gaby-luna-2026-10-03",
+  "ambar-lounge-perreo-negro-2026-10-10",
+  "meclao-reggaeton-dj-yosma-2026-10-09",
+  "disco-club-halloween-2026-10-30",
   "aura-disco-dj-melvin-2026-09-19",
   "aura-disco-dj-christo-2026-09-26",
   "meclao-house-friday-2026-09-18",
@@ -272,6 +276,7 @@ export const CURATED_FREE_EVENTS = new Set<string>([
   "disco-club-nelson-bless-bachatera-2026-10-09",
   "sosua-emprende-bazar-otono-2026-10-17",
   "twenty-disco-friday-dj-tanque-2026-10-02",
+  "twenty-disco-friday-dj-yosma-2026-10-09",
   "gypsy-bowls-last-bowl-call-2026-10-03",
   "lizandro-diaz-grand-prix-2026-10-02",
   "el-cuarteto-del-swing-zona-acapella-2026-09-13",

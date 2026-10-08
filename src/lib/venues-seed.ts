@@ -896,8 +896,9 @@ export const SEED_VENUES: Venue[] = [
     city: "Sosúa",
     description:
       "Ship-themed seafood restaurant at Casa Valeria Hotel — Spanish Saturday paella nights and Sunday Dominican specials steps from Sosúa Beach.",
-    lat: 19.7650527,
-    lng: -70.5150705,
+    // OSM / Nominatim Casa Valeria hotel node (Dr. Rosen 28) — tip on the hotel POI.
+    lat: 19.7651828,
+    lng: -70.5152692,
     emoji: "🥘",
     website: "https://www.casavaleria.com/restaurant",
     phone: "+18095711693",

@@ -5325,5 +5325,142 @@
       "Disney Cruise Line"
     ],
     "imageEmoji": "🚢"
+  },
+  {
+    "id": "twenty-disco-friday-dj-yosma-2026-10-09",
+    "title": "Twenty Disco Lounge Friday — DJ Yosma",
+    "description": "Friday Night at Twenty Disco & Lounge in Playa Dorada Mall, Puerto Plata — Friday 9 October 2026. Beats by DJ Yosma. No cover. Mall disco Friday — not Mecla'o's same-night reggaetón with Yosma on Luis Ginebra, and not Twenty's Aventura Edition on Saturday 10. Confirm doors via Instagram @twenty_disco_lounge.",
+    "date": "2026-10-09",
+    "location": "Playa Dorada",
+    "venue": "Twenty Disco Lounge",
+    "venueSlug": "twenty-disco-lounge",
+    "address": "Playa Dorada Mall, Puerto Plata",
+    "lat": 19.769476,
+    "lng": -70.643033,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/twenty_disco_lounge/",
+    "lineup": [
+      "DJ Yosma"
+    ],
+    "imageEmoji": "🪩"
+  },
+  {
+    "id": "meclao-reggaeton-dj-yosma-2026-10-09",
+    "title": "Mecla'o Noche de Reggaetón — DJ Yosma",
+    "description": "Viernes de Reggaetón at Mecla'o Rooftop Lounge, Av. Luis Ginebra No. 49, Puerto Plata — Friday 9 October 2026. DJ Yosma (@djyosma) — reggaetón all night, urbano dress code. Rooftop on Luis Ginebra — not Twenty Disco's same-night free-cover Yosma set at Playa Dorada Mall. Reservas 829-674-7028 · Instagram @meclaorooftop. Confirm cover and doors before you walk up.",
+    "date": "2026-10-09",
+    "location": "Puerto Plata",
+    "venue": "Mecla'o Rooftop Lounge",
+    "venueSlug": "meclao-rooftop",
+    "address": "Av. Luis Ginebra No. 49, Puerto Plata 57000",
+    "lat": 19.788312,
+    "lng": -70.677453,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18296747028",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/meclaorooftop/",
+    "lineup": [
+      "DJ Yosma"
+    ],
+    "imageEmoji": "🔥"
+  },
+  {
+    "id": "ambar-lounge-perreo-negro-2026-10-10",
+    "title": "Ambar Lounge Perreo Negro — Yona Ramz",
+    "description": "Perreo Negro at Ambar Lounge POP, Av. Luis Ginebra No. 45, segundo y tercer nivel, Puerto Plata — Saturday 10 October 2026. Beats by Yona Ramz (@yonaramzmusic). Saturday perreo night — not Ambar's Bandoleras Friday with Jhon Parra on 9 October, and not Twenty Disco Aventura Edition the same Saturday. RSVP (809) 781-8677 · Instagram @ambarloungepop; confirm doors and cover before you walk up. Lounge open from 5:00 PM (closed Tuesdays).",
+    "date": "2026-10-10",
+    "location": "Puerto Plata",
+    "venue": "Ambar Lounge POP",
+    "venueSlug": "ambar-lounge-pop",
+    "address": "Av. Luis Ginebra No. 45, segundo y tercer nivel, Puerto Plata 57000",
+    "lat": 19.7918,
+    "lng": -70.681,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18097818677",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/ambarloungepop/",
+    "lineup": [
+      "Yona Ramz"
+    ],
+    "imageEmoji": "🖤"
+  },
+  {
+    "id": "disco-club-halloween-2026-10-30",
+    "title": "Latin Disco Club — Halloween Night Party",
+    "description": "Halloween Night Party at Latin Disco Club, Avenida Circunvalación Sur frente a los depósitos de Brugal, Puerto Plata — Friday 30 October 2026. Prizes for best costumes and surprises. Club Halloween by the Brugal depots — not Ground Zero's Una Noche de Terror, Le Petit François beach karaoke, or Twenty Disco Luis Brown the same Friday. Info 809-402-9630 · WhatsApp/reservas 829-563-9469 · Instagram @latindiscoclubpp. Confirm cover and doors before you walk up.",
+    "date": "2026-10-30",
+    "location": "Puerto Plata",
+    "venue": "Latin Disco Club",
+    "venueSlug": "disco-club-brugal",
+    "address": "Avenida Circunvalación Sur, frente a los depósitos Brugal, Puerto Plata",
+    "lat": 19.7792778,
+    "lng": -70.6690061,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18295639469",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/latindiscoclubpp/",
+    "lineup": [
+      "Latin Disco Club"
+    ],
+    "imageEmoji": "🎃"
+  },
+  {
+    "id": "amarea-one-last-escape-2026-11-07",
+    "title": "AMAREA: One Last Escape at Aura Beach Club",
+    "description": "Kenley Events presents AMAREA: One Last Escape at Aura Beach Club, Calle Principal, Cabarete — Saturday 7 and Sunday 8 November 2026. Two rooftop nights and one day by the sea — Kenley’s last Cabarete weekend of the year. Early Bird: one night RD$1,000 · both rooftop nights RD$1,800 (presale one night RD$1,500 / weekend RD$2,500; final release one night RD$2,000). Limited tickets per release on Boletu. Dinner and beach brunch are separate reservations. Info & table reservations 809-980-3789 · Instagram @kenleyevents / @auracabarete.",
+    "date": "2026-11-07",
+    "endDate": "2026-11-08",
+    "location": "Cabarete",
+    "venue": "Aura Beach Club Cabarete",
+    "venueSlug": "aura-beach-club-cabarete",
+    "address": "Calle Principal, Cabarete 57000",
+    "lat": 19.7500769,
+    "lng": -70.4070417,
+    "category": "parties",
+    "categories": [
+      "music",
+      "festivals"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": false,
+    "admissionPrice": "from RD$1,000",
+    "phone": "+18099803789",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/kenleyevents/",
+    "lineup": [
+      "Kenley Events",
+      "AMAREA"
+    ],
+    "imageEmoji": "🌊"
   }
 ]
