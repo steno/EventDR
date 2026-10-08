@@ -173,20 +173,59 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   {
     eventId: "finish-line-live-wednesday",
     seriesKey: "finish-line-sosua:weekly:3",
-    body: "Midweek without the weekend crush — come for a beer and a band, not a destination concert.",
+    body: "Wednesday high-season live at Mike's on Ayuntamiento 1 — often Denver, quieter than Pedro Clisante; call 829-678-2975 if you need to know whether the set is on this week.",
     localized: {
-      es: "Entre semana sin la presión del fin de semana — ven por cerveza y banda, no por concierto destino.",
-      fr: "Midweek sans la foule du week-end — venez pour une bière et un groupe, pas un concert destination.",
+      es: "Live de miércoles en temporada alta en Mike's, Ayuntamiento 1 — a menudo Denver, más quieto que Pedro Clisante; llama al 829-678-2975 si necesitas saber si hay set esta semana.",
+      fr: "Live du mercredi en haute saison chez Mike’s, Ayuntamiento 1 — souvent Denver, plus calme que Pedro Clisante ; appelez le 829-678-2975 pour savoir si le set a lieu cette semaine.",
     },
     priceFeel: "moderate",
-    priceNote: "Strip-pub prices — drinks and pub plates; rarely a ticketed show",
+    priceNote: "Pub prices — drinks/plates; cover rarely listed",
     priceNoteLocalized: {
-      es: "Precios de pub de franja — tragos y platos de pub; rara vez boleto",
-      fr: "Tarifs pub de strip — verres et plats pub ; rarement billet",
+      es: "Precios de pub — tragos/platos; cover rara vez publicado",
+      fr: "Tarifs pub — verres/plats ; cover rarement affiché",
     },
-    attribution: "POP research · venue listing",
-    researchNotes: "Finish Line seed.",
-    updatedAt: AT,
+    attribution: "POP research · Google Mike's Finish Line Bar",
+    researchNotes:
+      "Google AI/GB: Mike's Finish Line Bar, Calle Ayuntamiento 1 Sosúa 57000; Open closes 10 PM; live Wed+Sat high season (Denver); Trivia Mon 5–7 PM; +1 829-678-2975; 4.8★.",
+    updatedAt: "2026-10-08T19:00:00.000Z",
+  },
+  {
+    eventId: "finish-line-live-saturday",
+    seriesKey: "finish-line-sosua:weekly:6",
+    body: "Saturday live in the same Ayuntamiento room as Wednesday — still a sports-pub send, not a Pedro Clisante crawl; confirm Denver/high-season nights on 829-678-2975.",
+    localized: {
+      es: "Live de sábado en la misma sala de Ayuntamiento que el miércoles — sigue siendo sports-pub, no crawl de Pedro Clisante; confirma noches Denver/temporada alta al 829-678-2975.",
+      fr: "Live du samedi dans la même salle Ayuntamiento que le mercredi — toujours un sports-pub, pas un crawl Pedro Clisante ; confirmez les soirs Denver/haute saison au 829-678-2975.",
+    },
+    priceFeel: "moderate",
+    priceNote: "Pub prices — drinks/plates; cover rarely listed",
+    priceNoteLocalized: {
+      es: "Precios de pub — tragos/platos; cover rara vez publicado",
+      fr: "Tarifs pub — verres/plats ; cover rarement affiché",
+    },
+    attribution: "POP research · Google Mike's Finish Line Bar",
+    researchNotes:
+      "Google: live Wed+Sat high season with Denver; Calle Ayuntamiento 1; open daily to 10 PM.",
+    updatedAt: "2026-10-08T19:00:00.000Z",
+  },
+  {
+    eventId: "finish-line-trivia-monday",
+    seriesKey: "finish-line-sosua:weekly:1",
+    body: "Early Monday quiz 5–7 PM at Mike's — come for trivia and a beer before the strip gets loud; not a late dance night.",
+    localized: {
+      es: "Quiz temprano los lunes 17–19 h en Mike's — ven por trivia y cerveza antes de que la franja se ponga ruidosa; no es noche de baile.",
+      fr: "Quiz tôt le lundi 17 h–19 h chez Mike’s — venez pour le trivia et une bière avant que le strip ne s’anime ; pas une soirée danse.",
+    },
+    priceFeel: "moderate",
+    priceNote: "Pub prices — drinks; no ticket on Google listing",
+    priceNoteLocalized: {
+      es: "Precios de pub — tragos; sin boleto en el listing de Google",
+      fr: "Tarifs pub — verres ; pas de billet sur la fiche Google",
+    },
+    attribution: "POP research · Google Mike's Finish Line Bar",
+    researchNotes:
+      "Google AI overview: Trivia Night Mondays 5:00 PM–7:00 PM at Mike's Finish Line Bar.",
+    updatedAt: "2026-10-08T18:30:00.000Z",
   },
   {
     eventId: "senor-rock-live-nightly",

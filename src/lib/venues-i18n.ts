@@ -95,8 +95,8 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
   },
   "finish-line-sosua": {
     description: {
-      es: "Pub expat en la franja de Sosúa — sets acústicos, bandas de covers y ambiente de sports bar entre semana y los fines de semana.",
-      fr: "Pub expat sur le strip de Sosúa — sets acoustiques, groupes de reprises et ambiance sports bar en semaine et le week-end.",
+      es: "Pub expat en Calle Ayuntamiento 1 (El Batey / Sosúa Abajo) — música en vivo miércoles y sábados en temporada alta (a menudo Denver), trivia los lunes 5–7 PM y ambiente de sports bar. Abierto a diario ~10:00–22:00.",
+      fr: "Pub expat au Calle Ayuntamiento 1 (El Batey / Sosúa Abajo) — musique live mercredis et samedis en haute saison (souvent Denver), trivia le lundi 17 h–19 h et ambiance sports bar. Ouvert tous les jours ~10 h–22 h.",
     },
   },
   "playa-sosua": {

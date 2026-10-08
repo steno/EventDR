@@ -20,7 +20,7 @@ export type MapPin = {
   /** First event image for the pin thumbnail (if any). */
   thumbUrl?: string;
   /** Set when `?venue=` opens a place with no upcoming listings. */
-  venueOnly?: { slug: string; name: string };
+  venueOnly?: { slug: string; name: string; city?: string };
 };
 
 function pinKey(lat: number, lng: number): string {
@@ -100,7 +100,7 @@ export function venueOnlyPinId(slug: string): string {
 }
 
 export function buildVenueOnlyMapPin(
-  venue: Pick<Venue, "slug" | "name" | "lat" | "lng">,
+  venue: Pick<Venue, "slug" | "name" | "city" | "lat" | "lng">,
   thumbUrl?: string,
 ): MapPin {
   return {
@@ -111,7 +111,7 @@ export function buildVenueOnlyMapPin(
     category: "parties",
     events: [],
     ...(thumbUrl ? { thumbUrl } : {}),
-    venueOnly: { slug: venue.slug, name: venue.name },
+    venueOnly: { slug: venue.slug, name: venue.name, city: venue.city },
   };
 }
 
@@ -122,7 +122,7 @@ export function buildVenueOnlyMapPin(
  */
 export function withVenueDeepLinkPin(
   pins: MapPin[],
-  venue: Pick<Venue, "slug" | "name" | "lat" | "lng"> | null | undefined,
+  venue: Pick<Venue, "slug" | "name" | "city" | "lat" | "lng"> | null | undefined,
   thumbUrl?: string,
 ): MapPin[] {
   if (!venue || !hasMapCoords(venue)) return pins;

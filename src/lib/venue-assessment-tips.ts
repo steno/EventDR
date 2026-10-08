@@ -298,11 +298,11 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "finish-line-sosua": {
-    body: "Midweek strip sports-pub with acoustic/cover sets — familiar faces, quieter than weekend Pedro Clisante crush.",
+    body: "Mike's on Ayuntamiento 1 — Wed/Sat high-season live (often Denver) and Monday trivia 5–7 PM; quieter El Batey sports-pub than Pedro Clisante.",
     localized: {
-      en: "Midweek strip sports-pub with acoustic/cover sets — familiar faces, quieter than weekend Pedro Clisante crush.",
-      es: "Sports pub de franja entre semana con sets acústicos/covers — caras conocidas, más quieto que el fin de semana en Pedro Clisante.",
-      fr: "Sports pub de strip en semaine avec sets acoustiques/reprises — têtes connues, plus calme que le week-end Pedro Clisante.",
+      en: "Mike's on Ayuntamiento 1 — Wed/Sat high-season live (often Denver) and Monday trivia 5–7 PM; quieter El Batey sports-pub than Pedro Clisante.",
+      es: "Mike's en Ayuntamiento 1 — live mié/sáb en temporada alta (a menudo Denver) y trivia lunes 17–19 h; sports-pub de El Batey más quieto que Pedro Clisante.",
+      fr: "Mike’s sur Ayuntamiento 1 — live mer/sam en haute saison (souvent Denver) et trivia lundi 17 h–19 h ; sports-pub El Batey plus calme que Pedro Clisante.",
     },
   },
   "sosua-jewish-museum": {

@@ -127,8 +127,8 @@ describe("findNearbyTonight", () => {
       time: "9:00 AM – 5:00 PM",
       recurrence: "daily",
       venueSlug: "sosua-jewish-museum",
-      lat: 19.7654983,
-      lng: -70.5163301,
+      lat: 19.76569,
+      lng: -70.516614,
       category: "culture",
     });
     const tomorrow = event({

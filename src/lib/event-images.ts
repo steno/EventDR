@@ -16,6 +16,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "smileys-saturday-live": "smileys-saturday-live.jpg",
   // Filename bump — house-band live set (not the El Batey open-mic clone).
   "finish-line-live-wednesday": "finish-line-live-band.jpg",
+  "finish-line-live-saturday": "finish-line-live-band.jpg",
+  "finish-line-trivia-monday": "finish-line-live-band.jpg",
 
   "cheers-weekly-live": "cheers-weekly-live.jpg",
   // Filename bump — cleaner flyer crop (social caption chrome removed).

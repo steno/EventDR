@@ -95,18 +95,60 @@
   },
   {
     "id": "finish-line-live-wednesday",
-    "title": "The Finish Line Live Music",
-    "description": "Midweek live music at The Finish Line pub — acoustic sets and cover bands in a familiar expat sports-bar setting on the main strip.",
+    "title": "Finish Line Live — Wednesday (Denver)",
+    "description": "Wednesday live music at Mike's Finish Line Bar, Calle Ayuntamiento 1, Sosúa — often Denver on stage in high season (Wed + Sat). Expat sports-pub vibe; open daily ~10 AM–10 PM. Confirm the set with the bar: +1 829-678-2975.",
     "date": "2026-01-01",
     "time": "7:00 PM – 11:00 PM",
     "location": "Sosúa",
-    "venue": "The Finish Line",
+    "venue": "Mike's Finish Line Bar",
     "venueSlug": "finish-line-sosua",
+    "address": "Calle Ayuntamiento 1",
     "category": "music",
     "format": "physical",
     "recurrence": "weekly",
     "recurrenceDay": 3,
+    "phone": "+18296782975",
+    "lineup": [
+      "Denver"
+    ],
     "imageEmoji": "🍺"
+  },
+  {
+    "id": "finish-line-live-saturday",
+    "title": "Finish Line Live — Saturday (Denver)",
+    "description": "Saturday live music at Mike's Finish Line Bar, Calle Ayuntamiento 1, Sosúa — often Denver on stage in high season (Wed + Sat). Same sports-pub room as the Wednesday set; open daily ~10 AM–10 PM. Confirm with the bar: +1 829-678-2975.",
+    "date": "2026-01-01",
+    "time": "7:00 PM – 11:00 PM",
+    "location": "Sosúa",
+    "venue": "Mike's Finish Line Bar",
+    "venueSlug": "finish-line-sosua",
+    "address": "Calle Ayuntamiento 1",
+    "category": "music",
+    "format": "physical",
+    "recurrence": "weekly",
+    "recurrenceDay": 6,
+    "phone": "+18296782975",
+    "lineup": [
+      "Denver"
+    ],
+    "imageEmoji": "🍺"
+  },
+  {
+    "id": "finish-line-trivia-monday",
+    "title": "Finish Line Trivia Night — Monday",
+    "description": "Monday Trivia Night at Mike's Finish Line Bar, Calle Ayuntamiento 1, Sosúa — 5:00 PM–7:00 PM. Early pub quiz before the late strip crowd; open daily ~10 AM–10 PM. Confirm at +1 829-678-2975.",
+    "date": "2026-01-01",
+    "time": "5:00 PM – 7:00 PM",
+    "location": "Sosúa",
+    "venue": "Mike's Finish Line Bar",
+    "venueSlug": "finish-line-sosua",
+    "address": "Calle Ayuntamiento 1",
+    "category": "food-drinks",
+    "format": "physical",
+    "recurrence": "weekly",
+    "recurrenceDay": 1,
+    "phone": "+18296782975",
+    "imageEmoji": "🧠"
   },
   {
     "id": "cheers-weekly-live",

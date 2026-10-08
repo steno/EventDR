@@ -26,6 +26,7 @@ import {
   SWING_NEXT_MAX_METERS,
   withVenueDeepLinkPin,
 } from "@/lib/map-events";
+import { getVenueStreetAddress } from "@/lib/venue-street-address";
 import {
   MAP_AREAS,
   resolveDefaultMapZoom,
@@ -60,22 +61,33 @@ import { PAGE_GUTTER_CLASS, PAGE_WIDTH_CLASS } from "@/lib/page-shell";
 
 function MapPinSheetDetails({
   event,
+  pinEvents,
   locale,
   dict,
   returnTo,
   returnTitle,
 }: {
   event: Event;
+  /** Sibling listings on the same pin — borrow a street if this event lacks one. */
+  pinEvents: Event[];
   locale: Locale;
   dict: Dictionary;
   returnTo: string;
   returnTitle: string;
 }) {
+  const placeEvent =
+    event.address?.trim()
+      ? event
+      : {
+          ...event,
+          address:
+            pinEvents.find((e) => e.address?.trim())?.address ?? event.address,
+        };
   const liveDisplay = useLiveStatusDisplay(event, dict);
   return (
     <div className="mt-3 space-y-3 border-t border-neutral-200/80 pt-3 dark:border-neutral-800">
       <EventCardMeta
-        event={event}
+        event={placeEvent}
         locale={locale}
         dict={dict}
         liveStatus={liveDisplay?.status ?? null}
@@ -176,6 +188,14 @@ export function EventsMapPage({
       Math.min(sheetEventIndex, Math.max(0, sheetEventCount - 1))
     ] ?? null;
   const venueOnlyOpen = Boolean(openPin?.venueOnly && sheetEventCount === 0);
+  const venueOnlyPlace = openPin?.venueOnly
+    ? [
+        getVenueStreetAddress(openPin.venueOnly.slug),
+        openPin.venueOnly.city,
+      ]
+        .filter(Boolean)
+        .join(", ")
+    : "";
 
   useEffect(() => {
     setSheetEventIndex(0);
@@ -614,6 +634,7 @@ export function EventsMapPage({
             {sheetExpanded ? (
               <MapPinSheetDetails
                 event={sheetEvent}
+                pinEvents={openPin.events}
                 locale={locale}
                 dict={dict}
                 returnTo={`/${locale}/map`}
@@ -643,6 +664,12 @@ export function EventsMapPage({
                 <X className="h-4 w-4" strokeWidth={2.5} aria-hidden />
               </button>
             </div>
+            {venueOnlyPlace ? (
+              <p className="mb-2 flex items-start gap-1.5 text-sm text-neutral-600 dark:text-neutral-300">
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0" aria-hidden />
+                <span>{venueOnlyPlace}</span>
+              </p>
+            ) : null}
             <p className="mb-3 text-sm text-neutral-600 dark:text-neutral-300">
               {dict.map.venueNoEvents}
             </p>

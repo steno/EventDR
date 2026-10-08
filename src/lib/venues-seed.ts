@@ -169,13 +169,14 @@ export const SEED_VENUES: Venue[] = [
   },
   {
     slug: "finish-line-sosua",
-    name: "The Finish Line",
+    name: "Mike's Finish Line Bar",
     city: "Sosúa",
     description:
-      "Expat pub on the Sosúa strip — acoustic sets, cover bands, and a familiar sports-bar vibe midweek and on weekends.",
+      "Expat pub at Calle Ayuntamiento 1 (El Batey / Sosúa Abajo) — live music Wednesdays and Saturdays in high season (often Denver), Monday trivia 5–7 PM, and a familiar sports-bar vibe. Open daily ~10 AM–10 PM.",
     lat: 19.7661412,
     lng: -70.5130522,
     emoji: "🍺",
+    phone: "+18296782975",
   },
   {
     slug: "playa-sosua",
@@ -216,8 +217,10 @@ export const SEED_VENUES: Venue[] = [
     city: "Sosúa",
     description:
       "Museum and synagogue honoring the 1940 Jewish refugee settlement — photographs, artifacts, and documentary films on Sosúa's unique heritage next to Casa Marina.",
-    lat: 19.7654983,
-    lng: -70.5163301,
+    // OSM way 204089290 (Jewish Museum building on Calle Dr. Alejo Martínez) —
+    // prior pin sat ~30m east in the plaza toward Hotel Sosúa, off the footprint.
+    lat: 19.76569,
+    lng: -70.516614,
     emoji: "🏛️",
     website: "https://www.sosuajewishmuseum.com/",
   },
@@ -2299,6 +2302,11 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
     slug: "templo-de-las-americas",
   },
   { pattern: /museo\s*jud[ií]o|jewish\s*museum|sosua\s*jewish/i, slug: "sosua-jewish-museum" },
+  {
+    pattern: /mike['’]?s?\s*finish\s*line|finish\s*line(\s*bar)?(\s*sosua)?/i,
+    slug: "finish-line-sosua",
+  },
+
   { pattern: /la\s*lola|lalola\s*beach/i, slug: "la-lola-malecon" },
   {
     pattern: /latin\s*wok\s*(plaza\s*(uno|1)|puerto\s*plata)|latinwok\s*(plaza|centro)|plaza\s*(uno|1).*latin\s*wok/i,

@@ -1,5 +1,7 @@
 import type { Event } from "./types";
 import { normalizeEventLineup } from "./event-lineup";
+import { getVenueStreetAddress } from "./venue-street-address";
+import { matchVenueSlug } from "./venues-seed";
 
 const NORTH_COAST_CITY =
   /^(Puerto Plata|Sosúa|Sosua|Cabarete|Costambar|Playa Dorada|Cofresí|Cofresi|Maimón|Maimon|North Coast, DR)$/i;
@@ -20,13 +22,42 @@ function pushUniquePlacePart(parts: string[], value?: string | null): void {
   parts.push(trimmed);
 }
 
-/** Display: venue, street address, city — omitting empty or duplicate parts. */
+function resolveStreetAddress(
+  event: Pick<Event, "venue" | "venueSlug" | "address" | "location">,
+): string | undefined {
+  const direct = event.address?.trim();
+  if (direct) return direct;
+  const slug =
+    event.venueSlug?.trim() ||
+    matchVenueSlug(event.venue) ||
+    matchVenueSlug(event.location);
+  return getVenueStreetAddress(slug);
+}
+
+/**
+ * Display place for MapPin / detail rows: street + city when we know a street
+ * (“Calle Ayuntamiento 1, Sosúa”), else venue + city.
+ * Resolves street from event.address or the venue’s harvested seed address.
+ */
 export function formatEventPlace(
-  event: Pick<Event, "venue" | "address" | "location">,
+  event: Pick<Event, "venue" | "venueSlug" | "address" | "location">,
 ): string {
   const parts: string[] = [];
-  pushUniquePlacePart(parts, event.venue);
-  pushUniquePlacePart(parts, event.address);
+  const address = resolveStreetAddress(event);
+  if (address) {
+    // Prefer street over venue name — venue is already in the title / venue link.
+    for (const segment of address.split(/,\s*/)) {
+      let trimmed = segment.trim();
+      if (!trimmed) continue;
+      // Drop bare or trailing postal codes (e.g. "57000", "Sosúa 57000").
+      if (/^\d{4,6}$/.test(trimmed)) continue;
+      trimmed = trimmed.replace(/\s+\d{4,6}$/, "").trim();
+      if (!trimmed) continue;
+      pushUniquePlacePart(parts, trimmed);
+    }
+  } else {
+    pushUniquePlacePart(parts, event.venue);
+  }
   if (event.location?.trim()) {
     for (const segment of event.location.split(/,\s*/)) {
       const trimmed = segment.trim();
@@ -42,7 +73,7 @@ export function formatEventPlace(
 
 /** Short place for list cards: venue name, else city — no street address. */
 export function formatEventPlaceShort(
-  event: Pick<Event, "venue" | "address" | "location">,
+  event: Pick<Event, "venue" | "venueSlug" | "address" | "location">,
 ): string | null {
   if (event.venue?.trim()) return event.venue.trim();
 
@@ -62,7 +93,7 @@ export function formatEventPlaceShort(
 
 /** Maps / directions query — prefer street address when available. */
 export function eventDirectionsQuery(
-  event: Pick<Event, "venue" | "address" | "location">,
+  event: Pick<Event, "venue" | "venueSlug" | "address" | "location">,
 ): string {
   const base = formatEventPlace(event);
   return base.includes("Dominican Republic") ? base : `${base}, Dominican Republic`;

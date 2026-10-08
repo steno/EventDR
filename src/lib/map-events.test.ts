@@ -223,6 +223,7 @@ describe("map-events", () => {
     const withVenue = withVenueDeepLinkPin(pins, {
       slug: "kviar-costa-dorada",
       name: "Kviar Show Disco & Casino",
+      city: "Puerto Plata",
       lat: 19.776438,
       lng: -70.659688,
     }, "/venues/kviar.jpg");
@@ -246,6 +247,7 @@ describe("map-events", () => {
     const withVenue = withVenueDeepLinkPin(pins, {
       slug: "kviar-costa-dorada",
       name: "Kviar Show Disco & Casino",
+      city: "Puerto Plata",
       lat: 19.776438,
       lng: -70.659688,
     });
