@@ -61,49 +61,6 @@
     "imageEmoji": "🪩"
   },
   {
-    "id": "hard-rock-weekends",
-    "title": "Concerts live au Hard Rock Cafe",
-    "description": "Groupes live et tribute acts sur la plus grande scène du centre de Sosúa — rock local, reprises et tournées le week-end.",
-    "date": "2026-01-01",
-    "time": "8:00 PM – 1:00 AM",
-    "location": "Sosúa",
-    "venue": "Hard Rock Cafe Puerto Plata",
-    "venueSlug": "hard-rock-sosua",
-    "address": "Calle Duarte 7",
-    "category": "music",
-    "format": "physical",
-    "recurrence": "weekly",
-    "recurrenceDays": [
-      5,
-      6
-    ],
-    "trending": true,
-    "sourceUrl": "https://cafe.hardrock.com/puerto-plata/",
-    "imageEmoji": "🎸"
-  },
-  {
-    "id": "hard-rock-billed-concerts",
-    "title": "Concerts et événements spéciaux au Hard Rock",
-    "description": "Soirées têtes d'affiche au Hard Rock Cafe Sosúa — merengue, boléro, tribute acts et tournées selon le calendrier officiel. Billets à la Rock Shop (Calle Duarte / Calle Beller) ou WhatsApp +1 849-505-7778.",
-    "date": "2026-01-01",
-    "time": "8:00 PM – 11:00 PM",
-    "location": "Sosúa",
-    "venue": "Hard Rock Cafe Puerto Plata",
-    "venueSlug": "hard-rock-sosua",
-    "address": "Calle Duarte 7",
-    "category": "concert",
-    "format": "physical",
-    "recurrence": "weekly",
-    "recurrenceDays": [
-      4,
-      5,
-      6
-    ],
-    "trending": true,
-    "sourceUrl": "https://cafe.hardrock.com/puerto-plata/event-calendar.aspx",
-    "imageEmoji": "🎤"
-  },
-  {
     "id": "voramar-friday-live",
     "title": "BBQ et musique live à l'Hôtel Voramar",
     "description": "Vendredis au bord de la piscine à l'Hôtel Voramar — BBQ alternés et groupes live rock/pop dans une ambiance germano-caribéenne.",

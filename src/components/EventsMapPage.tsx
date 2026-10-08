@@ -375,8 +375,14 @@ export function EventsMapPage({
             aria-label={dict.map.pinSheetLabel}
           >
             <div className="mb-2 flex items-center gap-2">
-              <p className="min-w-0 flex-1 truncate text-sm font-extrabold leading-none text-neutral-900 dark:text-neutral-50">
-                {sheetEvent.title}
+              <p className="min-w-0 flex-1 text-[11px] font-bold uppercase tracking-wide text-orange-500">
+                {(sheetEventCount === 1
+                  ? dict.map.eventHere
+                  : dict.map.eventsHere
+                ).replace("{count}", String(sheetEventCount))}
+                <span className="ml-1.5 tabular-nums text-orange-400">
+                  {sheetEventIndex + 1}/{sheetEventCount}
+                </span>
               </p>
               {sheetMulti ? (
                 <div className="flex shrink-0 items-center gap-1">
@@ -448,14 +454,8 @@ export function EventsMapPage({
             </div>
 
             <div className="mt-2 flex items-center gap-2">
-              <p className="min-w-0 flex-1 text-[11px] font-bold uppercase tracking-wide text-neutral-400">
-                {(sheetEventCount === 1
-                  ? dict.map.eventHere
-                  : dict.map.eventsHere
-                ).replace("{count}", String(sheetEventCount))}
-                <span className="ml-1.5 tabular-nums text-neutral-500">
-                  {sheetEventIndex + 1}/{sheetEventCount}
-                </span>
+              <p className="min-w-0 flex-1 truncate text-base font-extrabold leading-snug text-neutral-900 dark:text-neutral-50">
+                {sheetEvent.title}
               </p>
               {sheetMulti ? (
                 <div className="flex items-center gap-1.5">

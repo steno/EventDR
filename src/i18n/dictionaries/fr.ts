@@ -120,7 +120,7 @@ export const fr: Dictionary = {
     scrollSpecialsNext: "Spéciaux suivants",
     thisWeekend: "Le week-end",
     seeAllWeekend: "Tout voir le week-end",
-    recentlyAdded: "Ajoutés récemment",
+    recentlyAdded: "Tendances",
     comingUp: "À l'horizon",
     restaurantWeek: {
       eyebrow: "À table cette semaine",

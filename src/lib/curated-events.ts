@@ -809,17 +809,6 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
   "paella-pop-el-pueblito": {
     isFree: true,
   },
-  "hard-rock-weekends": {
-    isFree: false,
-    callForPricing: true,
-    phone: "+18495057778",
-  },
-  "hard-rock-billed-concerts": {
-    isFree: false,
-    callForPricing: true,
-    phone: "+18495057778",
-  },
-
   "kite-beach-wind-culture": {
     address: "Carretera 5, Kite Beach",
     location: "Cabarete",

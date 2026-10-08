@@ -153,25 +153,6 @@ export const SEED_EVENT_OPINIONS_BASE: EventOpinion[] = [
     updatedAt: "2026-08-02T22:40:00.000Z",
   },
   {
-    eventId: "hard-rock-weekends",
-    seriesKey: "hard-rock-sosua:weekends",
-    body: "Easy, safe pick for hotel guests — tourist-friendly room, not an underground local disco. Check whether the weekend is ticketed.",
-    localized: {
-      es: "Opción fácil y segura para huéspedes de hotel — sala amigable para turistas, no una disco local underground. Revisa si el fin de semana tiene boleto.",
-      fr: "Choix facile et sûr pour les touristes — salle visitor-friendly, pas une disco locale underground. Vérifiez si le week-end est payant.",
-    },
-    priceFeel: "varies",
-    priceNote:
-      "Ticketed when a bill is announced — check door/ticket link; bar prices sit in the tourist-moderate band",
-    priceNoteLocalized: {
-      es: "Con boleto cuando hay cartel — mira puerta/link; barra en banda turística-moderada",
-      fr: "Payant quand un show est annoncé — vérifiez billet/porte ; bar en bande touristique-modérée",
-    },
-    attribution: "POP research · venue listing",
-    researchNotes: "Hard Rock billed concerts vs open weekends.",
-    updatedAt: AT,
-  },
-  {
     eventId: "cheers-weekly-live",
     seriesKey: "cheers-bar-sosua:weekly",
     body: "A familiar bar-band night, not a destination concert — steady regulars, sports on the screens.",

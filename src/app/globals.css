@@ -843,15 +843,15 @@ html.dark .pull-reload__spinner {
   z-index: 2;
 }
 .north-coast-map-pin__dot {
-  width: 18px;
-  height: 18px;
+  width: 22px;
+  height: 22px;
   border-radius: 9999px;
   border: 2.5px solid #fff;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.12);
 }
 .north-coast-map-pin--thumb {
-  width: 40px;
-  max-width: 40px;
+  width: 48px;
+  max-width: 48px;
 }
 .north-coast-map-pin__thumb {
   display: block;
@@ -904,24 +904,24 @@ html.dark .pull-reload__spinner {
   display: none;
 }
 .north-coast-map-pin[data-selected="true"] .north-coast-map-pin__dot {
-  width: 22px;
-  height: 22px;
+  width: 26px;
+  height: 26px;
   box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.55);
 }
 .north-coast-map-pin[data-selected="true"] .north-coast-map-pin__thumb {
-  width: 40px !important;
-  height: 40px !important;
-  min-width: 40px !important;
-  min-height: 40px !important;
-  max-width: 40px !important;
-  max-height: 40px !important;
+  width: 44px !important;
+  height: 44px !important;
+  min-width: 44px !important;
+  min-height: 44px !important;
+  max-width: 44px !important;
+  max-height: 44px !important;
   box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.65);
 }
 .north-coast-map-pin[data-selected="true"] .north-coast-map-pin__thumb img {
-  width: 40px !important;
-  height: 40px !important;
-  max-width: 40px !important;
-  max-height: 40px !important;
+  width: 44px !important;
+  height: 44px !important;
+  max-width: 44px !important;
+  max-height: 44px !important;
 }
 .north-coast-map-pin__count {
   position: absolute;

@@ -111,7 +111,7 @@ export type Dictionary = {
     thisWeekend: string;
     /** Home “This weekend” see-all when more than the visible slides. */
     seeAllWeekend: string;
-    /** Home section: recently added listings. */
+    /** Home section: trending / recently added listings. */
     recentlyAdded: string;
     /** Home section: future one-offs / concerts ahead. */
     comingUp: string;
@@ -802,7 +802,7 @@ export const en: Dictionary = {
     scrollSpecialsNext: "Next specials",
     thisWeekend: "The weekend",
     seeAllWeekend: "See all weekend",
-    recentlyAdded: "Recently added",
+    recentlyAdded: "Trending",
     comingUp: "On the horizon",
     restaurantWeek: {
       eyebrow: "Dining this week",

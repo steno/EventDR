@@ -746,24 +746,6 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: AT,
   },
   {
-    eventId: "hard-rock-billed-concerts",
-    seriesKey: "hard-rock-sosua:weekly",
-    body: "Check the poster before you go — open weekends without a headliner feel very different from these ticketed shows.",
-    localized: {
-      es: "Mira el póster antes de ir — los fines sin headliner se sienten muy distintos a estos shows con boleto.",
-      fr: "Regardez l'affiche avant d'y aller — les week-ends sans headliner sont très différents de ces shows payants.",
-    },
-    priceFeel: "varies",
-    priceNote: "Ticket price set per show (todotickets / door) — plus bar inside",
-    priceNoteLocalized: {
-      es: "Precio de boleto según show (todotickets / puerta) — más barra adentro",
-      fr: "Prix du billet selon le show (todotickets / porte) — plus le bar à l'intérieur",
-    },
-    attribution: "POP research · venue listing",
-    researchNotes: "Hard Rock billed concerts seed.",
-    updatedAt: AT,
-  },
-  {
     eventId: "el-carey-weekend-nightlife",
     seriesKey: "el-carey-puerto-plata:weekly",
     body: "Thu/Sun DJ nights on Costambar sand — plan a ride west of town; louder than weekday dining, quieter than a Malecón club crawl.",

@@ -51,10 +51,6 @@ const VENUE_SOURCES = [
   // Anfiteatro La Puntilla — venue hero only; standing concert/weekday culture
   // series retired. Do not invent remote refreshes for removed seed ids.
   {
-    eventId: "hard-rock-billed-concerts",
-    url: "https://cafe.hardrock.com/puerto-plata/files/7036/RockHeader.jpg",
-  },
-  {
     eventId: "sosua-jewish-museum-hours",
     url: "https://static.wixstatic.com/media/59ac9d_1ca2fbbea6c54145bac6af167a406cd8~mv2.jpg",
   },

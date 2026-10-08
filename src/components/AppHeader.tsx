@@ -101,27 +101,6 @@ export function AppHeader({
         </div>
       ) : null}
       <div className="ml-auto flex shrink-0 items-center gap-1.5 sm:gap-2">
-        {searchToggle ? (
-          <button
-            type="button"
-            className={`${headerIconClass} ${
-              searchToggle.open
-                ? "text-orange-600 ring-orange-400/70 hover:text-orange-700 dark:text-orange-300 dark:ring-orange-300/50 dark:hover:text-orange-200"
-                : "text-neutral-500 ring-neutral-200/70 hover:text-neutral-900 dark:text-neutral-300 dark:ring-white/12 dark:hover:text-neutral-100"
-            }`}
-            aria-label={searchToggle.open ? dict.search.close : dict.search.open}
-            title={searchToggle.open ? dict.search.close : dict.search.open}
-            aria-expanded={searchToggle.open}
-            aria-controls={searchToggle.controlsId}
-            onClick={searchToggle.onToggle}
-          >
-            {searchToggle.open ? (
-              <X className="h-4 w-4" aria-hidden />
-            ) : (
-              <Search className="h-4 w-4" aria-hidden />
-            )}
-          </button>
-        ) : null}
         {desktopActions ? (
           <div className="mr-1 hidden items-center gap-1.5 lg:flex">
             {desktopActions}
@@ -157,6 +136,27 @@ export function AppHeader({
         <WeatherWidget locale={locale} dict={dict} />
         <ThemeToggle dict={dict} />
         <LanguageSwitcher locale={locale} dict={dict} />
+        {searchToggle ? (
+          <button
+            type="button"
+            className={`${headerIconClass} ${search ? "lg:hidden" : ""} ${
+              searchToggle.open
+                ? "text-orange-600 ring-orange-400/70 hover:text-orange-700 dark:text-orange-300 dark:ring-orange-300/50 dark:hover:text-orange-200"
+                : "text-neutral-500 ring-neutral-200/70 hover:text-neutral-900 dark:text-neutral-300 dark:ring-white/12 dark:hover:text-neutral-100"
+            }`}
+            aria-label={searchToggle.open ? dict.search.close : dict.search.open}
+            title={searchToggle.open ? dict.search.close : dict.search.open}
+            aria-expanded={searchToggle.open}
+            aria-controls={searchToggle.controlsId}
+            onClick={searchToggle.onToggle}
+          >
+            {searchToggle.open ? (
+              <X className="h-4 w-4" aria-hidden />
+            ) : (
+              <Search className="h-4 w-4" aria-hidden />
+            )}
+          </button>
+        ) : null}
       </div>
     </div>
   );

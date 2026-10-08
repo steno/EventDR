@@ -28,7 +28,6 @@ const FILE_TO_EVENT_ID = {
   "voyvoy-saturday-session-band.jpg": "voyvoy-saturday-session-band",
   "drifter-sunset-into-the-night.jpg": "drifter-sunset-into-the-night",
   "voyvoy-monday-night-terrace.jpg": "voyvoy-monday-live-music",
-  "hard-rock-billed-concerts.jpg": "hard-rock-billed-concerts",
   "sosua-jewish-museum-hours.jpg": "sosua-jewish-museum-hours",
   "sosua-diving-adventures-daily.jpg": "sosua-diving-adventures-daily",
 
@@ -248,7 +247,6 @@ const FILE_TO_EVENT_ID = {
 
   "KiteBeachWindSession.JPG": "kite-beach-daily",
   "LAXFridayReggaeNight.JPG": "lax-reggae-friday",
-  "HardRockWeekends.jpg": "hard-rock-weekends",
   "VoramarFridayLive.jpg": "voramar-friday-live",
   "voramar-friday-live-poolside.jpg": "voramar-friday-live",
   "cheers-weekly-live.jpg": "cheers-weekly-live",

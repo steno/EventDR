@@ -12,8 +12,6 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "liquid-blue-sunrise-yoga": "liquid-blue-sunrise-yoga.jpg",
   // Filename bump — DJ over packed dance floor (not the old deck still).
   "lax-reggae-friday": "lax-reggae-friday-crowd.png",
-  "hard-rock-weekends": "hard-rock-weekends.jpg",
-  "hard-rock-billed-concerts": "hard-rock-billed-concerts.jpg",
   "voramar-friday-live": "voramar-friday-live-poolside.jpg",
   "smileys-saturday-live": "smileys-saturday-live.jpg",
   // Filename bump — house-band live set (not the El Batey open-mic clone).
@@ -1069,8 +1067,6 @@ const HOME_HERO_SCENE_FILES = new Set([
   "gym-sov-zumba-fitness.jpg",
   "hacienda-cufa-cacao-tour.jpg",
   "handmade-pina-colada-experience.webp",
-  "hard-rock-billed-concerts.jpg",
-  "hard-rock-weekends.jpg",
   "hms-valeria-domingo-table.jpg",
   "hms-valeria-spanish-saturday-guests.jpg",
   "iberostar-costa-dorada-day-pass.jpg",

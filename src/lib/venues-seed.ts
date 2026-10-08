@@ -749,8 +749,8 @@ export const SEED_VENUES: Venue[] = [
     city: "Puerto Plata",
     description:
       "Historic 1930 municipal firehouse on the Malecón — twin towers, red-and-white façade, and an active station visitors can stop by to see the trucks and meet local firefighters; a staple of guided city walking tours.",
-    lat: 19.7982,
-    lng: -70.6905,
+    lat: 19.7990725,
+    lng: -70.6903452,
     emoji: "🚒",
     website: "https://puertoplatadr.com/tours/fire-department/",
     phone: "+18095862312",

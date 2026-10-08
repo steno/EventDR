@@ -130,12 +130,12 @@ describe("findVenueOtherNights", () => {
       recurrenceDay: 3,
       date: "2026-09-16",
     });
-    const weekends = event({
-      id: "hard-rock-weekends",
-      title: "Live Shows",
+    const tribute = event({
+      id: "hard-rock-tribute-saturdays",
+      title: "Tribute Saturdays",
       venueSlug: "hard-rock-sosua",
       recurrence: "weekly",
-      recurrenceDays: [5, 6],
+      recurrenceDays: [6],
       date: "2026-09-12",
     });
     const neon = event({
@@ -161,13 +161,13 @@ describe("findVenueOtherNights", () => {
 
     const siblings = findVenueOtherNights(
       karaoke,
-      [karaoke, weekends, neon, past, elsewhere],
+      [karaoke, tribute, neon, past, elsewhere],
       "en",
       dict,
     );
     assert.deepEqual(
       siblings.map((s) => s.id),
-      ["sosua-neon-partyrun-2026-10-24", "hard-rock-weekends"],
+      ["sosua-neon-partyrun-2026-10-24", "hard-rock-tribute-saturdays"],
     );
   });
 });
