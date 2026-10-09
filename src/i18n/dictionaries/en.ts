@@ -403,6 +403,10 @@ export type Dictionary = {
     openCruise: string;
     /** Tiny header caption under the map icon until first visit. */
     newBadge: string;
+    /** One-time coach chip on first /map visit (area picker + tap a pin). */
+    pinsCoach: string;
+    /** Dismiss the map pins coach chip. */
+    pinsCoachDismiss: string;
     /** Sheet when `?venue=` opens a place with no upcoming event pins. */
     venuePinSheetLabel: string;
     venueNoEvents: string;
@@ -1086,6 +1090,9 @@ export const en: Dictionary = {
     eventsHere: "{count} events here",
     openCruise: "Cruise plan",
     newBadge: "NEW",
+    pinsCoach:
+      "Choose an area up top, then tap a pin — photos load as you explore.",
+    pinsCoachDismiss: "Got it",
     venuePinSheetLabel: "This place",
     venueNoEvents: "No upcoming events pinned here right now.",
     openVenue: "Open venue",

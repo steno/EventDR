@@ -846,27 +846,102 @@ html.dark .pull-reload__spinner {
   background: transparent;
   padding: 0;
   cursor: pointer;
-  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.4));
+  /* No filter here — Safari clips overflowing pulse rings under filter. */
+  overflow: visible;
   transform: translateY(0);
   transition: transform 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
 }
 .north-coast-map-pin:hover,
 .north-coast-map-pin[data-selected="true"] {
   transform: translateY(-3px) scale(1.08);
   z-index: 2;
 }
+/* Looping ring — transform/opacity only (box-shadow anims are flaky on iOS). */
+.north-coast-map-pin__pulse {
+  position: absolute;
+  top: -2px;
+  left: 50%;
+  width: 30px;
+  height: 30px;
+  margin-left: -15px;
+  border-radius: 9999px;
+  border: 3px solid rgb(249 115 22);
+  box-sizing: border-box;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate3d(0, 0, 0) scale(0.85);
+  will-change: transform, opacity;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.north-coast-map-pin--thumb .north-coast-map-pin__pulse {
+  top: -4px;
+  width: 52px;
+  height: 52px;
+  margin-left: -26px;
+}
+.north-coast-map-pin[data-selected="true"] .north-coast-map-pin__pulse {
+  -webkit-animation: north-coast-pin-active-ring 1.6s ease-out infinite;
+  animation: north-coast-pin-active-ring 1.6s ease-out infinite;
+}
+@-webkit-keyframes north-coast-pin-active-ring {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0) scale(0.85);
+    transform: translate3d(0, 0, 0) scale(0.85);
+    opacity: 0.9;
+  }
+  75% {
+    -webkit-transform: translate3d(0, 0, 0) scale(1.85);
+    transform: translate3d(0, 0, 0) scale(1.85);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0) scale(1.85);
+    transform: translate3d(0, 0, 0) scale(1.85);
+    opacity: 0;
+  }
+}
+@keyframes north-coast-pin-active-ring {
+  0% {
+    transform: translate3d(0, 0, 0) scale(0.85);
+    opacity: 0.9;
+  }
+  75% {
+    transform: translate3d(0, 0, 0) scale(1.85);
+    opacity: 0;
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1.85);
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .north-coast-map-pin[data-selected="true"] .north-coast-map-pin__pulse {
+    -webkit-animation: none;
+    animation: none;
+    opacity: 0.55;
+    transform: translate3d(0, 0, 0) scale(1.3);
+  }
+}
 .north-coast-map-pin__dot {
+  position: relative;
+  z-index: 1;
   width: 22px;
   height: 22px;
   border-radius: 9999px;
   border: 2.5px solid #fff;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.12);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.12),
+    0 2px 5px rgba(0, 0, 0, 0.35);
 }
 .north-coast-map-pin--thumb {
   width: 48px;
   max-width: 48px;
 }
 .north-coast-map-pin__thumb {
+  position: relative;
+  z-index: 1;
   display: block;
   box-sizing: border-box;
   width: 36px !important;
@@ -893,13 +968,18 @@ html.dark .pull-reload__spinner {
   pointer-events: none;
 }
 .north-coast-map-pin--thumb .north-coast-map-pin__thumb {
-  box-shadow: 0 0 0 2px currentColor;
+  box-shadow:
+    0 0 0 2px currentColor,
+    0 2px 5px rgba(0, 0, 0, 0.35);
 }
 .north-coast-map .maplibregl-marker {
   width: auto !important;
   height: auto !important;
+  overflow: visible !important;
 }
 .north-coast-map-pin__tip {
+  position: relative;
+  z-index: 1;
   width: 0;
   height: 0;
   margin-top: -1px;
@@ -919,7 +999,9 @@ html.dark .pull-reload__spinner {
 .north-coast-map-pin[data-selected="true"] .north-coast-map-pin__dot {
   width: 26px;
   height: 26px;
-  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.55);
+  box-shadow:
+    0 0 0 3px rgba(249, 115, 22, 0.7),
+    0 2px 6px rgba(0, 0, 0, 0.35);
 }
 .north-coast-map-pin[data-selected="true"] .north-coast-map-pin__thumb {
   width: 44px !important;
@@ -928,7 +1010,9 @@ html.dark .pull-reload__spinner {
   min-height: 44px !important;
   max-width: 44px !important;
   max-height: 44px !important;
-  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.65);
+  box-shadow:
+    0 0 0 3px rgba(249, 115, 22, 0.75),
+    0 2px 6px rgba(0, 0, 0, 0.35);
 }
 .north-coast-map-pin[data-selected="true"] .north-coast-map-pin__thumb img {
   width: 44px !important;
@@ -940,6 +1024,7 @@ html.dark .pull-reload__spinner {
   position: absolute;
   top: -4px;
   right: -6px;
+  z-index: 3;
   min-width: 18px;
   height: 18px;
   padding: 0 4px;
@@ -951,6 +1036,13 @@ html.dark .pull-reload__spinner {
   line-height: 18px;
   text-align: center;
   border: 1.5px solid #fff;
+  pointer-events: none;
+}
+/* Selected / photo face is larger — park the badge outside the ring. */
+.north-coast-map-pin--thumb .north-coast-map-pin__count,
+.north-coast-map-pin[data-selected="true"] .north-coast-map-pin__count {
+  top: -6px;
+  right: -8px;
 }
 .north-coast-map .maplibregl-ctrl-group {
   border-radius: 12px !important;

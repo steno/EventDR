@@ -404,6 +404,9 @@ export const es: Dictionary = {
     eventsHere: "{count} eventos aquí",
     openCruise: "Plan crucero",
     newBadge: "NUEVO",
+    pinsCoach:
+      "Elige un área arriba y toca un pin — las fotos se cargan al explorar.",
+    pinsCoachDismiss: "Entendido",
     venuePinSheetLabel: "Este lugar",
     venueNoEvents: "No hay eventos próximos con pin aquí ahora.",
     openVenue: "Ver lugar",

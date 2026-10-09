@@ -7,7 +7,9 @@ export type OnboardingFlag =
   | "calendar-prompt-seen"
   | "push-prompt-seen"
   /** Header map “NEW” tip — cleared after the first /map visit. */
-  | "map-feature-seen";
+  | "map-feature-seen"
+  /** Map coach chip — tap a pin / photos load; cleared on dismiss or first pin. */
+  | "map-pins-coached";
 
 const STORAGE_KEY = "pop-onboarding-v1";
 

@@ -27,6 +27,20 @@ function pinKey(lat: number, lng: number): string {
   return `${lat.toFixed(5)},${lng.toFixed(5)}`;
 }
 
+/**
+ * Prefer venue slug so co-located businesses (same building / shared GPS)
+ * get separate pins — e.g. The Hideout upstairs vs Cigar Town at #56.
+ * Fall back to rounded lat/lng for events without a slug.
+ */
+function pinGroupKey(
+  event: Pick<Event, "venueSlug">,
+  coords: { lat: number; lng: number },
+): string {
+  const slug = event.venueSlug?.trim();
+  if (slug) return `venue:${slug}`;
+  return pinKey(coords.lat, coords.lng);
+}
+
 /** Events with usable map pins for the North Coast map screen. */
 export function eventsWithMapPins(events: Event[]): Event[] {
   return events.filter((event) => {
@@ -62,14 +76,17 @@ export function filterMapEvents(
   return timed.filter((event) => eventInCategory(event, category));
 }
 
-/** One pin per venue coordinate; stacks multiple events at the same place. */
+/**
+ * One pin per venue (or bare coordinate); stacks multiple events at that pin.
+ * Distinct `venueSlug`s stay separate even when GPS rounds to the same spot.
+ */
 export function buildMapPins(events: Event[]): MapPin[] {
   const groups = new Map<string, MapPin>();
 
   for (const event of events) {
     const coords = resolveEventCoords(event);
     if (!coords) continue;
-    const key = pinKey(coords.lat, coords.lng);
+    const key = pinGroupKey(event, coords);
     const existing = groups.get(key);
     if (existing) {
       existing.events.push(event);

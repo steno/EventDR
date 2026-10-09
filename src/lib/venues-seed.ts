@@ -1976,8 +1976,9 @@ export const SEED_VENUES: Venue[] = [
     city: "Puerto Plata",
     description:
       "Second-level lounge on Av. Luis Ginebra #56 (same building as Cigar Town Pop, upstairs) — neon patio sofa vibes, Miércoles de Rock en Español, and guest pop-ups like El Cuervo Street Food. Not the cigar lounge downstairs.",
-    lat: 19.7915,
-    lng: -70.6805,
+    // Nudge ~20m from Cigar Town’s pin so the map shows a separate marker upstairs.
+    lat: 19.79168,
+    lng: -70.68032,
     emoji: "🎸",
   },
 ];

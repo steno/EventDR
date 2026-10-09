@@ -404,6 +404,9 @@ export const fr: Dictionary = {
     eventsHere: "{count} événements ici",
     openCruise: "Plan croisière",
     newBadge: "NOUVEAU",
+    pinsCoach:
+      "Choisissez une zone en haut, puis touchez une épingle — les photos se chargent en explorant.",
+    pinsCoachDismiss: "Compris",
     venuePinSheetLabel: "Ce lieu",
     venueNoEvents: "Aucun événement à venir épinglé ici pour le moment.",
     openVenue: "Voir le lieu",

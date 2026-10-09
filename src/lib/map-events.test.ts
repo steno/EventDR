@@ -88,6 +88,36 @@ describe("map-events", () => {
     assert.equal(pins[0]?.events.length, 2);
   });
 
+  it("keeps co-located venues on separate pins when slug differs", () => {
+    const cigar = event({
+      id: "cigar",
+      title: "Ron & Humos",
+      venueSlug: "cigar-town-pop",
+      venue: "Cigar Town Pop",
+      lat: 19.7915,
+      lng: -70.6805,
+    });
+    const hideout = event({
+      id: "hideout",
+      title: "Rock en Español",
+      venueSlug: "the-hideout-puerto-plata",
+      venue: "The Hideout",
+      lat: 19.7915,
+      lng: -70.6805,
+    });
+    const pins = buildMapPins([cigar, hideout]);
+    assert.equal(pins.length, 2);
+    assert.equal(
+      pins.find((p) => p.id === "venue:cigar-town-pop")?.events[0]?.id,
+      "cigar",
+    );
+    assert.equal(
+      pins.find((p) => p.id === "venue:the-hideout-puerto-plata")?.events[0]
+        ?.id,
+      "hideout",
+    );
+  });
+
   it("picks the geographically nearest pin", () => {
     const pins = buildMapPins([
       event({

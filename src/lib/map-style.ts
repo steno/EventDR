@@ -31,8 +31,8 @@ export const MAP_PIN_ZOOM = 17.2;
 /** Town overview when picking an area from the map header. */
 export const MAP_AREA_ZOOM = 13.6;
 /**
- * Pin photos load once zoom is this far above the viewport’s starting
- * overview (in-viewport only). Keeps first paint as dots; mid-zoom gets thumbs.
+ * @deprecated Thumbs now lazy-load for in-viewport pins after map idle
+ * (see NorthCoastMapView). Kept only if an older bundle still imports it.
  */
 export const MAP_PIN_THUMB_ZOOM_DELTA = 0.2;
 export const MAP_DEFAULT_PITCH = 55;

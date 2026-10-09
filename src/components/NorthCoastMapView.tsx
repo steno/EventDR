@@ -20,13 +20,14 @@ import {
   MAP_DEFAULT_BEARING,
   MAP_DEFAULT_CENTER,
   MAP_DEFAULT_PITCH,
-  MAP_DEFAULT_ZOOM,
   MAP_OVERVIEW_ZOOM_MAX,
-  MAP_PIN_THUMB_ZOOM_DELTA,
   MAP_PIN_ZOOM,
   resolveDefaultMapZoom,
   resolveMapStyleUrl,
 } from "@/lib/map-style";
+
+/** Max hero upgrades started per sync pass (nearest-to-center first). */
+const THUMB_UPGRADE_BATCH = 6;
 
 // Same-origin worker from scripts/copy-maplibre-worker.mjs (dev + build).
 setWorkerUrl("/maplibre-gl-worker.mjs");
@@ -139,6 +140,12 @@ function buildPinElement(pin: MapPin, active: boolean): HTMLButtonElement {
   btn.style.color = pin.color;
   if (active) btn.dataset.selected = "true";
 
+  // Real node (not ::after) — iOS Safari clips animated pseudos under filter/markers.
+  const pulse = document.createElement("span");
+  pulse.className = "north-coast-map-pin__pulse";
+  pulse.setAttribute("aria-hidden", "true");
+  btn.appendChild(pulse);
+
   const face = document.createElement("span");
   applyDotFace(face, pin.color);
   btn.appendChild(face);
@@ -169,6 +176,37 @@ function ensurePinThumb(btn: HTMLButtonElement, pin: MapPin): void {
   if (applyThumbFace(face, pin)) {
     btn.classList.add("north-coast-map-pin--thumb");
   }
+}
+
+/**
+ * Upgrade up to `limit` in-viewport dots to photo faces, nearest map center first.
+ * Returns how many candidates were still waiting after this batch.
+ */
+function upgradeVisiblePinThumbs(
+  map: MapLibreMap,
+  markersById: Map<string, Marker>,
+  pinsById: Map<string, MapPin>,
+  limit = THUMB_UPGRADE_BATCH,
+): number {
+  const bounds = paddedBounds(map);
+  const center = map.getCenter();
+  const candidates: { marker: Marker; pin: MapPin; d2: number }[] = [];
+  for (const [id, marker] of markersById) {
+    const ll = marker.getLngLat();
+    if (!bounds.contains(ll)) continue;
+    const pin = pinsById.get(id);
+    if (!pin?.thumbUrl) continue;
+    const el = marker.getElement() as HTMLButtonElement;
+    if (el.classList.contains("north-coast-map-pin--thumb")) continue;
+    const dLat = ll.lat - center.lat;
+    const dLng = ll.lng - center.lng;
+    candidates.push({ marker, pin, d2: dLat * dLat + dLng * dLng });
+  }
+  candidates.sort((a, b) => a.d2 - b.d2);
+  for (const { marker, pin } of candidates.slice(0, limit)) {
+    ensurePinThumb(marker.getElement() as HTMLButtonElement, pin);
+  }
+  return Math.max(0, candidates.length - limit);
 }
 
 function paddedBounds(map: MapLibreMap, padRatio = 0.2): LngLatBounds {
@@ -205,13 +243,10 @@ export function NorthCoastMapView({
   const mapRef = useRef<MapLibreMap | null>(null);
   const markersByIdRef = useRef(new Map<string, Marker>());
   const pinsByIdRef = useRef(new Map<string, MapPin>());
-  /** Starting overview zoom for this viewport — thumbs after a small zoom-in. */
-  const overviewZoomRef = useRef(MAP_DEFAULT_ZOOM);
   const onPinTapRef = useRef(onPinTap);
   onPinTapRef.current = onPinTap;
-
-  const thumbZoomMin = () =>
-    overviewZoomRef.current + MAP_PIN_THUMB_ZOOM_DELTA;
+  /** Continue draining visible thumb upgrades after a capped batch. */
+  const thumbDrainTimerRef = useRef(0);
   /**
    * Pin open calls map.stop() then easeTo. stop() can emit zoomend while still
    * at overview zoom, which would clear the brand-new selection — suppress
@@ -237,7 +272,6 @@ export function NorthCoastMapView({
     if (!el || mapRef.current) return;
 
     const startZoom = resolveDefaultMapZoom(el.clientWidth);
-    overviewZoomRef.current = startZoom;
 
     const map = new MapLibreMap({
       container: el,
@@ -302,22 +336,22 @@ export function NorthCoastMapView({
       }
     });
 
-    // Photo pins once past starting overview + in view (first paint stays dots).
+    // First paint stays dots; after idle, upgrade in-viewport pins nearest center.
     let thumbSyncRaf = 0;
-    const syncVisiblePinThumbs = () => {
-      if (map.getZoom() < thumbZoomMin()) return;
-      const bounds = paddedBounds(map);
-      for (const [id, marker] of markersByIdRef.current) {
-        const ll = marker.getLngLat();
-        if (!bounds.contains(ll)) continue;
-        const pin = pinsByIdRef.current.get(id);
-        if (!pin) continue;
-        ensurePinThumb(marker.getElement() as HTMLButtonElement, pin);
-      }
-    };
     const scheduleThumbSync = () => {
       cancelAnimationFrame(thumbSyncRaf);
       thumbSyncRaf = requestAnimationFrame(syncVisiblePinThumbs);
+    };
+    const syncVisiblePinThumbs = () => {
+      const remaining = upgradeVisiblePinThumbs(
+        map,
+        markersByIdRef.current,
+        pinsByIdRef.current,
+      );
+      window.clearTimeout(thumbDrainTimerRef.current);
+      if (remaining > 0) {
+        thumbDrainTimerRef.current = window.setTimeout(scheduleThumbSync, 140);
+      }
     };
     // `zoom` covers mid pinch/wheel; end events catch settle + pan.
     map.on("zoom", scheduleThumbSync);
@@ -338,6 +372,7 @@ export function NorthCoastMapView({
     mapRef.current = map;
     return () => {
       cancelAnimationFrame(thumbSyncRaf);
+      window.clearTimeout(thumbDrainTimerRef.current);
       document.removeEventListener("visibilitychange", onVisibility);
       for (const marker of markersByIdRef.current.values()) marker.remove();
       markersByIdRef.current.clear();
@@ -378,20 +413,23 @@ export function NorthCoastMapView({
       markersByIdRef.current.set(pin.id, marker);
     }
 
-    // If we land already zoomed (deep-link / area), attach visible thumbs.
-    if (map.getZoom() >= thumbZoomMin()) {
-      const bounds = paddedBounds(map);
-      for (const [id, marker] of markersByIdRef.current) {
-        if (!bounds.contains(marker.getLngLat())) continue;
-        const pin = pinsByIdRef.current.get(id);
-        if (pin) ensurePinThumb(marker.getElement() as HTMLButtonElement, pin);
-      }
-    }
+    // New markers land as dots; upgrade a nearest-center batch immediately.
+    upgradeVisiblePinThumbs(
+      map,
+      markersByIdRef.current,
+      pinsByIdRef.current,
+    );
   }, [pins]);
 
   useEffect(() => {
     for (const [id, marker] of markersByIdRef.current) {
       const el = marker.getElement();
+      if (!el.querySelector(".north-coast-map-pin__pulse")) {
+        const pulse = document.createElement("span");
+        pulse.className = "north-coast-map-pin__pulse";
+        pulse.setAttribute("aria-hidden", "true");
+        el.insertBefore(pulse, el.firstChild);
+      }
       if (id === activePinId) el.dataset.selected = "true";
       else delete el.dataset.selected;
     }

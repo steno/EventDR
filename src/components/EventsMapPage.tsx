@@ -40,6 +40,10 @@ import {
   writeHomeArea,
   type CitySlug,
 } from "@/lib/cities";
+import {
+  hasSeenOnboarding,
+  markOnboardingSeen,
+} from "@/lib/onboarding";
 
 /** Home session area → map camera region. `null` when home has no choice yet. */
 function mapAreaFromHomeStorage(): MapAreaId | null {
@@ -147,6 +151,8 @@ export function EventsMapPage({
   const [sheetExpanded, setSheetExpanded] = useState(false);
   /** Pins already shown in this close→swing chain (avoid A↔B loops). */
   const [swingVisitedIds, setSwingVisitedIds] = useState<string[]>([]);
+  /** One-time tip — tap a pin / photos load as you explore. */
+  const [showPinsCoach, setShowPinsCoach] = useState(false);
   const sheetRef = useRef<HTMLDivElement>(null);
   const venueDeepLinkDoneRef = useRef(false);
   /** Pointer drag: horizontal = multi-event flip; vertical = expand/collapse meta. */
@@ -201,6 +207,10 @@ export function EventsMapPage({
     setSheetEventIndex(0);
     setSheetExpanded(false);
   }, [openPinId]);
+
+  useEffect(() => {
+    setShowPinsCoach(!hasSeenOnboarding("map-pins-coached"));
+  }, []);
 
   // Mirror home’s chosen city/region into the map picker + camera (skip venue deep-links).
   useLayoutEffect(() => {
@@ -393,6 +403,7 @@ export function EventsMapPage({
   }
 
   function handleAreaChange(next: MapAreaId) {
+    if (showPinsCoach) dismissPinsCoach();
     setArea(next);
     // Keep home ↔ map area in sync for the tab session.
     writeHomeArea(next === "north-coast" ? null : next);
@@ -407,11 +418,17 @@ export function EventsMapPage({
     );
   }
 
+  function dismissPinsCoach() {
+    markOnboardingSeen("map-pins-coached");
+    setShowPinsCoach(false);
+  }
+
   function handlePinTap(pinId: string | null) {
     if (pinId === null) {
       clearPinSelection();
       return;
     }
+    if (showPinsCoach) dismissPinsCoach();
     setFocusedPinId(pinId);
     setOpenPinId(pinId);
     // Fresh browse chain when opening a pin by tap.
@@ -489,6 +506,25 @@ export function EventsMapPage({
             <p className="rounded-2xl bg-white/95 px-4 py-2.5 text-sm font-semibold text-neutral-700 shadow-lg ring-1 ring-neutral-200/80 dark:bg-neutral-900/95 dark:text-neutral-200 dark:ring-white/10">
               {dict.map.empty}
             </p>
+          </div>
+        ) : null}
+
+        {showPinsCoach && pins.length > 0 ? (
+          <div className="absolute inset-x-0 top-4 z-10 flex justify-center px-4 pointer-events-none">
+            <div
+              role="status"
+              className="pointer-events-auto flex max-w-md items-start gap-2 rounded-2xl bg-white/95 px-3.5 py-2.5 text-sm font-semibold text-neutral-700 shadow-lg ring-1 ring-neutral-200/80 dark:bg-neutral-900/95 dark:text-neutral-200 dark:ring-white/10"
+            >
+              <p className="min-w-0 flex-1 leading-snug">{dict.map.pinsCoach}</p>
+              <button
+                type="button"
+                onClick={dismissPinsCoach}
+                aria-label={dict.map.pinsCoachDismiss}
+                className="shrink-0 rounded-full px-2.5 py-1 text-xs font-bold text-orange-600 ring-1 ring-orange-200/80 transition-colors hover:bg-orange-50 active:scale-95 dark:text-orange-300 dark:ring-orange-400/30 dark:hover:bg-orange-950/50"
+              >
+                {dict.map.pinsCoachDismiss}
+              </button>
+            </div>
           </div>
         ) : null}
 
