@@ -28,6 +28,19 @@ function venueKey(event: Pick<Event, "venueSlug">): string | null {
   return slug || null;
 }
 
+/**
+ * List clustering key — same venue + same primary category.
+ * Keeps Terraza (food-drinks) from collapsing under Karaoke (performances)
+ * when both appear on the Food & Drinks hub via secondary tags.
+ */
+function recurringClusterKey(
+  event: Pick<Event, "venueSlug" | "category" | "recurrence">,
+): string | null {
+  const slug = venueKey(event);
+  if (!slug || !isRecurringEvent(event)) return null;
+  return `${slug}::${event.category}`;
+}
+
 function siblingLabel(
   event: Event,
   locale: Locale,
@@ -39,33 +52,32 @@ function siblingLabel(
   );
 }
 
-function recurringGroupsByVenue(events: Event[]): Map<string, Event[]> {
-  const byVenue = new Map<string, Event[]>();
+function recurringGroupsForList(events: Event[]): Map<string, Event[]> {
+  const byKey = new Map<string, Event[]>();
   for (const event of events) {
-    const slug = venueKey(event);
-    if (!slug || !isRecurringEvent(event)) continue;
-    const group = byVenue.get(slug);
+    const key = recurringClusterKey(event);
+    if (!key) continue;
+    const group = byKey.get(key);
     if (group) group.push(event);
-    else byVenue.set(slug, [event]);
+    else byKey.set(key, [event]);
   }
-  return byVenue;
+  return byKey;
 }
 
 /**
- * Same-venue recurring programs collapse to one list row.
- * Use this for area-picker counts so they match the cards on screen.
+ * Same-venue recurring programs with the same primary category collapse to one
+ * list row. Use this for area-picker counts so they match the cards on screen.
  */
 export function eventsAfterVenueClustering(events: Event[]): Event[] {
   const consumed = new Set<string>();
-  const byVenue = recurringGroupsByVenue(events);
+  const byKey = recurringGroupsForList(events);
   const clustered: Event[] = [];
 
   for (const event of events) {
     if (consumed.has(event.id)) continue;
 
-    const slug = venueKey(event);
-    const group =
-      slug && isRecurringEvent(event) ? byVenue.get(slug) : undefined;
+    const key = recurringClusterKey(event);
+    const group = key ? byKey.get(key) : undefined;
     if (group && group.length >= 2) {
       for (const candidate of group) {
         if (candidate.id !== event.id) consumed.add(candidate.id);
@@ -149,9 +161,9 @@ export function findVenueOtherNights(
 }
 
 /**
- * Collapse recurring programs that share a venue into one list row.
- * First occurrence in the already-sorted list stays; other nights live on the
- * event detail "Also at" section, not as extra day chips on the card.
+ * Collapse same-venue recurring programs that share a primary category into one
+ * list row. First occurrence in the already-sorted list stays; sibling nights
+ * live on the event detail "Also at" section, not as extra day chips on the card.
  * Venue schedule pages should skip this (pass through unchanged).
  */
 export function clusterRecurringVenueEvents(
@@ -159,12 +171,11 @@ export function clusterRecurringVenueEvents(
   locale: Locale,
   dict: Dictionary,
 ): EventWithVenueSiblings[] {
-  const byVenue = recurringGroupsByVenue(events);
+  const byKey = recurringGroupsForList(events);
 
   return eventsAfterVenueClustering(events).map((event) => {
-    const slug = venueKey(event);
-    const group =
-      slug && isRecurringEvent(event) ? byVenue.get(slug) : undefined;
+    const key = recurringClusterKey(event);
+    const group = key ? byKey.get(key) : undefined;
     if (!group || group.length < 2) return event;
 
     return {

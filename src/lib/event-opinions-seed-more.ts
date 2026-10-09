@@ -1450,43 +1450,24 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: "2026-08-26T16:20:00.000Z",
   },
   {
-    eventId: "flip-flop-live-sports-daily",
-    seriesKey: "flip-flop-sports-bar-sosua:daily",
-    body: "The beach-entrance pin for a game, not a nightclub — five TVs and wings; save Pedro Clisante for after the final whistle.",
+    eventId: "flip-flop-nfl-thursday",
+    seriesKey: "flip-flop-sports-bar-sosua:weekly:4",
+    body: "Thursday Night Football at the yellow steps — claim a screen seat before kickoff; wings and Presidente, not a Pedro Clisante night out (Sunday NFL is the full slate).",
     localized: {
-      es: "El pin de la entrada de la playa para un partido, no una disco — cinco pantallas y alitas; deja Pedro Clisante para después del silbato.",
-      fr: "Le pin de l'entrée de plage pour un match, pas une discothèque — cinq écrans et ailes ; gardez Pedro Clisante pour après le coup de sifflet.",
+      es: "Thursday Night Football en las gradas amarillas — llega antes del kickoff por asiento frente a pantallas; alitas y Presidente, no una noche en Pedro Clisante (el domingo es la cartelera completa de NFL).",
+      fr: "Thursday Night Football aux marches jaunes — arrivez avant le coup d’envoi pour une place face aux écrans ; ailes et Presidente, pas une soirée Pedro Clisante (le dimanche, c’est la grille NFL complète).",
     },
     priceFeel: "moderate",
     priceNote:
-      "No cover — pay for wings, tacos, and beers; sports-bar spend at the yellow steps",
+      "No cover — pay for wings, beers, and food; TNF games live",
     priceNoteLocalized: {
-      es: "Sin cover — pagas alitas, tacos y cervezas; gasto de sports bar en las gradas amarillas",
-      fr: "Pas de cover — vous payez ailes, tacos et bières ; budget sports bar aux marches jaunes",
+      es: "Sin cover — pagas alitas, cervezas y comida; partidos TNF en vivo",
+      fr: "Pas de cover — vous payez ailes, bières et nourriture ; matchs TNF en direct",
     },
-    attribution: "POP research · flipflop360.com + TripAdvisor",
+    attribution: "POP research · Flip Flop Thursday Night Football flyer",
     researchNotes:
-      "Official: 2 Duarte / Sosúa Beach entrance, 8 AM–10 PM daily, 5 TVs, MLB/NBA/UFC/NFL/Premier League. Phone +1 829-817-8147. TripAdvisor d19502025.",
-    updatedAt: "2026-08-26T15:00:00.000Z",
-  },
-  {
-    eventId: "flip-flop-taco-tuesday",
-    seriesKey: "flip-flop-sports-bar-sosua:weekly:2",
-    body: "Tuesday is tacos plus whatever is on the screens — eat here, then walk the strip; this isn't a late disco.",
-    localized: {
-      es: "El martes son tacos más lo que haya en las pantallas — come aquí y luego camina la franja; no es una disco tardía.",
-      fr: "Le mardi, ce sont des tacos plus ce qu'il y a à l'écran — mangez ici, puis marchez la strip ; ce n'est pas une disco tardive.",
-    },
-    priceFeel: "moderate",
-    priceNote: "No cover — Taco Tuesday menu and drinks; open 8:00 AM–10:00 PM",
-    priceNoteLocalized: {
-      es: "Sin cover — menú de Taco Tuesday y tragos; abre 8:00 AM–10:00 PM",
-      fr: "Pas de cover — menu Taco Tuesday et verres ; ouvert 8 h–22 h",
-    },
-    attribution: "POP research · flipflop360.com",
-    researchNotes:
-      "Official daily specials: Taco Tuesday from open to close at Sosúa Beach entrance.",
-    updatedAt: "2026-08-26T15:00:00.000Z",
+      "Editor flyer: THURSDAY NIGHT FOOTBALL / ALL GAMES LIVE / Good Food Cold Drinks Great Games. Yellow Steps Sosúa. Converted from prior daily live-sports listing. Phone +1 829-817-8147.",
+    updatedAt: "2026-10-09T03:30:00.000Z",
   },
   {
     eventId: "flip-flop-monday-happy-hour",
@@ -1503,7 +1484,7 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     },
     attribution: "POP research · Flip Flop happy-hour flyer",
     researchNotes:
-      "Venue flyer: Monday ALL DAY; Tue–Fri 2–5 PM; Sat–Sun 1–3:30 PM. Phone (829) 817-8147. Yellow Steps, Sosúa Beach entry. No seriesKey — live sports already owns flip-flop-sports-bar-sosua:daily.",
+      "Venue flyer: Monday ALL DAY; Tue–Fri 2–5 PM; Sat–Sun 1–3:30 PM. Phone (829) 817-8147. Yellow Steps, Sosúa Beach entry. No seriesKey — NFL Thursday owns flip-flop-sports-bar-sosua:weekly:4.",
     updatedAt: "2026-09-05T18:45:00.000Z",
   },
   {
@@ -1558,9 +1539,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       es: "Sin cover — menú de Wing Wednesday y tragos; abre 8:00 AM–10:00 PM",
       fr: "Pas de cover — menu Wing Wednesday et verres ; ouvert 8 h–22 h",
     },
-    attribution: "POP research · flipflop360.com",
-    researchNotes: "Official: WING WEDNESDAY — famous wings all day.",
-    updatedAt: "2026-08-26T15:30:00.000Z",
+    attribution: "POP research · Flip Flop Wing Wednesday flyer",
+    researchNotes:
+      "Editor flyer: HOME OF THE FAMOUS WINGS & COLDEST BEERS / Yellow Steps Sosúa Beach entry / (829) 817-8147.",
+    updatedAt: "2026-10-09T03:15:00.000Z",
   },
   {
     eventId: "flip-flop-nfl-sunday",
@@ -1823,10 +1805,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "sosua-neon-partyrun-2026-10-24",
-    body: "Evening neon run that ends in a Hard Rock after-party — register 4 PM, start 6:30 PM from Calle Duarte; bring glow and race shoes, not a morning 5K mindset.",
+    body: "Evening neon run that ends in a Hard Rock after-party — register 4 PM, start 6:30 PM from Calle Duarte; bring glow and race shoes, not a morning 5K mindset. DJ Marlon is a separate Neon Party listing the same night.",
     localized: {
-      es: "Carrera neon de tarde que termina en after-party en Hard Rock — registro 4 PM, salida 6:30 PM desde Calle Duarte; trae glow y zapatillas, no mentalidad de 5K matutino.",
-      fr: "Course néon en soirée qui finit en after-party Hard Rock — inscription 16 h, départ 18 h 30 depuis Calle Duarte ; glow et baskets, pas un mindset 5K du matin.",
+      es: "Carrera neon de tarde que termina en after-party en Hard Rock — registro 4 PM, salida 6:30 PM desde Calle Duarte; trae glow y zapatillas, no mentalidad de 5K matutino. DJ Marlon es un listing aparte de Neon Party la misma noche.",
+      fr: "Course néon en soirée qui finit en after-party Hard Rock — inscription 16 h, départ 18 h 30 depuis Calle Duarte ; glow et baskets, pas un mindset 5K du matin. DJ Marlon est une fiche Neon Party séparée le même soir.",
     },
     priceFeel: "moderate",
     priceNote:
@@ -1837,8 +1819,27 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     },
     attribution: "POP research · @gy_fitness_sosua × Hard Rock",
     researchNotes:
-      "IG Sep 9 2026: Sábado 24 oct, registro 4 PM, salida 6:30 PM, punto Hard Rock, RD$2,000, WA 849-505-7778.",
-    updatedAt: "2026-09-10T16:00:00.000Z",
+      "IG Sep 9 2026: Sábado 24 oct, registro 4 PM, salida 6:30 PM, punto Hard Rock, RD$2,000, WA 849-505-7778. DJ Marlon Neon Party is a separate seed.",
+    updatedAt: "2026-10-09T03:45:00.000Z",
+  },
+  {
+    eventId: "sosua-neon-party-dj-marlon-2026-10-24",
+    body: "DJ Marlon neon dance night at Hard Rock the same Saturday as the Partyrun — this is the party listing, not the RD$2,000 race registration; confirm doors on @gy_fitness_sosua / @sdctickets.",
+    localized: {
+      es: "Noche neon con DJ Marlon en Hard Rock el mismo sábado del Partyrun — este es el listing de fiesta, no la inscripción RD$2,000 de la carrera; confirma puertas en @gy_fitness_sosua / @sdctickets.",
+      fr: "Soirée néon DJ Marlon au Hard Rock le même samedi que le Partyrun — c’est la fiche fête, pas l’inscription RD$2,000 à la course ; confirmez les portes sur @gy_fitness_sosua / @sdctickets.",
+    },
+    priceFeel: "varies",
+    priceNote:
+      "Cover/doors confirm @gy_fitness_sosua · @sdctickets / @smartticketrd · WA +1 849-505-7778",
+    priceNoteLocalized: {
+      es: "Cover/puertas confirma @gy_fitness_sosua · @sdctickets / @smartticketrd · WA +1 849-505-7778",
+      fr: "Cover/portes confirmez @gy_fitness_sosua · @sdctickets / @smartticketrd · WA +1 849-505-7778",
+    },
+    attribution: "POP research · @gy_fitness_sosua DJ Marlon Neon Party",
+    researchNotes:
+      "Editor flyer + Threads @gy_fitness_sosua — DJ Marlon confirmado Sosúa Neon Party 24 Oct; after the race energy; links @sdctickets & @smartticketrd. Separate from Partyrun race seed.",
+    updatedAt: "2026-10-09T03:45:00.000Z",
   },
   {
     eventId: "hard-rock-casa-mickey-2026-09-26",

@@ -152,6 +152,11 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     phone: "+18495057778",
     venueSlug: "hard-rock-sosua",
   },
+  "sosua-neon-party-dj-marlon-2026-10-24": {
+    callForPricing: true,
+    phone: "+18495057778",
+    venueSlug: "hard-rock-sosua",
+  },
   "hard-rock-casa-mickey-2026-09-26": {
     callForPricing: true,
     phone: "+18495057778",

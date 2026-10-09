@@ -2106,15 +2106,15 @@
     "imageEmoji": "🛶"
   },
   {
-    "id": "flip-flop-live-sports-daily",
-    "title": "Sports en direct au Flip Flop",
-    "description": "Sports bar à l'entrée de Playa Sosúa (The Yellow Steps) — cinq grands écrans pour MLB, NBA, UFC, NFL, college, Premier League et boxe, plus ailes célèbres et bières froides. Tous les jours 8 h–22 h, Calle Duarte 2. Appelez le +1 829-817-8147.",
+    "id": "flip-flop-nfl-thursday",
+    "title": "Thursday Night Football au Flip Flop",
+    "description": "Thursday Night Football au Flip Flop Sports Bar près des marches jaunes de Playa Sosúa — tous les matchs en direct sur les écrans, ailes célèbres, bières froides et vibes game day. Faites de Flip Flop votre premier arrêt. Ouvert 8 h–22 h ; WhatsApp +1 829-817-8147.",
     "date": "2026-01-01",
-    "time": "8:00 AM – 10:00 PM",
+    "time": "from first kickoff",
     "location": "Sosúa",
     "venue": "Flip Flop Sports Bar",
     "venueSlug": "flip-flop-sports-bar-sosua",
-    "address": "2 Calle Duarte, entrée de Playa Sosúa",
+    "address": "2 Calle Duarte, Sosúa Beach entrance",
     "lat": 19.7622,
     "lng": -70.5166,
     "category": "sports",
@@ -2122,10 +2122,11 @@
       "food-drinks"
     ],
     "format": "physical",
-    "recurrence": "daily",
+    "recurrence": "weekly",
+    "recurrenceDay": 4,
     "phone": "+18298178147",
-    "sourceUrl": "https://www.tripadvisor.com/Restaurant_Review-g317146-d19502025-Reviews-Flip_Flop_Sports_Bar-Sosua_Puerto_Plata_Province_Dominican_Republic.html",
-    "imageEmoji": "📺"
+    "sourceUrl": "https://flipflop360.com/",
+    "imageEmoji": "🏈"
   },
   {
     "id": "flip-flop-monday-happy-hour",
@@ -2154,26 +2155,6 @@
     "phone": "+18298178147",
     "sourceUrl": "https://flipflop360.com/",
     "imageEmoji": "🍹"
-  },
-  {
-    "id": "flip-flop-taco-tuesday",
-    "title": "Taco Tuesday au Flip Flop",
-    "description": "Taco Tuesday toute la journée au Flip Flop Sports Bar près des marches jaunes de Playa Sosúa — tacos, verres froids et énergie match du matin au soir. Tous les jours 8 h–22 h ; WhatsApp +1 829-817-8147.",
-    "date": "2026-01-01",
-    "time": "8:00 AM – 10:00 PM",
-    "location": "Sosúa",
-    "venue": "Flip Flop Sports Bar",
-    "venueSlug": "flip-flop-sports-bar-sosua",
-    "address": "2 Calle Duarte, entrée de Playa Sosúa",
-    "lat": 19.7622,
-    "lng": -70.5166,
-    "category": "food-drinks",
-    "format": "physical",
-    "recurrence": "weekly",
-    "recurrenceDay": 2,
-    "phone": "+18298178147",
-    "sourceUrl": "https://www.tripadvisor.com/Restaurant_Review-g317146-d19502025-Reviews-Flip_Flop_Sports_Bar-Sosua_Puerto_Plata_Province_Dominican_Republic.html",
-    "imageEmoji": "🌮"
   },
   {
     "id": "flip-flop-wing-wednesday",

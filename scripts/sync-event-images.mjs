@@ -232,6 +232,7 @@ const FILE_TO_EVENT_ID = {
   "jandy-ventura-legado-caballo-2026.jpg": "jandy-ventura-legado-caballo-2026",
   "natura-cabana-saturday-dining.jpg": "natura-cabana-saturday-dining",
   "el-parq-saturday-night.jpg": "el-parq-saturday-night",
+  "el-parq-saturday-foodpark-day.jpg": "el-parq-saturday-foodpark-day",
   "plaza-independencia-weekend-culture.jpg": "plaza-independencia-weekend-culture",
   "el-parq-karaoke-thursday-shaka.jpg": "el-parq-karaoke-thursday",
   "el-parq-latin-friday-poster.png": "el-parq-latin-friday",
@@ -405,6 +406,10 @@ const FILE_TO_EVENT_ID = {
     "fiesta-halloween-grand-prix-2026-10-30",
   "pop-cinemas-week-2026-10-08-mall.jpg":
     "pop-cinemas-week-2026-10-08-mall",
+  "pop-cinemas-week-2026-10-08-grin.jpg":
+    "pop-cinemas-week-2026-10-08-grin",
+  "sosua-neon-party-dj-marlon-2026-10-24.jpg":
+    "sosua-neon-party-dj-marlon-2026-10-24",
   "el-cuervo-hideout-popup-2026-10-16.jpg":
     "el-cuervo-hideout-popup-2026-10-16",
   "hideout-miercoles-rock-en-espanol.jpg":
@@ -459,9 +464,10 @@ const FILE_TO_EVENT_ID = {
   "rio-martinico-sosua.jpg": "rio-martinico-sosua",
   "flip-flop-live-sports-bar-tvs.jpg": "flip-flop-live-sports-bar-tvs",
   "flip-flop-wing-wednesday.jpg": "flip-flop-wing-wednesday",
-  "flip-flop-taco-tuesday-v2.jpg": "flip-flop-taco-tuesday",
+  "flip-flop-wing-wednesday-v2.jpg": "flip-flop-wing-wednesday-v2",
   "flip-flop-monday-happy-hour.jpg": "flip-flop-monday-happy-hour",
   "flip-flop-nfl-sunday.jpg": "flip-flop-nfl-sunday",
+  "flip-flop-nfl-thursday.jpg": "flip-flop-nfl-thursday",
   "trolley-party-saturday.jpg": "trolley-party-saturday",
 };
 

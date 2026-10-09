@@ -567,13 +567,7 @@ export function EventsMapPage({
               <button
                 type="button"
                 data-sheet-swipe-ignore
-                onClick={() => {
-                  if (sheetExpanded) {
-                    setSheetExpanded(false);
-                    return;
-                  }
-                  closePinSheet();
-                }}
+                onClick={closePinSheet}
                 aria-label={dict.detail.close}
                 className="flex h-9 w-9 shrink-0 items-center justify-center self-center rounded-full bg-neutral-100 text-neutral-800 ring-1 ring-neutral-300 transition-colors hover:bg-white hover:ring-orange-400 hover:text-orange-600 active:scale-95 dark:bg-neutral-800 dark:text-neutral-100 dark:ring-white/20 dark:hover:bg-neutral-700 dark:hover:ring-orange-400/70 dark:hover:text-orange-300"
               >

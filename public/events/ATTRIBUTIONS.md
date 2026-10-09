@@ -193,7 +193,8 @@ Curated images under `public/events/` and `public/venues/`.
 | `venues/blue-jacktar-playa-dorada.jpg` | POP curated `bjt-detail.jpg` | Blue JackTar decorated event space |
 | `natura-cabana-saturday-dining.jpg` | Google Maps visitor photo — frozen cocktail at Natura Cabana beach restaurant | Saturday live dining action (not the shared pool still) |
 | `venues/natura-cabana-recepcion.jpg` | Google Maps visitor photo — thatched RECEPCION palapa | Natura Cabana place shot |
-| `el-parq-saturday-night.jpg` | Google Maps visitor photo — patrons at El Parq Foodpark Cabarete at night | Saturday live action at this Cabarete park (replaces Tulum Wikimedia) |
+| `el-parq-saturday-night.jpg` | Google Maps visitor photo — patrons at El Parq Foodpark Cabarete at night | Prior Saturday hero (superseded by daytime foodpark shot) |
+| `el-parq-saturday-foodpark-day.jpg` | POP-supplied — El Parq Cabarete daytime stalls (Wings 'n' Tings + food truck) | Saturday live bands listing hero (filename bump) |
 | `venues/el-parq-cabarete-foodpark.jpg` | Google Maps visitor photo — picnic tables / stalls at El Parq Cabarete | This foodpark (replaces Tulum Wikimedia) |
 | `venues/disco-club-brugal-interior.jpg` | POP-supplied — Latin Disco Club interior (disco ball, lit dance floor, lounge seating) | Venue place shot filename bump (replaces Unsplash concert stock) |
 | `disco-club-on-fire-night-2026-10-01.jpg` | POP-supplied — Latin Disco Club *On Fire Night* flyer (Thu 1 Oct 2026; gogo dancers) | Editor-provided; typography-heavy |
@@ -305,7 +306,8 @@ Curated images under `public/events/` and `public/venues/`.
 | `venues/zona-acapella-club.jpg` | [Google Maps — Zona Acapella Club](https://www.google.com/maps/place/?q=place_id:ChIJMRMD8EvusY4RcIGbv5r8m6U) visitor photo | Outdoor terrace table (Presidente, tostones) under the club gazebo lights |
 | `pop-cinemas-week-2026-08-20.jpg` | POP-supplied `pop-cinemas.jpg` — weekly cartelera 20–26 Aug | Official POP Cinemas Playa Dorada Mall billboard |
 | `pop-cinemas-week-2026-09-11-mall.jpg` | Same Maps visitor place shot as `venues/pop-cinemas-playa-dorada.jpg` (mall entrance); filename bump after schedule-collage cache | Week hero is the cinema place shot — film list lives in description + lineup text |
-| `pop-cinemas-week-2026-10-08-mall.jpg` | Same Maps visitor place shot as `venues/pop-cinemas-playa-dorada.jpg` (mall entrance); filename bump for Oct 8–14 week | Week hero is the cinema place shot — *Grin: El juego de la ouija* listed in description + lineup (confirm showtimes on cinemaspop.com.do) |
+| `pop-cinemas-week-2026-10-08-mall.jpg` | Same Maps visitor place shot as `venues/pop-cinemas-playa-dorada.jpg` (mall entrance); filename bump for Oct 8–14 week | Prior week place shot (superseded by Grin poster hero) |
+| `pop-cinemas-week-2026-10-08-grin.jpg` | POP-supplied — *Grin: El juego de la ouija* poster ([@cinemaspoprd](https://www.instagram.com/cinemaspop/)) | Oct 8–14 week hero (editor-provided; typography-heavy) — showtimes confirm on cinemaspop.com.do |
 | `venues/pop-cinemas-playa-dorada.jpg` | [Google Maps — Pop Cinemas](https://www.google.com/maps/place/Pop+Cinemas/@19.7698587,-70.6423406,17z) visitor photo | POP CINEMAS mall entrance with “Vive la diferencia” signage |
 | `petit-francois-friday-karaoke.jpg` | POP-supplied `petitfrancois.jpg` — Friday karaoke flyer | Official Le Petit François karaoke night graphic |
 | `costambar-beach-fitness.png` / `venues/playa-costambar.png` | Organizer-supplied Costambar Fitness class photo (beach session left of El Carey) | Authentic Costambar Beach Fitness group on the sand |
@@ -331,11 +333,11 @@ Curated images under `public/events/` and `public/venues/`.
 | `rio-martinico-sosua.jpg` / `venues/rio-martinico.jpg` | [Obal Ureña Sosa — Río Azul / Martinico](https://www.obalurenasosa.com/2024/04/rio-azul-o-rio-martinico-en-sosua.html) — field photo of the Madre Vieja stretch | Lesser-known Sosúa river day (Madre Vieja / Río Azul) |
 | `venues/jamao-al-norte.jpg` | Google Maps visitor photo of [Balneario La RePresa de Jamao al Norte](https://www.google.com/maps/place/Balneario+La+RePresa+de+Jamao+al+Norte/@19.6253769,-70.4453532,17z) | Unique venue place shot — Yásica / Jamao river corridor inland from Cabarete |
 | `ingest-hidden-river-kayak-adventure.jpg` | [Jamao Ecotours — Relaxing Kayaking in Jamao River](https://jamaoecotours.com/excursiones/kayaking/) official tour photo (`IMG_20180930_113237_612`) | Unique event action shot — sit-on-top kayaks on the river (not reused as the venue hero) |
-| `flip-flop-live-sports-bar-tvs.jpg` | POP-supplied interior: bar stools, graffiti front, and NFL on the TVs | Live sports listing (yellow-steps entrance stays on the venue) |
+| `flip-flop-live-sports-bar-tvs.jpg` | POP-supplied interior: bar stools, graffiti front, and NFL on the TVs | Prior daily live-sports hero (listing converted to NFL Thursday) |
 | `venues/flip-flop-sports-bar-sosua-yellow-steps.jpg` | POP-supplied photo of the Yellow Steps entrance (Flip Flop O'Clock Sports Bar, Sosúa Beach) | Venue place shot |
-| `flip-flop-wing-wednesday.jpg` | [Flip Flop Sports Bar](https://flipflop360.com/) official gallery — baskets of garlic-parm and glazed wings with fries and Presidente | Wing Wednesday action (not the yellow-steps place shot) |
-| `flip-flop-taco-tuesday.jpg` | POP-supplied — Flip Flop Taco Tuesday taco-salad bowl (editor-provided) | Legacy food hero (superseded by v2 flyer) |
-| `flip-flop-taco-tuesday-v2.jpg` | POP-supplied / editor-provided — Flip Flop Sports Bar Taco Tuesdays flyer (logo + delivery line + taco lineup) | Weekly Taco Tuesday listing |
+| `flip-flop-wing-wednesday.jpg` | [Flip Flop Sports Bar](https://flipflop360.com/) official gallery — baskets of garlic-parm and glazed wings with fries and Presidente | Prior Wing Wednesday hero (superseded by v2 flyer) |
+| `flip-flop-wing-wednesday-v2.jpg` | POP-supplied — Flip Flop *Famous Wings & Coldest Beers* flyer | Weekly Wing Wednesday (editor-provided; typography-heavy; filename bump) |
+| `flip-flop-nfl-thursday.jpg` | POP-supplied — Flip Flop *Thursday Night Football* flyer | Weekly TNF listing (editor-provided; typography-heavy; converted from daily live sports) |
 | `flip-flop-monday-happy-hour.jpg` | [Flip Flop Sports Bar](https://flipflop360.com/) official gallery — Presidente/Corona lineup on the bar | Monday happy-hour drinks (superseded on listings by the schedule flyer) |
 | `flip-flop-happy-hour-schedule.jpg` | Flip Flop Sports Bar official happy-hour flyer (Mon all day / Tue–Fri 2–5 PM / Sat–Sun 1–3:30 PM) | Daily happy-hour listing |
 | `flip-flop-nfl-sunday.jpg` | POP-supplied / editor-provided — Flip Flop Sports Bar NFL Sunday flyer (“Sundays is for NFL / All games live”) | Weekly NFL Sunday listing |
@@ -376,7 +378,8 @@ Curated images under `public/events/` and `public/venues/`.
 | `latinwok-ramen-party-2026-09-17.jpg` | POP-supplied Latin Wok × El Ramero Solitario Ramen Party flyer | Authentic 17 Sep Plaza Uno ramen night flyer |
 | `cabarete-run-festival-5k-2026-11-08.jpg` | POP-supplied Cabarete Run Festival 5K flyer (Desarrollo Fitness) | Authentic 8 Nov 2026 race flyer |
 | `hard-rock-karaoke-wednesday.jpg` | POP-supplied Hard Rock Cafe Puerto Plata karaoke flyer | Wednesday karaoke from 7 PM |
-| `sosua-neon-partyrun-2026-10-24-medal.jpg` | POP-supplied Sosúa Neon Partyrun 2026 finisher medal (neon night) | Authentic 24 Oct 2026 race/party medal hero (filename bump — cards + detail share this path) |
+| `sosua-neon-partyrun-2026-10-24-medal.jpg` | POP-supplied Sosúa Neon Partyrun 2026 finisher medal (neon night) | Race/partyrun listing hero (filename bump — cards + detail share this path) |
+| `sosua-neon-party-dj-marlon-2026-10-24.jpg` | POP-supplied — GY Fitness × Hard Rock *DJ Marlon* Sosúa Neon Party flyer ([@gy_fitness_sosua](https://www.instagram.com/gy_fitness_sosua/)) | Sat 24 Oct 2026 Neon Party only (editor-provided; typography-heavy) — not the Partyrun race listing |
 | `hard-rock-casa-mickey-2026-09-26.jpg` | POP-supplied La Casa de Mickey Mouse Family Fun Fest flyer | 26–27 Sep 2026 Hard Rock family shows |
 | `voyvoy-saturday-session-bay.jpg` | POP-supplied VOYVOY Saturday Session Story (teal bay text art) | Saturday Session hero (filename bump; replaces flyer.jpg) |
 | `cigar-town-martes-sensorial.jpg` | POP-supplied Cigar Town Martes Sensorial Story flyer | Weekly Tuesday café–chocolate–cigar night |

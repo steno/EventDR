@@ -52,6 +52,7 @@ const EVENT_PHONE_BY_ID: Record<string, string> = {
   "duo-maryem-rancho-catalina-2026-09-20": "+18097813737",
   "cabarete-run-festival-5k-2026-11-08": "+18097696199",
   "sosua-neon-partyrun-2026-10-24": "+18495057778",
+  "sosua-neon-party-dj-marlon-2026-10-24": "+18495057778",
   "hard-rock-casa-mickey-2026-09-26": "+18495057778",
   "hard-rock-karaoke-wednesday": "+18495057778",
   "hard-rock-rising-segunda-ronda-2026-09-16": "+18495057778",

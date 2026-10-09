@@ -118,6 +118,43 @@ describe("clusterRecurringVenueEvents", () => {
     assert.equal(clustered[0]?.venueSiblings, undefined);
     assert.equal(clustered[1]?.venueSiblings, undefined);
   });
+
+  it("does not collapse different primary categories at the same venue", () => {
+    const karaoke = event({
+      id: "ocean-world-terrace-karaoke-wednesday",
+      title: "Miércoles de Karaoke",
+      venueSlug: "ocean-world",
+      category: "performances",
+      categories: ["music", "food-drinks"],
+      recurrence: "weekly",
+      recurrenceDay: 3,
+      date: "2026-10-14",
+    });
+    const terraza = event({
+      id: "terraza-ocean-world-evenings",
+      title: "Terraza Ocean World & Casino",
+      venueSlug: "ocean-world",
+      category: "food-drinks",
+      recurrence: "daily",
+      date: "2026-10-08",
+    });
+
+    const clustered = clusterRecurringVenueEvents(
+      [karaoke, terraza],
+      "en",
+      dict,
+    );
+    assert.equal(clustered.length, 2);
+    assert.deepEqual(
+      clustered.map((item) => item.id),
+      [
+        "ocean-world-terrace-karaoke-wednesday",
+        "terraza-ocean-world-evenings",
+      ],
+    );
+    assert.equal(clustered[0]?.venueSiblings, undefined);
+    assert.equal(clustered[1]?.venueSiblings, undefined);
+  });
 });
 
 describe("findVenueOtherNights", () => {
@@ -209,14 +246,13 @@ describe("findVenueRecurringSiblings", () => {
     const pool = filterRemovedSeedEvents(getRecurringEvents("en")).filter(
       (event) => event.venueSlug === "flip-flop-sports-bar-sosua",
     );
-    const daily = pool.find((event) => event.id === "flip-flop-live-sports-daily");
-    assert.ok(daily);
-    const siblings = findVenueRecurringSiblings(daily, pool, "en", dict);
+    const thursday = pool.find((event) => event.id === "flip-flop-nfl-thursday");
+    assert.ok(thursday);
+    const siblings = findVenueRecurringSiblings(thursday, pool, "en", dict);
     assert.deepEqual(
       siblings.map((s) => s.id).sort(),
       [
         "flip-flop-nfl-sunday",
-        "flip-flop-taco-tuesday",
         "flip-flop-wing-wednesday",
       ],
     );

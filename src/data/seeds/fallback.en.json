@@ -5622,5 +5622,32 @@
       "Carlota Carretero"
     ],
     "imageEmoji": "🎭"
+  },
+  {
+    "id": "sosua-neon-party-dj-marlon-2026-10-24",
+    "title": "Sosúa Neon Party — DJ Marlon",
+    "description": "Sosúa Neon Party with DJ Marlon at Hard Rock Cafe Puerto Plata, Sosúa — Saturday 24 October 2026. GY Fitness neon dance night after the Partyrun — run, glow, then dance. Not the race registration itself. Confirm doors and cover via @gy_fitness_sosua · registration links @sdctickets / @smartticketrd · WhatsApp +1 849-505-7778.",
+    "date": "2026-10-24",
+    "location": "Sosúa",
+    "venue": "Hard Rock Cafe Puerto Plata",
+    "venueSlug": "hard-rock-sosua",
+    "address": "Calle Duarte 7, Sosúa",
+    "lat": 19.7634107,
+    "lng": -70.5162309,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18495057778",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/gy_fitness_sosua/",
+    "lineup": [
+      "DJ Marlon"
+    ],
+    "imageEmoji": "🎧"
   }
 ]

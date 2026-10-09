@@ -9,10 +9,9 @@ import type { Event } from "@/lib/types";
  */
 export const SEED_CREATED_AT: Readonly<Record<string, string>> = {
   "los-tres-cocos-dinner": "2026-08-25T12:00:00.000Z",
-  "flip-flop-live-sports-daily": "2026-08-26T12:00:00.000Z",
+  "flip-flop-nfl-thursday": "2026-10-09T03:30:00.000Z",
   "flip-flop-monday-happy-hour": "2026-08-26T12:00:00.000Z",
-  "flip-flop-taco-tuesday": "2026-08-26T12:00:00.000Z",
-  "flip-flop-wing-wednesday": "2026-08-26T12:00:00.000Z",
+  "flip-flop-wing-wednesday": "2026-10-09T03:15:00.000Z",
   "ingest-hidden-river-kayak-adventure": "2026-08-26T12:00:00.000Z",
   "gran-ventana-day-pass": "2026-08-27T12:00:00.000Z",
   "cofresi-palm-day-pass": "2026-08-27T12:00:00.000Z",
@@ -42,6 +41,7 @@ export const SEED_CREATED_AT: Readonly<Record<string, string>> = {
   "latinwok-ramen-party-2026-09-17": "2026-09-10T12:00:00.000Z",
   "hard-rock-karaoke-wednesday": "2026-09-10T12:00:00.000Z",
   "sosua-neon-partyrun-2026-10-24": "2026-09-10T12:00:00.000Z",
+  "sosua-neon-party-dj-marlon-2026-10-24": "2026-10-09T03:45:00.000Z",
   "hard-rock-casa-mickey-2026-09-26": "2026-09-10T12:00:00.000Z",
   "el-choco-cave-tour-swimming-daily": "2026-09-10T12:00:00.000Z",
   "grecialandia-daily": "2026-09-11T12:00:00.000Z",

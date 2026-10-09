@@ -160,7 +160,10 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "latinwok-ramen-party-2026-09-17": "latinwok-ramen-party-2026-09-17.jpg",
   "hard-rock-karaoke-wednesday": "hard-rock-karaoke-wednesday.jpg",
   // Filename bump — finisher medal hero (PWA strips ?v=; old flyer path stayed cached).
-  "sosua-neon-partyrun-2026-10-24": "sosua-neon-partyrun-2026-10-24-medal.jpg",
+  "sosua-neon-partyrun-2026-10-24":
+    "sosua-neon-partyrun-2026-10-24-medal.jpg",
+  "sosua-neon-party-dj-marlon-2026-10-24":
+    "sosua-neon-party-dj-marlon-2026-10-24.jpg",
   "hard-rock-casa-mickey-2026-09-26": "hard-rock-casa-mickey-2026-09-26.jpg",
   "hard-rock-rising-segunda-ronda-2026-09-16":
     "hard-rock-rising-segunda-ronda-2026-09-16.jpg",
@@ -435,7 +438,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "cabarete-jazz-festival-2026": "cabarete-jazz-festival-2026.jpg",
   "jandy-ventura-legado-caballo-2026": "jandy-ventura-legado-caballo-2026.jpg",
   // Filename bump — Cabarete foodpark night (not Wikimedia Tulum).
-  "el-parq-live-bands-saturday": "el-parq-saturday-night.jpg",
+  // Filename bump — daytime foodpark stalls (not the night patio still).
+  "el-parq-live-bands-saturday": "el-parq-saturday-foodpark-day.jpg",
   "el-parq-karaoke-thursday": "el-parq-karaoke-thursday-shaka.jpg",
   // Filename bump — POP-supplied Ninafrika Noche Latina flyer (not Unsplash dancing stock).
   "el-parq-latin-friday": "el-parq-latin-friday-poster.png",
@@ -512,7 +516,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "dewry-luciano-zona-acapella-2026-08-23.jpg",
   "pop-cinemas-week-2026-08-20": "pop-cinemas-week-2026-08-20.jpg",
   "pop-cinemas-week-2026-09-11": "pop-cinemas-week-2026-09-11-mall.jpg",
-  "pop-cinemas-week-2026-10-08": "pop-cinemas-week-2026-10-08-mall.jpg",
+  "pop-cinemas-week-2026-10-08": "pop-cinemas-week-2026-10-08-grin.jpg",
   "petit-francois-friday-karaoke": "petit-francois-friday-karaoke.jpg",
   "costambar-beach-fitness": "costambar-beach-fitness.png",
   "love-does-bocadillos-course-2026": "love-does-bocadillos-course-2026.jpg",
@@ -533,10 +537,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "rio-martinico-sosua": "rio-martinico-sosua.jpg",
   "ingest-hidden-river-kayak-adventure":
     "ingest-hidden-river-kayak-adventure.jpg",
-  "flip-flop-live-sports-daily": "flip-flop-live-sports-bar-tvs.jpg",
-  "flip-flop-wing-wednesday": "flip-flop-wing-wednesday.jpg",
-  // Filename bump — official Taco Tuesdays flyer (cache bust vs taco-bowl hero).
-  "flip-flop-taco-tuesday": "flip-flop-taco-tuesday-v2.jpg",
+  "flip-flop-nfl-thursday": "flip-flop-nfl-thursday.jpg",
+  "flip-flop-wing-wednesday": "flip-flop-wing-wednesday-v2.jpg",
   "flip-flop-monday-happy-hour": "flip-flop-happy-hour-schedule.jpg",
   "flip-flop-nfl-sunday": "flip-flop-nfl-sunday.jpg",
   "chill-and-grill-sunday-bingo": "chill-and-grill-sunday-bingo.jpg",
@@ -572,7 +574,8 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "chill-and-grill-sunday-bingo": "object-top",
   "chill-and-grill-saturday-karaoke": "object-top",
   "flip-flop-monday-happy-hour": "object-bottom",
-  "flip-flop-live-sports-daily": "object-top lg:object-left",
+  "flip-flop-nfl-thursday": "object-center",
+  "flip-flop-wing-wednesday": "object-center",
   // Keep the lantern canopy; avoid the close face on the right.
   "el-carey-weekend-nightlife": "object-center lg:object-left",
   // Portrait flyer — keep Mandarin Mondays branding in a wide desktop crop.
@@ -629,10 +632,13 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "ivan-garcia-tierra-de-paso-2026-10-15": "object-center",
   "aura-after-dark-carlos-rivera-2026-10-10": "object-center",
   "drifter-sunset-into-the-night": "object-center",
+  "pop-cinemas-week-2026-10-08": "object-center",
   "la-lola-back-to-northside-2026-07-04": "object-center",
   "ambar-lounge-emil-roman-2026-09-26": "object-center",
   "ambar-lounge-gaby-luna-2026-10-03": "object-center",
   "ocean-world-terrace-old-school-2026-10-17": "object-center",
+  // Sunset + string lights sit mid/low — card default object-top keeps the dark overhang.
+  "terraza-ocean-world-evenings": "object-[50%_58%]",
   "meclao-galaxy-experience-carloxx-2026-10-03": "object-center",
   "meclao-house-friday-2026-10-02": "object-center",
   "kite-street-salsa-sabor-latino-2026-10-04": "object-center",
@@ -812,7 +818,8 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "chill-and-grill-saturday-karaoke.jpg",
   "chill-and-grill-sunday-bingo.jpg",
   "flip-flop-nfl-sunday.jpg",
-  "flip-flop-taco-tuesday-v2.jpg",
+  "flip-flop-nfl-thursday.jpg",
+  "flip-flop-wing-wednesday-v2.jpg",
   "cigar-town-acustico-humos-2026-08-14.jpg",
   "cigar-town-acustico-humos.jpg",
   "cigar-town-domingo-de-matine.jpg",
@@ -992,6 +999,8 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "ivan-garcia-tierra-de-paso-2026-10-15.jpg",
   "aura-after-dark-carlos-rivera-2026-10-10.jpg",
   "drifter-sunset-into-the-night-v2.jpg",
+  "pop-cinemas-week-2026-10-08-grin.jpg",
+  "sosua-neon-party-dj-marlon-2026-10-24.jpg",
   "la-lola-back-to-northside-2026-07-04.jpg",
   "ambar-lounge-emil-roman-2026-09-26.jpg",
   "finely-mirador-inauguracion-2026-09-25.jpg",
@@ -1020,7 +1029,6 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "restaurant-week-puerto-plata-2026-teaser.jpg",
   "rumble-in-paradise-13.png",
   "sosua-10k-road-race-2026.jpg",
-  "sosua-neon-partyrun-2026-10-24-medal.jpg",
   "sunset-cabarete-sessions-2026.jpg",
   "sunset-night-party-playa-encuentro-2026-07-25.jpg",
   "super-mega-urban-fest-2026-11-04.jpg",
@@ -1101,12 +1109,12 @@ const HOME_HERO_SCENE_FILES = new Set([
   "el-choco-cave-tour-swimming-daily.jpg",
   "el-cocotazo-cafe-beach-dining.jpg",
   "el-parq-saturday-night.jpg",
+  "el-parq-saturday-foodpark-day.jpg",
   "ernesto-betances-rancho-catalina-terrace.jpg",
   "faro-puerto-plata-spiral.jpg",
   "feria-artesanal-verano-2026.jpg",
   "finish-line-live-band.jpg",
   "flip-flop-live-sports-bar-tvs.jpg",
-  "flip-flop-wing-wednesday.jpg",
   "fortaleza-san-felipe-ramparts.jpg",
   "templo-de-las-americas-daily.jpg",
   "freestyle-catamaran-daily.jpg",
@@ -1157,7 +1165,6 @@ const HOME_HERO_SCENE_FILES = new Set([
   "plaza-independencia-daily.jpg",
   "plaza-independencia-weekend-culture.jpg",
   "pop-cinemas-week-2026-09-11-mall.jpg",
-  "pop-cinemas-week-2026-10-08-mall.jpg",
   "puerto-plata-beach-soccer-2026-aerial.jpg",
   "rio-martinico-sosua.jpg",
   "rio-sonador-finca-papirucho.jpg",
