@@ -21,15 +21,22 @@ export type MapPin = {
   thumbUrl?: string;
   /** Set when `?venue=` opens a place with no upcoming listings. */
   venueOnly?: { slug: string; name: string; city?: string };
+  /**
+   * Screen-space Marker offset `[x, y]` (px; negative = left / up) when several
+   * venue pins share the same rounded GPS — keeps separate tips readable.
+   */
+  stackOffset?: [number, number];
+  /** 0 = back of the visual stack; higher draws on top. */
+  stackIndex?: number;
 };
 
+/** ~1.1 m at equator — used to detect shared GPS for visual fanning. */
 function pinKey(lat: number, lng: number): string {
   return `${lat.toFixed(5)},${lng.toFixed(5)}`;
 }
 
 /**
- * Prefer venue slug so co-located businesses (same building / shared GPS)
- * get separate pins — e.g. The Hideout upstairs vs Cigar Town at #56.
+ * Prefer venue slug so co-located businesses get separate pins.
  * Fall back to rounded lat/lng for events without a slug.
  */
 function pinGroupKey(
@@ -39,6 +46,40 @@ function pinGroupKey(
   const slug = event.venueSlug?.trim();
   if (slug) return `venue:${slug}`;
   return pinKey(coords.lat, coords.lng);
+}
+
+/** Horizontal step (px) between fanned tips at the same GPS. */
+const STACK_STEP_X = 18;
+/** Upward step (px) so the stack reads as cards, not a blob. */
+const STACK_STEP_Y = 14;
+
+/**
+ * Fan markers that share rounded lat/lng so each venue stays its own pin.
+ */
+export function withVisualPinStacks(pins: MapPin[]): MapPin[] {
+  const byCoord = new Map<string, MapPin[]>();
+  for (const pin of pins) {
+    const key = pinKey(pin.lat, pin.lng);
+    const list = byCoord.get(key);
+    if (list) list.push(pin);
+    else byCoord.set(key, [pin]);
+  }
+
+  return pins.map((pin) => {
+    const group = byCoord.get(pinKey(pin.lat, pin.lng));
+    if (!group || group.length < 2) return pin;
+    const sorted = [...group].sort((a, b) => a.id.localeCompare(b.id));
+    const index = sorted.findIndex((p) => p.id === pin.id);
+    const mid = (sorted.length - 1) / 2;
+    return {
+      ...pin,
+      stackIndex: index,
+      stackOffset: [
+        Math.round((index - mid) * STACK_STEP_X),
+        Math.round(-index * STACK_STEP_Y),
+      ],
+    };
+  });
 }
 
 /** Events with usable map pins for the North Coast map screen. */
@@ -78,7 +119,8 @@ export function filterMapEvents(
 
 /**
  * One pin per venue (or bare coordinate); stacks multiple events at that pin.
- * Distinct `venueSlug`s stay separate even when GPS rounds to the same spot.
+ * Distinct `venueSlug`s stay separate even when GPS rounds to the same spot —
+ * {@link withVisualPinStacks} fans those markers so tips stay tappable.
  */
 export function buildMapPins(events: Event[]): MapPin[] {
   const groups = new Map<string, MapPin>();
@@ -108,7 +150,7 @@ export function buildMapPins(events: Event[]): MapPin[] {
     });
   }
 
-  return [...groups.values()];
+  return withVisualPinStacks([...groups.values()]);
 }
 
 /** Stable id for a venue-only deep-link pin (no upcoming events). */
@@ -153,7 +195,7 @@ export function withVenueDeepLinkPin(
   ) {
     return pins;
   }
-  return [...pins, buildVenueOnlyMapPin(venue, thumbUrl)];
+  return withVisualPinStacks([...pins, buildVenueOnlyMapPin(venue, thumbUrl)]);
 }
 
 /** Max hop on card-close “swing next”; farther pins zoom back to overview. */

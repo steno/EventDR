@@ -88,7 +88,7 @@ describe("map-events", () => {
     assert.equal(pins[0]?.events.length, 2);
   });
 
-  it("keeps co-located venues on separate pins when slug differs", () => {
+  it("keeps co-located venues on separate pins and fans them visually", () => {
     const cigar = event({
       id: "cigar",
       title: "Ron & Humos",
@@ -107,15 +107,23 @@ describe("map-events", () => {
     });
     const pins = buildMapPins([cigar, hideout]);
     assert.equal(pins.length, 2);
-    assert.equal(
-      pins.find((p) => p.id === "venue:cigar-town-pop")?.events[0]?.id,
-      "cigar",
-    );
-    assert.equal(
-      pins.find((p) => p.id === "venue:the-hideout-puerto-plata")?.events[0]
-        ?.id,
-      "hideout",
-    );
+    assert.ok(pins.every((p) => p.stackOffset != null));
+    const offsets = new Set(pins.map((p) => p.stackOffset!.join(",")));
+    assert.equal(offsets.size, 2);
+  });
+
+  it("does not fan solitary pins", () => {
+    const pins = buildMapPins([
+      event({
+        id: "solo",
+        title: "Solo",
+        venueSlug: "lax-cabarete",
+        lat: 19.75,
+        lng: -70.4,
+      }),
+    ]);
+    assert.equal(pins.length, 1);
+    assert.equal(pins[0]?.stackOffset, undefined);
   });
 
   it("picks the geographically nearest pin", () => {

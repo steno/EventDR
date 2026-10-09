@@ -14,11 +14,11 @@ describe("resolveMapPinThumb", () => {
     assert.ok(thumb);
     assert.match(
       thumb.src,
-      /^\/_next\/image\?url=%2Fevents%2Fsosua-diving-adventures-daily\.jpg&w=64&q=65$/,
+      /^\/_next\/image\?url=%2Fevents%2Fsosua-diving-adventures-daily\.jpg&w=96&q=65$/,
     );
-    assert.match(thumb.srcSet ?? "", /w=64.*1x/);
-    assert.match(thumb.srcSet ?? "", /w=96.*2x/);
-    assert.equal(thumb.sizes, "36px");
+    assert.match(thumb.srcSet ?? "", /w=96.*1x/);
+    assert.match(thumb.srcSet ?? "", /w=128.*2x/);
+    assert.equal(thumb.sizes, "48px");
   });
 
   it("strips local cache-busters before optimizing", () => {
@@ -26,13 +26,13 @@ describe("resolveMapPinThumb", () => {
     assert.ok(thumb);
     assert.equal(
       thumb.src,
-      "/_next/image?url=%2Fevents%2Faura.jpg&w=64&q=65",
+      "/_next/image?url=%2Fevents%2Faura.jpg&w=96&q=65",
     );
   });
 
   it("passes through URLs Next cannot optimize", () => {
     const remote = "https://example.com/flyer.jpg";
     const thumb = resolveMapPinThumb(remote);
-    assert.deepEqual(thumb, { src: remote, sizes: "36px" });
+    assert.deepEqual(thumb, { src: remote, sizes: "48px" });
   });
 });

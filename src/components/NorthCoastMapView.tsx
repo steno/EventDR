@@ -83,6 +83,7 @@ function applyThumbFace(face: HTMLElement, pin: MapPin): boolean {
   if (!thumb) return false;
 
   face.className = "north-coast-map-pin__thumb";
+  // Size only — CSS owns radius (square), color ring, selected orange ring.
   face.style.cssText = [
     "display:block",
     `width:${PIN_THUMB_PX}px`,
@@ -92,9 +93,7 @@ function applyThumbFace(face: HTMLElement, pin: MapPin): boolean {
     `max-width:${PIN_THUMB_PX}px`,
     `max-height:${PIN_THUMB_PX}px`,
     "overflow:hidden",
-    "border-radius:9999px",
     "border:2.5px solid #fff",
-    `box-shadow:0 0 0 2px ${pin.color}`,
     "background:#e5e5e5",
     "flex-shrink:0",
   ].join(";");
@@ -140,28 +139,32 @@ function buildPinElement(pin: MapPin, active: boolean): HTMLButtonElement {
   btn.style.color = pin.color;
   if (active) btn.dataset.selected = "true";
 
-  // Real node (not ::after) — iOS Safari clips animated pseudos under filter/markers.
+  // Desktop-only breath ring (CSS gated). Mobile keeps a static selected ring.
   const pulse = document.createElement("span");
   pulse.className = "north-coast-map-pin__pulse";
   pulse.setAttribute("aria-hidden", "true");
   btn.appendChild(pulse);
 
+  const body = document.createElement("span");
+  body.className = "north-coast-map-pin__body";
+
   const face = document.createElement("span");
   applyDotFace(face, pin.color);
-  btn.appendChild(face);
+  body.appendChild(face);
 
   const tip = document.createElement("span");
   tip.className = "north-coast-map-pin__tip";
   tip.setAttribute("aria-hidden", "true");
-  btn.appendChild(tip);
+  body.appendChild(tip);
 
   if (pin.events.length > 1) {
     const count = document.createElement("span");
     count.className = "north-coast-map-pin__count";
     count.textContent = String(pin.events.length);
-    btn.appendChild(count);
+    body.appendChild(count);
   }
 
+  btn.appendChild(body);
   return btn;
 }
 
@@ -245,6 +248,7 @@ export function NorthCoastMapView({
   const pinsByIdRef = useRef(new Map<string, MapPin>());
   const onPinTapRef = useRef(onPinTap);
   onPinTapRef.current = onPinTap;
+  const activePinId = openPinId ?? focusedPinId;
   /** Continue draining visible thumb upgrades after a capped batch. */
   const thumbDrainTimerRef = useRef(0);
   /**
@@ -261,7 +265,6 @@ export function NorthCoastMapView({
   };
   const isDismissSuppressed = () =>
     Date.now() < ignoreDismissUntilRef.current;
-  const activePinId = openPinId ?? focusedPinId;
 
   useEffect(() => {
     pinsByIdRef.current = new Map(pins.map((pin) => [pin.id, pin]));
@@ -394,12 +397,21 @@ export function NorthCoastMapView({
     }
 
     for (const pin of pins) {
+      const stackOffset = pin.stackOffset ?? [0, 0];
       const existing = markersByIdRef.current.get(pin.id);
       if (existing) {
         existing.setLngLat([pin.lng, pin.lat]);
+        existing.setOffset(stackOffset);
+        const el = existing.getElement();
+        if (pin.stackIndex != null) {
+          el.style.zIndex = String(10 + pin.stackIndex);
+        }
         continue;
       }
       const el = buildPinElement(pin, false);
+      if (pin.stackIndex != null) {
+        el.style.zIndex = String(10 + pin.stackIndex);
+      }
       el.addEventListener("click", (e) => {
         e.stopPropagation();
         e.preventDefault();
@@ -407,7 +419,11 @@ export function NorthCoastMapView({
         suppressDismiss(1600);
         onPinTapRef.current(pin.id);
       });
-      const marker = new Marker({ element: el, anchor: "bottom" })
+      const marker = new Marker({
+        element: el,
+        anchor: "bottom",
+        offset: stackOffset,
+      })
         .setLngLat([pin.lng, pin.lat])
         .addTo(map);
       markersByIdRef.current.set(pin.id, marker);
@@ -430,8 +446,24 @@ export function NorthCoastMapView({
         pulse.setAttribute("aria-hidden", "true");
         el.insertBefore(pulse, el.firstChild);
       }
-      if (id === activePinId) el.dataset.selected = "true";
-      else delete el.dataset.selected;
+      if (!el.querySelector(".north-coast-map-pin__body")) {
+        const body = document.createElement("span");
+        body.className = "north-coast-map-pin__body";
+        while (el.childNodes.length > 1) {
+          body.appendChild(el.childNodes[1]!);
+        }
+        el.appendChild(body);
+      }
+      if (id === activePinId) {
+        el.dataset.selected = "true";
+        // Selected tip rises above the fan stack.
+        el.style.zIndex = "40";
+      } else {
+        delete el.dataset.selected;
+        const pin = pinsByIdRef.current.get(id);
+        el.style.zIndex =
+          pin?.stackIndex != null ? String(10 + pin.stackIndex) : "";
+      }
     }
   }, [activePinId, pins]);
 

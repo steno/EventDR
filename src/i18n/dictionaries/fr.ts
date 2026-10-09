@@ -410,6 +410,7 @@ export const fr: Dictionary = {
     venuePinSheetLabel: "Ce lieu",
     venueNoEvents: "Aucun événement à venir épinglé ici pour le moment.",
     openVenue: "Voir le lieu",
+    readMore: "Lire la suite",
     metaTitle: "Carte des événements Côte Nord | POP Events",
     metaDescription:
       "Carte 3D de Puerto Plata, Sosúa et Cabarete avec des épingles pour ce soir et le week-end — touchez une épingle pour la fiche et l’itinéraire.",

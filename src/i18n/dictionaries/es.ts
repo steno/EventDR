@@ -410,6 +410,7 @@ export const es: Dictionary = {
     venuePinSheetLabel: "Este lugar",
     venueNoEvents: "No hay eventos próximos con pin aquí ahora.",
     openVenue: "Ver lugar",
+    readMore: "Leer más",
     metaTitle: "Mapa de eventos Costa Norte | POP Eventos",
     metaDescription:
       "Mapa 3D de Puerto Plata, Sosúa y Cabarete con pines para hoy y el fin de semana — toca un pin para la ficha y cómo llegar.",

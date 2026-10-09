@@ -411,6 +411,8 @@ export type Dictionary = {
     venuePinSheetLabel: string;
     venueNoEvents: string;
     openVenue: string;
+    /** Media-card CTA on the pin sheet (expands / continues from the photo). */
+    readMore: string;
     metaTitle: string;
     metaDescription: string;
   };
@@ -1096,6 +1098,7 @@ export const en: Dictionary = {
     venuePinSheetLabel: "This place",
     venueNoEvents: "No upcoming events pinned here right now.",
     openVenue: "Open venue",
+    readMore: "Read more",
     metaTitle: "North Coast events map | POP Events",
     metaDescription:
       "3D map of Puerto Plata, Sosúa, and Cabarete with pins for tonight and this weekend — tap a pin for the event card and directions.",

@@ -18,7 +18,6 @@ import { CruiseShipEntry } from "@/components/CruiseShipEntry";
 import { IntentLink } from "@/components/IntentLink";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
-import { useLiveStatusDisplay } from "@/hooks/useLiveStatusDisplay";
 import {
   buildMapPins,
   filterMapEvents,
@@ -87,15 +86,13 @@ function MapPinSheetDetails({
           address:
             pinEvents.find((e) => e.address?.trim())?.address ?? event.address,
         };
-  const liveDisplay = useLiveStatusDisplay(event, dict);
   return (
     <div className="mt-3 space-y-3 border-t border-neutral-200/80 pt-3 dark:border-neutral-800">
+      {/* Status badge already sits on the media card above — don't repeat it. */}
       <EventCardMeta
         event={placeEvent}
         locale={locale}
         dict={dict}
-        liveStatus={liveDisplay?.status ?? null}
-        liveStatusLabel={liveDisplay?.label ?? null}
       />
       <IntentLink
         href={eventDetailPath(locale, event.id)}
@@ -205,7 +202,12 @@ export function EventsMapPage({
 
   useEffect(() => {
     setSheetEventIndex(0);
-    setSheetExpanded(false);
+    // Desktop side card: open meta by default. Phone keeps the compact flyer
+    // until Read more / swipe-up (sheet uses `sm:` from 640px).
+    const desktop =
+      typeof window !== "undefined" &&
+      window.matchMedia("(min-width: 640px)").matches;
+    setSheetExpanded(desktop);
   }, [openPinId]);
 
   useEffect(() => {

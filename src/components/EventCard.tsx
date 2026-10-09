@@ -1,5 +1,5 @@
 import { memo } from "react";
-import { Building2, Flame } from "lucide-react";
+import { ChevronDown, Flame } from "lucide-react";
 import { EventImage } from "@/components/EventImage";
 import { ImageStoryEnlarge } from "@/components/ImageStoryEnlarge";
 import { EventCardMeta } from "@/components/EventCardMeta";
@@ -11,8 +11,6 @@ import type { Locale } from "@/i18n/config";
 import {
   eventDetailPath,
   rememberReturnPath,
-  resolveEventVenueSlug,
-  venueDetailPath,
 } from "@/lib/event-navigation";
 import { EventCallLink } from "@/components/EventCallLink";
 import { useLiveStatusDisplay } from "@/hooks/useLiveStatusDisplay";
@@ -83,7 +81,7 @@ function EventCardMedia({
   closeLabel,
   showEnlarge = true,
   statusBadge = null,
-  venuePill = null,
+  mediaAction = null,
 }: {
   event: EventWithVenueSiblings;
   emoji: string;
@@ -96,7 +94,8 @@ function EventCardMedia({
   closeLabel: string;
   showEnlarge?: boolean;
   statusBadge?: { label: string; status: EventLiveStatus } | null;
-  venuePill?: { href: string; label: string; onNavigate: () => void } | null;
+  /** Map pin sheet CTA on the photo (e.g. Read more → expand). */
+  mediaAction?: { label: string; onClick: () => void } | null;
 }) {
   const frame = `
     relative overflow-hidden pointer-events-none
@@ -131,7 +130,7 @@ function EventCardMedia({
           closeLabel={closeLabel}
         />
       ) : null}
-      {statusBadge || venuePill ? (
+      {statusBadge || mediaAction ? (
         <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 flex items-end justify-between gap-2 p-2">
           <div className="min-w-0 shrink">
             {statusBadge ? (
@@ -142,19 +141,18 @@ function EventCardMedia({
               />
             ) : null}
           </div>
-          {venuePill ? (
-            <IntentLink
-              href={venuePill.href}
+          {mediaAction ? (
+            <button
+              type="button"
               onClick={(e) => {
                 e.stopPropagation();
-                venuePill.onNavigate();
+                mediaAction.onClick();
               }}
-              className="pointer-events-auto relative z-30 inline-flex max-w-[55%] shrink-0 items-center gap-1.5 rounded-full bg-black/65 px-2.5 py-1.5 text-[11px] font-bold text-white shadow-md backdrop-blur-sm transition-colors hover:bg-black/80 touch-manipulation"
-              aria-label={venuePill.label}
+              className="pointer-events-auto relative z-30 inline-flex max-w-[55%] shrink-0 items-center gap-1 rounded-full bg-black/65 px-2.5 py-1.5 text-[11px] font-bold text-white shadow-md backdrop-blur-sm transition-colors hover:bg-black/80 touch-manipulation"
             >
-              <Building2 className="h-3.5 w-3.5 shrink-0" aria-hidden />
-              <span className="truncate">{venuePill.label}</span>
-            </IntentLink>
+              <span className="truncate">{mediaAction.label}</span>
+              <ChevronDown className="h-3.5 w-3.5 shrink-0" aria-hidden />
+            </button>
           ) : null}
         </div>
       ) : null}
@@ -184,7 +182,6 @@ const EventCardComponent = ({
   const category = getCategoryMeta(event.category, dict.categories);
   const emoji = event.imageEmoji ?? category?.emoji ?? "📅";
   const href = eventDetailPath(locale, event.id);
-  const venueSlug = resolveEventVenueSlug(event);
   const liveDisplay = useLiveStatusDisplay(event, dict, { listTimeRange });
   const liveStatus = liveDisplay?.status ?? null;
   const liveStatusLabel = liveDisplay?.label ?? null;
@@ -196,10 +193,6 @@ const EventCardComponent = ({
 
   function handleNavigate() {
     onNavigate?.();
-    rememberReturnPath(returnTo, returnTitle);
-  }
-
-  function handleVenueNavigate() {
     rememberReturnPath(returnTo, returnTitle);
   }
 
@@ -281,12 +274,11 @@ const EventCardComponent = ({
                 ? { label: liveStatusLabel, status: liveStatus }
                 : null
             }
-            venuePill={
-              mediaOnly && venueSlug
+            mediaAction={
+              mediaOnly && onMediaActivate && !mediaExpanded
                 ? {
-                    href: venueDetailPath(locale, venueSlug),
-                    label: dict.detail.viewVenue,
-                    onNavigate: handleVenueNavigate,
+                    label: dict.map.readMore,
+                    onClick: onMediaActivate,
                   }
                 : null
             }

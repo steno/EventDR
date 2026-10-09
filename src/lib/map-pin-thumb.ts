@@ -1,14 +1,14 @@
 import { isOptimizableImageSrc } from "@/lib/optimizable-image";
 
 /** Display size of pin face (CSS px). */
-export const MAP_PIN_THUMB_DISPLAY_PX = 36;
+export const MAP_PIN_THUMB_DISPLAY_PX = 48;
 
 /**
  * Widths must exist in `next.config.ts` → `images.imageSizes`.
- * 64 ≈ 1× / light 2×, 96 ≈ dense 2× for a 36px face.
+ * 96 ≈ 2× for a 48px face, 128 ≈ selected / dense 2×.
  */
-const PIN_THUMB_W = 64;
-const PIN_THUMB_W_2X = 96;
+const PIN_THUMB_W = 96;
+const PIN_THUMB_W_2X = 128;
 /** Must exist in `next.config.ts` → `images.qualities`. */
 const PIN_THUMB_QUALITY = 65;
 
