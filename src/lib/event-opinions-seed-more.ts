@@ -4482,6 +4482,24 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: "2026-10-06T18:00:00.000Z",
   },
   {
+    eventId: "disco-club-viernes-salsero-2026-10-09",
+    body: "House salsa Friday at Latin Disco Club by the Brugal depots — descarga energy, not the free Nelson Bless bachata bill also listed tonight and not Thursday gogo; cover isn’t printed, so call 829-563-9469 before you treat doors as walk-in.",
+    localized: {
+      es: "Viernes de salsa de casa en Latin Disco Club frente a Brugal — energía de descarga, no la noche gratis de bachata Nelson Bless también listada hoy ni el gogo del jueves; el cover no está impreso, llama al 829-563-9469 antes de asumir walk-in.",
+      fr: "Vendredi salsa maison au Latin Disco Club face à Brugal — énergie descarga, pas la soirée bachata gratuite Nelson Bless aussi listée ce soir ni le gogo du jeudi ; le cover n’est pas imprimé, appelez le 829-563-9469 avant d’assumer walk-in.",
+    },
+    priceFeel: "moderate",
+    priceNote: "Cover not on flyer — 829-563-9469 / @latindiscoclubpp",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — 829-563-9469 / @latindiscoclubpp",
+      fr: "Cover absent de l’affiche — 829-563-9469 / @latindiscoclubpp",
+    },
+    attribution: "POP research · @latindiscoclubpp Viernes Salsero flyer",
+    researchNotes:
+      "Editor IG @latindiscoclubpp — Viernes Salsero flyer + caption: Latín Disco Club presenta, mejor descarga de salsa, Av. Circunvalación Sur frente depósitos Brugal, info 829-563-9469. No cover/start time/age on art. Same venue/date as free Nelson Bless bachata seed — distinct salsa-house promo. Not adult-entertainment bill — no ageHint.",
+    updatedAt: "2026-10-09T23:00:00.000Z",
+  },
+  {
     eventId: "sosua-emprende-bazar-otono-2026-10-17",
     body: "Two-day merchants’ bazaar in Parque Las Flores — crafts, food, inflatables, and face painting for a family afternoon; vendor booth fees aren’t your entry cost, so walk the park and spend at stalls you like.",
     localized: {

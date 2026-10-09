@@ -203,6 +203,7 @@ export const CURATED_CALL_FOR_PRICING = new Set<string>([
   "meclao-chris-plasencia-2026-09-26",
   "disco-club-on-fire-night-2026-10-01",
   "disco-club-gogo-dancers-2026-10-08",
+  "disco-club-viernes-salsero-2026-10-09",
   "groundzero-bulin47-2026-11-06",
   "la-lola-back-to-northside-2026-07-04",
   "geek-fest-rd-2026-09-20",

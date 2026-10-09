@@ -783,6 +783,11 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     phone: "+18295639469",
     venueSlug: "disco-club-brugal",
   },
+  "disco-club-viernes-salsero-2026-10-09": {
+    callForPricing: true,
+    phone: "+18295639469",
+    venueSlug: "disco-club-brugal",
+  },
   "sosua-emprende-bazar-otono-2026-10-17": {
     isFree: true,
     venueSlug: "parque-las-flores-sosua",

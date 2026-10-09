@@ -4929,6 +4929,33 @@
     "description": "Gran Fiesta Bachatera con Nelson Bless (el artista que representa a Puerto Plata) en Latin Disco Club, Avenida Circunvalación Sur frente a los depósitos Brugal, Puerto Plata — viernes 9 de octubre 2026. Entrada totalmente gratis. Noche de bachata gratis frente a Brugal — no es la serie de gogo de los jueves. Info 829-563-9469 · Instagram @latindiscoclubpp."
   },
   {
+    "id": "disco-club-viernes-salsero-2026-10-09",
+    "date": "2026-10-09",
+    "location": "Puerto Plata",
+    "venue": "Latin Disco Club",
+    "venueSlug": "disco-club-brugal",
+    "address": "Avenida Circunvalación Sur, frente a los depósitos Brugal, Puerto Plata",
+    "lat": 19.7792778,
+    "lng": -70.6690061,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18295639469",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/latindiscoclubpp/",
+    "lineup": [
+      "Descarga de salsa"
+    ],
+    "imageEmoji": "🎷",
+    "title": "Latin Disco Club Viernes Salsero",
+    "description": "Viernes Salsero en Latin Disco Club, Avenida Circunvalación Sur frente a los depósitos Brugal, Puerto Plata — viernes 9 de octubre 2026. Descarga de salsa de casa toda la noche — no es la noche gratis de bachata Nelson Bless también listada hoy, ni el gogo de los jueves. Cover no está en el flyer; confirma puertas al 829-563-9469 · Instagram @latindiscoclubpp."
+  },
+  {
     "id": "sosua-emprende-bazar-otono-2026-10-17",
     "date": "2026-10-17",
     "endDate": "2026-10-18",

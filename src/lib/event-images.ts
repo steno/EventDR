@@ -282,6 +282,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "disco-club-gogo-dancers-2026-10-08.jpg",
   "disco-club-nelson-bless-bachatera-2026-10-09":
     "disco-club-nelson-bless-bachatera-2026-10-09.jpg",
+  "disco-club-viernes-salsero-2026-10-09":
+    "disco-club-viernes-salsero-2026-10-09.jpg",
   "disco-club-la-mas-doll-2026-10-02":
     "disco-club-la-mas-doll-2026-10-02.jpg",
   "rancho-catalina-halloween-trick-or-treat-2026-10-23":
@@ -855,6 +857,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "somnia-06-after-dark-hard-rock-2026-11-06.jpg",
   "disco-club-gogo-dancers-2026-10-08.jpg",
   "disco-club-nelson-bless-bachatera-2026-10-09.jpg",
+  "disco-club-viernes-salsero-2026-10-09.jpg",
   "rancho-catalina-halloween-trick-or-treat-2026-10-23.jpg",
   "parada-choco-banditalia-2026-10-06.jpg",
   "sosua-emprende-bazar-otono-2026-10-17-v2.jpg",
@@ -981,6 +984,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "disco-club-on-fire-night-2026-10-01.jpg",
   "disco-club-gogo-dancers-2026-10-08.jpg",
   "disco-club-nelson-bless-bachatera-2026-10-09.jpg",
+  "disco-club-viernes-salsero-2026-10-09.jpg",
   "disco-club-la-mas-doll-2026-10-02.jpg",
   "rancho-catalina-halloween-trick-or-treat-2026-10-23.jpg",
   "groundzero-bulin47-2026-11-06.jpg",

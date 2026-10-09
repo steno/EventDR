@@ -98,6 +98,7 @@ const EVENT_PHONE_BY_ID: Record<string, string> = {
   "cabarete-classic-2026": "+18098766003",
   "disco-club-on-fire-night-2026-10-01": "+18295639469",
   "disco-club-nelson-bless-bachatera-2026-10-09": "+18295639469",
+  "disco-club-viernes-salsero-2026-10-09": "+18295639469",
   "disco-club-halloween-2026-10-30": "+18295639469",
   "disco-club-la-mas-doll-2026-10-02": "+18295667071",
   "meclao-sammy-bday-jhon-parra-2026-10-01": "+18293747028",

@@ -139,6 +139,8 @@ const FILE_TO_EVENT_ID = {
     "disco-club-gogo-dancers-2026-10-08",
   "disco-club-nelson-bless-bachatera-2026-10-09.jpg":
     "disco-club-nelson-bless-bachatera-2026-10-09",
+  "disco-club-viernes-salsero-2026-10-09.jpg":
+    "disco-club-viernes-salsero-2026-10-09",
   "rancho-catalina-halloween-trick-or-treat-2026-10-23.jpg":
     "rancho-catalina-halloween-trick-or-treat-2026-10-23",
   "groundzero-bulin47-2026-11-06.jpg": "groundzero-bulin47-2026-11-06",
