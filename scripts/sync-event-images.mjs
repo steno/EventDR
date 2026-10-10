@@ -396,8 +396,8 @@ const FILE_TO_EVENT_ID = {
   "templo-de-las-americas-daily.jpg": "templo-de-las-americas-daily",
   "sosua-jewish-museum-hours-facade.jpg": "sosua-jewish-museum-hours",
   "nueve-sabados-bailables.jpg": "nueve-sabados-bailables",
-  "nueve-80s-90s-por-siempre-2026-10-10.jpg":
-    "nueve-80s-90s-por-siempre-2026-10-10",
+  "nueve-80s-90s-por-siempre-2026-10-24.jpg":
+    "nueve-80s-90s-por-siempre-2026-10-24",
   "cheo-almonte-grand-prix-2026-09-25.jpg":
     "cheo-almonte-grand-prix-2026-09-25",
   "grand-prix-sabado-bailable.jpg": "grand-prix-sabado-bailable",

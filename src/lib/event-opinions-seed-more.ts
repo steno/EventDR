@@ -3649,11 +3649,11 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: "2026-09-26T16:00:00.000Z",
   },
   {
-    eventId: "nueve-80s-90s-por-siempre-2026-10-10",
-    body: "Theme-dress 80s/90s Saturday at Nueve — dust off the tire before Oct 10 and confirm doors on @nueve_rd / @thehost_rd.",
+    eventId: "nueve-80s-90s-por-siempre-2026-10-24",
+    body: "Theme-dress 80s/90s Saturday at Nueve on Oct 24 — ignore the Oct 10 date on the flyer if it’s still in the art; confirm doors on @nueve_rd / @thehost_rd.",
     localized: {
-      es: "Sábado temático 80s/90s en Nueve — desempolva el tire antes del 10 oct y confirma puertas en @nueve_rd / @thehost_rd.",
-      fr: "Samedi thème 80s/90s à Nueve — dépoussiérez la tenue avant le 10 oct et confirmez les portes sur @nueve_rd / @thehost_rd.",
+      es: "Sábado temático 80s/90s en Nueve el 24 oct — ignora el 10 oct en el flyer si sigue en el arte; confirma puertas en @nueve_rd / @thehost_rd.",
+      fr: "Samedi thème 80s/90s à Nueve le 24 oct — ignorez le 10 oct sur le flyer s’il est encore dans l’image ; confirmez les portes sur @nueve_rd / @thehost_rd.",
     },
     priceFeel: "varies",
     priceNote:
@@ -3664,8 +3664,8 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     },
     attribution: "POP research · @nueve_rd · @thehost_rd",
     researchNotes:
-      "Editor confirmation — Sat 10 Oct 2026 80s-90s POR SIEMPRE at Nueve; host IG @thehost_rd; dress code tire 80s/90s. Flyer art may show 18 Oct typography.",
-    updatedAt: "2026-09-26T18:00:00.000Z",
+      "Rescheduled — Sat 24 Oct 2026 80s-90s POR SIEMPRE at Nueve; host IG @thehost_rd; dress code tire 80s/90s. Flyer art may still show 10 Oct (or 18 Oct) — listing copy tells guests to ignore poster date.",
+    updatedAt: "2026-10-10T23:30:00.000Z",
   },
   {
     eventId: "cheo-almonte-grand-prix-2026-09-25",

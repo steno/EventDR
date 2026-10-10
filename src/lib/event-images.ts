@@ -199,8 +199,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
 
   "feria-ganadera-el-cupey-2026": "feria-ganadera-el-cupey-2026.jpg",
   "nueve-sabados-bailables": "nueve-sabados-bailables.jpg",
-  "nueve-80s-90s-por-siempre-2026-10-10":
-    "nueve-80s-90s-por-siempre-2026-10-10.jpg",
+  "nueve-80s-90s-por-siempre-2026-10-24":
+    "nueve-80s-90s-por-siempre-2026-10-24.jpg",
   "cheo-almonte-grand-prix-2026-09-25":
     "cheo-almonte-grand-prix-2026-09-25.jpg",
   "grand-prix-sabado-bailable": "grand-prix-sabado-bailable.jpg",
@@ -695,7 +695,7 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "feria-ganadera-el-cupey-2026": "object-center",
   "nueve-sabados-bailables": "object-center",
   "nueve-bingo-friday": "object-center",
-  "nueve-80s-90s-por-siempre-2026-10-10": "object-center",
+  "nueve-80s-90s-por-siempre-2026-10-24": "object-center",
   "licor-lab-car-show-2026-10-10": "object-center",
   "grand-prix-sabado-bailable": "object-center",
   "grand-prix-jueves-stripper-show": "object-center",
@@ -909,7 +909,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "feria-ganadera-el-cupey-2026-programa.jpg",
   "nueve-sabados-bailables.jpg",
   "nueve-bingo-friday.jpg",
-  "nueve-80s-90s-por-siempre-2026-10-10.jpg",
+  "nueve-80s-90s-por-siempre-2026-10-24.jpg",
   "grand-prix-sabado-bailable.jpg",
   "grand-prix-jueves-stripper-show.jpg",
   "lizandro-diaz-grand-prix-2026-10-02.jpg",

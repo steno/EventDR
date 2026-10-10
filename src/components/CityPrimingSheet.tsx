@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import { MapPin, X } from "lucide-react";
 import { CruiseShipEntry } from "@/components/CruiseShipEntry";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
@@ -9,6 +9,7 @@ import { getDictionary, type Dictionary } from "@/i18n/dictionaries";
 import { CITIES, getCityName, type CityEventCounts, type CitySlug } from "@/lib/cities";
 import type { CruisePortSlug } from "@/lib/cruise";
 import {
+  clearCityPrimingVeil,
   getOnboardingCopy,
   holdCityPriming,
 } from "@/lib/onboarding";
@@ -40,6 +41,13 @@ export function CityPrimingSheet({
   useEffect(() => {
     setSheetLocale(locale);
   }, [locale]);
+
+  // Sheet has its own backdrop. Clear the html veil whenever we are open so a
+  // language switch cannot leave body::before blocking the dialog.
+  useLayoutEffect(() => {
+    if (!open) return;
+    clearCityPrimingVeil();
+  }, [open, sheetLocale]);
 
   if (!open) return null;
   const copy = getOnboardingCopy(sheetLocale).city;

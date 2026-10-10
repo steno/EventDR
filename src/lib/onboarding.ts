@@ -55,15 +55,20 @@ export function holdCityPriming(): void {
   }
 }
 
+/** Drop only the html remount veil (keep session hold for locale remounts). */
+export function clearCityPrimingVeil(): void {
+  if (typeof document !== "undefined") {
+    delete document.documentElement.dataset.cityPriming;
+  }
+}
+
 export function clearCityPrimingHold(): void {
   try {
     sessionStorage.removeItem(CITY_PRIMING_HOLD_KEY);
   } catch {
     /* private mode / disabled storage */
   }
-  if (typeof document !== "undefined") {
-    delete document.documentElement.dataset.cityPriming;
-  }
+  clearCityPrimingVeil();
 }
 
 export function isCityPrimingHeld(): boolean {

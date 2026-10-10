@@ -62,7 +62,14 @@ html.pull-reloading body {
 }
 
 /* Survives React remounts during city-priming locale switches — covers home
-   so the sheet can reopen without a flash of page content. */
+   so the sheet can reopen without a flash of page content.
+   Must stay below the sheet: #app-shell is z-10 (above PageGlow), which would
+   trap a z-80 sheet under this veil if #app-shell kept that stacking context.
+   pointer-events:none so a hung locale switch can never trap the user. */
+html[data-city-priming="1"] #app-shell {
+  z-index: auto;
+}
+
 html[data-city-priming="1"] body::before {
   content: "";
   position: fixed;
@@ -71,7 +78,7 @@ html[data-city-priming="1"] body::before {
   background: rgb(0 0 0 / 0.45);
   -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
-  pointer-events: auto;
+  pointer-events: none;
 }
 
 /* Photos sit on a warm canvas now — skip sepia in light so they stay clear
