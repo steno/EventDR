@@ -541,8 +541,8 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
   },
   "casa-de-la-cultura": {
     description: {
-      es: "Centro cultural victoriano frente al Parque Central — exposiciones de arte rotativas, lecturas de poesía, teatro y danza folclórica.",
-      fr: "Centre culturel victorien face au Parque Central — expositions d'art tournantes, lectures de poésie, théâtre et danse folklorique.",
+      es: "Casa cultural victoriana naranja en Separación y Duarte frente a Plaza Independencia (Parque Central) — espacio cultural del Estado con exposiciones rotativas, poesía, teatro y danza folclórica cuando hay programa.",
+      fr: "Maison culturelle victorienne orange à Separación et Duarte face à Plaza Independencia (Parque Central) — espace culturel d’État avec expositions tournantes, poésie, théâtre et danse folklorique quand il y a un programme.",
     },
   },
   "handmade-the-brand": {

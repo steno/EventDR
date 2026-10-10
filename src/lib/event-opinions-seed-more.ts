@@ -4482,6 +4482,42 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: "2026-10-09T23:00:00.000Z",
   },
   {
+    eventId: "natura-cabana-halloween-2026-10-31",
+    body: "Eco-resort dinner Halloween at Natura Restaurant from 6:30 PM — costumes with 1st–3rd prizes and a spooky cocktail, not Aura’s Cabarete Bay RD$20k costume party the same Saturday; RSVP tables on +1 849-214-7010 before you assume walk-in.",
+    localized: {
+      es: "Halloween de cena en eco-resort en Natura Restaurant desde las 6:30 PM — disfraces con premios 1.º–3.º y cóctel spooky, no la fiesta de disfraces RD$20k de Aura en bahía Cabarete el mismo sábado; RSVP mesas al +1 849-214-7010 antes de asumir walk-in.",
+      fr: "Halloween dîner éco-resort au Natura Restaurant dès 18 h 30 — costumes avec prix 1er–3e et cocktail spooky, pas la fête costumes RD$20k d’Aura sur la baie de Cabarete le même samedi ; RSVP tables au +1 849-214-7010 avant d’assumer walk-in.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover/menu not on flyer — RSVP +1 849-214-7010 / naturacabana.com",
+    priceNoteLocalized: {
+      es: "Cover/menú no está en el flyer — RSVP +1 849-214-7010 / naturacabana.com",
+      fr: "Cover/menu absents de l’affiche — RSVP +1 849-214-7010 / naturacabana.com",
+    },
+    attribution: "POP research · Natura Cabana Halloween flyer",
+    researchNotes:
+      "Editor flyer — Sat 31 Oct 2026 from 6:30 PM Halloween at Natura Restaurant, Natura Cabana; bewitching flavors, spooky cocktail, costumes; prizes 1st/2nd/3rd; RSVP blank on art — use venue +1 849-214-7010 / naturacabana.com. Not adult-entertainment — no ageHint.",
+    updatedAt: "2026-10-09T23:30:00.000Z",
+  },
+  {
+    eventId: "blue-ice-halloween-chimbala-2026-10-31",
+    body: "Chimbala Halloween at Blue Ice on Dr. Rosen for the re-launch weekend — RD$1,500 door, not the usual Saturday gogo and not Natura’s dinner costume night or Aura’s Cabarete Bay party the same Saturday; WhatsApp 829-797-7856 for a table.",
+    localized: {
+      es: "Halloween de Chimbala en Blue Ice en Dr. Rosen por el fin de semana de relanzamiento — puerta RD$1,500, no el gogo habitual de sábado ni la cena de disfraces de Natura ni la fiesta de Aura en bahía Cabarete el mismo sábado; WhatsApp 829-797-7856 para mesa.",
+      fr: "Halloween Chimbala au Blue Ice sur Dr. Rosen pour le week-end de relance — porte RD$1,500, pas le gogo samedi habituel ni le dîner costumes de Natura ni la fête d’Aura sur la baie de Cabarete le même samedi ; WhatsApp 829-797-7856 pour une table.",
+    },
+    priceFeel: "moderate",
+    priceNote: "Entrada RD$1,500 — WhatsApp 829-797-7856",
+    priceNoteLocalized: {
+      es: "Entrada RD$1,500 — WhatsApp 829-797-7856",
+      fr: "Entrée RD$1,500 — WhatsApp 829-797-7856",
+    },
+    attribution: "POP research · @blueice_pianobar Halloween Chimbala flyer",
+    researchNotes:
+      "Editor flyer — Sáb 31 Oct Blue Ice Social Club / Piano Bar, Calle Dr Rosen Batey Sosúa, Chimbala, fin de semana de relanzamiento, entrada 1500, WhatsApp 829 797 7856. Not adult-entertainment bill — no ageHint.",
+    updatedAt: "2026-10-09T23:45:00.000Z",
+  },
+  {
     eventId: "sosua-emprende-bazar-otono-2026-10-17",
     body: "Two-day merchants’ bazaar in Parque Las Flores — crafts, food, inflatables, and face painting for a family afternoon; vendor booth fees aren’t your entry cost, so walk the park and spend at stalls you like.",
     localized: {

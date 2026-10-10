@@ -956,7 +956,7 @@ export const SEED_VENUES: Venue[] = [
     name: "Casa de la Cultura Eduardo Brito",
     city: "Puerto Plata",
     description:
-      "Victorian cultural center facing Parque Central — rotating art exhibitions, poetry readings, theater, and folkloric dance.",
+      "Orange Victorian cultural house at Separación & Duarte facing Plaza Independencia (Parque Central) — state culture space with rotating exhibitions, poetry, theater, and folkloric dance when programmed.",
     lat: 19.7975,
     lng: -70.693,
     emoji: "🎨",

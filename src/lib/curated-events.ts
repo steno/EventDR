@@ -783,6 +783,17 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     phone: "+18295639469",
     venueSlug: "disco-club-brugal",
   },
+  "natura-cabana-halloween-2026-10-31": {
+    callForPricing: true,
+    phone: "+18492147010",
+    venueSlug: "natura-cabana",
+  },
+  "blue-ice-halloween-chimbala-2026-10-31": {
+    isFree: false,
+    admissionPrice: "RD$1,500",
+    phone: "+18297977856",
+    venueSlug: "blue-ice-pianobar-sosua",
+  },
   "sosua-emprende-bazar-otono-2026-10-17": {
     isFree: true,
     venueSlug: "parque-las-flores-sosua",

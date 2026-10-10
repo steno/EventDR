@@ -475,6 +475,9 @@ Curated images under `public/events/` and `public/venues/`.
 | `somnia-06-after-dark-hard-rock-2026-11-06.jpg` | POP-supplied — Somnia Events *06 After Dark* flyer at Hard Rock Sosúa | Fri 6 Nov 2026; first sale RD$1,000 (editor-provided; typography-heavy) |
 | `parada-choco-banditalia-2026-10-06.jpg` | POP-supplied — Parada Choco *BandItalia* aperitivo flyer (better-quality brand art) ([@paradaelchoco](https://www.instagram.com/paradaelchoco/)) | Tue 6 Oct 2026 5–7 PM (editor-provided; typography-heavy) |
 | `disco-club-viernes-salsero-2026-10-09.jpg` | POP-supplied — Latin Disco Club *Viernes Salsero* flyer ([@latindiscoclubpp](https://www.instagram.com/latindiscoclubpp/)) | Fri 9 Oct 2026 salsa descarga (editor-provided; typography-heavy) |
+| `natura-cabana-halloween-2026-10-31.jpg` | POP-supplied — Natura Cabana / Natura Restaurant *Halloween* flyer | Sat 31 Oct 2026 from 6:30 PM costume contest (editor-provided; typography-heavy) |
+| `blue-ice-halloween-chimbala-2026-10-31.jpg` | POP-supplied — Blue Ice Social Club *Halloween / Chimbala* flyer ([@blueice_pianobar](https://www.instagram.com/blueice_pianobar/)) | Sat 31 Oct 2026 RD$1,500 re-launch weekend (editor-provided; typography-heavy) |
+| `venues/casa-de-la-cultura-facade-v2.jpg` | POP-supplied — Casa de la Cultura Eduardo Brito full orange Victorian facade (Separación / Duarte, Plaza Independencia) | Venue place shot filename bump (editor-provided) |
 | `sosua-emprende-bazar-otono-2026-10-17.jpg` | POP-supplied — Sosúa Emprende community crowd (editor-provided) | Superseded by flyer v2 |
 | `sosua-emprende-bazar-otono-2026-10-17-v2.jpg` | POP-supplied — *Bazar de Otoño — Sosúa Emprende* flyer (Asociación de Comerciantes del Municipio de Sosúa) | Sat–Sun 17–18 Oct 2026 (editor-provided; typography-heavy) |
 | `venues/parque-las-flores-sosua-plaza.jpg` | POP-supplied — Parque Las Flores plaza with blue building, El Batey Sosúa (editor-provided) | Venue place shot |

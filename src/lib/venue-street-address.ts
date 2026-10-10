@@ -11,7 +11,7 @@ export const VENUE_STREET_ADDRESS: Readonly<Record<string, string>> = {
   "camara-comercio-puerto-plata": "Calle Beller No. 17, Salón de Eventos Fernando Cueto",
   "casa-caribe-puerto-plata": "Av. Luis Ginebra #52",
   "casa-coco-sosua": "Pedro Clisante 3",
-  "casa-de-la-cultura": "Facing Parque Central, Calle Separación",
+  "casa-de-la-cultura": "Calle Separación esq. Duarte, frente Plaza Independencia",
   "castaways-sosua": "Casa Linda Villas Phase 7-9, Carretera El Choco",
   "charco-los-militares": "MCF3+P2, Tubagua",
   "cheers-bar-sosua": "Calle Pedro Clisante",

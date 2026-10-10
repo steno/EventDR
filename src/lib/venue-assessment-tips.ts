@@ -618,11 +618,11 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "casa-de-la-cultura": {
-    body: "Victorian cultural center on Parque Central — free rotating art and folklore when something's programmed; check what's hanging that week.",
+    body: "Orange Victorian house on Separación & Duarte at Plaza Independencia — worth the facade photo even on quiet weeks; exhibitions and folklore only when something’s programmed.",
     localized: {
-      en: "Victorian cultural center on Parque Central — free rotating art and folklore when something's programmed; check what's hanging that week.",
-      es: "Centro cultural victoriano en el Parque Central — arte y folclore gratis cuando hay programa; mira qué hay esa semana.",
-      fr: "Centre culturel victorien sur le Parque Central — art et folklore gratuits quand il y a un programme ; vérifiez la semaine.",
+      en: "Orange Victorian house on Separación & Duarte at Plaza Independencia — worth the facade photo even on quiet weeks; exhibitions and folklore only when something’s programmed.",
+      es: "Casa victoriana naranja en Separación y Duarte frente a Plaza Independencia — vale la foto de fachada aunque la semana esté quieta; exposiciones y folclore solo cuando hay programa.",
+      fr: "Maison victorienne orange sur Separación et Duarte face à Plaza Independencia — vaut la photo de façade même les semaines calmes ; expositions et folklore seulement quand il y a un programme.",
     },
   },
   "handmade-the-brand": {

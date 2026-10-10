@@ -4929,6 +4929,63 @@
     "description": "Viernes Salsero en Latin Disco Club, Avenida Circunvalación Sur frente a los depósitos Brugal, Puerto Plata — viernes 9 de octubre 2026. Descarga de salsa de casa toda la noche — no es el gogo de los jueves. Cover no está en el flyer; confirma puertas al 829-563-9469 · Instagram @latindiscoclubpp."
   },
   {
+    "id": "natura-cabana-halloween-2026-10-31",
+    "date": "2026-10-31",
+    "time": "6:30 PM",
+    "location": "Cabarete",
+    "venue": "Natura Cabana",
+    "venueSlug": "natura-cabana",
+    "address": "Paseo del Sol 5, Cabarete",
+    "lat": 19.7833499,
+    "lng": -70.4621124,
+    "category": "parties",
+    "categories": [
+      "food-drinks",
+      "parties"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18492147010",
+    "sourceType": "flyer",
+    "sourceUrl": "https://naturacabana.com/events/",
+    "lineup": [
+      "Concurso de disfraces",
+      "Natura Restaurant"
+    ],
+    "imageEmoji": "🎃",
+    "title": "Halloween en Natura Cabana — Concurso de disfraces",
+    "description": "Halloween en Natura Restaurant, Natura Cabana Boutique Hotel & Spa, Paseo del Sol 5, Cabarete / Perla Marina — sábado 31 de octubre 2026 desde las 6:30 PM. Una noche de sabores embrujados, un cóctel espeluznante y disfraces — premios al 1.º, 2.º y 3.º lugar. Halloween de cena en eco-resort, no la noche de disfraces de Aura Beach Club en bahía Cabarete el mismo sábado. RSVP / mesa +1 849-214-7010 · naturacabana.com · Instagram @naturacabana."
+  },
+  {
+    "id": "blue-ice-halloween-chimbala-2026-10-31",
+    "date": "2026-10-31",
+    "location": "Sosúa",
+    "venue": "Blue Ice Piano Bar & Restaurant",
+    "venueSlug": "blue-ice-pianobar-sosua",
+    "address": "Calle Dr. Rosen, El Batey, Sosúa",
+    "lat": 19.7649879,
+    "lng": -70.5150442,
+    "category": "parties",
+    "categories": [
+      "music",
+      "parties"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": false,
+    "admissionPrice": "RD$1,500",
+    "phone": "+18297977856",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/blueice_pianobar/",
+    "lineup": [
+      "Chimbala"
+    ],
+    "imageEmoji": "🎃",
+    "title": "Halloween en Blue Ice — Chimbala",
+    "description": "Nuestra gran Fiesta de Halloween con Chimbala en Blue Ice Social Club (Blue Ice Piano Bar & Restaurant), Calle Dr. Rosen, El Batey, Sosúa — sábado 31 de octubre 2026. Fin de semana de relanzamiento — entrada RD$1,500. Halloween de club en El Batey, no la cena de disfraces de Natura Cabana ni la fiesta de Aura Beach Club en bahía Cabarete el mismo sábado, ni el gogo habitual de los sábados. Reservas WhatsApp 829-797-7856 · Instagram @blueice_pianobar."
+  },
+  {
     "id": "sosua-emprende-bazar-otono-2026-10-17",
     "date": "2026-10-17",
     "endDate": "2026-10-18",

@@ -91,7 +91,8 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "la-confluencia-museum": "la-confluencia-museum.jpg",
   "gregorio-luperon-museum": "gregorio-luperon-museum.jpg",
   "macorix-house-of-rum": "macorix-house-of-rum.jpg",
-  "casa-de-la-cultura": "casa-de-la-cultura.jpg",
+  // Filename bump — full orange Victorian facade (clearer than palm-obstructed prior).
+  "casa-de-la-cultura": "casa-de-la-cultura-facade-v2.jpg",
   "handmade-the-brand": "handmade-the-brand.jpeg",
   "parque-jose-briceno": "parque-jose-briceno.jpg",
   "gregorio-luperon-airport": "gregorio-luperon-airport.jpg",

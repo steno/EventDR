@@ -282,6 +282,10 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "disco-club-gogo-dancers-2026-10-08.jpg",
   "disco-club-viernes-salsero-2026-10-09":
     "disco-club-viernes-salsero-2026-10-09.jpg",
+  "natura-cabana-halloween-2026-10-31":
+    "natura-cabana-halloween-2026-10-31.jpg",
+  "blue-ice-halloween-chimbala-2026-10-31":
+    "blue-ice-halloween-chimbala-2026-10-31.jpg",
   "disco-club-la-mas-doll-2026-10-02":
     "disco-club-la-mas-doll-2026-10-02.jpg",
   "rancho-catalina-halloween-trick-or-treat-2026-10-23":
@@ -650,6 +654,8 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "meclao-tulum-after-dark-sebastian-crozz-2026-10-10": "object-center",
   "ambar-lounge-perreo-negro-2026-10-10": "object-center",
   "disco-club-halloween-2026-10-30": "object-center",
+  "natura-cabana-halloween-2026-10-31": "object-center",
+  "blue-ice-halloween-chimbala-2026-10-31": "object-center",
   "amarea-one-last-escape-2026-11-07": "object-center",
   "emileni-francisco-rancho-catalina-2026-10-11": "object-center",
   "lizandro-diaz-luna-lounge-2026-10-11": "object-center",
@@ -855,6 +861,8 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "somnia-06-after-dark-hard-rock-2026-11-06.jpg",
   "disco-club-gogo-dancers-2026-10-08.jpg",
   "disco-club-viernes-salsero-2026-10-09.jpg",
+  "natura-cabana-halloween-2026-10-31.jpg",
+  "blue-ice-halloween-chimbala-2026-10-31.jpg",
   "rancho-catalina-halloween-trick-or-treat-2026-10-23.jpg",
   "parada-choco-banditalia-2026-10-06.jpg",
   "sosua-emprende-bazar-otono-2026-10-17-v2.jpg",
@@ -981,6 +989,8 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "disco-club-on-fire-night-2026-10-01.jpg",
   "disco-club-gogo-dancers-2026-10-08.jpg",
   "disco-club-viernes-salsero-2026-10-09.jpg",
+  "natura-cabana-halloween-2026-10-31.jpg",
+  "blue-ice-halloween-chimbala-2026-10-31.jpg",
   "disco-club-la-mas-doll-2026-10-02.jpg",
   "rancho-catalina-halloween-trick-or-treat-2026-10-23.jpg",
   "groundzero-bulin47-2026-11-06.jpg",

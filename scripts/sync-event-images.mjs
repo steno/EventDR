@@ -139,6 +139,10 @@ const FILE_TO_EVENT_ID = {
     "disco-club-gogo-dancers-2026-10-08",
   "disco-club-viernes-salsero-2026-10-09.jpg":
     "disco-club-viernes-salsero-2026-10-09",
+  "natura-cabana-halloween-2026-10-31.jpg":
+    "natura-cabana-halloween-2026-10-31",
+  "blue-ice-halloween-chimbala-2026-10-31.jpg":
+    "blue-ice-halloween-chimbala-2026-10-31",
   "rancho-catalina-halloween-trick-or-treat-2026-10-23.jpg":
     "rancho-catalina-halloween-trick-or-treat-2026-10-23",
   "groundzero-bulin47-2026-11-06.jpg": "groundzero-bulin47-2026-11-06",
@@ -550,6 +554,8 @@ const FILE_TO_VENUE_SLUG = {
   // Filename bump — Latin Disco Club interior (disco ball / lit floor).
   "disco-club-brugal-interior.jpg": "disco-club-brugal-interior",
   "natura-cabana-recepcion.jpg": "natura-cabana-recepcion",
+  // Filename bump — full orange Victorian facade (clearer than palm-obstructed prior).
+  "casa-de-la-cultura-facade-v2.jpg": "casa-de-la-cultura-facade-v2",
   // Blue JackTar's decorated event space; keep the Jandy photo for its event card.
   "bjt-detail.jpg": "blue-jacktar-playa-dorada",
   // Real El Choco Sosúa night patio (Sosúa News); Tuesday live uses ElChocoTuesdayLive.jpg.
