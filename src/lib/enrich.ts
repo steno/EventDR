@@ -118,7 +118,7 @@ Return ONLY valid JSON: an array of event objects. Each object must have:
 - address (street address when stated — e.g. "Calle Duarte 37"; include whenever the source mentions a street, number, or intersection; omit only if truly unknown)
 - location (city/area only: Puerto Plata, Cofresí, Maimón, Sosúa, Cabarete, Costambar, or Playa Dorada — never repeat the street address here)
 - category (one of: ${categoryList})
-- categories (optional array of additional categories from the same list when the event clearly fits more than one — e.g. a distillery tour with tastings: business + food-drinks)
+- categories (optional array of at most 2 additional categories from the same list when the event clearly fits more than one — e.g. a distillery tour with tastings: business + food-drinks). Total hubs = primary + categories ≤ 3. Never tag adventure for club/DJ/concert nights just because the title says “Aventura” (band / themed edition) — adventure is for tours, parks, boats, hikes, zip lines. Do not tag adventure from same-night disambiguation copy that mentions another event’s name.
 - format ("physical", "digital", or "hybrid")
 - trending (boolean, true for popular events)
 - sourceUrl (optional URL from source)

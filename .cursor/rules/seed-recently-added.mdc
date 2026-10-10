@@ -46,7 +46,18 @@ When only adding events at an **existing** venue, refresh the tip if the new nig
 5. **Filename bump on replace** — when swapping a curated event or venue hero, change the filename (`-v2`, descriptive suffix) and update `event-images.ts` / `venue-images.ts` (+ sync maps + attributions). PWA/detail heroes strip query cache-busts, so a new path is required.
 6. Also wire attributions, curated `isFree` / tickets / phone maps, and EN/ES/FR seed parity.
 
-## 5. Age hint (when known)
+## 5. Categories (max three hubs)
+
+1. **Primary** `category` + optional `categories` array — **at most 2 secondaries** (primary + secondaries ≤ 3). Pick the strongest hubs; do not spray every keyword match.
+2. **Adventure** = real outings attendees go on (tours, parks, boats, snorkel, hikes, zip lines, cable car). **Not** club/DJ/concert/dance nights.
+3. **Never** put nightlife under Adventure because:
+   - the bill is named **Aventura** (bachata group / themed edition), or
+   - disambiguation copy mentions another night’s “Aventura Edition”, or
+   - bare words like “canopy” in “kite canopy street”
+4. Exception: nightlife that **is** a tour (e.g. trolley city tour) may list `adventure` explicitly when the copy has an outing signal (tour / boat / hike / etc.).
+5. Inference + resolve in `src/lib/categorize.ts` enforce the soft cap and nightlife→Adventure sanitizer; catalog invariants live in `src/lib/categorize-catalog.test.ts`. Do not weaken those blocks without updating the tests.
+
+## 6. Age hint (when known)
 
 Optional `ageHint` on the event (`"all-ages" | "family" | "18-plus" | "21-plus"`). Detail pages show a quiet chip next to admission when set; omit when unknown.
 

@@ -344,7 +344,10 @@ const KEYWORDS: KeywordMap = {
     { term: "teleférico", weight: 2 },
     { term: "teleferico", weight: 2 },
     { term: "zip line", weight: 2 },
-    { term: "canopy", weight: 2 },
+    { term: "zipline", weight: 2 },
+    // Phrase only — bare "canopy" hits “kite canopy street” / patio copy.
+    { term: "canopy tour", weight: 2 },
+    { term: "canopy zip", weight: 2 },
     { term: "island trip", weight: 2 },
     { term: "sandbar", weight: 2 },
     // Landmark names — primary ingest only; secondaries skip these (see ADVENTURE_LANDMARK_TERMS).
@@ -373,6 +376,26 @@ const CATEGORY_AFFINITIES: Partial<Record<EventCategory, EventCategory[]>> = {
 };
 
 /**
+ * Soft cap: primary + this many secondaries (hard limit in
+ * {@link resolveSecondaryCategories}). Prefer the two strongest hubs.
+ */
+export const MAX_SECONDARY_CATEGORIES = 2;
+
+/** Club / stage primaries — Adventure only when copy shows a real outing. */
+const NIGHTLIFE_PRIMARIES = new Set<EventCategory>([
+  "parties",
+  "music",
+  "concert",
+  "dance",
+]);
+
+/**
+ * Bare “adventure” / “aventura” alone (band nights, themed editions) do not
+ * prove an outing. Landmarks stay skipped so “near Ocean World” does not count.
+ */
+const BARE_ADVENTURE_LABEL_TERMS = new Set(["adventure", "aventura"]);
+
+/**
  * Secondaries that keyword inference must never add for a given primary.
  * Adventure tours (boats, snorkel, hikes) stay off Sports unless explicitly tagged.
  */
@@ -385,14 +408,22 @@ const CATEGORY_INFERENCE_BLOCKS: Partial<
    * (day-pass buffets, etc.).
    */
   adventure: ["sports", "food-drinks", "parties"],
-  /** Game nights / socials with “tournament” in the copy stay off Sports. */
-  parties: ["sports"],
+  /**
+   * Club / lounge nights: “Aventura” (band / themed edition) and same-night
+   * disambiguation copy must not unlock scuba-tour Adventure. Explicit
+   * Adventure on these primaries still needs {@link hasAdventureOutingSignal}
+   * (e.g. trolley city tour). Game nights with “tournament” stay off Sports.
+   */
+  parties: ["sports", "adventure"],
   /**
    * Live music / concerts that name a venue like Grand Prix Smart Shop must not
-   * pick up Sports from motorsport-ish wording in the copy.
+   * pick up Sports from motorsport-ish wording in the copy. Band-name
+   * “Aventura” nights stay off Adventure without an outing signal.
    */
-  concert: ["sports"],
-  music: ["sports"],
+  concert: ["sports", "adventure"],
+  music: ["sports", "adventure"],
+  /** Dance classes / socials: “kite canopy street” etc. stay off Adventure. */
+  dance: ["adventure"],
   /**
    * Karaoke / open-mic copy often names a disco venue or says “nightlife”
    * without being a club party. Keep Parties for explicit tags or stronger hits.
@@ -441,6 +472,18 @@ function textIncludesKeyword(haystack: string, term: string): boolean {
  * being the ticketed park visit.
  */
 const ADVENTURE_LANDMARK_TERMS = new Set(["ocean world", "monkeyland"]);
+
+/** True when text has an outing signal beyond the bare adventure/aventura label. */
+export function hasAdventureOutingSignal(text: string): boolean {
+  const outingKeywords = KEYWORDS.adventure.filter((keyword) => {
+    const { term } = keywordWeight(keyword);
+    return (
+      !BARE_ADVENTURE_LABEL_TERMS.has(term) &&
+      !ADVENTURE_LANDMARK_TERMS.has(term)
+    );
+  });
+  return scoreCategory(text, outingKeywords) >= 1;
+}
 
 function scoreCategory(
   text: string,
@@ -541,20 +584,39 @@ export function inferSecondaryCategories(
   return [...new Set([...fromAffinity, ...fromKeywords])];
 }
 
-/** Merge curated tags with keyword/affinity inference (explicit tags are never dropped). */
+/**
+ * Merge curated tags with keyword/affinity inference.
+ * Caps at {@link MAX_SECONDARY_CATEGORIES}. Drops nightlife→Adventure tags
+ * that lack an outing signal (band-name “Aventura”, AI misfires).
+ */
 export function resolveSecondaryCategories(event: {
   title: string;
   description: string;
   category: EventCategory;
   categories?: EventCategory[];
 }): EventCategory[] {
-  const explicit =
-    event.categories?.filter((category) => category !== event.category) ?? [];
-  const inferred = inferSecondaryCategories(
-    `${event.title} ${event.description}`,
-    event.category,
+  const text = `${event.title} ${event.description}`;
+  let explicit = [
+    ...new Set(
+      event.categories?.filter((category) => category !== event.category) ?? [],
+    ),
+  ];
+
+  if (
+    NIGHTLIFE_PRIMARIES.has(event.category) &&
+    explicit.includes("adventure") &&
+    !hasAdventureOutingSignal(text)
+  ) {
+    explicit = explicit.filter((category) => category !== "adventure");
+  }
+
+  explicit = explicit.slice(0, MAX_SECONDARY_CATEGORIES);
+
+  const inferred = inferSecondaryCategories(text, event.category).filter(
+    (category) => !explicit.includes(category),
   );
-  return [...new Set([...explicit, ...inferred])];
+  const inferredSlots = Math.max(0, MAX_SECONDARY_CATEGORIES - explicit.length);
+  return [...explicit, ...inferred.slice(0, inferredSlots)];
 }
 
 function isKnownEventCategory(value: string): value is EventCategory {
@@ -617,6 +679,10 @@ export function eventInCategory(
   return event.categories?.includes(category) ?? false;
 }
 
+/**
+ * Hub membership after the same resolve path used by listings — not raw
+ * keyword hits (bare “aventura” / “tour” in nightlife copy must not match).
+ */
 export function matchesCategory(
   event: {
     title: string;
@@ -626,7 +692,11 @@ export function matchesCategory(
   },
   category: EventCategory,
 ): boolean {
-  if (eventInCategory(event, category)) return true;
-  const text = `${event.title} ${event.description}`;
-  return scoreCategory(text, KEYWORDS[category]) >= 1;
+  return eventInCategory(
+    {
+      category: event.category,
+      categories: resolveSecondaryCategories(event),
+    },
+    category,
+  );
 }

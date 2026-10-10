@@ -3,7 +3,9 @@ import { describe, it } from "node:test";
 import {
   coerceEventCategory,
   eventInCategory,
+  getEventCategoryList,
   inferSecondaryCategories,
+  MAX_SECONDARY_CATEGORIES,
   resolveSecondaryCategories,
   withResolvedCategories,
 } from "./categorize";
@@ -450,6 +452,103 @@ describe("parties keyword false positives", () => {
       const resolved = withResolvedCategories(event);
       assert.equal(eventInCategory(resolved, "parties"), false, id);
     }
+  });
+});
+
+describe("Aventura band / nightlife copy is not Adventure", () => {
+  it("does not unlock Adventure from Aventura themed club nights", () => {
+    assert.equal(
+      inferSecondaryCategories(
+        "Twenty Disco Club Edition — Aventura night with Luna and Estrella",
+        "parties",
+      ).includes("adventure"),
+      false,
+    );
+    assert.equal(
+      inferSecondaryCategories(
+        "Saturday perreo — not Twenty Disco Aventura Edition the same Saturday",
+        "parties",
+      ).includes("adventure"),
+      false,
+    );
+  });
+
+  it("does not unlock Adventure from kite canopy street copy", () => {
+    assert.equal(
+      inferSecondaryCategories(
+        "Cardio dance on the kite canopy street at Kite Street POP",
+        "dance",
+      ).includes("adventure"),
+      false,
+    );
+  });
+
+  it("keeps Twenty Aventura Edition and same-night nightlife off Adventure", () => {
+    for (const id of [
+      "twenty-disco-aventura-edition-2026-10-10",
+      "twenty-disco-friday-dj-yosma-2026-10-09",
+      "ambar-lounge-perreo-negro-2026-10-10",
+      "meclao-tulum-after-dark-sebastian-crozz-2026-10-10",
+      "aura-after-dark-carlos-rivera-2026-10-10",
+    ] as const) {
+      const event = getFallbackEventById(id, "en");
+      assert.ok(event, id);
+      const resolved = withResolvedCategories(event);
+      assert.equal(eventInCategory(resolved, "adventure"), false, id);
+      assert.ok(
+        getEventCategoryList(resolved).length <= 1 + MAX_SECONDARY_CATEGORIES,
+        id,
+      );
+    }
+  });
+
+  it("still keeps explicit trolley city-tour adventure and real outings", () => {
+    const trolley = getFallbackEventById("trolley-party-saturday", "en");
+    assert.ok(trolley);
+    assert.equal(
+      eventInCategory(withResolvedCategories(trolley), "adventure"),
+      true,
+    );
+    assert.ok(
+      inferSecondaryCategories(
+        "Sunset catamaran with reef snorkeling",
+        "food-drinks",
+      ).includes("adventure"),
+    );
+  });
+
+  it("strips curated Adventure from Aventura club nights without outing signals", () => {
+    const secondaries = resolveSecondaryCategories({
+      title: "Club Edition — Aventura",
+      description: "Aventura tribute night at the disco",
+      category: "parties",
+      categories: ["adventure", "music"],
+    });
+    assert.equal(secondaries.includes("adventure"), false);
+    assert.ok(secondaries.includes("music"));
+  });
+});
+
+describe("category soft cap", () => {
+  it("fills at most two inferred secondaries when none are curated", () => {
+    const secondaries = resolveSecondaryCategories({
+      title: "Headliner night with DJ and dance floor",
+      description: "Concert tour stop with live show, club scene, and salsa",
+      category: "concert",
+    });
+    assert.ok(secondaries.length <= MAX_SECONDARY_CATEGORIES);
+    assert.ok(secondaries.includes("music"));
+    assert.ok(secondaries.includes("performances"));
+  });
+
+  it("does not drop curated secondaries when already at the soft cap", () => {
+    const secondaries = resolveSecondaryCategories({
+      title: "Festival Presidente Puerto Plata",
+      description: "Concert tour stop with dance floor and cultural showcase",
+      category: "concert",
+      categories: ["music", "festivals"],
+    });
+    assert.deepEqual(secondaries, ["music", "festivals"]);
   });
 });
 

@@ -1722,7 +1722,6 @@
     "category": "sports",
     "categories": [
       "festivals",
-      "music",
       "health-wellness"
     ],
     "format": "physical",
@@ -4859,8 +4858,7 @@
     "category": "concert",
     "categories": [
       "music",
-      "parties",
-      "dance"
+      "parties"
     ],
     "format": "physical",
     "trending": true,
