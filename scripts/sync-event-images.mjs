@@ -137,8 +137,6 @@ const FILE_TO_EVENT_ID = {
     "sarah-graciano-rancho-catalina-2026-10-04",
   "disco-club-gogo-dancers-2026-10-08.jpg":
     "disco-club-gogo-dancers-2026-10-08",
-  "disco-club-nelson-bless-bachatera-2026-10-09.jpg":
-    "disco-club-nelson-bless-bachatera-2026-10-09",
   "disco-club-viernes-salsero-2026-10-09.jpg":
     "disco-club-viernes-salsero-2026-10-09",
   "rancho-catalina-halloween-trick-or-treat-2026-10-23.jpg":

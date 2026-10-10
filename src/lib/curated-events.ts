@@ -778,11 +778,6 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     callForPricing: true,
     venueSlug: "disco-club-brugal",
   },
-  "disco-club-nelson-bless-bachatera-2026-10-09": {
-    isFree: true,
-    phone: "+18295639469",
-    venueSlug: "disco-club-brugal",
-  },
   "disco-club-viernes-salsero-2026-10-09": {
     callForPricing: true,
     phone: "+18295639469",

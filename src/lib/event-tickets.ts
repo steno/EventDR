@@ -277,7 +277,6 @@ export const CURATED_FREE_EVENTS = new Set<string>([
   "kite-street-bachata-sabor-latino-2026-10-11",
   "rancho-catalina-halloween-trick-or-treat-2026-10-23",
   "parada-choco-banditalia-2026-10-06",
-  "disco-club-nelson-bless-bachatera-2026-10-09",
   "sosua-emprende-bazar-otono-2026-10-17",
   "twenty-disco-friday-dj-tanque-2026-10-02",
   "twenty-disco-friday-dj-yosma-2026-10-09",

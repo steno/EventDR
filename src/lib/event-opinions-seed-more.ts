@@ -4464,29 +4464,11 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: "2026-10-06T14:00:00.000Z",
   },
   {
-    eventId: "disco-club-nelson-bless-bachatera-2026-10-09",
-    body: "Free Friday bachata with Nelson Bless at Latin Disco Club by the Brugal depots — not the Thursday gogo/stripper series; doors say totally free, so budget drinks and reserve the info line if you want a table.",
-    localized: {
-      es: "Bachata gratis el viernes con Nelson Bless en Latin Disco Club frente a Brugal — no es la serie de gogo/strippers del jueves; la entrada dice totalmente gratis, presupuesta tragos y llama a la línea de info si quieres mesa.",
-      fr: "Bachata gratuite le vendredi avec Nelson Bless au Latin Disco Club face à Brugal — pas la série gogo/strippers du jeudi ; l’entrée dit totalement gratuite, budgétez les verres et appelez la ligne info pour une table.",
-    },
-    priceFeel: "budget",
-    priceNote: "Entrada totalmente gratis — drinks/tabs; info 829-563-9469",
-    priceNoteLocalized: {
-      es: "Entrada totalmente gratis — tragos/cuenta; info 829-563-9469",
-      fr: "Entrée totalement gratuite — verres/addition ; info 829-563-9469",
-    },
-    attribution: "POP research · Latin Disco Club Nelson Bless flyer",
-    researchNotes:
-      "Editor flyer — Vie 9 Oct Gran Fiesta Bachatera Nelson Bless, Latin Disco Club, Av. Circunvalación Sur frente depósitos Brugal, entrada totalmente gratis, info 829-563-9469. Not adult-entertainment bill — no ageHint.",
-    updatedAt: "2026-10-06T18:00:00.000Z",
-  },
-  {
     eventId: "disco-club-viernes-salsero-2026-10-09",
-    body: "House salsa Friday at Latin Disco Club by the Brugal depots — descarga energy, not the free Nelson Bless bachata bill also listed tonight and not Thursday gogo; cover isn’t printed, so call 829-563-9469 before you treat doors as walk-in.",
+    body: "House salsa Friday at Latin Disco Club by the Brugal depots — descarga energy, not Thursday gogo; cover isn’t printed, so call 829-563-9469 before you treat doors as walk-in.",
     localized: {
-      es: "Viernes de salsa de casa en Latin Disco Club frente a Brugal — energía de descarga, no la noche gratis de bachata Nelson Bless también listada hoy ni el gogo del jueves; el cover no está impreso, llama al 829-563-9469 antes de asumir walk-in.",
-      fr: "Vendredi salsa maison au Latin Disco Club face à Brugal — énergie descarga, pas la soirée bachata gratuite Nelson Bless aussi listée ce soir ni le gogo du jeudi ; le cover n’est pas imprimé, appelez le 829-563-9469 avant d’assumer walk-in.",
+      es: "Viernes de salsa de casa en Latin Disco Club frente a Brugal — energía de descarga, no el gogo del jueves; el cover no está impreso, llama al 829-563-9469 antes de asumir walk-in.",
+      fr: "Vendredi salsa maison au Latin Disco Club face à Brugal — énergie descarga, pas le gogo du jeudi ; le cover n’est pas imprimé, appelez le 829-563-9469 avant d’assumer walk-in.",
     },
     priceFeel: "moderate",
     priceNote: "Cover not on flyer — 829-563-9469 / @latindiscoclubpp",
@@ -4496,7 +4478,7 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     },
     attribution: "POP research · @latindiscoclubpp Viernes Salsero flyer",
     researchNotes:
-      "Editor IG @latindiscoclubpp — Viernes Salsero flyer + caption: Latín Disco Club presenta, mejor descarga de salsa, Av. Circunvalación Sur frente depósitos Brugal, info 829-563-9469. No cover/start time/age on art. Same venue/date as free Nelson Bless bachata seed — distinct salsa-house promo. Not adult-entertainment bill — no ageHint.",
+      "Editor IG @latindiscoclubpp — Viernes Salsero flyer + caption: Latín Disco Club presenta, mejor descarga de salsa, Av. Circunvalación Sur frente depósitos Brugal, info 829-563-9469. No cover/start time/age on art. Not adult-entertainment bill — no ageHint.",
     updatedAt: "2026-10-09T23:00:00.000Z",
   },
   {

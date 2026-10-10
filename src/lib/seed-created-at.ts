@@ -192,7 +192,6 @@ export const SEED_CREATED_AT: Readonly<Record<string, string>> = {
     "2026-10-06T15:00:00.000Z",
   "disco-club-gogo-dancers-2026-10-08": "2026-10-06T14:00:00.000Z",
   "parada-choco-banditalia-2026-10-06": "2026-10-06T13:00:00.000Z",
-  "disco-club-nelson-bless-bachatera-2026-10-09": "2026-10-06T18:00:00.000Z",
   "sosua-emprende-bazar-otono-2026-10-17": "2026-10-06T19:00:00.000Z",
   "kaovanny-agua-natura-cabana-2026-11-28": "2026-10-06T22:00:00.000Z",
   "kaovanny-hard-rock-2026-11-20": "2026-10-06T21:00:00.000Z",

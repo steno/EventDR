@@ -4900,33 +4900,6 @@
     "description": "06 After Dark par Somnia Events au Hard Rock Cafe Puerto Plata, Calle Duarte, El Batey Sosúa — vendredi 6 novembre 2026. Première vente RD$1,000 via les vendeurs listés (Bernard Pérez 809-258-7621, Michelle Saiz 809-870-2912, Mariana Ovalles 809-675-4150, Juan De Lemos 849-431-9862, Job Rojas 829-805-2964, Sergio Jiménez 829-451-5987, Guillermo Fernandez 829-790-6647). Soirée billetée au Hard Rock — pas le show Bulin 47 au Ground Zero le même vendredi. WhatsApp du lieu +1 849-505-7778 · Instagram @hardrockcafepuertoplata."
   },
   {
-    "id": "disco-club-nelson-bless-bachatera-2026-10-09",
-    "date": "2026-10-09",
-    "location": "Puerto Plata",
-    "venue": "Latin Disco Club",
-    "venueSlug": "disco-club-brugal",
-    "address": "Avenida Circunvalación Sur, frente a los depósitos Brugal, Puerto Plata",
-    "lat": 19.7792778,
-    "lng": -70.6690061,
-    "category": "concert",
-    "categories": [
-      "music",
-      "dance"
-    ],
-    "format": "physical",
-    "trending": true,
-    "isFree": true,
-    "phone": "+18295639469",
-    "sourceType": "flyer",
-    "sourceUrl": "https://www.instagram.com/latindiscoclubpp/",
-    "lineup": [
-      "Nelson Bless"
-    ],
-    "imageEmoji": "💃",
-    "title": "Latin Disco Club Gran Fiesta Bachatera — Nelson Bless",
-    "description": "Gran Fiesta Bachatera avec Nelson Bless (l’artiste qui représente Puerto Plata) au Latin Disco Club, Avenida Circunvalación Sur face aux dépôts Brugal, Puerto Plata — vendredi 9 octobre 2026. Entrée totalement gratuite. Soirée bachata gratuite près des dépôts Brugal — pas la série gogo du jeudi. Info 829-563-9469 · Instagram @latindiscoclubpp."
-  },
-  {
     "id": "disco-club-viernes-salsero-2026-10-09",
     "date": "2026-10-09",
     "location": "Puerto Plata",
@@ -4951,7 +4924,7 @@
     ],
     "imageEmoji": "🎷",
     "title": "Latin Disco Club Viernes Salsero",
-    "description": "Viernes Salsero au Latin Disco Club, Avenida Circunvalación Sur face aux dépôts Brugal, Puerto Plata — vendredi 9 octobre 2026. Descarga salsa maison toute la nuit — pas la soirée bachata gratuite Nelson Bless aussi listée ce soir, ni le gogo du jeudi. Cover absent de l’affiche ; confirmez les portes au 829-563-9469 · Instagram @latindiscoclubpp."
+    "description": "Viernes Salsero au Latin Disco Club, Avenida Circunvalación Sur face aux dépôts Brugal, Puerto Plata — vendredi 9 octobre 2026. Descarga salsa maison toute la nuit — pas le gogo du jeudi. Cover absent de l’affiche ; confirmez les portes au 829-563-9469 · Instagram @latindiscoclubpp."
   },
   {
     "id": "sosua-emprende-bazar-otono-2026-10-17",

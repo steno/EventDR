@@ -4902,36 +4902,9 @@
     "imageEmoji": "🌑"
   },
   {
-    "id": "disco-club-nelson-bless-bachatera-2026-10-09",
-    "title": "Latin Disco Club Gran Fiesta Bachatera — Nelson Bless",
-    "description": "Gran Fiesta Bachatera with Nelson Bless (the artist who represents Puerto Plata) at Latin Disco Club, Avenida Circunvalación Sur frente a los depósitos Brugal, Puerto Plata — Friday 9 October 2026. Free entry. Free bachata night by the Brugal depots — not the Thursday gogo series. Info 829-563-9469 · Instagram @latindiscoclubpp.",
-    "date": "2026-10-09",
-    "location": "Puerto Plata",
-    "venue": "Latin Disco Club",
-    "venueSlug": "disco-club-brugal",
-    "address": "Avenida Circunvalación Sur, frente a los depósitos Brugal, Puerto Plata",
-    "lat": 19.7792778,
-    "lng": -70.6690061,
-    "category": "concert",
-    "categories": [
-      "music",
-      "dance"
-    ],
-    "format": "physical",
-    "trending": true,
-    "isFree": true,
-    "phone": "+18295639469",
-    "sourceType": "flyer",
-    "sourceUrl": "https://www.instagram.com/latindiscoclubpp/",
-    "lineup": [
-      "Nelson Bless"
-    ],
-    "imageEmoji": "💃"
-  },
-  {
     "id": "disco-club-viernes-salsero-2026-10-09",
     "title": "Latin Disco Club Viernes Salsero",
-    "description": "Viernes Salsero at Latin Disco Club, Avenida Circunvalación Sur frente a los depósitos Brugal, Puerto Plata — Friday 9 October 2026. House salsa descarga all night — not the free Nelson Bless bachata bill also listed tonight, and not Thursday gogo. Cover not on the flyer; confirm doors on 829-563-9469 · Instagram @latindiscoclubpp.",
+    "description": "Viernes Salsero at Latin Disco Club, Avenida Circunvalación Sur frente a los depósitos Brugal, Puerto Plata — Friday 9 October 2026. House salsa descarga all night — not Thursday gogo. Cover not on the flyer; confirm doors on 829-563-9469 · Instagram @latindiscoclubpp.",
     "date": "2026-10-09",
     "location": "Puerto Plata",
     "venue": "Latin Disco Club",
