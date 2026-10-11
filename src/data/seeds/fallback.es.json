@@ -4079,6 +4079,34 @@
     "imageEmoji": "🎭"
   },
   {
+    "id": "ocean-world-terrace-deury-luciano-2026-10-16",
+    "title": "Deury Luciano en Ocean World Terrace",
+    "description": "Típico en vivo con Deury Luciano en Ocean World Terrace, Calle Principal #3, Cofresí — viernes 16 de octubre 2026 desde las 8:00 PM. Entrada RD$200 p/p. Info +1 809-291-2400; Instagram @oceanworldterrace. Presenta Brugal. Noche de terraza — no es la fila de delfines del parque.",
+    "date": "2026-10-16",
+    "time": "8:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Terraza Ocean World",
+    "venueSlug": "ocean-world",
+    "address": "Calle Principal #3, Cofresí, Puerto Plata",
+    "lat": 19.826313,
+    "lng": -70.732062,
+    "category": "music",
+    "categories": [
+      "performances",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "admissionPrice": "RD$200",
+    "phone": "+18092912400",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/oceanworldterrace/",
+    "lineup": [
+      "Deury Luciano"
+    ],
+    "imageEmoji": "🪗"
+  },
+  {
     "id": "ocean-world-terrace-old-school-2026-10-17",
     "title": "Ocean World Terrace Old School",
     "description": "Sábado Old School en Ocean World Terrace, Cofresí — sábado 17 de octubre 2026. Shots de bienvenida, DJ en vivo, ambiente alusivo a la época y especiales de cervezas. Entrada gratis; ven con tu flow Old School. Confirma puertas por Instagram @oceanworldterrace o +1 809-291-2400. No es la fila de delfines del parque.",

@@ -4132,6 +4132,24 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: "2026-10-01T23:00:00.000Z",
   },
   {
+    eventId: "ocean-world-terrace-deury-luciano-2026-10-16",
+    body: "RD$200 accordion Friday on the Cofresí terrace with Deury Luciano from 8 PM — skip the dolphin queue; call +1 809-291-2400 or pin @oceanworldterrace before you assume walk-up tables.",
+    localized: {
+      es: "Viernes de acordeón a RD$200 en la terraza de Cofresí con Deury Luciano desde las 8 PM — sáltate la fila de delfines; llama al +1 809-291-2400 o pin @oceanworldterrace antes de asumir mesas walk-up.",
+      fr: "Vendredi accordéon à RD$200 sur la terrasse de Cofresí avec Deury Luciano dès 20 h — skip la file des dauphins ; appelez +1 809-291-2400 ou pin @oceanworldterrace avant de compter sur des tables walk-up.",
+    },
+    priceFeel: "budget",
+    priceNote: "RD$200 entry per person — drinks pay as you go",
+    priceNoteLocalized: {
+      es: "Entrada RD$200 p/p — tragos se pagan aparte",
+      fr: "Entrée RD$200 par personne — boissons à part",
+    },
+    attribution: "POP research · Terraza Ocean World · @oceanworldterrace",
+    researchNotes:
+      "Editor flyer — Vie 16 Oct 2026 Deury Luciano, Ocean World Terrace, desde 8 PM, Entrada RD$200 p/p, info 809.291.2400, Calle Principal Cofresí; Brugal present; venue slug ocean-world.",
+    updatedAt: "2026-10-10T12:00:00.000Z",
+  },
+  {
     eventId: "ocean-world-terrace-old-school-2026-10-17",
     body: "Cofresí terrace Old School Saturday — free entry with welcome shots and beer specials, not the dolphin park ticket line; pin @oceanworldterrace / +1 809-291-2400 before you treat it as a walk-up open mic.",
     localized: {

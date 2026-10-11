@@ -301,6 +301,8 @@ const FILE_TO_EVENT_ID = {
     "ambar-lounge-bandoleras-2026-10-09",
   "ambar-lounge-gaby-luna-2026-10-03.jpg":
     "ambar-lounge-gaby-luna-2026-10-03",
+  "ocean-world-terrace-deury-luciano-2026-10-16.jpg":
+    "ocean-world-terrace-deury-luciano-2026-10-16",
   "ocean-world-terrace-old-school-2026-10-17.jpg":
     "ocean-world-terrace-old-school-2026-10-17",
   "ambar-lounge-adrian-tineo-2026-09-19.jpg":

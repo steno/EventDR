@@ -860,6 +860,63 @@ html.dark .pull-reload__spinner {
 .north-coast-map-pin[data-selected="true"] {
   z-index: 2;
 }
+/* Place-name chip above the pin — desktop hover / keyboard focus only. */
+.north-coast-map-pin__label {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  z-index: 5;
+  max-width: 11rem;
+  padding: 0.3rem 0.55rem;
+  border-radius: 0.5rem;
+  background: rgba(23, 23, 23, 0.92);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateX(-50%) translateY(4px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28);
+  transition:
+    opacity 0.14s ease,
+    transform 0.14s ease;
+}
+.north-coast-map-pin__label::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border: 5px solid transparent;
+  border-top-color: rgba(23, 23, 23, 0.92);
+}
+@media (hover: hover) and (pointer: fine) {
+  .north-coast-map-pin:hover .north-coast-map-pin__label,
+  .north-coast-map-pin:focus-visible .north-coast-map-pin__label {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  .north-coast-map-pin:hover,
+  .north-coast-map-pin:focus-visible {
+    /* Above stacked neighbors + selected (inline z-index up to 40). */
+    z-index: 50 !important;
+  }
+}
+/* Touch: chip stays hidden until a tap sets data-flash-label (briefly, before card). */
+@media (hover: none), (pointer: coarse) {
+  .north-coast-map-pin[data-flash-label] .north-coast-map-pin__label {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  .north-coast-map-pin[data-flash-label] {
+    z-index: 50 !important;
+  }
+}
 .north-coast-map-pin__body {
   position: relative;
   display: flex;

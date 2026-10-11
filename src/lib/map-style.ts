@@ -28,6 +28,16 @@ export function resolveDefaultMapZoom(widthPx?: number): number {
 }
 /** Street-level pitch when a pin is selected (3D buildings + labels). */
 export const MAP_PIN_ZOOM = 17.2;
+/** Phone + open card — pull back so the pin isn’t cramped at the top. */
+export const MAP_PIN_ZOOM_MOBILE = 16.2;
+
+/** Pin camera zoom for the current viewport width. */
+export function resolvePinZoom(widthPx?: number): number {
+  const w =
+    widthPx ??
+    (typeof window !== "undefined" ? window.innerWidth : 1024);
+  return w < 640 ? MAP_PIN_ZOOM_MOBILE : MAP_PIN_ZOOM;
+}
 /** Town overview when picking an area from the map header. */
 export const MAP_AREA_ZOOM = 13.6;
 /**

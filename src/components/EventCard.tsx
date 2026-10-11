@@ -264,7 +264,12 @@ const EventCardComponent = ({
             }
             imageClassName={`object-cover card-media-zoom ${getEventCardObjectPosition(event.id)}`}
             frameClassName={
-              mediaOnly ? "aspect-[16/10] w-full sm:aspect-[4/3]" : "aspect-[4/3] w-full"
+              mediaOnly
+                ? // Shorter flyer when meta is open — map height is scarce on phones.
+                  mediaExpanded
+                    ? "aspect-[2/1] w-full sm:aspect-[4/3]"
+                    : "aspect-[16/10] w-full sm:aspect-[4/3]"
+                : "aspect-[4/3] w-full"
             }
             enlargeLabel={dict.detail.enlargeImage}
             closeLabel={dict.detail.close}

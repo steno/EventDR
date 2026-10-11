@@ -17,6 +17,8 @@ interface EventCardMetaProps {
   dict: Dictionary;
   className?: string;
   compact?: boolean;
+  /** Tighter gaps + line-height (map pin sheet on short viewports). */
+  dense?: boolean;
   liveStatus?: EventLiveStatus | null;
   liveStatusLabel?: string | null;
 }
@@ -24,14 +26,24 @@ interface EventCardMetaProps {
 function MetaRow({
   icon,
   children,
+  dense = false,
 }: {
   icon: ReactNode;
   children: ReactNode;
+  dense?: boolean;
 }) {
   return (
-    <div className="flex items-start gap-2.5 text-copy-meta text-neutral-800 dark:text-neutral-200">
+    <div
+      className={`flex items-start text-copy-meta text-neutral-800 dark:text-neutral-200 ${
+        dense ? "gap-2" : "gap-2.5"
+      }`}
+    >
       <span className="mt-px shrink-0 text-neutral-500 dark:text-neutral-400">{icon}</span>
-      <span className="min-w-0 truncate leading-snug">{children}</span>
+      <span
+        className={`min-w-0 truncate ${dense ? "leading-tight" : "leading-snug"}`}
+      >
+        {children}
+      </span>
     </div>
   );
 }
@@ -54,6 +66,7 @@ export function EventCardMeta({
   dict,
   className = "",
   compact = false,
+  dense = false,
   liveStatus = null,
   liveStatusLabel = null,
 }: EventCardMetaProps) {
@@ -81,7 +94,9 @@ export function EventCardMeta({
   if (compact) {
     return (
       <div
-        className={`space-y-1.5 text-sm font-medium leading-snug text-neutral-600 dark:text-neutral-300 ${className}`}
+        className={`${dense ? "space-y-1" : "space-y-1.5"} text-sm font-medium ${
+          dense ? "leading-tight" : "leading-snug"
+        } text-neutral-600 dark:text-neutral-300 ${className}`}
       >
         <span className="inline-flex flex-wrap items-center gap-x-2 gap-y-1">
           <span className="inline-flex items-center gap-1.5">
@@ -115,10 +130,25 @@ export function EventCardMeta({
   }
 
   return (
-    <div className={`space-y-2 ${className}`}>
-      <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5">
-        <span className="inline-flex items-center gap-2 text-copy-meta font-medium text-neutral-800 dark:text-neutral-200">
-          <Calendar className="h-4 w-4 shrink-0 text-neutral-500 dark:text-neutral-400" />
+    <div
+      className={`${dense ? "space-y-1.5" : "space-y-2"} ${
+        dense ? "leading-tight" : ""
+      } ${className}`}
+    >
+      <div
+        className={`flex flex-wrap items-center ${
+          dense ? "gap-x-2.5 gap-y-1" : "gap-x-3 gap-y-1.5"
+        }`}
+      >
+        <span
+          className={`inline-flex items-center gap-2 text-copy-meta font-medium text-neutral-800 dark:text-neutral-200 ${
+            dense ? "leading-tight" : ""
+          }`}
+        >
+          <Calendar
+            className={`${dense ? "h-3.5 w-3.5" : "h-4 w-4"} shrink-0 text-neutral-500 dark:text-neutral-400`}
+            aria-hidden
+          />
           {dateLabel}
         </span>
         {badgeLabel && badgeStatus && (
@@ -126,25 +156,37 @@ export function EventCardMeta({
         )}
       </div>
       {(timeLabel.display || recurrenceLabel) && (
-        <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5">
+        <div
+          className={`flex flex-wrap items-center ${
+            dense ? "gap-x-2.5 gap-y-1" : "gap-x-3 gap-y-1.5"
+          }`}
+        >
           {timeLabel.display && (
-            <MetaRow icon={<Clock className="h-4 w-4" />}>
+            <MetaRow
+              dense={dense}
+              icon={<Clock className={dense ? "h-3.5 w-3.5" : "h-4 w-4"} />}
+            >
               <span title={timeLabel.full !== timeLabel.display ? timeLabel.full : undefined}>
                 {timeLabel.display}
               </span>
             </MetaRow>
           )}
-          {recurrenceLabel && <RecurrencePill label={recurrenceLabel} />}
+          {recurrenceLabel && <RecurrencePill label={recurrenceLabel} compact={dense} />}
         </div>
       )}
       <EventCategoryLinks
         event={event}
         locale={locale}
         dict={dict}
-        className="relative z-[2] pt-0.5 pointer-events-auto"
+        className={`relative z-[2] pointer-events-auto ${dense ? "pt-0" : "pt-0.5"}`}
         linkable
       />
-      <MetaRow icon={<MapPin className="h-4 w-4" />}>{formatEventPlace(event)}</MetaRow>
+      <MetaRow
+        dense={dense}
+        icon={<MapPin className={dense ? "h-3.5 w-3.5" : "h-4 w-4"} />}
+      >
+        {formatEventPlace(event)}
+      </MetaRow>
     </div>
   );
 }

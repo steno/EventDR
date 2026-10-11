@@ -10,6 +10,7 @@ import {
   setWorkerUrl,
 } from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
+import { formatEventPlaceShort } from "@/lib/event-location";
 import type { MapPin } from "@/lib/map-events";
 import {
   MAP_PIN_THUMB_DISPLAY_PX,
@@ -21,9 +22,9 @@ import {
   MAP_DEFAULT_CENTER,
   MAP_DEFAULT_PITCH,
   MAP_OVERVIEW_ZOOM_MAX,
-  MAP_PIN_ZOOM,
   resolveDefaultMapZoom,
   resolveMapStyleUrl,
+  resolvePinZoom,
 } from "@/lib/map-style";
 
 /** Max hero upgrades started per sync pass (nearest-to-center first). */
@@ -63,7 +64,8 @@ function pinCardOffset(
         ? sheetInsetPx
         : Math.min(h * 0.5, Math.round(h * 0.55));
     // Negative Y moves the target toward the top of the viewport.
-    return [0, -Math.round(sheet * 0.55)];
+    // Keep the pin near the middle of the clear band (not under the header).
+    return [0, -Math.round(sheet * 0.42)];
   }
   // Desktop card docks bottom-right — nudge pin up-left of center.
   return [-120, -40];
@@ -127,15 +129,68 @@ function applyThumbFace(face: HTMLElement, pin: MapPin): boolean {
 }
 
 /** Overview / first paint — color dots only (no hero image requests). */
+/** Short venue/city label for pin hover + a11y (not the event title). */
+function pinPlaceLabel(pin: MapPin): string {
+  if (pin.venueOnly?.name?.trim()) return pin.venueOnly.name.trim();
+  const event = pin.events[0];
+  if (!event) return "Event";
+  return (
+    formatEventPlaceShort(event) ??
+    event.venue?.trim() ??
+    event.location?.trim() ??
+    event.title
+  );
+}
+
+function ensurePinLabel(btn: HTMLButtonElement, pin: MapPin): void {
+  const label = pinPlaceLabel(pin);
+  btn.setAttribute("aria-label", label);
+  let el = btn.querySelector<HTMLElement>(".north-coast-map-pin__label");
+  if (!el) {
+    el = document.createElement("span");
+    el.className = "north-coast-map-pin__label";
+    el.setAttribute("aria-hidden", "true");
+    btn.appendChild(el);
+  }
+  el.textContent = label;
+}
+
+/** Touch: brief place chip before the card. Desktop keeps hover-only. */
+const TAP_PLACE_LABEL_MS = 520;
+let pinLabelFlashTimer: ReturnType<typeof setTimeout> | null = null;
+
+function prefersCoarsePointer(): boolean {
+  return window.matchMedia("(hover: none), (pointer: coarse)").matches;
+}
+
+function clearPinLabelFlashes(except?: HTMLElement): void {
+  document
+    .querySelectorAll<HTMLElement>(".north-coast-map-pin[data-flash-label]")
+    .forEach((el) => {
+      if (except && el === except) return;
+      delete el.dataset.flashLabel;
+    });
+}
+
+function flashPinLabelThen(btn: HTMLButtonElement, then: () => void): void {
+  if (pinLabelFlashTimer != null) {
+    clearTimeout(pinLabelFlashTimer);
+    pinLabelFlashTimer = null;
+  }
+  clearPinLabelFlashes();
+  btn.dataset.flashLabel = "true";
+  pinLabelFlashTimer = setTimeout(() => {
+    pinLabelFlashTimer = null;
+    delete btn.dataset.flashLabel;
+    then();
+  }, TAP_PLACE_LABEL_MS);
+}
+
 function buildPinElement(pin: MapPin, active: boolean): HTMLButtonElement {
   const btn = document.createElement("button");
   btn.type = "button";
   btn.className = "north-coast-map-pin";
   btn.dataset.pinId = pin.id;
-  btn.setAttribute(
-    "aria-label",
-    pin.venueOnly?.name ?? pin.events[0]?.title ?? "Event",
-  );
   btn.style.color = pin.color;
   if (active) btn.dataset.selected = "true";
 
@@ -165,6 +220,7 @@ function buildPinElement(pin: MapPin, active: boolean): HTMLButtonElement {
   }
 
   btn.appendChild(body);
+  ensurePinLabel(btn, pin);
   return btn;
 }
 
@@ -402,7 +458,8 @@ export function NorthCoastMapView({
       if (existing) {
         existing.setLngLat([pin.lng, pin.lat]);
         existing.setOffset(stackOffset);
-        const el = existing.getElement();
+        const el = existing.getElement() as HTMLButtonElement;
+        ensurePinLabel(el, pin);
         if (pin.stackIndex != null) {
           el.style.zIndex = String(10 + pin.stackIndex);
         }
@@ -417,7 +474,13 @@ export function NorthCoastMapView({
         e.preventDefault();
         // Cover stop()+easeTo zoomend at overview + any map click echo.
         suppressDismiss(1600);
-        onPinTapRef.current(pin.id);
+        const open = () => onPinTapRef.current(pin.id);
+        // Phones: flash the place name, then open the card.
+        if (prefersCoarsePointer()) {
+          flashPinLabelThen(el, open);
+          return;
+        }
+        open();
       });
       const marker = new Marker({
         element: el,
@@ -509,7 +572,7 @@ export function NorthCoastMapView({
     map.stop();
     map.easeTo({
       center: [pin.lng, pin.lat],
-      zoom: MAP_PIN_ZOOM,
+      zoom: resolvePinZoom(w),
       pitch: MAP_DEFAULT_PITCH,
       bearing: alreadyClose
         ? map.getBearing() + 34
@@ -529,11 +592,12 @@ export function NorthCoastMapView({
     if (!pin) return;
     const fromOverview = isOverviewZoom(map.getZoom());
     const duration = fromOverview ? 900 : 550;
+    const w = map.getContainer().clientWidth;
     suppressDismiss(duration + 400);
     map.stop();
     map.easeTo({
       center: [pin.lng, pin.lat],
-      zoom: MAP_PIN_ZOOM,
+      zoom: resolvePinZoom(w),
       pitch: MAP_DEFAULT_PITCH,
       bearing: fromOverview ? MAP_DEFAULT_BEARING : map.getBearing(),
       duration,
@@ -554,10 +618,11 @@ export function NorthCoastMapView({
     if (!pin) return;
     const handle = window.setTimeout(() => {
       if (!mapRef.current || document.visibilityState === "hidden") return;
+      const w = map.getContainer().clientWidth;
       suppressDismiss(500);
       map.easeTo({
         center: [pin.lng, pin.lat],
-        zoom: MAP_PIN_ZOOM,
+        zoom: resolvePinZoom(w),
         pitch: MAP_DEFAULT_PITCH,
         offset: pinCardOffset(map, sheetInsetPx),
         duration: 280,

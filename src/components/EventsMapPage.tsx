@@ -87,17 +87,18 @@ function MapPinSheetDetails({
             pinEvents.find((e) => e.address?.trim())?.address ?? event.address,
         };
   return (
-    <div className="mt-3 space-y-3 border-t border-neutral-200/80 pt-3 dark:border-neutral-800">
+    <div className="mt-2 space-y-2 border-t border-neutral-200/80 pt-2 dark:border-neutral-800 sm:mt-3 sm:space-y-3 sm:pt-3">
       {/* Status badge already sits on the media card above — don't repeat it. */}
       <EventCardMeta
         event={placeEvent}
         locale={locale}
         dict={dict}
+        dense
       />
       <IntentLink
         href={eventDetailPath(locale, event.id)}
         onClick={() => rememberReturnPath(returnTo, returnTitle)}
-        className="flex min-h-11 w-full items-center justify-center rounded-2xl bg-orange-500 px-4 text-sm font-bold text-white transition-colors hover:bg-orange-600 active:scale-[0.99] touch-manipulation"
+        className="flex min-h-10 w-full items-center justify-center rounded-2xl bg-orange-500 px-4 text-sm font-bold leading-none text-white transition-colors hover:bg-orange-600 active:scale-[0.99] touch-manipulation sm:min-h-11"
       >
         {dict.detail.viewEvent}
       </IntentLink>
@@ -144,8 +145,8 @@ export function EventsMapPage({
   const [sheetInsetPx, setSheetInsetPx] = useState(0);
   /** Index into openPin.events when a pin hosts multiple listings. */
   const [sheetEventIndex, setSheetEventIndex] = useState(0);
-  /** Image tap expands meta under the flyer (map pans up via sheet inset). */
-  const [sheetExpanded, setSheetExpanded] = useState(false);
+  /** Meta under the flyer — open by default so mobile sees details without an extra tap. */
+  const [sheetExpanded, setSheetExpanded] = useState(true);
   /** Pins already shown in this close→swing chain (avoid A↔B loops). */
   const [swingVisitedIds, setSwingVisitedIds] = useState<string[]>([]);
   /** One-time tip — tap a pin / photos load as you explore. */
@@ -202,12 +203,9 @@ export function EventsMapPage({
 
   useEffect(() => {
     setSheetEventIndex(0);
-    // Desktop side card: open meta by default. Phone keeps the compact flyer
-    // until Read more / swipe-up (sheet uses `sm:` from 640px).
-    const desktop =
-      typeof window !== "undefined" &&
-      window.matchMedia("(min-width: 640px)").matches;
-    setSheetExpanded(desktop);
+    // Open meta by default on every pin (mobile + desktop). Swipe down / title
+    // tap still collapses to free map height.
+    setSheetExpanded(true);
   }, [openPinId]);
 
   useEffect(() => {
@@ -492,7 +490,7 @@ export function EventsMapPage({
       </header>
 
       <div className="relative z-0 min-h-0 flex-1">
-        <div className="north-coast-map absolute inset-0" data-pull-reload="ignore">
+        <div className="north-coast-map absolute inset-0 z-0" data-pull-reload="ignore">
           <NorthCoastMapView
             pins={pins}
             focusedPinId={focusedPinId}
@@ -550,13 +548,13 @@ export function EventsMapPage({
             ref={sheetRef}
             data-map-pin-sheet
             data-pull-reload="ignore"
-            className="animate-slide-up absolute inset-x-0 bottom-0 z-20 max-h-[min(85dvh,40rem)] overflow-y-auto overflow-x-hidden rounded-t-3xl border-t border-neutral-200 bg-white/98 p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] shadow-[0_-12px_40px_-12px_rgba(0,0,0,0.35)] backdrop-blur-xl dark:border-neutral-800 dark:bg-neutral-950/98 sm:inset-x-auto sm:bottom-4 sm:right-4 sm:w-[22rem] sm:rounded-3xl sm:border sm:pb-3"
+            className="animate-slide-up absolute inset-x-0 bottom-0 z-20 max-h-[min(85dvh,40rem)] overflow-y-auto overflow-x-hidden rounded-t-3xl border-t border-neutral-200 bg-white/98 p-2.5 pb-[max(0.5rem,env(safe-area-inset-bottom))] shadow-[0_-12px_40px_-12px_rgba(0,0,0,0.35)] backdrop-blur-xl dark:border-neutral-800 dark:bg-neutral-950/98 sm:inset-x-auto sm:bottom-4 sm:right-4 sm:w-[22rem] sm:rounded-3xl sm:border sm:p-3 sm:pb-3"
             role="dialog"
             aria-label={dict.map.pinSheetLabel}
             aria-expanded={sheetExpanded}
           >
-            <div className="mb-1.5 flex items-center gap-2">
-              <h2 className="min-w-0 flex-1 text-base font-extrabold leading-snug text-neutral-900 dark:text-neutral-50">
+            <div className="mb-1 flex items-center gap-2 sm:mb-1.5">
+              <h2 className="min-w-0 flex-1 text-base font-extrabold leading-tight text-neutral-900 dark:text-neutral-50 sm:text-lg sm:leading-snug">
                 <button
                   type="button"
                   onClick={() => setSheetExpanded((open) => !open)}
@@ -571,14 +569,14 @@ export function EventsMapPage({
                 data-sheet-swipe-ignore
                 onClick={closePinSheet}
                 aria-label={dict.detail.close}
-                className="flex h-9 w-9 shrink-0 items-center justify-center self-center rounded-full bg-neutral-100 text-neutral-800 ring-1 ring-neutral-300 transition-colors hover:bg-white hover:ring-orange-400 hover:text-orange-600 active:scale-95 dark:bg-neutral-800 dark:text-neutral-100 dark:ring-white/20 dark:hover:bg-neutral-700 dark:hover:ring-orange-400/70 dark:hover:text-orange-300"
+                className="flex h-8 w-8 shrink-0 items-center justify-center self-center rounded-full bg-neutral-100 text-neutral-800 ring-1 ring-neutral-300 transition-colors hover:bg-white hover:ring-orange-400 hover:text-orange-600 active:scale-95 dark:bg-neutral-800 dark:text-neutral-100 dark:ring-white/20 dark:hover:bg-neutral-700 dark:hover:ring-orange-400/70 dark:hover:text-orange-300 sm:h-9 sm:w-9"
               >
                 <X className="h-4 w-4" strokeWidth={2.5} aria-hidden />
               </button>
             </div>
 
-            <div className="mb-2 flex items-center gap-2">
-              <p className="min-w-0 flex-1 text-[11px] font-bold uppercase tracking-wide text-orange-500">
+            <div className="mb-1.5 flex items-center gap-2 sm:mb-2">
+              <p className="min-w-0 flex-1 text-[10px] font-bold uppercase leading-none tracking-wide text-orange-500 sm:text-[11px]">
                 {(sheetEventCount === 1
                   ? dict.map.eventHere
                   : dict.map.eventsHere
@@ -693,36 +691,36 @@ export function EventsMapPage({
             ref={sheetRef}
             data-map-pin-sheet
             data-pull-reload="ignore"
-            className="animate-slide-up absolute inset-x-0 bottom-0 z-20 overflow-hidden rounded-t-3xl border-t border-neutral-200 bg-white/98 p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] shadow-[0_-12px_40px_-12px_rgba(0,0,0,0.35)] backdrop-blur-xl dark:border-neutral-800 dark:bg-neutral-950/98 sm:inset-x-auto sm:bottom-4 sm:right-4 sm:w-[22rem] sm:rounded-3xl sm:border sm:pb-3"
+            className="animate-slide-up absolute inset-x-0 bottom-0 z-20 overflow-hidden rounded-t-3xl border-t border-neutral-200 bg-white/98 p-2.5 pb-[max(0.5rem,env(safe-area-inset-bottom))] shadow-[0_-12px_40px_-12px_rgba(0,0,0,0.35)] backdrop-blur-xl dark:border-neutral-800 dark:bg-neutral-950/98 sm:inset-x-auto sm:bottom-4 sm:right-4 sm:w-[22rem] sm:rounded-3xl sm:border sm:p-3 sm:pb-3"
             role="dialog"
             aria-label={dict.map.venuePinSheetLabel}
           >
-            <div className="mb-2 flex items-center gap-2">
-              <p className="min-w-0 flex-1 truncate text-sm font-extrabold leading-none text-neutral-900 dark:text-neutral-50">
+            <div className="mb-1.5 flex items-center gap-2 sm:mb-2">
+              <p className="min-w-0 flex-1 truncate text-sm font-extrabold leading-tight text-neutral-900 dark:text-neutral-50">
                 {openPin.venueOnly.name}
               </p>
               <button
                 type="button"
                 onClick={closeCardSwingNext}
                 aria-label={dict.detail.close}
-                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-neutral-100 text-neutral-800 ring-1 ring-neutral-300 transition-colors hover:bg-white hover:ring-orange-400 hover:text-orange-600 active:scale-95 dark:bg-neutral-800 dark:text-neutral-100 dark:ring-white/20 dark:hover:bg-neutral-700 dark:hover:ring-orange-400/70 dark:hover:text-orange-300"
+                className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-neutral-100 text-neutral-800 ring-1 ring-neutral-300 transition-colors hover:bg-white hover:ring-orange-400 hover:text-orange-600 active:scale-95 dark:bg-neutral-800 dark:text-neutral-100 dark:ring-white/20 dark:hover:bg-neutral-700 dark:hover:ring-orange-400/70 dark:hover:text-orange-300 sm:h-9 sm:w-9"
               >
                 <X className="h-4 w-4" strokeWidth={2.5} aria-hidden />
               </button>
             </div>
             {venueOnlyPlace ? (
-              <p className="mb-2 flex items-start gap-1.5 text-sm text-neutral-600 dark:text-neutral-300">
+              <p className="mb-1.5 flex items-start gap-1.5 text-sm leading-tight text-neutral-600 dark:text-neutral-300 sm:mb-2 sm:leading-snug">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0" aria-hidden />
                 <span>{venueOnlyPlace}</span>
               </p>
             ) : null}
-            <p className="mb-3 text-sm text-neutral-600 dark:text-neutral-300">
+            <p className="mb-2 text-sm leading-tight text-neutral-600 dark:text-neutral-300 sm:mb-3 sm:leading-snug">
               {dict.map.venueNoEvents}
             </p>
             <Link
               href={venueDetailPath(locale, openPin.venueOnly.slug)}
               prefetch={false}
-              className="flex min-h-11 w-full items-center justify-center rounded-2xl bg-orange-500 px-4 text-sm font-bold text-white transition-colors hover:bg-orange-600"
+              className="flex min-h-10 w-full items-center justify-center rounded-2xl bg-orange-500 px-4 text-sm font-bold leading-none text-white transition-colors hover:bg-orange-600 sm:min-h-11"
             >
               {dict.map.openVenue}
             </Link>

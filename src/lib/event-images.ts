@@ -322,6 +322,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "ambar-lounge-emil-roman-2026-09-26.jpg",
   "ambar-lounge-gaby-luna-2026-10-03":
     "ambar-lounge-gaby-luna-2026-10-03.jpg",
+  "ocean-world-terrace-deury-luciano-2026-10-16":
+    "ocean-world-terrace-deury-luciano-2026-10-16.jpg",
   "ocean-world-terrace-old-school-2026-10-17":
     "ocean-world-terrace-old-school-2026-10-17.jpg",
   "meclao-galaxy-experience-carloxx-2026-10-03":
@@ -640,6 +642,7 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "la-lola-back-to-northside-2026-07-04": "object-center",
   "ambar-lounge-emil-roman-2026-09-26": "object-center",
   "ambar-lounge-gaby-luna-2026-10-03": "object-center",
+  "ocean-world-terrace-deury-luciano-2026-10-16": "object-center",
   "ocean-world-terrace-old-school-2026-10-17": "object-center",
   // Sunset + string lights sit mid/low — card default object-top keeps the dark overhang.
   "terraza-ocean-world-evenings": "object-[50%_58%]",
@@ -925,6 +928,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "ambar-lounge-bandoleras-2026-10-02.jpg",
   "ambar-lounge-bandoleras-2026-10-09.jpg",
   "ambar-lounge-gaby-luna-2026-10-03.jpg",
+  "ocean-world-terrace-deury-luciano-2026-10-16.jpg",
   "ocean-world-terrace-old-school-2026-10-17.jpg",
   "meclao-galaxy-experience-carloxx-2026-10-03.jpg",
   "meclao-house-friday-2026-10-02.jpg",
