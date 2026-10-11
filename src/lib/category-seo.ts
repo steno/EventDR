@@ -284,6 +284,29 @@ const CATEGORY_SEO: Record<EventCategory, Record<Locale, CategorySeoCopy>> = {
         "Randonnées aux cascades, excursions en bateau et aventures outdoor sur la Côte Nord de RD.",
     },
   },
+  halloween: {
+    en: {
+      title: "Halloween events in Puerto Plata | POP Events",
+      description:
+        "Costume parties, haunted nights, and Halloween celebrations across Puerto Plata, Sosúa, and Cabarete on the North Coast.",
+      intro:
+        "Costume contests, club nights, and family Halloween plans from Sosúa to Cabarete.",
+    },
+    es: {
+      title: "Eventos de Halloween en Puerto Plata | POP Eventos",
+      description:
+        "Fiestas de disfraces, noches de terror y celebraciones de Halloween en Puerto Plata, Sosúa y Cabarete.",
+      intro:
+        "Concursos de disfraces, noches de club y planes familiares de Halloween de Sosúa a Cabarete.",
+    },
+    fr: {
+      title: "Événements Halloween à Puerto Plata | POP Events",
+      description:
+        "Soirées costumes, nuits hantées et fêtes d'Halloween à Puerto Plata, Sosúa et Cabarete.",
+      intro:
+        "Concours de costumes, soirées club et Halloween en famille de Sosúa à Cabarete.",
+    },
+  },
 };
 
 export function getCategorySeo(

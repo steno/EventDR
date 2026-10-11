@@ -18,8 +18,8 @@ import { findActiveSpecialEvent } from "@/lib/special-events";
 export { prioritizeOneTimeEvents } from "@/lib/event-sort";
 export { isTodayOnlySpecial } from "@/lib/event-status";
 
-/** Max cards in the home "Happening today" section (desktop 4×2). */
-export const HOME_TODAY_LIMIT = 8;
+/** Max cards in the home "Happening today" section (desktop one row of 4). */
+export const HOME_TODAY_LIMIT = 4;
 
 /**
  * @deprecated Today's specials show every active dated one-off (no home cap).
@@ -29,6 +29,36 @@ export const HOME_SPECIALS_LIMIT = Number.POSITIVE_INFINITY;
 
 /** Max cards in the home "This weekend" section (mobile 2-up slides). */
 export const HOME_WEEKEND_LIMIT = 6;
+
+/** Max cards in the home seasonal Halloween rail (weekend-dense cards). */
+export const HOME_HALLOWEEN_LIMIT = 6;
+
+/**
+ * Local calendar window for the home Halloween rail (America/Santo_Domingo).
+ * While live, matching listings leave the Weekend rail so they aren’t duplicated.
+ */
+export const HALLOWEEN_RAIL_START_ISO = "2026-10-11";
+export const HALLOWEEN_RAIL_END_ISO = "2026-11-01";
+
+/** Id / title markers for costume / haunted Halloween listings (not “Halloween weekend” boxing copy). */
+const HALLOWEEN_ID_RE =
+  /halloween|catrina|paradise-in-hell|codigo-clown|noche-de-terror/i;
+const HALLOWEEN_TITLE_RE =
+  /halloween|catrina|haunted|trick\s*or\s*treat|paradise in hell|c[oó]digo clown|noche de terror/i;
+
+/** True for curated Halloween / Día de Muertos costume nights on the seasonal rail. */
+export function isHalloweenListing(event: Event): boolean {
+  if (event.category === "halloween") return true;
+  if (event.categories?.includes("halloween")) return true;
+  if (HALLOWEEN_ID_RE.test(event.id)) return true;
+  return HALLOWEEN_TITLE_RE.test(event.title);
+}
+
+/** Home Halloween section is visible inside the seasonal calendar window. */
+export function isHalloweenRailActive(now: Date = new Date()): boolean {
+  const day = localDateISO(now);
+  return day >= HALLOWEEN_RAIL_START_ISO && day <= HALLOWEEN_RAIL_END_ISO;
+}
 
 /** Max cards in the home "Recently added" section. */
 export const HOME_NEW_LIMIT = 6;
@@ -425,6 +455,50 @@ export interface WeekendHighlightOptions extends TodayHighlightOptions {
   limit?: number;
 }
 
+export interface HalloweenHighlightOptions extends TodayHighlightOptions {
+  /** Skip events already featured in today’s carousels. */
+  excludeIds?: readonly string[];
+  /** Visible grid / slide cap (default {@link HOME_HALLOWEEN_LIMIT}). */
+  limit?: number;
+}
+
+/**
+ * Seasonal Halloween costume / haunted nights for the home rail. Empty when
+ * the calendar window is off or no matching future listings remain.
+ */
+export function getHalloweenHighlightEvents(
+  events: Event[],
+  options: HalloweenHighlightOptions = {},
+): Event[] {
+  const now = options.now ?? new Date();
+  if (!isHalloweenRailActive(now)) return [];
+
+  const exclude = new Set(options.excludeIds ?? []);
+  const limit = options.limit ?? HOME_HALLOWEEN_LIMIT;
+  const today = localDateISO(now);
+
+  const matched = events.filter((event) => {
+    if (exclude.has(event.id) || event.temporarilyClosed) return false;
+    if (!isHalloweenListing(event)) return false;
+    if (isRecurringEvent(event)) return false;
+    const end = (event.endDate ?? event.date)?.trim();
+    if (!end || end < today) return false;
+    return true;
+  });
+  if (matched.length === 0) return [];
+
+  matched.sort((a, b) => {
+    const dateDiff = a.date.localeCompare(b.date);
+    if (dateDiff !== 0) return dateDiff;
+    return a.title.localeCompare(b.title);
+  });
+
+  const carouselHead = pickDiverseCarouselHead(matched, limit);
+  const headIds = new Set(carouselHead.map((e) => e.id));
+  const tail = matched.filter((e) => !headIds.has(e.id));
+  return [...carouselHead, ...tail];
+}
+
 /**
  * Fri–Sun (and Sat–Sun midweek) one-offs for home “This weekend”.
  * Recurring weekly/weekend/daily series stay in Happening today / lists —
@@ -636,6 +710,11 @@ export interface HomeDiscoverLayout {
   specialEvents: Event[];
   /** Today highlights already sorted (full list, not sliced). */
   todayEvents: Event[];
+  /**
+   * Seasonal Halloween rail (empty outside the calendar window). Shown under
+   * Happening today; those ids are stripped from Weekend while live.
+   */
+  halloweenEvents: Event[];
   /** Weekend highlights (Fri–Sun), excluding today’s visible carousels. */
   weekendEvents: Event[];
   /** Recently added highlights (by `createdAt`, newest first). */
@@ -649,8 +728,8 @@ export interface HomeDiscoverLayout {
 }
 
 /**
- * One filter+sort pass for home hero, today’s specials, today, weekend,
- * recently added, coming up, and picks.
+ * One filter+sort pass for home hero, today’s specials, today, Halloween,
+ * weekend, recently added, coming up, and picks.
  */
 export function getHomeDiscoverLayout(
   events: Event[],
@@ -661,6 +740,7 @@ export function getHomeDiscoverLayout(
       heroEvent: null,
       specialEvents: [],
       todayEvents: [],
+      halloweenEvents: [],
       weekendEvents: [],
       newEvents: [],
       comingUpEvents: [],
@@ -681,14 +761,25 @@ export function getHomeDiscoverLayout(
     ...todayEvents.slice(0, HOME_TODAY_LIMIT).map((e) => e.id),
   ];
 
-  const weekendEvents = getWeekendHighlightEvents(events, {
+  const halloweenEvents = getHalloweenHighlightEvents(events, {
     ...options,
     excludeIds: todayVisibleIds,
+  });
+  // While the seasonal rail is live, drop every Halloween listing from
+  // Weekend — not only the visible carousel head — so leftovers don’t reappear.
+  const halloweenExcludeIds = isHalloweenRailActive(options.now)
+    ? events.filter(isHalloweenListing).map((e) => e.id)
+    : [];
+
+  const weekendEvents = getWeekendHighlightEvents(events, {
+    ...options,
+    excludeIds: [...todayVisibleIds, ...halloweenExcludeIds],
   });
 
   const picksExcludeIds = [
     ...specialEvents,
     ...todayEvents.slice(0, HOME_TODAY_LIMIT),
+    ...halloweenEvents.slice(0, HOME_HALLOWEEN_LIMIT),
     ...weekendEvents.slice(0, HOME_WEEKEND_LIMIT),
   ]
     .filter((e) => {
@@ -697,10 +788,11 @@ export function getHomeDiscoverLayout(
     })
     .map((e) => e.id);
 
-  // Coming up owns future one-offs; skip today’s + weekend visible carousels.
+  // Coming up owns future one-offs; skip today’s + Halloween + weekend heads.
   // Atmospheric hero BG is day-random and must not hide that listing elsewhere.
   const comingUpExclude = new Set<string>([
     ...todayVisibleIds,
+    ...halloweenExcludeIds,
     ...weekendEvents.slice(0, HOME_WEEKEND_LIMIT).map((e) => e.id),
   ]);
 
@@ -725,6 +817,7 @@ export function getHomeDiscoverLayout(
     heroEvent,
     specialEvents,
     todayEvents,
+    halloweenEvents,
     weekendEvents,
     newEvents,
     comingUpEvents,
@@ -791,6 +884,7 @@ export function collectHomeBootstrapEvents(
   if (layout.heroEvent) byId.set(layout.heroEvent.id, layout.heroEvent);
   add(layout.specialEvents);
   add(layout.todayEvents.slice(0, HOME_TODAY_LIMIT));
+  add(layout.halloweenEvents.slice(0, HOME_HALLOWEEN_LIMIT));
   add(layout.weekendEvents.slice(0, HOME_WEEKEND_LIMIT));
   add(layout.comingUpEvents.slice(0, HOME_COMING_UP_LIMIT));
   add(layout.newEvents.slice(0, HOME_NEW_LIMIT));

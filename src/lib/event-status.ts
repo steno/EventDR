@@ -20,6 +20,7 @@ export type EventLiveFields = Pick<
  */
 const LATE_NIGHT_UNTIMED_CATEGORIES = new Set<EventCategory>([
   "parties",
+  "halloween",
   "dance",
   "music",
   "concert",

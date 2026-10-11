@@ -34,6 +34,7 @@ import {
 import { useSavedEvents } from "@/hooks/useSavedEvents";
 import {
   getHomeDiscoverLayout,
+  HOME_HALLOWEEN_LIMIT,
   HOME_SEARCH_LIMIT,
   HOME_WEEKEND_LIMIT,
 } from "@/lib/home-layout";
@@ -843,6 +844,29 @@ function HomeApp({
                   seeAllHref={seeAllTodayHref}
                   returnTo={homePath}
                   alerts={homeAlerts}
+                />
+              )}
+
+              {!isSearching && !cruisePort && (
+                <TodayHighlights
+                  events={discoverLayout.halloweenEvents}
+                  locale={locale}
+                  dict={dict}
+                  prefiltered
+                  title={dict.events.halloween}
+                  limit={HOME_HALLOWEEN_LIMIT}
+                  seeAllHref={
+                    selectedCity
+                      ? `/${locale}/city/${selectedCity}`
+                      : `/${locale}/events`
+                  }
+                  seeAllLabel={dict.events.seeAllHalloween}
+                  listTimeRange="all"
+                  showDate
+                  mobilePairSlides
+                  denseDesktop
+                  onAddEvent={() => setSubmitOpen(true)}
+                  returnTo={homePath}
                 />
               )}
 

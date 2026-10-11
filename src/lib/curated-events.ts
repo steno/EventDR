@@ -178,6 +178,25 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     phone: "+18495057778",
     venueSlug: "hard-rock-sosua",
   },
+  "iss-international-day-2026-10-17": {
+    isFree: false,
+    admissionPrice: "RD$900",
+    phone: "+18095713271",
+    venueSlug: "international-school-sosua",
+    sourceUrl: "https://www.instagram.com/iss.pta/",
+  },
+  "hard-rock-baseball-game-day-2026-10-11": {
+    callForPricing: true,
+    phone: "+18495057778",
+    venueSlug: "hard-rock-sosua",
+    sourceUrl: "https://www.instagram.com/hardrockcafepuertoplata/",
+  },
+  "coconuts-halloween-costume-contest-2026-10-31": {
+    callForPricing: true,
+    phone: "+18095710223",
+    venueSlug: "coconuts-playa-encuentro",
+    sourceUrl: "https://coconutsrestaurant.ola.click/products",
+  },
   "hard-rock-the-king-mj-2026-09-19": {
     isFree: false,
     admissionPrice: "RD$1,300",

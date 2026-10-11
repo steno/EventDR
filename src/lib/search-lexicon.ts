@@ -94,6 +94,7 @@ export const SEARCH_SYNONYM_GROUPS: readonly (readonly string[])[] = [
   ["ticket", "tickets", "entrada", "entradas", "billet", "billets"],
   ["christmas", "navidad", "noël", "noel"],
   ["easter", "pascua", "pâques", "paques"],
+  ["halloween", "disfraz", "disfraces", "costume", "costumes"],
 
   // Sports
   ["baseball", "béisbol", "beisbol"],

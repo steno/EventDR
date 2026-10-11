@@ -3,6 +3,7 @@ export type EventCategory =
   | "business"
   | "concert"
   | "parties"
+  | "halloween"
   | "food-drinks"
   | "festivals"
   | "dance"

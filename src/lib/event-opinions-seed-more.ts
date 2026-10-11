@@ -5083,4 +5083,61 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "Editor cropped flyer + full poster info — Thu 15 Oct 2026 7:00 PM Tierra de Paso, Carlota Carretero, Sala Iván García, RD$500 / students RD$150. Cropped art used as event hero.",
     updatedAt: "2026-10-08T23:45:00.000Z",
   },
+  {
+    eventId: "iss-international-day-2026-10-17",
+    body: "Saturday campus fair on La Mulata — pin the ISS gate for 11:00 AM–3:00 PM cultures day, not Hard Rock; ISS families and under-5s walk free while 18+ is RD$900 at the PTA door.",
+    localized: {
+      es: "Feria de sábado en campus en La Mulata — pin la puerta ISS para el día de culturas 11:00 AM–3:00 PM, no Hard Rock; familias ISS y menores de 5 entran gratis y 18+ paga RD$900 en la puerta del PTA.",
+      fr: "Foire du samedi sur le campus La Mulata — épinglez la porte ISS pour la journée des cultures 11 h–15 h, pas le Hard Rock ; familles ISS et moins de 5 ans gratuits, 18+ à RD$900 à la porte PTA.",
+    },
+    priceFeel: "budget",
+    priceNote:
+      "Under 5 + current ISS students/parents free · ages 6–17 RD$600 · 18+ RD$900 · @iss.pta",
+    priceNoteLocalized: {
+      es: "Menores de 5 + estudiantes/padres ISS actuales gratis · 6–17 RD$600 · 18+ RD$900 · @iss.pta",
+      fr: "Moins de 5 ans + élèves/parents ISS actuels gratuits · 6–17 RD$600 · 18+ RD$900 · @iss.pta",
+    },
+    attribution: "POP research · ISS PTA Crew International Day flyer",
+    researchNotes:
+      "Editor flyer — Sat 17 Oct 2026 11:00 AM–3:00 PM ISS Campus; International Day / Un día muchas culturas; FREE current ISS students parents & under 5; ages 6–17 RD$600; 18+ RD$900. PTA Crew logo.",
+    updatedAt: "2026-10-11T16:00:00.000Z",
+  },
+  {
+    eventId: "hard-rock-baseball-game-day-2026-10-11",
+    body: "Hard Rock Sosúa posts five baseball screen nights this week — one listing for the flyer block; times jump from 8:00 PM (Sun/Tue/Wed) to 9:00 PM (Thu/Fri), and matchups were not on the art so confirm @hardrockcafepuertoplata before you plan around a specific series.",
+    localized: {
+      es: "Hard Rock Sosúa publica cinco noches de béisbol en pantalla esta semana — un solo listing para el bloque del flyer; las horas saltan de 8:00 PM (dom/mar/mié) a 9:00 PM (jue/vie), y los rivales no vienen en el arte, confirma @hardrockcafepuertoplata antes de planear una serie concreta.",
+      fr: "Hard Rock Sosúa affiche cinq soirées baseball à l’écran cette semaine — une seule fiche pour le bloc de l’affiche ; les heures passent de 20 h (dim/mar/mer) à 21 h (jeu/ven), et les adversaires ne sont pas sur l’art, confirmez @hardrockcafepuertoplata avant de viser une série précise.",
+    },
+    priceFeel: "varies",
+    priceNote:
+      "Cover not on flyer — food/drinks at Hard Rock · WhatsApp +1 849-505-7778",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — comida/tragos en Hard Rock · WhatsApp +1 849-505-7778",
+      fr: "Cover absent de l’affiche — nourriture/boissons au Hard Rock · WhatsApp +1 849-505-7778",
+    },
+    attribution: "POP research · Hard Rock Cafe Puerto Plata Game Day flyer",
+    researchNotes:
+      "Editor flyer GAME DAY Hard Rock Cafe Puerto Plata — DOM 11 8PM, MAR 13 8PM, MIE 14 8PM, JUE 15 9PM, VIE 16 9PM. No teams/league on art; allocated as one multi-night seed Oct 11–16 at hard-rock-sosua.",
+    updatedAt: "2026-10-11T15:00:00.000Z",
+  },
+  {
+    eventId: "coconuts-halloween-costume-contest-2026-10-31",
+    body: "Encuentro patio Halloween with Allison Sade at 6:00 PM — reserve and say Halloween Party before you walk up; 18+ only, and the costume prize is dinner for two, not cash like Aura’s Cabarete Bay contest the same night.",
+    localized: {
+      es: "Halloween de patio en Encuentro con Allison Sade a las 6:00 PM — reserva y di Halloween Party antes de llegar; solo 18+, y el premio del disfraz es cena para dos, no efectivo como el concurso de Aura en la bahía de Cabarete la misma noche.",
+      fr: "Halloween patio à Encuentro avec Allison Sade à 18 h — réservez et dites Halloween Party avant d’arriver ; 18+ seulement, et le prix costume est un dîner pour deux, pas du cash comme le concours d’Aura sur la baie de Cabarete la même nuit.",
+    },
+    priceFeel: "varies",
+    priceNote:
+      "Reservations required (mention Halloween Party) · cover TBA · +1 809-571-0223 · prize dinner for two",
+    priceNoteLocalized: {
+      es: "Reservación obligatoria (menciona Halloween Party) · cover por confirmar · +1 809-571-0223 · premio cena para dos",
+      fr: "Réservation obligatoire (mentionnez Halloween Party) · cover à confirmer · +1 809-571-0223 · prix dîner pour deux",
+    },
+    attribution: "POP research · Coconuts Restaurant Halloween Costume Contest flyer",
+    researchNotes:
+      "Editor flyer — Sat 31 Oct 2026 6:00 PM Coconuts Restaurant Hideaway Beach; Allison Sade live; costume contest dinner-for-two prize; 18+; reservations required mention Halloween Party. Venue coconuts-playa-encuentro +1 809-571-0223.",
+    updatedAt: "2026-10-11T17:00:00.000Z",
+  },
 ];

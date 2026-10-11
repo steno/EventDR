@@ -4,6 +4,7 @@ import {
   collectHomeBootstrapEvents,
   collectHomeBootstrapVenues,
   getComingUpHighlightEvents,
+  getHalloweenHighlightEvents,
   getHomeDiscoverLayout,
   getNewHighlightEvents,
   getTodayHighlightEvents,
@@ -11,6 +12,8 @@ import {
   HOME_NEW_LIMIT,
   HOME_TODAY_LIMIT,
   HOME_WEEKEND_LIMIT,
+  isHalloweenListing,
+  isHalloweenRailActive,
   seededShuffle,
 } from "./home-layout";
 import type { Event, Venue } from "./types";
@@ -20,6 +23,15 @@ const AFTERNOON = new Date("2026-08-25T18:00:00.000Z");
 
 /** Friday Sep 11, 2026 15:00 AST (UTC−4). */
 const FRIDAY = new Date("2026-09-11T19:00:00.000Z");
+
+/** Sunday Oct 11, 2026 15:00 AST — Halloween rail window. */
+const HALLOWEEN_SEASON = new Date("2026-10-11T19:00:00.000Z");
+
+/** Friday Oct 30, 2026 15:00 AST — Halloween weekend inside the season. */
+const HALLOWEEN_FRIDAY = new Date("2026-10-30T19:00:00.000Z");
+
+/** Wednesday Oct 28, 2026 15:00 AST — upcoming Fri 30 / Sat 31 weekend. */
+const HALLOWEEN_WEEK = new Date("2026-10-28T19:00:00.000Z");
 
 function event(
   partial: Partial<Event> & Pick<Event, "id" | "title" | "date" | "time">,
@@ -542,6 +554,121 @@ describe("getWeekendHighlightEvents", () => {
     }).map((e) => e.id);
 
     assert.deepEqual(ids, ["saturday-market"]);
+  });
+});
+
+describe("Halloween seasonal rail", () => {
+  it("matches costume nights by id/title without Halloween-weekend boxing copy", () => {
+    assert.equal(
+      isHalloweenListing(
+        event({
+          id: "aura-halloween-party-2026-10-31",
+          title: "Halloween Party at Aura Beach Club",
+          date: "2026-10-31",
+          time: "9:00 PM",
+        }),
+      ),
+      true,
+    );
+    assert.equal(
+      isHalloweenListing(
+        event({
+          id: "twenty-disco-paradise-in-hell-2026-10-31",
+          title: "Twenty Disco — Paradise In Hell",
+          date: "2026-10-31",
+          time: "10:00 PM",
+        }),
+      ),
+      true,
+    );
+    assert.equal(
+      isHalloweenListing(
+        event({
+          id: "rumble-in-paradise-13",
+          title: "Rumble in Paradise 13",
+          date: "2026-10-31",
+          time: "4:00 PM",
+          description:
+            "Halloween-weekend professional boxing on Sosúa Beach.",
+        }),
+      ),
+      false,
+    );
+  });
+
+  it("is active inside the Oct 11–Nov 1 window only", () => {
+    assert.equal(isHalloweenRailActive(HALLOWEEN_SEASON), true);
+    assert.equal(isHalloweenRailActive(HALLOWEEN_FRIDAY), true);
+    assert.equal(isHalloweenRailActive(FRIDAY), false);
+    assert.equal(
+      isHalloweenRailActive(new Date("2026-11-02T16:00:00.000Z")),
+      false,
+    );
+  });
+
+  it("returns soonest Halloween listings while the rail is live", () => {
+    const kids = event({
+      id: "rancho-catalina-halloween-trick-or-treat-2026-10-23",
+      title: "Rancho La Catalina Halloween Trick or Treat",
+      date: "2026-10-23",
+      time: "5:00 PM",
+      venueSlug: "rancho-catalina-puerto-plata",
+    });
+    const party = event({
+      id: "aura-halloween-party-2026-10-31",
+      title: "Halloween Party at Aura Beach Club",
+      date: "2026-10-31",
+      time: "9:00 PM",
+      venueSlug: "aura-beach-club",
+    });
+    const ids = getHalloweenHighlightEvents([party, kids], {
+      now: HALLOWEEN_SEASON,
+    }).map((e) => e.id);
+    assert.deepEqual(ids, [
+      "rancho-catalina-halloween-trick-or-treat-2026-10-23",
+      "aura-halloween-party-2026-10-31",
+    ]);
+    assert.deepEqual(
+      getHalloweenHighlightEvents([party, kids], { now: FRIDAY }),
+      [],
+    );
+  });
+
+  it("keeps Halloween out of Weekend while the seasonal rail is live", () => {
+    // Midweek of Halloween week so Fri/Sat one-offs are “this weekend”, not Today.
+    const halloweenFri = event({
+      id: "disco-club-halloween-2026-10-30",
+      title: "Latin Disco Club — Halloween Night Party",
+      date: "2026-10-30",
+      time: "10:00 PM",
+      venueSlug: "disco-club-brugal",
+    });
+    const otherSat = event({
+      id: "saturday-concert",
+      title: "Saturday Concert",
+      date: "2026-10-31",
+      time: "8:00 PM",
+      category: "concert",
+      venueSlug: "anfiteatro-la-puntilla",
+    });
+
+    const layout = getHomeDiscoverLayout([halloweenFri, otherSat], {
+      now: HALLOWEEN_WEEK,
+      shuffleSeed: "layout-halloween",
+    });
+
+    assert.ok(
+      layout.halloweenEvents.some((e) => e.id === halloweenFri.id),
+      "Halloween party should lead the seasonal rail",
+    );
+    assert.ok(
+      !layout.weekendEvents.some((e) => e.id === halloweenFri.id),
+      "Halloween must not also sit in This weekend while the rail is live",
+    );
+    assert.ok(
+      layout.weekendEvents.some((e) => e.id === otherSat.id),
+      "non-Halloween weekend one-offs still fill This weekend",
+    );
   });
 });
 

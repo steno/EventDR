@@ -30,6 +30,9 @@ export function sortCategoryIdsByEventCount(
     }
   }
   return [...CATEGORY_IDS].sort((a, b) => {
+    // Seasonal pin — Halloween stays first in the home / scope category rail.
+    if (a === "halloween" && b !== "halloween") return -1;
+    if (b === "halloween" && a !== "halloween") return 1;
     const diff = (counts.get(b) ?? 0) - (counts.get(a) ?? 0);
     if (diff !== 0) return diff;
     return CATEGORY_IDS.indexOf(a) - CATEGORY_IDS.indexOf(b);

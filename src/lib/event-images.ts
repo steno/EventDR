@@ -310,6 +310,11 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "gypsy-bowls-last-bowl-call-2026-10-03":
     "gypsy-bowls-last-bowl-call-2026-10-03.jpg",
   "iss-wizard-of-oz-2026-12-17": "iss-wizard-of-oz-2026-12-17.jpg",
+  "iss-international-day-2026-10-17": "iss-international-day-2026-10-17.jpg",
+  "hard-rock-baseball-game-day-2026-10-11":
+    "hard-rock-baseball-game-day-2026-10-11.jpg",
+  "coconuts-halloween-costume-contest-2026-10-31":
+    "coconuts-halloween-costume-contest-2026-10-31.jpg",
   "twenty-disco-kiry-curu-2026-10-16":
     "twenty-disco-kiry-curu-2026-10-16.jpg",
   "ivan-garcia-eulogio-badia-2026-10-24":
@@ -882,6 +887,9 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "ojo-latin-thursdays-ninafrika.jpg",
   "ojo-pal-mambo-tuesday.jpg",
   "hard-rock-catrinas-halloween-2026-10-31.jpg",
+  "hard-rock-baseball-game-day-2026-10-11.jpg",
+  "coconuts-halloween-costume-contest-2026-10-31.jpg",
+  "iss-international-day-2026-10-17.jpg",
   "iss-pta-parents-night-out-flyer.jpg",
   "imbert-mercedes-patronales-2026.jpg",
   "latinwok-ramen-party-2026-09-17.jpg",

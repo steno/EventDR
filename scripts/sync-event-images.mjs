@@ -169,6 +169,11 @@ const FILE_TO_EVENT_ID = {
   "gypsy-bowls-last-bowl-call-2026-10-03.jpg":
     "gypsy-bowls-last-bowl-call-2026-10-03",
   "iss-wizard-of-oz-2026-12-17.jpg": "iss-wizard-of-oz-2026-12-17",
+  "iss-international-day-2026-10-17.jpg": "iss-international-day-2026-10-17",
+  "hard-rock-baseball-game-day-2026-10-11.jpg":
+    "hard-rock-baseball-game-day-2026-10-11",
+  "coconuts-halloween-costume-contest-2026-10-31.jpg":
+    "coconuts-halloween-costume-contest-2026-10-31",
   "twenty-disco-kiry-curu-2026-10-16.jpg": "twenty-disco-kiry-curu-2026-10-16",
   "ivan-garcia-eulogio-badia-2026-10-24.jpg":
     "ivan-garcia-eulogio-badia-2026-10-24",

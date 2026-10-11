@@ -2234,10 +2234,10 @@
     "address": "Calle Duarte 7, Sosúa",
     "lat": 19.7634107,
     "lng": -70.5162309,
-    "category": "festivals",
+    "category": "halloween",
     "categories": [
-      "music",
-      "festivals"
+      "festivals",
+      "music"
     ],
     "format": "physical",
     "trending": true,
@@ -2873,10 +2873,10 @@
     "address": "Calle Principal, Cabarete 57000",
     "lat": 19.7500769,
     "lng": -70.4070417,
-    "category": "festivals",
+    "category": "halloween",
     "categories": [
-      "music",
-      "parties"
+      "festivals",
+      "music"
     ],
     "format": "physical",
     "trending": true,
@@ -4229,10 +4229,10 @@
     "address": "Playa Dorada Mall, Puerto Plata",
     "lat": 19.769476,
     "lng": -70.643033,
-    "category": "parties",
+    "category": "halloween",
     "categories": [
-      "music",
-      "dance"
+      "parties",
+      "music"
     ],
     "format": "physical",
     "trending": true,
@@ -4495,10 +4495,10 @@
     "address": "Playa Dorada G1, El Pueblito / Playa Chaparral, Puerto Plata",
     "lat": 19.7734212,
     "lng": -70.6517978,
-    "category": "parties",
+    "category": "halloween",
     "categories": [
-      "music",
-      "food-drinks"
+      "parties",
+      "music"
     ],
     "format": "physical",
     "trending": true,
@@ -4550,10 +4550,10 @@
     "address": "Km 18, Carretera Puerto Plata–Sosúa, frente al Aeropuerto Gregorio Luperón",
     "lat": 19.76,
     "lng": -70.565,
-    "category": "parties",
+    "category": "halloween",
     "categories": [
-      "music",
-      "dance"
+      "parties",
+      "music"
     ],
     "format": "physical",
     "trending": true,
@@ -4575,8 +4575,9 @@
     "address": "Calle Profesor Juan Bosch #72, Puerto Plata",
     "lat": 19.7979,
     "lng": -70.6928,
-    "category": "performances",
+    "category": "halloween",
     "categories": [
+      "performances",
       "culture"
     ],
     "format": "physical",
@@ -4767,10 +4768,10 @@
     "venueSlug": "voyvoy-cabarete",
     "lat": 19.7502161,
     "lng": -70.4066784,
-    "category": "parties",
+    "category": "halloween",
     "categories": [
-      "music",
-      "dance"
+      "parties",
+      "music"
     ],
     "format": "physical",
     "trending": true,
@@ -4851,7 +4852,7 @@
     "address": "El Cupey, Puerto Plata",
     "lat": 19.7371866,
     "lng": -70.7253286,
-    "category": "family",
+    "category": "halloween",
     "categories": [
       "culture",
       "food-drinks"
@@ -4964,10 +4965,10 @@
     "address": "Paseo del Sol 5, Cabarete",
     "lat": 19.7833499,
     "lng": -70.4621124,
-    "category": "parties",
+    "category": "halloween",
     "categories": [
-      "food-drinks",
-      "parties"
+      "parties",
+      "food-drinks"
     ],
     "format": "physical",
     "trending": true,
@@ -4992,10 +4993,10 @@
     "address": "Calle Dr. Rosen, El Batey, Sosúa",
     "lat": 19.7649879,
     "lng": -70.5150442,
-    "category": "parties",
+    "category": "halloween",
     "categories": [
-      "music",
-      "parties"
+      "parties",
+      "music"
     ],
     "format": "physical",
     "trending": true,
@@ -5497,10 +5498,10 @@
     "address": "Avenida Circunvalación Sur, frente a los depósitos Brugal, Puerto Plata",
     "lat": 19.7792778,
     "lng": -70.6690061,
-    "category": "parties",
+    "category": "halloween",
     "categories": [
-      "music",
-      "dance"
+      "parties",
+      "music"
     ],
     "format": "physical",
     "trending": true,
@@ -5582,10 +5583,10 @@
     "address": "Av. Manolo Tavarez Justo esq. Presidente Caamaño #1, Edificio Grand Prix (Bomba Next), La Javilla, Puerto Plata",
     "lat": 19.7911,
     "lng": -70.6942,
-    "category": "parties",
+    "category": "halloween",
     "categories": [
-      "music",
-      "dance"
+      "parties",
+      "music"
     ],
     "format": "physical",
     "trending": true,
@@ -5732,5 +5733,98 @@
       "DJ Marlon"
     ],
     "imageEmoji": "🎧"
+  },
+  {
+    "id": "iss-international-day-2026-10-17",
+    "title": "Día Internacional ISS — PTA Crew",
+    "description": "Día Internacional en International School of Sosúa (campus ISS), La Mulata #1, El Batey — sábado 17 de octubre 2026, 11:00 AM–3:00 PM. Organiza School of Sosúa PTA Crew: un día, muchas culturas, una comunidad. Entrada: estudiantes ISS actuales, padres e hijos menores de 5 gratis; edades 6–17 RD$600; 18+ RD$900. Info Instagram @iss.pta · @issosuahurricanes · issosua.com · +1 809-571-3271.",
+    "date": "2026-10-17",
+    "time": "11:00 AM – 3:00 PM",
+    "location": "Sosúa",
+    "venue": "International School of Sosúa",
+    "venueSlug": "international-school-sosua",
+    "address": "La Mulata #1, El Batey, Sosúa 57000",
+    "lat": 19.765324,
+    "lng": -70.499295,
+    "category": "festivals",
+    "categories": [
+      "culture",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": false,
+    "admissionPrice": "RD$900",
+    "phone": "+18095713271",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/iss.pta/",
+    "lineup": [
+      "ISS PTA Crew",
+      "Feria cultural Día Internacional"
+    ],
+    "imageEmoji": "🌍",
+    "ageHint": "family"
+  },
+  {
+    "id": "hard-rock-baseball-game-day-2026-10-11",
+    "title": "Hard Rock Baseball Game Day — 11–16 oct",
+    "description": "Noches de béisbol Game Day en Hard Rock Cafe Puerto Plata, Sosúa — domingo 11 al viernes 16 de octubre 2026. Horario del flyer (sin rivales listados): dom 11 oct 8:00 PM · mar 13 oct 8:00 PM · mié 14 oct 8:00 PM · jue 15 oct 9:00 PM · vie 16 oct 9:00 PM. Confirma qué partidos dan en pantallas y si hay cover por Instagram @hardrockcafepuertoplata · WhatsApp +1 849-505-7778.",
+    "date": "2026-10-11",
+    "endDate": "2026-10-16",
+    "time": "8:00 PM / 9:00 PM",
+    "location": "Sosúa",
+    "venue": "Hard Rock Cafe Puerto Plata",
+    "venueSlug": "hard-rock-sosua",
+    "address": "Calle Duarte 7, Sosúa",
+    "lat": 19.7634107,
+    "lng": -70.5162309,
+    "category": "sports",
+    "categories": [
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18495057778",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/hardrockcafepuertoplata/",
+    "lineup": [
+      "Dom 11 oct — 8:00 PM",
+      "Mar 13 oct — 8:00 PM",
+      "Mié 14 oct — 8:00 PM",
+      "Jue 15 oct — 9:00 PM",
+      "Vie 16 oct — 9:00 PM"
+    ],
+    "imageEmoji": "⚾"
+  },
+  {
+    "id": "coconuts-halloween-costume-contest-2026-10-31",
+    "title": "Coconuts Halloween Costume Contest — Allison Sade",
+    "description": "Concurso de disfraces de Halloween en Coconuts Restaurant, Hideaway Beach / Playa Encuentro, Cabarete — sábado 31 de octubre 2026 a las 6:00 PM. Música en vivo con Allison Sade; premio mayor cena para dos (1 bebida c/u, 2 entradas, 2 platos fuertes, 2 postres). Solo 18+. Reservaciones obligatorias — menciona Halloween Party al reservar. Llama +1 809-571-0223 · coconutsrestaurant.ola.click · Instagram @allisonsadeofficial. Halloween de patio en Encuentro, no la noche de disfraces de Natura Cabana ni la fiesta de Aura Beach Club en la bahía de Cabarete el mismo sábado.",
+    "date": "2026-10-31",
+    "time": "6:00 PM",
+    "location": "Cabarete",
+    "venue": "Coconuts",
+    "venueSlug": "coconuts-playa-encuentro",
+    "address": "Playa Encuentro, Cabarete",
+    "lat": 19.7825094,
+    "lng": -70.4512699,
+    "category": "halloween",
+    "categories": [
+      "festivals",
+      "music"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18095710223",
+    "sourceType": "flyer",
+    "sourceUrl": "https://coconutsrestaurant.ola.click/products",
+    "lineup": [
+      "Allison Sade",
+      "Concurso de disfraces"
+    ],
+    "imageEmoji": "🎃",
+    "ageHint": "18-plus"
   }
 ]

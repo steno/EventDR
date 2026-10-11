@@ -108,6 +108,7 @@ export const CATEGORY_PIN_COLORS: Record<EventCategory, string> = {
   business: "#52525b",
   concert: "#ea580c",
   parties: "#c026d3",
+  halloween: "#ea580c",
   "food-drinks": "#d97706",
   festivals: "#dc2626",
   dance: "#db2777",

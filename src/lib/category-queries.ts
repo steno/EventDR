@@ -289,6 +289,16 @@ export const CATEGORY_QUERIES: Record<EventCategory, CategoryQuerySet> = {
     ],
     directUrls: [ALLEVENTS_PP],
   },
+  halloween: {
+    searches: [
+      `Halloween party costume contest ${REGION} 2026`,
+      `fiesta Halloween disfraces Puerto Plata Sosúa Cabarete 2026`,
+      `Halloween Cabarete OR Sosúa OR "Puerto Plata" costume OR disfraz`,
+      `site:facebook.com Halloween Puerto Plata OR Sosúa OR Cabarete`,
+      `"trick or treat" OR "noche de terror" OR Catrinas ${REGION}`,
+    ],
+    directUrls: [ALLEVENTS_PP, NATURA_EVENTS],
+  },
 };
 
 export const BROAD_QUERIES = [

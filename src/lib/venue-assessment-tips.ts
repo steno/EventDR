@@ -42,11 +42,11 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "international-school-sosua": {
-    body: "El Batey campus on La Mulata — pin the school gate for winter musicals and community shows, not Hard Rock on Duarte; tickets and doors drop on @issosuahurricanes.",
+    body: "El Batey campus on La Mulata — pin the school gate for PTA International Day, winter musicals, and community shows, not Hard Rock on Duarte; tickets and doors drop on @iss.pta / @issosuahurricanes.",
     localized: {
-      en: "El Batey campus on La Mulata — pin the school gate for winter musicals and community shows, not Hard Rock on Duarte; tickets and doors drop on @issosuahurricanes.",
-      es: "Campus El Batey en La Mulata — pin la puerta del colegio para musicales de invierno y shows comunitarios, no Hard Rock en Duarte; boletas y puertas salen en @issosuahurricanes.",
-      fr: "Campus El Batey sur La Mulata — épinglez la porte de l’école pour comédies musicales d’hiver et spectacles communautaires, pas le Hard Rock sur Duarte ; billets et portes via @issosuahurricanes.",
+      en: "El Batey campus on La Mulata — pin the school gate for PTA International Day, winter musicals, and community shows, not Hard Rock on Duarte; tickets and doors drop on @iss.pta / @issosuahurricanes.",
+      es: "Campus El Batey en La Mulata — pin la puerta del colegio para el Día Internacional del PTA, musicales de invierno y shows comunitarios, no Hard Rock en Duarte; boletas y puertas salen en @iss.pta / @issosuahurricanes.",
+      fr: "Campus El Batey sur La Mulata — épinglez la porte de l’école pour la Journée internationale PTA, comédies musicales d’hiver et spectacles communautaires, pas le Hard Rock sur Duarte ; billets et portes via @iss.pta / @issosuahurricanes.",
     },
   },
   "liquid-blue-cabarete": {
@@ -730,11 +730,11 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "coconuts-playa-encuentro": {
-    body: "Encuentro patio HQ when MSR or beach parties bill Coconuts — Italian-Caribbean plates by day, sunset sets on the sand; not the Cabarete strip.",
+    body: "Encuentro patio HQ when MSR, Halloween costume night, or beach parties bill Coconuts — Italian-Caribbean plates by day, sunset sets on the sand; not the Cabarete strip.",
     localized: {
-      en: "Encuentro patio HQ when MSR or beach parties bill Coconuts — Italian-Caribbean plates by day, sunset sets on the sand; not the Cabarete strip.",
-      es: "HQ del patio en Encuentro cuando MSR o fiestas de playa anuncian Coconuts — platos italo-caribeños de día, sets al atardecer en la arena; no es la franja de Cabarete.",
-      fr: "QG patio à Encuentro quand MSR ou fêtes de plage affichent Coconuts — assiettes italo-caribéennes le jour, sets au coucher du soleil sur le sable ; pas la strip Cabarete.",
+      en: "Encuentro patio HQ when MSR, Halloween costume night, or beach parties bill Coconuts — Italian-Caribbean plates by day, sunset sets on the sand; not the Cabarete strip.",
+      es: "HQ del patio en Encuentro cuando MSR, la noche de disfraces de Halloween o fiestas de playa anuncian Coconuts — platos italo-caribeños de día, sets al atardecer en la arena; no es la franja de Cabarete.",
+      fr: "QG patio à Encuentro quand MSR, la soirée costumes Halloween ou des fêtes de plage affichent Coconuts — assiettes italo-caribéennes le jour, sets au coucher du soleil sur le sable ; pas la strip Cabarete.",
     },
   },
   "playa-los-charamicos": {

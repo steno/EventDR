@@ -391,7 +391,11 @@ const SHIP_EXCURSION_SLUGS = new Set<string>([
   "teleferico-puerto-plata",
 ]);
 
-const NIGHT_CATEGORIES = new Set<EventCategory>(["parties", "dance"]);
+const NIGHT_CATEGORIES = new Set<EventCategory>([
+  "parties",
+  "halloween",
+  "dance",
+]);
 
 /** Typical stay — not the attraction’s opening hours. */
 const VISIT_MINUTES_BY_SLUG: Record<string, number> = {
@@ -456,6 +460,7 @@ const DEFAULT_VISIT_BY_CATEGORY: Record<EventCategory, number> = {
   "health-wellness": 60,
   business: 45,
   parties: 90,
+  halloween: 90,
   dance: 90,
 };
 

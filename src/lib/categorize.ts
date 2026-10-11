@@ -140,6 +140,26 @@ const KEYWORDS: KeywordMap = {
     "party",
     "fiesta",
   ],
+  halloween: [
+    { term: "halloween", weight: 2 },
+    { term: "hallowe'en", weight: 2 },
+    { term: "trick or treat", weight: 2 },
+    { term: "trick-or-treat", weight: 2 },
+    { term: "costume contest", weight: 2 },
+    { term: "concurso de disfraces", weight: 2 },
+    { term: "concours de costumes", weight: 2 },
+    { term: "haunted house", weight: 2 },
+    { term: "casa embrujada", weight: 2 },
+    { term: "noche de terror", weight: 2 },
+    { term: "paradise in hell", weight: 2 },
+    { term: "catrina", weight: 2 },
+    { term: "catrinas", weight: 2 },
+    { term: "código clown", weight: 2 },
+    { term: "codigo clown", weight: 2 },
+    "spooky",
+    "disfraz",
+    "disfraces",
+  ],
   "food-drinks": [
     { term: "cocktail", weight: 2 },
     { term: "cóctel", weight: 2 },
@@ -384,6 +404,7 @@ export const MAX_SECONDARY_CATEGORIES = 2;
 /** Club / stage primaries — Adventure only when copy shows a real outing. */
 const NIGHTLIFE_PRIMARIES = new Set<EventCategory>([
   "parties",
+  "halloween",
   "music",
   "concert",
   "dance",
@@ -415,6 +436,7 @@ const CATEGORY_INFERENCE_BLOCKS: Partial<
    * (e.g. trolley city tour). Game nights with “tournament” stay off Sports.
    */
   parties: ["sports", "adventure"],
+  halloween: ["sports", "adventure"],
   /**
    * Live music / concerts that name a venue like Grand Prix Smart Shop must not
    * pick up Sports from motorsport-ish wording in the copy. Band-name

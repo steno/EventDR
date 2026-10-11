@@ -107,6 +107,10 @@ export type Dictionary = {
     /** Desktop specials rail — previous / next when more than 3 cards. */
     scrollSpecialsPrev: string;
     scrollSpecialsNext: string;
+    /** Home seasonal Halloween rail (under Happening today while live). */
+    halloween: string;
+    /** Home Halloween see-all when more than the visible slides. */
+    seeAllHalloween: string;
     /** Home section: Fri–Sun highlights after Happening today. */
     thisWeekend: string;
     /** Home “This weekend” see-all when more than the visible slides. */
@@ -726,6 +730,7 @@ export const en: Dictionary = {
     business: "Business",
     concert: "Concert",
     parties: "Parties",
+    halloween: "Halloween",
     "food-drinks": "Food & Drinks",
     festivals: "Festivals",
     dance: "Dance",
@@ -740,6 +745,7 @@ export const en: Dictionary = {
     business: "Business",
     concert: "Concert",
     parties: "Party",
+    halloween: "Halloween",
     "food-drinks": "Food & Drink",
     festivals: "Festival",
     dance: "Dance",
@@ -806,6 +812,8 @@ export const en: Dictionary = {
     todaysSpecials: "Today's specials",
     scrollSpecialsPrev: "Previous specials",
     scrollSpecialsNext: "Next specials",
+    halloween: "Halloween",
+    seeAllHalloween: "See all Halloween",
     thisWeekend: "The weekend",
     seeAllWeekend: "See all weekend",
     recentlyAdded: "Trending",
