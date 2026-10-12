@@ -154,7 +154,7 @@ export async function GET(request: NextRequest) {
     events = applyCuratedEventPatches(events);
     events = attachEventPhones(events);
     events = attachTicketUrls(events);
-    events = attachEventImages(events);
+    events = attachEventImages(events, locale);
     events = attachSeedCreatedAt(events);
     return slimEventsForList(events);
   }

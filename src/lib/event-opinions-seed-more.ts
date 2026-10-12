@@ -359,10 +359,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   {
     eventId: "voyvoy-monday-live-music",
     seriesKey: "voyvoy-cabarete:weekly:1",
-    body: "Quieter than Saturday's Session — good if you want live sound with dinner, not a late club push.",
+    body: "Monday karaoke on the bay — grab the mic with dinner, quieter than Halloween/Saturday dance bills; not the old Lester Grant open-jam live night.",
     localized: {
-      es: "Más tranquilo que el Saturday Session — bueno si quieres música en vivo con la cena, sin presión de club tarde.",
-      fr: "Plus calme que le Saturday Session — bon pour du live avec le dîner, sans pousser vers le club tardif.",
+      es: "Karaoke los lunes frente a la bahía — coge el micrófono con la cena, más tranquilo que los carteles dance de sábado/Halloween; no es la antigua jam en vivo de Lester Grant.",
+      fr: "Karaoké le lundi face à la baie — prenez le micro avec le dîner, plus calme que les soirées dance samedi/Halloween ; ce n’est plus le jam live Lester Grant.",
     },
     priceFeel: "moderate",
     priceNote: "Bayfront dinner/drinks — typically no cover; tourist-moderate tabs",
@@ -370,9 +370,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       es: "Cena/tragos frente a la bahía — suele sin cover; cuentas turísticas-moderadas",
       fr: "Dîner/verres front de baie — souvent sans cover ; additions touristiques-modérées",
     },
-    attribution: "POP research · venue listing",
-    researchNotes: "VOYVOY Monday live seed.",
-    updatedAt: AT,
+    attribution: "POP research · VOYVOY Karaoke Monday flyer",
+    researchNotes:
+      "Editor flyer Karaoke Monday at VOYVOY — replaces Monday live/jam. Generic Saturday Session blocked via REMOVED_SEED_EVENT_IDS.",
+    updatedAt: "2026-10-12T14:00:00.000Z",
   },
   {
     eventId: "sancocho-sabados-pingui",
@@ -3704,6 +3705,24 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: "2026-09-29T16:00:00.000Z",
   },
   {
+    eventId: "dj-ronald-voramar-2026-10-23",
+    body: "Friday poolside at Voramar with DJ Ronald, BBQ, and billiards from 6 PM to midnight by Playa Chiquita — a named Oct 23 bill, not the anonymous weekly Friday live seed and not Deja New’s earlier Vibes Night; cover isn’t on the flyer, so call +1 809-571-3910 before you walk up.",
+    localized: {
+      es: "Viernes junto a la piscina del Voramar con DJ Ronald, BBQ y billar de 6 PM a medianoche por Playa Chiquita — cartel del 23 oct con nombre, no el seed semanal anónimo ni el Vibes Night anterior con Deja New; el cover no está en el flyer, así que llama +1 809-571-3910 antes de llegar walk-up.",
+      fr: "Vendredi au bord de la piscine Voramar avec DJ Ronald, BBQ et billard de 18 h à minuit près de Playa Chiquita — affiche du 23 oct nominative, pas le seed vendredi anonyme ni le Vibes Night Deja New d’avant ; le cover n’est pas sur l’affiche, donc appelez +1 809-571-3910 avant d’arriver walk-up.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover not on flyer — confirm +1 809-571-3910; budget BBQ/drinks",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — confirma +1 809-571-3910; presupuesta BBQ/tragos",
+      fr: "Cover absent de l’affiche — confirmez +1 809-571-3910 ; budgétez BBQ/boissons",
+    },
+    attribution: "POP research · Hotel Voramar DJ Ronald flyer",
+    researchNotes:
+      "Editor shorter flyer — Vie 23 Oct DJ Ronald en Voramar, 6 PM–12 AM, BBQ, buena música/vibra, fuego de billar. Sosúa por Playa Chiquita. No cover/age on art.",
+    updatedAt: "2026-10-12T13:00:00.000Z",
+  },
+  {
     eventId: "kaovanny-agua-el-carey-2026-10-02",
     body: "Album-release sunset on Costambar sand — pin El Carey at 6:30 PM for Kaovanny ‘La Caoba’, not the Natura Afro Soul set from the week before; book a table before the wave crowd.",
     localized: {
@@ -4387,6 +4406,25 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     researchNotes:
       "Editor flyer + IG @lepetitfrancois.rd — Vie 30 Oct Halloween Night, DJ, Karaoke Night, Decoración Especial, Premio para el mejor disfraz $5,000. El Pueblito Puerto Plata. No cover/time on art.",
     updatedAt: "2026-10-05T13:00:00.000Z",
+  },
+  {
+    eventId: "petit-francois-canadian-thanksgiving-2026-10-12",
+    body: "Monday Canadian Thanksgiving set menu at the El Pueblito beach bar — Filet Maître d'Hôtel with house wine and dessert for RD$1,400, not Friday karaoke or Halloween costume night; call +1 829 492 2910 to lock a table before walk-up fills.",
+    localized: {
+      es: "Lunes de menú Thanksgiving canadiense en el beach bar de El Pueblito — filete Maître d'Hôtel con vino de la casa y postre por RD$1,400, no es el karaoke de viernes ni la noche de disfraces de Halloween; llama +1 829 492 2910 para asegurar mesa antes de que se llene walk-up.",
+      fr: "Lundi menu Action de grâce canadienne au beach bar d’El Pueblito — filet maître d’hôtel avec vin maison et dessert à RD$1,400, pas le karaoké du vendredi ni la soirée costumes d’Halloween ; appelez +1 829 492 2910 pour réserver avant le walk-up.",
+    },
+    priceFeel: "moderate",
+    priceNote: "RD$1,400 pp — filet + house wine + dessert; reserve +1 829 492 2910",
+    priceNoteLocalized: {
+      es: "RD$1,400 p/p — filete + vino de la casa + postre; reserva +1 829 492 2910",
+      fr: "RD$1,400 p/p — filet + vin maison + dessert ; réservez +1 829 492 2910",
+    },
+    attribution:
+      "POP research · @lepetitfrancois.rd Canadian Thanksgiving flyer (EN/ES/FR)",
+    researchNotes:
+      "Editor flyers EN/ES/FR — Mon 12 Oct Canadian Thanksgiving / Thanksgiving canadiense / Action de grâce canadienne. Filet Maître d'Hôtel + house wine + dessert, RD$1,400 pp. Reserve table. El Pueblito / Playa Chaparral. No start time on art.",
+    updatedAt: "2026-10-12T12:00:00.000Z",
   },
   {
     eventId: "twenty-disco-luis-brown-2026-10-30",

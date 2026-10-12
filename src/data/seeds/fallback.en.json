@@ -5826,5 +5826,62 @@
     ],
     "imageEmoji": "🎃",
     "ageHint": "18-plus"
+  },
+  {
+    "id": "petit-francois-canadian-thanksgiving-2026-10-12",
+    "date": "2026-10-12",
+    "location": "Playa Dorada",
+    "venue": "Le Petit François",
+    "venueSlug": "le-petit-francois",
+    "address": "Playa Dorada G1, El Pueblito / Playa Chaparral, Puerto Plata",
+    "lat": 19.7734212,
+    "lng": -70.6517978,
+    "category": "food-drinks",
+    "categories": [
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": false,
+    "admissionPrice": "RD$1,400",
+    "phone": "+18294922910",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/lepetitfrancois.rd/",
+    "imageEmoji": "🦃",
+    "title": "Le Petit François — Canadian Thanksgiving",
+    "description": "Canadian Thanksgiving special menu at Le Petit François, El Pueblito / Playa Chaparral, Puerto Plata — Monday 12 October 2026. Filet Maître d'Hôtel with a glass of house wine and dessert, RD$1,400 per person. Reserve your table +1 829 492 2910 · Instagram @lepetitfrancois.rd.",
+    "lineup": [
+      "Filet Maître d'Hôtel",
+      "House wine",
+      "Dessert"
+    ]
+  },
+  {
+    "id": "dj-ronald-voramar-2026-10-23",
+    "date": "2026-10-23",
+    "time": "6:00 PM – 12:00 AM",
+    "location": "Sosúa",
+    "venue": "Hotel Voramar",
+    "venueSlug": "hotel-voramar-sosua",
+    "address": "Calle Alejo Martínez, Playa Chiquita",
+    "lat": 19.7767518,
+    "lng": -70.509873,
+    "category": "parties",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18095713910",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.hotelvoramar-sosua.com/en",
+    "lineup": [
+      "DJ Ronald"
+    ],
+    "imageEmoji": "🎧",
+    "title": "Hotel Voramar — DJ Ronald",
+    "description": "DJ Ronald at Hotel Voramar, Sosúa by Playa Chiquita — Friday 23 October 2026, 6:00 PM–12:00 AM. Poolside BBQ, good vibes, and billiards — a named Friday bill, not the anonymous weekly Voramar Friday live seed. Confirm cover and reservations +1 809-571-3910 · hotelvoramar-sosua.com."
   }
 ]

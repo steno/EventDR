@@ -33,6 +33,7 @@ const FILE_TO_EVENT_ID = {
   "ivan-garcia-tierra-de-paso-2026-10-15.jpg":
     "ivan-garcia-tierra-de-paso-2026-10-15",
   "voyvoy-monday-night-terrace.jpg": "voyvoy-monday-live-music",
+  "voyvoy-karaoke-monday.jpg": "voyvoy-karaoke-monday",
   "sosua-jewish-museum-hours.jpg": "sosua-jewish-museum-hours",
   "sosua-diving-adventures-daily.jpg": "sosua-diving-adventures-daily",
 
@@ -164,6 +165,12 @@ const FILE_TO_EVENT_ID = {
     "twenty-disco-paradise-in-hell-2026-10-31",
   "petit-francois-halloween-2026-10-30.jpg":
     "petit-francois-halloween-2026-10-30",
+  "petit-francois-canadian-thanksgiving-2026-10-12-en.jpg":
+    "petit-francois-canadian-thanksgiving-2026-10-12-en",
+  "petit-francois-canadian-thanksgiving-2026-10-12-es.jpg":
+    "petit-francois-canadian-thanksgiving-2026-10-12-es",
+  "petit-francois-canadian-thanksgiving-2026-10-12-fr.jpg":
+    "petit-francois-canadian-thanksgiving-2026-10-12-fr",
   "twenty-disco-luis-brown-2026-10-30.jpg":
     "twenty-disco-luis-brown-2026-10-30",
   "gypsy-bowls-last-bowl-call-2026-10-03.jpg":
@@ -355,6 +362,7 @@ const FILE_TO_EVENT_ID = {
   "nueve-bingo-friday.jpg": "nueve-bingo-friday",
   "vibes-night-live-voramar-2026-10-02-v2.jpg":
     "vibes-night-live-voramar-2026-10-02",
+  "dj-ronald-voramar-2026-10-23.jpg": "dj-ronald-voramar-2026-10-23",
   "kaovanny-agua-el-carey-2026-10-02.jpg": "kaovanny-agua-el-carey-2026-10-02",
   "chiche-almonte-zona-acapella-2026-10-04.jpg":
     "chiche-almonte-zona-acapella-2026-10-04",

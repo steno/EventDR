@@ -126,7 +126,7 @@ async function loadPublicEvents(filter: PublicEventsFilter): Promise<Event[]> {
   events = attachSeedCreatedAt(events);
   events = attachEventPhones(events);
   events = attachTicketUrls(events);
-  events = attachEventImages(events);
+  events = attachEventImages(events, locale);
   events = events.map(withResolvedCategories);
 
   // List routes serialize into RSC/HTML — drop long descriptions.
@@ -173,13 +173,16 @@ export async function getPublicEvents(
   // Re-apply scope + rematerialize outside the cache. Venue/city/category
   // must not leak if a cache entry was stored under the wrong key, and
   // occurrence dates can change without waiting for revalidate.
-  return sortEventsForDisplay(attachEventImages(applyScopeFilters(events, filter)), {
-    recurringLast: true,
-    oneTimeFirst: Boolean(filter.category),
-    pinTodayOneOffs: Boolean(filter.category),
-    discoveryMode: Boolean(filter.category),
-    preferPrimaryCategory: filter.category,
-  });
+  return sortEventsForDisplay(
+    attachEventImages(applyScopeFilters(events, filter), filter.locale),
+    {
+      recurringLast: true,
+      oneTimeFirst: Boolean(filter.category),
+      pinTodayOneOffs: Boolean(filter.category),
+      discoveryMode: Boolean(filter.category),
+      preferPrimaryCategory: filter.category,
+    },
+  );
 }
 
 /** Same visitor list as getPublicEvents, without Next data cache (CLI / scripts). */
@@ -187,11 +190,14 @@ export async function getPublicEventsUncached(
   filter: PublicEventsFilter,
 ): Promise<Event[]> {
   const events = await loadPublicEvents(filter);
-  return sortEventsForDisplay(attachEventImages(applyScopeFilters(events, filter)), {
-    recurringLast: true,
-    oneTimeFirst: Boolean(filter.category),
-    pinTodayOneOffs: Boolean(filter.category),
-    discoveryMode: Boolean(filter.category),
-    preferPrimaryCategory: filter.category,
-  });
+  return sortEventsForDisplay(
+    attachEventImages(applyScopeFilters(events, filter), filter.locale),
+    {
+      recurringLast: true,
+      oneTimeFirst: Boolean(filter.category),
+      pinTodayOneOffs: Boolean(filter.category),
+      discoveryMode: Boolean(filter.category),
+      preferPrimaryCategory: filter.category,
+    },
+  );
 }

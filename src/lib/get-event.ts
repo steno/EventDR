@@ -23,7 +23,7 @@ function finalizeEvent(event: Event, locale: Locale): Event | null {
   result = normalizeEventCoords(result);
   [result] = attachEventPhones([result]);
   result = withAdmissionMetadata(result);
-  [result] = attachEventImages([result]);
+  [result] = attachEventImages([result], locale);
 
   const kept = filterRemovedSeedEvents([result]);
   if (kept.length === 0) return null;
@@ -84,7 +84,7 @@ export async function getEventById(
   const [localized] = localizeEventsForDisplay([patched], locale);
   const [withPhone] = attachEventPhones([localized]);
   const withAdmission = withAdmissionMetadata(withPhone);
-  const [withImage] = attachEventImages([withAdmission]);
+  const [withImage] = attachEventImages([withAdmission], locale);
   if (!withImage.recurrence) return withImage;
   // Refresh occurrence date outside the data cache (same day-boundary issue as lists).
   const [materialized] = materializeEventDates([withImage]);

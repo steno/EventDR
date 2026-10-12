@@ -95,6 +95,8 @@ export const REMOVED_SEED_EVENT_IDS = new Set([
   "cheers-weekly-live",
   "cheers-mandarin-mondays",
   "cheers-fire-ice-thursdays",
+  // Generic weekly Saturday Session — prefer dated named bills (soft reopen / Halloween).
+  "voyvoy-saturday-session",
 ]);
 
 export function filterRemovedSeedEvents(events: Event[]): Event[] {

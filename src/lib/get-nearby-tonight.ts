@@ -36,7 +36,9 @@ function isProductionBuild(): boolean {
  */
 function getNearbyEventPool(locale: Locale): Promise<Event[]> {
   if (!isProductionBuild()) {
-    return getPublicEvents({ locale }).then(attachEventImages);
+    return getPublicEvents({ locale }).then((events) =>
+      attachEventImages(events, locale),
+    );
   }
 
   const cached = nearbyPoolByLocale.get(locale);
@@ -49,6 +51,7 @@ function getNearbyEventPool(locale: Locale): Promise<Event[]> {
           attachVenueSlugs(filterRemovedSeedEvents(getFallbackEvents(locale))),
         ),
       ),
+      locale,
     ),
   );
   nearbyPoolByLocale.set(locale, loading);

@@ -1,4 +1,5 @@
 /** Maps seed event ids to image files under /public/events (synced from popevent-images). */
+import type { Locale } from "@/i18n/config";
 import { getAppVersion } from "./app-version";
 import { isOptimizableImageSrc } from "./optimizable-image";
 import { getVenueImageUrl } from "./venue-images";
@@ -133,6 +134,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   // Filename bump — refreshed Vibes Night Live flyer (PWA caches old path).
   "vibes-night-live-voramar-2026-10-02":
     "vibes-night-live-voramar-2026-10-02-v2.jpg",
+  "dj-ronald-voramar-2026-10-23": "dj-ronald-voramar-2026-10-23.jpg",
   "kaovanny-agua-el-carey-2026-10-02": "kaovanny-agua-el-carey-2026-10-02.jpg",
   "chiche-almonte-zona-acapella-2026-10-04":
     "chiche-almonte-zona-acapella-2026-10-04.jpg",
@@ -374,6 +376,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "twenty-disco-paradise-in-hell-2026-10-31.jpg",
   "petit-francois-halloween-2026-10-30":
     "petit-francois-halloween-2026-10-30.jpg",
+  "petit-francois-canadian-thanksgiving-2026-10-12":
+    "petit-francois-canadian-thanksgiving-2026-10-12-en.jpg",
   "twenty-disco-luis-brown-2026-10-30":
     "twenty-disco-luis-brown-2026-10-30.jpg",
   "finely-mirador-inauguracion-2026-09-25":
@@ -414,7 +418,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "los-tres-cocos-dinner": "los-tres-cocos-garden-dining.jpg",
   "liquid-blue-watersports-daily": "liquid-blue-watersports-daily.jpg",
 
-  "voyvoy-monday-live-music": "voyvoy-monday-night-terrace.jpg",
+  // Filename bump — Karaoke Monday flyer (was terrace place shot for live jam).
+  "voyvoy-monday-live-music": "voyvoy-karaoke-monday.jpg",
   "voyvoy-soft-reopening-sunset-2026-10-09":
     "voyvoy-soft-reopening-sunset-2026-10-09.jpg",
   "voyvoy-soft-reopening-saturday-2026-10-10":
@@ -721,16 +726,41 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "mkni-after-party-villa-taina-2026-10-24": "object-top",
 };
 
-function curatedEventImageFile(eventId: string): string | undefined {
+/**
+ * Locale-specific curated flyers (EN/ES/FR posters). Default
+ * {@link EVENT_IMAGE_FILES} stays the EN fallback when locale is omitted.
+ */
+const EVENT_IMAGE_LOCALE_FILES: Record<
+  string,
+  Partial<Record<Locale, string>>
+> = {
+  "petit-francois-canadian-thanksgiving-2026-10-12": {
+    en: "petit-francois-canadian-thanksgiving-2026-10-12-en.jpg",
+    es: "petit-francois-canadian-thanksgiving-2026-10-12-es.jpg",
+    fr: "petit-francois-canadian-thanksgiving-2026-10-12-fr.jpg",
+  },
+};
+
+function curatedEventImageFile(
+  eventId: string,
+  locale?: Locale,
+): string | undefined {
   const resolvedId = EVENT_IMAGE_ALIASES[eventId] ?? eventId;
+  if (locale) {
+    const localized = EVENT_IMAGE_LOCALE_FILES[resolvedId]?.[locale];
+    if (localized) return localized;
+  }
   return (
     EVENT_IMAGE_FILES[resolvedId] ??
     EVENT_IMAGE_PREFIXES.find((p) => resolvedId.startsWith(p.prefix))?.file
   );
 }
 
-export function getEventImageUrl(eventId: string): string | undefined {
-  const file = curatedEventImageFile(eventId);
+export function getEventImageUrl(
+  eventId: string,
+  locale?: Locale,
+): string | undefined {
+  const file = curatedEventImageFile(eventId, locale);
   return file ? `/events/${file}?v=${getAppVersion()}` : undefined;
 }
 
@@ -851,6 +881,8 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "los-caballitos-zona-acapella-2026-09-20.jpg",
   "chiche-almonte-zona-acapella-2026-10-04.jpg",
   "vibes-night-live-voramar-2026-10-02-v2.jpg",
+  "dj-ronald-voramar-2026-10-23.jpg",
+  "voyvoy-karaoke-monday.jpg",
   "kaovanny-agua-el-carey-2026-10-02.jpg",
   "camara-almuerzo-codigo-penal-2026-10-22-v2.jpg",
   "teleferico-inicio-obras-2026-10-03.jpg",
@@ -960,6 +992,9 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "hard-rock-feria-empleos-2026-10-05.jpg",
   "twenty-disco-paradise-in-hell-2026-10-31.jpg",
   "petit-francois-halloween-2026-10-30.jpg",
+  "petit-francois-canadian-thanksgiving-2026-10-12-en.jpg",
+  "petit-francois-canadian-thanksgiving-2026-10-12-es.jpg",
+  "petit-francois-canadian-thanksgiving-2026-10-12-fr.jpg",
   "twenty-disco-luis-brown-2026-10-30.jpg",
   "ambar-lounge-adrian-tineo-2026-09-19.jpg",
   "meclao-retro-party-2026-09-19.jpg",
@@ -1274,8 +1309,8 @@ function storedHeroIsDisplayable(url: string | undefined): boolean {
 
 export function attachEventImage<
   T extends { id: string; imageUrl?: string; venueSlug?: string },
->(event: T): T & { imageUrl?: string } {
-  const curated = getEventImageUrl(event.id);
+>(event: T, locale?: Locale): T & { imageUrl?: string } {
+  const curated = getEventImageUrl(event.id, locale);
   const stored = event.imageUrl?.trim();
   const venueFallback = event.venueSlug
     ? getVenueImageUrl(event.venueSlug)
@@ -1290,6 +1325,6 @@ export function attachEventImage<
 
 export function attachEventImages<
   T extends { id: string; imageUrl?: string; venueSlug?: string },
->(events: T[]): (T & { imageUrl?: string })[] {
-  return events.map(attachEventImage);
+>(events: T[], locale?: Locale): (T & { imageUrl?: string })[] {
+  return events.map((event) => attachEventImage(event, locale));
 }

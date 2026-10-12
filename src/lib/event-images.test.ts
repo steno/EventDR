@@ -41,4 +41,27 @@ describe("attachEventImage", () => {
       "/events/el-choco-cave-tour-swimming-daily.jpg?v=abc",
     );
   });
+
+  it("picks locale-specific curated flyers when provided", () => {
+    const id = "petit-francois-canadian-thanksgiving-2026-10-12";
+    assert.ok(
+      getEventImageUrl(id, "en")?.includes(
+        "petit-francois-canadian-thanksgiving-2026-10-12-en.jpg",
+      ),
+    );
+    assert.ok(
+      getEventImageUrl(id, "es")?.includes(
+        "petit-francois-canadian-thanksgiving-2026-10-12-es.jpg",
+      ),
+    );
+    assert.ok(
+      getEventImageUrl(id, "fr")?.includes(
+        "petit-francois-canadian-thanksgiving-2026-10-12-fr.jpg",
+      ),
+    );
+    assert.equal(
+      attachEventImage({ id }, "es").imageUrl,
+      getEventImageUrl(id, "es"),
+    );
+  });
 });

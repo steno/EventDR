@@ -3,8 +3,9 @@
  *
  * - `amountUsd` drives sort order and tier only — never rendered as dollars.
  * - Only list people who agreed to be named publicly.
- * - Replace the placeholder rows below with real sponsors.
  */
+
+import type { Locale } from "@/i18n/config";
 
 export type SponsorTier = "supporter" | "patron" | "founding";
 
@@ -15,26 +16,36 @@ export type Sponsor = {
   amountUsd: number;
   /** Instagram handle without @ */
   instagram?: string;
+  /** Optional logo under `/public` (e.g. `/sponsors/le-petit-francois.png`). */
+  logoSrc?: string;
+  /** In-app venue page when the sponsor is a POP venue (`/venue/{slug}`). */
+  venueSlug?: string;
+  /** External site when there is no POP venue page. */
+  href?: string;
 };
 
-/** Placeholder rows — replace with real consented sponsors. */
 const SPONSORS: Sponsor[] = [
   {
-    id: "placeholder-founding",
-    name: "Example Founding Sponsor",
-    amountUsd: 150,
-    instagram: "popeventsdr",
-  },
-  {
-    id: "placeholder-patron",
-    name: "Example Patron",
-    amountUsd: 50,
-    instagram: "example.patron",
-  },
-  {
-    id: "placeholder-supporter",
-    name: "Example Supporter",
+    id: "le-petit-francois",
+    name: "Le Petit François",
     amountUsd: 12,
+    instagram: "lepetitfrancois.rd",
+    logoSrc: "/sponsors/le-petit-francois.png",
+    venueSlug: "le-petit-francois",
+  },
+  {
+    id: "pancarte-sur-pattes",
+    name: "Pancarte sur pattes",
+    amountUsd: 12,
+    logoSrc: "/sponsors/pancarte-sur-pattes.png",
+    href: "https://pancartesurpattes.com/en",
+  },
+  {
+    id: "marin-collection",
+    name: "MARIN collection",
+    amountUsd: 12,
+    logoSrc: "/sponsors/marin-collection.png",
+    href: "https://pancartesurpattes.com/en",
   },
 ];
 
@@ -49,6 +60,18 @@ export function getSponsors(): Sponsor[] {
     if (b.amountUsd !== a.amountUsd) return b.amountUsd - a.amountUsd;
     return a.name.localeCompare(b.name);
   });
+}
+
+export function sponsorPrimaryHref(
+  sponsor: Sponsor,
+  locale: Locale,
+): { href: string; external: boolean } | null {
+  if (sponsor.venueSlug) {
+    return { href: `/${locale}/venue/${sponsor.venueSlug}`, external: false };
+  }
+  const external = sponsor.href?.trim();
+  if (external) return { href: external, external: true };
+  return null;
 }
 
 export function instagramProfileUrl(handle: string): string {

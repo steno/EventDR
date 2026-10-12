@@ -5826,5 +5826,62 @@
     ],
     "imageEmoji": "🎃",
     "ageHint": "18-plus"
+  },
+  {
+    "id": "petit-francois-canadian-thanksgiving-2026-10-12",
+    "date": "2026-10-12",
+    "location": "Playa Dorada",
+    "venue": "Le Petit François",
+    "venueSlug": "le-petit-francois",
+    "address": "Playa Dorada G1, El Pueblito / Playa Chaparral, Puerto Plata",
+    "lat": 19.7734212,
+    "lng": -70.6517978,
+    "category": "food-drinks",
+    "categories": [
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": false,
+    "admissionPrice": "RD$1,400",
+    "phone": "+18294922910",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/lepetitfrancois.rd/",
+    "imageEmoji": "🦃",
+    "title": "Le Petit François — Thanksgiving canadiense",
+    "description": "Menú especial de Thanksgiving canadiense en Le Petit François, El Pueblito / Playa Chaparral, Puerto Plata — lunes 12 de octubre 2026. Filete Maître d'Hôtel con copa de vino de la casa y postre, RD$1,400 por persona. Reserva tu mesa +1 829 492 2910 · Instagram @lepetitfrancois.rd.",
+    "lineup": [
+      "Filete Maître d'Hôtel",
+      "Vino de la casa",
+      "Postre"
+    ]
+  },
+  {
+    "id": "dj-ronald-voramar-2026-10-23",
+    "date": "2026-10-23",
+    "time": "6:00 PM – 12:00 AM",
+    "location": "Sosúa",
+    "venue": "Hotel Voramar",
+    "venueSlug": "hotel-voramar-sosua",
+    "address": "Calle Alejo Martínez, Playa Chiquita",
+    "lat": 19.7767518,
+    "lng": -70.509873,
+    "category": "parties",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18095713910",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.hotelvoramar-sosua.com/en",
+    "lineup": [
+      "DJ Ronald"
+    ],
+    "imageEmoji": "🎧",
+    "title": "Hotel Voramar — DJ Ronald",
+    "description": "DJ Ronald en Hotel Voramar, Sosúa por Playa Chiquita — viernes 23 de octubre 2026, 6:00 PM–12:00 AM. BBQ junto a la piscina, buena vibra y billar — cartel de viernes con nombre, no el seed anónimo semanal de Voramar. Confirma cover y reservas +1 809-571-3910 · hotelvoramar-sosua.com."
   }
 ]

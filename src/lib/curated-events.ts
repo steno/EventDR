@@ -671,6 +671,11 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     phone: "+18095713910",
     venueSlug: "hotel-voramar-sosua",
   },
+  "dj-ronald-voramar-2026-10-23": {
+    callForPricing: true,
+    phone: "+18095713910",
+    venueSlug: "hotel-voramar-sosua",
+  },
   "kaovanny-agua-el-carey-2026-10-02": {
     callForPricing: true,
     phone: "+18494404199",
@@ -770,6 +775,12 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
   },
   "petit-francois-halloween-2026-10-30": {
     isFree: true,
+    phone: "+18294922910",
+    venueSlug: "le-petit-francois",
+  },
+  "petit-francois-canadian-thanksgiving-2026-10-12": {
+    isFree: false,
+    admissionPrice: "RD$1,400",
     phone: "+18294922910",
     venueSlug: "le-petit-francois",
   },

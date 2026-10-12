@@ -87,6 +87,7 @@ const EVENT_PHONE_BY_ID: Record<string, string> = {
   "kaovanny-hard-rock-2026-11-20": "+18495057778",
   "elias-serulle-villa-taina-2026-10-24": "+18095710722",
   "vibes-night-live-voramar-2026-10-02": "+18095713910",
+  "dj-ronald-voramar-2026-10-23": "+18095713910",
   "kaovanny-agua-el-carey-2026-10-02": "+18494404199",
   "chiche-almonte-zona-acapella-2026-10-04": "+18297260344",
   "chiche-almonte-vinoteca-2026-10-17": "+18494511197",
@@ -125,6 +126,7 @@ const EVENT_PHONE_BY_ID: Record<string, string> = {
   "ivan-garcia-tierra-de-paso-2026-10-15": "+18092617393",
   "aura-after-dark-carlos-rivera-2026-10-10": "+18297870140",
   "petit-francois-halloween-2026-10-30": "+18294922910",
+  "petit-francois-canadian-thanksgiving-2026-10-12": "+18294922910",
   "twenty-disco-luis-brown-2026-10-30": "+18295667071",
 };
 

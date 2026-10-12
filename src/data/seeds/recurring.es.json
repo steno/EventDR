@@ -1258,18 +1258,25 @@
   },
   {
     "id": "voyvoy-monday-live-music",
-    "title": "Música en vivo los lunes en VOYVOY",
-    "description": "Música en vivo y jam los lunes en VOYVOY en la bahía de Cabarete — Lester Grant presenta; trae tu instrumento o únete.",
+    "title": "Karaoke Monday en VOYVOY",
+    "description": "Karaoke Monday en VOYVOY frente a la bahía de Cabarete — toma el micrófono, canta con amigos y sigue la noche. Cena y tragos como siempre; Instagram @voyvoybar · +1 809-571-0805.",
     "date": "2026-01-01",
     "time": "5:00 PM – 11:00 PM",
     "location": "Cabarete",
     "venue": "VOYVOY Cabarete",
     "venueSlug": "voyvoy-cabarete",
     "category": "music",
+    "categories": [
+      "performances"
+    ],
     "format": "physical",
     "recurrence": "weekly",
     "recurrenceDay": 1,
-    "imageEmoji": "🎸"
+    "isFree": true,
+    "phone": "+18095710805",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/voyvoybar/",
+    "imageEmoji": "🎤"
   },
   {
     "id": "kite-beach-wind-culture",

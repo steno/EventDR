@@ -1,10 +1,13 @@
+import Image from "next/image";
 import Link from "next/link";
+import type { ReactNode } from "react";
 import { PAGE_SHELL_CLASS } from "@/lib/page-shell";
 import type { Locale } from "@/i18n/config";
 import type { SponsorsCopy } from "@/lib/sponsors-copy";
 import {
   getSponsors,
   instagramProfileUrl,
+  sponsorPrimaryHref,
   sponsorTier,
   type Sponsor,
 } from "@/lib/sponsors";
@@ -14,41 +17,119 @@ interface SponsorsPageProps {
   copy: SponsorsCopy;
 }
 
+function SponsorLink({
+  href,
+  external,
+  className,
+  children,
+}: {
+  href: string;
+  external: boolean;
+  className?: string;
+  children: ReactNode;
+}) {
+  if (external) {
+    return (
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={className}
+      >
+        {children}
+      </a>
+    );
+  }
+  return (
+    <Link href={href} className={className}>
+      {children}
+    </Link>
+  );
+}
+
 function SponsorRow({
+  locale,
   sponsor,
   copy,
 }: {
+  locale: Locale;
   sponsor: Sponsor;
   copy: SponsorsCopy;
 }) {
   const tier = sponsorTier(sponsor.amountUsd);
   const handle = sponsor.instagram?.replace(/^@/, "").trim();
+  const logoSrc = sponsor.logoSrc?.trim();
+  const primary = sponsorPrimaryHref(sponsor, locale);
+
+  const nameClass =
+    "font-sans text-base font-bold tracking-tight text-neutral-900 dark:text-neutral-100";
+  const logoFrameClass =
+    "relative flex h-14 w-[4.5rem] shrink-0 items-center justify-center overflow-hidden rounded-xl bg-neutral-100 ring-1 ring-neutral-200/80 dark:bg-neutral-900 dark:ring-neutral-700";
 
   return (
     <li className="border-t border-neutral-200/80 py-5 dark:border-neutral-800">
-      <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-        <p className="font-sans text-base font-bold tracking-tight text-neutral-900 dark:text-neutral-100">
-          {sponsor.name}
-        </p>
-        <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-orange-600 dark:text-orange-400">
-          {copy.tiers[tier]}
-        </p>
+      <div className="flex items-start gap-4">
+        {logoSrc ? (
+          primary ? (
+            <SponsorLink
+              href={primary.href}
+              external={primary.external}
+              className={`${logoFrameClass} transition-opacity hover:opacity-90`}
+            >
+              <Image
+                src={logoSrc}
+                alt=""
+                fill
+                sizes="72px"
+                className="object-contain p-1"
+              />
+            </SponsorLink>
+          ) : (
+            <div className={logoFrameClass}>
+              <Image
+                src={logoSrc}
+                alt=""
+                fill
+                sizes="72px"
+                className="object-contain p-1"
+              />
+            </div>
+          )
+        ) : null}
+        <div className="min-w-0 flex-1">
+          <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+            {primary ? (
+              <SponsorLink
+                href={primary.href}
+                external={primary.external}
+                className={`${nameClass} transition-colors hover:text-orange-600 dark:hover:text-orange-300`}
+              >
+                {sponsor.name}
+              </SponsorLink>
+            ) : (
+              <p className={nameClass}>{sponsor.name}</p>
+            )}
+            <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-orange-600 dark:text-orange-400">
+              {copy.tiers[tier]}
+            </p>
+          </div>
+          {handle ? (
+            <a
+              href={instagramProfileUrl(handle)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-1.5 inline-flex items-center gap-1.5 text-sm text-neutral-500 transition-colors hover:text-orange-600 dark:text-neutral-400 dark:hover:text-orange-300"
+            >
+              <span aria-hidden className="text-neutral-400 dark:text-neutral-500">
+                @{handle}
+              </span>
+              <span className="sr-only">
+                {copy.onInstagram}: @{handle}
+              </span>
+            </a>
+          ) : null}
+        </div>
       </div>
-      {handle ? (
-        <a
-          href={instagramProfileUrl(handle)}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-1.5 inline-flex items-center gap-1.5 text-sm text-neutral-500 transition-colors hover:text-orange-600 dark:text-neutral-400 dark:hover:text-orange-300"
-        >
-          <span aria-hidden className="text-neutral-400 dark:text-neutral-500">
-            @{handle}
-          </span>
-          <span className="sr-only">
-            {copy.onInstagram}: @{handle}
-          </span>
-        </a>
-      ) : null}
     </li>
   );
 }
@@ -85,7 +166,12 @@ export function SponsorsPage({ locale, copy }: SponsorsPageProps) {
           ) : (
             <ul>
               {sponsors.map((sponsor) => (
-                <SponsorRow key={sponsor.id} sponsor={sponsor} copy={copy} />
+                <SponsorRow
+                  key={sponsor.id}
+                  locale={locale}
+                  sponsor={sponsor}
+                  copy={copy}
+                />
               ))}
             </ul>
           )}
