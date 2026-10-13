@@ -4354,21 +4354,21 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "cruzmonty-manuel-cocco-birthday-cigar-town-2026-10-17",
-    body: "Birthday bash with Cruzmonty at Cigar Town on Luis Ginebra — not karaoke ladies night; no start time or cover on the flyer, so confirm doors on @cigartownpop / @cruzmonty before you pin it.",
+    body: "Birthday bash with Cruzmonty and Ivano at Cigar Town on Luis Ginebra — not karaoke ladies night; no start time or cover on the flyer, so confirm doors on @cigartownpop / @cruzmonty / @ivanomusica before you pin it.",
     localized: {
-      es: "Birthday bash con Cruzmonty en Cigar Town en Luis Ginebra — no es karaoke ladies night; el flyer no trae hora ni cover, confirma puertas en @cigartownpop / @cruzmonty antes de clavarlo.",
-      fr: "Birthday bash avec Cruzmonty à Cigar Town sur Luis Ginebra — pas le karaoke ladies night ; l’affiche n’a ni heure ni cover, confirmez les portes sur @cigartownpop / @cruzmonty avant d’épingler.",
+      es: "Birthday bash con Cruzmonty e Ivano en Cigar Town en Luis Ginebra — no es karaoke ladies night; el flyer no trae hora ni cover, confirma puertas en @cigartownpop / @cruzmonty / @ivanomusica antes de clavarlo.",
+      fr: "Birthday bash avec Cruzmonty et Ivano à Cigar Town sur Luis Ginebra — pas le karaoke ladies night ; l’affiche n’a ni heure ni cover, confirmez les portes sur @cigartownpop / @cruzmonty / @ivanomusica avant d’épingler.",
     },
     priceFeel: "varies",
-    priceNote: "Cover / doors not on flyer — @cigartownpop · @cruzmonty",
+    priceNote: "Cover / doors not on flyer — @cigartownpop · @cruzmonty · @ivanomusica",
     priceNoteLocalized: {
-      es: "Cover / puertas no están en el flyer — @cigartownpop · @cruzmonty",
-      fr: "Cover / portes absents de l’affiche — @cigartownpop · @cruzmonty",
+      es: "Cover / puertas no están en el flyer — @cigartownpop · @cruzmonty · @ivanomusica",
+      fr: "Cover / portes absents de l’affiche — @cigartownpop · @cruzmonty · @ivanomusica",
     },
-    attribution: "POP research · Cigar Town Pop · Cruzmonty / Manuel Cocco flyer",
+    attribution: "POP research · Cigar Town Pop · Cruzmonty & Ivano / Manuel Cocco flyer",
     researchNotes:
-      "Editor flyer SÁBADO 17 DE OCTUBRE CRUZMONTY MANUEL COCCO BIRTHDAY BASH; Av. Luis Ginebra No. 56; sponsors Campos / Cigar Town / Brugal. IG @cigartownpop caption Nos vemos este sábado 17 de octubre · @cruzmonty. No start time or cover on art.",
-    updatedAt: "2026-10-04T17:00:00.000Z",
+      "Editor flyer SÁBADO 17 DE OCTUBRE CRUZMONTY & IVANO MANUEL COCCO BIRTHDAY BASH; Av. Luis Ginebra No. 56; sponsors Campos / Cigar Town / Brugal. IG @cigartownpop caption · @cruzmonty · @ivanomusica. No start time or cover on art. Flyer -v2 adds Ivano.",
+    updatedAt: "2026-10-13T15:00:00.000Z",
   },
   {
     eventId: "lizandro-diaz-grand-prix-2026-10-02",
@@ -5032,10 +5032,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "pop-cinemas-week-2026-10-08",
-    body: "Mall cinema week led by Grin: El juego de la ouija — horror Ouija plot, same RD$300 daily; showtimes weren’t on the promo so check cinemaspop.com.do before you drive to Playa Dorada Mall, and bring a sweater for the AC.",
+    body: "Mall cinema week with Grin: El juego de la ouija plus Avengers: Endgame Encore still on the board — same RD$300 daily; showtimes weren’t on either promo so check cinemaspop.com.do before you drive to Playa Dorada Mall, and bring a sweater for the AC.",
     localized: {
-      es: "Semana de cine en el mall con Grin: El juego de la ouija — terror de Ouija, mismos RD$300 al día; los horarios no venían en el promo, mira cinemaspop.com.do antes de ir al mall de Playa Dorada, y lleva suéter por el aire.",
-      fr: "Semaine cinéma mall avec Grin: El juego de la ouija — horreur Ouija, mêmes RD$300 par jour ; horaires absents du promo, vérifiez cinemaspop.com.do avant Playa Dorada Mall, et prenez un pull pour la clim.",
+      es: "Semana de cine en el mall con Grin: El juego de la ouija y Avengers: Endgame Encore aún en cartelera — mismos RD$300 al día; los horarios no venían en los promos, mira cinemaspop.com.do antes de ir al mall de Playa Dorada, y lleva suéter por el aire.",
+      fr: "Semaine cinéma mall avec Grin: El juego de la ouija et Avengers: Endgame Encore toujours à l’affiche — mêmes RD$300 par jour ; horaires absents des promos, vérifiez cinemaspop.com.do avant Playa Dorada Mall, et prenez un pull pour la clim.",
     },
     priceFeel: "budget",
     priceNote: "RD$300 per person daily — cinemaspop.com.do / 809-320-1400",
@@ -5043,10 +5043,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       es: "RD$300 por persona al día — cinemaspop.com.do / 809-320-1400",
       fr: "RD$300 par personne par jour — cinemaspop.com.do / 809-320-1400",
     },
-    attribution: "POP research · @cinemaspoprd Grin promo",
+    attribution: "POP research · @cinemaspoprd Grin + Endgame Encore promos",
     researchNotes:
-      "Editor IG @cinemaspoprd + Grin poster — film now at POP Cinemas; no showtimes on promo. Week id Thu 8 Oct–Wed 14 Oct 2026; RD$300.",
-    updatedAt: "2026-10-08T20:30:00.000Z",
+      "Editor IG @cinemaspoprd Grin poster + Avengers Endgame Encore / SIGUE EN CARTELERA — no showtimes on promos. Week id Thu 8 Oct–Wed 14 Oct 2026; RD$300. Do not seed per-film events.",
+    updatedAt: "2026-10-13T16:00:00.000Z",
   },
   {
     eventId: "el-cuervo-hideout-popup-2026-10-16",
@@ -5177,5 +5177,41 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     researchNotes:
       "Editor flyer — Sat 31 Oct 2026 6:00 PM Coconuts Restaurant Hideaway Beach; Allison Sade live; costume contest dinner-for-two prize; 18+; reservations required mention Halloween Party. Venue coconuts-playa-encuentro +1 809-571-0223.",
     updatedAt: "2026-10-11T17:00:00.000Z",
+  },
+  {
+    eventId: "sosua-food-market-oktoberfest-tropical-2026-10-17",
+    body: "Tropical Oktoberfest at Coconut Bar inside Sosúa Food Market from 4:00 PM — cold beer and a live DJ on the patio food court, not a Bavarian tent in Playa Dorada; free entry, pay stall-by-stall, confirm on @sosuafoodmarket.",
+    localized: {
+      es: "Oktoberfest tropical en Coconut Bar dentro de Sosúa Food Market desde las 4:00 PM — cerveza fría y DJ en vivo en el food court patio, no una carpa bávara en Playa Dorada; entrada libre, pagas puesto por puesto, confirma en @sosuafoodmarket.",
+      fr: "Oktoberfest tropical au Coconut Bar dans le Sosúa Food Market dès 16 h — bière froide et DJ live sur le food court patio, pas une tente bavaroise à Playa Dorada ; entrée libre, payez stand par stand, confirmez sur @sosuafoodmarket.",
+    },
+    priceFeel: "free",
+    priceNote: "Free entry — pay beer/food stall-by-stall · @sosuafoodmarket",
+    priceNoteLocalized: {
+      es: "Entrada libre — pagas cerveza/comida puesto por puesto · @sosuafoodmarket",
+      fr: "Entrée libre — payez bière/nourriture stand par stand · @sosuafoodmarket",
+    },
+    attribution: "POP research · @sosuafoodmarket Oktoberfest Tropical flyer",
+    researchNotes:
+      "Editor flyer — Sábado 17 oct. 4:00PM Oktoberfest tropical en Coconut Bar, Sosúa Food Market. Cerveza fría, DJ en vivo, buena comida.",
+    updatedAt: "2026-10-13T15:00:00.000Z",
+  },
+  {
+    eventId: "sosua-food-market-halloween-cine-2026-10-24",
+    body: "Family Halloween movie afternoon on the Sosúa Food Market patio — Hotel Transylvania on the big outdoor screen from 5:00 PM with costumes and popcorn; free entry, pay snacks stall-by-stall, and bring a light jacket for dusk under the palms.",
+    localized: {
+      es: "Tarde de cine familiar de Halloween en el patio de Sosúa Food Market — Hotel Transylvania en pantalla grande al aire libre desde las 5:00 PM con disfraces y palomitas; entrada libre, pagas snacks puesto por puesto, y lleva una chaqueta ligera para el atardecer bajo las palmas.",
+      fr: "Après-midi cinéma familial Halloween sur le patio du Sosúa Food Market — Hotel Transylvania en grand écran dès 17 h avec costumes et popcorn ; entrée libre, payez les snacks stand par stand, et prenez une veste légère pour le crépuscule sous les palmiers.",
+    },
+    priceFeel: "free",
+    priceNote: "Free entry — pay popcorn/food stall-by-stall · @sosuafoodmarket",
+    priceNoteLocalized: {
+      es: "Entrada libre — pagas palomitas/comida puesto por puesto · @sosuafoodmarket",
+      fr: "Entrée libre — payez popcorn/nourriture stand par stand · @sosuafoodmarket",
+    },
+    attribution: "POP research · @sosuafoodmarket Tarde de Cine de Halloween flyer",
+    researchNotes:
+      "Editor flyer — Sábado 24 de octubre 5:00PM Tarde de Cine de Halloween, Hotel Transylvania, Sosúa Food Market. Disfraces, palomitas, diversión en familia. ageHint family.",
+    updatedAt: "2026-10-13T16:00:00.000Z",
   },
 ];

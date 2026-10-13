@@ -551,31 +551,6 @@ export function EventScopePage({
             </div>
           )}
 
-          {relatedCategoryLinks && relatedCategoryLinksLabel ? (
-            <CityCategoryLinks
-              label={relatedCategoryLinksLabel}
-              links={relatedCategoryLinks}
-              activeHref={relatedCategoryActiveHref}
-              activeCategoryId={activeCategoryId}
-              allLink={{
-                id: "all",
-                href: scopeListingPath(locale, {
-                  citySlug: activeCitySlug,
-                  regionScope: !activeCitySlug,
-                }),
-                label: dict.browse.allEvents,
-                emoji: "📅",
-              }}
-              onSoftNavigate={
-                softNav
-                  ? onSoftCategoryNavigate
-                  : fixedTimeRange
-                    ? onWhenCategoryNavigate
-                    : undefined
-              }
-            />
-          ) : null}
-
           <FilteredEventList
             events={events}
             loading={loading}
@@ -591,6 +566,33 @@ export function EventScopePage({
             categoryId={activeCategoryId}
             areaLabel={areaLabel}
             persistTimeRange
+            categoryNav={
+              relatedCategoryLinks && relatedCategoryLinksLabel ? (
+                <CityCategoryLinks
+                  variant="sticky"
+                  label={relatedCategoryLinksLabel}
+                  links={relatedCategoryLinks}
+                  activeHref={relatedCategoryActiveHref}
+                  activeCategoryId={activeCategoryId}
+                  scrollMoreLabel={dict.browse.scrollHint}
+                  allLink={{
+                    id: "all",
+                    href: scopeListingPath(locale, {
+                      citySlug: activeCitySlug,
+                      regionScope: !activeCitySlug,
+                    }),
+                    label: dict.browse.allEvents,
+                  }}
+                  onSoftNavigate={
+                    softNav
+                      ? onSoftCategoryNavigate
+                      : fixedTimeRange
+                        ? onWhenCategoryNavigate
+                        : undefined
+                  }
+                />
+              ) : undefined
+            }
             stickyLead={
               showLocationPicker ? (
                 <div className="w-full text-[1.5rem] font-extrabold leading-none sm:hidden">

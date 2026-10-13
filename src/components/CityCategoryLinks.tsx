@@ -2,19 +2,20 @@
 
 import { useEffect, useRef, useState, type Ref } from "react";
 import { IntentLink } from "@/components/IntentLink";
+import { PillScrollRail } from "@/components/PillScrollRail";
 import {
   CATEGORY_PILL_ACTIVE,
   CATEGORY_PILL_BASE,
   CATEGORY_PILL_DIMMED,
   CATEGORY_PILL_IDLE,
   CATEGORY_PILL_PENDING,
-  CATEGORY_SCROLLER_BAR,
 } from "@/components/category-scroller-styles";
 import type { EventCategory } from "@/lib/types";
 
 export type RelatedCategoryLink = {
   href: string;
   label: string;
+  /** @deprecated Icons removed from category pills — kept optional for callers. */
   emoji?: string;
   /** Stable identity — keeps DOM/scroll when only the area in `href` changes. */
   id?: EventCategory | "all";
@@ -37,6 +38,13 @@ interface CityCategoryLinksProps {
    * default link navigation is skipped.
    */
   onSoftNavigate?: (href: string) => boolean;
+  /** Accessible label for the overflow chevron. */
+  scrollMoreLabel?: string;
+  /**
+   * `sticky` — rail only (no section title), for the list sticky filter bar.
+   * `page` — titled block above the list (legacy / non-sticky).
+   */
+  variant?: "page" | "sticky";
 }
 
 type RailScrollResult = "pending" | "done";
@@ -86,7 +94,10 @@ export function CityCategoryLinks({
   activeCategoryId,
   allLink,
   onSoftNavigate,
+  scrollMoreLabel = "More categories",
+  variant = "page",
 }: CityCategoryLinksProps) {
+  const sticky = variant === "sticky";
   const activeRef = useRef<HTMLAnchorElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const prevActiveKeyRef = useRef<string | null>(null);
@@ -206,6 +217,7 @@ export function CityCategoryLinks({
     ? links.some((link) => link.id === activeCategoryId)
     : links.some((link) => link.href === activeHref);
   const allIsActive = Boolean(allLink) && !hasActiveCategory;
+  const pillCount = links.length + (allLink ? 1 : 0);
 
   const renderPill = (
     link: RelatedCategoryLink,
@@ -252,46 +264,45 @@ export function CityCategoryLinks({
           }
         }}
       >
-        {link.emoji ? (
-          <span className="text-[48px] leading-none select-none" aria-hidden>
-            {link.emoji}
-          </span>
-        ) : null}
-        <span className="line-clamp-2 w-full">{link.label}</span>
+        {link.label}
       </IntentLink>
     );
   };
 
   return (
-    <nav aria-label={label} data-category-nav className="mb-4">
-      <p className="mb-2.5 text-base font-semibold text-neutral-700 dark:text-neutral-300">
-        {label}
-      </p>
-      <div className={CATEGORY_SCROLLER_BAR}>
-        <div className="relative min-w-0 flex-1 overflow-hidden">
-          <div ref={scrollRef} className="overflow-x-auto scrollbar-hide">
-            <div className="flex w-max gap-3 px-0.5 py-1">
-              {allLink
-                ? renderPill(
-                    { ...allLink, id: allLink.id ?? "all" },
-                    allIsActive,
-                    allIsActive ? activeRef : undefined,
-                  )
-                : null}
-              {links.map((link) => {
-                const active = activeCategoryId
-                  ? link.id === activeCategoryId
-                  : activeHref === link.href;
-                return renderPill(
-                  link,
-                  active,
-                  active ? activeRef : undefined,
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </div>
+    <nav
+      aria-label={label}
+      data-category-nav
+      className={sticky ? undefined : "mb-4"}
+    >
+      {sticky ? null : (
+        <p className="mb-2.5 text-base font-semibold text-neutral-700 dark:text-neutral-300">
+          {label}
+        </p>
+      )}
+      <PillScrollRail
+        scrollRef={scrollRef}
+        itemCount={pillCount}
+        scrollMoreLabel={scrollMoreLabel}
+      >
+        {allLink
+          ? renderPill(
+              { ...allLink, id: allLink.id ?? "all" },
+              allIsActive,
+              allIsActive ? activeRef : undefined,
+            )
+          : null}
+        {links.map((link) => {
+          const active = activeCategoryId
+            ? link.id === activeCategoryId
+            : activeHref === link.href;
+          return renderPill(
+            link,
+            active,
+            active ? activeRef : undefined,
+          );
+        })}
+      </PillScrollRail>
     </nav>
   );
 }

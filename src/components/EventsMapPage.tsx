@@ -11,7 +11,7 @@ import {
   type PointerEvent as ReactPointerEvent,
 } from "react";
 import { ChevronLeft, ChevronRight, House, MapPin, X } from "lucide-react";
-import { CityLocationPicker } from "@/components/CityLocationPicker";
+import { CityFilterPills } from "@/components/CityFilterPills";
 import { EventCard } from "@/components/EventCard";
 import { EventCardMeta } from "@/components/EventCardMeta";
 import { CruiseShipEntry } from "@/components/CruiseShipEntry";
@@ -464,14 +464,12 @@ export function EventsMapPage({
             <House className="h-4 w-4" aria-hidden />
           </Link>
 
-          <div className="min-w-0 flex-1 text-[1.5rem] font-extrabold leading-none">
-            <CityLocationPicker
+          <div className="min-w-0 flex-1">
+            <CityFilterPills
+              variant="map"
               locale={locale}
               dict={dict}
-              variant="hero"
-              photoOverlay={false}
               currentSlug={citySlug}
-              showCruisePorts={false}
               onSelect={(slug) =>
                 handleAreaChange(slug ?? "north-coast")
               }

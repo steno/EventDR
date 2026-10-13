@@ -78,6 +78,8 @@ import { buildListingSearchCopy } from "@/lib/search-snippets";
 import { filterCatalogForScope } from "@/lib/scope-listing";
 import { signalNavDone } from "@/lib/nav-feedback";
 import { NETWORK_ONLY_FETCH } from "@/lib/pwa-refresh";
+import { categoryPath } from "@/lib/event-navigation";
+import { scrollBehaviorPreference } from "@/lib/list-scroll";
 
 const SubmitEventSheet = dynamic(
   () =>
@@ -343,6 +345,8 @@ function HomeApp({
       const href = homePathWithArea(locale, slug, true);
       window.history.replaceState(window.history.state ?? null, "", href);
       setCityQuery(new URLSearchParams(href.split("?")[1] ?? "").get("city"));
+      // Match list filters — new area content starts from the top of home.
+      window.scrollTo({ top: 0, behavior: scrollBehaviorPreference() });
     },
     [locale],
   );
@@ -855,11 +859,11 @@ function HomeApp({
                   prefiltered
                   title={dict.events.halloween}
                   limit={HOME_HALLOWEEN_LIMIT}
-                  seeAllHref={
-                    selectedCity
-                      ? `/${locale}/city/${selectedCity}`
-                      : `/${locale}/events`
-                  }
+                  seeAllHref={categoryPath(
+                    locale,
+                    "halloween",
+                    selectedCity,
+                  )}
                   seeAllLabel={dict.events.seeAllHalloween}
                   listTimeRange="all"
                   showDate

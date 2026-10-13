@@ -133,6 +133,8 @@ const FILE_TO_EVENT_ID = {
     "trillo-la-guaita-long-beach-2026-09-24",
   "cruzmonty-manuel-cocco-birthday-cigar-town-2026-10-17.jpg":
     "cruzmonty-manuel-cocco-birthday-cigar-town-2026-10-17",
+  "cruzmonty-manuel-cocco-birthday-cigar-town-2026-10-17-v2.jpg":
+    "cruzmonty-manuel-cocco-birthday-cigar-town-2026-10-17",
   "hard-rock-feria-empleos-2026-10-05.jpg": "hard-rock-feria-empleos-2026-10-05",
   "sarah-graciano-rancho-catalina-2026-10-04.jpg":
     "sarah-graciano-rancho-catalina-2026-10-04",
@@ -387,6 +389,10 @@ const FILE_TO_EVENT_ID = {
     "sosua-food-market-dj-one-d-2026-09-25",
   "sosua-food-market-dj-henry-2026-10-02.jpg":
     "sosua-food-market-dj-henry-2026-10-02",
+  "sosua-food-market-oktoberfest-tropical-2026-10-17.jpg":
+    "sosua-food-market-oktoberfest-tropical-2026-10-17",
+  "sosua-food-market-halloween-cine-2026-10-24.jpg":
+    "sosua-food-market-halloween-cine-2026-10-24",
   "sosua-food-market-daily-patio.jpg": "sosua-food-market-daily",
   "ocean-world-terrace-karaoke-wednesday.jpg":
     "ocean-world-terrace-karaoke-wednesday",

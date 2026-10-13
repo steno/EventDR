@@ -4457,8 +4457,8 @@
   },
   {
     "id": "cruzmonty-manuel-cocco-birthday-cigar-town-2026-10-17",
-    "title": "Cruzmonty — Manuel Cocco Birthday Bash à Cigar Town",
-    "description": "Cruzmonty présente le Manuel Cocco Birthday Bash à Cigar Town Pop, Av. Luis Ginebra No. 56, Puerto Plata — samedi 17 octobre 2026. Soirée d’anniversaire au lounge cigares avec Campos et Brugal ; confirmez l’heure et le cover via Instagram @cigartownpop · @cruzmonty.",
+    "title": "Cruzmonty & Ivano — Manuel Cocco Birthday Bash à Cigar Town",
+    "description": "Cruzmonty et Ivano présentent le Manuel Cocco Birthday Bash à Cigar Town Pop, Av. Luis Ginebra No. 56, Puerto Plata — samedi 17 octobre 2026. Soirée d’anniversaire au lounge cigares avec Campos et Brugal ; confirmez l’heure et le cover via Instagram @cigartownpop · @cruzmonty · @ivanomusica.",
     "date": "2026-10-17",
     "location": "Puerto Plata",
     "venue": "Cigar Town Pop",
@@ -4478,6 +4478,7 @@
     "sourceUrl": "https://www.instagram.com/cigartownpop/",
     "lineup": [
       "Cruzmonty",
+      "Ivano",
       "Manuel Cocco"
     ],
     "imageEmoji": "🥃"
@@ -5599,7 +5600,7 @@
   {
     "id": "pop-cinemas-week-2026-10-08",
     "title": "POP Cinemas — Semaine du 8–14 oct",
-    "description": "Cartelera hebdomadaire au POP Cinemas, Playa Dorada Mall (8–14 oct), RD$300 par personne tous les jours. À l’affiche : Grin: El juego de la ouija — un crime qu’ils croyaient enterré, un ancien jeu Ouija et une présence qui menace de révéler la vérité. Confirmez les horaires et les autres titres sur cinemaspop.com.do · 809-320-1400.",
+    "description": "Cartelera hebdomadaire au POP Cinemas, Playa Dorada Mall (8–14 oct), RD$300 par personne tous les jours. À l’affiche : Grin: El juego de la ouija — un crime qu’ils croyaient enterré, un ancien jeu Ouija et une présence qui menace de révéler la vérité. Toujours à l’écran aussi : Avengers: Endgame Encore (Infinity Vision / PG-13) — confirmez les séances sur cinemaspop.com.do · 809-320-1400.",
     "date": "2026-10-08",
     "endDate": "2026-10-14",
     "location": "Playa Dorada",
@@ -5619,7 +5620,8 @@
     "sourceUrl": "https://www.instagram.com/cinemaspop/",
     "imageEmoji": "🎬",
     "lineup": [
-      "Grin: El juego de la ouija — confirmez les horaires sur cinemaspop.com.do"
+      "Grin: El juego de la ouija — confirmez les séances sur cinemaspop.com.do",
+      "Avengers: Endgame Encore — toujours à l’affiche ; confirmez les séances sur cinemaspop.com.do"
     ]
   },
   {
@@ -5881,5 +5883,63 @@
     "imageEmoji": "🎧",
     "title": "Hotel Voramar — DJ Ronald",
     "description": "DJ Ronald à l’Hotel Voramar, Sosúa près de Playa Chiquita — vendredi 23 octobre 2026, 18 h–minuit. BBQ au bord de la piscine, bonne vibra et billard — soirée vendredi affichée, pas le seed hebdo anonyme Voramar. Confirmez cover et réservations +1 809-571-3910 · hotelvoramar-sosua.com."
+  },
+  {
+    "id": "sosua-food-market-oktoberfest-tropical-2026-10-17",
+    "title": "Oktoberfest Tropical au Coconut Bar — Sosúa Food Market",
+    "description": "Oktoberfest Tropical au Coconut Bar dans le Sosúa Food Market, Calle Anacaona & Calle Pablo Neruda, Sosúa — samedi 17 octobre 2026 dès 16 h. Bière froide, DJ live, assiettes du food court et ambiance patio sous l’arche du marché. Entrée libre ; payez stand par stand. Confirmez via Instagram @sosuafoodmarket.",
+    "date": "2026-10-17",
+    "time": "4:00 PM",
+    "location": "Sosúa",
+    "venue": "Sosúa Food Market",
+    "venueSlug": "sosua-food-market",
+    "address": "Calle Anacaona & Calle Pablo Neruda, Sosúa 57000",
+    "lat": 19.7670539,
+    "lng": -70.5096794,
+    "category": "food-drinks",
+    "categories": [
+      "music",
+      "parties"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/sosuafoodmarket/",
+    "instagram": "sosuafoodmarket",
+    "lineup": [
+      "Coconut Bar",
+      "DJ live"
+    ],
+    "imageEmoji": "🍺"
+  },
+  {
+    "id": "sosua-food-market-halloween-cine-2026-10-24",
+    "title": "Après-midi cinéma Halloween — Hotel Transylvania au Sosúa Food Market",
+    "description": "Après-midi cinéma Halloween au Sosúa Food Market, Calle Anacaona & Calle Pablo Neruda, Sosúa — samedi 24 octobre 2026 dès 17 h. Hotel Transylvania en grand écran en plein air, costumes, popcorn et fun en famille sur le patio. Entrée libre ; payez nourriture et boissons stand par stand. Instagram @sosuafoodmarket.",
+    "date": "2026-10-24",
+    "time": "5:00 PM",
+    "location": "Sosúa",
+    "venue": "Sosúa Food Market",
+    "venueSlug": "sosua-food-market",
+    "address": "Calle Anacaona & Calle Pablo Neruda, Sosúa 57000",
+    "lat": 19.7670539,
+    "lng": -70.5096794,
+    "category": "halloween",
+    "categories": [
+      "culture",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "ageHint": "family",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/sosuafoodmarket/",
+    "instagram": "sosuafoodmarket",
+    "lineup": [
+      "Hotel Transylvania"
+    ],
+    "imageEmoji": "🎬"
   }
 ]

@@ -177,6 +177,10 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "sosua-food-market-dj-one-d-2026-09-25.jpg",
   "sosua-food-market-dj-henry-2026-10-02":
     "sosua-food-market-dj-henry-2026-10-02.jpg",
+  "sosua-food-market-oktoberfest-tropical-2026-10-17":
+    "sosua-food-market-oktoberfest-tropical-2026-10-17.jpg",
+  "sosua-food-market-halloween-cine-2026-10-24":
+    "sosua-food-market-halloween-cine-2026-10-24.jpg",
   "sosua-food-market-daily": "sosua-food-market-daily-patio.jpg",
   "ocean-world-terrace-karaoke-wednesday":
     "ocean-world-terrace-karaoke-wednesday.jpg",
@@ -369,7 +373,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "trillo-la-guaita-long-beach-2026-09-24":
     "trillo-la-guaita-long-beach-2026-09-24.jpg",
   "cruzmonty-manuel-cocco-birthday-cigar-town-2026-10-17":
-    "cruzmonty-manuel-cocco-birthday-cigar-town-2026-10-17.jpg",
+    "cruzmonty-manuel-cocco-birthday-cigar-town-2026-10-17-v2.jpg",
   "hard-rock-feria-empleos-2026-10-05":
     "hard-rock-feria-empleos-2026-10-05.jpg",
   "twenty-disco-paradise-in-hell-2026-10-31":
@@ -685,6 +689,8 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "hard-rock-rising-final-local-2026-09-23": "object-left",
   "sosua-food-market-dj-one-d-2026-09-25": "object-top",
   "sosua-food-market-dj-henry-2026-10-02": "object-center",
+  "sosua-food-market-oktoberfest-tropical-2026-10-17": "object-center",
+  "sosua-food-market-halloween-cine-2026-10-24": "object-center",
   "sosua-food-market-daily": "object-center",
   "ocean-world-terrace-karaoke-wednesday": "object-center",
   "la-lola-dj-one-d-feriado-2026-09-24": "object-center",
@@ -936,6 +942,8 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "ocean-world-terrace-karaoke-wednesday.jpg",
   "sosua-food-market-dj-one-d-2026-09-25.jpg",
   "sosua-food-market-dj-henry-2026-10-02.jpg",
+  "sosua-food-market-oktoberfest-tropical-2026-10-17.jpg",
+  "sosua-food-market-halloween-cine-2026-10-24.jpg",
   "la-lola-dj-one-d-feriado-2026-09-24.jpg",
   "aura-halloween-party-2026-10-31.jpg",
   "la-lola-noche-de-nenas-blanco-2026-09-25.jpg",
@@ -989,6 +997,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "jump-fit-rosa-beard-over-club-2026-10-31.jpg",
   "trillo-la-guaita-long-beach-2026-09-24.jpg",
   "cruzmonty-manuel-cocco-birthday-cigar-town-2026-10-17.jpg",
+  "cruzmonty-manuel-cocco-birthday-cigar-town-2026-10-17-v2.jpg",
   "hard-rock-feria-empleos-2026-10-05.jpg",
   "twenty-disco-paradise-in-hell-2026-10-31.jpg",
   "petit-francois-halloween-2026-10-30.jpg",

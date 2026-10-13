@@ -715,6 +715,16 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     callForPricing: true,
     venueSlug: "sosua-food-market",
   },
+  "sosua-food-market-oktoberfest-tropical-2026-10-17": {
+    isFree: true,
+    venueSlug: "sosua-food-market",
+    sourceUrl: "https://www.instagram.com/sosuafoodmarket/",
+  },
+  "sosua-food-market-halloween-cine-2026-10-24": {
+    isFree: true,
+    venueSlug: "sosua-food-market",
+    sourceUrl: "https://www.instagram.com/sosuafoodmarket/",
+  },
   "natura-market-2026-10-04": {
     isFree: true,
     phone: "+18492147010",

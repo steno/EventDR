@@ -251,6 +251,8 @@ export const CURATED_FREE_EVENTS = new Set<string>([
   "don-limon-beach-dining",
   "los-tres-cocos-dinner",
   "sosua-food-market-daily",
+  "sosua-food-market-oktoberfest-tropical-2026-10-17",
+  "sosua-food-market-halloween-cine-2026-10-24",
   "hms-valeria-spanish-saturday",
   "hms-valeria-domingo-dominicano",
   "sancocho-sabados-pingui",

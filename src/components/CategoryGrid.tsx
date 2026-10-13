@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { IntentLink } from "@/components/IntentLink";
+import { PillScrollRail } from "@/components/PillScrollRail";
 import { trackEvent } from "@/lib/analytics";
 import { getCategoryDefs } from "@/lib/categories";
 import { useCategoryAutoStepScroll } from "@/hooks/useCategoryAutoStepScroll";
@@ -17,7 +18,6 @@ import {
   CATEGORY_PILL_DIMMED,
   CATEGORY_PILL_IDLE,
   CATEGORY_PILL_PENDING,
-  CATEGORY_SCROLLER_BAR,
 } from "@/components/category-scroller-styles";
 import {
   allEventsPath,
@@ -111,88 +111,76 @@ export function CategoryGrid({
         </p>
         {headerAction ? <div className="contents">{headerAction}</div> : null}
       </div>
-      <div className={`${CATEGORY_SCROLLER_BAR} mt-1`}>
-        <div className="relative min-w-0 flex-1 overflow-hidden">
-          <div ref={scrollRef} className="overflow-x-auto scrollbar-hide">
-            <div className="flex w-max gap-3 px-0.5 py-1">
-              <IntentLink
-                href={allEventsHref}
-                onClick={() => {
-                  trackEvent("select_category", { category: "all" });
-                  setPendingHref(allEventsHref);
-                  onCategorySelect?.();
-                }}
-                aria-busy={pendingHref === allEventsHref || undefined}
-                className={`${CATEGORY_PILL_BASE} ${CATEGORY_PILL_ACTIVE}${
-                  pendingHref === allEventsHref ? ` ${CATEGORY_PILL_PENDING}` : ""
-                }${
-                  pendingHref != null && pendingHref !== allEventsHref
-                    ? ` ${CATEGORY_PILL_DIMMED}`
-                    : ""
-                }`}
-                aria-label={allEventsLabel}
-                aria-current="page"
-              >
-                <span className="text-[48px] leading-none select-none" aria-hidden>
-                  📅
-                </span>
-                <span className="line-clamp-2 w-full">{allEventsLabel}</span>
-              </IntentLink>
-              {categories.map((cat) => {
-                const href = categoryPath(locale, cat.id, citySlug);
-                const pending = pendingHref === href;
-                const dimmed = pendingHref != null && pendingHref !== href;
+      <PillScrollRail
+        scrollRef={scrollRef}
+        itemCount={pillCount}
+        scrollMoreLabel={dict.browse.scrollHint}
+        className="mt-1"
+      >
+        <IntentLink
+          href={allEventsHref}
+          onClick={() => {
+            trackEvent("select_category", { category: "all" });
+            setPendingHref(allEventsHref);
+            onCategorySelect?.();
+          }}
+          aria-busy={pendingHref === allEventsHref || undefined}
+          className={`${CATEGORY_PILL_BASE} ${CATEGORY_PILL_ACTIVE}${
+            pendingHref === allEventsHref ? ` ${CATEGORY_PILL_PENDING}` : ""
+          }${
+            pendingHref != null && pendingHref !== allEventsHref
+              ? ` ${CATEGORY_PILL_DIMMED}`
+              : ""
+          }`}
+          aria-label={allEventsLabel}
+          aria-current="page"
+        >
+          {allEventsLabel}
+        </IntentLink>
+        {categories.map((cat) => {
+          const href = categoryPath(locale, cat.id, citySlug);
+          const pending = pendingHref === href;
+          const dimmed = pendingHref != null && pendingHref !== href;
 
-                return (
-                  <IntentLink
-                    key={cat.id}
-                    href={href}
-                    onClick={() => {
-                      trackEvent("select_category", { category: cat.id });
-                      setPendingHref(href);
-                      onCategorySelect?.();
-                    }}
-                    aria-busy={pending || undefined}
-                    className={`${CATEGORY_PILL_BASE} ${CATEGORY_PILL_IDLE}${
-                      pending ? ` ${CATEGORY_PILL_PENDING}` : ""
-                    }${dimmed ? ` ${CATEGORY_PILL_DIMMED}` : ""}`}
-                    aria-label={cat.label}
-                  >
-                    <span className="text-[48px] leading-none select-none" aria-hidden>
-                      {cat.emoji}
-                    </span>
-                    <span className="line-clamp-2 w-full">{cat.label}</span>
-                  </IntentLink>
-                );
-              })}
-              <IntentLink
-                href={venuesHref}
-                onClick={() => {
-                  trackEvent("select_category", { category: "venues" });
-                  setPendingHref(venuesHref);
-                  onCategorySelect?.();
-                }}
-                aria-busy={pendingHref === venuesHref || undefined}
-                className={`${CATEGORY_PILL_BASE} ${CATEGORY_PILL_IDLE}${
-                  pendingHref === venuesHref ? ` ${CATEGORY_PILL_PENDING}` : ""
-                }${
-                  pendingHref != null && pendingHref !== venuesHref
-                    ? ` ${CATEGORY_PILL_DIMMED}`
-                    : ""
-                }`}
-                aria-label={dict.venues.directory.title}
-              >
-                <span className="text-[48px] leading-none select-none" aria-hidden>
-                  📍
-                </span>
-                <span className="line-clamp-2 w-full">
-                  {dict.venues.directory.title}
-                </span>
-              </IntentLink>
-            </div>
-          </div>
-        </div>
-      </div>
+          return (
+            <IntentLink
+              key={cat.id}
+              href={href}
+              onClick={() => {
+                trackEvent("select_category", { category: cat.id });
+                setPendingHref(href);
+                onCategorySelect?.();
+              }}
+              aria-busy={pending || undefined}
+              className={`${CATEGORY_PILL_BASE} ${CATEGORY_PILL_IDLE}${
+                pending ? ` ${CATEGORY_PILL_PENDING}` : ""
+              }${dimmed ? ` ${CATEGORY_PILL_DIMMED}` : ""}`}
+              aria-label={cat.label}
+            >
+              {cat.label}
+            </IntentLink>
+          );
+        })}
+        <IntentLink
+          href={venuesHref}
+          onClick={() => {
+            trackEvent("select_category", { category: "venues" });
+            setPendingHref(venuesHref);
+            onCategorySelect?.();
+          }}
+          aria-busy={pendingHref === venuesHref || undefined}
+          className={`${CATEGORY_PILL_BASE} ${CATEGORY_PILL_IDLE}${
+            pendingHref === venuesHref ? ` ${CATEGORY_PILL_PENDING}` : ""
+          }${
+            pendingHref != null && pendingHref !== venuesHref
+              ? ` ${CATEGORY_PILL_DIMMED}`
+              : ""
+          }`}
+          aria-label={dict.venues.directory.title}
+        >
+          {dict.venues.directory.title}
+        </IntentLink>
+      </PillScrollRail>
     </section>
   );
 }
