@@ -210,6 +210,8 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "hotel-villa-taina": "hotel-villa-taina-pool.jpg",
   "terramar-pickleball-club": "terramar-pickleball-club.jpg",
   "the-hideout-puerto-plata": "the-hideout-puerto-plata.jpg",
+  "villa-cocomar": "villa-cocomar-pool.jpg",
+  "galerias-padel-club": "galerias-padel-club-courts.jpg",
 };
 
 /** Cache-busted URL for general venue thumbnails / JSON-LD. */

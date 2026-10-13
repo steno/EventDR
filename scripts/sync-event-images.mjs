@@ -170,6 +170,12 @@ const FILE_TO_EVENT_ID = {
     "twenty-disco-paradise-in-hell-2026-10-31",
   "twenty-disco-party-mask-black-white-2026-10-17.jpg":
     "twenty-disco-party-mask-black-white-2026-10-17",
+  "twenty-disco-bichotas-night-sebastian-crozz-2026-10-15.jpg":
+    "twenty-disco-bichotas-night-sebastian-crozz-2026-10-15",
+  "chill-grill-halloween-night-2026-10-31.jpg":
+    "chill-grill-halloween-night-2026-10-31",
+  "pink-garden-galerias-padel-2026-10-17.jpg":
+    "pink-garden-galerias-padel-2026-10-17",
   "petit-francois-halloween-2026-10-30.jpg":
     "petit-francois-halloween-2026-10-30",
   "petit-francois-canadian-thanksgiving-2026-10-12-en.jpg":
@@ -363,6 +369,10 @@ const FILE_TO_EVENT_ID = {
     "natura-sunbar-sunset-sounds-em-zayd-2026-10-01",
   "natura-sunbar-sunset-sounds-hyper-2026-10-08.jpg":
     "natura-sunbar-sunset-sounds-hyper-2026-10-08",
+  "natura-sunbar-sunset-sounds-aldenkings-2026-10-15.jpg":
+    "natura-sunbar-sunset-sounds-aldenkings-2026-10-15",
+  "village-festival-fundraiser-villa-cocomar-2026-10-18.jpg":
+    "village-festival-fundraiser-villa-cocomar-2026-10-18",
   "disney-dream-taino-bay-2026-10-06.jpg": "disney-dream-taino-bay-2026-10-06",
   "taino-bay-village-daily-lazy-river.jpg": "taino-bay-village-daily",
   "natura-market-2026-10-04.jpg": "natura-market-2026-10-04",
@@ -668,6 +678,8 @@ const FILE_TO_VENUE_SLUG = {
   "hotel-voramar-sosua-pool.jpg": "hotel-voramar-sosua-pool",
   "trolley-city-tours-party-bus.jpg": "trolley-city-tours-party-bus",
   "hotel-villa-taina-pool.jpg": "hotel-villa-taina-pool",
+  "villa-cocomar-pool.jpg": "villa-cocomar-pool",
+  "galerias-padel-club-courts.jpg": "galerias-padel-club-courts",
   "el-mirador-de-finely-balcony.jpg": "el-mirador-de-finely-balcony",
   "sosua-food-market-entrance.jpg": "sosua-food-market-entrance",
   "sosua-jewish-museum-facade.jpg": "sosua-jewish-museum-facade",

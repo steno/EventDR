@@ -121,6 +121,10 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "natura-sunbar-sunset-sounds-em-zayd-2026-10-01.jpg",
   "natura-sunbar-sunset-sounds-hyper-2026-10-08":
     "natura-sunbar-sunset-sounds-hyper-2026-10-08.jpg",
+  "natura-sunbar-sunset-sounds-aldenkings-2026-10-15":
+    "natura-sunbar-sunset-sounds-aldenkings-2026-10-15.jpg",
+  "village-festival-fundraiser-villa-cocomar-2026-10-18":
+    "village-festival-fundraiser-villa-cocomar-2026-10-18.jpg",
   "disney-dream-taino-bay-2026-10-06": "disney-dream-taino-bay-2026-10-06.jpg",
   "natura-cabana-jazz-ensemble-2026-10-03":
     "natura-cabana-jazz-ensemble-2026-10-03.jpg",
@@ -383,6 +387,12 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "twenty-disco-paradise-in-hell-2026-10-31.jpg",
   "twenty-disco-party-mask-black-white-2026-10-17":
     "twenty-disco-party-mask-black-white-2026-10-17.jpg",
+  "twenty-disco-bichotas-night-sebastian-crozz-2026-10-15":
+    "twenty-disco-bichotas-night-sebastian-crozz-2026-10-15.jpg",
+  "chill-grill-halloween-night-2026-10-31":
+    "chill-grill-halloween-night-2026-10-31.jpg",
+  "pink-garden-galerias-padel-2026-10-17":
+    "pink-garden-galerias-padel-2026-10-17.jpg",
   "petit-francois-halloween-2026-10-30":
     "petit-francois-halloween-2026-10-30.jpg",
   "petit-francois-canadian-thanksgiving-2026-10-12":
@@ -1015,6 +1025,9 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "hard-rock-feria-empleos-2026-10-05.jpg",
   "twenty-disco-paradise-in-hell-2026-10-31.jpg",
   "twenty-disco-party-mask-black-white-2026-10-17.jpg",
+  "twenty-disco-bichotas-night-sebastian-crozz-2026-10-15.jpg",
+  "chill-grill-halloween-night-2026-10-31.jpg",
+  "pink-garden-galerias-padel-2026-10-17.jpg",
   "petit-francois-halloween-2026-10-30.jpg",
   "petit-francois-canadian-thanksgiving-2026-10-12-en.jpg",
   "petit-francois-canadian-thanksgiving-2026-10-12-es.jpg",
@@ -1031,6 +1044,8 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "natura-sunbar-special-sunset-sounds-2026-09-24.jpg",
   "natura-sunbar-sunset-sounds-em-zayd-2026-10-01.jpg",
   "natura-sunbar-sunset-sounds-hyper-2026-10-08.jpg",
+  "natura-sunbar-sunset-sounds-aldenkings-2026-10-15.jpg",
+  "village-festival-fundraiser-villa-cocomar-2026-10-18.jpg",
   "disney-dream-taino-bay-2026-10-06.jpg",
   "voyvoy-soft-reopening-sunset-2026-10-09.jpg",
   "voyvoy-soft-reopening-saturday-2026-10-10.jpg",

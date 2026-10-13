@@ -5287,4 +5287,97 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "Editor flyer + IG caption — Sáb 17 Oct 2026 from 8:00 PM BandItalia International, Hard Rock Cafe Puerto Plata, entrada gratis, reservations 849-505-7778. Distinct from parada-choco-banditalia-2026-10-06.",
     updatedAt: "2026-10-13T19:00:00.000Z",
   },
+  {
+    eventId: "village-festival-fundraiser-villa-cocomar-2026-10-18",
+    body: "Sunday daytime community fundraiser on the private Villa Cocomar pool lawn east of Cabarete — facilitators day with @ecstaticlove_events, not a Calle Principal club night; confirm tickets before you assume open gates (+1 849-846-6026 / @ecstaticlove_events).",
+    localized: {
+      es: "Fundraiser comunitario diurno del domingo en el césped de piscina de Villa Cocomar al este de Cabarete — día de facilitadores con @ecstaticlove_events, no una noche de club en Calle Principal; confirma boletas antes de asumir puertas abiertas (+1 849-846-6026 / @ecstaticlove_events).",
+      fr: "Fundraiser communautaire de jour le dimanche sur la pelouse piscine de Villa Cocomar à l’est de Cabarete — journée facilitateurs avec @ecstaticlove_events, pas une nuit club sur Calle Principal ; confirmez les billets avant de croire les portes ouvertes (+1 849-846-6026 / @ecstaticlove_events).",
+    },
+    priceFeel: "varies",
+    priceNote:
+      "Tickets not on flyer — @ecstaticlove_events · villa +1 849-846-6026",
+    priceNoteLocalized: {
+      es: "Boletas no están en el flyer — @ecstaticlove_events · villa +1 849-846-6026",
+      fr: "Billets absents de l’affiche — @ecstaticlove_events · villa +1 849-846-6026",
+    },
+    attribution: "POP research · @ecstaticlove_events The Village Festival Fundraiser flyer",
+    researchNotes:
+      "Editor flyer — The Village Festival Fundraiser, Sun Oct 18 10 AM–6 PM, Villa Cocomar; facilitators collage; @ecstaticlove_events. Venue Google Maps Route 5 Cabarete / Plus Code PJP6+JH. No age/price on flyer.",
+    updatedAt: "2026-10-13T22:00:00.000Z",
+  },
+  {
+    eventId: "natura-sunbar-sunset-sounds-aldenkings-2026-10-15",
+    body: "Thursday SunBar sunset with guest DJ ALDENKINGS and extended happy hour — Perla Marina / Cabarete ocean deck, not a Cabarete strip club night; come for cocktails at golden hour.",
+    localized: {
+      es: "Atardecer de jueves en SunBar con guest DJ ALDENKINGS y happy hour extendido — terraza océano Perla Marina / Cabarete, no un club de la strip; ven por cócteles a la hora dorada.",
+      fr: "Sunset du jeudi au SunBar avec guest DJ ALDENKINGS et happy hour prolongé — terrasse océan Perla Marina / Cabarete, pas un club de la strip ; venez pour les cocktails à l’heure dorée.",
+    },
+    priceFeel: "varies",
+    priceNote: "Happy hour / menu — +1 849-214-7010 · naturacabana.com",
+    priceNoteLocalized: {
+      es: "Happy hour / menú — +1 849-214-7010 · naturacabana.com",
+      fr: "Happy hour / menu — +1 849-214-7010 · naturacabana.com",
+    },
+    attribution: "POP research · SunBar Sunset & Sounds ALDENKINGS flyer",
+    researchNotes:
+      "Editor flyer + naturacabana.com/events/: Thu 15 Oct 2026 6–9 PM SunBar Guest DJ ALDENKINGS, special extended happy hour; weekly Thursday Sunset & Sounds series.",
+    updatedAt: "2026-10-13T21:00:00.000Z",
+  },
+  {
+    eventId: "twenty-disco-bichotas-night-sebastian-crozz-2026-10-15",
+    body: "Thursday ladies-night pink set at Twenty inside Playa Dorada Mall with Sebastian Crozz — free Baileys + Midori for women on the flyer, men’s cover unstated; not Natura’s same-Thursday SunBar sunset and not Crozz’s Mecla'o Tulum night from Oct 10.",
+    localized: {
+      es: "Jueves ladies night rosa en Twenty dentro de Playa Dorada Mall con Sebastian Crozz — Baileys + Midori gratis para ellas en el flyer, cover de ellos no dicho; no es el sunset del mismo jueves en SunBar de Natura ni el Tulum de Crozz en Mecla'o del 10 de oct.",
+      fr: "Jeudi ladies night rose au Twenty dans Playa Dorada Mall avec Sebastian Crozz — Baileys + Midori gratuits pour elles sur l’affiche, cover hommes non dit ; pas le sunset du même jeudi au SunBar Natura ni le Tulum de Crozz chez Mecla'o du 10 oct.",
+    },
+    priceFeel: "varies",
+    priceNote:
+      "Baileys + Midori free for women — men’s cover not on flyer · @twenty_disco_lounge",
+    priceNoteLocalized: {
+      es: "Baileys + Midori gratis para ellas — cover de ellos no está en el flyer · @twenty_disco_lounge",
+      fr: "Baileys + Midori gratuits pour elles — cover hommes absent de l’affiche · @twenty_disco_lounge",
+    },
+    attribution: "POP research · @twenty_disco_lounge Bichotas Night flyer",
+    researchNotes:
+      "Editor flyer + IG @twenty_disco_lounge — JUE 15 OCT BICHOTAS NIGHT, Sebastian Crozz, Baileys y Midoris gratis para ellas; caption ELLAS MANDAN / ellas no pagan. Same Thu as natura-sunbar-sunset-sounds-aldenkings-2026-10-15.",
+    updatedAt: "2026-10-13T23:00:00.000Z",
+  },
+  {
+    eventId: "chill-grill-halloween-night-2026-10-31",
+    body: "Casa Linda neighborhood Halloween at Chill & Grill — live rock from 6:30 PM and costume contest at 8:00 PM on Carretera El Choco, not Natura’s resort dinner contest or Blue Ice Chimbala the same Saturday; cover isn’t on the flyer so confirm +1 829-679-8389 / @chillandgrilldr.",
+    localized: {
+      es: "Halloween de vecindario en Chill & Grill, Casa Linda — rock en vivo desde las 6:30 PM y concurso de disfraces a las 8:00 PM en Carretera El Choco, no es la cena-concurso de Natura ni Chimbala en Blue Ice el mismo sábado; el cover no está en el flyer, confirma +1 829-679-8389 / @chillandgrilldr.",
+      fr: "Halloween de quartier au Chill & Grill, Casa Linda — rock live dès 18 h 30 et concours de costumes à 20 h sur Carretera El Choco, pas le dîner-concours Natura ni Chimbala à Blue Ice le même samedi ; le cover n’est pas sur l’affiche, confirmez +1 829-679-8389 / @chillandgrilldr.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover not on flyer — +1 829-679-8389 · @chillandgrilldr",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — +1 829-679-8389 · @chillandgrilldr",
+      fr: "Cover absent de l’affiche — +1 829-679-8389 · @chillandgrilldr",
+    },
+    attribution: "POP research · @chillandgrilldr Halloween Night flyer",
+    researchNotes:
+      "Editor flyer + IG @chillandgrilldr — Sat 31 Oct 2026 Halloween Night, live rock band 6:30 PM, costume contest 8:00 PM, Casa Linda Sosúa. Venue slug castaways-sosua.",
+    updatedAt: "2026-10-13T23:30:00.000Z",
+  },
+  {
+    eventId: "pink-garden-galerias-padel-2026-10-17",
+    body: "Saturday pink-dress wellness fundraiser on Luis Ginebra pádel courts — register limited pilates/pádel slots on WhatsApp +1 829-626-2410 before you show in rose; not Twenty’s Party Mask Halloween the same night at Playa Dorada Mall.",
+    localized: {
+      es: "Fundraiser de wellness de sábado con dress code rosa en las canchas de pádel de Luis Ginebra — reserva cupos limitados de pilates/pádel por WhatsApp +1 829-626-2410 antes de llegar de rosa; no es el Party Mask Halloween de Twenty la misma noche en Playa Dorada Mall.",
+      fr: "Fundraiser wellness du samedi en rose sur les terrains de padel Luis Ginebra — réservez les places limitées pilates/padel via WhatsApp +1 829-626-2410 avant d’arriver en rose ; pas le Party Mask Halloween de Twenty le même soir à Playa Dorada Mall.",
+    },
+    priceFeel: "varies",
+    priceNote:
+      "Class spots limited — WhatsApp +1 829-626-2410 · @greengardendr / @galeriaspadelclub",
+    priceNoteLocalized: {
+      es: "Cupos limitados — WhatsApp +1 829-626-2410 · @greengardendr / @galeriaspadelclub",
+      fr: "Places limitées — WhatsApp +1 829-626-2410 · @greengardendr / @galeriaspadelclub",
+    },
+    attribution: "POP research · @greengardendr The Pink Garden flyer",
+    researchNotes:
+      "Editor flyer + IG @greengardendr — Sat 17 Oct 2026 from 4 PM The Pink Garden at Galerías Pádel Club; Green Garden × Galerías; Patronato Manos Unidas; pádel/pilates/charlas/mindfulness/mahjong; dress code rosa; WhatsApp +1 829-626-2410. Venue playbypoint + Maps Av. Luis Ginebra.",
+    updatedAt: "2026-10-13T23:45:00.000Z",
+  },
 ];

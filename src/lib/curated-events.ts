@@ -750,6 +750,14 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     phone: "+18492147010",
     venueSlug: "natura-cabana",
   },
+  "natura-sunbar-sunset-sounds-aldenkings-2026-10-15": {
+    phone: "+18492147010",
+    venueSlug: "natura-cabana",
+  },
+  "village-festival-fundraiser-villa-cocomar-2026-10-18": {
+    phone: "+18498466026",
+    venueSlug: "villa-cocomar",
+  },
   "disney-dream-taino-bay-2026-10-06": {
     isFree: true,
     venueSlug: "taino-bay",
@@ -816,6 +824,23 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     phone: "+18495077676",
     venueSlug: "twenty-disco-lounge",
     sourceUrl: "https://www.instagram.com/twenty_disco_lounge/",
+  },
+  "twenty-disco-bichotas-night-sebastian-crozz-2026-10-15": {
+    callForPricing: true,
+    venueSlug: "twenty-disco-lounge",
+    sourceUrl: "https://www.instagram.com/twenty_disco_lounge/",
+  },
+  "chill-grill-halloween-night-2026-10-31": {
+    callForPricing: true,
+    phone: "+18296798389",
+    venueSlug: "castaways-sosua",
+    sourceUrl: "https://www.instagram.com/chillandgrilldr/",
+  },
+  "pink-garden-galerias-padel-2026-10-17": {
+    callForPricing: true,
+    phone: "+18296262410",
+    venueSlug: "galerias-padel-club",
+    sourceUrl: "https://www.instagram.com/greengardendr/",
   },
   "groundzero-halloween-2026-10-30": {
     callForPricing: true,

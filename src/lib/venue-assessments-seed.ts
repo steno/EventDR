@@ -1789,6 +1789,40 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
       { key: "easy_to_find", sentiment: "mixed" },
     ],
   }),
+  editorial({
+    venueSlug: "villa-cocomar",
+    verdictKey: "reliable_visitor_pick",
+    crowdFit: ["visitor", "mixed", "family"],
+    axes: { recommend: 4.5, atmosphere: 4.7, practical: 3.8, value: 3.6 },
+    themes: [
+      { key: "beachfront", sentiment: "positive", audience: "visitor" },
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+      { key: "easy_to_find", sentiment: "mixed" },
+    ],
+    sources: [
+      {
+        kind: "google_places",
+        label: "Google",
+        rating: 4.8,
+        reviewCount: 101,
+        fetchedAt: "2026-10-13T00:00:00.000Z",
+        snippets: [
+          "Private beachfront villa estate east of Cabarete.",
+        ],
+      },
+    ],
+  }),
+  editorial({
+    venueSlug: "galerias-padel-club",
+    verdictKey: "reliable_visitor_pick",
+    crowdFit: ["visitor", "mixed", "family"],
+    axes: { recommend: 4.3, atmosphere: 4.2, practical: 4.0, value: 3.8 },
+    themes: [
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+      { key: "easy_to_find", sentiment: "positive" },
+      { key: "busy_weekends", sentiment: "mixed" },
+    ],
+  }),
 ];
 
 const bySlug = new Map(

@@ -1027,6 +1027,26 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Lounge au deuxième étage, Av. Luis Ginebra n° 56 (même immeuble que Cigar Town Pop, à l’étage) — canapé et néon en terrasse, Miércoles de Rock en Español et pop-ups comme El Cuervo Street Food. Pas le lounge à cigares du rez-de-chaussée.",
     },
   },
+  "villa-cocomar": {
+    name: {
+      es: "Villa Cocomar",
+      fr: "Villa Cocomar",
+    },
+    description: {
+      es: "Villa privada frente al mar al este de Cabarete en la Ruta 5 — jardines manicurados, piscina tipo resort con cabanas, lounges al aire libre y staff completo para bodas, retiros y encuentros comunitarios. Reservas en villacocomardr.com · +1 849-846-6026.",
+      fr: "Villa privée en bord de mer à l’est de Cabarete sur la Route 5 — jardins soignés, piscine style resort avec cabanas, lounges en plein air et staff complet pour mariages, retraites et rassemblements communautaires. Réservations sur villacocomardr.com · +1 849-846-6026.",
+    },
+  },
+  "galerias-padel-club": {
+    name: {
+      es: "Galerías Pádel Club",
+      fr: "Galerías Pádel Club",
+    },
+    description: {
+      es: "Club de pádel al aire libre en Av. Luis Ginebra — canchas con paredes de vidrio, lounge de césped, coaching y programas vía Play by Point. Abierto diario ~7:30 AM–10 PM. Reserva en galeriaspadelclub.playbypoint.com · +1 849-803-4929 · Instagram @galeriaspadelclub.",
+      fr: "Club de padel en plein air sur Av. Luis Ginebra — terrains vitrés, lounge gazon, coaching et programmes via Play by Point. Ouvert tous les jours ~7 h 30–22 h. Réservez sur galeriaspadelclub.playbypoint.com · +1 849-803-4929 · Instagram @galeriaspadelclub.",
+    },
+  },
 };
 
 export function localizeVenue(venue: Venue, locale: Locale): Venue {

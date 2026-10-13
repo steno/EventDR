@@ -132,6 +132,10 @@ const EVENT_PHONE_BY_ID: Record<string, string> = {
   "twenty-disco-party-mask-black-white-2026-10-17": "+18495077676",
   "hard-rock-banditalia-2026-10-17": "+18495057778",
   "aura-cinema-nadie-duerme-bosque-2026-10-13": "+18297870140",
+  "village-festival-fundraiser-villa-cocomar-2026-10-18": "+18498466026",
+  "natura-sunbar-sunset-sounds-aldenkings-2026-10-15": "+18492147010",
+  "chill-grill-halloween-night-2026-10-31": "+18296798389",
+  "pink-garden-galerias-padel-2026-10-17": "+18296262410",
 };
 
 export function formatPhoneDisplay(phone: string): string {

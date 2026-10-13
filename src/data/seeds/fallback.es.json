@@ -6062,5 +6062,153 @@
       "Nadie Duerme en el Bosque"
     ],
     "imageEmoji": "🎬"
+  },
+  {
+    "id": "village-festival-fundraiser-villa-cocomar-2026-10-18",
+    "title": "The Village Festival Fundraiser en Villa Cocomar",
+    "description": "The Village Festival Fundraiser en Villa Cocomar, Ruta 5 al este de Cabarete — domingo 18 de octubre 2026, 10:00 AM–6:00 PM. Día de magia comunitaria con facilitadores del festival de @ecstaticlove_events en los jardines de la villa privada frente al mar (césped de piscina y jardines). Confirma boletas y entrada por Instagram @ecstaticlove_events · villa +1 849-846-6026 · villacocomardr.com.",
+    "date": "2026-10-18",
+    "time": "10:00 AM – 6:00 PM",
+    "location": "Cabarete",
+    "venue": "Villa Cocomar",
+    "venueSlug": "villa-cocomar",
+    "address": "Ruta 5, Cabarete 57000",
+    "lat": 19.7365142,
+    "lng": -70.3885257,
+    "category": "festivals",
+    "categories": [
+      "culture",
+      "music"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18498466026",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/ecstaticlove_events/",
+    "instagram": "ecstaticlove_events",
+    "lineup": [
+      "Facilitadores del festival — @ecstaticlove_events"
+    ],
+    "imageEmoji": "🌻"
+  },
+  {
+    "id": "natura-sunbar-sunset-sounds-aldenkings-2026-10-15",
+    "title": "Sunset & Sounds — Guest DJ ALDENKINGS en SunBar",
+    "description": "Sunset & Sounds en SunBar, Natura Cabana, Paseo del Sol 5, Cabarete — jueves 15 de octubre 2026, 6:00–9:00 PM. Guest DJ ALDENKINGS, DJ en vivo, cócteles, vibes de océano y happy hour especial extendido. Serie semanal de jueves al atardecer; esta edición con ALDENKINGS. +1 849-214-7010 · naturacabana.com.",
+    "date": "2026-10-15",
+    "time": "6:00 PM – 9:00 PM",
+    "location": "Cabarete",
+    "venue": "Natura Cabana",
+    "venueSlug": "natura-cabana",
+    "address": "Paseo del Sol 5, Cabarete",
+    "lat": 19.7833499,
+    "lng": -70.4621124,
+    "category": "music",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18492147010",
+    "sourceType": "flyer",
+    "sourceUrl": "https://naturacabana.com/event/events-sunset-and-sounds-cabarete/",
+    "lineup": [
+      "ALDENKINGS"
+    ],
+    "imageEmoji": "🌅"
+  },
+  {
+    "id": "twenty-disco-bichotas-night-sebastian-crozz-2026-10-15",
+    "title": "Twenty Disco — Bichotas Night con Sebastian Crozz",
+    "description": "Bichotas Night en Twenty Disco & Lounge, Playa Dorada Mall, Puerto Plata — jueves 15 de octubre 2026. Beats de Sebastian Crozz (@sebastiancrozz). Promo ladies: Baileys + Midori gratis para ellas. Noche rosa en el mall — no es el Sunset & Sounds del mismo jueves en SunBar de Natura Cabana. Confirma cover y puertas por Instagram @twenty_disco_lounge.",
+    "date": "2026-10-15",
+    "location": "Playa Dorada",
+    "venue": "Twenty Disco Lounge",
+    "venueSlug": "twenty-disco-lounge",
+    "address": "Playa Dorada Mall, Puerto Plata",
+    "lat": 19.769476,
+    "lng": -70.643033,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/twenty_disco_lounge/",
+    "instagram": "twenty_disco_lounge",
+    "lineup": [
+      "Sebastian Crozz"
+    ],
+    "imageEmoji": "💗"
+  },
+  {
+    "id": "chill-grill-halloween-night-2026-10-31",
+    "title": "Chill & Grill Halloween Night — Rock en vivo y concurso de disfraces",
+    "description": "Halloween Night en Chill & Grill Bar & Eatery, Casa Linda (Sosúa) — sábado 31 de octubre 2026. Banda de rock en vivo desde las 6:30 PM; concurso de disfraces de Halloween a las 8:00 PM. Halloween de vecindario en Casa Linda — no es la cena de disfraces de Natura Cabana, Chimbala en Blue Ice ni el concurso de Coconuts en Encuentro el mismo sábado. Confirma cover y puertas por Instagram @chillandgrilldr · +1 829-679-8389.",
+    "date": "2026-10-31",
+    "time": "6:30 PM",
+    "location": "Sosúa",
+    "venue": "Chill & Grill Bar & Eatery",
+    "venueSlug": "castaways-sosua",
+    "address": "Casa Linda Villas Phase 7-9, Carretera El Choco, Sosúa 57000",
+    "lat": 19.7643646,
+    "lng": -70.4890209,
+    "category": "halloween",
+    "categories": [
+      "music",
+      "parties"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18296798389",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/chillandgrilldr/",
+    "instagram": "chillandgrilldr",
+    "lineup": [
+      "Banda de rock en vivo",
+      "Concurso de disfraces de Halloween"
+    ],
+    "imageEmoji": "🎃"
+  },
+  {
+    "id": "pink-garden-galerias-padel-2026-10-17",
+    "title": "The Pink Garden en Galerías Pádel Club",
+    "description": "The Pink Garden — tarde a beneficio en Galerías Pádel Club, Av. Luis Ginebra, Puerto Plata — sábado 17 de octubre 2026 desde las 4:00 PM. Green Garden × Galerías Pádel Club con Patronato Manos Unidas: pádel, pilates, charlas, mindfulness y mahjong; dress code rosa. Cupos limitados en clases — inscríbete por WhatsApp +1 829-626-2410. Fundraiser de wellness en Luis Ginebra, no el Party Mask Halloween de Twenty Disco el mismo sábado. Club +1 849-803-4929 · @galeriaspadelclub · @greengardendr.",
+    "date": "2026-10-17",
+    "time": "4:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Galerías Pádel Club",
+    "venueSlug": "galerias-padel-club",
+    "address": "Av. Luis Ginebra, Puerto Plata 57000",
+    "lat": 19.7879471,
+    "lng": -70.6770493,
+    "category": "health-wellness",
+    "categories": [
+      "sports",
+      "festivals"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18296262410",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/greengardendr/",
+    "instagram": "greengardendr",
+    "lineup": [
+      "Pádel",
+      "Pilates",
+      "Charlas",
+      "Mindfulness",
+      "Mahjong",
+      "Patronato Manos Unidas"
+    ],
+    "imageEmoji": "💗"
   }
 ]

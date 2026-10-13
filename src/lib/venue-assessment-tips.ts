@@ -1233,4 +1233,20 @@ export const VENUE_TIP_COPY: Record<
       fr: "Lounge au 2e étage, Luis Ginebra n° 56 — montez en passant Cigar Town Pop pour Rock en Español le mercredi et les pop-ups annoncés (burgers El Cuervo quand listés) ; vibe canapé/néon, pas le lounge à cigares du rez-de-chaussée.",
     },
   },
+  "villa-cocomar": {
+    body: "East Cabarete beachfront private estate on Route 5 — pool lawn and cabanas for billed community days and villa rentals, not a Calle Principal walk-up bar; call +1 849-846-6026 / villacocomardr.com before you assume open gates.",
+    localized: {
+      en: "East Cabarete beachfront private estate on Route 5 — pool lawn and cabanas for billed community days and villa rentals, not a Calle Principal walk-up bar; call +1 849-846-6026 / villacocomardr.com before you assume open gates.",
+      es: "Finca privada frente al mar al este de Cabarete en la Ruta 5 — césped de piscina y cabanas para días comunitarios con cartel y alquileres de villa, no es un bar walk-up de Calle Principal; llama +1 849-846-6026 / villacocomardr.com antes de asumir puertas abiertas.",
+      fr: "Domaine privé en bord de mer à l’est de Cabarete sur la Route 5 — pelouse piscine et cabanas pour journées communautaires annoncées et locations de villa, pas un bar walk-up de Calle Principal ; appelez +1 849-846-6026 / villacocomardr.com avant de croire les portes ouvertes.",
+    },
+  },
+  "galerias-padel-club": {
+    body: "Luis Ginebra outdoor pádel courts with a turf lounge — book via Play by Point before you walk up; this is a sports club, not Mecla'o or Ambar nightlife next door on the same avenue.",
+    localized: {
+      en: "Luis Ginebra outdoor pádel courts with a turf lounge — book via Play by Point before you walk up; this is a sports club, not Mecla'o or Ambar nightlife next door on the same avenue.",
+      es: "Canchas de pádel al aire libre en Luis Ginebra con lounge de césped — reserva vía Play by Point antes de llegar walk-up; es un club deportivo, no el nightlife de Mecla'o o Ambar en la misma avenida.",
+      fr: "Terrains de padel en plein air sur Luis Ginebra avec lounge gazon — réservez via Play by Point avant d’arriver walk-up ; c’est un club sportif, pas le nightlife de Mecla'o ou Ambar sur la même avenue.",
+    },
+  },
 };

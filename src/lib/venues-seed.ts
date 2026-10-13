@@ -1981,6 +1981,36 @@ export const SEED_VENUES: Venue[] = [
     lng: -70.68032,
     emoji: "🎸",
   },
+  {
+    slug: "villa-cocomar",
+    name: "Villa Cocomar",
+    city: "Cabarete",
+    description:
+      "Private beachfront villa estate east of Cabarete on Route 5 — manicured gardens, resort-style pool with cabanas, outdoor lounges, and full staff for weddings, retreats, and community gatherings. Book via villacocomardr.com · +1 849-846-6026.",
+    // Google Maps pin (Plus Code PJP6+JH Cabarete).
+    lat: 19.7365142,
+    lng: -70.3885257,
+    emoji: "🌴",
+    website: "https://villacocomardr.com/",
+    phone: "+18498466026",
+    googleRating: 4.8,
+    googleReviewCount: 101,
+    googleRatingFetchedAt: "2026-10-13T00:00:00.000Z",
+  },
+  {
+    slug: "galerias-padel-club",
+    name: "Galerías Pádel Club",
+    city: "Puerto Plata",
+    description:
+      "Modern outdoor pádel club on Av. Luis Ginebra — glass-walled courts, turf lounge seating, coaching and programs via Play by Point. Open daily ~7:30 AM–10 PM. Book courts at galeriaspadelclub.playbypoint.com · +1 849-803-4929 · Instagram @galeriaspadelclub.",
+    // Google Maps pin (Plus Code Q8QF+55 Puerto Plata).
+    lat: 19.7879471,
+    lng: -70.6770493,
+    emoji: "🎾",
+    website: "https://galeriaspadelclub.playbypoint.com/",
+    instagram: "galeriaspadelclub",
+    phone: "+18498034929",
+  },
 ];
 
 /** Extra name fragments → seed slug (checked before fuzzy name includes). */
@@ -2157,6 +2187,15 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
   {
     pattern: /the\s*hideout|hideout\s*(puerto\s*plata|pop)?/i,
     slug: "the-hideout-puerto-plata",
+  },
+  {
+    pattern: /villa\s*coco\s*mar|villa\s*cocomar|villacocomar/i,
+    slug: "villa-cocomar",
+  },
+  {
+    pattern:
+      /galer[ií]as?\s*p[aá]del(\s*club)?|galeriaspadelclub/i,
+    slug: "galerias-padel-club",
   },
   {
     pattern:
