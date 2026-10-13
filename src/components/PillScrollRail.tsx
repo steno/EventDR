@@ -33,7 +33,8 @@ export function PillScrollRail({
 
   return (
     <div className={`${CATEGORY_SCROLLER_BAR}${className ? ` ${className}` : ""}`}>
-      <div className="relative min-w-0 flex-1 overflow-hidden">
+      {/* isolate — keep chevron z-index inside the rail, not above sticky nav */}
+      <div className="relative isolate z-0 min-w-0 flex-1 overflow-hidden">
         <div
           ref={scrollRef}
           onScroll={onScroll}

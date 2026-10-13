@@ -1897,7 +1897,7 @@ export const SEED_VENUES: Venue[] = [
     name: "Iván García Teatro-Escuela",
     city: "Puerto Plata",
     description:
-      "Victorian teatro-escuela on Calle Profesor Juan Bosch #72 in the historic center — kids and youth acting classes, stage works, and cultural programming. Regular classes paused for maintenance through 23 October 2026; billed nights include Tierra de Paso (15 Oct) and gran reapertura with Eulogio Badia (24 Oct). Instagram @teatroivangarcia · teatroivangarcia.blogspot.com.",
+      "Victorian teatro-escuela on Calle Profesor Juan Bosch #72 in the historic center — kids and youth acting classes, stage works, and cultural programming. Puerto Plata host sala for FENATE 2026 (22 Oct–1 Nov). Regular classes paused for maintenance through 23 October 2026; billed nights include Tierra de Paso (15 Oct) and gran reapertura with Eulogio Badia (24 Oct). Instagram @teatroivangarcia · teatroivangarcia.blogspot.com.",
     lat: 19.7979,
     lng: -70.6928,
     emoji: "🎭",

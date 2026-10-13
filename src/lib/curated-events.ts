@@ -172,6 +172,12 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     phone: "+18495057778",
     venueSlug: "hard-rock-sosua",
   },
+  "hard-rock-banditalia-2026-10-17": {
+    isFree: true,
+    phone: "+18495057778",
+    venueSlug: "hard-rock-sosua",
+    sourceUrl: "https://www.instagram.com/hardrockcafepuertoplata/",
+  },
   "hard-rock-catrinas-halloween-2026-10-31": {
     isFree: false,
     admissionPrice: "RD$1,000",
@@ -698,6 +704,12 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     venueSlug: "aura-beach-club-cabarete",
     sourceUrl: "https://www.instagram.com/auracabarete/",
   },
+  "aura-cinema-nadie-duerme-bosque-2026-10-13": {
+    callForPricing: true,
+    phone: "+18297870140",
+    venueSlug: "aura-beach-club-cabarete",
+    sourceUrl: "https://www.instagram.com/auracabarete/",
+  },
   "mkni-after-party-villa-taina-2026-10-24": {
     callForPricing: true,
     phone: "+18095710722",
@@ -799,6 +811,12 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     phone: "+18295667071",
     venueSlug: "twenty-disco-lounge",
   },
+  "twenty-disco-party-mask-black-white-2026-10-17": {
+    callForPricing: true,
+    phone: "+18495077676",
+    venueSlug: "twenty-disco-lounge",
+    sourceUrl: "https://www.instagram.com/twenty_disco_lounge/",
+  },
   "groundzero-halloween-2026-10-30": {
     callForPricing: true,
     phone: "+18494651313",
@@ -852,6 +870,12 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     callForPricing: true,
     phone: "+18092617393",
     venueSlug: "ivan-garcia-teatro-escuela",
+  },
+  "fenate-2026-sala-ivan-garcia": {
+    callForPricing: true,
+    phone: "+18092617393",
+    venueSlug: "ivan-garcia-teatro-escuela",
+    sourceUrl: "https://www.instagram.com/festivalesdeteatro.rd/",
   },
   "ivan-garcia-tierra-de-paso-2026-10-15": {
     isFree: false,

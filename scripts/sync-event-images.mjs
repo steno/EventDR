@@ -83,6 +83,8 @@ const FILE_TO_EVENT_ID = {
   "banda-modelo-vinoteca-2026-09-26.jpg": "banda-modelo-vinoteca-2026-09-26",
   "chiche-almonte-vinoteca-2026-10-17.jpg": "chiche-almonte-vinoteca-2026-10-17",
   "aura-cinema-abigail-2026-10-06.jpg": "aura-cinema-abigail-2026-10-06",
+  "aura-cinema-nadie-duerme-bosque-2026-10-13.jpg":
+    "aura-cinema-nadie-duerme-bosque-2026-10-13",
   "mkni-after-party-villa-taina-2026-10-24.jpg":
     "mkni-after-party-villa-taina-2026-10-24",
   "aura-disco-dj-melvin-2026-09-19.jpg": "aura-disco-dj-melvin-2026-09-19",
@@ -153,6 +155,7 @@ const FILE_TO_EVENT_ID = {
     "somnia-06-after-dark-hard-rock-2026-11-06",
   "parada-choco-banditalia-2026-10-06.jpg":
     "parada-choco-banditalia-2026-10-06",
+  "hard-rock-banditalia-2026-10-17.jpg": "hard-rock-banditalia-2026-10-17",
   "sosua-emprende-bazar-otono-2026-10-17.jpg":
     "sosua-emprende-bazar-otono-2026-10-17",
   "sosua-emprende-bazar-otono-2026-10-17-v2.jpg":
@@ -165,6 +168,8 @@ const FILE_TO_EVENT_ID = {
     "twenty-disco-dj-flaco-mc-2026-10-04",
   "twenty-disco-paradise-in-hell-2026-10-31.jpg":
     "twenty-disco-paradise-in-hell-2026-10-31",
+  "twenty-disco-party-mask-black-white-2026-10-17.jpg":
+    "twenty-disco-party-mask-black-white-2026-10-17",
   "petit-francois-halloween-2026-10-30.jpg":
     "petit-francois-halloween-2026-10-30",
   "petit-francois-canadian-thanksgiving-2026-10-12-en.jpg":
@@ -188,6 +193,7 @@ const FILE_TO_EVENT_ID = {
     "ivan-garcia-eulogio-badia-2026-10-24",
   "ivan-garcia-cafe-opera-codigo-clown-2026-10-31.jpg":
     "ivan-garcia-cafe-opera-codigo-clown-2026-10-31",
+  "fenate-2026-sala-ivan-garcia.jpg": "fenate-2026-sala-ivan-garcia",
   "la-lola-back-to-northside-2026-07-04.jpg":
     "la-lola-back-to-northside-2026-07-04",
   "ambar-lounge-emil-roman-2026-09-26.jpg": "ambar-lounge-emil-roman-2026-09-26",

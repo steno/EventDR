@@ -124,10 +124,14 @@ const EVENT_PHONE_BY_ID: Record<string, string> = {
   "ivan-garcia-eulogio-badia-2026-10-24": "+18092617393",
   "ivan-garcia-cafe-opera-codigo-clown-2026-10-31": "+18092617393",
   "ivan-garcia-tierra-de-paso-2026-10-15": "+18092617393",
+  "fenate-2026-sala-ivan-garcia": "+18092617393",
   "aura-after-dark-carlos-rivera-2026-10-10": "+18297870140",
   "petit-francois-halloween-2026-10-30": "+18294922910",
   "petit-francois-canadian-thanksgiving-2026-10-12": "+18294922910",
   "twenty-disco-luis-brown-2026-10-30": "+18295667071",
+  "twenty-disco-party-mask-black-white-2026-10-17": "+18495077676",
+  "hard-rock-banditalia-2026-10-17": "+18495057778",
+  "aura-cinema-nadie-duerme-bosque-2026-10-13": "+18297870140",
 };
 
 export function formatPhoneDisplay(phone: string): string {

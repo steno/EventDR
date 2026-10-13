@@ -156,6 +156,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "banda-modelo-vinoteca-2026-09-26": "banda-modelo-vinoteca-2026-09-26.jpg",
   "chiche-almonte-vinoteca-2026-10-17": "chiche-almonte-vinoteca-2026-10-17.jpg",
   "aura-cinema-abigail-2026-10-06": "aura-cinema-abigail-2026-10-06.jpg",
+  "aura-cinema-nadie-duerme-bosque-2026-10-13":
+    "aura-cinema-nadie-duerme-bosque-2026-10-13.jpg",
   "mkni-after-party-villa-taina-2026-10-24":
     "mkni-after-party-villa-taina-2026-10-24.jpg",
   "cabarete-run-festival-5k-2026-11-08": "cabarete-run-festival-5k-2026-11-08.jpg",
@@ -225,6 +227,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "iss-pta-parents-night-out-flyer.jpg",
   "hard-rock-catrinas-halloween-2026-10-31":
     "hard-rock-catrinas-halloween-2026-10-31.jpg",
+  "hard-rock-banditalia-2026-10-17": "hard-rock-banditalia-2026-10-17.jpg",
   "natura-market-moto-2026-09-19": "natura-market-moto-2026-09-19.jpg",
   "natura-market-2026-10-04": "natura-market-2026-10-04.jpg",
   "licor-lab-car-show-2026-10-10": "licor-lab-car-show-2026-10-10.jpg",
@@ -378,6 +381,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "hard-rock-feria-empleos-2026-10-05.jpg",
   "twenty-disco-paradise-in-hell-2026-10-31":
     "twenty-disco-paradise-in-hell-2026-10-31.jpg",
+  "twenty-disco-party-mask-black-white-2026-10-17":
+    "twenty-disco-party-mask-black-white-2026-10-17.jpg",
   "petit-francois-halloween-2026-10-30":
     "petit-francois-halloween-2026-10-30.jpg",
   "petit-francois-canadian-thanksgiving-2026-10-12":
@@ -400,6 +405,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "aura-after-dark-carlos-rivera-2026-10-10.jpg",
   "ivan-garcia-tierra-de-paso-2026-10-15":
     "ivan-garcia-tierra-de-paso-2026-10-15.jpg",
+  "fenate-2026-sala-ivan-garcia": "fenate-2026-sala-ivan-garcia.jpg",
+
   "sosua-jewish-museum-hours": "sosua-jewish-museum-hours-facade.jpg",
   "templo-de-las-americas-daily": "templo-de-las-americas-daily.jpg",
   "sosua-diving-adventures-daily": "sosua-diving-adventures-daily.jpg",
@@ -650,6 +657,8 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "ivan-garcia-eulogio-badia-2026-10-24": "object-center",
   "ivan-garcia-cafe-opera-codigo-clown-2026-10-31": "object-center",
   "ivan-garcia-tierra-de-paso-2026-10-15": "object-center",
+  "fenate-2026-sala-ivan-garcia": "object-center",
+  "hard-rock-banditalia-2026-10-17": "object-center",
   "aura-after-dark-carlos-rivera-2026-10-10": "object-center",
   "drifter-sunset-into-the-night": "object-center",
   "pop-cinemas-week-2026-10-08": "object-center",
@@ -679,6 +688,7 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "feel-the-boom-marianna-kite-street-2026-10-16": "object-top",
   "hard-rock-feria-empleos-2026-10-05": "object-center",
   "twenty-disco-paradise-in-hell-2026-10-31": "object-center",
+  "twenty-disco-party-mask-black-white-2026-10-17": "object-center",
   "petit-francois-halloween-2026-10-30": "object-center",
   "twenty-disco-luis-brown-2026-10-30": "object-center",
   "finely-mirador-inauguracion-2026-09-25": "object-center",
@@ -728,6 +738,8 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "chiche-almonte-vinoteca-2026-10-17": "object-top",
   // Tall Aura Cinema flyer — keep aura wordmark + ballerina silhouette in card crops.
   "aura-cinema-abigail-2026-10-06": "object-top",
+  // Skull + title sit mid-frame — center for detail hero / card crops.
+  "aura-cinema-nadie-duerme-bosque-2026-10-13": "object-center",
   // Tall MKNI flyer — keep Costa Norte / DJ SET BY / face in card crops.
   "mkni-after-party-villa-taina-2026-10-24": "object-top",
 };
@@ -895,6 +907,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "banda-modelo-vinoteca-2026-09-26.jpg",
   "chiche-almonte-vinoteca-2026-10-17.jpg",
   "aura-cinema-abigail-2026-10-06.jpg",
+  "aura-cinema-nadie-duerme-bosque-2026-10-13.jpg",
   "mkni-after-party-villa-taina-2026-10-24.jpg",
   "groundzero-domingos-de-hookah.jpg",
   "groundzero-domingos-pal-pueblo.jpg",
@@ -925,6 +938,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "ojo-latin-thursdays-ninafrika.jpg",
   "ojo-pal-mambo-tuesday.jpg",
   "hard-rock-catrinas-halloween-2026-10-31.jpg",
+  "hard-rock-banditalia-2026-10-17.jpg",
   "hard-rock-baseball-game-day-2026-10-11.jpg",
   "coconuts-halloween-costume-contest-2026-10-31.jpg",
   "iss-international-day-2026-10-17.jpg",
@@ -1000,6 +1014,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "cruzmonty-manuel-cocco-birthday-cigar-town-2026-10-17-v2.jpg",
   "hard-rock-feria-empleos-2026-10-05.jpg",
   "twenty-disco-paradise-in-hell-2026-10-31.jpg",
+  "twenty-disco-party-mask-black-white-2026-10-17.jpg",
   "petit-francois-halloween-2026-10-30.jpg",
   "petit-francois-canadian-thanksgiving-2026-10-12-en.jpg",
   "petit-francois-canadian-thanksgiving-2026-10-12-es.jpg",
@@ -1063,6 +1078,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "ivan-garcia-cafe-opera-codigo-clown-2026-10-31.jpg",
   "ivan-garcia-eulogio-badia-2026-10-24.jpg",
   "ivan-garcia-tierra-de-paso-2026-10-15.jpg",
+  "fenate-2026-sala-ivan-garcia.jpg",
   "aura-after-dark-carlos-rivera-2026-10-10.jpg",
   "drifter-sunset-into-the-night-v2.jpg",
   "pop-cinemas-week-2026-10-08-grin.jpg",

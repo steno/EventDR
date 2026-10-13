@@ -5214,4 +5214,77 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "Editor flyer — Sábado 24 de octubre 5:00PM Tarde de Cine de Halloween, Hotel Transylvania, Sosúa Food Market. Disfraces, palomitas, diversión en familia. ageHint family.",
     updatedAt: "2026-10-13T16:00:00.000Z",
   },
+  {
+    eventId: "twenty-disco-party-mask-black-white-2026-10-17",
+    body: "Black-and-white mask Saturday at Twenty Disco in Playa Dorada Mall with Imbert × Yona Ramz — first 100 get a free antifaz, dress code is B&W, and this is not Paradise In Hell on the 31st; cover isn’t on the flyer so confirm doors when you reserve 849-507-7676.",
+    localized: {
+      es: "Sábado de máscaras blanco y negro en Twenty Disco en Playa Dorada Mall con Imbert × Yona Ramz — los primeros 100 llevan antifaz gratis, dress code B&W, y no es Paradise In Hell del 31; el cover no está en el flyer, confirma puertas al reservar 849-507-7676.",
+      fr: "Samedi masques noir et blanc au Twenty Disco dans Playa Dorada Mall avec Imbert × Yona Ramz — les 100 premiers ont un antifaz gratuit, dress code N&B, et ce n’est pas Paradise In Hell du 31 ; le cover n’est pas sur l’affiche, confirmez les portes en réservant 849-507-7676.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — reserve 849-507-7676 / +1 849-650-6386 · @twenty_disco_lounge",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — reserva 849-507-7676 / +1 849-650-6386 · @twenty_disco_lounge",
+      fr: "Cover à confirmer — réservez 849-507-7676 / +1 849-650-6386 · @twenty_disco_lounge",
+    },
+    attribution: "POP research · @twenty_disco_lounge Party Mask Black & White flyer",
+    researchNotes:
+      "Editor IG @twenty_disco_lounge + flyer — Sáb 17 Oct 2026 Party Mask Black & White Halloween Edition, Imbert × Yona Ramz, B&W dress code, first 100 free mask, Playa Dorada Mall. Reservations 849-507-7676 / +1 849-650-6386. No cover on art.",
+    updatedAt: "2026-10-13T17:00:00.000Z",
+  },
+  {
+    eventId: "fenate-2026-sala-ivan-garcia",
+    body: "Pin Sala Iván García as the Puerto Plata FENATE host (22 Oct–1 Nov) — don’t invent a full local schedule; the only dated PP bill we have is Eulogio Badia Sat 24 Oct 7:00 PM, and Salomé on the 22nd is the national opening elsewhere. Watch @festivalesdeteatro.rd for more nights.",
+    localized: {
+      es: "Clava Sala Iván García como sede FENATE en Puerto Plata (22 oct–1 nov) — no inventes cartel local completo; el único día PP fechado que tenemos es Eulogio Badia sáb 24 oct 7:00 PM, y Salomé el 22 es la inauguración nacional en otro sitio. Mira @festivalesdeteatro.rd para más noches.",
+      fr: "Épinglez Sala Iván García comme siège FENATE à Puerto Plata (22 oct–1 nov) — n’inventez pas une grille locale complète ; le seul bill PP daté que nous avons est Eulogio Badia sam 24 oct 19 h, et Salomé le 22 est l’ouverture nationale ailleurs. Suivez @festivalesdeteatro.rd pour d’autres soirs.",
+    },
+    priceFeel: "varies",
+    priceNote: "Tickets TBA per bill — 809-261-7393 · @festivalesdeteatro.rd / @teatroivangarcia",
+    priceNoteLocalized: {
+      es: "Boletas por anunciar según cartel — 809-261-7393 · @festivalesdeteatro.rd / @teatroivangarcia",
+      fr: "Billets à confirmer selon le bill — 809-261-7393 · @festivalesdeteatro.rd / @teatroivangarcia",
+    },
+    attribution: "POP research · FENATE 2026 / Sala Iván García flyer · Ministerio de Cultura",
+    researchNotes:
+      "Editor flyer Sala Iván García FENATE 2026 + national window 22 Oct–1 Nov; Olga Bucarelli homage; 75 funciones / 32 espectáculos national; inauguration Salomé Teatro Rodante Dominicano 22 Oct (not confirmed at PP sala). Known PP: Eulogio Badia already seeded 24 Oct 7 PM. Other PP showtimes unpublished — @festivalesdeteatro.rd.",
+    updatedAt: "2026-10-13T18:00:00.000Z",
+  },
+  {
+    eventId: "aura-cinema-nadie-duerme-bosque-2026-10-13",
+    body: "Martes 13 horror screening at Aura Beach Club — Nadie Duerme en el Bosque at 8:00 PM on Calle Principal, not Abigail from last week and not POP Cinemas; cover isn’t on the flyer so confirm seats on @auracabarete / WhatsApp +1 829-787-0140 before you treat it as walk-up.",
+    localized: {
+      es: "Proyección de terror Martes 13 en Aura Beach Club — Nadie Duerme en el Bosque a las 8:00 PM en Calle Principal, no Abigail de la semana pasada ni POP Cinemas; el cover no está en el flyer, confirma asientos en @auracabarete / WhatsApp +1 829-787-0140 antes de ir walk-up.",
+      fr: "Projection horreur Mardi 13 à Aura Beach Club — Nadie Duerme en el Bosque à 20 h sur Calle Principal, pas Abigail de la semaine dernière ni POP Cinemas ; le cover n’est pas sur l’affiche, confirmez les places sur @auracabarete / WhatsApp +1 829-787-0140 avant d’y aller walk-up.",
+    },
+    priceFeel: "varies",
+    priceNote:
+      "Cover not on flyer — confirm @auracabarete / WhatsApp +1 829-787-0140",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — confirma @auracabarete / WhatsApp +1 829-787-0140",
+      fr: "Cover absent de l’affiche — confirmez @auracabarete / WhatsApp +1 829-787-0140",
+    },
+    attribution: "POP research · @auracabarete Aura Cinema Nadie Duerme flyer",
+    researchNotes:
+      "Editor flyer — Aura Cinema, Martes 13 8:00PM, película Nadie Duerme en el Bosque. Seeded Tue 13 Oct 2026 (tonight). Distinct from aura-cinema-abigail-2026-10-06.",
+    updatedAt: "2026-10-13T20:00:00.000Z",
+  },
+  {
+    eventId: "hard-rock-banditalia-2026-10-17",
+    body: "Free Saturday BandItalia set at Hard Rock on Calle Duarte from 8:00 PM — same Italian live bill as the Parada Choco aperitivo, different night and venue; reserve WhatsApp +1 849-505-7778 if you want a table before the walk-up fills the cafe.",
+    localized: {
+      es: "Sábado gratis de BandItalia en Hard Rock en Calle Duarte desde las 8:00 PM — el mismo cartel italiano en vivo que el aperitivo de Parada Choco, otra noche y otro local; reserva WhatsApp +1 849-505-7778 si quieres mesa antes de que el walk-up llene el café.",
+      fr: "Samedi gratuit BandItalia au Hard Rock sur Calle Duarte dès 20 h — même bill italien live que l’apéritivo Parada Choco, autre soir et autre lieu ; réservez WhatsApp +1 849-505-7778 pour une table avant que le walk-up remplisse le café.",
+    },
+    priceFeel: "free",
+    priceNote: "Free entry — reserve WhatsApp +1 849-505-7778 · @hardrockcafepuertoplata",
+    priceNoteLocalized: {
+      es: "Entrada gratis — reserva WhatsApp +1 849-505-7778 · @hardrockcafepuertoplata",
+      fr: "Entrée gratuite — réservez WhatsApp +1 849-505-7778 · @hardrockcafepuertoplata",
+    },
+    attribution: "POP research · @hardrockcafepuertoplata BandItalia flyer",
+    researchNotes:
+      "Editor flyer + IG caption — Sáb 17 Oct 2026 from 8:00 PM BandItalia International, Hard Rock Cafe Puerto Plata, entrada gratis, reservations 849-505-7778. Distinct from parada-choco-banditalia-2026-10-06.",
+    updatedAt: "2026-10-13T19:00:00.000Z",
+  },
 ];

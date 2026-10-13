@@ -43,8 +43,9 @@ export const CATEGORY_SCROLLER_BAR = `
   relative flex items-center
 `;
 
+/** z above rail fade only — parent `isolate` keeps this under sticky nav. */
 export const CATEGORY_SCROLL_BTN = `
-  absolute right-0 z-20 flex h-8 w-8 shrink-0 items-center justify-center
+  absolute right-0 z-[11] flex h-8 w-8 shrink-0 items-center justify-center
   rounded-full border border-neutral-200/80 bg-white/95 text-neutral-700
   shadow-md backdrop-blur-sm transition-[transform,opacity,background-color]
   touch-manipulation
