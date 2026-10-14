@@ -1,0 +1,51 @@
+# POP Events
+
+> Local event discovery for Puerto Plata, Sosúa, and Cabarete (North Coast, Dominican Republic). Updated daily in English, Spanish, and French.
+
+Site: https://pop-event.com
+
+## Primary hubs
+
+- [Home (EN)](https://pop-event.com/en): Things to do in Puerto Plata, Sosúa & Cabarete
+- [Home (ES)](https://pop-event.com/es): Qué hacer en Puerto Plata, Sosúa y Cabarete
+- [Home (FR)](https://pop-event.com/fr): Que faire à Puerto Plata, Sosúa et Cabarete
+- [Today](https://pop-event.com/en/when/today): Things to do today on the North Coast
+- [This weekend](https://pop-event.com/en/when/weekend): Weekend plans in Puerto Plata, Sosúa & Cabarete
+- [Events map](https://pop-event.com/en/map): Map of tonight and this weekend
+- [Venues](https://pop-event.com/en/venues): Popular venues directory
+
+## City hubs
+
+- [Puerto Plata](https://pop-event.com/en/city/puerto-plata)
+- [Sosúa](https://pop-event.com/en/city/sosua)
+- [Cabarete](https://pop-event.com/en/city/cabarete)
+
+## High-intent local queries (city × when)
+
+- [Things to do today in Cabarete](https://pop-event.com/en/city/cabarete/when/today)
+- [Things to do this weekend in Cabarete](https://pop-event.com/en/city/cabarete/when/weekend)
+- [Things to do today in Sosúa](https://pop-event.com/en/city/sosua/when/today)
+- [Things to do this weekend in Sosúa](https://pop-event.com/en/city/sosua/when/weekend)
+- [Things to do today in Puerto Plata](https://pop-event.com/en/city/puerto-plata/when/today)
+- [Things to do this weekend in Puerto Plata](https://pop-event.com/en/city/puerto-plata/when/weekend)
+
+Spanish equivalents use `/es/city/.../when/...` (e.g. Qué hacer hoy en Cabarete).
+
+## Categories
+
+- [Nightlife / parties](https://pop-event.com/en/category/parties)
+- [Live music](https://pop-event.com/en/category/music)
+- [Food & drinks](https://pop-event.com/en/category/food-drinks)
+- [Sports / kite](https://pop-event.com/en/category/sports)
+- [Cabarete nightlife](https://pop-event.com/en/city/cabarete/category/parties)
+- [Sosúa nightlife](https://pop-event.com/en/city/sosua/category/parties)
+
+## Cruise passengers
+
+- [Taino Bay port day](https://pop-event.com/en/cruise/taino-bay)
+- [Amber Cove port day](https://pop-event.com/en/cruise/amber-cove)
+
+## Optional
+
+- Sitemap: https://pop-event.com/sitemap.xml
+- Partners / concierge: https://pop-event.com/en/for-partners

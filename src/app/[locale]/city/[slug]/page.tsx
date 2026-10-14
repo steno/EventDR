@@ -8,7 +8,10 @@ import {
   getCityName,
   isCitySlug,
 } from "@/lib/cities";
-import { categoryNavLinks } from "@/lib/event-navigation";
+import {
+  categoryNavLinks,
+  cityWhenNavLinks,
+} from "@/lib/event-navigation";
 import { isValidLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getPublicEvents } from "@/lib/public-events";
@@ -66,12 +69,14 @@ export default async function Page({
   const catalog = await getPublicEvents({ locale });
   const events = filterCatalogForScope(catalog, { citySlug: slug });
   const citySeo = cityListingSeo(locale, city, events);
-  const relatedCategoryLinks = categoryNavLinks(
-    locale,
-    dict.categories,
-    slug,
-    events,
-  );
+  const relatedCategoryLinks = [
+    ...cityWhenNavLinks(locale, slug, {
+      today: dict.time.today,
+      tomorrow: dict.time.tomorrow,
+      weekend: dict.time.weekend,
+    }),
+    ...categoryNavLinks(locale, dict.categories, slug, events),
+  ];
   const chrome = resolveScopeListingChrome(locale, dict, { citySlug: slug });
 
   return (

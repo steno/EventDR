@@ -1,4 +1,6 @@
 import type { Locale } from "@/i18n/config";
+import type { CityMeta } from "@/lib/cities";
+import { getCityName } from "@/lib/cities";
 import type { TimeRange } from "@/lib/filters";
 
 export const WHEN_SLUGS = ["today", "tomorrow", "weekend"] as const;
@@ -105,4 +107,86 @@ const WHEN_SEO: Record<WhenSlug, Record<Locale, WhenSeoCopy>> = {
 
 export function getWhenSeo(locale: Locale, slug: WhenSlug): WhenSeoCopy {
   return WHEN_SEO[slug][locale] ?? WHEN_SEO[slug].en;
+}
+
+/**
+ * Static fallback for /city/{slug}/when/{range} — city name in the query
+ * language locals and visitors actually type.
+ */
+export function getCityWhenSeo(
+  locale: Locale,
+  city: CityMeta,
+  slug: WhenSlug,
+): WhenSeoCopy {
+  const cityName = getCityName(city, locale);
+
+  if (slug === "today") {
+    const copy: Record<Locale, WhenSeoCopy> = {
+      en: {
+        h1: `Things to do today in ${cityName}`,
+        title: `Things to do today in ${cityName} | POP Events`,
+        description: `What's on today in ${cityName} — live music, parties, beach plans, and local events on the North Coast of the Dominican Republic. Updated daily.`,
+        intro: `Today's plans in ${cityName} — concerts, beach events, and one-off happenings, updated daily.`,
+      },
+      es: {
+        h1: `Qué hacer hoy en ${cityName}`,
+        title: `Qué hacer hoy en ${cityName} | POP Eventos`,
+        description: `Planes de hoy en ${cityName} — música en vivo, fiestas, playa y eventos locales en la Costa Norte de RD. Actualizado cada día.`,
+        intro: `Los planes de hoy en ${cityName} — conciertos, playa y eventos sueltos, actualizados cada día.`,
+      },
+      fr: {
+        h1: `Que faire aujourd'hui à ${cityName}`,
+        title: `Que faire aujourd'hui à ${cityName} | POP Events`,
+        description: `Les plans du jour à ${cityName} — musique live, fêtes, plage et sorties locales sur la Côte Nord de RD. Mis à jour chaque jour.`,
+        intro: `Les plans du jour à ${cityName} — concerts, plage et sorties ponctuelles, mis à jour chaque jour.`,
+      },
+    };
+    return copy[locale] ?? copy.en;
+  }
+
+  if (slug === "tomorrow") {
+    const copy: Record<Locale, WhenSeoCopy> = {
+      en: {
+        h1: `Things to do tomorrow in ${cityName}`,
+        title: `Things to do tomorrow in ${cityName} | POP Events`,
+        description: `Tomorrow in ${cityName} — live music, parties, beach plans, and local events on the North Coast of the Dominican Republic.`,
+        intro: `Tomorrow's plans in ${cityName} — concerts, beach events, and one-off happenings.`,
+      },
+      es: {
+        h1: `Qué hacer mañana en ${cityName}`,
+        title: `Qué hacer mañana en ${cityName} | POP Eventos`,
+        description: `Planes de mañana en ${cityName} — música en vivo, fiestas, playa y eventos locales en la Costa Norte de RD.`,
+        intro: `Los planes de mañana en ${cityName} — conciertos, playa y eventos sueltos.`,
+      },
+      fr: {
+        h1: `Que faire demain à ${cityName}`,
+        title: `Que faire demain à ${cityName} | POP Events`,
+        description: `Demain à ${cityName} — musique live, fêtes, plage et sorties locales sur la Côte Nord de RD.`,
+        intro: `Les plans de demain à ${cityName} — concerts, plage et sorties ponctuelles.`,
+      },
+    };
+    return copy[locale] ?? copy.en;
+  }
+
+  const weekend: Record<Locale, WhenSeoCopy> = {
+    en: {
+      h1: `Things to do this weekend in ${cityName}`,
+      title: `Things to do this weekend in ${cityName} | POP Events`,
+      description: `This weekend in ${cityName} — parties, live music, beach plans, and local events on the North Coast of the Dominican Republic.`,
+      intro: `Friday through Sunday in ${cityName} — grouped by day.`,
+    },
+    es: {
+      h1: `Qué hacer este fin de semana en ${cityName}`,
+      title: `Qué hacer este fin de semana en ${cityName} | POP Eventos`,
+      description: `Este fin de semana en ${cityName} — fiestas, música en vivo, playa y planes locales en la Costa Norte de RD.`,
+      intro: `De viernes a domingo en ${cityName} — agrupado por día.`,
+    },
+    fr: {
+      h1: `Que faire ce week-end à ${cityName}`,
+      title: `Que faire ce week-end à ${cityName} | POP Events`,
+      description: `Ce week-end à ${cityName} — fêtes, musique live, plage et sorties locales sur la Côte Nord de RD.`,
+      intro: `Du vendredi au dimanche à ${cityName} — groupé par jour.`,
+    },
+  };
+  return weekend[locale] ?? weekend.en;
 }

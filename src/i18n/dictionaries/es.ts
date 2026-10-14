@@ -402,12 +402,12 @@ export const es: Dictionary = {
     title: "Mapa Costa Norte",
     subtitle: "Hoy y este fin de semana en un mapa 3D inclinado",
     pinCount: "{count} puntos",
-    empty: "No hay eventos con pin para este filtro — prueba Finde u otra categoría.",
+    empty: "No hay eventos con pin para este filtro — prueba Finde o Todos.",
     pinSheetLabel: "Eventos en este lugar",
     eventHere: "{count} evento aquí",
     eventsHere: "{count} eventos aquí",
     openCruise: "Plan crucero",
-    newBadge: "NUEVO",
+    newBadge: "MAP",
     pinsCoach:
       "Elige un área arriba y toca un pin — las fotos se cargan al explorar.",
     pinsCoachDismiss: "Entendido",
@@ -415,6 +415,12 @@ export const es: Dictionary = {
     venueNoEvents: "No hay eventos próximos con pin aquí ahora.",
     openVenue: "Ver lugar",
     readMore: "Leer más",
+    whenFilter: "Cuándo",
+    when: {
+      today: "Hoy",
+      weekend: "Finde",
+      all: "Todos",
+    },
     metaTitle: "Mapa de eventos Costa Norte | POP Eventos",
     metaDescription:
       "Mapa 3D de Puerto Plata, Sosúa y Cabarete con pines para hoy y el fin de semana — toca un pin para la ficha y cómo llegar.",

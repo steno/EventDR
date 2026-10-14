@@ -983,8 +983,8 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
   },
   "ivan-garcia-teatro-escuela": {
     description: {
-      es: "Teatro-escuela victoriano en Calle Profesor Juan Bosch #72 en el centro histórico — clases de actuación para niños y jóvenes, obras y programación cultural. Sede en Puerto Plata de FENATE 2026 (22 oct–1 nov). Clases regulares en pausa por mantenimiento hasta el 23 de octubre 2026; noches con cartel incluyen Tierra de Paso (15 oct) y gran reapertura con Eulogio Badia (24 oct). Instagram @teatroivangarcia · teatroivangarcia.blogspot.com.",
-      fr: "Teatro-escuela victorien au 72 Calle Profesor Juan Bosch, centre historique — cours de théâtre pour enfants et jeunes, pièces et programmation culturelle. Salle hôte FENATE 2026 à Puerto Plata (22 oct–1 nov). Cours réguliers en pause pour entretien jusqu’au 23 octobre 2026 ; soirées à l’affiche : Tierra de Paso (15 oct) et grande réouverture avec Eulogio Badia (24 oct). Instagram @teatroivangarcia · teatroivangarcia.blogspot.com.",
+      es: "Teatro-escuela victoriano en Calle Profesor Juan Bosch #72 en el centro histórico — clases de actuación para niños y jóvenes, obras y programación cultural. Sede en Puerto Plata de FENATE 2026 (22 oct–1 nov). Abierta de nuevo tras la pausa por mantenimiento. Noches con cartel: Tierra de Paso (15 oct) y Eulogio Badia (24 oct). Instagram @teatroivangarcia · teatroivangarcia.blogspot.com.",
+      fr: "Teatro-escuela victorien au 72 Calle Profesor Juan Bosch, centre historique — cours de théâtre pour enfants et jeunes, pièces et programmation culturelle. Salle hôte FENATE 2026 à Puerto Plata (22 oct–1 nov). De nouveau ouverte après la pause d’entretien. Soirées à l’affiche : Tierra de Paso (15 oct) et Eulogio Badia (24 oct). Instagram @teatroivangarcia · teatroivangarcia.blogspot.com.",
     },
   },
   "spotland-puerto-plata": {

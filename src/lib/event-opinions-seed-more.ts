@@ -2153,20 +2153,20 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "ivan-garcia-clases-actuacion-ninos-2026",
-    body: "Sala Iván García is closed for maintenance — don’t enroll the Sep–Dec kids lab until @teatroivangarcia confirms reopen; the turquoise Victorian stays the landmark when classes return.",
+    body: "Sala Iván García is open again — the Sep–Dec kids lab (ages 5–10) is back on at the turquoise Victorian; confirm the current schedule and fees with @teatroivangarcia before you enroll.",
     localized: {
-      es: "La Sala Iván García está cerrada por mantenimiento — no inscribas el lab infantil sep–dic hasta que @teatroivangarcia confirme la reapertura; la victoriana turquesa sigue siendo el referente cuando vuelvan las clases.",
-      fr: "La Sala Iván García est fermée pour entretien — n’inscrivez pas le lab enfants sep–déc tant que @teatroivangarcia n’a pas confirmé la réouverture ; la victorienne turquoise reste le repère quand les cours reviennent.",
+      es: "La Sala Iván García está abierta de nuevo — el lab infantil sep–dic (5–10 años) vuelve en la victoriana turquesa; confirma horario y tarifas actuales con @teatroivangarcia antes de inscribir.",
+      fr: "La Sala Iván García est de nouveau ouverte — le lab enfants sep–déc (5–10 ans) reprend dans la victorienne turquoise ; confirmez horaires et tarifs avec @teatroivangarcia avant d’inscrire.",
     },
     priceFeel: "varies",
-    priceNote: "Fees not on the flyer — ask @teatroivangarcia or +1 809-261-7393 after reopen",
+    priceNote: "Fees not on the flyer — ask @teatroivangarcia or +1 809-261-7393",
     priceNoteLocalized: {
-      es: "Tarifas no publicadas en el flyer — consulta @teatroivangarcia o +1 809-261-7393 tras la reapertura",
-      fr: "Tarifs non publiés sur l’affiche — demandez @teatroivangarcia ou +1 809-261-7393 après réouverture",
+      es: "Tarifas no publicadas en el flyer — consulta @teatroivangarcia o +1 809-261-7393",
+      fr: "Tarifs non publiés sur l’affiche — demandez @teatroivangarcia ou +1 809-261-7393",
     },
     attribution: "POP research · @teatroivangarcia",
     researchNotes:
-      "Editor flyer + facade — Sep 18–Dec 12 2026 kids 5–10 acting; Juan Bosch #72. Sep 15 2026 IGTE notice: Sala temporarily closed for maintenance.",
+      "Editor flyer + facade — Sep 18–Dec 12 2026 kids 5–10 acting; Juan Bosch #72. Maintenance pause ended 13 Oct 2026; sala open again.",
     updatedAt: "2026-09-15T12:00:00.000Z",
   },
   {
@@ -4115,10 +4115,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "ivan-garcia-eulogio-badia-2026-10-24",
-    body: "Gran reapertura night — Eulogio Badia at 7:00 PM on Juan Bosch #72 for the IX Festival Nacional de Teatro; RSVP 809-261-7393, and don’t send guests during the maintenance window that runs through 23 October.",
+    body: "Gran reapertura night — Eulogio Badia at 7:00 PM on Juan Bosch #72 for the IX Festival Nacional de Teatro; the sala is open again, so RSVP 809-261-7393 before you send guests.",
     localized: {
-      es: "Noche de gran reapertura — Eulogio Badia a las 7:00 PM en Juan Bosch #72 para el IX Festival Nacional de Teatro; RSVP 809-261-7393, y no mandes gente durante el mantenimiento que corre hasta el 23 de octubre.",
-      fr: "Soirée grande réouverture — Eulogio Badia à 19 h au 72 Juan Bosch pour le IX Festival Nacional de Teatro ; RSVP 809-261-7393, et n’envoyez pas de monde pendant la fenêtre d’entretien jusqu’au 23 octobre.",
+      es: "Noche de gran reapertura — Eulogio Badia a las 7:00 PM en Juan Bosch #72 para el IX Festival Nacional de Teatro; la sala ya está abierta, así que RSVP 809-261-7393 antes de mandar gente.",
+      fr: "Soirée grande réouverture — Eulogio Badia à 19 h au 72 Juan Bosch pour le IX Festival Nacional de Teatro ; la salle est de nouveau ouverte, RSVP 809-261-7393 avant d’envoyer du monde.",
     },
     priceFeel: "varies",
     priceNote: "RSVP 809-261-7393 — confirm tickets/cover @teatroivangarcia",
@@ -4128,7 +4128,7 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     },
     attribution: "POP research · @teatroivangarcia Eulogio Badia reapertura flyer",
     researchNotes:
-      "Editor flyer — Sat 24 Oct 2026 7:00 PM Eulogio Badia, gran reapertura Iván García Teatro-Escuela, IX Festival Nacional de Teatro S.D. 2026, Calle Prof. Juan Bosch #72, RSVP 809-261-7393. Closure alert until 2026-10-23.",
+      "Editor flyer — Sat 24 Oct 2026 7:00 PM Eulogio Badia, gran reapertura Iván García Teatro-Escuela, IX Festival Nacional de Teatro S.D. 2026, Calle Prof. Juan Bosch #72, RSVP 809-261-7393. Closure alert ended 2026-10-12.",
     updatedAt: "2026-10-01T21:30:00.000Z",
   },
   {
@@ -5105,10 +5105,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "ivan-garcia-tierra-de-paso-2026-10-15",
-    body: "One-person Indios adaptation with Carlota Carretero at 7:00 PM on Juan Bosch #72 — RD$500 general / RD$150 students; not the Eulogio Badia gran reapertura on the 24th, and RSVP 809-261-7393 even though regular classes are still paused.",
+    body: "One-person Indios adaptation with Carlota Carretero at 7:00 PM on Juan Bosch #72 — RD$500 general / RD$150 students; not the Eulogio Badia night on the 24th. RSVP 809-261-7393.",
     localized: {
-      es: "Adaptación unipersonal de Indios con Carlota Carretero a las 7:00 PM en Juan Bosch #72 — RD$500 general / RD$150 estudiantes; no es la gran reapertura de Eulogio Badia del 24, y RSVP 809-261-7393 aunque las clases regulares sigan en pausa.",
-      fr: "Adaptation unipersonnelle d’Indios avec Carlota Carretero à 19 h au 72 Juan Bosch — RD$500 général / RD$150 étudiants ; pas la grande réouverture Eulogio Badia du 24, et RSVP 809-261-7393 même si les cours réguliers sont encore en pause.",
+      es: "Adaptación unipersonal de Indios con Carlota Carretero a las 7:00 PM en Juan Bosch #72 — RD$500 general / RD$150 estudiantes; no es la noche de Eulogio Badia del 24. RSVP 809-261-7393.",
+      fr: "Adaptation unipersonnelle d’Indios avec Carlota Carretero à 19 h au 72 Juan Bosch — RD$500 général / RD$150 étudiants ; pas la soirée Eulogio Badia du 24. RSVP 809-261-7393.",
     },
     priceFeel: "budget",
     priceNote: "RD$500 general · RD$150 students — RSVP 809-261-7393",

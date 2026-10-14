@@ -265,8 +265,8 @@ export const EDITORIAL_ALERTS: readonly EditorialAlert[] = [
     kind: "closure",
     closureStatus: "repair",
     from: "2026-09-15",
-    until: "2026-10-23",
-    reopensOn: "2026-10-24",
+    until: "2026-10-12",
+    reopensOn: "2026-10-13",
     citySlugs: ["puerto-plata"],
     href: { type: "venue", slug: "ivan-garcia-teatro-escuela" },
     exceptEventIds: [

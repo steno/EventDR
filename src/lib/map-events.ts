@@ -1,11 +1,15 @@
 import { hasMapCoords, resolveEventCoords } from "@/lib/event-coords";
 import { eventInCategory } from "@/lib/categorize";
 import { haversineMeters } from "@/lib/distance";
+import { getEventLiveStatus } from "@/lib/event-status";
 import { filterByTimeRange, type TimeRange } from "@/lib/filters";
 import type { Event, EventCategory, Venue } from "@/lib/types";
 import { pinColorForCategory } from "@/lib/map-style";
 
 export type MapTimeFilter = Extract<TimeRange, "all" | "today" | "weekend">;
+
+/** Compact map when-filter order (no tomorrow — keeps the chrome tight). */
+export const MAP_TIME_FILTERS: MapTimeFilter[] = ["today", "weekend", "all"];
 
 /** Venue deep-link pin when the place has no upcoming event pins. */
 export const VENUE_ONLY_PIN_COLOR = "#ea580c";
@@ -111,8 +115,16 @@ export function filterMapEvents(
   events: Event[],
   when: MapTimeFilter,
   category: EventCategory | "all",
+  now: Date = new Date(),
 ): Event[] {
-  const timed = filterByTimeRange(eventsWithMapPins(events), when);
+  let timed = filterByTimeRange(eventsWithMapPins(events), when, now);
+  // Map “Today” = still worth going — drop closed-for-the-day / ended (museums at 11pm).
+  if (when === "today") {
+    timed = timed.filter((event) => {
+      const status = getEventLiveStatus(event, now);
+      return status !== "closedToday" && status !== "ended";
+    });
+  }
   if (category === "all") return timed;
   return timed.filter((event) => eventInCategory(event, category));
 }

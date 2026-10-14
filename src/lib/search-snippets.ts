@@ -157,36 +157,81 @@ function joinAnd(parts: string[], locale: Locale): string {
   return `${parts[0]}, ${parts[1]}, ${conj} ${parts[2]}`;
 }
 
-function whenTitleHead(locale: Locale, slug: WhenSlug, count: number): string {
+/** Regional brand place for North Coast /when hubs (not a single town). */
+const REGION_PLACE: Record<Locale, string> = {
+  en: "Puerto Plata",
+  es: "Puerto Plata",
+  fr: "Puerto Plata",
+};
+
+function whenTitleHead(
+  locale: Locale,
+  slug: WhenSlug,
+  count: number,
+  place: string,
+): string {
   if (slug === "today") {
-    if (locale === "es") return `${count} planes para hoy en Puerto Plata`;
-    if (locale === "fr") return `${count} sorties aujourd'hui à Puerto Plata`;
-    return `${count} ${count === 1 ? "thing" : "things"} to do today in Puerto Plata`;
+    if (locale === "es") return `${count} planes para hoy en ${place}`;
+    if (locale === "fr") return `${count} sorties aujourd'hui à ${place}`;
+    return `${count} ${count === 1 ? "thing" : "things"} to do today in ${place}`;
   }
   if (slug === "tomorrow") {
-    if (locale === "es") return `${count} planes para mañana en Puerto Plata`;
-    if (locale === "fr") return `${count} sorties demain à Puerto Plata`;
-    return `${count} ${count === 1 ? "thing" : "things"} to do tomorrow in Puerto Plata`;
+    if (locale === "es") return `${count} planes para mañana en ${place}`;
+    if (locale === "fr") return `${count} sorties demain à ${place}`;
+    return `${count} ${count === 1 ? "thing" : "things"} to do tomorrow in ${place}`;
   }
-  if (locale === "es") return `${count} planes de fin de semana en Puerto Plata`;
-  if (locale === "fr") return `${count} sorties ce week-end à Puerto Plata`;
-  return `${count} weekend plans in Puerto Plata`;
+  if (locale === "es") return `${count} planes de fin de semana en ${place}`;
+  if (locale === "fr") return `${count} sorties ce week-end à ${place}`;
+  return `${count} weekend plans in ${place}`;
 }
 
-function whenH1(locale: Locale, slug: WhenSlug, count: number): string {
+function whenH1(
+  locale: Locale,
+  slug: WhenSlug,
+  count: number,
+  place?: string,
+): string {
   if (slug === "today") {
-    if (locale === "es") return `${count} planes para hoy`;
-    if (locale === "fr") return `${count} sorties aujourd'hui`;
-    return `${count} ${count === 1 ? "thing" : "things"} to do today`;
+    if (locale === "es") {
+      return place ? `${count} planes para hoy en ${place}` : `${count} planes para hoy`;
+    }
+    if (locale === "fr") {
+      return place
+        ? `${count} sorties aujourd'hui à ${place}`
+        : `${count} sorties aujourd'hui`;
+    }
+    return place
+      ? `${count} ${count === 1 ? "thing" : "things"} to do today in ${place}`
+      : `${count} ${count === 1 ? "thing" : "things"} to do today`;
   }
   if (slug === "tomorrow") {
-    if (locale === "es") return `${count} planes para mañana`;
-    if (locale === "fr") return `${count} sorties demain`;
-    return `${count} ${count === 1 ? "thing" : "things"} to do tomorrow`;
+    if (locale === "es") {
+      return place
+        ? `${count} planes para mañana en ${place}`
+        : `${count} planes para mañana`;
+    }
+    if (locale === "fr") {
+      return place
+        ? `${count} sorties demain à ${place}`
+        : `${count} sorties demain`;
+    }
+    return place
+      ? `${count} ${count === 1 ? "thing" : "things"} to do tomorrow in ${place}`
+      : `${count} ${count === 1 ? "thing" : "things"} to do tomorrow`;
   }
-  if (locale === "es") return `${count} planes para el fin de semana`;
-  if (locale === "fr") return `${count} sorties ce week-end`;
-  return `${count} ${count === 1 ? "weekend plan" : "weekend plans"}`;
+  if (locale === "es") {
+    return place
+      ? `${count} planes para el fin de semana en ${place}`
+      : `${count} planes para el fin de semana`;
+  }
+  if (locale === "fr") {
+    return place
+      ? `${count} sorties ce week-end à ${place}`
+      : `${count} sorties ce week-end`;
+  }
+  return place
+    ? `${count} ${count === 1 ? "weekend plan" : "weekend plans"} in ${place}`
+    : `${count} ${count === 1 ? "weekend plan" : "weekend plans"}`;
 }
 
 function whenDateLabel(locale: Locale, slug: WhenSlug): string {
@@ -214,7 +259,12 @@ function fitDescription(
   );
 }
 
-function plansTail(locale: Locale, count: number): string {
+function plansTail(locale: Locale, count: number, place?: string): string {
+  if (place) {
+    if (locale === "es") return `${count} planes en ${place}.`;
+    if (locale === "fr") return `${count} plans à ${place}.`;
+    return `${count} plans in ${place}.`;
+  }
   if (locale === "es") {
     return `${count} planes en Puerto Plata, Sosúa y Cabarete.`;
   }
@@ -225,20 +275,24 @@ function plansTail(locale: Locale, count: number): string {
 }
 
 /**
- * Live title, description, heading, and intro for /when/today|tomorrow|weekend.
+ * Live title, description, heading, and intro for regional and city-scoped
+ * time hubs (today / tomorrow / weekend).
+ * Pass `place` (e.g. Cabarete) for city-scoped hubs; omit for regional North Coast.
  * Returns null when the list is empty so the page keeps its static fallback.
  */
 export function buildWhenSearchCopy(
   locale: Locale,
   slug: WhenSlug,
   events: Pick<Event, "title" | "date">[],
+  place?: string,
 ): WhenSearchCopy | null {
   if (events.length < 1) return null;
   const highlights = uniqueTitles(events, 3).map((title) =>
     clipTitleHead(title, 48),
   );
   const when = whenDateLabel(locale, slug);
-  const tail = plansTail(locale, events.length);
+  const titlePlace = place?.trim() || REGION_PLACE[locale];
+  const tail = plansTail(locale, events.length, place?.trim() || undefined);
   const description = fitDescription(when, highlights, tail, locale);
   const named = description.includes(highlights[1] ?? "\0")
     ? highlights.filter((title) => description.includes(title))
@@ -251,9 +305,12 @@ export function buildWhenSearchCopy(
         ? `Dont ${listed}.`
         : `Including ${listed}.`;
   return {
-    title: withBrand(whenTitleHead(locale, slug, events.length), locale),
+    title: withBrand(
+      whenTitleHead(locale, slug, events.length, titlePlace),
+      locale,
+    ),
     description,
-    h1: whenH1(locale, slug, events.length),
+    h1: whenH1(locale, slug, events.length, place?.trim() || undefined),
     intro: including,
   };
 }

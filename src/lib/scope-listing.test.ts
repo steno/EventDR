@@ -61,6 +61,10 @@ describe("scope-listing", () => {
         categoryId: "music",
       },
     );
+    assert.equal(
+      parseScopeListingPath("/en/city/cabarete/when/today", "en"),
+      null,
+    );
     assert.equal(scopeListingPath("en", { categoryId: "music" }), "/en/category/music");
     assert.equal(
       scopeListingPath("en", { citySlug: "cabarete", categoryId: "parties" }),

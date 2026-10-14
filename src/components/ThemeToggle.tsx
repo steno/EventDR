@@ -1,6 +1,6 @@
 "use client";
 
-import { Moon, Sun } from "lucide-react";
+import { Lightbulb, LightbulbOff } from "lucide-react";
 import { useTheme } from "@/hooks/useTheme";
 import type { Dictionary } from "@/i18n/dictionaries";
 
@@ -26,9 +26,9 @@ export function ThemeToggle({ dict }: ThemeToggleProps) {
       title={isDark ? dict.theme.light : dict.theme.dark}
     >
       {isDark ? (
-        <Sun className="h-4 w-4" aria-hidden />
+        <Lightbulb className="h-4 w-4" aria-hidden />
       ) : (
-        <Moon className="h-4 w-4" aria-hidden />
+        <LightbulbOff className="h-4 w-4" aria-hidden />
       )}
     </button>
   );

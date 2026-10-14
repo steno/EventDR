@@ -402,12 +402,12 @@ export const fr: Dictionary = {
     title: "Carte Côte Nord",
     subtitle: "Ce soir et ce week-end sur une carte 3D inclinée",
     pinCount: "{count} lieux",
-    empty: "Aucun événement épinglé pour ce filtre — essayez Week-end ou une autre catégorie.",
+    empty: "Aucun événement épinglé pour ce filtre — essayez Week-end ou Tous.",
     pinSheetLabel: "Événements ici",
     eventHere: "{count} événement ici",
     eventsHere: "{count} événements ici",
     openCruise: "Plan croisière",
-    newBadge: "NOUVEAU",
+    newBadge: "MAP",
     pinsCoach:
       "Choisissez une zone en haut, puis touchez une épingle — les photos se chargent en explorant.",
     pinsCoachDismiss: "Compris",
@@ -415,6 +415,12 @@ export const fr: Dictionary = {
     venueNoEvents: "Aucun événement à venir épinglé ici pour le moment.",
     openVenue: "Voir le lieu",
     readMore: "Lire la suite",
+    whenFilter: "Quand",
+    when: {
+      today: "Aujourd'hui",
+      weekend: "Week-end",
+      all: "Tous",
+    },
     metaTitle: "Carte des événements Côte Nord | POP Events",
     metaDescription:
       "Carte 3D de Puerto Plata, Sosúa et Cabarete avec des épingles pour ce soir et le week-end — touchez une épingle pour la fiche et l’itinéraire.",

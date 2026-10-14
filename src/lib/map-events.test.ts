@@ -249,6 +249,42 @@ describe("map-events", () => {
     assert.ok(filtered.every((e) => e.category === "music" || e.categories?.includes("music")));
   });
 
+  it("drops closed-for-the-day listings from the map Today filter", () => {
+    /** Tue Oct 13, 2026 11:51 PM America/Santo_Domingo. */
+    const lateNight = new Date("2026-10-14T03:51:00.000Z");
+    const museum = event({
+      id: "fortaleza",
+      title: "Museum Hours",
+      lat: 19.804,
+      lng: -70.695,
+      category: "culture",
+      date: "2026-10-13",
+      time: "10 AM–6 PM",
+      recurrence: "daily",
+    });
+    const nightClub = event({
+      id: "club",
+      title: "Late set",
+      lat: 19.76,
+      lng: -70.51,
+      category: "parties",
+      date: "2026-10-13",
+      time: "10 PM–2 AM",
+    });
+    const today = filterMapEvents([museum, nightClub], "today", "all", lateNight);
+    assert.equal(
+      today.some((e) => e.id === "fortaleza"),
+      false,
+      "closed museum should leave Today",
+    );
+    assert.ok(
+      today.some((e) => e.id === "club"),
+      "still-open or overnight night should stay",
+    );
+    const all = filterMapEvents([museum, nightClub], "all", "all", lateNight);
+    assert.ok(all.some((e) => e.id === "fortaleza"));
+  });
+
   it("adds a venue-only pin when the deep-linked venue has no events", () => {
     const neighbor = event({
       id: "vino",

@@ -47,10 +47,11 @@ interface EventCardProps {
    */
   mediaOnly?: boolean;
   /**
-   * Map pin sheet: tap the image (instead of opening detail) — venue pill still navigates.
+   * Map pin sheet: expand chrome via “Read more” (image tap enlarges when
+   * `showEnlarge` is on).
    */
   onMediaActivate?: () => void;
-  /** `aria-expanded` when `onMediaActivate` toggles a parent sheet. */
+  /** `aria-expanded` when the parent sheet is open. */
   mediaExpanded?: boolean;
   /**
    * Stretch across leftover columns on the 2-col grid (Weekend day groups /
@@ -80,6 +81,7 @@ function EventCardMedia({
   enlargeLabel,
   closeLabel,
   showEnlarge = true,
+  enlargeHitArea = "control",
   statusBadge = null,
   mediaAction = null,
 }: {
@@ -93,6 +95,7 @@ function EventCardMedia({
   enlargeLabel: string;
   closeLabel: string;
   showEnlarge?: boolean;
+  enlargeHitArea?: "control" | "media";
   statusBadge?: { label: string; status: EventLiveStatus } | null;
   /** Map pin sheet CTA on the photo (e.g. Read more → expand). */
   mediaAction?: { label: string; onClick: () => void } | null;
@@ -128,6 +131,8 @@ function EventCardMedia({
           alt={event.title}
           enlargeLabel={enlargeLabel}
           closeLabel={closeLabel}
+          hitArea={enlargeHitArea}
+          showOnDesktop={enlargeHitArea === "media"}
         />
       ) : null}
       {statusBadge || mediaAction ? (
@@ -189,7 +194,9 @@ const EventCardComponent = ({
   const isCards = view === "cards";
   const spanning =
     fillSpan === "full" || (typeof fillSpan === "number" && fillSpan > 1);
-  const activateMedia = mediaOnly && onMediaActivate != null;
+  /** Full-bleed image tap collapses only when enlarge is off. */
+  const activateMedia =
+    mediaOnly && onMediaActivate != null && !showEnlarge;
 
   function handleNavigate() {
     onNavigate?.();
@@ -274,6 +281,7 @@ const EventCardComponent = ({
             enlargeLabel={dict.detail.enlargeImage}
             closeLabel={dict.detail.close}
             showEnlarge={showEnlarge}
+            enlargeHitArea={mediaOnly ? "media" : "control"}
             statusBadge={
               mediaOnly && liveStatusLabel && liveStatus
                 ? { label: liveStatusLabel, status: liveStatus }

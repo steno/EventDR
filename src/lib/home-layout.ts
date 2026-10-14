@@ -932,12 +932,21 @@ export function homeViewAllPath(
       ? `/${locale}/city/${citySlug}?when=all&all=1`
       : undefined;
   }
-  const base = citySlug
-    ? `/${locale}/city/${citySlug}`
-    : `/${locale}/events`;
-  if (timeRange === "today") return `${base}?when=today&all=1`;
-  if (timeRange === "tomorrow") return `${base}?when=tomorrow&all=1`;
-  if (timeRange === "weekend") return `${base}?when=weekend&all=1`;
+  if (citySlug) {
+    if (timeRange === "today") {
+      return `/${locale}/city/${citySlug}/when/today`;
+    }
+    if (timeRange === "tomorrow") {
+      return `/${locale}/city/${citySlug}/when/tomorrow`;
+    }
+    if (timeRange === "weekend") {
+      return `/${locale}/city/${citySlug}/when/weekend`;
+    }
+    return undefined;
+  }
+  if (timeRange === "today") return `/${locale}/when/today`;
+  if (timeRange === "tomorrow") return `/${locale}/when/tomorrow`;
+  if (timeRange === "weekend") return `/${locale}/when/weekend`;
   return undefined;
 }
 

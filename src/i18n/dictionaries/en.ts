@@ -417,6 +417,14 @@ export type Dictionary = {
     openVenue: string;
     /** Media-card CTA on the pin sheet (expands / continues from the photo). */
     readMore: string;
+    /** Aria label for the map Today / Weekend / All control. */
+    whenFilter: string;
+    /** Short when-filter chip labels (map chrome). */
+    when: {
+      today: string;
+      weekend: string;
+      all: string;
+    };
     metaTitle: string;
     metaDescription: string;
   };
@@ -1094,12 +1102,12 @@ export const en: Dictionary = {
     title: "North Coast map",
     subtitle: "Tonight and this weekend on a pitched 3D map",
     pinCount: "{count} spots",
-    empty: "No pinned events for this filter — try Weekend or another category.",
+    empty: "No pinned events for this filter — try Weekend or All.",
     pinSheetLabel: "Events at this place",
     eventHere: "{count} event here",
     eventsHere: "{count} events here",
     openCruise: "Cruise plan",
-    newBadge: "NEW",
+    newBadge: "MAP",
     pinsCoach:
       "Choose an area up top, then tap a pin — photos load as you explore.",
     pinsCoachDismiss: "Got it",
@@ -1107,6 +1115,12 @@ export const en: Dictionary = {
     venueNoEvents: "No upcoming events pinned here right now.",
     openVenue: "Open venue",
     readMore: "Read more",
+    whenFilter: "When",
+    when: {
+      today: "Today",
+      weekend: "Weekend",
+      all: "All",
+    },
     metaTitle: "North Coast events map | POP Events",
     metaDescription:
       "3D map of Puerto Plata, Sosúa, and Cabarete with pins for tonight and this weekend — tap a pin for the event card and directions.",

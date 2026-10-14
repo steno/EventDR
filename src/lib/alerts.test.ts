@@ -164,16 +164,16 @@ describe("applyActiveEditorialClosure", () => {
     );
   });
 
-  it("marks Iván García closed through 23 Oct and open on reapertura day 24 Oct", () => {
+  it("marks Iván García closed through 12 Oct and open from 13 Oct", () => {
     const venueInput: { slug: string; temporarilyClosed?: boolean } = {
       slug: "ivan-garcia-teatro-escuela",
     };
     assert.equal(
-      applyActiveEditorialClosureToVenue(venueInput, "2026-10-23").temporarilyClosed,
+      applyActiveEditorialClosureToVenue(venueInput, "2026-10-12").temporarilyClosed,
       true,
     );
     assert.equal(
-      applyActiveEditorialClosureToVenue(venueInput, "2026-10-24").temporarilyClosed,
+      applyActiveEditorialClosureToVenue(venueInput, "2026-10-13").temporarilyClosed,
       undefined,
     );
   });

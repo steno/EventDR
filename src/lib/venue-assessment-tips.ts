@@ -1162,11 +1162,11 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "ivan-garcia-teatro-escuela": {
-    body: "Puerto Plata FENATE 2026 host sala (22 Oct–1 Nov) — classes pause through 23 Oct; confirmed local bill is Eulogio Badia Sat 24 Oct 7:00 PM, with Tierra de Paso Thu 15 Oct still on the board; other festival showtimes TBA on @festivalesdeteatro.rd / RSVP 809-261-7393.",
+    body: "Puerto Plata FENATE 2026 host sala (22 Oct–1 Nov) — open again after the maintenance pause. Confirmed local bill is Eulogio Badia Sat 24 Oct 7:00 PM, with Tierra de Paso Thu 15 Oct still on the board; other festival showtimes TBA on @festivalesdeteatro.rd / RSVP 809-261-7393.",
     localized: {
-      en: "Puerto Plata FENATE 2026 host sala (22 Oct–1 Nov) — classes pause through 23 Oct; confirmed local bill is Eulogio Badia Sat 24 Oct 7:00 PM, with Tierra de Paso Thu 15 Oct still on the board; other festival showtimes TBA on @festivalesdeteatro.rd / RSVP 809-261-7393.",
-      es: "Sede FENATE 2026 en Puerto Plata (22 oct–1 nov) — clases en pausa hasta el 23 oct; cartel local confirmado Eulogio Badia sáb 24 oct 7:00 PM, y Tierra de Paso jue 15 oct sigue en cartel; otros horarios del festival por anunciar en @festivalesdeteatro.rd / RSVP 809-261-7393.",
-      fr: "Salle hôte FENATE 2026 à Puerto Plata (22 oct–1 nov) — cours en pause jusqu’au 23 oct ; bill local confirmé Eulogio Badia sam 24 oct 19 h, Tierra de Paso jeu 15 oct encore à l’affiche ; autres horaires festival à venir sur @festivalesdeteatro.rd / RSVP 809-261-7393.",
+      en: "Puerto Plata FENATE 2026 host sala (22 Oct–1 Nov) — open again after the maintenance pause. Confirmed local bill is Eulogio Badia Sat 24 Oct 7:00 PM, with Tierra de Paso Thu 15 Oct still on the board; other festival showtimes TBA on @festivalesdeteatro.rd / RSVP 809-261-7393.",
+      es: "Sede FENATE 2026 en Puerto Plata (22 oct–1 nov) — abierta de nuevo tras la pausa por mantenimiento. Cartel local confirmado: Eulogio Badia sáb 24 oct 7:00 PM, y Tierra de Paso jue 15 oct sigue en cartel; otros horarios del festival por anunciar en @festivalesdeteatro.rd / RSVP 809-261-7393.",
+      fr: "Salle hôte FENATE 2026 à Puerto Plata (22 oct–1 nov) — de nouveau ouverte après la pause d’entretien. Bill local confirmé : Eulogio Badia sam 24 oct 19 h, Tierra de Paso jeu 15 oct encore à l’affiche ; autres horaires festival à venir sur @festivalesdeteatro.rd / RSVP 809-261-7393.",
     },
   },
   "spotland-puerto-plata": {

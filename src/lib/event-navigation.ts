@@ -2,12 +2,18 @@ import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import { CATEGORY_IDS, getCategoryMeta } from "./categories";
 import {
+  CITIES,
   getCityMeta,
   getCityName,
   isCitySlug,
   type CitySlug,
 } from "./cities";
-import { getWhenSeo, isWhenSlug } from "./time-seo";
+import {
+  getWhenSeo,
+  isWhenSlug,
+  WHEN_SLUGS,
+  type WhenSlug,
+} from "./time-seo";
 import type { Event, EventCategory } from "./types";
 import { getSeedVenue, matchVenueSlug } from "./venues-seed";
 
@@ -59,6 +65,38 @@ export function allEventsPath(
     return `/${locale}/city/${citySlug}?when=all&all=1`;
   }
   return `/${locale}/events?when=all&all=1`;
+}
+
+/** Indexable city × when hub (`/en/city/cabarete/when/today`). */
+export function cityWhenPath(
+  locale: Locale,
+  citySlug: CitySlug,
+  range: WhenSlug,
+): string {
+  return `/${locale}/city/${citySlug}/when/${range}`;
+}
+
+/** Today / tomorrow / weekend pills for a city hub (SEO landing URLs). */
+export function cityWhenNavLinks(
+  locale: Locale,
+  citySlug: CitySlug,
+  labels: { today: string; tomorrow: string; weekend: string },
+): { href: string; label: string }[] {
+  return WHEN_SLUGS.map((range) => ({
+    href: cityWhenPath(locale, citySlug, range),
+    label: labels[range],
+  }));
+}
+
+/** City pills that deep-link into a regional /when range. */
+export function whenCityNavLinks(
+  locale: Locale,
+  range: WhenSlug,
+): { href: string; label: string }[] {
+  return CITIES.map((city) => ({
+    href: cityWhenPath(locale, city.slug, range),
+    label: getCityName(city, locale),
+  }));
 }
 
 /** Full category nav for scope pages (city hub, category, when). */

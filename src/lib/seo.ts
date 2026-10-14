@@ -6,7 +6,7 @@ import type { CityMeta } from "@/lib/cities";
 import { eventCitySlug, getCityMeta, getCityName, getCitySeo } from "@/lib/cities";
 import { getCategorySeo } from "@/lib/category-seo";
 import { getCityCategorySeo } from "@/lib/city-category-seo";
-import { getWhenSeo, type WhenSlug } from "@/lib/time-seo";
+import { getCityWhenSeo, getWhenSeo, type WhenSlug } from "@/lib/time-seo";
 import { sortEventsForDisplay } from "@/lib/event-sort";
 import {
   eventSearchDescription,
@@ -371,6 +371,46 @@ export function buildWhenMetadata(
   const live = buildWhenSearchCopy(locale, slug, events);
   const title = live?.title ?? fallback.title;
   const description = live?.description ?? fallback.description;
+  const alternates = buildAlternates(locale, path);
+
+  return {
+    title,
+    description,
+    alternates,
+    openGraph: defaultOpenGraph(locale, {
+      title,
+      description,
+      url: alternates.canonical,
+    }),
+    twitter: defaultTwitter({ title, description }),
+  };
+}
+
+export function cityWhenListingSeo(
+  locale: Locale,
+  city: CityMeta,
+  slug: WhenSlug,
+  events: Event[] = [],
+): { title: string; description: string; h1: string; intro: string } {
+  const fallback = getCityWhenSeo(locale, city, slug);
+  const place = getCityName(city, locale);
+  const live = buildWhenSearchCopy(locale, slug, events, place);
+  return {
+    title: live?.title ?? fallback.title,
+    description: live?.description ?? fallback.description,
+    h1: live?.h1 ?? fallback.h1,
+    intro: live?.intro ?? fallback.intro,
+  };
+}
+
+export function buildCityWhenMetadata(
+  locale: Locale,
+  city: CityMeta,
+  slug: WhenSlug,
+  events: Event[] = [],
+): Metadata {
+  const path = `/city/${city.slug}/when/${slug}`;
+  const { title, description } = cityWhenListingSeo(locale, city, slug, events);
   const alternates = buildAlternates(locale, path);
 
   return {
@@ -818,10 +858,15 @@ export function buildOrganizationJsonLd(locale: Locale, dict: Dictionary) {
     slogan: dict.hero.regionTagline,
     description: dict.meta.description,
     sameAs: [...BRAND_SOCIAL_SAME_AS],
-    areaServed: {
-      "@type": "AdministrativeArea",
-      name: "Puerto Plata Province, Dominican Republic",
-    },
+    areaServed: [
+      {
+        "@type": "AdministrativeArea",
+        name: "Puerto Plata Province, Dominican Republic",
+      },
+      { "@type": "City", name: "Puerto Plata" },
+      { "@type": "City", name: "Sosúa" },
+      { "@type": "City", name: "Cabarete" },
+    ],
   };
 }
 

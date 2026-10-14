@@ -64,6 +64,32 @@ describe("buildWhenSearchCopy", () => {
   it("keeps the static fallback when nothing is listed", () => {
     assert.equal(buildWhenSearchCopy("en", "today", []), null);
   });
+
+  it("scopes title and description to a city when place is passed", () => {
+    const copy = buildWhenSearchCopy("en", "today", events, "Cabarete");
+    assert.ok(copy);
+    assert.match(copy.title, /^3 things to do today in Cabarete/);
+    assert.match(copy.h1, /3 things to do today in Cabarete/);
+    assert.match(copy.description, /plans in Cabarete/);
+    assert.doesNotMatch(copy.description, /Sosúa/);
+    assert.ok(copy.title.length <= SEARCH_TITLE_MAX);
+    assert.ok(copy.description.length <= SEARCH_DESCRIPTION_MAX);
+  });
+
+  it("uses Spanish city query language for Cabarete weekend", () => {
+    const copy = buildWhenSearchCopy(
+      "es",
+      "weekend",
+      [
+        event({ id: "fri", title: "Noche de salsa", date: "2026-10-02" }),
+        event({ id: "sat", title: "Mercado del sábado", date: "2026-10-03" }),
+      ],
+      "Cabarete",
+    );
+    assert.ok(copy);
+    assert.match(copy.title, /2 planes de fin de semana en Cabarete/);
+    assert.match(copy.h1, /2 planes para el fin de semana en Cabarete/);
+  });
 });
 
 describe("event search snippets", () => {

@@ -2,8 +2,8 @@ export const THEME_STORAGE_KEY = "eventdr-theme";
 
 export type Theme = "light" | "dark";
 
-/** First-run / unset preference — light until the user toggles. */
-export const DEFAULT_THEME: Theme = "light";
+/** First-run / unset preference — dark until the user toggles. */
+export const DEFAULT_THEME: Theme = "dark";
 
 export function getStoredTheme(): Theme | null {
   if (typeof window === "undefined") return null;
@@ -11,7 +11,7 @@ export function getStoredTheme(): Theme | null {
   return stored === "light" || stored === "dark" ? stored : null;
 }
 
-/** Explicit toggle wins; otherwise default light. */
+/** Explicit toggle wins; otherwise default dark. */
 export function resolveTheme(): Theme {
   return getStoredTheme() ?? DEFAULT_THEME;
 }

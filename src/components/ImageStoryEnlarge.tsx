@@ -34,6 +34,11 @@ interface ImageStoryEnlargeProps {
    * `width` fits image width so tall schedule flyers scroll vertically.
    */
   fit?: "cover" | "width";
+  /**
+   * `control` — small maximize button (default).
+   * `media` — whole photo is the tap target; icon stays as a corner affordance.
+   */
+  hitArea?: "control" | "media";
 }
 
 const TAP_MOVE_PX = 10;
@@ -151,6 +156,7 @@ export function ImageStoryEnlarge({
   trigger,
   showOnDesktop = false,
   fit = "cover",
+  hitArea = "control",
 }: ImageStoryEnlargeProps) {
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
@@ -387,11 +393,23 @@ export function ImageStoryEnlarge({
         ref={triggerRef}
         type="button"
         onClick={openViewer}
-        onPointerDown={(event) => event.stopPropagation()}
+        onPointerDown={(event) => {
+          // Small control: keep sheet/card swipes from starting on the icon.
+          // Full-media hit area: let parent track swipe vs tap (map pin sheet).
+          if (hitArea !== "media") event.stopPropagation();
+        }}
         className={
           inlineTrigger
             ? className
-            : `
+            : hitArea === "media"
+              ? `
+          pointer-events-auto absolute inset-0 z-[2]
+          flex items-end justify-end p-2.5
+          touch-manipulation
+          ${showOnDesktop ? "" : "lg:hidden"}
+          ${className}
+        `
+              : `
           pointer-events-auto absolute bottom-2.5 right-2.5 z-[2]
           flex h-8 w-8 items-center justify-center rounded-md
           bg-black/55 text-white shadow-sm backdrop-blur-sm
@@ -403,7 +421,15 @@ export function ImageStoryEnlarge({
         aria-label={enlargeLabel}
       >
         {trigger ?? (
-          <Maximize2 className="h-3.5 w-3.5" strokeWidth={2.25} aria-hidden />
+          <span
+            className={
+              hitArea === "media"
+                ? "flex h-8 w-8 items-center justify-center rounded-md bg-black/55 text-white shadow-sm backdrop-blur-sm"
+                : undefined
+            }
+          >
+            <Maximize2 className="h-3.5 w-3.5" strokeWidth={2.25} aria-hidden />
+          </span>
         )}
       </button>
       {viewer}

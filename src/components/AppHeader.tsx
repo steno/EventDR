@@ -135,8 +135,8 @@ export function AppHeader({
               className="pointer-events-none absolute -right-1 -top-1 z-[1] rounded bg-neutral-950 px-1 py-px text-[8px] font-black uppercase leading-none tracking-wide text-white shadow-sm ring-1 ring-white/80 dark:bg-white dark:text-neutral-950 dark:ring-neutral-900"
               aria-hidden
             >
-              {/* Fixed “NEW” — English stays short; localized words blew past the icon. */}
-              NEW
+              {/* Fixed “MAP” — English stays short; localized words blew past the icon. */}
+              MAP
             </span>
           ) : null}
         </Link>

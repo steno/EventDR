@@ -98,6 +98,8 @@ export function parseScopeListingPath(
   }
 
   if (segments[0] === "city" && segments[1] && isCitySlug(segments[1])) {
+    // City × when hubs hard-navigate (SSR metadata + fixed time range).
+    if (segments[2] === "when") return null;
     if (
       segments[2] === "category" &&
       segments[3] &&

@@ -16,6 +16,7 @@ import { EventCard } from "@/components/EventCard";
 import { EventCardMeta } from "@/components/EventCardMeta";
 import { CruiseShipEntry } from "@/components/CruiseShipEntry";
 import { IntentLink } from "@/components/IntentLink";
+import { MapWhenFilter } from "@/components/MapWhenFilter";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import {
@@ -24,6 +25,7 @@ import {
   nearestMapPin,
   SWING_NEXT_MAX_METERS,
   withVenueDeepLinkPin,
+  type MapTimeFilter,
 } from "@/lib/map-events";
 import { getVenueStreetAddress } from "@/lib/venue-street-address";
 import {
@@ -136,6 +138,7 @@ export function EventsMapPage({
   initialVenueSlug = null,
 }: EventsMapPageProps) {
   const [area, setArea] = useState<MapAreaId>("north-coast");
+  const [when, setWhen] = useState<MapTimeFilter>("all");
   const [focusedPinId, setFocusedPinId] = useState<string | null>(null);
   const [openPinId, setOpenPinId] = useState<string | null>(null);
   const [cruiseEntryOpen, setCruiseEntryOpen] = useState(false);
@@ -164,8 +167,8 @@ export function EventsMapPage({
   const suppressSlideClickRef = useRef(false);
 
   const filtered = useMemo(
-    () => filterMapEvents(initialEvents, "all", "all"),
-    [initialEvents],
+    () => filterMapEvents(initialEvents, when, "all"),
+    [initialEvents, when],
   );
   const deepLinkVenue = useMemo(() => {
     const slug = initialVenueSlug?.trim();
@@ -211,6 +214,29 @@ export function EventsMapPage({
   useEffect(() => {
     setShowPinsCoach(!hasSeenOnboarding("map-pins-coached"));
   }, []);
+
+  // Drop the open sheet when the when-filter removes that pin’s events.
+  useEffect(() => {
+    if (!openPinId) return;
+    if (pins.some((pin) => pin.id === openPinId)) return;
+    setOpenPinId(null);
+    setFocusedPinId(null);
+    setSwingVisitedIds([]);
+  }, [pins, openPinId]);
+
+  function handleWhenChange(next: MapTimeFilter) {
+    if (next === when) return;
+    setWhen(next);
+    // Same as city change: close the sheet and reframe the current area so
+    // the new pin set is visible (don’t stay zoomed on a removed pin).
+    clearPinSelection();
+    const target = MAP_AREAS[area];
+    flyTo(
+      area === "north-coast"
+        ? { ...target, zoom: resolveDefaultMapZoom() }
+        : target,
+    );
+  }
 
   // Mirror home’s chosen city/region into the map picker + camera (skip venue deep-links).
   useLayoutEffect(() => {
@@ -428,6 +454,11 @@ export function EventsMapPage({
       clearPinSelection();
       return;
     }
+    // Second tap on the open pin closes the card (no swing-next).
+    if (pinId === openPinId) {
+      clearPinSelection();
+      return;
+    }
     if (showPinsCoach) dismissPinsCoach();
     setFocusedPinId(pinId);
     setOpenPinId(pinId);
@@ -499,16 +530,19 @@ export function EventsMapPage({
           />
         </div>
 
-        {pins.length === 0 ? (
-          <div className="pointer-events-none absolute inset-x-0 top-4 z-10 flex justify-center px-4">
+        <div className="pointer-events-none absolute inset-x-0 top-3 z-10 flex flex-col items-center gap-2 px-4">
+          <MapWhenFilter
+            value={when}
+            onChange={handleWhenChange}
+            dict={dict}
+            className="pointer-events-auto"
+          />
+          {pins.length === 0 ? (
             <p className="rounded-2xl bg-white/95 px-4 py-2.5 text-sm font-semibold text-neutral-700 shadow-lg ring-1 ring-neutral-200/80 dark:bg-neutral-900/95 dark:text-neutral-200 dark:ring-white/10">
               {dict.map.empty}
             </p>
-          </div>
-        ) : null}
-
-        {showPinsCoach && pins.length > 0 ? (
-          <div className="absolute inset-x-0 top-4 z-10 flex justify-center px-4 pointer-events-none">
+          ) : null}
+          {showPinsCoach && pins.length > 0 ? (
             <div
               role="status"
               className="pointer-events-auto flex max-w-md items-start gap-2 rounded-2xl bg-white/95 px-3.5 py-2.5 text-sm font-semibold text-neutral-700 shadow-lg ring-1 ring-neutral-200/80 dark:bg-neutral-900/95 dark:text-neutral-200 dark:ring-white/10"
@@ -523,8 +557,8 @@ export function EventsMapPage({
                 {dict.map.pinsCoachDismiss}
               </button>
             </div>
-          </div>
-        ) : null}
+          ) : null}
+        </div>
 
         {shipPort && !openPin ? (
           <div className="absolute bottom-[max(1rem,env(safe-area-inset-bottom))] left-3 right-3 z-10 sm:left-auto sm:right-4 sm:w-80">
@@ -546,7 +580,7 @@ export function EventsMapPage({
             ref={sheetRef}
             data-map-pin-sheet
             data-pull-reload="ignore"
-            className="animate-slide-up absolute inset-x-0 bottom-0 z-20 max-h-[min(85dvh,40rem)] overflow-y-auto overflow-x-hidden rounded-t-3xl border-t border-neutral-200 bg-white/98 p-2.5 pb-[max(0.5rem,env(safe-area-inset-bottom))] shadow-[0_-12px_40px_-12px_rgba(0,0,0,0.35)] backdrop-blur-xl dark:border-neutral-800 dark:bg-neutral-950/98 sm:inset-x-auto sm:bottom-4 sm:right-4 sm:w-[22rem] sm:rounded-3xl sm:border sm:p-3 sm:pb-3"
+            className="animate-slide-up absolute inset-x-8 bottom-[max(0.75rem,env(safe-area-inset-bottom))] z-20 max-h-[min(85dvh,40rem)] overflow-y-auto overflow-x-hidden rounded-3xl border border-neutral-200 bg-white/98 p-2.5 shadow-[0_-12px_40px_-12px_rgba(0,0,0,0.35)] backdrop-blur-xl dark:border-neutral-800 dark:bg-neutral-950/98 sm:inset-x-auto sm:bottom-4 sm:right-4 sm:w-[22rem] sm:p-3"
             role="dialog"
             aria-label={dict.map.pinSheetLabel}
             aria-expanded={sheetExpanded}
@@ -659,10 +693,8 @@ export function EventsMapPage({
                       compact
                       mediaOnly
                       mediaExpanded={sheetExpanded}
-                      onMediaActivate={() =>
-                        setSheetExpanded((open) => !open)
-                      }
-                      showEnlarge={false}
+                      onMediaActivate={() => setSheetExpanded(true)}
+                      showEnlarge
                       returnTo={`/${locale}/map`}
                       returnTitle={areaLabel(area)}
                     />
@@ -689,7 +721,7 @@ export function EventsMapPage({
             ref={sheetRef}
             data-map-pin-sheet
             data-pull-reload="ignore"
-            className="animate-slide-up absolute inset-x-0 bottom-0 z-20 overflow-hidden rounded-t-3xl border-t border-neutral-200 bg-white/98 p-2.5 pb-[max(0.5rem,env(safe-area-inset-bottom))] shadow-[0_-12px_40px_-12px_rgba(0,0,0,0.35)] backdrop-blur-xl dark:border-neutral-800 dark:bg-neutral-950/98 sm:inset-x-auto sm:bottom-4 sm:right-4 sm:w-[22rem] sm:rounded-3xl sm:border sm:p-3 sm:pb-3"
+            className="animate-slide-up absolute inset-x-8 bottom-[max(0.75rem,env(safe-area-inset-bottom))] z-20 overflow-hidden rounded-3xl border border-neutral-200 bg-white/98 p-2.5 shadow-[0_-12px_40px_-12px_rgba(0,0,0,0.35)] backdrop-blur-xl dark:border-neutral-800 dark:bg-neutral-950/98 sm:inset-x-auto sm:bottom-4 sm:right-4 sm:w-[22rem] sm:p-3"
             role="dialog"
             aria-label={dict.map.venuePinSheetLabel}
           >

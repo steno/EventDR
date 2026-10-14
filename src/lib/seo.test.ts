@@ -4,6 +4,7 @@ import { getEventOgImageUrl } from "./event-images";
 import { getDictionary } from "@/i18n/dictionaries";
 import {
   buildBrandJsonLd,
+  buildCityWhenMetadata,
   buildEventBreadcrumbItems,
   buildBreadcrumbJsonLd,
   buildEventMetadata,
@@ -12,10 +13,10 @@ import {
   buildWebSiteJsonLd,
   canonicalMediaUrl,
 } from "./seo";
+import { CITIES, getCityMeta } from "./cities";
 import { getVenueSeo } from "./venue-seo";
 import type { Event, Venue } from "./types";
 import { SEARCH_TITLE_MAX } from "./search-snippets";
-import { CITIES } from "./cities";
 import { CATEGORY_IDS } from "./categories";
 import { getCategorySeo } from "./category-seo";
 import { getCityCategorySeo } from "./city-category-seo";
@@ -111,6 +112,34 @@ describe("buildBrandJsonLd", () => {
     assert.equal(site.description, dict.meta.description);
     assert.equal(org.logo.url, "https://pop-event.com/pop-home-logo.png");
     assert.equal(org.logo.width, 192);
+    assert.ok(Array.isArray(org.areaServed));
+    assert.ok(
+      (org.areaServed as { name: string }[]).some(
+        (area) => area.name === "Cabarete",
+      ),
+    );
+  });
+});
+
+describe("buildCityWhenMetadata", () => {
+  it("targets city-scoped local queries with a canonical city×when URL", () => {
+    const city = getCityMeta("cabarete");
+    assert.ok(city);
+    const meta = buildCityWhenMetadata("en", city, "today", [
+      {
+        ...dewry,
+        id: "lax-tonight",
+        title: "Reggae Night at LAX",
+        location: "Cabarete",
+        date: "2026-10-13",
+      },
+    ]);
+    assert.match(String(meta.title), /Cabarete/);
+    assert.match(String(meta.description), /Cabarete|LAX/i);
+    assert.equal(
+      meta.alternates?.canonical,
+      "https://pop-event.com/en/city/cabarete/when/today",
+    );
   });
 });
 

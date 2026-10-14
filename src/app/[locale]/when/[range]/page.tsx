@@ -2,7 +2,10 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { EventScopePage } from "@/components/EventScopePage";
 import { JsonLd } from "@/components/JsonLd";
-import { categoryNavLinks } from "@/lib/event-navigation";
+import {
+  categoryNavLinks,
+  whenCityNavLinks,
+} from "@/lib/event-navigation";
 import { isValidLocale, locales, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getPublicEvents } from "@/lib/public-events";
@@ -76,12 +79,10 @@ export default async function Page({
         intro: liveSeo.intro,
       }
     : whenSeo;
-  const relatedCategoryLinks = categoryNavLinks(
-    locale,
-    dict.categories,
-    null,
-    events,
-  );
+  const relatedCategoryLinks = [
+    ...whenCityNavLinks(locale, range),
+    ...categoryNavLinks(locale, dict.categories, null, events),
+  ];
   const relatedCategoryLinksLabel = dict.cities.browseTopCategories;
 
   return (

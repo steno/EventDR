@@ -149,6 +149,18 @@ export async function getSitemapEntries(): Promise<SitemapEntry[]> {
     });
   }
 
+  // High-intent local queries: "things to do in Cabarete today", etc.
+  // Always list — even thin days still match the search phrase and refresh hourly.
+  for (const citySlug of CITY_SLUGS) {
+    for (const whenSlug of WHEN_SLUGS) {
+      pushLocalized(entries, `/city/${citySlug}/when/${whenSlug}`, {
+        lastModified: listingLastModified,
+        changeFrequency: "hourly",
+        priority: 0.88,
+      });
+    }
+  }
+
   pushLocalized(entries, "/cruise/taino-bay", {
     lastModified: listingLastModified,
     changeFrequency: "daily",

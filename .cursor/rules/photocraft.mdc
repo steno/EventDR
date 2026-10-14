@@ -1,0 +1,27 @@
+---
+description: Use PhotoCraft MCP for raster image edits (assets → raw-exports)
+alwaysApply: true
+---
+
+# PhotoCraft (image editing)
+
+When creating or editing **raster** images (heroes, OG crops, flyers, composites, PSD-like layer work), prefer the **PhotoCraft MCP** (`project-0-EventDR-photocraft` / `photocraft`) over ad-hoc sharp/ImageMagick scripts or inventing pixel edits by hand.
+
+## Paths (MCP roots)
+
+- **Read / open / place:** files under `assets/` (paths relative to that root, e.g. `flyer.png`)
+- **Save / export:** under `raw-exports/` only
+- Do not point automation at the whole repo. Leave `assets/fonts/` alone (app Inter fonts for IG cards).
+
+Copy sources into `assets/` first if they live under `public/` or `popevent-images/`. Ship finished files into `public/` (or the usual curated paths) in a separate step after the user verifies.
+
+## Habits
+
+- Prefer `doc_open` / `doc_new`, then `command_list` / `command_run` / `command_batch`; use `doc_inspect` and `render_preview` to verify.
+- Before risky experiments: `image.duplicate` (or `history.newDocument`) and edit the copy.
+- Batches are not transactional — on failure, inspect history and undo as needed.
+- PhotoCraft is **Photoshop-class** (raster). It is not Illustrator; do not treat it as a vector/SVG authoring tool.
+
+## Ignore / git
+
+`assets/` and `raw-exports/` are in `.cursorignore` (indexing). Do not commit large PhotoCraft working files or exports unless the user asks; curated heroes under `public/` follow existing image/seed rules.
