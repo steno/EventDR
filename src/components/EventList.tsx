@@ -264,10 +264,10 @@ export function EventList({
       const excluded = new Set(excludeEventIds);
       result = result.filter((e) => !excluded.has(e.id));
     }
-    // Home "Our picks": one-time before multi-day/recurring on every time tab.
+    // One-time then multi-day before recurring on every time tab.
     const sorted = sortEventsForDisplay(result, {
       recurringLast: true,
-      oneTimeFirst: ourPicks,
+      oneTimeFirst: true,
       pinTodayOneOffs: ourPicks,
     });
     if (timeRange !== "weekend") return sorted;

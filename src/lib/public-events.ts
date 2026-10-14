@@ -114,7 +114,10 @@ async function loadPublicEvents(filter: PublicEventsFilter): Promise<Event[]> {
   events = attachCoords(events);
   events = sortEventsForDisplay(events, {
     recurringLast: true,
-    oneTimeFirst: Boolean(category),
+    // Multi-day festivals beat weekly/daily evergreens in every list — not
+    // only when a category filter is set (time-range cards otherwise lose to
+    // single-kickoff recurring nights via hasRange).
+    oneTimeFirst: true,
     pinTodayOneOffs: Boolean(category),
     discoveryMode: Boolean(category),
     preferPrimaryCategory: category,
@@ -177,7 +180,7 @@ export async function getPublicEvents(
     attachEventImages(applyScopeFilters(events, filter), filter.locale),
     {
       recurringLast: true,
-      oneTimeFirst: Boolean(filter.category),
+      oneTimeFirst: true,
       pinTodayOneOffs: Boolean(filter.category),
       discoveryMode: Boolean(filter.category),
       preferPrimaryCategory: filter.category,
@@ -194,7 +197,7 @@ export async function getPublicEventsUncached(
     attachEventImages(applyScopeFilters(events, filter), filter.locale),
     {
       recurringLast: true,
-      oneTimeFirst: Boolean(filter.category),
+      oneTimeFirst: true,
       pinTodayOneOffs: Boolean(filter.category),
       discoveryMode: Boolean(filter.category),
       preferPrimaryCategory: filter.category,

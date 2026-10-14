@@ -602,9 +602,9 @@ export function getTodaySpecialEvents(
 
 /**
  * Events happening today, in the same preference order as `/when/today`:
- * status, then one-time before multi-day/recurring, then clock time, then
- * {@link pinTodayOneOffs} (trending, scarce one-offs and weekly nights above
- * evergreen dailies, newer `createdAt` among those peers).
+ * status, then one-time before multi-day before recurring, then clock time,
+ * then {@link pinTodayOneOffs} (trending, scarce one-offs and weekly nights
+ * above evergreen dailies, newer `createdAt` among those peers).
  *
  * Home discover splits dated “starts today” one-offs into
  * {@link getTodaySpecialEvents}; pass `excludeTodaySpecials` there so this

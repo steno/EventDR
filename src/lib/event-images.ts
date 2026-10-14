@@ -239,8 +239,9 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "lokuras-pop-percusion-latina-2026-09-20":
     "lokuras-pop-percusion-latina-2026-09-20.jpg",
   "lokuras-pop-friday-karaoke": "lokuras-pop-friday-karaoke-v2.jpg",
+  // Filename bump — sold-out stamp flyer (PWA strips ?v=).
   "nova-detras-de-la-mascara-2026-10-16":
-    "nova-detras-de-la-mascara-2026-10-16.jpg",
+    "nova-detras-de-la-mascara-2026-10-16-sold-out.jpg",
   "camara-empresas-codigo-penal-2026-09-16":
     "camara-empresas-codigo-penal-2026-09-16.jpg",
   "luna-lounge-noche-de-exitos-2026-09-19":
@@ -344,12 +345,19 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "ambar-lounge-bandoleras-2026-10-16.jpg",
   "cedaky-mall-stand-solidario-2026-10-15":
     "cedaky-mall-stand-solidario-2026-10-15.jpg",
+  // Filename bump — proper Dra. Marcelle Cueto flyer (PWA strips ?v=; IG caption crop stayed cached).
   "cedaky-mall-nutricion-pequenos-gigantes-2026-10-17":
-    "cedaky-mall-nutricion-pequenos-gigantes-2026-10-17.jpg",
+    "cedaky-mall-nutricion-pequenos-gigantes-2026-10-17-v2.jpg",
   "fxs-exhibicion-carros-deportivos-2026-10-18":
     "fxs-exhibicion-carros-deportivos-2026-10-18.jpg",
   "cafe-meclao-rancho-catalina-2026-10-18":
     "cafe-meclao-rancho-catalina-2026-10-18.jpg",
+  "parada-el-choco-thanksgiving-big-d-2026-11-26":
+    "parada-el-choco-thanksgiving-big-d-2026-11-26.jpg",
+  "cedaky-mall-feria-numismatica-2026-10-31":
+    "cedaky-mall-feria-numismatica-2026-10-31.jpg",
+  "cabarete-run-festival-after-run-2026-11-08":
+    "cabarete-run-festival-after-run-2026-11-08.jpg",
   "la-lola-back-to-northside-2026-07-04":
     "la-lola-back-to-northside-2026-07-04.jpg",
   "ambar-lounge-emil-roman-2026-09-26":
@@ -989,7 +997,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "lena-dardelet-aura-beach-club-2026-07-24.png",
   "lokuras-pop-percusion-latina-2026-09-20.jpg",
   "lokuras-pop-friday-karaoke-v2.jpg",
-  "nova-detras-de-la-mascara-2026-10-16.jpg",
+  "nova-detras-de-la-mascara-2026-10-16-sold-out.jpg",
   "camara-empresas-codigo-penal-2026-09-16.jpg",
   "luna-lounge-noche-de-exitos-2026-09-19.jpg",
   "ocean-world-terrace-la-fiera-tipica-2026-09-18.jpg",
@@ -1032,9 +1040,12 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "ambar-lounge-bandoleras-2026-10-09.jpg",
   "ambar-lounge-bandoleras-2026-10-16.jpg",
   "cedaky-mall-stand-solidario-2026-10-15.jpg",
-  "cedaky-mall-nutricion-pequenos-gigantes-2026-10-17.jpg",
+  "cedaky-mall-nutricion-pequenos-gigantes-2026-10-17-v2.jpg",
   "fxs-exhibicion-carros-deportivos-2026-10-18.jpg",
   "cafe-meclao-rancho-catalina-2026-10-18.jpg",
+  "parada-el-choco-thanksgiving-big-d-2026-11-26.jpg",
+  "cedaky-mall-feria-numismatica-2026-10-31.jpg",
+  "cabarete-run-festival-after-run-2026-11-08.jpg",
   "ambar-lounge-gaby-luna-2026-10-03.jpg",
   "ocean-world-terrace-deury-luciano-2026-10-16.jpg",
   "ocean-world-terrace-old-school-2026-10-17.jpg",
@@ -1136,9 +1147,12 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "voyvoy-saturday-session-2026-10-17.jpg",
   "ambar-lounge-bandoleras-2026-10-16.jpg",
   "cedaky-mall-stand-solidario-2026-10-15.jpg",
-  "cedaky-mall-nutricion-pequenos-gigantes-2026-10-17.jpg",
+  "cedaky-mall-nutricion-pequenos-gigantes-2026-10-17-v2.jpg",
   "fxs-exhibicion-carros-deportivos-2026-10-18.jpg",
   "cafe-meclao-rancho-catalina-2026-10-18.jpg",
+  "parada-el-choco-thanksgiving-big-d-2026-11-26.jpg",
+  "cedaky-mall-feria-numismatica-2026-10-31.jpg",
+  "cabarete-run-festival-after-run-2026-11-08.jpg",
   "aura-after-dark-carlos-rivera-2026-10-10.jpg",
   "drifter-sunset-into-the-night-v2.jpg",
   "pop-cinemas-week-2026-10-08-grin.jpg",

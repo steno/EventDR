@@ -32,9 +32,11 @@ export interface SortEventsForDisplayOptions {
   /** Deprioritize recurring events among future peers on the same day (not when live today). */
   recurringLast?: boolean;
   /**
-   * Within the same status tier, prefer one-time fixtures, then multi-day,
-   * then weekly/weekend nights, then weekdays, then daily — before clock time
-   * / date (does not float future one-offs above live/today status).
+   * Within the same status tier, prefer one-time fixtures, then multi-day
+   * festivals, then weekly/weekend nights, then weekdays, then daily — before
+   * clock time / date (does not float future one-offs above live/today status).
+   * Keep on for visitor lists so multi-day hour-range cards beat recurring
+   * single-kickoff nights (hasRange otherwise sorts those kickoffs first).
    */
   oneTimeFirst?: boolean;
   /**

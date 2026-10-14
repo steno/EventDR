@@ -210,12 +210,20 @@ const FILE_TO_EVENT_ID = {
     "ambar-lounge-bandoleras-2026-10-16",
   "cedaky-mall-stand-solidario-2026-10-15.jpg":
     "cedaky-mall-stand-solidario-2026-10-15",
-  "cedaky-mall-nutricion-pequenos-gigantes-2026-10-17.jpg":
+  "cedaky-mall-nutricion-pequenos-gigantes-2026-10-17-v2.jpg":
     "cedaky-mall-nutricion-pequenos-gigantes-2026-10-17",
   "fxs-exhibicion-carros-deportivos-2026-10-18.jpg":
     "fxs-exhibicion-carros-deportivos-2026-10-18",
   "cafe-meclao-rancho-catalina-2026-10-18.jpg":
     "cafe-meclao-rancho-catalina-2026-10-18",
+  "parada-el-choco-thanksgiving-big-d-2026-11-26.jpg":
+    "parada-el-choco-thanksgiving-big-d-2026-11-26",
+  "cedaky-mall-feria-numismatica-2026-10-31.jpg":
+    "cedaky-mall-feria-numismatica-2026-10-31",
+  "cabarete-run-festival-after-run-2026-11-08.jpg":
+    "cabarete-run-festival-after-run-2026-11-08",
+  "nova-detras-de-la-mascara-2026-10-16-sold-out.jpg":
+    "nova-detras-de-la-mascara-2026-10-16",
   "la-lola-back-to-northside-2026-07-04.jpg":
     "la-lola-back-to-northside-2026-07-04",
   "ambar-lounge-emil-roman-2026-09-26.jpg": "ambar-lounge-emil-roman-2026-09-26",

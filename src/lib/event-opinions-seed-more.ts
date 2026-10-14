@@ -2099,21 +2099,21 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "nova-detras-de-la-mascara-2026-10-16",
-    body: "Sit-down psychology talk in a centro wellness room — skip if you want nightlife; WhatsApp the RD$1,000 seat before Oct 16 fills the cupo.",
+    body: "Sold out — sit-down psychology talk at Centro Nova on Margarita Mears; keep it on the calendar only as a reference, not a walk-up plan for Oct 16.",
     localized: {
-      es: "Charla de psicología sentada en un centro de bienestar — sáltala si buscas nightlife; reserva el cupo de RD$1,000 por WhatsApp antes del 16 de octubre.",
-      fr: "Conférence de psychologie assise dans une salle wellness du centre — skip si vous voulez la nightlife ; réservez la place RD$1 000 via WhatsApp avant le 16 octobre.",
+      es: "Agotado — charla de psicología en Centro Nova sobre Margarita Mears; déjala en el calendario solo como referencia, no como plan walk-up para el 16 de octubre.",
+      fr: "Complet — conférence de psychologie au Centro Nova sur Margarita Mears ; gardez-la au calendrier seulement comme référence, pas comme plan walk-up pour le 16 octobre.",
     },
     priceFeel: "moderate",
-    priceNote: "RD$1,000 investment — limited seats; reserve WhatsApp 809-280-0077",
+    priceNote: "Sold out — was RD$1,000 / WhatsApp 809-280-0077",
     priceNoteLocalized: {
-      es: "Inversión RD$1,000 — cupo limitado; reserva WhatsApp 809-280-0077",
-      fr: "Investissement RD$1 000 — places limitées ; réservez WhatsApp 809-280-0077",
+      es: "Agotado — era RD$1,000 / WhatsApp 809-280-0077",
+      fr: "Complet — était RD$1 000 / WhatsApp 809-280-0077",
     },
-    attribution: "POP research · @novapuertoplata / @eventospop037",
+    attribution: "POP research · @novapuertoplata sold-out flyer",
     researchNotes:
-      "Editor-supplied flyer + IG https://www.instagram.com/p/DdE8EPrusX4/ — Thu 16 Oct 2026 5 PM, Ana María Rivera + Felipe Acosta; Margarita Mears #6; RD$1,000; WA 809-280-0077.",
-    updatedAt: "2026-09-14T12:00:00.000Z",
+      "Editor sold-out stamp flyer — Thu 16 Oct 2026 5 PM, Ana María Rivera + Felipe Acosta; Margarita Mears #6; RD$1,000; now soldOut.",
+    updatedAt: "2026-10-14T21:00:00.000Z",
   },
   {
     eventId: "camara-empresas-codigo-penal-2026-09-16",
@@ -5524,5 +5524,59 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     researchNotes:
       "Editor flyer + IG @greengardendr — Sat 17 Oct 2026 from 4 PM The Pink Garden at Galerías Pádel Club; Green Garden × Galerías; Patronato Manos Unidas; pádel/pilates/charlas/mindfulness/mahjong; dress code rosa; WhatsApp +1 829-626-2410. Venue playbypoint + Maps Av. Luis Ginebra.",
     updatedAt: "2026-10-13T23:45:00.000Z",
+  },
+  {
+    eventId: "parada-el-choco-thanksgiving-big-d-2026-11-26",
+    body: "Ticketed Thanksgiving dinner with Big D on the Sosúa–Cabarete corridor — RD$1,650 and WhatsApp RSVP, not the free Tuesday aperitivo BandItalia nights. Book the table early if you’re sending guests for a holiday sit-down.",
+    localized: {
+      es: "Cena de Thanksgiving con boleto y Big D en la carretera Sosúa–Cabarete — RD$1,650 y RSVP por WhatsApp, no las noches gratis de aperitivo BandItalia de los martes. Reserva mesa temprano si mandas gente a una cena festiva sentada.",
+      fr: "Dîner Thanksgiving billeté avec Big D sur la route Sosúa–Cabarete — RD$1 650 et RSVP WhatsApp, pas les apéritivos gratuits BandItalia du mardi. Réservez tôt si vous envoyez des hôtes pour un dîner de fête assis.",
+    },
+    priceFeel: "upscale",
+    priceNote: "RD$1,650 p/p — WhatsApp +1 809-804-2510 / @paradaelchoco",
+    priceNoteLocalized: {
+      es: "RD$1,650 p/p — WhatsApp +1 809-804-2510 / @paradaelchoco",
+      fr: "RD$1 650 p/p — WhatsApp +1 809-804-2510 / @paradaelchoco",
+    },
+    attribution: "POP research · @paradaelchoco Thanksgiving flyer",
+    researchNotes:
+      "Editor flyer — Thu 26 Nov 2026 6:30 PM Thanksgiving Celebration, Big D (Dooner), RD$1,650 p/p, WA +1 809 804 2510, Parada El Choco’s.",
+    updatedAt: "2026-10-14T23:00:00.000Z",
+  },
+  {
+    eventId: "cedaky-mall-feria-numismatica-2026-10-31",
+    body: "Two-day coin-and-bill fair on the mall first level — family daytime hours (Sat to 7:30 PM, Sun to 6:00 PM), not a nightlife deck and not the solidarity stand earlier in October. Ideal if guests want a collector plan without a ticket gate.",
+    localized: {
+      es: "Feria de monedas y billetes de dos días en el primer nivel del mall — horarios diurnos familiares (sáb hasta 7:30 PM, dom hasta 6:00 PM), no una terraza de nightlife ni el stand solidario de octubre. Ideal si buscan plan de coleccionistas sin boletería.",
+      fr: "Foire monnaies et billets sur deux jours au premier niveau du mall — horaires de jour familiaux (sam jusqu’à 19 h 30, dim jusqu’à 18 h), pas une terrasse nightlife ni le stand solidaire d’octobre. Idéal pour un plan collectionneur sans billetterie.",
+    },
+    priceFeel: "free",
+    priceNote: "Mall fair — free to browse · @cedakymall",
+    priceNoteLocalized: {
+      es: "Feria en el mall — entrada libre para recorrer · @cedakymall",
+      fr: "Foire au mall — libre de parcourir · @cedakymall",
+    },
+    attribution: "POP research · @cedakymall Feria Numismática flyer",
+    researchNotes:
+      "Editor flyer + IG @cedakymall — 31 Oct 9 AM–7:30 PM and 1 Nov 10 AM–6 PM, primer nivel Cedāky Mall; Feria Numismática del Cibao Puerto Plata 2026.",
+    updatedAt: "2026-10-14T22:30:00.000Z",
+  },
+  {
+    eventId: "cabarete-run-festival-after-run-2026-11-08",
+    body: "Post-5K stage party with Raylin and Pide Tu Bachata the same Sunday as the race — not the 6:00 AM start line. Cover and After Run kickoff aren’t on the flyer; confirm with @desarrollo_fitness_cabarete after you register for the run.",
+    localized: {
+      es: "Fiesta en tarima post-5K con Raylin y Pide Tu Bachata el mismo domingo de la carrera — no es la salida de las 6:00 AM. Cover y hora del After Run no están en el flyer; confirma con @desarrollo_fitness_cabarete después de inscribirte a la carrera.",
+      fr: "Fête sur scène post-5K avec Raylin et Pide Tu Bachata le même dimanche que la course — pas le départ 6 h. Cover et heure de l’After Run absents de l’affiche ; confirmez avec @desarrollo_fitness_cabarete après l’inscription à la course.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — @desarrollo_fitness_cabarete / +1 809-769-6199",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — @desarrollo_fitness_cabarete / +1 809-769-6199",
+      fr: "Cover à confirmer — @desarrollo_fitness_cabarete / +1 809-769-6199",
+    },
+    attribution: "POP research · @desarrollo_fitness_cabarete After Run flyer",
+    researchNotes:
+      "Editor flyer + IG — Dom 8 Nov After Run, Raylin el Bachatero + Pide Tu Bachata; Cabarete; same day as 5K listing cabarete-run-festival-5k-2026-11-08.",
+    updatedAt: "2026-10-14T22:15:00.000Z",
   },
 ];

@@ -86,7 +86,7 @@ function mergeDbEvents(events: Event[], dbEvents: Event[]): Event[] {
 function sortEvents(events: Event[], category?: EventCategory): Event[] {
   return sortEventsForDisplay(events, {
     recurringLast: true,
-    oneTimeFirst: Boolean(category),
+    oneTimeFirst: true,
     pinTodayOneOffs: Boolean(category),
     discoveryMode: Boolean(category),
     preferPrimaryCategory: category,

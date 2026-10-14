@@ -306,6 +306,47 @@ describe("sortEventsForDisplay weekly vs daily", () => {
     );
   });
 
+  it("ranks multi-day hour-range fixtures above weekly single-kickoff nights", () => {
+    /** Thursday Oct 16, 2026 14:00 AST — stand still upcoming, Friday weekly tonight. */
+    const afternoon = new Date("2026-10-16T18:00:00.000Z");
+    const stand = event({
+      id: "stand-solidario",
+      title: "Stand Solidario",
+      date: "2026-10-15",
+      endDate: "2026-10-17",
+      time: "3:00 PM – 7:00 PM",
+    });
+    const weekly = event({
+      id: "friday-bandoleras",
+      title: "Bandoleras Friday",
+      date: "2026-10-16",
+      time: "10:00 PM",
+      recurrence: "weekly",
+      recurrenceDay: 5,
+    });
+
+    // Without oneTimeFirst, hasRange puts the weekly kickoff ahead of the
+    // multi-day 3–7 PM window even though both are upcoming-today.
+    const withoutKind = sortEventsForDisplay([stand, weekly], {
+      now: afternoon,
+      recurringLast: true,
+    });
+    assert.equal(
+      withoutKind.map((e) => e.id).join(","),
+      "friday-bandoleras,stand-solidario",
+    );
+
+    const withKind = sortEventsForDisplay([stand, weekly], {
+      now: afternoon,
+      oneTimeFirst: true,
+      recurringLast: true,
+    });
+    assert.equal(
+      withKind.map((e) => e.id).join(","),
+      "stand-solidario,friday-bandoleras",
+    );
+  });
+
   it("ranks weekly before daily within the same future day when oneTimeFirst", () => {
     const dailyTour = event({
       id: "snorkel-daily",

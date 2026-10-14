@@ -242,6 +242,7 @@ export const CURATED_FREE_EVENTS = new Set<string>([
   "wingo-bogota-inauguration-2026-11-06",
   "ocean-world-terrace-old-school-2026-10-17",
   "cedaky-mall-stand-solidario-2026-10-15",
+  "cedaky-mall-feria-numismatica-2026-10-31",
   "cafe-meclao-rancho-catalina-2026-10-18",
   "eat-street-market-ocean-one-2026-09-27",
   "imbert-mercedes-patronales-2026",

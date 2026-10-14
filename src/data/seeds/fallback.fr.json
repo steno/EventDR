@@ -1836,7 +1836,7 @@
   {
     "id": "nova-detras-de-la-mascara-2026-10-16",
     "title": "Detrás de la Máscara — Comprendre le narcissisme",
-    "description": "Conférence de psychologie Detrás de la Máscara — comprendre le narcissisme, avec les psychologues cliniques Ana María Rivera et Felipe Acosta au Centro Nova Salud y Bienestar, Calle Margarita Mears n° 6, Puerto Plata — jeudi 16 octobre 2026 à 17 h. Récits, témoignages et outils concrets ; RD$1 000 ; places limitées. Réservez via WhatsApp 809-280-0077. Organisateur @novapuertoplata.",
+    "description": "Conférence de psychologie Detrás de la Máscara — comprendre le narcissisme, avec les psychologues cliniques Ana María Rivera et Felipe Acosta au Centro Nova Salud y Bienestar, Calle Margarita Mears n° 6, Puerto Plata — jeudi 16 octobre 2026 à 17 h. Récits, témoignages et outils concrets ; RD$1 000 ; places limitées. Complet. Organisateur @novapuertoplata.",
     "date": "2026-10-16",
     "time": "5:00 PM",
     "location": "Puerto Plata",
@@ -1859,7 +1859,8 @@
       "Ana María Rivera",
       "Felipe Acosta"
     ],
-    "imageEmoji": "🎭"
+    "imageEmoji": "🎭",
+    "soldOut": true
   },
   {
     "id": "camara-empresas-codigo-penal-2026-09-16",
@@ -6439,5 +6440,90 @@
       "Patronato Manos Unidas"
     ],
     "imageEmoji": "💗"
+  },
+  {
+    "id": "parada-el-choco-thanksgiving-big-d-2026-11-26",
+    "title": "Parada El Choco Thanksgiving — Big D",
+    "description": "Célébration Thanksgiving avec musique live de Big D (Dooner) au Restaurante Parada El Choco’s, Plaza Buen Gusto sur la route Sosúa–Cabarete face à Ocean Village — jeudi 26 novembre 2026 à 18 h 30. RD$1 650 par personne. RSVP WhatsApp +1 809-804-2510 · Instagram @paradaelchoco. Dîner de fête billeté — pas la série d’apéritivo BandItalia du mardi.",
+    "date": "2026-11-26",
+    "time": "6:30 PM",
+    "location": "Sosúa",
+    "venue": "Parada Típica El Choco",
+    "venueSlug": "parada-tipica-el-choco",
+    "address": "Plaza Buen Gusto, Carretera Sosúa–Cabarete (face à Ocean Village)",
+    "lat": 19.77269,
+    "lng": -70.4967789,
+    "category": "food-drinks",
+    "categories": [
+      "music"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": false,
+    "admissionPrice": "RD$1,650",
+    "phone": "+18098042510",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/paradaelchoco/",
+    "lineup": [
+      "Big D (Dooner)"
+    ],
+    "imageEmoji": "🦃"
+  },
+  {
+    "id": "cedaky-mall-feria-numismatica-2026-10-31",
+    "title": "Cedāky Mall — Feria Numismática del Cibao 2026",
+    "description": "Feria Numismática del Cibao Puerto Plata 2026 au Cedāky Mall premier niveau, Av. Manolo Tavárez Justo, Puerto Plata — samedi 31 octobre 2026, 9 h–19 h 30, et dimanche 1er novembre 2026, 10 h–18 h. Découvrir, collectionner et connaître monnaies, billets et pièces d’histoire — pour collectionneurs, curieux et familles. Instagram @cedakymall.",
+    "date": "2026-10-31",
+    "endDate": "2026-11-01",
+    "time": "Sam 9 h–19 h 30 · Dim 10 h–18 h",
+    "location": "Puerto Plata",
+    "venue": "Cedāky Mall",
+    "venueSlug": "cedaky-mall",
+    "address": "Av. Manolo Tavárez Justo, Barrio Las Yaguitas, Puerto Plata — premier niveau",
+    "lat": 19.782269,
+    "lng": -70.673706,
+    "category": "culture",
+    "categories": [
+      "festivals"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/cedakymall/",
+    "instagram": "cedakymall",
+    "lineup": [
+      "Feria Numismática del Cibao 2026"
+    ],
+    "imageEmoji": "🪙",
+    "ageHint": "family"
+  },
+  {
+    "id": "cabarete-run-festival-after-run-2026-11-08",
+    "title": "Cabarete Run Festival After Run — Raylin & Pide Tu Bachata",
+    "description": "AFTER RUN du Cabarete Run Festival 5K avec Raylin el Bachatero et Pide Tu Bachata sur scène — dimanche 8 novembre 2026 à Cabarete, Puerto Plata. Fête post-course après le 5K inaugural à 6 h (listing séparé) ; l’heure de début de l’After Run n’est pas sur l’affiche. Organisateur @desarrollo_fitness_cabarete · WhatsApp +1 809-769-6199.",
+    "date": "2026-11-08",
+    "location": "Cabarete",
+    "venue": "Desarrollo Fitness Cabarete",
+    "venueSlug": "desarrollo-fitness-cabarete",
+    "address": "Cabarete, Puerto Plata",
+    "lat": 19.7503643,
+    "lng": -70.406125,
+    "category": "music",
+    "categories": [
+      "parties",
+      "sports"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18097696199",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/desarrollo_fitness_cabarete/",
+    "lineup": [
+      "Raylin el Bachatero",
+      "Pide Tu Bachata"
+    ],
+    "imageEmoji": "🥁"
   }
 ]

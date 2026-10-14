@@ -146,7 +146,7 @@ export function filterCatalogForScope(
   }
   return sortEventsForDisplay(result, {
     recurringLast: true,
-    oneTimeFirst: Boolean(selection.categoryId),
+    oneTimeFirst: true,
     pinTodayOneOffs: Boolean(selection.categoryId),
     discoveryMode: Boolean(selection.categoryId),
     preferPrimaryCategory: selection.categoryId,
