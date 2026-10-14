@@ -1919,6 +1919,18 @@ export const SEED_VENUES: Venue[] = [
     phone: "+18092617393",
   },
   {
+    slug: "cedaky-mall",
+    name: "Cedāky Mall",
+    city: "Puerto Plata",
+    description:
+      "Modern shopping mall on Av. Manolo Tavárez Justo (Barrio Las Yaguitas) — retail, family programming, and community stands at the main entrance and first level. Instagram @cedakymall.",
+    lat: 19.782269,
+    lng: -70.673706,
+    emoji: "🛍️",
+    instagram: "cedakymall",
+    website: "https://www.instagram.com/cedakymall/",
+  },
+  {
     slug: "spotland-puerto-plata",
     name: "Spot Land",
     city: "Puerto Plata",
@@ -2028,6 +2040,10 @@ export const SEED_VENUES: Venue[] = [
 
 /** Extra name fragments → seed slug (checked before fuzzy name includes). */
 const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
+  {
+    pattern: /ced[aāă]ky\s*mall|cedakymall/i,
+    slug: "cedaky-mall",
+  },
   {
     pattern: /spot\s*land|spotland/i,
     slug: "spotland-puerto-plata",

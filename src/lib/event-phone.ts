@@ -128,6 +128,8 @@ const EVENT_PHONE_BY_ID: Record<string, string> = {
   "pregame-roof-baseball-game-day-2026-10-14": "+18097818677",
   "ann-soul-aura-cabarete-2026-10-15": "+18297870140",
   "voyvoy-saturday-session-2026-10-17": "+18095710805",
+  "ambar-lounge-bandoleras-2026-10-16": "+18097818677",
+  "cafe-meclao-rancho-catalina-2026-10-18": "+18097813737",
   "aura-after-dark-carlos-rivera-2026-10-10": "+18297870140",
   "petit-francois-halloween-2026-10-30": "+18294922910",
   "petit-francois-canadian-thanksgiving-2026-10-12": "+18294922910",

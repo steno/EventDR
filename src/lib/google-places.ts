@@ -99,6 +99,11 @@ const PLACE_SEARCH_ALIASES: Record<string, string[]> = {
     "Pregame Rooftop Luis Ginebra",
     "Pregame Roof Av Luis Ginebra 45",
   ],
+  "cedaky-mall": [
+    "Cedaky Mall Puerto Plata",
+    "Cedāky Mall Manolo Tavárez Justo",
+    "Cedaky Mall Las Yaguitas",
+  ],
   "el-mirador-de-finely": [
     "El Mirador de Finely Puerto Plata",
     "Finely Saludable Cerro Mar",

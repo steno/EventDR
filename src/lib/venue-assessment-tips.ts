@@ -1177,6 +1177,14 @@ export const VENUE_TIP_COPY: Record<
       fr: "Salle hôte FENATE 2026 à Puerto Plata (22 oct–1 nov). Bills locaux datés : Eulogio Badia sam 24 oct 19 h (adultes) et Café Ópera Código Clown sam 31 oct 19 h (16+). Tierra de Paso est le jeu 15 oct — les portes ferment à 19 h 10 et ne rouvrent pas avant la fin. RSVP 809-261-7393.",
     },
   },
+  "cedaky-mall": {
+    body: "New Manolo Tavárez Justo mall (Las Yaguitas) — family talks and solidarity stands at the main entrance / first level, not a nightlife deck. Confirm registration links on @cedakymall before you treat walk-up as guaranteed.",
+    localized: {
+      en: "New Manolo Tavárez Justo mall (Las Yaguitas) — family talks and solidarity stands at the main entrance / first level, not a nightlife deck. Confirm registration links on @cedakymall before you treat walk-up as guaranteed.",
+      es: "Mall nuevo en Manolo Tavárez Justo (Las Yaguitas) — charlas familiares y stands solidarios en la entrada principal / primer nivel, no una terraza de nightlife. Confirma cupos en @cedakymall antes de asumir walk-up.",
+      fr: "Nouveau mall sur Manolo Tavárez Justo (Las Yaguitas) — conférences familles et stands solidaires à l’entrée principale / premier niveau, pas une terrasse nightlife. Confirmez les places sur @cedakymall avant de compter sur le walk-up.",
+    },
+  },
   "spotland-puerto-plata": {
     body: "Outdoor fun-food-photo park on Av. Luis Ginebra — kids playground energy under shade sails, not a nightlife deck. Open Thu–Mon 2–10 PM (closed Tue–Wed); themed family Saturdays like Retro ’80s when billed — check @spotlandrd before you pin the strip.",
     localized: {

@@ -5287,6 +5287,97 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: "2026-10-14T17:00:00.000Z",
   },
   {
+    eventId: "ambar-lounge-bandoleras-2026-10-16",
+    body: "Ladies Friday on Luis Ginebra with Sebastian Crozz this week — free drinks for women until 11 PM is still the hook; RSVP (809) 781-8677 before walk-in, and don’t mix it with Pregame Roof one floor up or Mecla’o’s same-street rooftop.",
+    localized: {
+      es: "Viernes de chicas en Luis Ginebra con Sebastian Crozz esta semana — tragos gratis para mujeres hasta las 11 PM sigue siendo el gancho; RSVP (809) 781-8677 antes del walk-in, y no lo mezcles con Pregame Roof un piso arriba ni el rooftop de Mecla’o en la misma calle.",
+      fr: "Vendredi dames sur Luis Ginebra avec Sebastian Crozz cette semaine — verres gratuits pour les femmes jusqu’à 23 h reste l’accroche ; RSVP (809) 781-8677 avant le walk-in, et ne confondez pas avec Pregame Roof un étage plus haut ni le rooftop Mecla’o dans la même rue.",
+    },
+    priceFeel: "varies",
+    priceNote:
+      "Free drinks for ladies until 11 PM — other cover/pricing confirm with lounge",
+    priceNoteLocalized: {
+      es: "Tragos gratis para chicas hasta las 11 PM — cover/otros precios confirma con el lounge",
+      fr: "Verres gratuits pour les dames jusqu’à 23 h — cover/autres prix à confirmer avec le lounge",
+    },
+    attribution: "POP research · @ambarloungepop Bandoleras Sebastian Crozz flyer",
+    researchNotes:
+      "Editor flyer — Vie 16 Oct Bandoleras Friday, beats by Sebastian Crozz, free drinks ladies until 11 PM, RSVP 809-781-8677, Av Luis Ginebra 45 2nd/3rd level. Vocatus co-brand.",
+    updatedAt: "2026-10-14T22:00:00.000Z",
+  },
+  {
+    eventId: "cedaky-mall-stand-solidario-2026-10-15",
+    body: "Three afternoons at the mall main entrance (15–17 Oct, 3–7 PM) with Manos Unidas Contra el Cáncer — awareness stand, not a nightclub bill and not the Saturday 4 PM nutrition talk upstairs.",
+    localized: {
+      es: "Tres tardes en la entrada principal del mall (15–17 oct, 3–7 PM) con Manos Unidas Contra el Cáncer — stand de conciencia, no una noche de club ni la charla de nutrición del sábado a las 4 PM en el primer nivel.",
+      fr: "Trois après-midis à l’entrée principale du mall (15–17 oct, 15 h–19 h) avec Manos Unidas Contra el Cáncer — stand de sensibilisation, pas une soirée club ni la confé nutrition du samedi à 16 h au premier niveau.",
+    },
+    priceFeel: "budget",
+    priceNote: "Free awareness stand — @cedakymall",
+    priceNoteLocalized: {
+      es: "Stand solidario gratis — @cedakymall",
+      fr: "Stand solidaire gratuit — @cedakymall",
+    },
+    attribution: "POP research · @cedakymall Stand Solidario flyer",
+    researchNotes:
+      "Editor flyer + IG @cedakymall — Stand Solidario La Lucha Nos Une, 15–17 Oct 3–7 PM, entrada principal, Patronato Manos Unidas Contra el Cáncer.",
+    updatedAt: "2026-10-14T21:00:00.000Z",
+  },
+  {
+    eventId: "cedaky-mall-nutricion-pequenos-gigantes-2026-10-17",
+    body: "Saturday 4 PM first-level nutrition talk with Dra. Marcelle Cueto — limited seats via the @cedakymall bio link; not the main-entrance solidarity stand running the same weekend.",
+    localized: {
+      es: "Charla de nutrición el sábado a las 4 PM en el primer nivel con la Dra. Marcelle Cueto — cupos limitados por el link de la bio @cedakymall; no es el stand solidario de la entrada principal el mismo fin de semana.",
+      fr: "Conférence nutrition samedi à 16 h au premier niveau avec Dra. Marcelle Cueto — places limitées via le lien bio @cedakymall ; pas le stand solidaire de l’entrée principale le même week-end.",
+    },
+    priceFeel: "varies",
+    priceNote: "Register via @cedakymall bio — seats limited",
+    priceNoteLocalized: {
+      es: "Inscríbete por la bio @cedakymall — cupos limitados",
+      fr: "Inscrivez-vous via la bio @cedakymall — places limitées",
+    },
+    attribution: "POP research · @cedakymall nutrition post",
+    researchNotes:
+      "Editor IG @cedakymall — Alimentación divertida para pequeños gigantes, Dra. Marcelle Cueto, Sáb 17 Oct 4 PM, primer nivel. Limited spots / bio link.",
+    updatedAt: "2026-10-14T20:00:00.000Z",
+  },
+  {
+    eventId: "fxs-exhibicion-carros-deportivos-2026-10-18",
+    body: "Sunday sports-car lot show from 2 PM on Manolo Tavárez Justo #1 — FXS is the body shop/car wash hosting, not a mall night and not Classic Cars Dominicana’s convertible tours. Confirm the lot on @fxs_servicioautomotriz.",
+    localized: {
+      es: "Show de deportivos el domingo desde las 2 PM en Manolo Tavárez Justo #1 — FXS es el taller/car wash anfitrión, no una noche de mall ni los tours en convertible de Classic Cars Dominicana. Confirma el lote en @fxs_servicioautomotriz.",
+      fr: "Show de sportives dimanche dès 14 h sur Manolo Tavárez Justo n° 1 — FXS est l’atelier/car wash hôte, pas une soirée mall ni les tours convertible de Classic Cars Dominicana. Confirmez le lot sur @fxs_servicioautomotriz.",
+    },
+    priceFeel: "varies",
+    priceNote: "Entry TBA — confirm @fxs_servicioautomotriz",
+    priceNoteLocalized: {
+      es: "Entrada por confirmar — @fxs_servicioautomotriz",
+      fr: "Entrée à confirmer — @fxs_servicioautomotriz",
+    },
+    attribution: "POP research · @fxs_servicioautomotriz exhibition flyer",
+    researchNotes:
+      "Editor flyer — Dom 18 Oct from 2 PM Exhibición de Carros Deportivos, FXS Servicios Automotriz & Car Wash. No venue slug (body shop). Pin Av Manolo Tavarez Justo 1 / FXS Carwash coords.",
+    updatedAt: "2026-10-14T19:00:00.000Z",
+  },
+  {
+    eventId: "cafe-meclao-rancho-catalina-2026-10-18",
+    body: "Sunday 2:30 PM acoustic set at Rancho La Catalina in El Cupey — no cover, ranch dining, and not Mecla’o Rooftop’s Luis Ginebra club nights. Book the table if you’re sending guests for lunch-into-live.",
+    localized: {
+      es: "Set acústico el domingo a las 2:30 PM en Rancho La Catalina en El Cupey — sin cover, cena de rancho, y no las noches de club de Mecla’o Rooftop en Luis Ginebra. Reserva mesa si mandas gente de almuerzo a live.",
+      fr: "Set acoustique dimanche à 14 h 30 au Rancho La Catalina à El Cupey — pas de cover, dîner de ranch, et pas les soirées club de Mecla’o Rooftop sur Luis Ginebra. Réservez la table si vous envoyez du monde déjeuner-live.",
+    },
+    priceFeel: "moderate",
+    priceNote: "No cover — reserve +1 809-781-3737 / @rancholacatalina",
+    priceNoteLocalized: {
+      es: "Sin cover — reserva +1 809-781-3737 / @rancholacatalina",
+      fr: "Pas de cover — réservez +1 809-781-3737 / @rancholacatalina",
+    },
+    attribution: "POP research · Rancho La Catalina Café Meclao flyer",
+    researchNotes:
+      "Editor flyer — Oct 18 2:30 PM Música en Vivo Café Meclao, NO COVER, Rancho La Catalina Restaurant. Not Luis Ginebra Mecla'o Rooftop.",
+    updatedAt: "2026-10-14T18:30:00.000Z",
+  },
+  {
     eventId: "voyvoy-saturday-session-2026-10-17",
     body: "Named Saturday Session on the bay — Lui Flores, Jeanpi, and Nissa Gomez — not the 10 October reopen lineup and not Halloween on the 31st. Start time isn’t on the art; Saturday hours now run until 3:00 AM, and Wednesday is closed.",
     localized: {

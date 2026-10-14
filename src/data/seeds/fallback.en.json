@@ -6009,6 +6009,143 @@
     "imageEmoji": "🎭"
   },
   {
+    "id": "ambar-lounge-bandoleras-2026-10-16",
+    "title": "Ambar Lounge Bandoleras — Sebastian Crozz",
+    "description": "Bandoleras Friday with Sebastian Crozz at Ambar Lounge POP, Av. Luis Ginebra No. 45, segundo y tercer nivel, Puerto Plata — Friday 16 October 2026. Free drinks for ladies until 11:00 PM. RSVP (809) 781-8677 · Instagram @ambarloungepop. Same Friday series as prior Bandoleras nights — different DJ this week.",
+    "date": "2026-10-16",
+    "location": "Puerto Plata",
+    "venue": "Ambar Lounge POP",
+    "venueSlug": "ambar-lounge-pop",
+    "address": "Av. Luis Ginebra No. 45, segundo y tercer nivel, Puerto Plata 57000",
+    "lat": 19.7918,
+    "lng": -70.681,
+    "category": "parties",
+    "categories": [
+      "music",
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18097818677",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/ambarloungepop/",
+    "lineup": [
+      "Sebastian Crozz"
+    ],
+    "imageEmoji": "💃"
+  },
+  {
+    "id": "cedaky-mall-stand-solidario-2026-10-15",
+    "title": "Cedāky Mall Stand Solidario — La Lucha Nos Une",
+    "description": "Solidarity stand with Patronato Manos Unidas Contra el Cáncer at Cedāky Mall main entrance, Av. Manolo Tavárez Justo, Puerto Plata — Thursday 15 through Saturday 17 October 2026, 3:00 PM–7:00 PM. Breast-cancer awareness and community support. Instagram @cedakymall.",
+    "date": "2026-10-15",
+    "endDate": "2026-10-17",
+    "time": "3:00 PM – 7:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Cedāky Mall",
+    "venueSlug": "cedaky-mall",
+    "address": "Av. Manolo Tavárez Justo, Barrio Las Yaguitas, Puerto Plata — entrada principal",
+    "lat": 19.782269,
+    "lng": -70.673706,
+    "category": "culture",
+    "categories": [
+      "health-wellness"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/cedakymall/",
+    "instagram": "cedakymall",
+    "lineup": [
+      "Patronato Manos Unidas Contra el Cáncer"
+    ],
+    "imageEmoji": "🎀",
+    "ageHint": "family"
+  },
+  {
+    "id": "cedaky-mall-nutricion-pequenos-gigantes-2026-10-17",
+    "title": "Cedāky Mall — Fun Feeding for Little Giants",
+    "description": "Alimentación divertida para pequeños gigantes — child-nutrition talk with Dra. Marcelle Cueto (clinical, perinatal, and pediatric nutrition) at Cedāky Mall first level, Av. Manolo Tavárez Justo, Puerto Plata — Saturday 17 October 2026 at 4:00 PM. Limited spots; register via the link in Instagram @cedakymall bio.",
+    "date": "2026-10-17",
+    "time": "4:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Cedāky Mall",
+    "venueSlug": "cedaky-mall",
+    "address": "Av. Manolo Tavárez Justo, Barrio Las Yaguitas, Puerto Plata — primer nivel",
+    "lat": 19.782269,
+    "lng": -70.673706,
+    "category": "health-wellness",
+    "categories": [
+      "culture"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/cedakymall/",
+    "instagram": "cedakymall",
+    "lineup": [
+      "Dra. Marcelle Cueto"
+    ],
+    "imageEmoji": "👶",
+    "ageHint": "family"
+  },
+  {
+    "id": "fxs-exhibicion-carros-deportivos-2026-10-18",
+    "title": "FXS Sports Car Exhibition — Oct 18",
+    "description": "Exhibición de carros deportivos by FXS Servicios Automotriz & Car Wash — Sunday 18 October 2026 from 2:00 PM, Av. Manolo Tavárez Justo #1, Puerto Plata. Outdoor sports-car display; confirm the lot and any entry notes via Instagram @fxs_servicioautomotriz. Not a Cedāky Mall listing.",
+    "date": "2026-10-18",
+    "time": "2:00 PM",
+    "location": "Puerto Plata",
+    "venue": "FXS Servicios Automotriz",
+    "address": "Av. Manolo Tavárez Justo #1, Puerto Plata",
+    "lat": 19.78584,
+    "lng": -70.685354,
+    "category": "sports",
+    "categories": [
+      "culture"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/fxs_servicioautomotriz/",
+    "instagram": "fxs_servicioautomotriz",
+    "lineup": [
+      "FXS Exhibición de Carros Deportivos"
+    ],
+    "imageEmoji": "🏎️"
+  },
+  {
+    "id": "cafe-meclao-rancho-catalina-2026-10-18",
+    "title": "Café Meclao Live at Rancho Catalina — Oct 18",
+    "description": "Live music with Café Meclao at Rancho La Catalina Restaurant, El Cupey, Puerto Plata — Sunday 18 October 2026 at 2:30 PM. No cover. Countryside ranch dining with an acoustic set — not Mecla’o Rooftop on Luis Ginebra. Reservations +1 809-781-3737 · Instagram @rancholacatalina.",
+    "date": "2026-10-18",
+    "time": "2:30 PM",
+    "location": "Puerto Plata",
+    "venue": "Rancho La Catalina",
+    "venueSlug": "rancho-catalina-puerto-plata",
+    "address": "El Cupey, Puerto Plata",
+    "lat": 19.7371866,
+    "lng": -70.7253286,
+    "category": "music",
+    "categories": [
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "phone": "+18097813737",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/rancholacatalina/",
+    "lineup": [
+      "Café Meclao"
+    ],
+    "imageEmoji": "🎸"
+  },
+  {
     "id": "voyvoy-saturday-session-2026-10-17",
     "title": "VOYVOY Saturday Session — Lui Flores, Jeanpi & Nissa Gomez",
     "description": "Saturday Session at VOYVOY Cabarete on Saturday 17 October 2026 — Lui Flores, Jeanpi, and Nissa Gomez. Start time is not on the flyer. New hours: Saturday 7:30 AM–3:00 AM; closed Wednesday. Cover not printed. Instagram @voyvoybar · +1 809-571-0805. Not the 10 October soft-reopening bill and not the 31 October Halloween Session.",

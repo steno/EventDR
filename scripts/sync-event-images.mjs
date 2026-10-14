@@ -206,6 +206,16 @@ const FILE_TO_EVENT_ID = {
     "ann-soul-aura-cabarete-2026-10-15",
   "voyvoy-saturday-session-2026-10-17.jpg":
     "voyvoy-saturday-session-2026-10-17",
+  "ambar-lounge-bandoleras-2026-10-16.jpg":
+    "ambar-lounge-bandoleras-2026-10-16",
+  "cedaky-mall-stand-solidario-2026-10-15.jpg":
+    "cedaky-mall-stand-solidario-2026-10-15",
+  "cedaky-mall-nutricion-pequenos-gigantes-2026-10-17.jpg":
+    "cedaky-mall-nutricion-pequenos-gigantes-2026-10-17",
+  "fxs-exhibicion-carros-deportivos-2026-10-18.jpg":
+    "fxs-exhibicion-carros-deportivos-2026-10-18",
+  "cafe-meclao-rancho-catalina-2026-10-18.jpg":
+    "cafe-meclao-rancho-catalina-2026-10-18",
   "la-lola-back-to-northside-2026-07-04.jpg":
     "la-lola-back-to-northside-2026-07-04",
   "ambar-lounge-emil-roman-2026-09-26.jpg": "ambar-lounge-emil-roman-2026-09-26",
@@ -543,6 +553,7 @@ const SAME_VENUE_COPIES = [
 /** popevent-images filename → venue slug (copied to public/venues/). */
 const FILE_TO_VENUE_SLUG = {
   "pregame-roof-puerto-plata.jpg": "pregame-roof-puerto-plata",
+  "cedaky-mall.jpg": "cedaky-mall",
   "baseballpark.png": "parque-jose-briceno",
   "asa-surviaval.jpeg": "club-deportivo-fantastico",
   "la-casita-de-papi-awning.jpg": "la-casita-de-papi-awning",

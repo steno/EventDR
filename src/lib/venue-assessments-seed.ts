@@ -1625,6 +1625,17 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     ],
   }),
   editorial({
+    venueSlug: "cedaky-mall",
+    verdictKey: "solid_local_culture",
+    crowdFit: ["local", "family", "mixed", "visitor"],
+    axes: { recommend: 4.0, atmosphere: 3.7, value: 4.1, practical: 4.2 },
+    themes: [
+      { key: "family_friendly", sentiment: "positive", audience: "family" },
+      { key: "easy_to_find", sentiment: "positive" },
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+    ],
+  }),
+  editorial({
     venueSlug: "pregame-roof-puerto-plata",
     verdictKey: "strong_local_nightlife",
     crowdFit: ["local", "nightlife", "mixed"],

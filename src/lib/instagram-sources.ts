@@ -166,6 +166,16 @@ export const INSTAGRAM_ACCOUNTS = [
     areas: ["Puerto Plata"],
   },
   {
+    handle: "cedakymall",
+    label: "Cedāky Mall",
+    areas: ["Puerto Plata"],
+  },
+  {
+    handle: "fxs_servicioautomotriz",
+    label: "FXS Servicios Automotriz",
+    areas: ["Puerto Plata"],
+  },
+  {
     handle: "finelysaludable",
     label: "El Mirador de Finely / Finely Saludable",
     areas: ["Puerto Plata"],

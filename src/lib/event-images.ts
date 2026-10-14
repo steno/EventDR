@@ -340,6 +340,16 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "ann-soul-aura-cabarete-2026-10-15.jpg",
   "voyvoy-saturday-session-2026-10-17":
     "voyvoy-saturday-session-2026-10-17.jpg",
+  "ambar-lounge-bandoleras-2026-10-16":
+    "ambar-lounge-bandoleras-2026-10-16.jpg",
+  "cedaky-mall-stand-solidario-2026-10-15":
+    "cedaky-mall-stand-solidario-2026-10-15.jpg",
+  "cedaky-mall-nutricion-pequenos-gigantes-2026-10-17":
+    "cedaky-mall-nutricion-pequenos-gigantes-2026-10-17.jpg",
+  "fxs-exhibicion-carros-deportivos-2026-10-18":
+    "fxs-exhibicion-carros-deportivos-2026-10-18.jpg",
+  "cafe-meclao-rancho-catalina-2026-10-18":
+    "cafe-meclao-rancho-catalina-2026-10-18.jpg",
   "la-lola-back-to-northside-2026-07-04":
     "la-lola-back-to-northside-2026-07-04.jpg",
   "ambar-lounge-emil-roman-2026-09-26":
@@ -1020,6 +1030,11 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "ambar-lounge-bandoleras-2026-09-18.jpg",
   "ambar-lounge-bandoleras-2026-10-02.jpg",
   "ambar-lounge-bandoleras-2026-10-09.jpg",
+  "ambar-lounge-bandoleras-2026-10-16.jpg",
+  "cedaky-mall-stand-solidario-2026-10-15.jpg",
+  "cedaky-mall-nutricion-pequenos-gigantes-2026-10-17.jpg",
+  "fxs-exhibicion-carros-deportivos-2026-10-18.jpg",
+  "cafe-meclao-rancho-catalina-2026-10-18.jpg",
   "ambar-lounge-gaby-luna-2026-10-03.jpg",
   "ocean-world-terrace-deury-luciano-2026-10-16.jpg",
   "ocean-world-terrace-old-school-2026-10-17.jpg",
@@ -1119,6 +1134,11 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "pregame-roof-nlcs-game-3-2026-10-14.jpg",
   "ann-soul-aura-cabarete-2026-10-15.jpg",
   "voyvoy-saturday-session-2026-10-17.jpg",
+  "ambar-lounge-bandoleras-2026-10-16.jpg",
+  "cedaky-mall-stand-solidario-2026-10-15.jpg",
+  "cedaky-mall-nutricion-pequenos-gigantes-2026-10-17.jpg",
+  "fxs-exhibicion-carros-deportivos-2026-10-18.jpg",
+  "cafe-meclao-rancho-catalina-2026-10-18.jpg",
   "aura-after-dark-carlos-rivera-2026-10-10.jpg",
   "drifter-sunset-into-the-night-v2.jpg",
   "pop-cinemas-week-2026-10-08-grin.jpg",

@@ -997,6 +997,16 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Teatro-escuela victorien au 72 Calle Profesor Juan Bosch, centre historique — cours de théâtre pour enfants et jeunes, pièces et programmation culturelle. Salle hôte FENATE 2026 à Puerto Plata (22 oct–1 nov). Soirées à l’affiche : Tierra de Paso (15 oct), Eulogio Badia (24 oct, adultes) et Café Ópera Código Clown (31 oct, 16+). Instagram @teatroivangarcia · teatroivangarcia.blogspot.com.",
     },
   },
+  "cedaky-mall": {
+    name: {
+      es: "Cedāky Mall",
+      fr: "Cedāky Mall",
+    },
+    description: {
+      es: "Centro comercial moderno en Av. Manolo Tavárez Justo (Barrio Las Yaguitas) — tiendas, programación familiar y stands comunitarios en la entrada principal y el primer nivel. Instagram @cedakymall.",
+      fr: "Centre commercial moderne sur Av. Manolo Tavárez Justo (Barrio Las Yaguitas) — boutiques, programmation familiale et stands communautaires à l’entrée principale et au premier niveau. Instagram @cedakymall.",
+    },
+  },
   "spotland-puerto-plata": {
     description: {
       es: "Parque de diversión, comida y fotos en Av. Luis Ginebra — juegos al aire libre, toldos y plan familiar. Abierto jue–lun 2:00 PM–10:00 PM; cerrado mar–mié. Instagram @spotlandrd.",
