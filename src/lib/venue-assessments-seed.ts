@@ -1625,6 +1625,17 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     ],
   }),
   editorial({
+    venueSlug: "pregame-roof-puerto-plata",
+    verdictKey: "strong_local_nightlife",
+    crowdFit: ["local", "nightlife", "mixed"],
+    axes: { recommend: 4.1, atmosphere: 4.5, value: 3.6, practical: 3.5 },
+    themes: [
+      { key: "sunset_views", sentiment: "positive" },
+      { key: "live_music", sentiment: "positive" },
+      { key: "easy_to_find", sentiment: "positive" },
+    ],
+  }),
+  editorial({
     venueSlug: "ambar-lounge-pop",
     verdictKey: "strong_local_nightlife",
     crowdFit: ["local", "nightlife", "mixed"],

@@ -197,6 +197,7 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "nova-salud-bienestar": "nova-salud-bienestar-facade.jpg",
   "camara-comercio-puerto-plata": "camara-comercio-puerto-plata-facade.jpg",
   "ambar-lounge-pop": "ambar-lounge-pop-interior-v4.jpg",
+  "pregame-roof-puerto-plata": "pregame-roof-puerto-plata.jpg",
   "nueve-puerto-plata": "nueve-puerto-plata.jpg",
   "grand-prix-puerto-plata": "grand-prix-puerto-plata.jpg",
   "el-mirador-de-finely": "el-mirador-de-finely-balcony.jpg",

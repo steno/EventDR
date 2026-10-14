@@ -4054,7 +4054,7 @@
   {
     "id": "ivan-garcia-eulogio-badia-2026-10-24",
     "title": "Iván García Gran Reapertura — Eulogio Badia",
-    "description": "Gran reapertura of Iván García Teatro-Escuela with the play Eulogio Badia, part of the IX Festival Nacional de Teatro S.D. 2026 — Saturday 24 October 2026 at 7:00 PM, Calle Profesor Juan Bosch #72, Puerto Plata. RSVP 809-261-7393 · Instagram @teatroivangarcia. See the FENATE 2026 Puerto Plata host listing for the festival window (22 Oct–1 Nov) while other local showtimes are TBA.",
+    "description": "Gran reapertura of Iván García Teatro-Escuela with Eulogio Badía, FENATE 2026 (Ministerio de Cultura) — Saturday 24 October 2026 at 7:00 PM, Calle Profesor Juan Bosch #72, Puerto Plata. Adults. The piece follows a character hunting a place to feel well, repeating “necesito un espacio, un estado bienestar, sentirme bien, sí, sentirme bien.” RSVP 809-261-7393 · @teatroivangarcia / @festivalesdeteatro.rd.",
     "date": "2026-10-24",
     "time": "7:00 PM",
     "location": "Puerto Plata",
@@ -4071,6 +4071,7 @@
     "trending": true,
     "callForPricing": true,
     "phone": "+18092617393",
+    "ageHint": "18-plus",
     "sourceType": "instagram",
     "sourceUrl": "https://www.instagram.com/teatroivangarcia/",
     "lineup": [
@@ -4567,9 +4568,9 @@
   {
     "id": "ivan-garcia-cafe-opera-codigo-clown-2026-10-31",
     "title": "Iván García — Café Ópera Código Clown",
-    "description": "Café Ópera Código Clown at Iván García Teatro-Escuela, Calle Profesor Juan Bosch #72, Puerto Plata — Saturday 31 October 2026 at 7:30 PM. Halloween clown-theater night — not the Eulogio Badia reapertura on 24 October, and not Twenty Disco Paradise In Hell the same Saturday. Confirm tickets via 809-261-7393 · Instagram @teatroivangarcia.",
+    "description": "Café Ópera Código Clown at Iván García Teatro-Escuela, Calle Profesor Juan Bosch #72, Puerto Plata — Saturday 31 October 2026 at 7:00 PM. Adults +16. Lyric-song variety of classic arias by well-known composers, performed by emerging opera singers with stage acting — FENATE 2026. Not the Eulogio Badia reapertura on 24 October, and not Twenty Disco Paradise In Hell the same Saturday. Confirm tickets via 809-261-7393 · @teatroivangarcia / @festivalesdeteatro.rd.",
     "date": "2026-10-31",
-    "time": "7:30 PM",
+    "time": "7:00 PM",
     "location": "Puerto Plata",
     "venue": "Iván García Teatro-Escuela",
     "venueSlug": "ivan-garcia-teatro-escuela",
@@ -4585,6 +4586,7 @@
     "trending": true,
     "callForPricing": true,
     "phone": "+18092617393",
+    "ageHint": "18-plus",
     "sourceType": "instagram",
     "sourceUrl": "https://www.instagram.com/teatroivangarcia/",
     "lineup": [
@@ -5684,7 +5686,7 @@
   {
     "id": "ivan-garcia-tierra-de-paso-2026-10-15",
     "title": "Tierra de Paso — Carlota Carretero",
-    "description": "Tierra de Paso, a one-person show by Carlota Carretero — free adaptation of Juan Bosch’s book Indios — at Sala Iván García Teatro-Escuela, Calle Profesor Juan Bosch #72, Puerto Plata — Thursday 15 October 2026 at 7:00 PM. General RD$500 · students RD$150. Billed night ahead of Eulogio Badia on 24 October. The sala is open again. RSVP 809-261-7393 · Instagram @teatroivangarcia.",
+    "description": "Tierra de Paso, a one-person show by Carlota Carretero — free adaptation of Juan Bosch’s book Indios — at Sala Iván García Teatro-Escuela, Calle Profesor Juan Bosch #72, Puerto Plata — Thursday 15 October 2026 at 7:00 PM. General RD$500 · students RD$150. The sala closes the doors at 7:10 PM to start the show; once shut, no entry and they do not reopen until the performance ends. RSVP 809-261-7393 · Instagram @teatroivangarcia.",
     "date": "2026-10-15",
     "time": "7:00 PM",
     "location": "Puerto Plata",
@@ -5976,7 +5978,7 @@
   {
     "id": "fenate-2026-sala-ivan-garcia",
     "title": "Sala Iván García — FENATE 2026 Puerto Plata",
-    "description": "IX Festival Nacional de Teatro (FENATE 2026) — Puerto Plata host venue Sala Iván García at Teatro-Escuela Iván García, Calle Profesor Juan Bosch #72. National festival runs 22 October–1 November 2026 under the motto «El teatro llega a ti», honoring actress Olga Bucarelli (~75 performances / 32 shows nationwide). Opening night 22 Oct is Salomé by Teatro Rodante Dominicano (national inauguration — not confirmed at this sala). Confirmed local bill already on POP: Eulogio Badia gran reapertura Sat 24 Oct 7:00 PM. Other Puerto Plata dates and times not yet published — follow @festivalesdeteatro.rd and @teatroivangarcia; RSVP/tickets 809-261-7393.",
+    "description": "IX Festival Nacional de Teatro (FENATE 2026) — Puerto Plata host venue Sala Iván García at Teatro-Escuela Iván García, Calle Profesor Juan Bosch #72. National festival runs 22 October–1 November 2026 under the motto «El teatro llega a ti», honoring actress Olga Bucarelli (~75 performances / 32 shows nationwide). Opening night 22 Oct is Salomé by Teatro Rodante Dominicano (national inauguration — not confirmed at this sala). Confirmed local bills: Eulogio Badia (adults) Sat 24 Oct 7:00 PM and Café Ópera Código Clown (adults +16) Sat 31 Oct 7:00 PM. Other Puerto Plata dates still unpublished — follow @festivalesdeteatro.rd and @teatroivangarcia; RSVP/tickets 809-261-7393.",
     "date": "2026-10-22",
     "endDate": "2026-11-01",
     "time": "Confirm showtimes",
@@ -6000,10 +6002,102 @@
     "instagram": "festivalesdeteatro.rd",
     "lineup": [
       "FENATE 2026",
-      "Eulogio Badia (Sat 24 Oct 7:00 PM — confirmed)",
+      "Eulogio Badia (Sat 24 Oct 7:00 PM — adults)",
+      "Café Ópera Código Clown (Sat 31 Oct 7:00 PM — 16+)",
       "Additional PP bills TBA — @festivalesdeteatro.rd"
     ],
     "imageEmoji": "🎭"
+  },
+  {
+    "id": "voyvoy-saturday-session-2026-10-17",
+    "title": "VOYVOY Saturday Session — Lui Flores, Jeanpi & Nissa Gomez",
+    "description": "Saturday Session at VOYVOY Cabarete on Saturday 17 October 2026 — Lui Flores, Jeanpi, and Nissa Gomez. Start time is not on the flyer. New hours: Saturday 7:30 AM–3:00 AM; closed Wednesday. Cover not printed. Instagram @voyvoybar · +1 809-571-0805. Not the 10 October soft-reopening bill and not the 31 October Halloween Session.",
+    "date": "2026-10-17",
+    "time": "Until 3:00 AM",
+    "location": "Cabarete",
+    "venue": "VOYVOY Cabarete",
+    "venueSlug": "voyvoy-cabarete",
+    "lat": 19.7502161,
+    "lng": -70.4066784,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18095710805",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/voyvoybar/",
+    "instagram": "voyvoybar",
+    "lineup": [
+      "Lui Flores",
+      "Jeanpi",
+      "Nissa Gomez"
+    ],
+    "imageEmoji": "🪩"
+  },
+  {
+    "id": "ann-soul-aura-cabarete-2026-10-15",
+    "title": "Ann Soul Live at Aura Cabarete",
+    "description": "Ann Soul live music at Aura Beach Club, Calle Principal, Cabarete — Thursday 15 October 2026 at 8:00 PM. Flyer line: “Las noches tienen otro ritmo en aura.” No cover on the art. Confirm doors via Instagram @auracabarete or @ann.gruszczynska, or WhatsApp +1 829-787-0140. Not the weekly Wednesday margarita / Latin Flow night.",
+    "date": "2026-10-15",
+    "time": "8:00 PM",
+    "location": "Cabarete",
+    "venue": "Aura Beach Club Cabarete",
+    "venueSlug": "aura-beach-club-cabarete",
+    "address": "Calle Principal, Cabarete 57000",
+    "lat": 19.7500769,
+    "lng": -70.4070417,
+    "category": "music",
+    "categories": [
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18297870140",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/ann.gruszczynska/",
+    "instagram": "auracabarete",
+    "lineup": [
+      "Ann Soul"
+    ],
+    "imageEmoji": "🎤"
+  },
+  {
+    "id": "pregame-roof-baseball-game-day-2026-10-14",
+    "title": "Pregame Roof Baseball Game Day — Oct 14–19",
+    "description": "Baseball Game Day watch nights at Pregame Roof, the third-level deck above Ámbar Lounge, Av. Luis Ginebra #45, Puerto Plata — Wednesday 14 through Monday 19 October 2026, Dodgers vs Brewers NLCS on FOX One / FOX Deportes. Schedule (ET): Wed 14 Oct Game 3 8:00 PM · Thu 15 Oct Game 4 9:00 PM · Fri 16 Oct Game 5 9:00 PM if necessary · Sun 18 Oct Game 6 8:00 PM if necessary · Mon 19 Oct Game 7 8:00 PM if necessary. Brewers led 2–0 heading into Game 3. Confirm which games are on the screens and doors via Instagram @pregameroof · WhatsApp (809) 781-8677.",
+    "date": "2026-10-14",
+    "endDate": "2026-10-19",
+    "time": "8:00 PM / 9:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Pregame Roof",
+    "venueSlug": "pregame-roof-puerto-plata",
+    "address": "Av. Luis Ginebra #45, 3rd level, Puerto Plata",
+    "lat": 19.7918,
+    "lng": -70.681,
+    "category": "sports",
+    "categories": [
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18097818677",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/pregameroof/",
+    "instagram": "pregameroof",
+    "lineup": [
+      "Wed 14 Oct — Game 3 — 8:00 PM",
+      "Thu 15 Oct — Game 4 — 9:00 PM",
+      "Fri 16 Oct — Game 5 — 9:00 PM if necessary",
+      "Sun 18 Oct — Game 6 — 8:00 PM if necessary",
+      "Mon 19 Oct — Game 7 — 8:00 PM if necessary"
+    ],
+    "imageEmoji": "⚾"
   },
   {
     "id": "hard-rock-banditalia-2026-10-17",

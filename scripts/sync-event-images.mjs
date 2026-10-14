@@ -195,11 +195,17 @@ const FILE_TO_EVENT_ID = {
   "coconuts-halloween-costume-contest-2026-10-31.jpg":
     "coconuts-halloween-costume-contest-2026-10-31",
   "twenty-disco-kiry-curu-2026-10-16.jpg": "twenty-disco-kiry-curu-2026-10-16",
-  "ivan-garcia-eulogio-badia-2026-10-24.jpg":
+  "ivan-garcia-eulogio-badia-2026-10-24-v2.jpg":
     "ivan-garcia-eulogio-badia-2026-10-24",
-  "ivan-garcia-cafe-opera-codigo-clown-2026-10-31.jpg":
+  "ivan-garcia-cafe-opera-codigo-clown-2026-10-31-v2.jpg":
     "ivan-garcia-cafe-opera-codigo-clown-2026-10-31",
-  "fenate-2026-sala-ivan-garcia.jpg": "fenate-2026-sala-ivan-garcia",
+  "fenate-2026-sala-ivan-garcia-v2.jpg": "fenate-2026-sala-ivan-garcia",
+  "pregame-roof-nlcs-game-3-2026-10-14.jpg":
+    "pregame-roof-baseball-game-day-2026-10-14",
+  "ann-soul-aura-cabarete-2026-10-15.jpg":
+    "ann-soul-aura-cabarete-2026-10-15",
+  "voyvoy-saturday-session-2026-10-17.jpg":
+    "voyvoy-saturday-session-2026-10-17",
   "la-lola-back-to-northside-2026-07-04.jpg":
     "la-lola-back-to-northside-2026-07-04",
   "ambar-lounge-emil-roman-2026-09-26.jpg": "ambar-lounge-emil-roman-2026-09-26",
@@ -536,6 +542,7 @@ const SAME_VENUE_COPIES = [
 
 /** popevent-images filename → venue slug (copied to public/venues/). */
 const FILE_TO_VENUE_SLUG = {
+  "pregame-roof-puerto-plata.jpg": "pregame-roof-puerto-plata",
   "baseballpark.png": "parque-jose-briceno",
   "asa-surviaval.jpeg": "club-deportivo-fantastico",
   "la-casita-de-papi-awning.jpg": "la-casita-de-papi-awning",

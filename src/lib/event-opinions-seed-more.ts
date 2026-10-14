@@ -359,10 +359,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   {
     eventId: "voyvoy-monday-live-music",
     seriesKey: "voyvoy-cabarete:weekly:1",
-    body: "Monday karaoke on the bay — grab the mic with dinner, quieter than Halloween/Saturday dance bills; not the old Lester Grant open-jam live night.",
+    body: "Monday karaoke on the bay — grab the mic with dinner, quieter than Halloween/Saturday dance bills; not the Sunday open mic and jam.",
     localized: {
-      es: "Karaoke los lunes frente a la bahía — coge el micrófono con la cena, más tranquilo que los carteles dance de sábado/Halloween; no es la antigua jam en vivo de Lester Grant.",
-      fr: "Karaoké le lundi face à la baie — prenez le micro avec le dîner, plus calme que les soirées dance samedi/Halloween ; ce n’est plus le jam live Lester Grant.",
+      es: "Karaoke los lunes frente a la bahía — coge el micrófono con la cena, más tranquilo que los carteles dance de sábado/Halloween; no es el open mic y jam del domingo.",
+      fr: "Karaoké le lundi face à la baie — prenez le micro avec le dîner, plus calme que les soirées dance samedi/Halloween ; ce n’est pas l’open mic et jam du dimanche.",
     },
     priceFeel: "moderate",
     priceNote: "Bayfront dinner/drinks — typically no cover; tourist-moderate tabs",
@@ -372,7 +372,7 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     },
     attribution: "POP research · VOYVOY Karaoke Monday flyer",
     researchNotes:
-      "Editor flyer Karaoke Monday at VOYVOY — replaces Monday live/jam. Generic Saturday Session blocked via REMOVED_SEED_EVENT_IDS.",
+      "Editor flyer Karaoke Monday at VOYVOY. Monday stays karaoke; do not retitle it as the Sunday open mic and jam.",
     updatedAt: "2026-10-12T14:00:00.000Z",
   },
   {
@@ -4115,10 +4115,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "ivan-garcia-eulogio-badia-2026-10-24",
-    body: "Gran reapertura night — Eulogio Badia at 7:00 PM on Juan Bosch #72 for the IX Festival Nacional de Teatro; the sala is open again, so RSVP 809-261-7393 before you send guests.",
+    body: "Adults-only gran reapertura — Eulogio Badía at 7:00 PM on Juan Bosch #72 is a mantra play about needing a place to feel well, not a family matinee. RSVP 809-261-7393 before you send guests.",
     localized: {
-      es: "Noche de gran reapertura — Eulogio Badia a las 7:00 PM en Juan Bosch #72 para el IX Festival Nacional de Teatro; la sala ya está abierta, así que RSVP 809-261-7393 antes de mandar gente.",
-      fr: "Soirée grande réouverture — Eulogio Badia à 19 h au 72 Juan Bosch pour le IX Festival Nacional de Teatro ; la salle est de nouveau ouverte, RSVP 809-261-7393 avant d’envoyer du monde.",
+      es: "Gran reapertura solo adultos — Eulogio Badía a las 7:00 PM en Juan Bosch #72 es una obra-mantra sobre necesitar un espacio para sentirse bien, no una matiné familiar. RSVP 809-261-7393 antes de mandar gente.",
+      fr: "Grande réouverture adultes — Eulogio Badía à 19 h au 72 Juan Bosch est une pièce-mantra sur le besoin d’un espace pour se sentir bien, pas une matinée familiale. RSVP 809-261-7393 avant d’envoyer du monde.",
     },
     priceFeel: "varies",
     priceNote: "RSVP 809-261-7393 — confirm tickets/cover @teatroivangarcia",
@@ -4467,10 +4467,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "ivan-garcia-cafe-opera-codigo-clown-2026-10-31",
-    body: "Halloween clown-theater at 7:30 PM on Juan Bosch #72 — not Eulogio Badia’s reapertura on the 24th and not Twenty Disco’s Paradise In Hell the same Saturday; ticket price isn’t on the flyer, so RSVP 809-261-7393 / @teatroivangarcia before you walk up.",
+    body: "16+ lyric-clown night at 7:00 PM on Juan Bosch #72 — classic arias with stage acting, not Eulogio Badía on the 24th and not Twenty Disco’s Paradise In Hell the same Saturday. Price isn’t on the poster, so RSVP 809-261-7393 before you walk up.",
     localized: {
-      es: "Teatro-clown de Halloween a las 7:30 PM en Juan Bosch #72 — no es la reapertura de Eulogio Badia del 24 ni Paradise In Hell en Twenty Disco el mismo sábado; el precio no está en el flyer, así que RSVP 809-261-7393 / @teatroivangarcia antes de llegar walk-up.",
-      fr: "Théâtre-clown d’Halloween à 19 h 30 au 72 Juan Bosch — pas la réouverture Eulogio Badia du 24 ni Paradise In Hell au Twenty Disco le même samedi ; le prix n’est pas sur l’affiche, donc RSVP 809-261-7393 / @teatroivangarcia avant d’arriver walk-up.",
+      es: "Noche lírico-clown +16 a las 7:00 PM en Juan Bosch #72 — arias clásicas con actuación, no Eulogio Badía del 24 ni Paradise In Hell en Twenty Disco el mismo sábado. El precio no está en el cartel, así que RSVP 809-261-7393 antes de llegar walk-up.",
+      fr: "Soirée lyrique-clown 16+ à 19 h au 72 Juan Bosch — arias classiques et jeu, pas Eulogio Badía du 24 ni Paradise In Hell au Twenty Disco le même samedi. Le prix n’est pas sur l’affiche : RSVP 809-261-7393 avant d’arriver walk-up.",
     },
     priceFeel: "varies",
     priceNote: "RSVP 809-261-7393 — confirm tickets @teatroivangarcia",
@@ -4480,7 +4480,7 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     },
     attribution: "POP research · @teatroivangarcia Café Ópera Código Clown flyer",
     researchNotes:
-      "Editor flyer — Sáb 31 Oct 7:30 PM Café Ópera Código Clown, Teatro Escuela Teatro Iván García, Puerto Plata. No ticket price on art.",
+      "Official FENATE poster — Sáb 31 Oct 7:00 PM Café Ópera Código Clown, público adultos +16, Teatro Escuela Iván García. No ticket price on art.",
     updatedAt: "2026-10-05T16:00:00.000Z",
   },
   {
@@ -5105,10 +5105,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "ivan-garcia-tierra-de-paso-2026-10-15",
-    body: "One-person Indios adaptation with Carlota Carretero at 7:00 PM on Juan Bosch #72 — RD$500 general / RD$150 students; not the Eulogio Badia night on the 24th. RSVP 809-261-7393.",
+    body: "Be inside before 7:10 PM — the sala locks the doors then for Tierra de Paso and does not reopen until the show ends. Carlota Carretero’s Indios adaptation is RD$500 / RD$150 students; not Eulogio Badía on the 24th.",
     localized: {
-      es: "Adaptación unipersonal de Indios con Carlota Carretero a las 7:00 PM en Juan Bosch #72 — RD$500 general / RD$150 estudiantes; no es la noche de Eulogio Badia del 24. RSVP 809-261-7393.",
-      fr: "Adaptation unipersonnelle d’Indios avec Carlota Carretero à 19 h au 72 Juan Bosch — RD$500 général / RD$150 étudiants ; pas la soirée Eulogio Badia du 24. RSVP 809-261-7393.",
+      es: "Entra antes de las 7:10 PM — la sala cierra las puertas a esa hora para Tierra de Paso y no las abre hasta que termine la función. La adaptación de Indios de Carlota Carretero es RD$500 / RD$150 estudiantes; no es Eulogio Badía del 24.",
+      fr: "Soyez à l’intérieur avant 19 h 10 — la salle ferme alors pour Tierra de Paso et ne rouvre pas avant la fin. L’adaptation d’Indios de Carlota Carretero est à RD$500 / RD$150 étudiants ; pas Eulogio Badía du 24.",
     },
     priceFeel: "budget",
     priceNote: "RD$500 general · RD$150 students — RSVP 809-261-7393",
@@ -5118,7 +5118,7 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     },
     attribution: "POP research · @teatroivangarcia Tierra de Paso flyer",
     researchNotes:
-      "Editor cropped flyer + full poster info — Thu 15 Oct 2026 7:00 PM Tierra de Paso, Carlota Carretero, Sala Iván García, RD$500 / students RD$150. Cropped art used as event hero.",
+      "Editor cropped flyer + door notice — Thu 15 Oct 2026 7:00 PM Tierra de Paso; doors close promptly at 7:10 PM and stay shut until the show ends. RD$500 / students RD$150.",
     updatedAt: "2026-10-08T23:45:00.000Z",
   },
   {
@@ -5234,10 +5234,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "fenate-2026-sala-ivan-garcia",
-    body: "Pin Sala Iván García as the Puerto Plata FENATE host (22 Oct–1 Nov) — don’t invent a full local schedule; the only dated PP bill we have is Eulogio Badia Sat 24 Oct 7:00 PM, and Salomé on the 22nd is the national opening elsewhere. Watch @festivalesdeteatro.rd for more nights.",
+    body: "Pin Sala Iván García as the Puerto Plata FENATE host (22 Oct–1 Nov). Dated local nights are Eulogio Badía Sat 24 Oct 7:00 PM (adults) and Café Ópera Código Clown Sat 31 Oct 7:00 PM (16+). Salomé on the 22nd is the national opening elsewhere.",
     localized: {
-      es: "Clava Sala Iván García como sede FENATE en Puerto Plata (22 oct–1 nov) — no inventes cartel local completo; el único día PP fechado que tenemos es Eulogio Badia sáb 24 oct 7:00 PM, y Salomé el 22 es la inauguración nacional en otro sitio. Mira @festivalesdeteatro.rd para más noches.",
-      fr: "Épinglez Sala Iván García comme siège FENATE à Puerto Plata (22 oct–1 nov) — n’inventez pas une grille locale complète ; le seul bill PP daté que nous avons est Eulogio Badia sam 24 oct 19 h, et Salomé le 22 est l’ouverture nationale ailleurs. Suivez @festivalesdeteatro.rd pour d’autres soirs.",
+      es: "Clava Sala Iván García como sede FENATE en Puerto Plata (22 oct–1 nov). Noches locales fechadas: Eulogio Badía sáb 24 oct 7:00 PM (adultos) y Café Ópera Código Clown sáb 31 oct 7:00 PM (+16). Salomé el 22 es la inauguración nacional en otro sitio.",
+      fr: "Épinglez Sala Iván García comme siège FENATE à Puerto Plata (22 oct–1 nov). Soirs locaux datés : Eulogio Badía sam 24 oct 19 h (adultes) et Café Ópera Código Clown sam 31 oct 19 h (16+). Salomé le 22 est l’ouverture nationale ailleurs.",
     },
     priceFeel: "varies",
     priceNote: "Tickets TBA per bill — 809-261-7393 · @festivalesdeteatro.rd / @teatroivangarcia",
@@ -5247,8 +5247,62 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     },
     attribution: "POP research · FENATE 2026 / Sala Iván García flyer · Ministerio de Cultura",
     researchNotes:
-      "Editor flyer Sala Iván García FENATE 2026 + national window 22 Oct–1 Nov; Olga Bucarelli homage; 75 funciones / 32 espectáculos national; inauguration Salomé Teatro Rodante Dominicano 22 Oct (not confirmed at PP sala). Known PP: Eulogio Badia already seeded 24 Oct 7 PM. Other PP showtimes unpublished — @festivalesdeteatro.rd.",
+      "Official FENATE posters — window 22 Oct–1 Nov; Eulogio Badía adults Sat 24 Oct 7 PM; Café Ópera Código Clown +16 Sat 31 Oct 7 PM. Salomé 22 Oct is the national opening, not confirmed at this sala.",
     updatedAt: "2026-10-13T18:00:00.000Z",
+  },
+  {
+    eventId: "pregame-roof-baseball-game-day-2026-10-14",
+    body: "One Game Day block for the rest of the NLCS, same idea as Hard Rock’s screen week — times jump between 8:00 and 9:00 PM ET, and Games 5–7 only happen if the series goes on. WhatsApp (809) 781-8677 before you climb past Ámbar.",
+    localized: {
+      es: "Un solo bloque Game Day para el resto de la NLCS, igual que la semana de pantalla de Hard Rock — las horas saltan entre 8:00 y 9:00 PM ET, y los juegos 5–7 solo si la serie sigue. WhatsApp (809) 781-8677 antes de subir más allá de Ámbar.",
+      fr: "Un seul bloc Game Day pour la suite de la NLCS, comme la semaine d’écrans du Hard Rock — les heures passent de 20 h à 21 h HE, et les matchs 5–7 seulement si la série continue. WhatsApp (809) 781-8677 avant de monter au-delà d’Ámbar.",
+    },
+    priceFeel: "varies",
+    priceNote: "Confirm doors and any minimum — WhatsApp (809) 781-8677",
+    priceNoteLocalized: {
+      es: "Confirma puertas y cualquier mínimo — WhatsApp (809) 781-8677",
+      fr: "Confirmez l’ouverture et tout minimum — WhatsApp (809) 781-8677",
+    },
+    attribution: "POP research · @pregameroof Game 3 flyer + NLCS schedule",
+    researchNotes:
+      "Editor flyer showed Game 3 only. Listed as one game-day seed 14–19 Oct matching the published NLCS clock: G3 Wed 14 8pm, G4 Thu 15 9pm, G5 Fri 16 9pm, G6 Sun 18 8pm, G7 Mon 19 8pm (5–7 if necessary). Not a Today’s special.",
+    updatedAt: "2026-10-14T16:00:00.000Z",
+  },
+  {
+    eventId: "ann-soul-aura-cabarete-2026-10-15",
+    body: "Named Thursday 8 PM set on Calle Principal — Ann Soul, not the weekly Wednesday margarita / Latin Flow bill. Cover isn’t on the poster, so confirm with Aura WhatsApp before you treat it as walk-up.",
+    localized: {
+      es: "Set con nombre el jueves a las 8 PM en Calle Principal — Ann Soul, no el cartel semanal de margaritas / Latin Flow del miércoles. El cover no está en el poster, así que confirma con WhatsApp de Aura antes de ir walk-up.",
+      fr: "Set nommé jeudi à 20 h sur Calle Principal — Ann Soul, pas le bill hebdo margaritas / Latin Flow du mercredi. Le cover n’est pas sur l’affiche : confirmez via WhatsApp Aura avant d’y aller walk-up.",
+    },
+    priceFeel: "moderate",
+    priceNote: "Cover not on flyer — confirm @auracabarete / WhatsApp +1 829-787-0140",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — confirma @auracabarete / WhatsApp +1 829-787-0140",
+      fr: "Cover absent de l’affiche — confirmez @auracabarete / WhatsApp +1 829-787-0140",
+    },
+    attribution: "POP research · @ann.gruszczynska × @auracabarete flyer",
+    researchNotes:
+      "Editor flyer — Jueves 15, 8:00 PM, Ann Soul live music, “Las noches tienen otro ritmo en aura.” No cover or door price on art. WhatsApp +1 829-787-0140.",
+    updatedAt: "2026-10-14T17:00:00.000Z",
+  },
+  {
+    eventId: "voyvoy-saturday-session-2026-10-17",
+    body: "Named Saturday Session on the bay — Lui Flores, Jeanpi, and Nissa Gomez — not the 10 October reopen lineup and not Halloween on the 31st. Start time isn’t on the art; Saturday hours now run until 3:00 AM, and Wednesday is closed.",
+    localized: {
+      es: "Saturday Session con nombre frente a la bahía — Lui Flores, Jeanpi y Nissa Gomez — no es el cartel del reopen del 10 de octubre ni Halloween el 31. La hora de inicio no está en el arte; el sábado ahora cierra a las 3:00 AM y el miércoles está cerrado.",
+      fr: "Saturday Session nommée face à la baie — Lui Flores, Jeanpi et Nissa Gomez — pas le lineup du reopen du 10 octobre ni Halloween le 31. L’heure de début n’est pas sur l’art ; le samedi ferme maintenant à 3 h et le mercredi est fermé.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover not on flyer — confirm @voyvoybar / +1 809-571-0805",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — confirma @voyvoybar / +1 809-571-0805",
+      fr: "Cover absent de l’affiche — confirmez @voyvoybar / +1 809-571-0805",
+    },
+    attribution: "POP research · @voyvoybar Saturday Session flyer",
+    researchNotes:
+      "Editor flyer — Saturday Session at VOYVOY, Lui Flores, Jeanpi, Nissa Gomez. No date or start time on art; next Saturday is 17 Oct 2026. Hours poster: Sat 7:30 AM–3:00 AM, Wednesday closed.",
+    updatedAt: "2026-10-14T18:00:00.000Z",
   },
   {
     eventId: "aura-cinema-nadie-duerme-bosque-2026-10-13",

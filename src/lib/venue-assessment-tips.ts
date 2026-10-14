@@ -106,11 +106,11 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "voyvoy-cabarete": {
-    body: "Bayfront when you want live music without committing to Ojo's late club push — Monday live is dinner-friendly; named Session nights go louder when billed.",
+    body: "Bayfront when you want live music without Ojo’s late club push — Monday live is dinner-friendly and Saturday Sessions run late (open until 3:00 AM). Closed all day Wednesday.",
     localized: {
-      en: "Bayfront when you want live music without committing to Ojo's late club push — Monday live is dinner-friendly; named Session nights go louder when billed.",
-      es: "Frente a la bahía si quieres live sin el club tarde de Ojo — el lunes es más apto para cenar; las Sessions con cartel van más fuertes cuando se anuncian.",
-      fr: "Front de baie si vous voulez du live sans le club tardif d'Ojo — le lundi convient au dîner ; les Sessions affichées sont plus fortes quand elles sont annoncées.",
+      en: "Bayfront when you want live music without Ojo’s late club push — Monday live is dinner-friendly and Saturday Sessions run late (open until 3:00 AM). Closed all day Wednesday.",
+      es: "Frente a la bahía si quieres live sin el club tarde de Ojo — el lunes es más apto para cenar y las Saturday Sessions van hasta las 3:00 AM. Miércoles cerrado todo el día.",
+      fr: "Front de baie si vous voulez du live sans le club tardif d’Ojo — le lundi convient au dîner et les Saturday Sessions vont jusqu’à 3 h. Fermé toute la journée le mercredi.",
     },
   },
   "gypsy-bowls-cabarete": {
@@ -1130,11 +1130,19 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "ambar-lounge-pop": {
-    body: "Rooftop on Luis Ginebra 45-a — Bandoleras Fridays and billed live nights; DM @ambarloungepop or call (809) 781-8677 before you assume walk-in. Closed Tuesdays.",
+    body: "Second level on Luis Ginebra #45 — Bandoleras Fridays and billed live nights; Pregame Roof is the third-level deck above, same phone. DM @ambarloungepop or call (809) 781-8677 before you assume walk-in. Closed Tuesdays.",
     localized: {
-      en: "Rooftop on Luis Ginebra 45-a — Bandoleras Fridays and billed live nights; DM @ambarloungepop or call (809) 781-8677 before you assume walk-in. Closed Tuesdays.",
-      es: "Rooftop en Luis Ginebra 45-a — Bandoleras los viernes y noches en vivo con cartel; DM @ambarloungepop o llama al (809) 781-8677 antes de asumir walk-in. Cerrado martes.",
-      fr: "Rooftop au 45-a Luis Ginebra — Bandoleras le vendredi et soirées live à l’affiche ; DM @ambarloungepop ou appelez le (809) 781-8677 avant de compter sur le walk-in. Fermé mardi.",
+      en: "Second level on Luis Ginebra #45 — Bandoleras Fridays and billed live nights; Pregame Roof is the third-level deck above, same phone. DM @ambarloungepop or call (809) 781-8677 before you assume walk-in. Closed Tuesdays.",
+      es: "Segundo nivel en Luis Ginebra #45 — Bandoleras los viernes y noches en vivo con cartel; Pregame Roof es la terraza del tercer nivel, mismo teléfono. DM @ambarloungepop o llama al (809) 781-8677 antes de asumir walk-in. Cerrado martes.",
+      fr: "Deuxième niveau au 45 Luis Ginebra — Bandoleras le vendredi et soirées live à l’affiche ; Pregame Roof est la terrasse du troisième niveau, même téléphone. DM @ambarloungepop ou appelez le (809) 781-8677 avant de compter sur le walk-in. Fermé mardi.",
+    },
+  },
+  "pregame-roof-puerto-plata": {
+    body: "Third-level deck above Ámbar on Luis Ginebra #45 — food, cocktails, and watch parties when billed. Doors aren’t posted as a fixed clock, so WhatsApp (809) 781-8677 before you climb past Ámbar.",
+    localized: {
+      en: "Third-level deck above Ámbar on Luis Ginebra #45 — food, cocktails, and watch parties when billed. Doors aren’t posted as a fixed clock, so WhatsApp (809) 781-8677 before you climb past Ámbar.",
+      es: "Terraza del tercer nivel encima de Ámbar en Luis Ginebra #45 — comida, cócteles y watch parties cuando hay cartel. No publican un horario fijo, así que WhatsApp (809) 781-8677 antes de subir más allá de Ámbar.",
+      fr: "Terrasse du troisième niveau au-dessus d’Ámbar au 45 Luis Ginebra — cuisine, cocktails et watch parties quand c’est à l’affiche. Pas d’horaire fixe publié : WhatsApp (809) 781-8677 avant de monter au-delà d’Ámbar.",
     },
   },
   "nueve-puerto-plata": {
@@ -1162,11 +1170,11 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "ivan-garcia-teatro-escuela": {
-    body: "Puerto Plata FENATE 2026 host sala (22 Oct–1 Nov) — open again after the maintenance pause. Confirmed local bill is Eulogio Badia Sat 24 Oct 7:00 PM, with Tierra de Paso Thu 15 Oct still on the board; other festival showtimes TBA on @festivalesdeteatro.rd / RSVP 809-261-7393.",
+    body: "Puerto Plata FENATE 2026 host sala (22 Oct–1 Nov). Dated local bills: Eulogio Badia Sat 24 Oct 7:00 PM (adults) and Café Ópera Código Clown Sat 31 Oct 7:00 PM (16+). Tierra de Paso is Thu 15 Oct — doors lock at 7:10 PM and do not reopen until the show ends. RSVP 809-261-7393.",
     localized: {
-      en: "Puerto Plata FENATE 2026 host sala (22 Oct–1 Nov) — open again after the maintenance pause. Confirmed local bill is Eulogio Badia Sat 24 Oct 7:00 PM, with Tierra de Paso Thu 15 Oct still on the board; other festival showtimes TBA on @festivalesdeteatro.rd / RSVP 809-261-7393.",
-      es: "Sede FENATE 2026 en Puerto Plata (22 oct–1 nov) — abierta de nuevo tras la pausa por mantenimiento. Cartel local confirmado: Eulogio Badia sáb 24 oct 7:00 PM, y Tierra de Paso jue 15 oct sigue en cartel; otros horarios del festival por anunciar en @festivalesdeteatro.rd / RSVP 809-261-7393.",
-      fr: "Salle hôte FENATE 2026 à Puerto Plata (22 oct–1 nov) — de nouveau ouverte après la pause d’entretien. Bill local confirmé : Eulogio Badia sam 24 oct 19 h, Tierra de Paso jeu 15 oct encore à l’affiche ; autres horaires festival à venir sur @festivalesdeteatro.rd / RSVP 809-261-7393.",
+      en: "Puerto Plata FENATE 2026 host sala (22 Oct–1 Nov). Dated local bills: Eulogio Badia Sat 24 Oct 7:00 PM (adults) and Café Ópera Código Clown Sat 31 Oct 7:00 PM (16+). Tierra de Paso is Thu 15 Oct — doors lock at 7:10 PM and do not reopen until the show ends. RSVP 809-261-7393.",
+      es: "Sede FENATE 2026 en Puerto Plata (22 oct–1 nov). Cartel local fechado: Eulogio Badia sáb 24 oct 7:00 PM (adultos) y Café Ópera Código Clown sáb 31 oct 7:00 PM (+16). Tierra de Paso es el jue 15 oct — las puertas cierran a las 7:10 PM y no se abren hasta que termine la función. RSVP 809-261-7393.",
+      fr: "Salle hôte FENATE 2026 à Puerto Plata (22 oct–1 nov). Bills locaux datés : Eulogio Badia sam 24 oct 19 h (adultes) et Café Ópera Código Clown sam 31 oct 19 h (16+). Tierra de Paso est le jeu 15 oct — les portes ferment à 19 h 10 et ne rouvrent pas avant la fin. RSVP 809-261-7393.",
     },
   },
   "spotland-puerto-plata": {

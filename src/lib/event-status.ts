@@ -573,6 +573,12 @@ export function isListedTodaySpecial(
   // `string | EventRecurrence` (ingest/filters), which is not assignable to
   // Pick<Event, "recurrence"> without a cast.
   if (event.recurrence) return false;
+  // Multi-night sports screen blocks (Hard Rock / Pregame game day) are a
+  // week of watch nights, not a one-off Today’s special.
+  const end = event.endDate?.trim();
+  if (event.category === "sports" && end && end !== event.date?.trim()) {
+    return false;
+  }
   if (event.date?.trim() !== localDateISO(now)) return false;
   if (!isEventActiveToday(event, now)) return false;
   return !isEndingSoon(event, now);

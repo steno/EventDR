@@ -357,7 +357,7 @@ export const SEED_VENUES: Venue[] = [
     name: "VOYVOY Cabarete",
     city: "Cabarete",
     description:
-      "Beachfront restaurant and nightlife spot on Cabarete Bay — Monday live music, named Session nights when billed, and bay views. Hours: Sun/Tue/Thu/Fri 7:30 AM–11:00 PM; Mon 7:30 AM–1:00 AM; Sat 7:30 AM–3:00 AM; Wed 7:30 AM–7:00 PM.",
+      "Beachfront restaurant and nightlife spot on Cabarete Bay — Monday live music, named Session nights when billed, and bay views. Hours: Sun/Tue/Thu/Fri 7:30 AM–11:00 PM; Mon 7:30 AM–1:00 AM; Sat 7:30 AM–3:00 AM; closed Wednesday.",
     lat: 19.7502161,
     lng: -70.4066784,
     emoji: "🪩",
@@ -1840,12 +1840,25 @@ export const SEED_VENUES: Venue[] = [
     name: "Ambar Lounge POP",
     city: "Puerto Plata",
     description:
-      "Rooftop lounge bar on Av. Luis Ginebra 45-a — cocktails, invitation-only party nights, and late downtown energy. Open Mon/Wed–Sun from 5:00 PM (closed Tue). Reservations (809) 781-8677 · Instagram @ambarloungepop.",
+      "Second-level lounge bar on Av. Luis Ginebra #45 (Pregame Roof is the third-level deck above) — cocktails, invitation-only party nights, and late downtown energy. Open Mon/Wed–Sun from 5:00 PM (closed Tue). Reservations (809) 781-8677 · Instagram @ambarloungepop.",
     lat: 19.7918,
     lng: -70.6810,
     emoji: "🍸",
     instagram: "ambarloungepop",
     website: "https://www.facebook.com/p/Ambar-Lounge-POP-100087903711781/",
+    phone: "+18097818677",
+  },
+  {
+    slug: "pregame-roof-puerto-plata",
+    name: "Pregame Roof",
+    city: "Puerto Plata",
+    description:
+      "Rooftop bar and lounge on the third level above Ámbar Lounge, Av. Luis Ginebra #45 — cocktails, food, music, and late downtown nights. Call or WhatsApp (809) 781-8677 to confirm doors and RSVP. Instagram @pregameroof.",
+    lat: 19.7918,
+    lng: -70.681,
+    emoji: "⚾",
+    instagram: "pregameroof",
+    website: "https://www.instagram.com/pregameroof/",
     phone: "+18097818677",
   },
   {
@@ -1897,7 +1910,7 @@ export const SEED_VENUES: Venue[] = [
     name: "Iván García Teatro-Escuela",
     city: "Puerto Plata",
     description:
-      "Victorian teatro-escuela on Calle Profesor Juan Bosch #72 in the historic center — kids and youth acting classes, stage works, and cultural programming. Puerto Plata host sala for FENATE 2026 (22 Oct–1 Nov). Open again after the maintenance pause. Billed nights include Tierra de Paso (15 Oct) and Eulogio Badia (24 Oct). Instagram @teatroivangarcia · teatroivangarcia.blogspot.com.",
+      "Victorian teatro-escuela on Calle Profesor Juan Bosch #72 in the historic center — kids and youth acting classes, stage works, and cultural programming. Puerto Plata host sala for FENATE 2026 (22 Oct–1 Nov). Billed nights include Tierra de Paso (15 Oct), Eulogio Badia (24 Oct, adults), and Café Ópera Código Clown (31 Oct, 16+). Instagram @teatroivangarcia · teatroivangarcia.blogspot.com.",
     lat: 19.7979,
     lng: -70.6928,
     emoji: "🎭",
@@ -2174,6 +2187,10 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
     pattern:
       /[aá]mbar\s*lounge(\s*pop)?|ambarloungepop/i,
     slug: "ambar-lounge-pop",
+  },
+  {
+    pattern: /pregame\s*roof|pregameroof/i,
+    slug: "pregame-roof-puerto-plata",
   },
   {
     pattern: /\bnueve\b|nueve_rd|nueve\s*restaurante/i,

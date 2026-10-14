@@ -155,6 +155,7 @@ export const WALKABLE_POCKETS: readonly WalkablePocket[] = [
       "nova-salud-bienestar",
       "camara-comercio-puerto-plata",
       "ambar-lounge-pop",
+      "pregame-roof-puerto-plata",
       "luna-lounge-lcb",
       "ivan-garcia-teatro-escuela",
       "cigar-town-pop",

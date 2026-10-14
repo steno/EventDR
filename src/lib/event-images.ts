@@ -331,9 +331,15 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "twenty-disco-kiry-curu-2026-10-16":
     "twenty-disco-kiry-curu-2026-10-16.jpg",
   "ivan-garcia-eulogio-badia-2026-10-24":
-    "ivan-garcia-eulogio-badia-2026-10-24.jpg",
+    "ivan-garcia-eulogio-badia-2026-10-24-v2.jpg",
   "ivan-garcia-cafe-opera-codigo-clown-2026-10-31":
-    "ivan-garcia-cafe-opera-codigo-clown-2026-10-31.jpg",
+    "ivan-garcia-cafe-opera-codigo-clown-2026-10-31-v2.jpg",
+  "pregame-roof-baseball-game-day-2026-10-14":
+    "pregame-roof-nlcs-game-3-2026-10-14.jpg",
+  "ann-soul-aura-cabarete-2026-10-15":
+    "ann-soul-aura-cabarete-2026-10-15.jpg",
+  "voyvoy-saturday-session-2026-10-17":
+    "voyvoy-saturday-session-2026-10-17.jpg",
   "la-lola-back-to-northside-2026-07-04":
     "la-lola-back-to-northside-2026-07-04.jpg",
   "ambar-lounge-emil-roman-2026-09-26":
@@ -415,7 +421,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "aura-after-dark-carlos-rivera-2026-10-10.jpg",
   "ivan-garcia-tierra-de-paso-2026-10-15":
     "ivan-garcia-tierra-de-paso-2026-10-15.jpg",
-  "fenate-2026-sala-ivan-garcia": "fenate-2026-sala-ivan-garcia.jpg",
+  "fenate-2026-sala-ivan-garcia": "fenate-2026-sala-ivan-garcia-v2.jpg",
 
   "sosua-jewish-museum-hours": "sosua-jewish-museum-hours-facade.jpg",
   "templo-de-las-americas-daily": "templo-de-las-americas-daily.jpg",
@@ -441,6 +447,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
 
   // Filename bump — Karaoke Monday flyer (was terrace place shot for live jam).
   "voyvoy-monday-live-music": "voyvoy-karaoke-monday.jpg",
+  "voyvoy-sunday-open-mic": "voyvoy-sunday-open-mic.jpg",
   "voyvoy-soft-reopening-sunset-2026-10-09":
     "voyvoy-soft-reopening-sunset-2026-10-09.jpg",
   "voyvoy-soft-reopening-saturday-2026-10-10":
@@ -666,6 +673,8 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "twenty-disco-kiry-curu-2026-10-16": "object-center",
   "ivan-garcia-eulogio-badia-2026-10-24": "object-center",
   "ivan-garcia-cafe-opera-codigo-clown-2026-10-31": "object-center",
+  "pregame-roof-baseball-game-day-2026-10-14": "object-center",
+  "ann-soul-aura-cabarete-2026-10-15": "object-center",
   "ivan-garcia-tierra-de-paso-2026-10-15": "object-center",
   "fenate-2026-sala-ivan-garcia": "object-center",
   "hard-rock-banditalia-2026-10-17": "object-center",
@@ -820,6 +829,18 @@ const EVENT_GALLERY_SLIDES: Record<
       file: "terraza-ocean-world-evenings-marina.jpg",
       venueSlug: "ocean-world",
       label: "Marina terrace setup",
+    },
+  ],
+  "ivan-garcia-tierra-de-paso-2026-10-15": [
+    {
+      file: "ivan-garcia-tierra-de-paso-2026-10-15.jpg",
+      venueSlug: "ivan-garcia-teatro-escuela",
+      label: "Tierra de Paso",
+    },
+    {
+      file: "ivan-garcia-tierra-de-paso-2026-10-15-doors.jpg",
+      venueSlug: "ivan-garcia-teatro-escuela",
+      label: "Doors close 7:10 PM",
     },
   ],
   "masters-surf-reunion-10-2026": [
@@ -1090,10 +1111,14 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "gypsy-bowls-last-bowl-call-2026-10-03.jpg",
   "iss-wizard-of-oz-2026-12-17.jpg",
   "twenty-disco-kiry-curu-2026-10-16.jpg",
-  "ivan-garcia-cafe-opera-codigo-clown-2026-10-31.jpg",
-  "ivan-garcia-eulogio-badia-2026-10-24.jpg",
+  "ivan-garcia-cafe-opera-codigo-clown-2026-10-31-v2.jpg",
+  "ivan-garcia-eulogio-badia-2026-10-24-v2.jpg",
   "ivan-garcia-tierra-de-paso-2026-10-15.jpg",
-  "fenate-2026-sala-ivan-garcia.jpg",
+  "ivan-garcia-tierra-de-paso-2026-10-15-doors.jpg",
+  "fenate-2026-sala-ivan-garcia-v2.jpg",
+  "pregame-roof-nlcs-game-3-2026-10-14.jpg",
+  "ann-soul-aura-cabarete-2026-10-15.jpg",
+  "voyvoy-saturday-session-2026-10-17.jpg",
   "aura-after-dark-carlos-rivera-2026-10-10.jpg",
   "drifter-sunset-into-the-night-v2.jpg",
   "pop-cinemas-week-2026-10-08-grin.jpg",
@@ -1177,6 +1202,7 @@ const HOME_HERO_SCENE_FILES = new Set([
   "anfiteatro-la-puntilla-mitur-concert.jpg",
   "anfiteatro-la-puntilla-weekday-bowl.jpg",
   "batey-open-mic-stage.jpg",
+  "voyvoy-sunday-open-mic.jpg",
   "batey-salsa-social-dance.jpg",
   "big-lees-weekend-music.jpg",
   "brugal-corporate-tours.jpg",

@@ -1,6 +1,7 @@
 /** Street lines harvested from seed event addresses (slug → street, no city). */
 export const VENUE_STREET_ADDRESS: Readonly<Record<string, string>> = {
   "ambar-lounge-pop": "Av. Luis Ginebra 45-a",
+  "pregame-roof-puerto-plata": "Av. Luis Ginebra #45, 3rd level",
   "amber-cove": "KM 10 Carretera Puerto Plata–Navarrete, Bahía de Maimón",
   "anfiteatro-la-puntilla": "La Puntilla",
   "aura-beach-club-cabarete": "Calle Principal",

@@ -219,8 +219,8 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
   },
   "voyvoy-cabarete": {
     description: {
-      es: "Restaurante frente al mar y vida nocturna en la bahía de Cabarete — música en vivo los lunes, Sessions con cartel cuando se anuncian, y vistas a la bahía. Horario: dom/mar/jue/vie 7:30 AM–11:00 PM; lun 7:30 AM–1:00 AM; sáb 7:30 AM–3:00 AM; mié 7:30 AM–7:00 PM.",
-      fr: "Restaurant en bord de mer et spot de nuit sur la baie de Cabarete — live le lundi, Sessions annoncées quand il y a un lineup, et vue baie. Horaires : dim/mar/jeu/ven 7 h 30–23 h ; lun 7 h 30–1 h ; sam 7 h 30–3 h ; mer 7 h 30–19 h.",
+      es: "Restaurante frente al mar y vida nocturna en la bahía de Cabarete — música en vivo los lunes, Sessions con cartel cuando se anuncian, y vistas a la bahía. Horario: dom/mar/jue/vie 7:30 AM–11:00 PM; lun 7:30 AM–1:00 AM; sáb 7:30 AM–3:00 AM; miércoles cerrado.",
+      fr: "Restaurant en bord de mer et spot de nuit sur la baie de Cabarete — live le lundi, Sessions annoncées quand il y a un lineup, et vue baie. Horaires : dim/mar/jeu/ven 7 h 30–23 h ; lun 7 h 30–1 h ; sam 7 h 30–3 h ; mercredi fermé.",
     },
   },
   "gypsy-bowls-cabarete": {
@@ -945,8 +945,18 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
   },
   "ambar-lounge-pop": {
     description: {
-      es: "Lounge bar rooftop en Av. Luis Ginebra 45-a — cócteles, noches con invitación y energía tarde en el centro. Abierto lun/mié–dom desde las 5:00 PM (cerrado mar). Reservas (809) 781-8677 · Instagram @ambarloungepop.",
-      fr: "Lounge bar rooftop sur Av. Luis Ginebra 45-a — cocktails, soirées sur invitation et énergie tardive downtown. Ouvert lun/mer–dim dès 17 h (fermé mar). Réservations (809) 781-8677 · Instagram @ambarloungepop.",
+      es: "Lounge bar en el segundo nivel de Av. Luis Ginebra #45 (Pregame Roof es la terraza del tercer nivel) — cócteles, noches con invitación y energía tarde en el centro. Abierto lun/mié–dom desde las 5:00 PM (cerrado mar). Reservas (809) 781-8677 · Instagram @ambarloungepop.",
+      fr: "Lounge bar au deuxième niveau du 45 Av. Luis Ginebra (Pregame Roof est la terrasse du troisième niveau) — cocktails, soirées sur invitation et énergie tardive downtown. Ouvert lun/mer–dim dès 17 h (fermé mar). Réservations (809) 781-8677 · Instagram @ambarloungepop.",
+    },
+  },
+  "pregame-roof-puerto-plata": {
+    name: {
+      es: "Pregame Roof",
+      fr: "Pregame Roof",
+    },
+    description: {
+      es: "Bar y lounge en la azotea del tercer nivel, encima de Ámbar Lounge, Av. Luis Ginebra #45 — cócteles, comida, música y noches tarde en el centro. Llama o escribe por WhatsApp al (809) 781-8677 para confirmar puertas y RSVP. Instagram @pregameroof.",
+      fr: "Bar et lounge sur le toit du troisième niveau, au-dessus d’Ámbar Lounge, Av. Luis Ginebra #45 — cocktails, cuisine, musique et nuits tardives downtown. Appelez ou WhatsApp au (809) 781-8677 pour confirmer l’ouverture et le RSVP. Instagram @pregameroof.",
     },
   },
   "nueve-puerto-plata": {
@@ -983,8 +993,8 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
   },
   "ivan-garcia-teatro-escuela": {
     description: {
-      es: "Teatro-escuela victoriano en Calle Profesor Juan Bosch #72 en el centro histórico — clases de actuación para niños y jóvenes, obras y programación cultural. Sede en Puerto Plata de FENATE 2026 (22 oct–1 nov). Abierta de nuevo tras la pausa por mantenimiento. Noches con cartel: Tierra de Paso (15 oct) y Eulogio Badia (24 oct). Instagram @teatroivangarcia · teatroivangarcia.blogspot.com.",
-      fr: "Teatro-escuela victorien au 72 Calle Profesor Juan Bosch, centre historique — cours de théâtre pour enfants et jeunes, pièces et programmation culturelle. Salle hôte FENATE 2026 à Puerto Plata (22 oct–1 nov). De nouveau ouverte après la pause d’entretien. Soirées à l’affiche : Tierra de Paso (15 oct) et Eulogio Badia (24 oct). Instagram @teatroivangarcia · teatroivangarcia.blogspot.com.",
+      es: "Teatro-escuela victoriano en Calle Profesor Juan Bosch #72 en el centro histórico — clases de actuación para niños y jóvenes, obras y programación cultural. Sede en Puerto Plata de FENATE 2026 (22 oct–1 nov). Noches con cartel: Tierra de Paso (15 oct), Eulogio Badia (24 oct, adultos) y Café Ópera Código Clown (31 oct, +16). Instagram @teatroivangarcia · teatroivangarcia.blogspot.com.",
+      fr: "Teatro-escuela victorien au 72 Calle Profesor Juan Bosch, centre historique — cours de théâtre pour enfants et jeunes, pièces et programmation culturelle. Salle hôte FENATE 2026 à Puerto Plata (22 oct–1 nov). Soirées à l’affiche : Tierra de Paso (15 oct), Eulogio Badia (24 oct, adultes) et Café Ópera Código Clown (31 oct, 16+). Instagram @teatroivangarcia · teatroivangarcia.blogspot.com.",
     },
   },
   "spotland-puerto-plata": {
