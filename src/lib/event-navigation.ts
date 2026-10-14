@@ -2,7 +2,6 @@ import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import { CATEGORY_IDS, getCategoryMeta } from "./categories";
 import {
-  CITIES,
   getCityMeta,
   getCityName,
   isCitySlug,
@@ -85,17 +84,6 @@ export function cityWhenNavLinks(
   return WHEN_SLUGS.map((range) => ({
     href: cityWhenPath(locale, citySlug, range),
     label: labels[range],
-  }));
-}
-
-/** City pills that deep-link into a regional /when range. */
-export function whenCityNavLinks(
-  locale: Locale,
-  range: WhenSlug,
-): { href: string; label: string }[] {
-  return CITIES.map((city) => ({
-    href: cityWhenPath(locale, city.slug, range),
-    label: getCityName(city, locale),
   }));
 }
 

@@ -2,10 +2,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { EventScopePage } from "@/components/EventScopePage";
 import { JsonLd } from "@/components/JsonLd";
-import {
-  categoryNavLinks,
-  whenCityNavLinks,
-} from "@/lib/event-navigation";
+import { categoryNavLinks } from "@/lib/event-navigation";
 import { isValidLocale, locales, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getPublicEvents } from "@/lib/public-events";
@@ -68,8 +65,11 @@ export default async function Page({
   const dict = getDictionary(locale);
   const whenSeo = getWhenSeo(locale, range);
   const whenPath = localePath(locale, `/when/${range}`);
-  const events = await listedWhenEvents(locale, range);
-  const liveSeo = buildWhenSearchCopy(locale, range, events);
+  const [listedEvents, catalog] = await Promise.all([
+    listedWhenEvents(locale, range),
+    getPublicEvents({ locale }),
+  ]);
+  const liveSeo = buildWhenSearchCopy(locale, range, listedEvents);
   const pageSeo = liveSeo
     ? {
         ...whenSeo,
@@ -79,10 +79,12 @@ export default async function Page({
         intro: liveSeo.intro,
       }
     : whenSeo;
-  const relatedCategoryLinks = [
-    ...whenCityNavLinks(locale, range),
-    ...categoryNavLinks(locale, dict.categories, null, events),
-  ];
+  const relatedCategoryLinks = categoryNavLinks(
+    locale,
+    dict.categories,
+    null,
+    catalog,
+  );
   const relatedCategoryLinksLabel = dict.cities.browseTopCategories;
 
   return (
@@ -93,7 +95,7 @@ export default async function Page({
           whenPath,
           pageSeo,
           pageSeo.h1,
-          events,
+          listedEvents,
           [
             { name: dict.seo.siteName, path: localePath(locale) },
             { name: pageSeo.h1, path: whenPath },
@@ -103,12 +105,13 @@ export default async function Page({
       <EventScopePage
         locale={locale}
         dict={dict}
-        initialEvents={events}
-        fetchUrl={`/api/events?locale=${locale}&when=${range}`}
+        initialEvents={catalog}
+        fetchUrl={`/api/events?locale=${locale}`}
         returnTo={whenPath}
         title={pageSeo.h1}
         intro={pageSeo.intro}
-        fixedTimeRange={range}
+        defaultTimeRange={range}
+        regionScope
         relatedCategoryLinks={relatedCategoryLinks}
         relatedCategoryLinksLabel={relatedCategoryLinksLabel}
       />

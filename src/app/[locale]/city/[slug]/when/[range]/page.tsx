@@ -8,10 +8,7 @@ import {
   isCitySlug,
   type CitySlug,
 } from "@/lib/cities";
-import {
-  categoryNavLinks,
-  whenCityNavLinks,
-} from "@/lib/event-navigation";
+import { categoryNavLinks } from "@/lib/event-navigation";
 import { isValidLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getPublicEvents } from "@/lib/public-events";
@@ -86,15 +83,17 @@ export default async function Page({
   const cityName = getCityName(city, locale);
   const cityPath = localePath(locale, `/city/${slug}`);
   const pagePath = localePath(locale, `/city/${slug}/when/${range}`);
-  const events = await listedCityWhenEvents(locale, slug, range);
-  const pageSeo = cityWhenListingSeo(locale, city, range, events);
-  const cityCatalog = await getPublicEvents({ locale, city: slug });
-  const relatedCategoryLinks = [
-    ...whenCityNavLinks(locale, range).filter(
-      (link) => !link.href.includes(`/city/${slug}/`),
-    ),
-    ...categoryNavLinks(locale, dict.categories, slug, cityCatalog),
-  ];
+  const [listedEvents, cityCatalog] = await Promise.all([
+    listedCityWhenEvents(locale, slug, range),
+    getPublicEvents({ locale, city: slug }),
+  ]);
+  const pageSeo = cityWhenListingSeo(locale, city, range, listedEvents);
+  const relatedCategoryLinks = categoryNavLinks(
+    locale,
+    dict.categories,
+    slug,
+    cityCatalog,
+  );
 
   return (
     <>
@@ -104,7 +103,7 @@ export default async function Page({
           pagePath,
           pageSeo,
           pageSeo.h1,
-          events,
+          listedEvents,
           [
             { name: dict.seo.siteName, path: localePath(locale) },
             { name: cityName, path: cityPath },
@@ -115,13 +114,13 @@ export default async function Page({
       <EventScopePage
         locale={locale}
         dict={dict}
-        initialEvents={events}
-        fetchUrl={`/api/events?locale=${locale}&city=${slug}&when=${range}`}
+        initialEvents={cityCatalog}
+        fetchUrl={`/api/events?locale=${locale}&city=${slug}`}
         returnTo={pagePath}
         backHref={cityPath}
         title={pageSeo.h1}
         intro={pageSeo.intro}
-        fixedTimeRange={range}
+        defaultTimeRange={range}
         citySlug={slug}
         relatedCategoryLinks={relatedCategoryLinks}
         relatedCategoryLinksLabel={dict.cities.browseTopCategories}

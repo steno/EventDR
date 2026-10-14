@@ -84,6 +84,11 @@ interface EventScopePageProps {
   backHref?: string;
   emptyMessage?: string;
   fixedTimeRange?: TimeRange;
+  /**
+   * Initial All/Today/Tomorrow/Weekend chip when tabs are shown (when SEO
+   * landings). Ignored when `fixedTimeRange` is set.
+   */
+  defaultTimeRange?: TimeRange;
   addEventLabel?: string;
   submitDefaults?: {
     category?: Event["category"];
@@ -129,6 +134,7 @@ export function EventScopePage({
   backHref: backHrefProp,
   emptyMessage = dict.browse.noEvents,
   fixedTimeRange,
+  defaultTimeRange,
   addEventLabel = dict.submit.createEvent,
   submitDefaults: submitDefaultsProp,
   relatedCategoryLinks: relatedCategoryLinksProp,
@@ -560,12 +566,16 @@ export function EventScopePage({
             sectionTitle={sectionTitle}
             returnTo={returnTo}
             fixedTimeRange={fixedTimeRange}
+            defaultTimeRange={defaultTimeRange}
             initialExpanded={initialExpanded}
             onAddEvent={() => setSubmitOpen(true)}
             addEventLabel={addEventLabel}
             categoryId={activeCategoryId}
             areaLabel={areaLabel}
-            persistTimeRange
+            // When SEO landings keep a local chip so /when/today opens on Today
+            // and soft category swaps can stay on that day. City/category lists
+            // still share the session chip across area changes.
+            persistTimeRange={!defaultTimeRange}
             categoryNav={
               relatedCategoryLinks && relatedCategoryLinksLabel ? (
                 <CityCategoryLinks
@@ -586,7 +596,7 @@ export function EventScopePage({
                   onSoftNavigate={
                     softNav
                       ? onSoftCategoryNavigate
-                      : fixedTimeRange
+                      : fixedTimeRange || defaultTimeRange
                         ? onWhenCategoryNavigate
                         : undefined
                   }
@@ -624,7 +634,7 @@ export function EventScopePage({
               ) : undefined
             }
           />
-          {fixedTimeRange === "weekend" ? (
+          {fixedTimeRange === "weekend" || defaultTimeRange === "weekend" ? (
             <aside className="mb-8 mt-6 overflow-hidden rounded-3xl border border-orange-200 bg-orange-50 p-5 dark:border-orange-900/60 dark:bg-orange-950/30">
               <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.14em] text-orange-700 dark:text-orange-300">
                 <Building2 className="h-4 w-4" aria-hidden />
