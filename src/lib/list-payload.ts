@@ -33,6 +33,7 @@ export function slimEventForList(event: Event): Event {
   if (event.isFree) slim.isFree = true;
   if (event.admissionPrice) slim.admissionPrice = event.admissionPrice;
   if (event.callForPricing) slim.callForPricing = true;
+  if (event.ageHint) slim.ageHint = event.ageHint;
   if (event.imageEmoji) slim.imageEmoji = event.imageEmoji;
   if (event.imageUrl) slim.imageUrl = event.imageUrl;
   if (event.communitySubmitted) slim.communitySubmitted = true;

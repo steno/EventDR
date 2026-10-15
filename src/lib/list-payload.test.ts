@@ -27,4 +27,20 @@ describe("slimEventForList", () => {
     assert.equal(hits.length, 1);
     assert.equal(hits[0]?.id, "atleticos-pp-vs-mineros-2026-10-03");
   });
+
+  it("keeps ageHint for live-status cutoffs on list cards", () => {
+    const slim = slimEventForList({
+      id: "ivan-garcia-clases-actuacion-ninos-2026",
+      title: "Kids Acting Classes at Iván García Teatro-Escuela",
+      description: "Acting classes for children ages 5–10",
+      date: "2026-09-18",
+      endDate: "2026-12-12",
+      location: "Puerto Plata",
+      category: "culture",
+      format: "physical",
+      ageHint: "family",
+    });
+
+    assert.equal(slim.ageHint, "family");
+  });
 });

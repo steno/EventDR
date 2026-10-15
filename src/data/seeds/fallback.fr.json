@@ -1932,9 +1932,6 @@
     "lat": 19.7979,
     "lng": -70.6928,
     "category": "culture",
-    "categories": [
-      "performances"
-    ],
     "format": "physical",
     "trending": true,
     "callForPricing": true,
