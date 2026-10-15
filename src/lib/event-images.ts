@@ -356,6 +356,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "voyvoy-saturday-session-2026-10-17.jpg",
   "ambar-lounge-bandoleras-2026-10-16":
     "ambar-lounge-bandoleras-2026-10-16.jpg",
+  "ambar-lounge-too-noise-2026-10-17":
+    "ambar-lounge-too-noise-2026-10-17.jpg",
   "cedaky-mall-stand-solidario-2026-10-15":
     "cedaky-mall-stand-solidario-2026-10-15.jpg",
   // Filename bump — proper Dra. Marcelle Cueto flyer (PWA strips ?v=; IG caption crop stayed cached).
@@ -738,6 +740,7 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "meclao-tulum-after-dark-sebastian-crozz-2026-10-10": "object-center",
   "meclao-old-school-tropical-dj-choco-2026-10-16": "object-center",
   "ambar-lounge-perreo-negro-2026-10-10": "object-center",
+  "ambar-lounge-too-noise-2026-10-17": "object-center",
   "disco-club-halloween-2026-10-30": "object-center",
   "natura-cabana-halloween-2026-10-31": "object-center",
   "blue-ice-halloween-chimbala-2026-10-31": "object-center",
@@ -1099,6 +1102,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "ambar-lounge-bandoleras-2026-10-02.jpg",
   "ambar-lounge-bandoleras-2026-10-09.jpg",
   "ambar-lounge-bandoleras-2026-10-16.jpg",
+  "ambar-lounge-too-noise-2026-10-17.jpg",
   "cedaky-mall-stand-solidario-2026-10-15.jpg",
   "cedaky-mall-nutricion-pequenos-gigantes-2026-10-17-v2.jpg",
   "fxs-exhibicion-carros-deportivos-2026-10-18.jpg",

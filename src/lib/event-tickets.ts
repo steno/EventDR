@@ -195,6 +195,7 @@ export const CURATED_CALL_FOR_PRICING = new Set<string>([
   "cruzmonty-manuel-cocco-birthday-cigar-town-2026-10-17",
   "ambar-lounge-gaby-luna-2026-10-03",
   "ambar-lounge-perreo-negro-2026-10-10",
+  "ambar-lounge-too-noise-2026-10-17",
   "meclao-reggaeton-dj-yosma-2026-10-09",
   "meclao-tulum-after-dark-sebastian-crozz-2026-10-10",
   "meclao-old-school-tropical-dj-choco-2026-10-16",

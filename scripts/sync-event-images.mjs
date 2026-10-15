@@ -230,6 +230,8 @@ const FILE_TO_EVENT_ID = {
     "voyvoy-saturday-session-2026-10-17",
   "ambar-lounge-bandoleras-2026-10-16.jpg":
     "ambar-lounge-bandoleras-2026-10-16",
+  "ambar-lounge-too-noise-2026-10-17.jpg":
+    "ambar-lounge-too-noise-2026-10-17",
   "cedaky-mall-stand-solidario-2026-10-15.jpg":
     "cedaky-mall-stand-solidario-2026-10-15",
   "cedaky-mall-nutricion-pequenos-gigantes-2026-10-17-v2.jpg":

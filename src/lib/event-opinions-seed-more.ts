@@ -5741,4 +5741,23 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "Editor flyer + IG caption — Vie 16 Oct Old School & Tropical Night, DJ Choco (@ch.17x), tropical dress code, Mecla'o Rooftop Lounge Luis Ginebra No. 49, reservas 829-374-7028. No cover or start time on art.",
     updatedAt: "2026-10-15T23:00:00.000Z",
   },
+  {
+    eventId: "ambar-lounge-too-noise-2026-10-17",
+    body: "Saturday beats with Too Noise (@wearetoonoise, from STI) on the Luis Ginebra rooftop — not Bandoleras Friday with Sebastian Crozz the night before, and not Pregame Roof one floor up for baseball; RSVP (809) 781-8677 / @ambarloungepop before you treat it as walk-in after 5 PM.",
+    localized: {
+      es: "Beats el sábado con Too Noise (@wearetoonoise, from STI) en el rooftop de Luis Ginebra — no es Bandoleras del viernes con Sebastian Crozz la noche anterior, ni Pregame Roof un piso arriba por el béisbol; RSVP (809) 781-8677 / @ambarloungepop antes de tratarlo como walk-in después de las 5 PM.",
+      fr: "Beats samedi avec Too Noise (@wearetoonoise, from STI) sur le rooftop Luis Ginebra — pas Bandoleras du vendredi avec Sebastian Crozz la veille, ni Pregame Roof un étage plus haut pour le baseball ; RSVP (809) 781-8677 / @ambarloungepop avant de le traiter comme walk-in après 17 h.",
+    },
+    priceFeel: "varies",
+    priceNote:
+      "Cover / set time not on the flyer — confirm via @ambarloungepop or (809) 781-8677",
+    priceNoteLocalized: {
+      es: "Cover / hora del set no en el flyer — confirma con @ambarloungepop o (809) 781-8677",
+      fr: "Cover / heure du set absents de l’affiche — confirmez via @ambarloungepop ou (809) 781-8677",
+    },
+    attribution: "POP research · @ambarloungepop Too Noise flyer",
+    researchNotes:
+      "Editor flyer + IG @ambarloungepop — Sáb 17 Oct Too Noise / @wearetoonoise From STI, Ambar Lounge, Av Luis Ginebra 45 segundo y tercer nivel, RSVP (809) 781-8677. Vocatus co-brand on art. No cover or start time on flyer.",
+    updatedAt: "2026-10-15T23:30:00.000Z",
+  },
 ];

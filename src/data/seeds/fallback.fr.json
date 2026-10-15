@@ -6712,5 +6712,32 @@
       "DJ Choco"
     ],
     "imageEmoji": "🌴"
+  },
+  {
+    "id": "ambar-lounge-too-noise-2026-10-17",
+    "title": "Too Noise à Ambar Lounge",
+    "description": "Beats by Too Noise (@wearetoonoise, from STI) à Ambar Lounge POP, Av. Luis Ginebra No. 45, segundo y tercer nivel, Puerto Plata — samedi 17 octobre 2026. RSVP (809) 781-8677 ou Instagram @ambarloungepop ; confirmez portes et cover avant d’arriver walk-up. Lounge ouvert dès 17 h (fermé mardi).",
+    "date": "2026-10-17",
+    "location": "Puerto Plata",
+    "venue": "Ambar Lounge POP",
+    "venueSlug": "ambar-lounge-pop",
+    "address": "Av. Luis Ginebra No. 45, segundo y tercer nivel, Puerto Plata 57000",
+    "lat": 19.7918,
+    "lng": -70.681,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18097818677",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/ambarloungepop/",
+    "lineup": [
+      "Too Noise"
+    ],
+    "imageEmoji": "🎧"
   }
 ]
