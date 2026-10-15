@@ -210,6 +210,11 @@ const PLACE_SEARCH_ALIASES: Record<string, string[]> = {
     "Khong Kwan Cabarete Boxing",
     "@cabareteboxingclub",
   ],
+  "la-quinta-rosa": [
+    "La Quinta Rosa Puerto Plata",
+    "La Quinta Rosa Calle 12 de Julio",
+    "@laquintarosapop",
+  ],
   "pop-cinemas-playa-dorada": [
     "POP Cinemas Playa Dorada",
     "Pop Cinemas Playa Dorada Mall",

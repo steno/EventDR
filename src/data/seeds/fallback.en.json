@@ -6629,5 +6629,62 @@
       "Onslaught · 7:30 PM · Spanish (Rated R)",
       "Sacrificio: Los Elegidos (Sacrifice) · 7:45 PM · subtitled · premiere"
     ]
+  },
+  {
+    "id": "la-quinta-rosa-brunch-pumpkin-umo-2026-10-25",
+    "title": "La Quinta Rosa Brunch & Pumpkin × UMO Candle",
+    "description": "Brunch & Pumpkin at La Quinta Rosa (est. 1912), Calle 12 de Julio #88, downtown Puerto Plata — Sunday 25 October 2026 from 10:00 AM, with UMO Candle. Morning of candle-making, brunch, and a styled hang in the pink Victorian house; autumn dress code (beige, cream, terracotta, orange, chocolate, olive, butter yellow). Pricing not on the flyer — reserve via Instagram @laquintarosapop. Not the Katz Home furniture workshop on 28 Nov at the same house.",
+    "date": "2026-10-25",
+    "time": "10:00 AM",
+    "location": "Puerto Plata",
+    "venue": "La Quinta Rosa",
+    "venueSlug": "la-quinta-rosa",
+    "address": "Calle 12 de Julio #88, Puerto Plata",
+    "lat": 19.7948,
+    "lng": -70.6849,
+    "category": "food-drinks",
+    "categories": [
+      "culture"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/laquintarosapop/",
+    "instagram": "laquintarosapop",
+    "lineup": [
+      "UMO Candle",
+      "Candle-making",
+      "Brunch"
+    ],
+    "imageEmoji": "🎃"
+  },
+  {
+    "id": "la-quinta-rosa-taller-decoracion-mobiliario-2026-11-28",
+    "title": "Furniture Decoration Workshop at La Quinta Rosa",
+    "description": "Taller de Decoración y Mobiliario at La Quinta Rosa, Calle 12 de Julio #88, Puerto Plata — Saturday 28 November 2026, 8:00 AM–12:00 PM. Katz Home Architecture Studio × La Quinta Rosa (est. 1912): design, learn, create, and transform painted furniture. Materials included; limited spots. US$90 / RD$5,500 — reserve WhatsApp +1 849-250-2925 · @katzhomerd. Not Brunch & Pumpkin × UMO Candle on 25 Oct at the same house.",
+    "date": "2026-11-28",
+    "time": "8:00 AM – 12:00 PM",
+    "location": "Puerto Plata",
+    "venue": "La Quinta Rosa",
+    "venueSlug": "la-quinta-rosa",
+    "address": "Calle 12 de Julio #88, Puerto Plata",
+    "lat": 19.7948,
+    "lng": -70.6849,
+    "category": "culture",
+    "format": "physical",
+    "trending": true,
+    "isFree": false,
+    "admissionPrice": "US$90 / RD$5,500",
+    "phone": "+18492502925",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/katzhomerd/",
+    "instagram": "katzhomerd",
+    "lineup": [
+      "Katz Home Architecture Studio",
+      "Furniture painting",
+      "Materials included"
+    ],
+    "imageEmoji": "🎨"
   }
 ]

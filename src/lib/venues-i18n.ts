@@ -1083,6 +1083,16 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Sport bar et nightlife tardif au Sosúa Bay Center (Calle Dr. Alejo Martínez n° 1, El Batey, près du Coral Reef Casino) — soirées à thème, DJs invités, karaoké et musique haute énergie jusqu’au lever du soleil. Ouvert tous les jours 19 h–5 h. Table/VIP via DM Instagram @chameleonsportbar ou +1 849-657-1500 / +1 829-994-2304.",
     },
   },
+  "la-quinta-rosa": {
+    name: {
+      es: "La Quinta Rosa",
+      fr: "La Quinta Rosa",
+    },
+    description: {
+      es: "Casa colonial rosa histórica (est. 1912) en Calle 12 de Julio #88, centro de Puerto Plata — talleres, brunches y encuentros con estilo en las salas y el porche de época victoriana. Instagram @laquintarosapop.",
+      fr: "Maison coloniale rose historique (est. 1912) au Calle 12 de Julio #88, centre de Puerto Plata — ateliers, brunchs et rencontres stylées dans les salons et le porche d’époque victorienne. Instagram @laquintarosapop.",
+    },
+  },
 };
 
 export function localizeVenue(venue: Venue, locale: Locale): Venue {

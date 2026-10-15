@@ -18,6 +18,10 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "chameleon-monsters-ball-deeway-2026-10-18.jpg",
   "ann-soul-jazz-natura-cabana-2026-10-17":
     "ann-soul-jazz-natura-cabana-2026-10-17.jpg",
+  "la-quinta-rosa-brunch-pumpkin-umo-2026-10-25":
+    "la-quinta-rosa-brunch-pumpkin-umo-2026-10-25.jpg",
+  "la-quinta-rosa-taller-decoracion-mobiliario-2026-11-28":
+    "la-quinta-rosa-taller-decoracion-mobiliario-2026-11-28.jpg",
   "lax-sunset-daily": "lax-sunset-daily.jpg",
 
   "kite-beach-daily": "kite-beach-daily.jpg",
@@ -974,6 +978,8 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "cabarete-run-festival-5k-2026-11-08.jpg",
   "chameleon-monsters-ball-deeway-2026-10-18.jpg",
   "ann-soul-jazz-natura-cabana-2026-10-17.jpg",
+  "la-quinta-rosa-brunch-pumpkin-umo-2026-10-25.jpg",
+  "la-quinta-rosa-taller-decoracion-mobiliario-2026-11-28.jpg",
   "tour-de-campeones-gran-final-2026-11-14.jpg",
   "cheers-fire-ice-thursdays.jpg",
   "chill-and-grill-saturday-karaoke.jpg",

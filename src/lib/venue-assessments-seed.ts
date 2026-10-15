@@ -1867,6 +1867,17 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
       { key: "easy_to_find", sentiment: "positive" },
     ],
   }),
+  editorial({
+    venueSlug: "la-quinta-rosa",
+    verdictKey: "reliable_visitor_pick",
+    crowdFit: ["visitor", "mixed", "local"],
+    axes: { recommend: 4.2, atmosphere: 4.5, practical: 3.6, value: 3.7 },
+    themes: [
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+      { key: "easy_to_find", sentiment: "positive" },
+      { key: "photo_spot", sentiment: "positive", audience: "visitor" },
+    ],
+  }),
 ];
 
 const bySlug = new Map(

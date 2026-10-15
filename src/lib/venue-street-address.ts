@@ -71,6 +71,7 @@ export const VENUE_STREET_ADDRESS: Readonly<Record<string, string>> = {
   "la-casita-de-papi": "Carretera Principal, Central Beach",
   "la-chabola-cabarete": "Callejón de la Loma",
   "la-confluencia-museum": "Calle 12 de Julio #39",
+  "la-quinta-rosa": "Calle 12 de Julio #88",
   "la-lola-malecon": "Avenida Gregorio Luperón, Malecón",
   "la-rejoya": "M9J3+5V3, Juan de Nina / Camú",
   "laguna-sov": "Carretera Sosúa–Cabarete km 2",

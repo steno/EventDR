@@ -51,6 +51,10 @@ const FILE_TO_EVENT_ID = {
     "chameleon-monsters-ball-deeway-2026-10-18",
   "ann-soul-jazz-natura-cabana-2026-10-17.jpg":
     "ann-soul-jazz-natura-cabana-2026-10-17",
+  "la-quinta-rosa-brunch-pumpkin-umo-2026-10-25.jpg":
+    "la-quinta-rosa-brunch-pumpkin-umo-2026-10-25",
+  "la-quinta-rosa-taller-decoracion-mobiliario-2026-11-28.jpg":
+    "la-quinta-rosa-taller-decoracion-mobiliario-2026-11-28",
   "pop-cinemas-week-2026-10-15-posters.jpg": "pop-cinemas-week-2026-10-15",
   "pop-cinemas-week-2026-10-15-sacrificio.jpg":
     "pop-cinemas-week-2026-10-15-sacrificio",

@@ -649,6 +649,18 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     phone: "+18093201400",
     venueSlug: "pop-cinemas-playa-dorada",
   },
+  "la-quinta-rosa-brunch-pumpkin-umo-2026-10-25": {
+    callForPricing: true,
+    venueSlug: "la-quinta-rosa",
+    sourceUrl: "https://www.instagram.com/laquintarosapop/",
+  },
+  "la-quinta-rosa-taller-decoracion-mobiliario-2026-11-28": {
+    isFree: false,
+    admissionPrice: "US$90 / RD$5,500",
+    phone: "+18492502925",
+    venueSlug: "la-quinta-rosa",
+    sourceUrl: "https://www.instagram.com/katzhomerd/",
+  },
   "el-cuarteto-terrible-zona-acapella-2026-09-27": {
     isFree: true,
     phone: "+18297260344",

@@ -156,6 +156,16 @@ export const INSTAGRAM_ACCOUNTS = [
     areas: ["Puerto Plata"],
   },
   {
+    handle: "laquintarosapop",
+    label: "La Quinta Rosa",
+    areas: ["Puerto Plata"],
+  },
+  {
+    handle: "katzhomerd",
+    label: "Katz Home Architecture Studio",
+    areas: ["Puerto Plata"],
+  },
+  {
     handle: "ambarloungepop",
     label: "Ámbar Lounge POP",
     areas: ["Puerto Plata"],
@@ -467,7 +477,7 @@ export function instagramSearchQueries(): string[] {
   const localVenues = [
     "onnosbar", "shakabardr", "groundzero_disco", "blueice_pianobar",
     "driftercabarete", "nonasgrillkitchen", "hardrockcafepuertoplata",
-    "djblueeventos", "victrolart", "cigartownpop", "ambarloungepop", "pregameroof", "lokuraspop",
+    "djblueeventos", "victrolart", "cigartownpop", "laquintarosapop", "katzhomerd", "ambarloungepop", "pregameroof", "lokuraspop",
     "auracabarete", "cabaretestandup", "hotelvillataina", "eventospop037",
     "novapuertoplata", "spotlandrd", "classiccarsrd", "trolleycitytours", "lunaloungelcb", "teatroivangarcia",
     "oceanworldterrace", "sosuafoodmarket", "paradaelchoco",
@@ -527,7 +537,7 @@ export function instagramSearchQueries(): string[] {
     `site:instagram.com (${culturalVenues}) concierto OR festival OR presentación`,
     `site:instagram.com (${touristInfo}) evento OR actividad OR fiesta`,
     `site:instagram.com (${institutional}) foro OR feria OR congreso OR "rueda de negocios"`,
-    `site:instagram.com victrolart OR cigartownpop OR ambarloungepop OR pregameroof OR lokuraspop OR cinemaspop OR auracabarete OR eventospop037 OR novapuertoplata OR spotlandrd OR classiccarsrd OR trolleycitytours OR lunaloungelcb OR teatroivangarcia OR oceanworldterrace OR sosuafoodmarket OR paradaelchoco OR kitestreetpop OR "acapella.pop" OR vinotecamarienpp 2026`,
+    `site:instagram.com victrolart OR cigartownpop OR laquintarosapop OR katzhomerd OR ambarloungepop OR pregameroof OR lokuraspop OR cinemaspop OR auracabarete OR eventospop037 OR novapuertoplata OR spotlandrd OR classiccarsrd OR trolleycitytours OR lunaloungelcb OR teatroivangarcia OR oceanworldterrace OR sosuafoodmarket OR paradaelchoco OR kitestreetpop OR "acapella.pop" OR vinotecamarienpp 2026`,
     `site:instagram.com "Mojitos" OR "Jueves Social" OR "Sábado Bailable" OR Acústico Puerto Plata`,
     
     // Business & institutional

@@ -2063,6 +2063,19 @@ export const SEED_VENUES: Venue[] = [
     website: "https://www.instagram.com/chameleonsportbar/",
     phone: "+18496571500",
   },
+  {
+    slug: "la-quinta-rosa",
+    name: "La Quinta Rosa",
+    city: "Puerto Plata",
+    description:
+      "Historic pink colonial house (est. 1912) on Calle 12 de Julio #88 in downtown Puerto Plata — workshops, brunches, and styled gatherings in the Victorian-era rooms and porch. Instagram @laquintarosapop.",
+    // Calle 12 de Julio #88 pin (same street as Casa Museo Luperón / La Confluencia; east of #54).
+    lat: 19.7948,
+    lng: -70.6849,
+    emoji: "🌸",
+    instagram: "laquintarosapop",
+    website: "https://www.instagram.com/laquintarosapop/",
+  },
 ];
 
 /** Extra name fragments → seed slug (checked before fuzzy name includes). */
@@ -2528,6 +2541,10 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
   {
     pattern: /drifter(\s*(cabarete|lounge|bar(\s*(and|&)\s*restaurant)?))?/i,
     slug: "drifter-cabarete",
+  },
+  {
+    pattern: /la\s*quinta\s*rosa|laquintarosapop/i,
+    slug: "la-quinta-rosa",
   },
 ];
 

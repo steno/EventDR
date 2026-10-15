@@ -1281,4 +1281,12 @@ export const VENUE_TIP_COPY: Record<
       fr: "Sport bar tardif au Sosúa Bay Center à côté du Coral Reef Casino — DJs invités et soirées à thème jusqu’au lever du soleil, pas un crawl de bars Pedro Clisante ; WhatsApp +1 849-657-1500 / +1 829-994-2304 ou DM @chameleonsportbar avant de compter sur le VIP walk-in.",
     },
   },
+  "la-quinta-rosa": {
+    body: "Pink 1912 colonial on Calle 12 de Julio #88 — ticketed workshops and styled brunches by reservation, not a walk-up Malecón café; DM @laquintarosapop (or the flyer phone) before you assume open doors.",
+    localized: {
+      en: "Pink 1912 colonial on Calle 12 de Julio #88 — ticketed workshops and styled brunches by reservation, not a walk-up Malecón café; DM @laquintarosapop (or the flyer phone) before you assume open doors.",
+      es: "Colonial rosa de 1912 en Calle 12 de Julio #88 — talleres y brunches con estilo con reserva, no es un café walk-up del Malecón; DM @laquintarosapop (o el teléfono del flyer) antes de asumir puertas abiertas.",
+      fr: "Maison coloniale rose de 1912 au Calle 12 de Julio #88 — ateliers et brunchs stylés sur réservation, pas un café walk-up du Malecón ; DM @laquintarosapop (ou le téléphone de l’affiche) avant de croire les portes ouvertes.",
+    },
+  },
 };

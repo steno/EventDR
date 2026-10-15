@@ -216,6 +216,7 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "galerias-padel-club": "galerias-padel-club-courts.jpg",
   "cabarete-boxing-club": "cabarete-boxing-club-ring.jpg",
   "chameleon-sport-bar": "chameleon-sport-bar-entrance.jpg",
+  "la-quinta-rosa": "la-quinta-rosa-facade.jpg",
 };
 
 /** Cache-busted URL for general venue thumbnails / JSON-LD. */

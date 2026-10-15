@@ -5687,4 +5687,40 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "Editor posters + showtime flyers — Onslaught daily 7:30 PM ESPAÑOL Rated R RD$300; Sacrificio: Los Elegidos ESTRENO Thu 15–Wed 21 Oct 7:45 PM SUBTITULADA RD$300.",
     updatedAt: "2026-10-15T20:00:00.000Z",
   },
+  {
+    eventId: "la-quinta-rosa-brunch-pumpkin-umo-2026-10-25",
+    body: "Sunday 10 AM candle brunch in the pink 1912 house on Calle 12 de Julio #88 with UMO Candle — autumn dress-code hang, not a Malecón walk-up; price isn’t on the flyer so DM @laquintarosapop before you Uber, and don’t confuse it with the Katz Home furniture workshop on 28 Nov.",
+    localized: {
+      es: "Brunch de velas el domingo a las 10 AM en la casa rosa de 1912 en Calle 12 de Julio #88 con UMO Candle — plan con dress code otoñal, no un walk-up del Malecón; el precio no está en el flyer, así que DM @laquintarosapop antes del Uber, y no lo confundas con el taller de mobiliario Katz Home del 28 nov.",
+      fr: "Brunch bougies dimanche à 10 h dans la maison rose de 1912 au Calle 12 de Julio #88 avec UMO Candle — rendez-vous dress code automnal, pas un walk-up du Malecón ; le tarif n’est pas sur l’affiche, donc DM @laquintarosapop avant l’Uber, et ne confondez pas avec l’atelier mobilier Katz Home du 28 nov.",
+    },
+    priceFeel: "varies",
+    priceNote: "Price TBA — DM @laquintarosapop",
+    priceNoteLocalized: {
+      es: "Precio por confirmar — DM @laquintarosapop",
+      fr: "Tarif à confirmer — DM @laquintarosapop",
+    },
+    attribution: "POP research · @laquintarosapop Brunch & Pumpkin flyer",
+    researchNotes:
+      "Editor flyer + IG caption — Sun 25 Oct 2026 10 AM Brunch & Pumpkin × UMO Candle at La Quinta Rosa; autumn dress code; no price on flyer.",
+    updatedAt: "2026-10-15T22:00:00.000Z",
+  },
+  {
+    eventId: "la-quinta-rosa-taller-decoracion-mobiliario-2026-11-28",
+    body: "Saturday morning painted-furniture workshop in the pink Victorian at Calle 12 de Julio #88 — Katz Home × La Quinta Rosa, materials included for US$90 / RD$5,500; WhatsApp +1 849-250-2925 before spots fill, and don’t mix it with Brunch & Pumpkin on 25 Oct.",
+    localized: {
+      es: "Taller matutino de mobiliario pintado el sábado en la casa victoriana rosa de Calle 12 de Julio #88 — Katz Home × La Quinta Rosa, materiales incluidos por US$90 / RD$5,500; WhatsApp +1 849-250-2925 antes de que se llenen los cupos, y no lo mezcles con Brunch & Pumpkin del 25 oct.",
+      fr: "Atelier matinal de mobilier peint le samedi dans la maison victorienne rose au Calle 12 de Julio #88 — Katz Home × La Quinta Rosa, matériel inclus pour US$90 / RD$5,500 ; WhatsApp +1 849-250-2925 avant que les places partent, et ne confondez pas avec Brunch & Pumpkin du 25 oct.",
+    },
+    priceFeel: "upscale",
+    priceNote: "US$90 / RD$5,500 · materials included · +1 849-250-2925",
+    priceNoteLocalized: {
+      es: "US$90 / RD$5,500 · materiales incluidos · +1 849-250-2925",
+      fr: "US$90 / RD$5,500 · matériel inclus · +1 849-250-2925",
+    },
+    attribution: "POP research · @katzhomerd furniture workshop flyer",
+    researchNotes:
+      "Editor flyer + IG caption — Sat 28 Nov 2026 8 AM–12 PM Taller de Decoración y Mobiliario at La Quinta Rosa; US$90 / RD$5,500 materials included; WhatsApp +1 849-250-2925.",
+    updatedAt: "2026-10-15T21:00:00.000Z",
+  },
 ];

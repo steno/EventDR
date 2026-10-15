@@ -144,6 +144,7 @@ const EVENT_PHONE_BY_ID: Record<string, string> = {
   "natura-sunbar-sunset-sounds-aldenkings-2026-10-15": "+18492147010",
   "chill-grill-halloween-night-2026-10-31": "+18296798389",
   "pink-garden-galerias-padel-2026-10-17": "+18296262410",
+  "la-quinta-rosa-taller-decoracion-mobiliario-2026-11-28": "+18492502925",
 };
 
 export function formatPhoneDisplay(phone: string): string {
