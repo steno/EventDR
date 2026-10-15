@@ -6686,5 +6686,33 @@
       "Materials included"
     ],
     "imageEmoji": "🎨"
+  },
+  {
+    "id": "meclao-old-school-tropical-dj-choco-2026-10-16",
+    "title": "Mecla'o Old School & Tropical Night — DJ Choco",
+    "description": "Old School & Tropical Night at Mecla'o Rooftop Lounge, Av. Luis Ginebra No. 49, Puerto Plata — Friday 16 October 2026. DJ Choco (@ch.17x) mixes classic hits with a tropical vibe; tropical dress code. Rooftop on Luis Ginebra — not Ambar Lounge Bandoleras with Sebastian Crozz the same Friday at No. 45, and not Twenty Disco’s Kiry Curu live at Playa Dorada Mall. Reservas 829-374-7028 · @meclaorooftop. Confirm cover and doors before you walk up.",
+    "date": "2026-10-16",
+    "location": "Puerto Plata",
+    "venue": "Mecla'o Rooftop Lounge",
+    "venueSlug": "meclao-rooftop",
+    "address": "Av. Luis Ginebra No. 49, Puerto Plata 57000",
+    "lat": 19.788312,
+    "lng": -70.677453,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18293747028",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/meclaorooftop/",
+    "instagram": "meclaorooftop",
+    "lineup": [
+      "DJ Choco"
+    ],
+    "imageEmoji": "🌴"
   }
 ]

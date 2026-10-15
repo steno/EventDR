@@ -5723,4 +5723,22 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "Editor flyer + IG caption — Sat 28 Nov 2026 8 AM–12 PM Taller de Decoración y Mobiliario at La Quinta Rosa; US$90 / RD$5,500 materials included; WhatsApp +1 849-250-2925.",
     updatedAt: "2026-10-15T21:00:00.000Z",
   },
+  {
+    eventId: "meclao-old-school-tropical-dj-choco-2026-10-16",
+    body: "Friday classics-meets-tropical with DJ Choco on the Luis Ginebra 49 rooftop — not Ambar’s Bandoleras with Sebastian Crozz the same night at No. 45, and not Twenty’s Kiry Curu live at the mall; reserve 829-374-7028, cover isn’t on the flyer.",
+    localized: {
+      es: "Viernes de clásicos con vibe tropical con DJ Choco en el rooftop de Luis Ginebra 49 — no es Bandoleras de Ambar con Sebastian Crozz la misma noche en el No. 45, ni Kiry Curu en vivo en Twenty en el mall; reserva 829-374-7028, el cover no está en el flyer.",
+      fr: "Vendredi classiques meets tropical avec DJ Choco sur le rooftop Luis Ginebra 49 — pas Bandoleras d’Ambar avec Sebastian Crozz le même soir au n° 45, ni Kiry Curu live à Twenty au mall ; réservez 829-374-7028, le cover n’est pas sur l’affiche.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover not on flyer — reservas 829-374-7028 / @meclaorooftop",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — reservas 829-374-7028 / @meclaorooftop",
+      fr: "Cover absent de l’affiche — résas 829-374-7028 / @meclaorooftop",
+    },
+    attribution: "POP research · @meclaorooftop Old School & Tropical Night flyer",
+    researchNotes:
+      "Editor flyer + IG caption — Vie 16 Oct Old School & Tropical Night, DJ Choco (@ch.17x), tropical dress code, Mecla'o Rooftop Lounge Luis Ginebra No. 49, reservas 829-374-7028. No cover or start time on art.",
+    updatedAt: "2026-10-15T23:00:00.000Z",
+  },
 ];
