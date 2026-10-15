@@ -1856,6 +1856,17 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
       { key: "busy_weekends", sentiment: "mixed" },
     ],
   }),
+  editorial({
+    venueSlug: "chameleon-sport-bar",
+    verdictKey: "strong_local_nightlife",
+    crowdFit: ["local", "nightlife", "mixed"],
+    axes: { recommend: 4.1, atmosphere: 4.4, value: 3.7, practical: 3.8 },
+    themes: [
+      { key: "dance_floor", sentiment: "positive", audience: "nightlife" },
+      { key: "loud_late", sentiment: "mixed", audience: "nightlife" },
+      { key: "easy_to_find", sentiment: "positive" },
+    ],
+  }),
 ];
 
 const bySlug = new Map(

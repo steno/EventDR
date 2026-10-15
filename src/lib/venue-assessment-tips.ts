@@ -1273,4 +1273,12 @@ export const VENUE_TIP_COPY: Record<
       fr: "Terrains de padel en plein air sur Luis Ginebra avec lounge gazon — réservez via Play by Point avant d’arriver walk-up ; c’est un club sportif, pas le nightlife de Mecla'o ou Ambar sur la même avenue.",
     },
   },
+  "chameleon-sport-bar": {
+    body: "Late Sosúa Bay Center sport bar next to Coral Reef Casino — guest DJs and themed nights until sunrise, not a Pedro Clisante beach-bar crawl; WhatsApp +1 849-657-1500 / +1 829-994-2304 or DM @chameleonsportbar before you assume walk-in VIP.",
+    localized: {
+      en: "Late Sosúa Bay Center sport bar next to Coral Reef Casino — guest DJs and themed nights until sunrise, not a Pedro Clisante beach-bar crawl; WhatsApp +1 849-657-1500 / +1 829-994-2304 or DM @chameleonsportbar before you assume walk-in VIP.",
+      es: "Sport bar tarde en Sosúa Bay Center junto a Coral Reef Casino — DJs invitados y noches temáticas hasta el amanecer, no es un crawl de bars en Pedro Clisante; WhatsApp +1 849-657-1500 / +1 829-994-2304 o DM @chameleonsportbar antes de asumir VIP walk-in.",
+      fr: "Sport bar tardif au Sosúa Bay Center à côté du Coral Reef Casino — DJs invités et soirées à thème jusqu’au lever du soleil, pas un crawl de bars Pedro Clisante ; WhatsApp +1 849-657-1500 / +1 829-994-2304 ou DM @chameleonsportbar avant de compter sur le VIP walk-in.",
+    },
+  },
 };

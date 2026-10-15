@@ -14,6 +14,10 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "cabarete-boxing-club-movie-night-2026-10-16.jpg",
   "tour-de-campeones-gran-final-2026-11-14":
     "tour-de-campeones-gran-final-2026-11-14.jpg",
+  "chameleon-monsters-ball-deeway-2026-10-18":
+    "chameleon-monsters-ball-deeway-2026-10-18.jpg",
+  "ann-soul-jazz-natura-cabana-2026-10-17":
+    "ann-soul-jazz-natura-cabana-2026-10-17.jpg",
   "lax-sunset-daily": "lax-sunset-daily.jpg",
 
   "kite-beach-daily": "kite-beach-daily.jpg",
@@ -584,6 +588,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "pop-cinemas-week-2026-08-20": "pop-cinemas-week-2026-08-20.jpg",
   "pop-cinemas-week-2026-09-11": "pop-cinemas-week-2026-09-11-mall.jpg",
   "pop-cinemas-week-2026-10-08": "pop-cinemas-week-2026-10-08-grin.jpg",
+  "pop-cinemas-week-2026-10-15": "pop-cinemas-week-2026-10-15-posters.jpg",
   "petit-francois-friday-karaoke": "petit-francois-friday-karaoke.jpg",
   "costambar-beach-fitness": "costambar-beach-fitness.png",
   "love-does-bocadillos-course-2026": "love-does-bocadillos-course-2026.jpg",
@@ -639,6 +644,8 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "cabarete-boxing-club-kids-class": "object-center",
   "cabarete-boxing-club-open-sparring-friday": "object-center",
   "cabarete-boxing-club-movie-night-2026-10-16": "object-center",
+  "chameleon-monsters-ball-deeway-2026-10-18": "object-center",
+  "ann-soul-jazz-natura-cabana-2026-10-17": "object-center",
   // Portrait entrance — keep the walkers in a wide crop.
   "nonas-grill-kitchen-daily": "object-[70%_80%]",
   "chill-and-grill-sunday-bingo": "object-top",
@@ -706,6 +713,7 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "aura-after-dark-carlos-rivera-2026-10-10": "object-center",
   "drifter-sunset-into-the-night": "object-center",
   "pop-cinemas-week-2026-10-08": "object-center",
+  "pop-cinemas-week-2026-10-15": "object-center",
   "la-lola-back-to-northside-2026-07-04": "object-center",
   "ambar-lounge-emil-roman-2026-09-26": "object-center",
   "ambar-lounge-gaby-luna-2026-10-03": "object-center",
@@ -844,6 +852,23 @@ const EVENT_GALLERY_SLIDES: Record<
   string,
   Array<{ file: string; venueSlug?: string; label?: string }>
 > = {
+  "pop-cinemas-week-2026-10-15": [
+    {
+      file: "pop-cinemas-week-2026-10-15-posters.jpg",
+      venueSlug: "pop-cinemas-playa-dorada",
+      label: "Oct 15–21 posters",
+    },
+    {
+      file: "pop-cinemas-week-2026-10-15-sacrificio.jpg",
+      venueSlug: "pop-cinemas-playa-dorada",
+      label: "Sacrificio: Los Elegidos",
+    },
+    {
+      file: "pop-cinemas-week-2026-10-15-onslaught.jpg",
+      venueSlug: "pop-cinemas-playa-dorada",
+      label: "Onslaught",
+    },
+  ],
   "terraza-ocean-world-evenings": [
     {
       file: "terraza-ocean-world-evenings.jpg",
@@ -947,6 +972,8 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "cabarete-boxing-club-movie-night-2026-10-16.jpg",
   "cabarete-boxing-club-open-sparring-friday.jpg",
   "cabarete-run-festival-5k-2026-11-08.jpg",
+  "chameleon-monsters-ball-deeway-2026-10-18.jpg",
+  "ann-soul-jazz-natura-cabana-2026-10-17.jpg",
   "tour-de-campeones-gran-final-2026-11-14.jpg",
   "cheers-fire-ice-thursdays.jpg",
   "chill-and-grill-saturday-karaoke.jpg",
@@ -1180,6 +1207,9 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "aura-after-dark-carlos-rivera-2026-10-10.jpg",
   "drifter-sunset-into-the-night-v2.jpg",
   "pop-cinemas-week-2026-10-08-grin.jpg",
+  "pop-cinemas-week-2026-10-15-posters.jpg",
+  "pop-cinemas-week-2026-10-15-sacrificio.jpg",
+  "pop-cinemas-week-2026-10-15-onslaught.jpg",
   "sosua-neon-party-dj-marlon-2026-10-24.jpg",
   "la-lola-back-to-northside-2026-07-04.jpg",
   "ambar-lounge-emil-roman-2026-09-26.jpg",

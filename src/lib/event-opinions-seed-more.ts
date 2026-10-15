@@ -5633,4 +5633,58 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "Editor flyer + IG caption — Sáb 14 Nov 2026 Gran Final Tour de Campeones at @playadoradagolfcourse; Caribbean golf-cruise prize per category via Rosa Golf Travel.",
     updatedAt: "2026-10-15T17:00:00.000Z",
   },
+  {
+    eventId: "chameleon-monsters-ball-deeway-2026-10-18",
+    body: "Sunday horror-theme DJ night at Sosúa Bay Center with Deeway — pin Chameleon next to Coral Reef Casino, not Pedro Clisante beach bars; cover isn’t on the flyer so RSVP +1 829-994-2304 / @chameleonsportbar before you Uber.",
+    localized: {
+      es: "Noche DJ de temática horror el domingo en Sosúa Bay Center con Deeway — pin Chameleon junto a Coral Reef Casino, no los bars de playa en Pedro Clisante; el cover no está en el flyer, así que RSVP +1 829-994-2304 / @chameleonsportbar antes del Uber.",
+      fr: "Soirée DJ thème horreur le dimanche au Sosúa Bay Center avec Deeway — épinglez Chameleon à côté du Coral Reef Casino, pas les bars de plage Pedro Clisante ; le cover n’est pas sur l’affiche, donc RSVP +1 829-994-2304 / @chameleonsportbar avant l’Uber.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — +1 849-657-1500 / +1 829-994-2304 · @chameleonsportbar",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — +1 849-657-1500 / +1 829-994-2304 · @chameleonsportbar",
+      fr: "Cover à confirmer — +1 849-657-1500 / +1 829-994-2304 · @chameleonsportbar",
+    },
+    attribution: "POP research · @chameleonsportbar Monster's Ball flyer",
+    researchNotes:
+      "Editor flyer — DOM Oct 18 Monster's Ball, music live by DJ Deeway, RSVP (829) 994-2304, Sosua Bay Center Calle Alejo Martinez #1 El Batey. Venue hours Mon–Sun 7 PM–5 AM.",
+    updatedAt: "2026-10-15T18:00:00.000Z",
+  },
+  {
+    eventId: "ann-soul-jazz-natura-cabana-2026-10-17",
+    body: "Saturday 7–9:30 PM Soul Jazz dinner set at Natura’s beach restaurant — book +1 849-214-7010; not Ann’s Thursday Aura Cabarete night and not the same-evening Float & Frequency pool workshop.",
+    localized: {
+      es: "Set Soul Jazz de sábado 7–9:30 PM en el restaurante de playa de Natura — reserva +1 849-214-7010; no es la noche de Ann el jueves en Aura Cabarete ni el taller Float & Frequency en la piscina la misma tarde.",
+      fr: "Set Soul Jazz samedi 19 h–21 h 30 au restaurant de plage de Natura — réservez +1 849-214-7010 ; pas la soirée Ann du jeudi à Aura Cabarete ni l’atelier Float & Frequency en piscine le même soir.",
+    },
+    priceFeel: "moderate",
+    priceNote: "No cover listed — budget dinner/drinks; book +1 849-214-7010",
+    priceNoteLocalized: {
+      es: "Sin cover publicado — presupuesta cena/tragos; reserva +1 849-214-7010",
+      fr: "Pas de cover publié — budget dîner/boissons ; réservez +1 849-214-7010",
+    },
+    attribution: "POP research · Natura Saturday live flyer (Ann Soul Jazz)",
+    researchNotes:
+      "Editor flyer — Sat Oct 17 2026 7–9:30 PM live music Ann Soul Jazz at Natura. Same design as prior Natura Saturday dinner live series. Site also lists Float & Frequency workshop 8–9 PM same night (separate).",
+    updatedAt: "2026-10-15T19:00:00.000Z",
+  },
+  {
+    eventId: "pop-cinemas-week-2026-10-15",
+    body: "Two daily prints at Playa Dorada Mall this week — Onslaught in Spanish at 7:30 PM (Rated R) and premiere Sacrificio: Los Elegidos subtitled at 7:45 PM; same RD$300, bring a sweater for the AC, and don’t mix it with Aura Beach Club’s outdoor cinema nights.",
+    localized: {
+      es: "Dos funciones diarias en el mall de Playa Dorada esta semana — Onslaught en español a las 7:30 PM (Rated R) y el estreno Sacrificio: Los Elegidos subtitulada a las 7:45 PM; mismos RD$300, lleva suéter por el aire, y no lo mezcles con el cine al aire libre de Aura Beach Club.",
+      fr: "Deux séances quotidiennes au mall de Playa Dorada cette semaine — Onslaught en espagnol à 19 h 30 (Rated R) et la première Sacrificio: Los Elegidos sous-titrée à 19 h 45 ; mêmes RD$300, prenez un pull pour la clim, et ne confondez pas avec le cinéma en plein air d’Aura Beach Club.",
+    },
+    priceFeel: "budget",
+    priceNote: "RD$300 per person daily — cinemaspop.com.do / 809-320-1400",
+    priceNoteLocalized: {
+      es: "RD$300 por persona al día — cinemaspop.com.do / 809-320-1400",
+      fr: "RD$300 par personne par jour — cinemaspop.com.do / 809-320-1400",
+    },
+    attribution: "POP research · @cinemaspop Oct 15–21 cartelera posters",
+    researchNotes:
+      "Editor posters + showtime flyers — Onslaught daily 7:30 PM ESPAÑOL Rated R RD$300; Sacrificio: Los Elegidos ESTRENO Thu 15–Wed 21 Oct 7:45 PM SUBTITULADA RD$300.",
+    updatedAt: "2026-10-15T20:00:00.000Z",
+  },
 ];

@@ -643,6 +643,12 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     phone: "+18093201400",
     venueSlug: "pop-cinemas-playa-dorada",
   },
+  "pop-cinemas-week-2026-10-15": {
+    isFree: false,
+    admissionPrice: "RD$300",
+    phone: "+18093201400",
+    venueSlug: "pop-cinemas-playa-dorada",
+  },
   "el-cuarteto-terrible-zona-acapella-2026-09-27": {
     isFree: true,
     phone: "+18297260344",

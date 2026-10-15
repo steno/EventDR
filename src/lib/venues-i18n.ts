@@ -1073,6 +1073,16 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Club de padel en plein air sur Av. Luis Ginebra — terrains vitrés, lounge gazon, coaching et programmes via Play by Point. Ouvert tous les jours ~7 h 30–22 h. Réservez sur galeriaspadelclub.playbypoint.com · +1 849-803-4929 · Instagram @galeriaspadelclub.",
     },
   },
+  "chameleon-sport-bar": {
+    name: {
+      es: "Chameleon Sport Bar",
+      fr: "Chameleon Sport Bar",
+    },
+    description: {
+      es: "Sport bar y nightlife tarde en Sosúa Bay Center (Calle Dr. Alejo Martínez No. 1, El Batey, cerca de Coral Reef Casino) — noches temáticas, DJs invitados, karaoke y música a todo volumen hasta el amanecer. Abierto diario 7:00 PM–5:00 AM. Mesa/VIP por DM en Instagram @chameleonsportbar o +1 849-657-1500 / +1 829-994-2304.",
+      fr: "Sport bar et nightlife tardif au Sosúa Bay Center (Calle Dr. Alejo Martínez n° 1, El Batey, près du Coral Reef Casino) — soirées à thème, DJs invités, karaoké et musique haute énergie jusqu’au lever du soleil. Ouvert tous les jours 19 h–5 h. Table/VIP via DM Instagram @chameleonsportbar ou +1 849-657-1500 / +1 829-994-2304.",
+    },
+  },
 };
 
 export function localizeVenue(venue: Venue, locale: Locale): Venue {

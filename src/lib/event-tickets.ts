@@ -149,6 +149,7 @@ export const CURATED_ADMISSION_PRICES: Record<string, string> = {
   "pop-cinemas-week-2026-09-11": "RD$300",
   "pop-cinemas-week-2026-09-17": "RD$300",
   "pop-cinemas-week-2026-10-08": "RD$300",
+  "pop-cinemas-week-2026-10-15": "RD$300",
   "ivan-garcia-tierra-de-paso-2026-10-15": "RD$500",
   "el-cuarteto-terrible-zona-acapella-2026-09-27": "Free",
   "chiche-almonte-zona-acapella-2026-10-04": "Free",

@@ -80,6 +80,7 @@ const EVENT_PHONE_BY_ID: Record<string, string> = {
   "pop-cinemas-week-2026-09-11": "+18093201400",
   "pop-cinemas-week-2026-09-17": "+18093201400",
   "pop-cinemas-week-2026-10-08": "+18093201400",
+  "pop-cinemas-week-2026-10-15": "+18093201400",
   "el-cuarteto-terrible-zona-acapella-2026-09-27": "+18297260344",
   "natura-sunbar-special-sunset-sounds-2026-09-24": "+18492147010",
   "kaovanny-natura-cabana-2026-09-26": "+18492147010",

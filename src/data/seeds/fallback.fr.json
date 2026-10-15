@@ -6543,5 +6543,89 @@
     "sourceType": "instagram",
     "sourceUrl": "https://www.instagram.com/tourdecampeones/",
     "imageEmoji": "⛳"
+  },
+  {
+    "id": "chameleon-monsters-ball-deeway-2026-10-18",
+    "title": "Monster's Ball au Chameleon Sport Bar — DJ Deeway",
+    "description": "Monster's Ball au Chameleon Sport Bar, Sosúa Bay Center (Calle Dr. Alejo Martínez n° 1, El Batey, près du Coral Reef Casino) — dimanche 18 octobre 2026 avec DJ Deeway en live. Nightlife tardif à Sosúa ; horaires du lieu 19 h–5 h. Cover absent de l’affiche — RSVP ou confirmez via Instagram @chameleonsportbar ou +1 849-657-1500 / +1 829-994-2304.",
+    "date": "2026-10-18",
+    "time": "7:00 PM – 5:00 AM",
+    "location": "Sosúa",
+    "venue": "Chameleon Sport Bar",
+    "venueSlug": "chameleon-sport-bar",
+    "address": "Calle Dr. Alejo Martínez No. 1, Sosúa Bay Center, El Batey, Sosúa",
+    "lat": 19.7566,
+    "lng": -70.513,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18496571500",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/chameleonsportbar/",
+    "lineup": [
+      "DJ Deeway"
+    ],
+    "imageEmoji": "🎃"
+  },
+  {
+    "id": "ann-soul-jazz-natura-cabana-2026-10-17",
+    "title": "Ann Soul Jazz — live à Natura Cabana",
+    "description": "Ann (Soul Jazz) en live au Natura Restaurant, Natura Cabana Boutique Hotel & Spa, Paseo del Sol 5, Cabarete — samedi 17 octobre 2026, 19 h–21 h 30. Créneau live du samedi avec dîner ; réservez +1 849-214-7010 · naturacabana.com. Ce n’est pas Ann Soul à Aura Cabarete (jeu. 15 oct) ni l’atelier Float & Frequency de la même soirée.",
+    "date": "2026-10-17",
+    "time": "7:00 PM – 9:30 PM",
+    "location": "Cabarete",
+    "venue": "Natura Cabana",
+    "venueSlug": "natura-cabana",
+    "address": "Paseo del Sol 5, Cabarete",
+    "lat": 19.7833499,
+    "lng": -70.4621124,
+    "category": "music",
+    "categories": [
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18492147010",
+    "sourceType": "flyer",
+    "sourceUrl": "https://naturacabana.com/event/live-music-cabarete-saturdays-natura-cabana/",
+    "lineup": [
+      "Ann"
+    ],
+    "imageEmoji": "🎷"
+  },
+  {
+    "id": "pop-cinemas-week-2026-10-15",
+    "title": "POP Cinemas — Semaine du 15–21 oct",
+    "description": "Cartelera hebdomadaire au POP Cinemas, Playa Dorada Mall (15–21 oct), RD$300 par personne tous les jours. Première Sacrificio: Los Elegidos (Sacrifice) tous les jours 19 h 45 sous-titrée ; Onslaught (Adria Arjona ; Rated R) tous les jours 19 h 30 en espagnol. Snacks et billets : cinemaspop.com.do · 809-320-1400.",
+    "date": "2026-10-15",
+    "endDate": "2026-10-21",
+    "time": "7:30 PM – 7:45 PM",
+    "location": "Playa Dorada",
+    "venue": "POP Cinemas",
+    "venueSlug": "pop-cinemas-playa-dorada",
+    "address": "Calle Principal Playa Dorada 538, Playa Dorada Shopping Centre",
+    "lat": 19.769859,
+    "lng": -70.642341,
+    "category": "culture",
+    "categories": [
+      "performances"
+    ],
+    "format": "physical",
+    "admissionPrice": "RD$300",
+    "phone": "+18093201400",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/cinemaspop/",
+    "imageEmoji": "🎬",
+    "ageHint": "18-plus",
+    "lineup": [
+      "Onslaught · 19 h 30 · espagnol (Rated R)",
+      "Sacrificio: Los Elegidos (Sacrifice) · 19 h 45 · sous-titrée · première"
+    ]
   }
 ]

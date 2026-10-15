@@ -11,6 +11,8 @@ export const VENUE_STREET_ADDRESS: Readonly<Record<string, string>> = {
   "brugal-rum-center": "Carretera Maimón",
   "calle-sombrillas": "Calle San Felipe, between Calle Beller & Calle Duarte",
   "camara-comercio-puerto-plata": "Calle Beller No. 17, Salón de Eventos Fernando Cueto",
+  "chameleon-sport-bar":
+    "Calle Dr. Alejo Martínez No. 1, Sosúa Bay Center, El Batey",
   "casa-caribe-puerto-plata": "Av. Luis Ginebra #52",
   "casa-coco-sosua": "Pedro Clisante 3",
   "casa-de-la-cultura": "Calle Separación esq. Duarte, frente Plaza Independencia",

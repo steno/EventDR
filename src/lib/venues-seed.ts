@@ -2049,6 +2049,20 @@ export const SEED_VENUES: Venue[] = [
     instagram: "galeriaspadelclub",
     phone: "+18498034929",
   },
+  {
+    slug: "chameleon-sport-bar",
+    name: "Chameleon Sport Bar",
+    city: "Sosúa",
+    description:
+      "Late-night sport bar and party venue at Sosúa Bay Center (Calle Dr. Alejo Martínez No. 1, El Batey, near Coral Reef Casino) — themed nights, guest DJs, karaoke, and high-energy music until sunrise. Open daily 7:00 PM–5:00 AM. Table/VIP via Instagram DM @chameleonsportbar or +1 849-657-1500 / +1 829-994-2304.",
+    // Same Sosúa Bay Center / Coral Reef Casino complex pin as CLSOP listings.
+    lat: 19.7566,
+    lng: -70.513,
+    emoji: "🦎",
+    instagram: "chameleonsportbar",
+    website: "https://www.instagram.com/chameleonsportbar/",
+    phone: "+18496571500",
+  },
 ];
 
 /** Extra name fragments → seed slug (checked before fuzzy name includes). */
@@ -2242,6 +2256,11 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
     pattern:
       /galer[ií]as?\s*p[aá]del(\s*club)?|galeriaspadelclub/i,
     slug: "galerias-padel-club",
+  },
+  {
+    pattern:
+      /chameleon(\s*sport(\s*bar)?)?|chameleonsportbar/i,
+    slug: "chameleon-sport-bar",
   },
   {
     pattern:

@@ -47,6 +47,15 @@ const FILE_TO_EVENT_ID = {
     "cabarete-boxing-club-movie-night-2026-10-16",
   "tour-de-campeones-gran-final-2026-11-14.jpg":
     "tour-de-campeones-gran-final-2026-11-14",
+  "chameleon-monsters-ball-deeway-2026-10-18.jpg":
+    "chameleon-monsters-ball-deeway-2026-10-18",
+  "ann-soul-jazz-natura-cabana-2026-10-17.jpg":
+    "ann-soul-jazz-natura-cabana-2026-10-17",
+  "pop-cinemas-week-2026-10-15-posters.jpg": "pop-cinemas-week-2026-10-15",
+  "pop-cinemas-week-2026-10-15-sacrificio.jpg":
+    "pop-cinemas-week-2026-10-15-sacrificio",
+  "pop-cinemas-week-2026-10-15-onslaught.jpg":
+    "pop-cinemas-week-2026-10-15-onslaught",
   "natura-cabana-yoga-daily.jpg": "natura-cabana-yoga-daily",
   "liquid-blue-watersports-daily.jpg": "liquid-blue-watersports-daily",
   "la-casita-papi-sand-dining.jpg": "la-casita-papi-sand-dining",
@@ -721,6 +730,7 @@ const FILE_TO_VENUE_SLUG = {
   "grand-prix-puerto-plata.jpg": "grand-prix-puerto-plata",
   "the-hideout-puerto-plata.jpg": "the-hideout-puerto-plata",
   "cabarete-boxing-club-ring.jpg": "cabarete-boxing-club-ring",
+  "chameleon-sport-bar-entrance.jpg": "chameleon-sport-bar-entrance",
 };
 
 if (!existsSync(sourceDir)) {
