@@ -1,4 +1,4 @@
-import type { Event, EventCategory } from "./types";
+import type { AgeHint, Event, EventCategory } from "./types";
 import { addDaysISO, APP_TIMEZONE, localDateISO } from "./event-dates";
 
 /** Fields used for live/ended status (recurrence may arrive as string from filters). */
@@ -10,6 +10,8 @@ export type EventLiveFields = Pick<
   /** Optional — used to keep untimed club nights past the daytime 9 PM cutoff. */
   category?: Event["category"];
   categories?: Event["categories"];
+  /** Family / all-ages untimed listings use the daytime 9 PM cutoff. */
+  ageHint?: AgeHint;
 };
 
 /**
@@ -27,10 +29,18 @@ const LATE_NIGHT_UNTIMED_CATEGORIES = new Set<EventCategory>([
   "performances",
 ]);
 
+/** Age policies that imply daytime / early-evening sessions, not club nights. */
+const DAYTIME_UNTIMED_AGE_HINTS = new Set<AgeHint>(["family", "all-ages"]);
+
 /** True when a missing-time listing should stay listable past 9 PM. */
 export function isLikelyLateNightUntimedListing(
-  event: Pick<EventLiveFields, "category" | "categories">,
+  event: Pick<EventLiveFields, "category" | "categories" | "ageHint">,
 ): boolean {
+  // Kids / family programs stay on the daytime cutoff even when a secondary
+  // hub like "performances" would otherwise keep them past 9 PM.
+  if (event.ageHint && DAYTIME_UNTIMED_AGE_HINTS.has(event.ageHint)) {
+    return false;
+  }
   if (event.category && LATE_NIGHT_UNTIMED_CATEGORIES.has(event.category)) {
     return true;
   }

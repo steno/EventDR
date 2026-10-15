@@ -106,4 +106,28 @@ describe("untimed listing cutoffs", () => {
       "ended",
     );
   });
+
+  it("ends family untimed listings after 9 PM even with performances hub", () => {
+    assert.equal(
+      isLikelyLateNightUntimedListing({
+        category: "culture",
+        categories: ["performances"],
+        ageHint: "family",
+      }),
+      false,
+    );
+    assert.equal(
+      getEventLiveStatus(
+        {
+          date: "2026-09-18",
+          endDate: "2026-12-12",
+          category: "culture",
+          categories: ["performances"],
+          ageHint: "family",
+        },
+        fridayNight,
+      ),
+      "closedToday",
+    );
+  });
 });
