@@ -1505,6 +1505,17 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     ],
   }),
   editorial({
+    venueSlug: "cabarete-boxing-club",
+    verdictKey: "solid_visitor_activity",
+    crowdFit: ["local", "visitor", "mixed", "family"],
+    axes: { recommend: 4.1, atmosphere: 4.2, value: 4.0, practical: 3.8 },
+    themes: [
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+      { key: "family_friendly", sentiment: "positive", audience: "family" },
+      { key: "easy_to_find", sentiment: "mixed" },
+    ],
+  }),
+  editorial({
     venueSlug: "tasty-food-park-puerto-plata",
     verdictKey: "strong_local_food",
     crowdFit: ["local", "family", "mixed", "visitor"],

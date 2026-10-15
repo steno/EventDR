@@ -204,6 +204,12 @@ const PLACE_SEARCH_ALIASES: Record<string, string[]> = {
     "Desarrollo Fitness Cabarete Run Festival",
     "@desarrollo_fitness_cabarete",
   ],
+  "cabarete-boxing-club": [
+    "Cabarete Boxing Club",
+    "Cabarete Boxing Club Dominican Republic",
+    "Khong Kwan Cabarete Boxing",
+    "@cabareteboxingclub",
+  ],
   "pop-cinemas-playa-dorada": [
     "POP Cinemas Playa Dorada",
     "Pop Cinemas Playa Dorada Mall",

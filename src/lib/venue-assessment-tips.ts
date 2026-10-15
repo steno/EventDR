@@ -1041,6 +1041,14 @@ export const VENUE_TIP_COPY: Record<
       fr: "Orga local running/fitness à Cabarete — Instagram et WhatsApp sont le vrai guichet. Le point de départ peut bouger ; confirmez avant d’épingler une salle.",
     },
   },
+  "cabarete-boxing-club": {
+    body: "Cabarete ring with Thai plates on the side — kids class Tue/Thu/Sat, Friday open sparring + DJ, and Thursday movie nights on the Khong Kwan menu; confirm cover on @cabareteboxingclub before you go.",
+    localized: {
+      en: "Cabarete ring with Thai plates on the side — kids class Tue/Thu/Sat, Friday open sparring + DJ, and Thursday movie nights on the Khong Kwan menu; confirm cover on @cabareteboxingclub before you go.",
+      es: "Ring en Cabarete con platos tailandeses al lado — kids class mar/jue/sáb, sparring abierto viernes + DJ, y cine los jueves con menú Khong Kwan; confirma cover en @cabareteboxingclub antes de ir.",
+      fr: "Ring à Cabarete avec assiettes thaï à côté — kids class mar/jeu/sam, open sparring vendredi + DJ, et ciné le jeudi avec menu Khong Kwan ; confirmez le cover sur @cabareteboxingclub avant d’y aller.",
+    },
+  },
   "tasty-food-park-puerto-plata": {
     body: "Open-air food court on Av. 27 de Febrero — multi-vendor plates under the arch; Wednesday karaoke with DJ Koky from 6 PM, not a beachfront Cabarete park.",
     localized: {

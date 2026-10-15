@@ -40,6 +40,13 @@ const FILE_TO_EVENT_ID = {
   "smileys-saturday-live.jpg": "smileys-saturday-live",
   "finish-line-live-band.jpg": "finish-line-live-band",
   "liquid-blue-sunrise-yoga.jpg": "liquid-blue-sunrise-yoga",
+  "cabarete-boxing-club-kids-class.jpg": "cabarete-boxing-club-kids-class",
+  "cabarete-boxing-club-open-sparring-friday.jpg":
+    "cabarete-boxing-club-open-sparring-friday",
+  "cabarete-boxing-club-movie-night-2026-10-16.jpg":
+    "cabarete-boxing-club-movie-night-2026-10-16",
+  "tour-de-campeones-gran-final-2026-11-14.jpg":
+    "tour-de-campeones-gran-final-2026-11-14",
   "natura-cabana-yoga-daily.jpg": "natura-cabana-yoga-daily",
   "liquid-blue-watersports-daily.jpg": "liquid-blue-watersports-daily",
   "la-casita-papi-sand-dining.jpg": "la-casita-papi-sand-dining",
@@ -336,8 +343,6 @@ const FILE_TO_EVENT_ID = {
     "camara-empresas-codigo-penal-2026-09-16",
   "luna-lounge-noche-de-exitos-2026-09-19.jpg":
     "luna-lounge-noche-de-exitos-2026-09-19",
-  "ivan-garcia-clases-actuacion-ninos-2026-stage.jpg":
-    "ivan-garcia-clases-actuacion-ninos-2026",
   "ocean-world-terrace-la-fiera-tipica-2026-09-18.jpg":
     "ocean-world-terrace-la-fiera-tipica-2026-09-18",
   "rio-sonador-cierre-del-verano-2026-09-20.jpg":
@@ -458,6 +463,8 @@ const FILE_TO_EVENT_ID = {
   "sosua-jewish-museum-hours-facade.jpg": "sosua-jewish-museum-hours",
   "nueve-sabados-bailables.jpg": "nueve-sabados-bailables",
   "nueve-80s-90s-por-siempre-2026-10-24.jpg":
+    "nueve-80s-90s-por-siempre-2026-10-24",
+  "nueve-80s-90s-por-siempre-2026-10-24-mixtape.jpg":
     "nueve-80s-90s-por-siempre-2026-10-24",
   "cheo-almonte-grand-prix-2026-09-25.jpg":
     "cheo-almonte-grand-prix-2026-09-25",
@@ -713,6 +720,7 @@ const FILE_TO_VENUE_SLUG = {
   "nueve-puerto-plata.jpg": "nueve-puerto-plata",
   "grand-prix-puerto-plata.jpg": "grand-prix-puerto-plata",
   "the-hideout-puerto-plata.jpg": "the-hideout-puerto-plata",
+  "cabarete-boxing-club-ring.jpg": "cabarete-boxing-club-ring",
 };
 
 if (!existsSync(sourceDir)) {

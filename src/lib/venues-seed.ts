@@ -1705,6 +1705,19 @@ export const SEED_VENUES: Venue[] = [
     phone: "+18097696199",
   },
   {
+    slug: "cabarete-boxing-club",
+    name: "Cabarete Boxing Club",
+    city: "Cabarete",
+    description:
+      "Boxing gym and hangout in Cabarete — kids classes, Friday open sparring with a live DJ, and Thai food from the Khong Kwan menu on movie nights. Confirm schedule and cover via Instagram @cabareteboxingclub.",
+    // Google Maps pin for Cabarete Boxing Club (near Calle Principal / inland Cabarete).
+    lat: 19.7494875,
+    lng: -70.413956,
+    emoji: "🥊",
+    instagram: "cabareteboxingclub",
+    website: "https://www.instagram.com/cabareteboxingclub/",
+  },
+  {
     slug: "tasty-food-park-puerto-plata",
     name: "Tasty Food Park",
     city: "Puerto Plata",
@@ -2348,6 +2361,11 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
   {
     pattern: /desarrollo\s*fitness(\s*cabarete)?/i,
     slug: "desarrollo-fitness-cabarete",
+  },
+  {
+    pattern:
+      /cabarete\s*boxing\s*club|boxing\s*club\s*cabarete|khong\s*kwan/i,
+    slug: "cabarete-boxing-club",
   },
   {
     pattern: /tasty\s*food\s*park/i,

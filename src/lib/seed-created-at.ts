@@ -58,7 +58,6 @@ export const SEED_CREATED_AT: Readonly<Record<string, string>> = {
   "nova-detras-de-la-mascara-2026-10-16": "2026-09-14T12:00:00.000Z",
   "camara-empresas-codigo-penal-2026-09-16": "2026-09-14T12:00:00.000Z",
   "luna-lounge-noche-de-exitos-2026-09-19": "2026-09-14T12:00:00.000Z",
-  "ivan-garcia-clases-actuacion-ninos-2026": "2026-09-14T12:00:00.000Z",
   "ocean-world-terrace-la-fiera-tipica-2026-09-18": "2026-09-14T12:00:00.000Z",
   "rio-sonador-cierre-del-verano-2026-09-20": "2026-09-14T12:00:00.000Z",
   "ambar-lounge-reggaeton-2026-09-17": "2026-09-14T12:00:00.000Z",
@@ -253,6 +252,10 @@ export const SEED_CREATED_AT: Readonly<Record<string, string>> = {
   "parada-el-choco-thanksgiving-big-d-2026-11-26": "2026-10-14T23:00:00.000Z",
   "cedaky-mall-feria-numismatica-2026-10-31": "2026-10-14T22:30:00.000Z",
   "cabarete-run-festival-after-run-2026-11-08": "2026-10-14T22:15:00.000Z",
+  "cabarete-boxing-club-movie-night-2026-10-16": "2026-10-15T16:00:00.000Z",
+  "cabarete-boxing-club-open-sparring-friday": "2026-10-15T15:00:00.000Z",
+  "cabarete-boxing-club-kids-class": "2026-10-15T14:00:00.000Z",
+  "tour-de-campeones-gran-final-2026-11-14": "2026-10-15T17:00:00.000Z",
 };
 
 /** Fill missing `createdAt` from {@link SEED_CREATED_AT} (does not overwrite). */

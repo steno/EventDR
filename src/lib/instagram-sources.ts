@@ -246,6 +246,11 @@ export const INSTAGRAM_ACCOUNTS = [
     areas: ["Puerto Plata"],
   },
   {
+    handle: "cabareteboxingclub",
+    label: "Cabarete Boxing Club",
+    areas: ["Cabarete"],
+  },
+  {
     handle: "oceanworldterrace",
     label: "Terraza Ocean World & Casino",
     areas: ["Puerto Plata"],
@@ -341,6 +346,16 @@ export const INSTAGRAM_ACCOUNTS = [
     handle: "ashonorte",
     label: "Ashonorte",
     areas: ["Puerto Plata", "Playa Dorada"],
+  },
+  {
+    handle: "tourdecampeones",
+    label: "Tour de Campeones",
+    areas: ["Puerto Plata", "Playa Dorada"],
+  },
+  {
+    handle: "playadoradagolfcourse",
+    label: "Playa Dorada Golf Course",
+    areas: ["Playa Dorada", "Puerto Plata"],
   },
   {
     handle: "bahiabeachclub",

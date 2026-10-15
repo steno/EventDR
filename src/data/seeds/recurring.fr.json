@@ -2863,5 +2863,65 @@
     "callForPricing": true,
     "sourceType": "flyer",
     "imageEmoji": "🎸"
+  },
+  {
+    "id": "cabarete-boxing-club-kids-class",
+    "title": "Kids Class — Cabarete Boxing Club",
+    "description": "Cours de boxe pour enfants au Cabarete Boxing Club — mardi et jeudi à 16 h 30, samedi à 11 h. L’affiche met en avant boxe, self-défense, coordination, discipline et fun. Confirmez âges, tarif à l’unité et adresse via Instagram @cabareteboxingclub.",
+    "date": "2026-01-01",
+    "time": "16 h 30 (mar/jeu) · 11 h (sam)",
+    "location": "Cabarete",
+    "venue": "Cabarete Boxing Club",
+    "venueSlug": "cabarete-boxing-club",
+    "address": "Cabarete, Puerto Plata",
+    "lat": 19.7494875,
+    "lng": -70.413956,
+    "category": "health-wellness",
+    "categories": [
+      "sports"
+    ],
+    "format": "physical",
+    "recurrence": "weekly",
+    "recurrenceDays": [
+      2,
+      4,
+      6
+    ],
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/cabareteboxingclub/",
+    "imageEmoji": "🥊",
+    "ageHint": "family"
+  },
+  {
+    "id": "cabarete-boxing-club-open-sparring-friday",
+    "title": "Open Sparring Night — Cabarete Boxing Club",
+    "description": "Open Sparring Night chaque vendredi au Cabarete Boxing Club, 17 h 30–19 h 30 — amateurs et pros de la côte nord bienvenus dans le ring. Spéciaux nourriture sur l’affiche : RD$600 (2 spring rolls + 3 wings + frites) ou RD$800 (1 Pad Kra Pao + 2 spring rolls), plus DJ live. Confirmez le cover via Instagram @cabareteboxingclub.",
+    "date": "2026-01-01",
+    "time": "17 h 30 – 19 h 30",
+    "location": "Cabarete",
+    "venue": "Cabarete Boxing Club",
+    "venueSlug": "cabarete-boxing-club",
+    "address": "Cabarete, Puerto Plata",
+    "lat": 19.7494875,
+    "lng": -70.413956,
+    "category": "sports",
+    "categories": [
+      "food-drinks",
+      "parties"
+    ],
+    "format": "physical",
+    "recurrence": "weekly",
+    "recurrenceDay": 5,
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/cabareteboxingclub/",
+    "imageEmoji": "🥊",
+    "lineup": [
+      "Open sparring",
+      "DJ live"
+    ]
   }
 ]

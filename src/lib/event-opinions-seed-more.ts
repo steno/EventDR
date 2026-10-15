@@ -2152,24 +2152,6 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: "2026-09-14T12:00:00.000Z",
   },
   {
-    eventId: "ivan-garcia-clases-actuacion-ninos-2026",
-    body: "Sala Iván García is open again — the Sep–Dec kids lab (ages 5–10) is back on at the turquoise Victorian; confirm the current schedule and fees with @teatroivangarcia before you enroll.",
-    localized: {
-      es: "La Sala Iván García está abierta de nuevo — el lab infantil sep–dic (5–10 años) vuelve en la victoriana turquesa; confirma horario y tarifas actuales con @teatroivangarcia antes de inscribir.",
-      fr: "La Sala Iván García est de nouveau ouverte — le lab enfants sep–déc (5–10 ans) reprend dans la victorienne turquoise ; confirmez horaires et tarifs avec @teatroivangarcia avant d’inscrire.",
-    },
-    priceFeel: "varies",
-    priceNote: "Fees not on the flyer — ask @teatroivangarcia or +1 809-261-7393",
-    priceNoteLocalized: {
-      es: "Tarifas no publicadas en el flyer — consulta @teatroivangarcia o +1 809-261-7393",
-      fr: "Tarifs non publiés sur l’affiche — demandez @teatroivangarcia ou +1 809-261-7393",
-    },
-    attribution: "POP research · @teatroivangarcia",
-    researchNotes:
-      "Editor flyer + facade — Sep 18–Dec 12 2026 kids 5–10 acting; Juan Bosch #72. Maintenance pause ended 13 Oct 2026; sala open again.",
-    updatedAt: "2026-09-15T12:00:00.000Z",
-  },
-  {
     eventId: "ocean-world-terrace-la-fiera-tipica-2026-09-18",
     body: "RD$300 típico night on the Cofresí terrace — skip the dolphin queue; WhatsApp a free table and arrive for 8 PM accordion energy.",
     localized: {
@@ -5578,5 +5560,77 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     researchNotes:
       "Editor flyer + IG — Dom 8 Nov After Run, Raylin el Bachatero + Pide Tu Bachata; Cabarete; same day as 5K listing cabarete-run-festival-5k-2026-11-08.",
     updatedAt: "2026-10-14T22:15:00.000Z",
+  },
+  {
+    eventId: "cabarete-boxing-club-kids-class",
+    body: "Tue/Thu 4:30 PM and Sat 11:00 AM kids boxing at Cabarete Boxing Club — self-defence and coordination on the flyer, not a beach club kids camp. Confirm ages and drop-in fees on @cabareteboxingclub before you enroll.",
+    localized: {
+      es: "Mar/jue 4:30 PM y sáb 11:00 AM kids boxing en Cabarete Boxing Club — defensa personal y coordinación en el flyer, no un kids camp de beach club. Confirma edades y tarifa suelta en @cabareteboxingclub antes de inscribir.",
+      fr: "Mar/jeu 16 h 30 et sam 11 h kids boxing au Cabarete Boxing Club — self-défense et coordination sur l’affiche, pas un kids camp de beach club. Confirmez âges et tarif à l’unité sur @cabareteboxingclub avant d’inscrire.",
+    },
+    priceFeel: "varies",
+    priceNote: "Fees not on the flyer — @cabareteboxingclub",
+    priceNoteLocalized: {
+      es: "Tarifas no publicadas en el flyer — @cabareteboxingclub",
+      fr: "Tarifs non publiés sur l’affiche — @cabareteboxingclub",
+    },
+    attribution: "POP research · @cabareteboxingclub Kids Class flyer",
+    researchNotes:
+      "Editor flyer — Kids Class Tue/Thu 4:30 PM, Sat 11:00 AM; boxing, self defence, coordination, discipline, fun.",
+    updatedAt: "2026-10-15T14:00:00.000Z",
+  },
+  {
+    eventId: "cabarete-boxing-club-open-sparring-friday",
+    body: "Friday 5:30–7:30 PM open sparring for pro and amateur North Coast fighters — food combos from RD$600 and a live DJ after the rounds. Not a kids class night; confirm ring access on @cabareteboxingclub.",
+    localized: {
+      es: "Viernes 5:30–7:30 PM sparring abierto para amateurs y profesionales de la costa norte — combos desde RD$600 y DJ en vivo después de los rounds. No es la kids class; confirma acceso al ring en @cabareteboxingclub.",
+      fr: "Vendredi 17 h 30–19 h 30 open sparring pour amateurs et pros de la côte nord — combos dès RD$600 et DJ live après les rounds. Ce n’est pas le kids class ; confirmez l’accès au ring sur @cabareteboxingclub.",
+    },
+    priceFeel: "moderate",
+    priceNote: "Food specials RD$600–800 · cover TBA — @cabareteboxingclub",
+    priceNoteLocalized: {
+      es: "Especiales de comida RD$600–800 · cover por confirmar — @cabareteboxingclub",
+      fr: "Spéciaux nourriture RD$600–800 · cover à confirmer — @cabareteboxingclub",
+    },
+    attribution: "POP research · @cabareteboxingclub Open Sparring flyer",
+    researchNotes:
+      "Editor flyer — Fri 5:30–7:30 PM open sparring, pro & amateur North Coast, food 600/800 DOP, live DJ.",
+    updatedAt: "2026-10-15T15:00:00.000Z",
+  },
+  {
+    eventId: "cabarete-boxing-club-movie-night-2026-10-16",
+    body: "Thursday 6:30 PM Spider-Man screening at the boxing club — full Khong Kwan Thai menu, drinks, and popcorn, not POP Cinemas Playa Dorada. Confirm which Spider-Man cut and cover on @cabareteboxingclub.",
+    localized: {
+      es: "Jueves 6:30 PM proyección de Spider-Man en el boxing club — menú Khong Kwan completo, tragos y popcorn, no es POP Cinemas Playa Dorada. Confirma qué Spider-Man y el cover en @cabareteboxingclub.",
+      fr: "Jeudi 18 h 30 séance Spider-Man au boxing club — menu Khong Kwan complet, boissons et popcorn, pas POP Cinemas Playa Dorada. Confirmez quel Spider-Man et le cover sur @cabareteboxingclub.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA · Thai menu + popcorn — @cabareteboxingclub",
+    priceNoteLocalized: {
+      es: "Cover por confirmar · menú thai + popcorn — @cabareteboxingclub",
+      fr: "Cover à confirmer · menu thaï + popcorn — @cabareteboxingclub",
+    },
+    attribution: "POP research · @cabareteboxingclub Movie Night flyer",
+    researchNotes:
+      "Editor flyer — Thu 6:30 PM new Spider-Man screening, Khong Kwan Thai menu, drinks, popcorn; dated nearest Thu 16 Oct 2026.",
+    updatedAt: "2026-10-15T16:00:00.000Z",
+  },
+  {
+    eventId: "tour-de-campeones-gran-final-2026-11-14",
+    body: "Season closer on the Robert Trent Jones layout — Sat 14 Nov at Playa Dorada Golf Club, not the July Ashonorte scramble. Category winners get a Caribbean golf-cruise week via Rosa Golf Travel; confirm entry fees with @tourdecampeones / the club before you book a tee time.",
+    localized: {
+      es: "Cierre de temporada en el layout Robert Trent Jones — sáb 14 nov en Playa Dorada Golf Club, no el scramble Ashonorte de julio. Ganadores por categoría se llevan una semana de crucero de golf caribeño con Rosa Golf Travel; confirma inscripción con @tourdecampeones / el club antes de reservar tee time.",
+      fr: "Clôture de saison sur le parcours Robert Trent Jones — sam. 14 nov. au Playa Dorada Golf Club, pas le scramble Ashonorte de juillet. Les vainqueurs de catégorie gagnent une semaine de croisière golf Caraïbes via Rosa Golf Travel ; confirmez l’inscription auprès de @tourdecampeones / le club avant de réserver un départ.",
+    },
+    priceFeel: "varies",
+    priceNote: "Entry TBA — @tourdecampeones / +1 809-320-4262",
+    priceNoteLocalized: {
+      es: "Inscripción por confirmar — @tourdecampeones / +1 809-320-4262",
+      fr: "Inscription à confirmer — @tourdecampeones / +1 809-320-4262",
+    },
+    attribution: "POP research · @tourdecampeones Gran Final flyer",
+    researchNotes:
+      "Editor flyer + IG caption — Sáb 14 Nov 2026 Gran Final Tour de Campeones at @playadoradagolfcourse; Caribbean golf-cruise prize per category via Rosa Golf Travel.",
+    updatedAt: "2026-10-15T17:00:00.000Z",
   },
 ];

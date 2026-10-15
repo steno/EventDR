@@ -7,6 +7,13 @@ import { getVenueImageUrl } from "./venue-images";
 const EVENT_IMAGE_FILES: Record<string, string> = {
   "rumble-in-paradise-12": "rumble-in-paradise-12.jpg",
   "rumble-in-paradise-13": "rumble-in-paradise-13.png",
+  "cabarete-boxing-club-kids-class": "cabarete-boxing-club-kids-class.jpg",
+  "cabarete-boxing-club-open-sparring-friday":
+    "cabarete-boxing-club-open-sparring-friday.jpg",
+  "cabarete-boxing-club-movie-night-2026-10-16":
+    "cabarete-boxing-club-movie-night-2026-10-16.jpg",
+  "tour-de-campeones-gran-final-2026-11-14":
+    "tour-de-campeones-gran-final-2026-11-14.jpg",
   "lax-sunset-daily": "lax-sunset-daily.jpg",
 
   "kite-beach-daily": "kite-beach-daily.jpg",
@@ -212,7 +219,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "feria-ganadera-el-cupey-2026": "feria-ganadera-el-cupey-2026.jpg",
   "nueve-sabados-bailables": "nueve-sabados-bailables.jpg",
   "nueve-80s-90s-por-siempre-2026-10-24":
-    "nueve-80s-90s-por-siempre-2026-10-24.jpg",
+    "nueve-80s-90s-por-siempre-2026-10-24-mixtape.jpg",
   "cheo-almonte-grand-prix-2026-09-25":
     "cheo-almonte-grand-prix-2026-09-25.jpg",
   "grand-prix-sabado-bailable": "grand-prix-sabado-bailable.jpg",
@@ -246,8 +253,6 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "camara-empresas-codigo-penal-2026-09-16.jpg",
   "luna-lounge-noche-de-exitos-2026-09-19":
     "luna-lounge-noche-de-exitos-2026-09-19.jpg",
-  "ivan-garcia-clases-actuacion-ninos-2026":
-    "ivan-garcia-clases-actuacion-ninos-2026-stage.jpg",
   "ocean-world-terrace-la-fiera-tipica-2026-09-18":
     "ocean-world-terrace-la-fiera-tipica-2026-09-18.jpg",
   "rio-sonador-cierre-del-verano-2026-09-20":
@@ -631,6 +636,9 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "festival-presidente-2026-10-03": "object-top",
   // Short mobile heroes keep the sun; desktop centers the sunset composition.
   "lax-sunset-daily": "object-top lg:object-center",
+  "cabarete-boxing-club-kids-class": "object-center",
+  "cabarete-boxing-club-open-sparring-friday": "object-center",
+  "cabarete-boxing-club-movie-night-2026-10-16": "object-center",
   // Portrait entrance — keep the walkers in a wide crop.
   "nonas-grill-kitchen-daily": "object-[70%_80%]",
   "chill-and-grill-sunday-bingo": "object-top",
@@ -661,7 +669,6 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "nova-detras-de-la-mascara-2026-10-16": "object-center",
   "camara-empresas-codigo-penal-2026-09-16": "object-center",
   "luna-lounge-noche-de-exitos-2026-09-19": "object-center",
-  "ivan-garcia-clases-actuacion-ninos-2026": "object-center",
   "ocean-world-terrace-la-fiera-tipica-2026-09-18": "object-center",
   "rio-sonador-cierre-del-verano-2026-09-20": "object-center",
   "ambar-lounge-reggaeton-2026-09-17": "object-center",
@@ -861,6 +868,18 @@ const EVENT_GALLERY_SLIDES: Record<
       label: "Doors close 7:10 PM",
     },
   ],
+  "nueve-80s-90s-por-siempre-2026-10-24": [
+    {
+      file: "nueve-80s-90s-por-siempre-2026-10-24-mixtape.jpg",
+      venueSlug: "nueve-puerto-plata",
+      label: "Life is a mixtape",
+    },
+    {
+      file: "nueve-80s-90s-por-siempre-2026-10-24.jpg",
+      venueSlug: "nueve-puerto-plata",
+      label: "80s–90s Por Siempre flyer",
+    },
+  ],
   "masters-surf-reunion-10-2026": [
     {
       file: "masters-surf-reunion-10-2026-fri-opening.jpg",
@@ -924,7 +943,11 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "wingo-bogota-inauguration-2026-11-06.jpg",
   "atlantico-fc-vs-delfines-2026-08-22.jpg",
   "aventurate-rd-2026.jpg",
+  "cabarete-boxing-club-kids-class.jpg",
+  "cabarete-boxing-club-movie-night-2026-10-16.jpg",
+  "cabarete-boxing-club-open-sparring-friday.jpg",
   "cabarete-run-festival-5k-2026-11-08.jpg",
+  "tour-de-campeones-gran-final-2026-11-14.jpg",
   "cheers-fire-ice-thursdays.jpg",
   "chill-and-grill-saturday-karaoke.jpg",
   "chill-and-grill-sunday-bingo.jpg",
@@ -1024,6 +1047,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "nueve-sabados-bailables.jpg",
   "nueve-bingo-friday.jpg",
   "nueve-80s-90s-por-siempre-2026-10-24.jpg",
+  "nueve-80s-90s-por-siempre-2026-10-24-mixtape.jpg",
   "grand-prix-sabado-bailable.jpg",
   "grand-prix-jueves-stripper-show.jpg",
   "lizandro-diaz-grand-prix-2026-10-02.jpg",
@@ -1286,7 +1310,6 @@ const HOME_HERO_SCENE_FILES = new Set([
   "hms-valeria-spanish-saturday-guests.jpg",
   "iberostar-costa-dorada-day-pass.jpg",
   "ingest-hidden-river-kayak-adventure.jpg",
-  "ivan-garcia-clases-actuacion-ninos-2026-stage.jpg",
   "kite-beach-daily.jpg",
   "kite-beach-wind-culture.jpg",
   "la-casita-papi-sand-dining.jpg",

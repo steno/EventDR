@@ -1922,28 +1922,6 @@
     "imageEmoji": "🌙"
   },
   {
-    "id": "ivan-garcia-clases-actuacion-ninos-2026",
-    "title": "Kids Acting Classes at Iván García Teatro-Escuela",
-    "description": "Acting classes for children ages 5–10 at Iván García Teatro-Escuela, Calle Profesor Juan Bosch #72, Puerto Plata — 18 September through 12 December 2026. The sala is open again; confirm the current schedule and fees via Instagram @teatroivangarcia or teatroivangarcia.blogspot.com before enrolling. Info: +1 809-261-7393.",
-    "date": "2026-09-18",
-    "endDate": "2026-12-12",
-    "location": "Puerto Plata",
-    "venue": "Iván García Teatro-Escuela",
-    "venueSlug": "ivan-garcia-teatro-escuela",
-    "address": "Calle Profesor Juan Bosch #72, Puerto Plata 57000",
-    "lat": 19.7979,
-    "lng": -70.6928,
-    "category": "culture",
-    "format": "physical",
-    "trending": true,
-    "callForPricing": true,
-    "phone": "+18092617393",
-    "sourceType": "instagram",
-    "sourceUrl": "https://www.instagram.com/teatroivangarcia/",
-    "imageEmoji": "🎭",
-    "ageHint": "family"
-  },
-  {
     "id": "ocean-world-terrace-la-fiera-tipica-2026-09-18",
     "title": "La Fiera Típica at Terraza Ocean World & Casino",
     "description": "Live típico with La Fiera Típica at Terraza Ocean World & Casino, Calle Principal #3, Cofresí — Friday 18 September 2026 from 8:00 PM. Entry RD$300; free table reservations. WhatsApp +1 809-815-9682. Instagram @oceanworldterrace.",
@@ -6524,5 +6502,48 @@
       "Pide Tu Bachata"
     ],
     "imageEmoji": "🥁"
+  },
+  {
+    "id": "cabarete-boxing-club-movie-night-2026-10-16",
+    "title": "Cabarete Boxing Club Movie Night — Spider-Man",
+    "description": "Movie Night at Cabarete Boxing Club — Thursday 16 October 2026 at 6:30 PM screening a new Spider-Man film. Full Khong Kwan Thai menu, full drink menu, and popcorn available. Not POP Cinemas Playa Dorada and not Aura Cinema. Confirm which Spider-Man title and cover via Instagram @cabareteboxingclub.",
+    "date": "2026-10-16",
+    "time": "6:30 PM",
+    "location": "Cabarete",
+    "venue": "Cabarete Boxing Club",
+    "venueSlug": "cabarete-boxing-club",
+    "address": "Cabarete, Puerto Plata",
+    "lat": 19.7494875,
+    "lng": -70.413956,
+    "category": "culture",
+    "categories": [
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/cabareteboxingclub/",
+    "imageEmoji": "🎬"
+  },
+  {
+    "id": "tour-de-campeones-gran-final-2026-11-14",
+    "title": "Tour de Campeones Gran Final 2026 — Playa Dorada",
+    "description": "Gran Final of Tour de Campeones 2026 at Playa Dorada Golf Club / Course, Puerto Plata — Saturday 14 November 2026. Season-closing day that crowns champions by category; winners earn a week-long Caribbean golf cruise thanks to Rosa Golf Travel. Not the July Ashonorte Puerto Plata Golf Classic scramble. Confirm tee times and entry fees via Instagram @tourdecampeones / @playadoradagolfcourse or the club at +1 809-320-4262.",
+    "date": "2026-11-14",
+    "location": "Playa Dorada",
+    "venue": "Playa Dorada Golf Course",
+    "venueSlug": "playa-dorada-golf",
+    "address": "Playa Dorada, Puerto Plata",
+    "lat": 19.7685063,
+    "lng": -70.6427756,
+    "category": "sports",
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18093204262",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/tourdecampeones/",
+    "imageEmoji": "⛳"
   }
 ]

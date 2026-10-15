@@ -837,6 +837,12 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Communauté fitness de Cabarete et organisateur du Cabarete Run Festival — entraînements et inscriptions via Instagram et WhatsApp. Confirmez le point de départ avec les orga avant le matin de course.",
     },
   },
+  "cabarete-boxing-club": {
+    description: {
+      es: "Gimnasio de boxeo y punto de encuentro en Cabarete — clases para niños, sparring abierto los viernes con DJ en vivo, y comida tailandesa del menú Khong Kwan en las noches de cine. Confirma horario y cover por Instagram @cabareteboxingclub.",
+      fr: "Salle de boxe et lieu de rencontre à Cabarete — cours kids, open sparring le vendredi avec DJ live, et cuisine thaï du menu Khong Kwan les soirs cinéma. Confirmez horaires et cover via Instagram @cabareteboxingclub.",
+    },
+  },
   "tasty-food-park-puerto-plata": {
     description: {
       es: "Food court al aire libre en Av. 27 de Febrero — puestos varios, tragos y karaoke los miércoles con DJ Koky desde las 6:00 PM. Abre diario 4:00 PM–12:00 AM.",
