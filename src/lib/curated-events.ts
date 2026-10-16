@@ -904,6 +904,21 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     phone: "+18097813737",
     venueSlug: "rancho-catalina-puerto-plata",
   },
+  "cedaky-mall-fiesta-disfraces-2026-10-24": {
+    isFree: true,
+    venueSlug: "cedaky-mall",
+  },
+  "meclao-a-oscura-yona-ramz-2026-10-17": {
+    callForPricing: true,
+    phone: "+18293747028",
+    venueSlug: "meclao-rooftop",
+  },
+  "hard-rock-old-school-party-2026-11-07": {
+    isFree: false,
+    admissionPrice: "RD$1,000–2,000",
+    phone: "+18495057778",
+    venueSlug: "hard-rock-sosua",
+  },
   "parada-choco-banditalia-2026-10-06": {
     isFree: true,
     phone: "+18098042510",

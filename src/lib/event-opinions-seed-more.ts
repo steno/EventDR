@@ -5760,4 +5760,59 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "Editor flyer + IG @ambarloungepop — Sáb 17 Oct Too Noise / @wearetoonoise From STI, Ambar Lounge, Av Luis Ginebra 45 segundo y tercer nivel, RSVP (809) 781-8677. Vocatus co-brand on art. No cover or start time on flyer.",
     updatedAt: "2026-10-15T23:30:00.000Z",
   },
+  {
+    eventId: "cedaky-mall-fiesta-disfraces-2026-10-24",
+    body: "Free kids costume party on the mall first level at 4:00 PM for ages 1–14 — daytime Halloween for families, not Rancho La Catalina Trick or Treat the night before and not the coin fair on Halloween weekend; walk the primer nivel with @cedakymall.",
+    localized: {
+      es: "Fiesta de disfraces gratis en el primer nivel del mall a las 4:00 PM para edades 1–14 — Halloween diurno familiar, no el Trick or Treat de Rancho La Catalina la noche anterior ni la feria de monedas del fin de Halloween; camina el primer nivel con @cedakymall.",
+      fr: "Fête de déguisements gratuite au premier niveau du mall à 16 h pour les 1–14 ans — Halloween de jour en famille, pas le Trick or Treat de Rancho La Catalina la veille ni la foire monnaies du week-end d’Halloween ; filtez le primer nivel avec @cedakymall.",
+    },
+    priceFeel: "free",
+    priceNote: "Free entry · ages 1–14 · @cedakymall",
+    priceNoteLocalized: {
+      es: "Entrada gratuita · edades 1–14 · @cedakymall",
+      fr: "Entrée gratuite · âges 1–14 · @cedakymall",
+    },
+    attribution: "POP research · @cedakymall Fiesta de Disfraces flyer",
+    researchNotes:
+      "Editor flyer — Sáb 24 Oct 2026 4 PM, primer nivel Cedāky Mall, edades 1–14, entrada gratuita, princesas/superhéroes/brujitas/monstruos.",
+    updatedAt: "2026-10-16T15:00:00.000Z",
+  },
+  {
+    eventId: "meclao-a-oscura-yona-ramz-2026-10-17",
+    body: "Saturday black-outfit rooftop with Yona Ramz at Luis Ginebra 49 — not Ambar’s Too Noise the same night at No. 45, and not Mecla'o Old School Tropical with DJ Choco the Friday before; reserve 829-374-7028, cover isn’t on the flyer.",
+    localized: {
+      es: "Sábado de outfit negro en el rooftop con Yona Ramz en Luis Ginebra 49 — no es Too Noise de Ambar la misma noche en el No. 45, ni Old School Tropical de Mecla'o con DJ Choco el viernes anterior; reserva 829-374-7028, el cover no está en el flyer.",
+      fr: "Samedi tenue noire sur le rooftop avec Yona Ramz au Luis Ginebra 49 — pas Too Noise d’Ambar le même soir au n° 45, ni Old School Tropical de Mecla'o avec DJ Choco le vendredi précédent ; réservez 829-374-7028, le cover n’est pas sur l’affiche.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover not on flyer — reservas 829-374-7028 / @meclaorooftop",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — reservas 829-374-7028 / @meclaorooftop",
+      fr: "Cover absent de l’affiche — résas 829-374-7028 / @meclaorooftop",
+    },
+    attribution: "POP research · @meclaorooftop A Oscura / Yona Ramz flyer",
+    researchNotes:
+      "Editor flyer + Threads @meclaorooftop — Sáb 17 Oct A Oscura by @yonaramzmusic, black outfit, Mecla'o Rooftop Luis Ginebra No. 49, reservas 829-374-7028. No cover or start time on art.",
+    updatedAt: "2026-10-16T16:00:00.000Z",
+  },
+  {
+    eventId: "hard-rock-old-school-party-2026-11-07",
+    body: "NOVIGO Old School Special Edition at Hard Rock Sosúa from 9:00 PM — pre-sale from RD$1,000 / door up to VIP RD$2,000; not Mecla'o’s Old School Tropical on Luis Ginebra and not Ocean World Terrace’s free Old School. Lock tickets via +1 849-505-7778 before door prices jump.",
+    localized: {
+      es: "Old School Special Edition de NOVIGO en Hard Rock Sosúa desde las 9:00 PM — pre-venta desde RD$1,000 / puerta hasta VIP RD$2,000; no es Old School Tropical de Mecla'o en Luis Ginebra ni el Old School gratis de Ocean World Terrace. Asegura boletas al +1 849-505-7778 antes de que suba la puerta.",
+      fr: "Old School Special Edition de NOVIGO au Hard Rock Sosúa dès 21 h — prévente dès RD$1,000 / porte jusqu’à VIP RD$2,000 ; pas Old School Tropical de Mecla'o sur Luis Ginebra ni l’Old School gratuit d’Ocean World Terrace. Verrouillez via +1 849-505-7778 avant la hausse à la porte.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "Pre-sale Gen RD$1,000 / VIP RD$1,500 · door Gen RD$1,500 / VIP RD$2,000 · +1 849-505-7778",
+    priceNoteLocalized: {
+      es: "Pre-venta Gen RD$1,000 / VIP RD$1,500 · puerta Gen RD$1,500 / VIP RD$2,000 · +1 849-505-7778",
+      fr: "Prévente Gen RD$1,000 / VIP RD$1,500 · porte Gen RD$1,500 / VIP RD$2,000 · +1 849-505-7778",
+    },
+    attribution: "POP research · Hard Rock / Producciones NOVIGO Old School Party flyer",
+    researchNotes:
+      "Editor flyer — Sáb 07 Nov 2026 from 9:00 PM OLD SCHOOL Party Special Edition, Hard Rock Cafe Puerto Plata, Producciones NOVIGO, pre-venta/puerta General+VIP pricing, info 849-505-7778.",
+    updatedAt: "2026-10-16T14:00:00.000Z",
+  },
 ];

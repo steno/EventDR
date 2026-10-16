@@ -138,6 +138,12 @@ const FILE_TO_EVENT_ID = {
     "meclao-tulum-after-dark-sebastian-crozz-2026-10-10",
   "meclao-old-school-tropical-dj-choco-2026-10-16.jpg":
     "meclao-old-school-tropical-dj-choco-2026-10-16",
+  "meclao-a-oscura-yona-ramz-2026-10-17.jpg":
+    "meclao-a-oscura-yona-ramz-2026-10-17",
+  "cedaky-mall-fiesta-disfraces-2026-10-24.jpg":
+    "cedaky-mall-fiesta-disfraces-2026-10-24",
+  "hard-rock-old-school-party-2026-11-07.jpg":
+    "hard-rock-old-school-party-2026-11-07",
   "ambar-lounge-perreo-negro-2026-10-10.jpg":
     "ambar-lounge-perreo-negro-2026-10-10",
   "disco-club-halloween-2026-10-30.jpg": "disco-club-halloween-2026-10-30",

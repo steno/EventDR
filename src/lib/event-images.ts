@@ -402,6 +402,12 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "meclao-tulum-after-dark-sebastian-crozz-2026-10-10.jpg",
   "meclao-old-school-tropical-dj-choco-2026-10-16":
     "meclao-old-school-tropical-dj-choco-2026-10-16.jpg",
+  "meclao-a-oscura-yona-ramz-2026-10-17":
+    "meclao-a-oscura-yona-ramz-2026-10-17.jpg",
+  "cedaky-mall-fiesta-disfraces-2026-10-24":
+    "cedaky-mall-fiesta-disfraces-2026-10-24.jpg",
+  "hard-rock-old-school-party-2026-11-07":
+    "hard-rock-old-school-party-2026-11-07.jpg",
   "ambar-lounge-perreo-negro-2026-10-10":
     "ambar-lounge-perreo-negro-2026-10-10.jpg",
   "disco-club-halloween-2026-10-30":
@@ -739,6 +745,9 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "meclao-reggaeton-dj-yosma-2026-10-09": "object-center",
   "meclao-tulum-after-dark-sebastian-crozz-2026-10-10": "object-center",
   "meclao-old-school-tropical-dj-choco-2026-10-16": "object-center",
+  "meclao-a-oscura-yona-ramz-2026-10-17": "object-center",
+  "cedaky-mall-fiesta-disfraces-2026-10-24": "object-center",
+  "hard-rock-old-school-party-2026-11-07": "object-center",
   "ambar-lounge-perreo-negro-2026-10-10": "object-center",
   "ambar-lounge-too-noise-2026-10-17": "object-center",
   "disco-club-halloween-2026-10-30": "object-center",
@@ -1123,6 +1132,9 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "meclao-reggaeton-dj-yosma-2026-10-09.jpg",
   "meclao-tulum-after-dark-sebastian-crozz-2026-10-10.jpg",
   "meclao-old-school-tropical-dj-choco-2026-10-16.jpg",
+  "meclao-a-oscura-yona-ramz-2026-10-17.jpg",
+  "cedaky-mall-fiesta-disfraces-2026-10-24.jpg",
+  "hard-rock-old-school-party-2026-11-07.jpg",
   "ambar-lounge-perreo-negro-2026-10-10.jpg",
   "disco-club-halloween-2026-10-30.jpg",
   "amarea-one-last-escape-2026-11-07.jpg",

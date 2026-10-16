@@ -6739,5 +6739,94 @@
       "Too Noise"
     ],
     "imageEmoji": "🎧"
+  },
+  {
+    "id": "cedaky-mall-fiesta-disfraces-2026-10-24",
+    "title": "Cedāky Mall — Fête de Déguisements Enfants",
+    "description": "Fête de déguisements pour enfants (Fiesta de Disfraces) au Cedāky Mall premier niveau, Av. Manolo Tavárez Justo, Puerto Plata — samedi 24 octobre 2026 à 16 h. Âges 1–14 ; princesses, super-héros, petites sorcières, monstres — tout le monde est invité. Entrée gratuite. Halloween diurne enfants au mall — pas le Trick or Treat de Rancho La Catalina le 23 oct ni la Feria Numismática du 31 oct–1 nov. Instagram @cedakymall.",
+    "date": "2026-10-24",
+    "time": "4:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Cedāky Mall",
+    "venueSlug": "cedaky-mall",
+    "address": "Av. Manolo Tavárez Justo, Barrio Las Yaguitas, Puerto Plata — primer nivel",
+    "lat": 19.782269,
+    "lng": -70.673706,
+    "category": "halloween",
+    "categories": [
+      "parties",
+      "culture"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/cedakymall/",
+    "instagram": "cedakymall",
+    "lineup": [
+      "Fiesta de Disfraces",
+      "Âges 1–14"
+    ],
+    "imageEmoji": "🎃",
+    "ageHint": "family"
+  },
+  {
+    "id": "meclao-a-oscura-yona-ramz-2026-10-17",
+    "title": "Mecla'o A Oscura — Yona Ramz",
+    "description": "A Oscura avec Yona Ramz (@yonaramzmusic) au Mecla'o Rooftop Lounge, Av. Luis Ginebra No. 49, Puerto Plata — samedi 17 octobre 2026. Dress code tenue noire ; soirée pop sur le rooftop. Luis Ginebra 49 — pas Too Noise à Ambar Lounge le même samedi au n° 45, ni Old School & Tropical avec DJ Choco le vendredi précédent à Mecla'o. Résas 829-374-7028 · @meclaorooftop. Cover et portes absents de l’affiche — confirmez avant d’arriver walk-up.",
+    "date": "2026-10-17",
+    "location": "Puerto Plata",
+    "venue": "Mecla'o Rooftop Lounge",
+    "venueSlug": "meclao-rooftop",
+    "address": "Av. Luis Ginebra No. 49, Puerto Plata 57000",
+    "lat": 19.788312,
+    "lng": -70.677453,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18293747028",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/meclaorooftop/",
+    "instagram": "meclaorooftop",
+    "lineup": [
+      "Yona Ramz"
+    ],
+    "imageEmoji": "🖤"
+  },
+  {
+    "id": "hard-rock-old-school-party-2026-11-07",
+    "title": "Hard Rock Old School Party — Special Edition",
+    "description": "OLD SCHOOL Party — Special Edition au Hard Rock Cafe Puerto Plata, Calle Duarte 7, Sosúa — samedi 7 novembre 2026 dès 21 h. Produit par Producciones NOVIGO. Prévente Général RD$1,000 / VIP RD$1,500 ; porte Général RD$1,500 / VIP RD$2,000. Info +1 849-505-7778 · Instagram @hardrockcafepuertoplata. Soirée classiques au Hard Rock Sosúa — pas Old School & Tropical de Mecla'o (Luis Ginebra) ni Old School d’Ocean World Terrace.",
+    "date": "2026-11-07",
+    "time": "9:00 PM",
+    "location": "Sosúa",
+    "venue": "Hard Rock Cafe Puerto Plata",
+    "venueSlug": "hard-rock-sosua",
+    "address": "Calle Duarte 7, Sosúa",
+    "lat": 19.7634107,
+    "lng": -70.5162309,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": false,
+    "admissionPrice": "RD$1,000–2,000",
+    "phone": "+18495057778",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/hardrockcafepuertoplata/",
+    "instagram": "hardrockcafepuertoplata",
+    "lineup": [
+      "Producciones NOVIGO",
+      "OLD SCHOOL Party Special Edition"
+    ],
+    "imageEmoji": "🚗"
   }
 ]
