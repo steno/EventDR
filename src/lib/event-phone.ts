@@ -43,6 +43,7 @@ const EVENT_PHONE_BY_ID: Record<string, string> = {
   "ocean-world-terrace-singing-talent-2026-09-16": "+18092912400",
   "ocean-world-terrace-deury-luciano-2026-10-16": "+18092912400",
   "ocean-world-terrace-old-school-2026-10-17": "+18092912400",
+  "ocean-world-terrace-luces-navidenas-2026-11-01": "+18092912400",
 
   "iberostar-costa-dorada-day-pass": "+18093201000",
   "gran-ventana-day-pass": "+18093202111",
@@ -67,6 +68,7 @@ const EVENT_PHONE_BY_ID: Record<string, string> = {
   "iss-international-day-2026-10-17": "+18095713271",
   "coconuts-halloween-costume-contest-2026-10-31": "+18095710223",
   "ojo-equinoccio-neon-party-2026-09-25": "+18297458811",
+  "ojo-rojo-halloween-2026-10-31": "+18297458811",
   "natura-market-moto-2026-09-19": "+18492147010",
   "natura-market-2026-10-04": "+18492147010",
   "natura-sunbar-sunset-sounds-em-zayd-2026-10-01": "+18492147010",

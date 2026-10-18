@@ -1,0 +1,20 @@
+---
+description: Route Catalog, Site, and Marketing desks. Ask before working when the user only names a desk.
+alwaysApply: true
+---
+
+# POP desks
+
+Three desks. Reuse the current chat. Do not open a new agent, and do not quiz for a desk when the user already named the job.
+
+| They say | Read |
+|----------|------|
+| catalog, add event, seed | `.cursor/skills/pop-catalog/SKILL.md` |
+| site, fix this page, SEO | `.cursor/skills/pop-site/SKILL.md` |
+| marketing, Sunday pipeline, Friday digest, spotlight | `.cursor/skills/pop-marketing/SKILL.md` |
+
+If they only name the desk, the first reply is that skill’s questions. Stop there. No fetching, browsing, or edits until they pick.
+
+A flyer, event link, or “correct this image” is Catalog. A page layout or SEO note is Site. Sunday, Friday, or spotlight is Marketing. If that job does not match the desk they just opened, name the right desk and wait. Do not edit until they switch.
+
+After a change, send the localhost URL and ask them to confirm. They check it. Do not open the browser to verify. Wait. Do not commit until they ask.

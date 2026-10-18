@@ -6,7 +6,7 @@ alwaysApply: false
 
 # Weekly marketing routine
 
-Run when the user says **weekly marketing**, **content pipeline**, **Sunday routine**, or **Friday digest**.
+Run when the user says **weekly marketing**, **content pipeline**, **Sunday routine**, or **Friday digest**. If they only said **marketing**, follow `.cursor/skills/pop-marketing/SKILL.md` and ask which job before this checklist.
 
 ## Schedule
 

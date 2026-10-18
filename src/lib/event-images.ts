@@ -173,7 +173,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "serenade-bbq-night-villa-taina-weekly.jpg",
   "luna-lounge-jueves-karaoke-weekly": "luna-lounge-jueves-karaoke-weekly.jpg",
   "banda-modelo-vinoteca-2026-09-26": "banda-modelo-vinoteca-2026-09-26.jpg",
-  "chiche-almonte-vinoteca-2026-10-17": "chiche-almonte-vinoteca-2026-10-17.jpg",
+  "chiche-almonte-vinoteca-2026-10-17": "chiche-almonte-vinoteca-2026-10-17-v2.jpg",
   "aura-cinema-abigail-2026-10-06": "aura-cinema-abigail-2026-10-06.jpg",
   "aura-cinema-nadie-duerme-bosque-2026-10-13":
     "aura-cinema-nadie-duerme-bosque-2026-10-13.jpg",
@@ -408,6 +408,9 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "cedaky-mall-fiesta-disfraces-2026-10-24.jpg",
   "hard-rock-old-school-party-2026-11-07":
     "hard-rock-old-school-party-2026-11-07.jpg",
+  "ocean-world-terrace-luces-navidenas-2026-11-01":
+    "ocean-world-terrace-luces-navidenas-2026-11-01.jpg",
+  "ojo-rojo-halloween-2026-10-31": "ojo-rojo-halloween-2026-10-31.jpg",
   "ambar-lounge-perreo-negro-2026-10-10":
     "ambar-lounge-perreo-negro-2026-10-10.jpg",
   "disco-club-halloween-2026-10-30":
@@ -748,6 +751,8 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "meclao-a-oscura-yona-ramz-2026-10-17": "object-center",
   "cedaky-mall-fiesta-disfraces-2026-10-24": "object-center",
   "hard-rock-old-school-party-2026-11-07": "object-center",
+  "ocean-world-terrace-luces-navidenas-2026-11-01": "object-center",
+  "ojo-rojo-halloween-2026-10-31": "object-center",
   "ambar-lounge-perreo-negro-2026-10-10": "object-center",
   "ambar-lounge-too-noise-2026-10-17": "object-center",
   "disco-club-halloween-2026-10-30": "object-center",
@@ -1025,7 +1030,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "camara-almuerzo-codigo-penal-2026-10-22-v2.jpg",
   "teleferico-inicio-obras-2026-10-03.jpg",
   "banda-modelo-vinoteca-2026-09-26.jpg",
-  "chiche-almonte-vinoteca-2026-10-17.jpg",
+  "chiche-almonte-vinoteca-2026-10-17-v2.jpg",
   "aura-cinema-abigail-2026-10-06.jpg",
   "aura-cinema-nadie-duerme-bosque-2026-10-13.jpg",
   "mkni-after-party-villa-taina-2026-10-24.jpg",
@@ -1135,6 +1140,8 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "meclao-a-oscura-yona-ramz-2026-10-17.jpg",
   "cedaky-mall-fiesta-disfraces-2026-10-24.jpg",
   "hard-rock-old-school-party-2026-11-07.jpg",
+  "ocean-world-terrace-luces-navidenas-2026-11-01.jpg",
+  "ojo-rojo-halloween-2026-10-31.jpg",
   "ambar-lounge-perreo-negro-2026-10-10.jpg",
   "disco-club-halloween-2026-10-30.jpg",
   "amarea-one-last-escape-2026-11-07.jpg",

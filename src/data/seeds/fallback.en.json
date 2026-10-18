@@ -6830,5 +6830,57 @@
       "OLD SCHOOL Party Special Edition"
     ],
     "imageEmoji": "🚗"
+  },
+  {
+    "id": "ocean-world-terrace-luces-navidenas-2026-11-01",
+    "title": "Ocean World Terrace — Luces Navideñas",
+    "description": "Christmas light switch-on at Ocean World Terrace, Calle Principal #3, Cofresí — Sunday 1 November 2026 from 7:00 PM. Welcome drink, new photo spots, 360 videos, and the tree lighting. Entry price isn’t on the flyer; confirm via Instagram @oceanworldterrace or +1 809-291-2400. Terrace night in Cofresí — not the dolphin-park ticket line.",
+    "date": "2026-11-01",
+    "time": "7:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Terraza Ocean World",
+    "venueSlug": "ocean-world",
+    "address": "Calle Principal #3, Cofresí, Puerto Plata",
+    "lat": 19.826313,
+    "lng": -70.732062,
+    "category": "festivals",
+    "categories": [
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18092912400",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/oceanworldterrace/",
+    "instagram": "oceanworldterrace",
+    "imageEmoji": "🎄"
+  },
+  {
+    "id": "ojo-rojo-halloween-2026-10-31",
+    "title": "Ojo Club Rojo — Halloween Costume Party",
+    "description": "Rojo: Un nuevo despertar — Halloween costume party at Ojo Club on Playa Cabarete (LAX Cabarete) — Saturday 31 October 2026. Beats by DJ Polanco (@dj_polanco_) and Deeway (@deewayiam). Reservations +1 829-745-8811 / WhatsApp +1 829-745-8812. Start time and cover aren’t on the flyer; confirm when you book. Instagram @ojoclubcabarete.",
+    "date": "2026-10-31",
+    "location": "Cabarete",
+    "venue": "Ojo Club at LAX Cabarete",
+    "venueSlug": "lax-cabarete",
+    "lat": 19.7503643,
+    "lng": -70.406125,
+    "category": "parties",
+    "categories": [
+      "music"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18297458811",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/ojoclubcabarete/",
+    "instagram": "ojoclubcabarete",
+    "lineup": [
+      "DJ Polanco",
+      "Deeway"
+    ],
+    "imageEmoji": "🎃"
   }
 ]

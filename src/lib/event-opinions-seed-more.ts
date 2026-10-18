@@ -4643,7 +4643,7 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     },
     attribution: "POP research · @vinotecamarienpp flyer",
     researchNotes:
-      "Editor flyers — Sat 17 Oct 2026 from 10 PM, free entry, Vinoteca Wine House / Hotel Marien Costa Dorada; phone 849-451-1197. Hero uses prior Chiche Vinoteca layout (object-top).",
+      "Editor flyer — Sat 17 Oct 2026 from 10 PM, free entry, Vinoteca Wine House / Hotel Marien Costa Dorada; phone 849-451-1197. Hero is this night’s flyer (`chiche-almonte-vinoteca-2026-10-17-v2.jpg`).",
     updatedAt: "2026-10-06T23:00:00.000Z",
   },
   {
@@ -5814,5 +5814,42 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     researchNotes:
       "Editor flyer — Sáb 07 Nov 2026 from 9:00 PM OLD SCHOOL Party Special Edition, Hard Rock Cafe Puerto Plata, Producciones NOVIGO, pre-venta/puerta General+VIP pricing, info 849-505-7778.",
     updatedAt: "2026-10-16T14:00:00.000Z",
+  },
+  {
+    eventId: "ocean-world-terrace-luces-navidenas-2026-11-01",
+    body: "Sunday 7 PM tree lighting on the Cofresí terrace — welcome drink, photo spots, and a 360 video, not a dolphin-park ticket and not the free Old School Saturday. Entry price isn’t on the flyer; confirm @oceanworldterrace or +1 809-291-2400.",
+    localized: {
+      es: "Encendido del arbolito el domingo a las 7 PM en la terraza de Cofresí — trago de bienvenida, fotos y video 360, no un boleto del parque de delfines ni el Old School gratis del sábado. El precio no está en el flyer; confirma @oceanworldterrace o +1 809-291-2400.",
+      fr: "Allumage du sapin dimanche à 19 h sur la terrasse de Cofresí — verre de bienvenue, photos et vidéo 360, pas un billet du parc des dauphins ni l’Old School gratuit du samedi. Le prix n’est pas sur l’affiche ; confirmez @oceanworldterrace ou +1 809-291-2400.",
+    },
+    priceFeel: "varies",
+    priceNote: "Entry price not on flyer — @oceanworldterrace / +1 809-291-2400",
+    priceNoteLocalized: {
+      es: "Precio de entrada no está en el flyer — @oceanworldterrace / +1 809-291-2400",
+      fr: "Prix d’entrée absent de l’affiche — @oceanworldterrace / +1 809-291-2400",
+    },
+    attribution: "POP research · @oceanworldterrace Luces Navideñas flyer",
+    researchNotes:
+      "Editor flyer — Dom 1 Nov 2026 desde las 7:00 PM, Encendido de las Luces Navideñas, Ocean World Terrace. Trago de bienvenida, espacios para fotos, videos 360, encendido del arbolito. No entry price on art.",
+    updatedAt: "2026-10-17T15:00:00.000Z",
+  },
+  {
+    eventId: "ojo-rojo-halloween-2026-10-31",
+    body: "Saturday costume night at Ojo on Playa Cabarete with DJ Polanco and Deeway — not Deeway’s Monster’s Ball at Chameleon in Sosúa on 18 Oct, and not Coconuts’ costume contest the same night. Cover isn’t on the flyer; reserve +1 829-745-8811 or WhatsApp +1 829-745-8812.",
+    localized: {
+      es: "Noche de disfraces el sábado en Ojo, Playa Cabarete, con DJ Polanco y Deeway — no es el Monster’s Ball de Deeway en Chameleon, Sosúa, el 18 oct, ni el concurso de disfraces de Coconuts la misma noche. El cover no está en el flyer; reserva +1 829-745-8811 o WhatsApp +1 829-745-8812.",
+      fr: "Soirée costumes le samedi à Ojo, Playa Cabarete, avec DJ Polanco et Deeway — pas le Monster’s Ball de Deeway au Chameleon à Sosúa le 18 oct., ni le concours de costumes de Coconuts le même soir. Le cover n’est pas sur l’affiche ; réservez +1 829-745-8811 ou WhatsApp +1 829-745-8812.",
+    },
+    priceFeel: "varies",
+    priceNote:
+      "Cover not on flyer — reservas +1 829-745-8811 / WhatsApp +1 829-745-8812",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — reservas +1 829-745-8811 / WhatsApp +1 829-745-8812",
+      fr: "Cover absent de l’affiche — résas +1 829-745-8811 / WhatsApp +1 829-745-8812",
+    },
+    attribution: "POP research · @ojoclubcabarete Rojo Halloween flyer",
+    researchNotes:
+      "Editor flyer + IG caption @ojoclubcabarete — Sáb 31 Oct 2026 Rojo: Un nuevo despertar, Halloween costume party, DJ Polanco (@dj_polanco_) and Deeway (@deewayiam), Playa Cabarete. Reservations 829-745-8811 / 829-745-8812. No start time or cover on art.",
+    updatedAt: "2026-10-17T16:00:00.000Z",
   },
 ];

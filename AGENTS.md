@@ -4,6 +4,14 @@
 This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
 <!-- END:nextjs-agent-rules -->
 
+## Desks
+
+Say **catalog**, **site**, or **marketing**. If that is all they said, ask that desk’s questions and wait. Rule: `.cursor/rules/pop-desks.mdc`.
+
+- **Catalog** — add or fix events and venues (`.cursor/skills/pop-catalog/SKILL.md`)
+- **Site** — a page, a bug, or SEO (`.cursor/skills/pop-site/SKILL.md`)
+- **Marketing** — Sunday pipeline, Friday digest, or spotlight (`.cursor/skills/pop-marketing/SKILL.md`)
+
 ## Weekly social event discovery
 
 Scheduled ingest: GitHub Action `.github/workflows/weekly-event-ingest.yml` (Sundays ~12:00 AST) calls `POST /api/ingest` when `CRON_SECRET` is set in repo secrets.

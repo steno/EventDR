@@ -919,6 +919,16 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     phone: "+18495057778",
     venueSlug: "hard-rock-sosua",
   },
+  "ocean-world-terrace-luces-navidenas-2026-11-01": {
+    callForPricing: true,
+    phone: "+18092912400",
+    venueSlug: "ocean-world",
+  },
+  "ojo-rojo-halloween-2026-10-31": {
+    callForPricing: true,
+    phone: "+18297458811",
+    venueSlug: "lax-cabarete",
+  },
   "parada-choco-banditalia-2026-10-06": {
     isFree: true,
     phone: "+18098042510",

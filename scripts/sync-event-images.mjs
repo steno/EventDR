@@ -101,7 +101,7 @@ const FILE_TO_EVENT_ID = {
   "los-caballitos-zona-acapella-2026-09-20.jpg":
     "los-caballitos-zona-acapella-2026-09-20",
   "banda-modelo-vinoteca-2026-09-26.jpg": "banda-modelo-vinoteca-2026-09-26",
-  "chiche-almonte-vinoteca-2026-10-17.jpg": "chiche-almonte-vinoteca-2026-10-17",
+  "chiche-almonte-vinoteca-2026-10-17-v2.jpg": "chiche-almonte-vinoteca-2026-10-17",
   "aura-cinema-abigail-2026-10-06.jpg": "aura-cinema-abigail-2026-10-06",
   "aura-cinema-nadie-duerme-bosque-2026-10-13.jpg":
     "aura-cinema-nadie-duerme-bosque-2026-10-13",
@@ -144,6 +144,9 @@ const FILE_TO_EVENT_ID = {
     "cedaky-mall-fiesta-disfraces-2026-10-24",
   "hard-rock-old-school-party-2026-11-07.jpg":
     "hard-rock-old-school-party-2026-11-07",
+  "ocean-world-terrace-luces-navidenas-2026-11-01.jpg":
+    "ocean-world-terrace-luces-navidenas-2026-11-01",
+  "ojo-rojo-halloween-2026-10-31.jpg": "ojo-rojo-halloween-2026-10-31",
   "ambar-lounge-perreo-negro-2026-10-10.jpg":
     "ambar-lounge-perreo-negro-2026-10-10",
   "disco-club-halloween-2026-10-30.jpg": "disco-club-halloween-2026-10-30",
