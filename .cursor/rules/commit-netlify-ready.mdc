@@ -7,9 +7,16 @@ alwaysApply: true
 
 When the user asks to **commit** and/or **push** (only then — do not commit unprompted):
 
-## Before commit
+## Before commit / push (required)
 
-Commit and push. Do **not** run typecheck, unit tests, lint, or a production build first. Netlify runs the build. Only run a check if the user asks for it.
+Run both and **do not push** until they pass:
+
+1. `npm run typecheck`
+2. `npx next build` (production compile — catches Turbopack / font / page errors Netlify hits)
+
+Full `npm run build` (icons, image sync/optimize, app-version) is optional unless the change set touches those scripts or image pipelines. Prefer the faster `npx next build` gate for catalog/seed/UI commits.
+
+If typecheck or `next build` fails, fix first, then commit. Never push a red local gate.
 
 ## Do not commit build churn
 

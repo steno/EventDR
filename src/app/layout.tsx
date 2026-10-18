@@ -1,4 +1,4 @@
-import { Outfit } from "next/font/google";
+import localFont from "next/font/local";
 import Script from "next/script";
 import { BootSplashDismiss } from "@/components/BootSplashDismiss";
 import { ThemeAutoSync } from "@/components/ThemeAutoSync";
@@ -7,11 +7,41 @@ import { PwaInstallCapture } from "@/components/PwaInstallCapture";
 import { PageGlow } from "@/components/PageGlow";
 import "./globals.css";
 
-/** Geometric grotesque close to GetYourGuide’s GT Eesti — one family for UI + display. */
-const outfit = Outfit({
+/**
+ * Self-hosted Outfit (latin) — same weights as before.
+ * Avoids next/font/google at build time: Google sometimes returns
+ * extensionless /l/font?kit=…&skey=… URLs that break Turbopack
+ * (`next/font/google queries have exactly one entry`, vercel/next.js#99114).
+ */
+const outfit = localFont({
+  src: [
+    {
+      path: "./fonts/outfit-latin-400-normal.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "./fonts/outfit-latin-500-normal.woff2",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "./fonts/outfit-latin-600-normal.woff2",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "./fonts/outfit-latin-700-normal.woff2",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "./fonts/outfit-latin-800-normal.woff2",
+      weight: "800",
+      style: "normal",
+    },
+  ],
   variable: "--font-outfit",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
   display: "swap",
 });
 
