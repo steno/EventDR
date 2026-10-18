@@ -33,9 +33,12 @@ const tunnelDomains = [
 
 const nextConfig: NextConfig = {
   allowedDevOrigins: [...getLocalIPv4Addresses(), ...extraDevOrigins, ...tunnelDomains],
-  // One SSG worker so Netlify's ~8GB box isn't SIGKILL'd by 2×2GB heaps + sharp.
+  // One SSG worker, and one page at a time inside it. The worker default
+  // renders 8 pages at once; that plus sharp buffers SIGKILL'd Netlify
+  // in the last quarter of static generation (67/90).
   experimental: {
     cpus: 1,
+    staticGenerationMaxConcurrency: 1,
   },
   // Vendored Inter TTFs for /api/ig-card (sharp text fontfile on Netlify).
   outputFileTracingIncludes: {

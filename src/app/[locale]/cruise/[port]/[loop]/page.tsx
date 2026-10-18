@@ -146,7 +146,12 @@ export default async function Page({
     portName,
   );
 
-  const route = waypoints ? await fetchOsrmRoute(waypoints, profile) : null;
+  // Full OSRM geometries during SSG hang the Netlify worker until it is
+  // SIGKILL'd. The page revalidates at runtime and fills the line then.
+  const route =
+    waypoints && process.env.NEXT_PHASE !== "phase-production-build"
+      ? await fetchOsrmRoute(waypoints, profile)
+      : null;
   const embedUrl = waypoints ? osmEmbedUrl(waypoints) : "";
 
   const stopHrefBySlug = new Map(stops.map((stop) => [stop.slug, stop.href]));

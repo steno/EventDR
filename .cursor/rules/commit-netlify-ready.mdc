@@ -5,14 +5,11 @@ alwaysApply: true
 
 # Commit / push — Netlify ready
 
-When the user asks to **commit** and/or **push** (only then — do not commit unprompted; prefer localhost verify first per user rules):
+When the user asks to **commit** and/or **push** (only then — do not commit unprompted):
 
 ## Before commit
 
-1. **Typecheck:** `npm run typecheck` (`tsc --noEmit`) must pass. Fix any failures — including test files (they are in `tsconfig` include).
-2. **Unit tests:** `npm test` must pass. Do not push with known red tests.
-3. **Production build when shipping to main / Netlify:** run `npm run build` (same as `netlify.toml`). Fix failures before push.
-4. Do **not** treat repo-wide `npm run lint` noise (pre-existing react-hooks set-state-in-effect, etc.) as a block unless Netlify/`next build` fails or the errors are in files you touched and are clearly regressions.
+Commit and push. Do **not** run typecheck, unit tests, lint, or a production build first. Netlify runs the build. Only run a check if the user asks for it.
 
 ## Do not commit build churn
 

@@ -41,13 +41,16 @@ const MIN_EVENTS_FOR_SCOPED_PAGE = 3;
 async function getAllVenueSlugs(): Promise<string[]> {
   const slugs = new Set(SEED_VENUES.map((venue) => venue.slug));
 
-  try {
-    const venues = await fetchVenues();
-    for (const venue of venues) {
-      slugs.add(venue.slug);
+  // Admin SDK during SSG OOMs the Netlify worker (same guard as getVenues).
+  if (process.env.NEXT_PHASE !== "phase-production-build") {
+    try {
+      const venues = await fetchVenues();
+      for (const venue of venues) {
+        slugs.add(venue.slug);
+      }
+    } catch {
+      // Firebase may be unavailable.
     }
-  } catch {
-    // Firebase may be unavailable at build time.
   }
 
   return [...slugs].filter((slug) => !isRemovedVenueSlug(slug));
