@@ -1806,10 +1806,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "sosua-neon-partyrun-2026-10-24",
-    body: "Evening neon run that ends in a Hard Rock after-party — register 4 PM, start 6:30 PM from Calle Duarte; bring glow and race shoes, not a morning 5K mindset. DJ Marlon is a separate Neon Party listing the same night.",
+    body: "Evening neon run that ends in a Hard Rock after-party — register 4 PM, start 6:30 PM from Calle Duarte; Zumba with Rosanna Escano joins the glow, so bring race shoes and dance energy, not a morning 5K mindset. DJ Marlon is a separate Neon Party listing the same night.",
     localized: {
-      es: "Carrera neon de tarde que termina en after-party en Hard Rock — registro 4 PM, salida 6:30 PM desde Calle Duarte; trae glow y zapatillas, no mentalidad de 5K matutino. DJ Marlon es un listing aparte de Neon Party la misma noche.",
-      fr: "Course néon en soirée qui finit en after-party Hard Rock — inscription 16 h, départ 18 h 30 depuis Calle Duarte ; glow et baskets, pas un mindset 5K du matin. DJ Marlon est une fiche Neon Party séparée le même soir.",
+      es: "Carrera neon de tarde que termina en after-party en Hard Rock — registro 4 PM, salida 6:30 PM desde Calle Duarte; Zumba con Rosanna Escano se suma al glow, así que trae zapatillas y energía de baile, no mentalidad de 5K matutino. DJ Marlon es un listing aparte de Neon Party la misma noche.",
+      fr: "Course néon en soirée qui finit en after-party Hard Rock — inscription 16 h, départ 18 h 30 depuis Calle Duarte ; Zumba avec Rosanna Escano rejoint le glow, donc baskets et énergie danse, pas un mindset 5K du matin. DJ Marlon est une fiche Neon Party séparée le même soir.",
     },
     priceFeel: "moderate",
     priceNote:
@@ -1818,10 +1818,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       es: "RD$2,000 incluye camiseta/medalla/picadera/fiesta — WhatsApp +1 849-505-7778 · @gy_fitness_sosua",
       fr: "RD$2,000 inclut t-shirt/médaille/snacks/fête — WhatsApp +1 849-505-7778 · @gy_fitness_sosua",
     },
-    attribution: "POP research · @gy_fitness_sosua × Hard Rock",
+    attribution: "POP research · @gy_fitness_sosua × Hard Rock × @rescano77",
     researchNotes:
-      "IG Sep 9 2026: Sábado 24 oct, registro 4 PM, salida 6:30 PM, punto Hard Rock, RD$2,000, WA 849-505-7778. DJ Marlon Neon Party is a separate seed.",
-    updatedAt: "2026-10-09T03:45:00.000Z",
+      "IG Sep 9 2026 + Hard Rock IG update: Sábado 24 oct, registro 4 PM, salida 6:30 PM, punto Hard Rock, RD$2,000, WA 849-505-7778; Zumba instructor Rosanna Escano (@rescano77) joins. DJ Marlon Neon Party is a separate seed.",
+    updatedAt: "2026-10-18T15:00:00.000Z",
   },
   {
     eventId: "sosua-neon-party-dj-marlon-2026-10-24",
@@ -3289,22 +3289,22 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "aura-halloween-party-2026-10-31",
-    body: "Cabarete Bay costume night with a RD$20k top prize — sharper than Aura’s usual Wednesday margarita floor; dress to impress and confirm cover on @auracabarete before Oct 31.",
+    body: "Rooftop Nightmare Lineup — Blacky at 8, Melvin at 9, Christoo at 10:30 — with a RD$20k best-dress prize and RD$1,000 cover; sharper than Aura’s Wednesday margarita floor, and not Natura’s dinner costume night the same Saturday.",
     localized: {
-      es: "Noche de disfraces en bahía Cabarete con premio top de RD$20k — más marcada que el piso de margaritas de miércoles en Aura; dress to impress y confirma cover en @auracabarete antes del 31 oct.",
-      fr: "Soirée costumes sur la baie de Cabarete avec prix top RD$20k — plus marquée que le floor margaritas du mercredi à Aura ; dress to impress et confirmez le cover sur @auracabarete avant le 31 oct.",
+      es: "Nightmare Lineup en el rooftop — Blacky a las 8, Melvin a las 9, Christoo a las 10:30 — con premio best dress RD$20k y cover RD$1,000; más marcada que el piso de margaritas de miércoles en Aura, y no la cena de disfraces de Natura el mismo sábado.",
+      fr: "Nightmare Lineup sur le rooftop — Blacky à 20 h, Melvin à 21 h, Christoo à 22 h 30 — avec prix best dress RD$20k et cover RD$1,000 ; plus marquée que le floor margaritas du mercredi à Aura, et pas le dîner costumes de Natura le même samedi.",
     },
-    priceFeel: "varies",
+    priceFeel: "moderate",
     priceNote:
-      "Costume prizes RD$20,000 / RD$10,000 / RD$5,000 — cover/doors confirm @auracabarete / +1 829-787-0140",
+      "Cover RD$1,000 · best dress costume prize RD$20,000 — tables @auracabarete / +1 829-787-0140",
     priceNoteLocalized: {
-      es: "Premios disfraz RD$20,000 / RD$10,000 / RD$5,000 — cover/puertas confirma @auracabarete / +1 829-787-0140",
-      fr: "Prix costumes RD$20 000 / RD$10 000 / RD$5 000 — cover/portes confirmez @auracabarete / +1 829-787-0140",
+      es: "Cover RD$1,000 · premio best dress costume RD$20,000 — mesas @auracabarete / +1 829-787-0140",
+      fr: "Cover RD$1,000 · prix best dress costume RD$20 000 — tables @auracabarete / +1 829-787-0140",
     },
-    attribution: "POP research · Aura Beach Club Halloween · @auracabarete",
+    attribution: "POP research · Aura Beach Club Halloween Nightmare Lineup · @auracabarete",
     researchNotes:
-      "Editor flyer + IG caption — Sat 31 Oct 2026 Halloween Party, dress to impress, prizes 20k/10k/5k DOP, live show, cocktails, DJ sets; Calle Principal Cabarete; no cover/time on art.",
-    updatedAt: "2026-09-23T12:00:00.000Z",
+      "Editor flyer update — Sat 31 Oct 2026 rooftop The Nightmare Lineup; DJ Blacky 8 PM, DJ Melvin 9 PM, DJ Christoo 10:30 PM; cover RD$1,000; best dress prize RD$20,000; Corona/Red Bull art; Calle Principal Cabarete.",
+    updatedAt: "2026-10-18T12:00:00.000Z",
   },
   {
     eventId: "la-lola-noche-de-nenas-blanco-2026-09-25",
@@ -5851,5 +5851,61 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     researchNotes:
       "Editor flyer + IG caption @ojoclubcabarete — Sáb 31 Oct 2026 Rojo: Un nuevo despertar, Halloween costume party, DJ Polanco (@dj_polanco_) and Deeway (@deewayiam), Playa Cabarete. Reservations 829-745-8811 / 829-745-8812. No start time or cover on art.",
     updatedAt: "2026-10-17T16:00:00.000Z",
+  },
+  {
+    eventId: "natura-market-2026-11-01",
+    body: "November’s first-Sunday market on the Natura Cabana grounds — local goods, food, art, and a DJ set by the sea, not the Encuentro MOTO sand edition; free entry and leash-friendly dogs, pay stall-by-stall.",
+    localized: {
+      es: "Mercado del primer domingo de noviembre en Natura Cabana — productos locales, comida, arte y DJ set junto al mar, no la edición MOTO en la arena de Encuentro; entrada gratis y perros con correa, pagas puesto por puesto.",
+      fr: "Marché du premier dimanche de novembre à Natura Cabana — produits locaux, nourriture, art et DJ set au bord de mer, pas l’édition MOTO sur le sable d’Encuentro ; entrée gratuite et chiens en laisse, payez stand par stand.",
+    },
+    priceFeel: "free",
+    priceNote:
+      "Free entry — pay stall-by-stall for goods and food; Natura Cabana +1 849-214-7010",
+    priceNoteLocalized: {
+      es: "Entrada gratis — pagas puesto por puesto comida y productos; Natura Cabana +1 849-214-7010",
+      fr: "Entrée gratuite — vous payez stand par stand nourriture et produits ; Natura Cabana +1 849-214-7010",
+    },
+    attribution: "POP research · Natura Market Nov 1 flyer + naturacabana.com",
+    researchNotes:
+      "Editor flyer — Sun 1 Nov 2026 10:30 AM–3 PM Natura Market at Natura Cabana; local goods, food, art, community, DJ set; free entry; dogs on leash. First Sunday monthly series; dated Nov seed distinct from Oct 4.",
+    updatedAt: "2026-10-18T15:00:00.000Z",
+  },
+  {
+    eventId: "disco-club-domingo-de-calle",
+    body: "Weekly Sunday street-club night at Latin Disco by the Brugal depots — not Thursday gogo or Friday salsa; cover isn’t printed, so call 829-563-9469 before you treat doors as walk-in.",
+    localized: {
+      es: "Domingo de calle semanal en Latin Disco frente a los depósitos Brugal — no el gogo de jueves ni la salsa de viernes; el cover no está impreso, llama al 829-563-9469 antes de asumir walk-in.",
+      fr: "Dimanche de rue hebdo au Latin Disco face aux dépôts Brugal — pas le gogo du jeudi ni la salsa du vendredi ; le cover n’est pas imprimé, appelez le 829-563-9469 avant d’assumer walk-in.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover not on flyer — 829-563-9469 / @latindiscoclubpp",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — 829-563-9469 / @latindiscoclubpp",
+      fr: "Cover absent de l’affiche — 829-563-9469 / @latindiscoclubpp",
+    },
+    attribution: "POP research · @latindiscoclubpp Domingo de Calle flyer",
+    researchNotes:
+      "Editor flyer — Latin Disco Club presenta Domingo de Calle, donde la diversión no para; Av. Circunvalación Sur frente depósitos Brugal; 829-563-9469. No cover/start time on art. Weekly Sunday series.",
+    updatedAt: "2026-10-18T14:00:00.000Z",
+  },
+  {
+    eventId: "aurazul-wellness-day-costambar-2026-11-15",
+    body: "Full-day Costambar wellness bus from Bellavista at 5:30 AM — Pilates, gong, kayak, snorkel, and a Puerto Plata town loop for RD$4,200 with meals and a shirt included; reserve +1 809-851-3452, and don’t pin a single club venue for this organizer day.",
+    localized: {
+      es: "Día completo de wellness en Costambar con bus desde Bellavista a las 5:30 AM — pilates, gong, kayak, snorkel y tour por el pueblo por RD$4,200 con comida y camiseta incluidas; reserva +1 809-851-3452, y no pines un solo club para este día de organizador.",
+      fr: "Journée wellness Costambar en bus depuis Bellavista à 5 h 30 — pilates, gong, kayak, snorkel et tour du village pour RD$4,200 avec repas et t-shirt inclus ; réservez +1 809-851-3452, et n’épinglez pas un seul club pour cette journée organisateur.",
+    },
+    priceFeel: "upscale",
+    priceNote:
+      "RD$4,200 includes transport, breakfast, drinks, vegetarian meals, t-shirt — WhatsApp +1 809-851-3452",
+    priceNoteLocalized: {
+      es: "RD$4,200 incluye transporte, desayuno, bebidas, comida vegetariana, camiseta — WhatsApp +1 809-851-3452",
+      fr: "RD$4,200 inclut transport, petit-déj, boissons, repas végétariens, t-shirt — WhatsApp +1 809-851-3452",
+    },
+    attribution: "POP research · AURAZUL Wellness Day flyer · @laelopez",
+    researchNotes:
+      "Editor flyer + Threads/IG @laelopez — Dom 15 Nov 2026 Wellness Day by AURAZUL, Puerto Plata Costambar; salida 5:30 AM, regreso 4:00 PM; punto Av. Dr. Defilló #15 Bellavista; RD$4,200; pilates, baño de gong, kayak, snorkel, tour pueblo; no new venue — destination Costambar without venueSlug.",
+    updatedAt: "2026-10-18T16:00:00.000Z",
   },
 ];

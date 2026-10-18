@@ -563,9 +563,9 @@ describe("Halloween seasonal rail", () => {
       isHalloweenListing(
         event({
           id: "aura-halloween-party-2026-10-31",
-          title: "Halloween Party at Aura Beach Club",
+          title: "Halloween — The Nightmare Lineup at Aura",
           date: "2026-10-31",
-          time: "9:00 PM",
+          time: "from 8:00 PM",
         }),
       ),
       true,
@@ -616,9 +616,9 @@ describe("Halloween seasonal rail", () => {
     });
     const party = event({
       id: "aura-halloween-party-2026-10-31",
-      title: "Halloween Party at Aura Beach Club",
+      title: "Halloween — The Nightmare Lineup at Aura",
       date: "2026-10-31",
-      time: "9:00 PM",
+      time: "from 8:00 PM",
       venueSlug: "aura-beach-club",
     });
     const ids = getHalloweenHighlightEvents([party, kids], {

@@ -2923,5 +2923,31 @@
       "Open sparring",
       "Live DJ"
     ]
+  },
+  {
+    "id": "disco-club-domingo-de-calle",
+    "title": "Domingo de Calle at Latin Disco Club",
+    "description": "Every Sunday — Domingo de Calle at Latin Disco Club on Avenida Circunvalación Sur frente a los depósitos de Brugal, Puerto Plata. Where the fun doesn’t stop — street Sunday club energy. Confirm doors and cover via WhatsApp +1 829-563-9469 · Instagram @latindiscoclubpp.",
+    "date": "2026-01-01",
+    "location": "Puerto Plata",
+    "venue": "Latin Disco Club",
+    "venueSlug": "disco-club-brugal",
+    "address": "Avenida Circunvalación Sur frente a los depósitos de Brugal, Puerto Plata",
+    "lat": 19.7792778,
+    "lng": -70.6690061,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "recurrence": "weekly",
+    "recurrenceDay": 0,
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18295639469",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/latindiscoclubpp/",
+    "imageEmoji": "🪩"
   }
 ]

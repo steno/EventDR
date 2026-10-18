@@ -760,6 +760,21 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     phone: "+18492147010",
     venueSlug: "natura-cabana",
   },
+  "natura-market-2026-11-01": {
+    isFree: true,
+    phone: "+18492147010",
+    venueSlug: "natura-cabana",
+  },
+  "disco-club-domingo-de-calle": {
+    callForPricing: true,
+    phone: "+18295639469",
+    venueSlug: "disco-club-brugal",
+  },
+  "aurazul-wellness-day-costambar-2026-11-15": {
+    isFree: false,
+    admissionPrice: "RD$4,200",
+    phone: "+18098513452",
+  },
   "natura-sunbar-sunset-sounds-em-zayd-2026-10-01": {
     phone: "+18492147010",
     venueSlug: "natura-cabana",

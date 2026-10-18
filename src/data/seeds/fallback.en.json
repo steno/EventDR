@@ -1710,7 +1710,7 @@
   {
     "id": "sosua-neon-partyrun-2026-10-24",
     "title": "Sosúa Neon Partyrun 2026",
-    "description": "Sosúa Neon Partyrun presented by GY Fitness with venue partner Hard Rock Cafe Puerto Plata — Saturday 24 October 2026. Registration 4:00 PM, race start 6:30 PM from Hard Rock Cafe (Calle Duarte). Includes hydration, snacks, shirt, medal, bib, and after-party with live band. Registration RD$2,000 — WhatsApp +1 849-505-7778 · @gy_fitness_sosua.",
+    "description": "Sosúa Neon Partyrun presented by GY Fitness with venue partner Hard Rock Cafe Puerto Plata — Saturday 24 October 2026. Registration 4:00 PM, race start 6:30 PM from Hard Rock Cafe (Calle Duarte). Includes hydration, snacks, shirt, medal, bib, and after-party with live band. Zumba instructor Rosanna Escano (@rescano77) joins the neon energy. Registration RD$2,000 — WhatsApp +1 849-505-7778 · @gy_fitness_sosua · @hardrockcafepuertoplata.",
     "date": "2026-10-24",
     "time": "4:00 PM registration · 6:30 PM start",
     "location": "Sosúa",
@@ -1731,6 +1731,10 @@
     "phone": "+18495057778",
     "sourceType": "instagram",
     "sourceUrl": "https://www.instagram.com/p/DdE4xFBx_NS/",
+    "lineup": [
+      "Rosanna Escano — Zumba",
+      "Live band after-party"
+    ],
     "imageEmoji": "🏃"
   },
   {
@@ -2840,9 +2844,10 @@
   },
   {
     "id": "aura-halloween-party-2026-10-31",
-    "title": "Halloween Party at Aura Beach Club",
-    "description": "Halloween Party at Aura Beach Club, Calle Principal, Cabarete — Saturday 31 October 2026. Live show, special cocktails, DJ sets, and spooky surprises. Dress to impress — costume contest prizes RD$20,000 / RD$10,000 / RD$5,000. Confirm doors and cover via Instagram @auracabarete or WhatsApp +1 829-787-0140.",
+    "title": "Halloween — The Nightmare Lineup at Aura",
+    "description": "Halloween — The Nightmare Lineup on the Aura Beach Club rooftop, Calle Principal, Cabarete — Saturday 31 October 2026 from 8:00 PM. DJ Blacky 8:00 PM, DJ Melvin 9:00 PM, DJ Christoo 10:30 PM. Cover RD$1,000. Best dress costume prize RD$20,000. Confirm tables via Instagram @auracabarete or WhatsApp +1 829-787-0140.",
     "date": "2026-10-31",
+    "time": "from 8:00 PM",
     "location": "Cabarete",
     "venue": "Aura Beach Club Cabarete",
     "venueSlug": "aura-beach-club-cabarete",
@@ -2856,14 +2861,16 @@
     ],
     "format": "physical",
     "trending": true,
-    "callForPricing": true,
+    "isFree": false,
+    "admissionPrice": "RD$1,000",
     "phone": "+18297870140",
     "sourceType": "instagram",
     "sourceUrl": "https://www.instagram.com/auracabarete/",
     "lineup": [
-      "Live show",
-      "DJ sets",
-      "Costume contest"
+      "DJ Blacky — 8:00 PM",
+      "DJ Melvin — 9:00 PM",
+      "DJ Christoo — 10:30 PM",
+      "Best dress costume prize RD$20,000"
     ],
     "imageEmoji": "🎃"
   },
@@ -6882,5 +6889,69 @@
       "Deeway"
     ],
     "imageEmoji": "🎃"
+  },
+  {
+    "id": "natura-market-2026-11-01",
+    "title": "Natura Market — 1 Nov at Natura Cabana",
+    "description": "Natura Market at Natura Cabana Boutique Hotel & Spa, Paseo del Sol 5, Cabarete — Sunday 1 November 2026 (first Sunday of the month), 10:30 AM–3:00 PM. Local goods, food, art, community, and a DJ set by the sea. Free entry; dogs welcome on a leash. Pay stall-by-stall. Info +1 849-214-7010 · naturacabana.com.",
+    "date": "2026-11-01",
+    "time": "10:30 AM – 3:00 PM",
+    "location": "Cabarete",
+    "venue": "Natura Cabana",
+    "venueSlug": "natura-cabana",
+    "address": "Paseo del Sol 5, Cabarete",
+    "lat": 19.7833499,
+    "lng": -70.4621124,
+    "category": "festivals",
+    "categories": [
+      "food-drinks",
+      "culture"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "phone": "+18492147010",
+    "sourceType": "flyer",
+    "sourceUrl": "https://naturacabana.com/",
+    "lineup": [
+      "DJ set",
+      "Local goods",
+      "Food",
+      "Art",
+      "Community"
+    ],
+    "imageEmoji": "🛍️"
+  },
+  {
+    "id": "aurazul-wellness-day-costambar-2026-11-15",
+    "title": "AURAZUL Wellness Day — Costambar",
+    "description": "Wellness Day by AURAZUL in Costambar, Puerto Plata — Sunday 15 November 2026. Departure 5:30 AM, return 4:00 PM. Meeting point Av. Dr. Defilló #15, Bellavista. Includes transport, breakfast on the bus, hydrating drinks, vegetarian meals, and a branded t-shirt. Activities: Pilates, gong bath, kayak, snorkel, and a Puerto Plata town tour. Investment RD$4,200 — WhatsApp +1 809-851-3452 · @laelopez.",
+    "date": "2026-11-15",
+    "time": "5:30 AM – 4:00 PM",
+    "location": "Costambar",
+    "venue": "Costambar",
+    "address": "Costambar, Puerto Plata — meeting point Av. Dr. Defilló #15, Bellavista",
+    "lat": 19.8145,
+    "lng": -70.7151,
+    "category": "health-wellness",
+    "categories": [
+      "adventure",
+      "culture"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": false,
+    "admissionPrice": "RD$4,200",
+    "phone": "+18098513452",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/laelopez/",
+    "lineup": [
+      "Pilates",
+      "Gong bath",
+      "Kayak",
+      "Snorkel",
+      "Puerto Plata town tour"
+    ],
+    "imageEmoji": "💙"
   }
 ]

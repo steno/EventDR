@@ -431,6 +431,10 @@ const FILE_TO_EVENT_ID = {
   "disney-dream-taino-bay-2026-10-06.jpg": "disney-dream-taino-bay-2026-10-06",
   "taino-bay-village-daily-lazy-river.jpg": "taino-bay-village-daily",
   "natura-market-2026-10-04.jpg": "natura-market-2026-10-04",
+  "natura-market-2026-11-01.jpg": "natura-market-2026-11-01",
+  "disco-club-domingo-de-calle.jpg": "disco-club-domingo-de-calle",
+  "aurazul-wellness-day-costambar-2026-11-15.jpg":
+    "aurazul-wellness-day-costambar-2026-11-15",
   "licor-lab-car-show-2026-10-10.jpg": "licor-lab-car-show-2026-10-10",
   "nueve-bingo-friday.jpg": "nueve-bingo-friday",
   "vibes-night-live-voramar-2026-10-02-v2.jpg":
@@ -469,7 +473,7 @@ const FILE_TO_EVENT_ID = {
     "ocean-world-terrace-karaoke-wednesday",
   "la-lola-dj-one-d-feriado-2026-09-24.jpg":
     "la-lola-dj-one-d-feriado-2026-09-24",
-  "aura-halloween-party-2026-10-31.jpg": "aura-halloween-party-2026-10-31",
+  "aura-halloween-party-2026-10-31-v2.jpg": "aura-halloween-party-2026-10-31",
   "la-lola-noche-de-nenas-blanco-2026-09-25.jpg":
     "la-lola-noche-de-nenas-blanco-2026-09-25",
   "cigar-town-eddy-almonte-2026-09-26.jpg": "cigar-town-eddy-almonte-2026-09-26",

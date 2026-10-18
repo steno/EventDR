@@ -207,7 +207,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "ocean-world-terrace-karaoke-wednesday.jpg",
   "la-lola-dj-one-d-feriado-2026-09-24":
     "la-lola-dj-one-d-feriado-2026-09-24.jpg",
-  "aura-halloween-party-2026-10-31": "aura-halloween-party-2026-10-31.jpg",
+  "aura-halloween-party-2026-10-31": "aura-halloween-party-2026-10-31-v2.jpg",
   "la-lola-noche-de-nenas-blanco-2026-09-25":
     "la-lola-noche-de-nenas-blanco-2026-09-25.jpg",
   "cigar-town-eddy-almonte-2026-09-26": "cigar-town-eddy-almonte-2026-09-26.jpg",
@@ -249,6 +249,10 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "hard-rock-banditalia-2026-10-17": "hard-rock-banditalia-2026-10-17.jpg",
   "natura-market-moto-2026-09-19": "natura-market-moto-2026-09-19.jpg",
   "natura-market-2026-10-04": "natura-market-2026-10-04.jpg",
+  "natura-market-2026-11-01": "natura-market-2026-11-01.jpg",
+  "disco-club-domingo-de-calle": "disco-club-domingo-de-calle.jpg",
+  "aurazul-wellness-day-costambar-2026-11-15":
+    "aurazul-wellness-day-costambar-2026-11-15.jpg",
   "licor-lab-car-show-2026-10-10": "licor-lab-car-show-2026-10-10.jpg",
   "nueve-bingo-friday": "nueve-bingo-friday.jpg",
   "lokuras-pop-percusion-latina-2026-09-20":
@@ -756,6 +760,9 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "ambar-lounge-perreo-negro-2026-10-10": "object-center",
   "ambar-lounge-too-noise-2026-10-17": "object-center",
   "disco-club-halloween-2026-10-30": "object-center",
+  "disco-club-domingo-de-calle": "object-center",
+  "natura-market-2026-11-01": "object-center",
+  "aurazul-wellness-day-costambar-2026-11-15": "object-center",
   "natura-cabana-halloween-2026-10-31": "object-center",
   "blue-ice-halloween-chimbala-2026-10-31": "object-center",
   "amarea-one-last-escape-2026-11-07": "object-center",
@@ -1084,7 +1091,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "sosua-food-market-oktoberfest-tropical-2026-10-17.jpg",
   "sosua-food-market-halloween-cine-2026-10-24.jpg",
   "la-lola-dj-one-d-feriado-2026-09-24.jpg",
-  "aura-halloween-party-2026-10-31.jpg",
+  "aura-halloween-party-2026-10-31-v2.jpg",
   "la-lola-noche-de-nenas-blanco-2026-09-25.jpg",
   "cigar-town-eddy-almonte-2026-09-26.jpg",
   "joaquin-sanchez-rancho-catalina-2026-09-27.jpg",
@@ -1264,6 +1271,9 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "masters-surf-reunion-10-2026-mon-finals.jpg",
   "natura-market-moto-2026-09-19.jpg",
   "natura-market-2026-10-04.jpg",
+  "natura-market-2026-11-01.jpg",
+  "disco-club-domingo-de-calle.jpg",
+  "aurazul-wellness-day-costambar-2026-11-15.jpg",
   "licor-lab-car-show-2026-10-10.jpg",
   "petit-francois-friday-karaoke.jpg",
   "pop-cinemas-week-2026-08-20.jpg",
