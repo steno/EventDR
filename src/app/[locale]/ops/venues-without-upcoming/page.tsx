@@ -2,7 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { AppHeader } from "@/components/AppHeader";
-import { isValidLocale, locales, type Locale } from "@/i18n/config";
+import { isValidLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { venueDetailPath } from "@/lib/event-navigation";
 import { PAGE_SHELL_CLASS } from "@/lib/page-shell";
@@ -18,11 +18,8 @@ export const metadata: Metadata = {
   title: "Venues without upcoming — POP Events ops",
 };
 
+// On-demand ISR. Prebuilding catalog pages SIGKILLs the Netlify worker.
 export const revalidate = 120;
-
-export function generateStaticParams() {
-  return locales.map((locale) => ({ locale }));
-}
 
 function groupByCity(
   entries: VenueDirectoryEntry[],

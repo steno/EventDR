@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import type { Viewport } from "next";
-import { isValidLocale, locales } from "@/i18n/config";
+import { isValidLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { SITE_URL } from "@/lib/site-url";
 import { SITE_NAME, defaultOpenGraph, defaultTwitter } from "@/lib/seo";
@@ -15,10 +15,6 @@ import { PwaRegister } from "@/components/PwaRegister";
 import { PullToReload } from "@/components/PullToReload";
 import { SkipToContent } from "@/components/SkipToContent";
 import { SupportNudge } from "@/components/SupportNudge";
-
-export function generateStaticParams() {
-  return locales.map((locale) => ({ locale }));
-}
 
 export const viewport: Viewport = {
   themeColor: "#0a0a0a",

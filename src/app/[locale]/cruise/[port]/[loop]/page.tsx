@@ -2,10 +2,9 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { CruiseLoopView } from "@/components/CruiseLoopView";
 import { JsonLd } from "@/components/JsonLd";
-import { isValidLocale, locales } from "@/i18n/config";
+import { isValidLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import {
-  CRUISE_ITINERARIES,
   CRUISE_PORTS,
   cruiseLoopPath,
   cruisePath,
@@ -30,17 +29,8 @@ import {
 } from "@/lib/seo";
 import { getVenues } from "@/lib/venues";
 
+// On-demand ISR. Prebuilding catalog pages SIGKILLs the Netlify worker.
 export const revalidate = 120;
-
-export function generateStaticParams() {
-  return locales.flatMap((locale) =>
-    CRUISE_ITINERARIES.map((loop) => ({
-      locale,
-      port: loop.port,
-      loop: loop.id,
-    })),
-  );
-}
 
 export async function generateMetadata({
   params,

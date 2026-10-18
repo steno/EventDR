@@ -153,7 +153,10 @@ export async function GET() {
 
   try {
     // Short cache — tropical forecasts flip between trace drizzle and clear often.
-    const response = await fetch(url, { next: { revalidate: 300 } });
+    const response = await fetch(url, {
+      next: { revalidate: 300 },
+      signal: AbortSignal.timeout(8000),
+    });
     if (!response.ok) {
       return NextResponse.json({ error: "weather_unavailable" }, { status: 502 });
     }

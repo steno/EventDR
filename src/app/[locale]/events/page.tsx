@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { EventScopePage } from "@/components/EventScopePage";
 import { JsonLd } from "@/components/JsonLd";
 import { categoryNavLinks } from "@/lib/event-navigation";
-import { isValidLocale, locales } from "@/i18n/config";
+import { isValidLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getPublicEvents } from "@/lib/public-events";
 import {
@@ -13,11 +13,8 @@ import {
   localePath,
 } from "@/lib/seo";
 
+// On-demand ISR. Prebuilding catalog pages SIGKILLs the Netlify worker.
 export const revalidate = 120;
-
-export function generateStaticParams() {
-  return locales.map((locale) => ({ locale }));
-}
 
 export async function generateMetadata({
   params,

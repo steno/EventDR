@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { EventScopePage } from "@/components/EventScopePage";
 import { JsonLd } from "@/components/JsonLd";
 import { categoryNavLinks } from "@/lib/event-navigation";
-import { isValidLocale, locales, type Locale } from "@/i18n/config";
+import { isValidLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { getPublicEvents } from "@/lib/public-events";
 import {
@@ -15,7 +15,7 @@ import { sortEventsForDisplay } from "@/lib/event-sort";
 import { eventsInWeekendOrder } from "@/lib/list-day-groups";
 import { buildWhenSearchCopy } from "@/lib/search-snippets";
 import { pinSpecialEvents } from "@/lib/special-events";
-import { getWhenSeo, isWhenSlug, WHEN_SLUGS, type WhenSlug } from "@/lib/time-seo";
+import { getWhenSeo, isWhenSlug, type WhenSlug } from "@/lib/time-seo";
 
 /** Same order the weekend/today list renders, so the snippet names the first cards. */
 async function listedWhenEvents(locale: Locale, range: WhenSlug) {
@@ -32,13 +32,8 @@ async function listedWhenEvents(locale: Locale, range: WhenSlug) {
   return range === "weekend" ? eventsInWeekendOrder(pinned) : pinned;
 }
 
+// On-demand ISR. Prebuilding catalog pages SIGKILLs the Netlify worker.
 export const revalidate = 120;
-
-export async function generateStaticParams() {
-  return locales.flatMap((locale) =>
-    WHEN_SLUGS.map((range) => ({ locale, range })),
-  );
-}
 
 export async function generateMetadata({
   params,

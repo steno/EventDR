@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { isValidLocale, locales } from "@/i18n/config";
+import { isValidLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { CategoryDirectory } from "@/components/CategoryDirectory";
 import { StickyListHeader } from "@/components/StickyListHeader";
@@ -8,11 +8,8 @@ import { getPublicEvents } from "@/lib/public-events";
 import { buildAlternates } from "@/lib/seo";
 import { PAGE_SHELL_CLASS } from "@/lib/page-shell";
 
+// On-demand ISR. Prebuilding catalog pages SIGKILLs the Netlify worker.
 export const revalidate = 120;
-
-export function generateStaticParams() {
-  return locales.map((locale) => ({ locale }));
-}
 
 export async function generateMetadata({
   params,

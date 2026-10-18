@@ -3,10 +3,9 @@ import type { Metadata } from "next";
 import { Home } from "@/components/Home";
 import { HomeBootExpect } from "@/components/HomeBootExpect";
 import { JsonLd } from "@/components/JsonLd";
-import { isValidLocale, locales } from "@/i18n/config";
+import { isValidLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import {
-  CRUISE_PORT_SLUGS,
   isCruisePortSlug,
   type CruisePortSlug,
 } from "@/lib/cruise";
@@ -18,13 +17,8 @@ import {
 } from "@/lib/seo";
 import { getVenues } from "@/lib/venues";
 
+// On-demand ISR. Prebuilding catalog pages SIGKILLs the Netlify worker.
 export const revalidate = 120;
-
-export function generateStaticParams() {
-  return locales.flatMap((locale) =>
-    CRUISE_PORT_SLUGS.map((port) => ({ locale, port })),
-  );
-}
 
 export async function generateMetadata({
   params,
