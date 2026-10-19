@@ -16,8 +16,11 @@ If they only said “catalog”, ask and stop:
 
 1. New links or flyers to add?
 2. A listing to fix (category, ended early, pin, photo, or title)?
+3. **Friday Instagram discovery** (weekend flyer scout)?
 
-Do not scout the coast, Natura, or social feeds unless they ask.
+If they already asked for Friday IG / Instagram scout / weekend discovery, run skill `pop-instagram-ingest` with rule `instagram-weekly` — do not re-quiz. Primary discovery day is **Friday**; do not duplicate a full catalog scan on Sunday.
+
+Do not scout the coast, Natura, or social feeds unless they ask (or pick option 3 / name that job).
 
 ## When adding or fixing
 

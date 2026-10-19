@@ -3,8 +3,9 @@ name: pop-instagram-ingest
 description: >-
   Discovers new North Coast DR events from monitored Instagram accounts, posts,
   Reels, Stories, and hashtags using a logged-in browser, adds only verified new
-  events to POP Events seeds, and confirms ingest. Use for Instagram event
-  discovery, Sunday Instagram scans, or refreshing Dominican event coverage.
+  events to POP Events seeds, and confirms ingest. Use for Friday Instagram
+  discovery (primary), weekend flyer scouts, or refreshing Dominican coverage.
+  Do not run a second full catalog scan on Sunday.
 ---
 
 # POP Events — Instagram ingest
@@ -15,12 +16,22 @@ Requires an Instagram login in the Cursor browser. Do not bypass login challenge
 
 Source of truth: `src/lib/instagram-sources.ts` (`INSTAGRAM_ACCOUNTS`).
 
+## Cadence (catalog desk habit)
+
+| When | What |
+|------|------|
+| **Friday morning (primary)** | Full logged-in discovery — weekend bills first. Catalog desk habit; not a Cursor Automation yet. |
+| **Sunday** | Do **not** repeat a full Instagram catalog scan. Light catch-up only if Friday was thin or blocked. |
+| **Other days** | Only when the user asks for a targeted refresh. |
+
+Defer a scheduled Cursor Automation until a short VIP list and a clear “new since last run” stop-rule feel right in practice.
+
 ## Checklist
 
 ```text
 Instagram ingest:
 - [ ] 1. Confirm browser login and scope
-- [ ] 2. Scan monitored profiles
+- [ ] 2. Scan monitored profiles (priority order; weekend focus on Friday)
 - [ ] 3. Scan recent Stories and Reels
 - [ ] 4. Search local hashtags and venue names
 - [ ] 5. Verify dates, venue, admission, and source
@@ -33,7 +44,7 @@ Instagram ingest:
 
 ## 1. Scope and safety
 
-Include public events in Puerto Plata (including Cofresí and Maimón), Sosúa, Cabarete, Costambar, and Playa Dorada. For the current 2026 discovery pass, use an explicit window from the run date through **2026-12-31**. Include clearly recurring events only when an official source confirms that the schedule remains active in this window.
+Include public events in Puerto Plata (including Cofresí and Maimón), Sosúa, Cabarete, Costambar, and Playa Dorada. For the current 2026 discovery pass, use an explicit window from the run date through **2026-12-31**. Include clearly recurring events only when an official source confirms that the schedule remains active in this window. On Friday runs, prioritize Fri–Sun (and next-week advance) flyers over stale mid-week promos.
 
 Skip:
 
@@ -56,18 +67,19 @@ Do not request or handle the user's Instagram password.
 
 ## 3. Profile scan
 
-Read `INSTAGRAM_ACCOUNTS` and scan each profile in listed order. For each account:
+Read `INSTAGRAM_ACCOUNTS` and scan each profile in **listed priority order** (nightlife / promoters first). That list is the interim VIP order until a shorter automation list exists. For each account:
 
-1. Review posts and Reels published since the previous weekly scan. When no prior point is known, review the latest 24 items plus pinned posts and relevant highlights; continue farther back when needed to find advance announcements dated through 2026-12-31.
-2. Open likely event flyers/captions and record:
+1. Review posts and Reels published since the previous **Friday** scan (or last successful discovery run). When no prior point is known, review the latest 24 items plus pinned posts and relevant highlights; continue farther back when needed to find advance announcements dated through 2026-12-31.
+2. Prefer stopping an account early when the visible grid shows only older posts already reviewed — do not grind every quiet tourism handle after the high-signal block is clean.
+3. Open likely event flyers/captions and record:
    - title or performer
    - date and time
    - venue and city
    - admission price, ticket link, phone, or reservation method
    - canonical Instagram post/Reel URL
    - organizer handle
-3. Inspect carousel slides when event details are split across images.
-4. Use visible caption text first; use flyer text only when legible.
+4. Inspect carousel slides when event details are split across images.
+5. Use visible caption text first; use flyer text only when legible.
 
 For Stories, inspect only currently public Stories from monitored accounts. Capture a stable profile URL plus the organizer handle and exact visible details. Because Story URLs expire, prefer a linked post, ticket page, or organizer profile as `sourceUrl` when available.
 

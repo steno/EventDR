@@ -15,6 +15,6 @@ Three desks. Reuse the current chat. Do not open a new agent, and do not quiz fo
 
 If they only name the desk, the first reply is that skill’s questions. Stop there. No fetching, browsing, or edits until they pick.
 
-A flyer, event link, or “correct this image” is Catalog. A page layout or SEO note is Site. Sunday, Friday, or spotlight is Marketing. If that job does not match the desk they just opened, name the right desk and wait. Do not edit until they switch.
+A flyer, event link, “correct this image”, or **Friday Instagram / weekend discovery** is Catalog (`pop-instagram-ingest`). A page layout or SEO note is Site. Sunday pipeline, Friday digest/social, or spotlight is Marketing. If that job does not match the desk they just opened, name the right desk and wait. Do not edit until they switch.
 
 After a change, send the localhost URL and ask them to confirm. They check it. Do not open the browser to verify. Wait. Do not commit until they ask.

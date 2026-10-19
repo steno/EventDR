@@ -767,16 +767,18 @@ function HomeApp({
                     <h1>{discoverHeading}</h1>
                     {heroTagline ? <p>{heroTagline}</p> : null}
                   </div>
-                  {/* Mobile only — desktop area chip sits on the category title row. */}
-                  <StickyListFilters className="sm:hidden">
-                    <div className="w-full text-[1.5rem] font-extrabold leading-none">
-                      <CityLocationPicker
-                        variant="hero"
-                        photoOverlay={false}
-                        {...areaPickerProps}
-                      />
-                    </div>
-                  </StickyListFilters>
+                  {/* Search mode: keep mobile area select sticky without category pills. */}
+                  {isSearching ? (
+                    <StickyListFilters className="sm:hidden">
+                      <div className="w-full text-[1.5rem] font-extrabold leading-none">
+                        <CityLocationPicker
+                          variant="hero"
+                          photoOverlay={false}
+                          {...areaPickerProps}
+                        />
+                      </div>
+                    </StickyListFilters>
+                  ) : null}
                 </>
               )}
               {cruisePort ? (
@@ -794,29 +796,41 @@ function HomeApp({
                 />
               ) : null}
               {!isSearching && !cruisePort && (
-                <div className="mb-6 sm:mb-8 lg:mb-8">
+                <StickyListFilters className="mb-6 md:mb-8">
+                  {/* Mobile area select — desktop select sits left of the category title. */}
+                  <div className="mb-3 w-full text-[1.5rem] font-extrabold leading-none sm:hidden">
+                    <CityLocationPicker
+                      variant="hero"
+                      photoOverlay={false}
+                      {...areaPickerProps}
+                    />
+                  </div>
                   <CategoryGrid
                     locale={locale}
                     dict={dict}
                     citySlug={selectedCity}
                     events={scopedEvents}
-                    headerAction={
-                      <>
-                        <CruiseShipEntry
-                          variant="inline"
-                          dict={dict}
-                          locale={locale}
-                          open={cruiseEntryOpen}
-                          onOpenChange={setCruiseEntryOpen}
-                          onSelectPort={enterCruise}
+                    headerStart={
+                      <div className="hidden w-[min(100%,16rem)] text-[1.5rem] font-extrabold leading-none sm:block">
+                        <CityLocationPicker
+                          variant="hero"
+                          photoOverlay={false}
+                          {...areaPickerProps}
                         />
-                        <div className="hidden shrink-0 sm:block">
-                          <CityLocationPicker {...areaPickerProps} />
-                        </div>
-                      </>
+                      </div>
+                    }
+                    headerAction={
+                      <CruiseShipEntry
+                        variant="inline"
+                        dict={dict}
+                        locale={locale}
+                        open={cruiseEntryOpen}
+                        onOpenChange={setCruiseEntryOpen}
+                        onSelectPort={enterCruise}
+                      />
                     }
                   />
-                </div>
+                </StickyListFilters>
               )}
 
               {!isSearching && !cruisePort && (

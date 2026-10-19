@@ -24,7 +24,11 @@ import {
   cardGridRowRemainder,
   fillCardGridPage,
 } from "@/lib/card-grid";
-import { scrollToListTop, scrollCategoryNavIntoView } from "@/lib/list-scroll";
+import {
+  scrollBehaviorPreference,
+  scrollToListTop,
+  scrollCategoryNavIntoView,
+} from "@/lib/list-scroll";
 import { clusterRecurringVenueEvents } from "@/lib/venue-recurring-siblings";
 import { eventsInWeekendOrder, weekendHeadingDate } from "@/lib/list-day-groups";
 import { formatEventDate } from "@/lib/format-date";
@@ -123,7 +127,10 @@ interface FilteredEventListProps {
    * (e.g. mobile area select on category pages).
    */
   stickyLead?: ReactNode;
-  /** Optional area chip in the sticky filter bar (desktop scope pages). */
+  /**
+   * Desktop area select — sits left of the category pill rail (home-matching
+   * hero style). Mobile uses `stickyLead` instead.
+   */
   locationPicker?: ReactNode;
   /**
    * Category pill rail inside the sticky filter bar (above time tabs).
@@ -194,6 +201,8 @@ export function FilteredEventList({
     area: string | null;
     category: string | null;
   } | null>(null);
+  /** List ↔ cards toggle — skip mount / Strict Mode remount. */
+  const scrolledViewRef = useRef<EventListView | null>(null);
   const skipScrollForUrlWhen = useRef(false);
   const scrollAnchorRef = useRef<HTMLDivElement>(null);
   const [gridRef, columns] = useCardGridColumns(view === "cards");
@@ -328,9 +337,26 @@ export function FilteredEventList({
     if (!timeChanged && !priceChanged && !areaChanged && !categoryChanged) {
       return;
     }
-    // Park under sticky header + filter bar — never the page hero.
+    // Area / category soft-nav can swap hero ↔ list chrome — match home and
+    // reset to the top of the page. Time/price only park under sticky filters.
+    if (areaChanged || categoryChanged) {
+      window.scrollTo({ top: 0, behavior: scrollBehaviorPreference() });
+      return;
+    }
     scrollToListTop(scrollAnchorRef.current);
   }, [timeRange, priceFilter, areaKey, categoryId, scrollOnFilterChange]);
+
+  useLayoutEffect(() => {
+    if (viewLocked || !scrollOnFilterChange) return;
+    if (scrolledViewRef.current === null) {
+      scrolledViewRef.current = view;
+      return;
+    }
+    if (scrolledViewRef.current === view) return;
+    scrolledViewRef.current = view;
+    // List ↔ cards reflows the grid — park content under sticky filters.
+    scrollToListTop(scrollAnchorRef.current);
+  }, [view, viewLocked, scrollOnFilterChange]);
 
   // SSR/API payloads are already materialized — filter/sort only.
   const activeRange = fixedTimeRange ?? timeRange;
@@ -482,30 +508,34 @@ export function FilteredEventList({
           />
           <StickyListFilters>
             {/*
-              Category pills pin with time tabs. City lead stays above on mobile.
+              Area select left + category pills (desktop). Mobile area select
+              stays above the time tabs via stickyLead.
             */}
-            {categoryNav ? (
+            {categoryNav || locationPicker ? (
               <div
-                className={
+                className={`flex flex-wrap items-center gap-x-3 gap-y-2 ${
                   stickyLead ||
                   showTimeFilter ||
-                  locationPicker ||
                   showPriceFilter ||
                   viewToggle
                     ? "pb-2.5"
                     : ""
-                }
+                }`}
               >
-                {categoryNav}
+                {locationPicker ? (
+                  <div className="hidden shrink-0 sm:block">{locationPicker}</div>
+                ) : null}
+                {categoryNav ? (
+                  <div className="min-w-0 flex-1 basis-full sm:basis-0">
+                    {categoryNav}
+                  </div>
+                ) : null}
               </div>
             ) : null}
             {stickyLead ? (
               <div
                 className={`sm:hidden ${
-                  showTimeFilter ||
-                  locationPicker ||
-                  showPriceFilter ||
-                  viewToggle
+                  showTimeFilter || showPriceFilter || viewToggle
                     ? "pb-2.5"
                     : ""
                 }`}
@@ -533,15 +563,8 @@ export function FilteredEventList({
                 categoryBackCue
               )}
 
-              {locationPicker || (!showTimeFilter && viewToggle) ? (
-                <div className="flex min-w-0 items-center gap-2 md:shrink-0 md:pb-0.5">
-                  {locationPicker ? (
-                    <div className="min-w-0 shrink-0">{locationPicker}</div>
-                  ) : null}
-                  {!showTimeFilter && viewToggle ? (
-                    <div className="ml-auto shrink-0">{viewToggle}</div>
-                  ) : null}
-                </div>
+              {!showTimeFilter && viewToggle ? (
+                <div className="ml-auto shrink-0 md:pb-0.5">{viewToggle}</div>
               ) : null}
             </div>
           </StickyListFilters>

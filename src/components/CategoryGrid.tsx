@@ -13,7 +13,6 @@ import type { Locale } from "@/i18n/config";
 import type { CitySlug } from "@/lib/cities";
 import type { Event } from "@/lib/types";
 import {
-  CATEGORY_PILL_ACTIVE,
   CATEGORY_PILL_BASE,
   CATEGORY_PILL_DIMMED,
   CATEGORY_PILL_IDLE,
@@ -34,6 +33,8 @@ interface CategoryGridProps {
   events?: Pick<Event, "category" | "categories">[];
   /** Fires when the user commits to a category (before navigation). */
   onCategorySelect?: () => void;
+  /** Control to the left of the section title (e.g. desktop area select). */
+  headerStart?: ReactNode;
   /** Control beside the section title (e.g. cruise ship pill). */
   headerAction?: ReactNode;
 }
@@ -44,6 +45,7 @@ export function CategoryGrid({
   citySlug = null,
   events,
   onCategorySelect,
+  headerStart,
   headerAction,
 }: CategoryGridProps) {
   const router = useRouter();
@@ -106,6 +108,9 @@ export function CategoryGrid({
   return (
     <section aria-label={label}>
       <div className="mb-3 flex flex-wrap items-center gap-x-3 gap-y-2">
+        {headerStart ? (
+          <div className="shrink-0">{headerStart}</div>
+        ) : null}
         <p className="mr-auto min-w-0 text-base font-semibold text-neutral-700 dark:text-neutral-300">
           {label}
         </p>
@@ -125,7 +130,7 @@ export function CategoryGrid({
             onCategorySelect?.();
           }}
           aria-busy={pendingHref === allEventsHref || undefined}
-          className={`${CATEGORY_PILL_BASE} ${CATEGORY_PILL_ACTIVE}${
+          className={`${CATEGORY_PILL_BASE} ${CATEGORY_PILL_IDLE}${
             pendingHref === allEventsHref ? ` ${CATEGORY_PILL_PENDING}` : ""
           }${
             pendingHref != null && pendingHref !== allEventsHref
@@ -133,7 +138,6 @@ export function CategoryGrid({
               : ""
           }`}
           aria-label={allEventsLabel}
-          aria-current="page"
         >
           {allEventsLabel}
         </IntentLink>

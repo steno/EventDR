@@ -48,6 +48,7 @@ import {
   type ScopeListingSelection,
 } from "@/lib/scope-listing";
 import { signalNavDone } from "@/lib/nav-feedback";
+import { scrollBehaviorPreference } from "@/lib/list-scroll";
 import {
   categoryListingSeo,
   cityCategoryListingSeo,
@@ -621,8 +622,10 @@ export function EventScopePage({
             }
             locationPicker={
               showLocationPicker ? (
-                <div className="hidden sm:block">
+                <div className="w-[min(100%,16rem)] text-[1.5rem] font-extrabold leading-none">
                   <CityLocationPicker
+                    variant="hero"
+                    photoOverlay={false}
                     locale={locale}
                     dict={dict}
                     currentSlug={activeCitySlug ?? null}

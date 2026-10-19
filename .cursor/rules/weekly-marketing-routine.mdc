@@ -12,25 +12,27 @@ Run when the user says **weekly marketing**, **content pipeline**, **Sunday rout
 
 | When | Action | Automation |
 |------|--------|------------|
-| Sun ~12:00 AST | Event ingest | GitHub: `weekly-event-ingest.yml` |
-| Sun after ingest | Logged-in discovery + pipeline review | Skills: `pop-instagram-ingest`, `pop-facebook-ingest`, `pop-content-pipeline` |
-| Manual only | Facebook + Instagram when you ask: today’s specials first, then up to 3 happening-today (cap 10). Not Reels. No daily cron. | `daily-today-spotlight.yml` (workflow_dispatch) or agent / `run-today-spotlight.mjs` |
+| **Fri morning** | Logged-in Instagram discovery (weekend flyers) | Catalog desk habit: `pop-instagram-ingest` / `instagram-weekly` — not a Cursor Automation yet |
 | Fri ~9:00 AST | Digest artifacts | GitHub: `weekly-marketing-digest.yml` |
 | Fri morning | Social + B2B | Skills: `pop-social-weekly`, `pop-weekend-b2b-digest` |
+| Sun ~12:00 AST | Event ingest | GitHub: `weekly-event-ingest.yml` |
+| Sun after ingest | Moderate + pipeline (no full IG rescan) | Skills: `pop-facebook-ingest` (optional), `pop-content-pipeline`; light IG catch-up only if Friday was thin |
+| Manual only | Facebook + Instagram when you ask: today’s specials first, then up to 3 happening-today (cap 10). Not Reels. No daily cron. | `daily-today-spotlight.yml` (workflow_dispatch) or agent / `run-today-spotlight.mjs` |
+
+## Friday checklist
+
+1. Run `pop-instagram-ingest` (rule `instagram-weekly`) in a logged-in browser — primary discovery for weekend bills
+2. Download artifact `weekend-marketing-digests` or curl partner-digest API
+3. Post social drafts (`pop-social-weekly`)
+4. Email/WhatsApp B2B copy to partner list (`pop-weekend-b2b-digest`)
 
 ## Sunday checklist
 
 1. Verify ingest Action green (or `POST /api/ingest?secret=CRON_SECRET`)
-2. Run `pop-instagram-ingest` (rule `instagram-weekly`) in a logged-in browser
-3. Run `pop-facebook-ingest` (rule `facebook-groups-weekly`) in a logged-in browser
+2. Do **not** duplicate Friday’s full Instagram catalog scan — light catch-up only if needed
+3. Run `pop-facebook-ingest` (rule `facebook-groups-weekly`) in a logged-in browser when useful
 4. Moderate at `/en/moderate`
 5. Run `pop-content-pipeline` skill — save social drafts
-
-## Friday checklist
-
-1. Download artifact `weekend-marketing-digests` or curl partner-digest API
-2. Post social drafts (`pop-social-weekly`)
-3. Email/WhatsApp B2B copy to partner list (`pop-weekend-b2b-digest`)
 
 ## API reference
 

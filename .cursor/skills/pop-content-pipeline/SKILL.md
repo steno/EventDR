@@ -15,8 +15,9 @@ End-to-end: **ingest → moderate → social → partner digest**.
 
 | Day | Step |
 |-----|------|
-| **Sunday ~12:00 AST** | Ingest (GitHub Action) + this pipeline |
+| **Friday morning** | Logged-in Instagram discovery (catalog desk / `pop-instagram-ingest`) — **before** weekend nights |
 | **Friday ~9:00 AST** | Partner digest + social repost |
+| **Sunday ~12:00 AST** | Ingest (GitHub Action) + this pipeline — **no** full Instagram rescan |
 | **Manual only** | Spotlight when asked — Facebook album + Instagram image posts via `daily-today-spotlight.yml` (workflow_dispatch) or `run-today-spotlight.mjs`. Specials first, then up to 3 happening-today (cap 10). Not Reels. No daily cron. |
 
 ## Sunday workflow
@@ -26,11 +27,11 @@ Copy and track:
 ```
 Pipeline:
 - [ ] 1. Confirm ingest ran
-- [ ] 2. Run logged-in Instagram and Facebook discovery
+- [ ] 2. Optional Facebook discovery; skip full Instagram rescan (Friday was primary)
 - [ ] 3. Review pending events
 - [ ] 4. Generate partner digest preview
 - [ ] 5. Draft social posts
-- [ ] 6. Save outputs for Friday
+- [ ] 6. Save outputs for next Friday posting
 ```
 
 ### 1. Confirm ingest
@@ -43,11 +44,14 @@ curl -sS -X POST "https://pop-event.com/api/seed/facebook-events" -H "Authorizat
 curl -sS -X POST "https://pop-event.com/api/ingest" -H "Authorization: Bearer $CRON_SECRET"
 ```
 
-### 2. Logged-in social discovery
+### 2. Logged-in social discovery (Sunday)
 
-Run skill `pop-instagram-ingest` first, then `pop-facebook-ingest`. Both browser scans cover login-walled content that the GitHub ingest cannot reliably access.
+Primary Instagram discovery is the **Friday catalog habit** (`pop-instagram-ingest`). On Sunday:
 
-If Instagram or Facebook requires login confirmation, CAPTCHA, passkey, or another manual checkpoint, report the blocker and continue with the remaining pipeline steps.
+- Run `pop-facebook-ingest` when useful for login-walled groups/pages.
+- Instagram: **light catch-up only** if Friday was skipped, blocked, or clearly thin — do not re-scan the full `INSTAGRAM_ACCOUNTS` list.
+
+If Facebook (or a catch-up Instagram pass) requires login confirmation, CAPTCHA, passkey, or another manual checkpoint, report the blocker and continue with the remaining pipeline steps.
 
 ### 3. Review pending events
 

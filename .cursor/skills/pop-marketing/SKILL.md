@@ -14,8 +14,8 @@ Instagram, Facebook, spotlight, and the Friday partner digest. Scheduled work al
 
 If they only said “marketing”, ask and stop. Offer the jobs that are real that day:
 
-- **Sunday:** check ingest, then Instagram scan, Facebook scan, or both? Browser must be logged in.
-- **Friday:** social drafts, partner digest, or both?
+- **Friday:** Instagram discovery is a **catalog** job (`pop-instagram-ingest`) — name Catalog if they want that. This desk: social drafts, partner digest, or both?
+- **Sunday:** check ingest, Facebook scan, moderate + pipeline? Browser for Facebook if needed. Do **not** re-run a full Instagram catalog scan (Friday already did discovery).
 - **Any day:** spotlight (specials, then happening-today) only if they want a post.
 
 Do not invent posts, networks, or a daily cron.
@@ -24,7 +24,8 @@ Do not invent posts, networks, or a daily cron.
 
 | They picked | Read |
 |-------------|------|
-| Sunday pipeline | `pop-instagram-ingest`, `pop-facebook-ingest`, then `pop-content-pipeline`. Rules: `instagram-weekly`, `facebook-groups-weekly`. |
+| Friday Instagram / weekend discovery | Catalog desk → `pop-instagram-ingest` (rule `instagram-weekly`). Not Marketing. |
+| Sunday pipeline | `pop-facebook-ingest` (optional), then `pop-content-pipeline`. Light IG catch-up only if Friday was thin. Rule: `facebook-groups-weekly`. |
 | Friday social | `pop-social-weekly` |
 | Friday partners | `pop-weekend-b2b-digest` |
 | Spotlight | `.cursor/rules/weekly-marketing-routine.mdc` — manual only, specials first, cap 10, not Reels |

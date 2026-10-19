@@ -220,7 +220,7 @@ export function CityLocationPicker({
         heroOnPhoto
           ? "relative block w-full sm:inline-flex sm:w-auto sm:shrink-0 sm:align-baseline"
           : isHero
-            ? "relative block w-full"
+            ? "relative block w-full sm:inline-flex sm:w-auto sm:shrink-0"
             : "relative max-w-full shrink-0"
       }
     >
@@ -235,7 +235,7 @@ export function CityLocationPicker({
         className={
           isHero
             ? `
-              relative isolate inline-flex w-full items-center justify-between gap-1
+              relative isolate inline-flex w-full min-w-[12rem] items-center justify-between gap-1
               whitespace-nowrap rounded-lg px-2 py-1.5 text-left text-[1em]
               font-extrabold leading-none
               ring-2 ring-orange-500/45
@@ -243,7 +243,11 @@ export function CityLocationPicker({
               active:scale-[0.98] hover:brightness-110
               focus-visible:outline focus-visible:outline-2
               focus-visible:outline-offset-2 focus-visible:outline-orange-400
-              ${heroOnPhoto ? "sm:w-auto sm:justify-start sm:px-2 sm:py-0.5 sm:ring-0" : ""}
+              ${
+                heroOnPhoto
+                  ? "sm:w-auto sm:min-w-0 sm:justify-start sm:px-2 sm:py-0.5 sm:ring-0"
+                  : ""
+              }
             `
             : `
               inline-flex max-w-[min(100%,12.5rem)] items-center gap-1.5
@@ -259,7 +263,7 @@ export function CityLocationPicker({
             `
         }
       >
-        {isHero ? <HeroCityPickerStroke /> : null}
+        {heroOnPhoto ? <HeroCityPickerStroke /> : null}
         <span
           className={
             isHero

@@ -10,7 +10,7 @@ Say **catalog**, **site**, or **marketing**. If that is all they said, ask that 
 
 - **Catalog** — add or fix events and venues (`.cursor/skills/pop-catalog/SKILL.md`)
 - **Site** — a page, a bug, or SEO (`.cursor/skills/pop-site/SKILL.md`)
-- **Marketing** — Sunday pipeline, Friday digest, or spotlight (`.cursor/skills/pop-marketing/SKILL.md`)
+- **Marketing** — Sunday pipeline, Friday digest/social, or spotlight (`.cursor/skills/pop-marketing/SKILL.md`). Friday Instagram discovery is Catalog.
 
 ## Weekly social event discovery
 
@@ -18,7 +18,7 @@ Scheduled ingest: GitHub Action `.github/workflows/weekly-event-ingest.yml` (Sun
 
 For richer coverage (Discussion posts, login-gated groups), run the agent with rule `facebook-groups-weekly` while logged into Facebook in the browser. Only add **new** North Coast events; see `src/lib/facebook-groups.ts`.
 
-For Instagram—the primary source for many DR event flyers—run skill `pop-instagram-ingest` with rule `instagram-weekly` while logged into Instagram. It scans monitored posts, Reels, carousels, and Stories from `src/lib/instagram-sources.ts`. The GitHub Action only provides public-profile and web-search fallback coverage.
+For Instagram—the primary source for many DR event flyers—run skill `pop-instagram-ingest` with rule `instagram-weekly` while logged into Instagram. **Primary habit: Friday morning** (catalog desk) so weekend flyers land before Fri–Sun nights. Do **not** duplicate a full Instagram catalog scan on Sunday — Sunday is API ingest + moderate + pipeline, with light catch-up only if Friday was thin. Scans monitored posts, Reels, carousels, and Stories from `src/lib/instagram-sources.ts`. The GitHub Action only provides public-profile and web-search fallback coverage. Defer a Cursor Automation until a short VIP list and stop-rule feel right.
 
 **Natura Cabana calendar:** when refreshing or verifying Natura listings (Saturday live, Thursday Sunset & Sounds, Natura Market, SunBar specials), check [naturacabana.com/events/](https://naturacabana.com/events/) before inventing dates — guest DJs and themed Saturday nights are posted there.
 
@@ -34,9 +34,10 @@ For Instagram—the primary source for many DR event flyers—run skill `pop-ins
 
 | When | Automation | Agent |
 |------|------------|-------|
-| Sun ~12:00 AST | `weekly-event-ingest.yml` | Skills `pop-instagram-ingest`, `pop-facebook-ingest`, then `pop-content-pipeline` |
-| Manual only | `daily-today-spotlight.yml` (workflow_dispatch) or ask the agent — **Facebook album + Instagram image posts** (specials first, then up to 3 happening-today, cap 10). IG images are the Share → Instagram card. Not Reels. No daily cron. | **spotlight today’s specials** is the specials-only rail (`TODAY_SPECIALS=true`). Default both networks; do not set `INSTAGRAM_ONLY` unless asked. |
+| **Fri morning** | — (catalog desk habit) | Skill `pop-instagram-ingest` (rule `instagram-weekly`) — primary logged-in discovery for weekend bills |
 | Fri ~9:00 AST | `weekly-marketing-digest.yml` → artifact `weekend-marketing-digests` | Skills `pop-social-weekly`, `pop-weekend-b2b-digest` |
+| Sun ~12:00 AST | `weekly-event-ingest.yml` | Skill `pop-facebook-ingest` (optional light IG catch-up only), then `pop-content-pipeline` — **no** full Instagram rescan |
+| Manual only | `daily-today-spotlight.yml` (workflow_dispatch) or ask the agent — **Facebook album + Instagram image posts** (specials first, then up to 3 happening-today, cap 10). IG images are the Share → Instagram card. Not Reels. No daily cron. | **spotlight today’s specials** is the specials-only rail (`TODAY_SPECIALS=true`). Default both networks; do not set `INSTAGRAM_ONLY` unless asked. |
 
 Partner digest API: `GET /api/cron/partner-digest` with `Authorization: Bearer CRON_SECRET` (formats: `json`, `markdown`, `whatsapp`; locales: `en`, `es`, `fr`).
 

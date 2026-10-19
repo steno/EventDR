@@ -5,12 +5,17 @@
  * little from profile URLs — web-search queries are the real automated fallback.
  * Rich coverage (posts, Reels, Stories) needs a logged-in Cursor browser run of
  * skill `pop-instagram-ingest` / rule `instagram-weekly`.
+ *
+ * Cadence: primary logged-in scan is a **Friday catalog desk habit** (weekend
+ * flyers). Do not duplicate a full catalog scan on Sunday. A shorter VIP list
+ * + stop-rule comes later before any Cursor Automation.
  */
 
 /**
  * Priority order: active nightlife / promoters first, then tourism and
- * secondary venues. Accounts confirmed missing during the Jul 2026 logged-in
- * scan are kept commented for future handle recovery.
+ * secondary venues. This order is the interim VIP ranking for Friday runs.
+ * Accounts confirmed missing during the Jul 2026 logged-in scan are kept
+ * commented for future handle recovery.
  */
 export const INSTAGRAM_ACCOUNTS = [
   // High-signal nightlife / promoters
