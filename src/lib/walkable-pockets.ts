@@ -89,6 +89,7 @@ export const WALKABLE_POCKETS: readonly WalkablePocket[] = [
       "lax-cabarete",
       "liquid-blue-cabarete",
       "la-chabola-cabarete",
+      "tiki-bar-cabarete",
       "voyvoy-cabarete",
       "aura-beach-club-cabarete",
       "hotel-villa-taina",

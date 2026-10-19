@@ -697,6 +697,22 @@ export const VENUE_TIP_COPY: Record<
       fr: "Latin Disco Club sur Manolo Tavarez Justo face aux dépôts Brugal — piste éclairée et soirées club quand il y a une affiche ; réservez le numéro du flyer de cette nuit.",
     },
   },
+  "luxury-club-puerto-plata": {
+    body: "Costa Dorada club nights at Luperón Km 4.5 — themed weeks with DJ La Nota and bottle deals; RSVP +1 849-885-7986, and don’t confuse it with Kviar’s casino disco in the same strip.",
+    localized: {
+      en: "Costa Dorada club nights at Luperón Km 4.5 — themed weeks with DJ La Nota and bottle deals; RSVP +1 849-885-7986, and don’t confuse it with Kviar’s casino disco in the same strip.",
+      es: "Noches de club en Costa Dorada en Luperón Km 4.5 — semanas temáticas con DJ La Nota y ofertas de botella; RSVP +1 849-885-7986, y no lo confundas con el disco-casino de Kviar en la misma franja.",
+      fr: "Soirées club à Costa Dorada sur Luperón Km 4.5 — semaines thématiques avec DJ La Nota et offres bouteilles ; RSVP +1 849-885-7986, et ne confondez pas avec le disco-casino Kviar sur la même bande.",
+    },
+  },
+  "tiki-bar-cabarete": {
+    body: "Central Cabarete thatch-and-neon cocktail stop near Casino #1 — happy hour 5–8 PM and evening bar energy; not La Chabola’s Callejón pizza room. Confirm doors on @tikibarcabarete (usually closed Mondays).",
+    localized: {
+      en: "Central Cabarete thatch-and-neon cocktail stop near Casino #1 — happy hour 5–8 PM and evening bar energy; not La Chabola’s Callejón pizza room. Confirm doors on @tikibarcabarete (usually closed Mondays).",
+      es: "Parada de cócteles con techo de paja y neón en el centro de Cabarete cerca del Casino #1 — happy hour 5–8 PM y energía de bar nocturno; no es la sala de pizza de La Chabola en el Callejón. Confirma puertas en @tikibarcabarete (suele cerrar lunes).",
+      fr: "Stop cocktails chaume-et-néon au centre de Cabarete près du Casino #1 — happy hour 17 h–20 h et énergie de bar en soirée ; pas la salle pizza de La Chabola au Callejón. Confirmez les portes sur @tikibarcabarete (souvent fermé lundi).",
+    },
+  },
   "twenty-disco-lounge": {
     body: "Mall disco inside Playa Dorada — lit bottle wall, neon lounge, and free-cover Friday energy when a flyer is up; pin the mall, not downtown Brugal club nights.",
     localized: {

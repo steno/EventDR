@@ -22,6 +22,13 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "la-quinta-rosa-brunch-pumpkin-umo-2026-10-25.jpg",
   "la-quinta-rosa-taller-decoracion-mobiliario-2026-11-28":
     "la-quinta-rosa-taller-decoracion-mobiliario-2026-11-28.jpg",
+  "la-quinta-rosa-call-you-later-2026-11-21":
+    "la-quinta-rosa-call-you-later-2026-11-21.jpg",
+  "luxury-club-lunes-de-body": "luxury-club-lunes-de-body.jpg",
+  "luxury-club-smoked-tuesday": "luxury-club-smoked-tuesday.jpg",
+  "luxury-club-jueves-de-piranas": "luxury-club-jueves-de-piranas.jpg",
+  "luxury-club-glam-saturday": "luxury-club-glam-saturday.jpg",
+  "luxury-club-millionaire-sunday": "luxury-club-millionaire-sunday.jpg",
   "lax-sunset-daily": "lax-sunset-daily.jpg",
 
   "kite-beach-daily": "kite-beach-daily.jpg",
@@ -33,7 +40,6 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   // Filename bump — house-band live set (not the El Batey open-mic clone).
   "finish-line-live-wednesday": "finish-line-live-band.jpg",
   "finish-line-live-saturday": "finish-line-live-band.jpg",
-  "finish-line-trivia-monday": "finish-line-live-band.jpg",
 
   "cheers-weekly-live": "cheers-weekly-live.jpg",
   // Filename bump — cleaner flyer crop (social caption chrome removed).
@@ -352,8 +358,6 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "ivan-garcia-eulogio-badia-2026-10-24-v2.jpg",
   "ivan-garcia-cafe-opera-codigo-clown-2026-10-31":
     "ivan-garcia-cafe-opera-codigo-clown-2026-10-31-v2.jpg",
-  "pregame-roof-baseball-game-day-2026-10-14":
-    "pregame-roof-nlcs-game-3-2026-10-14.jpg",
   "ann-soul-aura-cabarete-2026-10-15":
     "ann-soul-aura-cabarete-2026-10-15.jpg",
   "voyvoy-saturday-session-2026-10-17":
@@ -726,7 +730,6 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "twenty-disco-kiry-curu-2026-10-16": "object-center",
   "ivan-garcia-eulogio-badia-2026-10-24": "object-center",
   "ivan-garcia-cafe-opera-codigo-clown-2026-10-31": "object-center",
-  "pregame-roof-baseball-game-day-2026-10-14": "object-center",
   "ann-soul-aura-cabarete-2026-10-15": "object-center",
   "ivan-garcia-tierra-de-paso-2026-10-15": "object-center",
   "fenate-2026-sala-ivan-garcia": "object-center",
@@ -1007,6 +1010,12 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "ann-soul-jazz-natura-cabana-2026-10-17.jpg",
   "la-quinta-rosa-brunch-pumpkin-umo-2026-10-25.jpg",
   "la-quinta-rosa-taller-decoracion-mobiliario-2026-11-28.jpg",
+  "la-quinta-rosa-call-you-later-2026-11-21.jpg",
+  "luxury-club-lunes-de-body.jpg",
+  "luxury-club-smoked-tuesday.jpg",
+  "luxury-club-jueves-de-piranas.jpg",
+  "luxury-club-glam-saturday.jpg",
+  "luxury-club-millionaire-sunday.jpg",
   "tour-de-campeones-gran-final-2026-11-14.jpg",
   "cheers-fire-ice-thursdays.jpg",
   "chill-and-grill-saturday-karaoke.jpg",
@@ -1233,7 +1242,6 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "ivan-garcia-tierra-de-paso-2026-10-15.jpg",
   "ivan-garcia-tierra-de-paso-2026-10-15-doors.jpg",
   "fenate-2026-sala-ivan-garcia-v2.jpg",
-  "pregame-roof-nlcs-game-3-2026-10-14.jpg",
   "ann-soul-aura-cabarete-2026-10-15.jpg",
   "voyvoy-saturday-session-2026-10-17.jpg",
   "ambar-lounge-bandoleras-2026-10-16.jpg",

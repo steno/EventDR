@@ -661,6 +661,42 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     venueSlug: "la-quinta-rosa",
     sourceUrl: "https://www.instagram.com/katzhomerd/",
   },
+  "la-quinta-rosa-call-you-later-2026-11-21": {
+    isFree: false,
+    admissionPrice: "US$62",
+    venueSlug: "la-quinta-rosa",
+    sourceUrl: "https://www.instagram.com/laquintarosapop/",
+  },
+  "luxury-club-lunes-de-body": {
+    callForPricing: true,
+    phone: "+18498857986",
+    venueSlug: "luxury-club-puerto-plata",
+    sourceUrl: "https://www.instagram.com/luxury.club.puerto_plata/",
+  },
+  "luxury-club-smoked-tuesday": {
+    callForPricing: true,
+    phone: "+18298484259",
+    venueSlug: "luxury-club-puerto-plata",
+    sourceUrl: "https://www.instagram.com/luxury.club.puerto_plata/",
+  },
+  "luxury-club-jueves-de-piranas": {
+    callForPricing: true,
+    phone: "+18298857986",
+    venueSlug: "luxury-club-puerto-plata",
+    sourceUrl: "https://www.instagram.com/luxury.club.puerto_plata/",
+  },
+  "luxury-club-glam-saturday": {
+    callForPricing: true,
+    phone: "+18498857986",
+    venueSlug: "luxury-club-puerto-plata",
+    sourceUrl: "https://www.instagram.com/luxury.club.puerto_plata/",
+  },
+  "luxury-club-millionaire-sunday": {
+    callForPricing: true,
+    phone: "+18498857986",
+    venueSlug: "luxury-club-puerto-plata",
+    sourceUrl: "https://www.instagram.com/luxury.club.puerto_plata/",
+  },
   "el-cuarteto-terrible-zona-acapella-2026-09-27": {
     isFree: true,
     phone: "+18297260344",

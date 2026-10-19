@@ -103,6 +103,9 @@ export const VENUE_STREET_ADDRESS: Readonly<Record<string, string>> = {
   "playa-cofresi": "Cofresí Beach",
   "playa-costambar": "Costambar beach, to the left of El Carey Restaurant, Calle Reina Isabel",
   "playa-dorada-golf": "Playa Dorada, Puerto Plata",
+  "luxury-club-puerto-plata":
+    "Carretera Luperón Km 4.5, Complejo Turístico Costa Dorada, Puerto Plata",
+  "tiki-bar-cabarete": "Central Cabarete, near Casino #1",
   "playa-encuentro": "Playa Encuentro",
   "playa-los-charamicos": "Playa Los Charamicos",
   "plaza-independencia": "Calle San Felipe",

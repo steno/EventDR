@@ -186,7 +186,7 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     },
     attribution: "POP research · Google Mike's Finish Line Bar",
     researchNotes:
-      "Google AI/GB: Mike's Finish Line Bar, Calle Ayuntamiento 1 Sosúa 57000; Open closes 10 PM; live Wed+Sat high season (Denver); Trivia Mon 5–7 PM; +1 829-678-2975; 4.8★.",
+      "Google AI/GB: Mike's Finish Line Bar, Calle Ayuntamiento 1 Sosúa 57000; Open closes 10 PM; live Wed+Sat high season (Denver); +1 829-678-2975; 4.8★. Trivia Monday listing removed Oct 2026.",
     updatedAt: "2026-10-08T19:00:00.000Z",
   },
   {
@@ -207,25 +207,6 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     researchNotes:
       "Google: live Wed+Sat high season with Denver; Calle Ayuntamiento 1; open daily to 10 PM.",
     updatedAt: "2026-10-08T19:00:00.000Z",
-  },
-  {
-    eventId: "finish-line-trivia-monday",
-    seriesKey: "finish-line-sosua:weekly:1",
-    body: "Early Monday quiz 5–7 PM at Mike's — come for trivia and a beer before the strip gets loud; not a late dance night.",
-    localized: {
-      es: "Quiz temprano los lunes 17–19 h en Mike's — ven por trivia y cerveza antes de que la franja se ponga ruidosa; no es noche de baile.",
-      fr: "Quiz tôt le lundi 17 h–19 h chez Mike’s — venez pour le trivia et une bière avant que le strip ne s’anime ; pas une soirée danse.",
-    },
-    priceFeel: "moderate",
-    priceNote: "Pub prices — drinks; no ticket on Google listing",
-    priceNoteLocalized: {
-      es: "Precios de pub — tragos; sin boleto en el listing de Google",
-      fr: "Tarifs pub — verres ; pas de billet sur la fiche Google",
-    },
-    attribution: "POP research · Google Mike's Finish Line Bar",
-    researchNotes:
-      "Google AI overview: Trivia Night Mondays 5:00 PM–7:00 PM at Mike's Finish Line Bar.",
-    updatedAt: "2026-10-08T18:30:00.000Z",
   },
   {
     eventId: "senor-rock-live-nightly",
@@ -5233,24 +5214,6 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: "2026-10-13T18:00:00.000Z",
   },
   {
-    eventId: "pregame-roof-baseball-game-day-2026-10-14",
-    body: "One Game Day block for the rest of the NLCS, same idea as Hard Rock’s screen week — times jump between 8:00 and 9:00 PM ET, and Games 5–7 only happen if the series goes on. WhatsApp (809) 781-8677 before you climb past Ámbar.",
-    localized: {
-      es: "Un solo bloque Game Day para el resto de la NLCS, igual que la semana de pantalla de Hard Rock — las horas saltan entre 8:00 y 9:00 PM ET, y los juegos 5–7 solo si la serie sigue. WhatsApp (809) 781-8677 antes de subir más allá de Ámbar.",
-      fr: "Un seul bloc Game Day pour la suite de la NLCS, comme la semaine d’écrans du Hard Rock — les heures passent de 20 h à 21 h HE, et les matchs 5–7 seulement si la série continue. WhatsApp (809) 781-8677 avant de monter au-delà d’Ámbar.",
-    },
-    priceFeel: "varies",
-    priceNote: "Confirm doors and any minimum — WhatsApp (809) 781-8677",
-    priceNoteLocalized: {
-      es: "Confirma puertas y cualquier mínimo — WhatsApp (809) 781-8677",
-      fr: "Confirmez l’ouverture et tout minimum — WhatsApp (809) 781-8677",
-    },
-    attribution: "POP research · @pregameroof Game 3 flyer + NLCS schedule",
-    researchNotes:
-      "Editor flyer showed Game 3 only. Listed as one game-day seed 14–19 Oct matching the published NLCS clock: G3 Wed 14 8pm, G4 Thu 15 9pm, G5 Fri 16 9pm, G6 Sun 18 8pm, G7 Mon 19 8pm (5–7 if necessary). Not a Today’s special.",
-    updatedAt: "2026-10-14T16:00:00.000Z",
-  },
-  {
     eventId: "ann-soul-aura-cabarete-2026-10-15",
     body: "Named Thursday 8 PM set on Calle Principal — Ann Soul, not the weekly Wednesday margarita / Latin Flow bill. Cover isn’t on the poster, so confirm with Aura WhatsApp before you treat it as walk-up.",
     localized: {
@@ -5706,6 +5669,24 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: "2026-10-15T22:00:00.000Z",
   },
   {
+    eventId: "la-quinta-rosa-call-you-later-2026-11-21",
+    body: "Saturday podcast brunch in the pink 1912 house — Rosemilia García and Zaliris Made on boundaries and cycles for US$62, not the furniture workshop a week later; DM @laquintarosapop before seats go (card or transfer).",
+    localized: {
+      es: "Brunch de podcast el sábado en la casa rosa de 1912 — Rosemilia García y Zaliris Made sobre límites y ciclos por US$62, no el taller de mobiliario de la semana siguiente; DM @laquintarosapop antes de que se vayan los cupos (tarjeta o transferencia).",
+      fr: "Brunch podcast le samedi dans la maison rose de 1912 — Rosemilia García et Zaliris Made sur limites et cycles pour US$62, pas l’atelier mobilier de la semaine suivante ; DM @laquintarosapop avant que les places partent (carte ou virement).",
+    },
+    priceFeel: "upscale",
+    priceNote: "US$62 per person — DM @laquintarosapop (card or bank transfer)",
+    priceNoteLocalized: {
+      es: "US$62 por persona — DM @laquintarosapop (tarjeta o transferencia)",
+      fr: "US$62 par personne — DM @laquintarosapop (carte ou virement)",
+    },
+    attribution: "POP research · @laquintarosapop Call You Later flyer + caption",
+    researchNotes:
+      "Editor flyer + IG @laquintarosapop — Sáb 21 Nov 2026 10 AM–2 PM Call You Later at La Quinta Rosa; live podcast, brunch, conversation; Rosemilia García (@altruista.mente), Zaliris Made (@wiserootsliving), Dhara Hernández (@dha.hersan); US$62; DM reserve; card/transfer. No phone on art.",
+    updatedAt: "2026-10-19T12:00:00.000Z",
+  },
+  {
     eventId: "la-quinta-rosa-taller-decoracion-mobiliario-2026-11-28",
     body: "Saturday morning painted-furniture workshop in the pink Victorian at Calle 12 de Julio #88 — Katz Home × La Quinta Rosa, materials included for US$90 / RD$5,500; WhatsApp +1 849-250-2925 before spots fill, and don’t mix it with Brunch & Pumpkin on 25 Oct.",
     localized: {
@@ -5888,6 +5869,96 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     researchNotes:
       "Editor flyer — Latin Disco Club presenta Domingo de Calle, donde la diversión no para; Av. Circunvalación Sur frente depósitos Brugal; 829-563-9469. No cover/start time on art. Weekly Sunday series.",
     updatedAt: "2026-10-18T14:00:00.000Z",
+  },
+  {
+    eventId: "luxury-club-lunes-de-body",
+    body: "Monday gogo night at Luxury Club on Costa Dorada Km 4.5 with DJ Maikol and DJ La Nota — 18+ energy and 2x1 bottle deals; RSVP +1 849-885-7986, and don’t mix it with Kviar’s casino disco in the same strip.",
+    localized: {
+      es: "Lunes de gogo en Luxury Club en Costa Dorada Km 4.5 con DJ Maikol y DJ La Nota — energía 18+ y botellas 2x1; RSVP +1 849-885-7986, y no lo mezcles con el disco-casino de Kviar en la misma franja.",
+      fr: "Lundi gogo au Luxury Club sur Costa Dorada Km 4.5 avec DJ Maikol et DJ La Nota — énergie 18+ et bouteilles 2x1 ; RSVP +1 849-885-7986, et ne le mélangez pas avec le disco-casino Kviar sur la même bande.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover not on flyer — RSVP +1 849-885-7986 / @luxury.club.puerto_plata",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — RSVP +1 849-885-7986 / @luxury.club.puerto_plata",
+      fr: "Cover absent de l’affiche — RSVP +1 849-885-7986 / @luxury.club.puerto_plata",
+    },
+    attribution: "POP research · Luxury Club Lunes de Body flyer",
+    researchNotes:
+      "Editor flyer — weekly Monday Lunes de Body; DJ Maikol + DJ La Nota; gogo dancer; Extra Viejo/XV/Chivas 2x1; RSV 849-885-7986; Costa Dorada Km 4.5. ageHint 18-plus for gogo bill.",
+    updatedAt: "2026-10-19T18:00:00.000Z",
+  },
+  {
+    eventId: "luxury-club-smoked-tuesday",
+    body: "Tuesday hookah night at Luxury Club — DJ La Nota, free hookah until 11, and bottle prices on the flyer; RSVP +1 829-848-4259, not the Monday gogo bill.",
+    localized: {
+      es: "Martes de hookah en Luxury Club — DJ La Nota, hookah gratis hasta las 11 y precios de botella en el flyer; RSVP +1 829-848-4259, no el gogo del lunes.",
+      fr: "Mardi chicha au Luxury Club — DJ La Nota, chicha gratuite jusqu’à 23 h et prix bouteilles sur l’affiche ; RSVP +1 829-848-4259, pas le gogo du lundi.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover not on flyer — RSVP +1 829-848-4259 / @luxury.club.puerto_plata",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — RSVP +1 829-848-4259 / @luxury.club.puerto_plata",
+      fr: "Cover absent de l’affiche — RSVP +1 829-848-4259 / @luxury.club.puerto_plata",
+    },
+    attribution: "POP research · Luxury Club Smoked Tuesday flyer",
+    researchNotes:
+      "Editor flyer — weekly Tuesday Smoked Tuesday; DJ La Nota; Brugal XV 995, Buchanan’s 18 5495; hookah gratis hasta 11; RSV 829-848-4259.",
+    updatedAt: "2026-10-19T17:00:00.000Z",
+  },
+  {
+    eventId: "luxury-club-jueves-de-piranas",
+    body: "Thursday drink-special night at Luxury Club with DJ La Nota — Presidente from RD$100 on the flyer; RSVP +1 829-885-7986, and pin Costa Dorada, not downtown Latin Disco.",
+    localized: {
+      es: "Jueves de oferta de bebidas en Luxury Club con DJ La Nota — Presidente desde RD$100 en el flyer; RSVP +1 829-885-7986, y pin Costa Dorada, no Latin Disco en el centro.",
+      fr: "Jeudi offres boissons au Luxury Club avec DJ La Nota — Presidente dès RD$100 sur l’affiche ; RSVP +1 829-885-7986, et épinglez Costa Dorada, pas Latin Disco en ville.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover not on flyer — RSVP +1 829-885-7986 / @luxury.club.puerto_plata",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — RSVP +1 829-885-7986 / @luxury.club.puerto_plata",
+      fr: "Cover absent de l’affiche — RSVP +1 829-885-7986 / @luxury.club.puerto_plata",
+    },
+    attribution: "POP research · Luxury Club Jueves de Pirañas flyer",
+    researchNotes:
+      "Editor flyer — weekly Thursday Jueves de Pirañas; DJ La Nota; drink specials; RSV 829-885-7986.",
+    updatedAt: "2026-10-19T16:00:00.000Z",
+  },
+  {
+    eventId: "luxury-club-glam-saturday",
+    body: "Saturday glam bottle night at Luxury Club — DJ La Nota with Old Parr and Gold Reserva 2x1 on the art; RSVP +1 849-885-7986 before you dress for Costa Dorada, not the mall’s Twenty Disco.",
+    localized: {
+      es: "Sábado glam de botellas en Luxury Club — DJ La Nota con Old Parr y Gold Reserva 2x1 en el flyer; RSVP +1 849-885-7986 antes de vestirte para Costa Dorada, no Twenty Disco del mall.",
+      fr: "Samedi glam bouteilles au Luxury Club — DJ La Nota avec Old Parr et Gold Reserva 2x1 sur l’affiche ; RSVP +1 849-885-7986 avant de vous habiller pour Costa Dorada, pas Twenty Disco au mall.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover not on flyer — RSVP +1 849-885-7986 / @luxury.club.puerto_plata",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — RSVP +1 849-885-7986 / @luxury.club.puerto_plata",
+      fr: "Cover absent de l’affiche — RSVP +1 849-885-7986 / @luxury.club.puerto_plata",
+    },
+    attribution: "POP research · Luxury Club Glam Sat flyer",
+    researchNotes:
+      "Editor flyer — weekly Saturday Glam Sat; DJ La Nota; Old Parr 2x1 6000, Gold Reserva 2x1 11000; RSV 849-885-7986.",
+    updatedAt: "2026-10-19T15:00:00.000Z",
+  },
+  {
+    eventId: "luxury-club-millionaire-sunday",
+    body: "Sunday bottle-flex night at Luxury Club with DJ La Nota — Don Julio and Buchanan’s 2x1 on the flyer; RSVP +1 849-885-7986, not Millionaire branding at another club.",
+    localized: {
+      es: "Domingo de botellas en Luxury Club con DJ La Nota — Don Julio y Buchanan’s 2x1 en el flyer; RSVP +1 849-885-7986, no es branding Millionaire de otro club.",
+      fr: "Dimanche bouteilles au Luxury Club avec DJ La Nota — Don Julio et Buchanan’s 2x1 sur l’affiche ; RSVP +1 849-885-7986, pas le branding Millionaire d’un autre club.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover not on flyer — RSVP +1 849-885-7986 / @luxury.club.puerto_plata",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — RSVP +1 849-885-7986 / @luxury.club.puerto_plata",
+      fr: "Cover absent de l’affiche — RSVP +1 849-885-7986 / @luxury.club.puerto_plata",
+    },
+    attribution: "POP research · Luxury Club Millionaire Sunday flyer",
+    researchNotes:
+      "Editor flyer — weekly Sunday Millionaire Sunday; DJ La Nota; Don Julio Reposado 2x1 11000, Buchanan’s 12 2x1 6000; RSV 849-885-7986.",
+    updatedAt: "2026-10-19T14:00:00.000Z",
   },
   {
     eventId: "aurazul-wellness-day-costambar-2026-11-15",

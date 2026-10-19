@@ -1093,6 +1093,26 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Maison coloniale rose historique (est. 1912) au Calle 12 de Julio #88, centre de Puerto Plata — ateliers, brunchs et rencontres stylées dans les salons et le porche d’époque victorienne. Instagram @laquintarosapop.",
     },
   },
+  "luxury-club-puerto-plata": {
+    name: {
+      es: "Luxury Club Puerto Plata",
+      fr: "Luxury Club Puerto Plata",
+    },
+    description: {
+      es: "Discoteca en Carretera Luperón Km 4.5, Complejo Turístico Costa Dorada — noches temáticas semanales con DJ La Nota, ofertas de botellas y energía de club tarde junto a la franja hotelera (cerca de Kviar / Be Live Marien). RSVP +1 849-885-7986 · Instagram @luxury.club.puerto_plata.",
+      fr: "Boîte sur Carretera Luperón Km 4.5, Complejo Turístico Costa Dorada — soirées thématiques hebdo avec DJ La Nota, offres bouteilles et énergie club tardive près de la bande hôtelière (près de Kviar / Be Live Marien). RSVP +1 849-885-7986 · Instagram @luxury.club.puerto_plata.",
+    },
+  },
+  "tiki-bar-cabarete": {
+    name: {
+      es: "Cabarete Tiki Bar",
+      fr: "Cabarete Tiki Bar",
+    },
+    description: {
+      es: "Bar tiki de techo de paja en el centro de Cabarete cerca del Casino #1 (est. 2024) — paredes de piedra, letrero neón del loro, cócteles y happy hour 5:00–8:00 PM. Suele abrir mar–dom desde las 5:00 PM (cerrado lun). Confirma puertas en Instagram @tikibarcabarete.",
+      fr: "Bar tiki au toit de chaume au centre de Cabarete près du Casino #1 (est. 2024) — murs en pierre, enseigne néon perroquet, cocktails et happy hour 17 h–20 h. Ouvert en général mar–dim dès 17 h (fermé lun). Confirmez les portes sur Instagram @tikibarcabarete.",
+    },
+  },
 };
 
 export function localizeVenue(venue: Venue, locale: Locale): Venue {

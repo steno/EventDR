@@ -6187,39 +6187,6 @@
     "imageEmoji": "🎤"
   },
   {
-    "id": "pregame-roof-baseball-game-day-2026-10-14",
-    "title": "Pregame Roof Baseball Game Day — Oct 14–19",
-    "description": "Baseball Game Day watch nights at Pregame Roof, the third-level deck above Ámbar Lounge, Av. Luis Ginebra #45, Puerto Plata — Wednesday 14 through Monday 19 October 2026, Dodgers vs Brewers NLCS on FOX One / FOX Deportes. Schedule (ET): Wed 14 Oct Game 3 8:00 PM · Thu 15 Oct Game 4 9:00 PM · Fri 16 Oct Game 5 9:00 PM if necessary · Sun 18 Oct Game 6 8:00 PM if necessary · Mon 19 Oct Game 7 8:00 PM if necessary. Brewers led 2–0 heading into Game 3. Confirm which games are on the screens and doors via Instagram @pregameroof · WhatsApp (809) 781-8677.",
-    "date": "2026-10-14",
-    "endDate": "2026-10-19",
-    "time": "8:00 PM / 9:00 PM",
-    "location": "Puerto Plata",
-    "venue": "Pregame Roof",
-    "venueSlug": "pregame-roof-puerto-plata",
-    "address": "Av. Luis Ginebra #45, 3rd level, Puerto Plata",
-    "lat": 19.7918,
-    "lng": -70.681,
-    "category": "sports",
-    "categories": [
-      "food-drinks"
-    ],
-    "format": "physical",
-    "trending": true,
-    "callForPricing": true,
-    "phone": "+18097818677",
-    "sourceType": "instagram",
-    "sourceUrl": "https://www.instagram.com/pregameroof/",
-    "instagram": "pregameroof",
-    "lineup": [
-      "Wed 14 Oct — Game 3 — 8:00 PM",
-      "Thu 15 Oct — Game 4 — 9:00 PM",
-      "Fri 16 Oct — Game 5 — 9:00 PM if necessary",
-      "Sun 18 Oct — Game 6 — 8:00 PM if necessary",
-      "Mon 19 Oct — Game 7 — 8:00 PM if necessary"
-    ],
-    "imageEmoji": "⚾"
-  },
-  {
     "id": "hard-rock-banditalia-2026-10-17",
     "title": "BandItalia Live at Hard Rock Cafe Puerto Plata",
     "description": "Live music with BandItalia International at Hard Rock Cafe Puerto Plata, Calle Duarte 7, Sosúa — Saturday 17 October 2026 from 8:00 PM. Free entry. Not the Parada Choco BandItalia aperitivo on 6 October. Reservations WhatsApp +1 849-505-7778 · Instagram @hardrockcafepuertoplata.",
@@ -6665,6 +6632,38 @@
       "Brunch"
     ],
     "imageEmoji": "🎃"
+  },
+  {
+    "id": "la-quinta-rosa-call-you-later-2026-11-21",
+    "title": "Call You Later at La Quinta Rosa",
+    "description": "Call You Later — las conversaciones que dejamos para después — at La Quinta Rosa (est. 1912), Calle 12 de Julio #88, downtown Puerto Plata — Saturday 21 November 2026, 10:00 AM–2:00 PM. Live podcast morning with brunch, conversation, writing, and sharing; anonymous questions welcome, participation optional. Guests: clinical psychologist / Gestalt psychotherapist Rosemilia García (@altruista.mente) on boundaries without guilt; menstrual therapist Zaliris Made (@wiserootsliving) on cycles and listening to the body; host Dhara Hernández (@dha.hersan), founder of @laquintarosapop. US$62 per person; limited spots — DM @laquintarosapop (card or bank transfer). Not Brunch & Pumpkin on 25 Oct or the Katz Home furniture workshop on 28 Nov at the same house.",
+    "date": "2026-11-21",
+    "time": "10:00 AM – 2:00 PM",
+    "location": "Puerto Plata",
+    "venue": "La Quinta Rosa",
+    "venueSlug": "la-quinta-rosa",
+    "address": "Calle 12 de Julio #88, Puerto Plata",
+    "lat": 19.7948,
+    "lng": -70.6849,
+    "category": "health-wellness",
+    "categories": [
+      "culture",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": false,
+    "admissionPrice": "US$62",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/laquintarosapop/",
+    "instagram": "laquintarosapop",
+    "lineup": [
+      "Rosemilia García — clinical psychologist / Gestalt",
+      "Zaliris Made — menstrual therapist, Wise Roots Living",
+      "Dhara Hernández — host (@dha.hersan)",
+      "Live podcast · brunch · conversation"
+    ],
+    "imageEmoji": "🎙️"
   },
   {
     "id": "la-quinta-rosa-taller-decoracion-mobiliario-2026-11-28",

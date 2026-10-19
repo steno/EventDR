@@ -55,6 +55,13 @@ const FILE_TO_EVENT_ID = {
     "la-quinta-rosa-brunch-pumpkin-umo-2026-10-25",
   "la-quinta-rosa-taller-decoracion-mobiliario-2026-11-28.jpg":
     "la-quinta-rosa-taller-decoracion-mobiliario-2026-11-28",
+  "la-quinta-rosa-call-you-later-2026-11-21.jpg":
+    "la-quinta-rosa-call-you-later-2026-11-21",
+  "luxury-club-lunes-de-body.jpg": "luxury-club-lunes-de-body",
+  "luxury-club-smoked-tuesday.jpg": "luxury-club-smoked-tuesday",
+  "luxury-club-jueves-de-piranas.jpg": "luxury-club-jueves-de-piranas",
+  "luxury-club-glam-saturday.jpg": "luxury-club-glam-saturday",
+  "luxury-club-millionaire-sunday.jpg": "luxury-club-millionaire-sunday",
   "pop-cinemas-week-2026-10-15-posters.jpg": "pop-cinemas-week-2026-10-15",
   "pop-cinemas-week-2026-10-15-sacrificio.jpg":
     "pop-cinemas-week-2026-10-15-sacrificio",
@@ -231,8 +238,6 @@ const FILE_TO_EVENT_ID = {
   "ivan-garcia-cafe-opera-codigo-clown-2026-10-31-v2.jpg":
     "ivan-garcia-cafe-opera-codigo-clown-2026-10-31",
   "fenate-2026-sala-ivan-garcia-v2.jpg": "fenate-2026-sala-ivan-garcia",
-  "pregame-roof-nlcs-game-3-2026-10-14.jpg":
-    "pregame-roof-baseball-game-day-2026-10-14",
   "ann-soul-aura-cabarete-2026-10-15.jpg":
     "ann-soul-aura-cabarete-2026-10-15",
   "voyvoy-saturday-session-2026-10-17.jpg":
@@ -752,6 +757,7 @@ const FILE_TO_VENUE_SLUG = {
   "the-hideout-puerto-plata.jpg": "the-hideout-puerto-plata",
   "cabarete-boxing-club-ring.jpg": "cabarete-boxing-club-ring",
   "chameleon-sport-bar-entrance.jpg": "chameleon-sport-bar-entrance",
+  "tiki-bar-cabarete.jpg": "tiki-bar-cabarete",
 };
 
 if (!existsSync(sourceDir)) {

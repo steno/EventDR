@@ -109,6 +109,8 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "ninafrika-dance-school-cabarete": "ninafrika-dance-school-cabarete-beach.jpg",
   // Filename bump — Latin Disco Club interior (disco ball / lit floor; replaces Unsplash concert stock).
   "disco-club-brugal": "disco-club-brugal-interior.jpg",
+  "luxury-club-puerto-plata": "luxury-club-puerto-plata.jpg",
+  "tiki-bar-cabarete": "tiki-bar-cabarete.jpg",
   "twenty-disco-lounge": "twenty-disco-lounge-bar.jpg",
   "parada-tipica-el-choco": "parada-tipica-el-choco.jpg",
   "blue-jacktar-playa-dorada": "blue-jacktar-playa-dorada.jpg",
@@ -245,6 +247,8 @@ const VENUE_HERO_OBJECT_POSITION: Record<string, string> = {
   "spotland-puerto-plata": "object-top",
   // Keep the NUEVE sign / entrance lights in the crop (mobile + desktop).
   "nueve-puerto-plata": "object-top",
+  // Portrait thatch bar — keep the neon parrot Cabarete Tiki Bar sign in wide crops.
+  "tiki-bar-cabarete": "object-top",
 };
 
 export function getVenueHeroObjectPosition(slug: string): string {

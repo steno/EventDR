@@ -67,3 +67,12 @@ Optional `ageHint` on the event (`"all-ages" | "family" | "18-plus" | "21-plus"`
 4. **Do not** tag from “family-run”, “family history”, or soft “friends and family” / “familiar” atmosphere alone.
 5. Set the **same** `ageHint` on EN/ES/FR seed rows for that `id` (locale copy may differ; the enum must match).
 6. Type + labels live in `src/lib/types.ts` (`AgeHint`) and `dict.detail.ageHint` (en/es/fr).
+
+## 7. Contingent sports series (watch nights / playoffs)
+
+When a flyer or bar bills a **best-of-N**, “if necessary”, or other series that can end before the last listed date (NLCS, World Series, Licey playoffs, etc.):
+
+1. **Do not** set `endDate` to the theoretical final game. Seed only **confirmed** games — the next must-play night, or through the next date that is already locked in.
+2. After each result (or on Sunday catalog / spotlight review), **extend** the seed if another game is needed, or **remove** the listing when the series is over.
+3. In the event opinion `researchNotes`, start with `Contingent series — remove when clinched` so review passes catch it.
+4. Same rule for multi-day Game Day blocks: prefer short confirmed windows over one seed spanning Games 3–7 “if necessary”.

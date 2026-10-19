@@ -1007,6 +1007,28 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     ],
   }),
   editorial({
+    venueSlug: "luxury-club-puerto-plata",
+    verdictKey: "strong_local_nightlife",
+    crowdFit: ["local", "nightlife", "visitor"],
+    axes: { recommend: 4.0, atmosphere: 4.2, practical: 3.9 },
+    themes: [
+      { key: "dance_floor", sentiment: "positive", audience: "nightlife" },
+      { key: "loud_late", sentiment: "mixed", audience: "nightlife" },
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+    ],
+  }),
+  editorial({
+    venueSlug: "tiki-bar-cabarete",
+    verdictKey: "strong_visitor_nightlife",
+    crowdFit: ["visitor", "nightlife", "mixed"],
+    axes: { recommend: 4.1, atmosphere: 4.3, practical: 4.0 },
+    themes: [
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+      { key: "photo_spot", sentiment: "positive", audience: "visitor" },
+      { key: "easy_to_find", sentiment: "positive", audience: "visitor" },
+    ],
+  }),
+  editorial({
     venueSlug: "twenty-disco-lounge",
     verdictKey: "strong_local_nightlife",
     crowdFit: ["local", "nightlife", "mixed"],

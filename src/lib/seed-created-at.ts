@@ -209,7 +209,6 @@ export const SEED_CREATED_AT: Readonly<Record<string, string>> = {
   "meclao-reggaeton-dj-yosma-2026-10-09": "2026-10-08T15:00:00.000Z",
   "meclao-tulum-after-dark-sebastian-crozz-2026-10-10": "2026-10-08T18:00:00.000Z",
   "finish-line-live-saturday": "2026-10-08T19:00:00.000Z",
-  "finish-line-trivia-monday": "2026-10-08T18:30:00.000Z",
   "ambar-lounge-perreo-negro-2026-10-10": "2026-10-08T14:00:00.000Z",
   "disco-club-halloween-2026-10-30": "2026-10-08T13:00:00.000Z",
   "amarea-one-last-escape-2026-11-07": "2026-10-08T17:00:00.000Z",
@@ -241,7 +240,6 @@ export const SEED_CREATED_AT: Readonly<Record<string, string>> = {
   "twenty-disco-bichotas-night-sebastian-crozz-2026-10-15": "2026-10-13T23:00:00.000Z",
   "chill-grill-halloween-night-2026-10-31": "2026-10-13T23:30:00.000Z",
   "pink-garden-galerias-padel-2026-10-17": "2026-10-13T23:45:00.000Z",
-  "pregame-roof-baseball-game-day-2026-10-14": "2026-10-14T16:00:00.000Z",
   "ann-soul-aura-cabarete-2026-10-15": "2026-10-14T17:00:00.000Z",
   "voyvoy-saturday-session-2026-10-17": "2026-10-14T18:00:00.000Z",
   "ambar-lounge-bandoleras-2026-10-16": "2026-10-14T22:00:00.000Z",
@@ -272,6 +270,12 @@ export const SEED_CREATED_AT: Readonly<Record<string, string>> = {
   "aurazul-wellness-day-costambar-2026-11-15": "2026-10-18T16:00:00.000Z",
   "natura-market-2026-11-01": "2026-10-18T15:00:00.000Z",
   "disco-club-domingo-de-calle": "2026-10-18T14:00:00.000Z",
+  "la-quinta-rosa-call-you-later-2026-11-21": "2026-10-19T12:00:00.000Z",
+  "luxury-club-lunes-de-body": "2026-10-19T18:00:00.000Z",
+  "luxury-club-smoked-tuesday": "2026-10-19T17:00:00.000Z",
+  "luxury-club-jueves-de-piranas": "2026-10-19T16:00:00.000Z",
+  "luxury-club-glam-saturday": "2026-10-19T15:00:00.000Z",
+  "luxury-club-millionaire-sunday": "2026-10-19T14:00:00.000Z",
 };
 
 /** Fill missing `createdAt` from {@link SEED_CREATED_AT} (does not overwrite). */

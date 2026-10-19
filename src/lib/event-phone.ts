@@ -132,7 +132,6 @@ const EVENT_PHONE_BY_ID: Record<string, string> = {
   "ivan-garcia-cafe-opera-codigo-clown-2026-10-31": "+18092617393",
   "ivan-garcia-tierra-de-paso-2026-10-15": "+18092617393",
   "fenate-2026-sala-ivan-garcia": "+18092617393",
-  "pregame-roof-baseball-game-day-2026-10-14": "+18097818677",
   "ann-soul-aura-cabarete-2026-10-15": "+18297870140",
   "voyvoy-saturday-session-2026-10-17": "+18095710805",
   "ambar-lounge-bandoleras-2026-10-16": "+18097818677",
@@ -152,6 +151,11 @@ const EVENT_PHONE_BY_ID: Record<string, string> = {
   "chill-grill-halloween-night-2026-10-31": "+18296798389",
   "pink-garden-galerias-padel-2026-10-17": "+18296262410",
   "la-quinta-rosa-taller-decoracion-mobiliario-2026-11-28": "+18492502925",
+  "luxury-club-lunes-de-body": "+18498857986",
+  "luxury-club-smoked-tuesday": "+18298484259",
+  "luxury-club-jueves-de-piranas": "+18298857986",
+  "luxury-club-glam-saturday": "+18498857986",
+  "luxury-club-millionaire-sunday": "+18498857986",
 };
 
 export function formatPhoneDisplay(phone: string): string {

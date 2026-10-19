@@ -2076,6 +2076,31 @@ export const SEED_VENUES: Venue[] = [
     instagram: "laquintarosapop",
     website: "https://www.instagram.com/laquintarosapop/",
   },
+  {
+    slug: "luxury-club-puerto-plata",
+    name: "Luxury Club Puerto Plata",
+    city: "Puerto Plata",
+    description:
+      "Nightclub at Carretera Luperón Km 4.5 in Complejo Turístico Costa Dorada — weekly themed nights with DJ La Nota, bottle specials, and late club energy next to the Costa Dorada hotel strip (near Kviar / Be Live Marien). RSVP +1 849-885-7986 · Instagram @luxury.club.puerto_plata.",
+    lat: 19.77625,
+    lng: -70.6594,
+    emoji: "🥂",
+    phone: "+18498857986",
+    instagram: "luxury.club.puerto_plata",
+    website: "https://www.instagram.com/luxury.club.puerto_plata/",
+  },
+  {
+    slug: "tiki-bar-cabarete",
+    name: "Cabarete Tiki Bar",
+    city: "Cabarete",
+    description:
+      "Thatched tiki bar in central Cabarete near Casino #1 (est. 2024) — stone walls, neon parrot sign, cocktails, and happy hour 5:00–8:00 PM. Typically open Tue–Sun from 5:00 PM (closed Mon). Confirm doors on Instagram @tikibarcabarete.",
+    lat: 19.750057,
+    lng: -70.407041,
+    emoji: "🍹",
+    instagram: "tikibarcabarete",
+    website: "https://www.instagram.com/tikibarcabarete/",
+  },
 ];
 
 /** Extra name fragments → seed slug (checked before fuzzy name includes). */
@@ -2317,6 +2342,16 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
   {
     pattern: /latin\s*disco\s*club|disco\s*club(\s*brugal)?|latindiscoclubpp/i,
     slug: "disco-club-brugal",
+  },
+  {
+    pattern:
+      /luxury\s*club(\s*(puerto\s*plata|pop))?|luxury\.club\.puerto_plata|luxuryclub\.pop/i,
+    slug: "luxury-club-puerto-plata",
+  },
+  {
+    pattern:
+      /tiki\s*bar(\s*cabarete)?|cabarete\s*tiki(\s*bar)?|tikibarcabarete/i,
+    slug: "tiki-bar-cabarete",
   },
   {
     pattern: /twenty\s*disco(\s*(&|and)?\s*lounge)?|twenty_disco_lounge/i,

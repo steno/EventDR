@@ -311,7 +311,6 @@ export const CURATED_FREE_EVENTS = new Set<string>([
   "smileys-saturday-live",
   "finish-line-live-wednesday",
   "finish-line-live-saturday",
-  "finish-line-trivia-monday",
 
   "cheers-weekly-live",
   "cheers-mandarin-mondays",

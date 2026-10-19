@@ -21,7 +21,7 @@ Do not scout the coast, Natura, or social feeds unless they ask.
 
 ## When adding or fixing
 
-Follow `.cursor/rules/seed-recently-added.mdc` for every new seed: `SEED_CREATED_AT`, opinion, venue tip if the venue is new, image, categories, `ageHint` when the source states it.
+Follow `.cursor/rules/seed-recently-added.mdc` for every new seed: `SEED_CREATED_AT`, opinion, venue tip if the venue is new, image, categories, `ageHint` when the source states it. Contingent sports / playoff watch nights: §7 — confirmed games only, `Contingent series — remove when clinched` in researchNotes.
 
 Also:
 
