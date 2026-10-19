@@ -18,11 +18,11 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "aura-beach-club-cabarete": {
-    body: "Calle Principal beach club facing Cabarete Bay — Wednesday Latin Flow Dance from 9 PM, and Saturday Aura Disco from 11:30 PM with house DJ Christo; reserve WhatsApp +1 829-787-0140, not a walk-up kiosk bar.",
+    body: "Calle Principal beach club facing Cabarete Bay — doors Sun–Thu 11:00 AM–12:00 AM, Fri–Sat to 2:00 AM; Wednesday Latin Flow Dance from 9 PM, and Saturday Aura Disco from 11:30 PM with house DJ Christo; reserve WhatsApp +1 829-787-0140, not a walk-up kiosk bar.",
     localized: {
-      en: "Calle Principal beach club facing Cabarete Bay — Wednesday Latin Flow Dance from 9 PM, and Saturday Aura Disco from 11:30 PM with house DJ Christo; reserve WhatsApp +1 829-787-0140, not a walk-up kiosk bar.",
-      es: "Beach club en Calle Principal frente a la bahía de Cabarete — miércoles Latin Flow Dance desde las 9 PM, y sábado Aura Disco desde las 11:30 PM con DJ house Christo; reserva WhatsApp +1 829-787-0140, no es un kiosk walk-up.",
-      fr: "Beach club sur Calle Principal face à la baie de Cabarete — mercredi Latin Flow Dance dès 21 h, et samedi Aura Disco dès 23 h 30 avec le DJ house Christo ; réservez WhatsApp +1 829-787-0140, pas un kiosk walk-up.",
+      en: "Calle Principal beach club facing Cabarete Bay — doors Sun–Thu 11:00 AM–12:00 AM, Fri–Sat to 2:00 AM; Wednesday Latin Flow Dance from 9 PM, and Saturday Aura Disco from 11:30 PM with house DJ Christo; reserve WhatsApp +1 829-787-0140, not a walk-up kiosk bar.",
+      es: "Beach club en Calle Principal frente a la bahía de Cabarete — abierto dom–jue 11:00 AM–12:00 AM, vie–sáb hasta las 2:00 AM; miércoles Latin Flow Dance desde las 9 PM, y sábado Aura Disco desde las 11:30 PM con DJ house Christo; reserva WhatsApp +1 829-787-0140, no es un kiosk walk-up.",
+      fr: "Beach club sur Calle Principal face à la baie de Cabarete — ouvert dim–jeu 11 h–minuit, ven–sam jusqu’à 2 h ; mercredi Latin Flow Dance dès 21 h, et samedi Aura Disco dès 23 h 30 avec le DJ house Christo ; réservez WhatsApp +1 829-787-0140, pas un kiosk walk-up.",
     },
   },
   "kite-beach": {
