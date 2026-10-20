@@ -110,6 +110,9 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   // Filename bump — Latin Disco Club interior (disco ball / lit floor; replaces Unsplash concert stock).
   "disco-club-brugal": "disco-club-brugal-interior.jpg",
   "luxury-club-puerto-plata": "luxury-club-puerto-plata.jpg",
+  "xanadu-resort-hodelpa": "xanadu-resort-hodelpa.jpg",
+  "jl-coaching-center-puerto-plata": "jl-coaching-center-puerto-plata.jpg",
+  "aquagym-costambar": "aquagym-costambar.jpg",
   "tiki-bar-cabarete": "tiki-bar-cabarete.jpg",
   "twenty-disco-lounge": "twenty-disco-lounge-bar.jpg",
   "parada-tipica-el-choco": "parada-tipica-el-choco.jpg",

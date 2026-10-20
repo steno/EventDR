@@ -59,8 +59,8 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
   },
   "hard-rock-sosua": {
     description: {
-      es: "Escenario de dos pisos en el centro sobre la Calle Duarte — giras, karaoke los miércoles desde las 7 PM (sin cover), shows familiares y tributos en la mayor sala de música en vivo de la Costa Norte. Horarios sep–oct: cerrado lunes; mar–vie 4:00 PM–12:00 AM; sáb 12:00 MD–12:00 AM; dom 12:00 MD–11:00 PM. Boletas Rock Shop / WhatsApp +1 849-505-7778.",
-      fr: "Scène sur deux étages en centre-ville sur la Calle Duarte — tournées, karaoke le mercredi dès 19 h (sans cover), spectacles familiaux et hommages sur la plus grande scène live de la Côte Nord. Horaires sep–oct : fermé lundi ; mar–ven 16 h–minuit ; sam 12 h–minuit ; dim 12 h–23 h. Billets Rock Shop / WhatsApp +1 849-505-7778.",
+      es: "Escenario de dos pisos en El Batey · Plaza Downtown (Calle Duarte), Sosúa — giras, karaoke los miércoles desde las 7 PM (sin cover), shows familiares y tributos en la mayor sala de música en vivo de la Costa Norte. Horarios: cerrado lunes; mar–jue 4:00 PM–12:00 AM; vie–sáb 12:00 MD–12:00 AM; dom 12:00 MD–11:00 PM. Boletas Rock Shop / WhatsApp +1 849-505-7778.",
+      fr: "Scène sur deux étages à El Batey · Plaza Downtown (Calle Duarte), Sosúa — tournées, karaoke le mercredi dès 19 h (sans cover), spectacles familiaux et hommages sur la plus grande scène live de la Côte Nord. Horaires : fermé lundi ; mar–jeu 16 h–minuit ; ven–sam 12 h–minuit ; dim 12 h–23 h. Billets Rock Shop / WhatsApp +1 849-505-7778.",
     },
   },
   "international-school-sosua": {
@@ -671,8 +671,8 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
   },
   "meclao-rooftop": {
     description: {
-      es: "Rooftop en Av. Luis Ginebra — música en vivo, cócteles y vista de la ciudad. Cerrado los lunes; los fines de semana cierra más tarde.",
-      fr: "Rooftop sur l'Av. Luis Ginebra — musique live, cocktails et vue ville. Fermé le lundi ; week-ends plus tardifs.",
+      es: "Rooftop en Av. Luis Ginebra — música en vivo, cócteles y vista de la ciudad. Cerrado los lunes; los fines de semana cierra más tarde. Pausa por renovación hasta el jue 23 oct 2026 (reabre vie 24 oct) — confirma @meclaorooftop.",
+      fr: "Rooftop sur l'Av. Luis Ginebra — musique live, cocktails et vue ville. Fermé le lundi ; week-ends plus tardifs. Pause rénovation jusqu’au jeu 23 oct 2026 (réouvre ven 24 oct) — confirmez @meclaorooftop.",
     },
   },
   "kviar-costa-dorada": {
@@ -1101,6 +1101,36 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
     description: {
       es: "Discoteca en Carretera Luperón Km 4.5, Complejo Turístico Costa Dorada — noches temáticas semanales con DJ La Nota, ofertas de botellas y energía de club tarde junto a la franja hotelera (cerca de Kviar / Be Live Marien). RSVP +1 849-885-7986 · Instagram @luxury.club.puerto_plata.",
       fr: "Boîte sur Carretera Luperón Km 4.5, Complejo Turístico Costa Dorada — soirées thématiques hebdo avec DJ La Nota, offres bouteilles et énergie club tardive près de la bande hôtelière (près de Kviar / Be Live Marien). RSVP +1 849-885-7986 · Instagram @luxury.club.puerto_plata.",
+    },
+  },
+  "xanadu-resort-hodelpa": {
+    name: {
+      es: "Xanadú Resort & Residences",
+      fr: "Xanadú Resort & Residences",
+    },
+    description: {
+      es: "Resort y residencias Hodelpa dentro de Playa Dorada — apartamentos frente al mar, piscinas, tenis y un Bowling Center en el sitio abierto a walk-ins (llama antes por pistas). Complejo Playa Dorada, Puerto Plata.",
+      fr: "Resort et résidences Hodelpa dans Playa Dorada — appartements océanfront, piscines, tennis et un Bowling Center sur place ouvert aux walk-ins (appelez pour les pistes). Complejo Playa Dorada, Puerto Plata.",
+    },
+  },
+  "jl-coaching-center-puerto-plata": {
+    name: {
+      es: "JL Coaching Center",
+      fr: "JL Coaching Center",
+    },
+    description: {
+      es: "Gimnasio y estudio de coaching en Av. Manolo Tavárez Justo, Ensanche Miramar — clases de fitness, noches de Zumba comunitarias y eventos de solidaridad Octubre Rosa. Instagram @jl_coachingcenter_pop · +1 829-847-8510.",
+      fr: "Salle de sport et studio de coaching sur Av. Manolo Tavárez Justo, Ensanche Miramar — cours fitness, soirées Zumba communautaires et événements de solidarité Octubre Rosa. Instagram @jl_coachingcenter_pop · +1 829-847-8510.",
+    },
+  },
+  "aquagym-costambar": {
+    name: {
+      es: "AquaGym Costambar",
+      fr: "AquaGym Costambar",
+    },
+    description: {
+      es: "Clases de natación y aquafitness en el Club de Golf Los Mangos en Costambar — niños desde 1 año hasta adultos, grupos reducidos, método progresivo. WhatsApp +1 829-510-5914 · @aquagymrd.",
+      fr: "Cours de natation et aquafitness au Club de Golf Los Mangos à Costambar — enfants dès 1 an jusqu’aux adultes, petits groupes, méthode progressive. WhatsApp +1 829-510-5914 · @aquagymrd.",
     },
   },
   "tiki-bar-cabarete": {

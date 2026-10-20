@@ -1018,6 +1018,37 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     ],
   }),
   editorial({
+    venueSlug: "xanadu-resort-hodelpa",
+    verdictKey: "solid_visitor_activity",
+    crowdFit: ["visitor", "family", "mixed"],
+    axes: { recommend: 4.0, atmosphere: 4.1, practical: 3.8, reliability: 3.7 },
+    themes: [
+      { key: "family_friendly", sentiment: "positive", audience: "family" },
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+      { key: "easy_to_find", sentiment: "positive", audience: "visitor" },
+    ],
+  }),
+  editorial({
+    venueSlug: "jl-coaching-center-puerto-plata",
+    verdictKey: "solid_visitor_activity",
+    crowdFit: ["local", "family", "mixed"],
+    axes: { recommend: 4.0, atmosphere: 3.9, practical: 4.0, reliability: 3.8 },
+    themes: [
+      { key: "family_friendly", sentiment: "positive", audience: "family" },
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+    ],
+  }),
+  editorial({
+    venueSlug: "aquagym-costambar",
+    verdictKey: "solid_visitor_activity",
+    crowdFit: ["family", "local", "visitor"],
+    axes: { recommend: 4.1, atmosphere: 3.9, practical: 3.8, reliability: 3.9 },
+    themes: [
+      { key: "family_friendly", sentiment: "positive", audience: "family" },
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+    ],
+  }),
+  editorial({
     venueSlug: "tiki-bar-cabarete",
     verdictKey: "strong_visitor_nightlife",
     crowdFit: ["visitor", "nightlife", "mixed"],

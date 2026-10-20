@@ -100,7 +100,7 @@ export const SEED_VENUES: Venue[] = [
     name: "Hard Rock Cafe Puerto Plata",
     city: "Sosúa",
     description:
-      "Two-story downtown stage on Calle Duarte — touring acts, Wednesday karaoke from 7 PM (no cover), family shows, and tribute nights on the North Coast's biggest live-music floor. Sep–Oct hours: closed Monday; Tue–Fri 4:00 PM–12:00 AM; Sat 12:00 PM–12:00 AM; Sun 12:00 PM–11:00 PM. Rock Shop tickets / WhatsApp +1 849-505-7778.",
+      "Two-story downtown stage in El Batey · Plaza Downtown (Calle Duarte), Sosúa — touring acts, Wednesday karaoke from 7 PM (no cover), family shows, and tribute nights on the North Coast's biggest live-music floor. Hours: closed Monday; Tue–Thu 4:00 PM–12:00 AM; Fri–Sat 12:00 PM–12:00 AM; Sun 12:00 PM–11:00 PM. Rock Shop tickets / WhatsApp +1 849-505-7778.",
     lat: 19.7634107,
     lng: -70.5162309,
     emoji: "🎸",
@@ -1244,7 +1244,7 @@ export const SEED_VENUES: Venue[] = [
     name: "Mecla'o Rooftop Lounge",
     city: "Puerto Plata",
     description:
-      "Rooftop lounge on Av. Luis Ginebra — live music, cocktails, and city views. Closed Mondays; weekends run later.",
+      "Rooftop lounge on Av. Luis Ginebra — live music, cocktails, and city views. Closed Mondays; weekends run later. Renovation pause through Thu 23 Oct 2026 (reopens Fri 24 Oct) — confirm @meclaorooftop.",
     lat: 19.788312,
     lng: -70.677453,
     emoji: "🎶",
@@ -2090,6 +2090,43 @@ export const SEED_VENUES: Venue[] = [
     website: "https://www.instagram.com/luxury.club.puerto_plata/",
   },
   {
+    slug: "xanadu-resort-hodelpa",
+    name: "Xanadú Resort & Residences",
+    city: "Puerto Plata",
+    description:
+      "Hodelpa resort and residences inside Playa Dorada — beachfront apartments, pools, tennis, and an on-site Bowling Center open to walk-ins (call ahead for lanes). Complejo Playa Dorada, Puerto Plata.",
+    lat: 19.772422,
+    lng: -70.642041,
+    emoji: "🎳",
+    phone: "+18295480666",
+    website: "https://www.xanadubyhodelpa.com/en/",
+  },
+  {
+    slug: "jl-coaching-center-puerto-plata",
+    name: "JL Coaching Center",
+    city: "Puerto Plata",
+    description:
+      "Gym and coaching studio on Av. Manolo Tavárez Justo, Ensanche Miramar — fitness classes, community Zumba nights, and Octubre Rosa solidarity events. Instagram @jl_coachingcenter_pop · +1 829-847-8510.",
+    lat: 19.787873,
+    lng: -70.690629,
+    emoji: "💪",
+    phone: "+18298478510",
+    instagram: "jl_coachingcenter_pop",
+  },
+  {
+    slug: "aquagym-costambar",
+    name: "AquaGym Costambar",
+    city: "Costambar",
+    description:
+      "Swim lessons and aquafitness at Club de Golf Los Mangos in Costambar — kids from age 1 through adults, small groups, progressive method. WhatsApp +1 829-510-5914 · @aquagymrd.",
+    lat: 19.814318,
+    lng: -70.719178,
+    emoji: "🏊",
+    phone: "+18295105914",
+    instagram: "aquagymrd",
+    website: "https://www.facebook.com/aquagymrd/",
+  },
+  {
     slug: "tiki-bar-cabarete",
     name: "Cabarete Tiki Bar",
     city: "Cabarete",
@@ -2347,6 +2384,21 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
     pattern:
       /luxury\s*club(\s*(puerto\s*plata|pop))?|luxury\.club\.puerto_plata|luxuryclub\.pop/i,
     slug: "luxury-club-puerto-plata",
+  },
+  {
+    pattern:
+      /xanad[uú](\s+(resort|hotel))?(\s*(&|and)?\s*residences)?(\s*(by\s*)?hodelpa)?|hotel\s+xanad[uú]|xanadu\s+playa\s+dorada/i,
+    slug: "xanadu-resort-hodelpa",
+  },
+  {
+    pattern:
+      /jl\s*coaching(\s*center)?|jl_coachingcenter_pop/i,
+    slug: "jl-coaching-center-puerto-plata",
+  },
+  {
+    pattern:
+      /aquagym(\s*(costambar|rd))?|aqua\s*gym(\s*costambar)?|club\s*de\s*golf\s*los\s*mangos/i,
+    slug: "aquagym-costambar",
   },
   {
     pattern:

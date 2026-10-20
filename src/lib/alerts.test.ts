@@ -142,6 +142,28 @@ describe("applyActiveEditorialClosure", () => {
     assert.equal(reopen.temporarilyClosed, undefined);
   });
 
+  it("marks Mecla'o closed through Thu 23 Oct renovations, open Fri 24 Oct", () => {
+    const venueInput: { slug: string; temporarilyClosed?: boolean } = {
+      slug: "meclao-rooftop",
+    };
+    assert.equal(
+      applyActiveEditorialClosureToVenue(venueInput, "2026-10-19").temporarilyClosed,
+      undefined,
+    );
+    assert.equal(
+      applyActiveEditorialClosureToVenue(venueInput, "2026-10-20").temporarilyClosed,
+      true,
+    );
+    assert.equal(
+      applyActiveEditorialClosureToVenue(venueInput, "2026-10-23").temporarilyClosed,
+      true,
+    );
+    assert.equal(
+      applyActiveEditorialClosureToVenue(venueInput, "2026-10-24").temporarilyClosed,
+      undefined,
+    );
+  });
+
   it("marks Gypsy Bowls closed after Last Bowl Call through 14 Oct, open 15 Oct", () => {
     const venueInput: { slug: string; temporarilyClosed?: boolean } = {
       slug: "gypsy-bowls-cabarete",

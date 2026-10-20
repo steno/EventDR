@@ -19,7 +19,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "ann-soul-jazz-natura-cabana-2026-10-17":
     "ann-soul-jazz-natura-cabana-2026-10-17.jpg",
   "la-quinta-rosa-brunch-pumpkin-umo-2026-10-25":
-    "la-quinta-rosa-brunch-pumpkin-umo-2026-10-25.jpg",
+    "la-quinta-rosa-brunch-pumpkin-umo-2026-10-25-v2.jpg",
   "la-quinta-rosa-taller-decoracion-mobiliario-2026-11-28":
     "la-quinta-rosa-taller-decoracion-mobiliario-2026-11-28.jpg",
   "la-quinta-rosa-call-you-later-2026-11-21":
@@ -95,6 +95,25 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "cuartel-bomberos-puerto-plata-daily": "cuartel-bomberos-puerto-plata-trucks.jpg",
   "fun-city-daily": "fun-city-daily.jpeg",
   "grecialandia-daily": "grecialandia-entrance.jpg",
+  "xanadu-bowling-daily": "xanadu-bowling-center.jpg",
+  "twenty-disco-bichotas-jhon-parra-2026-10-22":
+    "twenty-disco-bichotas-jhon-parra-2026-10-22.jpg",
+  "hideout-tributos-eddy-vasquez-halloween-2026-10-30":
+    "hideout-tributos-eddy-vasquez-halloween-2026-10-30.jpg",
+  "ambar-lounge-reggaeton-black-edition-2026-10-29":
+    "ambar-lounge-reggaeton-black-edition-2026-10-29.jpg",
+  "flip-flop-world-series-g1-2026-10-23":
+    "flip-flop-world-series-g1-2026-10-23.jpg",
+  "flip-flop-nba-opening-night-2026-10-20":
+    "flip-flop-nba-opening-night-2026-10-20.jpg",
+  "jl-coaching-zumba-cancer-2026-10-22":
+    "jl-coaching-zumba-cancer-2026-10-22.jpg",
+  "aura-disco-manny-figueroa-2026-10-24":
+    "aura-disco-manny-figueroa-2026-10-24.jpg",
+  "voyvoy-social-heartz-2026-11-07": "voyvoy-social-heartz-2026-11-07.jpg",
+  "ivan-garcia-conciliar-sueno-libertad-2026-11-07":
+    "ivan-garcia-conciliar-sueno-libertad-2026-11-07.jpg",
+  "aquagym-costambar-swim-classes": "aquagym-costambar-swim-classes.jpg",
   "monkeyland-puerto-plata-daily": "monkeyland-puerto-plata-daily.jpeg",
   "coconut-cove-ocean-zipline-daily": "coconut-cove-ocean-zipline-daily.jpg",
   "brugal-rum-center-weekdays": "brugal-rum-center-weekdays.jpg",
@@ -939,6 +958,33 @@ const EVENT_GALLERY_SLIDES: Record<
       label: "80s–90s Por Siempre flyer",
     },
   ],
+  "voyvoy-social-heartz-2026-11-07": [
+    {
+      file: "voyvoy-social-heartz-2026-11-07.jpg",
+      venueSlug: "voyvoy-cabarete",
+      label: "Sibil",
+    },
+    {
+      file: "voyvoy-social-heartz-jordy-sanchez-2026-11-07.jpg",
+      venueSlug: "voyvoy-cabarete",
+      label: "Jordy Sánchez",
+    },
+    {
+      file: "voyvoy-social-heartz-drea-2026-11-07.jpg",
+      venueSlug: "voyvoy-cabarete",
+      label: "drea",
+    },
+    {
+      file: "voyvoy-social-heartz-ale-b2b-oily-2026-11-07.jpg",
+      venueSlug: "voyvoy-cabarete",
+      label: "ale b2b oily",
+    },
+    {
+      file: "voyvoy-social-heartz-nissa-gomez-2026-11-07.jpg",
+      venueSlug: "voyvoy-cabarete",
+      label: "Nissa Gomez",
+    },
+  ],
   "masters-surf-reunion-10-2026": [
     {
       file: "masters-surf-reunion-10-2026-fri-opening.jpg",
@@ -994,6 +1040,20 @@ export function getEventHeroObjectPosition(eventId: string): string {
  * New flyer art must land here (or stay off {@link HOME_HERO_SCENE_FILES}).
  */
 const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
+  "twenty-disco-bichotas-jhon-parra-2026-10-22.jpg",
+  "hideout-tributos-eddy-vasquez-halloween-2026-10-30.jpg",
+  "ambar-lounge-reggaeton-black-edition-2026-10-29.jpg",
+  "flip-flop-world-series-g1-2026-10-23.jpg",
+  "flip-flop-nba-opening-night-2026-10-20.jpg",
+  "jl-coaching-zumba-cancer-2026-10-22.jpg",
+  "aura-disco-manny-figueroa-2026-10-24.jpg",
+  "voyvoy-social-heartz-2026-11-07.jpg",
+  "aquagym-costambar-swim-classes.jpg",
+  "voyvoy-social-heartz-jordy-sanchez-2026-11-07.jpg",
+  "voyvoy-social-heartz-drea-2026-11-07.jpg",
+  "voyvoy-social-heartz-ale-b2b-oily-2026-11-07.jpg",
+  "voyvoy-social-heartz-nissa-gomez-2026-11-07.jpg",
+  "ivan-garcia-conciliar-sueno-libertad-2026-11-07.jpg",
   "atleticos-pp-vs-mineros-2026-09-27.jpg",
   "atleticos-pp-vs-mineros-2026-10-03.jpg",
   "atleticos-pp-vs-mineros-2026-10-03-postponed.jpg",
@@ -1008,7 +1068,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "cabarete-run-festival-5k-2026-11-08.jpg",
   "chameleon-monsters-ball-deeway-2026-10-18.jpg",
   "ann-soul-jazz-natura-cabana-2026-10-17.jpg",
-  "la-quinta-rosa-brunch-pumpkin-umo-2026-10-25.jpg",
+  "la-quinta-rosa-brunch-pumpkin-umo-2026-10-25-v2.jpg",
   "la-quinta-rosa-taller-decoracion-mobiliario-2026-11-28.jpg",
   "la-quinta-rosa-call-you-later-2026-11-21.jpg",
   "luxury-club-lunes-de-body.jpg",
@@ -1383,6 +1443,7 @@ const HOME_HERO_SCENE_FILES = new Set([
   "fun-city-daily.jpeg",
   "gran-ventana-day-pass.jpg",
   "grecialandia-entrance.jpg",
+  "xanadu-bowling-center.jpg",
   "gregorio-luperon-museum.jpg",
   "gym-sov-zumba-fitness.jpg",
   "hacienda-cufa-cacao-tour.jpg",

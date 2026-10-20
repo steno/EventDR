@@ -261,6 +261,26 @@ export const EDITORIAL_ALERTS: readonly EditorialAlert[] = [
     },
   },
   {
+    id: "meclao-rooftop-renovation-2026-10",
+    kind: "closure",
+    closureStatus: "repair",
+    from: "2026-10-20",
+    until: "2026-10-23",
+    reopensOn: "2026-10-24",
+    citySlugs: ["puerto-plata"],
+    href: { type: "venue", slug: "meclao-rooftop" },
+    title: {
+      en: "Mecla'o Rooftop closed for renovations",
+      es: "Mecla'o Rooftop cerrado por renovaciones",
+      fr: "Mecla'o Rooftop fermé pour rénovations",
+    },
+    summary: {
+      en: "Luis Ginebra rooftop pause through Thursday — new look, same vibe.",
+      es: "Pausa del rooftop en Luis Ginebra hasta el jueves — nueva imagen, misma vibra.",
+      fr: "Pause du rooftop Luis Ginebra jusqu’à jeudi — nouvelle image, même vibe.",
+    },
+  },
+  {
     id: "ivan-garcia-teatro-mantenimiento-2026",
     kind: "closure",
     closureStatus: "repair",

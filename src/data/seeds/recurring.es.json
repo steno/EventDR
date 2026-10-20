@@ -1596,7 +1596,7 @@
   {
     "id": "meclao-rooftop-live-nights",
     "title": "Música en vivo en Mecla'o Rooftop",
-    "description": "Rooftop en Av. Luis Ginebra con música en vivo, cócteles y vista de la ciudad. Martes–jueves y domingo 6:00 PM–2:00 AM; viernes–sábado 6:00 PM–4:00 AM. Cerrado los lunes. Gasto típico DOP 500–1,000.",
+    "description": "Rooftop en Av. Luis Ginebra con música en vivo, cócteles y vista de la ciudad. Martes–jueves y domingo 6:00 PM–2:00 AM; viernes–sábado 6:00 PM–4:00 AM. Cerrado los lunes. Pausa por renovación hasta el jue 23 oct 2026 (reabre vie 24 oct) — confirma @meclaorooftop. Gasto típico DOP 500–1,000.",
     "date": "2026-01-01",
     "time": "6:00 PM – 2:00 AM",
     "location": "Puerto Plata",
@@ -2310,13 +2310,13 @@
   {
     "id": "hard-rock-karaoke-wednesday",
     "title": "Karaoke Night en Hard Rock Cafe",
-    "description": "Todos los miércoles karaoke en Hard Rock Cafe Puerto Plata (Calle Duarte, Sosúa) — desde las 7:00 PM, sin cover, premios a la mejor voz. Comida, tragos y promociones en el escenario más grande del centro. WhatsApp +1 849-505-7778.",
+    "description": "Todos los miércoles karaoke en Hard Rock Cafe Puerto Plata, El Batey · Plaza Downtown (Calle Duarte), Sosúa — desde las 7:00 PM, sin cover, premios a la mejor voz. Horario del café mar–jue 4:00 PM–12:00 AM (cerrado lunes). Comida, tragos y promociones en el escenario más grande del centro. WhatsApp +1 849-505-7778.",
     "date": "2026-01-01",
     "time": "7:00 PM",
     "location": "Sosúa",
     "venue": "Hard Rock Cafe Puerto Plata",
     "venueSlug": "hard-rock-sosua",
-    "address": "Calle Duarte 7, Sosúa",
+    "address": "El Batey · Plaza Downtown, Calle Duarte, Sosúa",
     "lat": 19.7634107,
     "lng": -70.5162309,
     "category": "performances",
@@ -3053,5 +3053,49 @@
     "sourceUrl": "https://www.instagram.com/luxury.club.puerto_plata/",
     "lineup": ["DJ La Nota", "Don Julio Reposado 2x1", "Buchanan’s 12 2x1"],
     "imageEmoji": "💎"
-  }
+  },
+  {
+    "id": "xanadu-bowling-daily",
+    "title": "Bowling Center Xanadu — Playa Dorada",
+    "description": "Boliche diario en Xanadú Resort & Residences by Hodelpa dentro de Playa Dorada — Bowling Center multi-pista con neón y marcador digital. Walk-ins bienvenidos; unos RD$1,600 para 4 personas incluyendo alquiler de zapatos (confirma en sitio). Llama al +1 829-548-0666 antes por disponibilidad de pista y horario. Complejo Playa Dorada, Puerto Plata.",
+    "date": "2026-01-01",
+    "time": "Llama para horario",
+    "location": "Puerto Plata",
+    "venue": "Xanadú Resort & Residences",
+    "venueSlug": "xanadu-resort-hodelpa",
+    "address": "Complejo Playa Dorada, Puerto Plata",
+    "lat": 19.772422,
+    "lng": -70.642041,
+    "category": "sports",
+    "format": "physical",
+    "recurrence": "daily",
+    "admissionPrice": "RD$1,600 / 4 personas",
+    "phone": "+18295480666",
+    "sourceUrl": "https://sanfra.odoo.com/en/about-us",
+    "imageEmoji": "🎳"
+  },
+{
+  "id": "aquagym-costambar-swim-classes",
+  "title": "AquaGym Costambar — Clases de natación y aquafitness",
+  "description": "Clases de natación y aquafitness en el Club de Golf Los Mangos, Costambar, Puerto Plata — niños desde 1 año, jóvenes y adultos en grupos reducidos con instructores capacitados. Metodología progresiva y segura; aquafitness para adultos. Llama/WhatsApp +1 829-510-5914 · Instagram/Facebook @aquagymrd. Confirma horario antes de ir.",
+  "date": "2026-01-01",
+  "time": "Llama para horarios",
+  "location": "Costambar",
+  "venue": "AquaGym Costambar",
+  "venueSlug": "aquagym-costambar",
+  "address": "Club de Golf Los Mangos, Costambar, Puerto Plata",
+  "lat": 19.814318,
+  "lng": -70.719178,
+  "category": "health-wellness",
+  "categories": [
+    "sports"
+  ],
+  "format": "physical",
+  "recurrence": "daily",
+  "ageHint": "family",
+  "callForPricing": true,
+  "phone": "+18295105914",
+  "sourceUrl": "https://www.facebook.com/aquagymrd/",
+  "imageEmoji": "🏊"
+}
 ]

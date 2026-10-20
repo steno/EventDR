@@ -6607,7 +6607,7 @@
   {
     "id": "la-quinta-rosa-brunch-pumpkin-umo-2026-10-25",
     "title": "Brunch & Pumpkin en La Quinta Rosa × UMO Candle",
-    "description": "Brunch & Pumpkin en La Quinta Rosa (est. 1912), Calle 12 de Julio #88, centro de Puerto Plata — domingo 25 de octubre 2026 desde las 10:00 a. m., con UMO Candle. Mañana de velas, brunch y encuentro con estilo en la casa victoriana rosa; dress code otoñal (beige, crema, terracota, anaranjado, chocolate, verde oliva, amarillo mantequilla). Precio no está en el flyer — reserva por Instagram @laquintarosapop. No es el taller de mobiliario Katz Home del 28 nov en la misma casa.",
+    "description": "Brunch & Pumpkin en La Quinta Rosa (est. 1912), Calle 12 de Julio #88, centro de Puerto Plata — domingo 25 de octubre 2026 a las 10:00 a. m., con UMO Candle. Brunch otoñal y taller de velas en la casa victoriana rosa. US$50 por persona — reserva en el link de la bio de Instagram @laquintarosapop. No es Call You Later del 21 nov ni el taller de mobiliario Katz Home del 28 nov en la misma casa.",
     "date": "2026-10-25",
     "time": "10:00 AM",
     "location": "Puerto Plata",
@@ -6622,8 +6622,9 @@
     ],
     "format": "physical",
     "trending": true,
-    "callForPricing": true,
-    "sourceType": "instagram",
+    "isFree": false,
+    "admissionPrice": "US$50",
+    "sourceType": "flyer",
     "sourceUrl": "https://www.instagram.com/laquintarosapop/",
     "instagram": "laquintarosapop",
     "lineup": [
@@ -6952,5 +6953,265 @@
       "Tour por el pueblo de Puerto Plata"
     ],
     "imageEmoji": "💙"
-  }
+  },
+{
+  "id": "twenty-disco-bichotas-jhon-parra-2026-10-22",
+  "title": "Twenty Disco — Bichotas Night con DJ Jhon Parra",
+  "description": "Bichotas Night en Twenty Disco & Lounge, Playa Dorada Mall, Puerto Plata — jueves 22 de octubre 2026 con DJ Jhon Parra (@djhxnparra). Promo ladies: Baileys + Midori gratis para ellas. Noche rosa en el mall — no es el Zumba gratis de polo rosado el mismo jueves en JL Coaching Center. Confirma cover y puertas por Instagram @twenty_disco_lounge.",
+  "date": "2026-10-22",
+  "location": "Playa Dorada",
+  "venue": "Twenty Disco Lounge",
+  "venueSlug": "twenty-disco-lounge",
+  "address": "Playa Dorada Mall, Puerto Plata",
+  "lat": 19.769476,
+  "lng": -70.643033,
+  "category": "parties",
+  "categories": [
+    "music",
+    "dance"
+  ],
+  "format": "physical",
+  "trending": true,
+  "callForPricing": true,
+  "sourceType": "flyer",
+  "sourceUrl": "https://www.instagram.com/twenty_disco_lounge/",
+  "instagram": "twenty_disco_lounge",
+  "lineup": [
+    "DJ Jhon Parra"
+  ],
+  "imageEmoji": "💗"
+},
+{
+  "id": "hideout-tributos-eddy-vasquez-halloween-2026-10-30",
+  "title": "The Hideout — Tributos by Eddy Vásquez (Halloween Live Band)",
+  "description": "Tributos by Eddy Vásquez & Live Band en The Hideout, Av. Luis Ginebra #56, Puerto Plata — viernes 30 de octubre 2026. Noche Halloween de banda en vivo con clásicos (patrocinio Brugal). Cover RD$800 por persona. Reserva +1 809-690-2559 · Instagram @thehideoutpop. Lounge del segundo nivel — no Cigar Town abajo, ni Paradise in Hell de Twenty Disco al día siguiente.",
+  "date": "2026-10-30",
+  "location": "Puerto Plata",
+  "venue": "The Hideout",
+  "venueSlug": "the-hideout-puerto-plata",
+  "address": "Av. Luis Ginebra #56, Puerto Plata",
+  "lat": 19.79168,
+  "lng": -70.68032,
+  "category": "halloween",
+  "categories": [
+    "music",
+    "parties"
+  ],
+  "format": "physical",
+  "trending": true,
+  "isFree": false,
+  "admissionPrice": "RD$800",
+  "phone": "+18096902559",
+  "sourceType": "flyer",
+  "sourceUrl": "https://www.instagram.com/thehideoutpop/",
+  "lineup": [
+    "Eddy Vásquez & Live Band"
+  ],
+  "imageEmoji": "🎃"
+},
+{
+  "id": "ambar-lounge-reggaeton-black-edition-2026-10-29",
+  "title": "Ámbar Lounge — Reggaeton Black Edition",
+  "description": "Reggaeton Black Edition en Ámbar Lounge POP, Av. Luis Ginebra #45, Puerto Plata — miércoles 29 de octubre 2026 con Ramon Camilo (@djcamilotaveras) x Yonander Raúl (@yonaramzmusic). Acceso únicamente con invitación (DM @ambarloungepop). Brugal + Red Bull. Noche en el segundo nivel — no Pregame Roof arriba. Confirma invitación por Instagram @ambarloungepop · +1 809-781-8677.",
+  "date": "2026-10-29",
+  "location": "Puerto Plata",
+  "venue": "Ambar Lounge POP",
+  "venueSlug": "ambar-lounge-pop",
+  "address": "Av. Luis Ginebra #45, Puerto Plata",
+  "lat": 19.7918,
+  "lng": -70.6810,
+  "category": "parties",
+  "categories": [
+    "music",
+    "dance"
+  ],
+  "format": "physical",
+  "trending": true,
+  "callForPricing": true,
+  "phone": "+18097818677",
+  "sourceType": "flyer",
+  "sourceUrl": "https://www.instagram.com/ambarloungepop/",
+  "lineup": [
+    "Ramon Camilo",
+    "Yonander Raúl"
+  ],
+  "imageEmoji": "🖤"
+},
+{
+  "id": "flip-flop-world-series-g1-2026-10-23",
+  "title": "Flip Flop — World Series Juego 1 Rays vs Brewers",
+  "description": "World Series MLB Juego 1 en Flip Flop Sports Bar, 2 Calle Duarte (escalones amarillos), Playa Sosúa — viernes 23 de octubre 2026, 8:00 PM en FOX. Tampa Bay Rays vs Milwaukee Brewers. Serie contingente: este listing es solo el Juego 1 — se extiende si hacen falta más partidos. WhatsApp +1 829-817-8147 · flipflop360.com.",
+  "date": "2026-10-23",
+  "time": "8:00 PM",
+  "location": "Sosúa",
+  "venue": "Flip Flop Sports Bar",
+  "venueSlug": "flip-flop-sports-bar-sosua",
+  "address": "2 Calle Duarte, Sosúa Beach entrance",
+  "lat": 19.7622,
+  "lng": -70.5166,
+  "category": "sports",
+  "categories": [
+    "food-drinks"
+  ],
+  "format": "physical",
+  "trending": true,
+  "callForPricing": true,
+  "phone": "+18298178147",
+  "sourceType": "flyer",
+  "sourceUrl": "https://flipflop360.com/",
+  "lineup": [
+    "Tampa Bay Rays",
+    "Milwaukee Brewers",
+    "FOX"
+  ],
+  "imageEmoji": "⚾"
+},
+{
+  "id": "flip-flop-nba-opening-night-2026-10-20",
+  "title": "Flip Flop — NBA Opening Night",
+  "description": "NBA Opening Night en Flip Flop Sports Bar, 2 Calle Duarte (escalones amarillos), Playa Sosúa — martes 20 de octubre 2026. Todos los partidos en vivo: Boston Celtics vs Detroit Pistons 3:00 PM ET; Philadelphia 76ers vs New York Knicks 7:00 PM ET. Alitas, cerveza fría, cinco TVs. WhatsApp +1 829-817-8147 · flipflop360.com.",
+  "date": "2026-10-20",
+  "time": "3:00 PM",
+  "location": "Sosúa",
+  "venue": "Flip Flop Sports Bar",
+  "venueSlug": "flip-flop-sports-bar-sosua",
+  "address": "2 Calle Duarte, Sosúa Beach entrance",
+  "lat": 19.7622,
+  "lng": -70.5166,
+  "category": "sports",
+  "categories": [
+    "food-drinks"
+  ],
+  "format": "physical",
+  "trending": true,
+  "callForPricing": true,
+  "phone": "+18298178147",
+  "sourceType": "flyer",
+  "sourceUrl": "https://flipflop360.com/",
+  "lineup": [
+    "Celtics vs Pistons 3:00 PM ET",
+    "76ers vs Knicks 7:00 PM ET"
+  ],
+  "imageEmoji": "🏀"
+},
+{
+  "id": "jl-coaching-zumba-cancer-2026-10-22",
+  "title": "JL Coaching — Zumba Party Contra el Cáncer de Mama",
+  "description": "Zumba Party Contra el Cáncer de Mama gratis en JL Coaching Center, Av. Manolo Tavárez Justo, Ensanche Miramar, Puerto Plata — jueves 22 de octubre 2026 a las 6:00 PM. Instructores Gustavo con invitado especial Antony Jerad. Código de vestimenta: polo rosado. Abierto a todos (no solo miembros). Solidaridad Octubre Rosa — no es el Bichotas Night del mismo jueves en Twenty Disco. Instagram @jl_coachingcenter_pop.",
+  "date": "2026-10-22",
+  "time": "6:00 PM",
+  "location": "Puerto Plata",
+  "venue": "JL Coaching Center",
+  "venueSlug": "jl-coaching-center-puerto-plata",
+  "address": "Av. Manolo Tavárez Justo, Ensanche Miramar, Puerto Plata",
+  "lat": 19.787873,
+  "lng": -70.690629,
+  "category": "health-wellness",
+  "categories": [
+    "dance",
+    "festivals"
+  ],
+  "format": "physical",
+  "trending": true,
+  "isFree": true,
+  "ageHint": "all-ages",
+  "sourceType": "flyer",
+  "sourceUrl": "https://www.instagram.com/jl_coachingcenter_pop/",
+  "lineup": [
+    "Gustavo",
+    "Antony Jerad"
+  ],
+  "imageEmoji": "🎀"
+},
+{
+  "id": "aura-disco-manny-figueroa-2026-10-24",
+  "title": "Aura Disco con Manny Figueroa",
+  "description": "Aura Disco en Aura Beach Club, Calle Principal, Cabarete — sábado 24 de octubre 2026 con DJ en vivo Manny Figueroa desde las 8:00 PM. Confirma cover y mesas por Instagram @auracabarete o WhatsApp +1 829-787-0140. Disco del beach club en Cabarete — no los Tributos Halloween de The Hideout el viernes siguiente.",
+  "date": "2026-10-24",
+  "time": "8:00 PM",
+  "location": "Cabarete",
+  "venue": "Aura Beach Club Cabarete",
+  "venueSlug": "aura-beach-club-cabarete",
+  "address": "Calle Principal, Cabarete 57000",
+  "lat": 19.7500769,
+  "lng": -70.4070417,
+  "category": "parties",
+  "categories": [
+    "music",
+    "dance"
+  ],
+  "format": "physical",
+  "trending": true,
+  "callForPricing": true,
+  "phone": "+18297870140",
+  "sourceType": "flyer",
+  "sourceUrl": "https://www.instagram.com/auracabarete/",
+  "lineup": [
+    "Manny Figueroa"
+  ],
+  "imageEmoji": "🪩"
+},
+{
+  "id": "voyvoy-social-heartz-2026-11-07",
+  "title": "VOYVOY — Social Heartz de día a noche (Sibil + friends)",
+  "description": "Social Heartz de día a noche en VOYVOY Cabarete — sábado 7 de noviembre 2026 desde las 4:00 PM hasta el amanecer sobre el Atlántico. Selectores: Sibil, Jordy Sánchez, drea (Andrea Gagg), Alejandro Álvarez b2b OILY, Nissa Gomez. Tickets Phase 1 vía bio de @social.heartz. Confirma cover/puertas @voyvoybar · +1 809-571-0805. All-nighter frente a la bahía — no es un set corto de cena.",
+  "date": "2026-11-07",
+  "time": "4:00 PM",
+  "endDate": "2026-11-08",
+  "location": "Cabarete",
+  "venue": "VOYVOY Cabarete",
+  "venueSlug": "voyvoy-cabarete",
+  "address": "Calle Principal, Cabarete",
+  "lat": 19.7502161,
+  "lng": -70.4066784,
+  "category": "parties",
+  "categories": [
+    "music",
+    "dance"
+  ],
+  "format": "physical",
+  "trending": true,
+  "callForPricing": true,
+  "phone": "+18095710805",
+  "sourceType": "flyer",
+  "sourceUrl": "https://www.instagram.com/social.heartz/",
+  "lineup": [
+    "Sibil",
+    "Jordy Sánchez",
+    "drea (Andrea Gagg)",
+    "Alejandro Álvarez b2b OILY",
+    "Nissa Gomez"
+  ],
+  "imageEmoji": "🌅"
+},
+{
+  "id": "ivan-garcia-conciliar-sueno-libertad-2026-11-07",
+  "title": "Iván García — Conciliar un Sueño de Libertad",
+  "description": "Conciliar un Sueño de Libertad en la Sala Iván García Teatro-Escuela, Calle Profesor Juan Bosch #72, Puerto Plata — sábado 7 de noviembre 2026 a las 7:30 PM. Autor Eduardo Gautreau de Windt; dirección Arisleyda Beard; actuación estudiantes IGTE. Cover RD$200 por persona; +12 años. No es Café Ópera Código Clown del 31 oct ni la noche Social Heartz en VOYVOY el mismo sábado. RSVP 809-261-7393 · @teatroivangarcia.",
+  "date": "2026-11-07",
+  "time": "7:30 PM",
+  "location": "Puerto Plata",
+  "venue": "Iván García Teatro-Escuela",
+  "venueSlug": "ivan-garcia-teatro-escuela",
+  "address": "Calle Profesor Juan Bosch #72, Puerto Plata",
+  "lat": 19.7979,
+  "lng": -70.6928,
+  "category": "performances",
+  "categories": [
+    "culture"
+  ],
+  "format": "physical",
+  "trending": true,
+  "isFree": false,
+  "admissionPrice": "RD$200",
+  "phone": "+18092617393",
+  "sourceType": "flyer",
+  "sourceUrl": "https://www.instagram.com/teatroivangarcia/",
+  "lineup": [
+    "Eduardo Gautreau de Windt",
+    "Arisleyda Beard",
+    "Estudiantes IGTE"
+  ],
+  "imageEmoji": "🎭"
+}
 ]

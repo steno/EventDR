@@ -34,11 +34,11 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "hard-rock-sosua": {
-    body: "Calle Duarte's biggest, easiest guest send for a billed show — loud and tourist-friendly. Wednesdays are free karaoke from 7 PM; weekends are the ticketed stage, not an underground local disco.",
+    body: "El Batey Plaza Downtown’s biggest guest send for a billed show — closed Mondays; Tue–Thu doors 4 PM, Fri–Sun from noon. Wednesdays are free karaoke from 7 PM; weekends are the ticketed stage, not an underground local disco.",
     localized: {
-      en: "Calle Duarte's biggest, easiest guest send for a billed show — loud and tourist-friendly. Wednesdays are free karaoke from 7 PM; weekends are the ticketed stage, not an underground local disco.",
-      es: "El envío más fácil en Calle Duarte para un show con cartel — fuerte y turístico. Los miércoles karaoke gratis desde las 7 PM; el fin de semana es escenario con boleta, no una disco local underground.",
-      fr: "L'envoi le plus simple sur Calle Duarte pour un show annoncé — fort et visitor-friendly. Mercredi karaoke gratuit dès 19 h ; le week-end c'est la scène billetée, pas une disco locale underground.",
+      en: "El Batey Plaza Downtown’s biggest guest send for a billed show — closed Mondays; Tue–Thu doors 4 PM, Fri–Sun from noon. Wednesdays are free karaoke from 7 PM; weekends are the ticketed stage, not an underground local disco.",
+      es: "El envío más fácil en El Batey Plaza Downtown para un show con cartel — cerrado lunes; mar–jue puertas 4 PM, vie–dom desde mediodía. Los miércoles karaoke gratis desde las 7 PM; el fin de semana es escenario con boleta, no una disco local underground.",
+      fr: "L’envoi le plus simple à El Batey Plaza Downtown pour un show annoncé — fermé lundi ; mar–jeu portes 16 h, ven–dim dès midi. Mercredi karaoke gratuit dès 19 h ; le week-end c’est la scène billetée, pas une disco locale underground.",
     },
   },
   "international-school-sosua": {
@@ -705,6 +705,30 @@ export const VENUE_TIP_COPY: Record<
       fr: "Soirées club à Costa Dorada sur Luperón Km 4.5 — semaines thématiques avec DJ La Nota et offres bouteilles ; RSVP +1 849-885-7986, et ne confondez pas avec le disco-casino Kviar sur la même bande.",
     },
   },
+  "xanadu-resort-hodelpa": {
+    body: "Playa Dorada Hodelpa resort with a walk-in Bowling Center — call +1 829-548-0666 for a lane before you drive over; it’s neon indoor bowling, not a beach club.",
+    localized: {
+      en: "Playa Dorada Hodelpa resort with a walk-in Bowling Center — call +1 829-548-0666 for a lane before you drive over; it’s neon indoor bowling, not a beach club.",
+      es: "Resort Hodelpa en Playa Dorada con Bowling Center walk-in — llama al +1 829-548-0666 por una pista antes de ir; es boliche indoor con neón, no un beach club.",
+      fr: "Resort Hodelpa à Playa Dorada avec Bowling Center walk-in — appelez le +1 829-548-0666 pour une piste avant d’y aller ; bowling indoor néon, pas un beach club.",
+    },
+  },
+  "jl-coaching-center-puerto-plata": {
+    body: "Miramar gym on Manolo Tavárez Justo — community Zumba and pink-polo solidarity nights when billed; not a downtown club, and free community nights are open to non-members.",
+    localized: {
+      en: "Miramar gym on Manolo Tavárez Justo — community Zumba and pink-polo solidarity nights when billed; not a downtown club, and free community nights are open to non-members.",
+      es: "Gimnasio en Miramar sobre Manolo Tavárez Justo — Zumba comunitaria y noches de solidaridad de polo rosado cuando hay cartel; no es un club del centro, y las noches gratis están abiertas a no miembros.",
+      fr: "Salle à Miramar sur Manolo Tavárez Justo — Zumba communautaire et soirées solidarité polo rose quand c’est annoncé ; pas un club du centre, et les soirées gratuites sont ouvertes aux non-membres.",
+    },
+  },
+  "aquagym-costambar": {
+    body: "Swim and aquafitness at Los Mangos Golf Club in Costambar — call +1 829-510-5914 for class times; it’s lessons in the club pool, not a beach day pass.",
+    localized: {
+      en: "Swim and aquafitness at Los Mangos Golf Club in Costambar — call +1 829-510-5914 for class times; it’s lessons in the club pool, not a beach day pass.",
+      es: "Natación y aquafitness en el Club de Golf Los Mangos en Costambar — llama al +1 829-510-5914 por horarios; son clases en la piscina del club, no un day pass de playa.",
+      fr: "Natation et aquafitness au Club de Golf Los Mangos à Costambar — appelez le +1 829-510-5914 pour les horaires ; ce sont des cours dans la piscine du club, pas un day pass plage.",
+    },
+  },
   "tiki-bar-cabarete": {
     body: "Central Cabarete thatch-and-neon cocktail stop near Casino #1 — happy hour 5–8 PM and evening bar energy; not La Chabola’s Callejón pizza room. Confirm doors on @tikibarcabarete (usually closed Mondays).",
     localized: {
@@ -762,11 +786,11 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "meclao-rooftop": {
-    body: "Luis Ginebra rooftop for billed House Fridays and late cocktail sets — skip Monday; reserve 829-374-7028, this is not a quiet dinner terrace.",
+    body: "Luis Ginebra rooftop for billed House Fridays and late cocktail sets — closed through Thu 23 Oct 2026 for renovations (back Fri 24 Oct); otherwise skip Monday and reserve 829-374-7028.",
     localized: {
-      en: "Luis Ginebra rooftop for billed House Fridays and late cocktail sets — skip Monday; reserve 829-374-7028, this is not a quiet dinner terrace.",
-      es: "Rooftop de Luis Ginebra para House Fridays con cartel y sets de cócteles tarde — sáltate el lunes; reserva 829-374-7028, no es terraza de cena tranquila.",
-      fr: "Rooftop Luis Ginebra pour House Fridays à l’affiche et cocktails tardifs — passez le lundi ; réservez 829-374-7028, pas une terrasse dîner calme.",
+      en: "Luis Ginebra rooftop for billed House Fridays and late cocktail sets — closed through Thu 23 Oct 2026 for renovations (back Fri 24 Oct); otherwise skip Monday and reserve 829-374-7028.",
+      es: "Rooftop de Luis Ginebra para House Fridays con cartel y sets de cócteles tarde — cerrado hasta el jue 23 oct 2026 por renovación (vuelve vie 24 oct); fuera de eso sáltate el lunes y reserva 829-374-7028.",
+      fr: "Rooftop Luis Ginebra pour House Fridays à l’affiche et cocktails tardifs — fermé jusqu’au jeu 23 oct 2026 pour rénovation (retour ven 24 oct) ; sinon passez le lundi et réservez 829-374-7028.",
     },
   },
   "el-mirador-de-finely": {
@@ -1194,11 +1218,11 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "ivan-garcia-teatro-escuela": {
-    body: "Puerto Plata FENATE 2026 host sala (22 Oct–1 Nov). Dated local bills: Eulogio Badia Sat 24 Oct 7:00 PM (adults) and Café Ópera Código Clown Sat 31 Oct 7:00 PM (16+). Tierra de Paso is Thu 15 Oct — doors lock at 7:10 PM and do not reopen until the show ends. RSVP 809-261-7393.",
+    body: "Puerto Plata FENATE 2026 host sala (22 Oct–1 Nov). Dated bills: Eulogio Badia Sat 24 Oct 7 PM (adults), Café Ópera Código Clown Sat 31 Oct 7 PM (16+), and Conciliar un Sueño de Libertad Sat 7 Nov 7:30 PM (RD$200, +12). Tierra de Paso was Thu 15 Oct — doors locked at 7:10 PM. RSVP 809-261-7393.",
     localized: {
-      en: "Puerto Plata FENATE 2026 host sala (22 Oct–1 Nov). Dated local bills: Eulogio Badia Sat 24 Oct 7:00 PM (adults) and Café Ópera Código Clown Sat 31 Oct 7:00 PM (16+). Tierra de Paso is Thu 15 Oct — doors lock at 7:10 PM and do not reopen until the show ends. RSVP 809-261-7393.",
-      es: "Sede FENATE 2026 en Puerto Plata (22 oct–1 nov). Cartel local fechado: Eulogio Badia sáb 24 oct 7:00 PM (adultos) y Café Ópera Código Clown sáb 31 oct 7:00 PM (+16). Tierra de Paso es el jue 15 oct — las puertas cierran a las 7:10 PM y no se abren hasta que termine la función. RSVP 809-261-7393.",
-      fr: "Salle hôte FENATE 2026 à Puerto Plata (22 oct–1 nov). Bills locaux datés : Eulogio Badia sam 24 oct 19 h (adultes) et Café Ópera Código Clown sam 31 oct 19 h (16+). Tierra de Paso est le jeu 15 oct — les portes ferment à 19 h 10 et ne rouvrent pas avant la fin. RSVP 809-261-7393.",
+      en: "Puerto Plata FENATE 2026 host sala (22 Oct–1 Nov). Dated bills: Eulogio Badia Sat 24 Oct 7 PM (adults), Café Ópera Código Clown Sat 31 Oct 7 PM (16+), and Conciliar un Sueño de Libertad Sat 7 Nov 7:30 PM (RD$200, +12). Tierra de Paso was Thu 15 Oct — doors locked at 7:10 PM. RSVP 809-261-7393.",
+      es: "Sede FENATE 2026 en Puerto Plata (22 oct–1 nov). Cartel fechado: Eulogio Badia sáb 24 oct 7 PM (adultos), Café Ópera Código Clown sáb 31 oct 7 PM (+16) y Conciliar un Sueño de Libertad sáb 7 nov 7:30 PM (RD$200, +12). Tierra de Paso fue jue 15 oct — puertas a las 7:10 PM. RSVP 809-261-7393.",
+      fr: "Salle hôte FENATE 2026 à Puerto Plata (22 oct–1 nov). Bills datés : Eulogio Badia sam 24 oct 19 h (adultes), Café Ópera Código Clown sam 31 oct 19 h (16+) et Conciliar un Sueño de Libertad sam 7 nov 19 h 30 (RD$200, +12). Tierra de Paso était jeu 15 oct — portes à 19 h 10. RSVP 809-261-7393.",
     },
   },
   "cedaky-mall": {

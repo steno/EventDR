@@ -471,6 +471,51 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     isFree: false,
     admissionPrice: "from RD$200",
   },
+  "xanadu-bowling-daily": {
+    isFree: false,
+    admissionPrice: "RD$1,600 / 4 people",
+    phone: "+18295480666",
+  },
+  "twenty-disco-bichotas-jhon-parra-2026-10-22": {
+    callForPricing: true,
+  },
+  "hideout-tributos-eddy-vasquez-halloween-2026-10-30": {
+    isFree: false,
+    admissionPrice: "RD$800",
+    phone: "+18096902559",
+  },
+  "ambar-lounge-reggaeton-black-edition-2026-10-29": {
+    callForPricing: true,
+    phone: "+18097818677",
+  },
+  "flip-flop-world-series-g1-2026-10-23": {
+    callForPricing: true,
+    phone: "+18298178147",
+  },
+  "flip-flop-nba-opening-night-2026-10-20": {
+    callForPricing: true,
+    phone: "+18298178147",
+  },
+  "jl-coaching-zumba-cancer-2026-10-22": {
+    isFree: true,
+  },
+  "aura-disco-manny-figueroa-2026-10-24": {
+    callForPricing: true,
+    phone: "+18297870140",
+  },
+  "voyvoy-social-heartz-2026-11-07": {
+    callForPricing: true,
+    phone: "+18095710805",
+  },
+  "ivan-garcia-conciliar-sueno-libertad-2026-11-07": {
+    isFree: false,
+    admissionPrice: "RD$200",
+    phone: "+18092617393",
+  },
+  "aquagym-costambar-swim-classes": {
+    callForPricing: true,
+    phone: "+18295105914",
+  },
   "grecialandia-daily": {
     isFree: false,
     admissionPrice: "from US$25",
@@ -650,7 +695,8 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     venueSlug: "pop-cinemas-playa-dorada",
   },
   "la-quinta-rosa-brunch-pumpkin-umo-2026-10-25": {
-    callForPricing: true,
+    isFree: false,
+    admissionPrice: "US$50",
     venueSlug: "la-quinta-rosa",
     sourceUrl: "https://www.instagram.com/laquintarosapop/",
   },

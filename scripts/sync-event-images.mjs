@@ -51,7 +51,7 @@ const FILE_TO_EVENT_ID = {
     "chameleon-monsters-ball-deeway-2026-10-18",
   "ann-soul-jazz-natura-cabana-2026-10-17.jpg":
     "ann-soul-jazz-natura-cabana-2026-10-17",
-  "la-quinta-rosa-brunch-pumpkin-umo-2026-10-25.jpg":
+  "la-quinta-rosa-brunch-pumpkin-umo-2026-10-25-v2.jpg":
     "la-quinta-rosa-brunch-pumpkin-umo-2026-10-25",
   "la-quinta-rosa-taller-decoracion-mobiliario-2026-11-28.jpg":
     "la-quinta-rosa-taller-decoracion-mobiliario-2026-11-28",
@@ -62,6 +62,32 @@ const FILE_TO_EVENT_ID = {
   "luxury-club-jueves-de-piranas.jpg": "luxury-club-jueves-de-piranas",
   "luxury-club-glam-saturday.jpg": "luxury-club-glam-saturday",
   "luxury-club-millionaire-sunday.jpg": "luxury-club-millionaire-sunday",
+  "xanadu-bowling-center.jpg": "xanadu-bowling-daily",
+  "twenty-disco-bichotas-jhon-parra-2026-10-22.jpg":
+    "twenty-disco-bichotas-jhon-parra-2026-10-22",
+  "hideout-tributos-eddy-vasquez-halloween-2026-10-30.jpg":
+    "hideout-tributos-eddy-vasquez-halloween-2026-10-30",
+  "ambar-lounge-reggaeton-black-edition-2026-10-29.jpg":
+    "ambar-lounge-reggaeton-black-edition-2026-10-29",
+  "flip-flop-world-series-g1-2026-10-23.jpg":
+    "flip-flop-world-series-g1-2026-10-23",
+  "flip-flop-nba-opening-night-2026-10-20.jpg":
+    "flip-flop-nba-opening-night-2026-10-20",
+  "jl-coaching-zumba-cancer-2026-10-22.jpg":
+    "jl-coaching-zumba-cancer-2026-10-22",
+  "aura-disco-manny-figueroa-2026-10-24.jpg":
+    "aura-disco-manny-figueroa-2026-10-24",
+  "voyvoy-social-heartz-2026-11-07.jpg": "voyvoy-social-heartz-2026-11-07",
+  "voyvoy-social-heartz-jordy-sanchez-2026-11-07.jpg":
+    "voyvoy-social-heartz-2026-11-07",
+  "voyvoy-social-heartz-drea-2026-11-07.jpg": "voyvoy-social-heartz-2026-11-07",
+  "voyvoy-social-heartz-ale-b2b-oily-2026-11-07.jpg":
+    "voyvoy-social-heartz-2026-11-07",
+  "voyvoy-social-heartz-nissa-gomez-2026-11-07.jpg":
+    "voyvoy-social-heartz-2026-11-07",
+  "ivan-garcia-conciliar-sueno-libertad-2026-11-07.jpg":
+    "ivan-garcia-conciliar-sueno-libertad-2026-11-07",
+  "aquagym-costambar-swim-classes.jpg": "aquagym-costambar-swim-classes",
   "pop-cinemas-week-2026-10-15-posters.jpg": "pop-cinemas-week-2026-10-15",
   "pop-cinemas-week-2026-10-15-sacrificio.jpg":
     "pop-cinemas-week-2026-10-15-sacrificio",
@@ -758,6 +784,9 @@ const FILE_TO_VENUE_SLUG = {
   "cabarete-boxing-club-ring.jpg": "cabarete-boxing-club-ring",
   "chameleon-sport-bar-entrance.jpg": "chameleon-sport-bar-entrance",
   "tiki-bar-cabarete.jpg": "tiki-bar-cabarete",
+  "xanadu-resort-hodelpa.jpg": "xanadu-resort-hodelpa",
+  "jl-coaching-center-puerto-plata.jpg": "jl-coaching-center-puerto-plata",
+  "aquagym-costambar.jpg": "aquagym-costambar",
 };
 
 if (!existsSync(sourceDir)) {

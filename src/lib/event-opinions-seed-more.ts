@@ -5652,21 +5652,21 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "la-quinta-rosa-brunch-pumpkin-umo-2026-10-25",
-    body: "Sunday 10 AM candle brunch in the pink 1912 house on Calle 12 de Julio #88 with UMO Candle — autumn dress-code hang, not a Malecón walk-up; price isn’t on the flyer so DM @laquintarosapop before you Uber, and don’t confuse it with the Katz Home furniture workshop on 28 Nov.",
+    body: "Sunday 10 AM candle brunch in the pink 1912 house on Calle 12 de Julio #88 with UMO Candle — US$50 and reserve via @laquintarosapop bio; not Call You Later (21 Nov) or the Katz Home workshop (28 Nov).",
     localized: {
-      es: "Brunch de velas el domingo a las 10 AM en la casa rosa de 1912 en Calle 12 de Julio #88 con UMO Candle — plan con dress code otoñal, no un walk-up del Malecón; el precio no está en el flyer, así que DM @laquintarosapop antes del Uber, y no lo confundas con el taller de mobiliario Katz Home del 28 nov.",
-      fr: "Brunch bougies dimanche à 10 h dans la maison rose de 1912 au Calle 12 de Julio #88 avec UMO Candle — rendez-vous dress code automnal, pas un walk-up du Malecón ; le tarif n’est pas sur l’affiche, donc DM @laquintarosapop avant l’Uber, et ne confondez pas avec l’atelier mobilier Katz Home du 28 nov.",
+      es: "Brunch de velas el domingo a las 10 AM en la casa rosa de 1912 en Calle 12 de Julio #88 con UMO Candle — US$50 y reserva por la bio de @laquintarosapop; no es Call You Later (21 nov) ni el taller Katz Home (28 nov).",
+      fr: "Brunch bougies dimanche à 10 h dans la maison rose de 1912 au Calle 12 de Julio #88 avec UMO Candle — US$50 et réservation via la bio @laquintarosapop ; pas Call You Later (21 nov) ni l’atelier Katz Home (28 nov).",
     },
-    priceFeel: "varies",
-    priceNote: "Price TBA — DM @laquintarosapop",
+    priceFeel: "upscale",
+    priceNote: "US$50 per person — reserve via @laquintarosapop bio link",
     priceNoteLocalized: {
-      es: "Precio por confirmar — DM @laquintarosapop",
-      fr: "Tarif à confirmer — DM @laquintarosapop",
+      es: "US$50 por persona — reserva en el link de la bio @laquintarosapop",
+      fr: "US$50 par personne — réservez via le lien bio @laquintarosapop",
     },
     attribution: "POP research · @laquintarosapop Brunch & Pumpkin flyer",
     researchNotes:
-      "Editor flyer + IG caption — Sun 25 Oct 2026 10 AM Brunch & Pumpkin × UMO Candle at La Quinta Rosa; autumn dress code; no price on flyer.",
-    updatedAt: "2026-10-15T22:00:00.000Z",
+      "Editor flyer update — Sun 25 Oct 2026 10 AM Brunch & Pumpkin × UMO Candle; US$50/person; reserve bio link. Filename bump -v2.",
+    updatedAt: "2026-10-20T13:30:00.000Z",
   },
   {
     eventId: "la-quinta-rosa-call-you-later-2026-11-21",
@@ -5978,5 +5978,206 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     researchNotes:
       "Editor flyer + Threads/IG @laelopez — Dom 15 Nov 2026 Wellness Day by AURAZUL, Puerto Plata Costambar; salida 5:30 AM, regreso 4:00 PM; punto Av. Dr. Defilló #15 Bellavista; RD$4,200; pilates, baño de gong, kayak, snorkel, tour pueblo; no new venue — destination Costambar without venueSlug.",
     updatedAt: "2026-10-18T16:00:00.000Z",
+  },
+  {
+    eventId: "xanadu-bowling-daily",
+    seriesKey: "xanadu-resort-hodelpa:bowling-daily",
+    body: "Indoor neon bowling inside Playa Dorada when the beach is done — call +1 829-548-0666 for a lane first; walk-ins work but availability is the gate.",
+    localized: {
+      es: "Boliche indoor con neón dentro de Playa Dorada cuando ya acabaste la playa — llama al +1 829-548-0666 por una pista primero; entran walk-ins, pero la disponibilidad manda.",
+      fr: "Bowling indoor néon dans Playa Dorada quand la plage est finie — appelez le +1 829-548-0666 pour une piste d’abord ; les walk-ins passent, mais la dispo décide.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "About RD$1,600 for 4 people including shoes — confirm on site; call ahead for lanes",
+    priceNoteLocalized: {
+      es: "Unos RD$1,600 para 4 personas con zapatos — confirma en sitio; llama antes por pistas",
+      fr: "Environ RD$1,600 pour 4 personnes chaussures incluses — confirmez sur place ; appelez pour les pistes",
+    },
+    attribution: "POP research · walk-in tip + editor photos",
+    researchNotes:
+      "Editor-supplied entrance + bowling lane photos; walk-in tip RD$1600/4 incl shoes; call 829-548-0666 for avail; hours not published — daily amenity assumed.",
+    updatedAt: "2026-10-20T12:00:00.000Z",
+  },
+  {
+    eventId: "twenty-disco-bichotas-jhon-parra-2026-10-22",
+    body: "Pink ladies night at the mall disco with DJ Jhon Parra — Baileys + Midori gratis para ellas on the flyer; confirm cover before you promise free entry for the whole group.",
+    localized: {
+      es: "Noche rosa de ladies en el disco del mall con DJ Jhon Parra — Baileys + Midori gratis para ellas en el flyer; confirma cover antes de prometer entrada gratis para todo el grupo.",
+      fr: "Soirée ladies rose au disco du mall avec DJ Jhon Parra — Baileys + Midori gratuits pour elles sur l’affiche ; confirmez le cover avant de promettre l’entrée gratuite pour tout le groupe.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover not on flyer — ladies Baileys + Midori free; confirm @twenty_disco_lounge",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — Baileys + Midori gratis para ellas; confirma @twenty_disco_lounge",
+      fr: "Cover absent de l’affiche — Baileys + Midori gratuits pour elles ; confirmez @twenty_disco_lounge",
+    },
+    attribution: "POP research · Twenty Disco Bichotas Night flyer",
+    researchNotes:
+      "Editor flyer + IG @twenty_disco_lounge — JUE 22 OCT BICHOTAS NIGHTS, DJ Jhon Parra, Baileys y Midoris gratis para ellas.",
+    updatedAt: "2026-10-20T19:00:00.000Z",
+  },
+  {
+    eventId: "hideout-tributos-eddy-vasquez-halloween-2026-10-30",
+    body: "Halloween live-band classics upstairs at The Hideout for RD$800 — reserve +1 809-690-2559; don’t mix it with Cigar Town downstairs or Twenty’s next-night Halloween club bill.",
+    localized: {
+      es: "Clásicos de banda en vivo de Halloween arriba en The Hideout por RD$800 — reserva +1 809-690-2559; no lo mezcles con Cigar Town abajo ni con el Halloween de Twenty al día siguiente.",
+      fr: "Classiques live band Halloween à l’étage au The Hideout pour RD$800 — réservez +1 809-690-2559 ; ne confondez pas avec Cigar Town en bas ni le Halloween Twenty du lendemain.",
+    },
+    priceFeel: "moderate",
+    priceNote: "Cover RD$800 — reserve +1 809-690-2559 / @thehideoutpop",
+    priceNoteLocalized: {
+      es: "Cover RD$800 — reserva +1 809-690-2559 / @thehideoutpop",
+      fr: "Cover RD$800 — réservez +1 809-690-2559 / @thehideoutpop",
+    },
+    attribution: "POP research · The Hideout Tributos Halloween flyer",
+    researchNotes:
+      "Editor flyer + IG @thehideoutpop — Viernes 30 Oct Tributos by Eddy Vásquez Halloween Live Band; RD$800; Luis Ginebra #56; 809-690-2559; Brugal.",
+    updatedAt: "2026-10-20T14:00:00.000Z",
+  },
+  {
+    eventId: "ambar-lounge-reggaeton-black-edition-2026-10-29",
+    body: "Invite-only Black Edition reggaeton with Ramon Camilo x Yonander Raúl — DM @ambarloungepop first; walk-up without an invite is the wrong plan.",
+    localized: {
+      es: "Reggaeton Black Edition solo con invitación con Ramon Camilo x Yonander Raúl — DM @ambarloungepop primero; llegar sin invite es el plan equivocado.",
+      fr: "Reggaeton Black Edition sur invitation seulement avec Ramon Camilo x Yonander Raúl — DM @ambarloungepop d’abord ; arriver sans invite est le mauvais plan.",
+    },
+    priceFeel: "varies",
+    priceNote: "Invitation only — DM @ambarloungepop / +1 809-781-8677",
+    priceNoteLocalized: {
+      es: "Solo con invitación — DM @ambarloungepop / +1 809-781-8677",
+      fr: "Sur invitation seulement — DM @ambarloungepop / +1 809-781-8677",
+    },
+    attribution: "POP research · Ámbar Lounge Black Edition flyer",
+    researchNotes:
+      "Editor flyer + IG @ambarloungepop — 29/10/2026 Reggaeton Black Edition, Ramon Camilo x Yonander Raúl; acceso únicamente con invitación; Brugal + Red Bull.",
+    updatedAt: "2026-10-20T15:00:00.000Z",
+  },
+  {
+    eventId: "flip-flop-world-series-g1-2026-10-23",
+    body: "World Series Game 1 only at Flip Flop — Rays vs Brewers Friday 8 PM on FOX; extend the listing if the series needs more games.",
+    localized: {
+      es: "Solo el Juego 1 de la World Series en Flip Flop — Rays vs Brewers el viernes 8 PM en FOX; extiende el listing si la serie necesita más partidos.",
+      fr: "Match 1 de la World Series seulement au Flip Flop — Rays vs Brewers vendredi 20 h sur FOX ; prolongez la fiche si la série demande d’autres matchs.",
+    },
+    priceFeel: "moderate",
+    priceNote: "Bar pricing — WhatsApp +1 829-817-8147",
+    priceNoteLocalized: {
+      es: "Precios de bar — WhatsApp +1 829-817-8147",
+      fr: "Tarifs bar — WhatsApp +1 829-817-8147",
+    },
+    attribution: "POP research · Flip Flop World Series flyer",
+    researchNotes:
+      "Contingent series — remove when clinched. Editor flyer: SERIES STARTS 10/23 8:00 PM FOX; Rays vs Brewers. Seed Game 1 only.",
+    updatedAt: "2026-10-20T17:00:00.000Z",
+  },
+  {
+    eventId: "flip-flop-nba-opening-night-2026-10-20",
+    body: "NBA tip-off doubleheader on the yellow-steps TVs — Celtics–Pistons afternoon, then 76ers–Knicks evening; claim a table early if you want both.",
+    localized: {
+      es: "Doble jornada NBA en las TVs de los escalones amarillos — Celtics–Pistons en la tarde y luego 76ers–Knicks en la noche; asegura mesa temprano si quieres ambos.",
+      fr: "Double programme NBA sur les TVs des yellow steps — Celtics–Pistons l’après-midi, puis 76ers–Knicks le soir ; prenez une table tôt si vous voulez les deux.",
+    },
+    priceFeel: "moderate",
+    priceNote: "Bar pricing — WhatsApp +1 829-817-8147",
+    priceNoteLocalized: {
+      es: "Precios de bar — WhatsApp +1 829-817-8147",
+      fr: "Tarifs bar — WhatsApp +1 829-817-8147",
+    },
+    attribution: "POP research · Flip Flop NBA Opening Night flyer",
+    researchNotes:
+      "Editor flyer: NBA Opening Night Tue 20 Oct; Celtics vs Pistons 3PM ET; 76ers vs Knicks 7PM ET; ALL GAMES LIVE.",
+    updatedAt: "2026-10-20T20:00:00.000Z",
+  },
+  {
+    eventId: "jl-coaching-zumba-cancer-2026-10-22",
+    body: "Free pink-polo Zumba for Octubre Rosa at JL Coaching — open to non-members; wear the polo and don’t confuse it with Twenty’s paid Bichotas the same night.",
+    localized: {
+      es: "Zumba gratis de polo rosado por Octubre Rosa en JL Coaching — abierto a no miembros; ponte el polo y no lo confundas con el Bichotas de pago en Twenty la misma noche.",
+      fr: "Zumba gratuite polo rose pour Octubre Rosa au JL Coaching — ouvert aux non-membres ; portez le polo et ne confondez pas avec le Bichotas payant à Twenty la même soirée.",
+    },
+    priceFeel: "free",
+    priceNote: "Free entry — pink polo dress code; @jl_coachingcenter_pop",
+    priceNoteLocalized: {
+      es: "Entrada gratis — código polo rosado; @jl_coachingcenter_pop",
+      fr: "Entrée gratuite — code polo rose ; @jl_coachingcenter_pop",
+    },
+    attribution: "POP research · JL Coaching Zumba Party flyer",
+    researchNotes:
+      "Editor flyer + IG @jl_coachingcenter_pop — Jueves 22 oct 6PM Zumba Party Contra el Cáncer de Mama; gratis; Gustavo + Antony Jerad; polo rosado.",
+    updatedAt: "2026-10-20T18:00:00.000Z",
+  },
+  {
+    eventId: "aura-disco-manny-figueroa-2026-10-24",
+    body: "Saturday Aura Disco with Manny Figueroa from 8 PM — confirm cover/tables on @auracabarete; earlier start than some past 11:30 PM Aura Disco bills.",
+    localized: {
+      es: "Aura Disco del sábado con Manny Figueroa desde las 8 PM — confirma cover/mesas en @auracabarete; arranca antes que algunos Aura Disco a las 11:30 PM.",
+      fr: "Aura Disco du samedi avec Manny Figueroa dès 20 h — confirmez cover/tables sur @auracabarete ; plus tôt que certains Aura Disco à 23 h 30.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover not on flyer — confirm @auracabarete / +1 829-787-0140",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — confirma @auracabarete / +1 829-787-0140",
+      fr: "Cover absent de l’affiche — confirmez @auracabarete / +1 829-787-0140",
+    },
+    attribution: "POP research · Aura Disco Manny Figueroa flyer",
+    researchNotes:
+      "Editor flyer + IG @auracabarete — Saturday 24th 8:00PM Live DJ Manny Figueroa.",
+    updatedAt: "2026-10-20T16:00:00.000Z",
+  },
+  {
+    eventId: "voyvoy-social-heartz-2026-11-07",
+    body: "Social Heartz builds a day-to-night sonic arc at VOYVOY from 4 PM — Sibil, Jordy, drea, ale b2b oily, and Nissa on the bill; Phase 1 tickets via @social.heartz, and swipe the detail carousel for each DJ flyer.",
+    localized: {
+      es: "Social Heartz arma un arco de día a noche en VOYVOY desde las 4 PM — Sibil, Jordy, drea, ale b2b oily y Nissa en el cartel; tickets Phase 1 vía @social.heartz, y desliza el carrusel del detalle por cada flyer de DJ.",
+      fr: "Social Heartz construit un arc jour-nuit à VOYVOY dès 16 h — Sibil, Jordy, drea, ale b2b oily et Nissa à l’affiche ; tickets Phase 1 via @social.heartz, et glissez le carrousel détail pour chaque flyer DJ.",
+    },
+    priceFeel: "varies",
+    priceNote: "Phase 1 tickets via @social.heartz bio — confirm @voyvoybar",
+    priceNoteLocalized: {
+      es: "Tickets Phase 1 vía bio @social.heartz — confirma @voyvoybar",
+      fr: "Tickets Phase 1 via bio @social.heartz — confirmez @voyvoybar",
+    },
+    attribution: "POP research · Social Heartz DJ flyers @social.heartz",
+    researchNotes:
+      "Editor DJ flyers Nov 7 4PM VOYVOY: Sibil, Jordy Sánchez, drea, ale b2b oily, Nissa Gomez; Phase 1 tickets @social.heartz; gallery slides wired.",
+    updatedAt: "2026-10-20T21:00:00.000Z",
+  },
+  {
+    eventId: "ivan-garcia-conciliar-sueno-libertad-2026-11-07",
+    body: "IGTE student night of Conciliar un Sueño de Libertad at 7:30 PM for RD$200 (+12) — same Saturday as Social Heartz at VOYVOY, so pick teatro or bayfront, not both without a plan.",
+    localized: {
+      es: "Noche de estudiantes IGTE con Conciliar un Sueño de Libertad a las 7:30 PM por RD$200 (+12) — mismo sábado que Social Heartz en VOYVOY, así que elige teatro o bahía, no ambos sin plan.",
+      fr: "Soirée étudiants IGTE Conciliar un Sueño de Libertad à 19 h 30 pour RD$200 (+12) — même samedi que Social Heartz à VOYVOY, donc choisissez théâtre ou baie, pas les deux sans plan.",
+    },
+    priceFeel: "budget",
+    priceNote: "RD$200 · +12 — RSVP 809-261-7393 / @teatroivangarcia",
+    priceNoteLocalized: {
+      es: "RD$200 · +12 — RSVP 809-261-7393 / @teatroivangarcia",
+      fr: "RD$200 · +12 — RSVP 809-261-7393 / @teatroivangarcia",
+    },
+    attribution: "POP research · Iván García Conciliar flyer",
+    researchNotes:
+      "Editor flyer — Sáb 7 Nov 2026 7:30pm Sala Iván García; Conciliar un Sueño de Libertad; autor Eduardo Gautreau de Windt; dirección Arisleyda Beard; estudiantes IGTE; RD$200; +12 años.",
+    updatedAt: "2026-10-20T21:00:00.000Z",
+  },
+  {
+    eventId: "aquagym-costambar-swim-classes",
+    seriesKey: "aquagym-costambar:swim-classes",
+    body: "Costambar pool lessons at Los Mangos — kids from age 1 through adult aquafitness; call +1 829-510-5914 for the class grid before you drive in.",
+    localized: {
+      es: "Clases en la piscina de Costambar en Los Mangos — niños desde 1 año hasta aquafitness de adultos; llama al +1 829-510-5914 por la grilla antes de ir.",
+      fr: "Cours piscine à Costambar chez Los Mangos — enfants dès 1 an jusqu’à l’aquafitness adultes ; appelez le +1 829-510-5914 pour la grille avant d’y aller.",
+    },
+    priceFeel: "varies",
+    priceNote: "Call for class pricing — WhatsApp +1 829-510-5914 / @aquagymrd",
+    priceNoteLocalized: {
+      es: "Llama por precios de clase — WhatsApp +1 829-510-5914 / @aquagymrd",
+      fr: "Appelez pour les tarifs de cours — WhatsApp +1 829-510-5914 / @aquagymrd",
+    },
+    attribution: "POP research · AquaGym Costambar Facebook post",
+    researchNotes:
+      "Editor FB @aquagymrd — swim classes kids from 1, aquafitness adults; Club de Golf Los Mangos Costambar; 829-510-5914.",
+    updatedAt: "2026-10-20T12:30:00.000Z",
   },
 ];
