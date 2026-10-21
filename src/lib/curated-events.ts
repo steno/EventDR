@@ -976,6 +976,45 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     callForPricing: true,
     venueSlug: "disco-club-brugal",
   },
+  "disco-club-gogo-dancers-2026-10-22": {
+    callForPricing: true,
+    phone: "+18295639469",
+    venueSlug: "disco-club-brugal",
+  },
+  "natura-sunbar-sunset-sounds-em-zayd-2026-10-22": {
+    callForPricing: true,
+    phone: "+18492147010",
+    venueSlug: "natura-cabana",
+  },
+  "cabarete-boxing-club-movie-night-2026-10-22": {
+    isFree: true,
+    venueSlug: "cabarete-boxing-club",
+  },
+  "twenty-disco-friday-dj-soky-2026-10-23": {
+    isFree: true,
+    venueSlug: "twenty-disco-lounge",
+  },
+  "voyvoy-saturday-session-2026-10-24": {
+    isFree: true,
+    phone: "+18095710805",
+    venueSlug: "voyvoy-cabarete",
+  },
+  "francesca-samuele-natura-cabana-2026-10-24": {
+    callForPricing: true,
+    phone: "+18492147010",
+    venueSlug: "natura-cabana",
+  },
+  "ocean-world-terrace-banda-sin-limite-2026-10-30": {
+    isFree: false,
+    admissionPrice: "RD$200",
+    phone: "+18092912400",
+    venueSlug: "ocean-world",
+  },
+  "chameleon-cursed-room-ronny-alca-2026-11-01": {
+    callForPricing: true,
+    phone: "+18299942304",
+    venueSlug: "chameleon-sport-bar",
+  },
   "disco-club-viernes-salsero-2026-10-09": {
     callForPricing: true,
     phone: "+18295639469",

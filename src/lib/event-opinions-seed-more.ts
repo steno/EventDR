@@ -4430,10 +4430,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "ivan-garcia-cafe-opera-codigo-clown-2026-10-31",
-    body: "16+ lyric-clown night at 7:00 PM on Juan Bosch #72 — classic arias with stage acting, not Eulogio Badía on the 24th and not Twenty Disco’s Paradise In Hell the same Saturday. Price isn’t on the poster, so RSVP 809-261-7393 before you walk up.",
+    body: "16+ FENATE lyric night at 7:00 PM on Juan Bosch #72 — classic arias with stage acting, not Eulogio Badía on the 24th and not a costume club bill at Twenty Disco the same Saturday. Price isn’t on the poster, so RSVP 809-261-7393 before you walk up.",
     localized: {
-      es: "Noche lírico-clown +16 a las 7:00 PM en Juan Bosch #72 — arias clásicas con actuación, no Eulogio Badía del 24 ni Paradise In Hell en Twenty Disco el mismo sábado. El precio no está en el cartel, así que RSVP 809-261-7393 antes de llegar walk-up.",
-      fr: "Soirée lyrique-clown 16+ à 19 h au 72 Juan Bosch — arias classiques et jeu, pas Eulogio Badía du 24 ni Paradise In Hell au Twenty Disco le même samedi. Le prix n’est pas sur l’affiche : RSVP 809-261-7393 avant d’arriver walk-up.",
+      es: "Noche lírica FENATE +16 a las 7:00 PM en Juan Bosch #72 — arias clásicas con actuación, no Eulogio Badía del 24 ni una noche de club/disfraces en Twenty Disco el mismo sábado. El precio no está en el cartel, así que RSVP 809-261-7393 antes de llegar walk-up.",
+      fr: "Soirée lyrique FENATE 16+ à 19 h au 72 Juan Bosch — arias classiques et jeu, pas Eulogio Badía du 24 ni une soirée club/costumes au Twenty Disco le même samedi. Le prix n’est pas sur l’affiche : RSVP 809-261-7393 avant d’arriver walk-up.",
     },
     priceFeel: "varies",
     priceNote: "RSVP 809-261-7393 — confirm tickets @teatroivangarcia",
@@ -6179,5 +6179,149 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     researchNotes:
       "Editor FB @aquagymrd — swim classes kids from 1, aquafitness adults; Club de Golf Los Mangos Costambar; 829-510-5914.",
     updatedAt: "2026-10-20T12:30:00.000Z",
+  },
+  {
+    eventId: "disco-club-gogo-dancers-2026-10-22",
+    body: "Thursday gogo night at Latin Disco Club by the Brugal depots with Angel Carela hosting — adult-show energy on Manolo Tavarez, not a Malecón beach club; reserve 829-563-9469 before you treat doors as walk-in.",
+    localized: {
+      es: "Jueves de gogo en Latin Disco Club frente a los depósitos Brugal con Angel Carela — energía de show adulto en Manolo Tavarez, no un beach club del Malecón; reserva 829-563-9469 antes de asumir entrada walk-in.",
+      fr: "Jeudi gogo au Latin Disco Club face aux dépôts Brugal avec Angel Carela — énergie show adulte sur Manolo Tavarez, pas un beach club du Malecón ; réservez 829-563-9469 avant d’assumer une entrée walk-in.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover not on flyer — confirm @latindiscoclubpp / 829-563-9469",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — confirma @latindiscoclubpp / 829-563-9469",
+      fr: "Cover absent de l’affiche — confirmez @latindiscoclubpp / 829-563-9469",
+    },
+    attribution: "POP research · @latindiscoclubpp GOGO Dancers Night flyer",
+    researchNotes:
+      "Editor flyer + IG @latindiscoclubpp — Jueves 22 Oct GOGO Dancers Night; animación Angel Carela; Av. Circunvalación Sur / Manolo Tavarez frente depósitos Brugal; 829-563-9469; RG Production; ageHint 18-plus.",
+    updatedAt: "2026-10-21T18:00:00.000Z",
+  },
+  {
+    eventId: "natura-sunbar-sunset-sounds-em-zayd-2026-10-22",
+    body: "Thursday SunBar sunset with guest DJ EM ZAYD again and extended happy hour — Perla Marina / Cabarete ocean deck at 6:15–9:15, not a Cabarete strip club night; come for cocktails at golden hour.",
+    localized: {
+      es: "Atardecer de jueves en SunBar con guest DJ EM ZAYD de nuevo y happy hour extendido — terraza océano Perla Marina / Cabarete 6:15–9:15, no un club de la strip; ven por cócteles a la hora dorada.",
+      fr: "Sunset du jeudi au SunBar avec guest DJ EM ZAYD à nouveau et happy hour prolongé — terrasse océan Perla Marina / Cabarete 18 h 15–21 h 15, pas un club de la strip ; venez pour les cocktails à l’heure dorée.",
+    },
+    priceFeel: "moderate",
+    priceNote: "Drinks + table — book +1 849-214-7010 / naturacabana.com",
+    priceNoteLocalized: {
+      es: "Bebidas + mesa — reserva +1 849-214-7010 / naturacabana.com",
+      fr: "Boissons + table — réservez +1 849-214-7010 / naturacabana.com",
+    },
+    attribution: "POP research · SunBar Sunset & Sounds EM ZAYD Oct 22 flyer",
+    researchNotes:
+      "Editor flyer + naturacabana.com: Thu 22 Oct 2026 6:15–9:15 PM SunBar Guest DJ EM ZAYD, special extended happy hour; distinct from 1 Oct EM ZAYD seed.",
+    updatedAt: "2026-10-21T17:00:00.000Z",
+  },
+  {
+    eventId: "cabarete-boxing-club-movie-night-2026-10-22",
+    body: "Free Surf’s Up screening at Cabarete Boxing Club Thursday 7 PM with Khong Kwan plates and popcorn — gym-yard movie night, not POP Cinemas Playa Dorada; everyone-welcome family send.",
+    localized: {
+      es: "Proyección gratis de Surf’s Up en Cabarete Boxing Club el jueves a las 7 PM con platos Khong Kwan y popcorn — cine en el patio del gym, no POP Cinemas Playa Dorada; todos bienvenidos.",
+      fr: "Projection gratuite de Surf’s Up au Cabarete Boxing Club jeudi à 19 h avec plats Khong Kwan et popcorn — cinéma dans la cour du gym, pas POP Cinemas Playa Dorada ; tout le monde bienvenu.",
+    },
+    priceFeel: "free",
+    priceNote: "Free movie — food/drinks on Khong Kwan menu · @cabareteboxingclub",
+    priceNoteLocalized: {
+      es: "Película gratis — comida/bebidas en menú Khong Kwan · @cabareteboxingclub",
+      fr: "Film gratuit — boissons/plats menu Khong Kwan · @cabareteboxingclub",
+    },
+    attribution: "POP research · Cabarete Boxing Club Movie Night Surf’s Up flyer",
+    researchNotes:
+      "Editor flyer — Thursday 7 PM Movie Night Surf’s Up; free movie; everyone welcome; full Khong Kwan menu & popcorn; dated to 22 Oct 2026 (next Thu after ingest).",
+    updatedAt: "2026-10-21T16:00:00.000Z",
+  },
+  {
+    eventId: "twenty-disco-friday-dj-soky-2026-10-23",
+    body: "No-cover Friday at Twenty Disco in Playa Dorada Mall with DJ Soky — mall club night, not Bichotas Thursday the night before; confirm doors on @twenty_disco_lounge if you need a table.",
+    localized: {
+      es: "Viernes sin cover en Twenty Disco en Playa Dorada Mall con DJ Soky — noche de club del mall, no el jueves Bichotas de la noche anterior; confirma puertas en @twenty_disco_lounge si quieres mesa.",
+      fr: "Vendredi sans cover au Twenty Disco au Playa Dorada Mall avec DJ Soky — soirée club du mall, pas le jeudi Bichotas la veille ; confirmez les portes sur @twenty_disco_lounge si vous voulez une table.",
+    },
+    priceFeel: "free",
+    priceNote: "No cover — drinks inside · @twenty_disco_lounge",
+    priceNoteLocalized: {
+      es: "Sin cover — bebidas adentro · @twenty_disco_lounge",
+      fr: "Sans cover — boissons à l’intérieur · @twenty_disco_lounge",
+    },
+    attribution: "POP research · Twenty Disco Friday Night DJ Soky flyer",
+    researchNotes:
+      "Editor flyer — Vie 23 Oct Friday Night; beats by DJ Soky; no cover; Playa Dorada Mall.",
+    updatedAt: "2026-10-21T15:00:00.000Z",
+  },
+  {
+    eventId: "voyvoy-saturday-session-2026-10-24",
+    body: "Bayfront Saturday Session at VOYVOY with Mohikaa and Emilio Sánchez, no cover, 9 PM–3 AM — dance-club energy on Cabarete Beach, not the soft-reopening bills earlier in October.",
+    localized: {
+      es: "Saturday Session frente a la bahía en VOYVOY con Mohikaa y Emilio Sánchez, sin cover, 9 PM–3 AM — energía de dance club en Cabarete Beach, no las noches de soft reopening de octubre.",
+      fr: "Saturday Session face à la baie au VOYVOY avec Mohikaa et Emilio Sánchez, sans cover, 21 h–3 h — énergie dance club sur Cabarete Beach, pas les soft reopenings d’octobre.",
+    },
+    priceFeel: "free",
+    priceNote: "No cover — @voyvoybar · +1 809-571-0805",
+    priceNoteLocalized: {
+      es: "Sin cover — @voyvoybar · +1 809-571-0805",
+      fr: "Sans cover — @voyvoybar · +1 809-571-0805",
+    },
+    attribution: "POP research · VOYVOY Saturday Session Mohikaa flyer",
+    researchNotes:
+      "Editor flyer + IG @voyvoybar — Sat 24 Oct 2026 9 PM–3 AM; Mohikaa + Emilio Sánchez; no cover; Cabarete Beach.",
+    updatedAt: "2026-10-21T14:00:00.000Z",
+  },
+  {
+    eventId: "francesca-samuele-natura-cabana-2026-10-24",
+    body: "Saturday dinner-hour live duo at Natura Restaurant — Francesca & Samuele 7–9:30 PM on the Perla Marina beach deck; book a table before you treat it like a free open mic on Calle Principal.",
+    localized: {
+      es: "Dúo en vivo a la hora de cena en Natura Restaurant — Francesca & Samuele 7–9:30 PM en la terraza de playa de Perla Marina; reserva mesa antes de tratarlo como open mic gratis en Calle Principal.",
+      fr: "Duo live à l’heure du dîner au Natura Restaurant — Francesca & Samuele 19 h–21 h 30 sur la terrasse plage de Perla Marina ; réservez une table avant de le traiter comme open mic gratuit sur Calle Principal.",
+    },
+    priceFeel: "moderate",
+    priceNote: "Book your table — +1 849-214-7010 / naturacabana.com",
+    priceNoteLocalized: {
+      es: "Reserva tu mesa — +1 849-214-7010 / naturacabana.com",
+      fr: "Réservez votre table — +1 849-214-7010 / naturacabana.com",
+    },
+    attribution: "POP research · Natura Saturday live Francesca & Samuele flyer",
+    researchNotes:
+      "Editor flyer Sat 24 Oct 2026 7–9:30 PM live music Francesca & Samuele, book your table; Natura Cabana Saturday live.music template (venue not printed on art).",
+    updatedAt: "2026-10-21T13:00:00.000Z",
+  },
+  {
+    eventId: "ocean-world-terrace-banda-sin-limite-2026-10-30",
+    body: "Cofresí terrace típico with Banda Sin Límite Friday from 8 PM for RD$200 — Ocean World Terrace stage, not the dolphin-park ticket line; call +1 809-291-2400 if you need a table.",
+    localized: {
+      es: "Típico en la terraza de Cofresí con Banda Sin Límite el viernes desde las 8 PM por RD$200 — tarima de Ocean World Terrace, no la fila de delfines; llama al +1 809-291-2400 si necesitas mesa.",
+      fr: "Típico sur la terrasse de Cofresí avec Banda Sin Límite vendredi dès 20 h pour RD$200 — scène Ocean World Terrace, pas la file des dauphins ; appelez le +1 809-291-2400 si vous voulez une table.",
+    },
+    priceFeel: "budget",
+    priceNote: "RD$200 p/p — info 809-291-2400 / @oceanworldterrace",
+    priceNoteLocalized: {
+      es: "RD$200 p/p — info 809-291-2400 / @oceanworldterrace",
+      fr: "RD$200 p/p — info 809-291-2400 / @oceanworldterrace",
+    },
+    attribution: "POP research · Ocean World Terrace Banda Sin Límite flyer",
+    researchNotes:
+      "Editor flyer + IG @oceanworldterrace — Viernes 30 de octubre desde 8 PM; Banda Sin Límite; merengue típico; RD$200; Calle Principal #3 Cofresí; 809.291.2400.",
+    updatedAt: "2026-10-21T12:00:00.000Z",
+  },
+  {
+    eventId: "chameleon-cursed-room-ronny-alca-2026-11-01",
+    body: "Ronny Alca’s last Sosúa stage night before Alofoke 3 — The Cursed Room Halloween at Chameleon Sport Bar (Sosúa Bay Center), not Natura’s same-Sunday Halloween dinner; RSVP +1 829-994-2304 before you treat doors as walk-in.",
+    localized: {
+      es: "La última noche de Ronny Alca en Sosúa antes de Alofoke 3 — The Cursed Room Halloween en Chameleon Sport Bar (Sosúa Bay Center), no la cena Halloween de Natura el mismo domingo; RSVP +1 829-994-2304 antes de asumir entrada walk-in.",
+      fr: "Dernière nuit scène de Ronny Alca à Sosúa avant Alofoke 3 — The Cursed Room Halloween au Chameleon Sport Bar (Sosúa Bay Center), pas le dîner Halloween de Natura le même dimanche ; RSVP +1 829-994-2304 avant d’assumer une entrée walk-in.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — RSVP +1 829-994-2304 · @chameleonsportbar",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — RSVP +1 829-994-2304 · @chameleonsportbar",
+      fr: "Cover à confirmer — RSVP +1 829-994-2304 · @chameleonsportbar",
+    },
+    attribution: "POP research · The Cursed Room Ronny Alca flyer",
+    researchNotes:
+      "Editor flyer + caption — Domingo 01 Nov 2026 The Cursed Room Halloween Party; Ronny Alca last party before Casa de Alofoke 3; Chameleon Sport Bar Sosúa Bay Center Calle Alejo Martinez #1; RSVP (829) 994-2304; PD Entertainments / Pekke Redes.",
+    updatedAt: "2026-10-21T19:00:00.000Z",
   },
 ];

@@ -45,6 +45,20 @@ const FILE_TO_EVENT_ID = {
     "cabarete-boxing-club-open-sparring-friday",
   "cabarete-boxing-club-movie-night-2026-10-16.jpg":
     "cabarete-boxing-club-movie-night-2026-10-16",
+  "cabarete-boxing-club-movie-night-2026-10-22.jpg":
+    "cabarete-boxing-club-movie-night-2026-10-22",
+  "disco-club-gogo-dancers-2026-10-22.jpg": "disco-club-gogo-dancers-2026-10-22",
+  "natura-sunbar-sunset-sounds-em-zayd-2026-10-22.jpg":
+    "natura-sunbar-sunset-sounds-em-zayd-2026-10-22",
+  "twenty-disco-friday-dj-soky-2026-10-23.jpg":
+    "twenty-disco-friday-dj-soky-2026-10-23",
+  "voyvoy-saturday-session-2026-10-24.jpg": "voyvoy-saturday-session-2026-10-24",
+  "francesca-samuele-natura-cabana-2026-10-24.jpg":
+    "francesca-samuele-natura-cabana-2026-10-24",
+  "ocean-world-terrace-banda-sin-limite-2026-10-30.jpg":
+    "ocean-world-terrace-banda-sin-limite-2026-10-30",
+  "chameleon-cursed-room-ronny-alca-2026-11-01.jpg":
+    "chameleon-cursed-room-ronny-alca-2026-11-01",
   "tour-de-campeones-gran-final-2026-11-14.jpg":
     "tour-de-campeones-gran-final-2026-11-14",
   "chameleon-monsters-ball-deeway-2026-10-18.jpg":

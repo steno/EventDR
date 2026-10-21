@@ -12,6 +12,21 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "cabarete-boxing-club-open-sparring-friday.jpg",
   "cabarete-boxing-club-movie-night-2026-10-16":
     "cabarete-boxing-club-movie-night-2026-10-16.jpg",
+  "cabarete-boxing-club-movie-night-2026-10-22":
+    "cabarete-boxing-club-movie-night-2026-10-22.jpg",
+  "disco-club-gogo-dancers-2026-10-22": "disco-club-gogo-dancers-2026-10-22.jpg",
+  "natura-sunbar-sunset-sounds-em-zayd-2026-10-22":
+    "natura-sunbar-sunset-sounds-em-zayd-2026-10-22.jpg",
+  "twenty-disco-friday-dj-soky-2026-10-23":
+    "twenty-disco-friday-dj-soky-2026-10-23.jpg",
+  "voyvoy-saturday-session-2026-10-24":
+    "voyvoy-saturday-session-2026-10-24.jpg",
+  "francesca-samuele-natura-cabana-2026-10-24":
+    "francesca-samuele-natura-cabana-2026-10-24.jpg",
+  "ocean-world-terrace-banda-sin-limite-2026-10-30":
+    "ocean-world-terrace-banda-sin-limite-2026-10-30.jpg",
+  "chameleon-cursed-room-ronny-alca-2026-11-01":
+    "chameleon-cursed-room-ronny-alca-2026-11-01.jpg",
   "tour-de-campeones-gran-final-2026-11-14":
     "tour-de-campeones-gran-final-2026-11-14.jpg",
   "chameleon-monsters-ball-deeway-2026-10-18":
@@ -688,6 +703,14 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "cabarete-boxing-club-kids-class": "object-center",
   "cabarete-boxing-club-open-sparring-friday": "object-center",
   "cabarete-boxing-club-movie-night-2026-10-16": "object-center",
+  "cabarete-boxing-club-movie-night-2026-10-22": "object-center",
+  "disco-club-gogo-dancers-2026-10-22": "object-center",
+  "natura-sunbar-sunset-sounds-em-zayd-2026-10-22": "object-center",
+  "twenty-disco-friday-dj-soky-2026-10-23": "object-center",
+  "voyvoy-saturday-session-2026-10-24": "object-center",
+  "francesca-samuele-natura-cabana-2026-10-24": "object-center",
+  "ocean-world-terrace-banda-sin-limite-2026-10-30": "object-center",
+  "chameleon-cursed-room-ronny-alca-2026-11-01": "object-center",
   "chameleon-monsters-ball-deeway-2026-10-18": "object-center",
   "ann-soul-jazz-natura-cabana-2026-10-17": "object-center",
   // Portrait entrance — keep the walkers in a wide crop.
@@ -1040,6 +1063,14 @@ export function getEventHeroObjectPosition(eventId: string): string {
  * New flyer art must land here (or stay off {@link HOME_HERO_SCENE_FILES}).
  */
 const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
+  "cabarete-boxing-club-movie-night-2026-10-22.jpg",
+  "disco-club-gogo-dancers-2026-10-22.jpg",
+  "natura-sunbar-sunset-sounds-em-zayd-2026-10-22.jpg",
+  "twenty-disco-friday-dj-soky-2026-10-23.jpg",
+  "voyvoy-saturday-session-2026-10-24.jpg",
+  "francesca-samuele-natura-cabana-2026-10-24.jpg",
+  "ocean-world-terrace-banda-sin-limite-2026-10-30.jpg",
+  "chameleon-cursed-room-ronny-alca-2026-11-01.jpg",
   "twenty-disco-bichotas-jhon-parra-2026-10-22.jpg",
   "hideout-tributos-eddy-vasquez-halloween-2026-10-30.jpg",
   "ambar-lounge-reggaeton-black-edition-2026-10-29.jpg",

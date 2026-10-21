@@ -154,8 +154,9 @@ const KEYWORDS: KeywordMap = {
     { term: "paradise in hell", weight: 2 },
     { term: "catrina", weight: 2 },
     { term: "catrinas", weight: 2 },
-    { term: "código clown", weight: 2 },
-    { term: "codigo clown", weight: 2 },
+    // Do not keyword-match “código clown” — disambiguation copy on other Iván García
+    // bills (and FENATE) named that Oct 31 show and falsely unlocked Halloween.
+    // The Café Ópera seed already sets category: halloween explicitly.
     "spooky",
     "disfraz",
     "disfraces",

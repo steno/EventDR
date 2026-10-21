@@ -57,6 +57,37 @@ describe("catalog category invariants", () => {
       );
     }
   });
+
+  it("does not tag Conciliar as Halloween from Café Ópera disambiguation", () => {
+    for (const locale of LOCALES) {
+      const event = getFallbackEventById(
+        "ivan-garcia-conciliar-sueno-libertad-2026-11-07",
+        locale,
+      );
+      assert.ok(event, locale);
+      assert.equal(
+        eventInCategory(withResolvedCategories(event), "halloween"),
+        false,
+        locale,
+      );
+    }
+  });
+
+  it("keeps Café Ópera Código Clown as theater, not Halloween", () => {
+    for (const locale of LOCALES) {
+      const event = getFallbackEventById(
+        "ivan-garcia-cafe-opera-codigo-clown-2026-10-31",
+        locale,
+      );
+      assert.ok(event, locale);
+      assert.equal(event.category, "performances", locale);
+      assert.equal(
+        eventInCategory(withResolvedCategories(event), "halloween"),
+        false,
+        locale,
+      );
+    }
+  });
 });
 
 describe("nightlife Adventure sanitizer", () => {
