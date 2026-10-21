@@ -103,6 +103,51 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     venueSlug: "over-beach-club",
     sourceUrl: "https://www.instagram.com/mannythetrainer/",
   },
+  "justin-santos-rancho-catalina-2026-10-25": {
+    isFree: true,
+    phone: "+18097813737",
+    venueSlug: "rancho-catalina-puerto-plata",
+    sourceUrl: "https://www.instagram.com/rancholacatalina/",
+  },
+  "twenty-disco-angel-demons-2026-10-24": {
+    isFree: true,
+    venueSlug: "twenty-disco-lounge",
+    sourceUrl: "https://www.instagram.com/twenty_disco_lounge/",
+  },
+  "ambar-lounge-bandoleras-2026-10-23": {
+    callForPricing: true,
+    phone: "+18097818677",
+    venueSlug: "ambar-lounge-pop",
+    sourceUrl: "https://www.instagram.com/ambarloungepop/",
+  },
+  "ambar-lounge-chris-plasencia-adrian-tineo-2026-10-24": {
+    callForPricing: true,
+    phone: "+18097818677",
+    venueSlug: "ambar-lounge-pop",
+    sourceUrl: "https://www.instagram.com/ambarloungepop/",
+  },
+  "kite-street-son-cubano-2026-10-25": {
+    isFree: true,
+    venueSlug: "kite-street-pop",
+    sourceUrl: "https://www.instagram.com/kitestreetpop/",
+  },
+  "caribbean-surf-junior-puntilla-2026-11-14": {
+    callForPricing: true,
+    venueSlug: "anfiteatro-la-puntilla",
+    sourceUrl: "https://www.instagram.com/caribbeansurfconnection/",
+  },
+  "caribbean-surf-junior-encuentro-2026-12-27": {
+    callForPricing: true,
+    venueSlug: "playa-encuentro",
+    sourceUrl: "https://www.instagram.com/caribbeansurfconnection/",
+  },
+  "proyecto-x-el-calabozo-2026-10-31": {
+    isFree: false,
+    admissionPrice: "RD$1,500",
+    phone: "+18096147745",
+    sourceUrl: "https://www.instagram.com/proyecto_x_pop/",
+    ticketUrl: "https://chat.whatsapp.com/JWibgYONhzF0JwtfIOyZWx",
+  },
   "trillo-la-guaita-long-beach-2026-09-24": {
     isFree: true,
     venueSlug: "long-beach-puerto-plata",

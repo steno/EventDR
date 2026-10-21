@@ -19,6 +19,20 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "natura-sunbar-sunset-sounds-em-zayd-2026-10-22.jpg",
   "twenty-disco-friday-dj-soky-2026-10-23":
     "twenty-disco-friday-dj-soky-2026-10-23.jpg",
+  "justin-santos-rancho-catalina-2026-10-25":
+    "justin-santos-rancho-catalina-2026-10-25.jpg",
+  "proyecto-x-el-calabozo-2026-10-31":
+    "proyecto-x-el-calabozo-2026-10-31.jpg",
+  "twenty-disco-angel-demons-2026-10-24":
+    "twenty-disco-angel-demons-2026-10-24.jpg",
+  "ambar-lounge-bandoleras-2026-10-23":
+    "ambar-lounge-bandoleras-2026-10-23.jpg",
+  "kite-street-son-cubano-2026-10-25":
+    "kite-street-son-cubano-2026-10-25.jpg",
+  "caribbean-surf-junior-puntilla-2026-11-14":
+    "caribbean-surf-junior-puntilla-2026-11-14.jpg",
+  "caribbean-surf-junior-encuentro-2026-12-27":
+    "caribbean-surf-junior-encuentro-2026-12-27.jpg",
   "voyvoy-saturday-session-2026-10-24":
     "voyvoy-saturday-session-2026-10-24.jpg",
   "francesca-samuele-natura-cabana-2026-10-24":
@@ -468,7 +482,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "jennifer-nadal-pilates-anfiteatro-2026-10-24":
     "jennifer-nadal-pilates-anfiteatro-2026-10-24.jpg",
   "jump-fit-rosa-beard-over-club-2026-10-31":
-    "jump-fit-rosa-beard-over-club-2026-10-31.jpg",
+    "jump-fit-rosa-beard-over-club-2026-10-31-v2.jpg",
   "trillo-la-guaita-long-beach-2026-09-24":
     "trillo-la-guaita-long-beach-2026-09-24.jpg",
   "cruzmonty-manuel-cocco-birthday-cigar-town-2026-10-17":
@@ -1067,6 +1081,14 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "disco-club-gogo-dancers-2026-10-22.jpg",
   "natura-sunbar-sunset-sounds-em-zayd-2026-10-22.jpg",
   "twenty-disco-friday-dj-soky-2026-10-23.jpg",
+  "justin-santos-rancho-catalina-2026-10-25.jpg",
+  "proyecto-x-el-calabozo-2026-10-31.jpg",
+  "twenty-disco-angel-demons-2026-10-24.jpg",
+  "ambar-lounge-bandoleras-2026-10-23.jpg",
+  "kite-street-son-cubano-2026-10-25.jpg",
+  "jump-fit-rosa-beard-over-club-2026-10-31-v2.jpg",
+  "caribbean-surf-junior-puntilla-2026-11-14.jpg",
+  "caribbean-surf-junior-encuentro-2026-12-27.jpg",
   "voyvoy-saturday-session-2026-10-24.jpg",
   "francesca-samuele-natura-cabana-2026-10-24.jpg",
   "ocean-world-terrace-banda-sin-limite-2026-10-30.jpg",

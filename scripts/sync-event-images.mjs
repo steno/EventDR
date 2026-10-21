@@ -52,6 +52,22 @@ const FILE_TO_EVENT_ID = {
     "natura-sunbar-sunset-sounds-em-zayd-2026-10-22",
   "twenty-disco-friday-dj-soky-2026-10-23.jpg":
     "twenty-disco-friday-dj-soky-2026-10-23",
+  "justin-santos-rancho-catalina-2026-10-25.jpg":
+    "justin-santos-rancho-catalina-2026-10-25",
+  "proyecto-x-el-calabozo-2026-10-31.jpg":
+    "proyecto-x-el-calabozo-2026-10-31",
+  "twenty-disco-angel-demons-2026-10-24.jpg":
+    "twenty-disco-angel-demons-2026-10-24",
+  "ambar-lounge-bandoleras-2026-10-23.jpg":
+    "ambar-lounge-bandoleras-2026-10-23",
+  "kite-street-son-cubano-2026-10-25.jpg":
+    "kite-street-son-cubano-2026-10-25",
+  "jump-fit-rosa-beard-over-club-2026-10-31-v2.jpg":
+    "jump-fit-rosa-beard-over-club-2026-10-31",
+  "caribbean-surf-junior-puntilla-2026-11-14.jpg":
+    "caribbean-surf-junior-puntilla-2026-11-14",
+  "caribbean-surf-junior-encuentro-2026-12-27.jpg":
+    "caribbean-surf-junior-encuentro-2026-12-27",
   "voyvoy-saturday-session-2026-10-24.jpg": "voyvoy-saturday-session-2026-10-24",
   "francesca-samuele-natura-cabana-2026-10-24.jpg":
     "francesca-samuele-natura-cabana-2026-10-24",

@@ -585,7 +585,7 @@ describe("Halloween seasonal rail", () => {
       isHalloweenListing(
         event({
           id: "rumble-in-paradise-13",
-          title: "Rumble in Paradise 13",
+          title: "Rumble in Paradise 13 — Boxing",
           date: "2026-10-31",
           time: "4:00 PM",
           description:

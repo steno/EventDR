@@ -170,7 +170,7 @@ export const SEED_CREATED_AT: Readonly<Record<string, string>> = {
   "feel-the-boom-marianna-kite-street-2026-10-16": "2026-10-03T14:00:00.000Z",
   "ojo-pal-mambo-tuesday": "2026-10-03T15:00:00.000Z",
   "cruzmonty-manuel-cocco-birthday-cigar-town-2026-10-17": "2026-10-04T17:00:00.000Z",
-  "jump-fit-rosa-beard-over-club-2026-10-31": "2026-10-04T16:00:00.000Z",
+  "jump-fit-rosa-beard-over-club-2026-10-31": "2026-10-21T22:30:00.000Z",
   "jennifer-nadal-pilates-anfiteatro-2026-10-24": "2026-10-04T15:00:00.000Z",
   "trillo-la-guaita-long-beach-2026-09-24": "2026-10-04T14:00:00.000Z",
   "ivan-garcia-cafe-opera-codigo-clown-2026-10-31": "2026-10-05T16:00:00.000Z",
@@ -295,6 +295,14 @@ export const SEED_CREATED_AT: Readonly<Record<string, string>> = {
   "francesca-samuele-natura-cabana-2026-10-24": "2026-10-21T13:00:00.000Z",
   "ocean-world-terrace-banda-sin-limite-2026-10-30": "2026-10-21T12:00:00.000Z",
   "chameleon-cursed-room-ronny-alca-2026-11-01": "2026-10-21T19:00:00.000Z",
+  "twenty-disco-angel-demons-2026-10-24": "2026-10-21T23:00:00.000Z",
+  "ambar-lounge-bandoleras-2026-10-23": "2026-10-21T22:00:00.000Z",
+  "justin-santos-rancho-catalina-2026-10-25": "2026-10-21T21:00:00.000Z",
+  "kite-street-son-cubano-2026-10-25": "2026-10-21T20:30:00.000Z",
+  "ambar-lounge-chris-plasencia-adrian-tineo-2026-10-24": "2026-10-21T20:00:00.000Z",
+  "caribbean-surf-junior-puntilla-2026-11-14": "2026-10-21T19:30:00.000Z",
+  "caribbean-surf-junior-encuentro-2026-12-27": "2026-10-21T19:15:00.000Z",
+  "proyecto-x-el-calabozo-2026-10-31": "2026-10-21T23:30:00.000Z",
 };
 
 /** Fill missing `createdAt` from {@link SEED_CREATED_AT} (does not overwrite). */

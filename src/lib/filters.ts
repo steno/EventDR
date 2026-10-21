@@ -437,6 +437,7 @@ const EMOJI_SEARCH_TERMS: Record<string, readonly string[]> = {
   "⚾": ["baseball", "beisbol"],
   "🏀": ["basketball", "baloncesto"],
   "⚽": ["soccer", "football", "futbol"],
+  "🥊": ["boxing", "boxeo", "boxe"],
   "🏐": ["volleyball", "voleibol"],
   "🎾": ["tennis", "tenis"],
   "🏄": ["surf", "kitesurf", "kite"],

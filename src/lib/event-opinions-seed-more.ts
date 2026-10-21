@@ -4281,21 +4281,21 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "jump-fit-rosa-beard-over-club-2026-10-31",
-    body: "Steep RD$2,500 Jump Fit cover for Rosa Beard at Over Club on Halloween Saturday — not a free beach bootcamp; confirm the Over Beach Club pin and WhatsApp before you send, the Maps listing is still thin.",
+    body: "Halloween Saturday at Over Club stacks cycling, Feel the Boom, Jump Fit, welcome drinks, and DJ Yona/Pau into one Old School Party After Workout — still the steep RD$2,500 cover from the prior Jump Fit flyer; confirm the Over Beach Club pin before you treat it like a free Malecón bootcamp.",
     localized: {
-      es: "Cover alto de RD$2,500 por Jump Fit con Rosa Beard en Over Club el sábado de Halloween — no es un bootcamp gratis en la playa; confirma el pin de Over Beach Club y WhatsApp antes de mandar, el listing en Maps aún está flojo.",
-      fr: "Cover élevé RD$2,500 pour Jump Fit avec Rosa Beard à Over Club le samedi d’Halloween — pas un bootcamp plage gratuit ; confirmez le pin Over Beach Club et WhatsApp avant d’envoyer, la fiche Maps est encore légère.",
+      es: "El sábado de Halloween en Over Club junta cycling, Feel the Boom, Jump Fit, tragos de bienvenida y DJ Yona/Pau en un Old School Party After Workout — sigue el cover alto de RD$2,500 del flyer Jump Fit previo; confirma el pin de Over Beach Club antes de tratarlo como bootcamp gratis del Malecón.",
+      fr: "Le samedi d’Halloween à Over Club enchaîne cycling, Feel the Boom, Jump Fit, boissons de bienvenue et DJ Yona/Pau en un Old School Party After Workout — toujours le cover élevé RD$2,500 du flyer Jump Fit précédent ; confirmez le pin Over Beach Club avant de le traiter comme bootcamp gratuit du Malecón.",
     },
     priceFeel: "upscale",
-    priceNote: "Cover RD$2,500 on flyer · @mannythetrainer / Over Club",
+    priceNote: "Cover RD$2,500 on prior Jump Fit flyer · @mannythetrainer / Over Club",
     priceNoteLocalized: {
-      es: "Cover RD$2,500 en el flyer · @mannythetrainer / Over Club",
-      fr: "Cover RD$2,500 sur l’affiche · @mannythetrainer / Over Club",
+      es: "Cover RD$2,500 en el flyer Jump Fit previo · @mannythetrainer / Over Club",
+      fr: "Cover RD$2,500 sur le flyer Jump Fit précédent · @mannythetrainer / Over Club",
     },
-    attribution: "POP research · Jump Fit / Rosa Beard flyer",
+    attribution: "POP research · Manny The Trainer Old School Party After Workout flyer",
     researchNotes:
-      "Editor flyer SAB 31 OCT 6:00 PM OVER CLUB RD$2,500.00 + bio slide @mannythetrainer CONOCE A ROSA ELIZABETH, 31 de octubre 2026, Over Club. Venue IG @over_beach_club · +1 829-696-1910.",
-    updatedAt: "2026-10-04T16:00:00.000Z",
+      "Editor flyer 31 DE OCTUBRE 6:00 PM OLD SCHOOL PARTY AFTER WORKOUT — DJ Yona, DJ Pau; cycling, Feel the Boom, Jump Fit, tragos de bienvenida, refrigerio. Venue not printed on new art; prior Jump Fit / Rosa Beard flyer same date/time Over Club RD$2,500 · @over_beach_club · +1 829-696-1910. Kept same event id.",
+    updatedAt: "2026-10-21T22:30:00.000Z",
   },
   {
     eventId: "trillo-la-guaita-long-beach-2026-09-24",
@@ -6323,5 +6323,149 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     researchNotes:
       "Editor flyer + caption — Domingo 01 Nov 2026 The Cursed Room Halloween Party; Ronny Alca last party before Casa de Alofoke 3; Chameleon Sport Bar Sosúa Bay Center Calle Alejo Martinez #1; RSVP (829) 994-2304; PD Entertainments / Pekke Redes.",
     updatedAt: "2026-10-21T19:00:00.000Z",
+  },
+  {
+    eventId: "twenty-disco-angel-demons-2026-10-24",
+    body: "Saturday Angel & Demons at Twenty Disco stacks DJ Yerry and DJ Choco with no cover until 1 AM — mall club night in Playa Dorada, not Ambar’s Chris Plasencia bill the same Saturday on Luis Ginebra.",
+    localized: {
+      es: "Angel & Demons del sábado en Twenty Disco junta a DJ Yerry y DJ Choco con sin cover hasta la 1 AM — noche de club del mall en Playa Dorada, no la noche de Chris Plasencia en Ambar el mismo sábado en Luis Ginebra.",
+      fr: "Angel & Demons du samedi au Twenty Disco aligne DJ Yerry et DJ Choco avec pas de cover jusqu’à 1 h — soirée club du mall à Playa Dorada, pas la soirée Chris Plasencia à Ambar le même samedi sur Luis Ginebra.",
+    },
+    priceFeel: "free",
+    priceNote: "No cover until 1 AM — drinks inside · @twenty_disco_lounge",
+    priceNoteLocalized: {
+      es: "Sin cover hasta la 1 AM — bebidas adentro · @twenty_disco_lounge",
+      fr: "Sans cover jusqu’à 1 h — boissons à l’intérieur · @twenty_disco_lounge",
+    },
+    attribution: "POP research · Twenty Disco Angel & Demons flyer",
+    researchNotes:
+      "Editor flyer SAB 24 OCT Angel & Demons; DJ Yerry x DJ Choco; caption @ruddydelossantos_ — Playa Dorada Mall; no cover hasta la 1 AM.",
+    updatedAt: "2026-10-21T23:00:00.000Z",
+  },
+  {
+    eventId: "ambar-lounge-bandoleras-2026-10-23",
+    body: "Bandoleras Friday with Jhon Parra at Ambar — ladies free drinks until 11 PM, cowboy dress code for the Fri–Sat theme; walk-ups OK, but reserved tables must land by 11:30 PM or you can lose the hold — not Twenty’s no-cover DJ Soky Friday at Playa Dorada Mall.",
+    localized: {
+      es: "Bandoleras del viernes con Jhon Parra en Ambar — free drinks for ladies hasta las 11 PM y dress code vaquero del tema vie–sáb; walk-up OK, pero si tienes reserva llega antes de las 11:30 PM o puedes perderla — no es el viernes sin cover de DJ Soky en Twenty en Playa Dorada Mall.",
+      fr: "Bandoleras du vendredi avec Jhon Parra à Ambar — free drinks for ladies jusqu’à 23 h et dress code cowboy du thème ven–sam ; walk-in OK, mais une réservation exige l’arrivée avant 23 h 30 sinon vous pouvez la perdre — pas le vendredi sans cover DJ Soky au Twenty au Playa Dorada Mall.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — ladies free drinks to 11 PM · RSVP (809) 781-8677",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — free drinks for ladies hasta las 11 PM · RSVP (809) 781-8677",
+      fr: "Cover à confirmer — free drinks for ladies jusqu’à 23 h · RSVP (809) 781-8677",
+    },
+    attribution: "POP research · Ambar Lounge Bandoleras flyer + dress-code post",
+    researchNotes:
+      "Editor flyer BANDOLERAS FRIDAY beats by Jhon Parra; free drinks for ladys hasta las 11 PM; RSVP (809)-781-8677. Follow-up IG post: themed Fri+Sat dress code; walk-ups OK; reserved arrival max 11:30 PM or lose hold. Caption also plugs Sábado 24 Chris Plasencia x Adrián Tineo (separate seed).",
+    updatedAt: "2026-10-21T20:01:00.000Z",
+  },
+  {
+    eventId: "justin-santos-rancho-catalina-2026-10-25",
+    body: "Sunday 2:30 PM no-cover live set with Justin Santos at Rancho La Catalina in El Cupey — ranch lunch energy, not a Playa Dorada mall club night; call ahead if you want a shaded table for the set.",
+    localized: {
+      es: "Domingo 2:30 PM sin cover con Justin Santos en Rancho La Catalina en El Cupey — energía de almuerzo de rancho, no una noche de club del mall en Playa Dorada; llama si quieres mesa a la sombra para el set.",
+      fr: "Dimanche 14 h 30 sans cover avec Justin Santos au Rancho La Catalina à El Cupey — énergie déjeuner ranch, pas une soirée club du mall à Playa Dorada ; appelez si vous voulez une table à l’ombre pour le set.",
+    },
+    priceFeel: "free",
+    priceNote: "No cover — food/drinks on the ranch menu · +1 809-781-3737",
+    priceNoteLocalized: {
+      es: "Sin cover — comida/bebidas en el menú del rancho · +1 809-781-3737",
+      fr: "Sans cover — repas/boissons au menu du ranch · +1 809-781-3737",
+    },
+    attribution: "POP research · Rancho La Catalina Justin Santos flyer",
+    researchNotes:
+      "Editor flyer OCT. 25 Música en Vivo JUSTIN SANTOS 2:30PM | NO COVER · @rancholacatalina.",
+    updatedAt: "2026-10-21T21:00:00.000Z",
+  },
+  {
+    eventId: "kite-street-son-cubano-2026-10-25",
+    body: "Free Sunday 6 PM son cubano class on Calle Sánchez Kite Street with Academia Sabor Latino — not Umbrella Street and not the prior salsa/bachata free Sundays; beginners welcome, confirm @kitestreetpop before you treat it as drop-in.",
+    localized: {
+      es: "Clase gratis de son cubano el domingo a las 6 PM en Kite Street / Calle Sánchez con Academia Sabor Latino — no es Calle de las Sombrillas ni los domingos previos de salsa/bachata gratis; principiantes bienvenidos, confirma @kitestreetpop antes de tratarlo como drop-in.",
+      fr: "Cours gratuit de son cubain dimanche à 18 h sur Kite Street / Calle Sánchez avec Academia Sabor Latino — pas Umbrella Street ni les dimanches salsa/bachata gratuits précédents ; débutants bienvenus, confirmez @kitestreetpop avant de le traiter comme drop-in.",
+    },
+    priceFeel: "free",
+    priceNote: "Free class — no cover on flyer · @kitestreetpop",
+    priceNoteLocalized: {
+      es: "Clase gratis — sin cover en el flyer · @kitestreetpop",
+      fr: "Cours gratuit — pas de cover sur l’affiche · @kitestreetpop",
+    },
+    attribution: "POP research · @kitestreetpop × Academia de Baile Sabor Latino",
+    researchNotes:
+      "Editor flyer + IG @kitestreetpop — Dom 25 Oct 2026 6:00 PM Clases de Son Cubano GRATIS; Victrola 037 + Academia de Baile Sabor Latino.",
+    updatedAt: "2026-10-21T20:30:00.000Z",
+  },
+  {
+    eventId: "ambar-lounge-chris-plasencia-adrian-tineo-2026-10-24",
+    body: "Saturday Ambar with Chris Plasencia x Adrián Tineo keeps the cowboy dress code — walk-ups OK; reserved tables must arrive by 11:30 PM or lose the hold. Not Bandoleras Friday with Jhon Parra and not Twenty’s Angel & Demons the same night at Playa Dorada Mall.",
+    localized: {
+      es: "El sábado en Ambar con Chris Plasencia x Adrián Tineo sigue el dress code vaquero — walk-up OK; si tienes reserva llega antes de las 11:30 PM o puedes perderla. No es Bandoleras del viernes con Jhon Parra ni Angel & Demons de Twenty la misma noche en Playa Dorada Mall.",
+      fr: "Le samedi à Ambar avec Chris Plasencia x Adrián Tineo garde le dress code cowboy — walk-in OK ; une réservation exige l’arrivée avant 23 h 30 sinon vous pouvez la perdre. Pas Bandoleras Friday avec Jhon Parra ni Angel & Demons au Twenty la même soirée au Playa Dorada Mall.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — RSVP (809) 781-8677 · @ambarloungepop",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — RSVP (809) 781-8677 · @ambarloungepop",
+      fr: "Cover à confirmer — RSVP (809) 781-8677 · @ambarloungepop",
+    },
+    attribution: "POP research · @ambarloungepop Saturday caption + dress-code post",
+    researchNotes:
+      "Editor IG caption @ambarloungepop — Sábado 24 with @chrisplasencia_ x @adriantineodr; RSVP 809-781-8677. Follow-up post: themed Fri+Sat dress code; walk-ups OK; reserved arrival max 11:30 PM. No dedicated Saturday flyer in batch; Bandoleras flyer is Friday-only.",
+    updatedAt: "2026-10-21T20:01:00.000Z",
+  },
+  {
+    eventId: "caribbean-surf-junior-puntilla-2026-11-14",
+    body: "Junior surf heats at La Puntilla on 14 Nov — register on @caribbeansurfconnection before you treat the tip like a free beach day; not the Dec 27–28 Encuentro junior stop and not Masters Surf Reunion earlier in November.",
+    localized: {
+      es: "Heats junior de surf en La Puntilla el 14 nov — inscríbete en @caribbeansurfconnection antes de tratar la punta como día de playa gratis; no es la parada junior del 27–28 dic en Encuentro ni Masters Surf Reunion a principios de noviembre.",
+      fr: "Heats junior de surf à La Puntilla le 14 nov — inscrivez-vous sur @caribbeansurfconnection avant de traiter la pointe comme une journée plage gratuite ; pas l’étape junior des 27–28 déc. à Encuentro ni Masters Surf Reunion début novembre.",
+    },
+    priceFeel: "varies",
+    priceNote: "Register via @caribbeansurfconnection link in bio",
+    priceNoteLocalized: {
+      es: "Inscríbete vía link in bio de @caribbeansurfconnection",
+      fr: "Inscription via link in bio @caribbeansurfconnection",
+    },
+    attribution: "POP research · Caribbean Surf Connection junior comps flyer",
+    researchNotes:
+      "Editor flyers — Nov 14 La Puntilla Puerto Plata; Dec 27–28 Playa Encuentro La Izquierda Cabarete; @caribbeansurfconnection register link in bio. Pin uses anfiteatro-la-puntilla coords for the tip.",
+    updatedAt: "2026-10-21T19:30:00.000Z",
+  },
+  {
+    eventId: "caribbean-surf-junior-encuentro-2026-12-27",
+    body: "Two-day junior surf stop at Playa Encuentro La Izquierda (27–28 Dec) — register on @caribbeansurfconnection; not the Nov 14 La Puntilla junior day and not Masters Surf Reunion’s early-November Encuentro week.",
+    localized: {
+      es: "Parada junior de dos días en Playa Encuentro La Izquierda (27–28 dic) — inscríbete en @caribbeansurfconnection; no es el día junior del 14 nov en La Puntilla ni la semana de Masters Surf Reunion a principios de noviembre en Encuentro.",
+      fr: "Étape junior de deux jours à Playa Encuentro La Izquierda (27–28 déc.) — inscrivez-vous sur @caribbeansurfconnection ; pas la journée junior du 14 nov à La Puntilla ni la semaine Masters Surf Reunion début novembre à Encuentro.",
+    },
+    priceFeel: "varies",
+    priceNote: "Register via @caribbeansurfconnection link in bio",
+    priceNoteLocalized: {
+      es: "Inscríbete vía link in bio de @caribbeansurfconnection",
+      fr: "Inscription via link in bio @caribbeansurfconnection",
+    },
+    attribution: "POP research · Caribbean Surf Connection junior comps flyer",
+    researchNotes:
+      "Editor flyer SAVE THESE DATES — Dec 27–28 Cabarete Playa Encuentro La Izquierda; @caribbeansurfconnection.",
+    updatedAt: "2026-10-21T19:15:00.000Z",
+  },
+  {
+    eventId: "proyecto-x-el-calabozo-2026-10-31",
+    body: "Secret-location Halloween house party from Proyecto X — RD$1,500 (4-for-3) with a full overnight game schedule; join Los silenciosos POP on WhatsApp or DM @proyecto_x_pop before you treat the Puerto Plata pin as a walk-up address.",
+    localized: {
+      es: "Fiesta Halloween de ubicación secreta de Proyecto X — RD$1,500 (4 pagan 3) con cronograma de juegos toda la noche; únete a Los silenciosos POP en WhatsApp o DM @proyecto_x_pop antes de tratar el pin de Puerto Plata como dirección walk-up.",
+      fr: "Soirée Halloween lieu secret de Proyecto X — RD$1,500 (4 pour 3) avec programme de jeux toute la nuit ; rejoignez Los silenciosos POP sur WhatsApp ou DM @proyecto_x_pop avant de traiter l’épingle Puerto Plata comme une adresse walk-in.",
+    },
+    priceFeel: "moderate",
+    priceNote: "RD$1,500 · group of 4 pay for 3 · WhatsApp +1 809-614-7745",
+    priceNoteLocalized: {
+      es: "RD$1,500 · coro de 4 pagan 3 · WhatsApp +1 809-614-7745",
+      fr: "RD$1,500 · groupe de 4 = 3 payent · WhatsApp +1 809-614-7745",
+    },
+    attribution: "POP research · Proyecto X El Calabozo flyer + WhatsApp invite",
+    researchNotes:
+      "Editor flyers — Sábado 31 Oct El Calabozo; ubicación secreta Puerto Plata; RD$1,500; coro de 4 solo pagan 3; +1 809-614-7745 / DM @proyecto_x_pop; cronograma 8 PM–5 AM; WhatsApp group Los silenciosos POP invite https://chat.whatsapp.com/JWibgYONhzF0JwtfIOyZWx. No venueSlug — secret pin.",
+    updatedAt: "2026-10-21T23:30:00.000Z",
   },
 ];
