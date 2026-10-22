@@ -7669,145 +7669,230 @@
     ],
     "imageEmoji": "🎃"
   },
-{
-  "id": "chameleon-haunted-monarka-2026-10-25",
-  "title": "Chameleon — The Haunted Sal Si Puedes (DJ Monarka)",
-  "description": "The Haunted — Sal Si Puedes au Chameleon Sport Bar, Sosúa Bay Center, Calle Alejo Martínez #1, El Batey Sosúa — dimanche 25 octobre 2026 avec DJ Monarka (El Therian / anciennement La Vibra). Soirée club dimanche ambiance Halloween — pas Angel & Demons de Twenty la veille au Playa Dorada Mall, ni The Cursed Room de Chameleon avec Ronny Alca le 1er nov. Cover à confirmer — RSVP +1 829-994-2304 · Instagram @chameleonsportbar.",
-  "date": "2026-10-25",
-  "location": "Sosúa",
-  "venue": "Chameleon Sport Bar",
-  "venueSlug": "chameleon-sport-bar",
-  "address": "Sosúa Bay Center, Calle Alejo Martínez #1, El Batey Sosúa",
-  "lat": 19.7566,
-  "lng": -70.513,
-  "category": "halloween",
-  "categories": [
-    "parties",
-    "music"
-  ],
-  "format": "physical",
-  "trending": true,
-  "callForPricing": true,
-  "phone": "+18299942304",
-  "sourceType": "flyer",
-  "sourceUrl": "https://www.instagram.com/chameleonsportbar/",
-  "lineup": [
-    "DJ Monarka"
-  ],
-  "imageEmoji": "🎃"
-},
-{
-  "location": "Puerto Plata",
-  "venue": "Victrola 037 Arte Café",
-  "venueSlug": "victrola-037",
-  "address": "Av. Gral. Gregorio Luperón esq. Padre Castellanos, Puerto Plata 57000",
-  "lat": 19.7995463,
-  "lng": -70.6909467,
-  "category": "sports",
-  "categories": [
-    "food-drinks"
-  ],
-  "format": "physical",
-  "trending": true,
-  "callForPricing": true,
-  "sourceType": "flyer",
-  "sourceUrl": "https://www.instagram.com/victrolart/",
-  "imageEmoji": "🏀",
-  "id": "victrola-nba-2026-10-23",
-  "title": "Victrola — NBA vendredi (Pistons–Heat · Pelicans–Jazz)",
-  "description": "NBA en direct sur les TVs de Victrola 037 Arte Café, Malecón Puerto Plata — vendredi 23 octobre 2026. Double programme : Detroit Pistons vs Miami Heat 20 h ; New Orleans Pelicans vs Utah Jazz 21 h 30. Soirée sports bar — boissons et cuisine sur place. Confirmez via Instagram @victrolart. Pas les soirées sport de Flip Flop à Sosúa ni les récurrents danse/social de Victrola.",
-  "date": "2026-10-23",
-  "time": "20 h",
-  "lineup": [
-    "Pistons vs Heat 8:00 PM",
-    "Pelicans vs Jazz 9:30 PM"
-  ]
-},
-{
-  "location": "Puerto Plata",
-  "venue": "Victrola 037 Arte Café",
-  "venueSlug": "victrola-037",
-  "address": "Av. Gral. Gregorio Luperón esq. Padre Castellanos, Puerto Plata 57000",
-  "lat": 19.7995463,
-  "lng": -70.6909467,
-  "category": "sports",
-  "categories": [
-    "food-drinks"
-  ],
-  "format": "physical",
-  "trending": true,
-  "callForPricing": true,
-  "sourceType": "flyer",
-  "sourceUrl": "https://www.instagram.com/victrolart/",
-  "imageEmoji": "⚾",
-  "id": "victrola-lidom-2026-10-24",
-  "title": "Victrola — LIDOM samedi (Toros · Gigantes · Licey)",
-  "description": "LIDOM en direct à Victrola 037 Arte Café, Malecón Puerto Plata — samedi 24 octobre 2026. Affiche : Toros del Este vs Leones del Escogido 16 h ; Licey vs Águilas Cibaeñas 18 h (boisson de bienvenue / promo Ballantine’s sur l’affiche) ; Gigantes del Cibao vs Estrellas Orientales 19 h 30. Dès ~16 h avec boissons et cuisine — demandez quel écran pour quel match. Instagram @victrolart. Même café du Malecón que Mojitos Friday — cette fiche est le baseball TV seulement.",
-  "date": "2026-10-24",
-  "time": "16 h",
-  "lineup": [
-    "Toros vs Escogido 4:00 PM",
-    "Licey vs Águilas 6:00 PM",
-    "Gigantes vs Estrellas 7:30 PM"
-  ]
-},
-{
-  "location": "Puerto Plata",
-  "venue": "Victrola 037 Arte Café",
-  "venueSlug": "victrola-037",
-  "address": "Av. Gral. Gregorio Luperón esq. Padre Castellanos, Puerto Plata 57000",
-  "lat": 19.7995463,
-  "lng": -70.6909467,
-  "category": "sports",
-  "categories": [
-    "food-drinks"
-  ],
-  "format": "physical",
-  "trending": true,
-  "callForPricing": true,
-  "sourceType": "flyer",
-  "sourceUrl": "https://www.instagram.com/victrolart/",
-  "imageEmoji": "📺",
-  "id": "victrola-sports-sunday-2026-10-25",
-  "title": "Victrola — dimanche sport (NFL · Liga · LIDOM · F1)",
-  "description": "Dimanche sport sur les TVs de Victrola 037 Arte Café, Malecón Puerto Plata — dimanche 25 octobre 2026. Une fiche du jour, pas de listings séparés par match : NFL New York Jets vs Miami Dolphins 13 h ; Barcelona vs Real Madrid 16 h ; triple LIDOM dès 17 h (Águilas vs Licey, Estrellas vs Gigantes, Escogidos vs Toros) ; Formule 1 Grand Prix des États-Unis au Circuit of the Americas 17 h. Venez pour le sport qui vous intéresse — les écrans tournent. Instagram @victrolart.",
-  "date": "2026-10-25",
-  "time": "13 h",
-  "lineup": [
-    "Jets vs Dolphins 1:00 PM (NFL)",
-    "Barcelona vs Real Madrid 4:00 PM",
-    "Águilas vs Licey 5:00 PM (LIDOM)",
-    "Estrellas vs Gigantes 5:00 PM (LIDOM)",
-    "Escogidos vs Toros 5:00 PM (LIDOM)",
-    "F1 United States GP 5:00 PM"
-  ]
-},
-{
-  "id": "allison-sade-aura-2026-10-22",
-  "title": "Allison Sade live à Aura — jeu. 22 oct.",
-  "description": "Allison Sade en live à Aura Beach Club, Calle Principal, Cabarete — jeudi 22 octobre 2026 à 20 h. Set nommé du jeudi au beach club — pas Aura Disco avec Manny Figueroa le samedi 24 oct. au même lieu. Confirmez cover et tables via Instagram @auracabarete ou WhatsApp +1 829-787-0140 · @allisonsadeofficial.",
-  "date": "2026-10-22",
-  "time": "20 h",
-  "location": "Cabarete",
-  "venue": "Aura Beach Club Cabarete",
-  "venueSlug": "aura-beach-club-cabarete",
-  "address": "Calle Principal, Cabarete 57000",
-  "lat": 19.7500769,
-  "lng": -70.4070417,
-  "category": "concert",
-  "categories": [
-    "music",
-    "performances"
-  ],
-  "format": "physical",
-  "trending": true,
-  "callForPricing": true,
-  "phone": "+18297870140",
-  "sourceType": "flyer",
-  "sourceUrl": "https://www.instagram.com/auracabarete/",
-  "lineup": [
-    "Allison Sade"
-  ],
-  "imageEmoji": "🎤"
-}
+  {
+    "id": "chameleon-haunted-monarka-2026-10-25",
+    "title": "Chameleon — The Haunted Sal Si Puedes (DJ Monarka)",
+    "description": "The Haunted — Sal Si Puedes au Chameleon Sport Bar, Sosúa Bay Center, Calle Alejo Martínez #1, El Batey Sosúa — dimanche 25 octobre 2026 avec DJ Monarka (El Therian / anciennement La Vibra). Soirée club dimanche ambiance Halloween — pas Angel & Demons de Twenty la veille au Playa Dorada Mall, ni The Cursed Room de Chameleon avec Ronny Alca le 1er nov. Cover à confirmer — RSVP +1 829-994-2304 · Instagram @chameleonsportbar.",
+    "date": "2026-10-25",
+    "location": "Sosúa",
+    "venue": "Chameleon Sport Bar",
+    "venueSlug": "chameleon-sport-bar",
+    "address": "Sosúa Bay Center, Calle Alejo Martínez #1, El Batey Sosúa",
+    "lat": 19.7566,
+    "lng": -70.513,
+    "category": "halloween",
+    "categories": [
+      "parties",
+      "music"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18299942304",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/chameleonsportbar/",
+    "lineup": [
+      "DJ Monarka"
+    ],
+    "imageEmoji": "🎃"
+  },
+  {
+    "location": "Puerto Plata",
+    "venue": "Victrola 037 Arte Café",
+    "venueSlug": "victrola-037",
+    "address": "Av. Gral. Gregorio Luperón esq. Padre Castellanos, Puerto Plata 57000",
+    "lat": 19.7995463,
+    "lng": -70.6909467,
+    "category": "sports",
+    "categories": [
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/victrolart/",
+    "imageEmoji": "🏀",
+    "id": "victrola-nba-2026-10-23",
+    "title": "Victrola — NBA vendredi (Pistons–Heat · Pelicans–Jazz)",
+    "description": "NBA en direct sur les TVs de Victrola 037 Arte Café, Malecón Puerto Plata — vendredi 23 octobre 2026. Double programme : Detroit Pistons vs Miami Heat 20 h ; New Orleans Pelicans vs Utah Jazz 21 h 30. Soirée sports bar — boissons et cuisine sur place. Confirmez via Instagram @victrolart. Pas les soirées sport de Flip Flop à Sosúa ni les récurrents danse/social de Victrola.",
+    "date": "2026-10-23",
+    "time": "20 h",
+    "lineup": [
+      "Pistons vs Heat 8:00 PM",
+      "Pelicans vs Jazz 9:30 PM"
+    ]
+  },
+  {
+    "location": "Puerto Plata",
+    "venue": "Victrola 037 Arte Café",
+    "venueSlug": "victrola-037",
+    "address": "Av. Gral. Gregorio Luperón esq. Padre Castellanos, Puerto Plata 57000",
+    "lat": 19.7995463,
+    "lng": -70.6909467,
+    "category": "sports",
+    "categories": [
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/victrolart/",
+    "imageEmoji": "⚾",
+    "id": "victrola-lidom-2026-10-24",
+    "title": "Victrola — LIDOM samedi (Toros · Gigantes · Licey)",
+    "description": "LIDOM en direct à Victrola 037 Arte Café, Malecón Puerto Plata — samedi 24 octobre 2026. Affiche : Toros del Este vs Leones del Escogido 16 h ; Licey vs Águilas Cibaeñas 18 h (boisson de bienvenue / promo Ballantine’s sur l’affiche) ; Gigantes del Cibao vs Estrellas Orientales 19 h 30. Dès ~16 h avec boissons et cuisine — demandez quel écran pour quel match. Instagram @victrolart. Même café du Malecón que Mojitos Friday — cette fiche est le baseball TV seulement.",
+    "date": "2026-10-24",
+    "time": "16 h",
+    "lineup": [
+      "Toros vs Escogido 4:00 PM",
+      "Licey vs Águilas 6:00 PM",
+      "Gigantes vs Estrellas 7:30 PM"
+    ]
+  },
+  {
+    "location": "Puerto Plata",
+    "venue": "Victrola 037 Arte Café",
+    "venueSlug": "victrola-037",
+    "address": "Av. Gral. Gregorio Luperón esq. Padre Castellanos, Puerto Plata 57000",
+    "lat": 19.7995463,
+    "lng": -70.6909467,
+    "category": "sports",
+    "categories": [
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/victrolart/",
+    "imageEmoji": "📺",
+    "id": "victrola-sports-sunday-2026-10-25",
+    "title": "Victrola — dimanche sport (NFL · Liga · LIDOM · F1)",
+    "description": "Dimanche sport sur les TVs de Victrola 037 Arte Café, Malecón Puerto Plata — dimanche 25 octobre 2026. Une fiche du jour, pas de listings séparés par match : NFL New York Jets vs Miami Dolphins 13 h ; Barcelona vs Real Madrid 16 h ; triple LIDOM dès 17 h (Águilas vs Licey, Estrellas vs Gigantes, Escogidos vs Toros) ; Formule 1 Grand Prix des États-Unis au Circuit of the Americas 17 h. Venez pour le sport qui vous intéresse — les écrans tournent. Instagram @victrolart.",
+    "date": "2026-10-25",
+    "time": "13 h",
+    "lineup": [
+      "Jets vs Dolphins 1:00 PM (NFL)",
+      "Barcelona vs Real Madrid 4:00 PM",
+      "Águilas vs Licey 5:00 PM (LIDOM)",
+      "Estrellas vs Gigantes 5:00 PM (LIDOM)",
+      "Escogidos vs Toros 5:00 PM (LIDOM)",
+      "F1 United States GP 5:00 PM"
+    ]
+  },
+  {
+    "id": "allison-sade-aura-2026-10-22",
+    "title": "Allison Sade live à Aura — jeu. 22 oct.",
+    "description": "Allison Sade en live à Aura Beach Club, Calle Principal, Cabarete — jeudi 22 octobre 2026 à 20 h. Set nommé du jeudi au beach club — pas Aura Disco avec Manny Figueroa le samedi 24 oct. au même lieu. Confirmez cover et tables via Instagram @auracabarete ou WhatsApp +1 829-787-0140 · @allisonsadeofficial.",
+    "date": "2026-10-22",
+    "time": "20 h",
+    "location": "Cabarete",
+    "venue": "Aura Beach Club Cabarete",
+    "venueSlug": "aura-beach-club-cabarete",
+    "address": "Calle Principal, Cabarete 57000",
+    "lat": 19.7500769,
+    "lng": -70.4070417,
+    "category": "concert",
+    "categories": [
+      "music",
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18297870140",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/auracabarete/",
+    "lineup": [
+      "Allison Sade"
+    ],
+    "imageEmoji": "🎤"
+  },
+  {
+    "id": "tiki-bar-henry-jimenez-2026-10-23",
+    "title": "Tiki Bar Cabarete — DJ Session by Henry Jiménez",
+    "description": "Session DJ open format de Henry Jiménez (@djhenryjimenez) au Tiki Bar Cabarete, centre de Cabarete près du Casino #1 — vendredi 23 octobre 2026. Confirmez portes et cover via Instagram @tikibarcabarete. Soirée cocktails bar tiki au toit de chaume — pas un set de beach club.",
+    "date": "2026-10-23",
+    "time": "Soirée",
+    "location": "Cabarete",
+    "venue": "Cabarete Tiki Bar",
+    "venueSlug": "tiki-bar-cabarete",
+    "address": "Centre de Cabarete, près du Casino #1",
+    "lat": 19.750057,
+    "lng": -70.407041,
+    "category": "music",
+    "categories": [
+      "parties"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "instagram": "tikibarcabarete",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/tikibarcabarete/",
+    "lineup": [
+      "Henry Jiménez",
+      "Open format"
+    ],
+    "imageEmoji": "🎧"
+  },
+  {
+    "id": "premios-ola-dorada-2026-12-05",
+    "title": "Premios Ola Dorada 2026 — Casa Marina Reef",
+    "description": "Premios Ola Dorada 2026 — la grande soirée beauté et culture à Casa Marina Reef, Calle Dr. Alejo Martínez, El Batey, Sosúa — vendredi 5 décembre 2026. Tapis rouge 19 h ; grand spectacle 20 h. Organisateur Instagram @missoladorada_rd (https://www.instagram.com/missoladorada_rd/) · lieu Instagram https://www.instagram.com/popular/casa-marina-reef-puerto-plata/. Confirmez billets et dress code sur ces comptes — hôtel listé pour cette nuit seulement (pas de page venue POP séparée).",
+    "date": "2026-12-05",
+    "time": "19 h",
+    "location": "Sosúa",
+    "venue": "Casa Marina Reef",
+    "address": "Calle Dr. Alejo Martínez, El Batey, Sosúa 57000",
+    "lat": 19.765995,
+    "lng": -70.516025,
+    "category": "culture",
+    "categories": [
+      "performances",
+      "festivals"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "instagram": "missoladorada_rd",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/missoladorada_rd/",
+    "lineup": [
+      "Alfombra Roja 19 h",
+      "Gran Espectáculo 20 h"
+    ],
+    "imageEmoji": "🏆",
+    "website": "https://www.instagram.com/popular/casa-marina-reef-puerto-plata/"
+  },
+  {
+    "id": "lokuras-pop-percusion-latina-2026-10-25",
+    "title": "Lokura's Pop Percusión Latina — Somos Salsa (25 oct.)",
+    "description": "Percusión Latina — Somos Salsa en live à Lokura's Pop Bar Café, Calle Profesor Juan Bosch n° 11 (près de la Junta Central Electoral), Puerto Plata — dimanche 25 octobre 2026 dès 18 h. Clave, salsa, picadera et verres. Confirmez le cover via Instagram @lokuraspop. Descarga du dimanche datée — pas la soirée Somos Salsa du 20 sept. ni le karaoké du vendredi.",
+    "date": "2026-10-25",
+    "time": "18 h",
+    "location": "Puerto Plata",
+    "venue": "Lokura's Pop Bar Café",
+    "venueSlug": "lokuras-pop",
+    "address": "Calle Profesor Juan Bosch #11, près de la Junta Central Electoral, Puerto Plata 57000",
+    "lat": 19.79875,
+    "lng": -70.69395,
+    "category": "music",
+    "categories": [
+      "performances",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "instagram": "lokuraspop",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/lokuraspop/",
+    "lineup": [
+      "Percusión Latina — Somos Salsa"
+    ],
+    "imageEmoji": "🥁"
+  }
 ]

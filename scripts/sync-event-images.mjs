@@ -67,6 +67,10 @@ const FILE_TO_EVENT_ID = {
   "victrola-sports-sunday-2026-10-25.jpg":
     "victrola-sports-sunday-2026-10-25",
   "aura-allison-sade-live-2026-10-22.jpg": "allison-sade-aura-2026-10-22",
+  "tiki-bar-henry-jimenez-2026-10-23.jpg": "tiki-bar-henry-jimenez-2026-10-23",
+  "premios-ola-dorada-2026-12-05.jpg": "premios-ola-dorada-2026-12-05",
+  "lokuras-pop-percusion-latina-2026-10-25.jpg":
+    "lokuras-pop-percusion-latina-2026-10-25",
   "over-beach-club-aerial-v2.jpg": "over-beach-club",
   "ambar-lounge-bandoleras-2026-10-23.jpg":
     "ambar-lounge-bandoleras-2026-10-23",

@@ -32,6 +32,11 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "victrola-lidom-2026-10-24": "victrola-lidom-2026-10-24.jpg",
   "victrola-sports-sunday-2026-10-25": "victrola-sports-sunday-2026-10-25.jpg",
   "allison-sade-aura-2026-10-22": "aura-allison-sade-live-2026-10-22.jpg",
+  "tiki-bar-henry-jimenez-2026-10-23":
+    "tiki-bar-henry-jimenez-2026-10-23.jpg",
+  "premios-ola-dorada-2026-12-05": "premios-ola-dorada-2026-12-05.jpg",
+  "lokuras-pop-percusion-latina-2026-10-25":
+    "lokuras-pop-percusion-latina-2026-10-25.jpg",
   "ambar-lounge-bandoleras-2026-10-23":
     "ambar-lounge-bandoleras-2026-10-23.jpg",
   "kite-street-son-cubano-2026-10-25":
@@ -721,6 +726,9 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "festival-presidente-2026-10-03": "object-top",
   // Portrait live-music flyers — face sits upper-third; center crop chops the head.
   "allison-sade-aura-2026-10-22": "object-top",
+  "tiki-bar-henry-jimenez-2026-10-23": "object-center",
+  "premios-ola-dorada-2026-12-05": "object-center",
+  "lokuras-pop-percusion-latina-2026-10-25": "object-center",
   "allison-sade-aura-2026-09-17": "object-top",
 
   // Short mobile heroes keep the sun; desktop centers the sunset composition.
@@ -1103,6 +1111,9 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "victrola-lidom-2026-10-24.jpg",
   "victrola-sports-sunday-2026-10-25.jpg",
   "aura-allison-sade-live-2026-10-22.jpg",
+  "tiki-bar-henry-jimenez-2026-10-23.jpg",
+  "premios-ola-dorada-2026-12-05.jpg",
+  "lokuras-pop-percusion-latina-2026-10-25.jpg",
   "ambar-lounge-bandoleras-2026-10-23.jpg",
   "kite-street-son-cubano-2026-10-25.jpg",
   "jump-fit-rosa-beard-over-club-2026-10-31-v2.jpg",

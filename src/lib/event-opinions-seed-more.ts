@@ -6414,6 +6414,61 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: "2026-10-22T02:15:00.000Z",
   },
   {
+    eventId: "tiki-bar-henry-jimenez-2026-10-23",
+    body: "Friday open-format booth at the central Cabarete thatch bar near Casino #1 — Henry Jiménez on decks, not a beach-club sand set; confirm doors on @tikibarcabarete (usually closed Mondays) before you pin the neon parrot.",
+    localized: {
+      es: "Cabina open format del viernes en el bar tiki del centro de Cabarete cerca del Casino #1 — Henry Jiménez en las decks, no un set de arena de beach club; confirma puertas en @tikibarcabarete (suele cerrar lunes) antes de clavar el loro neón.",
+      fr: "Cabine open format du vendredi au bar tiki du centre de Cabarete près du Casino #1 — Henry Jiménez aux platines, pas un set sable de beach club ; confirmez les portes sur @tikibarcabarete (souvent fermé lundi) avant d’épingler le perroquet néon.",
+    },
+    priceFeel: "moderate",
+    priceNote: "Cover not on flyer — confirm @tikibarcabarete",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — confirma @tikibarcabarete",
+      fr: "Cover absent de l’affiche — confirmez @tikibarcabarete",
+    },
+    attribution: "POP research · @tikibarcabarete × @djhenryjimenez flyer",
+    researchNotes:
+      "Editor flyer + caption — Viernes 23 open format by djay Henry @tikibarcabarete; no clock time on art; venue happy hour typically 5–8 PM.",
+    updatedAt: "2026-10-22T16:00:00.000Z",
+  },
+  {
+    eventId: "premios-ola-dorada-2026-12-05",
+    body: "December beauty-and-culture awards night at Casa Marina Reef — red carpet 7 PM, show 8 PM; follow @missoladorada_rd for tickets/dress code, and treat the hotel pin as a one-night listing (no POP venue page).",
+    localized: {
+      es: "Noche de premios de belleza y cultura en diciembre en Casa Marina Reef — alfombra roja 7 PM, show 8 PM; sigue @missoladorada_rd para boletos/dress code, y trata el pin del hotel como listado de una sola noche (sin página de venue POP).",
+      fr: "Soirée de prix beauté et culture en décembre à Casa Marina Reef — tapis rouge 19 h, spectacle 20 h ; suivez @missoladorada_rd pour billets/dress code, et traitez l’épingle hôtel comme une fiche d’une seule nuit (pas de page venue POP).",
+    },
+    priceFeel: "varies",
+    priceNote:
+      "Tickets/dress not on flyer — @missoladorada_rd · IG place casa-marina-reef-puerto-plata",
+    priceNoteLocalized: {
+      es: "Boletos/dress no en el flyer — @missoladorada_rd · IG place casa-marina-reef-puerto-plata",
+      fr: "Billets/dress absents de l’affiche — @missoladorada_rd · IG place casa-marina-reef-puerto-plata",
+    },
+    attribution: "POP research · Premios Ola Dorada flyer · @missoladorada_rd",
+    researchNotes:
+      "Editor flyer + IG @premiosoladorada caption — 5 Dec 2026 Casa Marina Reef Sosúa; alfombra 7 PM / show 8 PM. No venueSlug per editor (hotel night only). Links: https://www.instagram.com/missoladorada_rd/ and https://www.instagram.com/popular/casa-marina-reef-puerto-plata/.",
+    updatedAt: "2026-10-22T14:00:00.000Z",
+  },
+  {
+    eventId: "lokuras-pop-percusion-latina-2026-10-25",
+    body: "Sunday 6 PM congas in the centro café-bar by the JCE — same Somos Salsa descarga as Sep 20, dated Oct 25; pin Juan Bosch #11, not a Malecón deck, and confirm cover on @lokuraspop.",
+    localized: {
+      es: "Domingo 6 PM de congas en el café-bar del centro junto a la JCE — la misma descarga Somos Salsa del 20 sep, fechada 25 oct; clava Juan Bosch #11, no una terraza del Malecón, y confirma cover en @lokuraspop.",
+      fr: "Dimanche 18 h de congas dans le café-bar du centre près de la JCE — même descarga Somos Salsa que le 20 sept., datée 25 oct. ; épinglez Juan Bosch n° 11, pas une terrasse du Malecón, et confirmez le cover sur @lokuraspop.",
+    },
+    priceFeel: "moderate",
+    priceNote: "Cover not on flyer — confirm @lokuraspop; budget picadera and drinks",
+    priceNoteLocalized: {
+      es: "Cover no en el flyer — confirma @lokuraspop; presupuesta picadera y tragos",
+      fr: "Cover absent de l’affiche — confirmez @lokuraspop ; budget picadera et verres",
+    },
+    attribution: "POP research · @lokuraspop Percusión Latina flyer",
+    researchNotes:
+      "Editor flyer + IG @lokuraspop — Domingo 25 de octubre desde 6:00 PM Percusión Latina Somos Salsa; Calle Profesor Juan Bosch near JCE. Distinct title from lokuras-pop-percusion-latina-2026-09-20.",
+    updatedAt: "2026-10-22T15:00:00.000Z",
+  },
+  {
     eventId: "ambar-lounge-bandoleras-2026-10-23",
     body: "Bandoleras Friday with Jhon Parra at Ambar — ladies free drinks until 11 PM, cowboy dress code for the Fri–Sat theme; walk-ups OK, but reserved tables must land by 11:30 PM or you can lose the hold — not Twenty’s no-cover DJ Soky Friday at Playa Dorada Mall.",
     localized: {

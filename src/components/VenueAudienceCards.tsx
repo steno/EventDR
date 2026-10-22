@@ -5,10 +5,7 @@ import { ChevronRight } from "lucide-react";
 import { EventImage } from "@/components/EventImage";
 import { HorizontalScrollEdgeFades } from "@/components/HorizontalScrollEdgeFades";
 import { IntentLink } from "@/components/IntentLink";
-import {
-  SNAP_RAIL_PEEK_CLASS,
-  useHorizontalScrollHints,
-} from "@/hooks/useHorizontalScrollHints";
+import { useHorizontalScrollHints } from "@/hooks/useHorizontalScrollHints";
 import type { Venue } from "@/lib/types";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
@@ -62,8 +59,9 @@ function VenueSlideCard({
   dimmed?: boolean;
   onNavigate?: () => void;
 }) {
+  // Match Today's specials story peek on phones (72vw), then 2-up / 4-up.
   const sizes =
-    "(max-width: 640px) 88vw, (max-width: 1280px) 50vw, 25vw";
+    "(max-width: 640px) 72vw, (max-width: 1280px) 50vw, 25vw";
 
   return (
     <IntentLink
@@ -238,8 +236,8 @@ function AudienceSlider({
             <div
               key={venue.slug}
               data-snap-slide
-              // Width track matches On the horizon (88% → 2-up → 4-up).
-              className={`${SNAP_RAIL_PEEK_CLASS} shrink-0 snap-start sm:w-[calc((100%-0.75rem)/2)] xl:w-[calc((100%-2.25rem)/4)]`}
+              // Mobile peek matches Today's specials (72%); sm+ stays 2-up → 4-up.
+              className="w-[72%] shrink-0 snap-start sm:w-[calc((100%-0.75rem)/2)] xl:w-[calc((100%-2.25rem)/4)]"
             >
               <VenueSlideCard
                 venue={venue}
@@ -259,7 +257,7 @@ function AudienceSlider({
           */}
           {venues.length > 1 ? (
             <div
-              className="w-[12%] shrink-0 sm:w-[calc((100%+0.75rem)/2)] xl:w-[calc((300%+2.25rem)/4)]"
+              className="w-[28%] shrink-0 sm:w-[calc((100%+0.75rem)/2)] xl:w-[calc((300%+2.25rem)/4)]"
               aria-hidden
             />
           ) : null}
