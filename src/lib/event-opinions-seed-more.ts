@@ -6414,6 +6414,42 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: "2026-10-22T02:15:00.000Z",
   },
   {
+    eventId: "parada-el-choco-big-d-aperitivo-2026-10-27",
+    body: "Tuesday 5–7 PM free-finger-food aperitivo with Big D on the Sosúa–Cabarete corridor — same House of Music window as BandItalia nights, not the RD$1,650 Thanksgiving dinner in November; RSVP WhatsApp +1 809-804-2510 if you want a table.",
+    localized: {
+      es: "Martes 5–7 PM aperitivo con finger food gratis y Big D en la carretera Sosúa–Cabarete — la misma ventana House of Music que las noches BandItalia, no la cena de Thanksgiving a RD$1,650 en noviembre; RSVP WhatsApp +1 809-804-2510 si quieres mesa.",
+      fr: "Mardi 17 h–19 h apéritivo finger food offert avec Big D sur la route Sosúa–Cabarete — même créneau House of Music que les soirs BandItalia, pas le dîner Thanksgiving à RD$1 650 en novembre ; RSVP WhatsApp +1 809-804-2510 si vous voulez une table.",
+    },
+    priceFeel: "free",
+    priceNote: "Free finger food · RSVP +1 809-804-2510 / @paradaelchoco",
+    priceNoteLocalized: {
+      es: "Finger food gratis · RSVP +1 809-804-2510 / @paradaelchoco",
+      fr: "Finger food offert · RSVP +1 809-804-2510 / @paradaelchoco",
+    },
+    attribution: "POP research · @paradaelchoco Big D aperitivo flyer",
+    researchNotes:
+      "Editor flyer — Tue 27 Oct 2026 5–7 PM APERITIVO Big D (Dooner) LIVE, free finger food, WA +1 809 804 2510, Plaza Buen Gusto. Distinct from parada-el-choco-thanksgiving-big-d-2026-11-26.",
+    updatedAt: "2026-10-22T18:00:00.000Z",
+  },
+  {
+    eventId: "hard-rock-deeway-live-mix-2026-10-23",
+    body: "Friday Deeway Live Mix on the Hard Rock El Batey floor — same DJ name as Chameleon’s Monster’s Ball, different room and night; confirm cover and set time on @hardrockcafepuertoplata before you treat Calle Duarte 7 as a walk-up free night.",
+    localized: {
+      es: "Viernes Deeway Live Mix en el piso del Hard Rock El Batey — el mismo nombre de DJ que el Monster’s Ball de Chameleon, otra sala y otra noche; confirma cover y hora del set en @hardrockcafepuertoplata antes de tratar Calle Duarte 7 como noche gratis walk-up.",
+      fr: "Vendredi Deeway Live Mix sur le dancefloor Hard Rock El Batey — même nom de DJ que le Monster’s Ball de Chameleon, autre salle et autre nuit ; confirmez cover et heure du set sur @hardrockcafepuertoplata avant de traiter Calle Duarte 7 comme une soirée gratuite walk-in.",
+    },
+    priceFeel: "moderate",
+    priceNote: "Cover/set time TBA — @hardrockcafepuertoplata / +1 849-505-7778",
+    priceNoteLocalized: {
+      es: "Cover/hora por confirmar — @hardrockcafepuertoplata / +1 849-505-7778",
+      fr: "Cover/heure à confirmer — @hardrockcafepuertoplata / +1 849-505-7778",
+    },
+    attribution: "POP research · Hard Rock × Deeway Live Mix flyer",
+    researchNotes:
+      "Editor flyer Hard Rock Cafe Puerto Plata LIVE MIX DEEWAY; user: Friday at Hard Rock (= Fri 23 Oct 2026). No clock time or cover on art. Phone +1 849-505-7778 from venue seed.",
+    updatedAt: "2026-10-22T17:00:00.000Z",
+  },
+  {
     eventId: "tiki-bar-henry-jimenez-2026-10-23",
     body: "Friday open-format booth at the central Cabarete thatch bar near Casino #1 — Henry Jiménez on decks, not a beach-club sand set; confirm doors on @tikibarcabarete (usually closed Mondays) before you pin the neon parrot.",
     localized: {

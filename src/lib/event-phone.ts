@@ -149,6 +149,8 @@ const EVENT_PHONE_BY_ID: Record<string, string> = {
   "twenty-disco-luis-brown-2026-10-30": "+18295667071",
   "twenty-disco-party-mask-black-white-2026-10-17": "+18495077676",
   "hard-rock-banditalia-2026-10-17": "+18495057778",
+  "hard-rock-deeway-live-mix-2026-10-23": "+18495057778",
+  "parada-el-choco-big-d-aperitivo-2026-10-27": "+18098042510",
   "aura-cinema-nadie-duerme-bosque-2026-10-13": "+18297870140",
   "village-festival-fundraiser-villa-cocomar-2026-10-18": "+18498466026",
   "natura-sunbar-sunset-sounds-aldenkings-2026-10-15": "+18492147010",

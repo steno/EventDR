@@ -7894,5 +7894,61 @@
       "Percusión Latina — Somos Salsa"
     ],
     "imageEmoji": "🥁"
+  },
+  {
+    "id": "hard-rock-deeway-live-mix-2026-10-23",
+    "title": "Hard Rock Sosúa — Deeway Live Mix",
+    "description": "Deeway Live Mix au Hard Rock Cafe Puerto Plata (El Batey, Sosúa), Calle Duarte 7 — vendredi 23 octobre 2026. Confirmez portes, cover et heure du set via Instagram @hardrockcafepuertoplata ou +1 849-505-7778. Soirée DJ nommée sur le dancefloor Hard Rock — pas le set Deeway du Monster’s Ball à Chameleon ni le vendredi Twenty Disco.",
+    "date": "2026-10-23",
+    "location": "Sosúa",
+    "venue": "Hard Rock Cafe Puerto Plata",
+    "venueSlug": "hard-rock-sosua",
+    "address": "Calle Duarte 7, Sosúa",
+    "lat": 19.7634107,
+    "lng": -70.5162309,
+    "category": "music",
+    "categories": [
+      "parties"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18495057778",
+    "instagram": "hardrockcafepuertoplata",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/hardrockcafepuertoplata/",
+    "lineup": [
+      "Deeway"
+    ],
+    "imageEmoji": "🎧"
+  },
+  {
+    "id": "parada-el-choco-big-d-aperitivo-2026-10-27",
+    "title": "Parada El Choco Aperitivo — Big D (27 oct.)",
+    "description": "Apéritivo avec Big D (Dooner) en live à Parada Típica El Choco (restaurant suisse-italien / House of Music), Plaza Buen Gusto sur la route Sosúa–Cabarete face à Ocean Village — mardi 27 octobre 2026, 17 h–19 h. Finger food offert à table. RSVP +1 809-804-2510 · Instagram @paradaelchoco. Première soirée guest aperitivo Big D — pas le dîner Thanksgiving billeté du 26 novembre.",
+    "date": "2026-10-27",
+    "time": "17 h – 19 h",
+    "location": "Sosúa",
+    "venue": "Parada Típica El Choco",
+    "venueSlug": "parada-tipica-el-choco",
+    "address": "Carretera principal Sosúa–Cabarete (vis-à-vis Ocean Village / Plaza Buen Gusto)",
+    "lat": 19.77269,
+    "lng": -70.4967789,
+    "category": "music",
+    "categories": [
+      "food-drinks",
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "phone": "+18098042510",
+    "instagram": "paradaelchoco",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/paradaelchoco/",
+    "lineup": [
+      "Big D (Dooner)"
+    ],
+    "imageEmoji": "🎵"
   }
 ]

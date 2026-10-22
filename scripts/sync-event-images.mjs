@@ -67,6 +67,10 @@ const FILE_TO_EVENT_ID = {
   "victrola-sports-sunday-2026-10-25.jpg":
     "victrola-sports-sunday-2026-10-25",
   "aura-allison-sade-live-2026-10-22.jpg": "allison-sade-aura-2026-10-22",
+  "parada-el-choco-big-d-aperitivo-2026-10-27.jpg":
+    "parada-el-choco-big-d-aperitivo-2026-10-27",
+  "hard-rock-deeway-live-mix-2026-10-23.jpg":
+    "hard-rock-deeway-live-mix-2026-10-23",
   "tiki-bar-henry-jimenez-2026-10-23.jpg": "tiki-bar-henry-jimenez-2026-10-23",
   "premios-ola-dorada-2026-12-05.jpg": "premios-ola-dorada-2026-12-05",
   "lokuras-pop-percusion-latina-2026-10-25.jpg":
@@ -133,6 +137,7 @@ const FILE_TO_EVENT_ID = {
     "ivan-garcia-conciliar-sueno-libertad-2026-11-07",
   "aquagym-costambar-swim-classes.jpg": "aquagym-costambar-swim-classes",
   "aquagym-costambar-swim-classes-v2.jpg": "aquagym-costambar-swim-classes",
+  "aquagym-costambar-swim-classes-v3.jpg": "aquagym-costambar-swim-classes",
   "pop-cinemas-week-2026-10-15-posters.jpg": "pop-cinemas-week-2026-10-15",
   "pop-cinemas-week-2026-10-15-sacrificio.jpg":
     "pop-cinemas-week-2026-10-15-sacrificio",

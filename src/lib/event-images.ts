@@ -32,6 +32,10 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "victrola-lidom-2026-10-24": "victrola-lidom-2026-10-24.jpg",
   "victrola-sports-sunday-2026-10-25": "victrola-sports-sunday-2026-10-25.jpg",
   "allison-sade-aura-2026-10-22": "aura-allison-sade-live-2026-10-22.jpg",
+  "parada-el-choco-big-d-aperitivo-2026-10-27":
+    "parada-el-choco-big-d-aperitivo-2026-10-27.jpg",
+  "hard-rock-deeway-live-mix-2026-10-23":
+    "hard-rock-deeway-live-mix-2026-10-23.jpg",
   "tiki-bar-henry-jimenez-2026-10-23":
     "tiki-bar-henry-jimenez-2026-10-23.jpg",
   "premios-ola-dorada-2026-12-05": "premios-ola-dorada-2026-12-05.jpg",
@@ -154,8 +158,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "voyvoy-social-heartz-2026-11-07": "voyvoy-social-heartz-2026-11-07.jpg",
   "ivan-garcia-conciliar-sueno-libertad-2026-11-07":
     "ivan-garcia-conciliar-sueno-libertad-2026-11-07.jpg",
-  // Filename bump — editor FB @aquagymrd Costambar post (was miswired Twenty Bichotas caption).
-  "aquagym-costambar-swim-classes": "aquagym-costambar-swim-classes-v2.jpg",
+  // Filename bump — editor FB @aquagymrd Costambar flyer (v1 was Twenty Bichotas; v2 localhost next/image cache stuck on FB post crop).
+  "aquagym-costambar-swim-classes": "aquagym-costambar-swim-classes-v3.jpg",
   "monkeyland-puerto-plata-daily": "monkeyland-puerto-plata-daily.jpeg",
   "coconut-cove-ocean-zipline-daily": "coconut-cove-ocean-zipline-daily.jpg",
   "brugal-rum-center-weekdays": "brugal-rum-center-weekdays.jpg",
@@ -726,6 +730,8 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "festival-presidente-2026-10-03": "object-top",
   // Portrait live-music flyers — face sits upper-third; center crop chops the head.
   "allison-sade-aura-2026-10-22": "object-top",
+  "parada-el-choco-big-d-aperitivo-2026-10-27": "object-center",
+  "hard-rock-deeway-live-mix-2026-10-23": "object-top",
   "tiki-bar-henry-jimenez-2026-10-23": "object-center",
   "premios-ola-dorada-2026-12-05": "object-center",
   "lokuras-pop-percusion-latina-2026-10-25": "object-center",
@@ -1111,6 +1117,8 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "victrola-lidom-2026-10-24.jpg",
   "victrola-sports-sunday-2026-10-25.jpg",
   "aura-allison-sade-live-2026-10-22.jpg",
+  "parada-el-choco-big-d-aperitivo-2026-10-27.jpg",
+  "hard-rock-deeway-live-mix-2026-10-23.jpg",
   "tiki-bar-henry-jimenez-2026-10-23.jpg",
   "premios-ola-dorada-2026-12-05.jpg",
   "lokuras-pop-percusion-latina-2026-10-25.jpg",
@@ -1133,6 +1141,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "voyvoy-social-heartz-2026-11-07.jpg",
   "aquagym-costambar-swim-classes.jpg",
   "aquagym-costambar-swim-classes-v2.jpg",
+  "aquagym-costambar-swim-classes-v3.jpg",
   "voyvoy-social-heartz-jordy-sanchez-2026-11-07.jpg",
   "voyvoy-social-heartz-drea-2026-11-07.jpg",
   "voyvoy-social-heartz-ale-b2b-oily-2026-11-07.jpg",
