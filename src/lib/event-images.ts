@@ -23,8 +23,15 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "justin-santos-rancho-catalina-2026-10-25.jpg",
   "proyecto-x-el-calabozo-2026-10-31":
     "proyecto-x-el-calabozo-2026-10-31.jpg",
+  // Filename bump — clean Angel & Demons flyer (editor re-supply).
   "twenty-disco-angel-demons-2026-10-24":
-    "twenty-disco-angel-demons-2026-10-24.jpg",
+    "twenty-disco-angel-demons-2026-10-24-v2.jpg",
+  "chameleon-haunted-monarka-2026-10-25":
+    "chameleon-haunted-monarka-2026-10-25.jpg",
+  "victrola-nba-2026-10-23": "victrola-nba-2026-10-23.jpg",
+  "victrola-lidom-2026-10-24": "victrola-lidom-2026-10-24.jpg",
+  "victrola-sports-sunday-2026-10-25": "victrola-sports-sunday-2026-10-25.jpg",
+  "allison-sade-aura-2026-10-22": "aura-allison-sade-live-2026-10-22.jpg",
   "ambar-lounge-bandoleras-2026-10-23":
     "ambar-lounge-bandoleras-2026-10-23.jpg",
   "kite-street-son-cubano-2026-10-25":
@@ -142,7 +149,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "voyvoy-social-heartz-2026-11-07": "voyvoy-social-heartz-2026-11-07.jpg",
   "ivan-garcia-conciliar-sueno-libertad-2026-11-07":
     "ivan-garcia-conciliar-sueno-libertad-2026-11-07.jpg",
-  "aquagym-costambar-swim-classes": "aquagym-costambar-swim-classes.jpg",
+  // Filename bump — editor FB @aquagymrd Costambar post (was miswired Twenty Bichotas caption).
+  "aquagym-costambar-swim-classes": "aquagym-costambar-swim-classes-v2.jpg",
   "monkeyland-puerto-plata-daily": "monkeyland-puerto-plata-daily.jpeg",
   "coconut-cove-ocean-zipline-daily": "coconut-cove-ocean-zipline-daily.jpg",
   "brugal-rum-center-weekdays": "brugal-rum-center-weekdays.jpg",
@@ -339,7 +347,6 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "aura-beach-club-lunes-especiales": "aura-beach-club-lunes-especiales.jpg",
   "aura-beach-club-miercoles-margaritas":
     "aura-beach-club-miercoles-margaritas.jpg",
-  "aura-latin-flow-dance-wednesday": "aura-latin-flow-dance-wednesday.jpg",
   "cisco-vengo-social-heartz-aura-2026-09-25":
     "cisco-vengo-social-heartz-aura-2026-09-25.jpg",
   "allison-sade-aura-2026-09-17": "allison-sade-aura-2026-09-17.jpg",
@@ -712,6 +719,10 @@ const EVENT_IMAGE_PREFIXES: { prefix: string; file: string }[] = [
 const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   // Flyer faces / name tags sit high — keep top of art in the short detail hero.
   "festival-presidente-2026-10-03": "object-top",
+  // Portrait live-music flyers — face sits upper-third; center crop chops the head.
+  "allison-sade-aura-2026-10-22": "object-top",
+  "allison-sade-aura-2026-09-17": "object-top",
+
   // Short mobile heroes keep the sun; desktop centers the sunset composition.
   "lax-sunset-daily": "object-top lg:object-center",
   "cabarete-boxing-club-kids-class": "object-center",
@@ -765,7 +776,6 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "voramar-friday-live": "object-center",
   "aura-beach-club-lunes-especiales": "object-center",
   "aura-beach-club-miercoles-margaritas": "object-center",
-  "aura-latin-flow-dance-wednesday": "object-center",
   "cisco-vengo-social-heartz-aura-2026-09-25": "object-center",
   "francesca-aura-2026-10-01": "object-center",
   "aura-disco-dj-melvin-2026-09-19": "object-center",
@@ -786,7 +796,8 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "twenty-disco-kiry-curu-2026-10-16": "object-center",
   "ivan-garcia-eulogio-badia-2026-10-24": "object-center",
   "ivan-garcia-cafe-opera-codigo-clown-2026-10-31": "object-center",
-  "ann-soul-aura-cabarete-2026-10-15": "object-center",
+  // Portrait singer flyer — keep face in wide hero (was object-center).
+  "ann-soul-aura-cabarete-2026-10-15": "object-top",
   "ivan-garcia-tierra-de-paso-2026-10-15": "object-center",
   "fenate-2026-sala-ivan-garcia": "object-center",
   "hard-rock-banditalia-2026-10-17": "object-center",
@@ -1068,7 +1079,9 @@ export function getEventOgImageUrl(eventId: string): string | undefined {
 
 export function getEventHeroObjectPosition(eventId: string): string {
   const resolvedId = EVENT_IMAGE_ALIASES[eventId] ?? eventId;
-  return EVENT_HERO_OBJECT_POSITION[resolvedId] ?? "object-center";
+  // Default top — wide detail heroes with object-cover must not chop faces/heads
+  // off portrait flyers. Opt into object-center only when the focal point is mid-frame.
+  return EVENT_HERO_OBJECT_POSITION[resolvedId] ?? "object-top";
 }
 
 /**
@@ -1084,6 +1097,12 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "justin-santos-rancho-catalina-2026-10-25.jpg",
   "proyecto-x-el-calabozo-2026-10-31.jpg",
   "twenty-disco-angel-demons-2026-10-24.jpg",
+  "twenty-disco-angel-demons-2026-10-24-v2.jpg",
+  "chameleon-haunted-monarka-2026-10-25.jpg",
+  "victrola-nba-2026-10-23.jpg",
+  "victrola-lidom-2026-10-24.jpg",
+  "victrola-sports-sunday-2026-10-25.jpg",
+  "aura-allison-sade-live-2026-10-22.jpg",
   "ambar-lounge-bandoleras-2026-10-23.jpg",
   "kite-street-son-cubano-2026-10-25.jpg",
   "jump-fit-rosa-beard-over-club-2026-10-31-v2.jpg",
@@ -1102,6 +1121,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "aura-disco-manny-figueroa-2026-10-24.jpg",
   "voyvoy-social-heartz-2026-11-07.jpg",
   "aquagym-costambar-swim-classes.jpg",
+  "aquagym-costambar-swim-classes-v2.jpg",
   "voyvoy-social-heartz-jordy-sanchez-2026-11-07.jpg",
   "voyvoy-social-heartz-drea-2026-11-07.jpg",
   "voyvoy-social-heartz-ale-b2b-oily-2026-11-07.jpg",
@@ -1298,7 +1318,6 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "cigar-town-karaoke-ladies-night-2026-09-19.jpg",
   "aura-beach-club-lunes-especiales.jpg",
   "aura-beach-club-miercoles-margaritas.jpg",
-  "aura-latin-flow-dance-wednesday.jpg",
   "cisco-vengo-social-heartz-aura-2026-09-25.jpg",
   "el-cuarteto-terrible-zona-acapella-2026-09-27-flyer.jpg",
   "natura-sunbar-special-sunset-sounds-2026-09-24.jpg",
@@ -1609,8 +1628,8 @@ export function isHomeHeroBackgroundSuitable(
 export function getEventCardObjectPosition(eventId: string): string {
   const resolvedId = EVENT_IMAGE_ALIASES[eventId] ?? eventId;
   const curated = EVENT_HERO_OBJECT_POSITION[resolvedId];
-  // `object-center` is fine for tall detail heroes but clips faces in wide
-  // list/Coming-up cards — keep the top-biased card default instead.
+  // Curated `object-center` is for detail heroes; wide cards still top-bias so
+  // portrait faces are not chopped. Other curated positions (object-top, %) apply.
   if (!curated || curated === "object-center") {
     return "object-top";
   }

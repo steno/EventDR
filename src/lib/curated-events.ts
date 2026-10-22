@@ -109,6 +109,31 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     venueSlug: "rancho-catalina-puerto-plata",
     sourceUrl: "https://www.instagram.com/rancholacatalina/",
   },
+  "chameleon-haunted-monarka-2026-10-25": {
+    callForPricing: true,
+    phone: "+18299942304",
+  },
+  "victrola-nba-2026-10-23": {
+    callForPricing: true,
+    venueSlug: "victrola-037",
+    sourceUrl: "https://www.instagram.com/victrolart/",
+  },
+  "victrola-lidom-2026-10-24": {
+    callForPricing: true,
+    venueSlug: "victrola-037",
+    sourceUrl: "https://www.instagram.com/victrolart/",
+  },
+  "victrola-sports-sunday-2026-10-25": {
+    callForPricing: true,
+    venueSlug: "victrola-037",
+    sourceUrl: "https://www.instagram.com/victrolart/",
+  },
+  "allison-sade-aura-2026-10-22": {
+    callForPricing: true,
+    phone: "+18297870140",
+    venueSlug: "aura-beach-club-cabarete",
+    sourceUrl: "https://www.instagram.com/auracabarete/",
+  },
   "twenty-disco-angel-demons-2026-10-24": {
     isFree: true,
     venueSlug: "twenty-disco-lounge",

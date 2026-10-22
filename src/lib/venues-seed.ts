@@ -381,7 +381,7 @@ export const SEED_VENUES: Venue[] = [
     name: "Aura Beach Club Cabarete",
     city: "Cabarete",
     description:
-      "Beachfront club on Calle Principal — open Sun–Thu 11:00 AM–12:00 AM, Fri–Sat 11:00 AM–2:00 AM. Daytime lounging, Monday 2x1 margarita/gin hours, Wednesday margarita nights plus Latin Flow Dance from 9 PM, Saturday Aura Disco from 11:30 PM, and nighttime shows facing Cabarete Bay. WhatsApp +1 829-787-0140 · Instagram @auracabarete.",
+      "Beachfront club on Calle Principal — open Sun–Thu 11:00 AM–12:00 AM, Fri–Sat 11:00 AM–2:00 AM. Daytime lounging, Monday 2x1 margarita/gin hours, Saturday Aura Disco from 11:30 PM, and nighttime shows facing Cabarete Bay. WhatsApp +1 829-787-0140 · Instagram @auracabarete.",
     lat: 19.7500769,
     lng: -70.4070417,
     emoji: "🌴",
@@ -2114,17 +2114,15 @@ export const SEED_VENUES: Venue[] = [
     instagram: "jl_coachingcenter_pop",
   },
   {
-    slug: "aquagym-costambar",
-    name: "AquaGym Costambar",
+    slug: "los-mangos-costambar",
+    name: "Los Mangos Golf & Country Club",
     city: "Costambar",
     description:
-      "Swim lessons and aquafitness at Club de Golf Los Mangos in Costambar — kids from age 1 through adults, small groups, progressive method. WhatsApp +1 829-510-5914 · @aquagymrd.",
+      "Private golf and country club in Costambar — nine-hole course, pool, restaurant, gym, tennis, spa, and pro shop. Non-members welcome for golf, restaurant, spa, and pro shop. costambar-losmangos.com.",
     lat: 19.814318,
     lng: -70.719178,
-    emoji: "🏊",
-    phone: "+18295105914",
-    instagram: "aquagymrd",
-    website: "https://www.facebook.com/aquagymrd/",
+    emoji: "⛳",
+    website: "https://www.costambar-losmangos.com/",
   },
   {
     slug: "tiki-bar-cabarete",
@@ -2397,8 +2395,8 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
   },
   {
     pattern:
-      /aquagym(\s*(costambar|rd))?|aqua\s*gym(\s*costambar)?|club\s*de\s*golf\s*los\s*mangos/i,
-    slug: "aquagym-costambar",
+      /los\s*mangos(\s*(golf|country|club|costambar))?|club\s*de\s*golf\s*los\s*mangos|costambar[\s-]*los[\s-]*mangos|aquagym(\s*(costambar|rd))?|aqua\s*gym(\s*costambar)?/i,
+    slug: "los-mangos-costambar",
   },
   {
     pattern:

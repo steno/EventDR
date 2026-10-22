@@ -231,8 +231,8 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
   },
   "aura-beach-club-cabarete": {
     description: {
-      es: "Beach club frente al mar en Calle Principal — abierto dom–jue 11:00 AM–12:00 AM, vie–sáb 11:00 AM–2:00 AM. Relax de día, lunes 2x1 de margarita/gin, miércoles de margaritas más Latin Flow Dance desde las 9 PM, sábado Aura Disco desde las 11:30 PM y shows de noche con vista a la bahía de Cabarete. WhatsApp +1 829-787-0140 · Instagram @auracabarete.",
-      fr: "Beach club en bord de mer sur Calle Principal — ouvert dim–jeu 11 h–minuit, ven–sam 11 h–2 h. Détente le jour, lundis 2x1 margarita/gin, mercredis margaritas plus Latin Flow Dance dès 21 h, samedi Aura Disco dès 23 h 30 et concerts le soir face à la baie de Cabarete. WhatsApp +1 829-787-0140 · Instagram @auracabarete.",
+      es: "Beach club frente al mar en Calle Principal — abierto dom–jue 11:00 AM–12:00 AM, vie–sáb 11:00 AM–2:00 AM. Relax de día, lunes 2x1 de margarita/gin, sábado Aura Disco desde las 11:30 PM y shows de noche con vista a la bahía de Cabarete. WhatsApp +1 829-787-0140 · Instagram @auracabarete.",
+      fr: "Beach club en bord de mer sur Calle Principal — ouvert dim–jeu 11 h–minuit, ven–sam 11 h–2 h. Détente le jour, lundis 2x1 margarita/gin, samedi Aura Disco dès 23 h 30 et concerts le soir face à la baie de Cabarete. WhatsApp +1 829-787-0140 · Instagram @auracabarete.",
     },
   },
   "la-casita-de-papi": {
@@ -1123,14 +1123,14 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Salle de sport et studio de coaching sur Av. Manolo Tavárez Justo, Ensanche Miramar — cours fitness, soirées Zumba communautaires et événements de solidarité Octubre Rosa. Instagram @jl_coachingcenter_pop · +1 829-847-8510.",
     },
   },
-  "aquagym-costambar": {
+  "los-mangos-costambar": {
     name: {
-      es: "AquaGym Costambar",
-      fr: "AquaGym Costambar",
+      es: "Los Mangos Golf & Country Club",
+      fr: "Los Mangos Golf & Country Club",
     },
     description: {
-      es: "Clases de natación y aquafitness en el Club de Golf Los Mangos en Costambar — niños desde 1 año hasta adultos, grupos reducidos, método progresivo. WhatsApp +1 829-510-5914 · @aquagymrd.",
-      fr: "Cours de natation et aquafitness au Club de Golf Los Mangos à Costambar — enfants dès 1 an jusqu’aux adultes, petits groupes, méthode progressive. WhatsApp +1 829-510-5914 · @aquagymrd.",
+      es: "Club de golf y country privado en Costambar — campo de nueve hoyos, piscina, restaurante, gimnasio, tenis, spa y pro shop. No miembros bienvenidos en golf, restaurante, spa y pro shop. costambar-losmangos.com.",
+      fr: "Club de golf et country privé à Costambar — parcours neuf trous, piscine, restaurant, gym, tennis, spa et pro shop. Non-membres bienvenus pour golf, restaurant, spa et pro shop. costambar-losmangos.com.",
     },
   },
   "tiki-bar-cabarete": {

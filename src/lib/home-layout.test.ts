@@ -423,6 +423,34 @@ describe("getTodayHighlightEvents today-page preference", () => {
     assert.equal(ids[0], "tonight-play");
   });
 
+  it("drops Flip Flop amenity recurrings from Happening today", () => {
+    const wings = event({
+      id: "flip-flop-wing-wednesday",
+      title: "Flip Flop Wing Wednesday",
+      date: "2026-08-25",
+      time: "8:00 AM – 10:00 PM",
+      recurrence: "weekly",
+      recurrenceDay: 3,
+      venueSlug: "flip-flop-sports-bar-sosua",
+      imageUrl: "/events/wings.jpg",
+    });
+    const tonight = event({
+      id: "tonight-live",
+      title: "Named Live Set",
+      date: "2026-08-25",
+      time: "8:00 PM",
+      venueSlug: "aura",
+      imageUrl: "/events/live.jpg",
+    });
+
+    const ids = getTodayHighlightEvents([wings, tonight], {
+      now: AFTERNOON,
+      shuffleSeed: "no-flip-flop",
+    }).map((e) => e.id);
+
+    assert.deepEqual(ids, ["tonight-live"]);
+  });
+
   it("keeps newer one-offs above older peers and weeklies", () => {
     const older = event({
       id: "older-one-off",

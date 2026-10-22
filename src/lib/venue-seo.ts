@@ -38,19 +38,19 @@ const VENUE_SEO: Record<string, Record<Locale, VenueSeoCopy>> = {
     en: {
       title: "Aura Beach Club Cabarete | Hours & nights | POP Events",
       description:
-        "Beach club on Calle Principal, Cabarete. Monday 2×1 margaritas, Wednesday Latin Flow from 9 PM, Saturday disco from 11:30 PM. WhatsApp +1 829-787-0140.",
+        "Beach club on Calle Principal, Cabarete. Monday 2×1 margaritas, Saturday disco from 11:30 PM. WhatsApp +1 829-787-0140.",
       schemaType: "NightClub",
     },
     es: {
       title: "Aura Beach Club Cabarete | Horario y noches | POP Eventos",
       description:
-        "Calle Principal, Cabarete. Lunes 2×1 margarita, miércoles Latin Flow 9 PM, sábado disco 11:30 PM. WhatsApp +1 829-787-0140.",
+        "Calle Principal, Cabarete. Lunes 2×1 margarita, sábado disco 11:30 PM. WhatsApp +1 829-787-0140.",
       schemaType: "NightClub",
     },
     fr: {
       title: "Aura Beach Club Cabarete | Horaires & nuits | POP Events",
       description:
-        "Beach club sur Calle Principal, Cabarete. Lundi 2×1 margaritas, mercredi Latin Flow dès 21 h, samedi disco dès 23 h 30. WhatsApp +1 829-787-0140.",
+        "Beach club sur Calle Principal, Cabarete. Lundi 2×1 margaritas, samedi disco dès 23 h 30. WhatsApp +1 829-787-0140.",
       schemaType: "NightClub",
     },
   },

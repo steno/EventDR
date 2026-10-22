@@ -112,9 +112,11 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "luxury-club-puerto-plata": "luxury-club-puerto-plata.jpg",
   "xanadu-resort-hodelpa": "xanadu-resort-hodelpa.jpg",
   "jl-coaching-center-puerto-plata": "jl-coaching-center-puerto-plata.jpg",
-  "aquagym-costambar": "aquagym-costambar.jpg",
+  "los-mangos-costambar": "los-mangos-costambar.jpg",
   "tiki-bar-cabarete": "tiki-bar-cabarete.jpg",
   "twenty-disco-lounge": "twenty-disco-lounge-bar.jpg",
+  // Filename bump — editor Over Beach Club aerial brand graphic (venue had no place shot).
+  "over-beach-club": "over-beach-club-aerial-v2.jpg",
   "parada-tipica-el-choco": "parada-tipica-el-choco.jpg",
   "blue-jacktar-playa-dorada": "blue-jacktar-playa-dorada.jpg",
   // Filename bump — Calle Dr. Rosen storefront with blue ice PIANO BAR sign.

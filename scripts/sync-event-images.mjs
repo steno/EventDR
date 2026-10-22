@@ -58,6 +58,16 @@ const FILE_TO_EVENT_ID = {
     "proyecto-x-el-calabozo-2026-10-31",
   "twenty-disco-angel-demons-2026-10-24.jpg":
     "twenty-disco-angel-demons-2026-10-24",
+  "twenty-disco-angel-demons-2026-10-24-v2.jpg":
+    "twenty-disco-angel-demons-2026-10-24",
+  "chameleon-haunted-monarka-2026-10-25.jpg":
+    "chameleon-haunted-monarka-2026-10-25",
+  "victrola-nba-2026-10-23.jpg": "victrola-nba-2026-10-23",
+  "victrola-lidom-2026-10-24.jpg": "victrola-lidom-2026-10-24",
+  "victrola-sports-sunday-2026-10-25.jpg":
+    "victrola-sports-sunday-2026-10-25",
+  "aura-allison-sade-live-2026-10-22.jpg": "allison-sade-aura-2026-10-22",
+  "over-beach-club-aerial-v2.jpg": "over-beach-club",
   "ambar-lounge-bandoleras-2026-10-23.jpg":
     "ambar-lounge-bandoleras-2026-10-23",
   "kite-street-son-cubano-2026-10-25.jpg":
@@ -118,6 +128,7 @@ const FILE_TO_EVENT_ID = {
   "ivan-garcia-conciliar-sueno-libertad-2026-11-07.jpg":
     "ivan-garcia-conciliar-sueno-libertad-2026-11-07",
   "aquagym-costambar-swim-classes.jpg": "aquagym-costambar-swim-classes",
+  "aquagym-costambar-swim-classes-v2.jpg": "aquagym-costambar-swim-classes",
   "pop-cinemas-week-2026-10-15-posters.jpg": "pop-cinemas-week-2026-10-15",
   "pop-cinemas-week-2026-10-15-sacrificio.jpg":
     "pop-cinemas-week-2026-10-15-sacrificio",
@@ -467,7 +478,6 @@ const FILE_TO_EVENT_ID = {
   "aura-beach-club-lunes-especiales.jpg": "aura-beach-club-lunes-especiales",
   "aura-beach-club-miercoles-margaritas.jpg":
     "aura-beach-club-miercoles-margaritas",
-  "aura-latin-flow-dance-wednesday.jpg": "aura-latin-flow-dance-wednesday",
   "cisco-vengo-social-heartz-aura-2026-09-25.jpg":
     "cisco-vengo-social-heartz-aura-2026-09-25",
   "el-cuarteto-terrible-zona-acapella-2026-09-27-flyer.jpg":
@@ -817,6 +827,8 @@ const FILE_TO_VENUE_SLUG = {
   "xanadu-resort-hodelpa.jpg": "xanadu-resort-hodelpa",
   "jl-coaching-center-puerto-plata.jpg": "jl-coaching-center-puerto-plata",
   "aquagym-costambar.jpg": "aquagym-costambar",
+  "aquagym-costambar-v2.jpg": "aquagym-costambar",
+  "los-mangos-costambar.jpg": "los-mangos-costambar",
 };
 
 if (!existsSync(sourceDir)) {

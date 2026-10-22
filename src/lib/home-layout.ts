@@ -22,6 +22,25 @@ export { isTodayOnlySpecial } from "@/lib/event-status";
 export const HOME_TODAY_LIMIT = 4;
 
 /**
+ * Recurring Flip Flop amenity nights (wings / NFL TV / happy hour) — still on
+ * venue and /when pages, but never fill home Happening today or This weekend.
+ * Dated Flip Flop one-offs (World Series, NBA Opening Night) stay eligible.
+ */
+export const HOME_DISCOVER_EXCLUDE_IDS = new Set([
+  "flip-flop-wing-wednesday",
+  "flip-flop-nfl-thursday",
+  "flip-flop-nfl-sunday",
+  "flip-flop-monday-happy-hour",
+]);
+
+export function isHomeDiscoverExcluded(
+  event: Pick<Event, "id"> | string,
+): boolean {
+  const id = typeof event === "string" ? event : event.id;
+  return HOME_DISCOVER_EXCLUDE_IDS.has(id);
+}
+
+/**
  * @deprecated Today's specials show every active dated one-off (no home cap).
  * Kept so older imports resolve; prefer omitting `limit` / passing `null`.
  */
@@ -618,6 +637,7 @@ export function getTodayHighlightEvents(
   const now = options.now ?? new Date();
   const daySeed = localDateISO(now);
   const filtered = events.filter((e) => {
+    if (isHomeDiscoverExcluded(e)) return false;
     if (!happensOnLocalDate(e, daySeed) || !isEventActiveToday(e, now)) {
       return false;
     }

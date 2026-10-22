@@ -2385,26 +2385,6 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: "2026-09-14T12:00:00.000Z",
   },
   {
-    eventId: "aura-latin-flow-dance-wednesday",
-    seriesKey: "aura-beach-club-cabarete:latin-flow:weekly:3",
-    body: "Wednesday late Latin floor with Flow Dance hosts from 9 PM — come to move, not for the earlier 2x1 margarita window; shoes you can dance in beat a dinner reservation.",
-    localized: {
-      es: "Pista latina tarde los miércoles con hosts de Flow Dance desde las 9 PM — ven a bailar, no por la ventana 2x1 de margaritas; zapatos para moverte pesan más que una reserva de cena.",
-      fr: "Piste latine tardive le mercredi avec les hosts Flow Dance dès 21 h — venez danser, pas pour la fenêtre 2x1 margaritas ; chaussures à danser avant une résa dîner.",
-    },
-    priceFeel: "moderate",
-    priceNote:
-      "Cover not on flyer — confirm with @auracabarete / WhatsApp +1 829-787-0140; budget beach-club drinks",
-    priceNoteLocalized: {
-      es: "Cover no está en el flyer — confirma con @auracabarete / WhatsApp +1 829-787-0140; presupuesta drinks de beach club",
-      fr: "Cover absent de l’affiche — confirmez via @auracabarete / WhatsApp +1 829-787-0140 ; budget boissons beach club",
-    },
-    attribution: "POP research · @auracabarete Latin Night / Flow Dance",
-    researchNotes:
-      "Editor flyers — every Wednesday from 9 PM; Fraimy & Yanluis from Flow Dance; Aura Beach Club Cabarete; Latin Night branding.",
-    updatedAt: "2026-09-15T12:00:00.000Z",
-  },
-  {
     eventId: "cisco-vengo-social-heartz-aura-2026-09-25",
     seriesKey: "aura-beach-club-cabarete:2026-09-25",
     body: "Vengo x Social Heartz stacks C.I.S.C.O and OILY with local openers — still no doors time on the flyer, so confirm with Aura before you cross-town from Sosúa for a sand-floor party.",
@@ -6163,11 +6143,11 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "aquagym-costambar-swim-classes",
-    seriesKey: "aquagym-costambar:swim-classes",
-    body: "Costambar pool lessons at Los Mangos — kids from age 1 through adult aquafitness; call +1 829-510-5914 for the class grid before you drive in.",
+    seriesKey: "los-mangos-costambar:aquagym-swim-classes",
+    body: "AquaGym swim and aquafitness in the Los Mangos club pool — kids from age 1 through adults; call +1 829-510-5914 for the class grid before you drive into Costambar.",
     localized: {
-      es: "Clases en la piscina de Costambar en Los Mangos — niños desde 1 año hasta aquafitness de adultos; llama al +1 829-510-5914 por la grilla antes de ir.",
-      fr: "Cours piscine à Costambar chez Los Mangos — enfants dès 1 an jusqu’à l’aquafitness adultes ; appelez le +1 829-510-5914 pour la grille avant d’y aller.",
+      es: "Natación y aquafitness AquaGym en la piscina de Los Mangos — niños desde 1 año hasta adultos; llama al +1 829-510-5914 por la grilla antes de ir a Costambar.",
+      fr: "Natation et aquafitness AquaGym dans la piscine de Los Mangos — enfants dès 1 an jusqu’aux adultes ; appelez le +1 829-510-5914 pour la grille avant d’aller à Costambar.",
     },
     priceFeel: "varies",
     priceNote: "Call for class pricing — WhatsApp +1 829-510-5914 / @aquagymrd",
@@ -6175,10 +6155,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       es: "Llama por precios de clase — WhatsApp +1 829-510-5914 / @aquagymrd",
       fr: "Appelez pour les tarifs de cours — WhatsApp +1 829-510-5914 / @aquagymrd",
     },
-    attribution: "POP research · AquaGym Costambar Facebook post",
+    attribution: "POP research · AquaGym flyer at Los Mangos Costambar",
     researchNotes:
-      "Editor FB @aquagymrd — swim classes kids from 1, aquafitness adults; Club de Golf Los Mangos Costambar; 829-510-5914.",
-    updatedAt: "2026-10-20T12:30:00.000Z",
+      "Editor flyer @aquagymrd — Costambar Clases de Natación at Los Mangos Golf & Country Club (costambar-losmangos.com); kids from 1, aquafitness adults; 829-510-5914. Venue is the club, not AquaGym as a place.",
+    updatedAt: "2026-10-22T01:00:00.000Z",
   },
   {
     eventId: "disco-club-gogo-dancers-2026-10-22",
@@ -6339,8 +6319,99 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     },
     attribution: "POP research · Twenty Disco Angel & Demons flyer",
     researchNotes:
-      "Editor flyer SAB 24 OCT Angel & Demons; DJ Yerry x DJ Choco; caption @ruddydelossantos_ — Playa Dorada Mall; no cover hasta la 1 AM.",
-    updatedAt: "2026-10-21T23:00:00.000Z",
+      "Editor flyer SAB 24 OCT Angel & Demons; DJ Yerry x DJ Choco; caption @ruddydelossantos_ — Playa Dorada Mall; no cover hasta la 1 AM. Flyer filename bump -v2.",
+    updatedAt: "2026-10-22T01:00:00.000Z",
+  },
+  {
+    eventId: "chameleon-haunted-monarka-2026-10-25",
+    body: "Sunday Haunted night at Chameleon with DJ Monarka (now billed El Therian) — Sosúa Bay Center next to Coral Reef Casino; RSVP +1 829-994-2304 before you treat doors as walk-in, and don’t mix it with Twenty’s Angel & Demons the night before.",
+    localized: {
+      es: "Domingo Haunted en Chameleon con DJ Monarka (ahora El Therian) — Sosúa Bay Center junto a Coral Reef Casino; RSVP +1 829-994-2304 antes de asumir walk-in, y no lo mezcles con Angel & Demons de Twenty la noche anterior.",
+      fr: "Dimanche Haunted au Chameleon avec DJ Monarka (désormais El Therian) — Sosúa Bay Center à côté du Coral Reef Casino ; RSVP +1 829-994-2304 avant d’assumer le walk-in, et ne confondez pas avec Angel & Demons de Twenty la veille.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — RSVP +1 829-994-2304 · @chameleonsportbar",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — RSVP +1 829-994-2304 · @chameleonsportbar",
+      fr: "Cover à confirmer — RSVP +1 829-994-2304 · @chameleonsportbar",
+    },
+    attribution: "POP research · Chameleon The Haunted flyer",
+    researchNotes:
+      "Editor flyer + caption @chameleonsportbar — Dom 25 Oct THE HAUNTED SAL SI PUEDES; DJ Monarka / flyer says LA VIBRA, caption says now EL THERIAN; Sosúa Bay Center Calle Alejo Martínez #1; RSVP (829) 994-2304; Pekke Redes.",
+    updatedAt: "2026-10-22T01:00:00.000Z",
+  },
+  {
+    eventId: "victrola-nba-2026-10-23",
+    body: "Malecón NBA doubleheader on Victrola’s TVs — Pistons–Heat at 8, then Pelicans–Jazz at 9:30; claim a table early if you want both tips.",
+    localized: {
+      es: "Doble NBA en las TVs de Victrola en el Malecón — Pistons–Heat a las 8 y luego Pelicans–Jazz a las 9:30; asegura mesa temprano si quieres ambos tips.",
+      fr: "Double NBA sur les TVs de Victrola sur le Malecón — Pistons–Heat à 20 h, puis Pelicans–Jazz à 21 h 30 ; prenez une table tôt si vous voulez les deux tip-offs.",
+    },
+    priceFeel: "moderate",
+    priceNote: "Bar pricing — @victrolart",
+    priceNoteLocalized: {
+      es: "Precios de bar — @victrolart",
+      fr: "Tarifs bar — @victrolart",
+    },
+    attribution: "POP research · Victrola NBA Friday flyer",
+    researchNotes:
+      "Editor carousel @victrolart — Vie 23 Oct NBA; Pistons vs Heat 8PM; Pelicans vs Jazz 9:30PM. Day card (not per-game seeds).",
+    updatedAt: "2026-10-22T01:30:00.000Z",
+  },
+  {
+    eventId: "victrola-lidom-2026-10-24",
+    body: "Three LIDOM windows on one Saturday card at Victrola — Toros–Escogido 4 PM, Licey–Águilas 6 PM with the welcome-drink promo, Gigantes–Estrellas 7:30; ask which screen before you sit.",
+    localized: {
+      es: "Tres ventanas LIDOM en una ficha de sábado en Victrola — Toros–Escogido 4 PM, Licey–Águilas 6 PM con el trago de bienvenida, Gigantes–Estrellas 7:30; pregunta qué pantalla antes de sentarte.",
+      fr: "Trois fenêtres LIDOM sur une fiche samedi à Victrola — Toros–Escogido 16 h, Licey–Águilas 18 h avec la boisson de bienvenue, Gigantes–Estrellas 19 h 30 ; demandez quel écran avant de vous asseoir.",
+    },
+    priceFeel: "moderate",
+    priceNote: "Bar pricing — welcome drink promo on Licey–Águilas flyer · @victrolart",
+    priceNoteLocalized: {
+      es: "Precios de bar — promo trago de bienvenida en flyer Licey–Águilas · @victrolart",
+      fr: "Tarifs bar — promo boisson de bienvenue sur l’affiche Licey–Águilas · @victrolart",
+    },
+    attribution: "POP research · Victrola LIDOM Saturday flyers",
+    researchNotes:
+      "Editor carousel @victrolart — Sab 24 Oct LIDOM day card: Toros vs Escogido 4PM; Licey vs Aguilas 6PM Ballantine welcome drink; Gigantes vs Estrellas 7:30PM (caption). Not per-game seeds.",
+    updatedAt: "2026-10-22T01:45:00.000Z",
+  },
+  {
+    eventId: "victrola-sports-sunday-2026-10-25",
+    body: "One Sunday card stacks NFL at 1, Clásico at 4, then LIDOM + F1 from 5 — pick your screen at Victrola; don’t expect every matchup on the same TV.",
+    localized: {
+      es: "Una ficha de domingo apila NFL a la 1, Clásico a las 4 y luego LIDOM + F1 desde las 5 — elige pantalla en Victrola; no esperes todos los partidos en la misma TV.",
+      fr: "Une fiche dimanche empile NFL à 13 h, Clasico à 16 h, puis LIDOM + F1 dès 17 h — choisissez l’écran à Victrola ; n’attendez pas tous les matchs sur la même TV.",
+    },
+    priceFeel: "moderate",
+    priceNote: "Bar pricing — @victrolart",
+    priceNoteLocalized: {
+      es: "Precios de bar — @victrolart",
+      fr: "Tarifs bar — @victrolart",
+    },
+    attribution: "POP research · Victrola Sports Sunday carousel",
+    researchNotes:
+      "Editor carousel @victrolart — Dom 25 Oct day card: Jets vs Dolphins 1PM; Barça vs Madrid 4PM; LIDOM triple 5PM; F1 US GP COTA 5PM. Lean day seed — not per-matchup.",
+    updatedAt: "2026-10-22T02:00:00.000Z",
+  },
+  {
+    eventId: "allison-sade-aura-2026-10-22",
+    body: "Thursday 8 PM Allison Sade on Calle Principal sand — same named-set format as her Sep 17 Aura night; confirm cover before you treat it like a free open mic, and don’t mix it with Aura Disco Saturday.",
+    localized: {
+      es: "Jueves 8 PM Allison Sade en la arena de Calle Principal — el mismo formato de set con nombre que su noche del 17 sep en Aura; confirma cover antes de tratarlo como open mic gratis, y no lo mezcles con Aura Disco del sábado.",
+      fr: "Jeudi 20 h Allison Sade sur le sable de Calle Principal — même format de set nommé que sa soirée du 17 sept. à Aura ; confirmez le cover avant de le traiter comme open mic gratuit, et ne confondez pas avec Aura Disco samedi.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "Cover not on flyer — confirm @auracabarete / WhatsApp +1 829-787-0140",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — confirma @auracabarete / WhatsApp +1 829-787-0140",
+      fr: "Cover absent de l’affiche — confirmez @auracabarete / WhatsApp +1 829-787-0140",
+    },
+    attribution: "POP research · Aura × Allison Sade flyer",
+    researchNotes:
+      "Editor flyer + user: Allison Sade LIVE MUSIC at Aura Cabarete; Thu 22 Oct 2026 8:00 PM. No date on art — date/time from user. Distinct title from allison-sade-aura-2026-09-17.",
+    updatedAt: "2026-10-22T02:15:00.000Z",
   },
   {
     eventId: "ambar-lounge-bandoleras-2026-10-23",

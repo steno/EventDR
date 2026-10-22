@@ -2410,36 +2410,6 @@
     "imageEmoji": "🍸"
   },
   {
-    "id": "aura-latin-flow-dance-wednesday",
-    "title": "Latin Flow Dance Night à Aura Beach Club",
-    "description": "Tous les mercredis dès 21 h à Aura Beach Club, Calle Principal, Cabarete — Latin Night avec Fraimy & Yanluis de Flow Dance. Salsa, bachata et énergie sur la piste face à la baie. Confirmez le cover via Instagram @auracabarete ou WhatsApp +1 829-787-0140.",
-    "date": "2026-01-01",
-    "time": "9:00 PM",
-    "location": "Cabarete",
-    "venue": "Aura Beach Club Cabarete",
-    "venueSlug": "aura-beach-club-cabarete",
-    "address": "Calle Principal, Cabarete 57000",
-    "lat": 19.7500769,
-    "lng": -70.4070417,
-    "category": "dance",
-    "categories": [
-      "parties",
-      "music"
-    ],
-    "format": "physical",
-    "recurrence": "weekly",
-    "recurrenceDay": 3,
-    "trending": true,
-    "callForPricing": true,
-    "phone": "+18297870140",
-    "lineup": [
-      "Fraimy & Yanluis (Flow Dance)"
-    ],
-    "sourceType": "instagram",
-    "sourceUrl": "https://www.instagram.com/auracabarete/",
-    "imageEmoji": "💃"
-  },
-  {
     "id": "classic-cars-puerto-plata-daily",
     "title": "Visite privée de Puerto Plata en voiture classique",
     "description": "Visites privées quotidiennes en convertibles vintage restaurées avec Classic Cars Dominicana — stops photo autour de Puerto Plata, pickup hôtel ou croisière sur réservation. Créneaux typiques ~8 h, 10 h, 14 h et 16 h (~3 h). Réservez via Instagram @classiccarsrd ou au (809) 769-8732 ; page TripAdvisor pour avis et options de réservation.",
@@ -2945,7 +2915,10 @@
     "lat": 19.77625,
     "lng": -70.6594,
     "category": "parties",
-    "categories": ["music", "dance"],
+    "categories": [
+      "music",
+      "dance"
+    ],
     "format": "physical",
     "recurrence": "weekly",
     "recurrenceDay": 1,
@@ -2955,7 +2928,11 @@
     "ageHint": "18-plus",
     "sourceType": "flyer",
     "sourceUrl": "https://www.instagram.com/luxury.club.puerto_plata/",
-    "lineup": ["DJ Maikol", "DJ La Nota", "Show gogo dancer"],
+    "lineup": [
+      "DJ Maikol",
+      "DJ La Nota",
+      "Show gogo dancer"
+    ],
     "imageEmoji": "🪩"
   },
   {
@@ -2970,7 +2947,10 @@
     "lat": 19.77625,
     "lng": -70.6594,
     "category": "parties",
-    "categories": ["music", "food-drinks"],
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
     "format": "physical",
     "recurrence": "weekly",
     "recurrenceDay": 2,
@@ -2979,7 +2959,10 @@
     "phone": "+18298484259",
     "sourceType": "flyer",
     "sourceUrl": "https://www.instagram.com/luxury.club.puerto_plata/",
-    "lineup": ["DJ La Nota", "Chicha gratuite jusqu’à 23 h"],
+    "lineup": [
+      "DJ La Nota",
+      "Chicha gratuite jusqu’à 23 h"
+    ],
     "imageEmoji": "💨"
   },
   {
@@ -2994,7 +2977,10 @@
     "lat": 19.77625,
     "lng": -70.6594,
     "category": "parties",
-    "categories": ["music", "food-drinks"],
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
     "format": "physical",
     "recurrence": "weekly",
     "recurrenceDay": 4,
@@ -3003,7 +2989,10 @@
     "phone": "+18298857986",
     "sourceType": "flyer",
     "sourceUrl": "https://www.instagram.com/luxury.club.puerto_plata/",
-    "lineup": ["DJ La Nota", "Offres boissons"],
+    "lineup": [
+      "DJ La Nota",
+      "Offres boissons"
+    ],
     "imageEmoji": "🥂"
   },
   {
@@ -3018,7 +3007,10 @@
     "lat": 19.77625,
     "lng": -70.6594,
     "category": "parties",
-    "categories": ["music", "dance"],
+    "categories": [
+      "music",
+      "dance"
+    ],
     "format": "physical",
     "recurrence": "weekly",
     "recurrenceDay": 6,
@@ -3027,7 +3019,11 @@
     "phone": "+18498857986",
     "sourceType": "flyer",
     "sourceUrl": "https://www.instagram.com/luxury.club.puerto_plata/",
-    "lineup": ["DJ La Nota", "Old Parr 2x1", "Gold Reserva 2x1"],
+    "lineup": [
+      "DJ La Nota",
+      "Old Parr 2x1",
+      "Gold Reserva 2x1"
+    ],
     "imageEmoji": "✨"
   },
   {
@@ -3042,7 +3038,10 @@
     "lat": 19.77625,
     "lng": -70.6594,
     "category": "parties",
-    "categories": ["music", "food-drinks"],
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
     "format": "physical",
     "recurrence": "weekly",
     "recurrenceDay": 0,
@@ -3051,7 +3050,11 @@
     "phone": "+18498857986",
     "sourceType": "flyer",
     "sourceUrl": "https://www.instagram.com/luxury.club.puerto_plata/",
-    "lineup": ["DJ La Nota", "Don Julio Reposado 2x1", "Buchanan’s 12 2x1"],
+    "lineup": [
+      "DJ La Nota",
+      "Don Julio Reposado 2x1",
+      "Buchanan’s 12 2x1"
+    ],
     "imageEmoji": "💎"
   },
   {
@@ -3074,28 +3077,28 @@
     "sourceUrl": "https://sanfra.odoo.com/en/about-us",
     "imageEmoji": "🎳"
   },
-{
-  "id": "aquagym-costambar-swim-classes",
-  "title": "AquaGym Costambar — Cours de natation et aquafitness",
-  "description": "Cours de natation et aquafitness au Club de Golf Los Mangos, Costambar, Puerto Plata — enfants dès 1 an, jeunes et adultes en petits groupes avec instructeurs formés. Méthode progressive et sûre ; aquafitness pour adultes. Appelez/WhatsApp +1 829-510-5914 · Instagram/Facebook @aquagymrd. Confirmez l’horaire avant d’y aller.",
-  "date": "2026-01-01",
-  "time": "Appelez pour les horaires",
-  "location": "Costambar",
-  "venue": "AquaGym Costambar",
-  "venueSlug": "aquagym-costambar",
-  "address": "Club de Golf Los Mangos, Costambar, Puerto Plata",
-  "lat": 19.814318,
-  "lng": -70.719178,
-  "category": "health-wellness",
-  "categories": [
-    "sports"
-  ],
-  "format": "physical",
-  "recurrence": "daily",
-  "ageHint": "family",
-  "callForPricing": true,
-  "phone": "+18295105914",
-  "sourceUrl": "https://www.facebook.com/aquagymrd/",
-  "imageEmoji": "🏊"
-}
+  {
+    "id": "aquagym-costambar-swim-classes",
+    "title": "AquaGym Costambar — Cours de natation et aquafitness",
+    "description": "Cours de natation et aquafitness au Club de Golf Los Mangos, Costambar, Puerto Plata — enfants dès 1 an, jeunes et adultes en petits groupes avec instructeurs formés. Méthode progressive et sûre ; aquafitness pour adultes. Appelez/WhatsApp +1 829-510-5914 · Instagram/Facebook @aquagymrd. Confirmez l’horaire avant d’y aller.",
+    "date": "2026-01-01",
+    "time": "Appelez pour les horaires",
+    "location": "Costambar",
+    "venue": "Los Mangos Golf & Country Club",
+    "venueSlug": "los-mangos-costambar",
+    "address": "Club de Golf Los Mangos, Costambar, Puerto Plata",
+    "lat": 19.814318,
+    "lng": -70.719178,
+    "category": "health-wellness",
+    "categories": [
+      "sports"
+    ],
+    "format": "physical",
+    "recurrence": "daily",
+    "ageHint": "family",
+    "callForPricing": true,
+    "phone": "+18295105914",
+    "sourceUrl": "https://www.facebook.com/aquagymrd/",
+    "imageEmoji": "🏊"
+  }
 ]

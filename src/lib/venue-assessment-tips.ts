@@ -18,11 +18,11 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "aura-beach-club-cabarete": {
-    body: "Calle Principal beach club facing Cabarete Bay — doors Sun–Thu 11:00 AM–12:00 AM, Fri–Sat to 2:00 AM; Wednesday Latin Flow Dance from 9 PM, and Saturday Aura Disco from 11:30 PM with house DJ Christo; reserve WhatsApp +1 829-787-0140, not a walk-up kiosk bar.",
+    body: "Calle Principal beach club facing Cabarete Bay — doors Sun–Thu 11:00 AM–12:00 AM, Fri–Sat to 2:00 AM; Saturday Aura Disco from 11:30 PM with house DJ Christo; reserve WhatsApp +1 829-787-0140, not a walk-up kiosk bar.",
     localized: {
-      en: "Calle Principal beach club facing Cabarete Bay — doors Sun–Thu 11:00 AM–12:00 AM, Fri–Sat to 2:00 AM; Wednesday Latin Flow Dance from 9 PM, and Saturday Aura Disco from 11:30 PM with house DJ Christo; reserve WhatsApp +1 829-787-0140, not a walk-up kiosk bar.",
-      es: "Beach club en Calle Principal frente a la bahía de Cabarete — abierto dom–jue 11:00 AM–12:00 AM, vie–sáb hasta las 2:00 AM; miércoles Latin Flow Dance desde las 9 PM, y sábado Aura Disco desde las 11:30 PM con DJ house Christo; reserva WhatsApp +1 829-787-0140, no es un kiosk walk-up.",
-      fr: "Beach club sur Calle Principal face à la baie de Cabarete — ouvert dim–jeu 11 h–minuit, ven–sam jusqu’à 2 h ; mercredi Latin Flow Dance dès 21 h, et samedi Aura Disco dès 23 h 30 avec le DJ house Christo ; réservez WhatsApp +1 829-787-0140, pas un kiosk walk-up.",
+      en: "Calle Principal beach club facing Cabarete Bay — doors Sun–Thu 11:00 AM–12:00 AM, Fri–Sat to 2:00 AM; Saturday Aura Disco from 11:30 PM with house DJ Christo; reserve WhatsApp +1 829-787-0140, not a walk-up kiosk bar.",
+      es: "Beach club en Calle Principal frente a la bahía de Cabarete — abierto dom–jue 11:00 AM–12:00 AM, vie–sáb hasta las 2:00 AM; sábado Aura Disco desde las 11:30 PM con DJ house Christo; reserva WhatsApp +1 829-787-0140, no es un kiosk walk-up.",
+      fr: "Beach club sur Calle Principal face à la baie de Cabarete — ouvert dim–jeu 11 h–minuit, ven–sam jusqu’à 2 h ; samedi Aura Disco dès 23 h 30 avec le DJ house Christo ; réservez WhatsApp +1 829-787-0140, pas un kiosk walk-up.",
     },
   },
   "kite-beach": {
@@ -721,12 +721,12 @@ export const VENUE_TIP_COPY: Record<
       fr: "Salle à Miramar sur Manolo Tavárez Justo — Zumba communautaire et soirées solidarité polo rose quand c’est annoncé ; pas un club du centre, et les soirées gratuites sont ouvertes aux non-membres.",
     },
   },
-  "aquagym-costambar": {
-    body: "Swim and aquafitness at Los Mangos Golf Club in Costambar — call +1 829-510-5914 for class times; it’s lessons in the club pool, not a beach day pass.",
+  "los-mangos-costambar": {
+    body: "Costambar golf club with pool, restaurant, and spa — non-members can play golf and use the restaurant/spa; AquaGym swim classes use the club pool (call @aquagymrd for class times).",
     localized: {
-      en: "Swim and aquafitness at Los Mangos Golf Club in Costambar — call +1 829-510-5914 for class times; it’s lessons in the club pool, not a beach day pass.",
-      es: "Natación y aquafitness en el Club de Golf Los Mangos en Costambar — llama al +1 829-510-5914 por horarios; son clases en la piscina del club, no un day pass de playa.",
-      fr: "Natation et aquafitness au Club de Golf Los Mangos à Costambar — appelez le +1 829-510-5914 pour les horaires ; ce sont des cours dans la piscine du club, pas un day pass plage.",
+      en: "Costambar golf club with pool, restaurant, and spa — non-members can play golf and use the restaurant/spa; AquaGym swim classes use the club pool (call @aquagymrd for class times).",
+      es: "Club de golf en Costambar con piscina, restaurante y spa — no miembros pueden jugar golf y usar restaurante/spa; las clases AquaGym usan la piscina del club (llama @aquagymrd por horarios).",
+      fr: "Club de golf à Costambar avec piscine, restaurant et spa — les non-membres peuvent jouer et utiliser restaurant/spa ; les cours AquaGym utilisent la piscine du club (appelez @aquagymrd pour les horaires).",
     },
   },
   "tiki-bar-cabarete": {

@@ -34,6 +34,8 @@ export const REMOVED_VENUE_SLUGS = new Set([
 export const VENUE_SLUG_REDIRECTS: Record<string, string> = {
   grecialand: "grecialandia",
   "parque-de-beisbol-jose-briceno": "parque-jose-briceno",
+  // Misnamed AquaGym operator stub → club place (AquaGym is the swim program, not the venue).
+  "aquagym-costambar": "los-mangos-costambar",
 };
 
 export function isRemovedVenueSlug(

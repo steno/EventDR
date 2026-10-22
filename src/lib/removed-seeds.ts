@@ -90,6 +90,8 @@ export const REMOVED_SEED_EVENT_IDS = new Set([
   // Keep karaoke, live music, dance, food specials, and branded lounge packages.
   "aura-beach-club-lunes-especiales",
   "aura-beach-club-miercoles-margaritas",
+  // Ended — Latin Flow Dance Wednesdays no longer running at Aura.
+  "aura-latin-flow-dance-wednesday",
   "flip-flop-monday-happy-hour",
   // Parked — venue SM stale since 2024; weekly specials unverified for 2026.
   "cheers-weekly-live",

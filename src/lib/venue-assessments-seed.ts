@@ -1039,13 +1039,14 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     ],
   }),
   editorial({
-    venueSlug: "aquagym-costambar",
+    venueSlug: "los-mangos-costambar",
     verdictKey: "solid_visitor_activity",
     crowdFit: ["family", "local", "visitor"],
-    axes: { recommend: 4.1, atmosphere: 3.9, practical: 3.8, reliability: 3.9 },
+    axes: { recommend: 4.1, atmosphere: 4.0, practical: 3.9, reliability: 3.9 },
     themes: [
       { key: "family_friendly", sentiment: "positive", audience: "family" },
       { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+      { key: "easy_to_find", sentiment: "positive", audience: "visitor" },
     ],
   }),
   editorial({
