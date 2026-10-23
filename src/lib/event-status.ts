@@ -572,6 +572,17 @@ export function isEventActiveToday(
 }
 
 /**
+ * Bar / café sports watch nights (TV screens), not participatory fixtures.
+ * Catalog convention: primary `sports` + secondary `food-drinks`.
+ */
+export function isSportsViewingEvent(
+  event: Pick<EventLiveFields, "category" | "categories">,
+): boolean {
+  if (event.category !== "sports") return false;
+  return (event.categories ?? []).includes("food-drinks");
+}
+
+/**
  * Dated one-off still worth a Today’s specials slot.
  * Leaves the rail once the show is in its final hour (“ends soon”) or has ended.
  */
@@ -583,8 +594,9 @@ export function isListedTodaySpecial(
   // `string | EventRecurrence` (ingest/filters), which is not assignable to
   // Pick<Event, "recurrence"> without a cast.
   if (event.recurrence) return false;
-  // Multi-night sports screen blocks (Hard Rock / Pregame game day) are a
-  // week of watch nights, not a one-off Today’s special.
+  // Sports viewing / multi-night screen blocks stay off Today’s specials
+  // (Flip Flop / Victrola / Hard Rock watch nights → Happening today).
+  if (isSportsViewingEvent(event)) return false;
   const end = event.endDate?.trim();
   if (event.category === "sports" && end && end !== event.date?.trim()) {
     return false;

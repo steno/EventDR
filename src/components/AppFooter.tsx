@@ -26,11 +26,11 @@ function compactFooterOnMobile(pathname: string, locale: Locale): boolean {
 
 export function AppFooter({ locale, dict }: AppFooterProps) {
   const pathname = usePathname();
-  // Full-bleed pitched map — no footer chrome under the canvas.
-  if (pathname === `/${locale}/map`) return null;
+  const onMap = pathname === `/${locale}/map`;
 
   const padForBottomNav = pathname === `/${locale}`;
-  const compactOnMobile = compactFooterOnMobile(pathname, locale);
+  // Map keeps a compact strip so Install app stays reachable under the canvas.
+  const compactOnMobile = onMap || compactFooterOnMobile(pathname, locale);
   const hideForPrint =
     pathname === `/${locale}/for-partners` ||
     pathname === `/${locale}/support`;

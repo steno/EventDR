@@ -138,7 +138,7 @@ export function EventsMapPage({
   initialVenueSlug = null,
 }: EventsMapPageProps) {
   const [area, setArea] = useState<MapAreaId>("north-coast");
-  const [when, setWhen] = useState<MapTimeFilter>("all");
+  const [when, setWhen] = useState<MapTimeFilter>("today");
   const [focusedPinId, setFocusedPinId] = useState<string | null>(null);
   const [openPinId, setOpenPinId] = useState<string | null>(null);
   const [cruiseEntryOpen, setCruiseEntryOpen] = useState(false);

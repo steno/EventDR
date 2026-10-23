@@ -314,8 +314,9 @@ function pickDiverseCarouselHead(events: Event[], limit: number): Event[] {
 export interface TodayHighlightOptions {
   now?: Date;
   /**
-   * Override peer shuffle seed. Default: hour bucket in APP_TIMEZONE so
-   * revisits feel fresh without reshuffling on every render/hydration.
+   * Override peer shuffle seed. Default: time bucket in APP_TIMEZONE so
+   * revisits feel fresh without reshuffling on every render/hydration
+   * (hour for most rails; half-hour for Today’s specials).
    */
   shuffleSeed?: string | number;
 }
@@ -326,6 +327,15 @@ function localHour(now: Date): number {
     timeZone: APP_TIMEZONE,
     hour: "2-digit",
     hourCycle: "h23",
+  }).format(now);
+  return Number.parseInt(formatted, 10) || 0;
+}
+
+/** Local minute 0–59 in the North Coast timezone. */
+function localMinute(now: Date): number {
+  const formatted = new Intl.DateTimeFormat("en-GB", {
+    timeZone: APP_TIMEZONE,
+    minute: "2-digit",
   }).format(now);
   return Number.parseInt(formatted, 10) || 0;
 }
@@ -386,11 +396,17 @@ function resolveHighlightShuffleSeed(
   now: Date,
   override?: string | number,
   prefix = "today-highlights",
+  /** Minutes per rotation bucket (60 = hourly, 30 = half-hour). */
+  bucketMinutes: 30 | 60 = 60,
 ): number {
   if (typeof override === "number") return override >>> 0 || 1;
   if (typeof override === "string") return hashSeed(override);
   const day = localDateISO(now);
   const hour = localHour(now);
+  if (bucketMinutes === 30) {
+    const half = localMinute(now) < 30 ? 0 : 1;
+    return hashSeed(`${prefix}:${day}:${hour}:${half}`);
+  }
   return hashSeed(`${prefix}:${day}:${hour}`);
 }
 
@@ -597,10 +613,10 @@ export function getComingUpHighlightEvents(
  * the section when the list is empty. A single special can sit beside an
  * add-event promo so the desktop row doesn’t look sparse.
  *
- * No display cap — every active special is returned. Order is status, then
- * one-time kind, then sooner start time ({@link sortEventsForDisplay}) — not
- * newest `createdAt`. Skip {@link pinTodayOneOffs}: that pin floats a later
- * seed above an earlier start, which fights a “what’s next” scan.
+ * No display cap — every active special is returned. Order is a full
+ * half-hour seeded shuffle ({@link seededShuffle}) across the whole rail —
+ * not status peers — so live and upcoming mix. Same cost as peer shuffle;
+ * no `Math.random`, hydration flicker, or reshuffle on every render.
  *
  * Drops a one-off once it is in the “ends soon” window; Happening today
  * keeps that card.
@@ -613,10 +629,15 @@ export function getTodaySpecialEvents(
   const filtered = events.filter((e) => isListedTodaySpecial(e, now));
   if (filtered.length === 0) return [];
 
-  return sortEventsForDisplay(filtered, {
-    oneTimeFirst: true,
-    now,
-  });
+  return seededShuffle(
+    filtered,
+    resolveHighlightShuffleSeed(
+      now,
+      options.shuffleSeed,
+      "today-specials",
+      30,
+    ),
+  );
 }
 
 /**

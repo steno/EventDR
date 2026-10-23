@@ -6630,4 +6630,22 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "Editor flyers — Sábado 31 Oct El Calabozo; ubicación secreta Puerto Plata; RD$1,500; coro de 4 solo pagan 3; +1 809-614-7745 / DM @proyecto_x_pop; cronograma 8 PM–5 AM; WhatsApp group Los silenciosos POP invite https://chat.whatsapp.com/JWibgYONhzF0JwtfIOyZWx. No venueSlug — secret pin.",
     updatedAt: "2026-10-21T23:30:00.000Z",
   },
+  {
+    eventId: "mirando-pa-otro-lao-8-puerto-plata-2026-11-17",
+    body: "The pink graphic is the open call, which closes 30 Oct — the screens themselves run 17–22 Nov in Puerto Plata and Santiago. Don’t treat the city pin as a theater; follow @mirandopaotrolao for the day’s room.",
+    localized: {
+      es: "El gráfico rosa es la convocatoria, que cierra el 30 oct — las pantallas en sí van del 17 al 22 nov en Puerto Plata y Santiago. No trates el pin de la ciudad como un cine; sigue @mirandopaotrolao para la sala del día.",
+      fr: "Le visuel rose est l’appel à films, qui ferme le 30 oct. — les écrans eux-mêmes vont du 17 au 22 nov. à Puerto Plata et Santiago. Ne prenez pas l’épingle de la ville pour un cinéma ; suivez @mirandopaotrolao pour la salle du jour.",
+    },
+    priceFeel: "varies",
+    priceNote: "Admission not posted — film call closes 30 Oct · @mirandopaotrolao",
+    priceNoteLocalized: {
+      es: "Entrada no publicada — convocatoria cierra el 30 oct · @mirandopaotrolao",
+      fr: "Entrée non publiée — appel à films ferme le 30 oct. · @mirandopaotrolao",
+    },
+    attribution: "POP research · @mirandopaotrolao 8th-edition convocatoria",
+    researchNotes:
+      "Editor IG slides 23 Oct 2026 (@mirandopaotrolao): 8ª convocatoria hasta el 30 de octubre 2026; categories documentales cortos, videoarte, cortometrajes ficción, largometrajes. Caption: screens in Santiago and Puerto Plata 17–22 Nov 2026. https://www.instagram.com/mirandopaotrolao/ Pin is Puerto Plata city center until a room is named. Historical organizer El Nido Laboratorio (Santiago, since 2018) is in older press; the 2026 post does not restate it, so guest copy stays on the account.",
+    updatedAt: "2026-10-23T12:00:00.000Z",
+  },
 ];

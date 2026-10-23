@@ -237,7 +237,7 @@ export function SiteFooter({
           </div>
         </div>
 
-        {/* Compact mobile strip — partners / support / legal stay reachable */}
+        {/* Compact mobile strip — partners / support stay reachable (Install lives in legal). */}
         {compactOnMobile ? (
           <div className="flex flex-col gap-3 lg:hidden">
             <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
@@ -310,6 +310,10 @@ export function SiteFooter({
               aria-label={dict.footer.legal}
               className="flex flex-wrap justify-center gap-x-3 gap-y-1 text-[11px] font-medium text-neutral-400 sm:justify-start sm:gap-x-4 sm:text-xs dark:text-neutral-500"
             >
+              <FooterInstallLink
+                dict={dict}
+                className="transition-colors hover:text-neutral-700 dark:hover:text-neutral-300"
+              />
               <Link
                 href={`/${locale}/privacy`}
                 prefetch={false}

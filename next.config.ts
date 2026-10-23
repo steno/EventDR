@@ -31,15 +31,21 @@ const tunnelDomains = [
   "*.trycloudflare.com"
 ];
 
+// Netlify-only: one SSG worker + one page at a time. Default worker renders 8
+// pages at once; that plus sharp buffers SIGKILL'd Netlify late in SSG (67/90).
+// Keep this off in `next dev` — cpus:1 serializes Turbopack and makes localhost crawl.
+const isProdBuild = process.env.NODE_ENV === "production";
+
 const nextConfig: NextConfig = {
   allowedDevOrigins: [...getLocalIPv4Addresses(), ...extraDevOrigins, ...tunnelDomains],
-  // One SSG worker, and one page at a time inside it. The worker default
-  // renders 8 pages at once; that plus sharp buffers SIGKILL'd Netlify
-  // in the last quarter of static generation (67/90).
-  experimental: {
-    cpus: 1,
-    staticGenerationMaxConcurrency: 1,
-  },
+  ...(isProdBuild
+    ? {
+        experimental: {
+          cpus: 1,
+          staticGenerationMaxConcurrency: 1,
+        },
+      }
+    : {}),
   // Vendored Inter TTFs for /api/ig-card (sharp text fontfile on Netlify).
   outputFileTracingIncludes: {
     "/api/ig-card/[eventId]": ["./assets/fonts/**/*"],

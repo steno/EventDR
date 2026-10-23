@@ -3,6 +3,8 @@ import { describe, it } from "node:test";
 import {
   getEventLiveStatus,
   isLikelyLateNightUntimedListing,
+  isListedTodaySpecial,
+  isSportsViewingEvent,
   parseEventTimeWindow,
 } from "./event-status";
 
@@ -128,6 +130,54 @@ describe("untimed listing cutoffs", () => {
         fridayNight,
       ),
       "closedToday",
+    );
+  });
+});
+
+describe("sports viewing vs Today’s specials", () => {
+  /** Fri 23 Oct 2026, 4:00 PM America/Santo_Domingo. */
+  const fridayAfternoon = new Date("2026-10-23T20:00:00.000Z");
+
+  it("flags sports + food-drinks as viewing", () => {
+    assert.equal(
+      isSportsViewingEvent({
+        category: "sports",
+        categories: ["food-drinks"],
+      }),
+      true,
+    );
+    assert.equal(
+      isSportsViewingEvent({ category: "sports", categories: [] }),
+      false,
+    );
+  });
+
+  it("keeps bar watch nights off Today’s specials", () => {
+    assert.equal(
+      isListedTodaySpecial(
+        {
+          date: "2026-10-23",
+          time: "8:00 PM",
+          category: "sports",
+          categories: ["food-drinks"],
+        },
+        fridayAfternoon,
+      ),
+      false,
+    );
+  });
+
+  it("still allows participatory sports one-offs on Today’s specials", () => {
+    assert.equal(
+      isListedTodaySpecial(
+        {
+          date: "2026-10-23",
+          time: "8:00 PM",
+          category: "sports",
+        },
+        fridayAfternoon,
+      ),
+      true,
     );
   });
 });

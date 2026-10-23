@@ -7950,5 +7950,33 @@
       "Big D (Dooner)"
     ],
     "imageEmoji": "🎵"
+  },
+  {
+    "id": "mirando-pa-otro-lao-8-puerto-plata-2026-11-17",
+    "title": "Puerto Plata — Mirando Pa' Otro Lao 8",
+    "description": "8e Muestra Audiovisual Mirando Pa' Otro Lao. Projections publiques du 17 au 22 novembre 2026 à Puerto Plata et à Santiago : courts documentaires, vidéo-art, courts de fiction et longs métrages. La convocatoria rose ferme le 30 octobre 2026 — cette date est la clôture des envois, pas la dernière séance. Salles et horaires du jour ne sont pas encore publiés ; suivez @mirandopaotrolao avant d’aller en salle. Cette fiche est la semaine de Puerto Plata (Santiago a les mêmes dates). L’épingle est la ville, pas un cinéma.",
+    "date": "2026-11-17",
+    "endDate": "2026-11-22",
+    "location": "Puerto Plata",
+    "venue": "Salles à venir — @mirandopaotrolao",
+    "address": "Salles du jour sur @mirandopaotrolao",
+    "lat": 19.7976623,
+    "lng": -70.6932862,
+    "category": "culture",
+    "categories": [
+      "festivals"
+    ],
+    "format": "physical",
+    "trending": true,
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/mirandopaotrolao/",
+    "instagram": "mirandopaotrolao",
+    "lineup": [
+      "Documentales cortos",
+      "Videoarte",
+      "Cortometrajes de ficción",
+      "Largometrajes"
+    ],
+    "imageEmoji": "🎬"
   }
 ]

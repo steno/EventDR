@@ -75,6 +75,8 @@ const FILE_TO_EVENT_ID = {
   "premios-ola-dorada-2026-12-05.jpg": "premios-ola-dorada-2026-12-05",
   "lokuras-pop-percusion-latina-2026-10-25.jpg":
     "lokuras-pop-percusion-latina-2026-10-25",
+  "mirando-pa-otro-lao-8-puerto-plata-2026-11-17.jpg":
+    "mirando-pa-otro-lao-8-puerto-plata-2026-11-17",
   "over-beach-club-aerial-v2.jpg": "over-beach-club",
   "ambar-lounge-bandoleras-2026-10-23.jpg":
     "ambar-lounge-bandoleras-2026-10-23",

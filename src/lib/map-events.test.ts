@@ -249,6 +249,81 @@ describe("map-events", () => {
     assert.ok(filtered.every((e) => e.category === "music" || e.categories?.includes("music")));
   });
 
+  it("Today pins only venues with a matching one-off or recurring listing", () => {
+    /** Wed Oct 14, 2026 2:00 PM America/Santo_Domingo. */
+    const afternoon = new Date("2026-10-14T18:00:00.000Z");
+    const todayOneOff = event({
+      id: "today-special",
+      title: "Tonight special",
+      lat: 19.76,
+      lng: -70.51,
+      venueSlug: "venue-today",
+      date: "2026-10-14",
+      time: "8:00 PM",
+    });
+    const otherDay = event({
+      id: "friday-only",
+      title: "Friday party",
+      lat: 19.75,
+      lng: -70.41,
+      venueSlug: "venue-friday",
+      date: "2026-10-16",
+      time: "10:00 PM",
+    });
+    const weeklyMonday = event({
+      id: "monday-recurring",
+      title: "Monday karaoke",
+      lat: 19.8,
+      lng: -70.69,
+      venueSlug: "venue-monday",
+      date: "2026-01-01",
+      recurrence: "weekly",
+      recurrenceDay: 1,
+      time: "8:00 PM",
+    });
+    const weeklyWednesday = event({
+      id: "wednesday-recurring",
+      title: "Wednesday live",
+      lat: 19.77,
+      lng: -70.66,
+      venueSlug: "venue-wednesday",
+      date: "2026-01-01",
+      recurrence: "weekly",
+      recurrenceDay: 3,
+      time: "7:00 PM",
+    });
+
+    const todayEvents = filterMapEvents(
+      [todayOneOff, otherDay, weeklyMonday, weeklyWednesday],
+      "today",
+      "all",
+      afternoon,
+    );
+    assert.deepEqual(
+      todayEvents.map((e) => e.id).sort(),
+      ["today-special", "wednesday-recurring"],
+    );
+
+    const pins = buildMapPins(todayEvents);
+    assert.equal(pins.length, 2);
+    assert.ok(pins.every((pin) => pin.events.length > 0));
+    assert.ok(pins.every((pin) => !pin.venueOnly));
+    const slugs = new Set(
+      pins.map((pin) => pin.events[0]?.venueSlug).filter(Boolean),
+    );
+    assert.deepEqual([...slugs].sort(), ["venue-today", "venue-wednesday"]);
+
+    const allPins = buildMapPins(
+      filterMapEvents(
+        [todayOneOff, otherDay, weeklyMonday, weeklyWednesday],
+        "all",
+        "all",
+        afternoon,
+      ),
+    );
+    assert.equal(allPins.length, 4);
+  });
+
   it("drops closed-for-the-day listings from the map Today filter", () => {
     /** Tue Oct 13, 2026 11:51 PM America/Santo_Domingo. */
     const lateNight = new Date("2026-10-14T03:51:00.000Z");

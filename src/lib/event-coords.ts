@@ -32,6 +32,9 @@ const CITY_COORDS: Record<string, EventCoords> = {
 
 export const NORTH_COAST_CENTER = CITY_COORDS["puerto plata"];
 
+/** Dev-only: warn once per venue name so listing loops don't flood the terminal. */
+const warnedMissingPins = new Set<string>();
+
 function venueCoords(slug: string): EventCoords | null {
   const venue = getSeedVenue(slug);
   if (!venue || !hasMapCoords(venue)) return null;
@@ -66,9 +69,13 @@ export function resolveEventCoords(
     if (!loc.includes(city)) continue;
     if (event.venue?.trim()) {
       if (process.env.NODE_ENV === "development") {
-        console.warn(
-          `[event-coords] Named venue "${event.venue}" (${event.location}) has no pin — add venueSlug or lat/lng`,
-        );
+        const key = `${event.venue}\0${event.location}`;
+        if (!warnedMissingPins.has(key)) {
+          warnedMissingPins.add(key);
+          console.warn(
+            `[event-coords] Named venue "${event.venue}" (${event.location}) has no pin — add venueSlug or lat/lng`,
+          );
+        }
       }
       return null;
     }

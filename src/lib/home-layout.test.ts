@@ -8,6 +8,7 @@ import {
   getHomeDiscoverLayout,
   getNewHighlightEvents,
   getTodayHighlightEvents,
+  getTodaySpecialEvents,
   getWeekendHighlightEvents,
   HOME_NEW_LIMIT,
   HOME_TODAY_LIMIT,
@@ -814,7 +815,7 @@ describe("getHomeDiscoverLayout same-day seed", () => {
     );
   });
 
-  it("orders Today’s specials by sooner start and keeps every special", () => {
+  it("keeps every Today’s special and shuffles the full rail by seed", () => {
     const older = event({
       id: "older-special",
       title: "Older Special",
@@ -844,23 +845,135 @@ describe("getHomeDiscoverLayout same-day seed", () => {
         venueSlug: `venue-extra-${i}`,
       }),
     );
+    const pool = [older, ...extras, newerLater];
+    const now = new Date("2026-09-19T16:00:00.000Z");
 
-    const layout = getHomeDiscoverLayout([older, ...extras, newerLater], {
-      now: new Date("2026-09-19T16:00:00.000Z"),
+    const layout = getHomeDiscoverLayout(pool, {
+      now,
       shuffleSeed: "specials-fresh",
     });
+    const again = getHomeDiscoverLayout(pool, {
+      now,
+      shuffleSeed: "specials-fresh",
+    });
+    const otherSeed = getHomeDiscoverLayout(pool, {
+      now,
+      shuffleSeed: "specials-rotate",
+    });
 
-    // 6 PM extras lead, then 7 PM, then 8 PM — not newest createdAt.
-    assert.equal(layout.specialEvents[0]?.time, "6:00 PM");
-    assert.equal(layout.specialEvents.at(-2)?.id, "older-special");
-    assert.equal(layout.specialEvents.at(-1)?.id, "newer-later-special");
     assert.ok(
       layout.specialEvents.length >= 9,
       "Today’s specials should not cap at 6",
     );
-    assert.ok(
-      layout.specialEvents.every((e) => e.date === "2026-09-19"),
+    assert.ok(layout.specialEvents.every((e) => e.date === "2026-09-19"));
+    assert.deepEqual(
+      layout.specialEvents.map((e) => e.id),
+      again.specialEvents.map((e) => e.id),
+      "same seed should keep the specials order stable",
     );
+    assert.notDeepEqual(
+      layout.specialEvents.map((e) => e.id),
+      otherSeed.specialEvents.map((e) => e.id),
+      "a different seed should reshuffle the full specials rail",
+    );
+  });
+
+  it("can place a later-start special ahead of an earlier one", () => {
+    const early = event({
+      id: "early-special",
+      title: "Early Special",
+      date: "2026-09-19",
+      time: "2:00 PM",
+      venueSlug: "venue-early",
+    });
+    const late = event({
+      id: "late-special",
+      title: "Late Special",
+      date: "2026-09-19",
+      time: "9:00 PM",
+      venueSlug: "venue-late",
+    });
+    const mid = event({
+      id: "mid-special",
+      title: "Mid Special",
+      date: "2026-09-19",
+      time: "6:00 PM",
+      venueSlug: "venue-mid",
+    });
+
+    const ids = getTodaySpecialEvents([early, late, mid], {
+      now: new Date("2026-09-19T16:00:00.000Z"),
+      shuffleSeed: "full-rail-mix",
+    }).map((e) => e.id);
+
+    assert.equal(ids.length, 3);
+    assert.ok(ids.includes("late-special"));
+    // Full-rail shuffle — not locked to sooner-start-first.
+    assert.notDeepEqual(ids, ["early-special", "mid-special", "late-special"]);
+  });
+
+  it("rotates Today’s specials on a half-hour bucket", () => {
+    const pool = Array.from({ length: 8 }, (_, i) =>
+      event({
+        id: `half-special-${i}`,
+        title: `Half ${i}`,
+        date: "2026-09-19",
+        time: "8:00 PM",
+        venueSlug: `venue-half-${i}`,
+      }),
+    );
+    // 16:10 / 16:25 / 16:45 AST (UTC−4)
+    const early = getTodaySpecialEvents(pool, {
+      now: new Date("2026-09-19T20:10:00.000Z"),
+    });
+    const sameHalf = getTodaySpecialEvents(pool, {
+      now: new Date("2026-09-19T20:25:00.000Z"),
+    });
+    const nextHalf = getTodaySpecialEvents(pool, {
+      now: new Date("2026-09-19T20:45:00.000Z"),
+    });
+
+    assert.deepEqual(
+      early.map((e) => e.id),
+      sameHalf.map((e) => e.id),
+      "order should stay stable within a half-hour",
+    );
+    assert.notDeepEqual(
+      early.map((e) => e.id),
+      nextHalf.map((e) => e.id),
+      "order should rotate after :30",
+    );
+  });
+
+  it("keeps sports viewing off Today’s specials and on Happening today", () => {
+    const watch = event({
+      id: "bar-world-series",
+      title: "Bar — World Series",
+      date: "2026-09-19",
+      time: "8:00 PM",
+      category: "sports",
+      categories: ["food-drinks"],
+      venueSlug: "flip-flop-sports-bar-sosua",
+    });
+    const boxing = event({
+      id: "beach-boxing",
+      title: "Beach Boxing",
+      date: "2026-09-19",
+      time: "8:00 PM",
+      category: "sports",
+      venueSlug: "bar-39-sosua",
+    });
+
+    const layout = getHomeDiscoverLayout([watch, boxing], {
+      now: new Date("2026-09-19T16:00:00.000Z"),
+      shuffleSeed: "no-sports-viewing",
+    });
+
+    assert.deepEqual(
+      layout.specialEvents.map((e) => e.id),
+      ["beach-boxing"],
+    );
+    assert.ok(layout.todayEvents.some((e) => e.id === "bar-world-series"));
   });
 
   it("hides Today’s specials when only recurring nights run", () => {

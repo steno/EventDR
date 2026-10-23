@@ -41,6 +41,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "premios-ola-dorada-2026-12-05": "premios-ola-dorada-2026-12-05.jpg",
   "lokuras-pop-percusion-latina-2026-10-25":
     "lokuras-pop-percusion-latina-2026-10-25.jpg",
+  "mirando-pa-otro-lao-8-puerto-plata-2026-11-17":
+    "mirando-pa-otro-lao-8-puerto-plata-2026-11-17.jpg",
   "ambar-lounge-bandoleras-2026-10-23":
     "ambar-lounge-bandoleras-2026-10-23.jpg",
   "kite-street-son-cubano-2026-10-25":
@@ -967,6 +969,16 @@ const EVENT_GALLERY_SLIDES: Record<
   string,
   Array<{ file: string; venueSlug?: string; label?: string }>
 > = {
+  "mirando-pa-otro-lao-8-puerto-plata-2026-11-17": [
+    {
+      file: "mirando-pa-otro-lao-8-puerto-plata-2026-11-17.jpg",
+      label: "Open call through 30 Oct",
+    },
+    {
+      file: "mirando-pa-otro-lao-8-puerto-plata-2026-11-17-categorias.jpg",
+      label: "Categories",
+    },
+  ],
   "pop-cinemas-week-2026-10-15": [
     {
       file: "pop-cinemas-week-2026-10-15-posters.jpg",
@@ -1122,6 +1134,8 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "tiki-bar-henry-jimenez-2026-10-23.jpg",
   "premios-ola-dorada-2026-12-05.jpg",
   "lokuras-pop-percusion-latina-2026-10-25.jpg",
+  "mirando-pa-otro-lao-8-puerto-plata-2026-11-17.jpg",
+  "mirando-pa-otro-lao-8-puerto-plata-2026-11-17-categorias.jpg",
   "ambar-lounge-bandoleras-2026-10-23.jpg",
   "kite-street-son-cubano-2026-10-25.jpg",
   "jump-fit-rosa-beard-over-club-2026-10-31-v2.jpg",

@@ -367,6 +367,13 @@ export const fr: Dictionary = {
     button: "Installer",
     menuLabel: "Installer l'app",
     dismiss: "Plus tard",
+    modalTitle: "Installer l'app mobile",
+    brandLine: "POP Events · Côte Nord République dominicaine",
+    promptBody:
+      "Appuyez ci-dessous pour installer l'app directement sur votre appareil. Le navigateur vous guidera pour la suite.",
+    downloadButton: "Télécharger et installer maintenant",
+    secureBadge: "PWA sécurisée et légère",
+    manualTitle: "Installation manuelle",
     iosTitle: "Ajoutez POP Events à votre écran d'accueil",
     iosSubtitle: "Seulement 3 étapes rapides dans Safari :",
     iosStep1: "Appuyez sur le bouton Partager dans la barre ci-dessous",

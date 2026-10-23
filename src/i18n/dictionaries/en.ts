@@ -364,6 +364,12 @@ export type Dictionary = {
     button: string;
     menuLabel: string;
     dismiss: string;
+    modalTitle: string;
+    brandLine: string;
+    promptBody: string;
+    downloadButton: string;
+    secureBadge: string;
+    manualTitle: string;
     iosTitle: string;
     iosSubtitle: string;
     iosStep1: string;
@@ -1067,6 +1073,13 @@ export const en: Dictionary = {
     button: "Install",
     menuLabel: "Install app",
     dismiss: "Not now",
+    modalTitle: "Install mobile app",
+    brandLine: "POP Events · North Coast Dominican Republic",
+    promptBody:
+      "Tap below to install the app directly on your device. Your browser will walk you through the next steps.",
+    downloadButton: "Download and install now",
+    secureBadge: "Secure lightweight PWA",
+    manualTitle: "Manual install",
     iosTitle: "Add POP Events to your Home Screen",
     iosSubtitle: "Just 3 quick steps in Safari:",
     iosStep1: "Tap the Share button in the bar below",
