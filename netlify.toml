@@ -105,6 +105,9 @@
 [[headers]]
   for = "/manifest.webmanifest"
   [headers.values]
+    # Netlify defaults .webmanifest to octet-stream — Chrome then skips
+    # beforeinstallprompt and Install app falls back to manual steps.
+    Content-Type = "application/manifest+json"
     Cache-Control = "no-store, max-age=0, must-revalidate"
 
 # Scheduled functions run automatically on production deploys

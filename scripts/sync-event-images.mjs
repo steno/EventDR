@@ -77,6 +77,26 @@ const FILE_TO_EVENT_ID = {
     "lokuras-pop-percusion-latina-2026-10-25",
   "mirando-pa-otro-lao-8-puerto-plata-2026-11-17.jpg":
     "mirando-pa-otro-lao-8-puerto-plata-2026-11-17",
+  "vinoteca-caballitos-halloween-2026-10-31.jpg":
+    "vinoteca-caballitos-halloween-2026-10-31",
+  "bachata-colmado-cabarete-2026-11-01.jpg":
+    "bachata-colmado-cabarete-2026-11-01",
+  "disco-club-viernes-tropical-2026-10-23.jpg":
+    "disco-club-viernes-tropical-2026-10-23",
+  "grand-prix-caballitos-2026-10-23.jpg":
+    "grand-prix-caballitos-2026-10-23",
+  "copa-gencloben-final-2026-10-24.jpg": "copa-gencloben-final-2026-10-24",
+  "ivan-garcia-salvador-perez-2026-11-21.jpg":
+    "ivan-garcia-salvador-perez-2026-11-21",
+  "ivan-garcia-16-aniversario-2026-11-28.jpg":
+    "ivan-garcia-16-aniversario-2026-11-28",
+  "ivan-garcia-rosa-nina-2026-12-05.jpg":
+    "ivan-garcia-rosa-nina-2026-12-05",
+  "todos-somos-luperon-montecristi-2026-11-14.jpg":
+    "todos-somos-luperon-montecristi-2026-11-14",
+  "petit-francois-sunday-brunch.jpg": "petit-francois-sunday-brunch",
+  "cremo-karaoke-tuesday.jpg": "cremo-karaoke-tuesday",
+  "cremo-salsa-friday.jpg": "cremo-salsa-friday",
   "over-beach-club-aerial-v2.jpg": "over-beach-club",
   "ambar-lounge-bandoleras-2026-10-23.jpg":
     "ambar-lounge-bandoleras-2026-10-23",

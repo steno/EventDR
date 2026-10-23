@@ -121,6 +121,47 @@ export function usePwaInstall() {
     }
   }, []);
 
+  /**
+   * Wait for Chrome’s `beforeinstallprompt` (SW may still be settling).
+   * Returns true when `promptInstall()` can open the native dialog.
+   */
+  const waitForNativePrompt = useCallback(async (timeoutMs = 4000) => {
+    if (readDeferred()) return true;
+    if (typeof navigator === "undefined" || !("serviceWorker" in navigator)) {
+      return false;
+    }
+    try {
+      const { pwaScriptUrl } = await import("@/lib/pwa-refresh");
+      await navigator.serviceWorker.register(pwaScriptUrl());
+      await navigator.serviceWorker.ready;
+    } catch {
+      // Registration failure still falls through to the timeout wait.
+    }
+    if (readDeferred()) return true;
+
+    return new Promise<boolean>((resolve) => {
+      let settled = false;
+      const finish = (ok: boolean) => {
+        if (settled) return;
+        settled = true;
+        window.removeEventListener("pop:beforeinstallprompt", onReady);
+        window.removeEventListener("beforeinstallprompt", onNative);
+        clearTimeout(timer);
+        resolve(ok);
+      };
+      const onReady = () => finish(Boolean(readDeferred()));
+      const onNative = (e: Event) => {
+        e.preventDefault();
+        window.__POP_BIP__ = e as BeforeInstallPromptEvent;
+        window.dispatchEvent(new Event("pop:beforeinstallprompt"));
+        finish(true);
+      };
+      window.addEventListener("pop:beforeinstallprompt", onReady);
+      window.addEventListener("beforeinstallprompt", onNative);
+      const timer = setTimeout(() => finish(Boolean(readDeferred())), timeoutMs);
+    });
+  }, []);
+
   return {
     deferred,
     isStandalone,
@@ -128,5 +169,6 @@ export function usePwaInstall() {
     canShowInstall,
     canNativePrompt: Boolean(deferred),
     promptInstall,
+    waitForNativePrompt,
   };
 }

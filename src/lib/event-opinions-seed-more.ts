@@ -230,20 +230,21 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   {
     eventId: "cremo-salsa-friday",
     seriesKey: "cremo-cigar-bar:weekly:5",
-    body: "Dress a step above beach flip-flops — the busiest, most dance-focused night of Cremo's week.",
+    body: "Free-entry Friday salsa from 8 PM at the downtown cigar lounge — dress a step above beach flip-flops; second-drink discount on the flyer, not Tuesday karaoke.",
     localized: {
-      es: "Vístete un escalón por encima de las chancletas de playa — la noche más animada y bailable de la semana en Cremo.",
-      fr: "Habillez-vous un cran au-dessus des tongs de plage — la soirée la plus animée et dansante de la semaine chez Cremo.",
+      es: "Salsa del viernes con entrada gratis desde las 8 PM en el lounge de cigarros del centro — vístete un escalón por encima de las chancletas; descuento en la segunda bebida en el flyer, no el karaoke del martes.",
+      fr: "Salsa du vendredi entrée gratuite dès 20 h au lounge cigares du centre — habillez-vous un cran au-dessus des tongs ; réduction deuxième boisson sur le flyer, pas le karaoké du mardi.",
     },
-    priceFeel: "upscale",
-    priceNote: "Cigar-bar cocktail pricing — expect higher tabs than Malecón kiosks",
+    priceFeel: "free",
+    priceNote: "Free entry · second-drink discount · cigar-lounge drink prices",
     priceNoteLocalized: {
-      es: "Precios de cóctel de cigar bar — cuenta más alta que kioscos del Malecón",
-      fr: "Tarifs cocktails cigar bar — addition plus haute que les kiosques du Malecón",
+      es: "Entrada gratis · descuento 2.ª bebida · precios de lounge de cigarros",
+      fr: "Entrée gratuite · réduction 2e boisson · tarifs lounge cigares",
     },
-    attribution: "POP research · venue listing",
-    researchNotes: "Cremo Friday salsa seed.",
-    updatedAt: AT,
+    attribution: "POP research · Cremo Viernes de Salsa flyer",
+    researchNotes:
+      "Editor flyer refresh Oct 2026 — Viernes de Salsa 23 Oct dated example; 8 PM; descuento 2a bebida; entrada gratis; Ariza #47.",
+    updatedAt: "2026-10-23T19:30:00.000Z",
   },
   {
     eventId: "cremo-bohemian-wednesday",
@@ -6306,10 +6307,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "twenty-disco-angel-demons-2026-10-24",
-    body: "Saturday Angel & Demons at Twenty Disco stacks DJ Yerry and DJ Choco with no cover until 1 AM — mall club night in Playa Dorada, not Ambar’s Chris Plasencia bill the same Saturday on Luis Ginebra.",
+    body: "Saturday Angel & Demons at Twenty Disco stacks DJ Yerry and DJ Choco with no cover until 1 AM — mall club night in Playa Dorada, not Ambar Bandoleras Friday on Luis Ginebra the night before.",
     localized: {
-      es: "Angel & Demons del sábado en Twenty Disco junta a DJ Yerry y DJ Choco con sin cover hasta la 1 AM — noche de club del mall en Playa Dorada, no la noche de Chris Plasencia en Ambar el mismo sábado en Luis Ginebra.",
-      fr: "Angel & Demons du samedi au Twenty Disco aligne DJ Yerry et DJ Choco avec pas de cover jusqu’à 1 h — soirée club du mall à Playa Dorada, pas la soirée Chris Plasencia à Ambar le même samedi sur Luis Ginebra.",
+      es: "Angel & Demons del sábado en Twenty Disco junta a DJ Yerry y DJ Choco con sin cover hasta la 1 AM — noche de club del mall en Playa Dorada, no Bandoleras del viernes en Ambar en Luis Ginebra la noche anterior.",
+      fr: "Angel & Demons du samedi au Twenty Disco aligne DJ Yerry et DJ Choco avec pas de cover jusqu’à 1 h — soirée club du mall à Playa Dorada, pas Bandoleras du vendredi à Ambar sur Luis Ginebra la veille.",
     },
     priceFeel: "free",
     priceNote: "No cover until 1 AM — drinks inside · @twenty_disco_lounge",
@@ -6519,8 +6520,8 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     },
     attribution: "POP research · Ambar Lounge Bandoleras flyer + dress-code post",
     researchNotes:
-      "Editor flyer BANDOLERAS FRIDAY beats by Jhon Parra; free drinks for ladys hasta las 11 PM; RSVP (809)-781-8677. Follow-up IG post: themed Fri+Sat dress code; walk-ups OK; reserved arrival max 11:30 PM or lose hold. Caption also plugs Sábado 24 Chris Plasencia x Adrián Tineo (separate seed).",
-    updatedAt: "2026-10-21T20:01:00.000Z",
+      "Editor flyer BANDOLERAS FRIDAY beats by Jhon Parra; free drinks for ladys hasta las 11 PM; RSVP (809)-781-8677. Follow-up IG post: themed Fri+Sat dress code; walk-ups OK; reserved arrival max 11:30 PM or lose hold. Removed unconfirmed Sat 24 Chris Plasencia x Adrián Tineo caption seed (no flyer / not on IG).",
+    updatedAt: "2026-10-23T18:40:00.000Z",
   },
   {
     eventId: "justin-santos-rancho-catalina-2026-10-25",
@@ -6557,24 +6558,6 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     researchNotes:
       "Editor flyer + IG @kitestreetpop — Dom 25 Oct 2026 6:00 PM Clases de Son Cubano GRATIS; Victrola 037 + Academia de Baile Sabor Latino.",
     updatedAt: "2026-10-21T20:30:00.000Z",
-  },
-  {
-    eventId: "ambar-lounge-chris-plasencia-adrian-tineo-2026-10-24",
-    body: "Saturday Ambar with Chris Plasencia x Adrián Tineo keeps the cowboy dress code — walk-ups OK; reserved tables must arrive by 11:30 PM or lose the hold. Not Bandoleras Friday with Jhon Parra and not Twenty’s Angel & Demons the same night at Playa Dorada Mall.",
-    localized: {
-      es: "El sábado en Ambar con Chris Plasencia x Adrián Tineo sigue el dress code vaquero — walk-up OK; si tienes reserva llega antes de las 11:30 PM o puedes perderla. No es Bandoleras del viernes con Jhon Parra ni Angel & Demons de Twenty la misma noche en Playa Dorada Mall.",
-      fr: "Le samedi à Ambar avec Chris Plasencia x Adrián Tineo garde le dress code cowboy — walk-in OK ; une réservation exige l’arrivée avant 23 h 30 sinon vous pouvez la perdre. Pas Bandoleras Friday avec Jhon Parra ni Angel & Demons au Twenty la même soirée au Playa Dorada Mall.",
-    },
-    priceFeel: "varies",
-    priceNote: "Cover TBA — RSVP (809) 781-8677 · @ambarloungepop",
-    priceNoteLocalized: {
-      es: "Cover por confirmar — RSVP (809) 781-8677 · @ambarloungepop",
-      fr: "Cover à confirmer — RSVP (809) 781-8677 · @ambarloungepop",
-    },
-    attribution: "POP research · @ambarloungepop Saturday caption + dress-code post",
-    researchNotes:
-      "Editor IG caption @ambarloungepop — Sábado 24 with @chrisplasencia_ x @adriantineodr; RSVP 809-781-8677. Follow-up post: themed Fri+Sat dress code; walk-ups OK; reserved arrival max 11:30 PM. No dedicated Saturday flyer in batch; Bandoleras flyer is Friday-only.",
-    updatedAt: "2026-10-21T20:01:00.000Z",
   },
   {
     eventId: "caribbean-surf-junior-puntilla-2026-11-14",
@@ -6647,5 +6630,205 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     researchNotes:
       "Editor IG slides 23 Oct 2026 (@mirandopaotrolao): 8ª convocatoria hasta el 30 de octubre 2026; categories documentales cortos, videoarte, cortometrajes ficción, largometrajes. Caption: screens in Santiago and Puerto Plata 17–22 Nov 2026. https://www.instagram.com/mirandopaotrolao/ Pin is Puerto Plata city center until a room is named. Historical organizer El Nido Laboratorio (Santiago, since 2018) is in older press; the 2026 post does not restate it, so guest copy stays on the account.",
     updatedAt: "2026-10-23T12:00:00.000Z",
+  },
+  {
+    eventId: "vinoteca-caballitos-halloween-2026-10-31",
+    body: "Halloween típico at Marien’s wine lounge from 10 PM — free Caballitos set, not Grand Prix’s Friday Caballitos; WhatsApp +1 849-451-1197 before you dress for Costa Dorada.",
+    localized: {
+      es: "Típico de Halloween en el wine lounge del Marien desde las 10 PM — set gratis de Caballitos, no el Caballitos del viernes en Grand Prix; WhatsApp +1 849-451-1197 antes de vestirte para Costa Dorada.",
+      fr: "Típico d’Halloween au wine lounge du Marien dès 22 h — set gratuit Caballitos, pas le Caballitos du vendredi au Grand Prix ; WhatsApp +1 849-451-1197 avant de vous habiller pour Costa Dorada.",
+    },
+    priceFeel: "free",
+    priceNote: "Free show · drinks on you · WhatsApp +1 849-451-1197",
+    priceNoteLocalized: {
+      es: "Show gratis · tragos aparte · WhatsApp +1 849-451-1197",
+      fr: "Spectacle gratuit · boissons à part · WhatsApp +1 849-451-1197",
+    },
+    attribution: "POP research · @vinotecamarienpp Halloween Caballitos flyer",
+    researchNotes:
+      "Editor flyer + IG @vinotecamarienpp — Sáb 31 Oct 10 PM Fiesta de los Caballitos AL 2x1 El Padre y El Jr.; GRATIS; Carretera Luperón Costa Dorada; WA 849-451-1197; Vinotinto wine house logo.",
+    updatedAt: "2026-10-23T22:00:00.000Z",
+  },
+  {
+    eventId: "bachata-colmado-cabarete-2026-11-01",
+    body: "Sunday bachata and dominó at Mini Market Vásquez on Callejón de la Loma (frente al Dream Project) — no POP venue page for the colmado; pin the market and confirm on @fraimy.nadine before you treat it like a club night.",
+    localized: {
+      es: "Bachata y dominó del domingo en Mini Market Vásquez en Callejón de la Loma (frente al Dream Project) — sin página de venue POP para el colmado; clava el mercado y confirma en @fraimy.nadine antes de tratarlo como noche de club.",
+      fr: "Bachata et dominó du dimanche au Mini Market Vásquez sur Callejón de la Loma (face au Dream Project) — pas de page venue POP pour le colmado ; épinglez le marché et confirmez sur @fraimy.nadine avant d’y aller comme une nuit club.",
+    },
+    priceFeel: "budget",
+    priceNote: "Colmado hang — cover not printed · confirm @fraimy.nadine",
+    priceNoteLocalized: {
+      es: "Hang de colmado — cover no impreso · confirma @fraimy.nadine",
+      fr: "Hang colmado — cover non imprimé · confirmez @fraimy.nadine",
+    },
+    attribution: "POP research · Bachata Escape × Flow Dance colmado flyer",
+    researchNotes:
+      "Editor flyer + IG @fraimy.nadine — Dom 1 Nov 6–10 PM Bachata Colmado Cabarete; Mini Market Vasquez; Callejón de la Loma frente al Dream Project. No venueSlug per editor.",
+    updatedAt: "2026-10-23T21:45:00.000Z",
+  },
+  {
+    eventId: "disco-club-viernes-tropical-2026-10-23",
+    body: "Friday tropical floor at Latin Disco Club with DJ Rafelito — same Brugal-warehouse stretch as other Disco Club bills, not Thursday’s GOGO; call +1 829-563-9469 for cover before you pin Circunvalación Sur.",
+    localized: {
+      es: "Pista tropical del viernes en Latin Disco Club con DJ Rafelito — el mismo tramo frente a Brugal que otras noches del Disco Club, no el GOGO del jueves; llama +1 829-563-9469 por el cover antes de clavar Circunvalación Sur.",
+      fr: "Piste tropicale du vendredi au Latin Disco Club avec DJ Rafelito — même tronçon face Brugal que les autres nuits Disco Club, pas le GOGO du jeudi ; appelez +1 829-563-9469 pour le cover avant d’épingler Circunvalación Sur.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — info +1 829-563-9469 · @latindiscoclubpp",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — info +1 829-563-9469 · @latindiscoclubpp",
+      fr: "Cover à confirmer — infos +1 829-563-9469 · @latindiscoclubpp",
+    },
+    attribution: "POP research · Latin Disco Club Viernes Tropical flyer",
+    researchNotes:
+      "Editor flyer — Viernes 23 Tropical; DJ Rafelito; 829-563-9469; Av. Circunvalación Sur frente depósitos Brugal.",
+    updatedAt: "2026-10-23T21:30:00.000Z",
+  },
+  {
+    eventId: "grand-prix-caballitos-2026-10-23",
+    body: "Free Friday Caballitos at Grand Prix in La Javilla (Edificio Grand Prix by Bomba) — El Padre y El Hijo al 2x1, not Vinoteca’s Halloween Caballitos a week later; confirm doors on @grandprixrd.",
+    localized: {
+      es: "Caballitos gratis del viernes en Grand Prix en La Javilla (Edificio Grand Prix junto a Bomba) — El Padre y El Hijo al 2x1, no el Caballitos Halloween de Vinoteca una semana después; confirma puertas en @grandprixrd.",
+      fr: "Caballitos gratuit du vendredi au Grand Prix à La Javilla (Edificio Grand Prix près de Bomba) — El Padre y El Hijo al 2x1, pas le Caballitos Halloween Vinoteca une semaine plus tard ; confirmez les portes sur @grandprixrd.",
+    },
+    priceFeel: "free",
+    priceNote: "Free live show — drinks on you · @grandprixrd",
+    priceNoteLocalized: {
+      es: "Show en vivo gratis — tragos aparte · @grandprixrd",
+      fr: "Show live gratuit — boissons à part · @grandprixrd",
+    },
+    attribution: "POP research · @grandprixrd Los Caballitos flyer",
+    researchNotes:
+      "Editor flyer — Viernes 23 Oct Los Caballitos El Padre y El Hijo al 2x1; show en vivo GRATIS; Grand Prix Smart Shop La Javilla; Brugal logos.",
+    updatedAt: "2026-10-23T21:15:00.000Z",
+  },
+  {
+    eventId: "copa-gencloben-final-2026-10-24",
+    body: "Public tennis final day at Sea Horse Ranch courts on the Sosúa–Cabarete road — open gates, not a Hard Rock concert; confirm with @seahorseranchcabarete / @caplinpointrd before you treat the ranch like a walk-up beach club.",
+    localized: {
+      es: "Día de final de tenis abierta al público en las canchas de Sea Horse Ranch en la carretera Sosúa–Cabarete — puertas abiertas, no un concierto de Hard Rock; confirma con @seahorseranchcabarete / @caplinpointrd antes de tratar el ranch como beach club walk-up.",
+      fr: "Journée de finale de tennis ouverte au public sur les courts Sea Horse Ranch sur la route Sosúa–Cabarete — portes ouvertes, pas un concert Hard Rock ; confirmez avec @seahorseranchcabarete / @caplinpointrd avant de traiter le ranch comme un beach club walk-in.",
+    },
+    priceFeel: "free",
+    priceNote: "Open to the public — confirm gates @seahorseranchcabarete",
+    priceNoteLocalized: {
+      es: "Abierto al público — confirma puertas @seahorseranchcabarete",
+      fr: "Ouvert au public — confirmez les portes @seahorseranchcabarete",
+    },
+    attribution: "POP research · II Copa Gencloben Gran Final flyer",
+    researchNotes:
+      "Editor flyer — 24 Oct Gran Final; abierto al público; Sea Horse Ranch court hero; partners Caplin Point, Hard Rock, Millennium, La Zarina, Dwight Global.",
+    updatedAt: "2026-10-23T21:00:00.000Z",
+  },
+  {
+    eventId: "ivan-garcia-salvador-perez-2026-11-21",
+    body: "Free actor talk with Salvador Pérez Martínez (El Pera) at Sala Iván García on 21 Nov — not the 28 Nov anniversary graduation and not La Rosa Niña outdoors on 5 Dec.",
+    localized: {
+      es: "Charla gratis con el actor Salvador Pérez Martínez (El Pera) en Sala Iván García el 21 nov — no es la graduación del aniversario del 28 nov ni La Rosa Niña al aire libre el 5 dic.",
+      fr: "Rencontre gratuite avec l’acteur Salvador Pérez Martínez (El Pera) à Sala Iván García le 21 nov. — pas la remise des diplômes du 28 nov. ni La Rosa Niña en plein air le 5 déc.",
+    },
+    priceFeel: "free",
+    priceNote: "Free entry — @teatroivangarcia",
+    priceNoteLocalized: {
+      es: "Entrada gratis — @teatroivangarcia",
+      fr: "Entrée gratuite — @teatroivangarcia",
+    },
+    attribution: "POP research · Iván García × Salvador Pérez flyer",
+    researchNotes:
+      "Editor flyer — Sáb 21 Nov 7:30 PM Encuentro con Salvador Pérez Martínez (El Pera o Perita); entrada gratis; Sala Iván García.",
+    updatedAt: "2026-10-23T20:45:00.000Z",
+  },
+  {
+    eventId: "ivan-garcia-16-aniversario-2026-11-28",
+    body: "16th-anniversary night plus acting-program graduation with student demo at Sala Iván García — 7:30 PM on 28 Nov; not the Salvador Pérez talk the week before.",
+    localized: {
+      es: "Noche del 16.º aniversario más graduación del programa de actuación con demo de estudiantes en Sala Iván García — 7:30 PM el 28 nov; no es la charla con Salvador Pérez de la semana anterior.",
+      fr: "Soirée du 16e anniversaire plus remise des diplômes du programme d’acteur avec démo des élèves à Sala Iván García — 19 h 30 le 28 nov. ; pas la rencontre Salvador Pérez de la semaine précédente.",
+    },
+    priceFeel: "varies",
+    priceNote: "Admission not on flyer — confirm @teatroivangarcia",
+    priceNoteLocalized: {
+      es: "Entrada no en el flyer — confirma @teatroivangarcia",
+      fr: "Entrée absente du flyer — confirmez @teatroivangarcia",
+    },
+    attribution: "POP research · Iván García 16 años / graduación flyer",
+    researchNotes:
+      "Editor flyer — Sáb 28 Nov 7:30 PM; 16 años; graduación jóvenes y adultos; demostración artística estudiantes; Sala Iván García Puerto Plata.",
+    updatedAt: "2026-10-23T20:30:00.000Z",
+  },
+  {
+    eventId: "ivan-garcia-rosa-nina-2026-12-05",
+    body: "Free outdoor La Rosa Niña at Parque Central on 5 Dec — Rubén Darío / Christmas-miracle inspired, not the indoor anniversary graduation on 28 Nov; pin Plaza Independencia.",
+    localized: {
+      es: "La Rosa Niña gratis al aire libre en Parque Central el 5 dic — inspirada en Rubén Darío / milagro de la navidad, no la graduación de aniversario bajo techo del 28 nov; clava Plaza Independencia.",
+      fr: "La Rosa Niña gratuite en plein air au Parque Central le 5 déc. — inspirée de Rubén Darío / miracle de Noël, pas la remise des diplômes d’anniversaire en salle du 28 nov. ; épinglez Plaza Independencia.",
+    },
+    priceFeel: "free",
+    priceNote: "Free outdoor show — Parque Central Puerto Plata",
+    priceNoteLocalized: {
+      es: "Función al aire libre gratis — Parque Central Puerto Plata",
+      fr: "Spectacle en plein air gratuit — Parque Central Puerto Plata",
+    },
+    attribution: "POP research · Iván García La Rosa Niña flyer",
+    researchNotes:
+      "Editor flyer — Sáb 5 Dic 7:30 PM; Parque Central; entrada gratis; obra inspirada en poema Rubén Darío y El milagro de la navidad.",
+    updatedAt: "2026-10-23T20:15:00.000Z",
+  },
+  {
+    eventId: "todos-somos-luperon-montecristi-2026-11-14",
+    body: "Civic Todos Somos Luperón outdoors at Parque Central de Montecristi on 14 Nov — west of the usual North Coast strip, no POP venue page; not the Puerto Plata Plaza Independencia run from 8 Sep.",
+    localized: {
+      es: "Todos Somos Luperón cívico al aire libre en el Parque Central de Montecristi el 14 nov — al oeste de la franja Norte habitual, sin página de venue POP; no es la función de Plaza Independencia en Puerto Plata del 8 sep.",
+      fr: "Todos Somos Luperón civique en plein air au Parque Central de Montecristi le 14 nov. — à l’ouest de la bande Nord habituelle, pas de page venue POP ; pas la représentation Plaza Independencia à Puerto Plata du 8 sept.",
+    },
+    priceFeel: "varies",
+    priceNote: "Admission not on flyer — Montecristi Parque Central pin only",
+    priceNoteLocalized: {
+      es: "Entrada no en el flyer — solo pin Parque Central Montecristi",
+      fr: "Entrée absente du flyer — épingle Parque Central Montecristi seulement",
+    },
+    attribution: "POP research · Iván García Todos Somos Luperón Montecristi flyer",
+    researchNotes:
+      "Editor flyer — Sáb 14 Nov 6:30 PM; Parque Central de Montecristi; no venueSlug. Distinct from todos-somos-luperon-2026-09-08 Puerto Plata.",
+    updatedAt: "2026-10-23T20:00:00.000Z",
+  },
+  {
+    eventId: "petit-francois-sunday-brunch",
+    seriesKey: "le-petit-francois:weekly:0",
+    body: "Sunday brunch tables at the Chaparral beach bar — call +1 829-492-2910 before you assume walk-up; not Friday karaoke and not the dated Halloween or Canadian Thanksgiving menus.",
+    localized: {
+      es: "Mesas de brunch del domingo en el beach bar de Chaparral — llama +1 829-492-2910 antes de asumir walk-up; no es el karaoke del viernes ni los menús fechados de Halloween o Thanksgiving canadiense.",
+      fr: "Tables brunch du dimanche au beach bar de Chaparral — appelez +1 829-492-2910 avant d’assumer le walk-in ; pas le karaoké du vendredi ni les menus Halloween / Thanksgiving canadien datés.",
+    },
+    priceFeel: "moderate",
+    priceNote: "Brunch pricing TBA — +1 829-492-2910 · @lepetitfrancois.rd",
+    priceNoteLocalized: {
+      es: "Precio de brunch por confirmar — +1 829-492-2910 · @lepetitfrancois.rd",
+      fr: "Tarif brunch à confirmer — +1 829-492-2910 · @lepetitfrancois.rd",
+    },
+    attribution: "POP research · Le Petit François Domingos de Brunch flyer",
+    researchNotes:
+      "Editor flyer — Domingos de Brunch en Le Petit François; liquor store / beach bar / restaurante; todos los domingos.",
+    updatedAt: "2026-10-23T19:45:00.000Z",
+  },
+  {
+    eventId: "cremo-karaoke-tuesday",
+    seriesKey: "cremo-cigar-bar:weekly:2",
+    body: "Tuesday mic night at Cremo from 7 PM — free entry, prize for best singer, second-drink discount; not the Saturday karaoke slot in the same lounge.",
+    localized: {
+      es: "Noche de micrófono del martes en Cremo desde las 7 PM — entrada gratis, premio al mejor cantante, descuento en la segunda bebida; no es el karaoke del sábado en el mismo lounge.",
+      fr: "Soirée micro du mardi au Cremo dès 19 h — entrée gratuite, prix au meilleur chanteur, réduction deuxième boisson ; pas le karaoké du samedi dans le même lounge.",
+    },
+    priceFeel: "free",
+    priceNote: "Free entry · second-drink discount · downtown cigar lounge prices",
+    priceNoteLocalized: {
+      es: "Entrada gratis · descuento 2.ª bebida · precios de lounge de cigarros del centro",
+      fr: "Entrée gratuite · réduction 2e boisson · tarifs lounge cigares du centre",
+    },
+    attribution: "POP research · Cremo Martes de Karaoke flyer",
+    researchNotes:
+      "Editor flyer — Martes de Karaoke; 20 de octubre dated example; 7 PM; premio; descuento 2a bebida; entrada gratis; Ariza #47. Seeded as weekly Tuesday.",
+    updatedAt: "2026-10-23T19:30:00.000Z",
   },
 ];

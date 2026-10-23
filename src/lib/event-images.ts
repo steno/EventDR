@@ -43,6 +43,26 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "lokuras-pop-percusion-latina-2026-10-25.jpg",
   "mirando-pa-otro-lao-8-puerto-plata-2026-11-17":
     "mirando-pa-otro-lao-8-puerto-plata-2026-11-17.jpg",
+  "vinoteca-caballitos-halloween-2026-10-31":
+    "vinoteca-caballitos-halloween-2026-10-31.jpg",
+  "bachata-colmado-cabarete-2026-11-01":
+    "bachata-colmado-cabarete-2026-11-01.jpg",
+  "disco-club-viernes-tropical-2026-10-23":
+    "disco-club-viernes-tropical-2026-10-23.jpg",
+  "grand-prix-caballitos-2026-10-23":
+    "grand-prix-caballitos-2026-10-23.jpg",
+  "copa-gencloben-final-2026-10-24":
+    "copa-gencloben-final-2026-10-24.jpg",
+  "ivan-garcia-salvador-perez-2026-11-21":
+    "ivan-garcia-salvador-perez-2026-11-21.jpg",
+  "ivan-garcia-16-aniversario-2026-11-28":
+    "ivan-garcia-16-aniversario-2026-11-28.jpg",
+  "ivan-garcia-rosa-nina-2026-12-05":
+    "ivan-garcia-rosa-nina-2026-12-05.jpg",
+  "todos-somos-luperon-montecristi-2026-11-14":
+    "todos-somos-luperon-montecristi-2026-11-14.jpg",
+  "petit-francois-sunday-brunch": "petit-francois-sunday-brunch.jpg",
+  "cremo-karaoke-tuesday": "cremo-karaoke-tuesday.jpg",
   "ambar-lounge-bandoleras-2026-10-23":
     "ambar-lounge-bandoleras-2026-10-23.jpg",
   "kite-street-son-cubano-2026-10-25":
@@ -1136,6 +1156,17 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "lokuras-pop-percusion-latina-2026-10-25.jpg",
   "mirando-pa-otro-lao-8-puerto-plata-2026-11-17.jpg",
   "mirando-pa-otro-lao-8-puerto-plata-2026-11-17-categorias.jpg",
+  "vinoteca-caballitos-halloween-2026-10-31.jpg",
+  "bachata-colmado-cabarete-2026-11-01.jpg",
+  "disco-club-viernes-tropical-2026-10-23.jpg",
+  "grand-prix-caballitos-2026-10-23.jpg",
+  "copa-gencloben-final-2026-10-24.jpg",
+  "ivan-garcia-salvador-perez-2026-11-21.jpg",
+  "ivan-garcia-16-aniversario-2026-11-28.jpg",
+  "ivan-garcia-rosa-nina-2026-12-05.jpg",
+  "todos-somos-luperon-montecristi-2026-11-14.jpg",
+  "petit-francois-sunday-brunch.jpg",
+  "cremo-karaoke-tuesday.jpg",
   "ambar-lounge-bandoleras-2026-10-23.jpg",
   "kite-street-son-cubano-2026-10-25.jpg",
   "jump-fit-rosa-beard-over-club-2026-10-31-v2.jpg",

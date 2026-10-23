@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   ArrowDown,
   Download,
@@ -25,23 +25,67 @@ interface Step {
   text: string;
 }
 
+type SheetMode = "waiting" | "native" | "manual";
+
 /**
- * Branded install sheet: native `beforeinstallprompt` CTA when available,
- * otherwise iOS/Android home-screen steps (Quinta-style intermediate card).
+ * Branded install sheet: waits briefly for Chrome’s native install prompt,
+ * then shows Download CTA (Quinta-style) or manual home-screen steps.
  */
 export function PwaInstallModal({ dict, open, onClose }: PwaInstallModalProps) {
-  const { canNativePrompt, isIOS, promptInstall } = usePwaInstall();
+  const {
+    canNativePrompt,
+    isIOS,
+    promptInstall,
+    waitForNativePrompt,
+  } = usePwaInstall();
   const [installing, setInstalling] = useState(false);
+  const [mode, setMode] = useState<SheetMode>("waiting");
+
+  useEffect(() => {
+    if (!open) {
+      setMode("waiting");
+      setInstalling(false);
+      return;
+    }
+    if (isIOS) {
+      setMode("manual");
+      return;
+    }
+    if (canNativePrompt) {
+      setMode("native");
+      return;
+    }
+
+    let cancelled = false;
+    setMode("waiting");
+    void waitForNativePrompt(4000).then((ok) => {
+      if (cancelled) return;
+      setMode(ok ? "native" : "manual");
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [open, isIOS, canNativePrompt, waitForNativePrompt]);
 
   if (!open) return null;
 
   async function handleNativeInstall() {
     setInstalling(true);
     try {
+      let ok = canNativePrompt;
+      if (!ok) {
+        setMode("waiting");
+        ok = await waitForNativePrompt(2500);
+      }
+      if (!ok) {
+        setMode("manual");
+        return;
+      }
+      setMode("native");
       await promptInstall();
+      onClose();
     } finally {
       setInstalling(false);
-      onClose();
     }
   }
 
@@ -72,6 +116,8 @@ export function PwaInstallModal({ dict, open, onClose }: PwaInstallModalProps) {
           text: dict.install.androidStep2,
         },
       ];
+
+  const showNativeCta = mode === "native" || mode === "waiting";
 
   return (
     <div
@@ -114,7 +160,7 @@ export function PwaInstallModal({ dict, open, onClose }: PwaInstallModalProps) {
           </div>
         </div>
 
-        {canNativePrompt ? (
+        {showNativeCta ? (
           <>
             <p className="mt-4 text-sm leading-relaxed text-neutral-300">
               {dict.install.promptBody}
@@ -122,11 +168,13 @@ export function PwaInstallModal({ dict, open, onClose }: PwaInstallModalProps) {
             <button
               type="button"
               onClick={handleNativeInstall}
-              disabled={installing}
+              disabled={installing || mode === "waiting"}
               className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-white px-4 py-3.5 text-sm font-extrabold uppercase tracking-wide text-neutral-900 active:scale-[0.98] transition-transform disabled:opacity-70"
             >
               <Download className="h-4 w-4" />
-              {dict.install.downloadButton}
+              {mode === "waiting"
+                ? dict.install.preparing
+                : dict.install.downloadButton}
             </button>
           </>
         ) : (
@@ -177,7 +225,7 @@ export function PwaInstallModal({ dict, open, onClose }: PwaInstallModalProps) {
             <ShieldCheck className="h-3.5 w-3.5" />
             {dict.install.secureBadge}
           </span>
-          {canNativePrompt && (
+          {showNativeCta && (
             <button
               type="button"
               onClick={onClose}

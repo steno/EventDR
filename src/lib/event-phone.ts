@@ -136,7 +136,6 @@ const EVENT_PHONE_BY_ID: Record<string, string> = {
   "voyvoy-saturday-session-2026-10-17": "+18095710805",
   "ambar-lounge-bandoleras-2026-10-16": "+18097818677",
   "ambar-lounge-bandoleras-2026-10-23": "+18097818677",
-  "ambar-lounge-chris-plasencia-adrian-tineo-2026-10-24": "+18097818677",
   "justin-santos-rancho-catalina-2026-10-25": "+18097813737",
   "proyecto-x-el-calabozo-2026-10-31": "+18096147745",
   "ambar-lounge-too-noise-2026-10-17": "+18097818677",

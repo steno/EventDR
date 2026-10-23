@@ -7522,34 +7522,6 @@
     "imageEmoji": "💃"
   },
   {
-    "id": "ambar-lounge-chris-plasencia-adrian-tineo-2026-10-24",
-    "title": "Ambar Lounge — Chris Plasencia x Adrián Tineo",
-    "description": "Noche de sábado en Ambar Lounge POP, Av. Luis Ginebra No. 45, segundo y tercer nivel, Puerto Plata — sábado 24 de octubre 2026 con Chris Plasencia (@chrisplasencia_) x Adrián Tineo (@adriantineodr). Dress code temático vaquero sigue del viernes Bandoleras — ven con tu mejor outfit. Puedes llegar sin reserva; si tienes reserva, llegada máximo hasta las 11:30 PM o puedes perderla. RSVP (809) 781-8677 · Instagram @ambarloungepop. Lounge abierto desde las 5:00 PM (cerrado martes). No es Bandoleras del viernes con Jhon Parra ni Angel & Demons de Twenty Disco el mismo sábado en Playa Dorada Mall.",
-    "date": "2026-10-24",
-    "location": "Puerto Plata",
-    "venue": "Ambar Lounge POP",
-    "venueSlug": "ambar-lounge-pop",
-    "address": "Av. Luis Ginebra No. 45, segundo y tercer nivel, Puerto Plata 57000",
-    "lat": 19.7918,
-    "lng": -70.681,
-    "category": "parties",
-    "categories": [
-      "music",
-      "performances"
-    ],
-    "format": "physical",
-    "trending": true,
-    "callForPricing": true,
-    "phone": "+18097818677",
-    "sourceType": "instagram",
-    "sourceUrl": "https://www.instagram.com/ambarloungepop/",
-    "lineup": [
-      "Chris Plasencia",
-      "Adrián Tineo"
-    ],
-    "imageEmoji": "🎧"
-  },
-  {
     "id": "kite-street-son-cubano-2026-10-25",
     "title": "Kite Street Son Cubano gratis — Sabor Latino",
     "description": "Clase gratis de son cubano en Kite Street POP (Calle de las Chichiguas / Calle Sánchez), Puerto Plata — domingo 25 de octubre 2026 a las 6:00 PM con Academia de Baile Sabor Latino. Principiantes bienvenidos; sin cover. Con Victrola 037. Confirma vía Instagram @kitestreetpop. No es Calle de las Sombrillas ni los domingos previos de salsa/bachata gratis en la misma calle de cometas.",
@@ -7980,5 +7952,230 @@
       "Largometrajes"
     ],
     "imageEmoji": "🎬"
+  },
+  {
+    "id": "vinoteca-caballitos-halloween-2026-10-31",
+    "title": "Vinoteca — Fiesta de los Caballitos (Halloween)",
+    "description": "Fiesta de los Caballitos con El Padre y El Jr. (al 2x1) en Vinoteca Wine House / Hotel Marien, Carretera Luperón, Costa Dorada, Puerto Plata — sábado 31 de octubre 2026 desde las 10:00 PM. Noche típico Halloween gratis; disfraces bienvenidos. WhatsApp +1 849-451-1197 · Instagram @vinotecamarienpp. No es el Caballitos del viernes 23 oct en Grand Prix ni el Halloween de Latin Disco Club la noche anterior.",
+    "date": "2026-10-31",
+    "time": "10:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Vinoteca Wine House",
+    "venueSlug": "vinoteca-wine-house",
+    "address": "Carretera Luperón, Costa Dorada, Puerto Plata",
+    "lat": 19.7768222,
+    "lng": -70.6597699,
+    "category": "music",
+    "categories": [
+      "halloween",
+      "parties"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "phone": "+18494511197",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/vinotecamarienpp/",
+    "instagram": "vinotecamarienpp",
+    "lineup": [
+      "Los Caballitos — El Padre y El Jr."
+    ],
+    "imageEmoji": "🎃"
+  },
+  {
+    "id": "bachata-colmado-cabarete-2026-11-01",
+    "title": "Bachata Colmado Cabarete — Mini Market Vásquez",
+    "description": "Bachata Colmado Cabarete en Mini Market Vásquez, Callejón de la Loma (frente al Dream Project), Cabarete — domingo 1 de noviembre 2026, 6:00–10:00 PM. Bachata Escape × Flow Dance: bachata, dominó y coro dominicano en el colmado. Sin página de venue POP para este colmado — el pin es solo el mercado. Confirma en Instagram @fraimy.nadine / Bachata Escape.",
+    "date": "2026-11-01",
+    "time": "6:00 PM – 10:00 PM",
+    "location": "Cabarete",
+    "venue": "Mini Market Vásquez",
+    "address": "Callejón de la Loma, frente al Dream Project, Cabarete",
+    "lat": 19.744397,
+    "lng": -70.417453,
+    "category": "dance",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/fraimy.nadine/",
+    "lineup": [
+      "Bachata Escape",
+      "Flow Dance"
+    ],
+    "imageEmoji": "💃"
+  },
+  {
+    "id": "disco-club-viernes-tropical-2026-10-23",
+    "title": "Latin Disco Club — Viernes Tropical (23 oct)",
+    "description": "Viernes Tropical en Latin Disco Club, Avenida Circunvalación Sur / Av. Manolo Tavarez Justo frente a los depósitos de Brugal, Puerto Plata — viernes 23 de octubre 2026. Animación DJ Rafelito; variedad musical. Info +1 829-563-9469 · Instagram @latindiscoclubpp. Viernes tropical fechado — no es el GOGO del jueves 22 oct ni el Halloween del Disco Club (30 oct).",
+    "date": "2026-10-23",
+    "location": "Puerto Plata",
+    "venue": "Latin Disco Club",
+    "venueSlug": "disco-club-brugal",
+    "address": "Av. Manolo Tavarez Justo, frente a los depósitos de Brugal, Puerto Plata",
+    "lat": 19.7792778,
+    "lng": -70.6690061,
+    "category": "parties",
+    "categories": [
+      "music"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18295639469",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/latindiscoclubpp/",
+    "instagram": "latindiscoclubpp",
+    "lineup": [
+      "DJ Rafelito"
+    ],
+    "imageEmoji": "🌴"
+  },
+  {
+    "id": "grand-prix-caballitos-2026-10-23",
+    "title": "Grand Prix — Los Caballitos (23 oct)",
+    "description": "Los Caballitos (El Padre y El Hijo al 2x1) en vivo y gratis en Grand Prix Smart Shop, La Javilla, Puerto Plata — viernes 23 de octubre 2026. Av. Manolo Tavares Justo esq. Presidente Caamaño #1, Edificio Grand Prix (junto a Bomba). Confirma puertas por Instagram @grandprixrd. Típico gratis del viernes — no es el Caballitos Halloween de Vinoteca el 31 oct.",
+    "date": "2026-10-23",
+    "location": "Puerto Plata",
+    "venue": "Grand Prix Smart Shop",
+    "venueSlug": "grand-prix-puerto-plata",
+    "address": "Av. Manolo Tavares Justo esq. Presidente Caamaño #1, Edificio Grand Prix (Bomba Next), La Javilla, Puerto Plata",
+    "category": "music",
+    "categories": [
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/grandprixrd/",
+    "instagram": "grandprixrd",
+    "lineup": [
+      "Los Caballitos — El Padre y El Hijo"
+    ],
+    "imageEmoji": "🪗"
+  },
+  {
+    "id": "ivan-garcia-salvador-perez-2026-11-21",
+    "title": "Iván García — Encuentro con Salvador Pérez Martínez",
+    "description": "Encuentro con el actor Salvador Pérez Martínez (El Pera / Perita) en Iván García Teatro-Escuela, Puerto Plata — sábado 21 de noviembre 2026 a las 7:30 PM. Entrada gratis. Confirma por los canales del teatro / sponsors del flyer. Charla — no es la graduación del 16.º aniversario (28 nov) ni La Rosa Niña (5 dic).",
+    "date": "2026-11-21",
+    "time": "7:30 PM",
+    "location": "Puerto Plata",
+    "venue": "Iván García Teatro-Escuela",
+    "venueSlug": "ivan-garcia-teatro-escuela",
+    "category": "culture",
+    "categories": [
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/teatroivangarcia/",
+    "lineup": [
+      "Salvador Pérez Martínez (El Pera / Perita)"
+    ],
+    "imageEmoji": "🎭"
+  },
+  {
+    "id": "ivan-garcia-16-aniversario-2026-11-28",
+    "title": "Iván García — 16.º aniversario y graduación de actuación",
+    "description": "16.º aniversario del Teatro-Escuela Iván García más graduación de jóvenes y adultos del programa de actuación, con demostración artística de los estudiantes — sábado 28 de noviembre 2026 a las 7:30 PM, Sala Iván García, Puerto Plata. Confirma puertas en los canales del teatro. Aniversario — no es el encuentro con Salvador Pérez (21 nov) ni La Rosa Niña (5 dic).",
+    "date": "2026-11-28",
+    "time": "7:30 PM",
+    "location": "Puerto Plata",
+    "venue": "Iván García Teatro-Escuela",
+    "venueSlug": "ivan-garcia-teatro-escuela",
+    "category": "culture",
+    "categories": [
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/teatroivangarcia/",
+    "lineup": [
+      "Acting program graduation",
+      "Student artistic demonstration"
+    ],
+    "imageEmoji": "🎓"
+  },
+  {
+    "id": "ivan-garcia-rosa-nina-2026-12-05",
+    "title": "Parque Central — La Rosa Niña",
+    "description": "La Rosa Niña — teatro al aire libre gratis de Iván García Teatro-Escuela en Parque Central (Plaza Independencia), Puerto Plata — sábado 5 de diciembre 2026 a las 7:30 PM. Obra inspirada en el poema de Rubén Darío y El milagro de la navidad. Entrada gratis. No es la graduación del 28 nov en Sala Iván García.",
+    "date": "2026-12-05",
+    "time": "7:30 PM",
+    "location": "Puerto Plata",
+    "venue": "Plaza Independencia (Parque Central)",
+    "venueSlug": "plaza-independencia",
+    "address": "Calle San Felipe, Puerto Plata",
+    "lat": 19.7976623,
+    "lng": -70.6932862,
+    "category": "culture",
+    "categories": [
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/teatroivangarcia/",
+    "lineup": [
+      "Iván García Teatro-Escuela"
+    ],
+    "imageEmoji": "🌹"
+  },
+  {
+    "id": "todos-somos-luperon-montecristi-2026-11-14",
+    "title": "Montecristi — Todos Somos Luperón",
+    "description": "Todos Somos Luperón presentado por Iván García Teatro-Escuela en el Parque Central de Montecristi — sábado 14 de noviembre 2026 a las 6:30 PM. Función cívica al aire libre al oeste de la franja Norte; el pin es el parque central de Montecristi (sin página de venue POP). Distinto del listado Todos Somos Luperón en Plaza Independencia, Puerto Plata, del 8 sep 2026.",
+    "date": "2026-11-14",
+    "time": "6:30 PM",
+    "location": "Montecristi",
+    "venue": "Parque Central de Montecristi",
+    "address": "Parque Central, Montecristi",
+    "lat": 19.8508,
+    "lng": -71.6453,
+    "category": "culture",
+    "categories": [
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/teatroivangarcia/",
+    "lineup": [
+      "Iván García Teatro-Escuela"
+    ],
+    "imageEmoji": "🎭"
+  },
+  {
+    "id": "copa-gencloben-final-2026-10-24",
+    "title": "Sea Horse Ranch — II Copa Gencloben Final",
+    "description": "II Copa Gencloben Gran Final en Sea Horse Ranch (canchas de tenis), Carretera 5 entre Sosúa y Cabarete — viernes 24 de octubre 2026. Abierto al público. Con Caplin Point / partners Hard Rock Cafe Puerto Plata, Millennium Cabarete, La Zarina, Dwight Global Online. Confirma puertas en @seahorseranchcabarete / @caplinpointrd. Final de tenis — no es un concierto de Hard Rock.",
+    "date": "2026-10-24",
+    "location": "Sosúa",
+    "venue": "Sea Horse Ranch",
+    "venueSlug": "sea-horse-ranch",
+    "address": "Carretera Sosúa–Cabarete, Sea Horse Ranch",
+    "lat": 19.7799532,
+    "lng": -70.4893065,
+    "category": "sports",
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "ageHint": "all-ages",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/seahorseranchcabarete/",
+    "lineup": [
+      "II Copa Gencloben — Gran Final"
+    ],
+    "imageEmoji": "🎾"
   }
 ]

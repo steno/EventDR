@@ -188,7 +188,10 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/manifest.webmanifest",
-        headers: [{ key: "Cache-Control", value: noStore }],
+        headers: [
+          { key: "Content-Type", value: "application/manifest+json" },
+          { key: "Cache-Control", value: noStore },
+        ],
       },
       {
         source: "/events/:path*",

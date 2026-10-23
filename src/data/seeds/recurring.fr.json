@@ -288,9 +288,9 @@
   {
     "id": "cremo-salsa-friday",
     "title": "Soirée salsa au Cremo",
-    "description": "Vendredi salsa au Cremo Cigar Bar en centre-ville — musique latine live, danse et rhums dominicains.",
+    "description": "Vendredi salsa au Cremo Cigar Bar, Calle José del Carmen Ariza #47, centre de Puerto Plata — dès 20 h. Entrée gratuite ; réduction sur la deuxième boisson ; salsa live pour le rythme. Confirmez via cremocigars.com. Vendredi salsa hebdo — pas le karaoké du mardi dans le même lounge.",
     "date": "2026-01-01",
-    "time": "8:00 PM – 11:00 PM",
+    "time": "8:00 PM",
     "location": "Puerto Plata",
     "venue": "Cremo Cigar Bar & Lounge",
     "venueSlug": "cremo-cigar-bar",
@@ -300,7 +300,9 @@
     "recurrence": "weekly",
     "recurrenceDay": 5,
     "sourceUrl": "https://cremocigars.com/cremo-cigar-bar-lounge-en/",
-    "imageEmoji": "💃"
+    "imageEmoji": "💃",
+    "isFree": true,
+    "sourceType": "flyer"
   },
   {
     "id": "victrola-sabado-bailable",
@@ -3100,5 +3102,51 @@
     "phone": "+18295105914",
     "sourceUrl": "https://www.facebook.com/aquagymrd/",
     "imageEmoji": "🏊"
+  },
+  {
+    "id": "petit-francois-sunday-brunch",
+    "title": "Brunch du dimanche au Petit François",
+    "description": "Brunch du dimanche au Petit François, El Pueblito / Playa Chaparral, Puerto Plata — tous les dimanches. Tables brunch beach bar ; confirmez horaires et menu au +1 829-492-2910 · Instagram @lepetitfrancois.rd. Brunch hebdo — pas le karaoké du vendredi ni les spéciaux Halloween / Thanksgiving canadien datés.",
+    "date": "2026-01-01",
+    "location": "Playa Dorada",
+    "venue": "Le Petit François",
+    "venueSlug": "le-petit-francois",
+    "address": "El Pueblito / Playa Chaparral, Puerto Plata",
+    "lat": 19.7734212,
+    "lng": -70.6517978,
+    "category": "food-drinks",
+    "format": "physical",
+    "recurrence": "weekly",
+    "recurrenceDay": 0,
+    "callForPricing": true,
+    "phone": "+18294922910",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/lepetitfrancois.rd/",
+    "instagram": "lepetitfrancois.rd",
+    "imageEmoji": "🍳"
+  },
+  {
+    "id": "cremo-karaoke-tuesday",
+    "title": "Karaoké du mardi au Cremo",
+    "description": "Martes de Karaoke au Cremo Cigar Bar, Calle José del Carmen Ariza #47, centre de Puerto Plata — mardis dès 19 h. Entrée gratuite ; le meilleur chanteur gagne un prix ; réduction sur la deuxième boisson. Confirmez via cremocigars.com / le bar. Micro du mardi — pas le karaoké du samedi dans le même lounge.",
+    "date": "2026-01-01",
+    "time": "19 h",
+    "location": "Puerto Plata",
+    "venue": "Cremo Cigar Bar & Lounge",
+    "venueSlug": "cremo-cigar-bar",
+    "address": "C. José del Carmen Ariza 47",
+    "lat": 19.7984235,
+    "lng": -70.6931832,
+    "category": "music",
+    "categories": [
+      "parties"
+    ],
+    "format": "physical",
+    "recurrence": "weekly",
+    "recurrenceDay": 2,
+    "isFree": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://cremocigars.com/cremo-cigar-bar-lounge-en/",
+    "imageEmoji": "🎤"
   }
 ]

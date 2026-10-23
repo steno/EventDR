@@ -368,6 +368,7 @@ export type Dictionary = {
     brandLine: string;
     promptBody: string;
     downloadButton: string;
+    preparing: string;
     secureBadge: string;
     manualTitle: string;
     iosTitle: string;
@@ -1078,6 +1079,7 @@ export const en: Dictionary = {
     promptBody:
       "Tap below to install the app directly on your device. Your browser will walk you through the next steps.",
     downloadButton: "Download and install now",
+    preparing: "Preparing install…",
     secureBadge: "Secure lightweight PWA",
     manualTitle: "Manual install",
     iosTitle: "Add POP Events to your Home Screen",

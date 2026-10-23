@@ -192,7 +192,6 @@ export const CURATED_CALL_FOR_PRICING = new Set<string>([
   "ambar-lounge-bandoleras-2026-10-02",
   "ambar-lounge-bandoleras-2026-10-09",
   "ambar-lounge-bandoleras-2026-10-23",
-  "ambar-lounge-chris-plasencia-adrian-tineo-2026-10-24",
   "caribbean-surf-junior-puntilla-2026-11-14",
   "caribbean-surf-junior-encuentro-2026-12-27",
   "ambar-lounge-adrian-tineo-2026-09-19",

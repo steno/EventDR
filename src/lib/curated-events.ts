@@ -145,12 +145,6 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     venueSlug: "ambar-lounge-pop",
     sourceUrl: "https://www.instagram.com/ambarloungepop/",
   },
-  "ambar-lounge-chris-plasencia-adrian-tineo-2026-10-24": {
-    callForPricing: true,
-    phone: "+18097818677",
-    venueSlug: "ambar-lounge-pop",
-    sourceUrl: "https://www.instagram.com/ambarloungepop/",
-  },
   "kite-street-son-cubano-2026-10-25": {
     isFree: true,
     venueSlug: "kite-street-pop",

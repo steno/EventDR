@@ -372,6 +372,7 @@ export const fr: Dictionary = {
     promptBody:
       "Appuyez ci-dessous pour installer l'app directement sur votre appareil. Le navigateur vous guidera pour la suite.",
     downloadButton: "Télécharger et installer maintenant",
+    preparing: "Préparation de l'installation…",
     secureBadge: "PWA sécurisée et légère",
     manualTitle: "Installation manuelle",
     iosTitle: "Ajoutez POP Events à votre écran d'accueil",

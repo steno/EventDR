@@ -298,7 +298,6 @@ export const SEED_CREATED_AT: Readonly<Record<string, string>> = {
   "ambar-lounge-bandoleras-2026-10-23": "2026-10-21T22:00:00.000Z",
   "justin-santos-rancho-catalina-2026-10-25": "2026-10-21T21:00:00.000Z",
   "kite-street-son-cubano-2026-10-25": "2026-10-21T20:30:00.000Z",
-  "ambar-lounge-chris-plasencia-adrian-tineo-2026-10-24": "2026-10-21T20:00:00.000Z",
   "caribbean-surf-junior-puntilla-2026-11-14": "2026-10-21T19:30:00.000Z",
   "caribbean-surf-junior-encuentro-2026-12-27": "2026-10-21T19:15:00.000Z",
   "proyecto-x-el-calabozo-2026-10-31": "2026-10-21T23:30:00.000Z",
@@ -313,6 +312,17 @@ export const SEED_CREATED_AT: Readonly<Record<string, string>> = {
   "lokuras-pop-percusion-latina-2026-10-25": "2026-10-22T15:00:00.000Z",
   "premios-ola-dorada-2026-12-05": "2026-10-22T14:00:00.000Z",
   "mirando-pa-otro-lao-8-puerto-plata-2026-11-17": "2026-10-23T12:00:00.000Z",
+  "vinoteca-caballitos-halloween-2026-10-31": "2026-10-23T22:00:00.000Z",
+  "bachata-colmado-cabarete-2026-11-01": "2026-10-23T21:45:00.000Z",
+  "disco-club-viernes-tropical-2026-10-23": "2026-10-23T21:30:00.000Z",
+  "grand-prix-caballitos-2026-10-23": "2026-10-23T21:15:00.000Z",
+  "copa-gencloben-final-2026-10-24": "2026-10-23T21:00:00.000Z",
+  "ivan-garcia-salvador-perez-2026-11-21": "2026-10-23T20:45:00.000Z",
+  "ivan-garcia-16-aniversario-2026-11-28": "2026-10-23T20:30:00.000Z",
+  "ivan-garcia-rosa-nina-2026-12-05": "2026-10-23T20:15:00.000Z",
+  "todos-somos-luperon-montecristi-2026-11-14": "2026-10-23T20:00:00.000Z",
+  "petit-francois-sunday-brunch": "2026-10-23T19:45:00.000Z",
+  "cremo-karaoke-tuesday": "2026-10-23T19:30:00.000Z",
 };
 
 /** Fill missing `createdAt` from {@link SEED_CREATED_AT} (does not overwrite). */
