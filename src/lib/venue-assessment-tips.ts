@@ -737,6 +737,22 @@ export const VENUE_TIP_COPY: Record<
       fr: "Stop cocktails chaume-et-néon au centre de Cabarete près du Casino #1 — happy hour 17 h–20 h et énergie de bar en soirée ; pas la salle pizza de La Chabola au Callejón. Confirmez les portes sur @tikibarcabarete (souvent fermé lundi).",
     },
   },
+  "parque-municipal-villa-isabela": {
+    body: "Villa Isabela’s municipal plaza with the peach glorieta — festival days fill the square; pin the park, not downtown Puerto Plata, and confirm Food Fest gates on @isabelafoodfest before the westbound drive.",
+    localized: {
+      en: "Villa Isabela’s municipal plaza with the peach glorieta — festival days fill the square; pin the park, not downtown Puerto Plata, and confirm Food Fest gates on @isabelafoodfest before the westbound drive.",
+      es: "La plaza municipal de Villa Isabela con la glorieta melocotón — los días de festival llenan la plaza; clava el parque, no el centro de Puerto Plata, y confirma puertas del Food Fest en @isabelafoodfest antes del viaje al oeste.",
+      fr: "La place municipale de Villa Isabela avec la gloriette pêche — les jours de festival remplissent la place ; épinglez le parc, pas le centre de Puerto Plata, et confirmez les portes Food Fest sur @isabelafoodfest avant la route vers l’ouest.",
+    },
+  },
+  "docean-bar-villa-isabela": {
+    body: "Villa Isabela disco nights with billed urban artists — call +1 829-336-6802 before you treat it like a walk-up Playa Dorada mall club; it’s west of Puerto Plata city, not D'Ocean on the Malecón.",
+    localized: {
+      en: "Villa Isabela disco nights with billed urban artists — call +1 829-336-6802 before you treat it like a walk-up Playa Dorada mall club; it’s west of Puerto Plata city, not D'Ocean on the Malecón.",
+      es: "Noches de disco en Villa Isabela con artistas urbanos en cartel — llama +1 829-336-6802 antes de tratarlo como club walk-up del mall de Playa Dorada; queda al oeste de Puerto Plata ciudad, no es un D'Ocean del Malecón.",
+      fr: "Soirées disco à Villa Isabela avec artistes urbains à l’affiche — appelez +1 829-336-6802 avant de le traiter comme un club walk-in du mall de Playa Dorada ; c’est à l’ouest de Puerto Plata ville, pas un D'Ocean du Malecón.",
+    },
+  },
   "twenty-disco-lounge": {
     body: "Mall disco inside Playa Dorada — lit bottle wall, neon lounge, and free-cover Friday energy when a flyer is up; pin the mall, not downtown Brugal club nights.",
     localized: {

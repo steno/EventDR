@@ -97,6 +97,9 @@ const FILE_TO_EVENT_ID = {
   "petit-francois-sunday-brunch.jpg": "petit-francois-sunday-brunch",
   "cremo-karaoke-tuesday.jpg": "cremo-karaoke-tuesday",
   "cremo-salsa-friday.jpg": "cremo-salsa-friday",
+  "docean-bar-halloween-poeta-callejero-2026-10-31.jpg":
+    "docean-bar-halloween-poeta-callejero-2026-10-31",
+  "isabela-food-fest-2026-12-18.jpg": "isabela-food-fest-2026-12-18",
   "over-beach-club-aerial-v2.jpg": "over-beach-club",
   "ambar-lounge-bandoleras-2026-10-23.jpg":
     "ambar-lounge-bandoleras-2026-10-23",
@@ -860,6 +863,8 @@ const FILE_TO_VENUE_SLUG = {
   "aquagym-costambar.jpg": "aquagym-costambar",
   "aquagym-costambar-v2.jpg": "aquagym-costambar",
   "los-mangos-costambar.jpg": "los-mangos-costambar",
+  "parque-municipal-villa-isabela.jpg": "parque-municipal-villa-isabela",
+  "docean-bar-villa-isabela.jpg": "docean-bar-villa-isabela",
 };
 
 if (!existsSync(sourceDir)) {

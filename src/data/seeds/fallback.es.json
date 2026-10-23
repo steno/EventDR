@@ -8177,5 +8177,69 @@
       "II Copa Gencloben — Gran Final"
     ],
     "imageEmoji": "🎾"
+  },
+  {
+    "id": "docean-bar-halloween-poeta-callejero-2026-10-31",
+    "title": "D'Ocean Bar Halloween — Poeta Callejero",
+    "description": "Halloween Party en D'Ocean Bar, Villa Isabela, Puerto Plata — sábado 31 de octubre 2026 desde las 10:00 PM. Headliner Poeta Callejero con DJ Negro y DJ Coca; premios al mejor disfraz y batalla freestyle. Info y reservaciones +1 829-336-6802 (El Doctorado Carlos) · Instagram @d_oceanbar / @isabelafoodfest. Noche de disco en Villa Isabela — no es Isabela Food Fest en el Parque Municipal (18–20 dic) ni Caballitos de Vinoteca el mismo sábado en Costa Dorada.",
+    "date": "2026-10-31",
+    "time": "10:00 PM",
+    "location": "Villa Isabela",
+    "venue": "D'Ocean Bar",
+    "venueSlug": "docean-bar-villa-isabela",
+    "address": "Villa Isabela, Puerto Plata",
+    "lat": 19.823158,
+    "lng": -71.056938,
+    "category": "halloween",
+    "categories": [
+      "music",
+      "parties"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18293366802",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/d_oceanbar/",
+    "instagram": "d_oceanbar",
+    "lineup": [
+      "Poeta Callejero",
+      "DJ Negro",
+      "DJ Coca",
+      "Best costume prizes",
+      "Freestyle battle"
+    ],
+    "imageEmoji": "🎃"
+  },
+  {
+    "id": "isabela-food-fest-2026-12-18",
+    "title": "Villa Isabela — Isabela Food Fest",
+    "description": "Isabela Food Fest (El Festival del Pueblo) en el Parque Municipal Villa Isabela — viernes 18 al domingo 20 de diciembre 2026. Artistas en vivo, DJs y gastronomía en la plaza municipal. Primer DJ confirmado: DJ Flacome (@djflacomc) el sábado 19 de diciembre. Boletas en todotickets.do y Plaza Lama; info y reservaciones +1 829-336-6802 · Instagram @isabelafoodfest. Al oeste de Puerto Plata ciudad — no es el Halloween de D'Ocean Bar del 31 oct.",
+    "date": "2026-12-18",
+    "endDate": "2026-12-20",
+    "location": "Villa Isabela",
+    "venue": "Parque Municipal Villa Isabela",
+    "venueSlug": "parque-municipal-villa-isabela",
+    "address": "Parque Municipal, Villa Isabela, Puerto Plata",
+    "lat": 19.813027,
+    "lng": -71.055725,
+    "category": "festivals",
+    "categories": [
+      "food-drinks",
+      "music"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18293366802",
+    "ticketUrl": "https://todotickets.do",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/isabelafoodfest/",
+    "instagram": "isabelafoodfest",
+    "lineup": [
+      "DJ Flacome — Saturday 19 December",
+      "Live artists · DJs · gastronomy"
+    ],
+    "imageEmoji": "🍔"
   }
 ]

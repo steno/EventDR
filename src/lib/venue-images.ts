@@ -114,6 +114,8 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "jl-coaching-center-puerto-plata": "jl-coaching-center-puerto-plata.jpg",
   "los-mangos-costambar": "los-mangos-costambar.jpg",
   "tiki-bar-cabarete": "tiki-bar-cabarete.jpg",
+  "parque-municipal-villa-isabela": "parque-municipal-villa-isabela.jpg",
+  "docean-bar-villa-isabela": "docean-bar-villa-isabela.jpg",
   "twenty-disco-lounge": "twenty-disco-lounge-bar.jpg",
   // Filename bump — editor Over Beach Club aerial brand graphic (venue had no place shot).
   "over-beach-club": "over-beach-club-aerial-v2.jpg",

@@ -6831,4 +6831,40 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "Editor flyer — Martes de Karaoke; 20 de octubre dated example; 7 PM; premio; descuento 2a bebida; entrada gratis; Ariza #47. Seeded as weekly Tuesday.",
     updatedAt: "2026-10-23T19:30:00.000Z",
   },
+  {
+    eventId: "docean-bar-halloween-poeta-callejero-2026-10-31",
+    body: "Halloween from 10 PM at D'Ocean Bar in Villa Isabela with Poeta Callejero — west of Puerto Plata city, not Vinoteca Caballitos the same night; RSVP +1 829-336-6802 before you assume a walk-up.",
+    localized: {
+      es: "Halloween desde las 10 PM en D'Ocean Bar en Villa Isabela con Poeta Callejero — al oeste de Puerto Plata ciudad, no es Caballitos de Vinoteca la misma noche; RSVP +1 829-336-6802 antes de asumir walk-up.",
+      fr: "Halloween dès 22 h au D'Ocean Bar à Villa Isabela avec Poeta Callejero — à l’ouest de Puerto Plata ville, pas Caballitos Vinoteca la même nuit ; RSVP +1 829-336-6802 avant d’assumer un walk-in.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — RSVP +1 829-336-6802 · @d_oceanbar",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — RSVP +1 829-336-6802 · @d_oceanbar",
+      fr: "Cover à confirmer — RSVP +1 829-336-6802 · @d_oceanbar",
+    },
+    attribution: "POP research · D'Ocean Bar Halloween flyer",
+    researchNotes:
+      "Editor flyer — Sáb 31 Oct desde 10 PM; Poeta Callejero; DJ Negro; DJ Coca; premios mejor disfraz; batalla freestyle; Villa Isabela; 829-336-6802 El Doctorado Carlos; Isabela Food Fest logo on art.",
+    updatedAt: "2026-10-23T23:00:00.000Z",
+  },
+  {
+    eventId: "isabela-food-fest-2026-12-18",
+    body: "Three-day pueblo fest at Parque Municipal Villa Isabela (18–20 Dec) — food, DJs, and live acts on the glorieta plaza; buy tickets on todotickets.do / Plaza Lama, and don’t confuse it with D'Ocean’s Oct 31 Halloween night in the same town.",
+    localized: {
+      es: "Fest del pueblo de tres días en el Parque Municipal Villa Isabela (18–20 dic) — comida, DJs y actos en vivo en la plaza de la glorieta; compra boletas en todotickets.do / Plaza Lama, y no lo confundas con el Halloween del 31 oct en D'Ocean en el mismo pueblo.",
+      fr: "Fest du pueblo de trois jours au Parque Municipal Villa Isabela (18–20 déc.) — food, DJs et acts live sur la place de la gloriette ; achetez les billets sur todotickets.do / Plaza Lama, et ne confondez pas avec l’Halloween du 31 oct. au D'Ocean dans la même ville.",
+    },
+    priceFeel: "varies",
+    priceNote: "Tickets todotickets.do / Plaza Lama · info +1 829-336-6802",
+    priceNoteLocalized: {
+      es: "Boletas todotickets.do / Plaza Lama · info +1 829-336-6802",
+      fr: "Billets todotickets.do / Plaza Lama · infos +1 829-336-6802",
+    },
+    attribution: "POP research · @isabelafoodfest official poster + DJ Flacome announce",
+    researchNotes:
+      "Editor assets — El Festival del Pueblo official poster; DJ Flacome Sat 19 flyer; ALGO VIENE PRONTO park teaser; IG caption Dec 18–20; park place shot for venue; phone 829-336-6802.",
+    updatedAt: "2026-10-23T22:45:00.000Z",
+  },
 ];

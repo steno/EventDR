@@ -2136,6 +2136,31 @@ export const SEED_VENUES: Venue[] = [
     instagram: "tikibarcabarete",
     website: "https://www.instagram.com/tikibarcabarete/",
   },
+  {
+    slug: "parque-municipal-villa-isabela",
+    name: "Parque Municipal Villa Isabela",
+    city: "Puerto Plata",
+    description:
+      "Municipal park and plaza in Villa Isabela (west of Puerto Plata city) — peach octagonal glorieta, paved square, and the town stage for festivals like Isabela Food Fest. Confirm billed nights via @isabelafoodfest.",
+    lat: 19.813027,
+    lng: -71.055725,
+    emoji: "🌳",
+    instagram: "isabelafoodfest",
+    website: "https://www.instagram.com/isabelafoodfest/",
+  },
+  {
+    slug: "docean-bar-villa-isabela",
+    name: "D'Ocean Bar",
+    city: "Puerto Plata",
+    description:
+      "Local disco and bar in Villa Isabela — packed dance-floor nights, billed urban artists, and Halloween / Food Fest weekend parties. Info & reservations +1 829-336-6802 · Instagram @d_oceanbar.",
+    lat: 19.823158,
+    lng: -71.056938,
+    emoji: "🪩",
+    phone: "+18293366802",
+    instagram: "d_oceanbar",
+    website: "https://www.instagram.com/d_oceanbar/",
+  },
 ];
 
 /** Extra name fragments → seed slug (checked before fuzzy name includes). */
@@ -2402,6 +2427,16 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
     pattern:
       /tiki\s*bar(\s*cabarete)?|cabarete\s*tiki(\s*bar)?|tikibarcabarete/i,
     slug: "tiki-bar-cabarete",
+  },
+  {
+    pattern:
+      /parque\s*municipal\s*(de\s*)?villa\s*isabela|municipal\s*villa\s*isabela\s*park|villa\s*isabela\s*park/i,
+    slug: "parque-municipal-villa-isabela",
+  },
+  {
+    pattern:
+      /d['’]?\s*ocean\s*bar|docean\s*bar|d_oceanbar/i,
+    slug: "docean-bar-villa-isabela",
   },
   {
     pattern: /twenty\s*disco(\s*(&|and)?\s*lounge)?|twenty_disco_lounge/i,

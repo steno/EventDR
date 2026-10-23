@@ -63,6 +63,9 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "todos-somos-luperon-montecristi-2026-11-14.jpg",
   "petit-francois-sunday-brunch": "petit-francois-sunday-brunch.jpg",
   "cremo-karaoke-tuesday": "cremo-karaoke-tuesday.jpg",
+  "docean-bar-halloween-poeta-callejero-2026-10-31":
+    "docean-bar-halloween-poeta-callejero-2026-10-31.jpg",
+  "isabela-food-fest-2026-12-18": "isabela-food-fest-2026-12-18.jpg",
   "ambar-lounge-bandoleras-2026-10-23":
     "ambar-lounge-bandoleras-2026-10-23.jpg",
   "kite-street-son-cubano-2026-10-25":
@@ -1167,6 +1170,8 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "todos-somos-luperon-montecristi-2026-11-14.jpg",
   "petit-francois-sunday-brunch.jpg",
   "cremo-karaoke-tuesday.jpg",
+  "docean-bar-halloween-poeta-callejero-2026-10-31.jpg",
+  "isabela-food-fest-2026-12-18.jpg",
   "ambar-lounge-bandoleras-2026-10-23.jpg",
   "kite-street-son-cubano-2026-10-25.jpg",
   "jump-fit-rosa-beard-over-club-2026-10-31-v2.jpg",

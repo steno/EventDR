@@ -1061,6 +1061,28 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     ],
   }),
   editorial({
+    venueSlug: "parque-municipal-villa-isabela",
+    verdictKey: "solid_visitor_activity",
+    crowdFit: ["local", "family", "mixed"],
+    axes: { recommend: 4.0, atmosphere: 4.1, practical: 3.7 },
+    themes: [
+      { key: "family_friendly", sentiment: "positive", audience: "family" },
+      { key: "photo_spot", sentiment: "positive", audience: "visitor" },
+      { key: "easy_to_find", sentiment: "mixed", audience: "visitor" },
+    ],
+  }),
+  editorial({
+    venueSlug: "docean-bar-villa-isabela",
+    verdictKey: "strong_local_nightlife",
+    crowdFit: ["local", "nightlife"],
+    axes: { recommend: 4.0, atmosphere: 4.2, practical: 3.6 },
+    themes: [
+      { key: "dance_floor", sentiment: "positive", audience: "nightlife" },
+      { key: "loud_late", sentiment: "mixed", audience: "nightlife" },
+      { key: "busy_weekends", sentiment: "mixed" },
+    ],
+  }),
+  editorial({
     venueSlug: "twenty-disco-lounge",
     verdictKey: "strong_local_nightlife",
     crowdFit: ["local", "nightlife", "mixed"],

@@ -106,6 +106,8 @@ export const VENUE_STREET_ADDRESS: Readonly<Record<string, string>> = {
   "luxury-club-puerto-plata":
     "Carretera Luperón Km 4.5, Complejo Turístico Costa Dorada, Puerto Plata",
   "tiki-bar-cabarete": "Central Cabarete, near Casino #1",
+  "parque-municipal-villa-isabela": "Parque Municipal, Villa Isabela",
+  "docean-bar-villa-isabela": "Villa Isabela, Puerto Plata",
   "playa-encuentro": "Playa Encuentro",
   "playa-los-charamicos": "Playa Los Charamicos",
   "plaza-independencia": "Calle San Felipe",

@@ -1143,6 +1143,26 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Bar tiki au toit de chaume au centre de Cabarete près du Casino #1 (est. 2024) — murs en pierre, enseigne néon perroquet, cocktails et happy hour 17 h–20 h. Ouvert en général mar–dim dès 17 h (fermé lun). Confirmez les portes sur Instagram @tikibarcabarete.",
     },
   },
+  "parque-municipal-villa-isabela": {
+    name: {
+      es: "Parque Municipal Villa Isabela",
+      fr: "Parque Municipal Villa Isabela",
+    },
+    description: {
+      es: "Parque y plaza municipal en Villa Isabela (al oeste de la ciudad de Puerto Plata) — glorieta octagonal color melocotón, plaza pavimentada y escenario del pueblo para festivales como Isabela Food Fest. Confirma noches en cartel vía @isabelafoodfest.",
+      fr: "Parc et place municipale à Villa Isabela (à l’ouest de Puerto Plata) — gloriette octogonale pêche, place pavée et scène du village pour des festivals comme Isabela Food Fest. Confirmez les soirées annoncées via @isabelafoodfest.",
+    },
+  },
+  "docean-bar-villa-isabela": {
+    name: {
+      es: "D'Ocean Bar",
+      fr: "D'Ocean Bar",
+    },
+    description: {
+      es: "Disco y bar local en Villa Isabela — noches de pista llena, artistas urbanos en cartel y fiestas de Halloween / fin de semana Food Fest. Info y reservaciones +1 829-336-6802 · Instagram @d_oceanbar.",
+      fr: "Disco et bar local à Villa Isabela — nuits de piste pleine, artistes urbains à l’affiche et fêtes Halloween / week-end Food Fest. Infos et réservations +1 829-336-6802 · Instagram @d_oceanbar.",
+    },
+  },
 };
 
 export function localizeVenue(venue: Venue, locale: Locale): Venue {

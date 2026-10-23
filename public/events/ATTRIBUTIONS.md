@@ -622,3 +622,7 @@ Curated images under `public/events/` and `public/venues/`.
 | `petit-francois-sunday-brunch.jpg` | POP-supplied — Domingos de Brunch flyer ([@lepetitfrancois.rd](https://www.instagram.com/lepetitfrancois.rd/)) | Weekly Sunday brunch (editor-provided; typography-heavy) |
 | `cremo-karaoke-tuesday.jpg` | POP-supplied — Martes de Karaoke flyer (Cremo Cigar Bar) | Weekly Tuesday 7 PM free entry (editor-provided; typography-heavy) |
 | `cremo-salsa-friday.jpg` | POP-supplied — Viernes de Salsa flyer (Cremo Cigar Bar) | Weekly Friday 8 PM free entry refresh (editor-provided; typography-heavy) |
+| `docean-bar-halloween-poeta-callejero-2026-10-31.jpg` | POP-supplied — D'Ocean Bar Halloween Party flyer (Poeta Callejero) | Sat 31 Oct 2026 10 PM Villa Isabela (editor-provided; typography-heavy) |
+| `isabela-food-fest-2026-12-18.jpg` | POP-supplied — Isabela Food Fest *El Festival del Pueblo* official poster ([@isabelafoodfest](https://www.instagram.com/isabelafoodfest/)) | 18–20 Dec 2026 Parque Municipal Villa Isabela (editor-provided; typography-heavy) |
+| `venues/parque-municipal-villa-isabela.jpg` | POP-supplied — Parque Municipal Villa Isabela peach glorieta / plaza place shot | Venue place shot (editor-provided) |
+| `venues/docean-bar-villa-isabela.jpg` | POP-supplied — D'Ocean Bar packed dance-floor interior | Venue place shot (editor-provided) |
