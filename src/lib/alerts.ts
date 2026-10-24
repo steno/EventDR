@@ -265,8 +265,6 @@ export const EDITORIAL_ALERTS: readonly EditorialAlert[] = [
     kind: "closure",
     closureStatus: "repair",
     from: "2026-10-20",
-    until: "2026-10-23",
-    reopensOn: "2026-10-24",
     citySlugs: ["puerto-plata"],
     href: { type: "venue", slug: "meclao-rooftop" },
     title: {
@@ -275,9 +273,9 @@ export const EDITORIAL_ALERTS: readonly EditorialAlert[] = [
       fr: "Mecla'o Rooftop fermé pour rénovations",
     },
     summary: {
-      en: "Luis Ginebra rooftop pause through Thursday — new look, same vibe.",
-      es: "Pausa del rooftop en Luis Ginebra hasta el jueves — nueva imagen, misma vibra.",
-      fr: "Pause du rooftop Luis Ginebra jusqu’à jeudi — nouvelle image, même vibe.",
+      en: "Until further notice — check @meclaorooftop.",
+      es: "Hasta nuevo aviso — revisa @meclaorooftop.",
+      fr: "Jusqu’à nouvel ordre — vérifiez @meclaorooftop.",
     },
   },
   {

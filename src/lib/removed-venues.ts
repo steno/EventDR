@@ -38,6 +38,24 @@ export const VENUE_SLUG_REDIRECTS: Record<string, string> = {
   "aquagym-costambar": "los-mangos-costambar",
 };
 
+/**
+ * Removed area/out-of-scope venue URLs Google still crawls → 301 path
+ * (no locale prefix). Prefer a city hub over a soft 404.
+ */
+export const REMOVED_VENUE_PATH_REDIRECTS: Record<string, string> = {
+  "cabarete-bay": "/city/cabarete",
+  "cabarete-beach": "/city/cabarete",
+  "cabarete-surf-school": "/city/cabarete",
+  "cafe-del-mar": "/city/cabarete",
+  "caleton-beach-club": "/city/cabarete",
+  "cowork-cabarete": "/city/cabarete",
+  "rafaella-s-studio": "/city/cabarete",
+  "cheers-bar-sosua": "/city/sosua",
+  "freestyle-catamaran": "/city/puerto-plata",
+  "cacique-moncion": "/city/puerto-plata",
+  "paella-pop-green-one": "/city/puerto-plata",
+};
+
 export function isRemovedVenueSlug(
   slug: string | undefined | null,
 ): boolean {
@@ -53,6 +71,15 @@ export function resolveVenueSlugRedirect(
   const trimmed = slug?.trim();
   if (!trimmed) return undefined;
   return VENUE_SLUG_REDIRECTS[trimmed];
+}
+
+/** City/hub path when `slug` is a removed venue (GSC soft 404). */
+export function resolveRemovedVenuePathRedirect(
+  slug: string | undefined | null,
+): string | undefined {
+  const trimmed = slug?.trim();
+  if (!trimmed) return undefined;
+  return REMOVED_VENUE_PATH_REDIRECTS[trimmed];
 }
 
 /** Map removed/alias venue slugs on events onto their canonical seed slug. */

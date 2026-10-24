@@ -671,8 +671,8 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
   },
   "meclao-rooftop": {
     description: {
-      es: "Rooftop en Av. Luis Ginebra — música en vivo, cócteles y vista de la ciudad. Cerrado los lunes; los fines de semana cierra más tarde. Pausa por renovación hasta el jue 23 oct 2026 (reabre vie 24 oct) — confirma @meclaorooftop.",
-      fr: "Rooftop sur l'Av. Luis Ginebra — musique live, cocktails et vue ville. Fermé le lundi ; week-ends plus tardifs. Pause rénovation jusqu’au jeu 23 oct 2026 (réouvre ven 24 oct) — confirmez @meclaorooftop.",
+      es: "Rooftop en Av. Luis Ginebra — música en vivo, cócteles y vista de la ciudad. Cerrado los lunes; los fines de semana cierra más tarde. Cerrado por renovaciones hasta nuevo aviso — revisa @meclaorooftop antes de ir.",
+      fr: "Rooftop sur l'Av. Luis Ginebra — musique live, cocktails et vue ville. Fermé le lundi ; week-ends plus tardifs. Fermé pour rénovations jusqu’à nouvel ordre — vérifiez @meclaorooftop avant d’y aller.",
     },
   },
   "kviar-costa-dorada": {

@@ -1244,7 +1244,7 @@ export const SEED_VENUES: Venue[] = [
     name: "Mecla'o Rooftop Lounge",
     city: "Puerto Plata",
     description:
-      "Rooftop lounge on Av. Luis Ginebra — live music, cocktails, and city views. Closed Mondays; weekends run later. Renovation pause through Thu 23 Oct 2026 (reopens Fri 24 Oct) — confirm @meclaorooftop.",
+      "Rooftop lounge on Av. Luis Ginebra — live music, cocktails, and city views. Closed Mondays; weekends run later. Closed for renovations until further notice — check @meclaorooftop before you go.",
     lat: 19.788312,
     lng: -70.677453,
     emoji: "🎶",

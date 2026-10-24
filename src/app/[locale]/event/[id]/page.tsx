@@ -1,4 +1,4 @@
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import type { Metadata } from "next";
 import { EventPage } from "@/components/EventPage";
 import { JsonLd } from "@/components/JsonLd";
@@ -17,11 +17,13 @@ import {
 } from "@/lib/event-opinions";
 import { getVenueAssessment } from "@/lib/venue-assessments";
 import { matchVenueSlug } from "@/lib/venues-seed";
+import { resolveEventPathRedirect } from "@/lib/removed-seeds";
 import {
   buildBreadcrumbJsonLd,
   buildEventBreadcrumbItems,
   buildEventJsonLd,
   buildEventMetadata,
+  localePath,
 } from "@/lib/seo";
 
 // ISR: cache event detail HTML; back-nav uses sessionStorage, not ?from=.
@@ -34,6 +36,8 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale, id } = await params;
   if (!isValidLocale(locale)) return {};
+
+  if (resolveEventPathRedirect(id)) return {};
 
   const event = await getEventById(id, locale);
   if (!event) return {};
@@ -48,6 +52,11 @@ export default async function Page({
 }) {
   const { locale, id } = await params;
   if (!isValidLocale(locale)) notFound();
+
+  const redirectPath = resolveEventPathRedirect(id);
+  if (redirectPath) {
+    permanentRedirect(localePath(locale, redirectPath));
+  }
 
   const event = await getEventById(id, locale);
   if (!event) notFound();

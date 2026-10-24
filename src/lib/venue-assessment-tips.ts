@@ -802,11 +802,11 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "meclao-rooftop": {
-    body: "Luis Ginebra rooftop for billed House Fridays and late cocktail sets — closed through Thu 23 Oct 2026 for renovations (back Fri 24 Oct); otherwise skip Monday and reserve 829-374-7028.",
+    body: "Closed for renovations until further notice — don’t send anyone to Luis Ginebra for House Fridays or late cocktail sets; watch @meclaorooftop before you treat 829-374-7028 as a walk-in.",
     localized: {
-      en: "Luis Ginebra rooftop for billed House Fridays and late cocktail sets — closed through Thu 23 Oct 2026 for renovations (back Fri 24 Oct); otherwise skip Monday and reserve 829-374-7028.",
-      es: "Rooftop de Luis Ginebra para House Fridays con cartel y sets de cócteles tarde — cerrado hasta el jue 23 oct 2026 por renovación (vuelve vie 24 oct); fuera de eso sáltate el lunes y reserva 829-374-7028.",
-      fr: "Rooftop Luis Ginebra pour House Fridays à l’affiche et cocktails tardifs — fermé jusqu’au jeu 23 oct 2026 pour rénovation (retour ven 24 oct) ; sinon passez le lundi et réservez 829-374-7028.",
+      en: "Closed for renovations until further notice — don’t send anyone to Luis Ginebra for House Fridays or late cocktail sets; watch @meclaorooftop before you treat 829-374-7028 as a walk-in.",
+      es: "Cerrado por renovaciones hasta nuevo aviso — no mandes a nadie a Luis Ginebra por House Fridays o cócteles tarde; mira @meclaorooftop antes de tratar 829-374-7028 como walk-in.",
+      fr: "Fermé pour rénovations jusqu’à nouvel ordre — n’envoyez personne sur Luis Ginebra pour House Fridays ou cocktails tardifs ; suivez @meclaorooftop avant de traiter 829-374-7028 comme un walk-in.",
     },
   },
   "el-mirador-de-finely": {

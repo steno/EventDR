@@ -7,7 +7,10 @@ import { getVenueAssessment } from "@/lib/venue-assessments";
 import { getNearbyTonightForVenue } from "@/lib/get-nearby-tonight";
 import { filterByVenueSlug } from "@/lib/geo";
 import { getPublicEvents } from "@/lib/public-events";
-import { resolveVenueSlugRedirect } from "@/lib/removed-venues";
+import {
+  resolveRemovedVenuePathRedirect,
+  resolveVenueSlugRedirect,
+} from "@/lib/removed-venues";
 import { isValidLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import {
@@ -32,6 +35,9 @@ export async function generateMetadata({
 
   const redirectSlug = resolveVenueSlugRedirect(slug);
   if (redirectSlug) {
+    return {};
+  }
+  if (resolveRemovedVenuePathRedirect(slug)) {
     return {};
   }
 
@@ -63,6 +69,10 @@ export default async function Page({
   const redirectSlug = resolveVenueSlugRedirect(slug);
   if (redirectSlug) {
     permanentRedirect(localePath(locale, `/venue/${redirectSlug}`));
+  }
+  const removedPath = resolveRemovedVenuePathRedirect(slug);
+  if (removedPath) {
+    permanentRedirect(localePath(locale, removedPath));
   }
 
   const venue = await getVenueBySlug(slug, locale);

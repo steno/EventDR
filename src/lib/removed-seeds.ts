@@ -108,6 +108,55 @@ export const REMOVED_SEED_EVENT_IDS = new Set([
   "sosua-coastal-pickleball-open-2026-10-24",
 ]);
 
+/**
+ * Soft-404 event URLs Google still crawls → 301 path (no locale prefix).
+ * Prefer a live venue / city / replacement event over a bare 404.
+ */
+export const EVENT_PATH_REDIRECTS: Record<string, string> = {
+  // Renamed / rescheduled ids
+  "nueve-80s-90s-por-siempre-2026-10-10":
+    "/event/nueve-80s-90s-por-siempre-2026-10-24",
+  "disney-dream-taino-bay-2026-10-08": "/event/disney-dream-taino-bay-2026-10-06",
+  // Ended series still in seeds but no next occurrence (materialize empty → 404)
+  "el-colibri-karaoke-battle-2026": "/venue/el-colibri-hotel",
+  // Removed / retired listings (GSC Coverage 404 drilldown 2026-10-24)
+  "lax-headline-concerts": "/venue/lax-cabarete",
+  "batey-open-mic-weekly": "/city/sosua",
+  "malecon-live-concert": "/city/puerto-plata",
+  "kviar-disco-casino-nights": "/venue/kviar-costa-dorada",
+  "cowork-weekdays": "/city/cabarete",
+  "ambar-lounge-miercoles-rooftop": "/venue/ambar-lounge-pop",
+  "community-pickleball-cabarete": "/city/cabarete",
+  "malecon-morning-wellness-walk": "/city/puerto-plata",
+  "freestyle-catamaran-daily": "/city/puerto-plata",
+  "anfiteatro-cultural-performances": "/venue/anfiteatro-la-puntilla",
+  "north-coast-tech-meetup": "/city/cabarete",
+  "malecon-kiosks-daily": "/city/puerto-plata",
+  "congreso-damas-adn-2026": "/venue/gran-ventana-beach-resort",
+  "victrola-ladies-night-friday": "/venue/victrola-037",
+  "ingest-1783371784615-0-18th-annual-cabarete-butterfly-effect":
+    "/city/cabarete",
+  "cheers-weekly-live": "/city/sosua",
+  "cremo-friday-salsa-dance": "/event/cremo-salsa-friday",
+  "piscinazo-pop-urbano-037-2026-08-02": "/venue/victrola-037",
+  "el-carey-wc2026-2026-07-15-winner-m99-vs-winner-m100-1500":
+    "/venue/el-carey-puerto-plata",
+  "sea-horse-saturday-artisan-fair": "/event/sea-horse-saturday-market",
+  "gym-sov-zumba-lift-thursday": "/city/sosua",
+  "community-domino-sosua": "/city/sosua",
+  "cabarete-yoga-daily": "/city/cabarete",
+  "zen-fitness-weightloss-camp": "/venue/zen-fitness-cabarete",
+  "sosua-coastal-pickleball-open-2026-10-24": "/city/sosua",
+};
+
+export function resolveEventPathRedirect(
+  id: string | undefined | null,
+): string | undefined {
+  const trimmed = id?.trim();
+  if (!trimmed) return undefined;
+  return EVENT_PATH_REDIRECTS[trimmed];
+}
+
 export function filterRemovedSeedEvents(events: Event[]): Event[] {
   return events.filter((e) => !REMOVED_SEED_EVENT_IDS.has(e.id));
 }

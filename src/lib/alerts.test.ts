@@ -142,7 +142,7 @@ describe("applyActiveEditorialClosure", () => {
     assert.equal(reopen.temporarilyClosed, undefined);
   });
 
-  it("marks Mecla'o closed through Thu 23 Oct renovations, open Fri 24 Oct", () => {
+  it("marks Mecla'o closed for renovations until further notice from 20 Oct", () => {
     const venueInput: { slug: string; temporarilyClosed?: boolean } = {
       slug: "meclao-rooftop",
     };
@@ -155,13 +155,53 @@ describe("applyActiveEditorialClosure", () => {
       true,
     );
     assert.equal(
-      applyActiveEditorialClosureToVenue(venueInput, "2026-10-23").temporarilyClosed,
+      applyActiveEditorialClosureToVenue(venueInput, "2026-10-24").temporarilyClosed,
       true,
     );
     assert.equal(
-      applyActiveEditorialClosureToVenue(venueInput, "2026-10-24").temporarilyClosed,
-      undefined,
+      applyActiveEditorialClosureToVenue(venueInput, "2026-11-15").temporarilyClosed,
+      true,
     );
+
+    const editorial = EDITORIAL_ALERTS.find(
+      (a) => a.id === "meclao-rooftop-renovation-2026-10",
+    );
+    assert.ok(editorial);
+    assert.equal(editorial.closureStatus, "repair");
+    assert.equal(editorial.until, undefined);
+    assert.equal(editorial.reopensOn, undefined);
+    assert.equal(
+      editorial.summary.en,
+      "Until further notice — check @meclaorooftop.",
+    );
+
+    // Before you go (Puerto Plata + North Coast home); not Cabarete-scoped.
+    const now = new Date("2026-10-24T16:00:00.000Z");
+    const pp = getHomeAlerts({
+      locale: "en",
+      dict,
+      citySlug: "puerto-plata",
+      now,
+      limit: 20,
+    });
+    const ppAlert = pp.find((a) => a.id === "meclao-rooftop-renovation-2026-10");
+    assert.ok(ppAlert);
+    assert.equal(ppAlert.title, "Mecla'o Rooftop closed for renovations");
+    assert.equal(ppAlert.summary, "Until further notice — check @meclaorooftop.");
+    assert.equal(ppAlert.closureStatus, "repair");
+    assert.equal(ppAlert.reopensLabel, undefined);
+
+    const home = getHomeAlerts({ locale: "en", dict, citySlug: null, now, limit: 20 });
+    assert.ok(home.some((a) => a.id === "meclao-rooftop-renovation-2026-10"));
+
+    const cab = getHomeAlerts({
+      locale: "en",
+      dict,
+      citySlug: "cabarete",
+      now,
+      limit: 20,
+    });
+    assert.ok(!cab.some((a) => a.id === "meclao-rooftop-renovation-2026-10"));
   });
 
   it("marks Gypsy Bowls closed after Last Bowl Call through 14 Oct, open 15 Oct", () => {

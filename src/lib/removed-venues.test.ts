@@ -4,7 +4,9 @@ import {
   canonicalizeVenueSlug,
   filterRemovedVenues,
   isRemovedVenueSlug,
+  REMOVED_VENUE_PATH_REDIRECTS,
   REMOVED_VENUE_SLUGS,
+  resolveRemovedVenuePathRedirect,
   resolveVenueSlugRedirect,
 } from "./removed-venues";
 
@@ -64,5 +66,20 @@ describe("removed venues", () => {
       kept.map((venue) => venue.slug),
       ["lax-cabarete"],
     );
+  });
+
+  it("301s GSC soft-404 area venues to city hubs", () => {
+    assert.equal(
+      resolveRemovedVenuePathRedirect("cabarete-beach"),
+      "/city/cabarete",
+    );
+    assert.equal(
+      resolveRemovedVenuePathRedirect("caleton-beach-club"),
+      "/city/cabarete",
+    );
+    for (const [slug, path] of Object.entries(REMOVED_VENUE_PATH_REDIRECTS)) {
+      assert.ok(REMOVED_VENUE_SLUGS.has(slug), slug);
+      assert.ok(path.startsWith("/city/") || path.startsWith("/venue/"), path);
+    }
   });
 });
