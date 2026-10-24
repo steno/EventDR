@@ -795,6 +795,12 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     venueSlug: "luxury-club-puerto-plata",
     sourceUrl: "https://www.instagram.com/luxury.club.puerto_plata/",
   },
+  "luxury-club-exotic-friday": {
+    callForPricing: true,
+    phone: "+18298484259",
+    venueSlug: "luxury-club-puerto-plata",
+    sourceUrl: "https://www.instagram.com/luxury.club.puerto_plata/",
+  },
   "luxury-club-glam-saturday": {
     callForPricing: true,
     phone: "+18498857986",

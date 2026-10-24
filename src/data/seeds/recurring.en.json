@@ -2797,6 +2797,36 @@
     "imageEmoji": "🎤"
   },
   {
+    "id": "la-chabola-friday-karaoke",
+    "title": "La Chabola Friday Karaoke Night",
+    "description": "Every Friday karaoke night at La Chabola, Callejón de la Loma, Cabarete — Host Cris from 7:30 PM. Neighborhood pizza-bar mic night (not Wednesday open mic). Confirm any cover via Facebook Chabola Cabarete · +1 809-543-5860.",
+    "date": "2026-01-01",
+    "time": "7:30 PM",
+    "location": "Cabarete",
+    "venue": "La Chabola",
+    "venueSlug": "la-chabola-cabarete",
+    "address": "Callejón de la Loma, Cabarete 57000",
+    "lat": 19.7475887,
+    "lng": -70.4167516,
+    "category": "performances",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "recurrence": "weekly",
+    "recurrenceDay": 5,
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18095435860",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.facebook.com/chabolacabaretee",
+    "lineup": [
+      "Host Cris"
+    ],
+    "imageEmoji": "🎤"
+  },
+  {
     "id": "hideout-miercoles-rock-en-espanol",
     "title": "Miércoles de Rock en Español at The Hideout",
     "description": "Wednesday Rock en Español nights at The Hideout, Av. Luis Ginebra #56 segundo nivel, Puerto Plata — 80s/90s Spanish-language rock playlist energy (Soda Stereo, Héroes del Silencio, Hombres G and more). Same building as Cigar Town Pop, upstairs lounge. Confirm doors via the venue.",
@@ -2996,6 +3026,37 @@
       "Drink specials"
     ],
     "imageEmoji": "🥂"
+  },
+  {
+    "id": "luxury-club-exotic-friday",
+    "title": "Exotic Friday at Luxury Club",
+    "description": "Every Friday — Exotic Friday at Luxury Club Puerto Plata, Carretera Luperón Km 4.5, Complejo Turístico Costa Dorada. Hosted by Angel Carela with a gogo dancer show; bottle specials Old Parr 2x1 RD$6,000, Cîroc 2x1 RD$11,000, Doble Reserva 2x1 RD$3,000. RSVP +1 829-848-4259 · Instagram @luxuryclub.pop / @luxury.club.puerto_plata. Cover not on the flyer — confirm when you reserve. Costa Dorada club Friday, not Kviar’s casino disco next door.",
+    "date": "2026-01-01",
+    "location": "Puerto Plata",
+    "venue": "Luxury Club Puerto Plata",
+    "venueSlug": "luxury-club-puerto-plata",
+    "address": "Carretera Luperón Km 4.5, Complejo Turístico Costa Dorada, Puerto Plata",
+    "lat": 19.77625,
+    "lng": -70.6594,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "recurrence": "weekly",
+    "recurrenceDay": 5,
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18298484259",
+    "ageHint": "18-plus",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/luxury.club.puerto_plata/",
+    "lineup": [
+      "Angel Carela",
+      "Gogo dancer show"
+    ],
+    "imageEmoji": "🪩"
   },
   {
     "id": "luxury-club-glam-saturday",

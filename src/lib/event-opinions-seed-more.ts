@@ -3595,10 +3595,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "nueve-80s-90s-por-siempre-2026-10-24",
-    body: "Theme-dress 80s/90s Saturday at Nueve on Oct 24 — ignore the Oct 10 date on the flyer if it’s still in the art; confirm doors on @nueve_rd / @thehost_rd.",
+    body: "Theme-dress 80s/90s Saturday at Nueve with Los Disyoquey — DJ Yona and DJ Alex G on the decks; ignore the Oct 10 date on the theme flyer if it’s still in the art, and confirm doors on @nueve_rd / @thehost_rd.",
     localized: {
-      es: "Sábado temático 80s/90s en Nueve el 24 oct — ignora el 10 oct en el flyer si sigue en el arte; confirma puertas en @nueve_rd / @thehost_rd.",
-      fr: "Samedi thème 80s/90s à Nueve le 24 oct — ignorez le 10 oct sur le flyer s’il est encore dans l’image ; confirmez les portes sur @nueve_rd / @thehost_rd.",
+      es: "Sábado temático 80s/90s en Nueve con Los Disyoquey — DJ Yona y DJ Alex G en las decks; ignora el 10 oct en el flyer temático si sigue en el arte, y confirma puertas en @nueve_rd / @thehost_rd.",
+      fr: "Samedi thème 80s/90s à Nueve avec Los Disyoquey — DJ Yona et DJ Alex G aux platines ; ignorez le 10 oct sur le flyer thème s’il est encore dans l’image, et confirmez les portes sur @nueve_rd / @thehost_rd.",
     },
     priceFeel: "varies",
     priceNote:
@@ -3607,10 +3607,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       es: "Tire 80s/90s — cover/puertas confirma @nueve_rd / @thehost_rd",
       fr: "Tenue 80s/90s — cover/portes confirmez @nueve_rd / @thehost_rd",
     },
-    attribution: "POP research · @nueve_rd · @thehost_rd",
+    attribution: "POP research · @nueve_rd · @thehost_rd · Los Disyoquey flyer",
     researchNotes:
-      "Rescheduled — Sat 24 Oct 2026 80s-90s POR SIEMPRE at Nueve; host IG @thehost_rd; dress code tire 80s/90s. Flyer art may still show 10 Oct (or 18 Oct) — listing copy tells guests to ignore poster date.",
-    updatedAt: "2026-10-10T23:30:00.000Z",
+      "Rescheduled — Sat 24 Oct 2026 80s-90s POR SIEMPRE at Nueve; Los Disyoquey / DJ Yona / DJ Alex G flyer (24.10) is the DJ bill for this night, not a separate venue. Host IG @thehost_rd; dress code tire 80s/90s. Theme flyer art may still show 10 Oct — listing copy tells guests to ignore poster date.",
+    updatedAt: "2026-10-24T03:00:00.000Z",
   },
   {
     eventId: "cheo-almonte-grand-prix-2026-09-25",
@@ -6851,10 +6851,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "isabela-food-fest-2026-12-18",
-    body: "Three-day pueblo fest at Parque Municipal Villa Isabela (18–20 Dec) — food, DJs, and live acts on the glorieta plaza; buy tickets on todotickets.do / Plaza Lama, and don’t confuse it with D'Ocean’s Oct 31 Halloween night in the same town.",
+    body: "Three-day pueblo fest at Parque Municipal Villa Isabela (18–20 Dec) — food, DJs, and live acts on the glorieta plaza; Bulin 47 closes Sunday (own listing), more artists as confirmed — buy tickets on todotickets.do / Plaza Lama, and don’t confuse it with D'Ocean’s Oct 31 Halloween night in the same town.",
     localized: {
-      es: "Fest del pueblo de tres días en el Parque Municipal Villa Isabela (18–20 dic) — comida, DJs y actos en vivo en la plaza de la glorieta; compra boletas en todotickets.do / Plaza Lama, y no lo confundas con el Halloween del 31 oct en D'Ocean en el mismo pueblo.",
-      fr: "Fest du pueblo de trois jours au Parque Municipal Villa Isabela (18–20 déc.) — food, DJs et acts live sur la place de la gloriette ; achetez les billets sur todotickets.do / Plaza Lama, et ne confondez pas avec l’Halloween du 31 oct. au D'Ocean dans la même ville.",
+      es: "Fest del pueblo de tres días en el Parque Municipal Villa Isabela (18–20 dic) — comida, DJs y actos en vivo en la plaza de la glorieta; Bulin 47 cierra el domingo (ficha aparte), más artistas según confirmen — compra boletas en todotickets.do / Plaza Lama, y no lo confundas con el Halloween del 31 oct en D'Ocean en el mismo pueblo.",
+      fr: "Fest du pueblo de trois jours au Parque Municipal Villa Isabela (18–20 déc.) — food, DJs et acts live sur la place de la gloriette ; Bulin 47 ferme le dimanche (fiche séparée), d’autres artistes à confirmer — achetez les billets sur todotickets.do / Plaza Lama, et ne confondez pas avec l’Halloween du 31 oct. au D'Ocean dans la même ville.",
     },
     priceFeel: "varies",
     priceNote: "Tickets todotickets.do / Plaza Lama · info +1 829-336-6802",
@@ -6862,9 +6862,101 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       es: "Boletas todotickets.do / Plaza Lama · info +1 829-336-6802",
       fr: "Billets todotickets.do / Plaza Lama · infos +1 829-336-6802",
     },
-    attribution: "POP research · @isabelafoodfest official poster + DJ Flacome announce",
+    attribution: "POP research · @isabelafoodfest official poster + DJ Flacome + Bulin 47 gran cierre",
     researchNotes:
-      "Editor assets — El Festival del Pueblo official poster; DJ Flacome Sat 19 flyer; ALGO VIENE PRONTO park teaser; IG caption Dec 18–20; park place shot for venue; phone 829-336-6802.",
-    updatedAt: "2026-10-23T22:45:00.000Z",
+      "Editor assets — El Festival del Pueblo official poster; DJ Flacome Sat 19 flyer; Bulin 47 Dom 20 gran cierre (separate seed isabela-food-fest-bulin-47-2026-12-20); more artists TBA; IG caption Dec 18–20; park place shot for venue; phone 829-336-6802.",
+    updatedAt: "2026-10-24T03:15:00.000Z",
+  },
+  {
+    eventId: "isabela-food-fest-bulin-47-2026-12-20",
+    body: "Sunday gran cierre of Isabela Food Fest with Bulin 47 on the Parque Municipal stage — festival weekend ticket, not Ground Zero’s Nov 6 disco bill; more closing acts may land as TRIVI confirms them.",
+    localized: {
+      es: "Gran cierre del domingo de Isabela Food Fest con Bulin 47 en el escenario del Parque Municipal — boleta del fin de semana del festival, no el cartel disco del 6 nov en Ground Zero; pueden sumarse más actos de cierre según confirme TRIVI.",
+      fr: "Gran cierre du dimanche d’Isabela Food Fest avec Bulin 47 sur la scène du Parque Municipal — billet week-end festival, pas l’affiche disco du 6 nov au Ground Zero ; d’autres acts de clôture peuvent s’ajouter selon TRIVI.",
+    },
+    priceFeel: "varies",
+    priceNote: "Tickets todotickets.do / Plaza Lama / C28 · info +1 829-336-6802",
+    priceNoteLocalized: {
+      es: "Boletas todotickets.do / Plaza Lama / C28 · info +1 829-336-6802",
+      fr: "Billets todotickets.do / Plaza Lama / C28 · infos +1 829-336-6802",
+    },
+    attribution: "POP research · @isabelafoodfest Bulin 47 gran cierre flyer",
+    researchNotes:
+      "Editor flyer — ARTISTA CONFIRMADO GRAN CIERRE BULIN 47, Dom 20 Dic, Parque Villa Isabela; related to isabela-food-fest-2026-12-18; not groundzero-bulin47-2026-11-06; phone 829-336-6802; todotickets.do / Plaza Lama / C28.",
+    updatedAt: "2026-10-24T03:15:00.000Z",
+  },
+  {
+    eventId: "la-chabola-friday-karaoke",
+    seriesKey: "la-chabola-cabarete:weekly:5",
+    body: "Friday karaoke with Host Cris from 7:30 PM in the Callejón pizza bar — different night from Wednesday open mic; small room, so come early if you want a seat.",
+    localized: {
+      es: "Karaoke del viernes con Host Cris desde las 7:30 PM en el pizza-bar del Callejón — otra noche que el open mic del miércoles; sala chica, llega temprano si quieres asiento.",
+      fr: "Karaoke du vendredi avec Host Cris dès 19 h 30 au pizza-bar du Callejón — autre soirée que l’open mic du mercredi ; petite salle, venez tôt pour une place.",
+    },
+    priceFeel: "budget",
+    priceNote: "Cover not on flyer — +1 809-543-5860 / Facebook Chabola Cabarete",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — +1 809-543-5860 / Facebook Chabola Cabarete",
+      fr: "Cover absent de l’affiche — +1 809-543-5860 / Facebook Chabola Cabarete",
+    },
+    attribution: "POP research · La Chabola Karaoke Night flyer · Host Cris",
+    researchNotes:
+      "Editor flyer — KARAOKE NIGHT TODOS LOS VIERNES / EVERY FRIDAY 7:30 PM Host Cris; venue la-chabola-cabarete; distinct from la-chabola-wednesday-open-mic.",
+    updatedAt: "2026-10-24T04:00:00.000Z",
+  },
+  {
+    eventId: "ojo-spooktacular-fun-2026-10-31",
+    body: "Afternoon family Halloween on Playa Cabarete at Ojo (4–8 PM) — candies and costume prizes, not the same-night Rojo DJ party with Polanco and Deeway; pin LAX beach, not Aura’s rooftop Nightmare Lineup.",
+    localized: {
+      es: "Halloween familiar de tarde en Playa Cabarete en Ojo (4–8 PM) — dulces y premios de disfraz, no la fiesta Rojo de la misma noche con Polanco y Deeway; pin playa LAX, no el Nightmare Lineup de Aura en la azotea.",
+      fr: "Halloween familial d’après-midi sur Playa Cabarete à Ojo (16 h–20 h) — bonbons et prix costumes, pas la fête Rojo de la même nuit avec Polanco et Deeway ; épinglez la plage LAX, pas le Nightmare Lineup d’Aura en rooftop.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover not on flyer — +1 829-745-8811 / @ojoclubcabarete",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — +1 829-745-8811 / @ojoclubcabarete",
+      fr: "Cover absent de l’affiche — +1 829-745-8811 / @ojoclubcabarete",
+    },
+    attribution: "POP research · @ojoclubcabarete Spooktacular Fun flyer",
+    researchNotes:
+      "Editor flyer + IG story — Spooktacular Fun Halloween Day, Sábado 31 Oct 4–8 PM, Playa Cabarete / Ojo Club; family ageHint; distinct from ojo-rojo-halloween-2026-10-31.",
+    updatedAt: "2026-10-24T03:45:00.000Z",
+  },
+  {
+    eventId: "luxury-club-exotic-friday",
+    seriesKey: "luxury-club-puerto-plata:weekly:5",
+    body: "Friday gogo Exotic night at Luxury Club with Angel Carela — bottle 2x1s on the flyer; RSVP +1 829-848-4259 and pin Costa Dorada, not Kviar next door or downtown Latin Disco.",
+    localized: {
+      es: "Viernes Exotic con gogo en Luxury Club con Angel Carela — 2x1 de botellas en el flyer; RSVP +1 829-848-4259 y pin Costa Dorada, no Kviar al lado ni Latin Disco en el centro.",
+      fr: "Vendredi Exotic gogo au Luxury Club avec Angel Carela — 2x1 bouteilles sur l’affiche ; RSVP +1 829-848-4259 et épinglez Costa Dorada, pas Kviar à côté ni Latin Disco en ville.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover not on flyer — RSVP +1 829-848-4259 / @luxuryclub.pop",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — RSVP +1 829-848-4259 / @luxuryclub.pop",
+      fr: "Cover absent de l’affiche — RSVP +1 829-848-4259 / @luxuryclub.pop",
+    },
+    attribution: "POP research · Luxury Club Exotic Friday flyer · Angel Carela",
+    researchNotes:
+      "Editor flyer — EXOTIC FRIDAY weekly; Angel Carela; gogo show; Old Parr 2x1 6000, Ciroc 2x1 11000, Doble Reserva 2x1 3000; RSV 829-848-4259; ageHint 18-plus; fills Friday gap in Luxury weekly board.",
+    updatedAt: "2026-10-24T03:30:00.000Z",
+  },
+  {
+    eventId: "bar-39-jungle-juice-halloween-2026-10-30",
+    body: "Halloween-weekend frozen Jungle Juice at Bar 39 on Sosúa Beach (RD$500 each) — Fri 30 Oct–Sun 1 Nov drink promo on the same sand as Rumble boxing Friday; not a Pedro Clisante disco crawl.",
+    localized: {
+      es: "Jungle Juice frozen del fin de Halloween en Bar 39 en Playa Sosúa (RD$500 c/u) — promo de tragos vie 30 oct–dom 1 nov en la misma arena que el boxeo Rumble el viernes; no es crawl de disco en Pedro Clisante.",
+      fr: "Jungle Juice frozen du week-end Halloween au Bar 39 sur Playa Sosúa (RD$500 chacune) — promo boissons ven 30 oct–dim 1er nov sur le même sable que la boxe Rumble le vendredi ; pas un crawl disco Pedro Clisante.",
+    },
+    priceFeel: "budget",
+    priceNote: "RD$500 per frozen drink — +1 829-817-2884",
+    priceNoteLocalized: {
+      es: "RD$500 por frozen — +1 829-817-2884",
+      fr: "RD$500 par frozen — +1 829-817-2884",
+    },
+    attribution: "POP research · 39 Jungle Juice Halloween Party flyer",
+    researchNotes:
+      "Editor flyer — HALLOWEEN PARTY 39 Jungle Juice Get Frozen 500 PESOS EACH Sosúa Beach; whole weekend Oct 30–Nov 1 per editor; companion to rumble-in-paradise-13 same venue Fri 30; venue bar-39-sosua.",
+    updatedAt: "2026-10-24T03:00:00.000Z",
   },
 ];

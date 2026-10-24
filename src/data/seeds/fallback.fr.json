@@ -3321,7 +3321,7 @@
   {
     "id": "nueve-80s-90s-por-siempre-2026-10-24",
     "title": "80s–90s Por Siempre à Nueve",
-    "description": "Soirée 80s–90s Por Siempre à Nueve Restaurante & Bar, Puerto Plata — samedi 24 octobre 2026. Reportée du 10 octobre — ignorez la date du 10 oct sur le flyer si vous la voyez encore. Tenue 80s ou 90s ; sets DJ nostalgie, danse et bonche local. Confirmez les portes via Instagram @nueve_rd / @thehost_rd.",
+    "description": "Soirée 80s–90s Por Siempre à Nueve Restaurante & Bar, Puerto Plata — samedi 24 octobre 2026. Reportée du 10 octobre — ignorez la date du 10 oct sur le flyer thème si vous la voyez encore. Tenue 80s ou 90s ; Los Disyoquey avec DJ Yona et DJ Alex G aux platines, danse et bonche local. Confirmez les portes via Instagram @nueve_rd / @thehost_rd.",
     "date": "2026-10-24",
     "time": "10:00 PM",
     "location": "Puerto Plata",
@@ -3338,7 +3338,9 @@
     "sourceType": "instagram",
     "sourceUrl": "https://www.instagram.com/nueve_rd/",
     "lineup": [
-      "80s–90s DJ sets"
+      "Los Disyoquey",
+      "DJ Yona",
+      "DJ Alex G"
     ],
     "imageEmoji": "📼"
   },
@@ -8212,7 +8214,7 @@
   {
     "id": "isabela-food-fest-2026-12-18",
     "title": "Villa Isabela — Isabela Food Fest",
-    "description": "Isabela Food Fest (El Festival del Pueblo) au Parque Municipal Villa Isabela — vendredi 18 au dimanche 20 décembre 2026. Artistes live, DJs et gastronomie sur la place municipale. Premier DJ confirmé : DJ Flacome (@djflacomc) le samedi 19 décembre. Billets sur todotickets.do et Plaza Lama ; infos et réservations +1 829-336-6802 · Instagram @isabelafoodfest. À l’ouest de Puerto Plata ville — pas l’Halloween D'Ocean Bar du 31 oct.",
+    "description": "Isabela Food Fest (El Festival del Pueblo) au Parque Municipal Villa Isabela — vendredi 18 au dimanche 20 décembre 2026. Artistes live, DJs et gastronomie sur la place municipale. Confirmés pour l’instant : DJ Flacome (@djflacomc) le samedi 19 décembre ; Bulin 47 gran cierre le dimanche 20 décembre (fiche séparée). D’autres artistes à confirmer. Billets sur todotickets.do et Plaza Lama ; infos et réservations +1 829-336-6802 · Instagram @isabelafoodfest. À l’ouest de Puerto Plata ville — pas l’Halloween D'Ocean Bar du 31 oct.",
     "date": "2026-12-18",
     "endDate": "2026-12-20",
     "location": "Villa Isabela",
@@ -8235,9 +8237,88 @@
     "sourceUrl": "https://www.instagram.com/isabelafoodfest/",
     "instagram": "isabelafoodfest",
     "lineup": [
-      "DJ Flacome — Saturday 19 December",
-      "Live artists · DJs · gastronomy"
+      "DJ Flacome — samedi 19 décembre",
+      "Bulin 47 — dimanche 20 décembre gran cierre",
+      "Plus d’artistes TBA · DJs · gastronomie"
     ],
     "imageEmoji": "🍔"
+  },
+  {
+    "id": "isabela-food-fest-bulin-47-2026-12-20",
+    "title": "Isabela Food Fest — Bulin 47 Gran Cierre",
+    "description": "Gran cierre avec Bulin 47 (El más pegado) à Isabela Food Fest, Parque Municipal Villa Isabela — dimanche 20 décembre 2026. Soirée de clôture du festival de trois jours (18–20 déc.) ; voir la fiche principale Isabela Food Fest pour tout le week-end. Billets sur todotickets.do, Plaza Lama et C28 ; infos et réservations +1 829-336-6802 · Instagram @isabelafoodfest. Concert de clôture à Villa Isabela — pas le show Bulin 47 au Ground Zero le 6 novembre.",
+    "date": "2026-12-20",
+    "location": "Villa Isabela",
+    "venue": "Parque Municipal Villa Isabela",
+    "venueSlug": "parque-municipal-villa-isabela",
+    "address": "Parque Municipal, Villa Isabela, Puerto Plata",
+    "lat": 19.813027,
+    "lng": -71.055725,
+    "category": "concert",
+    "categories": [
+      "festivals",
+      "music"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18293366802",
+    "ticketUrl": "https://todotickets.do",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/isabelafoodfest/",
+    "instagram": "isabelafoodfest",
+    "lineup": [
+      "Bulin 47"
+    ],
+    "imageEmoji": "🎤"
+  },
+  {
+    "id": "ojo-spooktacular-fun-2026-10-31",
+    "title": "Ojo Club Spooktacular Fun — Journée Halloween",
+    "description": "Spooktacular Fun ! Journée Halloween pour toute la famille à Ojo Club sur Playa Cabarete (LAX Cabarete) — samedi 31 octobre 2026, 16 h–20 h. Animation, bonbons gratuits, prix par participation et prix du meilleur costume. Halloween familial d’après-midi sur la plage — pas la fête Rojo de la même nuit avec DJ Polanco et Deeway. Infos @ojoclubcabarete · réservations +1 829-745-8811 / WhatsApp +1 829-745-8812.",
+    "date": "2026-10-31",
+    "time": "4:00 PM – 8:00 PM",
+    "location": "Cabarete",
+    "venue": "Ojo Club at LAX Cabarete",
+    "venueSlug": "lax-cabarete",
+    "lat": 19.7503643,
+    "lng": -70.406125,
+    "category": "halloween",
+    "categories": [
+      "culture",
+      "parties"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18297458811",
+    "ageHint": "family",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/ojoclubcabarete/",
+    "instagram": "ojoclubcabarete",
+    "imageEmoji": "🎃"
+  },
+  {
+    "id": "bar-39-jungle-juice-halloween-2026-10-30",
+    "title": "Bar 39 Jungle Juice — week-end Halloween",
+    "description": "Fête Halloween 39 Jungle Juice sur Playa Sosúa au Bar 39 — vendredi 30 octobre au dimanche 1er novembre 2026. Boissons frozen Get Frozen à RD$500 chacune ; promo beach bar thème horreur pour le week-end d’Halloween. Même sable que la boxe Rumble in Paradise 13 le vendredi 30 oct — offre boissons, pas les combats. Confirmez les horaires au bar · +1 829-817-2884.",
+    "date": "2026-10-30",
+    "endDate": "2026-11-01",
+    "location": "Sosúa",
+    "venue": "Bar 39, Playa Sosúa",
+    "venueSlug": "bar-39-sosua",
+    "lat": 19.75942,
+    "lng": -70.51672,
+    "category": "parties",
+    "categories": [
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "admissionPrice": "RD$500 par boisson",
+    "phone": "+18298172884",
+    "sourceType": "flyer",
+    "imageEmoji": "🧃"
   }
 ]

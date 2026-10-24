@@ -3323,7 +3323,7 @@
   {
     "id": "nueve-80s-90s-por-siempre-2026-10-24",
     "title": "80s–90s Por Siempre at Nueve",
-    "description": "80s–90s Por Siempre dance party at Nueve Restaurante & Bar, Puerto Plata — Saturday 24 October 2026. Rescheduled from 10 October — ignore the Oct 10 date on the flyer if you still see it. Dress 80s or 90s (un tire de los 80s o 90s); DJ nostalgia sets, dancing, and a local bonche crowd. Confirm doors via Instagram @nueve_rd / @thehost_rd.",
+    "description": "80s–90s Por Siempre dance party at Nueve Restaurante & Bar, Puerto Plata — Saturday 24 October 2026. Rescheduled from 10 October — ignore the Oct 10 date on the theme flyer if you still see it. Dress 80s or 90s; Los Disyoquey with DJ Yona and DJ Alex G on the decks, dancing, and a local bonche crowd. Confirm doors via Instagram @nueve_rd / @thehost_rd.",
     "date": "2026-10-24",
     "time": "10:00 PM",
     "location": "Puerto Plata",
@@ -3340,7 +3340,9 @@
     "sourceType": "instagram",
     "sourceUrl": "https://www.instagram.com/nueve_rd/",
     "lineup": [
-      "80s–90s DJ sets"
+      "Los Disyoquey",
+      "DJ Yona",
+      "DJ Alex G"
     ],
     "imageEmoji": "📼"
   },
@@ -8214,7 +8216,7 @@
   {
     "id": "isabela-food-fest-2026-12-18",
     "title": "Villa Isabela — Isabela Food Fest",
-    "description": "Isabela Food Fest (El Festival del Pueblo) at Parque Municipal Villa Isabela — Friday 18 through Sunday 20 December 2026. Live artists, DJs, and gastronomy in the municipal plaza. First confirmed DJ: DJ Flacome (@djflacomc) on Saturday 19 December. Tickets at todotickets.do and Plaza Lama; info & reservations +1 829-336-6802 · Instagram @isabelafoodfest. West of Puerto Plata city — not D'Ocean Bar Halloween on 31 Oct.",
+    "description": "Isabela Food Fest (El Festival del Pueblo) at Parque Municipal Villa Isabela — Friday 18 through Sunday 20 December 2026. Live artists, DJs, and gastronomy in the municipal plaza. Confirmed so far: DJ Flacome (@djflacomc) Saturday 19 December; Bulin 47 gran cierre Sunday 20 December (separate listing). More artists as confirmed. Tickets at todotickets.do and Plaza Lama; info & reservations +1 829-336-6802 · Instagram @isabelafoodfest. West of Puerto Plata city — not D'Ocean Bar Halloween on 31 Oct.",
     "date": "2026-12-18",
     "endDate": "2026-12-20",
     "location": "Villa Isabela",
@@ -8238,8 +8240,87 @@
     "instagram": "isabelafoodfest",
     "lineup": [
       "DJ Flacome — Saturday 19 December",
-      "Live artists · DJs · gastronomy"
+      "Bulin 47 — Sunday 20 December gran cierre",
+      "More artists TBA · DJs · gastronomy"
     ],
     "imageEmoji": "🍔"
+  },
+  {
+    "id": "isabela-food-fest-bulin-47-2026-12-20",
+    "title": "Isabela Food Fest — Bulin 47 Gran Cierre",
+    "description": "Gran cierre with Bulin 47 (El más pegado) at Isabela Food Fest, Parque Municipal Villa Isabela — Sunday 20 December 2026. Closing night of the three-day festival (18–20 Dec); see the main Isabela Food Fest listing for the full weekend. Tickets at todotickets.do, Plaza Lama, and C28; info & reservations +1 829-336-6802 · Instagram @isabelafoodfest. Festival closing concert in Villa Isabela — not Ground Zero’s Bulin 47 show on 6 November.",
+    "date": "2026-12-20",
+    "location": "Villa Isabela",
+    "venue": "Parque Municipal Villa Isabela",
+    "venueSlug": "parque-municipal-villa-isabela",
+    "address": "Parque Municipal, Villa Isabela, Puerto Plata",
+    "lat": 19.813027,
+    "lng": -71.055725,
+    "category": "concert",
+    "categories": [
+      "festivals",
+      "music"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18293366802",
+    "ticketUrl": "https://todotickets.do",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/isabelafoodfest/",
+    "instagram": "isabelafoodfest",
+    "lineup": [
+      "Bulin 47"
+    ],
+    "imageEmoji": "🎤"
+  },
+  {
+    "id": "ojo-spooktacular-fun-2026-10-31",
+    "title": "Ojo Club Spooktacular Fun — Halloween Day",
+    "description": "Spooktacular Fun! Halloween Day for the whole family at Ojo Club on Playa Cabarete (LAX Cabarete) — Saturday 31 October 2026, 4:00 PM–8:00 PM. Entertainment, free candies, prizes for participation, and a best-costume prize. Afternoon family beach Halloween — not Ojo’s same-night Rojo costume party with DJ Polanco and Deeway. Info @ojoclubcabarete · reservations +1 829-745-8811 / WhatsApp +1 829-745-8812.",
+    "date": "2026-10-31",
+    "time": "4:00 PM – 8:00 PM",
+    "location": "Cabarete",
+    "venue": "Ojo Club at LAX Cabarete",
+    "venueSlug": "lax-cabarete",
+    "lat": 19.7503643,
+    "lng": -70.406125,
+    "category": "halloween",
+    "categories": [
+      "culture",
+      "parties"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18297458811",
+    "ageHint": "family",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/ojoclubcabarete/",
+    "instagram": "ojoclubcabarete",
+    "imageEmoji": "🎃"
+  },
+  {
+    "id": "bar-39-jungle-juice-halloween-2026-10-30",
+    "title": "Bar 39 Jungle Juice Halloween Weekend",
+    "description": "39 Jungle Juice Halloween Party on Sosúa Beach at Bar 39 — Friday 30 October through Sunday 1 November 2026. Get Frozen frozen drinks RD$500 each; horror-theme beach-bar promo for Halloween weekend. Same sand as Rumble in Paradise 13 boxing on Friday 30 Oct — drink special, not the fights. Confirm hours at the bar · Instagram / beach strip Bar 39 · +1 829-817-2884.",
+    "date": "2026-10-30",
+    "endDate": "2026-11-01",
+    "location": "Sosúa",
+    "venue": "Bar 39, Sosúa Beach",
+    "venueSlug": "bar-39-sosua",
+    "lat": 19.75942,
+    "lng": -70.51672,
+    "category": "parties",
+    "categories": [
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "admissionPrice": "RD$500 per drink",
+    "phone": "+18298172884",
+    "sourceType": "flyer",
+    "imageEmoji": "🧃"
   }
 ]

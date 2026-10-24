@@ -98,6 +98,7 @@ Curated images under `public/events/` and `public/venues/`.
 | `nueve-sabados-bailables.jpg` | POP-supplied — Sábados Bailables dance floor art ([@nueve_rd](https://www.instagram.com/nueve_rd/)) | Weekly Saturday dance night (editor-provided) |
 | `nueve-80s-90s-por-siempre-2026-10-24.jpg` | POP-supplied — 80s–90s Por Siempre flyer ([@nueve_rd](https://www.instagram.com/nueve_rd/) / [@thehost_rd](https://www.instagram.com/thehost_rd/)) | Sat 24 Oct 2026 theme night (editor-provided; rescheduled from 10 Oct — flyer typography may still show 10 Oct; ignore poster date) |
 | `nueve-80s-90s-por-siempre-2026-10-24-mixtape.jpg` | POP-supplied — “life is a mixtape” cassette still ([@nueve_rd](https://www.instagram.com/nueve_rd/)) | Filename bump hero for 80s–90s Por Siempre Sat 24 Oct 2026 (editor-provided) |
+| `nueve-80s-90s-por-siempre-2026-10-24-disyoquey.jpg` | POP-supplied — Los Disyoquey / DJ Yona / DJ Alex G flyer (24.10) for the same Nueve 80s–90s night | Detail gallery slide 2 (editor-provided; typography-heavy) |
 | `venues/grand-prix-puerto-plata.jpg` | POP-supplied — Grand Prix Smart Shop facade, La Javilla ([@grandprixrd](https://www.instagram.com/grandprixrd/)) | Venue place shot (editor-provided) |
 | `cheo-almonte-grand-prix-2026-09-25.jpg` | POP-supplied — Cheo Almonte Show en Vivo Gratis flyer ([@grandprixrd](https://www.instagram.com/grandprixrd/)) | Fri 25 Sep 2026 free live set (editor-provided) |
 | `grand-prix-sabado-bailable.jpg` | POP-supplied — Sábado Bailable DJ art ([@grandprixrd](https://www.instagram.com/grandprixrd/)) | Weekly Saturday dance night (editor-provided) |
@@ -624,5 +625,10 @@ Curated images under `public/events/` and `public/venues/`.
 | `cremo-salsa-friday.jpg` | POP-supplied — Viernes de Salsa flyer (Cremo Cigar Bar) | Weekly Friday 8 PM free entry refresh (editor-provided; typography-heavy) |
 | `docean-bar-halloween-poeta-callejero-2026-10-31.jpg` | POP-supplied — D'Ocean Bar Halloween Party flyer (Poeta Callejero) | Sat 31 Oct 2026 10 PM Villa Isabela (editor-provided; typography-heavy) |
 | `isabela-food-fest-2026-12-18.jpg` | POP-supplied — Isabela Food Fest *El Festival del Pueblo* official poster ([@isabelafoodfest](https://www.instagram.com/isabelafoodfest/)) | 18–20 Dec 2026 Parque Municipal Villa Isabela (editor-provided; typography-heavy) |
+| `isabela-food-fest-bulin-47-2026-12-20.jpg` | POP-supplied — Isabela Food Fest *Gran Cierre Bulin 47* flyer ([@isabelafoodfest](https://www.instagram.com/isabelafoodfest/)) | Sun 20 Dec 2026 closing concert (editor-provided; typography-heavy) |
+| `la-chabola-friday-karaoke.jpg` | POP-supplied — La Chabola *Karaoke Night* every Friday / Host Cris flyer | Weekly Fri 7:30 PM (editor-provided; typography-heavy) |
+| `ojo-spooktacular-fun-2026-10-31.jpg` | POP-supplied — Ojo Club *Spooktacular Fun!* Halloween Day flyer ([@ojoclubcabarete](https://www.instagram.com/ojoclubcabarete/)) | Sat 31 Oct 2026 4–8 PM family beach day (editor-provided; typography-heavy) |
+| `luxury-club-exotic-friday.jpg` | POP-supplied — Luxury Club *Exotic Friday* / Angel Carela flyer ([@luxuryclub.pop](https://www.instagram.com/luxuryclub.pop/)) | Weekly Fri gogo night Costa Dorada (editor-provided; typography-heavy) |
+| `bar-39-jungle-juice-halloween-2026-10-30.jpg` | POP-supplied — *39 Jungle Juice* Halloween Party flyer (Bar 39 / Sosúa Beach) | Halloween weekend Fri 30 Oct–Sun 1 Nov 2026 (editor-provided; typography-heavy) |
 | `venues/parque-municipal-villa-isabela.jpg` | POP-supplied — Parque Municipal Villa Isabela peach glorieta / plaza place shot | Venue place shot (editor-provided) |
 | `venues/docean-bar-villa-isabela.jpg` | POP-supplied — D'Ocean Bar packed dance-floor interior | Venue place shot (editor-provided) |

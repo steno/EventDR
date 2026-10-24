@@ -100,6 +100,13 @@ const FILE_TO_EVENT_ID = {
   "docean-bar-halloween-poeta-callejero-2026-10-31.jpg":
     "docean-bar-halloween-poeta-callejero-2026-10-31",
   "isabela-food-fest-2026-12-18.jpg": "isabela-food-fest-2026-12-18",
+  "isabela-food-fest-bulin-47-2026-12-20.jpg":
+    "isabela-food-fest-bulin-47-2026-12-20",
+  "la-chabola-friday-karaoke.jpg": "la-chabola-friday-karaoke",
+  "ojo-spooktacular-fun-2026-10-31.jpg": "ojo-spooktacular-fun-2026-10-31",
+  "luxury-club-exotic-friday.jpg": "luxury-club-exotic-friday",
+  "bar-39-jungle-juice-halloween-2026-10-30.jpg":
+    "bar-39-jungle-juice-halloween-2026-10-30",
   "over-beach-club-aerial-v2.jpg": "over-beach-club",
   "ambar-lounge-bandoleras-2026-10-23.jpg":
     "ambar-lounge-bandoleras-2026-10-23",
@@ -600,6 +607,8 @@ const FILE_TO_EVENT_ID = {
   "nueve-80s-90s-por-siempre-2026-10-24.jpg":
     "nueve-80s-90s-por-siempre-2026-10-24",
   "nueve-80s-90s-por-siempre-2026-10-24-mixtape.jpg":
+    "nueve-80s-90s-por-siempre-2026-10-24",
+  "nueve-80s-90s-por-siempre-2026-10-24-disyoquey.jpg":
     "nueve-80s-90s-por-siempre-2026-10-24",
   "cheo-almonte-grand-prix-2026-09-25.jpg":
     "cheo-almonte-grand-prix-2026-09-25",

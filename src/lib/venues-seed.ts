@@ -345,7 +345,7 @@ export const SEED_VENUES: Venue[] = [
     name: "La Chabola",
     city: "Cabarete",
     description:
-      "Neighborhood pizza bar in Callejón de la Loma — stone-oven pies, local musicians, and Wednesday open mic nights with an affordable Cabarete crowd.",
+      "Neighborhood pizza bar in Callejón de la Loma — stone-oven pies, local musicians, Wednesday open mic, and Friday karaoke with Host Cris from 7:30 PM.",
     lat: 19.7488174,
     lng: -70.4146652,
     emoji: "🎤",

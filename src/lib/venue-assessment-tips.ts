@@ -330,11 +330,11 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "la-chabola-cabarete": {
-    body: "Callejón neighborhood ritual — pizza, cheap drinks, people who live here. Small room; early if you want a seat.",
+    body: "Callejón neighborhood ritual — pizza, cheap drinks, Wednesday open mic, and Friday karaoke with Host Cris from 7:30 PM. Small room; early if you want a seat.",
     localized: {
-      en: "Callejón neighborhood ritual — pizza, cheap drinks, people who live here. Small room; early if you want a seat.",
-      es: "Ritual de barrio en el Callejón — pizza, tragos baratos, gente que vive aquí. Sala chica; temprano si quieres asiento.",
-      fr: "Rituel de quartier au Callejón — pizza, verres abordables, vrais résidents. Petite salle ; venez tôt pour une place.",
+      en: "Callejón neighborhood ritual — pizza, cheap drinks, Wednesday open mic, and Friday karaoke with Host Cris from 7:30 PM. Small room; early if you want a seat.",
+      es: "Ritual de barrio en el Callejón — pizza, tragos baratos, open mic del miércoles y karaoke del viernes con Host Cris desde las 7:30 PM. Sala chica; temprano si quieres asiento.",
+      fr: "Rituel de quartier au Callejón — pizza, verres abordables, open mic du mercredi et karaoke du vendredi avec Host Cris dès 19 h 30. Petite salle ; venez tôt pour une place.",
     },
   },
   "sea-horse-ranch": {

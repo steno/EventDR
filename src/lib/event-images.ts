@@ -66,6 +66,13 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "docean-bar-halloween-poeta-callejero-2026-10-31":
     "docean-bar-halloween-poeta-callejero-2026-10-31.jpg",
   "isabela-food-fest-2026-12-18": "isabela-food-fest-2026-12-18.jpg",
+  "isabela-food-fest-bulin-47-2026-12-20":
+    "isabela-food-fest-bulin-47-2026-12-20.jpg",
+  "la-chabola-friday-karaoke": "la-chabola-friday-karaoke.jpg",
+  "ojo-spooktacular-fun-2026-10-31": "ojo-spooktacular-fun-2026-10-31.jpg",
+  "luxury-club-exotic-friday": "luxury-club-exotic-friday.jpg",
+  "bar-39-jungle-juice-halloween-2026-10-30":
+    "bar-39-jungle-juice-halloween-2026-10-30.jpg",
   "ambar-lounge-bandoleras-2026-10-23":
     "ambar-lounge-bandoleras-2026-10-23.jpg",
   "kite-street-son-cubano-2026-10-25":
@@ -1050,6 +1057,11 @@ const EVENT_GALLERY_SLIDES: Record<
       label: "Life is a mixtape",
     },
     {
+      file: "nueve-80s-90s-por-siempre-2026-10-24-disyoquey.jpg",
+      venueSlug: "nueve-puerto-plata",
+      label: "Los Disyoquey — DJ Yona & DJ Alex G",
+    },
+    {
       file: "nueve-80s-90s-por-siempre-2026-10-24.jpg",
       venueSlug: "nueve-puerto-plata",
       label: "80s–90s Por Siempre flyer",
@@ -1172,6 +1184,11 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "cremo-karaoke-tuesday.jpg",
   "docean-bar-halloween-poeta-callejero-2026-10-31.jpg",
   "isabela-food-fest-2026-12-18.jpg",
+  "isabela-food-fest-bulin-47-2026-12-20.jpg",
+  "la-chabola-friday-karaoke.jpg",
+  "ojo-spooktacular-fun-2026-10-31.jpg",
+  "luxury-club-exotic-friday.jpg",
+  "bar-39-jungle-juice-halloween-2026-10-30.jpg",
   "ambar-lounge-bandoleras-2026-10-23.jpg",
   "kite-street-son-cubano-2026-10-25.jpg",
   "jump-fit-rosa-beard-over-club-2026-10-31-v2.jpg",
@@ -1320,6 +1337,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "nueve-bingo-friday.jpg",
   "nueve-80s-90s-por-siempre-2026-10-24.jpg",
   "nueve-80s-90s-por-siempre-2026-10-24-mixtape.jpg",
+  "nueve-80s-90s-por-siempre-2026-10-24-disyoquey.jpg",
   "grand-prix-sabado-bailable.jpg",
   "grand-prix-jueves-stripper-show.jpg",
   "lizandro-diaz-grand-prix-2026-10-02.jpg",

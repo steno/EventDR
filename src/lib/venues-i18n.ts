@@ -213,8 +213,8 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
   },
   "la-chabola-cabarete": {
     description: {
-      es: "Bar de pizza del barrio en el Callejón de la Loma — pizzas al horno de piedra, músicos locales y open mic los miércoles con público asequible de Cabarete.",
-      fr: "Bar à pizza de quartier dans le Callejón de la Loma — pizzas au four à pierre, musiciens locaux et open mic le mercredi dans une ambiance abordable à Cabarete.",
+      es: "Bar de pizza del barrio en el Callejón de la Loma — pizzas al horno de piedra, músicos locales, open mic los miércoles y karaoke los viernes con Host Cris desde las 7:30 PM.",
+      fr: "Bar à pizza de quartier dans le Callejón de la Loma — pizzas au four à pierre, musiciens locaux, open mic le mercredi et karaoke le vendredi avec Host Cris dès 19 h 30.",
     },
   },
   "voyvoy-cabarete": {
