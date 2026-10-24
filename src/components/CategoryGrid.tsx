@@ -7,7 +7,6 @@ import { IntentLink } from "@/components/IntentLink";
 import { PillScrollRail } from "@/components/PillScrollRail";
 import { trackEvent } from "@/lib/analytics";
 import { getCategoryDefs } from "@/lib/categories";
-import { useCategoryAutoStepScroll } from "@/hooks/useCategoryAutoStepScroll";
 import type { Dictionary } from "@/i18n/dictionaries";
 import type { Locale } from "@/i18n/config";
 import type { CitySlug } from "@/lib/cities";
@@ -78,7 +77,6 @@ export function CategoryGrid({
   // All Events + categories + Venues
   const pillCount = categories.length + 2;
   const [pendingHref, setPendingHref] = useState<string | null>(null);
-  useCategoryAutoStepScroll(scrollRef, pillCount);
 
   // Mobile has no hover — warm visible category routes after first paint so
   // the first tap overlaps with an in-flight RSC fetch.
