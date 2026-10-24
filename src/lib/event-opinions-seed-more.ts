@@ -2966,24 +2966,6 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: "2026-09-22T12:00:00.000Z",
   },
   {
-    eventId: "sosua-coastal-pickleball-open-2026-10-24",
-    body: "Cash-prize weekend with capped divisions — register before Oct 17 on pickleplanner, not a casual drop-in at Sea Horse Ranch tennis.",
-    localized: {
-      es: "Fin de semana con premios en efectivo y divisiones limitadas — inscríbete antes del 17 oct en pickleplanner, no es drop-in casual en el tenis de Sea Horse Ranch.",
-      fr: "Week-end à prix cash avec divisions plafonnées — inscrivez-vous avant le 17 oct sur pickleplanner, pas un drop-in casual au tennis de Sea Horse Ranch.",
-    },
-    priceFeel: "moderate",
-    priceNote: "RD$2,000 first category (+ RD$500 each extra) — svterramar.pickleplanner.com",
-    priceNoteLocalized: {
-      es: "RD$2,000 primera categoría (+ RD$500 cada extra) — svterramar.pickleplanner.com",
-      fr: "RD$2 000 première catégorie (+ RD$500 chaque extra) — svterramar.pickleplanner.com",
-    },
-    attribution: "POP research · Terramar Pickleball Open flyer",
-    researchNotes:
-      "Editor flyer Oct 24–25 2026 Terramar Pickleball Club; divisions C/B/A, 45+, mixed; RR to finals; reg closes Oct 17; RD$2000 +500; WhatsApp 809-223-3974.",
-    updatedAt: "2026-09-22T12:00:00.000Z",
-  },
-  {
     eventId: "serenade-dominican-night-villa-taina-weekly",
     seriesKey: "hotel-villa-taina:weekly:1",
     body: "Monday buffet on Cabarete sand — RD$952 is the adult buffet line, not drinks, and kids half under 12; taxes/service still hit the check.",
@@ -6958,5 +6940,23 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     researchNotes:
       "Editor flyer — HALLOWEEN PARTY 39 Jungle Juice Get Frozen 500 PESOS EACH Sosúa Beach; whole weekend Oct 30–Nov 1 per editor; companion to rumble-in-paradise-13 same venue Fri 30; venue bar-39-sosua.",
     updatedAt: "2026-10-24T03:00:00.000Z",
+  },
+  {
+    eventId: "francesca-tiki-bar-cabarete-2026-11-06",
+    body: "Thursday 10 PM live at the central Cabarete thatch bar near Casino #1 — Francesca plus DJ Poché Jáquez and a Brugal 2x1, not her dinner duo at Natura or the Aura sand set; confirm cover on @tikibarcabarete before you treat it as free.",
+    localized: {
+      es: "Jueves 10 PM en vivo en el bar tiki del centro de Cabarete cerca del Casino #1 — Francesca más DJ Poché Jáquez y 2x1 Brugal, no su dúo de cena en Natura ni el set en la arena de Aura; confirma cover en @tikibarcabarete antes de tratarlo como gratis.",
+      fr: "Jeudi 22 h en live au bar tiki du centre de Cabarete près du Casino #1 — Francesca plus DJ Poché Jáquez et 2x1 Brugal, pas son duo dîner à Natura ni le set sable d’Aura ; confirmez le cover sur @tikibarcabarete avant de le traiter comme gratuit.",
+    },
+    priceFeel: "moderate",
+    priceNote: "Cover not on flyer — 2x1 Brugal Extra Viejo; confirm @tikibarcabarete",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — 2x1 Brugal Extra Viejo; confirma @tikibarcabarete",
+      fr: "Cover absent de l’affiche — 2x1 Brugal Extra Viejo ; confirmez @tikibarcabarete",
+    },
+    attribution: "POP research · @tikibarcabarete Francesca En Vivo flyer",
+    researchNotes:
+      "Editor IG @tikibarcabarete — Thu 6 Nov from 10 PM Francesca en vivo, DJ Poché Jáquez, 2x1 Brugal Extra Viejo; no cover on post.",
+    updatedAt: "2026-10-24T16:00:00.000Z",
   },
 ];

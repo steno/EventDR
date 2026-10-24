@@ -180,9 +180,11 @@ function whenTitleHead(
     if (locale === "fr") return `${count} sorties demain à ${place}`;
     return `${count} ${count === 1 ? "thing" : "things"} to do tomorrow in ${place}`;
   }
-  if (locale === "es") return `${count} planes de fin de semana en ${place}`;
+  if (locale === "es") {
+    return `${count} eventos locales esta semana en ${place}`;
+  }
   if (locale === "fr") return `${count} sorties ce week-end à ${place}`;
-  return `${count} weekend plans in ${place}`;
+  return `${count} free local events this week in ${place}`;
 }
 
 function whenH1(
@@ -221,8 +223,8 @@ function whenH1(
   }
   if (locale === "es") {
     return place
-      ? `${count} planes para el fin de semana en ${place}`
-      : `${count} planes para el fin de semana`;
+      ? `${count} eventos locales esta semana en ${place}`
+      : `${count} eventos locales esta semana`;
   }
   if (locale === "fr") {
     return place
@@ -230,8 +232,8 @@ function whenH1(
       : `${count} sorties ce week-end`;
   }
   return place
-    ? `${count} ${count === 1 ? "weekend plan" : "weekend plans"} in ${place}`
-    : `${count} ${count === 1 ? "weekend plan" : "weekend plans"}`;
+    ? `${count} free local events this week in ${place}`
+    : `${count} free local events this week`;
 }
 
 function whenDateLabel(locale: Locale, slug: WhenSlug): string {
@@ -293,7 +295,19 @@ export function buildWhenSearchCopy(
   const when = whenDateLabel(locale, slug);
   const titlePlace = place?.trim() || REGION_PLACE[locale];
   const tail = plansTail(locale, events.length, place?.trim() || undefined);
-  const description = fitDescription(when, highlights, tail, locale);
+  let description = fitDescription(when, highlights, tail, locale);
+  // Match GSC query language (ES + EN free-this-week intents).
+  if (slug === "weekend" && (locale === "es" || locale === "en")) {
+    const freeBit =
+      locale === "es"
+        ? " Incluye eventos locales gratuitos."
+        : " Includes free local events.";
+    const already =
+      locale === "es" ? /gratuit/i.test(description) : /\bfree\b/i.test(description);
+    if (!already && description.length + freeBit.length <= SEARCH_DESCRIPTION_MAX) {
+      description = `${description.replace(/\s+$/, "")}${freeBit}`;
+    }
+  }
   const named = description.includes(highlights[1] ?? "\0")
     ? highlights.filter((title) => description.includes(title))
     : highlights.slice(0, 1);

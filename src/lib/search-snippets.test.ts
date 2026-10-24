@@ -48,14 +48,28 @@ describe("buildWhenSearchCopy", () => {
     assert.match(copy.intro, /Fun City/);
   });
 
+  it("uses English free-this-week query language for the weekend list", () => {
+    const copy = buildWhenSearchCopy("en", "weekend", [
+      event({ id: "fri", title: "Salsa night", date: "2026-10-02" }),
+      event({ id: "sat", title: "Saturday market", date: "2026-10-03" }),
+    ]);
+    assert.ok(copy);
+    assert.match(copy.title, /2 free local events this week in Puerto Plata/);
+    assert.match(copy.h1, /2 free local events this week/);
+    assert.match(copy.description, /free local events/i);
+    assert.ok(copy.title.length <= SEARCH_TITLE_MAX);
+    assert.ok(copy.description.length <= SEARCH_DESCRIPTION_MAX);
+  });
+
   it("uses Spanish query language for the weekend list", () => {
     const copy = buildWhenSearchCopy("es", "weekend", [
       event({ id: "fri", title: "Noche de salsa", date: "2026-10-02" }),
       event({ id: "sat", title: "Mercado del sábado", date: "2026-10-03" }),
     ]);
     assert.ok(copy);
-    assert.match(copy.title, /2 planes de fin de semana en Puerto Plata/);
-    assert.match(copy.h1, /2 planes para el fin de semana/);
+    assert.match(copy.title, /2 eventos locales esta semana en Puerto Plata/);
+    assert.match(copy.h1, /2 eventos locales esta semana/);
+    assert.match(copy.description, /eventos locales gratuitos/);
     assert.doesNotMatch(copy.description, /…/);
     assert.ok(copy.title.length <= SEARCH_TITLE_MAX);
     assert.ok(copy.description.length <= SEARCH_DESCRIPTION_MAX);
@@ -87,8 +101,8 @@ describe("buildWhenSearchCopy", () => {
       "Cabarete",
     );
     assert.ok(copy);
-    assert.match(copy.title, /2 planes de fin de semana en Cabarete/);
-    assert.match(copy.h1, /2 planes para el fin de semana en Cabarete/);
+    assert.match(copy.title, /2 eventos locales esta semana en Cabarete/);
+    assert.match(copy.h1, /2 eventos locales esta semana en Cabarete/);
   });
 });
 

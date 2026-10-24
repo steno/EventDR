@@ -7,6 +7,7 @@ import {
   buildCityWhenMetadata,
   buildEventBreadcrumbItems,
   buildBreadcrumbJsonLd,
+  buildEventJsonLd,
   buildEventMetadata,
   buildOrganizationJsonLd,
   buildVenueMetadata,
@@ -274,5 +275,58 @@ describe("getEventOgImageUrl", () => {
       getEventOgImageUrl("dewry-luciano-zona-acapella-2026-08-23"),
       "/og/events/dewry-luciano-zona-acapella-2026-08-23.jpg",
     );
+  });
+});
+
+describe("buildEventJsonLd GSC recommended fields", () => {
+  const url = "https://pop-event.com/en/event/dewry-luciano-zona-acapella-2026-08-23";
+
+  it("always includes offers and performer", () => {
+    const jsonLd = buildEventJsonLd(dewry, "en", url);
+    assert.equal((jsonLd.offers as { "@type": string })["@type"], "Offer");
+    assert.ok((jsonLd.offers as { validFrom: string }).validFrom);
+    assert.ok(jsonLd.performer);
+  });
+
+  it("emits offers for call-for-pricing without inventing a door price", () => {
+    const jsonLd = buildEventJsonLd(
+      {
+        ...dewry,
+        callForPricing: true,
+        ticketUrl: "https://example.com/tickets",
+        venue: "Zona Acapella Club",
+      },
+      "en",
+      url,
+    );
+    const offers = jsonLd.offers as Record<string, unknown>;
+    assert.equal(offers["@type"], "Offer");
+    assert.equal(offers.url, "https://example.com/tickets");
+    assert.equal(offers.priceCurrency, "DOP");
+    assert.equal(offers.price, undefined);
+    assert.equal(
+      (jsonLd.performer as { name: string }).name,
+      "Zona Acapella Club",
+    );
+  });
+
+  it("uses lineup acts as performers and skips promo rows", () => {
+    const jsonLd = buildEventJsonLd(
+      {
+        ...dewry,
+        isFree: true,
+        venue: "Tiki Bar",
+        lineup: ["Francesca", "DJ Poché Jáquez", "2x1 Brugal Extra Viejo"],
+      },
+      "en",
+      url,
+    );
+    const performers = jsonLd.performer as Array<{ name: string }>;
+    assert.ok(Array.isArray(performers));
+    assert.deepEqual(
+      performers.map((p) => p.name),
+      ["Francesca", "DJ Poché Jáquez"],
+    );
+    assert.equal((jsonLd.offers as { price: number }).price, 0);
   });
 });

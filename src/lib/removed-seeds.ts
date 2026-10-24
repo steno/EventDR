@@ -104,6 +104,8 @@ export const REMOVED_SEED_EVENT_IDS = new Set([
   "cabarete-pilates-reformer",
   // Editor removed — Sunset Laughter Club Cabarete weekly.
   "sunset-laughter-club-cabarete",
+  // Editor removed — Sosúa Coastal Pickleball Open (Terramar).
+  "sosua-coastal-pickleball-open-2026-10-24",
 ]);
 
 export function filterRemovedSeedEvents(events: Event[]): Event[] {

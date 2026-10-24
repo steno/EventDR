@@ -25,6 +25,10 @@ import { getVenueImageUrl } from "@/lib/venue-images";
 import { getVenueSeo } from "@/lib/venue-seo";
 import { BRAND_SOCIAL_SAME_AS } from "@/lib/brand-social";
 import { SITE_URL } from "@/lib/site-url";
+import {
+  isEventFree,
+  resolveAdmissionPrice,
+} from "@/lib/event-tickets";
 
 export const SITE_NAME = "POP Events";
 export const DEFAULT_OG_IMAGE = "/og-image.jpg";
@@ -721,7 +725,7 @@ function offerValidFrom(event: Event): string {
 function buildEventOffers(
   event: Event,
   pageUrl: string,
-): Record<string, unknown> | undefined {
+): Record<string, unknown> {
   const offerUrl = event.ticketUrl ?? event.sourceUrl ?? pageUrl;
   const validFrom = offerValidFrom(event);
   const base = {
@@ -731,26 +735,30 @@ function buildEventOffers(
     validFrom,
   } as const;
 
-  if (event.isFree) {
+  // Curated / explicit free — including free-entry copy via isEventFree.
+  if (isEventFree(event)) {
     return { ...base, price: 0, priceCurrency: "DOP" };
   }
 
-  const numericPrice = event.admissionPrice
-    ? parseOfferPrice(event.admissionPrice)
-    : undefined;
+  const admission = resolveAdmissionPrice(event);
+  const numericPrice = admission ? parseOfferPrice(admission) : undefined;
   if (numericPrice != null) {
     return {
       ...base,
       price: numericPrice,
-      priceCurrency: inferPriceCurrency(event.admissionPrice),
-      ...(event.admissionPrice ? { name: event.admissionPrice } : {}),
+      priceCurrency: inferPriceCurrency(admission),
+      name: admission,
     };
   }
 
-  // Ticketed / call-for-pricing without a known amount — don't invent a price.
-  if (event.ticketUrl || event.callForPricing) return undefined;
+  // Call-for-pricing / ticket link without a known door amount: still emit
+  // Offer (GSC "missing offers") with currency; omit numeric price rather than
+  // inventing one (keeps priceCurrency present for rich-result checks).
+  if (event.ticketUrl || event.callForPricing || event.isFree === false) {
+    return { ...base, priceCurrency: "DOP" };
+  }
 
-  // No pricing signals → open/free admission for schema purposes.
+  // No pricing signals → treat as open/free for schema (same as before).
   return { ...base, price: 0, priceCurrency: "DOP" };
 }
 
@@ -774,19 +782,31 @@ function buildEventOrganizer(
   };
 }
 
+/** Lineup rows that are promos/divisions, not billed acts. */
+const NON_PERFORMER_LINEUP =
+  /^(cash prizes?|premios?( en efectivo)?|prix en cash|2x1|rd\$|us\$|free|gratis|entrada|cover|open format|c\/b\/a|45\+|mixed|dobles|doubles|round.?robin|divisions?)\b/i;
+
 function buildEventPerformers(
   event: Event,
-): Record<string, unknown> | Record<string, unknown>[] | undefined {
-  const names = event.lineup
-    ?.map((name) => name.trim())
-    .filter((name) => name.length > 0);
-  if (!names?.length) return undefined;
+): Record<string, unknown> | Record<string, unknown>[] {
+  const names = (event.lineup ?? [])
+    .map((name) => name.trim())
+    .filter((name) => name.length > 0 && !NON_PERFORMER_LINEUP.test(name));
 
-  const performers = names.map((name) => ({
+  if (names.length > 0) {
+    const performers = names.map((name) => ({
+      "@type": "PerformingGroup" as const,
+      name,
+    }));
+    return performers.length === 1 ? performers[0] : performers;
+  }
+
+  // GSC recommends performer — fall back to the venue night (or POP) when no
+  // billed lineup, rather than omitting the field on ~half the catalog.
+  return {
     "@type": "PerformingGroup",
-    name,
-  }));
-  return performers.length === 1 ? performers[0] : performers;
+    name: event.venue?.trim() || SITE_NAME,
+  };
 }
 
 function buildEventImage(event: Event): string {
@@ -835,8 +855,8 @@ export function buildEventJsonLd(
         : {}),
     },
     organizer: buildEventOrganizer(event, locale),
-    ...(performers ? { performer: performers } : {}),
-    ...(offers ? { offers } : {}),
+    performer: performers,
+    offers,
     ...(event.sourceUrl ? { sameAs: [event.sourceUrl] } : {}),
   };
 }

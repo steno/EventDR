@@ -2662,40 +2662,6 @@
     "imageEmoji": "🎤"
   },
   {
-    "id": "sosua-coastal-pickleball-open-2026-10-24",
-    "title": "Sosúa Coastal Pickleball Open",
-    "description": "Torneo de pickleball de dos días en Terramar Pickleball Club (Cabarete/Sosúa) — sábado y domingo 24–25 de octubre 2026 con premios en efectivo. Divisiones C/B/A, 45+ y mixtas; round-robin a finales. Inscripción RD$2,000 (+ RD$500 cada categoría extra), cierre 17 de octubre. svterramar.pickleplanner.com · WhatsApp +1 809-223-3974.",
-    "date": "2026-10-24",
-    "endDate": "2026-10-25",
-    "time": "8:00 AM",
-    "location": "Sosúa",
-    "venue": "Terramar Pickleball Club",
-    "venueSlug": "terramar-pickleball-club",
-    "address": "Cabarete / Sosúa, Puerto Plata",
-    "lat": 19.7755,
-    "lng": -70.478,
-    "category": "sports",
-    "categories": [
-      "sports",
-      "festivals"
-    ],
-    "format": "physical",
-    "trending": true,
-    "isFree": false,
-    "admissionPrice": "RD$2,000",
-    "phone": "+18092233974",
-    "ticketUrl": "https://svterramar.pickleplanner.com/",
-    "sourceType": "flyer",
-    "sourceUrl": "https://svterramar.pickleplanner.com/",
-    "lineup": [
-      "Dobles C/B/A",
-      "Dobles 45+",
-      "Dobles mixtos",
-      "Premios en efectivo"
-    ],
-    "imageEmoji": "🏓"
-  },
-  {
     "id": "hard-rock-rising-final-local-2026-09-23",
     "title": "Hard Rock Rising — Final local: Allison vs Tierra Fertil",
     "description": "Hard Rock Rising Global Live Music Challenge — final local en Hard Rock Cafe Puerto Plata, Sosúa — miércoles 23 de septiembre 2026 desde las 8:00 PM. Allison vs Tierra Fertil; el público decide el ganador. Powered by Coca-Cola. Confirma boletos y cover por WhatsApp +1 849-505-7778.",
@@ -7775,6 +7741,35 @@
       "Open format"
     ],
     "imageEmoji": "🎧"
+  },
+  {
+    "id": "francesca-tiki-bar-cabarete-2026-11-06",
+    "title": "Tiki Bar Cabarete — Francesca en vivo",
+    "description": "Francesca en vivo más DJ set de Poché Jáquez en Tiki Bar Cabarete, centro de Cabarete cerca del Casino #1 — jueves 6 de noviembre 2026 desde las 10:00 PM. 2x1 Brugal Extra Viejo en la cartelera. Confirma puertas y cover por Instagram @tikibarcabarete. Noche de cócteles en bar tiki con techo de paja — no es el set de cena de Francesca en Natura ni la arena de Aura.",
+    "date": "2026-11-06",
+    "time": "10:00 PM",
+    "location": "Cabarete",
+    "venue": "Cabarete Tiki Bar",
+    "venueSlug": "tiki-bar-cabarete",
+    "address": "Central Cabarete, near Casino #1",
+    "lat": 19.750057,
+    "lng": -70.407041,
+    "category": "music",
+    "categories": [
+      "parties"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "instagram": "tikibarcabarete",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/tikibarcabarete/",
+    "lineup": [
+      "Francesca",
+      "DJ Poché Jáquez",
+      "2x1 Brugal Extra Viejo"
+    ],
+    "imageEmoji": "🎤"
   },
   {
     "id": "premios-ola-dorada-2026-12-05",

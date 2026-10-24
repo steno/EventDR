@@ -79,20 +79,20 @@ const WHEN_SEO: Record<WhenSlug, Record<Locale, WhenSeoCopy>> = {
   },
   weekend: {
     en: {
-      h1: "Things to do this weekend",
-      title: "Things to do this weekend in Puerto Plata | POP Events",
+      h1: "Free local events this week",
+      title: "Free local events this week | POP Events",
       description:
-        "This weekend on the North Coast — parties, live music, kite surf, and local plans in Puerto Plata, Sosúa, and Cabarete.",
+        "Free and paid local events this week on the North Coast — parties, live music, and plans in Puerto Plata, Sosúa, and Cabarete, Friday through Sunday.",
       intro:
-        "Friday through Sunday on the North Coast — Puerto Plata, Sosúa, and Cabarete, grouped by day.",
+        "Local events this week on the North Coast — including free entry nights — Friday through Sunday in Puerto Plata, Sosúa, and Cabarete.",
     },
     es: {
-      h1: "Qué hacer este fin de semana",
-      title: "Qué hacer este fin de semana en Puerto Plata | POP Eventos",
+      h1: "Eventos locales esta semana",
+      title: "Eventos locales gratuitos esta semana | POP Eventos",
       description:
-        "Este fin de semana en la Costa Norte — fiestas, música en vivo, kite surf y planes en Puerto Plata, Sosúa y Cabarete.",
+        "Eventos locales gratuitos y de pago esta semana en Puerto Plata, Sosúa y Cabarete — fiestas, música en vivo y planes de viernes a domingo.",
       intro:
-        "De viernes a domingo en la Costa Norte — Puerto Plata, Sosúa y Cabarete, agrupado por día.",
+        "Esta semana en la Costa Norte — eventos locales (incluye entradas gratis), de viernes a domingo en Puerto Plata, Sosúa y Cabarete.",
     },
     fr: {
       h1: "Que faire ce week-end",
@@ -170,16 +170,16 @@ export function getCityWhenSeo(
 
   const weekend: Record<Locale, WhenSeoCopy> = {
     en: {
-      h1: `Things to do this weekend in ${cityName}`,
-      title: `Things to do this weekend in ${cityName} | POP Events`,
-      description: `This weekend in ${cityName} — parties, live music, beach plans, and local events on the North Coast of the Dominican Republic.`,
-      intro: `Friday through Sunday in ${cityName} — grouped by day.`,
+      h1: `Free local events this week in ${cityName}`,
+      title: `Free local events this week in ${cityName} | POP Events`,
+      description: `Free and paid local events this week in ${cityName} — parties, live music, beach plans, and North Coast nights Friday through Sunday.`,
+      intro: `Local events this week in ${cityName} — including free entry — Friday through Sunday.`,
     },
     es: {
-      h1: `Qué hacer este fin de semana en ${cityName}`,
-      title: `Qué hacer este fin de semana en ${cityName} | POP Eventos`,
-      description: `Este fin de semana en ${cityName} — fiestas, música en vivo, playa y planes locales en la Costa Norte de RD.`,
-      intro: `De viernes a domingo en ${cityName} — agrupado por día.`,
+      h1: `Eventos locales esta semana en ${cityName}`,
+      title: `Eventos locales esta semana en ${cityName} | POP Eventos`,
+      description: `Eventos locales gratuitos y de pago esta semana en ${cityName} — fiestas, música en vivo, playa y planes en la Costa Norte de RD.`,
+      intro: `Esta semana en ${cityName} — eventos locales (incluye entradas gratis), de viernes a domingo.`,
     },
     fr: {
       h1: `Que faire ce week-end à ${cityName}`,

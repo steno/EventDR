@@ -72,6 +72,8 @@ const FILE_TO_EVENT_ID = {
   "hard-rock-deeway-live-mix-2026-10-23.jpg":
     "hard-rock-deeway-live-mix-2026-10-23",
   "tiki-bar-henry-jimenez-2026-10-23.jpg": "tiki-bar-henry-jimenez-2026-10-23",
+  "francesca-tiki-bar-cabarete-2026-11-06.jpg":
+    "francesca-tiki-bar-cabarete-2026-11-06",
   "premios-ola-dorada-2026-12-05.jpg": "premios-ola-dorada-2026-12-05",
   "lokuras-pop-percusion-latina-2026-10-25.jpg":
     "lokuras-pop-percusion-latina-2026-10-25",
@@ -559,8 +561,6 @@ const FILE_TO_EVENT_ID = {
     "camara-almuerzo-codigo-penal-2026-10-22",
   "teleferico-inicio-obras-2026-10-03.jpg":
     "teleferico-inicio-obras-2026-10-03",
-  "sosua-coastal-pickleball-open-2026-10-24.jpg":
-    "sosua-coastal-pickleball-open-2026-10-24",
   "serenade-dominican-night-villa-taina-weekly.jpg":
     "serenade-dominican-night-villa-taina-weekly",
   "serenade-mongolian-night-villa-taina-weekly-v3.jpg":

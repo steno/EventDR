@@ -38,6 +38,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "hard-rock-deeway-live-mix-2026-10-23.jpg",
   "tiki-bar-henry-jimenez-2026-10-23":
     "tiki-bar-henry-jimenez-2026-10-23.jpg",
+  "francesca-tiki-bar-cabarete-2026-11-06":
+    "francesca-tiki-bar-cabarete-2026-11-06.jpg",
   "premios-ola-dorada-2026-12-05": "premios-ola-dorada-2026-12-05.jpg",
   "lokuras-pop-percusion-latina-2026-10-25":
     "lokuras-pop-percusion-latina-2026-10-25.jpg",
@@ -265,8 +267,6 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "camara-almuerzo-codigo-penal-2026-10-22-v2.jpg",
   "teleferico-inicio-obras-2026-10-03":
     "teleferico-inicio-obras-2026-10-03.jpg",
-  "sosua-coastal-pickleball-open-2026-10-24":
-    "sosua-coastal-pickleball-open-2026-10-24.jpg",
   "serenade-dominican-night-villa-taina-weekly":
     "serenade-dominican-night-villa-taina-weekly.jpg",
   // Filename bump — official Villa Taina Mongolian Night flyer (Josh Messer / grill).
@@ -765,6 +765,7 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "parada-el-choco-big-d-aperitivo-2026-10-27": "object-center",
   "hard-rock-deeway-live-mix-2026-10-23": "object-top",
   "tiki-bar-henry-jimenez-2026-10-23": "object-center",
+  "francesca-tiki-bar-cabarete-2026-11-06": "object-center",
   "premios-ola-dorada-2026-12-05": "object-center",
   "lokuras-pop-percusion-latina-2026-10-25": "object-center",
   "allison-sade-aura-2026-09-17": "object-top",
@@ -1167,6 +1168,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "parada-el-choco-big-d-aperitivo-2026-10-27.jpg",
   "hard-rock-deeway-live-mix-2026-10-23.jpg",
   "tiki-bar-henry-jimenez-2026-10-23.jpg",
+  "francesca-tiki-bar-cabarete-2026-11-06.jpg",
   "premios-ola-dorada-2026-12-05.jpg",
   "lokuras-pop-percusion-latina-2026-10-25.jpg",
   "mirando-pa-otro-lao-8-puerto-plata-2026-11-17.jpg",
@@ -1427,7 +1429,6 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "chiche-almonte-zona-acapella-2026-10-04.jpg",
   "camara-almuerzo-codigo-penal-2026-10-22-v2.jpg",
   "teleferico-inicio-obras-2026-10-03.jpg",
-  "sosua-coastal-pickleball-open-2026-10-24.jpg",
   "serenade-dominican-night-villa-taina-weekly.jpg",
   "serenade-mongolian-night-villa-taina-weekly-v3.jpg",
   "serenade-bbq-night-villa-taina-weekly.jpg",

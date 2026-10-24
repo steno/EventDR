@@ -134,6 +134,11 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     venueSlug: "aura-beach-club-cabarete",
     sourceUrl: "https://www.instagram.com/auracabarete/",
   },
+  "francesca-tiki-bar-cabarete-2026-11-06": {
+    callForPricing: true,
+    venueSlug: "tiki-bar-cabarete",
+    sourceUrl: "https://www.instagram.com/tikibarcabarete/",
+  },
   "twenty-disco-angel-demons-2026-10-24": {
     isFree: true,
     venueSlug: "twenty-disco-lounge",
@@ -949,13 +954,6 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     isFree: true,
     phone: "+18099700501",
     venueSlug: "teleferico-puerto-plata",
-  },
-  "sosua-coastal-pickleball-open-2026-10-24": {
-    isFree: false,
-    admissionPrice: "RD$2,000",
-    phone: "+18092233974",
-    ticketUrl: "https://svterramar.pickleplanner.com/",
-    venueSlug: "terramar-pickleball-club",
   },
   "aldo-sax-casa-caribe-2026-09-24": {
     callForPricing: true,

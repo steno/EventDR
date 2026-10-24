@@ -157,7 +157,6 @@ export const CURATED_ADMISSION_PRICES: Record<string, string> = {
   "camara-almuerzo-codigo-penal-2026-10-22": "RD$3,500",
   "teleferico-inicio-obras-2026-10-03": "Free",
   "wingo-bogota-inauguration-2026-11-06": "Free",
-  "sosua-coastal-pickleball-open-2026-10-24": "RD$2,000",
   "serenade-dominican-night-villa-taina-weekly": "RD$952",
   "serenade-mongolian-night-villa-taina-weekly": "RD$906",
   "love-does-cocktails-solidarity-2026-09-04": "RD$2,000",

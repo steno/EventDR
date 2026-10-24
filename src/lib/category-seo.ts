@@ -286,23 +286,23 @@ const CATEGORY_SEO: Record<EventCategory, Record<Locale, CategorySeoCopy>> = {
   },
   halloween: {
     en: {
-      title: "Halloween events in Puerto Plata | POP Events",
+      title: "Halloween parties near me in Puerto Plata | POP Events",
       description:
-        "Costume parties, haunted nights, and Halloween celebrations across Puerto Plata, Sosúa, and Cabarete on the North Coast.",
+        "Halloween parties near you on the North Coast — costume nights, haunted events, and club Halloween across Puerto Plata, Sosúa, and Cabarete.",
       intro:
         "Costume contests, club nights, and family Halloween plans from Sosúa to Cabarete.",
     },
     es: {
-      title: "Eventos de Halloween en Puerto Plata | POP Eventos",
+      title: "Fiestas de Halloween cerca de Puerto Plata | POP Eventos",
       description:
-        "Fiestas de disfraces, noches de terror y celebraciones de Halloween en Puerto Plata, Sosúa y Cabarete.",
+        "Fiestas de Halloween cerca de ti en la Costa Norte — disfraces, noches de terror y club en Puerto Plata, Sosúa y Cabarete.",
       intro:
         "Concursos de disfraces, noches de club y planes familiares de Halloween de Sosúa a Cabarete.",
     },
     fr: {
-      title: "Événements Halloween à Puerto Plata | POP Events",
+      title: "Fêtes d'Halloween près de Puerto Plata | POP Events",
       description:
-        "Soirées costumes, nuits hantées et fêtes d'Halloween à Puerto Plata, Sosúa et Cabarete.",
+        "Fêtes d'Halloween près de vous sur la Côte Nord — costumes, nuits hantées et clubs à Puerto Plata, Sosúa et Cabarete.",
       intro:
         "Concours de costumes, soirées club et Halloween en famille de Sosúa à Cabarete.",
     },
