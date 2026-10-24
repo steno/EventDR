@@ -810,24 +810,6 @@
     "imageEmoji": "🏄"
   },
   {
-    "id": "cabarete-pilates-reformer",
-    "title": "Cours collectif Pilates Reformer",
-    "description": "Cours collectifs de Pilates Reformer à Cabarete avec Rafaella Cirillo (mar. et jeu. 9 h). L'adresse du studio est communiquée à la réservation — DM ou WhatsApp +1 809 460 5777. Code RC-pilates pour le premier cours.",
-    "date": "2026-07-08",
-    "time": "9:00 AM – 10:00 AM",
-    "location": "Cabarete",
-    "venue": "Rafaella's Studio",
-    "category": "health-wellness",
-    "format": "physical",
-    "recurrence": "weekly",
-    "recurrenceDays": [
-      2,
-      4
-    ],
-    "sourceUrl": "https://www.facebook.com/events/981611704653706/",
-    "imageEmoji": "🧘"
-  },
-  {
     "id": "feria-artesanal-verano-2026",
     "title": "Feria Artesanal Verano 2026",
     "description": "La foire artisanale d'été 2026 se tient du 10 au 26 juillet sur la Plaza Independencia (le parc central de Puerto Plata). Plus de 120 artisans locaux y exposent tous les jours de 8 h à 21 h : pièces faites main, expositions culturelles, art, souvenirs et masques de cabezudos. L'initiative vise à mettre en valeur les artistes locaux et rapprocher l'artisanat dominicain des visiteurs et des résidents.",
@@ -1010,26 +992,6 @@
     "sourceUrl": "https://www.trilogylosevent.com/",
     "ticketUrl": "https://www.trilogylosevent.com/event-details/los-getaway-2026-puerto-plata-dominican-republic",
     "imageEmoji": "🎉"
-  },
-  {
-    "id": "sunset-laughter-club-cabarete",
-    "title": "Sunset Laughter Club",
-    "description": "Reina (Dominicated) anime un club de rire de 30 minutes sur la plage de Cabarete — mardis dès le 28 juil. à 18 h 30. RDV à l'entrée plage d'Ocean One au cœur de Cabarete ; apportez de l'eau et portez des vêtements confortables.",
-    "date": "2026-07-28",
-    "time": "6:30 PM – 7:30 PM",
-    "location": "Cabarete",
-    "venue": "Ocean One Cabarete",
-    "venueSlug": "ocean-one-cabarete",
-    "address": "Calle Principal, Cabarete 57000",
-    "lat": 19.7505,
-    "lng": -70.4082,
-    "category": "health-wellness",
-    "format": "physical",
-    "recurrence": "weekly",
-    "recurrenceDay": 2,
-    "isFree": true,
-    "sourceUrl": "https://www.facebook.com/events/2243877129723142/2243877133056475",
-    "imageEmoji": "😊"
   },
   {
     "id": "huelga-velada-maltrato-animal-torre-alta-2026-08-07",
@@ -4037,7 +3999,7 @@
   {
     "id": "ivan-garcia-eulogio-badia-2026-10-24",
     "title": "Iván García grande réouverture — Eulogio Badia",
-    "description": "Grande réouverture d’Iván García Teatro-Escuela avec Eulogio Badía, FENATE 2026 (Ministerio de Cultura) — samedi 24 octobre 2026 à 19 h, Calle Profesor Juan Bosch #72, Puerto Plata. Adultes. La pièce suit un personnage qui cherche un espace pour se sentir bien et répète : « necesito un espacio, un estado bienestar, sentirme bien, sí, sentirme bien ». RSVP 809-261-7393 · @teatroivangarcia / @festivalesdeteatro.rd.",
+    "description": "Grande réouverture d’Iván García Teatro-Escuela avec Eulogio Badía, FENATE 2026 (Ministerio de Cultura) — samedi 24 octobre 2026 à 19 h, Calle Profesor Juan Bosch #72, Puerto Plata. Adultes. Pièce-mantra sur le besoin d’un espace pour se sentir à l’aise — pas une retraite de yoga. RSVP 809-261-7393 · @teatroivangarcia / @festivalesdeteatro.rd.",
     "date": "2026-10-24",
     "time": "7:00 PM",
     "location": "Puerto Plata",

@@ -815,7 +815,7 @@ describe("getHomeDiscoverLayout same-day seed", () => {
     );
   });
 
-  it("keeps every Today’s special and shuffles the full rail by seed", () => {
+  it("shuffles every Today’s special by seed (display cap is HOME_SPECIALS_LIMIT)", () => {
     const older = event({
       id: "older-special",
       title: "Older Special",
@@ -863,7 +863,7 @@ describe("getHomeDiscoverLayout same-day seed", () => {
 
     assert.ok(
       layout.specialEvents.length >= 9,
-      "Today’s specials should not cap at 6",
+      "layout still returns the full specials pool for the half-hour shuffle",
     );
     assert.ok(layout.specialEvents.every((e) => e.date === "2026-09-19"));
     assert.deepEqual(

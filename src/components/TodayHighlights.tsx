@@ -7,6 +7,7 @@ import { EventImage } from "@/components/EventImage";
 import { EventCardPlaceholder } from "@/components/EventCardPlaceholder";
 import { EventStatusBadge } from "@/components/EventStatusBadge";
 import { FeatureSpecialModal } from "@/components/FeatureSpecialModal";
+import { HalloweenSpiders } from "@/components/HalloweenSpiders";
 import { HomeAlerts } from "@/components/HomeAlerts";
 import { HorizontalScrollEdgeFades } from "@/components/HorizontalScrollEdgeFades";
 import { IntentLink, warmRoutesIdle } from "@/components/IntentLink";
@@ -65,7 +66,8 @@ interface TodayHighlightsProps {
   locale: Locale;
   dict: Dictionary;
   /**
-   * Visible card cap. Pass `null` to show every event (Today's specials).
+   * Visible card cap. Pass `null` to show every event.
+   * Today’s specials use {@link HOME_SPECIALS_LIMIT} (4) + see-all.
    * Default: {@link HOME_TODAY_LIMIT}.
    */
   limit?: number | null;
@@ -122,6 +124,8 @@ interface TodayHighlightsProps {
    * every area home gets tall flyer cards, distinct from landscape rails.
    */
   storyCards?: boolean;
+  /** Hang decorative spiders into the card rail (Halloween home section). */
+  hangingSpiders?: boolean;
 }
 
 function TodayHighlightCard({
@@ -353,6 +357,7 @@ const TodayHighlightsComponent = ({
   mobilePairSlides = false,
   denseDesktop = false,
   storyCards = false,
+  hangingSpiders = false,
   onAddEvent,
 }: TodayHighlightsProps) => {
   const router = useRouter();
@@ -552,6 +557,9 @@ const TodayHighlightsComponent = ({
 
       {count > 0 && (
         <div className="relative">
+          {hangingSpiders ? (
+            <HalloweenSpiders className="halloween-spiders--rail" />
+          ) : null}
           <div
             ref={railRef}
             onScroll={onRailScroll}

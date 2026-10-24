@@ -17,7 +17,6 @@ const EVENT_PHONE_BY_ID: Record<string, string> = {
   "el-parq-latin-friday": "+18498549692",
   "rumble-in-paradise-12": "+18298172884",
   "rumble-in-paradise-13": "+18298172884",
-  "cabarete-pilates-reformer": "+18094605777",
   "love-does-bocadillos-course-2026": "+18095713826",
   "el-cocotazo-cafe-beach-dining": "+18096576116",
   "love-does-cocktails-solidarity-2026-09-04": "+18095713826",

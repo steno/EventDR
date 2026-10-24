@@ -172,7 +172,6 @@ export const CURATED_ADMISSION_PRICES: Record<string, string> = {
 /** Ticketed shows with variable pricing — contact the venue (no fixed door rate). */
 export const CURATED_CALL_FOR_PRICING = new Set<string>([
   "womens-reconnection-kite-camp-2026",
-  "cabarete-pilates-reformer",
   "love-does-bocadillos-course-2026",
   "inicio-del-campamento-pp-2026",
   "rumble-in-paradise-12",

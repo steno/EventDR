@@ -322,25 +322,6 @@ export const SEED_EVENT_OPINIONS_BASE: EventOpinion[] = [
     updatedAt: "2026-07-23T16:00:00.000Z",
   },
   {
-    eventId: "gym-sov-zumba-tuesday",
-    seriesKey: "gym-sov-sosua-ocean-village:weekly",
-    body: "Morning class inside Ocean Village — open to non-members; WhatsApp ahead so you are not locked out at the gate. Thursday adds weights and toning, not a pure dance hour.",
-    localized: {
-      es: "Clase de la mañana en Ocean Village — abierta sin membresía; avisa por WhatsApp para que no te dejen fuera en la entrada. El jueves suma pesas y tonificación, no solo baile.",
-      fr: "Cours du matin à Ocean Village — ouvert sans abonnement ; prévenez par WhatsApp pour ne pas rester bloqué à l'entrée. Le jeudi ajoute poids et tonus, pas seulement de la danse.",
-    },
-    priceFeel: "varies",
-    priceNote: "Drop-in class fee via WhatsApp +1 829 519 1974 — confirm before you go; gym membership not required",
-    priceNoteLocalized: {
-      es: "Tarifa de clase suelta por WhatsApp +1 829 519 1974 — confirma antes; no hace falta membresía del gym",
-      fr: "Tarif cours à l'unité via WhatsApp +1 829 519 1974 — confirmez avant ; pas d'abonnement gym requis",
-    },
-    attribution: "POP research · instructor flyer / GYM SOV",
-    researchNotes:
-      "Instructor WhatsApp on flyer; drop-in without membership. Tuesday Zumba Fitness, Thursday Zumba + Lift Tone Up.",
-    updatedAt: "2026-07-23T16:00:00.000Z",
-  },
-  {
     eventId: "victrola-sabado-bailable",
     seriesKey: "victrola-037:weekly:6",
     body: "Starts at 10 PM and runs late — come to dance salsa/merengue/bachata, not for an early dinner on the Malecón.",

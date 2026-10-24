@@ -8,8 +8,8 @@ import {
 export const LIST_TIME_RANGE_STORAGE_KEY = "pop-event-list-when";
 
 /**
- * Last category scope the when-chip was applied to. City-only swaps keep the
- * same key so Today/Weekend can stick; a new category resets to All.
+ * Last category scope the when-chip was applied to (diagnostics / tests).
+ * City and category soft-nav both keep the All/Today/Tomorrow/Weekend chip.
  */
 export const LIST_TIME_RANGE_CATEGORY_KEY = "pop-event-list-when-category";
 
@@ -58,16 +58,6 @@ export function writeListTimeRange(next: FilterTimeRange): void {
   emit();
 }
 
-function readStoredCategoryKey(): string | null {
-  if (memoryCategoryKey != null) return memoryCategoryKey;
-  if (typeof window === "undefined") return null;
-  try {
-    return sessionStorage.getItem(LIST_TIME_RANGE_CATEGORY_KEY);
-  } catch {
-    return null;
-  }
-}
-
 function writeStoredCategoryKey(categoryKey: string): void {
   memoryCategoryKey = categoryKey;
   if (typeof window === "undefined") return;
@@ -79,22 +69,18 @@ function writeStoredCategoryKey(categoryKey: string): void {
 }
 
 /**
- * Keep All/Today/Tomorrow/Weekend across city swaps, but reset to All when the
- * category scope changes (including entering or leaving a category).
+ * Remember which category scope last read the when-chip. Does **not** reset
+ * All/Today/Tomorrow/Weekend — category soft-nav and when→category landings
+ * keep the visitor’s tab.
  *
- * Safe to call during render before reading the chip — avoids a one-frame flash
- * of the previous category's time tab.
+ * Safe to call during render before reading the chip.
  */
 export function syncListTimeRangeForCategory(categoryKey: string): void {
   if (typeof window === "undefined") return;
-  const prev = readStoredCategoryKey();
-  if (prev != null && prev !== categoryKey) {
-    writeListTimeRange(DEFAULT_FILTER_TIME_RANGE);
-  }
   writeStoredCategoryKey(categoryKey);
 }
 
-/** Force All — e.g. picking a category from a when / “see all” listing. */
+/** Force All — rare explicit clears (tests / callers that opt in). */
 export function resetListTimeRangeToAll(): void {
   writeListTimeRange(DEFAULT_FILTER_TIME_RANGE);
 }

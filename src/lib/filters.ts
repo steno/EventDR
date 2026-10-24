@@ -98,12 +98,17 @@ function getWeekendRangeISO(now: Date): { start: string; end: string } {
   const today = localDateISO(now);
   const day = weekdayFromISO(today);
 
-  // Fri–Sat: current weekend. Sun and Mon–Thu: upcoming Sat–Sun.
+  // Fri–Sun = this weekend (Sat–Sun core; listing bounds add the Friday).
+  // Mon–Thu only: look ahead to the upcoming Sat–Sun.
   if (day === 5) {
     return { start: addDaysISO(today, 1), end: addDaysISO(today, 2) };
   }
   if (day === 6) {
     return { start: today, end: addDaysISO(today, 1) };
+  }
+  if (day === 0) {
+    // Sunday is still this weekend — do not jump to next Saturday.
+    return { start: addDaysISO(today, -1), end: today };
   }
 
   const daysUntilSaturday = (6 - day + 7) % 7;

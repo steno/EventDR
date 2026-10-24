@@ -7,6 +7,8 @@ import {
   textMatchesSearchQuery,
   buildEventSearchText,
   filterByPrice,
+  filterByTimeRange,
+  getWeekendListingBounds,
   listOtherMatchingFilterTimeRanges,
 } from "./filters";
 
@@ -422,5 +424,51 @@ describe("listOtherMatchingFilterTimeRanges", () => {
   it("returns an empty list when nothing else matches", () => {
     const ranges = listOtherMatchingFilterTimeRanges("all", () => false);
     assert.deepEqual(ranges, []);
+  });
+});
+
+describe("weekend filter includes Sunday", () => {
+  /** Sunday Oct 25, 2026 12:00 AST. */
+  const sunday = new Date("2026-10-25T16:00:00.000Z");
+  /** Saturday Oct 24, 2026 12:00 AST. */
+  const saturday = new Date("2026-10-24T16:00:00.000Z");
+
+  it("keeps this weekend on Sunday (does not jump to next Sat–Sun)", () => {
+    assert.deepEqual(getWeekendListingBounds(sunday), {
+      start: "2026-10-23",
+      end: "2026-10-25",
+    });
+  });
+
+  it("includes today’s Sunday one-off on the Weekend chip", () => {
+    const brunch = {
+      id: "la-quinta-rosa-brunch",
+      date: "2026-10-25",
+      title: "Sunday Brunch",
+    };
+    const nextWeek = {
+      id: "next-sunday",
+      date: "2026-11-01",
+      title: "Next Sunday Market",
+    };
+    const hits = filterByTimeRange([brunch, nextWeek], "weekend", sunday);
+    assert.deepEqual(
+      hits.map((e) => e.id),
+      ["la-quinta-rosa-brunch"],
+    );
+  });
+
+  it("still includes Sunday when browsing from Saturday", () => {
+    assert.deepEqual(getWeekendListingBounds(saturday), {
+      start: "2026-10-23",
+      end: "2026-10-25",
+    });
+    const brunch = {
+      id: "la-quinta-rosa-brunch",
+      date: "2026-10-25",
+      title: "Sunday Brunch",
+    };
+    const hits = filterByTimeRange([brunch], "weekend", saturday);
+    assert.equal(hits[0]?.id, "la-quinta-rosa-brunch");
   });
 });

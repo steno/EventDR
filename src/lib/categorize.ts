@@ -402,13 +402,18 @@ const CATEGORY_AFFINITIES: Partial<Record<EventCategory, EventCategory[]>> = {
  */
 export const MAX_SECONDARY_CATEGORIES = 2;
 
-/** Club / stage primaries — Adventure only when copy shows a real outing. */
+/**
+ * Club / stage primaries — Adventure / Food & Drinks only when copy shows a
+ * real outing or food-led bill (not amenity “cocktails” / “pay for food”).
+ * Includes performances (karaoke, open mic) — same amenity false positives.
+ */
 const NIGHTLIFE_PRIMARIES = new Set<EventCategory>([
   "parties",
   "halloween",
   "music",
   "concert",
   "dance",
+  "performances",
 ]);
 
 /**
@@ -436,22 +441,29 @@ const CATEGORY_INFERENCE_BLOCKS: Partial<
    * Adventure on these primaries still needs {@link hasAdventureOutingSignal}
    * (e.g. trolley city tour). Game nights with “tournament” stay off Sports.
    */
-  parties: ["sports", "adventure"],
-  halloween: ["sports", "adventure"],
+  parties: ["sports", "adventure", "food-drinks"],
+  halloween: ["sports", "adventure", "food-drinks"],
   /**
    * Live music / concerts that name a venue like Grand Prix Smart Shop must not
    * pick up Sports from motorsport-ish wording in the copy. Band-name
    * “Aventura” nights stay off Adventure without an outing signal.
+   * Cocktail / BBQ / “pay for food and drinks” amenity copy stays off Food & Drinks.
    */
-  concert: ["sports", "adventure"],
-  music: ["sports", "adventure"],
+  concert: ["sports", "adventure", "food-drinks"],
+  music: ["sports", "adventure", "food-drinks"],
   /** Dance classes / socials: “kite canopy street” etc. stay off Adventure. */
-  dance: ["adventure"],
+  dance: ["adventure", "food-drinks"],
   /**
    * Karaoke / open-mic copy often names a disco venue or says “nightlife”
    * without being a club party. Keep Parties for explicit tags or stronger hits.
+   * Same for Food & Drinks — mic nights are not dining listings.
+   * Stage dialogue (“estado bienestar”, “sentirme bien”) must not unlock Wellness.
    */
-  performances: ["parties"],
+  performances: ["parties", "food-drinks", "health-wellness"],
+  /**
+   * Sports-bar / watch-party copy (“drinks and food”, TVs) is not a dining listing.
+   */
+  sports: ["food-drinks"],
   /**
    * B2B / trade events often say “adventure tourism” without being an outing —
    * keep Adventure for activities attendees actually go on.
@@ -539,6 +551,43 @@ export function hasAdventureOutingSignal(text: string): boolean {
     );
   });
   return scoreCategory(text, outingKeywords) >= 1;
+}
+
+/**
+ * Food-led signals that may keep Food & Drinks on a nightlife / sports primary
+ * (food market DJ, brunch bill). Cocktail / BBQ / “food and drinks” amenities
+ * alone do not count — those are bar service, not a dining listing.
+ * Screenings and TV watch parties never keep Food & Drinks (even at a food market).
+ */
+const NIGHTLIFE_DINING_KEEP_KEYWORDS: Keyword[] = [
+  { term: "food market", weight: 2 },
+  { term: "food park", weight: 2 },
+  { term: "foodpark", weight: 2 },
+  { term: "food truck", weight: 2 },
+  { term: "restaurant week", weight: 2 },
+  { term: "brunch", weight: 2 },
+  { term: "tasting", weight: 2 },
+  { term: "degustación", weight: 2 },
+  { term: "dégustation", weight: 2 },
+  { term: "culinary", weight: 2 },
+  { term: "gastronom", weight: 2 },
+  { term: "street food", weight: 2 },
+  { term: "charcuterie", weight: 2 },
+  { term: "bocadillo", weight: 2 },
+  { term: "bocadillos", weight: 2 },
+];
+
+/** Movie / TV / stadium-watch copy — not a Food & Drinks listing. */
+export function isScreeningOrWatchParty(text: string): boolean {
+  return /\b(?:movie|cine|cinema|screening|film|pel[ií]cula|watch party|game day|lidom|nfl|nba|mlb|formula\s*1|\bf1\b|world cup|mundial|sports?\s+bar|on the tvs?|en las tvs?|big-?screen|pantalla|transylvania)\b/i.test(
+    text,
+  );
+}
+
+/** True when nightlife/sports copy is food-led enough to keep a Food & Drinks tag. */
+export function hasNightlifeDiningKeepSignal(text: string): boolean {
+  if (isScreeningOrWatchParty(text)) return false;
+  return scoreCategory(text, NIGHTLIFE_DINING_KEEP_KEYWORDS) >= 2;
 }
 
 function scoreCategory(
@@ -664,6 +713,17 @@ export function resolveSecondaryCategories(event: {
     !hasAdventureOutingSignal(text)
   ) {
     explicit = explicit.filter((category) => category !== "adventure");
+  }
+
+  const stripFoodAmenity =
+    explicit.includes("food-drinks") &&
+    !hasNightlifeDiningKeepSignal(text) &&
+    (NIGHTLIFE_PRIMARIES.has(event.category) ||
+      event.category === "sports" ||
+      // Culture/festival screenings that only mention stall food
+      isScreeningOrWatchParty(text));
+  if (stripFoodAmenity) {
+    explicit = explicit.filter((category) => category !== "food-drinks");
   }
 
   explicit = explicit.slice(0, MAX_SECONDARY_CATEGORIES);

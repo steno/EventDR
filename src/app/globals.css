@@ -1112,16 +1112,34 @@ html.dark .pull-reload__spinner {
 
 /*
  * Halloween category accent — 3 hanging spiders (transform-only, no images).
- * Scoped to listings that mount <HalloweenSpiders />; pointer-events none.
+ * z above sticky list header (z-20) + location pills so threads hang in front.
+ * pointer-events none — never blocks taps.
  */
 .halloween-spiders {
   position: absolute;
   inset-inline: 0;
   top: 0;
-  z-index: 5;
+  z-index: 30;
   height: 8.5rem;
   overflow: hidden;
   pointer-events: none;
+}
+
+/* Home Halloween rail — hang into the card row under the section title.
+   Always light spiders (light + dark) so they read on cream/white cards.
+   Stay under card chrome (low z) — only category page spiders float on top. */
+.halloween-spiders--rail {
+  height: 7rem;
+  z-index: 2;
+}
+
+.halloween-spiders--rail .halloween-spider {
+  --spider-body: #e7e5e4;
+  --spider-thread: rgb(120 113 108 / 0.75);
+  --spider-eye: #1c1917;
+  --spider-pupil: #fafaf9;
+  opacity: 0.92;
+  filter: drop-shadow(0 0 0.3rem rgb(28 25 23 / 0.2));
 }
 
 .halloween-spider {

@@ -241,9 +241,7 @@ export function FilteredEventList({
     ) : null;
   const areaKey = areaLabel ?? null;
 
-  // Keep the when-chip across city swaps; reset to All when category changes.
-  // layout effect runs before paint so hard-nav from another category does not
-  // flash the previous Today/Weekend tab.
+  // Keep All/Today/Weekend across city and category swaps (session chip).
   useLayoutEffect(() => {
     if (!persistWhenChip) return;
     syncListTimeRangeForCategory(categoryId ?? "");

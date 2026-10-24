@@ -555,6 +555,93 @@ describe("Aventura band / nightlife copy is not Adventure", () => {
   });
 });
 
+describe("nightlife does not inherit Food & Drinks from amenities", () => {
+  it("strips curated food-drinks from karaoke / DJ nights without a food-led bill", () => {
+    assert.equal(
+      resolveSecondaryCategories({
+        title: "Le Petit François Friday Karaoke",
+        description: "No cover — pay for food and drinks. Limoncello shots 2-for-1.",
+        category: "performances",
+        categories: ["music", "food-drinks"],
+      }).includes("food-drinks"),
+      false,
+    );
+    assert.equal(
+      resolveSecondaryCategories({
+        title: "Tiki Bar — DJ Session",
+        description: "Thatched tiki cocktail bar night with open-format DJ",
+        category: "music",
+        categories: ["parties"],
+      }).includes("food-drinks"),
+      false,
+    );
+  });
+
+  it("keeps food-drinks on nightlife when copy is food-market led", () => {
+    assert.ok(
+      resolveSecondaryCategories({
+        title: "Live DJ at Sosúa Food Market",
+        description: "DJ session at Sosúa Food Market with food-court plates",
+        category: "music",
+        categories: ["food-drinks"],
+      }).includes("food-drinks"),
+    );
+  });
+
+  it("drops Friday karaoke and Tiki DJ from the food hub across locales", () => {
+    for (const id of [
+      "petit-francois-friday-karaoke",
+      "lokuras-pop-friday-karaoke",
+      "tiki-bar-henry-jimenez-2026-10-23",
+      "dj-ronald-voramar-2026-10-23",
+      "nueve-bingo-friday",
+    ] as const) {
+      for (const locale of ["en", "es", "fr"] as const) {
+        const event = getFallbackEventById(id, locale);
+        assert.ok(event, `${id} ${locale}`);
+        assert.equal(
+          eventInCategory(withResolvedCategories(event), "food-drinks"),
+          false,
+          `${id} ${locale}`,
+        );
+      }
+    }
+  });
+
+  it("drops sports-bar TV and food-market movie nights from Food & Drinks", () => {
+    for (const id of [
+      "victrola-lidom-2026-10-24",
+      "victrola-sports-sunday-2026-10-25",
+      "sosua-food-market-halloween-cine-2026-10-24",
+      "flip-flop-nfl-sunday",
+    ] as const) {
+      const event = getFallbackEventById(id, "en");
+      assert.ok(event, id);
+      assert.equal(
+        eventInCategory(withResolvedCategories(event), "food-drinks"),
+        false,
+        id,
+      );
+    }
+  });
+
+  it("does not tag Iván García theater from bienestar dialogue in the blurb", () => {
+    for (const locale of ["en", "es", "fr"] as const) {
+      const event = getFallbackEventById(
+        "ivan-garcia-eulogio-badia-2026-10-24",
+        locale,
+      );
+      assert.ok(event, locale);
+      assert.equal(event.category, "performances", locale);
+      assert.equal(
+        eventInCategory(withResolvedCategories(event), "health-wellness"),
+        false,
+        locale,
+      );
+    }
+  });
+});
+
 describe("category soft cap", () => {
   it("fills at most two inferred secondaries when none are curated", () => {
     const secondaries = resolveSecondaryCategories({

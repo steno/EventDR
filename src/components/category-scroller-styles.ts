@@ -18,15 +18,17 @@ export const CATEGORY_PILL_ACTIVE = `
 `;
 
 /**
- * Idle: light grey on light; warm mahogany → near-black → faint fuchsia on dark
+ * Idle: light grey on light with a visible ring (cream page washes out bare
+ * fills); warm mahogany → near-black → faint fuchsia + orange ring on dark
  * (matches page-glow atmosphere so pills read on `#0a0a0a`).
  */
 export const CATEGORY_PILL_IDLE = `
   bg-neutral-100 text-neutral-800
-  hover:bg-neutral-200/90
+  ring-1 ring-orange-500/40
+  hover:bg-neutral-200/90 hover:ring-orange-500/55
   dark:bg-gradient-to-br dark:from-[#3a1810] dark:via-[#140806] dark:to-[#1a0a16]
   dark:text-neutral-100
-  dark:ring-1 dark:ring-orange-400/30
+  dark:ring-orange-400/30
   dark:hover:from-[#4a2018] dark:hover:via-[#1c0c0a] dark:hover:to-[#24101c]
   dark:hover:ring-orange-400/45
 `;
@@ -46,7 +48,7 @@ export const CATEGORY_SCROLLER_BAR = `
 /** z above rail fade only — parent `isolate` keeps this under sticky nav. */
 export const CATEGORY_SCROLL_BTN = `
   absolute right-0 z-[11] flex h-8 w-8 shrink-0 items-center justify-center
-  rounded-full border border-neutral-200/80 bg-white/95 text-neutral-700
+  rounded-full border border-neutral-300 bg-white/95 text-neutral-700
   shadow-md backdrop-blur-sm transition-[transform,opacity,background-color]
   touch-manipulation
   hover:bg-neutral-50 hover:text-neutral-950

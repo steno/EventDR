@@ -89,20 +89,22 @@ function isScarceRecurring(event: Event): boolean {
 
 /**
  * Lower = higher in discovery lists (category “All”).
- * 0 today’s scarce nights — Thu-only / one-offs still on today (any live status)
- * 1 future dated one-offs and scarce weekly (don’t bury under museum hours)
- * 2 evergreen daily/weekday catalog — even “Happening now” open hours
+ * 0 today’s one-offs
+ * 1 future dated one-offs (and multi-day festivals)
+ * 2 scarce weekly/weekend — today or future (never above a dated one-off)
+ * 3 evergreen daily/weekday catalog — even “Happening now” open hours
+ *
+ * Category rule: one-offs beat recurring. Today’s “Every Sat” must not sit
+ * above tomorrow’s brunch or next week’s dinner.
  */
 function discoveryBand(tier: number, event: Event): number {
-  const scarce = !isRecurringEvent(event) || isScarceRecurring(event);
+  const oneOff = !isRecurringEvent(event);
+  const scarceWeekly = isScarceRecurring(event);
   const todayActive =
     tier === LIST_TIER.live ||
     tier === LIST_TIER.endingSoon ||
     tier === LIST_TIER.upcomingToday ||
     tier === LIST_TIER.activeTodayUnknown;
-
-  // Thursday-only (and other scarce) beats open museums/tours on that day.
-  if (todayActive && scarce) return 0;
 
   if (
     tier === LIST_TIER.endedToday ||
@@ -110,13 +112,13 @@ function discoveryBand(tier: number, event: Event): number {
     tier === LIST_TIER.past ||
     tier === LIST_TIER.closedToday
   ) {
-    return 2;
+    return 3;
   }
 
-  // Future one-offs / weekly nights above the evergreen daily wall.
-  if (scarce) return 1;
-
-  return 2;
+  if (oneOff && todayActive) return 0;
+  if (oneOff) return 1;
+  if (scarceWeekly) return 2;
+  return 3;
 }
 
 /**
@@ -134,21 +136,46 @@ export function prioritizeOneTimeEvents(events: Event[]): Event[] {
   });
 }
 
+export interface PinTodayOneOffsOptions {
+  /**
+   * Category hubs: keep primary-category matches ahead of secondary-only
+   * (e.g. Sancocho before a sports-bar TV night that only tagged Food & Drinks).
+   */
+  preferPrimaryCategory?: Event["category"];
+  /**
+   * When true (category discoveryMode): pin only dated one-offs. Scarce
+   * weeklies stay where discoveryBand put them — otherwise today’s
+   * “Every Sat” jumps above tomorrow’s brunch.
+   */
+  oneOffsOnly?: boolean;
+}
+
 /**
- * Float today’s one-offs and scarce weekly nights above evergreen dailies
- * (including untimed “Happening today” series like La Peña). Used on home
- * Today and category/city lists.
+ * Float today’s one-offs (and scarce weekly nights, unless `oneOffsOnly`)
+ * above evergreen dailies (including untimed “Happening today” series like
+ * La Peña). Used on home Today and category/city lists.
  */
-export function pinTodayOneOffs(events: Event[], now: Date = new Date()): Event[] {
+export function pinTodayOneOffs(
+  events: Event[],
+  now: Date = new Date(),
+  options: PinTodayOneOffsOptions = {},
+): Event[] {
   if (events.length < 2) return events;
 
   const today = localDateISO(now);
+  const preferPrimary = options.preferPrimaryCategory;
+  const oneOffsOnly = options.oneOffsOnly === true;
   const pinned: Event[] = [];
   const rest: Event[] = [];
   for (const event of events) {
-    const everydayRecurring =
-      isRecurringEvent(event) && !isScarceRecurring(event);
+    const recurring = isRecurringEvent(event);
+    const everydayRecurring = recurring && !isScarceRecurring(event);
     if (everydayRecurring || !happensOnLocalDate(event, today)) {
+      rest.push(event);
+      continue;
+    }
+    // Category All: do not re-pin weeklies above future one-offs.
+    if (oneOffsOnly && recurring) {
       rest.push(event);
       continue;
     }
@@ -167,14 +194,19 @@ export function pinTodayOneOffs(events: Event[], now: Date = new Date()): Event[
 
   if (pinned.length === 0) return events;
 
-  // Trending → one-time kind → newest createdAt (fresh seeds beat stale peers).
-  // Equal keys keep prior status/shuffle order (stable sort).
+  // One-time before weekly → primary hub match → trending → newest createdAt.
+  // Same-day one-offs always beat recurring, even when the weekly is primary.
   pinned.sort((a, b) => {
+    const kind = oneTimeKindRank(a) - oneTimeKindRank(b);
+    if (kind !== 0) return kind;
+    if (preferPrimary) {
+      const aPrimary = a.category === preferPrimary;
+      const bPrimary = b.category === preferPrimary;
+      if (aPrimary !== bPrimary) return aPrimary ? -1 : 1;
+    }
     const trend =
       Number(Boolean(b.trending)) - Number(Boolean(a.trending));
     if (trend !== 0) return trend;
-    const kind = oneTimeKindRank(a) - oneTimeKindRank(b);
-    if (kind !== 0) return kind;
     return createdAtDesc(a, b);
   });
   return [...pinned, ...rest];
@@ -284,7 +316,12 @@ export function sortEventsForDisplay(
 
     if (a.tier !== b.tier) return a.tier - b.tier;
 
-    // Category pages: primary matches before secondary-only, within the same status tier.
+    // Kind before primary/clock within the same status tier — same-day one-offs
+    // beat weekly/daily on every category hub (and Today / Weekend tabs).
+    // Never across tiers — a live daily still beats an upcoming one-off.
+    if (oneTimeFirst && a.kind !== b.kind) return a.kind - b.kind;
+
+    // Category pages: primary matches before secondary-only, within kind + tier.
     if (preferPrimary && a.primaryMatch !== b.primaryMatch) {
       return a.primaryMatch ? -1 : 1;
     }
@@ -299,10 +336,6 @@ export function sortEventsForDisplay(
       const recurrenceDiff = Number(a.recurring) - Number(b.recurring);
       if (recurrenceDiff !== 0) return recurrenceDiff;
     }
-
-    // Kind before clock/date within the same status tier (Today / Weekend tabs).
-    // Never across tiers — a live daily still beats an upcoming one-off.
-    if (oneTimeFirst && a.kind !== b.kind) return a.kind - b.kind;
 
     const tier = a.tier;
     if (tier === LIST_TIER.endingSoon) {
@@ -339,5 +372,12 @@ export function sortEventsForDisplay(
   });
 
   const sorted = keyed.map((row) => row.event);
-  return shouldPinTodayOneOffs ? pinTodayOneOffs(sorted, now) : sorted;
+  return shouldPinTodayOneOffs
+    ? pinTodayOneOffs(sorted, now, {
+        preferPrimaryCategory: preferPrimary,
+        // discoveryBand already ranks one-offs → scarce weekly → dailies;
+        // pinning weeklies here would undo that for future one-offs.
+        oneOffsOnly: discoveryMode,
+      })
+    : sorted;
 }

@@ -123,6 +123,124 @@ describe("sortEventsForDisplay discoveryMode", () => {
     });
     assert.equal(sorted.map((e) => e.id).join(","), "sports-game,adventure-bleed");
   });
+
+  it("keeps food primaries ahead of trending sports-TV secondaries after pinTodayOneOffs", () => {
+    /** Saturday Oct 24, 2026 11:00 AST — brunch + TV + weekly still upcoming. */
+    const saturdayMorning = new Date("2026-10-24T15:00:00.000Z");
+    const tvSecondary = event({
+      id: "victrola-lidom",
+      title: "Victrola LIDOM on TV",
+      date: "2026-10-24",
+      time: "4:00 PM",
+      category: "sports",
+      categories: ["food-drinks"],
+      trending: true,
+    });
+    const weeklyFood = event({
+      id: "sancocho-saturday",
+      title: "Sancocho Saturdays",
+      date: "2026-10-24",
+      time: "12:00 PM – 4:00 PM",
+      category: "food-drinks",
+      recurrence: "weekly",
+      recurrenceDay: 6,
+    });
+    const oneOffFood = event({
+      id: "brunch-special",
+      title: "Pumpkin Brunch",
+      date: "2026-10-24",
+      time: "11:00 AM – 2:00 PM",
+      category: "food-drinks",
+    });
+
+    const sorted = sortEventsForDisplay([tvSecondary, weeklyFood, oneOffFood], {
+      now: saturdayMorning,
+      discoveryMode: true,
+      oneTimeFirst: true,
+      pinTodayOneOffs: true,
+      preferPrimaryCategory: "food-drinks",
+      recurringLast: true,
+    });
+    assert.equal(
+      sorted.map((e) => e.id).join(","),
+      "brunch-special,victrola-lidom,sancocho-saturday",
+    );
+  });
+
+  it("ranks same-day one-offs above same-day weekly on category discovery", () => {
+    const saturdayMorning = new Date("2026-10-24T15:00:00.000Z");
+    const weekly = event({
+      id: "every-sat-market",
+      title: "Saturday Market",
+      date: "2026-10-24",
+      time: "10:00 AM – 1:00 PM",
+      category: "food-drinks",
+      recurrence: "weekly",
+      recurrenceDay: 6,
+    });
+    const oneOff = event({
+      id: "one-off-tasting",
+      title: "Guest Chef Tasting",
+      date: "2026-10-24",
+      time: "6:00 PM",
+      category: "food-drinks",
+    });
+
+    const sorted = sortEventsForDisplay([weekly, oneOff], {
+      now: saturdayMorning,
+      discoveryMode: true,
+      oneTimeFirst: true,
+      pinTodayOneOffs: true,
+      preferPrimaryCategory: "food-drinks",
+      recurringLast: true,
+    });
+    assert.equal(sorted.map((e) => e.id).join(","), "one-off-tasting,every-sat-market");
+  });
+
+  it("ranks a tomorrow one-off above today’s Every Sat on category discovery", () => {
+    /** Saturday Oct 24, 2026 00:45 AST — Vivonté “Happening today” must not beat brunch. */
+    const saturdayNight = new Date("2026-10-24T04:45:00.000Z");
+    const everySat = event({
+      id: "vivonte-saturday-tour",
+      title: "Vivonté Cigar Factory — Saturday Tour",
+      date: "2026-10-24",
+      time: "10:00 AM – 1:00 PM",
+      category: "food-drinks",
+      recurrence: "weekly",
+      recurrenceDay: 6,
+    });
+    const tomorrowBrunch = event({
+      id: "la-quinta-rosa-brunch",
+      title: "La Quinta Rosa Brunch",
+      date: "2026-10-25",
+      time: "10:00 AM",
+      category: "food-drinks",
+    });
+    const laterOneOff = event({
+      id: "natura-market-nov",
+      title: "Natura Market",
+      date: "2026-11-01",
+      time: "10:30 AM – 3:00 PM",
+      category: "food-drinks",
+      trending: true,
+    });
+
+    const sorted = sortEventsForDisplay(
+      [everySat, laterOneOff, tomorrowBrunch],
+      {
+        now: saturdayNight,
+        discoveryMode: true,
+        oneTimeFirst: true,
+        pinTodayOneOffs: true,
+        preferPrimaryCategory: "food-drinks",
+        recurringLast: true,
+      },
+    );
+    assert.equal(
+      sorted.map((e) => e.id).join(","),
+      "la-quinta-rosa-brunch,natura-market-nov,vivonte-saturday-tour",
+    );
+  });
 });
 
 describe("sortEventsForDisplay happening today vs closed", () => {

@@ -1570,32 +1570,6 @@
     "imageEmoji": "🎵"
   },
   {
-    "id": "gym-sov-zumba-tuesday",
-    "title": "Zumba au GYM SOV",
-    "description": "Cours du matin avec Raffaella au GYM SOV (Sosúa Ocean Village) — mardi Zumba Fitness et jeudi Zumba + Lift Tone Up (poids et tapis de yoga). Cardio danse latino/pop, adultes bienvenus, sans abonnement. 9 h–10 h ; réservez ou confirmez sur WhatsApp +1 829 519 1974.",
-    "date": "2026-01-01",
-    "time": "9:00 AM – 10:00 AM",
-    "location": "Sosúa",
-    "venue": "GYM SOV — Sosúa Ocean Village",
-    "venueSlug": "gym-sov-sosua-ocean-village",
-    "address": "Carretera Sosúa–Cabarete Km 2, Sosúa Ocean Village",
-    "category": "health-wellness",
-    "categories": [
-      "dance",
-      "sports"
-    ],
-    "format": "physical",
-    "recurrence": "weekly",
-    "recurrenceDays": [
-      2,
-      4
-    ],
-    "phone": "+18295191974",
-    "callForPricing": true,
-    "sourceUrl": "https://www.sosuaoceanvillage.com/gym",
-    "imageEmoji": "💃"
-  },
-  {
     "id": "meclao-rooftop-live-nights",
     "title": "Musique live au Mecla'o Rooftop",
     "description": "Rooftop sur l'Av. Luis Ginebra avec musique live, cocktails et vue sur la ville. Mardi–jeudi et dimanche 18 h–2 h ; vendredi–samedi 18 h–4 h. Fermé le lundi. Pause rénovation jusqu’au jeu 23 oct 2026 (réouvre ven 24 oct) — confirmez @meclaorooftop. Budget typique DOP 500–1 000.",
@@ -2756,9 +2730,8 @@
     "venueSlug": "nueve-puerto-plata",
     "lat": 19.7894175,
     "lng": -70.6788284,
-    "category": "food-drinks",
+    "category": "culture",
     "categories": [
-      "culture",
       "music"
     ],
     "format": "physical",

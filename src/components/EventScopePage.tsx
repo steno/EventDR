@@ -58,8 +58,8 @@ import {
 import { buildListingSearchCopy } from "@/lib/search-snippets";
 import { NETWORK_ONLY_FETCH } from "@/lib/pwa-refresh";
 import {
-  resetListTimeRangeToAll,
   syncListTimeRangeForCategory,
+  writeListTimeRange,
 } from "@/lib/list-time-range";
 
 interface EventScopePageProps {
@@ -316,8 +316,7 @@ export function EventScopePage({
         const parsed = parseScopeListingPath(url.pathname, locale);
         if (!parsed) return false;
         const next = normalizeScopeSelection(parsed);
-        // Reset in the click handler so soft-nav does not paint the previous
-        // category's time tab before FilteredEventList's layout sync.
+        // Keep All/Today/Weekend across category soft-nav (same session chip).
         syncListTimeRangeForCategory(next.categoryId ?? "");
         applySoftSelection(next);
         return true;
@@ -328,12 +327,19 @@ export function EventScopePage({
     [applySoftSelection, locale],
   );
 
-  // When/"see all" pages hard-nav to categories. Always start those landings
-  // on All — even if the visitor picks the same category they filtered last.
-  const onWhenCategoryNavigate = useCallback((_href: string) => {
-    resetListTimeRangeToAll();
-    return false;
-  }, []);
+  // When/"see all" pages hard-nav to categories — carry the when chip so
+  // Weekend → Music still opens with Weekend selected.
+  const onWhenCategoryNavigate = useCallback(
+    (_href: string) => {
+      if (fixedTimeRange) {
+        writeListTimeRange(fixedTimeRange);
+      } else if (defaultTimeRange) {
+        writeListTimeRange(defaultTimeRange);
+      }
+      return false;
+    },
+    [fixedTimeRange, defaultTimeRange],
+  );
 
   const chrome = useMemo(() => {
     if (!softNav) {
@@ -450,8 +456,12 @@ export function EventScopePage({
     )
       ? specialHeroEvent.imageUrl?.trim()
       : undefined;
-  // Category / city×category: no photo hero — H1 stays in DOM (sr-only) for SEO.
-  const scopeHeroImage = activeCategoryId
+  // Category hubs + region /events: no photo hero — H1/intro stay in DOM
+  // (sr-only) for SEO, same as category pages. City + when hubs keep a photo.
+  const hideScopePhotoHero =
+    Boolean(activeCategoryId) ||
+    (activeRegionScope && !activeCitySlug && !fixedTimeRange);
+  const scopeHeroImage = hideScopePhotoHero
     ? undefined
     : specialHeroImage ||
       city?.heroImage ||
@@ -552,7 +562,7 @@ export function EventScopePage({
               returnTo={returnTo}
             />
           ) : (
-            /* Category (and other non-photo) scopes: keep H1/intro for SEO + AT, no visual header. */
+            /* Category + /events: keep H1/intro for SEO + AT, no visual banner. */
             <div className="sr-only">
               {eyebrow ? <p>{eyebrow}</p> : null}
               <h1>{title}</h1>

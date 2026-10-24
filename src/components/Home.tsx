@@ -36,6 +36,7 @@ import {
   getHomeDiscoverLayout,
   HOME_HALLOWEEN_LIMIT,
   HOME_SEARCH_LIMIT,
+  HOME_SPECIALS_LIMIT,
   HOME_WEEKEND_LIMIT,
 } from "@/lib/home-layout";
 import { pickSearchVenueHits, searchEvents } from "@/lib/filters";
@@ -840,7 +841,7 @@ function HomeApp({
                   dict={dict}
                   prefiltered
                   title={dict.events.todaysSpecials}
-                  limit={null}
+                  limit={HOME_SPECIALS_LIMIT}
                   seeAllHref={seeAllTodayHref}
                   seeAllLabel={dict.events.seeAllSpecials}
                   listTimeRange="today"
@@ -882,6 +883,7 @@ function HomeApp({
                   showDate
                   mobilePairSlides
                   denseDesktop
+                  hangingSpiders
                   onAddEvent={() => setSubmitOpen(true)}
                   returnTo={homePath}
                 />

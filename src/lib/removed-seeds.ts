@@ -36,7 +36,8 @@ export const REMOVED_SEED_EVENT_IDS = new Set([
   "cremo-friday-salsa-dance",
   // Overlaps La Puntilla concerts (same hours/source; older Malecón placeholder).
   "malecon-live-concert",
-  // Duplicate of gym-sov-zumba-tuesday (same class, Tue + Thu 9 AM).
+  // Zumba at GYM SOV — editor removed (Tue/Thu series and duplicate Thu lift id).
+  "gym-sov-zumba-tuesday",
   "gym-sov-zumba-lift-thursday",
   // Folded into flip-flop-monday-happy-hour (one flyer, daily schedule).
   "flip-flop-weekday-happy-hour",
@@ -99,6 +100,10 @@ export const REMOVED_SEED_EVENT_IDS = new Set([
   "cheers-fire-ice-thursdays",
   // Generic weekly Saturday Session — prefer dated named bills (soft reopen / Halloween).
   "voyvoy-saturday-session",
+  // No public venue pin — address only on booking; weekly without a place acts like vapor.
+  "cabarete-pilates-reformer",
+  // Editor removed — Sunset Laughter Club Cabarete weekly.
+  "sunset-laughter-club-cabarete",
 ]);
 
 export function filterRemovedSeedEvents(events: Event[]): Event[] {

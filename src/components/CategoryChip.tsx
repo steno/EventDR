@@ -28,7 +28,7 @@ export function CategoryChip({ category, locale }: CategoryChipProps) {
         ${
           pending
             ? "scale-[0.98] border-orange-400 ring-2 ring-orange-500/80 shadow-[0_8px_18px_-10px_rgba(251,146,60,0.45)] dark:border-orange-500 dark:ring-orange-400/70"
-            : "border-neutral-200/90 hover:border-orange-200 hover:text-orange-700 active:scale-[0.98] dark:border-neutral-700 dark:hover:border-orange-800 dark:hover:text-orange-400"
+            : "border-neutral-300 hover:border-orange-400 hover:text-orange-700 active:scale-[0.98] dark:border-neutral-700 dark:hover:border-orange-800 dark:hover:text-orange-400"
         }
       `}
       aria-label={category.label}

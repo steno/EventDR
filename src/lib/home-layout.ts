@@ -41,10 +41,11 @@ export function isHomeDiscoverExcluded(
 }
 
 /**
- * @deprecated Today's specials show every active dated one-off (no home cap).
- * Kept so older imports resolve; prefer omitting `limit` / passing `null`.
+ * Visible card cap for home Today’s specials. The full pool still half-hour
+ * shuffles in {@link getTodaySpecialEvents}; Home slices to this many and
+ * shows “See all specials” when there are more.
  */
-export const HOME_SPECIALS_LIMIT = Number.POSITIVE_INFINITY;
+export const HOME_SPECIALS_LIMIT = 4;
 
 /** Max cards in the home "This weekend" section (mobile 2-up slides). */
 export const HOME_WEEKEND_LIMIT = 6;
@@ -613,10 +614,10 @@ export function getComingUpHighlightEvents(
  * the section when the list is empty. A single special can sit beside an
  * add-event promo so the desktop row doesn’t look sparse.
  *
- * No display cap — every active special is returned. Order is a full
- * half-hour seeded shuffle ({@link seededShuffle}) across the whole rail —
- * not status peers — so live and upcoming mix. Same cost as peer shuffle;
- * no `Math.random`, hydration flicker, or reshuffle on every render.
+ * Returns every active special (no slice here). Order is a full half-hour
+ * seeded shuffle ({@link seededShuffle}) across the whole pool — not status
+ * peers — so live and upcoming mix. Home displays
+ * {@link HOME_SPECIALS_LIMIT} with a see-all link when there are more.
  *
  * Drops a one-off once it is in the “ends soon” window; Happening today
  * keeps that card.

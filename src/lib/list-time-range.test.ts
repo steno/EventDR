@@ -65,27 +65,30 @@ describe("syncListTimeRangeForCategory", () => {
     );
   });
 
-  it("resets to All when the category scope changes", () => {
+  it("keeps the time chip when the category scope changes", () => {
     writeListTimeRange("weekend");
     syncListTimeRangeForCategory("music");
     assert.equal(getListTimeRange(), "weekend");
 
     syncListTimeRangeForCategory("parties");
-    assert.equal(getListTimeRange(), "all");
-    assert.equal(sessionStorage.getItem(LIST_TIME_RANGE_STORAGE_KEY), "all");
+    assert.equal(getListTimeRange(), "weekend");
+    assert.equal(
+      sessionStorage.getItem(LIST_TIME_RANGE_STORAGE_KEY),
+      "weekend",
+    );
     assert.equal(
       sessionStorage.getItem(LIST_TIME_RANGE_CATEGORY_KEY),
       "parties",
     );
   });
 
-  it("resets to All when entering a category from unscoped lists", () => {
+  it("keeps the time chip when entering a category from unscoped lists", () => {
     writeListTimeRange("tomorrow");
     syncListTimeRangeForCategory("");
     assert.equal(getListTimeRange(), "tomorrow");
 
     syncListTimeRangeForCategory("concert");
-    assert.equal(getListTimeRange(), "all");
+    assert.equal(getListTimeRange(), "tomorrow");
   });
 
   it("resetListTimeRangeToAll clears a stale chip for the same category", () => {
