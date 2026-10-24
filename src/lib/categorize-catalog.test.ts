@@ -73,6 +73,22 @@ describe("catalog category invariants", () => {
     }
   });
 
+  it("does not tag Le Petit François Sunday Brunch as Halloween from disambiguation copy", () => {
+    for (const locale of LOCALES) {
+      const event = getFallbackEventById(
+        "petit-francois-sunday-brunch",
+        locale,
+      );
+      assert.ok(event, locale);
+      assert.equal(event.category, "food-drinks", locale);
+      assert.equal(
+        eventInCategory(withResolvedCategories(event), "halloween"),
+        false,
+        locale,
+      );
+    }
+  });
+
   it("keeps Café Ópera Código Clown as theater, not Halloween", () => {
     for (const locale of LOCALES) {
       const event = getFallbackEventById(

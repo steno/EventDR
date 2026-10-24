@@ -1109,3 +1109,280 @@ html.dark .pull-reload__spinner {
   overflow: hidden;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.18) !important;
 }
+
+/*
+ * Halloween category accent — 3 hanging spiders (transform-only, no images).
+ * Scoped to listings that mount <HalloweenSpiders />; pointer-events none.
+ */
+.halloween-spiders {
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  z-index: 5;
+  height: 8.5rem;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.halloween-spider {
+  --spider-body: #1a1410;
+  --spider-thread: rgb(82 82 82 / 0.65);
+  --spider-eye: #f5f5f4;
+  --spider-pupil: #0a0a0a;
+  position: absolute;
+  top: 0;
+  width: 1.65rem;
+  height: 1.35rem;
+  border-radius: 50%;
+  background: var(--spider-body);
+  opacity: 0.82;
+  transform: translate3d(0, -0.35rem, 0);
+  will-change: transform;
+}
+
+.dark .halloween-spider {
+  --spider-body: #e7e5e4;
+  --spider-thread: rgb(214 211 209 / 0.7);
+  --spider-eye: #1c1917;
+  --spider-pupil: #fafaf9;
+  opacity: 0.9;
+  filter: drop-shadow(0 0 0.35rem rgb(250 250 249 / 0.35));
+}
+
+.halloween-spider::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 100%;
+  width: 1px;
+  height: 5.5rem;
+  margin-left: -0.5px;
+  background: var(--spider-thread);
+}
+
+.halloween-spider--0 {
+  left: 12%;
+  animation: halloween-spider-drop-0 7s ease-in-out infinite;
+}
+
+.halloween-spider--1 {
+  left: 48%;
+  animation: halloween-spider-drop-1 8.5s ease-in-out 0.6s infinite;
+}
+
+.halloween-spider--2 {
+  left: auto;
+  right: 14%;
+  animation: halloween-spider-drop-2 6.5s ease-in-out 1.1s infinite;
+}
+
+.halloween-spider__eye {
+  position: absolute;
+  top: 0.35rem;
+  width: 0.38rem;
+  height: 0.42rem;
+  border-radius: 50%;
+  background: var(--spider-eye);
+}
+
+.halloween-spider__eye::after {
+  content: "";
+  position: absolute;
+  top: 0.14rem;
+  width: 0.16rem;
+  height: 0.16rem;
+  border-radius: 50%;
+  background: var(--spider-pupil);
+}
+
+.halloween-spider__eye--l {
+  left: 0.28rem;
+}
+
+.halloween-spider__eye--l::after {
+  right: 0.06rem;
+}
+
+.halloween-spider__eye--r {
+  right: 0.28rem;
+}
+
+.halloween-spider__eye--r::after {
+  left: 0.06rem;
+}
+
+.halloween-spider__leg {
+  position: absolute;
+  top: 0.2rem;
+  width: 0.55rem;
+  height: 0.4rem;
+  border-top: 1.5px solid var(--spider-body);
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  z-index: -1;
+}
+
+.halloween-spider__leg--l {
+  left: -0.32rem;
+  transform-origin: top right;
+  transform: rotate(34deg) skewX(-18deg);
+  border-left: 1.5px solid var(--spider-body);
+  border-radius: 60% 0 0 0;
+  animation: halloween-leg-l 1.1s ease-in-out infinite;
+}
+
+.halloween-spider__leg--r {
+  right: -0.32rem;
+  transform-origin: top left;
+  transform: rotate(-34deg) skewX(18deg);
+  border-right: 1.5px solid var(--spider-body);
+  border-radius: 0 60% 0 0;
+  animation: halloween-leg-r 1.1s ease-in-out 0.15s infinite;
+}
+
+.halloween-spider__leg--l1,
+.halloween-spider__leg--r1 {
+  top: 0.42rem;
+}
+
+.halloween-spider__leg--l2,
+.halloween-spider__leg--r2 {
+  top: 0.64rem;
+}
+
+.halloween-spider__leg--l3,
+.halloween-spider__leg--r3 {
+  top: 0.86rem;
+}
+
+.halloween-spider__leg--l1 {
+  animation-delay: 0.35s;
+}
+
+.halloween-spider__leg--l2 {
+  animation-delay: 0.55s;
+}
+
+.halloween-spider__leg--l3 {
+  animation-delay: 0.2s;
+}
+
+.halloween-spider__leg--r1 {
+  animation-delay: 0.45s;
+}
+
+.halloween-spider__leg--r2 {
+  animation-delay: 0.25s;
+}
+
+.halloween-spider__leg--r3 {
+  animation-delay: 0.6s;
+}
+
+@keyframes halloween-spider-drop-0 {
+  0%,
+  100% {
+    transform: translate3d(0, 0.4rem, 0);
+  }
+  45% {
+    transform: translate3d(0, 3.6rem, 0);
+  }
+  55% {
+    transform: translate3d(0, 3.35rem, 0);
+  }
+}
+
+@keyframes halloween-spider-drop-1 {
+  0%,
+  100% {
+    transform: translate3d(0, 0.15rem, 0);
+  }
+  40% {
+    transform: translate3d(0, 4.4rem, 0);
+  }
+  60% {
+    transform: translate3d(0, 4.1rem, 0);
+  }
+}
+
+@keyframes halloween-spider-drop-2 {
+  0%,
+  100% {
+    transform: translate3d(0, 0.55rem, 0);
+  }
+  50% {
+    transform: translate3d(0, 4.1rem, 0);
+  }
+}
+
+@keyframes halloween-leg-l {
+  0%,
+  100% {
+    transform: rotate(34deg) skewX(-18deg);
+  }
+  50% {
+    transform: rotate(42deg) skewX(-12deg);
+  }
+}
+
+@keyframes halloween-leg-r {
+  0%,
+  100% {
+    transform: rotate(-34deg) skewX(18deg);
+  }
+  50% {
+    transform: rotate(-42deg) skewX(12deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .halloween-spider,
+  .halloween-spider__leg {
+    animation: none;
+  }
+
+  .halloween-spider--0 {
+    transform: translate3d(0, 2.2rem, 0);
+  }
+
+  .halloween-spider--1 {
+    transform: translate3d(0, 2.8rem, 0);
+  }
+
+  .halloween-spider--2 {
+    transform: translate3d(0, 2.8rem, 0);
+  }
+}
+
+@media (min-width: 640px) {
+  .halloween-spiders {
+    height: 11.5rem;
+  }
+
+  .halloween-spider {
+    width: 1.9rem;
+    height: 1.55rem;
+  }
+
+  .halloween-spider::before {
+    height: 7.5rem;
+  }
+
+  .halloween-spider--1 {
+    animation-name: halloween-spider-drop-1-lg;
+  }
+}
+
+@keyframes halloween-spider-drop-1-lg {
+  0%,
+  100% {
+    transform: translate3d(0, 0.2rem, 0);
+  }
+  40% {
+    transform: translate3d(0, 5.6rem, 0);
+  }
+  60% {
+    transform: translate3d(0, 5.25rem, 0);
+  }
+}

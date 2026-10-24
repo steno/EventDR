@@ -473,20 +473,53 @@ function keywordWeight(keyword: Keyword): { term: string; weight: number } {
 /** Stem prefixes that should match inside longer words (e.g. gastronom → gastronómica). */
 const STEM_PREFIXES = new Set(["gastronom"]);
 
+/** EN/ES/FR cues used in “not Friday karaoke / ni … Halloween” disambiguation. */
+const KEYWORD_NEGATION_CUE_RE = /\b(?:not|nor|no\s+es|pas|ni)\b/iu;
+
+/** Clause slice ending at `index` (sentence / dash / semicolon boundaries). */
+function clauseBefore(haystack: string, index: number): string {
+  const before = haystack.slice(0, index);
+  let start = 0;
+  for (const boundary of [".", "!", "?", "—", "–", ";", "\n"] as const) {
+    const at = before.lastIndexOf(boundary);
+    if (at >= start) start = at + 1;
+  }
+  return before.slice(start);
+}
+
+/** True when a keyword hit sits after a not/nor/no es/pas/ni cue in the same clause. */
+function isNegatedKeywordAt(haystack: string, matchIndex: number): boolean {
+  return KEYWORD_NEGATION_CUE_RE.test(clauseBefore(haystack, matchIndex).slice(-120));
+}
+
 /**
  * Phrase match, or token match with word boundaries (avoids spa→Spanish, tour→tourist).
  * Allows a simple trailing -s / -es plural on single-token terms.
+ * Skips hits inside “not / no es / pas / ni …” disambiguation spans (all hubs).
  */
 function textIncludesKeyword(haystack: string, term: string): boolean {
   const needle = term.toLowerCase();
   if (needle.includes(" ") || STEM_PREFIXES.has(needle)) {
-    return haystack.includes(needle);
+    let from = 0;
+    while (from <= haystack.length) {
+      const at = haystack.indexOf(needle, from);
+      if (at < 0) return false;
+      if (!isNegatedKeywordAt(haystack, at)) return true;
+      from = at + needle.length;
+    }
+    return false;
   }
   const escaped = needle.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-  return new RegExp(
-    `(^|[^\\p{L}\\p{N}])${escaped}(?:e?s)?([^\\p{L}\\p{N}]|$)`,
-    "iu",
-  ).test(haystack);
+  const pattern = new RegExp(
+    `(^|[^\\p{L}\\p{N}])(${escaped}(?:e?s)?)(?=[^\\p{L}\\p{N}]|$)`,
+    "giu",
+  );
+  let match: RegExpExecArray | null;
+  while ((match = pattern.exec(haystack)) !== null) {
+    const termStart = match.index + match[1].length;
+    if (!isNegatedKeywordAt(haystack, termStart)) return true;
+  }
+  return false;
 }
 
 /**

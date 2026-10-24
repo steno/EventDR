@@ -527,6 +527,32 @@ describe("Aventura band / nightlife copy is not Adventure", () => {
     assert.equal(secondaries.includes("adventure"), false);
     assert.ok(secondaries.includes("music"));
   });
+
+  it("ignores not-/ni-/pas- disambiguation keywords across hubs", () => {
+    const brunchSecondaries = resolveSecondaryCategories({
+      title: "Le Petit François Sunday Brunch",
+      description:
+        "Weekly brunch — not Friday karaoke and not the dated Halloween or Canadian Thanksgiving specials.",
+      category: "food-drinks",
+    });
+    assert.equal(brunchSecondaries.includes("halloween"), false);
+    assert.equal(brunchSecondaries.includes("music"), false);
+
+    assert.ok(
+      resolveSecondaryCategories({
+        title: "Halloween Costume Night",
+        description: "Costume contest and haunted house DJ set",
+        category: "parties",
+      }).includes("halloween"),
+    );
+    assert.ok(
+      resolveSecondaryCategories({
+        title: "Friday Karaoke",
+        description: "Weekly karaoke with live mic and prize",
+        category: "parties",
+      }).includes("music"),
+    );
+  });
 });
 
 describe("category soft cap", () => {
