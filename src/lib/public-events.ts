@@ -101,9 +101,12 @@ async function loadPublicEvents(filter: PublicEventsFilter): Promise<Event[]> {
       const dbEvents = normalizeEventCoordsList(
         await fetchApprovedEvents({ category, venueSlug, locale }),
       );
+      // Seed catalog first — same as venue coords: seed date/series bumps win
+      // over stale Firestore copies of the same id. Firebase still fills gaps
+      // and can replace a seed that is no longer live.
       events = mergeUniqueEvents(
-        localizeEventsForDisplay(dbEvents, locale),
         events,
+        localizeEventsForDisplay(dbEvents, locale),
       );
     } catch {
       // Firebase may be unavailable at build time.

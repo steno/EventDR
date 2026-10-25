@@ -80,7 +80,8 @@ function mergeCommunityEvents(events: Event[], locale: Locale): Event[] {
 }
 
 function mergeDbEvents(events: Event[], dbEvents: Event[]): Event[] {
-  return mergeUniqueEvents(dbEvents, events);
+  // Seed catalog first — seed series bumps win over stale Firestore copies.
+  return mergeUniqueEvents(events, dbEvents);
 }
 
 function sortEvents(events: Event[], category?: EventCategory): Event[] {
