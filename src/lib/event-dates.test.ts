@@ -43,8 +43,8 @@ function karaokeTonight(overrides: Partial<Event> = {}): Event {
 const beforeStart = new Date("2026-08-24T16:00:00.000Z");
 /** Monday 31 Aug 2026, noon Atlantic. */
 const onStart = new Date("2026-08-31T16:00:00.000Z");
-/** Wed 16 Sep 2026, 21:08 Atlantic — after daytime 9 PM cutoff. */
-const afterDaytimeCutoff = new Date("2026-09-17T01:08:00.000Z");
+/** Wed 16 Sep 2026, 18:08 Atlantic — after daytime 6 PM cutoff. */
+const afterDaytimeCutoff = new Date("2026-09-16T22:08:00.000Z");
 /** Thu 17 Sep 2026, 00:15 Atlantic — calendar day after the karaoke night. */
 const afterKaraokeMidnight = new Date("2026-09-17T04:15:00.000Z");
 /** Wed 16 Sep 2026, 15:00 Atlantic — still daytime. */
@@ -104,7 +104,7 @@ describe("isPastOneOffEvent — same cutoff as home specials", () => {
     assert.equal(isPastOneOffEvent(karaokeTonight(), afternoonSameDay), false);
   });
 
-  it("keeps untimed club/stage nights past the daytime 9 PM cutoff", () => {
+  it("keeps untimed club/stage nights past the daytime 6 PM cutoff", () => {
     assert.equal(isPastOneOffEvent(karaokeTonight(), afterDaytimeCutoff), false);
     assert.equal(
       getTodaySpecialEvents([karaokeTonight()], { now: afterDaytimeCutoff })
@@ -125,7 +125,7 @@ describe("isPastOneOffEvent — same cutoff as home specials", () => {
     );
   });
 
-  it("still ends untimed daytime/business listings after 9 PM", () => {
+  it("still ends untimed daytime/business listings after 6 PM", () => {
     assert.equal(
       isPastOneOffEvent(daytimeWorkshop(), afterDaytimeCutoff),
       true,

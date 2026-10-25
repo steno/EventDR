@@ -68,6 +68,10 @@ describe("getEventLiveStatus day-labeled family shows", () => {
 });
 
 describe("untimed listing cutoffs", () => {
+  /** Fri 2 Oct 2026, 6:08 PM America/Santo_Domingo — just past daytime cutoff. */
+  const afterSix = new Date("2026-10-02T22:08:00.000Z");
+  /** Fri 2 Oct 2026, 5:50 PM America/Santo_Domingo — still before cutoff. */
+  const beforeSix = new Date("2026-10-02T21:50:00.000Z");
   /** Fri 2 Oct 2026, 9:32 PM America/Santo_Domingo. */
   const fridayNight = new Date("2026-10-03T01:32:00.000Z");
 
@@ -89,7 +93,14 @@ describe("untimed listing cutoffs", () => {
     );
   });
 
-  it("keeps untimed club nights listable after 9 PM", () => {
+  it("keeps untimed club nights listable after 6 PM", () => {
+    assert.equal(
+      getEventLiveStatus(
+        { date: "2026-10-02", category: "parties" },
+        afterSix,
+      ),
+      "unknown",
+    );
     assert.equal(
       getEventLiveStatus(
         { date: "2026-10-02", category: "parties" },
@@ -99,17 +110,49 @@ describe("untimed listing cutoffs", () => {
     );
   });
 
-  it("ends untimed daytime listings after 9 PM", () => {
+  it("ends untimed daytime listings after 6 PM", () => {
     assert.equal(
       getEventLiveStatus(
         { date: "2026-10-02", category: "business" },
-        fridayNight,
+        beforeSix,
+      ),
+      "unknown",
+    );
+    assert.equal(
+      getEventLiveStatus(
+        { date: "2026-10-02", category: "business" },
+        afterSix,
       ),
       "ended",
     );
   });
 
-  it("ends family untimed listings after 9 PM even with performances hub", () => {
+  it("ends untimed sports / all-ages listings after 6 PM", () => {
+    assert.equal(
+      getEventLiveStatus(
+        {
+          date: "2026-10-02",
+          category: "sports",
+          ageHint: "all-ages",
+        },
+        afterSix,
+      ),
+      "ended",
+    );
+    assert.equal(
+      isListedTodaySpecial(
+        {
+          date: "2026-10-02",
+          category: "sports",
+          ageHint: "all-ages",
+        },
+        afterSix,
+      ),
+      false,
+    );
+  });
+
+  it("ends family untimed listings after 6 PM even with performances hub", () => {
     assert.equal(
       isLikelyLateNightUntimedListing({
         category: "culture",

@@ -7,10 +7,10 @@ export type EventLiveFields = Pick<
   "date" | "endDate" | "time" | "temporarilyClosed" | "soldOut"
 > & {
   recurrence?: Event["recurrence"] | string;
-  /** Optional — used to keep untimed club nights past the daytime 9 PM cutoff. */
+  /** Optional — used to keep untimed club nights past the daytime 6 PM cutoff. */
   category?: Event["category"];
   categories?: Event["categories"];
-  /** Family / all-ages untimed listings use the daytime 9 PM cutoff. */
+  /** Family / all-ages untimed listings use the daytime 6 PM cutoff. */
   ageHint?: AgeHint;
 };
 
@@ -18,7 +18,7 @@ export type EventLiveFields = Pick<
  * Categories that usually mean evening/late club or stage nights when the
  * listing has no clock time. Venue seeds rarely carry structured open/close
  * hours yet — until they do, treat these as “expire at calendar midnight”
- * instead of the daytime 9 PM cutoff.
+ * instead of the daytime 6 PM cutoff.
  */
 const LATE_NIGHT_UNTIMED_CATEGORIES = new Set<EventCategory>([
   "parties",
@@ -32,12 +32,18 @@ const LATE_NIGHT_UNTIMED_CATEGORIES = new Set<EventCategory>([
 /** Age policies that imply daytime / early-evening sessions, not club nights. */
 const DAYTIME_UNTIMED_AGE_HINTS = new Set<AgeHint>(["family", "all-ages"]);
 
-/** True when a missing-time listing should stay listable past 9 PM. */
+/**
+ * Latest end for untimed daytime / sports / business listings (no clock time).
+ * Club/stage categories stay listable until calendar midnight instead.
+ */
+export const UNTIMED_DAYTIME_END_MINUTES = 18 * 60;
+
+/** True when a missing-time listing should stay listable past 6 PM. */
 export function isLikelyLateNightUntimedListing(
   event: Pick<EventLiveFields, "category" | "categories" | "ageHint">,
 ): boolean {
   // Kids / family programs stay on the daytime cutoff even when a secondary
-  // hub like "performances" would otherwise keep them past 9 PM.
+  // hub like "performances" would otherwise keep them past 6 PM.
   if (event.ageHint && DAYTIME_UNTIMED_AGE_HINTS.has(event.ageHint)) {
     return false;
   }
@@ -505,15 +511,14 @@ export function getEventLiveStatus(
   const window = parseEventTimeWindow(event.time, now);
   if (!window) {
     // No parseable clock time (missing, free-text, "by reservation").
-    // Never claim "happening now". Daytime / business listings leave the
-    // home specials rail after 9 PM; club/stage nights without hours stay
+    // Never claim "happening now". Daytime / sports / business listings leave
+    // the home specials rail after 6 PM; club/stage nights without hours stay
     // listable until the local calendar day rolls (specials also key on date).
     if (isLikelyLateNightUntimedListing(event)) {
       return "unknown";
     }
     const nowMin = currentMinutes(now);
-    const daytime = ALL_DAY_DEFAULT_WINDOW;
-    if (nowMin > daytime.end) {
+    if (nowMin > UNTIMED_DAYTIME_END_MINUTES) {
       if (eventContinuesBeyondToday(event, now)) return "closedToday";
       return "ended";
     }
