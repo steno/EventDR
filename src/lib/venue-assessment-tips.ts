@@ -1177,6 +1177,22 @@ export const VENUE_TIP_COPY: Record<
       fr: "Café-bar du centre historique au 11 Profesor Juan Bosch, près de la JCE — Noche de Karaoke le vendredi et salsa dans une petite salle downtown, pas une terrasse sunset du Malecón. Épinglez la grille coloniale, pas Costambar.",
     },
   },
+  "el-patio-de-frida": {
+    body: "Mexican patio on Profesor Juan Bosch #30 opposite Paseo de Doña Blanca — Frida murals, tacos, and Friday karaoke from 7 PM with 2x1 margaritas 6:30–9:30; closed Monday, not Lokura’s karaoke a few doors up at #11.",
+    localized: {
+      en: "Mexican patio on Profesor Juan Bosch #30 opposite Paseo de Doña Blanca — Frida murals, tacos, and Friday karaoke from 7 PM with 2x1 margaritas 6:30–9:30; closed Monday, not Lokura’s karaoke a few doors up at #11.",
+      es: "Patio mexicano en Profesor Juan Bosch #30 frente al Paseo de Doña Blanca — murales Frida, tacos y karaoke viernes desde las 7 PM con margaritas 2x1 6:30–9:30; cerrado lunes, no es el karaoke de Lokura’s unas puertas más arriba en el #11.",
+      fr: "Patio mexicain au 30 Profesor Juan Bosch face au Paseo de Doña Blanca — fresques Frida, tacos et karaoke vendredi dès 19 h avec margaritas 2x1 18 h 30–21 h 30 ; fermé lundi, pas le karaoke de Lokura’s quelques portes plus haut au 11.",
+    },
+  },
+  "the-last-drink": {
+    body: "Next to Repuesto Amin Cid (old Maggy Bar) on José del Carmen Ariza by Puente de la Guinea — local colmadón street bar in La Rigola, not a Malecón tourist lounge; Sundays run Domingo de Pasarela, weekends usually pick up after 9 PM with no fixed published close.",
+    localized: {
+      en: "Next to Repuesto Amin Cid (old Maggy Bar) on José del Carmen Ariza by Puente de la Guinea — local colmadón street bar in La Rigola, not a Malecón tourist lounge; Sundays run Domingo de Pasarela, weekends usually pick up after 9 PM with no fixed published close.",
+      es: "Al lado de Repuesto Amin Cid (antiguo Maggy Bar) en José del Carmen Ariza junto al Puente de la Guinea — bar de calle estilo colmadón en La Rigola, no un lounge turístico del Malecón; los domingos hay Domingo de Pasarela, y los fines de semana suelen calentarse después de las 9 PM sin cierre fijo publicado.",
+      fr: "À côté de Repuesto Amin Cid (ancien Maggy Bar) sur José del Carmen Ariza près du Puente de la Guinea — bar de rue style colmadón à La Rigola, pas un lounge touristique du Malecón ; le dimanche, Domingo de Pasarela, et le week-end ça chauffe souvent après 21 h sans fermeture fixe publiée.",
+    },
+  },
   "nova-salud-bienestar": {
     body: "Victorian-style centro clinic on Margarita Mears #6 (Mon–Fri 8 AM–5 PM on the door) — psychology talks here, not a spa day pass. WhatsApp seats before you walk the colonial grid.",
     localized: {

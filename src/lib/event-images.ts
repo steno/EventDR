@@ -70,6 +70,11 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "isabela-food-fest-2026-12-18": "isabela-food-fest-2026-12-18.jpg",
   "isabela-food-fest-bulin-47-2026-12-20":
     "isabela-food-fest-bulin-47-2026-12-20.jpg",
+  "isabela-food-fest-simpaticos-tipicos-2026-12-19":
+    "isabela-food-fest-simpaticos-tipicos-2026-12-19.jpg",
+  "el-patio-de-frida-friday-karaoke": "el-patio-de-frida-friday-karaoke.jpg",
+  "the-last-drink-domingo-de-pasarela":
+    "the-last-drink-domingo-de-pasarela.jpg",
   "la-chabola-friday-karaoke": "la-chabola-friday-karaoke.jpg",
   "ojo-spooktacular-fun-2026-10-31": "ojo-spooktacular-fun-2026-10-31.jpg",
   "luxury-club-exotic-friday": "luxury-club-exotic-friday.jpg",
@@ -353,7 +358,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "natura-market-moto-2026-09-19": "natura-market-moto-2026-09-19.jpg",
   "natura-market-2026-10-04": "natura-market-2026-10-04.jpg",
   "natura-market-2026-11-01": "natura-market-2026-11-01.jpg",
-  "disco-club-domingo-de-calle": "disco-club-domingo-de-calle.jpg",
+  // Filename bump — Domingo de Desacato flyer (replaces Domingo de Calle art).
+  "disco-club-domingo-de-calle": "disco-club-domingo-de-desacato.jpg",
   "aurazul-wellness-day-costambar-2026-11-15":
     "aurazul-wellness-day-costambar-2026-11-15.jpg",
   "licor-lab-car-show-2026-10-10": "licor-lab-car-show-2026-10-10.jpg",
@@ -678,7 +684,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "groundzero-jueves-de-frias": "groundzero-jueves-de-frias.jpg",
   "groundzero-golden-night-2026-09-25": "groundzero-golden-night-2026-09-25.jpg",
   "groundzero-tivigunz-2026-10-04": "groundzero-tivigunz-2026-10-04.jpg",
-  "groundzero-halloween-2026-10-30": "groundzero-halloween-2026-10-30.jpg",
+  // Filename bump — costume-contest clown flyer + prize tiers (replaces prior Noche de Terror art).
+  "groundzero-halloween-2026-10-30": "groundzero-halloween-2026-10-30-v2.jpg",
   "groundzero-party-rojo-2026-08-01": "groundzero-party-rojo-2026-08-01.jpg",
   // Filename bump — lounge interior night (not the Saturday gogo flyer).
   "blue-ice-saturday-gogo": "blue-ice-saturday-lounge.png",
@@ -1187,6 +1194,10 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "docean-bar-halloween-poeta-callejero-2026-10-31.jpg",
   "isabela-food-fest-2026-12-18.jpg",
   "isabela-food-fest-bulin-47-2026-12-20.jpg",
+  "isabela-food-fest-simpaticos-tipicos-2026-12-19.jpg",
+  "el-patio-de-frida-friday-karaoke.jpg",
+  "the-last-drink-domingo-de-pasarela.jpg",
+  "disco-club-domingo-de-desacato.jpg",
   "la-chabola-friday-karaoke.jpg",
   "ojo-spooktacular-fun-2026-10-31.jpg",
   "luxury-club-exotic-friday.jpg",
@@ -1279,6 +1290,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "groundzero-party-rojo-2026-08-01.jpg",
   "groundzero-sabados-latinos.jpg",
   "groundzero-halloween-2026-10-30.jpg",
+  "groundzero-halloween-2026-10-30-v2.jpg",
   "groundzero-bulin47-2026-11-06.jpg",
   "somnia-06-after-dark-hard-rock-2026-11-06.jpg",
   "disco-club-gogo-dancers-2026-10-08.jpg",

@@ -72,7 +72,7 @@ describe("getHomeAlerts", () => {
   });
 
   it("resolves internal vs official-site hrefs", () => {
-    const tele = EDITORIAL_ALERTS[0]!;
+    const tele = EDITORIAL_ALERTS.find((a) => a.id === "teleferico-rebuild-2026")!;
     assert.equal(resolveAlertHref(tele.href, "en"), "/en/event/teleferico-puerto-plata-daily");
     const jazz = EDITORIAL_ALERTS.find((a) => a.id === "dr-jazz-festival-2026")!;
     assert.equal(resolveAlertHref(jazz.href, "es"), "https://www.drjazzfestival.com/");
@@ -140,6 +140,66 @@ describe("applyActiveEditorialClosure", () => {
     assert.equal(lastClosed.temporarilyClosed, true);
     const reopen = applyActiveEditorialClosureToVenue(venueInput, "2026-10-09");
     assert.equal(reopen.temporarilyClosed, undefined);
+  });
+
+  it("marks Sosúa Food Market closed for rain through 30 Oct, open 31 Oct", () => {
+    const venueInput: { slug: string; temporarilyClosed?: boolean } = {
+      slug: "sosua-food-market",
+    };
+    assert.equal(
+      applyActiveEditorialClosureToVenue(venueInput, "2026-10-24").temporarilyClosed,
+      undefined,
+    );
+    assert.equal(
+      applyActiveEditorialClosureToVenue(venueInput, "2026-10-25").temporarilyClosed,
+      true,
+    );
+    assert.equal(
+      applyActiveEditorialClosureToVenue(venueInput, "2026-10-30").temporarilyClosed,
+      true,
+    );
+    assert.equal(
+      applyActiveEditorialClosureToVenue(venueInput, "2026-10-31").temporarilyClosed,
+      undefined,
+    );
+
+    const editorial = EDITORIAL_ALERTS.find(
+      (a) => a.id === "sosua-food-market-rain-2026-10",
+    );
+    assert.ok(editorial);
+    assert.equal(editorial.closureStatus, "temporary");
+    assert.deepEqual(editorial.citySlugs, ["sosua"]);
+    assert.equal(editorial.until, "2026-10-30");
+    assert.equal(editorial.reopensOn, "2026-10-31");
+    assert.equal(editorial.summary.en, "Paused for the rain forecast.");
+
+    // Newer editorial entries stay first in the array → first among closures.
+    assert.equal(EDITORIAL_ALERTS[0]?.id, "sosua-food-market-rain-2026-10");
+
+    const now = new Date("2026-10-25T16:00:00.000Z");
+    const sosua = getHomeAlerts({
+      locale: "en",
+      dict,
+      citySlug: "sosua",
+      now,
+      limit: 20,
+    });
+    assert.equal(sosua[0]?.id, "sosua-food-market-rain-2026-10");
+    assert.equal(sosua[0]?.closureStatus, "temporary");
+    assert.equal(sosua[0]?.reopensLabel, "Reopens Oct 31, 2026");
+    assert.equal(sosua[0]?.summary, "Paused for the rain forecast.");
+
+    const home = getHomeAlerts({ locale: "en", dict, citySlug: null, now, limit: 20 });
+    assert.equal(home[0]?.id, "sosua-food-market-rain-2026-10");
+
+    const pp = getHomeAlerts({
+      locale: "en",
+      dict,
+      citySlug: "puerto-plata",
+      now,
+      limit: 20,
+    });
+    assert.ok(!pp.some((a) => a.id === "sosua-food-market-rain-2026-10"));
   });
 
   it("marks Mecla'o closed for renovations until further notice from 20 Oct", () => {

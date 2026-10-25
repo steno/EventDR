@@ -226,6 +226,8 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "cabarete-boxing-club": "cabarete-boxing-club-ring.jpg",
   "chameleon-sport-bar": "chameleon-sport-bar-entrance.jpg",
   "la-quinta-rosa": "la-quinta-rosa-facade.jpg",
+  "el-patio-de-frida": "el-patio-de-frida-patio.jpg",
+  "the-last-drink": "the-last-drink-interior.jpg",
 };
 
 /** Cache-busted URL for general venue thumbnails / JSON-LD. */

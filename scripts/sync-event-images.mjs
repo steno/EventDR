@@ -104,6 +104,12 @@ const FILE_TO_EVENT_ID = {
   "isabela-food-fest-2026-12-18.jpg": "isabela-food-fest-2026-12-18",
   "isabela-food-fest-bulin-47-2026-12-20.jpg":
     "isabela-food-fest-bulin-47-2026-12-20",
+  "isabela-food-fest-simpaticos-tipicos-2026-12-19.jpg":
+    "isabela-food-fest-simpaticos-tipicos-2026-12-19",
+  "el-patio-de-frida-friday-karaoke.jpg": "el-patio-de-frida-friday-karaoke",
+  "the-last-drink-domingo-de-pasarela.jpg":
+    "the-last-drink-domingo-de-pasarela",
+  "disco-club-domingo-de-desacato.jpg": "disco-club-domingo-de-calle",
   "la-chabola-friday-karaoke.jpg": "la-chabola-friday-karaoke",
   "ojo-spooktacular-fun-2026-10-31.jpg": "ojo-spooktacular-fun-2026-10-31",
   "luxury-club-exotic-friday.jpg": "luxury-club-exotic-friday",
@@ -460,6 +466,7 @@ const FILE_TO_EVENT_ID = {
   "groundzero-golden-night-2026-09-25.jpg": "groundzero-golden-night-2026-09-25",
   "groundzero-tivigunz-2026-10-04.jpg": "groundzero-tivigunz-2026-10-04",
   "groundzero-halloween-2026-10-30.jpg": "groundzero-halloween-2026-10-30",
+  "groundzero-halloween-2026-10-30-v2.jpg": "groundzero-halloween-2026-10-30",
 
   // --- Original curated venue / attraction photos ---
   "LAXSunsetSessions.JPG": "lax-sunset-daily",

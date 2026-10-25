@@ -131,6 +131,9 @@ export const VENUE_STREET_ADDRESS: Readonly<Record<string, string>> = {
   "tabacalera-cremo": "Calle San Felipe 8",
   "taino-bay": "Av. Antigua Vía Férrea, Muelle Turístico",
   "tasty-food-park-puerto-plata": "Av. 27 de Febrero",
+  "el-patio-de-frida": "Calle Profesor Juan Bosch #30, frente al Paseo de Doña Blanca",
+  "the-last-drink":
+    "Próximo al Puente de la Guinea, al lado de Repuesto Amin Cid (antiguo Maggy Bar), Calle José del Carmen Ariza, Barrio La Rigola",
   "teleferico-puerto-plata": "C. del Teleférico",
   "templo-de-las-americas": "La Isabela / El Castillo, Luperón, Puerto Plata",
   "terramar-pickleball-club": "Cabarete / Sosúa, Puerto Plata",

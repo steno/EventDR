@@ -1163,6 +1163,18 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Disco et bar local à Villa Isabela — nuits de piste pleine, artistes urbains à l’affiche et fêtes Halloween / week-end Food Fest. Infos et réservations +1 829-336-6802 · Instagram @d_oceanbar.",
     },
   },
+  "el-patio-de-frida": {
+    description: {
+      es: "Mexican bar & urban food en Calle Profesor Juan Bosch #30, frente al Paseo de Doña Blanca — patio Frida, tacos, margaritas y karaoke los viernes desde las 7:00 PM. Cerrado lunes; mar–dom 12:00 PM–11:30 PM (sáb hasta 12:00 AM). Tel. +1 849-459-5052 · Instagram @elpatiodefridard.",
+      fr: "Mexican bar & urban food au 30 Calle Profesor Juan Bosch, face au Paseo de Doña Blanca — patio Frida, tacos, margaritas et karaoke le vendredi dès 19 h. Fermé lundi ; mar–dim 12 h–23 h 30 (sam jusqu’à minuit). Tél. +1 849-459-5052 · Instagram @elpatiodefridard.",
+    },
+  },
+  "the-last-drink": {
+    description: {
+      es: "Bar de calle independiente / lounge estilo colmadón al lado de Repuesto Amin Cid (antiguo Maggy Bar), próximo al Puente de la Guinea en Calle José del Carmen Ariza, Barrio La Rigola — spot de barrio con dembow, cubetazos y Domingo de Pasarela los domingos. Sin horario fijo publicado; entre semana suele abrir tarde/noche hasta cerca de medianoche; fines de semana se calienta después de las 9:00 PM y a menudo hasta las 2:00–3:00 AM.",
+      fr: "Bar de rue indépendant / lounge style colmadón à côté de Repuesto Amin Cid (ancien Maggy Bar), près du Puente de la Guinea sur Calle José del Carmen Ariza, Barrio La Rigola — spot de quartier avec dembow, cubetazos et Domingo de Pasarela le dimanche. Pas d’horaires fixes publiés ; en semaine ouverture typique fin d’après-midi / soir jusqu’environ minuit ; le week-end ça chauffe après 21 h et souvent jusqu’à 2 h–3 h.",
+    },
+  },
 };
 
 export function localizeVenue(venue: Venue, locale: Locale): Venue {

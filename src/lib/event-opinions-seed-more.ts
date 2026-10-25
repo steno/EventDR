@@ -4374,22 +4374,23 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "groundzero-halloween-2026-10-30",
-    body: "Costume Halloween on the Puerto Plata–Sosúa highway opposite the airport — not Le Petit François beach karaoke or Twenty Disco Luis Brown the same Friday, and not regular Viernes Locos whisky half-price; cover isn’t on the flyer, so WhatsApp 849-465-1313 before you walk up.",
+    body: "Halloween costume contest on the Puerto Plata–Sosúa highway opposite the airport — 1st RD$15k / 2nd RD$10k / 3rd RD$5k, RD$1,000 to compete; not Petit François karaoke, Twenty’s Luis Brown, or Latin Disco Halloween the same Friday, and not whisky Viernes Locos (paused for this billed night).",
     localized: {
-      es: "Halloween de disfraces en la carretera Puerto Plata–Sosúa frente al aeropuerto — no es el karaoke de playa de Le Petit François ni Luis Brown en Twenty Disco el mismo viernes, ni el Viernes Locos habitual de whisky a mitad de precio; el cover no está en el flyer, así que WhatsApp 849-465-1313 antes de llegar walk-up.",
-      fr: "Halloween costumes sur la route Puerto Plata–Sosúa face à l’aéroport — pas le karaoké plage de Le Petit François ni Luis Brown au Twenty Disco le même vendredi, ni le Viernes Locos whisky à moitié prix ; le cover n’est pas sur l’affiche, donc WhatsApp 849-465-1313 avant d’arriver walk-up.",
+      es: "Concurso de disfraces de Halloween en la carretera Puerto Plata–Sosúa frente al aeropuerto — 1er RD$15k / 2do RD$10k / 3er RD$5k, RD$1,000 para concursar; no es el karaoke de Petit François, Luis Brown en Twenty ni el Halloween de Latin Disco el mismo viernes, ni el Viernes Locos de whisky (pausado por esta noche con cartel).",
+      fr: "Concours de costumes Halloween sur la route Puerto Plata–Sosúa face à l’aéroport — 1er RD$15k / 2e RD$10k / 3e RD$5k, RD$1,000 pour concourir ; pas le karaoké Petit François, Luis Brown au Twenty ni l’Halloween Latin Disco le même vendredi, ni le Viernes Locos whisky (en pause pour cette nuit à l’affiche).",
     },
     priceFeel: "varies",
     priceNote:
-      "Cover not on flyer — WhatsApp 849-465-1313; prize for best costume",
+      "RD$1,000 to compete · door cover not on flyer — WhatsApp 849-465-1313",
     priceNoteLocalized: {
-      es: "Cover no está en el flyer — WhatsApp 849-465-1313; premio al mejor disfraz",
-      fr: "Cover absent de l’affiche — WhatsApp 849-465-1313 ; prix du meilleur costume",
+      es: "RD$1,000 para concursar · cover de puerta no está en el flyer — WhatsApp 849-465-1313",
+      fr: "RD$1,000 pour concourir · cover de porte absent de l’affiche — WhatsApp 849-465-1313",
     },
-    attribution: "POP research · @groundzero_disco Halloween Una Noche de Terror flyer",
+    attribution:
+      "POP research · @groundzero_disco Halloween costume contest flyer + prize IG post",
     researchNotes:
-      "Editor flyer — Vie 30 Oct HALLOWEEN UNA NOCHE DE TERROR, Ground Zero Discoteca, Premio al mejor disfraz, WhatsApp 849 465 1313. No cover/time on art.",
-    updatedAt: "2026-10-05T15:00:00.000Z",
+      "Editor flyer clown HALLOWEEN Vie 30 Oct Premio al mejor disfraz RD$15,000 + IG caption 1er 15k / 2do 10k / 3er 5k / RD$1,000 para concursar; replaces prior Una Noche de Terror art; Viernes Locos series date bumped to 2026-11-13 (skip Oct 30 + Nov 6 Bulin 47).",
+    updatedAt: "2026-10-25T23:30:00.000Z",
   },
   {
     eventId: "ivan-garcia-cafe-opera-codigo-clown-2026-10-31",
@@ -5817,10 +5818,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "disco-club-domingo-de-calle",
-    body: "Weekly Sunday street-club night at Latin Disco by the Brugal depots — not Thursday gogo or Friday salsa; cover isn’t printed, so call 829-563-9469 before you treat doors as walk-in.",
+    body: "Weekly Sunday Desacato club night at Latin Disco by the Brugal depots — not Thursday gogo or Friday tropical; cover isn’t printed, so call 829-563-9469 before you treat doors as walk-in.",
     localized: {
-      es: "Domingo de calle semanal en Latin Disco frente a los depósitos Brugal — no el gogo de jueves ni la salsa de viernes; el cover no está impreso, llama al 829-563-9469 antes de asumir walk-in.",
-      fr: "Dimanche de rue hebdo au Latin Disco face aux dépôts Brugal — pas le gogo du jeudi ni la salsa du vendredi ; le cover n’est pas imprimé, appelez le 829-563-9469 avant d’assumer walk-in.",
+      es: "Domingo de Desacato semanal en Latin Disco frente a los depósitos Brugal — no el gogo de jueves ni el tropical de viernes; el cover no está impreso, llama al 829-563-9469 antes de asumir walk-in.",
+      fr: "Dimanche Desacato hebdo au Latin Disco face aux dépôts Brugal — pas le gogo du jeudi ni le tropical du vendredi ; le cover n’est pas imprimé, appelez le 829-563-9469 avant d’assumer walk-in.",
     },
     priceFeel: "varies",
     priceNote: "Cover not on flyer — 829-563-9469 / @latindiscoclubpp",
@@ -5828,10 +5829,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       es: "Cover no está en el flyer — 829-563-9469 / @latindiscoclubpp",
       fr: "Cover absent de l’affiche — 829-563-9469 / @latindiscoclubpp",
     },
-    attribution: "POP research · @latindiscoclubpp Domingo de Calle flyer",
+    attribution: "POP research · @latindiscoclubpp Domingo de Desacato flyer",
     researchNotes:
-      "Editor flyer — Latin Disco Club presenta Domingo de Calle, donde la diversión no para; Av. Circunvalación Sur frente depósitos Brugal; 829-563-9469. No cover/start time on art. Weekly Sunday series.",
-    updatedAt: "2026-10-18T14:00:00.000Z",
+      "Editor flyer — Latin Disco Club presenta Domingo de Desacato; Av. Circunvalación Sur frente depósitos Brugal; 829-563-9469. Replaces prior Domingo de Calle branding; same weekly Sunday series id.",
+    updatedAt: "2026-10-25T23:00:00.000Z",
   },
   {
     eventId: "luxury-club-lunes-de-body",
@@ -6833,10 +6834,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "isabela-food-fest-2026-12-18",
-    body: "Three-day pueblo fest at Parque Municipal Villa Isabela (18–20 Dec) — food, DJs, and live acts on the glorieta plaza; Bulin 47 closes Sunday (own listing), more artists as confirmed — buy tickets on todotickets.do / Plaza Lama, and don’t confuse it with D'Ocean’s Oct 31 Halloween night in the same town.",
+    body: "Three-day pueblo fest at Parque Municipal Villa Isabela (18–20 Dec) — food, DJs, and live acts on the glorieta plaza; Los Simpáticos Típicos (and DJ Flacome) Saturday, Bulin 47 closes Sunday (own listings) — buy tickets on todotickets.do / Plaza Lama, and don’t confuse it with D'Ocean’s Oct 31 Halloween night in the same town.",
     localized: {
-      es: "Fest del pueblo de tres días en el Parque Municipal Villa Isabela (18–20 dic) — comida, DJs y actos en vivo en la plaza de la glorieta; Bulin 47 cierra el domingo (ficha aparte), más artistas según confirmen — compra boletas en todotickets.do / Plaza Lama, y no lo confundas con el Halloween del 31 oct en D'Ocean en el mismo pueblo.",
-      fr: "Fest du pueblo de trois jours au Parque Municipal Villa Isabela (18–20 déc.) — food, DJs et acts live sur la place de la gloriette ; Bulin 47 ferme le dimanche (fiche séparée), d’autres artistes à confirmer — achetez les billets sur todotickets.do / Plaza Lama, et ne confondez pas avec l’Halloween du 31 oct. au D'Ocean dans la même ville.",
+      es: "Fest del pueblo de tres días en el Parque Municipal Villa Isabela (18–20 dic) — comida, DJs y actos en vivo en la plaza de la glorieta; Los Simpáticos Típicos (y DJ Flacome) el sábado, Bulin 47 cierra el domingo (fichas aparte) — compra boletas en todotickets.do / Plaza Lama, y no lo confundas con el Halloween del 31 oct en D'Ocean en el mismo pueblo.",
+      fr: "Fest du pueblo de trois jours au Parque Municipal Villa Isabela (18–20 déc.) — food, DJs et acts live sur la place de la gloriette ; Los Simpáticos Típicos (et DJ Flacome) le samedi, Bulin 47 ferme le dimanche (fiches séparées) — achetez les billets sur todotickets.do / Plaza Lama, et ne confondez pas avec l’Halloween du 31 oct. au D'Ocean dans la même ville.",
     },
     priceFeel: "varies",
     priceNote: "Tickets todotickets.do / Plaza Lama · info +1 829-336-6802",
@@ -6844,10 +6845,29 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       es: "Boletas todotickets.do / Plaza Lama · info +1 829-336-6802",
       fr: "Billets todotickets.do / Plaza Lama · infos +1 829-336-6802",
     },
-    attribution: "POP research · @isabelafoodfest official poster + DJ Flacome + Bulin 47 gran cierre",
+    attribution:
+      "POP research · @isabelafoodfest official poster + Simpáticos Típicos + DJ Flacome + Bulin 47 gran cierre",
     researchNotes:
-      "Editor assets — El Festival del Pueblo official poster; DJ Flacome Sat 19 flyer; Bulin 47 Dom 20 gran cierre (separate seed isabela-food-fest-bulin-47-2026-12-20); more artists TBA; IG caption Dec 18–20; park place shot for venue; phone 829-336-6802.",
-    updatedAt: "2026-10-24T03:15:00.000Z",
+      "Editor assets — El Festival del Pueblo official poster; Los Simpáticos Típicos Sat 19 flyer (separate seed); DJ Flacome Sat 19; Bulin 47 Dom 20 gran cierre (separate seed); more artists TBA; IG caption Dec 18–20; park place shot for venue; phone 829-336-6802.",
+    updatedAt: "2026-10-25T22:00:00.000Z",
+  },
+  {
+    eventId: "isabela-food-fest-simpaticos-tipicos-2026-12-19",
+    body: "Saturday típico bill at Isabela Food Fest with Los Simpáticos Típicos on the Parque Municipal stage — festival weekend ticket via todotickets.do / Plaza Lama, not the Sunday Bulin 47 gran cierre; pin Villa Isabela, not downtown Puerto Plata.",
+    localized: {
+      es: "Cartel típico del sábado en Isabela Food Fest con Los Simpáticos Típicos en el escenario del Parque Municipal — boleta del fin de semana del festival vía todotickets.do / Plaza Lama, no el gran cierre de Bulin 47 del domingo; clava Villa Isabela, no el centro de Puerto Plata.",
+      fr: "Affiche típico du samedi à Isabela Food Fest avec Los Simpáticos Típicos sur la scène du Parque Municipal — billet week-end festival via todotickets.do / Plaza Lama, pas le gran cierre Bulin 47 du dimanche ; épinglez Villa Isabela, pas le centre de Puerto Plata.",
+    },
+    priceFeel: "varies",
+    priceNote: "Tickets todotickets.do / Plaza Lama · info +1 829-336-6802",
+    priceNoteLocalized: {
+      es: "Boletas todotickets.do / Plaza Lama · info +1 829-336-6802",
+      fr: "Billets todotickets.do / Plaza Lama · infos +1 829-336-6802",
+    },
+    attribution: "POP research · @isabelafoodfest Los Simpáticos Típicos flyer",
+    researchNotes:
+      "Editor flyer — ARTISTAS CONFIRMADOS Los Simpáticos Típicos, Sab 19 Dic, Parque Villa Isabela; related to isabela-food-fest-2026-12-18; not bulin-47 Dom 20; phone 829-336-6802; todotickets.do / Plaza Lama.",
+    updatedAt: "2026-10-25T22:00:00.000Z",
   },
   {
     eventId: "isabela-food-fest-bulin-47-2026-12-20",
@@ -6958,5 +6978,44 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     researchNotes:
       "Editor IG @tikibarcabarete — Thu 6 Nov from 10 PM Francesca en vivo, DJ Poché Jáquez, 2x1 Brugal Extra Viejo; no cover on post.",
     updatedAt: "2026-10-24T16:00:00.000Z",
+  },
+  {
+    eventId: "el-patio-de-frida-friday-karaoke",
+    seriesKey: "el-patio-de-frida:weekly:5",
+    body: "Friday karaoke from 7 PM on the Frida patio at Profesor Juan Bosch #30 with 2x1 margaritas 6:30–9:30 — Mexican courtyard mic night opposite Paseo de Doña Blanca, not Lokura’s karaoke a few doors up at #11.",
+    localized: {
+      es: "Karaoke del viernes desde las 7 PM en el patio Frida de Profesor Juan Bosch #30 con margaritas 2x1 6:30–9:30 — micrófono en el patio mexicano frente al Paseo de Doña Blanca, no el karaoke de Lokura’s unas puertas más arriba en el #11.",
+      fr: "Karaoke du vendredi dès 19 h sur le patio Frida au 30 Profesor Juan Bosch avec margaritas 2x1 18 h 30–21 h 30 — mic sur la cour mexicaine face au Paseo de Doña Blanca, pas le karaoke de Lokura’s quelques portes plus haut au 11.",
+    },
+    priceFeel: "moderate",
+    priceNote: "2x1 margaritas 6:30–9:30 PM — cover not on flyer; +1 849-459-5052",
+    priceNoteLocalized: {
+      es: "Margaritas 2x1 6:30–9:30 PM — cover no está en el flyer; +1 849-459-5052",
+      fr: "Margaritas 2x1 18 h 30–21 h 30 — cover absent de l’affiche ; +1 849-459-5052",
+    },
+    attribution: "POP research · @elpatiodefridard Karaoke Friday flyer",
+    researchNotes:
+      "Editor flyer — Todos los viernes karaoke from 7 PM; 2x1 margaritas 6:30–9:30; Calle Prof Juan Bosch #30 frente Paseo Doña Blanca; hours flyer closed Mon / Tue–Sun 12–11:30 (Sat to midnight); new venue el-patio-de-frida.",
+    updatedAt: "2026-10-25T23:00:00.000Z",
+  },
+  {
+    eventId: "the-last-drink-domingo-de-pasarela",
+    seriesKey: "the-last-drink:weekly:0",
+    body: "Sunday Pasarela next to Repuesto Amin Cid (old Maggy Bar) by Puente de la Guinea — printed beer/rum/hookah specials from 6–8 PM, local dembow until about midnight; pin José del Carmen Ariza / La Rigola, not a Malecón tourist lounge or Latin Disco’s Desacato Sunday.",
+    localized: {
+      es: "Pasarela del domingo al lado de Repuesto Amin Cid (antiguo Maggy Bar) junto al Puente de la Guinea — especiales impresos de cerveza/ron/hookah de 6–8 PM, dembow local hasta cerca de medianoche; clava José del Carmen Ariza / La Rigola, no un lounge turístico del Malecón ni el Domingo de Desacato de Latin Disco.",
+      fr: "Pasarela du dimanche à côté de Repuesto Amin Cid (ancien Maggy Bar) près du Puente de la Guinea — specials imprimés bière/rhum/chicha de 18 h–20 h, dembow local jusqu’environ minuit ; épinglez José del Carmen Ariza / La Rigola, pas un lounge touristique du Malecón ni le Domingo de Desacato du Latin Disco.",
+    },
+    priceFeel: "budget",
+    priceNote:
+      "Flyer specials from RD$120 beers · cover not printed; hours not officially posted",
+    priceNoteLocalized: {
+      es: "Especiales del flyer desde RD$120 cervezas · cover no impreso; horario no publicado oficialmente",
+      fr: "Specials flyer dès RD$120 bières · cover non imprimé ; horaires non publiés officiellement",
+    },
+    attribution: "POP research · The Last Drink Domingo de Pasarela flyer + IG location",
+    researchNotes:
+      "Editor flyer — DOMINGO DE PASARELA; De 6:PM a 8:PM; Pisa hasta las 12; One peq 120, Presidente Light 125, Doble Reserva + mezcla 1500, Hooka 250; IG location: próximo al Puente de la Guinea, al lado de Repuesto Amin Cid (antiguo Maggy Bar); pin on Amin Cid / José del Carmen Ariza 85 coords; empty-seats interior for venue hero.",
+    updatedAt: "2026-10-25T23:50:00.000Z",
   },
 ];

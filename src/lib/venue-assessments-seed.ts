@@ -1954,6 +1954,28 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
       { key: "photo_spot", sentiment: "positive", audience: "visitor" },
     ],
   }),
+  editorial({
+    venueSlug: "el-patio-de-frida",
+    verdictKey: "strong_mixed_food_nightlife",
+    crowdFit: ["visitor", "mixed", "local"],
+    axes: { recommend: 4.3, atmosphere: 4.5, value: 3.8, practical: 4.2 },
+    themes: [
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+      { key: "photo_spot", sentiment: "positive", audience: "visitor" },
+      { key: "karaoke", sentiment: "positive" },
+    ],
+  }),
+  editorial({
+    venueSlug: "the-last-drink",
+    verdictKey: "strong_local_nightlife",
+    crowdFit: ["local", "nightlife", "mixed"],
+    axes: { recommend: 4.0, atmosphere: 4.1, value: 4.2, practical: 3.6 },
+    themes: [
+      { key: "loud_late", sentiment: "mixed", audience: "nightlife" },
+      { key: "busy_weekends", sentiment: "positive" },
+      { key: "easy_to_find", sentiment: "mixed", audience: "visitor" },
+    ],
+  }),
 ];
 
 const bySlug = new Map(

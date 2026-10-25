@@ -52,8 +52,8 @@
   {
     "id": "groundzero-viernes-locos",
     "title": "Viernes Locos en Ground Zero",
-    "description": "Viernes Locos en Ground Zero Discoteca — whiskys a mitad de precio y fiesta hasta tarde en la carretera Puerto Plata–Sosúa frente al aeropuerto. Reserva mesa: 849-465-1313.",
-    "date": "2026-08-07",
+    "description": "Viernes Locos en Ground Zero Discoteca — whiskys a mitad de precio y fiesta hasta tarde en la carretera Puerto Plata–Sosúa frente al aeropuerto. Los viernes con cartel (Halloween 30 oct, Bulin 47 el 6 nov) reemplazan Locos; Locos semanal retoma desde el viernes 13 de noviembre 2026. Reserva mesa: 849-465-1313.",
+    "date": "2026-11-13",
     "location": "Sosúa",
     "venue": "Ground Zero Discoteca",
     "venueSlug": "ground-zero-disco",
@@ -4458,8 +4458,8 @@
   },
   {
     "id": "groundzero-halloween-2026-10-30",
-    "title": "Ground Zero — Halloween Una Noche de Terror",
-    "description": "Halloween — Una Noche de Terror en Ground Zero Discoteca, Km 18 Carretera Puerto Plata–Sosúa frente al aeropuerto — viernes 30 de octubre 2026. Premio al mejor disfraz. Noche de disco en la carretera — no es el karaoke de playa de Le Petit François ni Luis Brown en Twenty Disco el mismo viernes, ni el Viernes Locos habitual de whisky a mitad de precio. Reserva WhatsApp 849-465-1313 · Instagram @groundzero_disco.",
+    "title": "Ground Zero Halloween — Concurso de disfraces",
+    "description": "Concurso de disfraces de Halloween en Ground Zero Discoteca, Km 18 Carretera Puerto Plata–Sosúa frente al aeropuerto — viernes 30 de octubre 2026. Premios: 1er lugar RD$15,000 · 2do RD$10,000 · 3er RD$5,000. Para concursar pagas RD$1,000; ponte tu mejor disfraz. Halloween de disco en la carretera — no es el karaoke de playa de Le Petit François, Luis Brown en Twenty Disco ni el Halloween de Latin Disco el mismo viernes, ni el Viernes Locos habitual de whisky a mitad de precio (Locos retoma después de este viernes especial). Reserva WhatsApp 849-465-1313 · Instagram @groundzero_disco.",
     "date": "2026-10-30",
     "location": "Sosúa",
     "venue": "Ground Zero Discoteca",
@@ -4478,7 +4478,11 @@
     "phone": "+18494651313",
     "sourceType": "instagram",
     "sourceUrl": "https://www.instagram.com/groundzero_disco/",
-    "imageEmoji": "🎃"
+    "imageEmoji": "🎃",
+    "lineup": [
+      "Concurso de disfraces — 1er RD$15,000 · 2do RD$10,000 · 3er RD$5,000",
+      "RD$1,000 para concursar"
+    ]
   },
   {
     "id": "ivan-garcia-cafe-opera-codigo-clown-2026-10-31",
@@ -8173,7 +8177,7 @@
   {
     "id": "isabela-food-fest-2026-12-18",
     "title": "Villa Isabela — Isabela Food Fest",
-    "description": "Isabela Food Fest (El Festival del Pueblo) en el Parque Municipal Villa Isabela — viernes 18 al domingo 20 de diciembre 2026. Artistas en vivo, DJs y gastronomía en la plaza municipal. Confirmados hasta ahora: DJ Flacome (@djflacomc) el sábado 19 de diciembre; Bulin 47 gran cierre el domingo 20 de diciembre (ficha aparte). Más artistas según se confirmen. Boletas en todotickets.do y Plaza Lama; info y reservaciones +1 829-336-6802 · Instagram @isabelafoodfest. Al oeste de Puerto Plata ciudad — no es el Halloween de D'Ocean Bar del 31 oct.",
+    "description": "Isabela Food Fest (El Festival del Pueblo) en el Parque Municipal Villa Isabela — viernes 18 al domingo 20 de diciembre 2026. Artistas en vivo, DJs y gastronomía en la plaza municipal. Confirmados hasta ahora: Los Simpáticos Típicos y DJ Flacome el sábado 19 de diciembre; Bulin 47 gran cierre el domingo 20 de diciembre (fichas aparte). Más artistas según se confirmen. Boletas en todotickets.do y Plaza Lama; info y reservaciones +1 829-336-6802 · Instagram @isabelafoodfest. Al oeste de Puerto Plata ciudad — no es el Halloween de D'Ocean Bar del 31 oct.",
     "date": "2026-12-18",
     "endDate": "2026-12-20",
     "location": "Villa Isabela",
@@ -8196,11 +8200,41 @@
     "sourceUrl": "https://www.instagram.com/isabelafoodfest/",
     "instagram": "isabelafoodfest",
     "lineup": [
+      "Los Simpáticos Típicos — sábado 19 de diciembre",
       "DJ Flacome — sábado 19 de diciembre",
       "Bulin 47 — domingo 20 de diciembre gran cierre",
       "Más artistas TBA · DJs · gastronomía"
     ],
     "imageEmoji": "🍔"
+  },
+  {
+    "id": "isabela-food-fest-simpaticos-tipicos-2026-12-19",
+    "title": "Isabela Food Fest — Los Simpáticos Típicos",
+    "description": "Los Simpáticos Típicos (artista confirmado) en Isabela Food Fest, Parque Municipal Villa Isabela — sábado 19 de diciembre 2026. Noche del sábado del festival de tres días (18–20 dic); mira la ficha principal de Isabela Food Fest para todo el fin de semana. Boletas en todotickets.do y Plaza Lama; info y reservaciones +1 829-336-6802 · Instagram @isabelafoodfest. Cartel típico del festival en Villa Isabela — no es el gran cierre de Bulin 47 del domingo.",
+    "date": "2026-12-19",
+    "location": "Villa Isabela",
+    "venue": "Parque Municipal Villa Isabela",
+    "venueSlug": "parque-municipal-villa-isabela",
+    "address": "Parque Municipal, Villa Isabela, Puerto Plata",
+    "lat": 19.813027,
+    "lng": -71.055725,
+    "category": "concert",
+    "categories": [
+      "festivals",
+      "music"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18293366802",
+    "ticketUrl": "https://todotickets.do",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/isabelafoodfest/",
+    "instagram": "isabelafoodfest",
+    "lineup": [
+      "Los Simpáticos Típicos"
+    ],
+    "imageEmoji": "🪗"
   },
   {
     "id": "isabela-food-fest-bulin-47-2026-12-20",

@@ -79,6 +79,17 @@ const PLACE_SEARCH_ALIASES: Record<string, string[]> = {
     "Lokura's Pop Profesor Juan Bosch",
     "Lokuras Bar Caffe Puerto Plata",
   ],
+  "el-patio-de-frida": [
+    "El Patio de Frida Puerto Plata",
+    "El Patio de Frida Profesor Juan Bosch",
+    "Patio de Frida Paseo Doña Blanca",
+  ],
+  "the-last-drink": [
+    "The Last Drink Puerto Plata",
+    "The Last Drink Puente de la Guinea",
+    "Last Drink Maggy Bar Puerto Plata",
+    "Repuestos Amin Cid Racing José del Carmen Ariza",
+  ],
   "nova-salud-bienestar": [
     "Nova Salud Bienestar Puerto Plata",
     "Centro Nova Salud Margarita Mears",

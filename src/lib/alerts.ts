@@ -137,6 +137,26 @@ export function formatAlertReopensOn(
  */
 export const EDITORIAL_ALERTS: readonly EditorialAlert[] = [
   {
+    id: "sosua-food-market-rain-2026-10",
+    kind: "closure",
+    closureStatus: "temporary",
+    from: "2026-10-25",
+    until: "2026-10-30",
+    reopensOn: "2026-10-31",
+    citySlugs: ["sosua"],
+    href: { type: "venue", slug: "sosua-food-market" },
+    title: {
+      en: "Sosúa Food Market is closed",
+      es: "Sosúa Food Market está cerrado",
+      fr: "Sosúa Food Market est fermé",
+    },
+    summary: {
+      en: "Paused for the rain forecast.",
+      es: "Pausado por el pronóstico de lluvia.",
+      fr: "En pause à cause des prévisions de pluie.",
+    },
+  },
+  {
     id: "teleferico-rebuild-2026",
     kind: "closure",
     closureStatus: "repair",

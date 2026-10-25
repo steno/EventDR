@@ -2884,8 +2884,8 @@
   },
   {
     "id": "disco-club-domingo-de-calle",
-    "title": "Domingo de Calle at Latin Disco Club",
-    "description": "Every Sunday — Domingo de Calle at Latin Disco Club on Avenida Circunvalación Sur frente a los depósitos de Brugal, Puerto Plata. Where the fun doesn’t stop — street Sunday club energy. Confirm doors and cover via WhatsApp +1 829-563-9469 · Instagram @latindiscoclubpp.",
+    "title": "Domingo de Desacato at Latin Disco Club",
+    "description": "Every Sunday — Domingo de Desacato at Latin Disco Club on Avenida Circunvalación Sur frente a los depósitos de Brugal, Puerto Plata. Sunday club energy by the Brugal depots — not Thursday gogo or Friday tropical. Confirm doors and cover via WhatsApp +1 829-563-9469 · Instagram @latindiscoclubpp.",
     "date": "2026-01-01",
     "location": "Puerto Plata",
     "venue": "Latin Disco Club",
@@ -3182,5 +3182,64 @@
     "sourceType": "flyer",
     "sourceUrl": "https://cremocigars.com/cremo-cigar-bar-lounge-en/",
     "imageEmoji": "🎤"
+  },
+  {
+    "id": "el-patio-de-frida-friday-karaoke",
+    "title": "El Patio de Frida Friday Karaoke",
+    "description": "Every Friday karaoke night at El Patio de Frida, Calle Profesor Juan Bosch #30 frente al Paseo de Doña Blanca, Puerto Plata — from 7:00 PM with 2x1 margaritas 6:30–9:30 PM. Mexican patio mic night in the historic center — not Lokura’s karaoke a few doors up at #11. Confirm any cover via Instagram @elpatiodefridard · +1 849-459-5052.",
+    "date": "2026-01-01",
+    "time": "7:00 PM",
+    "location": "Puerto Plata",
+    "venue": "El Patio de Frida",
+    "venueSlug": "el-patio-de-frida",
+    "address": "Calle Profesor Juan Bosch #30, frente al Paseo de Doña Blanca, Puerto Plata 57000",
+    "lat": 19.798957,
+    "lng": -70.693601,
+    "category": "performances",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "recurrence": "weekly",
+    "recurrenceDay": 5,
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18494595052",
+    "instagram": "elpatiodefridard",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/elpatiodefridard/",
+    "imageEmoji": "🎤"
+  },
+  {
+    "id": "the-last-drink-domingo-de-pasarela",
+    "title": "Domingo de Pasarela at The Last Drink",
+    "description": "Every Sunday — Domingo de Pasarela at The Last Drink, next to Repuesto Amin Cid (antiguo Maggy Bar), próximo al Puente de la Guinea on Calle José del Carmen Ariza, Barrio La Rigola, Puerto Plata. Promo window from 6:00–8:00 PM with printed drink specials (One peq RD$120, Presidente Light RD$125, Doble Reserva + mezcla RD$1,500, hookah RD$250); the night runs until about midnight. Local street-vibe Sunday — not a Malecón tourist lounge and not Latin Disco’s Domingo de Desacato by the Brugal depots. Hours aren’t officially posted; ask at the door.",
+    "date": "2026-01-01",
+    "time": "6:00 PM – 12:00 AM",
+    "location": "Puerto Plata",
+    "venue": "The Last Drink",
+    "venueSlug": "the-last-drink",
+    "address": "Próximo al Puente de la Guinea, al lado de Repuesto Amin Cid (antiguo Maggy Bar), Calle José del Carmen Ariza, Barrio La Rigola, Puerto Plata",
+    "lat": 19.795615,
+    "lng": -70.695012,
+    "category": "parties",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "recurrence": "weekly",
+    "recurrenceDay": 0,
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "lineup": [
+      "One peq RD$120",
+      "Presidente Light RD$125",
+      "Doble Reserva + mezcla RD$1,500",
+      "Hookah RD$250"
+    ],
+    "imageEmoji": "🍺"
   }
 ]

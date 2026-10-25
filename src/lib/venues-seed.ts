@@ -2161,6 +2161,32 @@ export const SEED_VENUES: Venue[] = [
     instagram: "d_oceanbar",
     website: "https://www.instagram.com/d_oceanbar/",
   },
+  {
+    slug: "el-patio-de-frida",
+    name: "El Patio de Frida",
+    city: "Puerto Plata",
+    description:
+      "Mexican bar & urban food on Calle Profesor Juan Bosch #30, frente al Paseo de Doña Blanca — Frida patio, tacos, margaritas, and Friday karaoke from 7:00 PM. Closed Monday; Tue–Sun 12:00 PM–11:30 PM (Sat until 12:00 AM). Phone +1 849-459-5052 · Instagram @elpatiodefridard.",
+    lat: 19.798957,
+    lng: -70.693601,
+    emoji: "🌮",
+    phone: "+18494595052",
+    instagram: "elpatiodefridard",
+    website: "http://perfildigitalrs.linkbio.co/ElPatioDeFrida",
+    googleRating: 4.5,
+    googleReviewCount: 413,
+    googleRatingFetchedAt: "2026-10-25T12:00:00.000Z",
+  },
+  {
+    slug: "the-last-drink",
+    name: "The Last Drink",
+    city: "Puerto Plata",
+    description:
+      "Casual independent street bar / colmadón-style lounge next to Repuesto Amin Cid (antiguo Maggy Bar), próximo al Puente de la Guinea on Calle José del Carmen Ariza, Barrio La Rigola — neighborhood party spot with dembow energy, cubetazos, and Sunday Domingo de Pasarela. No fixed hours published; weekdays typically late afternoon to around midnight, weekends heat up after 9:00 PM and often run to 2:00–3:00 AM.",
+    lat: 19.795615,
+    lng: -70.695012,
+    emoji: "🍺",
+  },
 ];
 
 /** Extra name fragments → seed slug (checked before fuzzy name includes). */
@@ -2522,6 +2548,15 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
   {
     pattern: /tasty\s*food\s*park/i,
     slug: "tasty-food-park-puerto-plata",
+  },
+  {
+    pattern:
+      /el\s*patio\s*de\s*frida|patio\s*de\s*frida|elpatiodefrida/i,
+    slug: "el-patio-de-frida",
+  },
+  {
+    pattern: /the\s*last\s*drink|last\s*drink/i,
+    slug: "the-last-drink",
   },
   {
     pattern:

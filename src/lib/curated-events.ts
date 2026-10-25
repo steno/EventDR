@@ -913,6 +913,21 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     phone: "+18295639469",
     venueSlug: "disco-club-brugal",
   },
+  "el-patio-de-frida-friday-karaoke": {
+    callForPricing: true,
+    phone: "+18494595052",
+    venueSlug: "el-patio-de-frida",
+  },
+  "the-last-drink-domingo-de-pasarela": {
+    callForPricing: true,
+    venueSlug: "the-last-drink",
+  },
+  "isabela-food-fest-simpaticos-tipicos-2026-12-19": {
+    callForPricing: true,
+    phone: "+18293366802",
+    ticketUrl: "https://todotickets.do",
+    venueSlug: "parque-municipal-villa-isabela",
+  },
   "aurazul-wellness-day-costambar-2026-11-15": {
     isFree: false,
     admissionPrice: "RD$4,200",
