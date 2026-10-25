@@ -103,7 +103,7 @@ export function EventDetailMedia({
 
   const heightClass =
     variant === "standalone"
-      ? `h-full min-h-[calc((min(68dvh,36rem)-2.75rem)/2)]`
+      ? "h-full min-h-[calc(min(68svh,36rem)-2.75rem)]"
       : DETAIL_HERO_PHOTO_HEIGHT_MOBILE_CLASS;
   const roundedClass =
     variant === "standalone"
@@ -233,7 +233,7 @@ export function EventDetailMedia({
         <IntentLink
           href={active.venueHref}
           onClick={onNavigateToVenue}
-          className="absolute bottom-3 left-3 z-20 inline-flex max-w-[calc(50%-2.5rem)] items-center gap-1.5 rounded-full bg-black/65 px-3 py-1.5 text-xs font-bold text-white shadow-md backdrop-blur-sm transition-colors hover:bg-black/80 touch-manipulation"
+          className="absolute bottom-3 left-3 z-20 inline-flex max-w-[calc(50%-2.5rem)] items-center gap-1.5 rounded-full bg-gradient-to-r from-orange-500 via-rose-500 to-fuchsia-500 px-3 py-1.5 text-xs font-bold text-white shadow-md shadow-rose-500/25 transition-[filter,transform] hover:brightness-105 active:scale-[0.98] touch-manipulation"
           aria-label={venueLabel}
         >
           <Building2 className="h-3.5 w-3.5 shrink-0" aria-hidden />

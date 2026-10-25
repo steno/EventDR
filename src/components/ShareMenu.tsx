@@ -140,12 +140,27 @@ export function ShareMenu({
         return;
       }
       if (platform === "instagram") {
-        const preview = (await storyPreviewRef.current) ?? null;
-        const result = await shareToInstagram(event, locale, preview);
-        onClose();
-        if (result === "shared" || result === "copied") {
-          onFeedback(dict.detail.instagramCopied);
-        } else {
+        try {
+          // Wait for the pre-warmed story card — do not race a short timeout
+          // (mobile localhost often needs >2.5s; skipping the blob skips the sheet).
+          const preview =
+            (await (storyPreviewRef.current ??
+              buildInstagramStoryPreviewBlob(event, locale))) ?? null;
+          const result = await shareToInstagram(event, locale, preview);
+          onClose();
+          if (result === "shared") {
+            onFeedback(dict.detail.instagramShared);
+          } else if (result === "copied") {
+            onFeedback(
+              typeof window !== "undefined" && !window.isSecureContext
+                ? dict.detail.instagramCopiedInsecure
+                : dict.detail.instagramCopied,
+            );
+          } else {
+            onFeedback(dict.detail.instagramCopyFailed);
+          }
+        } catch {
+          onClose();
           onFeedback(dict.detail.instagramCopyFailed);
         }
         return;

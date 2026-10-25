@@ -54,16 +54,24 @@ export const SECTION_TITLE_CLASS = `text-section font-extrabold lg:text-[1.9rem]
 export const DAY_GROUP_TITLE_CLASS = `text-[1rem] leading-tight font-extrabold lg:text-[1.25rem] lg:leading-[1.15] ${BRAND_GRADIENT_TEXT_CLASS}`;
 
 /**
- * Event/venue detail photo height.
- * Mobile: half of `min(68dvh, 36rem)` minus the 2.75rem action row (matches
- * venue place-card photo so detail photos line up).
+ * Venue place-card on mobile: `min(68svh, 36rem)`. Use `svh` (not `dvh`) so
+ * the photo does not grow when mobile browser chrome hides on scroll.
+ * Directions row under the photo is 2.75rem (`min-h-11`); event detail heroes
+ * match the photo area (card minus that row).
  * Desktop: fill the remaining viewport under the sticky header (same as
  * venue place-card) and stick while longer detail copy scrolls beside it.
+ *
+ * Keep these as full class strings. Tailwind only emits classes it can read
+ * in source — building them with template interpolation drops the height.
  */
 export const DETAIL_HERO_PHOTO_HEIGHT_MOBILE_CLASS =
-  "h-[calc((min(68dvh,36rem)-2.75rem)/2)]";
+  "h-[calc(min(68svh,36rem)-2.75rem)]";
 
-export const DETAIL_HERO_PHOTO_HEIGHT_CLASS = `${DETAIL_HERO_PHOTO_HEIGHT_MOBILE_CLASS} lg:h-[calc(100dvh-var(--sticky-list-header-height,_0px)-1.5rem)]`;
+export const DETAIL_HERO_PHOTO_HEIGHT_CLASS =
+  "h-[calc(min(68svh,36rem)-2.75rem)] lg:h-[calc(100dvh-var(--sticky-list-header-height,_0px)-1.5rem)]";
+
+/** Venue place-card height on mobile — keep in sync with DETAIL_HERO_PHOTO_* above. */
+export const VENUE_PLACE_CARD_HEIGHT_MOBILE_CLASS = "h-[min(68svh,36rem)]";
 
 /**
  * Card discovery grids — elastic columns: 2 on phones / mid-width, then as

@@ -310,10 +310,14 @@ export const es: Dictionary = {
       "¡Evento copiado! Pulsa OK y pégalo en tu publicación de Facebook.",
     facebookCopyFailed:
       "No se pudo copiar automáticamente. Mantén pulsado para pegar cuando se abra Facebook.",
+    instagramShared:
+      "Leyenda copiada — elige Instagram en la hoja de compartir.",
     instagramCopied:
-      "Enlace copiado — elige Instagram y pega un sticker de enlace.",
+      "Leyenda copiada — pégala en tu publicación de Instagram.",
+    instagramCopiedInsecure:
+      "Leyenda copiada. Compartir imagen exige https o localhost — no http://192.168… desde el móvil.",
     instagramCopyFailed:
-      "No se pudo copiar el enlace. Pégalo como sticker de enlace en tu Historia.",
+      "No se pudo copiar la leyenda. Pega la descripción del evento en Instagram.",
   },
   submit: {
     title: "Comparte un evento",

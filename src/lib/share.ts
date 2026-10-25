@@ -180,14 +180,16 @@ function buildFacebookClipboardText(event: Event, locale: Locale): string {
 }
 
 /**
- * Instagram has no public web sharer. The share button copies this URL
- * so the user can paste a Story Link sticker.
+ * Instagram has no public web sharer. The share button copies this caption
+ * so the user can paste it into a feed post or Reel.
  */
 export function buildInstagramClipboardText(
   event: Event,
-  locale: Locale,
+  _locale: Locale,
 ): string {
-  return getCanonicalEventShareUrl(event, locale);
+  const description = event.description?.trim();
+  if (description) return description;
+  return event.title.trim();
 }
 
 /**
@@ -258,17 +260,29 @@ function previewToShareFile(preview: Blob): File {
 }
 
 export function canShareImageFile(file: File): boolean {
-  return (
-    typeof navigator !== "undefined" &&
-    typeof navigator.canShare === "function" &&
-    navigator.canShare({ files: [file] })
-  );
+  if (typeof navigator === "undefined" || typeof navigator.share !== "function") {
+    return false;
+  }
+  // Older WebKit has share+files but no canShare — treat as allowed.
+  if (typeof navigator.canShare !== "function") return true;
+  try {
+    return navigator.canShare({ files: [file] });
+  } catch {
+    return false;
+  }
 }
 
 /**
- * Copy the event URL for a Story Link sticker. On iPhone/Android, also offer
- * the page-preview image through the system share sheet (Instagram Stories
+ * Copy the event description for an Instagram caption. On iPhone/Android, also
+ * offer the page-preview image through the system share sheet (Instagram
  * accepts images that way).
+ *
+ * Keep `navigator.share` text as the short event URL — a long caption in `text`
+ * alongside `files` breaks the sheet on iOS/Safari. Clipboard still gets the
+ * description for paste-as-caption.
+ *
+ * File share needs a secure context (https or http://localhost). Phone → Mac
+ * via http://192.168.x.x is NOT secure — the sheet will not open (caption only).
  *
  * Do not use `instagram-stories://share` from the website — Instagram rejects
  * it with "The app you shared from doesn't currently support sharing to Stories."
@@ -280,28 +294,47 @@ export async function shareToInstagram(
 ): Promise<"shared" | "copied" | "failed"> {
   if (typeof window === "undefined") return "failed";
 
+  const caption = buildInstagramClipboardText(event, locale);
   const url = getCanonicalEventShareUrl(event, locale);
-  const copied = await copyText(url);
+  // Don't await clipboard before share — permissions can burn user activation.
+  const copyPromise = copyText(caption);
 
-  if (preview) {
+  if (
+    preview &&
+    window.isSecureContext &&
+    typeof navigator.share === "function"
+  ) {
     const file = previewToShareFile(preview);
-    if (canShareImageFile(file) && typeof navigator.share === "function") {
+    if (canShareImageFile(file)) {
       try {
         await navigator.share({
           files: [file],
           title: event.title,
           text: url,
         });
+        await copyPromise.catch(() => false);
         return "shared";
       } catch (err) {
         if (err instanceof Error && err.name === "AbortError") {
+          const copied = await copyPromise.catch(() => false);
           return copied ? "copied" : "failed";
+        }
+        // Some WebKit builds reject files+text — retry image only.
+        try {
+          await navigator.share({ files: [file] });
+          await copyPromise.catch(() => false);
+          return "shared";
+        } catch (err2) {
+          if (err2 instanceof Error && err2.name === "AbortError") {
+            const copied = await copyPromise.catch(() => false);
+            return copied ? "copied" : "failed";
+          }
         }
       }
     }
   }
 
-  return copied ? "copied" : "failed";
+  return (await copyPromise.catch(() => false)) ? "copied" : "failed";
 }
 
 /** Open the Instagram app (not the Stories share API). */

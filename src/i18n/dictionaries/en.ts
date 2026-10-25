@@ -311,7 +311,9 @@ export type Dictionary = {
     linkCopied: string;
     facebookCopied: string;
     facebookCopyFailed: string;
+    instagramShared: string;
     instagramCopied: string;
+    instagramCopiedInsecure: string;
     instagramCopyFailed: string;
   };
   submit: {
@@ -1017,10 +1019,14 @@ export const en: Dictionary = {
       "Event copied! Tap OK, then paste into your Facebook post.",
     facebookCopyFailed:
       "Could not copy automatically. Long-press to paste after Facebook opens.",
+    instagramShared:
+      "Caption copied — choose Instagram in the share sheet.",
     instagramCopied:
-      "Link copied — pick Instagram, then add a Link sticker.",
+      "Caption copied — paste it into your Instagram post.",
+    instagramCopiedInsecure:
+      "Caption copied. Image share needs https or localhost — not http://192.168… from your phone.",
     instagramCopyFailed:
-      "Could not copy the link. Paste it as a Link sticker in your Story.",
+      "Could not copy the caption. Paste the event description into Instagram.",
   },
   submit: {
     title: "Share an event",

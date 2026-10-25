@@ -1,15 +1,21 @@
 import type { Locale } from "@/i18n/config";
 import type { Event } from "./types";
 import {
-  CARD_H,
   CARD_RADIUS,
   CARD_W,
   CARD_X,
   CARD_Y,
   IMAGE_H,
+  META_LINE_STEP,
+  SITE_GAP,
+  SITE_PAD_BOTTOM,
   STORY_COLORS,
   STORY_H,
   STORY_W,
+  TEXT_PAD_TOP,
+  TITLE_LINE_STEP,
+  TITLE_META_GAP,
+  storyCardHeight,
   storyCardImageSrc,
   storyCardMetaLine,
   wrapTextLines,
@@ -56,7 +62,7 @@ function roundedRect(
 
 /**
  * 9:16 page-preview card for Instagram Stories (hero + title + place).
- * The event URL is copied separately so the user can add a Link sticker.
+ * The event description is copied separately for the feed/Reel caption.
  */
 export async function buildInstagramStoryPreviewBlob(
   event: Event,
@@ -76,22 +82,22 @@ export async function buildInstagramStoryPreviewBlob(
   ctx.fillStyle = bg;
   ctx.fillRect(0, 0, STORY_W, STORY_H);
 
-  ctx.fillStyle = STORY_COLORS.brand;
-  ctx.font = "700 42px system-ui, sans-serif";
-  ctx.textAlign = "center";
-  ctx.fillText("POP Events", STORY_W / 2, 180);
+  const meta = storyCardMetaLine(event, locale);
+  const titleLines = wrapTextLines(event.title, 28, 3);
+  const metaLines = wrapTextLines(meta, 36, 2);
+  const cardH = storyCardHeight(titleLines.length, metaLines.length);
 
   ctx.save();
   ctx.shadowColor = "rgba(0,0,0,0.22)";
   ctx.shadowBlur = 36;
   ctx.shadowOffsetY = 18;
-  roundedRect(ctx, CARD_X, CARD_Y, CARD_W, CARD_H, CARD_RADIUS);
+  roundedRect(ctx, CARD_X, CARD_Y, CARD_W, cardH, CARD_RADIUS);
   ctx.fillStyle = STORY_COLORS.card;
   ctx.fill();
   ctx.restore();
 
   ctx.save();
-  roundedRect(ctx, CARD_X, CARD_Y, CARD_W, CARD_H, CARD_RADIUS);
+  roundedRect(ctx, CARD_X, CARD_Y, CARD_W, cardH, CARD_RADIUS);
   ctx.clip();
 
   const imageSrc = storyCardImageSrc(event.imageUrl);
@@ -109,33 +115,34 @@ export async function buildInstagramStoryPreviewBlob(
   }
 
   ctx.fillStyle = STORY_COLORS.card;
-  ctx.fillRect(CARD_X, CARD_Y + IMAGE_H, CARD_W, CARD_H - IMAGE_H);
+  ctx.fillRect(CARD_X, CARD_Y + IMAGE_H, CARD_W, cardH - IMAGE_H);
   ctx.restore();
-
-  const meta = storyCardMetaLine(event, locale);
 
   ctx.fillStyle = STORY_COLORS.title;
   ctx.textAlign = "left";
   ctx.font = "800 52px system-ui, sans-serif";
-  const titleLines = wrapTextLines(event.title, 28, 3);
-  let textY = CARD_Y + IMAGE_H + 88;
+  // Canvas fillText uses baseline; TEXT_PAD_TOP is glyph-top on the server.
+  let textY = CARD_Y + IMAGE_H + TEXT_PAD_TOP + 48;
   for (const line of titleLines) {
     ctx.fillText(line, CARD_X + 48, textY, CARD_W - 96);
-    textY += 64;
+    textY += TITLE_LINE_STEP;
   }
 
-  ctx.font = "600 36px system-ui, sans-serif";
+  ctx.font = "600 34px system-ui, sans-serif";
   ctx.fillStyle = STORY_COLORS.meta;
-  const metaLines = wrapTextLines(meta, 36, 2);
-  textY += 16;
+  textY += TITLE_META_GAP;
   for (const line of metaLines) {
     ctx.fillText(line, CARD_X + 48, textY, CARD_W - 96);
-    textY += 48;
+    textY += META_LINE_STEP;
   }
 
-  ctx.font = "600 32px system-ui, sans-serif";
+  ctx.font = "600 30px system-ui, sans-serif";
   ctx.fillStyle = STORY_COLORS.site;
-  ctx.fillText("pop-event.com", CARD_X + 48, CARD_Y + CARD_H - 48);
+  ctx.fillText(
+    "pop-event.com",
+    CARD_X + 48,
+    Math.min(textY + SITE_GAP, CARD_Y + cardH - SITE_PAD_BOTTOM),
+  );
 
   return new Promise((resolve) => {
     canvas.toBlob((blob) => resolve(blob), "image/png");

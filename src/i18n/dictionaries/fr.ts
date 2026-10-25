@@ -310,10 +310,14 @@ export const fr: Dictionary = {
       "Événement copié ! Appuyez sur OK, puis collez dans votre publication Facebook.",
     facebookCopyFailed:
       "Copie impossible. Appui long pour coller une fois Facebook ouvert.",
+    instagramShared:
+      "Légende copiée — choisissez Instagram dans la feuille de partage.",
     instagramCopied:
-      "Lien copié — choisissez Instagram, puis ajoutez un sticker lien.",
+      "Légende copiée — collez-la dans votre publication Instagram.",
+    instagramCopiedInsecure:
+      "Légende copiée. Le partage d’image exige https ou localhost — pas http://192.168… depuis le téléphone.",
     instagramCopyFailed:
-      "Impossible de copier le lien. Collez-le en sticker lien dans votre story.",
+      "Impossible de copier la légende. Collez la description de l’événement dans Instagram.",
   },
   submit: {
     title: "Partager un événement",

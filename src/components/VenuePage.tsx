@@ -38,7 +38,10 @@ import {
 } from "@/lib/event-navigation";
 import { formatPhoneTel } from "@/lib/event-phone";
 import { navigateBackSoft, navigateSoft } from "@/lib/nav-feedback";
-import { PAGE_SHELL_DETAIL_CLASS } from "@/lib/page-shell";
+import {
+  PAGE_SHELL_DETAIL_CLASS,
+  VENUE_PLACE_CARD_HEIGHT_MOBILE_CLASS,
+} from "@/lib/page-shell";
 import { fillTemplate } from "@/lib/seo";
 import { trackEvent } from "@/lib/analytics";
 import { buildVenueGlance } from "@/lib/venue-glance";
@@ -305,7 +308,7 @@ export function VenuePage({
             {/* Place card: photo + map + directions (left column on desktop) */}
             <article
               ref={placeCardRef}
-              className={`mt-1 grid h-[min(68dvh,36rem)] w-full overflow-hidden rounded-3xl bg-white shadow-2xl ring-1 ring-neutral-200/70 dark:bg-neutral-900 dark:ring-neutral-800 lg:sticky lg:top-[calc(var(--sticky-list-header-height,_0px)+0.75rem)] lg:mt-0 lg:h-[calc(100dvh-var(--sticky-list-header-height,_0px)-1.5rem)] lg:rounded-2xl lg:shadow-md ${
+              className={`mt-1 grid ${VENUE_PLACE_CARD_HEIGHT_MOBILE_CLASS} w-full overflow-hidden rounded-3xl bg-white shadow-2xl ring-1 ring-neutral-200/70 dark:bg-neutral-900 dark:ring-neutral-800 lg:sticky lg:top-[calc(var(--sticky-list-header-height,_0px)+0.75rem)] lg:mt-0 lg:h-[calc(100dvh-var(--sticky-list-header-height,_0px)-1.5rem)] lg:rounded-2xl lg:shadow-md ${
                 !canShowMap
                   ? "grid-rows-[minmax(0,1fr)]"
                   : mapTakesPhotoSpace

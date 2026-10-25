@@ -13,6 +13,7 @@ import {
   CARD_Y,
   IMAGE_H,
   STORY_COLORS,
+  TEXT_PAD_TOP,
 } from "./instagram-story-card-layout";
 
 describe("buildInstagramFeedCardJpeg", () => {
@@ -39,7 +40,7 @@ describe("buildInstagramFeedCardJpeg", () => {
 
     // Cream panel under the hero — title must paint dark ink (not tofu/empty).
     const feedTop = CARD_Y + CARD_H - FEED_CARD_H;
-    const titleTopInFeed = CARD_Y + IMAGE_H + 36 - feedTop;
+    const titleTopInFeed = CARD_Y + IMAGE_H + TEXT_PAD_TOP - feedTop;
     const { data, info } = await sharp(jpeg)
       .extract({
         left: CARD_X + 48,

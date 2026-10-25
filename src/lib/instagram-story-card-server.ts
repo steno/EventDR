@@ -11,9 +11,16 @@ import {
   CARD_X,
   CARD_Y,
   IMAGE_H,
+  META_LINE_STEP,
+  SITE_GAP,
+  SITE_PAD_BOTTOM,
   STORY_COLORS,
   STORY_H,
   STORY_W,
+  TEXT_PAD_TOP,
+  TITLE_LINE_STEP,
+  TITLE_META_GAP,
+  storyCardHeight,
   storyCardMetaLine,
   wrapTextLines,
 } from "./instagram-story-card-layout";
@@ -109,13 +116,17 @@ async function renderTextLine(opts: {
 
 type CompositeInput = { input: Buffer; top: number; left: number };
 
-async function cardTextComposites(title: string, meta: string): Promise<CompositeInput[]> {
+async function cardTextComposites(
+  title: string,
+  meta: string,
+  cardH: number,
+): Promise<CompositeInput[]> {
   const bold = resolveFont(FONT_BOLD);
   const semibold = resolveFont(FONT_SEMIBOLD);
   const textWidth = CARD_W - 96;
   const layers: CompositeInput[] = [];
 
-  let y = IMAGE_H + 36;
+  let y = IMAGE_H + TEXT_PAD_TOP;
   for (const line of wrapTextLines(title, 28, 3)) {
     const rendered = await renderTextLine({
       text: line,
@@ -125,52 +136,36 @@ async function cardTextComposites(title: string, meta: string): Promise<Composit
       maxWidth: textWidth,
     });
     layers.push({ input: rendered.buffer, top: y, left: 48 });
-    y += 64;
+    y += TITLE_LINE_STEP;
   }
 
-  y += 16;
+  y += TITLE_META_GAP;
   for (const line of wrapTextLines(meta, 36, 2)) {
     const rendered = await renderTextLine({
       text: line,
       fontfile: semibold,
-      px: 36,
+      px: 34,
       color: STORY_COLORS.meta,
       maxWidth: textWidth,
     });
     layers.push({ input: rendered.buffer, top: y, left: 48 });
-    y += 48;
+    y += META_LINE_STEP;
   }
 
   const site = await renderTextLine({
     text: "pop-event.com",
     fontfile: semibold,
-    px: 32,
+    px: 30,
     color: STORY_COLORS.site,
     maxWidth: textWidth,
   });
   layers.push({
     input: site.buffer,
-    top: CARD_H - 48 - site.height,
+    top: Math.min(y + SITE_GAP, cardH - SITE_PAD_BOTTOM - site.height),
     left: 48,
   });
 
   return layers;
-}
-
-async function brandTextComposite(): Promise<CompositeInput> {
-  const bold = resolveFont(FONT_BOLD);
-  const brand = await renderTextLine({
-    text: "POP Events",
-    fontfile: bold,
-    px: 42,
-    color: "#ffffff",
-    maxWidth: STORY_W - 120,
-  });
-  return {
-    input: brand.buffer,
-    top: 180 - brand.height,
-    left: Math.round((STORY_W - brand.width) / 2),
-  };
 }
 
 /**
@@ -183,6 +178,9 @@ export async function buildInstagramStoryCardPng(
   origin = SITE_URL,
 ): Promise<Buffer> {
   const meta = storyCardMetaLine(event, locale);
+  const titleLines = wrapTextLines(event.title, 28, 3);
+  const metaLines = wrapTextLines(meta, 36, 2);
+  const cardH = storyCardHeight(titleLines.length, metaLines.length);
   const imageUrl = absoluteImageUrl(event.imageUrl, origin);
 
   let hero = await sharp({
@@ -211,12 +209,12 @@ export async function buildInstagramStoryCardPng(
     }
   }
 
-  const textLayers = await cardTextComposites(event.title, meta);
+  const textLayers = await cardTextComposites(event.title, meta, cardH);
 
   const cardBase = await sharp({
     create: {
       width: CARD_W,
-      height: CARD_H,
+      height: cardH,
       channels: 3,
       background: STORY_COLORS.card,
     },
@@ -225,7 +223,7 @@ export async function buildInstagramStoryCardPng(
     .png()
     .toBuffer();
 
-  const roundMask = await sharp(roundedRectSvg(CARD_W, CARD_H, CARD_RADIUS, "#fff"))
+  const roundMask = await sharp(roundedRectSvg(CARD_W, cardH, CARD_RADIUS, "#fff"))
     .png()
     .toBuffer();
 
@@ -236,7 +234,7 @@ export async function buildInstagramStoryCardPng(
 
   // Soft drop shadow under the card (matches canvas shadowBlur ~36).
   const shadow = await sharp(
-    roundedRectSvg(CARD_W, CARD_H, CARD_RADIUS, "rgba(0,0,0,0.22)"),
+    roundedRectSvg(CARD_W, cardH, CARD_RADIUS, "rgba(0,0,0,0.22)"),
   )
     .blur(18)
     .png()
@@ -252,11 +250,8 @@ export async function buildInstagramStoryCardPng(
   <rect width="${STORY_W}" height="${STORY_H}" fill="url(#bg)"/>
 </svg>`);
 
-  const brand = await brandTextComposite();
-
   return sharp(background)
     .composite([
-      brand,
       { input: shadow, top: CARD_Y + 18, left: CARD_X },
       { input: roundedCard, top: CARD_Y, left: CARD_X },
     ])
@@ -266,12 +261,12 @@ export async function buildInstagramStoryCardPng(
 
 /**
  * Feed photo (4:5). Instagram rejects the full 9:16 share card on a feed post.
- * This keeps the same card — POP Events header, photo, title, meta — and
- * drops the empty gradient below it.
+ * Crops the story frame to the card (photo + title + meta), dropping empty
+ * gradient below. Top is clamped so a top-aligned card still fits.
  */
 export const FEED_CARD_W = STORY_W;
 export const FEED_CARD_H = 1350;
-const FEED_CARD_TOP = CARD_Y + CARD_H - FEED_CARD_H;
+const FEED_CARD_TOP = Math.max(0, CARD_Y + CARD_H - FEED_CARD_H);
 
 export async function buildInstagramFeedCardJpeg(
   event: Event,

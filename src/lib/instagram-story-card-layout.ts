@@ -9,10 +9,44 @@ export const STORY_H = 1920;
 export const CARD_PAD = 72;
 export const CARD_W = STORY_W - CARD_PAD * 2;
 export const CARD_X = CARD_PAD;
-export const CARD_Y = 300;
-export const CARD_H = 1180;
+/**
+ * Card bottom stays ~1564 (same as the nudged layout). Top extends up into the
+ * old “POP Events” band; IMAGE_H grows by the same amount so the flyer fills
+ * that space — the whole card is not shifted up.
+ */
+export const CARD_Y = 72;
 export const CARD_RADIUS = 48;
-export const IMAGE_H = 640;
+/** Taller hero = former brand gap filled with flyer art. */
+export const IMAGE_H = 1148;
+/** Padding from hero bottom to first title line (server = glyph top; canvas ≈ baseline). */
+export const TEXT_PAD_TOP = 28;
+export const TITLE_LINE_STEP = 60;
+export const TITLE_META_GAP = 12;
+export const META_LINE_STEP = 44;
+export const SITE_GAP = 24;
+export const SITE_LINE_H = 36;
+export const SITE_PAD_BOTTOM = 36;
+
+/**
+ * Card height hugs title/meta/footer — no empty cream under pop-event.com.
+ * Callers should pass the wrapped line counts for this event.
+ */
+export function storyCardHeight(titleLines: number, metaLines: number): number {
+  const titles = Math.max(1, Math.min(3, titleLines));
+  const metas = Math.max(1, Math.min(2, metaLines));
+  const textH =
+    TEXT_PAD_TOP +
+    titles * TITLE_LINE_STEP +
+    TITLE_META_GAP +
+    metas * META_LINE_STEP +
+    SITE_GAP +
+    SITE_LINE_H +
+    SITE_PAD_BOTTOM;
+  return IMAGE_H + textH;
+}
+
+/** Max card (3 title + 2 meta lines) — used for feed-crop math and tests. */
+export const CARD_H = storyCardHeight(3, 2);
 
 export const STORY_COLORS = {
   gradientFrom: "#f97316",

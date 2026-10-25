@@ -57,9 +57,27 @@ describe("instagram share", () => {
     assert.equal(isExternalSharePlatform("instagram"), true);
   });
 
-  it("copies only the canonical event URL for the Story Link sticker", () => {
+  it("copies the event description for an Instagram caption", () => {
     assert.equal(
       buildInstagramClipboardText(sample, "en"),
+      sample.description,
+    );
+  });
+
+  it("falls back to the title when description is empty", () => {
+    assert.equal(
+      buildInstagramClipboardText({ ...sample, description: "  " }, "en"),
+      sample.title,
+    );
+  });
+
+  it("does not put the long description in the Web Share text field", () => {
+    // Regression: navigator.share({ files, text: description }) kills the
+    // iOS/Safari sheet. Clipboard caption and share `text` must stay separate.
+    const clipboard = buildInstagramClipboardText(sample, "en");
+    assert.equal(clipboard, sample.description);
+    assert.notEqual(
+      clipboard,
       "https://pop-event.com/en/event/allison-sade-aura-2026-09-17",
     );
   });
