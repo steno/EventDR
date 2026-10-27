@@ -14,17 +14,18 @@ Browser-led discovery for Instagram event posts that the public API crawl misses
 
 Requires an Instagram login in the Cursor browser. Do not bypass login challenges, CAPTCHAs, rate limits, or private-account controls.
 
-Source of truth: `src/lib/instagram-sources.ts` (`INSTAGRAM_ACCOUNTS`).
+Source of truth: `src/lib/instagram-sources.ts` — Friday uses `INSTAGRAM_TIER_A` via `instagramAccountsForScan("friday")`; monthly / full pass uses `INSTAGRAM_ACCOUNTS` (A then B).
 
 ## Cadence (catalog desk habit)
 
 | When | What |
 |------|------|
-| **Friday morning (primary)** | Full logged-in discovery — weekend bills first. Catalog desk habit; not a Cursor Automation yet. |
-| **Sunday** | Do **not** repeat a full Instagram catalog scan. Light catch-up only if Friday was thin or blocked. |
+| **Friday morning (primary)** | Logged-in discovery on **Tier A only** (~27 VIP handles) — weekend bills first. Catalog desk habit; not a Cursor Automation yet. |
+| **Sunday** | Do **not** repeat a full Instagram catalog scan. Light catch-up only if Friday was thin or blocked (still Tier A, not the full list). |
+| **Monthly / as asked** | Full catalog: Tier A then Tier B via `instagramAccountsForScan("full")`. |
 | **Other days** | Only when the user asks for a targeted refresh. |
 
-Defer a scheduled Cursor Automation until a short VIP list and a clear “new since last run” stop-rule feel right in practice.
+Tier A was cut from ~10 weeks of seed yield (Aug–Oct 2026). Defer Cursor Automation until the Friday Tier A stop-rule (“new since last Friday”) feels boringly reliable.
 
 ## Checklist
 
@@ -67,10 +68,10 @@ Do not request or handle the user's Instagram password.
 
 ## 3. Profile scan
 
-Read `INSTAGRAM_ACCOUNTS` and scan each profile in **listed priority order** (nightlife / promoters first). That list is the interim VIP order until a shorter automation list exists. For each account:
+Read `instagramAccountsForScan(cadence)` (`friday` by default; `full` only when the user asks for a monthly / full pass). Scan each profile in **listed order**. For each account:
 
 1. Review posts and Reels published since the previous **Friday** scan (or last successful discovery run). When no prior point is known, review the latest 24 items plus pinned posts and relevant highlights; continue farther back when needed to find advance announcements dated through 2026-12-31.
-2. Prefer stopping an account early when the visible grid shows only older posts already reviewed — do not grind every quiet tourism handle after the high-signal block is clean.
+2. Prefer stopping an account early when the visible grid shows only older posts already reviewed — on Friday, finish Tier A and stop; do not wander into Tier B unless the user asked for a full pass.
 3. Open likely event flyers/captions and record:
    - title or performer
    - date and time

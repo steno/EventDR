@@ -6,24 +6,261 @@
  * Rich coverage (posts, Reels, Stories) needs a logged-in Cursor browser run of
  * skill `pop-instagram-ingest` / rule `instagram-weekly`.
  *
- * Cadence: primary logged-in scan is a **Friday catalog desk habit** (weekend
- * flyers). Do not duplicate a full catalog scan on Sunday. A shorter VIP list
- * + stop-rule comes later before any Cursor Automation.
+ * Cadence:
+ * - **Friday:** scan {@link INSTAGRAM_TIER_A} only (weekend flyers).
+ * - **Monthly / as asked:** full list {@link INSTAGRAM_ACCOUNTS} (A then B).
+ * - Do not duplicate a full catalog scan on Sunday.
+ *
+ * Tier A ranked from ~10 weeks of seed `sourceUrl` yield (Aug–Oct 2026), plus
+ * a few nightlife must-checks. Revisit when automation gets a stop-rule.
  */
 
+export type InstagramArea =
+  | "Puerto Plata"
+  | "Sosúa"
+  | "Cabarete"
+  | "Costambar"
+  | "Playa Dorada"
+  | "Imbert"
+  | "Cofresí"
+  | "Maimón";
+
+export type InstagramAccount = {
+  handle: string;
+  label: string;
+  areas: readonly InstagramArea[];
+};
+
 /**
- * Priority order: active nightlife / promoters first, then tourism and
- * secondary venues. This order is the interim VIP ranking for Friday runs.
- * Accounts confirmed missing during the Jul 2026 logged-in scan are kept
- * commented for future handle recovery.
+ * Friday VIP board — high seed yield and/or reliable nightlife flyers.
+ * Keep this short; do not grind Tier B on the weekly pass.
  */
-export const INSTAGRAM_ACCOUNTS = [
-  // High-signal nightlife / promoters
+export const INSTAGRAM_TIER_A: readonly InstagramAccount[] = [
+  {
+    handle: "ambarloungepop",
+    label: "Ámbar Lounge POP",
+    areas: ["Puerto Plata"],
+  },
+  {
+    handle: "twenty_disco_lounge",
+    label: "Twenty Disco Lounge",
+    areas: ["Puerto Plata", "Playa Dorada"],
+  },
+  {
+    handle: "auracabarete",
+    label: "Aura Beach Club Cabarete",
+    areas: ["Cabarete"],
+  },
+  {
+    handle: "meclaorooftop",
+    label: "Mecla'o Rooftop Lounge",
+    areas: ["Puerto Plata"],
+  },
+  {
+    handle: "hardrockcafepuertoplata",
+    label: "Hard Rock Cafe Puerto Plata",
+    areas: ["Sosúa"],
+  },
+  {
+    handle: "latindiscoclubpp",
+    label: "Latin Disco Club",
+    areas: ["Puerto Plata"],
+  },
+  {
+    handle: "cigartownpop",
+    label: "Cigar Town Pop",
+    areas: ["Puerto Plata"],
+  },
+  {
+    handle: "teatroivangarcia",
+    label: "Iván García Teatro-Escuela",
+    areas: ["Puerto Plata"],
+  },
+  {
+    handle: "oceanworldterrace",
+    label: "Terraza Ocean World & Casino",
+    areas: ["Puerto Plata"],
+  },
+  {
+    handle: "voyvoybar",
+    label: "VOYVOY Cabarete",
+    areas: ["Cabarete"],
+  },
+  {
+    handle: "grandprixrd",
+    label: "Grand Prix Smart Shop / Grand Prix RD",
+    areas: ["Puerto Plata"],
+  },
+  {
+    handle: "rancholacatalina",
+    label: "Rancho La Catalina",
+    areas: ["Puerto Plata"],
+  },
+  {
+    handle: "luxury.club.puerto_plata",
+    label: "Luxury Club Puerto Plata",
+    areas: ["Puerto Plata"],
+  },
+  {
+    handle: "camarapuertoplata",
+    label: "Cámara de Comercio y Producción de Puerto Plata",
+    areas: ["Puerto Plata"],
+  },
+  {
+    handle: "acapella.pop",
+    label: "Zona Acapella Club",
+    areas: ["Puerto Plata"],
+  },
+  {
+    handle: "sosuafoodmarket",
+    label: "Sosúa Food Market",
+    areas: ["Sosúa"],
+  },
+  {
+    handle: "cinemaspop",
+    label: "POP Cinemas (Playa Dorada Mall)",
+    areas: ["Playa Dorada", "Puerto Plata"],
+  },
+  {
+    handle: "cedakymall",
+    label: "Cedāky Mall",
+    areas: ["Puerto Plata"],
+  },
+  {
+    handle: "kitestreetpop",
+    label: "Kite Street POP",
+    areas: ["Cabarete", "Puerto Plata"],
+  },
+  {
+    handle: "cabareteboxingclub",
+    label: "Cabarete Boxing Club",
+    areas: ["Cabarete"],
+  },
+  {
+    handle: "ojoclubcabarete",
+    label: "Ojo Club Cabarete",
+    areas: ["Cabarete"],
+  },
+  {
+    handle: "lalolabeachclub",
+    label: "La Lola Beach Club",
+    areas: ["Cabarete"],
+  },
+  {
+    handle: "nueve_rd",
+    label: "Nueve Restaurante-Bar",
+    areas: ["Puerto Plata"],
+  },
   {
     handle: "groundzero_disco",
     label: "Ground Zero Discoteca",
     areas: ["Sosúa"],
   },
+  {
+    handle: "lunaloungelcb",
+    label: "Luna Lounge LCB",
+    areas: ["Puerto Plata"],
+  },
+  {
+    handle: "victrolart",
+    label: "Victrola 037 Arte Café",
+    areas: ["Puerto Plata"],
+  },
+  {
+    handle: "lokuraspop",
+    label: "Lokura's Pop Bar Café",
+    areas: ["Puerto Plata"],
+  },
+] as const;
+
+/**
+ * Secondary board — monthly / full-catalog passes, or targeted refresh.
+ * Includes solid but quieter venues and institutional / tourism handles.
+ */
+export const INSTAGRAM_TIER_B: readonly InstagramAccount[] = [
+  // Yielded recently but not Friday-critical
+  {
+    handle: "vinotecamarienpp",
+    label: "Vinoteca Wine House",
+    areas: ["Puerto Plata"],
+  },
+  {
+    handle: "paradaelchoco",
+    label: "Parada Típica El Choco",
+    areas: ["Sosúa", "Cabarete"],
+  },
+  {
+    handle: "diaynocherestaurantelcarey",
+    label: "El Carey Día y Noche",
+    areas: ["Costambar", "Puerto Plata"],
+  },
+  {
+    handle: "hotelvillataina",
+    label: "Hotel Villa Taina",
+    areas: ["Cabarete"],
+  },
+  {
+    handle: "clubanfitrioneszonanorterd",
+    label: "Club Anfitriones Zona Norte RD",
+    areas: ["Puerto Plata", "Sosúa", "Cabarete"],
+  },
+  {
+    handle: "lepetitfrancois.rd",
+    label: "Le Petit François",
+    areas: ["Puerto Plata"],
+  },
+  {
+    handle: "chameleonsportbar",
+    label: "Chameleon Sport Bar",
+    areas: ["Puerto Plata"],
+  },
+  {
+    handle: "tikibarcabarete",
+    label: "Tiki Bar Cabarete",
+    areas: ["Cabarete"],
+  },
+  {
+    handle: "isabelafoodfest",
+    label: "Isabela Food Fest",
+    areas: ["Puerto Plata"],
+  },
+  {
+    handle: "atleticosdepuertoplata",
+    label: "Atléticos de Puerto Plata",
+    areas: ["Puerto Plata"],
+  },
+  {
+    handle: "laquintarosapop",
+    label: "La Quinta Rosa",
+    areas: ["Puerto Plata"],
+  },
+  {
+    handle: "ninafrikadance",
+    label: "Ninafrika Dance School Cabarete",
+    areas: ["Cabarete"],
+  },
+  {
+    handle: "cabaretestandup",
+    label: "Cabarete Stand Up",
+    areas: ["Cabarete"],
+  },
+  {
+    handle: "spotlandrd",
+    label: "Spot Land Puerto Plata",
+    areas: ["Puerto Plata"],
+  },
+  {
+    handle: "iss.pta",
+    label: "ISS PTA (International School of Sosúa)",
+    areas: ["Sosúa"],
+  },
+  {
+    handle: "desarrollo_fitness_cabarete",
+    label: "Desarrollo Fitness Cabarete",
+    areas: ["Cabarete"],
+  },
+
+  // Nightlife / promoters — lower recent yield
   {
     handle: "blueice_pianobar",
     label: "Blue Ice Piano Bar",
@@ -55,11 +292,6 @@ export const INSTAGRAM_ACCOUNTS = [
     areas: ["Cabarete"],
   },
   {
-    handle: "ninafrikadance",
-    label: "Ninafrika Dance School Cabarete",
-    areas: ["Cabarete"],
-  },
-  {
     handle: "ninafrika_kameroruskova",
     label: "Ninafrika (Kamero Ruskova) — shows / workshops",
     areas: ["Cabarete"],
@@ -73,16 +305,6 @@ export const INSTAGRAM_ACCOUNTS = [
     handle: "nonasgrillkitchen",
     label: "Nona's Grill & Kitchen",
     areas: ["Cabarete"],
-  },
-  {
-    handle: "hardrockcafepuertoplata",
-    label: "Hard Rock Cafe Puerto Plata",
-    areas: ["Sosúa"],
-  },
-  {
-    handle: "iss.pta",
-    label: "ISS PTA (International School of Sosúa)",
-    areas: ["Sosúa"],
   },
   {
     handle: "gy_fitness_sosua",
@@ -109,32 +331,6 @@ export const INSTAGRAM_ACCOUNTS = [
     label: "Sunset Grill at Velero / Velero Beach Resort",
     areas: ["Cabarete"],
   },
-  // High-signal local venues that announce mostly on IG flyers (missed Aug 2026 cron)
-  {
-    handle: "victrolart",
-    label: "Victrola 037 Arte Café",
-    areas: ["Puerto Plata"],
-  },
-  {
-    handle: "meclaorooftop",
-    label: "Mecla'o Rooftop Lounge",
-    areas: ["Puerto Plata"],
-  },
-  {
-    handle: "latindiscoclubpp",
-    label: "Latin Disco Club",
-    areas: ["Puerto Plata"],
-  },
-  {
-    handle: "acapella.pop",
-    label: "Zona Acapella Club",
-    areas: ["Puerto Plata"],
-  },
-  {
-    handle: "vinotecamarienpp",
-    label: "Vinoteca Wine House",
-    areas: ["Puerto Plata"],
-  },
   {
     handle: "kviarcasinos",
     label: "Kviar Casinos",
@@ -156,33 +352,13 @@ export const INSTAGRAM_ACCOUNTS = [
     areas: ["Cabarete"],
   },
   {
-    handle: "cigartownpop",
-    label: "Cigar Town Pop",
-    areas: ["Puerto Plata"],
-  },
-  {
-    handle: "laquintarosapop",
-    label: "La Quinta Rosa",
-    areas: ["Puerto Plata"],
-  },
-  {
     handle: "katzhomerd",
     label: "Katz Home Architecture Studio",
     areas: ["Puerto Plata"],
   },
   {
-    handle: "ambarloungepop",
-    label: "Ámbar Lounge POP",
-    areas: ["Puerto Plata"],
-  },
-  {
     handle: "pregameroof",
     label: "Pregame Roof",
-    areas: ["Puerto Plata"],
-  },
-  {
-    handle: "cedakymall",
-    label: "Cedāky Mall",
     areas: ["Puerto Plata"],
   },
   {
@@ -196,33 +372,8 @@ export const INSTAGRAM_ACCOUNTS = [
     areas: ["Puerto Plata"],
   },
   {
-    handle: "lokuraspop",
-    label: "Lokura's Pop Bar Café",
-    areas: ["Puerto Plata"],
-  },
-  {
-    handle: "cinemaspop",
-    label: "POP Cinemas (Playa Dorada Mall)",
-    areas: ["Playa Dorada", "Puerto Plata"],
-  },
-  {
-    handle: "auracabarete",
-    label: "Aura Beach Club Cabarete",
-    areas: ["Cabarete"],
-  },
-  {
     handle: "ann.gruszczynska",
     label: "Ann Soul",
-    areas: ["Cabarete"],
-  },
-  {
-    handle: "cabaretestandup",
-    label: "Cabarete Stand Up",
-    areas: ["Cabarete"],
-  },
-  {
-    handle: "hotelvillataina",
-    label: "Hotel Villa Taina",
     areas: ["Cabarete"],
   },
   {
@@ -236,11 +387,6 @@ export const INSTAGRAM_ACCOUNTS = [
     areas: ["Puerto Plata"],
   },
   {
-    handle: "spotlandrd",
-    label: "Spot Land Puerto Plata",
-    areas: ["Puerto Plata"],
-  },
-  {
     handle: "classiccarsrd",
     label: "Classic Cars Dominicana",
     areas: ["Puerto Plata"],
@@ -251,52 +397,12 @@ export const INSTAGRAM_ACCOUNTS = [
     areas: ["Puerto Plata", "Sosúa"],
   },
   {
-    handle: "lunaloungelcb",
-    label: "Luna Lounge LCB",
-    areas: ["Puerto Plata"],
-  },
-  {
-    handle: "teatroivangarcia",
-    label: "Iván García Teatro-Escuela",
-    areas: ["Puerto Plata"],
-  },
-  {
-    handle: "cabareteboxingclub",
-    label: "Cabarete Boxing Club",
-    areas: ["Cabarete"],
-  },
-  {
-    handle: "oceanworldterrace",
-    label: "Terraza Ocean World & Casino",
-    areas: ["Puerto Plata"],
-  },
-  {
-    handle: "sosuafoodmarket",
-    label: "Sosúa Food Market",
-    areas: ["Sosúa"],
-  },
-  {
-    handle: "paradaelchoco",
-    label: "Parada Típica El Choco",
-    areas: ["Sosúa", "Cabarete"],
-  },
-  {
-    handle: "kitestreetpop",
-    label: "Kite Street POP",
-    areas: ["Cabarete", "Puerto Plata"],
-  },
-  {
     handle: "puertoplatabeachsoccer",
     label: "Puerto Plata Beach Soccer",
     areas: ["Sosúa", "Puerto Plata"],
   },
-  {
-    handle: "atleticosdepuertoplata",
-    label: "Atléticos de Puerto Plata",
-    areas: ["Puerto Plata"],
-  },
 
-  // Active tourist / lifestyle venues
+  // Tourist / lifestyle
   {
     handle: "lbcabarete",
     label: "Liquid Blue Cabarete",
@@ -328,24 +434,9 @@ export const INSTAGRAM_ACCOUNTS = [
     areas: ["Puerto Plata"],
   },
   {
-    handle: "voyvoybar",
-    label: "VOYVOY Cabarete",
-    areas: ["Cabarete"],
-  },
-  {
     handle: "tastyfoodpark",
     label: "Tasty Food Park",
     areas: ["Puerto Plata"],
-  },
-  {
-    handle: "diaynocherestaurantelcarey",
-    label: "El Carey Día y Noche",
-    areas: ["Costambar", "Puerto Plata"],
-  },
-  {
-    handle: "desarrollo_fitness_cabarete",
-    label: "Desarrollo Fitness Cabarete",
-    areas: ["Cabarete"],
   },
   {
     handle: "elcolibrihotel",
@@ -408,7 +499,7 @@ export const INSTAGRAM_ACCOUNTS = [
     areas: ["Cabarete"],
   },
 
-  // Cultural venues & tourism
+  // Cultural / tourism / institutional
   {
     handle: "anfiteatro_puertoplata_rd",
     label: "Anfiteatro La Puntilla",
@@ -432,13 +523,6 @@ export const INSTAGRAM_ACCOUNTS = [
   {
     handle: "descubrepuertoplata",
     label: "Descubre Puerto Plata",
-    areas: ["Puerto Plata"],
-  },
-
-  // Business / institutional — chamber, free zone and the annual business forum
-  {
-    handle: "camarapuertoplata",
-    label: "Cámara de Comercio y Producción de Puerto Plata",
     areas: ["Puerto Plata"],
   },
   {
@@ -468,8 +552,31 @@ export const INSTAGRAM_ACCOUNTS = [
   // { handle: "eventosnorterd", label: "Eventos Norte RD", areas: ["Puerto Plata", "Sosúa", "Cabarete"] },
 ] as const;
 
-export function instagramProfileUrls(): string[] {
-  return INSTAGRAM_ACCOUNTS.map(
+/** Full monitored list: Tier A then Tier B (cron / monthly full scan). */
+export const INSTAGRAM_ACCOUNTS: readonly InstagramAccount[] = [
+  ...INSTAGRAM_TIER_A,
+  ...INSTAGRAM_TIER_B,
+];
+
+export type InstagramScanCadence = "friday" | "full";
+
+/** Friday → Tier A only; full → A then B. */
+export function instagramAccountsForScan(
+  cadence: InstagramScanCadence = "friday",
+): readonly InstagramAccount[] {
+  return cadence === "friday" ? INSTAGRAM_TIER_A : INSTAGRAM_ACCOUNTS;
+}
+
+export function instagramProfileUrls(
+  cadence: InstagramScanCadence | "all" = "all",
+): string[] {
+  const accounts =
+    cadence === "friday"
+      ? INSTAGRAM_TIER_A
+      : cadence === "full"
+        ? INSTAGRAM_ACCOUNTS
+        : INSTAGRAM_ACCOUNTS;
+  return accounts.map(
     (account) => `https://www.instagram.com/${account.handle}/`,
   );
 }
@@ -477,51 +584,100 @@ export function instagramProfileUrls(): string[] {
 /** Discovery queries layered onto social ingest (web search, not direct scrape). */
 export function instagramSearchQueries(): string[] {
   const region = "Puerto Plata Sosúa Cabarete Cofresí Maimón Costa Norte";
-  
+
   // Split accounts into smaller groups for more targeted searches
   const localVenues = [
-    "onnosbar", "shakabardr", "groundzero_disco", "blueice_pianobar",
-    "driftercabarete", "nonasgrillkitchen", "hardrockcafepuertoplata",
-    "djblueeventos", "victrolart", "cigartownpop", "laquintarosapop", "katzhomerd", "ambarloungepop", "pregameroof", "lokuraspop",
-    "auracabarete", "cabaretestandup", "hotelvillataina", "eventospop037",
-    "novapuertoplata", "spotlandrd", "classiccarsrd", "trolleycitytours", "lunaloungelcb", "teatroivangarcia",
-    "oceanworldterrace", "sosuafoodmarket", "paradaelchoco",
-    "kitestreetpop", "meclaorooftop", "latindiscoclubpp", "finelysaludable", "kviarcasinos", "acapella.pop", "vinotecamarienpp",
-    "lagunasov", "santafesov", "donlimon02", "lostrescocosrd", "lovedoesrd", "iss.pta",
+    "onnosbar",
+    "shakabardr",
+    "groundzero_disco",
+    "blueice_pianobar",
+    "driftercabarete",
+    "nonasgrillkitchen",
+    "hardrockcafepuertoplata",
+    "djblueeventos",
+    "victrolart",
+    "cigartownpop",
+    "laquintarosapop",
+    "katzhomerd",
+    "ambarloungepop",
+    "pregameroof",
+    "lokuraspop",
+    "auracabarete",
+    "cabaretestandup",
+    "hotelvillataina",
+    "eventospop037",
+    "novapuertoplata",
+    "spotlandrd",
+    "classiccarsrd",
+    "trolleycitytours",
+    "lunaloungelcb",
+    "teatroivangarcia",
+    "oceanworldterrace",
+    "sosuafoodmarket",
+    "paradaelchoco",
+    "kitestreetpop",
+    "meclaorooftop",
+    "latindiscoclubpp",
+    "finelysaludable",
+    "kviarcasinos",
+    "acapella.pop",
+    "vinotecamarienpp",
+    "lagunasov",
+    "santafesov",
+    "donlimon02",
+    "lostrescocosrd",
+    "lovedoesrd",
+    "iss.pta",
+    "twenty_disco_lounge",
+    "grandprixrd",
+    "rancholacatalina",
+    "luxury.club.puerto_plata",
+    "ojoclubcabarete",
+    "lalolabeachclub",
+    "nueve_rd",
   ].join(" OR ");
 
   const culturalVenues = [
-    "anfiteatropuertoplata", "anfiteatro_puertoplata_rd",
-    "graaneventsplanners", "cabaretejazz", "luciano.vasquez.pp",
+    "anfiteatropuertoplata",
+    "anfiteatro_puertoplata_rd",
+    "graaneventsplanners",
+    "cabaretejazz",
+    "luciano.vasquez.pp",
     "masteroftheocean",
-    "victrolart", "turismopuertoplata", "descubrepuertoplata",
+    "victrolart",
+    "turismopuertoplata",
+    "descubrepuertoplata",
   ].join(" OR ");
 
   const touristInfo = [
-    "turismopuertoplata", "descubrepuertoplata", "sosuaevents",
+    "turismopuertoplata",
+    "descubrepuertoplata",
+    "sosuaevents",
   ].join(" OR ");
 
   const institutional = [
-    "camarapuertoplata", "foroempresarialpuertoplata", "zonafrancapuertoplata",
+    "camarapuertoplata",
+    "foroempresarialpuertoplata",
+    "zonafrancapuertoplata",
   ].join(" OR ");
-  
+
   return [
     // General event discovery
     `site:instagram.com events ${region} 2026`,
     `site:instagram.com eventos ${region} 2026`,
-    
+
     // Local Dominican events (bachata, merengue, típico)
     `site:instagram.com concierto merengue bachata típico ${region}`,
     `site:instagram.com música en vivo ${region}`,
     `site:instagram.com "en vivo" Puerto Plata OR Sosúa OR Cabarete`,
     `site:instagram.com bachata fiesta ${region}`,
     `site:instagram.com merengue típico costa norte`,
-    
+
     // Nightlife & parties
     `site:instagram.com fiesta discoteca ${region}`,
     `site:instagram.com party nightlife Cabarete Sosúa`,
     `site:instagram.com DJ evento ${region}`,
-    
+
     // Cultural & community events
     `site:instagram.com festival cultural Puerto Plata`,
     `site:instagram.com anfiteatro Puerto Plata concierto`,
@@ -536,39 +692,39 @@ export function instagramSearchQueries(): string[] {
     `site:instagram.com "Día de Duarte" OR "27 de febrero" OR "16 de agosto" Puerto Plata`,
     `site:instagram.com fiestas patronales Imbert OR Guananico OR Sosúa`,
     `site:instagram.com "Ministerio de Cultura" OR Mitur Puerto Plata teatro OR plaza OR malecón`,
-    
+
     // Local venue searches
     `site:instagram.com (${localVenues}) evento OR fiesta OR concierto OR "live music"`,
     `site:instagram.com (${culturalVenues}) concierto OR festival OR presentación`,
     `site:instagram.com (${touristInfo}) evento OR actividad OR fiesta`,
     `site:instagram.com (${institutional}) foro OR feria OR congreso OR "rueda de negocios"`,
-    `site:instagram.com victrolart OR cigartownpop OR laquintarosapop OR katzhomerd OR ambarloungepop OR pregameroof OR lokuraspop OR cinemaspop OR auracabarete OR eventospop037 OR novapuertoplata OR spotlandrd OR classiccarsrd OR trolleycitytours OR lunaloungelcb OR teatroivangarcia OR oceanworldterrace OR sosuafoodmarket OR paradaelchoco OR kitestreetpop OR "acapella.pop" OR vinotecamarienpp 2026`,
+    `site:instagram.com victrolart OR cigartownpop OR laquintarosapop OR katzhomerd OR ambarloungepop OR pregameroof OR lokuraspop OR cinemaspop OR auracabarete OR eventospop037 OR novapuertoplata OR spotlandrd OR classiccarsrd OR trolleycitytours OR lunaloungelcb OR teatroivangarcia OR oceanworldterrace OR sosuafoodmarket OR paradaelchoco OR kitestreetpop OR "acapella.pop" OR vinotecamarienpp OR twenty_disco_lounge OR grandprixrd OR rancholacatalina OR "luxury.club.puerto_plata" OR ojoclubcabarete OR lalolabeachclub OR nueve_rd 2026`,
     `site:instagram.com "Mojitos" OR "Jueves Social" OR "Sábado Bailable" OR Acústico Puerto Plata`,
-    
+
     // Business & institutional
     `site:instagram.com foro empresarial OR "rueda de negocios" Puerto Plata`,
     `site:instagram.com congreso OR seminario OR capacitación empresarial ${region}`,
-    
+
     // Food & entertainment
     `site:instagram.com restaurante bar música ${region}`,
     `site:instagram.com gastronómico evento ${region}`,
-    
+
     // Sports & adventure (local favorites)
     `site:instagram.com kitesurf windsurf torneo Cabarete`,
     `site:instagram.com puertoplatabeachsoccer OR "beach soccer" Sosúa OR "fútbol playa" Puerto Plata`,
     `site:instagram.com beach volley soccer ${region}`,
     `site:instagram.com deportivo evento costa norte`,
-    
+
     // Wellness & community
     `site:instagram.com yoga wellness retiro ${region}`,
     `site:instagram.com pilates fitness Cabarete`,
     `site:instagram.com mercado artesanal ${region}`,
-    
+
     // Weekly & recurring events
     `site:instagram.com lunes martes miércoles jueves viernes sábado domingo ${region}`,
     `site:instagram.com weekly semanal ${region} evento`,
     `site:instagram.com open mic karaoke ${region}`,
-    
+
     // Local hashtags
     `site:instagram.com #puertoplata #sosua #cabarete evento`,
     `site:instagram.com #costanorterd #eventosdominicanos`,

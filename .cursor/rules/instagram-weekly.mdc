@@ -10,16 +10,16 @@ alwaysApply: false
 
 Run when the user asks for Friday Instagram / weekend discovery, or to refresh Instagram events. Use skill **`pop-instagram-ingest`** for the full workflow. This rule provides standing constraints:
 
-1. Scan public posts, Reels, carousels, and current Stories from accounts in `src/lib/instagram-sources.ts` (listed priority order = interim VIP).
+1. Scan public posts, Reels, carousels, and current Stories from **`INSTAGRAM_TIER_A`** (`instagramAccountsForScan("friday")`) in listed order. Use the full `INSTAGRAM_ACCOUNTS` list only when the user asks for a monthly / full pass.
 2. Cover only Puerto Plata (including Cofresí and Maimón), Sosúa, Cabarete, Costambar, and Playa Dorada.
 3. For the current 2026 discovery pass, search from the run date through **December 31, 2026**. Add only events in that window, or clearly recurring events active in that window, with a verifiable date and venue. On Friday, prioritize Fri–Sun and advance weekend bills.
-4. Review posts since the previous Friday (or last successful run). Use pinned posts, Reels, and highlights when needed for advance dates through the end of the window — do not grind quiet handles after the high-signal block is clean.
+4. Review posts since the previous Friday (or last successful run). Use pinned posts, Reels, and highlights when needed for advance dates through the end of the window — stop when Tier A is clean; do not grind Tier B tourism handles on the Friday pass.
 5. Dedupe against fallback, recurring, and curated seeds plus the live/moderation data.
 6. Preserve the canonical Instagram URL and organizer handle; cross-check ambiguous flyers.
 7. Add matching EN/ES/FR entries for every verified new seed. Pull event/venue images from Google Maps, official sites, or ticket OG — **not** from Instagram posts, Reels, or Stories.
 8. Complete seed editorial before done: `SEED_CREATED_AT`, unique POP event opinion, and tip + assessment for any **new** venue (`.cursor/rules/seed-recently-added.mdc`).
 9. Use Instagram read-only: never like, follow, comment, message, share, save, or publish.
 10. Stop for login checkpoints, CAPTCHA, passkeys, account confirmation, or rate limits and ask the user to take over.
-11. Defer a Cursor Automation until a short VIP list and “new since last run” stop-rule feel right.
+11. Tier A is the short VIP list (yield-ranked Aug–Oct 2026). Defer Cursor Automation until the Friday “new since last run” stop-rule feels reliable on that board alone.
 
 The GitHub ingest Action only performs public-profile and web-search discovery. Logged-in Instagram coverage requires a Cursor browser session and cannot be assumed to have run unattended.

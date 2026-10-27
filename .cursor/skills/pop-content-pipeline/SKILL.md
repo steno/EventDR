@@ -49,7 +49,7 @@ curl -sS -X POST "https://pop-event.com/api/ingest" -H "Authorization: Bearer $C
 Primary Instagram discovery is the **Friday catalog habit** (`pop-instagram-ingest`). On Sunday:
 
 - Run `pop-facebook-ingest` when useful for login-walled groups/pages.
-- Instagram: **light catch-up only** if Friday was skipped, blocked, or clearly thin — do not re-scan the full `INSTAGRAM_ACCOUNTS` list.
+- Instagram: **light catch-up only** if Friday was skipped, blocked, or clearly thin — Tier A only (`instagramAccountsForScan("friday")`), never the full Tier B list on Sunday.
 
 If Facebook (or a catch-up Instagram pass) requires login confirmation, CAPTCHA, passkey, or another manual checkpoint, report the blocker and continue with the remaining pipeline steps.
 
