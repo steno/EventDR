@@ -3241,5 +3241,67 @@
       "Hookah RD$250"
     ],
     "imageEmoji": "🍺"
+  },
+  {
+    "id": "la-chabola-tuesday-jam",
+    "title": "La Chabola Tuesday Jam",
+    "description": "Todos los martes Tuesday Jam en La Chabola, Callejón de la Loma, Cabarete — guitarra en vivo en el pizza-bar del barrio (no es el open mic del miércoles ni el karaoke del viernes). Cerrado los lunes. Confirma puertas por Facebook Chabola Cabarete · +1 809-543-5860.",
+    "date": "2026-01-01",
+    "location": "Cabarete",
+    "venue": "La Chabola",
+    "venueSlug": "la-chabola-cabarete",
+    "address": "Callejón de la Loma, Cabarete 57000",
+    "lat": 19.7475887,
+    "lng": -70.4167516,
+    "category": "music",
+    "categories": [
+      "performances",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "recurrence": "weekly",
+    "recurrenceDay": 2,
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18095435860",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.facebook.com/chabolacabaretee",
+    "lineup": [
+      "Live guitar"
+    ],
+    "imageEmoji": "🎸"
+  },
+  {
+    "id": "spotland-laser-tag",
+    "title": "Spot Land — Laser Tag",
+    "description": "Nuevo Laser Tag en Spot Land, Av. Luis Ginebra, Puerto Plata — para niños y adultos, mié–dom en horario del parque 2:00 PM–10:00 PM (cerrado lun–mar). Diversión de arena familiar en el parque outdoor — no es terraza de nightlife. Acceso al parque típico niños RD$200, adultos gratis; confirma precio de sesión de laser tag por Instagram @spotlandrd.",
+    "date": "2026-01-01",
+    "time": "2:00 PM – 10:00 PM",
+    "location": "Puerto Plata",
+    "venue": "Spot Land",
+    "venueSlug": "spotland-puerto-plata",
+    "address": "Av. Luis Ginebra, Puerto Plata",
+    "lat": 19.7912,
+    "lng": -70.6812,
+    "category": "sports",
+    "categories": [
+      "food-drinks"
+    ],
+    "format": "physical",
+    "recurrence": "weekly",
+    "recurrenceDays": [
+      0,
+      3,
+      4,
+      5,
+      6
+    ],
+    "trending": true,
+    "admissionPrice": "Kids RD$200 · adults free",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/spotlandrd/",
+    "instagram": "spotlandrd",
+    "imageEmoji": "🔫",
+    "ageHint": "family"
   }
 ]

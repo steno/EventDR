@@ -7018,4 +7018,222 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       "Editor flyer — DOMINGO DE PASARELA; De 6:PM a 8:PM; Pisa hasta las 12; One peq 120, Presidente Light 125, Doble Reserva + mezcla 1500, Hooka 250; IG location: próximo al Puente de la Guinea, al lado de Repuesto Amin Cid (antiguo Maggy Bar); pin on Amin Cid / José del Carmen Ariza 85 coords; empty-seats interior for venue hero.",
     updatedAt: "2026-10-25T23:50:00.000Z",
   },
+  {
+    eventId: "camara-taller-educacion-financiera-2026-10-27",
+    body: "Weeknight Potencia MIPYMES money skills on Beller — skip if you want nightlife; pin Salón Fernando Cueto at 6 PM and confirm seat with @camarapuertoplata before centro commute.",
+    localized: {
+      es: "Taller Potencia MIPYMES de educación financiera entre semana en Beller — sáltalo si buscas nightlife; clava el Salón Fernando Cueto a las 6 PM y confirma cupo con @camarapuertoplata antes de ir al centro.",
+      fr: "Atelier Potencia MIPYMES finance en semaine sur Beller — skip si vous voulez la nightlife ; épinglez le Salón Fernando Cueto à 18 h et confirmez la place via @camarapuertoplata avant le trajet centre-ville.",
+    },
+    priceFeel: "varies",
+    priceNote: "Admission not on the flyer — confirm with the chamber · +1 809-586-2390",
+    priceNoteLocalized: {
+      es: "Admisión no publicada en el flyer — confirma con la Cámara · +1 809-586-2390",
+      fr: "Entrée non publiée sur l’affiche — confirmez auprès de la Chambre · +1 809-586-2390",
+    },
+    attribution: "POP research · @camarapuertoplata Potencia MIPYMES carousel",
+    researchNotes:
+      "Editor IG flyers — Tue 27 Oct 2026 6–8 PM Educación Financiera; Programa Potencia MIPYMES Visión 2026; Calle Beller 17 / Salón Fernando Cueto; no price; phone +1 809-586-2390; venue already seeded.",
+    updatedAt: "2026-10-26T23:00:00.000Z",
+  },
+  {
+    eventId: "camara-taller-marketing-digital-2026-11-05",
+    body: "Three-hour digital marketing workshop at the chamber — skip if you want a beach afternoon; confirm with @camarapuertoplata before locking Wednesday 6–9 PM on Beller.",
+    localized: {
+      es: "Taller de marketing digital de tres horas en la Cámara — sáltalo si prefieres playa; confirma con @camarapuertoplata antes de clavar el miércoles 6–9 PM en Beller.",
+      fr: "Atelier marketing digital de trois heures à la Chambre — skip si vous préférez la plage ; confirmez via @camarapuertoplata avant de bloquer mercredi 18 h–21 h sur Beller.",
+    },
+    priceFeel: "varies",
+    priceNote: "Admission not on the flyer — confirm with the chamber · +1 809-586-2390",
+    priceNoteLocalized: {
+      es: "Admisión no publicada en el flyer — confirma con la Cámara · +1 809-586-2390",
+      fr: "Entrée non publiée sur l’affiche — confirmez auprès de la Chambre · +1 809-586-2390",
+    },
+    attribution: "POP research · @camarapuertoplata Potencia MIPYMES carousel",
+    researchNotes:
+      "Editor IG flyer — Wed 5 Nov 2026 6–9 PM Marketing Digital y de Negocios; 3 horas; Beller 17; no price; phone +1 809-586-2390.",
+    updatedAt: "2026-10-26T22:45:00.000Z",
+  },
+  {
+    eventId: "camara-taller-servicio-cliente-2026-11-12",
+    body: "Customer-service skills night for MIPYMES on Beller — not a party; pin the chamber Thursday 6–9 PM and ask @camarapuertoplata about seats before you go.",
+    localized: {
+      es: "Noche de servicio al cliente para MIPYMES en Beller — no es party; clava la Cámara el jueves 6–9 PM y pregunta cupo a @camarapuertoplata antes de ir.",
+      fr: "Soirée service client pour MIPYMES sur Beller — pas une party ; épinglez la Chambre jeudi 18 h–21 h et demandez les places à @camarapuertoplata avant d’y aller.",
+    },
+    priceFeel: "varies",
+    priceNote: "Admission not on the flyer — confirm with the chamber · +1 809-586-2390",
+    priceNoteLocalized: {
+      es: "Admisión no publicada en el flyer — confirma con la Cámara · +1 809-586-2390",
+      fr: "Entrée non publiée sur l’affiche — confirmez auprès de la Chambre · +1 809-586-2390",
+    },
+    attribution: "POP research · @camarapuertoplata Potencia MIPYMES carousel",
+    researchNotes:
+      "Editor IG flyer — Thu 12 Nov 2026 6–9 PM Servicio al Cliente; 3 horas; Beller 17; no price; phone +1 809-586-2390.",
+    updatedAt: "2026-10-26T22:30:00.000Z",
+  },
+  {
+    eventId: "camara-taller-asociatividad-2026-11-19",
+    body: "Association and collaboration workshop at the chamber — skip if you want nightlife; Thursday 6–9 PM on Beller, confirm with @camarapuertoplata first.",
+    localized: {
+      es: "Taller de asociatividad en la Cámara — sáltalo si buscas nightlife; jueves 6–9 PM en Beller, confirma primero con @camarapuertoplata.",
+      fr: "Atelier associativité à la Chambre — skip si vous voulez la nightlife ; jeudi 18 h–21 h sur Beller, confirmez d’abord via @camarapuertoplata.",
+    },
+    priceFeel: "varies",
+    priceNote: "Admission not on the flyer — confirm with the chamber · +1 809-586-2390",
+    priceNoteLocalized: {
+      es: "Admisión no publicada en el flyer — confirma con la Cámara · +1 809-586-2390",
+      fr: "Entrée non publiée sur l’affiche — confirmez auprès de la Chambre · +1 809-586-2390",
+    },
+    attribution: "POP research · @camarapuertoplata Potencia MIPYMES carousel",
+    researchNotes:
+      "Editor IG flyer — Thu 19 Nov 2026 6–9 PM Importancia de la Asociatividad; 3 horas; Beller 17; no price; phone +1 809-586-2390.",
+    updatedAt: "2026-10-26T22:15:00.000Z",
+  },
+  {
+    eventId: "camara-taller-negocios-sostenibles-2026-12-03",
+    body: "Sustainability workshop with PROMIPYME partners on Beller — not a beach day; pin Cámara Thursday 6–9 PM and confirm admission with @camarapuertoplata.",
+    localized: {
+      es: "Taller de negocios sostenibles con aliados PROMIPYME en Beller — no es día de playa; clava la Cámara el jueves 6–9 PM y confirma admisión con @camarapuertoplata.",
+      fr: "Atelier entreprises durables avec partenaires PROMIPYME sur Beller — pas une journée plage ; épinglez la Chambre jeudi 18 h–21 h et confirmez l’entrée via @camarapuertoplata.",
+    },
+    priceFeel: "varies",
+    priceNote: "Admission not on the flyer — confirm with the chamber · +1 809-586-2390",
+    priceNoteLocalized: {
+      es: "Admisión no publicada en el flyer — confirma con la Cámara · +1 809-586-2390",
+      fr: "Entrée non publiée sur l’affiche — confirmez auprès de la Chambre · +1 809-586-2390",
+    },
+    attribution: "POP research · @camarapuertoplata Potencia MIPYMES carousel",
+    researchNotes:
+      "Editor IG flyer — Thu 3 Dec 2026 6–9 PM Negocios Sostenibles; 3 horas; Beller 17; PROMIPYME + ministries logos; no price; phone +1 809-586-2390.",
+    updatedAt: "2026-10-26T22:00:00.000Z",
+  },
+  {
+    eventId: "disco-club-gogo-dancers-2026-10-29",
+    body: "Thursday gogo night at Latin Disco by the Brugal depots — baseball-jersey show energy on Circunvalación, adult bill; reserve 829-563-9469 before you treat doors as walk-in, and don’t confuse it with Ambar’s Black Edition the same night on Luis Ginebra.",
+    localized: {
+      es: "Jueves de gogo en Latin Disco frente a los depósitos Brugal — energía de show con jersey de béisbol en Circunvalación, cartel adulto; reserva 829-563-9469 antes de asumir walk-in, y no lo confundas con el Black Edition de Ambar la misma noche en Luis Ginebra.",
+      fr: "Jeudi gogo au Latin Disco face aux dépôts Brugal — énergie show jersey baseball sur Circunvalación, bill adulte ; réservez 829-563-9469 avant d’assumer walk-in, et ne le confondez pas avec le Black Edition d’Ambar la même nuit sur Luis Ginebra.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover not on flyer — confirm @latindiscoclubpp / 829-563-9469",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — confirma @latindiscoclubpp / 829-563-9469",
+      fr: "Cover absent de l’affiche — confirmez @latindiscoclubpp / 829-563-9469",
+    },
+    attribution: "POP research · @latindiscoclubpp GOGO Dancers Night Jueves 29 flyer",
+    researchNotes:
+      "Editor flyer — Jueves 29 GOGO DANCERS NIGHT; Av. Circunvalación Sur frente depósitos Brugal; 829-563-9469; ageHint 18-plus; no named host on art.",
+    updatedAt: "2026-10-27T00:00:00.000Z",
+  },
+  {
+    eventId: "tiki-bar-flowdance-2026-10-30",
+    body: "Friday 9 PM Flowdance animation at the central Cabarete thatch bar near Casino #1 — tropical dance-floor night, not Ambar Bandoleras in Puerto Plata the same evening; confirm doors on @tikibarcabarete before you pin the neon parrot.",
+    localized: {
+      es: "Animación Flowdance del viernes a las 9 PM en el bar tiki del centro de Cabarete cerca del Casino #1 — noche de pista tropical, no Bandoleras de Ambar en Puerto Plata la misma noche; confirma puertas en @tikibarcabarete antes de clavar el loro neón.",
+      fr: "Animación Flowdance du vendredi à 21 h au bar tiki du centre de Cabarete près du Casino #1 — soirée dancefloor tropicale, pas Bandoleras d’Ambar à Puerto Plata le même soir ; confirmez les portes sur @tikibarcabarete avant d’épingler le perroquet néon.",
+    },
+    priceFeel: "moderate",
+    priceNote: "Cover not on flyer — confirm @tikibarcabarete",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — confirma @tikibarcabarete",
+      fr: "Cover absent de l’affiche — confirmez @tikibarcabarete",
+    },
+    attribution: "POP research · @tikibarcabarete Animación Flowdance flyer",
+    researchNotes:
+      "Editor flyer — 30/10 9 PM ANIMACIÓN FLOWDANCE @tikibarcabarete; Friday confirmed by editor.",
+    updatedAt: "2026-10-26T23:45:00.000Z",
+  },
+  {
+    eventId: "ambar-lounge-bandoleras-2026-10-30",
+    body: "HallowWeekend Bandoleras with Carlos Rivera at Ambar — ladies free drinks until 11 PM; RSVP (809) 781-8677, and don’t mix it with House of Fear the next night or Tiki Flowdance the same Friday in Cabarete.",
+    localized: {
+      es: "Bandoleras HallowWeekend con Carlos Rivera en Ambar — free drinks for ladies hasta las 11 PM; RSVP (809) 781-8677, y no lo mezcles con House of Fear la noche siguiente ni Flowdance de Tiki el mismo viernes en Cabarete.",
+      fr: "Bandoleras HallowWeekend avec Carlos Rivera à Ambar — free drinks for ladies jusqu’à 23 h ; RSVP (809) 781-8677, et ne le mélangez pas avec House of Fear le lendemain ni Flowdance du Tiki le même vendredi à Cabarete.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — ladies free drinks to 11 PM · RSVP (809) 781-8677",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — free drinks for ladies hasta las 11 PM · RSVP (809) 781-8677",
+      fr: "Cover à confirmer — free drinks for ladies jusqu’à 23 h · RSVP (809) 781-8677",
+    },
+    attribution: "POP research · @ambarloungepop Bandoleras Friday + HallowWeekend carousel",
+    researchNotes:
+      "Editor flyer BANDOLERAS FRIDAY VIERNES 30 beats by Carlos Rivera; free drinks for ladys hasta las 11 PM; RSVP (809)-781-8677; HallowWeekend IG caption pairs with House of Fear Sat 31. Title dated · 30 Oct to stay unique vs Oct 2 Carlos Rivera seed.",
+    updatedAt: "2026-10-26T23:30:00.000Z",
+  },
+  {
+    eventId: "ambar-lounge-house-of-fear-2026-10-31",
+    body: "Saturday Halloween House of Fear at Ambar with Darvin, Emilio, and Sebas — spooky HallowWeekend closer on Luis Ginebra, not Bandoleras Friday the night before; RSVP (809) 781-8677 before you walk up.",
+    localized: {
+      es: "House of Fear de Halloween el sábado en Ambar con Darvin, Emilio y Sebas — cierre HallowWeekend en Luis Ginebra, no Bandoleras del viernes anterior; RSVP (809) 781-8677 antes de llegar walk-up.",
+      fr: "House of Fear Halloween le samedi à Ambar avec Darvin, Emilio et Sebas — clôture HallowWeekend sur Luis Ginebra, pas Bandoleras du vendredi précédent ; RSVP (809) 781-8677 avant d’arriver walk-in.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — RSVP (809) 781-8677 · @ambarloungepop",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — RSVP (809) 781-8677 · @ambarloungepop",
+      fr: "Cover à confirmer — RSVP (809) 781-8677 · @ambarloungepop",
+    },
+    attribution: "POP research · @ambarloungepop House of Fear + HallowWeekend carousel",
+    researchNotes:
+      "Editor flyer HOUSE OF FEAR; Darvin x Emilio x Sebas; Av. Luis Ginebra 45 segundo y tercer nivel; RSVP (809)-781-8677; Brugal; CDS + Clouds Dream Society; HallowWeekend Sat 31 after Bandoleras Fri 30.",
+    updatedAt: "2026-10-26T23:15:00.000Z",
+  },
+  {
+    eventId: "twenty-disco-caballitos-mao-2026-11-01",
+    body: "Sunday típico accordion night at Twenty with El Caballito de Mao & JR from 9 PM — AL 2x1 on the flyer; mall disco energy, not the Vinoteca/Grand Prix Caballitos bills, and not Paradise In Hell the night before.",
+    localized: {
+      es: "Domingo de típico/acordeón en Twenty con El Caballito de Mao & JR desde las 9 PM — AL 2x1 en el flyer; energía de disco del mall, no los carteles Caballitos de Vinoteca/Grand Prix, ni Paradise In Hell la noche anterior.",
+      fr: "Dimanche típico/accordéon au Twenty avec El Caballito de Mao & JR dès 21 h — AL 2x1 sur l’affiche ; énergie disco mall, pas les bills Caballitos de Vinoteca/Grand Prix, ni Paradise In Hell la veille.",
+    },
+    priceFeel: "varies",
+    priceNote: "AL 2x1 on flyer — cover TBA · @twenty_disco_lounge",
+    priceNoteLocalized: {
+      es: "AL 2x1 en el flyer — cover por confirmar · @twenty_disco_lounge",
+      fr: "AL 2x1 sur l’affiche — cover à confirmer · @twenty_disco_lounge",
+    },
+    attribution: "POP research · @twenty_disco_lounge Caballito de Mao flyer",
+    researchNotes:
+      "Editor flyer — Domingo 1ro Noviembre desde las 9 PM; El Caballito de Mao & El Caballito JR; AL 2X1; Playa Dorada Mall.",
+    updatedAt: "2026-10-27T00:30:00.000Z",
+  },
+  {
+    eventId: "la-chabola-tuesday-jam",
+    seriesKey: "la-chabola-cabarete:weekly:2",
+    body: "Tuesday guitar jam in the Callejón pizza bar — closed Mondays, different night from Wednesday open mic and Friday karaoke; small room, so come early if you want a seat.",
+    localized: {
+      es: "Jam de guitarra del martes en el pizza-bar del Callejón — cerrado lunes, otra noche que el open mic del miércoles y el karaoke del viernes; sala chica, llega temprano si quieres asiento.",
+      fr: "Jam guitare du mardi au pizza-bar du Callejón — fermé lundi, autre soirée que l’open mic du mercredi et le karaoke du vendredi ; petite salle, venez tôt pour une place.",
+    },
+    priceFeel: "budget",
+    priceNote: "Cover not posted — +1 809-543-5860 / Facebook Chabola Cabarete",
+    priceNoteLocalized: {
+      es: "Cover no publicado — +1 809-543-5860 / Facebook Chabola Cabarete",
+      fr: "Cover non publié — +1 809-543-5860 / Facebook Chabola Cabarete",
+    },
+    attribution: "POP research · La Chabola hours story + Tuesday Jam stage photo",
+    researchNotes:
+      "Editor story — Lunes cerrado; Martes Tuesday Jam (guitar emoji); stage photo with live guitarist for hero; update venue hours copy closed Mon + Tue jam; weekly recurrenceDay 2.",
+    updatedAt: "2026-10-27T00:15:00.000Z",
+  },
+  {
+    eventId: "spotland-laser-tag",
+    seriesKey: "spotland-puerto-plata:weekly:laser-tag",
+    body: "New Laser Tag at Spot Land on Luis Ginebra — kids-and-adults arena fun Wed–Sun 2–10 PM (closed Mon–Tue); park access is typically kids RD$200 / adults free, confirm session price on @spotlandrd before you treat it as all-inclusive.",
+    localized: {
+      es: "Nuevo Laser Tag en Spot Land en Luis Ginebra — diversión de arena para niños y adultos mié–dom 2–10 PM (cerrado lun–mar); el acceso al parque suele ser niños RD$200 / adultos gratis, confirma precio de sesión en @spotlandrd antes de asumirlo todo incluido.",
+      fr: "Nouveau Laser Tag à Spot Land sur Luis Ginebra — fun d’arène enfants et adultes mer–dim 14 h–22 h (fermé lun–mar) ; l’accès parc est typiquement enfants RD$200 / adultes gratuits, confirmez le prix de session sur @spotlandrd avant de le traiter comme tout inclus.",
+    },
+    priceFeel: "budget",
+    priceNote: "Kids RD$200 · adults free (park) — laser session TBA · @spotlandrd",
+    priceNoteLocalized: {
+      es: "Niños RD$200 · adultos gratis (parque) — sesión laser por confirmar · @spotlandrd",
+      fr: "Enfants RD$200 · adultes gratuits (parc) — session laser à confirmer · @spotlandrd",
+    },
+    attribution: "POP research · @spotlandrd Laser Tag flyer + editor hours/pricing",
+    researchNotes:
+      "Editor flyer NUEVA DIVERSIÓN LASER TAG para niños y adultos; hours Wed–Sun 2–10 PM closed Mon–Tue; kids RD$200 adults free park access; laser session price not on flyer; ageHint family; weekly recurrenceDays 0,3,4,5,6.",
+    updatedAt: "2026-10-27T00:45:00.000Z",
+  },
 ];

@@ -77,7 +77,7 @@ const FILE_TO_EVENT_ID = {
   "premios-ola-dorada-2026-12-05.jpg": "premios-ola-dorada-2026-12-05",
   "lokuras-pop-percusion-latina-2026-10-25.jpg":
     "lokuras-pop-percusion-latina-2026-10-25",
-  "mirando-pa-otro-lao-8-puerto-plata-2026-11-17.jpg":
+  "mirando-pa-otro-lao-8-puerto-plata-2026-11-17-v2.jpg":
     "mirando-pa-otro-lao-8-puerto-plata-2026-11-17",
   "vinoteca-caballitos-halloween-2026-10-31.jpg":
     "vinoteca-caballitos-halloween-2026-10-31",
@@ -109,8 +109,22 @@ const FILE_TO_EVENT_ID = {
   "el-patio-de-frida-friday-karaoke.jpg": "el-patio-de-frida-friday-karaoke",
   "the-last-drink-domingo-de-pasarela.jpg":
     "the-last-drink-domingo-de-pasarela",
+  "camara-taller-educacion-financiera-2026-10-27.jpg":
+    "camara-taller-educacion-financiera-2026-10-27",
+  "camara-taller-marketing-digital-2026-11-05.jpg":
+    "camara-taller-marketing-digital-2026-11-05",
+  "camara-taller-servicio-cliente-2026-11-12.jpg":
+    "camara-taller-servicio-cliente-2026-11-12",
+  "camara-taller-asociatividad-2026-11-19.jpg":
+    "camara-taller-asociatividad-2026-11-19",
+  "camara-taller-negocios-sostenibles-2026-12-03.jpg":
+    "camara-taller-negocios-sostenibles-2026-12-03",
   "disco-club-domingo-de-desacato.jpg": "disco-club-domingo-de-calle",
   "la-chabola-friday-karaoke.jpg": "la-chabola-friday-karaoke",
+  "la-chabola-tuesday-jam.jpg": "la-chabola-tuesday-jam",
+  "spotland-laser-tag.jpg": "spotland-laser-tag",
+  "twenty-disco-caballitos-mao-2026-11-01.jpg":
+    "twenty-disco-caballitos-mao-2026-11-01",
   "ojo-spooktacular-fun-2026-10-31.jpg": "ojo-spooktacular-fun-2026-10-31",
   "luxury-club-exotic-friday.jpg": "luxury-club-exotic-friday",
   "bar-39-jungle-juice-halloween-2026-10-30.jpg":
@@ -118,6 +132,13 @@ const FILE_TO_EVENT_ID = {
   "over-beach-club-aerial-v2.jpg": "over-beach-club",
   "ambar-lounge-bandoleras-2026-10-23.jpg":
     "ambar-lounge-bandoleras-2026-10-23",
+  "disco-club-gogo-dancers-2026-10-29.jpg":
+    "disco-club-gogo-dancers-2026-10-29",
+  "tiki-bar-flowdance-2026-10-30.jpg": "tiki-bar-flowdance-2026-10-30",
+  "ambar-lounge-bandoleras-2026-10-30.jpg":
+    "ambar-lounge-bandoleras-2026-10-30",
+  "ambar-lounge-house-of-fear-2026-10-31.jpg":
+    "ambar-lounge-house-of-fear-2026-10-31",
   "kite-street-son-cubano-2026-10-25.jpg":
     "kite-street-son-cubano-2026-10-25",
   "jump-fit-rosa-beard-over-club-2026-10-31-v2.jpg":

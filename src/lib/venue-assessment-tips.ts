@@ -330,11 +330,11 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "la-chabola-cabarete": {
-    body: "Callejón neighborhood ritual — pizza, cheap drinks, Wednesday open mic, and Friday karaoke with Host Cris from 7:30 PM. Small room; early if you want a seat.",
+    body: "Callejón neighborhood pizza bar — closed Mondays; Tuesday Jam with live guitar, Wednesday open mic, and Friday karaoke with Host Cris from 7:30 PM. Small room; early if you want a seat.",
     localized: {
-      en: "Callejón neighborhood ritual — pizza, cheap drinks, Wednesday open mic, and Friday karaoke with Host Cris from 7:30 PM. Small room; early if you want a seat.",
-      es: "Ritual de barrio en el Callejón — pizza, tragos baratos, open mic del miércoles y karaoke del viernes con Host Cris desde las 7:30 PM. Sala chica; temprano si quieres asiento.",
-      fr: "Rituel de quartier au Callejón — pizza, verres abordables, open mic du mercredi et karaoke du vendredi avec Host Cris dès 19 h 30. Petite salle ; venez tôt pour une place.",
+      en: "Callejón neighborhood pizza bar — closed Mondays; Tuesday Jam with live guitar, Wednesday open mic, and Friday karaoke with Host Cris from 7:30 PM. Small room; early if you want a seat.",
+      es: "Pizza-bar del Callejón — cerrado lunes; Tuesday Jam con guitarra en vivo, open mic del miércoles y karaoke del viernes con Host Cris desde las 7:30 PM. Sala chica; temprano si quieres asiento.",
+      fr: "Pizza-bar du Callejón — fermé lundi ; Tuesday Jam avec guitare live, open mic du mercredi et karaoke du vendredi avec Host Cris dès 19 h 30. Petite salle ; venez tôt pour une place.",
     },
   },
   "sea-horse-ranch": {
@@ -898,11 +898,11 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "vinoteca-wine-house": {
-    body: "Hotel Marien wine lounge on Costa Dorada — same complex as Kviar, but this is bottles and live bands, not the casino disco; free door nights still mean wine-bar tabs.",
+    body: "Hotel Marien wine lounge on Costa Dorada — closed Mondays; same complex as Kviar, but this is bottles and live bands, not the casino disco; free door nights still mean wine-bar tabs.",
     localized: {
-      en: "Hotel Marien wine lounge on Costa Dorada — same complex as Kviar, but this is bottles and live bands, not the casino disco; free door nights still mean wine-bar tabs.",
-      es: "Vinoteca del Hotel Marien en Costa Dorada — mismo complejo que Kviar, pero aquí son botellas y bandas en vivo, no el disco-casino; entrada gratis sigue siendo cuenta de vinoteca.",
-      fr: "Lounge à vins de l'Hotel Marien à Costa Dorada — même complexe que Kviar, mais ici ce sont bouteilles et groupes live, pas le disco-casino ; entrée gratuite = addition bar à vins.",
+      en: "Hotel Marien wine lounge on Costa Dorada — closed Mondays; same complex as Kviar, but this is bottles and live bands, not the casino disco; free door nights still mean wine-bar tabs.",
+      es: "Vinoteca del Hotel Marien en Costa Dorada — cerrado lunes; mismo complejo que Kviar, pero aquí son botellas y bandas en vivo, no el disco-casino; entrada gratis sigue siendo cuenta de vinoteca.",
+      fr: "Lounge à vins de l'Hotel Marien à Costa Dorada — fermé lundi ; même complexe que Kviar, mais ici ce sont bouteilles et groupes live, pas le disco-casino ; entrée gratuite = addition bar à vins.",
     },
   },
   "pop-cinemas-playa-dorada": {
@@ -1266,11 +1266,11 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "spotland-puerto-plata": {
-    body: "Outdoor fun-food-photo park on Av. Luis Ginebra — kids playground energy under shade sails, not a nightlife deck. Open Thu–Mon 2–10 PM (closed Tue–Wed); themed family Saturdays like Retro ’80s when billed — check @spotlandrd before you pin the strip.",
+    body: "Outdoor fun-food-photo park on Av. Luis Ginebra — inflatables, pizza, and new Laser Tag for kids and adults; not a nightlife deck. Open Wed–Sun 2–10 PM (closed Mon–Tue); kids access typically RD$200, adults free — confirm laser-tag session price on @spotlandrd.",
     localized: {
-      en: "Outdoor fun-food-photo park on Av. Luis Ginebra — kids playground energy under shade sails, not a nightlife deck. Open Thu–Mon 2–10 PM (closed Tue–Wed); themed family Saturdays like Retro ’80s when billed — check @spotlandrd before you pin the strip.",
-      es: "Parque outdoor de diversión, comida y fotos en Av. Luis Ginebra — energía de juegos bajo toldos, no una terraza de nightlife. Abierto jue–lun 2–10 PM (cerrado mar–mié); sábados familiares temáticos como Retro 80s cuando hay cartel — mira @spotlandrd antes de clavar la avenida.",
-      fr: "Parc outdoor fun-food-photos sur Av. Luis Ginebra — énergie playground sous voiles d’ombre, pas une terrasse nightlife. Ouvert jeu–lun 14 h–22 h (fermé mar–mer) ; samedis familiaux thématiques genre Retro 80s quand annoncé — vérifiez @spotlandrd avant d’épingler l’avenue.",
+      en: "Outdoor fun-food-photo park on Av. Luis Ginebra — inflatables, pizza, and new Laser Tag for kids and adults; not a nightlife deck. Open Wed–Sun 2–10 PM (closed Mon–Tue); kids access typically RD$200, adults free — confirm laser-tag session price on @spotlandrd.",
+      es: "Parque outdoor de diversión, comida y fotos en Av. Luis Ginebra — brinca-brincas, pizza y nuevo Laser Tag para niños y adultos; no es terraza de nightlife. Abierto mié–dom 2–10 PM (cerrado lun–mar); acceso niños típico RD$200, adultos gratis — confirma precio de sesión de laser tag en @spotlandrd.",
+      fr: "Parc outdoor fun-food-photos sur Av. Luis Ginebra — gonflables, pizza et nouveau Laser Tag pour enfants et adultes ; pas une terrasse nightlife. Ouvert mer–dim 14 h–22 h (fermé lun–mar) ; accès enfants typique RD$200, adultes gratuits — confirmez le prix de session laser tag sur @spotlandrd.",
     },
   },
   "classic-cars-dominicana": {

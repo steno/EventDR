@@ -333,6 +333,18 @@ export const SEED_CREATED_AT: Readonly<Record<string, string>> = {
   "el-patio-de-frida-friday-karaoke": "2026-10-25T23:00:00.000Z",
   "the-last-drink-domingo-de-pasarela": "2026-10-25T22:30:00.000Z",
   "isabela-food-fest-simpaticos-tipicos-2026-12-19": "2026-10-25T22:00:00.000Z",
+  "camara-taller-educacion-financiera-2026-10-27": "2026-10-26T23:00:00.000Z",
+  "camara-taller-marketing-digital-2026-11-05": "2026-10-26T22:45:00.000Z",
+  "camara-taller-servicio-cliente-2026-11-12": "2026-10-26T22:30:00.000Z",
+  "camara-taller-asociatividad-2026-11-19": "2026-10-26T22:15:00.000Z",
+  "camara-taller-negocios-sostenibles-2026-12-03": "2026-10-26T22:00:00.000Z",
+  "disco-club-gogo-dancers-2026-10-29": "2026-10-27T00:00:00.000Z",
+  "tiki-bar-flowdance-2026-10-30": "2026-10-26T23:45:00.000Z",
+  "ambar-lounge-bandoleras-2026-10-30": "2026-10-26T23:30:00.000Z",
+  "ambar-lounge-house-of-fear-2026-10-31": "2026-10-26T23:15:00.000Z",
+  "twenty-disco-caballitos-mao-2026-11-01": "2026-10-27T00:30:00.000Z",
+  "la-chabola-tuesday-jam": "2026-10-27T00:15:00.000Z",
+  "spotland-laser-tag": "2026-10-27T00:45:00.000Z",
 };
 
 /** Fill missing `createdAt` from {@link SEED_CREATED_AT} (does not overwrite). */

@@ -150,6 +150,45 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     venueSlug: "ambar-lounge-pop",
     sourceUrl: "https://www.instagram.com/ambarloungepop/",
   },
+  "ambar-lounge-bandoleras-2026-10-30": {
+    callForPricing: true,
+    phone: "+18097818677",
+    venueSlug: "ambar-lounge-pop",
+    sourceUrl: "https://www.instagram.com/ambarloungepop/",
+  },
+  "ambar-lounge-house-of-fear-2026-10-31": {
+    callForPricing: true,
+    phone: "+18097818677",
+    venueSlug: "ambar-lounge-pop",
+    sourceUrl: "https://www.instagram.com/ambarloungepop/",
+  },
+  "disco-club-gogo-dancers-2026-10-29": {
+    callForPricing: true,
+    phone: "+18295639469",
+    venueSlug: "disco-club-brugal",
+    sourceUrl: "https://www.instagram.com/latindiscoclubpp/",
+  },
+  "tiki-bar-flowdance-2026-10-30": {
+    callForPricing: true,
+    venueSlug: "tiki-bar-cabarete",
+    sourceUrl: "https://www.instagram.com/tikibarcabarete/",
+  },
+  "twenty-disco-caballitos-mao-2026-11-01": {
+    callForPricing: true,
+    venueSlug: "twenty-disco-lounge",
+    sourceUrl: "https://www.instagram.com/twenty_disco_lounge/",
+  },
+  "la-chabola-tuesday-jam": {
+    callForPricing: true,
+    phone: "+18095435860",
+    venueSlug: "la-chabola-cabarete",
+    sourceUrl: "https://www.facebook.com/chabolacabaretee",
+  },
+  "spotland-laser-tag": {
+    admissionPrice: "Kids RD$200 · adults free",
+    venueSlug: "spotland-puerto-plata",
+    sourceUrl: "https://www.instagram.com/spotlandrd/",
+  },
   "kite-street-son-cubano-2026-10-25": {
     isFree: true,
     venueSlug: "kite-street-pop",
@@ -927,6 +966,31 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     phone: "+18293366802",
     ticketUrl: "https://todotickets.do",
     venueSlug: "parque-municipal-villa-isabela",
+  },
+  "camara-taller-educacion-financiera-2026-10-27": {
+    callForPricing: true,
+    phone: "+18095862390",
+    venueSlug: "camara-comercio-puerto-plata",
+  },
+  "camara-taller-marketing-digital-2026-11-05": {
+    callForPricing: true,
+    phone: "+18095862390",
+    venueSlug: "camara-comercio-puerto-plata",
+  },
+  "camara-taller-servicio-cliente-2026-11-12": {
+    callForPricing: true,
+    phone: "+18095862390",
+    venueSlug: "camara-comercio-puerto-plata",
+  },
+  "camara-taller-asociatividad-2026-11-19": {
+    callForPricing: true,
+    phone: "+18095862390",
+    venueSlug: "camara-comercio-puerto-plata",
+  },
+  "camara-taller-negocios-sostenibles-2026-12-03": {
+    callForPricing: true,
+    phone: "+18095862390",
+    venueSlug: "camara-comercio-puerto-plata",
   },
   "aurazul-wellness-day-costambar-2026-11-15": {
     isFree: false,

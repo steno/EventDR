@@ -44,7 +44,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "lokuras-pop-percusion-latina-2026-10-25":
     "lokuras-pop-percusion-latina-2026-10-25.jpg",
   "mirando-pa-otro-lao-8-puerto-plata-2026-11-17":
-    "mirando-pa-otro-lao-8-puerto-plata-2026-11-17.jpg",
+    "mirando-pa-otro-lao-8-puerto-plata-2026-11-17-v2.jpg",
   "vinoteca-caballitos-halloween-2026-10-31":
     "vinoteca-caballitos-halloween-2026-10-31.jpg",
   "bachata-colmado-cabarete-2026-11-01":
@@ -75,13 +75,34 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "el-patio-de-frida-friday-karaoke": "el-patio-de-frida-friday-karaoke.jpg",
   "the-last-drink-domingo-de-pasarela":
     "the-last-drink-domingo-de-pasarela.jpg",
+  "camara-taller-educacion-financiera-2026-10-27":
+    "camara-taller-educacion-financiera-2026-10-27.jpg",
+  "camara-taller-marketing-digital-2026-11-05":
+    "camara-taller-marketing-digital-2026-11-05.jpg",
+  "camara-taller-servicio-cliente-2026-11-12":
+    "camara-taller-servicio-cliente-2026-11-12.jpg",
+  "camara-taller-asociatividad-2026-11-19":
+    "camara-taller-asociatividad-2026-11-19.jpg",
+  "camara-taller-negocios-sostenibles-2026-12-03":
+    "camara-taller-negocios-sostenibles-2026-12-03.jpg",
   "la-chabola-friday-karaoke": "la-chabola-friday-karaoke.jpg",
+  "la-chabola-tuesday-jam": "la-chabola-tuesday-jam.jpg",
+  "spotland-laser-tag": "spotland-laser-tag.jpg",
+  "twenty-disco-caballitos-mao-2026-11-01":
+    "twenty-disco-caballitos-mao-2026-11-01.jpg",
   "ojo-spooktacular-fun-2026-10-31": "ojo-spooktacular-fun-2026-10-31.jpg",
   "luxury-club-exotic-friday": "luxury-club-exotic-friday.jpg",
   "bar-39-jungle-juice-halloween-2026-10-30":
     "bar-39-jungle-juice-halloween-2026-10-30.jpg",
   "ambar-lounge-bandoleras-2026-10-23":
     "ambar-lounge-bandoleras-2026-10-23.jpg",
+  "disco-club-gogo-dancers-2026-10-29":
+    "disco-club-gogo-dancers-2026-10-29.jpg",
+  "tiki-bar-flowdance-2026-10-30": "tiki-bar-flowdance-2026-10-30.jpg",
+  "ambar-lounge-bandoleras-2026-10-30":
+    "ambar-lounge-bandoleras-2026-10-30.jpg",
+  "ambar-lounge-house-of-fear-2026-10-31":
+    "ambar-lounge-house-of-fear-2026-10-31.jpg",
   "kite-street-son-cubano-2026-10-25":
     "kite-street-son-cubano-2026-10-25.jpg",
   "caribbean-surf-junior-puntilla-2026-11-14":
@@ -784,6 +805,13 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "cabarete-boxing-club-movie-night-2026-10-16": "object-center",
   "cabarete-boxing-club-movie-night-2026-10-22": "object-center",
   "disco-club-gogo-dancers-2026-10-22": "object-center",
+  "disco-club-gogo-dancers-2026-10-29": "object-center",
+  "tiki-bar-flowdance-2026-10-30": "object-center",
+  "ambar-lounge-bandoleras-2026-10-30": "object-center",
+  "ambar-lounge-house-of-fear-2026-10-31": "object-center",
+  "twenty-disco-caballitos-mao-2026-11-01": "object-center",
+  "la-chabola-tuesday-jam": "object-center",
+  "spotland-laser-tag": "object-center",
   "natura-sunbar-sunset-sounds-em-zayd-2026-10-22": "object-center",
   "twenty-disco-friday-dj-soky-2026-10-23": "object-center",
   "voyvoy-saturday-session-2026-10-24": "object-center",
@@ -821,6 +849,11 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "lokuras-pop-friday-karaoke": "object-top",
   "nova-detras-de-la-mascara-2026-10-16": "object-center",
   "camara-empresas-codigo-penal-2026-09-16": "object-center",
+  "camara-taller-educacion-financiera-2026-10-27": "object-center",
+  "camara-taller-marketing-digital-2026-11-05": "object-center",
+  "camara-taller-servicio-cliente-2026-11-12": "object-center",
+  "camara-taller-asociatividad-2026-11-19": "object-center",
+  "camara-taller-negocios-sostenibles-2026-12-03": "object-center",
   "luna-lounge-noche-de-exitos-2026-09-19": "object-center",
   "ocean-world-terrace-la-fiera-tipica-2026-09-18": "object-center",
   "rio-sonador-cierre-del-verano-2026-09-20": "object-center",
@@ -1007,16 +1040,6 @@ const EVENT_GALLERY_SLIDES: Record<
   string,
   Array<{ file: string; venueSlug?: string; label?: string }>
 > = {
-  "mirando-pa-otro-lao-8-puerto-plata-2026-11-17": [
-    {
-      file: "mirando-pa-otro-lao-8-puerto-plata-2026-11-17.jpg",
-      label: "Open call through 30 Oct",
-    },
-    {
-      file: "mirando-pa-otro-lao-8-puerto-plata-2026-11-17-categorias.jpg",
-      label: "Categories",
-    },
-  ],
   "pop-cinemas-week-2026-10-15": [
     {
       file: "pop-cinemas-week-2026-10-15-posters.jpg",
@@ -1178,8 +1201,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "francesca-tiki-bar-cabarete-2026-11-06.jpg",
   "premios-ola-dorada-2026-12-05.jpg",
   "lokuras-pop-percusion-latina-2026-10-25.jpg",
-  "mirando-pa-otro-lao-8-puerto-plata-2026-11-17.jpg",
-  "mirando-pa-otro-lao-8-puerto-plata-2026-11-17-categorias.jpg",
+  "mirando-pa-otro-lao-8-puerto-plata-2026-11-17-v2.jpg",
   "vinoteca-caballitos-halloween-2026-10-31.jpg",
   "bachata-colmado-cabarete-2026-11-01.jpg",
   "disco-club-viernes-tropical-2026-10-23.jpg",
@@ -1197,12 +1219,23 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "isabela-food-fest-simpaticos-tipicos-2026-12-19.jpg",
   "el-patio-de-frida-friday-karaoke.jpg",
   "the-last-drink-domingo-de-pasarela.jpg",
+  "camara-taller-educacion-financiera-2026-10-27.jpg",
+  "camara-taller-marketing-digital-2026-11-05.jpg",
+  "camara-taller-servicio-cliente-2026-11-12.jpg",
+  "camara-taller-asociatividad-2026-11-19.jpg",
+  "camara-taller-negocios-sostenibles-2026-12-03.jpg",
   "disco-club-domingo-de-desacato.jpg",
   "la-chabola-friday-karaoke.jpg",
+  "twenty-disco-caballitos-mao-2026-11-01.jpg",
+  "spotland-laser-tag.jpg",
   "ojo-spooktacular-fun-2026-10-31.jpg",
   "luxury-club-exotic-friday.jpg",
   "bar-39-jungle-juice-halloween-2026-10-30.jpg",
   "ambar-lounge-bandoleras-2026-10-23.jpg",
+  "disco-club-gogo-dancers-2026-10-29.jpg",
+  "tiki-bar-flowdance-2026-10-30.jpg",
+  "ambar-lounge-bandoleras-2026-10-30.jpg",
+  "ambar-lounge-house-of-fear-2026-10-31.jpg",
   "kite-street-son-cubano-2026-10-25.jpg",
   "jump-fit-rosa-beard-over-club-2026-10-31-v2.jpg",
   "caribbean-surf-junior-puntilla-2026-11-14.jpg",
@@ -1629,6 +1662,7 @@ const HOME_HERO_SCENE_FILES = new Set([
   "kite-beach-wind-culture.jpg",
   "la-casita-papi-sand-dining.jpg",
   "la-chabola-wednesday-open-mic-pizza-live.jpg",
+  "la-chabola-tuesday-jam.jpg",
   "la-confluencia-museum-daily.jpg",
   "la-rejoya-trek.jpg",
   "lax-headline-concerts.jpg",

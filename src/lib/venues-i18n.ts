@@ -213,8 +213,8 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
   },
   "la-chabola-cabarete": {
     description: {
-      es: "Bar de pizza del barrio en el Callejón de la Loma — pizzas al horno de piedra, músicos locales, open mic los miércoles y karaoke los viernes con Host Cris desde las 7:30 PM.",
-      fr: "Bar à pizza de quartier dans le Callejón de la Loma — pizzas au four à pierre, musiciens locaux, open mic le mercredi et karaoke le vendredi avec Host Cris dès 19 h 30.",
+      es: "Bar de pizza del barrio en el Callejón de la Loma — pizzas al horno de piedra y músicos locales. Cerrado los lunes. Tuesday Jam (guitarra en vivo), open mic los miércoles y karaoke los viernes con Host Cris desde las 7:30 PM.",
+      fr: "Bar à pizza de quartier dans le Callejón de la Loma — pizzas au four à pierre et musiciens locaux. Fermé le lundi. Tuesday Jam (guitare live), open mic le mercredi et karaoke le vendredi avec Host Cris dès 19 h 30.",
     },
   },
   "voyvoy-cabarete": {
@@ -731,8 +731,8 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
   },
   "vinoteca-wine-house": {
     description: {
-      es: "Vinoteca y lounge en Hotel Marien / Be Live Collection Marien, Costa Dorada — vinos por copa, bandas en vivo y un salón más tranquilo que el casino del hotel. Abierto ~6:00 PM–2:00 AM.",
-      fr: "Bar à vins et lounge à l'Hotel Marien / Be Live Collection Marien, Costa Dorada — vins au verre, groupes live et une salle plus calme que le casino de l'hôtel. Ouvert ~18 h–2 h.",
+      es: "Vinoteca y lounge en Hotel Marien / Be Live Collection Marien, Costa Dorada — vinos por copa, bandas en vivo y un salón más tranquilo que el casino del hotel. Abierto ~6:00 PM–2:00 AM; cerrado los lunes.",
+      fr: "Bar à vins et lounge à l'Hotel Marien / Be Live Collection Marien, Costa Dorada — vins au verre, groupes live et une salle plus calme que le casino de l'hôtel. Ouvert ~18 h–2 h ; fermé le lundi.",
     },
   },
   "pop-cinemas-playa-dorada": {
@@ -1015,8 +1015,8 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
   },
   "spotland-puerto-plata": {
     description: {
-      es: "Parque de diversión, comida y fotos en Av. Luis Ginebra — juegos al aire libre, toldos y plan familiar. Abierto jue–lun 2:00 PM–10:00 PM; cerrado mar–mié. Instagram @spotlandrd.",
-      fr: "Aire de jeux fun, food et photos sur Av. Luis Ginebra — structures outdoor, voiles d’ombre et sortie famille. Ouvert jeu–lun 14 h–22 h ; fermé mar–mer. Instagram @spotlandrd.",
+      es: "Parque de diversión, comida y fotos en Av. Luis Ginebra — brinca-brincas, juegos familiares, street food, pizza artesanal, espacios para fotos y nuevo Laser Tag. Abierto mié–dom 2:00 PM–10:00 PM; cerrado lun–mar. Acceso niños típico RD$200; adultos gratis. Instagram @spotlandrd.",
+      fr: "Parc fun, food et photos sur Av. Luis Ginebra — gonflables, jeux famille, street food, pizza artisanale, spots photo et nouveau Laser Tag. Ouvert mer–dim 14 h–22 h ; fermé lun–mar. Accès enfants typique RD$200 ; adultes gratuits. Instagram @spotlandrd.",
     },
   },
   "classic-cars-dominicana": {

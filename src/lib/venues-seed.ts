@@ -345,7 +345,7 @@ export const SEED_VENUES: Venue[] = [
     name: "La Chabola",
     city: "Cabarete",
     description:
-      "Neighborhood pizza bar in Callejón de la Loma — stone-oven pies, local musicians, Wednesday open mic, and Friday karaoke with Host Cris from 7:30 PM.",
+      "Neighborhood pizza bar in Callejón de la Loma — stone-oven pies and local musicians. Closed Mondays. Tuesday Jam (live guitar), Wednesday open mic, and Friday karaoke with Host Cris from 7:30 PM.",
     lat: 19.7488174,
     lng: -70.4146652,
     emoji: "🎤",
@@ -1268,7 +1268,7 @@ export const SEED_VENUES: Venue[] = [
     name: "Vinoteca Wine House",
     city: "Puerto Plata",
     description:
-      "Wine bar and lounge at Hotel Marien / Be Live Collection Marien on Costa Dorada — bottles by the glass, live bands, and a quieter room than the hotel casino next door. Open evenings ~6:00 PM–2:00 AM.",
+      "Wine bar and lounge at Hotel Marien / Be Live Collection Marien on Costa Dorada — bottles by the glass, live bands, and a quieter room than the hotel casino next door. Open evenings ~6:00 PM–2:00 AM; closed Mondays.",
     lat: 19.7768222,
     lng: -70.6597699,
     emoji: "🍷",
@@ -1948,7 +1948,7 @@ export const SEED_VENUES: Venue[] = [
     name: "Spot Land",
     city: "Puerto Plata",
     description:
-      "Fun, food, and photo playground on Av. Luis Ginebra — outdoor play structures, sun sails, and family hangouts. Open Thu–Mon 2:00 PM–10:00 PM; closed Tue–Wed. Instagram @spotlandrd.",
+      "Fun, food, and photo playground on Av. Luis Ginebra — giant inflatables, family games, street food, artisan pizza, photo spots, and new Laser Tag. Open Wed–Sun 2:00 PM–10:00 PM; closed Mon–Tue. Kids access typically RD$200; adults free. Instagram @spotlandrd.",
     lat: 19.7912,
     lng: -70.6812,
     emoji: "🎠",
