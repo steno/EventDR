@@ -2,6 +2,10 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { eventSaveKey } from "@/lib/curated-events";
+import {
+  backfillSavedInterest,
+  sendEventInterest,
+} from "@/lib/event-interest-client";
 import type { Event } from "@/lib/types";
 
 const STORAGE_KEY = "eventdr-saved";
@@ -74,6 +78,20 @@ export function useSavedEvents() {
     (events: Event[]) => {
       if (!ready || events.length === 0) return;
 
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        const stored = normalizeSavedKeys(
+          raw ? (JSON.parse(raw) as string[]) : [],
+          events,
+        );
+        const savedIds = events
+          .filter((e) => stored.has(eventSaveKey(e.title)) || stored.has(e.id))
+          .map((e) => e.id);
+        void backfillSavedInterest(savedIds);
+      } catch {
+        /* ignore */
+      }
+
       setSavedKeys((current) => {
         const normalized = normalizeSavedKeys([...current], events);
         if (setsEqual(current, normalized)) return current;
@@ -109,6 +127,7 @@ export function useSavedEvents() {
       if (!wasSaved) next.add(key);
 
       persist(next);
+      void sendEventInterest([event.id], wasSaved ? "remove" : "add");
     },
     [savedKeys, persist],
   );

@@ -36,6 +36,7 @@ export const PRIVACY_COPY: Record<Locale, LegalPageCopy> = {
         heading: "What we collect",
         body: [
           "Browsing the calendar does not require an account. We may collect standard server and analytics data (pages viewed, approximate location from IP, device type) to keep the site working.",
+          "When you save an event, we count it anonymously (a random device code, no name or contact) to show how many people are interested.",
           "If you submit an event, donate, or email us, we keep the details you send so we can respond or publish the listing.",
           "If you subscribe to the Friday weekend email, we store your address and language so we can send that list and honor unsubscribe requests.",
           "The POP Events Meta app is for the site operator to publish to our own Facebook Page and Instagram. It is not a consumer login for visitors.",
@@ -82,6 +83,7 @@ export const PRIVACY_COPY: Record<Locale, LegalPageCopy> = {
         heading: "Qué recopilamos",
         body: [
           "Ver el calendario no requiere cuenta. Podemos registrar datos técnicos habituales para que el sitio funcione.",
+          "Cuando guardas un evento, lo contamos de forma anónima (un código aleatorio del dispositivo, sin nombre ni contacto) para mostrar cuántas personas están interesadas.",
           "Si envías un evento, donas o escribes, guardamos lo que nos mandes para responder o publicar.",
           "Si te suscribes al email del viernes, guardamos tu correo e idioma para enviar esa lista y respetar la baja.",
           "La app de Meta de POP Events es para que el operador publique en nuestra Página e Instagram, no un login para visitantes.",
@@ -128,6 +130,7 @@ export const PRIVACY_COPY: Record<Locale, LegalPageCopy> = {
         heading: "Ce que nous collectons",
         body: [
           "Consulter le calendrier ne nécessite pas de compte. Nous pouvons enregistrer des données techniques habituelles.",
+          "Quand vous enregistrez un événement, nous le comptons de façon anonyme (un code aléatoire de l’appareil, sans nom ni contact) pour afficher combien de personnes sont intéressées.",
           "Si vous envoyez un événement, donnez ou écrivez, nous gardons ce que vous envoyez pour répondre ou publier.",
           "Si vous vous inscrivez à l’e-mail du vendredi, nous conservons votre adresse et la langue pour l’envoyer et honorer la désinscription.",
           "L’app Meta POP Events sert à l’opérateur pour publier sur notre Page et Instagram, pas à connecter les visiteurs.",

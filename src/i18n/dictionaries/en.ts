@@ -230,6 +230,8 @@ export type Dictionary = {
     saved: string;
     /** Short label under the event-detail action icon. */
     actionSave: string;
+    /** Public Save count on event detail — `{count}` is anonymous devices. */
+    interestedCount: string;
     remind: string;
     /** Short label under the event-detail action icon. */
     actionRemind: string;
@@ -934,6 +936,7 @@ export const en: Dictionary = {
     save: "Save",
     saved: "Saved",
     actionSave: "Save",
+    interestedCount: "{count} interested",
     remind: "Remind me",
     actionRemind: "Reminder",
     remindOn: "Reminder set",

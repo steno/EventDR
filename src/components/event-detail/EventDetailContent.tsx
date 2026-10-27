@@ -13,6 +13,7 @@ import {
   BadgeCheck,
   CircleDollarSign,
   ScrollText,
+  Heart,
 } from "lucide-react";
 import { useMemo, useState } from "react";
 import type { Event, EventOpinion } from "@/lib/types";
@@ -45,6 +46,7 @@ import type { VenueSiblingNight } from "@/lib/venue-recurring-siblings";
 import type { WalkablePocket } from "@/lib/walkable-pockets";
 import type { ReactNode } from "react";
 import { getEventProgramImageUrl } from "@/lib/event-images";
+import { shouldShowInterestCount } from "@/lib/event-interest";
 
 export interface EventDetailContentProps {
   event: Event;
@@ -53,6 +55,8 @@ export interface EventDetailContentProps {
   standalone: boolean;
   dateLabel: string;
   recurrenceLabel: string | null;
+  /** Anonymous Save count; null until loaded or when the API is off. */
+  interestCount?: number | null;
   liveStatus: EventLiveStatus | null;
   liveStatusLabel: string | null;
   timeLabel: { display: string; full: string };
@@ -81,6 +85,7 @@ export function EventDetailContent({
   standalone,
   dateLabel,
   recurrenceLabel,
+  interestCount = null,
   liveStatus,
   liveStatusLabel,
   timeLabel,
@@ -141,6 +146,12 @@ export function EventDetailContent({
           </div>
           {liveStatusLabel && liveStatus && (
             <EventStatusBadge label={liveStatusLabel} status={liveStatus} />
+          )}
+          {shouldShowInterestCount(interestCount) && (
+            <span className="inline-flex items-center gap-1.5 text-sm font-bold text-rose-600 dark:text-rose-400">
+              <Heart className="h-4 w-4 fill-current" aria-hidden />
+              {dict.detail.interestedCount.replace("{count}", String(interestCount))}
+            </span>
           )}
         </div>
         {(timeLabel.display || recurrenceLabel) && (

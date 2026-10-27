@@ -37,6 +37,7 @@ import {
 } from "@/lib/onboarding";
 import { usePushSubscription } from "@/hooks/usePushSubscription";
 import { isWebPushSupported, useEventReminders } from "@/hooks/useEventReminders";
+import { useEventInterestCount } from "@/hooks/useEventInterestCount";
 import type { NearbyTonightResult } from "@/lib/nearby-events";
 import type { VenueSiblingNight } from "@/lib/venue-recurring-siblings";
 import { getPocketForEvent } from "@/lib/walkable-pockets";
@@ -119,6 +120,7 @@ export function EventDetailSheet({
   const eventReminders = useEventReminders(locale);
   const liveDisplay = useLiveStatusDisplay(event ?? EMPTY_STATUS_EVENT, dict);
   const eventId = event?.id;
+  const interestCount = useEventInterestCount(eventId, isSaved);
 
   useEffect(() => {
     if (!event?.id) return;
@@ -484,6 +486,7 @@ export function EventDetailSheet({
       standalone={standalone}
       dateLabel={dateLabel}
       recurrenceLabel={recurrenceLabel}
+      interestCount={interestCount}
       liveStatus={liveStatus}
       liveStatusLabel={liveStatusLabel}
       timeLabel={timeLabel}

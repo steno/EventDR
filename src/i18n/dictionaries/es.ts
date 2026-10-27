@@ -225,6 +225,7 @@ export const es: Dictionary = {
     save: "Guardar",
     saved: "Guardado",
     actionSave: "Guardar",
+    interestedCount: "{count} interesados",
     remind: "Recordarme",
     actionRemind: "Aviso",
     remindOn: "Recordatorio activado",
