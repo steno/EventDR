@@ -8505,10 +8505,10 @@
     "address": "Av. Luis Ginebra No. 45, segundo y tercer nivel, Puerto Plata 57000",
     "lat": 19.7918,
     "lng": -70.681,
-    "category": "parties",
+    "category": "halloween",
     "categories": [
-      "music",
-      "performances"
+      "parties",
+      "music"
     ],
     "format": "physical",
     "trending": true,
@@ -8519,7 +8519,7 @@
     "lineup": [
       "Carlos Rivera"
     ],
-    "imageEmoji": "💃"
+    "imageEmoji": "🎃"
   },
   {
     "id": "ambar-lounge-house-of-fear-2026-10-31",
@@ -8532,10 +8532,10 @@
     "address": "Av. Luis Ginebra No. 45, segundo y tercer nivel, Puerto Plata 57000",
     "lat": 19.7918,
     "lng": -70.681,
-    "category": "parties",
+    "category": "halloween",
     "categories": [
-      "music",
-      "performances"
+      "parties",
+      "music"
     ],
     "format": "physical",
     "trending": true,
