@@ -1727,10 +1727,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "cabarete-run-festival-5k-2026-11-08",
-    body: "Inaugural 6 AM start — register on the Google Form by Oct 26; kit and route details still thin, so WhatsApp organizers before race week.",
+    body: "Inaugural 6 AM start — register on the Google Form by Oct 31; kit and route details still thin, so WhatsApp organizers before race week.",
     localized: {
-      es: "Salida inaugural a las 6 AM — inscríbete en el formulario de Google antes del 26 de oct; kit y ruta aún incompletos, WhatsApp a los organizadores antes de la semana de carrera.",
-      fr: "Départ inaugural à 6 h — inscrivez-vous sur le formulaire Google avant le 26 oct. ; kit et parcours encore flous, WhatsApp les orga avant la semaine de course.",
+      es: "Salida inaugural a las 6 AM — inscríbete en el formulario de Google antes del 31 de oct; kit y ruta aún incompletos, WhatsApp a los organizadores antes de la semana de carrera.",
+      fr: "Départ inaugural à 6 h — inscrivez-vous sur le formulaire Google avant le 31 oct. ; kit et parcours encore flous, WhatsApp les orga avant la semaine de course.",
     },
     priceFeel: "moderate",
     priceNote:
@@ -1741,8 +1741,8 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     },
     attribution: "POP research · Desarrollo Fitness flyer",
     researchNotes:
-      "Flyer + Form: Dom 8 Nov 2026 6 AM, deadline Lun 26 Oct, RD$1,500, forms.gle/WTX9u3D2C1XWVZDk8, two WhatsApp lines.",
-    updatedAt: "2026-09-10T15:00:00.000Z",
+      "Flyer + Form: Dom 8 Nov 2026 6 AM, registration deadline Fri 31 Oct (was Lun 26 Oct), RD$1,500, forms.gle/WTX9u3D2C1XWVZDk8, two WhatsApp lines.",
+    updatedAt: "2026-10-28T18:50:00.000Z",
   },
   {
     eventId: "latinwok-ramen-party-2026-09-17",
@@ -5124,11 +5124,11 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: "2026-10-13T15:00:00.000Z",
   },
   {
-    eventId: "sosua-food-market-halloween-cine-2026-10-24",
-    body: "Family Halloween movie afternoon on the Sosúa Food Market patio — Hotel Transylvania on the big outdoor screen from 5:00 PM with costumes and popcorn; free entry, pay snacks stall-by-stall, and bring a light jacket for dusk under the palms.",
+    eventId: "sosua-food-market-halloween-cine-2026-10-31",
+    body: "Family Halloween movie afternoon on the Sosúa Food Market patio — Hotel Transylvania on the big outdoor screen Saturday 31 Oct from 5:00 PM with costumes and popcorn; free entry, pay snacks stall-by-stall (rescheduled from the earlier 24 Oct listing).",
     localized: {
-      es: "Tarde de cine familiar de Halloween en el patio de Sosúa Food Market — Hotel Transylvania en pantalla grande al aire libre desde las 5:00 PM con disfraces y palomitas; entrada libre, pagas snacks puesto por puesto, y lleva una chaqueta ligera para el atardecer bajo las palmas.",
-      fr: "Après-midi cinéma familial Halloween sur le patio du Sosúa Food Market — Hotel Transylvania en grand écran dès 17 h avec costumes et popcorn ; entrée libre, payez les snacks stand par stand, et prenez une veste légère pour le crépuscule sous les palmiers.",
+      es: "Tarde de cine familiar de Halloween en el patio de Sosúa Food Market — Hotel Transylvania en pantalla grande el sábado 31 oct desde las 5:00 PM con disfraces y palomitas; entrada libre, pagas snacks puesto por puesto (reprogramado del listado del 24 oct).",
+      fr: "Après-midi cinéma familial Halloween sur le patio du Sosúa Food Market — Hotel Transylvania en grand écran le samedi 31 oct dès 17 h avec costumes et popcorn ; entrée libre, payez les snacks stand par stand (reporté de la fiche du 24 oct).",
     },
     priceFeel: "free",
     priceNote: "Free entry — pay popcorn/food stall-by-stall · @sosuafoodmarket",
@@ -5136,10 +5136,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       es: "Entrada libre — pagas palomitas/comida puesto por puesto · @sosuafoodmarket",
       fr: "Entrée libre — payez popcorn/nourriture stand par stand · @sosuafoodmarket",
     },
-    attribution: "POP research · @sosuafoodmarket Tarde de Cine de Halloween flyer",
+    attribution: "POP research · @sosuafoodmarket Tarde de Cine de Halloween flyer (31 Oct)",
     researchNotes:
-      "Editor flyer — Sábado 24 de octubre 5:00PM Tarde de Cine de Halloween, Hotel Transylvania, Sosúa Food Market. Disfraces, palomitas, diversión en familia. ageHint family.",
-    updatedAt: "2026-10-13T16:00:00.000Z",
+      "Editor flyer — Sábado 31 de octubre 5:00PM Tarde de Cine de Halloween, Hotel Transylvania, Sosúa Food Market. Disfraces, palomitas, diversión en familia. Replaced 2026-10-24 seed (date moved). ageHint family.",
+    updatedAt: "2026-10-28T18:30:00.000Z",
   },
   {
     eventId: "twenty-disco-party-mask-black-white-2026-10-17",
@@ -7235,5 +7235,313 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     researchNotes:
       "Editor flyer NUEVA DIVERSIÓN LASER TAG para niños y adultos; hours Wed–Sun 2–10 PM closed Mon–Tue; kids RD$200 adults free park access; laser session price not on flyer; ageHint family; weekly recurrenceDays 0,3,4,5,6.",
     updatedAt: "2026-10-27T00:45:00.000Z",
+  },
+  {
+    eventId: "meclao-white-party-yona-ramz-2026-10-30",
+    body: "First billed night back on Luis Ginebra after renovations — White Party with Yona Ramz and a blanco dress code; reserve 829-374-7028 before you treat the rooftop as a walk-in, and don’t confuse it with Ambar Bandoleras the same Friday at No. 45.",
+    localized: {
+      es: "Primera noche con cartel de vuelta en Luis Ginebra tras renovaciones — White Party con Yona Ramz y dress code blanco; reserva 829-374-7028 antes de tratar el rooftop como walk-in, y no lo confundas con Bandoleras de Ambar el mismo viernes en el n.º 45.",
+      fr: "Première soirée affichée de retour sur Luis Ginebra après rénovations — White Party avec Yona Ramz et dress code blanc ; réservez 829-374-7028 avant de traiter le rooftop comme walk-in, et ne confondez pas avec Bandoleras d’Ambar le même vendredi au n° 45.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — reserve 829-374-7028 · @meclaorooftop",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — reserva 829-374-7028 · @meclaorooftop",
+      fr: "Cover à confirmer — réservez 829-374-7028 · @meclaorooftop",
+    },
+    attribution: "POP research · @meclaorooftop REAPERTURA White Party flyer",
+    researchNotes:
+      "Editor flyer REAPERTURA / WHITE PARTY / YONA RAMZ / VIE 30 OCT / BLANCO; Luis Ginebra 49; 829-374-7028; reopen after editorial closure until 27 Oct.",
+    updatedAt: "2026-10-28T16:00:00.000Z",
+  },
+  {
+    eventId: "meclao-blood-night-gaby-luna-2026-10-31",
+    body: "Halloween Saturday Blood Night with Gaby Luna on the reopened Mecla'o rooftop — costume energy the night after White Party; reserve 829-374-7028, and don’t mix it with Ambar House of Fear the same Saturday at No. 45.",
+    localized: {
+      es: "Blood Night de Halloween el sábado con Gaby Luna en el rooftop reabierto de Mecla'o — energía de disfraz la noche después de White Party; reserva 829-374-7028, y no lo mezcles con House of Fear de Ambar el mismo sábado en el n.º 45.",
+      fr: "Blood Night Halloween le samedi avec Gaby Luna sur le rooftop rouvert de Mecla'o — énergie costume la nuit après White Party ; réservez 829-374-7028, et ne le mélangez pas avec House of Fear d’Ambar le même samedi au n° 45.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — reserve 829-374-7028 · @meclaorooftop",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — reserva 829-374-7028 · @meclaorooftop",
+      fr: "Cover à confirmer — réservez 829-374-7028 · @meclaorooftop",
+    },
+    attribution: "POP research · @meclaorooftop Blood Night Gaby Luna flyer + caption",
+    researchNotes:
+      "Editor flyer BLOOD NIGHT / GABY LUNA / SAB 31 OCT; IG caption la noche más sangrienta; vestir disfraz; 829-374-7028.",
+    updatedAt: "2026-10-28T15:45:00.000Z",
+  },
+  {
+    eventId: "nueve-noche-despecho-tenebroso-2026-10-29",
+    body: "Semana Nueve Thursday heartbreak karaoke with surprises and no cover on the flyer — pin the Puerto Plata Nueve door before you Uber; not the Saturday Bailable bill.",
+    localized: {
+      es: "Jueves de Semana Nueve de despecho con sorpresas y no cover en el flyer — clava la puerta de Nueve en Puerto Plata antes del Uber; no es el Sábado Bailable.",
+      fr: "Jeudi Semana Nueve chagrin d’amour avec surprises et no cover sur l’affiche — épinglez la porte Nueve à Puerto Plata avant l’Uber ; pas le Sábado Bailable.",
+    },
+    priceFeel: "budget",
+    priceNote: "No cover on flyer — confirm @nueve_rd",
+    priceNoteLocalized: {
+      es: "No cover en el flyer — confirma @nueve_rd",
+      fr: "No cover sur l’affiche — confirmez @nueve_rd",
+    },
+    attribution: "POP research · @nueve_rd Semana Nueve week flyer (29 highlighted)",
+    researchNotes:
+      "Editor-supplied Semana Nueve flyer with 29 card highlighted / others blacked out; no cover; karaoke despecho.",
+    updatedAt: "2026-10-28T15:30:00.000Z",
+  },
+  {
+    eventId: "nueve-sabado-bailable-2026-10-31",
+    body: "Halloween Saturday dance floor at Nueve with live DJ — Semana Nueve’s bailable closer; confirm cover on @nueve_rd, and don’t confuse it with Thursday’s Despecho card.",
+    localized: {
+      es: "Pista de Halloween el sábado en Nueve con DJ en vivo — cierre bailable de Semana Nueve; confirma cover en @nueve_rd, y no lo confundas con la tarjeta de Despecho del jueves.",
+      fr: "Piste Halloween le samedi au Nueve avec DJ live — clôture bailable de Semana Nueve ; confirmez le cover sur @nueve_rd, et ne confondez pas avec la carte Despecho du jeudi.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — @nueve_rd",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — @nueve_rd",
+      fr: "Cover à confirmer — @nueve_rd",
+    },
+    attribution: "POP research · @nueve_rd Semana Nueve week flyer (31 highlighted)",
+    researchNotes:
+      "Editor-supplied Semana Nueve flyer with 31 card highlighted / others blacked out; DJ en vivo pista encendida.",
+    updatedAt: "2026-10-28T15:15:00.000Z",
+  },
+  {
+    eventId: "twenty-disco-noche-de-brujas-2026-10-29",
+    body: "Ladies Night witches at Twenty with Hon Parra — free drinks and hats for the brujas on the flyer; mall disco Thursday, not Paradise In Hell on Saturday.",
+    localized: {
+      es: "Ladies Night de brujas en Twenty con Hon Parra — tragos y sombreros gratis para las brujas en el flyer; disco del mall el jueves, no Paradise In Hell el sábado.",
+      fr: "Ladies Night sorcières au Twenty avec Hon Parra — boissons et chapeaux gratuits pour les brujas sur l’affiche ; disco mall le jeudi, pas Paradise In Hell le samedi.",
+    },
+    priceFeel: "varies",
+    priceNote: "Free drinks/hats for ladies on flyer — cover TBA · @twenty_disco_lounge",
+    priceNoteLocalized: {
+      es: "Tragos/sombreros gratis para brujas en el flyer — cover por confirmar · @twenty_disco_lounge",
+      fr: "Boissons/chapeaux gratuits pour brujas sur l’affiche — cover à confirmer · @twenty_disco_lounge",
+    },
+    attribution: "POP research · @twenty_disco_lounge Noche de Brujas flyer + IG caption jueves 29",
+    researchNotes:
+      "Flyer date JUE 28 OCT but IG caption Este jueves 29; DJ Hon Parra; tragos y sombreros gratis; seed on 29.",
+    updatedAt: "2026-10-28T15:00:00.000Z",
+  },
+  {
+    eventId: "natura-sunbar-sunset-sounds-halloween-2026-10-29",
+    body: "Halloween Thursday Sunset & Sounds at SunBar with Taïf plus a stilt act and extended happy hour — Perla Marina sunset patio, not the Oct 22 EM ZAYD week.",
+    localized: {
+      es: "Sunset & Sounds de Halloween el jueves en SunBar con Taïf más acto de zancos y happy hour extendido — patio de atardecer en Perla Marina, no la semana EM ZAYD del 22 oct.",
+      fr: "Sunset & Sounds Halloween le jeudi au SunBar avec Taïf plus numéro sur échasses et happy hour prolongé — patio coucher de soleil à Perla Marina, pas la semaine EM ZAYD du 22 oct.",
+    },
+    priceFeel: "moderate",
+    priceNote: "Dinner/drinks · +1 849-214-7010 · naturacabana.com",
+    priceNoteLocalized: {
+      es: "Cena/tragos · +1 849-214-7010 · naturacabana.com",
+      fr: "Dîner/boissons · +1 849-214-7010 · naturacabana.com",
+    },
+    attribution: "POP research · Natura SunBar Halloween Edition flyer",
+    researchNotes:
+      "Editor flyer SunBar PRESENTA HALLOWEEN EDITION SUNSET & SOUNDS; TAÏF DJ SET; STILT ACT; Oct 29th 6:15–9:15 PM; extended happy hour.",
+    updatedAt: "2026-10-28T14:45:00.000Z",
+  },
+  {
+    eventId: "hard-rock-fiesta-tipica-deury-luciano-2026-10-29",
+    body: "Accordion tipico and medal handoff at Hard Rock Sosúa with Deury Luciano from 8 PM — 6x4 national beers on the flyer; Thursday bill, not Friday’s Catrinas Halloween.",
+    localized: {
+      es: "Típico de acordeón y entrega de medallas en Hard Rock Sosúa con Deury Luciano desde las 8 PM — 6x4 cervezas nacionales en el flyer; cartel del jueves, no Catrinas Halloween del viernes.",
+      fr: "Típico accordéon et remise de médailles au Hard Rock Sosúa avec Deury Luciano dès 20 h — 6x4 bières nationales sur l’affiche ; bill du jeudi, pas Catrinas Halloween du vendredi.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — WhatsApp +1 849-505-7778",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — WhatsApp +1 849-505-7778",
+      fr: "Cover à confirmer — WhatsApp +1 849-505-7778",
+    },
+    attribution: "POP research · Hard Rock / GY Fitness Fiesta Típica Deury Luciano flyer",
+    researchNotes:
+      "Editor flyer FIESTA TIPICA Y ENTREGA DE MEDALLAS CON DEURY LUCIANO; JUEVES 29 OCT; Apertura 8 PM; 6X4 CERVEZAS NAC; Hard Rock + GY logos.",
+    updatedAt: "2026-10-28T14:30:00.000Z",
+  },
+  {
+    eventId: "la-zarina-cup-seahorse-tennis-2026-10-24",
+    body: "Week-long ITF juniors Second La Zarina Cup on the Sea Horse Ranch courts through Oct 31 — sports category only (stays off Today’s specials); confirm draws on @seahorsetennis, and don’t confuse it with the Caplin Point Gencloben final day.",
+    localized: {
+      es: "Copa junior ITF Segunda La Zarina toda la semana en las canchas de Sea Horse Ranch hasta el 31 oct — solo categoría sports (fuera de Today’s specials); confirma cuadros en @seahorsetennis, y no la confundas con el día final Gencloben de Caplin Point.",
+      fr: "Coupe junior ITF Deuxième La Zarina toute la semaine sur les courts de Sea Horse Ranch jusqu’au 31 oct. — catégorie sports seulement (hors Today’s specials) ; confirmez les tableaux sur @seahorsetennis, et ne confondez pas avec le jour final Gencloben Caplin Point.",
+    },
+    priceFeel: "varies",
+    priceNote: "Gate/draw TBA — @seahorsetennis",
+    priceNoteLocalized: {
+      es: "Acceso/cuadro por confirmar — @seahorsetennis",
+      fr: "Accès/tableau à confirmer — @seahorsetennis",
+    },
+    attribution: "POP research · @seahorsetennis Second La Zarina Cup flyer + caption",
+    researchNotes:
+      "ITF World Tennis Tour Juniors; Second Cup / La Zarina; Sosúa Cabarete Until October 31; caption Oct 24–31; category sports + endDate ≠ date so isListedTodaySpecial false.",
+    updatedAt: "2026-10-28T14:15:00.000Z",
+  },
+  {
+    eventId: "chameleon-el-purgatorio-2026-10-31",
+    body: "Halloween Purgatorio at Chameleon with DJ H23 and FlacoMC — El Batey late night; book VIP on @chameleonsportbar before you assume walk-in tables.",
+    localized: {
+      es: "Purgatorio de Halloween en Chameleon con DJ H23 y FlacoMC — madrugada en El Batey; reserva VIP en @chameleonsportbar antes de asumir mesas walk-in.",
+      fr: "Purgatorio Halloween au Chameleon avec DJ H23 et FlacoMC — nuit tardive à El Batey ; réservez VIP sur @chameleonsportbar avant d’assumer des tables walk-in.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover/VIP TBA — @chameleonsportbar · +1 849-657-1500",
+    priceNoteLocalized: {
+      es: "Cover/VIP por confirmar — @chameleonsportbar · +1 849-657-1500",
+      fr: "Cover/VIP à confirmer — @chameleonsportbar · +1 849-657-1500",
+    },
+    attribution: "POP research · @chameleonsportbar El Purgatorio flyer",
+    researchNotes:
+      "Editor flyer CHAMELEON SPORT BAR PRESENTA EL PURGATORIO; SAB 31 OCT; LIVE MUSIC DJ H23 DJ FLACOMC; EL BATEY SOSÚA.",
+    updatedAt: "2026-10-28T14:00:00.000Z",
+  },
+  {
+    eventId: "la-lola-wicked-night-2026-10-31",
+    body: "Wicked Night on the Malecón with dress-to-sin energy, live DJ, and themed games — RSVP 849-517-5705; beach-club patio Halloween, not a Cabarete sand set.",
+    localized: {
+      es: "Wicked Night en el Malecón con energía dress-to-sin, DJ en vivo y juegos temáticos — RSVP 849-517-5705; Halloween de patio beach club, no un sand set de Cabarete.",
+      fr: "Wicked Night sur le Malecón avec énergie dress-to-sin, DJ live et jeux thématiques — RSVP 849-517-5705 ; Halloween patio beach club, pas un sand set à Cabarete.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — RSVP +1 849-517-5705 · @lalolabeachclub",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — RSVP +1 849-517-5705 · @lalolabeachclub",
+      fr: "Cover à confirmer — RSVP +1 849-517-5705 · @lalolabeachclub",
+    },
+    attribution: "POP research · @lalolabeachclub Wicked Night flyer",
+    researchNotes:
+      "Editor flyer HALLOWEEN AT lalola beach / WICKED Night / SAB 31 Oct / DRESS TO SIN; DJ EN VIVO; RSVP 849-517-5705.",
+    updatedAt: "2026-10-28T13:45:00.000Z",
+  },
+  {
+    eventId: "tiki-bar-halloween-dr-jake-2026-10-31",
+    body: "Halloween from 10 PM at Cabarete Tiki with DR-JAKE and 2x1 Blood Diamond on the flyer — central Cabarete thatch bar, not Flowdance Friday the night before.",
+    localized: {
+      es: "Halloween desde las 10 PM en Cabarete Tiki con DR-JAKE y 2x1 Blood Diamond en el flyer — bar de paja en Cabarete centro, no Flowdance del viernes anterior.",
+      fr: "Halloween dès 22 h au Cabarete Tiki avec DR-JAKE et 2x1 Blood Diamond sur l’affiche — bar chaume au centre de Cabarete, pas Flowdance du vendredi précédent.",
+    },
+    priceFeel: "varies",
+    priceNote: "2x1 Blood Diamond on flyer — cover TBA · @tikibarcabarete",
+    priceNoteLocalized: {
+      es: "2x1 Blood Diamond en el flyer — cover por confirmar · @tikibarcabarete",
+      fr: "2x1 Blood Diamond sur l’affiche — cover à confirmer · @tikibarcabarete",
+    },
+    attribution: "POP research · @tikibarcabarete Halloween DJ DR-JAKE flyer",
+    researchNotes:
+      "Editor flyer HALLOWEEN / SÁBADO 31 DE OCTUBRE / DESDE LAS 10:00 PM / DJ DR-JAKE / 2X1 BLOOD DIAMOND.",
+    updatedAt: "2026-10-28T13:30:00.000Z",
+  },
+  {
+    eventId: "cedaky-halloween-party-2026-10-31",
+    body: "Early mall Halloween 7–10 PM with live DJ and beers — family-friendly Las Yaguitas stop before the late club crawl; free walk-in atmosphere, confirm on @cedakymall.",
+    localized: {
+      es: "Halloween temprano en el mall 7–10 PM con DJ en vivo y cervezas — parada familiar en Las Yaguitas antes del crawl de clubes; ambiente walk-in gratis, confirma en @cedakymall.",
+      fr: "Halloween tôt au mall 19 h–22 h avec DJ live et bières — arrêt familial à Las Yaguitas avant le crawl de clubs ; ambiance walk-in gratuite, confirmez sur @cedakymall.",
+    },
+    priceFeel: "budget",
+    priceNote: "Free mall party — @cedakymall",
+    priceNoteLocalized: {
+      es: "Fiesta gratis en el mall — @cedakymall",
+      fr: "Fête gratuite au mall — @cedakymall",
+    },
+    attribution: "POP research · @cedakymall Halloween Party flyer + caption",
+    researchNotes:
+      "Editor flyer SE VIENE EL CEDĀKY HALLOWEEN PARTY; OCT 31 sábado; 7–10 PM; DJ en vivo cervezas; ageHint family.",
+    updatedAt: "2026-10-28T13:15:00.000Z",
+  },
+  {
+    eventId: "cedaky-market-2026-11-15",
+    body: "All-day Cedāky’s Market 11 AM–9 PM — retail, food, beauty, and craft stalls across the mall floor; free entry daytime shop, not the Oct 31 Halloween Party.",
+    localized: {
+      es: "Cedāky’s Market todo el día 11 AM–9 PM — stands de retail, comida, belleza y craft en el mall; entrada gratis de día, no es el Halloween Party del 31 oct.",
+      fr: "Cedāky’s Market toute la journée 11 h–21 h — stands retail, food, beauté et craft dans le mall ; entrée gratuite de jour, pas le Halloween Party du 31 oct.",
+    },
+    priceFeel: "budget",
+    priceNote: "Free entry — shop stall-by-stall · @cedakymall",
+    priceNoteLocalized: {
+      es: "Entrada gratis — compras puesto a puesto · @cedakymall",
+      fr: "Entrée gratuite — achats stand par stand · @cedakymall",
+    },
+    attribution: "POP research · @cedakymall Cedāky’s Market flyer",
+    researchNotes:
+      "Editor flyer 15 DE NOVIEMBRE / CEDĀKY’S MARKET / 11:00 A.M. A 9:00 P.M.; icon grid shopping/food/jewelry/etc; ageHint family.",
+    updatedAt: "2026-10-28T13:00:00.000Z",
+  },
+  {
+    eventId: "willman-pena-aniversario-grand-prix-2026-11-27",
+    body: "Anniversary live night with Willman Peña at Grand Prix from 9 PM — RD$500 cover on the flyer; La Javilla patio show, not a free Caballitos tipico set.",
+    localized: {
+      es: "Noche de aniversario en vivo con Willman Peña en Grand Prix desde las 9 PM — cover RD$500 en el flyer; show de patio en La Javilla, no un set gratis de Caballitos típico.",
+      fr: "Soirée anniversaire live avec Willman Peña au Grand Prix dès 21 h — cover RD$500 sur l’affiche ; show patio à La Javilla, pas un set Caballitos típico gratuit.",
+    },
+    priceFeel: "budget",
+    priceNote: "RD$500 cover — WhatsApp 809-753-4553 · @grandprixrd",
+    priceNoteLocalized: {
+      es: "Cover RD$500 — WhatsApp 809-753-4553 · @grandprixrd",
+      fr: "Cover RD$500 — WhatsApp 809-753-4553 · @grandprixrd",
+    },
+    attribution: "POP research · @grandprixrd Willman Peña Fiesta de Aniversario flyer",
+    researchNotes:
+      "Editor flyer WILLMAN PEÑA / FIESTA DE ANIVERSARIO / VIERNES 27 DE NOVIEMBRE / 9:00 PM / COVER $500 / 809-753-4553.",
+    updatedAt: "2026-10-28T12:45:00.000Z",
+  },
+  {
+    eventId: "drifter-last-sunset-halloween-2026-10-31",
+    body: "Halloween Saturday at Drifter with resident Henry Jimenez from 9 PM — dark elegance, masks welcome on the beachfront patio; reserve +1 829 702-2312, and don’t confuse it with Tiki Bar’s DR-JAKE Halloween the same night inland.",
+    localized: {
+      es: "Halloween el sábado en Drifter con el residente Henry Jimenez desde las 9 PM — dark elegance, máscaras bienvenidas en el patio de playa; reserva +1 829 702-2312, y no lo confundas con el Halloween de DR-JAKE en Tiki Bar la misma noche tierra adentro.",
+      fr: "Halloween le samedi au Drifter avec le résident Henry Jimenez dès 21 h — dark elegance, masques bienvenus sur le patio beachfront ; réservez +1 829 702-2312, et ne confondez pas avec l’Halloween DR-JAKE au Tiki Bar la même nuit à l’intérieur des terres.",
+    },
+    priceFeel: "moderate",
+    priceNote: "Cover TBA — reserve +1 829 702-2312 · @driftercabarete",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — reserva +1 829 702-2312 · @driftercabarete",
+      fr: "Cover à confirmer — réservez +1 829 702-2312 · @driftercabarete",
+    },
+    attribution: "POP research · @driftercabarete Last Sunset of October / Halloween flyer",
+    researchNotes:
+      "Editor flyer LAST SUNSET OF OCTOBER / HALLOWEEN; SAT OCT 31; DJ FROM 9 PM; DJ HENRY JIMENEZ Resident DJ; Dark Elegance masks welcome; +1 829 702 2312; distinct from weekly drifter-sunset-into-the-night.",
+    updatedAt: "2026-10-28T16:30:00.000Z",
+  },
+  {
+    eventId: "los-primos-noche-de-terror-yosma-2026-10-31",
+    body: "Halloween Noche de Terror with DJ Yosma on Calle Principal in Maimón — inland disco night, not the highway Los Primos Fish Shop (~1 km away) and not the Puerto Plata rooftop/mall Halloween bills the same Saturday; confirm doors on @losprimosdiscobar_.",
+    localized: {
+      es: "Noche de Terror de Halloween con DJ Yosma en Calle Principal de Maimón — disco tierra adentro, no el Los Primos Fish Shop de la carretera (~1 km) ni los Halloween de rooftop/mall en Puerto Plata el mismo sábado; confirma puertas en @losprimosdiscobar_.",
+      fr: "Noche de Terror Halloween avec DJ Yosma sur Calle Principal à Maimón — disco à l’intérieur des terres, pas le Los Primos Fish Shop sur la route (~1 km) ni les Halloween rooftop/mall à Puerto Plata le même samedi ; confirmez les portes sur @losprimosdiscobar_.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — @losprimosdiscobar_ / @djyosma",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — @losprimosdiscobar_ / @djyosma",
+      fr: "Cover à confirmer — @losprimosdiscobar_ / @djyosma",
+    },
+    attribution: "POP research · @losprimosdiscobar_ Noche de Terror DJ Yosma flyer",
+    researchNotes:
+      "Editor flyer LOS PRIMOS DISCOS BAR / NOCHE DE TERROR / CON DJ YOSMA; user confirmed Sat 31 Oct; venue inland Calle Principal Maimón vs highway fish shop.",
+    updatedAt: "2026-10-28T17:00:00.000Z",
+  },
+  {
+    eventId: "vinoteca-miercoles-karaoke",
+    seriesKey: "vinoteca-wine-house:weekly:3",
+    body: "Wednesday karaoke from 6 PM at Vinoteca Wine House in Hotel Marien on Costa Dorada — free-dinner prize for a winning singer; wine-bar mic night next to the hotel casino, not Hard Rock or Ocean World Terrace Wednesday karaoke.",
+    localized: {
+      es: "Karaoke del miércoles desde las 6 PM en Vinoteca Wine House del Hotel Marien en Costa Dorada — premio de cena gratis para un cantante ganador; micrófono de vinoteca junto al casino del hotel, no el karaoke de miércoles de Hard Rock ni de Terraza Ocean World.",
+      fr: "Karaoké du mercredi dès 18 h à Vinoteca Wine House de l’Hôtel Marien à Costa Dorada — prix dîner gratuit pour un chanteur gagnant ; micro wine bar à côté du casino de l’hôtel, pas le karaoké du mercredi du Hard Rock ni de la Terraza Ocean World.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "Cover not on flyer — wine-bar tabs; free dinner prize at Hotel Marien · +1 849-451-1197",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — cuenta de vinoteca; premio cena gratis Hotel Marien · +1 849-451-1197",
+      fr: "Cover absent de l’affiche — addition wine bar ; prix dîner gratuit Hôtel Marien · +1 849-451-1197",
+    },
+    attribution: "POP research · Vinoteca Miércoles de Karaoke flyer · @vinotecamarienpp",
+    researchNotes:
+      "Editor flyer — MIÉRCOLES DE KARAOKE; A PARTIR DE LAS 6:00 PM; Premio Cena Gratis Hotel Marien Puerto Plata; Calle Luperon Costa Dorada; 849-451-1197; weekly Wednesday recurrenceDay 3.",
+    updatedAt: "2026-10-28T18:00:00.000Z",
   },
 ];

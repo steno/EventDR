@@ -228,6 +228,7 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "la-quinta-rosa": "la-quinta-rosa-facade.jpg",
   "el-patio-de-frida": "el-patio-de-frida-patio.jpg",
   "the-last-drink": "the-last-drink-interior.jpg",
+  "los-primos-disco-bar-maimon": "los-primos-disco-bar-maimon-dj-booth.jpg",
 };
 
 /** Cache-busted URL for general venue thumbnails / JSON-LD. */

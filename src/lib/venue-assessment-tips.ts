@@ -802,11 +802,11 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "meclao-rooftop": {
-    body: "Closed for renovations until further notice — don’t send anyone to Luis Ginebra for House Fridays or late cocktail sets; watch @meclaorooftop before you treat 829-374-7028 as a walk-in.",
+    body: "Luis Ginebra rooftop for live sets and late cocktails — closed Mondays, weekends run later; reserve 829-374-7028 / @meclaorooftop before peak nights so you don’t treat the door as a guaranteed walk-in.",
     localized: {
-      en: "Closed for renovations until further notice — don’t send anyone to Luis Ginebra for House Fridays or late cocktail sets; watch @meclaorooftop before you treat 829-374-7028 as a walk-in.",
-      es: "Cerrado por renovaciones hasta nuevo aviso — no mandes a nadie a Luis Ginebra por House Fridays o cócteles tarde; mira @meclaorooftop antes de tratar 829-374-7028 como walk-in.",
-      fr: "Fermé pour rénovations jusqu’à nouvel ordre — n’envoyez personne sur Luis Ginebra pour House Fridays ou cocktails tardifs ; suivez @meclaorooftop avant de traiter 829-374-7028 comme un walk-in.",
+      en: "Luis Ginebra rooftop for live sets and late cocktails — closed Mondays, weekends run later; reserve 829-374-7028 / @meclaorooftop before peak nights so you don’t treat the door as a guaranteed walk-in.",
+      es: "Rooftop en Luis Ginebra para sets en vivo y cócteles tarde — cerrado lunes, fines de semana más tarde; reserva 829-374-7028 / @meclaorooftop antes de noches pico para no tratar la puerta como walk-in seguro.",
+      fr: "Rooftop Luis Ginebra pour sets live et cocktails tardifs — fermé lundi, week-ends plus tard ; réservez 829-374-7028 / @meclaorooftop avant les soirées de pointe pour ne pas traiter la porte comme un walk-in garanti.",
     },
   },
   "el-mirador-de-finely": {
@@ -898,11 +898,11 @@ export const VENUE_TIP_COPY: Record<
     },
   },
   "vinoteca-wine-house": {
-    body: "Hotel Marien wine lounge on Costa Dorada — closed Mondays; same complex as Kviar, but this is bottles and live bands, not the casino disco; free door nights still mean wine-bar tabs.",
+    body: "Hotel Marien wine lounge on Costa Dorada — closed Mondays; Wednesday karaoke from 6 PM with a free-dinner prize; same complex as Kviar, but this is bottles and mic nights, not the casino disco; free door still means wine-bar tabs.",
     localized: {
-      en: "Hotel Marien wine lounge on Costa Dorada — closed Mondays; same complex as Kviar, but this is bottles and live bands, not the casino disco; free door nights still mean wine-bar tabs.",
-      es: "Vinoteca del Hotel Marien en Costa Dorada — cerrado lunes; mismo complejo que Kviar, pero aquí son botellas y bandas en vivo, no el disco-casino; entrada gratis sigue siendo cuenta de vinoteca.",
-      fr: "Lounge à vins de l'Hotel Marien à Costa Dorada — fermé lundi ; même complexe que Kviar, mais ici ce sont bouteilles et groupes live, pas le disco-casino ; entrée gratuite = addition bar à vins.",
+      en: "Hotel Marien wine lounge on Costa Dorada — closed Mondays; Wednesday karaoke from 6 PM with a free-dinner prize; same complex as Kviar, but this is bottles and mic nights, not the casino disco; free door still means wine-bar tabs.",
+      es: "Vinoteca del Hotel Marien en Costa Dorada — cerrado lunes; karaoke los miércoles desde las 6 PM con premio de cena gratis; mismo complejo que Kviar, pero aquí son botellas y micrófono, no el disco-casino; entrada gratis sigue siendo cuenta de vinoteca.",
+      fr: "Lounge à vins de l'Hotel Marien à Costa Dorada — fermé lundi ; karaoké le mercredi dès 18 h avec prix dîner gratuit ; même complexe que Kviar, mais ici ce sont bouteilles et micro, pas le disco-casino ; entrée gratuite = addition bar à vins.",
     },
   },
   "pop-cinemas-playa-dorada": {
@@ -1191,6 +1191,14 @@ export const VENUE_TIP_COPY: Record<
       en: "Next to Repuesto Amin Cid (old Maggy Bar) on José del Carmen Ariza by Puente de la Guinea — local colmadón street bar in La Rigola, not a Malecón tourist lounge; Sundays run Domingo de Pasarela, weekends usually pick up after 9 PM with no fixed published close.",
       es: "Al lado de Repuesto Amin Cid (antiguo Maggy Bar) en José del Carmen Ariza junto al Puente de la Guinea — bar de calle estilo colmadón en La Rigola, no un lounge turístico del Malecón; los domingos hay Domingo de Pasarela, y los fines de semana suelen calentarse después de las 9 PM sin cierre fijo publicado.",
       fr: "À côté de Repuesto Amin Cid (ancien Maggy Bar) sur José del Carmen Ariza près du Puente de la Guinea — bar de rue style colmadón à La Rigola, pas un lounge touristique du Malecón ; le dimanche, Domingo de Pasarela, et le week-end ça chauffe souvent après 21 h sans fermeture fixe publiée.",
+    },
+  },
+  "los-primos-disco-bar-maimon": {
+    body: "Calle Principal disco bar inland in Maimón town — not the famous Los Primos Fish Shop on Carretera Navarrete–Puerto Plata (~1 km / 2–3 min away); pin the town street, not the highway seafood patio, and confirm doors on @losprimosdiscobar_.",
+    localized: {
+      en: "Calle Principal disco bar inland in Maimón town — not the famous Los Primos Fish Shop on Carretera Navarrete–Puerto Plata (~1 km / 2–3 min away); pin the town street, not the highway seafood patio, and confirm doors on @losprimosdiscobar_.",
+      es: "Disco bar en Calle Principal tierra adentro en el pueblo de Maimón — no es el famoso Los Primos Fish Shop en la Carretera Navarrete–Puerto Plata (~1 km / 2–3 min); clava la calle del pueblo, no el patio de mariscos de la carretera, y confirma puertas en @losprimosdiscobar_.",
+      fr: "Disco bar sur Calle Principal à l’intérieur du bourg de Maimón — pas le célèbre Los Primos Fish Shop sur la Carretera Navarrete–Puerto Plata (~1 km / 2–3 min) ; épinglez la rue du village, pas la terrasse fruits de mer de la route, et confirmez les portes sur @losprimosdiscobar_.",
     },
   },
   "nova-salud-bienestar": {

@@ -152,6 +152,11 @@ export const INSTAGRAM_TIER_A: readonly InstagramAccount[] = [
     areas: ["Puerto Plata"],
   },
   {
+    handle: "losprimosdiscobar_",
+    label: "Los Primos Disco Bar (Maimón)",
+    areas: ["Puerto Plata"],
+  },
+  {
     handle: "groundzero_disco",
     label: "Ground Zero Discoteca",
     areas: ["Sosúa"],
@@ -635,6 +640,7 @@ export function instagramSearchQueries(): string[] {
     "ojoclubcabarete",
     "lalolabeachclub",
     "nueve_rd",
+    "losprimosdiscobar_",
   ].join(" OR ");
 
   const culturalVenues = [

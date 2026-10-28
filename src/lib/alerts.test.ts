@@ -142,7 +142,7 @@ describe("applyActiveEditorialClosure", () => {
     assert.equal(reopen.temporarilyClosed, undefined);
   });
 
-  it("marks Mecla'o closed for renovations until further notice from 20 Oct", () => {
+  it("marks Mecla'o closed for renovations 20–29 Oct, open from 30 Oct with reopen watch through Halloween", () => {
     const venueInput: { slug: string; temporarilyClosed?: boolean } = {
       slug: "meclao-rooftop",
     };
@@ -155,53 +155,125 @@ describe("applyActiveEditorialClosure", () => {
       true,
     );
     assert.equal(
-      applyActiveEditorialClosureToVenue(venueInput, "2026-10-24").temporarilyClosed,
+      applyActiveEditorialClosureToVenue(venueInput, "2026-10-28").temporarilyClosed,
       true,
     );
     assert.equal(
-      applyActiveEditorialClosureToVenue(venueInput, "2026-11-15").temporarilyClosed,
+      applyActiveEditorialClosureToVenue(venueInput, "2026-10-29").temporarilyClosed,
       true,
     );
+    assert.equal(
+      applyActiveEditorialClosureToVenue(venueInput, "2026-10-30").temporarilyClosed,
+      undefined,
+    );
+    assert.equal(
+      applyActiveEditorialClosureToVenue(venueInput, "2026-11-01").temporarilyClosed,
+      undefined,
+    );
+
+    const whiteParty = applyActiveEditorialClosure(
+      {
+        id: "meclao-white-party-yona-ramz-2026-10-30",
+        venueSlug: "meclao-rooftop",
+        temporarilyClosed: undefined as boolean | undefined,
+      },
+      "2026-10-28",
+    );
+    assert.equal(whiteParty.temporarilyClosed, undefined);
+    const liveNights = applyActiveEditorialClosure(
+      {
+        id: "meclao-rooftop-live-nights",
+        venueSlug: "meclao-rooftop",
+        temporarilyClosed: undefined as boolean | undefined,
+      },
+      "2026-10-28",
+    );
+    assert.equal(liveNights.temporarilyClosed, true);
 
     const editorial = EDITORIAL_ALERTS.find(
       (a) => a.id === "meclao-rooftop-renovation-2026-10",
     );
     assert.ok(editorial);
     assert.equal(editorial.closureStatus, "repair");
-    assert.equal(editorial.until, undefined);
-    assert.equal(editorial.reopensOn, undefined);
-    assert.equal(
-      editorial.summary.en,
-      "Until further notice — check @meclaorooftop.",
-    );
+    assert.equal(editorial.until, "2026-10-29");
+    assert.equal(editorial.reopensOn, "2026-10-30");
+    assert.deepEqual(editorial.exceptEventIds, [
+      "meclao-white-party-yona-ramz-2026-10-30",
+      "meclao-blood-night-gaby-luna-2026-10-31",
+    ]);
+    assert.match(editorial.summary.en, /White Party/);
 
-    // Before you go (Puerto Plata + North Coast home); not Cabarete-scoped.
-    const now = new Date("2026-10-24T16:00:00.000Z");
-    const pp = getHomeAlerts({
+    // Closure still active mid-window; Puerto Plata + North Coast home; not Cabarete.
+    const mid = new Date("2026-10-24T16:00:00.000Z");
+    const ppClosed = getHomeAlerts({
       locale: "en",
       dict,
       citySlug: "puerto-plata",
-      now,
+      now: mid,
       limit: 20,
     });
-    const ppAlert = pp.find((a) => a.id === "meclao-rooftop-renovation-2026-10");
+    const ppAlert = ppClosed.find(
+      (a) => a.id === "meclao-rooftop-renovation-2026-10",
+    );
     assert.ok(ppAlert);
     assert.equal(ppAlert.title, "Mecla'o Rooftop closed for renovations");
-    assert.equal(ppAlert.summary, "Until further notice — check @meclaorooftop.");
     assert.equal(ppAlert.closureStatus, "repair");
-    assert.equal(ppAlert.reopensLabel, undefined);
+    assert.ok(ppAlert.reopensLabel);
 
-    const home = getHomeAlerts({ locale: "en", dict, citySlug: null, now, limit: 20 });
-    assert.ok(home.some((a) => a.id === "meclao-rooftop-renovation-2026-10"));
+    const homeMid = getHomeAlerts({
+      locale: "en",
+      dict,
+      citySlug: null,
+      now: mid,
+      limit: 20,
+    });
+    assert.ok(homeMid.some((a) => a.id === "meclao-rooftop-renovation-2026-10"));
 
     const cab = getHomeAlerts({
       locale: "en",
       dict,
       citySlug: "cabarete",
-      now,
+      now: mid,
       limit: 20,
     });
     assert.ok(!cab.some((a) => a.id === "meclao-rooftop-renovation-2026-10"));
+
+    // Through 29 Oct: closure + reopen watch. From 30 Oct: open; watch through Halloween.
+    const stillClosed = new Date("2026-10-28T16:00:00.000Z");
+    const ppStill = getHomeAlerts({
+      locale: "en",
+      dict,
+      citySlug: "puerto-plata",
+      now: stillClosed,
+      limit: 20,
+    });
+    assert.ok(ppStill.some((a) => a.id === "meclao-rooftop-renovation-2026-10"));
+    assert.ok(ppStill.some((a) => a.id === "meclao-rooftop-reopen-2026-10-30"));
+
+    const reopenNow = new Date("2026-10-30T16:00:00.000Z");
+    const ppOpen = getHomeAlerts({
+      locale: "en",
+      dict,
+      citySlug: "puerto-plata",
+      now: reopenNow,
+      limit: 20,
+    });
+    assert.ok(!ppOpen.some((a) => a.id === "meclao-rooftop-renovation-2026-10"));
+    const watch = ppOpen.find((a) => a.id === "meclao-rooftop-reopen-2026-10-30");
+    assert.ok(watch);
+    assert.equal(watch.title, "Mecla'o Rooftop reopens Fri 30 Oct");
+    assert.match(watch.summary, /White Party/);
+
+    const afterHalloween = new Date("2026-11-01T16:00:00.000Z");
+    const ppAfter = getHomeAlerts({
+      locale: "en",
+      dict,
+      citySlug: "puerto-plata",
+      now: afterHalloween,
+      limit: 20,
+    });
+    assert.ok(!ppAfter.some((a) => a.id === "meclao-rooftop-renovation-2026-10"));
+    assert.ok(!ppAfter.some((a) => a.id === "meclao-rooftop-reopen-2026-10-30"));
   });
 
   it("marks Gypsy Bowls closed after Last Bowl Call through 14 Oct, open 15 Oct", () => {

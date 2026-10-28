@@ -1572,7 +1572,7 @@
   {
     "id": "meclao-rooftop-live-nights",
     "title": "Música en vivo en Mecla'o Rooftop",
-    "description": "Rooftop en Av. Luis Ginebra con música en vivo, cócteles y vista de la ciudad. Martes–jueves y domingo 6:00 PM–2:00 AM; viernes–sábado 6:00 PM–4:00 AM. Cerrado los lunes. Pausa por renovación hasta el jue 23 oct 2026 (reabre vie 24 oct) — confirma @meclaorooftop. Gasto típico DOP 500–1,000.",
+    "description": "Rooftop en Av. Luis Ginebra con música en vivo, cócteles y vista de la ciudad. Martes–jueves y domingo 6:00 PM–2:00 AM; viernes–sábado 6:00 PM–4:00 AM. Cerrado los lunes. Confirma puertas @meclaorooftop · reserva 829-374-7028. Gasto típico DOP 500–1,000.",
     "date": "2026-01-01",
     "time": "6:00 PM – 2:00 AM",
     "location": "Puerto Plata",
@@ -3303,5 +3303,33 @@
     "instagram": "spotlandrd",
     "imageEmoji": "🔫",
     "ageHint": "family"
+  },
+  {
+    "id": "vinoteca-miercoles-karaoke",
+    "title": "Vinoteca — Miércoles de Karaoke",
+    "description": "Karaoke todos los miércoles en Vinoteca Wine House, Hotel Marien / Be Live Collection Marien, Calle Luperón, Costa Dorada — a partir de las 6:00 PM. Premio: cena gratis en el Hotel Marien Puerto Plata para un cantante ganador. Noche de micrófono en el wine bar junto al casino del hotel — no es el karaoke de miércoles de Hard Rock ni de Terraza Ocean World. Confirma puertas por WhatsApp +1 849-451-1197 · Instagram @vinotecamarienpp.",
+    "date": "2026-01-01",
+    "time": "6:00 PM",
+    "location": "Costa Dorada",
+    "venue": "Vinoteca Wine House",
+    "venueSlug": "vinoteca-wine-house",
+    "address": "Calle Luperón, Costa Dorada (Hotel Marien / Be Live Collection Marien)",
+    "lat": 19.7768222,
+    "lng": -70.6597699,
+    "category": "music",
+    "categories": [
+      "parties",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "recurrence": "weekly",
+    "recurrenceDay": 3,
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18494511197",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/vinotecamarienpp/",
+    "instagram": "vinotecamarienpp",
+    "imageEmoji": "🎤"
   }
 ]

@@ -1976,6 +1976,17 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
       { key: "easy_to_find", sentiment: "mixed", audience: "visitor" },
     ],
   }),
+  editorial({
+    venueSlug: "los-primos-disco-bar-maimon",
+    verdictKey: "solid_local_nightlife",
+    crowdFit: ["local", "nightlife", "mixed"],
+    axes: { recommend: 3.9, atmosphere: 4.0, value: 4.1, practical: 3.4 },
+    themes: [
+      { key: "dance_floor", sentiment: "positive", audience: "nightlife" },
+      { key: "loud_late", sentiment: "mixed", audience: "nightlife" },
+      { key: "easy_to_find", sentiment: "mixed", audience: "visitor" },
+    ],
+  }),
 ];
 
 const bySlug = new Map(

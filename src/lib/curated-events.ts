@@ -253,6 +253,15 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     venueSlug: "desarrollo-fitness-cabarete",
     ticketUrl: "https://forms.gle/WTX9u3D2C1XWVZDk8",
     sourceUrl: "https://www.instagram.com/desarrollo_fitness_cabarete/",
+    description:
+      "Inaugural Cabarete Run Festival 5K presented by Desarrollo Fitness — Sunday 8 November 2026, 6:00 AM. Limited edition inaugural race in Cabarete, capital of waves and wind. Registration RD$1,500 (deadline Fri 31 October) via Google Form. Inquiries WhatsApp +1 809 769 6199 or +1 849 281 4137 · @desarrollo_fitness_cabarete.",
+    localized: {
+      description: {
+        en: "Inaugural Cabarete Run Festival 5K presented by Desarrollo Fitness — Sunday 8 November 2026, 6:00 AM. Limited edition inaugural race in Cabarete, capital of waves and wind. Registration RD$1,500 (deadline Fri 31 October) via Google Form. Inquiries WhatsApp +1 809 769 6199 or +1 849 281 4137 · @desarrollo_fitness_cabarete.",
+        es: "Cabarete Run Festival 5K inaugural presentado por Desarrollo Fitness — domingo 8 de noviembre 2026, 6:00 AM. Edición limitada del primer gran encuentro de runners en Cabarete. Inscripción RD$1,500 (cierre vie 31 de octubre) vía formulario de Google. Consultas WhatsApp +1 809 769 6199 o +1 849 281 4137 · @desarrollo_fitness_cabarete.",
+        fr: "Cabarete Run Festival 5K inaugural présenté par Desarrollo Fitness — dimanche 8 novembre 2026, 6 h. Édition limitée du premier grand rendez-vous runners à Cabarete. Inscription RD$1,500 (clôture ven 31 octobre) via formulaire Google. Infos WhatsApp +1 809 769 6199 ou +1 849 281 4137 · @desarrollo_fitness_cabarete.",
+      },
+    },
   },
   "sosua-neon-partyrun-2026-10-24": {
     isFree: false,
@@ -932,7 +941,7 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     venueSlug: "sosua-food-market",
     sourceUrl: "https://www.instagram.com/sosuafoodmarket/",
   },
-  "sosua-food-market-halloween-cine-2026-10-24": {
+  "sosua-food-market-halloween-cine-2026-10-31": {
     isFree: true,
     venueSlug: "sosua-food-market",
     sourceUrl: "https://www.instagram.com/sosuafoodmarket/",

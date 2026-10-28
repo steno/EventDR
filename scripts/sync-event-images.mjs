@@ -139,6 +139,38 @@ const FILE_TO_EVENT_ID = {
     "ambar-lounge-bandoleras-2026-10-30",
   "ambar-lounge-house-of-fear-2026-10-31.jpg":
     "ambar-lounge-house-of-fear-2026-10-31",
+  "meclao-white-party-yona-ramz-2026-10-30.jpg":
+    "meclao-white-party-yona-ramz-2026-10-30",
+  "meclao-blood-night-gaby-luna-2026-10-31.jpg":
+    "meclao-blood-night-gaby-luna-2026-10-31",
+  "nueve-noche-despecho-tenebroso-2026-10-29.jpg":
+    "nueve-noche-despecho-tenebroso-2026-10-29",
+  "nueve-sabado-bailable-2026-10-31.jpg":
+    "nueve-sabado-bailable-2026-10-31",
+  "la-zarina-cup-seahorse-tennis-2026-10-24.jpg":
+    "la-zarina-cup-seahorse-tennis-2026-10-24",
+  "willman-pena-aniversario-grand-prix-2026-11-27.jpg":
+    "willman-pena-aniversario-grand-prix-2026-11-27",
+  "hard-rock-fiesta-tipica-deury-luciano-2026-10-29.jpg":
+    "hard-rock-fiesta-tipica-deury-luciano-2026-10-29",
+  "cedaky-market-2026-11-15.jpg": "cedaky-market-2026-11-15",
+  "natura-sunbar-sunset-sounds-halloween-2026-10-29.jpg":
+    "natura-sunbar-sunset-sounds-halloween-2026-10-29",
+  "tiki-bar-halloween-dr-jake-2026-10-31.jpg":
+    "tiki-bar-halloween-dr-jake-2026-10-31",
+  "cedaky-halloween-party-2026-10-31.jpg":
+    "cedaky-halloween-party-2026-10-31",
+  "twenty-disco-noche-de-brujas-2026-10-29.jpg":
+    "twenty-disco-noche-de-brujas-2026-10-29",
+  "chameleon-el-purgatorio-2026-10-31.jpg":
+    "chameleon-el-purgatorio-2026-10-31",
+  "la-lola-wicked-night-2026-10-31.jpg":
+    "la-lola-wicked-night-2026-10-31",
+  "drifter-last-sunset-halloween-2026-10-31.jpg":
+    "drifter-last-sunset-halloween-2026-10-31",
+  "los-primos-noche-de-terror-yosma-2026-10-31.jpg":
+    "los-primos-noche-de-terror-yosma-2026-10-31",
+  "vinoteca-miercoles-karaoke.jpg": "vinoteca-miercoles-karaoke",
   "kite-street-son-cubano-2026-10-25.jpg":
     "kite-street-son-cubano-2026-10-25",
   "jump-fit-rosa-beard-over-club-2026-10-31-v2.jpg":
@@ -606,8 +638,8 @@ const FILE_TO_EVENT_ID = {
     "sosua-food-market-dj-henry-2026-10-02",
   "sosua-food-market-oktoberfest-tropical-2026-10-17.jpg":
     "sosua-food-market-oktoberfest-tropical-2026-10-17",
-  "sosua-food-market-halloween-cine-2026-10-24.jpg":
-    "sosua-food-market-halloween-cine-2026-10-24",
+  "sosua-food-market-halloween-cine-2026-10-31.jpg":
+    "sosua-food-market-halloween-cine-2026-10-31",
   "sosua-food-market-daily-patio.jpg": "sosua-food-market-daily",
   "ocean-world-terrace-karaoke-wednesday.jpg":
     "ocean-world-terrace-karaoke-wednesday",
@@ -902,6 +934,7 @@ const FILE_TO_VENUE_SLUG = {
   "los-mangos-costambar.jpg": "los-mangos-costambar",
   "parque-municipal-villa-isabela.jpg": "parque-municipal-villa-isabela",
   "docean-bar-villa-isabela.jpg": "docean-bar-villa-isabela",
+  "los-primos-disco-bar-maimon-dj-booth.jpg": "los-primos-disco-bar-maimon",
 };
 
 if (!existsSync(sourceDir)) {

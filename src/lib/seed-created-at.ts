@@ -227,7 +227,7 @@ export const SEED_CREATED_AT: Readonly<Record<string, string>> = {
   "coconuts-halloween-costume-contest-2026-10-31": "2026-10-11T17:00:00.000Z",
   "petit-francois-canadian-thanksgiving-2026-10-12": "2026-10-12T12:00:00.000Z",
   "dj-ronald-voramar-2026-10-23": "2026-10-12T13:00:00.000Z",
-  "sosua-food-market-halloween-cine-2026-10-24": "2026-10-13T16:00:00.000Z",
+  "sosua-food-market-halloween-cine-2026-10-31": "2026-10-28T18:30:00.000Z",
   "sosua-food-market-oktoberfest-tropical-2026-10-17": "2026-10-13T15:00:00.000Z",
   "twenty-disco-party-mask-black-white-2026-10-17": "2026-10-13T17:00:00.000Z",
   "fenate-2026-sala-ivan-garcia": "2026-10-13T18:00:00.000Z",
@@ -345,6 +345,26 @@ export const SEED_CREATED_AT: Readonly<Record<string, string>> = {
   "twenty-disco-caballitos-mao-2026-11-01": "2026-10-27T00:30:00.000Z",
   "la-chabola-tuesday-jam": "2026-10-27T00:15:00.000Z",
   "spotland-laser-tag": "2026-10-27T00:45:00.000Z",
+  "meclao-white-party-yona-ramz-2026-10-30": "2026-10-28T16:00:00.000Z",
+  "meclao-blood-night-gaby-luna-2026-10-31": "2026-10-28T15:45:00.000Z",
+  "nueve-noche-despecho-tenebroso-2026-10-29": "2026-10-28T15:30:00.000Z",
+  "nueve-sabado-bailable-2026-10-31": "2026-10-28T15:15:00.000Z",
+  "twenty-disco-noche-de-brujas-2026-10-29": "2026-10-28T15:00:00.000Z",
+  "natura-sunbar-sunset-sounds-halloween-2026-10-29":
+    "2026-10-28T14:45:00.000Z",
+  "hard-rock-fiesta-tipica-deury-luciano-2026-10-29":
+    "2026-10-28T14:30:00.000Z",
+  "la-zarina-cup-seahorse-tennis-2026-10-24": "2026-10-28T14:15:00.000Z",
+  "chameleon-el-purgatorio-2026-10-31": "2026-10-28T14:00:00.000Z",
+  "la-lola-wicked-night-2026-10-31": "2026-10-28T13:45:00.000Z",
+  "tiki-bar-halloween-dr-jake-2026-10-31": "2026-10-28T13:30:00.000Z",
+  "cedaky-halloween-party-2026-10-31": "2026-10-28T13:15:00.000Z",
+  "cedaky-market-2026-11-15": "2026-10-28T13:00:00.000Z",
+  "willman-pena-aniversario-grand-prix-2026-11-27":
+    "2026-10-28T12:45:00.000Z",
+  "drifter-last-sunset-halloween-2026-10-31": "2026-10-28T16:30:00.000Z",
+  "los-primos-noche-de-terror-yosma-2026-10-31": "2026-10-28T17:00:00.000Z",
+  "vinoteca-miercoles-karaoke": "2026-10-28T18:00:00.000Z",
 };
 
 /** Fill missing `createdAt` from {@link SEED_CREATED_AT} (does not overwrite). */

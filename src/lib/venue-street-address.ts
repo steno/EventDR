@@ -134,6 +134,8 @@ export const VENUE_STREET_ADDRESS: Readonly<Record<string, string>> = {
   "el-patio-de-frida": "Calle Profesor Juan Bosch #30, frente al Paseo de Doña Blanca",
   "the-last-drink":
     "Próximo al Puente de la Guinea, al lado de Repuesto Amin Cid (antiguo Maggy Bar), Calle José del Carmen Ariza, Barrio La Rigola",
+  "los-primos-disco-bar-maimon":
+    "Calle Principal, Maimón (inland — not Carretera Navarrete–Puerto Plata)",
   "teleferico-puerto-plata": "C. del Teleférico",
   "templo-de-las-americas": "La Isabela / El Castillo, Luperón, Puerto Plata",
   "terramar-pickleball-club": "Cabarete / Sosúa, Puerto Plata",

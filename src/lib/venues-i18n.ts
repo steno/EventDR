@@ -671,8 +671,8 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
   },
   "meclao-rooftop": {
     description: {
-      es: "Rooftop en Av. Luis Ginebra — música en vivo, cócteles y vista de la ciudad. Cerrado los lunes; los fines de semana cierra más tarde. Cerrado por renovaciones hasta nuevo aviso — revisa @meclaorooftop antes de ir.",
-      fr: "Rooftop sur l'Av. Luis Ginebra — musique live, cocktails et vue ville. Fermé le lundi ; week-ends plus tardifs. Fermé pour rénovations jusqu’à nouvel ordre — vérifiez @meclaorooftop avant d’y aller.",
+      es: "Rooftop en Av. Luis Ginebra — música en vivo, cócteles y vista de la ciudad. Cerrado los lunes; los fines de semana cierra más tarde. Reserva 829-374-7028 / Instagram @meclaorooftop.",
+      fr: "Rooftop sur l'Av. Luis Ginebra — musique live, cocktails et vue ville. Fermé le lundi ; week-ends plus tardifs. Réservez 829-374-7028 / Instagram @meclaorooftop.",
     },
   },
   "kviar-costa-dorada": {
@@ -1173,6 +1173,12 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
     description: {
       es: "Bar de calle independiente / lounge estilo colmadón al lado de Repuesto Amin Cid (antiguo Maggy Bar), próximo al Puente de la Guinea en Calle José del Carmen Ariza, Barrio La Rigola — spot de barrio con dembow, cubetazos y Domingo de Pasarela los domingos. Sin horario fijo publicado; entre semana suele abrir tarde/noche hasta cerca de medianoche; fines de semana se calienta después de las 9:00 PM y a menudo hasta las 2:00–3:00 AM.",
       fr: "Bar de rue indépendant / lounge style colmadón à côté de Repuesto Amin Cid (ancien Maggy Bar), près du Puente de la Guinea sur Calle José del Carmen Ariza, Barrio La Rigola — spot de quartier avec dembow, cubetazos et Domingo de Pasarela le dimanche. Pas d’horaires fixes publiés ; en semaine ouverture typique fin d’après-midi / soir jusqu’environ minuit ; le week-end ça chauffe après 21 h et souvent jusqu’à 2 h–3 h.",
+    },
+  },
+  "los-primos-disco-bar-maimon": {
+    description: {
+      es: "Disco bar y lounge nocturno en Calle Principal de Maimón (pueblo municipal) — noches de DJ, tragos y pista local tierra adentro desde la Carretera Navarrete–Puerto Plata. No es Los Primos Fish Shop & Restaurant en la carretera (~1 km / 2–3 min en carro). Suele abrir todos los días desde las 4:00 PM; confirma cierre en Instagram @losprimosdiscobar_.",
+      fr: "Disco bar et lounge nocturne sur Calle Principal à Maimón (bourg municipal) — soirées DJ, boissons et piste locale plus à l’intérieur depuis la Carretera Navarrete–Puerto Plata. Ce n’est pas Los Primos Fish Shop & Restaurant sur la route (~1 km / 2–3 min en voiture). Ouvert en général tous les jours dès 16 h ; confirmez la fermeture sur Instagram @losprimosdiscobar_.",
     },
   },
 };

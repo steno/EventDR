@@ -1572,7 +1572,7 @@
   {
     "id": "meclao-rooftop-live-nights",
     "title": "Musique live au Mecla'o Rooftop",
-    "description": "Rooftop sur l'Av. Luis Ginebra avec musique live, cocktails et vue sur la ville. Mardi–jeudi et dimanche 18 h–2 h ; vendredi–samedi 18 h–4 h. Fermé le lundi. Pause rénovation jusqu’au jeu 23 oct 2026 (réouvre ven 24 oct) — confirmez @meclaorooftop. Budget typique DOP 500–1 000.",
+    "description": "Rooftop sur l'Av. Luis Ginebra avec musique live, cocktails et vue sur la ville. Mardi–jeudi et dimanche 18 h–2 h ; vendredi–samedi 18 h–4 h. Fermé le lundi. Confirmez les portes @meclaorooftop · réservez 829-374-7028. Budget typique DOP 500–1 000.",
     "date": "2026-01-01",
     "time": "6:00 PM – 2:00 AM",
     "location": "Puerto Plata",
@@ -3303,5 +3303,33 @@
     "instagram": "spotlandrd",
     "imageEmoji": "🔫",
     "ageHint": "family"
+  },
+  {
+    "id": "vinoteca-miercoles-karaoke",
+    "title": "Vinoteca — Miércoles de Karaoke",
+    "description": "Karaoké tous les mercredis à Vinoteca Wine House, Hotel Marien / Be Live Collection Marien, Calle Luperón, Costa Dorada — dès 18 h. Prix : dîner gratuit à l’Hôtel Marien Puerto Plata pour un chanteur gagnant. Soirée micro au wine bar à côté du casino de l’hôtel — pas le karaoké du mercredi du Hard Rock ni de la Terraza Ocean World. Confirmez les portes via WhatsApp +1 849-451-1197 · Instagram @vinotecamarienpp.",
+    "date": "2026-01-01",
+    "time": "6:00 PM",
+    "location": "Costa Dorada",
+    "venue": "Vinoteca Wine House",
+    "venueSlug": "vinoteca-wine-house",
+    "address": "Calle Luperón, Costa Dorada (Hotel Marien / Be Live Collection Marien)",
+    "lat": 19.7768222,
+    "lng": -70.6597699,
+    "category": "music",
+    "categories": [
+      "parties",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "recurrence": "weekly",
+    "recurrenceDay": 3,
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18494511197",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/vinotecamarienpp/",
+    "instagram": "vinotecamarienpp",
+    "imageEmoji": "🎤"
   }
 ]

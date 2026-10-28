@@ -612,7 +612,7 @@ describe("nightlife does not inherit Food & Drinks from amenities", () => {
     for (const id of [
       "victrola-lidom-2026-10-24",
       "victrola-sports-sunday-2026-10-25",
-      "sosua-food-market-halloween-cine-2026-10-24",
+      "sosua-food-market-halloween-cine-2026-10-31",
       "flip-flop-nfl-sunday",
     ] as const) {
       const event = getFallbackEventById(id, "en");

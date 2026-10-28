@@ -98,6 +98,38 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "ambar-lounge-bandoleras-2026-10-23.jpg",
   "disco-club-gogo-dancers-2026-10-29":
     "disco-club-gogo-dancers-2026-10-29.jpg",
+  "meclao-white-party-yona-ramz-2026-10-30":
+    "meclao-white-party-yona-ramz-2026-10-30.jpg",
+  "meclao-blood-night-gaby-luna-2026-10-31":
+    "meclao-blood-night-gaby-luna-2026-10-31.jpg",
+  "nueve-noche-despecho-tenebroso-2026-10-29":
+    "nueve-noche-despecho-tenebroso-2026-10-29.jpg",
+  "nueve-sabado-bailable-2026-10-31":
+    "nueve-sabado-bailable-2026-10-31.jpg",
+  "la-zarina-cup-seahorse-tennis-2026-10-24":
+    "la-zarina-cup-seahorse-tennis-2026-10-24.jpg",
+  "willman-pena-aniversario-grand-prix-2026-11-27":
+    "willman-pena-aniversario-grand-prix-2026-11-27.jpg",
+  "hard-rock-fiesta-tipica-deury-luciano-2026-10-29":
+    "hard-rock-fiesta-tipica-deury-luciano-2026-10-29.jpg",
+  "cedaky-market-2026-11-15": "cedaky-market-2026-11-15.jpg",
+  "natura-sunbar-sunset-sounds-halloween-2026-10-29":
+    "natura-sunbar-sunset-sounds-halloween-2026-10-29.jpg",
+  "tiki-bar-halloween-dr-jake-2026-10-31":
+    "tiki-bar-halloween-dr-jake-2026-10-31.jpg",
+  "cedaky-halloween-party-2026-10-31":
+    "cedaky-halloween-party-2026-10-31.jpg",
+  "twenty-disco-noche-de-brujas-2026-10-29":
+    "twenty-disco-noche-de-brujas-2026-10-29.jpg",
+  "chameleon-el-purgatorio-2026-10-31":
+    "chameleon-el-purgatorio-2026-10-31.jpg",
+  "la-lola-wicked-night-2026-10-31":
+    "la-lola-wicked-night-2026-10-31.jpg",
+  "drifter-last-sunset-halloween-2026-10-31":
+    "drifter-last-sunset-halloween-2026-10-31.jpg",
+  "los-primos-noche-de-terror-yosma-2026-10-31":
+    "los-primos-noche-de-terror-yosma-2026-10-31.jpg",
+  "vinoteca-miercoles-karaoke": "vinoteca-miercoles-karaoke.jpg",
   "tiki-bar-flowdance-2026-10-30": "tiki-bar-flowdance-2026-10-30.jpg",
   "ambar-lounge-bandoleras-2026-10-30":
     "ambar-lounge-bandoleras-2026-10-30.jpg",
@@ -329,8 +361,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "sosua-food-market-dj-henry-2026-10-02.jpg",
   "sosua-food-market-oktoberfest-tropical-2026-10-17":
     "sosua-food-market-oktoberfest-tropical-2026-10-17.jpg",
-  "sosua-food-market-halloween-cine-2026-10-24":
-    "sosua-food-market-halloween-cine-2026-10-24.jpg",
+  "sosua-food-market-halloween-cine-2026-10-31":
+    "sosua-food-market-halloween-cine-2026-10-31.jpg",
   "sosua-food-market-daily": "sosua-food-market-daily-patio.jpg",
   "ocean-world-terrace-karaoke-wednesday":
     "ocean-world-terrace-karaoke-wednesday.jpg",
@@ -940,7 +972,7 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "sosua-food-market-dj-one-d-2026-09-25": "object-top",
   "sosua-food-market-dj-henry-2026-10-02": "object-center",
   "sosua-food-market-oktoberfest-tropical-2026-10-17": "object-center",
-  "sosua-food-market-halloween-cine-2026-10-24": "object-center",
+  "sosua-food-market-halloween-cine-2026-10-31": "object-center",
   "sosua-food-market-daily": "object-center",
   "ocean-world-terrace-karaoke-wednesday": "object-center",
   "la-lola-dj-one-d-feriado-2026-09-24": "object-center",
@@ -1233,6 +1265,23 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "bar-39-jungle-juice-halloween-2026-10-30.jpg",
   "ambar-lounge-bandoleras-2026-10-23.jpg",
   "disco-club-gogo-dancers-2026-10-29.jpg",
+  "meclao-white-party-yona-ramz-2026-10-30.jpg",
+  "meclao-blood-night-gaby-luna-2026-10-31.jpg",
+  "nueve-noche-despecho-tenebroso-2026-10-29.jpg",
+  "nueve-sabado-bailable-2026-10-31.jpg",
+  "la-zarina-cup-seahorse-tennis-2026-10-24.jpg",
+  "willman-pena-aniversario-grand-prix-2026-11-27.jpg",
+  "hard-rock-fiesta-tipica-deury-luciano-2026-10-29.jpg",
+  "cedaky-market-2026-11-15.jpg",
+  "natura-sunbar-sunset-sounds-halloween-2026-10-29.jpg",
+  "tiki-bar-halloween-dr-jake-2026-10-31.jpg",
+  "cedaky-halloween-party-2026-10-31.jpg",
+  "twenty-disco-noche-de-brujas-2026-10-29.jpg",
+  "chameleon-el-purgatorio-2026-10-31.jpg",
+  "la-lola-wicked-night-2026-10-31.jpg",
+  "drifter-last-sunset-halloween-2026-10-31.jpg",
+  "los-primos-noche-de-terror-yosma-2026-10-31.jpg",
+  "vinoteca-miercoles-karaoke.jpg",
   "tiki-bar-flowdance-2026-10-30.jpg",
   "ambar-lounge-bandoleras-2026-10-30.jpg",
   "ambar-lounge-house-of-fear-2026-10-31.jpg",
@@ -1365,7 +1414,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "sosua-food-market-dj-one-d-2026-09-25.jpg",
   "sosua-food-market-dj-henry-2026-10-02.jpg",
   "sosua-food-market-oktoberfest-tropical-2026-10-17.jpg",
-  "sosua-food-market-halloween-cine-2026-10-24.jpg",
+  "sosua-food-market-halloween-cine-2026-10-31.jpg",
   "la-lola-dj-one-d-feriado-2026-09-24.jpg",
   "aura-halloween-party-2026-10-31-v2.jpg",
   "la-lola-noche-de-nenas-blanco-2026-09-25.jpg",

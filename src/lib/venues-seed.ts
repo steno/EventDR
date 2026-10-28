@@ -1244,11 +1244,12 @@ export const SEED_VENUES: Venue[] = [
     name: "Mecla'o Rooftop Lounge",
     city: "Puerto Plata",
     description:
-      "Rooftop lounge on Av. Luis Ginebra — live music, cocktails, and city views. Closed Mondays; weekends run later. Closed for renovations until further notice — check @meclaorooftop before you go.",
+      "Rooftop lounge on Av. Luis Ginebra — live music, cocktails, and city views. Closed Mondays; weekends run later. Reserve 829-374-7028 / Instagram @meclaorooftop.",
     lat: 19.788312,
     lng: -70.677453,
     emoji: "🎶",
     instagram: "meclaorooftop",
+    phone: "+18293747028",
   },
   {
     slug: "kviar-costa-dorada",
@@ -2187,6 +2188,19 @@ export const SEED_VENUES: Venue[] = [
     lng: -70.695012,
     emoji: "🍺",
   },
+  {
+    slug: "los-primos-disco-bar-maimon",
+    name: "Los Primos Disco Bar",
+    city: "Puerto Plata",
+    description:
+      "Nightlife disco bar and lounge on Calle Principal in Maimón (municipal town) — DJ nights, drinks, and a local dance crowd further inland from the Carretera Navarrete–Puerto Plata. Not Los Primos Fish Shop & Restaurant on the highway (~1 km / 2–3 min drive away). Typically open daily from 4:00 PM; confirm close on Instagram @losprimosdiscobar_.",
+    // Approx pin ~1 km inland of Los Primos Fish Shop (19.8229933,-70.7758029) on Calle Principal — refine when Maps lists the disco.
+    lat: 19.8145,
+    lng: -70.774,
+    emoji: "🪩",
+    instagram: "losprimosdiscobar_",
+    website: "https://www.instagram.com/losprimosdiscobar_/",
+  },
 ];
 
 /** Extra name fragments → seed slug (checked before fuzzy name includes). */
@@ -2467,6 +2481,11 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
   {
     pattern: /twenty\s*disco(\s*(&|and)?\s*lounge)?|twenty_disco_lounge/i,
     slug: "twenty-disco-lounge",
+  },
+  {
+    pattern:
+      /los\s*primos\s*disco(\s*bar)?|losprimosdiscobar_?|primos\s*disco\s*bar\s*maim[oó]n/i,
+    slug: "los-primos-disco-bar-maimon",
   },
   {
     pattern: /mecla['’]?o\s*rooftop|meclao\s*rooftop/i,
