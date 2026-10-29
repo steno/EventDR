@@ -47,6 +47,8 @@ const FILE_TO_EVENT_ID = {
     "cabarete-boxing-club-movie-night-2026-10-16",
   "cabarete-boxing-club-movie-night-2026-10-22.jpg":
     "cabarete-boxing-club-movie-night-2026-10-22",
+  "cabarete-boxing-club-movie-night-2026-10-29.jpg":
+    "cabarete-boxing-club-movie-night-2026-10-29",
   "disco-club-gogo-dancers-2026-10-22.jpg": "disco-club-gogo-dancers-2026-10-22",
   "natura-sunbar-sunset-sounds-em-zayd-2026-10-22.jpg":
     "natura-sunbar-sunset-sounds-em-zayd-2026-10-22",
@@ -104,6 +106,8 @@ const FILE_TO_EVENT_ID = {
   "isabela-food-fest-2026-12-18.jpg": "isabela-food-fest-2026-12-18",
   "isabela-food-fest-bulin-47-2026-12-20.jpg":
     "isabela-food-fest-bulin-47-2026-12-20",
+  "isabela-food-fest-dj-melcocha-2026-12-20.jpg":
+    "isabela-food-fest-dj-melcocha-2026-12-20",
   "isabela-food-fest-simpaticos-tipicos-2026-12-19.jpg":
     "isabela-food-fest-simpaticos-tipicos-2026-12-19",
   "el-patio-de-frida-friday-karaoke.jpg": "el-patio-de-frida-friday-karaoke",
@@ -139,6 +143,7 @@ const FILE_TO_EVENT_ID = {
     "ambar-lounge-bandoleras-2026-10-30",
   "ambar-lounge-house-of-fear-2026-10-31.jpg":
     "ambar-lounge-house-of-fear-2026-10-31",
+  "meclao-pre-reapertura-2026-10-29.jpg": "meclao-pre-reapertura-2026-10-29",
   "meclao-white-party-yona-ramz-2026-10-30.jpg":
     "meclao-white-party-yona-ramz-2026-10-30",
   "meclao-blood-night-gaby-luna-2026-10-31.jpg":
@@ -576,6 +581,11 @@ const FILE_TO_EVENT_ID = {
     "voyvoy-soft-reopening-sunday-2026-10-11",
   "voyvoy-dominican-night-flow-dance-2026-10-27.jpg":
     "voyvoy-dominican-night-flow-dance-2026-10-27",
+  "voyvoy-dominican-night-flow-dance-weekly.jpg":
+    "voyvoy-dominican-night-flow-dance-weekly",
+  "rebeca-duque-aura-2026-10-29.jpg": "rebeca-duque-aura-2026-10-29",
+  "tiki-bar-catamaran-party-2026-12-05.jpg":
+    "tiki-bar-catamaran-party-2026-12-05",
   "voyvoy-halloween-session-2026-10-31.jpg":
     "voyvoy-halloween-session-2026-10-31",
   "aura-beach-club-lunes-especiales.jpg": "aura-beach-club-lunes-especiales",
@@ -923,7 +933,7 @@ const FILE_TO_VENUE_SLUG = {
   "templo-de-las-americas.jpg": "templo-de-las-americas",
   "nueve-puerto-plata.jpg": "nueve-puerto-plata",
   "grand-prix-puerto-plata.jpg": "grand-prix-puerto-plata",
-  "the-hideout-puerto-plata.jpg": "the-hideout-puerto-plata",
+  "the-hideout-puerto-plata-v2.jpg": "the-hideout-puerto-plata",
   "cabarete-boxing-club-ring.jpg": "cabarete-boxing-club-ring",
   "chameleon-sport-bar-entrance.jpg": "chameleon-sport-bar-entrance",
   "tiki-bar-cabarete.jpg": "tiki-bar-cabarete",

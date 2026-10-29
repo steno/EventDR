@@ -2907,8 +2907,27 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     },
     attribution: "POP research · VOYVOY Dominican Night Flow Dance flyer",
     researchNotes:
-      "Editor flyer: Dominican Night At Voy Voy hosted by Flow Dance Tue Oct 27 7:00 PM; no cover printed.",
+      "Editor flyer: Dominican Night At Voy Voy hosted by Flow Dance Tue Oct 27 7:00 PM; no cover printed. Superseded as weekly by voyvoy-dominican-night-flow-dance-weekly (8 PM flyer).",
     updatedAt: "2026-10-05T23:00:00.000Z",
+  },
+  {
+    eventId: "voyvoy-dominican-night-flow-dance-weekly",
+    seriesKey: "voyvoy-cabarete:weekly:2",
+    body: "Every Tuesday 8 PM Flow Dance Dominican Night on VOYVOY’s bay — merengue/bachata social energy earlier than Saturday Session; confirm cover before you call it free, and don’t mix it with Serenade’s Monday Dominican buffet at Villa Taina.",
+    localized: {
+      es: "Todos los martes a las 8 PM Dominican Night de Flow Dance en la bahía de VOYVOY — energía social merengue/bachata más temprano que Saturday Session; confirma cover antes de decir que es gratis, y no lo mezcles con el buffet dominicano del lunes de Serenade en Villa Taina.",
+      fr: "Tous les mardis à 20 h Dominican Night Flow Dance sur la baie du VOYVOY — énergie sociale merengue/bachata plus tôt que Saturday Session ; confirmez le cover avant de dire que c’est gratuit, et ne confondez pas avec le buffet dominicain du lundi Serenade à Villa Taina.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover not on flyer — confirm @voyvoybar / +1 809-571-0805",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — confirma @voyvoybar / +1 809-571-0805",
+      fr: "Cover absent de l’affiche — confirmez @voyvoybar / +1 809-571-0805",
+    },
+    attribution: "POP research · VOYVOY Dominican Night Flow Dance weekly flyer",
+    researchNotes:
+      "Editor flyer update — EVERY TUESDAY 8:00 PM At VoyVoy hosted by Flow Dance; Cabarete Beach; replaces dated 27 Oct 7 PM one-off as the ongoing series.",
+    updatedAt: "2026-10-29T13:00:00.000Z",
   },
   {
     eventId: "voyvoy-halloween-session-2026-10-31",
@@ -5508,10 +5527,11 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "cabarete-boxing-club-open-sparring-friday",
-    body: "Friday 5:30–7:30 PM open sparring for pro and amateur North Coast fighters — food combos from RD$600 and a live DJ after the rounds. Not a kids class night; confirm ring access on @cabareteboxingclub.",
+    seriesKey: "cabarete-boxing-club:weekly:5",
+    body: "Friday 5:30–7:30 PM open sparring for pro and amateur North Coast fighters — food combos from RD$600 and a live DJ after the rounds. Cancelled 30 Oct and 6 Nov; weekly series resumes 13 Nov — confirm on @cabareteboxingclub.",
     localized: {
-      es: "Viernes 5:30–7:30 PM sparring abierto para amateurs y profesionales de la costa norte — combos desde RD$600 y DJ en vivo después de los rounds. No es la kids class; confirma acceso al ring en @cabareteboxingclub.",
-      fr: "Vendredi 17 h 30–19 h 30 open sparring pour amateurs et pros de la côte nord — combos dès RD$600 et DJ live après les rounds. Ce n’est pas le kids class ; confirmez l’accès au ring sur @cabareteboxingclub.",
+      es: "Viernes 5:30–7:30 PM sparring abierto para amateurs y profesionales de la costa norte — combos desde RD$600 y DJ en vivo después de los rounds. Cancelado 30 oct y 6 nov; la serie semanal retoma el 13 nov — confirma en @cabareteboxingclub.",
+      fr: "Vendredi 17 h 30–19 h 30 open sparring pour amateurs et pros de la côte nord — combos dès RD$600 et DJ live après les rounds. Annulé les 30 oct. et 6 nov. ; la série hebdo reprend le 13 nov. — confirmez sur @cabareteboxingclub.",
     },
     priceFeel: "moderate",
     priceNote: "Food specials RD$600–800 · cover TBA — @cabareteboxingclub",
@@ -5519,10 +5539,28 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       es: "Especiales de comida RD$600–800 · cover por confirmar — @cabareteboxingclub",
       fr: "Spéciaux nourriture RD$600–800 · cover à confirmer — @cabareteboxingclub",
     },
-    attribution: "POP research · @cabareteboxingclub Open Sparring flyer",
+    attribution: "POP research · @cabareteboxingclub Open Sparring flyer + cancel notice",
     researchNotes:
-      "Editor flyer — Fri 5:30–7:30 PM open sparring, pro & amateur North Coast, food 600/800 DOP, live DJ.",
-    updatedAt: "2026-10-15T15:00:00.000Z",
+      "Editor flyer — Fri 5:30–7:30 PM open sparring; cancel notice Oct 29 2026: this Friday cancelled; resume Friday after next → skip 2026-10-30 and 2026-11-06, series date bumped to 2026-11-13.",
+    updatedAt: "2026-10-29T17:30:00.000Z",
+  },
+  {
+    eventId: "cabarete-boxing-club-movie-night-2026-10-29",
+    body: "Thursday double feature at the boxing club — Hotel Transylvania 6 PM then Beetlejuice 8 PM with Khong Kwan plates and popcorn; gym-yard Halloween movie night, not POP Cinemas Playa Dorada.",
+    localized: {
+      es: "Doble función del jueves en el boxing club — Hotel Transylvania a las 6 PM y luego Beetlejuice a las 8 PM con platos Khong Kwan y popcorn; cine de Halloween en el patio del gym, no POP Cinemas Playa Dorada.",
+      fr: "Double programme du jeudi au boxing club — Hotel Transylvania à 18 h puis Beetlejuice à 20 h avec plats Khong Kwan et popcorn ; cinéma Halloween dans la cour du gym, pas POP Cinemas Playa Dorada.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA · Thai menu + popcorn — @cabareteboxingclub",
+    priceNoteLocalized: {
+      es: "Cover por confirmar · menú thai + popcorn — @cabareteboxingclub",
+      fr: "Cover à confirmer · menu thaï + popcorn — @cabareteboxingclub",
+    },
+    attribution: "POP research · @cabareteboxingclub Movie Night Hotel Transylvania / Beetlejuice flyer",
+    researchNotes:
+      "Editor flyer — Movie Night Hotel Transylvania 6:00 PM + Beetlejuice 8:00 PM; full Khong Kwan menu + popcorn; dated tonight Thu 29 Oct 2026.",
+    updatedAt: "2026-10-29T17:30:00.000Z",
   },
   {
     eventId: "cabarete-boxing-club-movie-night-2026-10-16",
@@ -6398,6 +6436,43 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: "2026-10-22T02:15:00.000Z",
   },
   {
+    eventId: "rebeca-duque-aura-2026-10-29",
+    body: "Thursday 8 PM Rebeca Duque on Calle Principal sand — same Aura live-music window as Allison Sade’s recent Thursday; confirm cover before you treat it like a free open mic, and don’t mix it with Aura Disco / Halloween later in the week.",
+    localized: {
+      es: "Jueves 8 PM Rebeca Duque en la arena de Calle Principal — la misma ventana de música en vivo de Aura que el jueves reciente de Allison Sade; confirma cover antes de tratarlo como open mic gratis, y no lo mezcles con Aura Disco / Halloween más tarde en la semana.",
+      fr: "Jeudi 20 h Rebeca Duque sur le sable de Calle Principal — même créneau live Aura que le jeudi récent d’Allison Sade ; confirmez le cover avant de le traiter comme open mic gratuit, et ne confondez pas avec Aura Disco / Halloween plus tard dans la semaine.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "Cover not on flyer — confirm @auracabarete / WhatsApp +1 829-787-0140",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — confirma @auracabarete / WhatsApp +1 829-787-0140",
+      fr: "Cover absent de l’affiche — confirmez @auracabarete / WhatsApp +1 829-787-0140",
+    },
+    attribution: "POP research · Aura × Rebeca Duque flyer",
+    researchNotes:
+      "Editor flyer: Rebeca Duque LIVE MUSIC at Aura; 8:00 PM | JUEVES 29 → Thu 29 Oct 2026. Distinct from allison-sade-aura-2026-10-22.",
+    updatedAt: "2026-10-29T16:00:00.000Z",
+  },
+  {
+    eventId: "tiki-bar-catamaran-party-2026-12-05",
+    body: "Saturday Dec 5 sunset catamaran from Tiki with open bar + Sushi Nikkei, Nattmusic and Liza Oelenikk 4–10 PM, then after-party back at the thatch bar 11 PM–3 AM — buy entradas at Tiki, and don’t mix it with Premios Ola Dorada the same Saturday.",
+    localized: {
+      es: "Sábado 5 dic catamarán al atardecer desde Tiki con open bar + Sushi Nikkei, Nattmusic y Liza Oelenikk 4–10 PM, luego after-party en el bar de paja 11 PM–3 AM — compra entradas en Tiki, y no lo mezcles con Premios Ola Dorada el mismo sábado.",
+      fr: "Samedi 5 déc. catamaran au coucher du soleil depuis le Tiki avec open bar + Sushi Nikkei, Nattmusic et Liza Oelenikk 16 h–22 h, puis after-party au bar chaume 23 h–3 h — achetez les billets au Tiki, et ne confondez pas avec Premios Ola Dorada le même samedi.",
+    },
+    priceFeel: "varies",
+    priceNote: "Tickets at Tiki Bar Cabarete — confirm @tikibarcabarete",
+    priceNoteLocalized: {
+      es: "Entradas en Tiki Bar Cabarete — confirma @tikibarcabarete",
+      fr: "Billets au Tiki Bar Cabarete — confirmez @tikibarcabarete",
+    },
+    attribution: "POP research · @tikibarcabarete Catamaran Party flyer + caption",
+    researchNotes:
+      "Editor flyer + IG caption @tikibarcabarete — Sábado 5 de diciembre, 4–10 PM catamaran open bar + sushi by @sushinikkeird; Nattmusic · Liza Oelenikk; after-party Tiki 11 PM–3 AM; tickets at Tiki Bar.",
+    updatedAt: "2026-10-29T15:00:00.000Z",
+  },
+  {
     eventId: "parada-el-choco-big-d-aperitivo-2026-10-27",
     body: "Tuesday 5–7 PM free-finger-food aperitivo with Big D on the Sosúa–Cabarete corridor — same House of Music window as BandItalia nights, not the RD$1,650 Thanksgiving dinner in November; RSVP WhatsApp +1 809-804-2510 if you want a table.",
     localized: {
@@ -6834,10 +6909,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "isabela-food-fest-2026-12-18",
-    body: "Three-day pueblo fest at Parque Municipal Villa Isabela (18–20 Dec) — food, DJs, and live acts on the glorieta plaza; Los Simpáticos Típicos (and DJ Flacome) Saturday, Bulin 47 closes Sunday (own listings) — buy tickets on todotickets.do / Plaza Lama, and don’t confuse it with D'Ocean’s Oct 31 Halloween night in the same town.",
+    body: "Three-day pueblo fest at Parque Municipal Villa Isabela (18–20 Dec) — food, DJs, and live acts on the glorieta plaza; Los Simpáticos Típicos (and DJ Flacome) Saturday, DJ Melcocha plus Bulin 47 gran cierre Sunday (own listings) — buy tickets on todotickets.do / Plaza Lama, and don’t confuse it with D'Ocean’s Oct 31 Halloween night in the same town.",
     localized: {
-      es: "Fest del pueblo de tres días en el Parque Municipal Villa Isabela (18–20 dic) — comida, DJs y actos en vivo en la plaza de la glorieta; Los Simpáticos Típicos (y DJ Flacome) el sábado, Bulin 47 cierra el domingo (fichas aparte) — compra boletas en todotickets.do / Plaza Lama, y no lo confundas con el Halloween del 31 oct en D'Ocean en el mismo pueblo.",
-      fr: "Fest du pueblo de trois jours au Parque Municipal Villa Isabela (18–20 déc.) — food, DJs et acts live sur la place de la gloriette ; Los Simpáticos Típicos (et DJ Flacome) le samedi, Bulin 47 ferme le dimanche (fiches séparées) — achetez les billets sur todotickets.do / Plaza Lama, et ne confondez pas avec l’Halloween du 31 oct. au D'Ocean dans la même ville.",
+      es: "Fest del pueblo de tres días en el Parque Municipal Villa Isabela (18–20 dic) — comida, DJs y actos en vivo en la plaza de la glorieta; Los Simpáticos Típicos (y DJ Flacome) el sábado, DJ Melcocha más Bulin 47 gran cierre el domingo (fichas aparte) — compra boletas en todotickets.do / Plaza Lama, y no lo confundas con el Halloween del 31 oct en D'Ocean en el mismo pueblo.",
+      fr: "Fest du pueblo de trois jours au Parque Municipal Villa Isabela (18–20 déc.) — food, DJs et acts live sur la place de la gloriette ; Los Simpáticos Típicos (et DJ Flacome) le samedi, DJ Melcocha plus Bulin 47 gran cierre le dimanche (fiches séparées) — achetez les billets sur todotickets.do / Plaza Lama, et ne confondez pas avec l’Halloween du 31 oct. au D'Ocean dans la même ville.",
     },
     priceFeel: "varies",
     priceNote: "Tickets todotickets.do / Plaza Lama · info +1 829-336-6802",
@@ -6846,10 +6921,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       fr: "Billets todotickets.do / Plaza Lama · infos +1 829-336-6802",
     },
     attribution:
-      "POP research · @isabelafoodfest official poster + Simpáticos Típicos + DJ Flacome + Bulin 47 gran cierre",
+      "POP research · @isabelafoodfest official poster + Simpáticos Típicos + DJ Flacome + DJ Melcocha + Bulin 47 gran cierre",
     researchNotes:
-      "Editor assets — El Festival del Pueblo official poster; Los Simpáticos Típicos Sat 19 flyer (separate seed); DJ Flacome Sat 19; Bulin 47 Dom 20 gran cierre (separate seed); more artists TBA; IG caption Dec 18–20; park place shot for venue; phone 829-336-6802.",
-    updatedAt: "2026-10-25T22:00:00.000Z",
+      "Editor assets — El Festival del Pueblo official poster; Los Simpáticos Típicos Sat 19 flyer (separate seed); DJ Flacome Sat 19; DJ Melcocha Dom 20 (separate seed); Bulin 47 Dom 20 gran cierre (separate seed); more artists TBA; IG caption Dec 18–20; park place shot for venue; phone 829-336-6802.",
+    updatedAt: "2026-10-29T14:00:00.000Z",
   },
   {
     eventId: "isabela-food-fest-simpaticos-tipicos-2026-12-19",
@@ -6871,10 +6946,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "isabela-food-fest-bulin-47-2026-12-20",
-    body: "Sunday gran cierre of Isabela Food Fest with Bulin 47 on the Parque Municipal stage — festival weekend ticket, not Ground Zero’s Nov 6 disco bill; more closing acts may land as TRIVI confirms them.",
+    body: "Sunday gran cierre of Isabela Food Fest with Bulin 47 on the Parque Municipal stage — festival weekend ticket, not Ground Zero’s Nov 6 disco bill; DJ Melcocha is confirmed the same Sunday (own listing).",
     localized: {
-      es: "Gran cierre del domingo de Isabela Food Fest con Bulin 47 en el escenario del Parque Municipal — boleta del fin de semana del festival, no el cartel disco del 6 nov en Ground Zero; pueden sumarse más actos de cierre según confirme TRIVI.",
-      fr: "Gran cierre du dimanche d’Isabela Food Fest avec Bulin 47 sur la scène du Parque Municipal — billet week-end festival, pas l’affiche disco du 6 nov au Ground Zero ; d’autres acts de clôture peuvent s’ajouter selon TRIVI.",
+      es: "Gran cierre del domingo de Isabela Food Fest con Bulin 47 en el escenario del Parque Municipal — boleta del fin de semana del festival, no el cartel disco del 6 nov en Ground Zero; DJ Melcocha está confirmado el mismo domingo (ficha aparte).",
+      fr: "Gran cierre du dimanche d’Isabela Food Fest avec Bulin 47 sur la scène du Parque Municipal — billet week-end festival, pas l’affiche disco du 6 nov au Ground Zero ; DJ Melcocha est confirmé le même dimanche (fiche séparée).",
     },
     priceFeel: "varies",
     priceNote: "Tickets todotickets.do / Plaza Lama / C28 · info +1 829-336-6802",
@@ -6884,8 +6959,26 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     },
     attribution: "POP research · @isabelafoodfest Bulin 47 gran cierre flyer",
     researchNotes:
-      "Editor flyer — ARTISTA CONFIRMADO GRAN CIERRE BULIN 47, Dom 20 Dic, Parque Villa Isabela; related to isabela-food-fest-2026-12-18; not groundzero-bulin47-2026-11-06; phone 829-336-6802; todotickets.do / Plaza Lama / C28.",
-    updatedAt: "2026-10-24T03:15:00.000Z",
+      "Editor flyer — ARTISTA CONFIRMADO GRAN CIERRE BULIN 47, Dom 20 Dic, Parque Villa Isabela; related to isabela-food-fest-2026-12-18; not groundzero-bulin47-2026-11-06; DJ Melcocha also Dom 20 (separate seed); phone 829-336-6802; todotickets.do / Plaza Lama / C28.",
+    updatedAt: "2026-10-29T14:00:00.000Z",
+  },
+  {
+    eventId: "isabela-food-fest-dj-melcocha-2026-12-20",
+    body: "Sunday DJ Melcocha at Isabela Food Fest on the Parque Municipal stage — same Dec 20 park night as Bulin 47’s gran cierre, festival weekend ticket via todotickets.do / Plaza Lama; pin Villa Isabela, not a Cabarete club set.",
+    localized: {
+      es: "DJ Melcocha del domingo en Isabela Food Fest en el escenario del Parque Municipal — la misma noche del 20 dic en el parque que el gran cierre de Bulin 47, boleta del fin de semana vía todotickets.do / Plaza Lama; clava Villa Isabela, no un set de club en Cabarete.",
+      fr: "DJ Melcocha du dimanche à Isabela Food Fest sur la scène du Parque Municipal — même soirée du 20 déc. au parc que le gran cierre Bulin 47, billet week-end via todotickets.do / Plaza Lama ; épinglez Villa Isabela, pas un set club à Cabarete.",
+    },
+    priceFeel: "varies",
+    priceNote: "Tickets todotickets.do / Plaza Lama · info +1 829-336-6802",
+    priceNoteLocalized: {
+      es: "Boletas todotickets.do / Plaza Lama · info +1 829-336-6802",
+      fr: "Billets todotickets.do / Plaza Lama · infos +1 829-336-6802",
+    },
+    attribution: "POP research · @isabelafoodfest DJ Melcocha flyer",
+    researchNotes:
+      "Editor flyer — DJ'S CONFIRMADOS DJ MELCOCHA, Dom 20 Dic, Parque Villa Isabela; related to isabela-food-fest-2026-12-18; same Sunday as bulin-47 gran cierre; phone 829-336-6802; todotickets.do / Plaza Lama.",
+    updatedAt: "2026-10-29T14:00:00.000Z",
   },
   {
     eventId: "la-chabola-friday-karaoke",
@@ -7237,11 +7330,29 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: "2026-10-27T00:45:00.000Z",
   },
   {
-    eventId: "meclao-white-party-yona-ramz-2026-10-30",
-    body: "First billed night back on Luis Ginebra after renovations — White Party with Yona Ramz and a blanco dress code; reserve 829-374-7028 before you treat the rooftop as a walk-in, and don’t confuse it with Ambar Bandoleras the same Friday at No. 45.",
+    eventId: "meclao-pre-reapertura-2026-10-29",
+    body: "Thursday soft reopen on Luis Ginebra after renovations — welcome drinks and picadera on the refreshed Brugal-lounge rooftop; confirm doors with @meclaorooftop / 829-374-7028, and don’t treat it as Friday’s White Party or Saturday Blood Night.",
     localized: {
-      es: "Primera noche con cartel de vuelta en Luis Ginebra tras renovaciones — White Party con Yona Ramz y dress code blanco; reserva 829-374-7028 antes de tratar el rooftop como walk-in, y no lo confundas con Bandoleras de Ambar el mismo viernes en el n.º 45.",
-      fr: "Première soirée affichée de retour sur Luis Ginebra après rénovations — White Party avec Yona Ramz et dress code blanc ; réservez 829-374-7028 avant de traiter le rooftop comme walk-in, et ne confondez pas avec Bandoleras d’Ambar le même vendredi au n° 45.",
+      es: "Soft reopen del jueves en Luis Ginebra tras renovaciones — tragos de bienvenida y picadera en el rooftop renovado estilo lounge Brugal; confirma puertas con @meclaorooftop / 829-374-7028, y no lo trates como la White Party del viernes ni Blood Night del sábado.",
+      fr: "Soft reopen du jeudi sur Luis Ginebra après rénovations — verres de bienvenue et picadera sur le rooftop rénové style lounge Brugal ; confirmez les portes avec @meclaorooftop / 829-374-7028, et ne le traitez pas comme la White Party du vendredi ni Blood Night du samedi.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — reserve 829-374-7028 · @meclaorooftop",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — reserva 829-374-7028 · @meclaorooftop",
+      fr: "Cover à confirmer — réservez 829-374-7028 · @meclaorooftop",
+    },
+    attribution: "POP research · @meclaorooftop PRE-REAPERTURA flyer + caption",
+    researchNotes:
+      "Editor IG @meclaorooftop + PRE-REAPERTURA TONIGHT! story/flyer — Jueves 29 Oct; tragos de bienvenida + picadera; Meclao Rooftop; renovated space. Moves editorial reopen from Fri 30 to Thu 29.",
+    updatedAt: "2026-10-29T17:00:00.000Z",
+  },
+  {
+    eventId: "meclao-white-party-yona-ramz-2026-10-30",
+    body: "Friday White Party with Yona Ramz and a blanco dress code — first weekend bill after Thursday’s soft reopen; reserve 829-374-7028 before you treat the rooftop as a walk-in, and don’t confuse it with Ambar Bandoleras the same Friday at No. 45.",
+    localized: {
+      es: "White Party del viernes con Yona Ramz y dress code blanco — primer cartel de fin de semana tras el soft reopen del jueves; reserva 829-374-7028 antes de tratar el rooftop como walk-in, y no lo confundas con Bandoleras de Ambar el mismo viernes en el n.º 45.",
+      fr: "White Party du vendredi avec Yona Ramz et dress code blanc — première affiche week-end après le soft reopen du jeudi ; réservez 829-374-7028 avant de traiter le rooftop comme walk-in, et ne confondez pas avec Bandoleras d’Ambar le même vendredi au n° 45.",
     },
     priceFeel: "varies",
     priceNote: "Cover TBA — reserve 829-374-7028 · @meclaorooftop",
@@ -7251,15 +7362,15 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     },
     attribution: "POP research · @meclaorooftop REAPERTURA White Party flyer",
     researchNotes:
-      "Editor flyer REAPERTURA / WHITE PARTY / YONA RAMZ / VIE 30 OCT / BLANCO; Luis Ginebra 49; 829-374-7028; reopen after editorial closure until 27 Oct.",
-    updatedAt: "2026-10-28T16:00:00.000Z",
+      "Editor flyer REAPERTURA / WHITE PARTY / YONA RAMZ / VIE 30 OCT / BLANCO; Luis Ginebra 49; 829-374-7028; after Thu 29 pre-reopening.",
+    updatedAt: "2026-10-29T17:00:00.000Z",
   },
   {
     eventId: "meclao-blood-night-gaby-luna-2026-10-31",
-    body: "Halloween Saturday Blood Night with Gaby Luna on the reopened Mecla'o rooftop — costume energy the night after White Party; reserve 829-374-7028, and don’t mix it with Ambar House of Fear the same Saturday at No. 45.",
+    body: "Halloween Saturday Blood Night with Gaby Luna on the reopened Mecla'o rooftop — costume energy after Thursday’s soft reopen and Friday White Party; reserve 829-374-7028, and don’t mix it with Ambar House of Fear the same Saturday at No. 45.",
     localized: {
-      es: "Blood Night de Halloween el sábado con Gaby Luna en el rooftop reabierto de Mecla'o — energía de disfraz la noche después de White Party; reserva 829-374-7028, y no lo mezcles con House of Fear de Ambar el mismo sábado en el n.º 45.",
-      fr: "Blood Night Halloween le samedi avec Gaby Luna sur le rooftop rouvert de Mecla'o — énergie costume la nuit après White Party ; réservez 829-374-7028, et ne le mélangez pas avec House of Fear d’Ambar le même samedi au n° 45.",
+      es: "Blood Night de Halloween el sábado con Gaby Luna en el rooftop reabierto de Mecla'o — energía de disfraz tras el soft reopen del jueves y la White Party del viernes; reserva 829-374-7028, y no lo mezcles con House of Fear de Ambar el mismo sábado en el n.º 45.",
+      fr: "Blood Night Halloween le samedi avec Gaby Luna sur le rooftop rouvert de Mecla'o — énergie costume après le soft reopen du jeudi et la White Party du vendredi ; réservez 829-374-7028, et ne le mélangez pas avec House of Fear d’Ambar le même samedi au n° 45.",
     },
     priceFeel: "varies",
     priceNote: "Cover TBA — reserve 829-374-7028 · @meclaorooftop",
@@ -7270,7 +7381,7 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     attribution: "POP research · @meclaorooftop Blood Night Gaby Luna flyer + caption",
     researchNotes:
       "Editor flyer BLOOD NIGHT / GABY LUNA / SAB 31 OCT; IG caption la noche más sangrienta; vestir disfraz; 829-374-7028.",
-    updatedAt: "2026-10-28T15:45:00.000Z",
+    updatedAt: "2026-10-29T17:00:00.000Z",
   },
   {
     eventId: "nueve-noche-despecho-tenebroso-2026-10-29",

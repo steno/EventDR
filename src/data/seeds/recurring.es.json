@@ -2855,8 +2855,8 @@
   {
     "id": "cabarete-boxing-club-open-sparring-friday",
     "title": "Open Sparring Night — Cabarete Boxing Club",
-    "description": "Open Sparring Night cada viernes en Cabarete Boxing Club, 5:30 PM–7:30 PM — amateurs y profesionales de la costa norte bienvenidos en el ring. Especiales de comida en el flyer: RD$600 (2 spring rolls + 3 alitas + papas) o RD$800 (1 Pad Kra Pao + 2 spring rolls), más DJ en vivo. Confirma cover por Instagram @cabareteboxingclub.",
-    "date": "2026-01-01",
+    "description": "Open Sparring Night cada viernes en Cabarete Boxing Club, 5:30 PM–7:30 PM — amateurs y profesionales de la costa norte bienvenidos en el ring. Especiales de comida en el flyer: RD$600 (2 spring rolls + 3 alitas + papas) o RD$800 (1 Pad Kra Pao + 2 spring rolls), más DJ en vivo. Cancelado el viernes 30 de octubre y el viernes 6 de noviembre 2026 — el sparring semanal retoma el viernes 13 de noviembre 2026. Confirma por Instagram @cabareteboxingclub.",
+    "date": "2026-11-13",
     "time": "5:30 PM – 7:30 PM",
     "location": "Cabarete",
     "venue": "Cabarete Boxing Club",
@@ -3331,5 +3331,34 @@
     "sourceUrl": "https://www.instagram.com/vinotecamarienpp/",
     "instagram": "vinotecamarienpp",
     "imageEmoji": "🎤"
+  },
+  {
+    "id": "voyvoy-dominican-night-flow-dance-weekly",
+    "title": "VOYVOY — Noche dominicana Flow Dance (martes)",
+    "description": "Todos los martes desde las 8:00 PM en VOYVOY Cabarete — Dominican Night presentado por Flow Dance en Cabarete Beach. Energía social merengue/bachata frente a la bahía; confirma cover por Instagram @voyvoybar o +1 809-571-0805. Noche semanal en la bahía — no es el buffet dominicano del lunes de Serenade en Villa Taina, ni Saturday Session de VOYVOY.",
+    "date": "2026-01-01",
+    "time": "8:00 PM",
+    "location": "Cabarete",
+    "venue": "VOYVOY Cabarete",
+    "venueSlug": "voyvoy-cabarete",
+    "lat": 19.7502161,
+    "lng": -70.4066784,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "recurrence": "weekly",
+    "recurrenceDay": 2,
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18095710805",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/voyvoybar/",
+    "lineup": [
+      "Flow Dance"
+    ],
+    "imageEmoji": "🇩🇴"
   }
 ]

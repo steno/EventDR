@@ -220,7 +220,8 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "trolley-city-tours": "trolley-city-tours-party-bus.jpg",
   "hotel-villa-taina": "hotel-villa-taina-pool.jpg",
   "terramar-pickleball-club": "terramar-pickleball-club.jpg",
-  "the-hideout-puerto-plata": "the-hideout-puerto-plata.jpg",
+  // Filename bump — industrial bar interior (neon sofa lounge stays as prior file).
+  "the-hideout-puerto-plata": "the-hideout-puerto-plata-v2.jpg",
   "villa-cocomar": "villa-cocomar-pool.jpg",
   "galerias-padel-club": "galerias-padel-club-courts.jpg",
   "cabarete-boxing-club": "cabarete-boxing-club-ring.jpg",

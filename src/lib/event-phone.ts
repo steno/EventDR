@@ -123,6 +123,7 @@ const EVENT_PHONE_BY_ID: Record<string, string> = {
   "parada-choco-banditalia-2026-10-06": "+18098042510",
   "groundzero-bulin47-2026-11-06": "+18494651313",
   "isabela-food-fest-bulin-47-2026-12-20": "+18293366802",
+  "isabela-food-fest-dj-melcocha-2026-12-20": "+18293366802",
   "isabela-food-fest-2026-12-18": "+18293366802",
   "isabela-food-fest-simpaticos-tipicos-2026-12-19": "+18293366802",
   "el-patio-de-frida-friday-karaoke": "+18494595052",

@@ -14,6 +14,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "cabarete-boxing-club-movie-night-2026-10-16.jpg",
   "cabarete-boxing-club-movie-night-2026-10-22":
     "cabarete-boxing-club-movie-night-2026-10-22.jpg",
+  "cabarete-boxing-club-movie-night-2026-10-29":
+    "cabarete-boxing-club-movie-night-2026-10-29.jpg",
   "disco-club-gogo-dancers-2026-10-22": "disco-club-gogo-dancers-2026-10-22.jpg",
   "natura-sunbar-sunset-sounds-em-zayd-2026-10-22":
     "natura-sunbar-sunset-sounds-em-zayd-2026-10-22.jpg",
@@ -32,6 +34,13 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "victrola-lidom-2026-10-24": "victrola-lidom-2026-10-24.jpg",
   "victrola-sports-sunday-2026-10-25": "victrola-sports-sunday-2026-10-25.jpg",
   "allison-sade-aura-2026-10-22": "aura-allison-sade-live-2026-10-22.jpg",
+  "rebeca-duque-aura-2026-10-29": "rebeca-duque-aura-2026-10-29.jpg",
+  "tiki-bar-catamaran-party-2026-12-05":
+    "tiki-bar-catamaran-party-2026-12-05.jpg",
+  "isabela-food-fest-dj-melcocha-2026-12-20":
+    "isabela-food-fest-dj-melcocha-2026-12-20.jpg",
+  "voyvoy-dominican-night-flow-dance-weekly":
+    "voyvoy-dominican-night-flow-dance-weekly.jpg",
   "parada-el-choco-big-d-aperitivo-2026-10-27":
     "parada-el-choco-big-d-aperitivo-2026-10-27.jpg",
   "hard-rock-deeway-live-mix-2026-10-23":
@@ -98,6 +107,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "ambar-lounge-bandoleras-2026-10-23.jpg",
   "disco-club-gogo-dancers-2026-10-29":
     "disco-club-gogo-dancers-2026-10-29.jpg",
+  "meclao-pre-reapertura-2026-10-29":
+    "meclao-pre-reapertura-2026-10-29.jpg",
   "meclao-white-party-yona-ramz-2026-10-30":
     "meclao-white-party-yona-ramz-2026-10-30.jpg",
   "meclao-blood-night-gaby-luna-2026-10-31":
@@ -822,6 +833,10 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "festival-presidente-2026-10-03": "object-top",
   // Portrait live-music flyers — face sits upper-third; center crop chops the head.
   "allison-sade-aura-2026-10-22": "object-top",
+  "rebeca-duque-aura-2026-10-29": "object-top",
+  "isabela-food-fest-dj-melcocha-2026-12-20": "object-top",
+  "tiki-bar-catamaran-party-2026-12-05": "object-center",
+  "voyvoy-dominican-night-flow-dance-weekly": "object-center",
   "parada-el-choco-big-d-aperitivo-2026-10-27": "object-center",
   "hard-rock-deeway-live-mix-2026-10-23": "object-top",
   "tiki-bar-henry-jimenez-2026-10-23": "object-center",
@@ -836,6 +851,7 @@ const EVENT_HERO_OBJECT_POSITION: Record<string, string> = {
   "cabarete-boxing-club-open-sparring-friday": "object-center",
   "cabarete-boxing-club-movie-night-2026-10-16": "object-center",
   "cabarete-boxing-club-movie-night-2026-10-22": "object-center",
+  "cabarete-boxing-club-movie-night-2026-10-29": "object-center",
   "disco-club-gogo-dancers-2026-10-22": "object-center",
   "disco-club-gogo-dancers-2026-10-29": "object-center",
   "tiki-bar-flowdance-2026-10-30": "object-center",
@@ -1215,6 +1231,7 @@ export function getEventHeroObjectPosition(eventId: string): string {
  */
 const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "cabarete-boxing-club-movie-night-2026-10-22.jpg",
+  "cabarete-boxing-club-movie-night-2026-10-29.jpg",
   "disco-club-gogo-dancers-2026-10-22.jpg",
   "natura-sunbar-sunset-sounds-em-zayd-2026-10-22.jpg",
   "twenty-disco-friday-dj-soky-2026-10-23.jpg",
@@ -1265,6 +1282,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "bar-39-jungle-juice-halloween-2026-10-30.jpg",
   "ambar-lounge-bandoleras-2026-10-23.jpg",
   "disco-club-gogo-dancers-2026-10-29.jpg",
+  "meclao-pre-reapertura-2026-10-29.jpg",
   "meclao-white-party-yona-ramz-2026-10-30.jpg",
   "meclao-blood-night-gaby-luna-2026-10-31.jpg",
   "nueve-noche-despecho-tenebroso-2026-10-29.jpg",
@@ -1282,6 +1300,10 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "drifter-last-sunset-halloween-2026-10-31.jpg",
   "los-primos-noche-de-terror-yosma-2026-10-31.jpg",
   "vinoteca-miercoles-karaoke.jpg",
+  "voyvoy-dominican-night-flow-dance-weekly.jpg",
+  "rebeca-duque-aura-2026-10-29.jpg",
+  "tiki-bar-catamaran-party-2026-12-05.jpg",
+  "isabela-food-fest-dj-melcocha-2026-12-20.jpg",
   "tiki-bar-flowdance-2026-10-30.jpg",
   "ambar-lounge-bandoleras-2026-10-30.jpg",
   "ambar-lounge-house-of-fear-2026-10-31.jpg",

@@ -8177,7 +8177,7 @@
   {
     "id": "isabela-food-fest-2026-12-18",
     "title": "Villa Isabela — Isabela Food Fest",
-    "description": "Isabela Food Fest (El Festival del Pueblo) at Parque Municipal Villa Isabela — Friday 18 through Sunday 20 December 2026. Live artists, DJs, and gastronomy in the municipal plaza. Confirmed so far: Los Simpáticos Típicos and DJ Flacome Saturday 19 December; Bulin 47 gran cierre Sunday 20 December (separate listings). More artists as confirmed. Tickets at todotickets.do and Plaza Lama; info & reservations +1 829-336-6802 · Instagram @isabelafoodfest. West of Puerto Plata city — not D'Ocean Bar Halloween on 31 Oct.",
+    "description": "Isabela Food Fest (El Festival del Pueblo) at Parque Municipal Villa Isabela — Friday 18 through Sunday 20 December 2026. Live artists, DJs, and gastronomy in the municipal plaza. Confirmed so far: Los Simpáticos Típicos and DJ Flacome Saturday 19 December; DJ Melcocha and Bulin 47 gran cierre Sunday 20 December (separate listings). More artists as confirmed. Tickets at todotickets.do and Plaza Lama; info & reservations +1 829-336-6802 · Instagram @isabelafoodfest. West of Puerto Plata city — not D'Ocean Bar Halloween on 31 Oct.",
     "date": "2026-12-18",
     "endDate": "2026-12-20",
     "location": "Villa Isabela",
@@ -8202,6 +8202,7 @@
     "lineup": [
       "Los Simpáticos Típicos — Saturday 19 December",
       "DJ Flacome — Saturday 19 December",
+      "DJ Melcocha — Sunday 20 December",
       "Bulin 47 — Sunday 20 December gran cierre",
       "More artists TBA · DJs · gastronomy"
     ],
@@ -8583,8 +8584,8 @@
   },
   {
     "id": "meclao-white-party-yona-ramz-2026-10-30",
-    "title": "Mecla'o Reopening — White Party · Yona Ramz",
-    "description": "REAPERTURA White Party at Mecla'o Rooftop Lounge, Av. Luis Ginebra No. 49, Puerto Plata — Friday 30 October 2026 with Yona Ramz. Dress code blanco (white). First billed night after renovations. Reservations 829-374-7028 · Instagram @meclaorooftop. Rooftop reopen — not Blood Night with Gaby Luna the next evening, and not Ambar Bandoleras the same Friday at No. 45.",
+    "title": "Mecla'o White Party — Yona Ramz",
+    "description": "White Party at Mecla'o Rooftop Lounge, Av. Luis Ginebra No. 49, Puerto Plata — Friday 30 October 2026 with Yona Ramz. Dress code blanco (white). First weekend bill after Thursday’s pre-reopening. Reservations 829-374-7028 · Instagram @meclaorooftop. Not Blood Night with Gaby Luna the next evening, and not Ambar Bandoleras the same Friday at No. 45.",
     "date": "2026-10-30",
     "address": "Av. Luis Ginebra No. 49, Puerto Plata",
     "lat": 19.788312,
@@ -8611,7 +8612,7 @@
   {
     "id": "meclao-blood-night-gaby-luna-2026-10-31",
     "title": "Mecla'o Blood Night — Gaby Luna",
-    "description": "Blood Night — la noche más sangrienta del año at Mecla'o Rooftop Lounge, Av. Luis Ginebra No. 49, Puerto Plata — Saturday 31 October 2026 with Gaby Luna live. Costume encouraged. Reservations 829-374-7028 · Instagram @meclaorooftop. Halloween Saturday after Friday’s White Party reopen — not Ambar House of Fear the same night at No. 45.",
+    "description": "Blood Night — la noche más sangrienta del año at Mecla'o Rooftop Lounge, Av. Luis Ginebra No. 49, Puerto Plata — Saturday 31 October 2026 with Gaby Luna live. Costume encouraged. Reservations 829-374-7028 · Instagram @meclaorooftop. Halloween Saturday after Thursday’s pre-reopening and Friday’s White Party — not Ambar House of Fear the same night at No. 45.",
     "date": "2026-10-31",
     "address": "Av. Luis Ginebra No. 49, Puerto Plata",
     "lat": 19.788312,
@@ -9027,5 +9028,150 @@
     "imageEmoji": "🎃",
     "title": "Los Primos Disco Bar — Noche de Terror · DJ Yosma",
     "description": "Noche de Terror with DJ Yosma at Los Primos Disco Bar, Calle Principal, Maimón — Saturday 31 October 2026. Halloween disco night inland in Maimón town — not Los Primos Fish Shop & Restaurant on Carretera Navarrete–Puerto Plata (~1 km away), and not Mecla'o Blood Night or Twenty Paradise In Hell the same Saturday in Puerto Plata / Playa Dorada. Confirm doors and cover via Instagram @losprimosdiscobar_ / @djyosma."
+  },
+  {
+    "id": "rebeca-duque-aura-2026-10-29",
+    "title": "Rebeca Duque Live at Aura — Thu 29 Oct",
+    "description": "Rebeca Duque live music at Aura Beach Club, Calle Principal, Cabarete — Thursday 29 October 2026 at 8:00 PM. Named Thursday beach-club set — not Allison Sade’s 22 Oct Aura night and not Aura Disco / Halloween bills later the same week. Confirm cover and tables via Instagram @auracabarete or WhatsApp +1 829-787-0140.",
+    "date": "2026-10-29",
+    "time": "8:00 PM",
+    "location": "Cabarete",
+    "venue": "Aura Beach Club Cabarete",
+    "venueSlug": "aura-beach-club-cabarete",
+    "address": "Calle Principal, Cabarete 57000",
+    "lat": 19.7500769,
+    "lng": -70.4070417,
+    "category": "concert",
+    "categories": [
+      "music",
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18297870140",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/auracabarete/",
+    "lineup": [
+      "Rebeca Duque"
+    ],
+    "imageEmoji": "🎤"
+  },
+  {
+    "id": "tiki-bar-catamaran-party-2026-12-05",
+    "title": "Tiki Bar Cabarete — Catamaran Party",
+    "description": "Catamaran Party presented by Tiki Bar Cabarete — Saturday 5 December 2026, 4:00–10:00 PM on the water with open bar and sushi bar by Sushi Nikkei (@sushinikkeird); lineup Nattmusic and Liza Oelenikk. After-party continues at Tiki Bar Cabarete 11:00 PM–3:00 AM. Tickets on sale at Tiki Bar Cabarete · Instagram @tikibarcabarete. Sunset boat party out of Cabarete — not Premios Ola Dorada the same Saturday, and not a beach-club sand set.",
+    "date": "2026-12-05",
+    "time": "4:00 PM – 10:00 PM",
+    "location": "Cabarete",
+    "venue": "Cabarete Tiki Bar",
+    "venueSlug": "tiki-bar-cabarete",
+    "address": "Central Cabarete, near Casino #1",
+    "lat": 19.750057,
+    "lng": -70.407041,
+    "category": "parties",
+    "categories": [
+      "music",
+      "adventure"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "instagram": "tikibarcabarete",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/tikibarcabarete/",
+    "lineup": [
+      "Nattmusic",
+      "Liza Oelenikk",
+      "Open bar",
+      "Sushi Nikkei"
+    ],
+    "imageEmoji": "⛵"
+  },
+  {
+    "id": "isabela-food-fest-dj-melcocha-2026-12-20",
+    "title": "Isabela Food Fest — DJ Melcocha",
+    "description": "DJ Melcocha (DJ confirmado) at Isabela Food Fest, Parque Municipal Villa Isabela — Sunday 20 December 2026. Sunday of the three-day festival (18–20 Dec); same park night as Bulin 47’s gran cierre — see the main Isabela Food Fest listing for the full weekend. Tickets at todotickets.do and Plaza Lama; info & reservations +1 829-336-6802 · Instagram @isabelafoodfest. Festival DJ bill in Villa Isabela — not the Saturday Simpáticos Típicos night.",
+    "date": "2026-12-20",
+    "location": "Villa Isabela",
+    "venue": "Parque Municipal Villa Isabela",
+    "venueSlug": "parque-municipal-villa-isabela",
+    "address": "Parque Municipal, Villa Isabela, Puerto Plata",
+    "lat": 19.813027,
+    "lng": -71.055725,
+    "category": "music",
+    "categories": [
+      "festivals",
+      "parties"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18293366802",
+    "ticketUrl": "https://todotickets.do",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/isabelafoodfest/",
+    "instagram": "isabelafoodfest",
+    "lineup": [
+      "DJ Melcocha"
+    ],
+    "imageEmoji": "🎧"
+  },
+  {
+    "id": "meclao-pre-reapertura-2026-10-29",
+    "title": "Mecla'o Pre-Reopening — Thu 29 Oct",
+    "description": "Pre-reopening (PRE-REAPERTURA) at Mecla'o Rooftop Lounge, Av. Luis Ginebra No. 49, Puerto Plata — Thursday 29 October 2026. Soft reopen after renovations with welcome drinks and picadera for guests; renovated space, same rooftop essence. Confirm doors via Instagram @meclaorooftop or reservations 829-374-7028. Soft reopen night — not Friday’s White Party with Yona Ramz, and not Blood Night Saturday.",
+    "date": "2026-10-29",
+    "location": "Puerto Plata",
+    "venue": "Mecla'o Rooftop Lounge",
+    "venueSlug": "meclao-rooftop",
+    "address": "Av. Luis Ginebra No. 49, Puerto Plata 57000",
+    "lat": 19.788312,
+    "lng": -70.677453,
+    "category": "parties",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18293747028",
+    "instagram": "meclaorooftop",
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/meclaorooftop/",
+    "lineup": [
+      "Welcome drinks",
+      "Picadera for guests"
+    ],
+    "imageEmoji": "🥂"
+  },
+  {
+    "id": "cabarete-boxing-club-movie-night-2026-10-29",
+    "title": "Cabarete Boxing Club Movie Night — Hotel Transylvania & Beetlejuice",
+    "description": "Movie Night at Cabarete Boxing Club — Thursday 29 October 2026. Double feature: Hotel Transylvania at 6:00 PM, then Beetlejuice at 8:00 PM. Full Khong Kwan Thai menu plus popcorn. Gym-yard Halloween movie night — not POP Cinemas Playa Dorada and not Aura Cinema. Confirm via Instagram @cabareteboxingclub.",
+    "date": "2026-10-29",
+    "time": "6:00 PM – 8:00 PM",
+    "location": "Cabarete",
+    "venue": "Cabarete Boxing Club",
+    "venueSlug": "cabarete-boxing-club",
+    "address": "Cabarete, Puerto Plata",
+    "lat": 19.7494875,
+    "lng": -70.413956,
+    "category": "culture",
+    "categories": [
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "instagram",
+    "sourceUrl": "https://www.instagram.com/cabareteboxingclub/",
+    "lineup": [
+      "Hotel Transylvania — 6:00 PM",
+      "Beetlejuice — 8:00 PM"
+    ],
+    "imageEmoji": "🎬",
+    "ageHint": "all-ages"
   }
 ]

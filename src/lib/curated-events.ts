@@ -134,6 +134,17 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     venueSlug: "aura-beach-club-cabarete",
     sourceUrl: "https://www.instagram.com/auracabarete/",
   },
+  "rebeca-duque-aura-2026-10-29": {
+    callForPricing: true,
+    phone: "+18297870140",
+    venueSlug: "aura-beach-club-cabarete",
+    sourceUrl: "https://www.instagram.com/auracabarete/",
+  },
+  "tiki-bar-catamaran-party-2026-12-05": {
+    callForPricing: true,
+    venueSlug: "tiki-bar-cabarete",
+    sourceUrl: "https://www.instagram.com/tikibarcabarete/",
+  },
   "francesca-tiki-bar-cabarete-2026-11-06": {
     callForPricing: true,
     venueSlug: "tiki-bar-cabarete",
@@ -976,6 +987,18 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     ticketUrl: "https://todotickets.do",
     venueSlug: "parque-municipal-villa-isabela",
   },
+  "isabela-food-fest-dj-melcocha-2026-12-20": {
+    callForPricing: true,
+    phone: "+18293366802",
+    ticketUrl: "https://todotickets.do",
+    venueSlug: "parque-municipal-villa-isabela",
+  },
+  "voyvoy-dominican-night-flow-dance-weekly": {
+    callForPricing: true,
+    phone: "+18095710805",
+    venueSlug: "voyvoy-cabarete",
+    sourceUrl: "https://www.instagram.com/voyvoybar/",
+  },
   "camara-taller-educacion-financiera-2026-10-27": {
     callForPricing: true,
     phone: "+18095862390",
@@ -1132,6 +1155,11 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     isFree: true,
     venueSlug: "cabarete-boxing-club",
   },
+  "cabarete-boxing-club-movie-night-2026-10-29": {
+    callForPricing: true,
+    venueSlug: "cabarete-boxing-club",
+    sourceUrl: "https://www.instagram.com/cabareteboxingclub/",
+  },
   "twenty-disco-friday-dj-soky-2026-10-23": {
     isFree: true,
     venueSlug: "twenty-disco-lounge",
@@ -1185,6 +1213,12 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
   "cedaky-mall-fiesta-disfraces-2026-10-24": {
     isFree: true,
     venueSlug: "cedaky-mall",
+  },
+  "meclao-pre-reapertura-2026-10-29": {
+    callForPricing: true,
+    phone: "+18293747028",
+    venueSlug: "meclao-rooftop",
+    sourceUrl: "https://www.instagram.com/meclaorooftop/",
   },
   "meclao-a-oscura-yona-ramz-2026-10-17": {
     callForPricing: true,
