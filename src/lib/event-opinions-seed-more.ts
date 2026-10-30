@@ -6655,10 +6655,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "proyecto-x-el-calabozo-2026-10-31",
-    body: "Secret-location Halloween house party from Proyecto X — RD$1,500 (4-for-3) with a full overnight game schedule; join Los silenciosos POP on WhatsApp or DM @proyecto_x_pop before you treat the Puerto Plata pin as a walk-up address.",
+    body: "Secret-location Halloween house party from Proyecto X — RD$1,500 (4-for-3) with a full overnight game schedule; join Los silenciosos POP on WhatsApp or DM @proyecto_x_pop for the address (no map pin).",
     localized: {
-      es: "Fiesta Halloween de ubicación secreta de Proyecto X — RD$1,500 (4 pagan 3) con cronograma de juegos toda la noche; únete a Los silenciosos POP en WhatsApp o DM @proyecto_x_pop antes de tratar el pin de Puerto Plata como dirección walk-up.",
-      fr: "Soirée Halloween lieu secret de Proyecto X — RD$1,500 (4 pour 3) avec programme de jeux toute la nuit ; rejoignez Los silenciosos POP sur WhatsApp ou DM @proyecto_x_pop avant de traiter l’épingle Puerto Plata comme une adresse walk-in.",
+      es: "Fiesta Halloween de ubicación secreta de Proyecto X — RD$1,500 (4 pagan 3) con cronograma de juegos toda la noche; únete a Los silenciosos POP en WhatsApp o DM @proyecto_x_pop para la dirección (no hay pin walk-up).",
+      fr: "Soirée Halloween lieu secret de Proyecto X — RD$1,500 (4 pour 3) avec programme de jeux toute la nuit ; rejoignez Los silenciosos POP sur WhatsApp ou DM @proyecto_x_pop pour l’adresse (pas d’épingle walk-in).",
     },
     priceFeel: "moderate",
     priceNote: "RD$1,500 · group of 4 pay for 3 · WhatsApp +1 809-614-7745",
@@ -6668,8 +6668,8 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     },
     attribution: "POP research · Proyecto X El Calabozo flyer + WhatsApp invite",
     researchNotes:
-      "Editor flyers — Sábado 31 Oct El Calabozo; ubicación secreta Puerto Plata; RD$1,500; coro de 4 solo pagan 3; +1 809-614-7745 / DM @proyecto_x_pop; cronograma 8 PM–5 AM; WhatsApp group Los silenciosos POP invite https://chat.whatsapp.com/JWibgYONhzF0JwtfIOyZWx. No venueSlug — secret pin.",
-    updatedAt: "2026-10-21T23:30:00.000Z",
+      "Editor flyers — Sábado 31 Oct El Calabozo; ubicación secreta Puerto Plata; RD$1,500; coro de 4 solo pagan 3; +1 809-614-7745 / DM @proyecto_x_pop; cronograma 8 PM–5 AM; WhatsApp group Los silenciosos POP invite https://chat.whatsapp.com/JWibgYONhzF0JwtfIOyZWx. No venueSlug / no map pin — secret location.",
+    updatedAt: "2026-10-30T21:50:00.000Z",
   },
   {
     eventId: "mirando-pa-otro-lao-8-puerto-plata-2026-11-17",
@@ -7511,10 +7511,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "la-lola-wicked-night-2026-10-31",
-    body: "Wicked Night on the Malecón with dress-to-sin energy, live DJ, and themed games — RSVP 849-517-5705; beach-club patio Halloween, not a Cabarete sand set.",
+    body: "Wicked Night on the Malecón with DJ Tanque, costume prizes, and themed games — RSVP 849-517-5705; beach-club patio Halloween, not The Last Drink’s private party by the Guinea bridge the same Saturday.",
     localized: {
-      es: "Wicked Night en el Malecón con energía dress-to-sin, DJ en vivo y juegos temáticos — RSVP 849-517-5705; Halloween de patio beach club, no un sand set de Cabarete.",
-      fr: "Wicked Night sur le Malecón avec énergie dress-to-sin, DJ live et jeux thématiques — RSVP 849-517-5705 ; Halloween patio beach club, pas un sand set à Cabarete.",
+      es: "Wicked Night en el Malecón con DJ Tanque, premios de disfraz y juegos temáticos — RSVP 849-517-5705; Halloween de patio beach club, no la private party de The Last Drink junto al Puente de la Guinea el mismo sábado.",
+      fr: "Wicked Night sur le Malecón avec DJ Tanque, prix costumes et jeux thématiques — RSVP 849-517-5705 ; Halloween patio beach club, pas la private party de The Last Drink près du Puente de la Guinea le même samedi.",
     },
     priceFeel: "varies",
     priceNote: "Cover TBA — RSVP +1 849-517-5705 · @lalolabeachclub",
@@ -7524,8 +7524,63 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     },
     attribution: "POP research · @lalolabeachclub Wicked Night flyer",
     researchNotes:
-      "Editor flyer HALLOWEEN AT lalola beach / WICKED Night / SAB 31 Oct / DRESS TO SIN; DJ EN VIVO; RSVP 849-517-5705.",
-    updatedAt: "2026-10-28T13:45:00.000Z",
+      "Editor flyer refresh — HALLOWEEN AT lalola beach / WICKED Night / DJ TANQUE / SAB 31 Oct / PREMIOS PARA LOS DISFRAZADOS; DJ EN VIVO · JUEGOS SORPRESAS · ANIMACIÓN TEMÁTICA; RSVP 849-517-5705.",
+    updatedAt: "2026-10-30T15:00:00.000Z",
+  },
+  {
+    eventId: "puente-la-guinea-daily",
+    seriesKey: "puente-la-guinea:daily",
+    body: "Free 1879 brick-arch walk-in over Los Mameyes — daylight photo stop on the old Camino Real near Separación / José del Carmen Ariza; not a Malecón cruise-letter shot.",
+    localized: {
+      es: "Arco de ladrillo de 1879 sobre Los Mameyes, acceso libre — parada foto de día en el antiguo Camino Real cerca de Separación / José del Carmen Ariza; no es selfie de letras del malecón.",
+      fr: "Arche de briques de 1879 sur Los Mameyes, accès libre — stop photo de jour sur l’ancien Camino Real près de Separación / José del Carmen Ariza ; pas un selfie des lettres du malecón.",
+    },
+    priceFeel: "free",
+    priceNote: "Free open walk-in — no ticket",
+    priceNoteLocalized: {
+      es: "Acceso libre — sin boleta",
+      fr: "Accès libre — pas de billet",
+    },
+    attribution: "POP research · @centrohistoricopop + editor place photos",
+    researchNotes:
+      "Editor photos + centrohistoricopop history — Puente La Guinea / Los Mameyes; 1879 / restored 1979; open walk-in daily landmark.",
+    updatedAt: "2026-10-30T16:00:00.000Z",
+  },
+  {
+    eventId: "cabarete-stand-up-vol-3-2026-11-21",
+    body: "Paid Villa Taina comedy with Juan Carlos Pichardo headlining — RD$1,200 via cabaretestandup.com; Vol. 3 on 21 Nov, not the Oct Vol. 2 lineup or a free beach bar set.",
+    localized: {
+      es: "Comedia de pago en Villa Taina con Juan Carlos Pichardo de headliner — RD$1,200 en cabaretestandup.com; Vol. 3 el 21 nov, no el lineup del Vol. 2 de oct ni un set gratis de bar de playa.",
+      fr: "Comédie payante à Villa Taina avec Juan Carlos Pichardo en headliner — RD$1,200 via cabaretestandup.com ; Vol. 3 le 21 nov., pas le lineup du Vol. 2 d’oct. ni un set gratuit de bar de plage.",
+    },
+    priceFeel: "moderate",
+    priceNote: "RD$1,200 · cabaretestandup.com — @cabaretestandup",
+    priceNoteLocalized: {
+      es: "RD$1,200 · cabaretestandup.com — @cabaretestandup",
+      fr: "RD$1,200 · cabaretestandup.com — @cabaretestandup",
+    },
+    attribution: "POP research · @cabaretestandup Vol. 3 flyer",
+    researchNotes:
+      "Editor flyer + IG — Sábado 21 Nov 7PM Hotel Villa Taina; Juan Carlos Pichardo; opener David Melaza; host Laura Nanita; RD$1,200; cabaretestandup.com.",
+    updatedAt: "2026-10-30T15:30:00.000Z",
+  },
+  {
+    eventId: "alejandro-pena-rancho-catalina-2026-11-01",
+    body: "Sunday 2:30 PM no-cover live set with Alejandro Peña at Rancho La Catalina — countryside ranch afternoon, not a ticketed concert; call +1 809-781-3737 if you want a table.",
+    localized: {
+      es: "Domingo 2:30 PM sin cover con Alejandro Peña en Rancho La Catalina — tarde de rancho, no un concierto con boleta; llama +1 809-781-3737 si quieres mesa.",
+      fr: "Dimanche 14 h 30 sans cover avec Alejandro Peña à Rancho La Catalina — après-midi ranch, pas un concert billet ; appelez +1 809-781-3737 pour une table.",
+    },
+    priceFeel: "budget",
+    priceNote: "No cover — food/drinks · @rancholacatalina",
+    priceNoteLocalized: {
+      es: "Sin cover — comida/tragos · @rancholacatalina",
+      fr: "Sans cover — nourriture/boissons · @rancholacatalina",
+    },
+    attribution: "POP research · @rancholacatalina Alejandro Peña flyer",
+    researchNotes:
+      "Editor flyer — NOV. 01; Alejandro Peña; 2:30PM | NO COVER; Rancho La Catalina.",
+    updatedAt: "2026-10-30T15:00:00.000Z",
   },
   {
     eventId: "tiki-bar-halloween-dr-jake-2026-10-31",
@@ -7585,10 +7640,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "dj-monarka-halloween-noche-striper-2026-10-31",
-    body: "Invite-only secret-location Halloween with DJ Monarka + El Therian, free entry/drinks, and a striper bill — DM @di_monarka or @malona_rc before you treat the Puerto Plata pin as a walk-up; not Proyecto X El Calabozo the same Saturday.",
+    body: "Invite-only secret-location Halloween with DJ Monarka + El Therian, free entry/drinks, and a striper bill — DM @di_monarka or @malona_rc for the address (no map pin); not Proyecto X El Calabozo the same Saturday.",
     localized: {
-      es: "Halloween de ubicación secreta solo por invitación con DJ Monarka + El Therian, entrada/bebidas gratis y noche de striper — DM @di_monarka o @malona_rc antes de tratar el pin de Puerto Plata como walk-up; no es Proyecto X El Calabozo el mismo sábado.",
-      fr: "Halloween lieu secret sur invitation avec DJ Monarka + El Therian, entrée/boissons gratuites et soirée striper — DM @di_monarka ou @malona_rc avant de traiter l’épingle Puerto Plata comme walk-in ; pas Proyecto X El Calabozo le même samedi.",
+      es: "Halloween de ubicación secreta solo por invitación con DJ Monarka + El Therian, entrada/bebidas gratis y noche de striper — DM @di_monarka o @malona_rc para la dirección (no hay pin); no es Proyecto X El Calabozo el mismo sábado.",
+      fr: "Halloween lieu secret sur invitation avec DJ Monarka + El Therian, entrée/boissons gratuites et soirée striper — DM @di_monarka ou @malona_rc pour l’adresse (pas d’épingle) ; pas Proyecto X El Calabozo le même samedi.",
     },
     priceFeel: "budget",
     priceNote: "Free entry + drinks · invite only — DM @di_monarka",
@@ -7599,7 +7654,7 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     attribution:
       "POP research · @di_monarka Halloween Noche de Striper flyer",
     researchNotes:
-      "Editor flyers — Sábado 31 Oct; Noche de Striper / 70 Horas Sin Dormir; DJ Monarka + El Therian; entrada gratis; bebidas incluidas; tatuajes gratis @suzu_tattoo21; premios US$100/US$50; ubicación secreta solo invitados; Patrocina La Malona @malona_rc; stripper @goldyshow3127; ageHint 18-plus. No venueSlug — secret pin like proyecto-x-el-calabozo-2026-10-31.",
+      "Editor flyers — Sábado 31 Oct; Noche de Striper / 70 Horas Sin Dormir; DJ Monarka + El Therian; entrada gratis; bebidas incluidas; tatuajes gratis @suzu_tattoo21; premios US$100/US$50; ubicación secreta solo invitados; Patrocina La Malona @malona_rc; stripper @goldyshow3127; ageHint 18-plus. No venueSlug / no map pin — secret location like proyecto-x-el-calabozo-2026-10-31.",
     updatedAt: "2026-10-30T01:00:00.000Z",
   },
   {

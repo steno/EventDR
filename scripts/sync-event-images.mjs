@@ -60,6 +60,14 @@ const FILE_TO_EVENT_ID = {
     "proyecto-x-el-calabozo-2026-10-31",
   "dj-monarka-halloween-noche-striper-2026-10-31.jpg":
     "dj-monarka-halloween-noche-striper-2026-10-31",
+  "puente-la-guinea-daily-v2.jpg": "puente-la-guinea-daily",
+  "puente-la-guinea-historic-v2.jpg": "puente-la-guinea-historic",
+  "cabarete-stand-up-vol-3-2026-11-21.jpg":
+    "cabarete-stand-up-vol-3-2026-11-21",
+  "la-lola-wicked-night-2026-10-31-v2.jpg":
+    "la-lola-wicked-night-2026-10-31",
+  "alejandro-pena-rancho-catalina-2026-11-01.jpg":
+    "alejandro-pena-rancho-catalina-2026-11-01",
   "twenty-disco-angel-demons-2026-10-24.jpg":
     "twenty-disco-angel-demons-2026-10-24",
   "twenty-disco-angel-demons-2026-10-24-v2.jpg":
@@ -891,6 +899,7 @@ const FILE_TO_VENUE_SLUG = {
   // Filename bump — POP aerial of Sosúa Bay (editor-provided; carousel badge cropped).
   "playa-sosua-aerial-bay.jpg": "playa-sosua",
   "calle-sombrillas-umbrella-street-v2.jpg": "calle-sombrillas",
+  "puente-la-guinea-v2.jpg": "puente-la-guinea",
   "kite-street-pop-chichiguas.jpg": "kite-street-pop",
   "long-beach-puerto-plata.jpg": "long-beach-puerto-plata",
   "estadio-leonel-placido.jpg": "estadio-leonel-placido",

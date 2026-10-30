@@ -130,6 +130,28 @@ export function filterMapEvents(
 }
 
 /**
+ * When “See the area” deep-links a venue, pick the tightest when-filter that
+ * still shows that venue’s upcoming pins. Default map chrome is “today”; without
+ * this, tomorrow’s Halloween (etc.) opens an empty venue-only sheet.
+ */
+export function mapWhenForVenueDeepLink(
+  events: Event[],
+  venueSlug: string,
+  now: Date = new Date(),
+): MapTimeFilter {
+  const slug = venueSlug.trim();
+  if (!slug) return "today";
+  const atVenue = events.filter((event) => event.venueSlug === slug);
+  if (atVenue.length === 0) return "today";
+  if (filterMapEvents(atVenue, "today", "all", now).length > 0) return "today";
+  if (filterMapEvents(atVenue, "weekend", "all", now).length > 0) {
+    return "weekend";
+  }
+  if (filterMapEvents(atVenue, "all", "all", now).length > 0) return "all";
+  return "today";
+}
+
+/**
  * One pin per venue (or bare coordinate); stacks multiple events at that pin.
  * Distinct `venueSlug`s stay separate even when GPS rounds to the same spot —
  * {@link withVisualPinStacks} fans those markers so tips stay tappable.

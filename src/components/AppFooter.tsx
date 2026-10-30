@@ -29,7 +29,7 @@ export function AppFooter({ locale, dict }: AppFooterProps) {
   const onMap = pathname === `/${locale}/map`;
 
   const padForBottomNav = pathname === `/${locale}`;
-  // Map keeps a compact strip so Install app stays reachable under the canvas.
+  // Map: compact Install strip on phones only — full footer fights the desktop canvas.
   const compactOnMobile = onMap || compactFooterOnMobile(pathname, locale);
   const hideForPrint =
     pathname === `/${locale}/for-partners` ||
@@ -47,6 +47,7 @@ export function AppFooter({ locale, dict }: AppFooterProps) {
           ? "pb-[calc(3.75rem+env(safe-area-inset-bottom))] lg:pb-8"
           : "pb-6",
         hideForPrint ? "print:hidden" : "",
+        onMap ? "lg:hidden" : "",
       ]
         .filter(Boolean)
         .join(" ")}

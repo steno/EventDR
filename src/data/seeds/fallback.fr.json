@@ -303,8 +303,8 @@
     "venue": "Blue JackTar Playa Dorada",
     "venueSlug": "blue-jacktar-playa-dorada",
     "address": "Centro de Convenciones, Playa Dorada",
-    "lat": 19.7703,
-    "lng": -70.6494,
+    "lat": 19.771843,
+    "lng": -70.650585,
     "category": "concert",
     "categories": [
       "music"
@@ -1041,8 +1041,8 @@
     "venue": "Cigar Town Pop",
     "venueSlug": "cigar-town-pop",
     "address": "Avenida Luis Ginebra No. 56, Puerto Plata",
-    "lat": 19.7915,
-    "lng": -70.6805,
+    "lat": 19.788819,
+    "lng": -70.677613,
     "category": "performances",
     "categories": [
       "music"
@@ -1066,8 +1066,8 @@
     "venue": "Cigar Town Pop",
     "venueSlug": "cigar-town-pop",
     "address": "Avenida Luis Ginebra No. 56, Puerto Plata",
-    "lat": 19.7915,
-    "lng": -70.6805,
+    "lat": 19.788819,
+    "lng": -70.677613,
     "category": "performances",
     "categories": [
       "music"
@@ -1091,8 +1091,8 @@
     "venue": "Cigar Town Pop",
     "venueSlug": "cigar-town-pop",
     "address": "Avenida Luis Ginebra No. 56, Puerto Plata",
-    "lat": 19.7915,
-    "lng": -70.6805,
+    "lat": 19.788819,
+    "lng": -70.677613,
     "category": "performances",
     "categories": [
       "music"
@@ -1809,8 +1809,8 @@
     "venue": "Centro Nova Salud y Bienestar",
     "venueSlug": "nova-salud-bienestar",
     "address": "Calle Margarita Mears #6, Puerto Plata 57000",
-    "lat": 19.7965,
-    "lng": -70.6948,
+    "lat": 19.7981708,
+    "lng": -70.6902925,
     "category": "health-wellness",
     "categories": [
       "culture"
@@ -1838,8 +1838,8 @@
     "venue": "Cámara de Comercio Puerto Plata",
     "venueSlug": "camara-comercio-puerto-plata",
     "address": "Calle Beller No. 17, Salón de Eventos Fernando Cueto, Puerto Plata 57000",
-    "lat": 19.7975,
-    "lng": -70.6932,
+    "lat": 19.798672,
+    "lng": -70.694481,
     "category": "business",
     "categories": [
       "culture"
@@ -1867,8 +1867,8 @@
     "venue": "Luna Lounge LCB",
     "venueSlug": "luna-lounge-lcb",
     "address": "Av. Luis Ginebra #42 (near Restaurante Odisea), Puerto Plata 57000",
-    "lat": 19.792,
-    "lng": -70.6815,
+    "lat": 19.785062,
+    "lng": -70.673639,
     "category": "parties",
     "categories": [
       "music",
@@ -1954,8 +1954,8 @@
     "venue": "Ambar Lounge POP",
     "venueSlug": "ambar-lounge-pop",
     "address": "Av. Luis Ginebra 45-a, Puerto Plata 57000",
-    "lat": 19.7918,
-    "lng": -70.681,
+    "lat": 19.7894021,
+    "lng": -70.678834,
     "category": "parties",
     "categories": [
       "music",
@@ -1981,8 +1981,8 @@
     "venue": "Ambar Lounge POP",
     "venueSlug": "ambar-lounge-pop",
     "address": "Av. Luis Ginebra 45-a, Puerto Plata 57000",
-    "lat": 19.7918,
-    "lng": -70.681,
+    "lat": 19.7894021,
+    "lng": -70.678834,
     "category": "parties",
     "categories": [
       "music",
@@ -2008,8 +2008,8 @@
     "venue": "Ambar Lounge POP",
     "venueSlug": "ambar-lounge-pop",
     "address": "Av. Luis Ginebra 45-a, Puerto Plata 57000",
-    "lat": 19.7918,
-    "lng": -70.681,
+    "lat": 19.7894021,
+    "lng": -70.678834,
     "category": "parties",
     "categories": [
       "music",
@@ -2035,8 +2035,8 @@
     "venue": "Cigar Town Pop",
     "venueSlug": "cigar-town-pop",
     "address": "Avenida Luis Ginebra No. 56, Puerto Plata",
-    "lat": 19.7915,
-    "lng": -70.6805,
+    "lat": 19.788819,
+    "lng": -70.677613,
     "category": "parties",
     "categories": [
       "music",
@@ -2059,8 +2059,8 @@
     "venue": "Spot Land",
     "venueSlug": "spotland-puerto-plata",
     "address": "Av. Luis Ginebra, Puerto Plata",
-    "lat": 19.7912,
-    "lng": -70.6812,
+    "lat": 19.791224,
+    "lng": -70.680629,
     "category": "parties",
     "categories": [
       "music",
@@ -2422,8 +2422,8 @@
     "venue": "Hotel Villa Taina",
     "venueSlug": "hotel-villa-taina",
     "address": "Calle Principal 1, Cabarete 57000",
-    "lat": 19.7495,
-    "lng": -70.409579,
+    "lat": 19.74975,
+    "lng": -70.409551,
     "category": "performances",
     "categories": [
       "culture"
@@ -2750,8 +2750,8 @@
     "venue": "La Lola Beach Club",
     "venueSlug": "la-lola-malecon",
     "address": "Avenida Gregorio Luperón, Malecón, Puerto Plata",
-    "lat": 19.7969,
-    "lng": -70.68725,
+    "lat": 19.789103,
+    "lng": -70.669808,
     "category": "parties",
     "categories": [
       "music",
@@ -2809,8 +2809,8 @@
     "venue": "La Lola Beach Club",
     "venueSlug": "la-lola-malecon",
     "address": "Avenida Gregorio Luperón, Malecón, Puerto Plata",
-    "lat": 19.7969,
-    "lng": -70.68725,
+    "lat": 19.789103,
+    "lng": -70.669808,
     "category": "parties",
     "categories": [
       "music",
@@ -2840,8 +2840,8 @@
     "venue": "Cigar Town Pop",
     "venueSlug": "cigar-town-pop",
     "address": "Avenida Luis Ginebra No. 56, Puerto Plata",
-    "lat": 19.7915,
-    "lng": -70.6805,
+    "lat": 19.788819,
+    "lng": -70.677613,
     "category": "music",
     "categories": [
       "performances",
@@ -3023,8 +3023,8 @@
     "venue": "Casa Caribe",
     "venueSlug": "casa-caribe-puerto-plata",
     "address": "Av. Luis Ginebra #52, Puerto Plata",
-    "lat": 19.7948,
-    "lng": -70.6945,
+    "lat": 19.789253,
+    "lng": -70.678059,
     "category": "music",
     "categories": [
       "food-drinks",
@@ -3114,8 +3114,8 @@
     "venue": "Ambar Lounge POP",
     "venueSlug": "ambar-lounge-pop",
     "address": "Av. Luis Ginebra No. 45, segundo y tercer nivel, Puerto Plata 57000",
-    "lat": 19.7918,
-    "lng": -70.681,
+    "lat": 19.7894021,
+    "lng": -70.678834,
     "category": "parties",
     "categories": [
       "music",
@@ -3141,8 +3141,8 @@
     "venue": "El Mirador de Finely",
     "venueSlug": "el-mirador-de-finely",
     "address": "Calle Esmeralda 53, Urbanización Cerro Mar, Puerto Plata 57000",
-    "lat": 19.7815,
-    "lng": -70.675,
+    "lat": 19.777847,
+    "lng": -70.694128,
     "category": "food-drinks",
     "categories": [
       "music",
@@ -3196,8 +3196,8 @@
     "venue": "La Lola Beach Club",
     "venueSlug": "la-lola-malecon",
     "address": "Avenida Gregorio Luperón, Malecón, Puerto Plata",
-    "lat": 19.7969,
-    "lng": -70.68725,
+    "lat": 19.789103,
+    "lng": -70.669808,
     "category": "parties",
     "categories": [
       "music",
@@ -3281,8 +3281,8 @@
     "venue": "Grand Prix Smart Shop",
     "venueSlug": "grand-prix-puerto-plata",
     "address": "Av. Manolo Tavares Justo esq. Presidente Caamaño #1, Edificio Grand Prix (Bomba Next), La Javilla, Puerto Plata",
-    "lat": 19.7911,
-    "lng": -70.6942,
+    "lat": 19.79096,
+    "lng": -70.70149,
     "category": "music",
     "categories": [
       "performances"
@@ -3392,8 +3392,8 @@
     "venue": "Blue JackTar Playa Dorada",
     "venueSlug": "blue-jacktar-playa-dorada",
     "address": "Salón Lotus, Blue JackTar, Playa Dorada",
-    "lat": 19.7703,
-    "lng": -70.6494,
+    "lat": 19.771843,
+    "lng": -70.650585,
     "category": "business",
     "categories": [
       "culture"
@@ -3596,8 +3596,8 @@
     "venue": "Ambar Lounge POP",
     "venueSlug": "ambar-lounge-pop",
     "address": "Av. Luis Ginebra 45-a, Puerto Plata 57000",
-    "lat": 19.7918,
-    "lng": -70.681,
+    "lat": 19.7894021,
+    "lng": -70.678834,
     "category": "parties",
     "categories": [
       "music",
@@ -3972,8 +3972,8 @@
     "venue": "Iván García Teatro-Escuela",
     "venueSlug": "ivan-garcia-teatro-escuela",
     "address": "Calle Profesor Juan Bosch #72, Puerto Plata",
-    "lat": 19.7979,
-    "lng": -70.6928,
+    "lat": 19.797438,
+    "lng": -70.6908212,
     "category": "performances",
     "categories": [
       "culture"
@@ -4054,8 +4054,8 @@
     "venue": "Ambar Lounge POP",
     "venueSlug": "ambar-lounge-pop",
     "address": "Av. Luis Ginebra No. 45, segundo y tercer nivel, Puerto Plata 57000",
-    "lat": 19.7918,
-    "lng": -70.681,
+    "lat": 19.7894021,
+    "lng": -70.678834,
     "category": "parties",
     "categories": [
       "music",
@@ -4221,8 +4221,8 @@
     "venue": "Grand Prix Smart Shop",
     "venueSlug": "grand-prix-puerto-plata",
     "address": "Av. Manolo Tavarez Justo esq. Presidente Caamaño #1, Edificio Grand Prix (Bomba Next), La Javilla, Puerto Plata",
-    "lat": 19.7911,
-    "lng": -70.6942,
+    "lat": 19.79096,
+    "lng": -70.70149,
     "category": "music",
     "categories": [
       "parties",
@@ -4380,8 +4380,8 @@
     "venue": "Cigar Town Pop",
     "venueSlug": "cigar-town-pop",
     "address": "Avenida Luis Ginebra No. 56, Puerto Plata",
-    "lat": 19.7915,
-    "lng": -70.6805,
+    "lat": 19.788819,
+    "lng": -70.677613,
     "category": "music",
     "categories": [
       "parties",
@@ -4492,8 +4492,8 @@
     "venue": "Iván García Teatro-Escuela",
     "venueSlug": "ivan-garcia-teatro-escuela",
     "address": "Calle Profesor Juan Bosch #72, Puerto Plata",
-    "lat": 19.7979,
-    "lng": -70.6928,
+    "lat": 19.797438,
+    "lng": -70.6908212,
     "category": "performances",
     "categories": [
       "culture"
@@ -4548,8 +4548,8 @@
     "venue": "Taino Bay",
     "venueSlug": "taino-bay",
     "address": "Av. Antigua Vía Férrea, Muelle Turístico, Puerto Plata",
-    "lat": 19.8054,
-    "lng": -70.6965,
+    "lat": 19.800367,
+    "lng": -70.701039,
     "category": "festivals",
     "categories": [
       "culture",
@@ -4975,8 +4975,8 @@
     "venue": "Hotel Villa Taina",
     "venueSlug": "hotel-villa-taina",
     "address": "Calle Principal 1, Cabarete",
-    "lat": 19.7495,
-    "lng": -70.409579,
+    "lat": 19.74975,
+    "lng": -70.409551,
     "category": "performances",
     "categories": [
       "culture"
@@ -5116,8 +5116,8 @@
     "venue": "Hotel Villa Taina",
     "venueSlug": "hotel-villa-taina",
     "address": "Calle Principal 1, Cabarete 57000",
-    "lat": 19.7495,
-    "lng": -70.409579,
+    "lat": 19.74975,
+    "lng": -70.409551,
     "category": "parties",
     "categories": [
       "music"
@@ -5254,8 +5254,8 @@
     "venue": "Luna Lounge LCB",
     "venueSlug": "luna-lounge-lcb",
     "address": "Av. Luis Ginebra #42 (detrás de Plaza Amapola), Puerto Plata 57000",
-    "lat": 19.792,
-    "lng": -70.6815,
+    "lat": 19.785062,
+    "lng": -70.673639,
     "category": "concert",
     "categories": [
       "music",
@@ -5281,8 +5281,8 @@
     "venue": "Ambar Lounge POP",
     "venueSlug": "ambar-lounge-pop",
     "address": "Av. Luis Ginebra No. 45, segundo y tercer nivel, Puerto Plata 57000",
-    "lat": 19.7918,
-    "lng": -70.681,
+    "lat": 19.7894021,
+    "lng": -70.678834,
     "category": "parties",
     "categories": [
       "music",
@@ -5388,8 +5388,8 @@
     "venue": "Ambar Lounge POP",
     "venueSlug": "ambar-lounge-pop",
     "address": "Av. Luis Ginebra No. 45, segundo y tercer nivel, Puerto Plata 57000",
-    "lat": 19.7918,
-    "lng": -70.681,
+    "lat": 19.7894021,
+    "lng": -70.678834,
     "category": "parties",
     "categories": [
       "music",
@@ -5474,8 +5474,8 @@
     "venue": "Grand Prix Smart Shop",
     "venueSlug": "grand-prix-puerto-plata",
     "address": "Av. Manolo Tavarez Justo esq. Presidente Caamaño #1, Edificio Grand Prix (Bomba Next), La Javilla, Puerto Plata",
-    "lat": 19.7911,
-    "lng": -70.6942,
+    "lat": 19.79096,
+    "lng": -70.70149,
     "category": "music",
     "categories": [
       "parties",
@@ -5500,8 +5500,8 @@
     "venue": "Grand Prix Smart Shop",
     "venueSlug": "grand-prix-puerto-plata",
     "address": "Av. Manolo Tavarez Justo esq. Presidente Caamaño #1, Edificio Grand Prix (Bomba Next), La Javilla, Puerto Plata",
-    "lat": 19.7911,
-    "lng": -70.6942,
+    "lat": 19.79096,
+    "lng": -70.70149,
     "category": "halloween",
     "categories": [
       "parties",
@@ -5609,8 +5609,8 @@
     "venue": "Iván García Teatro-Escuela",
     "venueSlug": "ivan-garcia-teatro-escuela",
     "address": "Calle Profesor Juan Bosch #72, Puerto Plata",
-    "lat": 19.7979,
-    "lng": -70.6928,
+    "lat": 19.797438,
+    "lng": -70.6908212,
     "category": "performances",
     "categories": [
       "culture"
@@ -5902,8 +5902,8 @@
     "venue": "Iván García Teatro-Escuela",
     "venueSlug": "ivan-garcia-teatro-escuela",
     "address": "Calle Profesor Juan Bosch #72, Puerto Plata",
-    "lat": 19.7979,
-    "lng": -70.6928,
+    "lat": 19.797438,
+    "lng": -70.6908212,
     "category": "festivals",
     "categories": [
       "performances",
@@ -5933,8 +5933,8 @@
     "venue": "Ambar Lounge POP",
     "venueSlug": "ambar-lounge-pop",
     "address": "Av. Luis Ginebra No. 45, segundo y tercer nivel, Puerto Plata 57000",
-    "lat": 19.7918,
-    "lng": -70.681,
+    "lat": 19.7894021,
+    "lng": -70.678834,
     "category": "parties",
     "categories": [
       "music",
@@ -6463,8 +6463,8 @@
     "venue": "Chameleon Sport Bar",
     "venueSlug": "chameleon-sport-bar",
     "address": "Calle Dr. Alejo Martínez No. 1, Sosúa Bay Center, El Batey, Sosúa",
-    "lat": 19.7566,
-    "lng": -70.513,
+    "lat": 19.762438,
+    "lng": -70.516813,
     "category": "parties",
     "categories": [
       "music",
@@ -6664,8 +6664,8 @@
     "venue": "Ambar Lounge POP",
     "venueSlug": "ambar-lounge-pop",
     "address": "Av. Luis Ginebra No. 45, segundo y tercer nivel, Puerto Plata 57000",
-    "lat": 19.7918,
-    "lng": -70.681,
+    "lat": 19.7894021,
+    "lng": -70.678834,
     "category": "parties",
     "categories": [
       "music",
@@ -6951,8 +6951,8 @@
     "venue": "Ambar Lounge POP",
     "venueSlug": "ambar-lounge-pop",
     "address": "Av. Luis Ginebra #45, Puerto Plata",
-    "lat": 19.7918,
-    "lng": -70.681,
+    "lat": 19.7894021,
+    "lng": -70.678834,
     "category": "parties",
     "categories": [
       "music",
@@ -6980,8 +6980,8 @@
     "venue": "Flip Flop Sports Bar",
     "venueSlug": "flip-flop-sports-bar-sosua",
     "address": "2 Calle Duarte, Sosúa Beach entrance",
-    "lat": 19.7622,
-    "lng": -70.5166,
+    "lat": 19.762737,
+    "lng": -70.516376,
     "category": "sports",
     "categories": [
       "food-drinks"
@@ -7009,8 +7009,8 @@
     "venue": "Flip Flop Sports Bar",
     "venueSlug": "flip-flop-sports-bar-sosua",
     "address": "2 Calle Duarte, Sosúa Beach entrance",
-    "lat": 19.7622,
-    "lng": -70.5166,
+    "lat": 19.762737,
+    "lng": -70.516376,
     "category": "sports",
     "categories": [
       "food-drinks"
@@ -7127,8 +7127,8 @@
     "venue": "Iván García Teatro-Escuela",
     "venueSlug": "ivan-garcia-teatro-escuela",
     "address": "Calle Profesor Juan Bosch #72, Puerto Plata",
-    "lat": 19.7979,
-    "lng": -70.6928,
+    "lat": 19.797438,
+    "lng": -70.6908212,
     "category": "performances",
     "categories": [
       "culture"
@@ -7353,8 +7353,8 @@
     "venue": "Chameleon Sport Bar",
     "venueSlug": "chameleon-sport-bar",
     "address": "Calle Dr. Alejo Martínez No. 1, Sosúa Bay Center, El Batey, Sosúa",
-    "lat": 19.7566,
-    "lng": -70.513,
+    "lat": 19.762438,
+    "lng": -70.516813,
     "category": "halloween",
     "categories": [
       "parties",
@@ -7435,8 +7435,8 @@
     "venue": "Ambar Lounge POP",
     "venueSlug": "ambar-lounge-pop",
     "address": "Av. Luis Ginebra No. 45, segundo y tercer nivel, Puerto Plata 57000",
-    "lat": 19.7918,
-    "lng": -70.681,
+    "lat": 19.7894021,
+    "lng": -70.678834,
     "category": "parties",
     "categories": [
       "music",
@@ -7545,8 +7545,6 @@
     "location": "Puerto Plata",
     "venue": "Lieu secret (Puerto Plata)",
     "address": "Lieu secret — rejoignez WhatsApp Los silenciosos POP ou DM @proyecto_x_pop",
-    "lat": 19.7935,
-    "lng": -70.688,
     "category": "halloween",
     "categories": [
       "parties",
@@ -7584,8 +7582,8 @@
     "venue": "Chameleon Sport Bar",
     "venueSlug": "chameleon-sport-bar",
     "address": "Sosúa Bay Center, Calle Alejo Martínez #1, El Batey Sosúa",
-    "lat": 19.7566,
-    "lng": -70.513,
+    "lat": 19.762438,
+    "lng": -70.516813,
     "category": "halloween",
     "categories": [
       "parties",
@@ -8323,8 +8321,8 @@
     "venue": "Cámara de Comercio Puerto Plata",
     "venueSlug": "camara-comercio-puerto-plata",
     "address": "Calle Beller No. 17, Salón de Eventos Fernando Cueto, Puerto Plata 57000",
-    "lat": 19.7975,
-    "lng": -70.6932,
+    "lat": 19.798672,
+    "lng": -70.694481,
     "category": "business",
     "categories": [
       "culture"
@@ -8348,8 +8346,8 @@
     "venue": "Cámara de Comercio Puerto Plata",
     "venueSlug": "camara-comercio-puerto-plata",
     "address": "Calle Beller No. 17, Salón de Eventos Fernando Cueto, Puerto Plata 57000",
-    "lat": 19.7975,
-    "lng": -70.6932,
+    "lat": 19.798672,
+    "lng": -70.694481,
     "category": "business",
     "categories": [
       "culture"
@@ -8373,8 +8371,8 @@
     "venue": "Cámara de Comercio Puerto Plata",
     "venueSlug": "camara-comercio-puerto-plata",
     "address": "Calle Beller No. 17, Salón de Eventos Fernando Cueto, Puerto Plata 57000",
-    "lat": 19.7975,
-    "lng": -70.6932,
+    "lat": 19.798672,
+    "lng": -70.694481,
     "category": "business",
     "categories": [
       "culture"
@@ -8398,8 +8396,8 @@
     "venue": "Cámara de Comercio Puerto Plata",
     "venueSlug": "camara-comercio-puerto-plata",
     "address": "Calle Beller No. 17, Salón de Eventos Fernando Cueto, Puerto Plata 57000",
-    "lat": 19.7975,
-    "lng": -70.6932,
+    "lat": 19.798672,
+    "lng": -70.694481,
     "category": "business",
     "categories": [
       "culture"
@@ -8423,8 +8421,8 @@
     "venue": "Cámara de Comercio Puerto Plata",
     "venueSlug": "camara-comercio-puerto-plata",
     "address": "Calle Beller No. 17, Salón de Eventos Fernando Cueto, Puerto Plata 57000",
-    "lat": 19.7975,
-    "lng": -70.6932,
+    "lat": 19.798672,
+    "lng": -70.694481,
     "category": "business",
     "categories": [
       "culture"
@@ -8504,8 +8502,8 @@
     "venue": "Ambar Lounge POP",
     "venueSlug": "ambar-lounge-pop",
     "address": "Av. Luis Ginebra No. 45, segundo y tercer nivel, Puerto Plata 57000",
-    "lat": 19.7918,
-    "lng": -70.681,
+    "lat": 19.7894021,
+    "lng": -70.678834,
     "category": "halloween",
     "categories": [
       "parties",
@@ -8531,8 +8529,8 @@
     "venue": "Ambar Lounge POP",
     "venueSlug": "ambar-lounge-pop",
     "address": "Av. Luis Ginebra No. 45, segundo y tercer nivel, Puerto Plata 57000",
-    "lat": 19.7918,
-    "lng": -70.681,
+    "lat": 19.7894021,
+    "lng": -70.678834,
     "category": "halloween",
     "categories": [
       "parties",
@@ -8723,8 +8721,8 @@
     "venueSlug": "grand-prix-puerto-plata",
     "location": "Puerto Plata",
     "address": "Av. Manolo Tavares Justo esq. Presidente Caamaño #1, Edificio Grand Prix (Bomba Next), La Javilla, Puerto Plata",
-    "lat": 19.7911,
-    "lng": -70.6942,
+    "lat": 19.79096,
+    "lng": -70.70149,
     "phone": "+18097534553",
     "sourceUrl": "https://www.instagram.com/grandprixrd/",
     "instagram": "grandprixrd",
@@ -8923,8 +8921,8 @@
     "venueSlug": "chameleon-sport-bar",
     "location": "Sosúa",
     "address": "Calle Dr. Alejo Martínez No. 1, Sosúa Bay Center, El Batey, Sosúa",
-    "lat": 19.7566,
-    "lng": -70.513,
+    "lat": 19.762438,
+    "lng": -70.516813,
     "phone": "+18496571500",
     "sourceUrl": "https://www.instagram.com/chameleonsportbar/",
     "instagram": "chameleonsportbar",
@@ -8946,14 +8944,14 @@
   {
     "id": "la-lola-wicked-night-2026-10-31",
     "title": "La Lola — Wicked Night Halloween · 31 oct.",
-    "description": "Wicked Night Halloween à La Lola Beach Club, Avenida Gregorio Luperón (Malecón), Puerto Plata — samedi 31 octobre 2026. Dress to sin ; DJ live, jeux surprises et animation thématique. RSVP +1 849-517-5705 · Instagram @lalolabeachclub. Halloween Malecón le samedi — pas un sand set de beach club à Cabarete.",
+    "description": "Wicked Night Halloween à La Lola Beach Club, Avenida Gregorio Luperón (Malecón), Puerto Plata — samedi 31 octobre 2026 avec DJ Tanque en live, jeux surprises, animation thématique et prix pour les déguisés. RSVP +1 849-517-5705 · Instagram @lalolabeachclub. Halloween Malecón le samedi — pas un sand set de beach club à Cabarete, ni la private party de The Last Drink près du Puente de la Guinea la même nuit.",
     "date": "2026-10-31",
     "venue": "La Lola Beach Club",
     "venueSlug": "la-lola-malecon",
     "location": "Puerto Plata",
     "address": "Avenida Gregorio Luperón (Malecón), Puerto Plata",
-    "lat": 19.7969,
-    "lng": -70.68725,
+    "lat": 19.789103,
+    "lng": -70.669808,
     "phone": "+18495175705",
     "sourceUrl": "https://www.instagram.com/lalolabeachclub/",
     "instagram": "lalolabeachclub",
@@ -8967,8 +8965,9 @@
     "callForPricing": true,
     "sourceType": "flyer",
     "lineup": [
-      "DJ en vivo",
-      "Animación temática"
+      "DJ Tanque",
+      "Premios para los disfrazados",
+      "Juegos sorpresa · Animación temática"
     ],
     "imageEmoji": "🎃"
   },
@@ -9204,13 +9203,11 @@
   {
     "id": "dj-monarka-halloween-noche-striper-2026-10-31",
     "title": "DJ Monarka — Halloween Noche de Striper",
-    "description": "Halloween Noche de Striper / 70 Horas Sin Dormir — samedi 31 octobre 2026 en lieu secret sur la côte nord (ubicación secreta, sur invitation seulement). Musique par DJ Monarka et El Therian ; soirée striper avec entrée gratuite, boissons incluses, tatouages gratuits par @suzu_tattoo21 et prix costume sexy US$100 / US$50. Sponsorisé par La Malona. Adresse via DM @di_monarka ou @malona_rc — ne traitez pas l’épingle Puerto Plata comme une adresse walk-in. Halloween secret sur invitation — pas Proyecto X El Calabozo le même samedi, pas El Purgatorio de Chameleon, pas la private party de The Last Drink près du Puente de la Guinea.",
+    "description": "Halloween Noche de Striper / 70 Horas Sin Dormir — samedi 31 octobre 2026 en lieu secret sur la côte nord (ubicación secreta, sur invitation seulement). Musique par DJ Monarka et El Therian ; soirée striper avec entrée gratuite, boissons incluses, tatouages gratuits par @suzu_tattoo21 et prix costume sexy US$100 / US$50. Sponsorisé par La Malona. Adresse via DM @di_monarka ou @malona_rc (pas d’épingle carte). Halloween secret sur invitation — pas Proyecto X El Calabozo le même samedi, pas El Purgatorio de Chameleon, pas la private party de The Last Drink près du Puente de la Guinea.",
     "date": "2026-10-31",
     "location": "Puerto Plata",
     "venue": "Lieu secret (Puerto Plata)",
     "address": "Lieu secret — sur invitation ; DM @di_monarka ou @malona_rc",
-    "lat": 19.7935,
-    "lng": -70.688,
     "category": "halloween",
     "categories": [
       "parties",
@@ -9231,5 +9228,63 @@
     ],
     "imageEmoji": "🎃",
     "ageHint": "18-plus"
+  },
+  {
+    "id": "cabarete-stand-up-vol-3-2026-11-21",
+    "title": "Cabarete Stand Up Vol. 3 — Juan Carlos Pichardo",
+    "description": "Cabarete Stand Up Vol. 3 à Hotel Villa Taina, Calle Principal, Cabarete — samedi 21 novembre 2026 à 19 h. Headliner Juan Carlos Pichardo avec opener David Melaza et host Laura Nanita. Cover RD$1,200 ; réservez sur cabaretestandup.com. Prochaine soirée comedy à Cabarete après le Vol. 2 — pas une nuit Serenade buffet de Villa Taina.",
+    "date": "2026-11-21",
+    "time": "7:00 PM",
+    "location": "Cabarete",
+    "venue": "Hotel Villa Taina",
+    "venueSlug": "hotel-villa-taina",
+    "address": "Calle Principal 1, Cabarete 57000",
+    "lat": 19.74975,
+    "lng": -70.409551,
+    "category": "performances",
+    "categories": [
+      "culture"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": false,
+    "admissionPrice": "RD$1,200",
+    "ticketUrl": "https://www.cabaretestandup.com/",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/cabaretestandup/",
+    "lineup": [
+      "Juan Carlos Pichardo",
+      "Opener: David Melaza",
+      "Host: Laura Nanita"
+    ],
+    "imageEmoji": "🎤"
+  },
+  {
+    "id": "alejandro-pena-rancho-catalina-2026-11-01",
+    "title": "Rancho La Catalina — Alejandro Peña en live",
+    "description": "Musique live avec Alejandro Peña à Rancho La Catalina, El Cupey, Puerto Plata — dimanche 1er novembre 2026 dès 14 h 30. Sans cover ; repas de ranch avec vue montagne. Confirmez via Instagram @rancholacatalina · +1 809-781-3737. Après-midi live du dimanche — pas Halloween Trick or Treat, ni Justin Santos le dimanche précédent.",
+    "date": "2026-11-01",
+    "time": "2:30 PM",
+    "location": "Puerto Plata",
+    "venue": "Rancho La Catalina",
+    "venueSlug": "rancho-catalina-puerto-plata",
+    "address": "El Cupey, Puerto Plata",
+    "lat": 19.7371866,
+    "lng": -70.7253286,
+    "category": "music",
+    "categories": [
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "phone": "+18097813737",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/rancholacatalina/",
+    "lineup": [
+      "Alejandro Peña",
+      "14 h 30 · Sans cover"
+    ],
+    "imageEmoji": "🎤"
   }
 ]

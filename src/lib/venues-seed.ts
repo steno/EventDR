@@ -89,8 +89,9 @@ export const SEED_VENUES: Venue[] = [
     city: "Sosúa",
     description:
       "Family-run Dominican restaurant on Calle María Montes — comida criolla con historia featuring authentic mofongo, sancocho, fresh seafood, and Caribbean grilled specialties in a welcoming atmosphere. Live music nights and special concerts with Grupo Braho. Behind Super Pola, steps from the Pedro Clisante strip.",
-    lat: 19.7676,
-    lng: -70.5105,
+    // Google Places — C. María Montes #16 (was ~465m west toward Pedro Clisante).
+    lat: 19.768785,
+    lng: -70.506239,
     emoji: "🍽️",
     phone: "+18095711529",
     instagram: "nonasgrillkitchen",
@@ -301,8 +302,9 @@ export const SEED_VENUES: Venue[] = [
     city: "Puerto Plata",
     description:
       "Resort convention center inside Playa Dorada — ticketed merengue and tribute concerts with local boletería sales across Puerto Plata.",
-    lat: 19.7703,
-    lng: -70.6494,
+    // Google Places — Blue JackTar Hotel & Golf, Playa Dorada.
+    lat: 19.771843,
+    lng: -70.650585,
     emoji: "🎤",
     phone: "+18093203800",
   },
@@ -570,8 +572,9 @@ export const SEED_VENUES: Venue[] = [
     city: "Puerto Plata",
     description:
       "Cruise-passenger village at the Puerto Plata pier — free lazy river and pools, shopping, bars, and on-site shows when a ship is in. Not open to the public. Fortaleza and the Malecón are a short walk outside the gates.",
-    lat: 19.8054,
-    lng: -70.6965,
+    // Google Places — Taino Bay cruise village (was ~734m NE of the terminal).
+    lat: 19.800367,
+    lng: -70.701039,
     emoji: "🏊",
     instagram: "tainobay_puertoplata",
     website: "https://www.porttainobay.com",
@@ -582,8 +585,9 @@ export const SEED_VENUES: Venue[] = [
     city: "Puerto Plata",
     description:
       "Carnival cruise village on Bahía de Maimón — free Aqua Zone pool and waterslides, shopping, bars, and Sky Bar views when a ship is in. Zip line and cabanas are extra. Not open to the public. Centro needs a taxi.",
-    lat: 19.8278,
-    lng: -70.7417,
+    // Google Places — Amber Cove cruise village, Maimón (was ~3.4 km inland/east).
+    lat: 19.832804,
+    lng: -70.773667,
     emoji: "🏊",
     instagram: "ambercoveport",
     website: "https://www.ambercoveport.com",
@@ -723,6 +727,17 @@ export const SEED_VENUES: Venue[] = [
       "https://gobernacionpuertoplata.gob.do/turismo/whatsapp-image-2024-09-06-at-10-15-43-am/",
   },
   {
+    slug: "puente-la-guinea",
+    name: "Puente La Guinea",
+    city: "Puerto Plata",
+    description:
+      "Historic single-arch bridge (also Puente de Los Mameyes) over arroyo Los Mameyes — built 1879 under Gregorio Luperón, restored 1979; free open walk-in landmark linking Separación / José del Carmen Ariza with the old Camino Real near Aserradero and Regalado.",
+    // Google Places — Cam. Real / La Rigola bridge (was ~118m N of the arch).
+    lat: 19.794411,
+    lng: -70.695314,
+    emoji: "🌉",
+  },
+  {
     slug: "letrero-puerto-plata",
     name: "Letrero de Puerto Plata",
     city: "Puerto Plata",
@@ -741,8 +756,9 @@ export const SEED_VENUES: Venue[] = [
     city: "Puerto Plata",
     description:
       "Historic 24-meter cast-iron lighthouse in La Puntilla Park (1879) — yellow lattice tower with a spiral stair to panoramic Atlantic and city views, steps from Fortaleza San Felipe and the cruise pier.",
-    lat: 19.8039,
-    lng: -70.6955,
+    // Google Places — Harbor Lighthouse / La Puntilla (was ~131m NW of the tower).
+    lat: 19.803026,
+    lng: -70.69466,
     emoji: "🗼",
     website: "https://puertoplatadr.com/tours/la-puntilla/",
   },
@@ -874,8 +890,9 @@ export const SEED_VENUES: Venue[] = [
     city: "Puerto Plata",
     description:
       "Educational cigar factory one block from Central Park — seed-to-cigar walkthrough, fermentation and aging rooms, and rolling demo on Calle Separación.",
-    lat: 19.797,
-    lng: -70.6928,
+    // Google Places — C. Separación 12 (was ~130m south of the factory).
+    lat: 19.798151,
+    lng: -70.692568,
     emoji: "🍂",
     website: "https://vivontecigars.com/",
     phone: "+18095865257",
@@ -912,8 +929,9 @@ export const SEED_VENUES: Venue[] = [
     city: "Puerto Plata",
     description:
       "Immersive rum heritage museum in the historic center — audio-guided tour from sugarcane to guided tastings on Calle Beller.",
-    lat: 19.7979,
-    lng: -70.6938,
+    // Google Places — Calle Beller #11A (was ~170m SE of the museum).
+    lat: 19.798942,
+    lng: -70.694973,
     emoji: "🥃",
     phone: "+18092618661",
   },
@@ -923,8 +941,9 @@ export const SEED_VENUES: Venue[] = [
     city: "Puerto Plata",
     description:
       "Ethnographic gallery tracing Taíno, African, and colonial heritage — bilingual exhibits and QR-guided tours in the historic center.",
-    lat: 19.7968,
-    lng: -70.6915,
+    // Google Places — Calle 12 de Julio #39 (was ~235m south of the gallery).
+    lat: 19.798727,
+    lng: -70.69242,
     emoji: "🏛️",
     website: "https://www.laconfluencia.com.do/",
     phone: "+18093815745",
@@ -935,8 +954,9 @@ export const SEED_VENUES: Venue[] = [
     city: "Puerto Plata",
     description:
       "Victorian house-museum honoring the Restoration hero — period rooms, photographs, and courtyard mural on Calle 12 de Julio.",
-    lat: 19.7965,
-    lng: -70.6912,
+    // Google Places / OSM — Calle 12 de Julio #54 (was ~196m south near Calle Beller).
+    lat: 19.798252,
+    lng: -70.691372,
     emoji: "🏛️",
     phone: "+18092618661",
   },
@@ -957,8 +977,9 @@ export const SEED_VENUES: Venue[] = [
     city: "Puerto Plata",
     description:
       "Orange Victorian cultural house at Separación & Duarte facing Plaza Independencia (Parque Central) — state culture space with rotating exhibitions, poetry, theater, and folkloric dance when programmed.",
-    lat: 19.7975,
-    lng: -70.693,
+    // Google Places — C. Separación 22 at Plaza Independencia.
+    lat: 19.797313,
+    lng: -70.693062,
     emoji: "🎨",
     website: "https://depuertoplata.com/historia-de-puerto-plata/casa-de-la-cultura-puerto-plata/",
   },
@@ -1039,8 +1060,9 @@ export const SEED_VENUES: Venue[] = [
     city: "Puerto Plata",
     description:
       "Beachfront Spanish paella by Laia & Nico on Playa El Pueblito — pans cooked to order under the sandy patio pergola, with the Paellas POP sign on the white house.",
-    lat: 19.7742,
-    lng: -70.6529,
+    // Google Places — PAELLAS.POP on Playa El Pueblito (was ~282m NE).
+    lat: 19.772701,
+    lng: -70.655075,
     emoji: "🥘",
     instagram: "paellas.pop",
     website:
@@ -1221,8 +1243,9 @@ export const SEED_VENUES: Venue[] = [
     city: "Puerto Plata",
     description:
       "Cigar lounge on Av. Luis Ginebra No. 56 — premium puros, whisky, open Mon–Sun; Ron & Humos Mon/Wed, Thursday La Peña with Brugal, Cigar Town Sessions live nights, and Karaoke Saturday / Ladies Night in downtown Puerto Plata.",
-    lat: 19.7915,
-    lng: -70.6805,
+    // Google Places — Av. Luis Ginebra #56 (was ~424m NW of the lounge).
+    lat: 19.788819,
+    lng: -70.677613,
     emoji: "🚬",
     instagram: "cigartownpop",
   },
@@ -1352,8 +1375,9 @@ export const SEED_VENUES: Venue[] = [
     city: "Puerto Plata",
     description:
       "Beach-hut seafood grill on Playa Los Cocos in Maimón — grilled lobster, Dominican plates, and patio or sand tables a short walk from Senator Puerto Plata, Playabachata, and Amber Cove.",
-    lat: 19.8341,
-    lng: -70.7707,
+    // Google Places — Playa Los Cocos / Caseta 21 (was ~820m west of the hut).
+    lat: 19.834812,
+    lng: -70.762845,
     emoji: "🦞",
     website:
       "https://www.tripadvisor.com/Restaurant_Review-g1189048-d23790781-Reviews-Crazy_Lobster_Bar_And_Grill-Maimon_Puerto_Plata_Province_Dominican_Republic.html",
@@ -1512,9 +1536,9 @@ export const SEED_VENUES: Venue[] = [
     city: "Sosúa",
     description:
       "Sports bar at the Sosúa Beach entrance (The Yellow Steps) — five TVs for live sports, famous wings, happy hour all day Monday / 2–5 PM Tue–Fri / 1–3:30 PM Sat–Sun, Wing Wednesday, and NFL Thursday/Sunday. Open daily 8:00 AM–10:00 PM.",
-    // Beach-entrance pin on Calle Duarte / Yellow Steps — distinct from Hard Rock (uphill Duarte) and Bar 39 (on the sand).
-    lat: 19.7622,
-    lng: -70.5166,
+    // Google Places — 2 Duarte / Yellow Steps (tightened from coarse beach-entrance guess).
+    lat: 19.762737,
+    lng: -70.516376,
     emoji: "📺",
     instagram: "flipflopsportsbar",
     website: "https://flipflop360.com/",
@@ -1542,8 +1566,9 @@ export const SEED_VENUES: Venue[] = [
     city: "Sosúa",
     description:
       "All-day international lounge-restaurant at The Ocean Club Costa Norte — Mediterranean seafood, sushi, wood-fired pizza, and sunset cocktails on Calle Bruno Philip. Open breakfast through dinner.",
-    lat: 19.76905,
-    lng: -70.51675,
+    // Ocean Club Costa Norte — Calle Bruno Philip No. 5.
+    lat: 19.768669,
+    lng: -70.515983,
     emoji: "🍸",
     instagram: "baialoungedr",
     phone: "+18098956000",
@@ -1581,8 +1606,9 @@ export const SEED_VENUES: Venue[] = [
     city: "Puerto Plata",
     description:
       "Caribbean kitchen on Avenida Luis Ginebra #52 (next to Iglesia Bíblica Sinaí) — night entrance with the yellow Casa Caribe sign; sit-down plates, cocktails, and live music nights in Puerto Plata centro. ReservaYa / Instagram @casacaribepop.",
-    lat: 19.7948,
-    lng: -70.6945,
+    // Google Places — Av. Luis Ginebra #52 (was ~1.8 km west in the historic grid).
+    lat: 19.789253,
+    lng: -70.678059,
     emoji: "🍽️",
     instagram: "casacaribepop",
     phone: "+18099594087",
@@ -1618,8 +1644,9 @@ export const SEED_VENUES: Venue[] = [
     city: "Puerto Plata",
     description:
       "Caribbean-fusion kitchen in a restored Victorian house in Puerto Plata’s historic district — live piano evenings, seafood, and creative island plates.",
-    lat: 19.7969,
-    lng: -70.69415,
+    // Google Places — Calle Prof. Juan Bosch 77 (was ~446m west of the house).
+    lat: 19.796789,
+    lng: -70.689884,
     emoji: "🍽️",
     instagram: "laisabelapop",
     phone: "+18096977989",
@@ -1631,8 +1658,9 @@ export const SEED_VENUES: Venue[] = [
     city: "Puerto Plata",
     description:
       "Open-air beach-club dining on Avenida Gregorio Luperón (Malecón) — casual Caribbean-Mediterranean plates with Atlantic views from breakfast through late evening.",
-    lat: 19.7969,
-    lng: -70.68725,
+    // Google Places — Malecón beach club (was ~2 km west toward centro).
+    lat: 19.789103,
+    lng: -70.669808,
     emoji: "🌊",
     instagram: "Lalolabeachclub",
     phone: "+18495175705",
@@ -1794,8 +1822,9 @@ export const SEED_VENUES: Venue[] = [
     city: "Sosúa",
     description:
       "Veuve Clicquot beach club at The Ocean Club Costa Norte — yellow-stripe loungers, cabanas, and charcoal seafood on the resort pool deck. Calle Bruno Philip.",
-    lat: 19.76925,
-    lng: -70.51645,
+    // Google Places — Sun Club at Ocean Club Costa Norte.
+    lat: 19.769408,
+    lng: -70.516343,
     emoji: "☀️",
     instagram: "leclub_costanorte",
     phone: "+18098956000",
@@ -1830,8 +1859,9 @@ export const SEED_VENUES: Venue[] = [
     city: "Puerto Plata",
     description:
       "Health and wellness center on Calle Margarita Mears #6 in Puerto Plata centro — psychology talks, workshops, and wellbeing programs. Door hours Mon–Fri 8:00 AM–5:00 PM. Instagram @novapuertoplata.",
-    lat: 19.7965,
-    lng: -70.6948,
+    // Google Maps — Calle Margarita Mears 6 (was ~520m SW of the clinic).
+    lat: 19.7981708,
+    lng: -70.6902925,
     emoji: "💚",
     instagram: "novapuertoplata",
     phone: "+18092800077",
@@ -1842,8 +1872,9 @@ export const SEED_VENUES: Venue[] = [
     city: "Puerto Plata",
     description:
       "Chamber of Commerce and Production of Puerto Plata on Calle Beller No. 17 — Salón de Eventos Fernando Cueto hosts business panels, workshops, and member forums. Instagram @camarapuertoplata.",
-    lat: 19.7975,
-    lng: -70.6932,
+    // Google Places — Calle Beller No. 17 (was ~187m SE of the chamber).
+    lat: 19.798672,
+    lng: -70.694481,
     emoji: "🏛️",
     instagram: "camarapuertoplata",
     website: "https://camarapuertoplata.org/",
@@ -1855,8 +1886,9 @@ export const SEED_VENUES: Venue[] = [
     city: "Puerto Plata",
     description:
       "Second-level lounge bar on Av. Luis Ginebra #45 (Pregame Roof is the third-level deck above) — cocktails, invitation-only party nights, and late downtown energy. Open Mon/Wed–Sun from 5:00 PM (closed Tue). Reservations (809) 781-8677 · Instagram @ambarloungepop.",
-    lat: 19.7918,
-    lng: -70.6810,
+    // Google Places — Av. Luis Ginebra 45-a (was ~350m NW of the building).
+    lat: 19.7894021,
+    lng: -70.678834,
     emoji: "🍸",
     instagram: "ambarloungepop",
     website: "https://www.facebook.com/p/Ambar-Lounge-POP-100087903711781/",
@@ -1868,8 +1900,9 @@ export const SEED_VENUES: Venue[] = [
     city: "Puerto Plata",
     description:
       "Rooftop bar and lounge on the third level above Ámbar Lounge, Av. Luis Ginebra #45 — cocktails, food, music, and late downtown nights. Call or WhatsApp (809) 781-8677 to confirm doors and RSVP. Instagram @pregameroof.",
-    lat: 19.7918,
-    lng: -70.681,
+    // Same building as Ambar Lounge POP (Luis Ginebra #45).
+    lat: 19.7894021,
+    lng: -70.678834,
     emoji: "⚾",
     instagram: "pregameroof",
     website: "https://www.instagram.com/pregameroof/",
@@ -1892,8 +1925,9 @@ export const SEED_VENUES: Venue[] = [
     city: "Puerto Plata",
     description:
       "Bar-restaurant and live-music spot in La Javilla (Edificio Grand Prix, next to Bomba) — free live sets, Saturday dance nights, and casual patio seating on Av. Manolo Tavares Justo. Instagram @grandprixrd.",
-    lat: 19.7911,
-    lng: -70.6942,
+    // Google Places — La Javilla / Manolo Tavares Justo (was ~763m east in centro).
+    lat: 19.79096,
+    lng: -70.70149,
     emoji: "🎸",
     instagram: "grandprixrd",
   },
@@ -1903,8 +1937,9 @@ export const SEED_VENUES: Venue[] = [
     city: "Puerto Plata",
     description:
       "Hillside restaurant and outdoor balcony in Urbanización Cerro Mar (Calle Esmeralda 53) — new professional kitchen, sunset views over town and water, and billed live-music nights. Instagram @finelysaludable.",
-    lat: 19.7815,
-    lng: -70.675,
+    // Google Places — C. Esmeralda 53, Cerro Mar (was ~2 km east of the hillside).
+    lat: 19.777847,
+    lng: -70.694128,
     emoji: "🍽️",
     instagram: "finelysaludable",
   },
@@ -1914,8 +1949,9 @@ export const SEED_VENUES: Venue[] = [
     city: "Puerto Plata",
     description:
       "Nightlife lounge and disco bar on Av. Luis Ginebra #42 near Restaurante Odisea — late live bills and party nights in Puerto Plata centro. Instagram @lunaloungelcb.",
-    lat: 19.7920,
-    lng: -70.6815,
+    // Google Places — Luis Ginebra near Odisea (was ~1.1 km NW toward centro).
+    lat: 19.785062,
+    lng: -70.673639,
     emoji: "🌙",
     instagram: "lunaloungelcb",
   },
@@ -1925,8 +1961,9 @@ export const SEED_VENUES: Venue[] = [
     city: "Puerto Plata",
     description:
       "Victorian teatro-escuela on Calle Profesor Juan Bosch #72 in the historic center — kids and youth acting classes, stage works, and cultural programming. Puerto Plata host sala for FENATE 2026 (22 Oct–1 Nov). Billed nights include Tierra de Paso (15 Oct), Eulogio Badia (24 Oct, adults), and Café Ópera Código Clown (31 Oct, 16+). Instagram @teatroivangarcia · teatroivangarcia.blogspot.com.",
-    lat: 19.7979,
-    lng: -70.6928,
+    // Google Maps place pin — Calle Prof. Juan Bosch #72.
+    lat: 19.797438,
+    lng: -70.6908212,
     emoji: "🎭",
     instagram: "teatroivangarcia",
     website: "https://teatroivangarcia.blogspot.com/",
@@ -1950,8 +1987,9 @@ export const SEED_VENUES: Venue[] = [
     city: "Puerto Plata",
     description:
       "Fun, food, and photo playground on Av. Luis Ginebra — giant inflatables, family games, street food, artisan pizza, photo spots, and new Laser Tag. Open Wed–Sun 2:00 PM–10:00 PM; closed Mon–Tue. Kids access typically RD$200; adults free. Instagram @spotlandrd.",
-    lat: 19.7912,
-    lng: -70.6812,
+    // Google Places — Av. Luis Ginebra Spot Land.
+    lat: 19.791224,
+    lng: -70.680629,
     emoji: "🎠",
     instagram: "spotlandrd",
     website: "https://www.instagram.com/spotlandrd/",
@@ -1990,8 +2028,9 @@ export const SEED_VENUES: Venue[] = [
     city: "Cabarete",
     description:
       "Boutique beachfront hotel in the center of Cabarete Bay — ocean-view rooms, Serenade dining on the sand, Water Club, and billed comedy nights. Calle Principal 1. Instagram @hotelvillataina · +1 809-571-0722.",
-    lat: 19.7495,
-    lng: -70.409579,
+    // Google Places / OSM — Calle Principal 1 beachfront.
+    lat: 19.74975,
+    lng: -70.409551,
     emoji: "🏨",
     website: "https://villataina.com/",
     instagram: "hotelvillataina",
@@ -2056,9 +2095,9 @@ export const SEED_VENUES: Venue[] = [
     city: "Sosúa",
     description:
       "Late-night sport bar and party venue at Sosúa Bay Center (Calle Dr. Alejo Martínez No. 1, El Batey, near Coral Reef Casino) — themed nights, guest DJs, karaoke, and high-energy music until sunrise. Open daily 7:00 PM–5:00 AM. Table/VIP via Instagram DM @chameleonsportbar or +1 849-657-1500 / +1 829-994-2304.",
-    // Same Sosúa Bay Center / Coral Reef Casino complex pin as CLSOP listings.
-    lat: 19.7566,
-    lng: -70.513,
+    // Google Places — Sosúa Bay Center / El Batey (was ~762m SW toward Charamicos).
+    lat: 19.762438,
+    lng: -70.516813,
     emoji: "🦎",
     instagram: "chameleonsportbar",
     website: "https://www.instagram.com/chameleonsportbar/",
@@ -2083,8 +2122,9 @@ export const SEED_VENUES: Venue[] = [
     city: "Puerto Plata",
     description:
       "Nightclub at Carretera Luperón Km 4.5 in Complejo Turístico Costa Dorada — weekly themed nights with DJ La Nota, bottle specials, and late club energy next to the Costa Dorada hotel strip (near Kviar / Be Live Marien). RSVP +1 849-885-7986 · Instagram @luxury.club.puerto_plata.",
-    lat: 19.77625,
-    lng: -70.6594,
+    // Google Places — Costa Dorada / Km 4.5 (tightened from coarse pin).
+    lat: 19.77643,
+    lng: -70.659702,
     emoji: "🥂",
     phone: "+18498857986",
     instagram: "luxury.club.puerto_plata",
@@ -2494,6 +2534,11 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
   {
     pattern: /calle\s*(de\s*las\s*)?sombrillas|umbrella\s*street/i,
     slug: "calle-sombrillas",
+  },
+  {
+    pattern:
+      /puente\s*(la\s*)?guinea|puente\s*(de\s*)?(los\s*)?mameyes|the\s*bridge/i,
+    slug: "puente-la-guinea",
   },
   {
     pattern:

@@ -38,6 +38,7 @@ export const CURATED_TICKET_URLS: Record<string, string> = {
   "cabarete-run-festival-5k-2026-11-08":
     "https://forms.gle/WTX9u3D2C1XWVZDk8",
   "cabarete-stand-up-vol-2-2026-10-24": "https://www.cabaretestandup.com/",
+  "cabarete-stand-up-vol-3-2026-11-21": "https://www.cabaretestandup.com/",
   "atleticos-pp-vs-capitanes-2026-07-11":
     "https://todotickets.do/events/3-atleticos-vs-capitanes-de-salcedo-11-de-julio",
   "atleticos-pp-vs-mangueros-2026-07-17":
@@ -110,6 +111,7 @@ export const CURATED_ADMISSION_PRICES: Record<string, string> = {
   // Concerts & ticketed shows
   "lil-naay-2026-07-17": "RD$700",
   "cabarete-stand-up-vol-2-2026-10-24": "RD$600",
+  "cabarete-stand-up-vol-3-2026-11-21": "RD$1,200",
   "disco-club-la-mas-doll-2026-10-02": "RD$600",
   "blue-ice-halloween-chimbala-2026-10-31": "RD$1,500",
   "twenty-disco-kiry-curu-2026-10-16": "RD$600",

@@ -135,12 +135,18 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "the-last-drink-halloween-private-party-2026-10-31.jpg",
   "dj-monarka-halloween-noche-striper-2026-10-31":
     "dj-monarka-halloween-noche-striper-2026-10-31.jpg",
+  "puente-la-guinea-daily": "puente-la-guinea-daily-v2.jpg",
+  "cabarete-stand-up-vol-3-2026-11-21":
+    "cabarete-stand-up-vol-3-2026-11-21.jpg",
+  "alejandro-pena-rancho-catalina-2026-11-01":
+    "alejandro-pena-rancho-catalina-2026-11-01.jpg",
   "twenty-disco-noche-de-brujas-2026-10-29":
     "twenty-disco-noche-de-brujas-2026-10-29.jpg",
   "chameleon-el-purgatorio-2026-10-31":
     "chameleon-el-purgatorio-2026-10-31.jpg",
+  // Filename bump — DJ Tanque Wicked Night flyer.
   "la-lola-wicked-night-2026-10-31":
-    "la-lola-wicked-night-2026-10-31.jpg",
+    "la-lola-wicked-night-2026-10-31-v2.jpg",
   "drifter-last-sunset-halloween-2026-10-31":
     "drifter-last-sunset-halloween-2026-10-31.jpg",
   "los-primos-noche-de-terror-yosma-2026-10-31":
@@ -1093,6 +1099,18 @@ const EVENT_GALLERY_SLIDES: Record<
   string,
   Array<{ file: string; venueSlug?: string; label?: string }>
 > = {
+  "puente-la-guinea-daily": [
+    {
+      file: "puente-la-guinea-daily-v2.jpg",
+      venueSlug: "puente-la-guinea",
+      label: "Today",
+    },
+    {
+      file: "puente-la-guinea-historic-v2.jpg",
+      venueSlug: "puente-la-guinea",
+      label: "Historic view",
+    },
+  ],
   "pop-cinemas-week-2026-10-15": [
     {
       file: "pop-cinemas-week-2026-10-15-posters.jpg",
@@ -1241,6 +1259,9 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "natura-sunbar-sunset-sounds-em-zayd-2026-10-22.jpg",
   "twenty-disco-friday-dj-soky-2026-10-23.jpg",
   "justin-santos-rancho-catalina-2026-10-25.jpg",
+  "alejandro-pena-rancho-catalina-2026-11-01.jpg",
+  "cabarete-stand-up-vol-3-2026-11-21.jpg",
+  "la-lola-wicked-night-2026-10-31-v2.jpg",
   "proyecto-x-el-calabozo-2026-10-31.jpg",
   "twenty-disco-angel-demons-2026-10-24.jpg",
   "twenty-disco-angel-demons-2026-10-24-v2.jpg",
@@ -1302,9 +1323,12 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "cedaky-halloween-party-2026-10-31-v2.jpg",
   "the-last-drink-halloween-private-party-2026-10-31.jpg",
   "dj-monarka-halloween-noche-striper-2026-10-31.jpg",
+  "cabarete-stand-up-vol-3-2026-11-21.jpg",
+  "alejandro-pena-rancho-catalina-2026-11-01.jpg",
   "twenty-disco-noche-de-brujas-2026-10-29.jpg",
   "chameleon-el-purgatorio-2026-10-31.jpg",
   "la-lola-wicked-night-2026-10-31.jpg",
+  "la-lola-wicked-night-2026-10-31-v2.jpg",
   "drifter-last-sunset-halloween-2026-10-31.jpg",
   "los-primos-noche-de-terror-yosma-2026-10-31.jpg",
   "vinoteca-miercoles-karaoke.jpg",
@@ -1608,6 +1632,8 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "ambar-lounge-emil-roman-2026-09-26.jpg",
   "finely-mirador-inauguracion-2026-09-25.jpg",
   "cabarete-stand-up-vol-2-2026-10-24.jpg",
+  "cabarete-stand-up-vol-3-2026-11-21.jpg",
+  "alejandro-pena-rancho-catalina-2026-11-01.jpg",
   "hard-rock-the-king-mj-2026-09-19.jpg",
   "geek-fest-rd-2026-09-20.jpg",
   "festival-presidente-2026-10-03.jpg",
@@ -1693,6 +1719,8 @@ const HOME_HERO_SCENE_FILES = new Set([
   "brugal-rum-center-weekdays.jpg",
   "cabarete-pilates-reformer.jpg",
   "calle-sombrillas-umbrella-walk.jpg",
+  "puente-la-guinea-daily-v2.jpg",
+  "puente-la-guinea-historic-v2.jpg",
   "casa-de-la-cultura-gallery-opening.jpg",
   "casa-de-la-cultura-saturday-keyboard.jpg",
   "cayo-arena-tours-daily.jpeg",

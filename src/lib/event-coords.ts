@@ -41,11 +41,31 @@ function venueCoords(slug: string): EventCoords | null {
   return { lat: venue.lat, lng: venue.lng };
 }
 
+const SECRET_LOCATION_RE =
+  /secret\s*location|ubicaci[oó]n\s*secreta|lieu\s*secret|localizaci[oó]n\s*secreta/i;
+
+/**
+ * Invite-only / flyer “ubicación secreta” nights — never map-pin a street.
+ * Address is revealed via WhatsApp/DM, not a POP walk-up pin.
+ */
+export function isSecretLocationEvent(
+  event: Pick<Event, "venue" | "address" | "venueSlug">,
+): boolean {
+  if (event.venueSlug?.trim()) return false;
+  const blob = `${event.venue ?? ""} ${event.address ?? ""}`;
+  return SECRET_LOCATION_RE.test(blob);
+}
+
 /** Resolve map pin coordinates — explicit event coords first, then seed venue, then city. */
 export function resolveEventCoords(
-  event: Pick<Event, "lat" | "lng" | "venueSlug" | "venue" | "location" | "format">,
+  event: Pick<
+    Event,
+    "lat" | "lng" | "venueSlug" | "venue" | "location" | "address" | "format"
+  >,
 ): EventCoords | null {
   if (event.format === "digital") return null;
+  // Secret / invite-only flyers must not drop a fake centro pin on a real corner.
+  if (isSecretLocationEvent(event)) return null;
 
   // Hosted-away nights (organizer venue ≠ dance floor) set lat/lng on the event.
   if (event.lat != null && event.lng != null) {

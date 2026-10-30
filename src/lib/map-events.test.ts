@@ -4,6 +4,7 @@ import {
   buildMapPins,
   eventsWithMapPins,
   filterMapEvents,
+  mapWhenForVenueDeepLink,
   nearestMapPin,
   slimEventsForMap,
   venueOnlyPinId,
@@ -358,6 +359,28 @@ describe("map-events", () => {
     );
     const all = filterMapEvents([museum, nightClub], "all", "all", lateNight);
     assert.ok(all.some((e) => e.id === "fortaleza"));
+  });
+
+  it("widens venue deep-link when-filter when Today has no pin but Weekend does", () => {
+    /** Fri Oct 30, 2026 noon AST — Wicked Night is tomorrow (Sat). */
+    const friday = new Date("2026-10-30T16:00:00.000Z");
+    const tomorrow = event({
+      id: "la-lola-wicked",
+      title: "Wicked Night",
+      lat: 19.789103,
+      lng: -70.669808,
+      venueSlug: "la-lola-malecon",
+      date: "2026-10-31",
+      category: "halloween",
+    });
+    assert.equal(
+      mapWhenForVenueDeepLink([tomorrow], "la-lola-malecon", friday),
+      "weekend",
+    );
+    assert.equal(
+      mapWhenForVenueDeepLink([tomorrow], "missing-venue", friday),
+      "today",
+    );
   });
 
   it("adds a venue-only pin when the deep-linked venue has no events", () => {

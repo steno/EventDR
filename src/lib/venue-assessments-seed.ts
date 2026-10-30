@@ -662,6 +662,17 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     ],
   }),
   editorial({
+    venueSlug: "puente-la-guinea",
+    verdictKey: "solid_local_culture",
+    crowdFit: ["local", "visitor", "family", "mixed"],
+    axes: { recommend: 4.2, atmosphere: 4.3, value: 4.9, practical: 4.1 },
+    themes: [
+      { key: "heritage_site", sentiment: "positive", audience: "visitor" },
+      { key: "photo_spot", sentiment: "positive", audience: "visitor" },
+      { key: "free_access", sentiment: "positive" },
+    ],
+  }),
+  editorial({
     venueSlug: "letrero-puerto-plata",
     verdictKey: "popular_public_space",
     crowdFit: ["local", "visitor", "family", "mixed"],

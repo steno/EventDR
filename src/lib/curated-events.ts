@@ -226,6 +226,22 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     isFree: true,
     sourceUrl: "https://www.instagram.com/di_monarka/",
   },
+  "puente-la-guinea-daily": {
+    isFree: true,
+  },
+  "cabarete-stand-up-vol-3-2026-11-21": {
+    isFree: false,
+    admissionPrice: "RD$1,200",
+    ticketUrl: "https://www.cabaretestandup.com/",
+    venueSlug: "hotel-villa-taina",
+    sourceUrl: "https://www.instagram.com/cabaretestandup/",
+  },
+  "alejandro-pena-rancho-catalina-2026-11-01": {
+    isFree: true,
+    phone: "+18097813737",
+    venueSlug: "rancho-catalina-puerto-plata",
+    sourceUrl: "https://www.instagram.com/rancholacatalina/",
+  },
   "trillo-la-guaita-long-beach-2026-09-24": {
     isFree: true,
     venueSlug: "long-beach-puerto-plata",

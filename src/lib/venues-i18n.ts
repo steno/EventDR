@@ -419,6 +419,12 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "178 parapluies multicolores au-dessus de la Calle San Felipe dans le centre historique — balade photo gratuite entre boutiques artisanales, cafés et vendeurs locaux. Ce n’est pas Kite Street (Calle Sánchez / Chichiguas).",
     },
   },
+  "puente-la-guinea": {
+    description: {
+      es: "Puente histórico de un solo arco (también Puente de Los Mameyes) sobre el arroyo Los Mameyes — construido en 1879 bajo Gregorio Luperón, restaurado en 1979; hito gratuito de acceso libre que une Separación / José del Carmen Ariza con el antiguo Camino Real cerca de Aserradero y Regalado.",
+      fr: "Pont historique à une arche (aussi Puente de Los Mameyes) sur l’arroyo Los Mameyes — construit en 1879 sous Gregorio Luperón, restauré en 1979 ; landmark gratuit en libre accès reliant Separación / José del Carmen Ariza à l’ancien Camino Real près d’Aserradero et Regalado.",
+    },
+  },
   "letrero-puerto-plata": {
     description: {
       es: "Letras corpóreas verticales PUERTO PLATA en el malecón cerca de La Puntilla — parador fotográfico gratis con vista al Atlántico, a pasos de la Fortaleza San Felipe y el Anfiteatro La Puntilla.",

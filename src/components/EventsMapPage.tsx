@@ -22,6 +22,7 @@ import type { Locale } from "@/i18n/config";
 import {
   buildMapPins,
   filterMapEvents,
+  mapWhenForVenueDeepLink,
   nearestMapPin,
   SWING_NEXT_MAX_METERS,
   withVenueDeepLinkPin,
@@ -138,7 +139,11 @@ export function EventsMapPage({
   initialVenueSlug = null,
 }: EventsMapPageProps) {
   const [area, setArea] = useState<MapAreaId>("north-coast");
-  const [when, setWhen] = useState<MapTimeFilter>("today");
+  const [when, setWhen] = useState<MapTimeFilter>(() =>
+    initialVenueSlug?.trim()
+      ? mapWhenForVenueDeepLink(initialEvents, initialVenueSlug)
+      : "today",
+  );
   const [focusedPinId, setFocusedPinId] = useState<string | null>(null);
   const [openPinId, setOpenPinId] = useState<string | null>(null);
   const [cruiseEntryOpen, setCruiseEntryOpen] = useState(false);

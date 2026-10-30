@@ -457,6 +457,14 @@ export const VENUE_TIP_COPY: Record<
       fr: "Rue selfie des parapluies sur Calle San Felipe — gratuite et colorée ; venez tôt ou tard pour des photos sans la foule des groupes. Ce n’est pas Kite Street sur Calle Sánchez.",
     },
   },
+  "puente-la-guinea": {
+    body: "1879 brick-arch walk-in over Los Mameyes — free photo stop on the old Camino Real; pin Separación / José del Carmen Ariza, not a Malecón cruise letter shot.",
+    localized: {
+      en: "1879 brick-arch walk-in over Los Mameyes — free photo stop on the old Camino Real; pin Separación / José del Carmen Ariza, not a Malecón cruise letter shot.",
+      es: "Arco de ladrillo de 1879 sobre Los Mameyes — parada foto gratis en el antiguo Camino Real; clava Separación / José del Carmen Ariza, no las letras del malecón.",
+      fr: "Arche de briques de 1879 sur Los Mameyes — stop photo gratuit sur l’ancien Camino Real ; épinglez Separación / José del Carmen Ariza, pas les lettres du malecón.",
+    },
+  },
   "letrero-puerto-plata": {
     body: "Malecón letters by La Puntilla — free postcard shot; golden hour beats midday glare on the silver faces.",
     localized: {

@@ -153,6 +153,7 @@ const EVENT_PHONE_BY_ID: Record<string, string> = {
   "ambar-lounge-house-of-fear-2026-10-31": "+18097818677",
   "disco-club-gogo-dancers-2026-10-29": "+18295639469",
   "justin-santos-rancho-catalina-2026-10-25": "+18097813737",
+  "alejandro-pena-rancho-catalina-2026-11-01": "+18097813737",
   "proyecto-x-el-calabozo-2026-10-31": "+18096147745",
   "ambar-lounge-too-noise-2026-10-17": "+18097818677",
   "cafe-meclao-rancho-catalina-2026-10-18": "+18097813737",

@@ -104,6 +104,21 @@ describe("catalog category invariants", () => {
       );
     }
   });
+
+  it("keeps Independence Park weekend plaza life off Concert", () => {
+    for (const locale of LOCALES) {
+      const event = getFallbackEventById(
+        "plaza-independencia-weekend-culture",
+        locale,
+      );
+      assert.ok(event, locale);
+      assert.equal(event.category, "culture", locale);
+      const resolved = withResolvedCategories(event);
+      assert.equal(eventInCategory(resolved, "concert"), false, locale);
+      assert.equal(eventInCategory(resolved, "music"), false, locale);
+      assert.equal(eventInCategory(resolved, "culture"), true, locale);
+    }
+  });
 });
 
 describe("nightlife Adventure sanitizer", () => {

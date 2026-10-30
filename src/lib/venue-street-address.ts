@@ -10,6 +10,8 @@ export const VENUE_STREET_ADDRESS: Readonly<Record<string, string>> = {
   "blue-jacktar-playa-dorada": "Centro de Convenciones, Playa Dorada",
   "brugal-rum-center": "Carretera Maimón",
   "calle-sombrillas": "Calle San Felipe, between Calle Beller & Calle Duarte",
+  "puente-la-guinea":
+    "Camino Real between Aserradero & Regalado (Separación / José del Carmen Ariza)",
   "camara-comercio-puerto-plata": "Calle Beller No. 17, Salón de Eventos Fernando Cueto",
   "chameleon-sport-bar":
     "Calle Dr. Alejo Martínez No. 1, Sosúa Bay Center, El Batey",

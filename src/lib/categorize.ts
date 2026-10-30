@@ -474,6 +474,12 @@ const CATEGORY_INFERENCE_BLOCKS: Partial<
    * atmosphere. Keep Music for billed music-first nights.
    */
   "food-drinks": ["music"],
+  /**
+   * Plaza / museum / crafts-fair Culture listings often mention ambient music
+   * or “pop-up concerts” without being a ticketed Concert hub night. Keep
+   * Concert / Music for billed stage nights or explicit tags.
+   */
+  culture: ["concert", "music"],
 };
 
 function keywordWeight(keyword: Keyword): { term: string; weight: number } {

@@ -69,6 +69,7 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "cayo-arena": "cayo-arena.jpg",
   "paseo-dona-blanca": "paseo-dona-blanca.jpg",
   "calle-sombrillas": "calle-sombrillas-umbrella-street-v2.jpg",
+  "puente-la-guinea": "puente-la-guinea-v2.jpg",
   // Filename bump — POP kite canopy on Calle Sánchez / Chichiguas.
   "kite-street-pop": "kite-street-pop-chichiguas.jpg",
   "letrero-puerto-plata": "letrero-puerto-plata.jpg",
