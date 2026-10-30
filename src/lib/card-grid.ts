@@ -7,8 +7,8 @@ export const CARD_GRID_MIN_TRACK_PX = 220;
 export const CARD_GRID_MOBILE_COLUMNS = 2;
 /** Matches Tailwind `xl` (80rem at a 16px root) — same as home highlight rails. */
 export const CARD_GRID_SM_BREAKPOINT_PX = 1280;
-/** `xl:gap-3` — 0.75rem at a 16px root. */
-export const CARD_GRID_GAP_PX = 12;
+/** Matches home rail / card-grid `gap-[26px]`. */
+export const CARD_GRID_GAP_PX = 26;
 
 /** Span leftover last-row columns, or the full next row. */
 export type GridFillSpan = number | "full";

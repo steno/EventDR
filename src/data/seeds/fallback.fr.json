@@ -8859,8 +8859,8 @@
   },
   {
     "id": "cedaky-halloween-party-2026-10-31",
-    "title": "Cedāky Halloween Party — 31 oct.",
-    "description": "Cedāky Halloween Party au Cedāky Mall, Puerto Plata — samedi 31 octobre 2026, 19 h–22 h. DJ live, bières et ambiance Halloween au mall. Confirmez via Instagram @cedakymall. Halloween tôt et familial au mall — pas Cedāky’s Market du 15 nov., ni les clubs du centre la même nuit.",
+    "title": "Cedāky Halloween Party — Darvin Estrella",
+    "description": "Cedāky Halloween Party au Cedāky Mall, Puerto Plata — samedi 31 octobre 2026, 19 h–22 h avec DJ Darvin Estrella en live et bière froide de Puerto Plata Craft Beer. Confirmez via Instagram @cedakymall / @darvinestrella / @puertoplatacraftbeer. Halloween tôt et familial au mall — pas Cedāky’s Market du 15 nov., ni la private party Halloween de The Last Drink le même samedi près du Puente de la Guinea.",
     "date": "2026-10-31",
     "time": "7:00 PM – 10:00 PM",
     "venue": "Cedāky Mall",
@@ -8882,7 +8882,8 @@
     "ageHint": "family",
     "sourceType": "flyer",
     "lineup": [
-      "DJ en vivo"
+      "DJ Darvin Estrella",
+      "Puerto Plata Craft Beer"
     ],
     "imageEmoji": "🎃"
   },
@@ -9171,5 +9172,64 @@
     ],
     "imageEmoji": "🎬",
     "ageHint": "all-ages"
+  },
+  {
+    "id": "the-last-drink-halloween-private-party-2026-10-31",
+    "title": "The Last Drink — Halloween Private Party",
+    "description": "Halloween Private Party au The Last Drink, près du Puente de la Guinea à côté de Repuesto Amin Cid (ancien Maggy Bar), Calle José del Carmen Ariza, Barrio La Rigola, Puerto Plata — samedi 31 octobre 2026, fenêtre promo 20 h–22 h avec specials imprimés (cubetazos, Presidente Light, One peq, chicha, Doble Reserva + mélange) et vibe open bar toute la nuit. Prix meilleur costume RD$2,000. Halloween de bar de rue local — pas le Halloween Cedāky Mall avec Darvin Estrella le même samedi, ni l’Halloween Latin Disco Club. Confirmez à la porte.",
+    "date": "2026-10-31",
+    "time": "8:00 PM – 10:00 PM",
+    "location": "Puerto Plata",
+    "venue": "The Last Drink",
+    "venueSlug": "the-last-drink",
+    "address": "Próximo al Puente de la Guinea, al lado de Repuesto Amin Cid (antiguo Maggy Bar), Calle José del Carmen Ariza, Barrio La Rigola, Puerto Plata",
+    "lat": 19.795615,
+    "lng": -70.695012,
+    "category": "halloween",
+    "categories": [
+      "parties",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "lineup": [
+      "Open bar toute la nuit",
+      "Prix meilleur costume RD$2,000",
+      "Cubetazos · Presidente Light · Hookah"
+    ],
+    "imageEmoji": "🎃"
+  },
+  {
+    "id": "dj-monarka-halloween-noche-striper-2026-10-31",
+    "title": "DJ Monarka — Halloween Noche de Striper",
+    "description": "Halloween Noche de Striper / 70 Horas Sin Dormir — samedi 31 octobre 2026 en lieu secret sur la côte nord (ubicación secreta, sur invitation seulement). Musique par DJ Monarka et El Therian ; soirée striper avec entrée gratuite, boissons incluses, tatouages gratuits par @suzu_tattoo21 et prix costume sexy US$100 / US$50. Sponsorisé par La Malona. Adresse via DM @di_monarka ou @malona_rc — ne traitez pas l’épingle Puerto Plata comme une adresse walk-in. Halloween secret sur invitation — pas Proyecto X El Calabozo le même samedi, pas El Purgatorio de Chameleon, pas la private party de The Last Drink près du Puente de la Guinea.",
+    "date": "2026-10-31",
+    "location": "Puerto Plata",
+    "venue": "Lieu secret (Puerto Plata)",
+    "address": "Lieu secret — sur invitation ; DM @di_monarka ou @malona_rc",
+    "lat": 19.7935,
+    "lng": -70.688,
+    "category": "halloween",
+    "categories": [
+      "parties",
+      "music"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/di_monarka/",
+    "lineup": [
+      "DJ Monarka",
+      "El Therian",
+      "Noche de striper",
+      "Tatouages gratuits — @suzu_tattoo21",
+      "Prix costume sexy US$100 / US$50",
+      "Patrocina La Malona"
+    ],
+    "imageEmoji": "🎃",
+    "ageHint": "18-plus"
   }
 ]

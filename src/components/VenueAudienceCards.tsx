@@ -229,7 +229,7 @@ function AudienceSlider({
           key={railKey}
           ref={scrollRef}
           onScroll={syncScrollHints}
-          className="flex snap-x snap-mandatory gap-3 overflow-x-auto pb-0.5 scrollbar-hide"
+          className="flex snap-x snap-mandatory gap-[26px] overflow-x-auto pb-0.5 scrollbar-hide"
           aria-label={heading}
         >
           {venues.map((venue, index) => (
@@ -237,7 +237,7 @@ function AudienceSlider({
               key={venue.slug}
               data-snap-slide
               // Mobile peek matches Today's specials (72%); sm+ stays 2-up → 4-up.
-              className="w-[72%] shrink-0 snap-start sm:w-[calc((100%-0.75rem)/2)] xl:w-[calc((100%-2.25rem)/4)]"
+              className="w-[72%] shrink-0 snap-start sm:w-[calc((100%-26px)/2)] xl:w-[calc((100%-78px)/4)]"
             >
               <VenueSlideCard
                 venue={venue}
@@ -257,7 +257,7 @@ function AudienceSlider({
           */}
           {venues.length > 1 ? (
             <div
-              className="w-[28%] shrink-0 sm:w-[calc((100%+0.75rem)/2)] xl:w-[calc((300%+2.25rem)/4)]"
+              className="w-[28%] shrink-0 sm:w-[calc((100%+26px)/2)] xl:w-[calc((300%+78px)/4)]"
               aria-hidden
             />
           ) : null}

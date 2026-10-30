@@ -8861,8 +8861,8 @@
   },
   {
     "id": "cedaky-halloween-party-2026-10-31",
-    "title": "Cedāky Halloween Party — 31 oct",
-    "description": "Cedāky Halloween Party en Cedāky Mall, Puerto Plata — sábado 31 de octubre 2026, 7:00–10:00 PM. DJ en vivo, cervezas y ambiente de Halloween en el mall. Confirma en Instagram @cedakymall. Halloween temprano y familiar en el mall — no es Cedāky’s Market del 15 nov, ni los clubes del centro la misma noche.",
+    "title": "Cedāky Halloween Party — Darvin Estrella",
+    "description": "Cedāky Halloween Party en Cedāky Mall, Puerto Plata — sábado 31 de octubre 2026, 7:00–10:00 PM con DJ Darvin Estrella en vivo y cerveza fría de Puerto Plata Craft Beer. Confirma en Instagram @cedakymall / @darvinestrella / @puertoplatacraftbeer. Halloween temprano y familiar en el mall — no es Cedāky’s Market del 15 nov, ni la private party de Halloween de The Last Drink el mismo sábado junto al Puente de la Guinea.",
     "date": "2026-10-31",
     "time": "7:00 PM – 10:00 PM",
     "venue": "Cedāky Mall",
@@ -8884,7 +8884,8 @@
     "ageHint": "family",
     "sourceType": "flyer",
     "lineup": [
-      "DJ en vivo"
+      "DJ Darvin Estrella",
+      "Puerto Plata Craft Beer"
     ],
     "imageEmoji": "🎃"
   },
@@ -9173,5 +9174,64 @@
     ],
     "imageEmoji": "🎬",
     "ageHint": "all-ages"
+  },
+  {
+    "id": "the-last-drink-halloween-private-party-2026-10-31",
+    "title": "The Last Drink — Halloween Private Party",
+    "description": "Halloween Private Party en The Last Drink, próximo al Puente de la Guinea al lado de Repuesto Amin Cid (antiguo Maggy Bar), Calle José del Carmen Ariza, Barrio La Rigola, Puerto Plata — sábado 31 de octubre 2026, ventana promo 8:00–10:00 PM con especiales impresos (cubetazos, Presidente Light, One peq, hookah, Doble Reserva + mezcla) y vibe open bar toda la noche. Premio al mejor disfraz RD$2,000. Halloween de bar de calle local — no es el Halloween de Cedāky Mall con Darvin Estrella el mismo sábado, ni el Halloween de Latin Disco Club. Confirma en la puerta.",
+    "date": "2026-10-31",
+    "time": "8:00 PM – 10:00 PM",
+    "location": "Puerto Plata",
+    "venue": "The Last Drink",
+    "venueSlug": "the-last-drink",
+    "address": "Próximo al Puente de la Guinea, al lado de Repuesto Amin Cid (antiguo Maggy Bar), Calle José del Carmen Ariza, Barrio La Rigola, Puerto Plata",
+    "lat": 19.795615,
+    "lng": -70.695012,
+    "category": "halloween",
+    "categories": [
+      "parties",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "lineup": [
+      "Open bar toda la noche",
+      "Premio mejor disfraz RD$2,000",
+      "Cubetazos · Presidente Light · Hookah"
+    ],
+    "imageEmoji": "🎃"
+  },
+  {
+    "id": "dj-monarka-halloween-noche-striper-2026-10-31",
+    "title": "DJ Monarka — Halloween Noche de Striper",
+    "description": "Halloween Noche de Striper / 70 Horas Sin Dormir — sábado 31 de octubre 2026 en ubicación secreta de la Zona Norte (solo invitados). Música de DJ Monarka y El Therian; noche de striper con entrada gratis, bebidas incluidas, tatuajes gratis por @suzu_tattoo21 y premios al traje más sexy US$100 / US$50. Patrocina La Malona. Dirección por DM @di_monarka o @malona_rc — no trates el pin de Puerto Plata como walk-up. Halloween secreto por invitación — no es Proyecto X El Calabozo el mismo sábado, ni El Purgatorio de Chameleon, ni la private party de The Last Drink junto al Puente de la Guinea.",
+    "date": "2026-10-31",
+    "location": "Puerto Plata",
+    "venue": "Ubicación secreta (Puerto Plata)",
+    "address": "Ubicación secreta — solo invitados; DM @di_monarka o @malona_rc",
+    "lat": 19.7935,
+    "lng": -70.688,
+    "category": "halloween",
+    "categories": [
+      "parties",
+      "music"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/di_monarka/",
+    "lineup": [
+      "DJ Monarka",
+      "El Therian",
+      "Noche de striper",
+      "Tatuajes gratis — @suzu_tattoo21",
+      "Premios traje más sexy US$100 / US$50",
+      "Patrocina La Malona"
+    ],
+    "imageEmoji": "🎃",
+    "ageHint": "18-plus"
   }
 ]

@@ -7547,10 +7547,10 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "cedaky-halloween-party-2026-10-31",
-    body: "Early mall Halloween 7–10 PM with live DJ and beers — family-friendly Las Yaguitas stop before the late club crawl; free walk-in atmosphere, confirm on @cedakymall.",
+    body: "Early mall Halloween 7–10 PM with Darvin Estrella live and Puerto Plata Craft Beer on the floor — family-friendly Las Yaguitas stop before the late club crawl; free walk-in atmosphere, confirm on @cedakymall.",
     localized: {
-      es: "Halloween temprano en el mall 7–10 PM con DJ en vivo y cervezas — parada familiar en Las Yaguitas antes del crawl de clubes; ambiente walk-in gratis, confirma en @cedakymall.",
-      fr: "Halloween tôt au mall 19 h–22 h avec DJ live et bières — arrêt familial à Las Yaguitas avant le crawl de clubs ; ambiance walk-in gratuite, confirmez sur @cedakymall.",
+      es: "Halloween temprano en el mall 7–10 PM con Darvin Estrella en vivo y Puerto Plata Craft Beer en el piso — parada familiar en Las Yaguitas antes del crawl de clubes; ambiente walk-in gratis, confirma en @cedakymall.",
+      fr: "Halloween tôt au mall 19 h–22 h avec Darvin Estrella en live et Puerto Plata Craft Beer sur le plateau — arrêt familial à Las Yaguitas avant le crawl de clubs ; ambiance walk-in gratuite, confirmez sur @cedakymall.",
     },
     priceFeel: "budget",
     priceNote: "Free mall party — @cedakymall",
@@ -7558,10 +7558,49 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
       es: "Fiesta gratis en el mall — @cedakymall",
       fr: "Fête gratuite au mall — @cedakymall",
     },
-    attribution: "POP research · @cedakymall Halloween Party flyer + caption",
+    attribution:
+      "POP research · @cedakymall Halloween Party flyer + @darvinestrella caption",
     researchNotes:
-      "Editor flyer SE VIENE EL CEDĀKY HALLOWEEN PARTY; OCT 31 sábado; 7–10 PM; DJ en vivo cervezas; ageHint family.",
-    updatedAt: "2026-10-28T13:15:00.000Z",
+      "Editor flyer + caption refresh — Sat 31 Oct Darvin Estrella live + Puerto Plata Craft Beer; keep 7–10 PM from prior seed; ageHint family; distinct from the-last-drink-halloween-private-party-2026-10-31.",
+    updatedAt: "2026-10-30T00:00:00.000Z",
+  },
+  {
+    eventId: "the-last-drink-halloween-private-party-2026-10-31",
+    body: "Saturday Halloween private party by Puente de la Guinea with printed cubetazo/hookah specials 8–10 PM and a RD$2,000 best-costume prize — pin The Last Drink next to Amin Cid, not Cedāky Mall’s Darvin Estrella set the same night.",
+    localized: {
+      es: "Private party de Halloween el sábado junto al Puente de la Guinea con especiales impresos de cubetazo/hookah 8–10 PM y premio al mejor disfraz RD$2,000 — clava The Last Drink al lado de Amin Cid, no el set de Darvin Estrella en Cedāky Mall la misma noche.",
+      fr: "Private party Halloween le samedi près du Puente de la Guinea avec specials imprimés cubetazo/chicha 20 h–22 h et prix meilleur costume RD$2,000 — épinglez The Last Drink à côté d’Amin Cid, pas le set Darvin Estrella au Cedāky Mall la même nuit.",
+    },
+    priceFeel: "budget",
+    priceNote:
+      "Printed drink specials · best costume RD$2,000 — confirm at the door",
+    priceNoteLocalized: {
+      es: "Especiales impresos · mejor disfraz RD$2,000 — confirma en la puerta",
+      fr: "Specials imprimés · meilleur costume RD$2,000 — confirmez à la porte",
+    },
+    attribution: "POP research · The Last Drink Halloween Private Party flyer",
+    researchNotes:
+      "Editor flyer — HALLOWEEN PRIVATE PARTY; SÁBADO 31 OCT; Puente de la Guinea; 8 PM–10 PM; Open Bar All Night; AL MEJOR DISFRAZ $2000; cubetazo/Presidente/One/Hooka/Doble Reserva prices; venue The Last Drink (OCR 'The LASA DRINK').",
+    updatedAt: "2026-10-30T00:30:00.000Z",
+  },
+  {
+    eventId: "dj-monarka-halloween-noche-striper-2026-10-31",
+    body: "Invite-only secret-location Halloween with DJ Monarka + El Therian, free entry/drinks, and a striper bill — DM @di_monarka or @malona_rc before you treat the Puerto Plata pin as a walk-up; not Proyecto X El Calabozo the same Saturday.",
+    localized: {
+      es: "Halloween de ubicación secreta solo por invitación con DJ Monarka + El Therian, entrada/bebidas gratis y noche de striper — DM @di_monarka o @malona_rc antes de tratar el pin de Puerto Plata como walk-up; no es Proyecto X El Calabozo el mismo sábado.",
+      fr: "Halloween lieu secret sur invitation avec DJ Monarka + El Therian, entrée/boissons gratuites et soirée striper — DM @di_monarka ou @malona_rc avant de traiter l’épingle Puerto Plata comme walk-in ; pas Proyecto X El Calabozo le même samedi.",
+    },
+    priceFeel: "budget",
+    priceNote: "Free entry + drinks · invite only — DM @di_monarka",
+    priceNoteLocalized: {
+      es: "Entrada + bebidas gratis · solo invitados — DM @di_monarka",
+      fr: "Entrée + boissons gratuites · sur invitation — DM @di_monarka",
+    },
+    attribution:
+      "POP research · @di_monarka Halloween Noche de Striper flyer",
+    researchNotes:
+      "Editor flyers — Sábado 31 Oct; Noche de Striper / 70 Horas Sin Dormir; DJ Monarka + El Therian; entrada gratis; bebidas incluidas; tatuajes gratis @suzu_tattoo21; premios US$100/US$50; ubicación secreta solo invitados; Patrocina La Malona @malona_rc; stripper @goldyshow3127; ageHint 18-plus. No venueSlug — secret pin like proyecto-x-el-calabozo-2026-10-31.",
+    updatedAt: "2026-10-30T01:00:00.000Z",
   },
   {
     eventId: "cedaky-market-2026-11-15",

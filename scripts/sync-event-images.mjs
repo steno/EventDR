@@ -58,6 +58,8 @@ const FILE_TO_EVENT_ID = {
     "justin-santos-rancho-catalina-2026-10-25",
   "proyecto-x-el-calabozo-2026-10-31.jpg":
     "proyecto-x-el-calabozo-2026-10-31",
+  "dj-monarka-halloween-noche-striper-2026-10-31.jpg":
+    "dj-monarka-halloween-noche-striper-2026-10-31",
   "twenty-disco-angel-demons-2026-10-24.jpg":
     "twenty-disco-angel-demons-2026-10-24",
   "twenty-disco-angel-demons-2026-10-24-v2.jpg":
@@ -165,6 +167,10 @@ const FILE_TO_EVENT_ID = {
     "tiki-bar-halloween-dr-jake-2026-10-31",
   "cedaky-halloween-party-2026-10-31.jpg":
     "cedaky-halloween-party-2026-10-31",
+  "cedaky-halloween-party-2026-10-31-v2.jpg":
+    "cedaky-halloween-party-2026-10-31",
+  "the-last-drink-halloween-private-party-2026-10-31.jpg":
+    "the-last-drink-halloween-private-party-2026-10-31",
   "twenty-disco-noche-de-brujas-2026-10-29.jpg":
     "twenty-disco-noche-de-brujas-2026-10-29",
   "chameleon-el-purgatorio-2026-10-31.jpg":

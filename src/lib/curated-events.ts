@@ -222,6 +222,10 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     sourceUrl: "https://www.instagram.com/proyecto_x_pop/",
     ticketUrl: "https://chat.whatsapp.com/JWibgYONhzF0JwtfIOyZWx",
   },
+  "dj-monarka-halloween-noche-striper-2026-10-31": {
+    isFree: true,
+    sourceUrl: "https://www.instagram.com/di_monarka/",
+  },
   "trillo-la-guaita-long-beach-2026-09-24": {
     isFree: true,
     venueSlug: "long-beach-puerto-plata",
@@ -978,6 +982,10 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     venueSlug: "el-patio-de-frida",
   },
   "the-last-drink-domingo-de-pasarela": {
+    callForPricing: true,
+    venueSlug: "the-last-drink",
+  },
+  "the-last-drink-halloween-private-party-2026-10-31": {
     callForPricing: true,
     venueSlug: "the-last-drink",
   },

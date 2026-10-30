@@ -8861,8 +8861,8 @@
   },
   {
     "id": "cedaky-halloween-party-2026-10-31",
-    "title": "Cedāky Halloween Party — 31 Oct",
-    "description": "Cedāky Halloween Party at Cedāky Mall, Puerto Plata — Saturday 31 October 2026, 7:00–10:00 PM. Live DJ, beers, and mall Halloween atmosphere. Confirm via Instagram @cedakymall. Early family-friendly mall Halloween — not Cedāky’s Market on 15 Nov, and not the same-night club bills downtown.",
+    "title": "Cedāky Halloween Party — Darvin Estrella",
+    "description": "Cedāky Halloween Party at Cedāky Mall, Puerto Plata — Saturday 31 October 2026, 7:00–10:00 PM with DJ Darvin Estrella live and cold beer from Puerto Plata Craft Beer. Confirm via Instagram @cedakymall / @darvinestrella / @puertoplatacraftbeer. Early family-friendly mall Halloween — not Cedāky’s Market on 15 Nov, and not The Last Drink’s Halloween private party the same Saturday by Puente de la Guinea.",
     "date": "2026-10-31",
     "time": "7:00 PM – 10:00 PM",
     "venue": "Cedāky Mall",
@@ -8884,7 +8884,8 @@
     "ageHint": "family",
     "sourceType": "flyer",
     "lineup": [
-      "DJ en vivo"
+      "DJ Darvin Estrella",
+      "Puerto Plata Craft Beer"
     ],
     "imageEmoji": "🎃"
   },
@@ -9173,5 +9174,64 @@
     ],
     "imageEmoji": "🎬",
     "ageHint": "all-ages"
+  },
+  {
+    "id": "the-last-drink-halloween-private-party-2026-10-31",
+    "title": "The Last Drink — Halloween Private Party",
+    "description": "Halloween Private Party at The Last Drink, próximo al Puente de la Guinea next to Repuesto Amin Cid (antiguo Maggy Bar), Calle José del Carmen Ariza, Barrio La Rigola, Puerto Plata — Saturday 31 October 2026, 8:00–10:00 PM promo window with printed drink specials (cubetazos, Presidente Light, One peq, hookah, Doble Reserva + mezcla) and open-bar energy all night. Best-costume prize RD$2,000. Local street-bar Halloween — not Cedāky Mall’s Darvin Estrella Halloween the same Saturday, and not Latin Disco Club Halloween. Confirm at the door.",
+    "date": "2026-10-31",
+    "time": "8:00 PM – 10:00 PM",
+    "location": "Puerto Plata",
+    "venue": "The Last Drink",
+    "venueSlug": "the-last-drink",
+    "address": "Próximo al Puente de la Guinea, al lado de Repuesto Amin Cid (antiguo Maggy Bar), Calle José del Carmen Ariza, Barrio La Rigola, Puerto Plata",
+    "lat": 19.795615,
+    "lng": -70.695012,
+    "category": "halloween",
+    "categories": [
+      "parties",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "lineup": [
+      "Open bar all night",
+      "Best costume prize RD$2,000",
+      "Cubetazos · Presidente Light · Hookah"
+    ],
+    "imageEmoji": "🎃"
+  },
+  {
+    "id": "dj-monarka-halloween-noche-striper-2026-10-31",
+    "title": "DJ Monarka — Halloween Noche de Striper",
+    "description": "Halloween Noche de Striper / 70 Horas Sin Dormir — Saturday 31 October 2026 at a secret North Coast location (ubicación secreta, invite-only). Music by DJ Monarka and El Therian; stripper night with free entry, drinks included, free tattoos by @suzu_tattoo21, and sexy-costume prizes US$100 / US$50. Sponsored by La Malona. Address via DM @di_monarka or @malona_rc — do not treat the Puerto Plata pin as a walk-up. Secret invite Halloween — not Proyecto X El Calabozo the same Saturday, not Chameleon El Purgatorio, and not The Last Drink’s private party by Puente de la Guinea.",
+    "date": "2026-10-31",
+    "location": "Puerto Plata",
+    "venue": "Secret location (Puerto Plata)",
+    "address": "Ubicación secreta — invite only; DM @di_monarka or @malona_rc",
+    "lat": 19.7935,
+    "lng": -70.688,
+    "category": "halloween",
+    "categories": [
+      "parties",
+      "music"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/di_monarka/",
+    "lineup": [
+      "DJ Monarka",
+      "El Therian",
+      "Noche de striper",
+      "Free tattoos — @suzu_tattoo21",
+      "Sexy costume prizes US$100 / US$50",
+      "Patrocina La Malona"
+    ],
+    "imageEmoji": "🎃",
+    "ageHint": "18-plus"
   }
 ]

@@ -451,7 +451,7 @@ const TodayHighlightsComponent = ({
   /** Story specials: phone peek ~72%; mid = 2-up; xl = 4-up on the scroll rail. */
   const peekClass = storyCards
     ? desktopScrollRail
-      ? "w-[72%] sm:w-[calc((100%-0.75rem)/2)] xl:w-[calc((100%-2.25rem)/4)]"
+      ? "w-[72%] sm:w-[calc((100%-26px)/2)] xl:w-[calc((100%-78px)/4)]"
       : "w-[72%]"
     : SNAP_RAIL_PEEK_CLASS;
   // Never leave an incomplete desktop grid row — hide overflow, show More.
@@ -565,8 +565,8 @@ const TodayHighlightsComponent = ({
             onScroll={onRailScroll}
             className={
               desktopScrollRail
-                ? "flex snap-x snap-mandatory gap-3 overflow-x-auto pb-0.5 scrollbar-hide"
-                : `flex snap-x snap-mandatory gap-3 overflow-x-auto pb-0.5 scrollbar-hide sm:grid sm:items-stretch sm:gap-3 sm:overflow-visible sm:pb-0 sm:snap-none ${gridColsClass}`
+                ? "flex snap-x snap-mandatory gap-[26px] overflow-x-auto pb-0.5 scrollbar-hide"
+                : `flex snap-x snap-mandatory gap-[26px] overflow-x-auto pb-0.5 scrollbar-hide sm:grid sm:items-stretch sm:gap-[26px] sm:overflow-visible sm:pb-0 sm:snap-none ${gridColsClass}`
             }
             aria-label={sectionLabel}
           >
@@ -575,7 +575,7 @@ const TodayHighlightsComponent = ({
                   <div
                     key={pair.map((event) => event.id).join(":")}
                     data-snap-slide
-                    className={`${peekClass} grid shrink-0 snap-start grid-cols-2 gap-2 sm:contents`}
+                    className={`${peekClass} grid shrink-0 snap-start grid-cols-2 gap-[26px] sm:contents`}
                   >
                     {pair.map((event, pairOffset) => {
                       const index = pairIndex * 2 + pairOffset;

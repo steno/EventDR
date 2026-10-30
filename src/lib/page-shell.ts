@@ -83,7 +83,7 @@ export const VENUE_PLACE_CARD_HEIGHT_MOBILE_CLASS = "h-[min(68svh,36rem)]";
  * “More events” is a full-width bar on the next row (`col-span-full`).
  */
 export const CARD_GRID_CLASS =
-  "grid grid-cols-2 items-stretch gap-2 xl:grid-cols-[repeat(auto-fill,minmax(220px,_1fr))] xl:gap-3";
+  "grid grid-cols-2 items-stretch gap-[26px] xl:grid-cols-[repeat(auto-fill,minmax(220px,_1fr))] xl:gap-[26px]";
 
 /**
  * List body under sticky header + time tabs. Keeps document tall enough that

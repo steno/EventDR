@@ -128,8 +128,13 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "natura-sunbar-sunset-sounds-halloween-2026-10-29.jpg",
   "tiki-bar-halloween-dr-jake-2026-10-31":
     "tiki-bar-halloween-dr-jake-2026-10-31.jpg",
+  // Filename bump — Darvin Estrella × Puerto Plata Craft Beer flyer.
   "cedaky-halloween-party-2026-10-31":
-    "cedaky-halloween-party-2026-10-31.jpg",
+    "cedaky-halloween-party-2026-10-31-v2.jpg",
+  "the-last-drink-halloween-private-party-2026-10-31":
+    "the-last-drink-halloween-private-party-2026-10-31.jpg",
+  "dj-monarka-halloween-noche-striper-2026-10-31":
+    "dj-monarka-halloween-noche-striper-2026-10-31.jpg",
   "twenty-disco-noche-de-brujas-2026-10-29":
     "twenty-disco-noche-de-brujas-2026-10-29.jpg",
   "chameleon-el-purgatorio-2026-10-31":
@@ -1294,6 +1299,9 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "natura-sunbar-sunset-sounds-halloween-2026-10-29.jpg",
   "tiki-bar-halloween-dr-jake-2026-10-31.jpg",
   "cedaky-halloween-party-2026-10-31.jpg",
+  "cedaky-halloween-party-2026-10-31-v2.jpg",
+  "the-last-drink-halloween-private-party-2026-10-31.jpg",
+  "dj-monarka-halloween-noche-striper-2026-10-31.jpg",
   "twenty-disco-noche-de-brujas-2026-10-29.jpg",
   "chameleon-el-purgatorio-2026-10-31.jpg",
   "la-lola-wicked-night-2026-10-31.jpg",
