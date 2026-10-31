@@ -23,8 +23,6 @@ import {
   buildMapPins,
   filterMapEvents,
   mapWhenForVenueDeepLink,
-  nearestMapPin,
-  SWING_NEXT_MAX_METERS,
   withVenueDeepLinkPin,
   type MapTimeFilter,
 } from "@/lib/map-events";
@@ -155,8 +153,6 @@ export function EventsMapPage({
   const [sheetEventIndex, setSheetEventIndex] = useState(0);
   /** Meta under the flyer — open by default so mobile sees details without an extra tap. */
   const [sheetExpanded, setSheetExpanded] = useState(true);
-  /** Pins already shown in this close→swing chain (avoid A↔B loops). */
-  const [swingVisitedIds, setSwingVisitedIds] = useState<string[]>([]);
   /** One-time tip — tap a pin / photos load as you explore. */
   const [showPinsCoach, setShowPinsCoach] = useState(false);
   const sheetRef = useRef<HTMLDivElement>(null);
@@ -226,7 +222,6 @@ export function EventsMapPage({
     if (pins.some((pin) => pin.id === openPinId)) return;
     setOpenPinId(null);
     setFocusedPinId(null);
-    setSwingVisitedIds([]);
   }, [pins, openPinId]);
 
   function handleWhenChange(next: MapTimeFilter) {
@@ -275,7 +270,6 @@ export function EventsMapPage({
     venueDeepLinkDoneRef.current = true;
     setFocusedPinId(match.id);
     setOpenPinId(match.id);
-    setSwingVisitedIds([]);
   }, [initialVenueSlug, pins]);
 
   useLayoutEffect(() => {
@@ -314,7 +308,7 @@ export function EventsMapPage({
 
   function closePinSheet() {
     setSheetExpanded(false);
-    closeCardSwingNext();
+    clearPinSelection();
   }
 
   function clearPullGestureSuppress() {
@@ -392,41 +386,6 @@ export function EventsMapPage({
   function clearPinSelection() {
     setFocusedPinId(null);
     setOpenPinId(null);
-    setSwingVisitedIds([]);
-  }
-
-  /** Close the card; swing to a nearby pin (≤1 km) or zoom back to overview. */
-  function closeCardSwingNext() {
-    if (!openPinId) {
-      clearPinSelection();
-      return;
-    }
-    const fromId = openPinId;
-    const next = nearestMapPin(
-      pins,
-      fromId,
-      swingVisitedIds,
-      SWING_NEXT_MAX_METERS,
-    );
-    setOpenPinId(null);
-    if (!next) {
-      setFocusedPinId(null);
-      setSwingVisitedIds([]);
-      const target = MAP_AREAS[area];
-      flyTo(
-        area === "north-coast"
-          ? { ...target, zoom: resolveDefaultMapZoom() }
-          : target,
-      );
-      return;
-    }
-    const visited = [...swingVisitedIds, fromId];
-    // Reset the chain once every pin has been visited.
-    const allVisited =
-      pins.every((pin) => visited.includes(pin.id) || pin.id === next.id) &&
-      visited.length + 1 >= pins.length;
-    setSwingVisitedIds(allVisited ? [next.id] : visited);
-    setFocusedPinId(next.id);
   }
 
   function flyTo(target: MapCameraTarget) {
@@ -467,8 +426,6 @@ export function EventsMapPage({
     if (showPinsCoach) dismissPinsCoach();
     setFocusedPinId(pinId);
     setOpenPinId(pinId);
-    // Fresh browse chain when opening a pin by tap.
-    setSwingVisitedIds([]);
   }
 
   function selectPort(port: CruisePortSlug) {
@@ -736,7 +693,7 @@ export function EventsMapPage({
               </p>
               <button
                 type="button"
-                onClick={closeCardSwingNext}
+                onClick={closePinSheet}
                 aria-label={dict.detail.close}
                 className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-neutral-100 text-neutral-800 ring-1 ring-neutral-300 transition-colors hover:bg-white hover:ring-orange-400 hover:text-orange-600 active:scale-95 dark:bg-neutral-800 dark:text-neutral-100 dark:ring-white/20 dark:hover:bg-neutral-700 dark:hover:ring-orange-400/70 dark:hover:text-orange-300 sm:h-9 sm:w-9"
               >

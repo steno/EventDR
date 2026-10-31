@@ -68,6 +68,13 @@ const FILE_TO_EVENT_ID = {
     "la-lola-wicked-night-2026-10-31",
   "alejandro-pena-rancho-catalina-2026-11-01.jpg":
     "alejandro-pena-rancho-catalina-2026-11-01",
+  "playa-riviera-halloween-show-2026-10-31.jpg":
+    "playa-riviera-halloween-show-2026-10-31",
+  "el-colibri-halloween-masquerade-2026-10-31.jpg":
+    "el-colibri-halloween-masquerade-2026-10-31",
+  "bollywood-bliss-junta-neveritas-halloween-2026-10-31.jpg":
+    "bollywood-bliss-junta-neveritas-halloween-2026-10-31",
+  "la-lola-rose-mateo-2026-11-08.jpg": "la-lola-rose-mateo-2026-11-08",
   "twenty-disco-angel-demons-2026-10-24.jpg":
     "twenty-disco-angel-demons-2026-10-24",
   "twenty-disco-angel-demons-2026-10-24-v2.jpg":
@@ -900,6 +907,9 @@ const FILE_TO_VENUE_SLUG = {
   "playa-sosua-aerial-bay.jpg": "playa-sosua",
   "calle-sombrillas-umbrella-street-v2.jpg": "calle-sombrillas",
   "puente-la-guinea-v2.jpg": "puente-la-guinea",
+  "playa-riviera.jpg": "playa-riviera",
+  "el-colibri-hotel-pool-v2.jpg": "el-colibri-hotel",
+  "bollywood-bliss-sosua.jpg": "bollywood-bliss-sosua",
   "kite-street-pop-chichiguas.jpg": "kite-street-pop",
   "long-beach-puerto-plata.jpg": "long-beach-puerto-plata",
   "estadio-leonel-placido.jpg": "estadio-leonel-placido",

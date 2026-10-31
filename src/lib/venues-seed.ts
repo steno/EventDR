@@ -567,6 +567,31 @@ export const SEED_VENUES: Venue[] = [
     phone: "+18099709433",
   },
   {
+    slug: "playa-riviera",
+    name: "Playa Riviera",
+    city: "Playa Dorada",
+    description:
+      "Beachfront restaurant & bar at Riviera Azul / Playa Dorada — seafood and Caribbean plates under the palapa, sunset tables facing the Atlantic, and billed nights with music and shows. Instagram @playarivierabeach · +1 829-748-8999.",
+    lat: 19.765644,
+    lng: -70.637766,
+    emoji: "🏖️",
+    instagram: "playarivierabeach",
+    website: "https://www.rivieraazul.com/restaurante-playa-riviera/",
+    phone: "+18297488999",
+  },
+  {
+    slug: "bollywood-bliss-sosua",
+    name: "Bollywood Bliss",
+    city: "Sosúa",
+    description:
+      "Indian / Sri Lankan restaurant and late lounge on Calle Dr. Rosen in El Batey — neon dining room, VIP lounge, hookah, and billed party nights. Not Blue Ice Piano Bar further along the same street. Instagram @bollywoodbliss.rd · +1 809-484-9257.",
+    lat: 19.764932,
+    lng: -70.515845,
+    emoji: "🍛",
+    instagram: "bollywoodbliss.rd",
+    phone: "+18094849257",
+  },
+  {
     slug: "taino-bay",
     name: "Taino Bay",
     city: "Puerto Plata",
@@ -2684,6 +2709,14 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
   {
     pattern: /passatore|ristorante\s*passatore/i,
     slug: "ristorante-passatore-playa-dorada",
+  },
+  {
+    pattern: /playa\s*riviera|riviera\s*(restaurant|azul)/i,
+    slug: "playa-riviera",
+  },
+  {
+    pattern: /bollywood\s*bliss|junta\s*de\s*neveritas/i,
+    slug: "bollywood-bliss-sosua",
   },
   { pattern: /sambal[uú]/i, slug: "sambalu-puerto-plata" },
   { pattern: /^skina$/i, slug: "skina-puerto-plata" },

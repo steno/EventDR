@@ -41,6 +41,8 @@ export const VENUE_STREET_ADDRESS: Readonly<Record<string, string>> = {
   "el-carey-puerto-plata": "Calle Reina Isabel",
   "el-cocotazo-cafe": "Agualina Kitebeach Hotel, Carretera Principal, Kite Beach",
   "el-colibri-hotel": "141 Pedro Clisante",
+  "playa-riviera": "Calle Principal Playa Dorada (Riviera Azul)",
+  "bollywood-bliss-sosua": "Calle Dr. Rosen, El Batey",
   "el-mirador-de-finely": "Calle Esmeralda 53, Urbanización Cerro Mar",
   "estadio-leonel-placido": "Calle Hugo Kunhardt",
   "faro-puerto-plata": "Parque La Puntilla, west end of the Malecón",

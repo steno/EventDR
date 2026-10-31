@@ -58,7 +58,10 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   // Filename bump — POP facade with Pingüi + Piña Colada signs (not Maps tiki; sancocho keeps flyer).
   "pingui-bar": "pingui-bar-facade.jpg",
   "el-carey-puerto-plata": "el-carey-puerto-plata.webp",
-  "el-colibri-hotel": "el-colibri-hotel.jpg",
+  // Filename bump — pool / pool-bar place shot.
+  "el-colibri-hotel": "el-colibri-hotel-pool-v2.jpg",
+  "playa-riviera": "playa-riviera.jpg",
+  "bollywood-bliss-sosua": "bollywood-bliss-sosua.jpg",
   "taino-bay": "taino-bay-village.jpg",
   "amber-cove": "amber-cove-village.jpg",
   // Filename bump — Wikimedia lawn + flags (not the 524px aerial clone / event hero).

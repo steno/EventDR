@@ -224,6 +224,34 @@ function buildPinElement(pin: MapPin, active: boolean): HTMLButtonElement {
   return btn;
 }
 
+/** Mount / remove the dismiss chip — only the pin with an open card gets one. */
+function syncPinCloseChip(
+  btn: HTMLButtonElement,
+  show: boolean,
+  onClose: () => void,
+): void {
+  const body = btn.querySelector(".north-coast-map-pin__body");
+  if (!body) return;
+  let close = body.querySelector<HTMLElement>(".north-coast-map-pin__close");
+  if (!show) {
+    close?.remove();
+    return;
+  }
+  if (!close) {
+    close = document.createElement("span");
+    close.className = "north-coast-map-pin__close";
+    close.setAttribute("role", "button");
+    close.setAttribute("aria-label", "Close");
+    close.textContent = "×";
+    close.addEventListener("click", (e) => {
+      e.stopPropagation();
+      e.preventDefault();
+      onClose();
+    });
+    body.appendChild(close);
+  }
+}
+
 /** Upgrade a dot pin to a photo face once (idempotent). */
 function ensurePinThumb(btn: HTMLButtonElement, pin: MapPin): void {
   if (!pin.thumbUrl) return;
@@ -470,6 +498,19 @@ export function NorthCoastMapView({
         el.style.zIndex = String(10 + pin.stackIndex);
       }
       el.addEventListener("click", (e) => {
+        // Close chip has its own listener — don't open/toggle via the pin face.
+        const raw = e.target;
+        const elTarget =
+          raw instanceof Element
+            ? raw
+            : raw instanceof Node
+              ? raw.parentElement
+              : null;
+        if (elTarget?.closest(".north-coast-map-pin__close")) {
+          e.stopPropagation();
+          e.preventDefault();
+          return;
+        }
         e.stopPropagation();
         e.preventDefault();
         // Cover stop()+easeTo zoomend at overview + any map click echo.
@@ -527,8 +568,17 @@ export function NorthCoastMapView({
         el.style.zIndex =
           pin?.stackIndex != null ? String(10 + pin.stackIndex) : "";
       }
+      // × only on the pin whose card is open — dismisses that card.
+      syncPinCloseChip(
+        el as HTMLButtonElement,
+        id === openPinId,
+        () => {
+          suppressDismiss(1600);
+          onPinTapRef.current(null);
+        },
+      );
     }
-  }, [activePinId, pins]);
+  }, [activePinId, openPinId, pins]);
 
   // Open / focused pin gets its photo immediately (don't wait for moveend).
   useEffect(() => {

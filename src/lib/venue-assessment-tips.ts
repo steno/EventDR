@@ -401,6 +401,22 @@ export const VENUE_TIP_COPY: Record<
       fr: "Bar boutique au bord de la piscine au centre de Sosúa — karaoke avec prix le jeudi et Atrévete Ladies Night le samedi avec DJ Blue ; skip pour une soirée calme et tôt.",
     },
   },
+  "playa-riviera": {
+    body: "Beachfront palapa at Riviera Azul / Playa Dorada — seafood and sunset tables facing the Atlantic; reserve for billed nights via @playarivierabeach or +1 829-748-8999.",
+    localized: {
+      en: "Beachfront palapa at Riviera Azul / Playa Dorada — seafood and sunset tables facing the Atlantic; reserve for billed nights via @playarivierabeach or +1 829-748-8999.",
+      es: "Palapa frente al mar en Riviera Azul / Playa Dorada — mariscos y mesas al atardecer frente al Atlántico; reserva noches con cartel vía @playarivierabeach o +1 829-748-8999.",
+      fr: "Palapa en bord de mer à Riviera Azul / Playa Dorada — fruits de mer et tables au coucher du soleil face à l’Atlantique ; réservez les soirées affichées via @playarivierabeach ou +1 829-748-8999.",
+    },
+  },
+  "bollywood-bliss-sosua": {
+    body: "Neon Indian / Sri Lankan dining and late lounge on Dr. Rosen — pin Bollywood Bliss, not Blue Ice further down the same El Batey block; call +1 809-484-9257 for a table.",
+    localized: {
+      en: "Neon Indian / Sri Lankan dining and late lounge on Dr. Rosen — pin Bollywood Bliss, not Blue Ice further down the same El Batey block; call +1 809-484-9257 for a table.",
+      es: "Comedor indio / sri lankés con neón y lounge nocturno en Dr. Rosen — clava Bollywood Bliss, no Blue Ice más adelante en el mismo bloque de El Batey; llama +1 809-484-9257 para mesa.",
+      fr: "Salle indienne / sri-lankaise néon et lounge nocturne sur Dr. Rosen — épinglez Bollywood Bliss, pas Blue Ice plus loin sur le même bloc d’El Batey ; appelez +1 809-484-9257 pour une table.",
+    },
+  },
   "museo-ambar": {
     body: "Victorian mansion amber stop in the historic center — easy cultural hour between downtown cafés, not a beach day.",
     localized: {

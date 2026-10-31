@@ -584,6 +584,27 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     ],
   }),
   editorial({
+    venueSlug: "playa-riviera",
+    verdictKey: "reliable_visitor_pick",
+    crowdFit: ["visitor", "local", "family", "mixed"],
+    axes: { recommend: 4.2, atmosphere: 4.4, value: 4.0, practical: 4.1 },
+    themes: [
+      { key: "ocean_views", sentiment: "positive", audience: "visitor" },
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+      { key: "easy_to_find", sentiment: "positive" },
+    ],
+  }),
+  editorial({
+    venueSlug: "bollywood-bliss-sosua",
+    verdictKey: "reliable_visitor_pick",
+    crowdFit: ["visitor", "nightlife", "mixed"],
+    axes: { recommend: 4.3, atmosphere: 4.4, value: 4.0, practical: 4.1 },
+    themes: [
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+      { key: "easy_to_find", sentiment: "positive" },
+    ],
+  }),
+  editorial({
     venueSlug: "museo-ambar",
     verdictKey: "solid_local_culture",
     crowdFit: ["visitor", "family", "mixed"],

@@ -112,6 +112,7 @@ export const CURATED_ADMISSION_PRICES: Record<string, string> = {
   "lil-naay-2026-07-17": "RD$700",
   "cabarete-stand-up-vol-2-2026-10-24": "RD$600",
   "cabarete-stand-up-vol-3-2026-11-21": "RD$1,200",
+  "playa-riviera-halloween-show-2026-10-31": "RD$250",
   "disco-club-la-mas-doll-2026-10-02": "RD$600",
   "blue-ice-halloween-chimbala-2026-10-31": "RD$1,500",
   "twenty-disco-kiry-curu-2026-10-16": "RD$600",

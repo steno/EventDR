@@ -7583,6 +7583,80 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: "2026-10-30T15:00:00.000Z",
   },
   {
+    eventId: "playa-riviera-halloween-show-2026-10-31",
+    body: "Beachfront Halloween show at Riviera Azul with Julio Ortega — RD$250 includes a welcome drink and a fogata after; pin Playa Dorada, not El Colibri’s masquerade in Sosúa the same night.",
+    localized: {
+      es: "Show Halloween frente al mar en Riviera Azul con Julio Ortega — RD$250 incluye trago de bienvenida y fogata después; clava Playa Dorada, no el masquerade de El Colibri en Sosúa la misma noche.",
+      fr: "Show Halloween en bord de mer à Riviera Azul avec Julio Ortega — RD$250 inclut drink de bienvenue et fogata après ; épinglez Playa Dorada, pas le masquerade d’El Colibri à Sosúa la même nuit.",
+    },
+    priceFeel: "budget",
+    priceNote: "RD$250 reservation · welcome drink · @playarivierabeach",
+    priceNoteLocalized: {
+      es: "Reservación RD$250 · trago de bienvenida · @playarivierabeach",
+      fr: "Réservation RD$250 · drink de bienvenue · @playarivierabeach",
+    },
+    attribution: "POP research · @playarivierabeach Halloween Show flyer",
+    researchNotes:
+      "Editor flyer — Show de Halloween Julio Ortega @elpopidenailon; Sábado 31 Oct 7:30–10 PM; RD$250 + welcome drink; fogata after; Playa Riviera Restaurant & Bar.",
+    updatedAt: "2026-10-31T16:00:00.000Z",
+  },
+  {
+    eventId: "el-colibri-halloween-masquerade-2026-10-31",
+    body: "Sosúa poolside Masquerade Ball with DJ Blue on 31 Oct — masks and downtown boutique-hotel energy; cover TBA via @elcolibrihotel, not Playa Riviera’s Julio Ortega show the same Saturday.",
+    localized: {
+      es: "Masquerade Ball junto a la piscina en Sosúa con DJ Blue el 31 oct — máscaras y vibe de hotel boutique; cover por confirmar vía @elcolibrihotel, no el show de Julio Ortega en Playa Riviera el mismo sábado.",
+      fr: "Masquerade Ball au bord de la piscine à Sosúa avec DJ Blue le 31 oct. — masques et vibe hôtel boutique ; cover à confirmer via @elcolibrihotel, pas le show Julio Ortega à Playa Riviera le même samedi.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — +1 809-970-9433 · @elcolibrihotel",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — +1 809-970-9433 · @elcolibrihotel",
+      fr: "Cover à confirmer — +1 809-970-9433 · @elcolibrihotel",
+    },
+    attribution: "POP research · El Colibri Halloween Masquerade Ball flyer",
+    researchNotes:
+      "Editor flyer — HALLOWEEN MASQUERADE BALL; SATURDAY OCTOBER 31ST; DJ BLUE; El Colibri Hotel Sosúa. Venue hero bumped to pool-v2.",
+    updatedAt: "2026-10-31T15:30:00.000Z",
+  },
+  {
+    eventId: "bollywood-bliss-junta-neveritas-halloween-2026-10-31",
+    body: "Neverita sound-system Halloween on Dr. Rosen with guest DJ Flow — bottle specials include free hookah; pin Bollywood Bliss, not Blue Ice’s Chimbala night further down the same street.",
+    localized: {
+      es: "Halloween de neveritas en Dr. Rosen con DJ invitado Flow — especiales de botella incluyen hookah gratis; clava Bollywood Bliss, no la noche de Chimbala en Blue Ice más adelante en la misma calle.",
+      fr: "Halloween neveritas sur Dr. Rosen avec DJ invité Flow — specials bouteille incluent chicha gratuite ; épinglez Bollywood Bliss, pas la nuit Chimbala de Blue Ice plus loin sur la même rue.",
+    },
+    priceFeel: "varies",
+    priceNote:
+      "Bottle specials + free hookah — cover TBA · @bollywoodbliss.rd",
+    priceNoteLocalized: {
+      es: "Especiales de botella + hookah gratis — cover por confirmar · @bollywoodbliss.rd",
+      fr: "Specials bouteille + chicha gratuite — cover à confirmer · @bollywoodbliss.rd",
+    },
+    attribution:
+      "POP research · @bollywoodbliss.rd Junta de Neveritas Halloween flyer",
+    researchNotes:
+      "Editor flyer — JUNTA DE NEVERITAS HALLOWEEN PARTY; Sábado 31 Oct; DJ Flow; El Batey Sosúa Calle Dr. Rosén; Old Parr / Brugal specials + hookah gratis.",
+    updatedAt: "2026-10-31T17:00:00.000Z",
+  },
+  {
+    eventId: "la-lola-rose-mateo-2026-11-08",
+    body: "Sunday 3:30 PM Malecón live with Rose Mateo at La Lola — afternoon patio set, not Wicked Night; RSVP +1 849-517-5705 before you assume free entry.",
+    localized: {
+      es: "Domingo 3:30 PM en el Malecón con Rose Mateo en La Lola — set de tarde en el patio, no Wicked Night; RSVP +1 849-517-5705 antes de asumir entrada gratis.",
+      fr: "Dimanche 15 h 30 sur le Malecón avec Rose Mateo à La Lola — set d’après-midi sur le patio, pas Wicked Night ; RSVP +1 849-517-5705 avant d’assumer l’entrée libre.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover TBA — RSVP +1 849-517-5705 · @lalolabeachclub",
+    priceNoteLocalized: {
+      es: "Cover por confirmar — RSVP +1 849-517-5705 · @lalolabeachclub",
+      fr: "Cover à confirmer — RSVP +1 849-517-5705 · @lalolabeachclub",
+    },
+    attribution: "POP research · @lalolabeachclub Rose Mateo flyer",
+    researchNotes:
+      "Editor flyer — Rose Mateo; Música en vivo; Domingo 08 de noviembre; a partir de las 3:30 PM; Malecón Puerto Plata; RSVP 849-517-5705; venue la-lola-malecon.",
+    updatedAt: "2026-10-31T17:30:00.000Z",
+  },
+  {
     eventId: "tiki-bar-halloween-dr-jake-2026-10-31",
     body: "Halloween from 10 PM at Cabarete Tiki with DR-JAKE and 2x1 Blood Diamond on the flyer — central Cabarete thatch bar, not Flowdance Friday the night before.",
     localized: {

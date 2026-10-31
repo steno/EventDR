@@ -140,6 +140,13 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "cabarete-stand-up-vol-3-2026-11-21.jpg",
   "alejandro-pena-rancho-catalina-2026-11-01":
     "alejandro-pena-rancho-catalina-2026-11-01.jpg",
+  "playa-riviera-halloween-show-2026-10-31":
+    "playa-riviera-halloween-show-2026-10-31.jpg",
+  "el-colibri-halloween-masquerade-2026-10-31":
+    "el-colibri-halloween-masquerade-2026-10-31.jpg",
+  "bollywood-bliss-junta-neveritas-halloween-2026-10-31":
+    "bollywood-bliss-junta-neveritas-halloween-2026-10-31.jpg",
+  "la-lola-rose-mateo-2026-11-08": "la-lola-rose-mateo-2026-11-08.jpg",
   "twenty-disco-noche-de-brujas-2026-10-29":
     "twenty-disco-noche-de-brujas-2026-10-29.jpg",
   "chameleon-el-purgatorio-2026-10-31":
@@ -1262,6 +1269,10 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "alejandro-pena-rancho-catalina-2026-11-01.jpg",
   "cabarete-stand-up-vol-3-2026-11-21.jpg",
   "la-lola-wicked-night-2026-10-31-v2.jpg",
+  "playa-riviera-halloween-show-2026-10-31.jpg",
+  "el-colibri-halloween-masquerade-2026-10-31.jpg",
+  "bollywood-bliss-junta-neveritas-halloween-2026-10-31.jpg",
+  "la-lola-rose-mateo-2026-11-08.jpg",
   "proyecto-x-el-calabozo-2026-10-31.jpg",
   "twenty-disco-angel-demons-2026-10-24.jpg",
   "twenty-disco-angel-demons-2026-10-24-v2.jpg",

@@ -1104,6 +1104,34 @@ html.dark .pull-reload__spinner {
   top: -6px;
   right: -8px;
 }
+/* Dismiss chip — only mounted on the pin with an open card (see syncPinCloseChip). */
+.north-coast-map-pin__close {
+  position: absolute;
+  top: -6px;
+  left: -8px;
+  z-index: 4;
+  box-sizing: border-box;
+  display: flex;
+  width: 20px;
+  height: 20px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background: #0a0a0a;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+  border: 1.5px solid #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+  pointer-events: auto;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.north-coast-map-pin--thumb .north-coast-map-pin__close {
+  top: -7px;
+  left: -9px;
+}
 .north-coast-map .maplibregl-ctrl-group {
   border-radius: 12px !important;
   overflow: hidden;

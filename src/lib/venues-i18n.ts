@@ -325,6 +325,18 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Hôtel boutique tropical au centre de Sosúa — bar au bord de la piscine, karaoké le jeudi, Atrévete Ladies Night le samedi et vie nocturne locale.",
     },
   },
+  "playa-riviera": {
+    description: {
+      es: "Restaurante y bar frente al mar en Riviera Azul / Playa Dorada — mariscos y platos caribeños bajo la palapa, mesas al atardecer frente al Atlántico y noches con música y shows. Instagram @playarivierabeach · +1 829-748-8999.",
+      fr: "Restaurant et bar en bord de mer à Riviera Azul / Playa Dorada — fruits de mer et assiettes caribéennes sous la palapa, tables au coucher du soleil face à l’Atlantique, et soirées avec musique et shows. Instagram @playarivierabeach · +1 829-748-8999.",
+    },
+  },
+  "bollywood-bliss-sosua": {
+    description: {
+      es: "Restaurante indio / sri lankés y lounge nocturno en Calle Dr. Rosen, El Batey — comedor con neón, VIP lounge, hookah y fiestas con cartel. No es Blue Ice Piano Bar más adelante en la misma calle. Instagram @bollywoodbliss.rd · +1 809-484-9257.",
+      fr: "Restaurant indien / sri-lankais et lounge nocturne sur Calle Dr. Rosen, El Batey — salle néon, VIP lounge, chicha et soirées affichées. Ce n’est pas Blue Ice Piano Bar plus loin sur la même rue. Instagram @bollywoodbliss.rd · +1 809-484-9257.",
+    },
+  },
   "taino-bay": {
     description: {
       es: "Pueblo para pasajeros de crucero en el muelle de Puerto Plata — río lento y piscinas gratis, tiendas, bares y shows cuando hay barco. No está abierto al público. La Fortaleza y el Malecón quedan a poca caminata fuera de las puertas.",

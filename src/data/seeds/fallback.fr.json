@@ -9286,5 +9286,122 @@
       "14 h 30 · Sans cover"
     ],
     "imageEmoji": "🎤"
+  },
+  {
+    "id": "playa-riviera-halloween-show-2026-10-31",
+    "title": "Playa Riviera — Show de Halloween · Julio Ortega",
+    "description": "Show de Halloween présenté par Julio Ortega (@elpopidenailon) à Playa Riviera Restaurant & Bar, Riviera Azul / Playa Dorada — samedi 31 octobre 2026, 19 h 30–22 h. Réservation RD$250 par personne avec drink de bienvenue ; fogata après le show. Réservez via Instagram @playarivierabeach · +1 829-748-8999. Show Halloween en bord de mer — pas le Masquerade Ball d’El Colibri avec DJ Blue le même samedi à Sosúa.",
+    "date": "2026-10-31",
+    "time": "7:30 PM – 10:00 PM",
+    "location": "Playa Dorada",
+    "venue": "Playa Riviera",
+    "venueSlug": "playa-riviera",
+    "address": "Calle Principal Playa Dorada (Riviera Azul), Puerto Plata",
+    "lat": 19.765644,
+    "lng": -70.637766,
+    "category": "halloween",
+    "categories": [
+      "performances",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": false,
+    "admissionPrice": "RD$250",
+    "phone": "+18297488999",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/playarivierabeach/",
+    "lineup": [
+      "Julio Ortega (@elpopidenailon)",
+      "Drink de bienvenue inclus",
+      "Fogata après le show"
+    ],
+    "imageEmoji": "🎃"
+  },
+  {
+    "id": "el-colibri-halloween-masquerade-2026-10-31",
+    "title": "El Colibri — Halloween Masquerade Ball",
+    "description": "Halloween Masquerade Ball à El Colibri Hotel, 141 Pedro Clisante, centre de Sosúa — samedi 31 octobre 2026 avec le célèbre DJ Blue. Masques et vibe poolside ; confirmez cover et portes via Instagram ou +1 809-970-9433 · elcolibriresort.com. Halloween hôtel boutique à Sosúa — pas le show Julio Ortega à Playa Riviera le même samedi à Playa Dorada, ni le template hebdo Atrévete Ladies Night.",
+    "date": "2026-10-31",
+    "location": "Sosúa",
+    "venue": "El Colibri Hotel",
+    "venueSlug": "el-colibri-hotel",
+    "address": "141 Pedro Clisante, Sosúa 57600",
+    "lat": 19.7709496,
+    "lng": -70.5081792,
+    "category": "halloween",
+    "categories": [
+      "parties",
+      "music"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18099709433",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/elcolibrihotel/",
+    "lineup": [
+      "DJ Blue",
+      "Masquerade Ball"
+    ],
+    "imageEmoji": "🎃"
+  },
+  {
+    "id": "bollywood-bliss-junta-neveritas-halloween-2026-10-31",
+    "title": "Bollywood Bliss — Junta de Neveritas Halloween",
+    "description": "Junta de Neveritas Halloween Party à Bollywood Bliss, Calle Dr. Rosen, El Batey Sosúa — samedi 31 octobre 2026 avec DJ invité Flow et stacks neveritas. Specials imprimés (Old Parr 12 RD$2,750, Old Parr Silver RD$2,400, Brugal Doble Reserva RD$1,500) chacun avec chicha gratuite. Confirmez cover et portes via Instagram @bollywoodbliss.rd · +1 809-484-9257. Halloween neveritas à El Batey — pas la nuit Chimbala de Blue Ice plus loin sur Dr. Rosen le même samedi, ni le Masquerade Ball d’El Colibri en centre-ville.",
+    "date": "2026-10-31",
+    "location": "Sosúa",
+    "venue": "Bollywood Bliss",
+    "venueSlug": "bollywood-bliss-sosua",
+    "address": "Calle Dr. Rosen, El Batey, Sosúa",
+    "lat": 19.764932,
+    "lng": -70.515845,
+    "category": "halloween",
+    "categories": [
+      "parties",
+      "music"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18094849257",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/bollywoodbliss.rd/",
+    "lineup": [
+      "DJ Flow (invité)",
+      "Junta de Neveritas",
+      "Specials bouteille + chicha gratuite"
+    ],
+    "imageEmoji": "🎃"
+  },
+  {
+    "id": "la-lola-rose-mateo-2026-11-08",
+    "title": "La Lola — Rose Mateo en live",
+    "description": "Música en vivo avec Rose Mateo à La Lola Beach Club, Avenida Gregorio Luperón (Malecón), Puerto Plata — dimanche 8 novembre 2026 dès 15 h 30. Set live d’après-midi sur le Malecón ; RSVP +1 849-517-5705 · Instagram @lalolabeachclub. Live du dimanche sur le patio — pas Wicked Night Halloween, ni un sand set de beach club à Cabarete.",
+    "date": "2026-11-08",
+    "time": "3:30 PM",
+    "location": "Puerto Plata",
+    "venue": "La Lola Beach Club",
+    "venueSlug": "la-lola-malecon",
+    "address": "Avenida Gregorio Luperón (Malecón), Puerto Plata",
+    "lat": 19.789103,
+    "lng": -70.669808,
+    "category": "music",
+    "categories": [
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18495175705",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/lalolabeachclub/",
+    "instagram": "lalolabeachclub",
+    "lineup": [
+      "Rose Mateo",
+      "Música en vivo dès 15 h 30"
+    ],
+    "imageEmoji": "🎤"
   }
 ]

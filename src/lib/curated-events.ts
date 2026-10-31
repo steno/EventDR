@@ -242,6 +242,31 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     venueSlug: "rancho-catalina-puerto-plata",
     sourceUrl: "https://www.instagram.com/rancholacatalina/",
   },
+  "playa-riviera-halloween-show-2026-10-31": {
+    isFree: false,
+    admissionPrice: "RD$250",
+    phone: "+18297488999",
+    venueSlug: "playa-riviera",
+    sourceUrl: "https://www.instagram.com/playarivierabeach/",
+  },
+  "el-colibri-halloween-masquerade-2026-10-31": {
+    callForPricing: true,
+    phone: "+18099709433",
+    venueSlug: "el-colibri-hotel",
+    sourceUrl: "https://www.instagram.com/elcolibrihotel/",
+  },
+  "bollywood-bliss-junta-neveritas-halloween-2026-10-31": {
+    callForPricing: true,
+    phone: "+18094849257",
+    venueSlug: "bollywood-bliss-sosua",
+    sourceUrl: "https://www.instagram.com/bollywoodbliss.rd/",
+  },
+  "la-lola-rose-mateo-2026-11-08": {
+    callForPricing: true,
+    phone: "+18495175705",
+    venueSlug: "la-lola-malecon",
+    sourceUrl: "https://www.instagram.com/lalolabeachclub/",
+  },
   "trillo-la-guaita-long-beach-2026-09-24": {
     isFree: true,
     venueSlug: "long-beach-puerto-plata",
