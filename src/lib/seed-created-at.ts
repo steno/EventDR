@@ -377,6 +377,7 @@ export const SEED_CREATED_AT: Readonly<Record<string, string>> = {
   "bollywood-bliss-junta-neveritas-halloween-2026-10-31":
     "2026-10-31T17:00:00.000Z",
   "la-lola-rose-mateo-2026-11-08": "2026-10-31T17:30:00.000Z",
+  "luxury-club-halloween-night-2026-10-31": "2026-10-31T21:00:00.000Z",
   "cabarete-boxing-club-movie-night-2026-10-29": "2026-10-29T17:30:00.000Z",
   "meclao-pre-reapertura-2026-10-29": "2026-10-29T17:00:00.000Z",
   "rebeca-duque-aura-2026-10-29": "2026-10-29T16:00:00.000Z",

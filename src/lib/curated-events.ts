@@ -267,6 +267,12 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     venueSlug: "la-lola-malecon",
     sourceUrl: "https://www.instagram.com/lalolabeachclub/",
   },
+  "luxury-club-halloween-night-2026-10-31": {
+    callForPricing: true,
+    phone: "+18498857986",
+    venueSlug: "luxury-club-puerto-plata",
+    sourceUrl: "https://www.instagram.com/luxury.club.puerto_plata/",
+  },
   "trillo-la-guaita-long-beach-2026-09-24": {
     isFree: true,
     venueSlug: "long-beach-puerto-plata",

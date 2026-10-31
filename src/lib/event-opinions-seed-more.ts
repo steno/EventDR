@@ -7657,6 +7657,25 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: "2026-10-31T17:30:00.000Z",
   },
   {
+    eventId: "luxury-club-halloween-night-2026-10-31",
+    body: "Costa Dorada Halloween with DJ La Nota and the same Old Parr / Gold Reserva 2x1 bottle art as Glam Sat — RSVP +1 849-885-7986; pin Luxury Club, not Kviar next door.",
+    localized: {
+      es: "Halloween en Costa Dorada con DJ La Nota y el mismo arte 2x1 Old Parr / Gold Reserva de Glam Sat — RSVP +1 849-885-7986; clava Luxury Club, no Kviar al lado.",
+      fr: "Halloween à Costa Dorada avec DJ La Nota et le même art 2x1 Old Parr / Gold Reserva que Glam Sat — RSVP +1 849-885-7986 ; épinglez Luxury Club, pas Kviar à côté.",
+    },
+    priceFeel: "upscale",
+    priceNote:
+      "Old Parr 2x1 RD$6,000 · Gold Reserva 2x1 RD$11,000 — cover TBA · @luxury.club.puerto_plata",
+    priceNoteLocalized: {
+      es: "Old Parr 2x1 RD$6,000 · Gold Reserva 2x1 RD$11,000 — cover por confirmar · @luxury.club.puerto_plata",
+      fr: "Old Parr 2x1 RD$6,000 · Gold Reserva 2x1 RD$11,000 — cover à confirmer · @luxury.club.puerto_plata",
+    },
+    attribution: "POP research · Luxury Club Halloween Night flyer",
+    researchNotes:
+      "Editor flyer — HALLOWEEN NIGHT; MIXERS BY DJ LA NOTA; Old Parr 2x1 RD$6,000; Gold Reserva 2x1 RD$11,000; RSV 849-885-7986; @LUXURYCLUB.POP; Carretera Luperón Km 4.5 Costa Dorada.",
+    updatedAt: "2026-10-31T21:00:00.000Z",
+  },
+  {
     eventId: "tiki-bar-halloween-dr-jake-2026-10-31",
     body: "Halloween from 10 PM at Cabarete Tiki with DR-JAKE and 2x1 Blood Diamond on the flyer — central Cabarete thatch bar, not Flowdance Friday the night before.",
     localized: {

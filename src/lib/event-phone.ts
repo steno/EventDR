@@ -27,6 +27,7 @@ const EVENT_PHONE_BY_ID: Record<string, string> = {
   "playa-riviera-halloween-show-2026-10-31": "+18297488999",
   "bollywood-bliss-junta-neveritas-halloween-2026-10-31": "+18094849257",
   "la-lola-rose-mateo-2026-11-08": "+18495175705",
+  "luxury-club-halloween-night-2026-10-31": "+18498857986",
   "festival-presidente-2026-10-03": "+18092270103",
   "casa-coco-summer-acoustics-ed-mahon-2026-10-03": "+18494435678",
   "ocean-winds-karaoke-nights": "+18495915588",

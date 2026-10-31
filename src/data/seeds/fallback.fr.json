@@ -9403,5 +9403,34 @@
       "Música en vivo dès 15 h 30"
     ],
     "imageEmoji": "🎤"
+  },
+  {
+    "id": "luxury-club-halloween-night-2026-10-31",
+    "title": "Luxury Club — Halloween Night · DJ La Nota",
+    "description": "Halloween Night au Luxury Club Puerto Plata, Carretera Luperón Km 4.5, Complejo Turístico Costa Dorada — samedi 31 octobre 2026 avec mixes de DJ La Nota. Specials imprimés : Old Parr 2x1 RD$6,000 et Gold Reserva 2x1 RD$11,000. RSVP +1 849-885-7986 · Instagram @luxury.club.puerto_plata / @luxuryclub.pop. Halloween club à Costa Dorada — pas seulement le template hebdo Glam Saturday, pas Kviar à côté, pas Latin Disco de l’autre côté de la ville.",
+    "date": "2026-10-31",
+    "location": "Puerto Plata",
+    "venue": "Luxury Club Puerto Plata",
+    "venueSlug": "luxury-club-puerto-plata",
+    "address": "Carretera Luperón Km 4.5, Complejo Turístico Costa Dorada, Puerto Plata",
+    "lat": 19.77643,
+    "lng": -70.659702,
+    "category": "halloween",
+    "categories": [
+      "parties",
+      "music"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18498857986",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/luxury.club.puerto_plata/",
+    "lineup": [
+      "DJ La Nota",
+      "Old Parr 2x1 RD$6,000",
+      "Gold Reserva 2x1 RD$11,000"
+    ],
+    "imageEmoji": "🎃"
   }
 ]

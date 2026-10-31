@@ -75,6 +75,8 @@ const FILE_TO_EVENT_ID = {
   "bollywood-bliss-junta-neveritas-halloween-2026-10-31.jpg":
     "bollywood-bliss-junta-neveritas-halloween-2026-10-31",
   "la-lola-rose-mateo-2026-11-08.jpg": "la-lola-rose-mateo-2026-11-08",
+  "luxury-club-halloween-night-2026-10-31.jpg":
+    "luxury-club-halloween-night-2026-10-31",
   "twenty-disco-angel-demons-2026-10-24.jpg":
     "twenty-disco-angel-demons-2026-10-24",
   "twenty-disco-angel-demons-2026-10-24-v2.jpg":
