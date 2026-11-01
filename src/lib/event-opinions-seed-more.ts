@@ -7676,6 +7676,24 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: "2026-10-31T21:00:00.000Z",
   },
   {
+    eventId: "disco-club-halloween-weekend-2026-10-31",
+    body: "Saturday Halloween Weekend at Latin Disco by the Brugal depots — IG says no cover; not Friday’s costume-contest night alone, and not Luxury Club Costa Dorada the same Saturday.",
+    localized: {
+      es: "Halloween Weekend del sábado en Latin Disco frente a Brugal — IG dice no cover; no es solo el concurso del viernes, ni Luxury Club en Costa Dorada el mismo sábado.",
+      fr: "Halloween Weekend du samedi au Latin Disco face à Brugal — IG dit no cover ; pas seulement le concours du vendredi, ni Luxury Club à Costa Dorada le même samedi.",
+    },
+    priceFeel: "free",
+    priceNote: "No cover / entrada gratis — 829-563-9469 · @latindiscoclubpp",
+    priceNoteLocalized: {
+      es: "No cover / entrada gratis — 829-563-9469 · @latindiscoclubpp",
+      fr: "No cover / entrée gratuite — 829-563-9469 · @latindiscoclubpp",
+    },
+    attribution: "POP research · @latindiscoclubpp Halloween Weekend flyer + caption",
+    researchNotes:
+      "Editor flyer + IG caption — SÁBADO 31 DE OCTUBRE Halloween Weekend; INFORMACIÓN 829-563-9469; Av. Circunvalación Sur frente depósitos Brugal; caption NO COVER / ENTRADA GRATIS. Venue disco-club-brugal.",
+    updatedAt: "2026-10-31T22:00:00.000Z",
+  },
+  {
     eventId: "tiki-bar-halloween-dr-jake-2026-10-31",
     body: "Halloween from 10 PM at Cabarete Tiki with DR-JAKE and 2x1 Blood Diamond on the flyer — central Cabarete thatch bar, not Flowdance Friday the night before.",
     localized: {

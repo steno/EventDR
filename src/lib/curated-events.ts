@@ -273,6 +273,12 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     venueSlug: "luxury-club-puerto-plata",
     sourceUrl: "https://www.instagram.com/luxury.club.puerto_plata/",
   },
+  "disco-club-halloween-weekend-2026-10-31": {
+    isFree: true,
+    phone: "+18295639469",
+    venueSlug: "disco-club-brugal",
+    sourceUrl: "https://www.instagram.com/latindiscoclubpp/",
+  },
   "trillo-la-guaita-long-beach-2026-09-24": {
     isFree: true,
     venueSlug: "long-beach-puerto-plata",

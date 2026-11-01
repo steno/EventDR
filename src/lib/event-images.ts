@@ -149,6 +149,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "la-lola-rose-mateo-2026-11-08": "la-lola-rose-mateo-2026-11-08.jpg",
   "luxury-club-halloween-night-2026-10-31":
     "luxury-club-halloween-night-2026-10-31.jpg",
+  "disco-club-halloween-weekend-2026-10-31":
+    "disco-club-halloween-weekend-2026-10-31.jpg",
   "twenty-disco-noche-de-brujas-2026-10-29":
     "twenty-disco-noche-de-brujas-2026-10-29.jpg",
   "chameleon-el-purgatorio-2026-10-31":
@@ -1276,6 +1278,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "bollywood-bliss-junta-neveritas-halloween-2026-10-31.jpg",
   "la-lola-rose-mateo-2026-11-08.jpg",
   "luxury-club-halloween-night-2026-10-31.jpg",
+  "disco-club-halloween-weekend-2026-10-31.jpg",
   "proyecto-x-el-calabozo-2026-10-31.jpg",
   "twenty-disco-angel-demons-2026-10-24.jpg",
   "twenty-disco-angel-demons-2026-10-24-v2.jpg",

@@ -9432,5 +9432,34 @@
       "Gold Reserva 2x1 RD$11,000"
     ],
     "imageEmoji": "🎃"
+  },
+  {
+    "id": "disco-club-halloween-weekend-2026-10-31",
+    "title": "Latin Disco Club — Halloween Weekend",
+    "description": "Halloween Weekend au Latin Disco Club, Avenida Circunvalación Sur frente a los depósitos de Brugal, Puerto Plata — samedi 31 octobre 2026. Caption du club : no cover / entrée gratuite ; la rumba continue après le Halloween Night Party du vendredi. Info +1 829-563-9469 · Instagram @latindiscoclubpp. Halloween du samedi face aux dépôts Brugal — pas Luxury Club à Costa Dorada la même nuit, et pas seulement la fiche concours du vendredi 30 oct.",
+    "date": "2026-10-31",
+    "location": "Puerto Plata",
+    "venue": "Latin Disco Club",
+    "venueSlug": "disco-club-brugal",
+    "address": "Avenida Circunvalación Sur, frente a los depósitos de Brugal, Puerto Plata",
+    "lat": 19.7792778,
+    "lng": -70.6690061,
+    "category": "halloween",
+    "categories": [
+      "parties",
+      "music"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "phone": "+18295639469",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/latindiscoclubpp/",
+    "instagram": "latindiscoclubpp",
+    "lineup": [
+      "Halloween Weekend",
+      "No cover"
+    ],
+    "imageEmoji": "🎃"
   }
 ]

@@ -354,6 +354,8 @@ const FILE_TO_EVENT_ID = {
   "ambar-lounge-perreo-negro-2026-10-10.jpg":
     "ambar-lounge-perreo-negro-2026-10-10",
   "disco-club-halloween-2026-10-30.jpg": "disco-club-halloween-2026-10-30",
+  "disco-club-halloween-weekend-2026-10-31.jpg":
+    "disco-club-halloween-weekend-2026-10-31",
   "amarea-one-last-escape-2026-11-07.jpg":
     "amarea-one-last-escape-2026-11-07",
   "emileni-francisco-rancho-catalina-2026-10-11.jpg":

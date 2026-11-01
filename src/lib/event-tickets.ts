@@ -237,6 +237,7 @@ export const CURATED_CALL_FOR_PRICING = new Set<string>([
  * cover charges, door fees, and ticketed shows.
  */
 export const CURATED_FREE_EVENTS = new Set<string>([
+  "disco-club-halloween-weekend-2026-10-31",
   // Festivals & public
   "voyvoy-soft-reopening-sunset-2026-10-09",
   "voyvoy-soft-reopening-saturday-2026-10-10",

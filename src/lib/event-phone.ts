@@ -116,6 +116,7 @@ const EVENT_PHONE_BY_ID: Record<string, string> = {
   "disco-club-on-fire-night-2026-10-01": "+18295639469",
   "disco-club-viernes-salsero-2026-10-09": "+18295639469",
   "disco-club-halloween-2026-10-30": "+18295639469",
+  "disco-club-halloween-weekend-2026-10-31": "+18295639469",
   "disco-club-la-mas-doll-2026-10-02": "+18295667071",
   "meclao-sammy-bday-jhon-parra-2026-10-01": "+18293747028",
   "meclao-reggaeton-dj-yosma-2026-10-09": "+18296747028",
