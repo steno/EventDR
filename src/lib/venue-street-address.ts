@@ -43,6 +43,8 @@ export const VENUE_STREET_ADDRESS: Readonly<Record<string, string>> = {
   "el-colibri-hotel": "141 Pedro Clisante",
   "playa-riviera": "Calle Principal Playa Dorada (Riviera Azul)",
   "bollywood-bliss-sosua": "Calle Dr. Rosen, El Batey",
+  "aruma-lounge-sosua": "Av. Pedro Clisante (Antiguo NY Drink), El Batey",
+  "ed-salon-de-eventos": "Calle Andrés Brugal #19, Ensanche Luperón",
   "el-mirador-de-finely": "Calle Esmeralda 53, Urbanización Cerro Mar",
   "estadio-leonel-placido": "Calle Hugo Kunhardt",
   "faro-puerto-plata": "Parque La Puntilla, west end of the Malecón",

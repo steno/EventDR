@@ -592,6 +592,34 @@ export const SEED_VENUES: Venue[] = [
     phone: "+18094849257",
   },
   {
+    slug: "aruma-lounge-sosua",
+    name: "Aruma Lounge",
+    city: "Sosúa",
+    description:
+      "Aruma Auto Spa Lounge on Av. Pedro Clisante in El Batey — former NY Drink / NYC Drink spot. Dance & nightclub energy with Thursday karaoke, billed party nights, and WhatsApp +1 829-405-3888. Instagram @arumalounge. Pin Aruma, not El Colibri’s pool karaoke further along Pedro Clisante.",
+    // Former NYC Drink / Pedro Clisante (Antiguo NY Drink).
+    lat: 19.771387,
+    lng: -70.506877,
+    emoji: "🌙",
+    instagram: "arumalounge",
+    website: "https://www.instagram.com/arumalounge/",
+    phone: "+18294053888",
+  },
+  {
+    slug: "ed-salon-de-eventos",
+    name: "ED Salón de Eventos",
+    city: "Puerto Plata",
+    description:
+      "Performance and event hall at Calle Andrés Brugal #19, Ensanche Luperón — private bookings and billed community nights (Geek Fest cosplay and similar). Call +1 809-708-0960 · Instagram @edsalondeeventos. Indoor salon in Ensanche Luperón — not the Polideportivo / Estadio Leonel Plácido complex a few blocks over.",
+    // Nominatim — Calle Andrés Brugal, Ensanche Luperón.
+    lat: 19.7919604,
+    lng: -70.68009,
+    emoji: "🎭",
+    instagram: "edsalondeeventos",
+    website: "https://www.instagram.com/edsalondeeventos/",
+    phone: "+18097080960",
+  },
+  {
     slug: "taino-bay",
     name: "Taino Bay",
     city: "Puerto Plata",
@@ -2717,6 +2745,16 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
   {
     pattern: /bollywood\s*bliss|junta\s*de\s*neveritas/i,
     slug: "bollywood-bliss-sosua",
+  },
+  {
+    pattern:
+      /aruma(\s*(auto\s*spa)?\s*lounge)?|arumalounge|nyc\s*drink|ny\s*drink/i,
+    slug: "aruma-lounge-sosua",
+  },
+  {
+    pattern:
+      /ed\s*sal[oó]n\s*de\s*eventos|edsalon|sal[oó]n\s*de\s*eventos\s*ed/i,
+    slug: "ed-salon-de-eventos",
   },
   { pattern: /sambal[uú]/i, slug: "sambalu-puerto-plata" },
   { pattern: /^skina$/i, slug: "skina-puerto-plata" },

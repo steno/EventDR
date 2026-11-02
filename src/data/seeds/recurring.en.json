@@ -3378,5 +3378,38 @@
       "Flow Dance"
     ],
     "imageEmoji": "🇩🇴"
+  },
+  {
+    "id": "aruma-jueves-karaoke",
+    "title": "Aruma Lounge — Jueves de Karaoke",
+    "description": "Every Thursday from 7:30 PM — Jueves de Karaoke at Aruma Lounge, Av. Pedro Clisante (Antiguo NY Drink), El Batey, Sosúa. DJ Máster on decks; weekly singer contest with a winner advancing toward a prize final; flyer welcomes Lulú to the Aruma team. WhatsApp +1 829-405-3888 · Instagram @arumalounge. Pedro Clisante karaoke in the old NY Drink shell — not El Colibri Thursday karaoke poolside, and not Hard Rock Wednesday karaoke at Plaza Downtown.",
+    "date": "2026-01-01",
+    "time": "7:30 PM",
+    "location": "Sosúa",
+    "venue": "Aruma Lounge",
+    "venueSlug": "aruma-lounge-sosua",
+    "address": "Av. Pedro Clisante (Antiguo NY Drink), El Batey, Sosúa",
+    "lat": 19.771387,
+    "lng": -70.506877,
+    "category": "performances",
+    "categories": [
+      "music",
+      "parties"
+    ],
+    "format": "physical",
+    "recurrence": "weekly",
+    "recurrenceDay": 4,
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18294053888",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/arumalounge/",
+    "instagram": "arumalounge",
+    "lineup": [
+      "DJ Máster",
+      "Lulú",
+      "Weekly karaoke contest"
+    ],
+    "imageEmoji": "🎤"
   }
 ]

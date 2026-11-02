@@ -605,6 +605,28 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     ],
   }),
   editorial({
+    venueSlug: "aruma-lounge-sosua",
+    verdictKey: "reliable_visitor_pick",
+    crowdFit: ["visitor", "nightlife", "mixed"],
+    axes: { recommend: 4.1, atmosphere: 4.3, practical: 4.0 },
+    themes: [
+      { key: "karaoke", sentiment: "positive" },
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+      { key: "easy_to_find", sentiment: "positive" },
+    ],
+  }),
+  editorial({
+    venueSlug: "ed-salon-de-eventos",
+    verdictKey: "reliable_visitor_pick",
+    crowdFit: ["visitor", "family", "mixed"],
+    axes: { recommend: 4.0, atmosphere: 4.1, practical: 4.2 },
+    themes: [
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+      { key: "easy_to_find", sentiment: "positive" },
+      { key: "family_friendly", sentiment: "positive", audience: "family" },
+    ],
+  }),
+  editorial({
     venueSlug: "museo-ambar",
     verdictKey: "solid_local_culture",
     crowdFit: ["visitor", "family", "mixed"],

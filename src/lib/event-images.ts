@@ -151,6 +151,16 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "luxury-club-halloween-night-2026-10-31.jpg",
   "disco-club-halloween-weekend-2026-10-31":
     "disco-club-halloween-weekend-2026-10-31.jpg",
+  "aruma-flotando-party-2026-11-08": "aruma-flotando-party-2026-11-08.jpg",
+  "aruma-jueves-karaoke": "aruma-jueves-karaoke.jpg",
+  "geek-fest-pasarela-cosplay-navidad-2026-12-13":
+    "geek-fest-pasarela-cosplay-navidad-2026-12-13.jpg",
+  "voramar-bbq-night-jac-2026-11-06": "voramar-bbq-night-jac-2026-11-06.jpg",
+  "aleva-color-vibe-la-lola-2026-12-20": "aleva-color-vibe-la-lola-2026-12-20.jpg",
+  "masters-surf-reunion-opening-natura-2026-11-06":
+    "masters-surf-reunion-opening-natura-2026-11-06.jpg",
+  "groundzero-viral-sosua-birthday-2026-11-01":
+    "groundzero-viral-sosua-birthday-2026-11-01.jpg",
   "twenty-disco-noche-de-brujas-2026-10-29":
     "twenty-disco-noche-de-brujas-2026-10-29.jpg",
   "chameleon-el-purgatorio-2026-10-31":
@@ -373,7 +383,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "aura-cinema-nadie-duerme-bosque-2026-10-13.jpg",
   "mkni-after-party-villa-taina-2026-10-24":
     "mkni-after-party-villa-taina-2026-10-24.jpg",
-  "cabarete-run-festival-5k-2026-11-08": "cabarete-run-festival-5k-2026-11-08.jpg",
+  "cabarete-run-festival-5k-2026-11-08":
+    "cabarete-run-festival-5k-2026-11-08-v2.jpg",
   "latinwok-ramen-party-2026-09-17": "latinwok-ramen-party-2026-09-17.jpg",
   "hard-rock-karaoke-wednesday": "hard-rock-karaoke-wednesday.jpg",
   // Filename bump — finisher medal hero (PWA strips ?v=; old flyer path stayed cached).
@@ -1209,7 +1220,7 @@ const EVENT_GALLERY_SLIDES: Record<
   ],
   "masters-surf-reunion-10-2026": [
     {
-      file: "masters-surf-reunion-10-2026-fri-opening.jpg",
+      file: "masters-surf-reunion-10-2026-fri-opening-v2.jpg",
       venueSlug: "natura-cabana",
       label: "Friday opening — Natura Cabana",
     },
@@ -1279,6 +1290,12 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "la-lola-rose-mateo-2026-11-08.jpg",
   "luxury-club-halloween-night-2026-10-31.jpg",
   "disco-club-halloween-weekend-2026-10-31.jpg",
+  "aruma-flotando-party-2026-11-08.jpg",
+  "aruma-jueves-karaoke.jpg",
+  "geek-fest-pasarela-cosplay-navidad-2026-12-13.jpg",
+  "voramar-bbq-night-jac-2026-11-06.jpg",
+  "aleva-color-vibe-la-lola-2026-12-20.jpg",
+  "groundzero-viral-sosua-birthday-2026-11-01.jpg",
   "proyecto-x-el-calabozo-2026-10-31.jpg",
   "twenty-disco-angel-demons-2026-10-24.jpg",
   "twenty-disco-angel-demons-2026-10-24-v2.jpg",
@@ -1392,6 +1409,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "cabarete-boxing-club-movie-night-2026-10-16.jpg",
   "cabarete-boxing-club-open-sparring-friday.jpg",
   "cabarete-run-festival-5k-2026-11-08.jpg",
+  "cabarete-run-festival-5k-2026-11-08-v2.jpg",
   "chameleon-monsters-ball-deeway-2026-10-18.jpg",
   "ann-soul-jazz-natura-cabana-2026-10-17.jpg",
   "la-quinta-rosa-brunch-pumpkin-umo-2026-10-25-v2.jpg",
@@ -1662,6 +1680,8 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "masters-surf-reunion-10-2026.png",
   "masters-surf-reunion-10-2026-badge.jpg",
   "masters-surf-reunion-10-2026-fri-opening.jpg",
+  "masters-surf-reunion-10-2026-fri-opening-v2.jpg",
+  "masters-surf-reunion-opening-natura-2026-11-06.jpg",
   "masters-surf-reunion-10-2026-sat-day1.jpg",
   "masters-surf-reunion-10-2026-sun-day2.jpg",
   "masters-surf-reunion-10-2026-mon-finals.jpg",

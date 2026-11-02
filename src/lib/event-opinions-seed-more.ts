@@ -1727,22 +1727,22 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "cabarete-run-festival-5k-2026-11-08",
-    body: "Inaugural 6 AM start — register on the Google Form by Oct 31; kit and route details still thin, so WhatsApp organizers before race week.",
+    body: "6 AM first-edition beach 5K from Callejón de la Loma — Smart Ticket lists RD$1,700 with shirt sizes often sold out; WhatsApp +1 849-281-4137 before you assume a bib is still open.",
     localized: {
-      es: "Salida inaugural a las 6 AM — inscríbete en el formulario de Google antes del 31 de oct; kit y ruta aún incompletos, WhatsApp a los organizadores antes de la semana de carrera.",
-      fr: "Départ inaugural à 6 h — inscrivez-vous sur le formulaire Google avant le 31 oct. ; kit et parcours encore flous, WhatsApp les orga avant la semaine de course.",
+      es: "5K de playa inaugural a las 6 AM desde Callejón de la Loma — Smart Ticket lista RD$1,700 y tallas a menudo agotadas; WhatsApp +1 849-281-4137 antes de asumir que aún hay dorsal.",
+      fr: "5K plage inaugural à 6 h depuis Callejón de la Loma — Smart Ticket affiche RD$1,700 et tailles souvent épuisées ; WhatsApp +1 849-281-4137 avant d’assumer qu’un dossard reste ouvert.",
     },
     priceFeel: "moderate",
     priceNote:
-      "RD$1,500 via forms.gle — inquiries +1 809-769-6199 or +1 849-281-4137 · @desarrollo_fitness_cabarete",
+      "RD$1,700 Smart Ticket · kit shirt + medal + bib — WA +1 849-281-4137 / +1 809-769-6199 · @desarrollo_fitness_cabarete",
     priceNoteLocalized: {
-      es: "RD$1,500 vía forms.gle — consultas +1 809-769-6199 o +1 849-281-4137 · @desarrollo_fitness_cabarete",
-      fr: "RD$1,500 via forms.gle — infos +1 809-769-6199 ou +1 849-281-4137 · @desarrollo_fitness_cabarete",
+      es: "RD$1,700 Smart Ticket · kit camiseta + medalla + dorsal — WA +1 849-281-4137 / +1 809-769-6199 · @desarrollo_fitness_cabarete",
+      fr: "RD$1,700 Smart Ticket · kit T-shirt + médaille + dossard — WA +1 849-281-4137 / +1 809-769-6199 · @desarrollo_fitness_cabarete",
     },
-    attribution: "POP research · Desarrollo Fitness flyer",
+    attribution: "POP research · @desarrollo_fitness_cabarete medal + registration posts",
     researchNotes:
-      "Flyer + Form: Dom 8 Nov 2026 6 AM, registration deadline Fri 31 Oct (was Lun 26 Oct), RD$1,500, forms.gle/WTX9u3D2C1XWVZDk8, two WhatsApp lines.",
-    updatedAt: "2026-10-28T18:50:00.000Z",
+      "IG medal post + registration post Nov 2026: Dom 8 Nov 2026 6 AM; kit camiseta/medalla/dorsal; RD$1,500 on IG / RD$1,700 on smartticket.com.do idEvent=344; WA 849-281-4137; start Callejón de la Loma baseball playground per L’Agence sponsor note; hero bumped to medal-v2.",
+    updatedAt: "2026-11-02T20:00:00.000Z",
   },
   {
     eventId: "latinwok-ramen-party-2026-09-17",
@@ -7692,6 +7692,134 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     researchNotes:
       "Editor flyer + IG caption — SÁBADO 31 DE OCTUBRE Halloween Weekend; INFORMACIÓN 829-563-9469; Av. Circunvalación Sur frente depósitos Brugal; caption NO COVER / ENTRADA GRATIS. Venue disco-club-brugal.",
     updatedAt: "2026-10-31T22:00:00.000Z",
+  },
+  {
+    eventId: "aruma-flotando-party-2026-11-08",
+    body: "Sunday Flotando Party at Aruma on Pedro Clisante with DJ Black Money and Diferente — old NY Drink shell; WhatsApp +1 829-405-3888 before you dress for El Colibri or Hard Rock by mistake.",
+    localized: {
+      es: "Flotando Party del domingo en Aruma en Pedro Clisante con DJ Black Money y Diferente — antiguo NY Drink; WhatsApp +1 829-405-3888 antes de vestirte para El Colibri o Hard Rock por error.",
+      fr: "Flotando Party du dimanche à Aruma sur Pedro Clisante avec DJ Black Money et Diferente — ancienne coque NY Drink ; WhatsApp +1 829-405-3888 avant de vous habiller pour El Colibri ou Hard Rock par erreur.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover not on flyer — WhatsApp +1 829-405-3888 · @arumalounge",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — WhatsApp +1 829-405-3888 · @arumalounge",
+      fr: "Cover absent de l’affiche — WhatsApp +1 829-405-3888 · @arumalounge",
+    },
+    attribution: "POP research · @arumalounge Flotando Party flyer",
+    researchNotes:
+      "Editor flyer — LOS 23 PRESENTAN; FLOTANDO PARTY; Live DJ Black Money + Diferente; DOM 8; Av. Pedro Clisante Sosúa; venue aruma-lounge-sosua (Antiguo NY Drink).",
+    updatedAt: "2026-11-02T16:00:00.000Z",
+  },
+  {
+    eventId: "aruma-jueves-karaoke",
+    body: "Thursday 7:30 PM karaoke at Aruma with DJ Máster and a weekly contest toward a prize final — Pedro Clisante / old NY Drink, not El Colibri pool karaoke or Hard Rock Wednesday.",
+    localized: {
+      es: "Karaoke jueves 7:30 PM en Aruma con DJ Máster y concurso semanal hacia una final con premios — Pedro Clisante / antiguo NY Drink, no el karaoke de piscina de El Colibri ni el miércoles de Hard Rock.",
+      fr: "Karaoke jeudi 19 h 30 à Aruma avec DJ Máster et concours hebdo vers une finale avec prix — Pedro Clisante / ancienne coque NY Drink, pas le karaoke piscine d’El Colibri ni le mercredi Hard Rock.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover not on flyer — WhatsApp +1 829-405-3888 · @arumalounge",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — WhatsApp +1 829-405-3888 · @arumalounge",
+      fr: "Cover absent de l’affiche — WhatsApp +1 829-405-3888 · @arumalounge",
+    },
+    attribution: "POP research · @arumalounge Jueves de Karaoke flyer",
+    researchNotes:
+      "Editor flyer — JUEVES DE KARAOKE; DJ Máster; Lulú welcome; 7:30 PM; weekly contest → final with prizes; Batey Sosúa Antiguo NY Drink; WS 829-405-3888.",
+    updatedAt: "2026-11-02T15:00:00.000Z",
+  },
+  {
+    eventId: "geek-fest-pasarela-cosplay-navidad-2026-12-13",
+    body: "Christmas cosplay runway for Geek Fest at ED Salón on Andrés Brugal — indoor Ensanche Luperón hall, not September’s Polideportivo day; confirm fee on @geek_fest_rd / +1 809-708-0960.",
+    localized: {
+      es: "Pasarela cosplay navideña de Geek Fest en ED Salón en Andrés Brugal — salón techado en Ensanche Luperón, no el día de septiembre en el Polideportivo; confirma fee en @geek_fest_rd / +1 809-708-0960.",
+      fr: "Défilé cosplay de Noël Geek Fest à ED Salón sur Andrés Brugal — salon couvert à Ensanche Luperón, pas la journée de septembre au Polideportivo ; confirmez le droit sur @geek_fest_rd / +1 809-708-0960.",
+    },
+    priceFeel: "varies",
+    priceNote: "Admission not on flyer — @geek_fest_rd · venue +1 809-708-0960",
+    priceNoteLocalized: {
+      es: "Admisión no está en el flyer — @geek_fest_rd · venue +1 809-708-0960",
+      fr: "Entrée absente de l’affiche — @geek_fest_rd · venue +1 809-708-0960",
+    },
+    attribution: "POP research · @geek_fest_rd Pasarela Cosplay Navideña flyer",
+    researchNotes:
+      "Editor flyer + IG — 13 de diciembre; Pasarela Cosplay Navideña; Salon de eventos ED; Ensanche Luperón C/ Andrés Brugal #19; partners Impresos Polanco / Pixeles 4D / Roblu / Eternal Moon; venue ed-salon-de-eventos.",
+    updatedAt: "2026-11-02T17:00:00.000Z",
+  },
+  {
+    eventId: "voramar-bbq-night-jac-2026-11-06",
+    body: "Friday 7 PM BBQ at Voramar with JAC live — book before Thursday on 829-512-6695 / 809-856-2466; dated JAC night, not only the weekly BBQ & Live Music template.",
+    localized: {
+      es: "BBQ viernes 7 PM en Voramar con JAC en vivo — reserva antes del jueves al 829-512-6695 / 809-856-2466; noche fechada con JAC, no solo el template semanal BBQ & Live Music.",
+      fr: "BBQ vendredi 19 h au Voramar avec JAC live — réservez avant jeudi au 829-512-6695 / 809-856-2466 ; soirée datée avec JAC, pas seulement le template hebdo BBQ & Live Music.",
+    },
+    priceFeel: "varies",
+    priceNote: "Book before Thursday — WhatsApp +1 829-512-6695 / +1 809-856-2466",
+    priceNoteLocalized: {
+      es: "Reserva antes del jueves — WhatsApp +1 829-512-6695 / +1 809-856-2466",
+      fr: "Réservez avant jeudi — WhatsApp +1 829-512-6695 / +1 809-856-2466",
+    },
+    attribution: "POP research · Hotel Voramar BBQ Night JAC flyer",
+    researchNotes:
+      "Editor flyer — BBQ Night; Nov 6th Friday 7:00 PM; LIVE MUSIC JAC; PLEASE BOOK BEFORE THURSDAY; 829.512.6695 / 809.856.2466; venue hotel-voramar-sosua.",
+    updatedAt: "2026-11-02T16:30:00.000Z",
+  },
+  {
+    eventId: "aleva-color-vibe-la-lola-2026-12-20",
+    body: "5:30 AM color-run morning at La Lola with a Coffee Party after — first ALEVA edition on the Malecón; price isn’t on the flyer, so lock a cupo on @alevaexperiences before Dec 20.",
+    localized: {
+      es: "Mañana color-run a las 5:30 AM en La Lola con Coffee Party después — primera edición ALEVA en el Malecón; el precio no está en el flyer, asegura cupo en @alevaexperiences antes del 20 dic.",
+      fr: "Matinée color-run à 5 h 30 à La Lola avec Coffee Party après — première édition ALEVA sur le Malecón ; le prix n’est pas sur l’affiche, réservez via @alevaexperiences avant le 20 déc.",
+    },
+    priceFeel: "varies",
+    priceNote: "Price TBA — limited spots · @alevaexperiences",
+    priceNoteLocalized: {
+      es: "Precio por confirmar — cupos limitados · @alevaexperiences",
+      fr: "Prix à confirmer — places limitées · @alevaexperiences",
+    },
+    attribution: "POP research · @alevaexperiences Color Vibe flyer",
+    researchNotes:
+      "Editor flyer + IG — ALEVA COLOR VIBE EXPERIENCE; Dom 20 Dic 2026; 5:30 AM; La Lola Beach Puerto Plata; Coffee Party; cupos limitados; venue la-lola-malecon.",
+    updatedAt: "2026-11-02T18:00:00.000Z",
+  },
+  {
+    eventId: "masters-surf-reunion-opening-natura-2026-11-06",
+    body: "Friday 5 PM athlete accreditation and opening dinner at Natura Cabana — Perla Marina bridge night before Coconuts heats; confirm category on @MastersSurfReunionRD, not a casual Coconuts beach day.",
+    localized: {
+      es: "Viernes 5 PM acreditación de atletas y cena de apertura en Natura Cabana — noche del puente en Perla Marina antes de los heats en Coconuts; confirma categoría en @MastersSurfReunionRD, no es un día de playa casual en Coconuts.",
+      fr: "Vendredi 17 h accréditation athlètes et dîner d’ouverture à Natura Cabana — soirée pont à Perla Marina avant les heats chez Coconuts ; confirmez la catégorie sur @MastersSurfReunionRD, pas une journée plage casual chez Coconuts.",
+    },
+    priceFeel: "varies",
+    priceNote:
+      "Athlete / dinner pricing via @MastersSurfReunionRD — Natura +1 849-214-7010",
+    priceNoteLocalized: {
+      es: "Precio atleta / cena vía @MastersSurfReunionRD — Natura +1 849-214-7010",
+      fr: "Tarif athlète / dîner via @MastersSurfReunionRD — Natura +1 849-214-7010",
+    },
+    attribution: "POP research · MSR 10 Acreditación Oficial flyer",
+    researchNotes:
+      "Editor flyer — ACREDITACIÓN OFICIAL DE ATLETAS; NOCHE DE APERTURA; Vie 6 Nov desde 5 PM; Natura Cabana Perla Marina; pulsera/bolsa/cena/bar/música; companion to masters-surf-reunion-10-2026; gallery fri-opening bumped to v2.",
+    updatedAt: "2026-11-02T18:30:00.000Z",
+  },
+  {
+    eventId: "groundzero-viral-sosua-birthday-2026-11-01",
+    body: "Sunday Viral Sosúa birthday at Ground Zero with DJ Flow — RD$200 door, Old Parr special, and first hookah free; reserve 829-804-5200, not the regular Domingos de Hookah template alone.",
+    localized: {
+      es: "Cumpleaños de Viral Sosúa el domingo en Ground Zero con DJ Flow — puerta RD$200, especial Old Parr y primera hookah gratis; reserva 829-804-5200, no solo el template de Domingos de Hookah.",
+      fr: "Anniversaire Viral Sosúa le dimanche au Ground Zero avec DJ Flow — porte RD$200, spécial Old Parr et première chicha gratuite ; réservez 829-804-5200, pas seulement le template Domingos de Hookah.",
+    },
+    priceFeel: "budget",
+    priceNote:
+      "Entrada RD$200 · Old Parr special · 1st hookah free — WA +1 829-804-5200",
+    priceNoteLocalized: {
+      es: "Entrada RD$200 · especial Old Parr · 1.ª hookah gratis — WA +1 829-804-5200",
+      fr: "Entrée RD$200 · spécial Old Parr · 1re chicha gratuite — WA +1 829-804-5200",
+    },
+    attribution: "POP research · Viral Sosúa birthday / DJ Flow flyer",
+    researchNotes:
+      "Editor flyer — Cumpleaños VIRALSOSUA; DJ FLOW confirmado; DJ INVITADOS; Dom 1 Nov; ENTRADA 200; Especial Old Parr; Primera Hookah Gratis; WA 829-804-5200; Ground Zero Discoteca sponsor.",
+    updatedAt: "2026-11-02T19:00:00.000Z",
   },
   {
     eventId: "tiki-bar-halloween-dr-jake-2026-10-31",

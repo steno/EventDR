@@ -337,6 +337,18 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Restaurant indien / sri-lankais et lounge nocturne sur Calle Dr. Rosen, El Batey — salle néon, VIP lounge, chicha et soirées affichées. Ce n’est pas Blue Ice Piano Bar plus loin sur la même rue. Instagram @bollywoodbliss.rd · +1 809-484-9257.",
     },
   },
+  "aruma-lounge-sosua": {
+    description: {
+      es: "Aruma Auto Spa Lounge en Av. Pedro Clisante, El Batey — el antiguo NY Drink / NYC Drink. Energía de dance & nightclub con karaoke los jueves, fiestas con cartel y WhatsApp +1 829-405-3888. Instagram @arumalounge. Clava Aruma, no el karaoke de piscina de El Colibri más adelante en Pedro Clisante.",
+      fr: "Aruma Auto Spa Lounge sur Av. Pedro Clisante, El Batey — l’ancien NY Drink / NYC Drink. Énergie dance & nightclub avec karaoke le jeudi, soirées affichées et WhatsApp +1 829-405-3888. Instagram @arumalounge. Épinglez Aruma, pas le karaoke piscine d’El Colibri plus loin sur Pedro Clisante.",
+    },
+  },
+  "ed-salon-de-eventos": {
+    description: {
+      es: "Salón de eventos y presentaciones en Calle Andrés Brugal #19, Ensanche Luperón — reservas privadas y noches con cartel (Geek Fest cosplay y similares). Llama +1 809-708-0960 · Instagram @edsalondeeventos. Salón techado en Ensanche Luperón — no es el complejo del Polideportivo / Estadio Leonel Plácido unas cuadras más allá.",
+      fr: "Salle d’événements et de spectacles au Calle Andrés Brugal #19, Ensanche Luperón — réservations privées et soirées affichées (Geek Fest cosplay et similaires). Appelez +1 809-708-0960 · Instagram @edsalondeeventos. Salon couvert à Ensanche Luperón — pas le complexe Polideportivo / Estadio Leonel Plácido quelques rues plus loin.",
+    },
+  },
   "taino-bay": {
     description: {
       es: "Pueblo para pasajeros de crucero en el muelle de Puerto Plata — río lento y piscinas gratis, tiendas, bares y shows cuando hay barco. No está abierto al público. La Fortaleza y el Malecón quedan a poca caminata fuera de las puertas.",

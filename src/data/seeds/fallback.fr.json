@@ -1616,13 +1616,13 @@
   {
     "id": "cabarete-run-festival-5k-2026-11-08",
     "title": "Cabarete Run Festival 5K",
-    "description": "Cabarete Run Festival 5K inaugural présenté par Desarrollo Fitness — dimanche 8 novembre 2026, 6 h. Édition limitée du premier grand rendez-vous runners à Cabarete. Inscription RD$1,500 (clôture ven 31 octobre) via formulaire Google. Infos WhatsApp +1 809 769 6199 ou +1 849 281 4137 · @desarrollo_fitness_cabarete.",
+    "description": "Cabarete Run Festival 5K inaugural présenté par Desarrollo Fitness — dimanche 8 novembre 2026 dès 6 h, départ au playground de baseball du Callejón de la Loma, Cabarete. Première édition 5K plage ; le kit inclut T-shirt officiel, médaille métallique collection et dossard. Inscription via Smart Ticket (RD$1,700 à l’affiche) ou WhatsApp +1 849-281-4137 / +1 809-769-6199 · Instagram @desarrollo_fitness_cabarete. Les posts orga citent encore RD$1,500 et clôture 26 oct. — confirmez la dispo live sur Smart Ticket avant la semaine de course.",
     "date": "2026-11-08",
     "time": "6:00 AM",
     "location": "Cabarete",
     "venue": "Desarrollo Fitness Cabarete",
     "venueSlug": "desarrollo-fitness-cabarete",
-    "address": "Cabarete, Puerto Plata",
+    "address": "Callejón de la Loma baseball playground, Cabarete",
     "lat": 19.7503643,
     "lng": -70.406125,
     "category": "sports",
@@ -1633,11 +1633,11 @@
     "format": "physical",
     "trending": true,
     "isFree": false,
-    "admissionPrice": "RD$1,500",
-    "phone": "+18097696199",
+    "admissionPrice": "RD$1,700",
+    "phone": "+18492814137",
     "sourceType": "instagram",
     "sourceUrl": "https://www.instagram.com/desarrollo_fitness_cabarete/",
-    "ticketUrl": "https://forms.gle/WTX9u3D2C1XWVZDk8",
+    "ticketUrl": "https://www.smartticket.com.do/show-event?idEvent=344",
     "imageEmoji": "🏃"
   },
   {
@@ -9461,5 +9461,183 @@
       "No cover"
     ],
     "imageEmoji": "🎃"
+  },
+  {
+    "id": "aruma-flotando-party-2026-11-08",
+    "title": "Aruma Lounge — Flotando Party · DJ Black Money & Diferente",
+    "description": "Flotando Party à Aruma Lounge, Av. Pedro Clisante (Antiguo NY Drink), El Batey, Sosúa — dimanche 8 novembre 2026. Los 23 Presentan avec lives de DJ Black Money et Diferente. WhatsApp +1 829-405-3888 · Instagram @arumalounge. Soirée club sur Pedro Clisante dans l’ancienne coque NY Drink — pas le karaoke piscine d’El Colibri, ni Hard Rock Plaza Downtown.",
+    "date": "2026-11-08",
+    "location": "Sosúa",
+    "venue": "Aruma Lounge",
+    "venueSlug": "aruma-lounge-sosua",
+    "address": "Av. Pedro Clisante (Antiguo NY Drink), El Batey, Sosúa",
+    "lat": 19.771387,
+    "lng": -70.506877,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18294053888",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/arumalounge/",
+    "instagram": "arumalounge",
+    "lineup": [
+      "Los 23 Presentan",
+      "DJ Black Money",
+      "Diferente"
+    ],
+    "imageEmoji": "🪩"
+  },
+  {
+    "id": "geek-fest-pasarela-cosplay-navidad-2026-12-13",
+    "title": "Geek Fest RD — Pasarela Cosplay Navideña",
+    "description": "Geek Fest RD Pasarela Cosplay Navideña à ED Salón de Eventos, Calle Andrés Brugal #19, Ensanche Luperón, Puerto Plata — dimanche 13 décembre 2026. Apportez un cosplay touche Noël pour le défilé ; partenaires sur l’affiche : Impresos Polanco, Pixeles 4D, Roblu Atelier et Eternal Moon Store RD. Confirmez portes et tout droit via Instagram @geek_fest_rd · venue @edsalondeeventos / +1 809-708-0960. Salon couvert à Ensanche Luperón — pas le Geek Fest de septembre au Polideportivo.",
+    "date": "2026-12-13",
+    "location": "Puerto Plata",
+    "venue": "ED Salón de Eventos",
+    "venueSlug": "ed-salon-de-eventos",
+    "address": "Calle Andrés Brugal #19, Ensanche Luperón, Puerto Plata",
+    "lat": 19.7919604,
+    "lng": -70.68009,
+    "category": "festivals",
+    "categories": [
+      "culture",
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18097080960",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/geek_fest_rd/",
+    "instagram": "geek_fest_rd",
+    "lineup": [
+      "Pasarela Cosplay Navideña",
+      "Geek Fest RD"
+    ],
+    "imageEmoji": "🎄"
+  },
+  {
+    "id": "voramar-bbq-night-jac-2026-11-06",
+    "title": "Hotel Voramar BBQ Night — JAC",
+    "description": "BBQ Night avec musique live de JAC à Hotel Voramar, Calle Alejo Martínez, Playa Chiquita, Sosúa — vendredi 6 novembre 2026 dès 19 h. Réservez avant jeudi. WhatsApp +1 829-512-6695 / +1 809-856-2466 · hotelvoramar-sosua.com. BBQ du vendredi avec JAC à l’affiche — pas seulement la fiche hebdo générique BBQ & Live Music de Voramar.",
+    "date": "2026-11-06",
+    "time": "7:00 PM",
+    "location": "Sosúa",
+    "venue": "Hotel Voramar",
+    "venueSlug": "hotel-voramar-sosua",
+    "address": "Calle Alejo Martínez, Playa Chiquita, Sosúa",
+    "lat": 19.7767518,
+    "lng": -70.509873,
+    "category": "music",
+    "categories": [
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18295126695",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.hotelvoramar-sosua.com/en",
+    "lineup": [
+      "JAC",
+      "BBQ Night"
+    ],
+    "imageEmoji": "🍖"
+  },
+  {
+    "id": "aleva-color-vibe-la-lola-2026-12-20",
+    "title": "ALEVA Color Vibe Experience — La Lola",
+    "description": "ALEVA Color Vibe Experience (première édition) à La Lola Beach Club, Avenida Gregorio Luperón (Malecón), Puerto Plata — dimanche 20 décembre 2026 dès 5 h 30. Courez, marchez ou bougez à votre rythme pour une matinée de couleur, musique et vibes, puis continuez avec la Coffee Party. Places limitées — réservez via Instagram @alevaexperiences. Matinée color-run sur le Malecón à La Lola — pas Wicked Night Halloween, ni le live Rose Mateo du dimanche.",
+    "date": "2026-12-20",
+    "time": "5:30 AM",
+    "location": "Puerto Plata",
+    "venue": "La Lola Beach Club",
+    "venueSlug": "la-lola-malecon",
+    "address": "Avenida Gregorio Luperón (Malecón), Puerto Plata",
+    "lat": 19.789103,
+    "lng": -70.669808,
+    "category": "sports",
+    "categories": [
+      "festivals",
+      "health-wellness"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/alevaexperiences/",
+    "instagram": "alevaexperiences",
+    "lineup": [
+      "Color Vibe run / walk",
+      "Coffee Party"
+    ],
+    "imageEmoji": "🎨"
+  },
+  {
+    "id": "masters-surf-reunion-opening-natura-2026-11-06",
+    "title": "Masters Surf Reunion 10 — Opening Night at Natura",
+    "description": "Accréditation officielle des athlètes et soirée d’ouverture de Masters Surf Reunion 10 à Natura Cabana (Spa · Restaurant), Perla Marina — vendredi 6 novembre 2026 dès 17 h. Confirmez votre catégorie, recevez votre bracelet, sac cadeau, dîner spécial de l’événement, bar face à la mer, musique et surprises — puis les heats du week-end continuent chez Coconuts / Playa Encuentro (fiche multi-jours à part). Inscription / info athlètes via Instagram @MastersSurfReunionRD · Natura +1 849-214-7010. Ouverture ven à Natura seulement — pas seulement les jours de compétition sam–lun chez Coconuts.",
+    "date": "2026-11-06",
+    "time": "5:00 PM",
+    "location": "Cabarete",
+    "venue": "Natura Cabana",
+    "venueSlug": "natura-cabana",
+    "address": "Paseo del Sol 5, Perla Marina / Cabarete",
+    "lat": 19.7833499,
+    "lng": -70.4621124,
+    "category": "sports",
+    "categories": [
+      "festivals",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18492147010",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/masterssurfreunionrd/",
+    "instagram": "masterssurfreunionrd",
+    "lineup": [
+      "Accréditation athlètes",
+      "Dîner d’ouverture",
+      "Bar face à la mer + musique"
+    ],
+    "imageEmoji": "🏄"
+  },
+  {
+    "id": "groundzero-viral-sosua-birthday-2026-11-01",
+    "title": "Ground Zero — Anniversaire Viral Sosúa · DJ Flow",
+    "description": "Anniversaire de Viral Sosúa au Ground Zero Discoteca, Km 18 Carretera Puerto Plata–Sosúa face à l’aéroport — dimanche 1er novembre 2026 avec DJ Flow confirmé et DJs invités. Entrée RD$200 ; spécial Old Parr ; première chicha gratuite. Réservations WhatsApp +1 829-804-5200 · Instagram @groundzero_disco / Viral Sosúa. Anniversaire à la disco de la route — pas seulement le Domingos de Hookah habituel, ni Bulin 47 du vendredi 6 nov.",
+    "date": "2026-11-01",
+    "location": "Sosúa",
+    "venue": "Ground Zero Discoteca",
+    "venueSlug": "ground-zero-disco",
+    "address": "Km 18, Carretera Puerto Plata–Sosúa, frente al Aeropuerto Gregorio Luperón",
+    "lat": 19.7497279,
+    "lng": -70.5630864,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": false,
+    "admissionPrice": "RD$200",
+    "phone": "+18298045200",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/groundzero_disco/",
+    "lineup": [
+      "DJ Flow",
+      "DJs invités",
+      "Spécial Old Parr",
+      "Première chicha gratuite"
+    ],
+    "imageEmoji": "🎂"
   }
 ]

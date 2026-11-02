@@ -417,6 +417,22 @@ export const VENUE_TIP_COPY: Record<
       fr: "Salle indienne / sri-lankaise néon et lounge nocturne sur Dr. Rosen — épinglez Bollywood Bliss, pas Blue Ice plus loin sur le même bloc d’El Batey ; appelez +1 809-484-9257 pour une table.",
     },
   },
+  "aruma-lounge-sosua": {
+    body: "Pedro Clisante nightclub in the old NY Drink shell — Thursday karaoke with DJ Máster and billed party nights; WhatsApp +1 829-405-3888, and don’t pin El Colibri’s pool karaoke by mistake.",
+    localized: {
+      en: "Pedro Clisante nightclub in the old NY Drink shell — Thursday karaoke with DJ Máster and billed party nights; WhatsApp +1 829-405-3888, and don’t pin El Colibri’s pool karaoke by mistake.",
+      es: "Nightclub en Pedro Clisante en el antiguo NY Drink — karaoke los jueves con DJ Máster y fiestas con cartel; WhatsApp +1 829-405-3888, y no clavés el karaoke de piscina de El Colibri por error.",
+      fr: "Nightclub sur Pedro Clisante dans l’ancienne coque NY Drink — karaoke jeudi avec DJ Máster et soirées affichées ; WhatsApp +1 829-405-3888, et n’épinglez pas le karaoke piscine d’El Colibri par erreur.",
+    },
+  },
+  "ed-salon-de-eventos": {
+    body: "Indoor event hall on Andrés Brugal in Ensanche Luperón — call +1 809-708-0960 to book or confirm a billed night; don’t Uber to the Polideportivo by mistake.",
+    localized: {
+      en: "Indoor event hall on Andrés Brugal in Ensanche Luperón — call +1 809-708-0960 to book or confirm a billed night; don’t Uber to the Polideportivo by mistake.",
+      es: "Salón techado en Andrés Brugal, Ensanche Luperón — llama +1 809-708-0960 para reservar o confirmar una noche con cartel; no pidas Uber al Polideportivo por error.",
+      fr: "Salle couverte sur Andrés Brugal à Ensanche Luperón — appelez +1 809-708-0960 pour réserver ou confirmer une soirée affichée ; ne prenez pas un Uber vers le Polideportivo par erreur.",
+    },
+  },
   "museo-ambar": {
     body: "Victorian mansion amber stop in the historic center — easy cultural hour between downtown cafés, not a beach day.",
     localized: {

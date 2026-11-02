@@ -62,6 +62,8 @@ const VENUE_IMAGE_FILES: Record<string, string> = {
   "el-colibri-hotel": "el-colibri-hotel-pool-v2.jpg",
   "playa-riviera": "playa-riviera.jpg",
   "bollywood-bliss-sosua": "bollywood-bliss-sosua.jpg",
+  "aruma-lounge-sosua": "aruma-lounge-sosua.jpg",
+  "ed-salon-de-eventos": "ed-salon-de-eventos.jpg",
   "taino-bay": "taino-bay-village.jpg",
   "amber-cove": "amber-cove-village.jpg",
   // Filename bump — Wikimedia lawn + flags (not the 524px aerial clone / event hero).

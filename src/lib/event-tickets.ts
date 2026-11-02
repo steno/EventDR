@@ -20,6 +20,7 @@ const TICKET_HOSTS = [
   "forms.gle",
   "docs.google.com",
   "boletu.com",
+  "smartticket.com.do",
   "cabaretestandup.com",
   "local-experiences.iberostar.com",
   "granventanahotel.com",
@@ -36,7 +37,7 @@ export const CURATED_TICKET_URLS: Record<string, string> = {
     "https://tix.do/event/SUNSETNIGTHPARTYONEEVENTTWOEXPERIENCES-1",
   "silent-run-5k-2026-07-25": "https://boletu.com/event/silent-run-5k",
   "cabarete-run-festival-5k-2026-11-08":
-    "https://forms.gle/WTX9u3D2C1XWVZDk8",
+    "https://www.smartticket.com.do/show-event?idEvent=344",
   "cabarete-stand-up-vol-2-2026-10-24": "https://www.cabaretestandup.com/",
   "cabarete-stand-up-vol-3-2026-11-21": "https://www.cabaretestandup.com/",
   "atleticos-pp-vs-capitanes-2026-07-11":
@@ -119,6 +120,7 @@ export const CURATED_ADMISSION_PRICES: Record<string, string> = {
   "jennifer-nadal-pilates-anfiteatro-2026-10-24": "RD$800",
   "jump-fit-rosa-beard-over-club-2026-10-31": "RD$2,500",
   "proyecto-x-el-calabozo-2026-10-31": "RD$1,500",
+  "groundzero-viral-sosua-birthday-2026-11-01": "RD$200",
   "amarea-one-last-escape-2026-11-07": "from RD$1,000",
 
   // Museums & historic sites (door price)
@@ -173,6 +175,12 @@ export const CURATED_ADMISSION_PRICES: Record<string, string> = {
 
 /** Ticketed shows with variable pricing — contact the venue (no fixed door rate). */
 export const CURATED_CALL_FOR_PRICING = new Set<string>([
+  "aruma-flotando-party-2026-11-08",
+  "aruma-jueves-karaoke",
+  "geek-fest-pasarela-cosplay-navidad-2026-12-13",
+  "voramar-bbq-night-jac-2026-11-06",
+  "aleva-color-vibe-la-lola-2026-12-20",
+  "masters-surf-reunion-opening-natura-2026-11-06",
   "womens-reconnection-kite-camp-2026",
   "love-does-bocadillos-course-2026",
   "inicio-del-campamento-pp-2026",

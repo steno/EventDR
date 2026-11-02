@@ -356,6 +356,18 @@ const FILE_TO_EVENT_ID = {
   "disco-club-halloween-2026-10-30.jpg": "disco-club-halloween-2026-10-30",
   "disco-club-halloween-weekend-2026-10-31.jpg":
     "disco-club-halloween-weekend-2026-10-31",
+  "aruma-flotando-party-2026-11-08.jpg": "aruma-flotando-party-2026-11-08",
+  "aruma-jueves-karaoke.jpg": "aruma-jueves-karaoke",
+  "geek-fest-pasarela-cosplay-navidad-2026-12-13.jpg":
+    "geek-fest-pasarela-cosplay-navidad-2026-12-13",
+  "voramar-bbq-night-jac-2026-11-06.jpg": "voramar-bbq-night-jac-2026-11-06",
+  "aleva-color-vibe-la-lola-2026-12-20.jpg": "aleva-color-vibe-la-lola-2026-12-20",
+  "masters-surf-reunion-opening-natura-2026-11-06.jpg":
+    "masters-surf-reunion-opening-natura-2026-11-06",
+  "masters-surf-reunion-10-2026-fri-opening-v2.jpg":
+    "masters-surf-reunion-10-2026",
+  "groundzero-viral-sosua-birthday-2026-11-01.jpg":
+    "groundzero-viral-sosua-birthday-2026-11-01",
   "amarea-one-last-escape-2026-11-07.jpg":
     "amarea-one-last-escape-2026-11-07",
   "emileni-francisco-rancho-catalina-2026-10-11.jpg":
@@ -459,6 +471,8 @@ const FILE_TO_EVENT_ID = {
     "cedaky-mall-feria-numismatica-2026-10-31",
   "cabarete-run-festival-after-run-2026-11-08.jpg":
     "cabarete-run-festival-after-run-2026-11-08",
+  "cabarete-run-festival-5k-2026-11-08-v2.jpg":
+    "cabarete-run-festival-5k-2026-11-08",
   "nova-detras-de-la-mascara-2026-10-16-sold-out.jpg":
     "nova-detras-de-la-mascara-2026-10-16",
   "la-lola-back-to-northside-2026-07-04.jpg":
@@ -914,6 +928,8 @@ const FILE_TO_VENUE_SLUG = {
   "playa-riviera.jpg": "playa-riviera",
   "el-colibri-hotel-pool-v2.jpg": "el-colibri-hotel",
   "bollywood-bliss-sosua.jpg": "bollywood-bliss-sosua",
+  "aruma-lounge-sosua.jpg": "aruma-lounge-sosua",
+  "ed-salon-de-eventos.jpg": "ed-salon-de-eventos",
   "kite-street-pop-chichiguas.jpg": "kite-street-pop",
   "long-beach-puerto-plata.jpg": "long-beach-puerto-plata",
   "estadio-leonel-placido.jpg": "estadio-leonel-placido",
