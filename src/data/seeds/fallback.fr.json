@@ -9762,5 +9762,237 @@
       "Dîner & jazz"
     ],
     "imageEmoji": "🎷"
+  },
+  {
+    "id": "van-avakian-drifter-2026-11-07",
+    "title": "Drifter — Van Avakian en live",
+    "description": "Van Avakian en live au Drifter Cabarete, Cabarete Bay Beach 5 — samedi 7 novembre 2026. Dîner jusqu’au bout de la nuit en bord de mer ; réservez votre table +1 829-702-2312 · Instagram @driftercabarete. Set dîner live du samedi — pas le Halloween Last Sunset du 31 oct., ni le jazz du premier samedi de Natura le même soir. Confirmez les portes via @driftercabarete.",
+    "date": "2026-11-07",
+    "location": "Cabarete",
+    "venue": "Drifter Cabarete",
+    "venueSlug": "drifter-cabarete",
+    "address": "Cabarete Bay Beach 5, Cabarete 57000",
+    "lat": 19.7504244,
+    "lng": -70.4056606,
+    "category": "music",
+    "categories": [
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18297022312",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/driftercabarete/",
+    "instagram": "driftercabarete",
+    "lineup": [
+      "Van Avakian",
+      "Dîner jusqu’au bout de la nuit"
+    ],
+    "imageEmoji": "🎸"
+  },
+  {
+    "id": "natura-sunbar-sunset-sounds-ivan-ramirez-2026-11-05",
+    "title": "SunBar Sunset & Sounds — Iván Ramírez · 5 nov",
+    "description": "Sunset & Sounds au SunBar, Natura Cabana, Perla Marina, Cabarete — jeudi 5 novembre 2026, 18 h 30–21 h 30. DJ set d’Iván Ramírez — DJ live, cocktails, vibes océan et happy hour spéciale prolongée au SunBar. +1 849-214-7010 · naturacabana.com. Session sunset du jeudi — pas l’affiche Halloween Taïf du 29 oct., ni le jazz du premier samedi de Natura le 7 nov.",
+    "date": "2026-11-05",
+    "time": "18 h 30 – 21 h 30",
+    "venue": "Natura Cabana",
+    "venueSlug": "natura-cabana",
+    "location": "Cabarete",
+    "address": "Paseo del Sol 5, Perla Marina, Cabarete",
+    "lat": 19.7833499,
+    "lng": -70.4621124,
+    "phone": "+18492147010",
+    "sourceUrl": "https://naturacabana.com/event/events-sunset-and-sounds-cabarete/",
+    "category": "music",
+    "categories": [
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "lineup": [
+      "Iván Ramírez",
+      "Happy hour spéciale prolongée"
+    ],
+    "imageEmoji": "🌅"
+  },
+  {
+    "id": "christmas-popup-market-calle-sombrillas-2026-12-20",
+    "title": "Christmas Pop-Up Market — Calle de las Sombrillas",
+    "description": "Christmas Pop-Up Market sous les ombrelles sur Calle de las Sombrillas (Calle San Felipe), centre de Puerto Plata — samedi 20 décembre 2026 dès 11 h. Shopping, gastronomie, musique et expériences pour visiteurs et makers ; stands exposants via WhatsApp +1 809-962-5495 · Instagram @umbrellasstreetpop. Marché de jour sous les 178 ombrelles — pas Mercadillo Fest à La Quinta Rosa (19–20 déc.), ni seulement la fiche promenade quotidienne Calle de las Sombrillas.",
+    "date": "2026-12-20",
+    "time": "11 h",
+    "location": "Puerto Plata",
+    "venue": "Calle de las Sombrillas",
+    "venueSlug": "calle-sombrillas",
+    "address": "Calle San Felipe (Calle de las Sombrillas), Puerto Plata",
+    "lat": 19.7985582,
+    "lng": -70.6942833,
+    "category": "festivals",
+    "categories": [
+      "culture",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "phone": "+18099625495",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/umbrellasstreetpop/",
+    "instagram": "umbrellasstreetpop",
+    "lineup": [
+      "Marché pop-up",
+      "Makers et food locaux",
+      "Musique sous les ombrelles"
+    ],
+    "imageEmoji": "🎄"
+  },
+  {
+    "id": "parada-el-choco-los-frescos-aperitivo-2026-11-03",
+    "title": "Parada El Choco Aperitivo — Los Frescos (3 nov)",
+    "description": "Apéritivo avec Los Frescos en live à Parada Típica El Choco (restaurant suisse-italien / House of Music), Plaza Buen Gusto sur la route Sosúa–Cabarete face à Ocean Village — mardi 3 novembre 2026, 17 h–19 h. Finger food offert à table. RSVP +1 809-804-2510 · Instagram @paradaelchoco. Soirée guest apéritivo du mardi — pas l’apéritivo Big D du 27 oct., ni le dîner Thanksgiving billeté du 26 novembre.",
+    "date": "2026-11-03",
+    "time": "17 h – 19 h",
+    "location": "Sosúa",
+    "venue": "Parada Típica El Choco",
+    "venueSlug": "parada-tipica-el-choco",
+    "address": "Carretera principal Sosúa–Cabarete (vis-à-vis Ocean Village / Plaza Buen Gusto)",
+    "lat": 19.77269,
+    "lng": -70.4967789,
+    "category": "music",
+    "categories": [
+      "food-drinks",
+      "performances"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "phone": "+18098042510",
+    "instagram": "paradaelchoco",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/paradaelchoco/",
+    "lineup": [
+      "Los Frescos",
+      "Finger food offert à table"
+    ],
+    "imageEmoji": "🎵"
+  },
+  {
+    "id": "vinoteca-banda-sin-limite-2026-11-14",
+    "title": "Vinoteca — Banda Sin Límite",
+    "description": "Banda Sin Límite en live à Vinoteca Wine House, Hôtel Marien / Be Live Collection Marien, Carretera Luperón, Costa Dorada, Puerto Plata — samedi 14 novembre 2026 dès 22 h. Entrée gratuite. Plus d’infos WhatsApp +1 849-451-1197 · Instagram @vinotecamarienpp. Groupe live gratuit le samedi dans la wine house — pas la soirée Banda Sin Límite d’Ocean World Terrace du 30 oct., ni le karaoke du mercredi à Vinoteca.",
+    "date": "2026-11-14",
+    "time": "22 h",
+    "location": "Puerto Plata",
+    "venue": "Vinoteca Wine House",
+    "venueSlug": "vinoteca-wine-house",
+    "address": "Carretera Luperón, Costa Dorada, Puerto Plata (Hotel Marien)",
+    "lat": 19.7768222,
+    "lng": -70.6597699,
+    "category": "music",
+    "categories": [
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "phone": "+18494511197",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/vinotecamarienpp/",
+    "instagram": "vinotecamarienpp",
+    "lineup": [
+      "Banda Sin Límite"
+    ],
+    "imageEmoji": "🎸"
+  },
+  {
+    "venue": "Natura Cabana",
+    "venueSlug": "natura-cabana",
+    "location": "Cabarete",
+    "address": "Paseo del Sol 5, Cabarete",
+    "lat": 19.7833499,
+    "lng": -70.4621124,
+    "category": "music",
+    "categories": [
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18492147010",
+    "sourceType": "flyer",
+    "sourceUrl": "https://naturacabana.com/events/",
+    "id": "anahid-van-natura-cabana-2026-11-14",
+    "title": "Natura Cabana — Anahid & Van (14 nov)",
+    "description": "Anahid & Van — acoustique soulful en live au Natura Restaurant, Natura Cabana Boutique Hotel & Spa, Paseo del Sol 5, Cabarete — samedi 14 novembre 2026, 19 h–21 h 30 (série Samedis de novembre). Réservez votre table +1 849-214-7010 · naturacabana.com. Live dîner du samedi — pas Frusty Balusti le 21 nov., pas le jazz du premier samedi le 7 nov., ni Kaovanny Agua le 28 nov.",
+    "date": "2026-11-14",
+    "time": "19 h – 21 h 30",
+    "lineup": [
+      "Anahid & Van",
+      "Acoustique soulful"
+    ],
+    "imageEmoji": "🎸"
+  },
+  {
+    "venue": "Natura Cabana",
+    "venueSlug": "natura-cabana",
+    "location": "Cabarete",
+    "address": "Paseo del Sol 5, Cabarete",
+    "lat": 19.7833499,
+    "lng": -70.4621124,
+    "category": "music",
+    "categories": [
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18492147010",
+    "sourceType": "flyer",
+    "sourceUrl": "https://naturacabana.com/events/",
+    "id": "frusty-balusti-natura-cabana-2026-11-21",
+    "title": "Natura Cabana — Frusty Balusti (21 nov)",
+    "description": "Frusty Balusti — duo fusion électronique au Natura Restaurant, Natura Cabana Boutique Hotel & Spa, Paseo del Sol 5, Cabarete — samedi 21 novembre 2026, 19 h–21 h 30 (série Samedis de novembre). Réservez votre table +1 849-214-7010 · naturacabana.com. Live dîner du samedi — pas Anahid & Van le 14 nov., pas le jazz du premier samedi le 7 nov., ni Kaovanny Agua le 28 nov.",
+    "date": "2026-11-21",
+    "time": "19 h – 21 h 30",
+    "lineup": [
+      "Frusty Balusti",
+      "Duo fusion électronique"
+    ],
+    "imageEmoji": "🎧"
+  },
+  {
+    "id": "groundzero-viral-sosua-birthday-2026-12-01",
+    "date": "2026-12-01",
+    "location": "Sosúa",
+    "venue": "Ground Zero Discoteca",
+    "venueSlug": "ground-zero-disco",
+    "address": "Km 18, Carretera Puerto Plata–Sosúa, frente al Aeropuerto Gregorio Luperón",
+    "lat": 19.7497279,
+    "lng": -70.5630864,
+    "category": "parties",
+    "categories": [
+      "music",
+      "dance"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18298045200",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/groundzero_disco/",
+    "imageEmoji": "🎂",
+    "ageHint": "18-plus",
+    "title": "Ground Zero — Anniversaire Viral Sosúa · 1 déc",
+    "description": "Anniversaire Viral Sosúa au Ground Zero Discoteca, Km 18 Carretera Puerto Plata–Sosúa face à l’aéroport — dimanche 1 décembre 2026 avec DJs invités et striper confirmée. Spécial Old Parr ; première chicha gratuite. Réservations WhatsApp +1 829-804-5200 · Instagram @groundzero_disco / Viral Sosúa. Anniversaire disco sur la route — pas l’anniversaire Viral Sosúa du 1er nov. avec DJ Flow, ni seulement Domingos de Hookah. Soirée adultes (striper confirmée).",
+    "lineup": [
+      "DJs invités",
+      "Striper confirmée",
+      "Spécial Old Parr",
+      "Première chicha gratuite"
+    ]
   }
 ]

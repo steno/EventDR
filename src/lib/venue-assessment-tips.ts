@@ -425,6 +425,14 @@ export const VENUE_TIP_COPY: Record<
       fr: "Nightclub sur Pedro Clisante dans l’ancienne coque NY Drink — karaoke jeudi avec DJ Máster et soirées affichées ; WhatsApp +1 829-405-3888, et n’épinglez pas le karaoke piscine d’El Colibri par erreur.",
     },
   },
+  "novus-beach-restaurant-cabarete": {
+    body: "Cabarete Beach restaurant that flips to a late disco-bar after 11 PM — call +1 809-571-0646 for a sand-side table, and don’t pin VOYVOY or Drifter a few doors along the bay by mistake.",
+    localized: {
+      en: "Cabarete Beach restaurant that flips to a late disco-bar after 11 PM — call +1 809-571-0646 for a sand-side table, and don’t pin VOYVOY or Drifter a few doors along the bay by mistake.",
+      es: "Restaurante en Cabarete Beach que pasa a disco-bar tarde después de las 11 PM — llama +1 809-571-0646 para mesa frente a la arena, y no clavés VOYVOY ni Drifter unas puertas más adelante en la bahía por error.",
+      fr: "Restaurant sur Cabarete Beach qui bascule en disco-bar tardif après 23 h — appelez +1 809-571-0646 pour une table côté sable, et n’épinglez pas VOYVOY ni Drifter quelques portes plus loin sur la baie par erreur.",
+    },
+  },
   "ed-salon-de-eventos": {
     body: "Indoor event hall on Andrés Brugal in Ensanche Luperón — call +1 809-708-0960 to book or confirm a billed night; don’t Uber to the Polideportivo by mistake.",
     localized: {

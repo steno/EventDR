@@ -343,6 +343,12 @@ export const VENUE_I18N: Record<string, VenueCopy> = {
       fr: "Aruma Auto Spa Lounge sur Av. Pedro Clisante, El Batey — l’ancien NY Drink / NYC Drink. Énergie dance & nightclub avec karaoke le jeudi, soirées affichées et WhatsApp +1 829-405-3888. Instagram @arumalounge. Épinglez Aruma, pas le karaoke piscine d’El Colibri plus loin sur Pedro Clisante.",
     },
   },
+  "novus-beach-restaurant-cabarete": {
+    description: {
+      es: "Restaurante frente al mar y disco-bar en Cabarete Beach (Calle Principal) — platos caribeños/internacionales de día y energía de bar después de las 11 PM. Restaurante ~8 AM–11 PM; disco bar ~11 PM–3 AM. Llama +1 809-571-0646 · novusbeachrestaurant.com. Clava Novus en la franja de arena, no VOYVOY ni Drifter unas puertas más adelante en la bahía.",
+      fr: "Restaurant océanfront et disco-bar sur Cabarete Beach (Calle Principal) — assiettes caribéennes/internationales le jour, énergie bar après 23 h. Restaurant ~8 h–23 h ; disco bar ~23 h–3 h. Appelez +1 809-571-0646 · novusbeachrestaurant.com. Épinglez Novus sur la bande de sable, pas VOYVOY ni Drifter quelques portes plus loin sur la baie.",
+    },
+  },
   "ed-salon-de-eventos": {
     description: {
       es: "Salón de eventos y presentaciones en Calle Andrés Brugal #19, Ensanche Luperón — reservas privadas y noches con cartel (Geek Fest cosplay y similares). Llama +1 809-708-0960 · Instagram @edsalondeeventos. Salón techado en Ensanche Luperón — no es el complejo del Polideportivo / Estadio Leonel Plácido unas cuadras más allá.",

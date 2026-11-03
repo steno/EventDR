@@ -321,6 +321,12 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     venueSlug: "ground-zero-disco",
     sourceUrl: "https://www.instagram.com/groundzero_disco/",
   },
+  "groundzero-viral-sosua-birthday-2026-12-01": {
+    callForPricing: true,
+    phone: "+18298045200",
+    venueSlug: "ground-zero-disco",
+    sourceUrl: "https://www.instagram.com/groundzero_disco/",
+  },
   "trillo-la-guaita-long-beach-2026-09-24": {
     isFree: true,
     venueSlug: "long-beach-puerto-plata",
@@ -1272,6 +1278,51 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
   "natura-cabana-jazz-ensemble-2026-11-07": {
     phone: "+18492147010",
     venueSlug: "natura-cabana",
+  },
+  "anahid-van-natura-cabana-2026-11-14": {
+    phone: "+18492147010",
+    venueSlug: "natura-cabana",
+  },
+  "frusty-balusti-natura-cabana-2026-11-21": {
+    phone: "+18492147010",
+    venueSlug: "natura-cabana",
+  },
+  "novus-flow-dance-noche-latina-weekly": {
+    callForPricing: true,
+    phone: "+18095710646",
+    venueSlug: "novus-beach-restaurant-cabarete",
+    sourceUrl: "https://novusbeachrestaurant.com/",
+  },
+  "van-avakian-drifter-2026-11-07": {
+    callForPricing: true,
+    phone: "+18297022312",
+    venueSlug: "drifter-cabarete",
+    sourceUrl: "https://www.instagram.com/driftercabarete/",
+  },
+  "natura-sunbar-sunset-sounds-ivan-ramirez-2026-11-05": {
+    callForPricing: true,
+    phone: "+18492147010",
+    venueSlug: "natura-cabana",
+    sourceUrl:
+      "https://naturacabana.com/event/events-sunset-and-sounds-cabarete/",
+  },
+  "christmas-popup-market-calle-sombrillas-2026-12-20": {
+    isFree: true,
+    phone: "+18099625495",
+    venueSlug: "calle-sombrillas",
+    sourceUrl: "https://www.instagram.com/umbrellasstreetpop/",
+  },
+  "parada-el-choco-los-frescos-aperitivo-2026-11-03": {
+    isFree: true,
+    phone: "+18098042510",
+    venueSlug: "parada-tipica-el-choco",
+    sourceUrl: "https://www.instagram.com/paradaelchoco/",
+  },
+  "vinoteca-banda-sin-limite-2026-11-14": {
+    isFree: true,
+    phone: "+18494511197",
+    venueSlug: "vinoteca-wine-house",
+    sourceUrl: "https://www.instagram.com/vinotecamarienpp/",
   },
   "twenty-disco-friday-dj-soky-2026-10-23": {
     isFree: true,

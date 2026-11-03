@@ -606,6 +606,19 @@ export const SEED_VENUES: Venue[] = [
     phone: "+18294053888",
   },
   {
+    slug: "novus-beach-restaurant-cabarete",
+    name: "Novus Beach Restaurant",
+    city: "Cabarete",
+    description:
+      "Beachfront restaurant and late disco-bar on Cabarete Beach (Calle Principal) — Caribbean/international plates by day, bar energy after 11 PM. Restaurant ~8 AM–11 PM; disco bar ~11 PM–3 AM. Call +1 809-571-0646 · novusbeachrestaurant.com. Pin Novus on the sand strip, not VOYVOY or Drifter a few doors along the bay.",
+    // Exa / place pin — Cabarete Beach near the walkable strip.
+    lat: 19.750231,
+    lng: -70.406899,
+    emoji: "🌊",
+    website: "https://novusbeachrestaurant.com/",
+    phone: "+18095710646",
+  },
+  {
     slug: "ed-salon-de-eventos",
     name: "ED Salón de Eventos",
     city: "Puerto Plata",
@@ -2750,6 +2763,10 @@ const VENUE_ALIASES: { pattern: RegExp; slug: string }[] = [
     pattern:
       /aruma(\s*(auto\s*spa)?\s*lounge)?|arumalounge|nyc\s*drink|ny\s*drink/i,
     slug: "aruma-lounge-sosua",
+  },
+  {
+    pattern: /novus(\s*beach)?(\s*restaurant)?/i,
+    slug: "novus-beach-restaurant-cabarete",
   },
   {
     pattern:

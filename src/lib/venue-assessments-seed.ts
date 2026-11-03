@@ -616,6 +616,17 @@ export const SEED_VENUE_ASSESSMENTS: VenueAssessment[] = [
     ],
   }),
   editorial({
+    venueSlug: "novus-beach-restaurant-cabarete",
+    verdictKey: "reliable_visitor_pick",
+    crowdFit: ["visitor", "nightlife", "mixed"],
+    axes: { recommend: 4.1, atmosphere: 4.4, practical: 4.0 },
+    themes: [
+      { key: "beachfront", sentiment: "positive", audience: "visitor" },
+      { key: "good_for_guests", sentiment: "positive", audience: "visitor" },
+      { key: "dance_floor", sentiment: "positive", audience: "nightlife" },
+    ],
+  }),
+  editorial({
     venueSlug: "ed-salon-de-eventos",
     verdictKey: "reliable_visitor_pick",
     crowdFit: ["visitor", "family", "mixed"],

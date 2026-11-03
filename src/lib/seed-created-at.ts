@@ -393,6 +393,18 @@ export const SEED_CREATED_AT: Readonly<Record<string, string>> = {
   "mercadillo-fest-la-quinta-rosa-2026-12-19": "2026-11-03T17:00:00.000Z",
   "cabarete-boxing-club-movie-night-2026-11-05": "2026-11-03T18:00:00.000Z",
   "natura-cabana-jazz-ensemble-2026-11-07": "2026-11-03T19:00:00.000Z",
+  "novus-flow-dance-noche-latina-weekly": "2026-11-03T20:00:00.000Z",
+  "van-avakian-drifter-2026-11-07": "2026-11-03T21:00:00.000Z",
+  "natura-sunbar-sunset-sounds-ivan-ramirez-2026-11-05":
+    "2026-11-03T22:00:00.000Z",
+  "christmas-popup-market-calle-sombrillas-2026-12-20":
+    "2026-11-03T23:00:00.000Z",
+  "parada-el-choco-los-frescos-aperitivo-2026-11-03":
+    "2026-11-03T23:30:00.000Z",
+  "vinoteca-banda-sin-limite-2026-11-14": "2026-11-04T00:00:00.000Z",
+  "anahid-van-natura-cabana-2026-11-14": "2026-11-04T01:00:00.000Z",
+  "frusty-balusti-natura-cabana-2026-11-21": "2026-11-04T02:00:00.000Z",
+  "groundzero-viral-sosua-birthday-2026-12-01": "2026-11-04T03:00:00.000Z",
   "cabarete-boxing-club-movie-night-2026-10-29": "2026-10-29T17:30:00.000Z",
   "meclao-pre-reapertura-2026-10-29": "2026-10-29T17:00:00.000Z",
   "rebeca-duque-aura-2026-10-29": "2026-10-29T16:00:00.000Z",

@@ -53,6 +53,24 @@ const FILE_TO_EVENT_ID = {
     "cabarete-boxing-club-movie-night-2026-11-05",
   "natura-cabana-jazz-ensemble-2026-11-07.jpg":
     "natura-cabana-jazz-ensemble-2026-11-07",
+  "anahid-van-natura-cabana-2026-11-14.jpg":
+    "anahid-van-natura-cabana-2026-11-14",
+  "frusty-balusti-natura-cabana-2026-11-21.jpg":
+    "frusty-balusti-natura-cabana-2026-11-21",
+  "novus-flow-dance-noche-latina-weekly.jpg":
+    "novus-flow-dance-noche-latina-weekly",
+  "van-avakian-drifter-2026-11-07.jpg": "van-avakian-drifter-2026-11-07",
+  "natura-sunbar-sunset-sounds-ivan-ramirez-2026-11-05.jpg":
+    "natura-sunbar-sunset-sounds-ivan-ramirez-2026-11-05",
+  "christmas-popup-market-calle-sombrillas-2026-12-20.jpg":
+    "christmas-popup-market-calle-sombrillas-2026-12-20",
+  "parada-el-choco-los-frescos-aperitivo-2026-11-03.jpg":
+    "parada-el-choco-los-frescos-aperitivo-2026-11-03",
+  "parada-el-choco-los-frescos-aperitivo-2026-11-03-v2.jpg":
+    "parada-el-choco-los-frescos-aperitivo-2026-11-03",
+  "vinoteca-banda-sin-limite-2026-11-14.jpg":
+    "vinoteca-banda-sin-limite-2026-11-14",
+  "novus-beach-restaurant-cabarete.jpg": "novus-beach-restaurant-cabarete",
   "disco-club-gogo-dancers-2026-10-22.jpg": "disco-club-gogo-dancers-2026-10-22",
   "natura-sunbar-sunset-sounds-em-zayd-2026-10-22.jpg":
     "natura-sunbar-sunset-sounds-em-zayd-2026-10-22",
@@ -374,6 +392,8 @@ const FILE_TO_EVENT_ID = {
     "masters-surf-reunion-10-2026",
   "groundzero-viral-sosua-birthday-2026-11-01.jpg":
     "groundzero-viral-sosua-birthday-2026-11-01",
+  "groundzero-viral-sosua-birthday-2026-12-01.jpg":
+    "groundzero-viral-sosua-birthday-2026-12-01",
   "end-blackouts-protest-plaza-independencia-2026-11-05.jpg":
     "end-blackouts-protest-plaza-independencia-2026-11-05",
   "the-last-drink-white-party-2026-11-07.jpg":

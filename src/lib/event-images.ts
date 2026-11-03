@@ -20,6 +20,21 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "cabarete-boxing-club-movie-night-2026-11-05.jpg",
   "natura-cabana-jazz-ensemble-2026-11-07":
     "natura-cabana-jazz-ensemble-2026-11-07.jpg",
+  "anahid-van-natura-cabana-2026-11-14":
+    "anahid-van-natura-cabana-2026-11-14.jpg",
+  "frusty-balusti-natura-cabana-2026-11-21":
+    "frusty-balusti-natura-cabana-2026-11-21.jpg",
+  "novus-flow-dance-noche-latina-weekly":
+    "novus-flow-dance-noche-latina-weekly.jpg",
+  "van-avakian-drifter-2026-11-07": "van-avakian-drifter-2026-11-07.jpg",
+  "natura-sunbar-sunset-sounds-ivan-ramirez-2026-11-05":
+    "natura-sunbar-sunset-sounds-ivan-ramirez-2026-11-05.jpg",
+  "christmas-popup-market-calle-sombrillas-2026-12-20":
+    "christmas-popup-market-calle-sombrillas-2026-12-20.jpg",
+  "parada-el-choco-los-frescos-aperitivo-2026-11-03":
+    "parada-el-choco-los-frescos-aperitivo-2026-11-03-v2.jpg",
+  "vinoteca-banda-sin-limite-2026-11-14":
+    "vinoteca-banda-sin-limite-2026-11-14.jpg",
   "disco-club-gogo-dancers-2026-10-22": "disco-club-gogo-dancers-2026-10-22.jpg",
   "natura-sunbar-sunset-sounds-em-zayd-2026-10-22":
     "natura-sunbar-sunset-sounds-em-zayd-2026-10-22.jpg",
@@ -165,6 +180,8 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "masters-surf-reunion-opening-natura-2026-11-06.jpg",
   "groundzero-viral-sosua-birthday-2026-11-01":
     "groundzero-viral-sosua-birthday-2026-11-01.jpg",
+  "groundzero-viral-sosua-birthday-2026-12-01":
+    "groundzero-viral-sosua-birthday-2026-12-01.jpg",
   "end-blackouts-protest-plaza-independencia-2026-11-05":
     "end-blackouts-protest-plaza-independencia-2026-11-05.jpg",
   "the-last-drink-white-party-2026-11-07":
@@ -1290,6 +1307,15 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "cabarete-boxing-club-movie-night-2026-10-29.jpg",
   "cabarete-boxing-club-movie-night-2026-11-05.jpg",
   "natura-cabana-jazz-ensemble-2026-11-07.jpg",
+  "anahid-van-natura-cabana-2026-11-14.jpg",
+  "frusty-balusti-natura-cabana-2026-11-21.jpg",
+  "novus-flow-dance-noche-latina-weekly.jpg",
+  "van-avakian-drifter-2026-11-07.jpg",
+  "natura-sunbar-sunset-sounds-ivan-ramirez-2026-11-05.jpg",
+  "christmas-popup-market-calle-sombrillas-2026-12-20.jpg",
+  "parada-el-choco-los-frescos-aperitivo-2026-11-03.jpg",
+  "parada-el-choco-los-frescos-aperitivo-2026-11-03-v2.jpg",
+  "vinoteca-banda-sin-limite-2026-11-14.jpg",
   "disco-club-gogo-dancers-2026-10-22.jpg",
   "natura-sunbar-sunset-sounds-em-zayd-2026-10-22.jpg",
   "twenty-disco-friday-dj-soky-2026-10-23.jpg",
@@ -1309,6 +1335,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "voramar-bbq-night-jac-2026-11-06.jpg",
   "aleva-color-vibe-la-lola-2026-12-20.jpg",
   "groundzero-viral-sosua-birthday-2026-11-01.jpg",
+  "groundzero-viral-sosua-birthday-2026-12-01.jpg",
   "end-blackouts-protest-plaza-independencia-2026-11-05.jpg",
   "the-last-drink-white-party-2026-11-07.jpg",
   "petit-francois-18-anos-2026-11-06.jpg",

@@ -3411,5 +3411,36 @@
       "Weekly karaoke contest"
     ],
     "imageEmoji": "🎤"
+  },
+  {
+    "id": "novus-flow-dance-noche-latina-weekly",
+    "title": "Novus Beach — Noche Latina by Flow Dance (Wednesdays)",
+    "description": "Every Wednesday from 9:00 PM — Noche Latina by Flow Dance at Novus Beach Restaurant, Cabarete Beach (Calle Principal). Salsa, bachata, and merengue on the sand-side terrace; restaurant day service flips toward late disco-bar energy after 11 PM. Confirm cover via +1 809-571-0646 · novusbeachrestaurant.com. Weekly Latin social at Novus — not Flow Dance Dominican Night at VOYVOY on Tuesdays, and not Tiki Bar Flowdance Fridays.",
+    "date": "2026-01-01",
+    "time": "9:00 PM",
+    "location": "Cabarete",
+    "venue": "Novus Beach Restaurant",
+    "venueSlug": "novus-beach-restaurant-cabarete",
+    "address": "Calle Principal, Cabarete Beach, Cabarete",
+    "lat": 19.750231,
+    "lng": -70.406899,
+    "category": "dance",
+    "categories": [
+      "music",
+      "parties"
+    ],
+    "format": "physical",
+    "recurrence": "weekly",
+    "recurrenceDay": 3,
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18095710646",
+    "sourceType": "flyer",
+    "sourceUrl": "https://novusbeachrestaurant.com/",
+    "lineup": [
+      "Flow Dance",
+      "Salsa · Bachata · Merengue"
+    ],
+    "imageEmoji": "💃"
   }
 ]

@@ -7822,6 +7822,25 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     updatedAt: "2026-11-02T19:00:00.000Z",
   },
   {
+    eventId: "groundzero-viral-sosua-birthday-2026-12-01",
+    body: "Sunday 1 Dec Viral Sosúa birthday at Ground Zero with guest DJs, confirmed striper, Old Parr special, and first hookah free — reserve 829-804-5200; adults-only highway disco bill, not the 1 Nov DJ Flow birthday.",
+    localized: {
+      es: "Cumpleaños Viral Sosúa el domingo 1 dic en Ground Zero con DJs invitados, striper confirmada, especial Old Parr y primera hookah gratis — reserva 829-804-5200; cartel adultos en la disco de la carretera, no el cumpleaños DJ Flow del 1 nov.",
+      fr: "Anniversaire Viral Sosúa le dimanche 1er déc. au Ground Zero avec DJs invités, striper confirmée, spécial Old Parr et première chicha gratuite — réservez 829-804-5200 ; soirée adultes disco sur la route, pas l’anniversaire DJ Flow du 1er nov.",
+    },
+    priceFeel: "varies",
+    priceNote:
+      "Cover TBA · Old Parr special · 1st hookah free — WA +1 829-804-5200",
+    priceNoteLocalized: {
+      es: "Cover por confirmar · especial Old Parr · 1.ª hookah gratis — WA +1 829-804-5200",
+      fr: "Cover à confirmer · spécial Old Parr · 1re chicha gratuite — WA +1 829-804-5200",
+    },
+    attribution: "POP research · Viral Sosúa birthday Dec 1 flyer",
+    researchNotes:
+      "Editor flyer — Cumpleaños VIRALSOSUA; DOMINGO 1 DE DICIEMBRE; DJ INVITADOS; CONFIRMADA STRIPER; Especial Old Parr; Primera Hooka Gratis; WA 829-804-5200; Ground Zero; ageHint 18-plus.",
+    updatedAt: "2026-11-04T03:00:00.000Z",
+  },
+  {
     eventId: "end-blackouts-protest-plaza-independencia-2026-11-05",
     body: "Peaceful 5:30 PM gathering at Independence Park on 5 Nov for stable power — civic plaza meetup, not a concert or ticketed show; pin Plaza Independencia / Parque Central downtown.",
     localized: {
@@ -7932,6 +7951,154 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     researchNotes:
       "Editor flyer — Live JAZZ Ensemble; Every First Saturday; Saturday Nov 7; 7 PM–9:30 PM; Book your table +1 849 214 7010; Natura Restaurant.",
     updatedAt: "2026-11-03T19:00:00.000Z",
+  },
+  {
+    eventId: "anahid-van-natura-cabana-2026-11-14",
+    body: "Saturday 7–9:30 PM soulful acoustic with Anahid & Van at Natura’s beach restaurant — book +1 849-214-7010; Nov 14 dinner live, not Frusty Balusti the week after or the first-Saturday jazz on 7 Nov.",
+    localized: {
+      es: "Sábado 7–9:30 PM acústico soulful con Anahid & Van en el restaurante de playa de Natura — reserva +1 849-214-7010; live de cena del 14 nov, no Frusty Balusti la semana siguiente ni el jazz del primer sábado el 7 nov.",
+      fr: "Samedi 19 h–21 h 30 acoustique soulful avec Anahid & Van au restaurant de plage de Natura — réservez +1 849-214-7010 ; live dîner du 14 nov., pas Frusty Balusti la semaine suivante ni le jazz du premier samedi le 7 nov.",
+    },
+    priceFeel: "moderate",
+    priceNote: "Book table +1 849-214-7010 — dinner live · naturacabana.com",
+    priceNoteLocalized: {
+      es: "Reserva mesa +1 849-214-7010 — cena en vivo · naturacabana.com",
+      fr: "Réservez table +1 849-214-7010 — dîner live · naturacabana.com",
+    },
+    attribution: "POP research · Natura Saturdays in November Anahid & Van flyer",
+    researchNotes:
+      "Editor flyer — Saturdays in November; Saturday 14; Anahid & Van; Soulful Acoustic; 7–9:30 PM; Natura Restaurant.",
+    updatedAt: "2026-11-04T01:00:00.000Z",
+  },
+  {
+    eventId: "frusty-balusti-natura-cabana-2026-11-21",
+    body: "Saturday 7–9:30 PM electronic fusion duo Frusty Balusti at Natura’s beach restaurant — book +1 849-214-7010; Nov 21 dinner live, not Anahid & Van the week before or Kaovanny Agua on 28 Nov.",
+    localized: {
+      es: "Sábado 7–9:30 PM dúo de fusión electrónica Frusty Balusti en el restaurante de playa de Natura — reserva +1 849-214-7010; live de cena del 21 nov, no Anahid & Van la semana anterior ni Kaovanny Agua el 28 nov.",
+      fr: "Samedi 19 h–21 h 30 duo fusion électronique Frusty Balusti au restaurant de plage de Natura — réservez +1 849-214-7010 ; live dîner du 21 nov., pas Anahid & Van la semaine d’avant ni Kaovanny Agua le 28 nov.",
+    },
+    priceFeel: "moderate",
+    priceNote: "Book table +1 849-214-7010 — dinner live · naturacabana.com",
+    priceNoteLocalized: {
+      es: "Reserva mesa +1 849-214-7010 — cena en vivo · naturacabana.com",
+      fr: "Réservez table +1 849-214-7010 — dîner live · naturacabana.com",
+    },
+    attribution: "POP research · Natura Saturdays in November Frusty Balusti flyer",
+    researchNotes:
+      "Editor flyer — Saturdays in November; Saturday 21; Frusty Balusti; Electronic Fusion Duo; 7–9:30 PM; Natura Restaurant.",
+    updatedAt: "2026-11-04T02:00:00.000Z",
+  },
+  {
+    eventId: "novus-flow-dance-noche-latina-weekly",
+    seriesKey: "novus-beach-restaurant-cabarete:weekly:3",
+    body: "Wednesday 9 PM salsa/bachata/merengue with Flow Dance on the Novus sand terrace — beach restaurant that flips late, not VOYVOY’s Tuesday Dominican Night or Tiki Flowdance Fridays; call +1 809-571-0646 before you treat cover as free.",
+    localized: {
+      es: "Miércoles 9 PM salsa/bachata/merengue con Flow Dance en la terraza de arena de Novus — restaurante de playa que se pone tarde, no Dominican Night de VOYVOY los martes ni Flowdance de Tiki los viernes; llama +1 809-571-0646 antes de tratar el cover como gratis.",
+      fr: "Mercredi 21 h salsa/bachata/merengue avec Flow Dance sur la terrasse sable de Novus — restaurant de plage qui bascule tard, pas Dominican Night du VOYVOY le mardi ni Flowdance du Tiki le vendredi ; appelez +1 809-571-0646 avant de traiter le cover comme gratuit.",
+    },
+    priceFeel: "varies",
+    priceNote: "Cover not on flyer — +1 809-571-0646 · novusbeachrestaurant.com",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — +1 809-571-0646 · novusbeachrestaurant.com",
+      fr: "Cover absent de l’affiche — +1 809-571-0646 · novusbeachrestaurant.com",
+    },
+    attribution: "POP research · Flow Dance Noche Latina / Novus Beach flyer",
+    researchNotes:
+      "Editor flyer — FLOW DANCE NOCHE LATINA; Todos los Miércoles 9 PM; Salsa Bachata Merengue; Novus Beach Restaurant; new venue seeded.",
+    updatedAt: "2026-11-03T20:00:00.000Z",
+  },
+  {
+    eventId: "van-avakian-drifter-2026-11-07",
+    body: "Saturday dinner-into-night live with Van Avakian on Cabarete Bay — reserve +1 829-702-2312; beachfront Drifter set, not Natura’s first-Saturday jazz or the Halloween Last Sunset bill.",
+    localized: {
+      es: "Sábado de cena hasta la noche con Van Avakian en la bahía de Cabarete — reserva +1 829-702-2312; set frente al mar en Drifter, no el jazz del primer sábado de Natura ni el Halloween Last Sunset.",
+      fr: "Samedi dîner jusqu’au bout de la nuit avec Van Avakian sur la baie de Cabarete — réservez +1 829-702-2312 ; set océanfront au Drifter, pas le jazz du premier samedi de Natura ni le Halloween Last Sunset.",
+    },
+    priceFeel: "moderate",
+    priceNote: "Reserve table +1 829-702-2312 — dinner into the night · @driftercabarete",
+    priceNoteLocalized: {
+      es: "Reserva mesa +1 829-702-2312 — cena hasta la noche · @driftercabarete",
+      fr: "Réservez table +1 829-702-2312 — dîner jusqu’au bout de la nuit · @driftercabarete",
+    },
+    attribution: "POP research · @driftercabarete Van Avakian flyer",
+    researchNotes:
+      "Editor flyer — LIVE AT DRIFTER; VAN AVAKIAN; SAT NOV 7; Cabarete Beachfront; +1 829 702 2312; Dinner into the night.",
+    updatedAt: "2026-11-03T21:00:00.000Z",
+  },
+  {
+    eventId: "natura-sunbar-sunset-sounds-ivan-ramirez-2026-11-05",
+    body: "Thursday 6:30–9:30 PM Sunset & Sounds with Iván Ramírez at Natura SunBar — extended happy hour cocktails on the Perla Marina rail, not the Halloween Taïf night and not Saturday jazz two days later.",
+    localized: {
+      es: "Jueves 6:30–9:30 PM Sunset & Sounds con Iván Ramírez en SunBar de Natura — cócteles de happy hour extendido en la baranda de Perla Marina, no la noche Halloween de Taïf ni el jazz del sábado dos días después.",
+      fr: "Jeudi 18 h 30–21 h 30 Sunset & Sounds avec Iván Ramírez au SunBar de Natura — cocktails happy hour prolongée sur la rambarde de Perla Marina, pas la soirée Halloween Taïf ni le jazz du samedi deux jours plus tard.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "Cover not on flyer — extended happy hour · +1 849-214-7010",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — happy hour extendido · +1 849-214-7010",
+      fr: "Cover absent de l’affiche — happy hour prolongée · +1 849-214-7010",
+    },
+    attribution: "POP research · SunBar Sunset & Sounds Iván Ramírez flyer",
+    researchNotes:
+      "Editor flyer — Sunset & Sounds; DJ SET BY IVÁN RAMÍREZ; Thursday Nov 5; 6:30–9:30 PM; Special Extended Happy Hour at SunBar.",
+    updatedAt: "2026-11-03T22:00:00.000Z",
+  },
+  {
+    eventId: "christmas-popup-market-calle-sombrillas-2026-12-20",
+    body: "Dec 20 maker market under the 178 umbrellas from 11 AM — browse or WhatsApp +1 809-962-5495 for a booth; not Mercadillo Fest at La Quinta Rosa the same weekend.",
+    localized: {
+      es: "Mercado de makers el 20 dic bajo las 178 sombrillas desde las 11 AM — visita o WhatsApp +1 809-962-5495 por stand; no es Mercadillo Fest en La Quinta Rosa el mismo fin de semana.",
+      fr: "Marché de makers le 20 déc. sous les 178 ombrelles dès 11 h — flânez ou WhatsApp +1 809-962-5495 pour un stand ; pas Mercadillo Fest à La Quinta Rosa le même week-end.",
+    },
+    priceFeel: "free",
+    priceNote:
+      "Free to browse — exhibitor slots WA +1 809-962-5495 · @umbrellasstreetpop",
+    priceNoteLocalized: {
+      es: "Gratis para visitar — cupos expositor WA +1 809-962-5495 · @umbrellasstreetpop",
+      fr: "Gratuit pour flâner — stands exposants WA +1 809-962-5495 · @umbrellasstreetpop",
+    },
+    attribution: "POP research · @umbrellasstreetpop Christmas Pop-Up Market flyer",
+    researchNotes:
+      "Editor flyer + IG @umbrellasstreetpop — Christmas Pop-Up Market; Dic 20 11:00 AM; Calle de las Sombrillas; WA 809.962.5495; Puerto Plaza branding.",
+    updatedAt: "2026-11-03T23:00:00.000Z",
+  },
+  {
+    eventId: "parada-el-choco-los-frescos-aperitivo-2026-11-03",
+    body: "Tuesday 5–7 PM aperitivo with Los Frescos and free finger food at Parada El Choco on the Sosúa–Cabarete corridor — RSVP +1 809-804-2510; not Big D’s 27 Oct guest night or Thanksgiving dinner.",
+    localized: {
+      es: "Aperitivo martes 5–7 PM con Los Frescos y finger food gratis en Parada El Choco en el corredor Sosúa–Cabarete — RSVP +1 809-804-2510; no es la noche guest de Big D del 27 oct ni la cena de Thanksgiving.",
+      fr: "Apéritivo mardi 17 h–19 h avec Los Frescos et finger food offert à Parada El Choco sur le corridor Sosúa–Cabarete — RSVP +1 809-804-2510 ; pas la soirée guest Big D du 27 oct. ni le dîner Thanksgiving.",
+    },
+    priceFeel: "free",
+    priceNote:
+      "Free finger food — RSVP +1 809-804-2510 · @paradaelchoco",
+    priceNoteLocalized: {
+      es: "Finger food gratis — RSVP +1 809-804-2510 · @paradaelchoco",
+      fr: "Finger food offert — RSVP +1 809-804-2510 · @paradaelchoco",
+    },
+    attribution: "POP research · @paradaelchoco Los Frescos Aperitivo flyer",
+    researchNotes:
+      "Editor flyer refresh — LOS FRESCOS | APERITIVO; TUESDAY NOV 3; 5-7 PM; PARADA CHOCO; @CHOCOHOUSEOFMUSIC; +1 809 804 2510; hero bumped to -v2.",
+    updatedAt: "2026-11-03T23:45:00.000Z",
+  },
+  {
+    eventId: "vinoteca-banda-sin-limite-2026-11-14",
+    body: "Free Saturday from 10 PM with Banda Sin Límite at Vinoteca Wine House on Costa Dorada — WhatsApp +1 849-451-1197; hotel wine-bar live, not Ocean World Terrace’s Oct 30 típico bill or Wednesday karaoke.",
+    localized: {
+      es: "Sábado gratis desde las 10 PM con Banda Sin Límite en Vinoteca Wine House en Costa Dorada — WhatsApp +1 849-451-1197; live de vinoteca del hotel, no el típico de Ocean World Terrace del 30 oct ni el karaoke de miércoles.",
+      fr: "Samedi gratuit dès 22 h avec Banda Sin Límite à Vinoteca Wine House à Costa Dorada — WhatsApp +1 849-451-1197 ; live wine bar de l’hôtel, pas le típico d’Ocean World Terrace du 30 oct. ni le karaoke du mercredi.",
+    },
+    priceFeel: "free",
+    priceNote: "Free entry — WA +1 849-451-1197 · @vinotecamarienpp",
+    priceNoteLocalized: {
+      es: "Entrada gratis — WA +1 849-451-1197 · @vinotecamarienpp",
+      fr: "Entrée gratuite — WA +1 849-451-1197 · @vinotecamarienpp",
+    },
+    attribution: "POP research · Vinoteca Banda Sin Límite flyer",
+    researchNotes:
+      "Editor flyer — BANDA Sin Límite; Sábado 14 de noviembre; desde 10 PM; GRATIS; Carretera Luperón Costa Dorada; WA 849-451-1197.",
+    updatedAt: "2026-11-04T00:00:00.000Z",
   },
   {
     eventId: "tiki-bar-halloween-dr-jake-2026-10-31",
