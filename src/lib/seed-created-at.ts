@@ -27,7 +27,6 @@ export const SEED_CREATED_AT: Readonly<Record<string, string>> = {
   "cigar-town-la-pena-thursdays": "2026-09-07T12:00:00.000Z",
   "cigar-town-ron-humos": "2026-09-07T12:00:00.000Z",
   "restaurant-week-puerto-plata-2026": "2026-09-07T12:00:00.000Z",
-  "super-mega-urban-fest-2026-11-04": "2026-09-07T12:00:00.000Z",
   "masters-surf-reunion-10-2026": "2026-09-07T12:00:00.000Z",
   "todos-somos-luperon-2026-09-08": "2026-09-08T12:00:00.000Z",
   "faro-puerto-plata-daily": "2026-09-09T12:00:00.000Z",
@@ -387,6 +386,13 @@ export const SEED_CREATED_AT: Readonly<Record<string, string>> = {
   "masters-surf-reunion-opening-natura-2026-11-06":
     "2026-11-02T18:30:00.000Z",
   "groundzero-viral-sosua-birthday-2026-11-01": "2026-11-02T19:00:00.000Z",
+  "end-blackouts-protest-plaza-independencia-2026-11-05":
+    "2026-11-03T14:00:00.000Z",
+  "the-last-drink-white-party-2026-11-07": "2026-11-03T15:00:00.000Z",
+  "petit-francois-18-anos-2026-11-06": "2026-11-03T16:00:00.000Z",
+  "mercadillo-fest-la-quinta-rosa-2026-12-19": "2026-11-03T17:00:00.000Z",
+  "cabarete-boxing-club-movie-night-2026-11-05": "2026-11-03T18:00:00.000Z",
+  "natura-cabana-jazz-ensemble-2026-11-07": "2026-11-03T19:00:00.000Z",
   "cabarete-boxing-club-movie-night-2026-10-29": "2026-10-29T17:30:00.000Z",
   "meclao-pre-reapertura-2026-10-29": "2026-10-29T17:00:00.000Z",
   "rebeca-duque-aura-2026-10-29": "2026-10-29T16:00:00.000Z",

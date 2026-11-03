@@ -37,7 +37,9 @@ export async function generateMetadata({
   const { locale, id } = await params;
   if (!isValidLocale(locale)) return {};
 
-  if (resolveEventPathRedirect(id)) return {};
+  if (resolveEventPathRedirect(id)) {
+    return { robots: { index: false, follow: true } };
+  }
 
   const event = await getEventById(id, locale);
   if (!event) return {};

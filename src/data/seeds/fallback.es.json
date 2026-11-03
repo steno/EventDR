@@ -1435,52 +1435,6 @@
     "imageEmoji": "🍽️"
   },
   {
-    "id": "super-mega-urban-fest-2026-11-04",
-    "title": "Super Mega Urban Fest",
-    "description": "Concierto urbano en el Anfiteatro de Puerto Plata (La Puntilla / Malecón, Fortaleza San Felipe) — domingo 4 de noviembre desde las 3:00 PM. Cartel con Shelow Shaq, Melymel, Chimbala, El Mayor Clásico, La Insuperable, Rochy RD y más; también promovido con Toxic Crow y Lápiz Conciente. Boletas en Todo Tickets, Tickets Express (ticket.com.do), Supermercados José Luis, boletería del anfiteatro y El Aguacero del Malecón — confirma precios cerca de la fecha.",
-    "date": "2026-11-04",
-    "time": "Desde las 3:00 PM",
-    "location": "Puerto Plata",
-    "venue": "Anfiteatro La Puntilla",
-    "venueSlug": "anfiteatro-la-puntilla",
-    "address": "La Puntilla, Malecón / Fortaleza San Felipe, Puerto Plata",
-    "lat": 19.803611,
-    "lng": -70.694722,
-    "category": "concert",
-    "categories": [
-      "music",
-      "festivals"
-    ],
-    "format": "physical",
-    "trending": true,
-    "isFree": false,
-    "callForPricing": true,
-    "phone": "+18092270103",
-    "sourceUrl": "https://www.facebook.com/events/anfiteatro-puerto-plata/super-mega-urban-fest-anfiteatro-puerto-plata-4-de-noviembre/2201238650201039/",
-    "ticketUrl": "https://www.ticket.com.do/",
-    "lineup": [
-      "Shelow Shaq",
-      "Melymel",
-      "Shadow Blow",
-      "Mark B",
-      "Vakero",
-      "El Poeta Callejero",
-      "Chimbala",
-      "El Musicólogo",
-      "El Mayor Clásico",
-      "Black Jonas Point",
-      "La Insuperable",
-      "Bullin 47",
-      "Crazy Desing",
-      "Rochy RD",
-      "Carlitos Way",
-      "La Pandilla RD",
-      "Toxic Crow",
-      "Lápiz Conciente"
-    ],
-    "imageEmoji": "🎤"
-  },
-  {
     "id": "masters-surf-reunion-10-2026",
     "title": "Masters Surf Reunion 10",
     "description": "10.ª edición del Masters Surf Reunion en Playa Encuentro, Cabarete — 6–9 de noviembre de 2026. Vie 5 PM apertura en Natura Cabana (Perla Marina); sáb–lun heats, mercado y fiestas en Coconuts sobre la arena de Encuentro. US$13,000 en premios y trofeos. Cupos limitados — inscríbete vía @MastersSurfReunionRD.",
@@ -7747,7 +7701,7 @@
   {
     "id": "francesca-tiki-bar-cabarete-2026-11-06",
     "title": "Tiki Bar Cabarete — Francesca en vivo",
-    "description": "Francesca en vivo más DJ set de Poché Jáquez en Tiki Bar Cabarete, centro de Cabarete cerca del Casino #1 — jueves 6 de noviembre 2026 desde las 10:00 PM. 2x1 Brugal Extra Viejo en la cartelera. Confirma puertas y cover por Instagram @tikibarcabarete. Noche de cócteles en bar tiki con techo de paja — no es el set de cena de Francesca en Natura ni la arena de Aura.",
+    "description": "Francesca en vivo en Tiki Bar Cabarete, centro de Cabarete cerca del Casino #1 — viernes 6 de noviembre 2026 (flyer: Viernes 6 Noviembre). Promo anterior también listaba DJ Poché Jáquez y 2x1 Brugal Extra Viejo desde cerca de las 10:00 PM — confirma puertas, cover y especiales por Instagram @tikibarcabarete. Noche de cócteles en bar tiki con techo de paja — no es el set de cena de Francesca en Natura ni la arena de Aura.",
     "date": "2026-11-06",
     "time": "10:00 PM",
     "location": "Cabarete",
@@ -7764,7 +7718,7 @@
     "trending": true,
     "callForPricing": true,
     "instagram": "tikibarcabarete",
-    "sourceType": "instagram",
+    "sourceType": "flyer",
     "sourceUrl": "https://www.instagram.com/tikibarcabarete/",
     "lineup": [
       "Francesca",
@@ -9641,5 +9595,174 @@
       "Primera hookah gratis"
     ],
     "imageEmoji": "🎂"
+  },
+  {
+    "id": "end-blackouts-protest-plaza-independencia-2026-11-05",
+    "title": "Fin a los apagones — Protesta pacífica",
+    "description": "Protesta pacífica en el Parque Independencia (Plaza Independencia / Parque Central), Puerto Plata — jueves 5 de noviembre de 2026 desde las 5:30 PM. Encuentro comunitario por un servicio eléctrico estable y de calidad para Puerto Plata. Asamblea pública gratuita en el parque central del casco histórico.",
+    "date": "2026-11-05",
+    "time": "5:30 PM",
+    "location": "Puerto Plata",
+    "venue": "Parque Independencia (Plaza Independencia)",
+    "venueSlug": "plaza-independencia",
+    "address": "Calle San Felipe, Puerto Plata",
+    "lat": 19.7976623,
+    "lng": -70.6932862,
+    "category": "culture",
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "sourceType": "flyer",
+    "imageEmoji": "⚡"
+  },
+  {
+    "id": "the-last-drink-white-party-2026-11-07",
+    "title": "The Last Drink — White Party",
+    "description": "White Party en The Last Drink, próximo al Puente de la Guinea al lado de Repuesto Amin Cid (antiguo Maggy Bar), Calle José del Carmen Ariza, Barrio La Rigola, Puerto Plata — sábado 7 de noviembre 2026, 8:00–10:00 PM con DJ Flaco MC y DJ Jeffre Estrella en vivo. Una pieza blanca y la primera cerveza sale gratis; especiales impresos de cubetazo (One / Presidente Light peq RD$750, hookah RD$300, Doble Reserva + mezcla RD$1,000). Lleguen temprano. White Party de bar de calle local — no es la White Party rooftop de Mecla'o, ni la private party de Halloween de The Last Drink del 31 oct. Confirma en Instagram @the_last_drink_pop.",
+    "date": "2026-11-07",
+    "time": "8:00 PM – 10:00 PM",
+    "location": "Puerto Plata",
+    "venue": "The Last Drink",
+    "venueSlug": "the-last-drink",
+    "address": "Próximo al Puente de la Guinea, al lado de Repuesto Amin Cid (antiguo Maggy Bar), Calle José del Carmen Ariza, Barrio La Rigola, Puerto Plata",
+    "lat": 19.795615,
+    "lng": -70.695012,
+    "category": "parties",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/the_last_drink_pop/",
+    "lineup": [
+      "DJ Flaco MC",
+      "DJ Jeffre Estrella",
+      "Pieza blanca → primera cerveza gratis",
+      "Cubetazos · Hookah · Doble Reserva"
+    ],
+    "imageEmoji": "🤍"
+  },
+  {
+    "id": "petit-francois-18-anos-2026-11-06",
+    "title": "Le Petit François — 18 Años",
+    "description": "Celebración de 18 años en Le Petit François Beach Club, El Pueblito / Playa Chaparral, Puerto Plata — viernes 6 de noviembre 2026. DJ Binbin 6:00–9:00 PM, cóctel 7:00–9:00 PM y fiesta desde las 9:00 PM con DJs invitados Cactus, Mister Mavryk y Steve Watt (Afro Beat, Reggaeton, Latin House, party anthems). Noche de aniversario — no es solo el karaoke de viernes habitual, ni Francesca en Tiki Bar Cabarete el mismo viernes. Reservas +1 829 492 2910 · Instagram @lepetitfrancois.rd.",
+    "date": "2026-11-06",
+    "time": "6:00 PM",
+    "location": "Playa Dorada",
+    "venue": "Le Petit François",
+    "venueSlug": "le-petit-francois",
+    "address": "Playa Dorada G1, El Pueblito / Playa Chaparral, Puerto Plata",
+    "lat": 19.7734212,
+    "lng": -70.6517978,
+    "category": "parties",
+    "categories": [
+      "music",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "phone": "+18294922910",
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/lepetitfrancois.rd/",
+    "lineup": [
+      "DJ Binbin (6–9 PM)",
+      "Cóctel 7–9 PM",
+      "DJ Cactus",
+      "Mister Mavryk",
+      "DJ Steve Watt"
+    ],
+    "imageEmoji": "🥂"
+  },
+  {
+    "id": "mercadillo-fest-la-quinta-rosa-2026-12-19",
+    "title": "Mercadillo Fest — La Quinta Rosa",
+    "description": "Bazar Mercadillo Fest en La Quinta Rosa (est. 1912), Calle 12 de Julio #88, centro de Puerto Plata — sábado–domingo 19–20 de diciembre 2026, 10:00 a. m.–8:00 p. m. Cupos abiertos para expositores — emprendedores, marcas y negocios; escribe a @mercadillofest para reservar espacio. Bazar de fin de semana en la casa victoriana rosa — no es Call You Later (21 nov), ni el taller Katz Home (28 nov), ni las ferias artesanales de Plaza Independencia. Confirma en Instagram @mercadillofest.",
+    "date": "2026-12-19",
+    "endDate": "2026-12-20",
+    "time": "10:00 a. m. – 8:00 p. m.",
+    "location": "Puerto Plata",
+    "venue": "La Quinta Rosa",
+    "venueSlug": "la-quinta-rosa",
+    "address": "Calle 12 de Julio #88, Puerto Plata",
+    "lat": 19.7948,
+    "lng": -70.6849,
+    "category": "festivals",
+    "categories": [
+      "culture",
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "isFree": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/mercadillofest/",
+    "instagram": "mercadillofest",
+    "lineup": [
+      "Bazar de expositores",
+      "Marcas y makers locales",
+      "Cupos abiertos — DM @mercadillofest"
+    ],
+    "imageEmoji": "🛍️"
+  },
+  {
+    "id": "cabarete-boxing-club-movie-night-2026-11-05",
+    "title": "Cabarete Boxing Club Movie Night — Toy Story 5 & Michael",
+    "description": "Movie Night en Cabarete Boxing Club con Khong Kwan Authentic Thai Food — jueves 5 de noviembre 2026. Doble función: Toy Story 5 (Disney Pixar) a las 6:00 PM y luego MICHAEL (la película de Michael Jackson) a las 8:00 PM. Menú completo Khong Kwan más popcorn. Cine del jueves en el patio del gym — no es POP Cinemas Playa Dorada, ni la cartelera del 29 oct Hotel Transylvania / Beetlejuice, ni Aura Cinema. Confirma en Instagram @cabareteboxingclub.",
+    "date": "2026-11-05",
+    "time": "6:00 PM – 8:00 PM",
+    "location": "Cabarete",
+    "venue": "Cabarete Boxing Club",
+    "venueSlug": "cabarete-boxing-club",
+    "address": "Cabarete, Puerto Plata",
+    "lat": 19.7494875,
+    "lng": -70.413956,
+    "category": "culture",
+    "categories": [
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "sourceType": "flyer",
+    "sourceUrl": "https://www.instagram.com/cabareteboxingclub/",
+    "lineup": [
+      "Toy Story 5 — 6:00 PM",
+      "MICHAEL — 8:00 PM",
+      "Menú Khong Kwan · popcorn"
+    ],
+    "imageEmoji": "🎬",
+    "ageHint": "all-ages"
+  },
+  {
+    "id": "natura-cabana-jazz-ensemble-2026-11-07",
+    "title": "Natura Cabana — Live Jazz Ensemble (7 nov)",
+    "description": "Live Jazz Ensemble en Natura Restaurant, Natura Cabana Boutique Hotel & Spa, Paseo del Sol 5, Cabarete — sábado 7 de noviembre 2026 (cada primer sábado), 7:00–9:30 PM. Una noche de cena y jazz — reserva mesa +1 849-214-7010. Jazz de cena del primer sábado — no es solo el listado del Sosua Jazz Collective del 3 oct, ni Ann Soul Jazz (17 oct), ni noches de club en Cabarete. Confirma en naturacabana.com · Instagram @naturacabana.",
+    "date": "2026-11-07",
+    "time": "7:00 PM – 9:30 PM",
+    "location": "Cabarete",
+    "venue": "Natura Cabana",
+    "venueSlug": "natura-cabana",
+    "address": "Paseo del Sol 5, Cabarete",
+    "lat": 19.7833499,
+    "lng": -70.4621124,
+    "category": "music",
+    "categories": [
+      "food-drinks"
+    ],
+    "format": "physical",
+    "trending": true,
+    "callForPricing": true,
+    "phone": "+18492147010",
+    "sourceType": "flyer",
+    "sourceUrl": "https://naturacabana.com/events/",
+    "lineup": [
+      "Live Jazz Ensemble",
+      "Cena y jazz"
+    ],
+    "imageEmoji": "🎷"
   }
 ]

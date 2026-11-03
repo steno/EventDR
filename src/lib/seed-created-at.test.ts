@@ -29,7 +29,7 @@ describe("seed createdAt for home New", () => {
     );
   });
 
-  it("fills Coming up with future one-offs including Urban Fest", () => {
+  it("fills Coming up with future one-offs", () => {
     const events = getFallbackEvents("en");
     const layout = getHomeDiscoverLayout(events, {
       now: new Date("2026-09-08T03:30:00.000Z"),
@@ -39,8 +39,10 @@ describe("seed createdAt for home New", () => {
       `expected at least 6 Coming up cards, got ${layout.comingUpEvents.length}`,
     );
     assert.ok(
-      layout.comingUpEvents.some((e) => e.id === "super-mega-urban-fest-2026-11-04"),
-      "expected Super Mega Urban Fest in Coming up",
+      !layout.comingUpEvents.some(
+        (e) => e.id === "super-mega-urban-fest-2026-11-04",
+      ),
+      "Super Mega Urban Fest should stay off Coming up after removal",
     );
     // Visible Coming up head is chronological; near-term dates lead, so a Nov
     // fest may sit past HOME_COMING_UP_LIMIT and still appear in Recently added.

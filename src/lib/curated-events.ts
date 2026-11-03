@@ -1264,6 +1264,15 @@ const CURATED_EVENT_BY_ID: Record<string, CuratedPatch> = {
     venueSlug: "cabarete-boxing-club",
     sourceUrl: "https://www.instagram.com/cabareteboxingclub/",
   },
+  "cabarete-boxing-club-movie-night-2026-11-05": {
+    callForPricing: true,
+    venueSlug: "cabarete-boxing-club",
+    sourceUrl: "https://www.instagram.com/cabareteboxingclub/",
+  },
+  "natura-cabana-jazz-ensemble-2026-11-07": {
+    phone: "+18492147010",
+    venueSlug: "natura-cabana",
+  },
   "twenty-disco-friday-dj-soky-2026-10-23": {
     isFree: true,
     venueSlug: "twenty-disco-lounge",

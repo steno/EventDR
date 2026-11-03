@@ -7056,21 +7056,21 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
   },
   {
     eventId: "francesca-tiki-bar-cabarete-2026-11-06",
-    body: "Thursday 10 PM live at the central Cabarete thatch bar near Casino #1 — Francesca plus DJ Poché Jáquez and a Brugal 2x1, not her dinner duo at Natura or the Aura sand set; confirm cover on @tikibarcabarete before you treat it as free.",
+    body: "Friday Francesca live at the central Cabarete thatch bar near Casino #1 — earlier promo also had DJ Poché Jáquez and a Brugal 2x1 from ~10 PM; not her dinner duo at Natura or the Aura sand set; confirm cover on @tikibarcabarete before you treat it as free.",
     localized: {
-      es: "Jueves 10 PM en vivo en el bar tiki del centro de Cabarete cerca del Casino #1 — Francesca más DJ Poché Jáquez y 2x1 Brugal, no su dúo de cena en Natura ni el set en la arena de Aura; confirma cover en @tikibarcabarete antes de tratarlo como gratis.",
-      fr: "Jeudi 22 h en live au bar tiki du centre de Cabarete près du Casino #1 — Francesca plus DJ Poché Jáquez et 2x1 Brugal, pas son duo dîner à Natura ni le set sable d’Aura ; confirmez le cover sur @tikibarcabarete avant de le traiter comme gratuit.",
+      es: "Viernes Francesca en vivo en el bar tiki del centro de Cabarete cerca del Casino #1 — promo anterior también tenía DJ Poché Jáquez y 2x1 Brugal desde ~10 PM; no su dúo de cena en Natura ni el set en la arena de Aura; confirma cover en @tikibarcabarete antes de tratarlo como gratis.",
+      fr: "Vendredi Francesca en live au bar tiki du centre de Cabarete près du Casino #1 — une promo antérieure avait aussi DJ Poché Jáquez et 2x1 Brugal vers 22 h ; pas son duo dîner à Natura ni le set sable d’Aura ; confirmez le cover sur @tikibarcabarete avant de le traiter comme gratuit.",
     },
     priceFeel: "moderate",
-    priceNote: "Cover not on flyer — 2x1 Brugal Extra Viejo; confirm @tikibarcabarete",
+    priceNote: "Cover not on flyer — confirm doors / any Brugal 2x1 @tikibarcabarete",
     priceNoteLocalized: {
-      es: "Cover no está en el flyer — 2x1 Brugal Extra Viejo; confirma @tikibarcabarete",
-      fr: "Cover absent de l’affiche — 2x1 Brugal Extra Viejo ; confirmez @tikibarcabarete",
+      es: "Cover no está en el flyer — confirma puertas / 2x1 Brugal @tikibarcabarete",
+      fr: "Cover absent de l’affiche — confirmez portes / 2x1 Brugal @tikibarcabarete",
     },
     attribution: "POP research · @tikibarcabarete Francesca En Vivo flyer",
     researchNotes:
-      "Editor IG @tikibarcabarete — Thu 6 Nov from 10 PM Francesca en vivo, DJ Poché Jáquez, 2x1 Brugal Extra Viejo; no cover on post.",
-    updatedAt: "2026-10-24T16:00:00.000Z",
+      "Editor flyer refresh — VIERNES 6 NOVIEMBRE / Friday / FRANCESCA EN VIVO; prior IG also listed DJ Poché Jáquez + 2x1 Brugal from 10 PM; day corrected Thu→Fri (6 Nov 2026 is Friday); hero bumped to -v2.",
+    updatedAt: "2026-11-03T16:00:00.000Z",
   },
   {
     eventId: "el-patio-de-frida-friday-karaoke",
@@ -7820,6 +7820,118 @@ export const SEED_EVENT_OPINIONS_MORE: EventOpinion[] = [
     researchNotes:
       "Editor flyer — Cumpleaños VIRALSOSUA; DJ FLOW confirmado; DJ INVITADOS; Dom 1 Nov; ENTRADA 200; Especial Old Parr; Primera Hookah Gratis; WA 829-804-5200; Ground Zero Discoteca sponsor.",
     updatedAt: "2026-11-02T19:00:00.000Z",
+  },
+  {
+    eventId: "end-blackouts-protest-plaza-independencia-2026-11-05",
+    body: "Peaceful 5:30 PM gathering at Independence Park on 5 Nov for stable power — civic plaza meetup, not a concert or ticketed show; pin Plaza Independencia / Parque Central downtown.",
+    localized: {
+      es: "Encuentro pacífico a las 5:30 PM en el Parque Independencia el 5 nov por servicio eléctrico estable — cita cívica en la plaza, no un concierto ni show con boleto; clava Plaza Independencia / Parque Central.",
+      fr: "Rassemblement pacifique à 17 h 30 au Parque Independencia le 5 nov. pour un courant stable — rendez-vous civique sur la place, pas un concert ni un spectacle billet ; épinglez Plaza Independencia / Parque Central.",
+    },
+    priceFeel: "free",
+    priceNote: "Free public assembly — Independence Park downtown",
+    priceNoteLocalized: {
+      es: "Asamblea pública gratis — Parque Independencia centro",
+      fr: "Assemblée publique gratuite — Parque Independencia centre-ville",
+    },
+    attribution: "POP research · End Blackouts peaceful protest flyer",
+    researchNotes:
+      "Editor flyer — END BLACKOUTS!; PEACEFUL PROTEST; Thursday November 5th 5:30 PM; Puerto Plata Central Park; user confirmed Independence Park (plaza-independencia).",
+    updatedAt: "2026-11-03T14:00:00.000Z",
+  },
+  {
+    eventId: "the-last-drink-white-party-2026-11-07",
+    body: "Saturday White Party 8–10 PM by Puente de la Guinea with Flaco MC and Jeffre Estrella — wear one white piece for the first beer free; pin The Last Drink next to Amin Cid, not Mecla'o’s rooftop White Party.",
+    localized: {
+      es: "White Party el sábado 8–10 PM junto al Puente de la Guinea con Flaco MC y Jeffre Estrella — una pieza blanca y la primera cerveza gratis; clava The Last Drink al lado de Amin Cid, no la White Party rooftop de Mecla'o.",
+      fr: "White Party le samedi 20 h–22 h près du Puente de la Guinea avec Flaco MC et Jeffre Estrella — une pièce blanche et la première bière gratuite ; épinglez The Last Drink à côté d’Amin Cid, pas la White Party rooftop de Mecla'o.",
+    },
+    priceFeel: "budget",
+    priceNote:
+      "First beer free with white piece · cubetazos from RD$750 · @the_last_drink_pop",
+    priceNoteLocalized: {
+      es: "Primera cerveza gratis con pieza blanca · cubetazos desde RD$750 · @the_last_drink_pop",
+      fr: "Première bière gratuite avec pièce blanche · cubetazos dès RD$750 · @the_last_drink_pop",
+    },
+    attribution: "POP research · The Last Drink White Party flyer · @the_last_drink_pop",
+    researchNotes:
+      "Editor flyer + IG caption — WHITE PARTY; Sáb 7 Nov 8–10 PM; DJ Flaco MC + DJ Jeffre/Yeffrey Estrella; Puente de la Guinea al lado de Amin Cid; una pieza blanca = primera cerveza gratis; One/Presidente peq 750, Hooka 300, Doble Reserva 1000.",
+    updatedAt: "2026-11-03T15:00:00.000Z",
+  },
+  {
+    eventId: "petit-francois-18-anos-2026-11-06",
+    body: "Friday 18th-anniversary beach night at El Pueblito — Binbin from 6 PM, cocktails 7–9, then Cactus / Mavryk / Steve Watt from 9; not the usual Friday karaoke template alone, and not Francesca at Tiki the same night; reserve 829-492-2910.",
+    localized: {
+      es: "Viernes de aniversario 18 años en El Pueblito — Binbin desde las 6 PM, cócteles 7–9 y luego Cactus / Mavryk / Steve Watt desde las 9; no es solo el karaoke de viernes habitual, ni Francesca en Tiki la misma noche; reserva 829-492-2910.",
+      fr: "Vendredi anniversaire 18 ans à El Pueblito — Binbin dès 18 h, cocktails 19 h–21 h, puis Cactus / Mavryk / Steve Watt dès 21 h ; pas seulement le karaoké du vendredi habituel, ni Francesca au Tiki la même nuit ; réservez 829-492-2910.",
+    },
+    priceFeel: "moderate",
+    priceNote:
+      "No cover on flyer — food & drinks · +1 829-492-2910 · @lepetitfrancois.rd",
+    priceNoteLocalized: {
+      es: "Sin cover en el flyer — comida y bebidas · +1 829-492-2910 · @lepetitfrancois.rd",
+      fr: "Pas de cover sur l’affiche — nourriture et boissons · +1 829-492-2910 · @lepetitfrancois.rd",
+    },
+    attribution: "POP research · @lepetitfrancois.rd 18 Años flyer",
+    researchNotes:
+      "Editor flyer + IG — 18 AÑOS; Vie 6 Nov; DJ Binbin 6–9 PM; Cóctel 7–9 PM; Fiesta 9 PM DJ Cactus / Mister Mavryk / DJ Steve Watt; El Pueblito Puerto Plata; +1 829 492 2910.",
+    updatedAt: "2026-11-03T16:00:00.000Z",
+  },
+  {
+    eventId: "mercadillo-fest-la-quinta-rosa-2026-12-19",
+    body: "Dec 19–20 maker bazaar in the pink 1912 house on Calle 12 de Julio #88 — walk the booths 10 AM–8 PM, or DM @mercadillofest for an exhibitor slot; not Call You Later or the Katz Home workshop at the same Quinta.",
+    localized: {
+      es: "Bazar de makers el 19–20 dic en la casa rosa de 1912 en Calle 12 de Julio #88 — recorre los stands 10 a. m.–8 p. m., o escribe a @mercadillofest por cupo de expositor; no es Call You Later ni el taller Katz Home en la misma Quinta.",
+      fr: "Bazar de makers les 19–20 déc. dans la maison rose de 1912 au Calle 12 de Julio #88 — parcourez les stands 10 h–20 h, ou DM @mercadillofest pour un stand exposant ; pas Call You Later ni l’atelier Katz Home dans la même Quinta.",
+    },
+    priceFeel: "free",
+    priceNote:
+      "Free to browse — exhibitor booths via DM @mercadillofest",
+    priceNoteLocalized: {
+      es: "Gratis para visitar — stands de expositor por DM @mercadillofest",
+      fr: "Gratuit pour flâner — stands exposants via DM @mercadillofest",
+    },
+    attribution: "POP research · @mercadillofest Quinta Rosa flyer",
+    researchNotes:
+      "Editor flyer + IG @mercadillofest — Mercadillo Fest; Quinta Rosa Puerto Plata; 19–20 dic 2026; 10:00 a.m.–8:00 p.m.; cupos abiertos expositores; pin la-quinta-rosa Calle 12 de Julio #88.",
+    updatedAt: "2026-11-03T17:00:00.000Z",
+  },
+  {
+    eventId: "cabarete-boxing-club-movie-night-2026-11-05",
+    body: "Thursday double feature at the boxing club — Toy Story 5 at 6 PM then MICHAEL at 8 PM with Khong Kwan plates and popcorn; gym-yard movie night, not POP Cinemas Playa Dorada or the 29 Oct Transylvania bill.",
+    localized: {
+      es: "Doble función del jueves en el boxing club — Toy Story 5 a las 6 PM y luego MICHAEL a las 8 PM con platos Khong Kwan y popcorn; cine en el patio del gym, no POP Cinemas Playa Dorada ni la cartelera Transylvania del 29 oct.",
+      fr: "Double programme du jeudi au boxing club — Toy Story 5 à 18 h puis MICHAEL à 20 h avec plats Khong Kwan et popcorn ; cinéma dans la cour du gym, pas POP Cinemas Playa Dorada ni la soirée Transylvania du 29 oct.",
+    },
+    priceFeel: "varies",
+    priceNote:
+      "Cover not on flyer — Khong Kwan full menu + popcorn · @cabareteboxingclub",
+    priceNoteLocalized: {
+      es: "Cover no está en el flyer — menú Khong Kwan + popcorn · @cabareteboxingclub",
+      fr: "Cover absent de l’affiche — menu Khong Kwan + popcorn · @cabareteboxingclub",
+    },
+    attribution: "POP research · Cabarete Boxing Club / Khong Kwan Movie Night flyer",
+    researchNotes:
+      "Editor flyer — MOVIE NIGHT THURSDAY; Toy Story 5 6:00 PM; MICHAEL 8:00 PM; popcorn; Khong Kwan full menu; dated next Thu 5 Nov 2026.",
+    updatedAt: "2026-11-03T18:00:00.000Z",
+  },
+  {
+    eventId: "natura-cabana-jazz-ensemble-2026-11-07",
+    body: "First-Saturday dinner jazz 7–9:30 PM at Natura’s beach restaurant — book +1 849-214-7010; Nov 7 first-Saturday slot, not the 3 Oct Sosua Jazz Collective bill alone and not Ann Soul Jazz on 17 Oct.",
+    localized: {
+      es: "Jazz de cena del primer sábado 7–9:30 PM en el restaurante de playa de Natura — reserva +1 849-214-7010; slot del 7 nov, no solo el cartel del Sosua Jazz Collective del 3 oct ni Ann Soul Jazz del 17 oct.",
+      fr: "Jazz-dîner du premier samedi 19 h–21 h 30 au restaurant de plage de Natura — réservez +1 849-214-7010 ; créneau du 7 nov., pas seulement la fiche Sosua Jazz Collective du 3 oct. ni Ann Soul Jazz du 17 oct.",
+    },
+    priceFeel: "moderate",
+    priceNote: "Book table +1 849-214-7010 — dinner & jazz · naturacabana.com",
+    priceNoteLocalized: {
+      es: "Reserva mesa +1 849-214-7010 — cena y jazz · naturacabana.com",
+      fr: "Réservez table +1 849-214-7010 — dîner & jazz · naturacabana.com",
+    },
+    attribution: "POP research · Natura Live Jazz Ensemble first-Saturday flyer",
+    researchNotes:
+      "Editor flyer — Live JAZZ Ensemble; Every First Saturday; Saturday Nov 7; 7 PM–9:30 PM; Book your table +1 849 214 7010; Natura Restaurant.",
+    updatedAt: "2026-11-03T19:00:00.000Z",
   },
   {
     eventId: "tiki-bar-halloween-dr-jake-2026-10-31",

@@ -106,6 +106,8 @@ export const REMOVED_SEED_EVENT_IDS = new Set([
   "sunset-laughter-club-cabarete",
   // Editor removed — Sosúa Coastal Pickleball Open (Terramar).
   "sosua-coastal-pickleball-open-2026-10-24",
+  // Editor removed — Super Mega Urban Fest (Anfiteatro La Puntilla).
+  "super-mega-urban-fest-2026-11-04",
 ]);
 
 /**
@@ -147,6 +149,7 @@ export const EVENT_PATH_REDIRECTS: Record<string, string> = {
   "cabarete-yoga-daily": "/city/cabarete",
   "zen-fitness-weightloss-camp": "/venue/zen-fitness-cabarete",
   "sosua-coastal-pickleball-open-2026-10-24": "/city/sosua",
+  "super-mega-urban-fest-2026-11-04": "/venue/anfiteatro-la-puntilla",
 };
 
 export function resolveEventPathRedirect(

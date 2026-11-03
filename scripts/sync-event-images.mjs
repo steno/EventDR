@@ -49,6 +49,10 @@ const FILE_TO_EVENT_ID = {
     "cabarete-boxing-club-movie-night-2026-10-22",
   "cabarete-boxing-club-movie-night-2026-10-29.jpg":
     "cabarete-boxing-club-movie-night-2026-10-29",
+  "cabarete-boxing-club-movie-night-2026-11-05.jpg":
+    "cabarete-boxing-club-movie-night-2026-11-05",
+  "natura-cabana-jazz-ensemble-2026-11-07.jpg":
+    "natura-cabana-jazz-ensemble-2026-11-07",
   "disco-club-gogo-dancers-2026-10-22.jpg": "disco-club-gogo-dancers-2026-10-22",
   "natura-sunbar-sunset-sounds-em-zayd-2026-10-22.jpg":
     "natura-sunbar-sunset-sounds-em-zayd-2026-10-22",
@@ -94,6 +98,8 @@ const FILE_TO_EVENT_ID = {
     "hard-rock-deeway-live-mix-2026-10-23",
   "tiki-bar-henry-jimenez-2026-10-23.jpg": "tiki-bar-henry-jimenez-2026-10-23",
   "francesca-tiki-bar-cabarete-2026-11-06.jpg":
+    "francesca-tiki-bar-cabarete-2026-11-06",
+  "francesca-tiki-bar-cabarete-2026-11-06-v2.jpg":
     "francesca-tiki-bar-cabarete-2026-11-06",
   "premios-ola-dorada-2026-12-05.jpg": "premios-ola-dorada-2026-12-05",
   "lokuras-pop-percusion-latina-2026-10-25.jpg":
@@ -368,6 +374,14 @@ const FILE_TO_EVENT_ID = {
     "masters-surf-reunion-10-2026",
   "groundzero-viral-sosua-birthday-2026-11-01.jpg":
     "groundzero-viral-sosua-birthday-2026-11-01",
+  "end-blackouts-protest-plaza-independencia-2026-11-05.jpg":
+    "end-blackouts-protest-plaza-independencia-2026-11-05",
+  "the-last-drink-white-party-2026-11-07.jpg":
+    "the-last-drink-white-party-2026-11-07",
+  "petit-francois-18-anos-2026-11-06.jpg":
+    "petit-francois-18-anos-2026-11-06",
+  "mercadillo-fest-la-quinta-rosa-2026-12-19.jpg":
+    "mercadillo-fest-la-quinta-rosa-2026-12-19",
   "amarea-one-last-escape-2026-11-07.jpg":
     "amarea-one-last-escape-2026-11-07",
   "emileni-francisco-rancho-catalina-2026-10-11.jpg":

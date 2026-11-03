@@ -24,6 +24,13 @@ describe("EVENT_PATH_REDIRECTS (GSC soft 404s)", () => {
     );
   });
 
+  it("sends removed Super Mega Urban Fest to Anfiteatro", () => {
+    assert.equal(
+      resolveEventPathRedirect("super-mega-urban-fest-2026-11-04"),
+      "/venue/anfiteatro-la-puntilla",
+    );
+  });
+
   it("keeps every redirect path locale-free and absolute within the app", () => {
     for (const [id, path] of Object.entries(EVENT_PATH_REDIRECTS)) {
       assert.ok(path.startsWith("/"), `${id} → ${path}`);

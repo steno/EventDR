@@ -16,6 +16,10 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "cabarete-boxing-club-movie-night-2026-10-22.jpg",
   "cabarete-boxing-club-movie-night-2026-10-29":
     "cabarete-boxing-club-movie-night-2026-10-29.jpg",
+  "cabarete-boxing-club-movie-night-2026-11-05":
+    "cabarete-boxing-club-movie-night-2026-11-05.jpg",
+  "natura-cabana-jazz-ensemble-2026-11-07":
+    "natura-cabana-jazz-ensemble-2026-11-07.jpg",
   "disco-club-gogo-dancers-2026-10-22": "disco-club-gogo-dancers-2026-10-22.jpg",
   "natura-sunbar-sunset-sounds-em-zayd-2026-10-22":
     "natura-sunbar-sunset-sounds-em-zayd-2026-10-22.jpg",
@@ -48,7 +52,7 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "tiki-bar-henry-jimenez-2026-10-23":
     "tiki-bar-henry-jimenez-2026-10-23.jpg",
   "francesca-tiki-bar-cabarete-2026-11-06":
-    "francesca-tiki-bar-cabarete-2026-11-06.jpg",
+    "francesca-tiki-bar-cabarete-2026-11-06-v2.jpg",
   "premios-ola-dorada-2026-12-05": "premios-ola-dorada-2026-12-05.jpg",
   "lokuras-pop-percusion-latina-2026-10-25":
     "lokuras-pop-percusion-latina-2026-10-25.jpg",
@@ -161,6 +165,14 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
     "masters-surf-reunion-opening-natura-2026-11-06.jpg",
   "groundzero-viral-sosua-birthday-2026-11-01":
     "groundzero-viral-sosua-birthday-2026-11-01.jpg",
+  "end-blackouts-protest-plaza-independencia-2026-11-05":
+    "end-blackouts-protest-plaza-independencia-2026-11-05.jpg",
+  "the-last-drink-white-party-2026-11-07":
+    "the-last-drink-white-party-2026-11-07.jpg",
+  "petit-francois-18-anos-2026-11-06":
+    "petit-francois-18-anos-2026-11-06.jpg",
+  "mercadillo-fest-la-quinta-rosa-2026-12-19":
+    "mercadillo-fest-la-quinta-rosa-2026-12-19.jpg",
   "twenty-disco-noche-de-brujas-2026-10-29":
     "twenty-disco-noche-de-brujas-2026-10-29.jpg",
   "chameleon-el-purgatorio-2026-10-31":
@@ -769,7 +781,6 @@ const EVENT_IMAGE_FILES: Record<string, string> = {
   "todos-somos-luperon-2026-09-08": "todos-somos-luperon-2026-09-08.jpg",
   "restaurant-week-puerto-plata-2026":
     "restaurant-week-puerto-plata-2026-calendar.jpg",
-  "super-mega-urban-fest-2026-11-04": "super-mega-urban-fest-2026-11-04.jpg",
   "masters-surf-reunion-10-2026": "masters-surf-reunion-10-2026-badge.jpg",
   "sunset-cabarete-sessions-2026": "sunset-cabarete-sessions-2026.jpg",
   // Filename bump — pizza + live band night (not the branded FB pizza cover).
@@ -1277,6 +1288,8 @@ export function getEventHeroObjectPosition(eventId: string): string {
 const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "cabarete-boxing-club-movie-night-2026-10-22.jpg",
   "cabarete-boxing-club-movie-night-2026-10-29.jpg",
+  "cabarete-boxing-club-movie-night-2026-11-05.jpg",
+  "natura-cabana-jazz-ensemble-2026-11-07.jpg",
   "disco-club-gogo-dancers-2026-10-22.jpg",
   "natura-sunbar-sunset-sounds-em-zayd-2026-10-22.jpg",
   "twenty-disco-friday-dj-soky-2026-10-23.jpg",
@@ -1296,6 +1309,10 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "voramar-bbq-night-jac-2026-11-06.jpg",
   "aleva-color-vibe-la-lola-2026-12-20.jpg",
   "groundzero-viral-sosua-birthday-2026-11-01.jpg",
+  "end-blackouts-protest-plaza-independencia-2026-11-05.jpg",
+  "the-last-drink-white-party-2026-11-07.jpg",
+  "petit-francois-18-anos-2026-11-06.jpg",
+  "mercadillo-fest-la-quinta-rosa-2026-12-19.jpg",
   "proyecto-x-el-calabozo-2026-10-31.jpg",
   "twenty-disco-angel-demons-2026-10-24.jpg",
   "twenty-disco-angel-demons-2026-10-24-v2.jpg",
@@ -1308,6 +1325,7 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "hard-rock-deeway-live-mix-2026-10-23.jpg",
   "tiki-bar-henry-jimenez-2026-10-23.jpg",
   "francesca-tiki-bar-cabarete-2026-11-06.jpg",
+  "francesca-tiki-bar-cabarete-2026-11-06-v2.jpg",
   "premios-ola-dorada-2026-12-05.jpg",
   "lokuras-pop-percusion-latina-2026-10-25.jpg",
   "mirando-pa-otro-lao-8-puerto-plata-2026-11-17-v2.jpg",
@@ -1700,7 +1718,6 @@ const HOME_HERO_TYPOGRAPHY_HEAVY_FILES = new Set([
   "sosua-10k-road-race-2026.jpg",
   "sunset-cabarete-sessions-2026.jpg",
   "sunset-night-party-playa-encuentro-2026-07-25.jpg",
-  "super-mega-urban-fest-2026-11-04.jpg",
   "tasty-food-park-karaoke-wednesday.jpg",
   "tasty-food-park-show-de-magia-2026-09-13.jpg",
   "todos-somos-luperon-2026-09-08.jpg",
